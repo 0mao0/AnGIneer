@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        2,
+        10,
+        18,
+        19,
+        22,
+        24,
+        25,
+        30
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>166 733 183 854<|content|>March 14, 2025\n<|id|>3<|page|>1<|box|>191 140 227 854<|content|>FROM: ... Philip Hartmann, Partner, Calderwood & H...uki Nakamura, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>236 140 272 854<|content|>TO: ... Patricia Langston, Chief Compliance Office...icer / AML Program Director, Belmont Ridge Bank NA\n<|id|>5<|page|>1<|box|>280 140 369 856<|content|>CC: ... Gregory Nardone, General Counsel & Corpora...arlos Espinoza, Counsel, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>378 140 415 854<|content|>RE: ... OCC-2025-003\n<|id|>7<|page|>1<|box|>422 140 441 379<|content|>C&H Matter No. ... 1045-00002\n<|id|>15<|page|>2<|box|>233 174 270 854<|content|>(i) First Milestone — July 15, 2025: ... and\n<|id|>17<|page|>2<|box|>321 140 396 856<|content|>These milestones are non-negotiable regulatory dea... the Bank's composite and component CAMELS ratings\n<|id|>83<|page|>10<|box|>449 183 465 575<|content|>• NovaPay Technologies Inc. ... (Ethan Garrison, CEO)\n<|id|>86<|page|>10<|box|>508 174 561 854<|content|>Each of the remaining 11 BaaS partners should also...d view of all 14 partners ranked by account volume\n<|id|>84<|page|>10<|box|>469 183 484 544<|content|>• FairLend Digital LLC (Aisha Okonkwo, CEO)\n<|id|>85<|page|>10<|box|>488 181 503 462<|content|>• VaultEdge Inc. ... (Marcus Tan, CEO)\n<|id|>167<|page|>18<|box|>840 140 895 856<|content|>This view should be intuitive and efficient, minim...orm common workflow actions. ... Thomas Ikeda (BSA\n<|id|>168<|page|>19<|box|>89 140 127 854<|content|>Officer) should have supervisory visibility into a...tate workload balancing and performance management\n<|id|>192<|page|>22<|box|>478 181 494 531<|content|>• Patricia Langston, Chief Compliance Officer\n<|id|>196<|page|>22<|box|>556 174 648 854<|content|>The Yellow status alert should include a summary o... action is warranted. ... , two consecutive weeks)\n<|id|>193<|page|>22<|box|>498 183 513 594<|content|>• Thomas Ikeda, BSA Officer / AML Program Director\n<|id|>194<|page|>22<|box|>517 183 532 611<|content|>• Philip Hartmann, Partner, Calderwood & Harkness LLP\n<|id|>195<|page|>22<|box|>536 181 551 624<|content|>• Yuki Nakamura, Associate, Calderwood & Harkness LLP\n<|id|>223<|page|>24<|box|>873 145 909 856<|content|>• FinCEN Retrospective Analysis Support. ... The a... that FinCEN (Angela Drummond, Associate Director,\n<|id|>224<|page|>25<|box|>89 174 162 854<|content|>Enforcement Division) requests additional informat... of information responsive to regulatory inquiries\n<|id|>263<|page|>30<|box|>791 140 823 854<|content|>Philip Hartmann Partner Calderwood & Harkness LLP ...r New York, NY 10019 Telephone: ... (212) 555-7100\n<|id|>264<|page|>30<|box|>824 142 840 478<|content|>Email: ... com\n<|id|>265<|page|>30<|box|>843 143 858 251<|content|>By: ... By\n<|id|>266<|page|>30<|box|>858 140 891 852<|content|>Yuki Nakamura Associate Calderwood & Harkness LLP ...r New York, NY 10019 Telephone: ... (212) 555-7245\n<|id|>267<|page|>30<|box|>893 142 907 482<|content|>Email: ... com",
+    "raw_response": "<|src_id|>167<|tgt_id|>168\n<|src_id|>223<|tgt_id|>224",
+    "parsed": [
+        {
+            "src_id": 167,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 224
+        }
+    ]
+}

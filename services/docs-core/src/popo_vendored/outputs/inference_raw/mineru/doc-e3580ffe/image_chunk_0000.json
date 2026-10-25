@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        10,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>table<|page|>1<|box|>143 143 277 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>311 160 366 838<|content|>DEFENDANT SOLSTICE BIOMEDICAL, INC.'S SUR-REPLY IN\n<|id|>4<|type|>title<|page|>1<|box|>414 142 430 413<|content|>I. PRELIMINARY STATEMENT\n<|id|>10<|type|>title<|page|>2<|box|>393 140 411 434<|content|>II. PROCEDURAL BACKGROUND\n<|id|>11<|type|>title<|page|>2<|box|>426 140 443 336<|content|>A. The Pending Motions\n<|id|>16<|type|>title<|page|>3<|box|>138 140 156 410<|content|>B. The Claim Construction Order\n<|id|>23<|type|>title<|page|>3<|box|>726 140 743 320<|content|>C. The Expert Record\n<|id|>28<|type|>title<|page|>4<|box|>358 140 375 496<|content|>III. LEGAL STANDARD FOR SUR-REPLY\n<|id|>35<|type|>title<|page|>5<|box|>167 140 184 285<|content|>IV. ARGUMENT\n<|id|>59<|type|>title<|page|>9<|box|>338 140 373 854<|content|>C. Apex's Prosecution History Arguments Were Rejec\n<|id|>67<|type|>title<|page|>10<|box|>656 140 691 854<|content|>D. Genuine Disputes of Material Fact Preclude Summ\n<|id|>79<|type|>title<|page|>12<|box|>445 140 463 754<|content|>E. Apex's Damages Theory Does Not Support Summary\n<|id|>84<|type|>title<|page|>13<|box|>266 140 284 294<|content|>V. CONCLUSION\n<|id|>91<|type|>title<|page|>14<|box|>89 142 106 354<|content|>VI. SIGNATURE BLOCK\n<|id|>92<|type|>title<|page|>14<|box|>114 410 133 586<|content|>Respectfully submitted,\n<|id|>97<|type|>title<|page|>14<|box|>308 140 325 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

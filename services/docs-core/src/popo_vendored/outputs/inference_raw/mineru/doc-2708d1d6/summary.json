@@ -1,0 +1,94 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-56fkrng1\\input\\pdfs\\doc-2708d1d6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-56fkrng1\\enriched\\doc-2708d1d6.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>5<|level|>2\n<|id|>12<|level|>2\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>34<|level|>2\n<|id|>41<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>2\n<|id|>63<|level|>1\n<|id|>67<|level|>1",
+    "image_output": "<|src_id|>1<|tgt_id|>0\n<|src_id|>69<|tgt_id|>67\n<|src_id|>70<|tgt_id|>67",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 67
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 69,
+            "table2_idx": 70,
+            "upper_row_ss": [
+                [
+                    "Exh. 6",
+                    "Vantage Shipping Records (Bates Nos. VMD-01103"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "through VMD-01287)"
+                ]
+            ]
+        }
+    ]
+}

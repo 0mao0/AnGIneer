@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        3
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>108 143 301 852<|content|>None\n<|id|>1<|type|>title<|page|>1<|box|>335 245 352 753<|content|>[PROPOSED] ORDER GRANTING STAY OF PROCEEDINGS\n<|id|>28<|type|>title<|page|>3<|box|>523 433 539 562<|content|>SO ORDERED.",
+    "raw_response": "<|src_id|>0<|tgt_id|>1",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        }
+    ]
+}

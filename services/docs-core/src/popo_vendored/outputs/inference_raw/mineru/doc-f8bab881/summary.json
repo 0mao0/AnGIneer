@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9ascw795\\input\\pdfs\\doc-f8bab881.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9ascw795\\enriched\\doc-f8bab881.json",
+    "contd_output": "<|src_id|>120<|tgt_id|>121\n<|src_id|>137<|tgt_id|>138",
+    "title_output": "<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>23<|level|>3\n<|id|>30<|level|>2\n<|id|>43<|level|>2\n<|id|>49<|level|>2\n<|id|>53<|level|>2\n<|id|>59<|level|>2\n<|id|>62<|level|>1\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>76<|level|>2\n<|id|>81<|level|>1\n<|id|>82<|level|>2\n<|id|>89<|level|>2\n<|id|>90<|level|>3\n<|id|>99<|level|>3\n<|id|>108<|level|>3\n<|id|>124<|level|>2\n<|id|>131<|level|>1\n<|id|>132<|level|>2\n<|id|>140<|level|>2\n<|id|>144<|level|>2\n<|id|>148<|level|>2\n<|id|>152<|level|>1\n<|id|>153<|level|>2\n<|id|>164<|level|>2\n<|id|>175<|level|>2\n<|id|>185<|level|>2\n<|id|>189<|level|>1\n<|id|>203<|level|>1",
+    "image_output": "<|src_id|>45<|tgt_id|>43\n<|src_id|>46<|tgt_id|>43\n<|src_id|>187<|tgt_id|>185",
+    "contd_label": [
+        {
+            "src_id": 120,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 138
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 1
+        },
+        {
+            "id": 203,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 45,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 185
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 45,
+            "table2_idx": 46,
+            "upper_row_ss": [
+                [
+                    "FY 2018",
+                    "$11.2 million",
+                    "$1.7 million",
+                    "17.9%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

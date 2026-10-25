@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        34
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        25,
+        26,
+        34
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>160 140 176 529<|content|>FROM: ... Leila Nazari, Calderwood & Harkness LLP\n<|id|>2<|page|>1<|box|>186 140 203 545<|content|>TO: ... Leonard Cross, Sylvia Hartwell, Garrett Simmons\n<|id|>3<|page|>1<|box|>210 140 229 308<|content|>DATE: ... July 28, 2022\n<|id|>4<|page|>1<|box|>237 140 292 854<|content|>RE: ... / Penterra Biopharma International DAC — Royalty Rate and Arm's- Length Compliance\n<|id|>5<|page|>1<|box|>299 142 316 362<|content|>MATTER NO. ... 1018-00009\n<|id|>6<|page|>1<|box|>325 140 344 598<|content|>CLIENT: ... 22-3741856)\n<|id|>7<|page|>1<|box|>352 140 368 408<|content|>Right-click to update Table of Contents\n<|id|>56<|page|>6<|box|>853 140 907 856<|content|>Section 1. ... \" This standard, enacted as part of the Tax Reform\n<|id|>57<|page|>7<|box|>90 140 200 854<|content|>Act of 1986, imposes a heightened requirement that...rous to the licensor (PPC) rather than understated\n<|id|>61<|page|>7<|box|>291 140 308 540<|content|>3. ... and\n<|id|>63<|page|>7<|box|>330 140 439 856<|content|>Section 1. ... The CUT method is the most direct a... uncontrolled license agreements can be identified\n<|id|>221<|page|>25<|box|>851 140 907 857<|content|>Even if the IRS proposes adjustments to the legacy...ng methodology (the CUT method), and the fact that\n<|id|>222<|page|>26<|box|>90 140 162 854<|content|>PPC's royalty rate falls within the arm's-length r...asonable or that PPC's documentation was deficient\n<|id|>299<|page|>34<|box|>674 145 729 854<|content|>• Convention Between the Government of the United ... with Respect to Taxes on Income and Capital Gains\n<|id|>300<|page|>34<|box|>731 397 750 599<|content|>— End of Memorandum —",
+    "raw_response": "<|src_id|>56<|tgt_id|>57\n<|src_id|>221<|tgt_id|>222",
+    "parsed": [
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 221,
+            "tgt_id": 222
+        }
+    ]
+}

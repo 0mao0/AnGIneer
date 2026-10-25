@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>13<|page|>2<|box|>90 140 107 607<|content|>Summary of Key Departures from the Meridian Form D\n<|id|>15<|page|>2<|box|>239 142 256 349<|content|>1. Liability Cap Structure\n<|id|>19<|page|>2<|box|>710 140 728 375<|content|>2. Indemnification Provisions\n<|id|>23<|page|>3<|box|>440 140 457 390<|content|>3. Breach Notification Timeline\n<|id|>27<|page|>4<|box|>213 140 229 442<|content|>4. Sub-Processor Approval Mechanics\n<|id|>34<|page|>5<|box|>340 140 358 362<|content|>5. Audit Rights Framework\n<|id|>39<|page|>6<|box|>395 140 412 377<|content|>Additional Provisions of Note\n<|id|>47<|page|>7<|box|>758 142 775 308<|content|>Proposed Next Steps\n<|id|>52<|page|>8<|box|>383 140 402 210<|content|>Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>23<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>2\n<|id|>47<|level|>2\n<|id|>52<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        }
+    ]
+}

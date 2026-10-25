@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 179 167 818<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>2<|page|>1<|box|>200 179 237 816<|content|>TRITON HARBOR INDUSTRIES, LLC, MARCUS J. KAPPEL, a\n<|id|>16<|page|>2<|box|>222 143 237 181<|content|>TO:\n<|id|>18<|page|>2<|box|>327 176 378 820<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>25<|page|>2<|box|>560 169 595 828<|content|>AFFIRMATION OF CARLOS ESPINOZA, ESQ. IN SUPPORT OF\n<|id|>29<|page|>3<|box|>89 142 106 413<|content|>PROCEDURAL BACKGROUND\n<|id|>37<|page|>4<|box|>89 142 106 648<|content|>THE FACTUAL ALLEGATIONS IN THE COUNTERCLAIMS\n<|id|>54<|page|>6<|box|>388 140 407 622<|content|>THE FORBEARANCE AGREEMENT'S EXPRESS TERMS\n<|id|>62<|page|>7<|box|>222 140 239 380<|content|>NATURE OF THE DISPUTE\n<|id|>68<|page|>7<|box|>679 142 695 236<|content|>EXHIBITS\n<|id|>75<|page|>8<|box|>89 143 260 854<|content|>CARLOS ESPINOZA, ESQ. By: /s/ Carlos Espinoza Carl\n<|id|>81<|page|>8<|box|>415 161 450 834<|content|>[PROPOSED] ORDER GRANTING PARTIAL DISMISSAL OF COU\n<|id|>88<|page|>9<|box|>196 174 299 852<|content|>Dated: ____, 2025 New York, New York SUPREME COURT\n<|id|>94<|page|>9<|box|>455 375 472 620<|content|>CERTIFICATE OF SERVICE\n<|id|>112<|page|>10<|box|>444 333 463 663<|content|>COUNSEL CONTACT INFORMATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>16<|level|>-1\n<|id|>18<|level|>1\n<|id|>25<|level|>1\n<|id|>29<|level|>2\n<|id|>37<|level|>2\n<|id|>54<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>75<|level|>1\n<|id|>81<|level|>1\n<|id|>88<|level|>-1\n<|id|>94<|level|>2\n<|id|>112<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        }
+    ]
+}

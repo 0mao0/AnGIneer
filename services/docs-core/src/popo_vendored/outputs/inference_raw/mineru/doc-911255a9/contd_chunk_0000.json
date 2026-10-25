@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        3
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>232 297 250 697<|content|>NTP Acquisition Sub, Inc. ... (a Delaware corporation)\n<|id|>3<|page|>1<|box|>258 444 275 553<|content|>with and into\n<|id|>4<|page|>1<|box|>284 282 301 714<|content|>Cascadia Fiber Networks, Inc. ... (a Delaware corporation)\n<|id|>21<|page|>3<|box|>578 174 595 772<|content|>Corporation Trust Associates 1209 Orange Street Wilmington, Delaware 19801\n<|id|>22<|page|>3<|box|>604 140 640 854<|content|>IN WITNESS WHEREOF, the Surviving Corporation has ...y authorized officer as of this _ day of ___, 2025\n<|id|>23<|page|>3<|box|>648 140 665 687<|content|>CASCADIA FIBER NETWORKS, INC. ... (as the Surviving Corporation)\n<|id|>24<|page|>3<|box|>666 143 683 253<|content|>By: ... By\n<|id|>25<|page|>3<|box|>683 142 699 325<|content|>Name: ... Derek Holmgren\n<|id|>26<|page|>3<|box|>700 142 715 366<|content|>Title: ... Chief Executive Officer",
+    "raw_response": "<|src_id|>2<|tgt_id|>3\n<|src_id|>3<|tgt_id|>4",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        }
+    ]
+}

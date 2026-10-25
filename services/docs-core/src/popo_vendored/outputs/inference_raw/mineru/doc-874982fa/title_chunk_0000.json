@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 210 106 785<|content|>SECRETARY'S CERTIFICATE OF QUILLEN TECHNOLOGIES, I\n<|id|>9<|page|>1<|box|>636 142 652 383<|content|>1. Certificate of Incorporation.\n<|id|>12<|page|>2<|box|>143 142 160 225<|content|>2. Bylaws.\n<|id|>15<|page|>2<|box|>376 140 392 313<|content|>3. Board Resolutions.\n<|id|>31<|page|>3<|box|>570 140 585 339<|content|>4. Stockholder Consents.\n<|id|>40<|page|>4<|box|>455 140 472 460<|content|>5. Incumbency of Officers and Directors.\n<|id|>44<|page|>5<|box|>133 140 152 287<|content|>6. Good Standing.\n<|id|>46<|page|>5<|box|>277 140 296 496<|content|>[If applicable, include the following paragraph:]\n<|id|>49<|page|>5<|box|>503 140 520 431<|content|>7. No Amendments or Modifications.\n<|id|>51<|page|>5<|box|>702 140 719 367<|content|>8. Authorized Capital Stock.\n<|id|>62<|page|>6<|box|>536 433 553 565<|content|>EXHIBIT LIST",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>31<|level|>2\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>3\n<|id|>49<|level|>2\n<|id|>51<|level|>2\n<|id|>62<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        }
+    ]
+}

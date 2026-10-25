@@ -1,0 +1,142 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wfn6pn_5\\input\\pdfs\\doc-7c1afbf8.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wfn6pn_5\\enriched\\doc-7c1afbf8.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>9<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>24<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>1\n<|id|>58<|level|>1\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>68<|level|>2\n<|id|>76<|level|>2\n<|id|>81<|level|>2\n<|id|>85<|level|>2\n<|id|>88<|level|>2\n<|id|>91<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>2\n<|id|>104<|level|>1\n<|id|>109<|level|>1\n<|id|>112<|level|>1\n<|id|>115<|level|>1\n<|id|>126<|level|>1",
+    "image_output": "<|src_id|>16<|tgt_id|>13\n<|src_id|>17<|tgt_id|>13\n<|src_id|>21<|tgt_id|>19\n<|src_id|>37<|tgt_id|>35",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 16,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 35
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 16,
+            "table2_idx": 17,
+            "upper_row_ss": [
+                [
+                    "Ridgeline Ventures Fund IV, L.P.",
+                    "$30,000,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Beacon Hill Capital Partners, LLC",
+                    "$10,000,000"
+                ]
+            ]
+        }
+    ]
+}

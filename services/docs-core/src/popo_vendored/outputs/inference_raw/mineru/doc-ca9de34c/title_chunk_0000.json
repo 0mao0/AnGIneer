@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 351 118 645<|content|>OFFICER'S CERTIFICATE\n<|id|>1<|page|>1<|box|>136 282 154 715<|content|>(Pursuant to Section 4.01 of the DIP Credit Agreem\n<|id|>6<|page|>1<|box|>464 140 481 457<|content|>Section 1. Identity of Certifying Officers\n<|id|>11<|page|>1<|box|>815 140 833 397<|content|>Section 2. Purpose of Certificate\n<|id|>15<|page|>2<|box|>348 140 364 478<|content|>Section 3. Representations and Warranties\n<|id|>35<|page|>4<|box|>671 140 689 312<|content|>Section 4. No Default\n<|id|>42<|page|>5<|box|>612 140 628 640<|content|>Section 5. Financial Covenant Compliance (Initial\n<|id|>44<|page|>5<|box|>686 140 705 330<|content|>(a) Minimum Liquidity\n<|id|>47<|page|>6<|box|>330 140 347 504<|content|>(b) Maximum Cumulative Variance to Budget\n<|id|>49<|page|>6<|box|>566 140 584 325<|content|>(c) Minimum EBITDA\n<|id|>51<|page|>6<|box|>833 140 849 403<|content|>Section 6. Entry of Court Orders\n<|id|>67<|page|>8<|box|>250 140 266 480<|content|>Section 7. Delivery of Required Documents\n<|id|>94<|page|>11<|box|>747 140 763 369<|content|>Section 8. Borrowing Details\n<|id|>103<|page|>12<|box|>652 140 669 426<|content|>Section 9. Additional Confirmations\n<|id|>116<|page|>14<|box|>90 142 107 303<|content|>Section 10. Reliance\n<|id|>119<|page|>14<|box|>329 140 347 357<|content|>Section 11. Governing Law\n<|id|>122<|page|>14<|box|>479 153 516 841<|content|>SIGNATURE PAGE TO OFFICER'S CERTIFICATE (Condition\n<|id|>124<|page|>14<|box|>568 140 584 563<|content|>GREENFIELD AGRICULTURAL PARTNERS LLC\n<|id|>133<|page|>14<|box|>724 357 739 640<|content|>EXHIBITS AND ATTACHMENTS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>6<|level|>2\n<|id|>11<|level|>2\n<|id|>15<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>3\n<|id|>47<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>2\n<|id|>67<|level|>2\n<|id|>94<|level|>2\n<|id|>103<|level|>2\n<|id|>116<|level|>2\n<|id|>119<|level|>2\n<|id|>122<|level|>2\n<|id|>124<|level|>-1\n<|id|>133<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        }
+    ]
+}

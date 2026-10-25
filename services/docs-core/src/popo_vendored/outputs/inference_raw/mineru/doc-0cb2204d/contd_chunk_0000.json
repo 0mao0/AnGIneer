@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 142 175 330<|content|>CASE NO. ... 1021-00006\n<|id|>2<|page|>1<|box|>219 140 236 673<|content|>VERIMARK HOSPITALITY GROUP INC. ... , a Delaware corporation,\n<|id|>3<|page|>1<|box|>244 212 261 282<|content|>Plaintiff,\n<|id|>5<|page|>1<|box|>296 140 349 856<|content|>COASTAL PALMS FRANCHISE HOLDINGS LLC, a Florida limited liability company; ... , a Florida corporation,\n<|id|>6<|page|>1<|box|>359 212 375 305<|content|>Defendants. ... Defendants\n<|id|>10<|page|>1<|box|>549 140 584 746<|content|>Attention: ... Devon Schultz, Senior Vice Presiden... Peachtree Street NE, Suite 2600 Atlanta, GA 30303\n<|id|>11<|page|>1<|box|>593 140 648 854<|content|>This Subpoena Duces Tecum is issued pursuant to Fl...enteenth Judicial Circuit, Broward County, Florida\n<|id|>12<|page|>1<|box|>655 142 672 397<|content|>Date of Issuance: ... August 8, 2022\n<|id|>13<|page|>1<|box|>681 140 715 854<|content|>Issued by: ... Clerk of the Circuit Court of the Seventeenth Judicial Circuit, Broward County, Florida\n<|id|>24<|page|>2<|box|>696 140 714 794<|content|>Calderwood & Harkness LLP 110 SE 6th Street, Suite 2800 Fort Lauderdale, FL 33301\n<|id|>25<|page|>2<|box|>724 174 777 854<|content|>Priya Anand, Responsible Partner (FL Bar No. ... 0128903)\n<|id|>26<|page|>2<|box|>786 140 821 854<|content|>All correspondence and communications regarding th...nd or Yuki Nakamura at the address set forth above\n<|id|>32<|page|>3<|box|>262 140 279 781<|content|>Whitfield, Barrow & Crane LLP 1221 Brickell Avenue, Suite 3000 Miami, FL 33131\n<|id|>33<|page|>3<|box|>287 174 305 816<|content|>Nathan Whitfield III, Senior Partner (lead defense counsel) Gabriela Montes, Partner\n<|id|>39<|page|>3<|box|>678 174 714 854<|content|>(b) $28,400,000 in contractual late-payment interest, calculated at the rate of 1. ... and\n<|id|>44<|page|>4<|box|>460 140 643 856<|content|>These documents are directly relevant to the core ...ential to the quantification of Verimark's damages\n<|id|>69<|page|>7<|box|>318 174 354 854<|content|>Gabriela Montes, Esq. ... Whitfield, Barrow & Cran...P 1221 Brickell Avenue, Suite 3000 Miami, FL 33131\n<|id|>70<|page|>7<|box|>363 140 454 854<|content|>Pursuant to Rule 1. ... If timely objections are s...e objection by the Court, unless otherwise ordered\n<|id|>107<|page|>11<|box|>450 176 468 813<|content|>Calderwood & Harkness LLP 110 SE 6th Street, Suite 2800 Fort Lauderdale, FL 33301\n<|id|>108<|page|>11<|box|>478 176 494 377<|content|>Attention: ... Yuki Nakamura\n<|id|>109<|page|>11<|box|>494 140 585 854<|content|>Alternatively, the Bank may produce documents by s... ... com to coordinate the logistics of production\n<|id|>120<|page|>12<|box|>699 140 715 318<|content|>Respectfully submitted,\n<|id|>121<|page|>12<|box|>724 140 742 836<|content|>CALDERWOOD & HARKNESS LLP Counsel for Plaintiff Ve...unsel for Plaintiff Verimark Hospitality Group Inc\n<|id|>123<|page|>13<|box|>220 174 277 854<|content|>Devon Schultz Senior Vice President, Commercial Re...rn Receipt Requested, and FedEx Overnight Delivery\n<|id|>124<|page|>13<|box|>316 174 354 854<|content|>Gabriela Montes, Esq. ... Whitfield, Barrow & Cran...P 1221 Brickell Avenue, Suite 3000 Miami, FL 33131\n<|id|>125<|page|>13<|box|>361 174 416 854<|content|>Email: ... 351(b)\n<|id|>126<|page|>13<|box|>458 140 474 253<|content|>By: ... By\n<|id|>127<|page|>13<|box|>474 140 523 854<|content|>Yuki Nakamura, Esq. ... (954) 555- 8201\n<|id|>128<|page|>13<|box|>523 140 542 483<|content|>Email: ... com\n<|id|>129<|page|>13<|box|>542 140 560 537<|content|>Counsel for Plaintiff Verimark Hospitality Group I...unsel for Plaintiff Verimark Hospitality Group Inc",
+    "raw_response": "<|src_id|>2<|tgt_id|>3\n<|src_id|>5<|tgt_id|>6\n<|src_id|>126<|tgt_id|>127",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 127
+        }
+    ]
+}

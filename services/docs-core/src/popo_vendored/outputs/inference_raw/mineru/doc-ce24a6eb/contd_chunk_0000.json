@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        10,
+        11,
+        14,
+        16,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>44 243 59 753<|content|>Calderwood & Harkness LLP — C&H Matter No. ... 1030-00001 — CONFIDENTIAL\n<|id|>1<|page|>1<|box|>99 364 118 632<|content|>CLOSING TRANSCRIPT\n<|id|>4<|page|>1<|box|>325 333 343 665<|content|>$220,000,000 Aggregate Principal Amount\n<|id|>5<|page|>1<|box|>386 375 429 620<|content|>Dated: ... October 24, 2023\n<|id|>6<|page|>1<|box|>540 449 558 547<|content|>Prepared by: ... Prepared by\n<|id|>7<|page|>1<|box|>565 158 599 838<|content|>CALDERWOOD & HARKNESS LLP 1420 Fifth Avenue, Suite 3600 Seattle, Washington 98101\n<|id|>8<|page|>1<|box|>609 346 627 651<|content|>Assembled by: ... Brett Callahan, Associate\n<|id|>9<|page|>1<|box|>635 383 652 612<|content|>C&H Matter No. ... 1030-00001\n<|id|>10<|page|>1<|box|>662 416 678 581<|content|>CUSIP Base: ... 148392\n<|id|>11<|page|>1<|box|>702 142 719 699<|content|>VOLUME I — AUTHORIZING DOCUMENTS AND RESOLUTIONS\n<|id|>22<|page|>2<|box|>825 174 898 854<|content|>The Master Indenture governs the issuance, authent... (including the Interest Account and the Principal\n<|id|>23<|page|>3<|box|>90 174 200 857<|content|>Account), the Debt Service Reserve Fund, the Proje...duties, protections, and immunities of the Trustee\n<|id|>40<|page|>4<|box|>824 174 897 856<|content|>The Continuing Disclosure Agreement establishes CS...ies Rulemaking Board's Electronic Municipal Market\n<|id|>41<|page|>5<|box|>90 174 219 854<|content|>Access system (\"EMMA\") (i) annual financial inform... and substitution of credit or liquidity providers\n<|id|>78<|page|>9<|box|>805 174 878 856<|content|>The opinion of underwriters' counsel addresses suc...e Agreement, and the exemption of the Series 2023A\n<|id|>79<|page|>10<|box|>90 174 126 854<|content|>Bonds from the registration requirements of the Se...nts of the Trust Indenture Act of 1939, as amended\n<|id|>94<|page|>11<|box|>520 181 537 604<|content|>• Fiscal Year 2022 Net Pledged Revenues: ... $412,600,000\n<|id|>100<|page|>11<|box|>657 174 729 854<|content|>The CFO's certificate further certifies that the f...ue, correct, and complete in all material respects\n<|id|>95<|page|>11<|box|>540 181 574 854<|content|>• Fiscal Year 2022 Total Annual Parity Debt Servic...rvice on the Series 2023A Bonds): ... $278,400,000\n<|id|>96<|page|>11<|box|>579 183 595 529<|content|>• Debt Service Coverage Ratio (DSCR): ... 48x\n<|id|>97<|page|>11<|box|>598 183 614 607<|content|>• Required Minimum DSCR under Rate Covenant: ... 40x\n<|id|>98<|page|>11<|box|>618 181 633 833<|content|>• Compliance with Rate Covenant: ... 40x minimum\n<|id|>99<|page|>11<|box|>638 181 654 668<|content|>• Additional Bonds Test Satisfied for Series 2023A Issuance: ... Yes\n<|id|>121<|page|>14<|box|>160 181 176 516<|content|>• Underlying Rating: ... \"AA\" (Stable Outlook)\n<|id|>123<|page|>14<|box|>218 174 291 854<|content|>The rating reflects Lakeshore Ratings Group, Inc. ...ratios, and prudent financial management practices\n<|id|>122<|page|>14<|box|>180 181 215 854<|content|>• Insured Rating (reflecting Olympia Guaranty Insurance Corp. ... \"AA+\" (Stable Outlook)\n<|id|>126<|page|>14<|box|>402 181 419 526<|content|>• Underlying Rating: ... \"AA−\" (Stable Outlook)\n<|id|>128<|page|>14<|box|>460 174 551 854<|content|>The rating reflects Pinnacle Credit Analytics, Inc. ... surety policy\n<|id|>127<|page|>14<|box|>422 181 458 854<|content|>• Insured Rating (reflecting Olympia Guaranty Insurance Corp. ... \"AA\" (Stable Outlook)\n<|id|>150<|page|>16<|box|>724 218 741 442<|content|>• Project Fund: ... $215,490,000\n<|id|>153<|page|>16<|box|>838 174 875 854<|content|>The wire transfer confirmations include Federal Re...bank information, and timestamps for each transfer\n<|id|>151<|page|>16<|box|>744 217 779 854<|content|>• Costs of Issuance Fund: ... $1,870,000 (includin...d interest deposited from other available sources)\n<|id|>167<|page|>18<|box|>705 290 720 705<|content|>Brett Callahan, Associate C&H Matter No. ... 1030-00001\n<|id|>168<|page|>18<|box|>731 357 747 638<|content|>Date of Assembly: ... November 8, 2023\n<|id|>169<|page|>18<|box|>756 140 832 854<|content|>This closing transcript and its contents are provi...allahan, Associate, at the address set forth above",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>40<|tgt_id|>41\n<|src_id|>78<|tgt_id|>79",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        }
+    ]
+}

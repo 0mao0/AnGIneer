@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>411 140 429 264<|content|>I. Introduction\n<|id|>14<|page|>2<|box|>90 140 107 341<|content|>II. Documents Examined\n<|id|>30<|page|>3<|box|>323 142 340 279<|content|>III. Assumptions\n<|id|>42<|page|>4<|box|>354 142 373 250<|content|>IV. Opinions\n<|id|>44<|page|>4<|box|>431 140 448 661<|content|>Opinion 1: Due Organization, Valid Existence, and\n<|id|>46<|page|>4<|box|>631 140 648 483<|content|>Opinion 2: Corporate Power and Authority\n<|id|>48<|page|>5<|box|>90 140 107 380<|content|>Opinion 3: Due Authorization\n<|id|>50<|page|>5<|box|>309 140 327 452<|content|>Opinion 4: Due Execution and Delivery\n<|id|>52<|page|>5<|box|>455 142 472 344<|content|>Opinion 5: Enforceability\n<|id|>54<|page|>5<|box|>564 140 582 707<|content|>Opinion 6: No Conflict — Delaware Law and Organiza\n<|id|>60<|page|>6<|box|>213 140 229 431<|content|>Opinion 7: Security Interest — UCC\n<|id|>64<|page|>6<|box|>685 140 702 704<|content|>Opinion 8: No Governmental Approvals Required Unde\n<|id|>66<|page|>7<|box|>148 140 167 406<|content|>V. Qualifications and Limitations\n<|id|>68<|page|>7<|box|>224 140 242 393<|content|>A. Enforceability Qualifications\n<|id|>73<|page|>7<|box|>637 143 654 308<|content|>B. Scope Limitations\n<|id|>88<|page|>8<|box|>684 140 700 393<|content|>C. Security Interest Limitations\n<|id|>98<|page|>9<|box|>470 140 487 300<|content|>D. Factual Reliance\n<|id|>100<|page|>9<|box|>718 140 734 310<|content|>VI. Reliance and Use",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>30<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>2\n<|id|>66<|level|>1\n<|id|>68<|level|>2\n<|id|>73<|level|>2\n<|id|>88<|level|>2\n<|id|>98<|level|>2\n<|id|>100<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        }
+    ]
+}

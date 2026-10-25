@@ -1,0 +1,70 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        10,
+        12,
+        13,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>143 403 162 591<|content|>MEMORANDUM\n<|id|>10<|type|>title<|page|>1<|box|>512 142 529 361<|content|>I. Purpose and Background\n<|id|>18<|type|>title<|page|>2<|box|>470 140 489 429<|content|>II. Summary of Comments Received\n<|id|>26<|type|>table<|page|>3<|box|>438 143 712 852<|content|>None\n<|id|>28<|type|>title<|page|>4<|box|>90 140 108 598<|content|>III. Detailed Comment Summary and Proposed Respons\n<|id|>29<|type|>title<|page|>4<|box|>121 140 138 784<|content|>A. Factual Corrections Regarding Portfolio Company\n<|id|>73<|type|>title<|page|>8<|box|>766 140 801 854<|content|>B. Clarifications on Liability Amounts and § 752 A\n<|id|>91<|type|>title<|page|>10<|box|>645 140 664 601<|content|>C. Financial Data Accuracy Comments (Douglas Wexfo\n<|id|>117<|type|>table<|page|>12<|box|>760 143 907 852<|content|>None\n<|id|>118<|type|>table<|page|>13<|box|>88 143 137 852<|content|>None\n<|id|>121<|type|>title<|page|>13<|box|>393 140 411 486<|content|>D. Drafting and Representation Suggestions\n<|id|>161<|type|>title<|page|>17<|box|>90 140 107 483<|content|>IV. Comment Matrix — Tabular Summary\n<|id|>163<|type|>table<|page|>17<|box|>195 143 898 852<|content|>None\n<|id|>164<|type|>table<|page|>18<|box|>89 143 907 852<|content|>None\n<|id|>165<|type|>table<|page|>19<|box|>89 143 909 852<|content|>None\n<|id|>166<|type|>table<|page|>20<|box|>89 143 905 852<|content|>None\n<|id|>167<|type|>table<|page|>21<|box|>89 143 905 852<|content|>None\n<|id|>168<|type|>table<|page|>22<|box|>88 143 705 852<|content|>None\n<|id|>170<|type|>title<|page|>22<|box|>792 140 809 434<|content|>V. Outstanding Items and Next Steps\n<|id|>171<|type|>title<|page|>22<|box|>823 142 840 424<|content|>A. Items Requiring Additional Data\n<|id|>180<|type|>title<|page|>23<|box|>520 142 536 308<|content|>B. Revision Timeline\n<|id|>182<|type|>table<|page|>23<|box|>585 143 810 852<|content|>None\n<|id|>183<|type|>title<|page|>23<|box|>849 142 866 269<|content|>C. Action Items\n<|id|>186<|type|>title<|page|>24<|box|>90 140 107 442<|content|>Robert Jansen (Lead Associate, D.C.):\n<|id|>194<|type|>title<|page|>24<|box|>382 140 398 537<|content|>Garrett Simmons (Working Associate, New York):\n<|id|>204<|type|>title<|page|>24<|box|>796 142 811 277<|content|>VI. Attachments",
+    "raw_response": "<|src_id|>26<|tgt_id|>18\n<|src_id|>117<|tgt_id|>91\n<|src_id|>118<|tgt_id|>91\n<|src_id|>163<|tgt_id|>161\n<|src_id|>164<|tgt_id|>161\n<|src_id|>165<|tgt_id|>161\n<|src_id|>166<|tgt_id|>161\n<|src_id|>167<|tgt_id|>161\n<|src_id|>168<|tgt_id|>161\n<|src_id|>182<|tgt_id|>180",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 180
+        }
+    ]
+}

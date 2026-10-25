@@ -1,0 +1,93 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        60
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>537<|type|>table<|page|>46<|box|>88 143 527 852<|content|>None\n<|id|>538<|type|>title<|page|>47<|box|>90 263 111 735<|content|>Annex B: Processing Activities Register Extract\n<|id|>539<|type|>table<|page|>47<|box|>189 143 900 852<|content|>None\n<|id|>540<|type|>table<|page|>48<|box|>88 143 539 852<|content|>None\n<|id|>541<|type|>title<|page|>49<|box|>90 364 111 632<|content|>Annex C: Vendor Register\n<|id|>542<|type|>table<|page|>49<|box|>190 143 875 852<|content|>None\n<|id|>543<|type|>table<|page|>50<|box|>88 143 154 852<|content|>None\n<|id|>544<|type|>table<|page|>50<|box|>212 143 845 854<|content|>None\n<|id|>545<|type|>table<|page|>51<|box|>88 143 281 852<|content|>None\n<|id|>547<|type|>title<|page|>52<|box|>90 192 111 805<|content|>Annex D: Pre- and Post-Remediation Risk Assessment\n<|id|>548<|type|>table<|page|>52<|box|>172 143 907 852<|content|>None\n<|id|>550<|type|>table<|page|>53<|box|>88 143 217 852<|content|>None\n<|id|>551<|type|>table<|page|>53<|box|>275 143 422 852<|content|>None\n<|id|>552<|type|>title<|page|>54<|box|>90 338 111 658<|content|>Annex E: Remediation Timeline\n<|id|>553<|type|>table<|page|>54<|box|>172 143 904 852<|content|>None\n<|id|>554<|type|>table<|page|>55<|box|>89 143 900 852<|content|>None\n<|id|>555<|type|>table<|page|>56<|box|>89 143 907 852<|content|>None\n<|id|>557<|type|>table<|page|>57<|box|>88 145 167 852<|content|>None\n<|id|>558<|type|>title<|page|>58<|box|>90 258 111 740<|content|>Annex F: Regulatory Correspondence Summary\n<|id|>559<|type|>table<|page|>58<|box|>172 143 905 852<|content|>None\n<|id|>560<|type|>table<|page|>59<|box|>89 143 902 851<|content|>None\n<|id|>562<|type|>table<|page|>60<|box|>88 143 627 851<|content|>None\n<|id|>563<|type|>title<|page|>60<|box|>694 387 710 609<|content|>— END OF DOCUMENT —",
+    "raw_response": "<|src_id|>539<|tgt_id|>538\n<|src_id|>540<|tgt_id|>538\n<|src_id|>542<|tgt_id|>541\n<|src_id|>543<|tgt_id|>541\n<|src_id|>544<|tgt_id|>541\n<|src_id|>545<|tgt_id|>541\n<|src_id|>548<|tgt_id|>547\n<|src_id|>550<|tgt_id|>547\n<|src_id|>551<|tgt_id|>547\n<|src_id|>553<|tgt_id|>552\n<|src_id|>554<|tgt_id|>552\n<|src_id|>555<|tgt_id|>552\n<|src_id|>557<|tgt_id|>552\n<|src_id|>559<|tgt_id|>558\n<|src_id|>560<|tgt_id|>558\n<|src_id|>562<|tgt_id|>558",
+    "parsed": [
+        {
+            "src_id": 539,
+            "tgt_id": 538
+        },
+        {
+            "src_id": 540,
+            "tgt_id": 538
+        },
+        {
+            "src_id": 542,
+            "tgt_id": 541
+        },
+        {
+            "src_id": 543,
+            "tgt_id": 541
+        },
+        {
+            "src_id": 544,
+            "tgt_id": 541
+        },
+        {
+            "src_id": 545,
+            "tgt_id": 541
+        },
+        {
+            "src_id": 548,
+            "tgt_id": 547
+        },
+        {
+            "src_id": 550,
+            "tgt_id": 547
+        },
+        {
+            "src_id": 551,
+            "tgt_id": 547
+        },
+        {
+            "src_id": 553,
+            "tgt_id": 552
+        },
+        {
+            "src_id": 554,
+            "tgt_id": 552
+        },
+        {
+            "src_id": 555,
+            "tgt_id": 552
+        },
+        {
+            "src_id": 557,
+            "tgt_id": 552
+        },
+        {
+            "src_id": 559,
+            "tgt_id": 558
+        },
+        {
+            "src_id": 560,
+            "tgt_id": 558
+        },
+        {
+            "src_id": 562,
+            "tgt_id": 558
+        }
+    ]
+}

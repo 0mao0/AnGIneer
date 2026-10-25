@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        45,
+        81
+    ],
+    "pages": [
+        45,
+        46,
+        52,
+        53,
+        57,
+        58,
+        61,
+        80,
+        81
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>265<|page|>45<|box|>829 109 898 877<|content|>Treasury received tenders for the notes before 12: ... Treasury accepted in full all\n<|id|>266<|page|>46<|box|>90 109 143 883<|content|>competitive tenders at yields lower than 4. ... Co...ted from private investors totaled $69,798 million\n<|id|>331<|page|>52<|box|>231 112 244 382<|content|>(4-week, 6-week, 8-week, 13-week, 17-week and 26-week)\n<|id|>334<|page|>53<|box|>324 120 377 527<|content|><sup>1</sup> All 13-week bills represent additiona...ludes amount awarded to the Federal Reserve System\n<|id|>346<|page|>57<|box|>90 109 126 880<|content|>TABLE OFS-1—Distribution of Federal Securities by ...ions of dollars. ... Bureau of the Fiscal Service]\n<|id|>349<|page|>58<|box|>829 91 869 482<|content|><sup>5</sup> Source: ... Current accrual value\n<|id|>363<|page|>61<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>364<|page|>61<|box|>200 710 253 919<|content|>Foreign Currency Positions Exchange Stabilization Fund\n<|id|>442<|page|>80<|box|>148 388 164 609<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>443<|page|>80<|box|>184 81 258 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>451<|page|>80<|box|>839 81 901 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>452<|page|>80<|box|>184 504 229 915<|content|>Second Liberty Loan Act of 1917, the nature of the...o an overall limit on the outstanding Federal debt\n<|id|>461<|page|>80<|box|>840 504 902 916<|content|>Government account series (FD-2)—Certain trust fun...urities. ... These securities are sold directly by\n<|id|>462<|page|>81<|box|>90 81 209 491<|content|>Treasury to a specific Government agency, trust fund, or account. ... and the Unemployment Trust Fund",
+    "raw_response": "<|src_id|>265<|tgt_id|>266\n<|src_id|>451<|tgt_id|>452\n<|src_id|>461<|tgt_id|>462",
+    "parsed": [
+        {
+            "src_id": 265,
+            "tgt_id": 266
+        },
+        {
+            "src_id": 451,
+            "tgt_id": 452
+        },
+        {
+            "src_id": 461,
+            "tgt_id": 462
+        }
+    ]
+}

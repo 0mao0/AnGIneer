@@ -1,0 +1,26 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['9', 'Fairfi eld II', 'GMP Fairfi', 'Ther malC', 'HVAC', '4/1/2 022', '3/31/ 2025', 'Y-1 yr', '60 days', 'Y-60', '$1,500', 'Freel y', '$52,000', 'Assu me']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'eld IILLC', 'oreMechanicalInc.', 'Maint.', '', '', '', '', 'days', '', 'Assignable', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 75,
+    "table2_idx": 76
+}

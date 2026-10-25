@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        4,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 166 143 831<|content|>COMPLIANCE CERTIFICATE OF MERIDIAN DIAGNOSTICS, IN\n<|id|>4<|type|>title<|page|>1<|box|>344 142 359 243<|content|>RECITALS\n<|id|>8<|type|>title<|page|>1<|box|>681 140 699 602<|content|>SECTION 1: REPRESENTATIONS AND WARRANTIES\n<|id|>23<|type|>title<|page|>4<|box|>376 140 393 367<|content|>SECTION 2: COVENANTS\n<|id|>50<|type|>title<|page|>7<|box|>89 142 106 486<|content|>SECTION 3: CONDITIONS TO CLOSING\n<|id|>58<|type|>title<|page|>8<|box|>167 140 184 568<|content|>SECTION 4: CONVERTIBLE NOTE CONVERSION\n<|id|>62<|type|>table<|page|>8<|box|>460 143 551 852<|content|>None\n<|id|>67<|type|>title<|page|>9<|box|>89 142 106 550<|content|>SECTION 5: NO MATERIAL ADVERSE EFFECT\n<|id|>71<|type|>title<|page|>9<|box|>483 140 500 617<|content|>SECTION 6: POST-CLOSING REGULATORY MATTERS\n<|id|>81<|type|>title<|page|>10<|box|>258 140 276 524<|content|>SECTION 7: LEGAL FEE REIMBURSEMENT\n<|id|>83<|type|>title<|page|>10<|box|>508 140 526 295<|content|>CERTIFICATION\n<|id|>86<|type|>title<|page|>10<|box|>660 142 676 419<|content|>MERIDIAN DIAGNOSTICS, INC.",
+    "raw_response": "<|src_id|>62<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 58
+        }
+    ]
+}

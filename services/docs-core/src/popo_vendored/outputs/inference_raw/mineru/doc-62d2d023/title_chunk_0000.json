@@ -1,0 +1,36 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 140 141 810<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>3<|page|>1<|box|>202 140 237 854<|content|>THALASSA SHIPPING & LOGISTICS SA and AEGEAN FORTUN\n<|id|>5<|page|>1<|box|>272 362 289 854<|content|>Index No. 655421/2023 Part 49 (Hon. Lorraine K. Ch\n<|id|>6<|page|>1<|box|>297 163 333 833<|content|>DECLARATION OF DOUGLAS CARMICHAEL IN SUPPORT OF DE\n<|id|>51<|page|>8<|box|>741 375 758 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>5<|level|>2\n<|id|>6<|level|>1\n<|id|>51<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        }
+    ]
+}

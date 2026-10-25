@@ -1,0 +1,58 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        90,
+        93
+    ],
+    "pages": [
+        90,
+        91,
+        92,
+        93
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>844<|page|>90<|box|>89 428 106 570<|content|>SCHEDULE 3.16\n<|id|>845<|page|>90<|box|>114 442 132 555<|content|>INSURANCE\n<|id|>847<|page|>91<|box|>90 428 106 570<|content|>SCHEDULE 3.17\n<|id|>848<|page|>91<|box|>116 364 132 630<|content|>CUSTOMERS AND SUPPLIERS\n<|id|>849<|page|>91<|box|>142 143 159 485<|content|>1. Top 10 Customers (by Revenue, FY2023).\n<|id|>851<|page|>91<|box|>421 142 438 504<|content|>2. Top 10 Suppliers (by Expenditure, FY2023).\n<|id|>853<|page|>92<|box|>89 426 106 571<|content|>SCHEDULE 3.18\n<|id|>854<|page|>92<|box|>114 339 132 656<|content|>INTERCOMPANY ARRANGEMENTS\n<|id|>861<|page|>93<|box|>89 431 107 565<|content|>SCHEDULE 8.2\n<|id|>862<|page|>93<|box|>114 388 132 607<|content|>SPECIFIC INDEMNITIES",
+    "raw_response": "<|id|>844<|level|>1\n<|id|>845<|level|>2\n<|id|>847<|level|>1\n<|id|>848<|level|>2\n<|id|>849<|level|>3\n<|id|>851<|level|>3\n<|id|>853<|level|>1\n<|id|>854<|level|>2\n<|id|>861<|level|>1\n<|id|>862<|level|>2",
+    "parsed": [
+        {
+            "id": 844,
+            "level": 1
+        },
+        {
+            "id": 845,
+            "level": 2
+        },
+        {
+            "id": 847,
+            "level": 1
+        },
+        {
+            "id": 848,
+            "level": 2
+        },
+        {
+            "id": 849,
+            "level": 3
+        },
+        {
+            "id": 851,
+            "level": 3
+        },
+        {
+            "id": 853,
+            "level": 1
+        },
+        {
+            "id": 854,
+            "level": 2
+        },
+        {
+            "id": 861,
+            "level": 1
+        },
+        {
+            "id": 862,
+            "level": 2
+        }
+    ]
+}

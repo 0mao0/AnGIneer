@@ -1,0 +1,170 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8_2i17s1\\input\\pdfs\\doc-2054b86e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8_2i17s1\\enriched\\doc-2054b86e.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>12<|level|>3\n<|id|>18<|level|>3\n<|id|>27<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>3\n<|id|>45<|level|>4\n<|id|>48<|level|>4\n<|id|>59<|level|>3\n<|id|>63<|level|>3\n<|id|>76<|level|>3\n<|id|>87<|level|>3\n<|id|>93<|level|>3\n<|id|>95<|level|>3",
+    "image_output": "<|src_id|>41<|tgt_id|>39\n<|src_id|>42<|tgt_id|>39\n<|src_id|>43<|tgt_id|>39\n<|src_id|>44<|tgt_id|>39\n<|src_id|>47<|tgt_id|>45\n<|src_id|>61<|tgt_id|>59",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 41,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 59
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 41,
+            "table2_idx": 42,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "[REDACTED]",
+                    "Hardlines",
+                    "[REDACTED]",
+                    "Hardlines",
+                    "Priya Rathore;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "(General)",
+                    "",
+                    "Merchandising",
+                    "Derek Linden"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 42,
+            "table2_idx": 43,
+            "upper_row_ss": [
+                [
+                    "26",
+                    "[REDACTED]",
+                    "Seasonal Décor",
+                    "[REDACTED]",
+                    "Seasonal",
+                    "Priya Rathore;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Manufacturer",
+                    "",
+                    "Planning",
+                    "Brent Halvorsen; Lucia Fernandez-Gill"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 43,
+            "table2_idx": 44,
+            "upper_row_ss": [
+                [
+                    "41",
+                    "[REDACTED]",
+                    "Private-Label",
+                    "[REDACTED]",
+                    "Private Label",
+                    "Priya Rathore;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Apparel",
+                    "",
+                    "Strategy",
+                    "Amara Osei"
+                ]
+            ]
+        }
+    ]
+}

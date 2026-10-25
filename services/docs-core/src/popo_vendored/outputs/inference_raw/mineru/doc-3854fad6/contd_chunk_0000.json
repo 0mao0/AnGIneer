@@ -1,0 +1,42 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>325 151 361 844<|content|>Calderwood & Harkness LLP Issuer's Counsel 1 Marke... Tower, Suite 3600 San Francisco, California 94105\n<|id|>6<|page|>1<|box|>369 228 388 767<|content|>Draft Date: ... February 2022 (Prepared in connection with IPO preparation)\n<|id|>7<|page|>1<|box|>393 140 411 738<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED — DRAFT SUBJECT TO REVISION\n<|id|>8<|page|>1<|box|>417 140 434 408<|content|>Right-click to update Table of Contents\n<|id|>30<|page|>3<|box|>226 210 280 854<|content|>(1) the source of compensation of such director, i...ubsidiary of the Company to such director; ... and\n<|id|>33<|page|>3<|box|>431 140 578 857<|content|>Dual-Class Capital Structure. ... The Board has de...neficially owns any shares of Class B Common Stock\n<|id|>44<|page|>4<|box|>829 140 885 856<|content|>The Committee shall have the following authority a...nd motivate key talent, align the interests of the\n<|id|>45<|page|>5<|box|>90 140 127 854<|content|>Company's executives with those of its stockholder...term success and sustainable growth of the Company\n<|id|>66<|page|>6<|box|>739 174 775 854<|content|>(d) equity-based awards, including stock options, ...stock units, or other equity-based awards; ... and\n<|id|>68<|page|>6<|box|>828 140 901 857<|content|>2. ... The\n<|id|>69<|page|>7<|box|>90 174 143 854<|content|>Committee shall seek to ensure that director compe...directors with those of the Company's stockholders\n<|id|>104<|page|>9<|box|>875 140 909 854<|content|>Additional meetings may be called by the Chair of ... each meeting shall be given to each member of the\n<|id|>105<|page|>10<|box|>90 140 127 854<|content|>Committee in accordance with the Company's Amended...applicable procedures established by the Committee\n<|id|>124<|page|>11<|box|>555 176 573 607<|content|>(e) the period during which the delegation is effective; ... and\n<|id|>126<|page|>11<|box|>607 140 680 854<|content|>Any such delegation shall be subject to the limita...e law, and any other applicable legal requirements\n<|id|>132<|page|>12<|box|>179 174 214 854<|content|>(b) payment of compensation to any other advisors,..., or consultants engaged by the Committee; ... and\n<|id|>134<|page|>12<|box|>285 140 340 854<|content|>The Company's management shall cooperate with the ...the performance of its duties and responsibilities\n<|id|>141<|page|>12<|box|>555 174 590 852<|content|>(e) the quality of the Committee's interaction and... management, and the Committee's Advisors; ... and\n<|id|>143<|page|>12<|box|>625 140 661 852<|content|>The Committee shall report to the Board on the res... Committee's processes, procedures, or composition\n<|id|>156<|page|>13<|box|>864 140 897 854<|content|>Note: ... The Company's Registration Statement on Form S-1 (SEC File Number\n<|id|>157<|page|>14<|box|>89 140 133 856<|content|>333-264518, CIK 0001923847) was subsequently withd...d by the Board of Directors of Lumos Analytics Inc\n<|id|>163<|page|>14<|box|>273 142 289 339<|content|>Name: ... Priya Subramanian\n<|id|>164<|page|>14<|box|>290 142 306 535<|content|>Title: ... Chief Executive Officer and Chair of the Board\n<|id|>165<|page|>14<|box|>308 143 325 266<|content|>Date: ... Date\n<|id|>167<|page|>14<|box|>343 142 359 312<|content|>Name: ... Marcus Henley\n<|id|>168<|page|>14<|box|>359 142 376 475<|content|>Title: ... Chief Technology Officer and Director\n<|id|>169<|page|>14<|box|>378 143 393 267<|content|>Date: ... Date\n<|id|>171<|page|>14<|box|>411 143 426 330<|content|>Name: ... Catherine Mercer\n<|id|>172<|page|>14<|box|>429 143 445 346<|content|>Title: ... Independent Director\n<|id|>173<|page|>14<|box|>446 143 463 266<|content|>Date: ... Date\n<|id|>175<|page|>14<|box|>479 142 496 297<|content|>Name: ... Diane Ochoa\n<|id|>176<|page|>14<|box|>497 143 513 346<|content|>Title: ... Independent Director\n<|id|>177<|page|>14<|box|>515 143 532 267<|content|>Date: ... Date\n<|id|>179<|page|>14<|box|>549 143 566 326<|content|>Name: ... Samuel Adebayo\n<|id|>180<|page|>14<|box|>566 142 583 346<|content|>Title: ... Independent Director\n<|id|>181<|page|>14<|box|>585 143 601 267<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>44<|tgt_id|>45\n<|src_id|>68<|tgt_id|>69\n<|src_id|>104<|tgt_id|>105\n<|src_id|>156<|tgt_id|>157",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 157
+        }
+    ]
+}

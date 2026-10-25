@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 161 148 856<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law 125 Br\n<|id|>8<|type|>title<|page|>1<|box|>356 142 372 367<|content|>1. Purpose and Introduction\n<|id|>12<|type|>title<|page|>1<|box|>767 140 784 333<|content|>2. Scope of Engagement\n<|id|>14<|type|>title<|page|>1<|box|>843 140 859 730<|content|>(a) Property Quota-Share Reinsurance Treaty — Rene\n<|id|>24<|type|>title<|page|>2<|box|>695 140 712 684<|content|>(b) Catastrophe Excess-of-Loss Reinsurance Layer —\n<|id|>37<|type|>title<|page|>3<|box|>686 140 704 312<|content|>(c) Ancillary Matters\n<|id|>43<|type|>title<|page|>4<|box|>282 140 300 339<|content|>(d) Limitations on Scope\n<|id|>51<|type|>title<|page|>4<|box|>741 142 758 230<|content|>3. Staffing\n<|id|>58<|type|>title<|page|>5<|box|>473 140 489 433<|content|>4. Counterparties and Their Counsel\n<|id|>61<|type|>title<|page|>5<|box|>767 140 784 310<|content|>5. Fee Arrangements\n<|id|>62<|type|>title<|page|>5<|box|>797 142 814 274<|content|>(a) Basis of Fees\n<|id|>64<|type|>table<|page|>5<|box|>882 143 902 852<|content|>None\n<|id|>65<|type|>table<|page|>6<|box|>89 143 183 852<|content|>None\n<|id|>75<|type|>title<|page|>6<|box|>696 140 713 331<|content|>(c) Billing and Payment\n<|id|>80<|type|>title<|page|>7<|box|>426 140 443 398<|content|>6. Conflict of Interest Disclosure\n<|id|>86<|type|>title<|page|>8<|box|>148 140 167 284<|content|>7. Confidentiality\n<|id|>89<|type|>title<|page|>8<|box|>462 140 479 450<|content|>8. Communication and Client Contacts\n<|id|>97<|type|>title<|page|>9<|box|>90 140 107 326<|content|>9. Document Retention\n<|id|>100<|type|>title<|page|>9<|box|>383 142 402 274<|content|>10. Termination\n<|id|>103<|type|>title<|page|>9<|box|>642 142 659 297<|content|>11. Governing Law\n<|id|>105<|type|>title<|page|>9<|box|>763 142 780 339<|content|>12. Anticipated Timeline\n<|id|>107<|type|>table<|page|>9<|box|>832 143 904 852<|content|>None\n<|id|>108<|type|>table<|page|>10<|box|>89 143 258 852<|content|>None\n<|id|>110<|type|>title<|page|>10<|box|>388 143 404 264<|content|>13. Acceptance\n<|id|>115<|type|>title<|page|>10<|box|>662 212 679 516<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>116<|type|>title<|page|>10<|box|>689 142 705 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>64<|tgt_id|>62\n<|src_id|>65<|tgt_id|>62\n<|src_id|>107<|tgt_id|>105\n<|src_id|>108<|tgt_id|>105",
+    "parsed": [
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 105
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        30
+    ],
+    "pages": [
+        2,
+        10,
+        16,
+        21,
+        22,
+        23,
+        29,
+        30
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>2<|box|>89 142 143 449<|content|>DE 19801 Telephone: ... com\n<|id|>4<|page|>2<|box|>89 589 107 852<|content|>Facsimile: ... (302)658-7401\n<|id|>5<|page|>2<|box|>109 601 126 854<|content|>cbauer@calderwoodharkness. ... com\n<|id|>6<|page|>2<|box|>152 143 170 504<|content|>Attorneys for Defendant Solstice Biomedical, Inc. ... Attorneys for Defendant Solstice Biomedical, Inc\n<|id|>67<|page|>10<|box|>684 140 720 852<|content|>A. ... Disputed Terms from the '237 Patent (\"Locki...ly for Minimally Invasive Surgical Access Device\")\n<|id|>69<|page|>10<|box|>773 140 827 854<|content|>Solstice's Proposed Construction: ... \"\n<|id|>120<|page|>16<|box|>238 140 273 854<|content|>B. ... Disputed Terms from the '884 Patent (\"Retra...le Blade Deployment Mechanism for Trocar Systems\")\n<|id|>122<|page|>16<|box|>345 140 417 856<|content|>Solstice's Proposed Construction: ... \"\n<|id|>176<|page|>21<|box|>750 140 786 854<|content|>C. ... Disputed Terms from the '105 Patent (\"Integ...ufflation Valve and Seal for Laparoscopic Trocar\")\n<|id|>178<|page|>21<|box|>837 140 875 854<|content|>Solstice's Proposed Construction: ... \"\n<|id|>188<|page|>22<|box|>843 140 931 857<|content|>The specification is explicit in distinguishing th...grated configurations, the valve is a CONFIDENTIAL\n<|id|>189<|page|>23<|box|>90 174 162 856<|content|>discrete, detachable component that can be removed from the cannula assembly and replaced. ... \"\n<|id|>237<|page|>29<|box|>801 678 819 854<|content|>Respectfully submitted,\n<|id|>238<|page|>29<|box|>862 140 877 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>239<|page|>29<|box|>880 142 897 253<|content|>By: ... By\n<|id|>240<|page|>29<|box|>915 142 929 245<|content|>CONFIDENTIAL\n<|id|>241<|page|>30<|box|>89 140 156 854<|content|>Marcus Delgado (Del. ... com\n<|id|>242<|page|>30<|box|>156 143 172 509<|content|>Attorneys for Defendant Solstice Biomedical, Inc. ... Attorneys for Defendant Solstice Biomedical, Inc\n<|id|>246<|page|>30<|box|>304 174 359 854<|content|>Victoria Stanton Derek Loomis HARGROVE, TATE & BEN...Suite 1200 Wilmington, DE 19801 Telephone: ... com\n<|id|>247<|page|>30<|box|>367 176 385 571<|content|>Attorneys for Plaintiff Apex Surgical Innovations,...rneys for Plaintiff Apex Surgical Innovations, Inc",
+    "raw_response": "<|src_id|>188<|tgt_id|>189",
+    "parsed": [
+        {
+            "src_id": 188,
+            "tgt_id": 189
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        62,
+        116
+    ],
+    "pages": [
+        63,
+        70,
+        85,
+        88,
+        89,
+        113,
+        114,
+        115,
+        116
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>346<|page|>63<|box|>98 101 188 491<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>347<|page|>63<|box|>97 516 187 906<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1974\n<|id|>362<|page|>70<|box|>131 85 309 475<|content|>The monthly Treasury Survey of Ownership covers se...ished for banks and insurance companies in the May\n<|id|>363<|page|>70<|box|>133 516 187 903<|content|>1941 Treasury Bulletin, for corporations and savin...nd local governments in the February 1962 Bulletin\n<|id|>432<|page|>85<|box|>638 87 658 484<|content|>3/ Data on the two lines shown for this date diffe...e. ... Figures on the first line are comparable in\n<|id|>436<|page|>85<|box|>631 506 644 596<|content|>p Preliminary. ... p Preliminary\n<|id|>461<|page|>88<|box|>659 192 679 464<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>462<|page|>88<|box|>682 192 711 452<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>464<|page|>88<|box|>444 551 457 743<|content|>(EQ2) \\mathbf{E}_{\\mathbf{x}} = \\Sigma(\\Delta \\mat... \\$ * \\mathbf{x}_{\\mathbf{i}} / \\Sigma \\mathbf{x})\n<|id|>465<|page|>88<|box|>461 573 489 883<|content|>Where: ... E_{x} is the weighted average of percentage changes in the foreign currency cost of dollars\n<|id|>466<|page|>88<|box|>494 625 513 877<|content|>\\Delta f c_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>467<|page|>88<|box|>519 625 547 871<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>470<|page|>88<|box|>608 574 635 883<|content|>Where: ... and\n<|id|>471<|page|>88<|box|>641 625 666 890<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>477<|page|>89<|box|>291 90 336 491<|content|>The report forms and instructions used in the coll...istics have been revised a number of times. ... 1/\n<|id|>478<|page|>89<|box|>342 88 447 489<|content|>The present form of the published presentation of ...rt-term liquid claims of large nonbanking concerns\n<|id|>533<|page|>113<|box|>133 410 146 590<|content|>(Position in millions of dollars)\n<|id|>535<|page|>114<|box|>63 404 76 590<|content|>_CAPITAL MOVEMENTS. ... _CAPITAL MOVEMENTS\n<|id|>538<|page|>115<|box|>62 397 76 585<|content|>CAPITAL MOVEMENTS\n<|id|>539<|page|>115<|box|>77 279 91 711<|content|>Section V - Transactions in Long-Term Securities by Foreigners\n<|id|>540<|page|>115<|box|>91 314 105 678<|content|>Reported by Banks and Brokers in the United States\n<|id|>541<|page|>115<|box|>105 197 120 804<|content|>Table CM-V-1. ... - Foreign Purchases and Sales of Long-Term Domestic Securities by Type\n<|id|>545<|page|>116<|box|>111 174 126 880<|content|>Table CM-V-3. ... Treasury Bonds and Notes by Country",
+    "raw_response": "<|src_id|>346<|tgt_id|>347\n<|src_id|>362<|tgt_id|>363\n<|src_id|>461<|tgt_id|>462\n<|src_id|>465<|tgt_id|>466\n<|src_id|>466<|tgt_id|>467\n<|src_id|>470<|tgt_id|>471",
+    "parsed": [
+        {
+            "src_id": 346,
+            "tgt_id": 347
+        },
+        {
+            "src_id": 362,
+            "tgt_id": 363
+        },
+        {
+            "src_id": 461,
+            "tgt_id": 462
+        },
+        {
+            "src_id": 465,
+            "tgt_id": 466
+        },
+        {
+            "src_id": 466,
+            "tgt_id": 467
+        },
+        {
+            "src_id": 470,
+            "tgt_id": 471
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        50
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        21,
+        22,
+        29,
+        30,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>9<|page|>2<|box|>340 321 384 577<|content|>DG/TJ 08-119-2018 J 10632-2018\n<|id|>10<|page|>2<|box|>410 195 457 500<|content|>主编单位: ... 上海市路政局 上海市公路学会\n<|id|>11<|page|>2<|box|>461 195 482 700<|content|>批准部门: ... 上海市住房和城乡建设管理委员会\n<|id|>12<|page|>2<|box|>487 195 508 519<|content|>施行日期: ... 2018年12月1日\n<|id|>13<|page|>2<|box|>735 345 762 553<|content|>同济大学出版社\n<|id|>22<|page|>3<|box|>655 417 676 806<|content|>上海市住房和城乡建设管理委员会\n<|id|>23<|page|>3<|box|>681 490 702 729<|content|>二〇一八年八月二日\n<|id|>33<|page|>5<|box|>327 202 373 557<|content|>主编单位: ... 上海市路政局 上海市公路学会\n<|id|>34<|page|>5<|box|>376 202 500 862<|content|>参编单位: ... 上海市建设工程安全质量监督总站 上海市城市建设设计研究总院(集团)有限公司 上海市政工程设计研究总院(集团)有限公司 上海市城市排水有限公司 上海公路投资建设发展有限公司\n<|id|>35<|page|>5<|box|>504 202 577 862<|content|>主要起草人: ... 吴青峰 汪维恒 周净 徐一峰 岳贵平 黄金明 瞿琳瑾 阎喆 姚颖东 王一如 黄崇伟 陈晓晨 姜海西 吴申\n<|id|>36<|page|>5<|box|>581 202 628 862<|content|>主要审查人: ... 朱惠君 王亦麟 曹亚东 俞智明 祝长康 黄律群\n<|id|>37<|page|>5<|box|>657 454 680 818<|content|>上海市建筑建材业市场管理总站\n<|id|>38<|page|>5<|box|>686 562 707 707<|content|>2018年8月\n<|id|>45<|page|>10<|box|>254 96 875 814<|content|>1 General provisions … ... 32\n<|id|>46<|page|>11<|box|>125 152 871 871<|content|>5. ... 5 Working shaft 77\n<|id|>47<|page|>12<|box|>126 86 871 806<|content|>7. ... 7 Toll canopy grid structure small assembling unit 108\n<|id|>48<|page|>13<|box|>126 154 866 874<|content|>9. ... 163\n<|id|>49<|page|>14<|box|>121 89 478 809<|content|>Appendix M Cement-based paste compressive strength...quoted standards 182 Explanation of provisions 185\n<|id|>61<|page|>16<|box|>378 144 423 864<|content|>2. ... 3 水泥-乳化沥青半柔性混合料 emul-cement semi-flexible mix(ECM)\n<|id|>62<|page|>16<|box|>428 144 475 864<|content|>采用密级配矿料、水泥、微膨胀特种乳化沥青与水拌和而成的混合料，简称 ECM。 ... 采用密级配矿料、水泥、微膨胀特种乳化沥青与水拌和而成的混合料，简称 ECM\n<|id|>137<|page|>21<|box|>839 132 858 799<|content|>4 河浜、鱼塘、沟槽的间隔填土严禁带水回填，必须设置临\n<|id|>138<|page|>22<|box|>116 154 134 304<|content|>时排水措施。 ... 时排水措施\n<|id|>189<|page|>29<|box|>845 135 863 804<|content|>3 EPS 块体表面应平整无错台, 必须错缝砌筑, 搭接牢固,\n<|id|>190<|page|>30<|box|>125 157 144 280<|content|>位置准确。 ... 位置准确\n<|id|>339<|page|>49<|box|>840 144 860 811<|content|>3 与路缘石及其他构筑物应密贴接顺,不得有明显积水或\n<|id|>340<|page|>50<|box|>118 144 137 265<|content|>漏水现象。 ... 漏水现象",
+    "raw_response": "<|src_id|>137<|tgt_id|>138\n<|src_id|>189<|tgt_id|>190\n<|src_id|>339<|tgt_id|>340",
+    "parsed": [
+        {
+            "src_id": 137,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 339,
+            "tgt_id": 340
+        }
+    ]
+}

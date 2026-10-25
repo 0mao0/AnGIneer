@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        101,
+        107
+    ],
+    "pages": [
+        102,
+        103,
+        106,
+        107
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1122<|page|>102<|box|>227 24 239 169<|content|>+ Federally chartered\n<|id|>1123<|page|>102<|box|>239 24 253 181<|content|>% China Business Trust\n<|id|>1124<|page|>102<|box|>265 24 279 166<|content|>Also doing business as: ... Also doing business as\n<|id|>1131<|page|>103<|box|>181 22 195 184<|content|>/s/ Deloitte & Touche LLP\n<|id|>1132<|page|>103<|box|>207 22 234 171<|content|>Minneapolis, Minnesota March 28, 2019\n<|id|>1162<|page|>106<|box|>244 24 258 181<|content|>Date: ... March 28, 2019\n<|id|>1163<|page|>106<|box|>244 599 258 691<|content|>/s/ Hubert Joly\n<|id|>1164<|page|>106<|box|>262 599 277 674<|content|>Hubert Joly\n<|id|>1165<|page|>106<|box|>279 599 294 830<|content|>Chairman and Chief Executive Officer\n<|id|>1169<|page|>107<|box|>234 24 250 181<|content|>Date: ... March 28, 2019\n<|id|>1170<|page|>107<|box|>252 599 285 743<|content|>Corie Barry Chief Financial Officer /s/ Corie Barry",
+    "raw_response": "<|src_id|>1122<|tgt_id|>1123",
+    "parsed": [
+        {
+            "src_id": 1122,
+            "tgt_id": 1123
+        }
+    ]
+}

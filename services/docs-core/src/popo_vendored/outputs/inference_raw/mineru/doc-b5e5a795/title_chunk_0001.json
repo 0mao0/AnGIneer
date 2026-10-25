@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        53,
+        66
+    ],
+    "pages": [
+        53,
+        54,
+        57,
+        61,
+        66
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>460<|page|>53<|box|>90 143 107 364<|content|>Domain Name Registrations\n<|id|>462<|page|>53<|box|>536 143 551 197<|content|>Notes:\n<|id|>465<|page|>54<|box|>90 243 111 754<|content|>Appendix C — License Agreement Summary Table\n<|id|>466<|page|>54<|box|>128 142 146 599<|content|>Veridian Biosciences, Inc. — License Agreement Sum\n<|id|>468<|page|>54<|box|>196 143 212 382<|content|>In-Bound License Agreements\n<|id|>473<|page|>57<|box|>90 240 111 758<|content|>Appendix D — IP Assignment Agreement Summary\n<|id|>474<|page|>57<|box|>128 142 146 655<|content|>Veridian Biosciences, Inc. — IP Assignment Agreeme\n<|id|>476<|page|>57<|box|>196 143 212 338<|content|>Founder IP Assignments\n<|id|>484<|page|>61<|box|>90 165 111 831<|content|>Appendix E — Freedom-to-Operate Third-Party Patent\n<|id|>485<|page|>61<|box|>128 140 146 730<|content|>Veridian Biosciences, Inc. — FTO Third-Party Paten\n<|id|>488<|page|>61<|box|>258 143 275 277<|content|>Risk Rating Key\n<|id|>498<|page|>66<|box|>383 142 398 380<|content|>Summary of Risk Distribution",
+    "raw_response": "<|id|>460<|level|>2\n<|id|>462<|level|>3\n<|id|>465<|level|>1\n<|id|>466<|level|>2\n<|id|>468<|level|>3\n<|id|>473<|level|>1\n<|id|>474<|level|>2\n<|id|>476<|level|>3\n<|id|>484<|level|>1\n<|id|>485<|level|>2\n<|id|>488<|level|>3\n<|id|>498<|level|>2",
+    "parsed": [
+        {
+            "id": 460,
+            "level": 2
+        },
+        {
+            "id": 462,
+            "level": 3
+        },
+        {
+            "id": 465,
+            "level": 1
+        },
+        {
+            "id": 466,
+            "level": 2
+        },
+        {
+            "id": 468,
+            "level": 3
+        },
+        {
+            "id": 473,
+            "level": 1
+        },
+        {
+            "id": 474,
+            "level": 2
+        },
+        {
+            "id": 476,
+            "level": 3
+        },
+        {
+            "id": 484,
+            "level": 1
+        },
+        {
+            "id": 485,
+            "level": 2
+        },
+        {
+            "id": 488,
+            "level": 3
+        },
+        {
+            "id": 498,
+            "level": 2
+        }
+    ]
+}

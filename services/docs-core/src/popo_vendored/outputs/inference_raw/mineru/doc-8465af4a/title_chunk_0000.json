@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 655<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT / LITIGATION\n<|id|>1<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>561 142 579 351<|content|>1. Purpose of Engagement\n<|id|>15<|page|>2<|box|>468 140 484 308<|content|>2. Background Facts\n<|id|>33<|page|>4<|box|>304 140 321 334<|content|>3. Scope of Engagement\n<|id|>35<|page|>4<|box|>415 140 433 586<|content|>3.1 Preliminary Damages Modeling for Pre-Suit Dema\n<|id|>37<|page|>4<|box|>579 140 597 581<|content|>3.2 Actual Damages Analysis — Lost Licensing Reven\n<|id|>41<|page|>5<|box|>138 140 157 385<|content|>3.3 Infringer's Profits Analysis\n<|id|>49<|page|>5<|box|>789 140 806 504<|content|>3.4 Apportionment to Avoid Double-Counting\n<|id|>53<|page|>6<|box|>375 140 392 424<|content|>3.5 Statutory Damages Comparison\n<|id|>57<|page|>6<|box|>755 140 772 331<|content|>3.6 Additional Analyses\n<|id|>63<|page|>7<|box|>366 140 383 263<|content|>4. Deliverables\n<|id|>69<|page|>7<|box|>848 140 864 401<|content|>5. Information and Data Sources\n<|id|>79<|page|>8<|box|>734 140 751 310<|content|>6. Fees and Expenses\n<|id|>90<|page|>9<|box|>622 140 640 284<|content|>7. Confidentiality\n<|id|>95<|page|>10<|box|>304 140 321 468<|content|>8. Privilege and Work Product Protection\n<|id|>100<|page|>10<|box|>814 140 832 321<|content|>9. Conflicts of Interest\n<|id|>113<|page|>11<|box|>525 142 544 354<|content|>10. Term and Termination\n<|id|>118<|page|>12<|box|>90 142 107 416<|content|>11. Independent Contractor Status\n<|id|>120<|page|>12<|box|>267 143 284 297<|content|>12. Governing Law\n<|id|>122<|page|>12<|box|>407 142 424 379<|content|>13. Acceptance and Execution\n<|id|>126<|page|>12<|box|>619 142 636 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>33<|level|>1\n<|id|>35<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>49<|level|>2\n<|id|>53<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>1\n<|id|>69<|level|>1\n<|id|>79<|level|>1\n<|id|>90<|level|>1\n<|id|>95<|level|>1\n<|id|>100<|level|>1\n<|id|>113<|level|>1\n<|id|>118<|level|>1\n<|id|>120<|level|>1\n<|id|>122<|level|>1\n<|id|>126<|level|>-1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        }
+    ]
+}

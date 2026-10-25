@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>14<|page|>2<|box|>90 140 107 663<|content|>I. Identification of Applicable Policies and Cover\n<|id|>16<|page|>2<|box|>184 140 200 602<|content|>A. Technology Errors & Omissions / Cyber Liability\n<|id|>20<|page|>2<|box|>556 140 573 452<|content|>B. Commercial General Liability Policy\n<|id|>23<|page|>2<|box|>838 140 854 419<|content|>C. Additional Coverage References\n<|id|>28<|page|>3<|box|>335 140 352 450<|content|>II. Request for Certificate of Insurance\n<|id|>46<|page|>4<|box|>204 140 222 527<|content|>III. Request for Additional Insured Endorsement\n<|id|>56<|page|>5<|box|>223 140 239 504<|content|>IV. Notice of Cancellation or Material Change\n<|id|>62<|page|>5<|box|>613 140 630 428<|content|>V. Delivery Instructions and Timing\n<|id|>65<|page|>5<|box|>801 176 818 325<|content|>Primary Delivery:\n<|id|>72<|page|>6<|box|>178 176 195 251<|content|>Copy to:\n<|id|>76<|page|>6<|box|>361 140 378 393<|content|>VI. Annual Renewal Obligation\n<|id|>80<|page|>6<|box|>736 140 753 294<|content|>VII. Authorization\n<|id|>87<|page|>7<|box|>335 140 353 460<|content|>VIII. Contact Information for Questions\n<|id|>101<|page|>8<|box|>90 142 106 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>14<|level|>2\n<|id|>16<|level|>3\n<|id|>20<|level|>3\n<|id|>23<|level|>3\n<|id|>28<|level|>2\n<|id|>46<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>65<|level|>3\n<|id|>72<|level|>3\n<|id|>76<|level|>2\n<|id|>80<|level|>2\n<|id|>87<|level|>2\n<|id|>101<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        }
+    ]
+}

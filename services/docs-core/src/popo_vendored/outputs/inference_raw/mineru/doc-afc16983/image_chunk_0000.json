@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>378 285 398 710<|content|>1. Introduction and Engagement Overview\n<|id|>18<|type|>title<|page|>2<|box|>172 274 191 723<|content|>2. Background and Description of the Matter\n<|id|>19<|type|>title<|page|>2<|box|>217 140 234 351<|content|>2.1 Overview of the Client\n<|id|>21<|type|>title<|page|>2<|box|>412 140 429 377<|content|>2.2 The Departing Employees\n<|id|>23<|type|>table<|page|>2<|box|>517 143 776 852<|content|>None\n<|id|>25<|type|>title<|page|>3<|box|>150 140 167 434<|content|>2.3 Restrictive Covenant Agreements\n<|id|>27<|type|>title<|page|>3<|box|>325 140 344 575<|content|>2.4 Access to Proprietary and Confidential Informa\n<|id|>34<|type|>title<|page|>3<|box|>717 140 734 388<|content|>2.5 Suspected Data Exfiltration\n<|id|>36<|type|>title<|page|>4<|box|>90 140 107 346<|content|>2.6 Anticipated Litigation\n<|id|>38<|type|>title<|page|>4<|box|>290 398 310 598<|content|>3. Scope of Services\n<|id|>40<|type|>title<|page|>4<|box|>404 140 422 493<|content|>3.1 Forensic Imaging of CRH-Issued Devices\n<|id|>48<|type|>title<|page|>5<|box|>90 140 107 383<|content|>3.2 Cloud Access Log Analysis\n<|id|>61<|type|>title<|page|>5<|box|>734 140 752 413<|content|>3.3 Data Exfiltration Investigation\n<|id|>76<|type|>title<|page|>6<|box|>551 140 569 455<|content|>3.4 Encrypted Communication Analysis\n<|id|>79<|type|>title<|page|>6<|box|>773 140 790 254<|content|>3.5 Reporting\n<|id|>84<|type|>title<|page|>7<|box|>348 140 364 315<|content|>3.6 Expert Testimony\n<|id|>90<|type|>title<|page|>7<|box|>609 140 627 326<|content|>3.7 Additional Services\n<|id|>92<|type|>title<|page|>7<|box|>773 390 792 604<|content|>4. Engagement Team\n<|id|>96<|type|>title<|page|>8<|box|>334 380 354 614<|content|>5. Timing and Urgency\n<|id|>103<|type|>title<|page|>8<|box|>784 210 804 785<|content|>6. Attorney-Client Privilege and Work Product Prot\n<|id|>109<|type|>title<|page|>9<|box|>477 349 497 647<|content|>7. Confidentiality Obligations\n<|id|>114<|type|>title<|page|>10<|box|>154 300 174 697<|content|>8. Data Handling and Chain of Custody\n<|id|>118<|type|>title<|page|>10<|box|>545 403 565 593<|content|>9. Fees and Billing\n<|id|>120<|type|>table<|page|>10<|box|>625 143 719 852<|content|>None\n<|id|>129<|type|>title<|page|>11<|box|>465 341 484 655<|content|>10. Independence and Conflicts\n<|id|>139<|type|>title<|page|>12<|box|>90 359 111 637<|content|>11. Cooperation and Access\n<|id|>147<|type|>title<|page|>12<|box|>512 266 532 730<|content|>12. Limitation of Liability and Indemnification\n<|id|>148<|type|>title<|page|>12<|box|>556 142 574 357<|content|>12.1 Limitation of Liability\n<|id|>150<|type|>title<|page|>12<|box|>715 143 733 370<|content|>12.2 Mutual Indemnification\n<|id|>152<|type|>title<|page|>13<|box|>90 140 107 468<|content|>12.3 Exclusion of Consequential Damages\n<|id|>154<|type|>title<|page|>13<|box|>215 364 236 633<|content|>13. Term and Termination\n<|id|>161<|type|>title<|page|>13<|box|>556 285 575 712<|content|>14. Governing Law and Dispute Resolution\n<|id|>164<|type|>title<|page|>14<|box|>90 354 111 640<|content|>15. Miscellaneous Provisions\n<|id|>181<|type|>title<|page|>14<|box|>876 341 892 655<|content|>ACKNOWLEDGED AND ACCEPTED\n<|id|>183<|type|>title<|page|>15<|box|>152 142 169 393<|content|>PINNACLE FORENSICS LLC",
+    "raw_response": "<|src_id|>23<|tgt_id|>21\n<|src_id|>120<|tgt_id|>118",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 118
+        }
+    ]
+}

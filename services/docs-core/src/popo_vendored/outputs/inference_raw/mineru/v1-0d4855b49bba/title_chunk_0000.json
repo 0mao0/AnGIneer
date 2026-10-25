@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        36
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        13,
+        14,
+        18,
+        19,
+        23,
+        24,
+        26,
+        27,
+        29,
+        32,
+        33,
+        36
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>118 114 178 880<|content|>Regularized Principal Spline Functions to Mitigate\n<|id|>5<|page|>1<|box|>599 454 618 544<|content|>Abstract\n<|id|>8<|page|>2<|box|>297 114 316 303<|content|>1 Introduction\n<|id|>16<|page|>4<|box|>88 112 107 310<|content|>2 Preliminaries\n<|id|>34<|page|>5<|box|>748 112 768 710<|content|>3 A Low-Rank Smoother for Spatial Confounding\n<|id|>39<|page|>6<|box|>301 112 319 676<|content|>3.1 Smoothing and interpolation for stochastic pro\n<|id|>50<|page|>7<|box|>224 112 242 553<|content|>3.2 The reduced-rank random efects model\n<|id|>61<|page|>8<|box|>560 112 579 651<|content|>4 Bias Reduction with Low-Rank Smoothers\n<|id|>72<|page|>9<|box|>719 112 741 732<|content|>5 Proposed Regularization of the Regression Model\n<|id|>82<|page|>11<|box|>571 112 590 357<|content|>6 Simulation Study\n<|id|>86<|page|>13<|box|>90 112 107 240<|content|>6.1 Results\n<|id|>92<|page|>14<|box|>319 112 340 795<|content|>7 Reducing Confounding Bias in Ozone–\\mathbf { \\na\n<|id|>102<|page|>18<|box|>89 114 106 277<|content|>8 Discussion\n<|id|>110<|page|>19<|box|>344 112 364 338<|content|>Acknowledgements\n<|id|>112<|page|>19<|box|>645 112 665 410<|content|>Supplementary Materials\n<|id|>114<|page|>19<|box|>758 112 780 267<|content|>Bibliography\n<|id|>171<|page|>23<|box|>621 112 641 648<|content|>A Smoothing and interpolation in an RKHS\n<|id|>183<|page|>24<|box|>417 111 464 883<|content|>B Derivation of Diference Between Unadjusted and A\n<|id|>211<|page|>26<|box|>518 112 540 485<|content|>C Local Spike-and-Slab Priors\n<|id|>220<|page|>27<|box|>358 112 375 635<|content|>C.1 Derivation of the Full Conditional Distributio\n<|id|>226<|page|>27<|box|>830 111 849 712<|content|>D Additional Findings from the Simulation Study\n<|id|>229<|page|>29<|box|>90 111 108 774<|content|>D.1 Diference Between Unadjusted and Adjusted OLS\n<|id|>231<|page|>29<|box|>772 111 790 720<|content|>D.2 Diference Between Bayesian and Frequentist Est\n<|id|>256<|page|>32<|box|>180 111 199 617<|content|>D.3 Bases Selected by the Competing Approaches\n<|id|>264<|page|>33<|box|>691 112 709 439<|content|>D.4 Other Simulation Scenarios\n<|id|>270<|page|>36<|box|>90 111 108 527<|content|>D.5 Simulation with Diferent Exposures",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>3\n<|id|>50<|level|>3\n<|id|>61<|level|>2\n<|id|>72<|level|>2\n<|id|>82<|level|>2\n<|id|>86<|level|>3\n<|id|>92<|level|>2\n<|id|>102<|level|>2\n<|id|>110<|level|>2\n<|id|>112<|level|>2\n<|id|>114<|level|>2\n<|id|>171<|level|>2\n<|id|>183<|level|>2\n<|id|>211<|level|>2\n<|id|>220<|level|>3\n<|id|>226<|level|>2\n<|id|>229<|level|>3\n<|id|>231<|level|>3\n<|id|>256<|level|>3\n<|id|>264<|level|>3\n<|id|>270<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 3
+        },
+        {
+            "id": 226,
+            "level": 2
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 231,
+            "level": 3
+        },
+        {
+            "id": 256,
+            "level": 3
+        },
+        {
+            "id": 264,
+            "level": 3
+        },
+        {
+            "id": 270,
+            "level": 3
+        }
+    ]
+}

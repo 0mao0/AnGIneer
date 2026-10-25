@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>5<|type|>title<|page|>1<|box|>268 287 289 707<|content|>1. Purpose and Engagement Confirmation\n<|id|>9<|type|>title<|page|>1<|box|>679 364 698 630<|content|>2. Scope of Representation\n<|id|>33<|type|>title<|page|>4<|box|>465 390 486 604<|content|>3. Engagement Team\n<|id|>41<|type|>title<|page|>5<|box|>444 397 463 599<|content|>4. Fee Arrangement\n<|id|>42<|type|>title<|page|>5<|box|>489 142 505 279<|content|>4.1 Hourly Rates\n<|id|>43<|type|>table<|page|>5<|box|>575 143 719 852<|content|>None\n<|id|>46<|type|>title<|page|>6<|box|>90 142 107 339<|content|>4.2 Estimated Total Fees\n<|id|>50<|type|>title<|page|>6<|box|>484 140 501 400<|content|>4.3 Disbursements and Expenses\n<|id|>59<|type|>title<|page|>7<|box|>167 140 184 334<|content|>4.4 Billing and Payment\n<|id|>64<|type|>title<|page|>7<|box|>590 374 611 622<|content|>5. Client Responsibilities\n<|id|>72<|type|>title<|page|>8<|box|>377 408 398 588<|content|>6. Confidentiality\n<|id|>76<|type|>title<|page|>8<|box|>732 385 751 611<|content|>7. Conflicts of Interest\n<|id|>80<|type|>title<|page|>9<|box|>369 421 390 575<|content|>8. Termination\n<|id|>85<|type|>title<|page|>9<|box|>733 382 751 614<|content|>9. Document Retention\n<|id|>90<|type|>title<|page|>10<|box|>271 307 291 689<|content|>10. Limitation of Liability / Disclaimer\n<|id|>93<|type|>title<|page|>10<|box|>599 401 619 596<|content|>11. Governing Law\n<|id|>95<|type|>title<|page|>10<|box|>773 331 794 665<|content|>12. Acceptance and Counterparts\n<|id|>101<|type|>title<|page|>11<|box|>412 140 428 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>108<|type|>title<|page|>11<|box|>565 352 580 643<|content|>ACKNOWLEDGED AND AGREED\n<|id|>109<|type|>title<|page|>11<|box|>590 142 606 496<|content|>PENTERRA PHARMACEUTICALS CORP.",
+    "raw_response": "<|src_id|>43<|tgt_id|>42",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 42
+        }
+    ]
+}

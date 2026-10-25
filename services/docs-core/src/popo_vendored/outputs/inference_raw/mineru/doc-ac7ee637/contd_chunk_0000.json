@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        9,
+        17,
+        18,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>243 142 260 447<|content|>TO: ... Howard Quinn, Responsible Partner\n<|id|>4<|page|>1<|box|>268 142 286 437<|content|>FROM: ... Elliot Nguyen, Lead Associate\n<|id|>5<|page|>1<|box|>294 142 311 354<|content|>DATE: ... November 28, 2022\n<|id|>6<|page|>1<|box|>320 140 357 854<|content|>RE: ... 22STPB09714\n<|id|>7<|page|>1<|box|>364 140 382 362<|content|>MATTER NO. ... 1035-00005\n<|id|>8<|page|>1<|box|>390 140 407 393<|content|>CLIENT: ... Fonseca\n<|id|>9<|page|>1<|box|>416 142 431 408<|content|>Right-click to update Table of Contents\n<|id|>75<|page|>9<|box|>116 174 133 668<|content|>(f) The choice of law governing construction of the agreement; ... and\n<|id|>77<|page|>9<|box|>186 140 277 854<|content|>Cal. ... The alleged agreement's provision classif...therwise valid, fall within the scope of § 1612(a)\n<|id|>151<|page|>17<|box|>866 140 902 854<|content|>Claudette Marchetti's declaration, submitted as Ex...analysis. ... Marchetti's declaration asserts that\n<|id|>152<|page|>18<|box|>90 140 127 852<|content|>Teodoro discussed his intent to execute a prenupti...onal knowledge of the agreement's actual execution\n<|id|>174<|page|>20<|box|>825 140 898 857<|content|>Third, the contestants cannot establish that Margu...ad not previously been married, was not a party to\n<|id|>175<|page|>21<|box|>90 140 162 854<|content|>Teodoro's divorce from Claudette Marchetti and wou...de the context of the alleged premarital agreement",
+    "raw_response": "<|src_id|>151<|tgt_id|>152\n<|src_id|>174<|tgt_id|>175",
+    "parsed": [
+        {
+            "src_id": 151,
+            "tgt_id": 152
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 175
+        }
+    ]
+}

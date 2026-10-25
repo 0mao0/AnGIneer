@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        10,
+        11,
+        20,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 151 611<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>157 140 195 854<|content|>To: ... Claudia Merritt, Responsible Partner, Bank... Ian Blackwood, Billing Partner, Banking & Finance\n<|id|>3<|page|>1<|box|>203 140 220 576<|content|>From: ... Marcus Leung, Lead Associate, Banking & Finance\n<|id|>4<|page|>1<|box|>229 142 246 320<|content|>Date: ... February 4, 2025\n<|id|>5<|page|>1<|box|>253 140 291 854<|content|>Re: ... in $1,400,000,000 Senior Secured Term Loan B Refinancing and Dividend Recapitalization\n<|id|>6<|page|>1<|box|>299 142 316 331<|content|>Matter No. ... 1005-00001\n<|id|>7<|page|>1<|box|>324 140 342 450<|content|>Client/Matter Code: ... IBL-NIH-2025-031\n<|id|>8<|page|>1<|box|>349 142 368 410<|content|>Right-click to update Table of Contents\n<|id|>110<|page|>10<|box|>848 140 902 854<|content|>In addition, following closing, C&H will prepare a...or about March 31, 2025 in Delaware, Illinois, and\n<|id|>111<|page|>11<|box|>89 140 145 854<|content|>Pennsylvania, and in any other jurisdiction in whi...and lien release authorization from Atlas Meridian\n<|id|>225<|page|>20<|box|>797 181 834 854<|content|>• Hargrove & Whitmore LLP (Illinois local counsel ...County matters): ... approximately $40,000–$60,000\n<|id|>227<|page|>20<|box|>875 140 909 854<|content|>The combined all-counsel estimated fees (C&H plus ... counsel) are approximately $1,077,500 –$1,408,000\n<|id|>226<|page|>20<|box|>835 183 872 854<|content|>• Briarcliff Legal Group PA (Delaware local counse...ing, authority): ... approximately $25,000–$40,000\n<|id|>258<|page|>23<|box|>486 140 503 727<|content|>Marcus Leung Lead Associate, Banking & Finance Drummond & Fenwick LLP\n<|id|>259<|page|>23<|box|>503 143 520 367<|content|>Telephone: ... (212) 558-XXXX",
+    "raw_response": "<|src_id|>110<|tgt_id|>111",
+    "parsed": [
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        }
+    ]
+}

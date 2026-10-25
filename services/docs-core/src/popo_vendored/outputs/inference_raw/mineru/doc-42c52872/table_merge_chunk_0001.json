@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Cybersecurity Lead', '[To be designated]', 'Minimum 8 years of experience in cybersecurity; CISSP, CISM, or']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'equivalent certification; experience with SIEM platforms, incident response, and vulnerability management']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 509,
+    "table2_idx": 510
+}

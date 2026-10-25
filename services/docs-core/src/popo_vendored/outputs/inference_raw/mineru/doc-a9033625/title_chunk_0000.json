@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 192 148 856<|content|>CALDERWOOD & HARKNESS LLP Solicitors & Internation\n<|id|>14<|page|>1<|box|>694 140 710 478<|content|>1. Background and Judicial Sale Summary\n<|id|>21<|page|>2<|box|>520 142 537 393<|content|>2. Deductions and Net Proceeds\n<|id|>30<|page|>3<|box|>446 140 464 307<|content|>3. Priority of Claims\n<|id|>37<|page|>4<|box|>90 140 107 496<|content|>4. Wire Transfer Instructions for Remittance\n<|id|>53<|page|>4<|box|>720 140 738 514<|content|>5. Reporting and Documentation Requirements\n<|id|>61<|page|>5<|box|>436 140 454 490<|content|>6. Context of Wider Enforcement Campaign\n<|id|>72<|page|>6<|box|>167 140 185 382<|content|>7. Ongoing Singapore Matters\n<|id|>80<|page|>6<|box|>609 140 627 341<|content|>8. Costs and Fee Matters\n<|id|>84<|page|>7<|box|>186 140 204 209<|content|>Closing",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>30<|level|>2\n<|id|>37<|level|>2\n<|id|>53<|level|>2\n<|id|>61<|level|>2\n<|id|>72<|level|>2\n<|id|>80<|level|>2\n<|id|>84<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        }
+    ]
+}

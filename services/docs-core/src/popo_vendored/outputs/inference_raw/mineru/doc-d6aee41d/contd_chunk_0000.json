@@ -1,0 +1,42 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>186 140 204 854<|content|>FROM: ... Samuel Eklund, Responsible Partner, Litigation (General), Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>212 140 267 854<|content|>TO: ... )\n<|id|>6<|page|>1<|box|>318 142 335 361<|content|>MATTER NO. ... 1012-00005\n<|id|>7<|page|>1<|box|>344 140 405 854<|content|>This memorandum constitutes a privileged attorney-... & Harkness LLP and Stonefield Logistics Group Inc\n<|id|>22<|page|>2<|box|>827 140 900 856<|content|>Rate Structure. ... Energy\n<|id|>23<|page|>3<|box|>89 140 145 854<|content|>Information Administration's weekly retail on-high...e to become effective each April 1 during the term\n<|id|>25<|page|>3<|box|>196 183 213 410<|content|>• On-time pickup rate: ... ≥ 95%\n<|id|>30<|page|>3<|box|>313 140 422 854<|content|>Liquidated Damages. ... This provision was drafted...nt capital investments in dedicated fleet capacity\n<|id|>26<|page|>3<|box|>215 183 233 418<|content|>• On-time delivery rate: ... ≥ 93%\n<|id|>27<|page|>3<|box|>236 183 253 524<|content|>• Cargo claims ratio: ... 5% of gross revenue\n<|id|>28<|page|>3<|box|>256 183 271 429<|content|>• Tender acceptance rate: ... ≥ 90%\n<|id|>29<|page|>3<|box|>275 183 310 854<|content|>• Equipment availability: ... ≥ 85% of committed f...acity (defined as 400 tractors and 1,200 trailers)\n<|id|>41<|page|>4<|box|>128 181 181 854<|content|>• Sixteen (16) cargo claims were filed in November...ielding a claims ratio of approximately 1. ... and\n<|id|>43<|page|>4<|box|>222 140 258 854<|content|>The Cure Notice was transmitted by certified mail ...stent with the notice provisions of TSA Section 18\n<|id|>67<|page|>6<|box|>806 140 880 857<|content|>Settlement discussions and any settlement amount s...ceeding a threshold to be confirmed with CFO Priya\n<|id|>68<|page|>7<|box|>90 140 127 854<|content|>Ramachandran should be pre-vetted for covenant com...o communicate a specific offer to opposing counsel\n<|id|>84<|page|>8<|box|>849 140 904 857<|content|>First, Vantor's company-wide financial results ind...ear 2022 revenue of approximately $310 million — a\n<|id|>86<|page|>9<|box|>208 140 354 857<|content|>Second, the lost-profits claim and the liquidated ...e than speculation or generalized margin estimates\n<|id|>103<|page|>11<|box|>705 138 907 857<|content|>3. ... Second, it supports the argument that VTS's...and therefore properly characterized as \"material\"\n<|id|>104<|page|>12<|box|>90 140 218 856<|content|>within the meaning of Section 13. ... While this e...t is expected to be a central exhibit in this case\n<|id|>186<|page|>20<|box|>859 140 895 854<|content|>Stonefield's defensive position in the Vantor Liti...failures across all five contractual Service Level\n<|id|>187<|page|>21<|box|>90 140 218 854<|content|>Obligations, supported by data from VTS's own reporting systems. ... 4 million demand\n<|id|>192<|page|>21<|box|>641 140 657 320<|content|>Respectfully submitted,\n<|id|>193<|page|>21<|box|>657 142 674 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>194<|page|>21<|box|>676 143 691 251<|content|>By: ... By\n<|id|>195<|page|>21<|box|>691 140 724 852<|content|>Samuel Eklund Responsible Partner, Litigation (Gen...York, New York 10166 Telephone: ... (212) 555-7400\n<|id|>196<|page|>21<|box|>726 143 741 455<|content|>Email: ... com\n<|id|>197<|page|>21<|box|>743 143 758 326<|content|>Date: ... November 8, 2022\n<|id|>198<|page|>21<|box|>758 143 773 321<|content|>DISTRIBUTION NOTICE\n<|id|>199<|page|>21<|box|>782 142 796 743<|content|>This memorandum is confidential and privileged. .....stribution is limited to the following individuals",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>67<|tgt_id|>68\n<|src_id|>103<|tgt_id|>104\n<|src_id|>186<|tgt_id|>187",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 187
+        }
+    ]
+}

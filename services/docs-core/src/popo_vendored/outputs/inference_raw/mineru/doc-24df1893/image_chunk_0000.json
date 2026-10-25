@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>369 142 385 263<|content|>I. Introduction\n<|id|>9<|type|>table<|page|>1<|box|>627 143 739 852<|content|>None\n<|id|>13<|type|>title<|page|>2<|box|>304 140 321 367<|content|>II. Background and Context\n<|id|>14<|type|>title<|page|>2<|box|>335 140 352 531<|content|>A. Events Leading to the Forbearance Agreement\n<|id|>21<|type|>title<|page|>3<|box|>367 140 383 509<|content|>B. Progress During the Initial Standstill Period\n<|id|>28<|type|>title<|page|>4<|box|>321 140 339 707<|content|>III. Summary of Outstanding Indebtedness Under the\n<|id|>30<|type|>title<|page|>4<|box|>452 142 469 405<|content|>A. Senior Secured Credit Facility\n<|id|>32<|type|>table<|page|>4<|box|>554 143 794 852<|content|>None\n<|id|>36<|type|>title<|page|>5<|box|>301 140 318 393<|content|>B. Other Material Indebtedness\n<|id|>42<|type|>title<|page|>6<|box|>90 140 107 733<|content|>IV. Proposed Terms of the First Amendment to the F\n<|id|>44<|type|>title<|page|>6<|box|>202 140 219 377<|content|>A. Extended Standstill Period\n<|id|>51<|type|>title<|page|>7<|box|>90 140 107 323<|content|>B. Updated Milestones\n<|id|>59<|type|>title<|page|>8<|box|>294 140 311 491<|content|>C. Information and Reporting Undertakings\n<|id|>66<|type|>title<|page|>9<|box|>90 140 107 462<|content|>D. Acknowledgment of Events of Default\n<|id|>68<|type|>title<|page|>9<|box|>253 142 272 336<|content|>E. Reservation of Rights\n<|id|>72<|type|>title<|page|>9<|box|>544 140 560 403<|content|>F. Additional Lender Protections\n<|id|>78<|type|>title<|page|>10<|box|>414 140 431 450<|content|>V. Status of Restructuring Alternatives\n<|id|>80<|type|>title<|page|>10<|box|>507 140 523 519<|content|>A. Out-of-Court Restructuring (Preferred Path)\n<|id|>82<|type|>title<|page|>10<|box|>781 140 799 398<|content|>B. Chapter 11 Contingency Plan\n<|id|>89<|type|>title<|page|>11<|box|>737 140 753 356<|content|>C. Unsecured Note Default\n<|id|>91<|type|>title<|page|>12<|box|>90 140 107 403<|content|>VI. Cross-Border Considerations\n<|id|>95<|type|>title<|page|>12<|box|>502 140 518 375<|content|>VII. Request for Engagement\n<|id|>111<|type|>title<|page|>13<|box|>279 140 295 277<|content|>VIII. Enclosures\n<|id|>115<|type|>title<|page|>13<|box|>464 140 482 238<|content|>IX. Closing\n<|id|>123<|type|>title<|page|>14<|box|>90 140 107 694<|content|>Enclosure: Draft First Amendment to Forbearance Ag",
+    "raw_response": "<|src_id|>9<|tgt_id|>7\n<|src_id|>32<|tgt_id|>30",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        }
+    ]
+}

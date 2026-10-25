@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        9,
+        10,
+        18,
+        29
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>166 179 268 818<|content|>FPGA Benchmarking of Round 2 Candidates in the NIS\n<|id|>7<|page|>1<|box|>733 171 751 351<|content|>1 Introduction\n<|id|>20<|page|>3<|box|>533 169 552 361<|content|>2 Methodology\n<|id|>21<|page|>3<|box|>565 169 581 406<|content|>2.1 LWC Hardware API\n<|id|>23<|page|>3<|box|>766 169 784 576<|content|>2.2 LWC Hardware Development Package\n<|id|>32<|page|>4<|box|>695 169 711 475<|content|>2.3 FPGA Platforms and Tools\n<|id|>50<|page|>9<|box|>825 169 841 378<|content|>3.1 Unique Features\n<|id|>54<|page|>10<|box|>288 169 307 509<|content|>4 Results and Their Analysis\n<|id|>55<|page|>10<|box|>318 169 335 786<|content|>4.1 Results of Functional Verifcation and Timing M\n<|id|>60<|page|>10<|box|>521 169 537 411<|content|>4.2 Results of Synthesis\n<|id|>63<|page|>10<|box|>661 169 678 492<|content|>4.3 Throughputs for Long Inputs\n<|id|>64<|page|>10<|box|>684 169 699 423<|content|>4.3.1 Results for Xilinx Artix-7\n<|id|>72<|page|>18<|box|>124 169 140 734<|content|>4.3.2 Results for Intel Cyclone 10 LP and Lattice\n<|id|>78<|page|>18<|box|>720 169 734 636<|content|>4.3.3 Resource Utilization and Maximum Clock Frequ\n<|id|>92<|page|>29<|box|>466 169 482 485<|content|>4.3.4 Initial Design Space Explorations",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>32<|level|>3\n<|id|>50<|level|>3\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>3\n<|id|>64<|level|>4\n<|id|>72<|level|>4\n<|id|>78<|level|>4\n<|id|>92<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 78,
+            "level": 4
+        },
+        {
+            "id": 92,
+            "level": 4
+        }
+    ]
+}

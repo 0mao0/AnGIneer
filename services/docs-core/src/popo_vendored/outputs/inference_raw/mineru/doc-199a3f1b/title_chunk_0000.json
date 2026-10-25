@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>1<|box|>570 174 614 821<|content|>Aurelius Global Media Group Announces Results of 2\n<|id|>8<|page|>2<|box|>148 140 167 310<|content|>Election of Directors\n<|id|>9<|page|>2<|box|>180 140 196 336<|content|>Newly Elected Directors\n<|id|>14<|page|>3<|box|>90 140 107 383<|content|>Directors Continuing in Office\n<|id|>28<|page|>3<|box|>612 140 628 566<|content|>Statement from the Independent Non-Executive Chair\n<|id|>33<|page|>4<|box|>133 140 152 331<|content|>Dame Elspeth continued:\n<|id|>39<|page|>4<|box|>579 140 597 269<|content|>Looking Ahead\n<|id|>43<|page|>5<|box|>90 142 107 473<|content|>About Aurelius Global Media Group PLC\n<|id|>53<|page|>5<|box|>595 142 612 377<|content|>Forward-Looking Statements\n<|id|>58<|page|>6<|box|>559 151 613 846<|content|>INTERNAL DRAFT NOTES — CALDERWOOD & HARKNESS LLP P\n<|id|>60<|page|>6<|box|>648 143 664 290<|content|>MEMORANDUM\n<|id|>62<|page|>6<|box|>827 140 844 205<|content|>Nadine:",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>14<|level|>3\n<|id|>28<|level|>2\n<|id|>33<|level|>3\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>53<|level|>2\n<|id|>58<|level|>-1\n<|id|>60<|level|>1\n<|id|>62<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 2
+        }
+    ]
+}

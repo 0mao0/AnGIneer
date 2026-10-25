@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 107 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>114 153 150 844<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT ATTORNEY-CLIE\n<|id|>2<|type|>title<|page|>1<|box|>160 424 176 573<|content|>MEMORANDUM\n<|id|>10<|type|>title<|page|>1<|box|>405 372 424 624<|content|>I. Purpose and Summary\n<|id|>23<|type|>title<|page|>2<|box|>646 287 665 710<|content|>II. Analysis of Plaintiffs' Reply Arguments\n<|id|>24<|type|>title<|page|>2<|box|>691 142 707 544<|content|>A. Auto-Deduction as the \"Common Denominator\"\n<|id|>25<|type|>title<|page|>2<|box|>720 143 738 326<|content|>1. Plaintiffs' Argument\n<|id|>35<|type|>title<|page|>4<|box|>90 142 106 292<|content|>2. Our Assessment\n<|id|>41<|type|>title<|page|>4<|box|>715 142 733 553<|content|>B. *Brinker* Does Not Require Individualized Proof\n<|id|>42<|type|>title<|page|>4<|box|>747 143 763 326<|content|>1. Plaintiffs' Argument\n<|id|>48<|type|>title<|page|>5<|box|>539 142 555 294<|content|>2. Our Assessment\n<|id|>52<|type|>title<|page|>5<|box|>915 140 930 539<|content|>ATTORNEY WORK PRODUCT / ATTORNEY-CLIENT PRIVILEGED\n<|id|>57<|type|>title<|page|>6<|box|>612 140 628 346<|content|>C. Attack on Dr. Makhija\n<|id|>58<|type|>title<|page|>6<|box|>643 142 660 326<|content|>1. Plaintiffs' Argument\n<|id|>64<|type|>title<|page|>7<|box|>503 140 518 292<|content|>2. Our Assessment\n<|id|>70<|type|>title<|page|>8<|box|>458 140 474 488<|content|>D. Defense of Dr. Rennick's Damages Model\n<|id|>71<|type|>title<|page|>8<|box|>489 143 506 326<|content|>1. Plaintiffs' Argument\n<|id|>78<|type|>title<|page|>9<|box|>367 140 383 294<|content|>2. Our Assessment\n<|id|>86<|type|>title<|page|>10<|box|>488 253 508 743<|content|>III. Other Notable Arguments in Plaintiffs' Reply\n<|id|>87<|type|>title<|page|>10<|box|>532 142 550 364<|content|>A. Typicality and Adequacy\n<|id|>97<|type|>title<|page|>11<|box|>612 140 628 259<|content|>B. Superiority\n<|id|>101<|type|>title<|page|>12<|box|>148 140 166 385<|content|>C. SB 699 / AB 1076 Reference\n<|id|>104<|type|>title<|page|>12<|box|>430 316 449 679<|content|>IV. Updated Probability Assessment\n<|id|>105<|type|>table<|page|>12<|box|>508 143 742 852<|content|>None\n<|id|>107<|type|>title<|page|>13<|box|>90 142 107 594<|content|>Basis for Increased Probability on the Meal Period\n<|id|>114<|type|>title<|page|>13<|box|>797 297 816 699<|content|>V. Implications for Hearing Preparation\n<|id|>115<|type|>title<|page|>13<|box|>842 142 859 473<|content|>A. Points to Emphasize at July 28 Hearing\n<|id|>123<|type|>title<|page|>15<|box|>286 140 303 656<|content|>B. Anticipated Questions from the Court and Propos\n<|id|>125<|type|>table<|page|>15<|box|>354 143 907 851<|content|>None\n<|id|>126<|type|>table<|page|>16<|box|>89 143 431 852<|content|>None\n<|id|>127<|type|>title<|page|>16<|box|>481 140 498 433<|content|>C. Preparation Steps Before Hearing\n<|id|>133<|type|>title<|page|>17<|box|>229 297 250 697<|content|>VI. Implications for Settlement Strategy\n<|id|>142<|type|>title<|page|>18<|box|>381 305 401 689<|content|>VII. Conclusion and Recommendation",
+    "raw_response": "<|src_id|>105<|tgt_id|>104\n<|src_id|>125<|tgt_id|>123\n<|src_id|>126<|tgt_id|>123",
+    "parsed": [
+        {
+            "src_id": 105,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 123
+        }
+    ]
+}

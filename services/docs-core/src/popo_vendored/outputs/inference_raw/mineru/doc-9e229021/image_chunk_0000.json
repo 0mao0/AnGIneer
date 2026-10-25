@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 287 143 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>4<|type|>table<|page|>1<|box|>271 143 474 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>508 153 529 844<|content|>STIPULATION APPOINTING NEUTRAL FORENSIC EXAMINER\n<|id|>7<|type|>title<|page|>1<|box|>645 142 662 241<|content|>RECITALS\n<|id|>13<|type|>title<|page|>2<|box|>275 140 292 565<|content|>Section 1: Appointment of Neutral Forensic Examine\n<|id|>18<|type|>title<|page|>2<|box|>713 140 729 467<|content|>Section 2: Scope of Forensic Examination\n<|id|>19<|type|>title<|page|>2<|box|>744 140 760 524<|content|>2.1. Devices and Systems Subject to Examination\n<|id|>27<|type|>title<|page|>3<|box|>719 140 736 483<|content|>2.2. Categories of Materials to Be Identified\n<|id|>35<|type|>title<|page|>4<|box|>444 142 460 426<|content|>2.3. Forensic Examination Activities\n<|id|>43<|type|>title<|page|>5<|box|>167 140 185 500<|content|>Section 3: Timeline for Forensic Examination\n<|id|>53<|type|>title<|page|>6<|box|>90 140 107 431<|content|>Section 4: Cooperation of the Parties\n<|id|>54<|type|>title<|page|>6<|box|>121 140 138 367<|content|>4.1. Defendants' Obligations\n<|id|>59<|type|>title<|page|>6<|box|>601 142 618 349<|content|>4.2. Plaintiff's Obligations\n<|id|>65<|type|>title<|page|>7<|box|>321 140 339 514<|content|>Section 5: Confidentiality and Protective Order\n<|id|>70<|type|>title<|page|>7<|box|>814 140 832 375<|content|>Section 6: Allocation of Costs\n<|id|>75<|type|>title<|page|>8<|box|>366 140 383 459<|content|>Section 7: Reports and Communications\n<|id|>87<|type|>title<|page|>8<|box|>840 140 857 395<|content|>Section 8: Reservation of Rights\n<|id|>91<|type|>title<|page|>9<|box|>366 140 383 395<|content|>Section 9: Additional Provisions\n<|id|>97<|type|>title<|page|>9<|box|>631 437 647 560<|content|>SIGNATURES\n<|id|>98<|type|>title<|page|>9<|box|>657 140 674 326<|content|>DATED: March 8, 2023\n<|id|>112<|type|>title<|page|>10<|box|>217 285 270 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>116<|type|>table<|page|>10<|box|>398 143 544 852<|content|>None\n<|id|>117<|type|>title<|page|>10<|box|>578 191 598 805<|content|>ORDER APPOINTING NEUTRAL FORENSIC EXAMINER\n<|id|>120<|type|>title<|page|>10<|box|>796 142 813 447<|content|>IT IS HEREBY ORDERED as follows:\n<|id|>128<|type|>title<|page|>11<|box|>820 411 835 584<|content|>IT IS SO ORDERED.",
+    "raw_response": "<|src_id|>4<|tgt_id|>5\n<|src_id|>116<|tgt_id|>117",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 117
+        }
+    ]
+}

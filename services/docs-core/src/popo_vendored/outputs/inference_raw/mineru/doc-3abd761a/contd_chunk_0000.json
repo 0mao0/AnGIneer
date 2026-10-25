@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        10,
+        20,
+        21,
+        28,
+        29
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>258 140 294 854<|content|>FROM: ... Howard Bellamy, Specialist Partner, Antitrust & Competition, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>303 140 338 854<|content|>CC: ... Gabriela Montoya, Partner, Whitfield & Cra...wo, Lead Associate, M&A, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>345 140 364 310<|content|>DATE: ... May 28, 2025\n<|id|>6<|page|>1<|box|>373 140 409 854<|content|>RE: ... Contingency Analysis — Potential Divestitu...s NovaHome Home Décor Vertical as Antitrust Remedy\n<|id|>7<|page|>1<|box|>417 140 434 741<|content|>MATTER: ... — Acquisition of NovaMart Global Inc\n<|id|>61<|page|>8<|box|>771 138 901 857<|content|>If the DOJ defines the relevant market narrowly — ...and the treatment of participants such as Wayfair,\n<|id|>62<|page|>9<|box|>90 140 127 854<|content|>Ridgeway Industries, and Amazon. ... At these leve... asserting competitive harm and demanding a remedy\n<|id|>71<|page|>9<|box|>834 140 907 857<|content|>4. ... The consent decree would typically include provisions prohibiting Cascade or\n<|id|>72<|page|>10<|box|>90 174 125 854<|content|>NovaMart from interfering with the transfer of the...ion incentives or restrictive covenant enforcement\n<|id|>169<|page|>20<|box|>746 138 875 857<|content|>Redline Freight Corp. ... The agreement may contai...ns restricting the assignment or subcontracting of\n<|id|>170<|page|>21<|box|>90 140 127 854<|content|>NovaMart's logistics volume and may include change...ture in addition to the Cascade acquisition itself\n<|id|>226<|page|>28<|box|>878 140 896 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>227<|page|>29<|box|>89 140 142 589<|content|>By: ... May 28, 2025",
+    "raw_response": "<|src_id|>61<|tgt_id|>62\n<|src_id|>71<|tgt_id|>72\n<|src_id|>169<|tgt_id|>170",
+    "parsed": [
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 170
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        9,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 151 611<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>157 140 176 522<|content|>FROM: ... Nathaniel Bower, Partner (Billing Partner)\n<|id|>3<|page|>1<|box|>184 140 202 514<|content|>TO: ... Leonard Cross, Partner (Responsible Partner)\n<|id|>4<|page|>1<|box|>210 140 228 643<|content|>CC: ... Patricia Heng, Senior Counsel\n<|id|>5<|page|>1<|box|>234 140 253 325<|content|>DATE: ... March 20, 2023\n<|id|>6<|page|>1<|box|>262 140 299 854<|content|>RE: ... Data License)\n<|id|>7<|page|>1<|box|>306 140 324 478<|content|>CLIENT: ... Quorum Insurance Holdings Corp\n<|id|>35<|page|>5<|box|>719 140 902 856<|content|>This initial phase encompassed the administrative ...and divergence, was prepared between October 3 and\n<|id|>36<|page|>6<|box|>89 140 145 854<|content|>October 5, 2022. ... During this period, the team ...rincipal and counsel-to-counsel negotiation tracks\n<|id|>56<|page|>9<|box|>138 145 172 854<|content|>• Cumulative fees incurred (through February 2023, including accruals): ... Approximately $1,180,000\n<|id|>60<|page|>9<|box|>236 140 455 856<|content|>While a utilization rate of 65. ... The remaining ... and, in the base and pessimistic cases, exceed it\n<|id|>57<|page|>9<|box|>176 147 194 325<|content|>• Soft cap: ... $1,800,000\n<|id|>58<|page|>9<|box|>196 147 214 485<|content|>• Soft cap consumed: ... 6%\n<|id|>59<|page|>9<|box|>215 147 233 593<|content|>• Remaining soft cap headroom: ... Approximately $620,000\n<|id|>158<|page|>18<|box|>871 181 907 856<|content|>• Leonard Cross's involvement will be focused on e...gement with Quorum CEO Meg Tierney or Meridian CEO\n<|id|>159<|page|>19<|box|>90 210 125 854<|content|>Vince Halstead) and high-level strategy sessions. ...oyed for routine document review or drafting tasks",
+    "raw_response": "<|src_id|>35<|tgt_id|>36\n<|src_id|>158<|tgt_id|>159",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 159
+        }
+    ]
+}

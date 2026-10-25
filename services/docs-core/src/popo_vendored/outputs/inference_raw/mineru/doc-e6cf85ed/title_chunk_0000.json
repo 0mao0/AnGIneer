@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>396 140 412 264<|content|>I. Introduction\n<|id|>13<|page|>1<|box|>672 140 689 362<|content|>II. Description of the Issuer\n<|id|>20<|page|>2<|box|>89 176 107 586<|content|>SEC Central Index Key (CIK) Number: 0001948372\n<|id|>22<|page|>2<|box|>229 140 248 527<|content|>III. Description of the Offering and the Securitie\n<|id|>45<|page|>3<|box|>459 140 476 439<|content|>IV. Identification of the Underwriters\n<|id|>53<|page|>4<|box|>90 140 107 297<|content|>V. Specific Request\n<|id|>60<|page|>4<|box|>573 142 590 387<|content|>VI. Supporting Documentation\n<|id|>71<|page|>5<|box|>362 140 380 243<|content|>VII. Timing\n<|id|>75<|page|>5<|box|>756 140 773 352<|content|>VIII. Contact Information\n<|id|>77<|page|>5<|box|>844 176 861 444<|content|>At Calderwood & Harkness LLP:\n<|id|>89<|page|>6<|box|>396 140 412 459<|content|>IX. Authorization and Acknowledgment\n<|id|>93<|page|>6<|box|>789 140 806 230<|content|>X. Closing\n<|id|>102<|page|>7<|box|>234 142 250 287<|content|>Enclosures: None.\n<|id|>104<|page|>7<|box|>328 142 344 364<|content|>Acknowledgment of Receipt",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>13<|level|>1\n<|id|>20<|level|>-1\n<|id|>22<|level|>1\n<|id|>45<|level|>1\n<|id|>53<|level|>1\n<|id|>60<|level|>1\n<|id|>71<|level|>1\n<|id|>75<|level|>1\n<|id|>77<|level|>-1\n<|id|>89<|level|>1\n<|id|>93<|level|>1\n<|id|>102<|level|>1\n<|id|>104<|level|>2",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 2
+        }
+    ]
+}

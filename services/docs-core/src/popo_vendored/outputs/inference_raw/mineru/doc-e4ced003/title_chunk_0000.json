@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 156 118 838<|content|>SECRETARY'S CERTIFICATE OF SKYBRIDGE FINTECH LTD.\n<|id|>1<|page|>1<|box|>136 429 152 568<|content|>January 15, 2024\n<|id|>6<|page|>1<|box|>556 142 571 563<|content|>1. Amended and Restated Certificate of Incorporati\n<|id|>8<|page|>1<|box|>805 142 821 223<|content|>2. Bylaws\n<|id|>10<|page|>2<|box|>186 140 204 584<|content|>3. Unanimous Written Consent of the Board of Direc\n<|id|>21<|page|>3<|box|>340 140 357 419<|content|>4. Written Consent of Stockholders\n<|id|>23<|page|>3<|box|>609 140 626 284<|content|>5. Good Standing\n<|id|>25<|page|>4<|box|>90 140 107 540<|content|>6. Incumbency and Signature Authority of Officers\n<|id|>29<|page|>4<|box|>556 140 574 398<|content|>7. No Dissolution or Proceedings\n<|id|>31<|page|>4<|box|>715 140 732 385<|content|>8. Capitalization Confirmation\n<|id|>33<|page|>5<|box|>204 140 222 233<|content|>9. Reliance\n<|id|>41<|page|>5<|box|>536 140 553 392<|content|>COUNTER-CERTIFICATION\n<|id|>48<|page|>5<|box|>805 142 821 310<|content|>LIST OF EXHIBITS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        }
+    ]
+}

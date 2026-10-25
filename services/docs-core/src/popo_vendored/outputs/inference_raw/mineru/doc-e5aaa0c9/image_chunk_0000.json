@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 212 133 784<|content|>MEMORANDUM PRIVILEGED & CONFIDENTIAL — ATTORNEY WO\n<|id|>8<|type|>title<|page|>1<|box|>402 142 419 321<|content|>I. Executive Summary\n<|id|>14<|type|>title<|page|>2<|box|>304 140 321 267<|content|>II. Background\n<|id|>15<|type|>title<|page|>2<|box|>334 140 352 581<|content|>A. The Data-Sharing Partnership and DPA Negotiatio\n<|id|>26<|type|>title<|page|>3<|box|>436 140 453 622<|content|>B. Cloudvault Infrastructure, Inc. as Proposed Sub\n<|id|>33<|type|>title<|page|>4<|box|>138 140 156 351<|content|>C. Nature of Data at Issue\n<|id|>52<|type|>title<|page|>5<|box|>90 140 107 450<|content|>D. Current Data Transfer Architecture\n<|id|>59<|type|>title<|page|>5<|box|>540 140 558 457<|content|>III. Legal Analysis: GDPR Applicability\n<|id|>60<|type|>title<|page|>5<|box|>571 140 589 490<|content|>A. Territorial Scope of the GDPR (Article 3)\n<|id|>69<|type|>title<|page|>7<|box|>90 140 107 496<|content|>B. Personal Data Classification Under GDPR\n<|id|>74<|type|>title<|page|>7<|box|>734 140 752 480<|content|>C. Impact of No Current EU Data Subjects\n<|id|>79<|type|>title<|page|>8<|box|>549 140 566 620<|content|>IV. Legal Analysis: Cross-Border Data Transfer Mec\n<|id|>80<|type|>title<|page|>8<|box|>579 140 597 560<|content|>A. GDPR Chapter V — Transfers to Third Countries\n<|id|>85<|type|>title<|page|>9<|box|>402 140 420 462<|content|>B. Standard Contractual Clauses (SCCs)\n<|id|>95<|type|>title<|page|>10<|box|>294 140 311 620<|content|>C. Supplementary Measures (Post-Schrems II Require\n<|id|>108<|type|>title<|page|>11<|box|>426 140 444 429<|content|>D. Data Localization Considerations\n<|id|>112<|type|>title<|page|>12<|box|>90 140 107 620<|content|>V. Legal Analysis: Interaction with U.S. Privacy F\n<|id|>113<|type|>title<|page|>12<|box|>121 140 138 637<|content|>A. Michigan Identity Theft Protection Act (MCL 445\n<|id|>117<|type|>title<|page|>12<|box|>537 140 556 542<|content|>B. CCPA/CPRA (Cal. Civ. Code § 1798.100 et seq.)\n<|id|>126<|type|>title<|page|>13<|box|>398 140 417 415<|content|>C. DPPA (18 U.S.C. § 2721 et seq.)\n<|id|>130<|type|>title<|page|>13<|box|>755 140 772 385<|content|>VI. Risk Assessment Summary\n<|id|>131<|type|>title<|page|>13<|box|>786 143 801 264<|content|>A. Risk Matrix\n<|id|>133<|type|>table<|page|>13<|box|>869 143 905 852<|content|>None\n<|id|>134<|type|>table<|page|>14<|box|>89 143 801 852<|content|>None\n<|id|>141<|type|>title<|page|>16<|box|>250 140 266 323<|content|>B. Overall Assessment\n<|id|>145<|type|>title<|page|>16<|box|>604 140 619 480<|content|>VII. Recommendations for DPA Provisions\n<|id|>147<|type|>title<|page|>16<|box|>715 140 732 477<|content|>A. International Data Transfer Restriction\n<|id|>155<|type|>title<|page|>17<|box|>371 140 388 496<|content|>B. Transfer Impact Assessment Requirement\n<|id|>165<|type|>title<|page|>18<|box|>138 140 156 415<|content|>C. Data Localization Commitment\n<|id|>171<|type|>title<|page|>18<|box|>462 140 479 683<|content|>D. Sub-Processor Flow-Down Obligations for Interna\n<|id|>178<|type|>title<|page|>19<|box|>90 140 107 571<|content|>E. Enhanced Audit Rights for International Process\n<|id|>188<|type|>title<|page|>19<|box|>577 140 594 511<|content|>F. Breach Notification in International Context\n<|id|>195<|type|>title<|page|>20<|box|>337 140 354 423<|content|>G. Governing Law and Jurisdiction\n<|id|>200<|type|>title<|page|>20<|box|>845 140 863 274<|content|>VIII. Next Steps\n<|id|>208<|type|>title<|page|>22<|box|>90 140 107 264<|content|>IX. Conclusion",
+    "raw_response": "<|src_id|>133<|tgt_id|>131\n<|src_id|>134<|tgt_id|>131",
+    "parsed": [
+        {
+            "src_id": 133,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 131
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        11,
+        14,
+        15,
+        21,
+        22,
+        30
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>42 163 71 833<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>88 140 151 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...f Calderwood & Harkness LLP is strictly prohibited\n<|id|>3<|page|>1<|box|>183 140 220 854<|content|>FROM: ... Oliver Mackenzie, Responsible Partner, a...LLP 901 Fifth Avenue, Suite 3200 Seattle, WA 98164\n<|id|>4<|page|>1<|box|>228 140 282 854<|content|>TO: ... Margaret Ellsworth, Executive Director Dav...0 Jefferson Street SE, Suite 400 Olympia, WA 98501\n<|id|>5<|page|>1<|box|>289 140 308 334<|content|>DATE: ... January 15, 2024\n<|id|>6<|page|>1<|box|>315 140 352 854<|content|>RE: ... Columbia Basin Water Treatment Partners, L...Dormant Joint Venture and Recommended Path Forward\n<|id|>7<|page|>1<|box|>359 142 377 339<|content|>Matter No. ... 00001\n<|id|>8<|page|>1<|box|>385 140 402 408<|content|>Right-click to update Table of Contents\n<|id|>40<|page|>4<|box|>858 181 875 549<|content|>• CSIA (55%): ... $18,000,000 × 55% = $9,900,000\n<|id|>41<|page|>4<|box|>878 181 895 568<|content|>• Pinnacle (45%): ... $18,000,000 × 45% = $8,100,000\n<|id|>42<|page|>5<|box|>42 163 71 833<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>109<|page|>11<|box|>612 183 628 473<|content|>• Voluntary dissolution of CBWTP; ... or\n<|id|>111<|page|>11<|box|>652 140 761 856<|content|>The JV Agreement does not contain a deadlock-break... or restructure the JV through the Governing Board\n<|id|>142<|page|>14<|box|>869 174 905 856<|content|>Step 1: ... If the parties cannot agree on a\n<|id|>143<|page|>15<|box|>42 163 71 833<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>144<|page|>15<|box|>90 174 126 854<|content|>mediator within 15 business days, either party may...t that the PNAA appoint a mediator from its roster\n<|id|>208<|page|>21<|box|>849 181 885 854<|content|>• Mutual release: ... ,\n<|id|>209<|page|>22<|box|>90 210 125 854<|content|>Pinnacle's cooperation in the dissolution, a relea...ent fee claim, or modification of the non-compete)\n<|id|>300<|page|>30<|box|>449 142 465 318<|content|>Respectfully submitted,\n<|id|>301<|page|>30<|box|>467 142 483 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>302<|page|>30<|box|>484 143 501 253<|content|>By: ... By\n<|id|>303<|page|>30<|box|>502 143 518 336<|content|>Oliver Mackenzie Partner\n<|id|>304<|page|>30<|box|>520 143 536 251<|content|>By: ... By",
+    "raw_response": "<|src_id|>142<|tgt_id|>144\n<|src_id|>208<|tgt_id|>209",
+    "parsed": [
+        {
+            "src_id": 142,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 208,
+            "tgt_id": 209
+        }
+    ]
+}

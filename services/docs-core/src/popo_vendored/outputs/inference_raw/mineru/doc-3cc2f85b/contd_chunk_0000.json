@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        11,
+        15,
+        16,
+        18,
+        20,
+        21,
+        25,
+        26,
+        32
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>166 140 184 805<|content|>TO: ... Nathaniel Bower, Partner, Bankruptcy & Restructuring, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>191 140 226 854<|content|>FROM: ... Amy Chesterton, Lead Associate, Bankruptcy & Restructuring, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>236 140 253 323<|content|>DATE: ... January 8, 2023\n<|id|>5<|page|>1<|box|>262 140 297 854<|content|>RE: ... 1044-00003)\n<|id|>6<|page|>1<|box|>306 140 323 555<|content|>CC: ... Colette Whitman, Partner\n<|id|>7<|page|>1<|box|>332 142 349 408<|content|>Right-click to update Table of Contents\n<|id|>28<|page|>3<|box|>825 145 880 856<|content|>• Minimum Liquidity Covenant Breach (September 15, 2022): ... 11(a) of the\n<|id|>29<|page|>4<|box|>90 174 125 854<|content|>Senior Secured Credit Facility. ... This breach wa... to the Administrative Agent on September 16, 2022\n<|id|>41<|page|>5<|box|>285 210 340 854<|content|>(ii) Revolving Credit Facility: ... and\n<|id|>43<|page|>5<|box|>392 174 446 854<|content|>Interest Rate: ... default rate of an additional 2...subject to the terms of the Forbearance Agreement)\n<|id|>97<|page|>11<|box|>244 140 280 852<|content|>Greek Counsel Coordination — Vassiliou & Demetriou Law Offices: ... 5 million (estimated)\n<|id|>98<|page|>11<|box|>287 140 454 854<|content|>To the extent that TSL commences parallel proceedi...ing on the allocation of costs between TAI and TSL\n<|id|>128<|page|>15<|box|>204 174 239 854<|content|>Total collateral value: ... $28 million\n<|id|>129<|page|>15<|box|>250 176 265 328<|content|>High-End Estimate: ... High-End Estimate\n<|id|>130<|page|>15<|box|>273 174 310 854<|content|>Total collateral value: ... $48 million\n<|id|>131<|page|>15<|box|>319 140 410 854<|content|>Expressed as a percentage of the senior secured cl...laims, after giving effect to the DIP priming lien\n<|id|>139<|page|>16<|box|>251 174 306 852<|content|>Outstanding senior secured claims: ... 6 million per month\n<|id|>140<|page|>16<|box|>314 140 498 856<|content|>Over a twelve-month case timeline, total current-p...d the reserve cushion would be reduced accordingly\n<|id|>153<|page|>18<|box|>114 174 170 854<|content|>Senior secured claims: ... 3 million\n<|id|>154<|page|>18<|box|>179 140 234 854<|content|>On a pure collateral-value basis using the fleet a...en position is, for practical purposes, negligible\n<|id|>156<|page|>18<|box|>266 174 303 854<|content|>Low-end ($643M): ... 9% coverage)\n<|id|>157<|page|>18<|box|>311 174 347 854<|content|>High-end ($663M): ... 7% coverage)\n<|id|>158<|page|>18<|box|>354 140 392 854<|content|>Even at the high end of the broader collateral est...zed, with coverage of only 42. ... 3 million claim\n<|id|>176<|page|>20<|box|>852 140 907 854<|content|>The unsecured noteholders ($50 million in aggregat...o adequate protection under §361 or §363(e) of the\n<|id|>177<|page|>21<|box|>90 140 127 854<|content|>Bankruptcy Code, as those provisions apply only to...that are being used, sold, or leased by the debtor\n<|id|>209<|page|>25<|box|>816 140 907 856<|content|>6. ... Any material decline in fleet values below ...ide supplemental adequate protection to the Senior\n<|id|>210<|page|>26<|box|>90 140 181 854<|content|>Secured Lender syndicate, potentially in the form ... possibility of vessel sales to delever the estate\n<|id|>228<|page|>32<|box|>520 143 537 320<|content|>Respectfully submitted,\n<|id|>229<|page|>32<|box|>537 142 569 852<|content|>AMY CHESTERTON Lead Associate, Bankruptcy & Restructuring Calderwood & Harkness LLP\n<|id|>230<|page|>32<|box|>571 143 588 251<|content|>By: ... By\n<|id|>231<|page|>32<|box|>589 143 604 320<|content|>Name: ... Amy Chesterton\n<|id|>232<|page|>32<|box|>606 143 621 307<|content|>Date: ... January 8, 2023\n<|id|>233<|page|>32<|box|>623 143 638 250<|content|>Reviewed by: ... Reviewed by\n<|id|>235<|page|>32<|box|>657 142 674 325<|content|>Name: ... Nathaniel Bower\n<|id|>236<|page|>32<|box|>674 143 691 457<|content|>Title: ... Partner, Bankruptcy & Restructuring\n<|id|>237<|page|>32<|box|>693 143 709 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>28<|tgt_id|>29\n<|src_id|>176<|tgt_id|>177\n<|src_id|>209<|tgt_id|>210",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 210
+        }
+    ]
+}

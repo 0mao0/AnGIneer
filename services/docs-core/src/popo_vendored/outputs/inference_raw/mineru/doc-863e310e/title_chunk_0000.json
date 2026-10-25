@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        17
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        7,
+        8,
+        10,
+        14,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>1<|page|>2<|box|>135 220 181 777<|content|>INDEX OF TRANSACTION DOCUMENTS Joint Voluntary Not\n<|id|>3<|page|>2<|box|>328 143 345 250<|content|>Prepared by:\n<|id|>7<|page|>2<|box|>674 142 691 416<|content|>INTRODUCTORY STATEMENT\n<|id|>12<|page|>3<|box|>549 140 565 596<|content|>PART I — PRINCIPAL TRANSACTION AGREEMENT\n<|id|>20<|page|>4<|box|>799 142 816 710<|content|>PART II — ORGANIZATIONAL DOCUMENTS OF THE ACQUIROR\n<|id|>36<|page|>7<|box|>148 142 167 694<|content|>PART III — ORGANIZATIONAL DOCUMENTS OF THE TARGET\n<|id|>52<|page|>8<|box|>575 142 594 735<|content|>PART IV — ORGANIZATIONAL DOCUMENTS OF SELLER ENTIT\n<|id|>66<|page|>10<|box|>454 142 472 620<|content|>PART V — ANCILLARY TRANSACTION AGREEMENTS\n<|id|>90<|page|>14<|box|>89 142 107 663<|content|>PART VI — FINANCIAL ADVISOR ENGAGEMENT LETTERS\n<|id|>95<|page|>14<|box|>724 142 742 800<|content|>PART VII — ADDITIONAL REGULATORY AND COMPLIANCE DO\n<|id|>109<|page|>17<|box|>89 140 106 521<|content|>CERTIFICATION AND SIGNATURE BLOCK\n<|id|>112<|page|>17<|box|>385 140 402 751<|content|>For Halcyon Semiconductor Aktiengesellschaft and H\n<|id|>125<|page|>17<|box|>686 140 704 741<|content|>For Marlowe Asset Management Photonics Inc. and th",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>-1\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>20<|level|>2\n<|id|>36<|level|>2\n<|id|>52<|level|>2\n<|id|>66<|level|>2\n<|id|>90<|level|>2\n<|id|>95<|level|>2\n<|id|>109<|level|>2\n<|id|>112<|level|>3\n<|id|>125<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        }
+    ]
+}

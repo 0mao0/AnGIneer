@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=10, 隧道', 'rowspan=10, 名称____位置____', '其他____', '□__处', '已处理__处', '未处理□ 上报□']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=26, 交通安全设施', 'rowspan=4, 标志', '缺失', '☐_处', '已处理_处', '未处理☐ 上报☐']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 323,
+    "table2_idx": 324
+}

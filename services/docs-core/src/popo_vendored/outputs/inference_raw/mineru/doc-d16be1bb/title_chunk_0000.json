@@ -1,0 +1,42 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>13<|page|>1<|box|>750 140 767 423<|content|>Description of Enclosed Documents\n<|id|>24<|page|>2<|box|>714 140 732 227<|content|>Filing Fee\n<|id|>27<|page|>3<|box|>167 140 184 450<|content|>Instructions for Processing and Return\n<|id|>37<|page|>3<|box|>717 140 734 408<|content|>Request for Expedited Processing\n<|id|>40<|page|>4<|box|>241 140 258 310<|content|>Contact Information\n<|id|>45<|page|>4<|box|>469 140 486 209<|content|>Closing",
+    "raw_response": "<|id|>13<|level|>1\n<|id|>24<|level|>1\n<|id|>27<|level|>1\n<|id|>37<|level|>1\n<|id|>40<|level|>1\n<|id|>45<|level|>1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        }
+    ]
+}

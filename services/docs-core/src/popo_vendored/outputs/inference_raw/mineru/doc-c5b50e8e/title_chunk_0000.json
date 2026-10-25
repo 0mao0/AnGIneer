@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>13<|page|>1<|box|>771 140 787 588<|content|>I. IDENTIFICATION OF SELLING STOCKHOLDERS\n<|id|>18<|page|>2<|box|>272 140 289 393<|content|>II. DOCUMENTS EXAMINED\n<|id|>34<|page|>3<|box|>354 140 371 310<|content|>III. ASSUMPTIONS\n<|id|>46<|page|>4<|box|>204 140 220 267<|content|>IV. OPINIONS\n<|id|>48<|page|>4<|box|>279 140 297 550<|content|>Opinion 1 — Due Incorporation and Good Standing\n<|id|>50<|page|>4<|box|>462 140 479 450<|content|>Opinion 2 — Authorized Capital Stock\n<|id|>52<|page|>4<|box|>662 140 680 470<|content|>Opinion 3 — Valid Issuance of the Shares\n<|id|>54<|page|>5<|box|>90 140 107 534<|content|>Opinion 4 — Registration Statement Effectiveness\n<|id|>56<|page|>5<|box|>291 140 309 607<|content|>Opinion 5 — Authorization of the Underwriting Agre\n<|id|>58<|page|>5<|box|>474 140 489 349<|content|>Opinion 6 — No Conflicts\n<|id|>63<|page|>5<|box|>843 142 859 426<|content|>Opinion 7 — No Consents Required\n<|id|>65<|page|>6<|box|>268 140 286 370<|content|>Opinion 8 — Nasdaq Listing\n<|id|>67<|page|>6<|box|>386 140 404 503<|content|>V. QUALIFICATIONS AND LIMITATIONS\n<|id|>76<|page|>7<|box|>622 140 638 400<|content|>VI. RELIANCE AND BENEFIT",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>13<|level|>1\n<|id|>18<|level|>1\n<|id|>34<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>1\n<|id|>76<|level|>1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        }
+    ]
+}

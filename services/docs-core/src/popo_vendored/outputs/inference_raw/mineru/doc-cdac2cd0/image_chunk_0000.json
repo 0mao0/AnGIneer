@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>113 287 133 707<|content|>GENERAL COUNSEL'S CERTIFICATE\n<|id|>2<|type|>title<|page|>1<|box|>151 330 167 668<|content|>Halcyon Semiconductor Aktiengesellschaft\n<|id|>11<|type|>title<|page|>2<|box|>131 140 148 570<|content|>Section 1: Corporate Organization and Good Standin\n<|id|>16<|type|>title<|page|>2<|box|>606 140 623 558<|content|>Section 2: Certification of Organizational Documen\n<|id|>22<|type|>title<|page|>3<|box|>223 140 239 718<|content|>Section 3: Authorization — Management Board (*Vors\n<|id|>32<|type|>title<|page|>4<|box|>340 140 357 733<|content|>Section 4: Authorization — Supervisory Board (*Auf\n<|id|>40<|type|>title<|page|>5<|box|>241 140 258 336<|content|>Section 5: Share Capital\n<|id|>48<|type|>title<|page|>6<|box|>241 140 258 519<|content|>Section 6: Incumbency of Officers and Directors\n<|id|>50<|type|>table<|page|>6<|box|>375 143 500 852<|content|>None\n<|id|>52<|type|>table<|page|>6<|box|>604 143 657 852<|content|>None\n<|id|>56<|type|>table<|page|>6<|box|>806 143 845 852<|content|>None\n<|id|>58<|type|>title<|page|>7<|box|>241 140 258 405<|content|>Section 7: No Conflict; Authority\n<|id|>64<|type|>title<|page|>8<|box|>150 140 167 477<|content|>Section 8: No Amendments or Proceedings\n<|id|>69<|type|>title<|page|>8<|box|>569 142 585 323<|content|>Section 9: Subsidiaries\n<|id|>70<|type|>table<|page|>8<|box|>655 143 828 852<|content|>None\n<|id|>72<|type|>title<|page|>9<|box|>223 140 239 751<|content|>Section 10: Representations Regarding Registration\n<|id|>77<|type|>title<|page|>9<|box|>660 140 678 305<|content|>Section 11: Reliance\n<|id|>85<|type|>title<|page|>10<|box|>215 400 233 596<|content|>[Signature Page Follows]\n<|id|>93<|type|>title<|page|>10<|box|>409 413 426 583<|content|>LIST OF ANNEXES\n<|id|>102<|type|>title<|page|>10<|box|>782 161 799 836<|content|>DRAFTING NOTES — INTERNAL WORKING DRAFT — NOT FOR",
+    "raw_response": "<|src_id|>50<|tgt_id|>48\n<|src_id|>52<|tgt_id|>48\n<|src_id|>56<|tgt_id|>48\n<|src_id|>70<|tgt_id|>69",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 69
+        }
+    ]
+}

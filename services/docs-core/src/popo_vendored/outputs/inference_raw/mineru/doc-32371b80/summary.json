@@ -1,0 +1,193 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-t33uw26h\\input\\pdfs\\doc-32371b80.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-t33uw26h\\enriched\\doc-32371b80.json",
+    "contd_output": "<|src_id|>159<|tgt_id|>160",
+    "title_output": "<|id|>10<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>41<|level|>2\n<|id|>53<|level|>1\n<|id|>54<|level|>2\n<|id|>65<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>1\n<|id|>91<|level|>2\n<|id|>98<|level|>2\n<|id|>113<|level|>2\n<|id|>120<|level|>1\n<|id|>121<|level|>2\n<|id|>128<|level|>2\n<|id|>131<|level|>3\n<|id|>137<|level|>3\n<|id|>146<|level|>2\n<|id|>153<|level|>1\n<|id|>157<|level|>1\n<|id|>158<|level|>2\n<|id|>167<|level|>2\n<|id|>175<|level|>2\n<|id|>182<|level|>1\n<|id|>183<|level|>2\n<|id|>195<|level|>2\n<|id|>199<|level|>2\n<|id|>207<|level|>1\n<|id|>222<|level|>1\n<|id|>226<|level|>2\n<|id|>232<|level|>1",
+    "image_output": "<|src_id|>155<|tgt_id|>153\n<|src_id|>224<|tgt_id|>222\n<|src_id|>225<|tgt_id|>222",
+    "contd_label": [
+        {
+            "src_id": 159,
+            "tgt_id": 160
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 1
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 1
+        },
+        {
+            "id": 222,
+            "level": 1
+        },
+        {
+            "id": 226,
+            "level": 2
+        },
+        {
+            "id": 232,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 155,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 222
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 222
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 224,
+            "table2_idx": 225,
+            "upper_row_ss": [
+                [
+                    "F",
+                    "Haloran BioPharmaceuticals, Inc.",
+                    "Oncology (Breast)",
+                    "III",
+                    "50",
+                    "$120M",
+                    "$1M",
+                    "$25M",
+                    "Uncapped",
+                    "$10M",
+                    "$50M",
+                    "$50M/$100M",
+                    "New York"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "G",
+                    "Meridian Life Sciences, LLC",
+                    "Specialty (Autoimmune)",
+                    "III",
+                    "22",
+                    "$48M",
+                    "$250K",
+                    "$5M",
+                    "High-capped ($50M)",
+                    "$2M",
+                    "$8M",
+                    "$10M / $25M",
+                    "Massachusetts"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        9,
+        10,
+        13,
+        16,
+        17,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>839 140 895 854<|content|>The Business Combination Agreement (the \"BCA\") was...idge. ... The material terms and conditions of the\n<|id|>8<|page|>2<|box|>90 140 143 854<|content|>BCA, including representations and warranties, int... to the extent relevant to the bring-down analysis\n<|id|>12<|page|>2<|box|>273 140 308 852<|content|>3. ... and\n<|id|>14<|page|>2<|box|>385 138 532 857<|content|>The review period covered by this memorandum encom...egulatory and licensing, and intellectual property\n<|id|>19<|page|>2<|box|>750 145 765 532<|content|>• Teresa Okafor, General Counsel — May 13, 2025\n<|id|>22<|page|>2<|box|>809 140 881 856<|content|>The dates and participants for each interview are ...could constitute a Company Material Adverse Effect\n<|id|>20<|page|>2<|box|>768 147 785 607<|content|>• Marcus Ellingham, Chief Financial Officer — May 14, 2025\n<|id|>21<|page|>2<|box|>789 145 805 589<|content|>• Daniel Hsiao, Chief Technology Officer — May 20, 2025\n<|id|>98<|page|>9<|box|>859 140 896 854<|content|>The tax structure of the Transaction is described ...arkness LLP's Tax Department, in consultation with\n<|id|>99<|page|>10<|box|>90 140 200 856<|content|>Cedarhurst Advisory Group LLC (55 Railroad Avenue,...under Sections 367(b) and 368(a)(1)(F) of the Code\n<|id|>140<|page|>13<|box|>542 147 559 387<|content|>• Commercial General Liability\n<|id|>145<|page|>13<|box|>638 140 714 854<|content|>All required premium payments have been timely mad...t to any Skybridge policy during the Update Period\n<|id|>141<|page|>13<|box|>561 147 578 553<|content|>• Professional Liability / Errors & Omissions (\"E&O\")\n<|id|>142<|page|>13<|box|>582 148 598 500<|content|>• Cyber Liability / Network Security & Privacy\n<|id|>143<|page|>13<|box|>601 148 618 326<|content|>• Commercial Property\n<|id|>144<|page|>13<|box|>619 145 637 527<|content|>• Workers' Compensation and Employers' Liability\n<|id|>177<|page|>16<|box|>203 140 239 854<|content|>5. ... and\n<|id|>179<|page|>16<|box|>279 140 334 854<|content|>Approval of the Business Combination Proposal requ... by proxy at the EGM and entitled to vote thereon)\n<|id|>185<|page|>16<|box|>857 140 893 854<|content|>In addition, the Non-Redemption/Backstop Agreement... April 14, 2025. ... Under the Backstop Agreement,\n<|id|>186<|page|>17<|box|>90 140 200 854<|content|>Velthryn Strategic Investments, LP has committed t...l to 10% of the backstop shares actually purchased\n<|id|>217<|page|>19<|box|>417 147 435 818<|content|>• Confirmation of the status of all change-of-control consents and regulatory approvals; ... and\n<|id|>219<|page|>19<|box|>457 140 493 854<|content|>A complete list of outstanding action items for th...down is set forth in Appendix C to this memorandum",
+    "raw_response": "<|src_id|>7<|tgt_id|>8\n<|src_id|>98<|tgt_id|>99\n<|src_id|>185<|tgt_id|>186",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 186
+        }
+    ]
+}

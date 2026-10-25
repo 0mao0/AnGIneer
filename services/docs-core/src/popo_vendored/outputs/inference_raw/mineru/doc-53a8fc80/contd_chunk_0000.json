@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 143 172 854<|content|>599 Lexington Avenue New York, New York 10022 Telephone: ... (212) 558-3588\n<|id|>3<|page|>1<|box|>183 759 199 854<|content|>July 9, 2024\n<|id|>4<|page|>1<|box|>209 140 226 767<|content|>Cloudium Technologies plc 45 Broadwick Street London W1F 0DB United Kingdom\n<|id|>5<|page|>1<|box|>236 176 252 292<|content|>with a copy to: ... with a copy to\n<|id|>6<|page|>1<|box|>260 174 295 854<|content|>Cloudium Technologies plc US Headquarters 600 Town... Street, Suite 800 San Francisco, California 94103\n<|id|>7<|page|>1<|box|>304 174 358 854<|content|>Re: ... , and Solara Digital Infrastructure Fund VI LP\n<|id|>8<|page|>1<|box|>367 176 383 367<|content|>Matter No. ... 1041-00003\n<|id|>9<|page|>1<|box|>393 142 410 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>30<|page|>2<|box|>829 174 904 857<|content|>2. ... The Amended and Restated Agreement of Limit...urther amended by that certain Second Amendment to\n<|id|>31<|page|>3<|box|>90 210 126 854<|content|>Amended and Restated Agreement of Limited Partners...ively, as so amended, the \"Partnership Agreement\")\n<|id|>76<|page|>6<|box|>827 140 901 856<|content|>The execution, delivery, and performance by Parent..., dated January 22, 2024, pursuant to which Solara\n<|id|>77<|page|>7<|box|>90 138 236 857<|content|>Fund VI GP LLC (acting in its capacity as general ...Documents or the transactions contemplated thereby\n<|id|>80<|page|>7<|box|>335 174 426 854<|content|>(a) the Board Consent, being the Unanimous Written...e sole director of Stratos Merger Sub Inc. ... and\n<|id|>82<|page|>7<|box|>515 140 588 856<|content|>Under the DGCL, the Certificate of Incorporation, ...Merger Agreement or the consummation of the Merger\n<|id|>90<|page|>8<|box|>262 174 279 790<|content|>(a) the Certificate of Limited Partnership or the Partnership Agreement of Parent; ... or\n<|id|>92<|page|>8<|box|>314 140 387 854<|content|>Neither the execution, delivery, nor performance b...es any consent or approval under, any provision of\n<|id|>127<|page|>11<|box|>565 725 583 854<|content|>Very truly yours,\n<|id|>128<|page|>11<|box|>590 140 607 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>129<|page|>11<|box|>609 142 626 253<|content|>By: ... By\n<|id|>130<|page|>11<|box|>626 142 642 334<|content|>Name: ... Harrison Wexford\n<|id|>131<|page|>11<|box|>643 142 659 428<|content|>Title: ... Partner, Mergers & Acquisitions\n<|id|>132<|page|>11<|box|>660 142 676 746<|content|>Calderwood & Harkness LLP 599 Lexington Avenue New York, New York 10022\n<|id|>133<|page|>11<|box|>678 143 694 282<|content|>Date: ... July 9, 2024",
+    "raw_response": "<|src_id|>30<|tgt_id|>31\n<|src_id|>76<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        }
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        92,
+        101
+    ],
+    "pages": [
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        101
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>818<|page|>92<|box|>90 140 107 537<|content|>Exhibit C — Form of Assignment and Assumption\n<|id|>843<|page|>93<|box|>90 140 107 446<|content|>Exhibit D — Form of Promissory Note\n<|id|>854<|page|>94<|box|>90 142 107 464<|content|>Exhibit E — Form of Prepayment Notice\n<|id|>879<|page|>95<|box|>90 140 107 460<|content|>Exhibit F — Form of Closing Certificate\n<|id|>891<|page|>96<|box|>90 140 107 473<|content|>Exhibit G — Form of Solvency Certificate\n<|id|>904<|page|>97<|box|>90 140 107 468<|content|>Exhibit H — Form of Joinder Agreement\n<|id|>922<|page|>98<|box|>90 140 107 460<|content|>Exhibit I — Form of Intercompany Note\n<|id|>931<|page|>99<|box|>90 142 107 570<|content|>Exhibit J — Form of Incremental Facility Amendment\n<|id|>960<|page|>101<|box|>89 375 111 620<|content|>SIGNATURE BLOCKS",
+    "raw_response": "<|id|>818<|level|>1\n<|id|>843<|level|>1\n<|id|>854<|level|>1\n<|id|>879<|level|>1\n<|id|>891<|level|>1\n<|id|>904<|level|>1\n<|id|>922<|level|>1\n<|id|>931<|level|>1\n<|id|>960<|level|>1",
+    "parsed": [
+        {
+            "id": 818,
+            "level": 1
+        },
+        {
+            "id": 843,
+            "level": 1
+        },
+        {
+            "id": 854,
+            "level": 1
+        },
+        {
+            "id": 879,
+            "level": 1
+        },
+        {
+            "id": 891,
+            "level": 1
+        },
+        {
+            "id": 904,
+            "level": 1
+        },
+        {
+            "id": 922,
+            "level": 1
+        },
+        {
+            "id": 931,
+            "level": 1
+        },
+        {
+            "id": 960,
+            "level": 1
+        }
+    ]
+}

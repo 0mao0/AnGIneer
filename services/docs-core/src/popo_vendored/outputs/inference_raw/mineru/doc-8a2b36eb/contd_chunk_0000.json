@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        10,
+        11,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 130 607<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>138 140 174 854<|content|>TO: ... Patrick Gallagher, Lead Associate, Litigat... Eklund, Responsible Partner, Litigation (General)\n<|id|>3<|page|>1<|box|>181 140 200 633<|content|>FROM: ... Simone Laroche, Working Associate, Litigation (General)\n<|id|>4<|page|>1<|box|>208 140 226 354<|content|>DATE: ... September 16, 2022\n<|id|>5<|page|>1<|box|>234 140 270 854<|content|>RE: ... Material Breach Standard Under New York La...pplication to VTS's Q4 2021 Service Level Failures\n<|id|>6<|page|>1<|box|>277 140 315 856<|content|>MATTER: ... )\n<|id|>7<|page|>1<|box|>321 140 340 362<|content|>MATTER NO. ... 1012-00005\n<|id|>8<|page|>1<|box|>347 140 393 854<|content|>CONFIDENTIALITY NOTICE: ... Do not distribute without the express authorization of Samuel Eklund\n<|id|>53<|page|>6<|box|>729 138 895 857<|content|>This email, which was obtained during Stonefield's... deliberate decision to conceal the reduction from\n<|id|>54<|page|>7<|box|>90 140 162 854<|content|>Stonefield. ... Fourth, the timing of the email (N...ct and proximate cause of the Q4 2021 SLO failures\n<|id|>67<|page|>8<|box|>381 174 417 854<|content|>(d) The likelihood that the party failing to perfo...ances including any reasonable assurances; ... and\n<|id|>69<|page|>8<|box|>470 140 599 856<|content|>No single factor is dispositive, and the weight as...etween the breach and the purpose of the contract)\n<|id|>86<|page|>10<|box|>838 140 875 857<|content|>The first and most important factor in the materia...asonably expected. ... See Restatement (Second) of\n<|id|>87<|page|>11<|box|>89 140 127 854<|content|>Contracts § 241(a); ... This factor asks whether t...agreement as understood by the non-breaching party\n<|id|>111<|page|>13<|box|>840 140 877 857<|content|>The fourth factor considers the likelihood that th...onable assurances. ... See Restatement (Second) of\n<|id|>112<|page|>14<|box|>89 140 127 854<|content|>Contracts § 241(d). ... This factor examines both ... in light of the nature and severity of the breach\n<|id|>118<|page|>14<|box|>330 183 364 852<|content|>• Verifiable documentation that the cargo claims i...ved or that root causes had been addressed; ... or\n<|id|>120<|page|>14<|box|>387 140 460 854<|content|>In the absence of such evidence, VTS's assertion o...rther establishing that cure did not in fact occur",
+    "raw_response": "<|src_id|>53<|tgt_id|>54\n<|src_id|>86<|tgt_id|>87\n<|src_id|>111<|tgt_id|>112",
+    "parsed": [
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        }
+    ]
+}

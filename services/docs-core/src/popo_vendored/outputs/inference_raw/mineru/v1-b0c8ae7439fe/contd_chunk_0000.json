@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>17<|page|>1<|box|>835 97 920 890<|content|>加拿大英語區的電影與鄰近的美國電影交織在一起： ... 特別是卡梅隆，分別為《阿凡達》和《鐵達尼號》這兩部\n<|id|>18<|page|>2<|box|>73 100 89 349<|content|>票房收入最高的電影創作並執導。 ... 票房收入最高的電影創作並執導",
+    "raw_response": "<|src_id|>17<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        }
+    ]
+}

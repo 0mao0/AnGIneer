@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>186 140 222 854<|content|>Office of Export Enforcement Bureau of Industry and Security U. ... 20230\n<|id|>3<|page|>1<|box|>229 140 267 854<|content|>Re: ... 11 (Entity List Restrictions)\n<|id|>9<|page|>1<|box|>858 140 895 856<|content|>The three shipments were exported to Zhonghe Micro...tity headquartered at 12/F, Nanshan Digital Tower,\n<|id|>10<|page|>2<|box|>89 140 181 854<|content|>Keji South Road, Nanshan District, Shenzhen 518057...h a license review policy of presumption of denial\n<|id|>45<|page|>6<|box|>304 140 321 854<|content|>Archipelago's order management system stored Zhonghe's customer account record with the\n<|id|>46<|page|>6<|box|>328 140 383 856<|content|>simplified Chinese characters (中和微电子有限公司) as the p...ield. ... ,\" was stored in a secondary alias field\n<|id|>74<|page|>9<|box|>474 181 508 854<|content|>• Eight (8) pre-Entity-List shipments to Zhonghe Microelectronics Co. ... and\n<|id|>76<|page|>9<|box|>569 140 642 857<|content|>In total, the DOJ inquiry encompasses seventeen (1... Control Section of the National Security Division\n<|id|>84<|page|>10<|box|>340 174 395 854<|content|>(2) The absence of a re-screening protocol at the ...pite the intervening Entity List addition; ... and\n<|id|>86<|page|>10<|box|>484 140 556 856<|content|>Each of these root causes reflects a deficiency in...egligence and system inadequacy rather than intent\n<|id|>94<|page|>11<|box|>285 174 359 856<|content|>(c) A comprehensive description of the remedial me...vised export compliance program framework; ... and\n<|id|>96<|page|>11<|box|>446 140 483 854<|content|>The Company will cooperate with any requests from ...nel in connection with OEE's review of this matter\n<|id|>99<|page|>11<|box|>594 174 630 854<|content|>Howard Quinn, Partner Calderwood & Harkness LLP 13...t NW, Suite 1100 Washington, D. ... (202) 555-0199\n<|id|>100<|page|>11<|box|>638 176 655 488<|content|>Email: ... com\n<|id|>101<|page|>11<|box|>656 140 729 856<|content|>The Company respectfully requests that OEE acknowl...o confirmation or reassignment by OEE upon receipt\n<|id|>103<|page|>11<|box|>854 212 871 390<|content|>Respectfully submitted,\n<|id|>104<|page|>11<|box|>878 140 896 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>105<|page|>12<|box|>90 140 108 267<|content|>By: ... By\n<|id|>106<|page|>12<|box|>107 140 125 316<|content|>Howard Quinn Partner\n<|id|>107<|page|>12<|box|>125 140 141 328<|content|>Date: ... November 4, 2025\n<|id|>108<|page|>12<|box|>140 140 172 854<|content|>cc: ... (via privileged email)",
+    "raw_response": "<|src_id|>9<|tgt_id|>10\n<|src_id|>45<|tgt_id|>46",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        }
+    ]
+}

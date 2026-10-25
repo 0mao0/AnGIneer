@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        10,
+        13
+    ],
+    "pages": [
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>88<|page|>10<|box|>854 140 909 856<|content|>5. ... A small number of large pharmaceutical comp...ams with sites in jurisdictions outside the United\n<|id|>89<|page|>11<|box|>90 174 181 854<|content|>States where regulatory requirements may mandate h...inimum level of clinical trial liability insurance\n<|id|>104<|page|>12<|box|>537 176 554 645<|content|>(c) Penterra's material breach of the MCTA or the Protocol; ... and\n<|id|>106<|page|>12<|box|>589 140 607 754<|content|>The MCTA's indemnification provisions include the ...visions include the following financial parameters\n<|id|>114<|page|>13<|box|>319 174 391 857<|content|>(ii) Unauthorized protocol deviations by site pers...he immediate safety of a trial subject (i. ... and\n<|id|>116<|page|>13<|box|>463 140 590 856<|content|>These carve-outs are commercially standard and ser...insurance coverage (discussed in Section VI below)\n<|id|>120<|page|>13<|box|>744 174 781 854<|content|>(b) Unauthorized protocol deviations by site perso...se required for immediate subject safety); ... and\n<|id|>122<|page|>13<|box|>834 140 852 707<|content|>The site indemnification obligation is subject to ...ligation is subject to the following monetary caps",
+    "raw_response": "<|src_id|>88<|tgt_id|>89",
+    "parsed": [
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 140 135 854<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT ...go, Responsible Partner, Calderwood & Harkness LLP\n<|id|>1<|page|>1<|box|>142 178 178 856<|content|>CALDERWOOD & HARKNESS LLP 350 South Grand Avenue, 48th Floor Los Angeles, California 90071\n<|id|>2<|page|>1<|box|>186 465 204 856<|content|>1201 F Street NW, Suite 700 Washington, DC 20004\n<|id|>3<|page|>1<|box|>212 545 229 856<|content|>Alan Ngo, Partner Direct: ... (213) 555-4820\n<|id|>4<|page|>1<|box|>239 140 255 437<|content|>Email: ... com\n<|id|>5<|page|>1<|box|>255 181 292 857<|content|>Local Counsel: ... WHITMORE & CALLAHAN LLP 110 North College Avenue, Suite 800 Tyler, Texas 75702\n<|id|>6<|page|>1<|box|>299 457 318 856<|content|>James \"Jim\" Callahan, Partner Direct: ... (903) 555-7140\n<|id|>7<|page|>1<|box|>325 140 343 447<|content|>Email: ... com\n<|id|>9<|page|>1<|box|>368 140 405 854<|content|>The Honorable James R. ... Gilstrap United States ... Texas 211 West Ferguson Street Tyler, Texas 75702\n<|id|>8<|page|>1<|box|>344 142 361 411<|content|>[DATE — to be inserted when sent]\n<|id|>10<|page|>1<|box|>412 174 449 854<|content|>Re: ... 24- cv-00319-JRG\n<|id|>11<|page|>1<|box|>457 174 511 856<|content|>Subject: ... 's Letter Regarding discovery Dispute... Deposition Topic 14 (Non-Infringing Alternatives)\n<|id|>12<|page|>1<|box|>518 140 537 299<|content|>Dear Judge Gilstrap: ... Dear Judge Gilstrap\n<|id|>24<|page|>2<|box|>845 140 900 857<|content|>In response to the Deposition Notice, Lumicore des... employed by Lumicore since 2018 and, according to\n<|id|>25<|page|>3<|box|>90 138 143 854<|content|>Lumicore's corporate disclosures, oversees the eng... accused transceiver modules at issue in this case\n<|id|>59<|page|>7<|box|>760 140 907 857<|content|>Applying these principles here, factual informatio...to or evaluated by Lumicore's attorneys. ... 2000)\n<|id|>61<|page|>8<|box|>135 138 335 857<|content|>Lumicore cannot use the privilege as both a sword and a shield. ... 1998)\n<|id|>73<|page|>9<|box|>859 174 897 856<|content|>3. ... In the alternative, if Lumicore fails to pr...e within the time ordered by the Court, precluding\n<|id|>74<|page|>10<|box|>90 210 215 856<|content|>Lumicore from presenting any evidence of non-infri...onable royalty rate under Georgia-Pacific factor 9\n<|id|>84<|page|>10<|box|>849 142 864 318<|content|>Respectfully submitted,\n<|id|>85<|page|>10<|box|>866 142 882 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>86<|page|>10<|box|>883 143 901 254<|content|>By: ... By\n<|id|>87<|page|>11<|box|>89 140 125 854<|content|>Alan Ngo (CA Bar No. ... (213) 555-4820\n<|id|>88<|page|>11<|box|>125 142 140 437<|content|>Email: ... com\n<|id|>89<|page|>11<|box|>140 140 174 854<|content|>Wendy Schultz (CA Bar No. ... (213) 555-4837\n<|id|>90<|page|>11<|box|>174 142 191 465<|content|>Email: ... com\n<|id|>91<|page|>11<|box|>190 142 207 408<|content|>WHITMORE & CALLAHAN LLP\n<|id|>92<|page|>11<|box|>209 143 226 253<|content|>By: ... By\n<|id|>96<|page|>11<|box|>439 174 476 854<|content|>Catherine \"Kate\" Rourke Darren Cho Samantha Briggs...00 Congress Avenue, Suite 2400 Austin, Texas 78701\n<|id|>97<|page|>11<|box|>483 176 517 738<|content|>Email: ... com\n<|id|>98<|page|>11<|box|>516 174 534 828<|content|>Maria Garza Trask Eddington LLP 425 East Front Street, Suite 300 Tyler, Texas 75701\n<|id|>99<|page|>11<|box|>542 142 579 521<|content|>Email: ... com Counsel for Defendant Lumicore Technologies, Inc",
+    "raw_response": "<|src_id|>24<|tgt_id|>25\n<|src_id|>73<|tgt_id|>74",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 74
+        }
+    ]
+}

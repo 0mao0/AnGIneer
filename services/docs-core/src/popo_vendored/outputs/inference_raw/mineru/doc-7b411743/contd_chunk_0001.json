@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        45,
+        97
+    ],
+    "pages": [
+        45,
+        46,
+        71,
+        85,
+        93,
+        96,
+        97
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>248<|page|>45<|box|>121 422 131 572<|content|>(Dollar amounts in millions)\n<|id|>251<|page|>46<|box|>414 515 431 873<|content|>61/ Prices accepted ranged from 101. ... 51%)\n<|id|>305<|page|>46<|box|>296 518 307 880<|content|>54/ Prices accepted ranged from 100. ... 80\n<|id|>337<|page|>46<|box|>906 519 915 593<|content|>r Revised. ... r Revised\n<|id|>418<|page|>71<|box|>109 107 199 497<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>419<|page|>71<|box|>108 522 197 912<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1974\n<|id|>462<|page|>85<|box|>209 87 276 471<|content|>4/ Consists of corporate pension trust funds and p...gs by these funds under \"Held by all other private\n<|id|>463<|page|>85<|box|>134 537 162 893<|content|>investors. ... \" The quarterly data are presented ...h reporting date, beginning with December 31, 1953\n<|id|>511<|page|>93<|box|>646 87 666 483<|content|>3/ Data on the two lines shown for this date diffe...e. ... Figures on the first line are comparable in\n<|id|>512<|page|>93<|box|>534 513 625 911<|content|>coverage to those shown for the preceding date; .....lect market exchange rates as of December 31, 1971\n<|id|>538<|page|>96<|box|>656 193 675 465<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>539<|page|>96<|box|>680 193 708 452<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>543<|page|>96<|box|>491 625 511 877<|content|>\\Delta f c_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>544<|page|>96<|box|>516 625 543 871<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>547<|page|>96<|box|>604 574 631 883<|content|>Where: ... and\n<|id|>548<|page|>96<|box|>637 625 664 890<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>554<|page|>97<|box|>292 88 337 490<|content|>The report forms and instructions used in the coll...istics have been revised a number of times. ... 1/\n<|id|>555<|page|>97<|box|>344 87 449 487<|content|>The present form of the published presentation of ...rt-term liquid claims of large nonbanking concerns",
+    "raw_response": "<|src_id|>418<|tgt_id|>419\n<|src_id|>462<|tgt_id|>463\n<|src_id|>511<|tgt_id|>512\n<|src_id|>538<|tgt_id|>539\n<|src_id|>543<|tgt_id|>544\n<|src_id|>547<|tgt_id|>548",
+    "parsed": [
+        {
+            "src_id": 418,
+            "tgt_id": 419
+        },
+        {
+            "src_id": 462,
+            "tgt_id": 463
+        },
+        {
+            "src_id": 511,
+            "tgt_id": 512
+        },
+        {
+            "src_id": 538,
+            "tgt_id": 539
+        },
+        {
+            "src_id": 543,
+            "tgt_id": 544
+        },
+        {
+            "src_id": 547,
+            "tgt_id": 548
+        }
+    ]
+}

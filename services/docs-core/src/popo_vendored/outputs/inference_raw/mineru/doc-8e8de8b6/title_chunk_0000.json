@@ -1,0 +1,152 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 225 106 772<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>5<|page|>1<|box|>401 142 417 421<|content|>I. Executive Summary and Purpose\n<|id|>11<|page|>2<|box|>450 140 467 490<|content|>II. Filing Obligation and Threshold Analysis\n<|id|>12<|page|>2<|box|>481 140 498 344<|content|>A. HSR Act Applicability\n<|id|>15<|page|>3<|box|>90 140 106 359<|content|>B. Size-of-Transaction Test\n<|id|>20<|page|>3<|box|>515 140 532 274<|content|>C. Filing Parties\n<|id|>22<|page|>3<|box|>619 143 637 290<|content|>Acquiring Person:\n<|id|>24<|page|>3<|box|>818 142 834 285<|content|>Acquired Person:\n<|id|>28<|page|>4<|box|>250 140 266 256<|content|>III. Filing Fee\n<|id|>32<|page|>4<|box|>623 140 641 364<|content|>IV. Planned Filing Timeline\n<|id|>33<|page|>4<|box|>654 140 672 258<|content|>A. Filing Date\n<|id|>36<|page|>5<|box|>90 140 107 287<|content|>B. Waiting Period\n<|id|>39<|page|>5<|box|>407 140 425 439<|content|>C. Key Transaction Timeline Context\n<|id|>50<|page|>6<|box|>267 140 284 586<|content|>V. Required Documentary Attachments and Informatio\n<|id|>52<|page|>6<|box|>361 142 378 361<|content|>A. Item 4(a) — Agreements\n<|id|>56<|page|>6<|box|>758 140 777 575<|content|>B. Item 4(b) — Studies, Surveys, Analyses, and Rep\n<|id|>68<|page|>8<|box|>90 140 107 735<|content|>C. Item 4(c) — Confidential Information Memorandum\n<|id|>75<|page|>8<|box|>511 142 529 495<|content|>D. Organizational and Financial Information\n<|id|>77<|page|>8<|box|>579 142 595 462<|content|>Revenue Data by NAICS Industry Code:\n<|id|>85<|page|>9<|box|>271 140 289 535<|content|>Minority Shareholdings and Corporate Structure:\n<|id|>88<|page|>9<|box|>478 140 494 477<|content|>Annual Reports and Financial Statements:\n<|id|>90<|page|>9<|box|>625 142 642 321<|content|>E. Additional Exhibits\n<|id|>95<|page|>10<|box|>148 140 167 450<|content|>VI. Coordination with Buyer's Counsel\n<|id|>103<|page|>10<|box|>834 140 852 465<|content|>VII. Early Termination Request Strategy\n<|id|>114<|page|>12<|box|>285 140 303 450<|content|>VIII. Canadian Competition Act Filing\n<|id|>120<|page|>13<|box|>90 140 107 352<|content|>IX. CFIUS Considerations\n<|id|>129<|page|>13<|box|>722 140 739 473<|content|>X. Risk Considerations and Contingencies\n<|id|>130<|page|>13<|box|>753 140 770 333<|content|>A. Second Request Risk\n<|id|>137<|page|>14<|box|>714 142 731 341<|content|>B. State Antitrust Filings\n<|id|>139<|page|>15<|box|>90 140 107 544<|content|>C. Foreign Investment Filings (Other Jurisdictions\n<|id|>141<|page|>15<|box|>301 142 318 395<|content|>XI. Action Items and Next Steps\n<|id|>145<|page|>16<|box|>200 140 218 272<|content|>XII. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>5<|level|>1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>3\n<|id|>24<|level|>3\n<|id|>28<|level|>1\n<|id|>32<|level|>1\n<|id|>33<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>50<|level|>1\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>68<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>3\n<|id|>85<|level|>3\n<|id|>88<|level|>3\n<|id|>90<|level|>2\n<|id|>95<|level|>1\n<|id|>103<|level|>1\n<|id|>114<|level|>1\n<|id|>120<|level|>1\n<|id|>129<|level|>1\n<|id|>130<|level|>2\n<|id|>137<|level|>2\n<|id|>139<|level|>2\n<|id|>141<|level|>1\n<|id|>145<|level|>1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 1
+        }
+    ]
+}

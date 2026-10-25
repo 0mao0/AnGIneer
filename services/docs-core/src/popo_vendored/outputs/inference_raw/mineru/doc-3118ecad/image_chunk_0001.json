@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>566<|type|>title<|page|>46<|box|>89 140 107 566<|content|>SCHEDULE III — SELLER'S LICENSING STATUS\n<|id|>568<|type|>table<|page|>46<|box|>178 143 902 854<|content|>None\n<|id|>569<|type|>table<|page|>47<|box|>89 143 313 852<|content|>None\n<|id|>571<|type|>title<|page|>48<|box|>89 140 106 609<|content|>SCHEDULE IV — APPROVED INSURANCE CARRIERS\n<|id|>574<|type|>table<|page|>48<|box|>284 143 825 854<|content|>None",
+    "raw_response": "<|src_id|>568<|tgt_id|>566\n<|src_id|>569<|tgt_id|>566\n<|src_id|>574<|tgt_id|>571",
+    "parsed": [
+        {
+            "src_id": 568,
+            "tgt_id": 566
+        },
+        {
+            "src_id": 569,
+            "tgt_id": 566
+        },
+        {
+            "src_id": 574,
+            "tgt_id": 571
+        }
+    ]
+}

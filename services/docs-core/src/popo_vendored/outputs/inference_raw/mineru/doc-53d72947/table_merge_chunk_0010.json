@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Total', '677,759', '84,151', '5,047', '756,863']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Agency and program', 'Amounts of insurance in force', 'Amounts of commitments to insure', 'Less: Amount shown as undelivered orders in section II', 'Net amount of contingency']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 508,
+    "table2_idx": 509
+}

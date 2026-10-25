@@ -1,0 +1,145 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 194 157 803<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>7<|page|>1<|box|>343 385 362 611<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>180 287 200 709<|content|>II. Background — Existing Credit Facility\n<|id|>17<|page|>2<|box|>224 142 242 380<|content|>A. Original Credit Agreement\n<|id|>30<|page|>3<|box|>167 140 184 400<|content|>B. Current Outstanding Balance\n<|id|>34<|page|>3<|box|>542 140 560 555<|content|>C. Financial Covenants (Unchanged by Amendment)\n<|id|>39<|page|>4<|box|>172 323 191 673<|content|>III. Summary of Key Amendments\n<|id|>41<|page|>4<|box|>268 140 286 707<|content|>A. Amended Change of Control Definition (Section 1\n<|id|>42<|page|>4<|box|>300 142 316 290<|content|>1. Prior Definition\n<|id|>49<|page|>5<|box|>90 140 107 410<|content|>2. Amendment — IPO Carve-Out\n<|id|>58<|page|>5<|box|>789 140 806 338<|content|>3. Ongoing Applicability\n<|id|>61<|page|>6<|box|>304 140 321 694<|content|>B. Permitted Equity Issuance Carve-Out (Section 2\n<|id|>62<|page|>6<|box|>334 143 351 292<|content|>1. Issue Addressed\n<|id|>67<|page|>6<|box|>741 140 758 473<|content|>2. Amendment — Specific IPO Carve-Out\n<|id|>76<|page|>7<|box|>787 140 804 352<|content|>3. Continuing Restrictions\n<|id|>80<|page|>8<|box|>231 140 248 745<|content|>C. Updated Mandatory Prepayment Provisions (Sectio\n<|id|>81<|page|>8<|box|>261 142 277 294<|content|>1. Prior Provisions\n<|id|>86<|page|>8<|box|>632 140 648 482<|content|>2. Amendment — IPO Proceeds Treatment\n<|id|>93<|page|>9<|box|>556 140 574 352<|content|>3. Lien Release Mechanics\n<|id|>101<|page|>10<|box|>337 140 354 722<|content|>D. Conforming Updates to Events of Default (Sectio\n<|id|>102<|page|>10<|box|>368 142 385 442<|content|>1. Change of Control Event of Default\n<|id|>106<|page|>10<|box|>731 142 747 498<|content|>2. Cross-Default and Material Adverse Effect\n<|id|>116<|page|>11<|box|>551 140 568 818<|content|>E. Representations and Warranties; Conditions Prec\n<|id|>117<|page|>11<|box|>580 142 599 410<|content|>1. Bring-Down of Representations\n<|id|>119<|page|>11<|box|>801 142 816 251<|content|>2. No Default\n<|id|>122<|page|>12<|box|>157 140 174 328<|content|>3. Board Authorization\n<|id|>124<|page|>12<|box|>359 140 376 442<|content|>4. Delivery of Amendment Documents\n<|id|>126<|page|>12<|box|>482 240 502 756<|content|>IV. Impact on IPO Timeline and Closing Mechanics\n<|id|>142<|page|>13<|box|>656 297 676 699<|content|>V. Items Requiring Continued Attention\n<|id|>150<|page|>14<|box|>487 421 507 576<|content|>VI. Conclusion\n<|id|>159<|page|>17<|box|>476 140 506 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>30<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>1\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>49<|level|>3\n<|id|>58<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>67<|level|>3\n<|id|>76<|level|>3\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>86<|level|>3\n<|id|>93<|level|>3\n<|id|>101<|level|>2\n<|id|>102<|level|>3\n<|id|>106<|level|>3\n<|id|>116<|level|>2\n<|id|>117<|level|>3\n<|id|>119<|level|>3\n<|id|>122<|level|>3\n<|id|>124<|level|>3\n<|id|>126<|level|>1\n<|id|>142<|level|>1\n<|id|>150<|level|>1\n<|id|>159<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        }
+    ]
+}

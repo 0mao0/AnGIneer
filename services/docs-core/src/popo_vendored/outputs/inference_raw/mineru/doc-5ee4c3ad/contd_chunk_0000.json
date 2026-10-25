@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>171 424 188 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>196 140 215 748<|content|>FROM: ... Nadia Petrov, Lead Associate, and James Underwood, Working Associate\n<|id|>4<|page|>1<|box|>223 142 241 741<|content|>TO: ... Bernard Crawford, Responsible Partner, and Renata Vasquez, Billing Partner\n<|id|>5<|page|>1<|box|>250 140 267 330<|content|>DATE: ... August 25, 2023\n<|id|>6<|page|>1<|box|>275 140 311 856<|content|>RE: ... 2022-L-002847, Circuit Court of Cook Count...artment, Law Division — Post-DWP Strategy Analysis\n<|id|>7<|page|>1<|box|>319 140 337 464<|content|>CLIENT: ... Nexford Industrial Holdings Inc\n<|id|>22<|page|>2<|box|>856 140 892 854<|content|>An Initial Case Management Conference was held on ...asquez- Torres. ... fact discovery was to close on\n<|id|>23<|page|>3<|box|>90 140 127 854<|content|>December 15, 2022; ... The case was placed on a standard trial track\n<|id|>39<|page|>4<|box|>851 140 906 857<|content|>June 8, 2023 — Fourth Non-Appearance: ... Hess at Hess & Loughlin,\n<|id|>41<|page|>5<|box|>133 140 208 854<|content|>August 10, 2023 — Entry of DWP: ... The order was ...rved upon the parties at their addresses of record\n<|id|>83<|page|>9<|box|>854 140 909 856<|content|>Maciejewski's cause of action under the Whistleblo...on. ... The original complaint was timely filed on\n<|id|>84<|page|>10<|box|>89 140 145 854<|content|>March 15, 2022, well within this one-year window. ...ing after September 24, 2022, would be time-barred\n<|id|>97<|page|>11<|box|>450 181 505 854<|content|>• Back pay: ... approximately $78,400 (one year of...cipated trial date, subject to mitigation offsets)\n<|id|>102<|page|>11<|box|>604 140 768 857<|content|>With the passage of time, the back pay component o...g Maciejewski's post-termination employment status\n<|id|>98<|page|>11<|box|>508 183 542 854<|content|>• Front pay: ... approximately $39,200 (six months...e period required to locate comparable employment)\n<|id|>99<|page|>11<|box|>546 183 561 584<|content|>• Emotional distress damages: ... approximately $50,000\n<|id|>100<|page|>11<|box|>565 183 582 707<|content|>• Statutory attorney's fees and costs (Count III): ... approximately $40,000\n<|id|>101<|page|>11<|box|>584 184 601 648<|content|>• Punitive damages risk (if applicable): ... approximately $77,400\n<|id|>107<|page|>12<|box|>354 183 372 444<|content|>• Per-occurrence limit: ... $2,000,000\n<|id|>111<|page|>12<|box|>434 140 507 854<|content|>Verdant acknowledged coverage for the Maciejewski ...ing as panel defense counsel under the EPLI policy\n<|id|>108<|page|>12<|box|>375 183 392 411<|content|>• Aggregate limit: ... $5,000,000\n<|id|>109<|page|>12<|box|>393 183 411 490<|content|>• Self-insured retention (\"SIR\"): ... $50,000\n<|id|>110<|page|>12<|box|>414 183 431 697<|content|>• Claims adjuster: ... Brianna Choi, Verdant Mutual Insurance Company\n<|id|>132<|page|>14<|box|>315 181 349 854<|content|>• Attendance and disciplinary records for the Qual...nce Department during the relevant period; ... and\n<|id|>133<|page|>14<|box|>353 183 406 854<|content|>Communications among key custodians: ... Frank Bos...(EHS Manager), and Tara Svendsen (General Counsel)\n<|id|>151<|page|>15<|box|>805 140 897 857<|content|>Verdant Mutual Insurance Company. ... The letter s...ant maintain the claim file in open status through\n<|id|>152<|page|>16<|box|>90 140 145 854<|content|>August 10, 2024, at minimum, and through September...sts ($3,000–$5,000) are within the approved budget\n<|id|>166<|page|>17<|box|>125 140 157 852<|content|>Nadia Petrov Lead Associate Calderwood & Harkness ...npetrov@calderwoodharkness. ... com (312) 555-4820\n<|id|>167<|page|>17<|box|>159 143 175 251<|content|>By: ... By\n<|id|>168<|page|>17<|box|>174 140 208 852<|content|>James Underwood Working Associate Calderwood & Har...derwood@calderwoodharkness. ... com (312) 555-4837\n<|id|>169<|page|>17<|box|>207 140 238 852<|content|>Distribution: ... Bernard Crawford, Responsible Pa...asquez, Billing Partner, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>83<|tgt_id|>84\n<|src_id|>151<|tgt_id|>152",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 152
+        }
+    ]
+}

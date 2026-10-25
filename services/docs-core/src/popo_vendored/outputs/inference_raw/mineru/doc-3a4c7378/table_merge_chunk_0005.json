@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Claim Language', 'Accused Product Element and Evidence']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['\"a coherent detection module integrated on the silicon substrate, the coherent detection module comprising a 90° optical hybrid, at least two pairs of balanced photodetectors, and a local oscillator input waveguide configured to receive light from a local oscillator laser source;\"', 'Accused Element: The LumiLink 400G-ZR+ PIC includes a coherent detection module (coherent receiver) integrated on the SOI substrate, as identified by the Benchmark teardown (Exhibit OWS-1001 at pp. 52–58). The coherent receiver comprises: (i) a 90° optical hybrid implemented as a 4×4 MMI coupler (Exhibit OWS-1023); (ii) two pairs of balanced Ge-on-Si photodetectors (four photodetectors total, arranged in two balanced pairs for in-phase and quadrature detection) (Exhibits OWS-1024, OWS-1025); and (iii) a local oscillator (LO) input waveguide that receives light from an external narrow-linewidth tunable laser source coupled to the PIC via an edge coupler (Exhibit OWS-1026). Lumicore design files (LC-HC-SC-00012360 through LC-HC-SC-00012410) show the complete coherent receiver layout including the 90° hybrid, balanced photodetector pairs, and LO input waveguide. Dr. Michaud confirmed (November 19, 2024, at 82:18–85:6) that the LumiLink 400G-ZR+ uses a \"standard coherent receiver architecture with a 90-degree hybrid and balanced detection.\" Note on Doctrine of Equivalents (Claims 3 and 7): For Claim 1, OWS asserts literal infringement of the \"coherent detection module\" limitation. For dependent Claims 3 and 7, which add further requirements to the coherent detection module, OWS also asserts infringement under the doctrine of equivalents. The function-way-result analysis for the doctrine of equivalents as applied to Claims 3 and 7 is presented in companion Appendix B.Dr. Ashford\\'s Explanation: The LumiLink 400G-ZR+ contains a coherent detection module with every element recited in this limitation: the 90° optical hybrid, balanced photodetector pairs, and LO input waveguide are all integrated on the silicon substrate. The Benchmark teardown and Lumicore design files confirm the presence of each component.']]\n",
+    "raw_response": "[0, 0]",
+    "parsed": [
+        0,
+        0
+    ],
+    "table1_idx": 134,
+    "table2_idx": 135
+}

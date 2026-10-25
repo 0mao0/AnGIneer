@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        8,
+        9,
+        10,
+        12,
+        16,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 181 118 815<|content|>INTELLECTUAL PROPERTY ASSIGNMENT AGREEMENT\n<|id|>3<|page|>1<|box|>186 346 204 651<|content|>GENOME DX THERAPEUTICS INC.\n<|id|>4<|page|>1<|box|>263 248 282 748<|content|>INTELLECTUAL PROPERTY ASSIGNMENT AGREEMENT\n<|id|>10<|page|>1<|box|>544 142 563 243<|content|>RECITALS\n<|id|>17<|page|>2<|box|>186 140 203 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>29<|page|>3<|box|>474 140 493 393<|content|>ARTICLE 2 — ASSIGNMENT\n<|id|>56<|page|>6<|box|>148 140 166 640<|content|>ARTICLE 3 — VANTAGE LICENSE ACKNOWLEDGMENT\n<|id|>62<|page|>6<|box|>631 142 648 748<|content|>ARTICLE 4 — REPRESENTATIONS AND WARRANTIES OF ASSI\n<|id|>72<|page|>8<|box|>89 142 106 743<|content|>ARTICLE 5 — REPRESENTATIONS AND WARRANTIES OF ASSI\n<|id|>76<|page|>8<|box|>446 142 463 483<|content|>ARTICLE 6 — FURTHER ASSURANCES\n<|id|>87<|page|>9<|box|>666 140 683 524<|content|>ARTICLE 7 — RELATIONSHIP TO THE APA\n<|id|>97<|page|>10<|box|>652 142 669 429<|content|>ARTICLE 8 — MISCELLANEOUS\n<|id|>122<|page|>12<|box|>473 148 489 846<|content|>SIGNATURE PAGE TO INTELLECTUAL PROPERTY ASSIGNMENT\n<|id|>124<|page|>12<|box|>542 143 559 447<|content|>GENOME DX THERAPEUTICS INC.\n<|id|>134<|page|>12<|box|>715 449 732 547<|content|>EXHIBIT A\n<|id|>135<|page|>12<|box|>741 339 758 658<|content|>SCHEDULE OF ASSIGNED PATENTS\n<|id|>143<|page|>16<|box|>285 447 301 550<|content|>EXHIBIT B\n<|id|>144<|page|>16<|box|>311 315 327 681<|content|>SCHEDULE OF ASSIGNED TRADEMARKS\n<|id|>151<|page|>18<|box|>127 447 143 550<|content|>EXHIBIT C\n<|id|>152<|page|>18<|box|>152 212 169 784<|content|>DESCRIPTION OF ASSIGNED TRADE SECRETS AND KNOW-HOW",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>4<|level|>1\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>29<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>72<|level|>2\n<|id|>76<|level|>2\n<|id|>87<|level|>2\n<|id|>97<|level|>2\n<|id|>122<|level|>1\n<|id|>124<|level|>2\n<|id|>134<|level|>1\n<|id|>135<|level|>2\n<|id|>143<|level|>1\n<|id|>144<|level|>2\n<|id|>151<|level|>1\n<|id|>152<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 2
+        }
+    ]
+}

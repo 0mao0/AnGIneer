@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['10', 'Tricare / Health Net', 'TRICARE Provider', 'Jan. 1, 2021', 'Indefinite', '~1%', 'No']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Federal Services', 'Agreement', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 121,
+    "table2_idx": 122
+}

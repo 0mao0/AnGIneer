@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 119 854<|content|>STATE OF NEW YORK DEPARTMENT OF STATE DIVISION OF\n<|id|>1<|page|>1<|box|>127 336 143 660<|content|>CERTIFICATE OF INCORPORATION\n<|id|>3<|page|>1<|box|>179 320 195 676<|content|>THE CALDWELL FAMILY FOUNDATION\n<|id|>4<|page|>1<|box|>205 194 222 800<|content|>Under Section 402 of the Not-for-Profit Corporatio\n<|id|>5<|page|>1<|box|>231 279 248 717<|content|>Filed with the Department of State of the State of\n<|id|>8<|page|>1<|box|>361 142 377 354<|content|>ARTICLE FIRST: NAME\n<|id|>10<|page|>1<|box|>445 142 463 539<|content|>ARTICLE SECOND: TYPE OF CORPORATION\n<|id|>12<|page|>1<|box|>604 142 621 398<|content|>ARTICLE THIRD: PURPOSES\n<|id|>23<|page|>2<|box|>523 140 560 754<|content|>ARTICLE FOURTH: PRIVATE FOUNDATION STATUS AND REQU\n<|id|>35<|page|>4<|box|>89 142 106 379<|content|>ARTICLE FIFTH: POWERS\n<|id|>46<|page|>4<|box|>829 142 845 624<|content|>ARTICLE SIXTH: OFFICE AND REGISTERED ADDRESS\n<|id|>51<|page|>5<|box|>273 142 291 429<|content|>ARTICLE SEVENTH: DURATION\n<|id|>53<|page|>5<|box|>340 142 358 426<|content|>ARTICLE EIGHTH: DIRECTORS\n<|id|>58<|page|>6<|box|>89 142 106 398<|content|>ARTICLE NINTH: MEMBERS\n<|id|>61<|page|>6<|box|>273 140 291 459<|content|>ARTICLE TENTH: INCORPORATOR\n<|id|>65<|page|>6<|box|>411 142 428 576<|content|>ARTICLE ELEVENTH: DISSOLUTION PROVISION\n<|id|>68<|page|>6<|box|>797 140 814 593<|content|>ARTICLE TWELFTH: LIMITATION ON ACTIVITIES\n<|id|>71<|page|>7<|box|>229 140 247 694<|content|>ARTICLE THIRTEENTH: TAX-EXEMPT PURPOSE LIMITATION\n<|id|>73<|page|>7<|box|>388 142 405 493<|content|>ARTICLE FOURTEENTH: AMENDMENT\n<|id|>77<|page|>7<|box|>654 142 671 591<|content|>ARTICLE FIFTEENTH: STATUTORY COMPLIANCE\n<|id|>82<|page|>8<|box|>133 354 150 640<|content|>INCORPORATOR'S EXECUTION\n<|id|>91<|page|>8<|box|>541 145 577 848<|content|>STATE OF NEW YORK DEPARTMENT OF STATE DIVISION OF\n<|id|>92<|page|>8<|box|>585 390 603 606<|content|>FILING ENDORSEMENT\n<|id|>99<|page|>9<|box|>90 176 106 818<|content|>INTERNAL TRANSMITTAL NOTES — NOT PART OF FILED CER\n<|id|>100<|page|>9<|box|>114 142 128 604<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>102<|page|>9<|box|>191 143 205 318<|content|>Federal Tax Identification:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>2\n<|id|>5<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>23<|level|>2\n<|id|>35<|level|>2\n<|id|>46<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>58<|level|>2\n<|id|>61<|level|>2\n<|id|>65<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>77<|level|>2\n<|id|>82<|level|>2\n<|id|>91<|level|>1\n<|id|>92<|level|>2\n<|id|>99<|level|>1\n<|id|>100<|level|>2\n<|id|>102<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        }
+    ]
+}

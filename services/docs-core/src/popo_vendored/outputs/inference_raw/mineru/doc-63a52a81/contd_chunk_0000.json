@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        16,
+        17,
+        18,
+        24,
+        25,
+        26,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>204 424 220 573<|content|>MEMORANDUM\n<|id|>4<|page|>1<|box|>229 140 284 854<|content|>TO: ... Empowered Official, Whitmore Aerospace LLC\n<|id|>5<|page|>1<|box|>292 140 329 854<|content|>FROM: ... 1067432)\n<|id|>6<|page|>1<|box|>335 140 354 826<|content|>REVIEWED BY: ... 492103)\n<|id|>7<|page|>1<|box|>362 140 378 310<|content|>DATE: ... June 18, 2025\n<|id|>8<|page|>1<|box|>388 140 444 854<|content|>RE: ... as In-Country Representative for WPX-4200 Meridian Export Program\n<|id|>9<|page|>1<|box|>450 140 468 362<|content|>MATTER NO. ... 1019-00004\n<|id|>10<|page|>1<|box|>476 140 494 526<|content|>CONFLICTS CLEARANCE: ... SC-2025-CF-04412\n<|id|>11<|page|>1<|box|>502 140 518 408<|content|>Right-click to update Table of Contents\n<|id|>20<|page|>2<|box|>862 140 898 854<|content|>Northbridge Forensic Advisory Group LLC (\"Northbri... ... Samuel Kreindler) was engaged by Calderwood &\n<|id|>21<|page|>3<|box|>90 140 200 856<|content|>Harkness LLP, with the express authorization of Wh...n European and Eastern Mediterranean jurisdictions\n<|id|>29<|page|>3<|box|>843 140 898 857<|content|>4. ... OFAC SDN Entry ID\n<|id|>30<|page|>4<|box|>89 174 143 854<|content|>SDNR-1025-00008). ... This investigation encompass...telligence gathering across multiple jurisdictions\n<|id|>146<|page|>16<|box|>872 140 909 856<|content|>OFAC Enforcement Precedent. ... (December\n<|id|>148<|page|>17<|box|>226 140 335 856<|content|>In Stanley Gibbons (Guernsey) Ltd. ... The present...ion measures based on the investigation's findings\n<|id|>153<|page|>17<|box|>864 140 902 856<|content|>Impact on License Processing. ... DDTC's license r...including review by the Department of Defense, the\n<|id|>154<|page|>18<|box|>90 138 219 856<|content|>Department of State's Bureau of Political-Military...tial DDTC concerns and avoiding unnecessary delays\n<|id|>217<|page|>24<|box|>834 174 869 854<|content|>(f) The executed Drakon intermediary agreement (on...t control, and anti-corruption provisions; ... and\n<|id|>219<|page|>25<|box|>89 140 146 854<|content|>This compliance file will serve as contemporaneous...uture regulatory inquiry or enforcement proceeding\n<|id|>233<|page|>26<|box|>784 140 895 857<|content|>The historical co-investment between Andreou and V...cial, or personal relationship between Andreou and\n<|id|>234<|page|>27<|box|>90 140 162 854<|content|>Semichastny has been identified; ... The OFAC 50-p...ered, and the facilitation risk is assessed as low\n<|id|>239<|page|>27<|box|>733 142 748 320<|content|>Respectfully submitted,\n<|id|>240<|page|>27<|box|>750 142 765 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>241<|page|>27<|box|>768 143 784 251<|content|>By: ... By\n<|id|>242<|page|>27<|box|>784 143 799 470<|content|>Leila Nazari Associate DC Bar No. ... 1081209\n<|id|>243<|page|>27<|box|>803 143 818 251<|content|>By: ... By\n<|id|>244<|page|>27<|box|>819 142 834 504<|content|>Garrett Simmons Associate DC Bar No. ... 1067432\n<|id|>245<|page|>27<|box|>835 143 852 354<|content|>Reviewed and Approved by: ... Reviewed and Approved by",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>29<|tgt_id|>30\n<|src_id|>153<|tgt_id|>154\n<|src_id|>233<|tgt_id|>234",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 234
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=5, 河北', 'rowspan=2, III', '坝上高原区', '1.52', '0.50', '', '', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 省(自治区)名称', 'rowspan=2, 分区', 'rowspan=2, 分区、指标', 'K_1', '\\\\beta_1', 'K_2', '\\\\beta_2', '\\\\lambda_1']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 1058,
+    "table2_idx": 1059
+}

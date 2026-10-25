@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['New Zealand', '12', '19', '14', '17', '15', '17', '20']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, End of calendar year or month', 'rowspan=3, Total long-term liabilities', 'colspan=5, Payable in dollars', 'rowspan=3, Payable in foreign currencies']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 442,
+    "table2_idx": 443
+}

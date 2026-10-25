@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>150 212 166 282<|content|>Plaintiff,\n<|id|>2<|page|>1<|box|>202 212 219 442<|content|>Case No. ... 25-cv-22847-AMC\n<|id|>3<|page|>1<|box|>228 142 244 454<|content|>CORAL VERIMARK RESORTS LLC,\n<|id|>4<|page|>1<|box|>253 212 270 299<|content|>Defendant. ... Defendant\n<|id|>11<|page|>1<|box|>842 140 897 854<|content|>4. ... (\"VHG\"), to conduct a comprehensive marketp...erm \"VERIMARK\" by Defendant Coral Verimark Resorts\n<|id|>12<|page|>2<|box|>90 174 218 856<|content|>LLC (\"CVR\"). ... 00, plus reimbursement of reasona...es incurred during the course of the investigation\n<|id|>107<|page|>14<|box|>214 174 251 854<|content|>Natasha K. ... (954) 555-2800\n<|id|>108<|page|>14<|box|>258 176 276 477<|content|>Email: ... com\n<|id|>109<|page|>14<|box|>277 176 292 462<|content|>Email: ... com\n<|id|>110<|page|>14<|box|>294 176 311 563<|content|>Counsel for Defendant Coral Verimark Resorts LLC\n<|id|>111<|page|>14<|box|>319 140 335 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>112<|page|>14<|box|>338 143 354 253<|content|>By: ... By\n<|id|>113<|page|>14<|box|>354 140 386 854<|content|>Peter Vassiliev, Esq. ... (305) 555-4100\n<|id|>114<|page|>14<|box|>388 140 404 473<|content|>Email: ... com\n<|id|>115<|page|>14<|box|>404 140 422 535<|content|>Counsel for Plaintiff Verimark Hospitality Group I...unsel for Plaintiff Verimark Hospitality Group Inc",
+    "raw_response": "<|src_id|>11<|tgt_id|>12",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        }
+    ]
+}

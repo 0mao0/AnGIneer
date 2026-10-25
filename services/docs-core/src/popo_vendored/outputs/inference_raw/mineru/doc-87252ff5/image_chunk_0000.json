@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 168 141 830<|content|>UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF\n<|id|>7<|type|>title<|page|>1<|box|>323 150 378 848<|content|>MEMORANDUM OF POINTS AND AUTHORITIES IN SUPPORT OF\n<|id|>9<|type|>title<|page|>1<|box|>429 398 446 599<|content|>TABLE OF CONTENTS\n<|id|>10<|type|>table<|page|>1<|box|>454 143 898 852<|content|>None\n<|id|>11<|type|>table<|page|>2<|box|>88 143 194 852<|content|>None\n<|id|>12<|type|>title<|page|>2<|box|>228 385 244 612<|content|>TABLE OF AUTHORITIES\n<|id|>14<|type|>table<|page|>2<|box|>277 143 890 852<|content|>None\n<|id|>15<|type|>table<|page|>3<|box|>147 143 344 852<|content|>None\n<|id|>16<|type|>title<|page|>3<|box|>393 142 410 308<|content|>I. INTRODUCTION\n<|id|>24<|type|>title<|page|>4<|box|>720 140 738 395<|content|>II. FACTUAL BACKGROUND\n<|id|>25<|type|>title<|page|>4<|box|>752 140 768 282<|content|>A. The Litigation\n<|id|>33<|type|>title<|page|>5<|box|>825 140 843 415<|content|>B. The discovery Requests at Issue\n<|id|>39<|type|>title<|page|>6<|box|>510 140 527 513<|content|>C. Helios's Production and Privilege Assertions\n<|id|>46<|type|>title<|page|>7<|box|>804 142 819 364<|content|>D. Meet-and-Confer Efforts\n<|id|>53<|type|>title<|page|>8<|box|>710 140 728 346<|content|>III. LEGAL STANDARD\n<|id|>62<|type|>title<|page|>10<|box|>303 140 320 287<|content|>IV. ARGUMENT\n<|id|>84<|type|>title<|page|>14<|box|>330 140 347 663<|content|>B. The Work-Product Doctrine Does Not Protect Thes\n<|id|>98<|type|>title<|page|>16<|box|>547 140 582 854<|content|>C. To the Extent Helios Asserts a Freedom-to-Opera\n<|id|>103<|type|>title<|page|>17<|box|>484 140 501 754<|content|>D. The Protective Order Adequately Safeguards Any\n<|id|>111<|type|>title<|page|>18<|box|>349 140 364 589<|content|>E. Relevance of the 34 Documents to GenomeDx's Cla\n<|id|>118<|type|>title<|page|>19<|box|>611 140 628 294<|content|>V. CONCLUSION\n<|id|>123<|type|>title<|page|>20<|box|>114 140 132 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>129<|type|>title<|page|>20<|box|>280 140 297 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>10<|tgt_id|>9\n<|src_id|>11<|tgt_id|>9\n<|src_id|>14<|tgt_id|>12\n<|src_id|>15<|tgt_id|>12",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 12
+        }
+    ]
+}

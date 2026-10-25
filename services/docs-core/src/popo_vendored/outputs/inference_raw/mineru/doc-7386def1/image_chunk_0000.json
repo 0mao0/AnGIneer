@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        9,
+        11,
+        13,
+        15,
+        17,
+        18,
+        19,
+        20,
+        22,
+        23,
+        25,
+        27,
+        28,
+        29,
+        30
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 354 119 643<|content|>PURCHASE AGREEMENT\n<|id|>1<|type|>title<|page|>1<|box|>136 334 154 661<|content|>$30,000,000 Aggregate Principal Amount\n<|id|>2<|type|>title<|page|>1<|box|>161 331 179 665<|content|>Senior Unsecured Notes due June 30, 2027\n<|id|>5<|type|>title<|page|>1<|box|>294 447 311 550<|content|>RECITALS\n<|id|>13<|type|>title<|page|>2<|box|>89 140 107 372<|content|>SECTION 1. DEFINITIONS\n<|id|>38<|type|>title<|page|>3<|box|>818 140 835 609<|content|>SECTION 2. PURCHASE AND RESALE OF THE NOTES\n<|id|>43<|type|>title<|page|>5<|box|>89 140 106 772<|content|>SECTION 3. REPRESENTATIONS AND WARRANTIES OF THE C\n<|id|>66<|type|>title<|page|>9<|box|>303 140 320 665<|content|>SECTION 4. COMPENSATION OF THE INITIAL PURCHASER\n<|id|>69<|type|>title<|page|>9<|box|>652 140 669 537<|content|>SECTION 5. COVENANTS OF THE COMPANY\n<|id|>79<|type|>title<|page|>11<|box|>383 140 401 486<|content|>SECTION 6. CONDITIONS TO CLOSING\n<|id|>84<|type|>title<|page|>11<|box|>661 176 679 336<|content|>(iv) Legal Opinions.\n<|id|>99<|type|>title<|page|>13<|box|>707 140 724 346<|content|>SECTION 7. EXPENSES\n<|id|>112<|type|>title<|page|>15<|box|>89 140 106 614<|content|>SECTION 8. INDEMNIFICATION AND CONTRIBUTION\n<|id|>121<|type|>title<|page|>17<|box|>358 140 375 387<|content|>SECTION 9. TERMINATION\n<|id|>136<|type|>title<|page|>18<|box|>568 140 604 761<|content|>SECTION 10. REPRESENTATIONS AND WARRANTIES OF THE\n<|id|>142<|type|>title<|page|>19<|box|>303 140 320 343<|content|>SECTION 11. NOTICES\n<|id|>144<|type|>title<|page|>19<|box|>446 142 464 295<|content|>If to the Company:\n<|id|>152<|type|>title<|page|>19<|box|>638 142 654 351<|content|>If to the Initial Purchaser:\n<|id|>160<|type|>title<|page|>20<|box|>89 140 107 792<|content|>SECTION 12. GOVERNING LAW; JURISDICTION; WAIVER OF\n<|id|>164<|type|>title<|page|>20<|box|>666 140 683 419<|content|>SECTION 13. MISCELLANEOUS\n<|id|>174<|type|>title<|page|>22<|box|>133 359 151 635<|content|>[SIGNATURE PAGES FOLLOW]\n<|id|>186<|type|>title<|page|>22<|box|>393 372 411 624<|content|>EXHIBITS AND SCHEDULES\n<|id|>187<|type|>title<|page|>23<|box|>89 143 132 604<|content|>EXHIBIT A — FORM OF PRICING SUPPLEMENT PRICING SUP\n<|id|>194<|type|>title<|page|>23<|box|>297 367 313 630<|content|>RIDGELINE SECURITIES LLC\n<|id|>196<|type|>table<|page|>23<|box|>420 143 659 852<|content|>None\n<|id|>199<|type|>title<|page|>23<|box|>818 142 834 563<|content|>GREENFIELD AGRICULTURAL PARTNERS LLC\n<|id|>209<|type|>title<|page|>25<|box|>89 143 132 614<|content|>EXHIBIT B — FORM OF OFFICER'S CERTIFICATE OFFICER'\n<|id|>211<|type|>title<|page|>25<|box|>167 287 184 709<|content|>GREENFIELD AGRICULTURAL PARTNERS LLC\n<|id|>212<|type|>title<|page|>25<|box|>194 254 210 741<|content|>Delivered Pursuant to Section 6(a)(vii) of the Pur\n<|id|>216<|type|>table<|page|>25<|box|>534 143 625 852<|content|>None\n<|id|>220<|type|>title<|page|>27<|box|>89 140 107 694<|content|>EXHIBIT C — FORM OF REGISTRATION RIGHTS AGREEMENT\n<|id|>228<|type|>title<|page|>28<|box|>89 142 106 455<|content|>SCHEDULE 1 — USE OF PROCEEDS\n<|id|>229<|type|>table<|page|>28<|box|>159 143 316 852<|content|>None\n<|id|>231<|type|>title<|page|>29<|box|>89 140 106 527<|content|>SCHEDULE 2 — DISCLOSURE EXCEPTIONS\n<|id|>238<|type|>title<|page|>30<|box|>89 142 107 519<|content|>SCHEDULE 3 — EXISTING INDEBTEDNESS\n<|id|>240<|type|>table<|page|>30<|box|>183 143 592 852<|content|>None\n<|id|>243<|type|>title<|page|>30<|box|>789 387 806 611<|content|>[End of Purchase Agreement]",
+    "raw_response": "<|src_id|>196<|tgt_id|>187\n<|src_id|>216<|tgt_id|>209\n<|src_id|>229<|tgt_id|>228\n<|src_id|>240<|tgt_id|>238",
+    "parsed": [
+        {
+            "src_id": 196,
+            "tgt_id": 187
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 228
+        },
+        {
+            "src_id": 240,
+            "tgt_id": 238
+        }
+    ]
+}

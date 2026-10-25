@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>489 140 506 264<|content|>I. Introduction\n<|id|>14<|page|>2<|box|>167 140 185 267<|content|>II. Background\n<|id|>15<|page|>2<|box|>199 140 215 307<|content|>A. The Investigation\n<|id|>17<|page|>2<|box|>381 140 398 362<|content|>B. Torchlight Mining Corp.\n<|id|>20<|page|>2<|box|>681 140 699 710<|content|>C. The Non-Prosecution Agreement and Enhanced Comp\n<|id|>22<|page|>3<|box|>138 140 156 403<|content|>D. Meridian's Prior Involvement\n<|id|>24<|page|>3<|box|>387 140 404 611<|content|>III. Proposed Monitor: Meridian Compliance Partner\n<|id|>25<|page|>3<|box|>417 142 434 290<|content|>A. Firm Overview\n<|id|>28<|page|>3<|box|>753 140 772 310<|content|>B. Engagement Lead\n<|id|>42<|page|>5<|box|>577 140 594 370<|content|>IV. Proposed Scope of Work\n<|id|>44<|page|>5<|box|>707 140 724 418<|content|>A. Initial Assessment (Months 1–3)\n<|id|>53<|page|>7<|box|>90 140 108 444<|content|>B. Ongoing Monitoring (Months 1–24)\n<|id|>62<|page|>8<|box|>214 140 231 488<|content|>C. Annual Compliance Certification Review\n<|id|>64<|page|>8<|box|>396 140 414 357<|content|>D. Access and Cooperation\n<|id|>68<|page|>9<|box|>90 140 107 398<|content|>V. Proposed Reporting Schedule\n<|id|>69<|page|>9<|box|>121 142 138 321<|content|>A. Reports to the DOJ\n<|id|>73<|page|>9<|box|>797 142 815 297<|content|>B. Reports to TMC\n<|id|>75<|page|>10<|box|>138 142 157 313<|content|>C. Ad Hoc Reporting\n<|id|>84<|page|>10<|box|>550 140 566 359<|content|>VI. Proposed Fee Structure\n<|id|>85<|page|>10<|box|>580 142 598 274<|content|>A. Hourly Rates\n<|id|>89<|page|>11<|box|>176 142 193 370<|content|>B. Estimated Annual Budget\n<|id|>94<|page|>11<|box|>722 140 739 367<|content|>C. Budget Approval Process\n<|id|>96<|page|>12<|box|>90 140 107 305<|content|>VII. Proposed Term\n<|id|>100<|page|>12<|box|>446 140 464 473<|content|>VIII. Proposed Process for DOJ Approval\n<|id|>107<|page|>13<|box|>90 142 107 264<|content|>IX. Conclusion\n<|id|>118<|page|>13<|box|>678 143 693 240<|content|>Enclosures:",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>1\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>42<|level|>1\n<|id|>44<|level|>2\n<|id|>53<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>2\n<|id|>68<|level|>1\n<|id|>69<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>2\n<|id|>84<|level|>1\n<|id|>85<|level|>2\n<|id|>89<|level|>2\n<|id|>94<|level|>2\n<|id|>96<|level|>1\n<|id|>100<|level|>1\n<|id|>107<|level|>1\n<|id|>118<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        }
+    ]
+}

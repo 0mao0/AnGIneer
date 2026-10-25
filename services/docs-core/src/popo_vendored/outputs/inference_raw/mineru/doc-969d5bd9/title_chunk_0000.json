@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 107 856<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>429 140 446 364<|content|>I. Introduction and Purpose\n<|id|>16<|page|>2<|box|>431 140 449 535<|content|>II. Identification of Taxpayer and Related Entitie\n<|id|>17<|page|>2<|box|>463 140 479 321<|content|>A. Principal Taxpayer\n<|id|>20<|page|>2<|box|>671 140 689 581<|content|>B. Existing Fund Vehicles Subject to the Reorganiz\n<|id|>28<|page|>3<|box|>810 140 828 522<|content|>C. Newly Formed Entities (Post-Reorganization)\n<|id|>34<|page|>4<|box|>612 140 628 449<|content|>III. Summary of Proposed Transaction\n<|id|>49<|page|>6<|box|>601 140 618 423<|content|>IV. Summary of Rulings Requested\n<|id|>59<|page|>8<|box|>393 140 412 485<|content|>V. Reference to Pre-Submission Conference\n<|id|>71<|page|>10<|box|>90 140 107 431<|content|>VI. Schedule of Enclosed Documents\n<|id|>83<|page|>11<|box|>390 140 407 596<|content|>VII. Authorized Representatives and Contact Inform\n<|id|>86<|page|>11<|box|>503 142 521 442<|content|>Email: lcross@calderwoodharkness.com\n<|id|>93<|page|>12<|box|>89 140 107 403<|content|>VIII. IRS User Fee Confirmation\n<|id|>96<|page|>12<|box|>311 140 329 426<|content|>IX. Request for Expedited Handling\n<|id|>105<|page|>13<|box|>186 140 204 230<|content|>X. Closing\n<|id|>109<|page|>13<|box|>362 140 378 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>28<|level|>2\n<|id|>34<|level|>1\n<|id|>49<|level|>1\n<|id|>59<|level|>1\n<|id|>71<|level|>1\n<|id|>83<|level|>1\n<|id|>86<|level|>-1\n<|id|>93<|level|>1\n<|id|>96<|level|>1\n<|id|>105<|level|>1\n<|id|>109<|level|>-1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        }
+    ]
+}

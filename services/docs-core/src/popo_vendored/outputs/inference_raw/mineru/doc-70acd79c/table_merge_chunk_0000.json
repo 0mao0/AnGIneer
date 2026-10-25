@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['DSP-5-2023-YYYY', 'United Kingdom', 'XI-004, XI-006', 'September 2026', 'Active; amendment']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'for change of ownership pending']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 469,
+    "table2_idx": 470
+}

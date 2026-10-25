@@ -1,0 +1,146 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        21,
+        22,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>127 147 162 848<|content|>CALDERWOOD & HARKNESS LLP 825 Eighth Avenue, 42nd\n<|id|>10<|page|>1<|box|>439 385 458 611<|content|>I. Executive Summary\n<|id|>22<|page|>3<|box|>364 392 383 604<|content|>II. Legal Framework\n<|id|>23<|page|>3<|box|>409 140 426 622<|content|>A. FCPA Section 13(b)(2)(A) — Books and Records Pr\n<|id|>32<|page|>4<|box|>513 140 529 607<|content|>B. FCPA Section 13(b)(2)(B) — Internal Controls Pr\n<|id|>49<|page|>5<|box|>777 140 794 486<|content|>C. Applicability to Torchlight Mining Corp.\n<|id|>57<|page|>6<|box|>561 140 577 486<|content|>D. SEC Enforcement Trends and Precedent\n<|id|>63<|page|>7<|box|>388 143 433 852<|content|>III. Factual Basis for Potential Books and Records\n<|id|>65<|page|>7<|box|>527 140 544 707<|content|>A. Mischaracterization of Payments to Crestfield A\n<|id|>81<|page|>9<|box|>186 183 202 630<|content|>• Total contractual maximum: approximately $2,040,\n<|id|>83<|page|>9<|box|>393 140 409 665<|content|>B. Mischaracterization of TGM Cash Withdrawals Und\n<|id|>91<|page|>10<|box|>304 140 320 478<|content|>C. Mischaracterization of In-Kind Benefits\n<|id|>102<|page|>11<|box|>167 140 185 521<|content|>D. Impact on Consolidated Financial Statements\n<|id|>108<|page|>11<|box|>758 140 773 501<|content|>E. Summary of Books and Records Violations\n<|id|>110<|page|>12<|box|>227 151 271 843<|content|>IV. Factual Basis for Potential Internal Controls\n<|id|>112<|page|>12<|box|>383 140 401 772<|content|>A. Failure of Authorization Controls — Delegation\n<|id|>118<|page|>13<|box|>267 140 284 566<|content|>B. Absence of Third-Party Due Diligence on Crestfi\n<|id|>131<|page|>14<|box|>407 140 425 616<|content|>C. Failure to Detect Payments Exceeding Contractua\n<|id|>136<|page|>15<|box|>148 140 167 617<|content|>D. Inadequate Controls Over Cash Disbursements (GL\n<|id|>141<|page|>15<|box|>734 140 751 540<|content|>E. Failure of Supervisory and Monitoring Controls\n<|id|>149<|page|>17<|box|>90 140 107 486<|content|>F. Failure to Reconcile Asset Accountability\n<|id|>154<|page|>17<|box|>546 140 563 473<|content|>G. Summary of Internal Controls Failures\n<|id|>163<|page|>18<|box|>284 338 304 658<|content|>V. Potential Individual Liability\n<|id|>172<|page|>19<|box|>608 256 652 738<|content|>VI. Quantification of Potential SEC Exposure on Bo\n<|id|>185<|page|>21<|box|>376 218 396 777<|content|>VII. Interaction with Voluntary Self-Disclosure An\n<|id|>191<|page|>22<|box|>363 341 383 655<|content|>VIII. Remediation Implications\n<|id|>194<|page|>22<|box|>635 140 652 496<|content|>Preliminary Remediation Recommendations:\n<|id|>204<|page|>24<|box|>90 341 111 655<|content|>IX. Open Issues and Next Steps\n<|id|>214<|page|>25<|box|>517 424 537 571<|content|>X. Conclusion",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>10<|level|>1\n<|id|>22<|level|>1\n<|id|>23<|level|>2\n<|id|>32<|level|>2\n<|id|>49<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>1\n<|id|>65<|level|>2\n<|id|>81<|level|>-1\n<|id|>83<|level|>2\n<|id|>91<|level|>2\n<|id|>102<|level|>2\n<|id|>108<|level|>2\n<|id|>110<|level|>1\n<|id|>112<|level|>2\n<|id|>118<|level|>2\n<|id|>131<|level|>2\n<|id|>136<|level|>2\n<|id|>141<|level|>2\n<|id|>149<|level|>2\n<|id|>154<|level|>2\n<|id|>163<|level|>1\n<|id|>172<|level|>1\n<|id|>185<|level|>1\n<|id|>191<|level|>1\n<|id|>194<|level|>2\n<|id|>204<|level|>1\n<|id|>214<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 185,
+            "level": 1
+        },
+        {
+            "id": 191,
+            "level": 1
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 1
+        },
+        {
+            "id": 214,
+            "level": 1
+        }
+    ]
+}

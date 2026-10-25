@@ -1,0 +1,159 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9hgvt38z\\input\\pdfs\\doc-5a43de57.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9hgvt38z\\enriched\\doc-5a43de57.json",
+    "contd_output": "<|src_id|>70<|tgt_id|>71\n<|src_id|>147<|tgt_id|>148",
+    "title_output": "<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>47<|level|>2\n<|id|>50<|level|>3\n<|id|>58<|level|>3\n<|id|>67<|level|>3\n<|id|>75<|level|>3\n<|id|>94<|level|>2\n<|id|>101<|level|>1\n<|id|>108<|level|>1\n<|id|>113<|level|>1\n<|id|>114<|level|>2\n<|id|>118<|level|>2\n<|id|>125<|level|>2\n<|id|>129<|level|>2\n<|id|>138<|level|>2\n<|id|>144<|level|>1\n<|id|>152<|level|>1\n<|id|>157<|level|>1\n<|id|>167<|level|>1\n<|id|>170<|level|>1\n<|id|>175<|level|>1\n<|id|>179<|level|>1\n<|id|>182<|level|>1\n<|id|>185<|level|>1",
+    "image_output": "<|src_id|>110<|tgt_id|>108\n<|src_id|>111<|tgt_id|>108\n<|src_id|>116<|tgt_id|>114",
+    "contd_label": [
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 148
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 167,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 179,
+            "level": 1
+        },
+        {
+            "id": 182,
+            "level": 1
+        },
+        {
+            "id": 185,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 110,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 114
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 110,
+            "table2_idx": 111,
+            "upper_row_ss": [
+                [
+                    "August 15, 2025",
+                    "Gap-analysis report delivered"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "September 12, 2025",
+                    "Privacy-policy suite (external consumer-facing notices) — initial drafts delivered"
+                ]
+            ]
+        }
+    ]
+}

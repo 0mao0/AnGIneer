@@ -1,0 +1,34 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        47,
+        58
+    ],
+    "pages": [
+        48,
+        51,
+        53,
+        58
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>462<|page|>48<|box|>90 316 109 681<|content|>Exhibit C — Endorsement Checklist\n<|id|>469<|page|>51<|box|>90 343 111 653<|content|>Exhibit D — Legal Description\n<|id|>484<|page|>53<|box|>90 310 109 687<|content|>Exhibit E — Curative Action Tracker\n<|id|>491<|page|>58<|box|>207 398 223 599<|content|>— End of Memorandum —",
+    "raw_response": "<|id|>462<|level|>1\n<|id|>469<|level|>1\n<|id|>484<|level|>1\n<|id|>491<|level|>1",
+    "parsed": [
+        {
+            "id": 462,
+            "level": 1
+        },
+        {
+            "id": 469,
+            "level": 1
+        },
+        {
+            "id": 484,
+            "level": 1
+        },
+        {
+            "id": 491,
+            "level": 1
+        }
+    ]
+}

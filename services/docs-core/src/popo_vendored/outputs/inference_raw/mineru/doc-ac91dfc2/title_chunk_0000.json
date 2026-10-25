@@ -1,0 +1,140 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 653<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>8<|page|>1<|box|>455 142 473 367<|content|>1. Introduction and Purpose\n<|id|>12<|page|>2<|box|>90 142 107 356<|content|>2. Description of the Client\n<|id|>16<|page|>2<|box|>520 140 537 354<|content|>3. Scope of Representation\n<|id|>18<|page|>2<|box|>686 140 704 495<|content|>3.1 CPT/PLA Code Strategy and Application\n<|id|>24<|page|>3<|box|>393 140 410 537<|content|>3.2 Local Coverage Determination (LCD) Strategy\n<|id|>30<|page|>3<|box|>806 140 824 403<|content|>3.3 MolDx Technical Assessment\n<|id|>35<|page|>4<|box|>539 140 556 486<|content|>3.4 Medicare Reimbursement Rate Analysis\n<|id|>40<|page|>4<|box|>816 140 834 668<|content|>3.5 National Coverage Determination (NCD) Feasibil\n<|id|>46<|page|>5<|box|>327 140 344 377<|content|>3.6 Related Advisory Services\n<|id|>52<|page|>5<|box|>667 140 685 308<|content|>3.7 Scope Exclusions\n<|id|>63<|page|>6<|box|>517 140 534 312<|content|>4. Engagement Team\n<|id|>72<|page|>7<|box|>446 140 464 406<|content|>5. Fees and Billing Arrangements\n<|id|>73<|page|>7<|box|>478 140 494 279<|content|>5.1 Hourly Rates\n<|id|>76<|page|>7<|box|>801 140 818 344<|content|>5.2 Fee Estimate / Budget\n<|id|>81<|page|>8<|box|>527 140 545 400<|content|>5.3 Disbursements and Expenses\n<|id|>91<|page|>9<|box|>148 140 167 377<|content|>6. Billing and Payment Terms\n<|id|>92<|page|>10<|box|>90 140 106 307<|content|>6.1 Invoice Schedule\n<|id|>94<|page|>10<|box|>255 140 272 300<|content|>6.2 Payment Terms\n<|id|>96<|page|>10<|box|>419 140 436 285<|content|>6.3 Late Payment\n<|id|>99<|page|>10<|box|>637 140 654 284<|content|>7. Confidentiality\n<|id|>105<|page|>11<|box|>285 140 301 321<|content|>8. Conflicts of Interest\n<|id|>119<|page|>12<|box|>90 140 107 369<|content|>9. Third-Party Coordination\n<|id|>124<|page|>12<|box|>473 142 489 334<|content|>10. Document Retention\n<|id|>127<|page|>12<|box|>767 142 784 272<|content|>11. Termination\n<|id|>131<|page|>13<|box|>286 140 303 380<|content|>12. Limitation of Engagement\n<|id|>136<|page|>13<|box|>777 142 794 297<|content|>13. Governing Law\n<|id|>138<|page|>14<|box|>90 142 107 315<|content|>14. Entire Agreement\n<|id|>141<|page|>14<|box|>348 142 364 379<|content|>15. Acceptance and Execution\n<|id|>145<|page|>14<|box|>614 140 632 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>152<|page|>14<|box|>814 142 830 372<|content|>ACCEPTED AND AGREED",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>2\n<|id|>24<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>52<|level|>2\n<|id|>63<|level|>1\n<|id|>72<|level|>1\n<|id|>73<|level|>2\n<|id|>76<|level|>2\n<|id|>81<|level|>2\n<|id|>91<|level|>1\n<|id|>92<|level|>2\n<|id|>94<|level|>2\n<|id|>96<|level|>2\n<|id|>99<|level|>1\n<|id|>105<|level|>1\n<|id|>119<|level|>1\n<|id|>124<|level|>1\n<|id|>127<|level|>1\n<|id|>131<|level|>1\n<|id|>136<|level|>1\n<|id|>138<|level|>1\n<|id|>141<|level|>1\n<|id|>145<|level|>-1\n<|id|>152<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        }
+    ]
+}

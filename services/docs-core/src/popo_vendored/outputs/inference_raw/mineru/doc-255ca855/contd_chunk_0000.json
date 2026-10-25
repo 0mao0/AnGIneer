@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>10<|page|>1<|box|>854 140 930 854<|content|>WHEREAS, management of the Bank has recommended th...Rate Subordinated Notes due 2036 (the CONFIDENTIAL\n<|id|>11<|page|>2<|box|>90 140 162 854<|content|>\"Notes\"), in a private placement exempt from regis...ned in Rule 144A under the Securities Act (\"QIBs\")\n<|id|>18<|page|>2<|box|>820 140 893 857<|content|>WHEREAS, the Board has reviewed and considered the...tations from the Bank's management and the Initial\n<|id|>19<|page|>3<|box|>89 140 162 856<|content|>Purchasers, advice from the Bank's legal counsel, ...ng its depositors, creditors, and sole shareholder\n<|id|>46<|page|>5<|box|>306 174 342 854<|content|>(b) Redstone Capital Markets LLC, with offices at ...ork, New York 10166, acting as co-manager; ... and\n<|id|>48<|page|>5<|box|>395 140 523 854<|content|>providing for the purchase and sale of the Notes a...d by such officer's execution and delivery thereof\n<|id|>56<|page|>6<|box|>257 174 311 854<|content|>(b) the Confidential Offering Memorandum dated Feb... the final terms and pricing of the Notes; ... and\n<|id|>58<|page|>6<|box|>364 140 529 856<|content|>RESOLVED FURTHER, that the Authorized Officers are...ary or appropriate in connection with the Offering\n<|id|>95<|page|>10<|box|>477 140 494 578<|content|>BELMONT RIDGE BANK, NATIONAL ASSOCIATION\n<|id|>96<|page|>10<|box|>496 143 513 253<|content|>By: ... By\n<|id|>97<|page|>10<|box|>513 142 529 326<|content|>Name: ... Wexler\n<|id|>98<|page|>10<|box|>529 142 547 491<|content|>Title: ... General Counsel and Corporate Secretary\n<|id|>99<|page|>10<|box|>547 142 564 326<|content|>Date: ... February 24, 2026",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>18<|tgt_id|>19",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        }
+    ]
+}

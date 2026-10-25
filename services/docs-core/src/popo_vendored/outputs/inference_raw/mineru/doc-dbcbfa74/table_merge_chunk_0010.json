@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['15', 'Internal Strategy Memo: Negotiation Positioning and Red Lines', 'June 9, 2024', 'Vasquez to Crawford', 'Attorney Work Product (Opinion); Attorney-Client Privilege', \"Comprehensive internal strategy memorandum setting forth C&H's recommended\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', \"opening positions, anticipated Harding demands (based on analysis of Marlowe Asset Management agreement and market practices), and fallback positions on key terms.Addresses CIC (opening: 2.5x best-net; anticipated demand: 3x with gross-up; fallback: 2.5x best-net, firm), restrictive covenant (opening: 24 months worldwide; anticipated demand: 12 months limited geography; fallback: 18 months, North America plus Western Europe), sign-on equity (opening: $18.4M; anticipated demand: $23.4M to match Marlowe Asset Management; fallback: $18.4M, firm), and non-CIC severance (opening: 2x; anticipated demand: 2.5x; fallback: 2x). Reflects Vasquez's and\"]]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 63,
+    "table2_idx": 64
+}

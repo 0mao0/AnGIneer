@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 145 152 851<|content|>777 South Flower Street, Suite 4200 Los Angeles, California 90017 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 743 176 854<|content|>March 1, 2023\n<|id|>4<|page|>1<|box|>212 140 247 854<|content|>Dr. ... Rajesh Makhija Workforce Dynamics Consulti...4 Castro Street, Suite 800 Mountain View, CA 94041\n<|id|>5<|page|>1<|box|>256 174 310 854<|content|>Re: ... 22STCV38214 (Consolidated with 22STCV39501)\n<|id|>6<|page|>1<|box|>318 176 335 403<|content|>C&H Matter No. ... 1017-00004\n<|id|>7<|page|>1<|box|>344 142 362 281<|content|>Dear Dr. ... Makhija\n<|id|>17<|page|>2<|box|>347 176 382 854<|content|>1. ... 8500 Sunset Boulevard, Suite 1400, West Hol...90069 — Corporate Headquarters and Post-Production\n<|id|>24<|page|>2<|box|>675 140 801 856<|content|>As part of this analysis, we specifically ask you ...and rest break timing, duration, and documentation\n<|id|>18<|page|>2<|box|>385 174 420 854<|content|>2. ... 4024 Penmark Strategy Partners Avenue, Stud...ty, CA 91604 — Stage A & B, Unscripted Programming\n<|id|>19<|page|>2<|box|>422 174 457 854<|content|>3. ... 15301 Ventura Boulevard, Suite 300, Sherman Oaks, CA 91403 — Digital Content Division\n<|id|>20<|page|>2<|box|>460 174 478 852<|content|>4. ... 3800 West Alameda Avenue, Burbank, CA 91505 — Live Events and Field Production\n<|id|>21<|page|>2<|box|>479 174 497 767<|content|>5. ... 1438 North Gower Street, Hollywood, CA 90028 — Scripted Development\n<|id|>22<|page|>2<|box|>500 174 516 758<|content|>6. ... 2120 Colorado Avenue, Santa Monica, CA 90404 — E-Commerce Studio\n<|id|>80<|page|>8<|box|>271 176 287 668<|content|>Devon Archer, Senior Associate Direct Telephone: ... (213) 555-7238\n<|id|>81<|page|>8<|box|>297 176 314 491<|content|>Email: ... com\n<|id|>82<|page|>8<|box|>315 142 330 300<|content|>Secondary Contact: ... Secondary Contact\n<|id|>83<|page|>8<|box|>340 176 358 785<|content|>Renata Vasquez, Partner (Responsible Attorney) Direct Telephone: ... (213) 555-7200\n<|id|>84<|page|>8<|box|>366 176 383 500<|content|>Email: ... com\n<|id|>85<|page|>8<|box|>383 143 401 281<|content|>Billing Inquiries: ... Billing Inquiries\n<|id|>86<|page|>8<|box|>409 176 426 763<|content|>Bernard Crawford, Partner (Billing Attorney) Direct Telephone: ... (213) 555-7214\n<|id|>87<|page|>8<|box|>435 176 450 509<|content|>Email: ... com\n<|id|>88<|page|>8<|box|>453 140 544 854<|content|>All substantive communications regarding the engag...o Devon Archer in the first instance. ... Crawford\n<|id|>92<|page|>8<|box|>736 142 753 220<|content|>Sincerely,\n<|id|>93<|page|>8<|box|>762 140 777 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>94<|page|>8<|box|>780 143 796 253<|content|>By: ... By\n<|id|>99<|page|>9<|box|>106 140 125 521<|content|>WORKFORCE DYNAMICS CONSULTING LLC\n<|id|>100<|page|>9<|box|>125 142 142 254<|content|>By: ... By\n<|id|>101<|page|>9<|box|>142 142 159 344<|content|>Name: ... Rajesh Makhija\n<|id|>102<|page|>9<|box|>159 142 176 338<|content|>Title: ... Managing Principal\n<|id|>103<|page|>9<|box|>176 142 193 266<|content|>Date: ... Date\n<|id|>104<|page|>9<|box|>193 140 208 854<|content|>cc: ... Renata Vasquez, Partner, Calderwood & Hark...rnard Crawford, Partner, Calderwood & Harkness LLP\n<|id|>105<|page|>9<|box|>209 140 224 745<|content|>Gregory Tanaka, VP Legal & Compliance, Aurelius Media Americas Inc. ... (per engagement protocol)",
+    "raw_response": "<|src_id|>82<|tgt_id|>83\n<|src_id|>85<|tgt_id|>86",
+    "parsed": [
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        }
+    ]
+}

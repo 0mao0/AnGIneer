@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>741 140 758 372<|content|>1. Identification of Applicant\n<|id|>17<|page|>2<|box|>525 142 542 290<|content|>2. Site Description\n<|id|>34<|page|>3<|box|>603 140 619 323<|content|>3. Operational History\n<|id|>41<|page|>4<|box|>421 140 438 602<|content|>4. Summary of Known Contamination and Release Hist\n<|id|>42<|page|>4<|box|>452 140 469 344<|content|>4.1 Documented Releases\n<|id|>50<|page|>5<|box|>220 140 237 375<|content|>4.2 Contaminants of Concern\n<|id|>56<|page|>5<|box|>469 140 486 406<|content|>4.3 Soil Contamination Summary\n<|id|>62<|page|>5<|box|>828 140 844 480<|content|>4.4 Groundwater Contamination Summary\n<|id|>68<|page|>6<|box|>352 142 369 310<|content|>4.5 Nearest Receptor\n<|id|>71<|page|>6<|box|>625 140 643 470<|content|>5. Environmental Assessments Performed\n<|id|>77<|page|>7<|box|>421 140 439 491<|content|>6. Proposed Remedial Approach (Summary)\n<|id|>88<|page|>8<|box|>753 140 772 426<|content|>7. Financial Capability of Applicant\n<|id|>93<|page|>9<|box|>440 140 457 367<|content|>8. Site Access Arrangements\n<|id|>97<|page|>9<|box|>833 140 849 584<|content|>9. Identification of Other Potentially Responsible\n<|id|>102<|page|>10<|box|>458 142 474 325<|content|>10. Enclosed Materials\n<|id|>117<|page|>11<|box|>205 140 223 392<|content|>11. APAR Submission Timeline",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>17<|level|>1\n<|id|>34<|level|>1\n<|id|>41<|level|>1\n<|id|>42<|level|>2\n<|id|>50<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>1\n<|id|>77<|level|>1\n<|id|>88<|level|>1\n<|id|>93<|level|>1\n<|id|>97<|level|>1\n<|id|>102<|level|>1\n<|id|>117<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        }
+    ]
+}

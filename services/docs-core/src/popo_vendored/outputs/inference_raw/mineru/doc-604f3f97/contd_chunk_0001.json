@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        49,
+        61
+    ],
+    "pages": [
+        50,
+        52,
+        54,
+        59,
+        61
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>216<|page|>50<|box|>78 27 170 498<|content|>The tablas which follow provide an analysis of the...al Reserve member-bank classes and nonmember banks\n<|id|>221<|page|>52<|box|>107 394 121 628<|content|>(Par values - in millions of dollars)\n<|id|>225<|page|>54<|box|>65 36 145 483<|content|>Current market quotations shown here are over-the-...ecause they are not regularly quoted in the market\n<|id|>236<|page|>59<|box|>776 28 918 529<|content|>1/ Difference between the amounts of internal reve...ports. ... Revised accounting procedures effective\n<|id|>241<|page|>61<|box|>749 25 841 488<|content|>Source: ... Figures for 1954 have been revised to the same basis\n<|id|>243<|page|>61<|box|>910 28 934 495<|content|>3/ Under revised accounting procedure effective Ju...der the depositary receipts system are included in\n<|id|>244<|page|>61<|box|>745 531 855 960<|content|>Internal Revenue Service reports of collections in...distributed depositary receipts prior to June 1955",
+    "raw_response": "<|src_id|>243<|tgt_id|>244",
+    "parsed": [
+        {
+            "src_id": 243,
+            "tgt_id": 244
+        }
+    ]
+}

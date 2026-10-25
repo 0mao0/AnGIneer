@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>561 140 579 333<|content|>I. Production Summary\n<|id|>11<|page|>2<|box|>90 140 107 442<|content|>II. Categories of Documents Produced\n<|id|>13<|page|>2<|box|>183 140 200 730<|content|>1. Shipment Records (HALCYON-DOJ-000001 – HALCYON-\n<|id|>17<|page|>2<|box|>691 140 728 854<|content|>2. End-User Certificates and End-Use Statements (H\n<|id|>19<|page|>3<|box|>138 140 174 854<|content|>3. Export Classification and Licensing Records (HA\n<|id|>21<|page|>3<|box|>412 140 449 854<|content|>4. Restricted-Party Screening Records (HALCYON-DOJ\n<|id|>26<|page|>4<|box|>138 140 157 795<|content|>5. Customer Correspondence (HALCYON-DOJ-007892 – H\n<|id|>30<|page|>4<|box|>539 140 556 823<|content|>6. Compliance Policy Documents (HALCYON-DOJ-011341\n<|id|>36<|page|>5<|box|>89 140 107 723<|content|>7. Training Records (HALCYON-DOJ-012004 – HALCYON-\n<|id|>38<|page|>5<|box|>272 140 308 852<|content|>8. Organizational Charts and Personnel Records (HA\n<|id|>40<|page|>5<|box|>492 140 508 764<|content|>9. Distributor Agreement (HALCYON-DOJ-013103 – HAL\n<|id|>43<|page|>5<|box|>809 142 827 821<|content|>10. Sentinel SLA Documentation (HALCYON-DOJ-013489\n<|id|>50<|page|>6<|box|>545 140 564 282<|content|>III. Privilege Log\n<|id|>54<|page|>7<|box|>90 142 107 277<|content|>IV. Reservations",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>13<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>2\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>2\n<|id|>43<|level|>2\n<|id|>50<|level|>1\n<|id|>54<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        }
+    ]
+}

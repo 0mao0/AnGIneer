@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        6,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 130 630<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>138 140 156 584<|content|>TO: ... Patrick Gallagher, Lead Associate, Litigation (General)\n<|id|>3<|page|>1<|box|>164 140 181 565<|content|>FROM: ... Simone Laroche, Associate, Litigation (General)\n<|id|>4<|page|>1<|box|>190 140 207 325<|content|>DATE: ... March 15, 2023\n<|id|>5<|page|>1<|box|>215 140 253 854<|content|>RE: ... )\n<|id|>6<|page|>1<|box|>260 142 277 333<|content|>Matter No. ... 1012-00005\n<|id|>7<|page|>1<|box|>285 140 304 433<|content|>Client: ... Stonefield Logistics Group Inc\n<|id|>51<|page|>6<|box|>252 174 306 854<|content|>(iii) Diverting freight to Cascade Freight Systems Inc. ... and\n<|id|>53<|page|>6<|box|>377 140 450 854<|content|>Vantor contends that VTS's performance failures in... theory of the case and must be addressed directly\n<|id|>116<|page|>13<|box|>872 140 909 854<|content|>Pruitt's Deposition Testimony Corroborates the Tim...n July 10, 2023, acknowledged that VTS \"struggled\"\n<|id|>117<|page|>14<|box|>90 140 181 856<|content|>to maintain committed fleet capacity for Stonefiel...ustified a fleet reduction before implementing one",
+    "raw_response": "<|src_id|>116<|tgt_id|>117",
+    "parsed": [
+        {
+            "src_id": 116,
+            "tgt_id": 117
+        }
+    ]
+}

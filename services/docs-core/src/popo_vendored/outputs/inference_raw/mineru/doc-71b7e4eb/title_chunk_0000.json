@@ -1,0 +1,168 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 153 128 843<|content|>CALDERWOOD & HARKNESS LLP 599 Lexington Avenue New\n<|id|>2<|page|>1<|box|>138 403 159 593<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>444 140 462 321<|content|>I. Executive Summary\n<|id|>23<|page|>2<|box|>536 140 553 553<|content|>II. Transaction Overview Presented to Underwriters\n<|id|>25<|page|>2<|box|>628 140 647 338<|content|>A. Parties and Structure\n<|id|>31<|page|>3<|box|>455 140 472 292<|content|>B. Deal Economics\n<|id|>34<|page|>4<|box|>90 142 107 294<|content|>C. Rollover Equity\n<|id|>38<|page|>4<|box|>515 140 532 439<|content|>D. Key Deal Terms Relevant to Policy\n<|id|>46<|page|>5<|box|>375 140 391 326<|content|>E. Financing Overview\n<|id|>56<|page|>6<|box|>186 140 204 524<|content|>III. Diligence Workstream Summaries Presented\n<|id|>58<|page|>6<|box|>279 140 297 490<|content|>A. Corporate Organization and Subsidiaries\n<|id|>64<|page|>6<|box|>840 142 857 571<|content|>B. Material Contracts — Change of Control Provisio\n<|id|>74<|page|>8<|box|>213 140 229 333<|content|>C. Intellectual Property\n<|id|>88<|page|>9<|box|>604 140 625 372<|content|>D. Litigation and Regulatory\n<|id|>95<|page|>10<|box|>292 140 311 370<|content|>E. Financial and Accounting\n<|id|>111<|page|>12<|box|>213 140 229 464<|content|>G. Employee Benefits and Compensation\n<|id|>120<|page|>13<|box|>194 140 212 434<|content|>H. Environmental and Real Property\n<|id|>136<|page|>14<|box|>229 140 248 604<|content|>IV. Northfield Underwriter Questions and C&H Respo\n<|id|>137<|page|>14<|box|>261 140 279 584<|content|>A. Specific Questions Raised by Northfield Underwr\n<|id|>139<|page|>14<|box|>347 142 364 383<|content|>1. Aegis Federal Consent Risk.\n<|id|>147<|page|>15<|box|>196 140 214 418<|content|>2. Helix Data License Termination.\n<|id|>149<|page|>15<|box|>285 140 301 349<|content|>C&H responded as follows:\n<|id|>154<|page|>15<|box|>652 140 670 367<|content|>3. Open-Source Compliance.\n<|id|>157<|page|>16<|box|>90 140 108 411<|content|>4. Cybersecurity Incident History.\n<|id|>159<|page|>16<|box|>179 140 196 413<|content|>C&H provided the following details:\n<|id|>165<|page|>16<|box|>590 140 608 346<|content|>5. Closing-Date Leverage.\n<|id|>167<|page|>16<|box|>679 140 696 349<|content|>C&H responded as follows:\n<|id|>172<|page|>17<|box|>196 140 214 470<|content|>6. Government Contracts and FedRAMP.\n<|id|>175<|page|>17<|box|>402 140 420 452<|content|>7. UK Subsidiary Revenue Significance.\n<|id|>178<|page|>17<|box|>661 140 676 545<|content|>V. Areas of Potential Coverage Exclusion Identifie\n<|id|>190<|page|>19<|box|>167 140 184 444<|content|>VI. Subrogation and Fraud Provisions\n<|id|>196<|page|>19<|box|>758 140 777 506<|content|>VII. Policy Terms and Premium Confirmation\n<|id|>202<|page|>20<|box|>704 140 722 410<|content|>VIII. Next Steps and Action Items\n<|id|>221<|page|>22<|box|>90 140 107 447<|content|>IX. Assessment and Recommendations",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>9<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>3\n<|id|>31<|level|>3\n<|id|>34<|level|>3\n<|id|>38<|level|>3\n<|id|>46<|level|>3\n<|id|>56<|level|>2\n<|id|>58<|level|>3\n<|id|>64<|level|>3\n<|id|>74<|level|>3\n<|id|>88<|level|>3\n<|id|>95<|level|>3\n<|id|>111<|level|>3\n<|id|>120<|level|>3\n<|id|>136<|level|>2\n<|id|>137<|level|>3\n<|id|>139<|level|>4\n<|id|>147<|level|>4\n<|id|>149<|level|>5\n<|id|>154<|level|>4\n<|id|>157<|level|>4\n<|id|>159<|level|>5\n<|id|>165<|level|>4\n<|id|>167<|level|>5\n<|id|>172<|level|>4\n<|id|>175<|level|>4\n<|id|>178<|level|>2\n<|id|>190<|level|>2\n<|id|>196<|level|>2\n<|id|>202<|level|>2\n<|id|>221<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 4
+        },
+        {
+            "id": 147,
+            "level": 4
+        },
+        {
+            "id": 149,
+            "level": 5
+        },
+        {
+            "id": 154,
+            "level": 4
+        },
+        {
+            "id": 157,
+            "level": 4
+        },
+        {
+            "id": 159,
+            "level": 5
+        },
+        {
+            "id": 165,
+            "level": 4
+        },
+        {
+            "id": 167,
+            "level": 5
+        },
+        {
+            "id": 172,
+            "level": 4
+        },
+        {
+            "id": 175,
+            "level": 4
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        }
+    ]
+}

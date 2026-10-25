@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>633 140 744 854<|content|>WHEREAS, Treasury Regulations Section 1. ... and\n<|id|>8<|page|>1<|box|>752 140 806 854<|content|>WHEREAS, this Certificate is delivered by the Comp...ions Sections 1. ... 02(g) of the Merger Agreement\n<|id|>27<|page|>3<|box|>89 174 108 684<|content|>(ii) its interests in real property located outside the United States; ... and\n<|id|>29<|page|>3<|box|>142 140 215 857<|content|>At no time during the relevant period has the fair...ng the applicable look-back period described above\n<|id|>45<|page|>4<|box|>839 174 895 856<|content|>(b) No Relief from Separate Tax Obligations. ... T... any other requirement arising under the Code, the\n<|id|>46<|page|>5<|box|>90 174 200 854<|content|>Treasury Regulations, or any other applicable fede... such holders are not affected by this Certificate\n<|id|>57<|page|>5<|box|>791 142 806 351<|content|>Name: ... Kessler\n<|id|>58<|page|>5<|box|>808 143 824 359<|content|>Title: ... Chief Financial Officer\n<|id|>59<|page|>5<|box|>825 143 840 264<|content|>Date: ... Date\n<|id|>64<|page|>6<|box|>133 140 152 302<|content|>STATE OF___ )\n<|id|>65<|page|>6<|box|>162 207 178 248<|content|>) ss. ... ) ss\n<|id|>66<|page|>6<|box|>186 140 204 320<|content|>COUNTY OF ______ )\n<|id|>67<|page|>6<|box|>212 140 321 854<|content|>On this _ day of ___, 2025, before me, the undersi...of which the person acted, executed the instrument\n<|id|>69<|page|>6<|box|>383 142 398 251<|content|>Notary Public\n<|id|>70<|page|>6<|box|>400 142 417 375<|content|>My Commission Expires: ... My Commission Expires\n<|id|>79<|page|>6<|box|>824 140 900 854<|content|>6. ... (a) the collection of IRS Forms W-8BEN, W-8BEN-\n<|id|>80<|page|>7<|box|>89 140 135 854<|content|>E, and W-8IMY from applicable holders; ... See the...omplete list of required withholding documentation\n<|id|>83<|page|>7<|box|>277 183 292 689<|content|>• Merger Agreement, Section 7. ... 02(g) (Closing Deliverables — FIRPTA Certificate)\n<|id|>90<|page|>7<|box|>464 140 479 718<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT — ATTORNEY-CLIENT PRIVILEGE\n<|id|>84<|page|>7<|box|>294 183 309 841<|content|>• Closing Checklist (Master), Item Nos. ... 42–44 ... Certificate, Form W-9, Withholding Documentation)\n<|id|>85<|page|>7<|box|>311 183 325 617<|content|>• Paying Agent Agreement, Section 2. ... 04 (Tax Withholding Procedures)\n<|id|>86<|page|>7<|box|>325 183 340 689<|content|>• FIRPTA/NRA Withholding Analysis Memorandum (S. ... Hartwell, March 19, 2025)\n<|id|>87<|page|>7<|box|>343 183 357 467<|content|>• IRS Form W-9 Request Letter (to Company)",
+    "raw_response": "<|src_id|>45<|tgt_id|>46\n<|src_id|>79<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        }
+    ]
+}

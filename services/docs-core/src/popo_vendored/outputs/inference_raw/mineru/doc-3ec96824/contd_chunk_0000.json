@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 346 133 651<|content|>780 Third Avenue New York, NY 10017\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 746 184 854<|content|>June 30, 2023\n<|id|>4<|page|>1<|box|>194 140 229 854<|content|>Nordbank International AG as Administrative Agent ... below) Bahnhofstrasse 78 8001 Zürich, Switzerland\n<|id|>5<|page|>1<|box|>237 140 273 727<|content|>Attention: ... Henrik Lüdemann, Managing Director,...rs party to the Credit Agreement referred to below\n<|id|>6<|page|>1<|box|>281 140 297 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>11<|page|>1<|box|>642 140 882 857<|content|>\"Credit Agreement\" means the Senior Secured Credit...oan B facility in the original principal amount of\n<|id|>12<|page|>2<|box|>89 140 126 854<|content|>Eighty-Five Million Dollars ($85,000,000) (the \"TL...LB\"), for which TAI is the designated Co- Borrower\n<|id|>20<|page|>3<|box|>133 174 189 854<|content|>(d) the KFO Equity Subscription Agreement, dated a... pursuant to which Kronos Family Office S. ... and\n<|id|>22<|page|>3<|box|>296 140 387 854<|content|>The documents described above are referred to collectively herein as the \"Transaction Documents. ... \"\n<|id|>69<|page|>7<|box|>152 174 189 854<|content|>(v) the Houston terminal lease and other material ...rticularly described on Schedule A hereto; ... and\n<|id|>71<|page|>7<|box|>223 140 297 856<|content|>We note that this opinion is limited to those agre...rty or by which TAI or its properties may be bound\n<|id|>115<|page|>11<|box|>468 140 484 326<|content|>Name: ... Nathaniel Bower\n<|id|>116<|page|>11<|box|>484 140 502 509<|content|>Title: ... Partner, Bankruptcy & Restructuring Group\n<|id|>117<|page|>11<|box|>502 140 534 852<|content|>Calderwood & Harkness LLP 780 Third Avenue New York, NY 10017 Telephone: ... (212) 558- 4000",
+    "raw_response": "<|src_id|>11<|tgt_id|>12",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        }
+    ]
+}

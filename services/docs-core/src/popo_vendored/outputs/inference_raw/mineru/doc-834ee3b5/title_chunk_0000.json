@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 186 142 810<|content|>FORM OF JOINDER AGREEMENT TO RESTRUCTURING SUPPORT\n<|id|>3<|page|>1<|box|>412 449 429 549<|content|>RECITALS\n<|id|>4<|page|>1<|box|>438 140 455 246<|content|>WHEREAS:\n<|id|>10<|page|>2<|box|>385 140 402 429<|content|>Section 1 — Agreement to Be Bound\n<|id|>14<|page|>2<|box|>777 140 794 653<|content|>Section 2 — Representations and Warranties of the\n<|id|>30<|page|>4<|box|>741 140 758 405<|content|>Section 3 — Voting Commitment\n<|id|>34<|page|>5<|box|>377 140 393 411<|content|>Section 4 — Transfer Restrictions\n<|id|>37<|page|>5<|box|>689 140 707 344<|content|>Section 5 — Termination\n<|id|>40<|page|>6<|box|>148 140 167 439<|content|>Section 6 — Miscellaneous Provisions\n<|id|>50<|page|>7<|box|>421 140 438 346<|content|>Section 7 — Effectiveness\n<|id|>67<|page|>8<|box|>90 142 108 336<|content|>[Signature Pages Follow]\n<|id|>68<|page|>8<|box|>114 153 151 841<|content|>SIGNATURE PAGE TO JOINDER AGREEMENT TO RESTRUCTURI\n<|id|>70<|page|>8<|box|>204 143 220 297<|content|>JOINING PARTY:\n<|id|>81<|page|>8<|box|>393 320 410 678<|content|>ACKNOWLEDGMENT BY THE DEBTORS\n<|id|>83<|page|>8<|box|>482 142 500 519<|content|>CRESTLINE PACKAGING SOLUTIONS LLC\n<|id|>93<|page|>9<|box|>90 424 109 573<|content|>SCHEDULE 1\n<|id|>94<|page|>9<|box|>128 390 146 607<|content|>Claims of the Joining Party\n<|id|>97<|page|>9<|box|>631 142 648 223<|content|>Capacity:\n<|id|>100<|page|>9<|box|>781 142 797 295<|content|>CERTIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>4<|level|>3\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>30<|level|>2\n<|id|>34<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>2\n<|id|>50<|level|>2\n<|id|>67<|level|>-1\n<|id|>68<|level|>2\n<|id|>70<|level|>3\n<|id|>81<|level|>3\n<|id|>83<|level|>4\n<|id|>93<|level|>2\n<|id|>94<|level|>3\n<|id|>97<|level|>3\n<|id|>100<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 4
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        }
+    ]
+}

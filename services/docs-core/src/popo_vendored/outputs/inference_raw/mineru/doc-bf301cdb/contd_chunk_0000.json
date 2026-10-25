@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        26
+    ],
+    "pages": [
+        2,
+        8,
+        10,
+        11,
+        17,
+        18,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>2<|box|>152 176 169 820<|content|>Exhibit A to the Master Services Agreement dated June 9, 2023 (the \"Agreement\")\n<|id|>2<|page|>2<|box|>179 464 194 532<|content|>between\n<|id|>3<|page|>2<|box|>204 259 220 736<|content|>Northgate Americas, Inc. ... a Delaware corporation (\"Customer\")\n<|id|>4<|page|>2<|box|>229 482 246 516<|content|>and\n<|id|>5<|page|>2<|box|>255 189 273 805<|content|>Cedarpoint Systems Integration, Inc. ... a Delaware corporation (\"Service Provider\")\n<|id|>6<|page|>2<|box|>281 392 297 604<|content|>Effective Date: ... June 9, 2023\n<|id|>7<|page|>2<|box|>306 140 397 854<|content|>Capitalized terms used but not otherwise defined i...e Agreement apply to the Services described herein\n<|id|>82<|page|>8<|box|>287 174 323 852<|content|>(a) Primary NOC Facility: ... 11400 Commerce Park ...00 Reston, Virginia 20191 United States of America\n<|id|>83<|page|>8<|box|>332 174 369 854<|content|>The primary NOC facility in Reston, Virginia shall...er for all Services delivered under this Exhibit A\n<|id|>84<|page|>8<|box|>376 174 412 854<|content|>(b) Secondary/Redundant NOC Facility: ... 200 Port...enue, Suite 1500 Winnipeg, Manitoba R3C 3X2 Canada\n<|id|>85<|page|>8<|box|>420 174 512 854<|content|>The secondary NOC facility in Winnipeg, Manitoba s...personnel at all times to enable seamless failover\n<|id|>115<|page|>10<|box|>772 174 845 854<|content|>(b) Security Patches — Timely development and depl...y vulnerabilities in the ArcMesh platform. ... and\n<|id|>117<|page|>11<|box|>90 140 143 854<|content|>All such maintenance activities described in claus...and maintenance fees set forth in Section 5. ... 3\n<|id|>217<|page|>17<|box|>863 174 900 854<|content|>(a) Network Availability and Uptime Statistics — D...nd aggregate basis, measured against the Exhibit B\n<|id|>218<|page|>18<|box|>90 174 143 854<|content|>SLA targets (99. ... Reports shall identify any no... provide root cause explanations for such failures\n<|id|>334<|page|>26<|box|>345 142 362 303<|content|>Name: ... Warren Liang\n<|id|>335<|page|>26<|box|>363 142 378 263<|content|>Title: ... President\n<|id|>336<|page|>26<|box|>378 142 396 285<|content|>Date: ... June 9, 2023\n<|id|>339<|page|>26<|box|>431 143 448 320<|content|>Name: ... Rajiv Sundaram\n<|id|>340<|page|>26<|box|>449 142 465 367<|content|>Title: ... Chief Executive Officer\n<|id|>341<|page|>26<|box|>465 142 482 285<|content|>Date: ... June 9, 2023\n<|id|>342<|page|>26<|box|>483 138 529 854<|content|>This Exhibit A is incorporated by reference into t...tutes acceptance of this Exhibit A in its entirety",
+    "raw_response": "<|src_id|>115<|tgt_id|>117\n<|src_id|>217<|tgt_id|>218",
+    "parsed": [
+        {
+            "src_id": 115,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 218
+        }
+    ]
+}

@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 282 118 714<|content|>CHAIN OF CUSTODY CERTIFICATION\n<|id|>10<|page|>1<|box|>459 143 474 366<|content|>1. Introduction and Purpose\n<|id|>16<|page|>2<|box|>285 140 303 315<|content|>2. Scope of Collection\n<|id|>20<|page|>2<|box|>781 142 797 277<|content|>2.2 Data Sources\n<|id|>27<|page|>3<|box|>719 140 737 267<|content|>2.3 Date Range\n<|id|>31<|page|>4<|box|>239 140 255 323<|content|>2.4 Search Parameters\n<|id|>34<|page|>4<|box|>512 140 529 351<|content|>3. Collection Methodology\n<|id|>35<|page|>4<|box|>542 140 559 506<|content|>3.1 On-Site and Remote Collection Procedures\n<|id|>46<|page|>5<|box|>627 140 645 395<|content|>3.2 Forensic Imaging Standards\n<|id|>54<|page|>6<|box|>454 140 472 313<|content|>3.3 Hash Verification\n<|id|>61<|page|>7<|box|>157 140 174 357<|content|>3.4 Defensibility Statement\n<|id|>70<|page|>7<|box|>733 140 750 405<|content|>4. Processing and De-Duplication\n<|id|>71<|page|>7<|box|>763 140 780 442<|content|>4.1 Volume Metrics — Pre-Processing\n<|id|>77<|page|>8<|box|>421 140 439 478<|content|>4.3 Search-Term and Date-Range Filtering\n<|id|>83<|page|>9<|box|>90 140 107 390<|content|>5. Secure Transfer and Storage\n<|id|>96<|page|>10<|box|>150 140 167 418<|content|>6. Chain of Custody Log Summary\n<|id|>112<|page|>12<|box|>498 142 513 315<|content|>7. Personnel Involved\n<|id|>119<|page|>13<|box|>426 140 444 390<|content|>8. Exceptions and Observations\n<|id|>127<|page|>14<|box|>329 140 347 349<|content|>9. Certification Statement\n<|id|>137<|page|>16<|box|>90 142 107 297<|content|>10. Signature block\n<|id|>145<|page|>16<|box|>273 140 291 214<|content|>Exhibits\n<|id|>147<|page|>16<|box|>363 140 378 473<|content|>Exhibit A — Custodian Identification List\n<|id|>150<|page|>16<|box|>532 142 549 428<|content|>Exhibit B — Hash Verification Logs\n<|id|>157<|page|>16<|box|>743 140 760 488<|content|>Exhibit C — Detailed Chain of Custody Log\n<|id|>160<|page|>17<|box|>90 140 107 604<|content|>Exhibit D — Collection Equipment and Software Inve",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>20<|level|>3\n<|id|>27<|level|>3\n<|id|>31<|level|>3\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>46<|level|>3\n<|id|>54<|level|>3\n<|id|>61<|level|>3\n<|id|>70<|level|>2\n<|id|>71<|level|>3\n<|id|>77<|level|>3\n<|id|>83<|level|>2\n<|id|>96<|level|>2\n<|id|>112<|level|>2\n<|id|>119<|level|>2\n<|id|>127<|level|>2\n<|id|>137<|level|>2\n<|id|>145<|level|>2\n<|id|>147<|level|>3\n<|id|>150<|level|>3\n<|id|>157<|level|>3\n<|id|>160<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        }
+    ]
+}

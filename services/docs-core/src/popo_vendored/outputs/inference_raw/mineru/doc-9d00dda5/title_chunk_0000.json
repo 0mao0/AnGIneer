@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>325 189 359 805<|content|>STIPULATION WITHDRAWING DEFENDANTS' MOTION FOR PAR\n<|id|>4<|page|>1<|box|>531 142 547 241<|content|>RECITALS\n<|id|>14<|page|>2<|box|>747 140 763 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>21<|page|>3<|box|>140 431 156 563<|content|>SO ORDERED:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>14<|level|>-1\n<|id|>21<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        }
+    ]
+}

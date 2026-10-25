@@ -1,0 +1,46 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 267 107 854<|content|>RIDGELINE SECURITIES LLC 383 Madison Avenue New Yo\n<|id|>15<|page|>2<|box|>497 140 513 357<|content|>Consent and Early Release\n<|id|>17<|page|>2<|box|>768 140 787 281<|content|>Scope Limitation\n<|id|>20<|page|>3<|box|>263 140 279 457<|content|>Waiver of Advance Notice Requirement\n<|id|>22<|page|>3<|box|>534 140 551 457<|content|>Condition — New Lock-Up Agreements\n<|id|>24<|page|>3<|box|>824 140 840 423<|content|>No Other Waivers or Modifications\n<|id|>26<|page|>4<|box|>208 142 224 269<|content|>Governing Law\n<|id|>28<|page|>4<|box|>333 142 349 254<|content|>Counterparts\n<|id|>33<|page|>4<|box|>589 142 604 406<|content|>RIDGELINE SECURITIES LLC\n<|id|>39<|page|>4<|box|>702 143 717 496<|content|>PENTERRA PHARMACEUTICALS CORP.",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>15<|level|>1\n<|id|>17<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>33<|level|>-1\n<|id|>39<|level|>-1",
+    "parsed": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        }
+    ]
+}

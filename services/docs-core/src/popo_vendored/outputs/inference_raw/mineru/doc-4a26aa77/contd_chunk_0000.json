@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        53
+    ],
+    "pages": [
+        2,
+        4,
+        11,
+        14,
+        15,
+        17,
+        28,
+        37,
+        52
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>2<|box|>303 171 338 782<|content|>Sold on a subscription basis only (exceptions noted) by the Superintendent of Documents, U. ... †\n<|id|>5<|page|>2<|box|>383 171 458 794<|content|>Combined Statement of Receipts, Outlays, and Balances of the United States Government. ... 80 (foreign)\n<|id|>11<|page|>4<|box|>507 343 529 653<|content|>treasury. ... gov\n<|id|>12<|page|>4<|box|>544 120 582 875<|content|>Internet service subscribers can access the Treasu...rough the Financial Management Service's home page\n<|id|>39<|page|>11<|box|>208 537 223 774<|content|>(Quarterly percent change at annual rate)\n<|id|>40<|page|>11<|box|>467 504 627 915<|content|>although at a slower pace than in the third quarte... by private demand rather than government stimulus\n<|id|>68<|page|>14<|box|>747 504 909 916<|content|>A variety of factors have buffeted long-term Treas...ebt. ... 7 percent, roughly 160 basis points above\n<|id|>69<|page|>15<|box|>93 84 125 383<|content|>Long-Term Interest Rate Spreads (Percent)\n<|id|>70<|page|>15<|box|>417 81 681 491<|content|>the December 2008 low. ... In the current economic... suggest a rising probability of economic recovery\n<|id|>71<|page|>15<|box|>680 81 901 491<|content|>Key interest rates on private securities, which sp...reasury yield peaked at nearly 620 basis points in\n<|id|>72<|page|>15<|box|>417 504 506 913<|content|>December 2008. ... Since late last year, however, ...ry, though still very high by historical standards\n<|id|>96<|page|>17<|box|>515 380 527 617<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>97<|page|>17<|box|>535 83 551 264<|content|>First-Quarter Receipts\n<|id|>98<|page|>17<|box|>554 81 657 491<|content|>The following capsule analysis of budget receipts,... to adequately analyze collections for the quarter\n<|id|>145<|page|>28<|box|>685 81 717 491<|content|>• Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>147<|page|>28<|box|>250 504 397 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>175<|page|>37<|box|>424 374 436 622<|content|>[Source: ... Bureau of the Public Debt, Office of Financing]\n<|id|>176<|page|>37<|box|>444 83 460 220<|content|>OCTOBER\n<|id|>336<|page|>52<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>337<|page|>52<|box|>198 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund",
+    "raw_response": "<|src_id|>68<|tgt_id|>70\n<|src_id|>71<|tgt_id|>72",
+    "parsed": [
+        {
+            "src_id": 68,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        }
+    ]
+}

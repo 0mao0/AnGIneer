@@ -1,0 +1,134 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 405 119 591<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 200 152 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>7<|page|>1<|box|>343 142 359 228<|content|>I. Purpose\n<|id|>17<|page|>2<|box|>90 140 107 320<|content|>II. Matter Description\n<|id|>22<|page|>3<|box|>90 140 107 468<|content|>III. Parties and Related Entities Searched\n<|id|>24<|page|>3<|box|>220 142 237 379<|content|>A. Client and Client Affiliates\n<|id|>35<|page|>4<|box|>268 142 285 292<|content|>B. Adverse Parties\n<|id|>38<|page|>4<|box|>526 140 542 303<|content|>C. Adverse Counsel\n<|id|>42<|page|>4<|box|>747 140 763 568<|content|>D. Related Third Parties and Other Interested Enti\n<|id|>49<|page|>5<|box|>657 142 675 357<|content|>E. Court / Judicial Officers\n<|id|>52<|page|>6<|box|>90 142 107 336<|content|>IV. Search Methodology\n<|id|>61<|page|>6<|box|>814 140 832 370<|content|>V. Results of Conflict Search\n<|id|>62<|page|>6<|box|>845 142 863 410<|content|>A. Stonefield Logistics Group Inc.\n<|id|>65<|page|>7<|box|>202 142 219 797<|content|>B. Ridgepoint Capital Partners Fund III, LP / Ridg\n<|id|>69<|page|>7<|box|>450 142 465 370<|content|>Result: Clear — No Conflict.\n<|id|>70<|page|>7<|box|>481 142 498 429<|content|>C. SLG Officers and Key Employees\n<|id|>79<|page|>7<|box|>765 142 781 370<|content|>Result: Clear — No Conflict.\n<|id|>80<|page|>7<|box|>796 142 811 426<|content|>D. Marcus Delano (Named Plaintiff)\n<|id|>82<|page|>8<|box|>90 140 107 370<|content|>Result: Clear — No Conflict.\n<|id|>83<|page|>8<|box|>121 140 138 678<|content|>E. Hartwell & Brashear PLLC / Claudia Hartwell / J\n<|id|>86<|page|>8<|box|>306 142 323 370<|content|>Result: Clear — No Conflict.\n<|id|>87<|page|>8<|box|>337 140 354 344<|content|>F. Pennfield & Daye LLP\n<|id|>90<|page|>8<|box|>614 142 631 370<|content|>Result: Clear — No Conflict.\n<|id|>91<|page|>8<|box|>643 140 662 408<|content|>G. Broadleaf Insurance Company\n<|id|>97<|page|>9<|box|>393 140 409 571<|content|>H. Corbin Risk Advisors LLC / Dr. Priya Ramanathan\n<|id|>100<|page|>9<|box|>705 142 723 370<|content|>Result: Clear — No Conflict.\n<|id|>101<|page|>9<|box|>737 142 753 354<|content|>I. Meridian National Bank\n<|id|>105<|page|>10<|box|>239 140 255 411<|content|>J. Whitmore & Solano CPAs LLP\n<|id|>108<|page|>10<|box|>392 142 407 300<|content|>K. Judicial Officers\n<|id|>113<|page|>10<|box|>734 140 752 454<|content|>VI. Lateral Hire and Of-Counsel Check\n<|id|>123<|page|>11<|box|>474 140 492 388<|content|>VII. Conclusion and Clearance\n<|id|>133<|page|>12<|box|>458 142 474 266<|content|>VIII. Approval\n<|id|>134<|page|>12<|box|>484 142 501 250<|content|>Prepared by:\n<|id|>138<|page|>12<|box|>713 142 729 277<|content|>IX. Attachments",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>7<|level|>2\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>3\n<|id|>35<|level|>3\n<|id|>38<|level|>3\n<|id|>42<|level|>3\n<|id|>49<|level|>3\n<|id|>52<|level|>2\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>65<|level|>3\n<|id|>69<|level|>-1\n<|id|>70<|level|>3\n<|id|>79<|level|>-1\n<|id|>80<|level|>3\n<|id|>82<|level|>-1\n<|id|>83<|level|>3\n<|id|>86<|level|>-1\n<|id|>87<|level|>3\n<|id|>90<|level|>-1\n<|id|>91<|level|>3\n<|id|>97<|level|>3\n<|id|>100<|level|>-1\n<|id|>101<|level|>3\n<|id|>105<|level|>3\n<|id|>108<|level|>3\n<|id|>113<|level|>2\n<|id|>123<|level|>2\n<|id|>133<|level|>2\n<|id|>134<|level|>3\n<|id|>138<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 2
+        }
+    ]
+}

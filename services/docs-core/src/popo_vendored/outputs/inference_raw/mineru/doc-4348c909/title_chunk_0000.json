@@ -1,0 +1,45 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|page|>1<|box|>282 140 299 316<|content|>Ladies and Gentlemen:\n<|id|>24<|page|>2<|box|>792 142 810 250<|content|>Assumptions\n<|id|>33<|page|>3<|box|>652 140 670 220<|content|>Opinions\n<|id|>52<|page|>6<|box|>595 140 614 300<|content|>Negative Assurance\n<|id|>63<|page|>7<|box|>652 140 670 496<|content|>Qualifications, Assumptions, and Limitations\n<|id|>76<|page|>8<|box|>542 142 559 346<|content|>Additional Qualifications.\n<|id|>82<|page|>9<|box|>311 140 329 375<|content|>Reliance and Use Limitations\n<|id|>86<|page|>9<|box|>579 140 595 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>-1\n<|id|>24<|level|>1\n<|id|>33<|level|>1\n<|id|>52<|level|>1\n<|id|>63<|level|>1\n<|id|>76<|level|>1\n<|id|>82<|level|>1\n<|id|>86<|level|>-1",
+    "parsed": [
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        }
+    ]
+}

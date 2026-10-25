@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>1<|box|>508 145 545 854<|content|>• Dame Philippa Thornton-Hale — Chair of the Board...hgate Telecommunications PLC (joining from London)\n<|id|>10<|page|>1<|box|>660 147 714 854<|content|>Elaine Whitford — Senior Vice President & Group Ge... Lexington Avenue, 38th Floor, New York, NY 10022)\n<|id|>7<|page|>1<|box|>547 147 583 854<|content|>• Geoffrey Stanton — Lead Independent Director; .....ate Telecommunications PLC (joining from New York)\n<|id|>8<|page|>1<|box|>585 147 619 854<|content|>• Lucinda Farrow — Non-Executive Director; ... Cha...nation Committee, Northgate Telecommunications PLC\n<|id|>9<|page|>1<|box|>623 147 657 852<|content|>• Dr. ... Remuneration Committee member, Northgate Telecommunications PLC\n<|id|>12<|page|>1<|box|>753 140 847 854<|content|>Note: ... Participation was limited to Non-Executi...rector oversight of the CEO employment negotiation\n<|id|>11<|page|>1<|box|>717 147 752 852<|content|>• Renata Vasquez — Partner, Calderwood & Harkness ...m 299 Park Avenue, 42nd Floor, New York, NY 10171)\n<|id|>36<|page|>3<|box|>839 140 895 854<|content|>Victoria Hargrove communicated on behalf of Mr. .....e parties could not reach agreement and noted that\n<|id|>37<|page|>4<|box|>89 140 126 854<|content|>Mr. ... Harding held the Northgate Board in high r...ss with which the Board had approached the process\n<|id|>136<|page|>12<|box|>864 176 898 854<|content|>1. ... Prepare and deliver a formal termination le...e, 30th Floor, New York, NY 10010), confirming the\n<|id|>137<|page|>13<|box|>90 210 143 854<|content|>Board's decision to terminate negotiations. ... Harding personally",
+    "raw_response": "<|src_id|>36<|tgt_id|>37\n<|src_id|>136<|tgt_id|>137",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 137
+        }
+    ]
+}

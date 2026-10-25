@@ -1,0 +1,205 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9qqn_j02\\input\\pdfs\\doc-0f184d7b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9qqn_j02\\enriched\\doc-0f184d7b.json",
+    "contd_output": "<|src_id|>155<|tgt_id|>156\n<|src_id|>167<|tgt_id|>168\n<|src_id|>205<|tgt_id|>206",
+    "title_output": "<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>26<|level|>2\n<|id|>35<|level|>1\n<|id|>43<|level|>2\n<|id|>49<|level|>2\n<|id|>55<|level|>1\n<|id|>62<|level|>2\n<|id|>64<|level|>3\n<|id|>69<|level|>3\n<|id|>77<|level|>3\n<|id|>83<|level|>2\n<|id|>95<|level|>1\n<|id|>104<|level|>2\n<|id|>110<|level|>2\n<|id|>116<|level|>1\n<|id|>133<|level|>2\n<|id|>138<|level|>1\n<|id|>143<|level|>1\n<|id|>144<|level|>2\n<|id|>148<|level|>3\n<|id|>153<|level|>2\n<|id|>164<|level|>1\n<|id|>165<|level|>2\n<|id|>173<|level|>2\n<|id|>178<|level|>1\n<|id|>189<|level|>1\n<|id|>198<|level|>1\n<|id|>201<|level|>2",
+    "image_output": "<|src_id|>19<|tgt_id|>13\n<|src_id|>20<|tgt_id|>13\n<|src_id|>146<|tgt_id|>144\n<|src_id|>147<|tgt_id|>144\n<|src_id|>200<|tgt_id|>198",
+    "contd_label": [
+        {
+            "src_id": 155,
+            "tgt_id": 156
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 206
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 189,
+            "level": 1
+        },
+        {
+            "id": 198,
+            "level": 1
+        },
+        {
+            "id": 201,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 19,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 200,
+            "tgt_id": 198
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 19,
+            "table2_idx": 20,
+            "upper_row_ss": [
+                [
+                    "Instrument",
+                    "Amount",
+                    "Rate / Terms"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 146,
+            "table2_idx": 147,
+            "upper_row_ss": [
+                [
+                    "Basket",
+                    "Type",
+                    "Maximum Amount",
+                    "Key Condition"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Free-and-Clear Basket",
+                    "Fixed / Grower",
+                    "Greater of $280,000,000 and 100% LTM EBITDA (currently $385,000,000)",
+                    "No Event of Default; representations true; no financial ratio test required"
+                ]
+            ]
+        }
+    ]
+}

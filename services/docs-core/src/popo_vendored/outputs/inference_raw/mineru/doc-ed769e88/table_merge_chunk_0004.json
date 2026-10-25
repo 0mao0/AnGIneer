@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['22', 'Indemnification of', 'Requires', 'Agrees in principle;', 'Agreed in principle']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Board Designee', \"indemnification agreement for Pinnacle's board designee (Marcus Trejo or designee), including advancement of expenses and D&O insurance\", 'subject to form of agreement', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 59,
+    "table2_idx": 60
+}

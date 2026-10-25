@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>160 140 176 374<|content|>VIA OVERNIGHT COURIER\n<|id|>8<|page|>1<|box|>645 140 662 540<|content|>I. Description of the Department of Justice Inquir\n<|id|>13<|page|>2<|box|>479 140 497 553<|content|>II. Engagement of Counsel and Cooperation Posture\n<|id|>16<|page|>2<|box|>776 140 794 562<|content|>III. Retention of Independent Compliance Consultan\n<|id|>19<|page|>3<|box|>208 140 224 377<|content|>IV. Voluntary Self-Disclosure\n<|id|>21<|page|>3<|box|>406 140 424 480<|content|>V. Assessment of Exposure and Materiality\n<|id|>25<|page|>3<|box|>857 142 875 339<|content|>VI. OFAC Confirmation\n<|id|>27<|page|>4<|box|>281 140 297 437<|content|>VII. Compliance-with-Law Covenant\n<|id|>30<|page|>4<|box|>614 140 632 478<|content|>VIII. Reservation of Rights and Disclaimer\n<|id|>33<|page|>5<|box|>133 140 151 380<|content|>IX. Availability for Discussion\n<|id|>36<|page|>5<|box|>250 176 263 486<|content|>Email: hquinn@calderwoodharkness.com",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>16<|level|>1\n<|id|>19<|level|>1\n<|id|>21<|level|>1\n<|id|>25<|level|>1\n<|id|>27<|level|>1\n<|id|>30<|level|>1\n<|id|>33<|level|>1\n<|id|>36<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        }
+    ]
+}

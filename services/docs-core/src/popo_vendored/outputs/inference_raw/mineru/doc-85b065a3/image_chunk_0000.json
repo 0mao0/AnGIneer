@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>19<|type|>title<|page|>2<|box|>325 140 343 397<|content|>Section 1. Documents Examined\n<|id|>47<|type|>title<|page|>4<|box|>431 140 448 328<|content|>Section 2. Assumptions\n<|id|>62<|type|>title<|page|>5<|box|>727 140 744 297<|content|>Section 3. Opinions\n<|id|>64<|type|>title<|page|>5<|box|>801 140 819 473<|content|>3.1 Due Incorporation and Good Standing\n<|id|>68<|type|>title<|page|>7<|box|>90 140 106 364<|content|>3.4 Valid Issuance of Shares\n<|id|>71<|type|>title<|page|>7<|box|>463 140 479 321<|content|>3.5 Due Authorization\n<|id|>83<|type|>title<|page|>8<|box|>294 140 311 534<|content|>3.6 Enforceability of the Underwriting Agreement\n<|id|>89<|type|>title<|page|>8<|box|>763 140 779 272<|content|>3.7 No Conflicts\n<|id|>102<|type|>title<|page|>10<|box|>275 140 292 480<|content|>3.8 Governmental Approvals and Consents\n<|id|>111<|type|>title<|page|>10<|box|>821 140 839 354<|content|>3.9 Registration Statement\n<|id|>115<|type|>title<|page|>11<|box|>367 140 383 403<|content|>3.10 Description of Capital Stock\n<|id|>117<|type|>title<|page|>11<|box|>566 140 584 383<|content|>3.11 Investment Company Act\n<|id|>119<|type|>title<|page|>12<|box|>90 140 107 349<|content|>3.12 Lock-Up Agreements\n<|id|>124<|type|>title<|page|>12<|box|>779 140 795 462<|content|>Section 4. Qualifications and Limitations\n<|id|>140<|type|>title<|page|>14<|box|>532 140 549 560<|content|>Section 5. Reliance on Certificates and Other Matt\n<|id|>149<|type|>title<|page|>15<|box|>630 140 646 459<|content|>DRAFT — FOR DISCUSSION PURPOSES ONLY\n<|id|>152<|type|>title<|page|>15<|box|>825 140 840 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>156<|type|>title<|page|>16<|box|>130 437 146 560<|content|>SCHEDULE A\n<|id|>157<|type|>table<|page|>16<|box|>179 143 401 852<|content|>None\n<|id|>160<|type|>title<|page|>16<|box|>537 437 554 560<|content|>SCHEDULE B\n<|id|>161<|type|>title<|page|>16<|box|>564 250 580 746<|content|>List of Material Agreements Reviewed for No-Confli\n<|id|>163<|type|>title<|page|>16<|box|>633 142 651 374<|content|>I. Corporate Credit Facilities\n<|id|>166<|type|>title<|page|>16<|box|>827 142 844 369<|content|>II. Project-Finance Facilities\n<|id|>170<|type|>title<|page|>17<|box|>203 142 220 454<|content|>III. Tax-Equity Partnership Agreement\n<|id|>172<|type|>title<|page|>17<|box|>321 142 338 527<|content|>IV. Material Power Purchase Agreements (PPAs)\n<|id|>174<|type|>title<|page|>17<|box|>422 142 438 287<|content|>V. EPC Contracts\n<|id|>176<|type|>title<|page|>17<|box|>486 143 502 321<|content|>VI. O&M Agreements\n<|id|>178<|type|>title<|page|>17<|box|>568 142 584 403<|content|>VII. Interconnection Agreements\n<|id|>181<|type|>title<|page|>17<|box|>672 437 688 560<|content|>SCHEDULE C\n<|id|>182<|type|>title<|page|>17<|box|>699 305 715 692<|content|>List of Lock-Up Signatories and Execution Status\n<|id|>184<|type|>table<|page|>17<|box|>784 143 893 852<|content|>None\n<|id|>185<|type|>table<|page|>18<|box|>88 143 489 854<|content|>None",
+    "raw_response": "<|src_id|>157<|tgt_id|>156\n<|src_id|>184<|tgt_id|>182\n<|src_id|>185<|tgt_id|>182",
+    "parsed": [
+        {
+            "src_id": 157,
+            "tgt_id": 156
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 182
+        }
+    ]
+}

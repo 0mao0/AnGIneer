@@ -1,0 +1,59 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 405 119 593<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>431 142 449 321<|content|>I. Executive Summary\n<|id|>18<|type|>title<|page|>2<|box|>531 140 549 344<|content|>II. Transaction Overview\n<|id|>36<|type|>title<|page|>4<|box|>204 140 222 611<|content|>III. New York City Real Property Transfer Tax (NYC\n<|id|>37<|type|>title<|page|>4<|box|>236 142 252 339<|content|>A. Statutory Framework\n<|id|>41<|type|>title<|page|>4<|box|>579 140 597 295<|content|>B. Applicable Rate\n<|id|>55<|type|>title<|page|>5<|box|>417 140 434 356<|content|>D. Allocation of Obligation\n<|id|>58<|type|>title<|page|>5<|box|>718 140 734 328<|content|>E. Filing Requirements\n<|id|>61<|type|>title<|page|>6<|box|>204 140 222 604<|content|>IV. New York State Real Estate Transfer Tax (NYS R\n<|id|>62<|type|>title<|page|>6<|box|>236 142 252 339<|content|>A. Statutory Framework\n<|id|>65<|type|>title<|page|>6<|box|>554 140 571 295<|content|>B. Applicable Rate\n<|id|>75<|type|>title<|page|>7<|box|>282 140 299 357<|content|>D. Allocation of Obligation\n<|id|>78<|type|>title<|page|>7<|box|>489 142 508 328<|content|>E. Filing Requirements\n<|id|>83<|type|>title<|page|>8<|box|>90 140 107 400<|content|>V. Total Transfer Tax Summary\n<|id|>85<|type|>table<|page|>8<|box|>157 143 234 852<|content|>None\n<|id|>88<|type|>table<|page|>8<|box|>373 143 518 852<|content|>None\n<|id|>89<|type|>table<|page|>8<|box|>578 143 702 852<|content|>None\n<|id|>91<|type|>title<|page|>9<|box|>90 140 107 702<|content|>VI. New York State \"Mansion Tax\" Analysis — Reside\n<|id|>92<|type|>title<|page|>9<|box|>121 140 138 339<|content|>A. Statutory Framework\n<|id|>94<|type|>table<|page|>9<|box|>267 143 436 852<|content|>None\n<|id|>96<|type|>title<|page|>9<|box|>574 142 592 450<|content|>B. Applicability to Mixed-Use Property\n<|id|>107<|type|>title<|page|>10<|box|>612 140 628 300<|content|>C. Risk Assessment\n<|id|>115<|type|>title<|page|>11<|box|>223 140 239 437<|content|>VII. Mortgage Recording Tax (MRT)\n<|id|>116<|type|>title<|page|>11<|box|>253 140 270 339<|content|>A. Statutory Framework\n<|id|>121<|type|>table<|page|>11<|box|>599 143 712 852<|content|>None\n<|id|>123<|type|>title<|page|>11<|box|>830 142 848 522<|content|>B. Standard MRT Calculation (Without CEMA)\n<|id|>129<|type|>title<|page|>12<|box|>272 140 289 777<|content|>C. CEMA Opportunity — Consolidation, Extension, an\n<|id|>143<|type|>table<|page|>13<|box|>244 143 319 852<|content|>None\n<|id|>156<|type|>title<|page|>15<|box|>340 140 357 442<|content|>VIII. Summary of All Tax Obligations\n<|id|>157<|type|>title<|page|>15<|box|>371 142 388 437<|content|>Estimated Tax Obligations at Closing\n<|id|>158<|type|>table<|page|>15<|box|>436 143 811 852<|content|>None\n<|id|>159<|type|>title<|page|>15<|box|>851 143 869 354<|content|>Total Buyer Tax Exposure\n<|id|>163<|type|>title<|page|>16<|box|>165 142 183 359<|content|>Total Seller Tax Obligation\n<|id|>166<|type|>title<|page|>16<|box|>292 142 309 359<|content|>IX. PSA Recommendations\n<|id|>174<|type|>title<|page|>17<|box|>518 142 535 385<|content|>X. Coordination with Advisors\n<|id|>181<|type|>title<|page|>18<|box|>593 142 609 261<|content|>XI. Next Steps\n<|id|>190<|type|>title<|page|>19<|box|>722 140 739 406<|content|>XII. Disclaimer and Qualification",
+    "raw_response": "<|src_id|>85<|tgt_id|>83\n<|src_id|>88<|tgt_id|>83\n<|src_id|>89<|tgt_id|>83\n<|src_id|>94<|tgt_id|>92\n<|src_id|>121<|tgt_id|>116\n<|src_id|>143<|tgt_id|>129\n<|src_id|>158<|tgt_id|>157",
+    "parsed": [
+        {
+            "src_id": 85,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 157
+        }
+    ]
+}

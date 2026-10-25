@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Texas', 'Breckenridge Osgood LLP', 'Westlake Distribution Hub / GMP Westlake LLC (EIN', 'No — Entity-level transfer; no deed recorded; no', 'No — Texas does not impose a state transfer or controlling-', '$0', 'N/A', 'June 7, 2024']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '84-2415693);Katy Freeway Logistics Park / GMP Katy LLC (EIN 84-2415710);Alliance Commerce Center / GMP Alliance LLC (EIN 84-2415728)', 'recordable instruments required', 'interest transfer tax; nominal local recording fees N/A as no documents recorded', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 34,
+    "table2_idx": 35
+}

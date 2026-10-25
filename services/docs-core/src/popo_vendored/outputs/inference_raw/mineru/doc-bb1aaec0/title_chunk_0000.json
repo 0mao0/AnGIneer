@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>397 140 414 364<|content|>I. Introduction and Purpose\n<|id|>13<|page|>2<|box|>148 140 166 447<|content|>II. Description of OncoPrecise GXP-47\n<|id|>14<|page|>2<|box|>180 142 196 284<|content|>A. Test Overview\n<|id|>17<|page|>2<|box|>500 140 515 357<|content|>B. TRI Score Stratification\n<|id|>23<|page|>3<|box|>90 140 107 338<|content|>C. Intended Clinical Use\n<|id|>26<|page|>3<|box|>407 140 426 385<|content|>D. Specimen and Methodology\n<|id|>32<|page|>3<|box|>758 140 775 423<|content|>III. Proposed PLA Code Descriptor\n<|id|>36<|page|>4<|box|>241 140 258 380<|content|>IV. Rationale for a PLA Code\n<|id|>45<|page|>5<|box|>305 140 321 336<|content|>V. Analytical Validation\n<|id|>54<|page|>6<|box|>242 140 258 323<|content|>VI. Clinical Validation\n<|id|>65<|page|>7<|box|>285 140 301 372<|content|>VII. Laboratory Information\n<|id|>68<|page|>7<|box|>685 140 702 436<|content|>VIII. Existing GDT Commercial Test\n<|id|>72<|page|>8<|box|>258 140 277 421<|content|>IX. Enclosed Application Materials\n<|id|>83<|page|>8<|box|>729 140 744 488<|content|>X. Contact Information for Correspondence\n<|id|>85<|page|>8<|box|>799 142 815 285<|content|>Primary Contact:\n<|id|>88<|page|>9<|box|>90 140 108 387<|content|>Regulatory and Legal Contact:\n<|id|>97<|page|>9<|box|>373 140 390 236<|content|>XI. Closing\n<|id|>112<|page|>10<|box|>152 140 170 357<|content|>Enclosures (as listed above)\n<|id|>113<|page|>10<|box|>176 140 193 826<|content|>INTERNAL CALDERWOOD & HARKNESS LLP DRAFTING NOTES",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>23<|level|>2\n<|id|>26<|level|>2\n<|id|>32<|level|>1\n<|id|>36<|level|>1\n<|id|>45<|level|>1\n<|id|>54<|level|>1\n<|id|>65<|level|>1\n<|id|>68<|level|>1\n<|id|>72<|level|>1\n<|id|>83<|level|>1\n<|id|>85<|level|>2\n<|id|>88<|level|>2\n<|id|>97<|level|>1\n<|id|>112<|level|>1\n<|id|>113<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        }
+    ]
+}

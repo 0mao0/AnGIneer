@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        96,
+        131
+    ],
+    "pages": [
+        97,
+        98,
+        120,
+        124,
+        131
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>438<|page|>97<|box|>137 323 150 674<|content|>[In millions of dollars. ... Treasury International Capital Reporting System]\n<|id|>440<|page|>98<|box|>858 511 878 898<|content|>5 Be fore January 2001, “Other Latin America” and ...ned “Other Latin America and Caribbean bean. ... ”\n<|id|>555<|page|>120<|box|>97 84 148 339<|content|>United States Government Balance Sheet as of September 30, 2000\n<|id|>557<|page|>120<|box|>191 84 887 908<|content|>Assets: ... 5\n<|id|>556<|page|>120<|box|>166 84 181 210<|content|>(In billions of dollars)\n<|id|>558<|page|>120<|box|>891 96 910 761<|content|>The ac companying notes in the complete document a...an in te gral part of these fin nancial statements\n<|id|>587<|page|>124<|box|>340 80 396 488<|content|>Within the fund is a mass tran sit ac count, funde... for ex pen di tures in ac cor dance with sec tion\n<|id|>588<|page|>124<|box|>114 506 208 916<|content|>5338 of title 49 United States Code, the Intermoda...g to the provisions of various transportation acts\n<|id|>633<|page|>131<|box|>154 364 169 629<|content|>Source: ... Financial Management Service\n<|id|>634<|page|>131<|box|>186 81 290 488<|content|>Accrued discount (SBN-1, -2, -3)—Interest that acc... their holders is not included in accrued discount",
+    "raw_response": "<|src_id|>587<|tgt_id|>588",
+    "parsed": [
+        {
+            "src_id": 587,
+            "tgt_id": 588
+        }
+    ]
+}

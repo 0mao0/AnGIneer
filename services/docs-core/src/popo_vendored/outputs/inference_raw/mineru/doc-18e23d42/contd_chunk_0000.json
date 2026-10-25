@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        25
+    ],
+    "pages": [
+        2,
+        7,
+        8,
+        10,
+        14,
+        15,
+        18,
+        19,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>2<|box|>114 140 131 761<|content|>CONFIDENTIAL — SUBJECT TO RESTRICTIONS ON DISCLOSURE SET FORTH IN THE MSA\n<|id|>3<|page|>2<|box|>138 140 174 854<|content|>This Data Processing Addendum (\"DPA\" or \"Addendum\"...-as-a-Service Agreement (the \"MSA\") by and between\n<|id|>4<|page|>2<|box|>181 140 244 854<|content|>Skybridge Fintech Ltd. ... and\n<|id|>5<|page|>2<|box|>253 140 308 854<|content|>Meridian National Bank, National Association, a na...reinafter referred to as \"Customer\" or \"Licensee\")\n<|id|>61<|page|>7<|box|>838 140 893 856<|content|>(b) Data in Transit. ... All Customer Data transmi...ocessors, shall be encrypted using Transport Layer\n<|id|>62<|page|>8<|box|>89 140 125 854<|content|>Security (TLS) version 1. ... 2 or higher, with st...ipher suites as identified in the Security Exhibit\n<|id|>91<|page|>10<|box|>501 140 574 854<|content|>(e) The identity and contact information of Provid...curity Incident (as of the Effective Date: ... and\n<|id|>93<|page|>10<|box|>626 140 681 856<|content|>Provider shall supplement its initial notification...ntil the Security Incident has been fully resolved\n<|id|>136<|page|>14<|box|>833 140 906 857<|content|>(a) Customer may commission third-party security a...h assessments shall be coordinated in advance with\n<|id|>137<|page|>15<|box|>90 140 126 854<|content|>Provider's security team and shall be conducted in...sruption to Provider's systems and other customers\n<|id|>171<|page|>18<|box|>90 140 127 854<|content|>Provider's Designated Data Protection Contact: ... 1400 Concord Pike, Suite 320 Wilmington, DE 19803\n<|id|>172<|page|>18<|box|>133 140 188 854<|content|>Customer's Designated Data Protection Contact: ......00 Lexington Avenue, 40th Floor New York, NY 10022\n<|id|>173<|page|>18<|box|>196 140 268 854<|content|>Either Party may change its designated data protec...at Amara Okafor ceases to serve as Provider's CISO\n<|id|>184<|page|>18<|box|>851 140 907 856<|content|>The obligations of the Parties under the following...(Data Retention, Export, and Destruction), Article\n<|id|>185<|page|>19<|box|>89 140 145 854<|content|>9 (Data Subject Rights and Cooperation), Article 1...ssary to give effect to such surviving obligations\n<|id|>249<|page|>25<|box|>619 142 635 361<|content|>Name: ... Priya Chandrasekaran\n<|id|>250<|page|>25<|box|>637 142 652 364<|content|>Title: ... Chief Executive Officer\n<|id|>251<|page|>25<|box|>655 143 670 264<|content|>Date: ... Date\n<|id|>253<|page|>25<|box|>705 142 722 331<|content|>Name: ... Gerald Brannigan\n<|id|>254<|page|>25<|box|>724 143 739 380<|content|>Title: ... Chief Information Officer\n<|id|>255<|page|>25<|box|>741 143 757 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>61<|tgt_id|>62\n<|src_id|>136<|tgt_id|>137\n<|src_id|>184<|tgt_id|>185",
+    "parsed": [
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 185
+        }
+    ]
+}

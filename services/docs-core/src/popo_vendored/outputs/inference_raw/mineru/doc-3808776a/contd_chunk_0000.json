@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        13,
+        14,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>540 687 556 854<|content|>Filed: ... January 8, 2024\n<|id|>4<|page|>1<|box|>599 140 691 854<|content|>Protester Whitmore Aerospace LLC (\"Whitmore\" or \"W...treet NW, Suite 1100, Washington, D. ... Palermino\n<|id|>12<|page|>2<|box|>750 140 897 857<|content|>Ground 3, which is the exclusive subject of this b...study under Contract No. ... FA8222-23-D-0193 — on\n<|id|>13<|page|>3<|box|>89 140 126 852<|content|>September 15, 2023. ... Whitmore's enhanced debrie...was conducted one week later on September 22, 2023\n<|id|>82<|page|>13<|box|>834 140 907 857<|content|>Shared IT Infrastructure. ... The ERP system is a ...ed users across Halcyon's divisions, including the\n<|id|>83<|page|>14<|box|>90 138 199 856<|content|>Sensor Solutions Division. ... The existence of th...tion between HAS and the Sensor Solutions Division\n<|id|>136<|page|>20<|box|>672 140 689 415<|content|>Claudia Merritt Responsible Partner\n<|id|>137<|page|>20<|box|>689 140 707 457<|content|>Lt. ... ) Nathan Yardley Of Counsel\n<|id|>138<|page|>20<|box|>707 140 724 369<|content|>Megan Zhao Senior Associate\n<|id|>139<|page|>20<|box|>724 140 756 852<|content|>1750 K Street NW, Suite 1100 Washington, D. ... (202) 555-7401\n<|id|>140<|page|>20<|box|>757 140 775 500<|content|>Counsel for Protester Whitmore Aerospace LLC\n<|id|>141<|page|>20<|box|>775 142 792 308<|content|>Date: ... January 8, 2024",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>82<|tgt_id|>83",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        }
+    ]
+}

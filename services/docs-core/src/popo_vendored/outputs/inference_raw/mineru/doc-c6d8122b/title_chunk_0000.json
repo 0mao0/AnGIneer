@@ -1,0 +1,150 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 181 176 816<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>6<|page|>1<|box|>367 140 383 230<|content|>I. Purpose\n<|id|>11<|page|>2<|box|>90 140 107 424<|content|>II. Proposed Engagement Summary\n<|id|>16<|page|>2<|box|>585 143 604 375<|content|>Proposed Engagement Team:\n<|id|>18<|page|>2<|box|>828 143 844 344<|content|>Primary Client Contacts:\n<|id|>22<|page|>3<|box|>90 140 107 468<|content|>III. Parties and Related Entities Searched\n<|id|>24<|page|>3<|box|>239 140 256 661<|content|>A. Client Side — Quorum Insurance Holdings Corp. a\n<|id|>28<|page|>3<|box|>486 142 503 277<|content|>Key Individuals:\n<|id|>44<|page|>4<|box|>465 140 483 705<|content|>B. Counterparty Side — Meridian Credit intelligenc\n<|id|>47<|page|>4<|box|>651 142 667 277<|content|>Key Individuals:\n<|id|>57<|page|>5<|box|>90 140 107 650<|content|>C. Meridian's Majority Owner — Breckenridge Capita\n<|id|>61<|page|>5<|box|>375 143 391 277<|content|>Key Individuals:\n<|id|>65<|page|>5<|box|>617 142 633 421<|content|>D. Counterparty's Outside Counsel\n<|id|>67<|page|>5<|box|>720 142 738 277<|content|>Key Individuals:\n<|id|>71<|page|>5<|box|>835 142 852 424<|content|>E. Counterparty's Investment Bank\n<|id|>73<|page|>6<|box|>171 142 188 271<|content|>Key Individual:\n<|id|>75<|page|>6<|box|>256 140 273 485<|content|>IV. Conflicts Database Search Methodology\n<|id|>85<|page|>7<|box|>90 140 107 377<|content|>V. Results of Conflicts Search\n<|id|>87<|page|>7<|box|>184 140 200 442<|content|>A. Quorum Insurance Holdings Corp.\n<|id|>90<|page|>7<|box|>375 140 391 426<|content|>B. Meridian Credit intelligence, Inc.\n<|id|>93<|page|>7<|box|>599 140 618 844<|content|>C. Breckenridge Capital Partners Fund IV, L.P. / B\n<|id|>101<|page|>8<|box|>645 140 662 380<|content|>D. Kessler Pruitt & Ashe LLP\n<|id|>103<|page|>8<|box|>792 142 808 367<|content|>E. Whitmore Zanthor & Co.\n<|id|>107<|page|>9<|box|>375 142 391 395<|content|>F. Standish National Bank, N.A.\n<|id|>112<|page|>10<|box|>90 140 107 403<|content|>G. Pinnacle Ridge Advisory LLC\n<|id|>114<|page|>10<|box|>199 140 215 361<|content|>H. Caldwell & Strauss LLP\n<|id|>117<|page|>10<|box|>426 140 444 691<|content|>I. Felton Thorpe & Co. LLP / Galloway Nash LLP (Ex\n<|id|>119<|page|>10<|box|>571 142 588 320<|content|>J. Individual Searches\n<|id|>122<|page|>10<|box|>827 140 844 498<|content|>VI. Ethical Screens and Information Barriers\n<|id|>127<|page|>11<|box|>458 140 474 388<|content|>VII. Conclusion and Clearance\n<|id|>133<|page|>12<|box|>186 142 204 272<|content|>VIII. Approvals\n<|id|>147<|page|>12<|box|>593 140 611 367<|content|>Distribution and Filing Note\n<|id|>154<|page|>12<|box|>803 155 839 839<|content|>PRIVILEGED AND CONFIDENTIAL — NOT FOR DISTRIBUTION",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>1\n<|id|>11<|level|>1\n<|id|>16<|level|>2\n<|id|>18<|level|>3\n<|id|>22<|level|>1\n<|id|>24<|level|>2\n<|id|>28<|level|>3\n<|id|>44<|level|>2\n<|id|>47<|level|>3\n<|id|>57<|level|>2\n<|id|>61<|level|>3\n<|id|>65<|level|>2\n<|id|>67<|level|>3\n<|id|>71<|level|>2\n<|id|>73<|level|>3\n<|id|>75<|level|>1\n<|id|>85<|level|>1\n<|id|>87<|level|>2\n<|id|>90<|level|>2\n<|id|>93<|level|>2\n<|id|>101<|level|>2\n<|id|>103<|level|>2\n<|id|>107<|level|>2\n<|id|>112<|level|>2\n<|id|>114<|level|>2\n<|id|>117<|level|>2\n<|id|>119<|level|>2\n<|id|>122<|level|>1\n<|id|>127<|level|>1\n<|id|>133<|level|>1\n<|id|>147<|level|>1\n<|id|>154<|level|>-1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,367 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-httv4_t6\\input\\pdfs\\doc-ebd0aa62.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-httv4_t6\\enriched\\doc-ebd0aa62.json",
+    "contd_output": "<|src_id|>171<|tgt_id|>172\n<|src_id|>172<|tgt_id|>173",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>8<|level|>1\n<|id|>15<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>53<|level|>4\n<|id|>66<|level|>3\n<|id|>67<|level|>4\n<|id|>83<|level|>3\n<|id|>84<|level|>4\n<|id|>89<|level|>4\n<|id|>94<|level|>3\n<|id|>95<|level|>4\n<|id|>101<|level|>2\n<|id|>102<|level|>3\n<|id|>103<|level|>4\n<|id|>116<|level|>4\n<|id|>128<|level|>4\n<|id|>140<|level|>4\n<|id|>141<|level|>3\n<|id|>147<|level|>4\n<|id|>153<|level|>4\n<|id|>159<|level|>1\n<|id|>160<|level|>2\n<|id|>165<|level|>2\n<|id|>167<|level|>2",
+    "image_output": "<|src_id|>56<|tgt_id|>53\n<|src_id|>59<|tgt_id|>53\n<|src_id|>60<|tgt_id|>53\n<|src_id|>63<|tgt_id|>53\n<|src_id|>64<|tgt_id|>53\n<|src_id|>65<|tgt_id|>53\n<|src_id|>70<|tgt_id|>67\n<|src_id|>74<|tgt_id|>67\n<|src_id|>78<|tgt_id|>67\n<|src_id|>82<|tgt_id|>67\n<|src_id|>87<|tgt_id|>84\n<|src_id|>88<|tgt_id|>84\n<|src_id|>92<|tgt_id|>89\n<|src_id|>93<|tgt_id|>89\n<|src_id|>98<|tgt_id|>95\n<|src_id|>99<|tgt_id|>95\n<|src_id|>100<|tgt_id|>95\n<|src_id|>106<|tgt_id|>103\n<|src_id|>109<|tgt_id|>103\n<|src_id|>111<|tgt_id|>103\n<|src_id|>113<|tgt_id|>103\n<|src_id|>115<|tgt_id|>103\n<|src_id|>119<|tgt_id|>116\n<|src_id|>121<|tgt_id|>116\n<|src_id|>123<|tgt_id|>116\n<|src_id|>125<|tgt_id|>116\n<|src_id|>127<|tgt_id|>116\n<|src_id|>131<|tgt_id|>128\n<|src_id|>133<|tgt_id|>128\n<|src_id|>135<|tgt_id|>128\n<|src_id|>137<|tgt_id|>128\n<|src_id|>139<|tgt_id|>128\n<|src_id|>144<|tgt_id|>141\n<|src_id|>146<|tgt_id|>141\n<|src_id|>150<|tgt_id|>147\n<|src_id|>152<|tgt_id|>147\n<|src_id|>156<|tgt_id|>153\n<|src_id|>158<|tgt_id|>153\n<|src_id|>161<|tgt_id|>160\n<|src_id|>163<|tgt_id|>160\n<|src_id|>166<|tgt_id|>165",
+    "contd_label": [
+        {
+            "src_id": 171,
+            "tgt_id": 172
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 173
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 4
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 4
+        },
+        {
+            "id": 116,
+            "level": 4
+        },
+        {
+            "id": 128,
+            "level": 4
+        },
+        {
+            "id": 140,
+            "level": 4
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 4
+        },
+        {
+            "id": 153,
+            "level": 4
+        },
+        {
+            "id": 159,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 56,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 141
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 141
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 147
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 147
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 165
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 63,
+            "table2_idx": 64,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "方驳2000t",
+                    "艘班",
+                    "192015509060",
+                    "3.799",
+                    "4.764",
+                    "6.439",
+                    "4.213",
+                    "5.323",
+                    "7.249"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "17",
+                    "拖轮 1228kW",
+                    "艘班",
+                    "192015401140",
+                    "0.678",
+                    "0.678",
+                    "0.678",
+                    "0.678",
+                    "0.678",
+                    "0.678"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 98,
+            "table2_idx": 99,
+            "upper_row_ss": [
+                [
+                    "14",
+                    "履带式起重机200t",
+                    "台班",
+                    "192020301140",
+                    "0.703",
+                    "0.956",
+                    "0.914",
+                    "1.243"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "15",
+                    "柴油打桩锤 冲击质量 18t",
+                    "台班",
+                    "192020404050 B",
+                    "0.197",
+                    "0.268",
+                    "0.256",
+                    "0.348"
+                ]
+            ]
+        }
+    ]
+}

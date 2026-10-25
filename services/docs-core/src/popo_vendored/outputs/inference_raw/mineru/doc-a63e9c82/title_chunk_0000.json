@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 104 655<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>11<|page|>1<|box|>424 140 440 339<|content|>I. Purpose of This Letter\n<|id|>15<|page|>1<|box|>816 140 834 482<|content|>II. Engagement Summary and Background\n<|id|>32<|page|>4<|box|>411 140 429 241<|content|>III. Staffing\n<|id|>38<|page|>5<|box|>90 142 107 346<|content|>IV. Engagement Timeline\n<|id|>41<|page|>6<|box|>397 140 414 444<|content|>V. Comprehensive List of Deliverables\n<|id|>43<|page|>6<|box|>503 142 521 638<|content|>Deliverable 1: California Enforceability Analysis\n<|id|>44<|page|>6<|box|>529 176 547 401<|content|>Date Delivered: April 8, 2024\n<|id|>47<|page|>7<|box|>189 142 207 655<|content|>Deliverable 2: Redline Mark-Up of Existing PIIA (E\n<|id|>50<|page|>7<|box|>578 143 595 483<|content|>Deliverable 3: Final PIIA — Executive Tier\n<|id|>53<|page|>7<|box|>839 142 856 653<|content|>Deliverable 4: Final PIIA — Senior Engineer / Data\n<|id|>59<|page|>8<|box|>595 142 613 645<|content|>Deliverable 6: Exhibit A — Prior Inventions Disclo\n<|id|>62<|page|>8<|box|>839 142 856 720<|content|>Deliverable 7: Exhibit B — California Labor Code §\n<|id|>65<|page|>9<|box|>226 142 243 673<|content|>Deliverable 8: Implementation and Rollout Guidance\n<|id|>66<|page|>9<|box|>252 176 268 406<|content|>Date Delivered: May 29, 2024\n<|id|>75<|page|>9<|box|>862 143 878 630<|content|>Deliverable 9: Coordination Email to Whitmore & Ch\n<|id|>78<|page|>10<|box|>277 140 294 609<|content|>VI. Key Legal Issues Addressed — Summary of Resolu\n<|id|>86<|page|>11<|box|>609 140 628 411<|content|>VII. Billing and Fee Confirmation\n<|id|>90<|page|>12<|box|>90 140 107 508<|content|>VIII. Document Retention and File Disposition\n<|id|>95<|page|>12<|box|>508 142 527 514<|content|>IX. Matter Closure and Continuing Obligations\n<|id|>106<|page|>13<|box|>436 140 454 374<|content|>X. Availability for Follow-Up",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>11<|level|>1\n<|id|>15<|level|>1\n<|id|>32<|level|>1\n<|id|>38<|level|>1\n<|id|>41<|level|>1\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>47<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>59<|level|>2\n<|id|>62<|level|>2\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>75<|level|>2\n<|id|>78<|level|>1\n<|id|>86<|level|>1\n<|id|>90<|level|>1\n<|id|>95<|level|>1\n<|id|>106<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-844pe0xs\\input\\pdfs\\doc-a8551558.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-844pe0xs\\enriched\\doc-a8551558.json",
+    "contd_output": "<|src_id|>61<|tgt_id|>62",
+    "title_output": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>25<|level|>3\n<|id|>29<|level|>3\n<|id|>37<|level|>3\n<|id|>42<|level|>4\n<|id|>45<|level|>4\n<|id|>48<|level|>2\n<|id|>56<|level|>2",
+    "image_output": "<|src_id|>7<|tgt_id|>5\n<|src_id|>8<|tgt_id|>5\n<|src_id|>9<|tgt_id|>5\n<|src_id|>12<|tgt_id|>10\n<|src_id|>13<|tgt_id|>10\n<|src_id|>16<|tgt_id|>14\n<|src_id|>22<|tgt_id|>19\n<|src_id|>23<|tgt_id|>19",
+    "contd_label": [
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 4
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 7,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 19
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 7,
+            "table2_idx": 8,
+            "upper_row_ss": [
+                [
+                    "",
+                    "Year Ended December 31, 2019",
+                    "Year Ended December 31, 2020",
+                    "Year Ended December 31, 2021",
+                    "Three Months Ended March 31, 2021",
+                    "Three Months Ended March 31, 2022"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "(Unaudited)",
+                    "(Unaudited)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 8,
+            "table2_idx": 9,
+            "upper_row_ss": [
+                [
+                    "Weighted-average shares used in computing net income (loss)",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "per share:",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 12,
+            "table2_idx": 13,
+            "upper_row_ss": [
+                [
+                    "Accounts",
+                    "86,300",
+                    "101,400",
+                    "124,700",
+                    "138,200",
+                    "138,200"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "payable and accrued liabilities",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 22,
+            "table2_idx": 23,
+            "upper_row_ss": [
+                [
+                    "Add back:",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Interest expense, net",
+                    "58,700",
+                    "52,300",
+                    "47,600",
+                    "11,200",
+                    "12,100"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,140 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>5<|page|>1<|box|>219 140 236 496<|content|>VIA OVERNIGHT COURIER AND EMAIL\n<|id|>12<|page|>1<|box|>486 140 503 418<|content|>I. Introduction and Representation\n<|id|>16<|page|>2<|box|>148 140 167 524<|content|>II. Background — The Contractual Relationship\n<|id|>17<|page|>2<|box|>181 140 196 519<|content|>A. The Master Fund Administration Agreement\n<|id|>21<|page|>2<|box|>579 140 597 509<|content|>B. Scope of Services and Valuation Obligations\n<|id|>27<|page|>3<|box|>465 140 483 318<|content|>C. The Funds at Issue\n<|id|>33<|page|>4<|box|>157 140 174 483<|content|>D. Indemnification and Liability Provisions\n<|id|>37<|page|>4<|box|>585 140 602 645<|content|>III. Vantor's Systematic Misvaluation of Ironside\n<|id|>38<|page|>4<|box|>616 140 633 446<|content|>A. The Misvaluation Period and Scope\n<|id|>41<|page|>5<|box|>157 140 174 367<|content|>B. Nature of the Misconduct\n<|id|>48<|page|>6<|box|>476 140 494 366<|content|>C. Aggregate Overvaluation\n<|id|>51<|page|>6<|box|>840 140 857 406<|content|>IV. Discovery of the Misvaluation\n<|id|>58<|page|>7<|box|>839 140 856 357<|content|>V. Termination of the FAA\n<|id|>62<|page|>8<|box|>450 140 467 437<|content|>VI. Ironside's Claims Against Vantor\n<|id|>64<|page|>8<|box|>580 140 597 346<|content|>A. Fraud (Common Law)\n<|id|>66<|page|>8<|box|>816 140 834 362<|content|>B. Fraudulent Concealment\n<|id|>68<|page|>9<|box|>250 140 267 390<|content|>C. Negligent Misrepresentation\n<|id|>70<|page|>9<|box|>414 140 431 643<|content|>D. Breach of Contract — Material Breach of FAA §§\n<|id|>72<|page|>9<|box|>633 140 650 367<|content|>E. Breach of Fiduciary Duty\n<|id|>74<|page|>9<|box|>833 140 851 380<|content|>F. Aiding and Abetting Fraud\n<|id|>76<|page|>10<|box|>194 140 212 323<|content|>G. Unjust Enrichment\n<|id|>78<|page|>10<|box|>349 140 368 256<|content|>VII. Damages\n<|id|>80<|page|>10<|box|>444 140 460 488<|content|>A. Compensatory Damages — Direct Losses\n<|id|>82<|page|>10<|box|>643 140 662 354<|content|>B. Consequential Damages\n<|id|>92<|page|>12<|box|>311 140 329 375<|content|>C. Total Damages Demanded\n<|id|>98<|page|>13<|box|>90 140 107 651<|content|>VIII. Inapplicability of the Contractual Liability\n<|id|>103<|page|>13<|box|>638 140 655 429<|content|>IX. Demand and Required Response\n<|id|>116<|page|>14<|box|>785 140 803 338<|content|>X. Reservation of Rights\n<|id|>121<|page|>15<|box|>458 140 474 390<|content|>XI. Governing Law and Forum",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>5<|level|>-1\n<|id|>12<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>1\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>2\n<|id|>51<|level|>1\n<|id|>58<|level|>1\n<|id|>62<|level|>1\n<|id|>64<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>2\n<|id|>74<|level|>2\n<|id|>76<|level|>2\n<|id|>78<|level|>1\n<|id|>80<|level|>2\n<|id|>82<|level|>2\n<|id|>92<|level|>2\n<|id|>98<|level|>1\n<|id|>103<|level|>1\n<|id|>116<|level|>1\n<|id|>121<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        }
+    ]
+}

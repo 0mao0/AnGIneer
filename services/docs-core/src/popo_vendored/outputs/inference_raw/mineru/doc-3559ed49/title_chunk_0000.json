@@ -1,0 +1,65 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>532 142 549 333<|content|>1. Scope of Engagement\n<|id|>15<|page|>2<|box|>612 142 628 279<|content|>2. Compensation\n<|id|>21<|page|>3<|box|>359 140 375 361<|content|>3. Materials to Be Provided\n<|id|>34<|page|>4<|box|>522 142 539 367<|content|>4. Deliverables and Timeline\n<|id|>38<|page|>5<|box|>250 140 266 395<|content|>5. Coordination with Co-Expert\n<|id|>42<|page|>5<|box|>696 140 714 284<|content|>6. Confidentiality\n<|id|>46<|page|>6<|box|>304 140 320 362<|content|>7. Communication Protocol\n<|id|>55<|page|>6<|box|>809 140 825 369<|content|>8. Retention of Work Papers\n<|id|>58<|page|>7<|box|>186 140 204 441<|content|>9. Disclosures and Prior Engagements\n<|id|>61<|page|>7<|box|>444 142 460 274<|content|>10. Termination\n<|id|>70<|page|>7<|box|>844 349 859 647<|content|>ACCEPTANCE OF ENGAGEMENT",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>15<|level|>1\n<|id|>21<|level|>1\n<|id|>34<|level|>1\n<|id|>38<|level|>1\n<|id|>42<|level|>1\n<|id|>46<|level|>1\n<|id|>55<|level|>1\n<|id|>58<|level|>1\n<|id|>61<|level|>1\n<|id|>70<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        }
+    ]
+}

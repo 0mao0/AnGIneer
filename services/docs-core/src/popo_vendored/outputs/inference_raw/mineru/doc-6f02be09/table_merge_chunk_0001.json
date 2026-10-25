@@ -1,0 +1,23 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, 汽车式起重机', '40', '\\\\mathrm{P_1}', '—', '26.5_d', '—', '0.7', 'rowspan=2, -0.122', 'rowspan=2, 0.947', 'rowspan=2, 0.017', '4']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=4, 集装箱跨运车', 'SC30.3-3', '—', 'P_2', '—', '110 s', '0.9', '0.105', '0.082', 'rowspan=3, 0.117', '4']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 800,
+    "table2_idx": 801
+}

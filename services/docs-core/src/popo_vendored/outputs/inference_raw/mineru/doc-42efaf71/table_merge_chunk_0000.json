@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Delaware', 'Delaware Secretary of State, Division of Corporations', 'March 15, 2018', '2018-1547832', 'Cardinal Peak Industries, Inc.', 'Velthorn Merchant Bank, N.A.', 'All assets of Debtor, whether now owned or hereafter acquired, including without limitation all accounts, accounts receivable, chattel paper, deposit accounts, documents, equipment, fixtures, general intangibles (including payment intangibles']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', 'and software), goods, instruments, intellectual property, inventory, investment property, letter-of-credit rights, supporting obligations, commercial tort claims, and all proceeds and products thereof.']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 105,
+    "table2_idx": 106
+}

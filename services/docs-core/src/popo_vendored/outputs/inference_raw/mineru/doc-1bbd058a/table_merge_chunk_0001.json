@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['8', 'David Kowalczyk', 'Regional Sales Manager (Central Region)', 'Sales — U.S. Specialty Minerals Division', 'Current', '2', 'Email (date-limited); shared drives; mobile device; Cobalt Ridge', 'Name to be confirmed with TMCHR.']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', 'Systems', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 310,
+    "table2_idx": 311
+}

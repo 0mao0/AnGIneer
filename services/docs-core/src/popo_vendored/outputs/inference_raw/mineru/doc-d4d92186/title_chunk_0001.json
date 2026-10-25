@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        50
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>526<|page|>46<|box|>89 140 107 575<|content|>SCHEDULE E — INTERMEDIARY INFORMATION\n<|id|>540<|page|>47<|box|>114 150 169 844<|content|>CATASTROPHE EXCESS-OF-LOSS REINSURANCE CONTRACT QU\n<|id|>541<|page|>47<|box|>178 343 196 653<|content|>LOSS NOTICE [Preliminary / Detailed]\n<|id|>546<|page|>47<|box|>325 142 343 356<|content|>1. Occurrence Information\n<|id|>552<|page|>47<|box|>518 142 534 282<|content|>2. Loss Estimates\n<|id|>561<|page|>47<|box|>751 142 768 274<|content|>3. Claims Status\n<|id|>573<|page|>48<|box|>338 142 354 264<|content|>6. Certification\n<|id|>580<|page|>49<|box|>89 143 106 553<|content|>EXHIBIT B — FORM OF QUARTERLY REPORT\n<|id|>581<|page|>49<|box|>114 150 169 844<|content|>CATASTROPHE EXCESS-OF-LOSS REINSURANCE CONTRACT QU\n<|id|>589<|page|>49<|box|>857 142 875 643<|content|>Section 4 — Reinstatement Premium Calculations (if\n<|id|>599<|page|>50<|box|>417 142 434 457<|content|>Section 6 — Layer Utilization Summary\n<|id|>601<|page|>50<|box|>662 140 679 344<|content|>Section 7 — Certification",
+    "raw_response": "<|id|>526<|level|>1\n<|id|>540<|level|>2\n<|id|>541<|level|>2\n<|id|>546<|level|>3\n<|id|>552<|level|>3\n<|id|>561<|level|>3\n<|id|>573<|level|>3\n<|id|>580<|level|>1\n<|id|>581<|level|>2\n<|id|>589<|level|>3\n<|id|>599<|level|>3\n<|id|>601<|level|>3",
+    "parsed": [
+        {
+            "id": 526,
+            "level": 1
+        },
+        {
+            "id": 540,
+            "level": 2
+        },
+        {
+            "id": 541,
+            "level": 2
+        },
+        {
+            "id": 546,
+            "level": 3
+        },
+        {
+            "id": 552,
+            "level": 3
+        },
+        {
+            "id": 561,
+            "level": 3
+        },
+        {
+            "id": 573,
+            "level": 3
+        },
+        {
+            "id": 580,
+            "level": 1
+        },
+        {
+            "id": 581,
+            "level": 2
+        },
+        {
+            "id": 589,
+            "level": 3
+        },
+        {
+            "id": 599,
+            "level": 3
+        },
+        {
+            "id": 601,
+            "level": 3
+        }
+    ]
+}

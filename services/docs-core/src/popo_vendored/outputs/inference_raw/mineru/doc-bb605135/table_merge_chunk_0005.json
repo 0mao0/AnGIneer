@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=9, Feb.', '(9) Summary ((7) + (8))', '5,675', '5,775', '-100', '18,528', '18,466', '62', '-38']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Position at end of month', 'rowspan=2, Liquid assets 2/ (1)', 'rowspan=2, Short-term debt 3/ (2)', 'colspan=2, Short-term trade', 'rowspan=2, Other assets 6/ (5)', 'rowspan=2, Other liabilities 7/ (6)', 'colspan=2, Forward exchange 8/', 'rowspan=2, Net position 9/ (9)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 703,
+    "table2_idx": 704
+}

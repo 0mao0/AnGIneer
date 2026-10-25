@@ -1,0 +1,21 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>501<|type|>title<|page|>45<|box|>125 333 142 663<|content|>[Form to be finalized prior to Final Closing]\n<|id|>502<|type|>table<|page|>45<|box|>199 143 489 852<|content|>None\n<|id|>504<|type|>title<|page|>45<|box|>566 385 584 612<|content|>DISCLOSURE SCHEDULE\n<|id|>508<|type|>title<|page|>45<|box|>796 142 813 380<|content|>Schedule 4.4 — Capitalization\n<|id|>510<|type|>title<|page|>46<|box|>133 140 151 367<|content|>Schedule 4.5 — Subsidiaries\n<|id|>512<|type|>title<|page|>46<|box|>223 140 239 348<|content|>Schedule 4.8 — Litigation\n<|id|>514<|type|>title<|page|>46<|box|>329 140 347 433<|content|>Schedule 4.9 — Intellectual Property\n<|id|>516<|type|>title<|page|>46<|box|>473 140 489 542<|content|>Schedule 4.10 — Regulatory Compliance / Licenses\n<|id|>518<|type|>title<|page|>46<|box|>598 140 614 423<|content|>Schedule 4.12 — Employee Matters\n<|id|>520<|type|>title<|page|>46<|box|>704 142 722 429<|content|>Schedule 4.14 — Material Contracts\n<|id|>522<|type|>title<|page|>46<|box|>811 142 829 450<|content|>Schedule 4.15 — Existing Indebtedness\n<|id|>524<|type|>title<|page|>47<|box|>89 387 108 609<|content|>[End of Disclosure Schedule]",
+    "raw_response": "<|src_id|>502<|tgt_id|>504",
+    "parsed": [
+        {
+            "src_id": 502,
+            "tgt_id": 504
+        }
+    ]
+}

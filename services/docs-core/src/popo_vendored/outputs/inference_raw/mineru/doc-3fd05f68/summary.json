@@ -1,0 +1,215 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-dykn8_8l\\input\\pdfs\\doc-3fd05f68.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-dykn8_8l\\enriched\\doc-3fd05f68.json",
+    "contd_output": "<|src_id|>75<|tgt_id|>76\n<|src_id|>127<|tgt_id|>128",
+    "title_output": "<|id|>0<|level|>1\n<|id|>16<|level|>2\n<|id|>30<|level|>1\n<|id|>31<|level|>2\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>54<|level|>3\n<|id|>62<|level|>3\n<|id|>70<|level|>2\n<|id|>88<|level|>2\n<|id|>89<|level|>3\n<|id|>93<|level|>3\n<|id|>97<|level|>3\n<|id|>101<|level|>2\n<|id|>102<|level|>3\n<|id|>109<|level|>3\n<|id|>114<|level|>3\n<|id|>120<|level|>3\n<|id|>124<|level|>2\n<|id|>125<|level|>3\n<|id|>131<|level|>3\n<|id|>142<|level|>3\n<|id|>145<|level|>3\n<|id|>152<|level|>2\n<|id|>153<|level|>3\n<|id|>169<|level|>3\n<|id|>185<|level|>3\n<|id|>189<|level|>3\n<|id|>192<|level|>3\n<|id|>198<|level|>2\n<|id|>199<|level|>3\n<|id|>203<|level|>3\n<|id|>206<|level|>3\n<|id|>216<|level|>3\n<|id|>225<|level|>2\n<|id|>240<|level|>2\n<|id|>246<|level|>2\n<|id|>250<|level|>2\n<|id|>265<|level|>2",
+    "image_output": "<|src_id|>122<|tgt_id|>120\n<|src_id|>194<|tgt_id|>192\n<|src_id|>195<|tgt_id|>192\n<|src_id|>242<|tgt_id|>240",
+    "contd_label": [
+        {
+            "src_id": 75,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 128
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 3
+        },
+        {
+            "id": 225,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 2
+        },
+        {
+            "id": 246,
+            "level": 2
+        },
+        {
+            "id": 250,
+            "level": 2
+        },
+        {
+            "id": 265,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 122,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 242,
+            "tgt_id": 240
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 194,
+            "table2_idx": 195,
+            "upper_row_ss": [
+                [
+                    "Connecticut Attorney",
+                    "August 14, 2023",
+                    "Conn. Gen. Stat. §",
+                    "Timely"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "General",
+                    "",
+                    "36a-701b",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

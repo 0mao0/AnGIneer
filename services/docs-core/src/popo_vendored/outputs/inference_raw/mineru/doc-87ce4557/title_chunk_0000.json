@@ -1,0 +1,113 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>422 230 467 764<|content|>OFFICER'S CERTIFICATE OF AUTHORITY AND AUTHORIZATI\n<|id|>11<|page|>1<|box|>491 142 508 524<|content|>I. CERTIFYING OFFICER IDENTIFICATION\n<|id|>19<|page|>2<|box|>353 140 369 562<|content|>II. IDENTIFICATION OF DEFENDANT ENTITIES\n<|id|>30<|page|>2<|box|>803 143 820 393<|content|>B. Torchlight Mining (U.S.) Inc.\n<|id|>34<|page|>3<|box|>90 147 107 573<|content|>• Employer Identification Number (EIN): 83-2047156\n<|id|>38<|page|>3<|box|>289 142 306 450<|content|>C. Torchlight Specialty Chemicals, Inc.\n<|id|>45<|page|>3<|box|>588 142 604 418<|content|>D. Ridgecrest Mine Holdings, LLC\n<|id|>52<|page|>4<|box|>89 140 107 395<|content|>E. Bonanza Creek Mining, LLC\n<|id|>59<|page|>4<|box|>398 140 415 807<|content|>III. CERTIFICATION OF CORPORATE AUTHORITY — BOARD\n<|id|>73<|page|>6<|box|>89 140 107 584<|content|>IV. CERTIFICATION OF SUBSIDIARY AUTHORITY\n<|id|>75<|page|>6<|box|>239 140 256 395<|content|>A. Torchlight Mining (U.S.) Inc.\n<|id|>80<|page|>6<|box|>468 142 484 447<|content|>B. Torchlight Specialty Chemicals, Inc.\n<|id|>85<|page|>6<|box|>733 140 751 418<|content|>C. Ridgecrest Mine Holdings, LLC\n<|id|>90<|page|>7<|box|>203 142 220 397<|content|>D. Bonanza Creek Mining, LLC\n<|id|>95<|page|>7<|box|>479 140 494 506<|content|>V. CERTIFICATION OF GOOD STANDING\n<|id|>103<|page|>8<|box|>329 140 345 712<|content|>VI. CERTIFICATION OF NO IMPEDIMENT TO CONSENT DECR\n<|id|>110<|page|>9<|box|>339 140 357 540<|content|>VII. CERTIFICATION REGARDING COUNSEL\n<|id|>117<|page|>10<|box|>222 140 239 813<|content|>VIII. CERTIFICATION REGARDING FINANCIAL ASSURANCE\n<|id|>123<|page|>11<|box|>204 142 220 462<|content|>IX. CERTIFICATION OF ACCURACY\n<|id|>126<|page|>11<|box|>546 140 564 281<|content|>X. EXECUTION\n<|id|>137<|page|>11<|box|>825 142 842 321<|content|>XI. NOTARIZATION\n<|id|>143<|page|>12<|box|>328 413 345 584<|content|>LIST OF EXHIBITS",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>11<|level|>2\n<|id|>19<|level|>2\n<|id|>30<|level|>3\n<|id|>34<|level|>4\n<|id|>38<|level|>3\n<|id|>45<|level|>3\n<|id|>52<|level|>3\n<|id|>59<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>3\n<|id|>80<|level|>3\n<|id|>85<|level|>3\n<|id|>90<|level|>3\n<|id|>95<|level|>2\n<|id|>103<|level|>2\n<|id|>110<|level|>2\n<|id|>117<|level|>2\n<|id|>123<|level|>2\n<|id|>126<|level|>2\n<|id|>137<|level|>2\n<|id|>143<|level|>2",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 4
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        }
+    ]
+}

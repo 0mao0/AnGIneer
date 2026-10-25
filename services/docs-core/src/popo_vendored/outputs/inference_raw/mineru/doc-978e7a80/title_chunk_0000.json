@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>3<|page|>1<|box|>185 140 220 854<|content|>VIA EMAIL AND FIRST-CLASS MAIL PRIVILEGED & CONFID\n<|id|>7<|page|>1<|box|>359 140 377 630<|content|>1. Purpose of This Letter and Confirmation of Cour\n<|id|>13<|page|>2<|box|>90 140 107 563<|content|>2. Summary of Key Terms — Custody and Timeshare\n<|id|>15<|page|>2<|box|>220 140 238 289<|content|>2.1 Legal Custody\n<|id|>19<|page|>2<|box|>583 140 599 493<|content|>2.2 Physical Custody and Primary Residence\n<|id|>22<|page|>2<|box|>773 142 789 343<|content|>2.3 Timeshare Allocation\n<|id|>27<|page|>3<|box|>393 140 409 498<|content|>2.4 Travel and On-Location Work Provisions\n<|id|>33<|page|>4<|box|>148 140 167 491<|content|>3. Summary of Key Terms — Child Support\n<|id|>35<|page|>4<|box|>224 140 242 357<|content|>3.1 Monthly Child Support\n<|id|>43<|page|>4<|box|>555 140 573 545<|content|>3.2 Education Costs — Ridgeview Academy Tuition\n<|id|>47<|page|>5<|box|>90 140 107 504<|content|>3.3 Extracurricular and Enrichment Activities\n<|id|>53<|page|>5<|box|>544 140 560 294<|content|>3.5 Annual Review\n<|id|>58<|page|>5<|box|>796 140 813 383<|content|>4. Parenting Plan Coordinator\n<|id|>62<|page|>6<|box|>340 140 357 477<|content|>5. Confidentiality and Non-Disparagement\n<|id|>67<|page|>6<|box|>723 140 739 251<|content|>6. Enclosures\n<|id|>74<|page|>7<|box|>90 174 106 648<|content|>6. Exhibit B — Right of First Refusal & Travel Not\n<|id|>76<|page|>7<|box|>186 140 204 468<|content|>7. Next Steps and Administrative Matters\n<|id|>82<|page|>7<|box|>724 140 741 300<|content|>8. Closing Remarks",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>-1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>3\n<|id|>19<|level|>3\n<|id|>22<|level|>3\n<|id|>27<|level|>3\n<|id|>33<|level|>2\n<|id|>35<|level|>3\n<|id|>43<|level|>3\n<|id|>47<|level|>3\n<|id|>53<|level|>3\n<|id|>58<|level|>2\n<|id|>62<|level|>2\n<|id|>67<|level|>2\n<|id|>74<|level|>3\n<|id|>76<|level|>2\n<|id|>82<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        }
+    ]
+}

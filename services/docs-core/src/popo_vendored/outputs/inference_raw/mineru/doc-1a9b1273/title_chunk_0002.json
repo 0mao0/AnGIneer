@@ -1,0 +1,33 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        100,
+        103
+    ],
+    "pages": [
+        100,
+        101,
+        103
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>989<|page|>100<|box|>195 48 219 581<|content|>附录 D 粒料类材料回弹模量试验方法\n<|id|>991<|page|>101<|box|>188 143 213 615<|content|>附录 G 温度调整系数和等效温度\n<|id|>992<|page|>101<|box|>299 143 317 335<|content|>G.1 温度调整系数\n<|id|>1006<|page|>103<|box|>53 262 71 650<|content|>公路工程现行标准、规范、规程、指南一览表",
+    "raw_response": "<|id|>989<|level|>1\n<|id|>991<|level|>1\n<|id|>992<|level|>2\n<|id|>1006<|level|>1",
+    "parsed": [
+        {
+            "id": 989,
+            "level": 1
+        },
+        {
+            "id": 991,
+            "level": 1
+        },
+        {
+            "id": 992,
+            "level": 2
+        },
+        {
+            "id": 1006,
+            "level": 1
+        }
+    ]
+}

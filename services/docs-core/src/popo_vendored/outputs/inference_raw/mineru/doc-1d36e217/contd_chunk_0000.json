@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        7,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>154 746 171 854<|content|>June 10, 2023\n<|id|>2<|page|>1<|box|>180 140 215 854<|content|>FROM: ... Catherine Bloom, Partner Calderwood & Ha...P 1001 Fannin Street, Suite 4200 Houston, TX 77002\n<|id|>3<|page|>1<|box|>224 140 279 854<|content|>TO: ... Martin Llewellyn, General Counsel, Dunmore Energy Holdings Ltd\n<|id|>4<|page|>1<|box|>287 140 304 849<|content|>RE: ... IN23-7-000\n<|id|>5<|page|>1<|box|>313 140 330 581<|content|>C&H Matter No. ... 00001\n<|id|>23<|page|>3<|box|>871 140 907 854<|content|>The key personnel identified in connection with the trading activity include: ... Anastasia\n<|id|>24<|page|>4<|box|>89 140 164 856<|content|>Petrov, a Trader on DPT's MISO Real-Time Desk; ...... may be identified as the investigation progresses\n<|id|>53<|page|>7<|box|>239 147 276 854<|content|>• Compensation structures, including base salary, ...-based compensation for trading personnel; ... and\n<|id|>55<|page|>7<|box|>316 140 445 854<|content|>Dunmore has the right to object to specific data r...g any documents withheld on the basis of privilege\n<|id|>181<|page|>22<|box|>152 140 169 320<|content|>Respectfully submitted,\n<|id|>182<|page|>22<|box|>169 140 186 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>183<|page|>22<|box|>188 142 204 254<|content|>By: ... By\n<|id|>184<|page|>22<|box|>204 140 220 705<|content|>Catherine Bloom Partner 1001 Fannin Street, Suite 4200 Houston, TX 77002\n<|id|>185<|page|>22<|box|>222 140 257 852<|content|>cc: ... Alan Ngo, Billing Partner, Calderwood & Ha...rinkley, Lead Associate, Calderwood & Harkness LLP\n<|id|>186<|page|>22<|box|>265 138 372 857<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...e may constitute a waiver of applicable privileges",
+    "raw_response": "<|src_id|>23<|tgt_id|>24",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        }
+    ]
+}

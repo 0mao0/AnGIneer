@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 106 575<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>301 140 318 297<|content|>I. Matter Overview\n<|id|>15<|page|>2<|box|>575 140 592 338<|content|>II. Scope of Engagement\n<|id|>17<|page|>2<|box|>724 140 739 424<|content|>A. LPA / PPM Review and Analysis\n<|id|>24<|page|>3<|box|>589 142 606 455<|content|>B. Side-Letter Drafting and Negotiation\n<|id|>38<|page|>5<|box|>527 140 545 413<|content|>C. Subscription Document Review\n<|id|>42<|page|>6<|box|>90 140 107 470<|content|>D. Closing Deliverables and Coordination\n<|id|>45<|page|>6<|box|>345 140 363 318<|content|>III. Proposed Staffing\n<|id|>47<|page|>6<|box|>494 140 510 460<|content|>A. Pamela Cross — Responsible Partner\n<|id|>53<|page|>6<|box|>797 140 814 424<|content|>B. Nicholas Stern — Billing Partner\n<|id|>59<|page|>7<|box|>242 140 258 413<|content|>C. Theresa Kim — Lead Associate\n<|id|>71<|page|>7<|box|>627 142 643 450<|content|>D. Owen Fischer — Working Associate\n<|id|>83<|page|>8<|box|>228 142 244 305<|content|>IV. Budget Estimate\n<|id|>84<|page|>8<|box|>258 142 275 290<|content|>A. Fee Projections\n<|id|>91<|page|>9<|box|>138 140 156 331<|content|>C. Total Projected Cost\n<|id|>96<|page|>9<|box|>277 142 294 271<|content|>D. Soft Fee Cap\n<|id|>100<|page|>9<|box|>603 142 619 294<|content|>E. Payment Terms\n<|id|>102<|page|>9<|box|>704 140 720 416<|content|>V. Key Assumptions and Variables\n<|id|>110<|page|>10<|box|>766 140 782 352<|content|>VI. Billing Administration\n<|id|>119<|page|>11<|box|>441 140 459 374<|content|>VII. Timeline Considerations\n<|id|>133<|page|>12<|box|>242 140 258 326<|content|>VIII. Recommendation",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>3\n<|id|>24<|level|>3\n<|id|>38<|level|>3\n<|id|>42<|level|>3\n<|id|>45<|level|>2\n<|id|>47<|level|>3\n<|id|>53<|level|>3\n<|id|>59<|level|>3\n<|id|>71<|level|>3\n<|id|>83<|level|>2\n<|id|>84<|level|>3\n<|id|>91<|level|>3\n<|id|>96<|level|>3\n<|id|>100<|level|>3\n<|id|>102<|level|>2\n<|id|>110<|level|>2\n<|id|>119<|level|>2\n<|id|>133<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        }
+    ]
+}

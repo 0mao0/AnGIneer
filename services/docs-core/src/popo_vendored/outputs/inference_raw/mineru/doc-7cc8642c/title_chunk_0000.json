@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>10<|page|>1<|box|>512 140 529 251<|content|>I. PURPOSE\n<|id|>14<|page|>2<|box|>204 140 220 521<|content|>II. BACKGROUND ON THE MTDC MATTER\n<|id|>15<|page|>2<|box|>234 140 252 254<|content|>A. The Client\n<|id|>17<|page|>2<|box|>436 140 454 379<|content|>B. The Proposed Engagement\n<|id|>24<|page|>3<|box|>492 140 508 318<|content|>C. Exposure Estimate\n<|id|>26<|page|>3<|box|>710 140 728 295<|content|>D. Referral Source\n<|id|>28<|page|>4<|box|>90 140 106 269<|content|>E. Fee Estimate\n<|id|>30<|page|>4<|box|>199 140 217 547<|content|>F. Fiscal-Agent and Bond-Covenant Considerations\n<|id|>32<|page|>4<|box|>373 140 390 557<|content|>III. CRITERIA FOR RECOMMENDED COUNSEL\n<|id|>40<|page|>5<|box|>739 140 756 702<|content|>IV. RECOMMENDED FIRM A: ALDRIDGE, PAULSON & CHO LL\n<|id|>41<|page|>5<|box|>771 142 787 289<|content|>A. Firm Overview\n<|id|>46<|page|>6<|box|>89 142 107 352<|content|>Telephone: (312) 555-8200\n<|id|>47<|page|>6<|box|>116 142 133 377<|content|>Email: valdridge@apclaw.com\n<|id|>49<|page|>6<|box|>301 140 318 473<|content|>B. Relevant Experience and Qualifications\n<|id|>57<|page|>7<|box|>435 140 452 294<|content|>C. Conflicts Status\n<|id|>60<|page|>7<|box|>698 142 715 307<|content|>D. Rate Information\n<|id|>63<|page|>8<|box|>148 140 166 630<|content|>V. RECOMMENDED FIRM B: NORTHFIELD McKAY LLP\n<|id|>72<|page|>8<|box|>536 140 554 473<|content|>B. Relevant Experience and Qualifications\n<|id|>81<|page|>9<|box|>712 140 729 294<|content|>C. Conflicts Status\n<|id|>84<|page|>10<|box|>157 140 174 305<|content|>D. Rate Information\n<|id|>87<|page|>10<|box|>393 140 411 669<|content|>VI. COMPARATIVE ASSESSMENT AND RECOMMENDATION\n<|id|>94<|page|>11<|box|>450 140 468 295<|content|>VII. NEXT STEPS\n<|id|>101<|page|>12<|box|>393 140 411 439<|content|>VIII. CONFIDENTIALITY NOTICE\n<|id|>106<|page|>12<|box|>781 294 797 700<|content|>Reviewed and submitted for approval on May 17, 202",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>17<|level|>3\n<|id|>24<|level|>3\n<|id|>26<|level|>3\n<|id|>28<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>2\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>46<|level|>-1\n<|id|>47<|level|>-1\n<|id|>49<|level|>3\n<|id|>57<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>2\n<|id|>72<|level|>3\n<|id|>81<|level|>3\n<|id|>84<|level|>3\n<|id|>87<|level|>2\n<|id|>94<|level|>2\n<|id|>101<|level|>2\n<|id|>106<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        }
+    ]
+}

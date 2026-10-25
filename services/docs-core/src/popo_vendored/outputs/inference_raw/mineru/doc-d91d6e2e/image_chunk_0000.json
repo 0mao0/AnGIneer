@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 165 143 856<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 100 Sou\n<|id|>2<|type|>title<|page|>1<|box|>178 140 195 498<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>11<|type|>title<|page|>1<|box|>508 140 526 367<|content|>1. Introduction and Purpose\n<|id|>18<|type|>title<|page|>2<|box|>446 140 464 593<|content|>2. Summary of PAC's Repriced Terms (January 27, 20\n<|id|>32<|type|>title<|page|>3<|box|>491 140 508 468<|content|>3. VHG's Position on the Repriced Terms\n<|id|>45<|type|>title<|page|>5<|box|>242 140 258 514<|content|>4. VHG's Counter-Proposal — Modified Terms\n<|id|>47<|type|>title<|page|>5<|box|>335 140 353 285<|content|>4.1 Loan Amount\n<|id|>56<|type|>title<|page|>6<|box|>138 140 156 277<|content|>4.2 Interest Rate\n<|id|>61<|type|>title<|page|>6<|box|>564 140 582 834<|content|>4.3 Guaranty Structure — Maintain Limited Recourse\n<|id|>69<|type|>title<|page|>7<|box|>583 140 599 763<|content|>4.4 Cross-Collateralization — Elimination of Drift\n<|id|>75<|type|>title<|page|>8<|box|>429 140 446 684<|content|>4.5 Reserves — Cap on Additional PIP/Capital Impro\n<|id|>81<|type|>title<|page|>9<|box|>138 140 157 681<|content|>4.6 Other Terms — Confirm Consistency with Origina\n<|id|>90<|type|>title<|page|>9<|box|>550 142 566 390<|content|>5. Summary Comparison Table\n<|id|>92<|type|>table<|page|>9<|box|>618 143 898 852<|content|>None\n<|id|>93<|type|>table<|page|>10<|box|>88 143 127 852<|content|>None\n<|id|>95<|type|>title<|page|>10<|box|>258 140 276 320<|content|>6. Timing and Process\n<|id|>100<|type|>title<|page|>10<|box|>768 140 787 334<|content|>7. Reservation of Rights\n<|id|>109<|type|>title<|page|>11<|box|>455 142 472 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>123<|type|>title<|page|>11<|box|>823 143 838 351<|content|>Enclosures / Attachments:",
+    "raw_response": "<|src_id|>92<|tgt_id|>90\n<|src_id|>93<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 92,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 90
+        }
+    ]
+}

@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 212 133 782<|content|>MEMORANDUM PRIVILEGED & CONFIDENTIAL — ATTORNEY WO\n<|id|>7<|page|>1<|box|>349 142 364 357<|content|>I. PURPOSE AND SCOPE\n<|id|>19<|page|>2<|box|>383 140 401 344<|content|>II. ISSUER OVERVIEW\n<|id|>24<|page|>3<|box|>393 140 412 738<|content|>III. AMENDED AND RESTATED CERTIFICATE OF INCORPORA\n<|id|>28<|page|>4<|box|>90 140 107 367<|content|>B. Authorized Capital Stock\n<|id|>34<|page|>4<|box|>669 140 686 617<|content|>C. Key Charter Provisions Relevant to the Shelf Re\n<|id|>45<|page|>6<|box|>273 140 292 529<|content|>D. Sufficiency of Authorized but Unissued Shares\n<|id|>50<|page|>7<|box|>89 140 106 498<|content|>IV. AMENDED AND RESTATED BYLAWS\n<|id|>52<|page|>7<|box|>280 142 297 339<|content|>B. Key Bylaw Provisions\n<|id|>63<|page|>9<|box|>148 140 166 714<|content|>V. BOARD OF DIRECTORS — COMPOSITION AND GOVERNANCE\n<|id|>74<|page|>10<|box|>314 140 330 501<|content|>VI. OUTSTANDING EQUITY SECURITIES\n<|id|>75<|page|>10<|box|>345 143 362 290<|content|>A. Common Stock\n<|id|>80<|page|>11<|box|>138 140 156 294<|content|>B. Preferred Stock\n<|id|>83<|page|>11<|box|>364 140 383 387<|content|>C. Equity Compensation Plans\n<|id|>87<|page|>11<|box|>747 140 763 506<|content|>D. Warrants and Other Convertible Securities\n<|id|>89<|page|>12<|box|>89 140 107 694<|content|>VII. MATERIAL SUBSIDIARY ORGANIZATIONAL DOCUMENTS\n<|id|>102<|page|>14<|box|>439 140 474 763<|content|>VIII. EXISTING DEBT INSTRUMENTS — RELEVANCE TO COR\n<|id|>103<|page|>14<|box|>488 140 506 364<|content|>A. Revolving Credit Facility\n<|id|>107<|page|>15<|box|>138 140 157 369<|content|>B. Outstanding Senior Notes\n<|id|>114<|page|>15<|box|>708 140 724 364<|content|>C. Total Debt and Leverage\n<|id|>122<|page|>16<|box|>414 142 430 658<|content|>IX. GOOD-STANDING CERTIFICATES AND STATE FILINGS\n<|id|>128<|page|>17<|box|>266 140 284 632<|content|>X. OPEN DILIGENCE ITEMS AND RECOMMENDATIONS\n<|id|>129<|page|>17<|box|>297 140 315 526<|content|>A. Documents and Information Still Outstanding\n<|id|>142<|page|>18<|box|>835 140 854 452<|content|>B. Recommended Actions Before Filing\n<|id|>160<|page|>20<|box|>469 140 486 434<|content|>XI. PRELIMINARY CONCLUSION\n<|id|>172<|page|>23<|box|>90 140 107 468<|content|>Exhibit A — List of Documents Reviewed\n<|id|>176<|page|>24<|box|>90 142 107 535<|content|>Exhibit B — Outstanding Diligence Items Tracker",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>19<|level|>1\n<|id|>24<|level|>1\n<|id|>28<|level|>2\n<|id|>34<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>1\n<|id|>52<|level|>2\n<|id|>63<|level|>1\n<|id|>74<|level|>1\n<|id|>75<|level|>2\n<|id|>80<|level|>2\n<|id|>83<|level|>2\n<|id|>87<|level|>2\n<|id|>89<|level|>1\n<|id|>102<|level|>1\n<|id|>103<|level|>2\n<|id|>107<|level|>2\n<|id|>114<|level|>2\n<|id|>122<|level|>1\n<|id|>128<|level|>1\n<|id|>129<|level|>2\n<|id|>142<|level|>2\n<|id|>160<|level|>1\n<|id|>172<|level|>1\n<|id|>176<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 176,
+            "level": 1
+        }
+    ]
+}

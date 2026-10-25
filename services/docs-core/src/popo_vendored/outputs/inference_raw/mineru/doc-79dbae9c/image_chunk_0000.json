@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 285 125 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>159 143 410 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>477 189 513 805<|content|>STIPULATION AND [PROPOSED] ORDER FOR ENTRY OF PERM\n<|id|>3<|type|>title<|page|>1<|box|>558 406 577 589<|content|>I. STIPULATION\n<|id|>4<|type|>title<|page|>1<|box|>604 142 619 246<|content|>A. Preamble\n<|id|>11<|type|>title<|page|>2<|box|>337 140 354 390<|content|>B. Recital of Background Facts\n<|id|>29<|type|>title<|page|>4<|box|>267 140 284 310<|content|>C. Stipulation Terms\n<|id|>43<|type|>title<|page|>5<|box|>191 140 227 854<|content|>FOR DEFENDANTS GRIZZLY PEAK RESEARCH LLC, GRIZZLY\n<|id|>47<|type|>title<|page|>5<|box|>361 200 405 795<|content|>II. [PROPOSED] ORDER FOR ENTRY OF PERMANENT INJUNC\n<|id|>49<|type|>title<|page|>5<|box|>518 142 535 256<|content|>A. Definitions\n<|id|>61<|type|>title<|page|>6<|box|>633 142 651 529<|content|>B. Injunction Against Republication (Permanent)\n<|id|>62<|type|>title<|page|>6<|box|>659 140 676 803<|content|>7. Defendants, and each of them, are hereby perman\n<|id|>72<|type|>title<|page|>7<|box|>512 140 529 660<|content|>C. Injunction Against Trading in RDGM Securities (\n<|id|>81<|type|>title<|page|>8<|box|>426 142 444 424<|content|>D. Requirement to Remove Reports\n<|id|>89<|type|>title<|page|>9<|box|>148 142 167 401<|content|>E. Compliance and Enforcement\n<|id|>95<|type|>title<|page|>9<|box|>569 142 587 269<|content|>F. Modification\n<|id|>97<|type|>title<|page|>9<|box|>727 140 744 284<|content|>G. Binding Effect\n<|id|>100<|type|>title<|page|>10<|box|>186 140 204 465<|content|>H. Relationship to Settlement Agreement\n<|id|>104<|type|>title<|page|>10<|box|>439 140 455 362<|content|>I. No Admission of Liability\n<|id|>107<|type|>title<|page|>10<|box|>672 142 689 348<|content|>J. Effective Date of Order\n<|id|>109<|type|>title<|page|>10<|box|>768 411 786 584<|content|>IT IS SO ORDERED.\n<|id|>111<|type|>title<|page|>11<|box|>90 362 109 633<|content|>III. PROOF OF SERVICE\n<|id|>112<|type|>title<|page|>11<|box|>128 406 145 591<|content|>PROOF OF SERVICE\n<|id|>113<|type|>title<|page|>11<|box|>154 140 171 604<|content|>STATE OF CALIFORNIA, COUNTY OF LOS ANGELES\n<|id|>116<|type|>title<|page|>11<|box|>268 187 304 807<|content|>STIPULATION AND [PROPOSED] ORDER FOR ENTRY OF PERM",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

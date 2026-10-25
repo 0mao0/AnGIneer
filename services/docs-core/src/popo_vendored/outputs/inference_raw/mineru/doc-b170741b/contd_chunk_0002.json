@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        110,
+        114
+    ],
+    "pages": [
+        111,
+        113,
+        114
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>521<|page|>111<|box|>148 364 166 630<|content|>Source: ... Financial Management Service\n<|id|>522<|page|>111<|box|>186 81 262 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>530<|page|>111<|box|>842 81 904 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>531<|page|>111<|box|>186 504 262 915<|content|>Second Liberty Loan Act of 1917, the nature of the...l debt. ... the limit may change from year to year\n<|id|>563<|page|>113<|box|>439 81 484 491<|content|>Statutory debt limit (FD-6)—By Act of Congress the...ay be outstanding. ... When this limit is reached,\n<|id|>564<|page|>113<|box|>89 504 150 915<|content|>Treasury may not sell new debt issues until Congress increases or extends the limit. ... )\n<|id|>573<|page|>114<|box|>134 116 162 270<|content|>Order Processing Code 3264\n<|id|>574<|page|>114<|box|>134 286 160 426<|content|>Easy Secure Internet: ... gov\n<|id|>575<|page|>114<|box|>133 448 168 600<|content|>Toll Free: ... 202 512-2250\n<|id|>576<|page|>114<|box|>133 650 168 871<|content|>Mail: ... Superintendent of Documents PO Box 371954 Pittsburgh, PA 15250-7954",
+    "raw_response": "<|src_id|>530<|tgt_id|>531\n<|src_id|>563<|tgt_id|>564",
+    "parsed": [
+        {
+            "src_id": 530,
+            "tgt_id": 531
+        },
+        {
+            "src_id": 563,
+            "tgt_id": 564
+        }
+    ]
+}

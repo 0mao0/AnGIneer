@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['六', 'v/C >1.00', '0~2200', '0~2100', '0~2000']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 服务水平', 'rowspan=3, v/C值', '100', '80', '60']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 147,
+    "table2_idx": 148
+}

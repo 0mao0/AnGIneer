@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        8
+    ],
+    "pages": [
+        2,
+        3,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>2<|box|>696 140 898 857<|content|>4. ... Concurrently with the mailing of the Class Notice,\n<|id|>9<|page|>3<|box|>90 174 181 854<|content|>Meridian activated the settlement website, which p...r objections to the settlement was January 2, 2024\n<|id|>30<|page|>7<|box|>845 142 901 857<|content|>12. ... As of the date of this Supplemental Declar...ness LLP, or, to my knowledge, to Class Counsel or\n<|id|>31<|page|>8<|box|>89 174 217 854<|content|>Meridian Settlement Services LLC, any intent to ap... can be distributed to class members without delay",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>30<|tgt_id|>31",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        }
+    ]
+}

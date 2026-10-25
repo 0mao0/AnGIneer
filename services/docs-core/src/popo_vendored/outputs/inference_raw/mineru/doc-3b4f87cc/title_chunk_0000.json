@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>157 302 174 694<|content|>SUBJECT TO COMPLETION, DATED [●], 2022\n<|id|>2<|page|>1<|box|>183 367 199 630<|content|>PRELIMINARY PROSPECTUS\n<|id|>3<|page|>1<|box|>210 267 229 728<|content|>CALLOWAY-BRIGGS RENEWABLES INC.\n<|id|>4<|page|>1<|box|>248 354 265 643<|content|>23,713,636 Shares of Common Stock\n<|id|>5<|page|>1<|box|>273 398 290 601<|content|>Par Value $0.01 Per Share\n<|id|>11<|page|>2<|box|>135 143 151 429<|content|>Underwriting discount and Proceeds\n<|id|>17<|page|>2<|box|>667 377 684 620<|content|>Joint Book-Running Managers\n<|id|>21<|page|>2<|box|>719 444 734 553<|content|>Co-Managers\n<|id|>26<|page|>2<|box|>821 357 840 640<|content|>PROSPECTUS SUMMARY\n<|id|>29<|page|>3<|box|>321 140 339 261<|content|>Our Company\n<|id|>33<|page|>3<|box|>763 140 780 401<|content|>Operating Portfolio and Pipeline\n<|id|>39<|page|>4<|box|>289 142 306 331<|content|>Key Operating Projects\n<|id|>56<|page|>6<|box|>648 140 666 519<|content|>Our Sponsor — Pinnacle Vista Capital Partners\n<|id|>62<|page|>7<|box|>366 140 383 344<|content|>Our Corporate Structure\n<|id|>78<|page|>8<|box|>150 140 167 328<|content|>Summary Risk Factors\n<|id|>88<|page|>9<|box|>832 142 849 250<|content|>The Offering\n<|id|>92<|page|>10<|box|>529 142 545 269<|content|>Use of Proceeds\n<|id|>109<|page|>12<|box|>138 140 157 364<|content|>Controlled Company Status\n<|id|>115<|page|>12<|box|>498 142 516 423<|content|>Emerging Growth Company Status\n<|id|>124<|page|>13<|box|>253 140 270 547<|content|>Summary Historical and Pro Forma Financial Data\n<|id|>132<|page|>14<|box|>570 142 587 334<|content|>Our Management Team\n<|id|>136<|page|>15<|box|>150 142 166 330<|content|>Our Board of Directors\n<|id|>139<|page|>15<|box|>564 142 582 434<|content|>Our Principal and Registered Offices\n<|id|>145<|page|>15<|box|>789 142 806 416<|content|>Summary of Existing Indebtedness\n<|id|>151<|page|>16<|box|>609 142 626 323<|content|>Equity Incentive Plans\n<|id|>156<|page|>17<|box|>366 140 383 330<|content|>Additional Information",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>2\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>26<|level|>1\n<|id|>29<|level|>2\n<|id|>33<|level|>2\n<|id|>39<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>78<|level|>2\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>109<|level|>2\n<|id|>115<|level|>2\n<|id|>124<|level|>2\n<|id|>132<|level|>2\n<|id|>136<|level|>2\n<|id|>139<|level|>2\n<|id|>145<|level|>2\n<|id|>151<|level|>2\n<|id|>156<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        }
+    ]
+}

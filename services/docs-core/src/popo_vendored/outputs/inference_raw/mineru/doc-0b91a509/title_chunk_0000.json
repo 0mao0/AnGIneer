@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>191 140 207 387<|content|>VIA E-MAIL AND U.S. MAIL\n<|id|>4<|page|>1<|box|>215 140 232 831<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED COMMUNIC\n<|id|>8<|page|>1<|box|>388 140 404 328<|content|>I. Purpose and Context\n<|id|>12<|page|>1<|box|>818 140 834 478<|content|>II. Status of the Asset Purchase Agreement\n<|id|>13<|page|>1<|box|>849 140 864 643<|content|>A. Purchase Price Dispute — Reiteration of Northga\n<|id|>20<|page|>2<|box|>710 140 729 547<|content|>B. Long-Stop Date — Expiration and Consequences\n<|id|>25<|page|>3<|box|>385 140 402 421<|content|>C. Standstill and Non-Performance\n<|id|>29<|page|>3<|box|>776 140 792 359<|content|>III. Earnest Money Deposit\n<|id|>34<|page|>4<|box|>465 140 482 578<|content|>IV. FCC Application — Status and Northgate's Posit\n<|id|>35<|page|>4<|box|>496 140 513 511<|content|>A. Current Status of FCC File No. 0010287-EX\n<|id|>42<|page|>5<|box|>257 140 273 593<|content|>B. Northgate's Intentions Regarding the FCC Applic\n<|id|>47<|page|>5<|box|>645 140 662 354<|content|>C. Cooperation Obligation\n<|id|>51<|page|>6<|box|>148 140 167 413<|content|>V. Buildout Compliance Concerns\n<|id|>57<|page|>6<|box|>667 140 685 411<|content|>VI. Demand for Specific Response\n<|id|>64<|page|>7<|box|>348 140 364 352<|content|>VII. Reservation of Rights\n<|id|>68<|page|>8<|box|>89 140 107 251<|content|>VIII. Closing",
+    "raw_response": "<|id|>3<|level|>-1\n<|id|>4<|level|>-1\n<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>20<|level|>2\n<|id|>25<|level|>2\n<|id|>29<|level|>1\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>47<|level|>2\n<|id|>51<|level|>1\n<|id|>57<|level|>1\n<|id|>64<|level|>1\n<|id|>68<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        }
+    ]
+}

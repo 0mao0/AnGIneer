@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        9,
+        10,
+        11,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>179 424 194 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>204 142 220 450<|content|>TO: ... Samuel Eklund, Responsible Partner\n<|id|>4<|page|>1<|box|>229 142 247 460<|content|>FROM: ... Patrick Gallagher, Lead Associate\n<|id|>5<|page|>1<|box|>256 142 273 299<|content|>DATE: ... July 7, 2023\n<|id|>6<|page|>1<|box|>282 140 299 812<|content|>RE: ... Witness Preparation — Janet Kirkwood Deposition by Caldwell Royce & Shapiro LLP\n<|id|>7<|page|>1<|box|>308 140 343 852<|content|>MATTER: ... 1012-00005\n<|id|>8<|page|>1<|box|>352 140 369 424<|content|>DEPOSITION DATE: ... July 14, 2023\n<|id|>9<|page|>1<|box|>378 140 414 856<|content|>EXAMINING COUNSEL: ... Expected to be Harrison Cal... (1 Liberty Plaza, 22nd Floor, New York, NY 10006)\n<|id|>10<|page|>1<|box|>422 140 458 856<|content|>DEFENDING COUNSEL: ... Patrick Gallagher (with Samuel Eklund available by phone if needed)\n<|id|>11<|page|>1<|box|>465 140 503 854<|content|>LOCATION: ... Calderwood & Harkness LLP offices, 2...reed with CRS — confirm logistics with Helen Tsao)\n<|id|>12<|page|>1<|box|>510 140 527 620<|content|>ESTIMATED DURATION: ... Up to 7 hours (per FRCP 30(d)(1))\n<|id|>13<|page|>1<|box|>536 142 551 408<|content|>Right-click to update Table of Contents\n<|id|>16<|page|>1<|box|>717 140 900 856<|content|>Kirkwood is a key fact witness for Stonefield in t... discussions regarding the issuance of the January\n<|id|>17<|page|>2<|box|>90 140 127 852<|content|>18, 2022 Cure Notice and was the primary Stonefiel...nal personnel throughout the contract relationship\n<|id|>93<|page|>9<|box|>854 140 890 854<|content|>Based on our analysis of CRS's litigation posture,...d the deposition topics that Harrison Caldwell and\n<|id|>94<|page|>10<|box|>89 140 127 856<|content|>Jason Whitford have pursued in other matters, we a...ipate the following principal lines of questioning\n<|id|>100<|page|>10<|box|>569 183 585 408<|content|>• On-time pickup rate: ... ≥ 95%\n<|id|>105<|page|>10<|box|>666 140 702 852<|content|>CRS will likely ask Kirkwood to walk through VTS's...2021 data shows VTS failed all five SLO categories\n<|id|>101<|page|>10<|box|>589 183 604 418<|content|>• On-time delivery rate: ... ≥ 93%\n<|id|>102<|page|>10<|box|>608 183 625 428<|content|>• Tender acceptance rate: ... ≥ 90%\n<|id|>103<|page|>10<|box|>627 183 643 627<|content|>• Equipment availability: ... ≥ 85% of committed fleet capacity\n<|id|>104<|page|>10<|box|>647 183 662 571<|content|>• Cargo claims ratio: ... 5% of total shipment value\n<|id|>106<|page|>10<|box|>710 181 728 767<|content|>• On-time pickup: ... 8 percentage point shortfall)\n<|id|>111<|page|>10<|box|>845 140 898 854<|content|>CRS will probe whether VTS's performance problems ... CRS will want to know whether Stonefield provided\n<|id|>107<|page|>10<|box|>731 183 747 777<|content|>• On-time delivery: ... 4 percentage point shortfall)\n<|id|>108<|page|>10<|box|>750 183 767 787<|content|>• Tender acceptance: ... 6 percentage point shortfall)\n<|id|>109<|page|>10<|box|>768 181 804 854<|content|>• Equipment availability: ... 400 committed — 23 percentage point shortfall)\n<|id|>110<|page|>10<|box|>806 181 843 852<|content|>• Cargo claims ratio: ... 5% threshold)\n<|id|>112<|page|>11<|box|>90 140 162 854<|content|>VTS with adequate notice or opportunity to address...nuine effort to afford VTS the opportunity to cure\n<|id|>235<|page|>20<|box|>154 183 171 349<|content|>• Date: ... July 11, 2023\n<|id|>238<|page|>20<|box|>268 183 321 854<|content|>Attendees: ... Helen Tsao (Senior Paralegal, document logistics)\n<|id|>237<|page|>20<|box|>250 183 263 441<|content|>• Estimated Duration: ... 3–4 hours",
+    "raw_response": "<|src_id|>16<|tgt_id|>17\n<|src_id|>93<|tgt_id|>94\n<|src_id|>111<|tgt_id|>112",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        }
+    ]
+}

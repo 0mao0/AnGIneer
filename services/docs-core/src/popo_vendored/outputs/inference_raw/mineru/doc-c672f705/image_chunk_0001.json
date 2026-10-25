@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        54,
+        58
+    ],
+    "pages": [
+        54,
+        55,
+        56,
+        57,
+        58
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>581<|type|>table<|page|>54<|box|>88 143 325 852<|content|>None\n<|id|>582<|type|>table<|page|>54<|box|>398 143 568 852<|content|>None\n<|id|>583<|type|>title<|page|>55<|box|>90 202 133 795<|content|>EXHIBIT G — PERSONNEL WITH U.S. GOVERNMENT SECURIT\n<|id|>584<|type|>title<|page|>55<|box|>160 142 176 326<|content|>Anonymized Summary\n<|id|>586<|type|>title<|page|>55<|box|>284 142 301 339<|content|>Facility Security Officer:\n<|id|>588<|type|>table<|page|>55<|box|>375 143 470 852<|content|>None\n<|id|>589<|type|>title<|page|>55<|box|>518 143 536 504<|content|>Program Affiliation Breakdown (Generalized)\n<|id|>591<|type|>table<|page|>55<|box|>588 143 737 852<|content|>None\n<|id|>592<|type|>title<|page|>55<|box|>787 143 803 310<|content|>Workforce Overview\n<|id|>593<|type|>table<|page|>55<|box|>810 143 902 852<|content|>None\n<|id|>594<|type|>table<|page|>56<|box|>88 145 109 852<|content|>None\n<|id|>595<|type|>table<|page|>56<|box|>181 143 258 852<|content|>None\n<|id|>596<|type|>title<|page|>56<|box|>306 142 324 550<|content|>Note Regarding Availability of Detailed Informatio\n<|id|>598<|type|>title<|page|>56<|box|>433 307 450 689<|content|>CERTIFICATION DECLARATIONS\n<|id|>599<|type|>title<|page|>56<|box|>478 140 494 599<|content|>Certification of Halcyon Semiconductor Aktiengesel\n<|id|>612<|type|>title<|page|>57<|box|>273 140 290 604<|content|>Certification of Marlowe Asset Management Photonic\n<|id|>625<|type|>title<|page|>58<|box|>90 385 109 611<|content|>SIGNATURE PAGES\n<|id|>637<|type|>title<|page|>58<|box|>380 369 398 627<|content|>ATTESTATION BY COUNSEL",
+    "raw_response": "<|src_id|>588<|tgt_id|>586\n<|src_id|>591<|tgt_id|>589\n<|src_id|>593<|tgt_id|>592\n<|src_id|>594<|tgt_id|>592\n<|src_id|>595<|tgt_id|>592",
+    "parsed": [
+        {
+            "src_id": 588,
+            "tgt_id": 586
+        },
+        {
+            "src_id": 591,
+            "tgt_id": 589
+        },
+        {
+            "src_id": 593,
+            "tgt_id": 592
+        },
+        {
+            "src_id": 594,
+            "tgt_id": 592
+        },
+        {
+            "src_id": 595,
+            "tgt_id": 592
+        }
+    ]
+}

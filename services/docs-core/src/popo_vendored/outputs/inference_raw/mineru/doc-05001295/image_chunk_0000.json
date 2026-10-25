@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|type|>title<|page|>1<|box|>114 168 151 831<|content|>100 Southeast Second Street, Suite 3800 Miami, Flo\n<|id|>7<|type|>title<|page|>1<|box|>378 140 395 501<|content|>I. Introduction and Representation Statement\n<|id|>11<|type|>title<|page|>1<|box|>789 142 806 437<|content|>II. Identification of the Existing Loan\n<|id|>13<|type|>table<|page|>2<|box|>113 143 358 852<|content|>None\n<|id|>14<|type|>title<|page|>2<|box|>393 142 409 316<|content|>Security Instruments:\n<|id|>17<|type|>title<|page|>2<|box|>561 142 579 223<|content|>Property:\n<|id|>19<|type|>title<|page|>2<|box|>719 142 737 379<|content|>III. Payoff Statement Request\n<|id|>29<|type|>title<|page|>4<|box|>340 140 357 568<|content|>IV. Request for Satisfaction and Discharge Documen\n<|id|>35<|type|>title<|page|>5<|box|>90 140 107 503<|content|>V. Request for UCC-3 Termination Statement\n<|id|>39<|type|>title<|page|>5<|box|>446 140 464 388<|content|>VI. Wire Transfer Instructions\n<|id|>47<|type|>title<|page|>5<|box|>801 140 819 419<|content|>VII. Notice and Consent Provisions\n<|id|>51<|type|>title<|page|>6<|box|>321 140 339 552<|content|>VIII. Delivery Instructions and Contact Informatio\n<|id|>64<|type|>title<|page|>6<|box|>712 140 729 344<|content|>IX. Reservation of Rights\n<|id|>66<|type|>title<|page|>7<|box|>90 140 107 328<|content|>X. Contact and Closing",
+    "raw_response": "<|src_id|>13<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        }
+    ]
+}

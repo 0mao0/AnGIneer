@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        12
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>13<|type|>title<|page|>2<|box|>90 140 107 339<|content|>1. Transaction Overview\n<|id|>20<|type|>title<|page|>2<|box|>616 140 633 372<|content|>2. Sources and Uses of Funds\n<|id|>22<|type|>title<|page|>2<|box|>672 142 689 281<|content|>Sources of Funds\n<|id|>23<|type|>table<|page|>2<|box|>694 143 815 852<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>90 140 106 258<|content|>Uses of Funds\n<|id|>33<|type|>title<|page|>3<|box|>775 140 792 493<|content|>3. Status of Conditions Precedent to Funding\n<|id|>35<|type|>title<|page|>4<|box|>90 140 107 483<|content|>3.1 Execution of the Acquisition Agreement\n<|id|>38<|type|>title<|page|>4<|box|>349 140 364 277<|content|>Status: Satisfied.\n<|id|>39<|type|>title<|page|>4<|box|>378 140 396 500<|content|>3.2 Execution of the Incremental Amendment\n<|id|>42<|type|>title<|page|>4<|box|>583 140 599 277<|content|>Status: Satisfied.\n<|id|>43<|type|>title<|page|>4<|box|>614 140 630 426<|content|>3.3 Representations and Warranties\n<|id|>47<|type|>title<|page|>5<|box|>166 140 183 375<|content|>3.4 Delivery of Legal Opinion\n<|id|>56<|type|>title<|page|>5<|box|>712 140 729 431<|content|>3.5 Delivery of Perfection Certificate\n<|id|>69<|type|>title<|page|>6<|box|>503 140 520 460<|content|>3.6 Officer's and Secretary's Certificates\n<|id|>74<|type|>title<|page|>7<|box|>202 140 219 434<|content|>3.7 Consummation of the Acquisition\n<|id|>93<|type|>title<|page|>8<|box|>840 140 858 334<|content|>3.8 Equity Contribution\n<|id|>107<|type|>title<|page|>9<|box|>842 140 859 563<|content|>3.10 Third-Party Consents and Regulatory Approvals\n<|id|>114<|type|>title<|page|>10<|box|>617 140 633 488<|content|>3.11 Payoff of Seller's Existing Indebtedness\n<|id|>118<|type|>title<|page|>11<|box|>121 140 138 398<|content|>3.12 No Material Adverse Effect\n<|id|>121<|type|>title<|page|>11<|box|>321 140 339 326<|content|>4. Request for Funding\n<|id|>125<|type|>title<|page|>11<|box|>715 140 732 480<|content|>5. Enclosed and Accompanying Documents\n<|id|>137<|type|>title<|page|>12<|box|>377 140 393 496<|content|>6. Contact Information and Closing Remarks",
+    "raw_response": "<|src_id|>23<|tgt_id|>22",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 22
+        }
+    ]
+}

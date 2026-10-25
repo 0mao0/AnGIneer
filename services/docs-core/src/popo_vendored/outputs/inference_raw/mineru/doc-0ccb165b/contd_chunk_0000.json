@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        8
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        6,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>16<|page|>2<|box|>741 174 832 856<|content|>(a) Approval by the Board of Directors (or equivalent governing body) of Skybridge Fintech Ltd. ... and\n<|id|>17<|page|>2<|box|>839 174 895 854<|content|>(b) The prior written consent of Pinnacle Ridge Ca...on 7. ... 4(d) of the Amended and Restated Limited\n<|id|>18<|page|>3<|box|>90 174 273 856<|content|>Company Agreement of Skybridge Fintech Ltd. ... A ...consent has been delivered to counsel for Meridian\n<|id|>39<|page|>5<|box|>619 174 766 856<|content|>(a) SOC 2 Type II Audit Report — A Service Organiz... issued by Crestfield Cyber Advisors, Inc. ... and\n<|id|>41<|page|>6<|box|>90 138 292 857<|content|>The Company's data security practices, policies, a...SA and with all applicable regulatory requirements\n<|id|>46<|page|>6<|box|>619 174 710 856<|content|>(c) Workers' Compensation Insurance — Providing co...ars ($1,000,000) policy limit for disease; ... and\n<|id|>48<|page|>6<|box|>799 140 891 857<|content|>Each of the foregoing insurance policies is writte...ting of not less than \"A-\" by A. ... 03(f) thereof\n<|id|>61<|page|>8<|box|>330 142 347 361<|content|>Name: ... Priya Chandrasekaran\n<|id|>62<|page|>8<|box|>347 142 364 367<|content|>Title: ... Chief Executive Officer\n<|id|>63<|page|>8<|box|>364 143 381 214<|content|>Address: ... Address\n<|id|>64<|page|>8<|box|>382 143 398 583<|content|>1400 Concord Pike, Suite 320 Wilmington, Delaware 19803\n<|id|>65<|page|>8<|box|>400 143 417 264<|content|>Date: ... Date\n<|id|>73<|page|>8<|box|>820 142 837 312<|content|>Name: ... David Shimura\n<|id|>74<|page|>8<|box|>837 142 854 313<|content|>Title: ... General Counsel\n<|id|>75<|page|>8<|box|>854 142 872 315<|content|>Skybridge Fintech Ltd. ... Skybridge Fintech Ltd",
+    "raw_response": "<|src_id|>17<|tgt_id|>18\n<|src_id|>39<|tgt_id|>41",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 41
+        }
+    ]
+}

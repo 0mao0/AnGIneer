@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        11
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>2<|box|>90 140 107 761<|content|>1. Directors & Officers Liability Insurance Tower\n<|id|>12<|page|>2<|box|>121 142 138 393<|content|>1.1 Tower Structure Confirmed\n<|id|>19<|page|>3<|box|>411 142 428 495<|content|>1.2 D&O Binder Review — Confirmed Items\n<|id|>29<|page|>4<|box|>854 142 872 637<|content|>1.3 D&O Binder Review — Discrepancy Identified (It\n<|id|>35<|page|>6<|box|>90 140 107 813<|content|>2. Product-Liability / General Liability Insurance\n<|id|>36<|page|>6<|box|>121 140 138 393<|content|>2.1 Tower Structure Confirmed\n<|id|>45<|page|>7<|box|>311 140 329 477<|content|>2.2 PL Binder Review — Confirmed Items\n<|id|>57<|page|>8<|box|>590 140 609 617<|content|>2.3 PL Binder Review — Discrepancy Identified (Ite\n<|id|>64<|page|>9<|box|>513 140 530 397<|content|>3. Summary of Follow-Up Items\n<|id|>70<|page|>10<|box|>231 140 248 465<|content|>4. Overall Conclusions and Confirmation\n<|id|>72<|page|>10<|box|>338 140 354 241<|content|>In summary:\n<|id|>83<|page|>11<|box|>285 140 303 382<|content|>5. Copies of Reviewed Binders",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>19<|level|>2\n<|id|>29<|level|>2\n<|id|>35<|level|>1\n<|id|>36<|level|>2\n<|id|>45<|level|>2\n<|id|>57<|level|>2\n<|id|>64<|level|>1\n<|id|>70<|level|>1\n<|id|>72<|level|>2\n<|id|>83<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        }
+    ]
+}

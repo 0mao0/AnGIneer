@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['总沥青用量', 'colspan=2, 5.7~6.1', 'colspan=2, 5.9~6.2', 'colspan=2, 6.7~7.2']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2,colspan=3, 级配类型', 'colspan=16, 通过下列筛孔(方孔筛,mm)的质量百分率(%)', 'rowspan=2, 沥青用量(%)', '']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 719,
+    "table2_idx": 720
+}

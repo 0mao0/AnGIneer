@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>9<|type|>title<|page|>1<|box|>667 142 684 393<|content|>1. SCOPE OF ENGAGEMENT\n<|id|>19<|type|>title<|page|>2<|box|>816 142 834 357<|content|>2. ENGAGEMENT TEAM\n<|id|>21<|type|>table<|page|>2<|box|>885 143 906 852<|content|>None\n<|id|>22<|type|>table<|page|>3<|box|>89 143 164 852<|content|>None\n<|id|>26<|type|>title<|page|>3<|box|>529 140 545 263<|content|>3. RETAINER\n<|id|>30<|type|>title<|page|>4<|box|>89 140 106 383<|content|>4. BILLING AND PAYMENT\n<|id|>36<|type|>title<|page|>4<|box|>608 140 625 434<|content|>5. THIRD-PARTY CONSULTANTS\n<|id|>41<|type|>title<|page|>5<|box|>267 140 282 397<|content|>6. CONFLICTS OF INTEREST\n<|id|>45<|type|>title<|page|>5<|box|>678 140 695 488<|content|>7. CONFIDENTIALITY AND PRIVILEGE\n<|id|>49<|type|>title<|page|>6<|box|>204 140 220 333<|content|>8. COMMUNICATION\n<|id|>59<|type|>title<|page|>6<|box|>703 140 719 300<|content|>9. TERMINATION\n<|id|>64<|type|>title<|page|>7<|box|>285 142 301 419<|content|>10. LIMITATION OF LIABILITY\n<|id|>67<|type|>title<|page|>7<|box|>487 142 503 586<|content|>11. GOVERNING LAW AND DISPUTE RESOLUTION\n<|id|>70<|type|>title<|page|>7<|box|>744 143 762 367<|content|>12. ENTIRE AGREEMENT\n<|id|>76<|type|>title<|page|>8<|box|>321 212 337 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>79<|type|>title<|page|>8<|box|>382 349 398 647<|content|>ACCEPTANCE AND AGREEMENT",
+    "raw_response": "<|src_id|>21<|tgt_id|>19\n<|src_id|>22<|tgt_id|>19",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        }
+    ]
+}

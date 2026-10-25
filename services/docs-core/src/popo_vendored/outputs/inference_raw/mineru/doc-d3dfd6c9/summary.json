@@ -1,0 +1,138 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-a70lv300\\input\\pdfs\\doc-d3dfd6c9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-a70lv300\\enriched\\doc-d3dfd6c9.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>21<|level|>3\n<|id|>24<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>2\n<|id|>35<|level|>3\n<|id|>38<|level|>3\n<|id|>40<|level|>3\n<|id|>43<|level|>2\n<|id|>53<|level|>2\n<|id|>60<|level|>2\n<|id|>66<|level|>2",
+    "image_output": "<|src_id|>22<|tgt_id|>21\n<|src_id|>34<|tgt_id|>32\n<|src_id|>36<|tgt_id|>35\n<|src_id|>37<|tgt_id|>35\n<|src_id|>39<|tgt_id|>38\n<|src_id|>41<|tgt_id|>40\n<|src_id|>42<|tgt_id|>40",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 36,
+            "table2_idx": 37,
+            "upper_row_ss": [
+                [
+                    "Malcolm Jeffries",
+                    "Deputy Attorney General for Civil",
+                    "Lead AG representative on the CID;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Rights, Illinois AG's Office",
+                    "signatory on the CID cover letter"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 41,
+            "table2_idx": 42,
+            "upper_row_ss": [
+                [
+                    "Meridian Trust National Bank",
+                    "MTDC's fiscal agent and bond trustee",
+                    "135 South LaSalle Street, Chicago, IL 60603; national banking association chartered by the Office"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "of the Comptroller of the Currency"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>111 140 128 645<|content|>THALASSA SHIPPING & LOGISTICS SOCIÉTÉ ANONYME\n<|id|>8<|page|>1<|box|>366 140 383 272<|content|>Dear Mr. Bower:\n<|id|>10<|page|>1<|box|>564 142 583 470<|content|>1. Acknowledgment of Engagement Scope\n<|id|>17<|page|>2<|box|>215 140 232 426<|content|>2. Confirmation of Retainer Deposit\n<|id|>21<|page|>2<|box|>648 140 666 424<|content|>3. Acknowledgment of Billing Rates\n<|id|>24<|page|>2<|box|>864 140 898 854<|content|>TSL and TAI further acknowledge and confirm the co\n<|id|>32<|page|>3<|box|>422 140 440 380<|content|>4. Billing and Payment Terms\n<|id|>38<|page|>3<|box|>888 140 907 372<|content|>5. Joint and Several Liability\n<|id|>42<|page|>4<|box|>306 176 324 393<|content|>Primary Invoice Recipient:\n<|id|>50<|page|>4<|box|>563 140 579 472<|content|>6. Authorization and Contact Information\n<|id|>59<|page|>5<|box|>89 140 107 225<|content|>7. Closing",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>8<|level|>-1\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>24<|level|>-1\n<|id|>32<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>3\n<|id|>50<|level|>2\n<|id|>59<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        }
+    ]
+}

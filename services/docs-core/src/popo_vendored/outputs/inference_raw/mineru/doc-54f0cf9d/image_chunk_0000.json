@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3<|type|>title<|page|>1<|box|>194 140 210 540<|content|>VIA EMAIL AND INTERNATIONAL COURIER\n<|id|>5<|type|>title<|page|>1<|box|>284 176 300 792<|content|>Re: Acknowledgment of Termination of Engagement —\n<|id|>8<|type|>title<|page|>1<|box|>503 140 521 473<|content|>I. Acknowledgment of Termination Notice\n<|id|>15<|type|>title<|page|>2<|box|>212 140 229 526<|content|>II. Summary of Engagement Scope and Duration\n<|id|>29<|type|>title<|page|>3<|box|>300 140 316 532<|content|>III. Final Work Product and Transition Materials\n<|id|>40<|type|>title<|page|>4<|box|>565 142 582 454<|content|>IV. Final Invoice and Financial Matters\n<|id|>44<|type|>table<|page|>4<|box|>704 143 867 852<|content|>None\n<|id|>47<|type|>title<|page|>5<|box|>142 140 159 547<|content|>Outstanding Balance as of July 8, 2024: $312,817.0\n<|id|>51<|type|>title<|page|>5<|box|>425 140 441 550<|content|>V. Preservation of Records and Privileged Material\n<|id|>57<|type|>title<|page|>6<|box|>148 140 167 450<|content|>VI. Continuing Obligations of the Firm\n<|id|>65<|type|>title<|page|>7<|box|>267 140 284 411<|content|>VII. Successor Counsel Transition\n<|id|>73<|type|>title<|page|>8<|box|>377 140 393 429<|content|>VIII. Acknowledgments and Closing",
+    "raw_response": "<|src_id|>44<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 40
+        }
+    ]
+}

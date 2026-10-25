@@ -1,0 +1,110 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        55,
+        71
+    ],
+    "pages": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        69,
+        70,
+        71
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>289<|type|>title<|page|>55<|box|>90 168 136 828<|content|>VII. LENDER MORTGAGE EXCEPTIONS — ASSUMED DEBT DET\n<|id|>291<|type|>table<|page|>55<|box|>289 143 583 852<|content|>None\n<|id|>294<|type|>table<|page|>55<|box|>834 143 904 852<|content|>None\n<|id|>295<|type|>table<|page|>56<|box|>89 143 220 852<|content|>None\n<|id|>297<|type|>table<|page|>56<|box|>373 143 558 852<|content|>None\n<|id|>299<|type|>title<|page|>56<|box|>672 227 693 769<|content|>VIII. MASTER PERMITTED EXCEPTIONS TABLE\n<|id|>301<|type|>table<|page|>56<|box|>772 143 904 852<|content|>None\n<|id|>302<|type|>table<|page|>57<|box|>89 143 905 854<|content|>None\n<|id|>303<|type|>table<|page|>58<|box|>89 143 905 854<|content|>None\n<|id|>304<|type|>table<|page|>59<|box|>89 143 905 854<|content|>None\n<|id|>305<|type|>table<|page|>60<|box|>90 143 893 854<|content|>None\n<|id|>306<|type|>table<|page|>61<|box|>88 143 142 852<|content|>None\n<|id|>307<|type|>table<|page|>61<|box|>200 143 904 852<|content|>None\n<|id|>308<|type|>table<|page|>62<|box|>88 143 258 852<|content|>None\n<|id|>309<|type|>title<|page|>62<|box|>292 143 309 303<|content|>Summary Statistics:\n<|id|>310<|type|>table<|page|>62<|box|>316 143 477 852<|content|>None\n<|id|>311<|type|>title<|page|>62<|box|>512 289 531 707<|content|>IX. CERTIFICATION AND APPROVAL\n<|id|>312<|type|>title<|page|>62<|box|>550 142 566 665<|content|>Calderwood & Harkness LLP hereby confirms, as of J\n<|id|>320<|type|>title<|page|>63<|box|>246 143 262 254<|content|>APPROVED:\n<|id|>336<|type|>table<|page|>63<|box|>529 143 713 852<|content|>None\n<|id|>337<|type|>title<|page|>63<|box|>748 424 766 573<|content|>APPENDICES\n<|id|>338<|type|>table<|page|>64<|box|>114 143 906 852<|content|>None\n<|id|>339<|type|>table<|page|>65<|box|>89 143 407 852<|content|>None\n<|id|>340<|type|>title<|page|>66<|box|>90 142 107 493<|content|>Appendix B: Copies of Key Cure Documents\n<|id|>341<|type|>table<|page|>66<|box|>196 143 895 852<|content|>None\n<|id|>342<|type|>table<|page|>67<|box|>89 143 869 852<|content|>None\n<|id|>344<|type|>title<|page|>69<|box|>90 140 107 429<|content|>Appendix C: Endorsement Schedule\n<|id|>346<|type|>table<|page|>69<|box|>196 143 905 854<|content|>None\n<|id|>347<|type|>table<|page|>70<|box|>88 143 232 852<|content|>None\n<|id|>348<|type|>title<|page|>70<|box|>266 140 282 308<|content|>State-Specific Notes:\n<|id|>354<|type|>title<|page|>71<|box|>90 140 107 514<|content|>Appendix D: Cross-Reference to PSA Exhibit P",
+    "raw_response": "<|src_id|>291<|tgt_id|>289\n<|src_id|>294<|tgt_id|>289\n<|src_id|>295<|tgt_id|>289\n<|src_id|>297<|tgt_id|>289\n<|src_id|>301<|tgt_id|>299\n<|src_id|>302<|tgt_id|>299\n<|src_id|>303<|tgt_id|>299\n<|src_id|>304<|tgt_id|>299\n<|src_id|>305<|tgt_id|>299\n<|src_id|>306<|tgt_id|>299\n<|src_id|>307<|tgt_id|>299\n<|src_id|>308<|tgt_id|>299\n<|src_id|>310<|tgt_id|>309\n<|src_id|>336<|tgt_id|>320\n<|src_id|>338<|tgt_id|>337\n<|src_id|>339<|tgt_id|>337\n<|src_id|>341<|tgt_id|>340\n<|src_id|>342<|tgt_id|>340\n<|src_id|>346<|tgt_id|>344\n<|src_id|>347<|tgt_id|>344",
+    "parsed": [
+        {
+            "src_id": 291,
+            "tgt_id": 289
+        },
+        {
+            "src_id": 294,
+            "tgt_id": 289
+        },
+        {
+            "src_id": 295,
+            "tgt_id": 289
+        },
+        {
+            "src_id": 297,
+            "tgt_id": 289
+        },
+        {
+            "src_id": 301,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 302,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 303,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 304,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 305,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 306,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 307,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 308,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 310,
+            "tgt_id": 309
+        },
+        {
+            "src_id": 336,
+            "tgt_id": 320
+        },
+        {
+            "src_id": 338,
+            "tgt_id": 337
+        },
+        {
+            "src_id": 339,
+            "tgt_id": 337
+        },
+        {
+            "src_id": 341,
+            "tgt_id": 340
+        },
+        {
+            "src_id": 342,
+            "tgt_id": 340
+        },
+        {
+            "src_id": 346,
+            "tgt_id": 344
+        },
+        {
+            "src_id": 347,
+            "tgt_id": 344
+        }
+    ]
+}

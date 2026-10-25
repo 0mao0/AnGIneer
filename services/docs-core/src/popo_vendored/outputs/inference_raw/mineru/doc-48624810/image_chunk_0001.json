@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        50,
+        55
+    ],
+    "pages": [
+        50,
+        51,
+        52,
+        53,
+        55
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>460<|type|>title<|page|>50<|box|>90 140 107 439<|content|>Appendix A — Pool Statistical Tables\n<|id|>474<|type|>title<|page|>51<|box|>90 140 107 498<|content|>Appendix B — Static-Pool Performance Data\n<|id|>477<|type|>title<|page|>51<|box|>277 142 295 447<|content|>Key Notes Regarding Static-Pool Data:\n<|id|>484<|type|>table<|page|>52<|box|>440 143 571 852<|content|>None\n<|id|>502<|type|>title<|page|>53<|box|>592 174 626 823<|content|>SKYLEND RECEIVABLES TRUST 2024-1 CLASS B FLOATING\n<|id|>504<|type|>table<|page|>53<|box|>660 143 792 852<|content|>None\n<|id|>521<|type|>title<|page|>55<|box|>90 142 107 594<|content|>Appendix D — Index of Principal Transaction Docume\n<|id|>523<|type|>table<|page|>55<|box|>195 143 694 852<|content|>None",
+    "raw_response": "<|src_id|>484<|tgt_id|>474\n<|src_id|>504<|tgt_id|>502\n<|src_id|>523<|tgt_id|>521",
+    "parsed": [
+        {
+            "src_id": 484,
+            "tgt_id": 474
+        },
+        {
+            "src_id": 504,
+            "tgt_id": 502
+        },
+        {
+            "src_id": 523,
+            "tgt_id": 521
+        }
+    ]
+}

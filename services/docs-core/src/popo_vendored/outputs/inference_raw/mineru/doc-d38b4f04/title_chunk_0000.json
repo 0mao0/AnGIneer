@@ -1,0 +1,25 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 181 204 815<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 100 Sou\n<|id|>42<|page|>5<|box|>426 153 460 843<|content|>CALDERWOOD & HARKNESS LLP INTERNAL MEMORANDUM — PR\n<|id|>44<|page|>5<|box|>643 143 659 236<|content|>Dear Devin:\n<|id|>55<|page|>6<|box|>717 143 733 243<|content|>Best regards,",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>42<|level|>2\n<|id|>44<|level|>-1\n<|id|>55<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        }
+    ]
+}

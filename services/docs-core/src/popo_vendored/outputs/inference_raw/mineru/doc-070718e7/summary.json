@@ -1,0 +1,190 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xq7tf6md\\input\\pdfs\\doc-070718e7.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xq7tf6md\\enriched\\doc-070718e7.json",
+    "contd_output": "",
+    "title_output": "<|id|>12<|level|>1\n<|id|>22<|level|>1\n<|id|>23<|level|>2\n<|id|>30<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>1\n<|id|>49<|level|>2\n<|id|>55<|level|>2\n<|id|>67<|level|>2\n<|id|>73<|level|>2\n<|id|>80<|level|>1\n<|id|>81<|level|>2\n<|id|>93<|level|>2\n<|id|>95<|level|>3\n<|id|>103<|level|>3\n<|id|>109<|level|>1\n<|id|>110<|level|>2\n<|id|>114<|level|>2\n<|id|>117<|level|>2\n<|id|>125<|level|>1\n<|id|>126<|level|>2\n<|id|>132<|level|>2\n<|id|>138<|level|>2\n<|id|>148<|level|>2\n<|id|>152<|level|>1\n<|id|>153<|level|>2\n<|id|>159<|level|>2\n<|id|>167<|level|>2\n<|id|>171<|level|>1\n<|id|>186<|level|>1",
+    "image_output": "<|src_id|>69<|tgt_id|>67\n<|src_id|>112<|tgt_id|>110\n<|src_id|>113<|tgt_id|>110\n<|src_id|>115<|tgt_id|>114\n<|src_id|>116<|tgt_id|>114",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 1
+        },
+        {
+            "id": 186,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 69,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 114
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 112,
+            "table2_idx": 113,
+            "upper_row_ss": [
+                [
+                    "Derek Sung",
+                    "General Counsel / Chief Legal Officer",
+                    "Legal review of SEC filings; disclosure controls and procedures; oversight of regulatory compliance;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "communications with the OCC.Note: Sung's testimony raises significant privilege concerns. As General Counsel, many of Sung's communications with BRB officers and directors regarding the SEC filings will constitute legal advice and will be protected by the attorney-client privilege. The Staff may seek to compel Sung's testimony on factual matters, but we should be prepared to assert privilege over specific questions and, if necessary, to resist a testimony subpoena for Sung through negotiation or formal objection."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 115,
+            "table2_idx": 116,
+            "upper_row_ss": [
+                [
+                    "Lorraine Dupont",
+                    "Audit Engagement Partner, Whitfield Keane LLP (PCAOB Registration No. 2847)",
+                    "Audit procedures performed with respect to BRB's ACL estimate for the BridgeFin portfolio; the auditor's assessment of BRB's CECL methodology and the re-aging treatment; any proposed audit adjustments (whether accepted or rejected by management); management representation letters; any communications with BRB management in which concerns about the ACL estimate were raised"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "or discussed; the auditor's assessment of the materiality of the ACL discrepancy"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>185 78 225 849<|content|>Caroline Wilde, Frédéric Escartin, Susumu Kokeguch...ambert ^{1} , Aude Lectard and Jean-Marie Clément*\n<|id|>2<|page|>1<|box|>237 78 286 896<|content|>Unité de Programmation Moléculaire et Toxicologie ...School, 2-5-1 Shikata-cho, Okayama 700-8525, Japan\n<|id|>3<|page|>1<|box|>302 80 317 445<|content|>Received May 12, 2003; ... Revised and Accepted June 2, 2003\n<|id|>32<|page|>3<|box|>747 512 944 931<|content|>The assays rely on the inability of the donor modu...or IPTG sensitivity (due to the toxicity of IS1397\n<|id|>36<|page|>4<|box|>729 76 944 495<|content|>OrfA and OrfAB, a phenotype, which was not observe...ons between the target and the transposable module\n<|id|>60<|page|>8<|box|>719 76 944 495<|content|>As IS1397 and ISKpn1 are very close, especially in...nabled us to extend this conclusion to the case of\n<|id|>62<|page|>8<|box|>280 513 350 929<|content|>IS1397. ... Unambiguously, we demonstrated that IR...this phenomenon is entirely due to the transposase",
+    "raw_response": "<|src_id|>32<|tgt_id|>36\n<|src_id|>60<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 62
+        }
+    ]
+}

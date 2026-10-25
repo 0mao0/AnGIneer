@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 178 125 818<|content|>CALDERWOOD & HARKNESS LLP CONFIDENTIAL — ATTORNEY\n<|id|>7<|page|>1<|box|>628 413 645 584<|content|>GENERAL DENIAL\n<|id|>9<|page|>2<|box|>89 382 106 614<|content|>AFFIRMATIVE DEFENSES\n<|id|>11<|page|>2<|box|>238 140 255 423<|content|>FIRST AFFIRMATIVE DEFENSE\n<|id|>13<|page|>2<|box|>500 140 515 444<|content|>SECOND AFFIRMATIVE DEFENSE\n<|id|>21<|page|>3<|box|>267 140 284 429<|content|>THIRD AFFIRMATIVE DEFENSE\n<|id|>23<|page|>3<|box|>429 142 446 408<|content|>Specifically, and without limitation:\n<|id|>28<|page|>4<|box|>89 140 106 446<|content|>FOURTH AFFIRMATIVE DEFENSE\n<|id|>33<|page|>4<|box|>462 140 479 424<|content|>FIFTH AFFIRMATIVE DEFENSE\n<|id|>38<|page|>5<|box|>89 140 106 424<|content|>SIXTH AFFIRMATIVE DEFENSE\n<|id|>41<|page|>5<|box|>354 140 372 455<|content|>SEVENTH AFFIRMATIVE DEFENSE\n<|id|>45<|page|>5<|box|>794 140 810 442<|content|>EIGHTH AFFIRMATIVE DEFENSE\n<|id|>49<|page|>6<|box|>327 140 344 429<|content|>NINTH AFFIRMATIVE DEFENSE\n<|id|>56<|page|>7<|box|>138 140 156 433<|content|>TENTH AFFIRMATIVE DEFENSE\n<|id|>66<|page|>7<|box|>597 140 614 470<|content|>ELEVENTH AFFIRMATIVE DEFENSE\n<|id|>72<|page|>8<|box|>273 140 291 460<|content|>TWELFTH AFFIRMATIVE DEFENSE\n<|id|>75<|page|>8<|box|>577 140 594 490<|content|>THIRTEENTH AFFIRMATIVE DEFENSE\n<|id|>77<|page|>8<|box|>738 400 755 596<|content|>PRAYER FOR RELIEF",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>9<|level|>1\n<|id|>11<|level|>2\n<|id|>13<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>45<|level|>2\n<|id|>49<|level|>2\n<|id|>56<|level|>2\n<|id|>66<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        }
+    ]
+}

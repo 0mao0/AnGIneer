@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        58,
+        80
+    ],
+    "pages": [
+        59,
+        60,
+        62,
+        64,
+        80
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>169<|page|>59<|box|>107 347 120 654<|content|>(Position at end of month in thousands of dollars)\n<|id|>171<|page|>60<|box|>40 430 52 579<|content|>CAPITAL MOVEMENTS\n<|id|>172<|page|>60<|box|>61 304 75 699<|content|>Section III - Details for Month of May 1953\n<|id|>179<|page|>62<|box|>110 340 123 647<|content|>(Position at end of month in thousands of dollars)\n<|id|>182<|page|>64<|box|>63 37 281 463<|content|>Financial statements of corporations in which the ...ds, which are published in the \"Treasury Bulletin\"\n<|id|>183<|page|>64<|box|>294 37 341 460<|content|>The balance sheet tablee for June 30, 1953, which ...retofore carried in the \"Daily Treasury Statement\"\n<|id|>184<|page|>64<|box|>63 522 188 957<|content|>and show the data separately not only for each cor...ement and the September 1953 issue of the Bulletin\n<|id|>233<|page|>80<|box|>496 42 515 486<|content|>18/ Represents assets held for the Treasury in acc... 1948 (62 Stat. ... 1187-1188), which provided for\n<|id|>234<|page|>80<|box|>125 550 197 971<|content|>cancellation of R. ... Treasury as miscellaneous receipts",
+    "raw_response": "<|src_id|>183<|tgt_id|>184\n<|src_id|>233<|tgt_id|>234",
+    "parsed": [
+        {
+            "src_id": 183,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 234
+        }
+    ]
+}

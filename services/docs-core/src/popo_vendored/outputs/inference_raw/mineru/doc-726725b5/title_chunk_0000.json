@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 367 106 629<|content|>SECRETARY'S CERTIFICATE\n<|id|>2<|page|>1<|box|>141 321 157 674<|content|>PENTERRA PHARMACEUTICALS CORP.\n<|id|>4<|page|>1<|box|>373 140 390 553<|content|>I. IDENTIFICATION OF CERTIFYING OFFICER\n<|id|>7<|page|>1<|box|>685 140 703 330<|content|>II. CERTIFICATIONS\n<|id|>9<|page|>1<|box|>761 140 779 426<|content|>A. Good Standing and Organization\n<|id|>14<|page|>2<|box|>435 140 450 313<|content|>B. Board Resolutions\n<|id|>23<|page|>3<|box|>455 140 472 482<|content|>C. Incumbency and Authorized Signatories\n<|id|>29<|page|>4<|box|>138 140 156 261<|content|>D. No Conflict\n<|id|>34<|page|>4<|box|>398 142 417 290<|content|>E. No Proceedings\n<|id|>40<|page|>4<|box|>768 140 786 274<|content|>III. RELIANCE\n<|id|>44<|page|>5<|box|>285 140 301 267<|content|>IV. EXHIBITS\n<|id|>50<|page|>5<|box|>564 140 582 281<|content|>V. EXECUTION\n<|id|>57<|page|>5<|box|>761 140 777 669<|content|>VI. OFFICER'S COUNTERSIGNATURE AND CONFIRMATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>3\n<|id|>7<|level|>3\n<|id|>9<|level|>4\n<|id|>14<|level|>4\n<|id|>23<|level|>4\n<|id|>29<|level|>4\n<|id|>34<|level|>4\n<|id|>40<|level|>3\n<|id|>44<|level|>3\n<|id|>50<|level|>3\n<|id|>57<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 9,
+            "level": 4
+        },
+        {
+            "id": 14,
+            "level": 4
+        },
+        {
+            "id": 23,
+            "level": 4
+        },
+        {
+            "id": 29,
+            "level": 4
+        },
+        {
+            "id": 34,
+            "level": 4
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        }
+    ]
+}

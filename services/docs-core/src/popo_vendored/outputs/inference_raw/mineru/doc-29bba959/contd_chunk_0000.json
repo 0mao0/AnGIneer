@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        31
+    ],
+    "pages": [
+        1,
+        2,
+        10,
+        11,
+        26,
+        31
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>152 143 189 852<|content|>7 Finsbury Square, London EC2A 1AF, United Kingdom...th Market Street, Suite 1400, Wilmington, DE 19801\n<|id|>3<|page|>1<|box|>196 140 214 292<|content|>MEMORANDUM\n<|id|>4<|page|>1<|box|>223 140 239 331<|content|>Matter No. ... 1022-00003\n<|id|>5<|page|>1<|box|>250 741 267 854<|content|>April 14, 2023\n<|id|>6<|page|>1<|box|>275 140 330 854<|content|>TO: ... Priya Nandakumar, General Counsel & Corpor...d of Directors of Northgate Telecommunications PLC\n<|id|>7<|page|>1<|box|>338 140 373 854<|content|>FROM: ... Angela Fontaine, Partner, and Marcus Leung, Senior Associate, Calderwood & Harkness LLP\n<|id|>8<|page|>1<|box|>382 140 417 854<|content|>RE: ... Structuring and Fiduciary Duty Analysis fo...osed Settlement with Greystone Capital Partners LP\n<|id|>9<|page|>1<|box|>424 140 516 854<|content|>CONFIDENTIALITY NOTICE: ... Do not distribute, for...itten authorization from Calderwood & Harkness LLP\n<|id|>20<|page|>2<|box|>571 174 608 854<|content|>(b) agreeing to mutual standstill obligations that...specified activities for a defined period; ... and\n<|id|>22<|page|>2<|box|>659 140 732 854<|content|>all in exchange for Greystone's withdrawal of its ...ndstill commitments as described more fully herein\n<|id|>21<|page|>2<|box|>614 174 652 854<|content|>(c) committing to conduct a strategic review of th...23, with the assistance of Esterline Partners LLC,\n<|id|>91<|page|>10<|box|>862 174 898 854<|content|>Prong Two — Proportionality. ... Under Unitrin, a ...e measure will fail this prong if it is \"coercive\"\n<|id|>93<|page|>11<|box|>189 138 318 856<|content|>The Unocal framework is relevant to the proposed C...ction from further activist challenge by Greystone\n<|id|>236<|page|>26<|box|>643 174 717 854<|content|>(iv) disclosure of any transaction between Ms. ... and\n<|id|>238<|page|>26<|box|>768 140 842 854<|content|>NTP's EDGAR Central Index Key (CIK) number is 0001... approved by NTP's General Counsel prior to filing\n<|id|>285<|page|>31<|box|>698 143 713 326<|content|>Angela Fontaine Partner\n<|id|>286<|page|>31<|box|>715 143 731 251<|content|>By: ... By\n<|id|>287<|page|>31<|box|>731 142 747 380<|content|>Marcus Leung Senior Associate\n<|id|>288<|page|>31<|box|>747 143 762 320<|content|>DISTRIBUTION NOTICE\n<|id|>289<|page|>31<|box|>770 140 785 575<|content|>Distribution of this memorandum is limited to the ...memorandum is limited to the following individuals\n<|id|>290<|page|>31<|box|>792 147 808 745<|content|>• Priya Nandakumar, General Counsel & Corporate Secretary, Northgate Telecommunications PLC\n<|id|>292<|page|>31<|box|>824 140 871 854<|content|>This memorandum is protected by the attorney-clien...re may result in a waiver of applicable privileges\n<|id|>291<|page|>31<|box|>809 145 824 764<|content|>• Members of the Special Committee of the Board of Directors of Northgate Telecommunications PLC",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>21<|tgt_id|>22\n<|src_id|>236<|tgt_id|>238",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 236,
+            "tgt_id": 238
+        }
+    ]
+}

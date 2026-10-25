@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        49,
+        53
+    ],
+    "pages": [
+        49,
+        50,
+        51,
+        52,
+        53
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>400<|type|>table<|page|>49<|box|>152 143 657 852<|content|>None\n<|id|>402<|type|>title<|page|>50<|box|>90 326 111 669<|content|>Section 7: Distribution and Access\n<|id|>403<|type|>title<|page|>50<|box|>136 142 152 305<|content|>7.1 Distribution List\n<|id|>405<|type|>table<|page|>50<|box|>251 143 383 852<|content|>None\n<|id|>406<|type|>table<|page|>50<|box|>443 143 630 852<|content|>None\n<|id|>407<|type|>table<|page|>50<|box|>691 143 815 852<|content|>None\n<|id|>408<|type|>table<|page|>50<|box|>876 143 898 852<|content|>None\n<|id|>409<|type|>table<|page|>51<|box|>89 143 164 852<|content|>None\n<|id|>411<|type|>table<|page|>51<|box|>287 143 356 852<|content|>None\n<|id|>413<|type|>title<|page|>51<|box|>523 140 540 495<|content|>7.2 Privilege and Confidentiality Restrictions\n<|id|>422<|type|>title<|page|>52<|box|>386 279 405 717<|content|>Section 8: Total Document Count Summary\n<|id|>423<|type|>table<|page|>52<|box|>465 143 816 852<|content|>None\n<|id|>426<|type|>title<|page|>53<|box|>159 140 174 457<|content|>CONFIDENTIAL TREATMENT REQUESTED",
+    "raw_response": "<|src_id|>405<|tgt_id|>403\n<|src_id|>406<|tgt_id|>403\n<|src_id|>407<|tgt_id|>403\n<|src_id|>408<|tgt_id|>403\n<|src_id|>409<|tgt_id|>403\n<|src_id|>411<|tgt_id|>403\n<|src_id|>423<|tgt_id|>422",
+    "parsed": [
+        {
+            "src_id": 405,
+            "tgt_id": 403
+        },
+        {
+            "src_id": 406,
+            "tgt_id": 403
+        },
+        {
+            "src_id": 407,
+            "tgt_id": 403
+        },
+        {
+            "src_id": 408,
+            "tgt_id": 403
+        },
+        {
+            "src_id": 409,
+            "tgt_id": 403
+        },
+        {
+            "src_id": 411,
+            "tgt_id": 403
+        },
+        {
+            "src_id": 423,
+            "tgt_id": 422
+        }
+    ]
+}

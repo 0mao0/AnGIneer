@@ -1,0 +1,103 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-a6qkdq5i\\input\\pdfs\\doc-0294d717.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-a6qkdq5i\\enriched\\doc-0294d717.json",
+    "contd_output": "<|src_id|>41<|tgt_id|>42\n<|src_id|>80<|tgt_id|>81",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>18<|level|>1\n<|id|>22<|level|>2\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>34<|level|>2\n<|id|>38<|level|>1\n<|id|>48<|level|>1\n<|id|>60<|level|>1\n<|id|>70<|level|>1\n<|id|>83<|level|>1",
+    "image_output": "<|src_id|>13<|tgt_id|>8\n<|src_id|>37<|tgt_id|>34\n<|src_id|>52<|tgt_id|>48\n<|src_id|>53<|tgt_id|>48",
+    "contd_label": [
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 48
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 52,
+            "table2_idx": 53,
+            "upper_row_ss": [
+                [
+                    "Component",
+                    "Amount"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Overcharges (Principal)",
+                    "$1,847,632.19"
+                ]
+            ]
+        }
+    ]
+}

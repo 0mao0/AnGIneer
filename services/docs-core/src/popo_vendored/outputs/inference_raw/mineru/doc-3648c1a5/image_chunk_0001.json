@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        47,
+        49
+    ],
+    "pages": [
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>444<|type|>title<|page|>47<|box|>90 140 107 568<|content|>Section 2.11 — Related-Party Transactions Exceptio\n<|id|>446<|type|>title<|page|>47<|box|>236 140 253 290<|content|>All Other Sections\n<|id|>448<|type|>title<|page|>48<|box|>90 437 109 560<|content|>APPENDIX\n<|id|>449<|type|>title<|page|>48<|box|>136 313 152 684<|content|>KEY DEFINED TERM CROSS-REFERENCE\n<|id|>450<|type|>title<|page|>48<|box|>162 142 198 854<|content|>The following is a listing of all defined terms us\n<|id|>451<|type|>table<|page|>48<|box|>205 143 893 852<|content|>None\n<|id|>452<|type|>table<|page|>49<|box|>89 143 460 852<|content|>None",
+    "raw_response": "<|src_id|>451<|tgt_id|>450\n<|src_id|>452<|tgt_id|>450",
+    "parsed": [
+        {
+            "src_id": 451,
+            "tgt_id": 450
+        },
+        {
+            "src_id": 452,
+            "tgt_id": 450
+        }
+    ]
+}

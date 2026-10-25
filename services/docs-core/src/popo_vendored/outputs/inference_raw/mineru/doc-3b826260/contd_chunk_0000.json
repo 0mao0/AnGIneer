@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        6,
+        20
+    ],
+    "pages": [
+        6,
+        8,
+        9,
+        15,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>54<|page|>6<|box|>292 174 329 854<|content|>Net Total Debt = First Lien Term Loan ($310,000,00... ($72,300,000) – Cash ($11,800,000) = $370,500,000\n<|id|>55<|page|>6<|box|>337 176 354 848<|content|>Total Net Leverage Ratio = $370,500,000 ÷ $37,700,000 (LTM Adjusted EBITDA) = 9. ... 82x\n<|id|>56<|page|>6<|box|>364 176 398 852<|content|>This actual ratio of 9. ... 50x, constituting an Event of Default under the First Lien Credit Agreement\n<|id|>87<|page|>8<|box|>800 140 910 856<|content|>44. ... The negotiations were conducted in good\n<|id|>88<|page|>8<|box|>916 142 929 243<|content|>CONFIDENTIAL\n<|id|>89<|page|>9<|box|>90 176 125 854<|content|>faith by all parties and reflected a genuine balan...terests of the Debtor's estate and the DIP Lenders\n<|id|>171<|page|>15<|box|>457 174 474 560<|content|>Opening Cash Balance (Petition Date): ... $11,800,000\n<|id|>172<|page|>15<|box|>483 176 500 519<|content|>Plus: ... $80,000,000\n<|id|>173<|page|>15<|box|>508 176 526 584<|content|>Less: ... ($35,050,000)\n<|id|>174<|page|>15<|box|>534 176 553 589<|content|>Ending Cash Balance (August 13, 2025): ... $56,750,000\n<|id|>227<|page|>20<|box|>354 174 392 854<|content|>Nathaniel Bower (Responsible Partner) Colette Whit...Lead Associate) Amy Chesterton (Working Associate)\n<|id|>228<|page|>20<|box|>398 174 434 854<|content|>450 Park Avenue New York, New York 10022 Telephone: ... (212) 555-7401\n<|id|>229<|page|>20<|box|>443 174 479 854<|content|>Iowa Office: ... (515) 555-3201\n<|id|>230<|page|>20<|box|>487 176 505 800<|content|>Counsel for Greenfield Agricultural Partners LLC, Debtor and Debtor-in-Possession",
+    "raw_response": "<|src_id|>87<|tgt_id|>89",
+    "parsed": [
+        {
+            "src_id": 87,
+            "tgt_id": 89
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        11,
+        12,
+        16,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>150 142 166 532<|content|>DRIFTWOOD ABSOLUTE RETURN FUND LTD. ... ,\n<|id|>2<|page|>1<|box|>176 212 193 282<|content|>Plaintiff,\n<|id|>3<|page|>1<|box|>203 140 219 246<|content|>— against —\n<|id|>4<|page|>1<|box|>227 140 263 854<|content|>MERIDIAN PRIME CAPITAL LLC, VIKTOR ANDREYEVICH ZEL...RENE MARIA CARVALLO, and DMITRI PAVLOVICH SOBCHAK,\n<|id|>5<|page|>1<|box|>273 212 289 305<|content|>Defendants. ... Defendants\n<|id|>7<|page|>1<|box|>324 691 340 854<|content|>Filed: ... August 7, 2023\n<|id|>8<|page|>1<|box|>349 142 367 313<|content|>Attorneys for Plaintiff: ... Attorneys for Plaintiff\n<|id|>13<|page|>1<|box|>757 140 904 857<|content|>3. ... The gap between what\n<|id|>14<|page|>2<|box|>90 174 126 852<|content|>Defendants claimed to hold and what actually exist...scope of the fraud that Defendants had perpetrated\n<|id|>49<|page|>4<|box|>875 140 909 854<|content|>29. ... 2704, New York,\n<|id|>50<|page|>5<|box|>90 174 126 852<|content|>New York 10006, within New York County, and becaus... New York County giving rise to Driftwood's claims\n<|id|>115<|page|>11<|box|>867 142 902 854<|content|>78. ... Under the circumstances,\n<|id|>116<|page|>12<|box|>90 174 143 854<|content|>Meridian Prime's separate corporate existence shou...ed by Driftwood as the alter ego of Meridian Prime\n<|id|>172<|page|>16<|box|>492 140 510 601<|content|>STATE OF NEW YORK ) ) ss. ... COUNTY OF NEW YORK )\n<|id|>173<|page|>16<|box|>518 140 537 496<|content|>Sandra Hu, being duly sworn, deposes and says: ... Sandra Hu, being duly sworn, deposes and says\n<|id|>180<|page|>18<|box|>159 140 191 854<|content|>Priya Anand Hannah Brinkley 200 Park Avenue, 42nd ...York, New York 10166 Telephone: ... (212) 506-7801\n<|id|>181<|page|>18<|box|>191 142 210 313<|content|>Dated: ... August 7, 2023",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>49<|tgt_id|>50\n<|src_id|>115<|tgt_id|>116",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 116
+        }
+    ]
+}

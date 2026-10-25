@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        58
+    ],
+    "pages": [
+        1,
+        6,
+        11,
+        12,
+        17,
+        18,
+        26,
+        27,
+        57,
+        58
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>136 444 152 550<|content|>$450,000,000\n<|id|>2<|page|>1<|box|>162 390 179 606<|content|>Dated as of January 30, 2026\n<|id|>3<|page|>1<|box|>190 470 205 527<|content|>among\n<|id|>4<|page|>1<|box|>213 176 257 821<|content|>WHITMORE AEROSPACE LLC, a Delaware limited liabili... Borrower, The SUBSIDIARY GUARANTORS party hereto,\n<|id|>5<|page|>1<|box|>266 388 282 607<|content|>The LENDERS party hereto,\n<|id|>6<|page|>1<|box|>291 174 327 823<|content|>PRESCOTT NATIONAL BANK, N. ... , as Administrative Agent, Collateral Agent, and Swingline Lender,\n<|id|>7<|page|>1<|box|>335 174 397 823<|content|>PRESCOTT NATIONAL BANK, N. ... , as Co-Syndication Agents,\n<|id|>8<|page|>1<|box|>407 483 422 514<|content|>and\n<|id|>9<|page|>1<|box|>431 297 449 700<|content|>ATLAS FIDELITY BANK, as Documentation Agent\n<|id|>10<|page|>1<|box|>457 388 474 609<|content|>CUSIP Number: ... 96438LAA3\n<|id|>11<|page|>1<|box|>484 367 500 630<|content|>Governing Law: ... State of New York\n<|id|>12<|page|>1<|box|>508 398 525 598<|content|>TABLE OF CONTENTS\n<|id|>26<|page|>6<|box|>801 140 839 854<|content|>WHEREAS, each Subsidiary Guarantor has agreed to g...is Agreement and the other Loan Documents; ... and\n<|id|>27<|page|>6<|box|>847 140 883 854<|content|>WHEREAS, the Lenders are willing to extend such cr...rms and subject to the conditions set forth herein\n<|id|>75<|page|>11<|box|>799 140 891 857<|content|>\"Governmental Authority\" means the government of t...ense, the Defense Counterintelligence and Security\n<|id|>76<|page|>12<|box|>90 140 127 854<|content|>Agency, the Directorate of Defense Trade Controls,...mmittee on Foreign Investment in the United States\n<|id|>130<|page|>17<|box|>916 142 929 259<|content|>CUSIP: ... 96438LAA3\n<|id|>131<|page|>18<|box|>89 140 143 854<|content|>\"Swingline Sub-Facility\" means the sub-limit for S...ot in addition to, the Revolving Credit Commitment\n<|id|>203<|page|>26<|box|>804 140 896 857<|content|>(c) Default Rate. ... Interest at the Default Rate...e from the date of the occurrence of such Event of\n<|id|>204<|page|>27<|box|>90 140 127 854<|content|>Default and shall be payable on demand. ... The pa... Default by the Administrative Agent or any Lender\n<|id|>505<|page|>57<|box|>840 140 895 854<|content|>(d) Covenant Default — Other. ... 01(a),\n<|id|>512<|page|>58<|box|>868 140 904 854<|content|>(j) Loan Document Invalidity. ... Any material pro...orceable in accordance with its terms (or any Loan",
+    "raw_response": "<|src_id|>75<|tgt_id|>76\n<|src_id|>203<|tgt_id|>204",
+    "parsed": [
+        {
+            "src_id": 75,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 204
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        55
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        20,
+        23,
+        24,
+        25,
+        32,
+        34,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>5<|box|>295 175 326 786<|content|>TREASURY DEPARTMENT\n<|id|>16<|page|>7<|box|>299 176 333 786<|content|>TREASURY DEPARTMENT\n<|id|>23<|page|>9<|box|>171 376 188 563<|content|>Table of Contents\n<|id|>43<|page|>20<|box|>97 281 125 727<|content|>COLLECTIONS OF INTERNAL REVENUE\n<|id|>49<|page|>23<|box|>692 381 706 589<|content|>Unemployment Trust Fund\n<|id|>52<|page|>24<|box|>458 395 472 642<|content|>Railroad Retirement Account\n<|id|>55<|page|>25<|box|>69 321 85 654<|content|>Cash Income and Outgo of the Treasury\n<|id|>68<|page|>32<|box|>64 189 92 819<|content|>Bank Holdings of U.S. Government Obligations and S\n<|id|>76<|page|>34<|box|>65 221 114 796<|content|>COMPARATIVE YIELDS OF AVERAGE OF ALL LONG TERM U.S\n<|id|>107<|page|>54<|box|>637 189 665 776<|content|>Net Position in Foreign Currencies of Reporting Ba",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>16<|level|>1\n<|id|>23<|level|>1\n<|id|>43<|level|>1\n<|id|>49<|level|>2\n<|id|>52<|level|>2\n<|id|>55<|level|>2\n<|id|>68<|level|>2\n<|id|>76<|level|>2\n<|id|>107<|level|>2",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        }
+    ]
+}

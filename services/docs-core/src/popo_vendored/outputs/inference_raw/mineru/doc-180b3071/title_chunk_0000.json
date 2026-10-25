@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 151 143 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 600 Cal\n<|id|>6<|page|>1<|box|>282 140 299 316<|content|>Ladies and Gentlemen:\n<|id|>13<|page|>1<|box|>738 217 758 779<|content|>1. DEFINED TERMS AND DOCUMENTS EXAMINED\n<|id|>14<|page|>1<|box|>784 142 801 290<|content|>1.1 Defined Terms\n<|id|>26<|page|>2<|box|>477 142 494 346<|content|>1.2 Documents Examined\n<|id|>39<|page|>3<|box|>359 400 378 596<|content|>2. ASSUMPTIONS\n<|id|>50<|page|>4<|box|>352 426 371 570<|content|>3. OPINIONS\n<|id|>52<|page|>4<|box|>449 140 465 645<|content|>Opinion 3.1 — Due Organization and Good Standing (\n<|id|>54<|page|>4<|box|>699 140 715 527<|content|>Opinion 3.2 — Foreign Qualification (California)\n<|id|>56<|page|>5<|box|>148 140 167 514<|content|>Opinion 3.3 — Corporate Power and Authority\n<|id|>58<|page|>5<|box|>398 140 417 604<|content|>Opinion 3.4 — Due Authorization, Execution, and De\n<|id|>62<|page|>6<|box|>167 140 185 377<|content|>Opinion 3.5 — Enforceability\n<|id|>68<|page|>6<|box|>631 140 648 362<|content|>Opinion 3.6 — No Conflicts\n<|id|>75<|page|>7<|box|>392 140 409 468<|content|>Opinion 3.7 — Securities Law Exemption\n<|id|>84<|page|>8<|box|>285 140 303 565<|content|>Opinion 3.8 — No Governmental Approvals Required\n<|id|>88<|page|>8<|box|>609 272 628 723<|content|>4. QUALIFICATIONS AND LIMITATIONS\n<|id|>90<|page|>8<|box|>689 140 705 349<|content|>4.1 Scope of Law Covered\n<|id|>93<|page|>9<|box|>223 140 239 375<|content|>4.2 Enforceability Exceptions\n<|id|>100<|page|>9<|box|>786 140 801 519<|content|>4.3 Reliance on Certificates and Factual Matters\n<|id|>104<|page|>10<|box|>383 140 402 419<|content|>4.4 No Opinion on Certain Matters\n<|id|>113<|page|>11<|box|>186 140 204 460<|content|>4.5 Limitation on Conversion Mechanics\n<|id|>118<|page|>11<|box|>628 290 647 705<|content|>5. RELIANCE AND OTHER MATTERS\n<|id|>119<|page|>11<|box|>672 140 689 243<|content|>5.1 Reliance\n<|id|>121<|page|>12<|box|>90 142 107 380<|content|>5.2 No Undertaking to Update\n<|id|>123<|page|>12<|box|>267 140 284 421<|content|>5.3 Governing Law of This Opinion\n<|id|>125<|page|>12<|box|>411 246 428 751<|content|>[Remainder of page intentionally left blank; signa\n<|id|>126<|page|>12<|box|>436 156 453 838<|content|>SIGNATURE PAGE TO LEGAL OPINION OF CALDERWOOD & HA\n<|id|>128<|page|>12<|box|>487 140 503 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>-1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>26<|level|>2\n<|id|>39<|level|>1\n<|id|>50<|level|>1\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>75<|level|>2\n<|id|>84<|level|>2\n<|id|>88<|level|>1\n<|id|>90<|level|>2\n<|id|>93<|level|>2\n<|id|>100<|level|>2\n<|id|>104<|level|>2\n<|id|>113<|level|>2\n<|id|>118<|level|>1\n<|id|>119<|level|>2\n<|id|>121<|level|>2\n<|id|>123<|level|>2\n<|id|>125<|level|>-1\n<|id|>126<|level|>1\n<|id|>128<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 1
+        }
+    ]
+}

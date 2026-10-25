@@ -1,0 +1,155 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rnhz24n0\\input\\pdfs\\doc-ff1353f6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rnhz24n0\\enriched\\doc-ff1353f6.json",
+    "contd_output": "<|src_id|>71<|tgt_id|>72",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>1\n<|id|>10<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>44<|level|>2\n<|id|>53<|level|>2\n<|id|>56<|level|>1\n<|id|>57<|level|>2\n<|id|>61<|level|>2\n<|id|>70<|level|>2\n<|id|>77<|level|>2\n<|id|>82<|level|>1\n<|id|>83<|level|>2\n<|id|>112<|level|>2\n<|id|>148<|level|>2\n<|id|>153<|level|>1\n<|id|>162<|level|>1\n<|id|>178<|level|>1\n<|id|>185<|level|>1",
+    "image_output": "<|src_id|>1<|tgt_id|>0\n<|src_id|>3<|tgt_id|>2\n<|src_id|>4<|tgt_id|>2\n<|src_id|>6<|tgt_id|>5\n<|src_id|>7<|tgt_id|>5\n<|src_id|>8<|tgt_id|>5\n<|src_id|>9<|tgt_id|>5",
+    "contd_label": [
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 185,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 5
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 6,
+            "table2_idx": 7,
+            "upper_row_ss": [
+                [
+                    "Hall Street Associates, L.L.C. v. Mattel, Inc., 552 U.S. 576 (2008)",
+                    "15, 16, 38, 39"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Kyocera Corp. v. Prudential-Bache Trade Services, Inc., 341 F.3d 987 (9th Cir. 2003) (en banc)",
+                    "15, 16, 19, 37"
+                ]
+            ]
+        }
+    ]
+}

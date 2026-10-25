@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['M-012', 'Manufacturing Execution System', 'HP ProLiant DL380 Gen10', 'SN-HPDL-63208', 'Sch. 2.1(a)(i), Item 60']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '(MES) Server', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 93,
+    "table2_idx": 94
+}

@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 153 152 841<|content|>400 Brickell Avenue, Suite 3200 Miami, Florida 331\n<|id|>3<|page|>1<|box|>186 140 203 398<|content|>VIA EMAIL AND FACSIMILE\n<|id|>7<|page|>1<|box|>378 142 395 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>12<|page|>2<|box|>90 140 107 375<|content|>2. Background of the Dispute\n<|id|>14<|page|>2<|box|>184 140 200 395<|content|>2.1 VHG's Trademark Portfolio\n<|id|>21<|page|>2<|box|>789 140 806 383<|content|>2.2 CVR's Infringing Conduct\n<|id|>29<|page|>3<|box|>625 140 641 405<|content|>2.3 Evidence of Actual Confusion\n<|id|>36<|page|>4<|box|>268 140 287 313<|content|>2.4 Litigation Claims\n<|id|>44<|page|>4<|box|>806 140 824 390<|content|>3. Scope of Expert Engagement\n<|id|>45<|page|>4<|box|>837 140 854 424<|content|>3.1 Survey Design and Methodology\n<|id|>53<|page|>5<|box|>672 142 689 290<|content|>3.2 Expert Report\n<|id|>67<|page|>6<|box|>534 140 551 279<|content|>4. Compensation\n<|id|>68<|page|>6<|box|>565 140 583 263<|content|>4.1 Survey Fee\n<|id|>73<|page|>7<|box|>90 140 107 290<|content|>4.2 Testimony Fee\n<|id|>82<|page|>7<|box|>513 140 531 354<|content|>4.4 Invoicing and Payment\n<|id|>86<|page|>7<|box|>739 140 757 369<|content|>5. Timeline and Deliverables\n<|id|>96<|page|>8<|box|>661 140 679 377<|content|>6. Confidentiality Obligations\n<|id|>102<|page|>9<|box|>465 140 482 437<|content|>7. Document Retention Requirements\n<|id|>112<|page|>10<|box|>204 140 222 398<|content|>8. Independence and Objectivity\n<|id|>116<|page|>10<|box|>542 140 559 264<|content|>9. Termination\n<|id|>120<|page|>11<|box|>90 142 107 426<|content|>10. No Attorney-Client Relationship\n<|id|>123<|page|>11<|box|>421 142 438 336<|content|>11. Contact Information\n<|id|>131<|page|>11<|box|>736 142 753 437<|content|>12. Acceptance and Countersignature\n<|id|>140<|page|>12<|box|>263 383 281 614<|content|>ACCEPTED AND AGREED\n<|id|>147<|page|>12<|box|>441 142 459 233<|content|>Enclosures",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>3<|level|>-1\n<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>1\n<|id|>45<|level|>2\n<|id|>53<|level|>2\n<|id|>67<|level|>1\n<|id|>68<|level|>2\n<|id|>73<|level|>2\n<|id|>82<|level|>2\n<|id|>86<|level|>1\n<|id|>96<|level|>1\n<|id|>102<|level|>1\n<|id|>112<|level|>1\n<|id|>116<|level|>1\n<|id|>120<|level|>1\n<|id|>123<|level|>1\n<|id|>131<|level|>1\n<|id|>140<|level|>-1\n<|id|>147<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 1
+        }
+    ]
+}

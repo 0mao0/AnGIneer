@@ -1,0 +1,167 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mi0_e2uw\\input\\pdfs\\doc-e0345302.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mi0_e2uw\\enriched\\doc-e0345302.json",
+    "contd_output": "<|src_id|>93<|tgt_id|>94",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>17<|level|>2\n<|id|>27<|level|>3\n<|id|>37<|level|>2\n<|id|>44<|level|>2\n<|id|>55<|level|>2\n<|id|>67<|level|>2\n<|id|>73<|level|>2\n<|id|>80<|level|>2\n<|id|>84<|level|>2\n<|id|>95<|level|>2\n<|id|>106<|level|>2\n<|id|>110<|level|>2\n<|id|>115<|level|>2\n<|id|>121<|level|>2\n<|id|>126<|level|>2\n<|id|>131<|level|>2\n<|id|>135<|level|>2\n<|id|>149<|level|>2\n<|id|>153<|level|>2\n<|id|>160<|level|>2\n<|id|>164<|level|>2\n<|id|>171<|level|>3\n<|id|>183<|level|>2\n<|id|>185<|level|>3\n<|id|>194<|level|>3\n<|id|>200<|level|>3\n<|id|>206<|level|>1\n<|id|>207<|level|>2",
+    "image_output": "<|src_id|>209<|tgt_id|>207\n<|src_id|>210<|tgt_id|>207",
+    "contd_label": [
+        {
+            "src_id": 93,
+            "tgt_id": 94
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 1
+        },
+        {
+            "id": 207,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 209,
+            "tgt_id": 207
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 207
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 209,
+            "table2_idx": 210,
+            "upper_row_ss": [
+                [
+                    "",
+                    "HIPAA research authorization procedures are in place at the site, including IRB-approved authorization forms or"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "an approved waiver of authorization, as applicable."
+                ]
+            ]
+        }
+    ]
+}

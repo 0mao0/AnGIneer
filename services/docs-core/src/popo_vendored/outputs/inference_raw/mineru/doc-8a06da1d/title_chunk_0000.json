@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 145 125 849<|content|>CALDERWOOD & HARKNESS LLP 3960 Howard Hughes Parkw\n<|id|>8<|page|>1<|box|>422 140 439 230<|content|>I. Purpose\n<|id|>13<|page|>2<|box|>148 140 167 473<|content|>II. Background — The Activist Campaign\n<|id|>14<|page|>2<|box|>180 140 196 472<|content|>A. Pinnacle Harbor's Stake Accumulation\n<|id|>18<|page|>2<|box|>598 140 614 398<|content|>B. Key Events Leading to Notice\n<|id|>25<|page|>3<|box|>656 140 674 426<|content|>C. Pinnacle Harbor's Legal Counsel\n<|id|>27<|page|>4<|box|>90 140 107 531<|content|>III. D&O Insurance Program — Policy Summary\n<|id|>33<|page|>5<|box|>176 140 193 308<|content|>C. Insurance Broker\n<|id|>35<|page|>5<|box|>332 140 349 557<|content|>IV. Notice of Circumstances — Content and Delivery\n<|id|>36<|page|>5<|box|>363 140 378 287<|content|>A. Form of Notice\n<|id|>41<|page|>5<|box|>843 142 859 361<|content|>B. Circumstances Reported\n<|id|>48<|page|>6<|box|>621 140 637 434<|content|>C. Identified Insured Persons at Risk\n<|id|>50<|page|>6<|box|>689 140 704 491<|content|>Current Members of the Board of Directors:\n<|id|>60<|page|>6<|box|>891 143 905 217<|content|>Officers:\n<|id|>64<|page|>7<|box|>234 140 250 320<|content|>D. Method of Delivery\n<|id|>70<|page|>7<|box|>602 140 619 364<|content|>V. Coverage Considerations\n<|id|>71<|page|>7<|box|>633 140 648 421<|content|>A. Potential Covered Defense Costs\n<|id|>81<|page|>8<|box|>781 140 797 290<|content|>B. SIR / Retention\n<|id|>85<|page|>9<|box|>311 140 329 410<|content|>C. Policy Renewal Considerations\n<|id|>91<|page|>9<|box|>726 140 742 429<|content|>D. Potential Exclusions / Limitations\n<|id|>96<|page|>10<|box|>476 140 493 401<|content|>VI. Coordination and Next Steps\n<|id|>97<|page|>10<|box|>507 140 523 354<|content|>A. Broker Communication\n<|id|>100<|page|>10<|box|>825 140 842 307<|content|>B. Carrier Response\n<|id|>103<|page|>11<|box|>239 140 256 413<|content|>C. Ongoing Reporting Obligations\n<|id|>112<|page|>11<|box|>786 142 801 330<|content|>D. Document Retention\n<|id|>122<|page|>12<|box|>266 142 282 284<|content|>VII. Attachments",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>18<|level|>3\n<|id|>25<|level|>3\n<|id|>27<|level|>2\n<|id|>33<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>41<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>4\n<|id|>60<|level|>4\n<|id|>64<|level|>3\n<|id|>70<|level|>2\n<|id|>71<|level|>3\n<|id|>81<|level|>3\n<|id|>85<|level|>3\n<|id|>91<|level|>3\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>100<|level|>3\n<|id|>103<|level|>3\n<|id|>112<|level|>3\n<|id|>122<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 4
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 2
+        }
+    ]
+}

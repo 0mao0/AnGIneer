@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 259 118 736<|content|>MUTUAL NON-DISCLOSURE AGREEMENT\n<|id|>8<|page|>1<|box|>435 140 453 243<|content|>RECITALS\n<|id|>15<|page|>2<|box|>89 142 107 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>39<|page|>3<|box|>839 140 857 606<|content|>ARTICLE 2 — OBLIGATIONS OF CONFIDENTIALITY\n<|id|>44<|page|>4<|box|>666 140 684 730<|content|>ARTICLE 3 — EXCLUSIONS FROM CONFIDENTIAL INFORMATI\n<|id|>52<|page|>5<|box|>391 140 409 509<|content|>ARTICLE 4 — COMPELLED DISCLOSURE\n<|id|>55<|page|>5<|box|>795 140 813 839<|content|>ARTICLE 5 — RETURN AND DESTRUCTION OF CONFIDENTIAL\n<|id|>60<|page|>6<|box|>622 140 638 640<|content|>ARTICLE 6 — NO REPRESENTATIONS OR WARRANTIES\n<|id|>63<|page|>7<|box|>295 140 313 638<|content|>ARTICLE 7 — INTELLECTUAL PROPERTY; NO LICENSE\n<|id|>65<|page|>7<|box|>545 140 563 598<|content|>ARTICLE 8 — NON-SOLICITATION OF EMPLOYEES\n<|id|>69<|page|>8<|box|>148 140 166 385<|content|>ARTICLE 9 — STANDSTILL\n<|id|>71<|page|>8<|box|>325 140 343 521<|content|>ARTICLE 10 — PUBLIC ANNOUNCEMENTS\n<|id|>73<|page|>8<|box|>648 140 666 514<|content|>ARTICLE 11 — TERM AND TERMINATION\n<|id|>77<|page|>9<|box|>204 140 220 377<|content|>ARTICLE 12 — REMEDIES\n<|id|>81<|page|>9<|box|>689 140 707 452<|content|>ARTICLE 13 — INDEMNIFICATION\n<|id|>84<|page|>10<|box|>148 140 166 486<|content|>ARTICLE 14 — GENERAL PROVISIONS\n<|id|>92<|page|>11<|box|>626 142 641 228<|content|>If to CBR:\n<|id|>112<|page|>13<|box|>89 210 106 784<|content|>SIGNATURE PAGE TO MUTUAL NON-DISCLOSURE AGREEMENT",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>15<|level|>2\n<|id|>39<|level|>2\n<|id|>44<|level|>2\n<|id|>52<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>77<|level|>2\n<|id|>81<|level|>2\n<|id|>84<|level|>2\n<|id|>92<|level|>-1\n<|id|>112<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        }
+    ]
+}

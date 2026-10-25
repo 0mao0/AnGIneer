@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>114 351 132 645<|content|>OFFICER'S CERTIFICATE\n<|id|>2<|page|>1<|box|>151 488 167 511<|content|>of\n<|id|>7<|page|>1<|box|>406 140 422 573<|content|>Section 1. Identity and Authority of Certifying Of\n<|id|>11<|page|>1<|box|>835 140 853 596<|content|>Section 2. Bring-Down of Representations and Warra\n<|id|>15<|page|>2<|box|>431 140 449 566<|content|>Section 3. Compliance with Covenants and Condition\n<|id|>18<|page|>2<|box|>763 140 779 439<|content|>Section 4. No Material Adverse Effect\n<|id|>30<|page|>3<|box|>775 140 792 624<|content|>Section 5. Accuracy of Registration Statement and\n<|id|>40<|page|>4<|box|>469 140 486 460<|content|>Section 6. No Stop Order or Proceedings\n<|id|>44<|page|>4<|box|>771 140 787 413<|content|>Section 7. No Prohibited Issuances\n<|id|>54<|page|>5<|box|>625 140 641 537<|content|>Section 8. Good Standing and Corporate Existence\n<|id|>59<|page|>6<|box|>497 140 513 602<|content|>Section 9. Authorized Capital and Valid Issuance o\n<|id|>65<|page|>7<|box|>128 183 145 475<|content|>• Total post-IPO shares outstanding:\n<|id|>71<|page|>7<|box|>426 140 443 333<|content|>Section 10. No Conflicts\n<|id|>80<|page|>8<|box|>167 140 184 450<|content|>Section 11. No Litigation (Bring-Down)\n<|id|>85<|page|>8<|box|>513 140 531 651<|content|>Section 12. Incorporation of Underwriting Agreemen\n<|id|>87<|page|>8<|box|>654 140 671 403<|content|>Section 13. Reliance and Purpose\n<|id|>90<|page|>9<|box|>90 140 108 661<|content|>[Remainder of Page Intentionally Left Blank; Signa\n<|id|>91<|page|>9<|box|>114 277 133 718<|content|>[SIGNATURE PAGE TO OFFICER'S CERTIFICATE]\n<|id|>103<|page|>9<|box|>358 142 373 573<|content|>DRAFT — For Discussion Purposes Only — Subject to",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>15<|level|>2\n<|id|>18<|level|>2\n<|id|>30<|level|>2\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>54<|level|>2\n<|id|>59<|level|>2\n<|id|>65<|level|>-1\n<|id|>71<|level|>2\n<|id|>80<|level|>2\n<|id|>85<|level|>2\n<|id|>87<|level|>2\n<|id|>90<|level|>1\n<|id|>91<|level|>1\n<|id|>103<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        }
+    ]
+}

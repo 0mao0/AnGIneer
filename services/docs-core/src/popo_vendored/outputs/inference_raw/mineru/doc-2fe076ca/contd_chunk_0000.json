@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        11,
+        12,
+        13,
+        15,
+        16,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>142 205 159 792<|content|>T: ... com\n<|id|>3<|page|>1<|box|>167 717 185 854<|content|>8 September 2023\n<|id|>4<|page|>1<|box|>193 142 208 377<|content|>PRIVILEGED & CONFIDENTIAL\n<|id|>5<|page|>1<|box|>215 140 253 854<|content|>Fiona Gallagher General Counsel & Company Secretar...nary Wharf Boulevard London E14 5HN United Kingdom\n<|id|>6<|page|>1<|box|>260 140 295 854<|content|>Re: ... Completion of GDPR Compliance Program Build — Engagement Reference SC/NTP/2023-0213/PDS\n<|id|>7<|page|>1<|box|>304 142 321 235<|content|>Dear Fiona,\n<|id|>13<|page|>1<|box|>768 174 859 854<|content|>(a) the ICO Enforcement Notice (reference ENF/2021...sing within NTP's legacy billing platform. ... and\n<|id|>14<|page|>1<|box|>867 174 904 856<|content|>(b) the active Data Protection Commission (Ireland...egarding cross-border personal data transfers from\n<|id|>15<|page|>2<|box|>90 174 181 856<|content|>Northgate Ireland Ltd (CRO Number 587214) to US-ba...Maximillian Schrems (Case C-311/18) (\"Schrems II\")\n<|id|>33<|page|>3<|box|>780 174 835 854<|content|>(c) the UK Addendum to EU SCCs (the \"UK Addendum\")...ject to dual UK and EU regulatory regimes; ... and\n<|id|>34<|page|>3<|box|>843 174 880 854<|content|>(d) reliance on adequacy decisions for 2 transfers...n for Japan (Commission Implementing Decision (EU)\n<|id|>35<|page|>4<|box|>89 174 126 854<|content|>2019/419) and the adequacy decision for Canada (Co...EC, as applicable to recipients subject to PIPEDA)\n<|id|>112<|page|>11<|box|>825 174 896 854<|content|>(b) documentation of the deletion process, includi...ccountability purposes under Article 5(2); ... and\n<|id|>114<|page|>12<|box|>152 140 189 854<|content|>We recommend that the DPO verify and certify the c...ant documentation be appended to the DPIA-008 file\n<|id|>123<|page|>12<|box|>794 174 848 856<|content|>(c) Legitimate interest balancing: ... and\n<|id|>125<|page|>13<|box|>152 140 299 856<|content|>NTP should actively monitor the progress of the DP... intra-group data flows between UK and EU entities\n<|id|>150<|page|>15<|box|>584 174 622 854<|content|>(d) the marketing function, with particular focus ...t management under the ePrivacy framework; ... and\n<|id|>152<|page|>15<|box|>674 140 747 854<|content|>Training records should be maintained for accounta...curity awareness programme), and spot-check audits\n<|id|>162<|page|>16<|box|>512 174 547 854<|content|>(d) the roles and responsibilities of external adv...c investigators, and communications teams; ... and\n<|id|>164<|page|>16<|box|>582 140 637 854<|content|>We recommend that the first tabletop exercise be c...PC inquiry and NTP's multi-jurisdictional presence\n<|id|>182<|page|>18<|box|>135 174 171 854<|content|>(f) Breach response preparedness: ... and\n<|id|>184<|page|>18<|box|>241 140 277 854<|content|>C&H would be pleased to discuss the scope, timing,...uld NTP wish to instruct the Firm for this purpose\n<|id|>198<|page|>19<|box|>609 140 625 267<|content|>Yours sincerely,\n<|id|>199<|page|>19<|box|>633 140 650 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>200<|page|>19<|box|>652 143 669 253<|content|>By: ... By\n<|id|>202<|page|>19<|box|>712 176 729 777<|content|>Rachel Bernstein, Partner, Privacy & Data Security, Calderwood & Harkness LLP\n<|id|>203<|page|>19<|box|>737 176 755 736<|content|>Sanjay Mehta, Data Protection Officer, Northgate Telecommunications PLC\n<|id|>204<|page|>19<|box|>763 143 808 828<|content|>Thomas Okoye, Chief Information Security Officer, ...ables previously transmitted under separate cover)",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>34<|tgt_id|>35\n<|src_id|>123<|tgt_id|>125",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 125
+        }
+    ]
+}

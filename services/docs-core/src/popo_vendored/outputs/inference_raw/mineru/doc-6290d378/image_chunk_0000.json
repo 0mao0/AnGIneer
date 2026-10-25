@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        22
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        10,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>90 434 111 563<|content|>EXHIBIT D\n<|id|>1<|type|>title<|page|>2<|box|>136 277 152 718<|content|>TRADEMARK LICENSE AND BRAND GUIDELINES\n<|id|>10<|type|>title<|page|>2<|box|>492 142 508 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>25<|type|>title<|page|>3<|box|>545 140 563 573<|content|>ARTICLE 2 — GRANT OF TRADEMARK LICENSE\n<|id|>41<|type|>title<|page|>5<|box|>89 140 107 803<|content|>ARTICLE 3 — INTELLECTUAL PROPERTY OWNERSHIP AND PR\n<|id|>52<|type|>title<|page|>6<|box|>222 140 239 454<|content|>ARTICLE 4 — BRAND GUIDELINES\n<|id|>76<|type|>table<|page|>7<|box|>636 143 828 852<|content|>None\n<|id|>109<|type|>title<|page|>10<|box|>589 140 607 807<|content|>ARTICLE 5 — APPROVAL REQUIREMENTS FOR CO-BRANDED M\n<|id|>126<|type|>title<|page|>12<|box|>339 140 357 450<|content|>ARTICLE 6 — QUALITY CONTROL\n<|id|>141<|type|>title<|page|>13<|box|>472 140 489 743<|content|>ARTICLE 7 — TERM AND TERMINATION OF TRADEMARK LICE\n<|id|>160<|type|>title<|page|>15<|box|>89 140 107 620<|content|>ARTICLE 8 — REPRESENTATIONS AND WARRANTIES\n<|id|>161<|type|>title<|page|>15<|box|>116 140 133 715<|content|>8.1 Lumos Representations. Lumos represents and wa\n<|id|>167<|type|>title<|page|>15<|box|>417 140 435 735<|content|>8.2 Meridian Representations. Meridian represents\n<|id|>172<|type|>title<|page|>15<|box|>690 142 707 442<|content|>ARTICLE 9 — INDEMNIFICATION\n<|id|>178<|type|>title<|page|>16<|box|>364 142 383 437<|content|>ARTICLE 10 — MISCELLANEOUS\n<|id|>187<|type|>title<|page|>17<|box|>159 176 175 299<|content|>If to Meridian:\n<|id|>193<|type|>title<|page|>18<|box|>89 142 106 473<|content|>SCHEDULE D-1 — MARK SPECIMENS\n<|id|>195<|type|>table<|page|>18<|box|>196 143 714 852<|content|>None\n<|id|>196<|type|>title<|page|>18<|box|>748 143 763 197<|content|>Notes:\n<|id|>200<|type|>title<|page|>20<|box|>89 142 106 583<|content|>SCHEDULE D-2 — VISUAL IDENTITY STANDARDS\n<|id|>201<|type|>title<|page|>20<|box|>121 140 138 395<|content|>Section 1 — Logo Specifications\n<|id|>212<|type|>title<|page|>20<|box|>633 142 650 428<|content|>Section 2 — Color Palette Reference\n<|id|>214<|type|>table<|page|>20<|box|>699 143 845 852<|content|>None\n<|id|>215<|type|>title<|page|>21<|box|>90 140 107 424<|content|>Section 3 — Typography Standards\n<|id|>222<|type|>title<|page|>21<|box|>256 142 273 308<|content|>3.2 Usage Hierarchy.\n<|id|>223<|type|>table<|page|>21<|box|>279 143 517 852<|content|>None\n<|id|>225<|type|>title<|page|>21<|box|>618 140 633 434<|content|>Section 4 — Layout and Grid System\n<|id|>231<|type|>title<|page|>21<|box|>811 142 829 397<|content|>Section 5 — Imagery Guidelines\n<|id|>239<|type|>title<|page|>22<|box|>328 413 343 583<|content|>SIGNATURE PAGE\n<|id|>240<|type|>title<|page|>22<|box|>353 217 369 779<|content|>EXHIBIT D — TRADEMARK LICENSE AND BRAND GUIDELINES",
+    "raw_response": "<|src_id|>76<|tgt_id|>52\n<|src_id|>195<|tgt_id|>193\n<|src_id|>214<|tgt_id|>212\n<|src_id|>223<|tgt_id|>222",
+    "parsed": [
+        {
+            "src_id": 76,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 212
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 222
+        }
+    ]
+}

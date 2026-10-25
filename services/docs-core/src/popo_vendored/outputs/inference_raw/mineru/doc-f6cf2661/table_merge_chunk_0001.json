@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Closing balance', '272,578', '142,842', '80,696', '62,146', '-2,533', '116,272', '1,269']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Account', 'colspan=5, Interior Department--Continued', 'colspan=2, Justice Department']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 451,
+    "table2_idx": 452
+}

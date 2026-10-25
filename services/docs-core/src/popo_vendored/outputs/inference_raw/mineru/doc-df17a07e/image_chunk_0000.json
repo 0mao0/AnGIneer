@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 243 118 753<|content|>POST-CLOSING COMPLETION CERTIFICATE\n<|id|>4<|type|>title<|page|>1<|box|>397 142 414 256<|content|>Addressed to:\n<|id|>6<|type|>title<|page|>1<|box|>468 140 484 176<|content|>and\n<|id|>9<|type|>title<|page|>1<|box|>614 140 632 290<|content|>Section 1. Recitals\n<|id|>15<|type|>title<|page|>2<|box|>366 140 383 439<|content|>Section 2. Certification of Completion\n<|id|>19<|type|>title<|page|>2<|box|>704 140 722 576<|content|>Section 3. Certification Regarding Recorded Mortga\n<|id|>22<|type|>table<|page|>2<|box|>890 142 929 854<|content|>None\n<|id|>23<|type|>table<|page|>3<|box|>88 143 371 852<|content|>None\n<|id|>32<|type|>title<|page|>4<|box|>667 140 684 594<|content|>Section 4. Certification Regarding Title Insurance\n<|id|>38<|type|>title<|page|>5<|box|>414 140 431 547<|content|>Section 5. Certification Regarding Updated Surveys\n<|id|>44<|type|>title<|page|>6<|box|>90 140 107 568<|content|>Section 6. Certification Regarding Flood Certifica\n<|id|>48<|type|>title<|page|>6<|box|>465 140 482 772<|content|>Section 7. Certification Regarding Lien Releases o\n<|id|>54<|type|>title<|page|>7<|box|>304 140 320 537<|content|>Section 8. Additional Post-Closing Items Delivered\n<|id|>59<|type|>title<|page|>8<|box|>90 140 107 663<|content|>Section 9. Schedule A — Itemized List of Post-Clos\n<|id|>71<|type|>title<|page|>9<|box|>212 140 229 362<|content|>Section 10. Representations\n<|id|>77<|type|>title<|page|>9<|box|>821 140 839 357<|content|>Section 11. Governing Law\n<|id|>80<|type|>title<|page|>10<|box|>160 197 176 797<|content|>SIGNATURE PAGE TO POST-CLOSING COMPLETION CERTIFIC\n<|id|>82<|type|>title<|page|>10<|box|>229 142 246 490<|content|>VERIMARK HOSPITALITY GROUP INC.",
+    "raw_response": "<|src_id|>22<|tgt_id|>19\n<|src_id|>23<|tgt_id|>19",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 19
+        }
+    ]
+}

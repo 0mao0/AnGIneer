@@ -1,0 +1,70 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>164 140 180 584<|content|>VIA ELECTRONIC MAIL AND OVERNIGHT COURIER\n<|id|>6<|page|>1<|box|>324 143 339 303<|content|>Dear Ms. Devereaux:\n<|id|>8<|page|>1<|box|>446 140 464 540<|content|>I. Opening and Reference to Prior Correspondence\n<|id|>14<|page|>2<|box|>229 140 248 410<|content|>II. Summary of Case Background\n<|id|>21<|page|>3<|box|>90 140 107 415<|content|>III. Developments During Q4 2023\n<|id|>23<|page|>3<|box|>202 140 219 431<|content|>A. Withdrawal of Plaintiff's Counsel\n<|id|>28<|page|>3<|box|>828 140 845 450<|content|>B. Failure to Retain Substitute Counsel\n<|id|>32<|page|>4<|box|>448 140 465 457<|content|>C. Status of discovery and Expert Work\n<|id|>40<|page|>5<|box|>648 140 665 540<|content|>IV. Potential for Dismissal for Failure to Prosecu\n<|id|>44<|page|>6<|box|>414 140 431 338<|content|>V. Exposure Assessment\n<|id|>50<|page|>7<|box|>250 140 265 341<|content|>VI. Legal Fees and Costs\n<|id|>56<|page|>7<|box|>844 140 861 393<|content|>VII. Insurance Coverage Status\n<|id|>61<|page|>8<|box|>366 140 383 475<|content|>VIII. Next Steps and Anticipated Timeline\n<|id|>67<|page|>8<|box|>810 142 828 238<|content|>IX. Closing",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>6<|level|>-1\n<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>21<|level|>1\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>32<|level|>2\n<|id|>40<|level|>1\n<|id|>44<|level|>1\n<|id|>50<|level|>1\n<|id|>56<|level|>1\n<|id|>61<|level|>1\n<|id|>67<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        }
+    ]
+}

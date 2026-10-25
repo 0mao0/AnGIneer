@@ -1,0 +1,147 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1tv3hx6_\\input\\pdfs\\doc-bf129c59.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1tv3hx6_\\enriched\\doc-bf129c59.json",
+    "contd_output": "<|src_id|>122<|tgt_id|>123\n<|src_id|>141<|tgt_id|>143",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>8<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>25<|level|>3\n<|id|>31<|level|>3\n<|id|>35<|level|>3\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>46<|level|>3\n<|id|>50<|level|>3\n<|id|>56<|level|>2\n<|id|>77<|level|>3\n<|id|>101<|level|>3\n<|id|>117<|level|>3\n<|id|>133<|level|>3\n<|id|>137<|level|>2\n<|id|>153<|level|>2",
+    "image_output": "<|src_id|>1<|tgt_id|>0\n<|src_id|>6<|tgt_id|>2\n<|src_id|>7<|tgt_id|>2\n<|src_id|>10<|tgt_id|>8\n<|src_id|>12<|tgt_id|>11\n<|src_id|>13<|tgt_id|>11",
+    "contd_label": [
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 143
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 12,
+            "table2_idx": 13,
+            "upper_row_ss": [
+                [
+                    "35 U.S.C. § 103",
+                    "5, 39"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

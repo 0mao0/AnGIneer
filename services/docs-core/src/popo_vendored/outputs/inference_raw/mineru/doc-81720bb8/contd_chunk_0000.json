@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>151 297 167 700<|content|>1200 K Street NW, Suite 900 Washington, D. ... 20005\n<|id|>3<|page|>1<|box|>176 140 238 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...itten authorization from Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>286 140 321 854<|content|>TO: ... Elaine Forsythe, Responsible Partner, Anti...Aaron Liu, Lead Associate, Antitrust & Competition\n<|id|>6<|page|>1<|box|>329 140 348 651<|content|>FROM: ... Monica Reyes, Working Associate, Antitrust & Competition\n<|id|>7<|page|>1<|box|>354 142 373 308<|content|>DATE: ... October 2022\n<|id|>8<|page|>1<|box|>382 140 417 854<|content|>RE: ... Refusal-to-Deal Analysis Under Section 2 o...'s Denial of Interconnection and Colocation Access\n<|id|>9<|page|>1<|box|>425 140 460 854<|content|>MATTER: ... )\n<|id|>10<|page|>1<|box|>469 140 487 547<|content|>ENGAGEMENT REF. ... C&H-2022-ATR-00419\n<|id|>11<|page|>1<|box|>494 140 513 750<|content|>CLIENT: ... Northgate Telecommunications PLC / Northgate Networks America Inc\n<|id|>24<|page|>2<|box|>801 140 893 854<|content|>Northgate Telecommunications PLC (\"Northgate PLC\")...ompany No. ... For its fiscal year ended March 31,\n<|id|>25<|page|>3<|box|>89 140 127 854<|content|>2022 (\"FY 2022\"), Northgate PLC reported consolida...f £4. ... 96 billion at prevailing exchange rates)\n<|id|>40<|page|>4<|box|>799 140 891 857<|content|>In January 2020, Northgate adopted the Wholesale A... cross-functional internal process involving NNA's\n<|id|>41<|page|>5<|box|>89 140 127 854<|content|>Commercial, Engineering, Legal, and Regulatory dep...am, including Diane Okoro, U. ... President of NNA\n<|id|>202<|page|>26<|box|>481 140 513 854<|content|>Monica Reyes Working Associate (Year 4) Antitrust & Competition Calderwood & Harkness LLP\n<|id|>203<|page|>26<|box|>516 143 534 253<|content|>Reviewed by: ... Reviewed by",
+    "raw_response": "<|src_id|>24<|tgt_id|>25\n<|src_id|>40<|tgt_id|>41",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        }
+    ]
+}

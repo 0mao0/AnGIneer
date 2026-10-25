@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>207 140 243 854<|content|>Re: Equity Commitment Letter — Acquisition of Subs\n<|id|>9<|page|>1<|box|>656 140 674 271<|content|>1. Commitment\n<|id|>15<|page|>2<|box|>593 140 609 390<|content|>2. Purpose and Use of Proceeds\n<|id|>33<|page|>3<|box|>773 140 792 341<|content|>3. Conditions to Funding\n<|id|>49<|page|>5<|box|>469 140 487 316<|content|>4. Limited Guarantee\n<|id|>52<|page|>5<|box|>800 140 818 392<|content|>5. No Third-Party Beneficiaries\n<|id|>55<|page|>6<|box|>267 140 284 410<|content|>6. No Modification or Assignment\n<|id|>59<|page|>6<|box|>660 140 678 264<|content|>7. Termination\n<|id|>66<|page|>7<|box|>277 140 294 555<|content|>8. Representations and Warranties of Pinnacle Rive\n<|id|>74<|page|>8<|box|>402 140 420 284<|content|>9. Confidentiality\n<|id|>81<|page|>9<|box|>90 142 107 400<|content|>10. Governing Law; Jurisdiction\n<|id|>85<|page|>9<|box|>739 140 757 450<|content|>11. Counterparts; Electronic Execution\n<|id|>88<|page|>10<|box|>135 236 152 758<|content|>[Remainder of Page Intentionally Left Blank; Signa\n<|id|>89<|page|>10<|box|>160 267 176 728<|content|>EQUITY COMMITMENT LETTER SIGNATURE PAGE\n<|id|>91<|page|>10<|box|>229 142 246 524<|content|>PINNACLE RIVER CAPITAL PARTNERS, LP",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>33<|level|>2\n<|id|>49<|level|>2\n<|id|>52<|level|>2\n<|id|>55<|level|>2\n<|id|>59<|level|>2\n<|id|>66<|level|>2\n<|id|>74<|level|>2\n<|id|>81<|level|>2\n<|id|>85<|level|>2\n<|id|>88<|level|>-1\n<|id|>89<|level|>1\n<|id|>91<|level|>2",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 2
+        }
+    ]
+}

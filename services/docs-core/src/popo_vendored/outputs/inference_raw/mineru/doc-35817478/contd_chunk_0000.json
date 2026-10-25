@@ -1,0 +1,46 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        50
+    ],
+    "pages": [
+        1,
+        2,
+        10,
+        11,
+        14,
+        30,
+        31,
+        36,
+        37,
+        38,
+        40,
+        41,
+        43,
+        44,
+        45,
+        49
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>135 387 154 609<|content|>dated as of February 10, 2025\n<|id|>2<|page|>1<|box|>164 470 180 527<|content|>among\n<|id|>15<|page|>2<|box|>513 140 622 857<|content|>WHEREAS, the Purchaser has obtained a representati...nd warranties insurance policy (Policy No. ... and\n<|id|>16<|page|>2<|box|>628 140 666 854<|content|>WHEREAS, the parties desire to set forth herein th...rchase and sale of the Shares shall be consummated\n<|id|>111<|page|>10<|box|>916 142 930 364<|content|>Execution Version — February 10, 2025\n<|id|>112<|page|>11<|box|>90 140 107 586<|content|>\"Survival Period\" has the meaning set forth in Section 10. ... 1\n<|id|>156<|page|>14<|box|>657 140 713 856<|content|>(d) wire transfer instructions (including bank nam...each payee of Seller Transaction Expenses; ... and\n<|id|>158<|page|>14<|box|>801 140 893 857<|content|>The Purchaser shall have the right to review the C...any objections thereto prior to the Closing. ... 6\n<|id|>291<|page|>30<|box|>830 140 904 856<|content|>(a) Schedule 4. ... The\n<|id|>292<|page|>31<|box|>90 140 164 854<|content|>Company is not a party to, or bound by, any collec...ng or, to the Knowledge of the Company, threatened\n<|id|>338<|page|>36<|box|>763 138 910 857<|content|>The Purchaser has obtained the R&W Insurance Policy (Policy No. ... The\n<|id|>339<|page|>37<|box|>90 140 127 854<|content|>Purchaser has delivered or made available to the S...olicy (subject to redaction of the premium amount)\n<|id|>352<|page|>38<|box|>383 140 474 856<|content|>(b) use commercially reasonable efforts to preserv...terial business dealings with the Company; ... and\n<|id|>354<|page|>38<|box|>508 140 580 854<|content|>In furtherance and not in limitation of the forego...be unreasonably withheld, conditioned, or delayed)\n<|id|>375<|page|>40<|box|>789 138 881 857<|content|>(d) Change of Control Consents. ... The Purchaser shall cooperate with the\n<|id|>376<|page|>41<|box|>90 140 127 854<|content|>Company in seeking to obtain such Consents, includ...as may be reasonably requested by any counterparty\n<|id|>382<|page|>41<|box|>523 140 577 854<|content|>(c) execute or enter into any letter of intent, me...tract relating to any Acquisition Proposal; ... or\n<|id|>384<|page|>41<|box|>611 138 794 857<|content|>The Company and the Selling Stockholders shall, an...osal and the material terms and conditions thereof\n<|id|>394<|page|>43<|box|>863 140 900 856<|content|>(e) Tax Audits and Proceedings. ... The Purchaser ...ative in writing upon receipt of any notice from a\n<|id|>395<|page|>44<|box|>90 140 401 857<|content|>Governmental Authority of any pending or threatene... be unreasonably withheld, conditioned, or delayed\n<|id|>408<|page|>45<|box|>789 140 825 854<|content|>(c) any material breach or inaccuracy of any repre...uch party discovers after the date hereof; ... and\n<|id|>410<|page|>45<|box|>859 140 895 856<|content|>No notification delivered pursuant to this Section...y party of any condition set forth in Article VIII\n<|id|>445<|page|>49<|box|>609 174 662 854<|content|>(iii) Vertex Health Technologies Inc. ... and\n<|id|>447<|page|>49<|box|>696 140 787 856<|content|>All such Consents shall be in form and substance r...n a manner adverse to the Company or the Purchaser",
+    "raw_response": "<|src_id|>291<|tgt_id|>292\n<|src_id|>338<|tgt_id|>339\n<|src_id|>375<|tgt_id|>376\n<|src_id|>394<|tgt_id|>395",
+    "parsed": [
+        {
+            "src_id": 291,
+            "tgt_id": 292
+        },
+        {
+            "src_id": 338,
+            "tgt_id": 339
+        },
+        {
+            "src_id": 375,
+            "tgt_id": 376
+        },
+        {
+            "src_id": 394,
+            "tgt_id": 395
+        }
+    ]
+}

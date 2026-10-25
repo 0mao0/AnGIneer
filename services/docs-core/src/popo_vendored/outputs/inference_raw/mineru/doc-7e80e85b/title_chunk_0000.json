@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 405 118 593<|content|>UNITED STATES\n<|id|>1<|page|>1<|box|>136 250 157 746<|content|>SECURITIES AND EXCHANGE COMMISSION\n<|id|>2<|page|>1<|box|>175 377 196 620<|content|>Washington, D.C. 20549\n<|id|>3<|page|>1<|box|>214 447 234 552<|content|>FORM 25\n<|id|>4<|page|>1<|box|>258 151 294 846<|content|>NOTIFICATION OF REMOVAL FROM LISTING AND/OR REGIST\n<|id|>18<|page|>2<|box|>90 140 107 442<|content|>Item 3 — Rule 12d2-2(b) Certification\n<|id|>28<|page|>3<|box|>223 140 239 527<|content|>Item 4 — Effective Date of Removal from Listing\n<|id|>31<|page|>3<|box|>571 140 589 483<|content|>Item 5 — Reason for Removal from Listing\n<|id|>39<|page|>4<|box|>383 140 402 617<|content|>Item 6 — Additional Information Regarding the Tran\n<|id|>50<|page|>6<|box|>89 439 107 557<|content|>SIGNATURE\n<|id|>57<|page|>7<|box|>89 142 106 289<|content|>EXHIBIT INDEX\n<|id|>61<|page|>7<|box|>588 153 619 843<|content|>INTERNAL MEMORANDUM — NOT PART OF FILED FORM 25 CA\n<|id|>62<|page|>7<|box|>632 142 648 601<|content|>Calderwood & Harkness LLP — Internal Review Notati\n<|id|>71<|page|>8<|box|>90 140 107 426<|content|>Coordination with Issuer's Counsel:\n<|id|>75<|page|>8<|box|>280 142 297 310<|content|>Filing Confirmation:\n<|id|>77<|page|>8<|box|>387 142 404 238<|content|>Next Steps:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>18<|level|>2\n<|id|>28<|level|>2\n<|id|>31<|level|>2\n<|id|>39<|level|>2\n<|id|>50<|level|>2\n<|id|>57<|level|>2\n<|id|>61<|level|>1\n<|id|>62<|level|>2\n<|id|>71<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        }
+    ]
+}

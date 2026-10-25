@@ -1,0 +1,144 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        16,
+        18,
+        19,
+        21,
+        22,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 163 125 834<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>8<|page|>1<|box|>388 385 407 611<|content|>I. Executive Summary\n<|id|>16<|page|>3<|box|>90 380 111 617<|content|>II. Factual Background\n<|id|>17<|page|>3<|box|>136 140 154 478<|content|>A. The Company and Its Capital Structure\n<|id|>22<|page|>3<|box|>609 142 628 354<|content|>B. Pre-Restructuring Debt\n<|id|>31<|page|>4<|box|>763 140 782 475<|content|>C. The Proposed Equitization Transaction\n<|id|>48<|page|>6<|box|>563 140 580 452<|content|>D. Financial Condition of the Company\n<|id|>54<|page|>7<|box|>364 207 383 790<|content|>III. Legal Analysis — Cancellation of Indebtedness\n<|id|>55<|page|>7<|box|>407 140 425 663<|content|>A. General Rule: Section 61(a)(12) and Realization\n<|id|>62<|page|>8<|box|>531 140 549 715<|content|>B. Determination of COD Income Amount in a Debt-fo\n<|id|>64<|page|>8<|box|>638 189 655 807<|content|>COD Income = Adjusted Issue Price of Debt Cancelle\n<|id|>71<|page|>9<|box|>727 140 744 665<|content|>C. Historical Stock-for-Debt Exception (Former Sec\n<|id|>76<|page|>10<|box|>421 140 438 552<|content|>D. Treatment of Accrued PIK Interest ($8.1 Million\n<|id|>83<|page|>11<|box|>215 236 236 759<|content|>IV. Exclusions from COD Income Under Section 108\n<|id|>84<|page|>11<|box|>261 140 277 444<|content|>A. Overview of Section 108 Exclusions\n<|id|>93<|page|>12<|box|>90 140 107 513<|content|>B. Insolvency Exclusion — Section 108(a)(1)(B)\n<|id|>95<|page|>12<|box|>239 140 256 367<|content|>Determination of Insolvency\n<|id|>112<|page|>14<|box|>167 140 185 439<|content|>C. Limitation of Insolvency Exclusion\n<|id|>119<|page|>14<|box|>767 140 784 529<|content|>D. Tax Attribute Reduction Under Section 108(b)\n<|id|>137<|page|>16<|box|>334 184 354 810<|content|>V. Application of Section 108(e)(8) — Stock Issued\n<|id|>138<|page|>16<|box|>378 142 396 341<|content|>A. Statutory Framework\n<|id|>143<|page|>16<|box|>779 140 797 516<|content|>B. Characterization of Series A Preferred Stock\n<|id|>165<|page|>18<|box|>724 140 743 437<|content|>C. Valuation of Equity Consideration\n<|id|>174<|page|>19<|box|>599 161 619 834<|content|>VI. Treatment of Non-Consenting Mezzanine Holders\n<|id|>185<|page|>21<|box|>381 285 401 710<|content|>VII. Timing and Reporting Considerations\n<|id|>203<|page|>22<|box|>419 217 439 779<|content|>VIII. Interaction with Other Restructuring Transac\n<|id|>204<|page|>22<|box|>464 140 481 684<|content|>A. Super-Priority Term Loan ($55.0 Million) and Am\n<|id|>221<|page|>24<|box|>250 140 266 522<|content|>B. Ridgeline Equity Contribution ($12.5 Million)\n<|id|>225<|page|>24<|box|>574 385 592 611<|content|>IX. Recommendations\n<|id|>234<|page|>25<|box|>746 361 766 635<|content|>X. Caveats and Limitations",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>31<|level|>2\n<|id|>48<|level|>2\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>-1\n<|id|>71<|level|>2\n<|id|>76<|level|>2\n<|id|>83<|level|>1\n<|id|>84<|level|>2\n<|id|>93<|level|>2\n<|id|>95<|level|>3\n<|id|>112<|level|>2\n<|id|>119<|level|>2\n<|id|>137<|level|>1\n<|id|>138<|level|>2\n<|id|>143<|level|>2\n<|id|>165<|level|>2\n<|id|>174<|level|>1\n<|id|>185<|level|>1\n<|id|>203<|level|>1\n<|id|>204<|level|>2\n<|id|>221<|level|>2\n<|id|>225<|level|>1\n<|id|>234<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 185,
+            "level": 1
+        },
+        {
+            "id": 203,
+            "level": 1
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 1
+        },
+        {
+            "id": 234,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,146 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>398 310 419 684<|content|>I. Introduction and Purpose of Letter\n<|id|>21<|page|>2<|box|>234 248 255 748<|content|>II. Summary of the Claim and Insurance Program\n<|id|>22<|page|>2<|box|>279 140 297 307<|content|>A. The Insured Loss\n<|id|>27<|page|>2<|box|>717 140 734 439<|content|>B. Properties and Loss Quantification\n<|id|>29<|page|>3<|box|>90 140 107 560<|content|>1. Verimark Grand Key Resort — Marathon, Florida\n<|id|>33<|page|>3<|box|>398 140 415 787<|content|>2. Verimark Harborview Hotel & Conference Center —\n<|id|>37<|page|>3<|box|>686 140 704 558<|content|>3. Verimark Sunset Shores — St. Pete Beach, Florid\n<|id|>43<|page|>4<|box|>440 140 457 380<|content|>C. Insurance Tower Structure\n<|id|>47<|page|>5<|box|>136 228 155 767<|content|>III. Insurer Coverage Positions and Their Weakness\n<|id|>48<|page|>5<|box|>181 140 198 565<|content|>A. Ironclad Indemnity Corporation — Primary Layer\n<|id|>52<|page|>5<|box|>454 142 470 457<|content|>1. Named Windstorm Sub-Limit ($15M)\n<|id|>61<|page|>6<|box|>400 140 417 397<|content|>2. Period of Restoration Dispute\n<|id|>70<|page|>7<|box|>356 140 373 477<|content|>3. Concurrent Causation / Flood Exclusion\n<|id|>72<|page|>7<|box|>515 140 532 779<|content|>VHG's Position and Strength of Argument. VHG's pos\n<|id|>80<|page|>8<|box|>455 140 472 313<|content|>4. Failure to Mitigate\n<|id|>93<|page|>9<|box|>273 140 292 679<|content|>B. Pinnacle Surplus Lines Inc. — First Excess Laye\n<|id|>99<|page|>9<|box|>811 140 829 730<|content|>C. Montclair Assurance Company — Second Excess Lay\n<|id|>105<|page|>10<|box|>329 140 347 617<|content|>D. Sovereign Re Ltd. — Third Excess Layer ($10M xs\n<|id|>111<|page|>10<|box|>724 240 744 756<|content|>IV. Overall Assessment of VHG's Coverage Position\n<|id|>119<|page|>11<|box|>689 346 708 650<|content|>V. Pre-Suit Negotiation Status\n<|id|>124<|page|>12<|box|>388 349 409 648<|content|>VI. Recommended Next Steps\n<|id|>125<|page|>12<|box|>434 140 450 297<|content|>A. Filing Litigation\n<|id|>133<|page|>13<|box|>90 140 107 370<|content|>B. Bad-Faith Considerations\n<|id|>137<|page|>13<|box|>429 140 446 326<|content|>C. Expert Engagement\n<|id|>142<|page|>14<|box|>90 140 107 483<|content|>D. Document Preservation and Preparation\n<|id|>150<|page|>14<|box|>507 140 523 506<|content|>E. Coordination with Tidewater Risk Advisors\n<|id|>158<|page|>15<|box|>167 140 184 493<|content|>F. Estimated Litigation Budget and Timeline\n<|id|>164<|page|>15<|box|>654 310 674 684<|content|>VII. Request for Client Authorization\n<|id|>170<|page|>16<|box|>321 429 340 568<|content|>VIII. Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>21<|level|>1\n<|id|>22<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>37<|level|>3\n<|id|>43<|level|>2\n<|id|>47<|level|>1\n<|id|>48<|level|>2\n<|id|>52<|level|>3\n<|id|>61<|level|>3\n<|id|>70<|level|>3\n<|id|>72<|level|>4\n<|id|>80<|level|>3\n<|id|>93<|level|>2\n<|id|>99<|level|>2\n<|id|>105<|level|>2\n<|id|>111<|level|>1\n<|id|>119<|level|>1\n<|id|>124<|level|>1\n<|id|>125<|level|>2\n<|id|>133<|level|>2\n<|id|>137<|level|>2\n<|id|>142<|level|>2\n<|id|>150<|level|>2\n<|id|>158<|level|>2\n<|id|>164<|level|>1\n<|id|>170<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 1
+        }
+    ]
+}

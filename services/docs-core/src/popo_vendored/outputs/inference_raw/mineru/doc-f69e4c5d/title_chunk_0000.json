@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 104 702<|content|>DRAFT — PRIVILEGED AND CONFIDENTIAL — ATTORNEY WOR\n<|id|>3<|page|>1<|box|>233 148 266 848<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION W\n<|id|>11<|page|>1<|box|>517 241 534 754<|content|>8700 Las Vegas Boulevard South, Suite 2200 Las Veg\n<|id|>15<|page|>1<|box|>621 143 638 264<|content|>Not Applicable\n<|id|>28<|page|>2<|box|>319 140 335 586<|content|>Item 1.01 — Entry into a Material Definitive Agree\n<|id|>42<|page|>5<|box|>90 140 127 792<|content|>Item 5.02 — Departure of Directors or Certain Offi\n<|id|>43<|page|>5<|box|>135 140 152 382<|content|>Appointment of Franklin Chu\n<|id|>49<|page|>5<|box|>708 140 724 354<|content|>Item 8.01 — Other Events.\n<|id|>50<|page|>5<|box|>734 140 751 812<|content|>Withdrawal of Activist Director Nominations and Re\n<|id|>52<|page|>6<|box|>152 142 170 245<|content|>Background\n<|id|>59<|page|>6<|box|>843 140 859 514<|content|>Item 9.01 — Financial Statements and Exhibits.\n<|id|>62<|page|>7<|box|>303 142 320 267<|content|>SIGNATURES",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>3<|level|>-1\n<|id|>11<|level|>-1\n<|id|>15<|level|>-1\n<|id|>28<|level|>1\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>49<|level|>1\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>59<|level|>1\n<|id|>62<|level|>1",
+    "parsed": [
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        }
+    ]
+}

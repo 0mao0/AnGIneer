@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 165 126 834<|content|>BELMONT RIDGE BANK NATIONAL ASSOCIATION A wholly o\n<|id|>8<|type|>title<|page|>1<|box|>352 140 369 236<|content|>Dear Philip:\n<|id|>10<|type|>title<|page|>1<|box|>621 140 637 388<|content|>Retainer Deposit Confirmation\n<|id|>13<|type|>title<|page|>2<|box|>186 140 204 295<|content|>Engagement Scope\n<|id|>18<|type|>title<|page|>2<|box|>825 140 842 524<|content|>Confirmation of Engagement Team Billing Rates\n<|id|>20<|type|>table<|page|>3<|box|>89 143 183 852<|content|>None\n<|id|>22<|type|>title<|page|>3<|box|>368 140 385 473<|content|>Authorized Contacts and Billing Inquiries\n<|id|>29<|type|>title<|page|>3<|box|>729 140 747 349<|content|>Request for Confirmation\n<|id|>31<|type|>title<|page|>4<|box|>89 140 108 209<|content|>Closing\n<|id|>40<|type|>title<|page|>4<|box|>579 140 592 171<|content|>cc:",
+    "raw_response": "<|src_id|>20<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        }
+    ]
+}

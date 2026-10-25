@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        3,
+        20
+    ],
+    "pages": [
+        3,
+        6,
+        10,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>table<|page|>3<|box|>86 85 370 877<|content|>None\n<|id|>2<|type|>table<|page|>6<|box|>86 85 317 878<|content|>None\n<|id|>3<|type|>table<|page|>10<|box|>86 85 351 878<|content|>None\n<|id|>6<|type|>table<|page|>19<|box|>86 85 904 878<|content|>None\n<|id|>7<|type|>table<|page|>20<|box|>84 85 370 878<|content|>None\n<|id|>8<|type|>title<|page|>20<|box|>388 87 403 247<|content|>SUMMARY METRICS\n<|id|>9<|type|>table<|page|>20<|box|>406 87 530 272<|content|>None\n<|id|>10<|type|>table<|page|>20<|box|>564 87 618 270<|content|>None\n<|id|>11<|type|>table<|page|>20<|box|>637 87 744 270<|content|>None",
+    "raw_response": "<|src_id|>9<|tgt_id|>8\n<|src_id|>10<|tgt_id|>8\n<|src_id|>11<|tgt_id|>8",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 8
+        }
+    ]
+}

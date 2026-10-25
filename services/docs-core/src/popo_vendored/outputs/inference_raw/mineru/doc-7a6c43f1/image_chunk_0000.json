@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 277 107 720<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>1<|type|>title<|page|>1<|box|>114 179 160 818<|content|>1301 Avenue of the Americas, 40th Floor New York,\n<|id|>2<|type|>table<|page|>1<|box|>191 143 323 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>357 142 375 292<|content|>SUBMITTED TO:\n<|id|>5<|type|>table<|page|>1<|box|>465 143 599 851<|content|>None\n<|id|>6<|type|>title<|page|>1<|box|>648 143 665 256<|content|>Billing Period\n<|id|>8<|type|>title<|page|>1<|box|>715 142 732 411<|content|>Summary of Professional Services\n<|id|>21<|type|>table<|page|>3<|box|>470 143 599 852<|content|>None\n<|id|>22<|type|>table<|page|>3<|box|>671 143 763 852<|content|>None\n<|id|>23<|type|>table<|page|>3<|box|>835 143 893 852<|content|>None\n<|id|>24<|type|>table<|page|>4<|box|>162 143 257 852<|content|>None\n<|id|>25<|type|>title<|page|>4<|box|>306 143 323 313<|content|>Payment Instructions\n<|id|>27<|type|>table<|page|>4<|box|>400 143 561 852<|content|>None\n<|id|>28<|type|>title<|page|>4<|box|>595 142 613 276<|content|>Check Payment:\n<|id|>33<|type|>title<|page|>4<|box|>768 143 785 267<|content|>Billing Contact",
+    "raw_response": "<|src_id|>2<|tgt_id|>0\n<|src_id|>5<|tgt_id|>3\n<|src_id|>21<|tgt_id|>8\n<|src_id|>22<|tgt_id|>8\n<|src_id|>23<|tgt_id|>8\n<|src_id|>24<|tgt_id|>8\n<|src_id|>27<|tgt_id|>25",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 25
+        }
+    ]
+}

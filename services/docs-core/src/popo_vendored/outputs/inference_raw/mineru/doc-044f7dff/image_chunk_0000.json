@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 104 633<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>9<|type|>title<|page|>1<|box|>430 181 450 815<|content|>1. INTRODUCTION AND ENGAGEMENT CONFIRMATION\n<|id|>14<|type|>title<|page|>2<|box|>135 269 155 727<|content|>2. DESCRIPTION OF THE TRANSACTION\n<|id|>30<|type|>title<|page|>3<|box|>729 316 750 679<|content|>3. SCOPE OF REPRESENTATION\n<|id|>53<|type|>table<|page|>5<|box|>529 143 683 852<|content|>None\n<|id|>96<|type|>title<|page|>9<|box|>90 361 109 635<|content|>4. ENGAGEMENT TEAM\n<|id|>104<|type|>title<|page|>10<|box|>90 359 109 637<|content|>5. FEE ARRANGEMENTS\n<|id|>105<|type|>title<|page|>10<|box|>136 140 154 274<|content|>5.1 Billing Rates\n<|id|>108<|type|>title<|page|>10<|box|>357 140 375 318<|content|>5.2 Billing Procedures\n<|id|>115<|type|>title<|page|>10<|box|>755 140 772 400<|content|>5.3 Disbursements and Expenses\n<|id|>125<|type|>title<|page|>11<|box|>523 140 542 305<|content|>5.4 Budget Estimate\n<|id|>128<|type|>title<|page|>12<|box|>90 241 109 754<|content|>6. CLIENT IDENTIFICATION AND CONFLICTS\n<|id|>160<|type|>title<|page|>13<|box|>516 372 536 624<|content|>7. CONFIDENTIALITY\n<|id|>164<|type|>title<|page|>14<|box|>90 344 109 653<|content|>8. DOCUMENT RETENTION\n<|id|>168<|type|>title<|page|>14<|box|>445 398 464 598<|content|>9. TERMINATION\n<|id|>172<|type|>title<|page|>14<|box|>726 217 746 781<|content|>10. GOVERNING LAW AND DISPUTE RESOLUTION\n<|id|>176<|type|>title<|page|>15<|box|>215 297 234 697<|content|>11. ACCEPTANCE AND EXECUTION\n<|id|>180<|type|>title<|page|>15<|box|>513 142 530 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>189<|type|>title<|page|>15<|box|>669 313 685 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>191<|type|>title<|page|>15<|box|>758 142 773 496<|content|>NEXFORD INDUSTRIAL HOLDINGS INC.\n<|id|>196<|type|>title<|page|>15<|box|>844 449 859 547<|content|>EXHIBIT A\n<|id|>197<|type|>title<|page|>15<|box|>869 281 886 715<|content|>RATE SCHEDULE FOR ASSIGNED TIMEKEEPERS\n<|id|>198<|type|>title<|page|>16<|box|>89 406 106 588<|content|>Matter No. 1005-00001\n<|id|>199<|type|>title<|page|>16<|box|>114 184 152 810<|content|>Nexford Industrial Holdings Inc. — $1,400,000,000\n<|id|>202<|type|>table<|page|>16<|box|>246 143 407 852<|content|>None\n<|id|>204<|type|>title<|page|>16<|box|>510 449 526 547<|content|>EXHIBIT B\n<|id|>205<|type|>title<|page|>16<|box|>535 374 551 624<|content|>FIRM WIRE INSTRUCTIONS\n<|id|>206<|type|>title<|page|>16<|box|>561 310 579 687<|content|>For Retainer / Advance Payments (if applicable)",
+    "raw_response": "<|src_id|>53<|tgt_id|>30\n<|src_id|>202<|tgt_id|>197",
+    "parsed": [
+        {
+            "src_id": 53,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 197
+        }
+    ]
+}

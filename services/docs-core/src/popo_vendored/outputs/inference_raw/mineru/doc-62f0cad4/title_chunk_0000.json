@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>99 302 118 694<|content|>UNITED STATES DISTRICT COURT\n<|id|>1<|page|>1<|box|>143 359 160 637<|content|>EASTERN DISTRICT OF TEXAS\n<|id|>2<|page|>1<|box|>174 143 191 344<|content|>MARSHALL DIVISION.\n<|id|>3<|page|>1<|box|>196 143 213 447<|content|>AO 440 (Rev. 06/12) Summons in a Civil Action\n<|id|>5<|page|>1<|box|>547 361 564 637<|content|>SUMMONS IN A CIVIL ACTION\n<|id|>6<|page|>1<|box|>573 143 590 393<|content|>TO: Luminore Technologies, Inc.\n<|id|>14<|page|>2<|box|>204 142 220 300<|content|>CLERK OF COURT\n<|id|>19<|page|>2<|box|>334 143 352 741<|content|>PLAINTIFF'S ATTORNEY INFORMATION (FOR SERVICE PURP\n<|id|>20<|page|>2<|box|>358 143 375 259<|content|>Lead Counsel:\n<|id|>23<|page|>2<|box|>465 143 481 264<|content|>Local Counsel:\n<|id|>29<|page|>2<|box|>650 302 670 694<|content|>UNITED STATES DISTRICT COURT\n<|id|>30<|page|>2<|box|>696 361 712 637<|content|>EASTERN DISTRICT OF TEXAS\n<|id|>31<|page|>2<|box|>726 142 743 344<|content|>MARSHALL DIVISION.\n<|id|>32<|page|>2<|box|>750 143 763 568<|content|>AO 440 (Rev. 06/12) Summons in a Civil Action — Pr\n<|id|>35<|page|>3<|box|>167 406 184 591<|content|>PROOF OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>5<|level|>1\n<|id|>6<|level|>2\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>23<|level|>3\n<|id|>29<|level|>1\n<|id|>30<|level|>1\n<|id|>31<|level|>1\n<|id|>32<|level|>1\n<|id|>35<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        }
+    ]
+}

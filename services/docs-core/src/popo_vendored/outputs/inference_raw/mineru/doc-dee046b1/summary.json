@@ -1,0 +1,114 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-d6hj9t3a\\input\\pdfs\\doc-dee046b1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-d6hj9t3a\\enriched\\doc-dee046b1.json",
+    "contd_output": "",
+    "title_output": "<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>21<|level|>1\n<|id|>23<|level|>2\n<|id|>37<|level|>2\n<|id|>49<|level|>2\n<|id|>56<|level|>2\n<|id|>64<|level|>2\n<|id|>71<|level|>2\n<|id|>79<|level|>1\n<|id|>89<|level|>1\n<|id|>97<|level|>1\n<|id|>103<|level|>1\n<|id|>109<|level|>1\n<|id|>119<|level|>1\n<|id|>140<|level|>1\n<|id|>141<|level|>2",
+    "image_output": "<|src_id|>143<|tgt_id|>141\n<|src_id|>144<|tgt_id|>141",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 143,
+            "tgt_id": 141
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 141
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 143,
+            "table2_idx": 144,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "Draft Prospectus Taxation Section (US Federal Income Tax Consequences)",
+                    "Draft of the \"US Federal Income Tax Consequences\" section of the prospectus for",
+                    "Leonard Cross",
+                    "March 9, 2026 (incorporated in first draft F-1)",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "incorporation in the first draft F-1",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

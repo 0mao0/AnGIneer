@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 涂层外观', '标准养护后', '均匀,无流挂、无斑点、不起泡、不龟裂、不剥落等', 'rowspan=3, 底层+中间层+面层的复合涂层']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['抗氯离子渗透性', '活动涂层片抗氯离子渗透试验30d后', '氯离子穿过涂层片的渗透量在5.0 \\\\times 10^{-3}mg/cm2d以下', '底层+中间层+面层的复合涂层']]\n",
+    "raw_response": "[0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 250,
+    "table2_idx": 251
+}

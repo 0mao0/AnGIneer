@@ -1,0 +1,135 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-f720rb8r\\input\\pdfs\\doc-bb6bc7d0.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-f720rb8r\\enriched\\doc-bb6bc7d0.json",
+    "contd_output": "<|src_id|>132<|tgt_id|>133",
+    "title_output": "<|id|>7<|level|>2\n<|id|>14<|level|>1\n<|id|>19<|level|>1\n<|id|>27<|level|>1\n<|id|>35<|level|>1\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>50<|level|>2\n<|id|>54<|level|>2\n<|id|>64<|level|>2\n<|id|>79<|level|>2\n<|id|>92<|level|>1\n<|id|>103<|level|>1\n<|id|>124<|level|>1\n<|id|>137<|level|>1\n<|id|>141<|level|>2",
+    "image_output": "<|src_id|>93<|tgt_id|>92\n<|src_id|>94<|tgt_id|>92\n<|src_id|>142<|tgt_id|>141\n<|src_id|>143<|tgt_id|>141",
+    "contd_label": [
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 93,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 141
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 141
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 93,
+            "table2_idx": 94,
+            "upper_row_ss": [
+                [
+                    "Execution of remaining 7 vendor DPAs (with SCCs and Transfer Impact Assessments where required for extra-",
+                    "10 April 2024"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "EEA transfers)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 142,
+            "table2_idx": 143,
+            "upper_row_ss": [
+                [
+                    "8",
+                    "Server-side tracking pixel",
+                    "23 February 2024",
+                    "Completed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "assessment completed — 19 pixels identified, 12 non-compliant",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

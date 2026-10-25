@@ -1,0 +1,33 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>459<|page|>46<|box|>89 424 111 573<|content|>APPENDIX C\n<|id|>460<|page|>46<|box|>136 140 154 704<|content|>Cross-References to Other Calderwood & Harkness LL\n<|id|>464<|page|>47<|box|>301 142 318 470<|content|>Additional Related Materials (Non-C&H)\n<|id|>476<|page|>48<|box|>172 339 189 656<|content|>END OF ANNOTATED TERM SHEET",
+    "raw_response": "<|id|>459<|level|>1\n<|id|>460<|level|>2\n<|id|>464<|level|>2\n<|id|>476<|level|>2",
+    "parsed": [
+        {
+            "id": 459,
+            "level": 1
+        },
+        {
+            "id": 460,
+            "level": 2
+        },
+        {
+            "id": 464,
+            "level": 2
+        },
+        {
+            "id": 476,
+            "level": 2
+        }
+    ]
+}

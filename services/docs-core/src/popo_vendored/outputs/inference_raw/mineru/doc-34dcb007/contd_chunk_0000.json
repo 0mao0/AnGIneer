@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        16
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        8,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>12<|page|>2<|box|>856 140 892 857<|content|>Meridian Dynamics Inc. ... Meridian's registered a...rvice of process is located at 1209 Orange Street,\n<|id|>13<|page|>3<|box|>89 140 126 854<|content|>Wilmington, Delaware 19801. ... Meridian's princip...a 92606, within the Central District of California\n<|id|>30<|page|>4<|box|>799 140 892 856<|content|>Venue is independently proper under 28 U. ... A su...e commitments — originated from Meridian's Irvine,\n<|id|>31<|page|>5<|box|>90 140 127 854<|content|>California operations. ... § 1391(c)(2)\n<|id|>65<|page|>8<|box|>595 174 650 856<|content|>(b) Failure to meet the Year 7 (calendar year 2023...urchase commitment set forth in Section 3. ... and\n<|id|>67<|page|>8<|box|>703 140 757 856<|content|>The Tribunal rejected Respondents' affirmative def...nt that Halcyon had failed to mitigate its damages\n<|id|>131<|page|>15<|box|>116 671 132 854<|content|>Dated: ... October 14, 2025\n<|id|>132<|page|>15<|box|>142 212 159 390<|content|>Respectfully submitted,\n<|id|>135<|page|>15<|box|>210 140 227 630<|content|>Linda Osei (California State Bar No. ... 247891) Responsible Partner\n<|id|>136<|page|>15<|box|>228 140 244 640<|content|>Patrick Gallagher (California State Bar No. ... 312456) Lead Associate\n<|id|>137<|page|>15<|box|>244 140 262 661<|content|>Simone Laroche (California State Bar No. ... 335782) Working Associate\n<|id|>138<|page|>15<|box|>262 140 295 852<|content|>CALDERWOOD & HARKNESS LLP 777 South Figueroa Stree...es, California 90017 Telephone: ... (213) 555-8401\n<|id|>139<|page|>15<|box|>296 142 313 437<|content|>Email: ... com\n<|id|>140<|page|>15<|box|>314 142 330 477<|content|>Email: ... com\n<|id|>141<|page|>15<|box|>330 142 347 460<|content|>Email: ... com\n<|id|>142<|page|>15<|box|>347 142 364 602<|content|>Attorneys for Petitioner HALCYON SEMICONDUCTOR AG\n<|id|>147<|page|>15<|box|>532 176 566 852<|content|>3. ... and\n<|id|>149<|page|>15<|box|>589 140 607 514<|content|>Service was effectuated by the following methods: ... Service was effectuated by the following methods\n<|id|>152<|page|>15<|box|>739 210 776 854<|content|>Raymond Whitfield, Esq. ... WHITFIELD, CARRUTHERS ...he Stars, Suite 2800 Los Angeles, California 90067\n<|id|>153<|page|>15<|box|>784 212 801 452<|content|>Email: ... com\n<|id|>154<|page|>15<|box|>801 212 818 419<|content|>Email: ... com\n<|id|>155<|page|>15<|box|>819 212 835 733<|content|>Counsel for Respondents Meridian Dynamics Inc. ... and Derek Calloway\n<|id|>156<|page|>15<|box|>845 140 880 852<|content|>I declare under penalty of perjury under the laws ... of America that the foregoing is true and correct\n<|id|>157<|page|>15<|box|>888 671 905 854<|content|>Dated: ... October 14, 2025\n<|id|>158<|page|>16<|box|>109 140 126 553<|content|>Simone Laroche CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>30<|tgt_id|>31",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        }
+    ]
+}

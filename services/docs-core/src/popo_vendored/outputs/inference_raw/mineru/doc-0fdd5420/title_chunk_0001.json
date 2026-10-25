@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        48,
+        64
+    ],
+    "pages": [
+        48,
+        49,
+        52,
+        54,
+        55,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>568<|page|>48<|box|>208 412 225 572<|content|>5.4 客运中心\n<|id|>575<|page|>49<|box|>190 404 219 607<|content|>6 工艺\n<|id|>576<|page|>49<|box|>249 425 269 589<|content|>6.3 设施配置\n<|id|>577<|page|>49<|box|>283 121 301 412<|content|>6.3.2 登船桥有多种分类方式。\n<|id|>613<|page|>52<|box|>251 422 269 562<|content|>6.4 补给\n<|id|>615<|page|>52<|box|>360 402 378 582<|content|>6.5 游客通过能力\n<|id|>626<|page|>54<|box|>172 286 199 658<|content|>7 码头结构与附属设施\n<|id|>633<|page|>55<|box|>190 404 218 638<|content|>8 配套设施\n<|id|>634<|page|>55<|box|>251 440 269 603<|content|>8.1 集疏运\n<|id|>640<|page|>55<|box|>822 447 841 599<|content|>8.2 供电、照明\n<|id|>652<|page|>57<|box|>131 414 150 625<|content|>8.3 通信、控制与信息\n<|id|>657<|page|>57<|box|>400 415 418 625<|content|>8.4 给水、排水与消防\n<|id|>669<|page|>58<|box|>633 391 652 550<|content|>8.5 环保设施\n<|id|>675<|page|>59<|box|>144 422 163 585<|content|>8.6 安全设施\n<|id|>677<|page|>60<|box|>173 284 202 705<|content|>附录 A 邮轮设计船型尺度\n<|id|>679<|page|>60<|box|>268 151 285 302<|content|>1. 邮轮吨级划分\n<|id|>680<|page|>60<|box|>290 151 308 424<|content|>1) 主要邮轮公司船型系列划分\n<|id|>682<|page|>60<|box|>358 154 376 294<|content|>(1)嘉年华邮轮\n<|id|>684<|page|>61<|box|>105 156 123 336<|content|>(2)皇家加勒比邮轮\n<|id|>686<|page|>61<|box|>656 159 675 277<|content|>(3)公主邮轮\n<|id|>690<|page|>62<|box|>279 139 297 372<|content|>2) 规范邮轮吨级划分方案\n<|id|>695<|page|>62<|box|>700 141 719 430<|content|>2. 邮轮船型样本统计成果一览表\n<|id|>696<|page|>62<|box|>724 143 741 212<|content|>1) 船长\n<|id|>700<|page|>63<|box|>293 144 311 214<|content|>2)型宽\n<|id|>704<|page|>64<|box|>96 151 114 244<|content|>4) 客位数\n<|id|>706<|page|>64<|box|>444 153 462 244<|content|>5) 船员数",
+    "raw_response": "<|id|>568<|level|>2\n<|id|>575<|level|>1\n<|id|>576<|level|>2\n<|id|>577<|level|>3\n<|id|>613<|level|>2\n<|id|>615<|level|>2\n<|id|>626<|level|>1\n<|id|>633<|level|>1\n<|id|>634<|level|>2\n<|id|>640<|level|>2\n<|id|>652<|level|>2\n<|id|>657<|level|>2\n<|id|>669<|level|>2\n<|id|>675<|level|>2\n<|id|>677<|level|>1\n<|id|>679<|level|>2\n<|id|>680<|level|>3\n<|id|>682<|level|>4\n<|id|>684<|level|>4\n<|id|>686<|level|>4\n<|id|>690<|level|>3\n<|id|>695<|level|>2\n<|id|>696<|level|>3\n<|id|>700<|level|>3\n<|id|>704<|level|>3\n<|id|>706<|level|>3",
+    "parsed": [
+        {
+            "id": 568,
+            "level": 2
+        },
+        {
+            "id": 575,
+            "level": 1
+        },
+        {
+            "id": 576,
+            "level": 2
+        },
+        {
+            "id": 577,
+            "level": 3
+        },
+        {
+            "id": 613,
+            "level": 2
+        },
+        {
+            "id": 615,
+            "level": 2
+        },
+        {
+            "id": 626,
+            "level": 1
+        },
+        {
+            "id": 633,
+            "level": 1
+        },
+        {
+            "id": 634,
+            "level": 2
+        },
+        {
+            "id": 640,
+            "level": 2
+        },
+        {
+            "id": 652,
+            "level": 2
+        },
+        {
+            "id": 657,
+            "level": 2
+        },
+        {
+            "id": 669,
+            "level": 2
+        },
+        {
+            "id": 675,
+            "level": 2
+        },
+        {
+            "id": 677,
+            "level": 1
+        },
+        {
+            "id": 679,
+            "level": 2
+        },
+        {
+            "id": 680,
+            "level": 3
+        },
+        {
+            "id": 682,
+            "level": 4
+        },
+        {
+            "id": 684,
+            "level": 4
+        },
+        {
+            "id": 686,
+            "level": 4
+        },
+        {
+            "id": 690,
+            "level": 3
+        },
+        {
+            "id": 695,
+            "level": 2
+        },
+        {
+            "id": 696,
+            "level": 3
+        },
+        {
+            "id": 700,
+            "level": 3
+        },
+        {
+            "id": 704,
+            "level": 3
+        },
+        {
+            "id": 706,
+            "level": 3
+        }
+    ]
+}

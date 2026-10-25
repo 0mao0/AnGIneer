@@ -1,0 +1,52 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>42 156 71 838<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>2<|type|>title<|page|>1<|box|>172 424 189 573<|content|>MEMORANDUM\n<|id|>11<|type|>title<|page|>1<|box|>515 385 534 611<|content|>I. Executive Summary\n<|id|>18<|type|>title<|page|>2<|box|>561 419 580 576<|content|>II. Background\n<|id|>19<|type|>title<|page|>2<|box|>606 140 625 282<|content|>A. The Litigation\n<|id|>26<|type|>table<|page|>3<|box|>502 143 657 852<|content|>None\n<|id|>28<|type|>title<|page|>3<|box|>768 140 785 413<|content|>B. Pre-Litigation Patent Valuation\n<|id|>33<|type|>title<|page|>4<|box|>494 140 511 450<|content|>C. Vantage Point's Investment Position\n<|id|>37<|type|>title<|page|>5<|box|>136 210 155 785<|content|>III. Summary of the Markman Order (February 17, 20\n<|id|>40<|type|>table<|page|>5<|box|>468 143 578 852<|content|>None\n<|id|>42<|type|>title<|page|>5<|box|>835 140 853 696<|content|>A. '567 Patent — \"Adiabatically Coupled\" (U.S. Pat\n<|id|>52<|type|>title<|page|>7<|box|>89 140 126 820<|content|>B. '234 Patent — \"Continuously Varying Germanium C\n<|id|>61<|type|>title<|page|>8<|box|>89 140 107 700<|content|>C. '678 Patent — \"Monolithically Formed\" (U.S. Pat\n<|id|>71<|type|>title<|page|>9<|box|>89 140 107 633<|content|>D. '890 Patent — \"Co-Integrated\" (U.S. Patent No.\n<|id|>81<|type|>title<|page|>10<|box|>215 343 236 653<|content|>IV. Impact on Litigation Value\n<|id|>82<|type|>title<|page|>10<|box|>261 140 279 437<|content|>A. Infringement Viability Assessment\n<|id|>89<|type|>title<|page|>11<|box|>148 140 167 341<|content|>B. Damages Implications\n<|id|>94<|type|>title<|page|>11<|box|>789 140 805 450<|content|>C. Revised Expected Value Calculation\n<|id|>96<|type|>table<|page|>11<|box|>875 143 896 852<|content|>None\n<|id|>97<|type|>table<|page|>12<|box|>88 143 198 852<|content|>None\n<|id|>101<|type|>title<|page|>12<|box|>549 297 569 697<|content|>V. Impact on Patent Portfolio Valuation\n<|id|>102<|type|>title<|page|>12<|box|>594 140 611 377<|content|>A. The Four Asserted Patents\n<|id|>107<|type|>title<|page|>13<|box|>377 140 393 408<|content|>B. Broader Portfolio Implications\n<|id|>112<|type|>title<|page|>14<|box|>167 140 185 367<|content|>C. IP Monetization Strategy\n<|id|>117<|type|>title<|page|>14<|box|>719 187 739 808<|content|>VI. Impact on OWS Enterprise Value and Exit Consid\n<|id|>125<|type|>title<|page|>16<|box|>90 313 111 683<|content|>VII. Recommended Course of Action\n<|id|>126<|type|>title<|page|>16<|box|>136 140 154 254<|content|>A. Settlement\n<|id|>134<|type|>title<|page|>16<|box|>743 142 760 341<|content|>B. Portfolio Remediation\n<|id|>144<|type|>title<|page|>17<|box|>642 140 659 356<|content|>C. Lender Communication\n<|id|>150<|type|>title<|page|>18<|box|>167 140 185 408<|content|>D. Lessons for Future IP Strategy\n<|id|>154<|type|>title<|page|>18<|box|>638 411 659 584<|content|>VIII. Conclusion\n<|id|>165<|type|>title<|page|>19<|box|>561 437 580 560<|content|>Appendices\n<|id|>171<|type|>table<|page|>20<|box|>238 143 454 852<|content|>None",
+    "raw_response": "<|src_id|>26<|tgt_id|>19\n<|src_id|>40<|tgt_id|>37\n<|src_id|>96<|tgt_id|>94\n<|src_id|>97<|tgt_id|>94\n<|src_id|>171<|tgt_id|>165",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 165
+        }
+    ]
+}

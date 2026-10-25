@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        6,
+        61
+    ],
+    "pages": [
+        6,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        19,
+        21,
+        24,
+        50,
+        60,
+        61
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>19<|page|>6<|box|>90 480 104 575<|content|>CHAPTER 1\n<|id|>20<|page|>6<|box|>119 465 133 591<|content|>INTRODUCTION\n<|id|>58<|page|>10<|box|>90 480 104 576<|content|>CHAPTER 2\n<|id|>59<|page|>10<|box|>121 416 133 640<|content|>GENERAL CONSIDERATIONS\n<|id|>79<|page|>12<|box|>772 140 787 390<|content|>2-4. Nature of Loadings.\n<|id|>83<|page|>13<|box|>575 83 590 341<|content|>2-5. Foundation Material.\n<|id|>87<|page|>14<|box|>212 140 227 705<|content|>2-6. Identification and Evaluation of Pile Alterna\n<|id|>96<|page|>15<|box|>590 130 604 421<|content|>c. Evaluation of Pile Types.\n<|id|>104<|page|>16<|box|>681 140 696 666<|content|>2-7. Field Responsibilities for the Design Enginee\n<|id|>121<|page|>19<|box|>90 480 104 575<|content|>CHAPTER 3\n<|id|>122<|page|>19<|box|>119 392 133 663<|content|>GEOTECHNICAL CONSIDERATIONS\n<|id|>129<|page|>21<|box|>90 142 104 352<|content|>3-6. Pile Load Test.\n<|id|>146<|page|>24<|box|>90 480 104 576<|content|>CHAPTER 4\n<|id|>147<|page|>24<|box|>119 431 133 625<|content|>ANALYSIS AND DESIGN\n<|id|>149<|page|>24<|box|>287 140 301 361<|content|>4-2. Design Criteria.\n<|id|>151<|page|>24<|box|>424 189 439 421<|content|>b. Loading Conditions.\n<|id|>440<|page|>50<|box|>90 140 104 200<|content|>where\n<|id|>451<|page|>50<|box|>666 140 681 401<|content|>4-5. Pile Group Analysis.\n<|id|>453<|page|>50<|box|>863 187 878 413<|content|>b. Stiffness Methods.\n<|id|>541<|page|>60<|box|>772 191 787 723<|content|>(a) Constant Modulus of Horizontal Subgrade Reacti\n<|id|>564<|page|>61<|box|>795 83 811 313<|content|>4-6. Design Procedure.",
+    "raw_response": "<|id|>19<|level|>1\n<|id|>20<|level|>1\n<|id|>58<|level|>1\n<|id|>59<|level|>1\n<|id|>79<|level|>3\n<|id|>83<|level|>3\n<|id|>87<|level|>3\n<|id|>96<|level|>4\n<|id|>104<|level|>3\n<|id|>121<|level|>1\n<|id|>122<|level|>1\n<|id|>129<|level|>3\n<|id|>146<|level|>1\n<|id|>147<|level|>1\n<|id|>149<|level|>3\n<|id|>151<|level|>4\n<|id|>440<|level|>-1\n<|id|>451<|level|>3\n<|id|>453<|level|>4\n<|id|>541<|level|>5\n<|id|>564<|level|>3",
+    "parsed": [
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 4
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 4
+        },
+        {
+            "id": 451,
+            "level": 3
+        },
+        {
+            "id": 453,
+            "level": 4
+        },
+        {
+            "id": 541,
+            "level": 5
+        },
+        {
+            "id": 564,
+            "level": 3
+        }
+    ]
+}

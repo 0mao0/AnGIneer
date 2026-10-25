@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 143 123 852<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>1<|type|>table<|page|>1<|box|>157 143 301 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>369 173 405 823<|content|>JOINT MOTION TO STAY ALL PROCEEDINGS PENDING COMPL\n<|id|>6<|type|>title<|page|>1<|box|>720 140 739 485<|content|>I. BACKGROUND OF THE LITIGATION\n<|id|>16<|type|>title<|page|>3<|box|>297 140 315 785<|content|>II. THE MSA REQUIRES MANDATORY MEDIATION BEFORE LI\n<|id|>24<|type|>title<|page|>4<|box|>315 140 351 784<|content|>III. THE PARTIES HAVE SELECTED A MEDIATOR AND SCHE\n<|id|>31<|type|>title<|page|>5<|box|>89 142 106 758<|content|>IV. A STAY IS APPROPRIATE PENDING COMPLETION OF ME\n<|id|>32<|type|>title<|page|>5<|box|>121 142 138 486<|content|>A. Strong Public Policy Favoring Mediation\n<|id|>36<|type|>title<|page|>5<|box|>508 142 525 447<|content|>B. Discovery Is Substantially Complete\n<|id|>41<|type|>title<|page|>6<|box|>90 140 107 522<|content|>C. Conservation of Party and Judicial Resources\n<|id|>45<|type|>title<|page|>6<|box|>458 142 474 393<|content|>D. No Prejudice to Either Party\n<|id|>49<|type|>title<|page|>6<|box|>781 140 797 462<|content|>V. PROPOSED TERMS OF THE STAY\n<|id|>56<|type|>title<|page|>7<|box|>483 140 500 361<|content|>VI. RELIEF REQUESTED\n<|id|>69<|type|>title<|page|>8<|box|>357 140 375 388<|content|>CERTIFICATE OF SERVICE\n<|id|>75<|type|>title<|page|>8<|box|>675 200 710 795<|content|>EXHIBIT A [PROPOSED] ORDER STAYING PROCEEDINGS PEN\n<|id|>76<|type|>title<|page|>8<|box|>753 143 787 852<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>77<|type|>table<|page|>8<|box|>820 143 902 852<|content|>None\n<|id|>79<|type|>table<|page|>9<|box|>88 143 152 852<|content|>None\n<|id|>80<|type|>title<|page|>9<|box|>220 151 237 844<|content|>ORDER STAYING ALL PROCEEDINGS PENDING COMPLETION O\n<|id|>87<|type|>title<|page|>9<|box|>744 142 761 271<|content|>SO ORDERED.\n<|id|>88<|type|>table<|page|>9<|box|>801 145 891 852<|content|>None\n<|id|>89<|type|>table<|page|>10<|box|>89 145 119 852<|content|>None",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>77<|tgt_id|>75\n<|src_id|>79<|tgt_id|>75\n<|src_id|>88<|tgt_id|>80\n<|src_id|>89<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 80
+        }
+    ]
+}

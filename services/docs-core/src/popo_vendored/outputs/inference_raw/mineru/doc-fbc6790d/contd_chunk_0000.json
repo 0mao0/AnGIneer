@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        5,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 125 854<|content|>CALDERWOOD & HARKNESS LLP 200 Park Avenue, 38th Floor New York, New York 10166\n<|id|>1<|page|>1<|box|>133 140 152 542<|content|>Telephone: ... (212) 554-8001\n<|id|>2<|page|>1<|box|>160 140 176 483<|content|>Patrick Gallagher Direct Dial: ... (212) 554-8147\n<|id|>3<|page|>1<|box|>186 140 204 478<|content|>Email: ... com\n<|id|>4<|page|>1<|box|>204 746 220 854<|content|>May 30, 2023\n<|id|>5<|page|>1<|box|>229 140 246 527<|content|>Via ECF and Email (jwhitford@caldwellroyce. ... com)\n<|id|>6<|page|>1<|box|>253 140 290 852<|content|>Jason Whitford, Esq. ... Caldwell Royce & Shapiro ...Liberty Plaza, 22nd Floor New York, New York 10006\n<|id|>7<|page|>1<|box|>299 174 335 852<|content|>Re: ... ) — Deficiencies in Plaintiff's discovery Responses and Document Production\n<|id|>8<|page|>1<|box|>344 140 359 290<|content|>Dear Mr. ... Whitford\n<|id|>48<|page|>5<|box|>109 181 127 810<|content|>• Equipment Availability: ... and\n<|id|>50<|page|>5<|box|>185 140 277 854<|content|>VTS's failure across every one of these performanc...O performance during this period strains credulity\n<|id|>97<|page|>10<|box|>750 140 781 854<|content|>Patrick Gallagher Lead Associate Calderwood & Hark...rk, New York 10166 Direct Dial: ... (212) 554-8147\n<|id|>98<|page|>10<|box|>782 142 800 477<|content|>Email: ... com\n<|id|>99<|page|>10<|box|>800 142 814 235<|content|>cc (via email): ... cc (via email)",
+    "raw_response": "<|src_id|>48<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 48,
+            "tgt_id": 50
+        }
+    ]
+}

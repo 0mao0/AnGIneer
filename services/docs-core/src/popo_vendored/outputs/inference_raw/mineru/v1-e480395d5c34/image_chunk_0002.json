@@ -1,0 +1,62 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        104,
+        116
+    ],
+    "pages": [
+        104,
+        105,
+        106,
+        107,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1110<|type|>title<|page|>104<|box|>46 217 61 779<|content|>REPORT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTING\n<|id|>1121<|type|>title<|page|>105<|box|>49 76 79 898<|content|>ITEM 9. CHANGES IN AND DISAGREEMENTS WITH ACCOUNTA\n<|id|>1123<|type|>title<|page|>105<|box|>114 76 128 410<|content|>ITEM 9A. CONTROLS AND PROCEDURES\n<|id|>1124<|type|>title<|page|>105<|box|>141 76 156 334<|content|>Disclosure Controls and Procedures\n<|id|>1127<|type|>title<|page|>105<|box|>402 76 419 614<|content|>Management's Annual Report on Internal Control ove\n<|id|>1130<|type|>title<|page|>105<|box|>573 76 589 460<|content|>Changes in Internal Control over Financial Reporti\n<|id|>1132<|type|>title<|page|>105<|box|>641 76 656 346<|content|>ITEM 9B. OTHER INFORMATION\n<|id|>1134<|type|>title<|page|>105<|box|>694 76 709 148<|content|>PART III\n<|id|>1135<|type|>title<|page|>105<|box|>720 76 736 717<|content|>ITEM 10. DIRECTORS, EXECUTIVE OFFICERS AND CORPORA\n<|id|>1137<|type|>title<|page|>105<|box|>834 76 849 395<|content|>ITEM 11. EXECUTIVE COMPENSATION\n<|id|>1139<|type|>title<|page|>105<|box|>887 76 917 919<|content|>ITEM 12. SECURITY OWNERSHIP OF CERTAIN BENEFICIAL\n<|id|>1141<|type|>title<|page|>106<|box|>49 76 65 893<|content|>ITEM 13. CERTAIN RELATIONSHIPS AND RELATED TRANSAC\n<|id|>1143<|type|>title<|page|>106<|box|>103 76 118 535<|content|>ITEM 14. PRINCIPAL ACCOUNTING FEES AND SERVICES\n<|id|>1145<|type|>title<|page|>106<|box|>156 76 170 148<|content|>PART IV\n<|id|>1146<|type|>title<|page|>106<|box|>183 76 198 545<|content|>ITEM 15. EXHIBITS, FINANCIAL STATEMENT SCHEDULES\n<|id|>1149<|type|>title<|page|>107<|box|>49 442 65 555<|content|>SIGNATURES\n<|id|>1151<|type|>title<|page|>107<|box|>127 526 143 797<|content|>ADOBE SYSTEMS INCORPORATED\n<|id|>1152<|type|>table<|page|>107<|box|>159 76 253 918<|content|>None\n<|id|>1154<|type|>title<|page|>107<|box|>334 403 349 593<|content|>POWER OF ATTORNEY\n<|id|>1157<|type|>table<|page|>107<|box|>489 75 930 915<|content|>None\n<|id|>1167<|type|>title<|page|>109<|box|>49 377 64 617<|content|>SUMMARY OF TRADEMARKS\n<|id|>1171<|type|>table<|page|>110<|box|>82 83 898 839<|content|>None\n<|id|>1172<|type|>table<|page|>111<|box|>60 83 922 839<|content|>None\n<|id|>1173<|type|>table<|page|>112<|box|>61 84 902 836<|content|>None\n<|id|>1174<|type|>table<|page|>113<|box|>61 81 902 839<|content|>None\n<|id|>1175<|type|>table<|page|>114<|box|>65 84 912 844<|content|>None\n<|id|>1176<|type|>table<|page|>115<|box|>61 83 654 844<|content|>None\n<|id|>1177<|type|>title<|page|>116<|box|>49 73 66 281<|content|>Stock Performance Graph ^{(*)}\n<|id|>1178<|type|>title<|page|>116<|box|>77 73 93 364<|content|>Five-Year Stockholder Return Comparison\n<|id|>1181<|type|>table<|page|>116<|box|>242 78 316 916<|content|>None",
+    "raw_response": "<|src_id|>1152<|tgt_id|>1151\n<|src_id|>1157<|tgt_id|>1154\n<|src_id|>1171<|tgt_id|>1167\n<|src_id|>1172<|tgt_id|>1167\n<|src_id|>1173<|tgt_id|>1167\n<|src_id|>1174<|tgt_id|>1167\n<|src_id|>1175<|tgt_id|>1167\n<|src_id|>1176<|tgt_id|>1167\n<|src_id|>1181<|tgt_id|>1178",
+    "parsed": [
+        {
+            "src_id": 1152,
+            "tgt_id": 1151
+        },
+        {
+            "src_id": 1157,
+            "tgt_id": 1154
+        },
+        {
+            "src_id": 1171,
+            "tgt_id": 1167
+        },
+        {
+            "src_id": 1172,
+            "tgt_id": 1167
+        },
+        {
+            "src_id": 1173,
+            "tgt_id": 1167
+        },
+        {
+            "src_id": 1174,
+            "tgt_id": 1167
+        },
+        {
+            "src_id": 1175,
+            "tgt_id": 1167
+        },
+        {
+            "src_id": 1176,
+            "tgt_id": 1167
+        },
+        {
+            "src_id": 1181,
+            "tgt_id": 1178
+        }
+    ]
+}

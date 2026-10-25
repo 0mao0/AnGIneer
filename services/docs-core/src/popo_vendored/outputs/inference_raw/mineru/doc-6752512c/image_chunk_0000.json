@@ -1,0 +1,58 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        25,
+        28,
+        29
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 161 141 834<|content|>IN THE CIRCUIT COURT OF THE SEVENTEENTH JUDICIAL C\n<|id|>6<|type|>title<|page|>1<|box|>296 140 351 854<|content|>COASTAL PALMS FRANCHISE HOLDINGS LLC, a Florida li\n<|id|>8<|type|>title<|page|>1<|box|>428 151 464 844<|content|>PLAINTIFF'S MEMORANDUM OF LAW IN SUPPORT OF MOTION\n<|id|>12<|type|>table<|page|>1<|box|>690 143 897 852<|content|>None\n<|id|>13<|type|>table<|page|>2<|box|>89 143 849 852<|content|>None\n<|id|>14<|type|>title<|page|>2<|box|>883 383 900 612<|content|>TABLE OF AUTHORITIES\n<|id|>17<|type|>table<|page|>3<|box|>114 143 905 854<|content|>None\n<|id|>18<|type|>table<|page|>4<|box|>89 143 444 852<|content|>None\n<|id|>19<|type|>title<|page|>4<|box|>479 143 496 395<|content|>Statutes, Rules, and Regulations\n<|id|>20<|type|>table<|page|>4<|box|>502 143 643 852<|content|>None\n<|id|>21<|type|>title<|page|>4<|box|>679 143 695 294<|content|>Secondary Sources\n<|id|>22<|type|>table<|page|>4<|box|>702 143 869 852<|content|>None\n<|id|>23<|type|>title<|page|>5<|box|>89 140 106 310<|content|>I. INTRODUCTION\n<|id|>33<|type|>title<|page|>6<|box|>648 140 665 604<|content|>II. STATEMENT OF UNDISPUTED MATERIAL FACTS\n<|id|>35<|type|>title<|page|>6<|box|>760 140 777 522<|content|>A. The Parties and Their Franchise Relationship\n<|id|>45<|type|>title<|page|>8<|box|>294 140 311 594<|content|>B. The FLA Revenue-Reporting and Payment Obligatio\n<|id|>62<|type|>title<|page|>9<|box|>518 140 537 357<|content|>(SUMF ¶ 25; Ex. E at § 8.2.)\n<|id|>79<|type|>title<|page|>10<|box|>449 140 465 838<|content|>C. Establishment of Suncoast Room Management Inc.\n<|id|>88<|type|>title<|page|>11<|box|>829 140 845 490<|content|>D. Randall Brecker's Deposition Admissions\n<|id|>97<|type|>title<|page|>12<|box|>407 140 441 854<|content|>Establishment and Control of Suncoast. Brecker adm\n<|id|>133<|type|>title<|page|>13<|box|>796 140 813 591<|content|>E. Whistleblower Report and Pre-Litigation Investi\n<|id|>138<|type|>title<|page|>14<|box|>502 140 518 383<|content|>F. Janet Kerrigan's Testimony\n<|id|>145<|type|>title<|page|>14<|box|>827 142 845 382<|content|>(Kerrigan Dep. at 38:14–39:17.)\n<|id|>148<|type|>title<|page|>15<|box|>275 140 292 439<|content|>G. Property-Level Witness Testimony\n<|id|>151<|type|>title<|page|>15<|box|>648 140 666 748<|content|>H. Expert Analysis (Dr. Sharon Kettlewell, Ridgeli\n<|id|>159<|type|>title<|page|>17<|box|>90 140 107 522<|content|>I. Notice of Material Breach and Failure to Cure\n<|id|>163<|type|>title<|page|>17<|box|>526 140 542 511<|content|>J. Discovery and Document Production Record\n<|id|>169<|type|>title<|page|>18<|box|>303 140 320 346<|content|>III. LEGAL STANDARD\n<|id|>170<|type|>title<|page|>18<|box|>334 140 352 482<|content|>A. Summary Judgment Under Florida Law\n<|id|>175<|type|>title<|page|>19<|box|>138 140 157 547<|content|>B. Breach of Contract Elements Under Florida Law\n<|id|>179<|type|>title<|page|>19<|box|>621 140 638 285<|content|>IV. ARGUMENT\n<|id|>214<|type|>title<|page|>25<|box|>89 140 127 854<|content|>B. Count II — Breach of Contract (Marketing Fund):\n<|id|>221<|type|>title<|page|>25<|box|>789 140 806 816<|content|>C. Coastal Palms' Affirmative Defenses Do Not Crea\n<|id|>236<|type|>title<|page|>28<|box|>202 140 237 854<|content|>D. Partial Summary Judgment on Liability Is Approp\n<|id|>242<|type|>title<|page|>29<|box|>89 140 106 294<|content|>V. CONCLUSION\n<|id|>256<|type|>title<|page|>29<|box|>603 140 621 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>12<|tgt_id|>8\n<|src_id|>13<|tgt_id|>8\n<|src_id|>17<|tgt_id|>14\n<|src_id|>18<|tgt_id|>14\n<|src_id|>20<|tgt_id|>19\n<|src_id|>22<|tgt_id|>21",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 21
+        }
+    ]
+}

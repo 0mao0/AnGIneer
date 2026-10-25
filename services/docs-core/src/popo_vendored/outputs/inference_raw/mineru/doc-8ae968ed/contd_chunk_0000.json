@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>164 186 200 857<|content|>425 Lexington Avenue, New York, NY 10017 1900 K St...cadero Center, Suite 2600, San Francisco, CA 94111\n<|id|>3<|page|>1<|box|>208 627 226 856<|content|>C&H Matter No. ... 1043-00002\n<|id|>4<|page|>1<|box|>234 746 252 854<|content|>May 30, 2025\n<|id|>6<|page|>1<|box|>285 140 304 823<|content|>Fiona Dunleavy, Esq. ... Dunleavy & Marsh, PLLC 118 North King Street Leesburg, VA 20176\n<|id|>7<|page|>1<|box|>311 174 348 854<|content|>Re: ... Purchase and Sale Agreement dated April 22...\"Seller\") and Ironhaven Data Centers LLC (\"Buyer\")\n<|id|>8<|page|>1<|box|>356 174 411 854<|content|>Property: ... /95-4A-2///, adjacent to the Stonebr...VA 20148 (the \"Meridian Parcel\" or the \"Property\")\n<|id|>9<|page|>1<|box|>419 176 436 643<|content|>Title Objection Letter pursuant to Section 5. ... 2(a) of the PSA\n<|id|>10<|page|>1<|box|>445 140 463 297<|content|>Dear Ms. ... Dunleavy\n<|id|>20<|page|>2<|box|>792 174 902 857<|content|>(d) Standard Utility Easements. ... Buyer notes th...the ALTA/NSPS survey being prepared by Lumen Ridge\n<|id|>21<|page|>3<|box|>89 174 181 854<|content|>Engineering, PLLC, which has a target completion d...ement identified in Objection 3 of Section 2 below\n<|id|>35<|page|>4<|box|>862 140 898 854<|content|>Description: ... (predecessor in title to Seller) to Commonwealth Gas\n<|id|>36<|page|>5<|box|>90 140 292 856<|content|>Transmission, LLC, by instrument dated September 8...ion easement agreement currently under negotiation\n<|id|>41<|page|>5<|box|>787 174 842 856<|content|>(iii) In the further alternative, obtain from Comm...on, LLC is willing to abandon the easement; ... or\n<|id|>43<|page|>6<|box|>133 140 226 857<|content|>Buyer requests that Seller initiate communications...LTA/NSPS survey from Lumen Ridge Engineering, PLLC\n<|id|>71<|page|>10<|box|>484 174 518 854<|content|>(g) The boundary discrepancy matters discussed in ...irmed or further delineated by the survey; ... and\n<|id|>73<|page|>10<|box|>571 140 645 854<|content|>Any supplemental title objections arising from the...licable to the objections set forth in this letter\n<|id|>76<|page|>10<|box|>811 138 902 857<|content|>While environmental conditions are not strictly ti...mitation the Comprehensive Environmental Response,\n<|id|>77<|page|>11<|box|>90 140 181 856<|content|>Compensation, and Liability Act (\"CERCLA\"), 42 U. ...p and operate the Property as a data center campus\n<|id|>92<|page|>12<|box|>816 140 909 857<|content|>Pursuant to Section 5. ... Seller's response shoul...bjection and will provide evidence thereof, or (c)\n<|id|>93<|page|>13<|box|>90 140 126 852<|content|>is unable or unwilling to cure the objection, toge...with an explanation of the basis for such position\n<|id|>104<|page|>14<|box|>125 140 156 852<|content|>Grace Nakamura, Esq. ... (202) 554-8119\n<|id|>105<|page|>14<|box|>157 140 175 480<|content|>Email: ... com\n<|id|>106<|page|>14<|box|>175 142 191 254<|content|>cc: ... (via email)\n<|id|>107<|page|>14<|box|>200 176 219 756<|content|>Douglas Fairchild, Esq. ... — Calderwood & Harkness LLP (Responsible Partner)\n<|id|>108<|page|>14<|box|>226 174 244 676<|content|>Cynthia Ho, Esq. ... — Calderwood & Harkness LLP (Lead Associate)\n<|id|>109<|page|>14<|box|>252 174 268 714<|content|>Marcus Thorne — Chief Executive Officer, Ironhaven Data Centers LLC\n<|id|>110<|page|>14<|box|>277 174 314 854<|content|>Leonard Castellano — Executive Vice President, Development, Ironhaven Data Centers LLC\n<|id|>111<|page|>14<|box|>321 174 359 852<|content|>Fidelitas Title & Escrow, Inc. ... STI-VA-2025-041587)\n<|id|>112<|page|>14<|box|>366 174 402 854<|content|>Theodore R. ... Ashford — Managing Member, Meridian Acres LLC (via counsel, Dunleavy & Marsh, PLLC)",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>35<|tgt_id|>36\n<|src_id|>76<|tgt_id|>77\n<|src_id|>92<|tgt_id|>93",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 93
+        }
+    ]
+}

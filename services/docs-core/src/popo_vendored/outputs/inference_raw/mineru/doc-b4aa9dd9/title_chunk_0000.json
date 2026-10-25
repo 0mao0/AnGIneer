@@ -1,0 +1,154 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        17
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 334 109 661<|content|>EXHIBIT A-1 TO INDENTURE\n<|id|>1<|page|>2<|box|>136 330 152 666<|content|>[FORM OF RULE 144A GLOBAL NOTE]\n<|id|>12<|page|>3<|box|>500 140 515 442<|content|>Section 1. Promise to Pay — Principal\n<|id|>14<|page|>3<|box|>750 140 765 431<|content|>Section 2. Promise to Pay — Interest\n<|id|>19<|page|>4<|box|>383 140 402 380<|content|>Section 3. Method of Payment\n<|id|>24<|page|>4<|box|>767 140 784 480<|content|>Section 4. Indenture; Guarantees; Security\n<|id|>38<|page|>5<|box|>819 140 835 294<|content|>Section 5. Ranking\n<|id|>45<|page|>6<|box|>301 140 318 393<|content|>Section 6. Optional Redemption\n<|id|>55<|page|>7<|box|>465 140 484 372<|content|>Section 7. Change of Control\n<|id|>58<|page|>7<|box|>779 140 796 483<|content|>Section 8. Offers to Purchase — Asset Sales\n<|id|>61<|page|>8<|box|>258 140 277 508<|content|>Section 9. Denominations; Transfer; Exchange\n<|id|>66<|page|>8<|box|>715 140 732 428<|content|>Section 10. Persons Deemed Owners\n<|id|>68<|page|>9<|box|>90 140 107 413<|content|>Section 11. Defaults and Remedies\n<|id|>71<|page|>9<|box|>604 140 621 503<|content|>Section 12. Amendment; Supplement; Waiver\n<|id|>83<|page|>10<|box|>513 140 531 401<|content|>Section 13. Reporting Covenants\n<|id|>88<|page|>11<|box|>90 140 107 406<|content|>Section 14. Restrictive Covenants\n<|id|>99<|page|>11<|box|>536 140 554 651<|content|>Section 15. Trustee, Paying Agent, Transfer Agent,\n<|id|>101<|page|>11<|box|>732 140 750 364<|content|>Section 16. Collateral Agent\n<|id|>104<|page|>12<|box|>186 140 204 357<|content|>Section 17. Governing Law\n<|id|>106<|page|>12<|box|>325 140 344 442<|content|>Section 18. CUSIP and ISIN Numbers\n<|id|>111<|page|>12<|box|>561 140 579 352<|content|>Section 19. Authentication\n<|id|>113<|page|>12<|box|>703 140 719 468<|content|>Section 20. Abbreviations and Definitions\n<|id|>121<|page|>13<|box|>212 140 229 712<|content|>Section 21. Additional Rights of Holders of Transf\n<|id|>128<|page|>13<|box|>777 362 794 635<|content|>[SIGNATURE PAGE — ISSUER]\n<|id|>135<|page|>14<|box|>107 331 123 665<|content|>CERTIFICATE OF AUTHENTICATION\n<|id|>162<|page|>15<|box|>575 336 592 660<|content|>ASSIGNMENT FORM (Reverse of Note)\n<|id|>176<|page|>16<|box|>356 143 371 305<|content|>1. Note Information:\n<|id|>178<|page|>16<|box|>489 143 505 354<|content|>2. Transferor Information:\n<|id|>180<|page|>16<|box|>604 142 621 354<|content|>3. Transferee Information:\n<|id|>182<|page|>16<|box|>720 142 737 390<|content|>4. Type of Transfer (check one):\n<|id|>188<|page|>17<|box|>333 142 349 267<|content|>5. Certification.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>24<|level|>2\n<|id|>38<|level|>2\n<|id|>45<|level|>2\n<|id|>55<|level|>2\n<|id|>58<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>83<|level|>2\n<|id|>88<|level|>2\n<|id|>99<|level|>2\n<|id|>101<|level|>2\n<|id|>104<|level|>2\n<|id|>106<|level|>2\n<|id|>111<|level|>2\n<|id|>113<|level|>2\n<|id|>121<|level|>2\n<|id|>128<|level|>1\n<|id|>135<|level|>1\n<|id|>162<|level|>1\n<|id|>176<|level|>2\n<|id|>178<|level|>2\n<|id|>180<|level|>2\n<|id|>182<|level|>2\n<|id|>188<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        }
+    ]
+}

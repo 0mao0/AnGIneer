@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 333 117 663<|content|>SECRETARY'S CERTIFICATE\n<|id|>1<|page|>1<|box|>137 480 157 517<|content|>OF\n<|id|>2<|page|>1<|box|>175 285 195 712<|content|>STONEFIELD LOGISTICS GROUP INC.\n<|id|>8<|page|>1<|box|>632 142 648 542<|content|>RECITALS AND CERTIFICATION PREAMBLE\n<|id|>19<|page|>2<|box|>311 140 328 601<|content|>SECTION 1: GOOD STANDING AND ORGANIZATION\n<|id|>33<|page|>3<|box|>407 140 424 465<|content|>SECTION 2: CHARTER DOCUMENTS\n<|id|>34<|page|>3<|box|>438 140 455 647<|content|>Section 2(a): Amended and Restated Certificate of\n<|id|>37<|page|>3<|box|>792 140 809 673<|content|>Section 2(b): Certificate of Designations — Series\n<|id|>43<|page|>4<|box|>371 142 388 305<|content|>Section 2(c): Bylaws\n<|id|>45<|page|>4<|box|>527 140 544 454<|content|>SECTION 3: BOARD RESOLUTIONS\n<|id|>46<|page|>4<|box|>558 140 575 848<|content|>Section 3(a): Board Resolutions — Approval of Rest\n<|id|>48<|page|>4<|box|>717 142 734 704<|content|>The June Resolutions approved, authorized, and rat\n<|id|>54<|page|>5<|box|>419 140 454 854<|content|>Section 3(b): Board Resolutions — Authorization of\n<|id|>74<|page|>6<|box|>647 140 664 415<|content|>Section 3(c): No Other Resolutions\n<|id|>76<|page|>6<|box|>803 140 819 504<|content|>SECTION 4: INCUMBENCY OF OFFICERS\n<|id|>80<|page|>7<|box|>375 140 391 416<|content|>SECTION 5: NO PROCEEDINGS\n<|id|>83<|page|>7<|box|>686 140 704 532<|content|>SECTION 6: ADDITIONAL CERTIFICATIONS\n<|id|>92<|page|>9<|box|>89 142 106 310<|content|>SIGNATURE PAGE\n<|id|>99<|page|>9<|box|>285 140 303 697<|content|>COUNTER-CERTIFICATION OF INCUMBENCY OF SECRETARY\n<|id|>106<|page|>9<|box|>573 143 589 310<|content|>LIST OF EXHIBITS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>8<|level|>2\n<|id|>19<|level|>2\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>37<|level|>3\n<|id|>43<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>48<|level|>4\n<|id|>54<|level|>3\n<|id|>74<|level|>3\n<|id|>76<|level|>2\n<|id|>80<|level|>2\n<|id|>83<|level|>2\n<|id|>92<|level|>2\n<|id|>99<|level|>2\n<|id|>106<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        }
+    ]
+}

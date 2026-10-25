@@ -1,0 +1,41 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gq9cz65q\\input\\pdfs\\doc-758189bd.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gq9cz65q\\enriched\\doc-758189bd.json",
+    "contd_output": "",
+    "title_output": "<|id|>21<|level|>1\n<|id|>27<|level|>1\n<|id|>41<|level|>1",
+    "image_output": "<|src_id|>19<|tgt_id|>21\n<|src_id|>20<|tgt_id|>21\n<|src_id|>26<|tgt_id|>27\n<|src_id|>43<|tgt_id|>41",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 19,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 41
+        }
+    ],
+    "table_merge_candidates": []
+}

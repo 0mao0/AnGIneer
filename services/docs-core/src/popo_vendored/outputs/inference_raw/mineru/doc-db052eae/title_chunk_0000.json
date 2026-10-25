@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        13,
+        16,
+        17,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 202 133 794<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>7<|page|>1<|box|>388 140 404 341<|content|>I. Purpose and Summary\n<|id|>14<|page|>2<|box|>286 140 303 388<|content|>II. Current Procedural Posture\n<|id|>15<|page|>2<|box|>316 140 334 299<|content|>A. Pleadings Status\n<|id|>26<|page|>3<|box|>398 140 417 504<|content|>B. Motion to Strike Ruling — August 22, 2022\n<|id|>32<|page|>4<|box|>273 140 292 584<|content|>C. Case Management Conference — September 12, 2022\n<|id|>36<|page|>4<|box|>676 140 693 341<|content|>III. Discovery Objectives\n<|id|>37<|page|>4<|box|>707 140 724 683<|content|>A. Objective 1: Establish the Debt and Eliminate R\n<|id|>45<|page|>5<|box|>813 142 830 563<|content|>B. Objective 2: Defeat the Failure-to-Mitigate Def\n<|id|>60<|page|>7<|box|>726 140 744 779<|content|>C. Objective 3: Assess PBGC's Financial Condition\n<|id|>69<|page|>8<|box|>747 140 765 763<|content|>Document Requests Regarding Financial Condition. O\n<|id|>78<|page|>9<|box|>708 140 726 547<|content|>D. Objective 4: Foundation for Summary Judgment\n<|id|>100<|page|>11<|box|>223 140 239 449<|content|>IV. Discovery Plan — Specific Vehicles\n<|id|>101<|page|>11<|box|>253 140 271 434<|content|>A. Written discovery Already Served\n<|id|>129<|page|>13<|box|>787 140 805 424<|content|>B. Anticipated Additional discovery\n<|id|>146<|page|>16<|box|>494 140 511 485<|content|>V. Defense Counsel Status and Implications\n<|id|>154<|page|>17<|box|>329 140 347 506<|content|>VI. Summary Judgment Preparation Timeline\n<|id|>172<|page|>19<|box|>212 140 229 460<|content|>VII. Budget and Staffing Considerations\n<|id|>174<|page|>19<|box|>282 142 299 214<|content|>Staffing.\n<|id|>183<|page|>20<|box|>316 140 334 393<|content|>VIII. Recommended Next Steps\n<|id|>194<|page|>21<|box|>464 140 482 264<|content|>IX. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>26<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>1\n<|id|>37<|level|>2\n<|id|>45<|level|>2\n<|id|>60<|level|>2\n<|id|>69<|level|>3\n<|id|>78<|level|>2\n<|id|>100<|level|>1\n<|id|>101<|level|>2\n<|id|>129<|level|>2\n<|id|>146<|level|>1\n<|id|>154<|level|>1\n<|id|>172<|level|>1\n<|id|>174<|level|>2\n<|id|>183<|level|>1\n<|id|>194<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 154,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 1
+        },
+        {
+            "id": 194,
+            "level": 1
+        }
+    ]
+}

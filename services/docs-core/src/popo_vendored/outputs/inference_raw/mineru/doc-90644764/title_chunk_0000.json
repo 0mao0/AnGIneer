@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 125 854<|content|>PENTERRA PHARMACEUTICALS CORP. 400 Meridian Parkwa\n<|id|>10<|page|>1<|box|>803 142 820 385<|content|>1. Background on the Offering\n<|id|>16<|page|>2<|box|>429 142 446 517<|content|>2. Share Allocation Among Selling Stockholders\n<|id|>22<|page|>3<|box|>148 140 167 614<|content|>3. Direction to Facilitate Book-Entry Delivery Thr\n<|id|>30<|page|>4<|box|>204 140 222 415<|content|>4. Confirmation of DTC Eligibility\n<|id|>37<|page|>4<|box|>731 140 748 405<|content|>5. Over-Allotment Option Shares\n<|id|>41<|page|>5<|box|>250 140 266 470<|content|>6. Representations and Acknowledgments\n<|id|>48<|page|>6<|box|>204 140 222 462<|content|>7. Contact Information for Coordination\n<|id|>57<|page|>6<|box|>590 140 609 436<|content|>8. Authorization and Indemnification\n<|id|>63<|page|>7<|box|>148 140 166 287<|content|>9. Governing Law\n<|id|>67<|page|>7<|box|>325 142 342 496<|content|>PENTERRA PHARMACEUTICALS CORP.\n<|id|>73<|page|>7<|box|>544 142 559 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>22<|level|>2\n<|id|>30<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>67<|level|>1\n<|id|>73<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        }
+    ]
+}

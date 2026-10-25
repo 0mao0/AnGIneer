@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>112 423 128 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>138 140 156 630<|content|>TO: ... Elliot Nguyen, Lead Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>164 140 181 638<|content|>FROM: ... Grace Nakamura, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>190 140 207 343<|content|>DATE: ... December 5, 2022\n<|id|>5<|page|>1<|box|>215 140 270 856<|content|>RE: ... 22STPB09714\n<|id|>6<|page|>1<|box|>277 140 295 362<|content|>MATTER NO. ... 1035-00005\n<|id|>7<|page|>1<|box|>304 140 321 393<|content|>CLIENT: ... Fonseca\n<|id|>12<|page|>1<|box|>739 140 905 857<|content|>Conclusion: ... Finally, even if some measure of s...rty capital contribution were eventually proven, a\n<|id|>13<|page|>2<|box|>89 140 162 854<|content|>Pereira/Van Camp analysis would attribute the over...inal contribution without interest or appreciation\n<|id|>50<|page|>5<|box|>811 140 904 857<|content|>This presumption is broad and all-encompassing. ... See\n<|id|>51<|page|>6<|box|>90 140 126 856<|content|>In re Marriage of Valli (2014) 58 Cal. ... 4th 1578, 1589\n<|id|>186<|page|>21<|box|>172 143 189 743<|content|>1. ... Operating Agreement of Lumiére Canyon Studios LLC (dated March 18, 2009)\n<|id|>193<|page|>21<|box|>382 142 428 854<|content|>This memorandum is protected by the attorney-clien...thout the prior written consent of the undersigned\n<|id|>187<|page|>21<|box|>191 142 227 851<|content|>2. ... 200906410337)\n<|id|>188<|page|>21<|box|>229 143 263 854<|content|>3. ... 22STPB09714)\n<|id|>189<|page|>21<|box|>268 143 301 852<|content|>4. ... Internal Valuation Summary of Lumiére Canyo... December 31, 2021) — $31,600,000 Enterprise Value\n<|id|>190<|page|>21<|box|>305 143 323 808<|content|>5. ... Engagement Letter for Pinnacle West Appraisal Group LLC (dated November 10, 2022)\n<|id|>191<|page|>21<|box|>325 143 343 848<|content|>6. ... (dated October 18, 2022) — Account Information Request\n<|id|>192<|page|>21<|box|>345 143 380 852<|content|>7. ... Validity of Alleged Premarital Agreement un...Family Code §§ 1610-1617 (dated November 28, 2022)\n<|id|>194<|page|>21<|box|>436 142 453 320<|content|>Respectfully submitted,\n<|id|>195<|page|>21<|box|>453 140 469 563<|content|>Grace Nakamura Associate Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>50<|tgt_id|>51",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        }
+    ]
+}

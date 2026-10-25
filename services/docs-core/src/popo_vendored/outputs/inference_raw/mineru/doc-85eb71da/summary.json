@@ -1,0 +1,195 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-d8oub06n\\input\\pdfs\\doc-85eb71da.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-d8oub06n\\enriched\\doc-85eb71da.json",
+    "contd_output": "<|src_id|>105<|tgt_id|>106\n<|src_id|>166<|tgt_id|>167",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>23<|level|>3\n<|id|>28<|level|>3\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>36<|level|>3\n<|id|>40<|level|>4\n<|id|>46<|level|>4\n<|id|>52<|level|>3\n<|id|>55<|level|>3\n<|id|>58<|level|>2\n<|id|>59<|level|>3\n<|id|>64<|level|>3\n<|id|>86<|level|>3\n<|id|>90<|level|>3\n<|id|>100<|level|>2\n<|id|>104<|level|>3\n<|id|>110<|level|>3\n<|id|>117<|level|>3\n<|id|>123<|level|>2\n<|id|>127<|level|>2\n<|id|>128<|level|>3\n<|id|>136<|level|>3\n<|id|>142<|level|>3\n<|id|>148<|level|>2\n<|id|>159<|level|>2\n<|id|>170<|level|>2",
+    "image_output": "<|src_id|>66<|tgt_id|>64\n<|src_id|>70<|tgt_id|>64\n<|src_id|>74<|tgt_id|>64\n<|src_id|>78<|tgt_id|>64\n<|src_id|>82<|tgt_id|>64\n<|src_id|>88<|tgt_id|>86\n<|src_id|>89<|tgt_id|>86\n<|src_id|>124<|tgt_id|>123",
+    "contd_label": [
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 167
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 4
+        },
+        {
+            "id": 46,
+            "level": 4
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 66,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 123
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 88,
+            "table2_idx": 89,
+            "upper_row_ss": [
+                [
+                    "Texas",
+                    "5",
+                    "5",
+                    "~$300.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Georgia",
+                    "3",
+                    "3",
+                    "~$75.00"
+                ]
+            ]
+        }
+    ]
+}

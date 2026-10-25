@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        12,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>356 475 375 854<|content|>Filed: ... Langston\n<|id|>3<|page|>1<|box|>382 142 398 560<|content|>Attorneys for Plaintiff Genome Dx Therapeutics Inc...Attorneys for Plaintiff Genome Dx Therapeutics Inc\n<|id|>4<|page|>1<|box|>407 140 462 854<|content|>Catherine Bloom (SBN 227814), Responsible Partner ...iate Wendy Schultz (SBN 318247), Working Associate\n<|id|>5<|page|>1<|box|>470 140 506 854<|content|>CALDERWOOD & HARKNESS LLP 555 Mission Street, Suit...co, California 94105 Telephone: ... (415) 772-6001\n<|id|>35<|page|>6<|box|>337 174 375 854<|content|>(b) inputting normalized expression values into a ... a cohort of at least 500 patient samples; ... and\n<|id|>37<|page|>6<|box|>407 140 573 856<|content|>'893 Patent, col. ... the claim specifies the type...linical endpoint — metastasis risk within 5 years)\n<|id|>44<|page|>7<|box|>185 176 204 496<|content|>(d) generating a composite risk metric; ... and\n<|id|>46<|page|>7<|box|>237 138 347 857<|content|>'647 Patent, col. ... C\n<|id|>82<|page|>12<|box|>180 140 215 854<|content|>A. ... The Asserted Claims of the '893 Patent Are ...t-Eligible Diagnostic Method, Not an Abstract Idea\n<|id|>84<|page|>12<|box|>397 140 470 854<|content|>Claim 1 of the '893 Patent does not claim gene exp...defined series of physical and computational steps\n<|id|>162<|page|>22<|box|>768 140 800 852<|content|>Catherine Bloom (State Bar No. ... 318247)\n<|id|>163<|page|>22<|box|>801 140 833 852<|content|>555 Mission Street, Suite 3100 San Francisco, California 94105 Telephone: ... (415) 772-6001\n<|id|>164<|page|>22<|box|>835 143 851 455<|content|>Email: ... com\n<|id|>165<|page|>22<|box|>852 142 869 529<|content|>Attorneys for Plaintiff Genome Dx Therapeutics Inc...Attorneys for Plaintiff Genome Dx Therapeutics Inc\n<|id|>169<|page|>23<|box|>214 174 251 854<|content|>Marcus Pellegrini Danielle Forrest Owen Chu RIDGEC... Massachusetts 02110 Telephone: ... (617) 548-3200\n<|id|>170<|page|>23<|box|>258 176 277 522<|content|>Email: ... com\n<|id|>171<|page|>23<|box|>277 176 294 496<|content|>Email: ... com\n<|id|>172<|page|>23<|box|>294 176 311 475<|content|>Email: ... com\n<|id|>173<|page|>23<|box|>311 176 327 214<|content|>and\n<|id|>174<|page|>23<|box|>335 176 372 854<|content|>RIDGECREST DURNEVAL LLP 350 South Grand Avenue, Suite 2800 Los Angeles, California 90071\n<|id|>175<|page|>23<|box|>381 176 398 607<|content|>Attorneys for Defendant Helios Precision Diagnosti...ys for Defendant Helios Precision Diagnostics, Inc",
+    "raw_response": "<|src_id|>162<|tgt_id|>163\n<|src_id|>163<|tgt_id|>164\n<|src_id|>169<|tgt_id|>170\n<|src_id|>170<|tgt_id|>171\n<|src_id|>171<|tgt_id|>172\n<|src_id|>172<|tgt_id|>173",
+    "parsed": [
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 171
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 172
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 173
+        }
+    ]
+}

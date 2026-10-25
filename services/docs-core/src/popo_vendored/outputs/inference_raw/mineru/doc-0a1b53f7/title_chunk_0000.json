@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 263 118 733<|content|>NATIONAL UCC FINANCING STATEMENT\n<|id|>1<|page|>1<|box|>143 382 160 616<|content|>(Form UCC1) (Rev. 04/20/11)\n<|id|>2<|page|>1<|box|>169 161 205 834<|content|>Filed with the Delaware Secretary of State Divisio\n<|id|>9<|page|>2<|box|>310 140 327 475<|content|>Box 4 — COLLATERAL DESCRIPTION\n<|id|>16<|page|>3<|box|>157 142 174 596<|content|>Box 7 — ALTERNATIVE DESIGNATION (OPTIONAL)\n<|id|>25<|page|>3<|box|>459 142 496 839<|content|>UCC1AP ADDENDUM — ORGANIZATIONAL DEBTOR INFORMATIO\n<|id|>28<|page|>3<|box|>833 143 849 423<|content|>AUTHORIZATION STATEMENT\n<|id|>33<|page|>4<|box|>402 140 419 660<|content|>PREPARED BY / RETURN FILING ACKNOWLEDGMENT TO\n<|id|>34<|page|>4<|box|>429 142 446 253<|content|>Prepared By:\n<|id|>42<|page|>5<|box|>89 434 111 565<|content|>EXHIBIT A\n<|id|>43<|page|>5<|box|>135 366 152 630<|content|>COLLATERAL DESCRIPTION\n<|id|>45<|page|>5<|box|>289 140 306 439<|content|>A. Accounts and Payment Intangibles\n<|id|>48<|page|>5<|box|>608 140 625 411<|content|>B. Chattel Paper and Instruments\n<|id|>50<|page|>5<|box|>772 140 789 493<|content|>C. Deposit Accounts and Securities Accounts\n<|id|>54<|page|>6<|box|>319 140 337 359<|content|>D. Equipment and Fixtures\n<|id|>67<|page|>7<|box|>176 140 194 323<|content|>E. General Intangibles\n<|id|>77<|page|>8<|box|>330 140 347 501<|content|>F. Governmental Approvals and Entitlements\n<|id|>84<|page|>8<|box|>844 140 859 323<|content|>G. Insurance Proceeds\n<|id|>90<|page|>9<|box|>364 142 380 305<|content|>H. Leases and Rents\n<|id|>96<|page|>9<|box|>704 140 722 470<|content|>I. Investment Property and LLC Interests\n<|id|>102<|page|>10<|box|>165 140 183 348<|content|>J. Letter-of-Credit Rights\n<|id|>104<|page|>10<|box|>329 140 347 421<|content|>K. Construction-Related Collateral\n<|id|>112<|page|>11<|box|>90 140 106 318<|content|>L. Books and Records\n<|id|>114<|page|>11<|box|>273 140 289 352<|content|>M. Proceeds and Products\n<|id|>121<|page|>11<|box|>603 140 619 352<|content|>N. Supporting Obligations\n<|id|>123<|page|>11<|box|>750 140 765 366<|content|>O. Commercial Tort Claims\n<|id|>130<|page|>12<|box|>683 140 699 450<|content|>INCORPORATION BY REFERENCE\n<|id|>133<|page|>13<|box|>170 140 185 285<|content|>END OF EXHIBIT A\n<|id|>134<|page|>13<|box|>193 390 209 606<|content|>FILING INSTRUCTIONS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>9<|level|>2\n<|id|>16<|level|>2\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>45<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>54<|level|>3\n<|id|>67<|level|>3\n<|id|>77<|level|>3\n<|id|>84<|level|>3\n<|id|>90<|level|>3\n<|id|>96<|level|>3\n<|id|>102<|level|>3\n<|id|>104<|level|>3\n<|id|>112<|level|>3\n<|id|>114<|level|>3\n<|id|>121<|level|>3\n<|id|>123<|level|>3\n<|id|>130<|level|>2\n<|id|>133<|level|>2\n<|id|>134<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        }
+    ]
+}

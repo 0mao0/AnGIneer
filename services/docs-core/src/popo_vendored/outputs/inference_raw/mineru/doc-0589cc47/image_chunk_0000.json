@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>308 153 343 854<|content|>DECLARATION OF DR. KATHARINA REINHARDT IN SUPPORT\n<|id|>10<|type|>title<|page|>1<|box|>511 142 527 460<|content|>1. Identity and Background of Declarant\n<|id|>16<|type|>title<|page|>2<|box|>90 140 107 589<|content|>2. Halcyon Semiconductor AG — Corporate Background\n<|id|>24<|type|>title<|page|>2<|box|>676 140 694 586<|content|>3. Meridian Dynamics Inc. — Counterparty Backgroun\n<|id|>31<|type|>title<|page|>3<|box|>316 140 334 464<|content|>4. The Exclusive Distribution Agreement\n<|id|>44<|type|>title<|page|>4<|box|>664 140 681 562<|content|>5. Meridian's Breaches of the Distribution Agreeme\n<|id|>53<|type|>title<|page|>5<|box|>816 140 833 405<|content|>6. Commencement of Arbitration\n<|id|>58<|type|>title<|page|>6<|box|>244 140 261 470<|content|>7. The Arbitral Tribunal and Proceedings\n<|id|>69<|type|>title<|page|>7<|box|>224 140 241 300<|content|>8. The Final Award\n<|id|>80<|type|>title<|page|>8<|box|>262 140 279 475<|content|>9. Meridian's Refusal to Satisfy the Award\n<|id|>88<|type|>title<|page|>8<|box|>844 143 859 462<|content|>10. Derek Calloway's Personal Guaranty\n<|id|>92<|type|>title<|page|>9<|box|>299 142 315 506<|content|>11. Retention of Calderwood & Harkness LLP\n<|id|>95<|type|>title<|page|>9<|box|>494 142 512 380<|content|>12. Authentication of Exhibits\n<|id|>101<|type|>title<|page|>10<|box|>267 143 284 506<|content|>13. Ongoing Harm and Need for Confirmation\n<|id|>108<|type|>title<|page|>10<|box|>724 143 757 656<|content|>Dr. Katharina Reinhardt General Counsel Halcyon Se\n<|id|>109<|type|>table<|page|>10<|box|>810 143 897 852<|content|>None\n<|id|>111<|type|>table<|page|>11<|box|>89 143 220 851<|content|>None",
+    "raw_response": "<|src_id|>109<|tgt_id|>108\n<|src_id|>111<|tgt_id|>108",
+    "parsed": [
+        {
+            "src_id": 109,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 108
+        }
+    ]
+}

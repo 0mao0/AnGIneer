@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>87 112 137 883<|content|>Learning Maximal Safe Sets Using Hypernetworks for\n<|id|>3<|page|>1<|box|>441 207 455 364<|content|>I. INTRODUCTION\n<|id|>13<|page|>2<|box|>204 204 219 370<|content|>II. RELATED WORK\n<|id|>18<|page|>2<|box|>267 624 281 795<|content|>III. PRELIMINARIES\n<|id|>19<|page|>2<|box|>286 504 300 678<|content|>A. Problem Formulation\n<|id|>35<|page|>3<|box|>66 83 80 370<|content|>B. Hamilton-Jacobi Reachability Analysis\n<|id|>50<|page|>3<|box|>66 624 79 795<|content|>IV. METHODOLOGY\n<|id|>53<|page|>3<|box|>458 504 473 663<|content|>A. Model Architecture\n<|id|>58<|page|>4<|box|>696 83 710 243<|content|>B. Training Procedure\n<|id|>65<|page|>4<|box|>858 588 872 831<|content|>V. EXPERIMENTAL RESULTS\n<|id|>66<|page|>4<|box|>877 504 893 647<|content|>A. Robot Dynamics\n<|id|>73<|page|>5<|box|>439 83 454 215<|content|>B. Model Training\n<|id|>82<|page|>6<|box|>327 83 340 281<|content|>C. Monte Carlo Simulations\n<|id|>93<|page|>6<|box|>771 506 786 700<|content|>D. Real-World Experiments\n<|id|>97<|page|>7<|box|>666 84 681 359<|content|>E. Single-Network Architecture Analysis\n<|id|>101<|page|>7<|box|>261 568 276 852<|content|>VI. DISCUSSION ON LIMITATIONS\n<|id|>104<|page|>7<|box|>616 627 630 792<|content|>VII. CONCLUSIONS\n<|id|>110<|page|>8<|box|>340 238 354 334<|content|>REFERENCES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>35<|level|>3\n<|id|>50<|level|>2\n<|id|>53<|level|>3\n<|id|>58<|level|>3\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>73<|level|>3\n<|id|>82<|level|>3\n<|id|>93<|level|>3\n<|id|>97<|level|>3\n<|id|>101<|level|>2\n<|id|>104<|level|>2\n<|id|>110<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        }
+    ]
+}

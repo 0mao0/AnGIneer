@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 169 107 825<|content|>KELLERMAN & ASSOCIATES LLP Independent Registered\n<|id|>9<|page|>1<|box|>340 140 378 854<|content|>Re: Arbor Health Technologies Inc. — Initial Publi\n<|id|>11<|page|>1<|box|>482 140 500 594<|content|>1. Introductory Paragraph and Reference to Prior L\n<|id|>17<|page|>2<|box|>212 140 229 274<|content|>2. Independence\n<|id|>21<|page|>2<|box|>551 140 568 568<|content|>3. Reference to Registration Statement and Prospec\n<|id|>27<|page|>3<|box|>90 140 107 531<|content|>4. Audited Financial Statements — Reaffirmation\n<|id|>31<|page|>3<|box|>464 140 482 433<|content|>5. Cut-Off Date and Specified Period\n<|id|>35<|page|>3<|box|>729 140 748 723<|content|>6. Bring-Down of Specified Financial Information —\n<|id|>39<|page|>4<|box|>195 140 210 266<|content|>6.2 Net Income\n<|id|>41<|page|>4<|box|>395 140 412 496<|content|>6.3 Adjusted EBITDA (Non-GAAP Measure)\n<|id|>43<|page|>4<|box|>633 140 650 665<|content|>6.4 Total Assets, Stockholders' Equity, and Long-T\n<|id|>47<|page|>5<|box|>231 140 248 264<|content|>6.6 Share Data\n<|id|>49<|page|>5<|box|>479 140 496 560<|content|>7. No Material Adverse Change (Negative Assurance)\n<|id|>52<|page|>5<|box|>791 140 808 679<|content|>8. Procedures Performed — Tables and Financial Dat\n<|id|>64<|page|>7<|box|>90 140 107 403<|content|>9. Subsequent Events Procedures\n<|id|>70<|page|>7<|box|>810 142 827 411<|content|>10. Limitations and Qualifications\n<|id|>75<|page|>8<|box|>539 142 555 294<|content|>11. Use Restriction\n<|id|>79<|page|>8<|box|>840 142 857 343<|content|>12. Governing Standards",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>1\n<|id|>11<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>31<|level|>2\n<|id|>35<|level|>2\n<|id|>39<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>3\n<|id|>47<|level|>3\n<|id|>49<|level|>2\n<|id|>52<|level|>2\n<|id|>64<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>79<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        }
+    ]
+}

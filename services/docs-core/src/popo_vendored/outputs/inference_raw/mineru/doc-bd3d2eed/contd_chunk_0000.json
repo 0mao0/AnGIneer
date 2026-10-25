@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        7,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>169 228 186 769<|content|>Order Form No. ... 1 under the Master Software-as-a-Service Agreement\n<|id|>3<|page|>1<|box|>195 140 250 854<|content|>This Order Form No. ... 1 (this \"Order Form\") is a...forth on the signature page hereto, by and between\n<|id|>4<|page|>1<|box|>258 140 294 854<|content|>Licensor: ... and\n<|id|>5<|page|>1<|box|>301 140 357 854<|content|>Licensee: ... Meridian National Bank, National Ass...oor, New York, NY 10022 (\"Meridian\" or \"Licensee\")\n<|id|>29<|page|>3<|box|>872 140 929 854<|content|>(b) Early Termination Fee. ... 4 during the Initia...ly termination fee (the Execution Version — Page 3\n<|id|>30<|page|>4<|box|>89 174 162 854<|content|>\"Early Termination Fee\" or \"ETF\") equal to fifty p...he balance of the then-current Initial Term. ... 3\n<|id|>67<|page|>7<|box|>90 174 145 856<|content|>(c) Exhibit C — Data Processing Addendum (DPA), se...ions, and breach notification obligations; ... and\n<|id|>69<|page|>7<|box|>196 140 233 856<|content|>In the event of any conflict between the terms of ...forth in Section 11 of this Order Form shall apply\n<|id|>90<|page|>9<|box|>178 140 194 362<|content|>Name: ... Priya Chandrasekaran\n<|id|>91<|page|>9<|box|>194 142 210 367<|content|>Title: ... Chief Executive Officer\n<|id|>92<|page|>9<|box|>212 143 229 266<|content|>Date: ... Date\n<|id|>93<|page|>9<|box|>229 140 244 638<|content|>MERIDIAN NATIONAL BANK, NATIONAL ASSOCIATION\n<|id|>94<|page|>9<|box|>255 142 272 253<|content|>By: ... By\n<|id|>95<|page|>9<|box|>272 142 289 331<|content|>Name: ... Gerald Brannigan\n<|id|>96<|page|>9<|box|>289 142 306 380<|content|>Title: ... Chief Information Officer\n<|id|>97<|page|>9<|box|>308 143 325 267<|content|>Date: ... Date\n<|id|>104<|page|>11<|box|>306 176 325 738<|content|>Skybridge Project Lead: ... Tara Bellingham, Vice President, Enterprise Sales\n<|id|>105<|page|>11<|box|>333 176 349 501<|content|>Email: ... com\n<|id|>106<|page|>11<|box|>349 176 386 854<|content|>Meridian Project Lead: ... Luis Arriaga, Senior Vice President, Procurement & Vendor Management\n<|id|>107<|page|>11<|box|>393 176 411 468<|content|>Email: ... com\n<|id|>108<|page|>11<|box|>412 140 503 854<|content|>Governance: ... The Steering Committee shall be co...hanges to the implementation plan or project scope",
+    "raw_response": "<|src_id|>29<|tgt_id|>30",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        }
+    ]
+}

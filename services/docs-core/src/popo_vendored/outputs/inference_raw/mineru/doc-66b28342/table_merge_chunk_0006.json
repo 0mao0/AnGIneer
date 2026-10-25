@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['37', '2320 Lime', 'Louisville', 'Jan. 1, 2022', 'Dec. 31, 2028', '~4.5 yrs', '$14,200', '4,300', 'Yes', 'Pending']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Kiln Ln, Louisville, KY 40222', 'Medical Center LLC', '', '', '', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 273,
+    "table2_idx": 274
+}

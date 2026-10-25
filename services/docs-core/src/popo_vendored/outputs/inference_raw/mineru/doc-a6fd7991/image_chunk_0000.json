@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 166 130 828<|content|>CIMARRON SOLAR DEVELOPMENT LLC a New Mexico limite\n<|id|>9<|type|>title<|page|>1<|box|>481 142 497 439<|content|>1. Introduction and Purpose of Notice\n<|id|>13<|type|>title<|page|>2<|box|>90 140 107 478<|content|>2. Description of the Proposed Transaction\n<|id|>32<|type|>title<|page|>3<|box|>286 140 303 480<|content|>3. Organizational and Corporate Structure\n<|id|>40<|type|>title<|page|>3<|box|>837 140 854 571<|content|>4. Pre-IPO and Post-IPO Ownership Structure of CBR\n<|id|>42<|type|>table<|page|>4<|box|>169 143 324 852<|content|>None\n<|id|>46<|type|>title<|page|>4<|box|>762 140 779 289<|content|>5. Use of Proceeds\n<|id|>52<|type|>title<|page|>5<|box|>484 140 501 560<|content|>6. Impact on the Credit Agreement and the Borrower\n<|id|>61<|type|>title<|page|>6<|box|>527 142 544 462<|content|>7. Cimarron Solar Project Status Update\n<|id|>62<|type|>table<|page|>6<|box|>595 143 763 852<|content|>None\n<|id|>65<|type|>title<|page|>7<|box|>167 140 184 370<|content|>8. Key Officers and Contacts\n<|id|>67<|type|>title<|page|>7<|box|>238 140 255 413<|content|>Calloway-Briggs Renewables Inc.:\n<|id|>80<|type|>title<|page|>7<|box|>583 140 599 334<|content|>9. Reservation of Rights\n<|id|>83<|type|>title<|page|>8<|box|>90 142 107 457<|content|>10. Request for Confirmation of Receipt",
+    "raw_response": "<|src_id|>42<|tgt_id|>40\n<|src_id|>62<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 61
+        }
+    ]
+}

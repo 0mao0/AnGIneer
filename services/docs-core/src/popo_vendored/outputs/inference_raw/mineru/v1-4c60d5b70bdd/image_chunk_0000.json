@@ -1,0 +1,77 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        22,
+        23
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>131 53 205 838<|content|>Analysis of Anxiety Disorders and Post-Traumatic S\n<|id|>8<|type|>image<|page|>1<|box|>554 55 576 147<|content|>None\n<|id|>14<|type|>title<|page|>1<|box|>681 275 697 418<|content|>1. Introduction\n<|id|>20<|type|>title<|page|>2<|box|>793 273 809 655<|content|>2. Previous Literature Selection Methods\n<|id|>23<|type|>image<|page|>3<|box|>256 85 600 912<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>636 272 669 941<|content|>3. Characteristics, Pathophysiology, and Treatment\n<|id|>25<|type|>title<|page|>3<|box|>673 273 689 781<|content|>Disorders in the Clinic 3.1. Prevalence and Sympto\n<|id|>28<|type|>title<|page|>4<|box|>592 273 608 658<|content|>3.2. Pathophysiology of Anxiety Disorders in the C\n<|id|>30<|type|>table<|page|>5<|box|>149 40 805 957<|content|>None\n<|id|>31<|type|>title<|page|>6<|box|>85 273 99 737<|content|>3.3. Pharmacological Treatments of Anxiety Disorde\n<|id|>33<|type|>table<|page|>7<|box|>147 40 636 958<|content|>None\n<|id|>34<|type|>title<|page|>8<|box|>83 272 117 942<|content|>4. Anxiolytic Substances Used in Non-Clinical Stud\n<|id|>35<|type|>title<|page|>8<|box|>120 273 136 559<|content|>4.1. Conventional Anxiolytic Substances\n<|id|>39<|type|>table<|page|>10<|box|>149 40 826 957<|content|>None\n<|id|>40<|type|>table<|page|>11<|box|>147 41 337 956<|content|>None\n<|id|>44<|type|>title<|page|>13<|box|>329 273 346 873<|content|>5. Types and Properties for Animal Models of Anxie\n<|id|>47<|type|>title<|page|>13<|box|>775 273 791 714<|content|>5.1. Shaping an Animal Model ofAnxiety Disorders a\n<|id|>53<|type|>table<|page|>15<|box|>147 39 860 958<|content|>None\n<|id|>54<|type|>table<|page|>16<|box|>147 39 786 958<|content|>None\n<|id|>55<|type|>table<|page|>17<|box|>147 40 764 958<|content|>None\n<|id|>56<|type|>table<|page|>18<|box|>147 40 633 957<|content|>None\n<|id|>57<|type|>title<|page|>19<|box|>85 273 99 568<|content|>5.2. Testing Anxiety and PTSD Behaviors\n<|id|>62<|type|>title<|page|>20<|box|>495 273 512 794<|content|>6. Opinion from Preclinical Studies to Clinical Re\n<|id|>68<|type|>table<|page|>22<|box|>149 40 801 957<|content|>None\n<|id|>69<|type|>title<|page|>23<|box|>83 273 99 410<|content|>7. Limitations\n<|id|>71<|type|>title<|page|>23<|box|>284 273 300 416<|content|>8. Conclusions\n<|id|>77<|type|>title<|page|>23<|box|>683 55 699 163<|content|>References",
+    "raw_response": "<|src_id|>8<|tgt_id|>1\n<|src_id|>23<|tgt_id|>20\n<|src_id|>30<|tgt_id|>28\n<|src_id|>33<|tgt_id|>31\n<|src_id|>39<|tgt_id|>35\n<|src_id|>40<|tgt_id|>35\n<|src_id|>53<|tgt_id|>47\n<|src_id|>54<|tgt_id|>47\n<|src_id|>55<|tgt_id|>47\n<|src_id|>56<|tgt_id|>47\n<|src_id|>68<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 62
+        }
+    ]
+}

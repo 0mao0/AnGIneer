@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>172 109 205 892<|content|>中华人民共和国交通行业标准\n<|id|>3<|type|>title<|page|>1<|box|>416 100 452 902<|content|>港口码头劳动定员 第 2 部分:件杂货码头\n<|id|>4<|type|>title<|page|>1<|box|>476 187 498 813<|content|>Port terminal labour manning—Part 2: General cargo\n<|id|>8<|type|>title<|page|>2<|box|>141 448 163 554<|content|>目次\n<|id|>10<|type|>title<|page|>3<|box|>146 448 168 555<|content|>前言\n<|id|>32<|type|>title<|page|>4<|box|>145 260 167 740<|content|>港口码头劳动定员 第2部分:件杂货码头\n<|id|>33<|type|>title<|page|>4<|box|>197 120 213 188<|content|>1 范围\n<|id|>36<|type|>title<|page|>4<|box|>272 120 288 221<|content|>2 单项定员\n<|id|>37<|type|>title<|page|>4<|box|>300 120 315 256<|content|>2.1 港口装卸工\n<|id|>39<|type|>table<|page|>4<|box|>355 121 612 881<|content|>None\n<|id|>40<|type|>title<|page|>4<|box|>617 120 632 273<|content|>2.2 装卸机械司机\n<|id|>42<|type|>table<|page|>4<|box|>671 120 780 880<|content|>None\n<|id|>43<|type|>title<|page|>4<|box|>785 120 800 255<|content|>2.3 装卸调度员\n<|id|>46<|type|>title<|page|>4<|box|>841 118 856 290<|content|>2.4 装卸调度计划员\n<|id|>48<|type|>title<|page|>4<|box|>878 118 892 290<|content|>2.5 装卸调度统计员\n<|id|>50<|type|>title<|page|>5<|box|>120 137 136 339<|content|>2.6 船舶货物装卸指导员\n<|id|>54<|type|>title<|page|>5<|box|>197 137 212 273<|content|>2.7 货运业务员\n<|id|>63<|type|>table<|page|>5<|box|>386 137 559 891<|content|>None\n<|id|>68<|type|>title<|page|>5<|box|>659 137 674 273<|content|>2.9 衡器操作工\n<|id|>70<|type|>title<|page|>5<|box|>698 136 713 331<|content|>2.10 装卸机械修理人员\n<|id|>72<|type|>table<|page|>5<|box|>753 139 917 892<|content|>None\n<|id|>73<|type|>table<|page|>6<|box|>123 128 422 893<|content|>None\n<|id|>78<|type|>title<|page|>6<|box|>523 128 538 326<|content|>2.11 装卸工索具修制工\n<|id|>80<|type|>title<|page|>6<|box|>561 128 576 327<|content|>2.12 装卸工属具收发工\n<|id|>82<|type|>title<|page|>6<|box|>599 128 614 275<|content|>2.13 港口系缆工\n<|id|>84<|type|>title<|page|>6<|box|>656 128 671 360<|content|>2.14 装卸机械运行技术人员\n<|id|>86<|type|>title<|page|>6<|box|>694 128 709 360<|content|>2.15 队(车间)生产管理人员\n<|id|>91<|type|>title<|page|>6<|box|>789 130 803 310<|content|>2.16 现场安全监督员\n<|id|>94<|type|>title<|page|>6<|box|>846 130 860 345<|content|>2.17 现场货运质量监督员\n<|id|>97<|type|>title<|page|>7<|box|>117 123 132 289<|content|>3 全部定员计算方法\n<|id|>98<|type|>title<|page|>7<|box|>144 123 159 257<|content|>3.1 港口装卸工\n<|id|>106<|type|>title<|page|>7<|box|>329 123 344 274<|content|>3.2 装卸机械司机\n<|id|>111<|type|>title<|page|>7<|box|>440 125 455 241<|content|>3.3 其他岗位",
+    "raw_response": "<|src_id|>39<|tgt_id|>37\n<|src_id|>42<|tgt_id|>40\n<|src_id|>63<|tgt_id|>54\n<|src_id|>72<|tgt_id|>70\n<|src_id|>73<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 70
+        }
+    ]
+}

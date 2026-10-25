@@ -1,0 +1,119 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wlb151hs\\input\\pdfs\\doc-6c3e49d6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wlb151hs\\enriched\\doc-6c3e49d6.json",
+    "contd_output": "<|src_id|>11<|tgt_id|>12\n<|src_id|>39<|tgt_id|>40",
+    "title_output": "<|id|>8<|level|>1\n<|id|>16<|level|>1\n<|id|>24<|level|>1\n<|id|>25<|level|>2\n<|id|>30<|level|>2\n<|id|>49<|level|>2\n<|id|>70<|level|>2\n<|id|>77<|level|>1\n<|id|>84<|level|>1\n<|id|>89<|level|>1\n<|id|>90<|level|>2\n<|id|>100<|level|>2\n<|id|>108<|level|>2\n<|id|>115<|level|>1\n<|id|>116<|level|>2\n<|id|>120<|level|>2\n<|id|>128<|level|>1",
+    "image_output": "<|src_id|>118<|tgt_id|>116\n<|src_id|>119<|tgt_id|>116",
+    "contd_label": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 116
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 118,
+            "table2_idx": 119,
+            "upper_row_ss": [
+                [
+                    "Geographic Scope",
+                    "Worldwide",
+                    "North America + Western Europe",
+                    "Worldwide carries material litigation risk for NY-governed agreement; NA + WE more defensible and sufficient for core interests; NA + WE"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "recommended"
+                ]
+            ]
+        }
+    ]
+}

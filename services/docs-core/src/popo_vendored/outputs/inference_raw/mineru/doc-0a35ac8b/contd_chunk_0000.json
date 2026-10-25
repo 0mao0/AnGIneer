@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        36
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        12,
+        13,
+        14,
+        18,
+        19,
+        28,
+        29,
+        30,
+        31,
+        36
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>142 436 157 563<|content|>March 21, 2026\n<|id|>2<|page|>1<|box|>167 140 196 852<|content|>Prepared by: ... CNB-TLF-2026-0389\n<|id|>3<|page|>1<|box|>205 140 315 854<|content|>This Term Sheet is for discussion purposes only an...ty agreements, and all related ancillary documents\n<|id|>11<|page|>1<|box|>771 140 882 856<|content|>Meridian Cloud Solutions Inc. ... Meridian is headquartered at 450 Technology Parkway, Suite 800,\n<|id|>12<|page|>2<|box|>89 140 126 854<|content|>Austin, Texas 78759, and maintains additional offi... sales, engineering, and client success operations\n<|id|>36<|page|>4<|box|>90 174 125 854<|content|>(b) Meridian Cloud Solutions Inc. ... and\n<|id|>38<|page|>4<|box|>196 140 251 854<|content|>Each Guarantor (other than the Sponsor, whose guar...er the Credit Agreement and related loan documents\n<|id|>53<|page|>5<|box|>90 174 126 854<|content|>(b) To pay fees, costs, and expenses incurred in c...ion and the establishment of the Facility; ... and\n<|id|>55<|page|>5<|box|>160 140 234 854<|content|>The Borrower shall not use any proceeds of the Ter... law, including anti-corruption laws and sanctions\n<|id|>152<|page|>12<|box|>858 140 895 854<|content|>UCC-1 financing statements shall be filed with the...n) with respect to the Borrower and Meridian Cloud\n<|id|>153<|page|>13<|box|>90 140 219 856<|content|>Solutions Inc. ... The Administrative Agent shall ... perfection and priority of the security interests\n<|id|>161<|page|>13<|box|>532 176 569 854<|content|>(f) Intent-to-use trademark applications to the ex...of such applications under applicable law; ... and\n<|id|>163<|page|>13<|box|>602 140 638 852<|content|>The specific scope of excluded assets shall be sub...e and security agreements and the Credit Agreement\n<|id|>178<|page|>14<|box|>667 174 686 751<|content|>(v) extraordinary, unusual, or non-recurring losses, charges, and expenses; ... and\n<|id|>180<|page|>14<|box|>737 140 792 854<|content|>The specific add-backs, exclusions, and limitation...ies and shall be finalized in the Credit Agreement\n<|id|>243<|page|>18<|box|>806 176 824 478<|content|>(vii) Average contract value (ACV); ... and\n<|id|>245<|page|>19<|box|>90 140 236 857<|content|>Compliance Certificates: ... Delivered concurrentl...cy of the financial statements delivered therewith\n<|id|>328<|page|>28<|box|>311 174 329 844<|content|>(d) Modifications to the Excess Cash Flow sweep percentages or step-down thresholds; ... and\n<|id|>330<|page|>28<|box|>381 140 491 856<|content|>All market flex modifications shall be subject to ... prior written consent of the Administrative Agent\n<|id|>342<|page|>29<|box|>825 140 881 856<|content|>Service of Process: ... Each party consents to ser...ccordance with the notice provisions of the Credit\n<|id|>343<|page|>30<|box|>90 140 126 854<|content|>Agreement). ... Nothing in this provision shall af...ss in any other manner permitted by applicable law\n<|id|>360<|page|>31<|box|>681 176 699 359<|content|>(c) Natural persons; ... and\n<|id|>362<|page|>31<|box|>752 140 806 854<|content|>The disqualified lender list shall be delivered to...ee except in connection with a proposed assignment\n<|id|>409<|page|>36<|box|>496 142 513 431<|content|>Accepted and Agreed as of ____, 2026\n<|id|>410<|page|>36<|box|>522 140 554 854<|content|>BRINDOVAL NATIONAL BANK, N. ... as Sole Lead Arranger, Sole Bookrunner, and Administrative Agent\n<|id|>411<|page|>36<|box|>556 143 571 254<|content|>By: ... By\n<|id|>412<|page|>36<|box|>573 143 588 315<|content|>Name: ... Thomas Wilder\n<|id|>413<|page|>36<|box|>589 142 607 566<|content|>Title: ... Managing Director, Technology Leveraged Finance\n<|id|>414<|page|>36<|box|>608 143 623 264<|content|>Date: ... Date\n<|id|>415<|page|>36<|box|>625 142 640 576<|content|>SOLARA DIGITAL ACQUISITION HOLDINGS LLC\n<|id|>416<|page|>36<|box|>642 143 657 251<|content|>By: ... By\n<|id|>417<|page|>36<|box|>659 142 674 300<|content|>Name: ... Viktor Strand\n<|id|>418<|page|>36<|box|>676 143 693 348<|content|>Title: ... Authorized Signatory\n<|id|>419<|page|>36<|box|>694 143 709 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>36<|tgt_id|>38\n<|src_id|>152<|tgt_id|>153\n<|src_id|>342<|tgt_id|>343",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 342,
+            "tgt_id": 343
+        }
+    ]
+}

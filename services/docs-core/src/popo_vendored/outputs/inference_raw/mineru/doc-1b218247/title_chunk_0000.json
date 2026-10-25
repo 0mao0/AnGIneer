@@ -1,0 +1,150 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>555 352 574 643<|content|>I. EXECUTIVE SUMMARY\n<|id|>18<|page|>2<|box|>623 210 643 785<|content|>II. DOCKET ACTIVITY AND COURT PROCEEDINGS\n<|id|>25<|page|>3<|box|>205 258 226 738<|content|>III. DOCUMENT PRODUCTIONS — STATUS\n<|id|>26<|page|>3<|box|>251 140 268 441<|content|>A. Stonefield's Production (Complete)\n<|id|>31<|page|>3<|box|>652 140 669 828<|content|>B. Vantor's Production (Complete — First Productio\n<|id|>36<|page|>4<|box|>267 140 284 573<|content|>C. Interrogatory and Request for Admission Respons\n<|id|>48<|page|>5<|box|>320 143 340 852<|content|>IV. KEY DOCUMENTS IDENTIFIED IN VANTOR'S PRODUCTIO\n<|id|>49<|page|>5<|box|>364 140 383 694<|content|>A. Milescu-to-Vantorovich Email (VHC-008417) — Nov\n<|id|>61<|page|>6<|box|>564 140 582 372<|content|>B. Other Notable Documents\n<|id|>68<|page|>7<|box|>494 150 539 844<|content|>V. DISCOVERY DISPUTE — STONEFIELD'S SECOND REQUEST\n<|id|>69<|page|>7<|box|>564 142 580 267<|content|>A. Background\n<|id|>77<|page|>8<|box|>242 140 258 325<|content|>B. Vantor's Objections\n<|id|>81<|page|>8<|box|>580 140 598 305<|content|>C. Meet-and-Confer\n<|id|>88<|page|>9<|box|>135 173 155 823<|content|>VI. EXPERT REPORTS — PLAINTIFF'S DAMAGES EXPERT\n<|id|>89<|page|>9<|box|>180 140 196 558<|content|>A. Dr. Philip Trask — Trask Greystone & Associates\n<|id|>94<|page|>9<|box|>707 140 724 580<|content|>B. Preliminary Assessment of Trask Report Weakness\n<|id|>102<|page|>11<|box|>89 150 137 846<|content|>VII. REBUTTAL EXPERT — KENSINGTON ANALYTICS GROUP\n<|id|>120<|page|>12<|box|>420 315 439 681<|content|>VIII. DEPOSITION SCHEDULING\n<|id|>128<|page|>14<|box|>488 323 507 674<|content|>IX. THIRD-PARTY SUBPOENAS\n<|id|>135<|page|>15<|box|>154 277 172 718<|content|>X. LENDER AND INSURANCE UPDATES\n<|id|>136<|page|>15<|box|>199 142 215 323<|content|>A. Lender Notification\n<|id|>139<|page|>15<|box|>420 142 436 325<|content|>B. Insurance Coverage\n<|id|>144<|page|>15<|box|>665 369 684 627<|content|>XI. BUDGET AND FEES\n<|id|>145<|page|>15<|box|>710 142 728 313<|content|>A. May 2023 Activity\n<|id|>148<|page|>16<|box|>148 142 167 380<|content|>B. Cumulative Fees and Costs\n<|id|>151<|page|>16<|box|>343 140 359 393<|content|>C. Expert and eDiscovery Costs\n<|id|>154<|page|>16<|box|>508 142 525 341<|content|>D. Overall Budget Status\n<|id|>156<|page|>16<|box|>652 220 672 774<|content|>XII. UPCOMING KEY DATES AND ACTION ITEMS\n<|id|>160<|page|>17<|box|>397 184 417 810<|content|>XIII. OVERALL ASSESSMENT AND RECOMMENDATION\n<|id|>172<|page|>18<|box|>722 413 741 581<|content|>XIV. CLOSING",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>18<|level|>1\n<|id|>25<|level|>1\n<|id|>26<|level|>2\n<|id|>31<|level|>2\n<|id|>36<|level|>2\n<|id|>48<|level|>1\n<|id|>49<|level|>2\n<|id|>61<|level|>2\n<|id|>68<|level|>1\n<|id|>69<|level|>2\n<|id|>77<|level|>2\n<|id|>81<|level|>2\n<|id|>88<|level|>1\n<|id|>89<|level|>2\n<|id|>94<|level|>2\n<|id|>102<|level|>1\n<|id|>120<|level|>1\n<|id|>128<|level|>1\n<|id|>135<|level|>1\n<|id|>136<|level|>2\n<|id|>139<|level|>2\n<|id|>144<|level|>1\n<|id|>145<|level|>2\n<|id|>148<|level|>2\n<|id|>151<|level|>2\n<|id|>154<|level|>2\n<|id|>156<|level|>1\n<|id|>160<|level|>1\n<|id|>172<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        }
+    ]
+}

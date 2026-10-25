@@ -1,0 +1,59 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21,
+        22,
+        23,
+        24
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 143 155 821<|content|>CALDERWOOD & HARKNESS LLP 425 Park Avenue New York\n<|id|>2<|type|>table<|page|>1<|box|>162 143 305 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>364 387 383 611<|content|>I. Executive Summary\n<|id|>10<|type|>title<|page|>2<|box|>253 321 272 674<|content|>II. Structure of the MAE Definition\n<|id|>11<|type|>title<|page|>2<|box|>297 142 314 331<|content|>A. The Two-Prong Test\n<|id|>14<|type|>title<|page|>2<|box|>503 140 520 547<|content|>Several features of this formulation warrant discu\n<|id|>26<|type|>title<|page|>3<|box|>625 140 641 424<|content|>B. Relationship to MIPA Provisions\n<|id|>45<|type|>title<|page|>5<|box|>90 228 111 767<|content|>III. Exclusions (Carve-Outs) from the MAE Definiti\n<|id|>47<|type|>title<|page|>5<|box|>279 140 297 434<|content|>A. Seller's Draft — Initial Exclusions\n<|id|>59<|type|>title<|page|>6<|box|>674 140 691 488<|content|>B. Buyer's Counter-Proposals on Exclusions\n<|id|>66<|type|>title<|page|>7<|box|>801 140 819 604<|content|>C. Calderwood & Harkness LLP's Recommended Positio\n<|id|>73<|type|>title<|page|>9<|box|>190 202 210 792<|content|>IV. Disproportionate-Impact Qualifier — Detailed A\n<|id|>74<|type|>title<|page|>9<|box|>236 140 253 501<|content|>A. Description of Buyer's Proposed Language\n<|id|>80<|type|>title<|page|>9<|box|>827 142 844 310<|content|>B. Market Precedent\n<|id|>87<|type|>title<|page|>10<|box|>755 140 772 388<|content|>C. Our Recommended Position\n<|id|>94<|type|>title<|page|>11<|box|>703 140 720 470<|content|>D. Resolution Reached (as of Memo Date)\n<|id|>100<|type|>title<|page|>12<|box|>449 267 467 730<|content|>V. Analysis of Additional Contested Provisions\n<|id|>101<|type|>title<|page|>12<|box|>494 140 510 455<|content|>A. Announcement / Pendency Exclusion\n<|id|>110<|type|>title<|page|>13<|box|>810 140 827 367<|content|>B. Known Trends Exception\n<|id|>116<|type|>title<|page|>14<|box|>674 140 691 326<|content|>C. Pandemic Exclusion\n<|id|>121<|type|>title<|page|>15<|box|>494 140 511 395<|content|>D. Decline in Operating Metrics\n<|id|>128<|type|>title<|page|>16<|box|>315 179 359 816<|content|>VI. Comparison to Calderwood & Harkness LLP Recomm\n<|id|>130<|type|>table<|page|>16<|box|>455 143 906 852<|content|>None\n<|id|>131<|type|>table<|page|>17<|box|>88 143 142 852<|content|>None\n<|id|>135<|type|>title<|page|>17<|box|>511 243 531 753<|content|>VII. Remaining Open Items and Recommendations\n<|id|>142<|type|>title<|page|>18<|box|>500 411 518 584<|content|>VIII. Conclusion\n<|id|>148<|type|>title<|page|>20<|box|>90 274 111 723<|content|>Appendix A: Side-by-Side Comparison Table\n<|id|>150<|type|>table<|page|>20<|box|>227 143 902 852<|content|>None\n<|id|>151<|type|>table<|page|>21<|box|>89 143 900 852<|content|>None\n<|id|>152<|type|>table<|page|>22<|box|>89 143 125 852<|content|>None\n<|id|>153<|type|>title<|page|>23<|box|>90 246 111 750<|content|>Appendix B: Key Defined Terms Cross-References\n<|id|>155<|type|>title<|page|>23<|box|>191 140 209 573<|content|>Article III — Representations and Warranties of Se\n<|id|>165<|type|>title<|page|>23<|box|>797 142 813 328<|content|>Article V — Covenants\n<|id|>167<|type|>title<|page|>24<|box|>128 142 145 419<|content|>Article VI — Conditions to Closing\n<|id|>170<|type|>title<|page|>24<|box|>304 142 319 383<|content|>Article VII — Indemnification\n<|id|>172<|type|>title<|page|>24<|box|>494 142 512 294<|content|>Closing Certificate",
+    "raw_response": "<|src_id|>2<|tgt_id|>1\n<|src_id|>130<|tgt_id|>128\n<|src_id|>131<|tgt_id|>128\n<|src_id|>150<|tgt_id|>148\n<|src_id|>151<|tgt_id|>148\n<|src_id|>152<|tgt_id|>148",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 148
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['CA #1', 'Ontario,', 'Inland', '385,000', '06/30/20', '1 x 5 yr.', '$4,466,0', 'Yes', 'Reasona', 'Pending']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'CA', 'Logistics Properties LLC', '', '29', '', '00', '', 'bleness', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 328,
+    "table2_idx": 329
+}

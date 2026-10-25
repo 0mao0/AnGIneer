@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 352 118 645<|content|>OFFICER'S CERTIFICATE\n<|id|>1<|type|>title<|page|>1<|box|>136 354 154 643<|content|>Satisfaction of Conditions to Closing\n<|id|>7<|type|>title<|page|>1<|box|>618 140 635 545<|content|>Section 1. Minimum Condition — Tender of Shares\n<|id|>11<|type|>table<|page|>2<|box|>89 143 243 852<|content|>None\n<|id|>15<|type|>title<|page|>2<|box|>464 142 482 848<|content|>The Minimum Condition set forth in Section 7.01(a)\n<|id|>17<|type|>title<|page|>2<|box|>714 140 732 573<|content|>Section 2. Regulatory Condition — HSR Act Clearanc\n<|id|>23<|type|>title<|page|>3<|box|>366 140 383 687<|content|>Section 3. Regulatory Condition — Investment Canad\n<|id|>29<|type|>title<|page|>4<|box|>90 140 107 696<|content|>Section 4. Representations and Warranties of Ridge\n<|id|>43<|type|>title<|page|>6<|box|>366 140 383 439<|content|>Section 5. No Material Adverse Effect\n<|id|>51<|type|>title<|page|>7<|box|>150 140 167 444<|content|>Section 6. Compliance with Covenants\n<|id|>58<|type|>title<|page|>8<|box|>148 140 167 426<|content|>Section 7. Additional Confirmations\n<|id|>69<|type|>title<|page|>9<|box|>520 140 537 486<|content|>Section 8. Short-Form Merger Qualification\n<|id|>74<|type|>title<|page|>10<|box|>186 140 204 490<|content|>Section 9. No Other Conditions Outstanding\n<|id|>79<|type|>title<|page|>10<|box|>516 413 532 584<|content|>EXECUTION PAGE",
+    "raw_response": "<|src_id|>11<|tgt_id|>7",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 7
+        }
+    ]
+}

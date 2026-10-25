@@ -1,0 +1,107 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ie80f2ux\\input\\pdfs\\doc-2848a78a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ie80f2ux\\enriched\\doc-2848a78a.json",
+    "contd_output": "<|src_id|>85<|tgt_id|>86",
+    "title_output": "<|id|>0<|level|>1\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>27<|level|>3\n<|id|>46<|level|>3\n<|id|>51<|level|>3\n<|id|>64<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>2\n<|id|>95<|level|>2\n<|id|>103<|level|>2\n<|id|>111<|level|>2\n<|id|>115<|level|>2\n<|id|>122<|level|>2\n<|id|>142<|level|>2",
+    "image_output": "<|src_id|>15<|tgt_id|>13\n<|src_id|>16<|tgt_id|>13",
+    "contd_label": [
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 13
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 15,
+            "table2_idx": 16,
+            "upper_row_ss": [
+                [
+                    "Insurer",
+                    "Garrison Mutual Insurance Co., Hamilton, Bermuda"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Policy Limits",
+                    "$50,000,000 aggregate; $10,000,000 per claim"
+                ]
+            ]
+        }
+    ]
+}

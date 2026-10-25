@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        25,
+        26,
+        27
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>112 200 155 797<|content|>What Ails Generative Structure-based Drug Design:\n<|id|>5<|type|>title<|page|>1<|box|>290 248 308 338<|content|>Abstract\n<|id|>7<|type|>title<|page|>1<|box|>797 98 814 316<|content|>1 INTRODUCTION\n<|id|>15<|type|>title<|page|>2<|box|>737 98 753 364<|content|>1.1 Contributions of this work\n<|id|>21<|type|>title<|page|>2<|box|>321 509 356 898<|content|>2 PRELIMINARIES AND RELATED WORK\n<|id|>28<|type|>title<|page|>3<|box|>594 96 628 465<|content|>3 REPRESENTATION LIMITS OF GNNS FOR SBDD\n<|id|>43<|type|>image<|page|>4<|box|>85 114 243 880<|content|>None\n<|id|>46<|type|>title<|page|>4<|box|>642 98 676 450<|content|>4 SIMPLE STRUCTURE-BASED DRUG DESIGN\n<|id|>48<|type|>title<|page|>4<|box|>801 96 833 447<|content|>4.1 Decoupling the unlabelled molecular graph from\n<|id|>55<|type|>image<|page|>5<|box|>87 117 369 870<|content|>None\n<|id|>56<|type|>title<|page|>5<|box|>580 98 595 375<|content|>4.2 Performance-aware learning\n<|id|>66<|type|>title<|page|>6<|box|>585 98 602 264<|content|>4.3 Atom sampler\n<|id|>73<|type|>title<|page|>6<|box|>261 509 277 648<|content|>5 RESULTS\n<|id|>75<|type|>title<|page|>6<|box|>429 509 459 885<|content|>5.1 Assessing general properties of sampled molecu\n<|id|>78<|type|>table<|page|>7<|box|>160 122 304 872<|content|>None\n<|id|>79<|type|>title<|page|>7<|box|>329 98 345 323<|content|>5.2 Additional evaluation\n<|id|>88<|type|>image<|page|>8<|box|>95 125 420 870<|content|>None\n<|id|>89<|type|>table<|page|>8<|box|>564 124 667 872<|content|>None\n<|id|>91<|type|>title<|page|>8<|box|>691 508 724 875<|content|>6 CONCLUSION AND BROADER IMPACT\n<|id|>96<|type|>title<|page|>9<|box|>369 98 387 285<|content|>7 LIMITATIONS\n<|id|>104<|type|>title<|page|>9<|box|>213 509 229 663<|content|>Acknowledgments\n<|id|>106<|type|>title<|page|>9<|box|>359 509 375 604<|content|>References\n<|id|>187<|type|>title<|page|>13<|box|>443 98 460 192<|content|>Checklist\n<|id|>211<|type|>title<|page|>14<|box|>88 96 123 877<|content|>A DECOUPLING THE UNLABELLED MOLECULAR GRAPH FROM T\n<|id|>213<|type|>title<|page|>14<|box|>175 98 190 240<|content|>A.1 Vina score\n<|id|>219<|type|>title<|page|>14<|box|>497 98 513 611<|content|>A.2 Influence of unlabelled molecular graphs on Vi\n<|id|>222<|type|>title<|page|>14<|box|>779 98 794 553<|content|>A.3 Justification of the model decomposition - Gni\n<|id|>225<|type|>title<|page|>15<|box|>400 98 416 362<|content|>A.4 Generality of the findings\n<|id|>228<|type|>table<|page|>15<|box|>669 225 781 771<|content|>None\n<|id|>229<|type|>title<|page|>15<|box|>811 96 829 875<|content|>B TRADEOFF BETWEEN BINDING AFFINITY PREDICTION AND\n<|id|>232<|type|>title<|page|>16<|box|>636 96 654 805<|content|>C CHEMICAL DIVERSITY WITH FIXED UNLABELLED GRAPHS\n<|id|>238<|type|>title<|page|>17<|box|>540 96 558 754<|content|>D BINDING AFFINITY APPROXIMATION MODEL DETAILS\n<|id|>246<|type|>title<|page|>18<|box|>327 96 344 281<|content|>D.1 Training details\n<|id|>248<|type|>title<|page|>18<|box|>465 96 483 586<|content|>E RDKit POSE GENERATION VARIABILITY\n<|id|>251<|type|>title<|page|>18<|box|>772 96 790 598<|content|>F LIGAND’S CENTER OF MASS PREDICTOR\n<|id|>259<|type|>title<|page|>19<|box|>373 96 390 550<|content|>G ADDITIONAL MOLECULAR METRICS\n<|id|>261<|type|>title<|page|>19<|box|>517 96 532 408<|content|>G.1 Novelty of generated molecules\n<|id|>263<|type|>table<|page|>19<|box|>660 223 849 772<|content|>None\n<|id|>264<|type|>title<|page|>19<|box|>885 96 902 519<|content|>H BASELINE COMPARISON DETAILS\n<|id|>266<|type|>table<|page|>20<|box|>175 202 241 794<|content|>None\n<|id|>273<|type|>title<|page|>20<|box|>698 96 715 658<|content|>I SIMPLESBDD WITH PROPERTY OPTIMIZATION\n<|id|>275<|type|>title<|page|>20<|box|>809 96 825 269<|content|>I.1 Ablation study\n<|id|>278<|type|>table<|page|>21<|box|>130 122 218 872<|content|>None\n<|id|>279<|type|>table<|page|>21<|box|>304 202 378 792<|content|>None\n<|id|>280<|type|>title<|page|>21<|box|>454 98 472 377<|content|>J DRUG REPURPOSING\n<|id|>282<|type|>title<|page|>21<|box|>583 96 601 665<|content|>K REPRESENTATION LIMITS OF GNNS FOR SBDD\n<|id|>291<|type|>image<|page|>22<|box|>88 116 190 880<|content|>None\n<|id|>349<|type|>image<|page|>25<|box|>88 295 166 700<|content|>None\n<|id|>363<|type|>title<|page|>25<|box|>705 96 720 323<|content|>K.1 Persistent Homology\n<|id|>375<|type|>title<|page|>26<|box|>392 96 409 857<|content|>L EMPIRICAL DEMONSTRATION OF THE THEORETICAL ANALY\n<|id|>385<|type|>title<|page|>26<|box|>787 98 804 254<|content|>M LICENSES\n<|id|>386<|type|>title<|page|>26<|box|>823 98 835 174<|content|>Datasets\n<|id|>390<|type|>image<|page|>27<|box|>89 99 276 483<|content|>None\n<|id|>391<|type|>image<|page|>27<|box|>133 513 290 895<|content|>None\n<|id|>392<|type|>image<|page|>27<|box|>286 238 337 349<|content|>None\n<|id|>393<|type|>image<|page|>27<|box|>296 640 337 784<|content|>None\n<|id|>395<|type|>title<|page|>27<|box|>424 96 439 263<|content|>Pre-trained models\n<|id|>404<|type|>title<|page|>27<|box|>665 98 681 254<|content|>Chemical software",
+    "raw_response": "",
+    "parsed": []
+}

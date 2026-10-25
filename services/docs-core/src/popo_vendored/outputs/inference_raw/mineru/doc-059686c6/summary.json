@@ -1,0 +1,163 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mw5eosm9\\input\\pdfs\\doc-059686c6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mw5eosm9\\enriched\\doc-059686c6.json",
+    "contd_output": "<|src_id|>76<|tgt_id|>77",
+    "title_output": "<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>2\n<|id|>36<|level|>2\n<|id|>40<|level|>2\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>69<|level|>2\n<|id|>72<|level|>2\n<|id|>87<|level|>1\n<|id|>96<|level|>1\n<|id|>98<|level|>2\n<|id|>108<|level|>2\n<|id|>119<|level|>2\n<|id|>126<|level|>2\n<|id|>131<|level|>2\n<|id|>143<|level|>2\n<|id|>150<|level|>2\n<|id|>158<|level|>2\n<|id|>167<|level|>2\n<|id|>175<|level|>1\n<|id|>179<|level|>1\n<|id|>196<|level|>1",
+    "image_output": "<|src_id|>30<|tgt_id|>25\n<|src_id|>58<|tgt_id|>56\n<|src_id|>60<|tgt_id|>59\n<|src_id|>62<|tgt_id|>56\n<|src_id|>63<|tgt_id|>56\n<|src_id|>70<|tgt_id|>69\n<|src_id|>160<|tgt_id|>158\n<|src_id|>177<|tgt_id|>175",
+    "contd_label": [
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 179,
+            "level": 1
+        },
+        {
+            "id": 196,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 30,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 158
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 175
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 62,
+            "table2_idx": 63,
+            "upper_row_ss": [
+                [
+                    "Other Operating Expenses",
+                    "$83,760"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Total Operating Expenses",
+                    "$3,836,000"
+                ]
+            ]
+        }
+    ]
+}

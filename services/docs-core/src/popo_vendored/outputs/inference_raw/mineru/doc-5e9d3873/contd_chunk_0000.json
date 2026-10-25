@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        14,
+        19
+    ],
+    "pages": [
+        14,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>89<|page|>14<|box|>888 147 907 848<|content|>DECEPTIVE ACTS AND PRACTICES NEW YORK GENERAL BUSINESS LAW § 349\n<|id|>90<|page|>14<|box|>916 142 930 388<|content|>CONFIDENTIAL — Attorney Work Product\n<|id|>111<|page|>16<|box|>775 143 885 856<|content|>74. ... Meridian also maintains business relations...ational and regional retailers that carry and sell\n<|id|>112<|page|>17<|box|>90 174 126 854<|content|>DermaTrūe products, each of which constitutes a va...hip that has been placed at risk by Apex's conduct\n<|id|>120<|page|>17<|box|>828 174 901 857<|content|>(a) Preliminary Injunction: ... to immediately cea...tional television, digital video platforms (Crowne\n<|id|>121<|page|>18<|box|>90 174 219 857<|content|>Albany Partners LLC, Dunmore & Co. ... and to refr... medium, pending final adjudication of this action\n<|id|>138<|page|>19<|box|>449 140 467 553<|content|>Executed on September 26, 2025 New York, New York\n<|id|>139<|page|>19<|box|>500 140 532 854<|content|>Derek Cho General Counsel Meridian Consumer Brands...t 34th Street, 18th Floor New York, New York 10001\n<|id|>140<|page|>19<|box|>532 140 551 562<|content|>STATE OF NEW YORK COUNTY OF NEW YORK\n<|id|>141<|page|>19<|box|>559 140 577 650<|content|>Subscribed and sworn to before me this 26th day of...worn to before me this 26th day of September, 2025\n<|id|>142<|page|>19<|box|>612 140 646 633<|content|>Notary Public, State of New York My Commission Expires: ... ____ CALDERWOOD & HARKNESS LLP\n<|id|>143<|page|>19<|box|>664 140 681 527<|content|>Linda Osei (Bar No. ... LO-4892) Responsible Partner\n<|id|>144<|page|>19<|box|>681 140 714 852<|content|>Priya Anand (Bar No. ... SL-9044)\n<|id|>145<|page|>19<|box|>714 140 766 854<|content|>Calderwood & Harkness LLP 600 Lexington Avenue, 30...torneys for Plaintiff Meridian Consumer Brands LLC\n<|id|>146<|page|>19<|box|>765 651 782 854<|content|>Dated: ... September 26, 2025",
+    "raw_response": "<|src_id|>111<|tgt_id|>112\n<|src_id|>120<|tgt_id|>121",
+    "parsed": [
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 121
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        91,
+        142
+    ],
+    "pages": [
+        92,
+        94,
+        107,
+        108,
+        110,
+        111,
+        112,
+        114,
+        140,
+        141,
+        142
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>284<|page|>92<|box|>156 781 178 840<|content|>单位: ... 10\\mathrm{m}^3\n<|id|>287<|page|>94<|box|>155 186 176 229<|content|>续前页\n<|id|>345<|page|>107<|box|>164 753 187 825<|content|>单位: ... 1000\\mathrm{m}^2\n<|id|>347<|page|>108<|box|>176 165 198 208<|content|>续前页\n<|id|>348<|page|>108<|box|>176 747 198 820<|content|>单位: ... 1000\\mathrm{m}^2\n<|id|>351<|page|>110<|box|>176 171 197 213<|content|>续前页\n<|id|>354<|page|>111<|box|>184 404 209 570<|content|>1-4-4 砌石防护工程\n<|id|>355<|page|>111<|box|>230 160 284 843<|content|>工程内容 1) 挖基； ... 6) 防水层、滤水层、泄水管、沉降缝设置等\n<|id|>358<|page|>112<|box|>178 742 203 831<|content|>单位: ... 10m^{3} 实体\n<|id|>361<|page|>114<|box|>176 170 197 213<|content|>续前页\n<|id|>449<|page|>140<|box|>176 759 199 832<|content|>单位: ... 1000m^{2}\n<|id|>451<|page|>141<|box|>180 172 201 216<|content|>续前页\n<|id|>452<|page|>141<|box|>178 750 201 821<|content|>单位: ... 1000m^{2}\n<|id|>454<|page|>142<|box|>182 176 203 218<|content|>续前页",
+    "raw_response": "<|src_id|>347<|tgt_id|>348",
+    "parsed": [
+        {
+            "src_id": 347,
+            "tgt_id": 348
+        }
+    ]
+}

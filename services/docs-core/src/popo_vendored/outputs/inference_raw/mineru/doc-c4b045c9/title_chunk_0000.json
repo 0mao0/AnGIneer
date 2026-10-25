@@ -1,0 +1,86 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 310 106 686<|content|>MUTUAL NON-DISCLOSURE AGREEMENT\n<|id|>3<|page|>1<|box|>194 310 210 687<|content|>MUTUAL NON-DISCLOSURE AGREEMENT\n<|id|>6<|page|>1<|box|>328 140 344 176<|content|>and\n<|id|>9<|page|>1<|box|>474 140 492 241<|content|>RECITALS\n<|id|>15<|page|>2<|box|>167 140 184 374<|content|>SECTION 1: DEFINITIONS\n<|id|>38<|page|>4<|box|>347 140 364 558<|content|>SECTION 2: CONFIDENTIALITY OBLIGATIONS\n<|id|>43<|page|>5<|box|>486 140 503 491<|content|>SECTION 3: COMPELLED DISCLOSURE\n<|id|>49<|page|>6<|box|>512 140 529 475<|content|>SECTION 4: STANDSTILL PROVISION\n<|id|>57<|page|>7<|box|>439 140 455 581<|content|>SECTION 5: NON-SOLICITATION OF EMPLOYEES\n<|id|>63<|page|>8<|box|>148 140 166 473<|content|>SECTION 6: RESIDUAL KNOWLEDGE\n<|id|>70<|page|>8<|box|>619 140 637 821<|content|>SECTION 7: RETURN AND DESTRUCTION OF CONFIDENTIAL\n<|id|>79<|page|>9<|box|>718 140 734 622<|content|>SECTION 8: NO REPRESENTATIONS OR WARRANTIES\n<|id|>83<|page|>10<|box|>303 140 320 684<|content|>SECTION 9: NO AGREEMENT; NO OBLIGATION TO PROCEED\n<|id|>86<|page|>10<|box|>707 140 724 359<|content|>SECTION 10: REMEDIES\n<|id|>89<|page|>11<|box|>321 140 338 459<|content|>SECTION 11: TERM AND SURVIVAL\n<|id|>92<|page|>11<|box|>689 140 705 421<|content|>SECTION 12: MISCELLANEOUS\n<|id|>96<|page|>12<|box|>253 140 327 854<|content|>PARTY HEREBY IRREVOCABLY WAIVES, TO THE FULLEST EX\n<|id|>117<|page|>14<|box|>263 400 280 596<|content|>[Signature Page Follows]\n<|id|>119<|page|>14<|box|>332 142 348 390<|content|>BELMONT RIDGE BANK NA",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>6<|level|>-1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>38<|level|>2\n<|id|>43<|level|>2\n<|id|>49<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>79<|level|>2\n<|id|>83<|level|>2\n<|id|>86<|level|>2\n<|id|>89<|level|>2\n<|id|>92<|level|>2\n<|id|>96<|level|>-1\n<|id|>117<|level|>-1\n<|id|>119<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        }
+    ]
+}

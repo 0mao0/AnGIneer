@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Pinnacle Federal Bank, N.A.', '$421,600,000', '4.22% (fixed)', 'July 1, 2028', '8 logistics properties (Fairfield I, Fairfield II, Westlake, Katy, Alliance,', 'Master Loan Agreement dated September 15, 2020']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'Lakeland, Southport, Murfreesboro)', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 235,
+    "table2_idx": 236
+}

@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>140 145 275 852<|content|>None\n<|id|>1<|type|>title<|page|>1<|box|>309 292 325 705<|content|>COMPLAINT FOR DECLARATORY JUDGMENT\n<|id|>3<|type|>title<|page|>1<|box|>375 142 392 292<|content|>INTRODUCTION\n<|id|>8<|type|>title<|page|>2<|box|>204 142 220 269<|content|>THE PARTIES\n<|id|>11<|type|>title<|page|>2<|box|>619 142 637 390<|content|>JURISDICTION AND VENUE\n<|id|>15<|type|>title<|page|>3<|box|>315 142 332 372<|content|>FACTUAL ALLEGATIONS\n<|id|>16<|type|>title<|page|>3<|box|>345 140 364 437<|content|>A. The Parties' Business Relationship\n<|id|>20<|type|>title<|page|>4<|box|>138 140 157 467<|content|>B. The Exclusive Distribution Agreement\n<|id|>44<|type|>title<|page|>6<|box|>157 140 175 452<|content|>C. The January 12, 2018 Kapoor Email\n<|id|>49<|type|>title<|page|>6<|box|>667 140 685 531<|content|>D. Vantage's Unauthorized Tri-State Distribution\n<|id|>52<|type|>title<|page|>7<|box|>231 140 248 575<|content|>E. Penterra's Efforts to Appoint a Tri-State Distr\n<|id|>54<|type|>title<|page|>7<|box|>523 140 540 465<|content|>F. The Cease-and-Desist Correspondence\n<|id|>57<|type|>title<|page|>8<|box|>194 140 212 359<|content|>G. The Actual Controversy\n<|id|>59<|type|>title<|page|>8<|box|>606 140 623 227<|content|>COUNT I\n<|id|>60<|type|>title<|page|>8<|box|>637 140 654 627<|content|>DECLARATORY JUDGMENT — SCOPE OF TERRITORY\n<|id|>73<|type|>title<|page|>10<|box|>222 140 239 339<|content|>PRAYER FOR RELIEF\n<|id|>81<|type|>title<|page|>10<|box|>669 142 685 282<|content|>JURY DEMAND\n<|id|>84<|type|>title<|page|>10<|box|>765 392 782 854<|content|>PENTERRA PHARMACEUTICALS CORP., By its attorneys,\n<|id|>89<|type|>title<|page|>11<|box|>162 140 179 388<|content|>CERTIFICATE OF SERVICE\n<|id|>93<|type|>title<|page|>12<|box|>90 143 106 271<|content|>EXHIBIT LIST\n<|id|>94<|type|>table<|page|>12<|box|>140 143 414 852<|content|>None",
+    "raw_response": "<|src_id|>0<|tgt_id|>1\n<|src_id|>94<|tgt_id|>93",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 93
+        }
+    ]
+}

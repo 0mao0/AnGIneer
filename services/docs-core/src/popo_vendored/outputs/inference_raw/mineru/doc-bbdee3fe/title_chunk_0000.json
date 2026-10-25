@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>767 140 784 287<|content|>Enclosed Opinion\n<|id|>12<|page|>2<|box|>204 140 222 593<|content|>Summary of Principal Conclusions of the Zoning Opi\n<|id|>20<|page|>3<|box|>792 140 809 361<|content|>Reliance and Authorization\n<|id|>23<|page|>4<|box|>359 140 375 385<|content|>Qualifications and Limitations\n<|id|>30<|page|>5<|box|>414 140 430 563<|content|>Calderwood & Harkness's Independent Confirmation\n<|id|>32<|page|>5<|box|>664 140 680 352<|content|>Availability for Discussion\n<|id|>40<|page|>6<|box|>89 142 106 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>43<|page|>6<|box|>151 143 167 233<|content|>Enclosure:\n<|id|>45<|page|>6<|box|>258 140 273 238<|content|>cc (w/encl.):",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>20<|level|>2\n<|id|>23<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>2\n<|id|>40<|level|>1\n<|id|>43<|level|>2\n<|id|>45<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        }
+    ]
+}

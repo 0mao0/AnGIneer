@@ -1,0 +1,141 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|page|>1<|box|>481 142 497 375<|content|>1. Purpose and Authorization\n<|id|>16<|page|>2<|box|>277 140 294 478<|content|>2. Background — The Enforcement Action\n<|id|>34<|page|>3<|box|>700 140 717 519<|content|>3. The Consent Decree — Status and Key Terms\n<|id|>35<|page|>3<|box|>731 142 748 478<|content|>3.1 Procedural History and Current Status\n<|id|>40<|page|>4<|box|>448 140 465 630<|content|>3.2 Remediation Obligations — Aggregate Financial\n<|id|>45<|page|>5<|box|>157 140 174 287<|content|>3.3 Civil Penalties\n<|id|>57<|page|>5<|box|>573 140 590 563<|content|>3.4 EPA Past-Costs Reimbursement (CERCLA § 107)\n<|id|>62<|page|>6<|box|>90 140 108 527<|content|>3.5 Supplemental Environmental Projects (SEPs)\n<|id|>67<|page|>6<|box|>570 140 587 462<|content|>3.6 Independent Environmental Monitor\n<|id|>70<|page|>6<|box|>815 140 833 418<|content|>3.7 Aggregate Financial Obligation\n<|id|>75<|page|>7<|box|>321 140 338 397<|content|>3.8 Key Remediation Milestones\n<|id|>84<|page|>7<|box|>720 142 738 400<|content|>3.9 Other Key Decree Provisions\n<|id|>90<|page|>8<|box|>421 140 438 423<|content|>4. Financial Assurance Instruments\n<|id|>92<|page|>8<|box|>551 140 568 274<|content|>4.1 Surety Bond\n<|id|>102<|page|>9<|box|>213 140 229 367<|content|>4.2 Remediation Trust Fund\n<|id|>110<|page|>9<|box|>551 140 566 418<|content|>4.3 Escrow for Stipulated Penalties\n<|id|>112<|page|>9<|box|>688 140 705 599<|content|>5. TMC's Environmental Reserve and Insurance Cover\n<|id|>113<|page|>9<|box|>719 140 736 460<|content|>5.1 Environmental Remediation Reserve\n<|id|>121<|page|>10<|box|>544 142 561 331<|content|>5.2 Insurance Coverage\n<|id|>136<|page|>11<|box|>590 140 608 529<|content|>6. Environmental Liability Covenant Compliance\n<|id|>148<|page|>12<|box|>737 140 753 483<|content|>7. TMC Corporate and Financial Overview\n<|id|>152<|page|>13<|box|>189 140 207 455<|content|>Financial Highlights (Fiscal Year 2023):\n<|id|>157<|page|>13<|box|>319 140 335 310<|content|>Senior Management:\n<|id|>162<|page|>13<|box|>535 140 553 470<|content|>8. Ongoing Obligations and Undertakings\n<|id|>177<|page|>14<|box|>459 140 476 395<|content|>9. Request for Acknowledgment\n<|id|>181<|page|>15<|box|>90 142 107 343<|content|>10. Reservation of Rights\n<|id|>184<|page|>15<|box|>311 140 329 292<|content|>11. Confidentiality",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>40<|level|>3\n<|id|>45<|level|>3\n<|id|>57<|level|>3\n<|id|>62<|level|>3\n<|id|>67<|level|>3\n<|id|>70<|level|>3\n<|id|>75<|level|>3\n<|id|>84<|level|>3\n<|id|>90<|level|>2\n<|id|>92<|level|>3\n<|id|>102<|level|>3\n<|id|>110<|level|>3\n<|id|>112<|level|>2\n<|id|>113<|level|>3\n<|id|>121<|level|>3\n<|id|>136<|level|>2\n<|id|>148<|level|>2\n<|id|>152<|level|>3\n<|id|>157<|level|>3\n<|id|>162<|level|>2\n<|id|>177<|level|>2\n<|id|>181<|level|>2\n<|id|>184<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        }
+    ]
+}

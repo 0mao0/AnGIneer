@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>334 140 351 380<|content|>Dear Revenue Agent Dunleavy:\n<|id|>9<|page|>1<|box|>719 142 737 433<|content|>1. Summary of Documents Produced\n<|id|>19<|page|>2<|box|>444 140 460 601<|content|>2. PBI Office Lease — Description of Produced Docu\n<|id|>20<|page|>2<|box|>474 140 492 385<|content|>2.1 Principal Lease Agreement\n<|id|>24<|page|>3<|box|>194 140 212 439<|content|>2.2 Lease Amendments and Renewals\n<|id|>32<|page|>4<|box|>90 140 107 354<|content|>2.3 Rent Payment Records\n<|id|>35<|page|>4<|box|>364 140 381 702<|content|>3. Evidence of Physical Presence — Description of\n<|id|>36<|page|>4<|box|>393 140 412 401<|content|>3.1 Photographs and Floor Plans\n<|id|>46<|page|>5<|box|>90 140 107 468<|content|>3.2 Building Access and Security Records\n<|id|>53<|page|>5<|box|>547 140 564 490<|content|>3.3 Utility and Telecommunications Records\n<|id|>56<|page|>5<|box|>811 140 829 526<|content|>3.4 Facilities Management and Service Contracts\n<|id|>58<|page|>6<|box|>90 142 107 367<|content|>The produced records include:\n<|id|>64<|page|>6<|box|>390 140 407 346<|content|>3.5 Insurance Certificates\n<|id|>67<|page|>6<|box|>609 140 626 784<|content|>4. Additional Context Regarding PBI's Physical Pre\n<|id|>76<|page|>7<|box|>669 140 686 303<|content|>5. Production Index\n<|id|>81<|page|>8<|box|>239 140 256 439<|content|>6. Reservation of Rights and Privilege",
+    "raw_response": "<|id|>6<|level|>-1\n<|id|>9<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>24<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>1\n<|id|>36<|level|>2\n<|id|>46<|level|>2\n<|id|>53<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>-1\n<|id|>64<|level|>2\n<|id|>67<|level|>1\n<|id|>76<|level|>1\n<|id|>81<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        }
+    ]
+}

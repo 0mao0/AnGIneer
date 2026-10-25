@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 359 157 637<|content|>STATE OF DELAWARE DIVISION OF CORPORATIONS CERTIFI\n<|id|>1<|type|>title<|page|>1<|box|>167 483 183 514<|content|>OF\n<|id|>2<|type|>title<|page|>1<|box|>193 344 209 653<|content|>ARDENT CAPITAL HOLDINGS LLC\n<|id|>5<|type|>title<|page|>1<|box|>340 143 358 323<|content|>ARTICLE I — NAME\n<|id|>7<|type|>title<|page|>1<|box|>393 380 410 617<|content|>Ardent Capital Holdings LLC\n<|id|>8<|type|>title<|page|>1<|box|>434 142 450 700<|content|>ARTICLE II — REGISTERED OFFICE AND REGISTERED AGEN\n<|id|>13<|type|>title<|page|>1<|box|>578 143 594 483<|content|>ARTICLE III — AUTHORIZED PERSON\n<|id|>21<|type|>title<|page|>1<|box|>805 338 820 658<|content|>DELAWARE SECRETARY OF STATE\n<|id|>22<|type|>title<|page|>1<|box|>830 362 847 633<|content|>DIVISION OF CORPORATIONS\n<|id|>23<|type|>title<|page|>1<|box|>856 431 872 566<|content|>FILING STAMP\n<|id|>24<|type|>title<|page|>1<|box|>882 192 898 803<|content|>[SPACE RESERVED FOR DELAWARE SECRETARY OF STATE FI\n<|id|>26<|type|>table<|page|>2<|box|>88 143 145 852<|content|>None",
+    "raw_response": "<|src_id|>26<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 0
+        }
+    ]
+}

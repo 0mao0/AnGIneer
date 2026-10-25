@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>215 140 251 854<|content|>VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED AND V\n<|id|>8<|page|>1<|box|>415 140 431 547<|content|>I. INTRODUCTION AND PURPOSE OF LETTER\n<|id|>12<|page|>2<|box|>148 142 166 401<|content|>II. POLICY IDENTIFICATION\n<|id|>15<|page|>2<|box|>564 140 582 472<|content|>III. DESCRIPTION OF THE INSUREDS\n<|id|>20<|page|>3<|box|>148 140 166 789<|content|>IV. NATURE OF THE POTENTIAL CLAIM — UNDERLYING ALL\n<|id|>21<|page|>3<|box|>180 142 198 307<|content|>A. Initial Complaint\n<|id|>25<|page|>3<|box|>506 142 523 289<|content|>B. Demand Letter\n<|id|>29<|page|>4<|box|>90 140 107 424<|content|>C. Allegations Against Marcus Hale\n<|id|>41<|page|>5<|box|>406 140 422 362<|content|>D. Prior Complaint History\n<|id|>44<|page|>5<|box|>669 142 686 552<|content|>E. Legal Theories and Potential Statutory Violatio\n<|id|>50<|page|>6<|box|>212 140 229 627<|content|>V. INTERIM MEASURES AND INVESTIGATION STATUS\n<|id|>60<|page|>7<|box|>279 140 295 611<|content|>VI. POTENTIAL EXPOSURE AND CLAIM VALUATION\n<|id|>69<|page|>8<|box|>148 140 166 624<|content|>VII. DEFENSE COSTS AND SELF-INSURED RETENTION\n<|id|>77<|page|>8<|box|>737 140 753 697<|content|>VIII. RESERVATION OF RIGHTS AND ONGOING OBLIGATION\n<|id|>84<|page|>9<|box|>398 140 416 500<|content|>IX. CONFIDENTIALITY AND PRIVILEGE\n<|id|>89<|page|>10<|box|>89 140 106 519<|content|>X. RELATED INSURANCE NOTIFICATIONS\n<|id|>93<|page|>10<|box|>518 140 537 707<|content|>XI. CONTACT INFORMATION AND FUTURE CORRESPONDENCE\n<|id|>101<|page|>11<|box|>89 142 106 267<|content|>XII. CLOSING\n<|id|>105<|page|>11<|box|>303 176 319 480<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>112<|page|>11<|box|>523 142 540 238<|content|>Enclosures:",
+    "raw_response": "<|id|>3<|level|>-1\n<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>15<|level|>1\n<|id|>20<|level|>1\n<|id|>21<|level|>2\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>41<|level|>2\n<|id|>44<|level|>2\n<|id|>50<|level|>1\n<|id|>60<|level|>1\n<|id|>69<|level|>1\n<|id|>77<|level|>1\n<|id|>84<|level|>1\n<|id|>89<|level|>1\n<|id|>93<|level|>1\n<|id|>101<|level|>1\n<|id|>105<|level|>-1\n<|id|>112<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        57,
+        80
+    ],
+    "pages": [
+        58,
+        63,
+        64,
+        70,
+        71,
+        74,
+        75,
+        80
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>188<|page|>58<|box|>72 355 86 633<|content|>Section I - Summary by Periods\n<|id|>200<|page|>63<|box|>74 332 88 640<|content|>Section II - Summary by Countries\n<|id|>202<|page|>64<|box|>72 286 86 713<|content|>Section III - Preliminary Details by Countries\n<|id|>211<|page|>70<|box|>74 181 105 849<|content|>Table 2.- Balance Sheets of Corporations of the Un\n<|id|>213<|page|>71<|box|>71 141 86 809<|content|>Table 2.- Balance Sheets of Corporations of the Un\n<|id|>218<|page|>74<|box|>50 275 65 747<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>220<|page|>75<|box|>67 161 85 827<|content|>Table 2.- Balance Sheets of Corporations of the Un\n<|id|>227<|page|>80<|box|>74 137 110 876<|content|>Table 3.- Balance Sheets of Certain Business-Type",
+    "raw_response": "<|id|>188<|level|>1\n<|id|>200<|level|>1\n<|id|>202<|level|>1\n<|id|>211<|level|>2\n<|id|>213<|level|>2\n<|id|>218<|level|>1\n<|id|>220<|level|>2\n<|id|>227<|level|>2",
+    "parsed": [
+        {
+            "id": 188,
+            "level": 1
+        },
+        {
+            "id": 200,
+            "level": 1
+        },
+        {
+            "id": 202,
+            "level": 1
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 1
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 227,
+            "level": 2
+        }
+    ]
+}

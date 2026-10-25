@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        3,
+        11,
+        14,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>160 140 178 524<|content|>TO: ... Alan Ngo, Hannah Brinkley, Patrick Gallagher\n<|id|>2<|page|>1<|box|>186 142 203 339<|content|>FROM: ... Catherine Bloom\n<|id|>3<|page|>1<|box|>212 140 229 326<|content|>DATE: ... October 5, 2023\n<|id|>4<|page|>1<|box|>237 140 273 854<|content|>RE: ... and Dunmore Power Trading LLC\n<|id|>5<|page|>1<|box|>282 140 299 377<|content|>C&H Matter No. ... 1016-00004\n<|id|>6<|page|>1<|box|>308 142 325 349<|content|>Billing Code: ... 00001\n<|id|>24<|page|>3<|box|>433 181 468 854<|content|>• Anastasia Petrov, Trader, MISO Real-Time Desk — testimony taken September 12, 2023; ... and\n<|id|>26<|page|>3<|box|>508 138 582 854<|content|>All three witnesses were represented by C&H counse...tions of this testimony to support its allegations\n<|id|>98<|page|>11<|box|>210 181 263 854<|content|>• Inadequate treatment of third-party bidding patt...ependently influenced LMPs and congestion; ... and\n<|id|>99<|page|>11<|box|>266 183 319 854<|content|>Sensitivity analysis deficiencies — Dr. ... Breck'...of possible outcomes under alternative assumptions\n<|id|>134<|page|>14<|box|>757 181 810 854<|content|>• The alleged scheme, even accepting Staff's chara...at affect wholesale energy prices broadly; ... and\n<|id|>136<|page|>14<|box|>869 140 904 854<|content|>A more appropriate base penalty, in our assessment...evel and a more accurate estimate of market impact\n<|id|>164<|page|>17<|box|>529 140 712 857<|content|>Enhanced Compliance Plan. ... The enhanced complia...r communication policies, and supervisory controls\n<|id|>165<|page|>17<|box|>719 140 792 854<|content|>Resolution language. ... We recommend proposing \"n...nancing arrangements, and commercial relationships",
+    "raw_response": "<|src_id|>98<|tgt_id|>99\n<|src_id|>134<|tgt_id|>136",
+    "parsed": [
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 136
+        }
+    ]
+}

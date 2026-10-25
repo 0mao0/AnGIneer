@@ -1,0 +1,44 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>300 179 335 815<|content|>NOTICE OF APPEARANCE OF COUNSEL FOR DEFENDANT STON\n<|id|>3<|page|>1<|box|>462 142 479 421<|content|>I. IDENTIFICATION OF CLIENT\n<|id|>5<|page|>1<|box|>585 140 604 674<|content|>II. IDENTIFICATION OF COUNSEL ENTERING APPEARANCE\n<|id|>10<|page|>1<|box|>799 142 816 524<|content|>III. ADDITIONAL ATTORNEYS OF RECORD\n<|id|>15<|page|>2<|box|>232 142 250 535<|content|>IV. REQUEST FOR SERVICE OF ALL PAPERS\n<|id|>17<|page|>2<|box|>375 140 392 544<|content|>V. IDENTIFICATION OF OPPOSING COUNSEL\n<|id|>27<|page|>2<|box|>616 375 633 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>27<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        }
+    ]
+}

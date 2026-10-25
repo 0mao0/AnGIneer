@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 158 133 839<|content|>CALDERWOOD & HARKNESS LLP 200 Park Avenue, 38th Fl\n<|id|>1<|page|>1<|box|>141 166 178 831<|content|>Calderwood & Harkness LLP Matter No. 1012-00005 Va\n<|id|>2<|page|>1<|box|>185 151 220 846<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>6<|page|>1<|box|>327 142 343 199<|content|>From:\n<|id|>9<|page|>1<|box|>455 140 473 383<|content|>1. Acknowledgment of Receipt\n<|id|>13<|page|>2<|box|>90 142 107 395<|content|>2. Understanding of Obligations\n<|id|>33<|page|>4<|box|>231 140 248 393<|content|>3. Scope of Preserved Materials\n<|id|>47<|page|>5<|box|>619 140 636 341<|content|>4. Specific Commitments\n<|id|>59<|page|>7<|box|>90 140 107 300<|content|>5. Duration of Hold\n<|id|>62<|page|>7<|box|>440 140 457 429<|content|>6. Consequences of Non-Compliance\n<|id|>66<|page|>7<|box|>741 140 758 439<|content|>7. Questions and Contact Information\n<|id|>73<|page|>8<|box|>229 142 246 227<|content|>Execution\n<|id|>81<|page|>8<|box|>424 142 436 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>2<|level|>-1\n<|id|>6<|level|>-1\n<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>33<|level|>1\n<|id|>47<|level|>1\n<|id|>59<|level|>1\n<|id|>62<|level|>1\n<|id|>66<|level|>1\n<|id|>73<|level|>1\n<|id|>81<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        }
+    ]
+}

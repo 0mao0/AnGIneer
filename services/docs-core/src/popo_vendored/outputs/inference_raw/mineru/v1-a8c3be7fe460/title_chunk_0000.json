@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 292<|content|>【4139279#4】活动写真\n<|id|>2<|page|>1<|box|>191 105 208 284<|content|>【664467#3】日本电影\n<|id|>4<|page|>1<|box|>275 105 291 310<|content|>【7751949#1】犬神的恶灵\n<|id|>6<|page|>1<|box|>359 107 375 284<|content|>【664467#2】日本电影\n<|id|>8<|page|>1<|box|>476 105 493 275<|content|>【19538#5】日本动画\n<|id|>10<|page|>1<|box|>577 107 594 284<|content|>【664467#1】日本电影\n<|id|>12<|page|>1<|box|>678 107 695 284<|content|>【517789#0】日本誕生\n<|id|>14<|page|>1<|box|>745 105 760 292<|content|>【5240788#5】下川凹天\n<|id|>16<|page|>1<|box|>846 105 863 346<|content|>【7369856#7】日本成人影片史\n<|id|>18<|page|>2<|box|>73 107 89 315<|content|>【6870116#9】黑猴 (电影)",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>16<|level|>1\n<|id|>18<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        }
+    ]
+}

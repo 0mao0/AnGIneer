@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 152 854<|content|>1735 Market Street, Suite 3100 Philadelphia, PA 19103 Telephone: ... (215) 564-8801\n<|id|>3<|page|>1<|box|>186 751 204 854<|content|>July 18, 2023\n<|id|>2<|page|>1<|box|>160 140 178 683<|content|>600 Lexington Avenue New York, NY 10022 Telephone: ... (212) 848-1000\n<|id|>4<|page|>1<|box|>210 140 229 651<|content|>VIA HAND DELIVERY AND ELECTRONIC TRANSMISSION\n<|id|>5<|page|>1<|box|>237 140 292 854<|content|>Revenue Agent Patricia Dunleavy Large Business & I... 600 Arch Street, Room 6106 Philadelphia, PA 19106\n<|id|>6<|page|>1<|box|>300 174 354 854<|content|>Re: ... 1018-00009\n<|id|>7<|page|>1<|box|>363 140 380 380<|content|>Dear Revenue Agent Dunleavy: ... Dear Revenue Agent Dunleavy\n<|id|>13<|page|>1<|box|>862 140 898 856<|content|>Specifically, the IDR requests production of Forms...rect ownership interest during the Tax Years Under\n<|id|>14<|page|>2<|box|>90 140 126 854<|content|>Examination. ... Based on PPC's corporate structur...FCs for which Forms 5471 were filed are as follows\n<|id|>24<|page|>2<|box|>714 174 732 524<|content|>(iii) Form 5471 for PBI — Tax Year 2019; ... and\n<|id|>26<|page|>2<|box|>766 140 803 854<|content|>Each Form 5471 is produced together with all sched...tax return (Form 1120) for the applicable tax year\n<|id|>37<|page|>3<|box|>805 181 859 854<|content|>• Schedule O (Organization or Reorganization of Fo... involving PBI during the relevant period; ... and\n<|id|>39<|page|>4<|box|>146 140 238 856<|content|>Schedule M — Intercompany Transactions. ... Key in... Tax Years Under Examination include the following\n<|id|>52<|page|>5<|box|>449 176 467 531<|content|>(iii) Form 5471 for PHL — Tax Year 2019; ... and\n<|id|>54<|page|>5<|box|>501 140 574 854<|content|>Background on PHL. ... PHL is itself 100% owned by PPC\n<|id|>57<|page|>5<|box|>780 181 832 854<|content|>• Schedule O (Organization or Reorganization of Fo... any organizational changes involving PHL; ... and\n<|id|>59<|page|>6<|box|>89 140 127 854<|content|>Given PHL's limited function as a holding entity a...tantially less voluminous than those filed for PBI\n<|id|>79<|page|>8<|box|>160 174 196 854<|content|>Garrett Simmons Calderwood & Harkness LLP 1735 Mar...hia, PA 19103 Direct Telephone: ... (215) 564-8847\n<|id|>80<|page|>8<|box|>204 176 220 514<|content|>Email: ... com\n<|id|>81<|page|>8<|box|>222 140 276 854<|content|>We appreciate your continued professionalism throu... with the examination team as this matter proceeds\n<|id|>82<|page|>8<|box|>284 212 301 390<|content|>Respectfully submitted,\n<|id|>83<|page|>8<|box|>309 140 325 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>84<|page|>8<|box|>328 143 345 253<|content|>By: ... By\n<|id|>85<|page|>8<|box|>344 140 378 854<|content|>Garrett Simmons Lead Associate, Tax Department Cal...5 Market Street, Suite 3100 Philadelphia, PA 19103\n<|id|>86<|page|>8<|box|>378 142 395 254<|content|>cc: ... (via email)\n<|id|>87<|page|>8<|box|>402 174 494 854<|content|>Leonard Cross, Responsible Partner, Calderwood & H...skill, IRS Large Business & International Division\n<|id|>89<|page|>8<|box|>527 174 584 854<|content|>Enclosure 1: ... Forms 5471 for Penterra Biopharma...hedules C, F, H, I, J, M, O, and P, as applicable)\n<|id|>90<|page|>8<|box|>590 176 628 854<|content|>Enclosure 2: ... (PHL) — Tax Years 2017, 2018, 2019, and 2020, together with all applicable schedules\n<|id|>91<|page|>8<|box|>635 176 671 854<|content|>Enclosure 3: ... (PHL) — Tax Years 2017, 2018, 2019, and 2020\n<|id|>92<|page|>8<|box|>679 176 715 854<|content|>Enclosure 4: ... Production Index with Bates Numbe...rough PPC- IDR40-001247) and Document Descriptions",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>37<|tgt_id|>39\n<|src_id|>57<|tgt_id|>59",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 59
+        }
+    ]
+}

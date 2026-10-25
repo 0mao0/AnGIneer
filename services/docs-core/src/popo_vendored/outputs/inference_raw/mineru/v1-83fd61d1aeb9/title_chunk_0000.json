@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>253 250 273 745<|content|>SUPREME COURT OF THE UNITED STATES\n<|id|>5<|page|>1<|box|>390 254 420 743<|content|>CERTIORARI TO THE UNITED STATES COURT OF APPEALS F\n<|id|>8<|page|>2<|box|>172 465 186 532<|content|>Syllabus\n<|id|>14<|page|>3<|box|>172 465 186 531<|content|>Syllabus\n<|id|>18<|page|>4<|box|>172 465 186 531<|content|>Syllabus\n<|id|>23<|page|>5<|box|>244 250 265 745<|content|>SUPREME COURT OF THE UNITED STATES\n<|id|>25<|page|>5<|box|>318 297 386 697<|content|>THE HAIN CELESTIAL GROUP, INC., ET AL., PETITIONER\n<|id|>32<|page|>6<|box|>172 424 186 571<|content|>Opinion of the Court\n<|id|>34<|page|>6<|box|>238 491 253 504<|content|>I\n<|id|>38<|page|>7<|box|>172 424 188 573<|content|>Opinion of the Court\n<|id|>43<|page|>8<|box|>172 424 186 573<|content|>Opinion of the Court\n<|id|>47<|page|>8<|box|>638 488 654 509<|content|>II\n<|id|>49<|page|>9<|box|>172 424 186 571<|content|>Opinion of the Court\n<|id|>51<|page|>9<|box|>354 488 369 508<|content|>A\n<|id|>55<|page|>10<|box|>172 424 186 571<|content|>Opinion of the Court\n<|id|>60<|page|>11<|box|>172 424 186 571<|content|>Opinion of the Court\n<|id|>62<|page|>11<|box|>272 490 286 508<|content|>B\n<|id|>70<|page|>13<|box|>172 424 188 573<|content|>Opinion of the Court\n<|id|>72<|page|>13<|box|>321 483 337 514<|content|>III\n<|id|>75<|page|>14<|box|>172 424 188 573<|content|>Opinion of the Court\n<|id|>79<|page|>15<|box|>196 485 213 513<|content|>IV\n<|id|>83<|page|>16<|box|>196 251 218 745<|content|>SUPREME COURT OF THE UNITED STATES\n<|id|>92<|page|>17<|box|>172 418 186 580<|content|>THOMAS, J., concurring\n<|id|>96<|page|>18<|box|>172 416 188 580<|content|>THOMAS, J., concurring\n<|id|>100<|page|>19<|box|>172 418 186 580<|content|>THOMAS, J., concurring",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>5<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>23<|level|>1\n<|id|>25<|level|>1\n<|id|>32<|level|>2\n<|id|>34<|level|>3\n<|id|>38<|level|>2\n<|id|>43<|level|>2\n<|id|>47<|level|>3\n<|id|>49<|level|>2\n<|id|>51<|level|>3\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>3\n<|id|>70<|level|>2\n<|id|>72<|level|>3\n<|id|>75<|level|>2\n<|id|>79<|level|>3\n<|id|>83<|level|>1\n<|id|>92<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        }
+    ]
+}

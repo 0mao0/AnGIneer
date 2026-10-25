@@ -1,0 +1,58 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 447 106 550<|content|>EXHIBIT A\n<|id|>1<|type|>title<|page|>1<|box|>114 156 151 839<|content|>CORPORATE STRUCTURE CHART — PENTERRA PHARMACEUTICA\n<|id|>4<|type|>title<|page|>1<|box|>319 140 335 403<|content|>Section 1: Overview and Purpose\n<|id|>6<|type|>title<|page|>1<|box|>587 140 604 669<|content|>Section 2: Organizational Chart — Corporate Owners\n<|id|>8<|type|>table<|page|>1<|box|>763 143 904 852<|content|>None\n<|id|>9<|type|>table<|page|>2<|box|>89 143 217 852<|content|>None\n<|id|>18<|type|>table<|page|>3<|box|>88 143 183 852<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>484 429 503 568<|content|>100% Ownership\n<|id|>22<|type|>table<|page|>3<|box|>599 143 898 852<|content|>None\n<|id|>23<|type|>table<|page|>4<|box|>89 143 205 852<|content|>None\n<|id|>39<|type|>title<|page|>5<|box|>354 429 371 568<|content|>100% Ownership\n<|id|>40<|type|>table<|page|>5<|box|>465 143 613 852<|content|>None\n<|id|>43<|type|>table<|page|>6<|box|>176 143 553 852<|content|>None\n<|id|>45<|type|>title<|page|>6<|box|>700 140 719 426<|content|>Section 4: Territory Allocation Note\n<|id|>47<|type|>title<|page|>6<|box|>771 142 789 506<|content|>Americas Territory (Rights Retained by PPC):\n<|id|>49<|type|>title<|page|>7<|box|>90 140 107 508<|content|>Non-Americas Territory (Rights Held by PBI):\n<|id|>51<|type|>title<|page|>7<|box|>252 140 268 470<|content|>Treatment of PHL as Disregarded Entity:\n<|id|>53<|type|>title<|page|>7<|box|>465 140 482 591<|content|>Section 5: Related Parties Not in Direct Ownership\n<|id|>55<|type|>table<|page|>7<|box|>588 143 904 852<|content|>None\n<|id|>56<|type|>table<|page|>8<|box|>89 143 214 851<|content|>None\n<|id|>57<|type|>title<|page|>8<|box|>263 140 279 326<|content|>Section 6: Certification",
+    "raw_response": "<|src_id|>8<|tgt_id|>6\n<|src_id|>9<|tgt_id|>6\n<|src_id|>18<|tgt_id|>6\n<|src_id|>22<|tgt_id|>6\n<|src_id|>23<|tgt_id|>6\n<|src_id|>40<|tgt_id|>6\n<|src_id|>43<|tgt_id|>6\n<|src_id|>55<|tgt_id|>53\n<|src_id|>56<|tgt_id|>53",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 53
+        }
+    ]
+}

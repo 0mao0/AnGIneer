@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        6
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 419 111 576<|content|>SCHEDULE A\n<|id|>1<|page|>2<|box|>135 148 152 846<|content|>PRIOR INVENTIONS, PATENTS, AND INTELLECTUAL PROPER\n<|id|>3<|page|>2<|box|>294 142 311 361<|content|>1. Purpose and Instructions\n<|id|>14<|page|>3<|box|>411 142 428 292<|content|>2. Representations\n<|id|>16<|page|>3<|box|>517 150 534 496<|content|>Option A — No Prior Inventions to Disclose\n<|id|>18<|page|>3<|box|>715 151 732 468<|content|>Option B — Prior Inventions to Disclose\n<|id|>20<|page|>4<|box|>90 140 107 426<|content|>3. Prior Inventions Disclosure Table\n<|id|>24<|page|>4<|box|>680 140 696 406<|content|>4. Disclosure of Prior Obligations\n<|id|>30<|page|>5<|box|>470 140 487 308<|content|>5. Acknowledgments\n<|id|>37<|page|>6<|box|>494 140 511 282<|content|>6. Defined Terms\n<|id|>39<|page|>6<|box|>744 142 761 245<|content|>7. Execution\n<|id|>41<|page|>6<|box|>814 142 830 261<|content|>EXECUTIVE:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>14<|level|>2\n<|id|>16<|level|>3\n<|id|>18<|level|>3\n<|id|>20<|level|>2\n<|id|>24<|level|>2\n<|id|>30<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>2\n<|id|>41<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        }
+    ]
+}

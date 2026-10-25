@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>523 140 542 354<|content|>I. The Copyrighted Works\n<|id|>11<|type|>title<|page|>2<|box|>204 140 222 310<|content|>II. The Infringement\n<|id|>16<|type|>title<|page|>2<|box|>752 140 768 563<|content|>III. The Expired Blanket License — No Authorizatio\n<|id|>26<|type|>title<|page|>3<|box|>799 142 816 251<|content|>IV. Demands\n<|id|>44<|type|>title<|page|>5<|box|>508 140 527 397<|content|>V. Statutory Damages Exposure\n<|id|>51<|type|>title<|page|>6<|box|>204 140 222 511<|content|>VI. Response Deadline and Litigation Warning\n<|id|>59<|type|>title<|page|>6<|box|>700 140 719 351<|content|>VII. Reservation of Rights\n<|id|>71<|type|>title<|page|>7<|box|>353 449 369 550<|content|>EXHIBIT A\n<|id|>72<|type|>title<|page|>7<|box|>378 339 395 656<|content|>SCHEDULE OF INFRINGED WORKS\n<|id|>74<|type|>table<|page|>7<|box|>501 143 907 852<|content|>None\n<|id|>75<|type|>table<|page|>8<|box|>89 143 900 854<|content|>None\n<|id|>76<|type|>table<|page|>9<|box|>88 143 478 854<|content|>None\n<|id|>77<|type|>table<|page|>9<|box|>617 143 905 852<|content|>None\n<|id|>78<|type|>table<|page|>10<|box|>90 143 896 854<|content|>None",
+    "raw_response": "<|src_id|>74<|tgt_id|>72\n<|src_id|>75<|tgt_id|>72\n<|src_id|>76<|tgt_id|>72\n<|src_id|>77<|tgt_id|>72\n<|src_id|>78<|tgt_id|>72",
+    "parsed": [
+        {
+            "src_id": 74,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 72
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['50000~100000', '1.312', '100000', '1073.015 + (100000 - 50000) \\\\times 1.312\\\\% = 1729.015']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['100000 ~ 150000', '1.057', '150000', '1729.015 + (150000 - 100000) \\\\times 1.057\\\\% = 2257.515']]\n",
+    "raw_response": "[0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 296,
+    "table2_idx": 297
+}

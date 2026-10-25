@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pbrknb3t\\input\\pdfs\\doc-26e0465a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pbrknb3t\\enriched\\doc-26e0465a.json",
+    "contd_output": "<|src_id|>136<|tgt_id|>137",
+    "title_output": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>30<|level|>3\n<|id|>45<|level|>3\n<|id|>58<|level|>2\n<|id|>60<|level|>3\n<|id|>73<|level|>3\n<|id|>85<|level|>3\n<|id|>91<|level|>2\n<|id|>92<|level|>3\n<|id|>97<|level|>3\n<|id|>106<|level|>3\n<|id|>117<|level|>2\n<|id|>118<|level|>3\n<|id|>126<|level|>3\n<|id|>131<|level|>3\n<|id|>146<|level|>2\n<|id|>147<|level|>3\n<|id|>157<|level|>3\n<|id|>168<|level|>2\n<|id|>169<|level|>3\n<|id|>177<|level|>3\n<|id|>188<|level|>3\n<|id|>206<|level|>2\n<|id|>207<|level|>3\n<|id|>215<|level|>3\n<|id|>220<|level|>2\n<|id|>221<|level|>3\n<|id|>231<|level|>2\n<|id|>232<|level|>3\n<|id|>241<|level|>3\n<|id|>249<|level|>2\n<|id|>262<|level|>2\n<|id|>263<|level|>3\n<|id|>273<|level|>3",
+    "image_output": "<|src_id|>192<|tgt_id|>188\n<|src_id|>251<|tgt_id|>249\n<|src_id|>252<|tgt_id|>249",
+    "contd_label": [
+        {
+            "src_id": 136,
+            "tgt_id": 137
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 188,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 231,
+            "level": 2
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 241,
+            "level": 3
+        },
+        {
+            "id": 249,
+            "level": 2
+        },
+        {
+            "id": 262,
+            "level": 2
+        },
+        {
+            "id": 263,
+            "level": 3
+        },
+        {
+            "id": 273,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 192,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 251,
+            "tgt_id": 249
+        },
+        {
+            "src_id": 252,
+            "tgt_id": 249
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 251,
+            "table2_idx": 252,
+            "upper_row_ss": [
+                [
+                    "CIC Cash Multiplier",
+                    "2.5x (base + target bonus)",
+                    "3x = $14,437,500",
+                    "2.5x–3x"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "= $12,031,250",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

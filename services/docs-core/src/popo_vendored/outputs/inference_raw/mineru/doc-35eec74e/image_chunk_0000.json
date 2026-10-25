@@ -1,0 +1,58 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 338 107 658<|content|>JS 44 (Rev. 11/15) CIVIL COVER SHEET\n<|id|>2<|type|>title<|page|>1<|box|>191 142 208 433<|content|>I. (a) PLAINTIFFS / DEFENDANTS\n<|id|>3<|type|>table<|page|>1<|box|>215 143 321 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>371 142 387 761<|content|>I. (b) County of Residence of First Listed Plainti\n<|id|>7<|type|>title<|page|>1<|box|>518 142 535 633<|content|>I. (c) Attorneys (Firm Name, Address, and Telephon\n<|id|>8<|type|>title<|page|>1<|box|>549 143 566 321<|content|>Attorneys for Plaintiff\n<|id|>11<|type|>title<|page|>1<|box|>648 143 664 419<|content|>Attorneys for Defendant (if known)\n<|id|>14<|type|>title<|page|>1<|box|>756 143 773 388<|content|>II. BASIS OF JURISDICTION\n<|id|>15<|type|>table<|page|>1<|box|>806 143 883 852<|content|>None\n<|id|>16<|type|>table<|page|>2<|box|>88 143 157 852<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>378 142 395 513<|content|>III. CITIZENSHIP OF PRINCIPAL PARTIES\n<|id|>19<|type|>table<|page|>2<|box|>428 143 641 852<|content|>None\n<|id|>22<|type|>title<|page|>2<|box|>835 142 852 331<|content|>IV. NATURE OF SUIT\n<|id|>24<|type|>table<|page|>3<|box|>111 143 161 852<|content|>None\n<|id|>27<|type|>title<|page|>3<|box|>353 142 369 238<|content|>V. ORIGIN\n<|id|>28<|type|>table<|page|>3<|box|>402 143 662 852<|content|>None\n<|id|>30<|type|>title<|page|>3<|box|>755 142 772 344<|content|>VI. CAUSE OF ACTION\n<|id|>32<|type|>title<|page|>3<|box|>825 142 844 349<|content|>Brief description of cause:\n<|id|>36<|type|>table<|page|>4<|box|>253 143 351 852<|content|>None\n<|id|>40<|type|>table<|page|>4<|box|>574 143 613 852<|content|>None\n<|id|>42<|type|>title<|page|>5<|box|>90 142 107 397<|content|>Signature of Attorney of Record\n<|id|>46<|type|>title<|page|>5<|box|>220 142 238 377<|content|>Case Assignment Information\n<|id|>48<|type|>table<|page|>5<|box|>270 143 383 852<|content|>None\n<|id|>49<|type|>title<|page|>5<|box|>434 142 450 483<|content|>JS 44 Reverse — Instructions for Attorneys\n<|id|>51<|type|>title<|page|>5<|box|>527 143 544 401<|content|>Purpose of the Civil Cover Sheet\n<|id|>54<|type|>title<|page|>5<|box|>699 142 715 312<|content|>General Instructions.\n<|id|>60<|type|>title<|page|>6<|box|>138 140 156 299<|content|>Section I — Parties\n<|id|>66<|type|>title<|page|>6<|box|>481 140 497 406<|content|>Section II — Basis of Jurisdiction\n<|id|>74<|type|>title<|page|>6<|box|>792 140 810 498<|content|>Section III — Citizenship of Principal Parties\n<|id|>77<|type|>title<|page|>7<|box|>135 142 152 243<|content|>Accordingly:\n<|id|>81<|type|>title<|page|>7<|box|>286 140 301 367<|content|>Section IV — Nature of Suit\n<|id|>85<|type|>title<|page|>7<|box|>501 140 518 300<|content|>Section V — Origin\n<|id|>89<|type|>title<|page|>7<|box|>643 140 660 379<|content|>Section VI — Cause of Action\n<|id|>93<|type|>title<|page|>8<|box|>90 140 107 450<|content|>Section VII — Requested in Complaint\n<|id|>97<|type|>title<|page|>8<|box|>268 140 286 379<|content|>Section VIII — Related Cases\n<|id|>100<|type|>title<|page|>8<|box|>405 142 421 387<|content|>Nature-of-Suit Code Reference\n<|id|>103<|type|>title<|page|>8<|box|>575 142 593 397<|content|>Diversity Jurisdiction Reminder\n<|id|>110<|type|>title<|page|>8<|box|>771 140 787 563<|content|>Local Practice Note — Southern District of New Yor",
+    "raw_response": "<|src_id|>3<|tgt_id|>2\n<|src_id|>15<|tgt_id|>14\n<|src_id|>16<|tgt_id|>14\n<|src_id|>19<|tgt_id|>18\n<|src_id|>24<|tgt_id|>22\n<|src_id|>28<|tgt_id|>27\n<|src_id|>36<|tgt_id|>30\n<|src_id|>40<|tgt_id|>30\n<|src_id|>48<|tgt_id|>46",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        }
+    ]
+}

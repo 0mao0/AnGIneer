@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>167 359 185 637<|content|>a Delaware limited liability company\n<|id|>4<|page|>1<|box|>194 387 210 609<|content|>Delivered as of June 15, 2025\n<|id|>5<|page|>1<|box|>219 140 348 857<|content|>This Manager's Certificate (this \"Certificate\") is...Lender\"), as of June 15, 2025 (the \"Closing Date\")\n<|id|>11<|page|>1<|box|>737 140 848 854<|content|>WHEREAS, the undersigned has reviewed the Loan Agr...d organizational structure of the Company; ... and\n<|id|>12<|page|>1<|box|>854 140 909 857<|content|>WHEREAS, the undersigned makes the certifications ...ertificate and the certifications contained herein\n<|id|>27<|page|>3<|box|>864 140 901 857<|content|>3. ... Attached hereto as Exhibit C is a true, cor...le Member Consent\"), duly executed by Metropolitan\n<|id|>28<|page|>4<|box|>90 140 181 854<|content|>Transit Development Corp. ... The Sole Member Cons...ns in full force and effect as of the Closing Date\n<|id|>35<|page|>4<|box|>858 140 893 854<|content|>4. ... 1 above is authorized to execute Loan Docum...ts on behalf of the Company in connection with the\n<|id|>36<|page|>5<|box|>90 140 127 854<|content|>Senior Loan, unless such person is subsequently de...anager with the prior written consent of the Agent\n<|id|>51<|page|>7<|box|>853 174 907 856<|content|>(m) Title to Mortgaged Property. ... The Company h...velopment Corporation (\"NYCEDC\"), as landlord, and\n<|id|>52<|page|>8<|box|>90 174 219 856<|content|>Metropolitan Transit Development Corp. ... The Com... the Loan Documents and the Permitted Encumbrances\n<|id|>85<|page|>11<|box|>479 142 494 344<|content|>Name: ... Jennings\n<|id|>86<|page|>11<|box|>496 143 512 258<|content|>Title: ... Manager\n<|id|>87<|page|>11<|box|>513 142 529 294<|content|>Date: ... June 15, 2025\n<|id|>90<|page|>11<|box|>582 281 599 715<|content|>as filed with the Secretary of State of the State of Delaware\n<|id|>92<|page|>11<|box|>688 142 702 227<|content|>See attached. ... See attached\n<|id|>95<|page|>11<|box|>782 294 797 702<|content|>together with all amendments and modifications thereto\n<|id|>97<|page|>12<|box|>189 140 203 227<|content|>See attached. ... See attached\n<|id|>100<|page|>12<|box|>263 176 280 820<|content|>Action by Written Consent of Metropolitan Transit Development Corp. ... , as Sole Member\n<|id|>106<|page|>12<|box|>676 138 767 856<|content|>The Written Consent was duly adopted in accordance...argaret Kowalski, Chair, Board of Directors; ... ]\n<|id|>104<|page|>12<|box|>513 174 604 854<|content|>(iii) the appointment and confirmation of Marcus T. ... and\n<|id|>109<|page|>12<|box|>821 148 866 848<|content|>Certificate of Good Standing (Certificate of Statu...by the Secretary of State of the State of Delaware\n<|id|>111<|page|>13<|box|>171 140 184 227<|content|>See attached. ... See attached\n<|id|>114<|page|>13<|box|>246 292 263 705<|content|>Issued by the Secretary of State of the State of New York\n<|id|>116<|page|>13<|box|>351 140 366 227<|content|>See attached. ... See attached",
+    "raw_response": "<|src_id|>27<|tgt_id|>28\n<|src_id|>35<|tgt_id|>36\n<|src_id|>51<|tgt_id|>52",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        }
+    ]
+}

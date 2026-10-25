@@ -1,0 +1,44 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>193 140 210 498<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>9<|page|>1<|box|>558 142 575 423<|content|>1. Summary of Ridgeline's Demand\n<|id|>17<|page|>2<|box|>335 140 354 764<|content|>2. The APA Establishes a Fixed Purchase Price with\n<|id|>27<|page|>3<|box|>411 140 428 552<|content|>3. Ridgeline's Demand Is Without Contractual Basis\n<|id|>37<|page|>4<|box|>476 140 493 560<|content|>4. The Transaction Remains Pending Before the FCC\n<|id|>46<|page|>5<|box|>421 140 438 334<|content|>5. Reservation of Rights\n<|id|>55<|page|>6<|box|>321 140 339 421<|content|>6. Request for Immediate Response",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>-1\n<|id|>9<|level|>1\n<|id|>17<|level|>1\n<|id|>27<|level|>1\n<|id|>37<|level|>1\n<|id|>46<|level|>1\n<|id|>55<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        }
+    ]
+}

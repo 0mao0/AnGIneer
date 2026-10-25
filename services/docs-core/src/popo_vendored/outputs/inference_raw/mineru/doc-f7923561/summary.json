@@ -1,0 +1,167 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-obxj1u1k\\input\\pdfs\\doc-f7923561.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-obxj1u1k\\enriched\\doc-f7923561.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>2\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>32<|level|>1\n<|id|>33<|level|>2\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>43<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>54<|level|>3\n<|id|>68<|level|>3\n<|id|>70<|level|>3\n<|id|>78<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>3\n<|id|>84<|level|>3\n<|id|>86<|level|>3\n<|id|>91<|level|>3\n<|id|>94<|level|>3\n<|id|>97<|level|>2\n<|id|>98<|level|>3\n<|id|>106<|level|>3\n<|id|>111<|level|>3",
+    "image_output": "<|src_id|>39<|tgt_id|>37\n<|src_id|>42<|tgt_id|>40\n<|src_id|>63<|tgt_id|>54\n<|src_id|>72<|tgt_id|>70\n<|src_id|>73<|tgt_id|>70",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 70
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 72,
+            "table2_idx": 73,
+            "upper_row_ss": [
+                [
+                    "rowspan=4, 叉式装卸车",
+                    ">20.0t",
+                    "1.12~1.16",
+                    "0.82~0.85",
+                    "0.30~0.31"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, 装卸机械类别",
+                    "rowspan=2,colspan=2, 规格",
+                    "rowspan=2, 定员",
+                    "colspan=2, 其中"
+                ]
+            ]
+        }
+    ]
+}

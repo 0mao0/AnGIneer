@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 140 179 674<|content|>TO: ... 1003-00005)\n<|id|>3<|page|>1<|box|>188 140 205 733<|content|>FROM: ... Leila Nazari, Associate, Tax Department, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>214 140 250 854<|content|>REVIEWED BY: ... Leonard Cross, Partner, Tax Department\n<|id|>5<|page|>1<|box|>258 142 275 302<|content|>DATE: ... June 1, 2022\n<|id|>6<|page|>1<|box|>284 140 338 854<|content|>RE: ... Common Stock\n<|id|>7<|page|>1<|box|>345 140 364 524<|content|>CLIENT: ... P\n<|id|>13<|page|>1<|box|>830 140 905 854<|content|>The Kestrel acquisition closed on June 7, 2019. .....lls squarely within this five-year window, Section\n<|id|>14<|page|>2<|box|>90 140 145 854<|content|>355(b)(2)(C) of the Code is facially implicated. ... \"\n<|id|>25<|page|>2<|box|>829 176 847 679<|content|>(g) the Section 368(a)(1)(D) reorganization qualification analysis; ... or\n<|id|>27<|page|>3<|box|>90 140 219 857<|content|>The analysis set forth in this memorandum is based...ng items, which are identified in Section VI below\n<|id|>76<|page|>8<|box|>719 174 755 854<|content|>(i) \"was not acquired directly (or through 1 or mo...he period described in [Section 355(b)(2)(B)],\" or\n<|id|>78<|page|>8<|box|>844 140 898 857<|content|>The safe harbor in Section 355(b)(2)(D) is the lin...rporation conducting the business that has changed\n<|id|>118<|page|>14<|box|>633 174 669 854<|content|>(i) was not acquired directly (or through one or m...-year period described in Section 355(b)(2)(B), or\n<|id|>120<|page|>14<|box|>739 140 814 857<|content|>The safe harbor has two prongs. ... Under prong (i...ransactions and pre-five-year-period acquisitions)",
+    "raw_response": "<|src_id|>13<|tgt_id|>14",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        }
+    ]
+}

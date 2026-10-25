@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=4, 钻(挖)孔桩', '孔深(m)', '摩擦桩:不小于设计规定支承桩:比设计深度超深不小于0.05']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 钻孔桩', '沉淀厚度(mm)', '摩擦桩:符合设计规定。设计未规定时,对于直径\\\\leqslant 1.5m的桩,\\\\leqslant 200;对桩径>1.5m或桩长>40m或土质较差的桩,\\\\leqslant 300支承桩:不大于设计规定;设计未规定时\\\\leqslant 50']]\n",
+    "raw_response": "[1, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        0
+    ],
+    "table1_idx": 968,
+    "table2_idx": 969
+}

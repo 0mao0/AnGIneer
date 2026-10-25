@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        12,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 410 107 856<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>11<|type|>title<|page|>1<|box|>792 140 828 839<|content|>Comment 1 — Cover Page / Prospectus Summary: Descr\n<|id|>13<|type|>title<|page|>2<|box|>135 142 152 228<|content|>Response:\n<|id|>19<|type|>title<|page|>2<|box|>616 140 652 841<|content|>Comment 2 — Risk Factors: Risks Related to SPAC St\n<|id|>21<|type|>title<|page|>2<|box|>760 142 777 228<|content|>Response:\n<|id|>28<|type|>title<|page|>3<|box|>739 140 776 836<|content|>Comment 3 — Risk Factors: Risks Related to Conflic\n<|id|>30<|type|>title<|page|>4<|box|>90 140 108 228<|content|>Response:\n<|id|>38<|type|>title<|page|>5<|box|>383 140 402 830<|content|>Comment 4 — Dilution: Analysis of Sponsor Economic\n<|id|>40<|type|>title<|page|>5<|box|>510 142 527 228<|content|>Response:\n<|id|>43<|type|>table<|page|>5<|box|>666 143 800 852<|content|>None\n<|id|>46<|type|>table<|page|>6<|box|>214 143 323 852<|content|>None\n<|id|>50<|type|>title<|page|>6<|box|>688 140 705 831<|content|>Comment 5 — Proposed Business / Business Combinati\n<|id|>52<|type|>title<|page|>6<|box|>795 142 811 228<|content|>Response:\n<|id|>77<|type|>title<|page|>9<|box|>90 140 108 797<|content|>Comment 6 — Trust Account: Investment of Trust Pro\n<|id|>79<|type|>title<|page|>9<|box|>196 143 214 228<|content|>Response:\n<|id|>83<|type|>table<|page|>9<|box|>470 143 625 852<|content|>None\n<|id|>94<|type|>title<|page|>10<|box|>679 142 696 228<|content|>Response:\n<|id|>105<|type|>title<|page|>12<|box|>612 140 628 740<|content|>Comment 8 — Financial Statements: Warrant Accounti\n<|id|>107<|type|>title<|page|>12<|box|>755 140 773 228<|content|>Response:\n<|id|>121<|type|>title<|page|>14<|box|>446 140 464 692<|content|>Comment 9 — Underwriting: Clarification of Compens\n<|id|>123<|type|>title<|page|>14<|box|>536 143 553 227<|content|>Response:\n<|id|>129<|type|>table<|page|>14<|box|>835 143 904 852<|content|>None\n<|id|>130<|type|>table<|page|>15<|box|>88 143 172 852<|content|>None\n<|id|>135<|type|>title<|page|>15<|box|>617 140 635 743<|content|>Comment 10 — General: Undertakings and Compliance\n<|id|>137<|type|>title<|page|>15<|box|>724 142 742 228<|content|>Response:\n<|id|>146<|type|>title<|page|>16<|box|>425 140 443 210<|content|>Closing",
+    "raw_response": "<|src_id|>43<|tgt_id|>38\n<|src_id|>46<|tgt_id|>38\n<|src_id|>83<|tgt_id|>77\n<|src_id|>129<|tgt_id|>121\n<|src_id|>130<|tgt_id|>121",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 121
+        }
+    ]
+}

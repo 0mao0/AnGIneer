@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 352 118 645<|content|>OFFICERS' CERTIFICATE\n<|id|>1<|page|>1<|box|>136 297 152 700<|content|>Delivered Pursuant to Section 4.06 of the Indentur\n<|id|>9<|page|>1<|box|>633 142 650 357<|content|>I. Corporate Authorization\n<|id|>26<|page|>3<|box|>90 140 107 387<|content|>II. Due Execution and Delivery\n<|id|>35<|page|>3<|box|>758 142 775 344<|content|>III. Conditions Precedent\n<|id|>43<|page|>5<|box|>167 140 184 263<|content|>IV. No Default\n<|id|>46<|page|>5<|box|>401 140 417 426<|content|>V. Compliance with Securities Laws\n<|id|>53<|page|>6<|box|>148 142 167 401<|content|>VI. Listing of Underlying Shares\n<|id|>56<|page|>6<|box|>529 140 545 415<|content|>VII. Net Share Settlement Election\n<|id|>59<|page|>7<|box|>90 142 107 444<|content|>VIII. Optional Redemption Provisions\n<|id|>66<|page|>7<|box|>609 140 627 473<|content|>IX. Reliance and Knowledge Qualification\n<|id|>71<|page|>8<|box|>210 341 228 653<|content|>[Signature Page to Officers' Certificate]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>9<|level|>2\n<|id|>26<|level|>2\n<|id|>35<|level|>2\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>53<|level|>2\n<|id|>56<|level|>2\n<|id|>59<|level|>2\n<|id|>66<|level|>2\n<|id|>71<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        }
+    ]
+}

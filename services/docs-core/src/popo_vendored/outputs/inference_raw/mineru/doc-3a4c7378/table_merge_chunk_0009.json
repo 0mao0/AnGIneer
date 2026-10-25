@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 9,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['\"A method for thermal management of a photonic integrated circuit, the method comprising:\"', 'Accused Product: LumiLink 400G-ZR+ coherent optical transceiver module, manufactured and sold by Lumicore Technologies, Inc. The LumiLink 400G-ZR+ employs a thermal management system that includes embedded micro-channel heat-sink structures, as confirmed by the Benchmark teardown.Evidentiary Support: Benchmark teardown report (Exhibit']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', \"OWS-1001, December 12, 2022); annotated teardown photographs (Exhibits OWS-1028 through OWS-1038); Luminore product datasheet (LC-00004521); Dr. Michaud deposition (November 19, 2024) at 98:5–101:14 (describing Luminore's thermal management approach).Dr. Ashford's Explanation:The LumiLink 400G-ZR+ practices a method of thermal management for its photonic integrated circuit using embedded micro-channel heat sinks. The Benchmark teardown confirmed the presence of micro-channel structures within the module's thermal management assembly. To the extent the preamble is limiting, the accused method falls within its scope.\"]]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 184,
+    "table2_idx": 185
+}

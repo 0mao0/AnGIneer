@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        5
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 436 111 562<|content|>EXHIBIT B\n<|id|>1<|page|>2<|box|>136 359 154 637<|content|>Social Media Corrective Statement\n<|id|>4<|page|>2<|box|>339 142 354 537<|content|>I. PREAMBLE AND POSTING INSTRUCTIONS\n<|id|>8<|page|>2<|box|>589 176 607 594<|content|>https://grizzlypeakresearch.com/corrective-stateme\n<|id|>15<|page|>3<|box|>494 140 510 635<|content|>II. TEXT OF SOCIAL MEDIA CORRECTIVE STATEMENT\n<|id|>19<|page|>3<|box|>849 142 867 473<|content|>III. CERTIFICATION AND APPROVAL\n<|id|>20<|page|>3<|box|>876 315 893 681<|content|>APPROVED AS TO FORM AND CONTENT:\n<|id|>21<|page|>4<|box|>89 140 106 535<|content|>ON BEHALF OF REDSTONE GAMING CORP.:\n<|id|>27<|page|>4<|box|>200 142 219 576<|content|>ON BEHALF OF GRIZZLY PEAK RESEARCH LLC:\n<|id|>33<|page|>4<|box|>314 277 330 718<|content|>APPROVED AND COUNTERSIGNED BY COUNSEL:\n<|id|>34<|page|>4<|box|>340 140 358 434<|content|>Counsel for Redstone Gaming Corp.:\n<|id|>46<|page|>4<|box|>585 142 602 542<|content|>IV. FORMATTING AND COMPLIANCE NOTES\n<|id|>52<|page|>5<|box|>515 428 534 568<|content|>[End of Exhibit B]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>3\n<|id|>8<|level|>-1\n<|id|>15<|level|>3\n<|id|>19<|level|>3\n<|id|>20<|level|>4\n<|id|>21<|level|>5\n<|id|>27<|level|>5\n<|id|>33<|level|>5\n<|id|>34<|level|>6\n<|id|>46<|level|>3\n<|id|>52<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 4
+        },
+        {
+            "id": 21,
+            "level": 5
+        },
+        {
+            "id": 27,
+            "level": 5
+        },
+        {
+            "id": 33,
+            "level": 5
+        },
+        {
+            "id": 34,
+            "level": 6
+        },
+        {
+            "id": 46,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        47,
+        64
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        54,
+        57,
+        58,
+        59,
+        60,
+        63,
+        64
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>310<|page|>48<|box|>176 257 205 788<|content|>附录 C 工程费用项目及计算规定\n<|id|>311<|page|>48<|box|>238 418 256 625<|content|>C.1 建筑安装工程费\n<|id|>319<|page|>49<|box|>389 90 406 406<|content|>C.1.5 现场工程应包括下列内容:\n<|id|>334<|page|>50<|box|>345 458 363 569<|content|>直接费\n<|id|>373<|page|>54<|box|>820 467 839 579<|content|>间接费\n<|id|>399<|page|>57<|box|>343 431 363 524<|content|>税 金\n<|id|>414<|page|>58<|box|>262 460 281 571<|content|>专项税费\n<|id|>416<|page|>58<|box|>350 452 368 583<|content|>其他零星费用\n<|id|>419<|page|>58<|box|>524 433 543 600<|content|>C.2 设备购置费\n<|id|>428<|page|>59<|box|>452 322 470 628<|content|>C.3 机修及其他设备安装工程费\n<|id|>433<|page|>60<|box|>106 383 123 648<|content|>C.4 临时工程及施工措施费\n<|id|>440<|page|>63<|box|>220 285 248 672<|content|>附录 F 本规定用词说明\n<|id|>447<|page|>64<|box|>174 196 235 821<|content|>本规定主编单位、参编单位、主要起草人、主要审查人、总校人员和管理组人员名单",
+    "raw_response": "<|id|>310<|level|>1\n<|id|>311<|level|>2\n<|id|>319<|level|>3\n<|id|>334<|level|>3\n<|id|>373<|level|>3\n<|id|>399<|level|>3\n<|id|>414<|level|>3\n<|id|>416<|level|>3\n<|id|>419<|level|>2\n<|id|>428<|level|>2\n<|id|>433<|level|>2\n<|id|>440<|level|>1\n<|id|>447<|level|>1",
+    "parsed": [
+        {
+            "id": 310,
+            "level": 1
+        },
+        {
+            "id": 311,
+            "level": 2
+        },
+        {
+            "id": 319,
+            "level": 3
+        },
+        {
+            "id": 334,
+            "level": 3
+        },
+        {
+            "id": 373,
+            "level": 3
+        },
+        {
+            "id": 399,
+            "level": 3
+        },
+        {
+            "id": 414,
+            "level": 3
+        },
+        {
+            "id": 416,
+            "level": 3
+        },
+        {
+            "id": 419,
+            "level": 2
+        },
+        {
+            "id": 428,
+            "level": 2
+        },
+        {
+            "id": 433,
+            "level": 2
+        },
+        {
+            "id": 440,
+            "level": 1
+        },
+        {
+            "id": 447,
+            "level": 1
+        }
+    ]
+}

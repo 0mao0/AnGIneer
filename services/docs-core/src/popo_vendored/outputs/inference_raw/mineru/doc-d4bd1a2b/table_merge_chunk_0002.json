@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Jan. 15', '{Apr. 16July 16}', '91182', '2,178734', '1,600401', '2.8083.034}', '197', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=2, Issue date', 'Maturity date', 'Number of days to maturity', 'rowspan=2, Amount of bids tendered', 'rowspan=2, Amount of bids accepted', 'rowspan=2, Average rate on bids accepted 1/', 'rowspan=2, New money increase, or decrease (-)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 239,
+    "table2_idx": 240
+}

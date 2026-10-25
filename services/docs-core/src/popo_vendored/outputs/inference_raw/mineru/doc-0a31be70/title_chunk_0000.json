@@ -1,0 +1,125 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 104 611<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>114 406 132 591<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>151 143 167 444<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>4<|page|>1<|box|>402 142 417 421<|content|>I. Purpose and Executive Summary\n<|id|>10<|page|>2<|box|>150 140 167 627<|content|>II. Background on Rathore's Employment and Equity\n<|id|>11<|page|>2<|box|>181 143 198 333<|content|>A. Employment History\n<|id|>15<|page|>2<|box|>689 142 707 426<|content|>B. FY2024 Compensation Summary\n<|id|>27<|page|>3<|box|>234 140 251 313<|content|>C. RSU Grant Terms\n<|id|>37<|page|>3<|box|>643 140 662 482<|content|>III. Vesting Analysis as of Resignation Date\n<|id|>38<|page|>4<|box|>90 140 107 468<|content|>A. Tranche-by-Tranche Vesting Schedule\n<|id|>42<|page|>4<|box|>380 142 398 584<|content|>B. Vested vs. Unvested at Resignation (February 7,\n<|id|>47<|page|>4<|box|>787 140 804 478<|content|>C. Automatic Forfeiture of Unvested RSUs\n<|id|>51<|page|>5<|box|>348 140 364 607<|content|>IV. For-Cause Clawback Analysis — Third Vested Tra\n<|id|>52<|page|>5<|box|>378 140 396 612<|content|>A. Clawback Provision in the A&R Employment Agreem\n<|id|>56<|page|>6<|box|>90 140 107 478<|content|>B. Application to Rathore's Circumstances\n<|id|>62<|page|>6<|box|>779 140 796 410<|content|>C. Clawback Amount Calculation\n<|id|>68<|page|>7<|box|>377 142 393 468<|content|>V. Total Forfeiture Calculation Summary\n<|id|>69<|page|>7<|box|>407 143 424 295<|content|>A. Summary Table\n<|id|>71<|page|>7<|box|>715 143 732 459<|content|>B. Reconciliation with Settlement Terms\n<|id|>77<|page|>8<|box|>328 140 344 542<|content|>VI. Implementation Steps and Closing Deliverables\n<|id|>78<|page|>8<|box|>359 140 376 325<|content|>A. Equity Cancellation\n<|id|>82<|page|>8<|box|>813 142 829 472<|content|>B. Coordination with Other Workstreams\n<|id|>89<|page|>9<|box|>529 140 546 424<|content|>C. Hargrove & Tillett Coordination\n<|id|>91<|page|>9<|box|>739 140 757 406<|content|>VII. Open Questions and Caveats\n<|id|>97<|page|>10<|box|>574 140 592 279<|content|>VIII. Conclusion\n<|id|>103<|page|>11<|box|>133 142 148 230<|content|>Distribution:\n<|id|>105<|page|>11<|box|>179 142 194 297<|content|>Enclosures Referenced:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>2<|level|>-1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>15<|level|>3\n<|id|>27<|level|>3\n<|id|>37<|level|>2\n<|id|>38<|level|>3\n<|id|>42<|level|>3\n<|id|>47<|level|>3\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>56<|level|>3\n<|id|>62<|level|>3\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>71<|level|>3\n<|id|>77<|level|>2\n<|id|>78<|level|>3\n<|id|>82<|level|>3\n<|id|>89<|level|>3\n<|id|>91<|level|>2\n<|id|>97<|level|>2\n<|id|>103<|level|>2\n<|id|>105<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        }
+    ]
+}

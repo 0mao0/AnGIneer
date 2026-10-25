@@ -1,0 +1,795 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9frke1bm\\input\\pdfs\\doc-26ea5b4c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9frke1bm\\enriched\\doc-26ea5b4c.json",
+    "contd_output": "<|src_id|>120<|tgt_id|>121\n<|src_id|>256<|tgt_id|>257",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>28<|level|>3\n<|id|>45<|level|>3\n<|id|>50<|level|>3\n<|id|>57<|level|>2\n<|id|>58<|level|>3\n<|id|>80<|level|>3\n<|id|>94<|level|>3\n<|id|>117<|level|>3\n<|id|>124<|level|>2\n<|id|>125<|level|>3\n<|id|>135<|level|>3\n<|id|>142<|level|>3\n<|id|>156<|level|>3\n<|id|>163<|level|>2\n<|id|>164<|level|>3\n<|id|>174<|level|>3\n<|id|>181<|level|>3\n<|id|>190<|level|>2\n<|id|>192<|level|>3\n<|id|>193<|level|>4\n<|id|>204<|level|>4\n<|id|>205<|level|>5\n<|id|>220<|level|>3\n<|id|>221<|level|>4\n<|id|>228<|level|>4\n<|id|>247<|level|>3\n<|id|>248<|level|>4\n<|id|>260<|level|>4\n<|id|>261<|level|>5\n<|id|>289<|level|>3\n<|id|>290<|level|>4\n<|id|>303<|level|>4\n<|id|>309<|level|>4\n<|id|>314<|level|>3\n<|id|>315<|level|>4\n<|id|>324<|level|>4\n<|id|>325<|level|>5\n<|id|>339<|level|>3\n<|id|>340<|level|>4\n<|id|>354<|level|>4\n<|id|>355<|level|>5\n<|id|>361<|level|>4\n<|id|>367<|level|>3\n<|id|>368<|level|>4\n<|id|>388<|level|>4\n<|id|>389<|level|>5\n<|id|>394<|level|>4\n<|id|>400<|level|>3\n<|id|>401<|level|>4\n<|id|>408<|level|>4\n<|id|>409<|level|>5\n<|id|>414<|level|>4\n<|id|>419<|level|>3\n<|id|>420<|level|>4\n<|id|>432<|level|>4\n<|id|>433<|level|>5\n<|id|>440<|level|>4\n<|id|>445<|level|>3\n<|id|>446<|level|>4\n<|id|>451<|level|>4\n<|id|>452<|level|>5\n<|id|>454<|level|>4\n<|id|>459<|level|>3\n<|id|>460<|level|>4\n<|id|>466<|level|>4\n<|id|>467<|level|>5\n<|id|>473<|level|>4\n<|id|>478<|level|>3\n<|id|>479<|level|>4\n<|id|>492<|level|>4\n<|id|>493<|level|>5\n<|id|>498<|level|>4\n<|id|>502<|level|>3\n<|id|>503<|level|>4\n<|id|>508<|level|>4\n<|id|>509<|level|>5\n<|id|>515<|level|>4\n<|id|>520<|level|>2\n<|id|>529<|level|>2\n<|id|>533<|level|>3\n<|id|>543<|level|>3\n<|id|>555<|level|>3\n<|id|>568<|level|>3\n<|id|>580<|level|>3\n<|id|>586<|level|>3\n<|id|>595<|level|>2\n<|id|>596<|level|>3\n<|id|>602<|level|>3\n<|id|>610<|level|>3\n<|id|>614<|level|>3\n<|id|>619<|level|>2\n<|id|>621<|level|>3\n<|id|>624<|level|>4\n<|id|>628<|level|>2\n<|id|>633<|level|>2\n<|id|>641<|level|>2\n<|id|>647<|level|>2",
+    "image_output": "<|src_id|>47<|tgt_id|>45\n<|src_id|>48<|tgt_id|>45\n<|src_id|>144<|tgt_id|>142\n<|src_id|>231<|tgt_id|>228\n<|src_id|>232<|tgt_id|>228\n<|src_id|>251<|tgt_id|>248\n<|src_id|>252<|tgt_id|>248\n<|src_id|>293<|tgt_id|>290\n<|src_id|>294<|tgt_id|>290\n<|src_id|>522<|tgt_id|>520\n<|src_id|>523<|tgt_id|>520\n<|src_id|>524<|tgt_id|>520\n<|src_id|>531<|tgt_id|>529\n<|src_id|>532<|tgt_id|>529\n<|src_id|>615<|tgt_id|>614\n<|src_id|>625<|tgt_id|>624\n<|src_id|>626<|tgt_id|>621\n<|src_id|>630<|tgt_id|>628\n<|src_id|>631<|tgt_id|>628\n<|src_id|>632<|tgt_id|>628\n<|src_id|>637<|tgt_id|>633\n<|src_id|>638<|tgt_id|>633\n<|src_id|>639<|tgt_id|>633\n<|src_id|>643<|tgt_id|>641\n<|src_id|>644<|tgt_id|>641\n<|src_id|>648<|tgt_id|>647\n<|src_id|>649<|tgt_id|>647\n<|src_id|>650<|tgt_id|>647\n<|src_id|>651<|tgt_id|>647\n<|src_id|>652<|tgt_id|>647",
+    "contd_label": [
+        {
+            "src_id": 120,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 256,
+            "tgt_id": 257
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 193,
+            "level": 4
+        },
+        {
+            "id": 204,
+            "level": 4
+        },
+        {
+            "id": 205,
+            "level": 5
+        },
+        {
+            "id": 220,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 4
+        },
+        {
+            "id": 228,
+            "level": 4
+        },
+        {
+            "id": 247,
+            "level": 3
+        },
+        {
+            "id": 248,
+            "level": 4
+        },
+        {
+            "id": 260,
+            "level": 4
+        },
+        {
+            "id": 261,
+            "level": 5
+        },
+        {
+            "id": 289,
+            "level": 3
+        },
+        {
+            "id": 290,
+            "level": 4
+        },
+        {
+            "id": 303,
+            "level": 4
+        },
+        {
+            "id": 309,
+            "level": 4
+        },
+        {
+            "id": 314,
+            "level": 3
+        },
+        {
+            "id": 315,
+            "level": 4
+        },
+        {
+            "id": 324,
+            "level": 4
+        },
+        {
+            "id": 325,
+            "level": 5
+        },
+        {
+            "id": 339,
+            "level": 3
+        },
+        {
+            "id": 340,
+            "level": 4
+        },
+        {
+            "id": 354,
+            "level": 4
+        },
+        {
+            "id": 355,
+            "level": 5
+        },
+        {
+            "id": 361,
+            "level": 4
+        },
+        {
+            "id": 367,
+            "level": 3
+        },
+        {
+            "id": 368,
+            "level": 4
+        },
+        {
+            "id": 388,
+            "level": 4
+        },
+        {
+            "id": 389,
+            "level": 5
+        },
+        {
+            "id": 394,
+            "level": 4
+        },
+        {
+            "id": 400,
+            "level": 3
+        },
+        {
+            "id": 401,
+            "level": 4
+        },
+        {
+            "id": 408,
+            "level": 4
+        },
+        {
+            "id": 409,
+            "level": 5
+        },
+        {
+            "id": 414,
+            "level": 4
+        },
+        {
+            "id": 419,
+            "level": 3
+        },
+        {
+            "id": 420,
+            "level": 4
+        },
+        {
+            "id": 432,
+            "level": 4
+        },
+        {
+            "id": 433,
+            "level": 5
+        },
+        {
+            "id": 440,
+            "level": 4
+        },
+        {
+            "id": 445,
+            "level": 3
+        },
+        {
+            "id": 446,
+            "level": 4
+        },
+        {
+            "id": 451,
+            "level": 4
+        },
+        {
+            "id": 452,
+            "level": 5
+        },
+        {
+            "id": 454,
+            "level": 4
+        },
+        {
+            "id": 459,
+            "level": 3
+        },
+        {
+            "id": 460,
+            "level": 4
+        },
+        {
+            "id": 466,
+            "level": 4
+        },
+        {
+            "id": 467,
+            "level": 5
+        },
+        {
+            "id": 473,
+            "level": 4
+        },
+        {
+            "id": 478,
+            "level": 3
+        },
+        {
+            "id": 479,
+            "level": 4
+        },
+        {
+            "id": 492,
+            "level": 4
+        },
+        {
+            "id": 493,
+            "level": 5
+        },
+        {
+            "id": 498,
+            "level": 4
+        },
+        {
+            "id": 502,
+            "level": 3
+        },
+        {
+            "id": 503,
+            "level": 4
+        },
+        {
+            "id": 508,
+            "level": 4
+        },
+        {
+            "id": 509,
+            "level": 5
+        },
+        {
+            "id": 515,
+            "level": 4
+        },
+        {
+            "id": 520,
+            "level": 2
+        },
+        {
+            "id": 529,
+            "level": 2
+        },
+        {
+            "id": 533,
+            "level": 3
+        },
+        {
+            "id": 543,
+            "level": 3
+        },
+        {
+            "id": 555,
+            "level": 3
+        },
+        {
+            "id": 568,
+            "level": 3
+        },
+        {
+            "id": 580,
+            "level": 3
+        },
+        {
+            "id": 586,
+            "level": 3
+        },
+        {
+            "id": 595,
+            "level": 2
+        },
+        {
+            "id": 596,
+            "level": 3
+        },
+        {
+            "id": 602,
+            "level": 3
+        },
+        {
+            "id": 610,
+            "level": 3
+        },
+        {
+            "id": 614,
+            "level": 3
+        },
+        {
+            "id": 619,
+            "level": 2
+        },
+        {
+            "id": 621,
+            "level": 3
+        },
+        {
+            "id": 624,
+            "level": 4
+        },
+        {
+            "id": 628,
+            "level": 2
+        },
+        {
+            "id": 633,
+            "level": 2
+        },
+        {
+            "id": 641,
+            "level": 2
+        },
+        {
+            "id": 647,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 231,
+            "tgt_id": 228
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 228
+        },
+        {
+            "src_id": 251,
+            "tgt_id": 248
+        },
+        {
+            "src_id": 252,
+            "tgt_id": 248
+        },
+        {
+            "src_id": 293,
+            "tgt_id": 290
+        },
+        {
+            "src_id": 294,
+            "tgt_id": 290
+        },
+        {
+            "src_id": 522,
+            "tgt_id": 520
+        },
+        {
+            "src_id": 523,
+            "tgt_id": 520
+        },
+        {
+            "src_id": 524,
+            "tgt_id": 520
+        },
+        {
+            "src_id": 531,
+            "tgt_id": 529
+        },
+        {
+            "src_id": 532,
+            "tgt_id": 529
+        },
+        {
+            "src_id": 615,
+            "tgt_id": 614
+        },
+        {
+            "src_id": 625,
+            "tgt_id": 624
+        },
+        {
+            "src_id": 626,
+            "tgt_id": 621
+        },
+        {
+            "src_id": 630,
+            "tgt_id": 628
+        },
+        {
+            "src_id": 631,
+            "tgt_id": 628
+        },
+        {
+            "src_id": 632,
+            "tgt_id": 628
+        },
+        {
+            "src_id": 637,
+            "tgt_id": 633
+        },
+        {
+            "src_id": 638,
+            "tgt_id": 633
+        },
+        {
+            "src_id": 639,
+            "tgt_id": 633
+        },
+        {
+            "src_id": 643,
+            "tgt_id": 641
+        },
+        {
+            "src_id": 644,
+            "tgt_id": 641
+        },
+        {
+            "src_id": 648,
+            "tgt_id": 647
+        },
+        {
+            "src_id": 649,
+            "tgt_id": 647
+        },
+        {
+            "src_id": 650,
+            "tgt_id": 647
+        },
+        {
+            "src_id": 651,
+            "tgt_id": 647
+        },
+        {
+            "src_id": 652,
+            "tgt_id": 647
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 47,
+            "table2_idx": 48,
+            "upper_row_ss": [
+                [
+                    "Records of",
+                    "Art. 30",
+                    "Ad Hoc",
+                    "HIGH",
+                    "Short-term (Phase 2)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Processing Activities",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 231,
+            "table2_idx": 232,
+            "upper_row_ss": [
+                [
+                    "DPIA-010",
+                    "Lawful intercept and communications data retention (IPA 2016)",
+                    "Sensitive intersection of legal obligation and privacy rights; large-scale"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "DPIA-011",
+                    "Caldwell Analytics network performance data transfer to US",
+                    "Large-scale cross-border transfer; profiling; third-country risks"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 251,
+            "table2_idx": 252,
+            "upper_row_ss": [
+                [
+                    "Network analytics data",
+                    "Northgate Ireland Ltd,",
+                    "Caldwell",
+                    "USA",
+                    "No",
+                    "Old (2010)",
+                    "Invalid(expired 27"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "NTP PLC",
+                    "Analytics Inc.",
+                    "",
+                    "",
+                    "EU SCCs",
+                    "Dec 2022)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 293,
+            "table2_idx": 294,
+            "upper_row_ss": [
+                [
+                    "Lawful Basis",
+                    "Article",
+                    "Number of Activities",
+                    "Percentage"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Legitimate interest",
+                    "Art. 6(1)(f)",
+                    "64",
+                    "43.5%"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 531,
+            "table2_idx": 532,
+            "upper_row_ss": [
+                [
+                    "Phase 5",
+                    "Policies, Governance & Training",
+                    "14 August 2023",
+                    "1 September 2023",
+                    "Group Data Protection Policy; Data Subject Rights Procedure; Breach Notification Procedure;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Retention Schedule; Privacy notices; Board training (22 August 2023)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 625,
+            "table2_idx": 626,
+            "upper_row_ss": [
+                [
+                    "10",
+                    "Lawful Basis",
+                    "Identify the lawful basis under Article 6(1): consent, contract, legal"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "obligation, vital interests, public interest, or legitimate interest"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 630,
+            "table2_idx": 631,
+            "upper_row_ss": [
+                [
+                    "Thomas Okoye",
+                    "CISO",
+                    "9 March 2023",
+                    "2.5 hours",
+                    "Security measures; ISO",
+                    "Mature cybersecurity"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "27001; incident response; breach history; encryption; pseudonymisation; network architecture",
+                    "programme; ISO 27001 London and Dublin; 3 breaches in 2022 (2 reported late to ICO); no GDPR-specific breach overlay; incident response is technical, not privacy-focused; pseudonymisation not applied to Caldwell data; Pinnacle India engineers have prod access"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 631,
+            "table2_idx": 632,
+            "upper_row_ss": [
+                [
+                    "Philippa Crane",
+                    "Head of People & HR",
+                    "14 March 2023",
+                    "2 hours",
+                    "Employee data processing; NorthPulse; HR analytics; biometric access; expatriate payroll; trade union data; recruitment",
+                    "NorthPulse launched Q2 2022, collects health/wellbeing data; facial recognition pilot Q3 2022 at London HQ; ~45 expatriates on Sunderland-Hayes payroll; Ashbury & Co."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "HR system retains data indefinitely; no automated deletion; occupational health records managed by external provider"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 643,
+            "table2_idx": 644,
+            "upper_row_ss": [
+                [
+                    "Moritaka Systems",
+                    "Japan (Tokyo)",
+                    "Analytics services",
+                    "None documented",
+                    "Controller/processor"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "K.K.",
+                    "",
+                    "agreement (processor characterisation)",
+                    "(EU adequacy decision for Japan exists but not formally relied upon)",
+                    "characterisation may be incorrect — potential joint controller under Art. 26; no joint controller agreement; no formal reliance on adequacy decision documented; independent use of aggregated outputs"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 649,
+            "table2_idx": 650,
+            "upper_row_ss": [
+                [
+                    "Potential Exposure",
+                    "Administrative fine under Art. 83(5)(c) of up to €20 million or 4% of annual global turnover (approx. £98.8"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "million for NTP); order to suspend data flows (Art. 58(2)(j))"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 650,
+            "table2_idx": 651,
+            "upper_row_ss": [
+                [
+                    "Recommended Action",
+                    "Submit interim update in April 2023 confirming engagement of external counsel and compliance programme; submit comprehensive response upon completion of transfer mechanism remediation (target: early September 2023)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Abbreviation / Term",
+                    "Definition"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 651,
+            "table2_idx": 652,
+            "upper_row_ss": [
+                [
+                    "IPA 2016",
+                    "Investigatory Powers Act 2016 (United Kingdom)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "ISO 27001",
+                    "International standard for information security management systems"
+                ]
+            ]
+        }
+    ]
+}

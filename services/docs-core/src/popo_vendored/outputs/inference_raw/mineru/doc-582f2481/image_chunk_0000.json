@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 196 142 800<|content|>OFFICER'S CERTIFICATE OF WHITMORE PRECISION MACHIN\n<|id|>7<|type|>title<|page|>1<|box|>806 140 823 437<|content|>Section 1. Organizational Documents.\n<|id|>11<|type|>title<|page|>2<|box|>494 140 511 392<|content|>Section 2. Member Resolutions.\n<|id|>21<|type|>title<|page|>3<|box|>656 140 674 527<|content|>Section 3. Incumbency of Authorized Signatories.\n<|id|>23<|type|>table<|page|>3<|box|>815 143 902 852<|content|>None\n<|id|>24<|type|>table<|page|>4<|box|>88 143 172 852<|content|>None\n<|id|>27<|type|>title<|page|>4<|box|>455 140 474 434<|content|>Section 4. Good Standing Certificate.\n<|id|>30<|type|>title<|page|>4<|box|>751 140 768 452<|content|>Section 5. No Amendments or Changes.\n<|id|>36<|type|>title<|page|>5<|box|>411 140 428 442<|content|>Section 6. Additional Representations.\n<|id|>40<|type|>title<|page|>6<|box|>167 140 184 297<|content|>Section 7. Reliance.\n<|id|>54<|type|>title<|page|>7<|box|>90 415 106 583<|content|>LIST OF EXHIBITS\n<|id|>55<|type|>table<|page|>7<|box|>140 143 294 852<|content|>None\n<|id|>56<|type|>title<|page|>8<|box|>89 401 133 596<|content|>EXHIBIT A Certificate of Formation\n<|id|>57<|type|>title<|page|>8<|box|>142 488 157 511<|content|>of\n<|id|>58<|type|>title<|page|>8<|box|>167 354 185 643<|content|>Whitmore Precision Machining LLC\n<|id|>60<|type|>title<|page|>8<|box|>219 424 237 573<|content|>Filing No. 6587204\n<|id|>63<|type|>title<|page|>9<|box|>89 344 135 653<|content|>EXHIBIT B Limited Liability Company Agreement\n<|id|>65<|type|>title<|page|>9<|box|>167 354 185 643<|content|>Whitmore Precision Machining LLC\n<|id|>66<|type|>title<|page|>9<|box|>194 419 210 576<|content|>as currently in effect\n<|id|>70<|type|>title<|page|>10<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>71<|type|>title<|page|>10<|box|>114 354 133 643<|content|>Written Consent of the Sole Member\n<|id|>73<|type|>title<|page|>10<|box|>167 354 185 643<|content|>Whitmore Precision Machining LLC\n<|id|>74<|type|>title<|page|>10<|box|>194 416 210 580<|content|>in Lieu of a Meeting\n<|id|>83<|type|>title<|page|>11<|box|>89 385 133 612<|content|>EXHIBIT D Certificate of Good Standing\n<|id|>85<|type|>title<|page|>11<|box|>167 354 185 643<|content|>Whitmore Precision Machining LLC\n<|id|>86<|type|>title<|page|>11<|box|>194 292 210 705<|content|>Issued by the Secretary of State of the State of D\n<|id|>89<|type|>title<|page|>11<|box|>344 142 362 511<|content|>[Certificate of Good Standing to be inserted here.",
+    "raw_response": "<|src_id|>23<|tgt_id|>21\n<|src_id|>24<|tgt_id|>21\n<|src_id|>55<|tgt_id|>54",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 54
+        }
+    ]
+}

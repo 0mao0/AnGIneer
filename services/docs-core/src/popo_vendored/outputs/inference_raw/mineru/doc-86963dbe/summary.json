@@ -1,0 +1,559 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pcls8gg2\\input\\pdfs\\doc-86963dbe.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pcls8gg2\\enriched\\doc-86963dbe.json",
+    "contd_output": "<|src_id|>124<|tgt_id|>125",
+    "title_output": "<|id|>9<|level|>1\n<|id|>23<|level|>1\n<|id|>24<|level|>2\n<|id|>35<|level|>2\n<|id|>49<|level|>2\n<|id|>57<|level|>1\n<|id|>58<|level|>2\n<|id|>71<|level|>2\n<|id|>76<|level|>2\n<|id|>86<|level|>2\n<|id|>93<|level|>2\n<|id|>98<|level|>2\n<|id|>101<|level|>1\n<|id|>102<|level|>2\n<|id|>108<|level|>2\n<|id|>119<|level|>2\n<|id|>126<|level|>2\n<|id|>135<|level|>1\n<|id|>136<|level|>2\n<|id|>140<|level|>2\n<|id|>142<|level|>3\n<|id|>149<|level|>3\n<|id|>155<|level|>3\n<|id|>161<|level|>3\n<|id|>167<|level|>3\n<|id|>171<|level|>1\n<|id|>172<|level|>2\n<|id|>173<|level|>3\n<|id|>176<|level|>4\n<|id|>194<|level|>3\n<|id|>202<|level|>2\n<|id|>204<|level|>2\n<|id|>206<|level|>2\n<|id|>209<|level|>1\n<|id|>210<|level|>2\n<|id|>216<|level|>3\n<|id|>220<|level|>3\n<|id|>224<|level|>3\n<|id|>228<|level|>3\n<|id|>230<|level|>3\n<|id|>234<|level|>2\n<|id|>244<|level|>2\n<|id|>246<|level|>2\n<|id|>250<|level|>1\n<|id|>252<|level|>2\n<|id|>255<|level|>2\n<|id|>262<|level|>2\n<|id|>265<|level|>2\n<|id|>268<|level|>2\n<|id|>271<|level|>2\n<|id|>276<|level|>1\n<|id|>284<|level|>1\n<|id|>305<|level|>1\n<|id|>308<|level|>1\n<|id|>309<|level|>2\n<|id|>313<|level|>2",
+    "image_output": "<|src_id|>103<|tgt_id|>102\n<|src_id|>104<|tgt_id|>102\n<|src_id|>105<|tgt_id|>102\n<|src_id|>106<|tgt_id|>102\n<|src_id|>296<|tgt_id|>284\n<|src_id|>297<|tgt_id|>284\n<|src_id|>298<|tgt_id|>284\n<|src_id|>299<|tgt_id|>284\n<|src_id|>300<|tgt_id|>284\n<|src_id|>301<|tgt_id|>284\n<|src_id|>303<|tgt_id|>284\n<|src_id|>304<|tgt_id|>284\n<|src_id|>306<|tgt_id|>305\n<|src_id|>307<|tgt_id|>305\n<|src_id|>311<|tgt_id|>309",
+    "contd_label": [
+        {
+            "src_id": 124,
+            "tgt_id": 125
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 4
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 1
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 3
+        },
+        {
+            "id": 220,
+            "level": 3
+        },
+        {
+            "id": 224,
+            "level": 3
+        },
+        {
+            "id": 228,
+            "level": 3
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 2
+        },
+        {
+            "id": 244,
+            "level": 2
+        },
+        {
+            "id": 246,
+            "level": 2
+        },
+        {
+            "id": 250,
+            "level": 1
+        },
+        {
+            "id": 252,
+            "level": 2
+        },
+        {
+            "id": 255,
+            "level": 2
+        },
+        {
+            "id": 262,
+            "level": 2
+        },
+        {
+            "id": 265,
+            "level": 2
+        },
+        {
+            "id": 268,
+            "level": 2
+        },
+        {
+            "id": 271,
+            "level": 2
+        },
+        {
+            "id": 276,
+            "level": 1
+        },
+        {
+            "id": 284,
+            "level": 1
+        },
+        {
+            "id": 305,
+            "level": 1
+        },
+        {
+            "id": 308,
+            "level": 1
+        },
+        {
+            "id": 309,
+            "level": 2
+        },
+        {
+            "id": 313,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 103,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 296,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 297,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 298,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 299,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 300,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 301,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 303,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 304,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 306,
+            "tgt_id": 305
+        },
+        {
+            "src_id": 307,
+            "tgt_id": 305
+        },
+        {
+            "src_id": 311,
+            "tgt_id": 309
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 103,
+            "table2_idx": 104,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "GMP Fairfield",
+                    "84-",
+                    "2019",
+                    "Delaware",
+                    "Georgia",
+                    "Fairfield Logistic",
+                    "Logistic",
+                    "Confirmed",
+                    "Confirmed —"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "II LLC",
+                    "2310578",
+                    "",
+                    "e",
+                    "",
+                    "s Center II, 4300 Fairfield Industria l Blvd, Fairburn , GA",
+                    "s",
+                    "(3/28/20 24)",
+                    "GA"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 104,
+            "table2_idx": 105,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "GMP Southport LLC",
+                    "84-2527849",
+                    "2020",
+                    "Delaware",
+                    "Florida",
+                    "Southport Logistics Park,",
+                    "Logistics",
+                    "Confirmed (3/28/20 24)",
+                    "Confirmed — FL"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "3200 Southport Connect or Road, Jacksonville, FL",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 105,
+            "table2_idx": 106,
+            "upper_row_ss": [
+                [
+                    "12",
+                    "GMP Brickell LLC",
+                    "84-2639932",
+                    "2021",
+                    "Delaware",
+                    "Florida",
+                    "Brickell Bay Office Building",
+                    "Office",
+                    "Confirmed (3/28/2024)",
+                    "Confirmed — FL"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ", 1450 Brickell Avenue, Miami, FL",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 296,
+            "table2_idx": 297,
+            "upper_row_ss": [
+                [
+                    "27",
+                    "GMP Mount Juliet LLC",
+                    "Delaware",
+                    "March 28, 2024",
+                    "DE-2024-0328-7754"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "28",
+                    "GMP Mount Juliet LLC",
+                    "Tennessee",
+                    "March 28, 2024",
+                    "TN-2024-0328-3303"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 298,
+            "table2_idx": 299,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "GMP Alliance LLC",
+                    "DE SOS",
+                    "3/29/2024",
+                    "1",
+                    "Pinnacle Federal Bank, N.A.",
+                    "9/18/2020",
+                    "2020-7341249",
+                    "Rents, leases, accounts, deposit accounts, personal"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "property, fixtures, and proceeds"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 299,
+            "table2_idx": 300,
+            "upper_row_ss": [
+                [
+                    "10",
+                    "GMP SouthPark LLC",
+                    "DE SOS",
+                    "3/29/2024",
+                    "1",
+                    "Veltrano Capital Lending Corp.",
+                    "2/5/2021",
+                    "2021-0892111",
+                    "Rents, leases, accounts, deposit accounts, personal property, fixtures, and"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "proceeds"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 300,
+            "table2_idx": 301,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "Greystone Meridian Capital LLC",
+                    "DE SOS",
+                    "3/29/2024",
+                    "0",
+                    "N/A",
+                    "N/A",
+                    "N/A",
+                    "N/A"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "17",
+                    "Argyle Property Services LLC",
+                    "DE SOS",
+                    "3/29/2024",
+                    "0",
+                    "N/A",
+                    "N/A",
+                    "N/A",
+                    "N/A"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 303,
+            "table2_idx": 304,
+            "upper_row_ss": [
+                [
+                    "17",
+                    "Argyle",
+                    "DE; GA",
+                    "3/29/2024",
+                    "None",
+                    "None",
+                    "None"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Property Services LLC",
+                    "(Fulton Co.)",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 306,
+            "table2_idx": 307,
+            "upper_row_ss": [
+                [
+                    "11",
+                    "GMP Cool Springs LLC",
+                    "Williamson Co. Circuit Ct. (TN); M.D. Tenn.; DE Chancery; DE",
+                    "3/29/2024",
+                    "No pending litigation"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Superior Ct.; D. Del.",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

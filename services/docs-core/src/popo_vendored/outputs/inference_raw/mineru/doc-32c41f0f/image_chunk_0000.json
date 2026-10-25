@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>165 214 181 782<|content|>SECRETARY'S CERTIFICATE OF MERIDIAN DIAGNOSTICS, I\n<|id|>5<|type|>title<|page|>1<|box|>330 140 349 400<|content|>I. Certifying Party Identification\n<|id|>8<|type|>title<|page|>1<|box|>534 140 551 475<|content|>II. Certification of Incumbency of Officers\n<|id|>10<|type|>table<|page|>1<|box|>694 143 768 852<|content|>None\n<|id|>12<|type|>title<|page|>2<|box|>90 140 107 491<|content|>III. Certification of Incumbency of Directors\n<|id|>19<|type|>title<|page|>2<|box|>506 140 523 697<|content|>IV. Certification of Amended and Restated Certific\n<|id|>21<|type|>title<|page|>2<|box|>667 142 685 575<|content|>The A&R Certificate of Incorporation, among other\n<|id|>28<|type|>title<|page|>3<|box|>311 140 329 532<|content|>V. Certification of Amended and Restated Bylaws\n<|id|>32<|type|>title<|page|>3<|box|>613 142 628 442<|content|>VI. Certification of Board Resolutions\n<|id|>60<|type|>title<|page|>6<|box|>90 142 107 475<|content|>VII. Certification of Stockholder Consents\n<|id|>66<|type|>table<|page|>6<|box|>508 143 617 852<|content|>None\n<|id|>69<|type|>title<|page|>6<|box|>845 140 863 635<|content|>VIII. Certification of Good Standing and Organizat\n<|id|>74<|type|>title<|page|>7<|box|>292 140 309 349<|content|>IX. General Certifications\n<|id|>75<|type|>title<|page|>7<|box|>319 140 335 397<|content|>I hereby further certify as follows:\n<|id|>81<|type|>title<|page|>8<|box|>89 142 107 236<|content|>X. Exhibits\n<|id|>87<|type|>title<|page|>9<|box|>90 142 107 254<|content|>XI. Signature",
+    "raw_response": "<|src_id|>10<|tgt_id|>8\n<|src_id|>66<|tgt_id|>60",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 60
+        }
+    ]
+}

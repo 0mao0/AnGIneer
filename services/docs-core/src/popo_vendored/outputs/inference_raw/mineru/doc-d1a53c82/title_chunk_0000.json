@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 143 141 851<|content|>IN THE CIRCUIT COURT OF THE ELEVENTH JUDICIAL CIRC\n<|id|>7<|page|>1<|box|>340 189 376 805<|content|>PLAINTIFF'S FIRST REQUEST FOR PRODUCTION OF DOCUME\n<|id|>12<|page|>1<|box|>522 140 539 397<|content|>PRELIMINARY STATEMENT\n<|id|>16<|page|>2<|box|>229 142 247 269<|content|>DEFINITIONS\n<|id|>34<|page|>4<|box|>428 142 444 287<|content|>INSTRUCTIONS\n<|id|>43<|page|>5<|box|>702 142 719 415<|content|>REQUESTS FOR PRODUCTION\n<|id|>44<|page|>5<|box|>733 142 750 470<|content|>REQUEST NO. 1 — Complete Policy File\n<|id|>62<|page|>6<|box|>750 142 768 527<|content|>REQUEST NO. 2 — Complete Underwriting File\n<|id|>75<|page|>7<|box|>773 140 792 470<|content|>REQUEST NO. 3 — Complete Claim File\n<|id|>91<|page|>9<|box|>157 140 175 759<|content|>REQUEST NO. 4 — Arbor Claims Services / Independen\n<|id|>102<|page|>9<|box|>829 140 847 607<|content|>REQUEST NO. 5 — Communications with Excess Carrier\n<|id|>113<|page|>10<|box|>584 140 602 712<|content|>REQUEST NO. 6 — Internal Claims Evaluations and Co\n<|id|>129<|page|>11<|box|>801 140 818 691<|content|>REQUEST NO. 7 — Documents Relating to the Windstor\n<|id|>139<|page|>12<|box|>595 140 631 854<|content|>REQUEST NO. 8 — Documents Relating to the Flood Ex\n<|id|>147<|page|>13<|box|>282 140 299 655<|content|>REQUEST NO. 9 — Documents Relating to Period of Re\n<|id|>158<|page|>14<|box|>90 140 107 712<|content|>REQUEST NO. 10 — Documents Relating to Failure-to-\n<|id|>165<|page|>14<|box|>512 140 547 854<|content|>REQUEST NO. 11 — Documents Relating to VHG's Busin\n<|id|>173<|page|>15<|box|>301 140 318 617<|content|>REQUEST NO. 12 — Correspondence with Outside Couns\n<|id|>176<|page|>15<|box|>564 140 582 663<|content|>REQUEST NO. 13 — Claims Handling Guidelines and Pr\n<|id|>184<|page|>16<|box|>220 142 237 437<|content|>REQUEST NO. 14 — Similar Claims\n<|id|>191<|page|>16<|box|>660 142 676 508<|content|>REQUEST NO. 15 — Reinsurance Documents\n<|id|>198<|page|>17<|box|>275 140 292 581<|content|>REQUEST NO. 16 — Electronically Stored Information\n<|id|>208<|page|>17<|box|>756 142 773 681<|content|>REQUEST NO. 17 — Photographs, Videos, and Inspecti\n<|id|>215<|page|>18<|box|>327 142 344 575<|content|>REQUEST NO. 18 — Expert and Consultant Materials\n<|id|>222<|page|>18<|box|>813 140 830 388<|content|>CERTIFICATE OF SERVICE\n<|id|>226<|page|>19<|box|>233 140 250 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>34<|level|>2\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>62<|level|>3\n<|id|>75<|level|>3\n<|id|>91<|level|>3\n<|id|>102<|level|>3\n<|id|>113<|level|>3\n<|id|>129<|level|>3\n<|id|>139<|level|>3\n<|id|>147<|level|>3\n<|id|>158<|level|>3\n<|id|>165<|level|>3\n<|id|>173<|level|>3\n<|id|>176<|level|>3\n<|id|>184<|level|>3\n<|id|>191<|level|>3\n<|id|>198<|level|>3\n<|id|>208<|level|>3\n<|id|>215<|level|>3\n<|id|>222<|level|>2\n<|id|>226<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 3
+        },
+        {
+            "id": 191,
+            "level": 3
+        },
+        {
+            "id": 198,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 2
+        }
+    ]
+}

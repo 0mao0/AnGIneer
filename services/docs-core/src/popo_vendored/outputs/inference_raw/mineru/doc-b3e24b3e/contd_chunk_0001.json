@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        69,
+        72
+    ],
+    "pages": [
+        70,
+        72
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>436<|page|>70<|box|>148 388 162 609<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>437<|page|>70<|box|>184 81 258 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>445<|page|>70<|box|>839 81 901 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>446<|page|>70<|box|>184 504 229 915<|content|>Second Liberty Loan Act of 1917, the nature of the...o an overall limit on the outstanding Federal debt\n<|id|>477<|page|>72<|box|>140 81 172 491<|content|>United States—Includes the 50 States, District of ...ommonwealth of Puerto Rico, American Samoa, Midway\n<|id|>478<|page|>72<|box|>89 504 121 913<|content|>Island, Virgin Islands, Wake Island, and all other... Island, and all other territories and possessions",
+    "raw_response": "<|src_id|>445<|tgt_id|>446\n<|src_id|>477<|tgt_id|>478",
+    "parsed": [
+        {
+            "src_id": 445,
+            "tgt_id": 446
+        },
+        {
+            "src_id": 477,
+            "tgt_id": 478
+        }
+    ]
+}

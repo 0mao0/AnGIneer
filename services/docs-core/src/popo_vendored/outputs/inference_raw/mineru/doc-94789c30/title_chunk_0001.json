@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        52
+    ],
+    "pages": [
+        50,
+        51,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>555<|page|>50<|box|>90 140 106 243<|content|>6. Duration:\n<|id|>557<|page|>50<|box|>154 143 170 271<|content|>7. Attachments:\n<|id|>563<|page|>50<|box|>296 142 313 258<|content|>Submitted by:\n<|id|>570<|page|>51<|box|>89 142 107 243<|content|>EXHIBIT B\n<|id|>571<|page|>51<|box|>130 140 148 612<|content|>FORM OF POWER OF ATTORNEY (*PROCURATION*)\n<|id|>572<|page|>51<|box|>157 143 175 285<|content|>[English Version]\n<|id|>573<|page|>51<|box|>181 140 199 491<|content|>IRREVOCABLE POWER OF ATTORNEY\n<|id|>588<|page|>52<|box|>133 142 151 370<|content|>DUNMORE SENEGAL S.A.\n<|id|>594<|page|>52<|box|>244 142 263 424<|content|>PROCURATION IRRÉVOCABLE",
+    "raw_response": "<|id|>555<|level|>2\n<|id|>557<|level|>2\n<|id|>563<|level|>2\n<|id|>570<|level|>1\n<|id|>571<|level|>2\n<|id|>572<|level|>3\n<|id|>573<|level|>2\n<|id|>588<|level|>2\n<|id|>594<|level|>2",
+    "parsed": [
+        {
+            "id": 555,
+            "level": 2
+        },
+        {
+            "id": 557,
+            "level": 2
+        },
+        {
+            "id": 563,
+            "level": 2
+        },
+        {
+            "id": 570,
+            "level": 1
+        },
+        {
+            "id": 571,
+            "level": 2
+        },
+        {
+            "id": 572,
+            "level": 3
+        },
+        {
+            "id": 573,
+            "level": 2
+        },
+        {
+            "id": 588,
+            "level": 2
+        },
+        {
+            "id": 594,
+            "level": 2
+        }
+    ]
+}

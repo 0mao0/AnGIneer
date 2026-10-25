@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        33
+    ],
+    "pages": [
+        1,
+        14,
+        15,
+        19,
+        20,
+        25,
+        26,
+        27,
+        33
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>200 346 218 651<|content|>DRAFT — Prepared December 12, 2025\n<|id|>4<|page|>1<|box|>224 140 242 816<|content|>Prepared by: ... Alan Burke, Calderwood & Harkness...5 Market Street, Suite 2800, Philadelphia, PA 1910\n<|id|>5<|page|>1<|box|>248 140 263 320<|content|>Matter Number: ... 1009-00004\n<|id|>6<|page|>1<|box|>270 140 303 854<|content|>Status: ... February 15, 2026\n<|id|>194<|page|>14<|box|>178 174 214 854<|content|>Thomas Elridge, General Counsel / Chief Privacy Of...00 Silverside Road, Suite 310 Wilmington, DE 19810\n<|id|>195<|page|>14<|box|>223 176 239 465<|content|>Email: ... com\n<|id|>205<|page|>14<|box|>854 140 900 854<|content|>[Note for negotiation: ... The parties should note... times (2×) the trailing twelve-month fees paid by\n<|id|>206<|page|>15<|box|>89 140 151 854<|content|>Meridian under the SaaS subscription agreement; ... ]\n<|id|>258<|page|>19<|box|>849 140 904 857<|content|>(b) The Data Importer agrees to document its legal...le to the Data Exporter upon request. ... The Data\n<|id|>259<|page|>20<|box|>90 140 126 854<|content|>Importer shall also make such documentation availa... to the competent supervisory authority on request\n<|id|>316<|page|>25<|box|>806 140 898 857<|content|>The personal data will be retained for the duratio...on or expiration of such agreement. ... 5 of these\n<|id|>317<|page|>26<|box|>90 140 127 852<|content|>Clauses. ... The foregoing retention period is sub...g banking regulations and supervisory requirements\n<|id|>331<|page|>27<|box|>141 140 178 852<|content|>Autoriteit Persoonsgegevens (Dutch Data Protection... 30 P. ... Box 93374 2509 AJ The Hague Netherlands\n<|id|>332<|page|>27<|box|>186 140 277 856<|content|>Rationale for selection: ... The Autoriteit Persoo...n Commission's Implementing Decision (EU) 2021/914\n<|id|>386<|page|>33<|box|>196 140 215 464<|content|>MERIDIAN FEDERAL SAVINGS BANK\n<|id|>387<|page|>33<|box|>215 142 234 253<|content|>By: ... By\n<|id|>388<|page|>33<|box|>233 142 250 359<|content|>Name: ... Driscoll\n<|id|>389<|page|>33<|box|>250 142 267 367<|content|>Title: ... Chief Executive Officer\n<|id|>390<|page|>33<|box|>268 142 284 266<|content|>Date: ... Date\n<|id|>395<|page|>33<|box|>363 142 378 323<|content|>Name: ... Nadia Karimova\n<|id|>396<|page|>33<|box|>378 142 397 367<|content|>Title: ... Chief Executive Officer\n<|id|>397<|page|>33<|box|>397 143 414 266<|content|>Date: ... Date\n<|id|>401<|page|>33<|box|>513 140 549 854<|content|>Prepared by: ... 1009-00004\n<|id|>402<|page|>33<|box|>558 140 575 736<|content|>The following items require resolution during the ...solution during the negotiation and review process",
+    "raw_response": "<|src_id|>205<|tgt_id|>206\n<|src_id|>258<|tgt_id|>259\n<|src_id|>316<|tgt_id|>317",
+    "parsed": [
+        {
+            "src_id": 205,
+            "tgt_id": 206
+        },
+        {
+            "src_id": 258,
+            "tgt_id": 259
+        },
+        {
+            "src_id": 316,
+            "tgt_id": 317
+        }
+    ]
+}

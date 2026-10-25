@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        4
+    ],
+    "pages": [
+        2,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>14<|page|>2<|box|>601 140 619 714<|content|>**II. CURRENT SITUATION — KEY POINTS FROM TODAY'S\n<|id|>26<|page|>4<|box|>89 142 106 387<|content|>**III. CREDITOR LANDSCAPE**",
+    "raw_response": "<|id|>14<|level|>1\n<|id|>26<|level|>1",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        }
+    ]
+}

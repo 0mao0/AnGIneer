@@ -1,0 +1,165 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qki3m33s\\input\\pdfs\\doc-55f201ff.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qki3m33s\\enriched\\doc-55f201ff.json",
+    "contd_output": "<|src_id|>105<|tgt_id|>106\n<|src_id|>107<|tgt_id|>108\n<|src_id|>110<|tgt_id|>111",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>31<|level|>2\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>54<|level|>3\n<|id|>57<|level|>3\n<|id|>63<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>3\n<|id|>88<|level|>3\n<|id|>94<|level|>3\n<|id|>97<|level|>3\n<|id|>99<|level|>2\n<|id|>103<|level|>2\n<|id|>113<|level|>2",
+    "image_output": "<|src_id|>26<|tgt_id|>23\n<|src_id|>27<|tgt_id|>23\n<|src_id|>51<|tgt_id|>49\n<|src_id|>55<|tgt_id|>54\n<|src_id|>56<|tgt_id|>54",
+    "contd_label": [
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 26,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 26,
+            "table2_idx": 27,
+            "upper_row_ss": [
+                [
+                    "Miscellaneous freight (multiple shippers)",
+                    "Various",
+                    "$824,500.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Total Cargo Loss",
+                    "",
+                    "$4,780,000.00"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 55,
+            "table2_idx": 56,
+            "upper_row_ss": [
+                [
+                    "JAMS Houston mediation fee (JAMS Case No. 1440-02917-2024)",
+                    "$6,200.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Miscellaneous costs (copying, courier, filing fees, etc.)",
+                    "$2,620.00"
+                ]
+            ]
+        }
+    ]
+}

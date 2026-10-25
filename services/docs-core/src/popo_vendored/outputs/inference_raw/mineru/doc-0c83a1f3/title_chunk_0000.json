@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>193 140 210 576<|content|>VIA ELECTRONIC FILING AND HAND DELIVERY\n<|id|>11<|page|>1<|box|>482 142 500 364<|content|>I. Introduction and Purpose\n<|id|>16<|page|>2<|box|>204 140 222 406<|content|>II. Description of the Transaction\n<|id|>17<|page|>2<|box|>234 142 252 259<|content|>A. The Parties\n<|id|>26<|page|>3<|box|>351 140 368 488<|content|>B. Transaction Structure and Consideration\n<|id|>40<|page|>4<|box|>223 140 239 397<|content|>III. HSR Jurisdictional Analysis\n<|id|>41<|page|>4<|box|>253 140 270 361<|content|>A. Size-of-Transaction Test\n<|id|>43<|page|>4<|box|>417 140 434 321<|content|>B. Size-of-Person Test\n<|id|>48<|page|>4<|box|>683 140 700 250<|content|>C. Filing Fee\n<|id|>50<|page|>4<|box|>821 140 839 681<|content|>IV. Basis for Early Termination — Absence of Compe\n<|id|>52<|page|>5<|box|>138 140 157 349<|content|>A. No Horizontal Overlap\n<|id|>61<|page|>6<|box|>157 140 174 375<|content|>B. Relevant Product Markets\n<|id|>66<|page|>6<|box|>551 140 569 403<|content|>C. Relevant Geographic Markets\n<|id|>79<|page|>7<|box|>275 140 292 522<|content|>D. HHI Analysis — No Change in Concentration\n<|id|>85<|page|>7<|box|>726 140 744 635<|content|>E. Limited Vertical Relationship — Competitively I\n<|id|>92<|page|>8<|box|>638 140 655 555<|content|>F. Reference to Voluntary Submission (White Paper)\n<|id|>95<|page|>9<|box|>90 140 107 483<|content|>V. Item 4(c) and 4(d) Document Production\n<|id|>103<|page|>9<|box|>599 140 616 415<|content|>VI. Contractual Filing Obligations\n<|id|>109<|page|>10<|box|>167 142 184 370<|content|>VII. Request and Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>-1\n<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>26<|level|>2\n<|id|>40<|level|>1\n<|id|>41<|level|>2\n<|id|>43<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>1\n<|id|>52<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>79<|level|>2\n<|id|>85<|level|>2\n<|id|>92<|level|>2\n<|id|>95<|level|>1\n<|id|>103<|level|>1\n<|id|>109<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        }
+    ]
+}

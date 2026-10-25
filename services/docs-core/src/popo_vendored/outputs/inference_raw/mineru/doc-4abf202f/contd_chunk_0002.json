@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        121,
+        141
+    ],
+    "pages": [
+        122,
+        133,
+        141
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>516<|page|>122<|box|>176 81 439 491<|content|>Amounts in the Harbor Maintenance Trust Fund are a...elopment Act of 1986. ... Section 201 of the Water\n<|id|>517<|page|>122<|box|>116 504 191 913<|content|>Resources Development Act of 1996 (Public Law 104-...eral navigation projects for commercial navigation\n<|id|>570<|page|>133<|box|>265 666 281 803<|content|>(In millions of dollars)\n<|id|>571<|page|>133<|box|>363 665 392 864<|content|>* Interest on these investments was zero. ... * Interest on these investments was zero\n<|id|>640<|page|>141<|box|>150 364 166 630<|content|>Source: ... Financial Management Service\n<|id|>641<|page|>141<|box|>186 81 305 491<|content|>Accrued discount (SBN-1, -2, -3)—Interest that acc... their holders is not included in accrued discount",
+    "raw_response": "<|src_id|>516<|tgt_id|>517",
+    "parsed": [
+        {
+            "src_id": 516,
+            "tgt_id": 517
+        }
+    ]
+}

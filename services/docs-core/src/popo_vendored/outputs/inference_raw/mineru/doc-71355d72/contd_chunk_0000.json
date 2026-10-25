@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>388 766 406 854<|content|>[__] Shares\n<|id|>8<|page|>1<|box|>414 707 430 854<|content|>CUSIP: ... 039217105\n<|id|>19<|page|>2<|box|>531 142 547 232<|content|>Dated: ... [__]\n<|id|>21<|page|>2<|box|>609 142 627 586<|content|>Dr. ... Nathaniel Rourke Chairman and Chief Executive Officer\n<|id|>20<|page|>2<|box|>556 411 574 584<|content|>[CORPORATE SEAL]\n<|id|>22<|page|>2<|box|>660 142 676 426<|content|>Rachel Moynihan Corporate Secretary\n<|id|>23<|page|>2<|box|>678 142 695 385<|content|>Transfer Agent and Registrar: ... Transfer Agent and Registrar\n<|id|>24<|page|>2<|box|>703 140 737 852<|content|>Continental Share Services, Inc. ... 1 Ashbury Asset Advisors Plaza, 30th Floor New York, NY 10004\n<|id|>25<|page|>2<|box|>747 343 765 653<|content|>Listed on the New York Stock Exchange\n<|id|>26<|page|>2<|box|>773 411 790 586<|content|>Ticker Symbol: ... ARHT\n<|id|>31<|page|>3<|box|>159 176 178 764<|content|>(Please Print or Typewrite Name and Address, Including Zip Code, of Assignee)\n<|id|>32<|page|>3<|box|>277 140 333 856<|content|>_] shares of the Common Stock represented by the w...ny with full power of substitution in the premises\n<|id|>33<|page|>3<|box|>339 142 358 232<|content|>Dated: ... [__]\n<|id|>34<|page|>3<|box|>393 142 411 411<|content|>Signature(s) of Registered Holder(s)\n<|id|>35<|page|>3<|box|>411 143 428 346<|content|>Signature(s) Guaranteed: ... Signature(s) Guaranteed\n<|id|>36<|page|>3<|box|>479 142 498 364<|content|>(Medallion Guarantee Stamp)\n<|id|>37<|page|>3<|box|>503 140 579 854<|content|>NOTICE: ... THE SIGNATURE(S) TO THIS ASSIGNMENT MU...T ALTERATION OR ENLARGEMENT OR ANY CHANGE WHATEVER\n<|id|>42<|page|>3<|box|>871 140 904 856<|content|>This legend shall be affixed to certificates repre... public offering registered under the Registration\n<|id|>43<|page|>4<|box|>89 140 119 852<|content|>Statement on Form S-1 (File No. ... 333-276841), d...on on February 8, 2024, shall not bear this legend",
+    "raw_response": "<|src_id|>42<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ]
+}

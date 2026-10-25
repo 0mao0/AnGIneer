@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 178 141 818<|content|>LIVING WILL AND ADVANCE DIRECTIVE OF JONATHAN ROBE\n<|id|>3<|page|>1<|box|>226 140 242 586<|content|>I. DECLARANT IDENTIFICATION AND PREAMBLE\n<|id|>9<|page|>1<|box|>835 142 853 290<|content|>II. DEFINITIONS\n<|id|>24<|page|>3<|box|>204 140 220 488<|content|>III. GENERAL STATEMENT OF INTENT\n<|id|>29<|page|>3<|box|>641 142 657 779<|content|>IV. SPECIFIC DIRECTIVES REGARDING LIFE-SUSTAINING\n<|id|>30<|page|>3<|box|>672 142 689 325<|content|>A. Terminal Condition\n<|id|>40<|page|>4<|box|>640 140 657 388<|content|>B. Permanent Unconsciousness\n<|id|>49<|page|>5<|box|>398 140 416 583<|content|>C. Advanced Dementia or Irreversible Cognitive Dec\n<|id|>57<|page|>6<|box|>148 140 166 571<|content|>V. PALLIATIVE CARE AND PAIN MANAGEMENT\n<|id|>64<|page|>6<|box|>777 140 794 460<|content|>VI. ORGAN AND TISSUE DONATION\n<|id|>72<|page|>7<|box|>501 140 518 558<|content|>VII. RELATIONSHIP TO HEALTH CARE PROXY\n<|id|>84<|page|>8<|box|>369 140 405 792<|content|>VIII. COMMUNICATION OF WISHES TO PHYSICIANS AND HE\n<|id|>88<|page|>8<|box|>800 142 816 303<|content|>IX. REVOCATION\n<|id|>96<|page|>9<|box|>344 140 361 307<|content|>X. SEVERABILITY\n<|id|>98<|page|>9<|box|>539 142 556 339<|content|>XI. GOVERNING LAW\n<|id|>100<|page|>10<|box|>89 140 107 581<|content|>XII. DECLARANT'S SIGNATURE AND EXECUTION\n<|id|>103<|page|>10<|box|>261 142 277 408<|content|>XIII. WITNESS ATTESTATION\n<|id|>108<|page|>10<|box|>556 142 573 228<|content|>Witness 1:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>9<|level|>2\n<|id|>24<|level|>2\n<|id|>29<|level|>2\n<|id|>30<|level|>3\n<|id|>40<|level|>3\n<|id|>49<|level|>3\n<|id|>57<|level|>2\n<|id|>64<|level|>2\n<|id|>72<|level|>2\n<|id|>84<|level|>2\n<|id|>88<|level|>2\n<|id|>96<|level|>2\n<|id|>98<|level|>2\n<|id|>100<|level|>2\n<|id|>103<|level|>2\n<|id|>108<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 3
+        }
+    ]
+}

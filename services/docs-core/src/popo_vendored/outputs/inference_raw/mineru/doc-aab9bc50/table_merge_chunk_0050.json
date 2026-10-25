@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 50,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['A)湖泊、池塘的几何类型为面;B)在编绘图比例尺上,不可通航的湖泊、池塘在LNDARE(陆域)中编码为LAKARE(湖泊),河的名称应编码为SEAARE(命名水域);可以通航的湖泊、池塘应编码为DEPARE(深度范围)', 'LAKARE(湖泊)(O)NOBJNM(中文名称) = [湖泊中文名称](O)OBJNAM(英文名称) = [湖泊英文名称](O)INFORM(英文信息) = [湖泊英文信息]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=2, 湖泊、池塘'], ['编码说明', '对应物标属性编码']]\n",
+    "raw_response": "[0, 0]",
+    "parsed": [
+        0,
+        0
+    ],
+    "table1_idx": 2970,
+    "table2_idx": 2971
+}

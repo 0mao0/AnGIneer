@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 173 123 823<|content|>UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF\n<|id|>2<|page|>1<|box|>378 153 414 843<|content|>DECLARATION OF LEONARD YEE IN SUPPORT OF PLAINTIFF\n<|id|>7<|page|>1<|box|>853 233 869 763<|content|>I. BACKGROUND OF VERIMARK HOSPITALITY GROUP INC.\n<|id|>15<|page|>2<|box|>665 336 681 661<|content|>II. VHG'S TRADEMARK PORTFOLIO\n<|id|>17<|page|>2<|box|>784 142 801 669<|content|>A. U.S. Registration No. 3,742,618 — \"VERIMARK\" (W\n<|id|>19<|page|>3<|box|>146 140 162 797<|content|>B. U.S. Registration No. 4,105,233 — \"VERIMARK HOS\n<|id|>21<|page|>3<|box|>282 140 300 759<|content|>C. U.S. Registration No. 5,489,701 — VERIMARK \"V\"\n<|id|>23<|page|>3<|box|>476 143 492 450<|content|>D. Incontestability and Continuous Use\n<|id|>27<|page|>3<|box|>816 173 833 823<|content|>III. VHG'S EXTENSIVE USE AND PROMOTION OF THE VERI\n<|id|>28<|page|>3<|box|>843 142 859 313<|content|>A. Property Portfolio\n<|id|>37<|page|>4<|box|>446 142 464 488<|content|>B. Marketing and Advertising Expenditures\n<|id|>42<|page|>5<|box|>128 140 145 504<|content|>C. Consumer Recognition and Brand Strength\n<|id|>46<|page|>5<|box|>505 267 521 728<|content|>IV. DISCOVERY OF DEFENDANT'S INFRINGING USE\n<|id|>47<|page|>5<|box|>532 142 547 413<|content|>A. Formation and Launch of CVR\n<|id|>51<|page|>5<|box|>873 142 888 470<|content|>B. CVR's Infringing Marks and Activities\n<|id|>58<|page|>6<|box|>574 142 590 501<|content|>C. CVR's Properties and Geographic Overlap\n<|id|>64<|page|>7<|box|>258 140 273 511<|content|>D. Similarity of CVR's Marks to VHG's Marks\n<|id|>69<|page|>7<|box|>691 285 707 712<|content|>V. CVR'S PENDING TRADEMARK APPLICATION\n<|id|>73<|page|>8<|box|>220 303 237 694<|content|>VI. CEASE-AND-DESIST COMMUNICATIONS\n<|id|>74<|page|>8<|box|>247 140 263 527<|content|>A. First Cease-and-Desist Letter — May 14, 2024\n<|id|>78<|page|>8<|box|>532 142 549 421<|content|>B. CVR's Response — June 7, 2024\n<|id|>82<|page|>8<|box|>875 142 890 565<|content|>C. Second Cease-and-Desist Letter — August 12, 202\n<|id|>87<|page|>9<|box|>441 142 459 527<|content|>D. CVR's Second Response — September 5, 2024\n<|id|>91<|page|>9<|box|>727 264 744 733<|content|>VII. EVIDENCE OF ACTUAL CONSUMER CONFUSION\n<|id|>100<|page|>10<|box|>814 289 830 707<|content|>VIII. HARM TO VHG'S BRAND AND GOODWILL\n<|id|>108<|page|>11<|box|>700 418 717 578<|content|>IX. EXHIBIT LIST",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>3\n<|id|>19<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>37<|level|>3\n<|id|>42<|level|>3\n<|id|>46<|level|>2\n<|id|>47<|level|>3\n<|id|>51<|level|>3\n<|id|>58<|level|>3\n<|id|>64<|level|>3\n<|id|>69<|level|>2\n<|id|>73<|level|>2\n<|id|>74<|level|>3\n<|id|>78<|level|>3\n<|id|>82<|level|>3\n<|id|>87<|level|>3\n<|id|>91<|level|>2\n<|id|>100<|level|>2\n<|id|>108<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        }
+    ]
+}

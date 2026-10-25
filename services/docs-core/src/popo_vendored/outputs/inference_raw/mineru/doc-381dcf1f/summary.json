@@ -1,0 +1,197 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ds3_e7vz\\input\\pdfs\\doc-381dcf1f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ds3_e7vz\\enriched\\doc-381dcf1f.json",
+    "contd_output": "<|src_id|>12<|tgt_id|>13",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>29<|level|>3\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>40<|level|>3\n<|id|>49<|level|>3\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>71<|level|>3\n<|id|>109<|level|>3\n<|id|>118<|level|>2\n<|id|>119<|level|>3\n<|id|>123<|level|>3\n<|id|>131<|level|>3\n<|id|>136<|level|>3\n<|id|>144<|level|>3\n<|id|>153<|level|>2\n<|id|>161<|level|>2\n<|id|>173<|level|>2",
+    "image_output": "<|src_id|>133<|tgt_id|>131\n<|src_id|>134<|tgt_id|>131\n<|src_id|>174<|tgt_id|>173\n<|src_id|>175<|tgt_id|>173\n<|src_id|>176<|tgt_id|>173\n<|src_id|>178<|tgt_id|>173\n<|src_id|>179<|tgt_id|>173",
+    "contd_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 133,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 173
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 173
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 173
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 173
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 173
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 174,
+            "table2_idx": 175,
+            "upper_row_ss": [
+                [
+                    "Anderson v. Cagle's Inc., 488 F.3d 945 (11th Cir. 2007)",
+                    "11th Cir.",
+                    "2007",
+                    "Addressed conditional certification standard",
+                    "Confirmed that the first-stage standard requires only a \"modest factual showing\" and that courts should not weigh evidence or resolve factual disputes at the"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "notice stage."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 175,
+            "table2_idx": 176,
+            "upper_row_ss": [
+                [
+                    "Pendlebury v.",
+                    "S.D. Fla.",
+                    "2005",
+                    "Granted conditional",
+                    "Hospitality/food-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Starbucks Coffee Co., No. 04-80521-CIV, 2005 WL 84500 (S.D. Fla. Jan. 3, 2005)",
+                    "",
+                    "",
+                    "certification",
+                    "service context; found that evidence of a company-wide tip-pooling policy was sufficient for conditional certification.Relevant to VHG's tip-pool claims."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 178,
+            "table2_idx": 179,
+            "upper_row_ss": [
+                [
+                    "Preclusive Effect",
+                    "Judgment binds only named plaintiffs and consenting opt-in",
+                    "Judgment binds all class members who did not timely opt out,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "plaintiffs. Non-participating employees retain the right to bring individual claims.",
+                    "including absent members who took no action. Broader preclusive effect."
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 14,
+    "range": [
+        714,
+        739
+    ],
+    "pages": [
+        715,
+        726,
+        731,
+        732,
+        733,
+        737,
+        739
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2274<|page|>715<|box|>134 404 161 585<|content|>4-6-9 现浇T形梁\n<|id|>2304<|page|>726<|box|>176 398 205 593<|content|>4-6-12 现浇拱桥\n<|id|>2317<|page|>731<|box|>139 402 167 597<|content|>4-6-13 桥面铺装\n<|id|>2320<|page|>732<|box|>156 431 178 558<|content|>II. 行车道铺装钢筋\n<|id|>2323<|page|>733<|box|>121 447 145 550<|content|>III. 人行道铺装\n<|id|>2333<|page|>737<|box|>141 341 169 648<|content|>4-6-15 转体磨心、磨盖混凝土、钢筋\n<|id|>2342<|page|>739<|box|>141 396 169 590<|content|>4-6-16 转体施工",
+    "raw_response": "<|id|>2274<|level|>3\n<|id|>2304<|level|>3\n<|id|>2317<|level|>3\n<|id|>2320<|level|>4\n<|id|>2323<|level|>4\n<|id|>2333<|level|>3\n<|id|>2342<|level|>3",
+    "parsed": [
+        {
+            "id": 2274,
+            "level": 3
+        },
+        {
+            "id": 2304,
+            "level": 3
+        },
+        {
+            "id": 2317,
+            "level": 3
+        },
+        {
+            "id": 2320,
+            "level": 4
+        },
+        {
+            "id": 2323,
+            "level": 4
+        },
+        {
+            "id": 2333,
+            "level": 3
+        },
+        {
+            "id": 2342,
+            "level": 3
+        }
+    ]
+}

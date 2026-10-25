@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>372 142 388 416<|content|>INTRODUCTORY STATEMENT\n<|id|>6<|page|>2<|box|>148 140 166 633<|content|>SECTION 1: RECIPIENT / BENEFICIARY INFORMATION\n<|id|>9<|page|>2<|box|>594 142 611 488<|content|>SECTION 2: WIRE TRANSFER DETAILS\n<|id|>19<|page|>4<|box|>89 142 106 674<|content|>SECTION 3: ORIGINATOR / SENDING PARTY INFORMATION\n<|id|>25<|page|>4<|box|>765 140 782 604<|content|>SECTION 4: AUTHORIZATION AND CONFIRMATION\n<|id|>27<|page|>4<|box|>873 142 890 529<|content|>For Nexford Industrial Holdings Inc. (Borrower):\n<|id|>31<|page|>5<|box|>296 142 314 532<|content|>For Granite Peak NIH Holdings, LLC (Holdings):\n<|id|>34<|page|>5<|box|>626 140 643 599<|content|>SECTION 5: CALLBACK VERIFICATION CONTACTS\n<|id|>37<|page|>5<|box|>886 142 902 437<|content|>For Nexford Industrial Holdings Inc.:\n<|id|>44<|page|>6<|box|>753 140 771 627<|content|>SECTION 6: IMPORTANT NOTICES AND DISCLAIMERS\n<|id|>51<|page|>8<|box|>89 142 106 534<|content|>ACKNOWLEDGMENT AND CONFIRMATION\n<|id|>53<|page|>8<|box|>214 142 231 473<|content|>GRANITE PEAK NIH HOLDINGS, LLC\n<|id|>75<|page|>8<|box|>641 143 657 326<|content|>DISTRIBUTION LIST",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>6<|level|>1\n<|id|>9<|level|>1\n<|id|>19<|level|>1\n<|id|>25<|level|>1\n<|id|>27<|level|>2\n<|id|>31<|level|>2\n<|id|>34<|level|>1\n<|id|>37<|level|>2\n<|id|>44<|level|>1\n<|id|>51<|level|>1\n<|id|>53<|level|>2\n<|id|>75<|level|>1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        }
+    ]
+}

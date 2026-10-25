@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['5', 'Material Contract', 'Premier Alliance', 'Provider Agreeme', 'Article VII, §7.2', '60 days', 'Termination right', '$16.6M revenue', 'Solicitation letter']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '— Payor', 'Insurance Co.', 'nt (2021)', '', '', '(90-day notice); CNBUW standard', '(4.3%); Medium', 'sent Jan. 8, 2025; awaiting response']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 546,
+    "table2_idx": 547
+}

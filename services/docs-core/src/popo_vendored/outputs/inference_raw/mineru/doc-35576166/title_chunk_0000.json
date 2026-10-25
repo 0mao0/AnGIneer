@@ -1,0 +1,119 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>340 140 358 493<|content|>1. Purpose and Confirmation of Engagement\n<|id|>12<|page|>1<|box|>797 140 814 352<|content|>2. Scope of Representation\n<|id|>13<|page|>1<|box|>828 140 845 372<|content|>2.1 Description of the Matter\n<|id|>17<|page|>2<|box|>273 140 292 305<|content|>2.2 Specific Services\n<|id|>33<|page|>4<|box|>356 140 373 315<|content|>2.3 Scope Limitations\n<|id|>36<|page|>4<|box|>684 140 702 230<|content|>3. Staffing\n<|id|>44<|page|>5<|box|>601 140 618 287<|content|>4. Client Contacts\n<|id|>54<|page|>6<|box|>335 140 352 310<|content|>5. Fee Arrangements\n<|id|>55<|page|>6<|box|>366 140 383 274<|content|>5.1 Basis of Fees\n<|id|>61<|page|>7<|box|>90 142 106 276<|content|>5.2 Fee Estimate\n<|id|>66<|page|>7<|box|>616 140 633 400<|content|>5.3 Disbursements and Expenses\n<|id|>79<|page|>8<|box|>334 140 351 326<|content|>6. Billing and Payment\n<|id|>84<|page|>8<|box|>715 140 733 235<|content|>7. Retainer\n<|id|>87<|page|>9<|box|>223 140 239 284<|content|>8. Confidentiality\n<|id|>94<|page|>9<|box|>657 140 674 321<|content|>9. Conflicts of Interest\n<|id|>108<|page|>10<|box|>515 142 532 334<|content|>10. Document Retention\n<|id|>112<|page|>11<|box|>90 142 107 274<|content|>11. Termination\n<|id|>119<|page|>11<|box|>542 142 559 348<|content|>12. Limitation of Liability\n<|id|>123<|page|>12<|box|>90 140 107 480<|content|>13. Governing Law and Dispute Resolution\n<|id|>127<|page|>12<|box|>502 142 518 379<|content|>14. No Guarantee of Outcome\n<|id|>130<|page|>12<|box|>777 142 794 390<|content|>15. Electronic Communications\n<|id|>134<|page|>13<|box|>366 140 383 455<|content|>16. Entire Agreement and Amendments\n<|id|>137<|page|>14<|box|>90 142 107 424<|content|>17. Acceptance and Signature block\n<|id|>142<|page|>14<|box|>383 212 400 516<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>143<|page|>14<|box|>410 142 426 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>148<|page|>14<|box|>496 349 512 647<|content|>ACCEPTANCE AND AGREEMENT\n<|id|>150<|page|>14<|box|>584 142 599 557<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST\n<|id|>164<|page|>14<|box|>838 147 875 849<|content|>CALDERWOOD & HARKNESS LLP CURRENT HOURLY RATE SCHE",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>17<|level|>2\n<|id|>33<|level|>2\n<|id|>36<|level|>1\n<|id|>44<|level|>1\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>79<|level|>1\n<|id|>84<|level|>1\n<|id|>87<|level|>1\n<|id|>94<|level|>1\n<|id|>108<|level|>1\n<|id|>112<|level|>1\n<|id|>119<|level|>1\n<|id|>123<|level|>1\n<|id|>127<|level|>1\n<|id|>130<|level|>1\n<|id|>134<|level|>1\n<|id|>137<|level|>1\n<|id|>142<|level|>-1\n<|id|>143<|level|>-1\n<|id|>148<|level|>-1\n<|id|>150<|level|>-1\n<|id|>164<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        }
+    ]
+}

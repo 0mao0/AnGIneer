@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        49,
+        98
+    ],
+    "pages": [
+        50,
+        52,
+        63,
+        67,
+        69,
+        70,
+        71,
+        73,
+        85,
+        92,
+        94,
+        97
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>139<|page|>50<|box|>54 307 68 681<|content|>Offerings and Maturities of Treasury Bills\n<|id|>142<|page|>52<|box|>62 240 78 754<|content|>Sales and Redemptions of United States Savings Bon\n<|id|>165<|page|>63<|box|>57 325 72 651<|content|>Sales of United States Savings Stamps\n<|id|>176<|page|>67<|box|>182 158 198 806<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>184<|page|>69<|box|>118 191 134 773<|content|>Table 2.- Public Marketable Interest-Bearing Secur\n<|id|>188<|page|>70<|box|>120 206 136 801<|content|>Table 2.- Public Marketable Interest-Bearing Secur\n<|id|>190<|page|>71<|box|>61 184 92 785<|content|>Treasury Survey of Ownership of Securities Issued\n<|id|>191<|page|>71<|box|>100 106 116 865<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>194<|page|>73<|box|>50 141 82 837<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>219<|page|>85<|box|>672 221 687 750<|content|>Schedules for Balance Sheet of the Exchange Stabil\n<|id|>234<|page|>92<|box|>60 215 76 806<|content|>Capital Movements Between the United States and Fo\n<|id|>243<|page|>92<|box|>384 375 398 652<|content|>Section I - Historical Summary\n<|id|>252<|page|>94<|box|>94 137 126 897<|content|>Table 4.- Purchases and Sales of Long-Term Domesti\n<|id|>263<|page|>97<|box|>101 294 116 672<|content|>Table 3.- Net Movement in Brokerage Balances",
+    "raw_response": "<|id|>139<|level|>1\n<|id|>142<|level|>1\n<|id|>165<|level|>1\n<|id|>176<|level|>2\n<|id|>184<|level|>2\n<|id|>188<|level|>2\n<|id|>190<|level|>1\n<|id|>191<|level|>2\n<|id|>194<|level|>1\n<|id|>219<|level|>1\n<|id|>234<|level|>1\n<|id|>243<|level|>2\n<|id|>252<|level|>2\n<|id|>263<|level|>2",
+    "parsed": [
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 1
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 1
+        },
+        {
+            "id": 219,
+            "level": 1
+        },
+        {
+            "id": 234,
+            "level": 1
+        },
+        {
+            "id": 243,
+            "level": 2
+        },
+        {
+            "id": 252,
+            "level": 2
+        },
+        {
+            "id": 263,
+            "level": 2
+        }
+    ]
+}

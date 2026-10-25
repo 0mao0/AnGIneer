@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>90 143 140 852<|content|>IN THE CIRCUIT COURT OF THE ELEVENTH JUDICIAL CIRC...- DADE COUNTY, FLORIDA CASE NO. ... 2022-CA-031547\n<|id|>1<|page|>1<|box|>141 142 159 674<|content|>VERIMARK HOSPITALITY GROUP INC. ... , a Delaware corporation,\n<|id|>2<|page|>1<|box|>167 176 184 248<|content|>Plaintiff,\n<|id|>4<|page|>1<|box|>219 140 292 856<|content|>IRONCLAD INDEMNITY CORPORATION, a Connecticut stock insurance company; ... , a Bermuda excess carrier,\n<|id|>5<|page|>1<|box|>301 176 316 271<|content|>Defendants. ... Defendants\n<|id|>72<|page|>10<|box|>460 140 510 852<|content|>CALDERWOOD & HARKNESS LLP Counsel for Plaintiff Verimark Hospitality Group Inc. ... 1021-00003\n<|id|>73<|page|>10<|box|>527 140 559 854<|content|>Elaine Forsythe, Esq. ... com Responsible Partner\n<|id|>74<|page|>10<|box|>560 140 592 854<|content|>Tiffany Rosenthal, Esq. ... com Lead Associate\n<|id|>75<|page|>10<|box|>593 140 626 854<|content|>Andrew Fitzpatrick, Esq. ... com Working Associate",
+    "raw_response": "<|src_id|>4<|tgt_id|>5",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        }
+    ]
+}

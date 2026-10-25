@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 348 118 648<|content|>SOLVENCY CERTIFICATE\n<|id|>4<|type|>title<|page|>1<|box|>335 140 353 433<|content|>I. INTRODUCTORY STATEMENT\n<|id|>15<|type|>title<|page|>2<|box|>428 140 445 517<|content|>II. DESCRIPTION OF THE TRANSACTIONS\n<|id|>31<|type|>title<|page|>4<|box|>204 140 220 299<|content|>III. DEFINITIONS\n<|id|>38<|type|>title<|page|>4<|box|>803 140 820 334<|content|>IV. CERTIFICATIONS\n<|id|>40<|type|>title<|page|>5<|box|>90 140 107 679<|content|>(i) Balance Sheet Solvency — Fair Value of Assets\n<|id|>47<|type|>title<|page|>6<|box|>90 140 107 674<|content|>(ii) Cash Flow Solvency — Ability to Pay Debts as\n<|id|>55<|type|>title<|page|>7<|box|>138 140 157 594<|content|>(iii) Adequate Capital — Not Unreasonably Small Ca\n<|id|>63<|type|>title<|page|>8<|box|>239 140 258 508<|content|>V. QUALIFICATIONS AND ASSUMPTIONS\n<|id|>75<|type|>title<|page|>9<|box|>483 140 500 339<|content|>VI. GOVERNING LAW\n<|id|>77<|type|>title<|page|>9<|box|>604 140 622 294<|content|>VII. EXECUTION\n<|id|>86<|type|>title<|page|>10<|box|>88 454 108 544<|content|>ANNEX A\n<|id|>87<|type|>title<|page|>10<|box|>130 267 148 728<|content|>SUMMARY OF RSA TRANSACTIONS GIVEN EFFECT\n<|id|>89<|type|>table<|page|>10<|box|>237 143 897 852<|content|>None\n<|id|>90<|type|>table<|page|>11<|box|>88 143 385 852<|content|>None",
+    "raw_response": "<|src_id|>89<|tgt_id|>87\n<|src_id|>90<|tgt_id|>87",
+    "parsed": [
+        {
+            "src_id": 89,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 87
+        }
+    ]
+}

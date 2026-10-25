@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>13<|type|>title<|page|>1<|box|>551 143 569 400<|content|>1. Introduction and Engagement\n<|id|>19<|type|>title<|page|>2<|box|>340 140 357 354<|content|>2. Scope of Representation\n<|id|>32<|type|>title<|page|>4<|box|>340 140 357 313<|content|>3. Engagement Team\n<|id|>41<|type|>title<|page|>5<|box|>167 142 184 310<|content|>4. Fee Arrangements\n<|id|>42<|type|>table<|page|>5<|box|>273 143 349 852<|content|>None\n<|id|>49<|type|>title<|page|>6<|box|>476 140 493 321<|content|>5. Conflicts of Interest\n<|id|>54<|type|>title<|page|>7<|box|>90 140 107 284<|content|>6. Confidentiality\n<|id|>60<|type|>title<|page|>7<|box|>590 140 607 326<|content|>7. Document Retention\n<|id|>64<|type|>title<|page|>8<|box|>90 140 107 583<|content|>8. Limitation of Engagement; No Guarantee of Outco\n<|id|>67<|type|>title<|page|>8<|box|>439 140 457 264<|content|>9. Termination\n<|id|>71<|type|>title<|page|>8<|box|>796 142 813 480<|content|>10. Governing Law and Dispute Resolution\n<|id|>75<|type|>title<|page|>9<|box|>340 142 357 380<|content|>11. Acceptance and Execution\n<|id|>81<|type|>title<|page|>9<|box|>696 176 713 482<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>82<|type|>title<|page|>9<|box|>722 140 738 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>89<|type|>title<|page|>9<|box|>844 316 859 679<|content|>ACKNOWLEDGMENT AND AGREEMENT",
+    "raw_response": "<|src_id|>42<|tgt_id|>41",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 41
+        }
+    ]
+}

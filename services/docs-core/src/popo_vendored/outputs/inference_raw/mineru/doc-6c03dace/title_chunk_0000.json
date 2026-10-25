@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>449 142 465 333<|content|>1. Scope of Engagement\n<|id|>17<|page|>2<|box|>564 142 582 313<|content|>2. Engagement Team\n<|id|>22<|page|>3<|box|>150 142 167 310<|content|>3. Fees and Expenses\n<|id|>29<|page|>4<|box|>90 140 107 290<|content|>4. Matter Number\n<|id|>31<|page|>4<|box|>231 140 248 395<|content|>5. Conflicts and Governing Law\n<|id|>35<|page|>4<|box|>625 140 641 284<|content|>6. Confidentiality\n<|id|>38<|page|>5<|box|>223 140 239 264<|content|>7. Termination\n<|id|>41<|page|>5<|box|>517 140 534 326<|content|>8. Document Retention\n<|id|>43<|page|>5<|box|>750 140 765 370<|content|>9. Limitation of Engagement",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>17<|level|>1\n<|id|>22<|level|>1\n<|id|>29<|level|>1\n<|id|>31<|level|>1\n<|id|>35<|level|>1\n<|id|>38<|level|>1\n<|id|>41<|level|>1\n<|id|>43<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        }
+    ]
+}

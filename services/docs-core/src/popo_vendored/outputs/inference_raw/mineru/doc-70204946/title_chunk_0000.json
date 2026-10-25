@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 192 128 802<|content|>UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF\n<|id|>3<|page|>1<|box|>371 323 391 673<|content|>SUMMONS IN A CIVIL ACTION\n<|id|>18<|page|>2<|box|>224 192 241 803<|content|>UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF\n<|id|>20<|page|>2<|box|>497 406 513 591<|content|>PROOF OF SERVICE\n<|id|>41<|page|>4<|box|>161 142 179 558<|content|>Additional information regarding attempted service",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>18<|level|>1\n<|id|>20<|level|>2\n<|id|>41<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        }
+    ]
+}

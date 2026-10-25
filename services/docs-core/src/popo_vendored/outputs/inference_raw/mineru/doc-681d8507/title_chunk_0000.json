@@ -1,0 +1,108 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>1<|page|>1<|box|>128 403 148 593<|content|>MEMORANDUM\n<|id|>10<|page|>1<|box|>402 142 419 321<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>321 140 339 267<|content|>II. Background\n<|id|>17<|page|>2<|box|>352 140 369 318<|content|>A. The Credit Facility\n<|id|>26<|page|>3<|box|>402 140 420 398<|content|>B. The MESLSA and Dormancy\n<|id|>43<|page|>5<|box|>138 140 157 433<|content|>C. Related Disputes and Open Issues\n<|id|>51<|page|>6<|box|>250 140 266 700<|content|>III. Analysis of Section 6.12 — Material Contract\n<|id|>52<|page|>6<|box|>279 140 297 406<|content|>A. Text and Scope of Section 6.12\n<|id|>61<|page|>7<|box|>311 142 329 472<|content|>B. Application to the MESLSA Dormancy\n<|id|>81<|page|>10<|box|>257 140 273 397<|content|>C. Sufficiency of Notice Content\n<|id|>94<|page|>11<|box|>212 140 229 578<|content|>IV. Risk Assessment: Consequences of Non-Complianc\n<|id|>102<|page|>12<|box|>204 140 222 517<|content|>V. Ongoing and Future Notification Obligations\n<|id|>103<|page|>12<|box|>234 140 253 473<|content|>A. Supplemental Notifications to Consider\n<|id|>111<|page|>13<|box|>239 140 256 643<|content|>B. Section 4.3 \"Use-It-or-Lose-It\" Deadline (Decem\n<|id|>115<|page|>13<|box|>601 140 618 531<|content|>C. Section 12.6 Change of Control Considerations\n<|id|>119<|page|>14<|box|>148 140 167 431<|content|>VI. Coordination with VMS Auditor\n<|id|>124<|page|>14<|box|>752 140 768 383<|content|>VII. Insurance Considerations\n<|id|>129<|page|>15<|box|>439 140 457 334<|content|>VIII. Recommendations\n<|id|>146<|page|>16<|box|>844 142 859 264<|content|>IX. Conclusion\n<|id|>160<|page|>17<|box|>773 142 790 351<|content|>Attachments (Referenced)",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>26<|level|>3\n<|id|>43<|level|>3\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>61<|level|>3\n<|id|>81<|level|>3\n<|id|>94<|level|>2\n<|id|>102<|level|>2\n<|id|>103<|level|>3\n<|id|>111<|level|>3\n<|id|>115<|level|>3\n<|id|>119<|level|>2\n<|id|>124<|level|>2\n<|id|>129<|level|>2\n<|id|>146<|level|>2\n<|id|>160<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        }
+    ]
+}

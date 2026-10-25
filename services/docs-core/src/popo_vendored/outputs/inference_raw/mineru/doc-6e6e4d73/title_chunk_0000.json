@@ -1,0 +1,154 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 153 172 854<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>8<|page|>1<|box|>421 385 440 611<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>308 184 352 812<|content|>II. Background — The Incident and Quorum's Indemni\n<|id|>15<|page|>2<|box|>376 142 393 316<|content|>A. Incident Summary\n<|id|>25<|page|>3<|box|>454 142 470 271<|content|>B. The Demand\n<|id|>31<|page|>4<|box|>321 140 339 326<|content|>C. Palomar's Response\n<|id|>36<|page|>5<|box|>90 232 111 764<|content|>III. Analysis of Quorum's Legal Position — Strengt\n<|id|>38<|page|>6<|box|>90 140 107 803<|content|>A. Breach of Data Security Exhibit (Exhibit D, as\n<|id|>45<|page|>6<|box|>768 140 785 504<|content|>B. Late Breach Notification (MSA Section 9.4)\n<|id|>49<|page|>7<|box|>412 140 431 524<|content|>C. Indemnification Provision (MSA Section 12.2)\n<|id|>53<|page|>8<|box|>90 140 107 313<|content|>D. Forensic Evidence\n<|id|>60<|page|>8<|box|>689 140 707 428<|content|>E. SOC 2 Type II Audit Deficiencies\n<|id|>63<|page|>9<|box|>209 158 253 836<|content|>IV. Analysis of Palomar's Potential Defenses — Wea\n<|id|>65<|page|>9<|box|>347 140 364 508<|content|>A. \"Sophisticated Attack\" / Causation Defense\n<|id|>69<|page|>9<|box|>795 142 813 374<|content|>B. Scope of Damages Defense\n<|id|>74<|page|>10<|box|>512 140 530 527<|content|>C. Contributory Conduct / Shared Responsibility\n<|id|>80<|page|>11<|box|>267 140 284 473<|content|>D. Limitation of Liability / Cap Argument\n<|id|>84<|page|>11<|box|>646 359 666 638<|content|>V. Strategic Considerations\n<|id|>86<|page|>11<|box|>780 140 797 447<|content|>A. Preserving the Vendor Relationship\n<|id|>91<|page|>12<|box|>494 140 511 457<|content|>B. Relationship Dynamics and Leverage\n<|id|>95<|page|>13<|box|>90 140 107 370<|content|>C. Insurance Considerations\n<|id|>106<|page|>13<|box|>768 140 785 321<|content|>D. Regulatory Posture\n<|id|>110<|page|>14<|box|>494 140 511 359<|content|>E. Potential Litigation Risk\n<|id|>118<|page|>15<|box|>339 300 359 697<|content|>VI. Recommended Negotiation Strategy\n<|id|>120<|page|>15<|box|>436 140 454 364<|content|>A. Target Settlement Range\n<|id|>126<|page|>16<|box|>186 140 204 403<|content|>B. Recommended Deal Structure\n<|id|>146<|page|>17<|box|>829 140 847 321<|content|>C. Negotiation Tactics\n<|id|>154<|page|>19<|box|>90 140 107 388<|content|>D. Coordination Requirements\n<|id|>161<|page|>19<|box|>686 339 705 656<|content|>VII. Risk Assessment Summary\n<|id|>164<|page|>20<|box|>585 341 604 656<|content|>VIII. Recommended Next Steps\n<|id|>178<|page|>21<|box|>585 421 604 575<|content|>IX. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>25<|level|>2\n<|id|>31<|level|>2\n<|id|>36<|level|>1\n<|id|>38<|level|>2\n<|id|>45<|level|>2\n<|id|>49<|level|>2\n<|id|>53<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>1\n<|id|>65<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>2\n<|id|>80<|level|>2\n<|id|>84<|level|>1\n<|id|>86<|level|>2\n<|id|>91<|level|>2\n<|id|>95<|level|>2\n<|id|>106<|level|>2\n<|id|>110<|level|>2\n<|id|>118<|level|>1\n<|id|>120<|level|>2\n<|id|>126<|level|>2\n<|id|>146<|level|>2\n<|id|>154<|level|>2\n<|id|>161<|level|>1\n<|id|>164<|level|>1\n<|id|>178<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 1
+        },
+        {
+            "id": 164,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 1
+        }
+    ]
+}

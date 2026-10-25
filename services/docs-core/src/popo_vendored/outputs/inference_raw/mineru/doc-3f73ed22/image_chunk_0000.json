@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 254 107 741<|content|>DEPARTMENT OF THE TREASURY WASHINGTON, D.C.\n<|id|>1<|type|>title<|page|>1<|box|>114 163 151 833<|content|>OFFICE OF INVESTMENT SECURITY 1500 Pennsylvania Av\n<|id|>9<|type|>title<|page|>1<|box|>704 140 722 459<|content|>I. Summary of Review and Investigation\n<|id|>15<|type|>title<|page|>2<|box|>648 140 665 397<|content|>II. National Security Agreement\n<|id|>29<|type|>title<|page|>4<|box|>267 140 284 380<|content|>III. Committee Determination\n<|id|>32<|type|>title<|page|>4<|box|>561 140 579 274<|content|>IV. Safe Harbor\n<|id|>38<|type|>title<|page|>5<|box|>204 140 222 553<|content|>V. Ongoing Obligations and Compliance Monitoring\n<|id|>43<|type|>title<|page|>5<|box|>752 140 768 470<|content|>VI. Reservation of Rights and Limitations\n<|id|>48<|type|>title<|page|>6<|box|>585 140 603 300<|content|>VII. Confidentiality\n<|id|>52<|type|>title<|page|>7<|box|>186 142 203 351<|content|>VIII. Contact Information\n<|id|>66<|type|>title<|page|>7<|box|>710 142 726 575<|content|>CALDERWOOD & HARKNESS LLP — INTERNAL FILE COPY\n<|id|>67<|type|>table<|page|>7<|box|>755 143 893 852<|content|>None\n<|id|>68<|type|>table<|page|>8<|box|>89 143 179 852<|content|>None",
+    "raw_response": "<|src_id|>67<|tgt_id|>52\n<|src_id|>68<|tgt_id|>52",
+    "parsed": [
+        {
+            "src_id": 67,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 52
+        }
+    ]
+}

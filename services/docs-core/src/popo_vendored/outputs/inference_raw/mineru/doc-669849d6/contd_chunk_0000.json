@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>204 140 222 838<|content|>FROM: ... 0119644)\n<|id|>4<|page|>1<|box|>229 140 265 854<|content|>TO: ... Renata Solis-Vega, Senior Vice President & General Counsel, Verimark Hospitality Group Inc\n<|id|>6<|page|>1<|box|>337 140 354 343<|content|>DATE: ... December 5, 2022\n<|id|>7<|page|>1<|box|>362 140 417 854<|content|>RE: ... 1021-00006, Circuit Court of the 17th Judicial Circuit, Broward County, Florida\n<|id|>8<|page|>1<|box|>424 140 487 854<|content|>This memorandum constitutes a privileged and confi...ey-client privilege and/or work-product protection\n<|id|>22<|page|>2<|box|>854 181 909 856<|content|>• The identification of all booking channels throu...m, OTAs (e. ... , Aldermere Technologies, Bramwell\n<|id|>23<|page|>3<|box|>90 210 125 854<|content|>Holdings, Drayton Software), gulfcoastrooms. ... com, walk-in bookings, and corporate- direct contracts\n<|id|>55<|page|>5<|box|>857 181 893 856<|content|>• Complete absence of Suncoast Room Management Inc...ments from or relating to Suncoast Room Management\n<|id|>56<|page|>6<|box|>90 209 181 854<|content|>Inc. ... Given that Verimark's core claim is that ...duction was the single most significant deficiency\n<|id|>236<|page|>21<|box|>746 140 779 854<|content|>Yuki Nakamura Lead Associate FL Bar No. ... (954) 555-7200\n<|id|>237<|page|>21<|box|>780 142 795 480<|content|>Email: ... com\n<|id|>238<|page|>21<|box|>795 140 857 854<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL — ATTO... and may result in waiver of applicable privileges",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>55<|tgt_id|>56",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        }
+    ]
+}

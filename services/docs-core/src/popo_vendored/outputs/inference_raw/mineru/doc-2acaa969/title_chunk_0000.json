@@ -1,0 +1,39 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        3,
+        10,
+        18,
+        24
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>12<|page|>1<|box|>317 87 332 361<|content|>INDEX OF SUPPORTING SCHEDULES\n<|id|>27<|page|>3<|box|>86 87 101 295<|content|>ExemptionGift Tax D Notes\n<|id|>64<|page|>10<|box|>86 87 101 139<|content|>Notes\n<|id|>93<|page|>18<|box|>174 85 190 240<|content|>2023 Taxable Gifts:\n<|id|>111<|page|>24<|box|>211 87 225 240<|content|>Gift Tax Treatment:",
+    "raw_response": "<|id|>12<|level|>1\n<|id|>27<|level|>2\n<|id|>64<|level|>2\n<|id|>93<|level|>2\n<|id|>111<|level|>2",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        }
+    ]
+}

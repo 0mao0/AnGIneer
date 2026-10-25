@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>148 367 169 627<|content|>STATE OF DELAWARE\n<|id|>3<|page|>1<|box|>194 359 210 638<|content|>CERTIFICATE OF FORMATION\n<|id|>5<|page|>1<|box|>276 316 292 681<|content|>HARBOR POINT DEVELOPMENT JV, LLC\n<|id|>6<|page|>1<|box|>301 145 338 849<|content|>Pursuant to Section 18-201 of the Delaware Limited\n<|id|>8<|page|>1<|box|>424 142 441 325<|content|>ARTICLE I — NAME\n<|id|>10<|page|>1<|box|>476 354 493 643<|content|>Harbor Point Development JV, LLC\n<|id|>12<|page|>1<|box|>633 142 651 702<|content|>ARTICLE II — REGISTERED OFFICE AND REGISTERED AGEN\n<|id|>16<|page|>1<|box|>739 176 755 433<|content|>Incorporators & Associates, Inc.\n<|id|>18<|page|>2<|box|>90 142 106 483<|content|>ARTICLE III — AUTHORIZED PERSON\n<|id|>22<|page|>2<|box|>391 142 407 439<|content|>ARTICLE IV — EFFECTIVE DATE\n<|id|>24<|page|>2<|box|>550 142 566 359<|content|>ARTICLE V — PURPOSE\n<|id|>26<|page|>2<|box|>818 140 835 380<|content|>ARTICLE VI — DURATION\n<|id|>35<|page|>3<|box|>282 351 297 645<|content|>FILING FEE AND INSTRUCTIONS\n<|id|>46<|page|>3<|box|>628 142 643 361<|content|>VIA ELECTRONIC FILING\n<|id|>65<|page|>4<|box|>709 176 727 482<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>5<|level|>1\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>3\n<|id|>12<|level|>2\n<|id|>16<|level|>3\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>2\n<|id|>35<|level|>1\n<|id|>46<|level|>2\n<|id|>65<|level|>-1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        }
+    ]
+}

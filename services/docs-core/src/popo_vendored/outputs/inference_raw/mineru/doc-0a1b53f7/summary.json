@@ -1,0 +1,203 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-t81b7mq7\\input\\pdfs\\doc-0a1b53f7.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-t81b7mq7\\enriched\\doc-0a1b53f7.json",
+    "contd_output": "<|src_id|>29<|tgt_id|>30\n<|src_id|>131<|tgt_id|>132",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>9<|level|>2\n<|id|>16<|level|>2\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>45<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>54<|level|>3\n<|id|>67<|level|>3\n<|id|>77<|level|>3\n<|id|>84<|level|>3\n<|id|>90<|level|>3\n<|id|>96<|level|>3\n<|id|>102<|level|>3\n<|id|>104<|level|>3\n<|id|>112<|level|>3\n<|id|>114<|level|>3\n<|id|>121<|level|>3\n<|id|>123<|level|>3\n<|id|>130<|level|>2\n<|id|>133<|level|>2\n<|id|>134<|level|>2",
+    "image_output": "<|src_id|>4<|tgt_id|>0\n<|src_id|>6<|tgt_id|>0\n<|src_id|>7<|tgt_id|>0\n<|src_id|>8<|tgt_id|>0\n<|src_id|>12<|tgt_id|>9\n<|src_id|>14<|tgt_id|>9\n<|src_id|>15<|tgt_id|>9\n<|src_id|>26<|tgt_id|>25",
+    "contd_label": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 132
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 25
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 7,
+            "table2_idx": 8,
+            "upper_row_ss": [
+                [
+                    "2f. Country:",
+                    "N/A"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "3a. Organization's Name:",
+                    "Ironclad National Bank, N.A., as Administrative Agent"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 14,
+            "table2_idx": 15,
+            "upper_row_ss": [
+                [
+                    "Loan Reference:",
+                    "Senior Mortgage Loan Agreement dated on or about June 15, 2025, by and among Hudson Yards West Mortgage LLC, as Borrower, the Lenders party thereto from time to time, and Ironclad National Bank, N.A., as"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Administrative Agent for the Lenders"
+                ]
+            ]
+        }
+    ]
+}

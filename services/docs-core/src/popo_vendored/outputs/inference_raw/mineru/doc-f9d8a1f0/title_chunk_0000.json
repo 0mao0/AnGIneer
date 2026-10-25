@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>347 142 364 421<|content|>I. Purpose and Executive Summary\n<|id|>10<|page|>2<|box|>282 142 299 276<|content|>II. The Property\n<|id|>16<|page|>3<|box|>377 140 393 483<|content|>III. ALTA/NSPS Land Title Survey Review\n<|id|>17<|page|>3<|box|>407 142 425 334<|content|>A. Survey Identification\n<|id|>45<|page|>4<|box|>598 140 614 433<|content|>B. Legal Description and Boundaries\n<|id|>54<|page|>5<|box|>313 140 330 467<|content|>C. Improvements and Building Footprint\n<|id|>60<|page|>5<|box|>837 140 854 545<|content|>D. Easements and Encumbrances Shown on Survey\n<|id|>67<|page|>6<|box|>800 140 816 372<|content|>E. Access and Ingress/Egress\n<|id|>75<|page|>7<|box|>452 142 469 364<|content|>F. Flood Zone Classification\n<|id|>89<|page|>8<|box|>588 140 604 424<|content|>H. Parking and Other Site Features\n<|id|>96<|page|>9<|box|>239 140 256 472<|content|>I. Survey Exceptions and Issues Identified\n<|id|>99<|page|>9<|box|>457 142 474 294<|content|>IV. Zoning Review\n<|id|>100<|page|>9<|box|>488 142 506 408<|content|>A. Applicable Zoning Designation\n<|id|>106<|page|>10<|box|>90 140 107 514<|content|>B. Permitted Uses Under the Zoning Resolution\n<|id|>122<|page|>11<|box|>669 140 686 527<|content|>C. Floor Area Ratio (FAR) and Bulk Compliance\n<|id|>128<|page|>12<|box|>367 140 383 364<|content|>D. Certificate of Occupancy\n<|id|>135<|page|>13<|box|>138 140 157 325<|content|>E. Signage and Zoning\n<|id|>145<|page|>14<|box|>231 140 248 462<|content|>F. Landmark or Special District Overlay\n<|id|>152<|page|>14<|box|>799 140 816 398<|content|>G. Other Zoning Considerations\n<|id|>158<|page|>15<|box|>446 140 464 673<|content|>V. Coordination with Title Commitment and Environm\n<|id|>163<|page|>16<|box|>296 140 313 321<|content|>VI. Recommendations\n<|id|>178<|page|>17<|box|>741 140 758 382<|content|>VII. Attachments / Enclosures\n<|id|>188<|page|>18<|box|>375 143 392 285<|content|>VIII. Distribution\n<|id|>190<|page|>18<|box|>426 176 444 393<|content|>File: Matter No. 1017-00009",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>45<|level|>3\n<|id|>54<|level|>3\n<|id|>60<|level|>3\n<|id|>67<|level|>3\n<|id|>75<|level|>3\n<|id|>89<|level|>3\n<|id|>96<|level|>3\n<|id|>99<|level|>2\n<|id|>100<|level|>3\n<|id|>106<|level|>3\n<|id|>122<|level|>3\n<|id|>128<|level|>3\n<|id|>135<|level|>3\n<|id|>145<|level|>3\n<|id|>152<|level|>3\n<|id|>158<|level|>2\n<|id|>163<|level|>2\n<|id|>178<|level|>2\n<|id|>188<|level|>2\n<|id|>190<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>299 164 313 290<|content|>DUE DILIGENCE\n<|id|>13<|page|>1<|box|>583 164 600 381<|content|>REGISTRATION STATEMENT\n<|id|>24<|page|>1<|box|>797 164 813 396<|content|>UNDERWRITING AGREEMENT\n<|id|>37<|page|>2<|box|>263 164 279 310<|content|>COMFORT LETTER\n<|id|>44<|page|>2<|box|>406 164 420 376<|content|>CORPORATE GOVERNANCE\n<|id|>46<|page|>2<|box|>797 164 813 371<|content|>INDEMNIFICATION & D&O\n<|id|>52<|page|>3<|box|>246 164 261 319<|content|>LENDER CONSENTS\n<|id|>54<|page|>3<|box|>424 164 439 349<|content|>SELLING STOCKHOLDER\n<|id|>56<|page|>3<|box|>548 164 564 273<|content|>NYSE / FINRA\n<|id|>58<|page|>3<|box|>690 164 707 243<|content|>BLUE SKY\n<|id|>60<|page|>3<|box|>780 164 795 349<|content|>SEC CORRESPONDENCE\n<|id|>62<|page|>4<|box|>103 164 118 436<|content|>NEGATIVE ASSURANCE / OPINIONS\n<|id|>64<|page|>4<|box|>227 164 243 282<|content|>CLOSING PREP\n<|id|>66<|page|>4<|box|>406 164 420 267<|content|>ROADSHOW\n<|id|>69<|page|>4<|box|>495 164 511 295<|content|>RELATED-PARTY\n<|id|>71<|page|>4<|box|>548 164 564 312<|content|>OFFERING STATUS",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>13<|level|>1\n<|id|>24<|level|>1\n<|id|>37<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>1\n<|id|>58<|level|>1\n<|id|>60<|level|>1\n<|id|>62<|level|>1\n<|id|>64<|level|>1\n<|id|>66<|level|>1\n<|id|>69<|level|>1\n<|id|>71<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,110 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        13,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 285 125 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>8<|page|>2<|box|>90 155 159 841<|content|>NOTICE OF MOTION AND MOTION FOR PARTIAL SUMMARY JU\n<|id|>9<|page|>2<|box|>183 140 199 346<|content|>I. NOTICE OF MOTION\n<|id|>17<|page|>2<|box|>758 140 775 601<|content|>II. INTRODUCTION AND SUMMARY OF ARGUMENT\n<|id|>18<|page|>2<|box|>789 142 806 315<|content|>A. Nature of the Case\n<|id|>23<|page|>3<|box|>436 142 454 334<|content|>B. Scope of This Motion\n<|id|>26<|page|>3<|box|>737 140 753 357<|content|>C. Summary of Arguments\n<|id|>29<|page|>4<|box|>431 140 448 490<|content|>III. STATEMENT OF RELEVANT FACTS\n<|id|>31<|page|>4<|box|>544 140 560 261<|content|>A. The Parties\n<|id|>36<|page|>5<|box|>194 140 212 493<|content|>B. The Vantor Exclusive Supply Agreements\n<|id|>42<|page|>5<|box|>845 140 864 424<|content|>C. The Cascade Supply Agreements\n<|id|>48<|page|>6<|box|>508 140 527 272<|content|>D. Project Atlas\n<|id|>53<|page|>7<|box|>250 140 266 308<|content|>E. Discovery Record\n<|id|>58<|page|>7<|box|>747 140 765 289<|content|>F. Expert Reports\n<|id|>63<|page|>8<|box|>530 140 547 596<|content|>IV. LEGAL STANDARD FOR SUMMARY JUDGMENT\n<|id|>69<|page|>9<|box|>321 140 339 277<|content|>V. ARGUMENT\n<|id|>96<|page|>13<|box|>601 140 637 854<|content|>B. The Third Cause of Action Under California Busi\n<|id|>116<|page|>16<|box|>627 140 645 581<|content|>C. Policy Considerations Support Granting This Mot\n<|id|>121<|page|>17<|box|>285 140 301 300<|content|>VI. CONCLUSION\n<|id|>135<|page|>17<|box|>760 142 777 326<|content|>PROOF OF SERVICE\n<|id|>136<|page|>17<|box|>787 406 801 589<|content|>PROOF OF SERVICE\n<|id|>137<|page|>17<|box|>811 140 829 604<|content|>STATE OF CALIFORNIA, COUNTY OF LOS ANGELES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>9<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>23<|level|>3\n<|id|>26<|level|>3\n<|id|>29<|level|>2\n<|id|>31<|level|>3\n<|id|>36<|level|>3\n<|id|>42<|level|>3\n<|id|>48<|level|>3\n<|id|>53<|level|>3\n<|id|>58<|level|>3\n<|id|>63<|level|>2\n<|id|>69<|level|>2\n<|id|>96<|level|>3\n<|id|>116<|level|>3\n<|id|>121<|level|>2\n<|id|>135<|level|>1\n<|id|>136<|level|>1\n<|id|>137<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 1
+        }
+    ]
+}

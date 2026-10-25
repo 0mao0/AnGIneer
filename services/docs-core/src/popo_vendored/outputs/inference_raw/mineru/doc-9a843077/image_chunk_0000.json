@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 205 130 792<|content|>HAVENWOOD BANK, N.A. 227 West Monroe Street Chicag\n<|id|>13<|type|>title<|page|>1<|box|>547 142 565 361<|content|>1. Recitals and Background\n<|id|>19<|type|>title<|page|>2<|box|>458 140 474 287<|content|>2. Payoff Amount\n<|id|>21<|type|>title<|page|>2<|box|>569 140 587 413<|content|>2.1 Outstanding Principal Balance\n<|id|>23<|type|>table<|page|>2<|box|>635 143 674 852<|content|>None\n<|id|>25<|type|>title<|page|>2<|box|>775 140 792 401<|content|>2.2 Accrued and Unpaid Interest\n<|id|>27<|type|>table<|page|>3<|box|>167 143 257 852<|content|>None\n<|id|>29<|type|>title<|page|>3<|box|>393 142 410 320<|content|>2.3 Fees and Expenses\n<|id|>31<|type|>table<|page|>3<|box|>459 143 691 852<|content|>None\n<|id|>33<|type|>title<|page|>3<|box|>830 143 847 339<|content|>2.4 Total Payoff Amount\n<|id|>35<|type|>table<|page|>3<|box|>877 143 898 852<|content|>None\n<|id|>36<|type|>table<|page|>4<|box|>89 143 183 852<|content|>None\n<|id|>39<|type|>title<|page|>4<|box|>449 140 465 303<|content|>3. Wire Instructions\n<|id|>40<|type|>table<|page|>4<|box|>517 143 693 852<|content|>None\n<|id|>43<|type|>title<|page|>5<|box|>90 140 107 465<|content|>4. Release of Liens and Security Interests\n<|id|>49<|type|>title<|page|>6<|box|>167 140 184 437<|content|>5. Termination of Warehouse Facility\n<|id|>54<|type|>title<|page|>6<|box|>679 140 696 580<|content|>6. Representations and Acknowledgments of the Lend\n<|id|>61<|type|>title<|page|>7<|box|>691 142 709 372<|content|>7. Conditions and Expiration\n<|id|>66<|type|>title<|page|>8<|box|>304 140 320 326<|content|>8. Contact Information\n<|id|>71<|type|>title<|page|>8<|box|>531 140 547 287<|content|>9. Governing Law\n<|id|>76<|type|>title<|page|>9<|box|>114 163 151 831<|content|>SIGNATURE PAGE TO PAYOFF LETTER WAREHOUSE CREDIT F\n<|id|>83<|type|>title<|page|>9<|box|>290 316 306 679<|content|>ACKNOWLEDGMENT AND AGREEMENT\n<|id|>95<|type|>title<|page|>9<|box|>551 429 566 568<|content|>DISTRIBUTION",
+    "raw_response": "<|src_id|>23<|tgt_id|>21\n<|src_id|>27<|tgt_id|>25\n<|src_id|>31<|tgt_id|>29\n<|src_id|>35<|tgt_id|>33\n<|src_id|>36<|tgt_id|>33\n<|src_id|>40<|tgt_id|>39",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 39
+        }
+    ]
+}

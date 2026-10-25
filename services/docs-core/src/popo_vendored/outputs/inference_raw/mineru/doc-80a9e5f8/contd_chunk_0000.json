@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 259 155 738<|content|>555 California Street, 40th Floor San Francisco, California 94104\n<|id|>3<|page|>1<|box|>164 183 181 813<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>190 743 207 854<|content|>April 28, 2022\n<|id|>6<|page|>1<|box|>242 140 258 815<|content|>Northland Mutual Insurance Co. ... 55 Yonge Street, Suite 2100 Toronto, ON M5E 1J4 Canada\n<|id|>7<|page|>1<|box|>268 176 284 403<|content|>Attention: ... Claims Department\n<|id|>8<|page|>1<|box|>285 176 301 637<|content|>Ref: ... NMI-DO-2021-5547\n<|id|>9<|page|>1<|box|>311 176 329 854<|content|>Re: ... NMI-DO-2021-5547 — Response to\n<|id|>10<|page|>1<|box|>330 176 347 687<|content|>Reservation of Rights Letter; ... Demand for Defense Cost Coverage\n<|id|>11<|page|>1<|box|>356 143 372 294<|content|>Dear Sir or Madam: ... Dear Sir or Madam\n<|id|>18<|page|>1<|box|>916 142 929 303<|content|>C&H Matter No. ... 1039-00001\n<|id|>19<|page|>2<|box|>90 140 237 856<|content|>On February 10, 2022, the Antitrust Division of th...a Stafford-Hayes serving in a supervisory capacity\n<|id|>26<|page|>2<|box|>760 183 813 854<|content|>• Sandra Chu, Director, Pricing Analytics, who is ...g decisions relevant to the Investigation; ... and\n<|id|>28<|page|>2<|box|>872 140 907 854<|content|>We emphasize that the Company's CEO, Søren Dalmqvi...ership upon learning of a government investigation\n<|id|>88<|page|>8<|box|>497 183 513 423<|content|>• Partners: ... USD 1,450 per hour\n<|id|>91<|page|>8<|box|>555 140 609 854<|content|>These rates are consistent with prevailing market ...and TMC submits that they are eminently reasonable\n<|id|>89<|page|>8<|box|>517 183 532 477<|content|>• Senior Associates: ... USD 950 per hour\n<|id|>90<|page|>8<|box|>536 183 551 426<|content|>• Associates: ... USD 725 per hour\n<|id|>109<|page|>10<|box|>222 181 258 854<|content|>• The right to pursue claims against Northland for...unreasonably withheld, delayed, or denied; ... and\n<|id|>111<|page|>10<|box|>297 140 353 854<|content|>Nothing in this letter, or in any prior or subsequ...MC, TMC US, or any insured person under the Policy\n<|id|>120<|page|>11<|box|>160 142 176 272<|content|>Very truly yours,\n<|id|>121<|page|>11<|box|>176 140 194 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>122<|page|>11<|box|>195 143 212 253<|content|>By: ... By\n<|id|>123<|page|>11<|box|>212 142 229 617<|content|>Elaine Forsythe Partner, Antitrust & Competition Practice Group\n<|id|>124<|page|>11<|box|>229 142 246 776<|content|>555 California Street, 40th Floor San Francisco, CA 94104 Telephone: ... (415) 398-7200\n<|id|>125<|page|>11<|box|>246 142 263 468<|content|>Email: ... com\n<|id|>130<|page|>11<|box|>391 176 426 852<|content|>Priya Anand, General Counsel Torchlight Mining Cor...Bay Street, Suite 3400 Toronto, ON M5J 2J2, Canada\n<|id|>131<|page|>11<|box|>435 176 470 854<|content|>Howard Bellamy, Esq. ... Calderwood & Harkness LLP One Liberty Plaza, 50th Floor New York, NY 10006\n<|id|>132<|page|>11<|box|>478 140 494 323<|content|>C&H Matter No. ... 1039-00001",
+    "raw_response": "<|src_id|>9<|tgt_id|>10",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        }
+    ]
+}

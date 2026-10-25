@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 303 133 692<|content|>One Liberty Plaza, 45th Floor New York, NY 10006\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 743 185 854<|content|>April 15, 2024\n<|id|>4<|page|>1<|box|>193 140 229 854<|content|>Mr. ... 2400 Brickell Bay Drive, Suite 3100 Miami, FL 33129\n<|id|>5<|page|>1<|box|>237 140 253 279<|content|>Dear Mr. ... Moretti\n<|id|>12<|page|>1<|box|>821 140 895 857<|content|>In connection with the preparation of the offering...emoranda, including the sections entitled Summary,\n<|id|>13<|page|>2<|box|>90 140 181 856<|content|>Risk Factors, Use of Proceeds, Capitalization, Sel...overall consistency and accuracy of the disclosure\n<|id|>27<|page|>3<|box|>234 174 253 761<|content|>(iv) Verimark Capital Holdings LLC, a Delaware limited liability company; ... and\n<|id|>29<|page|>3<|box|>287 140 396 857<|content|>In connection with the foregoing, C&H will conduct...he corporate structure of VHG and its subsidiaries\n<|id|>88<|page|>8<|box|>371 174 407 854<|content|>(e) Database and research charges, including charg...s, Calderon Systems, Cascade Services Inc. ... and\n<|id|>90<|page|>8<|box|>441 140 478 854<|content|>All expenses and disbursements will be itemized on...same payment terms applicable to professional fees\n<|id|>119<|page|>11<|box|>824 140 897 857<|content|>We respectfully request that VHG acknowledge and a...by email to tlangston@calderwoodharkness. ... This\n<|id|>120<|page|>12<|box|>90 140 162 854<|content|>Engagement Letter may be executed in one or more c...ective upon execution and delivery by both parties\n<|id|>125<|page|>12<|box|>301 140 335 852<|content|>Theodore Langston Partner, Capital Markets Calderw...r New York, NY 10006 Telephone: ... (212) 455-7812\n<|id|>126<|page|>12<|box|>335 142 353 468<|content|>Email: ... com\n<|id|>127<|page|>12<|box|>354 143 369 253<|content|>By: ... By\n<|id|>128<|page|>12<|box|>369 140 402 852<|content|>Vivienne St. ... (212) 455-7819\n<|id|>129<|page|>12<|box|>404 140 420 462<|content|>Email: ... com\n<|id|>133<|page|>12<|box|>481 140 497 328<|content|>Name: ... Moretti\n<|id|>134<|page|>12<|box|>498 140 515 405<|content|>Title: ... General Counsel & Secretary\n<|id|>135<|page|>12<|box|>516 143 532 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>119<|tgt_id|>120",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        }
+    ]
+}

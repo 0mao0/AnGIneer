@@ -1,0 +1,155 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ckgiduxw\\input\\pdfs\\doc-23f4ffe5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ckgiduxw\\enriched\\doc-23f4ffe5.json",
+    "contd_output": "<|src_id|>40<|tgt_id|>41\n<|src_id|>85<|tgt_id|>86\n<|src_id|>96<|tgt_id|>97\n<|src_id|>106<|tgt_id|>107",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>1\n<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>21<|level|>1\n<|id|>24<|level|>1\n<|id|>31<|level|>1\n<|id|>34<|level|>1\n<|id|>45<|level|>1\n<|id|>47<|level|>2\n<|id|>50<|level|>2\n<|id|>55<|level|>2\n<|id|>59<|level|>1\n<|id|>72<|level|>1\n<|id|>78<|level|>1\n<|id|>81<|level|>1\n<|id|>84<|level|>1\n<|id|>89<|level|>1\n<|id|>93<|level|>1\n<|id|>98<|level|>1\n<|id|>101<|level|>1\n<|id|>127<|level|>1\n<|id|>128<|level|>2",
+    "image_output": "<|src_id|>131<|tgt_id|>128\n<|src_id|>132<|tgt_id|>128",
+    "contd_label": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 107
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 131,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 128
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 131,
+            "table2_idx": 132,
+            "upper_row_ss": [
+                [
+                    "Participant",
+                    "Dr. Marcus J. Elliston"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

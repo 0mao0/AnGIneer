@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>170 70 186 171<|content|>Key Metrics<sup>(1)</sup>\n<|id|>5<|page|>1<|box|>193 109 209 249<|content|>Paid subscribers at: ... Paid subscribers at\n<|id|>32<|page|>2<|box|>886 70 919 900<|content|>The increase in theatrical distribution revenue wa...mpared to the prior year. ... First Steps, Captain\n<|id|>33<|page|>3<|box|>47 70 81 924<|content|>America: ... Romulus, Wish and The Marvels in the prior year\n<|id|>55<|page|>4<|box|>599 72 616 232<|content|>Revenues - Advertising\n<|id|>57<|page|>4<|box|>775 70 824 912<|content|>The increase in domestic ESPN advertising revenue ...our additional College Footbal Playoff (CFP) games\n<|id|>69<|page|>6<|box|>49 72 65 375<|content|>Supplemental revenue and operating income\n<|id|>70<|page|>6<|box|>67 107 85 841<|content|>The following table provides supplemental revenue ...rating income (loss) detail for the Sports segment\n<|id|>78<|page|>6<|box|>868 70 883 311<|content|>Revenues - Theme park admissions\n<|id|>79<|page|>6<|box|>886 70 918 872<|content|>The increase in theme park admissions revenue was ...f 4% from higher average per capita ticket revenue\n<|id|>123<|page|>9<|box|>883 70 899 321<|content|>Produced and licensed content costs\n<|id|>124<|page|>9<|box|>901 70 935 870<|content|>The Entertainment and Sports segments incur costs ... corresponding increase in programming liabilities\n<|id|>137<|page|>11<|box|>390 70 437 900<|content|>Capital expenditures at Experiences are principall...heme park and resort expansion and new attractions\n<|id|>138<|page|>11<|box|>441 70 475 895<|content|>Capital expenditures at Corporate primarily reflec...iscal 2024 was due to lower spending on facilities",
+    "raw_response": "<|src_id|>32<|tgt_id|>33",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>170 110 203 902<|content|>中华人民共和国交通行业标准\n<|id|>2<|type|>title<|page|>1<|box|>414 273 450 741<|content|>海区航标效能验收规范\n<|id|>3<|type|>title<|page|>1<|box|>476 154 499 860<|content|>Specification for acceptance of the marine aids to\n<|id|>6<|type|>title<|page|>2<|box|>134 445 155 552<|content|>目次\n<|id|>8<|type|>title<|page|>3<|box|>129 452 151 566<|content|>前言\n<|id|>14<|type|>title<|page|>4<|box|>130 371 151 642<|content|>海区航标效能验收规范\n<|id|>15<|type|>title<|page|>4<|box|>184 112 200 184<|content|>1 范围\n<|id|>18<|type|>title<|page|>4<|box|>278 112 294 273<|content|>2 规范性引用文件\n<|id|>28<|type|>title<|page|>4<|box|>521 112 536 236<|content|>3 术语和定义\n<|id|>30<|type|>title<|page|>4<|box|>568 112 582 147<|content|>3.1\n<|id|>31<|type|>title<|page|>4<|box|>587 149 602 438<|content|>航标用户 user of aids to navigation\n<|id|>33<|type|>title<|page|>4<|box|>662 112 677 149<|content|>3.2\n<|id|>34<|type|>title<|page|>4<|box|>681 147 696 507<|content|>航标技术测定 field test of aids to navigation\n<|id|>36<|type|>title<|page|>4<|box|>737 112 751 149<|content|>3.3\n<|id|>37<|type|>title<|page|>4<|box|>756 147 771 463<|content|>航标效能 efficacy of aids to navigation\n<|id|>39<|type|>title<|page|>4<|box|>821 110 837 324<|content|>4 海区航标效能验收条件\n<|id|>45<|type|>title<|page|>5<|box|>211 97 227 364<|content|>5 海区航标效能验收方法和要求\n<|id|>46<|type|>title<|page|>5<|box|>239 97 255 260<|content|>5.1 效能验收方法\n<|id|>48<|type|>title<|page|>5<|box|>313 97 329 223<|content|>5.2 技术测定\n<|id|>49<|type|>title<|page|>5<|box|>332 97 348 295<|content|>5.2.1 技术测定的内容\n<|id|>50<|type|>title<|page|>5<|box|>351 97 366 260<|content|>5.2.1.1 视觉航标\n<|id|>53<|type|>table<|page|>5<|box|>443 100 904 882<|content|>None\n<|id|>54<|type|>title<|page|>6<|box|>105 115 121 647<|content|>5.2.1.2 沿海无线电指向标—差分全球定位系统(RBN-DGPS)台站\n<|id|>56<|type|>table<|page|>6<|box|>160 117 409 899<|content|>None\n<|id|>57<|type|>title<|page|>6<|box|>414 115 430 448<|content|>5.2.1.3 船舶自动识别系统(AIS)岸基站\n<|id|>59<|type|>table<|page|>6<|box|>468 117 664 897<|content|>None\n<|id|>60<|type|>title<|page|>6<|box|>669 115 684 295<|content|>5.2.1.4 雷达应答器\n<|id|>62<|type|>table<|page|>6<|box|>724 117 866 897<|content|>None\n<|id|>63<|type|>title<|page|>6<|box|>871 114 885 346<|content|>5.2.2 技术测定的实施程序\n<|id|>70<|type|>title<|page|>7<|box|>221 95 236 184<|content|>5.3 评估\n<|id|>72<|type|>title<|page|>8<|box|>126 480 142 541<|content|>附录A\n<|id|>77<|type|>title<|page|>8<|box|>222 374 237 645<|content|>表 A.1 视觉航标技术测定记录表\n<|id|>79<|type|>table<|page|>8<|box|>258 119 881 900<|content|>None\n<|id|>83<|type|>table<|page|>9<|box|>140 95 883 875<|content|>None\n<|id|>87<|type|>table<|page|>10<|box|>145 122 896 902<|content|>None\n<|id|>91<|type|>table<|page|>11<|box|>149 99 793 877<|content|>None",
+    "raw_response": "<|src_id|>53<|tgt_id|>50\n<|src_id|>56<|tgt_id|>54\n<|src_id|>59<|tgt_id|>57\n<|src_id|>62<|tgt_id|>60\n<|src_id|>79<|tgt_id|>77\n<|src_id|>83<|tgt_id|>77\n<|src_id|>87<|tgt_id|>77\n<|src_id|>91<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 53,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 77
+        }
+    ]
+}

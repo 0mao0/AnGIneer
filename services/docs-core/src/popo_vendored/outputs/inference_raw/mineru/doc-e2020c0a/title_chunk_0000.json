@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 344 118 653<|content|>AMENDED AND RESTATED\n<|id|>1<|page|>1<|box|>137 295 156 702<|content|>CERTIFICATE OF INCORPORATION\n<|id|>3<|page|>1<|box|>214 294 233 702<|content|>LUMINEX SYSTEMS HOLDINGS INC.\n<|id|>9<|page|>1<|box|>726 143 742 243<|content|>ARTICLE I\n<|id|>11<|page|>1<|box|>797 143 814 250<|content|>ARTICLE II\n<|id|>12<|page|>1<|box|>828 140 844 573<|content|>REGISTERED OFFICE AND REGISTERED AGENT\n<|id|>16<|page|>2<|box|>167 142 184 258<|content|>ARTICLE III\n<|id|>18<|page|>2<|box|>422 142 439 256<|content|>ARTICLE IV\n<|id|>19<|page|>2<|box|>453 140 470 424<|content|>AUTHORIZED CAPITAL STOCK\n<|id|>30<|page|>3<|box|>773 140 790 418<|content|>Section 4.3. Common Stock Rights.\n<|id|>35<|page|>4<|box|>556 142 574 250<|content|>ARTICLE V\n<|id|>36<|page|>4<|box|>587 140 604 354<|content|>BOARD OF DIRECTORS\n<|id|>43<|page|>5<|box|>739 140 757 256<|content|>ARTICLE VI\n<|id|>44<|page|>5<|box|>770 140 787 493<|content|>LIMITATION OF DIRECTOR LIABILITY\n<|id|>53<|page|>6<|box|>623 140 640 264<|content|>ARTICLE VII\n<|id|>63<|page|>8<|box|>720 140 738 269<|content|>ARTICLE VIII\n<|id|>67<|page|>9<|box|>454 142 472 256<|content|>ARTICLE IX\n<|id|>68<|page|>9<|box|>484 140 502 620<|content|>AMENDMENT OF CERTIFICATE OF INCORPORATION\n<|id|>70<|page|>9<|box|>806 142 823 248<|content|>ARTICLE X\n<|id|>71<|page|>9<|box|>837 142 854 383<|content|>AMENDMENT OF BYLAWS\n<|id|>73<|page|>10<|box|>314 142 330 256<|content|>ARTICLE XI\n<|id|>82<|page|>11<|box|>358 140 375 264<|content|>ARTICLE XII\n<|id|>88<|page|>12<|box|>339 140 357 271<|content|>ARTICLE XIII\n<|id|>90<|page|>12<|box|>686 142 704 269<|content|>ARTICLE XIV\n<|id|>93<|page|>13<|box|>114 197 151 795<|content|>SIGNATURE PAGE TO AMENDED AND RESTATED CERTIFICATE\n<|id|>100<|page|>13<|box|>309 408 324 589<|content|>FILING NOTATIONS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>9<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>16<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>30<|level|>4\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>53<|level|>2\n<|id|>63<|level|>2\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>70<|level|>2\n<|id|>71<|level|>3\n<|id|>73<|level|>2\n<|id|>82<|level|>2\n<|id|>88<|level|>2\n<|id|>90<|level|>2\n<|id|>93<|level|>2\n<|id|>100<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 4
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        }
+    ]
+}

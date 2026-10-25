@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>141 142 157 496<|content|>VIA OVERNIGHT COURIER AND EMAIL\n<|id|>4<|type|>title<|page|>1<|box|>292 176 310 810<|content|>Notice of Material Litigation Pursuant to Section\n<|id|>5<|type|>title<|page|>1<|box|>319 142 335 303<|content|>Dear Ms. Devereaux:\n<|id|>9<|type|>title<|page|>1<|box|>666 142 683 383<|content|>I. Description of the Litigation\n<|id|>11<|type|>title<|page|>1<|box|>787 176 805 851<|content|>Vantor Holdings Corp. v. Stonefield Logistics Grou\n<|id|>17<|type|>title<|page|>2<|box|>510 142 527 496<|content|>II. Damages Claimed and Potential Exposure\n<|id|>19<|type|>table<|page|>2<|box|>575 143 752 852<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>90 140 107 566<|content|>III. Stonefield's Position and Assessment of the C\n<|id|>31<|type|>title<|page|>4<|box|>275 140 292 341<|content|>IV. Retention of Counsel\n<|id|>33<|type|>title<|page|>4<|box|>421 140 439 426<|content|>V. Ongoing Reporting Commitment\n<|id|>37<|type|>title<|page|>4<|box|>747 142 763 401<|content|>VI. No Impact on Credit Facility\n<|id|>40<|type|>title<|page|>5<|box|>213 142 229 352<|content|>VII. Reservation of Rights\n<|id|>53<|type|>title<|page|>5<|box|>736 143 751 232<|content|>Enclosure:",
+    "raw_response": "<|src_id|>19<|tgt_id|>17",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>9<|type|>title<|page|>1<|box|>393 143 410 344<|content|>1. Purpose and Authority\n<|id|>13<|type|>title<|page|>2<|box|>90 140 107 343<|content|>2. Litigation Background\n<|id|>14<|type|>title<|page|>2<|box|>121 140 138 454<|content|>2.1 The Parties and the Asserted Patent\n<|id|>19<|type|>title<|page|>2<|box|>729 142 744 315<|content|>2.2 Accused Products\n<|id|>24<|type|>title<|page|>3<|box|>311 142 329 326<|content|>2.3 Procedural History\n<|id|>29<|type|>title<|page|>4<|box|>90 140 106 318<|content|>2.4 Plaintiff's Counsel\n<|id|>31<|type|>title<|page|>4<|box|>282 140 299 462<|content|>3. Defense Assessment and Risk Analysis\n<|id|>33<|type|>title<|page|>4<|box|>541 140 558 318<|content|>3.1 Invalidity Position\n<|id|>38<|type|>title<|page|>5<|box|>257 140 273 383<|content|>3.2 Non-Infringement Position\n<|id|>42<|type|>title<|page|>5<|box|>710 142 728 348<|content|>3.3 Cost-to-Trial Analysis\n<|id|>52<|type|>title<|page|>6<|box|>375 140 391 380<|content|>4. Proposed Settlement Terms\n<|id|>63<|type|>title<|page|>7<|box|>375 140 391 465<|content|>5. Insurance Coverage and Funding Split\n<|id|>67<|type|>table<|page|>7<|box|>659 143 734 852<|content|>None\n<|id|>70<|type|>title<|page|>8<|box|>186 140 204 514<|content|>6. Cost-Benefit Rationale and Recommendation\n<|id|>80<|type|>title<|page|>9<|box|>411 142 428 354<|content|>7. Defense Costs Summary\n<|id|>82<|type|>table<|page|>9<|box|>479 143 636 852<|content|>None\n<|id|>83<|type|>table<|page|>9<|box|>667 143 743 852<|content|>None\n<|id|>84<|type|>table<|page|>9<|box|>776 143 851 852<|content|>None\n<|id|>86<|type|>title<|page|>10<|box|>223 140 239 303<|content|>8. Action Requested\n<|id|>93<|type|>title<|page|>10<|box|>766 140 782 253<|content|>9. Enclosures\n<|id|>98<|type|>title<|page|>11<|box|>90 174 125 854<|content|>Enclosure 4: Invalidity and Non-Infringement Asses",
+    "raw_response": "<|src_id|>67<|tgt_id|>63\n<|src_id|>82<|tgt_id|>80\n<|src_id|>83<|tgt_id|>80\n<|src_id|>84<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 67,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 80
+        }
+    ]
+}

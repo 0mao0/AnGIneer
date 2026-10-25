@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        78
+    ],
+    "pages": [
+        47,
+        53,
+        55,
+        56,
+        58,
+        60,
+        61,
+        78
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>406<|page|>47<|box|>479 370 498 633<|content|>IV. SERVICING TERMS\n<|id|>408<|page|>47<|box|>547 112 569 568<|content|>A. GENERAL PROVISIONS & DEFINITIONS\n<|id|>409<|page|>47<|box|>584 228 604 586<|content|>1. Scope, Conflict, and Performance.\n<|id|>423<|page|>53<|box|>513 228 536 513<|content|>4. Reporting Requirements.\n<|id|>427<|page|>55<|box|>444 112 464 416<|content|>B. PAYMENT PROCESSING\n<|id|>432<|page|>56<|box|>373 232 431 893<|content|>2. Default Payment Processing Methodology for Loan\n<|id|>442<|page|>58<|box|>621 109 641 328<|content|>C.FEES\n<|id|>444<|page|>58<|box|>866 109 886 647<|content|>D. BI~LING STATEMENTS & PAYMENT HISTORIES\n<|id|>453<|page|>60<|box|>162 228 184 460<|content|>2. Payment Histories.\n<|id|>464<|page|>61<|box|>234 109 253 718<|content|>E. BORROWER COMMUNICATIONS FOR FEDERAL LOANS\n<|id|>535<|page|>78<|box|>93 423 112 586<|content|>VII. RELEASE",
+    "raw_response": "<|id|>406<|level|>1\n<|id|>408<|level|>2\n<|id|>409<|level|>3\n<|id|>423<|level|>3\n<|id|>427<|level|>2\n<|id|>432<|level|>3\n<|id|>442<|level|>2\n<|id|>444<|level|>2\n<|id|>453<|level|>3\n<|id|>464<|level|>2\n<|id|>535<|level|>1",
+    "parsed": [
+        {
+            "id": 406,
+            "level": 1
+        },
+        {
+            "id": 408,
+            "level": 2
+        },
+        {
+            "id": 409,
+            "level": 3
+        },
+        {
+            "id": 423,
+            "level": 3
+        },
+        {
+            "id": 427,
+            "level": 2
+        },
+        {
+            "id": 432,
+            "level": 3
+        },
+        {
+            "id": 442,
+            "level": 2
+        },
+        {
+            "id": 444,
+            "level": 2
+        },
+        {
+            "id": 453,
+            "level": 3
+        },
+        {
+            "id": 464,
+            "level": 2
+        },
+        {
+            "id": 535,
+            "level": 1
+        }
+    ]
+}

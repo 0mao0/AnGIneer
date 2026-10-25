@@ -1,0 +1,415 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3jsh71p9\\input\\pdfs\\doc-a8797d48.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3jsh71p9\\enriched\\doc-a8797d48.json",
+    "contd_output": "<|src_id|>67<|tgt_id|>68\n<|src_id|>73<|tgt_id|>74\n<|src_id|>135<|tgt_id|>136",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>28<|level|>2\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>65<|level|>3\n<|id|>115<|level|>3\n<|id|>121<|level|>3\n<|id|>137<|level|>2\n<|id|>140<|level|>3\n<|id|>154<|level|>3\n<|id|>163<|level|>3\n<|id|>171<|level|>3\n<|id|>179<|level|>2\n<|id|>185<|level|>3\n<|id|>195<|level|>3\n<|id|>200<|level|>3\n<|id|>207<|level|>2\n<|id|>215<|level|>3\n<|id|>221<|level|>3\n<|id|>225<|level|>3\n<|id|>231<|level|>3\n<|id|>238<|level|>2\n<|id|>247<|level|>3\n<|id|>255<|level|>3\n<|id|>262<|level|>3\n<|id|>264<|level|>3\n<|id|>272<|level|>2\n<|id|>273<|level|>3\n<|id|>275<|level|>4\n<|id|>279<|level|>4\n<|id|>281<|level|>4\n<|id|>286<|level|>3\n<|id|>291<|level|>2\n<|id|>297<|level|>2\n<|id|>298<|level|>3\n<|id|>301<|level|>3\n<|id|>309<|level|>3\n<|id|>317<|level|>2\n<|id|>318<|level|>3\n<|id|>320<|level|>4\n<|id|>323<|level|>4\n<|id|>327<|level|>3\n<|id|>337<|level|>3\n<|id|>343<|level|>3\n<|id|>349<|level|>2\n<|id|>350<|level|>3\n<|id|>356<|level|>3\n<|id|>359<|level|>3",
+    "image_output": "<|src_id|>117<|tgt_id|>115\n<|src_id|>118<|tgt_id|>115\n<|src_id|>277<|tgt_id|>273\n<|src_id|>278<|tgt_id|>273\n<|src_id|>280<|tgt_id|>279\n<|src_id|>282<|tgt_id|>281\n<|src_id|>283<|tgt_id|>281\n<|src_id|>352<|tgt_id|>350\n<|src_id|>353<|tgt_id|>350\n<|src_id|>354<|tgt_id|>350\n<|src_id|>357<|tgt_id|>356\n<|src_id|>358<|tgt_id|>356\n<|src_id|>360<|tgt_id|>359\n<|src_id|>361<|tgt_id|>359",
+    "contd_label": [
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 136
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 207,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 231,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 2
+        },
+        {
+            "id": 247,
+            "level": 3
+        },
+        {
+            "id": 255,
+            "level": 3
+        },
+        {
+            "id": 262,
+            "level": 3
+        },
+        {
+            "id": 264,
+            "level": 3
+        },
+        {
+            "id": 272,
+            "level": 2
+        },
+        {
+            "id": 273,
+            "level": 3
+        },
+        {
+            "id": 275,
+            "level": 4
+        },
+        {
+            "id": 279,
+            "level": 4
+        },
+        {
+            "id": 281,
+            "level": 4
+        },
+        {
+            "id": 286,
+            "level": 3
+        },
+        {
+            "id": 291,
+            "level": 2
+        },
+        {
+            "id": 297,
+            "level": 2
+        },
+        {
+            "id": 298,
+            "level": 3
+        },
+        {
+            "id": 301,
+            "level": 3
+        },
+        {
+            "id": 309,
+            "level": 3
+        },
+        {
+            "id": 317,
+            "level": 2
+        },
+        {
+            "id": 318,
+            "level": 3
+        },
+        {
+            "id": 320,
+            "level": 4
+        },
+        {
+            "id": 323,
+            "level": 4
+        },
+        {
+            "id": 327,
+            "level": 3
+        },
+        {
+            "id": 337,
+            "level": 3
+        },
+        {
+            "id": 343,
+            "level": 3
+        },
+        {
+            "id": 349,
+            "level": 2
+        },
+        {
+            "id": 350,
+            "level": 3
+        },
+        {
+            "id": 356,
+            "level": 3
+        },
+        {
+            "id": 359,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 117,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 277,
+            "tgt_id": 273
+        },
+        {
+            "src_id": 278,
+            "tgt_id": 273
+        },
+        {
+            "src_id": 280,
+            "tgt_id": 279
+        },
+        {
+            "src_id": 282,
+            "tgt_id": 281
+        },
+        {
+            "src_id": 283,
+            "tgt_id": 281
+        },
+        {
+            "src_id": 352,
+            "tgt_id": 350
+        },
+        {
+            "src_id": 353,
+            "tgt_id": 350
+        },
+        {
+            "src_id": 354,
+            "tgt_id": 350
+        },
+        {
+            "src_id": 357,
+            "tgt_id": 356
+        },
+        {
+            "src_id": 358,
+            "tgt_id": 356
+        },
+        {
+            "src_id": 360,
+            "tgt_id": 359
+        },
+        {
+            "src_id": 361,
+            "tgt_id": 359
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 117,
+            "table2_idx": 118,
+            "upper_row_ss": [
+                [
+                    "Project",
+                    "SPV Entity",
+                    "PPA Counterpart",
+                    "CoC Provision",
+                    "IPO Trigger?",
+                    "Consent Required?",
+                    "Status / Action Item"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "y",
+                    "Type",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 277,
+            "table2_idx": 278,
+            "upper_row_ss": [
+                [
+                    "PPA",
+                    "Pronghorn Wind (210",
+                    "CTMPA",
+                    "Direct equity",
+                    "No",
+                    "N/A at",
+                    "Courtesy",
+                    "Ready"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "MW)",
+                    "",
+                    "transfer only",
+                    "",
+                    "parent level",
+                    "notice",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 352,
+            "table2_idx": 353,
+            "upper_row_ss": [
+                [
+                    "Mesquite Wind",
+                    "Mesquite Wind",
+                    "11/03/2020",
+                    "Mesquite Wind",
+                    "Mesquite Wind",
+                    "PPA",
+                    "20 yrs from COD",
+                    "[Redacted]",
+                    "Yes (consen t req.;",
+                    "Yes (consen t req.)",
+                    "Yes"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "PPA",
+                    "Holdings LLC / PREC",
+                    "",
+                    "",
+                    "Holdings LLC",
+                    "",
+                    "",
+                    "",
+                    "no IPO carve-out)",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 357,
+            "table2_idx": 358,
+            "upper_row_ss": [
+                [
+                    "Cimarron Solar EPC",
+                    "Change at parent level",
+                    "Parent Entity",
+                    "N/A (notice only; no termination right)",
+                    "15-day notice"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "No.",
+                    "Contract",
+                    "Parties",
+                    "Item 601(b)(10) Basis",
+                    "Confidential Treatment?"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 360,
+            "table2_idx": 361,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Obtain executed copies of development-stage PPAs (Silverleaf Wind; Copper Basin",
+                    "Tomás Quintero (CBR); C&H to review upon execution",
+                    "Upon execution (est. Q3 2022 – Q1 2023)",
+                    "Pending execution"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Solar + Storage — two counterparties)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

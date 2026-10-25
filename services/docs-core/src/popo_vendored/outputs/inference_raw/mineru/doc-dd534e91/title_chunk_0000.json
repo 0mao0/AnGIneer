@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>364 140 381 230<|content|>1. Purpose\n<|id|>12<|page|>1<|box|>811 140 829 348<|content|>2. Production 3 — Details\n<|id|>13<|page|>1<|box|>843 140 859 441<|content|>2.1 Bates Range and Document Count\n<|id|>18<|page|>2<|box|>289 140 306 565<|content|>2.2 Categories of Documents Included in Production\n<|id|>26<|page|>3<|box|>520 140 537 307<|content|>2.3 Delivery Method\n<|id|>29<|page|>3<|box|>801 140 820 279<|content|>2.4 Privilege Log\n<|id|>31<|page|>4<|box|>148 140 167 410<|content|>3. Prior Productions — Summary\n<|id|>44<|page|>4<|box|>797 142 814 421<|content|>4. Cumulative Production Statistics\n<|id|>45<|page|>4<|box|>829 142 845 334<|content|>4.1 Collection Summary\n<|id|>48<|page|>5<|box|>90 140 106 297<|content|>Electronic Sources:\n<|id|>52<|page|>5<|box|>250 142 265 284<|content|>Physical Sources:\n<|id|>58<|page|>5<|box|>579 140 595 313<|content|>4.2 Review Summary\n<|id|>66<|page|>6<|box|>90 142 107 447<|content|>4.3 Production Breakdown by Tranche\n<|id|>73<|page|>6<|box|>691 140 709 349<|content|>5. Privilege Log Summary\n<|id|>84<|page|>7<|box|>219 140 236 450<|content|>5.3 Categories of Privileged Documents\n<|id|>87<|page|>7<|box|>513 140 530 854<|content|>b. Communications with Thornberg & Whitfield CPAs\n<|id|>90<|page|>8<|box|>138 140 157 527<|content|>5.4 Compliance with Privilege Review Guidelines\n<|id|>92<|page|>8<|box|>295 140 313 429<|content|>6. E-discovery Vendor Confirmation\n<|id|>99<|page|>8<|box|>784 140 801 385<|content|>7. Production Issues and Notes\n<|id|>106<|page|>9<|box|>502 140 518 509<|content|>8. Outstanding Matters and Recommendations\n<|id|>107<|page|>9<|box|>532 140 550 553<|content|>8.1 Completion of Document Production Obligations\n<|id|>109<|page|>9<|box|>661 140 678 490<|content|>8.2 Testimonial Component of the Subpoena\n<|id|>117<|page|>10<|box|>635 140 652 261<|content|>9. Distribution",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>26<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>1\n<|id|>44<|level|>1\n<|id|>45<|level|>2\n<|id|>48<|level|>3\n<|id|>52<|level|>3\n<|id|>58<|level|>2\n<|id|>66<|level|>2\n<|id|>73<|level|>1\n<|id|>84<|level|>2\n<|id|>87<|level|>3\n<|id|>90<|level|>2\n<|id|>92<|level|>1\n<|id|>99<|level|>1\n<|id|>106<|level|>1\n<|id|>107<|level|>2\n<|id|>109<|level|>2\n<|id|>117<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 1
+        }
+    ]
+}

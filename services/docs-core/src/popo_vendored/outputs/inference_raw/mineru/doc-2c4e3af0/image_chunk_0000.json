@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 163 106 833<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT WORK\n<|id|>2<|type|>title<|page|>1<|box|>183 424 199 573<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>383 385 404 611<|content|>I. Executive Summary\n<|id|>15<|type|>title<|page|>2<|box|>571 323 590 673<|content|>II. Trademarks and Service Marks\n<|id|>16<|type|>title<|page|>2<|box|>617 142 633 406<|content|>A. Overview of Registered Marks\n<|id|>18<|type|>table<|page|>2<|box|>801 143 904 852<|content|>None\n<|id|>19<|type|>table<|page|>3<|box|>88 143 397 852<|content|>None\n<|id|>23<|type|>title<|page|>3<|box|>799 142 815 426<|content|>B. Maintenance and Renewal Status\n<|id|>27<|type|>title<|page|>4<|box|>458 140 474 336<|content|>C. Pending Applications\n<|id|>32<|type|>title<|page|>5<|box|>334 140 351 488<|content|>D. Opposition and Cancellation Proceedings\n<|id|>38<|type|>title<|page|>6<|box|>90 142 107 429<|content|>E. Foreign Trademark Registrations\n<|id|>41<|type|>title<|page|>6<|box|>388 294 409 702<|content|>III. Trade Names and DBA Registrations\n<|id|>48<|type|>title<|page|>7<|box|>90 401 111 594<|content|>IV. Domain Names\n<|id|>49<|type|>title<|page|>7<|box|>136 142 152 364<|content|>A. Owned Domain Portfolio\n<|id|>51<|type|>table<|page|>7<|box|>241 143 467 852<|content|>None\n<|id|>54<|type|>title<|page|>7<|box|>750 142 768 423<|content|>B. Domain Expiration and Renewal\n<|id|>57<|type|>title<|page|>8<|box|>204 140 222 303<|content|>C. Domain Disputes\n<|id|>60<|type|>title<|page|>8<|box|>448 295 468 702<|content|>V. Proprietary Technology and Software\n<|id|>61<|type|>title<|page|>8<|box|>493 142 510 346<|content|>A. E-Commerce Platform\n<|id|>71<|type|>title<|page|>9<|box|>434 142 450 385<|content|>B. Other Proprietary Software\n<|id|>77<|type|>title<|page|>9<|box|>804 140 821 442<|content|>C. Open-Source Software Compliance\n<|id|>84<|type|>title<|page|>10<|box|>734 140 752 230<|content|>D. Patents\n<|id|>88<|type|>title<|page|>11<|box|>215 421 236 576<|content|>VI. Copyrights\n<|id|>99<|type|>title<|page|>12<|box|>90 374 111 622<|content|>VII. License Agreements\n<|id|>100<|type|>title<|page|>12<|box|>136 142 152 307<|content|>A. Inbound Licenses\n<|id|>101<|type|>title<|page|>12<|box|>167 142 184 307<|content|>1. Software Licenses\n<|id|>109<|type|>title<|page|>12<|box|>736 140 753 362<|content|>2. Brand / Product Licenses\n<|id|>116<|type|>title<|page|>13<|box|>681 140 698 300<|content|>3. Content Licenses\n<|id|>118<|type|>title<|page|>14<|box|>90 142 107 318<|content|>B. Outbound Licenses\n<|id|>123<|type|>title<|page|>14<|box|>428 336 448 660<|content|>VIII. Key Risks and Open Items\n<|id|>125<|type|>title<|page|>14<|box|>523 140 542 488<|content|>A. SUMMIT TRAIL Opposition Proceeding\n<|id|>130<|type|>title<|page|>15<|box|>167 140 184 573<|content|>B. Change of Control Provisions in IP-Related Lice\n<|id|>133<|type|>title<|page|>15<|box|>500 140 516 444<|content|>C. Absence of Copyright Registrations\n<|id|>136<|type|>title<|page|>15<|box|>738 140 755 442<|content|>D. Open-Source Software Compliance\n<|id|>140<|type|>title<|page|>16<|box|>223 140 239 362<|content|>E. Foreign Trademark Gap\n<|id|>143<|type|>title<|page|>16<|box|>517 140 534 348<|content|>F. Domain Name Hygiene\n<|id|>146<|type|>title<|page|>16<|box|>811 140 828 406<|content|>G. Pending USPTO Office Action\n<|id|>149<|type|>title<|page|>17<|box|>253 202 273 792<|content|>IX. Impact on Merger Agreement and Disclosure Sche\n<|id|>164<|type|>title<|page|>18<|box|>282 375 301 620<|content|>X. Documents Reviewed\n<|id|>178<|type|>title<|page|>19<|box|>323 307 342 689<|content|>XI. Conclusion and Recommendations",
+    "raw_response": "<|src_id|>18<|tgt_id|>16\n<|src_id|>19<|tgt_id|>16\n<|src_id|>51<|tgt_id|>49",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        }
+    ]
+}

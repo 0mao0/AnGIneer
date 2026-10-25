@@ -1,0 +1,130 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3i2hcuc1\\input\\pdfs\\doc-8c404b80.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3i2hcuc1\\enriched\\doc-8c404b80.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>18<|level|>3\n<|id|>20<|level|>4\n<|id|>22<|level|>4\n<|id|>24<|level|>4\n<|id|>26<|level|>3\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>46<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>3\n<|id|>67<|level|>3\n<|id|>70<|level|>3\n<|id|>75<|level|>2\n<|id|>79<|level|>2",
+    "image_output": "<|src_id|>15<|tgt_id|>13\n<|src_id|>16<|tgt_id|>13\n<|src_id|>64<|tgt_id|>62\n<|src_id|>69<|tgt_id|>67\n<|src_id|>71<|tgt_id|>70\n<|src_id|>72<|tgt_id|>70",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 4
+        },
+        {
+            "id": 22,
+            "level": 4
+        },
+        {
+            "id": 24,
+            "level": 4
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 70
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 15,
+            "table2_idx": 16,
+            "upper_row_ss": [
+                [
+                    "Total documents identified as responsive to the subpoena",
+                    "3,847"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Documents withheld on attorney-client privilege and/or work product doctrine grounds",
+                    "214"
+                ]
+            ]
+        }
+    ]
+}

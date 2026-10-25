@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 104 674<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>1<|page|>1<|box|>111 194 148 857<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1301 K\n<|id|>10<|page|>1<|box|>407 140 424 364<|content|>I. Introduction and Purpose\n<|id|>15<|page|>2<|box|>148 140 167 349<|content|>II. Background Summary\n<|id|>16<|page|>2<|box|>180 140 198 372<|content|>A. The Departing Employees\n<|id|>28<|page|>3<|box|>250 140 268 310<|content|>B. Litigation Posture\n<|id|>32<|page|>3<|box|>723 140 739 390<|content|>C. Relevance of Equity Awards\n<|id|>35<|page|>4<|box|>223 140 239 738<|content|>III. Equity Forfeiture and Clawback Provisions of\n<|id|>41<|page|>4<|box|>666 140 683 630<|content|>B. Priya Rathore — Detailed Forfeiture Calculation\n<|id|>43<|page|>4<|box|>752 143 768 300<|content|>RSU Grant Details:\n<|id|>54<|page|>5<|box|>339 142 354 336<|content|>Forfeiture Components:\n<|id|>56<|page|>5<|box|>407 176 425 700<|content|>Component 1 — Automatic Forfeiture of Unvested RSU\n<|id|>58<|page|>5<|box|>588 176 604 660<|content|>Component 2 — Clawback of Final Vested Tranche: $1\n<|id|>61<|page|>5<|box|>811 142 830 367<|content|>Basis for Clawback Trigger:\n<|id|>68<|page|>6<|box|>561 140 579 665<|content|>C. Remaining Seven Employees — Aggregate Forfeitur\n<|id|>81<|page|>7<|box|>532 140 549 408<|content|>IV. Mechanics of Implementation\n<|id|>82<|page|>7<|box|>563 140 580 508<|content|>A. Cancellation Instructions to Transfer Agent\n<|id|>88<|page|>8<|box|>138 140 157 426<|content|>B. Settlement Agreement Provisions\n<|id|>95<|page|>8<|box|>561 140 579 447<|content|>C. Tax and Accounting Considerations\n<|id|>102<|page|>9<|box|>286 140 301 517<|content|>V. Context Within Overall Settlement Recovery\n<|id|>112<|page|>10<|box|>428 140 445 410<|content|>VI. Requested Committee Actions\n<|id|>120<|page|>11<|box|>167 142 184 243<|content|>VII. Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>28<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>1\n<|id|>41<|level|>2\n<|id|>43<|level|>3\n<|id|>54<|level|>3\n<|id|>56<|level|>4\n<|id|>58<|level|>4\n<|id|>61<|level|>5\n<|id|>68<|level|>2\n<|id|>81<|level|>1\n<|id|>82<|level|>2\n<|id|>88<|level|>2\n<|id|>95<|level|>2\n<|id|>102<|level|>1\n<|id|>112<|level|>1\n<|id|>120<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 4
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 5
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        }
+    ]
+}

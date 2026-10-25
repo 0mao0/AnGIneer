@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 163 127 833<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1800 Pa\n<|id|>9<|type|>title<|page|>1<|box|>648 140 667 321<|content|>I. Executive Summary\n<|id|>17<|type|>title<|page|>2<|box|>619 142 636 467<|content|>II. Background — The Convertible Notes\n<|id|>18<|type|>title<|page|>2<|box|>650 142 667 326<|content|>A. Issuance and Terms\n<|id|>22<|type|>title<|page|>3<|box|>194 140 210 349<|content|>B. Noteholder Breakdown\n<|id|>26<|type|>title<|page|>3<|box|>518 140 537 299<|content|>C. Key Note Terms\n<|id|>35<|type|>title<|page|>4<|box|>465 140 482 401<|content|>III. Accrued Interest Calculation\n<|id|>36<|type|>title<|page|>4<|box|>496 140 513 410<|content|>A. Interest Rate and Methodology\n<|id|>39<|type|>title<|page|>4<|box|>796 140 813 287<|content|>B. Accrual Period\n<|id|>42<|type|>title<|page|>5<|box|>275 142 292 408<|content|>C. Aggregate Interest Calculation\n<|id|>48<|type|>title<|page|>5<|box|>450 142 468 428<|content|>D. Interest Allocation by Noteholder\n<|id|>54<|type|>title<|page|>5<|box|>627 142 643 370<|content|>E. Total Conversion Amount\n<|id|>56<|type|>table<|page|>5<|box|>712 143 816 852<|content|>None\n<|id|>58<|type|>title<|page|>6<|box|>148 140 167 428<|content|>IV. Conversion Price Determination\n<|id|>60<|type|>title<|page|>6<|box|>261 140 277 522<|content|>A. Series Seed Price Per Share (Reference Price)\n<|id|>71<|type|>title<|page|>7<|box|>202 142 218 284<|content|>B. Discount Price\n<|id|>74<|type|>title<|page|>7<|box|>354 140 373 250<|content|>C. Cap Price\n<|id|>77<|type|>title<|page|>7<|box|>527 140 544 392<|content|>D. Applicable Conversion Price\n<|id|>85<|type|>title<|page|>8<|box|>212 140 229 387<|content|>V. Share Issuance Calculations\n<|id|>86<|type|>title<|page|>8<|box|>243 142 261 423<|content|>A. Aggregate Shares on Conversion\n<|id|>92<|type|>title<|page|>8<|box|>474 143 489 421<|content|>B. Per-Noteholder Share Allocation\n<|id|>94<|type|>table<|page|>8<|box|>558 143 670 852<|content|>None\n<|id|>96<|type|>title<|page|>8<|box|>844 140 861 354<|content|>C. Nature of Shares Issued\n<|id|>104<|type|>title<|page|>9<|box|>748 140 765 491<|content|>VI. Impact on Post-Financing Capitalization\n<|id|>105<|type|>title<|page|>9<|box|>779 140 797 669<|content|>A. Aggregate Series Seed Preferred Stock Outstandi\n<|id|>110<|type|>title<|page|>10<|box|>176 140 195 568<|content|>B. Post-Closing Fully-Diluted Capitalization Summa\n<|id|>112<|type|>table<|page|>10<|box|>243 143 416 852<|content|>None\n<|id|>113<|type|>title<|page|>10<|box|>450 140 468 684<|content|>Several observations regarding the post-closing ca\n<|id|>117<|type|>title<|page|>10<|box|>833 140 849 459<|content|>C. Major Investor Status of Noteholders\n<|id|>125<|type|>title<|page|>11<|box|>541 140 558 547<|content|>VII. Procedural and Documentation Considerations\n<|id|>126<|type|>title<|page|>11<|box|>571 140 588 346<|content|>A. Conversion Mechanics\n<|id|>131<|type|>title<|page|>12<|box|>138 140 156 387<|content|>B. Transaction Documentation\n<|id|>141<|type|>title<|page|>13<|box|>90 140 107 405<|content|>C. Securities Law Considerations\n<|id|>151<|type|>title<|page|>13<|box|>710 140 728 323<|content|>D. Tax Considerations\n<|id|>157<|type|>title<|page|>14<|box|>575 140 592 385<|content|>VIII. Summary of Key Figures\n<|id|>159<|type|>table<|page|>14<|box|>643 143 900 852<|content|>None\n<|id|>160<|type|>table<|page|>15<|box|>89 143 198 852<|content|>None\n<|id|>162<|type|>title<|page|>15<|box|>309 140 327 388<|content|>IX. Open Items and Next Steps",
+    "raw_response": "<|src_id|>56<|tgt_id|>54\n<|src_id|>94<|tgt_id|>92\n<|src_id|>112<|tgt_id|>110\n<|src_id|>159<|tgt_id|>157\n<|src_id|>160<|tgt_id|>157",
+    "parsed": [
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 157
+        }
+    ]
+}

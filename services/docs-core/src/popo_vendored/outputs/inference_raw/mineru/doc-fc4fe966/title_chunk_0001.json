@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        59,
+        115
+    ],
+    "pages": [
+        60,
+        75,
+        76,
+        86,
+        87,
+        88,
+        90,
+        95,
+        96,
+        97,
+        100,
+        101,
+        102,
+        105,
+        110,
+        111,
+        113,
+        114,
+        115
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>259<|page|>60<|box|>197 147 212 854<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>296<|page|>75<|box|>514 353 529 641<|content|>Section I - Summary by Periods\n<|id|>298<|page|>76<|box|>75 352 89 640<|content|>Section I - Summary by Periods\n<|id|>311<|page|>86<|box|>45 266 60 746<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>318<|page|>87<|box|>79 274 95 701<|content|>Section I - Statements of Financial Condition\n<|id|>320<|page|>88<|box|>80 302 95 726<|content|>Section 1 - Statements of Financial Condition\n<|id|>323<|page|>90<|box|>76 290 91 714<|content|>Section I - Statements of Financial Condition\n<|id|>330<|page|>95<|box|>73 276 88 701<|content|>Section I - Statements of Financial Condition\n<|id|>332<|page|>96<|box|>80 295 95 719<|content|>Section I - Statements of Financial Condition\n<|id|>334<|page|>97<|box|>84 279 99 703<|content|>Section I - Statements of Financial Condition\n<|id|>338<|page|>100<|box|>75 290 89 721<|content|>Section I - Statements of Financial Condition\n<|id|>341<|page|>101<|box|>75 276 90 706<|content|>Section I - Statements of Financial Condition\n<|id|>343<|page|>102<|box|>80 293 93 721<|content|>Section I - Statements of Financial Condition\n<|id|>348<|page|>105<|box|>77 281 93 708<|content|>Section I - Statements of Financial Condition\n<|id|>357<|page|>110<|box|>87 293 102 724<|content|>Section 1 - Statements of Financial Condition\n<|id|>359<|page|>111<|box|>77 130 126 837<|content|>Section I - Statements of Financial Condition Tabl\n<|id|>364<|page|>113<|box|>75 172 125 800<|content|>Section I - Statements of Financial Condition Tabl\n<|id|>368<|page|>114<|box|>76 298 91 721<|content|>Section I - Statements of Financial Condition\n<|id|>369<|page|>114<|box|>95 197 111 822<|content|>Table 8.- Loans Outstanding by Periods, Excluding\n<|id|>371<|page|>115<|box|>42 241 56 730<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>372<|page|>115<|box|>75 387 88 580<|content|>Footnotes to Table 1\n<|id|>376<|page|>115<|box|>250 390 264 585<|content|>Footnotes to Table 2\n<|id|>392<|page|>115<|box|>608 390 623 585<|content|>Footnotes to Table 3\n<|id|>398<|page|>115<|box|>691 387 705 585<|content|>Footnotes to Table 4\n<|id|>414<|page|>115<|box|>876 387 891 582<|content|>Footnotes to Table 6",
+    "raw_response": "<|id|>259<|level|>1\n<|id|>296<|level|>1\n<|id|>298<|level|>1\n<|id|>311<|level|>1\n<|id|>318<|level|>1\n<|id|>320<|level|>1\n<|id|>323<|level|>1\n<|id|>330<|level|>1\n<|id|>332<|level|>1\n<|id|>334<|level|>1\n<|id|>338<|level|>1\n<|id|>341<|level|>1\n<|id|>343<|level|>1\n<|id|>348<|level|>1\n<|id|>357<|level|>1\n<|id|>359<|level|>1\n<|id|>364<|level|>1\n<|id|>368<|level|>1\n<|id|>369<|level|>2\n<|id|>371<|level|>1\n<|id|>372<|level|>2\n<|id|>376<|level|>2\n<|id|>392<|level|>2\n<|id|>398<|level|>2\n<|id|>414<|level|>2",
+    "parsed": [
+        {
+            "id": 259,
+            "level": 1
+        },
+        {
+            "id": 296,
+            "level": 1
+        },
+        {
+            "id": 298,
+            "level": 1
+        },
+        {
+            "id": 311,
+            "level": 1
+        },
+        {
+            "id": 318,
+            "level": 1
+        },
+        {
+            "id": 320,
+            "level": 1
+        },
+        {
+            "id": 323,
+            "level": 1
+        },
+        {
+            "id": 330,
+            "level": 1
+        },
+        {
+            "id": 332,
+            "level": 1
+        },
+        {
+            "id": 334,
+            "level": 1
+        },
+        {
+            "id": 338,
+            "level": 1
+        },
+        {
+            "id": 341,
+            "level": 1
+        },
+        {
+            "id": 343,
+            "level": 1
+        },
+        {
+            "id": 348,
+            "level": 1
+        },
+        {
+            "id": 357,
+            "level": 1
+        },
+        {
+            "id": 359,
+            "level": 1
+        },
+        {
+            "id": 364,
+            "level": 1
+        },
+        {
+            "id": 368,
+            "level": 1
+        },
+        {
+            "id": 369,
+            "level": 2
+        },
+        {
+            "id": 371,
+            "level": 1
+        },
+        {
+            "id": 372,
+            "level": 2
+        },
+        {
+            "id": 376,
+            "level": 2
+        },
+        {
+            "id": 392,
+            "level": 2
+        },
+        {
+            "id": 398,
+            "level": 2
+        },
+        {
+            "id": 414,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>189 63 257 934<|content|>Patient-Level and County-Level Trends in Nonfatal\n<|id|>4<|page|>1<|box|>540 532 559 591<|content|>INSIDE\n<|id|>14<|page|>3<|box|>448 53 464 300<|content|>Patient-Level Characteristics\n<|id|>16<|page|>3<|box|>777 53 795 303<|content|>County-Level Characteristics\n<|id|>18<|page|>3<|box|>328 687 344 772<|content|>Discussion\n<|id|>27<|page|>7<|box|>99 529 114 599<|content|>Summary\n<|id|>28<|page|>7<|box|>116 529 130 781<|content|>What is already known about this topic?\n<|id|>30<|page|>7<|box|>208 529 223 717<|content|>What is added by this report?\n<|id|>32<|page|>7<|box|>300 529 315 854<|content|>What are the implications for public health practi\n<|id|>34<|page|>7<|box|>409 660 424 799<|content|>Acknowledgments\n<|id|>39<|page|>7<|box|>712 687 727 771<|content|>References",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>-1\n<|id|>14<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>2\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>3\n<|id|>34<|level|>2\n<|id|>39<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        }
+    ]
+}

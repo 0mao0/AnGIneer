@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        55
+    ],
+    "pages": [
+        51,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>553<|page|>51<|box|>90 250 109 746<|content|>APPENDIX E: GLOSSARY AND DEFINITIONS\n<|id|>554<|page|>51<|box|>128 143 146 648<|content|>The following definitions and references apply thr\n<|id|>563<|page|>55<|box|>476 143 491 295<|content|>END OF DOCUMENT",
+    "raw_response": "<|id|>553<|level|>1\n<|id|>554<|level|>2\n<|id|>563<|level|>-1",
+    "parsed": [
+        {
+            "id": 553,
+            "level": 1
+        },
+        {
+            "id": 554,
+            "level": 2
+        }
+    ]
+}

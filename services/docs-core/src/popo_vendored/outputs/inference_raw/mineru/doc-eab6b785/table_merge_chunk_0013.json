@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 13,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Description', 'Original IRB approval letter from the Graystone University Institutional Review Board granting approval']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', \"for the conduct of the CLARION trial (Protocol PPC-4871-III, Version 3.0, dated March 15, 2023) at Graystone University Medical Center. The approval letter confirms that the IRB has reviewed and approved the protocol, the informed consent documents, the investigator's brochure, and all recruitment materials. The Graystone University IRB serves as the IRB of record for Site 001 (Graystone University Medical Center). Receipt of this IRB approval was a condition precedent to closing under Section 6.1(b)(i) of the MCTA.\"]]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 141,
+    "table2_idx": 142
+}

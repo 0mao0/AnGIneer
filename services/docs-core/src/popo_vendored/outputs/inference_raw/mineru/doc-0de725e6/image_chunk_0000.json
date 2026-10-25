@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|type|>title<|page|>1<|box|>386 142 402 462<|content|>I. Introduction and Engagement Context\n<|id|>13<|type|>title<|page|>2<|box|>90 142 107 344<|content|>II. Transaction Overview\n<|id|>22<|type|>table<|page|>2<|box|>449 143 517 852<|content|>None\n<|id|>27<|type|>table<|page|>2<|box|>781 143 871 852<|content|>None\n<|id|>34<|type|>title<|page|>3<|box|>407 142 424 269<|content|>III. Guarantors\n<|id|>43<|type|>title<|page|>4<|box|>297 140 314 498<|content|>IV. Description of Enclosed Draft Documents\n<|id|>45<|type|>title<|page|>4<|box|>445 140 462 459<|content|>A. Indenture (Draft — Execution Form)\n<|id|>47<|type|>title<|page|>4<|box|>531 140 549 419<|content|>Governing Law: State of New York.\n<|id|>55<|type|>table<|page|>5<|box|>565 143 660 852<|content|>None\n<|id|>62<|type|>title<|page|>6<|box|>646 140 664 655<|content|>B. Collateral Agreement (U.S.) — Pledge and Securi\n<|id|>72<|type|>title<|page|>7<|box|>580 140 598 614<|content|>C. Collateral Agreement (Nigeria) — Debenture and\n<|id|>74<|type|>title<|page|>7<|box|>666 140 684 573<|content|>Governing Law: Laws of the Federal Republic of Nig\n<|id|>78<|type|>title<|page|>8<|box|>194 140 212 527<|content|>D. Collateral Agreement (England) — Debenture\n<|id|>80<|type|>title<|page|>8<|box|>280 140 297 486<|content|>Governing Law: Laws of England and Wales.\n<|id|>82<|type|>title<|page|>8<|box|>484 140 501 723<|content|>E. Collateral Agreement (Senegal) — Nantissement a\n<|id|>87<|type|>title<|page|>9<|box|>90 140 107 359<|content|>F. Intercreditor Agreement\n<|id|>89<|type|>title<|page|>9<|box|>194 140 212 419<|content|>Governing Law: State of New York.\n<|id|>100<|type|>title<|page|>10<|box|>167 140 185 517<|content|>V. Paying Agent, Registrar, and Transfer Agent\n<|id|>102<|type|>title<|page|>10<|box|>398 140 417 522<|content|>VI. Multi-Jurisdictional Security Considerations\n<|id|>111<|type|>title<|page|>11<|box|>348 140 364 423<|content|>VII. Timeline and Comment Period\n<|id|>113<|type|>table<|page|>11<|box|>434 143 584 852<|content|>None\n<|id|>115<|type|>title<|page|>11<|box|>787 140 804 620<|content|>VIII. Key Dunmore Financial Data for Trustee's Inf\n<|id|>117<|type|>table<|page|>12<|box|>159 143 309 852<|content|>None\n<|id|>119<|type|>title<|page|>12<|box|>405 142 422 240<|content|>Ownership:\n<|id|>124<|type|>title<|page|>12<|box|>508 143 526 290<|content|>Key Management:\n<|id|>129<|type|>title<|page|>12<|box|>635 140 652 478<|content|>IX. OFAC and Sanctions Compliance Note\n<|id|>140<|type|>title<|page|>13<|box|>489 140 506 364<|content|>X. Request for Action Items\n<|id|>149<|type|>title<|page|>14<|box|>373 142 390 263<|content|>XI. Enclosures\n<|id|>158<|type|>title<|page|>14<|box|>674 140 691 300<|content|>XII. Confidentiality",
+    "raw_response": "<|src_id|>22<|tgt_id|>13\n<|src_id|>27<|tgt_id|>13\n<|src_id|>55<|tgt_id|>45\n<|src_id|>113<|tgt_id|>111\n<|src_id|>117<|tgt_id|>115",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 115
+        }
+    ]
+}

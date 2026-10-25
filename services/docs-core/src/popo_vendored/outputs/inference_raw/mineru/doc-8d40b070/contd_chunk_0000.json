@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        10,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>243 140 260 715<|content|>TO: ... Samuel Eklund, Responsible Partner\n<|id|>4<|page|>1<|box|>268 142 286 413<|content|>FROM: ... Simone Laroche, Associate\n<|id|>5<|page|>1<|box|>294 142 311 343<|content|>DATE: ... December 5, 2022\n<|id|>6<|page|>1<|box|>320 140 357 854<|content|>RE: ... )\n<|id|>7<|page|>1<|box|>364 140 382 331<|content|>Matter No. ... 1012-00005\n<|id|>8<|page|>1<|box|>390 140 409 433<|content|>Client: ... Stonefield Logistics Group Inc\n<|id|>68<|page|>8<|box|>825 140 898 857<|content|>Additionally, we should seek VTS's tender acceptan...email's reference to \"moving volume to Cascade and\n<|id|>69<|page|>9<|box|>90 140 127 854<|content|>Briarwood on Lanes 8–14\" is consistent with VTS's ...neous tender records will provide definitive proof\n<|id|>79<|page|>9<|box|>824 140 898 857<|content|>The Amended Complaint does not separately quantify...breach\" doctrine as a defense to Stonefield's for-\n<|id|>80<|page|>10<|box|>90 140 145 854<|content|>Cause termination. ... \"\n<|id|>172<|page|>19<|box|>777 140 811 854<|content|>Simone Laroche Associate Calderwood & Harkness LLP...York, New York 10166 Telephone: ... (212) 555-8400\n<|id|>173<|page|>19<|box|>811 142 828 460<|content|>Email: ... com",
+    "raw_response": "<|src_id|>68<|tgt_id|>69\n<|src_id|>79<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 68,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        }
+    ]
+}

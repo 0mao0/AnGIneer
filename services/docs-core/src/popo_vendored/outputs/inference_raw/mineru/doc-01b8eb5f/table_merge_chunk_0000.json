@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['', '', '', '', '', '', '', '', '', '', '', '', ''], ['colspan=13, 审核: 复核: 编制:']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=11, 建筑、安装单位工程预算表工程名称: 工程代号: 工程类别: 编号:'], ['rowspan=3, 序号', 'rowspan=3, 定额或估价表编号', 'rowspan=3, 分部分项工程名称', 'rowspan=3, 单位', 'rowspan=3, 工程数量', 'colspan=2, 基价(元)', 'colspan=4, 市场价(元)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 157,
+    "table2_idx": 158
+}

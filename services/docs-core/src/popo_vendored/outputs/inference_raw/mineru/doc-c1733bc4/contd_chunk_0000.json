@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>164 183 181 813<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>190 746 208 854<|content|>May 23, 2022\n<|id|>5<|page|>1<|box|>215 140 233 447<|content|>VIA EMAIL AND HAND DELIVERY\n<|id|>6<|page|>1<|box|>242 140 277 854<|content|>Mr. ... 4200 Lone Star Parkway, Suite 800 Austin, TX 78731\n<|id|>7<|page|>1<|box|>286 174 340 854<|content|>Re: ... A\n<|id|>8<|page|>1<|box|>349 176 366 450<|content|>C&H Matter Number: ... 1042-00001\n<|id|>9<|page|>1<|box|>375 140 392 287<|content|>Dear Mr. ... Hartwell\n<|id|>42<|page|>4<|box|>861 174 898 854<|content|>Sophie Tremblay — Lead Associate, Banking & Financ...fting, negotiation, and project management for the\n<|id|>43<|page|>5<|box|>90 174 145 854<|content|>Transaction and will serve as a primary day-to-day...al team. ... com or by telephone at (212) 554-7388\n<|id|>84<|page|>8<|box|>768 174 805 854<|content|>New York Office (Primary): ... Calderwood & Harkne...P One Liberty Plaza, 42nd Floor New York, NY 10006\n<|id|>85<|page|>8<|box|>814 176 830 511<|content|>Attention: ... Ian Blackwood / Sophie Tremblay\n<|id|>86<|page|>8<|box|>830 176 866 854<|content|>Austin Office: ... Calderwood & Harkness LLP 300 West 6th Street, Suite 2100 Austin, TX 78701\n<|id|>87<|page|>8<|box|>876 176 893 341<|content|>Attention: ... Daniel Ob\n<|id|>88<|page|>9<|box|>90 140 145 854<|content|>Correspondence may also be sent by email to the at...— Attorney-Client Communication\" where appropriate\n<|id|>110<|page|>11<|box|>159 140 191 852<|content|>Ian Blackwood Partner, Banking & Finance Calderwoo...r New York, NY 10006 Telephone: ... (212) 554-7112\n<|id|>111<|page|>11<|box|>193 140 209 485<|content|>Email: ... com\n<|id|>116<|page|>11<|box|>359 142 376 321<|content|>Name: ... Jerome Hartwell\n<|id|>117<|page|>11<|box|>377 142 393 313<|content|>Title: ... General Counsel\n<|id|>118<|page|>11<|box|>393 140 411 766<|content|>Brightfield Cloud Services Inc. ... 4200 Lone Star Parkway, Suite 800 Austin, TX 78731\n<|id|>119<|page|>11<|box|>412 143 428 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>42<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ]
+}

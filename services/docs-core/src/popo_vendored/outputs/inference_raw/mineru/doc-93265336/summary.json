@@ -1,0 +1,171 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4rqlpgxp\\input\\pdfs\\doc-93265336.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4rqlpgxp\\enriched\\doc-93265336.json",
+    "contd_output": "<|src_id|>23<|tgt_id|>24",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>2\n<|id|>6<|level|>3\n<|id|>11<|level|>2\n<|id|>13<|level|>3\n<|id|>17<|level|>3\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>22<|level|>3\n<|id|>25<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>1\n<|id|>42<|level|>2\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>58<|level|>3\n<|id|>66<|level|>1\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>70<|level|>3",
+    "image_output": "<|src_id|>63<|tgt_id|>56\n<|src_id|>65<|tgt_id|>56\n<|src_id|>75<|tgt_id|>68\n<|src_id|>78<|tgt_id|>68\n<|src_id|>79<|tgt_id|>68",
+    "contd_label": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 63,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 68
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 78,
+            "table2_idx": 79,
+            "upper_row_ss": [
+                [
+                    "TOTAL — Aggregate Allocated Value of",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "$4,600,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Equipment and Tangible Personal Property",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

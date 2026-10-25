@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>3<|type|>title<|page|>1<|box|>185 140 222 854<|content|>VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED AND V\n<|id|>10<|type|>title<|page|>1<|box|>611 140 628 580<|content|>I. THE INSURED AND THE INSURED PROPERTIES\n<|id|>18<|type|>title<|page|>2<|box|>518 140 536 653<|content|>II. THE INSURANCE PROGRAM AND MONTCLAIR'S ROLE\n<|id|>20<|type|>table<|page|>2<|box|>660 143 816 852<|content|>None\n<|id|>25<|type|>title<|page|>3<|box|>383 140 401 617<|content|>III. HURRICANE CALLISTA AND THE COVERED LOSS\n<|id|>34<|type|>title<|page|>4<|box|>720 140 737 439<|content|>IV. NOTICE AND PROOF OF LOSS\n<|id|>41<|type|>title<|page|>5<|box|>500 140 518 710<|content|>V. VHG'S LOSSES EXCEED MONTCLAIR'S ATTACHMENT POIN\n<|id|>46<|type|>title<|page|>6<|box|>321 140 338 547<|content|>VI. MONTCLAIR'S COVERAGE OBLIGATIONS\n<|id|>53<|type|>title<|page|>7<|box|>659 140 675 405<|content|>VII. DEMAND FOR PAYMENT\n<|id|>59<|type|>title<|page|>8<|box|>329 140 345 503<|content|>VIII. RESERVATION OF RIGHTS BY VHG\n<|id|>67<|type|>title<|page|>8<|box|>666 140 683 681<|content|>IX. REQUEST FOR RESPONSE AND CONTACT INFORMATION\n<|id|>76<|type|>title<|page|>9<|box|>212 212 228 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>80<|type|>title<|page|>9<|box|>351 142 367 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>20<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        }
+    ]
+}

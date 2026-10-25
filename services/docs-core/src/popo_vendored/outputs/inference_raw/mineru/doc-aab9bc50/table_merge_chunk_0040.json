@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 40,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['斜面升船机', 'rowspan=2, A)升船机的几何类型为点、线、面', 'rowspan=2, EXCNST(通航建筑物)(M)CATEXS(通航建筑物类)=[1(升船机)](O)OBJNAM(英文名称)=[升船机英文名称](O)NOBJNM(中文名称)=[升船机中文名称](O)INFORM(英文信息)=[升船机英文信息](O)NINFOM(中文信息)=[升船机中文信息](M)DRVAL1(深度范围值1)=[(xx.x)单位:m](O)HUNITS(高度/长度单位)=[1(m)]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=3, 水坝'], ['图像', '编码说明', '对应物标属性编码']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 2930,
+    "table2_idx": 2931
+}

@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>127 140 143 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>470 142 488 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>18<|page|>2<|box|>554 140 570 339<|content|>2. Responsible Attorneys\n<|id|>25<|page|>3<|box|>167 140 185 334<|content|>3. Scope of Engagement\n<|id|>27<|page|>3<|box|>261 140 279 500<|content|>3.1 Content Fingerprinting and Identification\n<|id|>33<|page|>3<|box|>675 140 693 439<|content|>3.2 Metadata Extraction and Analysis\n<|id|>38<|page|>4<|box|>275 140 292 424<|content|>3.3 Viewership and Traffic Analysis\n<|id|>49<|page|>5<|box|>157 140 175 413<|content|>3.4 Revenue Attribution Modeling\n<|id|>56<|page|>5<|box|>816 140 834 547<|content|>3.5 Platform Architecture and Operational Analysis\n<|id|>63<|page|>6<|box|>525 140 542 398<|content|>3.6 Forensic Report Preparation\n<|id|>69<|page|>7<|box|>148 142 167 369<|content|>4. Deliverables and Timeline\n<|id|>72<|page|>7<|box|>776 140 792 416<|content|>5. Compensation and Fee Estimate\n<|id|>77<|page|>8<|box|>421 140 439 377<|content|>6. Confidentiality Obligations\n<|id|>83<|page|>9<|box|>314 140 332 470<|content|>7. Privilege and Work Product Protection\n<|id|>87<|page|>9<|box|>655 174 709 854<|content|>\"PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODU\n<|id|>90<|page|>10<|box|>90 140 107 380<|content|>8. Independence and Conflicts\n<|id|>94<|page|>10<|box|>484 140 501 383<|content|>9. Data Security and Handling\n<|id|>98<|page|>11<|box|>90 142 107 354<|content|>10. Term and Termination\n<|id|>102<|page|>11<|box|>411 142 426 380<|content|>11. No Guarantee of Outcome\n<|id|>104<|page|>11<|box|>551 142 566 297<|content|>12. Governing Law\n<|id|>106<|page|>11<|box|>691 142 707 264<|content|>13. Acceptance\n<|id|>116<|page|>12<|box|>191 383 209 614<|content|>ACCEPTED AND AGREED",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>18<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>3\n<|id|>33<|level|>3\n<|id|>38<|level|>3\n<|id|>49<|level|>3\n<|id|>56<|level|>3\n<|id|>63<|level|>3\n<|id|>69<|level|>2\n<|id|>72<|level|>2\n<|id|>77<|level|>2\n<|id|>83<|level|>2\n<|id|>87<|level|>-1\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>98<|level|>2\n<|id|>102<|level|>2\n<|id|>104<|level|>2\n<|id|>106<|level|>2\n<|id|>116<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        }
+    ]
+}

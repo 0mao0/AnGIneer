@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        8,
+        9,
+        10,
+        12,
+        13,
+        30,
+        31,
+        32
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>154 704 171 854<|content|>September 15, 2025\n<|id|>2<|page|>1<|box|>180 140 196 411<|content|>TO: ... 1036-00006\n<|id|>3<|page|>1<|box|>205 140 242 854<|content|>FROM: ... Garrett Simmons, Lead Associate, Tax Pra... Group Leila Nazari, Associate, Tax Practice Group\n<|id|>4<|page|>1<|box|>250 140 268 614<|content|>REVIEWED BY: ... Sylvia Hartwell, Partner, Tax Practice Group\n<|id|>5<|page|>1<|box|>276 140 294 354<|content|>DATE: ... September 15, 2025\n<|id|>6<|page|>1<|box|>301 140 357 854<|content|>RE: ... 52-4718263) — Analysis of REIT- Qualificat...olio and Formation of Fairwater Southgate TRS, Inc\n<|id|>7<|page|>1<|box|>364 140 382 511<|content|>CLIENT: ... Fairwater Real Estate Investment Trust\n<|id|>8<|page|>1<|box|>390 140 407 362<|content|>MATTER NO. ... 1036-00006\n<|id|>29<|page|>3<|box|>799 181 815 560<|content|>• Chief Executive Officer: ... Margaret Eloise Kwan\n<|id|>30<|page|>3<|box|>818 183 835 552<|content|>• Chief Financial Officer: ... Pellegrini\n<|id|>31<|page|>3<|box|>838 183 854 723<|content|>• Executive Vice President and General Counsel: ... Anita Bashar Reeves\n<|id|>32<|page|>3<|box|>858 183 875 508<|content|>• Vice President, Tax: ... Hirota\n<|id|>33<|page|>4<|box|>90 140 181 856<|content|>Fairwater's independent auditor and tax compliance...ance calculations for each year during that period\n<|id|>77<|page|>8<|box|>852 140 907 854<|content|>This issue is of central importance to the propose...2)(B), rents received from a person related to the\n<|id|>78<|page|>9<|box|>89 138 237 857<|content|>REIT (within the meaning of IRC § 267(b) or § 707(...nsistent with normal business practice in the area\n<|id|>88<|page|>10<|box|>343 174 380 854<|content|>(i) substantially comparable amounts are charged b...s of the REIT's property for comparable space, and\n<|id|>90<|page|>10<|box|>450 140 560 856<|content|>This two-pronged test establishes a factual standa...h pricing principles under Section 482 of the Code\n<|id|>108<|page|>12<|box|>851 140 888 856<|content|>Applying the statutory framework, regulations, IRS...de that the rents to be received by Fairwater from\n<|id|>109<|page|>13<|box|>90 140 127 854<|content|>Southgate TRS under the Intercompany Leases should... analysis supporting this conclusion is as follows\n<|id|>282<|page|>30<|box|>792 174 902 857<|content|>6. ... Upon formation of Southgate TRS, Fairwater ...upport services provided by Fairwater to Southgate\n<|id|>283<|page|>31<|box|>89 210 145 854<|content|>TRS (which should be on arm's-length terms), and (... IRC § 482 and the Treasury Regulations thereunder\n<|id|>294<|page|>32<|box|>109 140 127 754<|content|>Garrett Simmons Lead Associate, Tax Practice Group Calderwood & Harkness LLP\n<|id|>295<|page|>32<|box|>160 140 194 681<|content|>Leila Nazari Associate, Tax Practice Group Calderw...Calderwood & Harkness LLP REVIEWED AND APPROVED BY",
+    "raw_response": "<|src_id|>77<|tgt_id|>78\n<|src_id|>108<|tgt_id|>109\n<|src_id|>282<|tgt_id|>283",
+    "parsed": [
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 282,
+            "tgt_id": 283
+        }
+    ]
+}

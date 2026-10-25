@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 187 141 808<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>3<|page|>1<|box|>200 156 237 841<|content|>THALASSA SHIPPING & LOGISTICS SA and AEGEAN FORTUN\n<|id|>6<|page|>1<|box|>297 153 352 844<|content|>DEFENDANTS THALASSA SHIPPING & LOGISTICS SA AND AE\n<|id|>8<|page|>1<|box|>401 143 417 397<|content|>PRELIMINARY STATEMENT\n<|id|>14<|page|>2<|box|>248 140 265 359<|content|>GENERAL OBJECTIONS\n<|id|>27<|page|>4<|box|>285 142 301 421<|content|>INTERROGATORY RESPONSES\n<|id|>28<|page|>4<|box|>316 140 332 361<|content|>INTERROGATORY NO. 1\n<|id|>41<|page|>6<|box|>273 140 291 362<|content|>INTERROGATORY NO. 2\n<|id|>51<|page|>7<|box|>583 140 599 362<|content|>INTERROGATORY NO. 3\n<|id|>61<|page|>9<|box|>220 142 236 362<|content|>INTERROGATORY NO. 4\n<|id|>72<|page|>10<|box|>421 140 438 362<|content|>INTERROGATORY NO. 5\n<|id|>84<|page|>11<|box|>818 140 834 362<|content|>INTERROGATORY NO. 6\n<|id|>95<|page|>13<|box|>311 140 328 362<|content|>INTERROGATORY NO. 7\n<|id|>105<|page|>14<|box|>564 140 580 362<|content|>INTERROGATORY NO. 8\n<|id|>115<|page|>15<|box|>652 140 669 362<|content|>INTERROGATORY NO. 9\n<|id|>127<|page|>16<|box|>796 142 813 372<|content|>INTERROGATORY NO. 10\n<|id|>133<|page|>17<|box|>527 140 544 370<|content|>INTERROGATORY NO. 11\n<|id|>138<|page|>18<|box|>348 140 364 372<|content|>INTERROGATORY NO. 12\n<|id|>148<|page|>19<|box|>739 140 756 285<|content|>VERIFICATION\n<|id|>152<|page|>21<|box|>89 140 106 377<|content|>SIGNATURE OF COUNSEL\n<|id|>153<|page|>21<|box|>114 140 132 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>161<|page|>21<|box|>306 140 324 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>41<|level|>3\n<|id|>51<|level|>3\n<|id|>61<|level|>3\n<|id|>72<|level|>3\n<|id|>84<|level|>3\n<|id|>95<|level|>3\n<|id|>105<|level|>3\n<|id|>115<|level|>3\n<|id|>127<|level|>3\n<|id|>133<|level|>3\n<|id|>138<|level|>3\n<|id|>148<|level|>2\n<|id|>152<|level|>2\n<|id|>153<|level|>3\n<|id|>161<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 2
+        }
+    ]
+}

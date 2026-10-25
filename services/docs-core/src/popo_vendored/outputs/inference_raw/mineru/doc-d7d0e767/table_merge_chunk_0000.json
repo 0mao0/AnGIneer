@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 黄', '绿', 'y=1.35x-0.093', \"2'~3'\", '(0.465,0.534),(0.427,0.483)', 'rowspan=3, ≥0.80']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 红', '白', 'y=0.910-x', '3\"~4\"', '(0.569,0.341),(0.595,0.315)', 'rowspan=3, ≥0.05']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 45,
+    "table2_idx": 46
+}

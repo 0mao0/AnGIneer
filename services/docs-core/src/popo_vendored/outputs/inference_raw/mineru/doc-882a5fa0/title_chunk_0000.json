@@ -1,0 +1,43 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>529 140 546 645<|content|>I. Lumos's Prompt and Comprehensive Response to th\n<|id|>20<|page|>2<|box|>609 140 626 700<|content|>II. Full Compliance with All Applicable Breach Not\n<|id|>26<|page|>3<|box|>421 140 438 535<|content|>III. Remediation Measures and Credit Monitoring\n<|id|>35<|page|>4<|box|>398 140 414 532<|content|>IV. Declination of Pre-Suit Settlement Discussions\n<|id|>38<|page|>4<|box|>691 140 709 338<|content|>V. Reservation of Rights\n<|id|>45<|page|>5<|box|>356 142 372 367<|content|>VI. Future Communications\n<|id|>50<|page|>5<|box|>593 140 609 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>20<|level|>1\n<|id|>26<|level|>1\n<|id|>35<|level|>1\n<|id|>38<|level|>1\n<|id|>45<|level|>1\n<|id|>50<|level|>-1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        }
+    ]
+}

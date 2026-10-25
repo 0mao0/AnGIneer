@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 205 107 790<|content|>FIRST AMENDMENT TO SETTLEMENT STANDSTILL AGREEMENT\n<|id|>11<|page|>1<|box|>535 140 553 243<|content|>RECITALS\n<|id|>19<|page|>3<|box|>90 142 107 267<|content|>AGREEMENT\n<|id|>20<|page|>3<|box|>121 140 138 346<|content|>Section 1. Defined Terms.\n<|id|>27<|page|>3<|box|>433 140 450 480<|content|>Section 2. Amendment of Term; Extension.\n<|id|>31<|page|>3<|box|>832 140 849 485<|content|>Section 3. Continuation of All Other Terms.\n<|id|>42<|page|>4<|box|>859 140 876 504<|content|>Section 4. Representations and Confirmations.\n<|id|>48<|page|>5<|box|>419 140 436 352<|content|>Section 5. Governing Law.\n<|id|>50<|page|>5<|box|>601 140 618 334<|content|>Section 6. Counterparts.\n<|id|>52<|page|>5<|box|>782 140 801 370<|content|>Section 7. Entire Agreement.\n<|id|>54<|page|>6<|box|>157 140 174 287<|content|>Section 8. Notices.\n<|id|>56<|page|>6<|box|>281 176 297 303<|content|>If to Petitioner:\n<|id|>64<|page|>6<|box|>542 143 559 267<|content|>PETITIONER:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>27<|level|>3\n<|id|>31<|level|>3\n<|id|>42<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>3\n<|id|>54<|level|>3\n<|id|>56<|level|>4\n<|id|>64<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 4
+        }
+    ]
+}

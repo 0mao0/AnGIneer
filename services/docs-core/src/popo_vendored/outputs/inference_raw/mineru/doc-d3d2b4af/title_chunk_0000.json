@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 285 142 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA FOR THE\n<|id|>3<|page|>1<|box|>487 142 503 593<|content|>I. INTRODUCTION AND IDENTITY OF DECLARANT\n<|id|>8<|page|>1<|box|>795 142 813 629<|content|>II. EMPLOYMENT AND PROFESSIONAL BACKGROUND\n<|id|>17<|page|>2<|box|>579 140 597 619<|content|>III. DOMESTIC PARTNERSHIP AND FAMILY HISTORY\n<|id|>25<|page|>3<|box|>167 142 184 568<|content|>IV. DISSOLUTION OF DOMESTIC PARTNERSHIP\n<|id|>30<|page|>3<|box|>549 140 566 625<|content|>V. RESPONDENT'S BACKGROUND AND EMPLOYMENT\n<|id|>36<|page|>4<|box|>224 140 239 787<|content|>VI. THE CHILDREN'S CURRENT LIVING SITUATION AND ED\n<|id|>37<|page|>4<|box|>242 142 258 279<|content|>ENROLLMENT\n<|id|>44<|page|>4<|box|>753 140 772 818<|content|>VII. THE INFORMAL CUSTODY ARRANGEMENT FOLLOWING DI\n<|id|>57<|page|>5<|box|>791 140 828 818<|content|>VIII. BREAKDOWN OF THE INFORMAL ARRANGEMENT — MR.\n<|id|>67<|page|>7<|box|>148 142 166 723<|content|>IX. CONTINUED INSTABILITY AND NEED FOR A FORMAL OR\n<|id|>74<|page|>8<|box|>89 140 106 802<|content|>X. DECLARANT'S PROPOSED CUSTODY AND TIMESHARE ARRA\n<|id|>91<|page|>10<|box|>89 142 106 326<|content|>XI. CHILD SUPPORT\n<|id|>102<|page|>11<|box|>89 142 106 509<|content|>XII. BEST INTERESTS OF THE CHILDREN\n<|id|>109<|page|>12<|box|>148 140 166 733<|content|>XIII. REQUEST FOR TEMPORARY ORDERS PENDING RESOLUT\n<|id|>115<|page|>13<|box|>89 142 106 436<|content|>XIV. CONCLUSION AND PRAYER\n<|id|>123<|page|>13<|box|>439 142 455 318<|content|>XV. VERIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>8<|level|>2\n<|id|>17<|level|>2\n<|id|>25<|level|>2\n<|id|>30<|level|>2\n<|id|>36<|level|>2\n<|id|>37<|level|>2\n<|id|>44<|level|>2\n<|id|>57<|level|>2\n<|id|>67<|level|>2\n<|id|>74<|level|>2\n<|id|>91<|level|>2\n<|id|>102<|level|>2\n<|id|>109<|level|>2\n<|id|>115<|level|>2\n<|id|>123<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        }
+    ]
+}

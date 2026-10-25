@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 166 143 831<|content|>OFFICER'S CERTIFICATE OF GENOME DX THERAPEUTICS IN\n<|id|>4<|type|>title<|page|>1<|box|>328 140 345 243<|content|>RECITALS\n<|id|>10<|type|>title<|page|>2<|box|>90 140 107 702<|content|>Section 1. Representations and Warranties — Bring-\n<|id|>14<|type|>title<|page|>2<|box|>630 140 647 529<|content|>Section 2. Covenants — Compliance Certification\n<|id|>26<|type|>title<|page|>4<|box|>513 140 530 594<|content|>Section 3. Closing Conditions — Satisfaction Certi\n<|id|>55<|type|>title<|page|>7<|box|>625 140 641 485<|content|>Section 4. Employee Transfer Confirmation\n<|id|>63<|type|>title<|page|>8<|box|>319 140 335 468<|content|>Section 5. Working Capital Confirmation\n<|id|>67<|type|>title<|page|>8<|box|>694 140 710 428<|content|>Section 6. Funds Flow Confirmation\n<|id|>70<|type|>table<|page|>8<|box|>861 143 898 852<|content|>None\n<|id|>71<|type|>table<|page|>9<|box|>89 143 142 852<|content|>None\n<|id|>73<|type|>title<|page|>9<|box|>327 140 344 545<|content|>Section 7. No Other Agreements or Understandings\n<|id|>75<|type|>title<|page|>9<|box|>577 140 594 349<|content|>Section 8. Governing Law\n<|id|>78<|type|>title<|page|>9<|box|>801 400 819 596<|content|>[Signature Page Follows]\n<|id|>80<|type|>title<|page|>9<|box|>888 140 906 449<|content|>GENOME DX THERAPEUTICS INC.\n<|id|>84<|type|>title<|page|>10<|box|>244 143 263 202<|content|>Buyer:\n<|id|>87<|type|>title<|page|>10<|box|>340 142 358 393<|content|>With a copy to Buyer's counsel:\n<|id|>90<|type|>title<|page|>10<|box|>435 142 453 251<|content|>Prepared by:",
+    "raw_response": "<|src_id|>70<|tgt_id|>67\n<|src_id|>71<|tgt_id|>67",
+    "parsed": [
+        {
+            "src_id": 70,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 67
+        }
+    ]
+}

@@ -1,0 +1,178 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0vxb9ku8\\input\\pdfs\\doc-fb773d55.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0vxb9ku8\\enriched\\doc-fb773d55.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>6<|level|>3\n<|id|>15<|level|>3\n<|id|>17<|level|>3\n<|id|>19<|level|>3\n<|id|>23<|level|>3\n<|id|>26<|level|>3\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>32<|level|>3\n<|id|>38<|level|>3\n<|id|>40<|level|>3\n<|id|>42<|level|>3\n<|id|>47<|level|>3\n<|id|>53<|level|>2\n<|id|>61<|level|>3\n<|id|>72<|level|>2\n<|id|>74<|level|>3\n<|id|>76<|level|>3\n<|id|>78<|level|>3\n<|id|>84<|level|>3\n<|id|>86<|level|>3\n<|id|>88<|level|>3\n<|id|>94<|level|>3\n<|id|>106<|level|>2\n<|id|>107<|level|>3\n<|id|>109<|level|>3\n<|id|>111<|level|>3\n<|id|>114<|level|>3\n<|id|>119<|level|>2\n<|id|>128<|level|>1\n<|id|>130<|level|>2\n<|id|>143<|level|>2",
+    "image_output": "<|src_id|>11<|tgt_id|>6\n<|src_id|>56<|tgt_id|>53\n<|src_id|>57<|tgt_id|>53",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 11,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 53
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 56,
+            "table2_idx": 57,
+            "upper_row_ss": [
+                [
+                    "Subtotal — Initial Closing",
+                    "$45,000,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Purchaser",
+                    "Subsequent Closing Funding"
+                ]
+            ]
+        }
+    ]
+}

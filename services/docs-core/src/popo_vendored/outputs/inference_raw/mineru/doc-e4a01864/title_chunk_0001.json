@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        47,
+        50
+    ],
+    "pages": [
+        48,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>484<|page|>48<|box|>90 147 135 848<|content|>Appendix D — Summary of ICO Enforcement Notice (EN\n<|id|>485<|page|>48<|box|>159 140 176 462<|content|>D.1 Summary of the Enforcement Notice\n<|id|>494<|page|>48<|box|>755 142 772 364<|content|>D.2 Relevance to This DPIA\n<|id|>500<|page|>50<|box|>90 228 111 767<|content|>Appendix E — Cross-Reference to Related Documents",
+    "raw_response": "<|id|>484<|level|>1\n<|id|>485<|level|>2\n<|id|>494<|level|>2\n<|id|>500<|level|>1",
+    "parsed": [
+        {
+            "id": 484,
+            "level": 1
+        },
+        {
+            "id": 485,
+            "level": 2
+        },
+        {
+            "id": 494,
+            "level": 2
+        },
+        {
+            "id": 500,
+            "level": 1
+        }
+    ]
+}

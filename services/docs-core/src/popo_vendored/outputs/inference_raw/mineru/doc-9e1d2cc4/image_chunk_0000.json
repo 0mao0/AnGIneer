@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        13
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>1<|type|>title<|page|>2<|box|>136 331 179 665<|content|>FORM OF GLOBAL NOTE OPTIWAVE SEMICONDUCTOR CORP.\n<|id|>2<|type|>title<|page|>2<|box|>188 338 204 660<|content|>2.75% Convertible Senior Note due 2028\n<|id|>5<|type|>table<|page|>2<|box|>795 143 871 852<|content|>None\n<|id|>6<|type|>title<|page|>3<|box|>90 140 107 348<|content|>Section 1. Promise to Pay.\n<|id|>11<|type|>title<|page|>3<|box|>698 140 715 576<|content|>Section 2. Reference to Indenture; Terms Incorpora\n<|id|>15<|type|>title<|page|>4<|box|>319 140 337 462<|content|>Section 3. Senior Unsecured Obligations.\n<|id|>19<|type|>title<|page|>4<|box|>810 140 827 321<|content|>Section 4. Conversion.\n<|id|>26<|type|>title<|page|>6<|box|>311 140 329 529<|content|>Section 5. Optional Redemption by the Company.\n<|id|>32<|type|>title<|page|>7<|box|>90 140 108 398<|content|>Section 6. Fundamental Change.\n<|id|>36<|type|>title<|page|>7<|box|>599 140 616 480<|content|>Section 7. Denominations; Form; Transfer.\n<|id|>40<|type|>title<|page|>8<|box|>194 140 212 477<|content|>Section 8. Events of Default and Remedies.\n<|id|>43<|type|>title<|page|>8<|box|>513 140 530 527<|content|>Section 9. Amendment, Supplement, and Waiver.\n<|id|>48<|type|>title<|page|>9<|box|>194 140 210 661<|content|>Section 10. Defaults and Remedies — No Recourse Ag\n<|id|>50<|type|>title<|page|>9<|box|>359 140 375 354<|content|>Section 11. Authentication.\n<|id|>52<|type|>title<|page|>9<|box|>444 279 460 717<|content|>TRUSTEE'S CERTIFICATE OF AUTHENTICATION\n<|id|>54<|type|>title<|page|>9<|box|>496 140 513 725<|content|>BROADMERE TRUST COMPANY, NATIONAL ASSOCIATION, as\n<|id|>58<|type|>title<|page|>9<|box|>575 140 594 527<|content|>Section 12. Trustee's Dealings with the Company.\n<|id|>60<|type|>title<|page|>9<|box|>758 140 776 361<|content|>Section 13. Governing Law.\n<|id|>64<|type|>title<|page|>10<|box|>138 140 157 485<|content|>Section 14. Registered Form; abbreviations.\n<|id|>67<|type|>title<|page|>10<|box|>359 325 378 671<|content|>[SIGNATURE PAGE TO GLOBAL NOTE]\n<|id|>77<|type|>title<|page|>10<|box|>590 318 606 678<|content|>FORM OF ASSIGNMENT AND TRANSFER\n<|id|>78<|type|>title<|page|>10<|box|>616 433 633 563<|content|>(Reverse of Note)\n<|id|>79<|type|>title<|page|>10<|box|>642 405 657 591<|content|>ASSIGNMENT FORM\n<|id|>91<|type|>title<|page|>11<|box|>362 352 378 645<|content|>FORM OF CONVERSION NOTICE\n<|id|>92<|type|>title<|page|>11<|box|>388 433 405 565<|content|>(Reverse of Note)\n<|id|>93<|type|>title<|page|>11<|box|>414 397 430 601<|content|>CONVERSION NOTICE\n<|id|>94<|type|>title<|page|>11<|box|>440 142 457 782<|content|>To: Broadmere Trust Company, National Association,\n<|id|>110<|type|>title<|page|>13<|box|>90 218 106 777<|content|>SCHEDULE OF INCREASES AND DECREASES IN GLOBAL NOTE\n<|id|>112<|type|>table<|page|>13<|box|>159 145 239 851<|content|>None",
+    "raw_response": "<|src_id|>5<|tgt_id|>2\n<|src_id|>112<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 5,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 110
+        }
+    ]
+}

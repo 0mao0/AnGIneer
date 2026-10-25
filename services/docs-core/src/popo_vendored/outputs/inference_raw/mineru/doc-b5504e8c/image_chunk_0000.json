@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 227 118 769<|content|>LITIGATION HOLD ACKNOWLEDGMENT FORM\n<|id|>1<|type|>title<|page|>1<|box|>136 264 152 733<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED\n<|id|>2<|type|>title<|page|>1<|box|>162 300 179 697<|content|>Calderwood & Harkness LLP Matter No. 1025-00005\n<|id|>4<|type|>title<|page|>1<|box|>271 142 287 406<|content|>Section 1: Custodian Information\n<|id|>17<|type|>title<|page|>1<|box|>666 142 683 444<|content|>Section 2: Acknowledgment of Receipt\n<|id|>21<|type|>title<|page|>2<|box|>167 140 184 490<|content|>Section 3: Scope of Preservation Obligations\n<|id|>35<|type|>title<|page|>3<|box|>90 140 107 506<|content|>Section 4: Specific Preservation Commitments\n<|id|>43<|type|>title<|page|>4<|box|>90 142 107 473<|content|>Section 5: Confirmation of Understanding\n<|id|>51<|type|>title<|page|>4<|box|>496 142 513 589<|content|>Section 6: Identification of Potentially Relevant\n<|id|>59<|type|>title<|page|>5<|box|>646 178 662 207<|content|>No\n<|id|>63<|type|>title<|page|>7<|box|>89 142 107 305<|content|>Section 7: Signature\n<|id|>65<|type|>table<|page|>7<|box|>233 140 412 508<|content|>None\n<|id|>66<|type|>title<|page|>7<|box|>433 142 450 383<|content|>Section 8: Return Instructions",
+    "raw_response": "<|src_id|>65<|tgt_id|>63",
+    "parsed": [
+        {
+            "src_id": 65,
+            "tgt_id": 63
+        }
+    ]
+}

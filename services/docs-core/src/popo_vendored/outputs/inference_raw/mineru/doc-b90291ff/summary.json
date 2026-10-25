@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-f9lypo38\\input\\pdfs\\doc-b90291ff.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-f9lypo38\\enriched\\doc-b90291ff.json",
+    "contd_output": "<|src_id|>150<|tgt_id|>151\n<|src_id|>174<|tgt_id|>175",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>28<|level|>3\n<|id|>40<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>53<|level|>3\n<|id|>64<|level|>3\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>75<|level|>3\n<|id|>83<|level|>3\n<|id|>89<|level|>2\n<|id|>91<|level|>3\n<|id|>97<|level|>3\n<|id|>102<|level|>3\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>113<|level|>3\n<|id|>148<|level|>3\n<|id|>152<|level|>2\n<|id|>153<|level|>3\n<|id|>158<|level|>3\n<|id|>161<|level|>3\n<|id|>163<|level|>2\n<|id|>172<|level|>2\n<|id|>184<|level|>2\n<|id|>187<|level|>2",
+    "image_output": "<|src_id|>185<|tgt_id|>184\n<|src_id|>186<|tgt_id|>184\n<|src_id|>188<|tgt_id|>187\n<|src_id|>189<|tgt_id|>187",
+    "contd_label": [
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 175
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 185,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 187
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 187
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 185,
+            "table2_idx": 186,
+            "upper_row_ss": [
+                [
+                    "Accountant Attestation on Servicer Compliance",
+                    "Item 1122 of Reg S-K",
+                    "No",
+                    "Not required as a regulatory matter. QIH may voluntarily include an annual assessment and"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "attestation as a best practice."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 188,
+            "table2_idx": 189,
+            "upper_row_ss": [
+                [
+                    "Brindoval Ratings Inc.",
+                    "Brindoval",
+                    "Rating Agency",
+                    "Andrew Petrosian (Lead Analyst); Engagement No."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "CR-SF-2022-08812"
+                ]
+            ]
+        }
+    ]
+}

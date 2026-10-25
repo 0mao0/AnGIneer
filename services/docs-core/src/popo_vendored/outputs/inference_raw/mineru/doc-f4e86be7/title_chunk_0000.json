@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>13<|page|>1<|box|>648 140 666 421<|content|>BACKGROUND AND RECITALS\n<|id|>20<|page|>2<|box|>428 140 445 439<|content|>SECTION 1: GRANT OF CONSENT\n<|id|>29<|page|>3<|box|>89 140 106 532<|content|>SECTION 2: AUTHORIZED SUB-TERRITORY\n<|id|>33<|page|>3<|box|>518 140 537 581<|content|>SECTION 3: SCOPE OF AUTHORIZED ACTIVITIES\n<|id|>38<|page|>4<|box|>412 140 430 674<|content|>SECTION 4: CONDITIONS AND OBLIGATIONS OF MERIDIAN\n<|id|>53<|page|>6<|box|>535 140 551 426<|content|>SECTION 5: INDEMNIFICATION\n<|id|>58<|page|>7<|box|>303 140 320 604<|content|>SECTION 6: LUMOS'S RIGHT TO REVOKE CONSENT\n<|id|>67<|page|>8<|box|>266 140 282 552<|content|>SECTION 7: NO FURTHER SUB-DISTRIBUTION\n<|id|>69<|page|>8<|box|>462 140 479 665<|content|>SECTION 8: GOVERNING LAW AND DISPUTE RESOLUTION\n<|id|>72<|page|>8<|box|>829 140 845 527<|content|>SECTION 9: MISCELLANEOUS PROVISIONS\n<|id|>80<|page|>9<|box|>583 400 599 596<|content|>[Signature Page Follows]\n<|id|>82<|page|>9<|box|>652 142 667 366<|content|>LUMOS ANALYTICS INC.\n<|id|>90<|page|>9<|box|>799 143 814 465<|content|>MERIDIAN DATA SOLUTIONS GmbH\n<|id|>96<|page|>10<|box|>90 143 107 341<|content|>80802 München, Germany\n<|id|>97<|page|>10<|box|>128 143 145 328<|content|>DISTRIBUTION LIST\n<|id|>99<|page|>10<|box|>181 176 198 348<|content|>Lumos Analytics Inc.\n<|id|>103<|page|>10<|box|>320 176 335 431<|content|>Meridian Data Solutions GmbH\n<|id|>106<|page|>10<|box|>422 178 438 318<|content|>External Counsel",
+    "raw_response": "<|id|>13<|level|>1\n<|id|>20<|level|>1\n<|id|>29<|level|>1\n<|id|>33<|level|>1\n<|id|>38<|level|>1\n<|id|>53<|level|>1\n<|id|>58<|level|>1\n<|id|>67<|level|>1\n<|id|>69<|level|>1\n<|id|>72<|level|>1\n<|id|>80<|level|>-1\n<|id|>82<|level|>-1\n<|id|>90<|level|>-1\n<|id|>96<|level|>-1\n<|id|>97<|level|>1\n<|id|>99<|level|>2\n<|id|>103<|level|>2\n<|id|>106<|level|>2",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        }
+    ]
+}

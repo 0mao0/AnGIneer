@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>8<|type|>title<|page|>1<|box|>679 142 696 334<|content|>1. Scope of Engagement\n<|id|>17<|type|>title<|page|>2<|box|>773 140 790 313<|content|>2. Engagement Team\n<|id|>25<|type|>title<|page|>3<|box|>792 140 809 446<|content|>3. Billing Rates and Fee Arrangements\n<|id|>26<|type|>title<|page|>3<|box|>823 140 839 279<|content|>3.1 Hourly Rates\n<|id|>28<|type|>table<|page|>3<|box|>888 143 906 852<|content|>None\n<|id|>29<|type|>table<|page|>4<|box|>88 143 212 852<|content|>None\n<|id|>32<|type|>title<|page|>4<|box|>449 140 467 349<|content|>3.2 Litigation Budget Cap\n<|id|>42<|type|>title<|page|>5<|box|>393 140 410 300<|content|>3.3 Payment Terms\n<|id|>46<|type|>title<|page|>5<|box|>786 140 803 498<|content|>4. Insurance Coordination — EPLI Coverage\n<|id|>47<|type|>title<|page|>5<|box|>816 140 834 419<|content|>4.1 Carrier and Policy Information\n<|id|>53<|type|>title<|page|>6<|box|>279 140 296 303<|content|>4.2 Coverage Status\n<|id|>56<|type|>title<|page|>6<|box|>505 140 522 354<|content|>4.3 SIR and Fee Allocation\n<|id|>61<|type|>title<|page|>7<|box|>194 140 212 349<|content|>4.4 Reporting Obligations\n<|id|>64<|type|>title<|page|>7<|box|>449 140 467 339<|content|>5. Client Responsibilities\n<|id|>74<|type|>title<|page|>8<|box|>304 140 321 321<|content|>6. Conflicts of Interest\n<|id|>79<|type|>title<|page|>8<|box|>777 140 795 390<|content|>7. Confidentiality and Privilege\n<|id|>83<|type|>title<|page|>9<|box|>439 140 457 390<|content|>8. Reporting to Equity Sponsor\n<|id|>87<|type|>title<|page|>10<|box|>90 140 107 385<|content|>9. Termination of Engagement\n<|id|>92<|type|>title<|page|>10<|box|>491 142 508 297<|content|>10. Governing Law\n<|id|>94<|type|>title<|page|>10<|box|>594 142 612 380<|content|>11. Limitation of Engagement\n<|id|>97<|type|>title<|page|>10<|box|>834 142 851 316<|content|>12. Entire Agreement\n<|id|>106<|type|>title<|page|>11<|box|>435 349 450 647<|content|>ACKNOWLEDGED AND AGREED:",
+    "raw_response": "<|src_id|>28<|tgt_id|>26\n<|src_id|>29<|tgt_id|>26",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 26
+        }
+    ]
+}

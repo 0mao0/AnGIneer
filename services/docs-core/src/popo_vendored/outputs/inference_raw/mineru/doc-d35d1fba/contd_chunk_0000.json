@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 178 174 818<|content|>999 Second Avenue, Suite 4200 Seattle, Washington 98104 Telephone: ... com\n<|id|>3<|page|>1<|box|>181 751 200 854<|content|>April 9, 2025\n<|id|>4<|page|>1<|box|>208 142 224 330<|content|>Via Email and U. ... Mail\n<|id|>5<|page|>1<|box|>234 140 271 854<|content|>Priya Shankar-Wells, Esq. ... General Counsel Casc...0 Jefferson Avenue SE, Suite 400 Olympia, WA 98501\n<|id|>6<|page|>1<|box|>277 174 333 854<|content|>Re: ... CP-2025-NPS-004\n<|id|>7<|page|>1<|box|>340 142 358 333<|content|>Dear Ms. ... Shankar-Wells\n<|id|>65<|page|>7<|box|>862 140 898 854<|content|>Based on the Firm's current understanding of the s...the engagement will be approximately Three Hundred\n<|id|>66<|page|>8<|box|>89 140 127 854<|content|>Eighty-Five Thousand Dollars ($385,000). ... This ...ons regarding the scope and complexity of the work\n<|id|>69<|page|>8<|box|>296 174 333 854<|content|>(c) Resolution of title issues and encumbrances in...roceedings or complex curative litigation; ... and\n<|id|>71<|page|>8<|box|>385 140 477 856<|content|>This estimate is provided for budgeting purposes o...d issues arise during the course of the engagement\n<|id|>113<|page|>12<|box|>253 142 268 352<|content|>Name: ... Priya Shankar-Wells\n<|id|>114<|page|>12<|box|>270 142 286 315<|content|>Title: ... General Counsel\n<|id|>115<|page|>12<|box|>287 140 319 854<|content|>Cascadia State Infrastructure Authority 1100 Jefferson Avenue SE, Suite 400 Olympia, WA 98501\n<|id|>116<|page|>12<|box|>321 142 337 264<|content|>Date: ... Date\n<|id|>117<|page|>12<|box|>338 142 354 254<|content|>cc: ... (via email)\n<|id|>118<|page|>12<|box|>363 174 436 856<|content|>Martin R. ... Calloway, Executive Director, Cascad...rchild, Billing Partner, Calderwood & Harkness LLP\n<|id|>119<|page|>12<|box|>444 140 463 758<|content|>Enclosures: ... CSIA Outside Counsel Guidelines are incorporated by reference",
+    "raw_response": "<|src_id|>65<|tgt_id|>66",
+    "parsed": [
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        }
+    ]
+}

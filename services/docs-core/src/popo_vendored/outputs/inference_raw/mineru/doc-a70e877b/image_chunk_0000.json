@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 140 104 761<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL ATTORN\n<|id|>11<|type|>title<|page|>1<|box|>789 140 806 415<|content|>I. Identification of Pending Claims\n<|id|>13<|type|>title<|page|>2<|box|>90 140 108 547<|content|>A. Higgins v. Nexford Conveyor Systems, LLC et al.\n<|id|>16<|type|>title<|page|>2<|box|>407 140 426 622<|content|>B. Consolidated Builders Supply Co. v. Triton Fast\n<|id|>19<|type|>title<|page|>2<|box|>672 140 689 470<|content|>C. Claims Context and Reserve Summary\n<|id|>28<|type|>title<|page|>3<|box|>226 140 243 521<|content|>II. Product-Liability Insurance Tower Structure\n<|id|>30<|type|>table<|page|>3<|box|>349 143 670 852<|content|>None\n<|id|>33<|type|>title<|page|>4<|box|>90 140 107 699<|content|>III. Obligation to Cooperate with Midland Casualty\n<|id|>34<|type|>title<|page|>4<|box|>121 140 138 315<|content|>A. Duty to Cooperate\n<|id|>41<|type|>title<|page|>5<|box|>90 140 107 455<|content|>B. Voluntary Payments and Admissions\n<|id|>48<|type|>title<|page|>5<|box|>577 140 594 439<|content|>IV. Settlement Consent Requirements\n<|id|>55<|type|>title<|page|>6<|box|>482 140 500 429<|content|>V. Defense Cost Reporting Protocols\n<|id|>56<|type|>title<|page|>6<|box|>513 140 530 498<|content|>A. Reporting Obligation to Midland Casualty\n<|id|>60<|type|>title<|page|>7<|box|>90 140 107 483<|content|>B. Internal Reporting to C&H and Nexford\n<|id|>68<|type|>title<|page|>7<|box|>647 140 665 369<|content|>C. Impact on Tower Erosion\n<|id|>72<|type|>title<|page|>8<|box|>204 140 222 732<|content|>VI. Duty to Notify C&H of Material Developments Af\n<|id|>73<|type|>title<|page|>8<|box|>234 142 253 529<|content|>A. Material Developments Requiring Notification\n<|id|>86<|type|>title<|page|>9<|box|>246 140 263 343<|content|>B. Timing of Notification\n<|id|>89<|type|>title<|page|>9<|box|>464 140 482 503<|content|>VII. Coordination During the Renewal Period\n<|id|>96<|type|>title<|page|>10<|box|>260 140 277 415<|content|>VIII. Confidentiality and Privilege\n<|id|>103<|type|>title<|page|>10<|box|>804 140 821 444<|content|>IX. Contact Information and Logistics\n<|id|>105<|type|>title<|page|>11<|box|>89 140 107 385<|content|>Calderwood & Harkness LLP:\n<|id|>120<|type|>title<|page|>11<|box|>705 140 724 230<|content|>X. Closing",
+    "raw_response": "<|src_id|>30<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 352 118 645<|content|>OFFICER'S CERTIFICATE\n<|id|>4<|type|>title<|page|>1<|box|>233 142 250 248<|content|>Delivered to:\n<|id|>9<|type|>title<|page|>1<|box|>478 140 494 573<|content|>Section 1. Identity and Authority of Certifying Of\n<|id|>17<|type|>title<|page|>2<|box|>279 140 296 478<|content|>Section 2. Representations and Warranties\n<|id|>31<|type|>title<|page|>4<|box|>304 140 320 310<|content|>Section 3. No Default\n<|id|>38<|type|>title<|page|>5<|box|>241 140 258 452<|content|>Section 4. No Material Adverse Change\n<|id|>45<|type|>title<|page|>5<|box|>821 140 839 475<|content|>Section 5. Financial Covenant Compliance\n<|id|>47<|type|>table<|page|>6<|box|>133 143 309 852<|content|>None\n<|id|>58<|type|>title<|page|>7<|box|>267 140 284 349<|content|>Section 6. Use of Proceeds\n<|id|>60<|type|>table<|page|>7<|box|>563 143 784 852<|content|>None\n<|id|>63<|type|>title<|page|>8<|box|>204 140 222 508<|content|>Section 7. Satisfaction of Conditions Precedent\n<|id|>88<|type|>title<|page|>10<|box|>601 140 618 486<|content|>Section 8. Borrowing Request Confirmation\n<|id|>93<|type|>title<|page|>11<|box|>150 142 167 419<|content|>Section 9. Additional Certifications\n<|id|>100<|type|>title<|page|>12<|box|>90 142 107 303<|content|>Section 10. Reliance\n<|id|>105<|type|>title<|page|>12<|box|>494 277 510 718<|content|>[SIGNATURE PAGE TO OFFICER'S CERTIFICATE]\n<|id|>107<|type|>title<|page|>12<|box|>564 140 580 478<|content|>STONEFIELD LOGISTICS GROUP INC.\n<|id|>115<|type|>title<|page|>12<|box|>703 143 718 305<|content|>Address for Notices:",
+    "raw_response": "<|src_id|>47<|tgt_id|>45\n<|src_id|>60<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 58
+        }
+    ]
+}

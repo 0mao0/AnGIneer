@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 323 159 673<|content|>INCUMBENCY CERTIFICATE OF VERIMARK HOSPITALITY GRO\n<|id|>7<|type|>title<|page|>2<|box|>90 140 107 504<|content|>Section 1: Certification of Authorized Officers\n<|id|>11<|type|>title<|page|>2<|box|>539 140 556 581<|content|>Section 2: Authorized Officers and Specimen Signat\n<|id|>12<|type|>table<|page|>2<|box|>606 143 715 852<|content|>None\n<|id|>14<|type|>title<|page|>2<|box|>809 140 827 421<|content|>Section 3: Additional Certifications\n<|id|>21<|type|>title<|page|>3<|box|>729 140 746 295<|content|>Section 4: Reliance\n<|id|>30<|type|>title<|page|>4<|box|>441 140 457 316<|content|>Counter-Certification",
+    "raw_response": "<|src_id|>12<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 11
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        31
+    ],
+    "pages": [
+        1,
+        2,
+        31
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>306 140 324 697<|content|>TO: ... Steven Hollander, Lead Associate\n<|id|>4<|page|>1<|box|>333 140 349 491<|content|>FROM: ... Jasmine Thornton, Working Associate\n<|id|>5<|page|>1<|box|>359 140 376 316<|content|>DATE: ... April 15, 2025\n<|id|>6<|page|>1<|box|>383 140 402 751<|content|>RE: ... Anti-Corruption Compliance Program\n<|id|>7<|page|>1<|box|>410 140 428 362<|content|>MATTER NO. ... 1039-00005\n<|id|>8<|page|>1<|box|>436 140 564 854<|content|>PRIVILEGE DESIGNATION: ... Do not distribute, copy...e express authorization of the Responsible Partner\n<|id|>12<|page|>1<|box|>808 140 900 856<|content|>The scope of this assessment encompasses a review ...H\"), a British Virgin Islands holding company, and\n<|id|>13<|page|>2<|box|>90 140 145 854<|content|>Torchlight Ganara Mining S. ... These entities are...hat is the subject of the government investigation\n<|id|>219<|page|>31<|box|>150 140 167 320<|content|>Respectfully submitted,\n<|id|>220<|page|>31<|box|>167 140 184 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>221<|page|>31<|box|>185 142 202 253<|content|>By: ... By\n<|id|>222<|page|>31<|box|>202 142 219 421<|content|>Jasmine Thornton Working Associate\n<|id|>223<|page|>31<|box|>220 142 236 300<|content|>Date: ... April 15, 2025\n<|id|>225<|page|>31<|box|>306 140 323 486<|content|>Calderwood & Harkness LLP — Matter No. ... 1039-00005\n<|id|>226<|page|>31<|box|>330 140 391 854<|content|>This memorandum constitutes privileged and confide...e express authorization of the Responsible Partner",
+    "raw_response": "<|src_id|>12<|tgt_id|>13",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        }
+    ]
+}

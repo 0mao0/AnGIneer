@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 151 141 844<|content|>ACTION BY WRITTEN CONSENT OF THE STOCKHOLDERS OF N\n<|id|>3<|type|>title<|page|>1<|box|>282 142 299 241<|content|>RECITALS\n<|id|>8<|type|>table<|page|>1<|box|>814 143 905 852<|content|>None\n<|id|>9<|type|>table<|page|>2<|box|>88 143 171 852<|content|>None\n<|id|>25<|type|>title<|page|>4<|box|>89 142 106 279<|content|>RESOLUTIONS\n<|id|>27<|type|>title<|page|>4<|box|>184 140 200 611<|content|>1. Approval and Adoption of the Stock Purchase Agr\n<|id|>39<|type|>title<|page|>5<|box|>220 140 238 553<|content|>2. Approval of the Ancillary Transaction Documents\n<|id|>48<|type|>title<|page|>6<|box|>157 140 175 506<|content|>3. Appointment of Stockholder Representative\n<|id|>56<|type|>title<|page|>6<|box|>806 140 824 514<|content|>4. Authorization of Sale and Transfer of Shares\n<|id|>59<|type|>title<|page|>7<|box|>349 140 366 452<|content|>5. Authorization of Officers and Agents\n<|id|>72<|type|>title<|page|>8<|box|>518 140 535 529<|content|>6. Compliance with Interim Operating Covenants\n<|id|>74<|type|>title<|page|>8<|box|>773 142 791 477<|content|>7. Cooperation with Regulatory Approvals\n<|id|>80<|type|>title<|page|>9<|box|>455 140 472 387<|content|>8. Ratification of Prior Actions\n<|id|>87<|type|>title<|page|>10<|box|>90 140 107 351<|content|>9. Omnibus Authorization\n<|id|>89<|type|>title<|page|>10<|box|>392 140 409 354<|content|>GENERAL PROVISIONS\n<|id|>96<|type|>title<|page|>12<|box|>89 142 106 321<|content|>SIGNATURE PAGES\n<|id|>98<|type|>title<|page|>12<|box|>159 142 176 462<|content|>RIDGELINE EQUITY PARTNERS, LP\n<|id|>136<|type|>title<|page|>14<|box|>89 142 107 245<|content|>EXHIBIT A\n<|id|>137<|type|>title<|page|>14<|box|>114 349 132 647<|content|>STOCK PURCHASE AGREEMENT\n<|id|>142<|type|>title<|page|>15<|box|>89 143 106 243<|content|>EXHIBIT B\n<|id|>143<|type|>title<|page|>15<|box|>114 308 132 689<|content|>SUMMARY OF KEY TRANSACTION TERMS\n<|id|>145<|type|>table<|page|>15<|box|>203 143 840 852<|content|>None\n<|id|>146<|type|>title<|page|>16<|box|>89 142 106 243<|content|>EXHIBIT C\n<|id|>147<|type|>title<|page|>16<|box|>114 233 132 763<|content|>FORM OF STOCKHOLDER REPRESENTATIVE AGREEMENT",
+    "raw_response": "<|src_id|>8<|tgt_id|>3\n<|src_id|>9<|tgt_id|>3\n<|src_id|>145<|tgt_id|>143",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 143
+        }
+    ]
+}

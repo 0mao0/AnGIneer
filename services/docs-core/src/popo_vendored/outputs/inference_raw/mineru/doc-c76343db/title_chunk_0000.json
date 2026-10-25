@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 334 118 663<|content|>COMPLIANCE CERTIFICATE\n<|id|>1<|page|>1<|box|>136 212 154 785<|content|>Delivered Pursuant to Section 7.02(a) of the Mezza\n<|id|>7<|page|>1<|box|>398 140 415 475<|content|>Section 1: Certifying Officer Identification\n<|id|>12<|page|>1<|box|>854 142 871 362<|content|>Section 2: Reporting Period\n<|id|>14<|page|>2<|box|>90 142 107 405<|content|>Closing Date: September 29, 2023.\n<|id|>23<|page|>2<|box|>686 140 704 480<|content|>Section 3: Financial Covenant Calculations\n<|id|>24<|page|>2<|box|>717 140 734 423<|content|>3.1 Maximum Total Leverage Ratio\n<|id|>26<|page|>2<|box|>785 143 801 243<|content|>Calculation:\n<|id|>40<|page|>3<|box|>714 140 732 486<|content|>3.2 Minimum Fixed Charge Coverage Ratio\n<|id|>53<|page|>4<|box|>825 142 844 330<|content|>3.3 Minimum Liquidity\n<|id|>55<|page|>5<|box|>90 143 106 243<|content|>Calculation:\n<|id|>61<|page|>5<|box|>845 178 862 331<|content|>(c) Total Liquidity:\n<|id|>66<|page|>6<|box|>209 140 227 424<|content|>3.4 Maximum Capital Expenditures\n<|id|>81<|page|>7<|box|>301 142 316 486<|content|>Section 4: Adjusted EBITDA Reconciliation\n<|id|>92<|page|>9<|box|>150 140 167 496<|content|>Section 6: Representations and Certifications\n<|id|>99<|page|>11<|box|>90 140 107 406<|content|>Section 7: Schedule of Definitions\n<|id|>109<|page|>12<|box|>366 140 383 521<|content|>Section 8: Supporting Documentation Reference\n<|id|>116<|page|>14<|box|>90 142 107 225<|content|>Signature\n<|id|>128<|page|>14<|box|>398 143 415 313<|content|>Delivery Information\n<|id|>130<|page|>14<|box|>450 142 467 297<|content|>Mezzanine Lender:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>3\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>26<|level|>4\n<|id|>40<|level|>3\n<|id|>53<|level|>3\n<|id|>55<|level|>4\n<|id|>61<|level|>4\n<|id|>66<|level|>3\n<|id|>81<|level|>2\n<|id|>92<|level|>2\n<|id|>99<|level|>2\n<|id|>109<|level|>2\n<|id|>116<|level|>2\n<|id|>128<|level|>2\n<|id|>130<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 4
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 3
+        }
+    ]
+}

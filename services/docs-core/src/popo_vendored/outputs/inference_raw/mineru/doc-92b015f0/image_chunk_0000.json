@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>10<|type|>title<|page|>1<|box|>580 140 598 480<|content|>Completion of the First Rolling Production\n<|id|>19<|type|>title<|page|>2<|box|>539 140 556 383<|content|>Government Response to Date\n<|id|>23<|type|>title<|page|>3<|box|>204 140 222 431<|content|>Status of Ongoing Document Review\n<|id|>37<|type|>title<|page|>4<|box|>539 140 556 506<|content|>Expected Timeline for Remaining Productions\n<|id|>43<|type|>title<|page|>5<|box|>267 142 284 261<|content|>Billing Update\n<|id|>47<|type|>table<|page|>5<|box|>698 143 816 852<|content|>None\n<|id|>49<|type|>title<|page|>6<|box|>167 140 185 504<|content|>Reminders and Continuing Client Obligations\n<|id|>55<|type|>title<|page|>6<|box|>758 140 777 236<|content|>Conclusion",
+    "raw_response": "<|src_id|>47<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 43
+        }
+    ]
+}

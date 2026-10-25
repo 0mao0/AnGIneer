@@ -1,0 +1,299 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7tuwho8v\\input\\pdfs\\doc-bd750ce4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7tuwho8v\\enriched\\doc-bd750ce4.json",
+    "contd_output": "<|src_id|>22<|tgt_id|>23\n<|src_id|>40<|tgt_id|>41\n<|src_id|>90<|tgt_id|>91",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>26<|level|>3\n<|id|>28<|level|>2\n<|id|>33<|level|>3\n<|id|>52<|level|>2\n<|id|>61<|level|>2\n<|id|>63<|level|>3\n<|id|>69<|level|>3\n<|id|>76<|level|>3\n<|id|>88<|level|>3\n<|id|>94<|level|>3\n<|id|>103<|level|>3\n<|id|>109<|level|>3\n<|id|>117<|level|>2\n<|id|>124<|level|>2\n<|id|>126<|level|>3\n<|id|>130<|level|>3\n<|id|>135<|level|>3\n<|id|>142<|level|>3\n<|id|>148<|level|>3\n<|id|>156<|level|>3\n<|id|>162<|level|>2\n<|id|>167<|level|>2",
+    "image_output": "<|src_id|>30<|tgt_id|>28\n<|src_id|>31<|tgt_id|>28\n<|src_id|>34<|tgt_id|>33\n<|src_id|>35<|tgt_id|>33\n<|src_id|>38<|tgt_id|>33\n<|src_id|>39<|tgt_id|>33\n<|src_id|>44<|tgt_id|>33\n<|src_id|>45<|tgt_id|>33\n<|src_id|>48<|tgt_id|>33\n<|src_id|>49<|tgt_id|>33\n<|src_id|>119<|tgt_id|>117\n<|src_id|>120<|tgt_id|>117\n<|src_id|>163<|tgt_id|>162\n<|src_id|>164<|tgt_id|>162",
+    "contd_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 91
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 162
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 162
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 30,
+            "table2_idx": 31,
+            "upper_row_ss": [
+                [
+                    "Governing Statute",
+                    "Delaware Limited Liability Company Act (6 Del. C. §§"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "18-101 et seq.)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 38,
+            "table2_idx": 39,
+            "upper_row_ss": [
+                [
+                    "Registered Agent (FL)",
+                    "To be confirmed — likely Ashgrove Services Inc., 1200 South Pine Island Road, Plantation, Florida 33324, or a similar corporate service company; may also be an"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "officer of VHG serving as registered agent"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 44,
+            "table2_idx": 45,
+            "upper_row_ss": [
+                [
+                    "Foreign Qualifications",
+                    "As a holding company, VCH may not be qualified to do"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "business in any state other than Delaware; however, this should be confirmed upon review of VCH's activities and any state-level filing requirements"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 48,
+            "table2_idx": 49,
+            "upper_row_ss": [
+                [
+                    "Registered Agent (DE)",
+                    "Crowne Albany Corporation, Cobalt Ridge Technologies, 1209 Orange Street, Wilmington, Delaware 19801"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Principal Office",
+                    "2400 Brickell Bay Drive, Suite 3100, Miami, Florida 33129 (c/o VHG)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 119,
+            "table2_idx": 120,
+            "upper_row_ss": [
+                [
+                    "Guarant",
+                    "Jurisdicti",
+                    "Entity",
+                    "Good",
+                    "Org Docs",
+                    "Resolutio",
+                    "Incumbe",
+                    "UCC",
+                    "Foreign"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "or Entity",
+                    "on",
+                    "Type",
+                    "Standing Ordered?",
+                    "Received?",
+                    "ns Drafted?",
+                    "ncy Confirmed?",
+                    "Search Ordered?",
+                    "Qualifications Confirmed?"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 163,
+            "table2_idx": 164,
+            "upper_row_ss": [
+                [
+                    "Review organizational documents upon receipt and identify guarantee authorization issues, restrictions, or required consents",
+                    "Audrey Zhou / Claire Dempsey",
+                    "May 10, 2024"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Draft board / manager resolutions and member consents for each guarantor",
+                    "Claire Dempsey / Audrey Zhou",
+                    "May 15, 2024"
+                ]
+            ]
+        }
+    ]
+}

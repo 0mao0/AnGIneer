@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        5
+    ],
+    "pages": [
+        2,
+        3,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>11<|page|>2<|box|>657 140 895 857<|content|>4. ... At no point during the negotiation of the\n<|id|>12<|page|>3<|box|>90 174 180 854<|content|>EDA, whether in person, by telephone, or through w...ic scope that both parties understood and intended\n<|id|>33<|page|>5<|box|>750 181 767 748<|content|>• Fiscal Year 2018 (July 1, 2017 — June 30, 2018): ... 2 million (at WAC)\n<|id|>37<|page|>5<|box|>845 140 901 856<|content|>I attest that these purchase figures reflect the t...g on or about September 14, 2020. ... 3 of the EDA\n<|id|>34<|page|>5<|box|>768 183 786 748<|content|>• Fiscal Year 2019 (July 1, 2018 — June 30, 2019): ... 8 million (at WAC)\n<|id|>35<|page|>5<|box|>789 183 805 750<|content|>• Fiscal Year 2020 (July 1, 2019 — June 30, 2020): ... 3 million (at WAC)\n<|id|>36<|page|>5<|box|>809 181 843 854<|content|>• Fiscal Year 2021 (July 1, 2020 — March 31, 2021,...as of the relevant period): ... 1 million (at WAC)",
+    "raw_response": "<|src_id|>11<|tgt_id|>12",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        }
+    ]
+}

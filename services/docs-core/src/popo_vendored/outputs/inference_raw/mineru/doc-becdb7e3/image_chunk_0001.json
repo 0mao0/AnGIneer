@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        48
+    ],
+    "pages": [
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>558<|type|>title<|page|>46<|box|>90 142 107 594<|content|>Appendix G: Complaint Ratio Benchmarking Data (202\n<|id|>559<|type|>table<|page|>46<|box|>140 143 270 852<|content|>None\n<|id|>561<|type|>title<|page|>47<|box|>90 142 107 807<|content|>Appendix H: FL OIR Examination Findings — Complain\n<|id|>562<|type|>table<|page|>47<|box|>176 143 433 852<|content|>None\n<|id|>565<|type|>title<|page|>47<|box|>633 215 650 781<|content|>DRAFT — FOR CLIENT REVIEW ONLY NOT FOR DISTRIBUTIO\n<|id|>581<|type|>title<|page|>48<|box|>106 408 125 588<|content|>CLIENT APPROVAL",
+    "raw_response": "<|src_id|>559<|tgt_id|>558\n<|src_id|>562<|tgt_id|>561",
+    "parsed": [
+        {
+            "src_id": 559,
+            "tgt_id": 558
+        },
+        {
+            "src_id": 562,
+            "tgt_id": 561
+        }
+    ]
+}

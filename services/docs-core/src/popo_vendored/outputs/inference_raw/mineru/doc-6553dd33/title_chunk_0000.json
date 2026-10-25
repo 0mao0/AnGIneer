@@ -1,0 +1,63 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>3<|page|>1<|box|>185 140 222 854<|content|>VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED AND V\n<|id|>10<|page|>1<|box|>611 140 628 580<|content|>I. THE INSURED AND THE INSURED PROPERTIES\n<|id|>18<|page|>2<|box|>518 140 536 653<|content|>II. THE INSURANCE PROGRAM AND MONTCLAIR'S ROLE\n<|id|>25<|page|>3<|box|>383 140 401 617<|content|>III. HURRICANE CALLISTA AND THE COVERED LOSS\n<|id|>34<|page|>4<|box|>720 140 737 439<|content|>IV. NOTICE AND PROOF OF LOSS\n<|id|>41<|page|>5<|box|>500 140 518 710<|content|>V. VHG'S LOSSES EXCEED MONTCLAIR'S ATTACHMENT POIN\n<|id|>46<|page|>6<|box|>321 140 338 547<|content|>VI. MONTCLAIR'S COVERAGE OBLIGATIONS\n<|id|>53<|page|>7<|box|>659 140 675 405<|content|>VII. DEMAND FOR PAYMENT\n<|id|>59<|page|>8<|box|>329 140 345 503<|content|>VIII. RESERVATION OF RIGHTS BY VHG\n<|id|>67<|page|>8<|box|>666 140 683 681<|content|>IX. REQUEST FOR RESPONSE AND CONTACT INFORMATION\n<|id|>76<|page|>9<|box|>212 212 228 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>80<|page|>9<|box|>351 142 367 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>3<|level|>-1\n<|id|>10<|level|>1\n<|id|>18<|level|>1\n<|id|>25<|level|>1\n<|id|>34<|level|>1\n<|id|>41<|level|>1\n<|id|>46<|level|>1\n<|id|>53<|level|>1\n<|id|>59<|level|>1\n<|id|>67<|level|>1\n<|id|>76<|level|>-1\n<|id|>80<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        }
+    ]
+}

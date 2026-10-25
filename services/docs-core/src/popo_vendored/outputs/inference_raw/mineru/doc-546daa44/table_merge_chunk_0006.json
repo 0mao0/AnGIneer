@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Algorithm Change History', 'Yes (Major)', 'Partial', 'Changes from v1.0 to v2.1 of the algorithm have been documented in various engineering records, but not in a standalone, consolidated revision history format suitable for FDA submission. The history is scattered across multiple version control commit logs, engineering change orders, and design review meeting minutes. This needs consolidation into a single, clear revision level history document. This is a minor gap addressed as part of']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'Gap 2.']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 123,
+    "table2_idx": 124
+}

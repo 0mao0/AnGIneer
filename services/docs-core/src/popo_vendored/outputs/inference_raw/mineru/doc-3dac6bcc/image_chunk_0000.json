@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|type|>title<|page|>1<|box|>367 140 383 436<|content|>I. Introduction and Purpose of Letter\n<|id|>14<|type|>title<|page|>2<|box|>148 140 167 344<|content|>II. Transaction Overview\n<|id|>20<|type|>title<|page|>2<|box|>777 140 794 457<|content|>III. Calderwood & Harkness Deal Team\n<|id|>38<|type|>title<|page|>3<|box|>842 140 859 421<|content|>IV. Proposed Transaction Timeline\n<|id|>40<|type|>table<|page|>4<|box|>151 143 694 852<|content|>None\n<|id|>43<|type|>title<|page|>5<|box|>148 140 167 606<|content|>V. Due Diligence Request List — Transmission and P\n<|id|>74<|type|>title<|page|>7<|box|>473 140 489 750<|content|>VI. Proposed Working Protocol for Document Exchang\n<|id|>85<|type|>title<|page|>9<|box|>150 140 167 483<|content|>VII. Key Preliminary Matters for Attention\n<|id|>97<|type|>title<|page|>10<|box|>830 140 848 277<|content|>VIII. Enclosures\n<|id|>102<|type|>title<|page|>11<|box|>262 140 279 383<|content|>IX. Conclusion and Next Steps",
+    "raw_response": "<|src_id|>40<|tgt_id|>38",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        }
+    ]
+}

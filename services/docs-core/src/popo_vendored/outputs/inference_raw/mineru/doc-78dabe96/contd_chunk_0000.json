@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>186 140 203 624<|content|>From: ... Simone Laroche, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>212 140 229 321<|content|>Date: ... October 10, 2022\n<|id|>5<|page|>1<|box|>237 140 292 856<|content|>Re: ... )\n<|id|>13<|page|>1<|box|>844 140 898 854<|content|>On August 12, 2022, Vantor Holdings Corp. ... The Complaint alleges wrongful termination of the\n<|id|>14<|page|>2<|box|>89 140 143 854<|content|>Transportation Services Agreement dated March 15, ...ry of Vantor Holdings Corp. ... SLG-VTS-2019-0315)\n<|id|>21<|page|>2<|box|>619 181 672 854<|content|>• Workforce reduction costs of $2. ... and\n<|id|>23<|page|>2<|box|>713 140 859 856<|content|>Vantor's core theory of liability is that Stonefie...enforceability of the liquidated damages provision\n<|id|>28<|page|>3<|box|>224 181 258 854<|content|>• Insurer: ... Graymark Insurance Company, 100 Constitution Plaza, Hartford, Connecticut 06103\n<|id|>35<|page|>3<|box|>417 140 472 854<|content|>The Policy provides coverage for \"Loss\" arising fr...ed entity. ... The Policy is structured as follows\n<|id|>29<|page|>3<|box|>263 181 279 493<|content|>• Policy Number: ... GLG-DO-1025-00008\n<|id|>30<|page|>3<|box|>282 181 316 854<|content|>• Named Insured: ... and its directors and officers, as defined in the Policy\n<|id|>31<|page|>3<|box|>320 183 338 764<|content|>• Policy Period: ... January 1, 2022 through January 1, 2023 (current policy year)\n<|id|>32<|page|>3<|box|>340 183 357 524<|content|>• Aggregate Limit of Liability: ... $15,000,000\n<|id|>33<|page|>3<|box|>359 183 395 854<|content|>• Self-Insured Retention: ... $500,000 per Claim (applicable to Side B and Side C coverage only)\n<|id|>34<|page|>3<|box|>398 183 414 485<|content|>• Governing Law: ... State of Connecticut\n<|id|>58<|page|>5<|box|>128 174 256 856<|content|>2. ... Graymark further noted that the entity-coverage provision (Side\n<|id|>60<|page|>5<|box|>276 140 349 854<|content|>Graymark expressly reserved all rights and defense...rded to Calderwood & Harkness LLP on the same date\n<|id|>83<|page|>7<|box|>406 183 421 509<|content|>• Marcus Denton, Chief Executive Officer\n<|id|>90<|page|>7<|box|>560 140 671 854<|content|>Directors and officers liability insurance is desi...on for Side A and Side B coverage is not satisfied\n<|id|>84<|page|>7<|box|>425 183 441 550<|content|>• Priya Ramachandran, Chief Financial Officer\n<|id|>85<|page|>7<|box|>445 183 460 540<|content|>• Tobias Wren, General Counsel and Secretary\n<|id|>86<|page|>7<|box|>464 183 500 854<|content|>• Raymond Hess, Senior Vice President, Operations ...the cure notice to Vantor on behalf of Stonefield)\n<|id|>87<|page|>7<|box|>502 183 518 699<|content|>• Alison Trang, Board Member (Ridgeline Capital Partners designee)\n<|id|>88<|page|>7<|box|>521 183 539 743<|content|>• Douglas Whitmore, Board Member (Ridgeline Capital Partners designee)\n<|id|>89<|page|>7<|box|>541 183 556 504<|content|>• Other members of the Board of Directors\n<|id|>101<|page|>8<|box|>810 181 902 857<|content|>Courts consistently decline to recharacterize brea..., or executed by officers. ... National Union Fire\n<|id|>102<|page|>9<|box|>89 210 162 854<|content|>Ins. ... 2005)\n<|id|>150<|page|>13<|box|>849 140 904 857<|content|>The Policy's Contractual Liability Exclusion (Sect...)) squarely applies: ... The \"absent the contract\"\n<|id|>151<|page|>14<|box|>90 140 181 854<|content|>carve-back does not rescue coverage because Stonef...Securities Claims, which the Vantor lawsuit is not\n<|id|>154<|page|>14<|box|>375 142 391 320<|content|>Respectfully submitted,\n<|id|>155<|page|>14<|box|>391 140 407 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>156<|page|>14<|box|>410 143 426 253<|content|>By: ... By\n<|id|>157<|page|>14<|box|>426 140 459 854<|content|>Simone Laroche Associate Calderwood & Harkness LLP Tel: ... com\n<|id|>158<|page|>14<|box|>459 142 476 318<|content|>Date: ... October 10, 2022",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>101<|tgt_id|>102\n<|src_id|>150<|tgt_id|>151",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        }
+    ]
+}

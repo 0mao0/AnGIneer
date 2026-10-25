@@ -1,0 +1,155 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bkavlbtr\\input\\pdfs\\doc-3e761dc4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bkavlbtr\\enriched\\doc-3e761dc4.json",
+    "contd_output": "<|src_id|>119<|tgt_id|>120",
+    "title_output": "<|id|>2<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>20<|level|>3\n<|id|>26<|level|>3\n<|id|>39<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>3\n<|id|>64<|level|>3\n<|id|>80<|level|>3\n<|id|>87<|level|>3\n<|id|>108<|level|>3\n<|id|>118<|level|>3\n<|id|>128<|level|>4\n<|id|>133<|level|>4\n<|id|>141<|level|>3\n<|id|>151<|level|>3\n<|id|>156<|level|>2\n<|id|>161<|level|>2\n<|id|>169<|level|>2",
+    "image_output": "<|src_id|>158<|tgt_id|>156\n<|src_id|>159<|tgt_id|>156\n<|src_id|>162<|tgt_id|>161\n<|src_id|>163<|tgt_id|>161",
+    "contd_label": [
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 4
+        },
+        {
+            "id": 133,
+            "level": 4
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 158,
+            "tgt_id": 156
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 156
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 161
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 158,
+            "table2_idx": 159,
+            "upper_row_ss": [
+                [
+                    "July–August 2023",
+                    "Data mining and affected individual identification; drafting of consumer notification letters; drafting of regulatory notification filings; selection and engagement"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "of notification mailing vendor (Clearfield Notification Services or comparable provider); selection and engagement of call center and credit monitoring provider"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 162,
+            "table2_idx": 163,
+            "upper_row_ss": [
+                [
+                    "Jennifer Liang",
+                    "Chief Privacy Officer",
+                    "Quorum Insurance Holdings Corp.",
+                    "Privacy and notification lead; data inventory and"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "mapping"
+                ]
+            ]
+        }
+    ]
+}

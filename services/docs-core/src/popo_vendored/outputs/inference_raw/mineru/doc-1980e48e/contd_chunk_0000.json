@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        64
+    ],
+    "pages": [
+        1,
+        24,
+        26,
+        30,
+        43,
+        44,
+        63
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>165 429 187 569<|content|>March 1975\n<|id|>3<|page|>1<|box|>857 147 898 612<|content|>DEPARTMENT OF THE TREASURY WASHINGTON, D. ... C\n<|id|>111<|page|>24<|box|>241 82 351 481<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>112<|page|>24<|box|>146 506 208 903<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>117<|page|>26<|box|>531 393 542 596<|content|>(In millions of dollars except ounces)\n<|id|>118<|page|>26<|box|>101 280 133 714<|content|>Table UST-3. ... Treasury\n<|id|>119<|page|>26<|box|>269 347 315 650<|content|>As stated in the November Bulletin, no additional ...sion of the Daily Statement of the U. ... Treasury\n<|id|>129<|page|>30<|box|>121 430 131 561<|content|>(In millions of dollars)\n<|id|>132<|page|>30<|box|>831 80 916 509<|content|>Source: ... and Washington Metropolitan Area Transit Authority\n<|id|>216<|page|>43<|box|>123 420 134 572<|content|>(Dollar amounts in millions)\n<|id|>218<|page|>44<|box|>806 513 815 609<|content|>p Preliminary. ... p Preliminary\n<|id|>346<|page|>63<|box|>98 101 188 491<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>347<|page|>63<|box|>97 516 187 906<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1974",
+    "raw_response": "<|src_id|>111<|tgt_id|>112\n<|src_id|>346<|tgt_id|>347",
+    "parsed": [
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 346,
+            "tgt_id": 347
+        }
+    ]
+}

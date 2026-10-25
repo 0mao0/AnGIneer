@@ -1,0 +1,39 @@
+{
+    "task": "title",
+    "chunk_index": 4,
+    "range": [
+        289,
+        344
+    ],
+    "pages": [
+        290,
+        303,
+        309,
+        328,
+        343
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>924<|page|>290<|box|>169 413 200 561<|content|>4-12 拱 桥\n<|id|>962<|page|>303<|box|>158 416 187 594<|content|>4-13 钢索吊桥\n<|id|>978<|page|>309<|box|>141 374 169 633<|content|>4-14 技术复杂大桥基础工程\n<|id|>1040<|page|>328<|box|>176 356 205 615<|content|>4-15 技术复杂大桥下部构造\n<|id|>1082<|page|>343<|box|>152 374 178 633<|content|>4-16 技术复杂大桥上部构造",
+    "raw_response": "<|id|>924<|level|>1\n<|id|>962<|level|>1\n<|id|>978<|level|>1\n<|id|>1040<|level|>1\n<|id|>1082<|level|>1",
+    "parsed": [
+        {
+            "id": 924,
+            "level": 1
+        },
+        {
+            "id": 962,
+            "level": 1
+        },
+        {
+            "id": 978,
+            "level": 1
+        },
+        {
+            "id": 1040,
+            "level": 1
+        },
+        {
+            "id": 1082,
+            "level": 1
+        }
+    ]
+}

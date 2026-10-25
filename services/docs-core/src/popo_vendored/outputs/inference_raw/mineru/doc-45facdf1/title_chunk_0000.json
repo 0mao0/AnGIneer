@@ -1,0 +1,113 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 281 133 715<|content|>700 Fifth Avenue, 33rd Floor New York, New York 10\n<|id|>4<|page|>1<|box|>194 143 210 413<|content|>Via Email and Sundial Data Systems\n<|id|>6<|page|>1<|box|>263 142 280 271<|content|>Dear Mr. Petrov:\n<|id|>11<|page|>1<|box|>590 142 609 357<|content|>1. Description of the Client\n<|id|>17<|page|>2<|box|>258 140 277 334<|content|>2. Scope of Engagement\n<|id|>18<|page|>2<|box|>290 140 306 348<|content|>2.1 Transaction Overview\n<|id|>23<|page|>2<|box|>789 140 806 647<|content|>2.2 Scope of Legal Services — Phase 1 (Scoping and\n<|id|>32<|page|>4<|box|>90 140 108 635<|content|>2.3 Potential Expansion — Phase 2 (Full Transactio\n<|id|>42<|page|>4<|box|>681 140 698 339<|content|>2.4 Limitations on Scope\n<|id|>49<|page|>5<|box|>383 140 402 313<|content|>3. Engagement Team\n<|id|>56<|page|>6<|box|>186 140 204 290<|content|>4. Fees and Billing\n<|id|>57<|page|>6<|box|>217 140 234 279<|content|>4.1 Hourly Rates\n<|id|>61<|page|>6<|box|>469 142 486 284<|content|>4.2 Fee Estimates\n<|id|>66<|page|>7<|box|>176 140 193 400<|content|>4.3 Expenses and Disbursements\n<|id|>76<|page|>7<|box|>539 140 556 354<|content|>4.4 Invoicing and Payment\n<|id|>83<|page|>8<|box|>290 140 308 339<|content|>5. Client Responsibilities\n<|id|>87<|page|>8<|box|>739 140 756 284<|content|>6. Confidentiality\n<|id|>91<|page|>9<|box|>340 140 357 321<|content|>7. Conflicts of Interest\n<|id|>96<|page|>9<|box|>833 140 849 370<|content|>8. No Guarantee of Outcome\n<|id|>99<|page|>10<|box|>395 140 412 470<|content|>9. Governing Law and Dispute Resolution\n<|id|>102<|page|>10<|box|>726 142 744 274<|content|>10. Termination\n<|id|>106<|page|>11<|box|>267 142 284 334<|content|>11. Document Retention\n<|id|>110<|page|>11<|box|>625 142 641 406<|content|>12. Acceptance and Counterparts\n<|id|>121<|page|>12<|box|>292 313 309 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>123<|page|>12<|box|>380 142 396 377<|content|>AGREED AND ACCEPTED:\n<|id|>124<|page|>12<|box|>398 142 414 472<|content|>DUNMORE ENERGY HOLDINGS LTD.",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>4<|level|>-1\n<|id|>6<|level|>-1\n<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>23<|level|>2\n<|id|>32<|level|>2\n<|id|>42<|level|>2\n<|id|>49<|level|>1\n<|id|>56<|level|>1\n<|id|>57<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>76<|level|>2\n<|id|>83<|level|>1\n<|id|>87<|level|>1\n<|id|>91<|level|>1\n<|id|>96<|level|>1\n<|id|>99<|level|>1\n<|id|>102<|level|>1\n<|id|>106<|level|>1\n<|id|>110<|level|>1\n<|id|>121<|level|>1\n<|id|>123<|level|>1\n<|id|>124<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        }
+    ]
+}

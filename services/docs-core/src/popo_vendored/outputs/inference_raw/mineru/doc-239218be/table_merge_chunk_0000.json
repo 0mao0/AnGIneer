@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Lost Profits (above-contract margin)', '$18,700,000', 'Vantor claims average 12%']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'operating margin on SLG freight × remaining committed volume (~$86.4M for 2 years), adjusted']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 86,
+    "table2_idx": 87
+}

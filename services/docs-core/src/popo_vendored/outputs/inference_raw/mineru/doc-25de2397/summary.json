@@ -1,0 +1,121 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-tof4i_aa\\input\\pdfs\\doc-25de2397.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-tof4i_aa\\enriched\\doc-25de2397.json",
+    "contd_output": "<|src_id|>50<|tgt_id|>51",
+    "title_output": "<|id|>10<|level|>1\n<|id|>17<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>2\n<|id|>31<|level|>2\n<|id|>36<|level|>2\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>52<|level|>1\n<|id|>60<|level|>1\n<|id|>69<|level|>1\n<|id|>83<|level|>1\n<|id|>87<|level|>1\n<|id|>94<|level|>1\n<|id|>98<|level|>1\n<|id|>101<|level|>1\n<|id|>106<|level|>1\n<|id|>108<|level|>1\n<|id|>119<|level|>1",
+    "image_output": "<|src_id|>84<|tgt_id|>83\n<|src_id|>85<|tgt_id|>83",
+    "contd_label": [
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 84,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 83
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 84,
+            "table2_idx": 85,
+            "upper_row_ss": [
+                [
+                    "Miscellaneous freight (multiple shippers)",
+                    "Various",
+                    "$824,500"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Total Cargo Value",
+                    "",
+                    "$4,780,000"
+                ]
+            ]
+        }
+    ]
+}

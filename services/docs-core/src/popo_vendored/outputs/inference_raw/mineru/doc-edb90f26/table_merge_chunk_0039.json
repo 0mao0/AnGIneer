@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 39,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=21, 特大斜拉桥、特大悬索桥工程', 'rowspan=21, 上部钢结构制作与防护', 'rowspan=14, 索夹', 'rowspan=14, 索夹制作,索夹防护', 'rowspan=14, 索夹', '螺孔直线度', '○', '△', '▲', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=22, 特大斜拉桥、特大悬索桥工程', 'rowspan=17, 上部钢结构制作与防护', 'rowspan=10, 吊索', 'rowspan=10, 吊索和锚头制作与防护', 'rowspan=10, 吊索和锚头', '设计信息', '▲', '▲', '▲', '继承L3.0模型的设计信息']]\n",
+    "raw_response": "[1, 1, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 290,
+    "table2_idx": 291
+}

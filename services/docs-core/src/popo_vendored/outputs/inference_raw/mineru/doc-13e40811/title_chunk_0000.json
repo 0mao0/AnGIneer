@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 143 157 852<|content|>REGISTRATION STATEMENT UNDER THE SECURITIES ACT OF\n<|id|>3<|page|>1<|box|>200 209 217 787<|content|>DRAFT — FOR DISCUSSION PURPOSES ONLY — NOT FOR FIL\n<|id|>9<|page|>1<|box|>455 142 473 450<|content|>Address of Principal Executive Offices:\n<|id|>11<|page|>1<|box|>526 142 542 370<|content|>Agent for Service of Process:\n<|id|>17<|page|>1<|box|>731 142 748 344<|content|>EXPLANATORY NOTE\n<|id|>23<|page|>2<|box|>518 140 537 764<|content|>CALCULATION OF REGISTRATION FEE / SHELF CAPACITY A\n<|id|>24<|page|>2<|box|>551 142 569 441<|content|>Shelf Registration Capacity Summary\n<|id|>29<|page|>3<|box|>330 140 347 400<|content|>Over-Allotment Option Analysis\n<|id|>35<|page|>4<|box|>157 140 175 526<|content|>Calculation of Registration Fee Table (Template)\n<|id|>40<|page|>4<|box|>580 142 597 439<|content|>SECURITIES TO BE REGISTERED\n<|id|>47<|page|>5<|box|>248 140 265 450<|content|>INCORPORATION BY REFERENCE\n<|id|>56<|page|>6<|box|>285 140 301 416<|content|>DESCRIPTION OF SECURITIES\n<|id|>63<|page|>7<|box|>89 142 107 236<|content|>EXHIBITS\n<|id|>70<|page|>8<|box|>148 142 166 297<|content|>UNDERTAKINGS\n<|id|>89<|page|>10<|box|>229 140 247 267<|content|>SIGNATURES\n<|id|>101<|page|>10<|box|>858 189 900 807<|content|>INTERNAL ANNOTATION / PRECAUTIONARY FILING MEMORAN\n<|id|>103<|page|>11<|box|>89 143 133 854<|content|>ATTORNEY WORK PRODUCT — NOT FOR DISTRIBUTION OUTSI\n<|id|>104<|page|>11<|box|>142 143 157 290<|content|>MEMORANDUM\n<|id|>106<|page|>11<|box|>325 143 343 439<|content|>1. Current Shelf Capacity Assessment\n<|id|>115<|page|>11<|box|>688 142 705 415<|content|>2. Timing and Update Instructions\n<|id|>117<|page|>11<|box|>816 140 834 521<|content|>3. Contingency Scenarios Requiring Re-Analysis\n<|id|>123<|page|>12<|box|>508 140 527 447<|content|>4. Underwriting Syndicate Notification\n<|id|>130<|page|>12<|box|>758 140 777 285<|content|>5. Filing Logistics\n<|id|>134<|page|>13<|box|>220 142 237 326<|content|>6. Contact Information",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>-1\n<|id|>9<|level|>2\n<|id|>11<|level|>2\n<|id|>17<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>29<|level|>3\n<|id|>35<|level|>3\n<|id|>40<|level|>2\n<|id|>47<|level|>2\n<|id|>56<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>89<|level|>2\n<|id|>101<|level|>2\n<|id|>103<|level|>2\n<|id|>104<|level|>3\n<|id|>106<|level|>4\n<|id|>115<|level|>4\n<|id|>117<|level|>4\n<|id|>123<|level|>4\n<|id|>130<|level|>4\n<|id|>134<|level|>4",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 4
+        },
+        {
+            "id": 115,
+            "level": 4
+        },
+        {
+            "id": 117,
+            "level": 4
+        },
+        {
+            "id": 123,
+            "level": 4
+        },
+        {
+            "id": 130,
+            "level": 4
+        },
+        {
+            "id": 134,
+            "level": 4
+        }
+    ]
+}

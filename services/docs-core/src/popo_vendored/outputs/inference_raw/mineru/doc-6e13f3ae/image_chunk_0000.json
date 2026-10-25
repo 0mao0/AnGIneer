@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>523 140 542 529<|content|>1. Purpose of Engagement and Retention Context\n<|id|>14<|type|>title<|page|>2<|box|>429 140 446 596<|content|>2. Attorney-Client Privilege and Work-Product Prot\n<|id|>21<|type|>title<|page|>3<|box|>152 210 188 854<|content|>\"PRIVILEGED AND CONFIDENTIAL — PREPARED AT THE DIR\n<|id|>25<|type|>title<|page|>3<|box|>527 140 545 521<|content|>3. Background Summary for Expert's Reference\n<|id|>27<|type|>title<|page|>3<|box|>638 140 657 367<|content|>3.1 The Supply Relationship\n<|id|>32<|type|>title<|page|>4<|box|>257 140 273 323<|content|>3.2 The Alleged Defect\n<|id|>37<|type|>title<|page|>4<|box|>700 140 717 320<|content|>3.3 Vantage's Position\n<|id|>42<|type|>title<|page|>5<|box|>429 140 446 366<|content|>3.4 The Chargeback Notices\n<|id|>43<|type|>table<|page|>5<|box|>513 143 618 852<|content|>None\n<|id|>44<|type|>table<|page|>5<|box|>675 143 789 852<|content|>None\n<|id|>46<|type|>title<|page|>6<|box|>186 140 204 282<|content|>4. Scope of Work\n<|id|>48<|type|>title<|page|>6<|box|>297 140 315 527<|content|>4.1 Metallurgical Examination of Returned Parts\n<|id|>57<|type|>title<|page|>7<|box|>90 140 107 464<|content|>4.2 Porosity Assessment per ASTM E505\n<|id|>61<|type|>title<|page|>7<|box|>434 140 450 687<|content|>4.3 Evaluation of Assembly-Related Failure Modes (\n<|id|>70<|type|>title<|page|>8<|box|>157 140 174 325<|content|>4.4 Causation Analysis\n<|id|>78<|type|>title<|page|>8<|box|>679 140 696 413<|content|>4.5 Preparation of Written Report\n<|id|>91<|type|>title<|page|>9<|box|>559 140 575 326<|content|>4.6 Additional Services\n<|id|>98<|type|>title<|page|>10<|box|>90 140 107 361<|content|>5. Materials to Be Provided\n<|id|>109<|type|>title<|page|>10<|box|>738 142 753 364<|content|>6. Fee Structure and Budget\n<|id|>110<|type|>title<|page|>10<|box|>768 142 786 279<|content|>6.1 Hourly Rates\n<|id|>112<|type|>table<|page|>10<|box|>834 143 907 852<|content|>None\n<|id|>113<|type|>table<|page|>11<|box|>88 143 127 852<|content|>None\n<|id|>115<|type|>title<|page|>11<|box|>284 140 301 315<|content|>6.2 Estimated Budget\n<|id|>117<|type|>table<|page|>11<|box|>411 143 523 852<|content|>None\n<|id|>119<|type|>title<|page|>11<|box|>699 140 717 354<|content|>6.3 Invoicing and Payment\n<|id|>129<|type|>title<|page|>12<|box|>589 140 607 346<|content|>7. Term and Termination\n<|id|>136<|type|>title<|page|>13<|box|>267 140 284 284<|content|>8. Confidentiality\n<|id|>141<|type|>title<|page|>13<|box|>686 140 704 321<|content|>9. Conflicts of Interest\n<|id|>145<|type|>title<|page|>14<|box|>223 140 239 424<|content|>10. Independent Expert Obligations\n<|id|>149<|type|>title<|page|>14<|box|>561 140 579 254<|content|>11. Insurance\n<|id|>151<|type|>title<|page|>14<|box|>719 143 737 297<|content|>12. Governing Law\n<|id|>153<|type|>title<|page|>14<|box|>823 142 840 455<|content|>13. Entire Agreement and Amendments\n<|id|>156<|type|>title<|page|>15<|box|>231 142 248 406<|content|>14. Counterparts and Acceptance\n<|id|>163<|type|>title<|page|>15<|box|>527 349 544 648<|content|>ACCEPTANCE AND AGREEMENT\n<|id|>165<|type|>title<|page|>15<|box|>617 142 633 379<|content|>ACCEPTED AND AGREED:",
+    "raw_response": "<|src_id|>43<|tgt_id|>42\n<|src_id|>44<|tgt_id|>42\n<|src_id|>112<|tgt_id|>110\n<|src_id|>113<|tgt_id|>110\n<|src_id|>117<|tgt_id|>115",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 115
+        }
+    ]
+}

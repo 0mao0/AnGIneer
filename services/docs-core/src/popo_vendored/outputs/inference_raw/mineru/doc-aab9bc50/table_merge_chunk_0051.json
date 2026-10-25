@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 51,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['A)树木类的几何类型为点、线、面;B)植被区或树能轻易被船员看见时,应表示在图中;C)树木挡住了与航行有关的要素时应被编码;D)HEIGHT(高度)为植物近似高度;E)孤树作为陆地方位物用时,用VEGATN(植被)编码,其CATVEG(植被类)=13~21;F)红树林区用VEGATN(植被)编码,其CATVEG(植被类)=7(红树林);G)红树林区朝水的边缘用COALNE(岸线)编码,其CATCOA(岸线类)=7(红树林),且空间物标应有属性QUAPOS(位置性质)=4(近似的(不精确的))', 'VEGATN(植被)(O)CATVEG(植被类)=[3(灌木丛),4(落叶性树林),5(针叶树林),6(普通树林(包括杂树林)),7(红树林),13(普通树),14(常绿树),15(针叶树),16(棕榈树),17(聂帕榈树),18(木麻黄),19(桉树),20(落叶树),21(红树),22(垂枝木麻黄树),101(行树),102(疏林),104(经济林),105(成树林)](O)HEIGHT(高度)=[xx.x(m)](O)NOBJNM(中文名称)=[树木类中文名称](O)OBJNAM(英文名称)=[树木类英文名称]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '(O)INFORM(英文信息) = [树木类英文信息](O)NINFOM(中文信息) = [树木类中文信息]']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 2972,
+    "table2_idx": 2973
+}

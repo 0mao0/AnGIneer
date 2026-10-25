@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 266 133 732<|content|>1601 K Street NW Washington, DC 20006 Tel: (202) 5\n<|id|>11<|page|>1<|box|>436 140 453 264<|content|>I. Introduction\n<|id|>13<|page|>1<|box|>667 142 685 346<|content|>II. Purpose of This Letter\n<|id|>15<|page|>2<|box|>90 140 107 413<|content|>III. Background of the HSR Filing\n<|id|>16<|page|>2<|box|>121 140 138 403<|content|>A. Identification of Filing Parties\n<|id|>20<|page|>2<|box|>392 142 409 405<|content|>B. Description of the Transaction\n<|id|>23<|page|>2<|box|>747 140 763 441<|content|>C. Filing Date and Submission Details\n<|id|>25<|page|>3<|box|>90 140 107 553<|content|>D. Voluntary Submission of Additional Market Data\n<|id|>27<|page|>3<|box|>319 142 337 431<|content|>IV. Expiration of the Waiting Period\n<|id|>34<|page|>4<|box|>90 140 107 434<|content|>V. Remaining Regulatory Conditions\n<|id|>35<|page|>4<|box|>121 140 138 361<|content|>A. HSR Condition Satisfied\n<|id|>37<|page|>4<|box|>229 140 248 540<|content|>B. UK Competition and Markets Authority (CMA)\n<|id|>40<|page|>4<|box|>512 140 529 517<|content|>C. Jurisdictions Where No Filing Was Required\n<|id|>48<|page|>5<|box|>674 140 691 468<|content|>VI. Practical Implications and Next Steps\n<|id|>57<|page|>6<|box|>686 140 704 388<|content|>VII. Disclaimer and Limitation\n<|id|>61<|page|>7<|box|>285 140 303 251<|content|>VIII. Closing\n<|id|>69<|page|>7<|box|>559 142 571 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>11<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>20<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>1\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>2\n<|id|>48<|level|>1\n<|id|>57<|level|>1\n<|id|>61<|level|>1\n<|id|>69<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>114 147 151 846<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT PRIVILEG\n<|id|>8<|type|>title<|page|>1<|box|>372 385 391 611<|content|>I. Executive Summary\n<|id|>15<|type|>title<|page|>2<|box|>415 148 435 848<|content|>II. Background — The Existing Harborstone Revolvin\n<|id|>16<|type|>title<|page|>2<|box|>459 142 477 308<|content|>A. Facility Overview\n<|id|>18<|type|>table<|page|>2<|box|>608 143 904 852<|content|>None\n<|id|>22<|type|>title<|page|>3<|box|>491 140 508 503<|content|>B. Current Utilization and Financial Standing\n<|id|>30<|type|>title<|page|>4<|box|>285 140 301 544<|content|>C. Reason the Existing RCF Was Being Refinanced\n<|id|>36<|type|>title<|page|>4<|box|>662 235 681 761<|content|>III. Proposed Extension — Structure and Key Terms\n<|id|>37<|type|>title<|page|>4<|box|>707 140 724 331<|content|>A. Type of Amendment\n<|id|>45<|type|>title<|page|>5<|box|>521 140 537 379<|content|>B. Proposed Extension Period\n<|id|>50<|type|>title<|page|>6<|box|>239 140 258 266<|content|>C. Facility Size\n<|id|>58<|type|>title<|page|>6<|box|>731 140 748 424<|content|>D. Anticipated Pricing Adjustments\n<|id|>65<|type|>title<|page|>7<|box|>483 140 501 277<|content|>E. Extension Fee\n<|id|>67<|type|>table<|page|>7<|box|>614 143 746 852<|content|>None\n<|id|>71<|type|>title<|page|>8<|box|>167 140 184 328<|content|>F. Financial Covenants\n<|id|>78<|type|>title<|page|>8<|box|>675 140 691 251<|content|>G. Collateral\n<|id|>87<|type|>title<|page|>9<|box|>412 166 455 830<|content|>IV. Consent and Amendment Mechanics Under the Exis\n<|id|>88<|type|>title<|page|>9<|box|>481 142 497 318<|content|>A. Required Consents\n<|id|>93<|type|>title<|page|>10<|box|>150 140 167 388<|content|>B. Amendment Documentation\n<|id|>111<|type|>title<|page|>11<|box|>224 140 241 542<|content|>C. Conditions Precedent to Extension Effectiveness\n<|id|>119<|type|>title<|page|>11<|box|>780 375 799 620<|content|>V. Timeline and Process\n<|id|>120<|type|>title<|page|>11<|box|>825 140 842 419<|content|>A. Proposed Engagement Sequence\n<|id|>122<|type|>title<|page|>12<|box|>90 140 107 612<|content|>Week of August 14, 2023 — Initial Outreach to Harb\n<|id|>130<|type|>title<|page|>12<|box|>412 140 429 581<|content|>Late August 2023 — Formal Written Extension Reques\n<|id|>139<|type|>title<|page|>12<|box|>674 140 691 602<|content|>September 2023 — Harborstone Credit Committee Revi\n<|id|>142<|type|>title<|page|>12<|box|>880 142 897 491<|content|>October 2023 — Documentation Negotiation\n<|id|>150<|type|>title<|page|>13<|box|>398 142 415 790<|content|>Early to Mid-November 2023 (Before November 15) —\n<|id|>152<|type|>title<|page|>13<|box|>539 140 555 318<|content|>B. Critical Path Items\n<|id|>159<|type|>title<|page|>14<|box|>315 140 332 516<|content|>C. Contingency — If Extension Is Not Achieved\n<|id|>166<|type|>title<|page|>15<|box|>154 326 174 669<|content|>VI. Legal Fees and Costs Estimate\n<|id|>167<|type|>title<|page|>15<|box|>199 142 215 553<|content|>Meridian Atlantic Refinancing — Wind-Down Costs\n<|id|>169<|type|>table<|page|>15<|box|>304 143 417 852<|content|>None\n<|id|>171<|type|>title<|page|>15<|box|>529 142 545 478<|content|>Harborstone Extension — Estimated Costs\n<|id|>172<|type|>table<|page|>15<|box|>614 143 854 852<|content|>None\n<|id|>175<|type|>title<|page|>16<|box|>364 305 383 691<|content|>VII. Recommendations and Next Steps\n<|id|>184<|type|>title<|page|>17<|box|>689 411 709 584<|content|>VIII. Conclusion",
+    "raw_response": "<|src_id|>18<|tgt_id|>16\n<|src_id|>67<|tgt_id|>65\n<|src_id|>169<|tgt_id|>167\n<|src_id|>172<|tgt_id|>171",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 167
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 171
+        }
+    ]
+}

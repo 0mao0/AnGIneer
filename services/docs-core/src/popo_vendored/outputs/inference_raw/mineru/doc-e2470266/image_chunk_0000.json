@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>114 153 151 843<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT PRIVILEG\n<|id|>4<|type|>table<|page|>1<|box|>210 143 345 852<|content|>None\n<|id|>6<|type|>title<|page|>1<|box|>464 387 483 611<|content|>I. Executive Summary\n<|id|>11<|type|>title<|page|>2<|box|>289 419 309 576<|content|>II. Background\n<|id|>12<|type|>title<|page|>2<|box|>334 142 352 261<|content|>A. The Parties\n<|id|>13<|type|>title<|page|>2<|box|>364 142 383 424<|content|>1. Calloway-Briggs Renewables Inc.\n<|id|>22<|type|>title<|page|>2<|box|>806 140 824 470<|content|>2. Cascadia Growth Equity Fund III, L.P.\n<|id|>24<|type|>title<|page|>3<|box|>176 140 193 500<|content|>3. Lumen Ridge Infrastructure Partners LLC\n<|id|>32<|type|>title<|page|>3<|box|>535 140 553 374<|content|>B. The Proposed Transaction\n<|id|>49<|type|>title<|page|>5<|box|>90 142 107 305<|content|>C. Timeline Context\n<|id|>50<|type|>table<|page|>5<|box|>140 143 513 852<|content|>None\n<|id|>51<|type|>title<|page|>5<|box|>550 202 569 792<|content|>III. CBR's Stockholders' Agreement — Relevant Prov\n<|id|>52<|type|>title<|page|>5<|box|>595 142 612 491<|content|>A. Overview of the Stockholders' Agreement\n<|id|>56<|type|>title<|page|>6<|box|>167 140 184 486<|content|>B. Consent Rights — Material Transactions\n<|id|>64<|type|>title<|page|>6<|box|>792 140 809 375<|content|>C. Other Relevant Provisions\n<|id|>70<|type|>title<|page|>7<|box|>462 202 482 792<|content|>IV. Analysis — Applicability to the Proposed JV Fo\n<|id|>71<|type|>title<|page|>7<|box|>507 140 523 607<|content|>A. The JV Formation Constitutes a \"Material Transa\n<|id|>77<|type|>title<|page|>8<|box|>566 140 584 357<|content|>B. No Available Exemption\n<|id|>82<|type|>title<|page|>9<|box|>148 140 167 258<|content|>C. Conclusion\n<|id|>84<|type|>title<|page|>9<|box|>313 274 332 720<|content|>V. Process for Obtaining Cascadia's Consent\n<|id|>85<|type|>title<|page|>9<|box|>357 140 375 367<|content|>A. Recommended Approach\n<|id|>97<|type|>title<|page|>10<|box|>556 140 574 348<|content|>B. Timing Considerations\n<|id|>103<|type|>title<|page|>11<|box|>258 140 277 511<|content|>C. Potential Cascadia Concerns and Mitigation\n<|id|>109<|type|>title<|page|>12<|box|>244 300 265 696<|content|>VI. Status Update — Consent Obtained\n<|id|>120<|type|>title<|page|>13<|box|>136 305 155 692<|content|>VII. Recommendations and Next Steps\n<|id|>132<|type|>title<|page|>14<|box|>167 277 186 720<|content|>VIII. Enclosures / Attachments (Referenced)",
+    "raw_response": "<|src_id|>4<|tgt_id|>1\n<|src_id|>50<|tgt_id|>49",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 49
+        }
+    ]
+}

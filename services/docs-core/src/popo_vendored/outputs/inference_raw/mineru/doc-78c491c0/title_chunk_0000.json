@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>349 140 366 442<|content|>1. Purpose and Engagement Overview\n<|id|>15<|page|>2<|box|>90 140 107 390<|content|>2. Background of the Litigation\n<|id|>26<|page|>3<|box|>250 140 266 334<|content|>3. Scope of Engagement\n<|id|>27<|page|>3<|box|>279 140 297 343<|content|>3.1 Subject Matter Areas\n<|id|>34<|page|>3<|box|>609 140 627 287<|content|>3.2 Specific Tasks\n<|id|>51<|page|>4<|box|>827 140 844 406<|content|>3.3 Consulting vs. Testifying Role\n<|id|>59<|page|>5<|box|>462 140 479 462<|content|>4. Anticipated Deliverables and Timeline\n<|id|>61<|page|>5<|box|>537 140 554 539<|content|>4.1 Consulting Phase (February 2026 – April 2026)\n<|id|>68<|page|>5<|box|>849 140 867 555<|content|>4.2 Expert Report Phase (April 2026 – May 15, 2026\n<|id|>71<|page|>6<|box|>275 140 292 503<|content|>4.3 Rebuttal Phase (May 2026 – July 10, 2026)\n<|id|>73<|page|>6<|box|>383 140 402 488<|content|>4.4 Markman Hearing (September 18, 2026)\n<|id|>75<|page|>6<|box|>476 140 493 344<|content|>4.5 Trial (February 2027)\n<|id|>78<|page|>6<|box|>638 140 656 279<|content|>5. Compensation\n<|id|>79<|page|>6<|box|>669 140 686 272<|content|>5.1 Hourly Rate\n<|id|>81<|page|>6<|box|>816 140 833 354<|content|>5.2 Invoicing and Payment\n<|id|>87<|page|>7<|box|>354 140 373 321<|content|>5.4 No Contingent Fee\n<|id|>89<|page|>7<|box|>547 140 565 377<|content|>6. Confidentiality Obligations\n<|id|>90<|page|>7<|box|>579 140 595 390<|content|>6.1 Stipulated Protective Order\n<|id|>97<|page|>8<|box|>138 140 157 359<|content|>6.2 General Confidentiality\n<|id|>101<|page|>8<|box|>465 140 482 290<|content|>6.3 Use Limitation\n<|id|>103<|page|>8<|box|>638 140 657 428<|content|>7. Conflict Check and Independence\n<|id|>110<|page|>9<|box|>267 140 284 326<|content|>8. Document Retention\n<|id|>114<|page|>9<|box|>660 140 676 264<|content|>9. Termination\n<|id|>118<|page|>10<|box|>148 143 167 380<|content|>10. Relationship of the Parties\n<|id|>120<|page|>10<|box|>325 142 344 297<|content|>11. Governing Law\n<|id|>122<|page|>10<|box|>449 143 465 264<|content|>12. Acceptance\n<|id|>126<|page|>10<|box|>660 140 676 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>130<|page|>10<|box|>746 383 763 614<|content|>ACCEPTED AND AGREED\n<|id|>133<|page|>11<|box|>89 434 106 563<|content|>ENCLOSURES",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>15<|level|>1\n<|id|>26<|level|>1\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>51<|level|>2\n<|id|>59<|level|>1\n<|id|>61<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>1\n<|id|>79<|level|>2\n<|id|>81<|level|>2\n<|id|>87<|level|>2\n<|id|>89<|level|>1\n<|id|>90<|level|>2\n<|id|>97<|level|>2\n<|id|>101<|level|>2\n<|id|>103<|level|>1\n<|id|>110<|level|>1\n<|id|>114<|level|>1\n<|id|>118<|level|>1\n<|id|>120<|level|>1\n<|id|>122<|level|>1\n<|id|>126<|level|>-1\n<|id|>130<|level|>-1\n<|id|>133<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 1
+        }
+    ]
+}

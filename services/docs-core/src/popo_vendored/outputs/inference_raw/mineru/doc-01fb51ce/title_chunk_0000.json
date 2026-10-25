@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 125 852<|content|>CALDERWOOD & HARKNESS LLP 1800 Page Mill Road, Sui\n<|id|>5<|page|>1<|box|>880 395 896 601<|content|>STATE OF DELAWARE\n<|id|>6<|page|>2<|box|>89 321 106 674<|content|>OFFICE OF THE SECRETARY OF STATE\n<|id|>7<|page|>2<|box|>114 338 132 658<|content|>CERTIFICATE OF GOOD STANDING\n<|id|>9<|page|>2<|box|>222 274 239 720<|content|>MERIDIAN DIAGNOSTICS, INC. File Number: 7294531\n<|id|>20<|page|>3<|box|>133 142 150 627<|content|>SECRETARY OF STATE OF THE STATE OF DELAWARE\n<|id|>27<|page|>3<|box|>320 214 337 782<|content|>CALDERWOOD & HARKNESS LLP CLOSING BINDER NOTATION\n<|id|>29<|page|>3<|box|>377 142 393 318<|content|>Binder Tab Reference\n<|id|>30<|page|>3<|box|>401 140 419 833<|content|>Tab Designation: Tab 4(a) — Good Standing Certific\n<|id|>32<|page|>3<|box|>494 140 511 379<|content|>Condition to Closing Satisfied\n<|id|>35<|page|>3<|box|>794 142 811 403<|content|>Companion Document Reference",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>1\n<|id|>6<|level|>1\n<|id|>7<|level|>2\n<|id|>9<|level|>3\n<|id|>20<|level|>3\n<|id|>27<|level|>2\n<|id|>29<|level|>3\n<|id|>30<|level|>4\n<|id|>32<|level|>3\n<|id|>35<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        }
+    ]
+}

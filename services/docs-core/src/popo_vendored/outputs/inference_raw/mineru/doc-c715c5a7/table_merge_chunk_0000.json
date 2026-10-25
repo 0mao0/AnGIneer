@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Aegean Realty', 'Sept. 19,', '$3,500,00', 'CCA operating', 'Harborview escrow', '$485,000', 'March 16,', '$3,150,00', 'CALDW ELL-004']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Fund V LP', '2018', '0', 'acct.(Greaves Capital Markets -7842)', '(-9024),then Fund V capital acct.(Westlake Fidelity -6193)', '', '2020', '0', '30 – 00483;00530 – 00532;00580 – 00582;00618 – 00620;01340 – 01352']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 139,
+    "table2_idx": 140
+}

@@ -1,0 +1,134 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>136 400 157 598<|content|>PAYOFF LETTER\n<|id|>1<|page|>1<|box|>175 295 195 702<|content|>VELTHORN MERCHANT BANK, N.A.\n<|id|>2<|page|>1<|box|>212 194 248 800<|content|>VELTHORN MERCHANT BANK, N.A. 120 Federal Street, 2\n<|id|>17<|page|>1<|box|>811 142 827 614<|content|>1. Reference to Credit Agreement and Existing Inde\n<|id|>21<|page|>2<|box|>439 142 457 287<|content|>2. Payoff Amount\n<|id|>23<|page|>2<|box|>532 142 550 413<|content|>2.1 Outstanding Principal Balance\n<|id|>25<|page|>2<|box|>580 176 599 297<|content|>$87,400,000.00\n<|id|>26<|page|>2<|box|>613 142 628 401<|content|>2.2 Accrued and Unpaid Interest\n<|id|>28<|page|>2<|box|>698 176 715 274<|content|>$287,543.06\n<|id|>29<|page|>2<|box|>729 142 746 313<|content|>2.3 Per Diem Interest\n<|id|>31<|page|>3<|box|>90 140 107 346<|content|>2.4 Prepayment Premium\n<|id|>33<|page|>3<|box|>273 140 290 444<|content|>2.5 Administrative and Processing Fee\n<|id|>36<|page|>3<|box|>371 140 388 637<|content|>2.6 Total Payoff Amount — Assuming Receipt on June\n<|id|>39<|page|>3<|box|>622 140 638 468<|content|>2.7 Good-Through Date and Adjustments\n<|id|>42<|page|>4<|box|>90 140 107 377<|content|>3. Wire Transfer Instructions\n<|id|>47<|page|>4<|box|>464 140 481 560<|content|>4. Release of Liens and UCC Termination Statements\n<|id|>55<|page|>5<|box|>450 140 467 334<|content|>5. Reservation of Rights\n<|id|>60<|page|>6<|box|>148 140 167 552<|content|>6. Reliance; Acknowledgment and Countersignature\n<|id|>72<|page|>6<|box|>527 316 544 679<|content|>ACKNOWLEDGMENT AND AGREEMENT\n<|id|>85<|page|>7<|box|>90 454 109 544<|content|>PART B\n<|id|>86<|page|>7<|box|>128 307 148 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>87<|page|>7<|box|>167 218 210 777<|content|>COVER MEMORANDUM AND UCC TERMINATION INSTRUCTIONS\n<|id|>88<|page|>7<|box|>229 282 244 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>92<|page|>7<|box|>354 143 371 290<|content|>MEMORANDUM\n<|id|>94<|page|>7<|box|>599 143 614 362<|content|>1. Background and Purpose\n<|id|>104<|page|>8<|box|>439 140 457 450<|content|>2. UCC-1 Financing Statements on File\n<|id|>109<|page|>10<|box|>285 140 301 455<|content|>3. UCC-3 Termination Statements Filed\n<|id|>115<|page|>11<|box|>90 140 107 405<|content|>4. Confirmation of Authorization\n<|id|>120<|page|>11<|box|>674 140 691 372<|content|>5. Coordination with Closing\n<|id|>125<|page|>12<|box|>468 140 484 351<|content|>6. Post-Closing Follow-Up\n<|id|>136<|page|>13<|box|>454 140 472 344<|content|>7. Attachments / Exhibits\n<|id|>142<|page|>13<|box|>719 140 734 433<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>25<|level|>-1\n<|id|>26<|level|>3\n<|id|>28<|level|>-1\n<|id|>29<|level|>3\n<|id|>31<|level|>3\n<|id|>33<|level|>3\n<|id|>36<|level|>3\n<|id|>39<|level|>3\n<|id|>42<|level|>2\n<|id|>47<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>72<|level|>2\n<|id|>85<|level|>2\n<|id|>86<|level|>-1\n<|id|>87<|level|>2\n<|id|>88<|level|>-1\n<|id|>92<|level|>2\n<|id|>94<|level|>3\n<|id|>104<|level|>3\n<|id|>109<|level|>3\n<|id|>115<|level|>3\n<|id|>120<|level|>3\n<|id|>125<|level|>3\n<|id|>136<|level|>3\n<|id|>142<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        }
+    ]
+}

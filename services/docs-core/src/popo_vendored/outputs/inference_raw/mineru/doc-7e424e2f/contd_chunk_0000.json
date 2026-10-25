@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        31
+    ],
+    "pages": [
+        5,
+        6,
+        7,
+        8,
+        20,
+        21,
+        30,
+        31
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>50<|page|>5<|box|>794 140 886 857<|content|>142 In this proceeding, Ridgeline is seeking autho...ction with ATPC's existing pipeline network at the\n<|id|>51<|page|>6<|box|>90 140 126 854<|content|>Wetzel 148 County Interconnect, as described in gr... greater detail in Section VII of my 149 testimony\n<|id|>62<|page|>6<|box|>864 140 902 854<|content|>172 In addition to the internal management team, R...d Braswell of 174 Braswell Energy Consulting Group\n<|id|>63<|page|>7<|box|>90 140 145 854<|content|>LLC has been retained to provide expert 175 testim...George Trujillo serving as the responsible partner\n<|id|>75<|page|>7<|box|>915 140 930 521<|content|>RIDGELINE MIDSTREAM SERVICES LLC — PUBLIC VERSION\n<|id|>76<|page|>8<|box|>89 140 181 854<|content|>215 A. ... This design capacity represents the max...f 1,480 psig and standard pipeline flow conditions\n<|id|>198<|page|>20<|box|>859 140 895 854<|content|>670 A. ... The Appalachian Basin is served by mult...ems operated by 672 Ostrander Enterprises, Kestrel\n<|id|>199<|page|>21<|box|>90 140 181 854<|content|>Partners LLC, Cascade Group, Marlowe Industries 67...etbacks and created persistent basis differentials\n<|id|>285<|page|>30<|box|>478 140 512 854<|content|>James K. ... Winfield Chief Executive Officer and ...d East, Suite 1400 Charleston, West Virginia 25301\n<|id|>286<|page|>30<|box|>512 143 529 326<|content|>Date: ... December 5, 2022\n<|id|>287<|page|>30<|box|>529 140 547 633<|content|>Subscribed and sworn to before me this 5th day of December 2022\n<|id|>288<|page|>30<|box|>582 140 599 251<|content|>Notary Public\n<|id|>289<|page|>30<|box|>599 140 618 374<|content|>My Commission Expires: ... ____\n<|id|>290<|page|>30<|box|>617 140 635 370<|content|>Notary Registration No. ... Notary Registration No\n<|id|>294<|page|>30<|box|>794 174 830 854<|content|>Counsel for Appalachian Trunk Pipeline Company, LL...m Pratt, Lead Counsel Kellner, Royce & Dillard LLP\n<|id|>295<|page|>30<|box|>839 174 875 854<|content|>Counsel for Mountainside Gas Producers Coalition: ...ebekah Montague, Lead Counsel Whitmore & Sable LLP\n<|id|>297<|page|>31<|box|>133 176 170 854<|content|>FERC Trial Staff: ... Miriam Okafor, Economic Anal...ve Litigation Federal Energy Regulatory Commission\n<|id|>298<|page|>31<|box|>179 140 195 320<|content|>Respectfully submitted,\n<|id|>299<|page|>31<|box|>195 140 213 781<|content|>CALDERWOOD & HARKNESS LLP Counsel for Ridgeline Midstream Services LLC\n<|id|>300<|page|>31<|box|>214 143 229 251<|content|>By: ... By\n<|id|>301<|page|>31<|box|>229 140 262 854<|content|>George Trujillo, Responsible Partner Brett Callahan, Lead Associate David Stanton, Working Associate\n<|id|>302<|page|>31<|box|>263 140 296 852<|content|>Calderwood & Harkness LLP 1601 K Street NW, Suite ...Washington, DC 20006 Telephone: ... (202) 555-4201\n<|id|>303<|page|>31<|box|>297 140 314 460<|content|>Email: ... com\n<|id|>304<|page|>31<|box|>314 140 330 364<|content|>C&H Matter No. ... 1016-00005\n<|id|>305<|page|>31<|box|>330 140 348 328<|content|>Date: ... December 5, 2022",
+    "raw_response": "<|src_id|>50<|tgt_id|>51\n<|src_id|>62<|tgt_id|>63\n<|src_id|>198<|tgt_id|>199",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 199
+        }
+    ]
+}

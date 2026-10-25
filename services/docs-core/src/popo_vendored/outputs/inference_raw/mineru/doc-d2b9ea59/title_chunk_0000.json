@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 215 142 782<|content|>SUMMARY NOTICE OF PROPOSED CLASS ACTION SETTLEMENT\n<|id|>2<|page|>1<|box|>181 323 199 674<|content|>— SIDE ONE (FRONT OF POSTCARD) —\n<|id|>3<|page|>1<|box|>207 151 261 844<|content|>LEGAL NOTICE — IF YOU ARE A CURRENT OR FORMER HOUR\n<|id|>9<|page|>1<|box|>419 142 435 364<|content|>What Is This Notice About?\n<|id|>13<|page|>1<|box|>757 142 773 285<|content|>Who Is Included?\n<|id|>16<|page|>2<|box|>148 140 166 423<|content|>What Does the Settlement Provide?\n<|id|>21<|page|>2<|box|>643 325 661 671<|content|>— SIDE TWO (BACK OF POSTCARD) —\n<|id|>22<|page|>2<|box|>686 140 703 344<|content|>What Are Your Options?\n<|id|>24<|page|>2<|box|>743 142 760 498<|content|>Option 1: Do Nothing / Stay in the Settlement\n<|id|>36<|page|>3<|box|>425 140 443 441<|content|>Option 2: Exclude Yourself (Opt Out)\n<|id|>41<|page|>3<|box|>758 140 776 413<|content|>Option 3: Object to the Settlement\n<|id|>46<|page|>4<|box|>292 140 310 334<|content|>Final Approval Hearing\n<|id|>50<|page|>4<|box|>594 140 612 419<|content|>How Can I Get More Information?\n<|id|>55<|page|>5<|box|>189 183 224 813<|content|>PLEASE DO NOT CONTACT THE COURT OR THE CLERK'S OFF\n<|id|>57<|page|>5<|box|>398 143 414 307<|content|>Mailing Information",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>3\n<|id|>9<|level|>4\n<|id|>13<|level|>4\n<|id|>16<|level|>4\n<|id|>21<|level|>2\n<|id|>22<|level|>4\n<|id|>24<|level|>5\n<|id|>36<|level|>5\n<|id|>41<|level|>5\n<|id|>46<|level|>4\n<|id|>50<|level|>4\n<|id|>55<|level|>4\n<|id|>57<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 3
+        },
+        {
+            "id": 9,
+            "level": 4
+        },
+        {
+            "id": 13,
+            "level": 4
+        },
+        {
+            "id": 16,
+            "level": 4
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 4
+        },
+        {
+            "id": 24,
+            "level": 5
+        },
+        {
+            "id": 36,
+            "level": 5
+        },
+        {
+            "id": 41,
+            "level": 5
+        },
+        {
+            "id": 46,
+            "level": 4
+        },
+        {
+            "id": 50,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 4
+        },
+        {
+            "id": 57,
+            "level": 4
+        }
+    ]
+}

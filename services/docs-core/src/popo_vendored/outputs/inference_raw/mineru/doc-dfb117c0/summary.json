@@ -1,0 +1,210 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-e8nq1mz1\\input\\pdfs\\doc-dfb117c0.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-e8nq1mz1\\enriched\\doc-dfb117c0.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>18<|level|>2\n<|id|>56<|level|>3\n<|id|>68<|level|>2\n<|id|>70<|level|>3\n<|id|>71<|level|>4\n<|id|>82<|level|>3\n<|id|>83<|level|>4\n<|id|>94<|level|>3\n<|id|>98<|level|>2\n<|id|>101<|level|>3\n<|id|>105<|level|>4\n<|id|>110<|level|>3\n<|id|>111<|level|>4\n<|id|>120<|level|>5\n<|id|>125<|level|>3\n<|id|>126<|level|>4\n<|id|>130<|level|>4\n<|id|>145<|level|>2\n<|id|>148<|level|>3\n<|id|>154<|level|>4\n<|id|>159<|level|>3\n<|id|>163<|level|>4\n<|id|>169<|level|>3\n<|id|>173<|level|>4\n<|id|>178<|level|>2\n<|id|>188<|level|>2\n<|id|>192<|level|>3\n<|id|>199<|level|>2\n<|id|>201<|level|>3\n<|id|>214<|level|>3\n<|id|>229<|level|>3\n<|id|>233<|level|>3\n<|id|>238<|level|>3\n<|id|>246<|level|>2\n<|id|>256<|level|>2\n<|id|>271<|level|>2\n<|id|>274<|level|>2\n<|id|>282<|level|>2\n<|id|>304<|level|>2",
+    "image_output": "<|src_id|>190<|tgt_id|>188\n<|src_id|>191<|tgt_id|>188\n<|src_id|>272<|tgt_id|>271",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 4
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 4
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 4
+        },
+        {
+            "id": 120,
+            "level": 5
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 4
+        },
+        {
+            "id": 130,
+            "level": 4
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 4
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 4
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 4
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 3
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 233,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 3
+        },
+        {
+            "id": 246,
+            "level": 2
+        },
+        {
+            "id": 256,
+            "level": 2
+        },
+        {
+            "id": 271,
+            "level": 2
+        },
+        {
+            "id": 274,
+            "level": 2
+        },
+        {
+            "id": 282,
+            "level": 2
+        },
+        {
+            "id": 304,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 190,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 272,
+            "tgt_id": 271
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 190,
+            "table2_idx": 191,
+            "upper_row_ss": [
+                [
+                    "Internal Postings (Notice",
+                    "All 4 positions",
+                    "$0",
+                    "$0"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "of Filing)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

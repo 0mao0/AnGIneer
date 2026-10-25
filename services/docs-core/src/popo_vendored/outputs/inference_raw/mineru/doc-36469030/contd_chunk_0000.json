@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        10,
+        15,
+        16,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>239 140 257 633<|content|>OMB Number: ... 00\n<|id|>4<|page|>1<|box|>263 653 282 854<|content|>Filing Date: ... July 23, 2024\n<|id|>5<|page|>1<|box|>289 560 308 854<|content|>Filed Electronically via SEC EDGAR\n<|id|>9<|page|>1<|box|>412 140 449 854<|content|>Solara Digital Infrastructure Fund VI LP (as the p...wholly owned subsidiary, Cloudium Technologies plc\n<|id|>10<|page|>1<|box|>455 142 474 354<|content|>Type of Filing: ... New Notice\n<|id|>31<|page|>2<|box|>753 176 770 596<|content|>45 Broadwick Street London W1F 0DB United Kingdom\n<|id|>32<|page|>2<|box|>779 142 796 352<|content|>Telephone: ... (415) 555-0184\n<|id|>33<|page|>2<|box|>805 140 878 854<|content|>The issuer's principal executive offices and day-t...UK-based engineering and product development teams\n<|id|>38<|page|>3<|box|>209 174 244 854<|content|>Nadia Chowdhury General Counsel and Secretary Clou...co, California 94103 Telephone: ... (415) 555-0184\n<|id|>39<|page|>3<|box|>253 176 270 429<|content|>Email: ... io\n<|id|>41<|page|>3<|box|>296 174 332 852<|content|>Harrison Wexford, Esq. ... (212) 555-9300\n<|id|>42<|page|>3<|box|>340 176 357 504<|content|>Email: ... com\n<|id|>48<|page|>3<|box|>854 140 909 854<|content|>Jonathan Hargrove has served as Chief Executive Of...iving entity pursuant to the terms of his Rollover\n<|id|>49<|page|>4<|box|>90 140 126 854<|content|>Agreement and the Amended and Restated Shareholder...eement entered into in connection with the closing\n<|id|>53<|page|>4<|box|>263 174 299 854<|content|>Entity Type: ... 1200 Market Street, Suite 3400, Wilmington, Delaware 19801\n<|id|>54<|page|>4<|box|>308 140 363 854<|content|>Solara Digital Infrastructure Fund VI LP is the pa...rvices investments across North America and Europe\n<|id|>87<|page|>6<|box|>732 140 878 856<|content|>The rollover equity was issued in exchange for sha...rms, conditions, and restrictions set forth in the\n<|id|>88<|page|>7<|box|>90 140 126 854<|content|>Rollover Agreements and the Amended and Restated S...ed Shareholders' Agreement of the surviving entity\n<|id|>130<|page|>10<|box|>402 142 417 374<|content|>Total Number of Investors: ... 2\n<|id|>131<|page|>10<|box|>426 140 445 815<|content|>Both investors acquired rollover equity interests ...rests at the closing of the merger on July 9, 2024\n<|id|>177<|page|>15<|box|>90 140 107 346<|content|>Signature block — Issuer\n<|id|>178<|page|>15<|box|>114 140 133 522<|content|>CLOUDIUM TECHNOLOGIES PLC (as Issuer)\n<|id|>179<|page|>15<|box|>133 142 151 254<|content|>By: ... By\n<|id|>180<|page|>15<|box|>150 140 167 336<|content|>Name: ... Nadia Chowdhury\n<|id|>181<|page|>15<|box|>167 140 185 418<|content|>Title: ... General Counsel and Secretary\n<|id|>182<|page|>15<|box|>185 140 202 294<|content|>Date: ... July 23, 2024\n<|id|>184<|page|>16<|box|>114 140 148 857<|content|>SOLARA DIGITAL INFRASTRUCTURE FUND VI LP (as controlling person and parent of the Issuer)\n<|id|>185<|page|>16<|box|>148 140 166 501<|content|>By: ... Solara Fund VI GP LLC, its General Partner\n<|id|>186<|page|>16<|box|>167 143 184 254<|content|>By: ... By\n<|id|>187<|page|>16<|box|>184 140 200 318<|content|>Name: ... Marcus Elliston\n<|id|>188<|page|>16<|box|>200 140 218 387<|content|>Title: ... Authorized Representative\n<|id|>189<|page|>16<|box|>234 140 265 854<|content|>ATTENTION: ... )\n<|id|>235<|page|>20<|box|>618 181 635 700<|content|>• Due diligence materials made available in the virtual data room; ... and\n<|id|>237<|page|>20<|box|>675 140 750 854<|content|>Moreover, Mr. ... 6% of the outstanding common sto...any's business, financial condition, and prospects",
+    "raw_response": "<|src_id|>48<|tgt_id|>49\n<|src_id|>87<|tgt_id|>88",
+    "parsed": [
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        }
+    ]
+}

@@ -1,0 +1,207 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6hco9mno\\input\\pdfs\\doc-c0a1d222.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6hco9mno\\enriched\\doc-c0a1d222.json",
+    "contd_output": "<|src_id|>80<|tgt_id|>81",
+    "title_output": "<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>25<|level|>3\n<|id|>27<|level|>3\n<|id|>29<|level|>3\n<|id|>31<|level|>3\n<|id|>33<|level|>2\n<|id|>41<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>3\n<|id|>56<|level|>3\n<|id|>64<|level|>3\n<|id|>69<|level|>3\n<|id|>77<|level|>3\n<|id|>84<|level|>3\n<|id|>99<|level|>3\n<|id|>104<|level|>3\n<|id|>110<|level|>3\n<|id|>117<|level|>2\n<|id|>125<|level|>2\n<|id|>131<|level|>2\n<|id|>145<|level|>2\n<|id|>153<|level|>2\n<|id|>166<|level|>2\n<|id|>173<|level|>2\n<|id|>187<|level|>2\n<|id|>189<|level|>3\n<|id|>199<|level|>2",
+    "image_output": "<|src_id|>42<|tgt_id|>41\n<|src_id|>43<|tgt_id|>41\n<|src_id|>147<|tgt_id|>145\n<|src_id|>148<|tgt_id|>145\n<|src_id|>149<|tgt_id|>145\n<|src_id|>150<|tgt_id|>145\n<|src_id|>151<|tgt_id|>145",
+    "contd_label": [
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 42,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 145
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 42,
+            "table2_idx": 43,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Verimark Bayfront St. Petersburg",
+                    "100 First Avenue South, St. Petersburg, FL 33701",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "5",
+                    "Verimark Resort & Spa Boca Raton",
+                    "2600 North Ocean Boulevard, Boca Raton, FL 33431",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 148,
+            "table2_idx": 149,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Verimark Key West",
+                    "____",
+                    "HR Manager"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Collection",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

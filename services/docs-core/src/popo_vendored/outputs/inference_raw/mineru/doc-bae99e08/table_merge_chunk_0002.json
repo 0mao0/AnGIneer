@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['1', '\"locking seal assembly\"', \"'237\", '1, 3, 7, 12', 'An assembly that includes a seal and a locking', 'An assembly comprising a radially-compressing']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'mechanism that, when engaged, secures the seal in a closed position around a surgical instrument.', 'seal element and a mechanical lock ring that physically engages the seal element to maintain the seal in a compressed state, as distinguished from a friction-fit or elastomeric seal that does not employ a separate locking component.']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 78,
+    "table2_idx": 79
+}

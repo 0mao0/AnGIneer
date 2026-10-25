@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 465 119 532<|content|>SAFE\n<|id|>1<|page|>1<|box|>143 346 162 651<|content|>(Simple Agreement for Future Equity)\n<|id|>2<|page|>1<|box|>174 140 193 478<|content|>Post-Money Valuation Cap — No discount\n<|id|>3<|page|>1<|box|>198 418 215 578<|content|>September 12, 2023\n<|id|>7<|page|>1<|box|>425 140 441 176<|content|>and\n<|id|>9<|page|>1<|box|>513 142 530 241<|content|>RECITALS\n<|id|>17<|page|>2<|box|>90 140 107 281<|content|>Section 1. Events\n<|id|>18<|page|>2<|box|>121 142 138 321<|content|>1(a) Equity Financing.\n<|id|>24<|page|>2<|box|>792 143 809 310<|content|>1(b) Liquidity Event.\n<|id|>31<|page|>3<|box|>547 143 564 323<|content|>1(c) Dissolution Event.\n<|id|>40<|page|>4<|box|>425 140 444 313<|content|>Section 2. Definitions\n<|id|>42<|page|>4<|box|>569 140 587 403<|content|>2(b) \"Change of Control\" means:\n<|id|>61<|page|>6<|box|>220 140 237 431<|content|>Section 3. Company Representations\n<|id|>67<|page|>7<|box|>186 140 204 421<|content|>Section 4. Investor Representations\n<|id|>76<|page|>8<|box|>223 140 239 470<|content|>Section 5. Most Favored Nation Provision\n<|id|>81<|page|>8<|box|>679 140 696 377<|content|>Section 6. Information Rights\n<|id|>89<|page|>9<|box|>619 140 636 336<|content|>Section 7. Miscellaneous\n<|id|>111<|page|>11<|box|>90 176 106 460<|content|>Email: jwhitfield@whitfieldharte.com\n<|id|>120<|page|>12<|box|>268 142 286 248<|content|>COMPANY:\n<|id|>137<|page|>13<|box|>89 437 107 560<|content|>SCHEDULE A\n<|id|>138<|page|>13<|box|>121 142 138 464<|content|>Wire Transfer and Payment Instructions",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>7<|level|>1\n<|id|>9<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>40<|level|>1\n<|id|>42<|level|>2\n<|id|>61<|level|>1\n<|id|>67<|level|>1\n<|id|>76<|level|>1\n<|id|>81<|level|>1\n<|id|>89<|level|>1\n<|id|>111<|level|>-1\n<|id|>120<|level|>1\n<|id|>137<|level|>1\n<|id|>138<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 2
+        }
+    ]
+}

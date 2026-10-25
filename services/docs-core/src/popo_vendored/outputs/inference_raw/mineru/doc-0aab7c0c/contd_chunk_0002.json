@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        102,
+        171
+    ],
+    "pages": [
+        102,
+        103,
+        113,
+        116,
+        138,
+        170,
+        171
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>671<|page|>102<|box|>107 378 125 595<|content|>Part II — Loans Receivable\n<|id|>672<|page|>102<|box|>130 458 162 579<|content|>Department of Education\n<|id|>673<|page|>102<|box|>130 635 163 755<|content|>Department of Energy\n<|id|>674<|page|>102<|box|>130 792 175 926<|content|>Department of Health and Human Services\n<|id|>679<|page|>103<|box|>107 393 124 613<|content|>Part II — Loans Receivable\n<|id|>680<|page|>103<|box|>131 478 148 597<|content|>Department of\n<|id|>681<|page|>103<|box|>146 486 159 595<|content|>Housing and\n<|id|>682<|page|>103<|box|>158 539 173 595<|content|>Urban\n<|id|>683<|page|>103<|box|>171 486 187 597<|content|>Development\n<|id|>684<|page|>103<|box|>129 625 161 773<|content|>Department of the Interior\n<|id|>685<|page|>103<|box|>131 829 162 947<|content|>Department of Justice\n<|id|>752<|page|>113<|box|>121 451 165 590<|content|>Department of Health and Human Services\n<|id|>753<|page|>113<|box|>120 644 178 766<|content|>Department of Housing and Urban Development\n<|id|>754<|page|>113<|box|>120 790 150 940<|content|>Department of the Interior\n<|id|>781<|page|>116<|box|>124 427 154 567<|content|>General Services Administration\n<|id|>782<|page|>116<|box|>124 605 181 743<|content|>National Aeronautics and Space Administration\n<|id|>783<|page|>116<|box|>124 806 170 916<|content|>Office of Personnel Management\n<|id|>869<|page|>138<|box|>808 22 848 457<|content|>Reports are required from banks, other depository ...ers and dealers, and nonbanking enterprises in the\n<|id|>870<|page|>138<|box|>130 479 193 914<|content|>United States, including the branches, agencies, s...ecified exemption levels are exempt from reporting\n<|id|>989<|page|>170<|box|>901 31 914 465<|content|>3 A non-interest-bearing liability to the U. ... Treasury resulting from the transfer to the\n<|id|>990<|page|>170<|box|>859 488 914 923<|content|>Exchange Stabilization Fund of foreign currencies ...ts published in the January 1979 Treasury Bulletin\n<|id|>992<|page|>171<|box|>193 616 231 931<|content|>Special Reports",
+    "raw_response": "<|src_id|>680<|tgt_id|>681\n<|src_id|>681<|tgt_id|>682\n<|src_id|>682<|tgt_id|>683\n<|src_id|>869<|tgt_id|>870\n<|src_id|>989<|tgt_id|>990",
+    "parsed": [
+        {
+            "src_id": 680,
+            "tgt_id": 681
+        },
+        {
+            "src_id": 681,
+            "tgt_id": 682
+        },
+        {
+            "src_id": 682,
+            "tgt_id": 683
+        },
+        {
+            "src_id": 869,
+            "tgt_id": 870
+        },
+        {
+            "src_id": 989,
+            "tgt_id": 990
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>154 715 172 854<|content|>February 20, 2025\n<|id|>2<|page|>1<|box|>180 140 196 753<|content|>FROM: ... Yuki Nakamura, Lead Associate, Litigation, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>205 140 224 655<|content|>TO: ... Linda Osei, Billing Partner\n<|id|>4<|page|>1<|box|>232 140 268 854<|content|>RE: ... ) — Potential Recovery and Collectability Considerations\n<|id|>5<|page|>1<|box|>276 140 311 854<|content|>MATTER: ... County)\n<|id|>6<|page|>1<|box|>320 142 337 369<|content|>REVIEWED BY: ... Linda Osei\n<|id|>63<|page|>8<|box|>779 140 907 857<|content|>The primary risk to coverage for this claim is the...t to strong counterarguments — in particular, that\n<|id|>64<|page|>9<|box|>89 140 145 856<|content|>Vantor owed Ironside a duty of care in providing v...e of the doctrine — but the outcome is not certain\n<|id|>79<|page|>10<|box|>840 140 897 856<|content|>The coverage analysis for this claim also interact...of the misvaluations), it may not bar coverage for\n<|id|>80<|page|>11<|box|>89 140 127 854<|content|>Kettler, Hargrove, or Falk if those officers are f...negligent supervision rather than actual knowledge",
+    "raw_response": "<|src_id|>63<|tgt_id|>64\n<|src_id|>79<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        }
+    ]
+}

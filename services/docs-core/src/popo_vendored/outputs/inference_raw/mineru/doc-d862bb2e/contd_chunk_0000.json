@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        8,
+        9,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>1<|box|>869 147 905 856<|content|>• Count III (Third-Party Shipper Claims Asserted a...-party shipper cargo claims originally asserted by\n<|id|>9<|page|>2<|box|>89 174 199 854<|content|>Northwind as its own damages under Count III (tota...e as consequential damages under the charter-party\n<|id|>62<|page|>8<|box|>796 140 888 857<|content|>The discovery period in this matter runs from Janu...Harkness served a supplemental document request on\n<|id|>63<|page|>9<|box|>89 140 127 854<|content|>February 9, 2024, directed at certain categories o...ring our review of the complaint and motion papers\n<|id|>104<|page|>13<|box|>838 140 854 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>105<|page|>13<|box|>856 143 873 253<|content|>By: ... By\n<|id|>107<|page|>14<|box|>89 140 138 852<|content|>Carlos Espinoza Senior Associate Direct: ... (212) 555-7201\n<|id|>108<|page|>14<|box|>138 140 232 854<|content|>CONFIDENTIALITY NOTICE: ... Any unauthorized discl...d may constitute a waiver of applicable privileges",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>62<|tgt_id|>63",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        }
+    ]
+}

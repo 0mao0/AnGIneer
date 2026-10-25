@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>150 140 167 571<|content|>CRESTLINE PACKAGING SOLUTIONS LLC, et al. ... ,\n<|id|>3<|page|>1<|box|>176 210 193 282<|content|>Debtors. ... Debtors\n<|id|>4<|page|>1<|box|>202 140 219 289<|content|>Case No. ... 22-51247\n<|id|>5<|page|>1<|box|>228 142 244 228<|content|>Chapter 11\n<|id|>126<|page|>12<|box|>857 174 893 854<|content|>(c) Authorizing the Debtors to compensate Pinnacle... in accordance with the terms set forth herein and\n<|id|>127<|page|>13<|box|>89 174 145 854<|content|>Pinnacle's customary fee schedule, with estimated ...ubject to the Court's review and approval; ... and\n<|id|>129<|page|>13<|box|>178 573 196 854<|content|>Dated: ... June 20, 2022 Cleveland, Ohio\n<|id|>130<|page|>13<|box|>204 142 222 318<|content|>Respectfully submitted,\n<|id|>156<|page|>14<|box|>864 142 881 287<|content|>Case No. ... 22-51247\n<|id|>157<|page|>14<|box|>891 143 907 227<|content|>Chapter 11\n<|id|>158<|page|>14<|box|>916 140 929 633<|content|>CALDERWOOD & HARKNESS LLP — Counsel to the Debtors and Debtors in Possession",
+    "raw_response": "<|src_id|>126<|tgt_id|>127",
+    "parsed": [
+        {
+            "src_id": 126,
+            "tgt_id": 127
+        }
+    ]
+}

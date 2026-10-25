@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Total Caribbean', '999,463', '991,553', '7,910', '752,446', '239,107', '393,463', '1,106', '399,173', '23,897', '9,981', '163,933', '606,246', '7,936']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Country', 'rowspan=2,colspan=3, Total liabilities', 'colspan=10, Liabilities payable in dollars']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 344,
+    "table2_idx": 345
+}

@@ -1,0 +1,52 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        18,
+        20,
+        22,
+        23,
+        24,
+        26,
+        27
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 145 179 849<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>7<|type|>title<|page|>1<|box|>342 148 411 849<|content|>MEMORANDUM OF LAW IN OPPOSITION TO DEFENDANT VANTO\n<|id|>12<|type|>title<|page|>1<|box|>583 383 599 612<|content|>TABLE OF AUTHORITIES\n<|id|>14<|type|>table<|page|>1<|box|>633 145 904 852<|content|>None\n<|id|>16<|type|>table<|page|>2<|box|>89 143 720 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>760 143 775 290<|content|>Statutes and Rules\n<|id|>18<|type|>table<|page|>2<|box|>780 143 904 852<|content|>None\n<|id|>19<|type|>table<|page|>3<|box|>88 143 127 852<|content|>None\n<|id|>21<|type|>table<|page|>3<|box|>186 143 337 852<|content|>None\n<|id|>22<|type|>title<|page|>3<|box|>386 142 402 397<|content|>PRELIMINARY STATEMENT\n<|id|>34<|type|>title<|page|>5<|box|>229 140 247 356<|content|>STATEMENT OF FACTS\n<|id|>36<|type|>title<|page|>5<|box|>342 140 359 261<|content|>A. The Parties\n<|id|>47<|type|>title<|page|>6<|box|>426 140 444 517<|content|>B. The Master Fund Administration Agreement\n<|id|>57<|type|>title<|page|>8<|box|>157 140 175 495<|content|>C. Vantor's Systematic Misvaluation Scheme\n<|id|>66<|type|>title<|page|>9<|box|>777 140 794 483<|content|>D. Discovery of the Fraud and Termination\n<|id|>73<|type|>title<|page|>10<|box|>792 140 810 377<|content|>E. Pre-Litigation Proceedings\n<|id|>78<|type|>title<|page|>11<|box|>417 140 436 284<|content|>F. This Litigation\n<|id|>89<|type|>title<|page|>12<|box|>330 140 349 566<|content|>G. Vantor's Motion to Dismiss Arguments (Summary)\n<|id|>91<|type|>title<|page|>12<|box|>542 140 559 357<|content|>STANDARD OF REVIEW\n<|id|>96<|type|>title<|page|>13<|box|>439 140 457 258<|content|>ARGUMENT\n<|id|>97<|type|>title<|page|>13<|box|>469 140 523 854<|content|>POINT I: IRONSIDE'S FRAUD AND FRAUDULENT CONCEALME\n<|id|>122<|type|>title<|page|>18<|box|>138 140 174 854<|content|>POINT II: IRONSIDE'S BREACH OF FIDUCIARY DUTY CLAI\n<|id|>136<|type|>title<|page|>20<|box|>308 140 362 854<|content|>POINT III: THE CONTRACTUAL LIABILITY CAP IN FAA §\n<|id|>150<|type|>title<|page|>22<|box|>527 140 563 854<|content|>POINT IV: IRONSIDE'S UNJUST ENRICHMENT CLAIM IS PR\n<|id|>158<|type|>title<|page|>23<|box|>710 140 746 854<|content|>POINT V: THE ECONOMIC LOSS DOCTRINE DOES NOT BAR I\n<|id|>165<|type|>title<|page|>24<|box|>784 140 801 444<|content|>Each of the three prongs is satisfied here.\n<|id|>173<|type|>title<|page|>26<|box|>89 142 106 271<|content|>CONCLUSION\n<|id|>183<|type|>title<|page|>26<|box|>733 140 750 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>189<|type|>title<|page|>27<|box|>89 142 106 387<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>14<|tgt_id|>12\n<|src_id|>16<|tgt_id|>12\n<|src_id|>18<|tgt_id|>17\n<|src_id|>19<|tgt_id|>17\n<|src_id|>21<|tgt_id|>17",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 17
+        }
+    ]
+}

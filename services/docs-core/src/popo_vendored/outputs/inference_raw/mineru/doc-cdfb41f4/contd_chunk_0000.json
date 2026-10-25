@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        8,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>196 140 251 854<|content|>TO: ... Oliver Mackenzie, Responsible Partner, Mer...rate Development, Northgate Telecommunications PLC\n<|id|>3<|page|>1<|box|>258 140 294 854<|content|>FROM: ... Howard Bellamy, Specialist Partner, Antitrust & Competition, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>303 140 358 854<|content|>CC: ... Harrison Wexford, Billing Partner, Calderw...Antitrust & Competition, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>364 140 382 325<|content|>DATE: ... March 17, 2025\n<|id|>6<|page|>1<|box|>391 140 428 854<|content|>RE: ... by Northgate Telecommunications PLC\n<|id|>7<|page|>1<|box|>435 140 452 362<|content|>MATTER NO. ... 1022-00006\n<|id|>8<|page|>1<|box|>460 140 478 349<|content|>BILLING NO. ... 001\n<|id|>9<|page|>1<|box|>487 140 503 408<|content|>Right-click to update Table of Contents\n<|id|>14<|page|>1<|box|>848 140 883 854<|content|>1. ... A filing under the Hart-Scott-Rodino Antitr..., as amended (the \"HSR Act\"), is required for both\n<|id|>15<|page|>2<|box|>90 174 125 854<|content|>Northgate (as the acquiring person) and Cascadia (...person). ... The applicable filing fee is $250,000\n<|id|>69<|page|>7<|box|>862 140 898 854<|content|>Item 4(c) Documents. ... Item 4(c) requires the pr...son for the purpose of evaluating or analyzing the\n<|id|>70<|page|>8<|box|>90 140 236 856<|content|>Transaction with respect to markets, market shares...ith the evaluation and approval of the Transaction\n<|id|>243<|page|>25<|box|>569 140 585 320<|content|>Respectfully submitted,\n<|id|>244<|page|>25<|box|>587 140 602 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>245<|page|>25<|box|>604 142 619 253<|content|>By: ... By\n<|id|>246<|page|>25<|box|>621 140 654 854<|content|>Howard Bellamy Specialist Partner, Antitrust & Com...r New York, NY 10022 Telephone: ... (212) 555-4800\n<|id|>247<|page|>25<|box|>654 142 670 473<|content|>Email: ... com\n<|id|>248<|page|>25<|box|>671 143 686 308<|content|>Date: ... March 17, 2025\n<|id|>249<|page|>25<|box|>688 140 750 854<|content|>This memorandum is provided for informational purp... or assurance of any particular regulatory outcome",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>69<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        }
+    ]
+}

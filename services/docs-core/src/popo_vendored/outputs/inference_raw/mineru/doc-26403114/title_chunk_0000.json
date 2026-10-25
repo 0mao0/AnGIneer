@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 277 118 720<|content|>SEED GIFT ASSIGNMENT AGREEMENT\n<|id|>5<|page|>1<|box|>239 143 276 851<|content|>CORNERSTONE FIDUCIARY SERVICES, INC. as Independen\n<|id|>6<|page|>1<|box|>282 323 300 674<|content|>SEED GIFT ASSIGNMENT AGREEMENT\n<|id|>12<|page|>1<|box|>640 449 657 547<|content|>RECITALS\n<|id|>25<|page|>3<|box|>420 140 438 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>39<|page|>4<|box|>428 140 445 447<|content|>ARTICLE II — GIFT ASSIGNMENT\n<|id|>44<|page|>5<|box|>148 140 166 736<|content|>ARTICLE III — METHOD OF TRANSFER AND WIRE INSTRUCT\n<|id|>60<|page|>6<|box|>167 140 184 714<|content|>ARTICLE IV — GIFT-TAX REPRESENTATIONS AND COVENANT\n<|id|>70<|page|>7<|box|>186 140 203 625<|content|>ARTICLE V — REPRESENTATIONS AND WARRANTIES\n<|id|>86<|page|>8<|box|>652 140 669 607<|content|>ARTICLE VI — TRUST ACCOUNT ADMINISTRATION\n<|id|>95<|page|>9<|box|>652 140 669 447<|content|>ARTICLE VII — TAX TREATMENT\n<|id|>99<|page|>10<|box|>321 140 339 571<|content|>ARTICLE VIII — MISCELLANEOUS PROVISIONS\n<|id|>125<|page|>12<|box|>208 400 224 596<|content|>[Signature Pages Follow]\n<|id|>126<|page|>12<|box|>233 225 250 771<|content|>SIGNATURE PAGE TO SEED GIFT ASSIGNMENT AGREEMENT\n<|id|>128<|page|>12<|box|>303 142 319 246<|content|>GRANTOR:\n<|id|>132<|page|>12<|box|>414 223 431 771<|content|>SIGNATURE PAGE TO SEED GIFT ASSIGNMENT AGREEMENT\n<|id|>133<|page|>12<|box|>440 142 455 238<|content|>TRUSTEE:\n<|id|>140<|page|>12<|box|>585 395 602 601<|content|>ACKNOWLEDGMENTS\n<|id|>145<|page|>13<|box|>89 140 106 504<|content|>STATE OF FLORIDA COUNTY OF DUVAL\n<|id|>150<|page|>13<|box|>375 447 391 550<|content|>EXHIBIT A\n<|id|>151<|page|>13<|box|>400 349 417 648<|content|>WIRE TRANSFER INSTRUCTIONS\n<|id|>154<|page|>13<|box|>787 142 804 331<|content|>Important Instructions:\n<|id|>159<|page|>14<|box|>313 447 329 549<|content|>EXHIBIT B\n<|id|>160<|page|>14<|box|>339 223 356 772<|content|>FORM OF TRUSTEE'S WRITTEN CONFIRMATION OF RECEIPT",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>-1\n<|id|>6<|level|>1\n<|id|>12<|level|>2\n<|id|>25<|level|>2\n<|id|>39<|level|>2\n<|id|>44<|level|>2\n<|id|>60<|level|>2\n<|id|>70<|level|>2\n<|id|>86<|level|>2\n<|id|>95<|level|>2\n<|id|>99<|level|>2\n<|id|>125<|level|>-1\n<|id|>126<|level|>2\n<|id|>128<|level|>3\n<|id|>132<|level|>2\n<|id|>133<|level|>3\n<|id|>140<|level|>2\n<|id|>145<|level|>2\n<|id|>150<|level|>2\n<|id|>151<|level|>2\n<|id|>154<|level|>3\n<|id|>159<|level|>2\n<|id|>160<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        }
+    ]
+}

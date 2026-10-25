@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        12
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>12<|page|>2<|box|>90 142 107 328<|content|>1. Sponsor Information\n<|id|>17<|page|>2<|box|>248 142 263 442<|content|>Primary Contact for Correspondence:\n<|id|>20<|page|>2<|box|>335 143 352 364<|content|>Regulatory Affairs Contact:\n<|id|>23<|page|>2<|box|>441 143 458 486<|content|>Legal Counsel (Authorized Representative):\n<|id|>27<|page|>2<|box|>627 143 643 303<|content|>Additional Counsel:\n<|id|>30<|page|>2<|box|>733 143 750 330<|content|>Regulatory Consultant:\n<|id|>38<|page|>3<|box|>167 140 185 392<|content|>2. Device Description Summary\n<|id|>39<|page|>3<|box|>199 140 215 354<|content|>2.1 Product Line Overview\n<|id|>41<|page|>3<|box|>381 140 398 485<|content|>2.2 Device Variant 1 — Lumina C14 Sensor\n<|id|>56<|page|>4<|box|>90 140 107 480<|content|>2.3 Device Variant 2 — Lumina R7 Reader\n<|id|>71<|page|>4<|box|>723 142 739 348<|content|>2.4 Software Components\n<|id|>77<|page|>5<|box|>343 140 359 279<|content|>2.5 Intended Use\n<|id|>79<|page|>5<|box|>518 140 534 398<|content|>3. Intended Regulatory Pathway\n<|id|>87<|page|>6<|box|>223 140 239 403<|content|>4. Predicate Device Identification\n<|id|>88<|page|>6<|box|>253 140 270 375<|content|>4.1 Primary Predicate Device\n<|id|>90<|page|>6<|box|>321 176 338 740<|content|>NovaSense Medical Technologies Inc. GlucoTrack NX-\n<|id|>98<|page|>6<|box|>696 140 714 537<|content|>4.2 Secondary Predicate Device (Reference Device)\n<|id|>100<|page|>6<|box|>763 176 781 740<|content|>NovaSense Medical Technologies Inc. GlucoTrack NX-\n<|id|>108<|page|>7<|box|>306 140 321 339<|content|>4.3 Additional Reference\n<|id|>115<|page|>7<|box|>584 140 602 403<|content|>5. Regulatory History of Sponsor\n<|id|>122<|page|>8<|box|>407 140 425 480<|content|>6. Pre-Submission Meeting Request Details\n<|id|>135<|page|>9<|box|>595 140 612 545<|content|>7. Summary of Topics and Questions for Discussion\n<|id|>144<|page|>11<|box|>450 140 467 348<|content|>8. Proposed Attendee List\n<|id|>146<|page|>11<|box|>556 142 574 647<|content|>From Solstice Biomedical Inc. / Solstice Biomedica\n<|id|>151<|page|>11<|box|>825 142 842 433<|content|>From Calderwood & Harkness LLP:\n<|id|>155<|page|>12<|box|>166 140 183 544<|content|>From Pinnacle Regulatory Consulting Group LLC:\n<|id|>158<|page|>12<|box|>325 140 343 253<|content|>9. Enclosures\n<|id|>162<|page|>12<|box|>603 140 619 500<|content|>10. Contact and Correspondence Information\n<|id|>164<|page|>12<|box|>691 142 708 285<|content|>Primary Contact:\n<|id|>168<|page|>12<|box|>797 142 813 267<|content|>With a copy to:",
+    "raw_response": "<|id|>12<|level|>1\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>23<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>38<|level|>1\n<|id|>39<|level|>2\n<|id|>41<|level|>2\n<|id|>56<|level|>2\n<|id|>71<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>1\n<|id|>87<|level|>1\n<|id|>88<|level|>2\n<|id|>90<|level|>-1\n<|id|>98<|level|>2\n<|id|>100<|level|>-1\n<|id|>108<|level|>2\n<|id|>115<|level|>1\n<|id|>122<|level|>1\n<|id|>135<|level|>1\n<|id|>144<|level|>1\n<|id|>146<|level|>2\n<|id|>151<|level|>2\n<|id|>155<|level|>2\n<|id|>158<|level|>1\n<|id|>162<|level|>1\n<|id|>164<|level|>2\n<|id|>168<|level|>2",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        }
+    ]
+}

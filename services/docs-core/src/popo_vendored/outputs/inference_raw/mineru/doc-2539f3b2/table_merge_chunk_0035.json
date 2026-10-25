@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 35,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=11, 5', 'rowspan=11, 六氟化硫断路器', '5.11 套管式电流互感器', '符合GB 50150-2016中第12.0.12条的规定', '符合GB 50150-2016中第10.0.1条要求的互感器试验']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 5', 'rowspan=3, 六氟化硫断路器', '5.12 断路器内SF6气体的含水率', '符合GB 50150-2016中第12.0.13条的规定', '符合GB 50150-2016中第12.0.13条要求的SF6气体综合测试设备测量']]\n",
+    "raw_response": "[1, 1, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 482,
+    "table2_idx": 483
+}

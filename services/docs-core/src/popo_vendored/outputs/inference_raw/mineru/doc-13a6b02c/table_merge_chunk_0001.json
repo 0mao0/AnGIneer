@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Windstorm / Named Storm', 'Full replacement cost; max 5% deductible; sub-', '3% deductible (favorable); sub-limit TBC', 'Confirm sub-limit ≥ $160M; add PAC']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'limit ≥ $160,000,000', '', 'mortgagee clause']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 181,
+    "table2_idx": 182
+}

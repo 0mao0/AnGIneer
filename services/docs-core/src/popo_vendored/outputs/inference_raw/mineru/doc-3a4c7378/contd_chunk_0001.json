@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        65,
+        69
+    ],
+    "pages": [
+        66,
+        67,
+        69
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>333<|page|>66<|box|>794 140 905 857<|content|>1. ... Each teardown produced detailed photographi...tures in the accused products corresponding to the\n<|id|>334<|page|>67<|box|>90 174 143 854<|content|>Asserted Patents' claim limitations. ... The teard...sed products' architecture and structural features\n<|id|>347<|page|>69<|box|>114 142 132 362<|content|>DR. ... CAROLINE ASHFORD\n<|id|>348<|page|>69<|box|>133 142 150 253<|content|>By: ... By\n<|id|>349<|page|>69<|box|>150 142 166 356<|content|>Name: ... Caroline Ashford\n<|id|>350<|page|>69<|box|>167 140 184 540<|content|>Title: ... Professor of Electrical Engineering & Photonics\n<|id|>351<|page|>69<|box|>184 140 202 617<|content|>Institution: ... Northfield Institute of Technology, Evanston, Illinois\n<|id|>352<|page|>69<|box|>203 142 220 267<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>333<|tgt_id|>334",
+    "parsed": [
+        {
+            "src_id": 333,
+            "tgt_id": 334
+        }
+    ]
+}

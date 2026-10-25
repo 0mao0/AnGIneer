@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 107 573<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>114 163 152 834<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>7<|page|>1<|box|>396 140 412 321<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>527 140 545 498<|content|>II. Compliance with Reporting Requirements\n<|id|>20<|page|>3<|box|>90 140 107 344<|content|>B. Content Completeness\n<|id|>30<|page|>3<|box|>801 140 818 467<|content|>III. Status of Material Impediment Event\n<|id|>35<|page|>4<|box|>794 140 811 566<|content|>IV. Equity Purchase Agreement — Third Amendment\n<|id|>36<|page|>4<|box|>825 140 843 372<|content|>A. Extension of Outside Date\n<|id|>46<|page|>5<|box|>753 140 770 323<|content|>B. Termination Rights\n<|id|>49<|page|>6<|box|>369 140 386 470<|content|>V. Debt Commitment Letter — Extension\n<|id|>50<|page|>6<|box|>400 140 417 303<|content|>A. Extension Terms\n<|id|>57<|page|>7<|box|>90 140 107 434<|content|>B. Implications for Co-Invest Vehicle\n<|id|>65<|page|>7<|box|>694 140 712 401<|content|>VI. Regulatory Approvals Status\n<|id|>66<|page|>7<|box|>724 142 743 339<|content|>A. FERC §203 Approval\n<|id|>70<|page|>8<|box|>383 140 402 503<|content|>B. Oregon Public Utility Commission (OPUC)\n<|id|>75<|page|>9<|box|>90 142 107 398<|content|>VII. Vehicle Financial Summary\n<|id|>76<|page|>9<|box|>121 142 138 295<|content|>A. Capital Position\n<|id|>81<|page|>9<|box|>549 142 566 651<|content|>B. Application of Called Capital (Unchanged from P\n<|id|>84<|page|>10<|box|>138 140 157 393<|content|>C. Q2 2023 Operating Expenses\n<|id|>92<|page|>10<|box|>635 140 652 405<|content|>D. Economic Terms (Unchanged)\n<|id|>97<|page|>11<|box|>90 140 107 424<|content|>VIII. R&W Insurance Policy Status\n<|id|>102<|page|>11<|box|>691 140 709 508<|content|>IX. GP's Assessment of Reactivation Prospects\n<|id|>112<|page|>12<|box|>770 140 787 573<|content|>X. Dormancy Duration and Wind-Down Election Right\n<|id|>118<|page|>13<|box|>476 140 493 483<|content|>XI. Information Gaps and Follow-Up Items\n<|id|>126<|page|>14<|box|>391 140 409 444<|content|>XII. Conclusion and Recommendation\n<|id|>132<|page|>15<|box|>90 140 107 297<|content|>Recommendations:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>7<|level|>2\n<|id|>16<|level|>2\n<|id|>20<|level|>3\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>46<|level|>3\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>57<|level|>3\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>70<|level|>3\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>81<|level|>3\n<|id|>84<|level|>3\n<|id|>92<|level|>3\n<|id|>97<|level|>2\n<|id|>102<|level|>2\n<|id|>112<|level|>2\n<|id|>118<|level|>2\n<|id|>126<|level|>2\n<|id|>132<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,479 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        53
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        19,
+        20,
+        21,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        40,
+        41,
+        42,
+        43,
+        46,
+        49,
+        52,
+        53
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>284 273 326 699<|content|>公路涵洞设计规范\n<|id|>6<|page|>2<|box|>289 343 316 642<|content|>公路涵洞设计规范\n<|id|>7<|page|>2<|box|>356 247 376 738<|content|>Specifications for Design of Highway Culverts\n<|id|>14<|page|>3<|box|>166 162 210 830<|content|>中华人民共和国交通运输部\n<|id|>17<|page|>3<|box|>395 268 458 720<|content|>交通运输部关于发布 《公路涵洞设计规范》的公告\n<|id|>26<|page|>4<|box|>160 425 183 561<|content|>前言\n<|id|>40<|page|>6<|box|>153 431 180 560<|content|>目次\n<|id|>43<|page|>8<|box|>170 106 193 221<|content|>1 总则\n<|id|>51<|page|>9<|box|>166 87 190 300<|content|>2 术语和符号\n<|id|>52<|page|>9<|box|>254 87 272 191<|content|>2.1 术语\n<|id|>53<|page|>9<|box|>298 108 315 312<|content|>2.1.1 涵洞 culvert\n<|id|>55<|page|>9<|box|>385 108 402 354<|content|>2.1.2 管涵 pipe culvert\n<|id|>57<|page|>9<|box|>450 108 467 354<|content|>2.1.3 拱涵 arch culvert\n<|id|>59<|page|>9<|box|>515 108 532 347<|content|>2.1.4 箱涵 box culvert\n<|id|>61<|page|>9<|box|>580 106 597 371<|content|>2.1.5 盖板涵 slab culvert\n<|id|>63<|page|>9<|box|>646 106 663 523<|content|>2.1.6 压力式涵洞 outlet submerged culvert\n<|id|>65<|page|>9<|box|>733 106 750 534<|content|>2.1.7 半压力式涵洞 inlet submerged culvert\n<|id|>67<|page|>9<|box|>798 106 816 554<|content|>2.1.8 无压力式涵洞 inlet unsubmerged culvert\n<|id|>69<|page|>9<|box|>863 106 881 422<|content|>2.1.9 倒虹吸涵 inverted siphon\n<|id|>71<|page|>10<|box|>101 123 120 558<|content|>2.1.10 汇水面积(集水面积) catchment area\n<|id|>73<|page|>10<|box|>168 123 185 331<|content|>2.1.11 径流 runoff\n<|id|>75<|page|>10<|box|>233 123 250 371<|content|>2.1.12 堉水 back water\n<|id|>77<|page|>10<|box|>299 122 316 450<|content|>2.1.13 临界流速 critical velocity\n<|id|>79<|page|>10<|box|>364 120 384 640<|content|>2.1.14 允许(不冲刷)流速 permit velocity for no scour\n<|id|>81<|page|>10<|box|>431 120 448 486<|content|>2.1.15 过水断面 wetted cross-section\n<|id|>83<|page|>10<|box|>496 120 513 418<|content|>2.1.16 湿周 wetted perimeter\n<|id|>85<|page|>10<|box|>563 120 580 453<|content|>2.1.17 水力半径 hydraulic radius\n<|id|>87<|page|>10<|box|>629 120 644 352<|content|>2.1.18 淤积 sediment\n<|id|>89<|page|>10<|box|>695 120 712 474<|content|>2.1.19 糙率 coefficient of roughness\n<|id|>91<|page|>10<|box|>760 120 778 713<|content|>2.1.20 材料强度标准值 characteristic value of material st\n<|id|>93<|page|>10<|box|>849 120 866 654<|content|>2.1.21 材料强度设计值 design value of material strength\n<|id|>95<|page|>11<|box|>99 108 116 324<|content|>2.1.22 作用 actions\n<|id|>97<|page|>11<|box|>186 108 203 617<|content|>2.1.23 作用的标准值 characteristic value of an action\n<|id|>99<|page|>11<|box|>252 109 269 621<|content|>2.1.24 作用的代表值 representative value of an action\n<|id|>101<|page|>11<|box|>318 109 335 560<|content|>2.1.25 作用的设计值 design value of an action\n<|id|>103<|page|>11<|box|>383 109 400 467<|content|>2.1.26 作用效应 effects of an action\n<|id|>105<|page|>11<|box|>448 109 465 401<|content|>2.1.27 安全等级 safety class\n<|id|>107<|page|>11<|box|>536 108 553 701<|content|>2.1.28 结构重要性系数 coefficient for importance of a str\n<|id|>109<|page|>11<|box|>601 108 618 469<|content|>2.1.29 分项系数 partial safety factor\n<|id|>111<|page|>11<|box|>688 108 706 521<|content|>2.1.30 结构性回填土 engineered back soil\n<|id|>113<|page|>11<|box|>775 87 792 190<|content|>2.2 符号\n<|id|>114<|page|>11<|box|>819 106 836 378<|content|>2.2.1 水文、水力有关符号\n<|id|>153<|page|>13<|box|>141 111 160 427<|content|>2.2.5 计算系数及其他有关符号\n<|id|>161<|page|>14<|box|>174 95 197 277<|content|>3 基本规定\n<|id|>162<|page|>14<|box|>267 95 284 244<|content|>3.1 涵洞分类\n<|id|>168<|page|>14<|box|>576 102 593 195<|content|>条文说明\n<|id|>170<|page|>14<|box|>694 102 712 249<|content|>3.2 涵洞选型\n<|id|>179<|page|>15<|box|>385 109 404 643<|content|>3.2.3 按不同材料的涵洞选型，宜符合表 3.2.3 的规定。\n<|id|>181<|page|>15<|box|>564 92 583 183<|content|>条文说明\n<|id|>188<|page|>16<|box|>101 97 120 188<|content|>条文说明\n<|id|>194<|page|>16<|box|>330 113 349 689<|content|>3.2.5 按水力性质不同的涵洞选型，宜符合表 3.2.5 的规定。\n<|id|>196<|page|>16<|box|>539 94 557 450<|content|>3.3 涵洞在设计与施工中的相关要求\n<|id|>225<|page|>19<|box|>573 95 591 186<|content|>条文说明\n<|id|>231<|page|>19<|box|>842 95 859 184<|content|>条文说明\n<|id|>233<|page|>20<|box|>167 94 190 212<|content|>4 材料\n<|id|>234<|page|>20<|box|>260 92 278 240<|content|>4.1 一般规定\n<|id|>249<|page|>21<|box|>334 94 351 186<|content|>条文说明\n<|id|>251<|page|>21<|box|>450 92 467 239<|content|>4.2 坯工材料\n<|id|>272<|page|>25<|box|>129 90 146 301<|content|>4.3 钢筋混凝土材料\n<|id|>283<|page|>26<|box|>284 95 303 331<|content|>4.4 波纹钢管(板)材料\n<|id|>285<|page|>26<|box|>418 97 436 190<|content|>条文说明\n<|id|>287<|page|>26<|box|>515 115 533 481<|content|>4.4.2 连接件材料可按下列规定采用：\n<|id|>291<|page|>26<|box|>747 97 764 190<|content|>条文说明\n<|id|>293<|page|>26<|box|>843 116 861 462<|content|>4.4.3 防腐材料可按下列规定采用：\n<|id|>298<|page|>27<|box|>400 95 418 184<|content|>条文说明\n<|id|>300<|page|>28<|box|>170 85 193 267<|content|>5 涵洞布设\n<|id|>301<|page|>28<|box|>256 83 275 230<|content|>5.1 一般规定\n<|id|>323<|page|>29<|box|>378 106 395 195<|content|>条文说明\n<|id|>326<|page|>29<|box|>536 102 553 247<|content|>5.2 平面布设\n<|id|>327<|page|>29<|box|>580 122 597 486<|content|>5.2.1 涵洞平面布设应遵循下列原则：\n<|id|>338<|page|>30<|box|>280 87 296 179<|content|>条文说明\n<|id|>340<|page|>30<|box|>397 106 415 514<|content|>5.2.2 山区涵洞平面布设应符合下列规定：\n<|id|>346<|page|>30<|box|>663 92 681 183<|content|>条文说明\n<|id|>355<|page|>31<|box|>252 106 269 195<|content|>条文说明\n<|id|>357<|page|>31<|box|>391 123 409 551<|content|>5.2.4 平原区涵洞平面布设应符合下列规定：\n<|id|>364<|page|>31<|box|>722 104 740 195<|content|>条文说明\n<|id|>366<|page|>31<|box|>861 120 881 760<|content|>5.2.5 不良地质地段及特殊条件下的涵洞平面布设应符合下列规定：\n<|id|>373<|page|>32<|box|>298 89 316 235<|content|>5.3 立面布设\n<|id|>374<|page|>32<|box|>341 108 360 474<|content|>5.3.1 涵洞立面布设应符合下列规定：\n<|id|>378<|page|>32<|box|>515 90 532 181<|content|>条文说明\n<|id|>380<|page|>32<|box|>675 106 692 619<|content|>5.3.2 山岭重丘区陡坡涵洞立面布设应符合下列规定：\n<|id|>384<|page|>33<|box|>101 104 118 193<|content|>条文说明\n<|id|>386<|page|>33<|box|>216 120 233 633<|content|>5.3.3 山岭重丘区缓坡涵洞立面布设应符合下列规定：\n<|id|>389<|page|>33<|box|>414 120 432 591<|content|>5.3.4 平原微丘区涵洞立面布设应符合下列规定：\n<|id|>393<|page|>33<|box|>632 102 649 193<|content|>条文说明\n<|id|>395<|page|>34<|box|>170 87 195 333<|content|>6 涵洞水文计算\n<|id|>396<|page|>34<|box|>261 89 280 235<|content|>6.1 一般规定\n<|id|>403<|page|>34<|box|>655 92 673 260<|content|>6.2 暴雨推理法\n<|id|>424<|page|>35<|box|>536 101 555 191<|content|>条文说明\n<|id|>430<|page|>35<|box|>832 97 849 263<|content|>6.3 径流形成法\n<|id|>443<|page|>36<|box|>506 101 524 191<|content|>条文说明\n<|id|>446<|page|>36<|box|>669 97 687 265<|content|>6.4 形态调查法\n<|id|>491<|page|>38<|box|>637 102 655 270<|content|>6.5 直接类比法\n<|id|>534<|page|>40<|box|>484 97 503 415<|content|>6.6 流量计算方法的比较与核对\n<|id|>538<|page|>40<|box|>616 102 635 195<|content|>条文说明\n<|id|>543<|page|>40<|box|>888 125 907 556<|content|>6.6.2 流量计算成果应按下列规定进行核对：\n<|id|>546<|page|>41<|box|>163 111 181 708<|content|>6.6.3 流量计算成果应结合现场具体情况按下列要求加以验证：\n<|id|>549<|page|>42<|box|>174 94 197 338<|content|>7 涵洞水力计算\n<|id|>550<|page|>42<|box|>265 95 284 242<|content|>7.1 一般规定\n<|id|>554<|page|>42<|box|>553 99 570 191<|content|>条文说明\n<|id|>563<|page|>43<|box|>381 90 400 279<|content|>7.2 涵洞孔径验算\n<|id|>634<|page|>46<|box|>576 83 593 397<|content|>7.3 过水消能建筑物的水力计算\n<|id|>686<|page|>49<|box|>296 125 313 513<|content|>7.3.3 跌水的水力计算应符合下列规定：\n<|id|>722<|page|>52<|box|>170 97 193 277<|content|>8 涵洞构造\n<|id|>723<|page|>52<|box|>260 95 278 242<|content|>8.1 一般规定\n<|id|>726<|page|>52<|box|>604 101 621 191<|content|>条文说明\n<|id|>733<|page|>53<|box|>99 94 116 184<|content|>条文说明\n<|id|>741<|page|>53<|box|>796 90 814 237<|content|>8.2 洞身构造",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>6<|level|>1\n<|id|>7<|level|>2\n<|id|>14<|level|>-1\n<|id|>17<|level|>2\n<|id|>26<|level|>2\n<|id|>40<|level|>2\n<|id|>43<|level|>2\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>53<|level|>4\n<|id|>55<|level|>4\n<|id|>57<|level|>4\n<|id|>59<|level|>4\n<|id|>61<|level|>4\n<|id|>63<|level|>4\n<|id|>65<|level|>4\n<|id|>67<|level|>4\n<|id|>69<|level|>4\n<|id|>71<|level|>4\n<|id|>73<|level|>4\n<|id|>75<|level|>4\n<|id|>77<|level|>4\n<|id|>79<|level|>4\n<|id|>81<|level|>4\n<|id|>83<|level|>4\n<|id|>85<|level|>4\n<|id|>87<|level|>4\n<|id|>89<|level|>4\n<|id|>91<|level|>4\n<|id|>93<|level|>4\n<|id|>95<|level|>4\n<|id|>97<|level|>4\n<|id|>99<|level|>4\n<|id|>101<|level|>4\n<|id|>103<|level|>4\n<|id|>105<|level|>4\n<|id|>107<|level|>4\n<|id|>109<|level|>4\n<|id|>111<|level|>4\n<|id|>113<|level|>3\n<|id|>114<|level|>4\n<|id|>153<|level|>4\n<|id|>161<|level|>2\n<|id|>162<|level|>3\n<|id|>168<|level|>4\n<|id|>170<|level|>3\n<|id|>179<|level|>4\n<|id|>181<|level|>5\n<|id|>188<|level|>5\n<|id|>194<|level|>4\n<|id|>196<|level|>3\n<|id|>225<|level|>4\n<|id|>231<|level|>4\n<|id|>233<|level|>2\n<|id|>234<|level|>3\n<|id|>249<|level|>4\n<|id|>251<|level|>3\n<|id|>272<|level|>3\n<|id|>283<|level|>3\n<|id|>285<|level|>4\n<|id|>287<|level|>5\n<|id|>291<|level|>4\n<|id|>293<|level|>5\n<|id|>298<|level|>4\n<|id|>300<|level|>2\n<|id|>301<|level|>3\n<|id|>323<|level|>4\n<|id|>326<|level|>3\n<|id|>327<|level|>4\n<|id|>338<|level|>5\n<|id|>340<|level|>4\n<|id|>346<|level|>5\n<|id|>355<|level|>5\n<|id|>357<|level|>4\n<|id|>364<|level|>5\n<|id|>366<|level|>4\n<|id|>373<|level|>3\n<|id|>374<|level|>4\n<|id|>378<|level|>5\n<|id|>380<|level|>4\n<|id|>384<|level|>5\n<|id|>386<|level|>4\n<|id|>389<|level|>4\n<|id|>393<|level|>5\n<|id|>395<|level|>2\n<|id|>396<|level|>3\n<|id|>403<|level|>3\n<|id|>424<|level|>4\n<|id|>430<|level|>3\n<|id|>443<|level|>4\n<|id|>446<|level|>3\n<|id|>491<|level|>3\n<|id|>534<|level|>3\n<|id|>538<|level|>4\n<|id|>543<|level|>5\n<|id|>546<|level|>5\n<|id|>549<|level|>2\n<|id|>550<|level|>3\n<|id|>554<|level|>4\n<|id|>563<|level|>3\n<|id|>634<|level|>3\n<|id|>686<|level|>4\n<|id|>722<|level|>2\n<|id|>723<|level|>3\n<|id|>726<|level|>4\n<|id|>733<|level|>4\n<|id|>741<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 4
+        },
+        {
+            "id": 57,
+            "level": 4
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 63,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 67,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 73,
+            "level": 4
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 79,
+            "level": 4
+        },
+        {
+            "id": 81,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 4
+        },
+        {
+            "id": 85,
+            "level": 4
+        },
+        {
+            "id": 87,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 93,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 99,
+            "level": 4
+        },
+        {
+            "id": 101,
+            "level": 4
+        },
+        {
+            "id": 103,
+            "level": 4
+        },
+        {
+            "id": 105,
+            "level": 4
+        },
+        {
+            "id": 107,
+            "level": 4
+        },
+        {
+            "id": 109,
+            "level": 4
+        },
+        {
+            "id": 111,
+            "level": 4
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 4
+        },
+        {
+            "id": 153,
+            "level": 4
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 4
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 4
+        },
+        {
+            "id": 181,
+            "level": 5
+        },
+        {
+            "id": 188,
+            "level": 5
+        },
+        {
+            "id": 194,
+            "level": 4
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 225,
+            "level": 4
+        },
+        {
+            "id": 231,
+            "level": 4
+        },
+        {
+            "id": 233,
+            "level": 2
+        },
+        {
+            "id": 234,
+            "level": 3
+        },
+        {
+            "id": 249,
+            "level": 4
+        },
+        {
+            "id": 251,
+            "level": 3
+        },
+        {
+            "id": 272,
+            "level": 3
+        },
+        {
+            "id": 283,
+            "level": 3
+        },
+        {
+            "id": 285,
+            "level": 4
+        },
+        {
+            "id": 287,
+            "level": 5
+        },
+        {
+            "id": 291,
+            "level": 4
+        },
+        {
+            "id": 293,
+            "level": 5
+        },
+        {
+            "id": 298,
+            "level": 4
+        },
+        {
+            "id": 300,
+            "level": 2
+        },
+        {
+            "id": 301,
+            "level": 3
+        },
+        {
+            "id": 323,
+            "level": 4
+        },
+        {
+            "id": 326,
+            "level": 3
+        },
+        {
+            "id": 327,
+            "level": 4
+        },
+        {
+            "id": 338,
+            "level": 5
+        },
+        {
+            "id": 340,
+            "level": 4
+        },
+        {
+            "id": 346,
+            "level": 5
+        },
+        {
+            "id": 355,
+            "level": 5
+        },
+        {
+            "id": 357,
+            "level": 4
+        },
+        {
+            "id": 364,
+            "level": 5
+        },
+        {
+            "id": 366,
+            "level": 4
+        },
+        {
+            "id": 373,
+            "level": 3
+        },
+        {
+            "id": 374,
+            "level": 4
+        },
+        {
+            "id": 378,
+            "level": 5
+        },
+        {
+            "id": 380,
+            "level": 4
+        },
+        {
+            "id": 384,
+            "level": 5
+        },
+        {
+            "id": 386,
+            "level": 4
+        },
+        {
+            "id": 389,
+            "level": 4
+        },
+        {
+            "id": 393,
+            "level": 5
+        },
+        {
+            "id": 395,
+            "level": 2
+        },
+        {
+            "id": 396,
+            "level": 3
+        },
+        {
+            "id": 403,
+            "level": 3
+        },
+        {
+            "id": 424,
+            "level": 4
+        },
+        {
+            "id": 430,
+            "level": 3
+        },
+        {
+            "id": 443,
+            "level": 4
+        },
+        {
+            "id": 446,
+            "level": 3
+        },
+        {
+            "id": 491,
+            "level": 3
+        },
+        {
+            "id": 534,
+            "level": 3
+        },
+        {
+            "id": 538,
+            "level": 4
+        },
+        {
+            "id": 543,
+            "level": 5
+        },
+        {
+            "id": 546,
+            "level": 5
+        },
+        {
+            "id": 549,
+            "level": 2
+        },
+        {
+            "id": 550,
+            "level": 3
+        },
+        {
+            "id": 554,
+            "level": 4
+        },
+        {
+            "id": 563,
+            "level": 3
+        },
+        {
+            "id": 634,
+            "level": 3
+        },
+        {
+            "id": 686,
+            "level": 4
+        },
+        {
+            "id": 722,
+            "level": 2
+        },
+        {
+            "id": 723,
+            "level": 3
+        },
+        {
+            "id": 726,
+            "level": 4
+        },
+        {
+            "id": 733,
+            "level": 4
+        },
+        {
+            "id": 741,
+            "level": 3
+        }
+    ]
+}

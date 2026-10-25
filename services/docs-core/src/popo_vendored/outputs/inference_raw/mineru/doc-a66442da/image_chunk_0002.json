@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        99,
+        106
+    ],
+    "pages": [
+        99,
+        100,
+        102,
+        103,
+        104,
+        105,
+        106
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1015<|type|>table<|page|>99<|box|>128 113 529 898<|content|>None\n<|id|>1016<|type|>table<|page|>99<|box|>574 111 749 896<|content|>None\n<|id|>1017<|type|>table<|page|>99<|box|>783 111 889 896<|content|>None\n<|id|>1018<|type|>table<|page|>100<|box|>149 99 237 884<|content|>None\n<|id|>1019<|type|>table<|page|>100<|box|>271 97 381 883<|content|>None\n<|id|>1020<|type|>table<|page|>100<|box|>415 97 524 883<|content|>None\n<|id|>1021<|type|>table<|page|>100<|box|>558 97 646 883<|content|>None\n<|id|>1022<|type|>title<|page|>100<|box|>678 94 695 247<|content|>12.5 质量管理\n<|id|>1035<|type|>title<|page|>102<|box|>191 94 214 738<|content|>附录 A 侧向浸水加州承载比(MCBR)试验方法\n<|id|>1036<|type|>title<|page|>102<|box|>280 94 296 242<|content|>A.1 适用范围\n<|id|>1039<|type|>title<|page|>102<|box|>408 94 425 240<|content|>A.2 仪器设备\n<|id|>1042<|type|>image<|page|>102<|box|>568 180 735 802<|content|>None\n<|id|>1047<|type|>image<|page|>103<|box|>131 276 380 692<|content|>None\n<|id|>1050<|type|>image<|page|>103<|box|>541 195 690 379<|content|>None\n<|id|>1051<|type|>image<|page|>103<|box|>539 618 685 756<|content|>None\n<|id|>1059<|type|>title<|page|>104<|box|>334 106 352 252<|content|>A.3 试样制备\n<|id|>1064<|type|>title<|page|>104<|box|>615 106 631 252<|content|>A.4 试验步骤\n<|id|>1073<|type|>title<|page|>105<|box|>345 118 362 500<|content|>A.4.5 按以下步骤和要求进行贯入试验：\n<|id|>1077<|type|>title<|page|>105<|box|>496 97 511 245<|content|>A.5 结果整理\n<|id|>1079<|type|>title<|page|>106<|box|>193 118 216 403<|content|>本规范用词用语说明",
+    "raw_response": "<|src_id|>1042<|tgt_id|>1039\n<|src_id|>1047<|tgt_id|>1039\n<|src_id|>1050<|tgt_id|>1039\n<|src_id|>1051<|tgt_id|>1039",
+    "parsed": [
+        {
+            "src_id": 1042,
+            "tgt_id": 1039
+        },
+        {
+            "src_id": 1047,
+            "tgt_id": 1039
+        },
+        {
+            "src_id": 1050,
+            "tgt_id": 1039
+        },
+        {
+            "src_id": 1051,
+            "tgt_id": 1039
+        }
+    ]
+}

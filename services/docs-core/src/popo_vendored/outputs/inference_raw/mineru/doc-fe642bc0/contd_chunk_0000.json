@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>150 140 167 570<|content|>CRESTLINE PACKAGING SOLUTIONS LLC, et al. ... ,\n<|id|>3<|page|>1<|box|>176 212 191 279<|content|>Debtors. ... Debtors\n<|id|>14<|page|>1<|box|>869 140 905 854<|content|>6. ... on or about June 8, 2022, as reflected in t...en engagement letter of that date (the \"Engagement\n<|id|>15<|page|>2<|box|>90 174 199 854<|content|>Letter\"), to serve as debtor's counsel in connecti...ith the Debtors' principal creditor constituencies\n<|id|>62<|page|>5<|box|>869 174 907 854<|content|>(b) In 2021, C&H represented Thornfield Capital Pa...certain reporting obligations under the Investment\n<|id|>63<|page|>6<|box|>90 174 143 854<|content|>Advisers Act of 1940. ... This engagement was conc... other party in interest in these Chapter 11 cases\n<|id|>72<|page|>6<|box|>816 140 907 856<|content|>28. ... The Firm does not currently represent Ridgeline\n<|id|>73<|page|>7<|box|>90 174 143 854<|content|>National Bank, N. ... The Firm's prior representat...reate any interest adverse to the Debtors' estates\n<|id|>94<|page|>8<|box|>834 140 890 854<|content|>41. ... 1 million in principal amount of the\n<|id|>95<|page|>9<|box|>90 174 125 854<|content|>Second Lien Notes. ... The principal of Millhaven responsible for the CPS investment is Karen Ostrowski\n<|id|>128<|page|>11<|box|>832 140 904 856<|content|>61. ... (\"Meridian\"), an Ohio corporation, is the ...he Debtors' Plant 4 facility, 1480 State Route 59,\n<|id|>129<|page|>12<|box|>90 174 126 854<|content|>Ravenna, Ohio 44266 (the \"Equipment Lease\"). ... The Equipment Lease is being assumed under the Plan\n<|id|>158<|page|>15<|box|>213 140 246 854<|content|>Colette Whitman Responsible Partner, Bankruptcy & ...York, New York 10112 Telephone: ... (212) 558-4000\n<|id|>159<|page|>15<|box|>247 142 262 473<|content|>Email: ... com\n<|id|>160<|page|>15<|box|>263 140 280 584<|content|>Proposed Counsel to the Debtors and Debtors in Possession\n<|id|>214<|page|>16<|box|>747 181 799 854<|content|>• United States Trustee for Region 9, Northern Dis...rthouse, 201 Superior Avenue, Cleveland, OH 44114)\n<|id|>215<|page|>16<|box|>801 140 864 854<|content|>This Exhibit A is a list of the parties in interes... are identified during the pendency of these cases",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>62<|tgt_id|>63\n<|src_id|>72<|tgt_id|>73\n<|src_id|>94<|tgt_id|>95\n<|src_id|>128<|tgt_id|>129",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 129
+        }
+    ]
+}

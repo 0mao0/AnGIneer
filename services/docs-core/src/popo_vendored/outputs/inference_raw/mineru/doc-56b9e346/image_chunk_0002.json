@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        97,
+        116
+    ],
+    "pages": [
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        105,
+        106,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        115,
+        116
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>911<|type|>title<|page|>97<|box|>90 250 109 746<|content|>SCHEDULE 7 — INTELLECTUAL PROPERTY\n<|id|>913<|type|>title<|page|>98<|box|>90 339 109 658<|content|>SCHEDULE 8 — INSURANCE\n<|id|>914<|type|>table<|page|>98<|box|>159 143 263 852<|content|>None\n<|id|>915<|type|>title<|page|>98<|box|>311 143 328 269<|content|>Broker Contact\n<|id|>918<|type|>title<|page|>99<|box|>90 334 109 661<|content|>SCHEDULE 9 — LITIGATION\n<|id|>920<|type|>title<|page|>100<|box|>90 263 109 733<|content|>SCHEDULE 10 — MATERIAL CONTRACTS\n<|id|>922<|type|>title<|page|>101<|box|>90 184 109 813<|content|>SCHEDULE 11 — DEPOSIT AND SECURITIES ACCOUNTS\n<|id|>923<|type|>table<|page|>101<|box|>160 143 329 852<|content|>None\n<|id|>924<|type|>table<|page|>101<|box|>402 145 472 851<|content|>None\n<|id|>925<|type|>title<|page|>102<|box|>90 230 109 766<|content|>SCHEDULE 12 — POST-CLOSING OBLIGATIONS\n<|id|>926<|type|>table<|page|>102<|box|>127 143 268 852<|content|>None\n<|id|>928<|type|>title<|page|>103<|box|>90 230 109 767<|content|>EXHIBIT A — FORM OF BORROWING REQUEST\n<|id|>929<|type|>title<|page|>103<|box|>128 142 145 357<|content|>BORROWING REQUEST\n<|id|>951<|type|>title<|page|>105<|box|>90 200 109 797<|content|>EXHIBIT B — FORM OF COMPLIANCE CERTIFICATE\n<|id|>952<|type|>title<|page|>105<|box|>128 140 143 403<|content|>COMPLIANCE CERTIFICATE\n<|id|>962<|type|>title<|page|>106<|box|>90 142 107 581<|content|>Annex III — Financial Covenant and Ratio Calculati\n<|id|>963<|type|>title<|page|>106<|box|>121 142 138 401<|content|>A. First Lien Net Leverage Ratio\n<|id|>969<|type|>title<|page|>106<|box|>253 143 270 364<|content|>B. Total Net Leverage Ratio\n<|id|>975<|type|>title<|page|>106<|box|>386 142 402 517<|content|>C. Excess Cash Flow Calculation (Annual Only)\n<|id|>986<|type|>title<|page|>106<|box|>617 143 633 527<|content|>D. ECF Percentage Determination (Annual Only)\n<|id|>990<|type|>title<|page|>106<|box|>710 143 727 563<|content|>E. Mandatory Prepayment Calculation (Annual Only)\n<|id|>1000<|type|>title<|page|>108<|box|>90 330 109 668<|content|>EXHIBIT C — FORM OF NOTE\n<|id|>1001<|type|>title<|page|>108<|box|>128 142 143 326<|content|>PROMISSORY NOTE\n<|id|>1012<|type|>title<|page|>109<|box|>90 176 109 818<|content|>EXHIBIT D — FORM OF ASSIGNMENT AND ASSUMPTION\n<|id|>1013<|type|>title<|page|>109<|box|>128 140 145 437<|content|>ASSIGNMENT AND ASSUMPTION\n<|id|>1015<|type|>title<|page|>109<|box|>324 142 340 258<|content|>1. Assignment\n<|id|>1022<|type|>title<|page|>109<|box|>531 140 549 418<|content|>2. Representations and Warranties\n<|id|>1032<|type|>title<|page|>110<|box|>90 140 107 315<|content|>3. General Provisions\n<|id|>1053<|type|>title<|page|>111<|box|>90 227 109 769<|content|>EXHIBIT E — FORM OF CLOSING CERTIFICATE\n<|id|>1054<|type|>title<|page|>111<|box|>128 140 145 361<|content|>CLOSING CERTIFICATE\n<|id|>1065<|type|>title<|page|>112<|box|>90 217 109 779<|content|>EXHIBIT F — FORM OF SOLVENCY CERTIFICATE\n<|id|>1066<|type|>title<|page|>112<|box|>128 140 143 377<|content|>SOLVENCY CERTIFICATE\n<|id|>1079<|type|>title<|page|>113<|box|>90 192 109 803<|content|>EXHIBIT G — FORM OF INCREMENTAL AMENDMENT\n<|id|>1080<|type|>title<|page|>113<|box|>128 140 143 413<|content|>INCREMENTAL AMENDMENT\n<|id|>1112<|type|>title<|page|>115<|box|>90 230 109 767<|content|>EXHIBIT H — FORM OF INTERCOMPANY NOTE\n<|id|>1113<|type|>title<|page|>115<|box|>128 140 143 356<|content|>INTERCOMPANY NOTE\n<|id|>1126<|type|>title<|page|>116<|box|>89 385 109 611<|content|>SIGNATURE PAGES",
+    "raw_response": "<|src_id|>914<|tgt_id|>913\n<|src_id|>923<|tgt_id|>922\n<|src_id|>924<|tgt_id|>922\n<|src_id|>926<|tgt_id|>925",
+    "parsed": [
+        {
+            "src_id": 914,
+            "tgt_id": 913
+        },
+        {
+            "src_id": 923,
+            "tgt_id": 922
+        },
+        {
+            "src_id": 924,
+            "tgt_id": 922
+        },
+        {
+            "src_id": 926,
+            "tgt_id": 925
+        }
+    ]
+}

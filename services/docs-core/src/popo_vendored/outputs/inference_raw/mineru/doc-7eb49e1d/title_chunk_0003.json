@@ -1,0 +1,34 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        160,
+        175
+    ],
+    "pages": [
+        161,
+        172,
+        174,
+        175
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>234<|page|>161<|box|>189 434 217 565<|content|>九、其他机械\n<|id|>246<|page|>172<|box|>174 157 201 203<|content|>附表1\n<|id|>249<|page|>174<|box|>163 157 186 200<|content|>附表 2\n<|id|>251<|page|>175<|box|>296 253 383 742<|content|>本定额主编单位、主要起草人、主要审查人、总校人员和管理组人员名单",
+    "raw_response": "<|id|>234<|level|>1\n<|id|>246<|level|>1\n<|id|>249<|level|>1\n<|id|>251<|level|>1",
+    "parsed": [
+        {
+            "id": 234,
+            "level": 1
+        },
+        {
+            "id": 246,
+            "level": 1
+        },
+        {
+            "id": 249,
+            "level": 1
+        },
+        {
+            "id": 251,
+            "level": 1
+        }
+    ]
+}

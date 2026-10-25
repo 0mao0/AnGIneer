@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>200 174 238 820<|content|>PRAIRIE BASIN GRAIN CO. ... MUSGRAVE, individually,\n<|id|>3<|page|>1<|box|>246 452 262 544<|content|>Defendants. ... Defendants\n<|id|>4<|page|>1<|box|>272 665 289 854<|content|>Case No. ... 2022-L-004831\n<|id|>5<|page|>1<|box|>297 555 316 854<|content|>Hon. ... Patricia Delacroix, Judge Presiding\n<|id|>13<|page|>2<|box|>234 140 272 854<|content|>A. ... The Force Majeure Defense Should Be Stricke...Majeure Clause Does Not Excuse Payment Obligations\n<|id|>15<|page|>2<|box|>489 140 525 854<|content|>The force majeure clause contained in Section 9. ... It provides, in pertinent part\n<|id|>30<|page|>5<|box|>183 140 220 854<|content|>B. ... The Commercial Impracticability Defense Sho...Not Constitute Impracticability Under Illinois Law\n<|id|>32<|page|>5<|box|>382 140 565 857<|content|>The standard is demanding and intentionally so. .....as merely become more expensive or less profitable\n<|id|>59<|page|>8<|box|>724 140 739 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>60<|page|>8<|box|>742 143 758 251<|content|>By: ... By\n<|id|>61<|page|>8<|box|>758 140 773 426<|content|>Hannah Brinkley ARDC No. ... 6325148\n<|id|>62<|page|>8<|box|>775 140 808 854<|content|>Calderwood & Harkness LLP 225 West Wacker Drive, S...cago, Illinois 60606 Telephone: ... (312) 555-4201\n<|id|>63<|page|>8<|box|>809 142 825 470<|content|>Email: ... com\n<|id|>64<|page|>8<|box|>825 142 843 584<|content|>Attorneys for Plaintiff Greenfield Agricultural Partners LLC\n<|id|>65<|page|>8<|box|>844 691 859 854<|content|>Filed: ... August 8, 2022\n<|id|>68<|page|>9<|box|>170 174 207 852<|content|>Douglas M. ... (312) 555-7800\n<|id|>69<|page|>9<|box|>214 176 231 397<|content|>Email: ... com\n<|id|>70<|page|>9<|box|>232 176 250 720<|content|>Counsel for Defendants Prairie Basin Grain Co. ... Musgrave",
+    "raw_response": "<|src_id|>2<|tgt_id|>3",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        }
+    ]
+}

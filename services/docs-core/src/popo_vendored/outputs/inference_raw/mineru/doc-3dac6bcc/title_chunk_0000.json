@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>367 140 383 436<|content|>I. Introduction and Purpose of Letter\n<|id|>14<|page|>2<|box|>148 140 167 344<|content|>II. Transaction Overview\n<|id|>20<|page|>2<|box|>777 140 794 457<|content|>III. Calderwood & Harkness Deal Team\n<|id|>38<|page|>3<|box|>842 140 859 421<|content|>IV. Proposed Transaction Timeline\n<|id|>43<|page|>5<|box|>148 140 167 606<|content|>V. Due Diligence Request List — Transmission and P\n<|id|>74<|page|>7<|box|>473 140 489 750<|content|>VI. Proposed Working Protocol for Document Exchang\n<|id|>85<|page|>9<|box|>150 140 167 483<|content|>VII. Key Preliminary Matters for Attention\n<|id|>97<|page|>10<|box|>830 140 848 277<|content|>VIII. Enclosures\n<|id|>102<|page|>11<|box|>262 140 279 383<|content|>IX. Conclusion and Next Steps",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>20<|level|>2\n<|id|>38<|level|>2\n<|id|>43<|level|>2\n<|id|>74<|level|>2\n<|id|>85<|level|>2\n<|id|>97<|level|>2\n<|id|>102<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        }
+    ]
+}

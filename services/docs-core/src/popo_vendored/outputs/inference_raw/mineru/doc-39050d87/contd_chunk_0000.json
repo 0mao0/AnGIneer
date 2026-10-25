@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>335 140 390 854<|content|>Re: ... 10,234,567 (\"'567 Patent\"), 10,891,234 (\"'234 Patent\"), and 11,312,890 (\"'890 Patent\")\n<|id|>3<|page|>1<|box|>398 140 452 854<|content|>Deposition Context: ... Victoria \"Tori\" Ashworth a...el Kowalski of Brannick Howell & Stein LLP (\"BHS\")\n<|id|>27<|page|>3<|box|>872 145 909 854<|content|>• The OWS-800LR coherent optical transceiver chips...center and campus networking applications; ... and\n<|id|>29<|page|>4<|box|>128 140 181 854<|content|>OWS reported fiscal year 2022 revenue of approxima...team of approximately 180 engineers and scientists\n<|id|>74<|page|>7<|box|>310 174 345 854<|content|>\"An integrated optical coupler comprising a tapere...oupled to a silicon nitride waveguide layer… ... \"\n<|id|>75<|page|>7<|box|>354 140 391 854<|content|>The term \"adiabatically coupled\" is the principal ...The parties' proposed constructions are as follows",
+    "raw_response": "<|src_id|>27<|tgt_id|>29",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 29
+        }
+    ]
+}

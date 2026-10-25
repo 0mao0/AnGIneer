@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        197,
+        212
+    ],
+    "pages": [
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        205,
+        207,
+        209,
+        210,
+        212
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1929<|type|>title<|page|>197<|box|>147 32 161 176<|content|>Spanish Translation\n<|id|>1939<|type|>title<|page|>198<|box|>117 32 132 160<|content|>NETHERLANDS\n<|id|>1941<|type|>title<|page|>198<|box|>189 34 204 107<|content|>POLAND\n<|id|>1942<|type|>title<|page|>198<|box|>218 34 233 120<|content|>Notifications\n<|id|>1944<|type|>title<|page|>198<|box|>361 34 376 98<|content|>RUSSIA\n<|id|>1945<|type|>title<|page|>198<|box|>390 35 406 122<|content|>Notifications\n<|id|>1951<|type|>title<|page|>199<|box|>186 34 200 133<|content|>SINGAPORE\n<|id|>1952<|type|>title<|page|>199<|box|>215 34 231 122<|content|>Notifications\n<|id|>1955<|type|>title<|page|>199<|box|>474 34 489 86<|content|>SPAIN\n<|id|>1961<|type|>title<|page|>200<|box|>405 34 421 122<|content|>Notifications\n<|id|>1968<|type|>title<|page|>201<|box|>388 34 402 107<|content|>SWEDEN\n<|id|>1970<|type|>title<|page|>201<|box|>460 34 474 104<|content|>TAIWAN\n<|id|>1971<|type|>title<|page|>201<|box|>489 35 503 122<|content|>Notifications\n<|id|>1975<|type|>title<|page|>202<|box|>189 34 204 125<|content|>THAILAND\n<|id|>1976<|type|>title<|page|>202<|box|>218 34 233 122<|content|>Notifications\n<|id|>1978<|type|>title<|page|>202<|box|>376 34 391 107<|content|>TURKEY\n<|id|>1979<|type|>title<|page|>202<|box|>405 34 421 122<|content|>Notifications\n<|id|>1982<|type|>title<|page|>203<|box|>59 34 74 236<|content|>UNITED ARAB EMIRATES\n<|id|>1983<|type|>title<|page|>203<|box|>89 35 103 122<|content|>Notifications\n<|id|>1986<|type|>title<|page|>203<|box|>247 34 261 184<|content|>UNITED KINGDOM\n<|id|>1993<|type|>table<|page|>205<|box|>113 71 810 746<|content|>None\n<|id|>1999<|type|>title<|page|>207<|box|>53 295 69 702<|content|>Consent of Independent Registered Public Accountin\n<|id|>2034<|type|>title<|page|>209<|box|>90 421 103 575<|content|>POWER OF ATTORNEY\n<|id|>2036<|type|>table<|page|>209<|box|>224 34 724 640<|content|>None\n<|id|>2037<|type|>title<|page|>210<|box|>59 333 85 665<|content|>Certification of Chief Executive Officer Pursuant\n<|id|>2038<|type|>title<|page|>210<|box|>94 32 109 197<|content|>I, Lisa T. Su, certify that:\n<|id|>2053<|type|>title<|page|>212<|box|>56 300 88 697<|content|>Certification of Chief Financial Officer Pursuant",
+    "raw_response": "<|src_id|>1993<|tgt_id|>1986\n<|src_id|>2036<|tgt_id|>2034",
+    "parsed": [
+        {
+            "src_id": 1993,
+            "tgt_id": 1986
+        },
+        {
+            "src_id": 2036,
+            "tgt_id": 2034
+        }
+    ]
+}

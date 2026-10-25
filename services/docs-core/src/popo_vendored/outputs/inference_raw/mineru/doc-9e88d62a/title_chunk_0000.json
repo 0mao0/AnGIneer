@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 171 143 825<|content|>SECRETARY'S CERTIFICATE OF STONEFIELD LOGISTICS GR\n<|id|>3<|page|>1<|box|>303 142 320 250<|content|>Delivered to:\n<|id|>9<|page|>1<|box|>479 142 498 251<|content|>PREAMBLE\n<|id|>22<|page|>2<|box|>641 140 659 307<|content|>CERTIFICATIONS\n<|id|>23<|page|>2<|box|>672 142 689 380<|content|>1. Certificate of Incorporation\n<|id|>26<|page|>3<|box|>231 140 248 310<|content|>3. Board Resolutions\n<|id|>44<|page|>5<|box|>239 140 256 284<|content|>4. Good Standing\n<|id|>46<|page|>5<|box|>458 140 474 349<|content|>5. Incumbency Certificate\n<|id|>51<|page|>6<|box|>223 140 239 315<|content|>Specimen Signatures:\n<|id|>58<|page|>6<|box|>388 140 406 287<|content|>6. No Proceedings\n<|id|>60<|page|>6<|box|>626 140 643 390<|content|>7. No Amendments or Conflicts\n<|id|>63<|page|>7<|box|>258 140 276 354<|content|>GENERAL PROVISIONS\n<|id|>68<|page|>7<|box|>604 142 622 236<|content|>EXHIBITS\n<|id|>75<|page|>8<|box|>88 143 125 852<|content|>SIGNATURE PAGE TO SECRETARY'S CERTIFICATE OF STONE\n<|id|>84<|page|>8<|box|>320 140 337 392<|content|>COUNTER-CERTIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>-1\n<|id|>9<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>26<|level|>3\n<|id|>44<|level|>3\n<|id|>46<|level|>3\n<|id|>51<|level|>3\n<|id|>58<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>2\n<|id|>68<|level|>2\n<|id|>75<|level|>2\n<|id|>84<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        }
+    ]
+}

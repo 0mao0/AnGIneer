@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        53
+    ],
+    "pages": [
+        47,
+        49,
+        50,
+        52,
+        53
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>291<|type|>title<|page|>47<|box|>89 428 107 570<|content|>SCHEDULE 3.20\n<|id|>292<|type|>title<|page|>47<|box|>131 261 148 735<|content|>ASSUMED LIABILITIES AND EXCLUDED LIABILITIES\n<|id|>293<|type|>title<|page|>47<|box|>162 142 179 473<|content|>3.20(a) — Assumed Liabilities (Estimated)\n<|id|>295<|type|>table<|page|>47<|box|>227 143 535 852<|content|>None\n<|id|>297<|type|>title<|page|>47<|box|>619 142 637 383<|content|>3.20(b) — Excluded Liabilities\n<|id|>307<|type|>title<|page|>49<|box|>89 426 107 570<|content|>SCHEDULE 3.21\n<|id|>308<|type|>title<|page|>49<|box|>131 241 148 754<|content|>PURCHASED ASSETS AND EXCLUDED ASSETS SUMMARY\n<|id|>309<|type|>title<|page|>49<|box|>162 140 179 362<|content|>3.21(a) — Purchased Assets\n<|id|>326<|type|>title<|page|>50<|box|>513 140 532 354<|content|>3.21(b) — Excluded Assets\n<|id|>337<|type|>title<|page|>52<|box|>87 452 109 545<|content|>ANNEX A\n<|id|>338<|type|>title<|page|>52<|box|>127 433 148 565<|content|>DEFINITIONS\n<|id|>339<|type|>table<|page|>52<|box|>273 143 905 852<|content|>None\n<|id|>340<|type|>table<|page|>53<|box|>89 143 294 852<|content|>None\n<|id|>342<|type|>title<|page|>53<|box|>372 491 383 504<|content|>*",
+    "raw_response": "<|src_id|>295<|tgt_id|>293\n<|src_id|>339<|tgt_id|>338\n<|src_id|>340<|tgt_id|>338",
+    "parsed": [
+        {
+            "src_id": 295,
+            "tgt_id": 293
+        },
+        {
+            "src_id": 339,
+            "tgt_id": 338
+        },
+        {
+            "src_id": 340,
+            "tgt_id": 338
+        }
+    ]
+}

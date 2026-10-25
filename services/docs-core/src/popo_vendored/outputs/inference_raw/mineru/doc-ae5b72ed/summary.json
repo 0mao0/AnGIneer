@@ -1,0 +1,895 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-h2mo8ljz\\input\\pdfs\\doc-ae5b72ed.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-h2mo8ljz\\enriched\\doc-ae5b72ed.json",
+    "contd_output": "<|src_id|>189<|tgt_id|>190\n<|src_id|>227<|tgt_id|>228",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>8<|level|>2\n<|id|>17<|level|>3\n<|id|>29<|level|>3\n<|id|>49<|level|>3\n<|id|>58<|level|>3\n<|id|>63<|level|>2\n<|id|>90<|level|>2\n<|id|>95<|level|>2\n<|id|>97<|level|>3\n<|id|>101<|level|>3\n<|id|>106<|level|>3\n<|id|>109<|level|>4\n<|id|>110<|level|>3\n<|id|>116<|level|>4\n<|id|>117<|level|>3\n<|id|>124<|level|>3\n<|id|>127<|level|>3\n<|id|>132<|level|>3\n<|id|>140<|level|>3\n<|id|>144<|level|>4\n<|id|>151<|level|>2\n<|id|>152<|level|>3\n<|id|>161<|level|>3\n<|id|>171<|level|>3\n<|id|>183<|level|>3\n<|id|>191<|level|>2\n<|id|>193<|level|>3\n<|id|>200<|level|>3\n<|id|>207<|level|>3\n<|id|>214<|level|>3\n<|id|>229<|level|>2",
+    "image_output": "<|src_id|>98<|tgt_id|>97\n<|src_id|>100<|tgt_id|>97\n<|src_id|>102<|tgt_id|>101\n<|src_id|>103<|tgt_id|>101\n<|src_id|>104<|tgt_id|>101\n<|src_id|>107<|tgt_id|>106\n<|src_id|>108<|tgt_id|>106\n<|src_id|>111<|tgt_id|>110\n<|src_id|>112<|tgt_id|>110\n<|src_id|>113<|tgt_id|>110\n<|src_id|>114<|tgt_id|>110\n<|src_id|>115<|tgt_id|>110\n<|src_id|>118<|tgt_id|>117\n<|src_id|>119<|tgt_id|>117\n<|src_id|>120<|tgt_id|>117\n<|src_id|>121<|tgt_id|>117\n<|src_id|>125<|tgt_id|>124\n<|src_id|>128<|tgt_id|>127\n<|src_id|>129<|tgt_id|>127\n<|src_id|>130<|tgt_id|>127\n<|src_id|>133<|tgt_id|>132\n<|src_id|>134<|tgt_id|>132\n<|src_id|>136<|tgt_id|>132\n<|src_id|>137<|tgt_id|>132\n<|src_id|>138<|tgt_id|>132\n<|src_id|>139<|tgt_id|>132\n<|src_id|>141<|tgt_id|>140\n<|src_id|>142<|tgt_id|>140\n<|src_id|>143<|tgt_id|>140\n<|src_id|>146<|tgt_id|>144\n<|src_id|>147<|tgt_id|>144\n<|src_id|>148<|tgt_id|>144\n<|src_id|>149<|tgt_id|>144\n<|src_id|>150<|tgt_id|>144\n<|src_id|>231<|tgt_id|>229\n<|src_id|>232<|tgt_id|>229",
+    "contd_label": [
+        {
+            "src_id": 189,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 228
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 4
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 4
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 4
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 207,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 3
+        },
+        {
+            "id": 229,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 98,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 231,
+            "tgt_id": 229
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 229
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 103,
+            "table2_idx": 104,
+            "upper_row_ss": [
+                [
+                    "6",
+                    "Zynvaro Distribution Holdings LLC",
+                    "Bldg 1, Full Building",
+                    "04/01/2019",
+                    "538,000",
+                    "$7,532,000",
+                    "$628,000",
+                    "5500 Wayzata Blvd, Suite 700, Minneapolis, MN 55416, Attn: VP",
+                    "Gregory Swanson / gswanson@mercer dist.com",
+                    "Certified Mail + Email",
+                    "-",
+                    "-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Real Estate",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 107,
+            "table2_idx": 108,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "Greenfield Agricultural Supply Corp.",
+                    "Bldg B, Unit 1",
+                    "03/01/2022",
+                    "82,000",
+                    "$1,066,000",
+                    "$89,000",
+                    "P.O. Box 7810, Amari llo, TX 79114, Attn: Office of Lease Admin istration",
+                    "— / leasea dmin @greenfieldags.com",
+                    "First-Class Mail + Email",
+                    "-",
+                    "-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "10",
+                    "Crossroads E-Commerce Logistics LLC",
+                    "Bldg B, Unit 2",
+                    "08/15/2022",
+                    "80,000",
+                    "$1,120,000",
+                    "$93,000",
+                    "2800 Alliance Gateway Blvd, Unit B2, Fort Worth, TX 76177",
+                    "Nathan Reeves / nreeves@crossroad secl.com",
+                    "First-Class Mail + Email",
+                    "-",
+                    "-"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 111,
+            "table2_idx": 112,
+            "upper_row_ss": [
+                [
+                    "13",
+                    "Pinnacle Packa",
+                    "Bldg 2, Unit 200",
+                    "02/15/2021",
+                    "48,000",
+                    "$624,000",
+                    "$52,000",
+                    "1250 Lakeland",
+                    "Sandra Weatherly /",
+                    "First-Class Mail +",
+                    "-",
+                    "-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "gingSolutions Corp.",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Hills Blvd, Lakeland, FL 33805",
+                    "sweatherly@pinnaclepkg.com",
+                    "Email",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 113,
+            "table2_idx": 114,
+            "upper_row_ss": [
+                [
+                    "15",
+                    "Atlas Freight Logistics Corp.",
+                    "Full Building",
+                    "12/01/2018",
+                    "410,000",
+                    "$5,330,000",
+                    "$444,000",
+                    "9700 NW 112th Avenue, Suite 400, Miami, FL 33178, Attn: SVP Real Estate & Facilities",
+                    "Daniel Ortega / dortega@atlasfreight.com",
+                    "Overnight Courier + Email",
+                    "-",
+                    "-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "16",
+                    "MidSouth Paper & Packaging Corp.",
+                    "Bldg A, Units 1-4",
+                    "08/01/2019",
+                    "210,000",
+                    "$2,730,000",
+                    "$228,000",
+                    "1600 Joe B. Jackson Parkway, Unit 1, Murfreesboro, TN 37127",
+                    "Ronald Adkins / radkins@midsouth pp.com",
+                    "First-Class Mail + Email",
+                    "-",
+                    "-"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 114,
+            "table2_idx": 115,
+            "upper_row_ss": [
+                [
+                    "19",
+                    "Heritage Home Furnishings Distribution Co.",
+                    "Bldg B, Unit 2",
+                    "07/01/2021",
+                    "60,000",
+                    "$780,000",
+                    "$65,000",
+                    "6200 Poplar Avenue, Suite 1000, Memphis, TN 38119",
+                    "Laura Engstrom / lengstrom@heritage hf.com",
+                    "First-Class Mail + Email",
+                    "-",
+                    "-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "20",
+                    "Volunteer State Building Materials Inc.",
+                    "Bldg B, Unit 3",
+                    "01/15/2023",
+                    "40,000",
+                    "$520,000",
+                    "$43,000",
+                    "1600 Joe B. Jackson Parkway, Unit B3, Murfreesboro, TN 37127",
+                    "— / info@volstatebm.com",
+                    "First-Class Mail + Email",
+                    "-",
+                    "-"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 118,
+            "table2_idx": 119,
+            "upper_row_ss": [
+                [
+                    "23",
+                    "Redstone Digital Marketing",
+                    "Suite 1600",
+                    "04/01/2020",
+                    "22,000",
+                    "$770,000",
+                    "$64,000",
+                    "3380 Peachtree Road NE,",
+                    "Kevin Zhang / kzhang@red",
+                    "First-Class Mail + Email",
+                    "-",
+                    "-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Corp.",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Suite 1600, Atlanta, GA 30326",
+                    "stoned m.com",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 119,
+            "table2_idx": 120,
+            "upper_row_ss": [
+                [
+                    "28",
+                    "Horizon Insurance Brokerage LLC",
+                    "Suite 1100",
+                    "08/15/2021",
+                    "10,500",
+                    "$367,500",
+                    "$31,000",
+                    "3380 Peachtree Road NE, Suite 1100, Atlant",
+                    "Frank DeLuca / fdeluca@horizonins.com",
+                    "First-Class Mail + Email",
+                    "-",
+                    "-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "a, GA 30326",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 120,
+            "table2_idx": 121,
+            "upper_row_ss": [
+                [
+                    "33",
+                    "Riverview Accounting Associates PA",
+                    "Suite 600",
+                    "09/01/2022",
+                    "6,500",
+                    "$227,500",
+                    "$19,000",
+                    "3380 Peachtree Road NE, Suite 600, Atlanta, GA 30326",
+                    "Linda Fairbanks / lfairbanks@riverviewwacct.com",
+                    "First-Class Mail + Email",
+                    "-",
+                    "-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "34",
+                    "Evergreen Benefits Consulting Inc.",
+                    "Suite 500",
+                    "12/01/2022",
+                    "6,000",
+                    "$210,000",
+                    "$18,000",
+                    "3380 Peachtree Road NE, Suite 500, Atlanta, GA 30326",
+                    "Mark Oppenheimer / moppenheimer@evergreenbene.com",
+                    "First-Class Mail + Email",
+                    "-",
+                    "-"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 128,
+            "table2_idx": 129,
+            "upper_row_ss": [
+                [
+                    "40",
+                    "Brindoval Insurance Group LLC",
+                    "Suite 150",
+                    "04/15/2020",
+                    "22,000",
+                    "$660,000",
+                    "$55,000",
+                    "5000 Virginia Way, Suite 150, Brent",
+                    "Alan McMasters / amcmasters @crestviewi",
+                    "First-Class Mail + Email",
+                    "-",
+                    "-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "wood, TN 37027",
+                    "ns.com",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 129,
+            "table2_idx": 130,
+            "upper_row_ss": [
+                [
+                    "45",
+                    "Pinnacle IT Services Corp.",
+                    "Suite 450",
+                    "02/15/2022",
+                    "8,000",
+                    "$240,000",
+                    "$20,000",
+                    "5000 Virginia Way, Suite 450, Brent",
+                    "Maria Gonzalez / mgonzalez@pinnacleitser",
+                    "First-Class Mail + Email",
+                    "-",
+                    "-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "wood, TN 37027",
+                    "v.com",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 133,
+            "table2_idx": 134,
+            "upper_row_ss": [
+                [
+                    "49",
+                    "Trade",
+                    "Suite",
+                    "10/01/",
+                    "15,000",
+                    "$675,0",
+                    "$56,00",
+                    "1450",
+                    "Catali",
+                    "First-",
+                    "-",
+                    "-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "winds Real Estate Advisory LLC",
+                    "1900",
+                    "2019",
+                    "",
+                    "00",
+                    "0",
+                    "Bricke ll Avenue, Suite 1900, Miami, FL 33131",
+                    "na Reyes / creyes @trad ewind srea.com",
+                    "Class Mail + Email",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 137,
+            "table2_idx": 138,
+            "upper_row_ss": [
+                [
+                    "Item",
+                    "Tenant Name",
+                    "Suite/Unit",
+                    "Lease Date",
+                    "Leased RSF",
+                    "ABR",
+                    "Security Deposit",
+                    "Tenant Notice Addre",
+                    "Contact Name /",
+                    "Notice Method",
+                    "Sent Date",
+                    "Confirmed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "ss",
+                    "Email",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 138,
+            "table2_idx": 139,
+            "upper_row_ss": [
+                [
+                    "62",
+                    "Silver Line Electronics Wareh",
+                    "Bldg 2, Unit C",
+                    "10/01/2020",
+                    "30,000",
+                    "$390,000",
+                    "$33,000",
+                    "5900 Peachtree Industrial",
+                    "Howard Lam /hlam @silv",
+                    "First-Class Mail + Email",
+                    "-",
+                    "-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "ouse Inc.",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Blvd, Unit 2C, Peach tree Corners, GA 30071",
+                    "erlineew.com",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 141,
+            "table2_idx": 142,
+            "upper_row_ss": [
+                [
+                    "65",
+                    "Music City Distrib",
+                    "Bldg 1, Units",
+                    "06/01/2019",
+                    "120,000",
+                    "$1,560,000",
+                    "$130,000",
+                    "400 South Mount",
+                    "William Foster",
+                    "First-Class Mail +",
+                    "-",
+                    "-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "ution Corp.",
+                    "100-103",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Juliet Road, Unit 100, Mount Juliet, TN 37122",
+                    "/wfoster@musiccity dist.com",
+                    "Email",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 142,
+            "table2_idx": 143,
+            "upper_row_ss": [
+                [
+                    "70",
+                    "NashvilleWorks",
+                    "Bldg 3, Unit 300",
+                    "04/01/2022",
+                    "19,000",
+                    "$247,000",
+                    "$21,000",
+                    "400 South Mount",
+                    "Roger Clements /",
+                    "First-Class Mail +",
+                    "-",
+                    "-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Industrial Supply LLC",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Juliet Road, Unit 300, Mount Juliet, TN 37122",
+                    "rclements@nashvilleworks.com",
+                    "Email",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 146,
+            "table2_idx": 147,
+            "upper_row_ss": [
+                [
+                    "78",
+                    "Cool Springs Office",
+                    "Volunteer Risk Managem",
+                    "Suite 490",
+                    "11/15/2022",
+                    "2,000",
+                    "$60,000",
+                    "$5,000",
+                    "First-Class Mail +"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Park",
+                    "ent Corp.",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Email"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 231,
+            "table2_idx": 232,
+            "upper_row_ss": [
+                [
+                    "[Tenant Contact / \"Tenant\"]",
+                    "Name of the individual addressee for the salutation; where no specific contact is identified, the salutation",
+                    "Lease file / Argyle tenant records"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "will read \"Dear Tenant\"",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

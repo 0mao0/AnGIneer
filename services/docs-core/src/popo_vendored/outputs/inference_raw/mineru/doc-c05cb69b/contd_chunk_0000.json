@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        12,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>185 444 200 553<|content|>June 24, 2024\n<|id|>3<|page|>1<|box|>210 163 244 833<|content|>CONFIDENTIAL — SUBJECT TO CONTRACT — FOR DISCUSSION PURPOSES ONLY\n<|id|>4<|page|>1<|box|>253 140 285 854<|content|>Prepared by Calderwood & Harkness LLP, 299 Park Av...f Northgate Telecommunications PLC. ... 1022-00004\n<|id|>12<|page|>1<|box|>856 140 911 857<|content|>Note Regarding Dual Employment Structure: ... The UK Service Agreement will be prepared by Moorfield\n<|id|>13<|page|>2<|box|>89 138 164 857<|content|>Bates LLP in coordination with Calderwood & Harkne...eement is expressly made for coordination purposes\n<|id|>100<|page|>12<|box|>90 174 200 856<|content|>(ii) Merger or Consolidation. ... or\n<|id|>102<|page|>12<|box|>268 140 287 839<|content|>H&L's Position (v2 markup) — REJECTED: ... H&L proposed the addition of a fourth trigger\n<|id|>128<|page|>14<|box|>752 174 898 857<|content|>Based on preliminary analysis by the Employer's ta...le to the Executive than the receipt of full Total\n<|id|>129<|page|>15<|box|>90 174 127 856<|content|>Payments net of the 20% Excise Tax — making the gr...matter of principle rather than economic substance\n<|id|>151<|page|>17<|box|>648 176 666 418<|content|>$1,750,000 ÷ 12 × 6 = $875,000\n<|id|>152<|page|>17<|box|>675 140 748 854<|content|>The Garden Leave Period shall run concurrently wit...en leave compensation) shall be twelve (12) months\n<|id|>155<|page|>18<|box|>236 174 291 854<|content|>(i) solicit, recruit, hire, or attempt to solicit,... employ of the Company or its subsidiaries; ... or\n<|id|>157<|page|>18<|box|>415 138 599 856<|content|>H&L's Position (v2 markup): ... A comprehensive no...arket practice for CEO-level employment agreements\n<|id|>161<|page|>18<|box|>857 140 893 856<|content|>11(e). ... The Executive shall have a perpetual ob...idential Information (as defined in the definitive\n<|id|>162<|page|>19<|box|>90 140 200 854<|content|>Agreement) of the Company or its affiliates, excep...ives economic value from not being generally known\n<|id|>171<|page|>19<|box|>648 174 723 854<|content|>(iv) The Executive's willful failure to perform hi...ature of such failure in reasonable detail; ... or\n<|id|>173<|page|>19<|box|>792 140 848 854<|content|>For purposes of this definition, no act or failure...r omission was in the best interest of the Company\n<|id|>179<|page|>20<|box|>349 174 404 854<|content|>(iii) The relocation of the Executive's principal ...hout the Executive's prior written consent; ... or\n<|id|>181<|page|>20<|box|>457 140 622 856<|content|>Procedural Requirements: ... If the Company cures ...hts with respect to such condition shall terminate\n<|id|>186<|page|>20<|box|>857 140 893 856<|content|>Secondary UK Service Agreement: ... The Executive ...C, governed by English law, which will address the\n<|id|>187<|page|>21<|box|>90 140 199 856<|content|>Executive's duties and obligations as an executive...here is no duplication of compensation or benefits\n<|id|>235<|page|>26<|box|>251 163 268 831<|content|>Calderwood & Harkness LLP 299 Park Avenue, 42nd Floor New York, New York 10171\n<|id|>236<|page|>26<|box|>277 148 313 846<|content|>On behalf of: ... Northgate Telecommunications PLC and Northgate Telecommunications US, Inc\n<|id|>238<|page|>26<|box|>347 174 383 854<|content|>Renata Vasquez, Partner Calderwood & Harkness LLP ...York, New York 10171 Telephone: ... (212) 558-4000\n<|id|>239<|page|>26<|box|>391 176 407 500<|content|>Email: ... com\n<|id|>240<|page|>26<|box|>409 176 425 408<|content|>Matter Reference: ... 1022-00004\n<|id|>242<|page|>26<|box|>460 174 496 854<|content|>Victoria Hargrove, Partner Hargrove & Liddell LLP ...York, New York 10010 Telephone: ... (212) 907-6200\n<|id|>243<|page|>26<|box|>503 176 521 473<|content|>Email: ... com\n<|id|>244<|page|>26<|box|>521 140 613 854<|content|>CONFIDENTIAL — SUBJECT TO CONTRACT — FOR DISCUSSIO...xecution, and delivery of definitive documentation",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>128<|tgt_id|>129\n<|src_id|>161<|tgt_id|>162\n<|src_id|>186<|tgt_id|>187",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 162
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 187
+        }
+    ]
+}

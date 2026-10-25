@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        60
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        29,
+        44,
+        46,
+        59
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>5<|box|>288 184 320 810<|content|>TREASURY DEPARTMENT\n<|id|>18<|page|>7<|box|>284 179 318 789<|content|>TREASURY DEPARTMENT\n<|id|>26<|page|>9<|box|>106 388 124 571<|content|>Table of Contents\n<|id|>63<|page|>29<|box|>606 359 621 621<|content|>Composition of the Public Debt\n<|id|>83<|page|>44<|box|>39 212 67 789<|content|>Maturity Schedule of Securities Guaranteed by the\n<|id|>85<|page|>46<|box|>159 222 191 794<|content|>Revisions in Statistics on Capital Movements betwe\n<|id|>121<|page|>59<|box|>62 200 93 813<|content|>Outstanding Forward Exchange Contracts as Reported",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>18<|level|>1\n<|id|>26<|level|>2\n<|id|>63<|level|>2\n<|id|>83<|level|>2\n<|id|>85<|level|>2\n<|id|>121<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        }
+    ]
+}

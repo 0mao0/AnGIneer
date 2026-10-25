@@ -1,0 +1,160 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-m64yzl34\\input\\pdfs\\doc-fdd09d0f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-m64yzl34\\enriched\\doc-fdd09d0f.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>25<|level|>1\n<|id|>26<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>37<|level|>4\n<|id|>43<|level|>4\n<|id|>48<|level|>4\n<|id|>83<|level|>3",
+    "image_output": "<|src_id|>36<|tgt_id|>33\n<|src_id|>38<|tgt_id|>33\n<|src_id|>42<|tgt_id|>33\n<|src_id|>44<|tgt_id|>32\n<|src_id|>47<|tgt_id|>32\n<|src_id|>49<|tgt_id|>32\n<|src_id|>54<|tgt_id|>32\n<|src_id|>56<|tgt_id|>32\n<|src_id|>65<|tgt_id|>32\n<|src_id|>67<|tgt_id|>32\n<|src_id|>70<|tgt_id|>32\n<|src_id|>72<|tgt_id|>32\n<|src_id|>76<|tgt_id|>32\n<|src_id|>78<|tgt_id|>32\n<|src_id|>81<|tgt_id|>32\n<|src_id|>82<|tgt_id|>32\n<|src_id|>85<|tgt_id|>83",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 4
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 36,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 83
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 81,
+            "table2_idx": 82,
+            "upper_row_ss": [
+                [
+                    "≥10",
+                    "1",
+                    "5~6",
+                    "1",
+                    "7~8"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, 整平宽度(m)",
+                    "轮机长",
+                    "轮机员",
+                    "机工",
+                    "rowspan=2, 合计"
+                ]
+            ]
+        }
+    ]
+}

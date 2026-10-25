@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 142 131 477<|content|>1201 Market Street, Suite 2500 Wilmington, DE 19801\n<|id|>2<|page|>1<|box|>138 140 152 539<|content|>Main Office: ... 299 Park Avenue, 35th Floor, New York, NY 10171\n<|id|>3<|page|>1<|box|>160 140 176 622<|content|>Marcus Delgado, Partner Telephone: ... (302) 555-4171\n<|id|>4<|page|>1<|box|>183 140 199 413<|content|>Email: ... com\n<|id|>5<|page|>1<|box|>198 748 215 854<|content|>June 17, 2025\n<|id|>7<|page|>1<|box|>250 140 285 854<|content|>Sandra Keene Claims Adjuster Halcyon Specialty Insurance Co. ... 185 Asylum Street Hartford, CT 06103\n<|id|>8<|page|>1<|box|>294 140 367 857<|content|>Re: ... / Solstice Biomedical, Inc\n<|id|>24<|page|>2<|box|>657 183 674 705<|content|>• The PrecisionEdge™ PE-12000 Series (12 mm trocar assembly); ... and\n<|id|>26<|page|>2<|box|>696 140 768 854<|content|>These products are manufactured by Solstice and di...tice's laparoscopic surgical access device revenue\n<|id|>40<|page|>3<|box|>825 181 881 856<|content|>• Dr. ... Ostrowski's opening expert report was served on January 27,\n<|id|>42<|page|>4<|box|>128 181 219 856<|content|>Dr. ... Her report opined that, in the event liabi...ow the figures calculated by Apex's damages expert\n<|id|>91<|page|>8<|box|>116 181 133 486<|content|>• Marcus Delgado, Responsible Partner\n<|id|>95<|page|>8<|box|>194 140 250 854<|content|>Additional attorneys and paralegals were staffed o... periodic invoices previously submitted to Halcyon\n<|id|>92<|page|>8<|box|>136 183 152 455<|content|>• Catherine Bloom, Billing Partner\n<|id|>93<|page|>8<|box|>156 183 171 436<|content|>• Christy Bauer, Lead Associate\n<|id|>94<|page|>8<|box|>175 183 191 467<|content|>• Peter Vassiliev, Working Associate\n<|id|>107<|page|>9<|box|>152 142 170 272<|content|>Very truly yours,\n<|id|>108<|page|>9<|box|>178 140 194 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>109<|page|>9<|box|>196 143 213 251<|content|>By: ... By\n<|id|>110<|page|>9<|box|>214 143 229 326<|content|>Marcus Delgado Partner\n<|id|>111<|page|>9<|box|>229 143 246 346<|content|>Telephone: ... (302) 555-4170\n<|id|>112<|page|>9<|box|>248 142 263 470<|content|>Email: ... com",
+    "raw_response": "<|src_id|>40<|tgt_id|>42",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 42
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        101,
+        171
+    ],
+    "pages": [
+        101,
+        102,
+        106,
+        114,
+        130,
+        134,
+        135,
+        137,
+        138,
+        139,
+        140,
+        170,
+        171
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>384<|page|>101<|box|>929 0 976 456<|content|>2/ Includes Bank for International Settlements and European Fund. ... Federally-sponsored agencies and\n<|id|>386<|page|>102<|box|>530 555 551 996<|content|>age to those shown for the preceding date; ... fig...e comparable to those shown for the following date\n<|id|>391<|page|>102<|box|>649 50 671 510<|content|>Data on the two lines shown for this date differ b...Figures on the first line are comparable in cover-\n<|id|>392<|page|>102<|box|>550 531 629 1000<|content|>4/ Includes \\$101 million increase in dollar value...lect market exchange rates as of December 31, 1971\n<|id|>404<|page|>106<|box|>278 26 326 503<|content|>The report forms and instructions used in the coll...istics have been revised a number of times. ... 1/\n<|id|>405<|page|>106<|box|>334 24 447 501<|content|>The present form of the published presentation of ...rt-term liquid claims of large nonbanking concerns\n<|id|>439<|page|>114<|box|>508 17 552 489<|content|>1/ Dollar-foreign currency breakdown not available...6; ... Figures on the first line are comparable in\n<|id|>441<|page|>114<|box|>545 526 556 607<|content|>r Revised. ... r Revised\n<|id|>474<|page|>130<|box|>387 31 435 517<|content|>Note: ... 1/ Negotiable and other readily transferable foreign obligations payable\n<|id|>475<|page|>130<|box|>421 524 432 670<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>486<|page|>134<|box|>67 236 82 760<|content|>Section V - Transactions in Long-Term Securities by Foreigners\n<|id|>487<|page|>134<|box|>82 279 96 720<|content|>Reported by Banks and Brokers in the United States\n<|id|>488<|page|>134<|box|>96 83 110 921<|content|>Table CM-V-4. ... - Estimated Foreign Holdings of Marketable Treasury Bonds and Notes by Country\n<|id|>490<|page|>135<|box|>41 375 55 593<|content|>CAPITAL MOVEMENTS\n<|id|>491<|page|>135<|box|>57 232 71 748<|content|>Section V - Transactions in Long-Term Securities by Foreigners\n<|id|>492<|page|>135<|box|>71 270 84 704<|content|>Reported by Banks and Brokers in the United States\n<|id|>493<|page|>135<|box|>84 185 98 782<|content|>Table CM-V-5. ... - Net Foreign Transactions in Long-Term Domestic Bonds,\n<|id|>494<|page|>135<|box|>98 267 110 701<|content|>Other than Treasury Bonds and Notes, by Country\n<|id|>500<|page|>137<|box|>94 147 110 822<|content|>Table CM-V-7. ... - Net Foreign Transactions in Long-Term Foreign Bonds by Country\n<|id|>502<|page|>138<|box|>103 119 114 909<|content|>(In millions of dollars; ... negative figures indi...r a net outflow of capital from the United States)\n<|id|>504<|page|>139<|box|>61 213 120 782<|content|>Section V - Transactions in Long-Term Securities b...ng March 1973 Preliminary (In millions of dollars)\n<|id|>506<|page|>140<|box|>39 375 52 593<|content|>CAPITAL MOVEMENTS\n<|id|>507<|page|>140<|box|>49 197 100 774<|content|>Section V - Transactions in Long-Term Securities b...es, by Type and Country, During Calendar Year 1972\n<|id|>608<|page|>170<|box|>298 34 651 456<|content|>Funds appropriated to the President: ... Fig for e...se amounts were not shown separately on the report\n<|id|>609<|page|>170<|box|>107 550 118 692<|content|>submitted by the fund. ... submitted by the fund\n<|id|>635<|page|>171<|box|>463 0 520 465<|content|>1/ The secondary market operations of Federal Nati..., 1967 \\$1,107 million, 1968 \\$2,316 million, 1969\n<|id|>637<|page|>171<|box|>461 529 472 760<|content|>through Sept. ... 30, 1968 \\$296 million",
+    "raw_response": "<|src_id|>391<|tgt_id|>392\n<|src_id|>439<|tgt_id|>441\n<|src_id|>608<|tgt_id|>609\n<|src_id|>635<|tgt_id|>637",
+    "parsed": [
+        {
+            "src_id": 391,
+            "tgt_id": 392
+        },
+        {
+            "src_id": 439,
+            "tgt_id": 441
+        },
+        {
+            "src_id": 608,
+            "tgt_id": 609
+        },
+        {
+            "src_id": 635,
+            "tgt_id": 637
+        }
+    ]
+}

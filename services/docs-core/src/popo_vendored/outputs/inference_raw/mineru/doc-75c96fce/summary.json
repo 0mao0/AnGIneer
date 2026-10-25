@@ -1,0 +1,151 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wamgy2qk\\input\\pdfs\\doc-75c96fce.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wamgy2qk\\enriched\\doc-75c96fce.json",
+    "contd_output": "<|src_id|>66<|tgt_id|>67",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>9<|level|>1\n<|id|>13<|level|>2\n<|id|>17<|level|>1\n<|id|>25<|level|>1\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>39<|level|>2\n<|id|>46<|level|>2\n<|id|>54<|level|>2\n<|id|>58<|level|>1\n<|id|>59<|level|>2\n<|id|>96<|level|>2\n<|id|>121<|level|>1\n<|id|>130<|level|>1",
+    "image_output": "<|src_id|>1<|tgt_id|>0\n<|src_id|>7<|tgt_id|>2\n<|src_id|>8<|tgt_id|>2\n<|src_id|>11<|tgt_id|>9\n<|src_id|>12<|tgt_id|>9\n<|src_id|>14<|tgt_id|>13\n<|src_id|>15<|tgt_id|>13\n<|src_id|>16<|tgt_id|>13\n<|src_id|>56<|tgt_id|>54",
+    "contd_label": [
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 7,
+            "table2_idx": 8,
+            "upper_row_ss": [
+                [
+                    "<-- indent:1 -->POINT I: COUNT III SHOULD BE DISMISSED BECAUSE THIRD-PARTY SHIPPER CLAIMS ARE NOT RECOVERABLE AS CHARTER-PARTY DAMAGES<-- /indent -->",
+                    "13"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "13"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 11,
+            "table2_idx": 12,
+            "upper_row_ss": [
+                [
+                    "Goldman v. Metropolitan Life Ins. Co., 5 N.Y.3d 561",
+                    "14"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "(2005)",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

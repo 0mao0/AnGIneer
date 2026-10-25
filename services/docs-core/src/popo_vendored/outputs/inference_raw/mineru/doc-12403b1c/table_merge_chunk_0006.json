@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['June', '2,202.3', '247.0', '6.2', '.3', '40.0', '241.6', '1,311.2', '3,994.5']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, End of calendar year or month', 'rowspan=2, Seigniorage on coins (silver and minor)', 'colspan=6, Sources of seigniorage on silver bullion revalued 1/', \"rowspan=2, Potential seigniorage on silver bullion at cost in Treasurer's account 2/\"]]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 276,
+    "table2_idx": 277
+}

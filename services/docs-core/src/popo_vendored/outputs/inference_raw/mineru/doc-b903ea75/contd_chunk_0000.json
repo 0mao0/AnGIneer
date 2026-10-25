@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>232 140 247 480<|content|>[Placeholder — pending final approval by both parties]\n<|id|>5<|page|>1<|box|>255 142 272 545<|content|>Las Vegas, NV and New York, NY — March 13, 2023\n<|id|>42<|page|>5<|box|>417 140 454 854<|content|>Investor Relations / Media Contact: ... Harlan Rid...ner 712 Fifth Avenue, Suite 900 New York, NY 10019\n<|id|>43<|page|>5<|box|>462 140 479 318<|content|>Phone: ... (212) 555-0148\n<|id|>44<|page|>5<|box|>479 142 496 411<|content|>Email: ... com\n<|id|>46<|page|>5<|box|>518 140 555 854<|content|>Corporate Contact: ... 8700 Las Vegas Boulevard South, Suite 2200 Las Vegas, NV 89123\n<|id|>47<|page|>5<|box|>563 140 614 769<|content|>Phone: ... ]\n<|id|>48<|page|>5<|box|>619 142 637 442<|content|>Pinnacle Harbor Capital Partners, LP\n<|id|>49<|page|>5<|box|>646 140 681 852<|content|>Media Contact: ... Pinnacle Harbor Capital Partner... 590 Madison Avenue, 34th Floor New York, NY 10022\n<|id|>50<|page|>5<|box|>690 140 707 318<|content|>Phone: ... (212) 555-0276\n<|id|>51<|page|>5<|box|>708 140 724 406<|content|>Email: ... com\n<|id|>60<|page|>6<|box|>845 140 883 854<|content|>The Cooperation and Standstill Agreement, dated Ma...will be filed as an exhibit to a Current Report on\n<|id|>61<|page|>7<|box|>90 140 126 854<|content|>Form 8-K with the SEC. ... Stockholders and other ...ll text of the Agreement when it becomes available",
+    "raw_response": "<|src_id|>60<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        }
+    ]
+}

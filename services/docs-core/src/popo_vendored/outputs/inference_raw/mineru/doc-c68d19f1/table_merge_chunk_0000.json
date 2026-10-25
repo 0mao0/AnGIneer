@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['mmWave Broadband Matching', '11,XXX,201 – 11,XXX,220', '20', '2018', 'Mixed: Category 1 (classified)', 'Yes — 4 of 20 patents funded under', 'Absolute bar for classified patents;']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Network', '', '', '', 'for patents related to MDA and EW programs (~3–4 patents); Category 2 (ITAR) for defense-specific designs (~7–9 patents); Category 3 (EAR) for dual-use 5G/SATCOM designs (~5–6 patents); Category 5 (commercial) for non-defense, non-funded designs (~2–3 patents)', 'AFRL and MDA contracts; remainder mixed-funded or privately funded', 'DDTC authorization for ITAR patents; BIS license or exception for EAR patents; TCP gateway for commercial patents; Bayh-Dole § 204 for government-funded patents']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 288,
+    "table2_idx": 289
+}

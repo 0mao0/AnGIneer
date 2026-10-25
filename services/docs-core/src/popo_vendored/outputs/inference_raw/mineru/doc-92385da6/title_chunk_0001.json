@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        52,
+        62
+    ],
+    "pages": [
+        53,
+        55,
+        56,
+        58,
+        59,
+        60,
+        61,
+        62
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>633<|page|>53<|box|>90 142 107 516<|content|>EXHIBIT C — Form of Compliance Certificate\n<|id|>634<|page|>53<|box|>114 367 132 629<|content|>COMPLIANCE CERTIFICATE\n<|id|>638<|page|>53<|box|>329 143 345 315<|content|>1. DSCR Calculation:\n<|id|>640<|page|>53<|box|>501 143 516 348<|content|>2. Debt Yield Calculation:\n<|id|>642<|page|>53<|box|>671 142 689 544<|content|>3. LTV Calculation (if updated appraisal obtained)\n<|id|>651<|page|>55<|box|>90 142 107 467<|content|>EXHIBIT D — Permitted Encumbrances\n<|id|>663<|page|>56<|box|>90 142 107 506<|content|>EXHIBIT E — Required Insurance Coverages\n<|id|>665<|page|>56<|box|>713 143 729 287<|content|>Current Carriers:\n<|id|>669<|page|>56<|box|>797 143 814 330<|content|>General Requirements:\n<|id|>673<|page|>58<|box|>90 142 107 434<|content|>EXHIBIT F — Organizational Chart\n<|id|>674<|page|>58<|box|>116 413 133 584<|content|>Ownership Structure\n<|id|>680<|page|>59<|box|>90 142 107 503<|content|>SCHEDULE 1 — Rent Roll / Occupancy Data\n<|id|>683<|page|>60<|box|>90 142 107 457<|content|>SCHEDULE 2 — Existing Indebtedness\n<|id|>685<|page|>60<|box|>388 143 405 364<|content|>Action Required at Closing:\n<|id|>691<|page|>61<|box|>90 142 107 485<|content|>SCHEDULE 3 — Reserve Fund Allocations\n<|id|>692<|page|>61<|box|>114 142 133 498<|content|>Total Upfront Reserve Deposit: $4,800,000.00\n<|id|>697<|page|>62<|box|>90 142 107 486<|content|>SCHEDULE 4 — Approved Annual Budget",
+    "raw_response": "<|id|>633<|level|>1\n<|id|>634<|level|>1\n<|id|>638<|level|>2\n<|id|>640<|level|>2\n<|id|>642<|level|>2\n<|id|>651<|level|>1\n<|id|>663<|level|>1\n<|id|>665<|level|>2\n<|id|>669<|level|>2\n<|id|>673<|level|>1\n<|id|>674<|level|>2\n<|id|>680<|level|>1\n<|id|>683<|level|>1\n<|id|>685<|level|>2\n<|id|>691<|level|>1\n<|id|>692<|level|>2\n<|id|>697<|level|>1",
+    "parsed": [
+        {
+            "id": 633,
+            "level": 1
+        },
+        {
+            "id": 634,
+            "level": 1
+        },
+        {
+            "id": 638,
+            "level": 2
+        },
+        {
+            "id": 640,
+            "level": 2
+        },
+        {
+            "id": 642,
+            "level": 2
+        },
+        {
+            "id": 651,
+            "level": 1
+        },
+        {
+            "id": 663,
+            "level": 1
+        },
+        {
+            "id": 665,
+            "level": 2
+        },
+        {
+            "id": 669,
+            "level": 2
+        },
+        {
+            "id": 673,
+            "level": 1
+        },
+        {
+            "id": 674,
+            "level": 2
+        },
+        {
+            "id": 680,
+            "level": 1
+        },
+        {
+            "id": 683,
+            "level": 1
+        },
+        {
+            "id": 685,
+            "level": 2
+        },
+        {
+            "id": 691,
+            "level": 1
+        },
+        {
+            "id": 692,
+            "level": 2
+        },
+        {
+            "id": 697,
+            "level": 1
+        }
+    ]
+}

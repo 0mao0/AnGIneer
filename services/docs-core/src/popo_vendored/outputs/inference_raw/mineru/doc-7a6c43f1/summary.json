@@ -1,0 +1,95 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-006qb2sr\\input\\pdfs\\doc-7a6c43f1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-006qb2sr\\enriched\\doc-7a6c43f1.json",
+    "contd_output": "<|src_id|>10<|tgt_id|>11",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>25<|level|>2\n<|id|>28<|level|>3\n<|id|>33<|level|>2",
+    "image_output": "<|src_id|>2<|tgt_id|>0\n<|src_id|>5<|tgt_id|>3\n<|src_id|>21<|tgt_id|>8\n<|src_id|>22<|tgt_id|>8\n<|src_id|>23<|tgt_id|>8\n<|src_id|>24<|tgt_id|>8\n<|src_id|>27<|tgt_id|>25",
+    "contd_label": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 2,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 25
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 23,
+            "table2_idx": 24,
+            "upper_row_ss": [
+                [
+                    "Total Amount Due This Invoice:",
+                    "$165,000.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Prior invoices rendered on this matter:",
+                    "$0.00"
+                ]
+            ]
+        }
+    ]
+}

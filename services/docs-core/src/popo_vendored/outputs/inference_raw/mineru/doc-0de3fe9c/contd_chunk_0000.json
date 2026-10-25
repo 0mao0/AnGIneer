@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        9,
+        10,
+        12,
+        13,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>188 153 223 844<|content|>THE STATE OF WASHINGTON Acting through its Attorne...ion 800 Fifth Avenue, Suite 2000 Seattle, WA 98104\n<|id|>4<|page|>1<|box|>233 480 250 517<|content|>and\n<|id|>5<|page|>1<|box|>258 153 292 841<|content|>CASCADE RETAIL HOLDINGS INC. ... A Delaware Corpor...0 Overlake Boulevard, Suite 800 Bellevue, WA 98004\n<|id|>6<|page|>1<|box|>301 359 319 637<|content|>Date of Execution: ... August 20, 2024\n<|id|>7<|page|>1<|box|>328 142 344 408<|content|>Right-click to update Table of Contents\n<|id|>59<|page|>5<|box|>916 142 930 390<|content|>EXECUTION VERSION — August 20, 2024\n<|id|>64<|page|>6<|box|>334 138 444 856<|content|>In the event that Cascade utilizes any algorithmic... within the Lookback Window shall not be displayed\n<|id|>62<|page|>6<|box|>203 174 239 854<|content|>3. ... or\n<|id|>71<|page|>6<|box|>710 174 765 854<|content|>5. ... and\n<|id|>73<|page|>6<|box|>824 140 859 854<|content|>Cascade shall organize and maintain these records ...e Monitor and by the State upon reasonable request\n<|id|>78<|page|>7<|box|>289 176 324 854<|content|>3. ... and\n<|id|>80<|page|>7<|box|>364 140 438 854<|content|>The training program shall be provided to all rele...ll relevant employees during the Compliance Period\n<|id|>102<|page|>9<|box|>184 176 200 627<|content|>5. ... and\n<|id|>104<|page|>9<|box|>242 140 296 854<|content|>The Monitor's reports shall be treated as confiden...y enforcement proceeding related to this Assurance\n<|id|>117<|page|>10<|box|>429 174 465 854<|content|>3. ... and\n<|id|>119<|page|>10<|box|>503 140 541 854<|content|>Notice of the Restitution Fund and the claims proc... affected consumers through the following channels\n<|id|>121<|page|>10<|box|>604 174 676 854<|content|>2. ... and\n<|id|>123<|page|>10<|box|>772 140 791 807<|content|>The form and content of all notices shall be subje...e subject to the State's prior review and approval\n<|id|>146<|page|>12<|box|>705 176 760 854<|content|>5. ... and\n<|id|>153<|page|>13<|box|>209 140 247 854<|content|>Reports shall be submitted in writing to the State...c mail to an email address designated by the State\n<|id|>151<|page|>13<|box|>152 174 169 785<|content|>3. ... and\n<|id|>190<|page|>16<|box|>248 174 284 852<|content|>Alan Ngo Partner Calderwood & Harkness LLP 1201 Third Avenue, Suite 4400 Seattle, Washington 98101\n<|id|>191<|page|>16<|box|>292 140 329 854<|content|>Either Party may change its address for purposes o...r Party in accordance with this Section XIV. ... G\n<|id|>200<|page|>16<|box|>641 142 657 383<|content|>Name: ... Meredith Calloway-Voss\n<|id|>201<|page|>16<|box|>657 143 674 429<|content|>Title: ... Lead Assistant Attorney General\n<|id|>202<|page|>16<|box|>675 140 708 790<|content|>Consumer Protection Division Office of the Attorne... the State of Washington Date: ... August 20, 2024\n<|id|>203<|page|>16<|box|>709 142 726 501<|content|>FOR CASCADE RETAIL HOLDINGS INC. ... FOR CASCADE RETAIL HOLDINGS INC\n<|id|>206<|page|>16<|box|>771 143 787 351<|content|>Name: ... Diana Prescott-Levy\n<|id|>207<|page|>16<|box|>787 143 804 313<|content|>Title: ... General Counsel\n<|id|>208<|page|>16<|box|>805 143 821 357<|content|>Cascade Retail Holdings Inc. ... Cascade Retail Holdings Inc\n<|id|>209<|page|>16<|box|>821 143 838 313<|content|>Date: ... August 20, 2024\n<|id|>210<|page|>16<|box|>839 142 854 540<|content|>APPROVED AS TO FORM FOR RESPONDENT: ... APPROVED AS TO FORM FOR RESPONDENT\n<|id|>211<|page|>16<|box|>864 142 880 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>212<|page|>16<|box|>883 143 900 253<|content|>By: ... By\n<|id|>213<|page|>17<|box|>89 140 107 274<|content|>Name: ... Alan Ngo\n<|id|>214<|page|>17<|box|>107 140 125 250<|content|>Title: ... Partner\n<|id|>215<|page|>17<|box|>125 140 142 665<|content|>Calderwood & Harkness LLP Counsel for Cascade Reta...rkness LLP Counsel for Cascade Retail Holdings Inc",
+    "raw_response": "<|src_id|>3<|tgt_id|>4\n<|src_id|>4<|tgt_id|>5\n<|src_id|>121<|tgt_id|>123\n<|src_id|>146<|tgt_id|>153",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 153
+        }
+    ]
+}

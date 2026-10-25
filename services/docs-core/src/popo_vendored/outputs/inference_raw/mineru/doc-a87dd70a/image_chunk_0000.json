@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        16,
+        18,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>107 143 309 852<|content|>None\n<|id|>1<|type|>title<|page|>1<|box|>343 153 397 843<|content|>DEFENDANT STONEFIELD LOGISTICS GROUP INC.'S MEMORA\n<|id|>3<|type|>title<|page|>1<|box|>469 292 486 700<|content|>Attorneys for Defendant Stonefield Logistics Group\n<|id|>4<|type|>title<|page|>1<|box|>494 398 510 599<|content|>TABLE OF CONTENTS\n<|id|>5<|type|>table<|page|>1<|box|>542 145 898 852<|content|>None\n<|id|>6<|type|>table<|page|>2<|box|>89 143 666 852<|content|>None\n<|id|>7<|type|>title<|page|>2<|box|>714 142 731 413<|content|>I. PRELIMINARY STATEMENT\n<|id|>16<|type|>title<|page|>4<|box|>376 140 393 379<|content|>II. STATEMENT OF FACTS\n<|id|>18<|type|>title<|page|>4<|box|>470 142 487 261<|content|>A. The Parties\n<|id|>23<|type|>title<|page|>5<|box|>138 140 157 480<|content|>B. The Transportation Services Agreement\n<|id|>37<|type|>title<|page|>6<|box|>309 140 325 529<|content|>C. The Liquidated Damages Clause (Section 14.2)\n<|id|>46<|type|>title<|page|>6<|box|>744 140 762 566<|content|>D. The Termination for Cause Provision (Section 13\n<|id|>52<|type|>title<|page|>7<|box|>295 142 314 250<|content|>(TSA § 13.1.)\n<|id|>54<|type|>title<|page|>7<|box|>407 140 425 558<|content|>E. The Consequential Damages Waiver (Section 15.1)\n<|id|>58<|type|>title<|page|>7<|box|>660 142 676 616<|content|>F. VTS's Performance Failures and Stonefield's Ter\n<|id|>61<|type|>table<|page|>7<|box|>789 143 898 852<|content|>None\n<|id|>62<|type|>table<|page|>8<|box|>89 145 109 852<|content|>None\n<|id|>70<|type|>title<|page|>9<|box|>138 140 157 321<|content|>G. Procedural History\n<|id|>74<|type|>title<|page|>9<|box|>493 140 510 346<|content|>III. LEGAL STANDARD\n<|id|>75<|type|>title<|page|>9<|box|>523 140 541 349<|content|>A. Rule 12(b)(6) Standard\n<|id|>81<|type|>title<|page|>10<|box|>411 140 428 429<|content|>B. New York Contract Law Governs\n<|id|>84<|type|>title<|page|>10<|box|>702 140 719 285<|content|>IV. ARGUMENT\n<|id|>85<|type|>title<|page|>10<|box|>733 140 768 854<|content|>A. THE LIQUIDATED DAMAGES CLAUSE IN SECTION 14.2 I\n<|id|>133<|type|>title<|page|>16<|box|>354 140 391 854<|content|>B. VANTOR'S LOST PROFITS CLAIM FAILS TO STATE A CL\n<|id|>157<|type|>title<|page|>18<|box|>746 140 782 854<|content|>C. VANTOR'S CONSEQUENTIAL DAMAGES CLAIMS ARE BARRE\n<|id|>172<|type|>title<|page|>20<|box|>89 140 106 294<|content|>V. CONCLUSION\n<|id|>180<|type|>title<|page|>20<|box|>479 212 496 501<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>186<|type|>title<|page|>20<|box|>608 374 625 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>0<|tgt_id|>1\n<|src_id|>5<|tgt_id|>4\n<|src_id|>6<|tgt_id|>4\n<|src_id|>61<|tgt_id|>58\n<|src_id|>62<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 58
+        }
+    ]
+}

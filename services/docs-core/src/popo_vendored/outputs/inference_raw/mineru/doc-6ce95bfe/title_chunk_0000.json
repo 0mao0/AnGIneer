@@ -1,0 +1,142 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 200 106 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|page|>1<|box|>114 374 132 624<|content|>INTERNAL MEMORANDUM\n<|id|>9<|page|>1<|box|>354 387 375 611<|content|>I. Executive Summary\n<|id|>18<|page|>2<|box|>470 267 489 728<|content|>II. Procedural Posture and Relevant Pleadings\n<|id|>19<|page|>2<|box|>513 140 532 599<|content|>A. Vantor's Amended Complaint (Filed December 2, 2\n<|id|>29<|page|>3<|box|>474 140 492 831<|content|>B. Stonefield's Answer, Affirmative Defenses, and\n<|id|>45<|page|>4<|box|>340 140 359 315<|content|>C. Case Management\n<|id|>52<|page|>4<|box|>724 223 744 772<|content|>III. Burden of Proof Framework Under New York Law\n<|id|>53<|page|>4<|box|>770 142 787 315<|content|>A. General Principles\n<|id|>58<|page|>5<|box|>539 140 555 418<|content|>B. Burden on Affirmative Defenses\n<|id|>63<|page|>6<|box|>377 140 393 570<|content|>C. Burden on the Declaratory Judgment Counterclaim\n<|id|>72<|page|>7<|box|>223 140 239 820<|content|>D. Interplay Between Plaintiff's Prima Facie Case\n<|id|>77<|page|>8<|box|>90 197 111 797<|content|>IV. Application to the Facts — Stonefield's Burden\n<|id|>78<|page|>8<|box|>136 142 152 418<|content|>A. Elements Stonefield Must Prove\n<|id|>79<|page|>8<|box|>167 142 184 357<|content|>1. Material Breach by VTS\n<|id|>87<|page|>9<|box|>601 140 618 488<|content|>2. Adequate Cure Notice Under Section 13.2\n<|id|>92<|page|>10<|box|>402 140 420 460<|content|>3. Failure to Cure Within 30-Day Period\n<|id|>98<|page|>11<|box|>612 140 628 310<|content|>4. Valid Termination\n<|id|>102<|page|>12<|box|>250 140 266 689<|content|>B. Vantor's Anticipated Counter-Arguments and Burd\n<|id|>103<|page|>12<|box|>279 142 296 702<|content|>1. Performance Deficiencies Were Caused by Stonefi\n<|id|>111<|page|>13<|box|>594 140 611 498<|content|>2. Pretextual Termination / Bad Faith Motive\n<|id|>118<|page|>14<|box|>839 140 857 403<|content|>3. \"Substantial Cure\" Argument\n<|id|>123<|page|>15<|box|>425 303 444 692<|content|>V. Summary Judgment Considerations\n<|id|>124<|page|>15<|box|>470 142 487 491<|content|>A. Movant's Burden on Summary Judgment\n<|id|>129<|page|>16<|box|>90 140 107 424<|content|>B. Recommended Framing Strategy\n<|id|>147<|page|>17<|box|>510 142 527 300<|content|>C. Risk Assessment\n<|id|>153<|page|>18<|box|>426 339 445 656<|content|>VI. Impact on Damages Burden\n<|id|>160<|page|>19<|box|>388 380 409 616<|content|>VII. Recommendations\n<|id|>172<|page|>21<|box|>308 411 327 584<|content|>VIII. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>9<|level|>1\n<|id|>18<|level|>1\n<|id|>19<|level|>2\n<|id|>29<|level|>2\n<|id|>45<|level|>2\n<|id|>52<|level|>1\n<|id|>53<|level|>2\n<|id|>58<|level|>2\n<|id|>63<|level|>2\n<|id|>72<|level|>2\n<|id|>77<|level|>1\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>87<|level|>3\n<|id|>92<|level|>3\n<|id|>98<|level|>3\n<|id|>102<|level|>2\n<|id|>103<|level|>3\n<|id|>111<|level|>3\n<|id|>118<|level|>3\n<|id|>123<|level|>1\n<|id|>124<|level|>2\n<|id|>129<|level|>2\n<|id|>147<|level|>2\n<|id|>153<|level|>1\n<|id|>160<|level|>1\n<|id|>172<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        }
+    ]
+}

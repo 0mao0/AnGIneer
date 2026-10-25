@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['A-2', 'Atlantic Linen & Laundry Services, Inc.', 'January 10, 2022', 'Commercial laundry and linen service agreement (bed linens, bath linens, tablecloths, napkins,', 'Expires December 31, 2025; one (1) one-year renewal option']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'and uniforms)', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 204,
+    "table2_idx": 205
+}

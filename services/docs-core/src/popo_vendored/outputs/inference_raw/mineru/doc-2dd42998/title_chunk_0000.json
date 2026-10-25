@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 125 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>1<|page|>1<|box|>133 150 169 846<|content|>DO NOT DISTRIBUTE WITHOUT PRIOR AUTHORIZATION OF C\n<|id|>3<|page|>1<|box|>507 142 523 361<|content|>I. Purpose and Background\n<|id|>8<|page|>2<|box|>340 140 357 364<|content|>II. Summary of the Incident\n<|id|>20<|page|>4<|box|>90 140 107 725<|content|>III. Retention of Palisade Digital Forensics, Inc.\n<|id|>21<|page|>4<|box|>121 140 138 428<|content|>A. Identification of Forensic Vendor\n<|id|>24<|page|>4<|box|>421 140 438 581<|content|>B. Engagement Structure — At the Direction of Coun\n<|id|>31<|page|>5<|box|>294 140 311 418<|content|>C. Scope of Palisade's Engagement\n<|id|>45<|page|>6<|box|>407 140 424 297<|content|>D. Billing and Cost\n<|id|>49<|page|>6<|box|>761 140 779 589<|content|>IV. Privilege Protocol — Communications and Report\n<|id|>50<|page|>6<|box|>792 140 809 349<|content|>A. Fundamental Principle\n<|id|>53<|page|>7<|box|>257 142 273 300<|content|>B. Reporting Chain\n<|id|>63<|page|>7<|box|>731 140 748 583<|content|>C. Approved Lumos Contacts for Forensic Coordinati\n<|id|>70<|page|>8<|box|>386 140 402 457<|content|>D. Exclusion of Business-Side Personnel\n<|id|>74<|page|>9<|box|>90 140 107 545<|content|>V. Document Labeling and Handling Requirements\n<|id|>75<|page|>9<|box|>121 140 138 318<|content|>A. Privilege Markings\n<|id|>77<|page|>9<|box|>205 174 260 854<|content|>\"PRIVILEGED AND CONFIDENTIAL — PREPARED AT THE DIR\n<|id|>80<|page|>9<|box|>454 142 472 326<|content|>B. Email Subject Lines\n<|id|>84<|page|>9<|box|>670 140 688 424<|content|>C. File Storage and Access Controls\n<|id|>88<|page|>10<|box|>241 140 258 750<|content|>VI. Separation of Forensic Investigation from Lumo\n<|id|>89<|page|>10<|box|>272 140 289 733<|content|>A. Distinction Between Privileged Forensic Work an\n<|id|>96<|page|>11<|box|>257 140 273 568<|content|>B. Pre-Existing and Independently Generated Record\n<|id|>107<|page|>11<|box|>772 140 790 305<|content|>VII. Litigation Hold\n<|id|>109<|page|>12<|box|>138 142 157 357<|content|>B. Scope of Litigation Hold\n<|id|>138<|page|>13<|box|>590 140 609 478<|content|>VIII. Coordination with Insurance Carrier\n<|id|>148<|page|>14<|box|>321 140 339 447<|content|>IX. Coordination with UK/EU Counsel\n<|id|>153<|page|>14<|box|>814 140 832 460<|content|>X. Crisis Communications Coordination\n<|id|>160<|page|>15<|box|>559 142 575 439<|content|>XI. Consequences of Non-Compliance\n<|id|>164<|page|>16<|box|>223 140 239 320<|content|>XII. Acknowledgment\n<|id|>188<|page|>16<|box|>784 169 829 825<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>3<|level|>1\n<|id|>8<|level|>1\n<|id|>20<|level|>1\n<|id|>21<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>45<|level|>2\n<|id|>49<|level|>1\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>74<|level|>1\n<|id|>75<|level|>2\n<|id|>77<|level|>-1\n<|id|>80<|level|>2\n<|id|>84<|level|>2\n<|id|>88<|level|>1\n<|id|>89<|level|>2\n<|id|>96<|level|>2\n<|id|>107<|level|>1\n<|id|>109<|level|>2\n<|id|>138<|level|>1\n<|id|>148<|level|>1\n<|id|>153<|level|>1\n<|id|>160<|level|>1\n<|id|>164<|level|>1\n<|id|>188<|level|>-1",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 164,
+            "level": 1
+        }
+    ]
+}

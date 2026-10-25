@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 254 108 741<|content|>UNITED STATES DISTRICT COURT DISTRICT OF NEVADA\n<|id|>2<|page|>1<|box|>421 179 455 818<|content|>DEFENDANT REDSTONE GAMING CORP.'S ANSWER AND AFFIR\n<|id|>5<|page|>1<|box|>789 325 806 673<|content|>ANSWER TO PLAINTIFF'S COMPLAINT\n<|id|>6<|page|>2<|box|>90 140 107 545<|content|>I. Response to Jurisdictional and Venue Allegation\n<|id|>17<|page|>2<|box|>792 140 810 710<|content|>II. Response to Allegations Regarding Plaintiff Lu\n<|id|>29<|page|>4<|box|>90 140 108 722<|content|>III. Response to Allegations Regarding Defendant R\n<|id|>38<|page|>4<|box|>833 140 849 571<|content|>IV. Response to Allegations of Copyright Infringem\n<|id|>56<|page|>7<|box|>304 140 321 447<|content|>V. Response to Allegations of Damages\n<|id|>65<|page|>8<|box|>292 140 309 295<|content|>VI. General Denial\n<|id|>67<|page|>8<|box|>398 380 416 617<|content|>AFFIRMATIVE DEFENSES\n<|id|>69<|page|>8<|box|>529 140 547 555<|content|>First Affirmative Defense: Fair Use (17 U.S.C. § 1\n<|id|>75<|page|>9<|box|>429 140 446 542<|content|>Second Affirmative Defense: Independent Creation\n<|id|>80<|page|>10<|box|>90 140 107 617<|content|>Third Affirmative Defense: Scènes à Faire / Merger\n<|id|>84<|page|>10<|box|>508 140 523 557<|content|>Fourth Affirmative Defense: Failure to State a Cla\n<|id|>86<|page|>10<|box|>726 140 744 588<|content|>Fifth Affirmative Defense: Lack of Substantial Sim\n<|id|>89<|page|>11<|box|>176 140 193 547<|content|>Sixth Affirmative Defense: No Willful Infringement\n<|id|>91<|page|>11<|box|>359 140 375 498<|content|>Seventh Affirmative Defense: Unclean Hands\n<|id|>93<|page|>11<|box|>486 140 503 589<|content|>Eighth Affirmative Defense: Failure to Mitigate Da\n<|id|>95<|page|>11<|box|>614 140 631 500<|content|>Ninth Affirmative Defense: Copyright Misuse\n<|id|>97<|page|>11<|box|>814 140 830 633<|content|>Tenth Affirmative Defense: Reservation of Addition\n<|id|>99<|page|>12<|box|>133 400 151 596<|content|>PRAYER FOR RELIEF\n<|id|>105<|page|>12<|box|>375 428 390 568<|content|>JURY DEMAND\n<|id|>109<|page|>12<|box|>564 140 580 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>117<|page|>12<|box|>777 142 794 437<|content|>THORNGATE & ASSOCIATES, PC",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>6<|level|>3\n<|id|>17<|level|>3\n<|id|>29<|level|>3\n<|id|>38<|level|>3\n<|id|>56<|level|>3\n<|id|>65<|level|>3\n<|id|>67<|level|>2\n<|id|>69<|level|>3\n<|id|>75<|level|>3\n<|id|>80<|level|>3\n<|id|>84<|level|>3\n<|id|>86<|level|>3\n<|id|>89<|level|>3\n<|id|>91<|level|>3\n<|id|>93<|level|>3\n<|id|>95<|level|>3\n<|id|>97<|level|>3\n<|id|>99<|level|>2\n<|id|>105<|level|>2\n<|id|>109<|level|>-1\n<|id|>117<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        }
+    ]
+}

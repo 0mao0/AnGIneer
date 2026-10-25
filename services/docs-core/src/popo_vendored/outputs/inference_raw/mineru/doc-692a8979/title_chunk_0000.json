@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 281 128 717<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>14<|page|>2<|box|>148 140 167 367<|content|>1. Background on the Client\n<|id|>21<|page|>3<|box|>90 140 107 540<|content|>2. Scope of Engagement / Services to Be Performed\n<|id|>23<|page|>3<|box|>165 140 183 390<|content|>2.1 Social History Investigation\n<|id|>31<|page|>4<|box|>138 140 157 316<|content|>2.2 Family Interviews\n<|id|>39<|page|>5<|box|>90 140 107 300<|content|>2.3 Records Review\n<|id|>48<|page|>6<|box|>90 140 108 500<|content|>2.4 Preparation of Written Mitigation Report\n<|id|>58<|page|>7<|box|>275 140 292 498<|content|>2.5 Coordination with Other Defense Experts\n<|id|>62<|page|>7<|box|>674 142 691 434<|content|>2.6 Testimony at Sentencing Hearing\n<|id|>68<|page|>8<|box|>250 140 266 290<|content|>3. Fees and Billing\n<|id|>77<|page|>9<|box|>204 140 222 506<|content|>4. Confidentiality and Attorney Work Product\n<|id|>83<|page|>10<|box|>90 140 107 490<|content|>5. Independence and Professional Standards\n<|id|>88<|page|>10<|box|>583 140 599 344<|content|>6. Term and Termination\n<|id|>92<|page|>11<|box|>167 140 184 300<|content|>7. Points of Contact\n<|id|>94<|page|>11<|box|>238 140 253 385<|content|>Calderwood & Harkness LLP:\n<|id|>101<|page|>11<|box|>493 142 511 454<|content|>Thornfield Mitigation Consulting LLC:\n<|id|>105<|page|>11<|box|>676 140 694 370<|content|>8. Acceptance and Execution\n<|id|>113<|page|>12<|box|>229 313 244 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>14<|level|>1\n<|id|>21<|level|>1\n<|id|>23<|level|>2\n<|id|>31<|level|>2\n<|id|>39<|level|>2\n<|id|>48<|level|>2\n<|id|>58<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>1\n<|id|>77<|level|>1\n<|id|>83<|level|>1\n<|id|>88<|level|>1\n<|id|>92<|level|>1\n<|id|>94<|level|>2\n<|id|>101<|level|>2\n<|id|>105<|level|>1\n<|id|>113<|level|>2",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>229 140 247 267<|content|>Dear Ms. Adler:\n<|id|>7<|page|>1<|box|>616 140 633 354<|content|>1. Scope of Representation\n<|id|>29<|page|>3<|box|>561 140 579 313<|content|>2. Engagement Team\n<|id|>36<|page|>4<|box|>329 140 347 287<|content|>3. Client Contacts\n<|id|>43<|page|>4<|box|>654 140 670 406<|content|>4. Fees and Billing Arrangements\n<|id|>44<|page|>4<|box|>684 140 700 401<|content|>4.1 Fee Structure — Capped Fee\n<|id|>49<|page|>5<|box|>294 140 311 279<|content|>4.2 Hourly Rates\n<|id|>52<|page|>5<|box|>574 140 590 370<|content|>4.3 Disbursements and Costs\n<|id|>63<|page|>6<|box|>157 140 175 388<|content|>4.4 Billing and Payment Terms\n<|id|>68<|page|>6<|box|>473 140 489 493<|content|>4.5 Fee Cap Does Not Include Other Matters\n<|id|>70<|page|>6<|box|>628 140 646 464<|content|>5. Third-Party Consultants and Advisors\n<|id|>76<|page|>7<|box|>286 140 301 321<|content|>6. Conflicts of Interest\n<|id|>83<|page|>7<|box|>829 140 847 390<|content|>7. Confidentiality and Privilege\n<|id|>87<|page|>8<|box|>402 140 419 326<|content|>8. Document Retention\n<|id|>90<|page|>8<|box|>661 140 678 385<|content|>9. Termination of Engagement\n<|id|>95<|page|>9<|box|>212 142 229 297<|content|>10. Governing Law\n<|id|>97<|page|>9<|box|>334 142 351 316<|content|>11. Entire Agreement\n<|id|>103<|page|>9<|box|>763 140 779 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>106<|page|>9<|box|>857 313 875 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>108<|page|>10<|box|>152 142 169 377<|content|>ACCEPTED AND AGREED:\n<|id|>109<|page|>10<|box|>178 140 195 669<|content|>METROPOLITAN TRANSIT DEVELOPMENT CORPORATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>-1\n<|id|>7<|level|>2\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>49<|level|>3\n<|id|>52<|level|>3\n<|id|>63<|level|>3\n<|id|>68<|level|>3\n<|id|>70<|level|>2\n<|id|>76<|level|>2\n<|id|>83<|level|>2\n<|id|>87<|level|>2\n<|id|>90<|level|>2\n<|id|>95<|level|>2\n<|id|>97<|level|>2\n<|id|>103<|level|>1\n<|id|>106<|level|>1\n<|id|>108<|level|>2\n<|id|>109<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,225 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-40acitnh\\input\\pdfs\\doc-954b258c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-40acitnh\\enriched\\doc-954b258c.json",
+    "contd_output": "<|src_id|>27<|tgt_id|>28\n<|src_id|>120<|tgt_id|>121",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>8<|level|>1\n<|id|>14<|level|>2\n<|id|>20<|level|>2\n<|id|>33<|level|>2\n<|id|>43<|level|>3\n<|id|>47<|level|>3\n<|id|>51<|level|>2\n<|id|>72<|level|>2\n<|id|>85<|level|>2\n<|id|>89<|level|>2\n<|id|>95<|level|>2\n<|id|>99<|level|>3\n<|id|>127<|level|>2\n<|id|>139<|level|>2\n<|id|>140<|level|>3\n<|id|>146<|level|>2\n<|id|>147<|level|>3\n<|id|>152<|level|>2\n<|id|>153<|level|>3",
+    "image_output": "<|src_id|>142<|tgt_id|>140\n<|src_id|>143<|tgt_id|>140\n<|src_id|>144<|tgt_id|>140\n<|src_id|>149<|tgt_id|>147\n<|src_id|>150<|tgt_id|>147\n<|src_id|>155<|tgt_id|>153\n<|src_id|>156<|tgt_id|>153",
+    "contd_label": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 121
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 142,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 147
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 147
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 153
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 142,
+            "table2_idx": 143,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "[Counterparty",
+                    "Customer",
+                    "[Date]",
+                    "[Y/N]",
+                    "[Status]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Name]",
+                    "Supply Agreement (PureHaven)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 143,
+            "table2_idx": 144,
+            "upper_row_ss": [
+                [
+                    "15",
+                    "[Counterparty Name]",
+                    "Lease - 2800 Industrial Parkway, Marysville, OH (Manufacturing Facility)",
+                    "[Date]",
+                    "Y",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "16",
+                    "[Counterparty Name]",
+                    "Customer Supply Agreement (CleanLeaf)",
+                    "[Date]",
+                    "[Y/N]",
+                    "[Status]"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 149,
+            "table2_idx": 150,
+            "upper_row_ss": [
+                [
+                    "No.",
+                    "Schedule ARef. No.",
+                    "Counterparty Name",
+                    "RelevantConsentProvision",
+                    "Date ConsentRequested",
+                    "ConsentObtained(Y/N/Pending)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1",
+                    "[●]",
+                    "[Counterparty Name]",
+                    "Section [●](Assignment / Change of Control)",
+                    "October 12, 2022",
+                    "Pending"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 155,
+            "table2_idx": 156,
+            "upper_row_ss": [
+                [
+                    "(a) Trade Payables",
+                    "Trade payables and accounts payable related to the CleanLeaf and PureHaven product lines, including amounts owed to vendors, suppliers, and service providers for goods and services received in connection with",
+                    "$4,200,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "the Product Lines",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        47,
+        105
+    ],
+    "pages": [
+        48,
+        50,
+        52,
+        63,
+        67,
+        75,
+        104,
+        105
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>199<|page|>48<|box|>279 430 298 585<|content|>(In billions of dollars)\n<|id|>200<|page|>48<|box|>756 416 777 603<|content|>As of December 31\n<|id|>217<|page|>50<|box|>936 66 966 513<|content|>In addition to the \\$12,029 million of tenders acc...n process, \\$550 million was accepted from Federal\n<|id|>218<|page|>50<|box|>183 527 225 974<|content|>Reserve banks as agents for foreign and internatio...d from Federal Reserve banks for their own account\n<|id|>258<|page|>52<|box|>733 66 766 513<|content|>The notes of Series L-1999 were dated March 31, 19...h 31, 1999, with interest payable September 30 and\n<|id|>259<|page|>52<|box|>182 529 225 976<|content|>March 31 until maturity. ... An interest rate of 5...ich tenders were accepted on a yield auction basis\n<|id|>296<|page|>63<|box|>222 27 232 288<|content|>^{2} From date of additional issue in case of a reopening\n<|id|>297<|page|>63<|box|>231 27 243 423<|content|>^{3} In reopenings the amount issued is in additio...is in addition to the amount of original offerings\n<|id|>312<|page|>63<|box|>519 27 536 474<|content|>^{20} Yields accepted ranged from 4. ... 924)\n<|id|>313<|page|>63<|box|>536 27 555 474<|content|>^{21} Yields accepted ranged from 5. ... 741)\n<|id|>383<|page|>67<|box|>184 7 282 461<|content|>Series EE bonds, on sale since January 1, 1980, ar..... Series HH bonds were sold for cash from January\n<|id|>384<|page|>67<|box|>182 481 281 934<|content|>1, 1980, through October 31, 1982. ... and the Ann...t of the Secretary of the Treasury for fiscal 1974\n<|id|>407<|page|>75<|box|>291 14 313 492<|content|>Based on closing bid quotations (in percentages)\n<|id|>408<|page|>75<|box|>828 476 868 822<|content|>Note: ... Market yields on coupon issues due in less than 3 months are excluded\n<|id|>479<|page|>104<|box|>146 175 183 850<|content|>TABLE CM-III-2. ... --Dollar Liabilities to, and D...ntries and Areas Not Regularly Reported Separately\n<|id|>480<|page|>104<|box|>183 314 195 710<|content|>[Position at end of period in millions of dollars. ... Office of Data Management]\n<|id|>482<|page|>105<|box|>188 209 259 759<|content|>CHART CM-B. ... --Claims on Foreigners Reported by... Banking Facilities and Banks in the United States",
+    "raw_response": "<|src_id|>217<|tgt_id|>218\n<|src_id|>258<|tgt_id|>259\n<|src_id|>383<|tgt_id|>384",
+    "parsed": [
+        {
+            "src_id": 217,
+            "tgt_id": 218
+        },
+        {
+            "src_id": 258,
+            "tgt_id": 259
+        },
+        {
+            "src_id": 383,
+            "tgt_id": 384
+        }
+    ]
+}

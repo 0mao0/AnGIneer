@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['m', '1.5~1.8', '3.0~3.6', '4.0~5.0']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 爆破方法', 'rowspan=2, 水下裸露爆破', 'colspan=2, 水下钻孔爆破']]\n",
+    "raw_response": "[0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 452,
+    "table2_idx": 453
+}

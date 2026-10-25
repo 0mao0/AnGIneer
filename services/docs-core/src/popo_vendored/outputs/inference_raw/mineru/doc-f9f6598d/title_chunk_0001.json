@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        54
+    ],
+    "pages": [
+        47,
+        49,
+        51,
+        52,
+        53,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>485<|page|>47<|box|>89 142 107 243<|content|>EXHIBIT D\n<|id|>486<|page|>47<|box|>130 142 148 519<|content|>FORM OF MONTHLY FINANCIAL REPORT\n<|id|>487<|page|>47<|box|>157 142 174 633<|content|>Harbor Point Towers — Monthly Financial Reporting\n<|id|>491<|page|>47<|box|>260 143 277 310<|content|>Report Components:\n<|id|>506<|page|>49<|box|>89 143 106 511<|content|>INSURANCE REQUIREMENTS SCHEDULE\n<|id|>507<|page|>49<|box|>116 143 133 578<|content|>Harbor Point Towers — Required Insurance Coverages\n<|id|>509<|page|>49<|box|>681 143 696 503<|content|>Additional Insured Parties (Liability Policies):\n<|id|>517<|page|>51<|box|>89 143 106 241<|content|>EXHIBIT F\n<|id|>518<|page|>51<|box|>131 142 148 514<|content|>LIST OF EXISTING SERVICE CONTRACTS\n<|id|>519<|page|>51<|box|>157 142 174 568<|content|>Harbor Point Towers — Schedule of Service Contract\n<|id|>524<|page|>52<|box|>89 142 106 245<|content|>EXHIBIT G\n<|id|>525<|page|>53<|box|>89 143 106 441<|content|>ON-SITE PERSONNEL SCHEDULE\n<|id|>526<|page|>53<|box|>116 142 133 493<|content|>Harbor Point Towers — Initial Staffing Plan\n<|id|>527<|page|>53<|box|>142 142 159 702<|content|>[To be finalized and approved by Owner prior to or\n<|id|>530<|page|>54<|box|>512 140 529 194<|content|>Notes:",
+    "raw_response": "<|id|>485<|level|>1\n<|id|>486<|level|>2\n<|id|>487<|level|>3\n<|id|>491<|level|>2\n<|id|>506<|level|>1\n<|id|>507<|level|>2\n<|id|>509<|level|>2\n<|id|>517<|level|>1\n<|id|>518<|level|>2\n<|id|>519<|level|>3\n<|id|>524<|level|>1\n<|id|>525<|level|>2\n<|id|>526<|level|>3\n<|id|>527<|level|>-1\n<|id|>530<|level|>2",
+    "parsed": [
+        {
+            "id": 485,
+            "level": 1
+        },
+        {
+            "id": 486,
+            "level": 2
+        },
+        {
+            "id": 487,
+            "level": 3
+        },
+        {
+            "id": 491,
+            "level": 2
+        },
+        {
+            "id": 506,
+            "level": 1
+        },
+        {
+            "id": 507,
+            "level": 2
+        },
+        {
+            "id": 509,
+            "level": 2
+        },
+        {
+            "id": 517,
+            "level": 1
+        },
+        {
+            "id": 518,
+            "level": 2
+        },
+        {
+            "id": 519,
+            "level": 3
+        },
+        {
+            "id": 524,
+            "level": 1
+        },
+        {
+            "id": 525,
+            "level": 2
+        },
+        {
+            "id": 526,
+            "level": 3
+        },
+        {
+            "id": 530,
+            "level": 2
+        }
+    ]
+}

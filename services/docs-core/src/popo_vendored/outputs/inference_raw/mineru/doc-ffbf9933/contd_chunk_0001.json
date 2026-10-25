@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        73,
+        129
+    ],
+    "pages": [
+        74,
+        75,
+        85,
+        91,
+        98,
+        99,
+        103,
+        128,
+        129
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>401<|page|>74<|box|>122 427 133 574<|content|>(Dollar amounts in millions)\n<|id|>403<|page|>75<|box|>114 119 202 497<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>404<|page|>75<|box|>114 522 202 899<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1974\n<|id|>437<|page|>85<|box|>403 292 417 762<|content|>Table TSO-5. ... - Securities Issued by Government-Sponsored Agencies\n<|id|>438<|page|>85<|box|>421 401 434 606<|content|>and the District of Columbia\n<|id|>454<|page|>91<|box|>587 510 626 896<|content|>2/ Beginning July 1974, the IMF adopted a techniqu...rrencies of 16 member countries. ... n Preliminary\n<|id|>455<|page|>91<|box|>621 512 631 599<|content|>p Preliminary. ... p Preliminary\n<|id|>507<|page|>98<|box|>612 114 625 301<|content|>(EQ1) E_m = \\Sigma(\\Delta\\$/f c_i * M_i/\\Sigma M)\n<|id|>508<|page|>98<|box|>628 136 655 436<|content|>Where: ... E_{m} is the weighted average of percen...n the dollar cost of individual foreign currencies\n<|id|>509<|page|>98<|box|>659 184 678 449<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>510<|page|>98<|box|>682 184 709 436<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>512<|page|>98<|box|>437 518 450 705<|content|>(EQ2) E_{x} = \\Sigma(\\Delta f c_{i}/\\$ * X_{i}/\\Sigma x)\n<|id|>513<|page|>98<|box|>454 540 481 839<|content|>Where: ... E_{x} is the weighted average of percentage changes in the foreign currency cost of dollars\n<|id|>514<|page|>98<|box|>486 589 505 835<|content|>\\Delta f c_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>515<|page|>98<|box|>510 589 535 829<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>518<|page|>98<|box|>591 545 616 845<|content|>Where: ... and\n<|id|>519<|page|>98<|box|>622 593 649 851<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>525<|page|>99<|box|>277 98 340 487<|content|>The report forms and instructions used in the coll...istics have been revised a number of times. ... 1/\n<|id|>526<|page|>99<|box|>343 100 445 489<|content|>The present form of the published presentation of ...rt-term liquid claims of large nonbanking concerns\n<|id|>550<|page|>103<|box|>719 551 732 639<|content|>1976-Feb. ... 12\n<|id|>551<|page|>103<|box|>731 580 741 639<|content|>Mar. ... 5\n<|id|>554<|page|>103<|box|>755 580 765 639<|content|>June. ... 5\n<|id|>555<|page|>103<|box|>766 580 776 639<|content|>July. ... 6\n<|id|>556<|page|>103<|box|>776 580 784 639<|content|>Aug. ... 8\n<|id|>557<|page|>103<|box|>784 580 793 639<|content|>Sept. ... 4\n<|id|>558<|page|>103<|box|>792 580 800 639<|content|>Oct. ... 4\n<|id|>561<|page|>103<|box|>819 554 831 639<|content|>1977-Jan. ... 4\n<|id|>562<|page|>103<|box|>831 579 841 637<|content|>Feb. ... 6\n<|id|>612<|page|>128<|box|>76 296 87 694<|content|>Section V - Transactions in Long-Term Securities by Foreigners\n<|id|>613<|page|>128<|box|>87 328 99 662<|content|>Reported by Banks and Brokers in the United States\n<|id|>614<|page|>128<|box|>98 267 109 721<|content|>Table CM-V-5. ... - Net Foreign Transactions in Long-Term Domestic Bonds,\n<|id|>615<|page|>128<|box|>109 337 121 650<|content|>Other than Treasury Bonds and Notes, by Country\n<|id|>616<|page|>128<|box|>121 197 131 788<|content|>(In millions of dollars; ... negative figures indi...n a net outflow of capital from the United States)\n<|id|>618<|page|>129<|box|>60 404 72 570<|content|>CAPITAL MOVEMENTS. ... CAPITAL MOVEMENTS",
+    "raw_response": "<|src_id|>403<|tgt_id|>404\n<|src_id|>437<|tgt_id|>438\n<|src_id|>614<|tgt_id|>615",
+    "parsed": [
+        {
+            "src_id": 403,
+            "tgt_id": 404
+        },
+        {
+            "src_id": 437,
+            "tgt_id": 438
+        },
+        {
+            "src_id": 614,
+            "tgt_id": 615
+        }
+    ]
+}

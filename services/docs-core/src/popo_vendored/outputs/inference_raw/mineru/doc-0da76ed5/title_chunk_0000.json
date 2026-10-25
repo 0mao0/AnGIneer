@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 367 106 630<|content|>CONFIDENTIAL FEE LETTER\n<|id|>12<|page|>1<|box|>829 140 845 382<|content|>Section 1 — Arrangement Fee\n<|id|>20<|page|>2<|box|>664 140 681 444<|content|>Section 2 — Administrative Agent Fee\n<|id|>27<|page|>3<|box|>267 140 284 589<|content|>Section 3 — Commitment Fee (Revolving Credit Facil\n<|id|>32<|page|>3<|box|>777 140 794 336<|content|>Section 4 — Syndication\n<|id|>35<|page|>4<|box|>304 140 321 377<|content|>Section 5 — Taxes; Gross-Up\n<|id|>39<|page|>4<|box|>825 140 842 362<|content|>Section 6 — Confidentiality\n<|id|>52<|page|>6<|box|>150 140 167 408<|content|>Section 7 — Amendment; Waiver\n<|id|>55<|page|>6<|box|>407 140 424 640<|content|>Section 8 — Governing Law; Jurisdiction; Waiver of\n<|id|>59<|page|>7<|box|>89 140 217 854<|content|>HERETO CERTIFIES THAT NO REPRESENTATIVE, AGENT, OR\n<|id|>60<|page|>7<|box|>241 140 258 521<|content|>Section 9 — Relationship to Commitment Letter\n<|id|>64<|page|>7<|box|>652 140 670 529<|content|>Section 10 — Counterparts; Electronic Execution\n<|id|>78<|page|>8<|box|>375 142 391 500<|content|>ARDENT HEALTHCARE HOLDINGS INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>2\n<|id|>20<|level|>2\n<|id|>27<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>2\n<|id|>39<|level|>2\n<|id|>52<|level|>2\n<|id|>55<|level|>2\n<|id|>59<|level|>1\n<|id|>60<|level|>2\n<|id|>64<|level|>2\n<|id|>78<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        }
+    ]
+}

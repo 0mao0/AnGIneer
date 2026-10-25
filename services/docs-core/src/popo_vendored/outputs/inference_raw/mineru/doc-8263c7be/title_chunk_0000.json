@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        16,
+        17,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>159 403 178 591<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>421 142 438 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>16<|page|>2<|box|>402 140 419 395<|content|>II. FACTUAL BACKGROUND\n<|id|>17<|page|>2<|box|>434 140 450 447<|content|>A. The Joint Venture and Its Structure\n<|id|>24<|page|>3<|box|>578 142 595 589<|content|>B. Capital Contribution Structure and Pinnacle's D\n<|id|>28<|page|>3<|box|>878 140 896 557<|content|>Second Tranche (Capital Call Issued March 1, 2023)\n<|id|>33<|page|>4<|box|>599 140 617 338<|content|>C. The Permitting Delay\n<|id|>41<|page|>5<|box|>619 140 637 419<|content|>D. Pinnacle's Force Majeure Claim\n<|id|>46<|page|>6<|box|>157 140 174 540<|content|>III. RELEVANT CONTRACTUAL PROVISIONS\n<|id|>48<|page|>6<|box|>251 143 267 405<|content|>A. Section 11.4 — Force Majeure\n<|id|>58<|page|>7<|box|>638 140 655 488<|content|>B. Section 4.3 — Permitting Responsibilities\n<|id|>63<|page|>8<|box|>294 140 311 537<|content|>C. Section 5.2 — Capital Contribution Obligations\n<|id|>65<|page|>8<|box|>343 176 359 450<|content|>Section 5.2. Capital Contributions.\n<|id|>70<|page|>8<|box|>806 142 823 450<|content|>D. Section 8.2 — Default and Remedies\n<|id|>77<|page|>9<|box|>619 140 637 557<|content|>E. Section 11.4 in Relation to Section 5.2 — Inter\n<|id|>82<|page|>10<|box|>339 140 357 269<|content|>IV. ANALYSIS\n<|id|>83<|page|>10<|box|>371 140 388 753<|content|>A. The Contractual Exclusion of Governmental Appro\n<|id|>91<|page|>11<|box|>601 140 619 774<|content|>B. Pinnacle, as Manager, Cannot Invoke Its Own Per\n<|id|>100<|page|>13<|box|>239 140 273 854<|content|>C. Capital Contribution Obligations Are Unconditio\n<|id|>109<|page|>14<|box|>583 140 599 702<|content|>D. Washington Case Law on Force Majeure in Public-\n<|id|>118<|page|>16<|box|>294 140 310 718<|content|>E. Pinnacle's Claim That CSIA Committed a Material\n<|id|>126<|page|>17<|box|>530 140 547 594<|content|>V. RISK ASSESSMENT AND COUNTERARGUMENTS\n<|id|>127<|page|>17<|box|>561 142 579 483<|content|>A. Potential Counterarguments by Pinnacle\n<|id|>142<|page|>19<|box|>455 140 472 491<|content|>B. Assessment of Litigation/Arbitration Risk\n<|id|>151<|page|>20<|box|>354 140 372 550<|content|>VI. CONCLUSIONS AND RECOMMENDATIONS\n<|id|>152<|page|>20<|box|>381 140 398 810<|content|>Based on the foregoing analysis, we reach the foll\n<|id|>172<|page|>21<|box|>814 142 830 529<|content|>VII. APPENDICES / EXHIBITS REFERENCED",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>24<|level|>3\n<|id|>28<|level|>4\n<|id|>33<|level|>3\n<|id|>41<|level|>3\n<|id|>46<|level|>2\n<|id|>48<|level|>3\n<|id|>58<|level|>3\n<|id|>63<|level|>3\n<|id|>65<|level|>4\n<|id|>70<|level|>3\n<|id|>77<|level|>3\n<|id|>82<|level|>2\n<|id|>83<|level|>3\n<|id|>91<|level|>3\n<|id|>100<|level|>3\n<|id|>109<|level|>3\n<|id|>118<|level|>3\n<|id|>126<|level|>2\n<|id|>127<|level|>3\n<|id|>142<|level|>3\n<|id|>151<|level|>2\n<|id|>152<|level|>-1\n<|id|>172<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 4
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        }
+    ]
+}

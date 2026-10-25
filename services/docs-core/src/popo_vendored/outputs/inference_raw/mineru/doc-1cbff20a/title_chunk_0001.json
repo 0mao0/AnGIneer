@@ -1,0 +1,59 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        52
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        51,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>494<|page|>47<|box|>779 447 795 550<|content|>EXHIBIT D\n<|id|>495<|page|>47<|box|>804 362 821 635<|content|>FORM OF LETTER OF CREDIT\n<|id|>498<|page|>48<|box|>133 290 151 705<|content|>IRREVOCABLE STANDBY LETTER OF CREDIT\n<|id|>499<|page|>48<|box|>160 408 176 589<|content|>No. SNLC-2023-08015\n<|id|>524<|page|>49<|box|>594 449 609 547<|content|>EXHIBIT E\n<|id|>525<|page|>49<|box|>619 370 636 627<|content|>EXPANSION OPTION TERMS\n<|id|>537<|page|>51<|box|>133 447 151 550<|content|>EXHIBIT F\n<|id|>538<|page|>51<|box|>159 354 176 643<|content|>RIGHT OF FIRST OFFER TERMS\n<|id|>548<|page|>52<|box|>595 447 612 550<|content|>EXHIBIT G\n<|id|>549<|page|>52<|box|>622 263 638 733<|content|>FAIR MARKET RENT DETERMINATION PROCEDURE",
+    "raw_response": "<|id|>494<|level|>1\n<|id|>495<|level|>1\n<|id|>498<|level|>2\n<|id|>499<|level|>3\n<|id|>524<|level|>1\n<|id|>525<|level|>1\n<|id|>537<|level|>1\n<|id|>538<|level|>1\n<|id|>548<|level|>1\n<|id|>549<|level|>1",
+    "parsed": [
+        {
+            "id": 494,
+            "level": 1
+        },
+        {
+            "id": 495,
+            "level": 1
+        },
+        {
+            "id": 498,
+            "level": 2
+        },
+        {
+            "id": 499,
+            "level": 3
+        },
+        {
+            "id": 524,
+            "level": 1
+        },
+        {
+            "id": 525,
+            "level": 1
+        },
+        {
+            "id": 537,
+            "level": 1
+        },
+        {
+            "id": 538,
+            "level": 1
+        },
+        {
+            "id": 548,
+            "level": 1
+        },
+        {
+            "id": 549,
+            "level": 1
+        }
+    ]
+}

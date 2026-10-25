@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        17,
+        18,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>289 145 435 852<|content|>DEBTOR'S MOTION FOR ENTRY OF INTERIM AND FINAL ORD...CURED PARTIES, AND (VI) SCHEDULING A FINAL HEARING\n<|id|>2<|page|>1<|box|>443 156 479 854<|content|>Draft Date: ... 1044-00003\n<|id|>3<|page|>1<|box|>487 143 503 408<|content|>Right-click to update Table of Contents\n<|id|>47<|page|>5<|box|>871 140 907 854<|content|>27. ... An informal group of holders of the Unsecu... by Ashford, Brightmoor Group & McKay PC, 299 Park\n<|id|>48<|page|>6<|box|>90 174 125 854<|content|>Avenue, 18th Floor, New York, New York 10171 (Caro...roup, Lead Partner; ... Robert Mancini, Associate)\n<|id|>191<|page|>17<|box|>864 140 900 854<|content|>86. ... As set forth in the Hale Declaration and the\n<|id|>192<|page|>18<|box|>90 174 181 854<|content|>DIP Budget, the Debtor requires immediate access t... that cannot be remedied through alternative means\n<|id|>246<|page|>22<|box|>114 508 133 856<|content|>Dated: ... January 18, 2023 New York, New York\n<|id|>247<|page|>22<|box|>141 140 159 321<|content|>Respectfully submitted,\n<|id|>248<|page|>22<|box|>166 140 184 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>249<|page|>22<|box|>185 142 202 253<|content|>By: ... By\n<|id|>250<|page|>22<|box|>202 140 219 434<|content|>Nathaniel Bower (Responsible Partner)\n<|id|>251<|page|>22<|box|>219 140 237 651<|content|>Amy Chesterton (Lead Associate) Nathan Ikeda (Working Associate)\n<|id|>252<|page|>22<|box|>236 140 268 854<|content|>780 Third Avenue New York, New York 10017 Telephone: ... (212) 555-7801\n<|id|>253<|page|>22<|box|>268 140 287 560<|content|>Proposed Counsel to the Debtor, Thalassa Americas ...posed Counsel to the Debtor, Thalassa Americas Inc",
+    "raw_response": "<|src_id|>47<|tgt_id|>48\n<|src_id|>191<|tgt_id|>192",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 192
+        }
+    ]
+}

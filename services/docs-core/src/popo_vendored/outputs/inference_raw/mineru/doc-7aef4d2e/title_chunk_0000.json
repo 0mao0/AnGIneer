@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 214 142 782<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF CALLOWAY-\n<|id|>1<|page|>1<|box|>159 156 195 839<|content|>Establishment of Audit Committee, Appointment of M\n<|id|>4<|page|>1<|box|>380 140 397 243<|content|>RECITALS\n<|id|>22<|page|>2<|box|>753 140 772 704<|content|>RESOLUTION 1: ESTABLISHMENT OF THE AUDIT COMMITTEE\n<|id|>26<|page|>3<|box|>239 140 258 738<|content|>RESOLUTION 2: APPOINTMENT OF AUDIT COMMITTEE MEMBE\n<|id|>34<|page|>4<|box|>285 140 301 816<|content|>RESOLUTION 3: DESIGNATION OF AUDIT COMMITTEE FINAN\n<|id|>50<|page|>5<|box|>508 140 544 758<|content|>RESOLUTION 4: AUTHORITY AND RESPONSIBILITIES OF TH\n<|id|>62<|page|>7<|box|>167 140 184 666<|content|>RESOLUTION 5: AUDIT COMMITTEE CHARTER ADOPTION\n<|id|>66<|page|>7<|box|>523 140 541 656<|content|>RESOLUTION 6: INDEPENDENT AUDITOR RELATIONSHIP\n<|id|>70<|page|>8<|box|>89 140 106 571<|content|>RESOLUTION 7: DISCLOSURE AUTHORIZATION\n<|id|>73<|page|>8<|box|>383 142 401 542<|content|>RESOLUTION 8: GENERAL AUTHORIZATION\n<|id|>76<|page|>8<|box|>681 421 696 575<|content|>CERTIFICATION\n<|id|>85<|page|>9<|box|>164 447 181 550<|content|>EXHIBIT A\n<|id|>86<|page|>9<|box|>189 359 205 638<|content|>AUDIT COMMITTEE CHARTER\n<|id|>87<|page|>9<|box|>215 416 234 580<|content|>(Attached Separately)",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>22<|level|>2\n<|id|>26<|level|>2\n<|id|>34<|level|>2\n<|id|>50<|level|>2\n<|id|>62<|level|>2\n<|id|>66<|level|>2\n<|id|>70<|level|>2\n<|id|>73<|level|>2\n<|id|>76<|level|>2\n<|id|>85<|level|>2\n<|id|>86<|level|>3\n<|id|>87<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        33
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        17,
+        18,
+        32,
+        33
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>178 153 213 841<|content|>APEX SURGICAL INNOVATIONS, INC. ... 24-cv-00587-RG...States District Court for the District of Delaware\n<|id|>3<|page|>1<|box|>223 431 239 854<|content|>Date of Draft: ... 0017\n<|id|>4<|page|>1<|box|>248 140 324 854<|content|>Internal working draft prepared for review by Cald...am without express authorization from lead counsel\n<|id|>23<|page|>2<|box|>818 143 910 856<|content|>10. ... I am a Fellow of the American Institute fo...and a member of the Society for Minimally Invasive\n<|id|>24<|page|>3<|box|>89 174 125 854<|content|>Therapy, the Biomedical Engineering Society, and t..., and the American Society of Mechanical Engineers\n<|id|>89<|page|>8<|box|>829 140 904 856<|content|>33. ... See SBD-012447 through\n<|id|>90<|page|>9<|box|>89 174 125 854<|content|>SBD-012463 (PE-5000 design specifications); ... C)\n<|id|>172<|page|>17<|box|>866 140 902 856<|content|>89. ... The small angular deflection at the tip (caused by the inclined ramp discussed in\n<|id|>173<|page|>18<|box|>89 174 181 854<|content|>Section V. ... When measured dynamically during ac...blade is approximately 3–5 degrees, not 12 degrees\n<|id|>288<|page|>32<|box|>332 142 349 513<|content|>DRAFT — SUBJECT TO REVISION PRIOR TO SERVICE\n<|id|>289<|page|>32<|box|>383 140 417 852<|content|>Dr. ... Professor of Biomedical Engineering Halfor...iversity 3401 Walnut Street Philadelphia, PA 19104\n<|id|>290<|page|>32<|box|>417 143 434 264<|content|>Date: ... Date\n<|id|>295<|page|>32<|box|>547 140 565 514<|content|>Exhibit B: ... Complete List of Materials Considered\n<|id|>296<|page|>32<|box|>573 140 628 854<|content|>Exhibit C: ... Annotated Claim Charts — Rebuttal (...luding the PE-5000, PE-12000, and PE-15000 Series)\n<|id|>297<|page|>32<|box|>635 140 691 854<|content|>Exhibit D: ... Photographs and Diagrams of Precisi...ross-Sectional Images, and Annotated CAD Drawings)\n<|id|>298<|page|>32<|box|>698 140 772 854<|content|>Exhibit E: ... Ng's Reported Results)\n<|id|>299<|page|>32<|box|>779 140 816 854<|content|>Exhibit F: ... Excerpts from Prosecution Histories...rguments Relevant to Prosecution History Estoppel)\n<|id|>300<|page|>32<|box|>823 140 878 854<|content|>Exhibit G: ... Spring-Return Systems and Patent Prosecution)\n<|id|>301<|page|>33<|box|>89 140 125 852<|content|>Exhibit H: ... 87)",
+    "raw_response": "<|src_id|>23<|tgt_id|>24\n<|src_id|>89<|tgt_id|>90\n<|src_id|>172<|tgt_id|>173",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 173
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 442 179 553<|content|>May 30, 2023\n<|id|>3<|page|>1<|box|>188 140 390 854<|content|>This Officers' Certificate (this \"Certificate\") is...y Section 4(a)(2) thereof and Rule 144A thereunder\n<|id|>9<|page|>1<|box|>868 140 904 854<|content|>No event has occurred between the date of the Purc...esentation or warranty of the Company contained in\n<|id|>10<|page|>2<|box|>90 140 310 856<|content|>Section 1 of the Purchase Agreement to be untrue o...as of a specified date, as of such specified date)\n<|id|>31<|page|>4<|box|>729 138 896 856<|content|>The execution, delivery, and performance by the Co...d thereby, and (b) resolutions duly adopted by the\n<|id|>32<|page|>5<|box|>90 140 181 854<|content|>Pricing Committee of the Board of Directors of the...ins in full force and effect as of the date hereof\n<|id|>46<|page|>6<|box|>467 142 483 321<|content|>Name: ... Marcus Harding\n<|id|>47<|page|>6<|box|>484 143 500 367<|content|>Title: ... Chief Executive Officer\n<|id|>48<|page|>6<|box|>501 142 517 294<|content|>Date: ... May 30, 2023\n<|id|>49<|page|>6<|box|>517 142 534 457<|content|>OPTIWAVE SEMICONDUCTOR CORP. ... OPTIWAVE SEMICONDUCTOR CORP\n<|id|>51<|page|>6<|box|>553 143 569 339<|content|>Name: ... Priya Nandakumar\n<|id|>52<|page|>6<|box|>569 143 585 361<|content|>Title: ... Chief Financial Officer\n<|id|>53<|page|>6<|box|>587 143 603 294<|content|>Date: ... May 30, 2023\n<|id|>54<|page|>6<|box|>604 174 638 852<|content|>Address of the Company: ... 4800 Great America Parkway, Suite 1200 San Jose, CA 95054\n<|id|>57<|page|>6<|box|>693 140 722 852<|content|>Ridgepoint Capital Markets LLC (as representative ... 383 Madison Avenue, 22nd Floor New York, NY 10179\n<|id|>58<|page|>6<|box|>729 140 760 522<|content|>Attention: ... Cameron Walsh, Head of Equity-Linked Origination Copy to\n<|id|>59<|page|>6<|box|>767 140 782 748<|content|>Prescott Whitfield LLP (Counsel to the Initial Purchasers) 51 West 52nd Street New York, NY 10019\n<|id|>60<|page|>6<|box|>790 143 804 313<|content|>Attention: ... Diana Castellano\n<|id|>61<|page|>6<|box|>806 143 819 200<|content|>Copy to: ... Copy to\n<|id|>62<|page|>6<|box|>827 140 842 826<|content|>Calderwood & Harkness LLP (Counsel to the Company) 600 Lexington Avenue, 30th Floor New York, NY 10022\n<|id|>63<|page|>6<|box|>849 143 864 300<|content|>Attention: ... Jennifer Kwon",
+    "raw_response": "<|src_id|>9<|tgt_id|>10\n<|src_id|>31<|tgt_id|>32",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        }
+    ]
+}

@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 408 106 586<|content|>SIGNATURE PAGES\n<|id|>1<|page|>1<|box|>116 483 131 514<|content|>TO\n<|id|>2<|page|>1<|box|>141 377 157 620<|content|>GUARANTEE AGREEMENT\n<|id|>3<|page|>1<|box|>167 272 184 723<|content|>SIGNATURE PAGES TO GUARANTEE AGREEMENT\n<|id|>10<|page|>1<|box|>683 380 699 616<|content|>SIGNATURE PAGE 1 OF 12\n<|id|>11<|page|>1<|box|>709 377 724 620<|content|>GUARANTEE AGREEMENT\n<|id|>22<|page|>2<|box|>200 380 218 617<|content|>SIGNATURE PAGE 2 OF 12\n<|id|>23<|page|>2<|box|>226 377 244 620<|content|>GUARANTEE AGREEMENT\n<|id|>34<|page|>2<|box|>510 380 527 617<|content|>SIGNATURE PAGE 3 OF 12\n<|id|>35<|page|>2<|box|>535 377 553 620<|content|>GUARANTEE AGREEMENT\n<|id|>46<|page|>2<|box|>819 380 835 616<|content|>SIGNATURE PAGE 4 OF 12\n<|id|>47<|page|>2<|box|>845 377 862 620<|content|>GUARANTEE AGREEMENT\n<|id|>50<|page|>3<|box|>89 140 126 854<|content|>NEXFORD COATINGS & SURFACE TECHNOLOGIES, INC., a D\n<|id|>59<|page|>3<|box|>303 380 320 617<|content|>SIGNATURE PAGE 5 OF 12\n<|id|>60<|page|>3<|box|>329 377 345 620<|content|>GUARANTEE AGREEMENT\n<|id|>72<|page|>3<|box|>638 377 655 620<|content|>GUARANTEE AGREEMENT\n<|id|>84<|page|>4<|box|>112 380 128 617<|content|>SIGNATURE PAGE 7 OF 12\n<|id|>85<|page|>4<|box|>138 377 155 620<|content|>GUARANTEE AGREEMENT\n<|id|>97<|page|>4<|box|>556 380 574 617<|content|>SIGNATURE PAGE 8 OF 12\n<|id|>98<|page|>4<|box|>583 377 599 620<|content|>GUARANTEE AGREEMENT\n<|id|>109<|page|>4<|box|>866 380 883 616<|content|>SIGNATURE PAGE 9 OF 12\n<|id|>111<|page|>5<|box|>89 377 106 620<|content|>GUARANTEE AGREEMENT\n<|id|>122<|page|>5<|box|>373 377 390 620<|content|>SIGNATURE PAGE 10 OF 12\n<|id|>123<|page|>5<|box|>398 377 415 620<|content|>GUARANTEE AGREEMENT\n<|id|>134<|page|>5<|box|>683 377 699 620<|content|>SIGNATURE PAGE 11 OF 12\n<|id|>135<|page|>5<|box|>708 377 724 620<|content|>GUARANTEE AGREEMENT\n<|id|>147<|page|>6<|box|>181 243 250 753<|content|>SIGNATURE PAGE 12 OF 12 CONFIRMATION OF COLLATERAL\n<|id|>158<|page|>6<|box|>470 364 487 632<|content|>SCHEDULE OF GUARANTORS\n<|id|>163<|page|>7<|box|>535 143 551 790<|content|>Entities that are NOT Guarantors (Foreign Subsidia",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>10<|level|>1\n<|id|>11<|level|>1\n<|id|>22<|level|>1\n<|id|>23<|level|>1\n<|id|>34<|level|>1\n<|id|>35<|level|>1\n<|id|>46<|level|>1\n<|id|>47<|level|>1\n<|id|>50<|level|>-1\n<|id|>59<|level|>1\n<|id|>60<|level|>1\n<|id|>72<|level|>1\n<|id|>84<|level|>1\n<|id|>85<|level|>1\n<|id|>97<|level|>1\n<|id|>98<|level|>1\n<|id|>109<|level|>1\n<|id|>111<|level|>1\n<|id|>122<|level|>1\n<|id|>123<|level|>1\n<|id|>134<|level|>1\n<|id|>135<|level|>1\n<|id|>147<|level|>1\n<|id|>158<|level|>1\n<|id|>163<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 163,
+            "level": 2
+        }
+    ]
+}

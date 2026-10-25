@@ -1,0 +1,21 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>127 143 141 532<|content|>Attorneys for Defendant AURELIUS MEDIA AMERICAS IN\n<|id|>2<|type|>title<|page|>1<|box|>150 271 166 723<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA\n<|id|>3<|type|>title<|page|>1<|box|>176 272 191 723<|content|>COUNTY OF LOS ANGELES — CENTRAL DISTRICT\n<|id|>4<|type|>table<|page|>1<|box|>200 143 335 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>368 148 422 846<|content|>[PROPOSED] ORDER ON DEFENDANT'S DEMURRER TO PLAINT\n<|id|>15<|type|>title<|page|>1<|box|>755 408 772 589<|content|>OPERATIVE ORDER\n<|id|>17<|type|>title<|page|>1<|box|>806 150 824 745<|content|>OPTION 1 — DEMURRER SUSTAINED WITHOUT LEAVE TO AME\n<|id|>21<|type|>title<|page|>2<|box|>233 150 250 707<|content|>OPTION 2 — DEMURRER SUSTAINED WITH LEAVE TO AMEND\n<|id|>26<|type|>title<|page|>2<|box|>527 150 544 495<|content|>OPTION 3 — DEMURRER OVERRULED\n<|id|>29<|type|>title<|page|>2<|box|>714 287 731 709<|content|>ADDITIONAL ORDERS OR COMMENTS, IF ANY:\n<|id|>30<|type|>title<|page|>3<|box|>159 411 175 584<|content|>IT IS SO ORDERED.",
+    "raw_response": "<|src_id|>4<|tgt_id|>5",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        }
+    ]
+}

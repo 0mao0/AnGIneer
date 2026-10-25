@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 215 107 856<|content|>CALDERWOOD & HARKNESS LLP 425 Lexington Avenue New\n<|id|>7<|page|>1<|box|>340 140 359 465<|content|>1. Introduction and Engagement Context\n<|id|>14<|page|>2<|box|>250 140 266 395<|content|>2. Purpose and Basis of Request\n<|id|>20<|page|>2<|box|>840 140 857 434<|content|>3. Scope of the Initial Comfort Letter\n<|id|>23<|page|>3<|box|>304 140 321 405<|content|>3.2 Audited Financial Statements\n<|id|>36<|page|>4<|box|>340 140 357 486<|content|>3.3 Unaudited Interim Financial Statements\n<|id|>39<|page|>4<|box|>622 140 638 434<|content|>3.4 Pro Forma Financial Information\n<|id|>49<|page|>5<|box|>561 140 579 630<|content|>3.5 Financial Data and Statistics in the Offering\n<|id|>69<|page|>7<|box|>330 140 347 457<|content|>3.6 Certain Tabular and Statistical Data\n<|id|>73<|page|>7<|box|>809 140 825 537<|content|>3.7 Capsule Information / Subsequent Period Data\n<|id|>76<|page|>8<|box|>260 140 277 483<|content|>4. Scope of the Bring-Down Comfort Letter\n<|id|>84<|page|>8<|box|>866 140 883 357<|content|>5. Addressees and Reliance\n<|id|>92<|page|>9<|box|>517 140 534 354<|content|>6. Form of Comfort Letter\n<|id|>96<|page|>10<|box|>90 140 107 611<|content|>7. Specific Sections and Pages of the Offering Mem\n<|id|>110<|page|>11<|box|>148 140 167 326<|content|>8. Timing and Delivery\n<|id|>121<|page|>11<|box|>625 140 642 253<|content|>9. Enclosures\n<|id|>127<|page|>12<|box|>148 142 167 433<|content|>10. Contact Information and Closing\n<|id|>137<|page|>12<|box|>574 212 590 517<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>14<|level|>1\n<|id|>20<|level|>1\n<|id|>23<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>49<|level|>2\n<|id|>69<|level|>2\n<|id|>73<|level|>2\n<|id|>76<|level|>1\n<|id|>84<|level|>1\n<|id|>92<|level|>1\n<|id|>96<|level|>1\n<|id|>110<|level|>1\n<|id|>121<|level|>1\n<|id|>127<|level|>1\n<|id|>137<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        }
+    ]
+}

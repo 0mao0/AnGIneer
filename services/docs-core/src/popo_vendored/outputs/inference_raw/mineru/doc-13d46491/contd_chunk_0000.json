@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>185 163 202 834<|content|>Authorization to Pursue Settlement Discussions with Pinnacle Harbor Capital Partners, LP\n<|id|>3<|page|>1<|box|>210 140 340 857<|content|>The undersigned, being all of the members of the S...... 7 of the Company's Amended and Restated Bylaws\n<|id|>15<|page|>2<|box|>849 174 905 856<|content|>(b) a comprehensive bylaw and charter defensive re... and Restated Bylaws (as last amended on September\n<|id|>16<|page|>3<|box|>89 174 164 857<|content|>12, 2021) (the \"Bylaws\") and the Company's Amended...ision in the context of a contested proxy election\n<|id|>19<|page|>3<|box|>351 174 460 857<|content|>(e) a nominee qualification and deficiency review,...put forward by Pinnacle Harbor, namely Dr. ... and\n<|id|>21<|page|>3<|box|>566 140 659 857<|content|>WHEREAS, on December 8, 2022, Hargrove Sloane & Bi...r election to the Board at the 2023 Annual Meeting\n<|id|>24<|page|>3<|box|>864 140 902 854<|content|>WHEREAS, the Special Committee has convened on mul...ber 21, 2022, December 2, 2022, December 12, 2022,\n<|id|>25<|page|>4<|box|>89 140 200 856<|content|>December 20, 2022, January 4, 2023, January 10, 20...ve merits and risks of available strategic options\n<|id|>30<|page|>4<|box|>787 138 897 857<|content|>WHEREAS, after thorough and careful deliberation, ...es to engage in direct settlement discussions with\n<|id|>31<|page|>5<|box|>90 140 126 854<|content|>Pinnacle Harbor and its representatives, on the te...ons and limitations set forth in these resolutions\n<|id|>84<|page|>12<|box|>141 142 157 545<|content|>James \"Jim\" Delacroix Chair of the Special Committee\n<|id|>85<|page|>12<|box|>191 143 208 524<|content|>Carmen Vasquez Member of the Special Committee\n<|id|>86<|page|>12<|box|>242 142 258 508<|content|>Randall Morse Member of the Special Committee",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>24<|tgt_id|>25\n<|src_id|>30<|tgt_id|>31",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        }
+    ]
+}

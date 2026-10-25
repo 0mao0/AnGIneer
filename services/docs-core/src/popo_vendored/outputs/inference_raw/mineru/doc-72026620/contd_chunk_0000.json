@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        47
+    ],
+    "pages": [
+        1,
+        3,
+        12,
+        13,
+        17,
+        37,
+        46,
+        47
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>705 570 849 743<|content|>FEATURES Profile of the Economy Financial Operations International Statistics Special Reports\n<|id|>2<|page|>1<|box|>864 614 887 746<|content|>Produced and Published by\n<|id|>3<|page|>1<|box|>891 522 921 748<|content|>Department of the Treasury Bureau of the Fiscal Service\n<|id|>7<|page|>3<|box|>507 318 529 676<|content|>treasury. ... gov\n<|id|>8<|page|>3<|box|>544 122 580 874<|content|>Internet service subscribers can access the Treasu...rough the Bureau of the Fiscal Service's home page\n<|id|>43<|page|>12<|box|>733 504 911 915<|content|>For the thirteen quarters through 2019 Q4, four-qu... an annual rate in the third quarter, reflecting a\n<|id|>45<|page|>13<|box|>162 81 325 491<|content|>Nominal hourly compensation costs in the nonfarm b...r the four quarters ending in 2019's third quarter\n<|id|>92<|page|>17<|box|>516 380 527 616<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>93<|page|>17<|box|>536 83 551 266<|content|>Fourth-Quarter Receipts\n<|id|>94<|page|>17<|box|>554 81 643 488<|content|>The following capsule analysis of budget receipts,... to analyze adequately collections for the quarter\n<|id|>96<|page|>17<|box|>720 81 898 488<|content|>Individual income taxes—Individual income tax rece...nts between individual income tax receipts and the\n<|id|>97<|page|>17<|box|>536 508 566 913<|content|>Social Security and Medicare trust funds over the ...ds over the comparable quarter in fiscal year 2019\n<|id|>166<|page|>37<|box|>686 81 717 491<|content|>- Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>168<|page|>37<|box|>250 504 397 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>200<|page|>46<|box|>512 339 523 658<|content|>[Source: ... Bureau of the Fiscal Service, Division of Financing Operations]\n<|id|>201<|page|>46<|box|>530 112 547 169<|content|>JULY\n<|id|>218<|page|>47<|box|>845 111 905 473<|content|>In addition to the \\$46,000 million of tenders acc...inimum par amount required for Separate Trading of\n<|id|>219<|page|>47<|box|>89 522 121 883<|content|>Registered Interest and Principal Securities (STRI...ities (STRIPS) of notes of Series AP-2023 is \\$100",
+    "raw_response": "<|src_id|>43<|tgt_id|>45\n<|src_id|>96<|tgt_id|>97\n<|src_id|>218<|tgt_id|>219",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 219
+        }
+    ]
+}

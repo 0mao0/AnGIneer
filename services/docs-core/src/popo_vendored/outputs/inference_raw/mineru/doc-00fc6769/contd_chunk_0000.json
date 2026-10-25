@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        14,
+        17,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>228 140 244 632<|content|>FROM: ... Francesca Morano, Partner, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>253 142 270 581<|content|>TO: ... Samuel Eklund, Partner, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>279 142 297 307<|content|>DATE: ... April 5, 2022\n<|id|>6<|page|>1<|box|>305 140 340 854<|content|>RE: ... Musgrave — Merits, Damages, and Collectability\n<|id|>7<|page|>1<|box|>349 140 366 361<|content|>MATTER NO. ... 1020-00005\n<|id|>8<|page|>1<|box|>375 142 392 254<|content|>COPIES: ... File\n<|id|>9<|page|>1<|box|>401 142 417 408<|content|>Right-click to update Table of Contents\n<|id|>23<|page|>2<|box|>833 140 906 854<|content|>GAP's leadership includes Thomas R. ... The GAP Gr... — is managed by Caleb Jennings, Director of Grain\n<|id|>24<|page|>3<|box|>90 138 200 856<|content|>Operations. ... GAP is in good standing in both it...do business as a foreign limited liability company\n<|id|>61<|page|>6<|box|>843 140 898 854<|content|>February 14, 2022: ... The forbearance was express...tioned on PBGC making a partial payment of Invoice\n<|id|>62<|page|>7<|box|>90 140 162 854<|content|>GAP-2021-3187 in the amount of $892,500. ... The p...en partial payments on the outstanding obligations\n<|id|>71<|page|>7<|box|>869 140 906 857<|content|>Macon County Elevator Fire (October 17, 2021). ......County Road 1400 East, Decatur, Illinois 62521, in\n<|id|>72<|page|>8<|box|>90 140 255 856<|content|>Macon County. ... 2 million fire loss, and if cove...will rest on PBGC's already strained balance sheet\n<|id|>130<|page|>14<|box|>452 174 488 854<|content|>Invoice GAP-2021-3187 (Due: ... 00 = approximately $85,287\n<|id|>131<|page|>14<|box|>496 174 532 854<|content|>Invoice GAP-2021-3244 (Due: ... 00 = approximately $81,920\n<|id|>132<|page|>14<|box|>540 174 575 854<|content|>Invoice GAP-2021-3301 (Due: ... 00 = approximately $89,964\n<|id|>133<|page|>14<|box|>584 174 619 854<|content|>Invoice GAP-2021-3358 (Due: ... 00 = approximately $45,275\n<|id|>134<|page|>14<|box|>628 174 664 854<|content|>Invoice GAP-2022-0042 (Due: ... 00 = approximately $43,546\n<|id|>165<|page|>17<|box|>306 183 321 661<|content|>• All deposit accounts maintained at Heartland Prairie Bank; ... and\n<|id|>167<|page|>17<|box|>363 140 510 856<|content|>If PBGC has defaulted on its obligations to Heartl...le or no surplus available for unsecured creditors\n<|id|>259<|page|>25<|box|>407 142 424 290<|content|>Date: ... April 5, 2022\n<|id|>260<|page|>25<|box|>422 140 484 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...press written consent of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>23<|tgt_id|>24\n<|src_id|>61<|tgt_id|>62\n<|src_id|>71<|tgt_id|>72",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        }
+    ]
+}

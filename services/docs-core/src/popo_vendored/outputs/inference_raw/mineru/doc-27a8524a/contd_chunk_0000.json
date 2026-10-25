@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        9,
+        12,
+        13,
+        15,
+        16,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 176 854<|content|>This memorandum constitutes attorney work product ...e express authorization of the Responsible Partner\n<|id|>2<|page|>1<|box|>183 140 219 854<|content|>CALDERWOOD & HARKNESS LLP 200 Park Avenue, 38th Floor New York, New York 10166\n<|id|>3<|page|>1<|box|>228 746 244 854<|content|>May 14, 2023\n<|id|>4<|page|>1<|box|>253 140 270 292<|content|>MEMORANDUM\n<|id|>5<|page|>1<|box|>279 140 296 331<|content|>Matter No. ... 1012-00005\n<|id|>6<|page|>1<|box|>305 140 342 854<|content|>To: ... Samuel Eklund, Responsible Partner, Litiga...ck Gallagher, Lead Associate, Litigation (General)\n<|id|>7<|page|>1<|box|>349 140 368 622<|content|>From: ... Simone Laroche, Working Associate, Litigation (General)\n<|id|>8<|page|>1<|box|>375 140 412 854<|content|>Re: ... Analysis of Key Document VHC-008417 — Sand...rding Removal of Tractors from SLG Dedicated Lanes\n<|id|>48<|page|>7<|box|>781 138 909 857<|content|>As established in our analysis memorandum dated Se...anes\" under Schedule C, Section 2(b). ... \" The Q4\n<|id|>49<|page|>8<|box|>90 140 143 854<|content|>2021 data shows that VTS's tender acceptance rate ...ield to engage alternative carriers on those lanes\n<|id|>55<|page|>8<|box|>809 145 883 856<|content|>• CY3 volume shortfall: ... As of October 2021, wh...onths old, and there was no basis to conclude that\n<|id|>56<|page|>9<|box|>90 174 125 854<|content|>Stonefield would not meet the ACV. ... VTS's breach thus predates any cognizable Stonefield breach\n<|id|>88<|page|>12<|box|>844 140 898 854<|content|>VHC-008417 undermines the causation element of this claim. ... Here,\n<|id|>89<|page|>13<|box|>90 140 181 854<|content|>VTS's loss of the Stonefield contract was the dire...owing from self-inflicted harm are not recoverable\n<|id|>112<|page|>15<|box|>849 140 904 857<|content|>Response: ... First, even if 85 tractors is not th...awal constitutes an independent material breach of\n<|id|>113<|page|>16<|box|>90 140 273 857<|content|>TSA Section 7. ... Fourth, the remaining shortfall...o be explored in further discovery and depositions\n<|id|>150<|page|>18<|box|>859 140 897 854<|content|>3. ... 1 through 5, served\n<|id|>151<|page|>19<|box|>90 138 273 856<|content|>May 5, 2023. ... We should also demand an unredact...ersion of VHC-008417 to identify the customer name",
+    "raw_response": "<|src_id|>48<|tgt_id|>49\n<|src_id|>55<|tgt_id|>56\n<|src_id|>88<|tgt_id|>89\n<|src_id|>112<|tgt_id|>113\n<|src_id|>150<|tgt_id|>151",
+    "parsed": [
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        }
+    ]
+}

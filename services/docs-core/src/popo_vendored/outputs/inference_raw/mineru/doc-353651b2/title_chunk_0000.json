@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 205 184 790<|content|>SCHEDULE A TO THE CALDWELL 2023 CARRIED INTEREST G\n<|id|>2<|page|>1<|box|>325 140 344 501<|content|>Section 1. Identification of Grantor and Trust\n<|id|>8<|page|>1<|box|>625 140 642 508<|content|>Section 2. Description of Contributed Property\n<|id|>10<|page|>1<|box|>753 142 772 668<|content|>2.1 Caldwell Ridgeline Fund IV LP — Limited Partne\n<|id|>23<|page|>2<|box|>566 142 584 661<|content|>2.2 Caldwell Ridgeline Fund V LP — Limited Partner\n<|id|>36<|page|>3<|box|>342 142 359 571<|content|>2.3 Caldwell Ridgeline Fund VI LP — Carried Intere\n<|id|>49<|page|>4<|box|>186 140 204 434<|content|>Section 3. Summary Valuation Table\n<|id|>52<|page|>4<|box|>646 140 662 517<|content|>Section 4. Valuation and Appraisal Information\n<|id|>57<|page|>5<|box|>348 140 364 482<|content|>Section 5. Discount Methodology Summary\n<|id|>67<|page|>6<|box|>556 140 574 500<|content|>Section 6. Transfer Restrictions and Consents\n<|id|>71<|page|>7<|box|>167 140 184 465<|content|>Section 7. Annuity Calculation Reference\n<|id|>80<|page|>7<|box|>709 140 726 406<|content|>Section 8. Remainder Beneficiary\n<|id|>84<|page|>8<|box|>196 441 213 557<|content|>EXECUTION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>3\n<|id|>23<|level|>3\n<|id|>36<|level|>3\n<|id|>49<|level|>2\n<|id|>52<|level|>2\n<|id|>57<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>2\n<|id|>80<|level|>2\n<|id|>84<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 142 104 256<|content|>CONFIDENTIAL\n<|id|>1<|page|>1<|box|>112 155 130 854<|content|>Prepared by: ... Calderwood & Harkness LLP 200 Park Avenue, 42nd Floor New York, NY 10166\n<|id|>2<|page|>1<|box|>138 596 155 854<|content|>Date of Preparation: ... June 10, 2024\n<|id|>15<|page|>2<|box|>90 174 162 854<|content|>(a) those representations and warranties of Buyer ... though made on and as of the date hereof; ... and\n<|id|>17<|page|>2<|box|>306 140 380 854<|content|>The bring-down standard set forth in this Section ...rms and conditions of Section [_] of the Agreement\n<|id|>45<|page|>4<|box|>859 140 893 854<|content|>The certifications set forth in this Certificate a...he Closing of the Transactions contemplated by the\n<|id|>46<|page|>5<|box|>90 140 218 854<|content|>Agreement. ... The certifications contained herein...gations and liabilities of the parties thereunder)\n<|id|>57<|page|>5<|box|>854 142 871 450<|content|>Name: ... [Insert name of authorized officer]\n<|id|>58<|page|>5<|box|>872 142 888 710<|content|>Title: ... , Chief Executive Officer / General Counsel / Secretary]\n<|id|>59<|page|>5<|box|>888 143 906 344<|content|>Date: ... [Insert Closing Date]\n<|id|>60<|page|>5<|box|>916 142 930 411<|content|>[Matter No. ... [___]] | Calderwood & Harkness LLP\n<|id|>61<|page|>6<|box|>89 140 195 854<|content|>Internal Guidance Note: ... Counsel should verify ...uracy of all factual statements prior to execution",
+    "raw_response": "<|src_id|>45<|tgt_id|>46",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        }
+    ]
+}

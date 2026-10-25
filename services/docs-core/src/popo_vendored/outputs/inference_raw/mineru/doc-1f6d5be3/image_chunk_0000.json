@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>686 142 704 354<|content|>1. Scope of Representation\n<|id|>35<|type|>title<|page|>4<|box|>148 140 167 439<|content|>2. Staffing and Responsible Attorneys\n<|id|>43<|type|>title<|page|>4<|box|>792 140 810 303<|content|>3. Fee Arrangement\n<|id|>45<|type|>table<|page|>4<|box|>878 143 900 852<|content|>None\n<|id|>46<|type|>table<|page|>5<|box|>88 143 164 852<|content|>None\n<|id|>53<|type|>title<|page|>6<|box|>186 140 204 468<|content|>4. Matter Number and Billing References\n<|id|>55<|type|>title<|page|>6<|box|>308 140 325 321<|content|>5. Conflicts of Interest\n<|id|>59<|type|>title<|page|>6<|box|>700 140 719 284<|content|>6. Confidentiality\n<|id|>62<|type|>title<|page|>7<|box|>204 140 222 326<|content|>7. Document Retention\n<|id|>65<|type|>title<|page|>7<|box|>517 140 534 385<|content|>8. Termination of Engagement\n<|id|>69<|type|>title<|page|>7<|box|>837 140 854 339<|content|>9. Limitation of Liability\n<|id|>73<|type|>title<|page|>8<|box|>285 140 303 297<|content|>10. Governing Law\n<|id|>76<|type|>title<|page|>8<|box|>507 140 523 428<|content|>11. Entire Agreement; Amendments\n<|id|>96<|type|>title<|page|>9<|box|>388 142 401 171<|content|>cc:",
+    "raw_response": "<|src_id|>45<|tgt_id|>43\n<|src_id|>46<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 43
+        }
+    ]
+}

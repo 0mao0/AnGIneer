@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        53
+    ],
+    "pages": [
+        3,
+        5,
+        7,
+        8,
+        30,
+        32,
+        33,
+        34,
+        43,
+        45,
+        52,
+        53
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>3<|box|>497 476 571 610<|content|>LIBRARY ROOM 5025 SEP 8 1965\n<|id|>2<|page|>3<|box|>588 430 613 646<|content|>TREASURY DEPARTMENT\n<|id|>3<|page|>3<|box|>796 697 914 940<|content|>LIBRARY ROOM 5030 JUN 2,3 1972 TREASURY DEPARTMENT\n<|id|>4<|page|>5<|box|>3 0 1000 994<|content|>The provided image is completely blank and contain...t. ... Therefore, there is no OCR result to output\n<|id|>10<|page|>7<|box|>472 355 505 634<|content|>FEBRUARY - 1964\n<|id|>11<|page|>7<|box|>773 98 828 838<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>12<|page|>8<|box|>385 258 463 806<|content|>The Treasury Bulletin is for sale by the Superinte...uments, U. ... 00 foreign Single copy price varies\n<|id|>122<|page|>30<|box|>111 416 122 574<|content|>(In millions of dollars)\n<|id|>124<|page|>30<|box|>521 327 535 678<|content|>Table 9. ... - Railroad Retirement Account\n<|id|>126<|page|>30<|box|>896 21 963 502<|content|>1/ Includes the Government's contribution for cred... includes unappropriated transfers of tax receipts\n<|id|>139<|page|>32<|box|>941 28 953 507<|content|>8/ Temporary advances are made when the balance in the Railroad Unemployment\n<|id|>140<|page|>32<|box|>640 551 687 978<|content|>Insurance Account is insufficient to meet payments...fits and refunds due or to become due. ... 360(d))\n<|id|>153<|page|>33<|box|>149 417 161 572<|content|>(In millions of dollars)\n<|id|>155<|page|>34<|box|>145 8 278 486<|content|>Consolidated cash transactions reported in the Tre...evious Budget documents as well as in the Bulletin\n<|id|>183<|page|>43<|box|>141 397 153 552<|content|>(In millions of dollars)\n<|id|>186<|page|>45<|box|>101 3 269 469<|content|>The Second Liberty Bond Act (31 U. ... \\$5 billion from February 26, 1958, through\n<|id|>187<|page|>45<|box|>102 494 258 964<|content|>June 30, 1959 (act of February 26, 1958); ... \\$23..., through June 29, 1964 (act of November 26, 1963)\n<|id|>214<|page|>52<|box|>122 407 135 588<|content|>(Dollar amounts in millions)\n<|id|>216<|page|>53<|box|>371 8 412 486<|content|>1/ Excludes issues of strips of additional amounts...ctober 28, 1963 (\\$1,001 million). ... See Table 4",
+    "raw_response": "<|src_id|>139<|tgt_id|>140\n<|src_id|>186<|tgt_id|>187",
+    "parsed": [
+        {
+            "src_id": 139,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 187
+        }
+    ]
+}

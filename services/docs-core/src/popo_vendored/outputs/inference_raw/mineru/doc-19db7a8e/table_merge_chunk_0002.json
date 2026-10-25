@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['7.02(c)', 'No Material Adverse Effect on NovaMart', 'Buyer', 'NovaMart', 'GREEN', 'Closing', 'No event, change, occurrence, circumstance, development, condition, or effect constituting or reasonably expected to constitute a Material Adverse Effect (as defined in SPA Section 1.01) on NovaMart or any of its subsidiaries has been identified as of this update date. See Section IX below for detailed assessment.MAE certificate to']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', \"be delivered at closing as part of the Officer's Certificate (Document 62).\"]]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 40,
+    "table2_idx": 41
+}

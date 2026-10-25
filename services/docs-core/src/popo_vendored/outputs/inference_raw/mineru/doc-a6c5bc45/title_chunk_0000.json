@@ -1,0 +1,124 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 171 125 825<|content|>CALDERWOOD & HARKNESS LLP 555 California Street, 4\n<|id|>2<|page|>1<|box|>159 140 175 816<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>8<|page|>1<|box|>401 142 417 333<|content|>1. Opening and Recitals\n<|id|>14<|page|>2<|box|>267 140 284 517<|content|>2. Kovel Arrangement and Privilege Protections\n<|id|>23<|page|>3<|box|>366 140 383 300<|content|>3. Scope of Services\n<|id|>25<|page|>3<|box|>459 140 477 470<|content|>3.1 Economic Analysis of Pricing Patterns\n<|id|>33<|page|>4<|box|>301 140 318 488<|content|>3.2 Affected-Commerce Volume Assessment\n<|id|>39<|page|>4<|box|>825 140 843 397<|content|>3.3 Penalty Calculation Support\n<|id|>47<|page|>5<|box|>507 140 523 385<|content|>3.4 Expert Report Preparation\n<|id|>50<|page|>5<|box|>714 140 732 326<|content|>3.5 Additional Services\n<|id|>58<|page|>6<|box|>344 140 362 517<|content|>4. Hargrove Engagement Team / Key Personnel\n<|id|>67<|page|>6<|box|>814 140 830 415<|content|>5. C&H Direction and Supervision\n<|id|>76<|page|>7<|box|>642 140 659 362<|content|>6. Fee Structure and Billing\n<|id|>77<|page|>7<|box|>672 140 690 279<|content|>6.1 Hourly Rates\n<|id|>88<|page|>8<|box|>598 140 614 305<|content|>6.3 Budget Estimate\n<|id|>97<|page|>9<|box|>438 140 455 284<|content|>7. Confidentiality\n<|id|>102<|page|>10<|box|>90 140 107 321<|content|>8. Conflicts of Interest\n<|id|>113<|page|>10<|box|>664 140 681 419<|content|>9. Document Retention and Return\n<|id|>117<|page|>11<|box|>285 140 303 354<|content|>10. Term and Termination\n<|id|>124<|page|>11<|box|>683 140 700 509<|content|>11. Limitation of Liability and Indemnification\n<|id|>127<|page|>12<|box|>204 142 222 480<|content|>12. Governing Law and Dispute Resolution\n<|id|>130<|page|>12<|box|>444 140 460 431<|content|>13. Entire Agreement / Amendments\n<|id|>133<|page|>12<|box|>628 142 645 370<|content|>14. Counterparts / Execution\n<|id|>143<|page|>13<|box|>159 352 175 645<|content|>ACKNOWLEDGED AND AGREED\n<|id|>150<|page|>13<|box|>333 447 349 550<|content|>EXHIBIT A\n<|id|>151<|page|>13<|box|>358 184 393 812<|content|>HARGROVE FORENSIC ADVISORY LLC CURRENT PROFESSIONA\n<|id|>152<|page|>13<|box|>402 403 421 594<|content|>Effective January 1, 2022\n<|id|>156<|page|>14<|box|>270 142 286 197<|content|>Notes:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>-1\n<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>2\n<|id|>33<|level|>2\n<|id|>39<|level|>2\n<|id|>47<|level|>2\n<|id|>50<|level|>2\n<|id|>58<|level|>1\n<|id|>67<|level|>1\n<|id|>76<|level|>1\n<|id|>77<|level|>2\n<|id|>88<|level|>2\n<|id|>97<|level|>1\n<|id|>102<|level|>1\n<|id|>113<|level|>1\n<|id|>117<|level|>1\n<|id|>124<|level|>1\n<|id|>127<|level|>1\n<|id|>130<|level|>1\n<|id|>133<|level|>1\n<|id|>143<|level|>-1\n<|id|>150<|level|>1\n<|id|>151<|level|>2\n<|id|>152<|level|>-1\n<|id|>156<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 1
+        }
+    ]
+}

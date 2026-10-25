@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>185 140 203 629<|content|>VIA ELECTRONIC DELIVERY AND OVERNIGHT COURIER\n<|id|>9<|type|>title<|page|>1<|box|>492 140 508 367<|content|>1. Introduction and Purpose\n<|id|>14<|type|>title<|page|>2<|box|>340 140 357 361<|content|>2. Background on the Fund\n<|id|>36<|type|>title<|page|>3<|box|>696 140 713 452<|content|>3. Summary of Proposed Restructuring\n<|id|>43<|type|>title<|page|>4<|box|>361 140 378 338<|content|>3.2 Entity Restructuring\n<|id|>59<|type|>title<|page|>5<|box|>398 140 417 339<|content|>3.3 Principal Departures\n<|id|>73<|type|>title<|page|>6<|box|>710 140 727 362<|content|>3.4 Economics Realignment\n<|id|>75<|type|>table<|page|>6<|box|>813 143 902 852<|content|>None\n<|id|>76<|type|>table<|page|>7<|box|>88 143 152 852<|content|>None\n<|id|>85<|type|>title<|page|>7<|box|>696 140 713 408<|content|>3.5 GP Commitment Reallocation\n<|id|>88<|type|>table<|page|>8<|box|>89 143 234 852<|content|>None\n<|id|>90<|type|>title<|page|>8<|box|>364 140 382 328<|content|>4. Key-Person Analysis\n<|id|>97<|type|>title<|page|>9<|box|>241 140 258 431<|content|>5. Side-Letter Compliance Summary\n<|id|>104<|type|>title<|page|>10<|box|>267 140 284 383<|content|>6. Impact on Fund Operations\n<|id|>118<|type|>title<|page|>11<|box|>323 142 340 316<|content|>7. Consent Requested\n<|id|>127<|type|>title<|page|>12<|box|>260 140 277 285<|content|>8. LPAC Meeting\n<|id|>136<|type|>title<|page|>12<|box|>630 140 647 316<|content|>9. Enclosed Materials\n<|id|>140<|type|>title<|page|>13<|box|>90 142 107 292<|content|>10. Confidentiality\n<|id|>143<|type|>title<|page|>13<|box|>348 140 364 450<|content|>11. Contact Information and Questions\n<|id|>162<|type|>title<|page|>14<|box|>90 176 104 388<|content|>2. Form of Written Consent",
+    "raw_response": "<|src_id|>75<|tgt_id|>73\n<|src_id|>76<|tgt_id|>73\n<|src_id|>88<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 75,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 85
+        }
+    ]
+}

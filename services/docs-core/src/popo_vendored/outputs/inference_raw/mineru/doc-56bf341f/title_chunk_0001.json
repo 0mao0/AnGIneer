@@ -1,0 +1,39 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        52
+    ],
+    "pages": [
+        45,
+        46,
+        49,
+        51,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>826<|page|>45<|box|>558 438 577 547<|content|>信息工程类\n<|id|>829<|page|>46<|box|>672 452 693 559<|content|>监控工程类\n<|id|>834<|page|>49<|box|>156 401 178 589<|content|>防治船舶污染工程类\n<|id|>837<|page|>51<|box|>193 267 222 729<|content|>附录 C 本规定用词用语说明\n<|id|>851<|page|>52<|box|>214 181 277 801<|content|>本规范主编单位、参编单位、 主要起草人、总校人员和管理组人员名单",
+    "raw_response": "<|id|>826<|level|>3\n<|id|>829<|level|>3\n<|id|>834<|level|>3\n<|id|>837<|level|>1\n<|id|>851<|level|>1",
+    "parsed": [
+        {
+            "id": 826,
+            "level": 3
+        },
+        {
+            "id": 829,
+            "level": 3
+        },
+        {
+            "id": 834,
+            "level": 3
+        },
+        {
+            "id": 837,
+            "level": 1
+        },
+        {
+            "id": 851,
+            "level": 1
+        }
+    ]
+}

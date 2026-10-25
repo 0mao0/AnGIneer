@@ -1,0 +1,151 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-n4ai0zlj\\input\\pdfs\\doc-d2deed43.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-n4ai0zlj\\enriched\\doc-d2deed43.json",
+    "contd_output": "<|src_id|>126<|tgt_id|>127",
+    "title_output": "<|id|>7<|level|>1\n<|id|>13<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>2\n<|id|>33<|level|>3\n<|id|>35<|level|>2\n<|id|>43<|level|>2\n<|id|>60<|level|>1\n<|id|>62<|level|>1\n<|id|>68<|level|>1\n<|id|>74<|level|>1\n<|id|>86<|level|>1\n<|id|>104<|level|>1\n<|id|>114<|level|>1\n<|id|>124<|level|>1\n<|id|>131<|level|>1\n<|id|>135<|level|>1\n<|id|>153<|level|>1\n<|id|>160<|level|>1\n<|id|>162<|level|>2\n<|id|>165<|level|>2\n<|id|>167<|level|>2\n<|id|>174<|level|>1",
+    "image_output": "<|src_id|>31<|tgt_id|>22\n<|src_id|>32<|tgt_id|>22\n<|src_id|>34<|tgt_id|>33\n<|src_id|>41<|tgt_id|>35\n<|src_id|>112<|tgt_id|>104\n<|src_id|>132<|tgt_id|>131",
+    "contd_label": [
+        {
+            "src_id": 126,
+            "tgt_id": 127
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 31,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 131
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 31,
+            "table2_idx": 32,
+            "upper_row_ss": [
+                [
+                    "Cash and Cash Equivalents (estimated)",
+                    "$185.0 million"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Revenue",
+                    "$401.5 million"
+                ]
+            ]
+        }
+    ]
+}

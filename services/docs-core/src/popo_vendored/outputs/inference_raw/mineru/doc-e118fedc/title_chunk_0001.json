@@ -1,0 +1,146 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        70
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        61,
+        65,
+        66,
+        70
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>581<|page|>45<|box|>369 320 388 676<|content|>XI. ACCOUNTABILITY MATRIX\n<|id|>582<|page|>45<|box|>416 142 431 359<|content|>A. Workstream Ownership\n<|id|>586<|page|>46<|box|>90 142 107 321<|content|>B. Escalation Protocol\n<|id|>593<|page|>46<|box|>584 259 603 735<|content|>XII. RISK ASSESSMENT AND MITIGATION\n<|id|>594<|page|>46<|box|>628 142 645 434<|content|>A. Key Risks to Remediation Success\n<|id|>596<|page|>46<|box|>717 140 734 475<|content|>1. Technology Implementation Delay Risk.\n<|id|>599<|page|>47<|box|>152 140 170 361<|content|>2. Staffing and Hiring Risk.\n<|id|>602<|page|>47<|box|>340 140 357 452<|content|>3. BaaS Partner Non-Cooperation Risk.\n<|id|>605<|page|>47<|box|>546 140 563 357<|content|>4. CDD/EDD Volume Risk.\n<|id|>608<|page|>47<|box|>752 140 768 437<|content|>5. Additional Regulatory Action Risk.\n<|id|>611<|page|>48<|box|>190 140 207 434<|content|>6. Shareholder and Market Pressure.\n<|id|>614<|page|>48<|box|>446 142 464 315<|content|>B. Contingency Plans\n<|id|>619<|page|>49<|box|>90 200 109 797<|content|>XIII. OCC REPORTING AND COMMUNICATION PLAN\n<|id|>620<|page|>49<|box|>136 143 154 439<|content|>A. Scheduled Regulatory Submissions\n<|id|>623<|page|>50<|box|>90 140 107 555<|content|>B. Communication Protocols with OCC and FinCEN\n<|id|>627<|page|>50<|box|>484 140 501 424<|content|>C. OCC Examination Preparedness\n<|id|>648<|page|>51<|box|>669 215 689 779<|content|>XIV. INDEPENDENT CONSULTANT INTEGRATION\n<|id|>649<|page|>51<|box|>714 142 732 607<|content|>A. Thornfield Consulting Group LLC — Role and Time\n<|id|>659<|page|>52<|box|>670 140 686 524<|content|>B. Coordination with Remediation Workstreams\n<|id|>670<|page|>53<|box|>561 140 579 535<|content|>C. Final Validation and Self-Certification Support\n<|id|>678<|page|>54<|box|>253 269 272 725<|content|>XV. CONCLUSION AND CERTIFICATION\n<|id|>684<|page|>54<|box|>801 140 833 852<|content|>BELMONT RIDGE FINANCIAL GROUP, INC. BELMONT RIDGE\n<|id|>708<|page|>55<|box|>604 419 626 576<|content|>APPENDICES\n<|id|>709<|page|>56<|box|>90 142 107 517<|content|>Appendix A: Consent Order Deadline Calendar\n<|id|>715<|page|>61<|box|>90 140 107 614<|content|>Appendix B: Accountability Matrix — Detailed RACI\n<|id|>725<|page|>65<|box|>90 142 107 584<|content|>Appendix C: Budget Detail by Workstream and Quarte\n<|id|>727<|page|>66<|box|>90 140 107 730<|content|>Appendix D: Thornfield Consulting Preliminary Gap\n<|id|>728<|page|>66<|box|>114 151 170 844<|content|>THORNFIELD CONSULTING GROUP LLC Preliminary Gap As\n<|id|>731<|page|>66<|box|>321 143 339 258<|content|>Key Findings:\n<|id|>744<|page|>70<|box|>90 142 107 498<|content|>Appendix G: Remediation Milestone Tracker",
+    "raw_response": "<|id|>581<|level|>1\n<|id|>582<|level|>2\n<|id|>586<|level|>2\n<|id|>593<|level|>1\n<|id|>594<|level|>2\n<|id|>596<|level|>3\n<|id|>599<|level|>3\n<|id|>602<|level|>3\n<|id|>605<|level|>3\n<|id|>608<|level|>3\n<|id|>611<|level|>3\n<|id|>614<|level|>2\n<|id|>619<|level|>1\n<|id|>620<|level|>2\n<|id|>623<|level|>2\n<|id|>627<|level|>2\n<|id|>648<|level|>1\n<|id|>649<|level|>2\n<|id|>659<|level|>2\n<|id|>670<|level|>2\n<|id|>678<|level|>1\n<|id|>684<|level|>-1\n<|id|>708<|level|>1\n<|id|>709<|level|>2\n<|id|>715<|level|>2\n<|id|>725<|level|>2\n<|id|>727<|level|>2\n<|id|>728<|level|>3\n<|id|>731<|level|>4\n<|id|>744<|level|>2",
+    "parsed": [
+        {
+            "id": 581,
+            "level": 1
+        },
+        {
+            "id": 582,
+            "level": 2
+        },
+        {
+            "id": 586,
+            "level": 2
+        },
+        {
+            "id": 593,
+            "level": 1
+        },
+        {
+            "id": 594,
+            "level": 2
+        },
+        {
+            "id": 596,
+            "level": 3
+        },
+        {
+            "id": 599,
+            "level": 3
+        },
+        {
+            "id": 602,
+            "level": 3
+        },
+        {
+            "id": 605,
+            "level": 3
+        },
+        {
+            "id": 608,
+            "level": 3
+        },
+        {
+            "id": 611,
+            "level": 3
+        },
+        {
+            "id": 614,
+            "level": 2
+        },
+        {
+            "id": 619,
+            "level": 1
+        },
+        {
+            "id": 620,
+            "level": 2
+        },
+        {
+            "id": 623,
+            "level": 2
+        },
+        {
+            "id": 627,
+            "level": 2
+        },
+        {
+            "id": 648,
+            "level": 1
+        },
+        {
+            "id": 649,
+            "level": 2
+        },
+        {
+            "id": 659,
+            "level": 2
+        },
+        {
+            "id": 670,
+            "level": 2
+        },
+        {
+            "id": 678,
+            "level": 1
+        },
+        {
+            "id": 708,
+            "level": 1
+        },
+        {
+            "id": 709,
+            "level": 2
+        },
+        {
+            "id": 715,
+            "level": 2
+        },
+        {
+            "id": 725,
+            "level": 2
+        },
+        {
+            "id": 727,
+            "level": 2
+        },
+        {
+            "id": 728,
+            "level": 3
+        },
+        {
+            "id": 731,
+            "level": 4
+        },
+        {
+            "id": 744,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 269 238 727<|content|>PRICING AGREEMENT Calloway-Briggs Renewables Inc.\n<|id|>1<|page|>1<|box|>261 143 277 223<|content|>Preamble\n<|id|>8<|page|>1<|box|>676 140 694 571<|content|>Section 1 — Offering Price and Underwriting Discou\n<|id|>13<|page|>2<|box|>148 140 167 387<|content|>Section 2 — Number of Shares\n<|id|>18<|page|>2<|box|>569 140 585 470<|content|>Section 3 — Aggregate Offering Amounts\n<|id|>25<|page|>3<|box|>90 140 107 493<|content|>Section 4 — Allocation Among Underwriters\n<|id|>28<|page|>3<|box|>273 140 292 398<|content|>Section 5 — Shares Outstanding\n<|id|>32<|page|>3<|box|>613 140 630 424<|content|>Section 6 — Settlement and Closing\n<|id|>36<|page|>4<|box|>204 140 222 300<|content|>Section 7 — Listing\n<|id|>38<|page|>4<|box|>325 140 344 457<|content|>Section 8 — CUSIP and Transfer Agent\n<|id|>41<|page|>4<|box|>455 140 474 573<|content|>Section 9 — Incorporation of Underwriting Agreemen\n<|id|>45<|page|>4<|box|>758 140 773 375<|content|>Section 10 — Governing Law\n<|id|>47<|page|>5<|box|>90 142 107 359<|content|>Section 11 — Counterparts\n<|id|>50<|page|>5<|box|>239 367 257 629<|content|>[SIGNATURE PAGES FOLLOW]\n<|id|>52<|page|>5<|box|>310 142 327 290<|content|>THE COMPANY:\n<|id|>78<|page|>7<|box|>273 142 290 266<|content|>[Drafting notes:\n<|id|>81<|page|>8<|box|>90 142 107 596<|content|>Schedule III — Use of Proceeds Summary (Informatio\n<|id|>84<|page|>8<|box|>305 140 321 264<|content|>[Drafting notes:\n<|id|>88<|page|>9<|box|>90 143 107 625<|content|>Annex A — Pricing Term Sheet (for Distribution to\n<|id|>90<|page|>9<|box|>196 395 212 602<|content|>PRICING TERM SHEET\n<|id|>91<|page|>9<|box|>222 303 266 694<|content|>Free Writing Prospectus Filed pursuant to Rule 433\n<|id|>94<|page|>9<|box|>776 142 791 287<|content|>STATUS NOTATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>2\n<|id|>50<|level|>-1\n<|id|>52<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>2\n<|id|>84<|level|>2\n<|id|>88<|level|>2\n<|id|>90<|level|>2\n<|id|>91<|level|>3\n<|id|>94<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        }
+    ]
+}

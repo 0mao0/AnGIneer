@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        51
+    ],
+    "pages": [
+        5,
+        9,
+        11,
+        12,
+        15,
+        18,
+        26,
+        31,
+        32,
+        33,
+        36,
+        38,
+        39,
+        40,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>5<|box|>168 346 217 667<|content|>BULLETIN\n<|id|>5<|page|>5<|box|>305 102 344 808<|content|>U.S. TREASURY DEPARTMENT\n<|id|>18<|page|>9<|box|>59 237 79 766<|content|>Sales of Securities in the Sixth War Loan\n<|id|>19<|page|>9<|box|>98 66 112 148<|content|>Summary\n<|id|>27<|page|>9<|box|>539 519 555 789<|content|>Organization for the Loan\n<|id|>37<|page|>11<|box|>469 519 486 745<|content|>Development of Quotas\n<|id|>43<|page|>12<|box|>787 48 805 275<|content|>Daily Progress Charts\n<|id|>47<|page|>12<|box|>547 502 564 701<|content|>Securities Offered\n<|id|>52<|page|>15<|box|>414 68 444 379<|content|>Sales by Classes of Investors and by Issues\n<|id|>66<|page|>18<|box|>103 43 136 385<|content|>Subscriptions Under the Deferred Payment Plan\n<|id|>71<|page|>18<|box|>638 48 654 217<|content|>Sales by States\n<|id|>79<|page|>18<|box|>663 502 692 848<|content|>Comparison of the Results of the Six War Loans\n<|id|>106<|page|>26<|box|>63 68 101 903<|content|>Security Purchases Outside the Sixth War Loan by C\n<|id|>107<|page|>26<|box|>126 52 142 227<|content|>Commercial Banks\n<|id|>113<|page|>26<|box|>482 71 517 887<|content|>Treasury Market Financing: Refunding of December 1\n<|id|>123<|page|>31<|box|>52 348 68 660<|content|>Budgetary Receipts and Expenditures\n<|id|>130<|page|>32<|box|>52 268 66 697<|content|>Budgetary Receipts and Expenditures - (Continued)\n<|id|>132<|page|>33<|box|>63 290 77 720<|content|>Budgetary Receipts and Expenditures - (Continued)\n<|id|>133<|page|>33<|box|>84 272 98 739<|content|>Table 4.- Analysis of Expenditures for War Activit\n<|id|>139<|page|>36<|box|>54 288 70 692<|content|>Trust Accounts, Etc. Receipts and Expenditures\n<|id|>143<|page|>38<|box|>52 389 66 589<|content|>Social Security Program\n<|id|>144<|page|>38<|box|>75 291 91 688<|content|>Section I.- Budgetary Receipts and Expenditures\n<|id|>145<|page|>38<|box|>100 366 112 614<|content|>Table 1.- Social Security Act\n<|id|>153<|page|>39<|box|>61 337 75 653<|content|>Social Security Program - (Continued)\n<|id|>154<|page|>39<|box|>84 237 100 751<|content|>Section I.- Budgetary Receipts and Expenditures -\n<|id|>158<|page|>40<|box|>61 327 75 642<|content|>Social Security Program - (Continued)\n<|id|>159<|page|>40<|box|>85 311 100 658<|content|>Section II.- Statements of Trust Accounts\n<|id|>181<|page|>49<|box|>50 216 79 781<|content|>Detailed Statement of the Public Debt and Guarante\n<|id|>183<|page|>50<|box|>47 224 75 782<|content|>Detailed Statement of the Public Debt and Guarante\n<|id|>186<|page|>51<|box|>50 211 80 776<|content|>Detailed Statement of the Public Debt and Guarante",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>5<|level|>-1\n<|id|>18<|level|>1\n<|id|>19<|level|>2\n<|id|>27<|level|>2\n<|id|>37<|level|>2\n<|id|>43<|level|>2\n<|id|>47<|level|>2\n<|id|>52<|level|>2\n<|id|>66<|level|>2\n<|id|>71<|level|>2\n<|id|>79<|level|>2\n<|id|>106<|level|>1\n<|id|>107<|level|>2\n<|id|>113<|level|>1\n<|id|>123<|level|>1\n<|id|>130<|level|>1\n<|id|>132<|level|>1\n<|id|>133<|level|>2\n<|id|>139<|level|>1\n<|id|>143<|level|>1\n<|id|>144<|level|>2\n<|id|>145<|level|>3\n<|id|>153<|level|>1\n<|id|>154<|level|>2\n<|id|>158<|level|>1\n<|id|>159<|level|>2\n<|id|>181<|level|>1\n<|id|>183<|level|>1\n<|id|>186<|level|>1",
+    "parsed": [
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 1
+        },
+        {
+            "id": 183,
+            "level": 1
+        },
+        {
+            "id": 186,
+            "level": 1
+        }
+    ]
+}

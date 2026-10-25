@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 104 844<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>1<|page|>1<|box|>112 145 128 846<|content|>CALDERWOOD & HARKNESS LLP 333 SE 2nd Avenue, Suite\n<|id|>2<|page|>1<|box|>138 374 155 624<|content|>INTERNAL MEMORANDUM\n<|id|>11<|page|>1<|box|>409 316 428 679<|content|>I. PURPOSE AND BACKGROUND\n<|id|>23<|page|>2<|box|>729 218 750 777<|content|>II. SUMMARY OF ORIGINAL FEE ARRANGEMENT\n<|id|>33<|page|>3<|box|>631 200 675 795<|content|>III. REVISED FEE ARRANGEMENT — CONTINGENCY ENHANCE\n<|id|>34<|page|>3<|box|>700 142 717 485<|content|>A. Rationale for Contingency Enhancement\n<|id|>38<|page|>4<|box|>340 140 357 480<|content|>B. Terms of the Contingency Enhancement\n<|id|>47<|page|>5<|box|>383 140 402 441<|content|>C. Client Consent and Documentation\n<|id|>51<|page|>5<|box|>744 184 763 812<|content|>IV. UPDATED STAFFING PLAN FOR LITIGATION PHASE\n<|id|>52<|page|>5<|box|>791 142 806 385<|content|>A. Current Team Composition\n<|id|>58<|page|>6<|box|>739 140 757 517<|content|>B. Projected Staffing Needs for Litigation Phase\n<|id|>72<|page|>8<|box|>619 140 636 452<|content|>C. Consideration of Additional Staffing\n<|id|>75<|page|>9<|box|>90 292 109 704<|content|>V. EXPENSE BUDGET PROJECTIONS\n<|id|>84<|page|>10<|box|>208 161 229 834<|content|>VI. DEFENDANTS' COUNSEL AND LITIGATION LANDSCAPE\n<|id|>95<|page|>11<|box|>505 168 525 826<|content|>VII. CLIENT COMMUNICATION AND APPROVAL PROCESS\n<|id|>100<|page|>12<|box|>152 388 172 607<|content|>VIII. CONCLUSION",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>2<|level|>-1\n<|id|>11<|level|>1\n<|id|>23<|level|>1\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>47<|level|>2\n<|id|>51<|level|>1\n<|id|>52<|level|>2\n<|id|>58<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>1\n<|id|>84<|level|>1\n<|id|>95<|level|>1\n<|id|>100<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        }
+    ]
+}

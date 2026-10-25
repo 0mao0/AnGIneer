@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 285 142 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>6<|page|>1<|box|>281 259 299 854<|content|>Assigned for All Purposes to the Honorable Patrici\n<|id|>7<|page|>1<|box|>306 166 361 854<|content|>DEFENDANT CASCADE RETAIL HOLDINGS INC.'S REPLY IN\n<|id|>12<|page|>1<|box|>561 393 580 602<|content|>I. INTRODUCTION\n<|id|>19<|page|>2<|box|>652 411 672 584<|content|>II. ARGUMENT\n<|id|>21<|page|>2<|box|>763 140 800 852<|content|>1. Vantor's Opposition Identifies No Independent \"\n<|id|>27<|page|>3<|box|>792 140 809 679<|content|>2. Vantor's \"Unfairness\" Theory Fails the Applicab\n<|id|>32<|page|>4<|box|>648 140 684 834<|content|>B. Vantor's Second Cause of Action for Tortious In\n<|id|>33<|page|>4<|box|>696 142 715 661<|content|>1. The Legal Standard Requires Independently Wrong\n<|id|>38<|page|>5<|box|>429 140 465 854<|content|>2. The Fourteen Project Atlas Emails Do Not Create\n<|id|>56<|page|>8<|box|>385 140 402 609<|content|>3. Vantor's \"Pattern and Practice\" Argument Is Una\n<|id|>62<|page|>9<|box|>231 140 250 803<|content|>4. Vantor's Reliance on the Deposition Testimony o\n<|id|>69<|page|>10<|box|>186 140 223 826<|content|>C. Even If a Triable Issue Existed on Independentl\n<|id|>70<|page|>10<|box|>234 140 270 852<|content|>1. Vantor's Damages Theory for the Prospective Adv\n<|id|>78<|page|>11<|box|>329 140 366 854<|content|>2. Dr. Ostrowski's Rebuttal Report Confirms the Sp\n<|id|>84<|page|>12<|box|>152 207 196 787<|content|>III. VANTOR'S OPPOSITION DOES NOT OVERCOME CASCADE\n<|id|>91<|page|>13<|box|>135 398 155 598<|content|>IV. CONCLUSION\n<|id|>96<|page|>13<|box|>354 140 371 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>100<|page|>13<|box|>441 406 458 591<|content|>PROOF OF SERVICE\n<|id|>101<|page|>13<|box|>465 140 484 604<|content|>STATE OF CALIFORNIA, COUNTY OF LOS ANGELES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>-1\n<|id|>7<|level|>1\n<|id|>12<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>3\n<|id|>27<|level|>3\n<|id|>32<|level|>3\n<|id|>33<|level|>4\n<|id|>38<|level|>4\n<|id|>56<|level|>4\n<|id|>62<|level|>4\n<|id|>69<|level|>3\n<|id|>70<|level|>4\n<|id|>78<|level|>4\n<|id|>84<|level|>2\n<|id|>91<|level|>2\n<|id|>96<|level|>-1\n<|id|>100<|level|>1\n<|id|>101<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 4
+        },
+        {
+            "id": 38,
+            "level": 4
+        },
+        {
+            "id": 56,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 4
+        },
+        {
+            "id": 78,
+            "level": 4
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 2
+        }
+    ]
+}

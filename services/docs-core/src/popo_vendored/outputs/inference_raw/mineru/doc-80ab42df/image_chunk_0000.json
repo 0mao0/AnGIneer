@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 423 130 856<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>14<|type|>title<|page|>2<|box|>148 140 167 388<|content|>I. Summary of Lock-Up Terms\n<|id|>15<|type|>title<|page|>2<|box|>180 142 198 379<|content|>A. Lock-Up Period and Scope\n<|id|>18<|type|>table<|page|>2<|box|>609 143 896 852<|content|>None\n<|id|>19<|type|>table<|page|>3<|box|>88 143 152 852<|content|>None\n<|id|>20<|type|>title<|page|>3<|box|>191 140 209 504<|content|>B. Existing Exceptions (No Consent Required)\n<|id|>27<|type|>title<|page|>4<|box|>176 140 193 370<|content|>C. Early Release Mechanism\n<|id|>30<|type|>title<|page|>4<|box|>503 140 522 655<|content|>II. Recommended Internal Procedures for Early Rele\n<|id|>31<|type|>title<|page|>4<|box|>535 142 553 506<|content|>A. Initial Request and General Counsel Intake\n<|id|>41<|type|>title<|page|>5<|box|>400 140 417 591<|content|>B. Preliminary Legal Review by Calderwood & Harkne\n<|id|>50<|type|>title<|page|>6<|box|>590 140 608 408<|content|>C. Board-Level Approval Process\n<|id|>62<|type|>title<|page|>7<|box|>811 140 829 524<|content|>D. Communication with Whitfield Barrow & Co.\n<|id|>77<|type|>title<|page|>9<|box|>167 140 184 678<|content|>III. FINRA Rule 5131 Compliance — Research Publica\n<|id|>78<|type|>title<|page|>9<|box|>199 140 215 429<|content|>A. Overview of FINRA Rule 5131(b)\n<|id|>83<|type|>title<|page|>9<|box|>532 140 549 529<|content|>B. Notification and Announcement Requirements\n<|id|>88<|type|>title<|page|>10<|box|>176 140 193 442<|content|>C. Research Publication Coordination\n<|id|>91<|type|>title<|page|>10<|box|>449 140 467 390<|content|>IV. SEC Disclosure Obligations\n<|id|>92<|type|>title<|page|>10<|box|>479 142 497 369<|content|>A. Form 8-K Considerations\n<|id|>96<|type|>title<|page|>11<|box|>90 140 107 305<|content|>B. Section 16 Filings\n<|id|>99<|type|>title<|page|>12<|box|>90 142 107 419<|content|>C. Schedule 13D/13G Amendments\n<|id|>101<|type|>table<|page|>12<|box|>174 143 299 852<|content|>None\n<|id|>104<|type|>title<|page|>12<|box|>583 140 599 540<|content|>V. Interaction with Registration Rights Agreement\n<|id|>112<|type|>title<|page|>13<|box|>595 140 614 460<|content|>VI. Insider Trading Policy Coordination\n<|id|>119<|type|>title<|page|>14<|box|>383 140 402 460<|content|>VII. Tax and Section 382 Considerations\n<|id|>124<|type|>title<|page|>15<|box|>223 140 239 473<|content|>VIII. Record-Keeping and Documentation\n<|id|>137<|type|>title<|page|>16<|box|>167 140 185 496<|content|>IX. Summary of Recommended Process Flow\n<|id|>149<|type|>title<|page|>17<|box|>250 140 266 459<|content|>X. Contact Information and Availability\n<|id|>150<|type|>table<|page|>17<|box|>335 143 489 852<|content|>None\n<|id|>152<|type|>title<|page|>17<|box|>619 140 637 238<|content|>XI. Closing\n<|id|>162<|type|>title<|page|>18<|box|>337 143 351 238<|content|>Enclosures:\n<|id|>166<|type|>title<|page|>18<|box|>478 142 489 171<|content|>cc:",
+    "raw_response": "<|src_id|>18<|tgt_id|>15\n<|src_id|>19<|tgt_id|>15\n<|src_id|>101<|tgt_id|>99\n<|src_id|>150<|tgt_id|>149",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 149
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Jan. 29', '99.750', '0.990', '99.765 11/', '0.930', '99.748', '0.997']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Date subscription books were opened', 'rowspan=2, Date of issue', 'rowspan=2, Description of security', 'rowspan=2,colspan=2, Period to maturity (Period to first call shown in parentheses) 1/', 'rowspan=2,colspan=2, Amount of subscriptions tendered', 'colspan=2, Amount issued', 'rowspan=2, Allotment ratio']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 66,
+    "table2_idx": 67
+}

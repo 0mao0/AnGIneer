@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 42,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['护岸', 'rowspan=2, A)整治建筑物的几何类型为点、线、面', 'rowspan=2, REGSTR(整治建筑物)(M)CATREG(整治建筑物类)=[1(丁坝),2(矶头),3(护岸),4(顺坝),5(锁坝),6(桩坝),7(潜坝),8(鱼嘴),9(丁顺坝),10(格坝),11(谷坊),12(溪沟拦石坝),13(溪口导石坝),14(河口导流坝),15(导堤),16(底墙),17(抛石坝),18(桩板坝),19(沙袋填心坝),20(护滩带),21(鱼骨坝),22(护堤),999(其他)](O)CONDTN(状态)=[1(建造中),2(废弃的),3(改造中),5(计划建造的),999(其他)](O)NATCON(建筑结构性质)=[附录A中允许的属性值]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['丁坝', 'rowspan=4, ', 'rowspan=4, (O)OBJNAM(英文名称) = [整治建筑物英文名称](O)NOBJNM(中文名称) = [整治建筑物中文名称](O)INFORM(英文信息) = [整治建筑物英文信息](O)NINFOM(中文信息) = [整治建筑物中文信息](C)SORDAT(数据来源日期) =[YYYYMMDD](C)SORIND(数据来源表示) =[cc,cc,cccc,c...]']]\n",
+    "raw_response": "[0, 1, 1]",
+    "parsed": [
+        0,
+        1,
+        1
+    ],
+    "table1_idx": 2940,
+    "table2_idx": 2941
+}

@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>128 305 148 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>15<|type|>title<|page|>2<|box|>306 153 352 841<|content|>II. MATTER OF NOTE: DECLINED ENGAGEMENT — MATTER N\n<|id|>16<|type|>title<|page|>2<|box|>376 142 393 334<|content|>A. Matter Identification\n<|id|>29<|type|>title<|page|>3<|box|>167 140 185 411<|content|>B. Prospective Client Background\n<|id|>37<|type|>title<|page|>3<|box|>683 140 700 393<|content|>C. Proposed Engagement Scope\n<|id|>47<|type|>title<|page|>4<|box|>843 142 859 534<|content|>D. Financial Parameters of Proposed Engagement\n<|id|>50<|type|>title<|page|>5<|box|>189 176 207 369<|content|>Proposed Hourly Rates:\n<|id|>57<|type|>title<|page|>5<|box|>659 140 676 480<|content|>E. Timeline of Intake and Conflicts Review\n<|id|>59<|type|>table<|page|>5<|box|>727 143 902 852<|content|>None\n<|id|>60<|type|>table<|page|>6<|box|>89 143 763 852<|content|>None\n<|id|>62<|type|>title<|page|>7<|box|>90 140 107 723<|content|>F. Nature of the Conflict — Summary (Redacted for\n<|id|>70<|type|>title<|page|>8<|box|>250 140 266 401<|content|>G. Ethical Analysis — Summary\n<|id|>72<|type|>title<|page|>8<|box|>397 140 414 410<|content|>Rule 1.7(a)(1) — Direct Adversity\n<|id|>78<|type|>title<|page|>9<|box|>157 140 175 434<|content|>Rule 1.7(a)(2) — Material Limitation\n<|id|>82<|type|>title<|page|>9<|box|>612 142 628 421<|content|>Rule 1.7(b) — Waivability Analysis\n<|id|>89<|type|>title<|page|>10<|box|>510 140 527 472<|content|>Rule 1.9 — Former-Client Considerations\n<|id|>91<|type|>title<|page|>10<|box|>710 140 729 450<|content|>Rule 1.10 — Imputation and Screening\n<|id|>93<|type|>title<|page|>11<|box|>138 140 157 354<|content|>Supporting Work Product\n<|id|>97<|type|>title<|page|>11<|box|>402 140 419 447<|content|>H. Conflicts Committee Determination\n<|id|>99<|type|>title<|page|>11<|box|>491 142 506 230<|content|>Attendees:\n<|id|>108<|type|>title<|page|>12<|box|>167 140 184 419<|content|>I. Declination and Referral Actions\n<|id|>117<|type|>title<|page|>13<|box|>150 140 167 478<|content|>J. File Closure and Administrative Actions\n<|id|>131<|type|>title<|page|>14<|box|>450 140 469 305<|content|>K. Financial Impact\n<|id|>137<|type|>title<|page|>15<|box|>90 171 135 825<|content|>III. OTHER Q2 2024 CONFLICTS COMMITTEE ACTIVITY —\n<|id|>139<|type|>table<|page|>15<|box|>256 143 352 852<|content|>None\n<|id|>141<|type|>title<|page|>15<|box|>503 163 523 833<|content|>IV. RECOMMENDATIONS AND FORWARD-LOOKING ITEMS\n<|id|>146<|type|>title<|page|>16<|box|>263 385 282 609<|content|>V. CERTIFICATION",
+    "raw_response": "<|src_id|>59<|tgt_id|>57\n<|src_id|>60<|tgt_id|>57\n<|src_id|>139<|tgt_id|>137",
+    "parsed": [
+        {
+            "src_id": 59,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 137
+        }
+    ]
+}

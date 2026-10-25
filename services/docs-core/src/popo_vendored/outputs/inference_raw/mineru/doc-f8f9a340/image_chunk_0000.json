@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>11<|type|>title<|page|>1<|box|>444 441 462 555<|content|>(Form UCC1)\n<|id|>14<|type|>title<|page|>1<|box|>631 142 648 346<|content|>SECTION 1 — DEBTOR\n<|id|>15<|type|>title<|page|>1<|box|>662 143 679 339<|content|>1a. Organization's Name\n<|id|>16<|type|>title<|page|>1<|box|>686 142 702 415<|content|>Summit Industrial Fabrication Co.\n<|id|>18<|type|>title<|page|>1<|box|>829 143 845 303<|content|>1b. Mailing Address\n<|id|>20<|type|>title<|page|>2<|box|>90 143 108 339<|content|>1c. Type of Organization\n<|id|>22<|type|>title<|page|>2<|box|>143 143 162 393<|content|>1d. Jurisdiction of Organization\n<|id|>24<|type|>title<|page|>2<|box|>199 142 215 467<|content|>1e. Organizational Identification Number\n<|id|>27<|type|>title<|page|>2<|box|>397 140 414 468<|content|>SECTION 2 — ADDITIONAL DEBTOR\n<|id|>29<|type|>title<|page|>2<|box|>518 142 536 423<|content|>SECTION 3 — SECURED PARTY\n<|id|>30<|type|>title<|page|>2<|box|>550 142 568 339<|content|>3a. Organization's Name\n<|id|>31<|type|>title<|page|>2<|box|>574 140 590 526<|content|>Crescent Harbor Bank, N.A., as Collateral Agent\n<|id|>33<|type|>title<|page|>2<|box|>672 142 689 305<|content|>3b. Mailing Address\n<|id|>36<|type|>title<|page|>2<|box|>760 140 777 524<|content|>SECTION 4 — COLLATERAL DESCRIPTION\n<|id|>37<|type|>title<|page|>2<|box|>786 142 803 562<|content|>This Financing Statement covers the following coll\n<|id|>61<|type|>title<|page|>5<|box|>89 142 106 485<|content|>SECTION 5 — CHECK box PROVISIONS\n<|id|>62<|type|>title<|page|>5<|box|>121 142 138 359<|content|>5a. Alternative Designation\n<|id|>64<|type|>title<|page|>5<|box|>212 142 229 362<|content|>5b. Applicable Check boxes\n<|id|>69<|type|>title<|page|>5<|box|>537 140 554 598<|content|>SECTION 6 — OPTIONAL FILER REFERENCE DATA\n<|id|>75<|type|>title<|page|>5<|box|>816 140 834 779<|content|>SECTION 7 — ADDITIONAL INFORMATION AND FILING INST\n<|id|>77<|type|>title<|page|>6<|box|>138 140 157 282<|content|>Number of Pages\n<|id|>79<|type|>title<|page|>6<|box|>267 140 284 517<|content|>Additional Debtors / Additional Secured Parties\n<|id|>81<|type|>title<|page|>6<|box|>404 254 421 743<|content|>ADDITIONAL FILING CONTEXT AND COUNSEL NOTES\n<|id|>83<|type|>title<|page|>6<|box|>489 142 505 356<|content|>Background on the Debtor\n<|id|>85<|type|>title<|page|>6<|box|>652 140 669 362<|content|>Basis for Filing Jurisdiction\n<|id|>88<|type|>table<|page|>7<|box|>130 143 306 852<|content|>None\n<|id|>89<|type|>title<|page|>7<|box|>344 142 362 367<|content|>Termination of Prior Filings\n<|id|>91<|type|>table<|page|>7<|box|>547 143 750 852<|content|>None\n<|id|>92<|type|>title<|page|>7<|box|>789 142 806 303<|content|>Lien Search Results\n<|id|>97<|type|>title<|page|>8<|box|>292 377 309 620<|content|>CERTIFICATION OF FILER\n<|id|>99<|type|>title<|page|>8<|box|>436 140 452 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>105<|type|>table<|page|>8<|box|>584 143 734 852<|content|>None",
+    "raw_response": "<|src_id|>88<|tgt_id|>85\n<|src_id|>91<|tgt_id|>89\n<|src_id|>105<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 88,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 99
+        }
+    ]
+}

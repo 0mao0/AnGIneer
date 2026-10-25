@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Hargrove & Tillman,', 'Outstanding fees for', '$[_]', 'Accounts payable —']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['CPAs (Laura Svensson, CPA, Engagement Partner)', 'accounting, tax preparation, and financial reporting services', '', 'engagement to continue through final tax returns; to be paid during wind-down']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 295,
+    "table2_idx": 296
+}

@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 158 125 839<|content|>CALDERWOOD & HARKNESS LLP 450 Park Avenue, 28th Fl\n<|id|>1<|type|>title<|page|>1<|box|>133 192 169 803<|content|>MEMORANDUM ATTORNEY-CLIENT PRIVILEGED & CONFIDENTI\n<|id|>9<|type|>title<|page|>1<|box|>433 385 452 611<|content|>I. Executive Summary\n<|id|>19<|type|>title<|page|>2<|box|>638 303 659 694<|content|>II. Background and PSA Requirements\n<|id|>20<|type|>title<|page|>2<|box|>684 140 700 343<|content|>A. Transaction Overview\n<|id|>35<|type|>title<|page|>3<|box|>614 142 631 555<|content|>B. Estoppel Certificate Requirements Under the PSA\n<|id|>49<|type|>title<|page|>4<|box|>738 140 755 516<|content|>C. Estoppel Tracking Status (as of May 8, 2024)\n<|id|>59<|type|>title<|page|>5<|box|>570 183 590 813<|content|>III. Detailed Analysis of Six (6) Discrepant Estop\n<|id|>61<|type|>title<|page|>5<|box|>704 142 720 517<|content|>A. Discrepancy No. 1 — Rent Amount Variance\n<|id|>78<|type|>title<|page|>6<|box|>670 142 686 583<|content|>B. Discrepancy No. 2 — Lease Expiration Date Varia\n<|id|>94<|type|>title<|page|>7<|box|>633 140 650 606<|content|>C. Discrepancy No. 3 — Security Deposit Amount Var\n<|id|>111<|type|>title<|page|>8<|box|>729 142 746 517<|content|>D. Discrepancy No. 4 — Rent Amount Variance\n<|id|>128<|type|>title<|page|>10<|box|>90 140 107 583<|content|>E. Discrepancy No. 5 — Lease Expiration Date Varia\n<|id|>132<|type|>title<|page|>10<|box|>212 140 229 444<|content|>Lease Details per Exhibit H Rent Roll:\n<|id|>145<|type|>title<|page|>11<|box|>241 140 258 604<|content|>F. Discrepancy No. 6 — Security Deposit Amount Var\n<|id|>161<|type|>title<|page|>12<|box|>253 313 273 683<|content|>IV. Summary Table of Discrepancies\n<|id|>162<|type|>table<|page|>12<|box|>333 143 905 854<|content|>None\n<|id|>163<|type|>table<|page|>13<|box|>88 143 460 852<|content|>None\n<|id|>164<|type|>title<|page|>13<|box|>496 233 516 763<|content|>V. Impact on Closing Conditions and ABR Threshold\n<|id|>165<|type|>title<|page|>13<|box|>541 142 559 540<|content|>A. Combined ABR of the Six Discrepant Tenancies\n<|id|>167<|type|>table<|page|>13<|box|>609 143 758 852<|content|>None\n<|id|>169<|type|>title<|page|>14<|box|>90 142 107 406<|content|>B. Effect on 80% ABR Threshold\n<|id|>173<|type|>title<|page|>14<|box|>484 140 500 380<|content|>C. Major Tenant Implications\n<|id|>179<|type|>title<|page|>14<|box|>708 142 724 334<|content|>D. Lender Acceptability\n<|id|>185<|type|>title<|page|>15<|box|>284 290 303 705<|content|>VI. Communication with Seller's Counsel\n<|id|>196<|type|>title<|page|>16<|box|>199 305 218 691<|content|>VII. Recommendations and Next Steps\n<|id|>210<|type|>title<|page|>17<|box|>412 297 431 697<|content|>VIII. Privileged and Confidential Notice",
+    "raw_response": "<|src_id|>162<|tgt_id|>161\n<|src_id|>163<|tgt_id|>161\n<|src_id|>167<|tgt_id|>165",
+    "parsed": [
+        {
+            "src_id": 162,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 165
+        }
+    ]
+}

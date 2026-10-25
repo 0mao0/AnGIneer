@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        10,
+        14,
+        15,
+        19,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>135 156 152 839<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>2<|page|>1<|box|>161 140 196 854<|content|>FROM: ... Sylvia Hartwell, Specialist Partner (Tax...LLP 375 Park Avenue, 42nd Floor New York, NY 10152\n<|id|>3<|page|>1<|box|>205 140 223 733<|content|>TO: ... 14A New York, NY 10021\n<|id|>4<|page|>1<|box|>232 140 268 852<|content|>CC: ... Victoria Chambers, Responsible Partner Mon...s, Lead Associate Elliot Nguyen, Working Associate\n<|id|>5<|page|>1<|box|>276 140 294 310<|content|>DATE: ... May 10, 2023\n<|id|>6<|page|>1<|box|>301 140 338 852<|content|>RE: ... State Income Tax Planning Considerations —...Dynasty Trust and Grantor Trust Treatment of GRATs\n<|id|>7<|page|>1<|box|>345 142 363 362<|content|>MATTER NO. ... 1034-00004\n<|id|>8<|page|>1<|box|>371 142 388 375<|content|>BILLING CODE: ... 78412-JRC\n<|id|>9<|page|>1<|box|>397 140 489 854<|content|>This memorandum is a confidential attorney-client ...®) in connection with the matters discussed herein\n<|id|>24<|page|>2<|box|>823 181 895 857<|content|>Carried Interest and Fund Stakes (Caldwell Ridgeli... Caldwell co-founded Caldwell Ridgeline Capital in\n<|id|>25<|page|>3<|box|>90 209 125 854<|content|>2006 and retains these legacy interests following ...ollowing his transition to a limited advisory role\n<|id|>42<|page|>3<|box|>854 140 909 854<|content|>The Caldwell Family Dynasty Trust is an irrevocabl...a Delaware-chartered trust company located at 1201\n<|id|>43<|page|>4<|box|>89 140 126 854<|content|>North Market Street, Suite 1600, Wilmington, Delaw...a Chambers, a partner at Calderwood & Harkness LLP\n<|id|>112<|page|>10<|box|>722 181 739 774<|content|>• 440 West Broadway, New York, New York (SoHo commercial/retail property)\n<|id|>116<|page|>10<|box|>800 140 891 856<|content|>Rental income, operating income, and gains from th... personal property for purposes of the third prong\n<|id|>113<|page|>10<|box|>742 183 758 756<|content|>• 15–21 Harrison Street, New York, New York (TriBeCa mixed-use property)\n<|id|>114<|page|>10<|box|>761 183 777 774<|content|>• 88 Mercer Street, New York, New York (SoHo residential condominium units)\n<|id|>115<|page|>10<|box|>781 183 797 754<|content|>• 200 West 14th Street, New York, New York (Chelsea commercial property)\n<|id|>155<|page|>14<|box|>825 140 880 856<|content|>To the extent that the Caldwell Ridgeline Capital ... business in New York — this income is captured on\n<|id|>156<|page|>15<|box|>90 140 127 854<|content|>Jonathan's New York return as a New York resident....m the grantor trust treatment during the GRAT term\n<|id|>213<|page|>19<|box|>641 181 676 854<|content|>• Calderwood & Harkness LLP (Sylvia Hartwell, Vict... legal analysis and trust administration oversight\n<|id|>216<|page|>19<|box|>773 140 790 620<|content|>The annual coordination call should address the fo...rdination call should address the following topics\n<|id|>214<|page|>19<|box|>679 181 714 854<|content|>• Strathmore Corporation & Greaves LLP (Martin J. ...PA) — tax return preparation and filing compliance\n<|id|>215<|page|>19<|box|>715 181 768 854<|content|>• Havensbrook Wealth Advisors LLC (Diana R. ... Li...ent management and financial planning coordination\n<|id|>254<|page|>23<|box|>732 153 766 841<|content|>CALDERWOOD & HARKNESS LLP 375 Park Avenue, 42nd Floor New York, New York 10152\n<|id|>255<|page|>23<|box|>776 142 792 331<|content|>Matter No. ... 1034-00004\n<|id|>256<|page|>23<|box|>801 142 819 547<|content|>Prepared by: ... Sylvia Hartwell, Specialist Partner (Tax)\n<|id|>257<|page|>23<|box|>828 143 845 547<|content|>Reviewed by: ... Victoria Chambers, Responsible Partner\n<|id|>258<|page|>23<|box|>854 143 869 563<|content|>Research Assistance: ... Elliot Nguyen, Working Associate\n<|id|>259<|page|>23<|box|>878 142 893 493<|content|>© 2023 Calderwood & Harkness LLP. ... All rights reserved",
+    "raw_response": "<|src_id|>24<|tgt_id|>25\n<|src_id|>42<|tgt_id|>43\n<|src_id|>155<|tgt_id|>156",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 156
+        }
+    ]
+}

@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>1<|box|>284 406 301 589<|content|>PROMISSORY NOTE\n<|id|>12<|page|>2<|box|>90 140 107 493<|content|>Section 1. Promise to Pay; Principal Amount\n<|id|>14<|page|>2<|box|>285 140 303 328<|content|>Section 2. Interest Rate\n<|id|>18<|page|>3<|box|>258 140 277 351<|content|>Section 3. Payment Terms\n<|id|>29<|page|>4<|box|>619 142 637 416<|content|>Section 4. Application of Payments\n<|id|>35<|page|>5<|box|>304 140 321 323<|content|>Section 5. Prepayment\n<|id|>40<|page|>6<|box|>314 140 332 325<|content|>Section 6. Late Charge\n<|id|>42<|page|>6<|box|>638 140 654 292<|content|>Section 7. Security\n<|id|>45<|page|>7<|box|>241 140 258 359<|content|>Section 8. Loan Documents\n<|id|>49<|page|>7<|box|>633 140 652 362<|content|>Section 9. Events of Default\n<|id|>54<|page|>8<|box|>250 140 265 334<|content|>Section 10. Acceleration\n<|id|>58<|page|>8<|box|>734 142 750 380<|content|>Section 11. Waivers by Maker\n<|id|>69<|page|>9<|box|>472 140 489 357<|content|>Section 12. Governing Law\n<|id|>71<|page|>9<|box|>648 140 667 416<|content|>Section 13. Jurisdiction and Venue\n<|id|>74<|page|>10<|box|>212 140 229 398<|content|>Section 14. Waiver of Jury Trial\n<|id|>76<|page|>10<|box|>664 140 680 292<|content|>Section 15. Notices\n<|id|>90<|page|>11<|box|>430 140 446 483<|content|>Section 16. Amendments and Modifications\n<|id|>92<|page|>11<|box|>643 140 660 328<|content|>Section 17. Severability\n<|id|>94<|page|>12<|box|>90 142 107 415<|content|>Section 18. Successors and Assigns\n<|id|>96<|page|>12<|box|>393 140 412 441<|content|>Section 19. Joint and Several Liability\n<|id|>98<|page|>12<|box|>517 140 534 388<|content|>Section 20. Time of the Essence\n<|id|>100<|page|>12<|box|>638 142 655 305<|content|>Section 21. Captions\n<|id|>102<|page|>12<|box|>727 400 744 596<|content|>[Signature Pages Follow]\n<|id|>104<|page|>12<|box|>797 457 813 537<|content|>MAKER:\n<|id|>105<|page|>12<|box|>823 140 840 761<|content|>CORAL PALMS RESORT HOLDINGS LLC, a Florida limited\n<|id|>112<|page|>13<|box|>169 454 186 542<|content|>LENDER:\n<|id|>113<|page|>13<|box|>195 140 213 750<|content|>PINNACLE ATLANTIC CAPITAL, LLC, a Delaware limited\n<|id|>117<|page|>13<|box|>265 447 281 549<|content|>EXHIBIT A\n<|id|>118<|page|>13<|box|>289 310 306 684<|content|>LEGAL DESCRIPTION OF THE PROPERTY\n<|id|>125<|page|>13<|box|>618 449 633 550<|content|>EXHIBIT B\n<|id|>126<|page|>13<|box|>643 370 660 627<|content|>AMORTIZATION SCHEDULE",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>29<|level|>2\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>2\n<|id|>74<|level|>2\n<|id|>76<|level|>2\n<|id|>90<|level|>2\n<|id|>92<|level|>2\n<|id|>94<|level|>2\n<|id|>96<|level|>2\n<|id|>98<|level|>2\n<|id|>100<|level|>2\n<|id|>102<|level|>-1\n<|id|>104<|level|>-1\n<|id|>105<|level|>-1\n<|id|>112<|level|>-1\n<|id|>113<|level|>-1\n<|id|>117<|level|>2\n<|id|>118<|level|>3\n<|id|>125<|level|>2\n<|id|>126<|level|>3",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        }
+    ]
+}

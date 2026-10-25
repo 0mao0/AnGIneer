@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 155 214 839<|content|>Delivered pursuant to Section 9. ... and Meridian Bio Therapeutics Limited\n<|id|>2<|page|>1<|box|>222 140 238 318<|content|>Date: ... October 20, 2023\n<|id|>3<|page|>1<|box|>239 140 478 857<|content|>The undersigned, Anita M. ... 2847631), with its p...8 Queen's Road Central, Hong Kong SAR (\"Meridian\")\n<|id|>8<|page|>1<|box|>859 140 896 854<|content|>1. ... and holds the title of Senior Vice President,\n<|id|>9<|page|>2<|box|>90 140 162 854<|content|>Legal Affairs and General Counsel. ... The undersi...nd delivery of this Certificate by the undersigned\n<|id|>31<|page|>4<|box|>809 210 845 854<|content|>(vi) Australian Patent No. ... and\n<|id|>33<|page|>5<|box|>90 174 181 854<|content|>All maintenance fees, annuities, and renewal fees ...ge proceeding before any patent office or tribunal\n<|id|>78<|page|>10<|box|>767 142 782 485<|content|>Title: ... General Counsel and Authorized Officer\n<|id|>79<|page|>10<|box|>784 143 800 428<|content|>Address: ... 400 Pharma Drive, Suite 800\n<|id|>80<|page|>10<|box|>801 142 818 361<|content|>Princeton, New Jersey 08540\n<|id|>81<|page|>10<|box|>819 142 835 318<|content|>Date: ... October 20, 2023",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>31<|tgt_id|>33",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 33
+        }
+    ]
+}

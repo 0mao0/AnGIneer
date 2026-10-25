@@ -1,0 +1,51 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>136 400 157 598<|content|>PAYOFF LETTER\n<|id|>1<|type|>title<|page|>1<|box|>175 295 195 702<|content|>VELTHORN MERCHANT BANK, N.A.\n<|id|>2<|type|>title<|page|>1<|box|>212 194 248 800<|content|>VELTHORN MERCHANT BANK, N.A. 120 Federal Street, 2\n<|id|>17<|type|>title<|page|>1<|box|>811 142 827 614<|content|>1. Reference to Credit Agreement and Existing Inde\n<|id|>21<|type|>title<|page|>2<|box|>439 142 457 287<|content|>2. Payoff Amount\n<|id|>23<|type|>title<|page|>2<|box|>532 142 550 413<|content|>2.1 Outstanding Principal Balance\n<|id|>25<|type|>title<|page|>2<|box|>580 176 599 297<|content|>$87,400,000.00\n<|id|>26<|type|>title<|page|>2<|box|>613 142 628 401<|content|>2.2 Accrued and Unpaid Interest\n<|id|>28<|type|>title<|page|>2<|box|>698 176 715 274<|content|>$287,543.06\n<|id|>29<|type|>title<|page|>2<|box|>729 142 746 313<|content|>2.3 Per Diem Interest\n<|id|>31<|type|>title<|page|>3<|box|>90 140 107 346<|content|>2.4 Prepayment Premium\n<|id|>33<|type|>title<|page|>3<|box|>273 140 290 444<|content|>2.5 Administrative and Processing Fee\n<|id|>36<|type|>title<|page|>3<|box|>371 140 388 637<|content|>2.6 Total Payoff Amount — Assuming Receipt on June\n<|id|>38<|type|>table<|page|>3<|box|>455 143 583 852<|content|>None\n<|id|>39<|type|>title<|page|>3<|box|>622 140 638 468<|content|>2.7 Good-Through Date and Adjustments\n<|id|>42<|type|>title<|page|>4<|box|>90 140 107 377<|content|>3. Wire Transfer Instructions\n<|id|>44<|type|>table<|page|>4<|box|>159 143 253 852<|content|>None\n<|id|>47<|type|>title<|page|>4<|box|>464 140 481 560<|content|>4. Release of Liens and UCC Termination Statements\n<|id|>55<|type|>title<|page|>5<|box|>450 140 467 334<|content|>5. Reservation of Rights\n<|id|>60<|type|>title<|page|>6<|box|>148 140 167 552<|content|>6. Reliance; Acknowledgment and Countersignature\n<|id|>72<|type|>title<|page|>6<|box|>527 316 544 679<|content|>ACKNOWLEDGMENT AND AGREEMENT\n<|id|>85<|type|>title<|page|>7<|box|>90 454 109 544<|content|>PART B\n<|id|>86<|type|>title<|page|>7<|box|>128 307 148 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>87<|type|>title<|page|>7<|box|>167 218 210 777<|content|>COVER MEMORANDUM AND UCC TERMINATION INSTRUCTIONS\n<|id|>88<|type|>title<|page|>7<|box|>229 282 244 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>92<|type|>title<|page|>7<|box|>354 143 371 290<|content|>MEMORANDUM\n<|id|>93<|type|>table<|page|>7<|box|>378 143 549 852<|content|>None\n<|id|>94<|type|>title<|page|>7<|box|>599 143 614 362<|content|>1. Background and Purpose\n<|id|>104<|type|>title<|page|>8<|box|>439 140 457 450<|content|>2. UCC-1 Financing Statements on File\n<|id|>105<|type|>table<|page|>8<|box|>525 143 907 852<|content|>None\n<|id|>106<|type|>table<|page|>9<|box|>89 143 834 852<|content|>None\n<|id|>109<|type|>title<|page|>10<|box|>285 140 301 455<|content|>3. UCC-3 Termination Statements Filed\n<|id|>110<|type|>table<|page|>10<|box|>390 143 598 852<|content|>None\n<|id|>115<|type|>title<|page|>11<|box|>90 140 107 405<|content|>4. Confirmation of Authorization\n<|id|>120<|type|>title<|page|>11<|box|>674 140 691 372<|content|>5. Coordination with Closing\n<|id|>125<|type|>title<|page|>12<|box|>468 140 484 351<|content|>6. Post-Closing Follow-Up\n<|id|>136<|type|>title<|page|>13<|box|>454 140 472 344<|content|>7. Attachments / Exhibits\n<|id|>142<|type|>title<|page|>13<|box|>719 140 734 433<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>38<|tgt_id|>36\n<|src_id|>44<|tgt_id|>42\n<|src_id|>93<|tgt_id|>92\n<|src_id|>105<|tgt_id|>104\n<|src_id|>106<|tgt_id|>104\n<|src_id|>110<|tgt_id|>109",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 109
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 169 125 826<|content|>CALDERWOOD & HARKNESS LLP 555 California Street, 4\n<|id|>1<|type|>title<|page|>1<|box|>133 202 151 792<|content|>INTERNAL MEMORANDUM — CONFIDENTIAL / ADMINISTRATIV\n<|id|>6<|type|>title<|page|>1<|box|>304 142 321 251<|content|>1. PURPOSE\n<|id|>11<|type|>title<|page|>1<|box|>760 142 777 374<|content|>2. CLIENT INFORMATION\n<|id|>12<|type|>title<|page|>1<|box|>792 142 809 289<|content|>2.1 Client Identity\n<|id|>14<|type|>table<|page|>1<|box|>875 143 896 852<|content|>None\n<|id|>15<|type|>table<|page|>2<|box|>89 143 392 852<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>794 140 810 295<|content|>2.2 Client Contacts\n<|id|>25<|type|>title<|page|>3<|box|>573 142 590 295<|content|>2.3 Billing Address\n<|id|>31<|type|>title<|page|>3<|box|>804 140 821 375<|content|>3. MATTER DESCRIPTION\n<|id|>32<|type|>title<|page|>3<|box|>835 140 854 341<|content|>3.1 Scope of Engagement\n<|id|>48<|type|>title<|page|>5<|box|>306 140 323 370<|content|>3.2 Prior Counsel Transition\n<|id|>52<|type|>title<|page|>5<|box|>797 140 814 390<|content|>3.3 Practice Area Classification\n<|id|>54<|type|>table<|page|>5<|box|>863 143 902 852<|content|>None\n<|id|>55<|type|>table<|page|>6<|box|>88 143 127 852<|content|>None\n<|id|>56<|type|>title<|page|>6<|box|>176 140 193 493<|content|>4. ENGAGEMENT TEAM ASSIGNMENTS\n<|id|>58<|type|>title<|page|>6<|box|>268 140 287 334<|content|>4.1 Responsible Partner\n<|id|>61<|type|>title<|page|>6<|box|>513 140 532 292<|content|>4.2 Billing Partner\n<|id|>64<|type|>title<|page|>6<|box|>741 140 758 292<|content|>4.3 Lead Associate\n<|id|>67<|type|>title<|page|>7<|box|>176 140 193 323<|content|>4.4 Working Associate\n<|id|>70<|type|>title<|page|>7<|box|>430 140 448 553<|content|>5. FEE ARRANGEMENTS AND BILLING CODES\n<|id|>71<|type|>title<|page|>7<|box|>462 140 479 349<|content|>5.1 Hourly Rate Structure\n<|id|>73<|type|>table<|page|>7<|box|>583 143 672 852<|content|>None\n<|id|>77<|type|>title<|page|>8<|box|>176 140 194 279<|content|>5.2 Billing Codes\n<|id|>79<|type|>table<|page|>8<|box|>241 143 348 852<|content|>None\n<|id|>85<|type|>title<|page|>8<|box|>717 140 734 274<|content|>5.3 Billing Cycle\n<|id|>93<|type|>title<|page|>9<|box|>280 140 297 380<|content|>6. CONFLICT CLEARANCE\n<|id|>101<|type|>title<|page|>10<|box|>148 140 166 488<|content|>7. THIRD-PARTY SERVICE PROVIDERS\n<|id|>103<|type|>title<|page|>10<|box|>243 142 261 437<|content|>7.1 Patent Annuity / Docketing Agent\n<|id|>108<|type|>title<|page|>10<|box|>648 140 667 426<|content|>7.2 Foreign Associates (Anticipated)\n<|id|>110<|type|>title<|page|>10<|box|>773 142 789 202<|content|>Japan:\n<|id|>114<|type|>title<|page|>11<|box|>133 142 152 410<|content|>Europe (European Patent Office):\n<|id|>118<|type|>title<|page|>11<|box|>381 140 398 583<|content|>8. RELATED MATTERS AND CROSS-REFERENCES\n<|id|>130<|type|>title<|page|>12<|box|>713 140 729 390<|content|>9. KEY NAMED INVENTORS\n<|id|>137<|type|>title<|page|>13<|box|>575 142 593 580<|content|>10. DOCKETING AND CALENDAR INSTRUCTIONS\n<|id|>147<|type|>title<|page|>14<|box|>420 142 438 359<|content|>11. FILE MANAGEMENT\n<|id|>163<|type|>title<|page|>15<|box|>459 140 476 504<|content|>12. SPECIAL INSTRUCTIONS AND NOTES\n<|id|>173<|type|>title<|page|>16<|box|>670 142 688 287<|content|>13. APPROVALS\n<|id|>175<|type|>title<|page|>16<|box|>849 140 867 470<|content|>RESPONSIBLE PARTNER APPROVAL",
+    "raw_response": "<|src_id|>14<|tgt_id|>12\n<|src_id|>15<|tgt_id|>12\n<|src_id|>54<|tgt_id|>52\n<|src_id|>55<|tgt_id|>52\n<|src_id|>73<|tgt_id|>71\n<|src_id|>79<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        }
+    ]
+}

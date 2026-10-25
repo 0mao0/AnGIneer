@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 424 151 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>159 140 205 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...TRINE. ... DO NOT DISTRIBUTE WITHOUT AUTHORIZATION\n<|id|>3<|page|>1<|box|>212 140 229 401<|content|>TO: ... 1012-00005)\n<|id|>4<|page|>1<|box|>238 140 256 612<|content|>FROM: ... Patrick Gallagher, Lead Associate, Litigation (General)\n<|id|>5<|page|>1<|box|>263 140 282 707<|content|>DATE: ... Not Completed — See Status Below)\n<|id|>6<|page|>1<|box|>290 140 344 854<|content|>RE: ... )\n<|id|>7<|page|>1<|box|>353 142 369 321<|content|>DOCUMENT NO. ... 94\n<|id|>8<|page|>1<|box|>378 140 484 854<|content|>STATUS: ... Sections marked \"[TO BE COMPLETED]\" in...ase resumes and expert depositions are rescheduled\n<|id|>153<|page|>17<|box|>832 174 869 854<|content|>(ii) Communications identifying facts or data that...expert considered in forming her opinions; ... and\n<|id|>155<|page|>18<|box|>133 138 318 856<|content|>Dr. ... Rosser in the exercise of her expert discretion",
+    "raw_response": "<|src_id|>153<|tgt_id|>155",
+    "parsed": [
+        {
+            "src_id": 153,
+            "tgt_id": 155
+        }
+    ]
+}

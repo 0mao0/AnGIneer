@@ -1,0 +1,109 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pun3jb9q\\input\\pdfs\\doc-a31559b6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pun3jb9q\\enriched\\doc-a31559b6.json",
+    "contd_output": "<|src_id|>41<|tgt_id|>42",
+    "title_output": "<|id|>6<|level|>1\n<|id|>7<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>34<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>3\n<|id|>56<|level|>2\n<|id|>66<|level|>2\n<|id|>76<|level|>1\n<|id|>80<|level|>1",
+    "image_output": "<|src_id|>8<|tgt_id|>7\n<|src_id|>36<|tgt_id|>34\n<|src_id|>37<|tgt_id|>34\n<|src_id|>48<|tgt_id|>45\n<|src_id|>49<|tgt_id|>45",
+    "contd_label": [
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        }
+    ],
+    "title_label": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 8,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 45
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 48,
+            "table2_idx": 49,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "Release of aggregate earnest money",
+                    "$55,000,000.00",
+                    "Commonwealth National Title",
+                    "GMP Fund III"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "deposits from escrow",
+                    "",
+                    "Insurance Company",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

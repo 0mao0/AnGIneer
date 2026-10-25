@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>410<|type|>title<|page|>45<|box|>204 140 222 465<|content|>E. No Pending Litigation or Examination\n<|id|>412<|type|>title<|page|>45<|box|>398 140 417 424<|content|>F. Statement Regarding IRC § 6110\n<|id|>415<|type|>title<|page|>46<|box|>90 192 109 803<|content|>X. SIGNATURE BLOCK AND CONTACT INFORMATION\n<|id|>432<|type|>title<|page|>46<|box|>536 250 556 746<|content|>XI. DRAFT NOTATION / VERSION CONTROL\n<|id|>433<|type|>title<|page|>46<|box|>574 290 590 707<|content|>DRAFT — Version 3.0 — For LPAC Counsel Review\n<|id|>440<|type|>table<|page|>46<|box|>864 145 902 852<|content|>None\n<|id|>442<|type|>table<|page|>47<|box|>88 143 127 852<|content|>None\n<|id|>443<|type|>table<|page|>47<|box|>186 147 205 852<|content|>None\n<|id|>446<|type|>title<|page|>47<|box|>405 143 421 277<|content|>Version History:\n<|id|>447<|type|>table<|page|>47<|box|>428 143 890 852<|content|>None\n<|id|>448<|type|>title<|page|>48<|box|>123 348 138 648<|content|>— END OF DRAFT — VERSION 3.0 —",
+    "raw_response": "<|src_id|>440<|tgt_id|>432\n<|src_id|>442<|tgt_id|>432\n<|src_id|>443<|tgt_id|>432\n<|src_id|>447<|tgt_id|>446",
+    "parsed": [
+        {
+            "src_id": 440,
+            "tgt_id": 432
+        },
+        {
+            "src_id": 442,
+            "tgt_id": 432
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 432
+        },
+        {
+            "src_id": 447,
+            "tgt_id": 446
+        }
+    ]
+}

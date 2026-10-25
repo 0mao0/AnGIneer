@@ -1,0 +1,133 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6obx62qb\\input\\pdfs\\doc-b1df8841.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6obx62qb\\enriched\\doc-b1df8841.json",
+    "contd_output": "<|src_id|>26<|tgt_id|>27\n<|src_id|>142<|tgt_id|>143",
+    "title_output": "<|id|>15<|level|>1\n<|id|>20<|level|>1\n<|id|>23<|level|>2\n<|id|>31<|level|>2\n<|id|>39<|level|>1\n<|id|>41<|level|>2\n<|id|>55<|level|>3\n<|id|>62<|level|>3\n<|id|>64<|level|>3\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>80<|level|>3\n<|id|>89<|level|>3\n<|id|>91<|level|>3\n<|id|>93<|level|>1\n<|id|>99<|level|>1\n<|id|>106<|level|>1\n<|id|>115<|level|>1\n<|id|>122<|level|>1",
+    "image_output": "<|src_id|>120<|tgt_id|>115\n<|src_id|>121<|tgt_id|>115",
+    "contd_label": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 143
+        }
+    ],
+    "title_label": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 120,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 115
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 120,
+            "table2_idx": 121,
+            "upper_row_ss": [
+                [
+                    "Atlas Peak",
+                    "United States",
+                    "$125,000,000",
+                    "US Person",
+                    "W-9",
+                    "N/A",
+                    "N/A"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Credit Partners, LP",
+                    "(DE/CA)",
+                    "",
+                    "",
+                    "(separate)",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

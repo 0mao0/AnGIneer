@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>297 140 314 531<|content|>1. Introductory Paragraph / Engagement Context\n<|id|>11<|page|>2<|box|>212 140 229 439<|content|>2. Transaction Documents for Review\n<|id|>22<|page|>3<|box|>250 140 266 323<|content|>3. Requested Opinions\n<|id|>24<|page|>3<|box|>359 140 378 459<|content|>3(a) Due Formation and Valid Existence\n<|id|>27<|page|>3<|box|>606 140 622 397<|content|>3(b) True-Sale Characterization\n<|id|>40<|page|>5<|box|>340 140 357 375<|content|>4. Addressees of the Opinions\n<|id|>47<|page|>5<|box|>657 140 674 305<|content|>5. Delivery Deadline\n<|id|>54<|page|>6<|box|>223 140 239 413<|content|>6. Assumptions and Qualifications\n<|id|>61<|page|>6<|box|>712 142 729 303<|content|>7. Fee Confirmation\n<|id|>64<|page|>7<|box|>148 142 166 315<|content|>8. Enclosed Materials\n<|id|>74<|page|>7<|box|>526 140 542 398<|content|>9. Contact Information / Closing",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>11<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>40<|level|>1\n<|id|>47<|level|>1\n<|id|>54<|level|>1\n<|id|>61<|level|>1\n<|id|>64<|level|>1\n<|id|>74<|level|>1",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        }
+    ]
+}

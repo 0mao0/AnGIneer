@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-yekjmikc\\input\\pdfs\\doc-5c2c25ac.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-yekjmikc\\enriched\\doc-5c2c25ac.json",
+    "contd_output": "<|src_id|>103<|tgt_id|>104",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>20<|level|>1\n<|id|>36<|level|>1\n<|id|>45<|level|>1\n<|id|>46<|level|>2\n<|id|>51<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>1\n<|id|>75<|level|>1\n<|id|>79<|level|>1\n<|id|>83<|level|>1\n<|id|>86<|level|>1\n<|id|>91<|level|>1\n<|id|>93<|level|>2\n<|id|>95<|level|>2\n<|id|>98<|level|>2\n<|id|>102<|level|>1\n<|id|>106<|level|>1\n<|id|>110<|level|>1\n<|id|>113<|level|>1\n<|id|>124<|level|>1\n<|id|>131<|level|>1\n<|id|>132<|level|>2\n<|id|>144<|level|>1\n<|id|>145<|level|>2\n<|id|>147<|level|>3\n<|id|>150<|level|>3\n<|id|>152<|level|>3",
+    "image_output": "<|src_id|>48<|tgt_id|>46\n<|src_id|>49<|tgt_id|>46\n<|src_id|>148<|tgt_id|>147\n<|src_id|>154<|tgt_id|>152",
+    "contd_label": [
+        {
+            "src_id": 103,
+            "tgt_id": 104
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 147
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 152
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 48,
+            "table2_idx": 49,
+            "upper_row_ss": [
+                [
+                    "Alan Ngo",
+                    "Partner",
+                    "58,412",
+                    "$895.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Marcus Delgado",
+                    "Partner",
+                    "51,987",
+                    "$875.00"
+                ]
+            ]
+        }
+    ]
+}

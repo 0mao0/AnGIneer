@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGE / ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>127 156 143 839<|content|>CALDERWOOD & HARKNESS LLP 375 Park Avenue, 40th Floor New York, NY 10152\n<|id|>2<|page|>1<|box|>152 423 170 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>179 140 196 683<|content|>TO: ... Leonard Cross, Billing Partner\n<|id|>4<|page|>1<|box|>205 140 223 696<|content|>FROM: ... Jeffrey Park, Working Associate\n<|id|>5<|page|>1<|box|>231 142 250 308<|content|>DATE: ... January 2024\n<|id|>6<|page|>1<|box|>257 140 311 854<|content|>RE: ... and Ridgeline Wireless Holdings LLC\n<|id|>7<|page|>1<|box|>319 142 335 362<|content|>MATTER NO. ... 1018-00009\n<|id|>8<|page|>1<|box|>345 140 362 777<|content|>CLASSIFICATION: ... Attorney-Client Privileged / Work Product — Do Not Distribute\n<|id|>9<|page|>1<|box|>371 142 388 408<|content|>Right-click to update Table of Contents\n<|id|>15<|page|>1<|box|>867 140 904 854<|content|>Third, the original Long-Stop Date of March 15, 20...on April 22, 2023, extending the Long-Stop Date to\n<|id|>16<|page|>2<|box|>90 140 143 854<|content|>September 30, 2023, that extended deadline also pa...inate state—neither closed nor formally terminated\n<|id|>64<|page|>6<|box|>833 140 907 857<|content|>Delaware Law. ... Delaware recognizes anticipatory repudiation under the\n<|id|>65<|page|>7<|box|>90 140 162 854<|content|>Restatement framework and applies the implied cove...ontext of unique assets and acquisition agreements\n<|id|>87<|page|>9<|box|>871 140 909 854<|content|>Theory. ... Ridgeline may contend that Northgate a...the FCC application to languish, thereby depriving\n<|id|>88<|page|>10<|box|>90 140 145 854<|content|>Ridgeline of the benefit of the bargain. ... Under...her party to receive the benefits of the agreement",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>64<|tgt_id|>65\n<|src_id|>87<|tgt_id|>88",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        }
+    ]
+}

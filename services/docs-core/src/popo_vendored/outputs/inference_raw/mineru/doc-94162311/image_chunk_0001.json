@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        48
+    ],
+    "pages": [
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>500<|type|>title<|page|>46<|box|>90 140 107 380<|content|>Section 11.12 — Counterparts\n<|id|>502<|type|>title<|page|>46<|box|>286 140 301 377<|content|>Section 11.13 — Construction\n<|id|>513<|type|>title<|page|>46<|box|>808 250 825 746<|content|>[SIGNATURE PAGE TO ASSET PURCHASE AGREEMENT]\n<|id|>516<|type|>title<|page|>47<|box|>89 142 106 447<|content|>GENOME DX THERAPEUTICS INC.\n<|id|>521<|type|>title<|page|>47<|box|>176 251 193 745<|content|>[SIGNATURE PAGE TO ASSET PURCHASE AGREEMENT]\n<|id|>522<|type|>title<|page|>47<|box|>200 142 218 524<|content|>MERIDIAN PRECISION DIAGNOSTICS, INC.\n<|id|>527<|type|>title<|page|>47<|box|>287 421 304 576<|content|>EXHIBITS INDEX\n<|id|>529<|type|>table<|page|>47<|box|>356 143 739 852<|content|>None\n<|id|>530<|type|>title<|page|>47<|box|>773 410 789 586<|content|>SCHEDULES INDEX\n<|id|>532<|type|>table<|page|>47<|box|>840 143 898 852<|content|>None\n<|id|>534<|type|>table<|page|>48<|box|>89 143 766 852<|content|>None",
+    "raw_response": "<|src_id|>529<|tgt_id|>527\n<|src_id|>532<|tgt_id|>530\n<|src_id|>534<|tgt_id|>530",
+    "parsed": [
+        {
+            "src_id": 529,
+            "tgt_id": 527
+        },
+        {
+            "src_id": 532,
+            "tgt_id": 530
+        },
+        {
+            "src_id": 534,
+            "tgt_id": 530
+        }
+    ]
+}

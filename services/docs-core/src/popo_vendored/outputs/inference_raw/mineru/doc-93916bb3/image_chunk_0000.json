@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 158 118 838<|content|>NON-COMPETITION AND NON-SOLICITATION AGREEMENT\n<|id|>7<|type|>title<|page|>1<|box|>397 142 415 243<|content|>RECITALS\n<|id|>17<|type|>title<|page|>2<|box|>593 142 609 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>37<|type|>title<|page|>5<|box|>90 142 106 455<|content|>ARTICLE II — NON-COMPETITION\n<|id|>54<|type|>title<|page|>7<|box|>89 142 106 611<|content|>ARTICLE III — NON-SOLICITATION OF EMPLOYEES\n<|id|>63<|type|>title<|page|>8<|box|>89 140 125 723<|content|>ARTICLE IV — NON-SOLICITATION OF PATIENTS AND BUSI\n<|id|>73<|type|>title<|page|>9<|box|>248 140 265 447<|content|>ARTICLE V — CONFIDENTIALITY\n<|id|>92<|type|>title<|page|>11<|box|>148 140 166 529<|content|>ARTICLE VI — INTELLECTUAL PROPERTY\n<|id|>105<|type|>title<|page|>12<|box|>204 140 220 838<|content|>ARTICLE VII — REASONABLENESS OF RESTRICTIONS; ACKN\n<|id|>106<|type|>title<|page|>12<|box|>229 140 248 794<|content|>Section 7.1 — Reasonableness. Dr. Whitfield acknow\n<|id|>115<|type|>title<|page|>13<|box|>457 142 474 393<|content|>ARTICLE VIII — REMEDIES\n<|id|>125<|type|>title<|page|>14<|box|>648 142 664 805<|content|>ARTICLE IX — REPRESENTATIONS AND WARRANTIES OF DR.\n<|id|>132<|type|>title<|page|>15<|box|>383 140 401 480<|content|>ARTICLE X — GENERAL PROVISIONS\n<|id|>160<|type|>title<|page|>19<|box|>89 142 107 266<|content|>SCHEDULE A\n<|id|>161<|type|>title<|page|>19<|box|>114 437 132 560<|content|>KEY PAYORS\n<|id|>163<|type|>table<|page|>19<|box|>203 143 584 852<|content|>None\n<|id|>165<|type|>title<|page|>19<|box|>685 361 703 635<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>167<|type|>title<|page|>19<|box|>755 142 772 542<|content|>ARDENT HEALTHCARE ACQUISITION CORP.\n<|id|>175<|type|>title<|page|>20<|box|>125 179 141 815<|content|>ACKNOWLEDGMENT OF RECEIPT OF INDEPENDENT LEGAL COU",
+    "raw_response": "<|src_id|>163<|tgt_id|>161",
+    "parsed": [
+        {
+            "src_id": 163,
+            "tgt_id": 161
+        }
+    ]
+}

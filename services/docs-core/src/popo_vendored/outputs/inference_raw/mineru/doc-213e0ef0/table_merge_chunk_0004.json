@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['May 15, 2023', 'Form 1023 application for The Caldwell Family Foundation filed with the Internal Revenue Service, Cincinnati office, requesting', 'Monica Reyes, Elliot Nguyen']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'recognition of tax-exempt status under IRC § 501(c)(3) as a private foundation under IRC § 509(a)', '']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 156,
+    "table2_idx": 157
+}

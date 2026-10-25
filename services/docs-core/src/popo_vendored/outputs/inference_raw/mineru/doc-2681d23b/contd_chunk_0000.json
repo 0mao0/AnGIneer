@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 423 155 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>164 140 181 294<|content|>Date: ... July 18, 2022\n<|id|>4<|page|>1<|box|>190 140 207 666<|content|>To: ... 1003-00005)\n<|id|>5<|page|>1<|box|>215 140 233 452<|content|>From: ... Garrett Simmons and Leila Nazari\n<|id|>6<|page|>1<|box|>242 140 258 517<|content|>Reviewed by: ... Leonard Cross, Responsible Partner\n<|id|>7<|page|>1<|box|>268 140 304 854<|content|>Re: ... from Veldran Industries Holdings, Inc\n<|id|>8<|page|>1<|box|>311 140 342 854<|content|>Classification: ... Not for Distribution Outside Calderwood & Harkness LLP Without Partner Approval\n<|id|>9<|page|>1<|box|>349 140 364 408<|content|>Right-click to update Table of Contents\n<|id|>118<|page|>16<|box|>797 174 907 857<|content|>Linkage to fund-level objectives. ... The role of ...ourke, Partner and Head of Portfolio Operations at\n<|id|>119<|page|>17<|box|>90 174 200 854<|content|>Harrowgate Capital Advisors LLC, in Veldran's oper...enuine corporate-level operational need of Veldran",
+    "raw_response": "<|src_id|>118<|tgt_id|>119",
+    "parsed": [
+        {
+            "src_id": 118,
+            "tgt_id": 119
+        }
+    ]
+}

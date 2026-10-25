@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>253 140 268 630<|content|>VIA ELECTRONIC MAIL AND SECURE FILE TRANSFER\n<|id|>9<|page|>1<|box|>426 140 443 444<|content|>1. Announcement of CFIUS Clearance\n<|id|>23<|page|>2<|box|>753 140 770 519<|content|>2. Summary of the National Security Agreement\n<|id|>35<|page|>5<|box|>321 140 339 570<|content|>3. Target Closing Date and SPA Condition Satisfact\n<|id|>44<|page|>6<|box|>440 140 457 517<|content|>4. Immediate Next Steps — Pre-Closing Actions\n<|id|>46<|page|>6<|box|>513 140 531 336<|content|>4.1 Officer's Certificates\n<|id|>49<|page|>6<|box|>833 142 849 318<|content|>4.2 Board Resolutions\n<|id|>53<|page|>7<|box|>458 140 474 321<|content|>4.3 DCSA Notification\n<|id|>57<|page|>7<|box|>784 140 801 452<|content|>4.4 DDTC Change-of-Ownership Filing\n<|id|>62<|page|>8<|box|>411 140 428 527<|content|>4.5 Initiation of FAR 42.12 Novation Proceedings\n<|id|>72<|page|>9<|box|>411 140 428 509<|content|>4.6 NSA Compliance Infrastructure Activation\n<|id|>81<|page|>10<|box|>421 140 438 532<|content|>5. Coordination with Other Counsel and Advisors\n<|id|>88<|page|>11<|box|>279 140 296 612<|content|>6. Remaining Calderwood & Harkness Engagement Matt\n<|id|>92<|page|>11<|box|>672 140 689 300<|content|>7. Closing Remarks\n<|id|>105<|page|>12<|box|>479 143 494 238<|content|>Enclosures:",
+    "raw_response": "<|id|>5<|level|>-1\n<|id|>9<|level|>1\n<|id|>23<|level|>1\n<|id|>35<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>2\n<|id|>49<|level|>2\n<|id|>53<|level|>2\n<|id|>57<|level|>2\n<|id|>62<|level|>2\n<|id|>72<|level|>2\n<|id|>81<|level|>1\n<|id|>88<|level|>1\n<|id|>92<|level|>1\n<|id|>105<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        }
+    ]
+}

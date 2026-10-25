@@ -1,0 +1,144 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 106 575<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>361 140 378 321<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>241 140 258 477<|content|>II. Background and Transaction Overview\n<|id|>37<|page|>3<|box|>643 140 661 627<|content|>III. Summary of Key Terms of the Equity Commitment\n<|id|>43<|page|>4<|box|>138 140 157 341<|content|>B. Commitment Amount\n<|id|>48<|page|>4<|box|>691 140 709 393<|content|>C. Purpose and Use of Proceeds\n<|id|>51<|page|>5<|box|>138 142 157 344<|content|>D. Conditions to Funding\n<|id|>61<|page|>6<|box|>250 142 268 388<|content|>E. Termination and Expiration\n<|id|>72<|page|>7<|box|>90 140 107 522<|content|>F. Representations and Warranties of Lakepoint\n<|id|>80<|page|>7<|box|>666 140 684 370<|content|>G. Transfer and Assignment\n<|id|>85<|page|>8<|box|>279 140 296 364<|content|>IV. Enforcement Mechanics\n<|id|>86<|page|>8<|box|>310 140 327 424<|content|>A. Direct Enforcement by Meridian\n<|id|>90<|page|>8<|box|>782 140 799 411<|content|>B. Third-Party Beneficiary Rights\n<|id|>98<|page|>9<|box|>579 140 598 297<|content|>C. Cap on Liability\n<|id|>102<|page|>10<|box|>90 140 107 473<|content|>D. Dispute Resolution and Governing Law\n<|id|>105<|page|>10<|box|>327 140 344 482<|content|>V. Interplay with Debt Commitment Letter\n<|id|>106<|page|>10<|box|>358 142 375 415<|content|>A. Summary of Debt Commitment\n<|id|>110<|page|>10<|box|>844 142 861 462<|content|>B. Coordination of Conditions Precedent\n<|id|>115<|page|>11<|box|>601 140 619 434<|content|>C. Timing and Expiration Alignment\n<|id|>120<|page|>12<|box|>213 140 229 418<|content|>D. Sources and Uses Reconciliation\n<|id|>122<|page|>12<|box|>263 143 277 215<|content|>Sources:\n<|id|>127<|page|>13<|box|>90 140 107 436<|content|>VI. Key Risk Items and Observations\n<|id|>128<|page|>13<|box|>121 140 138 382<|content|>A. Double Conditionality Risk\n<|id|>135<|page|>14<|box|>90 140 107 437<|content|>B. Material Adverse Effect Condition\n<|id|>140<|page|>14<|box|>570 140 587 277<|content|>C. No Break Fee\n<|id|>145<|page|>15<|box|>213 140 229 450<|content|>D. Sufficiency of Commitment Amount\n<|id|>151<|page|>16<|box|>90 140 108 416<|content|>E. Lakepoint's Capital Availability\n<|id|>155<|page|>16<|box|>444 140 462 455<|content|>VII. Open Items and Recommendations\n<|id|>165<|page|>17<|box|>520 140 537 279<|content|>VIII. Conclusion\n<|id|>177<|page|>18<|box|>470 142 488 250<|content|>Prepared by:\n<|id|>179<|page|>18<|box|>531 143 547 253<|content|>Reviewed by:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>37<|level|>2\n<|id|>43<|level|>3\n<|id|>48<|level|>3\n<|id|>51<|level|>3\n<|id|>61<|level|>3\n<|id|>72<|level|>3\n<|id|>80<|level|>3\n<|id|>85<|level|>2\n<|id|>86<|level|>3\n<|id|>90<|level|>3\n<|id|>98<|level|>3\n<|id|>102<|level|>3\n<|id|>105<|level|>2\n<|id|>106<|level|>3\n<|id|>110<|level|>3\n<|id|>115<|level|>3\n<|id|>120<|level|>3\n<|id|>122<|level|>-1\n<|id|>127<|level|>2\n<|id|>128<|level|>3\n<|id|>135<|level|>3\n<|id|>140<|level|>3\n<|id|>145<|level|>3\n<|id|>151<|level|>3\n<|id|>155<|level|>2\n<|id|>165<|level|>2\n<|id|>177<|level|>-1\n<|id|>179<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        }
+    ]
+}

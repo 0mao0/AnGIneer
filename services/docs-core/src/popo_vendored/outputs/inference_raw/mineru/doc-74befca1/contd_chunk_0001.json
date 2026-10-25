@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        45,
+        50
+    ],
+    "pages": [
+        46,
+        47,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>370<|page|>46<|box|>229 104 696 879<|content|>1 总 则 … ... (53)\n<|id|>371<|page|>47<|box|>0 0 22 405<|content|>本资料限内部使用，严禁用于商业。 ... 本资料限内部使用，严禁用于商业\n<|id|>390<|page|>49<|box|>882 117 903 892<|content|>3. ... 6 本条系为合理确定内河通航海轮或 3000 吨级以上的内河\n<|id|>391<|page|>50<|box|>105 115 128 465<|content|>船舶的航道尺度新增的规定。 ... 船舶的航道尺度新增的规定",
+    "raw_response": "<|src_id|>390<|tgt_id|>391",
+    "parsed": [
+        {
+            "src_id": 390,
+            "tgt_id": 391
+        }
+    ]
+}

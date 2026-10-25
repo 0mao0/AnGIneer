@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        137,
+        139
+    ],
+    "pages": [
+        137,
+        138,
+        139
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1763<|page|>137<|box|>181 233 208 766<|content|>附录 H 矩形开孔沉箱波浪力计算\n<|id|>1765<|page|>138<|box|>184 220 212 742<|content|>附录 J 半圆型防波堤波浪力计算\n<|id|>1767<|page|>139<|box|>184 166 214 838<|content|>附录 K 箱筒型基础结构防波堤稳定性估算",
+    "raw_response": "<|id|>1763<|level|>1\n<|id|>1765<|level|>1\n<|id|>1767<|level|>1",
+    "parsed": [
+        {
+            "id": 1763,
+            "level": 1
+        },
+        {
+            "id": 1765,
+            "level": 1
+        },
+        {
+            "id": 1767,
+            "level": 1
+        }
+    ]
+}

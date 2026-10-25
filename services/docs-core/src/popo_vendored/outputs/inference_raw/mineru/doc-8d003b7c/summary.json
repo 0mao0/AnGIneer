@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qwi7huag\\input\\pdfs\\doc-8d003b7c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qwi7huag\\enriched\\doc-8d003b7c.json",
+    "contd_output": "<|src_id|>22<|tgt_id|>23\n<|src_id|>152<|tgt_id|>153",
+    "title_output": "<|id|>10<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>29<|level|>2\n<|id|>38<|level|>1\n<|id|>39<|level|>2\n<|id|>42<|level|>2\n<|id|>53<|level|>2\n<|id|>58<|level|>2\n<|id|>64<|level|>2\n<|id|>69<|level|>1\n<|id|>70<|level|>2\n<|id|>77<|level|>2\n<|id|>82<|level|>2\n<|id|>88<|level|>2\n<|id|>96<|level|>2\n<|id|>98<|level|>3\n<|id|>106<|level|>3\n<|id|>110<|level|>2\n<|id|>116<|level|>1\n<|id|>117<|level|>2\n<|id|>121<|level|>2\n<|id|>124<|level|>1\n<|id|>125<|level|>2\n<|id|>131<|level|>2\n<|id|>135<|level|>1\n<|id|>141<|level|>1\n<|id|>142<|level|>2\n<|id|>149<|level|>2\n<|id|>156<|level|>2\n<|id|>163<|level|>2\n<|id|>167<|level|>1\n<|id|>173<|level|>1\n<|id|>176<|level|>1\n<|id|>187<|level|>1",
+    "image_output": "<|src_id|>32<|tgt_id|>29\n<|src_id|>33<|tgt_id|>29\n<|src_id|>55<|tgt_id|>53\n<|src_id|>139<|tgt_id|>135\n<|src_id|>174<|tgt_id|>173",
+    "contd_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 1
+        },
+        {
+            "id": 173,
+            "level": 1
+        },
+        {
+            "id": 176,
+            "level": 1
+        },
+        {
+            "id": 187,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 32,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 173
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 32,
+            "table2_idx": 33,
+            "upper_row_ss": [
+                [
+                    "FY 2021",
+                    "$12,100,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "FY 2022",
+                    "$17,800,000"
+                ]
+            ]
+        }
+    ]
+}

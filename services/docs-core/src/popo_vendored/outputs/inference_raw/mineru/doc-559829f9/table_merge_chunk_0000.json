@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Material Adverse Effect (MAE)', 'A material adverse change in (i) the business, assets, financial condition, or results of operations of the Borrower and its subsidiaries, taken as a whole, (ii) the ability of the', 'Section 10(a)']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Loan Parties to perform their obligations under the loan documents, or (iii) the rights and remedies of the Administrative Agent and the Lenders under the loan documents.', '']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 288,
+    "table2_idx": 289
+}

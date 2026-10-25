@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>137 390 157 607<|content|>OF THE MEMBERS\n<|id|>2<|page|>1<|box|>175 328 195 669<|content|>OF SOLARA DIGITAL GP LLC,\n<|id|>3<|page|>1<|box|>253 263 272 733<|content|>IN ITS CAPACITY AS GENERAL PARTNER\n<|id|>4<|page|>1<|box|>291 246 311 750<|content|>OF SOLARA DIGITAL INFRASTRUCTURE LP,\n<|id|>8<|page|>1<|box|>635 142 652 243<|content|>RECITALS\n<|id|>9<|page|>1<|box|>660 142 676 246<|content|>WHEREAS:\n<|id|>33<|page|>3<|box|>771 142 787 279<|content|>RESOLUTIONS\n<|id|>34<|page|>3<|box|>801 140 819 648<|content|>1. Authorization of Engagement of Calderwood & Har\n<|id|>38<|page|>4<|box|>330 140 347 555<|content|>2. Authorization to Pursue the Proposed Transactio\n<|id|>41<|page|>4<|box|>685 140 702 516<|content|>3. Authorization to Engage Additional Advisors\n<|id|>48<|page|>5<|box|>481 140 498 620<|content|>4. Authorization to Take All Necessary and Desirab\n<|id|>58<|page|>6<|box|>590 140 608 387<|content|>5. Ratification of Prior Actions\n<|id|>60<|page|>6<|box|>755 140 772 439<|content|>6. Limitation; Further Authorizations\n<|id|>64<|page|>7<|box|>381 140 398 354<|content|>GENERAL PROVISIONS\n<|id|>68<|page|>7<|box|>648 316 666 679<|content|>MEMBERS OF SOLARA DIGITAL GP LLC\n<|id|>71<|page|>8<|box|>89 315 107 681<|content|>CERTIFICATE OF THE RECORD-KEEPER\n<|id|>72<|page|>8<|box|>131 364 148 630<|content|>OF SOLARA DIGITAL GP LLC",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>8<|level|>1\n<|id|>9<|level|>2\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>1\n<|id|>68<|level|>1\n<|id|>71<|level|>1\n<|id|>72<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        }
+    ]
+}

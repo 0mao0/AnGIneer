@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>5<|type|>title<|page|>1<|box|>309 204 377 792<|content|>RESPONDENT PELLEGRINO CAPITAL GROUP LLC'S RESPONSE\n<|id|>8<|type|>title<|page|>1<|box|>515 142 532 413<|content|>I. PRELIMINARY STATEMENT\n<|id|>18<|type|>title<|page|>3<|box|>222 140 239 294<|content|>II. THE PARTIES\n<|id|>27<|type|>title<|page|>4<|box|>90 140 107 364<|content|>C. The Joint Venture Entity\n<|id|>31<|type|>title<|page|>4<|box|>407 140 424 519<|content|>III. JURISDICTION AND GOVERNING LAW\n<|id|>37<|type|>title<|page|>5<|box|>148 140 166 403<|content|>IV. FACTUAL BACKGROUND\n<|id|>38<|type|>title<|page|>5<|box|>180 140 196 633<|content|>A. Formation of the Joint Venture and Acquisition\n<|id|>44<|type|>title<|page|>5<|box|>814 140 832 467<|content|>B. Renovation and Capital Contributions\n<|id|>57<|type|>title<|page|>6<|box|>709 142 726 318<|content|>C. Hotel Performance\n<|id|>59<|type|>table<|page|>6<|box|>811 143 906 852<|content|>None\n<|id|>62<|type|>title<|page|>7<|box|>345 140 363 460<|content|>D. Operating Agreement Key Provisions\n<|id|>71<|type|>title<|page|>8<|box|>338 140 354 377<|content|>E. Exercise of the Call Option\n<|id|>80<|type|>title<|page|>9<|box|>429 142 446 509<|content|>F. Derivation of the $41.3 Million Buyout Price\n<|id|>82<|type|>table<|page|>9<|box|>494 143 642 852<|content|>None\n<|id|>86<|type|>title<|page|>10<|box|>138 140 156 416<|content|>G. MSH's Demand for Arbitration\n<|id|>90<|type|>table<|page|>10<|box|>667 143 816 852<|content|>None\n<|id|>92<|type|>title<|page|>11<|box|>148 140 166 553<|content|>V. RESPONSE TO CLAIMANT'S ALLEGATIONS\n<|id|>93<|type|>title<|page|>11<|box|>181 142 198 547<|content|>A. Responses to Specific Paragraphs of the Demand\n<|id|>114<|type|>title<|page|>12<|box|>455 142 473 535<|content|>B. Response to Bad-Faith Claim (OA Section 12.7)\n<|id|>124<|type|>title<|page|>13<|box|>627 140 643 625<|content|>C. Response to Deferred-Maintenance Claim (OA Sect\n<|id|>133<|type|>title<|page|>14<|box|>674 140 690 405<|content|>VI. AFFIRMATIVE DEFENSES\n<|id|>135<|type|>title<|page|>14<|box|>750 140 766 668<|content|>First Affirmative Defense: Compliance with Contrac\n<|id|>137<|type|>title<|page|>15<|box|>213 140 229 462<|content|>Second Affirmative Defense: Good Faith\n<|id|>139<|type|>title<|page|>15<|box|>377 140 393 710<|content|>Third Affirmative Defense: Absence of Bad Faith Un\n<|id|>141<|type|>title<|page|>15<|box|>559 140 575 588<|content|>Fourth Affirmative Defense: Failure to Mitigate /\n<|id|>143<|type|>title<|page|>15<|box|>797 140 814 754<|content|>Fifth Affirmative Defense: MSH's Own Appraiser's M\n<|id|>145<|type|>title<|page|>16<|box|>250 140 266 643<|content|>Sixth Affirmative Defense: The Penalty Calculation\n<|id|>147<|type|>title<|page|>16<|box|>468 140 484 648<|content|>Seventh Affirmative Defense: Reservation of Additi\n<|id|>149<|type|>title<|page|>16<|box|>587 140 604 596<|content|>VII. COUNTERCLAIM FOR DECLARATORY RELIEF\n<|id|>151<|type|>title<|page|>16<|box|>662 142 679 383<|content|>A. Parties to the Counterclaim\n<|id|>156<|type|>title<|page|>17<|box|>138 140 157 565<|content|>C. Factual Allegations in Support of the Countercl\n<|id|>169<|type|>title<|page|>17<|box|>806 140 823 555<|content|>D. Count I: Declaratory Relief — Fair Market Value\n<|id|>175<|type|>title<|page|>18<|box|>306 142 323 519<|content|>E. Count II: Declaratory Relief — No Bad Faith\n<|id|>182<|type|>title<|page|>18<|box|>714 140 732 643<|content|>F. Count III: Declaratory Relief — No Breach of OA\n<|id|>189<|type|>title<|page|>19<|box|>373 140 388 382<|content|>VIII. PRAYER FOR RELIEF\n<|id|>197<|type|>title<|page|>20<|box|>89 142 106 537<|content|>IX. SIGNATURE BLOCK AND VERIFICATION\n<|id|>208<|type|>title<|page|>20<|box|>409 140 426 410<|content|>X. CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>59<|tgt_id|>57\n<|src_id|>82<|tgt_id|>80\n<|src_id|>90<|tgt_id|>86",
+    "parsed": [
+        {
+            "src_id": 59,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 86
+        }
+    ]
+}

@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 165 142 833<|content|>CERTIFICATION DECLARATIONS PURSUANT TO 31 C.F.R. §\n<|id|>6<|page|>1<|box|>377 328 393 669<|content|>CERTIFICATION DECLARATION NO. 1\n<|id|>7<|page|>1<|box|>417 254 435 741<|content|>HALCYON SEMICONDUCTOR AKTIENGESELLSCHAFT\n<|id|>8<|page|>1<|box|>449 143 465 370<|content|>1. Identification of Declarant\n<|id|>12<|page|>2<|box|>90 140 107 328<|content|>2. Authority to Execute\n<|id|>16<|page|>2<|box|>453 140 469 416<|content|>3. Identification of the Transaction\n<|id|>26<|page|>3<|box|>690 140 707 357<|content|>4. Identification of Counsel\n<|id|>28<|page|>3<|box|>758 140 773 380<|content|>Calderwood & Harkness LLP\n<|id|>37<|page|>4<|box|>272 140 289 349<|content|>5. Certification Statement\n<|id|>44<|page|>4<|box|>786 140 803 400<|content|>6. Ongoing Obligation to Update\n<|id|>55<|page|>5<|box|>402 326 420 669<|content|>CERTIFICATION DECLARATION NO. 2\n<|id|>56<|page|>5<|box|>444 307 462 689<|content|>Marlowe Asset Management PHOTONICS INC.\n<|id|>57<|page|>5<|box|>476 142 493 372<|content|>1. Identification of Declarant\n<|id|>61<|page|>6<|box|>90 140 107 328<|content|>2. Authority to Execute\n<|id|>70<|page|>6<|box|>582 140 598 416<|content|>3. Identification of the Transaction\n<|id|>76<|page|>7<|box|>474 140 491 566<|content|>4. Description of VPI's Government-Related Activit\n<|id|>92<|page|>9<|box|>176 140 193 359<|content|>5. Identification of Counsel\n<|id|>94<|page|>9<|box|>224 142 242 349<|content|>Wethersfield & Gale LLP\n<|id|>98<|page|>9<|box|>371 140 387 349<|content|>6. Certification Statement\n<|id|>106<|page|>10<|box|>194 140 212 400<|content|>7. Ongoing Obligation to Update\n<|id|>116<|page|>10<|box|>569 238 585 758<|content|>JOINT ACKNOWLEDGMENT AND FILING CONFIRMATION\n<|id|>142<|page|>13<|box|>89 447 108 550<|content|>APPENDIX\n<|id|>143<|page|>13<|box|>130 256 148 740<|content|>CONTACT INFORMATION FOR COUNSEL OF RECORD\n<|id|>145<|page|>13<|box|>243 140 261 450<|content|>For HSAG / Halcyon US Holdings Inc.:\n<|id|>146<|page|>13<|box|>266 140 282 380<|content|>Calderwood & Harkness LLP\n<|id|>149<|page|>13<|box|>385 140 402 637<|content|>For Marlowe Asset Management Photonics Inc. and th\n<|id|>150<|page|>13<|box|>409 142 426 349<|content|>Wethersfield & Gale LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>7<|level|>3\n<|id|>8<|level|>4\n<|id|>12<|level|>4\n<|id|>16<|level|>4\n<|id|>26<|level|>4\n<|id|>28<|level|>5\n<|id|>37<|level|>4\n<|id|>44<|level|>4\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>57<|level|>4\n<|id|>61<|level|>4\n<|id|>70<|level|>4\n<|id|>76<|level|>4\n<|id|>92<|level|>4\n<|id|>94<|level|>5\n<|id|>98<|level|>4\n<|id|>106<|level|>4\n<|id|>116<|level|>2\n<|id|>142<|level|>2\n<|id|>143<|level|>3\n<|id|>145<|level|>4\n<|id|>146<|level|>5\n<|id|>149<|level|>4\n<|id|>150<|level|>5",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 8,
+            "level": 4
+        },
+        {
+            "id": 12,
+            "level": 4
+        },
+        {
+            "id": 16,
+            "level": 4
+        },
+        {
+            "id": 26,
+            "level": 4
+        },
+        {
+            "id": 28,
+            "level": 5
+        },
+        {
+            "id": 37,
+            "level": 4
+        },
+        {
+            "id": 44,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 70,
+            "level": 4
+        },
+        {
+            "id": 76,
+            "level": 4
+        },
+        {
+            "id": 92,
+            "level": 4
+        },
+        {
+            "id": 94,
+            "level": 5
+        },
+        {
+            "id": 98,
+            "level": 4
+        },
+        {
+            "id": 106,
+            "level": 4
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 4
+        },
+        {
+            "id": 146,
+            "level": 5
+        },
+        {
+            "id": 149,
+            "level": 4
+        },
+        {
+            "id": 150,
+            "level": 5
+        }
+    ]
+}

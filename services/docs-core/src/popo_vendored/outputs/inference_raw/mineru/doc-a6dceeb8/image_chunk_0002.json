@@ -1,0 +1,78 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        100,
+        111
+    ],
+    "pages": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>492<|type|>title<|page|>100<|box|>90 328 111 669<|content|>SECTION IV.—Sterling Positions\n<|id|>493<|type|>title<|page|>100<|box|>118 215 136 782<|content|>TABLE FCP-IV-1.—Weekly Report of Major Market Part\n<|id|>494<|type|>table<|page|>100<|box|>150 88 829 906<|content|>None\n<|id|>495<|type|>title<|page|>101<|box|>90 302 111 694<|content|>SECTION IV.—Sterling Positions, con.\n<|id|>496<|type|>title<|page|>101<|box|>118 210 136 787<|content|>TABLE FCP-IV-2.—Monthly Report of Major Market Par\n<|id|>497<|type|>table<|page|>101<|box|>151 86 494 908<|content|>None\n<|id|>498<|type|>table<|page|>101<|box|>556 86 821 908<|content|>None\n<|id|>499<|type|>title<|page|>102<|box|>90 316 109 679<|content|>SECTION V.—U.S. Dollar Positions\n<|id|>500<|type|>title<|page|>102<|box|>118 220 136 777<|content|>TABLE FCP-V-1.—Weekly Report of Major Market Parti\n<|id|>501<|type|>table<|page|>102<|box|>167 84 833 910<|content|>None\n<|id|>502<|type|>title<|page|>103<|box|>90 299 109 712<|content|>SECTION V.—U.S. Dollar Positions, con.\n<|id|>503<|type|>title<|page|>103<|box|>118 223 136 790<|content|>TABLE FCP-V-2.—Monthly Report of Major Market Part\n<|id|>504<|type|>table<|page|>103<|box|>155 86 513 924<|content|>None\n<|id|>505<|type|>table<|page|>103<|box|>571 86 830 910<|content|>None\n<|id|>506<|type|>title<|page|>104<|box|>90 341 109 655<|content|>SECTION VI.—Euro Positions\n<|id|>507<|type|>title<|page|>104<|box|>118 215 136 782<|content|>TABLE FCP-VI-1.—Weekly Report of Major Market Part\n<|id|>508<|type|>table<|page|>104<|box|>148 86 835 908<|content|>None\n<|id|>509<|type|>title<|page|>105<|box|>90 313 109 678<|content|>SECTION VI.—Euro Positions, con.\n<|id|>510<|type|>title<|page|>105<|box|>118 209 136 784<|content|>TABLE FCP-VI-2.—Monthly Report of Major Market Par\n<|id|>511<|type|>table<|page|>105<|box|>151 86 496 903<|content|>None\n<|id|>512<|type|>table<|page|>105<|box|>553 88 821 908<|content|>None\n<|id|>513<|type|>title<|page|>106<|box|>98 243 118 753<|content|>INTRODUCTION: Exchange Stabilization Fund\n<|id|>519<|type|>title<|page|>106<|box|>398 223 417 774<|content|>TABLE ESF-1.—Balances as of Dec. 31, 2005, and Mar\n<|id|>520<|type|>table<|page|>106<|box|>431 83 875 913<|content|>None\n<|id|>521<|type|>title<|page|>107<|box|>90 334 108 663<|content|>TABLE ESF-2.—Income and Expense\n<|id|>522<|type|>table<|page|>107<|box|>125 86 571 910<|content|>None\n<|id|>525<|type|>image<|page|>108<|box|>87 648 189 913<|content|>None\n<|id|>528<|type|>title<|page|>109<|box|>90 326 108 671<|content|>TABLE TF-15A.—Highway Trust Fund\n<|id|>533<|type|>title<|page|>109<|box|>489 405 507 596<|content|>Mass Transit Account\n<|id|>534<|type|>table<|page|>109<|box|>513 89 690 911<|content|>None\n<|id|>535<|type|>title<|page|>110<|box|>98 370 119 625<|content|>Research Paper Series\n<|id|>536<|type|>title<|page|>110<|box|>140 143 159 854<|content|>Available through the Office of the Assistant Secr\n<|id|>554<|type|>title<|page|>111<|box|>98 446 119 552<|content|>Glossary\n<|id|>555<|type|>title<|page|>111<|box|>125 258 143 743<|content|>With References to Applicable Sections and Tables",
+    "raw_response": "<|src_id|>494<|tgt_id|>493\n<|src_id|>497<|tgt_id|>496\n<|src_id|>498<|tgt_id|>496\n<|src_id|>501<|tgt_id|>500\n<|src_id|>504<|tgt_id|>503\n<|src_id|>505<|tgt_id|>503\n<|src_id|>508<|tgt_id|>507\n<|src_id|>511<|tgt_id|>510\n<|src_id|>512<|tgt_id|>510\n<|src_id|>520<|tgt_id|>519\n<|src_id|>522<|tgt_id|>521\n<|src_id|>525<|tgt_id|>521\n<|src_id|>534<|tgt_id|>533",
+    "parsed": [
+        {
+            "src_id": 494,
+            "tgt_id": 493
+        },
+        {
+            "src_id": 497,
+            "tgt_id": 496
+        },
+        {
+            "src_id": 498,
+            "tgt_id": 496
+        },
+        {
+            "src_id": 501,
+            "tgt_id": 500
+        },
+        {
+            "src_id": 504,
+            "tgt_id": 503
+        },
+        {
+            "src_id": 505,
+            "tgt_id": 503
+        },
+        {
+            "src_id": 508,
+            "tgt_id": 507
+        },
+        {
+            "src_id": 511,
+            "tgt_id": 510
+        },
+        {
+            "src_id": 512,
+            "tgt_id": 510
+        },
+        {
+            "src_id": 520,
+            "tgt_id": 519
+        },
+        {
+            "src_id": 522,
+            "tgt_id": 521
+        },
+        {
+            "src_id": 525,
+            "tgt_id": 521
+        },
+        {
+            "src_id": 534,
+            "tgt_id": 533
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        47,
+        49
+    ],
+    "pages": [
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>491<|type|>title<|page|>47<|box|>90 142 106 429<|content|>Appendix D — Prior Art References\n<|id|>496<|type|>title<|page|>48<|box|>90 142 107 612<|content|>Appendix E — Veridian Molecular Labs License Agree\n<|id|>498<|type|>table<|page|>48<|box|>159 143 308 852<|content|>None\n<|id|>499<|type|>title<|page|>49<|box|>90 142 107 475<|content|>Appendix F — Market and Financial Data",
+    "raw_response": "<|src_id|>498<|tgt_id|>496",
+    "parsed": [
+        {
+            "src_id": 498,
+            "tgt_id": 496
+        }
+    ]
+}

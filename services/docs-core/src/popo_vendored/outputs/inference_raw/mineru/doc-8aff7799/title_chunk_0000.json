@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        14
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 434 111 563<|content|>EXHIBIT C\n<|id|>1<|page|>2<|box|>128 243 146 754<|content|>Palomar Data Solutions, Inc. — Vendor Accountabili\n<|id|>6<|page|>2<|box|>342 142 359 364<|content|>I. Introduction and Purpose\n<|id|>10<|page|>2<|box|>809 142 825 627<|content|>II. Background on the Quorum–Palomar Vendor Relati\n<|id|>11<|page|>2<|box|>839 142 857 460<|content|>A. Master Services Agreement Overview\n<|id|>16<|page|>3<|box|>527 140 545 318<|content|>B. MSA Amendments\n<|id|>22<|page|>4<|box|>257 140 273 527<|content|>C. Key Data Security and Contractual Provisions\n<|id|>29<|page|>5<|box|>204 140 222 429<|content|>III. Palomar's Contractual Breaches\n<|id|>31<|page|>6<|box|>90 140 107 694<|content|>A. Failure to Timely Patch Critical Vulnerability\n<|id|>36<|page|>6<|box|>643 140 660 604<|content|>B. Failure to Timely Notify Quorum (Breach of Sect\n<|id|>41<|page|>7<|box|>330 140 347 403<|content|>C. Impact of Palomar's Breaches\n<|id|>48<|page|>8<|box|>90 140 107 586<|content|>IV. Quorum's Indemnification Demand and Negotiatio\n<|id|>49<|page|>8<|box|>121 140 138 299<|content|>A. Formal Demand\n<|id|>58<|page|>9<|box|>90 140 107 377<|content|>B. Palomar's Initial Response\n<|id|>62<|page|>9<|box|>453 140 470 323<|content|>C. Quorum's Rebuttal\n<|id|>70<|page|>10<|box|>202 140 219 343<|content|>D. Negotiated Settlement\n<|id|>80<|page|>11<|box|>439 140 457 609<|content|>V. Enhanced Security Requirements — MSA Amendment\n<|id|>89<|page|>12<|box|>691 140 709 514<|content|>VI. Ongoing Vendor Oversight and Monitoring\n<|id|>97<|page|>13<|box|>575 140 593 542<|content|>VII. Summary of Vendor Accountability Outcomes\n<|id|>99<|page|>13<|box|>646 140 662 537<|content|>Contractual Breaches Identified and Documented:\n<|id|>102<|page|>13<|box|>784 143 801 303<|content|>Financial Recovery:\n<|id|>104<|page|>13<|box|>891 142 907 478<|content|>Forward-Looking Security Enhancements:\n<|id|>112<|page|>14<|box|>251 142 267 313<|content|>Vendor Relationship:\n<|id|>115<|page|>14<|box|>563 140 580 424<|content|>VIII. List of Referenced Documents",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>6<|level|>3\n<|id|>10<|level|>3\n<|id|>11<|level|>4\n<|id|>16<|level|>4\n<|id|>22<|level|>4\n<|id|>29<|level|>3\n<|id|>31<|level|>4\n<|id|>36<|level|>4\n<|id|>41<|level|>4\n<|id|>48<|level|>3\n<|id|>49<|level|>4\n<|id|>58<|level|>4\n<|id|>62<|level|>4\n<|id|>70<|level|>4\n<|id|>80<|level|>3\n<|id|>89<|level|>3\n<|id|>97<|level|>3\n<|id|>99<|level|>4\n<|id|>102<|level|>4\n<|id|>104<|level|>4\n<|id|>112<|level|>4\n<|id|>115<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 4
+        },
+        {
+            "id": 16,
+            "level": 4
+        },
+        {
+            "id": 22,
+            "level": 4
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 4
+        },
+        {
+            "id": 36,
+            "level": 4
+        },
+        {
+            "id": 41,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 4
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 70,
+            "level": 4
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 4
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 104,
+            "level": 4
+        },
+        {
+            "id": 112,
+            "level": 4
+        },
+        {
+            "id": 115,
+            "level": 3
+        }
+    ]
+}

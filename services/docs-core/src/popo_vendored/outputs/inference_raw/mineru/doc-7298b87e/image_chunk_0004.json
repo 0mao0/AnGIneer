@@ -1,0 +1,81 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        189,
+        204
+    ],
+    "pages": [
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        198,
+        203,
+        204
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>688<|type|>title<|page|>189<|box|>56 160 71 754<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>689<|type|>title<|page|>189<|box|>78 336 92 567<|content|>Section IV - Trust Funds\n<|id|>690<|type|>title<|page|>189<|box|>96 196 111 712<|content|>Table GA-IV-3. - Federal Disability Insurance Trus\n<|id|>691<|type|>table<|page|>189<|box|>130 0 475 922<|content|>None\n<|id|>692<|type|>table<|page|>189<|box|>625 0 904 925<|content|>None\n<|id|>694<|type|>title<|page|>190<|box|>53 220 69 821<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>695<|type|>title<|page|>190<|box|>77 402 91 637<|content|>Section IV - Trust Funds\n<|id|>696<|type|>table<|page|>190<|box|>126 40 439 989<|content|>None\n<|id|>697<|type|>table<|page|>190<|box|>518 38 869 989<|content|>None\n<|id|>699<|type|>title<|page|>191<|box|>54 171 72 764<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>700<|type|>title<|page|>191<|box|>79 270 111 661<|content|>Section IV - Trust Funds Table GA-IV-7. - Unemploy\n<|id|>701<|type|>table<|page|>191<|box|>130 0 543 935<|content|>None\n<|id|>702<|type|>table<|page|>191<|box|>557 0 966 935<|content|>None\n<|id|>704<|type|>title<|page|>192<|box|>52 225 67 824<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>705<|type|>title<|page|>192<|box|>75 409 89 639<|content|>Section IV - Trust Funds\n<|id|>706<|type|>title<|page|>192<|box|>91 267 108 784<|content|>Table GA-IV-7. - Unemployment Trust Fund - (Contin\n<|id|>707<|type|>table<|page|>192<|box|>126 36 544 1000<|content|>None\n<|id|>708<|type|>title<|page|>193<|box|>57 153 72 747<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>709<|type|>title<|page|>193<|box|>79 351 92 554<|content|>Section IV - Trust Funds\n<|id|>710<|type|>title<|page|>193<|box|>97 237 111 663<|content|>Table GA-IV-8. - National Service Life Insurance F\n<|id|>711<|type|>table<|page|>193<|box|>128 0 458 929<|content|>None\n<|id|>712<|type|>title<|page|>194<|box|>51 225 66 824<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>713<|type|>title<|page|>194<|box|>69 410 84 642<|content|>Section IV - Trust Funds\n<|id|>714<|type|>title<|page|>194<|box|>84 153 112 901<|content|>Table GA-IV-9. - Investments of Specified Trust Ac\n<|id|>715<|type|>table<|page|>194<|box|>122 53 977 998<|content|>None\n<|id|>716<|type|>table<|page|>195<|box|>124 0 951 935<|content|>None\n<|id|>717<|type|>title<|page|>196<|box|>82 343 97 687<|content|>June 1971 through May 1972 - (Continued)\n<|id|>718<|type|>table<|page|>196<|box|>121 46 970 1000<|content|>None\n<|id|>719<|type|>image<|page|>198<|box|>345 370 599 524<|content|>None\n<|id|>723<|type|>table<|page|>203<|box|>644 410 751 757<|content|>None\n<|id|>724<|type|>image<|page|>204<|box|>12 808 40 932<|content|>None",
+    "raw_response": "<|src_id|>691<|tgt_id|>690\n<|src_id|>692<|tgt_id|>690\n<|src_id|>696<|tgt_id|>695\n<|src_id|>697<|tgt_id|>695\n<|src_id|>701<|tgt_id|>700\n<|src_id|>702<|tgt_id|>700\n<|src_id|>707<|tgt_id|>706\n<|src_id|>711<|tgt_id|>710\n<|src_id|>715<|tgt_id|>714\n<|src_id|>716<|tgt_id|>714\n<|src_id|>718<|tgt_id|>714\n<|src_id|>719<|tgt_id|>714\n<|src_id|>723<|tgt_id|>714\n<|src_id|>724<|tgt_id|>714",
+    "parsed": [
+        {
+            "src_id": 691,
+            "tgt_id": 690
+        },
+        {
+            "src_id": 692,
+            "tgt_id": 690
+        },
+        {
+            "src_id": 696,
+            "tgt_id": 695
+        },
+        {
+            "src_id": 697,
+            "tgt_id": 695
+        },
+        {
+            "src_id": 701,
+            "tgt_id": 700
+        },
+        {
+            "src_id": 702,
+            "tgt_id": 700
+        },
+        {
+            "src_id": 707,
+            "tgt_id": 706
+        },
+        {
+            "src_id": 711,
+            "tgt_id": 710
+        },
+        {
+            "src_id": 715,
+            "tgt_id": 714
+        },
+        {
+            "src_id": 716,
+            "tgt_id": 714
+        },
+        {
+            "src_id": 718,
+            "tgt_id": 714
+        },
+        {
+            "src_id": 719,
+            "tgt_id": 714
+        },
+        {
+            "src_id": 723,
+            "tgt_id": 714
+        },
+        {
+            "src_id": 724,
+            "tgt_id": 714
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>150 464 167 534<|content|>Plaintiff,\n<|id|>2<|page|>1<|box|>176 447 193 550<|content|>— against —\n<|id|>3<|page|>1<|box|>202 302 219 694<|content|>QUORUM CASUALTY & SURETY COMPANY,\n<|id|>4<|page|>1<|box|>229 455 244 540<|content|>Defendant. ... Defendant\n<|id|>7<|page|>1<|box|>306 687 321 854<|content|>Filed: ... March __, 2026\n<|id|>8<|page|>1<|box|>332 140 513 856<|content|>Counterclaim-Plaintiff Quorum Casualty & Surety Co...the Americas, 28th Floor, New York, New York 10019\n<|id|>81<|page|>8<|box|>847 140 902 856<|content|>59. ... Calloway III and senior associate Priya Subramanian, sent a pre-suit demand letter to\n<|id|>82<|page|>9<|box|>90 174 180 857<|content|>QC&S on behalf of Pinnacle Atlantic. ... The deman...ty-four months — for a total demand of $91,000,000\n<|id|>155<|page|>14<|box|>859 140 895 856<|content|>98. ... The arbitration clause in Article 22 is ma...nacle Atlantic has raised in its demand letter and\n<|id|>156<|page|>15<|box|>90 174 126 854<|content|>Complaint, including disputes concerning the inter...tice, settlement, and premium reporting provisions\n<|id|>183<|page|>16<|box|>758 140 776 821<|content|>STATE OF CONNECTICUT )) ss. ... COUNTY OF HARTFORD )\n<|id|>184<|page|>16<|box|>785 140 801 563<|content|>I, Diana Kessler-Hoff, being duly sworn, state as ...a Kessler-Hoff, being duly sworn, state as follows\n<|id|>188<|page|>17<|box|>217 140 250 852<|content|>Diana Kessler-Hoff Vice President, Claims & Reinsurance Recoveries Quorum Casualty & Surety Company\n<|id|>189<|page|>17<|box|>250 140 268 607<|content|>Sworn to and subscribed before me this __ day of M...nd subscribed before me this __ day of March, 2026\n<|id|>191<|page|>18<|box|>114 140 132 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>192<|page|>18<|box|>133 140 151 689<|content|>Attorneys for Counterclaim-Plaintiff Quorum Casualty & Surety Company\n<|id|>193<|page|>18<|box|>151 143 167 254<|content|>By: ... By\n<|id|>194<|page|>18<|box|>167 142 184 447<|content|>Douglas Carmichael Responsible Partner\n<|id|>195<|page|>18<|box|>185 140 202 397<|content|>Francesca Morano Billing Partner\n<|id|>196<|page|>18<|box|>202 140 219 354<|content|>Jeffrey Park Lead Associate\n<|id|>197<|page|>18<|box|>219 142 236 408<|content|>Yuki Nakamura Working Associate\n<|id|>198<|page|>18<|box|>236 140 268 854<|content|>One Liberty Plaza, 55th Floor New York, New York 10006 Telephone: ... (212) 558-3588\n<|id|>199<|page|>18<|box|>270 140 287 490<|content|>Email: ... com\n<|id|>200<|page|>18<|box|>287 142 304 462<|content|>Email: ... com\n<|id|>201<|page|>18<|box|>304 142 321 439<|content|>Email: ... com\n<|id|>202<|page|>18<|box|>321 142 338 480<|content|>Email: ... com\n<|id|>203<|page|>18<|box|>339 143 354 321<|content|>Matter No. ... 1025-00005\n<|id|>206<|page|>18<|box|>502 174 539 854<|content|>Nathaniel R. ... (212) 403-7000\n<|id|>207<|page|>18<|box|>546 176 564 413<|content|>Email: ... com\n<|id|>208<|page|>18<|box|>564 176 580 439<|content|>Email: ... com\n<|id|>209<|page|>18<|box|>580 176 599 790<|content|>Attorneys for Plaintiff / Counterclaim-Defendant P...rclaim-Defendant Pinnacle Atlantic Reinsurance Ltd",
+    "raw_response": "<|src_id|>81<|tgt_id|>82\n<|src_id|>155<|tgt_id|>156",
+    "parsed": [
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 156
+        }
+    ]
+}

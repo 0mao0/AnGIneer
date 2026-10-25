@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 294 107 704<|content|>OVERSTREET & HAWKINS LLP Attorneys at Law\n<|id|>11<|page|>1<|box|>474 142 489 400<|content|>1. Introduction and Engagement\n<|id|>15<|page|>2<|box|>90 140 107 483<|content|>2. Defined Terms and Documents Reviewed\n<|id|>16<|page|>2<|box|>121 140 138 290<|content|>2.1 Defined Terms\n<|id|>31<|page|>3<|box|>388 140 406 341<|content|>2.2 Documents Reviewed\n<|id|>47<|page|>4<|box|>763 140 780 267<|content|>3. Assumptions\n<|id|>60<|page|>6<|box|>231 140 248 238<|content|>4. Opinions\n<|id|>62<|page|>6<|box|>306 140 321 486<|content|>4.1 Qualification to Do Business in Alabama\n<|id|>64<|page|>6<|box|>561 140 578 503<|content|>4.2 Due Authorization and Execution by WPS\n<|id|>66<|page|>7<|box|>90 140 107 576<|content|>4.3 Enforceability of the Mortgage under Alabama L\n<|id|>72<|page|>7<|box|>816 140 833 375<|content|>4.4 Priority of Mortgage Lien\n<|id|>80<|page|>8<|box|>625 140 641 697<|content|>4.5 Enforceability of the Guarantee Agreement (Ala\n<|id|>82<|page|>9<|box|>90 140 107 555<|content|>4.6 Perfection of Security Interests — Alabama UCC\n<|id|>87<|page|>10<|box|>90 140 106 434<|content|>4.7 No Conflicts under Alabama Law\n<|id|>89<|page|>10<|box|>345 140 363 357<|content|>4.8 No Litigation (Limited)\n<|id|>91<|page|>10<|box|>575 140 592 403<|content|>5. Qualifications and Limitations\n<|id|>104<|page|>12<|box|>513 140 529 364<|content|>6. Reliance and Distribution\n<|id|>114<|page|>13<|box|>214 142 227 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>31<|level|>3\n<|id|>47<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>3\n<|id|>64<|level|>3\n<|id|>66<|level|>3\n<|id|>72<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>3\n<|id|>87<|level|>3\n<|id|>89<|level|>3\n<|id|>91<|level|>2\n<|id|>104<|level|>2\n<|id|>114<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        }
+    ]
+}

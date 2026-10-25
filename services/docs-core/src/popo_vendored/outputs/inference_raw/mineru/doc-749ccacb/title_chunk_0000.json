@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 352 118 645<|content|>OFFICERS' CERTIFICATE\n<|id|>1<|page|>1<|box|>135 178 152 818<|content|>Delivered Pursuant to Section 7(g) of the Underwri\n<|id|>8<|page|>1<|box|>463 140 482 243<|content|>RECITALS\n<|id|>14<|page|>2<|box|>348 140 364 527<|content|>Section 1. Definitions and Interpretive Provisions\n<|id|>29<|page|>3<|box|>633 140 652 599<|content|>Section 2. Certification of Representations and Wa\n<|id|>55<|page|>7<|box|>715 140 732 651<|content|>Section 3. Certification of Compliance with Condit\n<|id|>70<|page|>10<|box|>622 140 638 573<|content|>Section 4. Certification of No Material Adverse Ch\n<|id|>75<|page|>11<|box|>431 140 449 772<|content|>Section 5. Certification Regarding the Registratio\n<|id|>80<|page|>12<|box|>204 140 222 457<|content|>Section 6. Use of Proceeds Confirmation\n<|id|>90<|page|>13<|box|>167 140 184 421<|content|>Section 7. Funds Flow Certification\n<|id|>108<|page|>14<|box|>186 140 204 419<|content|>Section 8. Additional Certifications\n<|id|>114<|page|>15<|box|>90 140 107 468<|content|>Section 9. Reliance; No Personal Liability\n<|id|>121<|page|>15<|box|>691 142 708 531<|content|>SOLSTICE BIOMEDICAL DEVICES LIMITED\n<|id|>126<|page|>15<|box|>779 143 794 531<|content|>SOLSTICE BIOMEDICAL DEVICES LIMITED",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>29<|level|>2\n<|id|>55<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>80<|level|>2\n<|id|>90<|level|>2\n<|id|>108<|level|>2\n<|id|>114<|level|>2\n<|id|>121<|level|>-1\n<|id|>126<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        }
+    ]
+}

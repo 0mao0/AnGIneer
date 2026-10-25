@@ -1,0 +1,147 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 403 119 593<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 200 152 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|page|>1<|box|>351 140 368 312<|content|>I. Purpose and Scope\n<|id|>18<|page|>2<|box|>458 140 474 550<|content|>II. Summary of Aggregate Probate Estate Valuation\n<|id|>25<|page|>3<|box|>422 140 441 586<|content|>III. Lumiére Canyon Studios LLC — Business Valuati\n<|id|>26<|page|>3<|box|>454 140 472 299<|content|>A. Entity Overview\n<|id|>30<|page|>3<|box|>835 140 852 351<|content|>B. Valuation Methodology\n<|id|>40<|page|>5<|box|>90 140 107 359<|content|>C. Decedent's 50% Interest\n<|id|>44<|page|>5<|box|>378 140 397 653<|content|>D. Community vs. Separate Property Characterizatio\n<|id|>49<|page|>6<|box|>90 140 107 730<|content|>IV. Pacific Rim Narrative Partners LLC — Membershi\n<|id|>50<|page|>6<|box|>121 140 138 297<|content|>A. Entity Overview\n<|id|>53<|page|>6<|box|>383 140 402 352<|content|>B. Valuation Methodology\n<|id|>57<|page|>6<|box|>765 140 782 359<|content|>C. Decedent's 35% Interest\n<|id|>62<|page|>7<|box|>411 140 428 344<|content|>D. Characterization Note\n<|id|>64<|page|>7<|box|>604 140 619 650<|content|>V. Intellectual Property Portfolio — Net Present V\n<|id|>65<|page|>7<|box|>633 140 651 343<|content|>A. Portfolio Composition\n<|id|>74<|page|>8<|box|>195 140 213 352<|content|>B. Valuation Methodology\n<|id|>82<|page|>8<|box|>782 140 799 305<|content|>C. Preliminary NPV\n<|id|>85<|page|>9<|box|>231 140 248 344<|content|>D. Characterization Note\n<|id|>88<|page|>9<|box|>486 140 503 375<|content|>VI. Real Property Valuations\n<|id|>89<|page|>9<|box|>517 140 534 805<|content|>A. Beverly Hills Residence — 1847 Coldwater Canyon\n<|id|>95<|page|>10<|box|>194 140 212 730<|content|>B. Malibu Beach House — 27100 Pacific Coast Highwa\n<|id|>105<|page|>11<|box|>204 140 222 511<|content|>VII. Financial Accounts and Personal Property\n<|id|>106<|page|>11<|box|>234 140 252 442<|content|>A. Veltara Basin Bank, N.A. Accounts\n<|id|>115<|page|>12<|box|>90 142 107 310<|content|>B. Personal Property\n<|id|>122<|page|>12<|box|>460 140 477 699<|content|>VIII. Comparison with Contestants' Valuation and A\n<|id|>123<|page|>12<|box|>491 142 508 349<|content|>A. Aggregate Discrepancy\n<|id|>126<|page|>12<|box|>763 140 780 614<|content|>B. Anticipated Areas of Divergence with Hargrove &\n<|id|>135<|page|>14<|box|>90 140 108 586<|content|>C. Implications for Settlement and Litigation Posi\n<|id|>142<|page|>14<|box|>583 140 599 442<|content|>IX. Outstanding Items and Next Steps\n<|id|>150<|page|>15<|box|>667 140 684 258<|content|>X. Conclusion",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>8<|level|>2\n<|id|>18<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>30<|level|>3\n<|id|>40<|level|>3\n<|id|>44<|level|>3\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>53<|level|>3\n<|id|>57<|level|>3\n<|id|>62<|level|>3\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>74<|level|>3\n<|id|>82<|level|>3\n<|id|>85<|level|>3\n<|id|>88<|level|>2\n<|id|>89<|level|>3\n<|id|>95<|level|>3\n<|id|>105<|level|>2\n<|id|>106<|level|>3\n<|id|>115<|level|>3\n<|id|>122<|level|>2\n<|id|>123<|level|>3\n<|id|>126<|level|>3\n<|id|>135<|level|>3\n<|id|>142<|level|>2\n<|id|>150<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        }
+    ]
+}

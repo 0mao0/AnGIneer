@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['11', 'Facility', 'Grandvie', 'Lease —', 'Section', '45 days;', 'Terminati', '$780,000', 'Not yet']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Lease', 'w Properties Inc.', '2100 Memorial Pkwy. S., Huntsville, AL', '18.1', 'consent required', 'on right; rent acceleration for balance of term (~$3.12M)', 'annual rent; Medium', 'solicited; planned week of Jan. 20, 2025']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 547,
+    "table2_idx": 548
+}

@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 5,
+    "range": [
+        288,
+        337
+    ],
+    "pages": [
+        289,
+        292,
+        300,
+        302,
+        306,
+        308,
+        315,
+        316,
+        336
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>853<|page|>289<|box|>168 364 193 552<|content|>2-2-14 透层、黏层、封层\n<|id|>863<|page|>292<|box|>226 434 251 621<|content|>2-2-15 水泥混凝土路面\n<|id|>878<|page|>300<|box|>215 434 240 600<|content|>2-2-18 过水路面\n<|id|>885<|page|>302<|box|>228 429 257 618<|content|>第三节 路面附属工程\n<|id|>886<|page|>302<|box|>304 489 331 559<|content|>说明\n<|id|>898<|page|>306<|box|>222 404 248 661<|content|>2-3-2 挖路槽、培路肩、修筑泄水槽\n<|id|>907<|page|>308<|box|>222 434 250 615<|content|>2-3-3 人行道及路缘石\n<|id|>928<|page|>315<|box|>203 410 234 582<|content|>第三章 隧道工程\n<|id|>929<|page|>315<|box|>281 460 308 532<|content|>说明\n<|id|>941<|page|>316<|box|>205 408 234 591<|content|>第一节 洞身工程\n<|id|>942<|page|>316<|box|>284 463 310 536<|content|>说明\n<|id|>996<|page|>336<|box|>195 441 220 593<|content|>3-1-5 钢支撑",
+    "raw_response": "<|id|>853<|level|>4\n<|id|>863<|level|>4\n<|id|>878<|level|>4\n<|id|>885<|level|>2\n<|id|>886<|level|>3\n<|id|>898<|level|>4\n<|id|>907<|level|>4\n<|id|>928<|level|>1\n<|id|>929<|level|>2\n<|id|>941<|level|>2\n<|id|>942<|level|>3\n<|id|>996<|level|>4",
+    "parsed": [
+        {
+            "id": 853,
+            "level": 4
+        },
+        {
+            "id": 863,
+            "level": 4
+        },
+        {
+            "id": 878,
+            "level": 4
+        },
+        {
+            "id": 885,
+            "level": 2
+        },
+        {
+            "id": 886,
+            "level": 3
+        },
+        {
+            "id": 898,
+            "level": 4
+        },
+        {
+            "id": 907,
+            "level": 4
+        },
+        {
+            "id": 928,
+            "level": 1
+        },
+        {
+            "id": 929,
+            "level": 2
+        },
+        {
+            "id": 941,
+            "level": 2
+        },
+        {
+            "id": 942,
+            "level": 3
+        },
+        {
+            "id": 996,
+            "level": 4
+        }
+    ]
+}

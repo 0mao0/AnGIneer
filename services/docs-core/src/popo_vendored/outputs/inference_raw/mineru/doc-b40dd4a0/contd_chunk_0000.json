@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>169 147 224 849<|content|>Delivered Pursuant to the Note Purchase Agreement ...), and the Purchasers listed on Schedule 1 thereto\n<|id|>3<|page|>1<|box|>232 723 250 854<|content|>January 15, 2024\n<|id|>11<|page|>1<|box|>872 140 909 857<|content|>The undersigned has full power and authority to ex...from, and has been duly conferred pursuant to, the\n<|id|>12<|page|>2<|box|>90 140 219 856<|content|>Unanimous Written Consent of the Board of Director...t, including, without limitation, this Certificate\n<|id|>38<|page|>4<|box|>731 140 897 857<|content|>A portion of the proceeds from the Notes will be a... expenses, including, without limitation: ... (iv)\n<|id|>39<|page|>5<|box|>90 140 143 854<|content|>software licensing and subscription fees; ... and ...pport the Company's day-to-day business operations\n<|id|>54<|page|>7<|box|>152 174 226 854<|content|>(c) To fund, finance, or consummate any acquisitio...transactions contemplated by the Agreement; ... or\n<|id|>56<|page|>7<|box|>314 140 387 854<|content|>The foregoing restricted use covenants are in addi...and Security Agreement with Kelvantis Lending Corp\n<|id|>73<|page|>8<|box|>861 142 877 325<|content|>Name: ... David Lindstrom\n<|id|>74<|page|>8<|box|>878 142 893 361<|content|>Title: ... Chief Financial Officer\n<|id|>75<|page|>9<|box|>89 140 108 316<|content|>Date: ... January 15, 2024",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>38<|tgt_id|>39",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        }
+    ]
+}

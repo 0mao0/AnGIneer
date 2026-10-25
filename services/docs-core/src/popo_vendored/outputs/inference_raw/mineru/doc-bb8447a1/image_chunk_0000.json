@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>11<|type|>title<|page|>1<|box|>804 142 821 398<|content|>1. Enclosed Closing Deliverables\n<|id|>14<|type|>title<|page|>2<|box|>140 140 157 457<|content|>(a) Executed Asset Purchase Agreement\n<|id|>24<|type|>title<|page|>3<|box|>138 140 157 625<|content|>(b) Officer's Certificate of Crestline Packaging S\n<|id|>30<|type|>title<|page|>3<|box|>773 140 790 810<|content|>(c) Secretary's / Authorized Person's Certificate\n<|id|>36<|type|>title<|page|>4<|box|>729 140 747 482<|content|>(d) Calderwood & Harkness Legal Opinion\n<|id|>45<|type|>title<|page|>6<|box|>311 140 329 383<|content|>(e) Good Standing Certificates\n<|id|>53<|type|>title<|page|>6<|box|>814 140 832 598<|content|>(f) Evidence of Representations and Warranties Ins\n<|id|>64<|type|>title<|page|>7<|box|>551 140 568 720<|content|>2. Additional Deliverables Previously Transmitted\n<|id|>75<|type|>title<|page|>9<|box|>148 140 167 517<|content|>3. Incremental Term Loan Terms Confirmation\n<|id|>77<|type|>table<|page|>9<|box|>236 143 510 852<|content|>None\n<|id|>79<|type|>title<|page|>9<|box|>622 140 638 330<|content|>4. Funding Instructions\n<|id|>85<|type|>title<|page|>10<|box|>250 140 265 509<|content|>5. Contact Information and Closing Courtesies\n<|id|>89<|type|>title<|page|>10<|box|>516 140 532 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>77<|tgt_id|>75",
+    "parsed": [
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        }
+    ]
+}

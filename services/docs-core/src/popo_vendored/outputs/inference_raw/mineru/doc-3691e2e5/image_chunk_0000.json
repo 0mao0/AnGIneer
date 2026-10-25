@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 344 118 653<|content|>DEPARTMENT OF JUSTICE\n<|id|>1<|type|>title<|page|>1<|box|>136 176 190 820<|content|>Notice of Lodging of Consent Decree Under the Clea\n<|id|>12<|type|>title<|page|>2<|box|>189 140 205 517<|content|>FOR FURTHER INFORMATION CONTACT:\n<|id|>15<|type|>title<|page|>2<|box|>373 140 390 450<|content|>SUPPLEMENTARY INFORMATION\n<|id|>16<|type|>title<|page|>2<|box|>404 140 422 514<|content|>I. Background and Description of the Litigation\n<|id|>21<|type|>title<|page|>3<|box|>212 140 229 426<|content|>II. Description of the Four Facilities\n<|id|>31<|type|>title<|page|>4<|box|>361 140 378 320<|content|>III. Alleged Violations\n<|id|>46<|type|>title<|page|>6<|box|>330 140 347 478<|content|>IV. Terms of the Proposed Consent Decree\n<|id|>48<|type|>table<|page|>6<|box|>494 143 608 852<|content|>None\n<|id|>83<|type|>title<|page|>10<|box|>708 140 724 411<|content|>V. Invitation for Public Comment",
+    "raw_response": "<|src_id|>48<|tgt_id|>46",
+    "parsed": [
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        }
+    ]
+}

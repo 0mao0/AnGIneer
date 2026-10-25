@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        6,
+        10,
+        11,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>186 142 203 292<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>212 140 229 691<|content|>TO: ... Leonard Cross, Responsible Partner Garrett Simmons, Lead Associate\n<|id|>4<|page|>1<|box|>238 140 256 452<|content|>FROM: ... Leila Nazari, Working Associate\n<|id|>5<|page|>1<|box|>263 142 281 334<|content|>DATE: ... October 25, 2023\n<|id|>6<|page|>1<|box|>290 140 325 854<|content|>RE: ... IRS Examination Defense\n<|id|>7<|page|>1<|box|>334 142 351 331<|content|>Matter No. ... 1018-00009\n<|id|>8<|page|>1<|box|>359 140 378 576<|content|>Client: ... 22-3741856)\n<|id|>9<|page|>1<|box|>385 140 402 566<|content|>Tax Years Under Examination: ... 2017, 2018, 2019, 2020\n<|id|>10<|page|>1<|box|>412 140 429 485<|content|>IRS Examination: ... LB&I-NE-TP-2022-00641\n<|id|>11<|page|>1<|box|>438 142 454 408<|content|>Right-click to update Table of Contents\n<|id|>57<|page|>6<|box|>652 174 669 774<|content|>$380. ... 98 million\n<|id|>58<|page|>6<|box|>676 140 751 854<|content|>The penalty calculation applies the 21% corporate ...have used 21% across all years as a simplification\n<|id|>91<|page|>10<|box|>477 174 513 854<|content|>(e) Adjustments to tested income for purposes of t...r IRC § 951A, applicable for TY 2018–2020; ... and\n<|id|>93<|page|>10<|box|>565 140 638 854<|content|>Each of these conforming adjustments is relevant to PPC's examination. ... D\n<|id|>97<|page|>10<|box|>786 140 878 856<|content|>CSA Adjustment — Reducing PBI's Post-CSA Residual ...n of CSA-covered IP and correspondingly increasing\n<|id|>98<|page|>11<|box|>89 140 126 854<|content|>PPC's income. ... 01 million of income to PPC\n<|id|>135<|page|>15<|box|>787 140 878 856<|content|>Chapter I of the Guidelines (Arm's Length Principl...d other transfer pricing adjustments at Paragraphs\n<|id|>137<|page|>16<|box|>133 140 263 856<|content|>The 2022 revisions to the OECD Guidelines further ... tax authority affecting the same controlled group\n<|id|>153<|page|>17<|box|>828 140 902 857<|content|>If the § 482 adjustments result in economic double...the United States of America and the Government of\n<|id|>154<|page|>18<|box|>90 140 181 854<|content|>Ireland for the Avoidance of Double Taxation and t...ases of taxation not in accordance with the treaty\n<|id|>171<|page|>19<|box|>763 174 819 854<|content|>(4) Present the Whitmore Valuation Group's sensiti...adjustment by significantly more than $42. ... and\n<|id|>173<|page|>20<|box|>90 140 181 856<|content|>The correlative adjustment argument should be pres... based on the inadequacy of the correlative offset\n<|id|>195<|page|>22<|box|>311 174 366 854<|content|>(d) Coordinate with Ciarán Thornbury at Thornbury ...uthority request / MAP filing under the U. ... and\n<|id|>197<|page|>22<|box|>417 140 454 854<|content|>I am available to discuss this memorandum at your ...tion of the Formal Protest upon your authorization",
+    "raw_response": "<|src_id|>97<|tgt_id|>98\n<|src_id|>153<|tgt_id|>154",
+    "parsed": [
+        {
+            "src_id": 97,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 154
+        }
+    ]
+}

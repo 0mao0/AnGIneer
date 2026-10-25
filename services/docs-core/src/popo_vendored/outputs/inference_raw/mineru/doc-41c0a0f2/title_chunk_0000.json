@@ -1,0 +1,152 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>113 176 133 818<|content|>OFFICER'S CERTIFICATE OF SKYBRIDGE FINTECH LTD.\n<|id|>1<|page|>1<|box|>151 197 194 800<|content|>Delivered Pursuant to Section 7.02(c) of the Preli\n<|id|>3<|page|>1<|box|>244 142 260 243<|content|>RECITALS\n<|id|>15<|page|>2<|box|>589 140 607 307<|content|>CERTIFICATIONS\n<|id|>17<|page|>2<|box|>647 140 664 568<|content|>Section 1. Identity and Authority of Certifying Of\n<|id|>22<|page|>3<|box|>465 140 483 727<|content|>Section 2. Representations and Warranties — Accura\n<|id|>23<|page|>3<|box|>489 140 507 517<|content|>2.1 Representations in the Purchase Agreement.\n<|id|>31<|page|>4<|box|>431 142 449 611<|content|>2.2 Representations in the Receivables Purchase Ag\n<|id|>37<|page|>4<|box|>862 142 878 588<|content|>2.3 Representations in the Sale and Servicing Agre\n<|id|>43<|page|>5<|box|>500 140 517 622<|content|>Section 3. Compliance of Receivables with Eligibil\n<|id|>44<|page|>5<|box|>523 140 539 509<|content|>3.1 Pool Characteristics as of the Cut-Off Date.\n<|id|>52<|page|>6<|box|>189 140 205 346<|content|>3.2 Concentration Limits.\n<|id|>56<|page|>6<|box|>402 140 420 418<|content|>3.3 Eligibility Criteria Compliance.\n<|id|>67<|page|>7<|box|>388 140 405 455<|content|>3.4 Delinquency and Performance Data.\n<|id|>69<|page|>7<|box|>573 140 590 455<|content|>Section 4. No Material Adverse Change.\n<|id|>82<|page|>8<|box|>397 140 414 607<|content|>Section 5. No Material Adverse Change in Receivabl\n<|id|>86<|page|>8<|box|>777 140 795 491<|content|>Section 6. Offering Memorandum Accuracy.\n<|id|>89<|page|>9<|box|>385 140 402 447<|content|>Section 7. Compliance with Covenants.\n<|id|>97<|page|>10<|box|>202 140 218 467<|content|>Section 8. No Default or Event of Default.\n<|id|>102<|page|>10<|box|>388 140 406 395<|content|>Section 9. Absence of Litigation.\n<|id|>107<|page|>10<|box|>686 140 702 454<|content|>Section 10. Credit Enhancement Levels.\n<|id|>114<|page|>11<|box|>510 140 527 485<|content|>Section 11. Capital Structure Confirmation.\n<|id|>118<|page|>12<|box|>90 140 107 467<|content|>Section 12. Equity Ownership Disclosure.\n<|id|>121<|page|>12<|box|>299 140 316 428<|content|>Section 13. Servicing Arrangements.\n<|id|>126<|page|>12<|box|>760 140 777 336<|content|>Section 14. Tax Matters.\n<|id|>132<|page|>13<|box|>275 140 292 400<|content|>Section 15. Reliance and Benefit.\n<|id|>140<|page|>13<|box|>659 142 676 259<|content|>EXECUTION\n<|id|>147<|page|>13<|box|>815 447 832 550<|content|>EXHIBIT A\n<|id|>148<|page|>13<|box|>840 282 858 715<|content|>DEFINITIONS — CROSS-REFERENCE SCHEDULE\n<|id|>151<|page|>15<|box|>89 447 106 549<|content|>EXHIBIT B\n<|id|>152<|page|>15<|box|>114 300 132 696<|content|>SCHEDULE OF TRANSACTION DOCUMENTS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>3\n<|id|>22<|level|>3\n<|id|>23<|level|>4\n<|id|>31<|level|>4\n<|id|>37<|level|>4\n<|id|>43<|level|>3\n<|id|>44<|level|>4\n<|id|>52<|level|>4\n<|id|>56<|level|>4\n<|id|>67<|level|>4\n<|id|>69<|level|>3\n<|id|>82<|level|>3\n<|id|>86<|level|>3\n<|id|>89<|level|>3\n<|id|>97<|level|>3\n<|id|>102<|level|>3\n<|id|>107<|level|>3\n<|id|>114<|level|>3\n<|id|>118<|level|>3\n<|id|>121<|level|>3\n<|id|>126<|level|>3\n<|id|>132<|level|>3\n<|id|>140<|level|>2\n<|id|>147<|level|>2\n<|id|>148<|level|>3\n<|id|>151<|level|>2\n<|id|>152<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 4
+        },
+        {
+            "id": 31,
+            "level": 4
+        },
+        {
+            "id": 37,
+            "level": 4
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 4
+        },
+        {
+            "id": 52,
+            "level": 4
+        },
+        {
+            "id": 56,
+            "level": 4
+        },
+        {
+            "id": 67,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 3
+        }
+    ]
+}

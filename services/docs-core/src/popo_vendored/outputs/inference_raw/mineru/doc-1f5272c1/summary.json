@@ -1,0 +1,111 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vnib3_m1\\input\\pdfs\\doc-1f5272c1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vnib3_m1\\enriched\\doc-1f5272c1.json",
+    "contd_output": "<|src_id|>90<|tgt_id|>91\n<|src_id|>109<|tgt_id|>110",
+    "title_output": "<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>52<|level|>2\n<|id|>57<|level|>1\n<|id|>67<|level|>1\n<|id|>69<|level|>2\n<|id|>78<|level|>2\n<|id|>87<|level|>2\n<|id|>93<|level|>1\n<|id|>101<|level|>1\n<|id|>112<|level|>1\n<|id|>118<|level|>1\n<|id|>127<|level|>1\n<|id|>141<|level|>1",
+    "image_output": "<|src_id|>54<|tgt_id|>52\n<|src_id|>55<|tgt_id|>52",
+    "contd_label": [
+        {
+            "src_id": 90,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 52
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 54,
+            "table2_idx": 55,
+            "upper_row_ss": [
+                [
+                    "— Bonanza Creek",
+                    "$7,900,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "— Kanawha Bend",
+                    "$3,600,000"
+                ]
+            ]
+        }
+    ]
+}

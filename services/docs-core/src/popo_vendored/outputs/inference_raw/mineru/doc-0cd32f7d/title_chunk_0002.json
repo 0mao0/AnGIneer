@@ -1,0 +1,58 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        95,
+        98
+    ],
+    "pages": [
+        95,
+        96,
+        97,
+        98
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1048<|page|>95<|box|>184 97 203 410<|content|>9.8.4 桥轴纵断面和引道测量\n<|id|>1053<|page|>95<|box|>394 75 413 295<|content|>9.9 隧道勘测与调查\n<|id|>1060<|page|>96<|box|>115 80 134 356<|content|>9.10 路线交叉勘测与调查\n<|id|>1064<|page|>96<|box|>395 78 415 354<|content|>9.11 沿线设施勘测与调查\n<|id|>1068<|page|>96<|box|>581 78 600 287<|content|>9.14 工程经济调查\n<|id|>1069<|page|>96<|box|>628 100 647 400<|content|>9.14.1 沿线筑路材料的调查\n<|id|>1071<|page|>96<|box|>815 99 834 352<|content|>9.14.2 占地勘测与调查\n<|id|>1075<|page|>97<|box|>178 65 195 230<|content|>9.15 内业工作\n<|id|>1077<|page|>97<|box|>317 65 337 230<|content|>9.16 资料提交\n<|id|>1079<|page|>98<|box|>159 73 184 278<|content|>10. 一次定测",
+    "raw_response": "<|id|>1048<|level|>3\n<|id|>1053<|level|>2\n<|id|>1060<|level|>2\n<|id|>1064<|level|>2\n<|id|>1068<|level|>2\n<|id|>1069<|level|>3\n<|id|>1071<|level|>3\n<|id|>1075<|level|>2\n<|id|>1077<|level|>2\n<|id|>1079<|level|>1",
+    "parsed": [
+        {
+            "id": 1048,
+            "level": 3
+        },
+        {
+            "id": 1053,
+            "level": 2
+        },
+        {
+            "id": 1060,
+            "level": 2
+        },
+        {
+            "id": 1064,
+            "level": 2
+        },
+        {
+            "id": 1068,
+            "level": 2
+        },
+        {
+            "id": 1069,
+            "level": 3
+        },
+        {
+            "id": 1071,
+            "level": 3
+        },
+        {
+            "id": 1075,
+            "level": 2
+        },
+        {
+            "id": 1077,
+            "level": 2
+        },
+        {
+            "id": 1079,
+            "level": 1
+        }
+    ]
+}

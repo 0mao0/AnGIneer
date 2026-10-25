@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=4, 自动焊接、半自动焊和E50型焊条的手工焊', 'rowspan=4, Q345', '50250250210145', 'rowspan=4, 310', '250', '210', '145', 'rowspan=4, 200']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=8, 自动焊接、半自动焊和E55型焊条的手工焊', 'rowspan=4, Q390', 't \\\\leqslant 16', '350', '350', '300', '205', 'rowspan=4, 220']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 109,
+    "table2_idx": 110
+}

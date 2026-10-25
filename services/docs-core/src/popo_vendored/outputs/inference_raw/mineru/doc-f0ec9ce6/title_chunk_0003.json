@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        142,
+        144
+    ],
+    "pages": [
+        142,
+        143,
+        144
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>678<|page|>142<|box|>76 435 99 548<|content|>Glossary\n<|id|>687<|page|>143<|box|>6 137 23 828<|content|>Information about the Superintendent of Documents\n<|id|>688<|page|>143<|box|>40 64 53 205<|content|>Current Subscribers:\n<|id|>699<|page|>143<|box|>454 21 469 128<|content|>Publications\n<|id|>706<|page|>144<|box|>398 66 456 683<|content|>Read us on-line...",
+    "raw_response": "<|id|>678<|level|>1\n<|id|>687<|level|>1\n<|id|>688<|level|>2\n<|id|>699<|level|>2\n<|id|>706<|level|>1",
+    "parsed": [
+        {
+            "id": 678,
+            "level": 1
+        },
+        {
+            "id": 687,
+            "level": 1
+        },
+        {
+            "id": 688,
+            "level": 2
+        },
+        {
+            "id": 699,
+            "level": 2
+        },
+        {
+            "id": 706,
+            "level": 1
+        }
+    ]
+}

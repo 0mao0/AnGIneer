@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 156 152 841<|content|>101 California Street, Suite 3200 San Francisco, California 94111 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 748 176 854<|content|>June 12, 2023\n<|id|>3<|page|>1<|box|>186 140 203 462<|content|>VIA EMAIL AND Sundial Data Systems\n<|id|>4<|page|>1<|box|>212 140 248 854<|content|>Katherine \"Kate\" Hargrove, Esq. ... Hargrove, Till...h Wacker Drive, Suite 4500 Chicago, Illinois 60606\n<|id|>5<|page|>1<|box|>256 174 310 854<|content|>Re: ... MSA-PFH-2021-0015)\n<|id|>6<|page|>1<|box|>318 176 335 555<|content|>Calderwood & Harkness Matter No. ... 1008-00007\n<|id|>7<|page|>1<|box|>344 140 362 294<|content|>Dear Ms. ... Hargrove\n<|id|>13<|page|>1<|box|>825 140 900 856<|content|>The MSA was executed on January 15, 2021, between ...subscription fee of One Million Four Hundred Forty\n<|id|>14<|page|>2<|box|>90 140 164 854<|content|>Thousand Dollars ($1,440,000), payable at a rate o...ed commercial parties, each represented by counsel\n<|id|>19<|page|>2<|box|>402 217 436 854<|content|>• Monthly uptime of 99. ... credit equal to 5% of the monthly subscription fee\n<|id|>23<|page|>2<|box|>536 174 609 854<|content|>Credit Request Deadline. ... This requirement oper...ndition precedent to entitlement to any SLA credit\n<|id|>20<|page|>2<|box|>440 218 474 854<|content|>• Monthly uptime of 99. ... credit equal to 10% of the monthly subscription fee\n<|id|>21<|page|>2<|box|>479 218 513 854<|content|>• Monthly uptime of 99. ... credit equal to 20% of the monthly subscription fee\n<|id|>22<|page|>2<|box|>516 218 534 846<|content|>• Monthly uptime below 99. ... credit equal to 30% of the monthly subscription fee\n<|id|>122<|page|>12<|box|>704 142 723 272<|content|>Very truly yours,\n<|id|>123<|page|>12<|box|>729 140 746 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>124<|page|>12<|box|>748 143 765 251<|content|>By: ... By\n<|id|>125<|page|>12<|box|>763 140 797 852<|content|>Linda Osei, Partner 101 California Street, Suite 3...co, California 94111 Telephone: ... (415) 773-6018\n<|id|>126<|page|>12<|box|>797 142 815 434<|content|>Email: ... com\n<|id|>127<|page|>12<|box|>816 142 833 254<|content|>cc: ... (via email)\n<|id|>128<|page|>12<|box|>840 174 877 854<|content|>Adriana Voss, General Counsel, Lumos Analytics Inc...ness LLP Simone Laroche, Calderwood & Harkness LLP\n<|id|>129<|page|>13<|box|>89 140 133 854<|content|>Enclosures: ... MSA- PFH-2021-0015), including Exh...file with both parties and are not attached hereto",
+    "raw_response": "<|src_id|>13<|tgt_id|>14",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        }
+    ]
+}

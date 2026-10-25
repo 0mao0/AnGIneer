@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 56,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['电视发射塔', 'A)电视发射塔的几何类型为点、面;B)只有视觉上显而易见的陆地位物应被编码。因此必备属性CONVIS(视觉可见)的值总是为1(视觉显见);C)发射塔可以被编码为CATLMK(陆地方位物类)=17(塔),但是具体种类应在目标名称中进一步明确;', 'LNDMRK(陆地方位物)(M)CATLMK(陆地方位物类)=[17(塔)](M)CONVIS(视觉可见)=[1(视觉显见)](C)FUNCTN(功能)=[30(电视台)](C)CONDTN(状态)=[1(建造中),2(废弃的),3(改造中),5(计划建造的),999(其他)]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=3, 电视发射塔'], ['图像', '编码说明', '对应物标属性编码']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 2992,
+    "table2_idx": 2993
+}

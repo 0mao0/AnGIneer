@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>497<|page|>45<|box|>90 140 107 465<|content|>Section 22.7 — Third-Party Beneficiaries\n<|id|>499<|page|>45<|box|>229 140 247 393<|content|>Section 22.8 — Non-Solicitation\n<|id|>501<|page|>45<|box|>444 140 460 336<|content|>Section 22.9 — Publicity\n<|id|>503<|page|>45<|box|>621 140 637 377<|content|>Section 22.10 — Construction\n<|id|>505<|page|>45<|box|>744 361 762 637<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>507<|page|>45<|box|>815 142 830 413<|content|>NORTHGATE AMERICAS, INC.\n<|id|>512<|page|>46<|box|>89 142 106 537<|content|>CEDARPOINT SYSTEMS INTEGRATION, INC.\n<|id|>517<|page|>46<|box|>176 263 191 733<|content|>EXHIBITS AND SCHEDULES — TABLE OF CONTENTS\n<|id|>521<|page|>46<|box|>867 295 883 700<|content|>ANNEX A — FORM OF ESCROW AGREEMENT\n<|id|>522<|page|>47<|box|>90 450 107 547<|content|>(Reference)\n<|id|>528<|page|>47<|box|>300 140 316 555<|content|>Escrow Agent Relationship Manager: Brian Caulfield\n<|id|>531<|page|>47<|box|>542 372 559 625<|content|>*End of First Draft Second Draft*",
+    "raw_response": "<|id|>497<|level|>2\n<|id|>499<|level|>2\n<|id|>501<|level|>2\n<|id|>503<|level|>2\n<|id|>505<|level|>-1\n<|id|>507<|level|>2\n<|id|>512<|level|>2\n<|id|>517<|level|>1\n<|id|>521<|level|>1\n<|id|>522<|level|>2\n<|id|>528<|level|>3\n<|id|>531<|level|>-1",
+    "parsed": [
+        {
+            "id": 497,
+            "level": 2
+        },
+        {
+            "id": 499,
+            "level": 2
+        },
+        {
+            "id": 501,
+            "level": 2
+        },
+        {
+            "id": 503,
+            "level": 2
+        },
+        {
+            "id": 507,
+            "level": 2
+        },
+        {
+            "id": 512,
+            "level": 2
+        },
+        {
+            "id": 517,
+            "level": 1
+        },
+        {
+            "id": 521,
+            "level": 1
+        },
+        {
+            "id": 522,
+            "level": 2
+        },
+        {
+            "id": 528,
+            "level": 3
+        }
+    ]
+}

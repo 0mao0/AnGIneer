@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>178 140 195 771<|content|>VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED AND V\n<|id|>11<|page|>1<|box|>656 140 672 617<|content|>I. Background — The Dedicated Freight Services Agr\n<|id|>22<|page|>2<|box|>816 140 834 486<|content|>II. Ridgeline's Material Breach of the DFSA\n<|id|>31<|page|>3<|box|>825 140 842 336<|content|>III. Damages Demanded\n<|id|>33<|page|>4<|box|>89 140 107 580<|content|>A. Liquidated Damages Under Section 14.3 of the DF\n<|id|>44<|page|>4<|box|>614 142 632 620<|content|>B. Re-Procurement Damages Under Section 14.4 of th\n<|id|>49<|page|>5<|box|>239 140 255 282<|content|>C. Total Demand\n<|id|>53<|page|>5<|box|>547 140 564 478<|content|>IV. Personal Guaranty of Gerald Brashear\n<|id|>57<|page|>5<|box|>811 140 829 442<|content|>V. Demand for Payment and Deadline\n<|id|>66<|page|>6<|box|>351 140 369 419<|content|>VI. Consequences of Failure to Pay\n<|id|>75<|page|>6<|box|>819 140 835 351<|content|>VII. Reservation of Rights\n<|id|>77<|page|>7<|box|>186 140 204 419<|content|>VIII. Direction of Communications\n<|id|>89<|page|>7<|box|>708 143 724 238<|content|>Enclosures:",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>11<|level|>1\n<|id|>22<|level|>1\n<|id|>31<|level|>1\n<|id|>33<|level|>2\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>53<|level|>1\n<|id|>57<|level|>1\n<|id|>66<|level|>1\n<|id|>75<|level|>1\n<|id|>77<|level|>1\n<|id|>89<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        }
+    ]
+}

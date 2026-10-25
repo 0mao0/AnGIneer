@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 133 630<|content|>600 Lexington Avenue New York, NY 10022 Tel: ... (212) 554-7000\n<|id|>2<|page|>1<|box|>142 140 176 375<|content|>Fax: ... com\n<|id|>3<|page|>1<|box|>185 712 200 854<|content|>November 6, 2023\n<|id|>4<|page|>1<|box|>210 140 246 854<|content|>Mr. ... 1400 Market Street, Suite 2200 Wilmington, DE 19801\n<|id|>5<|page|>1<|box|>253 140 290 854<|content|>Re: ... 1009-00001\n<|id|>6<|page|>1<|box|>299 142 316 271<|content|>Dear Mr. ... Mehta\n<|id|>19<|page|>2<|box|>392 210 428 854<|content|>(v) any escrow agreements or escrow instructions, ...licable to the mechanics of the Financing; ... and\n<|id|>28<|page|>3<|box|>431 140 579 856<|content|>Matters Outside Scope. ... or (iv) representation ...iry, whether related or unrelated to the Financing\n<|id|>42<|page|>4<|box|>838 140 875 856<|content|>Time expended on the engagement will be recorded a...ter, as in effect from time to time. ... As of the\n<|id|>44<|page|>5<|box|>279 140 369 856<|content|>Notwithstanding the foregoing, total fees billed t...l not exceed the Fee Cap of $275,000. ... 1 above)\n<|id|>52<|page|>5<|box|>744 174 781 854<|content|>(e) Computerized legal research and database charges (e. ... and\n<|id|>54<|page|>5<|box|>834 140 888 854<|content|>Disbursements and out-of-pocket expenses are not s... billed at actual cost without markup. ... 2 above\n<|id|>86<|page|>9<|box|>513 174 549 854<|content|>Victoria Chambers, Partner Calderwood & Harkness LLP 600 Lexington Avenue New York, NY 10022\n<|id|>87<|page|>9<|box|>558 140 613 854<|content|>A duplicate original is enclosed for your files. ....enience so that we may commence work without delay\n<|id|>92<|page|>9<|box|>752 142 768 339<|content|>Name: ... Victoria Chambers\n<|id|>93<|page|>9<|box|>768 142 786 405<|content|>Title: ... Partner (Responsible Partner)\n<|id|>94<|page|>9<|box|>787 143 804 254<|content|>By: ... By\n<|id|>95<|page|>9<|box|>804 142 820 310<|content|>Name: ... Howard Quinn\n<|id|>96<|page|>9<|box|>821 142 837 367<|content|>Title: ... Partner (Billing Partner)\n<|id|>98<|page|>9<|box|>864 140 900 854<|content|>The undersigned, on behalf of Skybridge Fintech Lt...nditions set forth in this Engagement Letter dated\n<|id|>99<|page|>10<|box|>89 140 126 854<|content|>November 6, 2023, and hereby engages Calderwood & ...n with the Financing on the terms described herein\n<|id|>103<|page|>10<|box|>204 142 220 295<|content|>Name: ... Arjun Mehta\n<|id|>104<|page|>10<|box|>220 142 237 475<|content|>Title: ... Chief Executive Officer & Co-Founder\n<|id|>105<|page|>10<|box|>238 143 253 264<|content|>Date: ... Date\n<|id|>106<|page|>10<|box|>255 140 273 707<|content|>Enclosure: ... Duplicate original of this Engagement Letter for countersignature\n<|id|>107<|page|>10<|box|>280 140 325 854<|content|>cc: ... Howard Quinn, Partner, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>98<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        }
+    ]
+}

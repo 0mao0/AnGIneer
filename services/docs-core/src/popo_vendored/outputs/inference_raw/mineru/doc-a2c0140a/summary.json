@@ -1,0 +1,177 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lklc8tqc\\input\\pdfs\\doc-a2c0140a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lklc8tqc\\enriched\\doc-a2c0140a.json",
+    "contd_output": "<|src_id|>19<|tgt_id|>20\n<|src_id|>77<|tgt_id|>78\n<|src_id|>81<|tgt_id|>82",
+    "title_output": "<|id|>1<|level|>1\n<|id|>12<|level|>2\n<|id|>24<|level|>2\n<|id|>42<|level|>2\n<|id|>51<|level|>2\n<|id|>54<|level|>3\n<|id|>64<|level|>2\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>103<|level|>2\n<|id|>114<|level|>2\n<|id|>130<|level|>2\n<|id|>132<|level|>2\n<|id|>147<|level|>2\n<|id|>188<|level|>2\n<|id|>189<|level|>3\n<|id|>203<|level|>2\n<|id|>204<|level|>3\n<|id|>208<|level|>3\n<|id|>214<|level|>2\n<|id|>215<|level|>3\n<|id|>221<|level|>2",
+    "image_output": "<|src_id|>191<|tgt_id|>189\n<|src_id|>192<|tgt_id|>189\n<|src_id|>194<|tgt_id|>189\n<|src_id|>201<|tgt_id|>189\n<|src_id|>202<|tgt_id|>189\n<|src_id|>206<|tgt_id|>204\n<|src_id|>207<|tgt_id|>204\n<|src_id|>217<|tgt_id|>215\n<|src_id|>218<|tgt_id|>215\n<|src_id|>220<|tgt_id|>215",
+    "contd_label": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 191,
+            "tgt_id": 189
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 189
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 189
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 189
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 189
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 215
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 215
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 215
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 206,
+            "table2_idx": 207,
+            "upper_row_ss": [
+                [
+                    "M4",
+                    "Argonaut-C",
+                    "Beta integration & validation",
+                    "Pending (tolled)",
+                    "Subject to Maintenance Fee Credit per Section 4.1 Payable upon acceptance per"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "original terms; no credit or offset"
+                ]
+            ]
+        }
+    ]
+}

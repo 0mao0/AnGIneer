@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 269 133 727<|content|>333 Commerce Street, Suite 2800 Nashville, Tennessee 37201\n<|id|>2<|page|>1<|box|>141 181 159 816<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 741 185 854<|content|>April 18, 2025\n<|id|>4<|page|>1<|box|>193 140 229 854<|content|>Ardent Healthcare Holdings Inc. ... c/o Ardent Cap...ington Avenue, 34th Floor New York, New York 10022\n<|id|>5<|page|>1<|box|>238 176 255 361<|content|>With a courtesy copy to: ... With a courtesy copy to\n<|id|>6<|page|>1<|box|>263 174 299 854<|content|>Calderwood & Harkness LLP 1221 Avenue of the Americas, 40th Floor New York, New York 10020\n<|id|>7<|page|>1<|box|>308 176 325 437<|content|>Attention: ... Beatrice Holloway, Esq\n<|id|>23<|page|>2<|box|>835 174 891 856<|content|>(j) Authorizing resolutions or written consents of...and performance of the Purchase Agreement and each\n<|id|>24<|page|>3<|box|>90 174 126 854<|content|>Ancillary Agreement to which Crestline or Ryland H... a party, and the consummation of the Transactions\n<|id|>65<|page|>7<|box|>90 174 237 857<|content|>(b) violate any law, statute, rule, or regulation ... of law excluded under Section IV(C) below; ... or\n<|id|>67<|page|>7<|box|>344 174 544 857<|content|>Limitation: ... Those matters are being separately...tter delivered to the Purchaser on the date hereof\n<|id|>71<|page|>7<|box|>815 174 907 857<|content|>(b) the healthcare facility licensure transfer app... of Georgia, approved by the Georgia Department of\n<|id|>72<|page|>8<|box|>90 174 127 854<|content|>Community Health on March 27, 2025; ... and (iv) t...t for Health and Family Services on April 10, 2025\n<|id|>80<|page|>8<|box|>479 174 534 854<|content|>(b) general principles of equity (including, witho...dered in a proceeding at law or in equity; ... and\n<|id|>82<|page|>8<|box|>623 140 678 854<|content|>The foregoing qualifications are referred to colle...ular equitable remedy in any specific circumstance\n<|id|>87<|page|>8<|box|>845 174 883 854<|content|>(iii) the Delaware Revised Uniform Limited Partner...he Delaware Code), as currently in effect; ... and\n<|id|>89<|page|>9<|box|>133 140 300 856<|content|>We express no opinion as to the laws of any other ...eparate Delaware counsel opinion has been obtained\n<|id|>110<|page|>11<|box|>470 174 579 856<|content|>(a) Ridgeline National Bank, N. ... and\n<|id|>112<|page|>11<|box|>669 140 760 854<|content|>The reliance extended to the parties identified in...ions or any matters not expressly addressed herein\n<|id|>114<|page|>11<|box|>849 142 866 272<|content|>Very truly yours,\n<|id|>115<|page|>11<|box|>875 140 890 447<|content|>WHITAKER, POOLE & SIMMS LLP\n<|id|>116<|page|>11<|box|>892 142 909 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>23<|tgt_id|>24\n<|src_id|>71<|tgt_id|>72",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        }
+    ]
+}

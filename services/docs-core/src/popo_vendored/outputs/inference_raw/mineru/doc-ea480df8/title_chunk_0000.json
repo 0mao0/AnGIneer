@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 187 142 810<|content|>SECRETARY'S CERTIFICATE OF QUORUM INSURANCE HOLDIN\n<|id|>5<|page|>1<|box|>443 140 460 535<|content|>Section 1. Certificate of Incorporation and Bylaws\n<|id|>10<|page|>1<|box|>806 140 824 370<|content|>Section 2. Board Resolutions\n<|id|>16<|page|>2<|box|>319 140 335 416<|content|>Section 3. Summary of Resolutions\n<|id|>18<|page|>2<|box|>431 142 446 401<|content|>3.1 Authorization of Transaction\n<|id|>20<|page|>2<|box|>631 142 648 444<|content|>3.2 Authorization of Capital Structure\n<|id|>24<|page|>3<|box|>176 140 193 429<|content|>3.3 Authorization of SPV Formation\n<|id|>30<|page|>3<|box|>590 140 607 491<|content|>3.4 Authorization of Transaction Documents\n<|id|>45<|page|>4<|box|>838 140 854 496<|content|>3.5 Authorization of Engagement of Advisors\n<|id|>52<|page|>5<|box|>500 140 516 465<|content|>3.6 Authorization of Offering Documents\n<|id|>54<|page|>5<|box|>681 140 699 405<|content|>3.7 Authorization of UCC Filings\n<|id|>59<|page|>6<|box|>239 140 256 388<|content|>3.8 Risk Retention Compliance\n<|id|>61<|page|>6<|box|>476 140 493 318<|content|>3.9 General Authority\n<|id|>64<|page|>6<|box|>768 140 784 405<|content|>Section 4. Authorized Signatories\n<|id|>70<|page|>7<|box|>430 140 446 454<|content|>Section 5. Good Standing and Existence\n<|id|>75<|page|>7<|box|>720 140 738 323<|content|>Section 6. No Conflicts\n<|id|>81<|page|>8<|box|>285 140 301 424<|content|>Section 7. Incumbency Certification\n<|id|>83<|page|>8<|box|>425 140 443 348<|content|>Section 8. Governing Law\n<|id|>91<|page|>8<|box|>739 370 755 625<|content|>OFFICER'S CONFIRMATION\n<|id|>98<|page|>10<|box|>88 446 108 552<|content|>EXHIBIT A\n<|id|>102<|page|>11<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>104<|page|>11<|box|>186 429 204 566<|content|>[Attached hereto]\n<|id|>105<|page|>12<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>106<|page|>12<|box|>114 156 152 841<|content|>Resolutions of the Board of Directors of Quorum In\n<|id|>108<|page|>12<|box|>282 140 299 658<|content|>Asset-Backed Securities Transaction — Authorizatio\n<|id|>120<|page|>13<|box|>133 140 151 261<|content|>and it is further\n<|id|>140<|page|>14<|box|>454 140 470 261<|content|>and it is further",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>3\n<|id|>20<|level|>3\n<|id|>24<|level|>3\n<|id|>30<|level|>3\n<|id|>45<|level|>3\n<|id|>52<|level|>3\n<|id|>54<|level|>3\n<|id|>59<|level|>3\n<|id|>61<|level|>3\n<|id|>64<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>2\n<|id|>91<|level|>2\n<|id|>98<|level|>1\n<|id|>102<|level|>1\n<|id|>104<|level|>-1\n<|id|>105<|level|>1\n<|id|>106<|level|>2\n<|id|>108<|level|>3\n<|id|>120<|level|>-1\n<|id|>140<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 217 126 856<|content|>CALDERWOOD & HARKNESS LLP 1200 New Hampshire Avenu\n<|id|>11<|type|>title<|page|>1<|box|>522 330 541 666<|content|>I. INTRODUCTION AND ROLE\n<|id|>14<|type|>title<|page|>2<|box|>90 196 109 799<|content|>II. DEFINITIONS AND LOAN DOCUMENTS EXAMINED\n<|id|>15<|type|>title<|page|>2<|box|>136 142 154 287<|content|>A. Defined Terms\n<|id|>24<|type|>title<|page|>2<|box|>750 142 767 339<|content|>B. Documents Examined\n<|id|>38<|type|>title<|page|>4<|box|>90 393 109 604<|content|>III. ASSUMPTIONS\n<|id|>49<|type|>title<|page|>5<|box|>90 419 109 578<|content|>IV. OPINIONS\n<|id|>51<|type|>title<|page|>5<|box|>188 140 205 532<|content|>4.1 Entity Status — WAL (Virginia Qualification)\n<|id|>53<|type|>title<|page|>5<|box|>401 140 419 526<|content|>4.2 Entity Status — WDS (Virginia Corporation)\n<|id|>55<|type|>title<|page|>5<|box|>633 140 650 537<|content|>4.3 Authorization — WAL (Virginia Law Matters)\n<|id|>57<|type|>title<|page|>5<|box|>810 140 827 352<|content|>4.4 Authorization — WDS\n<|id|>60<|type|>title<|page|>6<|box|>186 140 203 401<|content|>4.5 No Conflicts — Virginia Law\n<|id|>65<|type|>title<|page|>6<|box|>532 140 549 609<|content|>4.6 Enforceability of the Deed of Trust — Virginia\n<|id|>69<|type|>title<|page|>7<|box|>258 140 277 550<|content|>4.7 Perfection of Security Interests — Virginia UC\n<|id|>74<|type|>title<|page|>8<|box|>90 140 107 635<|content|>4.8 No Governmental Approvals Required Under Virgi\n<|id|>79<|type|>title<|page|>8<|box|>404 272 422 723<|content|>V. ENFORCEABILITY QUALIFICATIONS\n<|id|>88<|type|>title<|page|>9<|box|>380 264 401 730<|content|>VI. LIMITATIONS AND QUALIFICATIONS\n<|id|>100<|type|>title<|page|>11<|box|>90 279 109 717<|content|>VII. RELIANCE AND OTHER MATTERS\n<|id|>112<|type|>title<|page|>11<|box|>696 437 713 560<|content|>SCHEDULE A\n<|id|>113<|type|>title<|page|>11<|box|>722 300 739 697<|content|>DESCRIPTION OF THE VIRGINIA PROPERTY\n<|id|>118<|type|>title<|page|>11<|box|>871 142 888 290<|content|>Legal Description:\n<|id|>125<|type|>title<|page|>12<|box|>518 437 536 560<|content|>SCHEDULE B\n<|id|>126<|type|>title<|page|>12<|box|>545 354 561 643<|content|>VIRGINIA UCC FILING DETAILS\n<|id|>127<|type|>table<|page|>12<|box|>614 143 902 852<|content|>None\n<|id|>128<|type|>table<|page|>13<|box|>89 145 217 851<|content|>None\n<|id|>129<|type|>title<|page|>13<|box|>251 143 268 449<|content|>Existing UCC Filing to Be Terminated:\n<|id|>130<|type|>table<|page|>13<|box|>275 143 436 852<|content|>None",
+    "raw_response": "<|src_id|>127<|tgt_id|>126\n<|src_id|>128<|tgt_id|>126\n<|src_id|>130<|tgt_id|>129",
+    "parsed": [
+        {
+            "src_id": 127,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 129
+        }
+    ]
+}

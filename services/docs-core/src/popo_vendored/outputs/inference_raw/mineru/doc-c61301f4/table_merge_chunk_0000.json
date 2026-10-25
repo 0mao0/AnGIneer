@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['2', 'UCC-1', 'Cascade Retail', 'Crescent Harbor', 'Delaware SOS', '2023-1947283', 'May 19, 2023', 'Filed and acknowledged']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'Operating Company LLC (DE LLC; EIN 83-2951047)', 'Bank, N.A., as Collateral Agent', '', '', '', 'ged']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 343,
+    "table2_idx": 344
+}

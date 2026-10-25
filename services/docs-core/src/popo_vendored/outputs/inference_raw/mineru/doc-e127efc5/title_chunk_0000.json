@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 104 496<|content|>CONFIDENTIAL — TAX EXAMINATION MATERIAL\n<|id|>1<|page|>1<|box|>112 140 128 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|page|>1<|box|>286 140 304 795<|content|>VIA HAND DELIVERY AND ELECTRONIC UPLOAD (IRS SECUR\n<|id|>13<|page|>1<|box|>805 140 821 431<|content|>I. Description of IDR No. 35 Request\n<|id|>21<|page|>2<|box|>609 140 625 328<|content|>II. Scope of Production\n<|id|>34<|page|>3<|box|>494 140 513 727<|content|>III. Attachment A — PBI Pricing Committee Meeting\n<|id|>50<|page|>4<|box|>643 140 662 589<|content|>IV. Attachment B — Market Entry Strategy Memoranda\n<|id|>60<|page|>5<|box|>643 140 662 612<|content|>V. Attachment C — Country-Level Pricing Approval F\n<|id|>73<|page|>6<|box|>633 140 651 668<|content|>VI. Attachment D — Distribution Partner Selection\n<|id|>83<|page|>7<|box|>589 140 607 782<|content|>VII. Attachment E — PBI Board Resolutions on Prici\n<|id|>93<|page|>8<|box|>532 140 550 779<|content|>VIII. Attachment F — Communications Between PBI an\n<|id|>102<|page|>9<|box|>545 140 563 743<|content|>IX. Attachment G — Market Strategy Presentations (\n<|id|>112<|page|>10<|box|>267 140 284 792<|content|>X. Factual Context Regarding PBI's Operations and\n<|id|>118<|page|>11<|box|>90 140 107 343<|content|>XI. Privilege Reservation\n<|id|>122<|page|>11<|box|>502 140 518 352<|content|>XII. Reservation of Rights\n<|id|>125<|page|>11<|box|>758 140 777 352<|content|>XIII. Contact Information\n<|id|>135<|page|>12<|box|>352 143 368 240<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>7<|level|>-1\n<|id|>13<|level|>1\n<|id|>21<|level|>1\n<|id|>34<|level|>1\n<|id|>50<|level|>1\n<|id|>60<|level|>1\n<|id|>73<|level|>1\n<|id|>83<|level|>1\n<|id|>93<|level|>1\n<|id|>102<|level|>1\n<|id|>112<|level|>1\n<|id|>118<|level|>1\n<|id|>122<|level|>1\n<|id|>125<|level|>1\n<|id|>135<|level|>1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        }
+    ]
+}

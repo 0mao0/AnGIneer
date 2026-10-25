@@ -1,0 +1,159 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 178 122 818<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>2<|page|>1<|box|>364 153 417 843<|content|>VERIFIED ANSWER, AFFIRMATIVE DEFENSES, AND COUNTER\n<|id|>4<|page|>1<|box|>452 338 470 660<|content|>PRELIMINARY STATEMENT\n<|id|>13<|page|>2<|box|>686 292 705 705<|content|>ANSWER TO VERIFIED COMPLAINT\n<|id|>15<|page|>2<|box|>782 140 800 459<|content|>Paragraphs Regarding Parties (¶¶ 1–10)\n<|id|>26<|page|>3<|box|>840 140 857 553<|content|>Paragraphs Regarding the Charter-Party (¶¶ 11–20)\n<|id|>38<|page|>5<|box|>601 140 619 689<|content|>Paragraphs Regarding Incident 1 — Turbocharger Fai\n<|id|>47<|page|>6<|box|>554 140 571 683<|content|>Paragraphs Regarding Incident 2 — BWTS/Boiler Fail\n<|id|>56<|page|>7<|box|>664 140 681 694<|content|>Paragraphs Regarding Incident 3 — Cylinder Liner F\n<|id|>63<|page|>8<|box|>398 140 417 645<|content|>Paragraphs Regarding the Alleged Maputo Deviation\n<|id|>72<|page|>9<|box|>319 140 335 485<|content|>Paragraphs Regarding Damages (¶¶ 51–65)\n<|id|>89<|page|>11<|box|>500 140 516 457<|content|>Paragraphs Regarding Causes of Action\n<|id|>96<|page|>12<|box|>364 140 383 267<|content|>General Denial\n<|id|>98<|page|>12<|box|>510 351 529 645<|content|>AFFIRMATIVE DEFENSES\n<|id|>100<|page|>12<|box|>625 140 643 759<|content|>FIRST AFFIRMATIVE DEFENSE — Liquidated Damages Cap\n<|id|>103<|page|>13<|box|>222 140 239 671<|content|>SECOND AFFIRMATIVE DEFENSE — Latent Defect (Incide\n<|id|>106<|page|>13<|box|>571 140 609 854<|content|>THIRD AFFIRMATIVE DEFENSE — Charterer Causation /\n<|id|>109<|page|>14<|box|>89 140 107 852<|content|>FOURTH AFFIRMATIVE DEFENSE — Master's Discretion /\n<|id|>112<|page|>14<|box|>383 140 420 803<|content|>FIFTH AFFIRMATIVE DEFENSE — Inter-Club Agreement B\n<|id|>115<|page|>14<|box|>696 140 714 844<|content|>SIXTH AFFIRMATIVE DEFENSE — Non-Recoverability of\n<|id|>118<|page|>15<|box|>239 140 258 627<|content|>SEVENTH AFFIRMATIVE DEFENSE — Failure to Mitigate\n<|id|>125<|page|>15<|box|>693 140 731 852<|content|>EIGHTH AFFIRMATIVE DEFENSE — Failure to State a Ca\n<|id|>127<|page|>16<|box|>148 140 167 725<|content|>NINTH AFFIRMATIVE DEFENSE — Reservation of Additio\n<|id|>129<|page|>16<|box|>275 397 295 599<|content|>COUNTERCLAIM\n<|id|>131<|page|>16<|box|>409 140 426 362<|content|>Parties to the Counterclaim\n<|id|>135<|page|>16<|box|>715 140 734 297<|content|>Factual Allegations\n<|id|>143<|page|>18<|box|>90 140 107 601<|content|>Cause of Action — Breach of Charter-Party (Unpaid\n<|id|>147<|page|>18<|box|>410 140 428 413<|content|>Prayer for Relief on Counterclaim\n<|id|>154<|page|>18<|box|>684 302 703 694<|content|>PRAYER FOR RELIEF ON ANSWER\n<|id|>159<|page|>19<|box|>90 176 108 736<|content|>(d) Granting such other and further relief as the\n<|id|>160<|page|>19<|box|>116 408 136 588<|content|>VERIFICATION\n<|id|>161<|page|>19<|box|>162 140 179 318<|content|>STATE OF GREECE\n<|id|>162<|page|>19<|box|>202 142 219 325<|content|>REGION OF ATTICA\n<|id|>168<|page|>20<|box|>89 191 109 805<|content|>ATTORNEY CERTIFICATION AND SIGNATURE BLOCK\n<|id|>177<|page|>20<|box|>305 343 325 653<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>3\n<|id|>26<|level|>3\n<|id|>38<|level|>3\n<|id|>47<|level|>3\n<|id|>56<|level|>3\n<|id|>63<|level|>3\n<|id|>72<|level|>3\n<|id|>89<|level|>3\n<|id|>96<|level|>3\n<|id|>98<|level|>2\n<|id|>100<|level|>3\n<|id|>103<|level|>3\n<|id|>106<|level|>3\n<|id|>109<|level|>3\n<|id|>112<|level|>3\n<|id|>115<|level|>3\n<|id|>118<|level|>3\n<|id|>125<|level|>3\n<|id|>127<|level|>3\n<|id|>129<|level|>2\n<|id|>131<|level|>3\n<|id|>135<|level|>3\n<|id|>143<|level|>3\n<|id|>147<|level|>3\n<|id|>154<|level|>2\n<|id|>159<|level|>-1\n<|id|>160<|level|>2\n<|id|>161<|level|>-1\n<|id|>162<|level|>-1\n<|id|>168<|level|>2\n<|id|>177<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        }
+    ]
+}

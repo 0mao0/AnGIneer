@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 15,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['U.S. investment excl. interagency items.', '201,029', '97,040', '10,977,534', '61,648', '7,121,918', '2,957,169', '3,361,923']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Account', 'rowspan=2, Civil Service Commission', 'rowspan=2, Federal Communications Commission', 'rowspan=2, Federal Maritime Commission', 'rowspan=2, Federal Mediation and Conciliation Service', 'rowspan=2, Federal Power Commission', 'Interstate Commerce Commission', 'Panama Canal']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 512,
+    "table2_idx": 513
+}

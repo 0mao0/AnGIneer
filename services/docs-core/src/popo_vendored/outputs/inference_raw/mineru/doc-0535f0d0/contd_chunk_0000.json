@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>702 140 930 854<|content|>2. ... (c) processing DECLARATION OF ANGELA TRUONG...TION FOR FINAL APPROVAL OF CLASS ACTION SETTLEMENT\n<|id|>6<|page|>2<|box|>90 140 145 854<|content|>claims submitted by class members; ... and (f) cal...lowing the Court's entry of a Final Approval Order\n<|id|>12<|page|>2<|box|>813 148 930 854<|content|>(a) A long-form class notice, consisting of a four...TION FOR FINAL APPROVAL OF CLASS ACTION SETTLEMENT\n<|id|>13<|page|>3<|box|>90 174 219 854<|content|>litigation costs, class representative service awa...notice, as mailed, is attached hereto as Exhibit 2\n<|id|>25<|page|>4<|box|>204 174 277 854<|content|>(h) Contact information for Class Counsel, specifi...Suite 2800, Los Angeles, California 90071; ... and\n<|id|>27<|page|>4<|box|>330 140 383 854<|content|>The settlement website address was prominently pri...t website homepage is attached hereto as Exhibit 4\n<|id|>31<|page|>4<|box|>781 174 816 854<|content|>(b) Mail: ... or\n<|id|>33<|page|>4<|box|>869 140 930 854<|content|>The claims deadline, as set forth in the Prelimina...TION FOR FINAL APPROVAL OF CLASS ACTION SETTLEMENT\n<|id|>34<|page|>5<|box|>90 140 145 854<|content|>deadline for opt-out requests and objections. ... , Pacific Time, on January 2, 2024\n<|id|>37<|page|>5<|box|>314 181 330 750<|content|>• Online claim submission portal: ... 2% of all claims submitted)\n<|id|>40<|page|>5<|box|>375 140 464 854<|content|>The 68. ... The robust claims rate in this case li...lief offered to class members under the settlement\n<|id|>38<|page|>5<|box|>334 183 349 560<|content|>• Mail: ... 0% of all claims submitted)\n<|id|>39<|page|>5<|box|>354 183 369 550<|content|>• Email: ... 8% of all claims submitted)\n<|id|>56<|page|>7<|box|>796 140 930 856<|content|>13. ... The Legal Aid Foundation of Los Angeles is...TION FOR FINAL APPROVAL OF CLASS ACTION SETTLEMENT\n<|id|>57<|page|>8<|box|>90 140 145 854<|content|>in Los Angeles County, including in matters relati...the expiration of the 180-day check-cashing period\n<|id|>66<|page|>8<|box|>506 174 542 854<|content|>(h) Reporting of claims data, opt-out data, and ob...s throughout the notice and claims period; ... and\n<|id|>68<|page|>8<|box|>594 140 686 854<|content|>Meridian is fully prepared to calculate and distri...x forms in connection with the settlement payments",
+    "raw_response": "<|src_id|>5<|tgt_id|>6\n<|src_id|>33<|tgt_id|>34\n<|src_id|>56<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        }
+    ]
+}

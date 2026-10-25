@@ -1,0 +1,144 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 228 157 767<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION D\n<|id|>12<|page|>1<|box|>797 142 814 473<|content|>Prospectus Summary / Business Overview\n<|id|>13<|page|>1<|box|>824 140 840 620<|content|>Comment 1 — Operating Capacity Metrics and Methodo\n<|id|>19<|page|>2<|box|>560 140 578 509<|content|>Comment 2 — Competitive Positioning Claims\n<|id|>24<|page|>3<|box|>167 142 184 248<|content|>Risk Factors\n<|id|>25<|page|>3<|box|>194 140 210 589<|content|>Comment 3 — Risk Factor Specificity and Quantifica\n<|id|>30<|page|>3<|box|>726 140 743 452<|content|>Comment 4 — Tax Credit Risk Factors\n<|id|>35<|page|>4<|box|>441 140 459 576<|content|>Comment 5 — Controlled Company Status Risk Factor\n<|id|>40<|page|>5<|box|>150 142 167 313<|content|>Revenue Recognition\n<|id|>41<|page|>5<|box|>175 140 193 785<|content|>Comment 6 — Revenue Recognition Policy — Power Pur\n<|id|>47<|page|>5<|box|>734 140 751 452<|content|>Comment 7 — Revenue Disaggregation\n<|id|>53<|page|>6<|box|>366 140 383 299<|content|>Segment Reporting\n<|id|>54<|page|>6<|box|>392 140 409 483<|content|>Comment 8 — Segment Reporting Analysis\n<|id|>62<|page|>7<|box|>273 140 292 658<|content|>Comment 9 — Adjusted EBITDA Reconciliation and Pre\n<|id|>68<|page|>7<|box|>888 140 904 617<|content|>Comment 10 — Known Trends, Demands, and Uncertaint\n<|id|>73<|page|>8<|box|>633 140 651 524<|content|>Comment 11 — Liquidity and Capital Resources\n<|id|>79<|page|>9<|box|>329 140 347 504<|content|>Tax-Equity Accounting (HLBV Methodology)\n<|id|>80<|page|>9<|box|>354 140 373 514<|content|>Comment 12 — HLBV Methodology Disclosure\n<|id|>88<|page|>10<|box|>270 140 287 614<|content|>Comment 13 — Tax-Equity Consolidation and VIE Anal\n<|id|>94<|page|>10<|box|>789 140 806 362<|content|>Related-Party Transactions\n<|id|>95<|page|>10<|box|>814 140 832 650<|content|>Comment 14 — Pinnacle Vista Management-Services Ag\n<|id|>101<|page|>11<|box|>450 140 468 540<|content|>Comment 15 — Founder Employment Agreements\n<|id|>110<|page|>12<|box|>90 142 107 271<|content|>Use of Proceeds\n<|id|>111<|page|>12<|box|>116 140 133 500<|content|>Comment 16 — Specificity of Use of Proceeds\n<|id|>117<|page|>12<|box|>671 140 688 415<|content|>Principal and Selling Stockholders\n<|id|>118<|page|>12<|box|>696 140 714 540<|content|>Comment 17 — Beneficial Ownership Calculations\n<|id|>123<|page|>13<|box|>359 140 376 468<|content|>Shares Eligible for Future Sale / Lock-Up\n<|id|>124<|page|>13<|box|>383 140 402 514<|content|>Comment 18 — Lock-Up Carve-Out Disclosure\n<|id|>130<|page|>14<|box|>241 140 258 209<|content|>Closing\n<|id|>137<|page|>14<|box|>513 142 530 222<|content|>Sincerely,",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>19<|level|>3\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>30<|level|>3\n<|id|>35<|level|>3\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>47<|level|>3\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>62<|level|>3\n<|id|>68<|level|>3\n<|id|>73<|level|>3\n<|id|>79<|level|>2\n<|id|>80<|level|>3\n<|id|>88<|level|>3\n<|id|>94<|level|>2\n<|id|>95<|level|>3\n<|id|>101<|level|>3\n<|id|>110<|level|>2\n<|id|>111<|level|>3\n<|id|>117<|level|>2\n<|id|>118<|level|>3\n<|id|>123<|level|>2\n<|id|>124<|level|>3\n<|id|>130<|level|>2\n<|id|>137<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        }
+    ]
+}

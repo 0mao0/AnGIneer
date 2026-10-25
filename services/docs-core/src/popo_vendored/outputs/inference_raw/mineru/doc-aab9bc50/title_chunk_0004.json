@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 4,
+    "range": [
+        190,
+        327
+    ],
+    "pages": [
+        191,
+        199,
+        201,
+        202,
+        203,
+        214,
+        326
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2563<|page|>191<|box|>469 93 487 238<|content|>(159) 测量机构\n<|id|>2650<|page|>199<|box|>362 93 380 240<|content|>(183)垂直高度\n<|id|>2700<|page|>201<|box|>198 88 216 342<|content|>A.3.3 空间和元物标属性\n<|id|>2716<|page|>202<|box|>190 356 218 648<|content|>附录 B 编 码\n<|id|>2717<|page|>202<|box|>247 406 265 598<|content|>B.1 控制基准数据\n<|id|>2719<|page|>203<|box|>103 387 121 598<|content|>B.2 河道与水文数据\n<|id|>2743<|page|>214<|box|>408 401 426 613<|content|>B.3 航道与港航数据\n<|id|>2978<|page|>326<|box|>113 403 131 634<|content|>B.9 其他相关地物数据",
+    "raw_response": "<|id|>2563<|level|>4\n<|id|>2650<|level|>4\n<|id|>2700<|level|>3\n<|id|>2716<|level|>1\n<|id|>2717<|level|>2\n<|id|>2719<|level|>2\n<|id|>2743<|level|>2\n<|id|>2978<|level|>2",
+    "parsed": [
+        {
+            "id": 2563,
+            "level": 4
+        },
+        {
+            "id": 2650,
+            "level": 4
+        },
+        {
+            "id": 2700,
+            "level": 3
+        },
+        {
+            "id": 2716,
+            "level": 1
+        },
+        {
+            "id": 2717,
+            "level": 2
+        },
+        {
+            "id": 2719,
+            "level": 2
+        },
+        {
+            "id": 2743,
+            "level": 2
+        },
+        {
+            "id": 2978,
+            "level": 2
+        }
+    ]
+}

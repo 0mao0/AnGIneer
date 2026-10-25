@@ -1,0 +1,150 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        13,
+        14,
+        15,
+        16,
+        17,
+        22,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 200 152 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>9<|page|>1<|box|>376 142 393 366<|content|>1. Introduction and Purpose\n<|id|>21<|page|>2<|box|>409 140 426 357<|content|>2. Scope of Conflict Search\n<|id|>22<|page|>2<|box|>440 140 457 475<|content|>2.1 Conflict Check System and Procedures\n<|id|>32<|page|>3<|box|>90 142 106 323<|content|>2.2 Search Parameters\n<|id|>41<|page|>3<|box|>434 140 450 411<|content|>2.3 Categories of Parties Searched\n<|id|>53<|page|>4<|box|>90 140 107 297<|content|>3. Parties Searched\n<|id|>55<|page|>4<|box|>202 140 218 398<|content|>3.1 Client and Affiliated Entities\n<|id|>58<|page|>5<|box|>90 142 106 230<|content|>3.2 Sellers.\n<|id|>61<|page|>5<|box|>508 140 526 413<|content|>3.3 Lenders and Financing Parties\n<|id|>64<|page|>6<|box|>138 142 156 303<|content|>3.4 EPC Contractor\n<|id|>67<|page|>6<|box|>416 142 433 297<|content|>3.5 Utility Provider\n<|id|>70<|page|>6<|box|>638 140 655 455<|content|>3.6 Title, Escrow, and Insurance Parties\n<|id|>76<|page|>7<|box|>628 142 646 374<|content|>3.8 Consultants and Advisors\n<|id|>80<|page|>8<|box|>272 140 289 344<|content|>4. Conflict Check Results\n<|id|>81<|page|>8<|box|>303 140 320 344<|content|>4.1 Summary of Findings\n<|id|>85<|page|>8<|box|>592 140 609 400<|content|>4.2 Detailed Results by Category\n<|id|>127<|page|>13<|box|>561 140 579 503<|content|>5. Informational Notes and Recommendations\n<|id|>129<|page|>13<|box|>636 140 652 571<|content|>5.1 Prior Summit National Bank, N.A. Representatio\n<|id|>134<|page|>14<|box|>508 142 525 297<|content|>Recommendations:\n<|id|>137<|page|>14<|box|>840 140 859 580<|content|>5.2 Stonebridge Campus Holdings LLC (To Be Formed)\n<|id|>140<|page|>15<|box|>294 140 310 287<|content|>5.3 Future Parties\n<|id|>151<|page|>15<|box|>760 140 777 370<|content|>6. Conclusion and Clearance\n<|id|>157<|page|>16<|box|>364 142 383 236<|content|>7. Sign-Off\n<|id|>159<|page|>17<|box|>90 142 107 424<|content|>APPENDIX A: Conflict Search Log\n<|id|>161<|page|>17<|box|>196 143 214 282<|content|>Result Code Key:\n<|id|>166<|page|>17<|box|>349 143 364 336<|content|>A.1 — Entities Searched\n<|id|>174<|page|>22<|box|>90 140 107 705<|content|>APPENDIX B: Prior Matter References — Summit Natio\n<|id|>178<|page|>23<|box|>787 143 804 313<|content|>B.3 — Confirmations\n<|id|>184<|page|>24<|box|>368 143 383 323<|content|>END OF MEMORANDUM",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>9<|level|>2\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>32<|level|>3\n<|id|>41<|level|>3\n<|id|>53<|level|>2\n<|id|>55<|level|>3\n<|id|>58<|level|>3\n<|id|>61<|level|>3\n<|id|>64<|level|>3\n<|id|>67<|level|>3\n<|id|>70<|level|>3\n<|id|>76<|level|>3\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>85<|level|>3\n<|id|>127<|level|>2\n<|id|>129<|level|>3\n<|id|>134<|level|>4\n<|id|>137<|level|>3\n<|id|>140<|level|>3\n<|id|>151<|level|>2\n<|id|>157<|level|>2\n<|id|>159<|level|>2\n<|id|>161<|level|>3\n<|id|>166<|level|>3\n<|id|>174<|level|>2\n<|id|>178<|level|>3\n<|id|>184<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 4
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 1
+        }
+    ]
+}

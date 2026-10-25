@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        55,
+        81
+    ],
+    "pages": [
+        56,
+        68,
+        81
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>185<|page|>56<|box|>751 37 774 495<|content|>3/ Beginning January 1951, withheld income tax and...loyers and employees are paid into the Treasury in\n<|id|>186<|page|>56<|box|>604 524 738 974<|content|>combined amounts, pursuant to the Social Security ...ipts is included only in the total of excise taxes\n<|id|>222<|page|>68<|box|>92 147 108 858<|content|>Table 1. ... - Short-Term Banking Liabilities to Foreigners as of January 31, 1955\n<|id|>231<|page|>81<|box|>267 346 365 417<|content|>Treas. ... 2",
+    "raw_response": "<|src_id|>185<|tgt_id|>186",
+    "parsed": [
+        {
+            "src_id": 185,
+            "tgt_id": 186
+        }
+    ]
+}

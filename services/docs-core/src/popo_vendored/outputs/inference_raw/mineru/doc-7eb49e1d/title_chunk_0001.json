@@ -1,0 +1,34 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        63,
+        116
+    ],
+    "pages": [
+        64,
+        77,
+        97,
+        115
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>130<|page|>64<|box|>160 421 187 559<|content|>二、水平运输机械\n<|id|>144<|page|>77<|box|>191 404 218 592<|content|>三、起重及垂直运输机械\n<|id|>165<|page|>97<|box|>191 434 218 570<|content|>四、基础工程机械\n<|id|>184<|page|>115<|box|>191 390 218 611<|content|>五、混凝土、钢筋及木作机械",
+    "raw_response": "<|id|>130<|level|>1\n<|id|>144<|level|>1\n<|id|>165<|level|>1\n<|id|>184<|level|>1",
+    "parsed": [
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 184,
+            "level": 1
+        }
+    ]
+}

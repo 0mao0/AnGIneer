@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        45
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        9,
+        10,
+        29,
+        30,
+        45
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>180 150 215 846<|content|>Prepared for: ... Belmont Ridge Bank National Asso...80 Lexington Avenue, 22nd Floor New York, NY 10022\n<|id|>3<|page|>1<|box|>224 385 239 611<|content|>C&H Matter No. ... 1045-00002\n<|id|>4<|page|>1<|box|>250 452 266 545<|content|>March 2025\n<|id|>5<|page|>1<|box|>276 264 292 733<|content|>ATTORNEY-CLIENT PRIVILEGED / WORK PRODUCT\n<|id|>6<|page|>1<|box|>301 161 319 834<|content|>Draft — Subject to Review and Approval by BRB Chief Compliance Officer and BSA Officer\n<|id|>7<|page|>1<|box|>328 181 345 815<|content|>Consent Order Reference: ... OCC-2025-003 (January 15, 2025)\n<|id|>8<|page|>1<|box|>353 143 367 395<|content|>PRIVILEGED AND CONFIDENTIAL\n<|id|>9<|page|>1<|box|>376 140 571 854<|content|>This document, including all appendices and attach...at (212) 555-7800 and return or destroy all copies\n<|id|>38<|page|>5<|box|>867 140 904 857<|content|>Caldera & Pope LLP Independent Test (September 202...nklin Dorsey, Engagement Partner) and completed in\n<|id|>39<|page|>6<|box|>90 138 219 856<|content|>September 2024 identified significant training gap...r significant changes to BRB's BaaS partner roster\n<|id|>69<|page|>9<|box|>739 138 904 857<|content|>Population. ... Raymond Okoye (President and Chief...Chief Risk Officer), Warren Ashby (Head of Fintech\n<|id|>70<|page|>10<|box|>89 140 143 854<|content|>Partnerships / BaaS Division), Linda Petrosian (Ch...r comprises approximately fifteen (15) individuals\n<|id|>208<|page|>29<|box|>867 140 904 854<|content|>Records will be made available upon request for OC...n activities, Caldera & Pope LLP (Franklin Dorsey,\n<|id|>209<|page|>30<|box|>90 140 127 854<|content|>Engagement Partner) independent testing, Derek Bal...gs as directed by Gregory Nardone, General Counsel\n<|id|>350<|page|>45<|box|>681 411 699 586<|content|>— End of Document —\n<|id|>351<|page|>45<|box|>705 158 796 839<|content|>Calderwood & Harkness LLP C&H Matter No. ... 1045-...Not Distribute Without Approval of General Counsel",
+    "raw_response": "<|src_id|>38<|tgt_id|>39\n<|src_id|>69<|tgt_id|>70\n<|src_id|>208<|tgt_id|>209",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 208,
+            "tgt_id": 209
+        }
+    ]
+}

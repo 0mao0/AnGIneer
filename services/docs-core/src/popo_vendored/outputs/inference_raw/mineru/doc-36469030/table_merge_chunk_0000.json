@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Pinnacle Growth Ventures LLC', \"12,820,320 shares (representing 60% of its total holdings of 21,367,200 shares, which constituted approximately 11.6% of Cloudium's outstanding\", '60%', '$36.92', '$473,241,408']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'common stock)', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 123,
+    "table2_idx": 124
+}

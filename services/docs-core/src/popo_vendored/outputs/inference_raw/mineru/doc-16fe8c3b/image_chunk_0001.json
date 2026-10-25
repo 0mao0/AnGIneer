@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        48,
+        56
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>571<|type|>title<|page|>48<|box|>90 140 106 405<|content|>Schedule 7.02 — Permitted Liens\n<|id|>587<|type|>title<|page|>49<|box|>217 143 232 282<|content|>Lender Contacts:\n<|id|>588<|type|>table<|page|>49<|box|>239 143 529 852<|content|>None\n<|id|>590<|type|>title<|page|>49<|box|>622 143 638 236<|content|>EXHIBITS\n<|id|>591<|type|>title<|page|>50<|box|>90 140 130 607<|content|>Exhibit A — Form of Borrowing Request BORROWING RE\n<|id|>606<|type|>title<|page|>51<|box|>89 140 131 663<|content|>Exhibit B — Form of Term Loan Note PROMISSORY NOTE\n<|id|>614<|type|>title<|page|>52<|box|>90 140 108 627<|content|>Exhibit C — Form of Assignment and Assumption Agre\n<|id|>616<|type|>title<|page|>53<|box|>89 140 130 629<|content|>Exhibit D — Form of Compliance Certificate COMPLIA\n<|id|>635<|type|>title<|page|>54<|box|>90 140 107 470<|content|>Exhibit E — Form of Solvency Certificate\n<|id|>637<|type|>title<|page|>55<|box|>90 140 107 480<|content|>Exhibit F — Form of Perfection Certificate\n<|id|>639<|type|>title<|page|>56<|box|>89 142 106 321<|content|>SIGNATURE PAGES\n<|id|>641<|type|>title<|page|>56<|box|>141 143 157 264<|content|>BORROWER:\n<|id|>670<|type|>title<|page|>56<|box|>641 143 657 732<|content|>ADMINISTRATIVE AGENT, COLLATERAL AGENT, AND A LEND",
+    "raw_response": "<|src_id|>588<|tgt_id|>587",
+    "parsed": [
+        {
+            "src_id": 588,
+            "tgt_id": 587
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>263 87 279 332<|content|>OVERALL FINANCIAL SUMMARY\n<|id|>5<|type|>title<|page|>1<|box|>548 87 564 278<|content|>RESOLUTION SUMMARY\n<|id|>8<|type|>table<|page|>3<|box|>85 87 209 490<|content|>None\n<|id|>23<|type|>table<|page|>5<|box|>85 85 298 877<|content|>None\n<|id|>24<|type|>table<|page|>7<|box|>84 87 405 858<|content|>None",
+    "raw_response": "<|src_id|>8<|tgt_id|>5\n<|src_id|>23<|tgt_id|>1\n<|src_id|>24<|tgt_id|>1",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 1
+        }
+    ]
+}

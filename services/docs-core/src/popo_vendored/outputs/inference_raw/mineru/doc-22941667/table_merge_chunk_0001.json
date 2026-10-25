@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['4', 'Mandarin Trading Ltd. v. Wildenstein, 16 N.Y.3d 173, 178–80 (2011)', 'The Court of Appeals addressed the requisite particularity for fraud claims involving valuation misrepresentations. The Court held that where the plaintiff identified forty-seven specific transactions, specified the time frame during which the misvaluations occurred, named the responsible personnel, and described the methodology by']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'which the valuations were inflated, the complaint satisfied CPLR § 3016(b). The Court emphasized that the statute requires that the complaint provide \"sufficient detail to clearly inform [the] defendant with respect to the incidents complained of\" and that, viewed in its totality, the complaint\\'s allegations accomplished this purpose. The Court rejected defendant\\'s argument that each of the forty-seven transactions had to be separately and independently particularized, noting that the fraud alleged was a systematic scheme rather than a series of isolated misrepresentations.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 20,
+    "table2_idx": 21
+}

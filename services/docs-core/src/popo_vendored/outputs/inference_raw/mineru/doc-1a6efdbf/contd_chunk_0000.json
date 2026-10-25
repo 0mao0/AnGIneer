@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 238 132 759<|content|>1301 Avenue of the Americas, 40th Floor New York, New York 10019\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 715 184 854<|content|>February 11, 2022\n<|id|>4<|page|>1<|box|>191 140 208 635<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNICATION\n<|id|>5<|page|>1<|box|>215 140 251 854<|content|>Mr. ... Tomás Iglesias Principal Ardent Capital Pa...adison Avenue, 38th Floor New York, New York 10022\n<|id|>6<|page|>1<|box|>260 174 296 854<|content|>Re: ... 1001-00005\n<|id|>7<|page|>1<|box|>304 142 321 279<|content|>Dear Mr. ... Iglesias\n<|id|>13<|page|>1<|box|>859 174 896 854<|content|>(a) Transaction Documentation. ... Negotiation, dr...ding the Agreement and Plan of Merger (the \"Merger\n<|id|>14<|page|>2<|box|>90 174 181 856<|content|>Agreement\"), and all ancillary agreements and rela...onnection with the consummation of the Transaction\n<|id|>21<|page|>2<|box|>857 174 893 857<|content|>(h) Delisting and Deregistration. ... Advice on th...daq Capital Market and the deregistration of Coral\n<|id|>22<|page|>3<|box|>90 174 143 854<|content|>Reef's securities under the Securities Exchange Ac... effected following the closing of the Transaction\n<|id|>50<|page|>5<|box|>494 183 530 854<|content|>• Third-party vendor fees (including fees for outs...ers, process agents, and similar vendors); ... and\n<|id|>52<|page|>5<|box|>553 140 608 854<|content|>All expenses will be billed at the Firm's actual c... to the extent practicable under the circumstances\n<|id|>95<|page|>10<|box|>133 142 148 334<|content|>Name: ... Harrison Wexford\n<|id|>96<|page|>10<|box|>150 142 167 540<|content|>Title: ... Partner, Mergers & Acquisitions Practice Group\n<|id|>97<|page|>10<|box|>167 140 200 852<|content|>Calderwood & Harkness LLP 1301 Avenue of the Ameri...York, New York 10019 Telephone: ... (212) 556-8112\n<|id|>98<|page|>10<|box|>200 142 218 470<|content|>Email: ... com\n<|id|>103<|page|>10<|box|>358 140 375 517<|content|>By: ... Ardent Capital GP III LLC, its General Partner\n<|id|>104<|page|>10<|box|>376 143 393 254<|content|>By: ... By\n<|id|>105<|page|>10<|box|>393 143 409 310<|content|>Name: ... Tomás Iglesias\n<|id|>106<|page|>10<|box|>410 143 426 259<|content|>Title: ... Principal\n<|id|>107<|page|>10<|box|>428 143 444 264<|content|>Date: ... Date\n<|id|>109<|page|>10<|box|>460 142 478 602<|content|>590 Madison Avenue, 38th Floor New York, New York 10022\n<|id|>110<|page|>10<|box|>479 143 496 284<|content|>Enclosures: ... None\n<|id|>111<|page|>10<|box|>503 140 541 854<|content|>cc: ... Beatrice Holloway, Partner, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>21<|tgt_id|>22",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        }
+    ]
+}

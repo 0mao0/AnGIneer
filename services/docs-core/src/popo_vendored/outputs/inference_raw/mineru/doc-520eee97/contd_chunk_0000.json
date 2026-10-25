@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>164 142 181 333<|content|>Matter No. ... 1005-00002\n<|id|>3<|page|>1<|box|>190 140 207 462<|content|>Date of Memorandum: ... December 4, 2025\n<|id|>4<|page|>1<|box|>215 140 252 854<|content|>To: ... Jennifer Kwon, Responsible Partner, Capita...heodore Langston, Billing Partner, Capital Markets\n<|id|>5<|page|>1<|box|>260 140 277 584<|content|>From: ... Eric Johannsen, Working Associate, Capital Markets\n<|id|>6<|page|>1<|box|>286 140 304 614<|content|>Reviewed By: ... Natasha Forbes, Lead Associate, Capital Markets\n<|id|>7<|page|>1<|box|>311 140 348 854<|content|>Re: ... 750% Senior Secured Notes due 2030 by Nexford Industrial Holdings Inc\n<|id|>15<|page|>2<|box|>191 147 243 854<|content|>• Approximately $5,000,000 to pay estimated transa... trustee fees, and other customary costs); ... and\n<|id|>17<|page|>2<|box|>266 140 412 854<|content|>The offering memorandum supplement (the \"Offering ... to occur on the closing date of December 10, 2025\n<|id|>34<|page|>3<|box|>825 140 898 856<|content|>Sandra Okafor, Chief Financial Officer, confirmed ...iod ended September 30, 2025, Nexford reported LTM\n<|id|>35<|page|>4<|box|>89 140 162 854<|content|>Revenue of approximately $1,280,000,000 and LTM Ad...material deterioration in any key financial metric",
+    "raw_response": "<|src_id|>34<|tgt_id|>35",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        }
+    ]
+}

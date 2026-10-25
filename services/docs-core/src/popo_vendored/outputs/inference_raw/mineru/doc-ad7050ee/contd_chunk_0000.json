@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>220 694 238 854<|content|>Filed: ... June 10, 2022\n<|id|>4<|page|>1<|box|>247 364 263 633<|content|>Filing Entity: ... Lumos Analytics Inc\n<|id|>5<|page|>1<|box|>273 393 289 604<|content|>CIK Number: ... 0001923847\n<|id|>6<|page|>1<|box|>299 398 315 599<|content|>File Number: ... 333-264518\n<|id|>15<|page|>1<|box|>821 140 877 854<|content|>Lumos Analytics Inc. ... (the \"Company\" or the \"Re...\"Application\") to the United States Securities and\n<|id|>16<|page|>2<|box|>89 140 127 857<|content|>Exchange Commission (the \"Commission\") pursuant to...es Act\"), and in support thereof states as follows\n<|id|>35<|page|>4<|box|>241 174 334 854<|content|>(i) Testing-the-waters communications with qualifi...ly April 18, 2022, through April 24, 2022; ... and\n<|id|>37<|page|>4<|box|>421 140 494 856<|content|>No binding commitments or agreements to purchase a...securities were executed or delivered by any party\n<|id|>51<|page|>5<|box|>761 142 777 339<|content|>Name: ... Priya Subramanian\n<|id|>52<|page|>5<|box|>777 142 794 367<|content|>Title: ... Chief Executive Officer\n<|id|>53<|page|>5<|box|>795 142 811 294<|content|>Date: ... June 10, 2022\n<|id|>57<|page|>6<|box|>114 174 152 854<|content|>Naomi Feinberg General Counsel & Corporate Secretary Lumos Analytics Inc. ... (415) 729-3400\n<|id|>58<|page|>6<|box|>160 176 178 465<|content|>Email: ... com\n<|id|>60<|page|>6<|box|>203 174 239 854<|content|>Robert Adeyemi Calderwood & Harkness LLP 1 Market ... Francisco, CA 94105 Telephone: ... (415) 861-5200\n<|id|>61<|page|>6<|box|>248 176 263 503<|content|>Email: ... com\n<|id|>62<|page|>6<|box|>263 140 340 854<|content|>This Application for Withdrawal of Registration St...under the securities laws of any such jurisdiction",
+    "raw_response": "<|src_id|>15<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        }
+    ]
+}

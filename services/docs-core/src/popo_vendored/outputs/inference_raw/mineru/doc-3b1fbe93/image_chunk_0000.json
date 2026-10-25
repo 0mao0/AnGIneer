@@ -1,0 +1,50 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        37
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        11,
+        12,
+        14,
+        18,
+        23,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 187 166 810<|content|>CONSOLIDATED RESOLUTIONS OF THE BOARDS OF DIRECTOR\n<|id|>8<|type|>title<|page|>1<|box|>412 339 431 658<|content|>INTRODUCTORY RECITALS\n<|id|>9<|type|>title<|page|>1<|box|>458 142 474 465<|content|>Applicable to All Guarantor Subsidiaries\n<|id|>23<|type|>title<|page|>2<|box|>614 142 630 480<|content|>B. Identification of Guarantor Subsidiaries\n<|id|>25<|type|>table<|page|>2<|box|>698 143 902 852<|content|>None\n<|id|>26<|type|>table<|page|>3<|box|>88 143 500 852<|content|>None\n<|id|>28<|type|>title<|page|>3<|box|>580 140 598 455<|content|>C. Definition of Transaction Documents\n<|id|>40<|type|>title<|page|>4<|box|>792 455 811 540<|content|>PART I\n<|id|>41<|type|>title<|page|>4<|box|>837 140 854 839<|content|>RESOLUTIONS OF THE SOLE MEMBER OF DUNMORE GULF OPE\n<|id|>77<|type|>title<|page|>8<|box|>243 452 263 545<|content|>PART II\n<|id|>78<|type|>title<|page|>8<|box|>287 140 305 792<|content|>RESOLUTIONS OF THE SOLE MEMBER OF DUNMORE RENEWABL\n<|id|>104<|type|>title<|page|>11<|box|>244 447 263 550<|content|>PART III\n<|id|>105<|type|>title<|page|>11<|box|>287 140 324 810<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF DUNMORE M\n<|id|>111<|type|>title<|page|>12<|box|>89 140 107 563<|content|>NOW, THEREFORE, BE IT RESOLVED, as follows:\n<|id|>130<|type|>title<|page|>14<|box|>321 447 343 550<|content|>PART IV\n<|id|>131<|type|>title<|page|>14<|box|>367 140 404 818<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF DUNMORE N\n<|id|>176<|type|>title<|page|>18<|box|>603 452 625 545<|content|>PART V\n<|id|>177<|type|>title<|page|>18<|box|>648 142 666 816<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF DUNMORE S\n<|id|>213<|type|>title<|page|>23<|box|>89 447 112 550<|content|>PART VI\n<|id|>214<|type|>title<|page|>23<|box|>135 140 154 825<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF DUNMORE T\n<|id|>260<|type|>title<|page|>28<|box|>321 320 342 678<|content|>EXHIBITS AND ATTACHMENTS\n<|id|>261<|type|>title<|page|>29<|box|>90 140 107 534<|content|>Exhibit A — Form of Indenture (Reference Copy)\n<|id|>266<|type|>title<|page|>30<|box|>90 142 107 669<|content|>Exhibit B — Form of Collateral Agreement (U.S.) (R\n<|id|>270<|type|>title<|page|>31<|box|>90 140 107 697<|content|>Exhibit C — Form of Collateral Agreement (Nigeria)\n<|id|>274<|type|>title<|page|>32<|box|>90 140 108 704<|content|>Exhibit D — Form of Collateral Agreement (England)\n<|id|>278<|type|>title<|page|>33<|box|>90 140 107 697<|content|>Exhibit E — Form of Collateral Agreement (Senegal)\n<|id|>282<|type|>title<|page|>34<|box|>90 140 107 645<|content|>Exhibit F — Form of Intercreditor Agreement (Refer\n<|id|>286<|type|>title<|page|>35<|box|>90 142 107 421<|content|>Exhibit G — Incumbency Schedule\n<|id|>287<|type|>table<|page|>35<|box|>178 143 892 852<|content|>None\n<|id|>288<|type|>table<|page|>36<|box|>89 145 125 852<|content|>None\n<|id|>289<|type|>title<|page|>36<|box|>157 248 178 748<|content|>SECRETARY'S / OFFICER'S CERTIFICATION\n<|id|>290<|type|>title<|page|>36<|box|>195 160 231 836<|content|>CONSOLIDATED CERTIFICATION OF OFFICERS AND SECRETA\n<|id|>303<|type|>title<|page|>37<|box|>308 143 325 398<|content|>Dunmore Gulf Operations LLC:",
+    "raw_response": "<|src_id|>25<|tgt_id|>23\n<|src_id|>26<|tgt_id|>23\n<|src_id|>287<|tgt_id|>286\n<|src_id|>288<|tgt_id|>286",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 287,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 288,
+            "tgt_id": 286
+        }
+    ]
+}

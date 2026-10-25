@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Collection Account', '[●]', 'Quorum Receivables Funding 2022-1 LLC — Collection Account', 'Corporate Trust Office, 600 Travis Street, Suite 5800, Houston, TX 77002', 'New York', '[●]', 'Deposit of all Collections received on the receivables pool, including principal payments, interest payments, late fees, insurance']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', 'refund proceeds, and other amounts received in respect of the receivables']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 359,
+    "table2_idx": 360
+}

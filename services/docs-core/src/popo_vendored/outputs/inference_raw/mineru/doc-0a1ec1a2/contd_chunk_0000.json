@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        8,
+        14,
+        15,
+        20,
+        21,
+        22,
+        23,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>152 140 170 584<|content|>TO: ... Elaine Forsythe, Partner, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>179 140 196 648<|content|>FROM: ... Tiffany Rosenthal, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>205 140 223 346<|content|>DATE: ... September 5, 2022\n<|id|>5<|page|>1<|box|>231 140 267 854<|content|>RE: ... Preliminary Coverage Analysis — All-Risk P...rruption Policies — Verimark Hospitality Group Inc\n<|id|>6<|page|>1<|box|>275 140 292 326<|content|>MATTER: ... 1021-00003\n<|id|>7<|page|>1<|box|>300 140 319 599<|content|>CLIENT: ... VMRK)\n<|id|>13<|page|>1<|box|>719 181 753 854<|content|>• Verimark Harborview Hotel & Conference Center, F...s Beach, Florida (Lee County, Gulf Coast); ... and\n<|id|>15<|page|>1<|box|>777 140 905 856<|content|>The Company's insurance program is structured as a...ons, and exclusions of the Ironclad primary policy\n<|id|>64<|page|>8<|box|>348 174 366 805<|content|>(a) begins on the date of direct physical loss or damage caused by a covered peril; ... and\n<|id|>66<|page|>8<|box|>436 140 454 555<|content|>Several aspects of this definition warrant close a...aspects of this definition warrant close attention\n<|id|>111<|page|>14<|box|>801 140 875 854<|content|>The Pinnacle policy is written on a follow-form ba... set forth in Section IV above with respect to the\n<|id|>112<|page|>15<|box|>89 140 127 854<|content|>Ironclad primary policy applies with equal force t...yer, unless the Pinnacle policy provides otherwise\n<|id|>162<|page|>20<|box|>854 140 909 857<|content|>Florida law on this issue is not fully settled, an... issue, as the outcome will depend on the specific\n<|id|>163<|page|>21<|box|>90 140 126 854<|content|>ACC clause language in the Ironclad policy, the ap...cedents, and the factual circumstances of any loss\n<|id|>180<|page|>22<|box|>864 140 902 854<|content|>The follow-form structure of VHG's insurance progr...ire tower. ... Defenses and exclusions asserted by\n<|id|>181<|page|>23<|box|>90 140 145 854<|content|>Ironclad — including the flood exclusion, the ACC ... and conditions of the primary policy by reference\n<|id|>212<|page|>27<|box|>287 140 303 782<|content|>cc: ... Andrew Fitzpatrick, Working Associate, Cal... & Harkness LLP (via secure internal distribution)\n<|id|>213<|page|>27<|box|>311 140 369 854<|content|>This memorandum is a privileged and confidential a...prior written consent of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>111<|tgt_id|>112\n<|src_id|>162<|tgt_id|>163\n<|src_id|>180<|tgt_id|>181",
+    "parsed": [
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 181
+        }
+    ]
+}

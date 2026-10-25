@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        49,
+        95
+    ],
+    "pages": [
+        50,
+        51,
+        55,
+        57,
+        59,
+        79,
+        80,
+        87,
+        90,
+        95
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>260<|page|>50<|box|>109 34 211 489<|content|>17/ Subscriptions from savings-type investors tota...ember 1, 1955, and full payment by October 3, 1955\n<|id|>278<|page|>50<|box|>861 41 944 496<|content|>35/ Subscriptions from savings-type investors tota...ent. ... In addition to the amount allotted to the\n<|id|>279<|page|>50<|box|>109 550 166 969<|content|>public, \\$450 million of the bonds were allotted t... accounts. ... and full payment by April 23, 1959)\n<|id|>295<|page|>51<|box|>50 382 63 575<|content|>PUBLIC DEBT OPERATIONS\n<|id|>301<|page|>55<|box|>54 371 67 564<|content|>PUBLIC DEBT OPERATIONS\n<|id|>305<|page|>57<|box|>831 5 844 446<|content|>3/ Tax anticipation issue; ... for detail of offerings beginniog 1953, see\n<|id|>328<|page|>59<|box|>82 0 158 443<|content|>Series E and H are the only savings bonds now bein... F and G were sold from May 1, 1941, through April\n<|id|>329<|page|>59<|box|>82 514 158 959<|content|>30, 1952. ... Details of the principal changes in ... of May 1951, May 1952, May 1957, and October 1959\n<|id|>384<|page|>79<|box|>640 7 655 437<|content|>2/ Total of seigniorage on coins and on newly mined silver, beginning\n<|id|>386<|page|>80<|box|>75 27 315 485<|content|>Data relating to capital movements between the Uni...e United States are included in the published data\n<|id|>385<|page|>80<|box|>544 204 558 811<|content|>(In millions of dollars; ... negative figures indicate a net outflow of capital from the United States)\n<|id|>410<|page|>87<|box|>96 126 111 832<|content|>Table 1. ... - Short-Term Banking Liabilities To Foreigners as of August 31, 1960\n<|id|>414<|page|>90<|box|>79 68 113 952<|content|>Table 1. ... - Short-Term Liabilities to and Claim...Position at end of period in thousands of dollars)\n<|id|>418<|page|>95<|box|>1 0 1000 994<|content|>The quick brown fox jumps over the lazy dog. ... The quick brown fox jumps over the lazy dog",
+    "raw_response": "<|src_id|>278<|tgt_id|>279\n<|src_id|>328<|tgt_id|>329",
+    "parsed": [
+        {
+            "src_id": 278,
+            "tgt_id": 279
+        },
+        {
+            "src_id": 328,
+            "tgt_id": 329
+        }
+    ]
+}

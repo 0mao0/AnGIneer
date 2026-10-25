@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 147 143 849<|content|>CLOSING CERTIFICATE OF MERIDIAN SHORES HOSPITALITY\n<|id|>4<|page|>1<|box|>416 140 434 243<|content|>RECITALS\n<|id|>11<|page|>2<|box|>90 140 107 483<|content|>Section 1. Organization and Good Standing\n<|id|>14<|page|>2<|box|>458 140 474 336<|content|>Section 2. Authorization\n<|id|>18<|page|>3<|box|>90 140 107 478<|content|>Section 3. Representations and Warranties\n<|id|>25<|page|>4<|box|>150 140 167 444<|content|>Section 4. Compliance with Covenants\n<|id|>28<|page|>4<|box|>444 140 460 452<|content|>Section 5. No Material Adverse Change\n<|id|>30<|page|>4<|box|>676 140 693 465<|content|>Section 6. Delivery of Closing Documents\n<|id|>38<|page|>5<|box|>381 140 398 413<|content|>Section 7. Dismissal of Arbitration\n<|id|>45<|page|>6<|box|>90 140 107 447<|content|>Section 8. Receipt of Redemption Price\n<|id|>48<|page|>6<|box|>439 140 457 343<|content|>Section 9. Fees and Costs\n<|id|>50<|page|>6<|box|>652 140 669 325<|content|>Section 10. No Brokers\n<|id|>52<|page|>7<|box|>90 142 107 303<|content|>Section 11. Survival\n<|id|>54<|page|>7<|box|>270 236 287 758<|content|>[Remainder of Page Intentionally Left Blank; Signa\n<|id|>55<|page|>7<|box|>295 187 330 808<|content|>SIGNATURE PAGE TO CLOSING CERTIFICATE OF MERIDIAN\n<|id|>57<|page|>7<|box|>383 142 401 767<|content|>MERIDIAN SHORES HOSPITALITY LLC, a Delaware limite",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>2\n<|id|>38<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>-1\n<|id|>55<|level|>2\n<|id|>57<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        }
+    ]
+}

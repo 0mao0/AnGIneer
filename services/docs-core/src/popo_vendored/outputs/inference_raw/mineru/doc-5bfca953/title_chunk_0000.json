@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>337 140 354 364<|content|>I. Introduction and Purpose\n<|id|>11<|page|>1<|box|>848 142 864 388<|content|>II. Description of the Company\n<|id|>17<|page|>2<|box|>556 140 574 462<|content|>III. Description of the Proposed Offering\n<|id|>28<|page|>3<|box|>549 142 566 362<|content|>IV. Underwriting Syndicate\n<|id|>31<|page|>4<|box|>90 140 107 431<|content|>V. Basis for Confidential Submission\n<|id|>35<|page|>4<|box|>502 142 518 387<|content|>VI. Contents of the Submission\n<|id|>60<|page|>5<|box|>766 140 782 410<|content|>VII. Foreign Private Issuer Status\n<|id|>65<|page|>6<|box|>304 140 320 410<|content|>VIII. Concurrent Form F-6 Filing\n<|id|>67<|page|>6<|box|>500 142 515 346<|content|>IX. Advisors and Counsel\n<|id|>69<|page|>6<|box|>551 142 566 450<|content|>US Securities Counsel to the Company:\n<|id|>71<|page|>6<|box|>621 143 637 413<|content|>German Counsel to the Company:\n<|id|>73<|page|>6<|box|>691 143 705 401<|content|>US Counsel to the Underwriters:\n<|id|>75<|page|>6<|box|>743 142 758 441<|content|>German Counsel to the Underwriters:\n<|id|>77<|page|>6<|box|>813 142 829 323<|content|>Independent Auditors:\n<|id|>80<|page|>7<|box|>90 140 107 447<|content|>X. Request for Confidential Treatment\n<|id|>82<|page|>7<|box|>321 142 339 341<|content|>XI. Anticipated Timeline\n<|id|>85<|page|>7<|box|>704 140 720 578<|content|>XII. Key Contact Information for SEC Correspondenc\n<|id|>92<|page|>8<|box|>128 140 146 584<|content|>XIII. SEC CIK Number and EDGAR Filing Information\n<|id|>96<|page|>8<|box|>375 140 393 316<|content|>XIV. Representations\n<|id|>101<|page|>8<|box|>739 140 757 243<|content|>XV. Closing\n<|id|>113<|page|>9<|box|>462 143 478 238<|content|>Enclosures:",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>28<|level|>1\n<|id|>31<|level|>1\n<|id|>35<|level|>1\n<|id|>60<|level|>1\n<|id|>65<|level|>1\n<|id|>67<|level|>1\n<|id|>69<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>2\n<|id|>80<|level|>1\n<|id|>82<|level|>1\n<|id|>85<|level|>1\n<|id|>92<|level|>1\n<|id|>96<|level|>1\n<|id|>101<|level|>1\n<|id|>113<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        }
+    ]
+}

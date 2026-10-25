@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Adequate Protection', 'Blanket prohibition on', 'Prohibition limited to', 'Replace blanket']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'unsecured trustee seeking any adequate protection', 'seeking liens on collateral that prime or equal first lien security interests', 'prohibition with limited restriction; preserve right to seek other forms of adequate protection']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 261,
+    "table2_idx": 262
+}

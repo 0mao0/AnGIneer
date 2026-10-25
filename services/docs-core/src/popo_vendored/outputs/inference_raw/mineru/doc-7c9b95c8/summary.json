@@ -1,0 +1,179 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-w1tiwv_u\\input\\pdfs\\doc-7c9b95c8.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-w1tiwv_u\\enriched\\doc-7c9b95c8.json",
+    "contd_output": "<|src_id|>77<|tgt_id|>79\n<|src_id|>100<|tgt_id|>101\n<|src_id|>122<|tgt_id|>123",
+    "title_output": "<|id|>2<|level|>1\n<|id|>11<|level|>2\n<|id|>15<|level|>2\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>36<|level|>2\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>55<|level|>3\n<|id|>61<|level|>3\n<|id|>65<|level|>3\n<|id|>70<|level|>3\n<|id|>73<|level|>3\n<|id|>81<|level|>2\n<|id|>96<|level|>2\n<|id|>106<|level|>2\n<|id|>113<|level|>2\n<|id|>120<|level|>2\n<|id|>124<|level|>2\n<|id|>128<|level|>2\n<|id|>131<|level|>2\n<|id|>140<|level|>2\n<|id|>145<|level|>2\n<|id|>147<|level|>2\n<|id|>150<|level|>2\n<|id|>152<|level|>3\n<|id|>158<|level|>3",
+    "image_output": "<|src_id|>46<|tgt_id|>36\n<|src_id|>47<|tgt_id|>36\n<|src_id|>53<|tgt_id|>51\n<|src_id|>71<|tgt_id|>70\n<|src_id|>146<|tgt_id|>145\n<|src_id|>149<|tgt_id|>147",
+    "contd_label": [
+        {
+            "src_id": 77,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 46,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 147
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 46,
+            "table2_idx": 47,
+            "upper_row_ss": [
+                [
+                    "Argonaut-D",
+                    "Not commenced",
+                    "N/A",
+                    "N/A"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Argonaut-E",
+                    "Not commenced",
+                    "N/A",
+                    "N/A"
+                ]
+            ]
+        }
+    ]
+}

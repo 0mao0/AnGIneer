@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        18
+    ],
+    "pages": [
+        2,
+        3,
+        8,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>27<|page|>2<|box|>839 140 895 856<|content|>Notice may be given by mail, by electronic transmi...lder’s address as it appears on the records of the\n<|id|>28<|page|>3<|box|>89 140 125 854<|content|>Corporation. ... If given by electronic transmissi...tice shall be deemed given as provided in the DGCL\n<|id|>104<|page|>8<|box|>444 174 479 854<|content|>(v) recommend to the stockholders a dissolution of...rporation or a revocation of a dissolution; ... or\n<|id|>106<|page|>8<|box|>516 140 551 854<|content|>Section 3. ... Each committee shall keep regular m...t the same to the board of directors when required\n<|id|>237<|page|>17<|box|>483 174 518 854<|content|>(iii) any action asserting a claim arising pursuan...ificate of Incorporation, or these Bylaws; ... and\n<|id|>239<|page|>17<|box|>553 140 626 857<|content|>If the Court of Chancery of the State of Delaware ...ederal district court for the District of Delaware\n<|id|>255<|page|>18<|box|>621 142 638 263<|content|>Title: ... Secretary\n<|id|>256<|page|>18<|box|>638 142 655 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>27<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        }
+    ]
+}

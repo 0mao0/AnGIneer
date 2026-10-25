@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        10,
+        11,
+        12,
+        15,
+        20,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>218 370 234 627<|content|>3,000,000 Shares Common Stock\n<|id|>5<|page|>1<|box|>244 140 299 854<|content|>Quorum Insurance Holdings Corp. ... 01 per share (...us supplement and the accompanying base prospectus\n<|id|>16<|page|>1<|box|>854 142 869 764<|content|>Prepared by Calderwood & Harkness LLP C&H Matter No. ... 1025-00001 DRAFT — NOT FOR FILING\n<|id|>17<|page|>1<|box|>878 143 893 408<|content|>Right-click to update Table of Contents\n<|id|>32<|page|>3<|box|>864 140 902 856<|content|>For the fiscal year ended December 31, 2020, our c...cts mid-single-digit premium growth in fiscal year\n<|id|>33<|page|>4<|box|>89 140 164 854<|content|>2021, driven primarily by rate hardening in our sp... positions us well for sustained profitable growth\n<|id|>80<|page|>10<|box|>786 138 896 856<|content|>This prospectus supplement and the accompanying Ba...s,\" \"anticipates,\" \"intends,\" \"plans,\" \"believes,\"\n<|id|>81<|page|>11<|box|>89 140 143 856<|content|>\"estimates,\" \"projects,\" \"forecasts,\" \"seeks,\" \"ma...milar expressions and the negatives of those terms\n<|id|>94<|page|>11<|box|>688 183 703 527<|content|>• credit risk and investment portfolio risk; ... and\n<|id|>96<|page|>11<|box|>744 140 816 854<|content|>We caution you not to place undue reliance on thes...or otherwise, except as required by applicable law\n<|id|>98<|page|>11<|box|>866 140 902 854<|content|>We estimate that the net proceeds from this offeri...rcises its over-allotment option in full), in each\n<|id|>100<|page|>12<|box|>304 140 414 856<|content|>A $1. ... 00 per share would increase (decrease) t...erwriting discount and estimated offering expenses\n<|id|>124<|page|>15<|box|>90 181 143 854<|content|>• approximately 1,450,000 shares of common stock i... a weighted-average exercise price of $12. ... and\n<|id|>126<|page|>15<|box|>184 140 239 854<|content|>To the extent that outstanding options are exercis...lution to investors participating in this offering\n<|id|>166<|page|>20<|box|>255 181 325 854<|content|>• offer, pledge, sell, contract to sell, sell any ...xchangeable for shares of our common stock; ... or\n<|id|>168<|page|>20<|box|>385 140 402 622<|content|>in each case, without the prior written consent of...thout the prior written consent of the Underwriter\n<|id|>167<|page|>20<|box|>329 183 381 854<|content|>• enter into any swap or other agreement or transa...es of ownership of any shares of our common stock,\n<|id|>173<|page|>20<|box|>496 181 547 854<|content|>• the establishment of Rule 10b5-1 trading plans u...r any such plan during the Lock-Up Period; ... and\n<|id|>175<|page|>20<|box|>626 140 662 854<|content|>The Underwriter may, in its sole discretion and at...ortion of the shares subject to lock-up agreements\n<|id|>204<|page|>23<|box|>513 176 529 679<|content|>Attention: ... Okafor, General Counsel & Corporate Secretary\n<|id|>205<|page|>23<|box|>530 176 547 738<|content|>200 Constitution Plaza, Suite 3100 Hartford, CT 06103 Telephone: ... (860) [●]\n<|id|>206<|page|>23<|box|>556 140 628 854<|content|>You may also access these documents on the SEC's w...is not incorporated by reference herein or therein\n<|id|>214<|page|>23<|box|>825 142 840 576<|content|>Prepared by Calderwood & Harkness LLP C&H Matter No. ... 1025-00001\n<|id|>215<|page|>23<|box|>849 142 863 334<|content|>DRAFT — NOT FOR FILING\n<|id|>216<|page|>23<|box|>872 142 887 483<|content|>Originally drafted: ... May 25, 2021\n<|id|>217<|page|>24<|box|>89 140 151 854<|content|>This draft was never filed with the Securities and...ithout prior approval from the supervising partner",
+    "raw_response": "<|src_id|>32<|tgt_id|>33\n<|src_id|>80<|tgt_id|>81",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        }
+    ]
+}

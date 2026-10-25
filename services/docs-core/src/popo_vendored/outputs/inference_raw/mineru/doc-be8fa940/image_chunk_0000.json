@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 248 142 750<|content|>SECRETARY'S CERTIFICATE OF PENTERRA PHARMACEUTICAL\n<|id|>7<|type|>title<|page|>1<|box|>751 140 768 261<|content|>I. Incumbency\n<|id|>9<|type|>title<|page|>2<|box|>90 143 106 215<|content|>Officers:\n<|id|>10<|type|>table<|page|>2<|box|>113 143 205 852<|content|>None\n<|id|>12<|type|>title<|page|>2<|box|>303 143 316 225<|content|>Directors:\n<|id|>13<|type|>table<|page|>2<|box|>325 143 402 852<|content|>None\n<|id|>16<|type|>title<|page|>2<|box|>667 140 684 385<|content|>II. Certificate of Incorporation\n<|id|>20<|type|>title<|page|>3<|box|>250 140 265 235<|content|>III. Bylaws\n<|id|>23<|type|>title<|page|>3<|box|>523 140 542 267<|content|>IV. Resolutions\n<|id|>39<|type|>title<|page|>5<|box|>90 142 107 318<|content|>V. Additional Matters\n<|id|>45<|type|>title<|page|>5<|box|>645 140 662 375<|content|>VI. Governing Law; Reliance\n<|id|>57<|type|>title<|page|>6<|box|>321 142 338 390<|content|>COUNTER-CERTIFICATION\n<|id|>64<|type|>title<|page|>7<|box|>89 143 106 287<|content|>EXHIBIT INDEX",
+    "raw_response": "<|src_id|>10<|tgt_id|>9\n<|src_id|>13<|tgt_id|>12",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 12
+        }
+    ]
+}

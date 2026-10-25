@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 13,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['43', 'Buckhead', 'Sentinel', 'Security', '9/30/2024', '30 days', '9/1/2024', 'Assume', 'Monitor;']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Place', 'Guard Services Inc.', '(Elec.)', '', '', '', '', 'no action needed']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 378,
+    "table2_idx": 379
+}

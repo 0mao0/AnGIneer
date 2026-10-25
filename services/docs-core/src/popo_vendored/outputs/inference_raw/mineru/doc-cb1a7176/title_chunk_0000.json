@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>44 101 222 894<|content|>Exhibit B — Post-Reorganization Organizational Cha\n<|id|>1<|page|>1<|box|>251 55 451 925<|content|>• PLR Exhibit B to the private leter ruling reques\n<|id|>6<|page|>2<|box|>44 66 214 929<|content|>Post-Reorganization Platform — At a Glance\n<|id|>7<|page|>2<|box|>251 55 381 891<|content|>• Solara Consolidated Master Fund LP (Delaware) si\n<|id|>12<|page|>3<|box|>44 133 218 863<|content|>Central Vehicle — Solara Consolidated Master Fund\n<|id|>18<|page|>4<|box|>42 80 222 915<|content|>Feeder Vehicle — Solara International Feeder (Caym\n<|id|>19<|page|>4<|box|>251 54 377 933<|content|>• Cayman Islands exempted limited partnership, to\n<|id|>24<|page|>5<|box|>42 141 222 852<|content|>Feeder Vehicle — Solara Tax- Exempt Feeder (Cayman\n<|id|>25<|page|>5<|box|>251 55 377 931<|content|>• Cayman Islands exempted limited partnership, to\n<|id|>30<|page|>6<|box|>44 102 216 890<|content|>Co-Investing Delaware Funds — Fund IV LP and Fund\n<|id|>31<|page|>6<|box|>251 55 453 901<|content|>• Solara Digital Partners Fund IV LP (Delaware; EI\n<|id|>36<|page|>7<|box|>42 101 222 890<|content|>Investor Flow Map — Who Sits Where After the Reorg\n<|id|>37<|page|>7<|box|>251 54 451 861<|content|>• U.S. taxable investors → remain directly in Fund\n<|id|>42<|page|>8<|box|>44 88 214 906<|content|>Governance and General Partner Structure\n<|id|>43<|page|>8<|box|>251 55 377 884<|content|>• Solara Digital Infrastructure GP LLC — GP of Fun\n<|id|>48<|page|>9<|box|>42 116 220 876<|content|>Portfolio Company Holdings — Post-Reorganization V\n<|id|>54<|page|>10<|box|>44 88 214 905<|content|>Legend, Assumptions, and Cross- References\n<|id|>55<|page|>10<|box|>250 55 451 908<|content|>• Solid lines denote ownership/partnership interes",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>6<|level|>2\n<|id|>7<|level|>3\n<|id|>12<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>42<|level|>2\n<|id|>43<|level|>3\n<|id|>48<|level|>2\n<|id|>54<|level|>2\n<|id|>55<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        }
+    ]
+}

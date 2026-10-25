@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        10,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>150 464 167 532<|content|>Plaintiff,\n<|id|>3<|page|>1<|box|>200 230 219 767<|content|>HELIOS PRECISION DIAGNOSTICS, INC. ... , a Delaware corporation,\n<|id|>4<|page|>1<|box|>228 455 244 540<|content|>Defendant. ... Defendant\n<|id|>5<|page|>1<|box|>253 630 270 854<|content|>Case No. ... 25-cv-01847-JWL\n<|id|>6<|page|>1<|box|>279 200 316 854<|content|>Assigned to: ... Cabrera, United States Magistrate Judge\n<|id|>63<|page|>10<|box|>334 140 369 854<|content|>A. ... The 34 Documents Are Not Protected by Attor...Not Made for the Purpose of Obtaining Legal Advice\n<|id|>64<|page|>10<|box|>376 140 523 856<|content|>Helios's blanket assertion of attorney-client priv...se documents was to obtain or provide legal advice\n<|id|>121<|page|>19<|box|>872 671 888 854<|content|>Dated: ... January 30, 2026\n<|id|>122<|page|>20<|box|>89 142 107 318<|content|>Respectfully submitted,\n<|id|>125<|page|>20<|box|>157 140 191 852<|content|>Catherine Bloom (SBN 198472) Alan Ngo (SBN 246831)... Vassiliev (SBN 301587) Wendy Schultz (SBN 319204)\n<|id|>126<|page|>20<|box|>191 140 224 852<|content|>CALDERWOOD & HARKNESS LLP 555 Mission Street, Suit...co, California 94105 Telephone: ... (415) 773-5501\n<|id|>127<|page|>20<|box|>226 143 242 455<|content|>Email: ... com\n<|id|>128<|page|>20<|box|>243 142 260 529<|content|>Attorneys for Plaintiff Genome Dx Therapeutics Inc...Attorneys for Plaintiff Genome Dx Therapeutics Inc\n<|id|>131<|page|>20<|box|>441 174 479 854<|content|>Marcus Pellegrini Danielle Forrest Owen Chu RIDGEC... Massachusetts 02110 Telephone: ... (617) 849-6200\n<|id|>132<|page|>20<|box|>488 176 503 210<|content|>and\n<|id|>133<|page|>20<|box|>513 176 547 852<|content|>RIDGECREST DURNEVAL LLP 350 South Grand Avenue, Su...es, California 90071 Telephone: ... (213) 443-7700\n<|id|>134<|page|>20<|box|>556 174 574 607<|content|>Attorneys for Defendant Helios Precision Diagnosti...ys for Defendant Helios Precision Diagnostics, Inc",
+    "raw_response": "<|src_id|>131<|tgt_id|>132\n<|src_id|>132<|tgt_id|>133",
+    "parsed": [
+        {
+            "src_id": 131,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        }
+    ]
+}

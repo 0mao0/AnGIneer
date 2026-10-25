@@ -1,0 +1,47 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        50,
+        99
+    ],
+    "pages": [
+        50,
+        51,
+        56,
+        57,
+        64,
+        66,
+        68,
+        78,
+        98
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>225<|page|>50<|box|>65 236 90 752<|content|>Table PDO-4. ... - Offerings of Public Marketable Securities Other than\n<|id|>226<|page|>50<|box|>87 297 109 693<|content|>Regular Weekly Treasury Bills - (Continued)\n<|id|>228<|page|>51<|box|>473 0 502 467<|content|>foreign central banks and foreign states, Governme... and \\$149 million for the notes of Series A-1974,\n<|id|>229<|page|>51<|box|>322 4 339 451<|content|>accounts and the Federal Reserve banks, totaling \\...l where, as provided in the offering circular, the\n<|id|>230<|page|>51<|box|>496 0 522 456<|content|>of Series A-1969 and \\$149 million for the notes o...the required certification of ownership of securi-\n<|id|>240<|page|>51<|box|>267 8 296 454<|content|>8/ Consists of allotments paid for with Treasury b...tates, political subdivisions or instrumentalities\n<|id|>241<|page|>51<|box|>292 9 323 451<|content|>thereof, public pension and retirement and other p...al banks and foreign states, Government investment\n<|id|>242<|page|>51<|box|>339 0 385 449<|content|>subscriber made the required certification of owne...tted 35 percent but in no case less than \\$100,000\n<|id|>245<|page|>51<|box|>447 1 476 457<|content|>12/ Subscriptions from States, political subdivisi...tions in which the United States holds membership,\n<|id|>246<|page|>51<|box|>522 0 559 447<|content|>ties maturing November 15, 1967. ... subscriptions for \\$100,000\n<|id|>247<|page|>51<|box|>99 522 117 943<|content|>or less were allotted in full, and subscriptions f...an \\$100,000 were allotted not less than \\$100,000\n<|id|>253<|page|>51<|box|>223 494 251 927<|content|>18/ As provided in the offering circular subscript...lic pension and retirement and other public funds,\n<|id|>254<|page|>51<|box|>269 492 323 938<|content|>scriber certified that it owned securities maturin...subscriptions from the public was \\$23,557 million\n<|id|>255<|page|>51<|box|>322 492 349 948<|content|>19/ Includes \\$5,336 million of the 5-5/8% notes a...ion of the 6-3/8% notes and \\$2,833 million of the\n<|id|>264<|page|>51<|box|>533 497 542 598<|content|>p Preliminary. ... p Preliminary\n<|id|>273<|page|>56<|box|>66 189 105 808<|content|>Table PDO-6. ... - Unmatured Marketable Securities...er than Advance Refunding Operations - (Continued)\n<|id|>276<|page|>57<|box|>549 701 562 804<|content|>p Preliminary. ... p Preliminary\n<|id|>293<|page|>64<|box|>92 426 105 587<|content|>(Payable in U. ... Dollars)\n<|id|>294<|page|>64<|box|>65 260 82 759<|content|>Issued to Official Institutions of Foreign Countries - (Continued)\n<|id|>299<|page|>66<|box|>53 289 73 719<|content|>Table PDO-9. ... - Foreign Series Securities (Nonmarketable)\n<|id|>300<|page|>66<|box|>71 248 91 758<|content|>Issued to Official Institutions of Foreign Countries - (Continued)\n<|id|>305<|page|>68<|box|>60 270 78 708<|content|>Table PDO-9. ... - Foreign Series Securities (Nonmarketable)\n<|id|>306<|page|>68<|box|>76 241 96 751<|content|>Issued to Official Institutions of Foreign Countries - (Continued)\n<|id|>329<|page|>78<|box|>55 267 73 783<|content|>Table PDO-10. ... - Foreign Currency Series Securities (Nonmarketable)\n<|id|>330<|page|>78<|box|>73 319 91 712<|content|>Issued to Official Institutions of Foreign Countries\n<|id|>380<|page|>98<|box|>246 39 317 471<|content|>Table IFS-2 brings together the various statistica...ires that the \"holdings of dollars\" of the Fund be\n<|id|>381<|page|>98<|box|>100 558 125 981<|content|>excluded from the data on liabilities to foreigner...s to foreigners, in order to avoid double counting",
+    "raw_response": "<|src_id|>225<|tgt_id|>226\n<|src_id|>228<|tgt_id|>229\n<|src_id|>240<|tgt_id|>241\n<|src_id|>246<|tgt_id|>247\n<|src_id|>253<|tgt_id|>254\n<|src_id|>380<|tgt_id|>381",
+    "parsed": [
+        {
+            "src_id": 225,
+            "tgt_id": 226
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 229
+        },
+        {
+            "src_id": 240,
+            "tgt_id": 241
+        },
+        {
+            "src_id": 246,
+            "tgt_id": 247
+        },
+        {
+            "src_id": 253,
+            "tgt_id": 254
+        },
+        {
+            "src_id": 380,
+            "tgt_id": 381
+        }
+    ]
+}

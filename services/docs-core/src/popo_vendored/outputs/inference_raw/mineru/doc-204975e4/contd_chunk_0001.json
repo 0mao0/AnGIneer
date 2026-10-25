@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        50,
+        103
+    ],
+    "pages": [
+        50,
+        51,
+        56,
+        62,
+        78,
+        83,
+        98,
+        102,
+        103
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>209<|page|>50<|box|>496 104 508 445<|content|>22/ Yields accepted ranged from 7. ... 64%\n<|id|>317<|page|>51<|box|>562 519 572 724<|content|>* Less than \\$500,000. ... p Preliminary\n<|id|>283<|page|>51<|box|>456 98 472 475<|content|>108/ Yields accepted ranged from 9. ... 947)\n<|id|>326<|page|>56<|box|>378 90 390 423<|content|>3/ Treasury Notes, 7-3/8% Series C-1981 and 7-3/8% Series E-1981\n<|id|>327<|page|>56<|box|>371 110 379 200<|content|>Issued for cash. ... Issued for cash\n<|id|>346<|page|>62<|box|>105 417 118 589<|content|>Footnotes to Table PDO-7\n<|id|>347<|page|>62<|box|>168 104 179 298<|content|>Source: ... Bureau of the Public Debt\n<|id|>452<|page|>78<|box|>99 138 189 452<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>453<|page|>78<|box|>99 518 190 832<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1977\n<|id|>475<|page|>83<|box|>799 518 814 902<|content|>1/ Includes a nonmarketable Federal Reserve specia...de non-interest-bearing notes issued to the Inter-\n<|id|>476<|page|>83<|box|>814 519 824 848<|content|>national Monetary Fund to reflect the unified budg...onetary Fund to reflect the unified budget-concept\n<|id|>546<|page|>98<|box|>646 518 685 892<|content|>11/ Data on the second line differ from those on t... are increased in value to reflect market exchange\n<|id|>547<|page|>98<|box|>684 519 708 902<|content|>rates as of December 31, 1971, as follows: ... Tre...olumn 6, \\$103 million and column 12, \\$18 million\n<|id|>582<|page|>102<|box|>682 193 702 454<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>583<|page|>102<|box|>706 192 733 443<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>587<|page|>102<|box|>521 602 541 845<|content|>\\Delta f c_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>588<|page|>102<|box|>545 602 571 839<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>590<|page|>102<|box|>590 532 600 807<|content|>(EQ3) \\mathbf{E} = [(E_{\\mathrm{m}} * \\mathrm{m / ...}) * (-1)] + [E_{\\mathrm{X}} * \\mathrm{x / m + x}]\n<|id|>591<|page|>102<|box|>605 553 631 850<|content|>Where: ... and\n<|id|>592<|page|>102<|box|>636 601 660 857<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>606<|page|>103<|box|>884 103 916 478<|content|>A number of changes in geographical classification..... Several countries formerly included in \"Eastern\n<|id|>607<|page|>103<|box|>188 516 298 895<|content|>Europe\" and in \"Other Latin American Republics\" ar...justed in accordance with the revised country stub",
+    "raw_response": "<|src_id|>452<|tgt_id|>453\n<|src_id|>475<|tgt_id|>476\n<|src_id|>546<|tgt_id|>547\n<|src_id|>606<|tgt_id|>607",
+    "parsed": [
+        {
+            "src_id": 452,
+            "tgt_id": 453
+        },
+        {
+            "src_id": 475,
+            "tgt_id": 476
+        },
+        {
+            "src_id": 546,
+            "tgt_id": 547
+        },
+        {
+            "src_id": 606,
+            "tgt_id": 607
+        }
+    ]
+}

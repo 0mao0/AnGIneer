@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>183 151 217 844<|content|>Action by Written Consent Pursuant to Section 228 of the Delaware General Corporation Law\n<|id|>3<|page|>1<|box|>310 702 327 854<|content|>Dated as of: ... ___, 20\n<|id|>8<|page|>1<|box|>766 140 893 857<|content|>C. ... The terms and conditions of the Merger, inc...he Company, are more fully described in the Merger\n<|id|>9<|page|>2<|box|>90 140 126 854<|content|>Agreement, a copy of which is attached hereto as E...een made available to the undersigned stockholders\n<|id|>40<|page|>5<|box|>474 140 676 856<|content|>The undersigned acknowledges that the undersigned ...aisal of such shares under Section 262 of the DGCL\n<|id|>41<|page|>5<|box|>684 140 739 854<|content|>Nothing in this Written Consent shall be deemed to...s in accordance with Section 262(d)(2) of the DGCL\n<|id|>59<|page|>8<|box|>262 142 277 527<|content|>Percentage of Outstanding Shares Represented: ... __%\n<|id|>65<|page|>8<|box|>396 143 411 684<|content|>Aggregate shares represented by the above: ... approximately [Insert]% of outstanding shares\n<|id|>61<|page|>8<|box|>330 176 345 594<|content|>1. ... [Insert Name of Stockholder 1] — [Insert]% of outstanding shares\n<|id|>62<|page|>8<|box|>347 176 361 643<|content|>2. ... [Insert Name of Stockholder 2 (Entity)] — [Insert]% of outstanding shares\n<|id|>63<|page|>8<|box|>364 176 378 643<|content|>3. ... [Insert Name of Stockholder 3 (Entity)] — [Insert]% of outstanding shares\n<|id|>64<|page|>8<|box|>380 176 393 607<|content|>4. ... [Additional stockholders as necessary to achieve majority threshold]\n<|id|>73<|page|>9<|box|>402 140 417 694<|content|>Form prepared by Calderwood & Harkness LLP for use by Whitfield, Prager & Loomis LLP\n<|id|>74<|page|>9<|box|>424 140 440 640<|content|>Engagement/Matter Reference: ... [Insert engagement or matter number, if applicable]",
+    "raw_response": "<|src_id|>8<|tgt_id|>9",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        }
+    ]
+}

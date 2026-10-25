@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 165 118 831<|content|>UPJOHN WARNING / CORPORATE MIRANDA ADMONITION\n<|id|>1<|type|>title<|page|>1<|box|>137 326 156 669<|content|>WITNESS INTERVIEW SCRIPT\n<|id|>8<|type|>title<|page|>1<|box|>463 142 479 452<|content|>INSTRUCTIONS TO INTERVIEWER\n<|id|>13<|type|>title<|page|>2<|box|>89 274 106 723<|content|>INTERVIEW SCRIPT — READ ALOUD TO WITNESS\n<|id|>14<|type|>title<|page|>2<|box|>121 140 138 771<|content|>SECTION 1: INTRODUCTION OF COUNSEL AND PURPOSE OF\n<|id|>20<|type|>title<|page|>2<|box|>535 140 551 553<|content|>SECTION 2: IDENTIFICATION OF THE CLIENT\n<|id|>28<|type|>title<|page|>3<|box|>300 140 318 813<|content|>SECTION 3: ATTORNEY-CLIENT PRIVILEGE — OWNERSHIP A\n<|id|>45<|type|>title<|page|>4<|box|>196 174 214 658<|content|>[Pause and wait for the witness's response. Record\n<|id|>46<|type|>title<|page|>4<|box|>227 140 244 633<|content|>SECTION 4: VOLUNTARY NATURE OF THE INTERVIEW\n<|id|>49<|type|>title<|page|>4<|box|>340 176 375 854<|content|>If the witness is a current employee of Aurelius P\n<|id|>51<|type|>title<|page|>4<|box|>556 174 590 854<|content|>If the witness is a former employee or third-party\n<|id|>53<|type|>title<|page|>4<|box|>704 140 720 400<|content|>SECTION 5: TRUTHFULNESS\n<|id|>58<|type|>title<|page|>5<|box|>256 140 273 607<|content|>SECTION 6: CONFIDENTIALITY OF THE INTERVIEW\n<|id|>71<|type|>title<|page|>6<|box|>89 140 106 542<|content|>SECTION 7: NON-RETALIATION ASSURANCE\n<|id|>79<|type|>title<|page|>6<|box|>633 140 651 831<|content|>SECTION 8: ACKNOWLEDGMENT AND CONFIRMATION OF UNDE\n<|id|>98<|type|>title<|page|>7<|box|>638 140 654 465<|content|>SECTION 9: INTERVIEW LOGISTICS\n<|id|>107<|type|>title<|page|>8<|box|>420 228 438 767<|content|>[END OF ADMONITION — BEGIN SUBSTANTIVE INTERVIEW]\n<|id|>108<|type|>title<|page|>8<|box|>462 254 479 741<|content|>INTERVIEW RECORD — ADMINISTRATIVE NOTATION\n<|id|>121<|type|>table<|page|>8<|box|>816 143 902 852<|content|>None\n<|id|>123<|type|>table<|page|>9<|box|>89 143 273 852<|content|>None\n<|id|>124<|type|>title<|page|>9<|box|>306 143 324 535<|content|>If the witness declined to proceed, note the reaso\n<|id|>126<|type|>title<|page|>9<|box|>738 143 755 261<|content|>Completed by:",
+    "raw_response": "<|src_id|>121<|tgt_id|>108\n<|src_id|>123<|tgt_id|>108",
+    "parsed": [
+        {
+            "src_id": 121,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 108
+        }
+    ]
+}

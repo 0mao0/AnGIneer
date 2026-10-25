@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        77
+    ],
+    "pages": [
+        3,
+        7,
+        8,
+        9,
+        25,
+        26,
+        27,
+        28,
+        34,
+        37,
+        38,
+        44,
+        76,
+        77
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>3<|box|>583 624 708 873<|content|>LIBRARY ROOM 5030 JUN 26 1972 TREASURY DEPARTMENT\n<|id|>2<|page|>3<|box|>792 742 835 875<|content|>LIBRARY ROOM 5020\n<|id|>3<|page|>3<|box|>840 735 868 870<|content|>AUG 24 1971\n<|id|>4<|page|>3<|box|>872 676 906 925<|content|>TREASURY DEPARTMENT\n<|id|>6<|page|>7<|box|>141 350 163 448<|content|>JUL 21, 20\n<|id|>7<|page|>7<|box|>167 304 186 382<|content|>r\n<|id|>9<|page|>7<|box|>281 652 329 787<|content|>LIBRARY room : ... www\n<|id|>10<|page|>7<|box|>330 614 403 856<|content|>JUN 26 1972 TREASURY DEPARTMENT\n<|id|>11<|page|>7<|box|>438 640 547 889<|content|>LIBRARY ROOM 5030 AUG 24 1971 TREASURY DEPARTMENT\n<|id|>13<|page|>7<|box|>908 90 939 850<|content|>UNITED STATES TREASURY DEPARTMENT\n<|id|>14<|page|>8<|box|>452 330 510 736<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents. ... Single copy price varies\n<|id|>16<|page|>9<|box|>220 41 945 898<|content|>Treasury financing operations. ... 153\n<|id|>17<|page|>9<|box|>977 41 997 670<|content|>Note: ... Details of figures may not add to totals because of rounding\n<|id|>82<|page|>25<|box|>440 13 518 472<|content|>Source: ... (This data is on the basis of Reports ...the agencies prior to reports submitted for Budget\n<|id|>83<|page|>25<|box|>442 511 464 902<|content|>presentation and therefore may differ somewhat from the Budget document. ... )\n<|id|>85<|page|>26<|box|>454 100 552 113<|content|>(In millions of dollars)\n<|id|>87<|page|>27<|box|>263 951 986 986<|content|>✓ Includes \\$1,013 million for Post Office Departm...r the period April 3 through May 29. ... T Revised\n<|id|>94<|page|>28<|box|>234 18 353 482<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>95<|page|>28<|box|>131 512 195 974<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>115<|page|>34<|box|>106 423 118 574<|content|>(In millions of dollars)\n<|id|>117<|page|>34<|box|>605 407 620 596<|content|>Footnotes to Table FD-2\n<|id|>123<|page|>37<|box|>468 6 509 465<|content|>Note: ... For a summary of legislation on debt limitation under the Second Liberty\n<|id|>124<|page|>37<|box|>480 509 491 834<|content|>1/ District of Columbia Armory Board Stadium Bonds...1/ District of Columbia Armory Board Stadium Bonds\n<|id|>127<|page|>38<|box|>68 284 85 748<|content|>Table FD-9. ... - Status and Application of Statutory Limitation\n<|id|>128<|page|>38<|box|>107 51 200 500<|content|>The Second Liberty Bond Act (31 U. ... Public Law ...arily in- creased by \\$12 billion to \\$377 billion\n<|id|>141<|page|>44<|box|>589 408 605 611<|content|>Footnotes to Table PDO-2\n<|id|>142<|page|>44<|box|>662 36 857 499<|content|>Source: ... 350\n<|id|>215<|page|>76<|box|>102 395 115 633<|content|>(Par values 1/ in billions of dollars)\n<|id|>217<|page|>77<|box|>111 0 302 455<|content|>The monthly Treasury Survey of Ownership covers se...ished for banks and insurance companies in the May\n<|id|>218<|page|>77<|box|>114 524 172 974<|content|>1941 Treasury Bulletin, for corporations and savin...nd local governments in the February 1962 Bulletin",
+    "raw_response": "<|src_id|>82<|tgt_id|>83\n<|src_id|>94<|tgt_id|>95\n<|src_id|>123<|tgt_id|>124\n<|src_id|>217<|tgt_id|>218",
+    "parsed": [
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 218
+        }
+    ]
+}

@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 104 846<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>1<|page|>1<|box|>112 189 167 856<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1201 Th\n<|id|>7<|page|>1<|box|>356 140 373 454<|content|>I. Purpose and Identification of Insured\n<|id|>10<|page|>1<|box|>669 140 686 459<|content|>II. Description of the Underlying Matter\n<|id|>11<|page|>1<|box|>699 140 717 415<|content|>A. The Civil Investigative Demand\n<|id|>15<|page|>2<|box|>311 140 329 521<|content|>B. Nature of the Allegations Under Investigation\n<|id|>19<|page|>2<|box|>801 140 819 506<|content|>C. Preliminary Scope and Estimated Exposure\n<|id|>23<|page|>3<|box|>393 140 410 405<|content|>D. Potential Exposure Categories\n<|id|>30<|page|>4<|box|>90 140 107 478<|content|>III. Prior Regulatory Counsel Involvement\n<|id|>33<|page|>4<|box|>402 142 419 558<|content|>IV. Identification of the Policy and Coverage Requ\n<|id|>34<|page|>4<|box|>434 142 450 326<|content|>A. Policy Identification\n<|id|>38<|page|>4<|box|>693 142 710 465<|content|>B. Coverage Requested for Defense Costs\n<|id|>47<|page|>5<|box|>314 140 330 602<|content|>C. Coverage for Restitution and Other Potential Ex\n<|id|>50<|page|>5<|box|>585 140 603 480<|content|>V. Engagement Team and Point of Contact\n<|id|>52<|page|>5<|box|>656 142 672 281<|content|>Outside Counsel:\n<|id|>64<|page|>6<|box|>265 140 282 413<|content|>VI. Reservation of Rights by CRH\n<|id|>71<|page|>6<|box|>719 140 736 477<|content|>VII. Request for Prompt Acknowledgment\n<|id|>79<|page|>7<|box|>348 142 364 277<|content|>VIII. Enclosures\n<|id|>84<|page|>7<|box|>571 142 589 236<|content|>IX. Closing\n<|id|>87<|page|>7<|box|>703 176 719 480<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>7<|level|>1\n<|id|>10<|level|>1\n<|id|>11<|level|>2\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>23<|level|>2\n<|id|>30<|level|>1\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>47<|level|>2\n<|id|>50<|level|>1\n<|id|>52<|level|>2\n<|id|>64<|level|>1\n<|id|>71<|level|>1\n<|id|>79<|level|>1\n<|id|>84<|level|>1\n<|id|>87<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        }
+    ]
+}

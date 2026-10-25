@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>152 143 169 537<|content|>Attorneys for Plaintiff MARGUERITE D. FONSECA\n<|id|>3<|type|>title<|page|>1<|box|>248 271 265 725<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA\n<|id|>4<|type|>table<|page|>1<|box|>299 143 458 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>492 142 508 725<|content|>TO THE COURT, ALL PARTIES, AND THEIR ATTORNEYS OF\n<|id|>11<|type|>title<|page|>2<|box|>146 328 162 668<|content|>[SIGNATURES ON FOLLOWING PAGE]\n<|id|>20<|type|>title<|page|>2<|box|>343 462 359 535<|content|>ORDER\n<|id|>22<|type|>title<|page|>2<|box|>412 140 430 447<|content|>IT IS HEREBY ORDERED as follows:",
+    "raw_response": "<|src_id|>4<|tgt_id|>3",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        }
+    ]
+}

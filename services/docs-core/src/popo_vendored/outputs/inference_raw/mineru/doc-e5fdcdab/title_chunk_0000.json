@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 238 108 759<|content|>IN THE COURT OF CHANCERY OF THE STATE OF DELAWARE\n<|id|>2<|page|>1<|box|>393 147 429 848<|content|>DECLARATION OF THERESA YUN-PARK IN SUPPORT OF PLAI\n<|id|>5<|page|>1<|box|>704 140 720 486<|content|>I. BACKGROUND OF THE DECLARANT\n<|id|>11<|page|>2<|box|>371 140 388 612<|content|>II. OVERVIEW OF CASCADE RETAIL HOLDINGS INC.\n<|id|>18<|page|>3<|box|>314 142 330 823<|content|>III. THE DEPARTING EMPLOYEES AND THEIR EMPLOYMENT\n<|id|>19<|page|>3<|box|>345 143 362 281<|content|>A. Priya Rathore\n<|id|>25<|page|>4<|box|>361 142 378 653<|content|>B. The Other Seven Departing Employees (the \"Ratho\n<|id|>37<|page|>5<|box|>448 140 484 852<|content|>IV. PROJECT RIDGELINE AND ACCESS TO CONFIDENTIAL A\n<|id|>38<|page|>5<|box|>497 140 513 416<|content|>A. Description of Project Ridgeline\n<|id|>42<|page|>6<|box|>343 140 359 607<|content|>B. The Rathore Group's Access to Confidential Info\n<|id|>51<|page|>7<|box|>609 140 627 483<|content|>V. THE COORDINATED RESIGNATION\n<|id|>58<|page|>8<|box|>665 140 683 748<|content|>VI. VERDANA COMMERCE GROUP, INC. AS A DIRECT COMPE\n<|id|>64<|page|>9<|box|>537 140 573 787<|content|>VII. VERDANA'S RECRUITMENT OF THE RATHORE GROUP AN\n<|id|>72<|page|>10<|box|>628 140 646 710<|content|>VIII. COMPETITIVE HARM AND IRREPARABLE INJURY TO C\n<|id|>83<|page|>12<|box|>204 140 220 738<|content|>IX. CRH'S PROTECTIVE MEASURES AND ENFORCEMENT EFFO\n<|id|>99<|page|>13<|box|>393 140 411 366<|content|>X. DATA EXFILTRATION\n<|id|>109<|page|>14<|box|>388 140 405 547<|content|>XI. CONCLUSION AND REQUEST FOR RELIEF\n<|id|>116<|page|>15<|box|>184 434 200 563<|content|>EXHIBIT LIST\n<|id|>119<|page|>15<|box|>568 375 584 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>25<|level|>3\n<|id|>37<|level|>2\n<|id|>38<|level|>3\n<|id|>42<|level|>3\n<|id|>51<|level|>2\n<|id|>58<|level|>2\n<|id|>64<|level|>2\n<|id|>72<|level|>2\n<|id|>83<|level|>2\n<|id|>99<|level|>2\n<|id|>109<|level|>2\n<|id|>116<|level|>2\n<|id|>119<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        }
+    ]
+}

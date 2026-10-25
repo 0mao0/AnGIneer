@@ -1,0 +1,70 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 143 148 844<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV\n<|id|>4<|type|>title<|page|>1<|box|>246 151 291 844<|content|>MANDATORY DOCUMENT PRESERVATION AND LITIGATION HOL\n<|id|>10<|type|>title<|page|>1<|box|>598 140 614 459<|content|>Section 1: Purpose and Legal Obligation\n<|id|>18<|type|>title<|page|>2<|box|>821 140 838 483<|content|>Section 2: Scope of Preservation Obligation\n<|id|>20<|type|>title<|page|>3<|box|>176 140 194 303<|content|>2.1 Temporal Scope\n<|id|>24<|type|>title<|page|>3<|box|>520 140 537 344<|content|>2.2 Subject-Matter Scope\n<|id|>53<|type|>title<|page|>7<|box|>90 140 107 442<|content|>Section 3: Types of Materials Covered\n<|id|>68<|type|>title<|page|>8<|box|>186 140 204 578<|content|>Section 4: Suspension of Routine Document Destruct\n<|id|>78<|type|>title<|page|>9<|box|>148 140 167 395<|content|>Section 5: Identified Custodians\n<|id|>80<|type|>table<|page|>9<|box|>282 143 404 852<|content|>None\n<|id|>81<|type|>title<|page|>9<|box|>443 140 459 388<|content|>5.2 Additional BSU Custodians\n<|id|>87<|type|>table<|page|>9<|box|>804 143 907 852<|content|>None\n<|id|>88<|type|>table<|page|>10<|box|>88 143 109 852<|content|>None\n<|id|>93<|type|>title<|page|>10<|box|>348 140 364 513<|content|>5.4 Note Regarding Audit Committee Members\n<|id|>99<|type|>title<|page|>10<|box|>607 140 625 573<|content|>Section 6: Custodian Obligations and Acknowledgmen\n<|id|>112<|type|>title<|page|>11<|box|>782 140 800 346<|content|>Section 7: Confidentiality\n<|id|>127<|type|>title<|page|>12<|box|>672 140 689 491<|content|>Section 8: Consequences of Non-Compliance\n<|id|>134<|type|>title<|page|>13<|box|>409 140 426 362<|content|>Section 9: Duration of Hold\n<|id|>140<|type|>title<|page|>14<|box|>90 140 107 506<|content|>Section 10: Contact Information for Questions\n<|id|>149<|type|>title<|page|>15<|box|>136 246 152 750<|content|>CUSTODIAN ACKNOWLEDGMENT AND CERTIFICATION\n<|id|>150<|type|>title<|page|>15<|box|>176 259 194 736<|content|>DOCUMENT PRESERVATION AND LITIGATION HOLD\n<|id|>151<|type|>title<|page|>15<|box|>203 406 219 591<|content|>Matter No. 1025-00010\n<|id|>165<|type|>title<|page|>16<|box|>198 143 215 218<|content|>Signature\n<|id|>166<|type|>title<|page|>16<|box|>250 143 266 248<|content|>Printed Name\n<|id|>167<|type|>title<|page|>16<|box|>299 143 315 184<|content|>Date\n<|id|>169<|type|>title<|page|>17<|box|>90 421 109 576<|content|>SCHEDULE A\n<|id|>170<|type|>title<|page|>17<|box|>136 419 152 578<|content|>CUSTODIAN LIST\n<|id|>171<|type|>title<|page|>17<|box|>176 261 194 736<|content|>DOCUMENT PRESERVATION AND LITIGATION HOLD\n<|id|>172<|type|>title<|page|>17<|box|>218 408 234 589<|content|>Matter No. 1025-00010\n<|id|>175<|type|>table<|page|>17<|box|>345 143 527 852<|content|>None\n<|id|>176<|type|>table<|page|>17<|box|>587 143 753 852<|content|>None\n<|id|>177<|type|>table<|page|>17<|box|>814 143 893 852<|content|>None\n<|id|>178<|type|>table<|page|>18<|box|>88 143 375 852<|content|>None\n<|id|>179<|type|>table<|page|>18<|box|>434 143 676 852<|content|>None\n<|id|>180<|type|>title<|page|>18<|box|>715 143 732 661<|content|>Audit Committee Members (Non-Custodian Preservatio\n<|id|>182<|type|>table<|page|>18<|box|>799 143 904 852<|content|>None\n<|id|>183<|type|>table<|page|>19<|box|>89 145 109 852<|content|>None",
+    "raw_response": "<|src_id|>80<|tgt_id|>78\n<|src_id|>87<|tgt_id|>81\n<|src_id|>88<|tgt_id|>81\n<|src_id|>175<|tgt_id|>170\n<|src_id|>176<|tgt_id|>170\n<|src_id|>177<|tgt_id|>170\n<|src_id|>178<|tgt_id|>170\n<|src_id|>179<|tgt_id|>170\n<|src_id|>182<|tgt_id|>180\n<|src_id|>183<|tgt_id|>180",
+    "parsed": [
+        {
+            "src_id": 80,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 180
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 180
+        }
+    ]
+}

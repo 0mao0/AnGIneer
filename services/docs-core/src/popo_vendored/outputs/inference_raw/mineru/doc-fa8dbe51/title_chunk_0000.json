@@ -1,0 +1,150 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 230 142 767<|content|>NON-BINDING TERM SHEET — OEM RESELLER ARRANGEMENT\n<|id|>4<|page|>1<|box|>236 424 253 573<|content|>CONFIDENTIAL\n<|id|>6<|page|>1<|box|>359 140 376 284<|content|>Section 1: Parties\n<|id|>12<|page|>1<|box|>767 140 784 401<|content|>Section 2: Transaction Overview\n<|id|>16<|page|>2<|box|>267 140 284 390<|content|>Section 3: Licensed Technology\n<|id|>22<|page|>2<|box|>694 140 710 303<|content|>Section 4: Territory\n<|id|>25<|page|>3<|box|>90 140 107 315<|content|>Section 5: Exclusivity\n<|id|>29<|page|>3<|box|>465 140 482 377<|content|>Section 6: Term and Renewal\n<|id|>34<|page|>4<|box|>148 140 167 357<|content|>Section 7: Financial Terms\n<|id|>35<|page|>4<|box|>180 140 196 480<|content|>7.1 Minimum Annual Commitment (MAC)\n<|id|>37<|page|>4<|box|>325 140 344 334<|content|>7.2 Upfront License Fee\n<|id|>40<|page|>4<|box|>516 142 534 316<|content|>7.3 Hardware Pricing\n<|id|>44<|page|>4<|box|>844 142 862 310<|content|>7.4 Software Royalty\n<|id|>47<|page|>5<|box|>238 140 256 366<|content|>7.5 MAC Shortfall Payment\n<|id|>50<|page|>5<|box|>446 140 464 307<|content|>7.6 Volume discount\n<|id|>52<|page|>5<|box|>609 140 628 300<|content|>7.7 Payment Terms\n<|id|>55<|page|>5<|box|>811 140 829 480<|content|>Section 8: Intellectual Property Ownership\n<|id|>60<|page|>6<|box|>411 140 428 380<|content|>Section 9: Trademark License\n<|id|>64<|page|>6<|box|>750 140 765 398<|content|>Section 10: Source Code Escrow\n<|id|>72<|page|>7<|box|>517 140 534 571<|content|>Section 11: Indemnification and Limitation of Liab\n<|id|>73<|page|>7<|box|>547 142 565 287<|content|>11.1 IP Indemnity\n<|id|>77<|page|>8<|box|>90 140 107 401<|content|>11.2 Product Liability Indemnity\n<|id|>80<|page|>8<|box|>354 142 371 354<|content|>11.3 General Liability Cap\n<|id|>82<|page|>8<|box|>500 140 517 431<|content|>11.4 Consequential Damages Waiver\n<|id|>85<|page|>8<|box|>699 140 717 336<|content|>Section 12: Termination\n<|id|>89<|page|>9<|box|>321 140 339 428<|content|>Section 13: Insurance Requirements\n<|id|>91<|page|>9<|box|>391 142 407 191<|content|>BCS:\n<|id|>94<|page|>9<|box|>561 140 579 220<|content|>Vantage:\n<|id|>109<|page|>10<|box|>786 140 803 359<|content|>Section 15: Governing Law\n<|id|>113<|page|>11<|box|>321 140 339 403<|content|>Section 16: Definitive Agreement\n<|id|>118<|page|>11<|box|>613 140 630 310<|content|>Section 17: Expenses\n<|id|>120<|page|>11<|box|>771 140 789 346<|content|>Section 18: Miscellaneous\n<|id|>125<|page|>12<|box|>277 359 294 637<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>127<|page|>12<|box|>347 140 364 480<|content|>BRIGHTFIELD CLOUD SERVICES INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>-1\n<|id|>6<|level|>2\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>22<|level|>2\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>44<|level|>3\n<|id|>47<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>3\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>2\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>77<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>3\n<|id|>85<|level|>2\n<|id|>89<|level|>2\n<|id|>91<|level|>3\n<|id|>94<|level|>3\n<|id|>109<|level|>2\n<|id|>113<|level|>2\n<|id|>118<|level|>2\n<|id|>120<|level|>2\n<|id|>125<|level|>-1\n<|id|>127<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        }
+    ]
+}

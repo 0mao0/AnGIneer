@@ -1,0 +1,154 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 403 119 593<|content|>MEMORANDUM\n<|id|>6<|page|>1<|box|>297 140 316 251<|content|>I. PURPOSE\n<|id|>11<|page|>2<|box|>89 140 106 439<|content|>II. ENGAGEMENT BACKGROUND\n<|id|>12<|page|>2<|box|>121 140 138 434<|content|>A. Engagement and Billing Structure\n<|id|>23<|page|>2<|box|>821 142 838 302<|content|>B. Dormancy Event\n<|id|>28<|page|>3<|box|>565 140 582 490<|content|>C. Client Contacts for Billing and Collection\n<|id|>37<|page|>4<|box|>392 140 409 653<|content|>III. OUTSTANDING BALANCE — DETAILED BREAKDOWN\n<|id|>41<|page|>4<|box|>622 142 638 295<|content|>B. Unpaid Invoices\n<|id|>43<|page|>4<|box|>727 142 744 563<|content|>Invoice No. 2023-07-04187 — July 2023 Billing Peri\n<|id|>49<|page|>5<|box|>203 140 220 586<|content|>Invoice No. 2023-08-04187 — August 2023 Billing Pe\n<|id|>56<|page|>5<|box|>559 140 575 380<|content|>C. Unbilled Work-in-Progress\n<|id|>63<|page|>6<|box|>324 140 340 483<|content|>D. Emergency B1 Extension (October 2024)\n<|id|>69<|page|>6<|box|>784 140 801 473<|content|>IV. COLLECTION EFFORTS TO DATE\n<|id|>70<|page|>6<|box|>815 142 833 398<|content|>A. Billing Communications Sent\n<|id|>79<|page|>7<|box|>696 140 713 359<|content|>B. Client Financial Context\n<|id|>85<|page|>8<|box|>426 140 443 506<|content|>V. RECOMMENDED COLLECTION STEPS\n<|id|>87<|page|>8<|box|>539 140 556 540<|content|>A. Immediate Actions (November–December 2024)\n<|id|>99<|page|>9<|box|>508 140 526 426<|content|>B. Medium-Term Actions (Q1 2025)\n<|id|>109<|page|>10<|box|>253 140 271 403<|content|>C. Actions to Avoid at This Time\n<|id|>113<|page|>10<|box|>553 140 589 738<|content|>VI. ETHICAL CONSIDERATIONS — WITHDRAWAL VS. CONTIN\n<|id|>114<|page|>10<|box|>603 140 619 310<|content|>A. The Core Tension\n<|id|>118<|page|>11<|box|>257 140 273 486<|content|>B. California Rules of Professional Conduct\n<|id|>124<|page|>12<|box|>229 140 248 367<|content|>C. USPTO Rules of Practice\n<|id|>130<|page|>12<|box|>753 140 772 460<|content|>D. Practical Conclusions on Withdrawal\n<|id|>136<|page|>13<|box|>794 140 811 470<|content|>VII. ADDITIONAL CONSIDERATIONS\n<|id|>137<|page|>13<|box|>825 140 843 346<|content|>A. Lien on Work Product\n<|id|>142<|page|>14<|box|>492 140 508 580<|content|>B. Impact of Graystone Valuation on Collection Pos\n<|id|>145<|page|>14<|box|>616 183 633 705<|content|>• Pending patent application family (12 applicatio\n<|id|>148<|page|>14<|box|>838 140 854 539<|content|>C. Meridian National Bank Covenant Implications\n<|id|>152<|page|>15<|box|>439 140 455 529<|content|>VIII. SUMMARY AND RECOMMENDATIONS\n<|id|>161<|page|>16<|box|>388 140 407 233<|content|>CLOSING",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>23<|level|>3\n<|id|>28<|level|>3\n<|id|>37<|level|>2\n<|id|>41<|level|>3\n<|id|>43<|level|>4\n<|id|>49<|level|>4\n<|id|>56<|level|>3\n<|id|>63<|level|>3\n<|id|>69<|level|>2\n<|id|>70<|level|>3\n<|id|>79<|level|>3\n<|id|>85<|level|>2\n<|id|>87<|level|>3\n<|id|>99<|level|>3\n<|id|>109<|level|>3\n<|id|>113<|level|>2\n<|id|>114<|level|>3\n<|id|>118<|level|>3\n<|id|>124<|level|>3\n<|id|>130<|level|>3\n<|id|>136<|level|>2\n<|id|>137<|level|>3\n<|id|>142<|level|>3\n<|id|>145<|level|>4\n<|id|>148<|level|>3\n<|id|>152<|level|>2\n<|id|>161<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 49,
+            "level": 4
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 4
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        }
+    ]
+}

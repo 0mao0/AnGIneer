@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 7,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['11', '基价', '元', '9999001', '21267', '40511', '10927', '28648']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 顺序号', 'rowspan=3, 项目', 'rowspan=3, 单位', 'rowspan=3, 代号', '土工布铺设', 'PVC管安装', '回填碎石', '超高段混凝土过水槽干拌砂(水泥剂量5%)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 335,
+    "table2_idx": 336
+}

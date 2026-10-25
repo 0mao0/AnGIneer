@@ -1,0 +1,47 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        53,
+        101
+    ],
+    "pages": [
+        54,
+        56,
+        58,
+        59,
+        61,
+        63,
+        70,
+        80,
+        93,
+        96,
+        98,
+        100,
+        101
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>234<|page|>54<|box|>44 335 60 697<|content|>TREASURY SURVEY OF OWNERSHIP, MAY 31, 1956\n<|id|>235<|page|>54<|box|>78 160 115 879<|content|>Section 1 - Securities Issued or Guaranteed by the...blic Marketable Securities by Issues - (Continued)\n<|id|>239<|page|>56<|box|>81 43 161 484<|content|>Current market quotations shown here are over-the-...ecause they are not regularly quoted in the market\n<|id|>245<|page|>58<|box|>276 73 775 111<|content|>YIELDS OF TAXABLE TREASURY SECURITIES. ... JUNE 29,1956 Based on Closing Bid Quotations\n<|id|>247<|page|>59<|box|>816 10 889 450<|content|>Source: ... \" Moody's Investor Service is the source for the average of Ana corporate bonds\n<|id|>248<|page|>59<|box|>889 10 910 455<|content|>1/ Prior to April 1953, the single series on long-...ollowing: ... April 1952 through March 1953, bonds\n<|id|>255<|page|>61<|box|>676 0 927 504<|content|>Source: ... Revised accounting procedures effective\n<|id|>256<|page|>61<|box|>679 540 699 916<|content|>July 1, 1954, extended the same practice to Intern...ice to Internal Revenue Service collection reports\n<|id|>262<|page|>63<|box|>930 7 952 475<|content|>3/ Under revised accounting procedures effective J...der the depositary receipts system are included in\n<|id|>263<|page|>63<|box|>769 513 877 949<|content|>Internal Revenue Service reports of collections in...ry receipts prior to June and the fiscal year 1955\n<|id|>282<|page|>70<|box|>323 45 474 488<|content|>The term \"foreigner\" as used in these reports cove...in the June 1954 issue of the \"Treasury Bulletin,\"\n<|id|>283<|page|>70<|box|>79 536 127 983<|content|>pages 45-47. ... As a result of changes in present... will be exactly comparable to those now presented\n<|id|>314<|page|>80<|box|>470 585 496 917<|content|>5. ... and\n<|id|>328<|page|>93<|box|>107 395 119 557<|content|>(In thousands of dollars)\n<|id|>333<|page|>96<|box|>47 315 60 718<|content|>FINANCIAL STATEMENTS OF BUSINESS-TYPE ACTIVITIES\n<|id|>332<|page|>96<|box|>113 437 127 592<|content|>(In thousands of dollars)\n<|id|>336<|page|>98<|box|>52 304 67 709<|content|>FINANCIAL STATEMENTS OF BUSINESS-TYPE ACTIVITIES\n<|id|>339<|page|>100<|box|>117 421 129 578<|content|>(In thousands of dollars)\n<|id|>341<|page|>101<|box|>95 395 109 579<|content|>Footnotes to Table 2\n<|id|>342<|page|>101<|box|>150 21 160 324<|content|>1/ Discharge of investment guarantee liabilities. ... 1/ Discharge of investment guarantee liabilities\n<|id|>348<|page|>101<|box|>204 21 214 478<|content|>7/ Represents net accountability of the United States Government in certain\n<|id|>349<|page|>101<|box|>222 23 233 265<|content|>Corporation, effective July 1, 1954. ... Corporation, effective July 1, 1954\n<|id|>354<|page|>101<|box|>268 21 279 443<|content|>12/ Includes guaranteed loans and certificates of interest aggregating\n<|id|>355<|page|>101<|box|>277 23 286 379<|content|>\\$1,053,264 thousand which are held by lending age...53,264 thousand which are held by lending agencies\n<|id|>359<|page|>101<|box|>321 23 332 484<|content|>16/ Consiste of net Income from power operations of \\$345,892 thousand and net\n<|id|>385<|page|>101<|box|>377 508 387 620<|content|>* Less than \\$500. ... * Less than \\$500\n<|id|>367<|page|>101<|box|>610 21 632 437<|content|>5/ Includee \\$1,000,000 thousand due under the agr...uary 27, 1953, and lend-lease and surplus property",
+    "raw_response": "<|src_id|>255<|tgt_id|>256\n<|src_id|>262<|tgt_id|>263\n<|src_id|>282<|tgt_id|>283\n<|src_id|>348<|tgt_id|>349\n<|src_id|>354<|tgt_id|>355",
+    "parsed": [
+        {
+            "src_id": 255,
+            "tgt_id": 256
+        },
+        {
+            "src_id": 262,
+            "tgt_id": 263
+        },
+        {
+            "src_id": 282,
+            "tgt_id": 283
+        },
+        {
+            "src_id": 348,
+            "tgt_id": 349
+        },
+        {
+            "src_id": 354,
+            "tgt_id": 355
+        }
+    ]
+}

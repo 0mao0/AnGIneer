@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>134 87 173 912<|content|>中华人民共和国国家标准\n<|id|>2<|page|>1<|box|>382 151 420 850<|content|>中国海区水中建(构)筑物标志规定\n<|id|>3<|page|>1<|box|>445 127 470 870<|content|>The regulation for the marking of offshore structu\n<|id|>6<|page|>2<|box|>197 440 219 579<|content|>前言\n<|id|>15<|page|>3<|box|>130 273 151 600<|content|>中华人民共和国国家标准\n<|id|>16<|page|>3<|box|>181 233 203 638<|content|>中国海区水中建(构)筑物标志规定\n<|id|>18<|page|>3<|box|>217 191 231 680<|content|>The regulation for the marking of offshore structu\n<|id|>19<|page|>3<|box|>285 121 300 189<|content|>1 范围\n<|id|>23<|page|>3<|box|>379 119 395 225<|content|>2 引用标准\n<|id|>26<|page|>3<|box|>472 119 489 189<|content|>3 定义\n<|id|>32<|page|>3<|box|>640 119 657 223<|content|>4 技术要求\n<|id|>33<|page|>3<|box|>669 119 684 206<|content|>4.1 主灯\n<|id|>46<|page|>4<|box|>214 95 229 179<|content|>4.2 辅灯\n<|id|>52<|page|>4<|box|>363 94 378 179<|content|>4.3 雾号\n<|id|>62<|page|>4<|box|>759 94 775 198<|content|>4.4 标志牌\n<|id|>68<|page|>5<|box|>141 117 156 240<|content|>4.6 附加标志\n<|id|>73<|page|>5<|box|>253 115 268 416<|content|>4.7 标志全部出现故障时的临时标志\n<|id|>77<|page|>5<|box|>365 115 381 329<|content|>4.8 特定建(构)筑物标志\n<|id|>79<|page|>6<|box|>137 443 155 536<|content|>附录A",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>6<|level|>2\n<|id|>15<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>19<|level|>2\n<|id|>23<|level|>2\n<|id|>26<|level|>2\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>46<|level|>3\n<|id|>52<|level|>3\n<|id|>62<|level|>3\n<|id|>68<|level|>3\n<|id|>73<|level|>3\n<|id|>77<|level|>3\n<|id|>79<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        }
+    ]
+}

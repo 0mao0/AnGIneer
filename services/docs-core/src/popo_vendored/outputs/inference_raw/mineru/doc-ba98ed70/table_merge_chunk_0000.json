@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Accelerated Vesting', 'As set forth in Section 5.6 of the Employment Agreement: (i) upon termination by the Company without Cause or by Executive for Good Reason, the next tranche of Restricted Shares that would have vested on the next vesting anniversary shall immediately vest;']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '(ii) upon termination due to death or Disability, the next tranche of Restricted Shares that would have vested on the next vesting anniversary shall immediately vest']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 255,
+    "table2_idx": 256
+}

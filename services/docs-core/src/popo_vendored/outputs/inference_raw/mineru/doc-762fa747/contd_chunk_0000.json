@@ -1,0 +1,43 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        52
+    ],
+    "pages": [
+        5,
+        6,
+        7,
+        11,
+        13,
+        16,
+        21,
+        28,
+        31,
+        33,
+        34,
+        35,
+        51
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>5<|box|>8 79 56 409<|content|>T: ... Treasury Bulletin\n<|id|>1<|page|>5<|box|>68 3 207 406<|content|>Treas. ... 1\n<|id|>2<|page|>5<|box|>542 505 568 641<|content|>LIBRARY\n<|id|>5<|page|>5<|box|>626 464 644 696<|content|>TREASURY DEPARTMENT\n<|id|>6<|page|>6<|box|>70 63 170 415<|content|>DEPARTMENT OF THE TREASURY FISCAL SERVICE, BUREAU ...6 OFFICIAL BUSINESS PENALTY FOR PRIVATE USE, \\$300\n<|id|>7<|page|>6<|box|>161 872 174 973<|content|>FIRST CLASS\n<|id|>13<|page|>7<|box|>156 379 182 556<|content|>March 1982\n<|id|>15<|page|>7<|box|>913 89 962 849<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>21<|page|>11<|box|>55 23 862 431<|content|>Article - Treasury financing operations. ... 69\n<|id|>22<|page|>11<|box|>50 470 842 878<|content|>IFS-5. ... 111\n<|id|>35<|page|>13<|box|>660 35 729 463<|content|>On February 11 tenders were invited for approximat...illion of the bills issued at the average price to\n<|id|>36<|page|>13<|box|>71 483 94 908<|content|>Federal Reserve banks for themselves and as agents...n and international monetary authorities. ... 180%\n<|id|>50<|page|>16<|box|>71 403 84 611<|content|>Footnotes to Table FFO-1\n<|id|>51<|page|>16<|box|>163 67 221 505<|content|>Note: ... The adjustment decreases budget receipts...the amount of the premiums collected for that year\n<|id|>60<|page|>21<|box|>90 397 100 534<|content|>(In millions of dollars)\n<|id|>63<|page|>21<|box|>838 472 874 900<|content|>4/ Includes Federal supplementary medical insuranc...981 for these premiums amounted to \\$1,202 million\n<|id|>90<|page|>28<|box|>392 77 403 471<|content|>13/ Tax of 2 percent on net investment income. ... Reduced from 4 percent\n<|id|>91<|page|>28<|box|>92 555 109 903<|content|>effective for taxable years beginning after Septem...nning after September 30, 1977 (Public Law 95-600)\n<|id|>130<|page|>31<|box|>66 185 83 731<|content|>Source and Availability of the Balance in the Account of the U. ... Treasury\n<|id|>131<|page|>31<|box|>159 0 213 418<|content|>The operating cash of the Treasury is maintained i...untry authorized to maintain tax and loan accounts\n<|id|>140<|page|>33<|box|>75 247 87 672<|content|>Table UST-3. ... - Gold Assets and Liabilities of the Treasury\n<|id|>142<|page|>33<|box|>351 28 369 438<|content|>Source: ... Daily Treasury Statement through June ...reau of Government Financial Operations thereafter\n<|id|>153<|page|>34<|box|>714 87 726 474<|content|>4/ Excludes currency and coin held by the Treasury and currency and\n<|id|>154<|page|>34<|box|>707 501 716 633<|content|>^{*} Less than \\$500,000. ... ^{*} Less than \\$500,000\n<|id|>159<|page|>35<|box|>748 38 817 423<|content|>Source: ... The average annual rate is compute by ...any group of issues by the corresponding principal\n<|id|>160<|page|>35<|box|>758 470 768 667<|content|>1/ Includes Federal Financing Bank. ... 1/ Includes Federal Financing Bank\n<|id|>163<|page|>35<|box|>774 470 783 849<|content|>3/ Included in debt outstanding at face amount, but discount value is\n<|id|>164<|page|>35<|box|>781 470 791 846<|content|>used in computing annual interest charge and annual interest rate,\n<|id|>215<|page|>51<|box|>112 28 876 435<|content|>Source: ... 43/ As a result of correcting an under...nders received and accepted were increased by $100\n<|id|>216<|page|>51<|box|>57 372 70 566<|content|>Footnotes to Table PDO-4\n<|id|>217<|page|>51<|box|>114 490 877 888<|content|>million. ... p Preliminary",
+    "raw_response": "<|src_id|>35<|tgt_id|>36\n<|src_id|>90<|tgt_id|>91\n<|src_id|>163<|tgt_id|>164\n<|src_id|>215<|tgt_id|>216",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 215,
+            "tgt_id": 216
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        8,
+        9,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>13<|page|>1<|box|>853 140 888 854<|content|>The following is a summary of the material terms o...be read in conjunction with the description of the\n<|id|>14<|page|>2<|box|>89 140 126 854<|content|>Underwriting Agreement set forth in the section en...rwriting\" in the Prospectus dated February 9, 2024\n<|id|>17<|page|>2<|box|>295 176 314 553<|content|>Underwriting Agreement Date: ... February 8, 2024\n<|id|>18<|page|>2<|box|>321 174 357 854<|content|>Option Granted: ... Up to 3,000,000 additional sha...000 base offering shares), to cover overallotments\n<|id|>19<|page|>2<|box|>364 176 383 491<|content|>Option Exercise Date: ... February 27, 2024\n<|id|>20<|page|>2<|box|>392 176 409 521<|content|>Option Exercised: ... In full — 3,000,000 shares\n<|id|>21<|page|>2<|box|>417 176 434 424<|content|>Settlement Date: ... March 1, 2024\n<|id|>22<|page|>2<|box|>443 176 460 490<|content|>Public Offering Price Per Share: ... 00\n<|id|>23<|page|>2<|box|>469 176 488 834<|content|>Underwriting discount Per Share: ... 0% of the public offering price)\n<|id|>24<|page|>2<|box|>494 176 513 735<|content|>Price to the Company Per Share (Net of Underwriting discount): ... 80\n<|id|>25<|page|>2<|box|>521 140 614 854<|content|>The Overallotment Shares are identical in all resp...pproved for listing on the New York Stock Exchange\n<|id|>51<|page|>5<|box|>484 140 529 854<|content|>(1) Additional paid-in capital reflects the receip...ell as all previously recorded equity transactions\n<|id|>52<|page|>5<|box|>537 140 573 854<|content|>The 103,000,000 shares of common stock outstanding...lowing the offering are comprised of the following\n<|id|>53<|page|>5<|box|>580 183 598 542<|content|>• Pre-IPO shares outstanding: ... 80,000,000 shares\n<|id|>57<|page|>5<|box|>659 140 714 854<|content|>Based on the initial public offering price of $20....ion of the Company is approximately $2,060,000,000\n<|id|>54<|page|>5<|box|>599 183 617 691<|content|>• Base offering shares (issued February 13, 2024): ... 20,000,000 shares\n<|id|>55<|page|>5<|box|>619 183 637 661<|content|>• Overallotment shares (issued March 1, 2024): ... 3,000,000 shares\n<|id|>56<|page|>5<|box|>640 184 656 550<|content|>• Total shares outstanding: ... 103,000,000 shares\n<|id|>88<|page|>8<|box|>609 181 645 854<|content|>• enter into any swap, hedge, or other arrangement...sequences of ownership of the common stock; ... or\n<|id|>90<|page|>8<|box|>704 176 739 854<|content|>whether any such transaction described above is to...n stock or other securities, in cash, or otherwise\n<|id|>89<|page|>8<|box|>648 183 700 854<|content|>• make any demand for, or exercise any right with ...o or exercisable or exchangeable for common stock,\n<|id|>93<|page|>8<|box|>873 174 909 854<|content|>(ii) dispositions pursuant to a pre-existing Rule ...and that was entered into prior to the date of the\n<|id|>94<|page|>9<|box|>90 174 145 854<|content|>Underwriting Agreement, provided that any filing r...ursuant to a pre-existing Rule 10b5-1 trading plan\n<|id|>95<|page|>9<|box|>152 174 226 854<|content|>(iii) transactions relating to shares of common st...ch transactions during the lock-up period; ... and\n<|id|>97<|page|>9<|box|>296 140 369 854<|content|>The 3,000,000 Overallotment Shares are not subject...ercise are not subject to any lock-up restrictions\n<|id|>98<|page|>9<|box|>377 140 449 854<|content|>The Representative may, in its sole discretion and...presentative has not released any locked-up shares\n<|id|>124<|page|>12<|box|>537 253 556 743<|content|>275 Kendall Avenue, Suite 1400 Cambridge, Massachusetts 02142\n<|id|>125<|page|>12<|box|>564 153 599 843<|content|>Federal Employer Identification Number (EIN): ... 7372\n<|id|>126<|page|>12<|box|>608 140 643 854<|content|>Incorporated in the State of Delaware Registered A... Greentree Drive, Suite 101, Dover, Delaware 19904\n<|id|>127<|page|>12<|box|>652 274 670 723<|content|>The date of this Prospectus Supplement is March 1,...ate of this Prospectus Supplement is March 1, 2024",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>93<|tgt_id|>94",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 94
+        }
+    ]
+}

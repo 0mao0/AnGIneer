@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['\"an integrated wavelength-division multiplexing element monolithically formed on a single silicon die...\"', 'The AWG multiplexer in the LumosBridgeTM is fabricated monolithically on the same SOI die', 'DISPUTED — Claim construction dependent']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'as the waveguides, MZMs, and photodetectors. The WDM element itself is indisputably monolithically formed on silicon. However, the transceiver also incorporates micro-transfer-printed III-V gain elements bonded to the silicon die for the laser sources.', '']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 130,
+    "table2_idx": 131
+}

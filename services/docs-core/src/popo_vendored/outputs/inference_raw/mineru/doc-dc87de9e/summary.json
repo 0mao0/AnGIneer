@@ -1,0 +1,162 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fuk0to32\\input\\pdfs\\doc-dc87de9e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fuk0to32\\enriched\\doc-dc87de9e.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>3\n<|id|>26<|level|>4\n<|id|>32<|level|>3\n<|id|>43<|level|>4\n<|id|>50<|level|>3\n<|id|>52<|level|>4\n<|id|>60<|level|>4\n<|id|>65<|level|>4\n<|id|>70<|level|>4\n<|id|>74<|level|>4\n<|id|>77<|level|>3\n<|id|>82<|level|>2\n<|id|>84<|level|>3\n<|id|>92<|level|>3\n<|id|>100<|level|>3\n<|id|>106<|level|>2\n<|id|>115<|level|>2\n<|id|>121<|level|>2",
+    "image_output": "<|src_id|>25<|tgt_id|>24\n<|src_id|>41<|tgt_id|>32\n<|src_id|>42<|tgt_id|>32\n<|src_id|>51<|tgt_id|>50\n<|src_id|>55<|tgt_id|>50\n<|src_id|>57<|tgt_id|>50\n<|src_id|>59<|tgt_id|>50\n<|src_id|>64<|tgt_id|>50\n<|src_id|>69<|tgt_id|>50\n<|src_id|>73<|tgt_id|>71\n<|src_id|>119<|tgt_id|>115",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 70,
+            "level": 4
+        },
+        {
+            "id": 74,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 25,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 115
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 41,
+            "table2_idx": 42,
+            "upper_row_ss": [
+                [
+                    "Full Legal Name",
+                    "Ridgeline Securities LLC"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Entity Type / Jurisdiction",
+                    "Limited liability company organized under the laws of the State of Delaware"
+                ]
+            ]
+        }
+    ]
+}

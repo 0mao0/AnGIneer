@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        59
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        15,
+        19,
+        28,
+        30,
+        34,
+        37,
+        38,
+        40,
+        41,
+        58
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>268 152 383 823<|content|>公路工程建设项目概算预算 编制办法\n<|id|>5<|page|>2<|box|>269 154 298 780<|content|>公路工程建设项目概算预算编制办法\n<|id|>11<|page|>3<|box|>146 113 191 821<|content|>中华人民共和国交通运输部\n<|id|>20<|page|>5<|box|>137 405 162 548<|content|>前言\n<|id|>38<|page|>7<|box|>136 414 163 550<|content|>目次\n<|id|>40<|page|>8<|box|>153 53 177 174<|content|>1 总则\n<|id|>50<|page|>9<|box|>157 83 182 410<|content|>2 概算预算编制方法\n<|id|>51<|page|>9<|box|>248 83 266 239<|content|>2.1 基本规定\n<|id|>53<|page|>9<|box|>407 83 426 241<|content|>2.2 编制依据\n<|id|>72<|page|>10<|box|>103 48 121 204<|content|>2.3 文件组成\n<|id|>95<|page|>12<|box|>663 50 682 362<|content|>2.4 概算预算项目及编码规则\n<|id|>101<|page|>13<|box|>760 83 779 239<|content|>2.5 费用组成\n<|id|>104<|page|>15<|box|>151 83 176 576<|content|>3 概算预算费用标准和计算方法\n<|id|>105<|page|>15<|box|>242 83 259 306<|content|>3.1 建筑安装工程费\n<|id|>173<|page|>19<|box|>519 131 537 442<|content|>1) 雨季施工增加费的内容包括：\n<|id|>269<|page|>28<|box|>669 42 688 334<|content|>3.2 土地使用及拆迁补偿费\n<|id|>289<|page|>30<|box|>103 35 121 258<|content|>3.3 工程建设其他费\n<|id|>320<|page|>34<|box|>670 94 689 392<|content|>1 建设项目前期工作费包括：\n<|id|>345<|page|>37<|box|>148 79 167 213<|content|>3.4 预备费\n<|id|>364<|page|>37<|box|>856 83 873 306<|content|>3.5 建设期贷款利息\n<|id|>378<|page|>38<|box|>438 52 457 591<|content|>3.6 公路工程建设项目各项费用计算程序及计算方式\n<|id|>382<|page|>40<|box|>150 53 176 650<|content|>附录 A 封面、目录及概(预)算表格样式\n<|id|>384<|page|>40<|box|>356 317 382 650<|content|>××公路初步设计概算\n<|id|>391<|page|>41<|box|>80 100 99 583<|content|>A.0.2 甲组文件目录格式及相应内容如下所示:\n<|id|>392<|page|>41<|box|>126 440 151 579<|content|>目录\n<|id|>393<|page|>41<|box|>156 436 177 576<|content|>(甲组文件)\n<|id|>433<|page|>58<|box|>118 418 143 559<|content|>目录",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>5<|level|>1\n<|id|>11<|level|>-1\n<|id|>20<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>50<|level|>1\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>72<|level|>2\n<|id|>95<|level|>2\n<|id|>101<|level|>2\n<|id|>104<|level|>1\n<|id|>105<|level|>2\n<|id|>173<|level|>-1\n<|id|>269<|level|>2\n<|id|>289<|level|>2\n<|id|>320<|level|>-1\n<|id|>345<|level|>2\n<|id|>364<|level|>2\n<|id|>378<|level|>2\n<|id|>382<|level|>1\n<|id|>384<|level|>2\n<|id|>391<|level|>2\n<|id|>392<|level|>3\n<|id|>393<|level|>4\n<|id|>433<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 269,
+            "level": 2
+        },
+        {
+            "id": 289,
+            "level": 2
+        },
+        {
+            "id": 345,
+            "level": 2
+        },
+        {
+            "id": 364,
+            "level": 2
+        },
+        {
+            "id": 378,
+            "level": 2
+        },
+        {
+            "id": 382,
+            "level": 1
+        },
+        {
+            "id": 384,
+            "level": 2
+        },
+        {
+            "id": 391,
+            "level": 2
+        },
+        {
+            "id": 392,
+            "level": 3
+        },
+        {
+            "id": 393,
+            "level": 4
+        },
+        {
+            "id": 433,
+            "level": 3
+        }
+    ]
+}

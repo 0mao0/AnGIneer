@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|type|>title<|page|>1<|box|>434 142 450 388<|content|>I. Transmittal of Revised Draft\n<|id|>14<|type|>table<|page|>1<|box|>847 143 904 852<|content|>None\n<|id|>15<|type|>table<|page|>2<|box|>88 143 127 852<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>448 140 464 491<|content|>II. Summary of Accepted Lender Comments\n<|id|>47<|type|>title<|page|>4<|box|>556 142 574 447<|content|>III. Summary of Principal Open Issues\n<|id|>49<|type|>title<|page|>4<|box|>669 140 686 586<|content|>1. Roll-Up of Pre-Petition ABL Obligations ($20,00\n<|id|>56<|type|>title<|page|>6<|box|>90 142 107 316<|content|>2. Milestone Schedule\n<|id|>57<|type|>table<|page|>6<|box|>155 143 281 852<|content|>None\n<|id|>62<|type|>table<|page|>7<|box|>323 143 478 852<|content|>None\n<|id|>63<|type|>title<|page|>7<|box|>517 140 532 514<|content|>3. Events of Default — Grace and Cure Periods\n<|id|>71<|type|>title<|page|>9<|box|>286 140 304 550<|content|>4. Reporting Requirements — Frequency and Scope\n<|id|>78<|type|>title<|page|>10<|box|>513 140 530 570<|content|>5. DIP Budget — Variance Methodology Clarification\n<|id|>84<|type|>title<|page|>11<|box|>275 140 292 429<|content|>6. Carve-Out — Minor Clarification\n<|id|>87<|type|>title<|page|>11<|box|>612 140 628 550<|content|>7. Conditions Precedent — Requested Modifications\n<|id|>92<|type|>title<|page|>13<|box|>90 140 107 357<|content|>IV. Schedule of Enclosures\n<|id|>97<|type|>title<|page|>13<|box|>325 140 344 434<|content|>V. Proposed Next Steps and Timeline\n<|id|>117<|type|>title<|page|>14<|box|>737 140 753 401<|content|>VI. Confidentiality and Privilege",
+    "raw_response": "<|src_id|>14<|tgt_id|>10\n<|src_id|>15<|tgt_id|>10\n<|src_id|>57<|tgt_id|>56\n<|src_id|>62<|tgt_id|>56",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 56
+        }
+    ]
+}

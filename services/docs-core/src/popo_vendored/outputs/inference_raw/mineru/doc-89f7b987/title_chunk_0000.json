@@ -1,0 +1,54 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>532 140 549 496<|content|>Description of the Second Rolling Production\n<|id|>11<|page|>2<|box|>90 140 107 661<|content|>Summary of Categories of Documents Included in Thi\n<|id|>18<|page|>2<|box|>829 142 845 382<|content|>Reference to Prior Production\n<|id|>20<|page|>3<|box|>167 140 184 517<|content|>Anticipated Third and Final Rolling Production\n<|id|>23<|page|>3<|box|>481 140 497 315<|content|>Reservation of Rights\n<|id|>26<|page|>3<|box|>792 140 810 328<|content|>Cooperation Statement\n<|id|>28<|page|>4<|box|>90 142 107 308<|content|>Contact Information\n<|id|>36<|page|>4<|box|>325 143 340 238<|content|>Enclosures:\n<|id|>38<|page|>4<|box|>398 143 410 171<|content|>cc:",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>11<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>1\n<|id|>23<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        }
+    ]
+}

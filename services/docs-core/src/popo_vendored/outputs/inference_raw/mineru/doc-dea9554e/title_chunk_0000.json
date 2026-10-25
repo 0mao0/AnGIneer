@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        16,
+        17,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>113 277 133 718<|content|>BORROWER'S CLOSING CERTIFICATE\n<|id|>3<|page|>1<|box|>220 140 238 210<|content|>Lender:\n<|id|>5<|page|>1<|box|>310 142 327 238<|content|>Borrowers:\n<|id|>8<|page|>1<|box|>570 140 587 395<|content|>Sole Member of each Borrower:\n<|id|>10<|page|>1<|box|>622 140 638 411<|content|>General Partner of Fairwater OP:\n<|id|>14<|page|>1<|box|>758 142 776 243<|content|>RECITALS\n<|id|>24<|page|>2<|box|>751 140 768 763<|content|>SECTION 1: IDENTIFICATION OF CERTIFYING OFFICER; A\n<|id|>28<|page|>3<|box|>321 140 338 604<|content|>SECTION 2: REPRESENTATIONS AND WARRANTIES\n<|id|>39<|page|>5<|box|>167 140 184 372<|content|>SECTION 3: NO DEFAULT\n<|id|>43<|page|>5<|box|>469 140 486 486<|content|>SECTION 4: CONDITIONS PRECEDENT\n<|id|>68<|page|>8<|box|>655 140 672 545<|content|>SECTION 5: ORGANIZATIONAL DOCUMENTS\n<|id|>77<|page|>9<|box|>681 140 699 380<|content|>SECTION 6: INCUMBENCY\n<|id|>84<|page|>10<|box|>428 140 445 532<|content|>SECTION 7: ADDITIONAL CERTIFICATIONS\n<|id|>91<|page|>12<|box|>89 140 106 607<|content|>SECTION 8: PROPERTY SCHEDULE CONFIRMATION\n<|id|>95<|page|>12<|box|>428 140 445 490<|content|>SECTION 9: RELIANCE AND SURVIVAL\n<|id|>99<|page|>12<|box|>789 140 806 676<|content|>[Remainder of this page intentionally left blank.\n<|id|>100<|page|>12<|box|>814 225 830 769<|content|>SIGNATURE PAGE TO BORROWER'S CLOSING CERTIFICATE\n<|id|>102<|page|>13<|box|>90 140 107 500<|content|>On behalf of each of the following Borrowers:\n<|id|>112<|page|>14<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>113<|page|>14<|box|>130 367 148 630<|content|>INCUMBENCY CERTIFICATE\n<|id|>128<|page|>16<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>129<|page|>17<|box|>89 279 106 717<|content|>PROPERTY SCHEDULE — SUN BELT PORTFOLIO\n<|id|>133<|page|>19<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>134<|page|>20<|box|>89 290 106 707<|content|>SCHEDULE I — LIST OF BORROWER ENTITIES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>5<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>24<|level|>2\n<|id|>28<|level|>2\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>68<|level|>2\n<|id|>77<|level|>2\n<|id|>84<|level|>2\n<|id|>91<|level|>2\n<|id|>95<|level|>2\n<|id|>99<|level|>-1\n<|id|>100<|level|>2\n<|id|>102<|level|>-1\n<|id|>112<|level|>1\n<|id|>113<|level|>2\n<|id|>128<|level|>1\n<|id|>129<|level|>2\n<|id|>133<|level|>1\n<|id|>134<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 2
+        }
+    ]
+}

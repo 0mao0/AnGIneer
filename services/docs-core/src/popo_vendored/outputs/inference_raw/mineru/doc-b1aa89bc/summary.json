@@ -1,0 +1,193 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1n77mydl\\input\\pdfs\\doc-b1aa89bc.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1n77mydl\\enriched\\doc-b1aa89bc.json",
+    "contd_output": "<|src_id|>134<|tgt_id|>135\n<|src_id|>183<|tgt_id|>184",
+    "title_output": "<|id|>2<|level|>1\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>33<|level|>3\n<|id|>45<|level|>3\n<|id|>55<|level|>3\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>66<|level|>3\n<|id|>68<|level|>4\n<|id|>74<|level|>4\n<|id|>81<|level|>3\n<|id|>89<|level|>2\n<|id|>90<|level|>3\n<|id|>96<|level|>3\n<|id|>109<|level|>3\n<|id|>121<|level|>3\n<|id|>129<|level|>2\n<|id|>131<|level|>3\n<|id|>137<|level|>3\n<|id|>155<|level|>3\n<|id|>166<|level|>3\n<|id|>175<|level|>3\n<|id|>185<|level|>2\n<|id|>186<|level|>3\n<|id|>193<|level|>3\n<|id|>197<|level|>3\n<|id|>204<|level|>2\n<|id|>205<|level|>3\n<|id|>214<|level|>3\n<|id|>220<|level|>2\n<|id|>225<|level|>2\n<|id|>244<|level|>2\n<|id|>245<|level|>3",
+    "image_output": "<|src_id|>190<|tgt_id|>186\n<|src_id|>222<|tgt_id|>220\n<|src_id|>223<|tgt_id|>220",
+    "contd_label": [
+        {
+            "src_id": 134,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 184
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 4
+        },
+        {
+            "id": 74,
+            "level": 4
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 3
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 2
+        },
+        {
+            "id": 244,
+            "level": 2
+        },
+        {
+            "id": 245,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 190,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 222,
+            "tgt_id": 220
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 220
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 222,
+            "table2_idx": 223,
+            "upper_row_ss": [
+                [
+                    "April 15, 2025",
+                    "Thornfield preliminary gap",
+                    "C&H, Dr. Vivian Castellano"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "assessment due; evaluate for FinCEN-relevant findings and determine whether findings should be shared with FinCEN",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

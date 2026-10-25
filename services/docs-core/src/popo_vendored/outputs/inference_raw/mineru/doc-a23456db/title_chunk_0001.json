@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        48,
+        56
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        51,
+        55,
+        56
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>590<|page|>48<|box|>223 142 239 344<|content|>D.3. Descriptive Statistics\n<|id|>592<|page|>48<|box|>521 142 537 450<|content|>D.4. Leave-One-Out Sensitivity Results\n<|id|>595<|page|>49<|box|>123 143 141 256<|content|>Key Findings:\n<|id|>600<|page|>49<|box|>304 142 321 485<|content|>D.5. Therapeutic Area Sub-Group Analyses\n<|id|>601<|page|>49<|box|>335 142 352 367<|content|>Oncology Sub-Group (n = 6)\n<|id|>604<|page|>49<|box|>571 143 589 393<|content|>Immunology Sub-Group (n = 4)\n<|id|>607<|page|>49<|box|>789 143 806 393<|content|>Rare Disease Sub-Group (n = 4)\n<|id|>611<|page|>50<|box|>199 143 215 256<|content|>Key Findings:\n<|id|>615<|page|>51<|box|>90 174 111 821<|content|>Appendix E — Revenue and Royalty Data Summary (201\n<|id|>617<|page|>51<|box|>348 140 364 558<|content|>E.2. Comparison Table — Royalties at Various Rates\n<|id|>620<|page|>51<|box|>626 140 643 519<|content|>E.3. Year-by-Year Delta at IRS's Proposed Rate\n<|id|>628<|page|>55<|box|>90 292 111 704<|content|>Appendix G — Legal Authority Citations\n<|id|>630<|page|>55<|box|>170 140 186 212<|content|>Statutes\n<|id|>635<|page|>55<|box|>369 143 385 316<|content|>Treasury Regulations\n<|id|>648<|page|>55<|box|>705 142 723 279<|content|>OECD Guidance\n<|id|>655<|page|>56<|box|>90 140 107 297<|content|>Relevant Case Law\n<|id|>663<|page|>56<|box|>662 431 683 563<|content|>Certification",
+    "raw_response": "<|id|>590<|level|>2\n<|id|>592<|level|>2\n<|id|>595<|level|>3\n<|id|>600<|level|>2\n<|id|>601<|level|>3\n<|id|>604<|level|>3\n<|id|>607<|level|>3\n<|id|>611<|level|>3\n<|id|>615<|level|>1\n<|id|>617<|level|>2\n<|id|>620<|level|>2\n<|id|>628<|level|>1\n<|id|>630<|level|>2\n<|id|>635<|level|>2\n<|id|>648<|level|>2\n<|id|>655<|level|>2\n<|id|>663<|level|>1",
+    "parsed": [
+        {
+            "id": 590,
+            "level": 2
+        },
+        {
+            "id": 592,
+            "level": 2
+        },
+        {
+            "id": 595,
+            "level": 3
+        },
+        {
+            "id": 600,
+            "level": 2
+        },
+        {
+            "id": 601,
+            "level": 3
+        },
+        {
+            "id": 604,
+            "level": 3
+        },
+        {
+            "id": 607,
+            "level": 3
+        },
+        {
+            "id": 611,
+            "level": 3
+        },
+        {
+            "id": 615,
+            "level": 1
+        },
+        {
+            "id": 617,
+            "level": 2
+        },
+        {
+            "id": 620,
+            "level": 2
+        },
+        {
+            "id": 628,
+            "level": 1
+        },
+        {
+            "id": 630,
+            "level": 2
+        },
+        {
+            "id": 635,
+            "level": 2
+        },
+        {
+            "id": 648,
+            "level": 2
+        },
+        {
+            "id": 655,
+            "level": 2
+        },
+        {
+            "id": 663,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 87 275<|content|>【7295294#8】華溫琪\n<|id|>2<|page|>1<|box|>191 105 208 364<|content|>【7297#30】中华人民共和国外交\n<|id|>4<|page|>1<|box|>326 105 343 487<|content|>【7311398#0】2020年度新城勁爆頒獎禮得獎名單\n<|id|>6<|page|>1<|box|>480 105 495 275<|content|>【7313974#0】廣島灣\n<|id|>8<|page|>1<|box|>546 105 562 329<|content|>【7325765#0】五源河体育场\n<|id|>10<|page|>1<|box|>613 107 629 351<|content|>【7335917#0】希克男孩 (歌曲)\n<|id|>12<|page|>1<|box|>696 107 713 267<|content|>【73413#20】石川縣\n<|id|>14<|page|>2<|box|>73 107 89 332<|content|>【7344263#1】Selfie (歌曲)\n<|id|>16<|page|>2<|box|>175 105 190 381<|content|>【7350619#0】石家庄循环化工园区\n<|id|>18<|page|>2<|box|>241 105 256 351<|content|>【7352404#0】泽尼特 (照相机)\n<|id|>20<|page|>2<|box|>341 105 357 539<|content|>【7366837#3】第93屆奧斯卡金像獎最佳動畫片角逐名單\n<|id|>22<|page|>2<|box|>409 107 424 275<|content|>【73669#3】異特龍屬\n<|id|>24<|page|>3<|box|>73 107 89 310<|content|>【73676#1】孟加拉国经济\n<|id|>26<|page|>3<|box|>174 105 191 364<|content|>【7368071#0】安道爾－法國關係\n<|id|>28<|page|>3<|box|>326 105 343 400<|content|>【7368809#1】澳大利亚－以色列关系\n<|id|>30<|page|>3<|box|>462 105 478 346<|content|>【7369856#7】日本成人影片史\n<|id|>32<|page|>3<|box|>529 107 545 302<|content|>【738741#0】香港娛樂圈\n<|id|>34<|page|>3<|box|>613 107 629 302<|content|>【74163#36】无脊椎动物\n<|id|>36<|page|>3<|box|>696 105 713 329<|content|>【7435320#0】中国十大剧院\n<|id|>38<|page|>3<|box|>780 105 796 329<|content|>【7435320#1】中国十大剧院\n<|id|>40<|page|>3<|box|>881 107 898 354<|content|>【7442433#16】無論如何我愛你\n<|id|>42<|page|>4<|box|>186 105 202 275<|content|>【746543#12】林连玉\n<|id|>44<|page|>4<|box|>305 105 321 258<|content|>【7470357#4】单萜\n<|id|>46<|page|>4<|box|>388 105 404 383<|content|>【7470551#5】第94屆奧斯卡金像獎\n<|id|>48<|page|>5<|box|>73 107 89 275<|content|>【7492727#0】葚座科\n<|id|>50<|page|>5<|box|>123 107 139 337<|content|>【7495973#19】珀尔·克利奇\n<|id|>52<|page|>5<|box|>292 105 309 273<|content|>【7515428#0】曾曙生\n<|id|>54<|page|>5<|box|>341 105 357 354<|content|>【7526092#11】中国－东盟关系\n<|id|>56<|page|>5<|box|>460 105 476 285<|content|>【7528529#19】欧马勒\n<|id|>58<|page|>5<|box|>527 105 542 312<|content|>【7536153#2】湖北省经济",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>1\n<|id|>58<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ]
+}

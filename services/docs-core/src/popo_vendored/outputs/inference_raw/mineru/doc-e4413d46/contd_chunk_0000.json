@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        13,
+        14,
+        24,
+        25,
+        26,
+        28,
+        32
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>142 140 159 751<|content|>TO: ... Leonard Cross, Responsible Partner, Tax Sylvia Hartwell, Billing Partner, Tax\n<|id|>3<|page|>1<|box|>167 140 203 854<|content|>FROM: ... Robert Jansen, Lead Associate, Tax (with...ance from Garrett Simmons, Working Associate, Tax)\n<|id|>4<|page|>1<|box|>212 142 229 308<|content|>DATE: ... July 18, 2025\n<|id|>5<|page|>1<|box|>237 140 273 854<|content|>RE: ... INTL Branch 1 — July 22, 2025\n<|id|>6<|page|>1<|box|>282 140 299 457<|content|>CLIENT: ... Solara Digital Infrastructure LP\n<|id|>7<|page|>1<|box|>308 142 325 800<|content|>MATTER: ... Cross-Border Fund-Platform Reorganization — Private Letter Ruling Request\n<|id|>8<|page|>1<|box|>334 142 349 493<|content|>ENGAGEMENT NO. ... 20250527-SDILP-PLR\n<|id|>9<|page|>1<|box|>359 142 375 408<|content|>Right-click to update Table of Contents\n<|id|>29<|page|>3<|box|>840 140 896 856<|content|>Step 1 — Entity Formation (Target: ... (ii) Solara Consolidated Master Fund LP, a\n<|id|>30<|page|>4<|box|>90 138 200 857<|content|>Delaware limited partnership that will serve as th...d for each new entity promptly following formation\n<|id|>119<|page|>13<|box|>813 140 905 857<|content|>Response: ... Their Luxembourg\n<|id|>120<|page|>14<|box|>90 140 237 857<|content|>Registre de Commerce et des Sociétés (RCS) numbers...ication of the Luxembourg SCSps in the PLR request\n<|id|>208<|page|>24<|box|>549 145 566 514<|content|>• Step 1 (September 15, 2025): ... Entity formations\n<|id|>213<|page|>24<|box|>646 140 757 856<|content|>The business purposes underlying the reorganizatio...minary consent (78% in interest) on April 22, 2025\n<|id|>209<|page|>24<|box|>569 147 585 596<|content|>• Step 2 (October 1, 2025): ... Fund IV-A Cayman contribution\n<|id|>210<|page|>24<|box|>588 147 604 637<|content|>• Step 3 (October 15, 2025): ... Fund IV-B Luxembourg contribution\n<|id|>211<|page|>24<|box|>608 147 625 818<|content|>• Step 4 (November 1, 2025): ... Fund V-A Cayman and Fund V-B Luxembourg contributions\n<|id|>212<|page|>24<|box|>627 145 643 591<|content|>• Step 5 (December 1, 2025): ... Dissolutions and distributions\n<|id|>223<|page|>25<|box|>862 140 898 854<|content|>Although the FIRPTA (Foreign Investment in Real Pr...ruling requests, the IRS may raise questions about\n<|id|>224<|page|>26<|box|>90 140 145 854<|content|>FIRPTA during the conference, particularly given t...PLR request unless the IRS insists on including it\n<|id|>247<|page|>28<|box|>209 145 244 854<|content|>• Draft PLR Request — Version 4. ... 0 (Final Circulated Draft), including all exhibits and appendices\n<|id|>255<|page|>28<|box|>531 140 622 854<|content|>Important Note: ... If the IRS requests a copy of ...revision based on IRS feedback from the conference\n<|id|>248<|page|>28<|box|>248 147 282 854<|content|>• Pre-Reorganization Organizational Charts (PLR Ex... structure across Delaware, Cayman, and Luxembourg\n<|id|>249<|page|>28<|box|>286 147 320 854<|content|>• Post-Reorganization Organizational Charts (PLR E... the proposed consolidated master-feeder structure\n<|id|>250<|page|>28<|box|>323 147 358 854<|content|>• Step Transaction Diagrams (PLR Exhibit C draft) ... flows, entity formations, and entity dissolutions\n<|id|>251<|page|>28<|box|>361 147 414 854<|content|>• Schedule of Contributing Entities and Assets (PL...buting vehicle and each material portfolio company\n<|id|>252<|page|>28<|box|>417 147 470 854<|content|>• Schedule of Liabilities and § 752 Analysis (PLR ...for representative partners in each investor class\n<|id|>253<|page|>28<|box|>474 147 508 852<|content|>• Copies of IRS Form 2848, Powers of Attorney and ...eonard Cross and Sylvia Hartwell (executed copies)\n<|id|>254<|page|>28<|box|>512 145 527 578<|content|>• Business cards for all Calderwood & Harkness attendees\n<|id|>296<|page|>32<|box|>160 174 195 852<|content|>Calderwood & Harkness LLP 1900 K Street NW, Suite 1100 Washington, DC 20006 Main: ... (202) 371-7200\n<|id|>297<|page|>32<|box|>204 140 281 854<|content|>This memorandum is prepared for the internal use o...lara Digital Infrastructure LP or any other person",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>119<|tgt_id|>120\n<|src_id|>223<|tgt_id|>224",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 224
+        }
+    ]
+}

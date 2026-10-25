@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        197,
+        200
+    ],
+    "pages": [
+        197,
+        198,
+        199,
+        200
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>697<|type|>table<|page|>197<|box|>83 119 892 877<|content|>None\n<|id|>698<|type|>table<|page|>198<|box|>83 119 671 875<|content|>None\n<|id|>699<|type|>title<|page|>198<|box|>697 115 718 425<|content|>5.5中心（含机房）工程量表\n<|id|>700<|type|>table<|page|>198<|box|>745 115 904 882<|content|>None\n<|id|>701<|type|>table<|page|>199<|box|>83 114 891 882<|content|>None\n<|id|>702<|type|>table<|page|>200<|box|>83 114 890 882<|content|>None",
+    "raw_response": "<|src_id|>700<|tgt_id|>699",
+    "parsed": [
+        {
+            "src_id": 700,
+            "tgt_id": 699
+        }
+    ]
+}

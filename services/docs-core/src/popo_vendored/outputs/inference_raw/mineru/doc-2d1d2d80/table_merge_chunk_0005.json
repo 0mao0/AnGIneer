@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 外业观测', 'rowspan=3, 0.4', '记录', '1.记簿和字迹质量、计算结果2.观测、记簿的差错及处理']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 内业处理与技术报告', 'rowspan=3, 0.3', '内业计算', '1.坐标系统和起算数据2.外业验算资料和计算数据3.平差计算方法4.内业验算、内业成果质量和精度']]\n",
+    "raw_response": "[0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 124,
+    "table2_idx": 125
+}

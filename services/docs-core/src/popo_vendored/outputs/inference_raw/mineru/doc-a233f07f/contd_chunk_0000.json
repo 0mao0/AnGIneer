@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        12,
+        13,
+        16,
+        17,
+        22,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>90 142 125 834<|content|>NEW YORK SUPREME COURT COUNTY OF NEW YORK COMMERCIAL DIVISION BELMONT RIDGE BANK NA,\n<|id|>1<|page|>1<|box|>133 210 151 465<|content|>Plaintiff/Counterclaim Defendant,\n<|id|>2<|page|>1<|box|>161 176 178 282<|content|>— against —\n<|id|>3<|page|>1<|box|>186 212 203 390<|content|>Index No. ... 654871/2024\n<|id|>4<|page|>1<|box|>212 212 229 305<|content|>IAS Part 49\n<|id|>5<|page|>1<|box|>238 212 253 383<|content|>Hon. ... Althea Marchetti\n<|id|>6<|page|>1<|box|>263 140 299 852<|content|>TRITON HARBOR INDUSTRIES, LLC, MARCUS J. ... KAPPEL,\n<|id|>7<|page|>1<|box|>308 212 324 478<|content|>Defendants/Counterclaim Plaintiffs. ... Defendants/Counterclaim Plaintiffs\n<|id|>9<|page|>1<|box|>397 725 414 854<|content|>January 15, 2025\n<|id|>10<|page|>1<|box|>422 140 494 854<|content|>Propounding Parties: ... , Senior Associate)\n<|id|>53<|page|>6<|box|>805 140 898 857<|content|>Objections: ... The organizational structure and i...ion except insofar as they pertain to the specific\n<|id|>54<|page|>7<|box|>90 140 199 854<|content|>Triton Harbor credit decisions at issue. ... BRB a...the term \"any similar body\" as vague and undefined\n<|id|>94<|page|>12<|box|>776 140 904 857<|content|>Failure to Achieve the Covenant-Cure Milestone. ... 01(a) of the Original Credit Agreement and\n<|id|>95<|page|>13<|box|>89 140 145 854<|content|>Section 4(b)(i) of the Forbearance Agreement. ... ... and Section 4(b)(ii) of the Forbearance Agreement\n<|id|>126<|page|>16<|box|>616 174 689 856<|content|>(h) The inclusion of Section 9(c) of the Forbearan...facilities, or renew any credit facility\"; ... and\n<|id|>128<|page|>16<|box|>777 140 814 854<|content|>BRB will provide further supplementation to the ex... course of its ongoing investigation and discovery\n<|id|>130<|page|>16<|box|>849 140 887 854<|content|>Full Text of Interrogatory: ... Identify all appra... that were conducted, commissioned, or received by\n<|id|>131<|page|>17<|box|>90 140 127 854<|content|>BRB from January 1, 2021 to the present, including...perty or assets appraised, and the appraised value\n<|id|>172<|page|>22<|box|>858 140 893 854<|content|>Response: ... Subject to and without waiving the f...isk Advisors LLC (55 East 59th Street, Suite 1410,\n<|id|>173<|page|>23<|box|>90 140 200 854<|content|>New York, NY 10022) as an expert consulting and te...nection with the Triton Harbor credit relationship\n<|id|>182<|page|>23<|box|>915 140 930 388<|content|>Matter No. ... 1022-00005 — CONFIDENTIAL\n<|id|>183<|page|>24<|box|>89 140 127 852<|content|>I, Thomas Hargreaves, Vice President and Associate... NA, being duly sworn, depose and state as follows\n<|id|>187<|page|>25<|box|>114 140 132 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>188<|page|>25<|box|>133 142 150 614<|content|>Attorneys for Counterclaim Defendant Belmont Ridge Bank NA\n<|id|>189<|page|>25<|box|>150 140 181 852<|content|>600 Lexington Avenue, 30th Floor New York, NY 10022 Telephone: ... (212) 554-7801\n<|id|>190<|page|>25<|box|>184 142 200 437<|content|>Email: ... com\n<|id|>191<|page|>25<|box|>200 143 218 473<|content|>Email: ... com\n<|id|>192<|page|>25<|box|>219 143 236 253<|content|>By: ... By\n<|id|>193<|page|>25<|box|>234 143 252 292<|content|>Linda Osei, Partner\n<|id|>194<|page|>25<|box|>253 143 270 344<|content|>Carlos Espinoza, Associate\n<|id|>195<|page|>25<|box|>270 142 287 321<|content|>Matter No. ... 1022-00005\n<|id|>198<|page|>25<|box|>450 174 488 854<|content|>Theodore \"Ted\" Huang, Esq. ... (212) 688-4200\n<|id|>199<|page|>25<|box|>496 176 513 390<|content|>Email: ... com\n<|id|>200<|page|>25<|box|>513 178 530 390<|content|>Email: ... com",
+    "raw_response": "<|src_id|>53<|tgt_id|>54\n<|src_id|>94<|tgt_id|>95\n<|src_id|>130<|tgt_id|>131\n<|src_id|>172<|tgt_id|>173",
+    "parsed": [
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 173
+        }
+    ]
+}

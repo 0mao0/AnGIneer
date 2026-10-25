@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>85 86 133 911<|content|>Longitudinal Trends in Body Mass Index Before and\n<|id|>14<|page|>4<|box|>99 68 114 138<|content|>Summary\n<|id|>24<|page|>4<|box|>381 514 397 923<|content|>**** https://www.cdc.gov/nccdphp/dnpao/state-local\n<|id|>25<|page|>4<|box|>407 660 422 797<|content|>Acknowledgments\n<|id|>30<|page|>4<|box|>628 687 643 771<|content|>References",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>14<|level|>2\n<|id|>24<|level|>-1\n<|id|>25<|level|>2\n<|id|>30<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        }
+    ]
+}

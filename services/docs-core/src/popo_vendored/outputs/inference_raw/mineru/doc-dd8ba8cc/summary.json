@@ -1,0 +1,138 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qaa0o7k7\\input\\pdfs\\doc-dd8ba8cc.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qaa0o7k7\\enriched\\doc-dd8ba8cc.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>21<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>53<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>2\n<|id|>83<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>2\n<|id|>116<|level|>3\n<|id|>124<|level|>2\n<|id|>133<|level|>2\n<|id|>136<|level|>2\n<|id|>137<|level|>3\n<|id|>149<|level|>1\n<|id|>150<|level|>2\n<|id|>166<|level|>1\n<|id|>169<|level|>1",
+    "image_output": "<|src_id|>87<|tgt_id|>83\n<|src_id|>167<|tgt_id|>166\n<|src_id|>168<|tgt_id|>166\n<|src_id|>170<|tgt_id|>169",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 1
+        },
+        {
+            "id": 169,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 87,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 169
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 167,
+            "table2_idx": 168,
+            "upper_row_ss": [
+                [
+                    "\"What are the possible side effects?\" — Common side effects placeholder",
+                    "No annotation regarding pending CLARION-3 safety data.",
+                    "Added annotation noting that the common side effects list is a placeholder pending integrated safety",
+                    "Calderwood & Harkness — internal decision to add placeholder annotation following client"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "analysis from CLARION-2 and CLARION-3 datasets; identified preliminary adverse reactions of interest (acne, herpes zoster, nasopharyngitis).",
+                    "correspondence regarding anticipated CLARION-3 top-line timeline."
+                ]
+            ]
+        }
+    ]
+}

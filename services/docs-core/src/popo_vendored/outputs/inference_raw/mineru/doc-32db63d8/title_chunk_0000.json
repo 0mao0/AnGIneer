@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>352 140 369 339<|content|>I. Purpose of This Letter\n<|id|>9<|page|>1<|box|>756 140 773 506<|content|>II. Background — Discovery Requests at Issue\n<|id|>19<|page|>3<|box|>90 140 107 630<|content|>III. Summary of the September 6, 2022 Telephonic C\n<|id|>20<|page|>3<|box|>121 140 138 372<|content|>A. Participants and Logistics\n<|id|>25<|page|>3<|box|>387 142 404 426<|content|>B. Coastal Palms' Stated Objections\n<|id|>35<|page|>4<|box|>476 140 493 524<|content|>C. Verimark's Responses During the Conference\n<|id|>37<|page|>4<|box|>577 140 594 684<|content|>IV. Verimark's Position — Why Suncoast Records Mus\n<|id|>38<|page|>4<|box|>608 140 625 498<|content|>A. Response to the Separate-Entity Objection\n<|id|>44<|page|>5<|box|>638 140 655 454<|content|>B. Response to the Relevance Objection\n<|id|>54<|page|>6<|box|>726 140 744 517<|content|>C. Response to the Burden and Scope Objection\n<|id|>58<|page|>7<|box|>521 140 537 493<|content|>D. Response to the Confidentiality Objection\n<|id|>62<|page|>8<|box|>90 140 107 361<|content|>V. Proposals for Resolution\n<|id|>69<|page|>8<|box|>681 140 699 496<|content|>VI. Notice of Intent to File Motion to Compel\n<|id|>74<|page|>9<|box|>339 140 357 351<|content|>VII. Reservation of Rights\n<|id|>76<|page|>9<|box|>553 140 571 251<|content|>VIII. Closing",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>9<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>25<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>1\n<|id|>38<|level|>2\n<|id|>44<|level|>2\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>62<|level|>1\n<|id|>69<|level|>1\n<|id|>74<|level|>1\n<|id|>76<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        }
+    ]
+}

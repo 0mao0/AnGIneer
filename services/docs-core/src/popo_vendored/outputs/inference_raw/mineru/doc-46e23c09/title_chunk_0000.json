@@ -1,0 +1,168 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 143 118 854<|content|>ASSIGNMENT AND ASSUMPTION OF MEMBERSHIP INTERESTS\n<|id|>1<|page|>1<|box|>143 400 161 596<|content|>GMP Cool Springs LLC\n<|id|>5<|page|>1<|box|>482 140 500 241<|content|>RECITALS\n<|id|>13<|page|>2<|box|>648 143 664 243<|content|>ARTICLE I\n<|id|>14<|page|>2<|box|>689 142 705 299<|content|>DEFINED TERMS\n<|id|>23<|page|>3<|box|>392 142 407 250<|content|>ARTICLE II\n<|id|>24<|page|>3<|box|>433 140 449 535<|content|>ASSIGNMENT OF MEMBERSHIP INTERESTS\n<|id|>30<|page|>4<|box|>531 142 547 256<|content|>ARTICLE III\n<|id|>31<|page|>4<|box|>571 142 588 625<|content|>REPRESENTATIONS AND WARRANTIES OF ASSIGNOR\n<|id|>33<|page|>4<|box|>642 142 659 517<|content|>Section 3.1 — Organization and Good Standing.\n<|id|>36<|page|>4<|box|>830 142 845 370<|content|>Section 3.2 — Authorization.\n<|id|>39<|page|>5<|box|>270 140 287 542<|content|>Section 3.3 — Ownership of Membership Interests.\n<|id|>43<|page|>5<|box|>575 140 592 390<|content|>Section 3.4 — Company Status.\n<|id|>50<|page|>6<|box|>566 142 584 256<|content|>ARTICLE IV\n<|id|>51<|page|>6<|box|>608 142 625 622<|content|>REPRESENTATIONS AND WARRANTIES OF ASSIGNEE\n<|id|>54<|page|>6<|box|>741 142 758 370<|content|>Section 4.2 — Authorization.\n<|id|>59<|page|>7<|box|>457 142 474 248<|content|>ARTICLE V\n<|id|>60<|page|>7<|box|>498 140 515 437<|content|>COVENANTS AND AGREEMENTS\n<|id|>64<|page|>8<|box|>135 142 151 359<|content|>Section 5.3 — Tax Matters.\n<|id|>71<|page|>9<|box|>89 142 107 256<|content|>ARTICLE VI\n<|id|>72<|page|>9<|box|>131 140 148 544<|content|>RELATIONSHIP TO PURCHASE AGREEMENT\n<|id|>82<|page|>10<|box|>167 142 184 263<|content|>ARTICLE VII\n<|id|>83<|page|>10<|box|>209 142 224 308<|content|>MISCELLANEOUS\n<|id|>107<|page|>11<|box|>770 143 786 248<|content|>ASSIGNOR:\n<|id|>121<|page|>13<|box|>90 143 106 243<|content|>EXHIBIT A\n<|id|>122<|page|>13<|box|>131 143 148 444<|content|>DESCRIPTION OF THE COMPANY\n<|id|>124<|page|>14<|box|>89 143 107 243<|content|>EXHIBIT B\n<|id|>125<|page|>14<|box|>130 142 148 450<|content|>DESCRIPTION OF THE PROPERTY\n<|id|>129<|page|>14<|box|>234 142 253 290<|content|>Legal Description:\n<|id|>133<|page|>15<|box|>89 142 106 243<|content|>EXHIBIT C\n<|id|>134<|page|>15<|box|>131 140 148 467<|content|>LENDER CONSENT CONFIRMATION\n<|id|>136<|page|>15<|box|>220 143 236 287<|content|>1. Consent Letter.\n<|id|>138<|page|>15<|box|>398 142 417 437<|content|>2. Replacement Carve-Out Guaranty.\n<|id|>140<|page|>15<|box|>598 140 614 352<|content|>3. Assumption Agreement.\n<|id|>142<|page|>15<|box|>777 142 794 264<|content|>4. Consent Fee.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>33<|level|>4\n<|id|>36<|level|>4\n<|id|>39<|level|>4\n<|id|>43<|level|>4\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>54<|level|>4\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>64<|level|>4\n<|id|>71<|level|>2\n<|id|>72<|level|>3\n<|id|>82<|level|>2\n<|id|>83<|level|>3\n<|id|>107<|level|>2\n<|id|>121<|level|>2\n<|id|>122<|level|>3\n<|id|>124<|level|>2\n<|id|>125<|level|>3\n<|id|>129<|level|>4\n<|id|>133<|level|>2\n<|id|>134<|level|>3\n<|id|>136<|level|>4\n<|id|>138<|level|>4\n<|id|>140<|level|>4\n<|id|>142<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 4
+        },
+        {
+            "id": 36,
+            "level": 4
+        },
+        {
+            "id": 39,
+            "level": 4
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 4
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 4
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 4
+        },
+        {
+            "id": 138,
+            "level": 4
+        },
+        {
+            "id": 140,
+            "level": 4
+        },
+        {
+            "id": 142,
+            "level": 4
+        }
+    ]
+}

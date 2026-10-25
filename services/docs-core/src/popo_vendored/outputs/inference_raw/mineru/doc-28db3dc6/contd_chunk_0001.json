@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        49,
+        165
+    ],
+    "pages": [
+        50,
+        57,
+        69,
+        70,
+        164
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>432<|page|>50<|box|>885 24 926 488<|content|>7 A tax rate of 6. ... The tax is\n<|id|>434<|page|>50<|box|>762 513 772 802<|content|>^{10} Estate and gift tax rates ranged from 18 to ...te and gift tax rates ranged from 18 to 55 percent\n<|id|>460<|page|>57<|box|>269 58 353 519<|content|>Under authority of Public Law 95-147, Treasury imp...interest-bearing obligations participate under the\n<|id|>461<|page|>57<|box|>155 531 251 980<|content|>Note Option. ... Likewise, those institutions wish... account at FRBs do so under the Remittance Option\n<|id|>506<|page|>69<|box|>216 53 230 230<|content|>Auction of 7-Year Notes\n<|id|>507<|page|>69<|box|>244 50 361 502<|content|>October 2 Treasury announced it would auction \\$9,...ich tenders were accepted on a yield auction basis\n<|id|>526<|page|>70<|box|>262 9 279 350<|content|>Treasury Calls 7-1/2 Percent Bonds of 1988-93\n<|id|>527<|page|>70<|box|>292 9 367 469<|content|>October 9, 1991, Treasury announced the call for r...med February 15, 1992, will cease to earn interest\n<|id|>528<|page|>70<|box|>378 9 410 466<|content|>Treasury Changes Maximum Award on Noncompetitive Tenders for Notes and Bonds\n<|id|>529<|page|>70<|box|>422 7 498 469<|content|>October 25, 1991, Treasury announced an increase i.... ... The \\$1 million limit for bills is unchanged\n<|id|>901<|page|>164<|box|>658 204 677 775<|content|>Expected Condition and Results of Operations, Fiscal 1992",
+    "raw_response": "<|src_id|>460<|tgt_id|>461",
+    "parsed": [
+        {
+            "src_id": 460,
+            "tgt_id": 461
+        }
+    ]
+}

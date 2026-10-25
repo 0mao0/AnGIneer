@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 143 118 854<|content|>ASSIGNMENT AND ASSUMPTION OF MEMBERSHIP INTERESTS\n<|id|>1<|type|>title<|page|>1<|box|>143 400 161 596<|content|>GMP Cool Springs LLC\n<|id|>5<|type|>title<|page|>1<|box|>482 140 500 241<|content|>RECITALS\n<|id|>13<|type|>title<|page|>2<|box|>648 143 664 243<|content|>ARTICLE I\n<|id|>14<|type|>title<|page|>2<|box|>689 142 705 299<|content|>DEFINED TERMS\n<|id|>23<|type|>title<|page|>3<|box|>392 142 407 250<|content|>ARTICLE II\n<|id|>24<|type|>title<|page|>3<|box|>433 140 449 535<|content|>ASSIGNMENT OF MEMBERSHIP INTERESTS\n<|id|>30<|type|>title<|page|>4<|box|>531 142 547 256<|content|>ARTICLE III\n<|id|>31<|type|>title<|page|>4<|box|>571 142 588 625<|content|>REPRESENTATIONS AND WARRANTIES OF ASSIGNOR\n<|id|>33<|type|>title<|page|>4<|box|>642 142 659 517<|content|>Section 3.1 — Organization and Good Standing.\n<|id|>36<|type|>title<|page|>4<|box|>830 142 845 370<|content|>Section 3.2 — Authorization.\n<|id|>39<|type|>title<|page|>5<|box|>270 140 287 542<|content|>Section 3.3 — Ownership of Membership Interests.\n<|id|>43<|type|>title<|page|>5<|box|>575 140 592 390<|content|>Section 3.4 — Company Status.\n<|id|>50<|type|>title<|page|>6<|box|>566 142 584 256<|content|>ARTICLE IV\n<|id|>51<|type|>title<|page|>6<|box|>608 142 625 622<|content|>REPRESENTATIONS AND WARRANTIES OF ASSIGNEE\n<|id|>54<|type|>title<|page|>6<|box|>741 142 758 370<|content|>Section 4.2 — Authorization.\n<|id|>59<|type|>title<|page|>7<|box|>457 142 474 248<|content|>ARTICLE V\n<|id|>60<|type|>title<|page|>7<|box|>498 140 515 437<|content|>COVENANTS AND AGREEMENTS\n<|id|>64<|type|>title<|page|>8<|box|>135 142 151 359<|content|>Section 5.3 — Tax Matters.\n<|id|>71<|type|>title<|page|>9<|box|>89 142 107 256<|content|>ARTICLE VI\n<|id|>72<|type|>title<|page|>9<|box|>131 140 148 544<|content|>RELATIONSHIP TO PURCHASE AGREEMENT\n<|id|>82<|type|>title<|page|>10<|box|>167 142 184 263<|content|>ARTICLE VII\n<|id|>83<|type|>title<|page|>10<|box|>209 142 224 308<|content|>MISCELLANEOUS\n<|id|>107<|type|>title<|page|>11<|box|>770 143 786 248<|content|>ASSIGNOR:\n<|id|>121<|type|>title<|page|>13<|box|>90 143 106 243<|content|>EXHIBIT A\n<|id|>122<|type|>title<|page|>13<|box|>131 143 148 444<|content|>DESCRIPTION OF THE COMPANY\n<|id|>123<|type|>table<|page|>13<|box|>155 143 513 852<|content|>None\n<|id|>124<|type|>title<|page|>14<|box|>89 143 107 243<|content|>EXHIBIT B\n<|id|>125<|type|>title<|page|>14<|box|>130 142 148 450<|content|>DESCRIPTION OF THE PROPERTY\n<|id|>129<|type|>title<|page|>14<|box|>234 142 253 290<|content|>Legal Description:\n<|id|>131<|type|>table<|page|>14<|box|>420 143 608 852<|content|>None\n<|id|>132<|type|>table<|page|>14<|box|>665 143 811 852<|content|>None\n<|id|>133<|type|>title<|page|>15<|box|>89 142 106 243<|content|>EXHIBIT C\n<|id|>134<|type|>title<|page|>15<|box|>131 140 148 467<|content|>LENDER CONSENT CONFIRMATION\n<|id|>136<|type|>title<|page|>15<|box|>220 143 236 287<|content|>1. Consent Letter.\n<|id|>138<|type|>title<|page|>15<|box|>398 142 417 437<|content|>2. Replacement Carve-Out Guaranty.\n<|id|>140<|type|>title<|page|>15<|box|>598 140 614 352<|content|>3. Assumption Agreement.\n<|id|>142<|type|>title<|page|>15<|box|>777 142 794 264<|content|>4. Consent Fee.",
+    "raw_response": "<|src_id|>123<|tgt_id|>122\n<|src_id|>131<|tgt_id|>129\n<|src_id|>132<|tgt_id|>129",
+    "parsed": [
+        {
+            "src_id": 123,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 129
+        }
+    ]
+}

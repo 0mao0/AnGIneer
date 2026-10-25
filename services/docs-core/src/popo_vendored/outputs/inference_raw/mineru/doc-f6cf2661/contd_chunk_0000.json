@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        68
+    ],
+    "pages": [
+        5,
+        6,
+        7,
+        11,
+        26,
+        30,
+        33,
+        34,
+        67
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>5<|box|>3 31 186 239<|content|>Tras. ... 1\n<|id|>2<|page|>5<|box|>520 446 558 834<|content|>TREASURY DEPARTMENT LIBRARY\n<|id|>4<|page|>6<|box|>61 40 159 392<|content|>DEPARTMENT OF THE TREASURY FISCAL SERVICE, BUREAU ...6 OFFICIAL BUSINESS PENALTY FOR PRIVATE USE, \\$300\n<|id|>5<|page|>6<|box|>149 850 160 949<|content|>FIRST CLASS\n<|id|>10<|page|>7<|box|>168 395 195 578<|content|>August 1982\n<|id|>11<|page|>7<|box|>913 94 965 842<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>17<|page|>11<|box|>66 13 902 416<|content|>Article - Treasury financing operations. ... 69\n<|id|>18<|page|>11<|box|>70 445 877 850<|content|>INTERNATIONAL FINANCIAL STATISTICS IFS-1. ... 147\n<|id|>79<|page|>26<|box|>688 55 763 481<|content|>Source: ... (Data are on the basis of Reports on O...the agencies prior to reports submitted for budget\n<|id|>80<|page|>26<|box|>688 509 773 970<|content|>presentation and therefore may differ somewhat from the Budget of the U. ... 297,693\n<|id|>84<|page|>30<|box|>611 524 629 884<|content|>5/ Represents demand deposits in national, foreign... depositaries previously included in time deposits\n<|id|>86<|page|>30<|box|>60 187 76 851<|content|>Source and Availability of the Balance in the Account of the U. ... Treasury\n<|id|>87<|page|>30<|box|>98 59 149 486<|content|>The operating cash of the Treasury is maintained i...untry authorized to maintain tax and loan accounts\n<|id|>106<|page|>33<|box|>766 26 777 443<|content|>4/ Excludes currency and coin held by the Treasury and currency and\n<|id|>107<|page|>33<|box|>757 471 767 616<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>113<|page|>34<|box|>826 39 902 468<|content|>Note: ... The average annual rate is computed by d...any group of issues by the corresponding principal\n<|id|>114<|page|>34<|box|>836 521 847 741<|content|>1/ Includes Federal Financing Bank. ... 1/ Includes Federal Financing Bank\n<|id|>195<|page|>67<|box|>869 19 878 388<|content|>5/ Consists of the investment of foreign balances and international\n<|id|>197<|page|>67<|box|>884 490 894 581<|content|>p Preliminary. ... p Preliminary",
+    "raw_response": "<|src_id|>79<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        }
+    ]
+}

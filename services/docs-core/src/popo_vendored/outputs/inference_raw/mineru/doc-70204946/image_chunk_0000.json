@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 192 128 802<|content|>UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF\n<|id|>2<|type|>table<|page|>1<|box|>162 145 301 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>371 323 391 673<|content|>SUMMONS IN A CIVIL ACTION\n<|id|>18<|type|>title<|page|>2<|box|>224 192 241 803<|content|>UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF\n<|id|>19<|type|>table<|page|>2<|box|>273 143 414 852<|content|>None\n<|id|>20<|type|>title<|page|>2<|box|>497 406 513 591<|content|>PROOF OF SERVICE\n<|id|>41<|type|>title<|page|>4<|box|>161 142 179 558<|content|>Additional information regarding attempted service",
+    "raw_response": "<|src_id|>2<|tgt_id|>3\n<|src_id|>19<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        }
+    ]
+}

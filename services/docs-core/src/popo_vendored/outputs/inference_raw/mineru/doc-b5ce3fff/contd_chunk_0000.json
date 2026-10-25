@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>246 411 263 586<|content|>CURRENT REPORT\n<|id|>2<|page|>1<|box|>272 228 367 769<|content|>Pursuant to Section 13 or 15(d) of the Securities ... (Date of earliest event reported): ... 0001847263\n<|id|>3<|page|>1<|box|>377 251 396 746<|content|>NORTHGATE TELECOMMUNICATIONS PLC\n<|id|>6<|page|>1<|box|>527 151 542 442<|content|>Delaware incorporation file number: ... 5738291\n<|id|>4<|page|>1<|box|>415 308 431 689<|content|>(Exact name of registrant as specified in its charter)\n<|id|>7<|page|>1<|box|>579 161 614 834<|content|>45 Broadwick Street London W1F 0DB, United Kingdom...f principal executive offices, including zip code)\n<|id|>8<|page|>1<|box|>625 223 641 772<|content|>+44 (0)20 ____-____ (Registrant's telephone number, including area code)\n<|id|>9<|page|>1<|box|>648 212 667 784<|content|>Not applicable (Former name or former address, if changed since last report)\n<|id|>10<|page|>1<|box|>675 143 691 588<|content|>Securities registered pursuant to Section 12(b) of...es registered pursuant to Section 12(b) of the Act\n<|id|>13<|page|>1<|box|>845 143 863 795<|content|>Written communications pursuant to Rule 425 under the Securities Act (17 CFR 230. ... 425)\n<|id|>14<|page|>1<|box|>872 143 888 795<|content|>Soliciting material pursuant to Rule 14a-12 under the Exchange Act (17 CFR 240. ... 14a-12)\n<|id|>15<|page|>2<|box|>90 140 126 854<|content|>Pre-commencement communications pursuant to Rule 1... under the Exchange Act (17 CFR 240. ... 14d-2(b))\n<|id|>16<|page|>2<|box|>133 140 170 854<|content|>Pre-commencement communications pursuant to Rule 1... under the Exchange Act (17 CFR 240. ... 13e-4(c))\n<|id|>17<|page|>2<|box|>179 140 233 854<|content|>Indicate by check mark whether the registrant is a...ties Act of 1933 (§230. ... 12b-2 of this chapter)\n<|id|>50<|page|>5<|box|>834 140 907 857<|content|>Notwithstanding the foregoing, with respect to Ext... of the Company's common stock on the NYSE for the\n<|id|>51<|page|>6<|box|>90 140 143 854<|content|>20 trading days immediately preceding the public a... without being bound by the Board's recommendation\n<|id|>57<|page|>6<|box|>849 174 904 856<|content|>(b) Change of Control Transaction. ... For purpose...eration Agreement, a \"Change of Control\" means (i)\n<|id|>58<|page|>7<|box|>90 174 200 856<|content|>any merger, consolidation, or business combination...50% of the Company's outstanding voting securities\n<|id|>74<|page|>8<|box|>863 140 900 854<|content|>Independence Determination. ... Sinclair-Moreau qu...applicable listing standards of the New York Stock\n<|id|>75<|page|>9<|box|>90 140 200 856<|content|>Exchange and the independence requirements of Rule... directors, officers, and significant shareholders\n<|id|>85<|page|>10<|box|>227 140 244 535<|content|>NORTHGATE TELECOMMUNICATIONS PLC\n<|id|>86<|page|>10<|box|>244 142 261 294<|content|>Date: ... June 13, 2023\n<|id|>87<|page|>10<|box|>263 143 279 253<|content|>By: ... By\n<|id|>88<|page|>10<|box|>279 142 296 339<|content|>Name: ... Priya Nandakumar\n<|id|>89<|page|>10<|box|>297 142 313 480<|content|>Title: ... General Counsel & Corporate Secretary\n<|id|>90<|page|>10<|box|>311 140 344 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...TATIONS TO BE REMOVED PRIOR TO FILING WITH THE SEC\n<|id|>92<|page|>10<|box|>392 142 409 331<|content|>Matter No. ... 1022-00003\n<|id|>93<|page|>10<|box|>417 140 436 741<|content|>Prepared by: ... Marcus Leung and Sophie Tremblay, Calderwood & Harkness LLP\n<|id|>94<|page|>10<|box|>444 142 462 599<|content|>Reviewed by: ... Angela Fontaine, Calderwood & Harkness LLP\n<|id|>95<|page|>10<|box|>470 142 488 429<|content|>Date of Current Draft: ... June 12, 2023",
+    "raw_response": "<|src_id|>50<|tgt_id|>51\n<|src_id|>57<|tgt_id|>58\n<|src_id|>74<|tgt_id|>75",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 75
+        }
+    ]
+}

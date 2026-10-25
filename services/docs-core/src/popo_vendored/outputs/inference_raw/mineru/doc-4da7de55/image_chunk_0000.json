@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 143 104 586<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|type|>title<|page|>1<|box|>112 158 155 839<|content|>CALDERWOOD & HARKNESS LLP 425 Park Avenue, 18th Fl\n<|id|>8<|type|>title<|page|>1<|box|>357 207 377 787<|content|>CLOSING COMPLETION AND FILE MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>402 142 420 344<|content|>1. Purpose and Summary\n<|id|>14<|type|>title<|page|>1<|box|>859 142 875 421<|content|>2. Confirmation of Lease Execution\n<|id|>19<|type|>table<|page|>2<|box|>270 143 518 852<|content|>None\n<|id|>22<|type|>title<|page|>2<|box|>729 140 746 310<|content|>3. Guaranty of Lease\n<|id|>29<|type|>title<|page|>3<|box|>446 140 464 375<|content|>4. SNDA Delivery Confirmed\n<|id|>40<|type|>title<|page|>4<|box|>319 140 335 447<|content|>5. Letter of Credit Delivery Confirmed\n<|id|>43<|type|>table<|page|>4<|box|>566 143 710 852<|content|>None\n<|id|>46<|type|>title<|page|>5<|box|>148 140 167 495<|content|>6. Insurance Certificates Delivery Confirmed\n<|id|>48<|type|>table<|page|>5<|box|>273 143 378 852<|content|>None\n<|id|>52<|type|>title<|page|>5<|box|>707 140 724 527<|content|>7. Corporate Authorization Documents Delivered\n<|id|>61<|type|>title<|page|>6<|box|>609 140 626 542<|content|>8. Due Diligence Deliverables — Completion Status\n<|id|>68<|type|>title<|page|>7<|box|>383 140 402 410<|content|>9. Commencement and Possession\n<|id|>70<|type|>table<|page|>7<|box|>470 143 547 852<|content|>None\n<|id|>74<|type|>title<|page|>8<|box|>90 142 107 506<|content|>10. Tenant Improvement Work — Status Note\n<|id|>80<|type|>title<|page|>8<|box|>681 142 699 413<|content|>11. Broker Commissions — Status\n<|id|>85<|type|>title<|page|>9<|box|>223 140 239 678<|content|>12. Key Future Dates and Ongoing Obligations for C\n<|id|>87<|type|>title<|page|>9<|box|>334 143 352 393<|content|>12.1 Rent Commencement Date\n<|id|>89<|type|>title<|page|>9<|box|>425 143 443 325<|content|>12.2 Expansion Option\n<|id|>95<|type|>title<|page|>9<|box|>693 143 710 403<|content|>12.3 Right of First Offer (ROFO)\n<|id|>97<|type|>title<|page|>10<|box|>90 142 107 450<|content|>12.4 Letter of Credit Burn-Down Dates\n<|id|>105<|type|>title<|page|>10<|box|>340 142 358 436<|content|>12.5 Renewal Option Notice Deadline\n<|id|>107<|type|>title<|page|>10<|box|>505 143 523 330<|content|>12.6 Change of Control\n<|id|>113<|type|>title<|page|>10<|box|>810 142 827 357<|content|>12.7 Lease Expiration Date\n<|id|>115<|type|>title<|page|>11<|box|>90 142 107 413<|content|>13. Matter Status and File Closing\n<|id|>121<|type|>title<|page|>11<|box|>664 142 681 393<|content|>14. Distribution and Enclosures",
+    "raw_response": "<|src_id|>19<|tgt_id|>14\n<|src_id|>43<|tgt_id|>40\n<|src_id|>48<|tgt_id|>46\n<|src_id|>70<|tgt_id|>68",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 68
+        }
+    ]
+}

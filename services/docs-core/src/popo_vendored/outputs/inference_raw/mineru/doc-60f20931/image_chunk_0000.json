@@ -1,0 +1,56 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        35
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        21,
+        22,
+        24,
+        25,
+        26,
+        28,
+        29,
+        31,
+        32,
+        34,
+        35
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 143 133 630<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|type|>title<|page|>1<|box|>439 142 455 321<|content|>I. Executive Summary\n<|id|>15<|type|>title<|page|>2<|box|>622 140 638 393<|content|>II. Title Commitment Overview\n<|id|>16<|type|>title<|page|>2<|box|>654 142 669 380<|content|>A. Commitment Identification\n<|id|>18<|type|>table<|page|>2<|box|>719 143 902 852<|content|>None\n<|id|>19<|type|>table<|page|>3<|box|>88 143 109 852<|content|>None\n<|id|>22<|type|>title<|page|>4<|box|>90 140 107 444<|content|>B. Schedule A — Description of Estate\n<|id|>29<|type|>title<|page|>5<|box|>90 140 107 405<|content|>C. Schedule B-I — Requirements\n<|id|>44<|type|>title<|page|>8<|box|>90 140 107 455<|content|>III. Schedule B-II — Exceptions to Title\n<|id|>45<|type|>title<|page|>8<|box|>121 140 138 429<|content|>A. Standard / Preprinted Exceptions\n<|id|>47<|type|>title<|page|>8<|box|>244 140 277 854<|content|>Standard Exception 1: Rights or Claims of Parties\n<|id|>49<|type|>title<|page|>8<|box|>460 140 496 854<|content|>Standard Exception 2: Encroachments, Overlaps, Bou\n<|id|>51<|type|>title<|page|>8<|box|>640 140 657 831<|content|>Standard Exception 3: Easements or Claims of Easem\n<|id|>53<|type|>title<|page|>8<|box|>801 140 819 514<|content|>Standard Exception 4: Mechanic's Lien Claims.\n<|id|>55<|type|>title<|page|>9<|box|>171 140 189 820<|content|>Standard Exception 5: Real Property Taxes and Asse\n<|id|>57<|type|>title<|page|>9<|box|>314 140 332 753<|content|>Standard Exception 6: Any Lien for Unpaid Estate,\n<|id|>60<|type|>title<|page|>9<|box|>599 140 616 658<|content|>B. Special Exceptions — Recorded Documents and Enc\n<|id|>173<|type|>title<|page|>21<|box|>450 140 469 367<|content|>IV. Chain of Title Summary\n<|id|>183<|type|>title<|page|>22<|box|>532 140 550 334<|content|>V. Survey Coordination\n<|id|>185<|type|>title<|page|>22<|box|>657 140 676 450<|content|>Target Completion Date: June 15, 2025.\n<|id|>211<|type|>title<|page|>24<|box|>212 140 229 261<|content|>VI. Tax Status\n<|id|>213<|type|>title<|page|>24<|box|>300 142 318 393<|content|>Tax Map Reference: /95-4A-1///\n<|id|>214<|type|>table<|page|>24<|box|>349 143 463 852<|content|>None\n<|id|>219<|type|>title<|page|>25<|box|>223 140 239 598<|content|>VII. Environmental and Other Off-Record Considerat\n<|id|>230<|type|>title<|page|>26<|box|>383 140 402 503<|content|>VIII. Lender's Title Insurance Considerations\n<|id|>233<|type|>table<|page|>26<|box|>577 143 696 852<|content|>None\n<|id|>247<|type|>title<|page|>28<|box|>321 140 339 740<|content|>IX. Title Objections and Recommended Curative Acti\n<|id|>248<|type|>table<|page|>28<|box|>390 143 906 852<|content|>None\n<|id|>249<|type|>table<|page|>29<|box|>89 143 712 852<|content|>None\n<|id|>251<|type|>title<|page|>29<|box|>787 140 804 400<|content|>X. Recommended Endorsements\n<|id|>263<|type|>title<|page|>31<|box|>383 140 402 348<|content|>XI. Title Objection Letter\n<|id|>274<|type|>title<|page|>32<|box|>484 140 501 395<|content|>XII. Open Items and Next Steps\n<|id|>300<|type|>title<|page|>34<|box|>439 140 457 279<|content|>XIII. Conclusion\n<|id|>323<|type|>title<|page|>35<|box|>683 142 699 325<|content|>Attachments / Exhibits",
+    "raw_response": "<|src_id|>18<|tgt_id|>16\n<|src_id|>19<|tgt_id|>16\n<|src_id|>214<|tgt_id|>213\n<|src_id|>233<|tgt_id|>230\n<|src_id|>248<|tgt_id|>247\n<|src_id|>249<|tgt_id|>247",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 230
+        },
+        {
+            "src_id": 248,
+            "tgt_id": 247
+        },
+        {
+            "src_id": 249,
+            "tgt_id": 247
+        }
+    ]
+}

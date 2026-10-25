@@ -1,0 +1,463 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_5r_o_40\\input\\pdfs\\doc-3ad26834.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_5r_o_40\\enriched\\doc-3ad26834.json",
+    "contd_output": "<|src_id|>155<|tgt_id|>156",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>5<|level|>3\n<|id|>8<|level|>4\n<|id|>13<|level|>4\n<|id|>18<|level|>4\n<|id|>22<|level|>4\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>27<|level|>4\n<|id|>29<|level|>5\n<|id|>33<|level|>5\n<|id|>36<|level|>5\n<|id|>39<|level|>6\n<|id|>45<|level|>4\n<|id|>51<|level|>5\n<|id|>58<|level|>4\n<|id|>60<|level|>5\n<|id|>62<|level|>5\n<|id|>68<|level|>4\n<|id|>72<|level|>5\n<|id|>77<|level|>4\n<|id|>81<|level|>5\n<|id|>86<|level|>4\n<|id|>90<|level|>5\n<|id|>96<|level|>4\n<|id|>99<|level|>5\n<|id|>103<|level|>4\n<|id|>107<|level|>5\n<|id|>115<|level|>2\n<|id|>116<|level|>3\n<|id|>117<|level|>4\n<|id|>121<|level|>4\n<|id|>128<|level|>4\n<|id|>135<|level|>2\n<|id|>136<|level|>3\n<|id|>137<|level|>4\n<|id|>145<|level|>4\n<|id|>154<|level|>4\n<|id|>159<|level|>2\n<|id|>160<|level|>3\n<|id|>161<|level|>4\n<|id|>171<|level|>4",
+    "image_output": "<|src_id|>20<|tgt_id|>18\n<|src_id|>30<|tgt_id|>29\n<|src_id|>31<|tgt_id|>29\n<|src_id|>32<|tgt_id|>29\n<|src_id|>34<|tgt_id|>33\n<|src_id|>47<|tgt_id|>45\n<|src_id|>48<|tgt_id|>45\n<|src_id|>49<|tgt_id|>45\n<|src_id|>50<|tgt_id|>45\n<|src_id|>61<|tgt_id|>60\n<|src_id|>70<|tgt_id|>68\n<|src_id|>71<|tgt_id|>68\n<|src_id|>79<|tgt_id|>77\n<|src_id|>80<|tgt_id|>77\n<|src_id|>88<|tgt_id|>86\n<|src_id|>89<|tgt_id|>86\n<|src_id|>98<|tgt_id|>96\n<|src_id|>105<|tgt_id|>103\n<|src_id|>106<|tgt_id|>103\n<|src_id|>119<|tgt_id|>117\n<|src_id|>120<|tgt_id|>117\n<|src_id|>157<|tgt_id|>154",
+    "contd_label": [
+        {
+            "src_id": 155,
+            "tgt_id": 156
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 3
+        },
+        {
+            "id": 8,
+            "level": 4
+        },
+        {
+            "id": 13,
+            "level": 4
+        },
+        {
+            "id": 18,
+            "level": 4
+        },
+        {
+            "id": 22,
+            "level": 4
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 29,
+            "level": 5
+        },
+        {
+            "id": 33,
+            "level": 5
+        },
+        {
+            "id": 36,
+            "level": 5
+        },
+        {
+            "id": 39,
+            "level": 6
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 5
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 5
+        },
+        {
+            "id": 62,
+            "level": 5
+        },
+        {
+            "id": 68,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 5
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 81,
+            "level": 5
+        },
+        {
+            "id": 86,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 5
+        },
+        {
+            "id": 96,
+            "level": 4
+        },
+        {
+            "id": 99,
+            "level": 5
+        },
+        {
+            "id": 103,
+            "level": 4
+        },
+        {
+            "id": 107,
+            "level": 5
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 4
+        },
+        {
+            "id": 121,
+            "level": 4
+        },
+        {
+            "id": 128,
+            "level": 4
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 4
+        },
+        {
+            "id": 145,
+            "level": 4
+        },
+        {
+            "id": 154,
+            "level": 4
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 4
+        },
+        {
+            "id": 171,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 157,
+            "tgt_id": 154
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 30,
+            "table2_idx": 31,
+            "upper_row_ss": [
+                [
+                    "Lakeland Crossings",
+                    "Polk County,",
+                    "2024",
+                    "$885,000",
+                    "[ ]",
+                    "[ ]",
+                    "[ ]",
+                    "$379,713",
+                    "[ ]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Industrial / GMP Lakeland LLC",
+                    "FL",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 31,
+            "table2_idx": 32,
+            "upper_row_ss": [
+                [
+                    "Peachtree Corners Logistics Center / GMP Peachtree",
+                    "Gwinnett County, GA",
+                    "2024",
+                    "$930,000",
+                    "[ ]",
+                    "[ ]",
+                    "[ ]",
+                    "$399,044",
+                    "[ ]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "LLC",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 49,
+            "table2_idx": 50,
+            "upper_row_ss": [
+                [
+                    "Alliance Commerce Center / GMP",
+                    "[ ]",
+                    "[ ]",
+                    "[ ]",
+                    "[ ]",
+                    "[ ]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Alliance LLC",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 70,
+            "table2_idx": 71,
+            "upper_row_ss": [
+                [
+                    "[Each of the 14 Properties with separate rows for each utility type: Electric, Gas, Water/Sewer, Trash, Telecom]",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Portfolio Total",
+                    "All Utilities",
+                    "",
+                    "[___]",
+                    "[___]",
+                    "[___]",
+                    "[___]"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 88,
+            "table2_idx": 89,
+            "upper_row_ss": [
+                [
+                    "Buckhead Place Office Tower / GMP Buckhead LLC",
+                    "[ ]",
+                    "[ ]",
+                    "Y",
+                    "[ ]",
+                    "[ ]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "SouthPark Corporate Center / GMP SouthPark LLC",
+                    "[ ]",
+                    "[ ]",
+                    "Y",
+                    "[ ]",
+                    "[ ]"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 105,
+            "table2_idx": 106,
+            "upper_row_ss": [
+                [
+                    "All Target",
+                    "Interest Income",
+                    "[ ]",
+                    "[ ]",
+                    "[ ]",
+                    "[ ]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Entities",
+                    "on Operating Accounts (Magnolia Commerce Bank, N.A.)",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 119,
+            "table2_idx": 120,
+            "upper_row_ss": [
+                [
+                    "F. Security Deposits",
+                    "$4,283,000",
+                    "[ ]",
+                    "[ ]",
+                    "[ ]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "(transferred)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

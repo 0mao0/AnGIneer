@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 140 176 506<|content|>To: ... 1021-00008\n<|id|>3<|page|>1<|box|>186 140 203 534<|content|>From: ... Liam Donahue, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>212 140 229 316<|content|>Date: ... August 15, 2023\n<|id|>5<|page|>1<|box|>237 140 273 854<|content|>Re: ... Memorandum of Interview — William \"Bill\" G... Engagement Partner, Hargrove, Steen & Aldrich LLP\n<|id|>6<|page|>1<|box|>282 140 318 854<|content|>Subject Matter: ... Internal Investigation — Verim...LLC Revenue Recognition and Expense Irregularities\n<|id|>7<|page|>1<|box|>325 138 417 856<|content|>This memorandum was prepared by Liam Donahue and r...ard of Directors of Verimark Hospitality Group Inc\n<|id|>52<|page|>6<|box|>851 140 906 857<|content|>Mr. ... He stated that the\n<|id|>53<|page|>7<|box|>90 140 143 854<|content|>Audit Committee took the lead on next steps after ... direction of the Audit Committee and its advisors",
+    "raw_response": "<|src_id|>52<|tgt_id|>53",
+    "parsed": [
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        }
+    ]
+}

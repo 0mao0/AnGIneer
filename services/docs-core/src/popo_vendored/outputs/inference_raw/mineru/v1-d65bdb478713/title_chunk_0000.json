@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 391<|content|>【1827271#0】亞納-因迪吉爾卡低地\n<|id|>2<|page|>1<|box|>140 105 156 310<|content|>【1839722#0】烏科克高原\n<|id|>4<|page|>1<|box|>206 107 223 258<|content|>【1841546#0】石蛾\n<|id|>6<|page|>1<|box|>341 105 357 346<|content|>【1843669#0】東西伯利亞高原\n<|id|>8<|page|>1<|box|>409 107 424 265<|content|>【185205#4】勃艮第\n<|id|>10<|page|>1<|box|>508 105 525 376<|content|>【1854214#22】灵山街道 (青岛市)\n<|id|>12<|page|>1<|box|>609 107 626 258<|content|>【1863566#0】胎座\n<|id|>14<|page|>1<|box|>694 107 709 346<|content|>【1868947#1】波莱特·戈达德\n<|id|>16<|page|>1<|box|>812 105 828 310<|content|>【187028#61】舊金山灣區\n<|id|>18<|page|>1<|box|>896 107 912 310<|content|>【187028#62】舊金山灣區\n<|id|>20<|page|>2<|box|>152 105 168 391<|content|>【18761#32】中国足球协会超级联赛\n<|id|>22<|page|>2<|box|>200 105 217 478<|content|>【188159#7】谢尔盖·米哈依洛维奇·爱森斯坦\n<|id|>24<|page|>2<|box|>319 107 335 292<|content|>【1886369#0】鄂畢高原\n<|id|>26<|page|>2<|box|>385 107 401 329<|content|>【1906070#1】香港天樂媒體\n<|id|>28<|page|>2<|box|>486 105 502 487<|content|>【1908416#2】新疆生产建设兵团第三师红旗农场\n<|id|>30<|page|>2<|box|>570 107 586 369<|content|>【1910560#4】东湖街道 (黄冈市)\n<|id|>32<|page|>2<|box|>671 105 687 292<|content|>【1923377#2】新能源车\n<|id|>34<|page|>3<|box|>73 107 89 319<|content|>【19283#36】中国地质大学\n<|id|>36<|page|>3<|box|>381 105 397 292<|content|>【19456#0】马达加斯加\n<|id|>38<|page|>3<|box|>499 105 514 302<|content|>【19456#17】马达加斯加\n<|id|>40<|page|>3<|box|>583 107 599 275<|content|>【19538#5】日本动画\n<|id|>42<|page|>3<|box|>684 107 700 267<|content|>【19944#74】奥斯陆\n<|id|>44<|page|>3<|box|>819 107 835 258<|content|>【20383#3】教育家\n<|id|>46<|page|>4<|box|>73 107 89 258<|content|>【20383#4】教育家\n<|id|>48<|page|>4<|box|>123 107 139 258<|content|>【20383#7】教育家\n<|id|>50<|page|>4<|box|>241 107 256 240<|content|>【20480#1】腾讯\n<|id|>52<|page|>4<|box|>324 105 341 310<|content|>【207010#64】奥卡姆剃刀\n<|id|>54<|page|>4<|box|>460 105 476 285<|content|>【210832#1】前田綱紀\n<|id|>56<|page|>5<|box|>73 107 89 284<|content|>【211507#3】湖南人口\n<|id|>58<|page|>5<|box|>156 107 173 248<|content|>【214014#0】費城",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>1\n<|id|>58<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ]
+}

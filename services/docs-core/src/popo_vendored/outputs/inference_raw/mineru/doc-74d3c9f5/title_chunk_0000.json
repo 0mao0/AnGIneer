@@ -1,0 +1,148 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 423 128 573<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>412 385 431 611<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>209 419 229 576<|content|>II. Background\n<|id|>15<|page|>2<|box|>253 140 270 392<|content|>A. MCB's Trademark Portfolio\n<|id|>23<|page|>3<|box|>167 140 184 408<|content|>B. Brindoval's Infringing Activity\n<|id|>29<|page|>4<|box|>90 140 107 511<|content|>C. Procedural Posture Leading to the PI Order\n<|id|>40<|page|>5<|box|>174 205 193 790<|content|>III. Detailed Analysis of the Court's January 9, 2\n<|id|>41<|page|>5<|box|>219 140 234 635<|content|>A. The Court's Findings on Likelihood of Success o\n<|id|>43<|page|>5<|box|>385 140 402 584<|content|>1. Polaroid Factor Analysis (Second Circuit Framew\n<|id|>55<|page|>8<|box|>90 140 107 473<|content|>2. Trade Dress vs. Word Mark Distinction\n<|id|>60<|page|>8<|box|>726 140 744 503<|content|>B. The Court's Findings on Irreparable Harm\n<|id|>65<|page|>9<|box|>585 140 603 529<|content|>C. The Court's Findings on Balance of Hardships\n<|id|>69<|page|>10<|box|>258 140 277 477<|content|>D. The Court's Findings on Public Interest\n<|id|>71<|page|>10<|box|>473 140 489 385<|content|>E. Specific Terms of the Order\n<|id|>79<|page|>11<|box|>190 325 210 671<|content|>IV. Implications for Trial Strategy\n<|id|>80<|page|>11<|box|>236 140 252 491<|content|>A. Strengths of Our Position Going Forward\n<|id|>86<|page|>12<|box|>241 140 258 343<|content|>B. Weaknesses and Risks\n<|id|>92<|page|>13<|box|>258 140 277 439<|content|>C. Recommended discovery Priorities\n<|id|>103<|page|>14<|box|>559 259 578 736<|content|>V. Assessment of Potential Interlocutory Appeal\n<|id|>104<|page|>14<|box|>604 140 619 643<|content|>A. Standard for Interlocutory Appeal of PI Denial\n<|id|>107<|page|>15<|box|>90 140 107 344<|content|>B. Arguments for Appeal\n<|id|>112<|page|>15<|box|>638 140 655 439<|content|>C. Arguments Against Appeal (Risks)\n<|id|>118<|page|>16<|box|>494 142 511 307<|content|>D. Recommendation\n<|id|>121<|page|>16<|box|>775 290 794 705<|content|>VI. Settlement Leverage and Implications\n<|id|>122<|page|>16<|box|>820 140 837 441<|content|>A. Enhanced Leverage from PI Order\n<|id|>127<|page|>17<|box|>520 140 537 421<|content|>B. Potential Settlement Framework\n<|id|>134<|page|>18<|box|>421 140 438 307<|content|>C. Recommendation\n<|id|>138<|page|>19<|box|>90 364 111 633<|content|>VII. Immediate Next Steps\n<|id|>147<|page|>20<|box|>190 411 209 584<|content|>VIII. Conclusion",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>23<|level|>3\n<|id|>29<|level|>3\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>43<|level|>4\n<|id|>55<|level|>4\n<|id|>60<|level|>3\n<|id|>65<|level|>3\n<|id|>69<|level|>3\n<|id|>71<|level|>3\n<|id|>79<|level|>2\n<|id|>80<|level|>3\n<|id|>86<|level|>3\n<|id|>92<|level|>3\n<|id|>103<|level|>2\n<|id|>104<|level|>3\n<|id|>107<|level|>3\n<|id|>112<|level|>3\n<|id|>118<|level|>3\n<|id|>121<|level|>2\n<|id|>122<|level|>3\n<|id|>127<|level|>3\n<|id|>134<|level|>3\n<|id|>138<|level|>2\n<|id|>147<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        10,
+        11,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 259 155 738<|content|>555 California Street, 40th Floor San Francisco, California 94104\n<|id|>3<|page|>1<|box|>164 184 181 813<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>190 143 234 854<|content|>Elaine Forsythe Partner Antitrust & Competition Practice Group Direct Dial: ... com\n<|id|>5<|page|>1<|box|>234 746 250 854<|content|>May 22, 2024\n<|id|>6<|page|>1<|box|>258 142 275 447<|content|>VIA HAND DELIVERY AND EMAIL\n<|id|>7<|page|>1<|box|>285 140 320 854<|content|>Mr. ... 200 Bay Street, Suite 3400 Toronto, ON M5J 2J2 Canada\n<|id|>8<|page|>1<|box|>329 140 364 852<|content|>Ms. ... 200 Bay Street, Suite 3400 Toronto, ON M5J 2J2 Canada\n<|id|>9<|page|>1<|box|>375 142 407 852<|content|>Copy delivered to TMC U. ... 8750 West Sahara Avenue, Suite 210 Reno, NV 89117, USA\n<|id|>10<|page|>1<|box|>417 140 462 854<|content|>Re: ... ATR- SF-2024-00312)\n<|id|>11<|page|>1<|box|>469 140 484 457<|content|>Calderwood & Harkness Matter No. ... 1039-00001\n<|id|>12<|page|>1<|box|>492 142 508 501<|content|>Classification: ... Attorney-Client Privileged and Confidential\n<|id|>13<|page|>1<|box|>516 143 532 308<|content|>Dear Søren and Priya: ... Dear Søren and Priya\n<|id|>17<|page|>1<|box|>872 140 929 854<|content|>We are pleased to confirm that this investigation ... on May 6, 2024 (DOJ Reference No. ... ATR- Page 1\n<|id|>18<|page|>2<|box|>90 140 181 854<|content|>SF-2024-00312). ... As of May 20, 2024, the DOJ co...of the NPA during the three-year compliance period\n<|id|>25<|page|>2<|box|>872 140 928 856<|content|>The findings of the internal investigation were pr...rization, Calderwood & Harkness submitted a Page 2\n<|id|>26<|page|>3<|box|>90 140 162 854<|content|>detailed cooperation proffer to the DOJ Antitrust ...duals involved, and the scope of affected commerce\n<|id|>90<|page|>10<|box|>359 181 393 854<|content|>• Layer 2: ... and\n<|id|>92<|page|>10<|box|>416 140 450 854<|content|>Both excess carriers acknowledged receipt of the n...served rights consistent with Northland's position\n<|id|>99<|page|>10<|box|>868 140 929 854<|content|>The resolution of the investigation through the NP...nd the associated USD 48. ... In addition, Page 10\n<|id|>100<|page|>11<|box|>90 140 127 854<|content|>depending on the timing of the payment and the fil... disclose the resolution on a more expedited basis\n<|id|>126<|page|>13<|box|>859 142 875 272<|content|>Very truly yours,\n<|id|>127<|page|>13<|box|>875 140 892 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>128<|page|>14<|box|>90 142 107 251<|content|>By: ... By\n<|id|>129<|page|>14<|box|>106 140 175 854<|content|>Elaine Forsythe Partner, Antitrust & Competition P...n Francisco, CA 94104 Direct Dial: ... (via email)\n<|id|>130<|page|>14<|box|>183 174 238 854<|content|>Howard Bellamy, Billing Partner, Calderwood & Hark...sociate, Calderwood & Harkness LLP (San Francisco)",
+    "raw_response": "<|src_id|>17<|tgt_id|>18\n<|src_id|>25<|tgt_id|>26\n<|src_id|>99<|tgt_id|>100",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 100
+        }
+    ]
+}

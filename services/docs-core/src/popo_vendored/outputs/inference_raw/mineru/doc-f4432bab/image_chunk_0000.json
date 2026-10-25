@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>5<|type|>title<|page|>1<|box|>233 140 250 581<|content|>VIA ENCRYPTED EMAIL AND REGISTERED POST\n<|id|>12<|type|>title<|page|>1<|box|>719 140 737 647<|content|>I. Background — Divergent BTI Rulings Triggering t\n<|id|>18<|type|>title<|page|>2<|box|>685 140 702 383<|content|>II. Significance of the Referral\n<|id|>20<|type|>title<|page|>2<|box|>760 140 777 398<|content|>A. Positive Implications for TSL\n<|id|>25<|type|>title<|page|>3<|box|>766 140 784 339<|content|>B. Negative Implications\n<|id|>31<|type|>title<|page|>4<|box|>556 140 574 403<|content|>III. Possible DG TAXUD Actions\n<|id|>33<|type|>title<|page|>4<|box|>632 142 648 372<|content|>1. Issue an Advisory Opinion\n<|id|>36<|type|>title<|page|>5<|box|>90 140 107 434<|content|>2. Initiate a Classification Regulation\n<|id|>38<|type|>title<|page|>5<|box|>345 140 363 464<|content|>3. Refer to the Customs Code Committee\n<|id|>41<|type|>title<|page|>5<|box|>619 142 636 599<|content|>IV. Impact on Pending Proceedings and Current Expo\n<|id|>43<|type|>table<|page|>5<|box|>705 143 900 852<|content|>None\n<|id|>44<|type|>table<|page|>6<|box|>89 145 125 852<|content|>None\n<|id|>48<|type|>title<|page|>6<|box|>561 140 579 348<|content|>V. Recommended Actions\n<|id|>50<|type|>title<|page|>6<|box|>637 140 654 542<|content|>A. Seek a Formal Standstill Agreement with AADE\n<|id|>59<|type|>title<|page|>7<|box|>345 140 362 437<|content|>B. Post a Bank Guarantee as Security\n<|id|>63<|type|>title<|page|>7<|box|>762 140 780 555<|content|>C. File a Supplemental Submission with DG TAXUD\n<|id|>71<|type|>title<|page|>8<|box|>690 140 707 437<|content|>D. Continue Insurance Claim Pursuit\n<|id|>75<|type|>title<|page|>9<|box|>267 140 284 367<|content|>VI. Next Steps and Timeline",
+    "raw_response": "<|src_id|>43<|tgt_id|>41\n<|src_id|>44<|tgt_id|>41",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 41
+        }
+    ]
+}

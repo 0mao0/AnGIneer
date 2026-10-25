@@ -1,0 +1,143 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-iqzszy78\\input\\pdfs\\doc-a56e6be9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-iqzszy78\\enriched\\doc-a56e6be9.json",
+    "contd_output": "<|src_id|>38<|tgt_id|>39\n<|src_id|>151<|tgt_id|>152",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>9<|level|>2\n<|id|>12<|level|>2\n<|id|>24<|level|>2\n<|id|>37<|level|>2\n<|id|>49<|level|>2\n<|id|>58<|level|>2\n<|id|>63<|level|>2\n<|id|>68<|level|>2\n<|id|>79<|level|>2\n<|id|>83<|level|>2\n<|id|>92<|level|>3\n<|id|>112<|level|>1\n<|id|>114<|level|>2\n<|id|>121<|level|>2\n<|id|>143<|level|>3\n<|id|>147<|level|>1\n<|id|>148<|level|>2",
+    "image_output": "<|src_id|>140<|tgt_id|>112\n<|src_id|>141<|tgt_id|>112\n<|src_id|>142<|tgt_id|>112\n<|src_id|>145<|tgt_id|>143\n<|src_id|>150<|tgt_id|>148",
+    "contd_label": [
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 152
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 140,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 148
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 141,
+            "table2_idx": 142,
+            "upper_row_ss": [
+                [
+                    "Total",
+                    "100%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Pellegrino Capital Group LLC (Sole Member and Manager)",
+                    "100%"
+                ]
+            ]
+        }
+    ]
+}

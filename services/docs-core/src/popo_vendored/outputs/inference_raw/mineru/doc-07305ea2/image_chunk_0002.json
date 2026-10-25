@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        93,
+        103
+    ],
+    "pages": [
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        100,
+        102,
+        103
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>796<|type|>title<|page|>93<|box|>89 142 106 566<|content|>EXHIBIT A — FORM OF BORROWING REQUEST\n<|id|>817<|type|>title<|page|>94<|box|>89 142 106 612<|content|>EXHIBIT B — FORM OF COMPLIANCE CERTIFICATE\n<|id|>826<|type|>title<|page|>94<|box|>532 142 549 418<|content|>A. Revolving Credit Exposure Test\n<|id|>831<|type|>title<|page|>94<|box|>646 143 662 457<|content|>B. Total Net Leverage Ratio Calculation\n<|id|>839<|type|>title<|page|>94<|box|>854 143 869 498<|content|>C. Adjusted EBITDA Supporting Calculation\n<|id|>863<|type|>title<|page|>95<|box|>537 138 555 403<|content|>D. E. Defaults / Events of Default\n<|id|>872<|type|>title<|page|>96<|box|>89 140 106 588<|content|>EXHIBIT C — FORM OF SOLVENCY CERTIFICATE\n<|id|>887<|type|>title<|page|>97<|box|>89 142 106 537<|content|>EXHIBIT D — FORM OF PROMISSORY NOTE\n<|id|>900<|type|>table<|page|>97<|box|>710 143 746 852<|content|>None\n<|id|>901<|type|>title<|page|>98<|box|>89 140 106 769<|content|>EXHIBIT E — FORM OF ASSIGNMENT AND ASSUMPTION AGRE\n<|id|>906<|type|>table<|page|>98<|box|>388 143 445 852<|content|>None\n<|id|>939<|type|>title<|page|>100<|box|>89 140 106 663<|content|>EXHIBIT F — FORM OF LENDER ACCESSION AGREEMENT\n<|id|>962<|type|>title<|page|>102<|box|>89 140 106 673<|content|>EXHIBIT G — FORM OF OFFICER'S CLOSING CERTIFICATE\n<|id|>976<|type|>title<|page|>103<|box|>89 142 106 614<|content|>EXHIBIT H — FORM OF SECRETARY'S CERTIFICATE\n<|id|>984<|type|>table<|page|>103<|box|>592 143 667 852<|content|>None",
+    "raw_response": "<|src_id|>900<|tgt_id|>887\n<|src_id|>906<|tgt_id|>901\n<|src_id|>984<|tgt_id|>976",
+    "parsed": [
+        {
+            "src_id": 900,
+            "tgt_id": 887
+        },
+        {
+            "src_id": 906,
+            "tgt_id": 901
+        },
+        {
+            "src_id": 984,
+            "tgt_id": 976
+        }
+    ]
+}

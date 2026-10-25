@@ -1,0 +1,48 @@
+{
+    "task": "title",
+    "chunk_index": 10,
+    "range": [
+        505,
+        564
+    ],
+    "pages": [
+        505,
+        506,
+        508,
+        509,
+        536,
+        563
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1624<|page|>505<|box|>152 401 181 593<|content|>4-3-7 打桩工作平台\n<|id|>1628<|page|>506<|box|>183 415 222 619<|content|>第四节 灌注桩工程\n<|id|>1629<|page|>506<|box|>273 473 309 561<|content|>说明\n<|id|>1654<|page|>508<|box|>304 128 331 285<|content|>11. 工程量计算规则：\n<|id|>1661<|page|>509<|box|>136 390 165 574<|content|>4-4-1 人工挖孔\n<|id|>1741<|page|>536<|box|>134 401 161 593<|content|>4-4-4 回旋钻机钻孔\n<|id|>1822<|page|>563<|box|>116 434 141 561<|content|>II. 水中平台上钻孔",
+    "raw_response": "<|id|>1624<|level|>3\n<|id|>1628<|level|>1\n<|id|>1629<|level|>2\n<|id|>1654<|level|>2\n<|id|>1661<|level|>3\n<|id|>1741<|level|>3\n<|id|>1822<|level|>2",
+    "parsed": [
+        {
+            "id": 1624,
+            "level": 3
+        },
+        {
+            "id": 1628,
+            "level": 1
+        },
+        {
+            "id": 1629,
+            "level": 2
+        },
+        {
+            "id": 1654,
+            "level": 2
+        },
+        {
+            "id": 1661,
+            "level": 3
+        },
+        {
+            "id": 1741,
+            "level": 3
+        },
+        {
+            "id": 1822,
+            "level": 2
+        }
+    ]
+}

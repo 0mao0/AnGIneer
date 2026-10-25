@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Technology License Agreement', 'Arcwave Software LLC', 'Prior written consent', 'HIGH', 'Consent solicitation sent 03/10/2025;']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'response pending']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 307,
+    "table2_idx": 308
+}

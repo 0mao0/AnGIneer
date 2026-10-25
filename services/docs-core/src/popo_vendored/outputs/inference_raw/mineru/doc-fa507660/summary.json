@@ -1,0 +1,147 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kmt_zry8\\input\\pdfs\\doc-fa507660.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kmt_zry8\\enriched\\doc-fa507660.json",
+    "contd_output": "<|src_id|>26<|tgt_id|>27\n<|src_id|>62<|tgt_id|>63",
+    "title_output": "<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>25<|level|>3\n<|id|>30<|level|>3\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>45<|level|>3\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>65<|level|>3\n<|id|>78<|level|>3\n<|id|>99<|level|>3\n<|id|>108<|level|>2\n<|id|>114<|level|>2\n<|id|>115<|level|>3\n<|id|>123<|level|>3\n<|id|>132<|level|>3\n<|id|>139<|level|>2\n<|id|>143<|level|>2",
+    "image_output": "<|src_id|>110<|tgt_id|>108\n<|src_id|>111<|tgt_id|>108\n<|src_id|>112<|tgt_id|>108\n<|src_id|>141<|tgt_id|>139\n<|src_id|>142<|tgt_id|>139",
+    "contd_label": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 110,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 139
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 110,
+            "table2_idx": 111,
+            "upper_row_ss": [
+                [
+                    "No.",
+                    "Deficiency",
+                    "Bylaw / Legal Requirement",
+                    "Cure Required?"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1",
+                    "Premature delivery — Nomination Notice received December 8, 2022, four calendar days before the advance-notice window opens on December 12, 2022",
+                    "Article II, Section 2.11 (timeliness — \"not earlier than\" the 150th day)",
+                    "Yes — refile or supplement within the window (no later than January 11, 2023)"
+                ]
+            ]
+        }
+    ]
+}

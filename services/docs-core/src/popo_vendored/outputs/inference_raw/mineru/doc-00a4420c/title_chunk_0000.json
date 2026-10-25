@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 352 118 645<|content|>OFFICER'S CERTIFICATE\n<|id|>4<|page|>1<|box|>233 142 250 248<|content|>Delivered to:\n<|id|>9<|page|>1<|box|>478 140 494 573<|content|>Section 1. Identity and Authority of Certifying Of\n<|id|>17<|page|>2<|box|>279 140 296 478<|content|>Section 2. Representations and Warranties\n<|id|>31<|page|>4<|box|>304 140 320 310<|content|>Section 3. No Default\n<|id|>38<|page|>5<|box|>241 140 258 452<|content|>Section 4. No Material Adverse Change\n<|id|>45<|page|>5<|box|>821 140 839 475<|content|>Section 5. Financial Covenant Compliance\n<|id|>58<|page|>7<|box|>267 140 284 349<|content|>Section 6. Use of Proceeds\n<|id|>63<|page|>8<|box|>204 140 222 508<|content|>Section 7. Satisfaction of Conditions Precedent\n<|id|>88<|page|>10<|box|>601 140 618 486<|content|>Section 8. Borrowing Request Confirmation\n<|id|>93<|page|>11<|box|>150 142 167 419<|content|>Section 9. Additional Certifications\n<|id|>100<|page|>12<|box|>90 142 107 303<|content|>Section 10. Reliance\n<|id|>105<|page|>12<|box|>494 277 510 718<|content|>[SIGNATURE PAGE TO OFFICER'S CERTIFICATE]\n<|id|>107<|page|>12<|box|>564 140 580 478<|content|>STONEFIELD LOGISTICS GROUP INC.\n<|id|>115<|page|>12<|box|>703 143 718 305<|content|>Address for Notices:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>-1\n<|id|>9<|level|>2\n<|id|>17<|level|>2\n<|id|>31<|level|>2\n<|id|>38<|level|>2\n<|id|>45<|level|>2\n<|id|>58<|level|>2\n<|id|>63<|level|>2\n<|id|>88<|level|>2\n<|id|>93<|level|>2\n<|id|>100<|level|>2\n<|id|>105<|level|>2\n<|id|>107<|level|>-1\n<|id|>115<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        }
+    ]
+}

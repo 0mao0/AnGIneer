@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|page|>1<|box|>334 140 351 493<|content|>1. Purpose and Confirmation of Engagement\n<|id|>9<|page|>1<|box|>664 142 681 362<|content|>2. Description of the Matter\n<|id|>19<|page|>2<|box|>425 140 443 354<|content|>3. Scope of Representation\n<|id|>32<|page|>4<|box|>90 140 107 313<|content|>4. Engagement Team\n<|id|>40<|page|>4<|box|>715 140 732 446<|content|>5. Billing Rates and Fee Arrangements\n<|id|>41<|page|>4<|box|>746 140 763 279<|content|>5.1 Hourly Rates\n<|id|>46<|page|>5<|box|>174 140 191 315<|content|>5.2 Rate Adjustments\n<|id|>48<|page|>5<|box|>301 140 318 483<|content|>5.3 Disbursements and Out-of-Pocket Costs\n<|id|>56<|page|>5<|box|>607 140 625 269<|content|>5.4 Expert Fees\n<|id|>58<|page|>5<|box|>753 140 770 277<|content|>5.5 Fee Estimate\n<|id|>62<|page|>6<|box|>202 140 219 356<|content|>5.6 Invoicing and Payment\n<|id|>65<|page|>6<|box|>457 140 474 429<|content|>6. Client Identification and Conflicts\n<|id|>73<|page|>7<|box|>90 140 107 390<|content|>7. Confidentiality and Privilege\n<|id|>77<|page|>7<|box|>593 140 609 287<|content|>8. Governing Law\n<|id|>79<|page|>7<|box|>770 140 787 483<|content|>9. Document Preservation and Cooperation\n<|id|>80<|page|>7<|box|>800 140 818 295<|content|>9.1 Litigation Hold\n<|id|>92<|page|>8<|box|>827 142 844 274<|content|>10. Termination\n<|id|>96<|page|>9<|box|>348 140 364 568<|content|>11. Limitation of Scope and No Guarantee of Outcom\n<|id|>99<|page|>9<|box|>588 142 604 380<|content|>12. Acceptance and Execution\n<|id|>103<|page|>9<|box|>864 140 881 444<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>111<|page|>10<|box|>176 316 193 679<|content|>ACKNOWLEDGMENT AND AGREEMENT\n<|id|>113<|page|>10<|box|>263 140 281 485<|content|>VANTAGE MOBILITY SYSTEMS CORP.",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>1\n<|id|>9<|level|>1\n<|id|>19<|level|>1\n<|id|>32<|level|>1\n<|id|>40<|level|>1\n<|id|>41<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>62<|level|>2\n<|id|>65<|level|>1\n<|id|>73<|level|>1\n<|id|>77<|level|>1\n<|id|>79<|level|>1\n<|id|>80<|level|>2\n<|id|>92<|level|>1\n<|id|>96<|level|>1\n<|id|>99<|level|>1\n<|id|>103<|level|>-1\n<|id|>111<|level|>1\n<|id|>113<|level|>2",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 2
+        }
+    ]
+}

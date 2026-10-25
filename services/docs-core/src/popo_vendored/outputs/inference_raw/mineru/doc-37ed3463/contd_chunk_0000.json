@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 723 151 854<|content|>October 10, 2022\n<|id|>2<|page|>1<|box|>160 140 176 596<|content|>VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED\n<|id|>3<|page|>1<|box|>186 140 203 684<|content|>Mr. ... Rennick 438 Georgina Avenue Santa Monica, CA 90402\n<|id|>4<|page|>1<|box|>212 140 247 854<|content|>Re: ... Coastal Meridian Productions LLP — Demand for Accounting and Payment of Withheld Distributions\n<|id|>5<|page|>1<|box|>256 142 273 285<|content|>Dear Mr. ... Rennick\n<|id|>63<|page|>6<|box|>834 140 907 856<|content|>Nothing in this letter shall be construed as a wai...pon completion of a full accounting and audit, and\n<|id|>64<|page|>7<|box|>90 140 126 854<|content|>Ms. ... Fonseca reserves the right to supplement t...herein as additional information becomes available\n<|id|>65<|page|>7<|box|>135 142 152 274<|content|>Very truly yours,\n<|id|>66<|page|>7<|box|>151 140 167 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>67<|page|>7<|box|>169 142 186 253<|content|>By: ... By\n<|id|>68<|page|>7<|box|>186 140 203 336<|content|>Jeffrey Park For the Firm\n<|id|>69<|page|>7<|box|>204 140 220 341<|content|>cc: ... Fonseca\n<|id|>70<|page|>7<|box|>229 174 247 547<|content|>2817 Cheremoya Avenue Los Angeles, CA 90068",
+    "raw_response": "<|src_id|>63<|tgt_id|>64",
+    "parsed": [
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        }
+    ]
+}

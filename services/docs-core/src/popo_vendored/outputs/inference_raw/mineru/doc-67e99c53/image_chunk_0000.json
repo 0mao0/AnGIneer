@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 166 126 854<|content|>PENTERRA PHARMACEUTICALS CORP. 400 Meridian Parkwa\n<|id|>7<|type|>title<|page|>1<|box|>553 140 569 470<|content|>Background — The Lock-Up Agreements\n<|id|>11<|type|>title<|page|>2<|box|>296 140 313 519<|content|>Description of the Proposed Secondary Offering\n<|id|>15<|type|>title<|page|>2<|box|>652 142 669 606<|content|>Identification of Selling Stockholders and Shares\n<|id|>17<|type|>table<|page|>2<|box|>720 143 905 852<|content|>None\n<|id|>18<|type|>table<|page|>3<|box|>88 143 138 852<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>458 140 474 354<|content|>Specific Waiver Requested\n<|id|>27<|type|>title<|page|>4<|box|>277 140 294 362<|content|>New Lock-Up Commitment\n<|id|>30<|type|>title<|page|>4<|box|>664 142 681 313<|content|>Anticipated Timeline\n<|id|>31<|type|>table<|page|>4<|box|>731 143 906 852<|content|>None\n<|id|>32<|type|>table<|page|>5<|box|>88 143 152 852<|content|>None\n<|id|>34<|type|>title<|page|>5<|box|>282 140 299 379<|content|>Request for Prompt Response\n<|id|>37<|type|>title<|page|>5<|box|>540 140 556 437<|content|>Issuer's Counsel Contact Information\n<|id|>45<|type|>title<|page|>6<|box|>90 142 107 447<|content|>Selling Stockholders' Personal Counsel",
+    "raw_response": "<|src_id|>17<|tgt_id|>15\n<|src_id|>18<|tgt_id|>15\n<|src_id|>31<|tgt_id|>30\n<|src_id|>32<|tgt_id|>30",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        }
+    ]
+}

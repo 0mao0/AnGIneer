@@ -1,0 +1,166 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-98snik2e\\input\\pdfs\\doc-98ca5a93.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-98snik2e\\enriched\\doc-98ca5a93.json",
+    "contd_output": "",
+    "title_output": "<|id|>13<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>42<|level|>2\n<|id|>47<|level|>2\n<|id|>51<|level|>1\n<|id|>53<|level|>2\n<|id|>58<|level|>2\n<|id|>61<|level|>1\n<|id|>63<|level|>1\n<|id|>69<|level|>1\n<|id|>75<|level|>1\n<|id|>78<|level|>1\n<|id|>86<|level|>2",
+    "image_output": "<|src_id|>39<|tgt_id|>37\n<|src_id|>40<|tgt_id|>37\n<|src_id|>46<|tgt_id|>42\n<|src_id|>55<|tgt_id|>53\n<|src_id|>56<|tgt_id|>53\n<|src_id|>62<|tgt_id|>61",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 61
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 39,
+            "table2_idx": 40,
+            "upper_row_ss": [
+                [
+                    "Tranche 3",
+                    "March 15, 2024",
+                    "25%",
+                    "$181,250.00",
+                    "Vested"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 55,
+            "table2_idx": 56,
+            "upper_row_ss": [
+                [
+                    "6",
+                    "Nathan Tsao",
+                    "Senior Manager, eCommerce Merchandising",
+                    "Per individual equity schedule (Schedule A)",
+                    "Per individual calculation (Schedule A)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "7",
+                    "Kira Johansson",
+                    "Senior Manager, Category Analytics",
+                    "Per individual equity schedule (Schedule A)",
+                    "Per individual calculation (Schedule A)"
+                ]
+            ]
+        }
+    ]
+}

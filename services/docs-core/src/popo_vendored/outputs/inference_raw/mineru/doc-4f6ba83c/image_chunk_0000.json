@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 215 107 854<|content|>CALDERWOOD & HARKNESS LLP 599 Lexington Avenue New\n<|id|>9<|type|>table<|page|>1<|box|>714 143 897 852<|content|>None\n<|id|>10<|type|>table<|page|>2<|box|>89 143 143 852<|content|>None\n<|id|>46<|type|>title<|page|>4<|box|>268 176 286 818<|content|>INTERNAL ANNOTATIONS / DRAFT NOTES (To Be Removed",
+    "raw_response": "<|src_id|>9<|tgt_id|>0\n<|src_id|>10<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 0
+        }
+    ]
+}

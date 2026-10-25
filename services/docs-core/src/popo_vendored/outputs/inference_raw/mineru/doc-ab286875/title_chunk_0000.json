@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        9,
+        11
+    ],
+    "pages": [
+        9,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>29<|page|>9<|box|>86 87 102 374<|content|>Category Low EstimaHigh EstimNotes\n<|id|>33<|page|>11<|box|>86 87 102 337<|content|>Item # Category Description",
+    "raw_response": "<|id|>29<|level|>1\n<|id|>33<|level|>1",
+    "parsed": [
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        }
+    ]
+}

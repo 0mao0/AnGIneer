@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 107 575<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>330 444 352 553<|content|>I. Purpose\n<|id|>14<|page|>2<|box|>90 233 111 763<|content|>II. Overview of Existing Shelf Registration Statem\n<|id|>38<|page|>3<|box|>359 310 380 686<|content|>III. Summary of Takedown Offerings\n<|id|>40<|page|>3<|box|>493 140 510 633<|content|>A. Takedown No. 1 — Common Equity Offering (August\n<|id|>51<|page|>4<|box|>273 140 292 627<|content|>B. Takedown No. 2 — Senior Notes Offering (Novembe\n<|id|>53<|page|>4<|box|>363 142 380 405<|content|>Date of Offering: November 2024.\n<|id|>63<|page|>5<|box|>198 343 218 653<|content|>IV. Utilization Summary Table\n<|id|>66<|page|>5<|box|>648 143 665 264<|content|>Reconciliation:\n<|id|>76<|page|>6<|box|>154 354 174 640<|content|>V. Shelf Expiration Analysis\n<|id|>83<|page|>6<|box|>750 320 770 676<|content|>VI. CRH Capital Structure Context\n<|id|>85<|page|>7<|box|>90 140 108 338<|content|>A. Equity Capitalization\n<|id|>90<|page|>7<|box|>472 140 489 343<|content|>B. Key Financial Metrics\n<|id|>95<|page|>7<|box|>690 140 708 375<|content|>C. Debt Profile and Leverage\n<|id|>104<|page|>8<|box|>282 140 299 346<|content|>D. Other Key Data Points\n<|id|>111<|page|>8<|box|>539 142 556 256<|content|>E. Operations\n<|id|>113<|page|>8<|box|>679 140 696 506<|content|>F. Board of Directors and Senior Management\n<|id|>118<|page|>9<|box|>90 189 136 807<|content|>VII. Recommendation — New Replacement Shelf Regist\n<|id|>120<|page|>9<|box|>266 140 284 357<|content|>A. Rationale for New Shelf\n<|id|>126<|page|>10<|box|>90 140 107 418<|content|>B. Proposed New Shelf Parameters\n<|id|>147<|page|>10<|box|>818 140 835 228<|content|>C. Timing\n<|id|>153<|page|>11<|box|>450 401 470 596<|content|>VIII. Key Contacts\n<|id|>155<|page|>11<|box|>566 140 583 266<|content|>CRH In-House\n<|id|>160<|page|>11<|box|>801 140 819 522<|content|>Calderwood & Harkness LLP (Issuer's Counsel)\n<|id|>165<|page|>12<|box|>131 140 148 720<|content|>Redmond Zanthor & Co. LLC (Anticipated Lead Managi\n<|id|>170<|page|>12<|box|>332 343 352 653<|content|>IX. Open Items and Next Steps\n<|id|>178<|page|>14<|box|>90 284 111 712<|content|>Appendix A — Existing Shelf Filing Details\n<|id|>180<|page|>14<|box|>190 173 227 823<|content|>REGISTRATION STATEMENT ON FORM S-3 SECURITIES AND\n<|id|>198<|page|>14<|box|>712 142 729 426<|content|>Shelf Expiration Date: June 28, 2026",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>3\n<|id|>51<|level|>3\n<|id|>53<|level|>-1\n<|id|>63<|level|>2\n<|id|>66<|level|>-1\n<|id|>76<|level|>2\n<|id|>83<|level|>2\n<|id|>85<|level|>3\n<|id|>90<|level|>3\n<|id|>95<|level|>3\n<|id|>104<|level|>3\n<|id|>111<|level|>3\n<|id|>113<|level|>3\n<|id|>118<|level|>2\n<|id|>120<|level|>3\n<|id|>126<|level|>3\n<|id|>147<|level|>3\n<|id|>153<|level|>2\n<|id|>155<|level|>3\n<|id|>160<|level|>3\n<|id|>165<|level|>3\n<|id|>170<|level|>2\n<|id|>178<|level|>2\n<|id|>180<|level|>3\n<|id|>198<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 3
+        }
+    ]
+}

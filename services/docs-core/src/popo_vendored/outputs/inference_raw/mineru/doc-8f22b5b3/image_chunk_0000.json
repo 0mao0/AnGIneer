@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>364 385 383 612<|content|>I. Executive Summary\n<|id|>15<|type|>title<|page|>2<|box|>198 303 218 694<|content|>II. Reporting Requirement Framework\n<|id|>16<|type|>title<|page|>2<|box|>244 140 260 464<|content|>A. LP Agreement §7.04(b) Requirements\n<|id|>25<|type|>title<|page|>2<|box|>821 142 838 513<|content|>B. Side Letter Enhanced Reporting Obligations\n<|id|>33<|type|>title<|page|>3<|box|>633 140 652 346<|content|>C. Timeliness Assessment\n<|id|>37<|type|>title<|page|>3<|box|>794 330 813 666<|content|>III. Review of Q1 Report Content\n<|id|>39<|type|>title<|page|>4<|box|>90 140 107 459<|content|>A. Status of Material Impediment Event\n<|id|>47<|type|>title<|page|>5<|box|>267 140 284 439<|content|>B. Equity Purchase Agreement Status\n<|id|>55<|type|>title<|page|>6<|box|>241 140 258 393<|content|>C. Regulatory Approvals Status\n<|id|>56<|type|>title<|page|>6<|box|>272 142 289 336<|content|>1. FERC §203 Approval\n<|id|>61<|type|>title<|page|>6<|box|>714 140 732 500<|content|>2. OPUC (Oregon Public Utility Commission)\n<|id|>68<|type|>title<|page|>7<|box|>431 140 449 408<|content|>D. Financing Commitment Status\n<|id|>77<|type|>title<|page|>8<|box|>465 140 482 369<|content|>E. Vehicle Financial Position\n<|id|>78<|type|>title<|page|>8<|box|>496 142 513 277<|content|>1. Capital Status\n<|id|>79<|type|>table<|page|>8<|box|>561 143 652 852<|content|>None\n<|id|>81<|type|>title<|page|>8<|box|>809 140 827 493<|content|>2. Cash Balances and Expenditure Summary\n<|id|>83<|type|>table<|page|>9<|box|>89 143 280 852<|content|>None\n<|id|>90<|type|>title<|page|>9<|box|>632 140 648 300<|content|>3. GP Commitment\n<|id|>92<|type|>title<|page|>9<|box|>723 140 739 348<|content|>4. R&W Insurance Status\n<|id|>97<|type|>title<|page|>10<|box|>402 140 419 535<|content|>F. GP Actions Taken or Proposed During Q1 2023\n<|id|>105<|type|>title<|page|>11<|box|>190 308 210 689<|content|>IV. Compliance Assessment Summary\n<|id|>106<|type|>table<|page|>11<|box|>268 143 787 852<|content|>None\n<|id|>107<|type|>title<|page|>11<|box|>824 390 842 607<|content|>V. Recommendations\n<|id|>109<|type|>title<|page|>12<|box|>90 140 107 450<|content|>A. Supplemental Information Requests\n<|id|>115<|type|>title<|page|>12<|box|>681 140 698 401<|content|>B. Monitoring Items for Q2 2023\n<|id|>123<|type|>title<|page|>13<|box|>484 140 501 380<|content|>C. Wind-Down Election Right\n<|id|>128<|type|>title<|page|>14<|box|>90 349 111 647<|content|>VI. Document Retention Note\n<|id|>139<|type|>title<|page|>14<|box|>472 143 487 250<|content|>Distribution:",
+    "raw_response": "<|src_id|>79<|tgt_id|>78\n<|src_id|>83<|tgt_id|>81\n<|src_id|>106<|tgt_id|>105",
+    "parsed": [
+        {
+            "src_id": 79,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 105
+        }
+    ]
+}

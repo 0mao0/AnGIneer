@@ -1,0 +1,147 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 174 122 821<|content|>UNITED STATES DISTRICT COURT CENTRAL DISTRICT OF C\n<|id|>3<|page|>1<|box|>460 282 479 715<|content|>DECLARATION OF DR. NATHAN FREY\n<|id|>4<|page|>1<|box|>498 140 515 478<|content|>I, Dr. Nathan Frey, hereby declare as follows:\n<|id|>5<|page|>1<|box|>539 142 555 465<|content|>I. Introduction and Personal Information\n<|id|>10<|page|>2<|box|>186 140 204 413<|content|>II. Qualifications and Background\n<|id|>29<|page|>3<|box|>628 140 647 473<|content|>III. Scope of Engagement and Assignment\n<|id|>45<|page|>5<|box|>90 140 107 627<|content|>IV. Methodology — Content Fingerprinting and Ident\n<|id|>46<|page|>5<|box|>121 142 138 457<|content|>A. Fingerprinting Technology Overview\n<|id|>51<|page|>5<|box|>801 143 819 410<|content|>B. Reference Library Preparation\n<|id|>61<|page|>6<|box|>637 140 655 429<|content|>C. Platform Crawling and Matching\n<|id|>68<|page|>7<|box|>501 140 518 434<|content|>V. Metadata Extraction and Analysis\n<|id|>70<|page|>7<|box|>667 142 685 290<|content|>A. Ingestion Dates\n<|id|>78<|page|>8<|box|>393 140 410 354<|content|>B. Geographic Availability\n<|id|>82<|page|>8<|box|>797 140 814 527<|content|>C. Content Presentation and Editorial Treatment\n<|id|>91<|page|>9<|box|>599 142 618 331<|content|>D. Ongoing Availability\n<|id|>94<|page|>9<|box|>794 140 811 426<|content|>VI. Viewership and Traffic Analysis\n<|id|>95<|page|>9<|box|>824 140 842 277<|content|>A. Methodology.\n<|id|>102<|page|>10<|box|>537 142 554 308<|content|>B. Viewership Share\n<|id|>109<|page|>11<|box|>176 140 193 290<|content|>C. Traffic Volume\n<|id|>113<|page|>11<|box|>518 140 534 413<|content|>VII. Revenue Attribution Analysis\n<|id|>114<|page|>11<|box|>549 140 565 485<|content|>A. Overview of StreamNow Revenue Model\n<|id|>121<|page|>12<|box|>324 140 340 431<|content|>B. Subscription Revenue Attribution\n<|id|>130<|page|>13<|box|>311 140 329 531<|content|>C. Advertising Revenue Attribution (AVOD Tier)\n<|id|>137<|page|>13<|box|>811 140 829 645<|content|>D. Sublicensing Revenue Attribution (FAST Channel\n<|id|>149<|page|>14<|box|>734 140 750 383<|content|>E. Total Attributable Revenue\n<|id|>153<|page|>15<|box|>200 140 219 678<|content|>VIII. Analysis of Downstream Distribution Through\n<|id|>165<|page|>16<|box|>445 140 462 478<|content|>IX. Ongoing Nature and Continuing Harm\n<|id|>171<|page|>17<|box|>315 142 333 341<|content|>X. Summary of Opinions\n<|id|>180<|page|>18<|box|>205 142 223 243<|content|>XI. Exhibits\n<|id|>182<|page|>18<|box|>688 142 705 475<|content|>XII. Declaration Under Penalty of Perjury",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>-1\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>29<|level|>2\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>51<|level|>3\n<|id|>61<|level|>3\n<|id|>68<|level|>2\n<|id|>70<|level|>3\n<|id|>78<|level|>3\n<|id|>82<|level|>3\n<|id|>91<|level|>3\n<|id|>94<|level|>2\n<|id|>95<|level|>3\n<|id|>102<|level|>3\n<|id|>109<|level|>3\n<|id|>113<|level|>2\n<|id|>114<|level|>3\n<|id|>121<|level|>3\n<|id|>130<|level|>3\n<|id|>137<|level|>3\n<|id|>149<|level|>3\n<|id|>153<|level|>2\n<|id|>165<|level|>2\n<|id|>171<|level|>2\n<|id|>180<|level|>2\n<|id|>182<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 403 119 593<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>407 140 424 364<|content|>1. Purpose and Background\n<|id|>16<|page|>2<|box|>439 140 457 470<|content|>2. NovaMart Global Inc. — Entity Details\n<|id|>28<|page|>3<|box|>286 140 303 562<|content|>3. Jurisdictions Requiring Good Standing Certifica\n<|id|>29<|page|>3<|box|>316 140 334 346<|content|>3.1 State of Incorporation\n<|id|>33<|page|>3<|box|>732 140 750 346<|content|>3.2 State of Headquarters\n<|id|>38<|page|>4<|box|>316 140 334 668<|content|>3.3 States of Fulfillment Center Operations (Forei\n<|id|>44<|page|>5<|box|>715 140 732 354<|content|>3.4 NovaMart Subsidiaries\n<|id|>52<|page|>6<|box|>571 140 589 433<|content|>4. Ordering Instructions and Process\n<|id|>53<|page|>6<|box|>603 140 619 421<|content|>4.1 Responsible Party for Ordering\n<|id|>60<|page|>7<|box|>502 140 520 354<|content|>4.2 Timing and Expediting\n<|id|>62<|page|>7<|box|>607 142 625 346<|content|>Key Dates and Deadlines:\n<|id|>66<|page|>7<|box|>801 140 818 580<|content|>Jurisdiction-by-Jurisdiction Processing Time Estim\n<|id|>81<|page|>9<|box|>268 140 284 292<|content|>4.3 Cost Estimates\n<|id|>88<|page|>9<|box|>699 140 715 364<|content|>5. Delivery and Distribution\n<|id|>98<|page|>10<|box|>606 140 622 562<|content|>6. Summary Table — Master Certificate Request List\n<|id|>103<|page|>12<|box|>143 140 160 609<|content|>Total Certificates Required for NovaMart Parent En\n<|id|>105<|page|>12<|box|>209 142 227 313<|content|>7. Open Action Items\n<|id|>107<|page|>12<|box|>297 142 315 531<|content|>Action Item 1: Confirm Complete Subsidiary List\n<|id|>111<|page|>12<|box|>530 142 547 638<|content|>Action Item 2: Confirm Delaware Registered Agent A\n<|id|>115<|page|>12<|box|>761 142 777 519<|content|>Action Item 3: Update Master Closing Checklist\n<|id|>119<|page|>13<|box|>114 142 133 669<|content|>Action Item 4: Monitor Closing Date and Adjust Ord\n<|id|>123<|page|>13<|box|>402 143 420 676<|content|>Action Item 5: Confirm Original vs. Copy Requireme\n<|id|>130<|page|>14<|box|>89 143 107 243<|content|>EXHIBIT A\n<|id|>131<|page|>14<|box|>114 289 133 707<|content|>NovaMart Subsidiary List and Foreign Qualification\n<|id|>132<|page|>14<|box|>141 158 176 838<|content|>[PLACEHOLDER — TO BE COMPLETED UPON CONFIRMATION F",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>16<|level|>2\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>38<|level|>3\n<|id|>44<|level|>3\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>60<|level|>3\n<|id|>62<|level|>4\n<|id|>66<|level|>4\n<|id|>81<|level|>3\n<|id|>88<|level|>2\n<|id|>98<|level|>2\n<|id|>103<|level|>3\n<|id|>105<|level|>2\n<|id|>107<|level|>3\n<|id|>111<|level|>3\n<|id|>115<|level|>3\n<|id|>119<|level|>3\n<|id|>123<|level|>3\n<|id|>130<|level|>2\n<|id|>131<|level|>3\n<|id|>132<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        }
+    ]
+}

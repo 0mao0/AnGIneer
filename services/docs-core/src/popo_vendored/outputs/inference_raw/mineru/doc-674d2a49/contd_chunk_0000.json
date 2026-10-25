@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 147 151 851<|content|>125 Broad Street New York, New York 10004 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 715 176 854<|content|>February 13, 2024\n<|id|>3<|page|>1<|box|>186 140 203 738<|content|>Meridian Hale & Quivorn LLP 51 West 52nd Street New York, New York 10019\n<|id|>4<|page|>1<|box|>212 174 229 416<|content|>Attention: ... Graham Neville, Esq\n<|id|>5<|page|>1<|box|>229 174 263 854<|content|>Re: ... — Opinion Reliance Authorization\n<|id|>6<|page|>1<|box|>273 140 290 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>33<|page|>4<|box|>804 176 821 531<|content|>(e) any governmental or regulatory authority; ... or\n<|id|>34<|page|>4<|box|>830 140 893 854<|content|>(f) any other person or entity not expressly ident... without the prior written consent of Calderwood &\n<|id|>35<|page|>5<|box|>89 140 162 854<|content|>Harkness LLP. ... It is understood and agreed that...strued to limit or affect such rights and remedies\n<|id|>44<|page|>5<|box|>777 140 795 272<|content|>Very truly yours,\n<|id|>45<|page|>5<|box|>803 140 819 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>46<|page|>5<|box|>821 142 837 253<|content|>By: ... By\n<|id|>48<|page|>6<|box|>90 176 125 852<|content|>Rachel Moynihan, Esq. ... 275 Kendall Avenue, Suite 1400 Cambridge, Massachusetts 02142\n<|id|>49<|page|>6<|box|>133 176 169 852<|content|>Jonathan Pritchett Managing Director Whitfield Bar... , LLC 383 Madison Avenue New York, New York 10179\n<|id|>50<|page|>6<|box|>179 176 214 852<|content|>Eric Johannsen, Esq. ... Calderwood & Harkness LLP...reet New York, New York 10004 (Internal File Copy)",
+    "raw_response": "<|src_id|>34<|tgt_id|>35",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        }
+    ]
+}

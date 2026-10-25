@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        11
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>2<|box|>166 140 185 295<|content|>[FACE OF NOTE]\n<|id|>3<|page|>2<|box|>188 140 205 439<|content|>CONFIDENTIAL TREATMENT REQUESTED\n<|id|>4<|page|>2<|box|>212 140 323 856<|content|>THIS NOTE HAS NOT BEEN REGISTERED UNDER THE SECURI...R OTHERWISE DISPOSED OF, EXCEPT AS SET FORTH BELOW\n<|id|>5<|page|>2<|box|>329 138 898 857<|content|>BY ITS ACQUISITION HEREOF, THE HOLDER OF THIS NOTE...MORE QUALIFIED INSTITUTIONAL BUYERS; ... 08 OF THE\n<|id|>6<|page|>3<|box|>89 140 126 854<|content|>INDENTURE FOR A DESCRIPTION OF CERTAIN ADDITIONAL ...ONAL TRANSFER RESTRICTIONS APPLICABLE TO THIS NOTE\n<|id|>24<|page|>5<|box|>487 174 521 854<|content|>Brindoval Trust Company, National Association 100 Federal Street, Suite 800 Boston, Massachusetts 02110\n<|id|>25<|page|>5<|box|>531 176 547 491<|content|>Attention: ... Corporate Trust Administration\n<|id|>26<|page|>5<|box|>547 140 565 826<|content|>Brindoval Trust Company, National Association shal...tion shall serve as the Paying Agent for this Note\n<|id|>54<|page|>8<|box|>864 140 901 854<|content|>Notwithstanding the foregoing, without the consent...ver may, among other things, (i) change the Stated\n<|id|>55<|page|>9<|box|>90 140 236 854<|content|>Maturity of the principal of, or any installment o...ture in a manner materially adverse to the Holders\n<|id|>63<|page|>9<|box|>654 143 670 305<|content|>Authorized Signatory\n<|id|>64<|page|>9<|box|>671 142 686 455<|content|>Date of Authentication: ... February 24, 2026\n<|id|>65<|page|>9<|box|>688 140 722 854<|content|>IN WITNESS WHEREOF, the Issuer has caused this ins...to be duly executed as of the date set forth below\n<|id|>68<|page|>9<|box|>767 143 782 361<|content|>Name: ... Harrington\n<|id|>69<|page|>9<|box|>784 143 799 364<|content|>Title: ... Chief Executive Officer\n<|id|>70<|page|>9<|box|>801 143 818 251<|content|>By: ... By\n<|id|>71<|page|>9<|box|>819 142 834 331<|content|>Name: ... Priya Narasimhan\n<|id|>72<|page|>9<|box|>835 143 852 359<|content|>Title: ... Chief Financial Officer\n<|id|>73<|page|>9<|box|>854 143 869 272<|content|>Attest: ... Attest\n<|id|>74<|page|>9<|box|>871 143 886 325<|content|>Name: ... Wexler\n<|id|>75<|page|>9<|box|>888 143 904 336<|content|>Title: ... Corporate Secretary\n<|id|>80<|page|>10<|box|>239 176 258 689<|content|>(Insert assignee's social security or other taxpayer identifying number)\n<|id|>82<|page|>10<|box|>431 140 469 854<|content|>and do hereby irrevocably constitute and appointas...r, with full power of substitution in the premises\n<|id|>81<|page|>10<|box|>406 176 424 687<|content|>(Print or typewrite name and address, including zip code, of assignee)\n<|id|>84<|page|>10<|box|>545 142 564 375<|content|>Signature of Registered Holder\n<|id|>85<|page|>10<|box|>571 140 626 854<|content|>NOTICE: ... The signature to this assignment must ...t alteration or enlargement or any change whatever\n<|id|>88<|page|>10<|box|>803 178 821 331<|content|>Signature Guarantee\n<|id|>89<|page|>10<|box|>872 176 890 464<|content|>Name of Eligible Guarantor Institution\n<|id|>90<|page|>11<|box|>109 176 128 398<|content|>Title of Authorized Signatory\n<|id|>91<|page|>11<|box|>181 176 196 220<|content|>Date",
+    "raw_response": "<|src_id|>5<|tgt_id|>6\n<|src_id|>54<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        }
+    ]
+}

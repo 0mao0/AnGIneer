@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 7,
+    "range": [
+        337,
+        386
+    ],
+    "pages": [
+        338,
+        340,
+        341,
+        345,
+        348,
+        355,
+        373,
+        375,
+        385
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2260<|page|>338<|box|>91 434 107 560<|content|>ARTICLE PAC\n<|id|>2261<|page|>338<|box|>121 208 137 765<|content|>Guiding Principles Regarding Benefit Plan Committe\n<|id|>2274<|page|>340<|box|>312 356 329 639<|content|>PENSION EQUALIZATION PLAN\n<|id|>2276<|page|>340<|box|>403 309 432 686<|content|>Plan Document for the Section 409A Program January\n<|id|>2278<|page|>341<|box|>82 316 98 680<|content|>PEPSICO PENSION EQUALIZATION PLAN\n<|id|>2279<|page|>341<|box|>108 424 124 572<|content|>Table of Contents\n<|id|>2284<|page|>345<|box|>90 449 108 548<|content|>ARTICLE I\n<|id|>2285<|page|>345<|box|>118 452 137 543<|content|>Foreword\n<|id|>2292<|page|>348<|box|>91 380 137 617<|content|>ARTICLE II Definitions and Construction\n<|id|>2330<|page|>355<|box|>476 185 494 323<|content|>Key Employee:\n<|id|>2406<|page|>373<|box|>91 444 108 550<|content|>ARTICLE III\n<|id|>2407<|page|>373<|box|>120 393 137 602<|content|>Participation and Service\n<|id|>2419<|page|>375<|box|>91 388 137 607<|content|>ARTICLE IV Requirements for Benefits\n<|id|>2453<|page|>385<|box|>91 370 137 626<|content|>ARTICLE V Amount of Retirement Pension",
+    "raw_response": "<|id|>2260<|level|>-1\n<|id|>2261<|level|>1\n<|id|>2274<|level|>1\n<|id|>2276<|level|>2\n<|id|>2278<|level|>1\n<|id|>2279<|level|>2\n<|id|>2284<|level|>2\n<|id|>2285<|level|>3\n<|id|>2292<|level|>2\n<|id|>2330<|level|>-1\n<|id|>2406<|level|>2\n<|id|>2407<|level|>3\n<|id|>2419<|level|>2\n<|id|>2453<|level|>2",
+    "parsed": [
+        {
+            "id": 2261,
+            "level": 1
+        },
+        {
+            "id": 2274,
+            "level": 1
+        },
+        {
+            "id": 2276,
+            "level": 2
+        },
+        {
+            "id": 2278,
+            "level": 1
+        },
+        {
+            "id": 2279,
+            "level": 2
+        },
+        {
+            "id": 2284,
+            "level": 2
+        },
+        {
+            "id": 2285,
+            "level": 3
+        },
+        {
+            "id": 2292,
+            "level": 2
+        },
+        {
+            "id": 2406,
+            "level": 2
+        },
+        {
+            "id": 2407,
+            "level": 3
+        },
+        {
+            "id": 2419,
+            "level": 2
+        },
+        {
+            "id": 2453,
+            "level": 2
+        }
+    ]
+}

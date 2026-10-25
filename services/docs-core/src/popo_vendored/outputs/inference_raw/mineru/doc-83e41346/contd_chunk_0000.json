@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        9,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 140 174 854<|content|>1251 Avenue of the Americas, 40th Floor New York, New York 10020 Telephone: ... com\n<|id|>3<|page|>1<|box|>183 753 200 854<|content|>April 3, 2023\n<|id|>4<|page|>1<|box|>208 140 224 375<|content|>Via Email and First-Class Mail\n<|id|>5<|page|>1<|box|>234 140 270 854<|content|>Gregory T. ... Halverson McKay & Pruitt LLP 225 South Sixth Street, Suite 4200 Minneapolis, MN 55402\n<|id|>6<|page|>1<|box|>277 174 333 854<|content|>Re: ... 1011-00003\n<|id|>7<|page|>1<|box|>340 142 358 300<|content|>Dear Mr. ... Halverson\n<|id|>18<|page|>2<|box|>329 174 385 854<|content|>(ii) U. ... and\n<|id|>20<|page|>2<|box|>455 140 492 854<|content|>MCB's prior rights in these registrations form the... ... The Revised Draft reflects this understanding\n<|id|>87<|page|>9<|box|>815 174 833 650<|content|>(ii) U. ... and\n<|id|>89<|page|>10<|box|>89 140 145 854<|content|>This covenant extends to challenges before the USP...without modification, and MCB considers it settled\n<|id|>113<|page|>12<|box|>411 140 444 852<|content|>Christy Bauer Senior Associate, intellectual Prope...loor New York, NY 10020 Direct: ... (212) 504-6247\n<|id|>114<|page|>12<|box|>445 140 460 450<|content|>Email: ... com\n<|id|>115<|page|>12<|box|>463 142 479 253<|content|>cc (via email): ... cc (via email)",
+    "raw_response": "<|src_id|>18<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 20
+        }
+    ]
+}

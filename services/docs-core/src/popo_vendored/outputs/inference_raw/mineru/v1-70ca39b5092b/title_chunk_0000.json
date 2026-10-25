@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        10,
+        12,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>138 109 214 674<|content|>Johnson & Johnson Reports Q2 2023 Results\n<|id|>8<|page|>2<|box|>79 63 95 307<|content|>REGIONAL SALES RESULTS\n<|id|>10<|page|>2<|box|>311 63 327 300<|content|>SEGMENT SALES RESULTS\n<|id|>13<|page|>3<|box|>172 62 189 197<|content|>Pharmaceutical\n<|id|>15<|page|>3<|box|>391 62 407 145<|content|>MedTech\n<|id|>17<|page|>3<|box|>541 62 558 212<|content|>Consumer Health\n<|id|>19<|page|>3<|box|>715 60 733 517<|content|>NOTABLE NEW ANNOUNCEMENTS IN THE QUARTER:\n<|id|>22<|page|>5<|box|>77 63 94 312<|content|>FULL-YEAR 2023 GUIDANCE:\n<|id|>32<|page|>5<|box|>729 62 746 287<|content|>WEBCAST INFORMATION:\n<|id|>35<|page|>6<|box|>282 62 299 367<|content|>NON-GAAP FINANCIAL MEASURES:\n<|id|>38<|page|>6<|box|>679 62 696 679<|content|>NOTE TO INVESTORS CONCERNING FORWARD-LOOKING STATE\n<|id|>47<|page|>10<|box|>84 58 104 319<|content|>Condensed Consolidated Statement of Earnings\n<|id|>51<|page|>12<|box|>63 69 102 308<|content|>Johnson & Johnson and Subsidiaries Reconciliation\n<|id|>58<|page|>15<|box|>64 40 94 214<|content|>JohnsonJohnson",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>13<|level|>3\n<|id|>15<|level|>3\n<|id|>17<|level|>3\n<|id|>19<|level|>2\n<|id|>22<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>2\n<|id|>47<|level|>2\n<|id|>51<|level|>2\n<|id|>58<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,155 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bhibv_tj\\input\\pdfs\\doc-1a1d319c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bhibv_tj\\enriched\\doc-1a1d319c.json",
+    "contd_output": "<|src_id|>92<|tgt_id|>93",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>19<|level|>1\n<|id|>21<|level|>2\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>33<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>42<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>51<|level|>1\n<|id|>53<|level|>2\n<|id|>58<|level|>2\n<|id|>61<|level|>2\n<|id|>67<|level|>1\n<|id|>70<|level|>2\n<|id|>73<|level|>2\n<|id|>76<|level|>2\n<|id|>79<|level|>1\n<|id|>91<|level|>1\n<|id|>106<|level|>1\n<|id|>113<|level|>1\n<|id|>116<|level|>1",
+    "image_output": "<|src_id|>17<|tgt_id|>13\n<|src_id|>108<|tgt_id|>106\n<|src_id|>109<|tgt_id|>106",
+    "contd_label": [
+        {
+            "src_id": 92,
+            "tgt_id": 93
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 17,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 106
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 108,
+            "table2_idx": 109,
+            "upper_row_ss": [
+                [
+                    "Target Signing of Bond Purchase Agreement",
+                    "August 30, 2023"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Final Official Statement Distribution",
+                    "Target early September 2023"
+                ]
+            ]
+        }
+    ]
+}

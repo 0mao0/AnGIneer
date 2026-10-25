@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 200 137 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|type|>title<|page|>1<|box|>404 140 421 228<|content|>I. Purpose\n<|id|>11<|type|>title<|page|>1<|box|>753 140 768 318<|content|>II. Client Information\n<|id|>24<|type|>title<|page|>2<|box|>527 142 545 302<|content|>III. Adverse Parties\n<|id|>38<|type|>title<|page|>3<|box|>276 140 294 511<|content|>B. Darren K. Musgrave (Individual Defendant)\n<|id|>41<|type|>title<|page|>3<|box|>458 142 474 320<|content|>IV. Opposing Counsel\n<|id|>46<|type|>title<|page|>3<|box|>768 140 784 511<|content|>V. Calderwood & Harkness Engagement Team\n<|id|>47<|type|>table<|page|>3<|box|>816 143 893 852<|content|>None\n<|id|>48<|type|>table<|page|>4<|box|>88 143 145 852<|content|>None\n<|id|>51<|type|>title<|page|>4<|box|>393 140 410 457<|content|>VI. Summary of the Underlying Dispute\n<|id|>52<|type|>title<|page|>4<|box|>424 140 441 367<|content|>A. The Off-Take Agreement\n<|id|>64<|type|>title<|page|>5<|box|>444 142 462 330<|content|>B. The Unpaid Invoices\n<|id|>66<|type|>table<|page|>5<|box|>529 143 732 852<|content|>None\n<|id|>67<|type|>title<|page|>5<|box|>765 142 782 480<|content|>Total Principal Outstanding: $4,870,050.00\n<|id|>69<|type|>title<|page|>6<|box|>90 140 106 375<|content|>C. PBGC's Financial Distress\n<|id|>76<|type|>title<|page|>6<|box|>777 142 795 416<|content|>VII. Chronological Matter History\n<|id|>77<|type|>title<|page|>6<|box|>809 142 825 493<|content|>A. Pre-Litigation Phase (January–May 2022)\n<|id|>89<|type|>title<|page|>8<|box|>138 140 157 477<|content|>B. Litigation Phase (May–November 2022)\n<|id|>109<|type|>title<|page|>10<|box|>194 140 212 689<|content|>C. Receivership and Dismissal Phase (November 2022\n<|id|>118<|type|>title<|page|>11<|box|>402 140 420 323<|content|>VIII. Final Disposition\n<|id|>121<|type|>title<|page|>11<|box|>679 140 696 460<|content|>IX. Open Matters and Preserved Claims\n<|id|>123<|type|>title<|page|>11<|box|>772 142 789 321<|content|>A. Receivership Claim\n<|id|>127<|type|>title<|page|>12<|box|>90 183 106 506<|content|>• Attorneys' Fees and Costs: $302,037.85\n<|id|>131<|type|>title<|page|>12<|box|>449 140 465 398<|content|>B. Musgrave Personal Guaranty\n<|id|>136<|type|>title<|page|>12<|box|>824 140 840 460<|content|>C. Statute of Limitations Considerations\n<|id|>141<|type|>title<|page|>13<|box|>494 142 511 303<|content|>X. Billing Summary\n<|id|>142<|type|>title<|page|>13<|box|>525 142 541 303<|content|>A. Professional Fees\n<|id|>144<|type|>table<|page|>13<|box|>616 143 748 852<|content|>None\n<|id|>146<|type|>title<|page|>13<|box|>869 142 885 364<|content|>B. Costs and Disbursements\n<|id|>154<|type|>title<|page|>14<|box|>243 140 258 263<|content|>C. Total Billed\n<|id|>157<|type|>title<|page|>14<|box|>388 140 405 354<|content|>XI. Key Documents in File\n<|id|>200<|type|>title<|page|>15<|box|>667 142 684 441<|content|>XII. Document Retention Instructions\n<|id|>205<|type|>title<|page|>16<|box|>383 140 402 352<|content|>XIII. Closing Certification",
+    "raw_response": "<|src_id|>47<|tgt_id|>46\n<|src_id|>48<|tgt_id|>46\n<|src_id|>66<|tgt_id|>64\n<|src_id|>144<|tgt_id|>142",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 142
+        }
+    ]
+}

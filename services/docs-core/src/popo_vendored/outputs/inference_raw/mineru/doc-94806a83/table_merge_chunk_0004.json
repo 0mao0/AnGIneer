@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['6.0', '0.051', '0.052', '0.053', '0.053', '0.053', '0.052', '0.052', '0.051']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['附加应力计算图示', 'colspan=8, \\\\sigma_{Z} = K_{h} \\\\tauK_{h} = -\\\\frac{1}{\\\\pi} \\\\left[ \\\\frac{n^{2}}{(m-1)^{2} + n^{2}} - \\\\frac{n^{2}}{m^{2} + n^{2}} \\\\right]']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 1480,
+    "table2_idx": 1481
+}

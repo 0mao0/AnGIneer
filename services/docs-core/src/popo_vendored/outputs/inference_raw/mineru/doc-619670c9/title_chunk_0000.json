@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 339 118 656<|content|>NO-CLAIMS DECLARATION\n<|id|>1<|page|>1<|box|>136 165 171 831<|content|>Delivered Pursuant to Buyer-Side Representation an\n<|id|>5<|page|>1<|box|>455 140 473 346<|content|>SECTION 1: RECITALS\n<|id|>19<|page|>2<|box|>670 140 688 403<|content|>SECTION 2: DEFINED TERMS\n<|id|>36<|page|>4<|box|>229 140 247 604<|content|>SECTION 3: DECLARATIONS AND CERTIFICATIONS\n<|id|>38<|page|>4<|box|>306 140 321 529<|content|>3.1 No Known Breaches of Seller Representations\n<|id|>40<|page|>4<|box|>523 140 541 313<|content|>3.2 No Known Losses\n<|id|>42<|page|>4<|box|>707 140 724 439<|content|>3.3 No Pending or Threatened Claims\n<|id|>48<|page|>5<|box|>228 140 244 449<|content|>3.4 No Material Changes Since Signing\n<|id|>50<|page|>5<|box|>446 140 464 367<|content|>3.5 Due Diligence Disclosure\n<|id|>56<|page|>6<|box|>176 140 193 429<|content|>3.6 No Undisclosed Side Agreements\n<|id|>62<|page|>6<|box|>535 140 551 589<|content|>3.7 Escrow and Indemnification Mechanics Confirmat\n<|id|>72<|page|>7<|box|>464 140 482 454<|content|>SECTION 4: ACKNOWLEDGMENTS\n<|id|>73<|page|>7<|box|>496 140 513 352<|content|>4.1 Known-Loss Exclusion\n<|id|>76<|page|>7<|box|>819 140 835 297<|content|>4.3 Survival Period\n<|id|>79<|page|>8<|box|>436 140 453 663<|content|>SECTION 5: REPRESENTATIONS REGARDING AUTHORITY\n<|id|>80<|page|>8<|box|>462 140 479 679<|content|>The undersigned hereby represents and warrants to\n<|id|>85<|page|>9<|box|>89 140 106 527<|content|>SECTION 6: MISCELLANEOUS PROVISIONS\n<|id|>86<|page|>9<|box|>121 140 138 297<|content|>6.1 Governing Law\n<|id|>113<|page|>11<|box|>89 437 107 562<|content|>SCHEDULE A\n<|id|>114<|page|>11<|box|>114 176 133 820<|content|>IDENTIFICATION OF KNOWLEDGE INDIVIDUALS (As Define",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>19<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>3\n<|id|>40<|level|>3\n<|id|>42<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>56<|level|>3\n<|id|>62<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>76<|level|>3\n<|id|>79<|level|>2\n<|id|>80<|level|>-1\n<|id|>85<|level|>2\n<|id|>86<|level|>3\n<|id|>113<|level|>2\n<|id|>114<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 3
+        }
+    ]
+}

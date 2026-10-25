@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>2<|type|>title<|page|>1<|box|>174 181 210 816<|content|>Commonwealth of Pennsylvania Department of State B\n<|id|>5<|type|>title<|page|>1<|box|>328 143 344 498<|content|>Box A — FILING OFFICE INFORMATION\n<|id|>6<|type|>title<|page|>1<|box|>354 143 369 236<|content|>Filed With:\n<|id|>10<|type|>table<|page|>1<|box|>534 143 619 852<|content|>None\n<|id|>11<|type|>title<|page|>1<|box|>669 143 685 433<|content|>Box 1 — DEBTOR INFORMATION\n<|id|>13<|type|>table<|page|>1<|box|>755 143 904 852<|content|>None\n<|id|>14<|type|>table<|page|>2<|box|>88 143 179 852<|content|>None\n<|id|>16<|type|>title<|page|>2<|box|>356 142 373 416<|content|>Box 2 — ADDITIONAL DEBTOR\n<|id|>19<|type|>title<|page|>2<|box|>467 143 484 509<|content|>Box 3 — SECURED PARTY INFORMATION\n<|id|>21<|type|>table<|page|>2<|box|>517 143 648 852<|content|>None\n<|id|>23<|type|>title<|page|>2<|box|>856 143 872 473<|content|>Box 4 — COLLATERAL DESCRIPTION\n<|id|>44<|type|>title<|page|>3<|box|>835 140 852 640<|content|>Box 5 — CHECK BOXES / ALTERNATIVE DESIGNATIONS\n<|id|>45<|type|>title<|page|>3<|box|>861 140 878 540<|content|>5a. This Financing Statement covers timber to be c\n<|id|>51<|type|>table<|page|>4<|box|>419 143 582 852<|content|>None\n<|id|>53<|type|>title<|page|>4<|box|>713 142 729 578<|content|>Box 7 — FILING PARTY / RETURN INFORMATION\n<|id|>54<|type|>title<|page|>4<|box|>739 142 757 403<|content|>Send Acknowledgment Copy To:\n<|id|>61<|type|>title<|page|>5<|box|>90 178 106 372<|content|>Attention: Jonathan Ferris\n<|id|>63<|type|>title<|page|>5<|box|>133 176 148 431<|content|>Email: jferris@whitfieldgage.com\n<|id|>65<|type|>title<|page|>5<|box|>263 140 280 571<|content|>ADDENDUM TO UCC-1 FINANCING STATEMENT\n<|id|>66<|type|>title<|page|>5<|box|>289 367 305 629<|content|>ADDITIONAL INFORMATION\n<|id|>68<|type|>title<|page|>5<|box|>396 142 412 330<|content|>1. Transaction Context.\n<|id|>77<|type|>title<|page|>5<|box|>719 140 736 437<|content|>2. Information Regarding the Debtor.\n<|id|>80<|type|>title<|page|>6<|box|>189 140 207 493<|content|>3. Information Regarding the Secured Party.\n<|id|>83<|type|>title<|page|>6<|box|>469 140 484 405<|content|>4. Security Agreement Reference.\n<|id|>85<|type|>title<|page|>6<|box|>667 140 684 279<|content|>5. Authorization.\n<|id|>87<|type|>title<|page|>6<|box|>861 142 878 553<|content|>FILING FEE AND SUBMISSION INSTRUCTIONS\n<|id|>88<|type|>title<|page|>6<|box|>888 143 905 230<|content|>Filing Fee:\n<|id|>91<|type|>title<|page|>7<|box|>208 140 224 243<|content|>Submission:\n<|id|>96<|type|>title<|page|>7<|box|>429 143 446 297<|content|>Target Filing Date:\n<|id|>98<|type|>title<|page|>7<|box|>554 142 571 338<|content|>Post-Filing Deliverables:\n<|id|>100<|type|>title<|page|>7<|box|>693 140 710 504<|content|>COORDINATION AND INTERNAL NOTES\n<|id|>101<|type|>title<|page|>7<|box|>718 140 734 813<|content|>FOR INTERNAL USE ONLY — NOT TO BE INCLUDED IN THE\n<|id|>103<|type|>title<|page|>7<|box|>823 143 840 281<|content|>1. Filing Context.\n<|id|>105<|type|>table<|page|>8<|box|>88 143 354 852<|content|>None\n<|id|>106<|type|>title<|page|>8<|box|>388 142 405 321<|content|>2. Jurisdictional Basis.\n<|id|>108<|type|>title<|page|>8<|box|>569 142 585 457<|content|>3. Existing UCC Filings — Termination.\n<|id|>110<|type|>title<|page|>8<|box|>767 142 784 285<|content|>4. Closing Binder.\n<|id|>112<|type|>title<|page|>8<|box|>892 142 909 354<|content|>5. Continuation Statement.\n<|id|>115<|type|>title<|page|>9<|box|>189 140 205 331<|content|>6. Contact Information.",
+    "raw_response": "<|src_id|>10<|tgt_id|>5\n<|src_id|>13<|tgt_id|>11\n<|src_id|>14<|tgt_id|>11\n<|src_id|>21<|tgt_id|>19\n<|src_id|>51<|tgt_id|>23\n<|src_id|>105<|tgt_id|>103",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 103
+        }
+    ]
+}

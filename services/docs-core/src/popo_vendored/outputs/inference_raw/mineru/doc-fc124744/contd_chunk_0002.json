@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        103,
+        105
+    ],
+    "pages": [
+        104,
+        105
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>806<|page|>104<|box|>791 212 895 883<|content|>5）工程质量检验评定资料： ... 工程质量事故报告及处理\n<|id|>807<|page|>105<|box|>110 237 129 308<|content|>记录。 ... 记录",
+    "raw_response": "<|src_id|>806<|tgt_id|>807",
+    "parsed": [
+        {
+            "src_id": 806,
+            "tgt_id": 807
+        }
+    ]
+}

@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 150 125 846<|content|>UNITED STATES OF AMERICA BEFORE THE FEDERAL ENERGY\n<|id|>2<|page|>1<|box|>284 375 300 620<|content|>CERTIFICATE OF SERVICE\n<|id|>11<|page|>1<|box|>797 398 814 599<|content|>METHOD OF SERVICE\n<|id|>17<|page|>2<|box|>429 385 445 611<|content|>OFFICIAL SERVICE LIST\n<|id|>19<|page|>2<|box|>556 140 574 480<|content|>A. Federal Energy Regulatory Commission\n<|id|>20<|page|>2<|box|>580 142 598 341<|content|>1. Office of the Secretary\n<|id|>23<|page|>2<|box|>710 140 729 444<|content|>2. Office of Energy Market Regulation\n<|id|>26<|page|>2<|box|>821 140 839 558<|content|>3. Office of the General Counsel — FERC Trial Staf\n<|id|>29<|page|>3<|box|>155 142 172 550<|content|>B. Applicant. 4. Ridgeline Midstream Services LLC\n<|id|>32<|page|>3<|box|>301 140 319 643<|content|>5. Dunmore Energy Holdings Ltd. (Parent Company of\n<|id|>35<|page|>3<|box|>454 140 473 380<|content|>C. Applicant's Counsel (Filer)\n<|id|>36<|page|>3<|box|>478 140 496 398<|content|>6. Calderwood & Harkness LLP\n<|id|>39<|page|>3<|box|>631 142 650 553<|content|>D. Interconnecting Pipeline / Potential Counterpar\n<|id|>40<|page|>3<|box|>655 142 674 513<|content|>7. Appalachian Trunk Pipeline Company, LLC\n<|id|>45<|page|>4<|box|>207 140 224 669<|content|>E. Parent Company of Appalachian Trunk Pipeline Co\n<|id|>49<|page|>4<|box|>366 140 383 601<|content|>F. Potential Intervenors — Shipper Groups and End-\n<|id|>51<|page|>4<|box|>523 143 539 475<|content|>11. Mountainside Gas Producers Coalition\n<|id|>54<|page|>4<|box|>633 143 651 743<|content|>12. Whitmore & Sable LLP (Counsel for Mountainside\n<|id|>57<|page|>4<|box|>765 143 782 460<|content|>13. Clearwater Municipal Gas Authority\n<|id|>60<|page|>4<|box|>877 143 893 821<|content|>14. Fordham Municipal Law Group PC (Counsel for Cl\n<|id|>63<|page|>5<|box|>181 140 198 408<|content|>G. State Regulatory Commissions\n<|id|>65<|page|>5<|box|>411 142 428 517<|content|>15. Public Service Commission of West Virginia\n<|id|>77<|page|>6<|box|>89 140 108 397<|content|>H. Applicant's Registered Agent\n<|id|>81<|page|>6<|box|>242 383 260 614<|content|>DESCRIPTION OF FILING\n<|id|>87<|page|>6<|box|>758 441 777 555<|content|>SIGNATURE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>11<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>3\n<|id|>20<|level|>4\n<|id|>23<|level|>4\n<|id|>26<|level|>4\n<|id|>29<|level|>3\n<|id|>32<|level|>4\n<|id|>35<|level|>3\n<|id|>36<|level|>4\n<|id|>39<|level|>3\n<|id|>40<|level|>4\n<|id|>45<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>4\n<|id|>54<|level|>5\n<|id|>57<|level|>4\n<|id|>60<|level|>5\n<|id|>63<|level|>3\n<|id|>65<|level|>4\n<|id|>77<|level|>3\n<|id|>81<|level|>2\n<|id|>87<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 4
+        },
+        {
+            "id": 23,
+            "level": 4
+        },
+        {
+            "id": 26,
+            "level": 4
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 4
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 4
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 4
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 54,
+            "level": 5
+        },
+        {
+            "id": 57,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 5
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        }
+    ]
+}

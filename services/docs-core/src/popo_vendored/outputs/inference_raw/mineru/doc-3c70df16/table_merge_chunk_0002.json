@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['总长度', '128', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['应用识别码', '16', '该功能识别码用于应答 ARW 有关 AIS 航标接收机的工作时间表;15~6bit =1111011110_{2} = 990_{10};5~0bit =010011_{2} = 19_{10}']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 521,
+    "table2_idx": 522
+}

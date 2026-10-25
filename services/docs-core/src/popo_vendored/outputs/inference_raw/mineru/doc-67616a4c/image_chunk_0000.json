@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 200 133 795<|content|>CALDERWOOD & HARKNESS LLP PRIVILEGED AND CONFIDENT\n<|id|>8<|type|>title<|page|>1<|box|>417 346 436 651<|content|>1. Overview and Call Logistics\n<|id|>27<|type|>title<|page|>2<|box|>310 250 330 746<|content|>2. Pryor & Associates Field Examination Findings\n<|id|>28<|type|>title<|page|>2<|box|>354 140 373 390<|content|>2.1 Status of Field Examination\n<|id|>31<|type|>title<|page|>2<|box|>648 140 667 359<|content|>2.2 Inventory Observations\n<|id|>36<|type|>table<|page|>3<|box|>404 143 479 852<|content|>None\n<|id|>38<|type|>title<|page|>3<|box|>590 140 609 441<|content|>2.3 Accounts Receivable Observations\n<|id|>41<|type|>title<|page|>4<|box|>148 140 167 359<|content|>2.4 Field Examination Cost\n<|id|>44<|type|>title<|page|>4<|box|>338 143 358 852<|content|>3. Collateral Matters — Deposit Account Control Ag\n<|id|>45<|type|>title<|page|>4<|box|>383 140 400 383<|content|>3.1 DACA Execution Timeline\n<|id|>55<|type|>title<|page|>5<|box|>494 140 511 441<|content|>3.2 Number and Location of Accounts\n<|id|>57<|type|>title<|page|>5<|box|>694 300 713 694<|content|>4. Insurance Assignment Endorsements\n<|id|>58<|type|>title<|page|>5<|box|>739 140 756 560<|content|>4.1 Crop Insurance and Property/Casualty Insurance\n<|id|>72<|type|>title<|page|>6<|box|>560 140 577 341<|content|>4.2 Endorsement Timing\n<|id|>77<|type|>title<|page|>7<|box|>186 140 204 395<|content|>4.3 Insurance Compliance Gaps\n<|id|>80<|type|>title<|page|>7<|box|>503 274 523 722<|content|>5. Remaining Credit Agreement Open Points\n<|id|>82<|type|>title<|page|>7<|box|>636 140 652 514<|content|>5.1 Material Adverse Change (MAC) Definition\n<|id|>99<|type|>title<|page|>9<|box|>348 140 364 271<|content|>5.2 Cure Rights\n<|id|>110<|type|>title<|page|>10<|box|>212 140 229 403<|content|>5.3 Minimum Excess Availability\n<|id|>113<|type|>title<|page|>10<|box|>414 140 431 496<|content|>5.4 Distribution Covenant — Final Language\n<|id|>119<|type|>title<|page|>10<|box|>732 140 750 320<|content|>5.5 Change of Control\n<|id|>122<|type|>title<|page|>11<|box|>90 140 107 419<|content|>5.6 Capital Expenditure Limitation\n<|id|>125<|type|>title<|page|>11<|box|>273 140 292 464<|content|>5.7 Commodity Hedging Negative Pledge\n<|id|>128<|type|>title<|page|>11<|box|>532 140 549 413<|content|>5.8 Anti-Cash-Hoarding Provision\n<|id|>137<|type|>title<|page|>12<|box|>313 349 332 645<|content|>6. Ancillary Document Status\n<|id|>138<|type|>title<|page|>12<|box|>357 140 375 483<|content|>6.1 Documents Delivered November 4, 2022\n<|id|>149<|type|>title<|page|>13<|box|>167 140 184 398<|content|>6.2 UCC and Lien Search Status\n<|id|>156<|type|>table<|page|>13<|box|>414 143 513 852<|content|>None\n<|id|>164<|type|>title<|page|>14<|box|>90 140 107 390<|content|>6.3 Perfection Steps Remaining\n<|id|>176<|type|>title<|page|>14<|box|>761 349 781 647<|content|>7. Projected Closing Timeline\n<|id|>180<|type|>table<|page|>15<|box|>176 143 573 852<|content|>None\n<|id|>183<|type|>title<|page|>15<|box|>825 419 844 576<|content|>8. Action Items\n<|id|>198<|type|>title<|page|>17<|box|>136 352 155 643<|content|>9. Next Steps and Scheduling",
+    "raw_response": "<|src_id|>36<|tgt_id|>31\n<|src_id|>156<|tgt_id|>149\n<|src_id|>180<|tgt_id|>176",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 176
+        }
+    ]
+}

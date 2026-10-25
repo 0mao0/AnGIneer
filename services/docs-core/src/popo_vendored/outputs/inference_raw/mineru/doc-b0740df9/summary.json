@@ -1,0 +1,127 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-g4thz5al\\input\\pdfs\\doc-b0740df9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-g4thz5al\\enriched\\doc-b0740df9.json",
+    "contd_output": "<|src_id|>51<|tgt_id|>53",
+    "title_output": "<|id|>7<|level|>1\n<|id|>17<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>39<|level|>2\n<|id|>44<|level|>2\n<|id|>47<|level|>2\n<|id|>55<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>76<|level|>2\n<|id|>85<|level|>1\n<|id|>90<|level|>1\n<|id|>92<|level|>2\n<|id|>95<|level|>2\n<|id|>101<|level|>1\n<|id|>110<|level|>1",
+    "image_output": "<|src_id|>15<|tgt_id|>7\n<|src_id|>57<|tgt_id|>55\n<|src_id|>87<|tgt_id|>85\n<|src_id|>88<|tgt_id|>85",
+    "contd_label": [
+        {
+            "src_id": 51,
+            "tgt_id": 53
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 85
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 87,
+            "table2_idx": 88,
+            "upper_row_ss": [
+                [
+                    "March 11, 2026",
+                    "Target date for receipt of executed DACAs from First"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Basin National Bank; target date for receipt of updated insurance certificates; target date for receipt of good standing certificates."
+                ]
+            ]
+        }
+    ]
+}

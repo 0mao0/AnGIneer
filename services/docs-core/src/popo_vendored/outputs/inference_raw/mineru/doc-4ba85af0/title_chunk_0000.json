@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>131 72 169 890<|content|>中华人民共和国国家标准\n<|id|>3<|page|>1<|box|>381 136 416 830<|content|>中国海区可航行水域桥梁助航标志\n<|id|>4<|page|>1<|box|>442 124 464 840<|content|>Aids to navigation on the bridge over maritime nav\n<|id|>7<|page|>2<|box|>138 453 161 561<|content|>目次\n<|id|>9<|page|>3<|box|>140 420 162 532<|content|>前言\n<|id|>33<|page|>4<|box|>127 280 149 680<|content|>中国海区可航行水域桥梁助航标志\n<|id|>34<|page|>4<|box|>182 90 198 157<|content|>1 范围\n<|id|>37<|page|>4<|box|>315 87 330 245<|content|>2 规范性引用文件\n<|id|>40<|page|>4<|box|>427 87 442 208<|content|>3 术语和定义\n<|id|>42<|page|>4<|box|>484 87 498 117<|content|>3.1\n<|id|>45<|page|>4<|box|>558 87 572 117<|content|>3.2\n<|id|>48<|page|>4<|box|>633 87 648 191<|content|>4 视觉航标\n<|id|>49<|page|>4<|box|>667 87 682 205<|content|>4.1 标志分类\n<|id|>51<|page|>4<|box|>742 87 758 327<|content|>4.2 通航桥孔最佳通过点标志\n<|id|>56<|page|>5<|box|>545 119 561 389<|content|>4.3 通航桥孔左侧标志、右侧标志\n<|id|>61<|page|>6<|box|>338 95 353 250<|content|>4.4 桥孔禁航标志\n<|id|>66<|page|>6<|box|>801 100 815 255<|content|>4.5 桥墩警示标志\n<|id|>71<|page|>7<|box|>508 136 524 258<|content|>5 无线电航标\n<|id|>77<|page|>7<|box|>693 136 709 240<|content|>6 音响航标\n<|id|>81<|page|>7<|box|>804 137 819 240<|content|>7 设置规则\n<|id|>95<|page|>8<|box|>391 87 407 421<|content|>8 海区可航行水域桥梁助航标志命名规则\n<|id|>103<|page|>11<|box|>141 473 157 566<|content|>附录B\n<|id|>106<|page|>11<|box|>226 129 243 371<|content|>B.1 通航桥孔最佳通过点标志\n<|id|>114<|page|>11<|box|>675 129 691 400<|content|>B.2 通航桥孔左侧标志、右侧标志\n<|id|>126<|page|>12<|box|>377 87 391 243<|content|>B.3 桥孔禁航标志\n<|id|>134<|page|>12<|box|>785 90 801 247<|content|>B.4 桥墩警示标志",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>2\n<|id|>7<|level|>1\n<|id|>9<|level|>1\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>3\n<|id|>45<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>51<|level|>3\n<|id|>56<|level|>3\n<|id|>61<|level|>3\n<|id|>66<|level|>3\n<|id|>71<|level|>2\n<|id|>77<|level|>2\n<|id|>81<|level|>2\n<|id|>95<|level|>2\n<|id|>103<|level|>1\n<|id|>106<|level|>2\n<|id|>114<|level|>2\n<|id|>126<|level|>2\n<|id|>134<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        }
+    ]
+}

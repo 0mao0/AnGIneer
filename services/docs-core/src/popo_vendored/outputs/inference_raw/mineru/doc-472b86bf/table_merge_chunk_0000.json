@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, Apr.', '8......', 'JulyOct. 7', '91182', '2,7952,600', '2,0001,601', '3.7043.755', '} 196']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=4, Discription of issue', 'rowspan=2, Amount of bids tendered', 'rowspan=2, Amount of bids accepted', 'rowspan=2, Average rate of bids accepted 2/ (Percent)', 'rowspan=2, New money increase, or decrease (-)']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 199,
+    "table2_idx": 200
+}

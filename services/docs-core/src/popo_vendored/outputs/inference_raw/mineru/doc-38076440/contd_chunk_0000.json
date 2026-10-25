@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>13<|page|>1<|box|>640 174 696 854<|content|>(4) The affidavit of Sandra Hu, Chief Operating Of...intiff Driftwood Absolute Return Fund Ltd. ... and\n<|id|>15<|page|>1<|box|>766 140 876 856<|content|>and the Court having determined, upon review of th...il-piercing as set forth in the verified complaint\n<|id|>89<|page|>7<|box|>859 210 897 854<|content|>(b) The commercial unit located at 17 Wooster Stre...whether held in the name of any defendant, through\n<|id|>90<|page|>8<|box|>90 210 127 854<|content|>Castellan Realty Holdings LLC (EIN: ... 87-1548203...ny other nominee, alter ego entity, or arrangement\n<|id|>120<|page|>11<|box|>89 140 123 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys for Plaintiff ...0 Park Avenue, 42nd Floor New York, New York 10166\n<|id|>121<|page|>11<|box|>125 142 140 254<|content|>By: ... By\n<|id|>122<|page|>11<|box|>140 140 157 679<|content|>Priya Anand, Esq. ... (212) 558-3588\n<|id|>123<|page|>11<|box|>157 140 174 455<|content|>Email: ... com\n<|id|>124<|page|>11<|box|>175 140 191 326<|content|>Matter No. ... 1024-00003",
+    "raw_response": "<|src_id|>89<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        }
+    ]
+}

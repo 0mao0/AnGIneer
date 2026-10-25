@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 403 133 593<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>377 142 393 321<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>359 140 375 267<|content|>II. Background\n<|id|>15<|page|>2<|box|>388 140 406 343<|content|>A. Transaction Overview\n<|id|>26<|page|>3<|box|>487 140 503 581<|content|>B. Cloudium's Jurisdiction of Incorporation and Li\n<|id|>31<|page|>4<|box|>90 140 107 264<|content|>C. Merger Sub\n<|id|>34<|page|>4<|box|>316 142 334 460<|content|>D. Significant Stockholders of Cloudium\n<|id|>39<|page|>4<|box|>592 140 609 366<|content|>III. Analysis of DGCL § 203\n<|id|>40<|page|>4<|box|>625 140 640 450<|content|>A. Statutory Framework of Section 203\n<|id|>51<|page|>6<|box|>268 140 287 493<|content|>B. Application to Cloudium Technologies plc\n<|id|>57<|page|>7<|box|>90 140 108 470<|content|>C. Application to Stratos Merger Sub Inc.\n<|id|>64<|page|>7<|box|>823 140 840 666<|content|>D. Relevance of Pinnacle Growth Ventures and Jonat\n<|id|>69<|page|>8<|box|>531 140 547 464<|content|>IV. Analysis of Analogous UK Provisions\n<|id|>70<|page|>8<|box|>561 140 579 511<|content|>A. No UK Statutory Equivalent to DGCL § 203\n<|id|>73<|page|>9<|box|>90 140 106 439<|content|>B. UK Takeover Code Considerations\n<|id|>77<|page|>9<|box|>429 140 446 581<|content|>Factors favoring UK-centered management and contro\n<|id|>82<|page|>9<|box|>625 140 642 578<|content|>Factors favoring US-centered management and contro\n<|id|>93<|page|>10<|box|>656 140 674 813<|content|>C. Companies Act 2006 — Part 26 (Schemes of Arrang\n<|id|>99<|page|>11<|box|>411 140 428 655<|content|>D. UK City Code on Takeovers — Mandatory Offer Rul\n<|id|>103<|page|>11<|box|>773 140 790 727<|content|>E. Companies Act 2006 — Sections 895–901 (Cross-Bo\n<|id|>107<|page|>12<|box|>348 140 364 388<|content|>V. Practical Recommendations\n<|id|>114<|page|>13<|box|>444 140 460 264<|content|>VI. Conclusion",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>26<|level|>3\n<|id|>31<|level|>3\n<|id|>34<|level|>3\n<|id|>39<|level|>2\n<|id|>40<|level|>3\n<|id|>51<|level|>3\n<|id|>57<|level|>3\n<|id|>64<|level|>3\n<|id|>69<|level|>2\n<|id|>70<|level|>3\n<|id|>73<|level|>3\n<|id|>77<|level|>4\n<|id|>82<|level|>4\n<|id|>93<|level|>3\n<|id|>99<|level|>3\n<|id|>103<|level|>3\n<|id|>107<|level|>2\n<|id|>114<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        }
+    ]
+}

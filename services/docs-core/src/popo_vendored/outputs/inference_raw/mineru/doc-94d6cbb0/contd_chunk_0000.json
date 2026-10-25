@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>462 176 479 637<|content|>(ii) Lena Okafor, Chief Financial Officer of the Company; ... and\n<|id|>9<|page|>1<|box|>532 140 606 854<|content|>WHEREAS, the Board, pursuant to the Company's Amen...ncluding, without limitation, the authority to set\n<|id|>12<|page|>1<|box|>720 174 738 650<|content|>(c) the underwriting discount per share and in the aggregate; ... and\n<|id|>14<|page|>1<|box|>808 140 882 854<|content|>WHEREAS, the Board authorized the offering to be c...of, among other securities, shares of Common Stock\n<|id|>27<|page|>3<|box|>339 174 377 854<|content|>(5) a memorandum from Calderwood & Harkness LLP su...ions and the consummation of the offering; ... and\n<|id|>29<|page|>3<|box|>429 140 520 854<|content|>WHEREAS, after due consideration and discussion of...best interests of the Company and its stockholders\n<|id|>59<|page|>6<|box|>714 174 806 856<|content|>(c) approximately $50,000,000 shall be allocated f...retirement of the Company's outstanding 6. ... and\n<|id|>61<|page|>7<|box|>90 140 219 854<|content|>RESOLVED FURTHER, that the allocation of net proce...ce with applicable securities laws and regulations\n<|id|>77<|page|>8<|box|>575 174 630 854<|content|>(f) the engagement of Kaplan Feld & Associates LLP... services in connection with the Offering; ... and\n<|id|>79<|page|>8<|box|>683 140 719 854<|content|>are hereby ratified, confirmed, and approved in al...been taken after the adoption of these resolutions\n<|id|>89<|page|>9<|box|>441 143 457 294<|content|>Name: ... Marcus Hale\n<|id|>90<|page|>9<|box|>458 142 476 717<|content|>Title: ... Chief Executive Officer and Director, Member of the Pricing Committee\n<|id|>91<|page|>9<|box|>477 143 493 264<|content|>Date: ... Date\n<|id|>93<|page|>9<|box|>511 143 526 294<|content|>Name: ... Lena Okafor\n<|id|>94<|page|>9<|box|>527 140 545 617<|content|>Title: ... Chief Financial Officer, Member of the Pricing Committee\n<|id|>95<|page|>9<|box|>546 143 561 264<|content|>Date: ... Date\n<|id|>97<|page|>9<|box|>579 142 595 334<|content|>Name: ... Patricia Moynihan\n<|id|>98<|page|>9<|box|>595 140 632 843<|content|>Title: ... Independent Director, Chair of the Finance Committee, Member of the Pricing Committee Date\n<|id|>101<|page|>9<|box|>704 140 758 854<|content|>Exhibit A — Form of Underwriting Agreement, by and...p. ... , as the several Underwriters named therein\n<|id|>102<|page|>9<|box|>766 140 804 854<|content|>Exhibit B — Final Prospectus Supplement (in substa...ities Act following adoption of these resolutions)\n<|id|>103<|page|>9<|box|>811 140 847 854<|content|>Exhibit C — Pricing Term Sheet (for filing with th...ities Act following adoption of these resolutions)\n<|id|>104<|page|>9<|box|>854 140 885 854<|content|>Prepared by Calderwood & Harkness LLP Vivienne St....iate 7 Times Square, 38th Floor New York, NY 10036\n<|id|>105<|page|>9<|box|>891 142 907 388<|content|>Engagement No. ... C&H-2025-CM-04187\n<|id|>106<|page|>9<|box|>916 142 931 390<|content|>Draft — Subject to revision upon final pricing\n<|id|>107<|page|>10<|box|>89 142 104 439<|content|>DRAFT — Subject to revision upon final pricing",
+    "raw_response": "<|src_id|>9<|tgt_id|>12\n<|src_id|>59<|tgt_id|>61\n<|src_id|>77<|tgt_id|>79",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 79
+        }
+    ]
+}

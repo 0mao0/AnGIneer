@@ -1,0 +1,77 @@
+{
+    "task": "image",
+    "chunk_index": 5,
+    "range": [
+        234,
+        244
+    ],
+    "pages": [
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1027<|type|>title<|page|>234<|box|>71 256 87 762<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>1028<|type|>table<|page|>234<|box|>140 96 847 895<|content|>None\n<|id|>1029<|type|>title<|page|>235<|box|>67 241 81 746<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>1030<|type|>title<|page|>235<|box|>92 413 105 580<|content|>Section III - Trust Funds\n<|id|>1032<|type|>title<|page|>235<|box|>138 442 151 541<|content|>Table GA-III-3.\n<|id|>1042<|type|>title<|page|>235<|box|>317 446 328 544<|content|>Table GA-III-2.\n<|id|>1050<|type|>title<|page|>236<|box|>65 251 79 758<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>1051<|type|>title<|page|>236<|box|>101 308 116 692<|content|>Table GA-III-4. - Federal Hospital Insurance Trust\n<|id|>1052<|type|>table<|page|>236<|box|>133 96 446 898<|content|>None\n<|id|>1053<|type|>table<|page|>236<|box|>453 96 800 896<|content|>None\n<|id|>1058<|type|>title<|page|>237<|box|>65 248 79 754<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>1059<|type|>title<|page|>237<|box|>87 251 116 735<|content|>Section III - Trust Funds Table GA-III-5. - Federa\n<|id|>1060<|type|>table<|page|>237<|box|>138 94 452 898<|content|>None\n<|id|>1061<|type|>table<|page|>237<|box|>474 98 782 899<|content|>None\n<|id|>1065<|type|>title<|page|>238<|box|>72 241 103 749<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>1066<|type|>table<|page|>238<|box|>137 91 795 893<|content|>None\n<|id|>1073<|type|>title<|page|>239<|box|>65 251 81 758<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>1074<|type|>title<|page|>239<|box|>89 328 119 663<|content|>Section III - Trust Funds Table GA-III-7. - Unempl\n<|id|>1075<|type|>table<|page|>239<|box|>141 93 535 901<|content|>None\n<|id|>1076<|type|>table<|page|>239<|box|>547 93 894 903<|content|>None\n<|id|>1078<|type|>title<|page|>240<|box|>106 285 131 710<|content|>Section III - Trust Funds Table GA-III-7. - Unempl\n<|id|>1079<|type|>table<|page|>240<|box|>149 97 528 898<|content|>None\n<|id|>1080<|type|>title<|page|>241<|box|>68 251 82 756<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>1081<|type|>title<|page|>241<|box|>100 289 114 708<|content|>Table GA-III-8. - National Service Life Insurance\n<|id|>1082<|type|>table<|page|>241<|box|>129 103 434 893<|content|>None\n<|id|>1083<|type|>title<|page|>242<|box|>64 256 79 762<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>1084<|type|>title<|page|>242<|box|>89 404 101 590<|content|>Section III - Trust Funds\n<|id|>1085<|type|>title<|page|>242<|box|>104 203 138 794<|content|>Table GA-III-9. - Investments of Specified Trust A\n<|id|>1086<|type|>table<|page|>242<|box|>157 101 803 893<|content|>None\n<|id|>1087<|type|>table<|page|>243<|box|>127 101 811 883<|content|>None\n<|id|>1088<|type|>table<|page|>244<|box|>134 96 913 890<|content|>None",
+    "raw_response": "<|src_id|>1028<|tgt_id|>1027\n<|src_id|>1052<|tgt_id|>1051\n<|src_id|>1053<|tgt_id|>1051\n<|src_id|>1060<|tgt_id|>1059\n<|src_id|>1061<|tgt_id|>1059\n<|src_id|>1066<|tgt_id|>1065\n<|src_id|>1075<|tgt_id|>1074\n<|src_id|>1076<|tgt_id|>1074\n<|src_id|>1079<|tgt_id|>1078\n<|src_id|>1082<|tgt_id|>1081\n<|src_id|>1086<|tgt_id|>1085\n<|src_id|>1087<|tgt_id|>1085\n<|src_id|>1088<|tgt_id|>1085",
+    "parsed": [
+        {
+            "src_id": 1028,
+            "tgt_id": 1027
+        },
+        {
+            "src_id": 1052,
+            "tgt_id": 1051
+        },
+        {
+            "src_id": 1053,
+            "tgt_id": 1051
+        },
+        {
+            "src_id": 1060,
+            "tgt_id": 1059
+        },
+        {
+            "src_id": 1061,
+            "tgt_id": 1059
+        },
+        {
+            "src_id": 1066,
+            "tgt_id": 1065
+        },
+        {
+            "src_id": 1075,
+            "tgt_id": 1074
+        },
+        {
+            "src_id": 1076,
+            "tgt_id": 1074
+        },
+        {
+            "src_id": 1079,
+            "tgt_id": 1078
+        },
+        {
+            "src_id": 1082,
+            "tgt_id": 1081
+        },
+        {
+            "src_id": 1086,
+            "tgt_id": 1085
+        },
+        {
+            "src_id": 1087,
+            "tgt_id": 1085
+        },
+        {
+            "src_id": 1088,
+            "tgt_id": 1085
+        }
+    ]
+}

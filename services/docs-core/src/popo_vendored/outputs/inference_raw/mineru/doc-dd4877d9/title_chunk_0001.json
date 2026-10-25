@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        59
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        56,
+        57,
+        59
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>549<|page|>46<|box|>172 378 200 613<|content|>5 原材料\n<|id|>550<|page|>46<|box|>235 426 253 569<|content|>5.1 水 泥\n<|id|>555<|page|>46<|box|>581 416 600 578<|content|>5.2 矿物掺合料\n<|id|>559<|page|>47<|box|>99 426 117 569<|content|>5.3 集料\n<|id|>563<|page|>47<|box|>368 415 388 578<|content|>5.5 外加剂\n<|id|>565<|page|>47<|box|>459 416 478 579<|content|>5.6 拌和水\n<|id|>567<|page|>48<|box|>172 378 200 615<|content|>6 配合比设计\n<|id|>575<|page|>49<|box|>172 379 199 615<|content|>7 温控措施\n<|id|>576<|page|>49<|box|>233 396 251 600<|content|>7.2 原材料温度控制\n<|id|>583<|page|>49<|box|>580 386 597 608<|content|>7.4 混凝土浇筑和振捣\n<|id|>588<|page|>50<|box|>97 396 117 600<|content|>7.5 混凝土内部降温\n<|id|>596<|page|>50<|box|>488 109 507 502<|content|>7.5.5 本条提出冷却水管通水冷却的要求。\n<|id|>601<|page|>50<|box|>768 386 787 608<|content|>7.6 混凝土保温和养护\n<|id|>607<|page|>51<|box|>254 426 273 569<|content|>7.7 其他\n<|id|>610<|page|>52<|box|>170 231 200 763<|content|>附录 A 胶凝材料水化热总量计算\n<|id|>611<|page|>52<|box|>233 374 253 621<|content|>A.2 胶凝材料水化热总量\n<|id|>623<|page|>53<|box|>851 151 868 342<|content|>(2)粒化高炉矿渣粉。\n<|id|>639<|page|>56<|box|>172 215 200 779<|content|>附录 C 混凝土温度和温度应力估算\n<|id|>640<|page|>56<|box|>233 354 251 643<|content|>C.1 混凝土内部最高温度计算\n<|id|>643<|page|>56<|box|>743 374 763 621<|content|>C.2 混凝土弹性模量计算\n<|id|>647<|page|>57<|box|>228 374 247 621<|content|>C.3 混凝土温度应力计算\n<|id|>654<|page|>59<|box|>172 171 200 823<|content|>附录 D 混凝土出机口温度、浇筑温度计算\n<|id|>655<|page|>59<|box|>233 363 251 631<|content|>D.1 混凝土出机口温度计算\n<|id|>657<|page|>59<|box|>345 374 363 621<|content|>D.2 混凝土浇筑温度计算",
+    "raw_response": "<|id|>549<|level|>1\n<|id|>550<|level|>2\n<|id|>555<|level|>2\n<|id|>559<|level|>2\n<|id|>563<|level|>2\n<|id|>565<|level|>2\n<|id|>567<|level|>1\n<|id|>575<|level|>1\n<|id|>576<|level|>2\n<|id|>583<|level|>2\n<|id|>588<|level|>2\n<|id|>596<|level|>3\n<|id|>601<|level|>2\n<|id|>607<|level|>2\n<|id|>610<|level|>1\n<|id|>611<|level|>2\n<|id|>623<|level|>-1\n<|id|>639<|level|>1\n<|id|>640<|level|>2\n<|id|>643<|level|>2\n<|id|>647<|level|>2\n<|id|>654<|level|>1\n<|id|>655<|level|>2\n<|id|>657<|level|>2",
+    "parsed": [
+        {
+            "id": 549,
+            "level": 1
+        },
+        {
+            "id": 550,
+            "level": 2
+        },
+        {
+            "id": 555,
+            "level": 2
+        },
+        {
+            "id": 559,
+            "level": 2
+        },
+        {
+            "id": 563,
+            "level": 2
+        },
+        {
+            "id": 565,
+            "level": 2
+        },
+        {
+            "id": 567,
+            "level": 1
+        },
+        {
+            "id": 575,
+            "level": 1
+        },
+        {
+            "id": 576,
+            "level": 2
+        },
+        {
+            "id": 583,
+            "level": 2
+        },
+        {
+            "id": 588,
+            "level": 2
+        },
+        {
+            "id": 596,
+            "level": 3
+        },
+        {
+            "id": 601,
+            "level": 2
+        },
+        {
+            "id": 607,
+            "level": 2
+        },
+        {
+            "id": 610,
+            "level": 1
+        },
+        {
+            "id": 611,
+            "level": 2
+        },
+        {
+            "id": 639,
+            "level": 1
+        },
+        {
+            "id": 640,
+            "level": 2
+        },
+        {
+            "id": 643,
+            "level": 2
+        },
+        {
+            "id": 647,
+            "level": 2
+        },
+        {
+            "id": 654,
+            "level": 1
+        },
+        {
+            "id": 655,
+            "level": 2
+        },
+        {
+            "id": 657,
+            "level": 2
+        }
+    ]
+}

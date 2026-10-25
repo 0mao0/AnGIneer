@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 156 143 839<|content|>OFFICER'S CLOSING CERTIFICATE OF CODELAUNCH LABS,\n<|id|>1<|page|>1<|box|>159 210 176 785<|content|>Delivered Pursuant to Section 7.2(c) of the Agreem\n<|id|>8<|page|>1<|box|>704 140 720 692<|content|>Section 1. Representations and Warranties — Bringd\n<|id|>12<|page|>2<|box|>431 140 449 531<|content|>Section 2. Covenants — Compliance Certification\n<|id|>20<|page|>3<|box|>648 140 665 439<|content|>Section 3. No Material Adverse Effect\n<|id|>25<|page|>4<|box|>286 140 301 446<|content|>Section 4. Capitalization Confirmation\n<|id|>30<|page|>5<|box|>167 140 185 398<|content|>Section 5. Stockholder Approval\n<|id|>36<|page|>5<|box|>758 140 775 485<|content|>Section 6. No Litigation / Legal Proceedings\n<|id|>41<|page|>6<|box|>292 140 310 416<|content|>Section 7. Consents and Approvals\n<|id|>45<|page|>6<|box|>648 140 667 475<|content|>Section 8. Delivery of Closing Deliverables\n<|id|>60<|page|>8<|box|>484 140 501 454<|content|>Section 9. Company Entity Information\n<|id|>69<|page|>8<|box|>840 140 859 544<|content|>Section 10. Stockholder Representative Designation\n<|id|>75<|page|>9<|box|>489 140 505 591<|content|>Section 11. No Dissenting Stockholders / Appraisal\n<|id|>79<|page|>9<|box|>809 142 825 333<|content|>Section 12. Tax Matters\n<|id|>84<|page|>10<|box|>402 140 419 478<|content|>Section 13. Reliance; No Personal Liability\n<|id|>94<|page|>11<|box|>295 142 311 285<|content|>Delivery Notation\n<|id|>96<|page|>11<|box|>364 142 381 248<|content|>Delivered to:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>20<|level|>2\n<|id|>25<|level|>2\n<|id|>30<|level|>2\n<|id|>36<|level|>2\n<|id|>41<|level|>2\n<|id|>45<|level|>2\n<|id|>60<|level|>2\n<|id|>69<|level|>2\n<|id|>75<|level|>2\n<|id|>79<|level|>2\n<|id|>84<|level|>2\n<|id|>94<|level|>2\n<|id|>96<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        }
+    ]
+}

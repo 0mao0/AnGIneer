@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>142 707 157 854<|content|>December 20, 2024\n<|id|>2<|page|>1<|box|>167 140 185 593<|content|>TO: ... Douglas Carmichael, Partner Francesca Morano, Partner\n<|id|>3<|page|>1<|box|>193 140 210 465<|content|>FROM: ... Simone Laroche, Senior Associate\n<|id|>4<|page|>1<|box|>219 140 273 854<|content|>RE: ... Wainwright)\n<|id|>5<|page|>1<|box|>281 140 299 377<|content|>C&H Matter No. ... 1028-00001\n<|id|>6<|page|>1<|box|>308 140 325 848<|content|>Client: ... 94-3127856)\n<|id|>7<|page|>1<|box|>334 140 352 851<|content|>Client Contact: ... Margot Ellison-Yee, Executive Director\n<|id|>8<|page|>1<|box|>359 140 377 720<|content|>Client Address: ... 1440 Embarcadero Way, Suite 300, San Francisco, CA 94107\n<|id|>9<|page|>1<|box|>385 140 421 854<|content|>Opposing Counsel: ... , Pratchett, Huang & Solano ...fornia Street, 28th Floor, San Francisco, CA 94104\n<|id|>23<|page|>2<|box|>811 140 885 857<|content|>On June 15, 2018, the Whitfield-Garner Family Trus...f BATRI over a five-year grant period running from\n<|id|>24<|page|>3<|box|>89 140 127 852<|content|>2018 through 2023. ... Whitfield-Garner, and on behalf of EF by then-Executive Director Alan Gunderson\n<|id|>45<|page|>5<|box|>858 140 893 854<|content|>On September 2, 2022, the parties participated in ...Mediation Services, located at 201 Mission Street,\n<|id|>46<|page|>6<|box|>89 140 181 854<|content|>Suite 900, San Francisco, CA 94105. ... Garner), Victoria Huang, and Derek Solano Jr\n<|id|>175<|page|>19<|box|>844 142 859 542<|content|>Author: ... Simone Laroche, Senior Associate, Litigation — General\n<|id|>176<|page|>19<|box|>867 142 882 692<|content|>Distribution: ... Francesca Morano, Billing Partner\n<|id|>177<|page|>20<|box|>89 140 119 852<|content|>Note: ... Working Associate Jeffrey Park may be pr...purposes upon approval by either receiving partner",
+    "raw_response": "<|src_id|>23<|tgt_id|>24\n<|src_id|>45<|tgt_id|>46",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        }
+    ]
+}

@@ -1,0 +1,485 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kze90dg7\\input\\pdfs\\doc-3d19c257.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kze90dg7\\enriched\\doc-3d19c257.json",
+    "contd_output": "<|src_id|>126<|tgt_id|>127\n<|src_id|>176<|tgt_id|>177\n<|src_id|>190<|tgt_id|>191",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>20<|level|>2\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>32<|level|>3\n<|id|>35<|level|>3\n<|id|>39<|level|>1\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>51<|level|>2\n<|id|>55<|level|>2\n<|id|>59<|level|>2\n<|id|>64<|level|>1\n<|id|>66<|level|>2\n<|id|>68<|level|>3\n<|id|>74<|level|>2\n<|id|>82<|level|>3\n<|id|>86<|level|>2\n<|id|>88<|level|>3\n<|id|>91<|level|>4\n<|id|>94<|level|>3\n<|id|>103<|level|>4\n<|id|>107<|level|>2\n<|id|>109<|level|>3\n<|id|>111<|level|>3\n<|id|>113<|level|>2\n<|id|>121<|level|>2\n<|id|>132<|level|>2\n<|id|>138<|level|>2\n<|id|>147<|level|>2\n<|id|>153<|level|>2\n<|id|>164<|level|>2\n<|id|>173<|level|>2\n<|id|>186<|level|>1\n<|id|>188<|level|>2\n<|id|>193<|level|>2\n<|id|>198<|level|>2\n<|id|>200<|level|>2\n<|id|>202<|level|>2\n<|id|>204<|level|>1\n<|id|>208<|level|>1\n<|id|>210<|level|>2\n<|id|>212<|level|>2\n<|id|>214<|level|>2\n<|id|>218<|level|>2\n<|id|>225<|level|>2\n<|id|>238<|level|>1\n<|id|>240<|level|>2\n<|id|>244<|level|>2\n<|id|>246<|level|>2\n<|id|>248<|level|>1\n<|id|>251<|level|>2\n<|id|>253<|level|>2\n<|id|>255<|level|>1\n<|id|>264<|level|>1",
+    "image_output": "<|src_id|>3<|tgt_id|>1\n<|src_id|>16<|tgt_id|>15\n<|src_id|>21<|tgt_id|>20\n<|src_id|>26<|tgt_id|>25\n<|src_id|>41<|tgt_id|>40\n<|src_id|>42<|tgt_id|>40\n<|src_id|>53<|tgt_id|>51\n<|src_id|>57<|tgt_id|>55\n<|src_id|>61<|tgt_id|>59\n<|src_id|>62<|tgt_id|>59\n<|src_id|>166<|tgt_id|>164\n<|src_id|>205<|tgt_id|>204\n<|src_id|>206<|tgt_id|>204\n<|src_id|>241<|tgt_id|>240\n<|src_id|>242<|tgt_id|>240\n<|src_id|>243<|tgt_id|>240\n<|src_id|>245<|tgt_id|>244\n<|src_id|>249<|tgt_id|>248\n<|src_id|>250<|tgt_id|>248\n<|src_id|>252<|tgt_id|>251\n<|src_id|>265<|tgt_id|>264\n<|src_id|>266<|tgt_id|>264\n<|src_id|>267<|tgt_id|>264",
+    "contd_label": [
+        {
+            "src_id": 126,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 191
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 4
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 1
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 1
+        },
+        {
+            "id": 208,
+            "level": 1
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 2
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 2
+        },
+        {
+            "id": 238,
+            "level": 1
+        },
+        {
+            "id": 240,
+            "level": 2
+        },
+        {
+            "id": 244,
+            "level": 2
+        },
+        {
+            "id": 246,
+            "level": 2
+        },
+        {
+            "id": 248,
+            "level": 1
+        },
+        {
+            "id": 251,
+            "level": 2
+        },
+        {
+            "id": 253,
+            "level": 2
+        },
+        {
+            "id": 255,
+            "level": 1
+        },
+        {
+            "id": 264,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 3,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 241,
+            "tgt_id": 240
+        },
+        {
+            "src_id": 242,
+            "tgt_id": 240
+        },
+        {
+            "src_id": 243,
+            "tgt_id": 240
+        },
+        {
+            "src_id": 245,
+            "tgt_id": 244
+        },
+        {
+            "src_id": 249,
+            "tgt_id": 248
+        },
+        {
+            "src_id": 250,
+            "tgt_id": 248
+        },
+        {
+            "src_id": 252,
+            "tgt_id": 251
+        },
+        {
+            "src_id": 265,
+            "tgt_id": 264
+        },
+        {
+            "src_id": 266,
+            "tgt_id": 264
+        },
+        {
+            "src_id": 267,
+            "tgt_id": 264
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 41,
+            "table2_idx": 42,
+            "upper_row_ss": [
+                [
+                    "LCIA Case Reference:",
+                    "No. 224718"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Seat of Arbitration:",
+                    "London, England"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 205,
+            "table2_idx": 206,
+            "upper_row_ss": [
+                [
+                    "F",
+                    "Evidence of Service and",
+                    "English",
+                    "Yes",
+                    "UK FCDO",
+                    "Yes (London)",
+                    "Yes (Tab G)",
+                    "4",
+                    "Complete"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Participation",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 241,
+            "table2_idx": 242,
+            "upper_row_ss": [
+                [
+                    "Status (as of 22 August 2024):",
+                    "Permission to enforce granted by Mr. Justice Ashworth on 2 August 2024. KMH filed an application to set aside the enforcement order on 19 August 2024; that"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "application is pending as of the date of this filing."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 265,
+            "table2_idx": 266,
+            "upper_row_ss": [
+                [
+                    "C-3",
+                    "Time Charter-Party — M/V Volga Spirit (10 June",
+                    "65",
+                    "English",
+                    "Y",
+                    "FCDO-APO-20 24-08-4475",
+                    "14 August 2024",
+                    "ARB-TR-2024-A005",
+                    "Y",
+                    "Complete"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "2021)",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 266,
+            "table2_idx": 267,
+            "upper_row_ss": [
+                [
+                    "I",
+                    "Certificate of Incorporation and Good Standing",
+                    "8",
+                    "Greek",
+                    "Y",
+                    "GR-APO-20 24-08-0894",
+                    "16 August 2024",
+                    "ARB-TR-2024-A010",
+                    "Y",
+                    "Complete"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "— TSL",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

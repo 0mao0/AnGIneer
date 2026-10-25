@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        12
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 436 109 560<|content|>EXHIBIT E\n<|id|>1<|page|>2<|box|>136 300 152 697<|content|>FORM OF TENANT ESTOPPEL CERTIFICATE\n<|id|>4<|page|>2<|box|>406 302 425 694<|content|>TENANT ESTOPPEL CERTIFICATE\n<|id|>20<|page|>3<|box|>258 140 277 398<|content|>Section 1 — Lease Identification\n<|id|>31<|page|>3<|box|>797 140 814 338<|content|>Section 2 — Lease Term\n<|id|>40<|page|>4<|box|>444 140 460 315<|content|>Section 3 — Premises\n<|id|>46<|page|>4<|box|>761 140 777 434<|content|>Section 4 — Rent and Other Charges\n<|id|>58<|page|>5<|box|>741 140 758 372<|content|>Section 5 — Security Deposit\n<|id|>65<|page|>6<|box|>246 140 263 310<|content|>Section 6 — Defaults\n<|id|>72<|page|>6<|box|>571 140 588 413<|content|>Section 7 — Landlord Obligations\n<|id|>79<|page|>7<|box|>90 142 107 450<|content|>Section 8 — Bankruptcy and Litigation\n<|id|>82<|page|>7<|box|>311 140 329 483<|content|>Section 9 — Co-Tenancy and Exclusive Use\n<|id|>89<|page|>7<|box|>636 140 652 635<|content|>Section 10 — Subordination, Non-Disturbance and At\n<|id|>93<|page|>8<|box|>90 140 107 418<|content|>Section 11 — Hazardous Materials\n<|id|>96<|page|>8<|box|>292 140 310 415<|content|>Section 12 — Parking and Signage\n<|id|>101<|page|>8<|box|>510 140 527 333<|content|>Section 13 — Insurance\n<|id|>103<|page|>8<|box|>651 140 667 312<|content|>Section 14 — Notices\n<|id|>108<|page|>9<|box|>90 142 107 401<|content|>Section 15 — General Provisions\n<|id|>115<|page|>9<|box|>674 143 689 230<|content|>TENANT:\n<|id|>123<|page|>10<|box|>89 437 107 558<|content|>SCHEDULE 1\n<|id|>124<|page|>10<|box|>130 421 148 575<|content|>COPY OF LEASE\n<|id|>126<|page|>11<|box|>89 437 107 560<|content|>SCHEDULE 2\n<|id|>127<|page|>12<|box|>89 370 106 625<|content|>RENT PAYMENT SCHEDULE\n<|id|>128<|page|>12<|box|>131 454 148 542<|content|>(Optional)\n<|id|>130<|page|>12<|box|>253 400 268 598<|content|>INSTRUCTION NOTES\n<|id|>131<|page|>12<|box|>294 161 330 834<|content|>(FOR INTERNAL USE ONLY — TO BE REMOVED BEFORE DIST",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>1\n<|id|>20<|level|>2\n<|id|>31<|level|>2\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>58<|level|>2\n<|id|>65<|level|>2\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>82<|level|>2\n<|id|>89<|level|>2\n<|id|>93<|level|>2\n<|id|>96<|level|>2\n<|id|>101<|level|>2\n<|id|>103<|level|>2\n<|id|>108<|level|>2\n<|id|>115<|level|>2\n<|id|>123<|level|>1\n<|id|>124<|level|>2\n<|id|>126<|level|>1\n<|id|>127<|level|>1\n<|id|>128<|level|>2\n<|id|>130<|level|>1\n<|id|>131<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 2
+        }
+    ]
+}

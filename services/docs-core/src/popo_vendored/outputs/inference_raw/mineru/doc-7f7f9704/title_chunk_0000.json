@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 200 125 856<|content|>CALDERWOOD & HARKNESS LLP 555 California Street, 4\n<|id|>11<|page|>1<|box|>454 140 472 437<|content|>I. Introduction and Purpose of Letter\n<|id|>14<|page|>1<|box|>821 140 839 406<|content|>II. Acknowledgment of Subpoena\n<|id|>19<|page|>2<|box|>383 140 402 468<|content|>III. Request for Extension of Return Date\n<|id|>21<|page|>2<|box|>513 140 532 514<|content|>A. Scope and Volume of Responsive Documents\n<|id|>26<|page|>3<|box|>311 140 328 390<|content|>B. Recent Retention of Counsel\n<|id|>30<|page|>3<|box|>710 140 728 531<|content|>C. Document Preservation and Collection Process\n<|id|>34<|page|>4<|box|>367 140 383 413<|content|>D. Privilege Review Requirements\n<|id|>38<|page|>5<|box|>90 142 107 415<|content|>IV. Proposed Production Schedule\n<|id|>45<|page|>5<|box|>737 140 753 496<|content|>V. Assurance of Good Faith and Cooperation\n<|id|>50<|page|>6<|box|>458 140 474 496<|content|>VI. Request for Confirmation and Discussion",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>3\n<|id|>26<|level|>3\n<|id|>30<|level|>3\n<|id|>34<|level|>3\n<|id|>38<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        }
+    ]
+}

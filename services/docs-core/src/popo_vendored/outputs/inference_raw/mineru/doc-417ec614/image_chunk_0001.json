@@ -1,0 +1,65 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        53
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        52,
+        53
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>493<|type|>title<|page|>46<|box|>90 142 108 566<|content|>Appendix C — Portfolio Characteristics (Preliminar\n<|id|>495<|type|>title<|page|>46<|box|>195 143 210 303<|content|>Portfolio Summary:\n<|id|>496<|type|>table<|page|>46<|box|>219 143 439 852<|content|>None\n<|id|>498<|type|>table<|page|>46<|box|>497 143 573 852<|content|>None\n<|id|>499<|type|>table<|page|>46<|box|>631 143 902 852<|content|>None\n<|id|>500<|type|>table<|page|>47<|box|>88 143 253 854<|content|>None\n<|id|>501<|type|>table<|page|>47<|box|>311 143 604 854<|content|>None\n<|id|>502<|type|>title<|page|>47<|box|>640 143 657 303<|content|>Rating Distribution:\n<|id|>503<|type|>table<|page|>47<|box|>664 143 832 854<|content|>None\n<|id|>504<|type|>title<|page|>47<|box|>867 143 883 321<|content|>Maturity Distribution:\n<|id|>505<|type|>table<|page|>47<|box|>890 143 907 852<|content|>None\n<|id|>506<|type|>table<|page|>48<|box|>88 143 248 852<|content|>None\n<|id|>508<|type|>title<|page|>49<|box|>90 140 108 527<|content|>Appendix D — Rating Agency Criteria Summary\n<|id|>524<|type|>table<|page|>50<|box|>599 143 843 852<|content|>None\n<|id|>527<|type|>title<|page|>52<|box|>90 142 107 602<|content|>Appendix E — Index of Transaction Parties and Addr\n<|id|>528<|type|>table<|page|>52<|box|>156 143 904 852<|content|>None\n<|id|>529<|type|>table<|page|>53<|box|>88 143 321 852<|content|>None\n<|id|>530<|type|>title<|page|>53<|box|>356 318 373 676<|content|>[Remainder of this page intentionally left blank.]",
+    "raw_response": "<|src_id|>496<|tgt_id|>495\n<|src_id|>498<|tgt_id|>495\n<|src_id|>499<|tgt_id|>495\n<|src_id|>500<|tgt_id|>495\n<|src_id|>501<|tgt_id|>495\n<|src_id|>503<|tgt_id|>502\n<|src_id|>505<|tgt_id|>504\n<|src_id|>506<|tgt_id|>504\n<|src_id|>524<|tgt_id|>508\n<|src_id|>528<|tgt_id|>527\n<|src_id|>529<|tgt_id|>527",
+    "parsed": [
+        {
+            "src_id": 496,
+            "tgt_id": 495
+        },
+        {
+            "src_id": 498,
+            "tgt_id": 495
+        },
+        {
+            "src_id": 499,
+            "tgt_id": 495
+        },
+        {
+            "src_id": 500,
+            "tgt_id": 495
+        },
+        {
+            "src_id": 501,
+            "tgt_id": 495
+        },
+        {
+            "src_id": 503,
+            "tgt_id": 502
+        },
+        {
+            "src_id": 505,
+            "tgt_id": 504
+        },
+        {
+            "src_id": 506,
+            "tgt_id": 504
+        },
+        {
+            "src_id": 524,
+            "tgt_id": 508
+        },
+        {
+            "src_id": 528,
+            "tgt_id": 527
+        },
+        {
+            "src_id": 529,
+            "tgt_id": 527
+        }
+    ]
+}

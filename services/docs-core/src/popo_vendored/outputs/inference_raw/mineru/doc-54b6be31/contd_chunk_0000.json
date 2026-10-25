@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>167 339 184 660<|content|>100 F Street, N. ... 20549\n<|id|>2<|page|>1<|box|>194 756 210 854<|content|>May 6, 2022\n<|id|>3<|page|>1<|box|>219 633 236 854<|content|>Via EDGAR Correspondence\n<|id|>4<|page|>1<|box|>244 140 281 854<|content|>Garrett Calloway Co-Founder, Chairman & Chief Exec...200 Ridgeline Parkway, Suite 1100 Austin, TX 78746\n<|id|>5<|page|>1<|box|>289 174 325 854<|content|>Re: ... 0001948372-22-000001\n<|id|>6<|page|>1<|box|>334 142 351 294<|content|>Dear Mr. ... Calloway\n<|id|>14<|page|>1<|box|>849 140 904 856<|content|>We note that you refer throughout the prospectus t...appear in the Prospectus Summary on page 1, in the\n<|id|>15<|page|>2<|box|>90 140 126 854<|content|>Business section beginning on page 89, and in Mana...lysis on page 60. ... Please address the following\n<|id|>49<|page|>5<|box|>859 174 895 854<|content|>a. ... Please revise the financial statements and/...torage), by geography (Texas, New Mexico, Arizona,\n<|id|>50<|page|>6<|box|>90 174 145 854<|content|>California, Oklahoma, and any other state in which... period for which an income statement is presented\n<|id|>133<|page|>14<|box|>391 176 409 571<|content|>Ryan J. ... Whitfield, Staff Examiner — (202) 551-3244\n<|id|>134<|page|>14<|box|>417 174 435 604<|content|>Margaret A. ... Castellano, Staff Attorney — (202) 551-3389\n<|id|>135<|page|>14<|box|>443 174 460 658<|content|>David R. ... Okonkwo, Accounting Branch Chief — (202) 551-3462\n<|id|>136<|page|>14<|box|>469 174 505 852<|content|>Division of Corporation Finance Office of Energy &...and Exchange Commission 100 F Street, N. ... 20549\n<|id|>138<|page|>14<|box|>530 140 563 854<|content|>Division of Corporation Finance Office of Energy &...n United States Securities and Exchange Commission\n<|id|>139<|page|>14<|box|>564 140 582 852<|content|>cc: ... Sandra Haverford, General Counsel & Corporate Secretary, Calloway-Briggs Renewables Inc",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>49<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 107 588<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>7<|type|>title<|page|>1<|box|>340 140 358 364<|content|>1. Purpose and Engagement\n<|id|>11<|type|>title<|page|>1<|box|>696 140 714 352<|content|>2. Scope of Representation\n<|id|>30<|type|>title<|page|>3<|box|>700 140 717 431<|content|>3. Responsible Attorney and Staffing\n<|id|>37<|type|>title<|page|>4<|box|>446 140 464 290<|content|>4. Fees and Billing\n<|id|>38<|type|>title<|page|>4<|box|>478 140 494 241<|content|>4.1 Fee Cap\n<|id|>41<|type|>title<|page|>4<|box|>814 140 832 374<|content|>4.2 Billing Rates and Method\n<|id|>43<|type|>table<|page|>5<|box|>133 143 244 852<|content|>None\n<|id|>46<|type|>title<|page|>5<|box|>518 140 537 400<|content|>4.3 Disbursements and Expenses\n<|id|>58<|type|>title<|page|>6<|box|>390 140 407 467<|content|>4.5 Investor Counsel Fee Reimbursement\n<|id|>60<|type|>title<|page|>6<|box|>619 140 636 281<|content|>5. Client Identity\n<|id|>63<|type|>title<|page|>7<|box|>148 140 167 321<|content|>6. Conflicts of Interest\n<|id|>67<|type|>title<|page|>7<|box|>597 140 614 284<|content|>7. Confidentiality\n<|id|>71<|type|>title<|page|>8<|box|>148 140 167 326<|content|>8. Document Retention\n<|id|>74<|type|>title<|page|>8<|box|>425 140 443 264<|content|>9. Termination\n<|id|>78<|type|>title<|page|>8<|box|>763 142 781 379<|content|>10. Limitation of Engagement\n<|id|>82<|type|>title<|page|>9<|box|>250 142 266 297<|content|>11. Governing Law\n<|id|>84<|type|>title<|page|>9<|box|>388 142 406 437<|content|>12. Acceptance and Countersignature\n<|id|>90<|type|>title<|page|>9<|box|>709 212 724 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>97<|type|>title<|page|>9<|box|>838 313 854 683<|content|>ACCEPTANCE AND ACKNOWLEDGMENT\n<|id|>100<|type|>title<|page|>10<|box|>133 142 151 379<|content|>ACCEPTED AND AGREED:\n<|id|>101<|type|>title<|page|>10<|box|>160 140 176 388<|content|>SKYBRIDGE FINTECH LTD.",
+    "raw_response": "<|src_id|>43<|tgt_id|>41",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 41
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        58,
+        83
+    ],
+    "pages": [
+        59,
+        79,
+        80,
+        83
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>338<|page|>59<|box|>85 421 167 913<|content|>INTERNATIONAL\n<|id|>339<|page|>59<|box|>200 710 252 919<|content|>Foreign Currency Positions Exchange Stabilization Fund\n<|id|>340<|page|>59<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>438<|page|>79<|box|>148 388 164 609<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>439<|page|>79<|box|>184 81 258 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>447<|page|>79<|box|>839 81 901 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>448<|page|>79<|box|>184 504 229 915<|content|>Second Liberty Loan Act of 1917, the nature of the...o an overall limit on the outstanding Federal debt\n<|id|>457<|page|>79<|box|>840 504 902 916<|content|>Government account series (FD-2)—Certain trust fun...urities. ... These securities are sold directly by\n<|id|>458<|page|>80<|box|>90 81 209 491<|content|>Treasury to a specific Government agency, trust fund, or account. ... and the Unemployment Trust Fund\n<|id|>486<|page|>83<|box|>60 84 104 367<|content|>DEPARTMENT OF THE TREASURY BUREAU OF THE FISCAL SERVICE WASHINGTON, D. ... 20227\n<|id|>487<|page|>83<|box|>118 93 148 361<|content|>OFFICIAL BUSINESS PENALTY FOR PRIVATE USE, \\$300",
+    "raw_response": "<|src_id|>447<|tgt_id|>448\n<|src_id|>457<|tgt_id|>458",
+    "parsed": [
+        {
+            "src_id": 447,
+            "tgt_id": 448
+        },
+        {
+            "src_id": 457,
+            "tgt_id": 458
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 143 128 666<|content|>CONFIDENTIAL — FOR PROSPECTIVE INVESTORS ONLY ISSU\n<|id|>8<|type|>title<|page|>1<|box|>481 140 498 294<|content|>Offering Overview\n<|id|>12<|type|>title<|page|>1<|box|>801 143 818 303<|content|>Final Pricing Terms\n<|id|>14<|type|>table<|page|>1<|box|>854 143 893 852<|content|>None\n<|id|>15<|type|>table<|page|>2<|box|>88 143 127 852<|content|>None\n<|id|>16<|type|>table<|page|>2<|box|>186 143 342 852<|content|>None\n<|id|>17<|type|>table<|page|>2<|box|>402 143 545 852<|content|>None\n<|id|>19<|type|>table<|page|>2<|box|>686 143 744 852<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>138 140 157 442<|content|>Selling Stockholder Share Breakdown\n<|id|>23<|type|>table<|page|>3<|box|>224 143 367 852<|content|>None\n<|id|>25<|type|>table<|page|>3<|box|>526 143 638 852<|content|>None\n<|id|>28<|type|>title<|page|>4<|box|>90 140 107 303<|content|>Lock-Up Provisions\n<|id|>34<|type|>title<|page|>4<|box|>627 140 643 272<|content|>Use of Proceeds\n<|id|>36<|type|>title<|page|>4<|box|>821 140 839 205<|content|>Listing\n<|id|>38<|type|>title<|page|>5<|box|>90 140 107 625<|content|>Registration Statement Reference and Additional In\n<|id|>42<|type|>title<|page|>5<|box|>465 140 482 377<|content|>Forward-Looking Statements",
+    "raw_response": "<|src_id|>14<|tgt_id|>12\n<|src_id|>15<|tgt_id|>12\n<|src_id|>16<|tgt_id|>12\n<|src_id|>17<|tgt_id|>12\n<|src_id|>19<|tgt_id|>12\n<|src_id|>23<|tgt_id|>21\n<|src_id|>25<|tgt_id|>21",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 21
+        }
+    ]
+}

@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 171 142 826<|content|>WRITTEN SHAREHOLDER RESOLUTIONS OF IRONHAVEN FRANK\n<|id|>9<|page|>1<|box|>436 142 453 392<|content|>PREAMBLE AND RECITALS\n<|id|>11<|page|>1<|box|>530 142 547 467<|content|>Recital A — Identity of Sole Quotaholder\n<|id|>13<|page|>1<|box|>713 140 729 557<|content|>Recital B — Description of the Proposed Transactio\n<|id|>25<|page|>2<|box|>789 140 806 612<|content|>Recital C — Description of the German Security Doc\n<|id|>33<|page|>3<|box|>768 140 785 490<|content|>Recital D — Description of the Share Pledge\n<|id|>35<|page|>4<|box|>176 140 193 426<|content|>Recital E — German Local Counsel\n<|id|>38<|page|>4<|box|>383 140 402 460<|content|>Recital F — Authorization Requirement\n<|id|>40<|page|>4<|box|>631 140 648 281<|content|>RESOLUTIONS\n<|id|>42<|page|>4<|box|>705 140 742 854<|content|>RESOLUTION 1 — APPROVAL OF ENTRY INTO THE CREDIT A\n<|id|>53<|page|>5<|box|>785 140 820 854<|content|>RESOLUTION 2 — APPROVAL OF ENTRY INTO THE GERMAN S\n<|id|>63<|page|>7<|box|>138 140 156 571<|content|>RESOLUTION 3 — CONSENT TO SHARE PLEDGE\n<|id|>71<|page|>7<|box|>768 140 787 715<|content|>RESOLUTION 4 — AUTHORIZATION OF MANAGING DIRECTORS\n<|id|>84<|page|>8<|box|>794 140 830 854<|content|>RESOLUTION 5 — SANCTIONS AND REGULATORY COMPLIANCE\n<|id|>90<|page|>9<|box|>638 140 654 622<|content|>RESOLUTION 6 — RATIFICATION OF PRIOR ACTIONS\n<|id|>97<|page|>10<|box|>227 140 244 668<|content|>RESOLUTION 7 — POWER OF ATTORNEY (*VOLLMACHT*)\n<|id|>99<|page|>10<|box|>296 176 313 745<|content|>Dr. Lukas Wendt (Rechtsanwalt) and/or Julia Falken\n<|id|>103<|page|>10<|box|>623 140 640 560<|content|>RESOLUTION 8 — GENERAL AUTHORIZATION\n<|id|>111<|page|>12<|box|>89 142 107 256<|content|>SIGNATURE\n<|id|>118<|page|>12<|box|>284 142 300 761<|content|>ACKNOWLEDGMENT AND ACCEPTANCE BY MANAGING DIRECTOR\n<|id|>128<|page|>13<|box|>89 142 107 245<|content|>EXHIBIT A\n<|id|>129<|page|>13<|box|>114 330 132 668<|content|>LIST OF TRANSACTION DOCUMENTS\n<|id|>141<|page|>15<|box|>89 142 107 243<|content|>EXHIBIT B\n<|id|>142<|page|>15<|box|>114 367 132 630<|content|>INCUMBENCY CERTIFICATE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>11<|level|>3\n<|id|>13<|level|>3\n<|id|>25<|level|>3\n<|id|>33<|level|>3\n<|id|>35<|level|>3\n<|id|>38<|level|>3\n<|id|>40<|level|>2\n<|id|>42<|level|>3\n<|id|>53<|level|>3\n<|id|>63<|level|>3\n<|id|>71<|level|>3\n<|id|>84<|level|>3\n<|id|>90<|level|>3\n<|id|>97<|level|>3\n<|id|>99<|level|>-1\n<|id|>103<|level|>3\n<|id|>111<|level|>2\n<|id|>118<|level|>3\n<|id|>128<|level|>2\n<|id|>129<|level|>3\n<|id|>141<|level|>2\n<|id|>142<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 3
+        }
+    ]
+}

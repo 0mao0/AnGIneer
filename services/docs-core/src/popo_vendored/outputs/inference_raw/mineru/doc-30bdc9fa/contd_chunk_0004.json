@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 4,
+    "range": [
+        229,
+        238
+    ],
+    "pages": [
+        230,
+        238
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>972<|page|>230<|box|>103 406 116 574<|content|>Footnotes to Table GA-I-1\n<|id|>973<|page|>230<|box|>153 100 163 209<|content|>* Less than \\$500. ... * Less than \\$500\n<|id|>995<|page|>230<|box|>817 96 826 452<|content|>21/ Report was not submitted by the administrative agency. ... Reported\n<|id|>996<|page|>230<|box|>152 535 168 880<|content|>amounts were compiled from other reports received ...reports received by the Department of the Treasury\n<|id|>1069<|page|>238<|box|>915 94 925 471<|content|>3/ Payments are made between the Railroad Retirement Account and Federal\n<|id|>1070<|page|>238<|box|>796 509 895 903<|content|>Old-age and survivors and Federal disability so as...1972, \\$6 million FY 1973, and \\$5 million FY 1974",
+    "raw_response": "<|src_id|>995<|tgt_id|>996",
+    "parsed": [
+        {
+            "src_id": 995,
+            "tgt_id": 996
+        }
+    ]
+}

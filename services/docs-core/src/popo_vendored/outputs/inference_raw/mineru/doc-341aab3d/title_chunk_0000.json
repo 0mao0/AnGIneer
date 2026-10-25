@@ -1,0 +1,39 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>238 405 253 591<|content|>DESMOND R. FARRIS,\n<|id|>4<|page|>1<|box|>263 457 280 540<|content|>Defendant.\n<|id|>5<|page|>1<|box|>289 336 306 661<|content|>TEMPORARY RESTRAINING ORDER\n<|id|>15<|page|>2<|box|>89 142 106 321<|content|>FINDINGS OF FACT\n<|id|>42<|page|>5<|box|>661 140 678 357<|content|>CONCLUSIONS OF LAW\n<|id|>48<|page|>7<|box|>89 140 107 215<|content|>ORDER\n<|id|>65<|page|>10<|box|>89 433 106 563<|content|>SO ORDERED.\n<|id|>68<|page|>10<|box|>176 375 194 622<|content|>CERTIFICATE OF SERVICE\n<|id|>73<|page|>10<|box|>414 318 431 676<|content|>SUBMITTED ON BEHALF OF PLAINTIFF",
+    "raw_response": "<|id|>3<|level|>-1\n<|id|>4<|level|>-1\n<|id|>5<|level|>1\n<|id|>15<|level|>2\n<|id|>42<|level|>2\n<|id|>48<|level|>2\n<|id|>65<|level|>-1\n<|id|>68<|level|>2\n<|id|>73<|level|>-1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        }
+    ]
+}

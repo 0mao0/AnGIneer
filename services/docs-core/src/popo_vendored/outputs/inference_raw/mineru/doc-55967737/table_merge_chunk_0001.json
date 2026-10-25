@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['6', 'GMP Lakeland LLC', '84-2527834', '[To be confirmed]', 'Greystone Meridian Partners', 'Greystone Meridian Capital', 'Fairwater Real Estate Investment Trust', 'Fairwater Real Estate Investment Trust', 'Certificate of Amendment', '$200']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'Fund III, L.P.', 'LLC (as GP of GMP Fund III)', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 49,
+    "table2_idx": 50
+}

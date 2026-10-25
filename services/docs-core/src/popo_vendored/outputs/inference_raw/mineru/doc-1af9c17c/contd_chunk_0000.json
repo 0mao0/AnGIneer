@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        9,
+        10,
+        12,
+        18,
+        19,
+        25,
+        26,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>387 694 405 854<|content|>Date: ... April 14, 2023\n<|id|>3<|page|>1<|box|>414 140 468 854<|content|>Propounding Party: ... )\n<|id|>87<|page|>9<|box|>873 140 930 854<|content|>• Briarwood Trucking Co. ... (1280 Jefferson Davis... on Lanes 8 through 14 as defined and CONFIDENTIAL\n<|id|>88<|page|>10<|box|>90 210 126 854<|content|>designated in Schedule C to the TSA. ... Briarwood...ese lanes beginning in approximately November 2021\n<|id|>102<|page|>12<|box|>494 174 549 854<|content|>(c) Disruption of domestic and international suppl...e of freight available for transportation; ... and\n<|id|>104<|page|>12<|box|>599 140 821 857<|content|>Stonefield maintained the force majeure declaratio...this adjusted minimum by approximately $10,200,000\n<|id|>158<|page|>18<|box|>871 140 930 854<|content|>\"IN NO EVENT SHALL EITHER PARTY BE LIABLE TO THE O..., CONSEQUENTIAL, SPECIAL, OR PUNITIVE CONFIDENTIAL\n<|id|>159<|page|>19<|box|>89 174 161 854<|content|>DAMAGES ARISING OUT OF OR IN CONNECTION WITH THIS ... ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. ... \"\n<|id|>232<|page|>25<|box|>915 142 929 245<|content|>CONFIDENTIAL\n<|id|>237<|page|>26<|box|>425 138 608 857<|content|>Stonefield contends that VTS's unilateral, undiscl...he TSA and independently validates the termination\n<|id|>247<|page|>27<|box|>545 524 563 854<|content|>Dated: ... April 14, 2023 New York, New York\n<|id|>248<|page|>27<|box|>571 140 587 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>249<|page|>27<|box|>589 142 606 253<|content|>By: ... By\n<|id|>250<|page|>27<|box|>606 140 638 854<|content|>Samuel Eklund Responsible Partner Calderwood & Har...York, New York 10166 Telephone: ... (212) 555-7201\n<|id|>251<|page|>27<|box|>640 142 656 457<|content|>Email: ... com\n<|id|>252<|page|>27<|box|>657 143 674 251<|content|>By: ... By\n<|id|>253<|page|>27<|box|>674 140 707 854<|content|>Patrick Gallagher Lead Associate Calderwood & Hark...York, New York 10166 Telephone: ... (212) 555-7201\n<|id|>254<|page|>27<|box|>708 142 724 478<|content|>Email: ... com\n<|id|>255<|page|>27<|box|>724 142 742 540<|content|>Counsel for Defendant Stonefield Logistics Group I...unsel for Defendant Stonefield Logistics Group Inc",
+    "raw_response": "<|src_id|>87<|tgt_id|>88\n<|src_id|>158<|tgt_id|>159",
+    "parsed": [
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 159
+        }
+    ]
+}

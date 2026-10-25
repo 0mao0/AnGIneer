@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>12<|type|>title<|page|>1<|box|>752 140 768 485<|content|>I. Description of Administrative Proceeding\n<|id|>13<|type|>title<|page|>1<|box|>782 140 801 447<|content|>A. Background — Equipment Imports\n<|id|>22<|type|>table<|page|>2<|box|>526 143 664 852<|content|>None\n<|id|>24<|type|>title<|page|>2<|box|>820 142 837 392<|content|>B. AADE Post-Clearance Audit\n<|id|>29<|type|>title<|page|>3<|box|>337 140 354 694<|content|>C. Assessment Notice No. 1 — Classification (AADE/\n<|id|>37<|type|>title<|page|>4<|box|>175 140 193 666<|content|>D. Assessment Notice No. 2 — Valuation (AADE/ADAN/\n<|id|>44<|type|>title<|page|>5<|box|>212 140 229 383<|content|>II. Total Exposure Assessment\n<|id|>45<|type|>title<|page|>5<|box|>243 142 258 395<|content|>A. AADE Mid-Case Assessment\n<|id|>47<|type|>table<|page|>5<|box|>327 143 503 852<|content|>None\n<|id|>49<|type|>title<|page|>5<|box|>733 142 751 397<|content|>B. High-End Exposure Estimate\n<|id|>56<|type|>title<|page|>6<|box|>483 140 501 459<|content|>III. TSL's Position and Defense Strategy\n<|id|>68<|type|>title<|page|>7<|box|>661 140 679 333<|content|>IV. Insurance Coverage\n<|id|>76<|type|>title<|page|>8<|box|>348 140 364 450<|content|>V. Financial Covenant Impact Analysis\n<|id|>77<|type|>title<|page|>8<|box|>378 140 395 377<|content|>A. Current Financial Position\n<|id|>83<|type|>title<|page|>8<|box|>672 142 689 424<|content|>B. Impact Under Adverse Scenarios\n<|id|>88<|type|>title<|page|>9<|box|>214 140 231 426<|content|>C. Material Adverse Change Clause\n<|id|>95<|type|>title<|page|>9<|box|>590 140 608 436<|content|>VI. Ongoing Disclosure Commitment\n<|id|>104<|type|>title<|page|>10<|box|>250 140 266 344<|content|>VII. Contact Information",
+    "raw_response": "<|src_id|>22<|tgt_id|>13\n<|src_id|>47<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        }
+    ]
+}

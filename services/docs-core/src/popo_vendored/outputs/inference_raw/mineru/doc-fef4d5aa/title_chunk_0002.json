@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        129,
+        176
+    ],
+    "pages": [
+        130,
+        134,
+        136,
+        137,
+        138,
+        140,
+        146,
+        149,
+        152,
+        158,
+        161,
+        168,
+        175
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>461<|page|>130<|box|>163 425 189 563<|content|>3-5 竖井\n<|id|>474<|page|>134<|box|>161 411 192 552<|content|>3-6 管棚\n<|id|>481<|page|>136<|box|>245 351 284 611<|content|>第四章 桥涵工程\n<|id|>482<|page|>136<|box|>337 436 370 527<|content|>说明\n<|id|>497<|page|>137<|box|>523 115 551 258<|content|>6. 技术复杂大桥：\n<|id|>508<|page|>138<|box|>348 87 379 248<|content|>三、工程量计算规则\n<|id|>512<|page|>138<|box|>558 85 589 228<|content|>4. 技术复杂大桥：\n<|id|>524<|page|>140<|box|>158 406 189 564<|content|>4-1 盖板涵\n<|id|>543<|page|>146<|box|>147 381 176 594<|content|>4-2 钢筋混凝土圆管涵\n<|id|>553<|page|>149<|box|>147 436 176 576<|content|>4-3 拱涵\n<|id|>563<|page|>152<|box|>147 426 172 566<|content|>4-4 箱涵\n<|id|>582<|page|>158<|box|>143 410 169 576<|content|>4-5 波纹管涵\n<|id|>592<|page|>161<|box|>150 366 178 638<|content|>4-6 标准跨径小于 16\\mathrm{m} 的桥梁\n<|id|>610<|page|>168<|box|>156 364 185 615<|content|>4-7 预应力混凝土空心板桥\n<|id|>632<|page|>175<|box|>150 389 178 625<|content|>4-8 钢筋混凝土T形梁桥",
+    "raw_response": "<|id|>461<|level|>3\n<|id|>474<|level|>3\n<|id|>481<|level|>1\n<|id|>482<|level|>2\n<|id|>497<|level|>3\n<|id|>508<|level|>2\n<|id|>512<|level|>3\n<|id|>524<|level|>3\n<|id|>543<|level|>3\n<|id|>553<|level|>3\n<|id|>563<|level|>3\n<|id|>582<|level|>3\n<|id|>592<|level|>3\n<|id|>610<|level|>3\n<|id|>632<|level|>3",
+    "parsed": [
+        {
+            "id": 461,
+            "level": 3
+        },
+        {
+            "id": 474,
+            "level": 3
+        },
+        {
+            "id": 481,
+            "level": 1
+        },
+        {
+            "id": 482,
+            "level": 2
+        },
+        {
+            "id": 497,
+            "level": 3
+        },
+        {
+            "id": 508,
+            "level": 2
+        },
+        {
+            "id": 512,
+            "level": 3
+        },
+        {
+            "id": 524,
+            "level": 3
+        },
+        {
+            "id": 543,
+            "level": 3
+        },
+        {
+            "id": 553,
+            "level": 3
+        },
+        {
+            "id": 563,
+            "level": 3
+        },
+        {
+            "id": 582,
+            "level": 3
+        },
+        {
+            "id": 592,
+            "level": 3
+        },
+        {
+            "id": 610,
+            "level": 3
+        },
+        {
+            "id": 632,
+            "level": 3
+        }
+    ]
+}

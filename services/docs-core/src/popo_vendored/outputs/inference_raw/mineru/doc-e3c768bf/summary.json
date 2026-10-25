@@ -1,0 +1,181 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ttzk23tv\\input\\pdfs\\doc-e3c768bf.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ttzk23tv\\enriched\\doc-e3c768bf.json",
+    "contd_output": "<|src_id|>12<|tgt_id|>13\n<|src_id|>150<|tgt_id|>151",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>32<|level|>3\n<|id|>39<|level|>3\n<|id|>49<|level|>2\n<|id|>51<|level|>3\n<|id|>56<|level|>3\n<|id|>61<|level|>3\n<|id|>65<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>80<|level|>3\n<|id|>85<|level|>3\n<|id|>91<|level|>2\n<|id|>92<|level|>3\n<|id|>95<|level|>3\n<|id|>100<|level|>3\n<|id|>105<|level|>2\n<|id|>107<|level|>3\n<|id|>115<|level|>3\n<|id|>118<|level|>3\n<|id|>121<|level|>3\n<|id|>129<|level|>3\n<|id|>133<|level|>3\n<|id|>138<|level|>2\n<|id|>144<|level|>2\n<|id|>154<|level|>2\n<|id|>155<|level|>3\n<|id|>160<|level|>3\n<|id|>169<|level|>2",
+    "image_output": "<|src_id|>157<|tgt_id|>155\n<|src_id|>158<|tgt_id|>155",
+    "contd_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 157,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 155
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 157,
+            "table2_idx": 158,
+            "upper_row_ss": [
+                [
+                    "Risk 4",
+                    "Derivative work classification extends to ML",
+                    "High",
+                    "Medium (legally aggressive, but contractually",
+                    "Indefinite expansion of Meridian's IP claims to all"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "model outputs",
+                    "",
+                    "imposed if accepted in MDLA)",
+                    "QuorumScoreTM outputs"
+                ]
+            ]
+        }
+    ]
+}

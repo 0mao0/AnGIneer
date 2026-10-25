@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 218 125 777<|content|>CALDERWOOD & HARKNESS LLP WHITE COLLAR DEFENSE & I\n<|id|>2<|type|>title<|page|>1<|box|>186 143 203 290<|content|>MEMORANDUM\n<|id|>3<|type|>table<|page|>1<|box|>210 143 412 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>515 352 534 643<|content|>I. EXECUTIVE SUMMARY\n<|id|>17<|type|>title<|page|>2<|box|>780 285 799 712<|content|>II. BACKGROUND ON YVES LECLERC\n<|id|>18<|type|>title<|page|>2<|box|>825 140 843 457<|content|>A. Professional History and Role at DTI\n<|id|>24<|type|>title<|page|>3<|box|>575 140 592 465<|content|>B. Relationship to Other Key Individuals\n<|id|>33<|type|>title<|page|>4<|box|>587 174 606 821<|content|>III. THE OILFIELD EQUIPMENT EXPORT TRANSACTIONS\n<|id|>34<|type|>title<|page|>4<|box|>632 142 648 351<|content|>A. Overview of Shipments\n<|id|>38<|type|>title<|page|>5<|box|>303 140 321 418<|content|>B. Role of Caspian Logistik GmbH\n<|id|>42<|type|>title<|page|>5<|box|>679 140 695 367<|content|>C. Specific Shipment Details\n<|id|>50<|type|>title<|page|>6<|box|>656 140 674 354<|content|>D. End-User Certifications\n<|id|>58<|type|>title<|page|>7<|box|>530 181 550 815<|content|>IV. LECLERC'S ROLE — DOCUMENT REVIEW FINDINGS\n<|id|>59<|type|>title<|page|>7<|box|>575 140 594 454<|content|>A. Email and Communication Evidence\n<|id|>75<|type|>title<|page|>9<|box|>564 140 580 465<|content|>B. Leclerc's Interaction with Compliance\n<|id|>83<|type|>title<|page|>10<|box|>421 140 438 635<|content|>C. Connection to the Dunmore Renewables GmbH Trans\n<|id|>87<|type|>title<|page|>10<|box|>782 282 801 712<|content|>V. LECLERC'S WITNESS INTERVIEWS\n<|id|>88<|type|>title<|page|>10<|box|>827 142 844 418<|content|>A. First Interview — June 22, 2022\n<|id|>99<|type|>title<|page|>12<|box|>359 140 375 452<|content|>B. Second Interview — August 18, 2022\n<|id|>108<|type|>title<|page|>13<|box|>597 205 641 790<|content|>VI. ASSESSMENT OF LECLERC'S KNOWLEDGE AND CULPABIL\n<|id|>109<|type|>title<|page|>13<|box|>666 140 683 519<|content|>A. Knowledge of Sanctions and Export Controls\n<|id|>117<|type|>title<|page|>14<|box|>619 140 636 411<|content|>B. Intent and Willfulness Analysis\n<|id|>127<|type|>title<|page|>15<|box|>694 140 712 464<|content|>C. Comparison to Other Key Individuals\n<|id|>133<|type|>title<|page|>16<|box|>506 295 525 700<|content|>VII. POTENTIAL LEGAL EXPOSURE\n<|id|>134<|type|>title<|page|>16<|box|>551 140 568 426<|content|>A. Export Control Violations (EAR)\n<|id|>142<|type|>title<|page|>17<|box|>354 140 371 305<|content|>B. OFAC Violations\n<|id|>147<|type|>title<|page|>18<|box|>90 140 107 343<|content|>C. DOJ Prosecution Risk\n<|id|>155<|type|>title<|page|>18<|box|>633 344 651 651<|content|>VIII. RECOMMENDATIONS\n<|id|>156<|type|>title<|page|>18<|box|>679 142 695 352<|content|>A. Continued Cooperation\n<|id|>160<|type|>title<|page|>19<|box|>359 142 375 341<|content|>B. Witness Classification\n<|id|>167<|type|>title<|page|>19<|box|>829 140 845 390<|content|>C. Remediation Considerations\n<|id|>172<|type|>title<|page|>20<|box|>498 336 518 658<|content|>IX. APPENDICES (Referenced)\n<|id|>173<|type|>title<|page|>20<|box|>544 140 560 424<|content|>A. List of Key Documents Reviewed\n<|id|>182<|type|>title<|page|>21<|box|>299 142 315 480<|content|>B. Cross-Reference to Related Memoranda\n<|id|>184<|type|>table<|page|>21<|box|>383 143 813 852<|content|>None\n<|id|>188<|type|>title<|page|>23<|box|>90 143 106 406<|content|>C. Interview Schedule for Leclerc\n<|id|>189<|type|>table<|page|>23<|box|>114 143 352 852<|content|>None",
+    "raw_response": "<|src_id|>3<|tgt_id|>2\n<|src_id|>184<|tgt_id|>182\n<|src_id|>189<|tgt_id|>188",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 188
+        }
+    ]
+}

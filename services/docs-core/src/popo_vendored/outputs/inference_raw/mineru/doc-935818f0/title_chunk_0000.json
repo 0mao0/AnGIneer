@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>1<|box|>186 140 203 656<|content|>Re: Wire Transfer Instructions — Disbursement of E\n<|id|>6<|page|>1<|box|>311 140 328 272<|content|>Dear Ms. Petrov:\n<|id|>9<|page|>1<|box|>661 142 676 361<|content|>1. Transaction Background\n<|id|>19<|page|>2<|box|>554 140 570 643<|content|>2. Wire Transfer Instructions for Disbursement to\n<|id|>31<|page|>3<|box|>359 140 375 410<|content|>3. Deduction of Escrow Agent Fee\n<|id|>35<|page|>3<|box|>770 140 787 470<|content|>4. Confirmation and Contact Information\n<|id|>38<|page|>4<|box|>135 143 152 285<|content|>Primary Contact:\n<|id|>47<|page|>4<|box|>474 140 492 418<|content|>5. Authorization and Irrevocability\n<|id|>55<|page|>5<|box|>90 142 107 287<|content|>6. Governing Law\n<|id|>59<|page|>5<|box|>321 140 338 388<|content|>SKYBRIDGE FINTECH LTD.",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>6<|level|>-1\n<|id|>9<|level|>2\n<|id|>19<|level|>2\n<|id|>31<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>3\n<|id|>47<|level|>2\n<|id|>55<|level|>2\n<|id|>59<|level|>-1",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        }
+    ]
+}

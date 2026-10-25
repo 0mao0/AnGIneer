@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=24, 路基工程', 'rowspan=24, 排水工程', 'rowspan=8, 沉淀池、油水分离池、蓄水池、蒸发池', 'rowspan=8, 沉淀池、油水分离池、蓄水池、蒸发池', '底板高程', '○', '△', '▲', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 路基工程', '小桥及符合小桥标准的通道,人行天桥,渡槽', '钢筋加工及安装,砌体,混凝土扩大基础,钻孔灌注桩,混凝土墩、台,墩、台身安装,台背填土,就地浇筑梁、板,预制安装梁、板,就地浇筑拱圈,混凝土桥面板桥面防水层,支座垫石和挡块,支座安装,伸缩装置安装,栏杆安装,混凝土护栏,桥头搭板,砌体坡面防护,混凝土构件表面防护,桥梁总体等', '', '', '', '', '', '参照桥梁模型精细度表']]\n",
+    "raw_response": "[1, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 234,
+    "table2_idx": 235
+}

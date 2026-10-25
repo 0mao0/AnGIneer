@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 150 125 846<|content|>UNITED STATES OF AMERICA BEFORE THE FEDERAL ENERGY\n<|id|>1<|type|>table<|page|>1<|box|>167 145 215 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>282 150 319 846<|content|>NOTICE OF APPEARANCE AND DESIGNATION OF LEAD COUNS\n<|id|>5<|type|>title<|page|>1<|box|>429 140 446 645<|content|>I. INTRODUCTION AND FILING PARTY IDENTIFICATION\n<|id|>11<|type|>title<|page|>2<|box|>148 140 166 475<|content|>II. DESIGNATION OF LEAD COUNSEL\n<|id|>18<|type|>title<|page|>2<|box|>575 140 592 550<|content|>III. DESIGNATION OF ADDITIONAL COUNSEL\n<|id|>20<|type|>title<|page|>2<|box|>669 140 685 285<|content|>A. Brett Callahan\n<|id|>22<|type|>title<|page|>2<|box|>753 174 771 506<|content|>Email: bcallahan@calderwoodharkness.com\n<|id|>24<|type|>title<|page|>2<|box|>821 142 838 281<|content|>B. David Stanton\n<|id|>26<|type|>title<|page|>3<|box|>90 174 106 496<|content|>Email: dstanton@calderwoodharkness.com\n<|id|>29<|type|>title<|page|>3<|box|>320 140 338 468<|content|>IV. BILLING PARTNER DISCLOSURE\n<|id|>35<|type|>title<|page|>4<|box|>89 140 106 462<|content|>V. DESCRIPTION OF PROCEEDINGS\n<|id|>40<|type|>title<|page|>4<|box|>674 140 691 442<|content|>VI. SERVICE LIST INFORMATION\n<|id|>42<|type|>title<|page|>4<|box|>763 140 780 506<|content|>Lead Counsel (Person Designated for Service):\n<|id|>49<|type|>title<|page|>5<|box|>214 142 229 267<|content|>Client Contact:\n<|id|>53<|type|>title<|page|>5<|box|>431 140 450 308<|content|>VII. CONCLUSION\n<|id|>62<|type|>title<|page|>5<|box|>756 140 773 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

@@ -1,0 +1,108 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>731 142 748 334<|content|>1. Scope of Engagement\n<|id|>17<|page|>2<|box|>601 140 619 313<|content|>2. Engagement Team\n<|id|>24<|page|>3<|box|>348 140 364 343<|content|>3. Standard Billing Rates\n<|id|>28<|page|>3<|box|>739 140 757 756<|content|>4. Alternative Fee Arrangement — Blended Rate Cap\n<|id|>30<|page|>3<|box|>814 140 832 316<|content|>4.1 Blended Rate Cap\n<|id|>34<|page|>4<|box|>292 140 311 334<|content|>4.2 Monthly Fee Ceiling\n<|id|>38<|page|>4<|box|>601 140 618 470<|content|>4.3 Disbursements and Third-Party Costs\n<|id|>45<|page|>5<|box|>329 140 347 380<|content|>5. Billing and Payment Terms\n<|id|>51<|page|>5<|box|>848 140 864 393<|content|>6. Client Identity and Authority\n<|id|>57<|page|>6<|box|>484 140 501 320<|content|>7. Conflicts of Interest\n<|id|>58<|page|>6<|box|>513 142 531 300<|content|>7.1 Conflicts Check\n<|id|>60<|page|>6<|box|>679 140 695 468<|content|>7.2 Conflict Waiver — Unrelated Matters\n<|id|>66<|page|>7<|box|>282 140 299 459<|content|>7.3 Advance Waiver — Future Conflicts\n<|id|>71<|page|>7<|box|>608 140 625 390<|content|>8. Confidentiality and Privilege\n<|id|>75<|page|>8<|box|>167 140 184 349<|content|>9. Document Preservation\n<|id|>79<|page|>8<|box|>488 142 505 254<|content|>10. Insurance\n<|id|>88<|page|>9<|box|>167 140 185 274<|content|>11. Termination\n<|id|>93<|page|>9<|box|>550 140 568 565<|content|>12. Limitation of Liability / No Guarantee of Outc\n<|id|>97<|page|>9<|box|>834 140 851 480<|content|>13. Governing Law and Dispute Resolution\n<|id|>100<|page|>10<|box|>277 142 294 431<|content|>14. Entire Agreement / Amendments\n<|id|>112<|page|>10<|box|>717 382 733 614<|content|>AGREED AND ACCEPTED",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>24<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>3\n<|id|>34<|level|>3\n<|id|>38<|level|>3\n<|id|>45<|level|>2\n<|id|>51<|level|>2\n<|id|>57<|level|>2\n<|id|>58<|level|>3\n<|id|>60<|level|>3\n<|id|>66<|level|>3\n<|id|>71<|level|>2\n<|id|>75<|level|>2\n<|id|>79<|level|>2\n<|id|>88<|level|>2\n<|id|>93<|level|>2\n<|id|>97<|level|>2\n<|id|>100<|level|>2\n<|id|>112<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        7,
+        10,
+        11,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>152 723 170 854<|content|>October 20, 2023\n<|id|>3<|page|>1<|box|>179 140 215 854<|content|>FROM: ... Elaine Forsythe, Partner, Antitrust & Co...LLP 125 Park Avenue, 34th Floor New York, NY 10017\n<|id|>4<|page|>1<|box|>223 140 279 854<|content|>TO: ... David Halverston, General Counsel, Meridia... Operating Partner, Ashford Capital Management LLC\n<|id|>5<|page|>1<|box|>286 140 340 854<|content|>RE: ... Implications for Proposed Master Services Agreement (MSA-PDS-MCB-2023)\n<|id|>6<|page|>1<|box|>348 140 364 468<|content|>Matter No. ... 71982\n<|id|>7<|page|>1<|box|>373 140 465 854<|content|>PRIVILEGE DESIGNATION: ... Any inadvertent disclosure does not constitute a waiver of privilege\n<|id|>41<|page|>4<|box|>563 176 580 753<|content|>3. ... and\n<|id|>43<|page|>4<|box|>619 140 750 856<|content|>No Binding Agreement. ... MCB's IT operations cont...f its initial three-year term on February 28, 2023\n<|id|>63<|page|>6<|box|>849 140 905 856<|content|>Based on available information, Vaulton currently ...Proposed MSA's Cloud Infrastructure Management and\n<|id|>64<|page|>7<|box|>90 140 162 854<|content|>Cybersecurity Monitoring components. ... In partic... to Pinecrest (now Vaulton) under the Proposed MSA\n<|id|>89<|page|>10<|box|>744 174 891 857<|content|>Audit Rights. ... Expanding these audit rights to ...iation of the audit provisions — a concession that\n<|id|>90<|page|>11<|box|>89 174 126 854<|content|>Vaulton is unlikely to grant, given the breadth an...ts operations and its obligations to other clients\n<|id|>169<|page|>20<|box|>107 140 125 566<|content|>Elaine Forsythe Partner, Antitrust & Competition Practice\n<|id|>170<|page|>20<|box|>125 143 142 254<|content|>By: ... By",
+    "raw_response": "<|src_id|>63<|tgt_id|>64\n<|src_id|>89<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        }
+    ]
+}

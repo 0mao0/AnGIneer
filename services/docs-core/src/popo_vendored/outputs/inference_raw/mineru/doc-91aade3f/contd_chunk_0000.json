@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        3,
+        11,
+        12,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>160 140 176 687<|content|>To: ... Douglas Fairchild, Responsible Partner, Calderwood & Harkness LLP\n<|id|>2<|page|>1<|box|>186 140 220 854<|content|>From: ... Naomi Petersen, Lead Associate, Calderwo...mura, Working Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>229 142 247 287<|content|>Date: ... June 8, 2022\n<|id|>4<|page|>1<|box|>256 140 273 813<|content|>Re: ... Product-Liability Tower Limits Adequacy Analysis — Nexford Industrial Holdings Inc\n<|id|>5<|page|>1<|box|>282 142 299 331<|content|>Matter No. ... 1005-00003\n<|id|>6<|page|>1<|box|>308 140 325 441<|content|>Client: ... Nexford Industrial Holdings Inc\n<|id|>21<|page|>3<|box|>89 174 145 854<|content|>(b) Triton Fastener Corp. ... and\n<|id|>23<|page|>3<|box|>234 140 268 854<|content|>All three subsidiaries are named insureds under th...ded in Nexford's consolidated financial statements\n<|id|>97<|page|>11<|box|>306 183 323 522<|content|>• 95th percentile: ... $18 million to $35 million\n<|id|>99<|page|>11<|box|>345 140 529 856<|content|>Tower Response. ... Even at the most extreme 99th ...ely $20 million in headroom above the modeled loss\n<|id|>98<|page|>11<|box|>325 183 343 522<|content|>• 99th percentile: ... $35 million to $55 million\n<|id|>111<|page|>12<|box|>676 183 691 513<|content|>• 95th percentile: ... $8 million to $20 million\n<|id|>113<|page|>12<|box|>715 140 880 857<|content|>Tower Response. ... This scenario also implicates ...onents may not manifest until years after delivery\n<|id|>112<|page|>12<|box|>695 183 710 521<|content|>• 99th percentile: ... $20 million to $40 million\n<|id|>229<|page|>28<|box|>375 147 388 581<|content|>• Douglas Fairchild, Responsible Partner, Calderwood & Harkness LLP\n<|id|>234<|page|>28<|box|>455 140 484 852<|content|>Any unauthorized disclosure of this memorandum may... & Harkness LLP immediately and destroy all copies\n<|id|>230<|page|>28<|box|>390 148 404 500<|content|>• Angela Fontaine, Partner, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>21<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 23
+        }
+    ]
+}

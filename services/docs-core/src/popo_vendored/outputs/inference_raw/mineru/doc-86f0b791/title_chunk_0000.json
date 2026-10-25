@@ -1,0 +1,673 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        51
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>267 219 309 789<|content|>公路工程集料试验规程\n<|id|>1<|page|>1<|box|>360 219 386 791<|content|>Test Methods of Aggregate for Highway Engineering\n<|id|>4<|page|>2<|box|>258 293 287 678<|content|>公路工程集料试验规程\n<|id|>5<|page|>2<|box|>329 206 351 767<|content|>Test Methods of Aggregate for Highway Engineering\n<|id|>10<|page|>3<|box|>156 308 183 702<|content|>中华人民共和国交通部公告\n<|id|>11<|page|>3<|box|>224 459 248 550<|content|>第3号\n<|id|>19<|page|>4<|box|>176 434 202 572<|content|>前言\n<|id|>40<|page|>6<|box|>181 429 211 561<|content|>目次\n<|id|>43<|page|>8<|box|>169 408 194 592<|content|>1 总 则\n<|id|>50<|page|>9<|box|>173 390 200 613<|content|>2 术语、符号\n<|id|>51<|page|>9<|box|>262 418 283 589<|content|>2.1 术语\n<|id|>52<|page|>9<|box|>309 133 328 408<|content|>2.1.1 集料(骨料) aggregate\n<|id|>54<|page|>9<|box|>377 133 394 421<|content|>2.1.2 粗集料 coarse aggregate\n<|id|>56<|page|>9<|box|>466 133 484 401<|content|>2.1.3 细集料 fine aggregate\n<|id|>58<|page|>9<|box|>556 131 573 388<|content|>2.1.4 天然砂 natural sand\n<|id|>60<|page|>9<|box|>645 128 662 572<|content|>2.1.5 人工砂 manufactured sand, synthetic sand\n<|id|>62<|page|>9<|box|>756 128 775 394<|content|>2.1.6 机制砂 crushed sand\n<|id|>64<|page|>9<|box|>824 128 843 570<|content|>2.1.7 石屑 crushed stone dust, screenings, chips\n<|id|>66<|page|>9<|box|>913 128 932 373<|content|>2.1.8 混合砂 blend sand\n<|id|>68<|page|>10<|box|>143 126 160 304<|content|>2.1.9 填料 filler\n<|id|>70<|page|>10<|box|>257 124 274 382<|content|>2.1.10 矿粉 mineral filler\n<|id|>72<|page|>10<|box|>346 124 364 481<|content|>2.1.11 堆积密度 accumulated density\n<|id|>74<|page|>10<|box|>437 122 456 537<|content|>2.1.12 表观密度(视密度) apparent density\n<|id|>76<|page|>10<|box|>504 124 524 646<|content|>2.1.13 表观相对密度(视比重) apparent specific gravity\n<|id|>78<|page|>10<|box|>572 122 590 767<|content|>2.1.14 表干密度(饱和面干毛体积密度) saturated surface-dry densi\n<|id|>82<|page|>10<|box|>752 122 769 436<|content|>2.1.16 毛体积密度 bulk density\n<|id|>84<|page|>10<|box|>841 120 861 544<|content|>2.1.17 毛体积相对密度 bulk specific gravity\n<|id|>86<|page|>10<|box|>909 122 928 503<|content|>2.1.18 石料磨光值 polished stone value\n<|id|>88<|page|>11<|box|>162 122 180 520<|content|>2.1.19 石料冲击值 aggregate impact value\n<|id|>90<|page|>11<|box|>252 122 270 488<|content|>2.1.20 石料磨耗值 weared stone value\n<|id|>92<|page|>11<|box|>342 120 360 494<|content|>2.1.21 石料压碎值 crushed stone value\n<|id|>94<|page|>11<|box|>432 120 450 680<|content|>2.1.22 集料空隙率(间隙率) percentage of voids in aggregate\n<|id|>96<|page|>11<|box|>500 120 518 531<|content|>2.1.23 碱集料反应 alkali-aggregate reaction\n<|id|>98<|page|>11<|box|>590 120 607 397<|content|>2.1.24 砂率 sand percentage\n<|id|>100<|page|>11<|box|>657 118 675 706<|content|>2.1.25 针片状颗粒 flat and elongated particle in coarse\n<|id|>102<|page|>11<|box|>747 118 764 447<|content|>2.1.26 标准筛 standard test sieves\n<|id|>104<|page|>11<|box|>881 117 900 570<|content|>2.1.27 集料最大粒径 maximum size of aggregate\n<|id|>106<|page|>12<|box|>113 131 132 721<|content|>2.1.28 集料的公称最大粒径 nominal maximum size of aggregate\n<|id|>108<|page|>12<|box|>203 130 222 460<|content|>2.1.29 细度模数 fineness modulus\n<|id|>110<|page|>12<|box|>271 87 288 185<|content|>条文说明\n<|id|>115<|page|>12<|box|>690 416 709 589<|content|>2.2 符号\n<|id|>119<|page|>14<|box|>167 390 192 611<|content|>3 粗集料试验\n<|id|>120<|page|>14<|box|>256 336 275 665<|content|>T 0301—2005 粗集料取样法\n<|id|>121<|page|>14<|box|>313 79 332 211<|content|>1 适用范围\n<|id|>123<|page|>14<|box|>403 79 423 319<|content|>2 取样方法和试样份数\n<|id|>131<|page|>15<|box|>164 89 183 217<|content|>3 取样数量\n<|id|>134<|page|>15<|box|>696 85 715 234<|content|>4 试样的缩分\n<|id|>140<|page|>16<|box|>390 87 409 237<|content|>5 试样的包装\n<|id|>142<|page|>16<|box|>492 87 509 184<|content|>条文说明\n<|id|>153<|page|>17<|box|>467 230 488 763<|content|>T 0302—2005 粗集料及集料混合料的筛分试验\n<|id|>154<|page|>17<|box|>526 79 546 273<|content|>1 目的与适用范围\n<|id|>157<|page|>17<|box|>709 76 730 228<|content|>2 仪具与材料\n<|id|>162<|page|>17<|box|>848 76 867 208<|content|>3 试验准备\n<|id|>166<|page|>18<|box|>216 76 235 468<|content|>4 水泥混凝土用粗集料干筛法试验步骤\n<|id|>172<|page|>18<|box|>650 74 669 531<|content|>5 沥青混合料及基层用粗集料水洗法试验步骤\n<|id|>184<|page|>19<|box|>535 74 555 161<|content|>6 计算\n<|id|>185<|page|>19<|box|>569 96 588 375<|content|>6.1 干筛法筛分结果的计算\n<|id|>193<|page|>19<|box|>857 117 875 395<|content|>6.1.2 干筛分计筛余百分率\n<|id|>201<|page|>20<|box|>279 131 298 410<|content|>6.1.3 干筛累计筛余百分率\n<|id|>203<|page|>20<|box|>369 131 386 496<|content|>6.1.4 干筛各号筛的质量通过百分率\n<|id|>205<|page|>20<|box|>458 128 479 892<|content|>6.1.5 由筛底存量除以扣除损耗后的干燥集料总质量计算 0.075mm 筛的通过率。\n<|id|>209<|page|>21<|box|>419 104 437 382<|content|>6.2 水筛法筛分结果的计算\n<|id|>227<|page|>23<|box|>112 81 132 167<|content|>7 报告\n<|id|>232<|page|>23<|box|>803 81 822 178<|content|>条文说明\n<|id|>236<|page|>24<|box|>546 295 566 695<|content|>T 0303—2005 含土粗集料筛分试验\n<|id|>237<|page|>24<|box|>603 83 622 273<|content|>1 目的与适用范围\n<|id|>240<|page|>24<|box|>708 83 726 230<|content|>2 仪具与材料\n<|id|>246<|page|>24<|box|>865 81 884 208<|content|>3 试验准备\n<|id|>250<|page|>25<|box|>198 79 216 362<|content|>4 含土粗集料筛分试验步骤\n<|id|>270<|page|>26<|box|>454 85 471 366<|content|>5 集料混合料筛分试验步骤\n<|id|>290<|page|>27<|box|>296 83 315 180<|content|>条文说明\n<|id|>292<|page|>27<|box|>406 221 428 780<|content|>T 0304—2005 粗集料密度及吸水率试验(网篮法)\n<|id|>293<|page|>27<|box|>464 81 484 278<|content|>1 目的与适用范围\n<|id|>295<|page|>27<|box|>555 79 573 234<|content|>2 仪具与材料\n<|id|>305<|page|>27<|box|>850 79 870 210<|content|>3 试验准备\n<|id|>310<|page|>28<|box|>376 76 394 206<|content|>4 试验步骤\n<|id|>321<|page|>29<|box|>235 83 254 167<|content|>5 计算\n<|id|>345<|page|>30<|box|>203 79 222 275<|content|>6 精密度或允许差\n<|id|>347<|page|>30<|box|>305 79 324 174<|content|>条文说明\n<|id|>369<|page|>32<|box|>373 312 393 695<|content|>T 0305—1994 粗集料含水率试验\n<|id|>370<|page|>32<|box|>431 85 449 280<|content|>1 目的与适用范围\n<|id|>372<|page|>32<|box|>499 83 518 234<|content|>2 仪具与材料\n<|id|>376<|page|>32<|box|>611 83 630 213<|content|>3 试验步骤\n<|id|>387<|page|>33<|box|>154 81 172 167<|content|>5 报告\n<|id|>389<|page|>33<|box|>231 206 253 789<|content|>T 0306—1994 粗集料含水率快速试验(酒精燃烧法)\n<|id|>390<|page|>33<|box|>288 81 308 276<|content|>1 目的与适用范围\n<|id|>392<|page|>33<|box|>356 79 376 232<|content|>2 仪具与材料\n<|id|>397<|page|>33<|box|>491 79 511 211<|content|>3 试验步骤\n<|id|>403<|page|>33<|box|>735 78 754 163<|content|>4 计算\n<|id|>410<|page|>34<|box|>109 85 128 171<|content|>5 报告\n<|id|>412<|page|>34<|box|>186 312 207 695<|content|>T 0307—2005 粗集料吸水率试验\n<|id|>413<|page|>34<|box|>244 83 264 280<|content|>1 目的与适用范围\n<|id|>415<|page|>34<|box|>312 83 330 234<|content|>2 仪具与材料\n<|id|>420<|page|>34<|box|>447 83 466 213<|content|>3 试验准备\n<|id|>422<|page|>34<|box|>559 83 579 213<|content|>4 试验步骤\n<|id|>425<|page|>34<|box|>739 81 759 169<|content|>5 计算\n<|id|>432<|page|>35<|box|>113 76 133 163<|content|>6 报告\n<|id|>434<|page|>35<|box|>192 202 213 784<|content|>T 0308—2005 粗集料密度及吸水率试验(容量瓶法)\n<|id|>435<|page|>35<|box|>249 76 269 271<|content|>1 目的与适用范围\n<|id|>438<|page|>35<|box|>384 76 403 226<|content|>2 仪具与材料\n<|id|>444<|page|>35<|box|>564 76 584 204<|content|>3 试验准备\n<|id|>448<|page|>35<|box|>818 74 837 204<|content|>4 试验步骤\n<|id|>459<|page|>36<|box|>654 85 673 169<|content|>5 计算\n<|id|>490<|page|>38<|box|>109 83 130 280<|content|>6 精密度或允许差\n<|id|>492<|page|>38<|box|>215 83 233 180<|content|>条文说明\n<|id|>494<|page|>38<|box|>419 245 440 754<|content|>T 0309—2005 粗集料堆积密度及空隙率试验\n<|id|>495<|page|>38<|box|>478 81 498 276<|content|>1 目的与适用范围\n<|id|>497<|page|>38<|box|>571 79 590 230<|content|>2 仪具与材料\n<|id|>504<|page|>39<|box|>113 76 133 206<|content|>3 试验准备\n<|id|>506<|page|>39<|box|>205 76 223 206<|content|>4 试验步骤\n<|id|>507<|page|>39<|box|>239 96 257 293<|content|>4.1 自然堆积密度\n<|id|>509<|page|>39<|box|>375 96 393 249<|content|>4.2 振实密度\n<|id|>511<|page|>39<|box|>556 96 573 247<|content|>4.3 捣实密度\n<|id|>513<|page|>39<|box|>737 96 755 334<|content|>4.4 容量筒容积的标定\n<|id|>515<|page|>39<|box|>816 76 835 161<|content|>5 计算\n<|id|>538<|page|>40<|box|>705 83 724 169<|content|>6 报告\n<|id|>540<|page|>40<|box|>785 85 803 178<|content|>条文说明\n<|id|>543<|page|>41<|box|>189 245 210 747<|content|>T 0310—2005 粗集料含泥量及泥块含量试验\n<|id|>544<|page|>41<|box|>245 85 266 278<|content|>1 目的与适用范围\n<|id|>546<|page|>41<|box|>335 83 355 232<|content|>2 仪具与材料\n<|id|>552<|page|>41<|box|>515 83 534 211<|content|>3 试验准备\n<|id|>555<|page|>41<|box|>701 81 718 210<|content|>4 试验步骤\n<|id|>556<|page|>41<|box|>734 102 752 315<|content|>4.1 含泥量试验步骤\n<|id|>560<|page|>42<|box|>215 115 233 355<|content|>4.2 泥块含量试验步骤\n<|id|>565<|page|>42<|box|>481 92 501 178<|content|>5 计算\n<|id|>578<|page|>43<|box|>122 117 143 871<|content|>T 0311—2005 水泥混凝土用粗集料针片状颗粒含量试验(规准仪法)\n<|id|>579<|page|>43<|box|>180 79 200 273<|content|>1 目的与适用范围\n<|id|>583<|page|>43<|box|>405 79 424 230<|content|>2 仪具与材料\n<|id|>590<|page|>44<|box|>176 83 194 215<|content|>3 试验准备\n<|id|>593<|page|>44<|box|>341 83 360 213<|content|>4 试验步骤\n<|id|>597<|page|>44<|box|>568 81 586 167<|content|>5 计算\n<|id|>604<|page|>44<|box|>781 83 801 176<|content|>条文说明\n<|id|>607<|page|>45<|box|>258 185 279 810<|content|>T 0312—2005 粗集料针片状颗粒含量试验(游标卡尺法)\n<|id|>608<|page|>45<|box|>316 85 335 278<|content|>1 目的与适用范围\n<|id|>612<|page|>45<|box|>539 83 558 232<|content|>2 仪具与材料\n<|id|>616<|page|>45<|box|>650 83 669 210<|content|>3 试验步骤\n<|id|>627<|page|>46<|box|>326 87 345 172<|content|>4 计算\n<|id|>633<|page|>46<|box|>509 87 529 171<|content|>5 报告\n<|id|>636<|page|>46<|box|>679 87 698 182<|content|>条文说明\n<|id|>648<|page|>49<|box|>416 286 437 717<|content|>T 0313—1994 粗集料有机物含量试验\n<|id|>649<|page|>49<|box|>473 85 492 280<|content|>1 目的与适用范围\n<|id|>651<|page|>49<|box|>542 85 562 234<|content|>2 仪具与材料\n<|id|>656<|page|>49<|box|>679 83 698 213<|content|>3 试验准备\n<|id|>659<|page|>49<|box|>861 83 881 213<|content|>4 试验步骤\n<|id|>662<|page|>50<|box|>177 94 196 224<|content|>5 结果评定\n<|id|>664<|page|>50<|box|>322 321 343 695<|content|>T 0314—2000 粗集料坚固性试验\n<|id|>665<|page|>50<|box|>380 94 400 286<|content|>1 目的与适用范围\n<|id|>667<|page|>50<|box|>470 94 488 243<|content|>2 仪具与材料\n<|id|>674<|page|>50<|box|>784 92 802 219<|content|>3 试验准备\n<|id|>675<|page|>50<|box|>816 113 835 347<|content|>3.1 硫酸钠溶液的配制\n<|id|>678<|page|>51<|box|>143 102 162 276<|content|>3.2 试样的制备\n<|id|>680<|page|>51<|box|>224 81 243 211<|content|>4 试验步骤\n<|id|>686<|page|>51<|box|>696 79 715 165<|content|>5 计算",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>1\n<|id|>5<|level|>1\n<|id|>10<|level|>1\n<|id|>11<|level|>1\n<|id|>19<|level|>1\n<|id|>40<|level|>1\n<|id|>43<|level|>1\n<|id|>50<|level|>1\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>54<|level|>3\n<|id|>56<|level|>3\n<|id|>58<|level|>3\n<|id|>60<|level|>3\n<|id|>62<|level|>3\n<|id|>64<|level|>3\n<|id|>66<|level|>3\n<|id|>68<|level|>3\n<|id|>70<|level|>3\n<|id|>72<|level|>3\n<|id|>74<|level|>3\n<|id|>76<|level|>3\n<|id|>78<|level|>3\n<|id|>82<|level|>3\n<|id|>84<|level|>3\n<|id|>86<|level|>3\n<|id|>88<|level|>3\n<|id|>90<|level|>3\n<|id|>92<|level|>3\n<|id|>94<|level|>3\n<|id|>96<|level|>3\n<|id|>98<|level|>3\n<|id|>100<|level|>3\n<|id|>102<|level|>3\n<|id|>104<|level|>3\n<|id|>106<|level|>3\n<|id|>108<|level|>3\n<|id|>110<|level|>2\n<|id|>115<|level|>2\n<|id|>119<|level|>1\n<|id|>120<|level|>2\n<|id|>121<|level|>3\n<|id|>123<|level|>3\n<|id|>131<|level|>3\n<|id|>134<|level|>3\n<|id|>140<|level|>3\n<|id|>142<|level|>3\n<|id|>153<|level|>2\n<|id|>154<|level|>3\n<|id|>157<|level|>3\n<|id|>162<|level|>3\n<|id|>166<|level|>3\n<|id|>172<|level|>3\n<|id|>184<|level|>3\n<|id|>185<|level|>4\n<|id|>193<|level|>5\n<|id|>201<|level|>5\n<|id|>203<|level|>5\n<|id|>205<|level|>5\n<|id|>209<|level|>4\n<|id|>227<|level|>3\n<|id|>232<|level|>3\n<|id|>236<|level|>2\n<|id|>237<|level|>3\n<|id|>240<|level|>3\n<|id|>246<|level|>3\n<|id|>250<|level|>3\n<|id|>270<|level|>3\n<|id|>290<|level|>3\n<|id|>292<|level|>2\n<|id|>292<|level|>2\n<|id|>293<|level|>3\n<|id|>295<|level|>3\n<|id|>305<|level|>3\n<|id|>310<|level|>3\n<|id|>321<|level|>3\n<|id|>345<|level|>3\n<|id|>347<|level|>3\n<|id|>369<|level|>2\n<|id|>370<|level|>3\n<|id|>372<|level|>3\n<|id|>376<|level|>3\n<|id|>387<|level|>3\n<|id|>389<|level|>2\n<|id|>390<|level|>3\n<|id|>392<|level|>3\n<|id|>397<|level|>3\n<|id|>403<|level|>3\n<|id|>410<|level|>3\n<|id|>412<|level|>2\n<|id|>413<|level|>3\n<|id|>415<|level|>3\n<|id|>420<|level|>3\n<|id|>422<|level|>3\n<|id|>425<|level|>3\n<|id|>432<|level|>3\n<|id|>434<|level|>2\n<|id|>435<|level|>3\n<|id|>438<|level|>3\n<|id|>444<|level|>3\n<|id|>448<|level|>3\n<|id|>459<|level|>3\n<|id|>490<|level|>3\n<|id|>492<|level|>3\n<|id|>494<|level|>2\n<|id|>495<|level|>3\n<|id|>497<|level|>3\n<|id|>504<|level|>3\n<|id|>506<|level|>3\n<|id|>507<|level|>4\n<|id|>509<|level|>4\n<|id|>511<|level|>4\n<|id|>513<|level|>4\n<|id|>515<|level|>3\n<|id|>538<|level|>3\n<|id|>540<|level|>3\n<|id|>543<|level|>2\n<|id|>544<|level|>3\n<|id|>546<|level|>3\n<|id|>552<|level|>3\n<|id|>555<|level|>3\n<|id|>556<|level|>4\n<|id|>560<|level|>4\n<|id|>565<|level|>3\n<|id|>578<|level|>2\n<|id|>579<|level|>3\n<|id|>583<|level|>3\n<|id|>590<|level|>3\n<|id|>593<|level|>3\n<|id|>597<|level|>3\n<|id|>604<|level|>3\n<|id|>607<|level|>2\n<|id|>608<|level|>3\n<|id|>612<|level|>3\n<|id|>616<|level|>3\n<|id|>627<|level|>3\n<|id|>633<|level|>3\n<|id|>636<|level|>3\n<|id|>648<|level|>2\n<|id|>649<|level|>3\n<|id|>651<|level|>3\n<|id|>656<|level|>3\n<|id|>659<|level|>3\n<|id|>662<|level|>3\n<|id|>664<|level|>2\n<|id|>665<|level|>3\n<|id|>667<|level|>3\n<|id|>674<|level|>3\n<|id|>675<|level|>4\n<|id|>678<|level|>4\n<|id|>680<|level|>3\n<|id|>686<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 4
+        },
+        {
+            "id": 193,
+            "level": 5
+        },
+        {
+            "id": 201,
+            "level": 5
+        },
+        {
+            "id": 203,
+            "level": 5
+        },
+        {
+            "id": 205,
+            "level": 5
+        },
+        {
+            "id": 209,
+            "level": 4
+        },
+        {
+            "id": 227,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 236,
+            "level": 2
+        },
+        {
+            "id": 237,
+            "level": 3
+        },
+        {
+            "id": 240,
+            "level": 3
+        },
+        {
+            "id": 246,
+            "level": 3
+        },
+        {
+            "id": 250,
+            "level": 3
+        },
+        {
+            "id": 270,
+            "level": 3
+        },
+        {
+            "id": 290,
+            "level": 3
+        },
+        {
+            "id": 292,
+            "level": 2
+        },
+        {
+            "id": 292,
+            "level": 2
+        },
+        {
+            "id": 293,
+            "level": 3
+        },
+        {
+            "id": 295,
+            "level": 3
+        },
+        {
+            "id": 305,
+            "level": 3
+        },
+        {
+            "id": 310,
+            "level": 3
+        },
+        {
+            "id": 321,
+            "level": 3
+        },
+        {
+            "id": 345,
+            "level": 3
+        },
+        {
+            "id": 347,
+            "level": 3
+        },
+        {
+            "id": 369,
+            "level": 2
+        },
+        {
+            "id": 370,
+            "level": 3
+        },
+        {
+            "id": 372,
+            "level": 3
+        },
+        {
+            "id": 376,
+            "level": 3
+        },
+        {
+            "id": 387,
+            "level": 3
+        },
+        {
+            "id": 389,
+            "level": 2
+        },
+        {
+            "id": 390,
+            "level": 3
+        },
+        {
+            "id": 392,
+            "level": 3
+        },
+        {
+            "id": 397,
+            "level": 3
+        },
+        {
+            "id": 403,
+            "level": 3
+        },
+        {
+            "id": 410,
+            "level": 3
+        },
+        {
+            "id": 412,
+            "level": 2
+        },
+        {
+            "id": 413,
+            "level": 3
+        },
+        {
+            "id": 415,
+            "level": 3
+        },
+        {
+            "id": 420,
+            "level": 3
+        },
+        {
+            "id": 422,
+            "level": 3
+        },
+        {
+            "id": 425,
+            "level": 3
+        },
+        {
+            "id": 432,
+            "level": 3
+        },
+        {
+            "id": 434,
+            "level": 2
+        },
+        {
+            "id": 435,
+            "level": 3
+        },
+        {
+            "id": 438,
+            "level": 3
+        },
+        {
+            "id": 444,
+            "level": 3
+        },
+        {
+            "id": 448,
+            "level": 3
+        },
+        {
+            "id": 459,
+            "level": 3
+        },
+        {
+            "id": 490,
+            "level": 3
+        },
+        {
+            "id": 492,
+            "level": 3
+        },
+        {
+            "id": 494,
+            "level": 2
+        },
+        {
+            "id": 495,
+            "level": 3
+        },
+        {
+            "id": 497,
+            "level": 3
+        },
+        {
+            "id": 504,
+            "level": 3
+        },
+        {
+            "id": 506,
+            "level": 3
+        },
+        {
+            "id": 507,
+            "level": 4
+        },
+        {
+            "id": 509,
+            "level": 4
+        },
+        {
+            "id": 511,
+            "level": 4
+        },
+        {
+            "id": 513,
+            "level": 4
+        },
+        {
+            "id": 515,
+            "level": 3
+        },
+        {
+            "id": 538,
+            "level": 3
+        },
+        {
+            "id": 540,
+            "level": 3
+        },
+        {
+            "id": 543,
+            "level": 2
+        },
+        {
+            "id": 544,
+            "level": 3
+        },
+        {
+            "id": 546,
+            "level": 3
+        },
+        {
+            "id": 552,
+            "level": 3
+        },
+        {
+            "id": 555,
+            "level": 3
+        },
+        {
+            "id": 556,
+            "level": 4
+        },
+        {
+            "id": 560,
+            "level": 4
+        },
+        {
+            "id": 565,
+            "level": 3
+        },
+        {
+            "id": 578,
+            "level": 2
+        },
+        {
+            "id": 579,
+            "level": 3
+        },
+        {
+            "id": 583,
+            "level": 3
+        },
+        {
+            "id": 590,
+            "level": 3
+        },
+        {
+            "id": 593,
+            "level": 3
+        },
+        {
+            "id": 597,
+            "level": 3
+        },
+        {
+            "id": 604,
+            "level": 3
+        },
+        {
+            "id": 607,
+            "level": 2
+        },
+        {
+            "id": 608,
+            "level": 3
+        },
+        {
+            "id": 612,
+            "level": 3
+        },
+        {
+            "id": 616,
+            "level": 3
+        },
+        {
+            "id": 627,
+            "level": 3
+        },
+        {
+            "id": 633,
+            "level": 3
+        },
+        {
+            "id": 636,
+            "level": 3
+        },
+        {
+            "id": 648,
+            "level": 2
+        },
+        {
+            "id": 649,
+            "level": 3
+        },
+        {
+            "id": 651,
+            "level": 3
+        },
+        {
+            "id": 656,
+            "level": 3
+        },
+        {
+            "id": 659,
+            "level": 3
+        },
+        {
+            "id": 662,
+            "level": 3
+        },
+        {
+            "id": 664,
+            "level": 2
+        },
+        {
+            "id": 665,
+            "level": 3
+        },
+        {
+            "id": 667,
+            "level": 3
+        },
+        {
+            "id": 674,
+            "level": 3
+        },
+        {
+            "id": 675,
+            "level": 4
+        },
+        {
+            "id": 678,
+            "level": 4
+        },
+        {
+            "id": 680,
+            "level": 3
+        },
+        {
+            "id": 686,
+            "level": 3
+        }
+    ]
+}

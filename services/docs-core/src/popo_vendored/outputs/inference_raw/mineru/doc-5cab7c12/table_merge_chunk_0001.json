@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Mar', '132', '425', '557', '1,094', '403', '691', '-', '143,554', '13,749']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Period', 'rowspan=2, Sales(1)', 'rowspan=2, Accrued discount(2)', 'rowspan=2, Sales plus accrued discount(3)', 'colspan=3, Redemptions', 'rowspan=2, Exchange of E and EE bonds for H and HH bonds 1(7)', 'colspan=2, Amount outstanding']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 297,
+    "table2_idx": 298
+}

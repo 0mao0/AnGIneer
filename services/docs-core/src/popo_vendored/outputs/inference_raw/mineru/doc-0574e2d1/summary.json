@@ -1,0 +1,207 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-o94pl8rr\\input\\pdfs\\doc-0574e2d1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-o94pl8rr\\enriched\\doc-0574e2d1.json",
+    "contd_output": "<|src_id|>66<|tgt_id|>67",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>1\n<|id|>7<|level|>2\n<|id|>9<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>2\n<|id|>49<|level|>2\n<|id|>69<|level|>2\n<|id|>72<|level|>3\n<|id|>81<|level|>3\n<|id|>83<|level|>3\n<|id|>90<|level|>3\n<|id|>95<|level|>3\n<|id|>97<|level|>3\n<|id|>99<|level|>3\n<|id|>109<|level|>2\n<|id|>113<|level|>2\n<|id|>118<|level|>2\n<|id|>131<|level|>2\n<|id|>132<|level|>3\n<|id|>137<|level|>3\n<|id|>145<|level|>3\n<|id|>147<|level|>2\n<|id|>159<|level|>2\n<|id|>166<|level|>2\n<|id|>173<|level|>2\n<|id|>177<|level|>2\n<|id|>196<|level|>2\n<|id|>197<|level|>3\n<|id|>215<|level|>2\n<|id|>216<|level|>3\n<|id|>221<|level|>3",
+    "image_output": "<|src_id|>75<|tgt_id|>72\n<|src_id|>115<|tgt_id|>113\n<|src_id|>218<|tgt_id|>216\n<|src_id|>219<|tgt_id|>216\n<|src_id|>220<|tgt_id|>216",
+    "contd_label": [
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 75,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 216
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 218,
+            "table2_idx": 219,
+            "upper_row_ss": [
+                [
+                    "9.",
+                    "Intercreditor Agreement",
+                    "Northgate Trust Company, N.A. (as"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Notes Collateral Agent), Velthorn National Bank, N.A. (as ABL Agent), Dunmore Energy Holdings Ltd., Dunmore upstream Finance Corp., and the Guarantors"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 219,
+            "table2_idx": 220,
+            "upper_row_ss": [
+                [
+                    "22.",
+                    "Any and all ancillary documents, instruments, certificates, consents, waivers, acknowledgments, and agreements as any Authorized Officer may determine to be",
+                    "As applicable"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "necessary or advisable in connection with the Offering and the transactions contemplated thereby",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

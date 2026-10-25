@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>150 620 167 856<|content|>www. ... com\n<|id|>3<|page|>1<|box|>175 715 193 854<|content|>February 10, 2023\n<|id|>4<|page|>1<|box|>200 140 218 702<|content|>Brazos River National Bank, N. ... 600 Main Street Fort Worth, Texas 76102\n<|id|>5<|page|>1<|box|>227 174 244 408<|content|>Attention: ... Montrose\n<|id|>6<|page|>1<|box|>244 176 262 465<|content|>Senior Vice President, Energy Finance\n<|id|>7<|page|>1<|box|>270 142 287 259<|content|>With a copy to: ... With a copy to\n<|id|>8<|page|>1<|box|>295 140 313 756<|content|>Archibald, Fenn & Shaw LLP 1700 Pacific Avenue, Suite 4000 Dallas, Texas 75201\n<|id|>9<|page|>1<|box|>321 174 339 413<|content|>Attention: ... Fenn, Esq\n<|id|>10<|page|>1<|box|>339 140 412 854<|content|>Re: ... , as Administrative Agent and Lender — Lone Star Battery Storage Project, Ector County, Texas\n<|id|>11<|page|>1<|box|>419 140 436 521<|content|>Calderwood & Harkness Matter No. ... 1015-00003\n<|id|>12<|page|>1<|box|>446 140 463 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>27<|page|>2<|box|>670 174 762 856<|content|>3. ... and\n<|id|>29<|page|>2<|box|>838 140 875 854<|content|>The EPC Agreement, Equipment Supply Agreement, Gro...rein collectively as the \"Project Documents. ... \"\n<|id|>71<|page|>5<|box|>868 174 905 854<|content|>(b) Lone Star Storage I, LLC (EIN: ... Lone\n<|id|>72<|page|>6<|box|>90 174 181 854<|content|>Star Storage I, LLC has the requisite limited liab...ument to which Lone Star Storage I, LLC is a party\n<|id|>90<|page|>7<|box|>864 174 901 856<|content|>No consent, approval, authorization, order, licens...ty or regulatory body of the State of Texas or the\n<|id|>91<|page|>8<|box|>90 174 145 854<|content|>United States of America is required in connection... the transactions contemplated thereby, except for\n<|id|>110<|page|>10<|box|>252 174 325 856<|content|>(iv) the possible limitation on the enforceability...ceable by applicable law or public policy; ... and\n<|id|>112<|page|>10<|box|>393 140 412 774<|content|>The foregoing are collectively referred to herein as the \"Enforceability Qualifications. ... \"\n<|id|>131<|page|>12<|box|>152 174 207 854<|content|>(iii) The Phase I Environmental Site Assessment prepared by Terranova Environmental Group, Inc. ... and\n<|id|>133<|page|>12<|box|>277 140 330 854<|content|>We have assumed the accuracy and completeness of e...tion or verification of the matters stated therein\n<|id|>141<|page|>12<|box|>776 142 792 323<|content|>George Trujillo, Partner\n<|id|>142<|page|>12<|box|>792 140 839 852<|content|>Calderwood & Harkness LLP 1000 Louisiana Street, S...02 Telephone: ... (713) 555-8200 GT/mlk Enclosures\n<|id|>143<|page|>12<|box|>848 140 862 348<|content|>cc: ... Archibald, Fenn & Shaw LLP\n<|id|>144<|page|>13<|box|>89 140 104 352<|content|>Calloway-Briggs Renewables Inc. ... Calloway-Briggs Renewables Inc",
+    "raw_response": "<|src_id|>71<|tgt_id|>72\n<|src_id|>90<|tgt_id|>91",
+    "parsed": [
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 91
+        }
+    ]
+}

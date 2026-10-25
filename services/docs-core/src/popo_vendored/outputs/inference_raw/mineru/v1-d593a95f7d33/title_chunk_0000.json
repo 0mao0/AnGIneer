@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 329<|content|>【1527096#0】中国戏曲音乐\n<|id|>2<|page|>1<|box|>174 105 190 292<|content|>【1211023#6】喜剧小品\n<|id|>4<|page|>1<|box|>241 107 256 223<|content|>【45#23】戲劇\n<|id|>6<|page|>1<|box|>325 107 340 240<|content|>【55903#4】戏曲\n<|id|>8<|page|>1<|box|>391 107 407 302<|content|>【3506940#47】中华文化\n<|id|>10<|page|>1<|box|>475 105 491 337<|content|>【5157884#17】中国舞的历史\n<|id|>12<|page|>1<|box|>593 107 609 319<|content|>【635195#9】中国大陆电影\n<|id|>14<|page|>1<|box|>711 107 727 248<|content|>【156077#2】梁左\n<|id|>16<|page|>1<|box|>846 105 863 284<|content|>【23500#66】中国音乐\n<|id|>18<|page|>2<|box|>83 107 99 223<|content|>【45#21】戲劇",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,185 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zhagymgx\\input\\pdfs\\doc-405a7b69.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zhagymgx\\enriched\\doc-405a7b69.json",
+    "contd_output": "<|src_id|>136<|tgt_id|>137",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>64<|level|>1\n<|id|>65<|level|>2\n<|id|>66<|level|>2\n<|id|>82<|level|>1\n<|id|>83<|level|>2\n<|id|>84<|level|>3\n<|id|>90<|level|>3\n<|id|>101<|level|>3\n<|id|>123<|level|>1\n<|id|>130<|level|>1\n<|id|>142<|level|>1",
+    "image_output": "<|src_id|>58<|tgt_id|>7\n<|src_id|>59<|tgt_id|>7\n<|src_id|>86<|tgt_id|>84\n<|src_id|>87<|tgt_id|>84\n<|src_id|>100<|tgt_id|>90\n<|src_id|>132<|tgt_id|>130\n<|src_id|>133<|tgt_id|>130\n<|src_id|>144<|tgt_id|>142\n<|src_id|>145<|tgt_id|>142",
+    "contd_label": [
+        {
+            "src_id": 136,
+            "tgt_id": 137
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 58,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 142
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 58,
+            "table2_idx": 59,
+            "upper_row_ss": [
+                [
+                    "Senior Debt Securities of Fairwater Operating Partnership, L.P.",
+                    "Indeterminate",
+                    "Indeterminate",
+                    "Indeterminate",
+                    "Deferred pursuant to Rule 456(b) and Rule 457(r)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Subordinated Debt Securities of Fairwater Operating Partnership, L.P.",
+                    "Indeterminate",
+                    "Indeterminate",
+                    "Indeterminate",
+                    "Deferred pursuant to Rule 456(b) and Rule 457(r)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 86,
+            "table2_idx": 87,
+            "upper_row_ss": [
+                [
+                    "Transfer Agent Fees (Meridian Trust Company)",
+                    "$18,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Trustee Fees (Meridian Trust Company, as indenture trustee)",
+                    "$22,500"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 132,
+            "table2_idx": 133,
+            "upper_row_ss": [
+                [
+                    "/s/ Priya Ranganathan",
+                    "Executive Vice President and Chief Financial Officer (Principal",
+                    "July 18, 2025"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Financial Officer and Principal Accounting Officer)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 144,
+            "table2_idx": 145,
+            "upper_row_ss": [
+                [
+                    "/s/ Margaret Chen-Whitfield",
+                    "Chief Executive Officer and Chairperson of the Board of Trustees of Fairwater Real Estate Investment Trust, the sole general",
+                    "July 18, 2025"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "partner of Fairwater Operating Partnership, L.P. (Principal Executive Officer)",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

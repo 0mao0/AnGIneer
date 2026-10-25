@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 153 185 843<|content|>CALDERWOOD & HARKNESS LLP 1700 K Street NW, Suite\n<|id|>7<|type|>title<|page|>1<|box|>349 194 369 803<|content|>INTRODUCTORY NOTE AND REDLINE CONVENTIONS\n<|id|>19<|type|>title<|page|>2<|box|>314 200 359 795<|content|>MEDICATION GUIDE — FULL TEXT WITH TRACKED CHANGES\n<|id|>20<|type|>title<|page|>2<|box|>375 403 392 594<|content|>MEDICATION GUIDE\n<|id|>21<|type|>title<|page|>2<|box|>402 200 419 795<|content|>VELONATIB® (vel-ON-a-tib) (velonatib hydrochloride\n<|id|>24<|type|>title<|page|>2<|box|>531 140 547 740<|content|>What is the most important information I should kn\n<|id|>25<|type|>title<|page|>2<|box|>556 142 574 573<|content|>VELONATIB may cause serious side effects, includin\n<|id|>53<|type|>title<|page|>3<|box|>732 142 750 330<|content|>What is VELONATIB?\n<|id|>60<|type|>title<|page|>4<|box|>537 140 555 429<|content|>Who should not take VELONATIB?\n<|id|>64<|type|>title<|page|>4<|box|>766 140 784 700<|content|>What should I tell my healthcare provider before t\n<|id|>83<|type|>title<|page|>5<|box|>801 142 819 411<|content|>How should I take VELONATIB?\n<|id|>87<|type|>table<|page|>6<|box|>88 143 145 852<|content|>None\n<|id|>96<|type|>title<|page|>6<|box|>742 140 758 526<|content|>What should I avoid while taking VELONATIB?\n<|id|>100<|type|>title<|page|>7<|box|>167 140 184 544<|content|>What are the possible side effects of VELONATIB?\n<|id|>116<|type|>title<|page|>8<|box|>417 142 433 535<|content|>The common side effects of VELONATIB include:\n<|id|>124<|type|>title<|page|>8<|box|>833 142 849 416<|content|>How should I store VELONATIB?\n<|id|>133<|type|>title<|page|>9<|box|>234 140 251 681<|content|>General information about the safe and effective u\n<|id|>136<|type|>title<|page|>9<|box|>417 142 435 480<|content|>What are the ingredients in VELONATIB?\n<|id|>137<|type|>title<|page|>9<|box|>444 142 462 464<|content|>Active ingredient: velonatib hydrochloride\n<|id|>147<|type|>title<|page|>9<|box|>888 406 904 589<|content|>Date: October 20, 2022\n<|id|>149<|type|>title<|page|>10<|box|>90 308 109 689<|content|>END-OF-DOCUMENT NOTATIONS\n<|id|>150<|type|>title<|page|>10<|box|>128 140 145 560<|content|>Status: DRAFT — ON HOLD as of November 22, 2022\n<|id|>166<|type|>title<|page|>11<|box|>90 156 109 841<|content|>APPENDIX: SUMMARY OF CHANGES FROM REV. 1 TO REV. 2\n<|id|>167<|type|>table<|page|>11<|box|>172 143 900 851<|content|>None\n<|id|>168<|type|>table<|page|>12<|box|>89 143 306 851<|content|>None\n<|id|>169<|type|>title<|page|>12<|box|>356 143 373 326<|content|>Reviewer Sign-Off Log\n<|id|>170<|type|>table<|page|>12<|box|>380 143 674 852<|content|>None\n<|id|>171<|type|>title<|page|>12<|box|>707 194 743 803<|content|>CALDERWOOD & HARKNESS LLP PRIVILEGED & CONFIDENTIA",
+    "raw_response": "<|src_id|>87<|tgt_id|>83\n<|src_id|>167<|tgt_id|>166\n<|src_id|>168<|tgt_id|>166\n<|src_id|>170<|tgt_id|>169",
+    "parsed": [
+        {
+            "src_id": 87,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 169
+        }
+    ]
+}

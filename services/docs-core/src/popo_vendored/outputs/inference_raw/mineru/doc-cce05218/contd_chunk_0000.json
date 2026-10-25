@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        15,
+        16,
+        17,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 140 176 854<|content|>TO: ... Angela Fontaine, Partner, Calderwood & Har...thia Ho, Lead Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>186 140 203 638<|content|>FROM: ... Grace Nakamura, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>212 140 229 325<|content|>DATE: ... March 20, 2026\n<|id|>5<|page|>1<|box|>237 140 273 851<|content|>RE: ... Environmental Due Diligence Review — 450 W...NY 10001 (Block 754, Lot 42, Borough of Manhattan)\n<|id|>6<|page|>1<|box|>281 140 299 361<|content|>MATTER NO. ... 1026-00003\n<|id|>7<|page|>1<|box|>308 140 325 450<|content|>CLIENT: ... Briarwood Family Office LLC\n<|id|>21<|page|>2<|box|>703 140 720 542<|content|>Address: ... 450 West 34th Street, New York, NY 10001\n<|id|>22<|page|>2<|box|>729 140 747 767<|content|>Block/Lot: ... Block 754, Lot 42, Borough of Manhattan, City and County of New York\n<|id|>23<|page|>2<|box|>755 142 773 566<|content|>Building Class: ... Mixed-use (retail, office, and residential)\n<|id|>24<|page|>2<|box|>781 140 799 573<|content|>Gross Building Area: ... Approximately 186,400 square feet\n<|id|>25<|page|>2<|box|>806 140 844 854<|content|>Number of Stories: ... 14 stories above grade plus...ilized for storage and building mechanical systems\n<|id|>26<|page|>2<|box|>851 140 888 854<|content|>Year Built: ... The Property underwent a substanti...ments to the residential units on the upper floors\n<|id|>28<|page|>3<|box|>179 140 196 475<|content|>Lot Area: ... Approximately 20,125 square feet\n<|id|>29<|page|>3<|box|>204 140 241 854<|content|>Current Ownership: ... The Property is currently o...2011, for a reported purchase price of $68,500,000\n<|id|>39<|page|>3<|box|>675 140 710 852<|content|>Preparer: ... Whitmore Environmental Sciences LLC, 55 Water Street, Suite 810, New York, NY 10041\n<|id|>40<|page|>3<|box|>719 140 737 764<|content|>Project Manager: ... , Licensed Environmental Professional\n<|id|>41<|page|>3<|box|>744 142 763 354<|content|>Report Date: ... June 15, 2020\n<|id|>42<|page|>3<|box|>771 140 863 856<|content|>Standard Applied: ... As discussed in Section IV b... by EPA for AAI compliance effective February 2024\n<|id|>158<|page|>15<|box|>819 145 892 856<|content|>• No Knowledge of Hazardous Materials. ... Seller ...ther regulated materials (collectively, \"Hazardous\n<|id|>159<|page|>16<|box|>90 174 126 854<|content|>Materials\") on, under, in, or emanating from the P...lable to Purchaser during the due diligence period\n<|id|>169<|page|>16<|box|>844 147 881 856<|content|>• Total Environmental Diligence Timeline: ... In a...nce timeline could extend to approximately five to\n<|id|>170<|page|>17<|box|>90 140 183 854<|content|>seven weeks. ... Possible approaches include\n<|id|>199<|page|>20<|box|>523 174 561 854<|content|>Angela Fontaine, Partner, Calderwood & Harkness LL...wood & Harkness LLP Matter File No. ... 1026-00003\n<|id|>200<|page|>20<|box|>594 140 670 854<|content|>This memorandum has been prepared by Calderwood & ...prior written consent of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>158<|tgt_id|>159\n<|src_id|>169<|tgt_id|>170",
+    "parsed": [
+        {
+            "src_id": 158,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 170
+        }
+    ]
+}

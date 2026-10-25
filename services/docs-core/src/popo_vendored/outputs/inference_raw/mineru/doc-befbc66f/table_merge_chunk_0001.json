@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['North Carolina', 'Haversham Cole PLLC', 'SouthPark Corporate', 'No deed recorded;', 'Yes — Transfer', '~$180,000', 'June 6, 2024', 'June 7, 2024']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'Center / GMP SouthPark LLC (EIN 84-2639918)', 'excise tax paid on controlling-interest transfer per N.C. Gen. Stat. requirements', 'tax return / excise tax declaration filed with Mecklenburg County Register of Deeds', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 35,
+    "table2_idx": 36
+}

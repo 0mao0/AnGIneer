@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['No.', 'Schedule ARef. No.', 'Counterparty Name', 'RelevantConsentProvision', 'Date ConsentRequested', 'ConsentObtained(Y/N/Pending)']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['1', '[●]', '[Counterparty Name]', 'Section [●](Assignment / Change of Control)', 'October 12, 2022', 'Pending']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 149,
+    "table2_idx": 150
+}

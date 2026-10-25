@@ -1,0 +1,603 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-45rijah4\\input\\pdfs\\doc-a8129aee.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-45rijah4\\enriched\\doc-a8129aee.json",
+    "contd_output": "<|src_id|>124<|tgt_id|>125",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>4<|level|>2\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>22<|level|>2\n<|id|>26<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>2\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>64<|level|>2\n<|id|>67<|level|>1\n<|id|>68<|level|>2\n<|id|>86<|level|>2\n<|id|>89<|level|>2\n<|id|>94<|level|>1\n<|id|>96<|level|>2\n<|id|>99<|level|>2\n<|id|>103<|level|>2\n<|id|>112<|level|>2\n<|id|>121<|level|>2\n<|id|>126<|level|>2\n<|id|>129<|level|>1\n<|id|>130<|level|>2\n<|id|>137<|level|>2\n<|id|>142<|level|>2\n<|id|>149<|level|>1\n<|id|>150<|level|>2\n<|id|>154<|level|>2\n<|id|>167<|level|>2\n<|id|>171<|level|>2\n<|id|>180<|level|>2\n<|id|>183<|level|>1\n<|id|>184<|level|>2\n<|id|>189<|level|>2\n<|id|>196<|level|>2\n<|id|>202<|level|>2\n<|id|>206<|level|>1\n<|id|>207<|level|>2\n<|id|>212<|level|>2\n<|id|>216<|level|>2\n<|id|>221<|level|>1\n<|id|>227<|level|>2\n<|id|>232<|level|>2\n<|id|>235<|level|>2\n<|id|>238<|level|>2\n<|id|>242<|level|>1\n<|id|>243<|level|>2\n<|id|>246<|level|>2\n<|id|>252<|level|>1\n<|id|>253<|level|>2\n<|id|>262<|level|>2\n<|id|>269<|level|>2\n<|id|>273<|level|>1\n<|id|>274<|level|>2\n<|id|>278<|level|>1\n<|id|>279<|level|>2\n<|id|>286<|level|>2\n<|id|>301<|level|>1",
+    "image_output": "<|src_id|>5<|tgt_id|>4\n<|src_id|>17<|tgt_id|>15\n<|src_id|>20<|tgt_id|>19\n<|src_id|>23<|tgt_id|>22\n<|src_id|>24<|tgt_id|>22\n<|src_id|>27<|tgt_id|>26\n<|src_id|>31<|tgt_id|>29\n<|src_id|>32<|tgt_id|>29\n<|src_id|>36<|tgt_id|>34\n<|src_id|>40<|tgt_id|>38\n<|src_id|>48<|tgt_id|>46\n<|src_id|>52<|tgt_id|>50\n<|src_id|>55<|tgt_id|>54\n<|src_id|>66<|tgt_id|>64\n<|src_id|>70<|tgt_id|>68\n<|src_id|>71<|tgt_id|>68\n<|src_id|>76<|tgt_id|>68\n<|src_id|>80<|tgt_id|>68\n<|src_id|>84<|tgt_id|>68\n<|src_id|>87<|tgt_id|>86\n<|src_id|>91<|tgt_id|>89\n<|src_id|>92<|tgt_id|>89\n<|src_id|>97<|tgt_id|>96\n<|src_id|>101<|tgt_id|>99\n<|src_id|>105<|tgt_id|>103\n<|src_id|>123<|tgt_id|>121\n<|src_id|>127<|tgt_id|>126\n<|src_id|>131<|tgt_id|>130\n<|src_id|>134<|tgt_id|>130\n<|src_id|>135<|tgt_id|>130\n<|src_id|>139<|tgt_id|>137\n<|src_id|>152<|tgt_id|>150\n<|src_id|>181<|tgt_id|>180\n<|src_id|>209<|tgt_id|>207\n<|src_id|>210<|tgt_id|>207\n<|src_id|>214<|tgt_id|>212\n<|src_id|>218<|tgt_id|>216\n<|src_id|>223<|tgt_id|>221\n<|src_id|>225<|tgt_id|>221\n<|src_id|>229<|tgt_id|>227\n<|src_id|>230<|tgt_id|>227\n<|src_id|>233<|tgt_id|>232\n<|src_id|>236<|tgt_id|>235\n<|src_id|>239<|tgt_id|>238\n<|src_id|>240<|tgt_id|>238\n<|src_id|>244<|tgt_id|>243\n<|src_id|>248<|tgt_id|>246\n<|src_id|>249<|tgt_id|>246\n<|src_id|>250<|tgt_id|>246\n<|src_id|>271<|tgt_id|>269\n<|src_id|>276<|tgt_id|>274\n<|src_id|>303<|tgt_id|>301",
+    "contd_label": [
+        {
+            "src_id": 124,
+            "tgt_id": 125
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 1
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 1
+        },
+        {
+            "id": 207,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 1
+        },
+        {
+            "id": 227,
+            "level": 2
+        },
+        {
+            "id": 232,
+            "level": 2
+        },
+        {
+            "id": 235,
+            "level": 2
+        },
+        {
+            "id": 238,
+            "level": 2
+        },
+        {
+            "id": 242,
+            "level": 1
+        },
+        {
+            "id": 243,
+            "level": 2
+        },
+        {
+            "id": 246,
+            "level": 2
+        },
+        {
+            "id": 252,
+            "level": 1
+        },
+        {
+            "id": 253,
+            "level": 2
+        },
+        {
+            "id": 262,
+            "level": 2
+        },
+        {
+            "id": 269,
+            "level": 2
+        },
+        {
+            "id": 273,
+            "level": 1
+        },
+        {
+            "id": 274,
+            "level": 2
+        },
+        {
+            "id": 278,
+            "level": 1
+        },
+        {
+            "id": 279,
+            "level": 2
+        },
+        {
+            "id": 286,
+            "level": 2
+        },
+        {
+            "id": 301,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 5,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 150
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 180
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 207
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 207
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 212
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 227
+        },
+        {
+            "src_id": 230,
+            "tgt_id": 227
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 232
+        },
+        {
+            "src_id": 236,
+            "tgt_id": 235
+        },
+        {
+            "src_id": 239,
+            "tgt_id": 238
+        },
+        {
+            "src_id": 240,
+            "tgt_id": 238
+        },
+        {
+            "src_id": 244,
+            "tgt_id": 243
+        },
+        {
+            "src_id": 248,
+            "tgt_id": 246
+        },
+        {
+            "src_id": 249,
+            "tgt_id": 246
+        },
+        {
+            "src_id": 250,
+            "tgt_id": 246
+        },
+        {
+            "src_id": 271,
+            "tgt_id": 269
+        },
+        {
+            "src_id": 276,
+            "tgt_id": 274
+        },
+        {
+            "src_id": 303,
+            "tgt_id": 301
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 23,
+            "table2_idx": 24,
+            "upper_row_ss": [
+                [
+                    "Telephone:",
+                    "(212) 558-4000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 70,
+            "table2_idx": 71,
+            "upper_row_ss": [
+                [
+                    "CRD No.:",
+                    "To be confirmed upon filing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Address:",
+                    "383 Madison Place, New York, NY 10017"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 134,
+            "table2_idx": 135,
+            "upper_row_ss": [
+                [
+                    "Contacts:",
+                    "Philip Archer, Partner, PE/M&A; Christine Navarro,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Partner, Capital Markets; Derek Fong, Senior Associate"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 209,
+            "table2_idx": 210,
+            "upper_row_ss": [
+                [
+                    "Evergreen Provision:",
+                    "The share reserve will be automatically increased on the first day of each fiscal year, beginning with fiscal year"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "2023, by the lesser of (a) 4% of the total number of shares of common stock outstanding on the last day of the immediately preceding fiscal year and (b) such number of shares as determined by the Board of Directors or the compensation committee"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 229,
+            "table2_idx": 230,
+            "upper_row_ss": [
+                [
+                    "Primary Carrier:",
+                    "Meridian National Assurance Company (Policy No. DNO-22-048871)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Excess Layer 1:",
+                    "Stonebridge Indemnity Corp."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 239,
+            "table2_idx": 240,
+            "upper_row_ss": [
+                [
+                    "Firm:",
+                    "Broadmark Strategic Communications Inc."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

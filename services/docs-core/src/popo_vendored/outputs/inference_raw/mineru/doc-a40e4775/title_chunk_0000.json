@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        13,
+        23
+    ],
+    "pages": [
+        13,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>37<|page|>13<|box|>86 87 102 529<|content|>Element IDClaim ElemProstaSignEvidence /Infringeme\n<|id|>50<|page|>23<|box|>86 87 101 515<|content|>Topic Detail Relevance to Infringement Analysis",
+    "raw_response": "<|id|>37<|level|>1\n<|id|>50<|level|>1",
+    "parsed": [
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        }
+    ]
+}

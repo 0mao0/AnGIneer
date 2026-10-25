@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>567<|page|>45<|box|>202 142 219 447<|content|>2. Breakdown by Major Cost Category\n<|id|>572<|page|>45<|box|>654 140 670 388<|content|>3. Cost Reconciliation Timeline\n<|id|>574<|page|>45<|box|>799 140 816 367<|content|>4. Cost Allocation Principles\n<|id|>576<|page|>46<|box|>133 447 150 549<|content|>EXHIBIT F\n<|id|>577<|page|>46<|box|>160 364 176 630<|content|>INSURANCE REQUIREMENTS\n<|id|>578<|page|>46<|box|>191 142 208 397<|content|>1. Minimum Coverage Amounts\n<|id|>581<|page|>46<|box|>484 140 500 428<|content|>2. Additional Insured Endorsements\n<|id|>583<|page|>46<|box|>630 142 647 462<|content|>3. Certificate of Insurance Requirements\n<|id|>585<|page|>46<|box|>776 142 792 343<|content|>4. Waiver of Subrogation\n<|id|>587<|page|>47<|box|>90 140 106 290<|content|>5. Periodic Review\n<|id|>589<|page|>47<|box|>194 395 210 602<|content|>[END OF AGREEMENT]",
+    "raw_response": "<|id|>567<|level|>2\n<|id|>572<|level|>2\n<|id|>574<|level|>2\n<|id|>576<|level|>1\n<|id|>577<|level|>1\n<|id|>578<|level|>2\n<|id|>581<|level|>2\n<|id|>583<|level|>2\n<|id|>585<|level|>2\n<|id|>587<|level|>2\n<|id|>589<|level|>2",
+    "parsed": [
+        {
+            "id": 567,
+            "level": 2
+        },
+        {
+            "id": 572,
+            "level": 2
+        },
+        {
+            "id": 574,
+            "level": 2
+        },
+        {
+            "id": 576,
+            "level": 1
+        },
+        {
+            "id": 577,
+            "level": 1
+        },
+        {
+            "id": 578,
+            "level": 2
+        },
+        {
+            "id": 581,
+            "level": 2
+        },
+        {
+            "id": 583,
+            "level": 2
+        },
+        {
+            "id": 585,
+            "level": 2
+        },
+        {
+            "id": 587,
+            "level": 2
+        },
+        {
+            "id": 589,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>186 346 204 651<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>2<|type|>title<|page|>1<|box|>213 424 229 573<|content|>MEMORANDUM\n<|id|>10<|type|>title<|page|>1<|box|>474 359 494 637<|content|>I. Purpose of Memorandum\n<|id|>15<|type|>title<|page|>2<|box|>289 398 309 598<|content|>II. Session Logistics\n<|id|>16<|type|>title<|page|>2<|box|>334 142 352 285<|content|>A. Date and Time\n<|id|>18<|type|>title<|page|>2<|box|>419 143 436 228<|content|>B. Format\n<|id|>20<|type|>title<|page|>2<|box|>542 142 559 264<|content|>C. Participants\n<|id|>22<|type|>table<|page|>2<|box|>617 143 693 852<|content|>None\n<|id|>23<|type|>title<|page|>2<|box|>727 143 744 602<|content|>Meridian Zanthor & Co. (Sole Bookrunner / Underwri\n<|id|>24<|type|>table<|page|>2<|box|>751 143 790 852<|content|>None\n<|id|>25<|type|>title<|page|>2<|box|>824 143 840 522<|content|>Hargreaves Finch LLP (Underwriter's Counsel):\n<|id|>26<|type|>table<|page|>2<|box|>847 143 887 852<|content|>None\n<|id|>28<|type|>table<|page|>3<|box|>147 143 204 852<|content|>None\n<|id|>30<|type|>title<|page|>3<|box|>334 140 352 418<|content|>D. Baseline Documents Referenced\n<|id|>38<|type|>title<|page|>3<|box|>713 166 733 828<|content|>III. Summary of Due Diligence Topics and Managemen\n<|id|>39<|type|>title<|page|>3<|box|>758 142 773 568<|content|>A. Material Adverse Change / Material Adverse Effe\n<|id|>45<|type|>title<|page|>4<|box|>564 142 582 437<|content|>B. Accuracy of Financial Information\n<|id|>48<|type|>table<|page|>4<|box|>750 143 825 852<|content|>None\n<|id|>53<|type|>title<|page|>5<|box|>421 140 439 281<|content|>C. Capitalization\n<|id|>63<|type|>title<|page|>6<|box|>226 140 243 379<|content|>D. Litigation and Proceedings\n<|id|>71<|type|>title<|page|>6<|box|>776 140 792 568<|content|>E. Material Contracts and Related-Party Transactio\n<|id|>79<|type|>title<|page|>7<|box|>502 140 518 485<|content|>F. Registration Statement and SEC Matters\n<|id|>90<|type|>title<|page|>8<|box|>411 140 428 419<|content|>G. Nasdaq Listing and Compliance\n<|id|>98<|type|>title<|page|>8<|box|>828 140 844 447<|content|>H. MNPI and Insider Trading Matters\n<|id|>105<|type|>title<|page|>9<|box|>664 140 681 442<|content|>I. Regulatory and Government Filings\n<|id|>113<|type|>title<|page|>10<|box|>373 140 390 264<|content|>J. Tax Matters\n<|id|>120<|type|>title<|page|>10<|box|>734 140 750 475<|content|>K. Transfer Agent and Settlement Matters\n<|id|>127<|type|>title<|page|>11<|box|>343 140 359 290<|content|>L. Lock-Up Status\n<|id|>135<|type|>title<|page|>11<|box|>763 303 784 692<|content|>IV. Open Items and Follow-Up Actions\n<|id|>143<|type|>title<|page|>12<|box|>672 421 693 576<|content|>V. Conclusions\n<|id|>151<|type|>title<|page|>13<|box|>599 315 619 681<|content|>VI. Distribution and Privilege Notice",
+    "raw_response": "<|src_id|>22<|tgt_id|>20\n<|src_id|>24<|tgt_id|>23\n<|src_id|>26<|tgt_id|>25\n<|src_id|>28<|tgt_id|>25\n<|src_id|>48<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        }
+    ]
+}

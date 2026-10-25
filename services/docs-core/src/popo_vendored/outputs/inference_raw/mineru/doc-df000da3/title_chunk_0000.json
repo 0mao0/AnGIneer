@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 334 118 661<|content|>BRING-DOWN CERTIFICATE\n<|id|>1<|page|>1<|box|>143 370 161 627<|content|>Representations and Warranties\n<|id|>7<|page|>1<|box|>375 142 393 243<|content|>RECITALS\n<|id|>14<|page|>2<|box|>89 140 106 669<|content|>SECTION 1 — CERTIFICATION BY LUMOS ANALYTICS INC.\n<|id|>15<|page|>2<|box|>121 142 138 383<|content|>1.1 Authorization and Identity\n<|id|>18<|page|>2<|box|>383 142 402 545<|content|>1.2 Bring-Down of Representations and Warranties\n<|id|>22<|page|>2<|box|>747 142 763 454<|content|>1.3 Specific Representations Confirmed\n<|id|>43<|page|>5<|box|>138 142 156 367<|content|>1.4 Additional Confirmation\n<|id|>45<|page|>5<|box|>313 140 330 767<|content|>SECTION 2 — CERTIFICATION BY MERIDIAN DATA SOLUTIO\n<|id|>46<|page|>5<|box|>344 140 362 383<|content|>2.1 Authorization and Identity\n<|id|>49<|page|>5<|box|>662 140 680 545<|content|>2.2 Bring-Down of Representations and Warranties\n<|id|>53<|page|>6<|box|>220 140 238 454<|content|>2.3 Specific Representations Confirmed\n<|id|>88<|page|>9<|box|>648 140 664 367<|content|>2.4 Additional Confirmation\n<|id|>90<|page|>10<|box|>89 140 106 475<|content|>SECTION 3 — GENERAL PROVISIONS\n<|id|>93<|page|>10<|box|>476 140 493 290<|content|>3.3 Defined Terms\n<|id|>95<|page|>10<|box|>604 140 621 452<|content|>3.4 Governing Law; Dispute Resolution\n<|id|>98<|page|>11<|box|>90 140 107 437<|content|>3.5 Counterparts; Electronic Delivery\n<|id|>100<|page|>12<|box|>89 142 106 310<|content|>SIGNATURE PAGE\n<|id|>102<|page|>12<|box|>159 142 176 367<|content|>LUMOS ANALYTICS INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>18<|level|>3\n<|id|>22<|level|>3\n<|id|>43<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>49<|level|>3\n<|id|>53<|level|>3\n<|id|>88<|level|>3\n<|id|>90<|level|>2\n<|id|>93<|level|>3\n<|id|>95<|level|>3\n<|id|>98<|level|>3\n<|id|>100<|level|>2\n<|id|>102<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        }
+    ]
+}

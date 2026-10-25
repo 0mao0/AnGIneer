@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 352 118 645<|content|>OFFICER'S CERTIFICATE\n<|id|>1<|page|>1<|box|>136 153 172 843<|content|>Regarding Expiration or Early Termination of the W\n<|id|>4<|page|>1<|box|>265 142 282 241<|content|>RECITALS\n<|id|>12<|page|>1<|box|>652 140 669 297<|content|>CERTIFICATION\n<|id|>14<|page|>1<|box|>709 140 727 565<|content|>Section 1. Identity and Authority of Certifying Of\n<|id|>16<|page|>2<|box|>176 140 193 462<|content|>Section 2. Description of the Transaction\n<|id|>19<|page|>2<|box|>549 140 566 444<|content|>Section 3. HSR Filing and Notification\n<|id|>23<|page|>3<|box|>138 140 157 493<|content|>Section 4. Certification of Early Termination\n<|id|>32<|page|>4<|box|>138 140 157 589<|content|>Section 5. Satisfaction of Section 6.1(c) Closing\n<|id|>35<|page|>4<|box|>421 140 438 415<|content|>Section 6. Reliance and Disclaimer\n<|id|>38<|page|>4<|box|>703 140 720 348<|content|>Section 7. Governing Law\n<|id|>41<|page|>4<|box|>849 142 867 465<|content|>ARDENT CAPITAL PARTNERS III LP\n<|id|>47<|page|>5<|box|>244 447 262 550<|content|>EXHIBIT A",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>3\n<|id|>16<|level|>3\n<|id|>19<|level|>3\n<|id|>23<|level|>3\n<|id|>32<|level|>3\n<|id|>35<|level|>3\n<|id|>38<|level|>3\n<|id|>41<|level|>-1\n<|id|>47<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        }
+    ]
+}

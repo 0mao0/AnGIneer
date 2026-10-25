@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        95,
+        114
+    ],
+    "pages": [
+        96,
+        98,
+        99,
+        101,
+        104,
+        105,
+        107,
+        108,
+        109,
+        110,
+        111,
+        113,
+        114
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>956<|type|>table<|page|>96<|box|>157 123 203 915<|content|>None\n<|id|>957<|type|>table<|page|>96<|box|>230 123 276 915<|content|>None\n<|id|>971<|type|>title<|page|>98<|box|>175 121 199 233<|content|>8 隧道\n<|id|>972<|type|>title<|page|>98<|box|>261 140 279 303<|content|>8.0.1 一般规定\n<|id|>981<|type|>table<|page|>99<|box|>271 86 381 876<|content|>None\n<|id|>983<|type|>table<|page|>99<|box|>440 88 485 876<|content|>None\n<|id|>998<|type|>image<|page|>101<|box|>515 233 643 746<|content|>None\n<|id|>1013<|type|>title<|page|>104<|box|>184 110 206 285<|content|>9 路线交叉\n<|id|>1014<|type|>title<|page|>104<|box|>270 109 287 355<|content|>9.1 公路与公路平面交叉\n<|id|>1026<|type|>title<|page|>105<|box|>561 93 578 343<|content|>9.2 公路与公路立体交叉\n<|id|>1041<|type|>title<|page|>107<|box|>149 140 165 386<|content|>1 互通式立交的最小间距\n<|id|>1047<|type|>title<|page|>107<|box|>883 138 901 388<|content|>2 互通式立交的最大间距\n<|id|>1050<|type|>title<|page|>108<|box|>322 155 340 487<|content|>3 互通式立交与相关设施间的距离\n<|id|>1052<|type|>title<|page|>108<|box|>409 154 425 445<|content|>4 互通式立交的匝道设计速度\n<|id|>1054<|type|>title<|page|>108<|box|>559 157 577 466<|content|>5 互通式立交匝道的车道数确定\n<|id|>1057<|type|>title<|page|>108<|box|>732 117 750 343<|content|>9.3 公路与铁路相交叉\n<|id|>1064<|type|>table<|page|>109<|box|>303 88 456 876<|content|>None\n<|id|>1065<|type|>title<|page|>109<|box|>489 84 507 355<|content|>9.4 公路与乡村道路相交叉\n<|id|>1069<|type|>title<|page|>110<|box|>137 110 155 357<|content|>9.5 公路与管线等相交叉\n<|id|>1071<|type|>title<|page|>110<|box|>352 110 370 254<|content|>9.6 动物通道\n<|id|>1073<|type|>title<|page|>111<|box|>183 110 206 455<|content|>10 交通工程及沿线设施\n<|id|>1074<|type|>title<|page|>111<|box|>267 110 285 259<|content|>10.1 一般规定\n<|id|>1079<|type|>title<|page|>111<|box|>784 110 802 305<|content|>10.2 交通安全设施\n<|id|>1095<|type|>title<|page|>113<|box|>608 110 626 263<|content|>10.3 服务设施\n<|id|>1106<|type|>title<|page|>114<|box|>730 91 748 244<|content|>10.4 管理设施",
+    "raw_response": "<|src_id|>981<|tgt_id|>972\n<|src_id|>983<|tgt_id|>972\n<|src_id|>998<|tgt_id|>972\n<|src_id|>1064<|tgt_id|>1057",
+    "parsed": [
+        {
+            "src_id": 981,
+            "tgt_id": 972
+        },
+        {
+            "src_id": 983,
+            "tgt_id": 972
+        },
+        {
+            "src_id": 998,
+            "tgt_id": 972
+        },
+        {
+            "src_id": 1064,
+            "tgt_id": 1057
+        }
+    ]
+}

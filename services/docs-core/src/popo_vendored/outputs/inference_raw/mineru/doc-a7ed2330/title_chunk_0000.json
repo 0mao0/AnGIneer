@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 349 118 647<|content|>SOLVENCY CERTIFICATE\n<|id|>1<|page|>1<|box|>136 151 190 844<|content|>Delivered pursuant to Section 4.01(a)(ix) of the C\n<|id|>2<|page|>1<|box|>198 184 241 812<|content|>VERIMARK HOSPITALITY GROUP INC., a Delaware corpor\n<|id|>9<|page|>1<|box|>439 142 455 555<|content|>RECITALS AND INTRODUCTORY STATEMENT\n<|id|>14<|page|>1<|box|>858 142 875 372<|content|>SECTION 1: DEFINITIONS\n<|id|>21<|page|>2<|box|>732 142 750 418<|content|>\"Transactions\" means, collectively:\n<|id|>26<|page|>3<|box|>383 140 401 820<|content|>SECTION 2: BASIS OF CERTIFICATE; FINANCIAL INFORMA\n<|id|>42<|page|>5<|box|>89 140 125 803<|content|>SECTION 3: PRO FORMA DEBT AND CAPITAL STRUCTURE AF\n<|id|>44<|page|>5<|box|>184 140 200 370<|content|>3.1 Funded Debt Obligations\n<|id|>51<|page|>6<|box|>194 140 212 455<|content|>3.2 Pro Forma Capitalization Summary\n<|id|>57<|page|>6<|box|>554 140 570 447<|content|>3.3 Net Proceeds and Sources and Uses\n<|id|>63<|page|>7<|box|>256 140 273 516<|content|>SECTION 4: SOLVENCY CERTIFICATIONS\n<|id|>65<|page|>7<|box|>349 140 367 622<|content|>4.1 Fair Value Exceeds Stated Liabilities (Balance\n<|id|>69<|page|>7<|box|>731 140 748 529<|content|>4.2 Fair Saleable Value Exceeds Stated Liabilities\n<|id|>73<|page|>8<|box|>213 140 229 792<|content|>4.3 Ability to Pay Debts as They Become Due (Cash\n<|id|>81<|page|>9<|box|>90 140 108 586<|content|>4.4 Capital Adequacy (Unreasonably Small Capital T\n<|id|>89<|page|>9<|box|>776 140 792 555<|content|>4.5 No Intent to Hinder, Delay, or Defraud Credito\n<|id|>93<|page|>10<|box|>239 140 258 591<|content|>SECTION 5: ASSUMPTIONS AND QUALIFICATIONS\n<|id|>100<|page|>11<|box|>222 140 239 415<|content|>SECTION 6: GOVERNING LAW\n<|id|>103<|page|>11<|box|>373 140 390 491<|content|>VERIMARK HOSPITALITY GROUP INC.\n<|id|>108<|page|>12<|box|>89 455 107 544<|content|>ANNEX A\n<|id|>109<|page|>12<|box|>114 251 133 746<|content|>PRO FORMA CONSOLIDATED CAPITALIZATION TABLE\n<|id|>110<|page|>12<|box|>142 243 159 753<|content|>(as of July 21, 2022, after giving pro forma effec",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>3\n<|id|>26<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>3\n<|id|>51<|level|>3\n<|id|>57<|level|>3\n<|id|>63<|level|>2\n<|id|>65<|level|>3\n<|id|>69<|level|>3\n<|id|>73<|level|>3\n<|id|>81<|level|>3\n<|id|>89<|level|>3\n<|id|>93<|level|>2\n<|id|>100<|level|>2\n<|id|>103<|level|>2\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>110<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 4
+        }
+    ]
+}

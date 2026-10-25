@@ -1,0 +1,113 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 194 108 800<|content|>UNITED STATES DISTRICT COURT CENTRAL DISTRICT OF C\n<|id|>3<|page|>1<|box|>536 140 553 390<|content|>I. NATURE OF THE ACTION\n<|id|>9<|page|>2<|box|>388 140 406 294<|content|>II. THE PARTIES\n<|id|>15<|page|>3<|box|>460 140 479 421<|content|>III. JURISDICTION AND VENUE\n<|id|>19<|page|>4<|box|>89 142 106 401<|content|>IV. FACTUAL ALLEGATIONS\n<|id|>20<|page|>4<|box|>121 142 138 560<|content|>A. Fonseca's Musical Career and Copyrighted Works\n<|id|>24<|page|>4<|box|>617 142 633 513<|content|>B. The Peregrine Music Group Blanket License\n<|id|>27<|page|>5<|box|>157 140 174 563<|content|>C. Crescendo's Unauthorized Use of Plaintiffs' Wor\n<|id|>33<|page|>6<|box|>90 140 107 557<|content|>D. Pre-Litigation Demand and Crescendo's Response\n<|id|>36<|page|>6<|box|>457 143 473 259<|content|>E. Willfulness.\n<|id|>46<|page|>7<|box|>402 140 419 395<|content|>V. FIRST CAUSE OF ACTION\n<|id|>47<|page|>7<|box|>434 140 450 661<|content|>Copyright Infringement of Musical Compositions (17\n<|id|>48<|page|>7<|box|>457 140 474 519<|content|>(Against Defendant Crescendo Digital Media, Inc.)\n<|id|>54<|page|>8<|box|>334 140 349 424<|content|>VI. SECOND CAUSE OF ACTION\n<|id|>55<|page|>8<|box|>364 140 383 632<|content|>Copyright Infringement of Sound Recordings (17 U.S\n<|id|>56<|page|>8<|box|>388 140 406 519<|content|>(Against Defendant Crescendo Digital Media, Inc.)\n<|id|>62<|page|>9<|box|>222 140 239 374<|content|>VII. PRAYER FOR RELIEF\n<|id|>70<|page|>9<|box|>683 140 699 429<|content|>VIII. DEMAND FOR JURY TRIAL\n<|id|>80<|page|>10<|box|>191 447 207 550<|content|>EXHIBIT A\n<|id|>81<|page|>10<|box|>215 339 233 656<|content|>SCHEDULE OF INFRINGED WORKS\n<|id|>82<|page|>10<|box|>277 334 292 663<|content|>PART 1 — MUSICAL COMPOSITIONS\n<|id|>83<|page|>10<|box|>303 200 321 795<|content|>Copyright Owner: Flor de Luna Publishing, LLC Auth\n<|id|>92<|page|>14<|box|>599 375 616 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>24<|level|>3\n<|id|>27<|level|>3\n<|id|>33<|level|>3\n<|id|>36<|level|>3\n<|id|>46<|level|>2\n<|id|>47<|level|>3\n<|id|>48<|level|>3\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>56<|level|>3\n<|id|>62<|level|>2\n<|id|>70<|level|>2\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>82<|level|>4\n<|id|>83<|level|>-1\n<|id|>92<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 92,
+            "level": 2
+        }
+    ]
+}

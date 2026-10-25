@@ -1,0 +1,86 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        16,
+        18,
+        21,
+        22,
+        23,
+        24
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 238 108 759<|content|>IN THE COURT OF CHANCERY OF THE STATE OF DELAWARE\n<|id|>1<|type|>table<|page|>1<|box|>141 143 325 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>393 158 429 838<|content|>PLAINTIFF'S REPLY MEMORANDUM IN FURTHER SUPPORT OF\n<|id|>6<|type|>table<|page|>1<|box|>662 143 892 852<|content|>None\n<|id|>7<|type|>table<|page|>2<|box|>90 143 813 852<|content|>None\n<|id|>8<|type|>title<|page|>2<|box|>847 385 864 612<|content|>TABLE OF AUTHORITIES\n<|id|>9<|type|>title<|page|>2<|box|>875 143 888 192<|content|>Cases\n<|id|>11<|type|>table<|page|>3<|box|>89 143 742 852<|content|>None\n<|id|>12<|type|>title<|page|>3<|box|>777 142 792 210<|content|>Statutes\n<|id|>13<|type|>table<|page|>3<|box|>799 145 896 852<|content|>None\n<|id|>14<|type|>table<|page|>4<|box|>89 145 125 852<|content|>None\n<|id|>15<|type|>title<|page|>4<|box|>157 143 174 285<|content|>Other Authorities\n<|id|>16<|type|>table<|page|>4<|box|>181 143 279 852<|content|>None\n<|id|>17<|type|>title<|page|>4<|box|>328 143 344 397<|content|>PRELIMINARY STATEMENT\n<|id|>26<|type|>title<|page|>5<|box|>611 142 628 272<|content|>I. ARGUMENT\n<|id|>27<|type|>title<|page|>5<|box|>643 140 659 800<|content|>A. The Restrictive Covenants Are Reasonable and En\n<|id|>42<|type|>title<|page|>8<|box|>383 140 398 854<|content|>3. Defendants' \"Overbreadth\" Arguments Regarding A\n<|id|>55<|type|>table<|page|>9<|box|>684 143 893 852<|content|>None\n<|id|>56<|type|>table<|page|>10<|box|>89 143 125 852<|content|>None\n<|id|>62<|type|>table<|page|>10<|box|>797 143 907 852<|content|>None\n<|id|>63<|type|>table<|page|>11<|box|>89 143 179 852<|content|>None\n<|id|>69<|type|>title<|page|>12<|box|>90 140 107 527<|content|>B. Cascade Has Demonstrated Irreparable Harm\n<|id|>72<|type|>title<|page|>12<|box|>333 140 349 388<|content|>The exfiltrated materials include:\n<|id|>101<|type|>title<|page|>16<|box|>411 140 429 480<|content|>C. The Balance of Equities Favors Cascade\n<|id|>115<|type|>title<|page|>18<|box|>484 140 501 607<|content|>D. Cascade Is Likely to Succeed on the Merits of A\n<|id|>142<|type|>title<|page|>21<|box|>811 140 829 668<|content|>E. The $2,500,000 Injunction Bond Adequately Prote\n<|id|>146<|type|>title<|page|>22<|box|>285 142 301 295<|content|>II. CONCLUSION\n<|id|>156<|type|>title<|page|>23<|box|>89 142 106 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>163<|type|>title<|page|>23<|box|>263 140 280 388<|content|>CERTIFICATE OF SERVICE\n<|id|>168<|type|>title<|page|>23<|box|>632 142 648 424<|content|>EXHIBITS AND ATTACHMENTS\n<|id|>170<|type|>table<|page|>23<|box|>744 143 832 852<|content|>None\n<|id|>171<|type|>title<|page|>23<|box|>866 142 883 557<|content|>Previously Filed with Opening Brief (March 5, 2025\n<|id|>172<|type|>table<|page|>23<|box|>888 143 909 852<|content|>None\n<|id|>173<|type|>table<|page|>24<|box|>88 143 347 852<|content|>None",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>6<|tgt_id|>2\n<|src_id|>7<|tgt_id|>2\n<|src_id|>11<|tgt_id|>9\n<|src_id|>13<|tgt_id|>12\n<|src_id|>14<|tgt_id|>12\n<|src_id|>16<|tgt_id|>15\n<|src_id|>55<|tgt_id|>42\n<|src_id|>56<|tgt_id|>42\n<|src_id|>62<|tgt_id|>42\n<|src_id|>63<|tgt_id|>42\n<|src_id|>170<|tgt_id|>168\n<|src_id|>172<|tgt_id|>171\n<|src_id|>173<|tgt_id|>171",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 171
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 171
+        }
+    ]
+}

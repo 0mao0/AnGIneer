@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 210 107 854<|content|>Ardent Capital Partners III LP 599 Lexington Avenue, 34th Floor New York, NY 10022\n<|id|>1<|page|>1<|box|>116 715 133 854<|content|>February 10, 2025\n<|id|>2<|page|>1<|box|>142 142 159 700<|content|>Ardent Healthcare Holdings Inc. ... 1209 Orange Street Wilmington, DE 19801\n<|id|>3<|page|>1<|box|>167 143 184 362<|content|>Attention: ... Board of Directors\n<|id|>4<|page|>1<|box|>185 207 203 787<|content|>Re: ... Equity Commitment — Acquisition of MedVance Health Systems, Inc\n<|id|>34<|page|>5<|box|>792 174 902 857<|content|>(c) No Conflicts. ... The execution, delivery, and...inding upon or applicable to the Fund, the General\n<|id|>35<|page|>6<|box|>90 174 200 854<|content|>Partner, or any of their respective properties or ...of their respective properties or assets are bound\n<|id|>41<|page|>6<|box|>810 174 864 854<|content|>(b) the valid termination of the Purchase Agreemen...ment), without the Closing having occurred; ... or\n<|id|>42<|page|>6<|box|>872 174 909 854<|content|>(c) the assertion by the Purchaser or any of its a... against the Fund under or in connection with this\n<|id|>43<|page|>7<|box|>90 174 126 854<|content|>Commitment Letter seeking aggregate amounts in exc...Two Hundred Ninety Million Dollars ($290,000,000))\n<|id|>57<|page|>9<|box|>431 210 465 854<|content|>Ardent Capital Partners III LP 599 Lexington Avenue, 34th Floor New York, NY 10022\n<|id|>58<|page|>9<|box|>476 210 493 568<|content|>Attention: ... Graham Whitfield, Managing Partner\n<|id|>59<|page|>9<|box|>494 212 510 493<|content|>Email: ... com\n<|id|>60<|page|>9<|box|>511 176 527 540<|content|>with a copy (which shall not constitute notice) to...with a copy (which shall not constitute notice) to\n<|id|>61<|page|>9<|box|>536 210 571 852<|content|>Calderwood & Harkness LLP 1221 Avenue of the Americas, 40th Floor New York, NY 10020\n<|id|>62<|page|>9<|box|>580 212 597 434<|content|>Attention: ... Beatrice Holloway\n<|id|>63<|page|>9<|box|>598 210 614 547<|content|>Email: ... com\n<|id|>64<|page|>9<|box|>614 176 631 321<|content|>If to the Purchaser: ... If to the Purchaser\n<|id|>65<|page|>9<|box|>640 210 676 854<|content|>Ardent Healthcare Holdings Inc. ... c/o Ardent Cap...99 Lexington Avenue, 34th Floor New York, NY 10022\n<|id|>66<|page|>9<|box|>685 212 700 535<|content|>Attention: ... Thomas Kearney, Vice President\n<|id|>67<|page|>9<|box|>703 210 719 480<|content|>Email: ... com\n<|id|>68<|page|>9<|box|>720 140 792 854<|content|>Expenses. ... Except as otherwise expressly provid...nt Letter and the transactions contemplated hereby\n<|id|>74<|page|>10<|box|>349 142 367 589<|content|>By: ... Ardent Capital Management III LLC, its General Partner\n<|id|>75<|page|>10<|box|>368 143 383 253<|content|>By: ... By\n<|id|>76<|page|>10<|box|>383 142 400 334<|content|>Name: ... Graham Whitfield\n<|id|>77<|page|>10<|box|>401 142 417 433<|content|>Title: ... Managing Partner & Co-Founder\n<|id|>78<|page|>10<|box|>419 142 435 683<|content|>ACKNOWLEDGED AND ACCEPTED as of the date first wri...ED AND ACCEPTED as of the date first written above\n<|id|>81<|page|>10<|box|>479 142 496 339<|content|>Name: ... Priya Ranganathan\n<|id|>82<|page|>10<|box|>496 143 513 254<|content|>Title: ... Director\n<|id|>83<|page|>10<|box|>513 142 530 326<|content|>Date: ... February 10, 2025",
+    "raw_response": "<|src_id|>34<|tgt_id|>35\n<|src_id|>42<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ]
+}

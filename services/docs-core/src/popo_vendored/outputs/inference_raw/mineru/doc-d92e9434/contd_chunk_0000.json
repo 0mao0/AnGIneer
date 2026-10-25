@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1750 K ...t NW, Suite 1100 Washington, D. ... (202) 555-7401\n<|id|>1<|page|>1<|box|>133 723 151 854<|content|>October 17, 2023\n<|id|>2<|page|>1<|box|>160 140 196 854<|content|>Angela M. ... 20548\n<|id|>3<|page|>1<|box|>204 140 258 854<|content|>Re: ... 2 Opposition to Agency's Request for 20-Day Extension of Agency Report Filing Deadline\n<|id|>4<|page|>1<|box|>267 142 282 300<|content|>Dear Ms. ... Palermino\n<|id|>10<|page|>1<|box|>858 140 895 854<|content|>This protest challenges the Air Force's award of a...rared countermeasure (\"IRCM\") pod assemblies under\n<|id|>11<|page|>2<|box|>89 140 162 854<|content|>Solicitation No. ... The solicitation was issued a..., located at Wright-Patterson Air Force Base, Ohio\n<|id|>19<|page|>2<|box|>861 140 898 854<|content|>Under 31 U. ... \" The protest in this matter was filed on September 26,\n<|id|>20<|page|>3<|box|>89 140 200 856<|content|>2023, establishing a statutory decision deadline of approximately January 4, 2024. ... § 3554(a)(1)\n<|id|>54<|page|>6<|box|>686 140 719 854<|content|>Claudia Merritt Partner Calderwood & Harkness LLP ...t NW, Suite 1100 Washington, D. ... (202) 555-7400\n<|id|>55<|page|>6<|box|>720 142 737 464<|content|>Email: ... com\n<|id|>56<|page|>6<|box|>738 142 753 500<|content|>Counsel for Protester Whitmore Aerospace LLC\n<|id|>57<|page|>7<|box|>90 176 126 852<|content|>Captain Lucas M. ... Hargrove, USAF, JAG Trial Attorney, Department of the Air Force Agency Counsel\n<|id|>58<|page|>7<|box|>133 176 152 666<|content|>Miriam T. ... Castellano Senior Attorney, SAF/GCQ Agency Counsel\n<|id|>59<|page|>7<|box|>160 176 196 854<|content|>Theodore J. ... Dunaway Kessler, Pratt & Dunaway L...Counsel for Intervenor Halcyon Defense Systems Inc",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>19<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        }
+    ]
+}

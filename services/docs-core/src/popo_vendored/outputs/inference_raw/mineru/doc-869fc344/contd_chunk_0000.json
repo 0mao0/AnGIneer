@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        59
+    ],
+    "pages": [
+        5,
+        6,
+        7,
+        15,
+        16,
+        18,
+        20,
+        25,
+        28,
+        29,
+        30,
+        35,
+        38,
+        58
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>5<|box|>494 268 534 599<|content|>DECEMBER - 1957\n<|id|>7<|page|>5<|box|>812 61 876 863<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>8<|page|>6<|box|>413 185 491 831<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents, U. ... Single copy price varies\n<|id|>10<|page|>7<|box|>125 168 740 821<|content|>Page Treasury financing operations. ... 101\n<|id|>11<|page|>7<|box|>767 163 818 823<|content|>Note: ... Where calculations have been made from u...res, the details may not check to the totals shown\n<|id|>60<|page|>15<|box|>479 7 508 468<|content|>6/ Expenditures for 1957 and 1958 include those fo...fication 517, the separate amounts of which cannot\n<|id|>61<|page|>15<|box|>235 521 245 663<|content|>be readily determined. ... be readily determined\n<|id|>82<|page|>16<|box|>89 429 101 584<|content|>(In millions of dollars)\n<|id|>85<|page|>16<|box|>808 584 855 997<|content|>seignorage under budget receipts. ... Beginning wi...t Receipts and Expenditures,\" Table 1, footnote 7)\n<|id|>89<|page|>18<|box|>869 55 878 498<|content|>7/ Includes net sale of \\$300 million for adjustment of excess transfers\n<|id|>94<|page|>20<|box|>101 60 330 475<|content|>The cash income and outgo data appearing in the \"T...arlier Budget documents as well as in the Bulletin\n<|id|>112<|page|>25<|box|>229 14 301 485<|content|>enterprises deposit fund accounts with the Treasurer of the United States. ... On that basis, net\n<|id|>113<|page|>25<|box|>198 521 245 944<|content|>expenditures for operations are shown in this tabl...and redemption of agency obligations in the market\n<|id|>158<|page|>28<|box|>461 313 473 664<|content|>Table 2. ... - Interest-Bearing Public Debt\n<|id|>162<|page|>29<|box|>811 16 886 461<|content|>Note: ... The average annual interest rate is computed\n<|id|>163<|page|>29<|box|>819 519 831 855<|content|>1/ Excludes guaranteed securities held by the Trea...xcludes guaranteed securities held by the Treasury\n<|id|>166<|page|>30<|box|>105 420 118 571<|content|>(In millions of dollars)\n<|id|>168<|page|>30<|box|>425 525 454 982<|content|>States Information Agency, pursuant to the act approved July 18, 1956 (22 U. ... \"\n<|id|>181<|page|>35<|box|>773 9 784 401<|content|>2/ Tax anticipation bills dated January 16, 1957, were offered\n<|id|>182<|page|>35<|box|>754 524 784 944<|content|>for cash and in exchange for special bills maturin...in exchange for special bills maturing February 15\n<|id|>200<|page|>38<|box|>231 26 269 496<|content|>28/ The 3-3/8% certificatee dated February 15, 195...57. ... Total issues in the two offerings amounted\n<|id|>210<|page|>38<|box|>369 513 378 615<|content|>p Preliminary. ... p Preliminary\n<|id|>261<|page|>58<|box|>791 9 921 496<|content|>1/ Differences between the amounts of internal rev...he payments are included in budget receipts in the",
+    "raw_response": "<|src_id|>60<|tgt_id|>61\n<|src_id|>112<|tgt_id|>113\n<|src_id|>181<|tgt_id|>182",
+    "parsed": [
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 182
+        }
+    ]
+}

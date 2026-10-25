@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>161 367 176 629<|content|>SECRETARY'S CERTIFICATE\n<|id|>2<|page|>1<|box|>186 483 203 514<|content|>OF\n<|id|>3<|page|>1<|box|>213 326 229 671<|content|>THALASSA SHIPPING & LOGISTICS SA\n<|id|>14<|page|>2<|box|>311 140 328 544<|content|>SECTION 1. ORGANIZATIONAL DOCUMENTS\n<|id|>15<|page|>2<|box|>337 142 354 352<|content|>1.1 Articles of Association.\n<|id|>17<|page|>2<|box|>609 142 626 571<|content|>1.2 Certificate of Good Standing / Registration Ex\n<|id|>19<|page|>2<|box|>858 140 875 640<|content|>SECTION 2. BOARD AND SHAREHOLDER RESOLUTIONS\n<|id|>20<|page|>2<|box|>883 143 901 418<|content|>2.1 Board of Directors Resolutions.\n<|id|>23<|page|>3<|box|>372 140 390 434<|content|>2.2 Scope of Authorizing Resolutions.\n<|id|>33<|page|>4<|box|>351 140 368 367<|content|>2.3 Shareholder Resolutions.\n<|id|>35<|page|>4<|box|>637 140 654 508<|content|>SECTION 3. INCUMBENCY CERTIFICATE\n<|id|>36<|page|>4<|box|>664 140 680 352<|content|>3.1 Officers and Directors.\n<|id|>39<|page|>5<|box|>90 140 107 357<|content|>3.2 Authorized Signatories.\n<|id|>43<|page|>5<|box|>492 140 508 468<|content|>SECTION 4. SPECIMEN SIGNATURES\n<|id|>48<|page|>5<|box|>838 142 854 531<|content|>SECTION 5. ADDITIONAL CERTIFICATIONS\n<|id|>49<|page|>5<|box|>864 142 881 408<|content|>5.1 No Dissolution or Liquidation.\n<|id|>51<|page|>6<|box|>263 140 279 267<|content|>5.2 No Conflict.\n<|id|>53<|page|>6<|box|>516 140 532 532<|content|>5.3 No Amendment to Organizational Documents.\n<|id|>55<|page|>6<|box|>678 140 695 491<|content|>5.4 Governing Law of the Credit Agreement.\n<|id|>57<|page|>6<|box|>835 140 852 348<|content|>SECTION 6. RELIANCE\n<|id|>78<|page|>8<|box|>89 143 106 310<|content|>LIST OF EXHIBITS\n<|id|>85<|page|>8<|box|>511 331 527 665<|content|>NOTICE REGARDING DRAFT STATUS",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>17<|level|>3\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>23<|level|>3\n<|id|>33<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>39<|level|>3\n<|id|>43<|level|>2\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>51<|level|>3\n<|id|>53<|level|>3\n<|id|>55<|level|>3\n<|id|>57<|level|>2\n<|id|>78<|level|>2\n<|id|>85<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        }
+    ]
+}

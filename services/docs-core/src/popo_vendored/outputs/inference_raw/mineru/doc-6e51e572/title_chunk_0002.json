@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        103,
+        122
+    ],
+    "pages": [
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        117,
+        120,
+        122
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>365<|page|>104<|box|>35 356 50 634<|content|>FOREIGN CURRENCY POSITIONS\n<|id|>366<|page|>104<|box|>56 340 71 643<|content|>Section VI - Sterling Positions\n<|id|>371<|page|>105<|box|>66 192 102 812<|content|>Section VII - United States Dollar Positions Abroa\n<|id|>374<|page|>106<|box|>41 366 56 672<|content|>FOREIGN CURRENCY POSITIONS\n<|id|>375<|page|>106<|box|>72 315 85 725<|content|>Footnotes to Tables FCP-I through FCP-VII\n<|id|>399<|page|>107<|box|>43 202 62 795<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>400<|page|>107<|box|>74 319 107 734<|content|>Section II - Federal Credit Programs Table GA-II-1\n<|id|>402<|page|>108<|box|>61 218 89 792<|content|>Section III - Trust Funds Table GA-III-1. - Civil\n<|id|>404<|page|>109<|box|>38 151 54 811<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>405<|page|>109<|box|>56 374 72 608<|content|>Section III - Trust Funds\n<|id|>410<|page|>110<|box|>58 225 88 753<|content|>Section III - Trust Funds Table GA-III-3. - Federa\n<|id|>413<|page|>111<|box|>30 178 48 838<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>431<|page|>111<|box|>317 448 330 588<|content|>Table GA-III-3\n<|id|>443<|page|>112<|box|>30 169 45 825<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>444<|page|>112<|box|>58 383 74 618<|content|>Section III - Trust Funds\n<|id|>445<|page|>112<|box|>77 241 93 756<|content|>Table GA-III-4. - Federal Hospital Insurance Trust\n<|id|>447<|page|>113<|box|>67 383 83 613<|content|>Section III - Trust Funds\n<|id|>448<|page|>113<|box|>84 167 103 792<|content|>Table GA-III-5. - Federal Supplementary Medical In\n<|id|>460<|page|>117<|box|>38 166 55 824<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>464<|page|>120<|box|>36 365 50 638<|content|>CUMULATIVE TABLE OF CONTENTS\n<|id|>470<|page|>122<|box|>558 310 705 756<|content|>Take stock in America.",
+    "raw_response": "<|id|>365<|level|>1\n<|id|>366<|level|>2\n<|id|>371<|level|>2\n<|id|>374<|level|>1\n<|id|>375<|level|>2\n<|id|>399<|level|>1\n<|id|>400<|level|>2\n<|id|>402<|level|>2\n<|id|>404<|level|>1\n<|id|>405<|level|>2\n<|id|>410<|level|>2\n<|id|>413<|level|>1\n<|id|>431<|level|>-1\n<|id|>443<|level|>1\n<|id|>444<|level|>2\n<|id|>445<|level|>2\n<|id|>447<|level|>2\n<|id|>448<|level|>2\n<|id|>460<|level|>1\n<|id|>464<|level|>1\n<|id|>470<|level|>-1",
+    "parsed": [
+        {
+            "id": 365,
+            "level": 1
+        },
+        {
+            "id": 366,
+            "level": 2
+        },
+        {
+            "id": 371,
+            "level": 2
+        },
+        {
+            "id": 374,
+            "level": 1
+        },
+        {
+            "id": 375,
+            "level": 2
+        },
+        {
+            "id": 399,
+            "level": 1
+        },
+        {
+            "id": 400,
+            "level": 2
+        },
+        {
+            "id": 402,
+            "level": 2
+        },
+        {
+            "id": 404,
+            "level": 1
+        },
+        {
+            "id": 405,
+            "level": 2
+        },
+        {
+            "id": 410,
+            "level": 2
+        },
+        {
+            "id": 413,
+            "level": 1
+        },
+        {
+            "id": 443,
+            "level": 1
+        },
+        {
+            "id": 444,
+            "level": 2
+        },
+        {
+            "id": 445,
+            "level": 2
+        },
+        {
+            "id": 447,
+            "level": 2
+        },
+        {
+            "id": 448,
+            "level": 2
+        },
+        {
+            "id": 460,
+            "level": 1
+        },
+        {
+            "id": 464,
+            "level": 1
+        }
+    ]
+}

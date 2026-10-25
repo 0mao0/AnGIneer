@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>166 100 200 882<|content|>中华人民共和国交通行业标准\n<|id|>3<|type|>title<|page|>1<|box|>411 93 446 893<|content|>港口码头劳动定员 第 4 部分: 集装箱码头\n<|id|>8<|type|>title<|page|>2<|box|>135 457 157 563<|content|>目次\n<|id|>10<|type|>title<|page|>3<|box|>136 426 158 534<|content|>前言\n<|id|>29<|type|>title<|page|>4<|box|>138 250 159 734<|content|>港口码头劳动定员 第4部分:集装箱码头\n<|id|>30<|type|>title<|page|>4<|box|>191 109 206 177<|content|>1 范围\n<|id|>33<|type|>title<|page|>4<|box|>283 107 299 264<|content|>2 规范性引用文件\n<|id|>36<|type|>title<|page|>4<|box|>395 108 411 210<|content|>3 单项定员\n<|id|>37<|type|>title<|page|>4<|box|>421 108 438 245<|content|>3.1 港口装卸工\n<|id|>39<|type|>table<|page|>4<|box|>477 109 606 877<|content|>None\n<|id|>40<|type|>title<|page|>4<|box|>612 108 626 263<|content|>3.2 装卸机械司机\n<|id|>42<|type|>table<|page|>4<|box|>667 109 796 876<|content|>None\n<|id|>47<|type|>title<|page|>5<|box|>113 124 129 305<|content|>3.3.3 值班装卸控制员\n<|id|>53<|type|>title<|page|>5<|box|>224 124 239 290<|content|>3.3.3.3 船舶指导员\n<|id|>60<|type|>title<|page|>5<|box|>353 125 368 274<|content|>3.4.2 船舶计划员\n<|id|>64<|type|>title<|page|>5<|box|>426 125 442 258<|content|>3.5 装卸统计员\n<|id|>66<|type|>title<|page|>5<|box|>463 125 478 307<|content|>3.6 集装箱单证受理员\n<|id|>87<|type|>title<|page|>5<|box|>868 125 883 323<|content|>3.8 集装箱检查桥业务员\n<|id|>91<|type|>title<|page|>6<|box|>143 109 158 332<|content|>3.8.2.1 集装箱进港区通道\n<|id|>94<|type|>title<|page|>6<|box|>198 110 213 332<|content|>3.8.2.2 集装箱出港区通道\n<|id|>101<|type|>title<|page|>6<|box|>327 109 342 322<|content|>3.10.2 冷冻箱堆场管理员\n<|id|>110<|type|>table<|page|>6<|box|>508 110 573 874<|content|>None\n<|id|>112<|type|>title<|page|>6<|box|>597 108 612 426<|content|>3.13.2 非集装箱专用装卸机械修理人员\n<|id|>129<|type|>title<|page|>7<|box|>104 126 120 790<|content|>3.19.2 地处分散的公司(指泊位不连在一起,中间要使用交通工具才能到达)可增加定员。\n<|id|>130<|type|>title<|page|>7<|box|>132 126 148 310<|content|>4 装卸作业线综合定员\n<|id|>131<|type|>title<|page|>7<|box|>159 126 175 527<|content|>4.1 每条集装箱船舶装卸作业线装卸机械配备见表 4\n<|id|>132<|type|>table<|page|>7<|box|>195 129 325 874<|content|>None\n<|id|>133<|type|>title<|page|>7<|box|>330 129 346 375<|content|>4.2 装卸作业线综合定员见表 5\n<|id|>134<|type|>table<|page|>7<|box|>366 129 560 874<|content|>None\n<|id|>135<|type|>title<|page|>7<|box|>573 128 589 294<|content|>5 全部定员计算方法\n<|id|>136<|type|>title<|page|>7<|box|>600 128 616 262<|content|>5.1 港口装卸工\n<|id|>138<|type|>title<|page|>7<|box|>638 128 653 278<|content|>5.2 装卸机械司机\n<|id|>140<|type|>title<|page|>7<|box|>675 127 690 246<|content|>5.3 其他岗位",
+    "raw_response": "<|src_id|>39<|tgt_id|>37\n<|src_id|>42<|tgt_id|>40\n<|src_id|>110<|tgt_id|>101\n<|src_id|>132<|tgt_id|>131\n<|src_id|>134<|tgt_id|>133",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 133
+        }
+    ]
+}

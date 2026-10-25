@@ -1,0 +1,54 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 153 125 841<|content|>QUORUM INSURANCE HOLDINGS CORP. 400 Constitution P\n<|id|>3<|page|>1<|box|>186 142 203 351<|content|>Re: Notice of Data Breach\n<|id|>7<|page|>1<|box|>433 140 450 277<|content|>What Happened\n<|id|>13<|page|>2<|box|>167 140 184 401<|content|>What Information Was Involved\n<|id|>15<|page|>2<|box|>273 176 291 331<|content|>«DataElementsList»\n<|id|>19<|page|>2<|box|>631 140 648 450<|content|>Your Rights Under Massachusetts Law\n<|id|>35<|page|>4<|box|>90 142 107 307<|content|>What We Are Doing\n<|id|>42<|page|>4<|box|>616 142 633 292<|content|>What You Can Do\n<|id|>60<|page|>6<|box|>90 142 107 323<|content|>For More Information",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>3\n<|id|>19<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>60<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        }
+    ]
+}

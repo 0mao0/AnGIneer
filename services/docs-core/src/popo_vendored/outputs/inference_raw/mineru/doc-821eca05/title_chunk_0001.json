@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        106
+    ],
+    "pages": [
+        51,
+        65,
+        71,
+        93,
+        97,
+        103,
+        105
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>87<|page|>51<|box|>392 136 407 807<|content|>Statement of the Outstanding Public Debt on June 3\n<|id|>103<|page|>65<|box|>59 204 87 822<|content|>YIELDS OF TREASURY BONDS AND NOTES AUG. 15, 1939\n<|id|>114<|page|>71<|box|>520 94 550 855<|content|>Statement of Uses of Funds of Certain Corporations\n<|id|>133<|page|>93<|box|>50 184 78 837<|content|>FOREIGN PURCHASES AND SALES OF U.S. DOMESTIC SECUR\n<|id|>137<|page|>97<|box|>638 184 667 773<|content|>Net Position in Foreign Currencies of Reporting Ba\n<|id|>144<|page|>103<|box|>87 250 116 774<|content|>MONETARY STOCKS OF GOLD AND SILVER IN U.S.\n<|id|>147<|page|>105<|box|>59 113 75 434<|content|>Components of Silver Monetary Stock\n<|id|>149<|page|>105<|box|>61 554 89 874<|content|>Silver of Specified Classifications Acquired by Mi",
+    "raw_response": "<|id|>87<|level|>1\n<|id|>103<|level|>1\n<|id|>114<|level|>1\n<|id|>133<|level|>1\n<|id|>137<|level|>1\n<|id|>144<|level|>1\n<|id|>147<|level|>2\n<|id|>149<|level|>2",
+    "parsed": [
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        }
+    ]
+}

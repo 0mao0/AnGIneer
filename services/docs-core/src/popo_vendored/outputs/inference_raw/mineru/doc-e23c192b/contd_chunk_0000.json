@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 295 133 702<|content|>1735 Market Street, Suite 2800 Philadelphia, PA 19103\n<|id|>2<|page|>1<|box|>141 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 305 184 854<|content|>Kevin Ostrowski Partner, Privacy & Data Security Direct: ... (215) 555-7438\n<|id|>4<|page|>1<|box|>194 140 210 480<|content|>Email: ... com\n<|id|>5<|page|>1<|box|>210 707 228 854<|content|>December 12, 2025\n<|id|>6<|page|>1<|box|>236 140 253 630<|content|>VIA EMAIL AND ELECTRONIC DOCUMENT TRANSFER\n<|id|>7<|page|>1<|box|>262 140 297 854<|content|>Constance Liu, Esq. ... Partner, Financial Service...LLP 200 Park Avenue, 31st Floor New York, NY 10166\n<|id|>8<|page|>1<|box|>306 174 343 854<|content|>Re: ... 1009-00004\n<|id|>9<|page|>1<|box|>351 142 368 251<|content|>Dear Ms. ... Liu\n<|id|>31<|page|>4<|box|>698 174 789 854<|content|>(i) Osprey Cloud Infrastructure, Inc. ... and\n<|id|>33<|page|>5<|box|>90 140 328 856<|content|>With respect to flow-down obligations, the Counter... made available for Meridian's review upon request\n<|id|>55<|page|>8<|box|>609 142 625 272<|content|>Very truly yours,\n<|id|>56<|page|>8<|box|>625 140 642 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>57<|page|>8<|box|>643 143 660 253<|content|>By: ... By\n<|id|>58<|page|>8<|box|>660 142 676 514<|content|>Kevin Ostrowski Partner, Privacy & Data Security\n<|id|>59<|page|>8<|box|>676 140 768 854<|content|>Enclosure: ... — Customer-Facing Data Processing A...ctual Clauses (Modules 2 and 3) with Annexes I–III\n<|id|>60<|page|>8<|box|>776 140 791 235<|content|>cc: ... (via email)\n<|id|>61<|page|>8<|box|>799 174 871 854<|content|>Thomas Elridge, General Counsel & Chief Privacy Of...intech Ltd. ... , Blackwell, Raines & Stoddard LLP\n<|id|>62<|page|>8<|box|>878 140 930 854<|content|>This communication, including all enclosures, is i...ki | Calderwood & Harkness LLP | December 12, 2025\n<|id|>63<|page|>9<|box|>90 140 133 854<|content|>intended recipient, you are hereby notified that a...tify the sender immediately and destroy all copies",
+    "raw_response": "<|src_id|>62<|tgt_id|>63",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        }
+    ]
+}

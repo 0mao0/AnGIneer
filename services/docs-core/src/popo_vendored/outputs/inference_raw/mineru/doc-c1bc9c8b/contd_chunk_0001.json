@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        58,
+        81
+    ],
+    "pages": [
+        59,
+        73,
+        75,
+        79,
+        81
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>107<|page|>59<|box|>60 136 87 797<|content|>Purchases and Sales of Foreign Exchange, Spot and ...and Bankers in the United States, for October 1938\n<|id|>109<|page|>59<|box|>108 427 121 502<|content|>CURRENCY OF\n<|id|>108<|page|>59<|box|>96 389 108 549<|content|>(In thousands of dollar)\n<|id|>128<|page|>73<|box|>90 257 114 718<|content|>Gold per Ounce: ... 00\n<|id|>129<|page|>73<|box|>112 403 132 580<|content|>Silver per Ounce \\$1. ... 29\n<|id|>130<|page|>73<|box|>132 225 152 399<|content|>QUARTERLY (End of Quarter)\n<|id|>131<|page|>73<|box|>130 622 148 787<|content|>MONTHLY (End of Month)\n<|id|>132<|page|>75<|box|>96 21 148 284<|content|>Indexes of 40 Foreign Exchange Rates in New York, in London, in Paris, and in Tokyo, \"Unweighted\"\n<|id|>134<|page|>75<|box|>58 306 147 572<|content|>Indexes of 40 Foreign Exchange Rates in New York, ...eign Trade of each Country Included in the Indexes\n<|id|>137<|page|>75<|box|>97 617 124 905<|content|>Indexes of 40 Foreign Exchange Rates in New York\n<|id|>144<|page|>79<|box|>746 342 757 456<|content|>Date quota filled\n<|id|>145<|page|>79<|box|>755 423 778 548<|content|>3/ June 19, 1937. ... 4/ August 14, 1937\n<|id|>146<|page|>81<|box|>53 21 79 461<|content|>Summary of Criminal Cases in the United States District Courts\n<|id|>147<|page|>81<|box|>84 10 108 463<|content|>Alcohol Tax, Custome, Narcotics, Secret Service and Internal Revenue 1/ For Month of November 1938",
+    "raw_response": "<|src_id|>107<|tgt_id|>108\n<|src_id|>144<|tgt_id|>145",
+    "parsed": [
+        {
+            "src_id": 107,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 145
+        }
+    ]
+}

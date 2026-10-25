@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 200 106 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>2<|type|>title<|page|>1<|box|>167 223 185 774<|content|>CALDERWOOD & HARKNESS LLP INTERNAL MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>376 142 393 321<|content|>I. Executive Summary\n<|id|>19<|type|>title<|page|>2<|box|>375 140 391 522<|content|>II. Summary of Key Evidence Developed to Date\n<|id|>21<|type|>title<|page|>2<|box|>468 140 484 751<|content|>A. Forensic Evidence — Brindoval Preliminary Foren\n<|id|>28<|type|>title<|page|>3<|box|>612 140 630 338<|content|>B. Deposition Testimony\n<|id|>39<|type|>title<|page|>5<|box|>138 140 157 488<|content|>C. Trade Secrets at Issue — Five Categories\n<|id|>47<|type|>title<|page|>6<|box|>223 140 239 320<|content|>III. Damages Analysis\n<|id|>48<|type|>title<|page|>6<|box|>253 140 271 398<|content|>A. Applicable Legal Framework\n<|id|>55<|type|>title<|page|>6<|box|>804 140 821 635<|content|>B. Unjust Enrichment Analysis — Accelerated Time-t\n<|id|>77<|type|>title<|page|>9<|box|>450 140 467 405<|content|>C. Alternative Damages Theories\n<|id|>88<|type|>title<|page|>10<|box|>655 142 672 370<|content|>D. Damages Summary Table\n<|id|>89<|type|>table<|page|>10<|box|>702 143 809 852<|content|>None\n<|id|>91<|type|>title<|page|>11<|box|>90 140 107 506<|content|>IV. Settlement Valuation and Risk Assessment\n<|id|>93<|type|>title<|page|>11<|box|>220 142 238 511<|content|>A. Litigation Risk Factors Favoring Settlement\n<|id|>100<|type|>title<|page|>12<|box|>544 140 561 544<|content|>B. Litigation Risk Factors Favoring Lumos at Trial\n<|id|>108<|type|>title<|page|>13<|box|>546 140 563 426<|content|>C. Recommended Settlement Range\n<|id|>116<|type|>title<|page|>14<|box|>289 140 306 596<|content|>D. Non-Monetary Settlement Objectives (Essential T\n<|id|>125<|type|>title<|page|>15<|box|>407 140 425 321<|content|>V. Mediation Strategy\n<|id|>138<|type|>title<|page|>16<|box|>835 140 853 433<|content|>VI. Fees and Costs Summary to Date\n<|id|>140<|type|>table<|page|>17<|box|>89 143 287 852<|content|>None\n<|id|>148<|type|>title<|page|>17<|box|>657 142 674 320<|content|>VII. Recommendation\n<|id|>154<|type|>title<|page|>18<|box|>390 140 407 279<|content|>VIII. Conclusion",
+    "raw_response": "<|src_id|>89<|tgt_id|>88\n<|src_id|>140<|tgt_id|>138",
+    "parsed": [
+        {
+            "src_id": 89,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 138
+        }
+    ]
+}

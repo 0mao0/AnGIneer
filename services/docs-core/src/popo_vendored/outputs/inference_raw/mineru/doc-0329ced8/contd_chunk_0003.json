@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 3,
+    "range": [
+        155,
+        157
+    ],
+    "pages": [
+        156,
+        157
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>600<|page|>156<|box|>199 80 211 468<|content|>5/ Represents prepayments for orders made by other Government agencies\n<|id|>601<|page|>156<|box|>140 541 149 621<|content|>to this fund. ... to this fund\n<|id|>617<|page|>156<|box|>429 78 440 481<|content|>12/ Represents judgments in favor of the United States. ... Does not include\n<|id|>618<|page|>156<|box|>270 545 278 736<|content|>allowance for uncollectible items. ... allowance for uncollectible items\n<|id|>640<|page|>156<|box|>519 516 533 903<|content|>18/ Represents primarily prepayments of estimated ...d prior to assessment of the related tax liability\n<|id|>652<|page|>157<|box|>146 528 180 925<|content|>ning December 31, 1965, rehabilitation loans authorized by the Housing Act of 1964 (42 U. ... 462)\n<|id|>651<|page|>157<|box|>425 72 555 474<|content|>7/ Formerly Housing and Home Finance Agency. ... begin-",
+    "raw_response": "<|src_id|>600<|tgt_id|>601\n<|src_id|>617<|tgt_id|>618",
+    "parsed": [
+        {
+            "src_id": 600,
+            "tgt_id": 601
+        },
+        {
+            "src_id": 617,
+            "tgt_id": 618
+        }
+    ]
+}

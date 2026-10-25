@@ -1,0 +1,41 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        48
+    ],
+    "pages": [
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>557<|page|>46<|box|>89 143 106 274<|content|>SCHEDULE III\n<|id|>558<|page|>46<|box|>114 390 132 607<|content|>MILESTONE SCHEDULE\n<|id|>561<|page|>47<|box|>89 142 106 272<|content|>SCHEDULE IV\n<|id|>562<|page|>47<|box|>114 403 132 593<|content|>NOTICE ADDRESSES\n<|id|>563<|page|>47<|box|>147 143 164 305<|content|>A. Company Parties\n<|id|>590<|page|>48<|box|>90 140 107 382<|content|>H. Consenting Senior Lenders",
+    "raw_response": "<|id|>557<|level|>1\n<|id|>558<|level|>2\n<|id|>561<|level|>1\n<|id|>562<|level|>2\n<|id|>563<|level|>3\n<|id|>590<|level|>3",
+    "parsed": [
+        {
+            "id": 557,
+            "level": 1
+        },
+        {
+            "id": 558,
+            "level": 2
+        },
+        {
+            "id": 561,
+            "level": 1
+        },
+        {
+            "id": 562,
+            "level": 2
+        },
+        {
+            "id": 563,
+            "level": 3
+        },
+        {
+            "id": 590,
+            "level": 3
+        }
+    ]
+}

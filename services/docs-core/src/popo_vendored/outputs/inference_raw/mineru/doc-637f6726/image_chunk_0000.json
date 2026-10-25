@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>10<|type|>title<|page|>1<|box|>547 142 564 403<|content|>Entity Identification Information\n<|id|>12<|type|>table<|page|>1<|box|>597 143 762 852<|content|>None\n<|id|>13<|type|>title<|page|>1<|box|>796 142 814 276<|content|>Specific Request\n<|id|>20<|type|>title<|page|>2<|box|>429 142 446 500<|content|>Form of Certificate and Delivery Instructions\n<|id|>29<|type|>title<|page|>2<|box|>779 142 796 370<|content|>Processing Fee and Payment\n<|id|>33<|type|>title<|page|>3<|box|>306 142 324 454<|content|>Authorization and Contact Information\n<|id|>42<|type|>title<|page|>3<|box|>742 140 758 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>49<|type|>title<|page|>4<|box|>281 274 296 723<|content|>DRAFT — FOR USE AT CLOSING — NOT YET SENT",
+    "raw_response": "<|src_id|>12<|tgt_id|>10",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 10
+        }
+    ]
+}

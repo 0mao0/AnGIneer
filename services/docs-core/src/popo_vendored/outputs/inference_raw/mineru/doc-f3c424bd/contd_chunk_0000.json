@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 375 176 622<|content|>Ironhaven Loudoun Edge LLC\n<|id|>2<|page|>1<|box|>185 434 202 563<|content|>March 18, 2024\n<|id|>4<|page|>1<|box|>237 174 272 854<|content|>Pinnacle Federal Savings Bank 800 Constitution Avenue NW, Suite 550 Washington, DC 20001\n<|id|>5<|page|>1<|box|>281 176 297 568<|content|>Attention: ... Commercial Real Estate Lending Division\n<|id|>6<|page|>1<|box|>297 140 426 857<|content|>Re: ... Construction Loan Agreement dated as of Ma...rginia 20147 (the \"Project\" or the \"Project Site\")\n<|id|>12<|page|>1<|box|>835 140 909 857<|content|>D. ... Cobalt Ridge maintains its principal office at 300 Park\n<|id|>13<|page|>2<|box|>90 140 143 854<|content|>Avenue South, 14th Floor, New York, New York 10010...erves as the primary equity sponsor of the Project\n<|id|>33<|page|>4<|box|>133 210 189 854<|content|>(viii) the Pledge Agreement, dated as of March 18,...wer as additional collateral for the Loan; ... and\n<|id|>42<|page|>4<|box|>751 174 806 854<|content|>Based on the as-stabilized appraised value of $74,...-to-value ratio permitted under the Loan Agreement\n<|id|>39<|page|>4<|box|>691 218 709 616<|content|>• As-Is Market Value (unimproved land): ... $8,500,000\n<|id|>40<|page|>4<|box|>712 218 729 638<|content|>• Prospective As-Completed Market Value: ... $62,000,000\n<|id|>41<|page|>4<|box|>732 218 750 633<|content|>• Prospective As-Stabilized Market Value: ... $74,500,000\n<|id|>50<|page|>6<|box|>196 210 306 857<|content|>(1) Sentinel Cloud Services, Inc. ... and\n<|id|>52<|page|>6<|box|>431 174 542 857<|content|>The total pre-leased square footage under the fore... the construction loan to the permanent loan phase\n<|id|>60<|page|>7<|box|>337 174 354 715<|content|>Loan Amount / Total Project Cost = $45,000,000 ÷ $57,000,000 = 78. ... 9%\n<|id|>61<|page|>7<|box|>364 140 398 854<|content|>The foregoing loan-to-cost ratio is within the max...y percent (80%) permitted under the Loan Agreement\n<|id|>68<|page|>8<|box|>176 183 191 411<|content|>• Total Revenue: ... $68,400,000\n<|id|>73<|page|>8<|box|>273 140 366 854<|content|>there has been no material adverse change in the b...n Agreement) on the Borrower, IHDC, or the Project\n<|id|>69<|page|>8<|box|>195 183 210 374<|content|>• EBITDA: ... $22,100,000\n<|id|>70<|page|>8<|box|>214 183 231 403<|content|>• Total Assets: ... $310,000,000\n<|id|>71<|page|>8<|box|>234 183 251 393<|content|>• Total Debt: ... $185,000,000\n<|id|>72<|page|>8<|box|>253 183 271 527<|content|>• Debt-to-EBITDA Ratio: ... 4x\n<|id|>101<|page|>10<|box|>821 174 877 857<|content|>Exhibit C: ... Such Certificate of\n<|id|>102<|page|>11<|box|>90 174 126 854<|content|>Good Standing confirms that the Borrower is in goo... transact business in the Commonwealth of Virginia\n<|id|>117<|page|>12<|box|>314 174 387 854<|content|>(j) Pay the origination fee of Three Hundred Thirt...No/100 Dollars ($337,500), representing 0. ... and\n<|id|>119<|page|>12<|box|>476 140 549 854<|content|>The undersigned further certifies that the Resolut... restrict the authority granted in the Resolutions\n<|id|>156<|page|>15<|box|>758 140 777 720<|content|>IRONHAVEN LOUDOUN EDGE LLC, a Virginia limited liability company\n<|id|>157<|page|>15<|box|>777 142 794 393<|content|>By: ... Ironhaven Data Centers LLC,\n<|id|>158<|page|>15<|box|>795 142 811 531<|content|>a Virginia limited liability company, its sole member\n<|id|>159<|page|>15<|box|>813 143 829 253<|content|>By: ... By\n<|id|>160<|page|>15<|box|>829 143 845 331<|content|>Name: ... Kellner\n<|id|>161<|page|>15<|box|>847 143 862 385<|content|>Title: ... Authorized Representative\n<|id|>162<|page|>15<|box|>864 143 880 308<|content|>Date: ... March 18, 2024\n<|id|>167<|page|>16<|box|>366 142 383 375<|content|>My Commission Expires: ... ___\n<|id|>168<|page|>16<|box|>383 142 401 348<|content|>Registration Number: ... Registration Number",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>101<|tgt_id|>102",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 102
+        }
+    ]
+}

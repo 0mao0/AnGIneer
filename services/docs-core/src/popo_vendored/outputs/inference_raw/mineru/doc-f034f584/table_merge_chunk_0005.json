@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Closing balance', '103,366', '344,916', '605,825', '50,435', '-667,893', '-48,030', '719,905']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=5, Account', 'rowspan=2,colspan=3, Funds appropriated to the President 2/ -Continued', 'colspan=4, Agriculture Department']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 541,
+    "table2_idx": 542
+}

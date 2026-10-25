@@ -1,0 +1,48 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>159 192 196 805<|content|>IRONHAVEN DATA CENTERS LLC, a Delaware limited liability company (the \"Borrower\"),\n<|id|>3<|page|>1<|box|>204 153 239 844<|content|>IRONHAVEN FRANKFURT GMBH, a German Gesellschaft mit beschränkter Haftung (the \"Co-Borrower\"),\n<|id|>4<|page|>1<|box|>248 176 266 818<|content|>IRONHAVEN HOLDINGS INC. ... , a Delaware corporation (the \"Parent Guarantor\"),\n<|id|>5<|page|>1<|box|>273 259 292 736<|content|>CRESCENT HARBOR BANK, N. ... , as Administrative Agent,\n<|id|>6<|page|>1<|box|>300 267 316 728<|content|>PINNACLE TRUST COMPANY, N. ... , as Collateral Agent,\n<|id|>7<|page|>1<|box|>327 483 342 516<|content|>and\n<|id|>8<|page|>1<|box|>351 254 369 743<|content|>THE LENDERS FROM TIME TO TIME PARTY THERETO\n<|id|>9<|page|>1<|box|>378 419 393 578<|content|>CUSIP: ... 46283LAA5\n<|id|>10<|page|>1<|box|>404 300 421 697<|content|>Date of Certificate: ... June 3, 2024 (the \"Closing Date\")\n<|id|>17<|page|>2<|box|>90 174 164 856<|content|>(ii) Ironhaven Frankfurt GmbH, a German Gesellscha...loping and operating the Frankfurt campus; ... and\n<|id|>19<|page|>2<|box|>215 140 289 854<|content|>For purposes of clarity, IHDC is wholly owned by I... ultimate equity sponsor of the Consolidated Group\n<|id|>24<|page|>2<|box|>614 210 633 684<|content|>(i) a USD Tranche in the principal amount of $675,000,000; ... and\n<|id|>26<|page|>2<|box|>686 174 741 854<|content|>in each case subject to an original issue discount...fter giving effect to such original issue discount\n<|id|>25<|page|>2<|box|>642 210 679 854<|content|>(ii) a EUR Sub-Tranche in the principal amount of ...USD spot rate of 1. ... 0846 on the Closing Date),\n<|id|>76<|page|>8<|box|>465 174 520 856<|content|>(v) the modest quarterly amortization requirement of $2,375,000 (1. ... and\n<|id|>78<|page|>8<|box|>609 174 664 854<|content|>Based on the foregoing, the undersigned is of the ...urrently conducted and as proposed to be conducted\n<|id|>94<|page|>9<|box|>777 174 886 856<|content|>(c) \"contingent liabilities\" means liabilities and...tingent liabilities of any kind or nature; ... and\n<|id|>96<|page|>10<|box|>226 174 263 854<|content|>All other capitalized terms used but not defined i...ngs assigned to such terms in the Credit Agreement\n<|id|>110<|page|>11<|box|>328 176 344 341<|content|>Name: ... Rebecca Sung\n<|id|>111<|page|>11<|box|>344 176 361 397<|content|>Title: ... Chief Financial Officer\n<|id|>112<|page|>11<|box|>362 176 378 321<|content|>Date: ... June 3, 2024\n<|id|>113<|page|>11<|box|>378 178 395 279<|content|>Delivered to: ... Delivered to\n<|id|>114<|page|>11<|box|>405 176 441 854<|content|>Crescent Harbor Bank, N. ... , as Collateral Agent Each of the Lenders party to the Credit Agreement\n<|id|>115<|page|>11<|box|>448 174 478 854<|content|>Calderwood & Harkness LLP — Matter No. ... CHB-LF-2024-0287",
+    "raw_response": "<|src_id|>2<|tgt_id|>3\n<|src_id|>3<|tgt_id|>4\n<|src_id|>4<|tgt_id|>5\n<|src_id|>5<|tgt_id|>6\n<|src_id|>6<|tgt_id|>7\n<|src_id|>7<|tgt_id|>8\n<|src_id|>113<|tgt_id|>114",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        }
+    ]
+}

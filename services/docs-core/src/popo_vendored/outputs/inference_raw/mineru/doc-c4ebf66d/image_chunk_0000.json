@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        12,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>152 189 200 854<|content|>Draft: Marcus Weill Calderwood & Harkness LLP 425\n<|id|>11<|type|>title<|page|>1<|box|>556 142 574 243<|content|>RECITALS\n<|id|>20<|type|>title<|page|>3<|box|>167 140 184 421<|content|>SECTION 1 — DEFINED TERMS\n<|id|>31<|type|>title<|page|>4<|box|>89 140 107 357<|content|>SECTION 2 — CONSENT\n<|id|>37<|type|>title<|page|>5<|box|>89 140 107 604<|content|>SECTION 3 — LIMITED WAIVER OF SECTION 7.12(b)\n<|id|>40<|type|>title<|page|>5<|box|>659 140 676 805<|content|>SECTION 4 — REPRESENTATIONS AND WARRANTIES OF THE\n<|id|>49<|type|>title<|page|>7<|box|>89 140 106 684<|content|>SECTION 5 — CONDITIONS PRECEDENT TO EFFECTIVENESS\n<|id|>60<|type|>title<|page|>8<|box|>593 140 609 383<|content|>SECTION 6 — COVENANTS\n<|id|>66<|type|>title<|page|>9<|box|>549 140 565 426<|content|>SECTION 7 — REAFFIRMATION\n<|id|>70<|type|>title<|page|>10<|box|>204 140 220 545<|content|>SECTION 8 — MISCELLANEOUS PROVISIONS\n<|id|>94<|type|>title<|page|>12<|box|>160 408 176 588<|content|>SIGNATURE PAGES\n<|id|>95<|type|>title<|page|>12<|box|>186 187 222 810<|content|>CONSENT AND LIMITED WAIVER Under the Amended and R\n<|id|>97<|type|>title<|page|>12<|box|>292 142 309 263<|content|>BORROWER:\n<|id|>104<|type|>title<|page|>12<|box|>430 142 448 619<|content|>STANDISH NATIONAL BANK, N.A., as Administrative Ag\n<|id|>131<|type|>title<|page|>14<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>132<|type|>title<|page|>14<|box|>135 189 152 807<|content|>DESCRIPTION OF THE MASTER DATA LICENSE AGREEMENT (\n<|id|>134<|type|>title<|page|>14<|box|>262 143 277 225<|content|>1. Parties.\n<|id|>139<|type|>table<|page|>14<|box|>500 143 619 852<|content|>None\n<|id|>142<|type|>table<|page|>14<|box|>784 143 897 852<|content|>None\n<|id|>143<|type|>table<|page|>15<|box|>88 143 119 852<|content|>None\n<|id|>157<|type|>title<|page|>16<|box|>89 140 118 852<|content|>DRAFTING NOTES / INTERNAL ANNOTATIONS FOR CALDERWO\n<|id|>158<|type|>title<|page|>16<|box|>127 142 141 323<|content|>C&H Matter No. 1025-00008\n<|id|>162<|type|>title<|page|>16<|box|>378 142 393 604<|content|>4. Open Items to Finalize Before Submission to Sta",
+    "raw_response": "<|src_id|>139<|tgt_id|>134\n<|src_id|>142<|tgt_id|>134\n<|src_id|>143<|tgt_id|>134",
+    "parsed": [
+        {
+            "src_id": 139,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 134
+        }
+    ]
+}

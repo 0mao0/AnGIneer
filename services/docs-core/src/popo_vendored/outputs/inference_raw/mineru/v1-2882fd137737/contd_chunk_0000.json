@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        9,
+        10,
+        17,
+        32
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>181 109 227 887<|content|>Yingheng Wang<sup>∗</sup>yw2349@cornell. ... edu Department of Computer Science Cornell University\n<|id|>2<|page|>1<|box|>236 111 268 885<|content|>Zichen Wang<sup>†</sup>zichewan@amazon. ... com Amazon\n<|id|>3<|page|>1<|box|>279 111 311 885<|content|>Gil Sadehgilsadeh@amazon. ... com Amazon\n<|id|>4<|page|>1<|box|>321 111 353 885<|content|>Luca Zancatozancato@amazon. ... com Amazon\n<|id|>5<|page|>1<|box|>364 111 396 885<|content|>Alessandro Achilleaachille@amazon. ... com Amazon\n<|id|>6<|page|>1<|box|>406 111 438 885<|content|>George Karypisgkarypis@amazon. ... com Amazon\n<|id|>7<|page|>1<|box|>448 111 481 885<|content|>Huzefa Rangwala<sup>‡</sup>rhuzefa@amazon. ... com Amazon\n<|id|>13<|page|>2<|box|>542 111 753 434<|content|>In this work, we explore alternative archi- tectur...lity of pLMs. ... Such long-context and length ex-\n<|id|>15<|page|>2<|box|>753 111 862 887<|content|>trapolation properties facilitate and improve stru...ions can be summarized into three folds as follows\n<|id|>38<|page|>5<|box|>166 111 243 885<|content|>The main benefit of discretized SSMs (Gu et al. .....HIPPO Matrix to the initialization of\\mathbf { A }\n<|id|>39<|page|>5<|box|>256 109 378 885<|content|>Selection Mechanism and Mamba The main limitation ...and\\Deltaon the inputx _ { t }can be formulated as\n<|id|>74<|page|>9<|box|>744 109 852 885<|content|>For the training set, we down-sample 1. ... We compare our 740M LC-PLM (with BiMamba or BiMamba-S)\n<|id|>75<|page|>10<|box|>104 109 210 885<|content|>against 650M ESM-2, all pretrained on 100B tokens ...important feature for protein structure prediction\n<|id|>77<|page|>10<|box|>256 111 542 395<|content|>To evaluate if LC-PLM-G encodes graph relational i...an der Maaten & Hinton, 2008) to reduce the dimen-\n<|id|>78<|page|>10<|box|>542 111 619 885<|content|>sionality of both sets of protein embeddings obtai... topological information in PPI graphs as expected\n<|id|>167<|page|>17<|box|>104 112 133 883<|content|>Roshan Rao, Jason Liu, Robert Verkuil, Joshua Meie... Tom Sercu, and Alexander Rives. ... bioRxiv, 2021\n<|id|>168<|page|>17<|box|>143 114 193 885<|content|>Alexander Rives, Siddharth Goyal, Joshua Meier, De... of Sciences of the United States of America, 2019\n<|id|>318<|page|>32<|box|>751 200 768 705<|content|>h. ... ( B , S , E ) \\mathbf { Y } _ { * , l - 1 }... } ( \\mathbf { Z } _ { * , l - 1 } ) } \\end{array}\n<|id|>320<|page|>32<|box|>796 112 811 486<|content|>Key Operations Norm Normalization operation\n<|id|>319<|page|>32<|box|>771 169 787 751<|content|>4. ... ( B , S , D ) \\mathrm { L i n e a r } ^ { T...l - 1 } ^ { \\prime } ) + \\mathbf { T } _ { l - 1 }\n<|id|>321<|page|>32<|box|>814 169 828 397<|content|>Linear Linear transformation\n<|id|>322<|page|>32<|box|>830 171 845 362<|content|>Conv1d 1D Convolution\n<|id|>323<|page|>32<|box|>847 169 862 511<|content|>SiLU Sigmoid Linear Unit activation function\n<|id|>324<|page|>32<|box|>864 169 878 359<|content|>SSM State Space Model\n<|id|>325<|page|>32<|box|>881 171 897 397<|content|>⊗ Element-wise multiplication\n<|id|>326<|page|>32<|box|>898 171 914 398<|content|>⊙ Element-wise multiplication",
+    "raw_response": "",
+    "parsed": []
+}

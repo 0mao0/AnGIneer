@@ -1,0 +1,65 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>3<|page|>1<|box|>185 140 203 647<|content|>VIA ELECTRONIC SUBMISSION AND OVERNIGHT COURIER\n<|id|>11<|page|>2<|box|>89 140 106 470<|content|>I. SCOPE OF COMPLIANCE EFFORTS\n<|id|>12<|page|>2<|box|>121 140 138 359<|content|>A. Custodian Identification\n<|id|>17<|page|>2<|box|>710 140 728 333<|content|>B. Document Collection\n<|id|>21<|page|>3<|box|>311 140 329 434<|content|>C. Document Review and Production\n<|id|>25<|page|>3<|box|>766 140 782 397<|content|>D. Structured Data Submissions\n<|id|>35<|page|>4<|box|>643 140 661 274<|content|>E. Privilege Log\n<|id|>43<|page|>5<|box|>321 140 339 725<|content|>II. SPECIFICATION-BY-SPECIFICATION COMPLIANCE SUMM\n<|id|>52<|page|>6<|box|>376 140 393 566<|content|>III. COORDINATION WITH TARGET'S COUNSEL\n<|id|>56<|page|>6<|box|>768 140 787 714<|content|>IV. RESERVATION OF RIGHTS AND CONTINUING OBLIGATIO\n<|id|>60<|page|>7<|box|>303 140 320 607<|content|>V. CERTIFICATION OF SUBSTANTIAL COMPLIANCE\n<|id|>65<|page|>7<|box|>597 140 613 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>72<|page|>7<|box|>768 158 804 836<|content|>DECLARATION OF HOWARD BELLAMY IN SUPPORT OF CERTIF\n<|id|>73<|page|>7<|box|>814 408 830 589<|content|>FTC File No. 231-0487\n<|id|>74<|page|>7<|box|>840 217 857 777<|content|>Solara Digital Infrastructure Fund IV LP / Pinnacl",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>3<|level|>-1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>25<|level|>2\n<|id|>35<|level|>2\n<|id|>43<|level|>1\n<|id|>52<|level|>1\n<|id|>56<|level|>1\n<|id|>60<|level|>1\n<|id|>65<|level|>-1\n<|id|>72<|level|>1\n<|id|>73<|level|>-1\n<|id|>74<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        }
+    ]
+}

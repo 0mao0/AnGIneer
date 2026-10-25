@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>42 113 222 880<|content|>PLR Exhibit A — Organizational Charts (Pre-Reorgan\n<|id|>6<|page|>2<|box|>0 90 168 902<|content|>Platform Overview — Six Parallel Fund Vehicles Acr\n<|id|>13<|page|>3<|box|>42 69 220 925<|content|>Investor Pools and Vehicle Routing Logic\n<|id|>14<|page|>3<|box|>250 55 451 908<|content|>• U.S. taxable investors invest through the Delawa\n<|id|>20<|page|>4<|box|>42 141 220 854<|content|>Fund IV Complex — Detailed Organizational Chart\n<|id|>27<|page|>5<|box|>42 138 222 856<|content|>Fund IV Complex — Portfolio Company Holdings\n<|id|>33<|page|>6<|box|>42 150 220 845<|content|>Fund V Complex — Detailed Organizational Chart\n<|id|>39<|page|>7<|box|>42 147 222 850<|content|>Fund V Complex — Portfolio Company Holdings\n<|id|>40<|page|>7<|box|>251 55 522 913<|content|>• Veridian Edge Computing Corp. — Delaware corp; e\n<|id|>45<|page|>8<|box|>0 91 172 901<|content|>Consolidated Pre-Reorganization Snapshot — Vehicle\n<|id|>46<|page|>8<|box|>192 373 257 627<|content|>Identifiers\n<|id|>54<|page|>9<|box|>0 90 174 906<|content|>Rationale for Change — Why the Current Structure I",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>20<|level|>2\n<|id|>27<|level|>2\n<|id|>33<|level|>2\n<|id|>39<|level|>2\n<|id|>40<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>2\n<|id|>54<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,137 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 202 137 795<|content|>ATTORNEY WORK PRODUCT — PRIVILEGED AND CONFIDENTIA\n<|id|>6<|page|>1<|box|>316 142 334 321<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>500 142 518 267<|content|>II. Background\n<|id|>17<|page|>2<|box|>531 140 549 406<|content|>A. The IPO Lock-Up Agreements\n<|id|>33<|page|>3<|box|>684 140 700 434<|content|>B. The Proposed Secondary Offering\n<|id|>41<|page|>4<|box|>546 140 561 348<|content|>C. Need for Early Release\n<|id|>45<|page|>5<|box|>186 140 204 395<|content|>III. Lock-Up Waiver Mechanics\n<|id|>46<|page|>5<|box|>217 140 234 341<|content|>A. Consent Requirement\n<|id|>55<|page|>6<|box|>294 142 311 297<|content|>B. Scope of Waiver\n<|id|>60<|page|>6<|box|>724 176 739 565<|content|>(iii) Effective date of the release: October 12, 2\n<|id|>62<|page|>7<|box|>90 140 107 464<|content|>C. Form of Waiver Request and Consent\n<|id|>70<|page|>7<|box|>657 140 674 558<|content|>IV. 14-Day Advance Notice Requirement and Waiver\n<|id|>71<|page|>7<|box|>689 140 705 333<|content|>A. The Notice Provision\n<|id|>75<|page|>8<|box|>250 142 267 475<|content|>B. Applicability to the Secondary Offering\n<|id|>79<|page|>8<|box|>757 140 773 436<|content|>C. Waiver of the Notice Requirement\n<|id|>86<|page|>9<|box|>637 140 655 385<|content|>V. SEC Disclosure Obligations\n<|id|>87<|page|>9<|box|>669 140 686 436<|content|>A. Prospectus Supplement Disclosure\n<|id|>98<|page|>10<|box|>643 140 659 367<|content|>B. Form 8-K Considerations\n<|id|>101<|page|>11<|box|>90 140 107 405<|content|>C. Regulation FD Considerations\n<|id|>105<|page|>11<|box|>489 140 506 352<|content|>D. Section 16 Implications\n<|id|>110<|page|>12<|box|>258 140 277 676<|content|>VI. New 90-Day Lock-Up Considerations for the Seco\n<|id|>113<|page|>12<|box|>527 142 545 256<|content|>B. Key Terms\n<|id|>120<|page|>13<|box|>273 140 292 475<|content|>C. Interaction with Original IPO Lock-Up\n<|id|>125<|page|>13<|box|>755 140 773 434<|content|>D. Form of New Lock-Up Agreement\n<|id|>131<|page|>14<|box|>402 140 420 524<|content|>VII. Procedural Recommendations and Timeline\n<|id|>132<|page|>14<|box|>434 140 450 537<|content|>A. Recommended Actions and Responsible Parties\n<|id|>141<|page|>15<|box|>232 140 250 269<|content|>B. Risk Factors\n<|id|>146<|page|>15<|box|>795 140 811 279<|content|>VIII. Conclusion",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>33<|level|>3\n<|id|>41<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>55<|level|>3\n<|id|>60<|level|>-1\n<|id|>62<|level|>3\n<|id|>70<|level|>2\n<|id|>71<|level|>3\n<|id|>75<|level|>3\n<|id|>79<|level|>3\n<|id|>86<|level|>2\n<|id|>87<|level|>3\n<|id|>98<|level|>3\n<|id|>101<|level|>3\n<|id|>105<|level|>3\n<|id|>110<|level|>2\n<|id|>113<|level|>3\n<|id|>120<|level|>3\n<|id|>125<|level|>3\n<|id|>131<|level|>2\n<|id|>132<|level|>3\n<|id|>141<|level|>3\n<|id|>146<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        }
+    ]
+}

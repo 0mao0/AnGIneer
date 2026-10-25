@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Limitation 1[b]: \"wherein the plurality of input waveguides are configured to receive optical signals at a plurality of distinct wavelengths, each input waveguide carrying an optical signal at a different one of the plurality of distinct wavelengths;\"', \"Accused Element: Each AWG multiplexer in the 800G-DR8 has four input waveguides, each carrying a signal at a distinct wavelength. The Lumicore product datasheet (LC-00005100 at p. 4) specifies eight wavelength channels; these are divided between the two multiplexers (four channels per multiplexer), with each input waveguide dedicated to a single wavelength. Benchmark teardown (Exhibit OWS-2001 at pp. 37–38) confirms four input waveguides per multiplexer. Dr. Ashford's Explanation: This limitation is met for the same reasons as described for the 400G-ZR+ in Section\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', \"II.C above, with the additional observation that the 800G-DR8's two-multiplexer architecture divides the eight total wavelength channels into two groups of four, each group processed by a separate AWG multiplexer with four wavelength-dedicated input waveguides.\"]]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 80,
+    "table2_idx": 81
+}

@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>219 168 255 828<|content|>Delivered in connection with that certain Power Pu...nd Meridian DataCore Solutions Inc. ... , as Buyer\n<|id|>3<|page|>1<|box|>289 140 362 857<|content|>The undersigned, [●], in his/her capacity as the [...the date first set forth above, in connection with\n<|id|>6<|page|>1<|box|>531 174 604 856<|content|>(c) That certain Consent to Collateral Assignment ... Company, Meridian DataCore Solutions Inc. ... and\n<|id|>8<|page|>1<|box|>656 140 712 854<|content|>The PPA, the Buyer Guaranty, and the Lender Consen... in the PPA, unless the context requires otherwise\n<|id|>11<|page|>1<|box|>804 140 896 857<|content|>The Company is a limited liability company duly or...any's registered agent in the State of Delaware is\n<|id|>12<|page|>2<|box|>90 140 127 854<|content|>Capitol Registered Agents LLC, 850 New Burton Road...office in the State of Delaware is at such address\n<|id|>22<|page|>2<|box|>837 174 909 856<|content|>(i) The execution, delivery, and performance by th...hedules thereto — specifically Exhibit A (Facility\n<|id|>23<|page|>3<|box|>89 174 162 854<|content|>Description and Site), Exhibit B (Contract Price a...er Consent Agreement), each as attached to the PPA\n<|id|>27<|page|>3<|box|>431 174 486 854<|content|>(v) The authorization of certain officers and repr...s, and agreements in connection therewith; ... and\n<|id|>29<|page|>3<|box|>556 140 630 854<|content|>The Resolutions have not been amended, modified, s...he Resolutions or the authority granted thereunder\n<|id|>39<|page|>4<|box|>500 174 592 854<|content|>(iii) result in a breach of, constitute a default ...y of its properties or assets may be bound; ... or\n<|id|>41<|page|>4<|box|>662 138 790 856<|content|>No consent, approval, authorization, order, regist...ated to be obtained or made in the ordinary course\n<|id|>50<|page|>5<|box|>597 140 614 818<|content|>CALLOWAY-BRIGGS RENEWABLES INC. ... , as sole Manager of Saguaro Flats Solar LLC\n<|id|>51<|page|>5<|box|>614 143 632 253<|content|>By: ... By\n<|id|>53<|page|>5<|box|>650 143 666 215<|content|>Title: ... [●]\n<|id|>54<|page|>5<|box|>667 143 683 261<|content|>Date: ... [●], 2025\n<|id|>55<|page|>5<|box|>684 174 719 852<|content|>Address of Manager: ... (713) 555-4200\n<|id|>56<|page|>5<|box|>728 176 744 478<|content|>Attention: ... Office of the General Counsel\n<|id|>64<|page|>7<|box|>198 405 215 591<|content|>Effective as of [●], 2025\n<|id|>65<|page|>7<|box|>229 140 339 854<|content|>Recitals. ... , a Delaware corporation (the \"Manag...ce with the Delaware Limited Liability Company Act\n<|id|>70<|page|>7<|box|>758 140 849 854<|content|>WHEREAS, the Manager has reviewed and considered t...t interests of the Company and its member; ... and\n<|id|>71<|page|>7<|box|>858 140 893 854<|content|>WHEREAS, the Manager desires to adopt resolutions ...ing the foregoing transactions and related matters\n<|id|>80<|page|>8<|box|>574 174 648 857<|content|>(f) Governing Law and Dispute Resolution: ... and\n<|id|>82<|page|>8<|box|>736 140 791 854<|content|>The Manager has reviewed the form of the PPA, toge...asonable, and in the best interests of the Company\n<|id|>84<|page|>8<|box|>827 140 900 856<|content|>RESOLVED, that the Manager hereby authorizes and a...c. ... (with principal offices at 600 Main Street,\n<|id|>85<|page|>9<|box|>89 140 145 854<|content|>Suite 3000, Dallas, Texas 75202), as Administrativ...oan facility for the Project (the \"Loan Facility\")\n<|id|>114<|page|>11<|box|>483 142 500 215<|content|>Title: ... [●]\n<|id|>115<|page|>11<|box|>500 142 517 261<|content|>Date: ... [●], 2025\n<|id|>116<|page|>11<|box|>518 142 532 214<|content|>Address: ... Address\n<|id|>129<|page|>12<|box|>838 143 854 215<|content|>Title: ... [●]\n<|id|>130<|page|>12<|box|>854 143 871 259<|content|>Date: ... [●], 2025\n<|id|>131<|page|>12<|box|>872 143 886 277<|content|>Document Metadata\n<|id|>132<|page|>13<|box|>89 140 119 854<|content|>Prepared by: ... (713) 555-8800\n<|id|>133<|page|>13<|box|>127 140 141 472<|content|>Calderwood & Harkness LLP Matter No. ... 1015-00002\n<|id|>134<|page|>13<|box|>148 140 180 854<|content|>This is a form document. ... September 15, 2025",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>22<|tgt_id|>23\n<|src_id|>84<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        }
+    ]
+}

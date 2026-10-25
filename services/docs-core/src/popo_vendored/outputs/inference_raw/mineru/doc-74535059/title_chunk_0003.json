@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        145,
+        156
+    ],
+    "pages": [
+        146,
+        150,
+        156
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1757<|page|>146<|box|>125 131 143 517<|content|>B.2.17 拆迁电信、电力及管线调查记录簿\n<|id|>1760<|page|>146<|box|>470 131 487 416<|content|>B.2.18 砍树、挖根调查记录簿\n<|id|>1766<|page|>150<|box|>124 142 141 334<|content|>B.2.22 取样记录簿\n<|id|>1768<|page|>150<|box|>412 142 428 495<|content|>B.2.23 工程材料市场供应调查记录簿\n<|id|>1779<|page|>156<|box|>189 115 214 450<|content|>附录 C 本细则用词说明",
+    "raw_response": "<|id|>1757<|level|>3\n<|id|>1760<|level|>3\n<|id|>1766<|level|>3\n<|id|>1768<|level|>3\n<|id|>1779<|level|>1",
+    "parsed": [
+        {
+            "id": 1757,
+            "level": 3
+        },
+        {
+            "id": 1760,
+            "level": 3
+        },
+        {
+            "id": 1766,
+            "level": 3
+        },
+        {
+            "id": 1768,
+            "level": 3
+        },
+        {
+            "id": 1779,
+            "level": 1
+        }
+    ]
+}

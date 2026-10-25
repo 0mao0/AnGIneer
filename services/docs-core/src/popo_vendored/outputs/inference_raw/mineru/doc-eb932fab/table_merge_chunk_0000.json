@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Personal email forwarding (340 emails to galdrich.private@Northgate Software.com, July 2021 – September 2022)', '\"Convenience — I worked from home frequently and needed access to AMA materials on my personal devices. This was a common practice among AMA executives.\"', \"Did AMA provide VPN and remote access capabilities? (Yes.) Was personal email necessary to perform your job functions? (No.) Who else at AMA, specifically, used personal email to forward proprietary show concepts, revenue models, or talent deal terms? (Expected: unable to identify anyone.) Did you inform AMA's IT department that you were using personal email for business\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'purposes? Did you inform your supervisor, Jonathan Mercer? Did you inform HR or Legal?']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 111,
+    "table2_idx": 112
+}

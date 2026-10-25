@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>2<|page|>1<|box|>162 325 179 671<|content|>Internal Cover Sheet — Closing Deliverable\n<|id|>9<|page|>1<|box|>362 142 378 199<|content|>Notes:\n<|id|>18<|page|>2<|box|>90 285 109 710<|content|>CERTIFICATE OF LEGAL EXISTENCE\n<|id|>19<|page|>2<|box|>128 297 147 700<|content|>[Official Seal of the Commonwealth of Massachusett\n<|id|>25<|page|>2<|box|>387 359 404 635<|content|>MERIDIAN DIAGNOSTICS, INC.\n<|id|>32<|page|>3<|box|>109 140 161 852<|content|>Patricia M. Harrington Deputy Secretary, Corporati\n<|id|>37<|page|>4<|box|>90 223 109 772<|content|>APPENDIX: ENTITY REFERENCE INFORMATION\n<|id|>41<|page|>4<|box|>566 142 584 419<|content|>Closing Condition Cross-Reference\n<|id|>46<|page|>5<|box|>90 142 107 307<|content|>Filing and Retention",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>9<|level|>2\n<|id|>18<|level|>1\n<|id|>19<|level|>-1\n<|id|>25<|level|>2\n<|id|>32<|level|>-1\n<|id|>37<|level|>1\n<|id|>41<|level|>2\n<|id|>46<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        }
+    ]
+}

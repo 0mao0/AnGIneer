@@ -1,0 +1,57 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        47
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        11,
+        12,
+        21,
+        30,
+        38,
+        46
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>190 382 211 634<|content|>DECEMBER 1967\n<|id|>3<|page|>1<|box|>864 141 890 815<|content|>UNITED STATES TREASURY DEPARTMENT\n<|id|>4<|page|>1<|box|>898 337 917 615<|content|>OFFICE OF THE SECRETARY\n<|id|>5<|page|>2<|box|>432 248 505 748<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents, U. ... Single copy price varies\n<|id|>12<|page|>4<|box|>682 78 892 487<|content|>Receipts of taxes and customs duties are reported ...statement provides the fiscal year figures for the\n<|id|>13<|page|>4<|box|>127 510 188 919<|content|>Treasury's \"Combined Statement of Receipts, Expend...the \"Budget of the United States Government. ... \"\n<|id|>19<|page|>5<|box|>239 84 303 490<|content|>Receipts were on the basis of deposits as they cle... 1946 they were on the basis of checks paid by the\n<|id|>20<|page|>5<|box|>127 513 303 922<|content|>Treasurer of the United States. ... Interest on th...1949 and on a checks-paid basis prior to that time\n<|id|>27<|page|>6<|box|>462 90 476 257<|content|>13-Week and 26-Week Bills\n<|id|>28<|page|>6<|box|>484 88 577 490<|content|>Issues of regular weekly Treasury bills in Novembe...or the new issues are shown in the following table\n<|id|>31<|page|>6<|box|>174 510 187 676<|content|>Treasury Bills - General\n<|id|>32<|page|>6<|box|>195 509 287 911<|content|>Treasury bills are sold on a bid basis. ... Tenders are received at Federal Reserve banks and branches\n<|id|>54<|page|>11<|box|>782 82 829 471<|content|>Source: ... Agency shifts are shown in this table beginning with the period\n<|id|>55<|page|>11<|box|>781 518 827 903<|content|>of such shifts; ... Footnotes on following page\n<|id|>63<|page|>12<|box|>791 85 844 471<|content|>4/ Transportation Department was established pursuant to P. ... Figures prior to\n<|id|>64<|page|>12<|box|>689 526 707 896<|content|>July 1966 are expenditures for the Federal Aviation Agency only. ... 5/ Reported on an accrual basis\n<|id|>108<|page|>21<|box|>839 81 851 481<|content|>3/ Federal intermediate credit banks were classified as trust enterprise\n<|id|>109<|page|>21<|box|>841 497 851 618<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>139<|page|>30<|box|>560 80 625 477<|content|>Source: ... (This data is on the basis of Reports on Obligations\n<|id|>140<|page|>30<|box|>561 526 590 877<|content|>received from the agencies prior to reports submit...ay differ somewhat from the Budget document. ... )\n<|id|>174<|page|>38<|box|>652 75 740 474<|content|>Note: ... The average annual interest rate is computed by dividing the computed annual\n<|id|>175<|page|>38<|box|>644 524 687 903<|content|>interest charge for the total, or for any group of...ate it was based on the coupon rate for all issues\n<|id|>209<|page|>46<|box|>186 508 197 893<|content|>16/ Except \\$500,000 at 96. ... 226,\n<|id|>210<|page|>46<|box|>195 509 204 783<|content|>\\$500,000 at 96. ... 187\n<|id|>211<|page|>46<|box|>204 508 212 880<|content|>17/ Except \\$81,000 at 98. ... 120,\n<|id|>212<|page|>46<|box|>212 510 222 761<|content|>\\$21,000 at 98. ... 777",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>19<|tgt_id|>20\n<|src_id|>54<|tgt_id|>55\n<|src_id|>63<|tgt_id|>64\n<|src_id|>139<|tgt_id|>140\n<|src_id|>174<|tgt_id|>175\n<|src_id|>209<|tgt_id|>210\n<|src_id|>211<|tgt_id|>212",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 210
+        },
+        {
+            "src_id": 211,
+            "tgt_id": 212
+        }
+    ]
+}

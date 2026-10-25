@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Types of Personal Data', \"Names (including aliases and former names); mailing, residential, and business addresses; dates of birth; government-issued identification numbers (SSN, ITIN, EIN, passport numbers, driver's license numbers); account numbers and account information; transaction records (including amounts, dates, descriptions, originator/beneficiary details); financial data (including balances and income); AML/BSA screening data (including watch list, sanctions, PEP, and adverse media screening results); customer risk ratings and scores;\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'model outputs (including transaction risk scores and behavioral analytics results); alert and case management data (including investigation notes and case dispositions); and SAR-related data']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 210,
+    "table2_idx": 211
+}

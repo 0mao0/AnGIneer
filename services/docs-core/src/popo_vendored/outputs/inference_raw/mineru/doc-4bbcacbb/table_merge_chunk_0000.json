@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Class A ordinary shares, par value $0.0001 per share, to be redesignated as shares of common stock of Skybridge Fintech Holdings, Inc. (shares issuable to Skybridge', '45,000,000', '$10.00(1)', '$450,000,000(1)', '$52,335.00(2)']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['shareholders)', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 24,
+    "table2_idx": 25
+}

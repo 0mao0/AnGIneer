@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 119 854<|content|>DRAFT — NOT FOR FILING — PRIVILEGED AND CONFIDENTI\n<|id|>8<|page|>1<|box|>460 140 477 364<|content|>I. Introduction and Purpose\n<|id|>12<|page|>2<|box|>148 140 167 454<|content|>II. Background and Procedural History\n<|id|>13<|page|>2<|box|>180 142 198 450<|content|>A. The Application and Related Filings\n<|id|>19<|page|>3<|box|>157 140 175 545<|content|>B. Acceptance, Public Notice, and Comment Period\n<|id|>23<|page|>3<|box|>612 140 628 488<|content|>C. WTB Information Request and Response\n<|id|>32<|page|>4<|box|>398 140 416 366<|content|>D. National Security Review\n<|id|>35<|page|>4<|box|>643 140 660 287<|content|>E. Current Status\n<|id|>38<|page|>5<|box|>90 140 107 464<|content|>III. Status of the Underlying Transaction\n<|id|>39<|page|>5<|box|>122 140 138 379<|content|>A. Asset Purchase Agreement\n<|id|>44<|page|>5<|box|>508 140 527 441<|content|>B. Commercial Dispute and Standstill\n<|id|>49<|page|>6<|box|>194 140 212 450<|content|>C. Good Faith and Continuing Interest\n<|id|>54<|page|>6<|box|>628 140 647 580<|content|>IV. Request to Maintain Application on Pending Doc\n<|id|>55<|page|>6<|box|>660 142 678 292<|content|>A. Legal Standard\n<|id|>58<|page|>7<|box|>231 140 248 346<|content|>B. Grounds for Extension\n<|id|>66<|page|>8<|box|>89 140 107 316<|content|>C. Proposed Timeline\n<|id|>72<|page|>8<|box|>496 140 513 455<|content|>V. Buildout Compliance Considerations\n<|id|>76<|page|>9<|box|>90 140 107 397<|content|>VI. Commitment to Supplement\n<|id|>83<|page|>9<|box|>469 140 487 272<|content|>VII. Conclusion\n<|id|>92<|page|>10<|box|>133 143 148 400<|content|>BROADFIELD WHITAKER LLP\n<|id|>101<|page|>10<|box|>304 196 321 800<|content|>CERTIFICATE OF SERVICE [DRAFT — TO BE FINALIZED UP\n<|id|>107<|page|>10<|box|>544 178 579 816<|content|>INTERNAL ANNOTATIONS — DRAFT NOTES TO BE REMOVED I\n<|id|>115<|page|>11<|box|>157 143 171 269<|content|>BILLING NOTES:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>23<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>1\n<|id|>39<|level|>2\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>58<|level|>2\n<|id|>66<|level|>2\n<|id|>72<|level|>1\n<|id|>76<|level|>1\n<|id|>83<|level|>1\n<|id|>92<|level|>-1\n<|id|>101<|level|>1\n<|id|>107<|level|>1\n<|id|>115<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        }
+    ]
+}

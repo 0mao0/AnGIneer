@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>340 140 359 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>11<|type|>title<|page|>1<|box|>808 140 825 375<|content|>2. Background of the Dispute\n<|id|>13<|type|>title<|page|>2<|box|>90 140 107 462<|content|>2.1 Farris's Employment and Separation\n<|id|>24<|type|>title<|page|>3<|box|>157 140 174 434<|content|>2.2 Farris's Post-Separation Conduct\n<|id|>44<|type|>title<|page|>4<|box|>599 140 617 367<|content|>2.3 Confirmed Client Losses\n<|id|>48<|type|>title<|page|>4<|box|>810 142 828 318<|content|>2.4 Opposing Counsel\n<|id|>50<|type|>title<|page|>5<|box|>90 140 107 390<|content|>3. Scope of Expert Engagement\n<|id|>51<|type|>title<|page|>5<|box|>121 140 138 287<|content|>3.1 General Scope\n<|id|>54<|type|>title<|page|>5<|box|>383 140 402 517<|content|>3.2 Specific Damages Categories to Be Analyzed\n<|id|>71<|type|>table<|page|>7<|box|>618 143 750 852<|content|>None\n<|id|>73<|type|>title<|page|>8<|box|>90 140 107 392<|content|>3.3 Additional Analytical Tasks\n<|id|>80<|type|>title<|page|>8<|box|>724 140 739 359<|content|>4. Materials to Be Provided\n<|id|>93<|type|>title<|page|>9<|box|>750 140 766 372<|content|>5. Compensation and Budget\n<|id|>95<|type|>table<|page|>9<|box|>816 143 905 852<|content|>None\n<|id|>96<|type|>table<|page|>10<|box|>88 143 137 852<|content|>None\n<|id|>103<|type|>title<|page|>10<|box|>585 140 603 377<|content|>6. Confidentiality Obligations\n<|id|>108<|type|>title<|page|>11<|box|>321 140 339 400<|content|>7. Independence and Objectivity\n<|id|>112<|type|>title<|page|>11<|box|>789 140 805 369<|content|>8. Deliverables and Timeline\n<|id|>120<|type|>title<|page|>12<|box|>491 140 508 264<|content|>9. Termination\n<|id|>123<|type|>title<|page|>12<|box|>712 142 729 354<|content|>10. Conflicts Confirmation\n<|id|>125<|type|>title<|page|>13<|box|>90 140 107 437<|content|>11. Acceptance and Countersignature\n<|id|>135<|type|>title<|page|>13<|box|>452 142 465 171<|content|>cc:\n<|id|>137<|type|>title<|page|>13<|box|>537 313 554 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE",
+    "raw_response": "<|src_id|>71<|tgt_id|>54\n<|src_id|>95<|tgt_id|>93\n<|src_id|>96<|tgt_id|>93",
+    "parsed": [
+        {
+            "src_id": 71,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 93
+        }
+    ]
+}

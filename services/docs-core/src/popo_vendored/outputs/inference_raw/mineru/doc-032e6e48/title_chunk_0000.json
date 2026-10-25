@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        40
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        14,
+        15,
+        16,
+        17,
+        19,
+        21,
+        29,
+        34,
+        37,
+        39,
+        40
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>331 128 394 863<|content|>远海区域水运工程船舶机械艘（台）班费用定额\n<|id|>3<|page|>2<|box|>181 394 210 604<|content|>中华人民共和国行业标准\n<|id|>4<|page|>2<|box|>242 207 284 789<|content|>远海区域水运工程船舶机械艘(台)班费用定额\n<|id|>12<|page|>3<|box|>196 256 282 749<|content|>交通运输部关于发布《远海区域水运建设工程概算预算编制规定》及其配套定额的公告\n<|id|>19<|page|>4<|box|>191 440 230 568<|content|>制定说明\n<|id|>24<|page|>5<|box|>188 454 228 557<|content|>目次\n<|id|>26<|page|>6<|box|>231 451 270 555<|content|>说明\n<|id|>62<|page|>14<|box|>112 459 137 558<|content|>三、起重船\n<|id|>64<|page|>15<|box|>115 459 139 545<|content|>四、锚 艇\n<|id|>66<|page|>16<|box|>114 465 139 549<|content|>五、其他\n<|id|>68<|page|>17<|box|>114 465 139 552<|content|>六、沿海\n<|id|>71<|page|>19<|box|>127 454 152 553<|content|>一、土石方机械\n<|id|>75<|page|>21<|box|>124 452 149 566<|content|>二、水平运输机械\n<|id|>87<|page|>29<|box|>119 415 144 593<|content|>五、混凝土、钢筋及木作机械\n<|id|>96<|page|>34<|box|>112 448 137 549<|content|>六、动力机械\n<|id|>102<|page|>37<|box|>124 466 149 552<|content|>七、其他\n<|id|>106<|page|>39<|box|>122 458 147 545<|content|>八、沿海\n<|id|>108<|page|>40<|box|>213 287 300 731<|content|>本定额主编单位、参编单位、主要起草人、主要审查人、总校人员和管理组人员名单",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>12<|level|>1\n<|id|>19<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>62<|level|>3\n<|id|>64<|level|>3\n<|id|>66<|level|>3\n<|id|>68<|level|>3\n<|id|>71<|level|>3\n<|id|>75<|level|>3\n<|id|>87<|level|>3\n<|id|>96<|level|>3\n<|id|>102<|level|>3\n<|id|>106<|level|>3\n<|id|>108<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 1
+        }
+    ]
+}

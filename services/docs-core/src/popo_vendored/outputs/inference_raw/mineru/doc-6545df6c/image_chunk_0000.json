@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|type|>title<|page|>1<|box|>114 155 151 844<|content|>125 Broad Street New York, NY 10004 Telephone: (21\n<|id|>4<|type|>title<|page|>1<|box|>212 142 229 496<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>7<|type|>title<|page|>1<|box|>306 143 324 225<|content|>Copies to:\n<|id|>18<|type|>title<|page|>1<|box|>609 143 625 743<|content|>Re: Transparenzregister Filing Confirmation — Iron\n<|id|>26<|type|>title<|page|>2<|box|>267 142 284 364<|content|>1. Purpose and Background\n<|id|>32<|type|>title<|page|>3<|box|>229 140 248 294<|content|>2. Filing Summary\n<|id|>33<|type|>title<|page|>3<|box|>261 140 279 282<|content|>2.1 Date of Filing\n<|id|>36<|type|>title<|page|>3<|box|>506 140 523 267<|content|>2.2 Entity Filed\n<|id|>37<|type|>table<|page|>3<|box|>554 143 755 852<|content|>None\n<|id|>38<|type|>title<|page|>3<|box|>795 140 811 483<|content|>2.3 Beneficial Ownership Information Filed\n<|id|>41<|type|>title<|page|>4<|box|>132 140 148 771<|content|>Level 1 — Direct Shareholder (*Gesellschafter*) of\n<|id|>43<|type|>title<|page|>4<|box|>257 142 273 591<|content|>Level 2 — Sole Member of Ironhaven Data Centers LL\n<|id|>45<|type|>title<|page|>4<|box|>382 142 398 637<|content|>Level 3 — Controlling Shareholder of Ironhaven Hol\n<|id|>47<|type|>title<|page|>4<|box|>544 140 561 635<|content|>Level 4 — General Partner of Thornfield Capital Pa\n<|id|>50<|type|>table<|page|>4<|box|>784 143 896 852<|content|>None\n<|id|>51<|type|>table<|page|>5<|box|>89 143 354 851<|content|>None\n<|id|>53<|type|>table<|page|>5<|box|>604 143 797 851<|content|>None\n<|id|>55<|type|>title<|page|>6<|box|>90 140 107 509<|content|>2.4 Filing Method and Confirmation Reference\n<|id|>59<|type|>title<|page|>6<|box|>292 176 310 372<|content|>TR-2024-FRA-00283741\n<|id|>61<|type|>title<|page|>6<|box|>415 140 433 429<|content|>3. Legal Basis and GwG Compliance\n<|id|>62<|type|>title<|page|>6<|box|>446 140 464 403<|content|>3.1 Applicable Legal Framework\n<|id|>68<|type|>title<|page|>7<|box|>422 140 439 565<|content|>3.2 EU Anti-Money Laundering Directive Compliance\n<|id|>70<|type|>title<|page|>7<|box|>659 140 676 480<|content|>3.3 Distinction from Handelsregister Filing\n<|id|>72<|type|>title<|page|>8<|box|>90 140 107 437<|content|>4. Relevance to the Credit Agreement\n<|id|>73<|type|>title<|page|>8<|box|>121 140 138 336<|content|>4.1 Condition Precedent\n<|id|>75<|type|>title<|page|>8<|box|>285 140 301 616<|content|>4.2 Relevance to the EUR Sub-Tranche and NordBrück\n<|id|>84<|type|>title<|page|>9<|box|>585 140 603 328<|content|>5. Ongoing Obligations\n<|id|>85<|type|>title<|page|>9<|box|>616 140 633 424<|content|>5.1 Statutory Reporting Obligations\n<|id|>87<|type|>title<|page|>9<|box|>799 140 816 419<|content|>5.2 Change of Control Implications\n<|id|>91<|type|>title<|page|>10<|box|>367 140 383 503<|content|>5.3 Recommendation for Ongoing Monitoring\n<|id|>97<|type|>title<|page|>10<|box|>791 140 808 266<|content|>6. Attachments\n<|id|>103<|type|>title<|page|>11<|box|>402 142 419 354<|content|>7. Reliance and Disclaimer\n<|id|>109<|type|>title<|page|>12<|box|>178 140 194 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>120<|type|>title<|page|>12<|box|>368 142 382 233<|content|>Distribution:",
+    "raw_response": "<|src_id|>37<|tgt_id|>36\n<|src_id|>50<|tgt_id|>47\n<|src_id|>51<|tgt_id|>47\n<|src_id|>53<|tgt_id|>47",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 47
+        }
+    ]
+}

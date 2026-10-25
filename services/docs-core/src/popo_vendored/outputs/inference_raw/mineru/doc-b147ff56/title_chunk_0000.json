@@ -1,0 +1,108 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 104 764<|content|>CONFIDENTIAL — SUBJECT TO FED. R. EVID. 408 — SETT\n<|id|>1<|page|>1<|box|>112 253 128 854<|content|>DRAFT — DATE TO BE INSERTED UPON AUTHORIZATION TO\n<|id|>2<|page|>1<|box|>138 160 172 836<|content|>CALDERWOOD & HARKNESS LLP 350 South Grand Avenue,\n<|id|>3<|page|>1<|box|>181 140 199 357<|content|>VIA EMAIL AND FEDEX\n<|id|>7<|page|>1<|box|>340 142 357 228<|content|>Dear Kate:\n<|id|>11<|page|>1<|box|>699 142 715 447<|content|>I. Background and Posture of the Case\n<|id|>12<|page|>1<|box|>729 142 746 338<|content|>A. Nature of the Dispute\n<|id|>16<|page|>2<|box|>349 140 364 308<|content|>B. Accused Products\n<|id|>20<|page|>2<|box|>691 140 709 377<|content|>C. Pre-Suit Licensing History\n<|id|>25<|page|>3<|box|>338 142 354 377<|content|>D. Current Procedural Status\n<|id|>40<|page|>4<|box|>262 140 279 352<|content|>II. Proposal for Mediation\n<|id|>41<|page|>4<|box|>292 140 310 460<|content|>A. Rationale for Mediation at This Stage\n<|id|>49<|page|>5<|box|>257 142 273 303<|content|>B. Proposed Timing\n<|id|>54<|page|>5<|box|>645 140 662 413<|content|>C. Proposed Format and Duration\n<|id|>61<|page|>6<|box|>366 140 383 334<|content|>III. Proposed Mediators\n<|id|>63<|page|>6<|box|>459 140 477 635<|content|>A. Retired Judge Harold K. Devereaux — JAMS, Dalla\n<|id|>66<|page|>6<|box|>723 140 739 689<|content|>B. Patricia Nolan-Ferris — ADR Services Internatio\n<|id|>68<|page|>7<|box|>138 140 157 694<|content|>C. Carl Weingarten — Judicial Arbitration Associat\n<|id|>70<|page|>7<|box|>321 140 339 415<|content|>D. Invitation for Lumicore's Input\n<|id|>73<|page|>7<|box|>503 140 521 326<|content|>IV. Costs and Logistics\n<|id|>77<|page|>8<|box|>90 140 107 346<|content|>V. Court's ADR Program\n<|id|>81<|page|>8<|box|>429 140 445 433<|content|>VI. OWS's Good-Faith Commitment\n<|id|>85<|page|>9<|box|>90 140 107 351<|content|>VII. Request for Response\n<|id|>91<|page|>9<|box|>398 140 415 357<|content|>VIII. Reservation of Rights\n<|id|>98<|page|>9<|box|>734 140 752 236<|content|>IX. Closing\n<|id|>102<|page|>10<|box|>89 143 104 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>107<|page|>10<|box|>179 143 191 171<|content|>cc:\n<|id|>111<|page|>10<|box|>316 269 332 727<|content|>— INTERNAL NOTATIONS — DO NOT TRANSMIT —\n<|id|>112<|page|>10<|box|>340 142 356 676<|content|>DRAFT — CONTINGENCY — NOT YET AUTHORIZED FOR TRANS",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>2<|level|>-1\n<|id|>3<|level|>-1\n<|id|>7<|level|>-1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>20<|level|>2\n<|id|>25<|level|>2\n<|id|>40<|level|>1\n<|id|>41<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>2\n<|id|>61<|level|>1\n<|id|>63<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>73<|level|>1\n<|id|>77<|level|>1\n<|id|>81<|level|>1\n<|id|>85<|level|>1\n<|id|>91<|level|>1\n<|id|>98<|level|>1\n<|id|>102<|level|>-1\n<|id|>107<|level|>-1\n<|id|>111<|level|>1\n<|id|>112<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>404 140 420 264<|content|>I. Introduction\n<|id|>15<|page|>2<|box|>329 140 347 630<|content|>II. Description of Potential Claims Implicating D&\n<|id|>16<|page|>2<|box|>359 140 395 852<|content|>A. Class Action — *Fuentes v. Aurelius Media Ameri\n<|id|>27<|page|>4<|box|>138 140 157 550<|content|>B. Executive Employment Dispute — Gavin Aldrich\n<|id|>40<|page|>5<|box|>583 140 599 344<|content|>III. Nature of This Notice\n<|id|>45<|page|>6<|box|>223 142 239 336<|content|>IV. Contact Information\n<|id|>53<|page|>6<|box|>500 140 515 338<|content|>V. Reservation of Rights\n<|id|>59<|page|>6<|box|>892 140 907 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>63<|page|>7<|box|>125 143 141 240<|content|>Enclosures:",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>27<|level|>2\n<|id|>40<|level|>1\n<|id|>45<|level|>1\n<|id|>53<|level|>1\n<|id|>59<|level|>-1\n<|id|>63<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        }
+    ]
+}

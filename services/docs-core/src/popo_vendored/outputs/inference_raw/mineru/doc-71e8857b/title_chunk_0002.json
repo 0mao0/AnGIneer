@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        109,
+        133
+    ],
+    "pages": [
+        110,
+        116,
+        130,
+        131,
+        132,
+        133
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>205<|page|>110<|box|>90 205 109 790<|content|>TAB 11 — MISCELLANEOUS AND ADMINISTRATIVE\n<|id|>216<|page|>116<|box|>717 142 734 604<|content|>11.3 Coordination Memoranda (Internal Reference Co\n<|id|>234<|page|>130<|box|>90 163 109 834<|content|>APPENDIX A — KEY DATES AND MILESTONES REFERENCE\n<|id|>237<|page|>131<|box|>90 251 109 746<|content|>APPENDIX B — CAPITAL STACK SUMMARY\n<|id|>239<|page|>131<|box|>371 143 388 264<|content|>Equity Details:\n<|id|>244<|page|>131<|box|>512 143 527 250<|content|>Debt Details:\n<|id|>252<|page|>131<|box|>675 143 691 313<|content|>Syndicate Allocation:\n<|id|>254<|page|>132<|box|>90 240 109 758<|content|>APPENDIX C — PROJECT BUDGET SUMMARY\n<|id|>256<|page|>132<|box|>710 143 727 250<|content|>Key Metrics:\n<|id|>265<|page|>133<|box|>90 310 107 687<|content|>End of Closing Binder Index and Table of Contents",
+    "raw_response": "<|id|>205<|level|>1\n<|id|>216<|level|>2\n<|id|>234<|level|>1\n<|id|>237<|level|>1\n<|id|>239<|level|>2\n<|id|>244<|level|>2\n<|id|>252<|level|>2\n<|id|>254<|level|>1\n<|id|>256<|level|>2\n<|id|>265<|level|>1",
+    "parsed": [
+        {
+            "id": 205,
+            "level": 1
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 234,
+            "level": 1
+        },
+        {
+            "id": 237,
+            "level": 1
+        },
+        {
+            "id": 239,
+            "level": 2
+        },
+        {
+            "id": 244,
+            "level": 2
+        },
+        {
+            "id": 252,
+            "level": 2
+        },
+        {
+            "id": 254,
+            "level": 1
+        },
+        {
+            "id": 256,
+            "level": 2
+        },
+        {
+            "id": 265,
+            "level": 1
+        }
+    ]
+}

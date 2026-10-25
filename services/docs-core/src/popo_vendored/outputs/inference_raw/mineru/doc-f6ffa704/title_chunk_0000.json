@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 284 125 712<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>2<|page|>1<|box|>481 174 501 821<|content|>NOTICE OF DEPOSITION OF PLAINTIFF GAVIN ALDRICH\n<|id|>12<|page|>2<|box|>260 183 280 813<|content|>MATTERS UPON WHICH EXAMINATION IS REQUESTED\n<|id|>14<|page|>2<|box|>412 140 429 651<|content|>Topic 1: Employment History with Aurelius Media Am\n<|id|>23<|page|>3<|box|>311 140 329 452<|content|>Topic 2: Circumstances of Termination\n<|id|>34<|page|>4<|box|>375 140 391 611<|content|>Topic 3: Confidential Information and Email Transm\n<|id|>44<|page|>5<|box|>411 140 428 779<|content|>Topic 4: Relationship with Halcyon Creek Productio\n<|id|>57<|page|>6<|box|>645 140 662 491<|content|>Topic 5: AMA's Data Loss Prevention Audit\n<|id|>63<|page|>7<|box|>267 140 284 679<|content|>Topic 6: Employment Agreement — Restrictive Covena\n<|id|>78<|page|>8<|box|>523 140 542 575<|content|>Topic 7: Post-Termination Employment and Mitigatio\n<|id|>86<|page|>9<|box|>167 142 185 287<|content|>Topic 8: Damages\n<|id|>102<|page|>10<|box|>311 140 329 594<|content|>Topic 9: Communications with Counsel and Third Par\n<|id|>107<|page|>10<|box|>657 140 674 377<|content|>Topic 10: AMA Cross-Claims\n<|id|>118<|page|>11<|box|>601 191 621 805<|content|>REQUEST TO PRODUCE DOCUMENTS AT DEPOSITION\n<|id|>129<|page|>12<|box|>738 367 757 630<|content|>COMPLIANCE NOTICE\n<|id|>135<|page|>13<|box|>301 140 316 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>140<|page|>13<|box|>410 383 429 614<|content|>PROOF OF SERVICE\n<|id|>141<|page|>13<|box|>446 406 464 591<|content|>PROOF OF SERVICE\n<|id|>142<|page|>13<|box|>473 140 489 604<|content|>STATE OF CALIFORNIA, COUNTY OF LOS ANGELES\n<|id|>148<|page|>13<|box|>813 143 829 271<|content|>Persons Served:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>23<|level|>2\n<|id|>34<|level|>2\n<|id|>44<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>78<|level|>2\n<|id|>86<|level|>2\n<|id|>102<|level|>2\n<|id|>107<|level|>2\n<|id|>118<|level|>1\n<|id|>129<|level|>1\n<|id|>135<|level|>-1\n<|id|>140<|level|>1\n<|id|>141<|level|>1\n<|id|>142<|level|>1\n<|id|>148<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 2
+        }
+    ]
+}

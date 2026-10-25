@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        112,
+        120
+    ],
+    "pages": [
+        113,
+        116,
+        120
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>580<|page|>113<|box|>845 81 875 493<|content|>This statement shows the net costs of Government o...iscal 1998, which is funded by taxation or through\n<|id|>581<|page|>113<|box|>316 503 345 913<|content|>Federal borrowing. ... The statement reflects the ...y out the national priorities as determined by law\n<|id|>602<|page|>116<|box|>98 84 148 339<|content|>United States Government Balance Sheet as of September 30, 1998\n<|id|>604<|page|>116<|box|>191 84 876 906<|content|>Assets: ... 8\n<|id|>603<|page|>116<|box|>167 86 183 215<|content|>(In billions of dollars)\n<|id|>637<|page|>120<|box|>154 364 169 629<|content|>Source: ... Financial Management Service\n<|id|>638<|page|>120<|box|>186 81 291 488<|content|>Accrued discount (SBN-1, -2, -3)—Interest that acc... their holders is not included in accrued discount",
+    "raw_response": "<|src_id|>580<|tgt_id|>581",
+    "parsed": [
+        {
+            "src_id": 580,
+            "tgt_id": 581
+        }
+    ]
+}

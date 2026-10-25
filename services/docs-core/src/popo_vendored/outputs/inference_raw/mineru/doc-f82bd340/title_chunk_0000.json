@@ -1,0 +1,144 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>194 272 210 723<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA\n<|id|>3<|page|>1<|box|>219 334 236 663<|content|>FOR THE COUNTY OF LOS ANGELES\n<|id|>6<|page|>1<|box|>603 142 619 447<|content|>I. INTRODUCTION AND RECITALS\n<|id|>17<|page|>2<|box|>799 142 815 419<|content|>II. LEGAL BASIS FOR SEALING\n<|id|>18<|page|>2<|box|>830 142 847 334<|content|>A. Governing Authority\n<|id|>28<|page|>3<|box|>529 140 547 527<|content|>B. Constitutional and Statutory Privacy Interests\n<|id|>33<|page|>4<|box|>285 140 301 795<|content|>III. GROUNDS FOR SEALING — STATEMENT OF OVERRIDING\n<|id|>35<|page|>4<|box|>378 140 395 405<|content|>A. Privacy of the Minor Children\n<|id|>48<|page|>5<|box|>559 140 575 547<|content|>B. Public-Facing Professional Status of Both Parti\n<|id|>54<|page|>6<|box|>539 140 555 413<|content|>C. Sensitive Financial Information\n<|id|>60<|page|>7<|box|>330 140 347 491<|content|>D. Confidentiality of the Custody Evaluation\n<|id|>72<|page|>8<|box|>186 140 203 524<|content|>IV. SCOPE OF PROPOSED SEALING ORDER\n<|id|>73<|page|>8<|box|>217 140 234 333<|content|>A. Records to Be Sealed\n<|id|>92<|page|>9<|box|>268 140 286 308<|content|>C. Narrow Tailoring\n<|id|>100<|page|>10<|box|>89 140 106 364<|content|>V. STIPULATION TERMS\n<|id|>102<|page|>10<|box|>147 142 164 277<|content|>A. Joint Request\n<|id|>104<|page|>10<|box|>273 142 291 385<|content|>B. Consent of Minor's Counsel\n<|id|>107<|page|>10<|box|>542 140 559 405<|content|>D. Access by Parties and Counsel\n<|id|>115<|page|>11<|box|>90 140 107 352<|content|>E. Access by Third Parties\n<|id|>117<|page|>12<|box|>89 142 106 364<|content|>VI. SIGNATURE BLOCKS\n<|id|>120<|page|>12<|box|>209 142 226 326<|content|>A. Petitioner's Counsel\n<|id|>125<|page|>12<|box|>329 143 345 339<|content|>B. Respondent's Counsel\n<|id|>131<|page|>12<|box|>465 142 483 388<|content|>C. Minor's Counsel — Consent\n<|id|>135<|page|>12<|box|>662 142 679 364<|content|>VII. [PROPOSED] ORDER\n<|id|>136<|page|>12<|box|>688 271 757 723<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA FOR THE\n<|id|>150<|page|>14<|box|>484 140 500 526<|content|>ORDER. IT IS HEREBY ORDERED as follows:\n<|id|>164<|page|>15<|box|>554 142 571 369<|content|>VIII. PROOF OF SERVICE\n<|id|>165<|page|>15<|box|>580 406 595 589<|content|>PROOF OF SERVICE\n<|id|>170<|page|>15<|box|>746 176 763 733<|content|>STIPULATION AND [PROPOSED] ORDER TO SEAL COURT FIL",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>6<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>28<|level|>3\n<|id|>33<|level|>2\n<|id|>35<|level|>3\n<|id|>48<|level|>3\n<|id|>54<|level|>3\n<|id|>60<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>92<|level|>3\n<|id|>100<|level|>2\n<|id|>102<|level|>3\n<|id|>104<|level|>3\n<|id|>107<|level|>3\n<|id|>115<|level|>3\n<|id|>117<|level|>2\n<|id|>120<|level|>3\n<|id|>125<|level|>3\n<|id|>131<|level|>3\n<|id|>135<|level|>2\n<|id|>136<|level|>3\n<|id|>150<|level|>3\n<|id|>164<|level|>2\n<|id|>165<|level|>3\n<|id|>170<|level|>3",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        }
+    ]
+}

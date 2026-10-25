@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>114 400 133 596<|content|>ATTORNEYS AT LAW\n<|id|>16<|page|>1<|box|>613 142 630 264<|content|>1. Introduction\n<|id|>20<|page|>2<|box|>359 140 375 336<|content|>2. Documents Examined\n<|id|>41<|page|>3<|box|>731 140 748 267<|content|>3. Assumptions\n<|id|>54<|page|>5<|box|>90 140 107 238<|content|>4. Opinions\n<|id|>56<|page|>5<|box|>166 140 183 831<|content|>4.1 Due Organization, Valid Existence, and Good St\n<|id|>58<|page|>5<|box|>366 140 401 854<|content|>4.2 Due Organization, Valid Existence, and Good St\n<|id|>60<|page|>5<|box|>695 140 712 423<|content|>4.3 Corporate Power and Authority\n<|id|>62<|page|>6<|box|>90 142 106 320<|content|>4.4 Due Authorization\n<|id|>68<|page|>6<|box|>578 140 594 392<|content|>4.5 Due Execution and Delivery\n<|id|>71<|page|>6<|box|>791 140 808 504<|content|>4.7 No Violation of Organizational Documents\n<|id|>75<|page|>7<|box|>257 140 273 496<|content|>4.8 No Violation of Applicable Delaware Law\n<|id|>78<|page|>7<|box|>556 140 574 464<|content|>4.9 No Violation of Specified Agreements\n<|id|>81<|page|>8<|box|>90 140 107 380<|content|>4.10 Governmental Approvals\n<|id|>86<|page|>8<|box|>470 140 488 403<|content|>5. Qualifications and Limitations\n<|id|>88<|page|>8<|box|>546 140 563 375<|content|>5.1 Enforceability Exceptions\n<|id|>95<|page|>9<|box|>239 140 256 462<|content|>5.2 Scope Limitations — Governing Law\n<|id|>108<|page|>10<|box|>239 140 256 457<|content|>5.3 Scope Limitations — Subject Matter\n<|id|>119<|page|>11<|box|>157 140 174 521<|content|>5.4 Reliance on Certificates and Representations\n<|id|>121<|page|>11<|box|>414 140 431 321<|content|>5.5 No Duty to Update\n<|id|>123<|page|>11<|box|>588 140 604 326<|content|>6. Reliance and Benefit\n<|id|>127<|page|>12<|box|>167 142 184 254<|content|>7. Conclusion\n<|id|>134<|page|>12<|box|>387 437 404 560<|content|>SCHEDULE A\n<|id|>135<|page|>12<|box|>414 385 431 612<|content|>List of Specified Agreements\n<|id|>136<|page|>12<|box|>439 393 457 602<|content|>(Referenced in Opinion 4.9)",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>16<|level|>1\n<|id|>20<|level|>1\n<|id|>41<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>2\n<|id|>86<|level|>1\n<|id|>88<|level|>2\n<|id|>95<|level|>2\n<|id|>108<|level|>2\n<|id|>119<|level|>2\n<|id|>121<|level|>2\n<|id|>123<|level|>1\n<|id|>127<|level|>1\n<|id|>134<|level|>1\n<|id|>135<|level|>2\n<|id|>136<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 3
+        }
+    ]
+}

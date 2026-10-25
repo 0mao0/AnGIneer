@@ -1,0 +1,46 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        21,
+        22,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>196 140 214 660<|content|>TO: ... James Prentice, Responsible Partner Sandra Tung, Billing Partner\n<|id|>3<|page|>1<|box|>222 140 239 447<|content|>FROM: ... Ryan Kowalski, Lead Associate\n<|id|>4<|page|>1<|box|>248 140 265 326<|content|>DATE: ... March 10, 2025\n<|id|>5<|page|>1<|box|>273 140 310 854<|content|>RE: ... Staffing Plan & Budget Estimate — Ardent C...III LP Acquisition of Luminex Systems Holdings Inc\n<|id|>6<|page|>1<|box|>316 140 335 362<|content|>MATTER NO. ... 1001-00004\n<|id|>7<|page|>1<|box|>344 140 361 828<|content|>CLIENT: ... Ardent Capital Partners III LP 399 Park Avenue, 42nd Floor New York, NY 10022\n<|id|>8<|page|>1<|box|>369 140 386 408<|content|>Right-click to update Table of Contents\n<|id|>12<|page|>1<|box|>780 138 909 857<|content|>This Transaction presents a high degree of complex... including under the HSR Act, with CFIUS, with the\n<|id|>13<|page|>2<|box|>90 140 181 856<|content|>Swiss Competition Commission (WEKO) and SECO, with...o company, Vectis Solutions LLC (approximately 7%)\n<|id|>31<|page|>3<|box|>837 183 853 419<|content|>• Total Revenue: ... $487,000,000\n<|id|>32<|page|>3<|box|>856 183 873 563<|content|>• Annual Recurring Revenue (ARR): ... $441,000,000\n<|id|>33<|page|>3<|box|>876 183 893 527<|content|>• Professional Services Revenue: ... $46,000,000\n<|id|>36<|page|>4<|box|>148 140 202 854<|content|>The implied purchase price represents approximatel... the enterprise procurement-automation SaaS sector\n<|id|>34<|page|>4<|box|>90 181 107 568<|content|>• Adjusted EBITDA: ... 0% margin)\n<|id|>35<|page|>4<|box|>109 181 143 854<|content|>• Global Headcount: ... approximately 4,200 employees (approximately 1,650 based in the United States)\n<|id|>43<|page|>4<|box|>871 174 907 854<|content|>2. ... While the Target will prepare its own disclosure schedules,\n<|id|>44<|page|>5<|box|>90 210 162 854<|content|>Calderwood & Harkness will coordinate the Buyer's ...r Sub, financing, and required regulatory filings)\n<|id|>70<|page|>7<|box|>799 174 891 857<|content|>5. ... Department of Defense (\"DOD\"),\n<|id|>71<|page|>8<|box|>90 209 126 854<|content|>Department of Energy (\"DOE\"), and General Services..., which may raise national security considerations\n<|id|>102<|page|>10<|box|>837 174 891 856<|content|>2. ... -Switzerland\n<|id|>103<|page|>11<|box|>90 210 126 854<|content|>Income Tax Treaty (assuming eligibility), and the ...pex Holdings must satisfy to claim treaty benefits\n<|id|>173<|page|>21<|box|>811 181 902 857<|content|>• Remedies / Divestiture. ... If a divestiture is required, Calderwood &\n<|id|>174<|page|>22<|box|>90 210 162 854<|content|>Harkness would undertake an additional workstream ... not fully reflected in the budget estimates above\n<|id|>199<|page|>24<|box|>537 183 554 477<|content|>• James Prentice, Responsible Partner\n<|id|>201<|page|>24<|box|>577 142 594 841<|content|>Distribution. ... This memorandum is authorized for distribution to the following individuals only\n<|id|>200<|page|>24<|box|>558 183 574 424<|content|>• Sandra Tung, Billing Partner\n<|id|>202<|page|>24<|box|>603 183 619 426<|content|>• James Prentice, Partner, M&A\n<|id|>210<|page|>24<|box|>777 140 886 854<|content|>Client-Facing Summary. ... The client-facing summa... disclosing individual timekeeper utilization data\n<|id|>203<|page|>24<|box|>623 183 638 413<|content|>• Sandra Tung, Partner, M&A\n<|id|>204<|page|>24<|box|>642 183 657 418<|content|>• Sylvia Hartwell, Partner, Tax\n<|id|>205<|page|>24<|box|>661 183 678 565<|content|>• Elaine Forsythe, Partner, Antitrust & Competition\n<|id|>206<|page|>24<|box|>681 183 696 490<|content|>• Ryan Kowalski, Lead Associate, M&A\n<|id|>207<|page|>24<|box|>700 183 718 490<|content|>• Megan Chu, Working Associate, M&A\n<|id|>208<|page|>24<|box|>720 183 738 488<|content|>• Legal Project Manager (to be assigned)\n<|id|>209<|page|>24<|box|>739 181 773 852<|content|>• Calderwood & Harkness Finance Department (for ma...etup, billing code creation, and rate table entry)",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>43<|tgt_id|>44\n<|src_id|>70<|tgt_id|>71\n<|src_id|>102<|tgt_id|>103\n<|src_id|>173<|tgt_id|>174",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 174
+        }
+    ]
+}

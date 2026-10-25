@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 331 118 663<|content|>SECRETARY'S CERTIFICATE\n<|id|>1<|page|>1<|box|>136 287 154 710<|content|>Arbor Health Technologies Inc. a Delaware corporat\n<|id|>4<|page|>1<|box|>284 140 300 385<|content|>INTRODUCTORY RECITAL\n<|id|>9<|page|>1<|box|>776 140 794 382<|content|>1. Certificate of Incorporation\n<|id|>15<|page|>2<|box|>446 140 464 223<|content|>2. Bylaws\n<|id|>19<|page|>2<|box|>767 140 784 310<|content|>3. Board Resolutions\n<|id|>34<|page|>4<|box|>536 140 553 377<|content|>4. Good Standing Certificates\n<|id|>39<|page|>5<|box|>212 140 229 349<|content|>5. Incumbency Certificate\n<|id|>44<|page|>5<|box|>710 140 727 359<|content|>6. Additional Certifications\n<|id|>50<|page|>6<|box|>358 142 375 259<|content|>EXECUTION\n<|id|>57<|page|>6<|box|>554 140 571 392<|content|>COUNTER-CERTIFICATION\n<|id|>67<|page|>7<|box|>89 142 107 310<|content|>LIST OF EXHIBITS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>9<|level|>3\n<|id|>15<|level|>3\n<|id|>19<|level|>3\n<|id|>34<|level|>3\n<|id|>39<|level|>3\n<|id|>44<|level|>3\n<|id|>50<|level|>2\n<|id|>57<|level|>2\n<|id|>67<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        13,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 153 128 843<|content|>CALDERWOOD & HARKNESS LLP 425 Lexington Avenue New\n<|id|>2<|type|>title<|page|>1<|box|>138 403 159 593<|content|>MEMORANDUM\n<|id|>10<|type|>title<|page|>1<|box|>429 140 445 321<|content|>I. Executive Summary\n<|id|>15<|type|>title<|page|>2<|box|>377 142 393 310<|content|>II. Scope of Searches\n<|id|>16<|type|>title<|page|>2<|box|>407 142 424 307<|content|>A. Entities Searched\n<|id|>32<|type|>title<|page|>3<|box|>760 140 776 325<|content|>B. Databases Searched\n<|id|>38<|type|>title<|page|>4<|box|>417 140 433 318<|content|>C. Search Parameters\n<|id|>44<|type|>title<|page|>5<|box|>90 140 107 596<|content|>III. Summary of Registered intellectual Property P\n<|id|>46<|type|>title<|page|>5<|box|>184 140 200 493<|content|>A. Patents and Patent Applications (USPTO)\n<|id|>57<|type|>title<|page|>6<|box|>324 140 342 344<|content|>B. Trademarks (USPTO)\n<|id|>63<|type|>title<|page|>7<|box|>90 140 108 540<|content|>C. Copyright Registrations (U.S. Copyright Office)\n<|id|>68<|type|>title<|page|>7<|box|>549 142 566 540<|content|>IV. Existing Recorded Security Interests and Liens\n<|id|>69<|type|>title<|page|>7<|box|>580 140 597 604<|content|>A. Security Interests in Favor of Atlas Meridian B\n<|id|>93<|type|>title<|page|>10<|box|>90 140 107 367<|content|>B. Other Recorded Interests\n<|id|>100<|type|>title<|page|>10<|box|>575 140 594 522<|content|>V. Actions Required at Closing and Post-Closing\n<|id|>101<|type|>title<|page|>10<|box|>607 140 625 550<|content|>A. Release and Termination of Atlas Meridian Liens\n<|id|>109<|type|>title<|page|>11<|box|>646 140 664 761<|content|>B. Recording of New Security Interests in Favor of\n<|id|>118<|type|>title<|page|>13<|box|>90 140 106 344<|content|>C. Chain of Title Matters\n<|id|>123<|type|>title<|page|>13<|box|>585 140 603 447<|content|>VI. Open Items and Recommendations\n<|id|>130<|type|>title<|page|>15<|box|>90 142 107 271<|content|>VII. Conclusion\n<|id|>138<|type|>title<|page|>16<|box|>90 142 108 836<|content|>Appendix A: Summary Table of Existing Recorded IP\n<|id|>139<|type|>table<|page|>16<|box|>176 143 750 852<|content|>None\n<|id|>140<|type|>title<|page|>17<|box|>90 142 107 604<|content|>Appendix B: Summary of Registered IP Portfolio by\n<|id|>141<|type|>table<|page|>17<|box|>176 143 676 852<|content|>None",
+    "raw_response": "<|src_id|>139<|tgt_id|>138\n<|src_id|>141<|tgt_id|>140",
+    "parsed": [
+        {
+            "src_id": 139,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 140
+        }
+    ]
+}

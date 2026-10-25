@@ -1,0 +1,125 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        13,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 606<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|page|>1<|box|>112 158 148 836<|content|>CALDERWOOD & HARKNESS LLP 600 South Grand Avenue,\n<|id|>2<|page|>1<|box|>157 341 176 655<|content|>INTERNAL MEMORANDUM\n<|id|>10<|page|>1<|box|>429 140 446 312<|content|>I. Purpose and Scope\n<|id|>16<|page|>2<|box|>377 142 393 267<|content|>II. Background\n<|id|>17<|page|>2<|box|>407 140 424 349<|content|>A. Project Atlas Overview\n<|id|>23<|page|>3<|box|>257 142 273 405<|content|>B. Relevant Supplier Agreements\n<|id|>25<|page|>3<|box|>325 140 342 454<|content|>Vantor's Exclusive Supply Agreements:\n<|id|>30<|page|>3<|box|>729 140 746 387<|content|>Cascade's Supply Agreements:\n<|id|>34<|page|>4<|box|>138 140 157 313<|content|>C. Discovery Context\n<|id|>40<|page|>4<|box|>674 140 691 281<|content|>III. Methodology\n<|id|>51<|page|>5<|box|>491 140 508 370<|content|>IV. Email-by-Email Analysis\n<|id|>52<|page|>5<|box|>522 140 539 790<|content|>A. Emails Referencing Hemsworth Consumer Products\n<|id|>103<|page|>9<|box|>800 140 818 714<|content|>B. Emails Referencing Tridale Manufacturing Inc. a\n<|id|>143<|page|>13<|box|>319 140 337 727<|content|>C. Emails Referencing Orion Lifestyle Brands Corp.\n<|id|>179<|page|>16<|box|>89 140 108 534<|content|>Subject Line: Orion Agreement — Moving Forward\n<|id|>185<|page|>16<|box|>703 140 720 537<|content|>Our defense position should emphasize the followin\n<|id|>192<|page|>17<|box|>479 140 500 630<|content|>D. Email Referencing Multiple Suppliers and Vantor\n<|id|>203<|page|>18<|box|>583 140 599 339<|content|>V. Summary of Findings\n<|id|>204<|page|>18<|box|>614 140 630 692<|content|>A. No Email Demonstrates Actual Knowledge of Exclu\n<|id|>209<|page|>19<|box|>157 140 174 393<|content|>B. Nature of Vantor References\n<|id|>214<|page|>19<|box|>527 140 546 447<|content|>C. Emails Requiring Careful Handling\n<|id|>220<|page|>20<|box|>321 140 339 436<|content|>VI. Implications for Defense Strategy\n<|id|>221<|page|>20<|box|>353 140 369 516<|content|>A. Consistency with Cascade's Primary Defense\n<|id|>224<|page|>20<|box|>781 140 797 419<|content|>B. Anticipated Plaintiff Arguments\n<|id|>229<|page|>21<|box|>411 140 428 470<|content|>C. Deposition Preparation Considerations\n<|id|>242<|page|>23<|box|>334 140 351 272<|content|>VII. Conclusion\n<|id|>248<|page|>24<|box|>90 142 107 330<|content|>Appendix: Email Index",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>2<|level|>1\n<|id|>10<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>3\n<|id|>30<|level|>3\n<|id|>34<|level|>2\n<|id|>40<|level|>1\n<|id|>51<|level|>1\n<|id|>52<|level|>2\n<|id|>103<|level|>2\n<|id|>143<|level|>2\n<|id|>179<|level|>-1\n<|id|>185<|level|>-1\n<|id|>192<|level|>2\n<|id|>203<|level|>1\n<|id|>204<|level|>2\n<|id|>209<|level|>2\n<|id|>214<|level|>2\n<|id|>220<|level|>1\n<|id|>221<|level|>2\n<|id|>224<|level|>2\n<|id|>229<|level|>2\n<|id|>242<|level|>1\n<|id|>248<|level|>1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 1
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 2
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 1
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 224,
+            "level": 2
+        },
+        {
+            "id": 229,
+            "level": 2
+        },
+        {
+            "id": 242,
+            "level": 1
+        },
+        {
+            "id": 248,
+            "level": 1
+        }
+    ]
+}

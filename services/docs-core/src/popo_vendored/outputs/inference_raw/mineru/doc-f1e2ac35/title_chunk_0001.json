@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        54,
+        58
+    ],
+    "pages": [
+        54,
+        55,
+        56,
+        57,
+        58
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>654<|page|>54<|box|>282 449 299 550<|content|>EXHIBIT A\n<|id|>655<|page|>54<|box|>308 346 325 651<|content|>FORM OF CAPITAL CALL NOTICE\n<|id|>656<|page|>54<|box|>334 292 351 704<|content|>SOLSTICE PLATEAU ENERGY HOLDINGS LLC\n<|id|>657<|page|>54<|box|>359 390 377 607<|content|>CAPITAL CALL NOTICE\n<|id|>658<|page|>54<|box|>387 246 404 751<|content|>Pursuant to Section 5.3 of the Limited Liability C\n<|id|>670<|page|>55<|box|>196 142 213 310<|content|>6. Wire Instructions:\n<|id|>674<|page|>55<|box|>428 142 444 532<|content|>SOLSTICE PLATEAU ENERGY HOLDINGS LLC\n<|id|>681<|page|>55<|box|>549 450 564 547<|content|>EXHIBIT B\n<|id|>682<|page|>55<|box|>574 349 590 647<|content|>FORM OF JOINDER AGREEMENT\n<|id|>683<|page|>55<|box|>599 238 617 759<|content|>JOINDER TO LIMITED LIABILITY COMPANY AGREEMENT\n<|id|>684<|page|>55<|box|>627 483 642 514<|content|>OF\n<|id|>685<|page|>55<|box|>652 292 669 702<|content|>SOLSTICE PLATEAU ENERGY HOLDINGS LLC\n<|id|>687<|page|>55<|box|>758 143 775 241<|content|>RECITALS\n<|id|>691<|page|>56<|box|>152 142 167 266<|content|>AGREEMENT\n<|id|>720<|page|>57<|box|>107 447 123 549<|content|>EXHIBIT C\n<|id|>721<|page|>57<|box|>133 261 148 735<|content|>FORM OF CERTIFICATE OF MEMBERSHIP INTEREST\n<|id|>723<|page|>57<|box|>316 145 334 849<|content|>SOLSTICE PLATEAU ENERGY HOLDINGS LLC A Delaware Li\n<|id|>724<|page|>57<|box|>342 305 358 691<|content|>CERTIFICATE OF MEMBERSHIP INTEREST\n<|id|>737<|page|>57<|box|>820 450 835 547<|content|>EXHIBIT D\n<|id|>738<|page|>57<|box|>845 297 862 700<|content|>DISTRIBUTION WATERFALL ILLUSTRATION\n<|id|>741<|page|>58<|box|>154 143 170 254<|content|>Assumptions:\n<|id|>748<|page|>58<|box|>674 142 689 308<|content|>Notes to Illustration:",
+    "raw_response": "<|id|>654<|level|>1\n<|id|>655<|level|>1\n<|id|>656<|level|>2\n<|id|>657<|level|>2\n<|id|>658<|level|>-1\n<|id|>670<|level|>3\n<|id|>674<|level|>2\n<|id|>681<|level|>1\n<|id|>682<|level|>1\n<|id|>683<|level|>2\n<|id|>684<|level|>2\n<|id|>685<|level|>2\n<|id|>687<|level|>3\n<|id|>691<|level|>3\n<|id|>720<|level|>1\n<|id|>721<|level|>1\n<|id|>723<|level|>2\n<|id|>724<|level|>2\n<|id|>737<|level|>1\n<|id|>738<|level|>1\n<|id|>741<|level|>2\n<|id|>748<|level|>2",
+    "parsed": [
+        {
+            "id": 654,
+            "level": 1
+        },
+        {
+            "id": 655,
+            "level": 1
+        },
+        {
+            "id": 656,
+            "level": 2
+        },
+        {
+            "id": 657,
+            "level": 2
+        },
+        {
+            "id": 670,
+            "level": 3
+        },
+        {
+            "id": 674,
+            "level": 2
+        },
+        {
+            "id": 681,
+            "level": 1
+        },
+        {
+            "id": 682,
+            "level": 1
+        },
+        {
+            "id": 683,
+            "level": 2
+        },
+        {
+            "id": 684,
+            "level": 2
+        },
+        {
+            "id": 685,
+            "level": 2
+        },
+        {
+            "id": 687,
+            "level": 3
+        },
+        {
+            "id": 691,
+            "level": 3
+        },
+        {
+            "id": 720,
+            "level": 1
+        },
+        {
+            "id": 721,
+            "level": 1
+        },
+        {
+            "id": 723,
+            "level": 2
+        },
+        {
+            "id": 724,
+            "level": 2
+        },
+        {
+            "id": 737,
+            "level": 1
+        },
+        {
+            "id": 738,
+            "level": 1
+        },
+        {
+            "id": 741,
+            "level": 2
+        },
+        {
+            "id": 748,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['26', '2400 S. 17th St, Wilming', 'Cape Fear Health', 'June 1, 2021', 'May 31, 2028', '~4.2 yrs', '$13,200', '4,000', 'No', 'N/A']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'ton, NC 28401', 'Realty LLC', '', '', '', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 267,
+    "table2_idx": 268
+}

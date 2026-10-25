@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>194 140 210 508<|content|>TO: ... Linda Osei, Partner\n<|id|>4<|page|>1<|box|>220 140 237 635<|content|>FROM: ... Yuki Nakamura, Associate\n<|id|>5<|page|>1<|box|>246 140 263 354<|content|>DATE: ... November 18, 2022\n<|id|>6<|page|>1<|box|>272 140 289 821<|content|>RE: ... 1035-00004\n<|id|>13<|page|>1<|box|>856 181 893 856<|content|>• Ms. ... Fonseca breached the partnership's impli...ood faith by retaining Tillerman Forensic Advisory\n<|id|>14<|page|>2<|box|>90 210 143 854<|content|>LLC — specifically Greta Sørensen, CPA, CFF, at 35...ip to unnecessary expense and adversarial scrutiny\n<|id|>97<|page|>11<|box|>296 183 313 369<|content|>• Principal: ... $1,309,385\n<|id|>101<|page|>11<|box|>393 140 484 854<|content|>This estimate is conservative, as pre-judgment int...on purposes, we use the more conservative estimate\n<|id|>98<|page|>11<|box|>316 183 332 367<|content|>• Rate: ... 10% per annum\n<|id|>99<|page|>11<|box|>335 181 371 854<|content|>• Estimated Period: ... From the date of demand (O...y 2023), a period of approximately nine (9) months\n<|id|>100<|page|>11<|box|>373 183 390 669<|content|>• Calculation: ... $1,309,385 × 10% × (9 ÷ 12) = $98,204 (rounded)\n<|id|>104<|page|>11<|box|>559 183 575 403<|content|>• Core Damages: ... $1,309,385\n<|id|>107<|page|>11<|box|>617 140 652 854<|content|>This figure does not include attorney's fees or fo...costs, which may be recoverable as discussed below\n<|id|>105<|page|>11<|box|>578 183 595 517<|content|>• Pre-Judgment Interest (estimated): ... $98,204\n<|id|>106<|page|>11<|box|>598 183 614 599<|content|>• Total Claimed Damages: ... approximately $1,407,589",
+    "raw_response": "<|src_id|>13<|tgt_id|>14",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        }
+    ]
+}

@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>338 140 354 230<|content|>I. Purpose\n<|id|>11<|page|>1<|box|>768 140 785 447<|content|>II. Background — Regulatory Context\n<|id|>19<|page|>2<|box|>753 140 772 715<|content|>III. Identification of Specific Compliance Deficie\n<|id|>21<|page|>3<|box|>90 140 107 419<|content|>A. OFAC Sanctions Screening Gap\n<|id|>26<|page|>3<|box|>588 140 606 627<|content|>B. SAR Filing and Suspicious Activity Monitoring D\n<|id|>30<|page|>4<|box|>194 140 210 349<|content|>C. CDD/EDD Deficiencies\n<|id|>34<|page|>4<|box|>622 140 638 702<|content|>IV. Demands for Enhanced Cooperation and Complianc\n<|id|>36<|page|>4<|box|>770 140 787 403<|content|>A. OFAC Screening Cooperation\n<|id|>41<|page|>5<|box|>502 140 518 584<|content|>B. Suspicious Activity Monitoring and SAR Cooperat\n<|id|>46<|page|>6<|box|>330 140 347 457<|content|>C. CDD/EDD Remediation Cooperation\n<|id|>51<|page|>7<|box|>90 140 107 423<|content|>D. Data Sharing and System Access\n<|id|>55<|page|>7<|box|>544 140 561 454<|content|>E. Compliance Program Enhancements\n<|id|>60<|page|>8<|box|>194 140 212 341<|content|>F. Reporting Obligations\n<|id|>69<|page|>8<|box|>732 140 750 352<|content|>V. Timeline and Deadlines\n<|id|>76<|page|>9<|box|>800 140 816 444<|content|>VI. Consequences of Non-Cooperation\n<|id|>83<|page|>10<|box|>601 140 618 352<|content|>VII. Reservation of Rights\n<|id|>87<|page|>11<|box|>186 140 203 320<|content|>VIII. Point of Contact\n<|id|>101<|page|>11<|box|>647 140 665 236<|content|>IX. Closing",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>19<|level|>1\n<|id|>21<|level|>2\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>34<|level|>1\n<|id|>36<|level|>2\n<|id|>41<|level|>2\n<|id|>46<|level|>2\n<|id|>51<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>69<|level|>1\n<|id|>76<|level|>1\n<|id|>83<|level|>1\n<|id|>87<|level|>1\n<|id|>101<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        }
+    ]
+}

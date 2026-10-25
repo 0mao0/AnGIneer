@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 277 133 720<|content|>One Liberty Plaza, 52nd Floor New York, New York 10006\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 738 185 854<|content|>August 8, 2022\n<|id|>5<|page|>1<|box|>219 140 255 852<|content|>Priya Narayanan, Esq. ... 8200 West Palmetto Park Road, Suite 1500 Boca Raton, Florida 33433\n<|id|>6<|page|>1<|box|>263 174 318 854<|content|>Re: ... A\n<|id|>15<|page|>2<|box|>133 176 152 421<|content|>Facility Amount: ... $700,000,000\n<|id|>16<|page|>2<|box|>160 174 195 854<|content|>Pricing: ... 50%\n<|id|>17<|page|>2<|box|>204 176 223 704<|content|>Maturity Date: ... July 21, 2029 (seven-year tenor from the Closing Date)\n<|id|>18<|page|>2<|box|>229 174 284 854<|content|>Amortization: ... 00% per annum of the original pr...nding balance due and payable on the Maturity Date\n<|id|>19<|page|>2<|box|>292 176 309 339<|content|>CUSIP: ... 92347LAB8\n<|id|>20<|page|>2<|box|>318 140 502 856<|content|>The New TLB replaced VHG's existing $625,000,000 S...lopments and the ARRC's recommended best practices\n<|id|>23<|page|>2<|box|>652 181 669 472<|content|>• Outstanding principal: ... $621,875,000\n<|id|>26<|page|>2<|box|>710 140 785 856<|content|>After accounting for the payoff of the Existing TL... proceeds to VHG totaled approximately $60,483,333\n<|id|>24<|page|>2<|box|>672 183 689 779<|content|>• Accrued and unpaid interest through the payoff date: ... approximately $2,916,667\n<|id|>25<|page|>2<|box|>691 183 709 452<|content|>• Prepayment premium: ... $3,125,000\n<|id|>47<|page|>5<|box|>685 218 702 398<|content|>• Florida: ... 12 properties\n<|id|>48<|page|>5<|box|>705 218 720 411<|content|>• New York: ... 6 properties\n<|id|>49<|page|>5<|box|>724 218 739 410<|content|>• California: ... 5 properties\n<|id|>50<|page|>5<|box|>744 218 760 380<|content|>• Texas: ... 4 properties\n<|id|>51<|page|>5<|box|>763 218 780 395<|content|>• Georgia: ... 3 properties\n<|id|>52<|page|>5<|box|>782 218 799 403<|content|>• Colorado: ... 3 properties\n<|id|>53<|page|>5<|box|>803 218 819 395<|content|>• Arizona: ... 2 properties\n<|id|>54<|page|>5<|box|>821 218 838 388<|content|>• Illinois: ... 2 properties\n<|id|>55<|page|>5<|box|>840 218 858 423<|content|>• Washington: ... 2 properties\n<|id|>56<|page|>5<|box|>862 218 878 380<|content|>• Oregon: ... 1 property\n<|id|>57<|page|>5<|box|>881 218 898 380<|content|>• Nevada: ... 1 property\n<|id|>59<|page|>6<|box|>109 174 183 854<|content|>Each mortgage or deed of trust was prepared in com...sdictions and with local counsel in several states\n<|id|>58<|page|>6<|box|>90 218 108 385<|content|>• Virginia: ... 1 property\n<|id|>84<|page|>8<|box|>816 140 907 856<|content|>A complete closing binder has been compiled, index...s Secretary's Certificate, Incumbency Certificate,\n<|id|>85<|page|>9<|box|>90 140 200 854<|content|>Solvency Certificate, Officer's Closing Certificat... related to the Transaction (the \"Closing Binder\")\n<|id|>99<|page|>10<|box|>491 140 508 272<|content|>Very truly yours,\n<|id|>100<|page|>10<|box|>516 140 532 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>101<|page|>10<|box|>535 142 551 253<|content|>By: ... By\n<|id|>102<|page|>10<|box|>551 142 568 465<|content|>Ian Blackwood Partner, Banking & Finance\n<|id|>103<|page|>10<|box|>569 142 585 346<|content|>Direct Tel: ... (212) 506-7214\n<|id|>104<|page|>10<|box|>585 142 602 485<|content|>Email: ... com\n<|id|>105<|page|>10<|box|>602 140 648 854<|content|>cc: ... Stephanie Okafor, Partner, Calderwood & Ha...hie Tremblay, Associate, Calderwood & Harkness LLP\n<|id|>106<|page|>10<|box|>655 142 670 493<|content|>Enclosure: ... 1016-00009",
+    "raw_response": "<|src_id|>84<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        }
+    ]
+}

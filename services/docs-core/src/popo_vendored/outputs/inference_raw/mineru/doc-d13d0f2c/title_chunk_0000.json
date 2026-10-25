@@ -1,0 +1,40 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 321 159 676<|content|>STATE OF DELAWARE OFFICE OF THE SECRETARY OF STATE\n<|id|>1<|page|>1<|box|>200 338 219 658<|content|>CERTIFICATE OF GOOD STANDING\n<|id|>3<|page|>1<|box|>287 140 305 705<|content|>TO ALL TO WHOM THESE PRESENTS MAY COME, GREETINGS:\n<|id|>5<|page|>1<|box|>392 143 409 305<|content|>Entity Identification\n<|id|>7<|page|>1<|box|>630 142 647 246<|content|>Certification\n<|id|>14<|page|>2<|box|>411 142 426 393<|content|>Authentication and Verification\n<|id|>15<|page|>2<|box|>436 377 452 620<|content|>IN TESTIMONY WHEREOF,\n<|id|>21<|page|>2<|box|>575 357 590 638<|content|>Authentication No.: 2024-0703-8291",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>-1\n<|id|>5<|level|>3\n<|id|>7<|level|>3\n<|id|>14<|level|>3\n<|id|>15<|level|>-1\n<|id|>21<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 3
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 4
+        }
+    ]
+}

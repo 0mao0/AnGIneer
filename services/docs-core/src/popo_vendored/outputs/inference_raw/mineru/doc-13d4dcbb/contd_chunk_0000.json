@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 728 185 854<|content|>August 22, 2022\n<|id|>4<|page|>1<|box|>193 140 210 465<|content|>VIA EMAIL AND FIRST-CLASS MAIL\n<|id|>5<|page|>1<|box|>219 140 255 854<|content|>Deborah Whitfield, Esq. ... 4200 West Lakeshore Industrial Parkway, Suite 300 Waukegan, Illinois 60085\n<|id|>6<|page|>1<|box|>263 174 318 854<|content|>Re: ... 2022-L-008471, Circuit Court of Cook County, Illinois, County Department, Law Division\n<|id|>7<|page|>1<|box|>325 176 343 537<|content|>Calderwood & Harkness Matter No. ... 1005-00005\n<|id|>8<|page|>1<|box|>352 140 369 294<|content|>Dear Ms. ... Whitfield\n<|id|>14<|page|>1<|box|>849 140 886 857<|content|>Calderwood & Harkness is engaged to defend Nexford...tries v. ... 2022-L-008471, pending in the Circuit\n<|id|>15<|page|>2<|box|>90 140 127 854<|content|>Court of Cook County, Illinois, County Department,...ngagement in this matter encompasses the following\n<|id|>24<|page|>2<|box|>652 174 708 857<|content|>(i) Settlement negotiations, including the evaluat...d documentation of any settlement reached; ... and\n<|id|>26<|page|>2<|box|>777 140 906 857<|content|>The scope of this engagement does not include repr...l be confirmed in a supplemental engagement letter\n<|id|>60<|page|>5<|box|>710 181 744 854<|content|>• Computerized legal research charges (e. ... and\n<|id|>62<|page|>5<|box|>786 140 878 856<|content|>With respect to any individual cost or disbursemen... inform you of the expense as promptly as possible\n<|id|>85<|page|>8<|box|>90 181 107 779<|content|>• Hargrove Kellner CPAs LLP (identified as Nexford's independent auditor); ... and\n<|id|>87<|page|>8<|box|>148 140 257 854<|content|>In the event that a conflict of interest arises du...the engagement in accordance with Section 11 below\n<|id|>112<|page|>10<|box|>648 142 665 297<|content|>Priya Anand Partner\n<|id|>113<|page|>10<|box|>667 143 681 264<|content|>Date: ... Date\n<|id|>116<|page|>10<|box|>726 142 742 336<|content|>Name: ... Deborah Whitfield\n<|id|>117<|page|>10<|box|>744 142 758 313<|content|>Title: ... General Counsel\n<|id|>118<|page|>10<|box|>761 143 777 264<|content|>Date: ... Date\n<|id|>119<|page|>10<|box|>777 142 792 581<|content|>Enclosures: ... None (Litigation hold notice to follow under separate cover)\n<|id|>120<|page|>10<|box|>800 140 872 854<|content|>cc: ... Douglas Carmichael, Partner, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>14<|tgt_id|>15",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        }
+    ]
+}

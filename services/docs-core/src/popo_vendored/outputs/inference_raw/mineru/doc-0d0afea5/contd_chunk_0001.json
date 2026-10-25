@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        56,
+        91
+    ],
+    "pages": [
+        57,
+        59,
+        61,
+        63,
+        67,
+        71,
+        77,
+        81,
+        83,
+        87,
+        91
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>103<|page|>57<|box|>202 448 221 558<|content|>June 30,1938\n<|id|>104<|page|>57<|box|>235 411 253 651<|content|>BILLIONS OF DOLLARS\n<|id|>106<|page|>57<|box|>787 264 804 779<|content|>^{†} Other than Mutual Savings Banks and Insurance...Insurance Companies exempt from Federal Income Tax\n<|id|>107<|page|>59<|box|>62 99 103 476<|content|>Amount of Interest-Bearing Debt Outstanding, the C... Interest Charge and the Computed Rate of Interest\n<|id|>109<|page|>59<|box|>521 102 580 469<|content|>NOTE: ... \"Interest bearing debt\" figures include ...educted prior to calculating average interest rate\n<|id|>112<|page|>61<|box|>111 381 129 631<|content|>Yields Based on Saturday Quotations\n<|id|>113<|page|>63<|box|>115 169 145 841<|content|>YIELDS OF TREASURY BONDS AND NOTES FEB. ... 6, 1939\n<|id|>114<|page|>63<|box|>145 402 168 606<|content|>Based on Closing Prices\n<|id|>117<|page|>67<|box|>100 86 115 452<|content|>(Compiled From Latest Reports Received From These Agencies)\n<|id|>119<|page|>67<|box|>69 544 111 911<|content|>Proprietary Interest of the United States in Gover...al Corporations and Lending Agencies: ... 31, 1938\n<|id|>120<|page|>67<|box|>116 547 129 911<|content|>(Compiled From Latest Reports Received From These Agencies)\n<|id|>121<|page|>67<|box|>134 657 146 808<|content|>(In millions of dollars)\n<|id|>127<|page|>71<|box|>522 111 549 875<|content|>Statement of Uses of Funds of Certain Corporations...he Treasurer of the United States: ... 31, 1938 1/\n<|id|>131<|page|>77<|box|>66 182 94 813<|content|>Net Capital Movement between the United States and Foreign Countries 1935 through November 1938\n<|id|>134<|page|>81<|box|>70 218 99 758<|content|>Short-Term Foreign Assets as Reported by Banks and Bankers in the United States for November 1938\n<|id|>136<|page|>83<|box|>68 205 95 765<|content|>Security Transactions as Reported by Banks, Banker...nd Dealers in the United States, for November 1938\n<|id|>140<|page|>87<|box|>66 166 94 810<|content|>Purchases and Sales of Foreign Exchange, Spot and ...nd Bankers in the United States, for November 1938\n<|id|>141<|page|>87<|box|>99 411 112 567<|content|>(In thousands of dollars)\n<|id|>145<|page|>91<|box|>54 114 90 927<|content|>CUMULATIVE NET CAPITAL MOVEMENT BETWEEN U. ... AND FOREIGN COUNTRIES*\n<|id|>146<|page|>91<|box|>86 480 111 551<|content|>Weekly",
+    "raw_response": "<|src_id|>113<|tgt_id|>114\n<|src_id|>119<|tgt_id|>120\n<|src_id|>120<|tgt_id|>121\n<|src_id|>140<|tgt_id|>141\n<|src_id|>145<|tgt_id|>146",
+    "parsed": [
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 141
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 146
+        }
+    ]
+}

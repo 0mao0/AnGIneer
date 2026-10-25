@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        12,
+        17
+    ],
+    "pages": [
+        12,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>49<|page|>12<|box|>246 87 262 268<|content|>B. COSTS BREAKDOWN\n<|id|>55<|page|>12<|box|>370 87 386 292<|content|>C. POST-AWARD INTEREST\n<|id|>58<|page|>12<|box|>458 87 475 339<|content|>E. RECOVERIES BY JURISDICTION\n<|id|>72<|page|>17<|box|>86 87 101 260<|content|>Recommended Action",
+    "raw_response": "<|id|>49<|level|>1\n<|id|>55<|level|>1\n<|id|>58<|level|>1\n<|id|>72<|level|>1",
+    "parsed": [
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        }
+    ]
+}

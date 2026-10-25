@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>3<|page|>1<|box|>185 140 203 740<|content|>VIA CERTIFIED MAIL (RETURN RECEIPT REQUESTED) AND\n<|id|>9<|page|>1<|box|>392 140 409 405<|content|>I. Opening and Purpose of Notice\n<|id|>14<|page|>2<|box|>90 140 107 388<|content|>II. Identification of the Insured\n<|id|>20<|page|>2<|box|>571 140 589 651<|content|>III. Description of Circumstances Giving Rise to P\n<|id|>21<|page|>2<|box|>603 142 619 364<|content|>A. Nature of the Allegations\n<|id|>33<|page|>3<|box|>825 140 843 346<|content|>B. Potential Legal Claims\n<|id|>40<|page|>5<|box|>90 140 107 415<|content|>C. Involved Directors and Officers\n<|id|>49<|page|>5<|box|>702 142 719 313<|content|>IV. The Investigation\n<|id|>61<|page|>7<|box|>285 140 303 529<|content|>V. Related Insurance Coverage and Coordination\n<|id|>65<|page|>7<|box|>696 140 714 344<|content|>VI. Reservation of Rights\n<|id|>73<|page|>8<|box|>417 140 434 406<|content|>VII. Privilege and Confidentiality\n<|id|>77<|page|>8<|box|>866 140 883 617<|content|>VIII. Contact Information and Request for Acknowle",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>3<|level|>-1\n<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>20<|level|>1\n<|id|>21<|level|>2\n<|id|>33<|level|>2\n<|id|>40<|level|>2\n<|id|>49<|level|>1\n<|id|>61<|level|>1\n<|id|>65<|level|>1\n<|id|>73<|level|>1\n<|id|>77<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        }
+    ]
+}

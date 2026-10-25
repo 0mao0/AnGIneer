@@ -1,0 +1,153 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-w8mg7mp9\\input\\pdfs\\doc-4c2ac016.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-w8mg7mp9\\enriched\\doc-4c2ac016.json",
+    "contd_output": "<|src_id|>32<|tgt_id|>33",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>16<|level|>2\n<|id|>19<|level|>2\n<|id|>29<|level|>1\n<|id|>31<|level|>2\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>49<|level|>1\n<|id|>59<|level|>1\n<|id|>71<|level|>1\n<|id|>74<|level|>1\n<|id|>76<|level|>2\n<|id|>82<|level|>3\n<|id|>88<|level|>3\n<|id|>94<|level|>1\n<|id|>99<|level|>1\n<|id|>102<|level|>1\n<|id|>110<|level|>1\n<|id|>117<|level|>1\n<|id|>120<|level|>1\n<|id|>123<|level|>1",
+    "image_output": "<|src_id|>15<|tgt_id|>14\n<|src_id|>17<|tgt_id|>16\n<|src_id|>18<|tgt_id|>16\n<|src_id|>50<|tgt_id|>49",
+    "contd_label": [
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 49
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 17,
+            "table2_idx": 18,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "Dr. Vikram Iyer",
+                    "Chief Architect, PIC Platform",
+                    "O-1A",
+                    "05/15/2023 – 05/14/2026"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "17",
+                    "Dr. Amara Osei-Bonsu",
+                    "Lead Quantum Photonics Scientist",
+                    "O-1A",
+                    "09/01/2024 - 08/31/2027"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,122 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        9,
+        73
+    ],
+    "pages": [
+        9,
+        11,
+        12,
+        13,
+        17,
+        21,
+        23,
+        27,
+        35,
+        36,
+        37,
+        43,
+        44,
+        51,
+        53,
+        72
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>9<|box|>103 83 261 891<|content|>TREASURY BULLETIN\n<|id|>14<|page|>11<|box|>92 352 118 637<|content|>Table of Contents\n<|id|>17<|page|>12<|box|>99 441 110 562<|content|>Reporting Bases\n<|id|>26<|page|>13<|box|>47 326 64 638<|content|>Treasury Financing Operations\n<|id|>27<|page|>13<|box|>69 61 82 233<|content|>February Refinancing\n<|id|>44<|page|>17<|box|>75 329 88 648<|content|>Footnotes to Table 1 - (Continued)\n<|id|>54<|page|>17<|box|>530 331 545 651<|content|>Footnotes to Table 2 - (Continued)\n<|id|>90<|page|>21<|box|>416 508 427 638<|content|>11/ See footnote 8.\n<|id|>100<|page|>23<|box|>69 235 84 734<|content|>Table 3.- Trust and Deposit Fund Account Expenditu\n<|id|>114<|page|>27<|box|>42 329 57 646<|content|>TRUST ACCOUNT AND OTHER TRANSACTIONS\n<|id|>138<|page|>35<|box|>77 100 123 901<|content|>Table 7.- Derivation of Federal Government Net Cas\n<|id|>141<|page|>36<|box|>40 412 54 602<|content|>CASH INCOME AND OUTGO\n<|id|>142<|page|>36<|box|>76 400 89 592<|content|>Footnotes to Table 4\n<|id|>148<|page|>36<|box|>237 397 250 592<|content|>Footnotes to Table 5\n<|id|>156<|page|>36<|box|>475 397 489 590<|content|>Footnotes to Table 6\n<|id|>165<|page|>36<|box|>634 400 648 592<|content|>Footnotes to Table 7\n<|id|>173<|page|>37<|box|>47 294 62 690<|content|>ACCOUNT OF THE TREASURER OF THE UNITED STATES.\n<|id|>174<|page|>37<|box|>79 191 95 798<|content|>Source and Availability of the Balance in the Trea\n<|id|>207<|page|>43<|box|>250 238 268 732<|content|>Table 1.- Status under Limitation, December 31, 19\n<|id|>209<|page|>43<|box|>432 120 467 832<|content|>Table 2.- Application of Limitation to Public Debt\n<|id|>211<|page|>44<|box|>72 163 105 861<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>222<|page|>51<|box|>69 194 104 778<|content|>Table 4.- Offerings of Public Marketable Securitie\n<|id|>225<|page|>53<|box|>82 326 97 643<|content|>Footnotes to Table 4 - (Continued)\n<|id|>280<|page|>72<|box|>65 170 96 832<|content|>Section II - Interest-Bearing Securities Issued by",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>17<|level|>2\n<|id|>26<|level|>1\n<|id|>27<|level|>2\n<|id|>44<|level|>3\n<|id|>54<|level|>3\n<|id|>90<|level|>-1\n<|id|>100<|level|>1\n<|id|>114<|level|>1\n<|id|>138<|level|>1\n<|id|>141<|level|>1\n<|id|>142<|level|>3\n<|id|>148<|level|>3\n<|id|>156<|level|>3\n<|id|>165<|level|>3\n<|id|>173<|level|>1\n<|id|>174<|level|>2\n<|id|>207<|level|>1\n<|id|>209<|level|>1\n<|id|>211<|level|>1\n<|id|>222<|level|>1\n<|id|>225<|level|>3\n<|id|>280<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 1
+        },
+        {
+            "id": 209,
+            "level": 1
+        },
+        {
+            "id": 211,
+            "level": 1
+        },
+        {
+            "id": 222,
+            "level": 1
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 280,
+            "level": 1
+        }
+    ]
+}

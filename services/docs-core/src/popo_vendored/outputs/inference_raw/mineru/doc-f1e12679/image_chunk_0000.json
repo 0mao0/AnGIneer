@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>table<|page|>1<|box|>198 143 422 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>474 187 491 808<|content|>STIPULATION AND [PROPOSED] ORDER STAYING ALL PROCE\n<|id|>5<|type|>title<|page|>1<|box|>515 142 532 267<|content|>I. PREAMBLE\n<|id|>7<|type|>title<|page|>1<|box|>691 142 709 264<|content|>II. RECITALS\n<|id|>18<|type|>title<|page|>3<|box|>311 140 328 362<|content|>III. STIPULATED TERMS\n<|id|>19<|type|>title<|page|>3<|box|>342 140 359 406<|content|>Section 1. Stay of All Proceedings\n<|id|>23<|type|>title<|page|>3<|box|>667 140 685 537<|content|>Section 2. Periodic Review — Joint Status Reports\n<|id|>33<|type|>title<|page|>4<|box|>489 140 506 401<|content|>Section 3. Preservation of Rights\n<|id|>38<|type|>title<|page|>5<|box|>157 140 175 284<|content|>Section 4. Tolling\n<|id|>42<|type|>title<|page|>5<|box|>556 140 574 405<|content|>Section 5. Continued Jurisdiction\n<|id|>45<|type|>title<|page|>5<|box|>729 140 746 426<|content|>Section 6. Mediation Confidentiality\n<|id|>49<|type|>title<|page|>6<|box|>202 140 219 348<|content|>Section 7. Lifting the Stay\n<|id|>55<|type|>title<|page|>6<|box|>579 140 597 527<|content|>Section 8. No Prejudice to Settlement Discussions\n<|id|>59<|type|>title<|page|>6<|box|>832 140 848 370<|content|>Section 9. Service and Notice\n<|id|>61<|type|>title<|page|>7<|box|>90 176 107 444<|content|>For Plaintiff Estuary Foundation:\n<|id|>68<|type|>title<|page|>7<|box|>314 142 330 344<|content|>Section 10. Miscellaneous\n<|id|>74<|type|>title<|page|>7<|box|>650 400 667 596<|content|>[Signature Page Follows]\n<|id|>75<|type|>title<|page|>7<|box|>675 140 693 367<|content|>DATED: September 16, 2022\n<|id|>83<|type|>title<|page|>7<|box|>878 274 895 723<|content|>[PROPOSED] ORDER STAYING ALL PROCEEDINGS\n<|id|>84<|type|>table<|page|>8<|box|>123 143 325 852<|content|>None\n<|id|>94<|type|>title<|page|>9<|box|>196 411 213 584<|content|>IT IS SO ORDERED.\n<|id|>96<|type|>title<|page|>9<|box|>275 140 309 751<|content|>HON. PATRICIA R. WAINWRIGHT Judge of the Superior",
+    "raw_response": "<|src_id|>2<|tgt_id|>4\n<|src_id|>84<|tgt_id|>83",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 83
+        }
+    ]
+}

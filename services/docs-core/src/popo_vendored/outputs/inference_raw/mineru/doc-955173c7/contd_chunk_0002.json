@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        120,
+        122
+    ],
+    "pages": [
+        121,
+        122
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>577<|page|>121<|box|>148 374 165 622<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>578<|page|>121<|box|>186 81 262 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>586<|page|>121<|box|>843 81 904 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>587<|page|>121<|box|>186 504 262 915<|content|>Second Liberty Loan Act of 1917, the nature of the...l debt. ... the limit may change from year to year\n<|id|>596<|page|>121<|box|>864 504 897 915<|content|>Foreigner (“Capital Movements,” IFS-2)—All institu...iduals living outside the United States, including\n<|id|>598<|page|>122<|box|>213 80 361 491<|content|>Foreign official institutions (“Capital Movements”...d by treaty or convention between sovereign states",
+    "raw_response": "<|src_id|>586<|tgt_id|>587\n<|src_id|>596<|tgt_id|>598",
+    "parsed": [
+        {
+            "src_id": 586,
+            "tgt_id": 587
+        },
+        {
+            "src_id": 596,
+            "tgt_id": 598
+        }
+    ]
+}

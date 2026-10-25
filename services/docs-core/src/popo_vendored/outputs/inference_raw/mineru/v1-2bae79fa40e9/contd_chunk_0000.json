@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>214 275 231 721<|content|>Eduardo Abi Jaber ^{*1} and Shaun (Xiaoyuan) Li {}^{\\dagger2,3}\n<|id|>2<|page|>1<|box|>244 302 293 695<|content|>^{1}Ecole Polytechnique, CMAP ^{2}AXA Investment Managers ^{3}Université Paris 1 Panthéon-Sorbonne, CES\n<|id|>3<|page|>1<|box|>326 436 342 561<|content|>April 10, 2025\n<|id|>56<|page|>6<|box|>101 136 205 860<|content|>The expression (2. ... ^{2}\n<|id|>57<|page|>6<|box|>215 136 259 858<|content|>Despite having a similar-looking kernel, the path-...rent dynamics than the rough Bergomi model. ... 2)\n<|id|>67<|page|>6<|box|>822 137 837 858<|content|>The ATM skew produced by the one-factor Bergomi model at the first-order of vol of vol, assuming\n<|id|>68<|page|>7<|box|>101 137 117 329<|content|>a flat \\xi_{0} is of the form [9]\n<|id|>140<|page|>16<|box|>885 137 902 858<|content|>To simulate spot volatility \\sqrt{V} , we first calibrate each model to the implied volatility surface\n<|id|>142<|page|>17<|box|>816 134 903 860<|content|>Figure 10 and 11 show that the estimate for the Hu... adequate criterion to be used for model selection",
+    "raw_response": "<|src_id|>67<|tgt_id|>68",
+    "parsed": [
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        }
+    ]
+}

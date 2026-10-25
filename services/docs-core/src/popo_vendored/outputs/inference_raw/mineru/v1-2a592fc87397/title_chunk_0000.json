@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 275<|content|>【944817#28】朴有天\n<|id|>2<|page|>1<|box|>175 105 191 369<|content|>【1486607#1】總統 (韓國電視劇)\n<|id|>4<|page|>1<|box|>241 105 256 369<|content|>【1486607#0】總統 (韓國電視劇)\n<|id|>6<|page|>1<|box|>290 107 306 292<|content|>【34435#3】韓國電視劇\n<|id|>8<|page|>1<|box|>425 105 441 292<|content|>【34435#4】韓國電視劇\n<|id|>10<|page|>1<|box|>577 107 594 292<|content|>【34435#9】韓國電視劇\n<|id|>12<|page|>1<|box|>747 107 764 292<|content|>【34435#1】韓國電視劇\n<|id|>14<|page|>1<|box|>866 105 882 329<|content|>【5144321#6】韩国LGBT权益\n<|id|>16<|page|>2<|box|>152 107 168 292<|content|>【34435#5】韓國電視劇\n<|id|>18<|page|>2<|box|>321 107 337 284<|content|>【3074#178】朝鲜战争",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>1\n<|id|>16<|level|>2\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

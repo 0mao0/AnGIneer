@@ -1,0 +1,185 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-g2s7aw6i\\input\\pdfs\\doc-9aefcb53.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-g2s7aw6i\\enriched\\doc-9aefcb53.json",
+    "contd_output": "<|src_id|>168<|tgt_id|>169",
+    "title_output": "<|id|>5<|level|>1\n<|id|>11<|level|>1\n<|id|>26<|level|>1\n<|id|>39<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>75<|level|>2\n<|id|>82<|level|>1\n<|id|>84<|level|>2\n<|id|>86<|level|>3\n<|id|>88<|level|>3\n<|id|>90<|level|>3\n<|id|>95<|level|>2\n<|id|>100<|level|>2\n<|id|>103<|level|>1\n<|id|>105<|level|>2\n<|id|>110<|level|>2\n<|id|>112<|level|>2\n<|id|>116<|level|>1\n<|id|>118<|level|>2\n<|id|>121<|level|>2\n<|id|>123<|level|>2\n<|id|>127<|level|>2\n<|id|>133<|level|>1\n<|id|>140<|level|>1\n<|id|>150<|level|>1\n<|id|>165<|level|>1\n<|id|>178<|level|>1\n<|id|>183<|level|>1\n<|id|>189<|level|>1",
+    "image_output": "<|src_id|>135<|tgt_id|>133\n<|src_id|>136<|tgt_id|>133",
+    "contd_label": [
+        {
+            "src_id": 168,
+            "tgt_id": 169
+        }
+    ],
+    "title_label": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 183,
+            "level": 1
+        },
+        {
+            "id": 189,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 135,
+            "tgt_id": 133
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 133
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 135,
+            "table2_idx": 136,
+            "upper_row_ss": [
+                [
+                    "Thomas Rearden",
+                    "4%",
+                    "Direct"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Meridian Growth Partners Fund III, L.P.",
+                    "26%",
+                    "Direct"
+                ]
+            ]
+        }
+    ]
+}

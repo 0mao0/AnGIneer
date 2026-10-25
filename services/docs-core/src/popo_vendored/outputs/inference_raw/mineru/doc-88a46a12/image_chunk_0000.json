@@ -1,0 +1,74 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 214 157 782<|content|>MEMORANDUM PRIVILEGED & CONFIDENTIAL — ATTORNEY WO\n<|id|>9<|type|>title<|page|>1<|box|>445 140 462 460<|content|>1. Purpose and Summary of Conclusions\n<|id|>14<|type|>title<|page|>2<|box|>204 140 222 364<|content|>2. Scope of Conflicts Search\n<|id|>26<|type|>title<|page|>3<|box|>304 140 320 297<|content|>3. Parties Searched\n<|id|>27<|type|>title<|page|>3<|box|>334 140 352 390<|content|>3.1 Prospective Client — Buyer\n<|id|>29<|type|>table<|page|>3<|box|>382 143 484 852<|content|>None\n<|id|>38<|type|>title<|page|>4<|box|>138 140 157 477<|content|>3.2 Opposing Party — Seller and Affiliates\n<|id|>40<|type|>table<|page|>4<|box|>186 143 353 852<|content|>None\n<|id|>45<|type|>title<|page|>4<|box|>612 140 628 300<|content|>3.3 Seller's Counsel\n<|id|>47<|type|>table<|page|>4<|box|>660 143 713 852<|content|>None\n<|id|>53<|type|>title<|page|>5<|box|>194 140 212 558<|content|>3.4 Existing Mortgage Lenders (Debt to Be Assumed)\n<|id|>55<|type|>table<|page|>5<|box|>315 143 511 852<|content|>None\n<|id|>61<|type|>title<|page|>5<|box|>844 140 859 300<|content|>3.5 Lender Counsel\n<|id|>63<|type|>table<|page|>6<|box|>88 143 224 852<|content|>None\n<|id|>69<|type|>title<|page|>6<|box|>429 140 446 413<|content|>3.6 Title Company / Escrow Agent\n<|id|>71<|type|>table<|page|>6<|box|>494 143 547 852<|content|>None\n<|id|>76<|type|>title<|page|>6<|box|>751 142 768 500<|content|>3.7 Other Known Third Parties (Preliminary)\n<|id|>78<|type|>table<|page|>6<|box|>816 143 900 852<|content|>None\n<|id|>79<|type|>table<|page|>7<|box|>89 143 191 852<|content|>None\n<|id|>82<|type|>title<|page|>7<|box|>401 140 419 501<|content|>4. Target Entities (14 Property-Owning SPEs)\n<|id|>84<|type|>table<|page|>7<|box|>506 143 907 852<|content|>None\n<|id|>85<|type|>table<|page|>8<|box|>88 143 109 852<|content|>None\n<|id|>87<|type|>title<|page|>8<|box|>257 140 273 460<|content|>5. Major Tenants (Known at This Stage)\n<|id|>89<|type|>table<|page|>8<|box|>380 143 583 852<|content|>None\n<|id|>92<|type|>title<|page|>9<|box|>90 140 107 452<|content|>6. Methodology and Search Parameters\n<|id|>108<|type|>title<|page|>10<|box|>90 140 107 421<|content|>7. Engagement Team Confirmation\n<|id|>110<|type|>table<|page|>10<|box|>275 143 449 852<|content|>None\n<|id|>113<|type|>title<|page|>10<|box|>641 140 657 372<|content|>8. Anticipated Local Counsel\n<|id|>117<|type|>title<|page|>11<|box|>167 140 185 328<|content|>9. Ongoing Obligations\n<|id|>124<|type|>title<|page|>11<|box|>786 140 803 379<|content|>10. Conclusion and Clearance\n<|id|>130<|type|>title<|page|>12<|box|>431 143 450 250<|content|>Prepared by:\n<|id|>135<|type|>title<|page|>12<|box|>638 143 657 243<|content|>Distribution",
+    "raw_response": "<|src_id|>29<|tgt_id|>27\n<|src_id|>40<|tgt_id|>38\n<|src_id|>47<|tgt_id|>45\n<|src_id|>55<|tgt_id|>53\n<|src_id|>63<|tgt_id|>61\n<|src_id|>71<|tgt_id|>69\n<|src_id|>78<|tgt_id|>76\n<|src_id|>79<|tgt_id|>76\n<|src_id|>84<|tgt_id|>82\n<|src_id|>85<|tgt_id|>82\n<|src_id|>89<|tgt_id|>87\n<|src_id|>110<|tgt_id|>108",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 108
+        }
+    ]
+}

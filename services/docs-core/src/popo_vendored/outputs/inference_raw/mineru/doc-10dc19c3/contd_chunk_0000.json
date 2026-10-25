@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        12,
+        13,
+        16,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 140 157 630<|content|>FROM: ... Naomi Petersen, Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>167 140 184 738<|content|>TO: ... Harrison Wexford, Responsible Partner\n<|id|>4<|page|>1<|box|>193 142 210 310<|content|>DATE: ... June 28, 2022\n<|id|>5<|page|>1<|box|>219 140 253 854<|content|>RE: ... A\n<|id|>6<|page|>1<|box|>263 140 280 410<|content|>MATTER NUMBER: ... 1002-00004\n<|id|>7<|page|>1<|box|>289 140 306 656<|content|>CLIENT: ... PIN-0042)\n<|id|>25<|page|>3<|box|>277 147 294 442<|content|>• Cash on balance sheet: ... $22,400,000\n<|id|>28<|page|>3<|box|>335 140 445 854<|content|>The negative EBITDA figure indicates that Verdana ...cility is discussed in detail in Section III below\n<|id|>26<|page|>3<|box|>297 147 314 549<|content|>• Amount drawn on the Credit Facility: ... $6,200,000\n<|id|>27<|page|>3<|box|>316 145 334 813<|content|>• Trailing twelve-month (\"TTM\") EBITDA (as of March 2022): ... Negative $11,600,000\n<|id|>49<|page|>5<|box|>621 147 674 854<|content|>• Whether the covenant includes step-down provisions (i. ... and\n<|id|>51<|page|>5<|box|>714 142 732 606<|content|>These items are identified in the open items list ... identified in the open items list in Section VIII\n<|id|>59<|page|>6<|box|>409 147 444 854<|content|>• Anti-dilution protections (the specific type and...ly under negotiation between the parties); ... and\n<|id|>61<|page|>6<|box|>484 140 575 854<|content|>The combination of these economic features — parti...ricted by the Credit Facility's negative covenants\n<|id|>65<|page|>6<|box|>821 140 896 854<|content|>The Credit Facility likely contains a \"Change of C...ght to accelerate outstanding obligations, or (ii)\n<|id|>66<|page|>7<|box|>90 140 145 854<|content|>mandatory prepayment triggers, which require the b...equences for Verdana and for Pinnacle's investment\n<|id|>74<|page|>7<|box|>584 147 619 854<|content|>• The existing founders or management team ceasing...than 50%) of the outstanding voting equity; ... or\n<|id|>76<|page|>7<|box|>659 140 806 856<|content|>The 10% or 15% thresholds are particularly relevan...eady below 50% of the fully diluted capitalization\n<|id|>77<|page|>7<|box|>813 140 905 856<|content|>This means that if the Change of Control definitio...nds and the existing ESOP). ... , the event of the\n<|id|>78<|page|>8<|box|>90 140 162 854<|content|>Series D issuance itself) or the absolute ownershi...d out when the Facility was originally established\n<|id|>115<|page|>12<|box|>503 174 578 854<|content|>(iii) Confirmation Regarding Change of Control. ... and\n<|id|>117<|page|>12<|box|>665 140 720 854<|content|>The consent should be unconditional and irrevocabl...ve the form of the lender consent prior to closing\n<|id|>119<|page|>12<|box|>768 140 878 857<|content|>Verdana should initiate the consent request with P...ry of the material terms of the Series D Preferred\n<|id|>120<|page|>13<|box|>90 140 126 854<|content|>Stock, and pro forma financial statements demonstr...st-closing compliance with the financial covenants\n<|id|>125<|page|>13<|box|>311 147 327 733<|content|>• Whether the Lender retains outside counsel to review the consent request; ... and\n<|id|>127<|page|>13<|box|>349 140 404 854<|content|>The parties should factor this timeline into their...quest should be initiated no later than early July\n<|id|>132<|page|>13<|box|>643 147 678 854<|content|>• A requirement to maintain a specified percentage...oceeds on deposit with Pacific Summit Bank; ... or\n<|id|>134<|page|>13<|box|>719 140 792 854<|content|>Pinnacle should instruct Verdana to keep Pinnacle ...Lender may seek as a condition to granting consent\n<|id|>160<|page|>16<|box|>406 147 460 854<|content|>• The schedule of Financial Covenants (or, if no s...sting dates and current compliance status; ... and\n<|id|>162<|page|>16<|box|>500 140 555 854<|content|>Verdana should also be required to disclose any ex...ior waivers or amendments obtained from the Lender\n<|id|>185<|page|>18<|box|>718 140 734 707<|content|>Calderwood & Harkness LLP 101 Montgomery Street, Suite 3500 San Francisco, CA 94104\n<|id|>186<|page|>18<|box|>739 140 755 423<|content|>Matter No. ... PIN-0042",
+    "raw_response": "<|src_id|>65<|tgt_id|>66\n<|src_id|>77<|tgt_id|>78\n<|src_id|>119<|tgt_id|>120",
+    "parsed": [
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        }
+    ]
+}

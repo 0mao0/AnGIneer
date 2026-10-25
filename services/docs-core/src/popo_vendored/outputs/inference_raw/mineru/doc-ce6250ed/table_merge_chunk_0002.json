@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['P7', 'Anh Nguyen', 'Packaging R&D', 'H-1B (Cap)', 'Purdue / F-1 OPT', 'Not Selected', 'N/A', 'N/A', 'N/A', 'STEM OPT']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'Eng.', '', 'STEM', '', '', '', '', 'runway; FY2027 re-registration']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 627,
+    "table2_idx": 628
+}

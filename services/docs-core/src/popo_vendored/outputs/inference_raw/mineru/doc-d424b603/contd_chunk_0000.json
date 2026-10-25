@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>116 426 133 570<|content|>Attorneys at Law\n<|id|>2<|page|>1<|box|>141 295 159 702<|content|>1735 Market Street, Suite 3100 Philadelphia, PA 19103\n<|id|>3<|page|>1<|box|>167 297 185 697<|content|>Telephone: ... (215) 884-7201\n<|id|>4<|page|>1<|box|>193 330 210 668<|content|>600 Lexington Avenue New York, NY 10022\n<|id|>5<|page|>1<|box|>219 380 236 617<|content|>www. ... com\n<|id|>6<|page|>1<|box|>244 733 262 854<|content|>March 22, 2024\n<|id|>7<|page|>1<|box|>271 140 306 854<|content|>VIA HAND DELIVERY AND FIRST-CLASS U. ... 7020 1810 0003 4472 6891)\n<|id|>8<|page|>1<|box|>315 140 351 854<|content|>Appeals Officer Noreen Castañeda Internal Revenue ...290 Broadway, 30th Floor Manhattan, New York 10007\n<|id|>9<|page|>1<|box|>359 176 377 856<|content|>Re: ... 2017, 2018, 2019, 2020\n<|id|>10<|page|>1<|box|>377 176 395 812<|content|>IRS Exam Team ID: ... 1018-00009\n<|id|>11<|page|>1<|box|>404 176 440 854<|content|>Re: ... Proposed IRC § 482 Transfer Pricing Adjustments\n<|id|>12<|page|>1<|box|>448 142 465 388<|content|>Dear Appeals Officer Castañeda: ... Dear Appeals Officer Castañeda\n<|id|>16<|page|>1<|box|>786 140 897 857<|content|>The purpose of this letter is to formally communic...ests that the settlement be memorialized through a\n<|id|>17<|page|>2<|box|>89 140 127 854<|content|>Closing Agreement on IRS Form 906. ... We have enc...osed Closing Agreement for your review and comment\n<|id|>73<|page|>7<|box|>535 174 571 854<|content|>Leonard Cross Partner, Tax Department Calderwood &...iladelphia, PA 19103 Telephone: ... (215) 884-7244\n<|id|>74<|page|>7<|box|>579 176 595 478<|content|>Email: ... com\n<|id|>75<|page|>7<|box|>597 174 633 854<|content|>Sylvia Hartwell Partner, Tax Department Calderwood...e New York, NY 10022 Telephone: ... (212) 596-3180\n<|id|>76<|page|>7<|box|>641 174 657 503<|content|>Email: ... com\n<|id|>77<|page|>7<|box|>657 140 676 424<|content|>The primary client contact for PPC is: ... The primary client contact for PPC is\n<|id|>78<|page|>7<|box|>684 174 720 854<|content|>Marcus Whitfield Vice President, Global Tax Penterra Pharmaceuticals Corp. ... (609) 452-8100\n<|id|>79<|page|>7<|box|>728 176 746 428<|content|>Email: ... com\n<|id|>81<|page|>7<|box|>792 140 885 857<|content|>On behalf of PPC, we wish to express our sincere a...er the supplemental materials provided on March 8,\n<|id|>83<|page|>8<|box|>133 140 208 854<|content|>PPC is eager to finalize the Closing Agreement at ... and the administrative closure of the examination",
+    "raw_response": "<|src_id|>16<|tgt_id|>17\n<|src_id|>81<|tgt_id|>83",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 83
+        }
+    ]
+}

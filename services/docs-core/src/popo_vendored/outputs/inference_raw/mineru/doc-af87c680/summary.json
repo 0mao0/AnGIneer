@@ -1,0 +1,115 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cap1bb04\\input\\pdfs\\doc-af87c680.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cap1bb04\\enriched\\doc-af87c680.json",
+    "contd_output": "<|src_id|>96<|tgt_id|>97\n<|src_id|>108<|tgt_id|>109",
+    "title_output": "<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>27<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>2\n<|id|>46<|level|>2\n<|id|>100<|level|>2\n<|id|>112<|level|>2\n<|id|>121<|level|>2\n<|id|>127<|level|>2\n<|id|>132<|level|>2\n<|id|>157<|level|>1\n<|id|>160<|level|>1\n<|id|>164<|level|>1\n<|id|>172<|level|>1\n<|id|>176<|level|>1",
+    "image_output": "<|src_id|>158<|tgt_id|>157\n<|src_id|>159<|tgt_id|>157",
+    "contd_label": [
+        {
+            "src_id": 96,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 164,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 176,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 158,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 157
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 158,
+            "table2_idx": 159,
+            "upper_row_ss": [
+                [
+                    "10",
+                    "Corporate-Direct Booking Contracts",
+                    "60–63",
+                    "Entirely absent"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "11",
+                    "Walk-In Revenue Records",
+                    "65",
+                    "Entirely absent"
+                ]
+            ]
+        }
+    ]
+}

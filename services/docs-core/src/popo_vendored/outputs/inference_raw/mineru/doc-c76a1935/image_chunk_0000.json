@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>166 108 201 898<|content|>中华人民共和国交通行业标准\n<|id|>3<|type|>title<|page|>1<|box|>411 174 448 832<|content|>海区航标维护 固定建(构)筑物\n<|id|>4<|type|>title<|page|>1<|box|>473 206 495 800<|content|>Maintenance of marine aids to navigation-fixed str\n<|id|>8<|type|>title<|page|>2<|box|>133 448 156 558<|content|>目次\n<|id|>10<|type|>title<|page|>3<|box|>138 445 160 558<|content|>前言\n<|id|>22<|type|>title<|page|>4<|box|>132 316 153 697<|content|>海区航标维护 固定建(构)筑物\n<|id|>23<|type|>title<|page|>4<|box|>185 115 201 186<|content|>1 范围\n<|id|>26<|type|>title<|page|>4<|box|>259 113 276 274<|content|>2 规范性引用文件\n<|id|>31<|type|>title<|page|>4<|box|>410 113 425 236<|content|>3 术语和定义\n<|id|>33<|type|>title<|page|>4<|box|>457 113 470 148<|content|>3.1\n<|id|>36<|type|>title<|page|>4<|box|>513 115 526 150<|content|>3.2\n<|id|>37<|type|>title<|page|>4<|box|>531 150 545 517<|content|>固定航标建(构)筑物 fixed sea mark building\n<|id|>39<|type|>title<|page|>4<|box|>624 113 638 150<|content|>3.3\n<|id|>40<|type|>title<|page|>4<|box|>643 150 657 624<|content|>航标附属固定建(构)筑物 fixed sea mark affiliated building\n<|id|>42<|type|>title<|page|>4<|box|>707 113 723 329<|content|>4 建(构)筑物的基本要求\n<|id|>56<|type|>title<|page|>5<|box|>188 109 203 360<|content|>5 建(构)筑物的维护工作程序\n<|id|>66<|type|>title<|page|>5<|box|>448 109 464 324<|content|>6 建(构)筑物的维护要求\n<|id|>67<|type|>title<|page|>5<|box|>476 109 491 252<|content|>6.1 地基与基础\n<|id|>69<|type|>title<|page|>5<|box|>532 109 547 252<|content|>6.2 混凝土结构\n<|id|>73<|type|>title<|page|>5<|box|>662 109 676 233<|content|>6.3 金属结构\n<|id|>78<|type|>title<|page|>5<|box|>773 108 787 206<|content|>6.4 墙、柱\n<|id|>82<|type|>title<|page|>5<|box|>867 106 880 302<|content|>6.5 楼地面、屋面、顶棚\n<|id|>118<|type|>title<|page|>7<|box|>191 116 206 365<|content|>6.10 道路、台阶、码头、登陆点\n<|id|>126<|type|>title<|page|>7<|box|>359 116 375 250<|content|>6.11 涂层维护\n<|id|>134<|type|>table<|page|>7<|box|>567 118 909 893<|content|>None\n<|id|>136<|type|>table<|page|>8<|box|>137 118 438 896<|content|>None\n<|id|>141<|type|>title<|page|>8<|box|>543 116 558 302<|content|>6.12 避雷与接地装置\n<|id|>145<|type|>title<|page|>8<|box|>636 116 650 250<|content|>6.13 历史灯塔",
+    "raw_response": "<|src_id|>134<|tgt_id|>126\n<|src_id|>136<|tgt_id|>126",
+    "parsed": [
+        {
+            "src_id": 134,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 126
+        }
+    ]
+}

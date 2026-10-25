@@ -1,0 +1,220 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3x0w5dii\\input\\pdfs\\doc-f255751b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3x0w5dii\\enriched\\doc-f255751b.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>20<|level|>3\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>36<|level|>3\n<|id|>101<|level|>3\n<|id|>106<|level|>2\n<|id|>109<|level|>3\n<|id|>114<|level|>3\n<|id|>116<|level|>2\n<|id|>119<|level|>3\n<|id|>122<|level|>3\n<|id|>128<|level|>3\n<|id|>131<|level|>3\n<|id|>133<|level|>2\n<|id|>134<|level|>3\n<|id|>141<|level|>3\n<|id|>146<|level|>3\n<|id|>152<|level|>3\n<|id|>155<|level|>2\n<|id|>156<|level|>3\n<|id|>163<|level|>3\n<|id|>167<|level|>3\n<|id|>173<|level|>3\n<|id|>177<|level|>2\n<|id|>191<|level|>2\n<|id|>198<|level|>2\n<|id|>203<|level|>2\n<|id|>205<|level|>3\n<|id|>212<|level|>3\n<|id|>221<|level|>3\n<|id|>228<|level|>3\n<|id|>236<|level|>3\n<|id|>245<|level|>3\n<|id|>254<|level|>3\n<|id|>263<|level|>3\n<|id|>272<|level|>2",
+    "image_output": "<|src_id|>1<|tgt_id|>0\n<|src_id|>103<|tgt_id|>101\n<|src_id|>104<|tgt_id|>101\n<|src_id|>153<|tgt_id|>152\n<|src_id|>271<|tgt_id|>263",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 212,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 228,
+            "level": 3
+        },
+        {
+            "id": 236,
+            "level": 3
+        },
+        {
+            "id": 245,
+            "level": 3
+        },
+        {
+            "id": 254,
+            "level": 3
+        },
+        {
+            "id": 263,
+            "level": 3
+        },
+        {
+            "id": 272,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 152
+        },
+        {
+            "src_id": 271,
+            "tgt_id": 263
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 103,
+            "table2_idx": 104,
+            "upper_row_ss": [
+                [
+                    "Project Name",
+                    "Location (County, State)",
+                    "Acreage",
+                    "Phase I ESA Date",
+                    "RECs Identified",
+                    "Further Investigation Recommend",
+                    "Notes"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "ed",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

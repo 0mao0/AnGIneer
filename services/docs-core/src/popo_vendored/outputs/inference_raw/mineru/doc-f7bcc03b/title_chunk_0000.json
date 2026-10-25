@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        8,
+        9,
+        10,
+        21,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 179 125 816<|content|>IN THE UNITED STATES DISTRICT COURT FOR THE WESTER\n<|id|>2<|page|>1<|box|>459 191 494 803<|content|>DEFENDANTS' WITNESS LIST AND EXHIBIT LIST FOR PREL\n<|id|>3<|page|>1<|box|>553 142 570 308<|content|>I. INTRODUCTION\n<|id|>8<|page|>2<|box|>212 140 229 300<|content|>II. WITNESS LIST\n<|id|>26<|page|>3<|box|>681 142 699 491<|content|>B. Witness No. 2: Patricia \"Trish\" Delacroix\n<|id|>41<|page|>5<|box|>138 140 156 429<|content|>C. Witness No. 3: Rajiv Chandravar\n<|id|>74<|page|>8<|box|>356 142 373 398<|content|>E. Witness No. 5: Thomas Breck\n<|id|>79<|page|>8<|box|>483 142 500 803<|content|>Estimated Duration of Direct Examination: Approxim\n<|id|>80<|page|>8<|box|>508 142 526 429<|content|>Summary of Anticipated Testimony:\n<|id|>89<|page|>9<|box|>510 140 527 336<|content|>F. Reservation of Rights\n<|id|>96<|page|>10<|box|>89 140 107 302<|content|>III. EXHIBIT LIST\n<|id|>116<|page|>21<|box|>162 143 179 504<|content|>F. Expert Materials (DX-066 through DX-070)\n<|id|>121<|page|>23<|box|>247 142 263 455<|content|>IV. OBJECTIONS TO FTC EXHIBITS\n<|id|>125<|page|>23<|box|>641 140 657 431<|content|>V. CERTIFICATION OF SERVICE\n<|id|>131<|page|>24<|box|>228 140 246 493<|content|>For Defendant Cascade Retail Holdings Inc.:\n<|id|>136<|page|>24<|box|>421 140 439 490<|content|>For Defendant Pinnacle Market Group Inc.:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>8<|level|>2\n<|id|>26<|level|>3\n<|id|>41<|level|>3\n<|id|>74<|level|>3\n<|id|>79<|level|>3\n<|id|>80<|level|>4\n<|id|>89<|level|>3\n<|id|>96<|level|>2\n<|id|>116<|level|>3\n<|id|>121<|level|>2\n<|id|>125<|level|>2\n<|id|>131<|level|>3\n<|id|>136<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        }
+    ]
+}

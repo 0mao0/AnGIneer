@@ -1,0 +1,63 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 140 167 823<|content|>UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF\n<|id|>6<|page|>1<|box|>305 166 340 828<|content|>PLAINTIFF VERIMARK HOSPITALITY GROUP INC.'S NOTICE\n<|id|>7<|page|>1<|box|>364 140 381 588<|content|>I. INTRODUCTION AND PURPOSE OF THE NOTICE\n<|id|>10<|page|>1<|box|>695 142 712 668<|content|>II. IDENTIFICATION OF THE RELATED TTAB PROCEEDING\n<|id|>17<|page|>2<|box|>90 176 107 756<|content|>Applicant: Coral Verimark Resorts LLC (\"CVR\"), the\n<|id|>21<|page|>2<|box|>354 140 372 524<|content|>III. GROUNDS FOR THE TTAB OPPOSITION\n<|id|>27<|page|>3<|box|>167 140 184 593<|content|>IV. CURRENT STATUS OF THE TTAB PROCEEDING\n<|id|>31<|page|>3<|box|>523 140 559 834<|content|>V. OVERLAPPING ISSUES BETWEEN THE DISTRICT COURT A\n<|id|>44<|page|>4<|box|>686 140 703 457<|content|>VI. REQUEST FOR COORDINATION\n<|id|>48<|page|>5<|box|>148 140 166 307<|content|>VII. CONCLUSION\n<|id|>52<|page|>5<|box|>344 140 359 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>64<|page|>5<|box|>575 375 592 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>7<|level|>2\n<|id|>10<|level|>2\n<|id|>17<|level|>-1\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>31<|level|>2\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>1\n<|id|>64<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        }
+    ]
+}

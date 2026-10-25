@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        12,
+        15
+    ],
+    "pages": [
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>112<|page|>12<|box|>839 140 893 854<|content|>Prior to the filing of this action, Plaintiff OWS,... preliminary infringement analyses for the accused\n<|id|>113<|page|>13<|box|>90 140 164 854<|content|>LumosBridge™ and LumosEdge™ products, and demandin...ents-in-Suit are invalid in light of the prior art\n<|id|>132<|page|>14<|box|>667 676 686 854<|content|>Dated: ... August 12, 2022\n<|id|>133<|page|>14<|box|>728 140 744 498<|content|>For Plaintiff Optiwave Semiconductor Corp. ... For Plaintiff Optiwave Semiconductor Corp\n<|id|>134<|page|>14<|box|>744 140 762 434<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>135<|page|>14<|box|>763 142 780 254<|content|>By: ... By\n<|id|>137<|page|>15<|box|>107 140 125 434<|content|>BRANNICK HOWELL & STEIN LLP\n<|id|>138<|page|>15<|box|>125 143 141 253<|content|>By: ... By\n<|id|>139<|page|>15<|box|>141 140 190 854<|content|>Victoria Ashworth (State Bar No. ... (415) 421-3201\n<|id|>140<|page|>15<|box|>191 142 208 442<|content|>Email: ... com\n<|id|>141<|page|>15<|box|>208 142 224 441<|content|>Email: ... com\n<|id|>142<|page|>15<|box|>224 142 242 491<|content|>Attorneys for Defendant Lumos Photonics, Inc. ... Attorneys for Defendant Lumos Photonics, Inc",
+    "raw_response": "<|src_id|>112<|tgt_id|>113",
+    "parsed": [
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        }
+    ]
+}

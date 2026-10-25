@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        57,
+        68
+    ],
+    "pages": [
+        58,
+        59,
+        60,
+        63,
+        68
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>105<|page|>58<|box|>53 216 68 783<|content|>Schedules for Balance Sheet of the Exchange Stabil\n<|id|>106<|page|>58<|box|>80 446 94 554<|content|>Schedule #1\n<|id|>110<|page|>58<|box|>264 448 277 556<|content|>Schedule #2\n<|id|>114<|page|>58<|box|>710 450 723 558<|content|>Schedule #3\n<|id|>121<|page|>59<|box|>692 556 706 877<|content|>Monetary Stocks of Gold and Silver\n<|id|>123<|page|>60<|box|>122 248 150 786<|content|>MONETARY STOCKS OF GOLD AND SILVER IN U.S.\n<|id|>134<|page|>63<|box|>440 97 468 384<|content|>Indexes of Prices of 40 Foreign Currencies in New\n<|id|>142<|page|>68<|box|>41 72 68 496<|content|>Summary of Criminal Cases in the United States Dis\n<|id|>147<|page|>68<|box|>38 581 54 898<|content|>Treasury Criminal Cases, by Months",
+    "raw_response": "<|id|>105<|level|>1\n<|id|>106<|level|>2\n<|id|>110<|level|>2\n<|id|>114<|level|>2\n<|id|>121<|level|>2\n<|id|>123<|level|>2\n<|id|>134<|level|>1\n<|id|>142<|level|>1\n<|id|>147<|level|>2",
+    "parsed": [
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 2
+        }
+    ]
+}

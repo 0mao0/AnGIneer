@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>4<|type|>title<|page|>1<|box|>186 140 203 656<|content|>Re: Wire Transfer Instructions — Disbursement of E\n<|id|>6<|type|>title<|page|>1<|box|>311 140 328 272<|content|>Dear Ms. Petrov:\n<|id|>9<|type|>title<|page|>1<|box|>661 142 676 361<|content|>1. Transaction Background\n<|id|>16<|type|>table<|page|>2<|box|>176 143 270 852<|content|>None\n<|id|>17<|type|>table<|page|>2<|box|>347 143 422 852<|content|>None\n<|id|>19<|type|>title<|page|>2<|box|>554 140 570 643<|content|>2. Wire Transfer Instructions for Disbursement to\n<|id|>31<|type|>title<|page|>3<|box|>359 140 375 410<|content|>3. Deduction of Escrow Agent Fee\n<|id|>35<|type|>title<|page|>3<|box|>770 140 787 470<|content|>4. Confirmation and Contact Information\n<|id|>38<|type|>title<|page|>4<|box|>135 143 152 285<|content|>Primary Contact:\n<|id|>47<|type|>title<|page|>4<|box|>474 140 492 418<|content|>5. Authorization and Irrevocability\n<|id|>55<|type|>title<|page|>5<|box|>90 142 107 287<|content|>6. Governing Law\n<|id|>59<|type|>title<|page|>5<|box|>321 140 338 388<|content|>SKYBRIDGE FINTECH LTD.",
+    "raw_response": "<|src_id|>16<|tgt_id|>9\n<|src_id|>17<|tgt_id|>9",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 9
+        }
+    ]
+}

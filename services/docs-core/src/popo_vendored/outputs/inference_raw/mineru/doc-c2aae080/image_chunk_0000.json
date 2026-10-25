@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>315 140 332 339<|content|>I. Purpose of This Letter\n<|id|>8<|type|>title<|page|>1<|box|>584 140 601 573<|content|>II. Summary of Procedural History and Current Stat\n<|id|>16<|type|>title<|page|>2<|box|>821 140 838 846<|content|>III. Preservation of Rights — Without Prejudice di\n<|id|>29<|type|>title<|page|>4<|box|>571 140 589 674<|content|>IV. Scope of Investment and Claims — Summary for C\n<|id|>41<|type|>title<|page|>5<|box|>476 140 493 534<|content|>V. Return of Client Documents and File Retention\n<|id|>52<|type|>title<|page|>6<|box|>340 140 357 354<|content|>VI. Final Billing Summary\n<|id|>55<|type|>table<|page|>6<|box|>441 143 536 852<|content|>None\n<|id|>56<|type|>title<|page|>6<|box|>570 142 587 477<|content|>Total Professional Fees Billed: $287,450.00\n<|id|>60<|type|>title<|page|>6<|box|>835 140 852 529<|content|>VII. Termination of Attorney-Client Relationship\n<|id|>65<|type|>title<|page|>7<|box|>439 140 457 352<|content|>VIII. Contact Information",
+    "raw_response": "<|src_id|>55<|tgt_id|>52",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 52
+        }
+    ]
+}

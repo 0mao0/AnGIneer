@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        59,
+        64
+    ],
+    "pages": [
+        60,
+        61,
+        64
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>103<|page|>60<|box|>54 309 85 732<|content|>Balance Sheet of the Exchange Stabilization Fund A\n<|id|>106<|page|>60<|box|>724 473 738 567<|content|>Schedule 1\n<|id|>111<|page|>61<|box|>339 426 352 522<|content|>Schedule 3\n<|id|>113<|page|>61<|box|>682 424 695 520<|content|>Schedule 4\n<|id|>120<|page|>64<|box|>421 602 449 911<|content|>Silver of Specified Classifications Acquired by Mi",
+    "raw_response": "<|id|>103<|level|>1\n<|id|>106<|level|>2\n<|id|>111<|level|>2\n<|id|>113<|level|>2\n<|id|>120<|level|>1",
+    "parsed": [
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 1
+        }
+    ]
+}

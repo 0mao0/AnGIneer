@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|type|>title<|page|>1<|box|>364 140 381 529<|content|>1. Purpose of Letter and Confirmation of Closure\n<|id|>12<|type|>title<|page|>1<|box|>720 140 738 447<|content|>2. Background and Reason for Closure\n<|id|>23<|type|>title<|page|>3<|box|>150 140 167 553<|content|>3. Confirmation That No Documents Were Executed\n<|id|>31<|type|>title<|page|>3<|box|>848 140 864 400<|content|>4. Summary of Work Performed\n<|id|>57<|type|>title<|page|>6<|box|>90 142 107 343<|content|>5. Final Billing Summary\n<|id|>59<|type|>table<|page|>6<|box|>204 143 295 852<|content|>None\n<|id|>60<|type|>table<|page|>6<|box|>356 143 513 852<|content|>None\n<|id|>61<|type|>table<|page|>6<|box|>575 143 614 852<|content|>None\n<|id|>63<|type|>table<|page|>6<|box|>752 143 862 852<|content|>None\n<|id|>67<|type|>title<|page|>7<|box|>311 140 329 483<|content|>6. Document Retention and File Disposition\n<|id|>73<|type|>title<|page|>8<|box|>90 140 107 441<|content|>7. Return of Confidential Information\n<|id|>77<|type|>title<|page|>8<|box|>446 140 464 557<|content|>8. Scope Limitations and No Ongoing Representation\n<|id|>86<|type|>title<|page|>9<|box|>321 140 339 326<|content|>9. Contact Information\n<|id|>94<|type|>title<|page|>9<|box|>652 142 670 235<|content|>10. Closing\n<|id|>103<|type|>title<|page|>10<|box|>375 143 390 238<|content|>Enclosures:\n<|id|>105<|type|>title<|page|>10<|box|>443 277 459 718<|content|>ACKNOWLEDGMENT AND COUNTERSIGNATURE",
+    "raw_response": "<|src_id|>59<|tgt_id|>57\n<|src_id|>60<|tgt_id|>57\n<|src_id|>61<|tgt_id|>57\n<|src_id|>63<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 59,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 57
+        }
+    ]
+}

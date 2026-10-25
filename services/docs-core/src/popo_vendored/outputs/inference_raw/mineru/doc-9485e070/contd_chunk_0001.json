@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>653<|page|>45<|box|>818 107 854 885<|content|>法向荷载系统——根据 GreenG. ... 一般采用液压加荷，均匀分布在试件表面上，其合力应垂直作用于\n<|id|>654<|page|>46<|box|>176 117 190 369<|content|>剪切面,并通过试件的中心位置。 ... 剪切面,并通过试件的中心位置\n<|id|>669<|page|>46<|box|>874 112 911 890<|content|>②荷载测量系统: ... 整个荷载测量系统应能抵抗液压冲击和振动,不受反复加载\n<|id|>670<|page|>47<|box|>109 97 126 174<|content|>的影响。 ... 的影响",
+    "raw_response": "<|src_id|>653<|tgt_id|>654\n<|src_id|>669<|tgt_id|>670",
+    "parsed": [
+        {
+            "src_id": 653,
+            "tgt_id": 654
+        },
+        {
+            "src_id": 669,
+            "tgt_id": 670
+        }
+    ]
+}

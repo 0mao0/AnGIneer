@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>138 437 154 560<|content|>FEE LETTER\n<|id|>5<|page|>1<|box|>304 140 321 316<|content|>Ladies and Gentlemen:\n<|id|>9<|page|>1<|box|>698 140 715 364<|content|>Section 1: Arrangement Fee\n<|id|>14<|page|>2<|box|>458 140 474 352<|content|>Section 2: Structuring Fee\n<|id|>19<|page|>3<|box|>90 140 107 457<|content|>Section 3: Original Issue discount (OID)\n<|id|>24<|page|>3<|box|>601 140 619 383<|content|>Section 4: Payment Mechanics\n<|id|>29<|page|>4<|box|>431 140 449 455<|content|>Section 5: Fee Allocation in Syndication\n<|id|>34<|page|>5<|box|>250 140 266 325<|content|>Section 6: Market Flex\n<|id|>45<|page|>6<|box|>439 140 457 346<|content|>Section 7: Confidentiality\n<|id|>53<|page|>7<|box|>340 140 357 633<|content|>Section 8: Relationship to Commitment Letter and T\n<|id|>57<|page|>7<|box|>752 140 768 300<|content|>Section 9: Expenses\n<|id|>60<|page|>8<|box|>223 140 239 334<|content|>Section 10: Termination\n<|id|>64<|page|>8<|box|>671 140 689 490<|content|>Section 11: Governing Law and Jurisdiction\n<|id|>68<|page|>9<|box|>359 140 376 346<|content|>Section 12: Miscellaneous\n<|id|>74<|page|>10<|box|>215 140 232 336<|content|>[Signature Page Follows]\n<|id|>75<|page|>10<|box|>239 334 257 661<|content|>[SIGNATURE PAGE TO FEE LETTER]\n<|id|>78<|page|>10<|box|>337 140 369 854<|content|>BRINDOVAL NATIONAL BANK, N.A. in its capacity as S\n<|id|>85<|page|>10<|box|>482 142 498 576<|content|>SOLARA DIGITAL ACQUISITION HOLDINGS LLC\n<|id|>92<|page|>10<|box|>603 447 619 550<|content|>EXHIBIT A\n<|id|>93<|page|>10<|box|>628 321 645 674<|content|>Wire Transfer Instructions for Fee Payments\n<|id|>95<|page|>10<|box|>718 140 734 589<|content|>Arrangement Fee and Structuring Fee Wire Instructi",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>-1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>24<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>2\n<|id|>45<|level|>2\n<|id|>53<|level|>2\n<|id|>57<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>2\n<|id|>68<|level|>2\n<|id|>74<|level|>2\n<|id|>75<|level|>-1\n<|id|>78<|level|>-1\n<|id|>85<|level|>-1\n<|id|>92<|level|>2\n<|id|>93<|level|>3\n<|id|>95<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 4
+        }
+    ]
+}

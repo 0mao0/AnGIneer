@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        51
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>437<|type|>table<|page|>46<|box|>88 143 176 852<|content|>None\n<|id|>439<|type|>title<|page|>47<|box|>90 142 107 537<|content|>Appendix G: DEMPE Functions Summary Matrix\n<|id|>441<|type|>table<|page|>47<|box|>220 143 469 852<|content|>None\n<|id|>442<|type|>table<|page|>47<|box|>527 143 775 852<|content|>None\n<|id|>443<|type|>table<|page|>47<|box|>834 143 902 852<|content|>None\n<|id|>444<|type|>table<|page|>48<|box|>89 143 268 852<|content|>None\n<|id|>445<|type|>table<|page|>49<|box|>113 143 523 852<|content|>None\n<|id|>446<|type|>table<|page|>50<|box|>114 143 896 852<|content|>None\n<|id|>447<|type|>table<|page|>51<|box|>88 143 164 852<|content|>None",
+    "raw_response": "<|src_id|>441<|tgt_id|>439\n<|src_id|>442<|tgt_id|>439\n<|src_id|>443<|tgt_id|>439\n<|src_id|>444<|tgt_id|>439\n<|src_id|>445<|tgt_id|>439\n<|src_id|>446<|tgt_id|>439\n<|src_id|>447<|tgt_id|>439",
+    "parsed": [
+        {
+            "src_id": 441,
+            "tgt_id": 439
+        },
+        {
+            "src_id": 442,
+            "tgt_id": 439
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 439
+        },
+        {
+            "src_id": 444,
+            "tgt_id": 439
+        },
+        {
+            "src_id": 445,
+            "tgt_id": 439
+        },
+        {
+            "src_id": 446,
+            "tgt_id": 439
+        },
+        {
+            "src_id": 447,
+            "tgt_id": 439
+        }
+    ]
+}

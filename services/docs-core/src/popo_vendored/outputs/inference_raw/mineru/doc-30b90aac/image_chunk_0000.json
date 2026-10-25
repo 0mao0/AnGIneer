@@ -1,0 +1,83 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>145 87 183 907<|content|>中 华 人 民 共 和 国 国 家 标 准\n<|id|>3<|type|>title<|page|>1<|box|>395 287 474 707<|content|>道路交通标志和标线 第6部分:铁路道口\n<|id|>4<|type|>title<|page|>1<|box|>502 297 548 699<|content|>Roadtrafficsignsandmarkings— Part6:Highway-railway\n<|id|>7<|type|>title<|page|>2<|box|>134 445 156 552<|content|>目次\n<|id|>9<|type|>title<|page|>3<|box|>135 442 156 554<|content|>前言\n<|id|>10<|type|>title<|page|>3<|box|>193 142 209 473<|content|>GB5768的本部分全部技术内容为强制性。\n<|id|>33<|type|>title<|page|>4<|box|>135 376 181 620<|content|>道路交通标志和标线 第6部分:铁路道口\n<|id|>34<|type|>title<|page|>4<|box|>219 107 234 176<|content|>1 范围\n<|id|>37<|type|>title<|page|>4<|box|>349 107 365 263<|content|>2 规范性引用文件\n<|id|>41<|type|>title<|page|>4<|box|>480 107 495 211<|content|>3 一般规定\n<|id|>46<|type|>image<|page|>4<|box|>648 290 850 710<|content|>None\n<|id|>49<|type|>image<|page|>5<|box|>202 226 341 769<|content|>None\n<|id|>50<|type|>image<|page|>5<|box|>441 218 649 774<|content|>None\n<|id|>52<|type|>image<|page|>6<|box|>126 247 385 752<|content|>None\n<|id|>53<|type|>title<|page|>6<|box|>447 107 462 176<|content|>4 设置\n<|id|>54<|type|>title<|page|>6<|box|>481 107 497 295<|content|>41 无人看守铁路道口\n<|id|>56<|type|>table<|page|>6<|box|>602 107 828 887<|content|>None\n<|id|>57<|type|>image<|page|>7<|box|>108 211 285 786<|content|>None\n<|id|>65<|type|>title<|page|>7<|box|>574 107 589 295<|content|>42 有人看守铁路道口\n<|id|>69<|type|>title<|page|>7<|box|>722 107 738 700<|content|>43 铁路道口附近路段存在弯道 下陡坡路段 上跨桥等特殊路段或构造物时\n<|id|>76<|type|>image<|page|>8<|box|>263 196 733 480<|content|>None\n<|id|>77<|type|>image<|page|>8<|box|>258 490 731 798<|content|>None\n<|id|>78<|type|>image<|page|>9<|box|>185 171 687 497<|content|>None\n<|id|>79<|type|>image<|page|>9<|box|>143 505 686 821<|content|>None\n<|id|>80<|type|>image<|page|>10<|box|>110 265 731 739<|content|>None\n<|id|>81<|type|>image<|page|>11<|box|>107 371 699 621<|content|>None\n<|id|>82<|type|>image<|page|>12<|box|>107 327 671 668<|content|>None\n<|id|>83<|type|>image<|page|>13<|box|>107 159 617 826<|content|>None",
+    "raw_response": "<|src_id|>46<|tgt_id|>41\n<|src_id|>49<|tgt_id|>41\n<|src_id|>50<|tgt_id|>41\n<|src_id|>52<|tgt_id|>41\n<|src_id|>56<|tgt_id|>54\n<|src_id|>57<|tgt_id|>54\n<|src_id|>76<|tgt_id|>69\n<|src_id|>77<|tgt_id|>69\n<|src_id|>78<|tgt_id|>69\n<|src_id|>79<|tgt_id|>69\n<|src_id|>80<|tgt_id|>69\n<|src_id|>81<|tgt_id|>69\n<|src_id|>82<|tgt_id|>69\n<|src_id|>83<|tgt_id|>69",
+    "parsed": [
+        {
+            "src_id": 46,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 69
+        }
+    ]
+}

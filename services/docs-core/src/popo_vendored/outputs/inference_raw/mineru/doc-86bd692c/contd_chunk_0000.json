@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>114 140 151 854<|content|>CALDERWOOD & HARKNESS LLP 600 Lexington Avenue, 28th Floor New York, NY 10022\n<|id|>3<|page|>1<|box|>160 142 178 454<|content|>Practice Group: ... Privacy & Data Security\n<|id|>10<|page|>1<|box|>873 140 909 854<|content|>The following entities were identified as the Pros..... All entity information was verified against the\n<|id|>11<|page|>2<|box|>90 140 181 854<|content|>Prospective Client's corporate-organization chart ...h 1, 2025, for fiscal year ended December 31, 2024\n<|id|>61<|page|>6<|box|>837 140 910 857<|content|>Based on the comprehensive conflicts search descri...without limitation, Rules 1. ... 10 (Imputation of\n<|id|>62<|page|>7<|box|>89 140 162 856<|content|>Conflicts of Interest), and 1. ... No advance waiv...ion with the acceptance of the Proposed Engagement\n<|id|>100<|page|>9<|box|>851 140 905 856<|content|>The Proposed Engagement encompasses the design, bu...ddress the requirements of the California Consumer\n<|id|>101<|page|>10<|box|>90 140 181 854<|content|>Privacy Act, as amended by the California Privacy ...a, Minnesota, Maryland, Kentucky, and Rhode Island\n<|id|>108<|page|>10<|box|>381 174 419 854<|content|>(f) Vendor and service-provider data practices, in...d-party vendors and data-sharing partners; ... and\n<|id|>110<|page|>10<|box|>469 140 488 468<|content|>The engagement is structured in two phases: ... The engagement is structured in two phases\n<|id|>123<|page|>11<|box|>875 174 890 797<|content|>Alan Burke Senior Associate, Privacy & Data Security Calderwood & Harkness LLP\n<|id|>124<|page|>12<|box|>89 140 256 856<|content|>Recommendation: ... The engagement may proceed, su...oing monitoring obligations described in Section 8\n<|id|>126<|page|>12<|box|>287 140 305 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>127<|page|>12<|box|>306 142 323 254<|content|>By: ... By\n<|id|>128<|page|>12<|box|>323 140 339 326<|content|>Name: ... Kevin Ostrowski\n<|id|>129<|page|>12<|box|>339 140 357 429<|content|>Title: ... Partner, Privacy & Data Security\n<|id|>130<|page|>12<|box|>357 142 375 287<|content|>Date: ... June _, 2025\n<|id|>131<|page|>12<|box|>375 140 435 854<|content|>This memorandum and the underlying conflicts searc...o be distributed outside Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>61<|tgt_id|>62\n<|src_id|>100<|tgt_id|>101",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 101
+        }
+    ]
+}

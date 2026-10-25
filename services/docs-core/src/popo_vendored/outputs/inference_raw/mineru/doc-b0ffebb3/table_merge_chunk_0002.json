@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['CC-016', 'Eastgate Convenience', 'September 5, 2021', 'CleanLeaf', 'September 4, 2024', 'No', 'Supply agreement for']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Stores Co.', '', '', '', '', 'convenience store channel in mid-Atlantic region']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 124,
+    "table2_idx": 125
+}

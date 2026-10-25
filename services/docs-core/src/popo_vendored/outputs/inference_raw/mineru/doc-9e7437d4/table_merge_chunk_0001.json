@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 板', '剥离剥落', '无', '局部小面积空鼓', '局部有剥落,空鼓和剥落面积小于区域面积的30%', '大面积剥落,空鼓和剥落面积达区域面积的30%以上']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 梁', '钢筋锈蚀', '无', '混凝土表面可见局部锈迹', '锈迹较多,钢筋锈蚀范围较广', '锈迹普遍,钢筋表面大部分或全部锈蚀,钢筋截面面积明显减少']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 115,
+    "table2_idx": 116
+}

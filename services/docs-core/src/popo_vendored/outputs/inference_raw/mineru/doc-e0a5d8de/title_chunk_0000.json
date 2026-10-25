@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 151 126 844<|content|>CALDERWOOD & HARKNESS LLP 333 South Grand Avenue,\n<|id|>1<|page|>1<|box|>133 168 169 826<|content|>INTERNAL MEMORANDUM PRIVILEGED & CONFIDENTIAL — AT\n<|id|>8<|page|>1<|box|>352 429 373 566<|content|>I. PURPOSE\n<|id|>12<|page|>1<|box|>761 148 806 846<|content|>II. TRIGGERING EVENT — CONFIRMATION OF \"SUCCESSFUL\n<|id|>13<|page|>1<|box|>830 142 848 362<|content|>A. Fee Arrangement Terms\n<|id|>21<|page|>2<|box|>633 142 652 326<|content|>B. Settlement Outcome\n<|id|>25<|page|>3<|box|>138 142 157 318<|content|>1. Monetary Payment\n<|id|>30<|page|>3<|box|>381 140 398 341<|content|>2. Corrective Publication\n<|id|>32<|page|>3<|box|>564 140 580 436<|content|>3. Social Media Corrective Statement\n<|id|>34<|page|>3<|box|>691 140 709 555<|content|>4. Stipulated Permanent Injunction and Trading Bar\n<|id|>38<|page|>4<|box|>90 142 107 303<|content|>5. Additional Terms\n<|id|>43<|page|>4<|box|>349 140 368 506<|content|>6. Conclusion Regarding Triggering Condition\n<|id|>45<|page|>4<|box|>527 184 547 810<|content|>III. AGGREGATE DISCOUNTED FEES — COMPUTATION\n<|id|>46<|page|>4<|box|>574 142 590 341<|content|>A. Billing Rate Structure\n<|id|>50<|page|>5<|box|>90 140 107 640<|content|>B. Hours Billed by Timekeeper (February 2024 – Jan\n<|id|>54<|page|>5<|box|>558 140 575 421<|content|>C. Total Aggregate discounted Fees\n<|id|>60<|page|>5<|box|>779 276 799 720<|content|>IV. SUCCESS PREMIUM CALCULATION\n<|id|>61<|page|>5<|box|>825 142 842 315<|content|>A. Premium Formula\n<|id|>68<|page|>6<|box|>362 140 380 583<|content|>B. Total Engagement Fees (Discounted Fees + Premiu\n<|id|>74<|page|>6<|box|>555 374 575 622<|content|>V. COSTS ADVANCED\n<|id|>81<|page|>7<|box|>407 279 426 717<|content|>VI. GRAND TOTAL DUE FROM CLIENT\n<|id|>84<|page|>7<|box|>734 218 753 777<|content|>VII. RECONCILIATION AND CROSS-REFERENCES\n<|id|>91<|page|>8<|box|>487 388 506 607<|content|>VIII. CONCLUSION\n<|id|>95<|page|>8<|box|>803 428 819 568<|content|>PREPARED BY:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>21<|level|>3\n<|id|>25<|level|>4\n<|id|>30<|level|>4\n<|id|>32<|level|>4\n<|id|>34<|level|>4\n<|id|>38<|level|>4\n<|id|>43<|level|>4\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>50<|level|>3\n<|id|>54<|level|>3\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>68<|level|>3\n<|id|>74<|level|>2\n<|id|>81<|level|>2\n<|id|>84<|level|>2\n<|id|>91<|level|>2\n<|id|>95<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 4
+        },
+        {
+            "id": 30,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 4
+        },
+        {
+            "id": 34,
+            "level": 4
+        },
+        {
+            "id": 38,
+            "level": 4
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        }
+    ]
+}

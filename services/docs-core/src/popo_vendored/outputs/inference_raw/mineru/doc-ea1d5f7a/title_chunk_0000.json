@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|page|>1<|box|>417 140 434 316<|content|>Ladies and Gentlemen:\n<|id|>9<|page|>1<|box|>686 140 704 503<|content|>1. Defined Terms and Transaction Documents\n<|id|>10<|page|>1<|box|>717 142 734 290<|content|>1.1 Defined Terms\n<|id|>12<|page|>1<|box|>844 142 861 486<|content|>1.2 Enumeration of Transaction Documents\n<|id|>21<|page|>2<|box|>633 140 650 416<|content|>2. Documents and Items Examined\n<|id|>35<|page|>3<|box|>837 140 854 267<|content|>3. Assumptions\n<|id|>48<|page|>5<|box|>90 140 108 238<|content|>4. Opinions\n<|id|>50<|page|>5<|box|>166 140 183 630<|content|>Opinion 4.1: Due Organization and Good Standing (D\n<|id|>52<|page|>5<|box|>402 140 420 599<|content|>Opinion 4.2: Qualification and Good Standing (Cali\n<|id|>54<|page|>5<|box|>549 140 566 496<|content|>Opinion 4.3: Corporate Power and Authority\n<|id|>56<|page|>5<|box|>840 140 858 393<|content|>Opinion 4.4: Due Authorization\n<|id|>58<|page|>6<|box|>268 140 285 431<|content|>Opinion 4.5: Execution and Delivery\n<|id|>60<|page|>6<|box|>450 140 468 359<|content|>Opinion 4.6: Enforceability\n<|id|>62<|page|>6<|box|>541 140 558 529<|content|>Opinion 4.7: No Violation — Charter and Bylaws\n<|id|>64<|page|>6<|box|>686 140 704 537<|content|>Opinion 4.8: No Violation — Material Agreements\n<|id|>67<|page|>7<|box|>250 140 267 496<|content|>Opinion 4.9: No Violation — Applicable Law\n<|id|>69<|page|>7<|box|>468 140 486 455<|content|>Opinion 4.10: Governmental Approvals\n<|id|>74<|page|>7<|box|>729 140 746 553<|content|>Opinion 4.11: Perfection of Security Interests (UC\n<|id|>78<|page|>8<|box|>440 140 457 370<|content|>Opinion 4.12: Choice of Law\n<|id|>80<|page|>8<|box|>669 140 686 403<|content|>5. Qualifications and Limitations\n<|id|>81<|page|>8<|box|>699 140 717 400<|content|>5.1 Enforceability Qualifications\n<|id|>89<|page|>9<|box|>547 140 564 357<|content|>5.2 Scope of Laws Covered\n<|id|>91<|page|>10<|box|>90 140 107 349<|content|>5.3 Perfection Limitations\n<|id|>99<|page|>10<|box|>684 140 700 419<|content|>5.4 No Opinion on Certain Matters\n<|id|>108<|page|>11<|box|>371 140 388 354<|content|>5.5 Lien Search Limitation\n<|id|>110<|page|>11<|box|>619 140 635 383<|content|>6. Reliance and Other Matters\n<|id|>112<|page|>11<|box|>845 140 863 364<|content|>6.2 No Obligation to Update\n<|id|>114<|page|>12<|box|>194 140 210 392<|content|>6.3 California Bar Membership",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>-1\n<|id|>9<|level|>1\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>21<|level|>1\n<|id|>35<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>2\n<|id|>78<|level|>2\n<|id|>80<|level|>1\n<|id|>81<|level|>2\n<|id|>89<|level|>2\n<|id|>91<|level|>2\n<|id|>99<|level|>2\n<|id|>108<|level|>2\n<|id|>110<|level|>1\n<|id|>112<|level|>2\n<|id|>114<|level|>2",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        }
+    ]
+}

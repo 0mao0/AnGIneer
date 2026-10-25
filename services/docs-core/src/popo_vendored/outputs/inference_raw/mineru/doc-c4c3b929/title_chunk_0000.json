@@ -1,0 +1,50 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>719 140 734 400<|content|>I. Description of the Transaction\n<|id|>17<|page|>2<|box|>329 140 347 439<|content|>II. Size-of-Transaction and Filing Fee\n<|id|>22<|page|>2<|box|>729 142 747 287<|content|>III. NAICS Codes\n<|id|>27<|page|>3<|box|>148 140 167 429<|content|>IV. Items Enclosed and Transmitted\n<|id|>34<|page|>3<|box|>785 140 803 362<|content|>V. Acquired Person's Filing\n<|id|>37<|page|>4<|box|>148 142 166 323<|content|>VI. Early Termination\n<|id|>39<|page|>4<|box|>234 140 252 519<|content|>VII. Designation of Counsel for Correspondence\n<|id|>46<|page|>4<|box|>560 142 577 310<|content|>VIII. Waiting Period",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>22<|level|>1\n<|id|>27<|level|>1\n<|id|>34<|level|>1\n<|id|>37<|level|>1\n<|id|>39<|level|>1\n<|id|>46<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        }
+    ]
+}

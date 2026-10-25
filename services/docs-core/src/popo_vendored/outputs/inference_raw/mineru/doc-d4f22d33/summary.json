@@ -1,0 +1,180 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-y58bwi51\\input\\pdfs\\doc-d4f22d33.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-y58bwi51\\enriched\\doc-d4f22d33.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>27<|level|>3\n<|id|>35<|level|>3\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>45<|level|>3\n<|id|>51<|level|>3\n<|id|>59<|level|>3\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>72<|level|>3\n<|id|>81<|level|>3\n<|id|>89<|level|>3\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>100<|level|>3\n<|id|>108<|level|>3\n<|id|>116<|level|>3\n<|id|>122<|level|>2\n<|id|>123<|level|>3\n<|id|>126<|level|>3\n<|id|>134<|level|>3\n<|id|>139<|level|>2\n<|id|>146<|level|>2\n<|id|>156<|level|>2\n<|id|>158<|level|>3\n<|id|>163<|level|>3\n<|id|>168<|level|>2\n<|id|>178<|level|>3\n<|id|>182<|level|>2",
+    "image_output": "<|src_id|>43<|tgt_id|>41\n<|src_id|>141<|tgt_id|>139\n<|src_id|>142<|tgt_id|>139",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 43,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 139
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 141,
+            "table2_idx": 142,
+            "upper_row_ss": [
+                [
+                    "Asset",
+                    "Pre-discount FMV",
+                    "Discount",
+                    "Post-discount FMV",
+                    "GRAT / Purpose"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

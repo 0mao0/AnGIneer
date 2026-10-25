@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>table<|page|>1<|box|>200 143 484 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>570 174 614 821<|content|>Aurelius Global Media Group Announces Results of 2\n<|id|>8<|type|>title<|page|>2<|box|>148 140 167 310<|content|>Election of Directors\n<|id|>9<|type|>title<|page|>2<|box|>180 140 196 336<|content|>Newly Elected Directors\n<|id|>14<|type|>title<|page|>3<|box|>90 140 107 383<|content|>Directors Continuing in Office\n<|id|>28<|type|>title<|page|>3<|box|>612 140 628 566<|content|>Statement from the Independent Non-Executive Chair\n<|id|>33<|type|>title<|page|>4<|box|>133 140 152 331<|content|>Dame Elspeth continued:\n<|id|>39<|type|>title<|page|>4<|box|>579 140 597 269<|content|>Looking Ahead\n<|id|>43<|type|>title<|page|>5<|box|>90 142 107 473<|content|>About Aurelius Global Media Group PLC\n<|id|>53<|type|>title<|page|>5<|box|>595 142 612 377<|content|>Forward-Looking Statements\n<|id|>57<|type|>table<|page|>6<|box|>231 143 500 852<|content|>None\n<|id|>58<|type|>title<|page|>6<|box|>559 151 613 846<|content|>INTERNAL DRAFT NOTES — CALDERWOOD & HARKNESS LLP P\n<|id|>60<|type|>title<|page|>6<|box|>648 143 664 290<|content|>MEMORANDUM\n<|id|>61<|type|>table<|page|>6<|box|>672 143 792 852<|content|>None\n<|id|>62<|type|>title<|page|>6<|box|>827 140 844 205<|content|>Nadine:",
+    "raw_response": "<|src_id|>1<|tgt_id|>4\n<|src_id|>57<|tgt_id|>53\n<|src_id|>61<|tgt_id|>60",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 60
+        }
+    ]
+}

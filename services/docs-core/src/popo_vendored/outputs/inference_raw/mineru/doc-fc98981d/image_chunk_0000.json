@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>table<|page|>1<|box|>196 143 564 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>712 142 729 341<|content|>I. Purpose and Summary\n<|id|>9<|type|>title<|page|>2<|box|>484 140 501 560<|content|>II. Background: Formation and Application Timeline\n<|id|>12<|type|>title<|page|>2<|box|>770 142 787 333<|content|>B. Organizational Steps\n<|id|>14<|type|>table<|page|>2<|box|>872 143 893 852<|content|>None\n<|id|>15<|type|>table<|page|>3<|box|>89 143 202 852<|content|>None\n<|id|>23<|type|>title<|page|>3<|box|>787 140 805 290<|content|>C. Initial Funding\n<|id|>27<|type|>title<|page|>4<|box|>220 142 238 305<|content|>D. Form 1023 Filing\n<|id|>38<|type|>title<|page|>4<|box|>792 140 809 506<|content|>III. Summary of the IRS Determination Letter\n<|id|>39<|type|>title<|page|>4<|box|>823 140 840 354<|content|>A. Exempt Status Granted\n<|id|>43<|type|>title<|page|>5<|box|>429 140 446 462<|content|>B. Classification as a Private Foundation\n<|id|>49<|type|>title<|page|>6<|box|>90 140 107 452<|content|>C. Deductibility Limitations for Donors\n<|id|>55<|type|>title<|page|>6<|box|>789 140 806 434<|content|>IV. Ongoing Compliance Obligations\n<|id|>57<|type|>title<|page|>7<|box|>90 140 107 581<|content|>A. Private Foundation Excise Taxes (IRC §§ 4940–49\n<|id|>91<|type|>title<|page|>9<|box|>823 140 840 390<|content|>B. Annual Filing Requirements\n<|id|>97<|type|>title<|page|>10<|box|>590 140 608 305<|content|>C. Public Disclosure\n<|id|>104<|type|>title<|page|>11<|box|>176 140 194 419<|content|>D. Governance and Recordkeeping\n<|id|>107<|type|>title<|page|>11<|box|>378 140 397 535<|content|>The Foundation should maintain detailed records of\n<|id|>113<|type|>title<|page|>11<|box|>696 140 713 501<|content|>V. Coordination with the Broader Estate Plan\n<|id|>125<|type|>title<|page|>13<|box|>90 140 107 379<|content|>VI. Recommended Next Steps\n<|id|>139<|type|>title<|page|>14<|box|>391 140 407 271<|content|>VII. Enclosures\n<|id|>145<|type|>title<|page|>14<|box|>579 140 595 390<|content|>VIII. Availability for Questions",
+    "raw_response": "<|src_id|>1<|tgt_id|>3\n<|src_id|>14<|tgt_id|>12\n<|src_id|>15<|tgt_id|>12",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 12
+        }
+    ]
+}

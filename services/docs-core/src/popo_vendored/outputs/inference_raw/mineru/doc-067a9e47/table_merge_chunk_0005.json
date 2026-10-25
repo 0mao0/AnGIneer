@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['FC-10', 'PA, Allentow', 'Liberty Industrial', '~280,000', '$2.5M', '5 yrs / 1/2028', 'Yes', 'Sole Discretio', 'Sole discretion']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'n', 'Partners LLC', '', '', '', '', 'n', 'risk']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 316,
+    "table2_idx": 317
+}

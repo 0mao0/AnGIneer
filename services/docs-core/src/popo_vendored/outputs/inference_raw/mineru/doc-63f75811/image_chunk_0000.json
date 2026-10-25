@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 145 123 852<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>1<|type|>table<|page|>1<|box|>157 143 301 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>369 235 386 761<|content|>ORDER OF VOLUNTARY DISMISSAL WITHOUT PREJUDICE\n<|id|>4<|type|>title<|page|>1<|box|>565 142 582 493<|content|>IT IS HEREBY ORDERED AS FOLLOWS:\n<|id|>18<|type|>title<|page|>2<|box|>371 375 388 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

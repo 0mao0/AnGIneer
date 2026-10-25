@@ -1,0 +1,46 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>679 140 696 501<|content|>Current Status — Temporary Custody Order\n<|id|>12<|page|>2<|box|>340 140 357 521<|content|>Proposed Meet-and-Confer — Scope and Topics\n<|id|>33<|page|>5<|box|>90 140 107 403<|content|>Appointment of Minor's Counsel\n<|id|>35<|page|>5<|box|>285 140 303 403<|content|>Suggestion to Engage a Mediator\n<|id|>40<|page|>6<|box|>90 142 107 302<|content|>Custody Evaluation\n<|id|>43<|page|>6<|box|>421 142 438 437<|content|>Request for Response and Scheduling\n<|id|>48<|page|>6<|box|>674 142 690 455<|content|>Closing — Cooperation and Good Faith",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>33<|level|>1\n<|id|>35<|level|>1\n<|id|>40<|level|>1\n<|id|>43<|level|>1\n<|id|>48<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>143 374 161 624<|content|>INTERNAL MEMORANDUM\n<|id|>2<|type|>title<|page|>1<|box|>167 200 186 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|type|>title<|page|>1<|box|>358 140 376 233<|content|>1. Purpose\n<|id|>12<|type|>title<|page|>1<|box|>824 140 842 454<|content|>2. Engagement Team — Core Members\n<|id|>14<|type|>title<|page|>2<|box|>138 140 157 475<|content|>2.1 Jennifer Kwon — Responsible Partner\n<|id|>19<|type|>title<|page|>2<|box|>266 142 284 344<|content|>Primary Responsibilities:\n<|id|>32<|type|>title<|page|>3<|box|>157 140 175 470<|content|>2.2 Theodore Langston — Billing Partner\n<|id|>37<|type|>title<|page|>3<|box|>284 143 301 344<|content|>Primary Responsibilities:\n<|id|>44<|type|>title<|page|>3<|box|>628 142 645 437<|content|>2.3 Eric Johannsen — Lead Associate\n<|id|>49<|type|>title<|page|>3<|box|>755 143 773 344<|content|>Primary Responsibilities:\n<|id|>62<|type|>title<|page|>4<|box|>590 142 608 470<|content|>2.4 Claire Dempsey — Working Associate\n<|id|>67<|type|>title<|page|>4<|box|>718 143 734 344<|content|>Primary Responsibilities:\n<|id|>83<|type|>title<|page|>5<|box|>710 140 728 493<|content|>2.5 Leonard Cross — Specialist Partner, Tax\n<|id|>88<|type|>title<|page|>5<|box|>838 143 854 344<|content|>Primary Responsibilities:\n<|id|>97<|type|>title<|page|>7<|box|>90 140 107 357<|content|>3. Rate Schedule Summary\n<|id|>99<|type|>table<|page|>7<|box|>140 143 253 852<|content|>None\n<|id|>102<|type|>title<|page|>7<|box|>501 140 517 367<|content|>4. Workstream Assignments\n<|id|>104<|type|>title<|page|>7<|box|>575 140 592 434<|content|>4.1 Principal Transaction Documents\n<|id|>120<|type|>title<|page|>8<|box|>411 140 428 491<|content|>4.2 Multi-Jurisdictional Security Documents\n<|id|>128<|type|>title<|page|>9<|box|>157 140 174 475<|content|>4.3 Offering Memorandum and Disclosure\n<|id|>148<|type|>title<|page|>9<|box|>791 142 808 294<|content|>4.4 Legal Opinions\n<|id|>165<|type|>title<|page|>10<|box|>643 142 660 308<|content|>4.5 Tax Workstream\n<|id|>174<|type|>title<|page|>11<|box|>202 140 219 514<|content|>4.6 Sanctions / OFAC Compliance Workstream\n<|id|>187<|type|>title<|page|>11<|box|>808 140 824 400<|content|>4.7 ESG Disclosure Workstream\n<|id|>196<|type|>title<|page|>12<|box|>455 140 474 284<|content|>4.8 Due Diligence\n<|id|>206<|type|>title<|page|>13<|box|>157 142 174 354<|content|>4.9 Closing and Settlement\n<|id|>222<|type|>title<|page|>13<|box|>729 142 744 390<|content|>5. Key Timeline and Milestones\n<|id|>224<|type|>table<|page|>13<|box|>834 143 905 852<|content|>None\n<|id|>225<|type|>table<|page|>14<|box|>89 143 415 852<|content|>None\n<|id|>227<|type|>title<|page|>14<|box|>545 140 561 565<|content|>6. External Counsel and Advisor Coordination Matri\n<|id|>228<|type|>table<|page|>14<|box|>614 143 901 852<|content|>None\n<|id|>229<|type|>table<|page|>15<|box|>89 143 224 852<|content|>None\n<|id|>231<|type|>title<|page|>15<|box|>373 140 390 514<|content|>7. Estimated Budget Allocation by Workstream\n<|id|>233<|type|>table<|page|>15<|box|>478 143 803 852<|content|>None\n<|id|>238<|type|>title<|page|>16<|box|>311 140 329 364<|content|>8. Additional Staffing Notes\n<|id|>244<|type|>title<|page|>17<|box|>90 140 107 261<|content|>9. Distribution\n<|id|>246<|type|>title<|page|>17<|box|>196 143 213 263<|content|>Distributed to:\n<|id|>252<|type|>title<|page|>17<|box|>321 140 338 215<|content|>Copy to:",
+    "raw_response": "<|src_id|>99<|tgt_id|>97\n<|src_id|>224<|tgt_id|>222\n<|src_id|>225<|tgt_id|>222\n<|src_id|>228<|tgt_id|>227\n<|src_id|>229<|tgt_id|>227\n<|src_id|>233<|tgt_id|>231",
+    "parsed": [
+        {
+            "src_id": 99,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 222
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 222
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 227
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 227
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 231
+        }
+    ]
+}

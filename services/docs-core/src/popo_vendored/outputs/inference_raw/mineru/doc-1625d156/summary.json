@@ -1,0 +1,192 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-p5g92sa1\\input\\pdfs\\doc-1625d156.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-p5g92sa1\\enriched\\doc-1625d156.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>20<|level|>3\n<|id|>38<|level|>3\n<|id|>46<|level|>3\n<|id|>53<|level|>2\n<|id|>55<|level|>3\n<|id|>56<|level|>4\n<|id|>62<|level|>4\n<|id|>72<|level|>3\n<|id|>73<|level|>4\n<|id|>76<|level|>4\n<|id|>83<|level|>3\n<|id|>84<|level|>4\n<|id|>86<|level|>4\n<|id|>91<|level|>3\n<|id|>92<|level|>4\n<|id|>94<|level|>4\n<|id|>98<|level|>3\n<|id|>99<|level|>4\n<|id|>101<|level|>4\n<|id|>105<|level|>3\n<|id|>109<|level|>2\n<|id|>111<|level|>3\n<|id|>118<|level|>3\n<|id|>122<|level|>3\n<|id|>130<|level|>2\n<|id|>137<|level|>2\n<|id|>144<|level|>2\n<|id|>145<|level|>3\n<|id|>148<|level|>3\n<|id|>155<|level|>3\n<|id|>159<|level|>3\n<|id|>163<|level|>3\n<|id|>166<|level|>2",
+    "image_output": "<|src_id|>40<|tgt_id|>38\n<|src_id|>106<|tgt_id|>105\n<|src_id|>107<|tgt_id|>105",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 4
+        },
+        {
+            "id": 76,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 4
+        },
+        {
+            "id": 86,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 4
+        },
+        {
+            "id": 94,
+            "level": 4
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 4
+        },
+        {
+            "id": 101,
+            "level": 4
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 105
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 106,
+            "table2_idx": 107,
+            "upper_row_ss": [
+                [
+                    "Total",
+                    "$95,400,000",
+                    "Substantially overstated; realistic maximum exposure significantly"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "lower"
+                ]
+            ]
+        }
+    ]
+}

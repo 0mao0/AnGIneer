@@ -1,0 +1,153 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        18,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 236 118 761<|content|>FOUNDER STOCK RESTRICTION AGREEMENT\n<|id|>2<|page|>1<|box|>162 359 179 637<|content|>MERIDIAN DIAGNOSTICS, INC.\n<|id|>6<|page|>1<|box|>265 290 282 705<|content|>FOUNDER STOCK RESTRICTION AGREEMENT\n<|id|>8<|page|>1<|box|>387 140 404 241<|content|>RECITALS\n<|id|>15<|page|>2<|box|>90 142 106 374<|content|>ARTICLE 1: DEFINITIONS\n<|id|>35<|page|>4<|box|>362 140 378 563<|content|>ARTICLE 2: VESTING OF RESTRICTED SHARES\n<|id|>51<|page|>5<|box|>843 140 859 416<|content|>Section 2.4 — Acceleration Events.\n<|id|>62<|page|>7<|box|>222 140 239 542<|content|>ARTICLE 3: COMPANY REPURCHASE RIGHT\n<|id|>68<|page|>7<|box|>799 140 816 490<|content|>Section 3.3 — Exercise of Repurchase Right.\n<|id|>78<|page|>9<|box|>321 140 338 524<|content|>ARTICLE 4: RESTRICTIONS ON TRANSFER\n<|id|>95<|page|>11<|box|>266 140 282 387<|content|>ARTICLE 5: TAX MATTERS\n<|id|>96<|page|>11<|box|>292 140 309 431<|content|>Section 5.1 — Section 83(b) Election.\n<|id|>100<|page|>11<|box|>763 140 780 395<|content|>Section 5.2 — Tax Withholding.\n<|id|>105<|page|>12<|box|>512 140 529 725<|content|>ARTICLE 6: REPRESENTATIONS AND WARRANTIES OF FOUND\n<|id|>107<|page|>12<|box|>565 140 582 477<|content|>Section 6.1 — Investment Representations.\n<|id|>120<|page|>13<|box|>704 140 720 498<|content|>ARTICLE 7: RIGHTS AS STOCKHOLDER\n<|id|>124<|page|>14<|box|>541 140 558 651<|content|>ARTICLE 8: COOPERATION AND FURTHER ASSURANCES\n<|id|>132<|page|>15<|box|>321 140 339 460<|content|>ARTICLE 9: GENERAL PROVISIONS\n<|id|>156<|page|>18<|box|>233 191 250 803<|content|>SIGNATURE PAGE TO FOUNDER STOCK RESTRICTION AGREEM\n<|id|>169<|page|>18<|box|>531 447 547 549<|content|>EXHIBIT A\n<|id|>170<|page|>18<|box|>556 352 574 643<|content|>VESTING SCHEDULE SUMMARY\n<|id|>177<|page|>20<|box|>210 449 226 549<|content|>EXHIBIT B\n<|id|>178<|page|>20<|box|>234 212 252 784<|content|>FORM OF STOCK ASSIGNMENT SEPARATE FROM CERTIFICATE\n<|id|>188<|page|>20<|box|>781 449 797 547<|content|>EXHIBIT C\n<|id|>189<|page|>20<|box|>806 349 823 645<|content|>FORM OF JOINDER AGREEMENT\n<|id|>191<|page|>21<|box|>167 140 184 243<|content|>RECITALS\n<|id|>211<|page|>22<|box|>564 143 580 274<|content|>TRANSFEREE:\n<|id|>218<|page|>22<|box|>719 143 734 439<|content|>ACKNOWLEDGED AND AGREED:\n<|id|>219<|page|>22<|box|>744 143 760 419<|content|>MERIDIAN DIAGNOSTICS, INC.\n<|id|>224<|page|>22<|box|>830 143 845 243<|content|>FOUNDER:\n<|id|>225<|page|>22<|box|>882 143 897 271<|content|>Dr. Julian Ochoa",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>6<|level|>1\n<|id|>8<|level|>2\n<|id|>15<|level|>2\n<|id|>35<|level|>2\n<|id|>51<|level|>3\n<|id|>62<|level|>2\n<|id|>68<|level|>3\n<|id|>78<|level|>2\n<|id|>95<|level|>2\n<|id|>96<|level|>3\n<|id|>100<|level|>3\n<|id|>105<|level|>2\n<|id|>107<|level|>3\n<|id|>120<|level|>2\n<|id|>124<|level|>2\n<|id|>132<|level|>2\n<|id|>156<|level|>2\n<|id|>169<|level|>2\n<|id|>170<|level|>3\n<|id|>177<|level|>2\n<|id|>178<|level|>3\n<|id|>188<|level|>2\n<|id|>189<|level|>3\n<|id|>191<|level|>2\n<|id|>211<|level|>2\n<|id|>218<|level|>2\n<|id|>219<|level|>3\n<|id|>224<|level|>2\n<|id|>225<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 3
+        },
+        {
+            "id": 224,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 3
+        }
+    ]
+}

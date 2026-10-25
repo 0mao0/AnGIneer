@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>1<|page|>1<|box|>143 442 161 555<|content|>(Form UCC1)\n<|id|>5<|page|>1<|box|>334 142 351 519<|content|>FIELD 1 — FILING OFFICE INFORMATION\n<|id|>6<|page|>1<|box|>361 142 378 547<|content|>Send Acknowledgment Copy of Filing Statement to:\n<|id|>12<|page|>1<|box|>568 143 584 681<|content|>FIELD 1a — INITIAL FINANCING STATEMENT FILE NUMBER\n<|id|>13<|page|>1<|box|>594 176 612 660<|content|>[To be assigned by the Michigan Department of Stat\n<|id|>15<|page|>1<|box|>734 142 751 486<|content|>FIELD 1b — FILING OFFICE USE ONLY\n<|id|>18<|page|>1<|box|>845 143 862 457<|content|>FIELD 2 — DEBTOR INFORMATION\n<|id|>21<|page|>2<|box|>291 142 308 393<|content|>Additional Debtor Information:\n<|id|>28<|page|>2<|box|>688 142 705 535<|content|>FIELD 3 — SECURED PARTY INFORMATION\n<|id|>30<|page|>3<|box|>90 142 107 449<|content|>Additional Secured Party Information:\n<|id|>42<|page|>3<|box|>551 142 569 500<|content|>FIELD 4 — COLLATERAL DESCRIPTION\n<|id|>76<|page|>6<|box|>417 140 434 645<|content|>FIELD 5 — CHECK BOXES / ADDITIONAL INFORMATION\n<|id|>77<|page|>6<|box|>444 140 460 651<|content|>5a. This Financing Statement covers the following\n<|id|>84<|page|>6<|box|>734 142 752 344<|content|>Note Regarding Fixtures:\n<|id|>88<|page|>7<|box|>449 140 467 509<|content|>FIELD 7 — ALTERNATIVE DESIGNATION\n<|id|>90<|page|>8<|box|>89 140 107 630<|content|>EXHIBIT A — EXTENDED COLLATERAL DESCRIPTION\n<|id|>91<|page|>8<|box|>114 140 133 558<|content|>EXHIBIT A TO UCC-1 FINANCING STATEMENT\n<|id|>103<|page|>9<|box|>215 142 234 630<|content|>FILING INSTRUCTIONS AND ADMINISTRATIVE NOTES\n<|id|>104<|page|>9<|box|>248 142 265 370<|content|>Filing Jurisdiction Rationale\n<|id|>107<|page|>9<|box|>534 142 551 290<|content|>Number of Copies\n<|id|>115<|page|>10<|box|>292 140 309 506<|content|>Corresponding UCC-3 Termination Statement\n<|id|>123<|page|>11<|box|>89 140 106 426<|content|>SIGNATURE / AUTHORIZATION\n<|id|>126<|page|>11<|box|>421 142 438 250<|content|>Prepared By.\n<|id|>130<|page|>11<|box|>542 143 560 405<|content|>Filing Party Contact Information\n<|id|>134<|page|>11<|box|>672 419 691 576<|content|>CERTIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>2\n<|id|>6<|level|>3\n<|id|>12<|level|>3\n<|id|>13<|level|>-1\n<|id|>15<|level|>3\n<|id|>18<|level|>2\n<|id|>21<|level|>3\n<|id|>28<|level|>2\n<|id|>30<|level|>3\n<|id|>42<|level|>2\n<|id|>76<|level|>2\n<|id|>77<|level|>3\n<|id|>84<|level|>3\n<|id|>88<|level|>2\n<|id|>90<|level|>2\n<|id|>91<|level|>3\n<|id|>103<|level|>2\n<|id|>104<|level|>3\n<|id|>107<|level|>3\n<|id|>115<|level|>3\n<|id|>123<|level|>2\n<|id|>126<|level|>3\n<|id|>130<|level|>3\n<|id|>134<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 2
+        }
+    ]
+}

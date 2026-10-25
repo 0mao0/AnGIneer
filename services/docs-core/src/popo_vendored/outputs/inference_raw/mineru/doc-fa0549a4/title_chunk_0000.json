@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        6,
+        16
+    ],
+    "pages": [
+        6,
+        13,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>6<|box|>209 164 225 605<|content|>B. PERMANENT LOAN ORIGINATION AND CLOSING COSTS\n<|id|>6<|page|>6<|box|>281 164 297 364<|content|>C. TITLE AND RECORDING\n<|id|>8<|page|>6<|box|>388 166 403 280<|content|>D. LEGAL FEES\n<|id|>10<|page|>6<|box|>495 164 511 559<|content|>E. THIRD-PARTY REPORTS AND PROFESSIONAL FEES\n<|id|>12<|page|>6<|box|>601 164 617 334<|content|>F. RESERVE DEPOSITS\n<|id|>14<|page|>6<|box|>709 166 725 297<|content|>G. OTHER COSTS\n<|id|>16<|page|>6<|box|>797 166 813 307<|content|>H. NET PROCEEDS\n<|id|>39<|page|>13<|box|>210 87 225 132<|content|>USES\n<|id|>45<|page|>16<|box|>388 87 403 228<|content|>PARTY CONTACTS",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>39<|level|>1\n<|id|>45<|level|>1",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        }
+    ]
+}

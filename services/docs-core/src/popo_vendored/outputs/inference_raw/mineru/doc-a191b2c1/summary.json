@@ -1,0 +1,107 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9lgk0sfe\\input\\pdfs\\doc-a191b2c1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9lgk0sfe\\enriched\\doc-a191b2c1.json",
+    "contd_output": "<|src_id|>39<|tgt_id|>40",
+    "title_output": "<|id|>10<|level|>1\n<|id|>21<|level|>1\n<|id|>36<|level|>1\n<|id|>49<|level|>1\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>69<|level|>1\n<|id|>71<|level|>2\n<|id|>77<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>2\n<|id|>85<|level|>1",
+    "image_output": "<|src_id|>14<|tgt_id|>10\n<|src_id|>15<|tgt_id|>10",
+    "contd_label": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 14,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 10
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 14,
+            "table2_idx": 15,
+            "upper_row_ss": [
+                [
+                    "Total",
+                    "$8,000,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

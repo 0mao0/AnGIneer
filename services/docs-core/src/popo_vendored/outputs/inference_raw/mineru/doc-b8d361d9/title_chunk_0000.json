@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        16,
+        17,
+        19,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 166 142 830<|content|>COMPLIANCE COMMITTEE CHARTER OF THE BOARD OF DIREC\n<|id|>1<|page|>1<|box|>159 171 194 826<|content|>DRAFT — Prepared by Calderwood & Harkness LLP for\n<|id|>7<|page|>1<|box|>345 142 363 352<|content|>ARTICLE I — PURPOSE\n<|id|>19<|page|>2<|box|>843 142 859 408<|content|>ARTICLE II — COMPOSITION\n<|id|>25<|page|>3<|box|>286 176 303 344<|content|>(c) Keith Yamamoto.\n<|id|>41<|page|>4<|box|>839 142 854 395<|content|>ARTICLE III — AUTHORITY\n<|id|>69<|page|>7<|box|>767 140 784 566<|content|>ARTICLE IV — RESPONSIBILITIES AND DUTIES\n<|id|>148<|page|>16<|box|>414 140 431 374<|content|>ARTICLE V — MEETINGS\n<|id|>163<|page|>17<|box|>758 140 776 392<|content|>ARTICLE VI — REPORTING\n<|id|>190<|page|>19<|box|>795 140 813 728<|content|>ARTICLE VII — RELATIONSHIP TO OTHER BOARD COMMITTE\n<|id|>204<|page|>21<|box|>383 140 401 454<|content|>ARTICLE VIII — ANNUAL REVIEW\n<|id|>208<|page|>21<|box|>686 140 703 380<|content|>ARTICLE IX — DURATION\n<|id|>215<|page|>22<|box|>339 140 357 408<|content|>ARTICLE X — AMENDMENTS\n<|id|>218<|page|>22<|box|>614 140 633 584<|content|>ARTICLE XI — EFFECTIVE DATE AND ADOPTION\n<|id|>222<|page|>23<|box|>89 372 106 625<|content|>APPROVAL AND ADOPTION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>7<|level|>2\n<|id|>19<|level|>2\n<|id|>25<|level|>-1\n<|id|>41<|level|>2\n<|id|>69<|level|>2\n<|id|>148<|level|>2\n<|id|>163<|level|>2\n<|id|>190<|level|>2\n<|id|>204<|level|>2\n<|id|>208<|level|>2\n<|id|>215<|level|>2\n<|id|>218<|level|>2\n<|id|>222<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 2
+        }
+    ]
+}

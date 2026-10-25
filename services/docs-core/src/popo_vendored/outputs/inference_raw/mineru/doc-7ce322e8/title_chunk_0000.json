@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        74
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        14,
+        22,
+        30,
+        73
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>5<|box|>294 182 328 790<|content|>TREASURY IEPARTMENT\n<|id|>22<|page|>7<|box|>292 187 325 793<|content|>TREASURY DEPARTMENT\n<|id|>30<|page|>9<|box|>119 394 136 578<|content|>Table of Contents\n<|id|>44<|page|>14<|box|>491 331 504 647<|content|>Summary of Receipts and Expenditures\n<|id|>54<|page|>22<|box|>50 176 66 820<|content|>Receipts and Expenditures under Social Security Ac\n<|id|>69<|page|>30<|box|>594 366 607 633<|content|>Composition of the Public Debt\n<|id|>124<|page|>73<|box|>404 115 418 426<|content|>Components of Silver Monetary Stock",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>22<|level|>1\n<|id|>30<|level|>2\n<|id|>44<|level|>2\n<|id|>54<|level|>2\n<|id|>69<|level|>2\n<|id|>124<|level|>2",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        }
+    ]
+}

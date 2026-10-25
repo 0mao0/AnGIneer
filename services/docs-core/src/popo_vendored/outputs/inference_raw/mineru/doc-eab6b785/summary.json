@@ -1,0 +1,851 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mmhwy9in\\input\\pdfs\\doc-eab6b785.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mmhwy9in\\enriched\\doc-eab6b785.json",
+    "contd_output": "<|src_id|>1<|tgt_id|>2",
+    "title_output": "<|id|>15<|level|>1\n<|id|>25<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>47<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>87<|level|>2\n<|id|>89<|level|>2\n<|id|>92<|level|>2\n<|id|>94<|level|>2\n<|id|>99<|level|>1\n<|id|>102<|level|>2\n<|id|>105<|level|>1\n<|id|>114<|level|>1\n<|id|>118<|level|>1\n<|id|>121<|level|>1\n<|id|>131<|level|>1\n<|id|>139<|level|>1\n<|id|>144<|level|>1\n<|id|>155<|level|>1\n<|id|>170<|level|>1\n<|id|>182<|level|>1\n<|id|>190<|level|>2\n<|id|>194<|level|>1\n<|id|>213<|level|>1",
+    "image_output": "<|src_id|>10<|tgt_id|>0\n<|src_id|>11<|tgt_id|>0\n<|src_id|>12<|tgt_id|>0\n<|src_id|>13<|tgt_id|>0\n<|src_id|>14<|tgt_id|>0\n<|src_id|>17<|tgt_id|>15\n<|src_id|>18<|tgt_id|>15\n<|src_id|>19<|tgt_id|>15\n<|src_id|>23<|tgt_id|>15\n<|src_id|>24<|tgt_id|>15\n<|src_id|>40<|tgt_id|>38\n<|src_id|>55<|tgt_id|>53\n<|src_id|>59<|tgt_id|>53\n<|src_id|>68<|tgt_id|>53\n<|src_id|>78<|tgt_id|>53\n<|src_id|>86<|tgt_id|>53\n<|src_id|>96<|tgt_id|>94\n<|src_id|>97<|tgt_id|>94\n<|src_id|>101<|tgt_id|>102\n<|src_id|>103<|tgt_id|>102\n<|src_id|>107<|tgt_id|>105\n<|src_id|>108<|tgt_id|>105\n<|src_id|>109<|tgt_id|>105\n<|src_id|>110<|tgt_id|>105\n<|src_id|>111<|tgt_id|>105\n<|src_id|>112<|tgt_id|>105\n<|src_id|>113<|tgt_id|>105\n<|src_id|>116<|tgt_id|>114\n<|src_id|>117<|tgt_id|>114\n<|src_id|>120<|tgt_id|>118\n<|src_id|>123<|tgt_id|>121\n<|src_id|>124<|tgt_id|>121\n<|src_id|>125<|tgt_id|>121\n<|src_id|>126<|tgt_id|>121\n<|src_id|>127<|tgt_id|>121\n<|src_id|>128<|tgt_id|>121\n<|src_id|>129<|tgt_id|>121\n<|src_id|>130<|tgt_id|>121\n<|src_id|>133<|tgt_id|>131\n<|src_id|>134<|tgt_id|>131\n<|src_id|>135<|tgt_id|>131\n<|src_id|>136<|tgt_id|>131\n<|src_id|>137<|tgt_id|>131\n<|src_id|>138<|tgt_id|>131\n<|src_id|>141<|tgt_id|>139\n<|src_id|>142<|tgt_id|>139\n<|src_id|>143<|tgt_id|>139\n<|src_id|>146<|tgt_id|>144\n<|src_id|>147<|tgt_id|>144\n<|src_id|>153<|tgt_id|>144\n<|src_id|>154<|tgt_id|>155\n<|src_id|>157<|tgt_id|>155\n<|src_id|>158<|tgt_id|>155\n<|src_id|>159<|tgt_id|>155\n<|src_id|>160<|tgt_id|>155\n<|src_id|>161<|tgt_id|>155\n<|src_id|>162<|tgt_id|>155\n<|src_id|>163<|tgt_id|>155\n<|src_id|>164<|tgt_id|>155\n<|src_id|>165<|tgt_id|>155\n<|src_id|>166<|tgt_id|>155\n<|src_id|>167<|tgt_id|>155\n<|src_id|>168<|tgt_id|>155\n<|src_id|>169<|tgt_id|>155\n<|src_id|>172<|tgt_id|>170\n<|src_id|>173<|tgt_id|>170\n<|src_id|>174<|tgt_id|>170\n<|src_id|>175<|tgt_id|>170\n<|src_id|>176<|tgt_id|>170\n<|src_id|>177<|tgt_id|>170\n<|src_id|>178<|tgt_id|>170\n<|src_id|>179<|tgt_id|>170\n<|src_id|>180<|tgt_id|>170\n<|src_id|>181<|tgt_id|>182\n<|src_id|>184<|tgt_id|>182\n<|src_id|>185<|tgt_id|>182\n<|src_id|>186<|tgt_id|>182\n<|src_id|>187<|tgt_id|>182\n<|src_id|>196<|tgt_id|>194\n<|src_id|>197<|tgt_id|>194\n<|src_id|>199<|tgt_id|>194\n<|src_id|>201<|tgt_id|>194\n<|src_id|>204<|tgt_id|>194\n<|src_id|>206<|tgt_id|>194\n<|src_id|>208<|tgt_id|>194\n<|src_id|>210<|tgt_id|>194\n<|src_id|>212<|tgt_id|>194",
+    "contd_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ],
+    "title_label": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 1
+        },
+        {
+            "id": 182,
+            "level": 1
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 1
+        },
+        {
+            "id": 213,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 10,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 118
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 157,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 197,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 204,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 208,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 194
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 10,
+            "table2_idx": 11,
+            "upper_row_ss": [
+                [
+                    "Site Network",
+                    "Veridian Health Research Network, Inc., 750 Research Parkway, 8th Floor, Philadelphia, PA 19104"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Governing Law",
+                    "State of New York"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 11,
+            "table2_idx": 12,
+            "upper_row_ss": [
+                [
+                    "Description",
+                    "Fully executed Master Clinical Trial Agreement for Protocol PPC-4871-III (CLARION — Clinical Assessment of Response with Longitudinal Investigation in ONcology), a Phase III, randomized, double-blind, placebo-controlled study of penterafenib (PPC-4871) in advanced hepatocellular carcinoma (HCC). The MCTA governs the relationship between the Sponsor and the Site Network for the conduct of the CLARION trial across 38 Veridian Network sites located in 14 states. The agreement covers site fees, per-patient payments, investigator grants, network coordination fees, technology and electronic data capture integration costs, and operational costs totaling $80,000,000 across the projected 60-month study duration. The MCTA sets forth the parties' respective obligations relating to regulatory compliance, safety reporting, indemnification, insurance, intellectual property, data ownership, publication rights, and confidentiality."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Field",
+                    "Detail"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 12,
+            "table2_idx": 13,
+            "upper_row_ss": [
+                [
+                    "Description",
+                    "Original executed signature page of Penterra Pharmaceuticals Corp. to the Master Clinical Trial Agreement, bearing the manual signature of Nathaniel Briggs, Esq., in his capacity as Vice President and General Counsel, duly authorized to execute the MCTA on behalf of Penterra pursuant to the board resolutions certified in Tab 27."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Document",
+                    "Executed Signature Page — Veridian Health Research Network, Inc."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 13,
+            "table2_idx": 14,
+            "upper_row_ss": [
+                [
+                    "Description",
+                    "Original executed signature page of Veridian Health Research Network, Inc. to the Master Clinical Trial Agreement, bearing the manual signature of Dr. Franklin Osei, M.D., Ph.D., in his capacity as President and Chief Executive Officer, duly authorized to execute the MCTA on behalf of Veridian pursuant to the board resolutions certified in Tab 28."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Document",
+                    "Executed Signature Page — Graystone University Medical Center"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 17,
+            "table2_idx": 18,
+            "upper_row_ss": [
+                [
+                    "Description",
+                    "The Protocol Synopsis sets forth the key design parameters, eligibility criteria, dosing schedule, assessment schedule, statistical analysis plan overview, and study schema for the CLARION trial. The Protocol Synopsis is attached to the MCTA as Exhibit A and governs the conduct of the study at all 38 participating Veridian Network sites. The full Protocol (Version 3.0, dated March 15, 2023) is maintained on file with the Sponsor and is available to each site through the Pinnacle Data Solutions electronic trial master file system."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Document",
+                    "Budget and Milestone Payment Schedule"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 23,
+            "table2_idx": 24,
+            "upper_row_ss": [
+                [
+                    "Description",
+                    "The form of Individual Site Agreement (also referred to as the \"Joinder\" or \"Site Joinder Agreement\") is a standardized template agreement to be executed by each Veridian Network site that participates in the CLARION trial. The form incorporates all terms of the MCTA by reference and supplements those terms with site-specific schedules, including: (a) identification of the principal investigator and sub-investigators at such site; (b) the site-specific budget allocation derived from the master budget set forth in Exhibit B; (c) the Institutional Review Board (IRB) of record for such site; (d) site-specific regulatory and compliance information; and (e) the planned enrollment allocation for such site. The executed joinder agreements for the first five representative sites (Sites 001 through 005) are included in Volume IV of this closing binder. Additional joinder agreements will be executed on a rolling basis as sites are activated throughout the enrollment period."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Document",
+                    "Detailed Indemnification Provisions for Subject Injury and Related Claims"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 107,
+            "table2_idx": 108,
+            "upper_row_ss": [
+                [
+                    "Site Number",
+                    "001"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Address",
+                    "1200 University Avenue, Philadelphia, PA 19104"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 110,
+            "table2_idx": 111,
+            "upper_row_ss": [
+                [
+                    "Description",
+                    "Executed joinder agreement pursuant to which Haverford Regional Medical Center agrees to participate in the CLARION trial as Site 003 on the terms and conditions set forth in the MCTA and the site-specific"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "schedules annexed to the joinder. Haverford Regional Medical Center operates under the oversight of the Veridian Central IRB."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 123,
+            "table2_idx": 124,
+            "upper_row_ss": [
+                [
+                    "Field",
+                    "Detail"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Document",
+                    "Closing Certificate — Penterra Pharmaceuticals Corp."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 126,
+            "table2_idx": 127,
+            "upper_row_ss": [
+                [
+                    "Date",
+                    "July 5, 2023"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Description",
+                    "Certificate of the Secretary (or Assistant Secretary) of Penterra Pharmaceuticals Corp. certifying: (a) true and correct copies of the resolutions duly adopted by the Board of Directors of Penterra authorizing the execution, delivery, and performance of the MCTA and all ancillary agreements contemplated thereby; (b) the incumbency and specimen signatures of all authorized signatories of Penterra, including Nathaniel Briggs, Esq. (Vice President and General Counsel) and Dr. Anand Raghavan, M.D., Ph.D. (Chief Medical Officer); and (c) attached copies of the current bylaws and certificate of incorporation of Penterra Pharmaceuticals Corp. Penterra is a corporation organized and existing under the laws of the State of Delaware."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 129,
+            "table2_idx": 130,
+            "upper_row_ss": [
+                [
+                    "Description",
+                    "Officer's certificate executed by a duly authorized officer of Penterra Pharmaceuticals Corp. confirming that all representations and warranties of Penterra set forth in the MCTA (including, without limitation, the representations and warranties contained in Sections 7.1"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "through 7.15 thereof) are true and correct in all material respects as of the closing date (July 5, 2023), as though made on and as of such date (except to the extent that any such representation or warranty expressly relates to a specific earlier date, in which case such representation or warranty shall be true and correct in all material respects as of such earlier date). This certificate was delivered as a condition precedent to the closing of the transactions contemplated by the MCTA."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 133,
+            "table2_idx": 134,
+            "upper_row_ss": [
+                [
+                    "Description",
+                    "Certificate of insurance issued by Briarcliff Mutual Insurance Company evidencing that Penterra Pharmaceuticals Corp. maintains clinical trial liability insurance with the limits and coverages required by Exhibit E to the MCTA. The certificate confirms that Veridian Health Research Network, Inc. and each participating Veridian Network site have been named as additional insureds under the policy. Delivery of this certificate was a condition precedent to closing under the MCTA."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Document",
+                    "Transmittal Letter — Certificate of Insurance"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 136,
+            "table2_idx": 137,
+            "upper_row_ss": [
+                [
+                    "Description",
+                    "Letter from Calderwood & Harkness LLP to Gregory Callahan, Esq., Vice President, Legal and Compliance at Veridian Health Research Network, Inc., requesting that"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Veridian provide certificates of insurance from each of the 38 participating Veridian Network sites demonstrating that each site maintains general liability and professional liability insurance with limits of at least $5,000,000 per occurrence and $10,000,000 in the aggregate, as required by Exhibit E to the MCTA. The letter notes that such certificates are due within 15 business days of execution of the MCTA (i.e., by July 21, 2023), and requests that certificates be transmitted to Calderwood & Harkness LLP as they are received."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 141,
+            "table2_idx": 142,
+            "upper_row_ss": [
+                [
+                    "Description",
+                    "Original IRB approval letter from the Graystone University Institutional Review Board granting approval"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "for the conduct of the CLARION trial (Protocol PPC-4871-III, Version 3.0, dated March 15, 2023) at Graystone University Medical Center. The approval letter confirms that the IRB has reviewed and approved the protocol, the informed consent documents, the investigator's brochure, and all recruitment materials. The Graystone University IRB serves as the IRB of record for Site 001 (Graystone University Medical Center). Receipt of this IRB approval was a condition precedent to closing under Section 6.1(b)(i) of the MCTA."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 146,
+            "table2_idx": 147,
+            "upper_row_ss": [
+                [
+                    "Document",
+                    "Internal Memorandum — Conditions Precedent"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Satisfaction"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 158,
+            "table2_idx": 159,
+            "upper_row_ss": [
+                [
+                    "To",
+                    "Allison Whitmore, Partner, Whitmore, Jansen & Callahan LLP"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Date",
+                    "April 7, 2023"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 161,
+            "table2_idx": 162,
+            "upper_row_ss": [
+                [
+                    "Description",
+                    "Transmittal letter from Miriam Calloway to Allison Whitmore transmitting the Second Draft of the Master"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Clinical Trial Agreement, together with a tracked-changes redline against the First Draft. The letter summarizes the key revisions reflected in the Second Draft, including: (a) incorporation of Penterra's responses to Veridian's initial markup of the First Draft; (b) revised indemnification provisions reflecting the May 5 indemnification term sheet; (c) updated budget and payment schedule; and (d) revised insurance requirements. The letter requests that Whitmore, Jansen & Callahan provide a marked-up version of the Second Draft within two weeks (i.e., by June 2, 2023)."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 164,
+            "table2_idx": 165,
+            "upper_row_ss": [
+                [
+                    "To",
+                    "Allison Whitmore, Partner, Whitmore, Jansen &"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Callahan LLP"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 167,
+            "table2_idx": 168,
+            "upper_row_ss": [
+                [
+                    "Description",
+                    "Transmittal letter from Miriam Calloway to Allison Whitmore transmitting the near-final draft of the Master"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Clinical Trial Agreement, which reflects all agreements reached during the June 9 in-person negotiation session and subsequent email exchanges between the deal teams. The letter notes that the near-final draft contains minimal bracketed provisions remaining for resolution and requests Whitmore, Jansen & Callahan's final comments by June 21, 2023, in order to maintain the target signing date of June 28, 2023."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 172,
+            "table2_idx": 173,
+            "upper_row_ss": [
+                [
+                    "Description",
+                    "Initial draft of the Master Clinical Trial Agreement prepared by Calderwood & Harkness LLP on behalf of Penterra Pharmaceuticals Corp. and circulated to Whitmore, Jansen & Callahan LLP (counsel for"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Veridian Health Research Network, Inc.) on April 7, 2023, under cover of the transmittal letter at Tab 40. This draft served as the starting point for negotiations between the parties."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 176,
+            "table2_idx": 177,
+            "upper_row_ss": [
+                [
+                    "Description",
+                    "Near-final draft of the Master Clinical Trial Agreement reflecting all agreements reached during the June 9, 2023 in-person negotiation session at Whitmore, Jansen & Callahan's Philadelphia office and subsequent email exchanges between the deal teams. The near-final draft contained minimal bracketed provisions remaining for"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "resolution. Circulated to Whitmore, Jansen & Callahan LLP on June 16, 2023, under cover of the transmittal letter at Tab 46."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 180,
+            "table2_idx": 181,
+            "upper_row_ss": [
+                [
+                    "Description",
+                    "Term sheet outlining the indemnification structure proposed by Penterra for inclusion in the MCTA. The term sheet sets forth Penterra's proposed positions on: (a) sponsor indemnification of sites and investigators for subject injury; (b) per-subject and aggregate indemnification caps; (c) uncapped indemnification for product-defect claims; (d) carve-outs from sponsor"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "indemnification (investigator negligence, unauthorized protocol deviations, site breach); (e) reciprocal site indemnification and associated caps; (f) notice requirements; and (g) defense and settlement procedures. The term sheet was circulated to Whitmore, Jansen & Callahan LLP on May 5, 2023, and formed the basis for the indemnification negotiations reflected in subsequent drafts of the MCTA."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 185,
+            "table2_idx": 186,
+            "upper_row_ss": [
+                [
+                    "To",
+                    "Calderwood & Harkness LLP"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Description",
+                    "Countersigned acknowledgment from Nathaniel Briggs, Esq., on behalf of Penterra Pharmaceuticals Corp., confirming acceptance of the terms of Calderwood & Harkness's engagement as set forth in the engagement letter dated March 20, 2023 (Tab 55)."
+                ]
+            ]
+        }
+    ]
+}

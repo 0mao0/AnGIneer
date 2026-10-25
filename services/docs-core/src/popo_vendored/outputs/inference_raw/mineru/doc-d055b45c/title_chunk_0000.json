@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 145 142 852<|content|>UNANIMOUS WRITTEN CONSENT OF THE SOLE DIRECTOR OF\n<|id|>4<|page|>1<|box|>424 140 441 241<|content|>RECITALS\n<|id|>6<|page|>1<|box|>500 140 518 393<|content|>A. Background of the Company\n<|id|>12<|page|>2<|box|>176 140 193 405<|content|>B. Description of the Transaction\n<|id|>20<|page|>3<|box|>294 140 311 452<|content|>C. Description of Ancillary Agreements\n<|id|>33<|page|>5<|box|>90 140 107 383<|content|>E. Determination of the Board\n<|id|>36<|page|>5<|box|>325 142 343 279<|content|>RESOLUTIONS\n<|id|>37<|page|>5<|box|>358 143 375 441<|content|>1. Approval of the Merger Agreement\n<|id|>48<|page|>6<|box|>406 140 422 261<|content|>and it is further\n<|id|>50<|page|>6<|box|>500 140 517 351<|content|>2. Approval of the Merger\n<|id|>53<|page|>6<|box|>744 140 761 635<|content|>3. Authorization to Execute and Deliver the Merger\n<|id|>56<|page|>7<|box|>202 140 219 434<|content|>4. Approval of Ancillary Agreements\n<|id|>64<|page|>8<|box|>176 140 193 333<|content|>6. Certificate of Merger\n<|id|>67<|page|>8<|box|>476 140 494 416<|content|>7. HSR Act and Regulatory Filings\n<|id|>72<|page|>9<|box|>157 140 175 261<|content|>8. SEC Filings\n<|id|>76<|page|>9<|box|>539 140 555 413<|content|>9. Authorization of Officers to Act\n<|id|>83<|page|>10<|box|>257 143 273 395<|content|>10. Ratification of Prior Actions\n<|id|>85<|page|>10<|box|>439 142 457 351<|content|>11. General Authorization\n<|id|>90<|page|>11<|box|>89 142 107 256<|content|>SIGNATURE\n<|id|>94<|page|>11<|box|>301 140 319 473<|content|>ACKNOWLEDGMENT AND CONSENT",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>3\n<|id|>12<|level|>3\n<|id|>20<|level|>3\n<|id|>33<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>48<|level|>-1\n<|id|>50<|level|>3\n<|id|>53<|level|>3\n<|id|>56<|level|>3\n<|id|>64<|level|>3\n<|id|>67<|level|>3\n<|id|>72<|level|>3\n<|id|>76<|level|>3\n<|id|>83<|level|>3\n<|id|>85<|level|>3\n<|id|>90<|level|>2\n<|id|>94<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        }
+    ]
+}

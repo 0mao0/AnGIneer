@@ -1,0 +1,59 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        11
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>90 436 109 560<|content|>EXHIBIT D\n<|id|>1<|type|>title<|page|>2<|box|>128 277 148 720<|content|>FORM OF COMPLIANCE CERTIFICATE\n<|id|>11<|type|>title<|page|>2<|box|>542 140 560 555<|content|>SECTION 1: INTRODUCTORY CERTIFICATION\n<|id|>23<|type|>title<|page|>3<|box|>347 140 364 635<|content|>SECTION 2: FINANCIAL STATEMENTS CERTIFICATION\n<|id|>28<|type|>title<|page|>4<|box|>148 140 166 524<|content|>SECTION 3: NO DEFAULT CERTIFICATION\n<|id|>33<|type|>title<|page|>4<|box|>513 140 530 604<|content|>SECTION 4: BORROWING BASE AND AVAILABILITY\n<|id|>35<|type|>table<|page|>4<|box|>599 143 907 852<|content|>None\n<|id|>37<|type|>title<|page|>5<|box|>176 140 194 388<|content|>FCCR Trigger Threshold Test:\n<|id|>40<|type|>title<|page|>5<|box|>290 140 308 375<|content|>Cash Dominion Trigger Test:\n<|id|>44<|type|>title<|page|>5<|box|>500 140 517 704<|content|>SECTION 5: FIXED CHARGE COVERAGE RATIO CALCULATION\n<|id|>45<|type|>title<|page|>5<|box|>526 142 544 341<|content|>Applicability (check one):\n<|id|>50<|type|>table<|page|>5<|box|>773 143 898 852<|content|>None\n<|id|>51<|type|>table<|page|>6<|box|>88 143 491 852<|content|>None\n<|id|>52<|type|>table<|page|>6<|box|>573 143 792 852<|content|>None\n<|id|>53<|type|>table<|page|>7<|box|>111 143 199 852<|content|>None\n<|id|>55<|type|>title<|page|>7<|box|>270 142 287 594<|content|>SECTION 6: RESTRICTED PAYMENT COMPLIANCE\n<|id|>68<|type|>title<|page|>7<|box|>750 142 767 687<|content|>SECTION 7: NEGATIVE COVENANT COMPLIANCE SUMMARY\n<|id|>71<|type|>table<|page|>8<|box|>89 143 179 852<|content|>None\n<|id|>72<|type|>table<|page|>8<|box|>273 143 349 852<|content|>None\n<|id|>74<|type|>table<|page|>8<|box|>463 143 539 852<|content|>None\n<|id|>77<|type|>title<|page|>8<|box|>694 140 710 514<|content|>SECTION 8: REPORTING CONFIRMATION\n<|id|>87<|type|>title<|page|>10<|box|>89 142 107 261<|content|>SCHEDULE I\n<|id|>88<|type|>title<|page|>10<|box|>114 197 133 797<|content|>DESCRIPTION OF DEFAULTS OR EVENTS OF DEFAULT (If A\n<|id|>92<|type|>table<|page|>10<|box|>253 143 397 852<|content|>None\n<|id|>94<|type|>title<|page|>11<|box|>89 142 107 256<|content|>SIGNATURE\n<|id|>101<|type|>title<|page|>11<|box|>266 143 282 385<|content|>DELIVERY INSTRUCTIONS",
+    "raw_response": "<|src_id|>35<|tgt_id|>33\n<|src_id|>50<|tgt_id|>44\n<|src_id|>51<|tgt_id|>44\n<|src_id|>52<|tgt_id|>44\n<|src_id|>53<|tgt_id|>44\n<|src_id|>71<|tgt_id|>68\n<|src_id|>72<|tgt_id|>68\n<|src_id|>74<|tgt_id|>68\n<|src_id|>92<|tgt_id|>88",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 88
+        }
+    ]
+}

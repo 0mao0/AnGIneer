@@ -1,0 +1,114 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9d15ntqj\\input\\pdfs\\doc-ed6abb84.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9d15ntqj\\enriched\\doc-ed6abb84.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>19<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>47<|level|>3\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>66<|level|>2\n<|id|>73<|level|>2",
+    "image_output": "<|src_id|>39<|tgt_id|>37\n<|src_id|>64<|tgt_id|>62\n<|src_id|>65<|tgt_id|>62",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 62
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 64,
+            "table2_idx": 65,
+            "upper_row_ss": [
+                [
+                    "Exhibit C",
+                    "Certificate of Good Standing — State of Delaware"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "(Office of the Secretary of State)"
+                ]
+            ]
+        }
+    ]
+}

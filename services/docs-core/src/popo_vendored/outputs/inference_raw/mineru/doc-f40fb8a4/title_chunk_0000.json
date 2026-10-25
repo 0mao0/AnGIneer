@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        11
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>12<|page|>2<|box|>167 140 185 473<|content|>1. Background and Transaction Summary\n<|id|>21<|page|>3<|box|>204 140 222 339<|content|>2. The Sun Belt Portfolio\n<|id|>32<|page|>5<|box|>90 140 107 418<|content|>3. Proposed Loan Terms Summary\n<|id|>47<|page|>5<|box|>734 176 751 267<|content|>Collateral:\n<|id|>53<|page|>6<|box|>133 176 151 452<|content|>Governing Law: State of New York\n<|id|>55<|page|>6<|box|>273 140 292 310<|content|>4. Rate Lock Deposit\n<|id|>59<|page|>6<|box|>650 140 667 393<|content|>5. Borrower Entity Information\n<|id|>61<|page|>6<|box|>743 140 760 642<|content|>Fairwater Real Estate Investment Trust (Carve-Out\n<|id|>71<|page|>7<|box|>267 143 284 253<|content|>Key Officers:\n<|id|>79<|page|>7<|box|>564 140 580 447<|content|>Fairwater Operating Partnership, L.P.\n<|id|>87<|page|>8<|box|>263 140 282 305<|content|>6. List of Enclosures\n<|id|>89<|page|>8<|box|>340 140 357 354<|content|>A. Loan Application Form\n<|id|>91<|page|>8<|box|>412 142 429 313<|content|>B. Rate Lock Deposit\n<|id|>94<|page|>8<|box|>523 140 539 529<|content|>C. Organizational Documents for SPE Borrowers\n<|id|>104<|page|>9<|box|>90 140 108 705<|content|>D. Organizational Documents for Guarantor and Oper\n<|id|>111<|page|>9<|box|>352 142 369 331<|content|>E. Board Authorization\n<|id|>113<|page|>9<|box|>460 140 479 645<|content|>F. Property Information Packages (for each of the\n<|id|>120<|page|>9<|box|>705 142 722 259<|content|>G. Appraisals.\n<|id|>122<|page|>10<|box|>90 140 107 439<|content|>H. Financial Statements of Guarantor\n<|id|>129<|page|>10<|box|>407 140 424 292<|content|>I. Title and Survey\n<|id|>132<|page|>10<|box|>590 140 608 349<|content|>J. Environmental Reports\n<|id|>134<|page|>10<|box|>700 142 717 348<|content|>K. Insurance Information\n<|id|>137<|page|>10<|box|>829 140 845 346<|content|>L. Property Management\n<|id|>139<|page|>11<|box|>90 142 107 344<|content|>M. Existing Indebtedness\n<|id|>150<|page|>11<|box|>436 140 454 380<|content|>N. Legal Counsel Information\n<|id|>155<|page|>11<|box|>604 140 619 531<|content|>7. Contact Information and Requested Next Steps\n<|id|>157<|page|>11<|box|>674 142 690 362<|content|>Primary Business Contacts:\n<|id|>161<|page|>11<|box|>814 142 830 330<|content|>Legal Counsel Contact:\n<|id|>163<|page|>11<|box|>883 142 900 357<|content|>Financial Advisor Contact:",
+    "raw_response": "<|id|>12<|level|>1\n<|id|>21<|level|>1\n<|id|>32<|level|>1\n<|id|>47<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>1\n<|id|>59<|level|>1\n<|id|>61<|level|>2\n<|id|>71<|level|>2\n<|id|>79<|level|>2\n<|id|>87<|level|>1\n<|id|>89<|level|>2\n<|id|>91<|level|>2\n<|id|>94<|level|>2\n<|id|>104<|level|>2\n<|id|>111<|level|>2\n<|id|>113<|level|>2\n<|id|>120<|level|>2\n<|id|>122<|level|>2\n<|id|>129<|level|>2\n<|id|>132<|level|>2\n<|id|>134<|level|>2\n<|id|>137<|level|>2\n<|id|>139<|level|>2\n<|id|>150<|level|>2\n<|id|>155<|level|>1\n<|id|>157<|level|>2\n<|id|>161<|level|>2\n<|id|>163<|level|>2",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        }
+    ]
+}

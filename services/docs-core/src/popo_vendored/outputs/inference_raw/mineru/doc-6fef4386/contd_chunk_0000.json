@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>180 140 196 692<|content|>FROM: ... Leonard Cross, Partner, Tax Group, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>205 140 260 854<|content|>TO: ... Claire, Partner, Capital Markets Robert Ad...ts Audrey Zhou, Working Associate, Capital Markets\n<|id|>4<|page|>1<|box|>268 140 286 334<|content|>DATE: ... January 31, 2026\n<|id|>5<|page|>1<|box|>294 140 330 856<|content|>RE: ... Halcyon Semiconductor AG — US/German Tax T...ications for Holders of American Depositary Shares\n<|id|>6<|page|>1<|box|>338 142 356 362<|content|>MATTER NO. ... 1032-00003\n<|id|>7<|page|>1<|box|>364 142 381 408<|content|>Right-click to update Table of Contents\n<|id|>21<|page|>2<|box|>840 140 895 857<|content|>Halcyon Semiconductor Aktiengesellschaft is a Germ...aximilianstraße 72, 80539 Munich, Germany. ... The\n<|id|>22<|page|>3<|box|>90 140 145 854<|content|>Company operates in the advanced power semiconduct...ndustrial automation, and renewable energy sectors\n<|id|>25<|page|>3<|box|>295 147 311 405<|content|>• FY2025 Revenue: ... 82 billion\n<|id|>29<|page|>3<|box|>375 140 448 856<|content|>As of the date of this memorandum, Halcyon has 215... Entity Identifier (\"LEI\") is 5299007KBTVZ3XQHGL48\n<|id|>26<|page|>3<|box|>315 147 332 524<|content|>• FY2025 EBITDA: ... 0% margin)\n<|id|>27<|page|>3<|box|>335 147 351 428<|content|>• FY2025 Net Income: ... €612 million\n<|id|>28<|page|>3<|box|>354 145 372 732<|content|>• Market Capitalization (as of January 10, 2026): ... 6 billion\n<|id|>32<|page|>3<|box|>545 140 564 545<|content|>ADS Ratio: ... 1 ADS = 2 ordinary shares (Stammaktien)\n<|id|>33<|page|>3<|box|>571 140 590 839<|content|>Target Gross Proceeds: ... $900,000,000 (base deal, before exercise of any overallotment option)\n<|id|>34<|page|>3<|box|>597 140 652 854<|content|>Primary Component: ... The Company will issue 30,0...int of the indicative price range described below)\n<|id|>36<|page|>3<|box|>704 181 739 854<|content|>• Rheintal Industrieholding GmbH will sell 8,500,0...ary shares, represented by 4,250,000 ADSs; ... and\n<|id|>37<|page|>3<|box|>742 181 776 854<|content|>Kestrel Capital Partners AG will sell 4,300,000 or...000 ordinary shares, represented by 2,150,000 ADSs\n<|id|>82<|page|>8<|box|>90 174 126 854<|content|>(ii) the ADS holder is not acting as an agent, nom...r another person who is not a US resident; ... and\n<|id|>84<|page|>8<|box|>179 140 325 856<|content|>A related question arises with respect to ADSs hel...treaty benefits for holders of depositary receipts\n<|id|>99<|page|>9<|box|>530 174 585 854<|content|>(a) Not withheld in the first place — if the relie...reaty rate at the time of dividend payment; ... or\n<|id|>101<|page|>9<|box|>691 140 820 856<|content|>The practical distinction between these two scenar...and the completeness of the holder's documentation\n<|id|>210<|page|>21<|box|>415 174 469 854<|content|>(a) provides a correct TIN and certifies, under pe...ted IRS Form W-9 or acceptable substitute); ... or\n<|id|>212<|page|>21<|box|>540 140 631 856<|content|>Backup withholding is not an additional tax. ... A... federal income tax return and claiming the refund\n<|id|>225<|page|>22<|box|>816 140 909 857<|content|>Section 245A Participation Exemption. ... A \"specified\n<|id|>226<|page|>23<|box|>90 140 200 856<|content|>10-percent owned foreign corporation\" is any forei...he 10% threshold to consult their own tax advisors\n<|id|>237<|page|>23<|box|>770 183 805 854<|content|>• Holders who acquired ADSs through the exercise o...tion rights, or otherwise as compensation; ... and\n<|id|>239<|page|>23<|box|>827 140 898 857<|content|>The prospectus tax disclosure should include appro...ences of acquiring, holding, and disposing of ADSs",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>225<|tgt_id|>226",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 226
+        }
+    ]
+}

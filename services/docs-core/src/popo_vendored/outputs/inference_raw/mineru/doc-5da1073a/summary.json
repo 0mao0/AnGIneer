@@ -1,0 +1,152 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gm2gxck2\\input\\pdfs\\doc-5da1073a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gm2gxck2\\enriched\\doc-5da1073a.json",
+    "contd_output": "",
+    "title_output": "<|id|>2<|level|>1\n<|id|>7<|level|>1\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>36<|level|>2\n<|id|>37<|level|>2\n<|id|>38<|level|>2\n<|id|>39<|level|>2\n<|id|>52<|level|>1\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>59<|level|>3\n<|id|>65<|level|>3\n<|id|>69<|level|>3\n<|id|>83<|level|>1\n<|id|>89<|level|>1\n<|id|>93<|level|>1",
+    "image_output": "<|src_id|>9<|tgt_id|>7\n<|src_id|>24<|tgt_id|>7\n<|src_id|>26<|tgt_id|>7\n<|src_id|>27<|tgt_id|>7\n<|src_id|>56<|tgt_id|>54\n<|src_id|>67<|tgt_id|>65\n<|src_id|>68<|tgt_id|>65\n<|src_id|>92<|tgt_id|>89\n<|src_id|>95<|tgt_id|>93",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 9,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 93
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 26,
+            "table2_idx": 27,
+            "upper_row_ss": [
+                [
+                    "Units(4)",
+                    "—",
+                    "—"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Total",
+                    "$3,000,000,000",
+                    "$459,300.00(5)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 67,
+            "table2_idx": 68,
+            "upper_row_ss": [
+                [
+                    "3.2",
+                    "Amended and Restated Bylaws of Cascade Retail"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Holdings Inc. (incorporated by reference to [●])"
+                ]
+            ]
+        }
+    ]
+}

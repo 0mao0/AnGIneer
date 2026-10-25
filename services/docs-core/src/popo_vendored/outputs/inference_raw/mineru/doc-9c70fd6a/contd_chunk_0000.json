@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 140 159 808<|content|>TO: ... Patrick Gallagher, Lead Associate, Litigation (General), Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>167 140 204 854<|content|>FROM: ... Kara Nystrom, Contract Associate, and Si...e, Litigation (General), Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>212 140 229 300<|content|>DATE: ... July 3, 2023\n<|id|>5<|page|>1<|box|>237 140 273 854<|content|>RE: ... Analysis of Vantor's Supplemental Document Production (VHC-029001 through VHC-033218)\n<|id|>6<|page|>1<|box|>281 140 318 854<|content|>MATTER: ... )\n<|id|>14<|page|>1<|box|>702 181 719 777<|content|>• VTS driver termination and workforce reduction records post-March 2022; ... and\n<|id|>16<|page|>1<|box|>760 140 907 857<|content|>These documents were not produced voluntarily. ......roduce these records during its initial production\n<|id|>22<|page|>2<|box|>844 140 881 854<|content|>The documents span a critical period in the partie...et redeployment decision through approximately two\n<|id|>24<|page|>3<|box|>328 138 420 854<|content|>The predominance of internal emails is consistent ... as subjective or after-the-fact characterizations\n<|id|>44<|page|>5<|box|>825 140 881 856<|content|>The four documents discussed above corroborate and...eady flagged as a key document. ... In that email,\n<|id|>45<|page|>6<|box|>90 140 126 854<|content|>Milescu wrote: ... \"\n<|id|>99<|page|>13<|box|>828 140 902 857<|content|>This document should be flagged for use in deposit...ort-term margins (through the Northwind diversion)\n<|id|>100<|page|>14<|box|>90 140 143 856<|content|>over contractual compliance (with the SLG SLOs), g...ted the TSA before the rate adjustment took effect",
+    "raw_response": "<|src_id|>44<|tgt_id|>45\n<|src_id|>99<|tgt_id|>100",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 100
+        }
+    ]
+}

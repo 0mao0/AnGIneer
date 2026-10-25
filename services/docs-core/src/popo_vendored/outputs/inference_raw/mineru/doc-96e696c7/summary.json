@@ -1,0 +1,227 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-q45po57d\\input\\pdfs\\doc-96e696c7.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-q45po57d\\enriched\\doc-96e696c7.json",
+    "contd_output": "<|src_id|>53<|tgt_id|>54\n<|src_id|>63<|tgt_id|>64\n<|src_id|>104<|tgt_id|>105",
+    "title_output": "<|id|>2<|level|>1\n<|id|>10<|level|>2\n<|id|>18<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>31<|level|>3\n<|id|>47<|level|>3\n<|id|>56<|level|>3\n<|id|>65<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>83<|level|>3\n<|id|>89<|level|>3\n<|id|>100<|level|>3\n<|id|>109<|level|>3\n<|id|>117<|level|>3\n<|id|>121<|level|>3\n<|id|>126<|level|>2\n<|id|>130<|level|>2\n<|id|>135<|level|>2\n<|id|>153<|level|>2\n<|id|>160<|level|>2\n<|id|>169<|level|>2",
+    "image_output": "<|src_id|>128<|tgt_id|>126\n<|src_id|>129<|tgt_id|>126\n<|src_id|>132<|tgt_id|>130\n<|src_id|>133<|tgt_id|>130\n<|src_id|>134<|tgt_id|>130\n<|src_id|>171<|tgt_id|>169\n<|src_id|>172<|tgt_id|>169",
+    "contd_label": [
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 128,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 169
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 128,
+            "table2_idx": 129,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "Brecker acknowledged awareness of",
+                    "Day 1, ~10:42 AM"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "FLA § 4.1's GRR definition but testified he interpreted it as limited to revenues \"through the Verimark system,\" contradicting the provision's plain language (\"regardless of the entity collecting such revenue\").",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 132,
+            "table2_idx": 133,
+            "upper_row_ss": [
+                [
+                    "1",
+                    "March 12, 2016 email:\"Every booking we keep off the Verimark system saves us 7.5 cents on the dollar.\" Brecker claimed",
+                    "Exhibit 31",
+                    "Brecker could not identify any Verimark reservation-system fee of 7.5%. The 7.5% figure precisely matches the combined"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "this referred to \"reservation-system fees,\" not royalties/marketing contributions.",
+                    "",
+                    "FLA royalty (5%) plus marketing-fund contribution (2.5%). This email is strong evidence of consciousness that the booking-diversion scheme was designed to reduce franchise-fee obligations."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 133,
+            "table2_idx": 134,
+            "upper_row_ss": [
+                [
+                    "6",
+                    "Quarterly financial summaries to Nolan Prescott: Include Suncoast revenue line items, undermining Prescott's anticipated claim of ignorance",
+                    "Exhibit 14",
+                    "These reports demonstrate that Suncoast revenue was tracked and reported internally even as it was excluded from external GRR reports to Verimark. Relevant to Prescott"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "regarding Suncoast revenue flows.",
+                    "",
+                    "deposition preparation."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 171,
+            "table2_idx": 172,
+            "upper_row_ss": [
+                [
+                    "Imp. 1",
+                    "Exhibit 31 vs. claimed \"reservation-system fees\" explanation",
+                    "Day 1",
+                    "Afternoon session",
+                    "To be confirmed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Imp. 2",
+                    "Exhibit 35 (Franchise Operations Manual § 7.3) — \"didn't recall\"",
+                    "Day 1",
+                    "Late afternoon",
+                    "To be confirmed"
+                ]
+            ]
+        }
+    ]
+}

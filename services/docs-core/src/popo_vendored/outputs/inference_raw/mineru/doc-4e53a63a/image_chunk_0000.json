@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 133 651<|content|>CALDERWOOD & HARKNESS LLP MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>141 212 157 784<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>8<|type|>title<|page|>1<|box|>357 140 375 343<|content|>I. Purpose and Summary\n<|id|>13<|type|>title<|page|>2<|box|>204 140 222 544<|content|>II. Background — Bridge Credit Facility Summary\n<|id|>21<|type|>table<|page|>2<|box|>720 143 834 852<|content|>None\n<|id|>36<|type|>title<|page|>4<|box|>148 140 167 426<|content|>III. Financial Covenant Framework\n<|id|>43<|type|>title<|page|>5<|box|>90 140 107 442<|content|>IV. Portfolio-Level Covenant Analysis\n<|id|>44<|type|>title<|page|>5<|box|>121 140 138 455<|content|>A. Portfolio Loan-to-Value Ratio (LTV)\n<|id|>52<|type|>title<|page|>5<|box|>545 140 561 338<|content|>Covenant Limit: 65.00%\n<|id|>54<|type|>title<|page|>5<|box|>705 142 724 359<|content|>Result: IN COMPLIANCE\n<|id|>56<|type|>table<|page|>6<|box|>188 143 723 852<|content|>None\n<|id|>58<|type|>title<|page|>7<|box|>90 140 107 529<|content|>B. Portfolio Debt Service Coverage Ratio (DSCR)\n<|id|>61<|type|>title<|page|>7<|box|>367 140 383 393<|content|>Calculation as of June 30, 2025:\n<|id|>67<|type|>title<|page|>7<|box|>742 140 758 356<|content|>Covenant Minimum: 1.10x\n<|id|>69<|type|>title<|page|>7<|box|>811 142 828 357<|content|>Result: IN COMPLIANCE\n<|id|>72<|type|>title<|page|>8<|box|>431 140 449 416<|content|>V. Entity-Level Covenant Analysis\n<|id|>75<|type|>title<|page|>8<|box|>661 140 678 395<|content|>A. Consolidated Leverage Ratio\n<|id|>78<|type|>title<|page|>8<|box|>864 140 881 393<|content|>Calculation as of June 30, 2025:\n<|id|>84<|type|>title<|page|>9<|box|>627 140 645 570<|content|>B. Consolidated Fixed Charge Coverage Ratio (FCCR)\n<|id|>87<|type|>title<|page|>9<|box|>849 140 866 393<|content|>Calculation as of June 30, 2025:\n<|id|>91<|type|>title<|page|>10<|box|>369 142 386 627<|content|>Result: IN COMPLIANCE (per officer's compliance ce\n<|id|>93<|type|>title<|page|>10<|box|>444 140 462 326<|content|>C. Tangible Net Worth\n<|id|>96<|type|>title<|page|>10<|box|>611 142 628 393<|content|>Calculation as of June 30, 2025:\n<|id|>101<|type|>title<|page|>11<|box|>165 142 183 325<|content|>D. Minimum Liquidity\n<|id|>104<|type|>title<|page|>11<|box|>349 140 367 393<|content|>Calculation as of June 30, 2025:\n<|id|>108<|type|>title<|page|>11<|box|>652 140 669 400<|content|>VI. Summary Compliance Table\n<|id|>110<|type|>table<|page|>11<|box|>720 143 882 852<|content|>None\n<|id|>112<|type|>title<|page|>12<|box|>204 140 222 584<|content|>VII. Forward-Looking Considerations and Observatio\n<|id|>114<|type|>title<|page|>12<|box|>334 140 352 305<|content|>A. DSCR Sensitivity\n<|id|>121<|type|>title<|page|>13<|box|>194 140 212 442<|content|>B. Extension Option DSCR Threshold\n<|id|>127<|type|>title<|page|>13<|box|>755 140 773 622<|content|>C. Impact of Proposed Permanent Financing on Debt\n<|id|>136<|type|>title<|page|>14<|box|>588 140 604 349<|content|>D. Timing Considerations\n<|id|>143<|type|>title<|page|>15<|box|>285 140 301 334<|content|>VIII. Recommendations\n<|id|>150<|type|>title<|page|>16<|box|>279 142 296 264<|content|>IX. Conclusion\n<|id|>156<|type|>title<|page|>16<|box|>773 142 789 250<|content|>Prepared by:",
+    "raw_response": "<|src_id|>21<|tgt_id|>13\n<|src_id|>56<|tgt_id|>44\n<|src_id|>110<|tgt_id|>108",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 108
+        }
+    ]
+}

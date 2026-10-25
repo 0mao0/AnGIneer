@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Sub-Processor Approval', 'Specific prior written authorization; absolute denial right; no response timeframe', 'General authorization; no notice; no objection right', 'General authorization; 30-day notice; reasonable objection right; termination of affected processing as remedy', 'General authorization; 30-day prior notice; objection right on reasonable grounds; 15-day resolution period; termination']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'of affected processing as sole remedy']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 220,
+    "table2_idx": 221
+}

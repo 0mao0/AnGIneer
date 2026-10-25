@@ -1,0 +1,38 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>604 140 623 500<|content|>Summary of Claims and Dispute Background\n<|id|>14<|page|>2<|box|>659 140 676 486<|content|>Ironside's Intention to Proceed to Litigation\n<|id|>17<|page|>3<|box|>296 140 313 434<|content|>Preservation of Rights and Remedies\n<|id|>21<|page|>3<|box|>726 140 743 424<|content|>Document Preservation Obligations\n<|id|>31<|page|>4<|box|>523 140 540 236<|content|>Conclusion",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>17<|level|>1\n<|id|>21<|level|>1\n<|id|>31<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        }
+    ]
+}

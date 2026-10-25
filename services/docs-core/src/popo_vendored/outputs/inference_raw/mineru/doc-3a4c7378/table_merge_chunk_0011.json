@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 11,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['\"wherein the coolant comprises a dielectric fluid having a thermal conductivity of at least 0.05 W/m·K and an electrical resistivity of at least 10^8 Ω·cm.\"', 'Accused Element:Lumicore engineering specifications (LC-00008130 at p. 23) identify the coolant used in the LumiLink 400G-ZR+ as 3M Greaves & Co. 7100 engineered fluid (methoxy-nonafluorobutane, C4F9OCH3). Published material properties for Greaves & Co. 7100 include a thermal conductivity of 0.069 W/m·K at 25°C (exceeding the claimed minimum of 0.05 W/m·K) and a volume resistivity of greater than 10^8 Ω·cm (meeting the claimed minimum). Dr. Michaud confirmed (November 19, 2024, at 102:3–103:8) that the LumiLink product line uses \"Greaves &']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Co. 7100 or an equivalent dielectric coolant.\" Note on Partial Summary Judgment: Claims 1, 4, and 6 of the \\'562 Patent are the subject of OWS\\'s anticipated Motion for Partial Summary Judgment on infringement. This is the strongest literal-infringement case among the Asserted Patents, based on the clarity of the Benchmark teardown data confirming the micro-channel structures and their dimensions, the Lumicore design documents identifying the coolant and thermal management system, and Dr. Michaud\\'s deposition admissions regarding the design choices and coolant selection.Dr.Ashford\\'s Explanation:The coolant used in the LumiLink 400G-ZR+ — Greaves & Co. 7100 — is a dielectric fluid with published thermal conductivity and electrical resistivity values that exceed the claimed minimums. This limitation is literally met.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 204,
+    "table2_idx": 205
+}

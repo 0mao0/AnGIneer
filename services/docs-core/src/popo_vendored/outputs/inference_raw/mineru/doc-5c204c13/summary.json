@@ -1,0 +1,101 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_lynxus8\\input\\pdfs\\doc-5c204c13.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_lynxus8\\enriched\\doc-5c204c13.json",
+    "contd_output": "<|src_id|>1<|tgt_id|>2\n<|src_id|>21<|tgt_id|>22",
+    "title_output": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>15<|level|>2\n<|id|>31<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>3\n<|id|>47<|level|>3\n<|id|>55<|level|>3\n<|id|>63<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>2\n<|id|>86<|level|>2\n<|id|>87<|level|>3",
+    "image_output": "<|src_id|>89<|tgt_id|>87\n<|src_id|>90<|tgt_id|>87",
+    "contd_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 89,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 87
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 89,
+            "table2_idx": 90,
+            "upper_row_ss": [
+                [
+                    "8",
+                    "Side Letter Agreement: Vessel Disposition Undertaking, among TSL, TAI, and Nordbank",
+                    "March 14, 2023"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "International AG, providing for the sale of 6 older dry-bulk carriers for estimated aggregate proceeds of $72 million and the application of net proceeds to prepay Term Loan A",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

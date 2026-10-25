@@ -1,0 +1,191 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3xd7u6yo\\input\\pdfs\\doc-4a2262eb.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3xd7u6yo\\enriched\\doc-4a2262eb.json",
+    "contd_output": "<|src_id|>60<|tgt_id|>61\n<|src_id|>96<|tgt_id|>97\n<|src_id|>103<|tgt_id|>104",
+    "title_output": "<|id|>0<|level|>1\n<|id|>14<|level|>2\n<|id|>27<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>2\n<|id|>62<|level|>2\n<|id|>67<|level|>2\n<|id|>73<|level|>2\n<|id|>77<|level|>2\n<|id|>89<|level|>2\n<|id|>93<|level|>2\n<|id|>101<|level|>2\n<|id|>111<|level|>2\n<|id|>117<|level|>2\n<|id|>124<|level|>2\n<|id|>137<|level|>2\n<|id|>144<|level|>2\n<|id|>172<|level|>2\n<|id|>189<|level|>2\n<|id|>190<|level|>2\n<|id|>192<|level|>3\n<|id|>194<|level|>3\n<|id|>197<|level|>3\n<|id|>205<|level|>3\n<|id|>207<|level|>3\n<|id|>209<|level|>3\n<|id|>211<|level|>2\n<|id|>212<|level|>2\n<|id|>217<|level|>2\n<|id|>218<|level|>2\n<|id|>220<|level|>2\n<|id|>227<|level|>3\n<|id|>242<|level|>3\n<|id|>244<|level|>3",
+    "image_output": "<|src_id|>195<|tgt_id|>194\n<|src_id|>214<|tgt_id|>212\n<|src_id|>215<|tgt_id|>212",
+    "contd_label": [
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 104
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 207,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 227,
+            "level": 3
+        },
+        {
+            "id": 242,
+            "level": 3
+        },
+        {
+            "id": 244,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 195,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 212
+        },
+        {
+            "src_id": 215,
+            "tgt_id": 212
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 214,
+            "table2_idx": 215,
+            "upper_row_ss": [
+                [
+                    "EDC Platform",
+                    "Pinnacle Data Solutions, Inc."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Central Laboratory",
+                    "Northbridge Bioanalytical Laboratories, Inc."
+                ]
+            ]
+        }
+    ]
+}

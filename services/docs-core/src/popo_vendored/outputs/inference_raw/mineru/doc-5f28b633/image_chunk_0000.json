@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>143 207 160 790<|content|>PRIVILEGED AND CONFIDENTIAL / ATTORNEY WORK PRODUC\n<|id|>8<|type|>title<|page|>1<|box|>395 140 412 364<|content|>I. Purpose of Memorandum\n<|id|>12<|type|>title<|page|>2<|box|>90 140 107 424<|content|>II. Settlement Agreement Reference\n<|id|>17<|type|>title<|page|>2<|box|>583 140 599 401<|content|>III. Summary of Funds Received\n<|id|>18<|type|>title<|page|>2<|box|>614 140 630 348<|content|>A. Table of Wire Receipts\n<|id|>20<|type|>table<|page|>2<|box|>698 143 905 852<|content|>None\n<|id|>21<|type|>table<|page|>3<|box|>88 143 218 851<|content|>None\n<|id|>23<|type|>title<|page|>3<|box|>301 142 318 359<|content|>B. Aggregate Confirmation\n<|id|>28<|type|>title<|page|>3<|box|>643 142 661 348<|content|>IV. Wire Transfer Details\n<|id|>29<|type|>title<|page|>3<|box|>675 142 691 421<|content|>A. Ironclad and Pinnacle Payments\n<|id|>34<|type|>title<|page|>4<|box|>301 140 318 467<|content|>B. Montclair and Sovereign Re Payments\n<|id|>39<|type|>title<|page|>4<|box|>753 140 772 486<|content|>V. Reconciliation Against Settlement Terms\n<|id|>49<|type|>title<|page|>5<|box|>707 140 724 261<|content|>VI. Next Steps\n<|id|>50<|type|>title<|page|>5<|box|>738 140 755 330<|content|>A. Client Disbursement\n<|id|>53<|type|>title<|page|>6<|box|>152 176 170 267<|content|>Legal Fees\n<|id|>57<|type|>title<|page|>6<|box|>421 178 436 338<|content|>Expenses Advanced\n<|id|>66<|type|>title<|page|>6<|box|>731 176 747 442<|content|>Net Settlement Proceeds to Client\n<|id|>72<|type|>title<|page|>7<|box|>138 140 157 354<|content|>B. Stipulation of Dismissal\n<|id|>77<|type|>title<|page|>7<|box|>527 140 545 290<|content|>C. Matter Closing\n<|id|>82<|type|>title<|page|>8<|box|>90 140 107 537<|content|>VII. Document Retention and Confidentiality Note\n<|id|>86<|type|>title<|page|>8<|box|>539 140 555 388<|content|>VIII. Attachments / Enclosures\n<|id|>97<|type|>title<|page|>9<|box|>89 142 108 241<|content|>Prepared by:",
+    "raw_response": "<|src_id|>20<|tgt_id|>18\n<|src_id|>21<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 18
+        }
+    ]
+}

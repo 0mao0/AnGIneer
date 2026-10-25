@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>8<|type|>title<|page|>1<|box|>532 142 549 333<|content|>1. Scope of Engagement\n<|id|>15<|type|>title<|page|>2<|box|>612 142 628 279<|content|>2. Compensation\n<|id|>17<|type|>table<|page|>2<|box|>680 143 755 852<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>359 140 375 361<|content|>3. Materials to Be Provided\n<|id|>34<|type|>title<|page|>4<|box|>522 142 539 367<|content|>4. Deliverables and Timeline\n<|id|>35<|type|>table<|page|>4<|box|>590 143 804 852<|content|>None\n<|id|>38<|type|>title<|page|>5<|box|>250 140 266 395<|content|>5. Coordination with Co-Expert\n<|id|>42<|type|>title<|page|>5<|box|>696 140 714 284<|content|>6. Confidentiality\n<|id|>46<|type|>title<|page|>6<|box|>304 140 320 362<|content|>7. Communication Protocol\n<|id|>55<|type|>title<|page|>6<|box|>809 140 825 369<|content|>8. Retention of Work Papers\n<|id|>58<|type|>title<|page|>7<|box|>186 140 204 441<|content|>9. Disclosures and Prior Engagements\n<|id|>61<|type|>title<|page|>7<|box|>444 142 460 274<|content|>10. Termination\n<|id|>70<|type|>title<|page|>7<|box|>844 349 859 647<|content|>ACCEPTANCE OF ENGAGEMENT",
+    "raw_response": "<|src_id|>17<|tgt_id|>15\n<|src_id|>35<|tgt_id|>34",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 34
+        }
+    ]
+}

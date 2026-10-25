@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['1', '\"waveguide multiplexer\"', 'U.S. Patent No. 10,234,847', 'Claims 1, 3, 5, 9, 14', '\"an optical device that', 'EE-1, EE-2, EE-3, EE-4,']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '(\"847 Patent\")', '', 'combines multiple optical signals of different wavelengths onto a single waveguide\"', 'EE-5, EE-6']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 26,
+    "table2_idx": 27
+}

@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>213 743 229 854<|content|>March 1, 2024\n<|id|>3<|page|>1<|box|>239 140 256 656<|content|>TO: ... Beatrice Holloway, Responsible Partner, Mergers & Acquisitions\n<|id|>4<|page|>1<|box|>263 142 282 601<|content|>FROM: ... Megan Chu, Lead Associate, Mergers & Acquisitions\n<|id|>5<|page|>1<|box|>290 140 325 854<|content|>RE: ... Conflicts Check Results — Proposed Represe... Carve-Out and Sale of Meridian Press Holdings LLC\n<|id|>6<|page|>1<|box|>334 140 351 362<|content|>MATTER NO. ... 1043-00002\n<|id|>7<|page|>1<|box|>359 140 377 624<|content|>ENGAGEMENT REFERENCE: ... SC/BH/JP/2024-0304/AGMG\n<|id|>8<|page|>1<|box|>386 142 402 408<|content|>Right-click to update Table of Contents\n<|id|>57<|page|>6<|box|>669 140 890 857<|content|>Prior Representations of Pinnacle Ridge Entities. ... as the client entity, and the\n<|id|>58<|page|>7<|box|>90 140 127 854<|content|>Firm's engagement letter for that matter did not e...Ridge fund, general partner, or management company\n<|id|>68<|page|>8<|box|>89 174 145 854<|content|>(b) Regulatory advisory matter for Consolidated Marine Holdings Ltd. ... and\n<|id|>70<|page|>8<|box|>196 140 289 854<|content|>None of these matters involves Aurelius, Meridian ...d transaction. ... Accordingly, no conflict exists\n<|id|>109<|page|>11<|box|>388 174 443 854<|content|>(h) Any regulatory authorities or governmental bod...ients in matters before such authorities); ... and\n<|id|>111<|page|>11<|box|>494 140 625 856<|content|>Megan Chu, Lead Associate on the engagement, will ...nce with the Firm's conflict resolution procedures",
+    "raw_response": "<|src_id|>57<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        }
+    ]
+}

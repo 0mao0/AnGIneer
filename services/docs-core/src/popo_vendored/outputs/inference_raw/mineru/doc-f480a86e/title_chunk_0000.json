@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 106 777<|content|>VELTHORN NATIONAL BANK, N.A. 383 Madison Avenue Ne\n<|id|>14<|page|>1<|box|>602 142 619 486<|content|>1. Confirmation of Receipt of Escrow Funds\n<|id|>21<|page|>2<|box|>429 140 445 351<|content|>2. Escrow Account Details\n<|id|>27<|page|>3<|box|>167 140 184 341<|content|>3. Conditions for Release\n<|id|>32<|page|>3<|box|>806 140 824 313<|content|>4. Escrow Agent Fees\n<|id|>37<|page|>4<|box|>439 140 457 426<|content|>5. Governing Terms and Definitions\n<|id|>41<|page|>4<|box|>777 140 794 421<|content|>6. Notices and Contact Information\n<|id|>47<|page|>5<|box|>402 140 419 514<|content|>7. No Other Obligations; Limitation of Liability",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>47<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        }
+    ]
+}

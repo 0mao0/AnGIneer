@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>186 142 203 290<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>213 732 229 854<|content|>October 9, 2023\n<|id|>4<|page|>1<|box|>239 140 256 658<|content|>FROM: ... Howard Bellamy, Specialist Partner, Antitrust & Competition\n<|id|>5<|page|>1<|box|>263 140 300 852<|content|>TO: ... Luisa Hartmann, General Counsel, Halcyon Semiconductor AG\n<|id|>6<|page|>1<|box|>309 140 345 854<|content|>RE: ... by Halcyon Semiconductor Aktiengesellschaft\n<|id|>7<|page|>1<|box|>353 142 369 413<|content|>ENGAGEMENT NO. ... 1032-00005\n<|id|>8<|page|>1<|box|>378 140 469 854<|content|>This memorandum is a privileged and confidential a...ot constitute a waiver of any applicable privilege\n<|id|>17<|page|>2<|box|>285 174 357 854<|content|>(e) the critical interaction between this Commissi... Demand) to Halcyon on September 15, 2023; ... and\n<|id|>19<|page|>2<|box|>410 140 630 856<|content|>The key takeaway from this memorandum is as follow...omes in either jurisdiction must begin immediately\n<|id|>29<|page|>3<|box|>864 140 902 856<|content|>The Form CO notification was prepared by Calderwoo...ation with Halcyon's in-house legal department and\n<|id|>30<|page|>4<|box|>90 140 162 854<|content|>Halcyon's European regulatory counsel at Brennan &...me date, which commenced the Phase I review period\n<|id|>165<|page|>20<|box|>781 140 892 857<|content|>The Phase II response work—encompassing document p...r costs (estimated at $200,000 to $400,000 for the\n<|id|>166<|page|>21<|box|>90 140 126 854<|content|>EU-specific production), or the fees of our Brusse...n & Tanaka LLP (estimated at €300,000 to €500,000)\n<|id|>181<|page|>22<|box|>383 140 398 320<|content|>Respectfully submitted,\n<|id|>182<|page|>22<|box|>400 140 417 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>183<|page|>22<|box|>419 143 435 253<|content|>By: ... By\n<|id|>184<|page|>22<|box|>435 140 469 852<|content|>Howard Bellamy Partner, Antitrust & Competition Ca...Washington, DC 20036 Telephone: ... (202) 555-7400\n<|id|>185<|page|>22<|box|>469 140 486 470<|content|>Email: ... com\n<|id|>186<|page|>22<|box|>486 143 500 230<|content|>Distribution: ... Distribution\n<|id|>187<|page|>22<|box|>508 174 580 854<|content|>Oliver Mackenzie, Partner, M&A — Calderwood & Hark...erwood & Harkness LLP, New York Dr. ... 1032-00005\n<|id|>188<|page|>22<|box|>587 140 633 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...PRIOR WRITTEN CONSENT OF CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>165<|tgt_id|>166",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 166
+        }
+    ]
+}

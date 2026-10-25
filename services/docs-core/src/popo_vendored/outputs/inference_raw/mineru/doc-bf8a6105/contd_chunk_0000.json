@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        16,
+        17,
+        22,
+        23,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>160 140 178 805<|content|>TO: ... Nathaniel Bower, Partner, Bankruptcy & Restructuring, Calderwood & Harkness LLP\n<|id|>2<|page|>1<|box|>186 140 220 854<|content|>FROM: ... Amy Chesterton, Lead Associate, Bankruptcy & Restructuring, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>229 140 247 352<|content|>DATE: ... December 10, 2022\n<|id|>4<|page|>1<|box|>256 140 292 852<|content|>RE: ... and Thalassa Shipping & Logistics SA\n<|id|>5<|page|>1<|box|>300 142 316 331<|content|>Matter No. ... 1044-00003\n<|id|>6<|page|>1<|box|>325 142 342 408<|content|>Right-click to update Table of Contents\n<|id|>129<|page|>16<|box|>872 140 909 857<|content|>The proposed filing venue is the United States Ban...principal office location at 1400 McKinney Street,\n<|id|>130<|page|>17<|box|>89 140 127 854<|content|>Suite 2200, Houston, TX 77010. ... §1408 because TAI has its principal place of business in Houston\n<|id|>179<|page|>22<|box|>835 140 909 857<|content|>Recommendation. ... Such orders are commonly sought in\n<|id|>180<|page|>23<|box|>90 140 145 854<|content|>Chapter 11 cases involving significant D&O exposur...ke. ... The order could include provisions such as\n<|id|>217<|page|>27<|box|>487 181 503 750<|content|>• Preference and Fraudulent Transfer Exposure Analysis (December 1, 2022)\n<|id|>221<|page|>27<|box|>583 140 619 854<|content|>We are available to discuss the analysis and recom... findings to the TAI and TSL boards as appropriate\n<|id|>218<|page|>27<|box|>507 183 540 854<|content|>• Intercompany Claims and Substantive Consolidation Risk Memorandum (December 5, 2022)\n<|id|>219<|page|>27<|box|>544 183 561 647<|content|>• COMI/Chapter 15 Recognition Analysis (November 8, 2022)\n<|id|>220<|page|>27<|box|>564 183 580 571<|content|>• Chapter 11 Contingency Playbook (in preparation)",
+    "raw_response": "<|src_id|>129<|tgt_id|>130\n<|src_id|>179<|tgt_id|>180",
+    "parsed": [
+        {
+            "src_id": 129,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 180
+        }
+    ]
+}

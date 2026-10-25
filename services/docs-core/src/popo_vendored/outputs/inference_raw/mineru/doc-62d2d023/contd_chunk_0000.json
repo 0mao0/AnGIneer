@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        9
+    ],
+    "pages": [
+        4,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>24<|page|>4<|box|>559 174 614 854<|content|>(c) Each claim is predicated upon distinct factual... and discharge, and different commodities; ... and\n<|id|>26<|page|>4<|box|>703 138 814 856<|content|>I note that, as of the date of this declaration, N...perly recoverable as damages in the instant action\n<|id|>49<|page|>8<|box|>638 447 655 854<|content|>Executed on December 15, 2023 New York, New York\n<|id|>50<|page|>8<|box|>691 142 742 854<|content|>Douglas Carmichael Partner Calderwood & Harkness L... Floor New York, New York 10006 Telephone: ... com\n<|id|>54<|page|>9<|box|>133 210 170 852<|content|>Margaret Delacroix, Esq. ... (212) 909-6000\n<|id|>55<|page|>9<|box|>179 212 195 457<|content|>Email: ... com\n<|id|>56<|page|>9<|box|>229 143 246 295<|content|>Douglas Carmichael",
+    "raw_response": "<|src_id|>54<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        }
+    ]
+}

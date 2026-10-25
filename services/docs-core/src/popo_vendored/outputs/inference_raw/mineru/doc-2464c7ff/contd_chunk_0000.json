@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>522 158 558 838<|content|>Filed in Support of Defendant Aurelius Media Ameri...tion for Final Approval of Class Action Settlement\n<|id|>4<|page|>1<|box|>566 308 584 691<|content|>Date: ... 34\n<|id|>8<|page|>1<|box|>835 140 888 854<|content|>2. ... The Settlement Agreement was reached after ..., 2023 and September 8, 2023, before the Honorable\n<|id|>9<|page|>2<|box|>90 140 420 857<|content|>Patricia Okoro (Ret. ... The settlement was thus n...ting the reasonableness of the proposed resolution\n<|id|>16<|page|>2<|box|>820 210 875 857<|content|>(iii) Service Awards: ... 00) to Derek\n<|id|>17<|page|>3<|box|>90 210 126 854<|content|>Halloran, and Ten Thousand Dollars ($10,000. ... 00) to Yesenia Padilla, subject to Court approval\n<|id|>19<|page|>3<|box|>196 210 325 856<|content|>(v) PAGA Payment: ... and\n<|id|>24<|page|>3<|box|>839 140 893 854<|content|>5. ... B of the Settlement Agreement and the directives of the Preliminary Approval Order,\n<|id|>25<|page|>4<|box|>90 140 494 857<|content|>AMA provided Meridian with the class list, which i...d a total of 2,847 visits during the notice period\n<|id|>37<|page|>5<|box|>902 140 929 779<|content|>DECLARATION OF DEVON ARCHER IN SUPPORT OF MOTION FOR FINAL APPROVAL OF CLASS ACTION SETTLEMENT\n<|id|>40<|page|>6<|box|>215 140 325 854<|content|>AMA further confirms, consistent with Section XIV ...e, burden, and uncertainty of continued litigation\n<|id|>38<|page|>6<|box|>90 174 145 854<|content|>(d) AMA has not implemented any adverse changes to... to discourage class member participation; ... and\n<|id|>43<|page|>6<|box|>531 174 696 856<|content|>(b) In December 2022, AMA activated the \"Missed Me...dio City, California), Facility 4 (3800 W. ... and\n<|id|>45<|page|>6<|box|>766 140 876 857<|content|>These corrective measures, while voluntary and not...ond the monetary relief provided by the settlement",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>16<|tgt_id|>17\n<|src_id|>24<|tgt_id|>25",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        }
+    ]
+}

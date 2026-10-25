@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>125 142 141 480<|content|>OPTIWAVE SEMICONDUCTOR CORP. ... ,\n<|id|>1<|page|>1<|box|>150 212 167 282<|content|>Plaintiff,\n<|id|>3<|page|>1<|box|>200 140 219 452<|content|>LUMICORE TECHNOLOGIES, INC. ... ,\n<|id|>4<|page|>1<|box|>229 212 244 297<|content|>Defendant. ... Defendant\n<|id|>5<|page|>1<|box|>253 627 270 854<|content|>Case No. ... 24-cv-00319-JRG\n<|id|>6<|page|>1<|box|>279 658 297 854<|content|>Judge James R. ... Gilstrap\n<|id|>7<|page|>1<|box|>305 627 321 854<|content|>JURY TRIAL DEMANDED\n<|id|>27<|page|>3<|box|>852 140 888 856<|content|>On February 28, 2023, Lumicore responded through i...tner Catherine \"Kate\" Rourke. ... In its response,\n<|id|>28<|page|>4<|box|>90 140 127 854<|content|>Lumicore disputed infringement and raised question...antive analysis or identify any specific prior art\n<|id|>64<|page|>7<|box|>819 140 875 856<|content|>Courts have consistently held that a party cannot ...nfavorable portions. ... , In re EchoStar Commc'ns\n<|id|>65<|page|>8<|box|>89 140 126 854<|content|>Corp. ... 2004)\n<|id|>99<|page|>12<|box|>859 140 896 857<|content|>3. ... In\n<|id|>100<|page|>13<|box|>90 140 218 854<|content|>Seagate, the Federal Circuit held that waiver of p...waiver of the attorney-client privilege . ... \" Id\n<|id|>107<|page|>13<|box|>857 140 893 856<|content|>Critically, Mr. ... Bautista's further admission t...unch of the LumiEdge 1600G-LR in Q4 2023 (Bautista\n<|id|>108<|page|>14<|box|>90 138 219 856<|content|>Dep. ... Those letters must be produced so that OW...as objectively reasonable and subjectively genuine\n<|id|>125<|page|>16<|box|>89 676 108 854<|content|>Respectfully submitted,\n<|id|>126<|page|>16<|box|>114 671 133 854<|content|>Dated: ... October 21, 2024\n<|id|>127<|page|>16<|box|>141 140 157 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>128<|page|>16<|box|>159 143 176 251<|content|>By: ... By\n<|id|>129<|page|>16<|box|>175 140 242 854<|content|>Alan Ngo (CA Bar No. ... (213) 486-7201\n<|id|>130<|page|>16<|box|>242 142 258 437<|content|>Email: ... com\n<|id|>131<|page|>16<|box|>258 142 275 470<|content|>Email: ... com\n<|id|>132<|page|>16<|box|>276 142 292 467<|content|>Email: ... com\n<|id|>133<|page|>16<|box|>294 142 310 468<|content|>Email: ... com\n<|id|>134<|page|>16<|box|>310 143 327 236<|content|>Of Counsel: ... Of Counsel\n<|id|>135<|page|>16<|box|>335 140 352 406<|content|>WHITMORE & CALLAHAN LLP\n<|id|>136<|page|>16<|box|>353 140 386 852<|content|>James \"Jim\" Callahan (TX Bar No. ... (903) 531-8400\n<|id|>137<|page|>16<|box|>387 142 404 447<|content|>Email: ... com\n<|id|>138<|page|>16<|box|>404 140 422 537<|content|>Attorneys for Plaintiff Optiwave Semiconductor Cor...ttorneys for Plaintiff Optiwave Semiconductor Corp\n<|id|>141<|page|>16<|box|>569 174 606 854<|content|>Catherine \"Kate\" Rourke Darren Cho Samantha Briggs...00 Congress Avenue, Suite 2400 Austin, Texas 78701\n<|id|>142<|page|>16<|box|>614 176 631 406<|content|>Email: ... com\n<|id|>143<|page|>16<|box|>632 176 648 387<|content|>Email: ... com\n<|id|>144<|page|>16<|box|>648 176 665 403<|content|>Email: ... com\n<|id|>145<|page|>16<|box|>666 176 683 385<|content|>Email: ... com\n<|id|>146<|page|>16<|box|>681 176 717 854<|content|>Maria Garza TRASK EDDINGTON LLP 425 East Front Street, Suite 300 Tyler, Texas 75701\n<|id|>147<|page|>16<|box|>727 176 744 450<|content|>Email: ... com\n<|id|>148<|page|>16<|box|>744 140 762 531<|content|>Attorneys for Defendant Lumicore Technologies, Inc...Attorneys for Defendant Lumicore Technologies, Inc",
+    "raw_response": "<|src_id|>27<|tgt_id|>28\n<|src_id|>64<|tgt_id|>65\n<|src_id|>99<|tgt_id|>100\n<|src_id|>107<|tgt_id|>108",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 108
+        }
+    ]
+}

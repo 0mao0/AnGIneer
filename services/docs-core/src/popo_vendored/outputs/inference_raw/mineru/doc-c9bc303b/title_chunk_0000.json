@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 297 133 700<|content|>1301 K Street NW, Suite 1200 Washington, DC 20005\n<|id|>4<|page|>1<|box|>193 140 209 496<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>8<|page|>1<|box|>349 142 366 493<|content|>1. Purpose and Confirmation of Engagement\n<|id|>12<|page|>1<|box|>761 142 777 343<|content|>2. Identification of Client\n<|id|>16<|page|>2<|box|>304 140 321 352<|content|>3. Scope of Representation\n<|id|>17<|page|>2<|box|>334 140 351 292<|content|>3.1 Subject Matter\n<|id|>28<|page|>3<|box|>214 140 229 390<|content|>3.2 Claims and Adverse Parties\n<|id|>37<|page|>4<|box|>250 140 268 357<|content|>3.3 Activities Within Scope\n<|id|>45<|page|>5<|box|>90 140 107 339<|content|>3.4 Limitations on Scope\n<|id|>52<|page|>5<|box|>541 140 558 447<|content|>4. Engagement Team and Billing Rates\n<|id|>53<|page|>5<|box|>571 140 589 321<|content|>4.1 Engagement Team\n<|id|>60<|page|>6<|box|>301 140 318 398<|content|>4.2 Current Hourly Rates (2025)\n<|id|>64<|page|>6<|box|>672 140 689 380<|content|>5. Billing and Payment Terms\n<|id|>67<|page|>7<|box|>138 140 157 400<|content|>5.2 Disbursements and Expenses\n<|id|>78<|page|>7<|box|>683 140 700 300<|content|>5.3 Payment Terms\n<|id|>81<|page|>8<|box|>90 140 106 277<|content|>5.4 Fee Estimate\n<|id|>86<|page|>8<|box|>585 140 602 429<|content|>6. Retention of Third-Party Vendors\n<|id|>93<|page|>9<|box|>410 140 428 321<|content|>7. Conflicts of Interest\n<|id|>97<|page|>9<|box|>785 140 803 390<|content|>8. Confidentiality and Privilege\n<|id|>101<|page|>10<|box|>421 140 438 349<|content|>9. Document Preservation\n<|id|>111<|page|>11<|box|>286 140 303 416<|content|>10. Communication and Reporting\n<|id|>118<|page|>11<|box|>821 142 838 274<|content|>11. Termination\n<|id|>124<|page|>12<|box|>502 142 518 480<|content|>12. Governing Law and Dispute Resolution\n<|id|>127<|page|>13<|box|>90 142 107 348<|content|>13. Limitation of Liability\n<|id|>129<|page|>13<|box|>321 142 339 379<|content|>14. No Guarantee of Outcome\n<|id|>131<|page|>13<|box|>571 142 589 264<|content|>15. Acceptance\n<|id|>141<|page|>14<|box|>157 380 174 617<|content|>AGREED AND ACCEPTED:\n<|id|>148<|page|>14<|box|>299 142 311 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>-1\n<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>28<|level|>2\n<|id|>37<|level|>2\n<|id|>45<|level|>2\n<|id|>52<|level|>1\n<|id|>53<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>1\n<|id|>67<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>2\n<|id|>86<|level|>1\n<|id|>93<|level|>1\n<|id|>97<|level|>1\n<|id|>101<|level|>1\n<|id|>111<|level|>1\n<|id|>118<|level|>1\n<|id|>124<|level|>1\n<|id|>127<|level|>1\n<|id|>129<|level|>1\n<|id|>131<|level|>1\n<|id|>141<|level|>1\n<|id|>148<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        }
+    ]
+}

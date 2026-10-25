@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Pendlebury v.', 'S.D. Fla.', '2005', 'Granted conditional', 'Hospitality/food-']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Starbucks Coffee Co., No. 04-80521-CIV, 2005 WL 84500 (S.D. Fla. Jan. 3, 2005)', '', '', 'certification', \"service context; found that evidence of a company-wide tip-pooling policy was sufficient for conditional certification.Relevant to VHG's tip-pool claims.\"]]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 175,
+    "table2_idx": 176
+}

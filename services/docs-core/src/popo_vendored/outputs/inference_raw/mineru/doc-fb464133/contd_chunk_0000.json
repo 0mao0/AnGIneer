@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 303 155 692<|content|>599 Lexington Avenue New York, New York 10022\n<|id|>3<|page|>1<|box|>164 183 181 813<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>190 704 207 854<|content|>November 20, 2023\n<|id|>5<|page|>1<|box|>215 140 233 823<|content|>Solara Digital Infrastructure LP 1200 Market Street, Suite 3400 Wilmington, Delaware 19801\n<|id|>6<|page|>1<|box|>242 176 258 599<|content|>Attention: ... Marcus Elliston, Founder & Managing Partner\n<|id|>7<|page|>1<|box|>258 176 277 684<|content|>Priya Narasimhan, Co-Managing Partner & Chief Investment Officer\n<|id|>8<|page|>1<|box|>286 140 338 854<|content|>Re: ... 1041- 00003\n<|id|>9<|page|>1<|box|>348 140 364 434<|content|>Dear Mr. ... Narasimhan\n<|id|>18<|page|>2<|box|>352 181 386 854<|content|>• LTM EBITDA of approximately $405,000,000 for the fiscal year ended September 30, 2023; ... and\n<|id|>20<|page|>2<|box|>428 140 483 854<|content|>These financial metrics are referenced solely for ...ication of any financial information of the Target\n<|id|>26<|page|>2<|box|>766 174 856 856<|content|>(a) Jonathan Hargrove, Chief Executive Officer of Cloudium, who holds approximately 4. ... and\n<|id|>27<|page|>2<|box|>864 174 902 857<|content|>(b) Pinnacle Growth Ventures LLC, a Delaware limit...ing shares of Cloudium common stock (approximately\n<|id|>28<|page|>3<|box|>90 174 143 854<|content|>21,367,200 shares), and which is expected to roll ...mated rollover value of approximately $473,241,408\n<|id|>56<|page|>5<|box|>739 183 756 553<|content|>• Regulatory filing fees and related expenses; ... and\n<|id|>58<|page|>5<|box|>779 140 887 856<|content|>Our analysis will address the characterization of ...t may be available under Revenue Procedure 2011-29\n<|id|>66<|page|>6<|box|>508 174 546 854<|content|>(a) A $3,740,000,000 Term Loan B facility with a s...t at a rate of SOFR plus 325 basis points; ... and\n<|id|>68<|page|>6<|box|>598 140 652 854<|content|>Both facilities are being arranged by Meridian Atl... as co-arranger (collectively, the \"Lender Group\")\n<|id|>78<|page|>7<|box|>444 174 500 854<|content|>(c) Elaine Forsythe (Specialist Partner, Antitrust...hat may have tax structuring implications; ... and\n<|id|>80<|page|>7<|box|>569 140 661 856<|content|>Leonard Cross may, in his discretion, staff additi...nal Engagement Letter and this Supplemental Letter\n<|id|>111<|page|>10<|box|>792 143 806 334<|content|>Name: ... Harrison Wexford\n<|id|>112<|page|>10<|box|>809 142 825 444<|content|>Title: ... Partner — Mergers & Acquisitions\n<|id|>114<|page|>10<|box|>845 143 859 264<|content|>Date: ... Date\n<|id|>113<|page|>10<|box|>827 143 843 305<|content|>(Responsible Partner)\n<|id|>116<|page|>10<|box|>878 143 893 307<|content|>Name: ... Leonard Cross\n<|id|>117<|page|>11<|box|>90 142 106 300<|content|>Title: ... Partner — Tax\n<|id|>119<|page|>11<|box|>125 143 141 267<|content|>Date: ... Date\n<|id|>118<|page|>11<|box|>108 142 125 290<|content|>(Specialist Partner)\n<|id|>122<|page|>11<|box|>193 140 210 491<|content|>By: ... Solara Digital GP LLC, its General Partner\n<|id|>123<|page|>11<|box|>212 143 228 254<|content|>By: ... By\n<|id|>124<|page|>11<|box|>229 142 244 316<|content|>Name: ... Marcus Elliston\n<|id|>125<|page|>11<|box|>244 142 262 406<|content|>Title: ... Founder & Managing Partner\n<|id|>126<|page|>11<|box|>263 143 279 266<|content|>Date: ... Date\n<|id|>127<|page|>11<|box|>279 142 294 261<|content|>Enclosures: ... None\n<|id|>128<|page|>11<|box|>301 140 348 854<|content|>cc: ... Beatrice Holloway, Partner — Mergers & Acq...vestment Officer, Solara Digital Infrastructure LP",
+    "raw_response": "<|src_id|>26<|tgt_id|>27\n<|src_id|>27<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        }
+    ]
+}

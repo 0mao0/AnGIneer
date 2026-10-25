@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>215 140 233 655<|content|>VIA ENCRYPTED EMAIL AND INTERNATIONAL COURIER\n<|id|>7<|page|>1<|box|>286 176 303 655<|content|>Re: Matter No. 1017-00002 — Final Deliverables Tra\n<|id|>8<|page|>1<|box|>313 140 329 294<|content|>Dear Dame Elspeth,\n<|id|>10<|page|>1<|box|>580 142 597 431<|content|>Description of Enclosed Deliverables\n<|id|>12<|page|>1<|box|>656 142 672 687<|content|>1. Transition Memorandum: Summary of Engagement Wo\n<|id|>24<|page|>2<|box|>617 140 633 624<|content|>2. Privilege Log — Materials Withheld from § 220 P\n<|id|>28<|page|>3<|box|>194 140 210 496<|content|>3. Index of Work Product Delivered to Client\n<|id|>30<|page|>3<|box|>377 140 393 679<|content|>4. Status Memorandum: Open and Unresolved Issues a\n<|id|>38<|page|>4<|box|>768 140 786 588<|content|>Observations Regarding Transition to Successor Cou\n<|id|>41<|page|>5<|box|>267 142 284 452<|content|>Privilege and Confidentiality Reminder\n<|id|>44<|page|>5<|box|>616 140 633 375<|content|>Final Administrative Matters\n<|id|>47<|page|>6<|box|>90 142 107 282<|content|>Closing Remarks",
+    "raw_response": "<|id|>5<|level|>-1\n<|id|>7<|level|>1\n<|id|>8<|level|>-1\n<|id|>10<|level|>2\n<|id|>12<|level|>3\n<|id|>24<|level|>3\n<|id|>28<|level|>3\n<|id|>30<|level|>3\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>44<|level|>2\n<|id|>47<|level|>2",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        }
+    ]
+}

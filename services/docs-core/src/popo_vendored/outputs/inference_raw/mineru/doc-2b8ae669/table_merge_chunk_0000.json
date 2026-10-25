@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Risk Factors', 'Investing in our common shares involves significant risks. See \"Risk Factors\" beginning on page S-12 of this prospectus supplement and the risk factors described in our most recent Annual Report on Form 10-K and subsequent Quarterly Reports on Form 10-Q']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'incorporated by reference herein.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 60,
+    "table2_idx": 61
+}

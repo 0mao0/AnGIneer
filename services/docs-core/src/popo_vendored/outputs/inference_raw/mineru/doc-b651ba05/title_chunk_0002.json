@@ -1,0 +1,45 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        130,
+        149
+    ],
+    "pages": [
+        131,
+        134,
+        135,
+        140,
+        141,
+        147,
+        149
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>360<|page|>131<|box|>182 290 228 684<|content|>附录A 疏浚岩土分类和分级\n<|id|>364<|page|>134<|box|>182 219 228 792<|content|>附录B 各类挖泥船计算超宽、计算超深值\n<|id|>368<|page|>135<|box|>180 293 226 685<|content|>附录C 疏浚工程船舶的选择\n<|id|>376<|page|>140<|box|>168 777 191 846<|content|>续表C.0.3\n<|id|>378<|page|>141<|box|>180 230 226 744<|content|>附录D 典型挖泥船及主要技术参数表\n<|id|>387<|page|>147<|box|>273 253 363 714<|content|>本定额主编单位、参编单位、主要起草人、主要审查人、总校人员和管理组人员名单\n<|id|>407<|page|>149<|box|>164 182 197 363<|content|>主要审查人：姜明宝",
+    "raw_response": "<|id|>360<|level|>1\n<|id|>364<|level|>1\n<|id|>368<|level|>1\n<|id|>376<|level|>2\n<|id|>378<|level|>1\n<|id|>387<|level|>1\n<|id|>407<|level|>-1",
+    "parsed": [
+        {
+            "id": 360,
+            "level": 1
+        },
+        {
+            "id": 364,
+            "level": 1
+        },
+        {
+            "id": 368,
+            "level": 1
+        },
+        {
+            "id": 376,
+            "level": 2
+        },
+        {
+            "id": 378,
+            "level": 1
+        },
+        {
+            "id": 387,
+            "level": 1
+        }
+    ]
+}

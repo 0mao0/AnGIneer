@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>90 140 108 622<|content|># DOJ NSD-CES-2025-04871 — Settlement Finalization Status\n<|id|>5<|page|>1<|box|>277 140 296 284<|content|>Importance: ... High\n<|id|>1<|page|>1<|box|>152 140 171 614<|content|>- From: ... com>\n<|id|>2<|page|>1<|box|>184 140 202 575<|content|>- To: ... com>\n<|id|>3<|page|>1<|box|>215 140 234 583<|content|>- Cc: ... com>\n<|id|>4<|page|>1<|box|>246 140 263 457<|content|>- Date: ... 00 -0000\n<|id|>9<|page|>1<|box|>621 140 640 661<|content|>**1. ... 1)**\n<|id|>10<|page|>1<|box|>684 140 797 836<|content|>DOJ **accepted** our position — and this was our m... VII will expressly cover Lansheng-related conduct\n<|id|>11<|page|>1<|box|>840 140 897 839<|content|>As you know, our internal investigation found no e...ons. ... 21 required either knowledge or a BIS \"is\n<|id|>12<|page|>2<|box|>90 140 146 844<|content|>informed\" notice, neither of which existed. ... This is the right result, and DOJ recognized it\n<|id|>13<|page|>2<|box|>189 140 207 647<|content|>**2. ... Article III — No-Prosecution, No-Denial, No-OFAC-Referral**\n<|id|>14<|page|>2<|box|>253 140 290 807<|content|>DOJ **accepted** both the no-criminal-prosecution ... export-privileges commitment without modification\n<|id|>19<|page|>3<|box|>277 140 294 398<|content|>**5. ... Payment Term — 60 Days**\n<|id|>20<|page|>3<|box|>340 140 434 844<|content|>DOJ **accepted** the 60-day payment term for the $...y term in DOJ's original draft. ... No issues here\n<|id|>21<|page|>3<|box|>477 140 494 591<|content|>**6. ... 6)**\n<|id|>22<|page|>3<|box|>540 140 689 854<|content|>DOJ **accepted** our 5-business-day advance notice...aightforward discussion, and Kolb was constructive\n<|id|>23<|page|>3<|box|>733 140 751 683<|content|>**7. ... 3)**\n<|id|>24<|page|>3<|box|>796 140 909 854<|content|>DOJ wants to include some narrative regarding the ...rence OEE-VSD-2025-00319), substantial cooperation\n<|id|>25<|page|>4<|box|>90 140 164 848<|content|>including 21,000 documents produced in two product...l exchange drafts on this language early next week\n<|id|>26<|page|>4<|box|>208 140 227 457<|content|>**8. ... 1)**\n<|id|>27<|page|>4<|box|>271 140 440 851<|content|>DOJ **counter-proposed** limiting employee protect... of the Effective Date. ... I recommend acceptance\n<|id|>28<|page|>4<|box|>483 140 501 455<|content|>**9. ... 2)**\n<|id|>29<|page|>4<|box|>546 140 678 854<|content|>DOJ insisted on retaining the ability to seek addi...while giving DOJ a meaningful enforcement backstop\n<|id|>30<|page|>4<|box|>720 140 739 447<|content|>**10. ... 2)**\n<|id|>31<|page|>4<|box|>782 140 897 849<|content|>DOJ **accepted** our narrower carve-out language. ... This is the right balance\n<|id|>32<|page|>5<|box|>234 142 251 330<|content|>**Overall Assessment**\n<|id|>33<|page|>5<|box|>296 140 371 852<|content|>We are very close to final. ... I expect an agreed draft within 7–10 business days\n<|id|>34<|page|>5<|box|>415 140 433 261<|content|>**Next Steps**\n<|id|>40<|page|>6<|box|>208 140 247 849<|content|>Marcus, please let me know if you have any questio... Happy to set up a call over the weekend if useful\n<|id|>41<|page|>6<|box|>290 142 309 250<|content|>Best regards,\n<|id|>42<|page|>6<|box|>321 142 339 212<|content|>Howard\n<|id|>43<|page|>6<|box|>383 140 402 264<|content|>Howard Quinn\n<|id|>44<|page|>6<|box|>415 140 434 447<|content|>Partner | White Collar & Investigations\n<|id|>45<|page|>6<|box|>446 140 464 370<|content|>Calderwood & Harkness LLP\n<|id|>46<|page|>6<|box|>477 140 496 568<|content|>1301 K Street NW, Suite 1100, Washington, D. ... 20005\n<|id|>47<|page|>6<|box|>508 140 527 452<|content|>T: ... (202) 555-0298\n<|id|>48<|page|>6<|box|>540 140 559 418<|content|>hquinn@calderwoodharkness. ... com\n<|id|>49<|page|>6<|box|>633 140 691 821<|content|>This email is a confidential attorney-client commu...otify the sender immediately and delete all copies",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>24<|tgt_id|>25",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['1(e): \"a second electrical contact coupled to the silicon substrate, wherein', 'Not disputed; plain and ordinary meaning applies.', 'Both products include a second contact coupled to the Si substrate to', 'Y']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['the first and second electrical contacts are configured to extract a photocurrent generated in response to the absorbed optical radiation\"', '', 'complete the photodetector circuit and extract photocurrent.', '']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 218,
+    "table2_idx": 219
+}

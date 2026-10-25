@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        14,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 169 141 826<|content|>UNITED STATES DISTRICT COURT EASTERN DISTRICT OF T\n<|id|>8<|page|>1<|box|>345 148 382 848<|content|>PLAINTIFF OPTIWAVE SEMICONDUCTOR CORP.'S OPPOSITIO\n<|id|>10<|page|>1<|box|>431 142 449 308<|content|>I. INTRODUCTION\n<|id|>17<|page|>2<|box|>530 140 547 377<|content|>II. STATEMENT OF FACTS\n<|id|>18<|page|>2<|box|>561 142 578 261<|content|>A. The Parties\n<|id|>24<|page|>3<|box|>565 140 582 573<|content|>B. Lumicore's Presence in the Eastern District of\n<|id|>32<|page|>4<|box|>609 140 626 500<|content|>C. The Asserted Patents and Pre-Suit History\n<|id|>44<|page|>6<|box|>239 140 255 320<|content|>D. Procedural History\n<|id|>50<|page|>6<|box|>680 140 698 346<|content|>III. LEGAL STANDARD\n<|id|>51<|page|>6<|box|>712 140 729 566<|content|>A. 28 U.S.C. § 1404(a) — Burden on the Moving Part\n<|id|>57<|page|>7<|box|>448 140 465 633<|content|>B. The *In re Volkswagen* Private and Public Inter\n<|id|>59<|page|>7<|box|>532 142 550 388<|content|>The private interest factors are:\n<|id|>64<|page|>7<|box|>662 142 680 382<|content|>The public interest factors are:\n<|id|>71<|page|>8<|box|>204 140 222 287<|content|>IV. ARGUMENT\n<|id|>72<|page|>8<|box|>234 140 252 540<|content|>A. Venue Is Proper in the Eastern District of Texa\n<|id|>77<|page|>9<|box|>138 140 156 570<|content|>B. The Private Interest Factors Do Not Favor Trans\n<|id|>130<|page|>14<|box|>436 140 454 563<|content|>C. The Public Interest Factors Do Not Favor Transf\n<|id|>147<|page|>16<|box|>327 142 344 488<|content|>D. Lumicore Has Not Met Its Heavy Burden\n<|id|>161<|page|>17<|box|>380 140 397 439<|content|>V. SUPPORTING DECLARATIONS\n<|id|>167<|page|>18<|box|>167 140 184 300<|content|>VI. CONCLUSION\n<|id|>170<|page|>18<|box|>429 140 446 320<|content|>Respectfully submitted,\n<|id|>171<|page|>18<|box|>454 140 470 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>180<|page|>18<|box|>763 142 780 406<|content|>WHITMORE & CALLAHAN LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>24<|level|>3\n<|id|>32<|level|>3\n<|id|>44<|level|>3\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>57<|level|>3\n<|id|>59<|level|>-1\n<|id|>64<|level|>-1\n<|id|>71<|level|>2\n<|id|>72<|level|>3\n<|id|>77<|level|>3\n<|id|>130<|level|>3\n<|id|>147<|level|>3\n<|id|>161<|level|>2\n<|id|>167<|level|>2\n<|id|>170<|level|>-1\n<|id|>171<|level|>-1\n<|id|>180<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>441 142 459 364<|content|>I. Introduction and Purpose\n<|id|>15<|page|>2<|box|>90 140 107 504<|content|>II. Background of the FERC §203 Application\n<|id|>21<|page|>2<|box|>773 140 790 511<|content|>III. Summary of FERC Order — Key Findings\n<|id|>27<|page|>3<|box|>720 140 739 462<|content|>IV. Conditions Attached to the Approval\n<|id|>29<|page|>3<|box|>833 140 849 359<|content|>A. License-Transfer Filings\n<|id|>32<|page|>4<|box|>330 140 347 328<|content|>B. Informational Filing\n<|id|>34<|page|>4<|box|>494 140 511 486<|content|>C. Compliance with Existing License Terms\n<|id|>36<|page|>4<|box|>676 142 693 395<|content|>D. Hold-Harmless Commitment\n<|id|>38<|page|>5<|box|>90 140 107 375<|content|>V. 18-Month Lapse Provision\n<|id|>43<|page|>5<|box|>747 140 763 730<|content|>VI. Interaction with Other Regulatory Approvals an\n<|id|>44<|page|>5<|box|>777 140 796 504<|content|>A. Oregon Public Utility Commission (OPUC)\n<|id|>48<|page|>6<|box|>335 140 352 290<|content|>C. Debt Financing\n<|id|>50<|page|>6<|box|>590 140 608 400<|content|>D. Co-Investment Vehicle Status\n<|id|>52<|page|>6<|box|>763 140 782 377<|content|>VII. Implications for Ironside\n<|id|>57<|page|>7<|box|>465 140 482 393<|content|>VIII. Recommended Next Steps\n<|id|>64<|page|>8<|box|>90 142 107 236<|content|>IX. Closing\n<|id|>74<|page|>8<|box|>453 142 469 238<|content|>Enclosures:",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>15<|level|>1\n<|id|>21<|level|>1\n<|id|>27<|level|>1\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>34<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>1\n<|id|>43<|level|>1\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>1\n<|id|>57<|level|>1\n<|id|>64<|level|>1\n<|id|>74<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        }
+    ]
+}

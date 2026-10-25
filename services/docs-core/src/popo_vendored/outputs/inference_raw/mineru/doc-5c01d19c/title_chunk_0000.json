@@ -1,0 +1,110 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 150 143 846<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 600 Lex\n<|id|>7<|page|>1<|box|>396 142 414 367<|content|>1. Introduction and Purpose\n<|id|>11<|page|>1<|box|>771 140 789 372<|content|>2. Identification of the Client\n<|id|>15<|page|>2<|box|>487 140 503 333<|content|>3. Scope of Engagement\n<|id|>16<|page|>2<|box|>518 140 534 374<|content|>3.1 Defense of Counterclaims\n<|id|>25<|page|>3<|box|>436 140 454 411<|content|>3.2 Prosecution of Original Action\n<|id|>37<|page|>4<|box|>263 140 280 468<|content|>3.3 Related Matters Excluded from Scope\n<|id|>45<|page|>5<|box|>90 140 107 348<|content|>4. Substitution of Counsel\n<|id|>50<|page|>5<|box|>583 140 599 313<|content|>5. Engagement Team\n<|id|>58<|page|>6<|box|>429 140 446 310<|content|>6. Fee Arrangements\n<|id|>59<|page|>6<|box|>459 142 477 274<|content|>6.1 Billing Rates\n<|id|>63<|page|>6<|box|>801 140 818 303<|content|>6.2 Billing Practices\n<|id|>68<|page|>7<|box|>544 140 561 377<|content|>7. Estimated Fees and Budget\n<|id|>72<|page|>8<|box|>186 140 203 362<|content|>8. Costs and Disbursements\n<|id|>84<|page|>8<|box|>803 140 820 390<|content|>9. Confidentiality and Privilege\n<|id|>89<|page|>9<|box|>458 142 474 406<|content|>10. Conflict of Interest Disclosure\n<|id|>96<|page|>10<|box|>90 142 107 357<|content|>11. Document Preservation\n<|id|>107<|page|>10<|box|>719 143 734 416<|content|>12. Communication and Reporting\n<|id|>112<|page|>11<|box|>329 143 347 274<|content|>13. Termination\n<|id|>117<|page|>11<|box|>750 142 766 380<|content|>14. Limitation of Engagement\n<|id|>120<|page|>12<|box|>167 142 184 480<|content|>15. Governing Law and Dispute Resolution\n<|id|>123<|page|>12<|box|>481 142 497 436<|content|>16. Acknowledgment and Acceptance\n<|id|>129<|page|>12<|box|>782 212 797 516<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>25<|level|>2\n<|id|>37<|level|>2\n<|id|>45<|level|>1\n<|id|>50<|level|>1\n<|id|>58<|level|>1\n<|id|>59<|level|>2\n<|id|>63<|level|>2\n<|id|>68<|level|>1\n<|id|>72<|level|>1\n<|id|>84<|level|>1\n<|id|>89<|level|>1\n<|id|>96<|level|>1\n<|id|>107<|level|>1\n<|id|>112<|level|>1\n<|id|>117<|level|>1\n<|id|>120<|level|>1\n<|id|>123<|level|>1\n<|id|>129<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        }
+    ]
+}

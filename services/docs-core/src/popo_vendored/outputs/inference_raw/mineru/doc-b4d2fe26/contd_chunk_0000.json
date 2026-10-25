@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 119 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law One Wor..., 40th Floor New York, NY 10281 Telephone: ... com\n<|id|>1<|page|>1<|box|>128 723 145 854<|content|>January 15, 2024\n<|id|>3<|page|>1<|box|>179 140 233 854<|content|>Marcus Ainsworth Managing Partner & Co-Founder Ard... 590 Madison Avenue, 34th Floor New York, NY 10022\n<|id|>4<|page|>1<|box|>242 140 277 854<|content|>Re: ... 2024-M&A-0142\n<|id|>5<|page|>1<|box|>286 140 303 300<|content|>Dear Mr. ... Ainsworth\n<|id|>18<|page|>2<|box|>820 174 876 857<|content|>(i) Governmental and Regulatory Filings. ... Prepa...under the Hart-Scott-Rodino Antitrust Improvements\n<|id|>19<|page|>3<|box|>90 174 127 854<|content|>Act of 1976, as amended, any state healthcare regu...ther filings or notices required by applicable law\n<|id|>46<|page|>5<|box|>486 183 521 854<|content|>• Third-party vendor costs, including costs associ... and corporate search and filing services; ... and\n<|id|>48<|page|>5<|box|>544 140 652 854<|content|>Expenses for outside specialists or consultants re...a separate line item on the Firm's monthly invoice\n<|id|>54<|page|>6<|box|>160 176 176 834<|content|>Ardent Capital Management LLC 590 Madison Avenue, 34th Floor New York, NY 10022\n<|id|>55<|page|>6<|box|>186 176 203 393<|content|>Attention: ... Accounts Payable\n<|id|>56<|page|>6<|box|>204 176 220 691<|content|>with a copy (by email) to Connor Briggs (cbriggs@ardentcapital. ... com)\n<|id|>88<|page|>10<|box|>135 212 152 344<|content|>Very truly yours,\n<|id|>89<|page|>10<|box|>160 140 176 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>90<|page|>10<|box|>178 142 195 251<|content|>By: ... By\n<|id|>91<|page|>10<|box|>195 142 212 338<|content|>Name: ... Beatrice Holloway\n<|id|>92<|page|>10<|box|>212 142 228 246<|content|>Title: ... Partner\n<|id|>95<|page|>10<|box|>316 142 333 447<|content|>ARDENT CAPITAL PARTNERS III LP\n<|id|>96<|page|>10<|box|>335 140 352 566<|content|>By: ... Ardent Capital Management LLC, its General Partner\n<|id|>97<|page|>10<|box|>353 143 369 254<|content|>By: ... By\n<|id|>98<|page|>10<|box|>369 142 385 338<|content|>Name: ... Marcus Ainsworth\n<|id|>99<|page|>10<|box|>386 142 402 434<|content|>Title: ... Managing Partner & Co-Founder\n<|id|>100<|page|>10<|box|>404 142 420 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>18<|tgt_id|>19",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        }
+    ]
+}

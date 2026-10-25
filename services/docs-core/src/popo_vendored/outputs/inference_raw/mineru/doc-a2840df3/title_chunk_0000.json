@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>343 160 397 836<|content|>DECLARATION OF SAMUEL EKLUND IN SUPPORT OF DEFENDA\n<|id|>2<|page|>1<|box|>421 140 438 581<|content|>I. DECLARANT IDENTIFICATION AND CAPACITY\n<|id|>8<|page|>1<|box|>804 142 821 452<|content|>II. BACKGROUND OF THE ACTION\n<|id|>14<|page|>2<|box|>609 142 628 475<|content|>III. PURPOSE OF THE DECLARATION\n<|id|>18<|page|>4<|box|>89 140 106 844<|content|>IV. DESCRIPTION OF EXHIBIT A — TRANSPORTATION SERV\n<|id|>43<|page|>7<|box|>89 140 107 576<|content|>V. DESCRIPTION OF EXHIBIT B — CURE NOTICE\n<|id|>55<|page|>8<|box|>279 140 295 594<|content|>VI. ADDITIONAL RELEVANT PROCEDURAL FACTS\n<|id|>60<|page|>9<|box|>148 140 166 746<|content|>VII. RELEVANCE OF ATTACHED EXHIBITS TO MOTION TO D\n<|id|>67<|page|>10<|box|>241 140 258 450<|content|>VIII. AUTHENTICITY STATEMENT\n<|id|>71<|page|>10<|box|>531 140 547 483<|content|>IX. CONCLUSION AND VERIFICATION\n<|id|>78<|page|>10<|box|>797 434 813 563<|content|>EXHIBIT LIST\n<|id|>79<|page|>10<|box|>821 142 839 243<|content|>EXHIBIT A\n<|id|>81<|page|>11<|box|>89 140 106 243<|content|>EXHIBIT B\n<|id|>84<|page|>11<|box|>200 375 217 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>43<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>2\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>81<|level|>3\n<|id|>84<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        6
+    ],
+    "pages": [
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>33<|page|>3<|box|>303 176 320 315<|content|>Without prejudice\n<|id|>34<|page|>3<|box|>329 140 402 854<|content|>This dismissal is with prejudice, meaning that no ...ties and filed with this Court on January 26, 2024\n<|id|>41<|page|>3<|box|>789 140 806 643<|content|>A. ... *\n<|id|>43<|page|>4<|box|>125 140 232 854<|content|>Plaintiff: ... Cameron Whitfield, Whitfield & Asso...Beverly Hills, CA 90212, telephone (310) 555- 8900\n<|id|>58<|page|>5<|box|>476 142 492 341<|content|>Name: ... Cameron Whitfield\n<|id|>59<|page|>5<|box|>494 142 508 527<|content|>State Bar No. ... Whitfield & Associates\n<|id|>60<|page|>5<|box|>511 143 527 478<|content|>Address: ... 9465 Wilshire Boulevard, Suite 320\n<|id|>61<|page|>5<|box|>527 142 544 531<|content|>Beverly Hills, CA 90212 Telephone: ... (310) 555-8900\n<|id|>62<|page|>5<|box|>545 143 561 316<|content|>Date: ... January 29, 2024\n<|id|>63<|page|>5<|box|>561 140 594 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys for Defendant ... and Cross-Complainant AURELIUS MEDIA AMERICAS INC\n<|id|>65<|page|>5<|box|>613 143 628 318<|content|>Name: ... Renata Vasquez\n<|id|>66<|page|>5<|box|>628 142 646 573<|content|>State Bar No. ... Calderwood & Harkness LLP\n<|id|>67<|page|>5<|box|>647 142 662 480<|content|>Address: ... 777 South Flower Street, Suite 4200\n<|id|>68<|page|>5<|box|>664 142 681 524<|content|>Los Angeles, CA 90017 Telephone: ... (213) 555-7200\n<|id|>69<|page|>5<|box|>681 143 698 316<|content|>Date: ... January 29, 2024\n<|id|>73<|page|>6<|box|>90 140 107 519<|content|>Clerk of the Superior Court County of Los Angeles\n<|id|>74<|page|>6<|box|>108 140 125 254<|content|>By: ... By\n<|id|>75<|page|>6<|box|>125 140 142 251<|content|>Deputy Clerk\n<|id|>76<|page|>6<|box|>143 140 159 267<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>60<|tgt_id|>61\n<|src_id|>67<|tgt_id|>68\n<|src_id|>74<|tgt_id|>75",
+    "parsed": [
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 75
+        }
+    ]
+}

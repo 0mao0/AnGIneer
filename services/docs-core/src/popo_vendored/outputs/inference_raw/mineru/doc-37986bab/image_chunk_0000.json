@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>127 158 170 839<|content|>CALDERWOOD & HARKNESS LLP 200 Park Avenue, 38th Fl\n<|id|>3<|type|>table<|page|>1<|box|>229 143 364 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>415 143 431 383<|content|>1. Acknowledgment of Receipt\n<|id|>13<|type|>title<|page|>1<|box|>839 142 856 496<|content|>2. Understanding of Preservation Obligations\n<|id|>42<|type|>title<|page|>4<|box|>527 140 544 473<|content|>3. Categories of Materials to Be Preserved\n<|id|>53<|type|>title<|page|>5<|box|>392 140 409 341<|content|>4. Specific Commitments\n<|id|>61<|type|>title<|page|>6<|box|>359 140 376 478<|content|>5. Acknowledgment of Ongoing Obligation\n<|id|>65<|type|>title<|page|>6<|box|>752 140 768 602<|content|>6. Identification of Key Repositories and Custodia\n<|id|>79<|type|>title<|page|>8<|box|>90 140 107 500<|content|>7. Acknowledgment of Role as Key Custodian\n<|id|>83<|type|>title<|page|>8<|box|>446 140 464 284<|content|>8. Confidentiality\n<|id|>87<|type|>title<|page|>9<|box|>90 140 107 395<|content|>Acknowledgment and Signature\n<|id|>95<|type|>title<|page|>9<|box|>358 140 375 426<|content|>Confirmation of Receipt by Counsel",
+    "raw_response": "<|src_id|>3<|tgt_id|>1",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 1
+        }
+    ]
+}

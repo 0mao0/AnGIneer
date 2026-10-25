@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        14,
+        15,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>152 140 190 854<|content|>TO: ... James Whitford, Group General Counsel, Northgate Telecommunications PLC\n<|id|>4<|page|>1<|box|>196 140 234 854<|content|>FROM: ... Elaine Forsythe, Responsible Partner, Ca...ellamy, Billing Partner, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>242 140 277 854<|content|>CC: ... Aaron Liu, Lead Associate, Calderwood & Ha...eyes, Working Associate, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>285 140 303 354<|content|>DATE: ... November 18, 2022\n<|id|>7<|page|>1<|box|>311 140 366 854<|content|>RE: ... )\n<|id|>21<|page|>2<|box|>791 140 901 857<|content|>Calderwood & Harkness LLP entered its appearance o...sionary conduct under the framework established by\n<|id|>22<|page|>3<|box|>89 140 164 854<|content|>Harborview Holdings Inc. ... As of the date of thi...Judge Wentworth and has not yet been fully briefed\n<|id|>55<|page|>6<|box|>703 138 887 857<|content|>Entity Liability Coverage Carve-Back. ... We note that the Clarendon\n<|id|>56<|page|>7<|box|>90 140 127 854<|content|>ROR letter does not address this issue, which may ...fully analyzed whether any such carve-back applies\n<|id|>115<|page|>14<|box|>864 174 902 857<|content|>(c) Information sharing. ... C&H will provide Whit...the Underlying Action, to the extent necessary for\n<|id|>116<|page|>15<|box|>90 174 143 854<|content|>Whitmore & Crane to fulfill its coverage advisory ...vilege protections will be maintained at all times\n<|id|>123<|page|>15<|box|>478 183 512 854<|content|>• The applicable governing law and its treatment of antitrust exclusions in D&O policies; ... and\n<|id|>125<|page|>15<|box|>536 140 609 854<|content|>If the exclusion contains a \"final adjudication\" o... resolution of the Underlying Action on the merits\n<|id|>143<|page|>18<|box|>179 176 196 687<|content|>(c) Establish and maintain a tracking mechanism for SIR erosion; ... and\n<|id|>145<|page|>18<|box|>248 140 321 854<|content|>Calderwood & Harkness will continue to keep Cather...d its recommendations at your earliest convenience\n<|id|>146<|page|>18<|box|>329 142 345 320<|content|>Respectfully submitted,\n<|id|>147<|page|>18<|box|>345 140 363 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>148<|page|>18<|box|>364 143 381 251<|content|>By: ... By\n<|id|>149<|page|>18<|box|>381 142 414 852<|content|>Elaine Forsythe Responsible Partner, Antitrust & C...00 K Street NW, Suite 900 Washington, D. ... 20005\n<|id|>150<|page|>18<|box|>415 143 431 251<|content|>By: ... By\n<|id|>151<|page|>18<|box|>431 142 464 852<|content|>Howard Bellamy Billing Partner, Antitrust & Compet...50 Lexington Avenue, 35th Floor New York, NY 10017\n<|id|>152<|page|>18<|box|>464 140 494 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...kness LLP | Engagement Ref. ... C&H-2022-ATR-00419",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>55<|tgt_id|>56\n<|src_id|>115<|tgt_id|>116",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 116
+        }
+    ]
+}

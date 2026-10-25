@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 310<|content|>【97106#8】香港郊野公園\n<|id|>2<|page|>1<|box|>208 107 225 354<|content|>【607875#0】香港十大自然勝景\n<|id|>4<|page|>1<|box|>292 107 309 495<|content|>【1264810#13】中国2010年上海世界博览会香港馆\n<|id|>6<|page|>1<|box|>428 107 444 284<|content|>【76027#27】香港地理\n<|id|>8<|page|>1<|box|>580 105 596 354<|content|>【607875#2】香港十大自然勝景\n<|id|>10<|page|>1<|box|>630 107 646 284<|content|>【606656#8】香港植物\n<|id|>12<|page|>1<|box|>731 107 747 354<|content|>【607875#1】香港十大自然勝景\n<|id|>14<|page|>1<|box|>797 107 813 258<|content|>【247430#71】香港\n<|id|>16<|page|>2<|box|>83 107 99 265<|content|>【49299#19】香港島\n<|id|>18<|page|>2<|box|>149 107 165 319<|content|>【591093#0】香港旅遊景點",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>2\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

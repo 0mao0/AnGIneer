@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>194 140 210 576<|content|>VIA ELECTRONIC MAIL AND Sundial Data Systems\n<|id|>9<|page|>1<|box|>393 142 410 367<|content|>1. Introduction and Purpose\n<|id|>18<|page|>2<|box|>90 140 107 375<|content|>2. Background of the Dispute\n<|id|>25<|page|>2<|box|>816 140 834 333<|content|>3. Scope of Engagement\n<|id|>27<|page|>3<|box|>138 140 157 611<|content|>3.1 Evaluation of Northwind's Claimed Damages Cate\n<|id|>38<|page|>4<|box|>719 140 736 622<|content|>3.2 Assessment of Damages Methodology and Reasonab\n<|id|>45<|page|>5<|box|>364 140 381 328<|content|>3.3 Mitigation Analysis\n<|id|>51<|page|>5<|box|>723 142 739 351<|content|>3.4 Counterclaim Support\n<|id|>56<|page|>6<|box|>184 140 200 442<|content|>3.5 Liquidated Damages Cap Analysis\n<|id|>61<|page|>6<|box|>536 140 553 400<|content|>3.6 Rebuttal of Opposing Expert\n<|id|>67<|page|>6<|box|>814 142 830 263<|content|>4. Deliverables\n<|id|>75<|page|>7<|box|>527 140 545 236<|content|>5. Timeline\n<|id|>83<|page|>8<|box|>267 140 284 279<|content|>6. Compensation\n<|id|>101<|page|>9<|box|>329 140 347 377<|content|>7. Confidentiality Obligations\n<|id|>107<|page|>10<|box|>90 140 107 382<|content|>8. Independence and Conflicts\n<|id|>121<|page|>10<|box|>594 140 611 349<|content|>9. Document Preservation\n<|id|>124<|page|>11<|box|>90 142 107 390<|content|>10. Limitations on Engagement\n<|id|>128<|page|>11<|box|>411 142 426 297<|content|>11. Governing Law\n<|id|>130<|page|>11<|box|>532 142 549 380<|content|>12. Acceptance and Execution\n<|id|>139<|page|>11<|box|>832 383 847 614<|content|>AGREED AND ACCEPTED\n<|id|>141<|page|>12<|box|>152 142 169 421<|content|>CLEARWATER ECONOMICS LLC\n<|id|>146<|page|>12<|box|>239 143 253 223<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>-1\n<|id|>9<|level|>1\n<|id|>18<|level|>1\n<|id|>25<|level|>1\n<|id|>27<|level|>2\n<|id|>38<|level|>2\n<|id|>45<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>2\n<|id|>61<|level|>2\n<|id|>67<|level|>1\n<|id|>75<|level|>1\n<|id|>83<|level|>1\n<|id|>101<|level|>1\n<|id|>107<|level|>1\n<|id|>121<|level|>1\n<|id|>124<|level|>1\n<|id|>128<|level|>1\n<|id|>130<|level|>1\n<|id|>139<|level|>-1\n<|id|>141<|level|>-1\n<|id|>146<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 1
+        }
+    ]
+}

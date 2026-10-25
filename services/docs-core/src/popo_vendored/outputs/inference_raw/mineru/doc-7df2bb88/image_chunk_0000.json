@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 183 107 854<|content|>ARDENT CAPITAL GP III LLC 590 Madison Avenue, 28th\n<|id|>5<|type|>title<|page|>1<|box|>253 142 270 334<|content|>I. Purpose of this Letter\n<|id|>10<|type|>title<|page|>1<|box|>727 140 744 380<|content|>II. Background and Rationale\n<|id|>19<|type|>title<|page|>2<|box|>627 140 643 611<|content|>III. Summary of Restructuring — Entity Structure C\n<|id|>21<|type|>title<|page|>2<|box|>702 140 719 604<|content|>A. Formation of Ardent Capital Holdings LLC (\"Hold\n<|id|>23<|type|>title<|page|>3<|box|>90 140 107 671<|content|>B. Formation of Ardent GP Intermediate LLC (\"GP In\n<|id|>25<|type|>title<|page|>3<|box|>199 140 217 517<|content|>C. Post-Restructuring Organizational Structure\n<|id|>31<|type|>title<|page|>3<|box|>449 140 465 531<|content|>D. Amended and Restated Operating Agreements\n<|id|>33<|type|>title<|page|>3<|box|>622 142 638 439<|content|>IV. Personnel Changes — Departures\n<|id|>34<|type|>title<|page|>3<|box|>652 140 670 514<|content|>A. Retirement of David Kellner, Senior Partner\n<|id|>37<|type|>title<|page|>4<|box|>138 140 157 450<|content|>B. Departure of Joanna Trask, Partner\n<|id|>40<|type|>title<|page|>4<|box|>329 140 347 428<|content|>C. Impact on Key Person Provisions\n<|id|>44<|type|>title<|page|>4<|box|>592 140 609 612<|content|>V. Economics Realignment — Post-Restructuring Prin\n<|id|>46<|type|>table<|page|>4<|box|>696 143 839 852<|content|>None\n<|id|>54<|type|>title<|page|>5<|box|>353 142 369 310<|content|>VI. GP Commitment\n<|id|>58<|type|>title<|page|>5<|box|>672 140 689 303<|content|>VII. LPAC Consent\n<|id|>67<|type|>table<|page|>6<|box|>246 143 356 852<|content|>None\n<|id|>69<|type|>title<|page|>6<|box|>449 140 467 421<|content|>VIII. Amendment No. 1 to the LPA\n<|id|>78<|type|>title<|page|>7<|box|>212 140 229 522<|content|>IX. Confirmation — No Changes to Fund Terms\n<|id|>86<|type|>title<|page|>7<|box|>727 140 744 313<|content|>X. Regulatory Filings\n<|id|>92<|type|>title<|page|>8<|box|>292 140 310 362<|content|>XI. Side-Letter Compliance\n<|id|>95<|type|>title<|page|>8<|box|>587 140 604 344<|content|>XII. Contact Information\n<|id|>102<|type|>title<|page|>9<|box|>89 142 107 251<|content|>XIII. Closing",
+    "raw_response": "<|src_id|>46<|tgt_id|>44\n<|src_id|>67<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 46,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 58
+        }
+    ]
+}

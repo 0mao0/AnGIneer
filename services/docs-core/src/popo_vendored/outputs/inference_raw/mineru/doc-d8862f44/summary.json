@@ -1,0 +1,511 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rhqqqqjq\\input\\pdfs\\doc-d8862f44.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rhqqqqjq\\enriched\\doc-d8862f44.json",
+    "contd_output": "<|src_id|>161<|tgt_id|>162\n<|src_id|>326<|tgt_id|>327\n<|src_id|>366<|tgt_id|>367",
+    "title_output": "<|id|>0<|level|>1\n<|id|>11<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>27<|level|>3\n<|id|>30<|level|>2\n<|id|>38<|level|>3\n<|id|>43<|level|>2\n<|id|>59<|level|>3\n<|id|>62<|level|>2\n<|id|>63<|level|>3\n<|id|>68<|level|>3\n<|id|>73<|level|>3\n<|id|>93<|level|>1\n<|id|>98<|level|>1\n<|id|>100<|level|>2\n<|id|>101<|level|>3\n<|id|>123<|level|>3\n<|id|>133<|level|>3\n<|id|>147<|level|>2\n<|id|>148<|level|>3\n<|id|>158<|level|>3\n<|id|>164<|level|>2\n<|id|>170<|level|>2\n<|id|>171<|level|>3\n<|id|>174<|level|>3\n<|id|>177<|level|>3\n<|id|>180<|level|>3\n<|id|>183<|level|>2\n<|id|>184<|level|>3\n<|id|>195<|level|>2\n<|id|>196<|level|>3\n<|id|>200<|level|>3\n<|id|>204<|level|>2\n<|id|>205<|level|>3\n<|id|>216<|level|>2\n<|id|>217<|level|>3\n<|id|>222<|level|>3\n<|id|>225<|level|>3\n<|id|>230<|level|>2\n<|id|>231<|level|>3\n<|id|>234<|level|>3\n<|id|>237<|level|>2\n<|id|>238<|level|>3\n<|id|>244<|level|>3\n<|id|>250<|level|>3\n<|id|>263<|level|>3\n<|id|>270<|level|>3\n<|id|>273<|level|>3\n<|id|>276<|level|>1\n<|id|>280<|level|>2\n<|id|>284<|level|>1\n<|id|>286<|level|>2\n<|id|>296<|level|>2\n<|id|>297<|level|>3\n<|id|>300<|level|>3\n<|id|>303<|level|>2\n<|id|>306<|level|>2\n<|id|>309<|level|>2\n<|id|>312<|level|>1\n<|id|>322<|level|>1\n<|id|>324<|level|>2\n<|id|>333<|level|>2\n<|id|>336<|level|>2\n<|id|>340<|level|>2\n<|id|>345<|level|>2\n<|id|>350<|level|>2\n<|id|>352<|level|>3\n<|id|>354<|level|>3\n<|id|>356<|level|>2\n<|id|>360<|level|>2\n<|id|>365<|level|>2\n<|id|>372<|level|>2\n<|id|>375<|level|>1\n<|id|>380<|level|>1\n<|id|>384<|level|>1",
+    "image_output": "<|src_id|>28<|tgt_id|>27\n<|src_id|>37<|tgt_id|>30\n<|src_id|>40<|tgt_id|>38\n<|src_id|>66<|tgt_id|>63\n<|src_id|>71<|tgt_id|>68\n<|src_id|>95<|tgt_id|>93\n<|src_id|>96<|tgt_id|>93\n<|src_id|>97<|tgt_id|>93\n<|src_id|>278<|tgt_id|>276\n<|src_id|>279<|tgt_id|>276\n<|src_id|>377<|tgt_id|>375\n<|src_id|>378<|tgt_id|>375\n<|src_id|>381<|tgt_id|>380\n<|src_id|>382<|tgt_id|>380\n<|src_id|>383<|tgt_id|>380\n<|src_id|>386<|tgt_id|>384\n<|src_id|>387<|tgt_id|>384",
+    "contd_label": [
+        {
+            "src_id": 161,
+            "tgt_id": 162
+        },
+        {
+            "src_id": 326,
+            "tgt_id": 327
+        },
+        {
+            "src_id": 366,
+            "tgt_id": 367
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 231,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 3
+        },
+        {
+            "id": 237,
+            "level": 2
+        },
+        {
+            "id": 238,
+            "level": 3
+        },
+        {
+            "id": 244,
+            "level": 3
+        },
+        {
+            "id": 250,
+            "level": 3
+        },
+        {
+            "id": 263,
+            "level": 3
+        },
+        {
+            "id": 270,
+            "level": 3
+        },
+        {
+            "id": 273,
+            "level": 3
+        },
+        {
+            "id": 276,
+            "level": 1
+        },
+        {
+            "id": 280,
+            "level": 2
+        },
+        {
+            "id": 284,
+            "level": 1
+        },
+        {
+            "id": 286,
+            "level": 2
+        },
+        {
+            "id": 296,
+            "level": 2
+        },
+        {
+            "id": 297,
+            "level": 3
+        },
+        {
+            "id": 300,
+            "level": 3
+        },
+        {
+            "id": 303,
+            "level": 2
+        },
+        {
+            "id": 306,
+            "level": 2
+        },
+        {
+            "id": 309,
+            "level": 2
+        },
+        {
+            "id": 312,
+            "level": 1
+        },
+        {
+            "id": 322,
+            "level": 1
+        },
+        {
+            "id": 324,
+            "level": 2
+        },
+        {
+            "id": 333,
+            "level": 2
+        },
+        {
+            "id": 336,
+            "level": 2
+        },
+        {
+            "id": 340,
+            "level": 2
+        },
+        {
+            "id": 345,
+            "level": 2
+        },
+        {
+            "id": 350,
+            "level": 2
+        },
+        {
+            "id": 352,
+            "level": 3
+        },
+        {
+            "id": 354,
+            "level": 3
+        },
+        {
+            "id": 356,
+            "level": 2
+        },
+        {
+            "id": 360,
+            "level": 2
+        },
+        {
+            "id": 365,
+            "level": 2
+        },
+        {
+            "id": 372,
+            "level": 2
+        },
+        {
+            "id": 375,
+            "level": 1
+        },
+        {
+            "id": 380,
+            "level": 1
+        },
+        {
+            "id": 384,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 28,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 278,
+            "tgt_id": 276
+        },
+        {
+            "src_id": 279,
+            "tgt_id": 276
+        },
+        {
+            "src_id": 377,
+            "tgt_id": 375
+        },
+        {
+            "src_id": 378,
+            "tgt_id": 375
+        },
+        {
+            "src_id": 381,
+            "tgt_id": 380
+        },
+        {
+            "src_id": 382,
+            "tgt_id": 380
+        },
+        {
+            "src_id": 383,
+            "tgt_id": 380
+        },
+        {
+            "src_id": 386,
+            "tgt_id": 384
+        },
+        {
+            "src_id": 387,
+            "tgt_id": 384
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 95,
+            "table2_idx": 96,
+            "upper_row_ss": [
+                [
+                    "Date",
+                    "Event"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "March 12, 2024",
+                    "Calderwood & Harkness LLP engagement letter executed by Torchlight Mining Corp.; formal retention of the Firm as acquirer's counsel for the proposed tender offer and related transactions."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 96,
+            "table2_idx": 97,
+            "upper_row_ss": [
+                [
+                    "May 2, 2024",
+                    "Offer-to-Purchase Agreement (definitive transaction agreement) executed by Henrik Aldermann (CEO, Torchlight Mining Corp.) and Gordon McTavish (CEO, Ridgeline Cobalt Inc.), setting forth the definitive terms and conditions of the Offer, including the minimum tender condition, representations and warranties,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "indemnification provisions, termination fees, and mechanics for the short-form merger under DGCL § 253."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 278,
+            "table2_idx": 279,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "Torchlight Mining Corp.(reimbursement on behalf of Ridgeline)",
+                    "Whitfield Partners LLC",
+                    "$675,000.00",
+                    "Target financial advisory fee (1.5% × $45,000,000), payable by Ridgeline and"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "reimbursed by Torchlight"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 377,
+            "table2_idx": 378,
+            "upper_row_ss": [
+                [
+                    "Whitfield Partners LLC",
+                    "$675,000",
+                    "1.5% × $45,000,000 aggregate consideration (payable by Ridgeline"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "and reimbursed by Torchlight at closing)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 381,
+            "table2_idx": 382,
+            "upper_row_ss": [
+                [
+                    "Elaine Bricker",
+                    "Former CFO",
+                    "Ridgeline Cobalt Inc. (now merged)",
+                    "44 Lakeshore Dr., Suite 300, Marquette, MI",
+                    "Financial records, tax filings"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "49855",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 386,
+            "table2_idx": 387,
+            "upper_row_ss": [
+                [
+                    "Exhibit P",
+                    "Bring-Down Due Diligence Request",
+                    "Section IV.J.23"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Letter (July 8, 2024) and Responses",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

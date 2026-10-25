@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        15,
+        19,
+        20,
+        24,
+        32
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>234 233 279 764<|content|>DATA EXPORTER: ... (Sub-processor)\n<|id|>4<|page|>1<|box|>320 176 356 820<|content|>Prepared by: ... Alan Burke Calderwood & Harkness ...5 Market Street, Suite 2800 Philadelphia, PA 19103\n<|id|>5<|page|>1<|box|>364 403 382 594<|content|>Matter No. ... 1009-00004\n<|id|>6<|page|>1<|box|>426 400 441 598<|content|>Date: ... December 12, 2025\n<|id|>7<|page|>1<|box|>484 297 501 697<|content|>DRAFT — FOR DISCUSSION PURPOSES ONLY\n<|id|>8<|page|>1<|box|>544 140 619 854<|content|>These Standard Contractual Clauses form part of, a...February 5, 2026, for signing on February 15, 2026\n<|id|>14<|page|>1<|box|>824 140 878 854<|content|>Data Importer: ... , a Delaware corporation, with ...red to as the \"Sub-processor\" or \"Data Importer\"),\n<|id|>15<|page|>1<|box|>886 140 904 444<|content|>each a \"Party\" and together the \"Parties. ... \"\n<|id|>150<|page|>15<|box|>116 176 132 333<|content|>Attn: ... Privacy Office\n<|id|>151<|page|>15<|box|>133 176 150 478<|content|>2200 Campus Drive San Jose, CA 95131\n<|id|>152<|page|>15<|box|>159 176 175 431<|content|>Email: ... com\n<|id|>155<|page|>15<|box|>393 174 429 854<|content|>Autoriteit Persoonsgegevens Bezuidenhoutseweg 30 2594 AV The Hague Netherlands Telephone: ... nl\n<|id|>196<|page|>19<|box|>854 140 909 856<|content|>(b) If the Data Importer is in breach of these Cla...... This is without prejudice to the provisions of\n<|id|>197<|page|>20<|box|>90 140 143 854<|content|>Clause 13(b), which require the Data Importer to n...y also suspend the transfer of personal data where\n<|id|>220<|page|>24<|box|>314 181 330 663<|content|>• Full name (first name, middle name or initial, last name, suffix)\n<|id|>233<|page|>24<|box|>625 140 768 856<|content|>Sensitive Data Transferred: ... 7 and Annex II of these Clauses\n<|id|>221<|page|>24<|box|>334 183 349 297<|content|>• Date of birth\n<|id|>222<|page|>24<|box|>354 183 369 424<|content|>• Social Security number (SSN)\n<|id|>223<|page|>24<|box|>375 183 390 480<|content|>• Taxpayer identification number (TIN)\n<|id|>224<|page|>24<|box|>393 183 410 517<|content|>• Account numbers (checking, savings, loan)\n<|id|>225<|page|>24<|box|>412 183 429 331<|content|>• Routing numbers\n<|id|>226<|page|>24<|box|>431 183 467 854<|content|>• Transaction amounts and transaction metadata (in...erchant category code, currency, transaction type)\n<|id|>227<|page|>24<|box|>470 183 484 295<|content|>• IP addresses\n<|id|>228<|page|>24<|box|>489 183 506 756<|content|>• Device identifiers (including mobile device identifiers, browser fingerprints)\n<|id|>229<|page|>24<|box|>508 183 525 413<|content|>• Geolocation data (city-level)\n<|id|>230<|page|>24<|box|>529 183 544 323<|content|>• Email addresses\n<|id|>231<|page|>24<|box|>547 183 564 477<|content|>• Phone numbers (mobile and landline)\n<|id|>232<|page|>24<|box|>566 183 621 854<|content|>• Anti-fraud behavioral biometric data, including ...(cursor velocity, click patterns, scroll behavior)\n<|id|>297<|page|>32<|box|>324 140 340 323<|content|>Name: ... Nadia Karimova\n<|id|>298<|page|>32<|box|>340 142 358 367<|content|>Title: ... Chief Executive Officer\n<|id|>299<|page|>32<|box|>359 142 376 267<|content|>Date: ... Date\n<|id|>303<|page|>32<|box|>503 142 520 287<|content|>Name: ... Martin Cho\n<|id|>304<|page|>32<|box|>521 142 537 367<|content|>Title: ... Chief Executive Officer\n<|id|>305<|page|>32<|box|>539 142 556 267<|content|>Date: ... Date\n<|id|>306<|page|>32<|box|>589 140 604 683<|content|>DRAFT — December 12, 2025 — Prepared by Alan Burke, Calderwood & Harkness LLP\n<|id|>307<|page|>32<|box|>611 140 627 290<|content|>Matter No. ... 1009-00004\n<|id|>308<|page|>32<|box|>633 140 650 480<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>309<|page|>32<|box|>656 140 686 854<|content|>Subject to further revision and finalization; ... ...February 5, 2026, for signing on February 15, 2026",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>196<|tgt_id|>197",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 197
+        }
+    ]
+}

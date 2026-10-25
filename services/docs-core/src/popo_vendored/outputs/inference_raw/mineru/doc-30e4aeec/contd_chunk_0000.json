@@ -1,0 +1,49 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        14,
+        19,
+        20,
+        21,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>154 140 170 704<|content|>TO: ... Bernard Crawford, Responsible Partner Gabrielle Moss, Lead Associate\n<|id|>3<|page|>1<|box|>179 140 196 437<|content|>FROM: ... Aaron Liu, Working Associate\n<|id|>4<|page|>1<|box|>205 142 222 328<|content|>DATE: ... September 2023\n<|id|>5<|page|>1<|box|>231 140 285 854<|content|>RE: ... in MESLSA Negotiations\n<|id|>6<|page|>1<|box|>294 142 311 457<|content|>Matter No. ... 1007-00008\n<|id|>7<|page|>1<|box|>319 140 337 442<|content|>Client: ... Vantage Mobility Systems Corp\n<|id|>13<|page|>2<|box|>42 163 71 833<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>14<|page|>2<|box|>90 140 310 854<|content|>Bottom-line conclusion: ... preserve antitrust rig...tion if warranted by the trajectory of discussions\n<|id|>34<|page|>3<|box|>784 140 895 856<|content|>Section 7. ... VMS contends that\n<|id|>35<|page|>4<|box|>89 138 200 856<|content|>DW-001, DW-002, and DW-003 are solely VMS-originat...ation programming interfaces and runtime libraries\n<|id|>56<|page|>6<|box|>787 138 898 857<|content|>Demand-Side Substitutability. ... Switching to an alternative RTOS would require VMS to (i)\n<|id|>57<|page|>7<|box|>89 140 255 856<|content|>forfeit or substantially rework this investment, (...ects once a licensing relationship is established)\n<|id|>72<|page|>8<|box|>851 174 906 854<|content|>(iii) Proprietary Architecture. ... The derivative...specifically designed to operate within the ATLAS-\n<|id|>73<|page|>9<|box|>89 174 143 854<|content|>RT™ environment and cannot be ported to a competin...de's market power at the individual customer level\n<|id|>96<|page|>11<|box|>852 140 907 857<|content|>Section 4. ... If\n<|id|>97<|page|>12<|box|>90 140 145 854<|content|>VMS fails to meet this requirement, MeridianCode m... in the license fee or refund of fees already paid\n<|id|>119<|page|>14<|box|>720 181 756 854<|content|>• Constraining VMS's (and Ashgrove Equity Partners...nsactions without MeridianCode's approval; ... and\n<|id|>121<|page|>14<|box|>796 140 869 854<|content|>Under the rule of reason, a court or arbitral pane...tive justifications for the restrictive provisions\n<|id|>158<|page|>19<|box|>821 174 896 857<|content|>Second, antitrust counterclaims would broaden the ...s to put) licensee derivative works obtained under\n<|id|>159<|page|>20<|box|>89 174 127 852<|content|>Section 7. ... This discovery could yield informat...ridianCode and that VMS could not otherwise obtain\n<|id|>167<|page|>21<|box|>42 163 71 833<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>168<|page|>21<|box|>90 140 273 856<|content|>SEC Disclosure Obligations. ... Even if the disclo...fficers and directors would likely prefer to avoid\n<|id|>197<|page|>25<|box|>277 174 333 854<|content|>(iii) Portfolio-level antitrust risk assessment, t...lar embedded software licensing practices; ... and\n<|id|>199<|page|>25<|box|>383 140 421 854<|content|>The briefing should present the antitrust argument...s and risks identified in Section VII. ... C above",
+    "raw_response": "<|src_id|>34<|tgt_id|>35\n<|src_id|>56<|tgt_id|>57\n<|src_id|>72<|tgt_id|>73\n<|src_id|>96<|tgt_id|>97\n<|src_id|>158<|tgt_id|>159",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 159
+        }
+    ]
+}

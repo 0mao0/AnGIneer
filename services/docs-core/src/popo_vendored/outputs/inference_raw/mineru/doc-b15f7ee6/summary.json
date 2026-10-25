@@ -1,0 +1,443 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nb7u4pjk\\input\\pdfs\\doc-b15f7ee6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nb7u4pjk\\enriched\\doc-b15f7ee6.json",
+    "contd_output": "<|src_id|>52<|tgt_id|>53\n<|src_id|>123<|tgt_id|>124\n<|src_id|>280<|tgt_id|>281",
+    "title_output": "<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>12<|level|>3\n<|id|>18<|level|>3\n<|id|>21<|level|>3\n<|id|>26<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>3\n<|id|>34<|level|>3\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>43<|level|>3\n<|id|>45<|level|>3\n<|id|>48<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>3\n<|id|>79<|level|>3\n<|id|>90<|level|>3\n<|id|>98<|level|>3\n<|id|>104<|level|>3\n<|id|>111<|level|>3\n<|id|>142<|level|>3\n<|id|>161<|level|>3\n<|id|>169<|level|>3\n<|id|>179<|level|>3\n<|id|>185<|level|>3\n<|id|>192<|level|>3\n<|id|>199<|level|>2\n<|id|>204<|level|>2\n<|id|>205<|level|>3\n<|id|>217<|level|>3\n<|id|>220<|level|>3\n<|id|>225<|level|>2\n<|id|>230<|level|>2\n<|id|>237<|level|>2\n<|id|>244<|level|>2\n<|id|>257<|level|>2\n<|id|>266<|level|>3\n<|id|>269<|level|>3\n<|id|>273<|level|>2\n<|id|>283<|level|>2\n<|id|>289<|level|>2",
+    "image_output": "<|src_id|>87<|tgt_id|>79\n<|src_id|>201<|tgt_id|>199\n<|src_id|>202<|tgt_id|>199\n<|src_id|>227<|tgt_id|>225\n<|src_id|>228<|tgt_id|>225\n<|src_id|>259<|tgt_id|>257\n<|src_id|>260<|tgt_id|>257\n<|src_id|>261<|tgt_id|>257\n<|src_id|>262<|tgt_id|>257\n<|src_id|>263<|tgt_id|>257\n<|src_id|>264<|tgt_id|>257\n<|src_id|>265<|tgt_id|>257\n<|src_id|>267<|tgt_id|>266\n<|src_id|>268<|tgt_id|>266\n<|src_id|>270<|tgt_id|>269\n<|src_id|>271<|tgt_id|>269\n<|src_id|>272<|tgt_id|>269\n<|src_id|>292<|tgt_id|>289\n<|src_id|>293<|tgt_id|>289",
+    "contd_label": [
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 280,
+            "tgt_id": 281
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 217,
+            "level": 3
+        },
+        {
+            "id": 220,
+            "level": 3
+        },
+        {
+            "id": 225,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 237,
+            "level": 2
+        },
+        {
+            "id": 244,
+            "level": 2
+        },
+        {
+            "id": 257,
+            "level": 2
+        },
+        {
+            "id": 266,
+            "level": 3
+        },
+        {
+            "id": 269,
+            "level": 3
+        },
+        {
+            "id": 273,
+            "level": 2
+        },
+        {
+            "id": 283,
+            "level": 2
+        },
+        {
+            "id": 289,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 87,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 199
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 199
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 259,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 260,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 261,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 262,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 263,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 264,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 265,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 267,
+            "tgt_id": 266
+        },
+        {
+            "src_id": 268,
+            "tgt_id": 266
+        },
+        {
+            "src_id": 270,
+            "tgt_id": 269
+        },
+        {
+            "src_id": 271,
+            "tgt_id": 269
+        },
+        {
+            "src_id": 272,
+            "tgt_id": 269
+        },
+        {
+            "src_id": 292,
+            "tgt_id": 289
+        },
+        {
+            "src_id": 293,
+            "tgt_id": 289
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 201,
+            "table2_idx": 202,
+            "upper_row_ss": [
+                [
+                    "April 11, 2022",
+                    "NYSE listing application (Application No. NYSE-2022-04218) submitted contemporaneously with confidential"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "submission"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 227,
+            "table2_idx": 228,
+            "upper_row_ss": [
+                [
+                    "Related-Party Transactions",
+                    "Brendan Walsh (C&H)",
+                    "Sandra Haverford",
+                    "WA&D (Navarro)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Description of Capital Stock",
+                    "Brendan Walsh (C&H)",
+                    "Sandra Haverford",
+                    "PD&Y (Halverson)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 259,
+            "table2_idx": 260,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Send D&O placement request letter to Dravello Place Insurance Advisors",
+                    "Brendan Walsh",
+                    "April 5, 2022"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "(Nina Radcliffe)",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 261,
+            "table2_idx": 262,
+            "upper_row_ss": [
+                [
+                    "18",
+                    "Draft board resolutions (IPO authorization, charter amendment, bylaws amendment, equity plan",
+                    "Natasha Forbes",
+                    "April 4, 2022"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "approvals, committee appointments)",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 262,
+            "table2_idx": 263,
+            "upper_row_ss": [
+                [
+                    "30",
+                    "Coordinate with Ridgeway Financial Printing Corp. on EDGAR filing specifications and XBRL tagging",
+                    "Brendan Walsh",
+                    "April 8, 2022"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "#",
+                    "Action Item",
+                    "Responsible Person",
+                    "Deadline"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 263,
+            "table2_idx": 264,
+            "upper_row_ss": [
+                [
+                    "39",
+                    "Engage Ridgeway Financial Printing Corp. as financial printer (finalize and execute engagement letter)",
+                    "Sandra Haverford",
+                    "March 28, 2022"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "40",
+                    "Prepare and circulate comfort letter request to Ashford & Pemberton LLP (Gregory Sondheim)",
+                    "Oliver Marchetti / Daniel Furman",
+                    "April 1, 2022"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 267,
+            "table2_idx": 268,
+            "upper_row_ss": [
+                [
+                    "48",
+                    "Complete selling stockholder questionnaire and representation letter for Pinnacle Vista Capital",
+                    "Christine Navarro",
+                    "Upon receipt from C&H"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Partners III, LP",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 271,
+            "table2_idx": 272,
+            "upper_row_ss": [
+                [
+                    "56",
+                    "Deliver HLBV and ITC/PTC analysis covering all tax-equity",
+                    "Alan Kessler / Linda McBride (Kessler McBride & Associates",
+                    "April 4, 2022"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "arrangements",
+                    "LLP)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 292,
+            "table2_idx": 293,
+            "upper_row_ss": [
+                [
+                    "FINRA Corporate Financing Filing No.",
+                    "20221129-01"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Proposed NYSE Ticker Symbol",
+                    "CBRI"
+                ]
+            ]
+        }
+    ]
+}

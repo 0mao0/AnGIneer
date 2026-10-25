@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 248 142 748<|content|>IN THE HIGH COURT OF THE REPUBLIC OF SINGAPORE GEN\n<|id|>9<|type|>title<|page|>1<|box|>455 142 472 374<|content|>SOLICITORS ON RECORD\n<|id|>10<|type|>title<|page|>1<|box|>482 142 500 362<|content|>Solicitors for the Applicant:\n<|id|>15<|type|>title<|page|>1<|box|>664 143 681 258<|content|>Instructed by:\n<|id|>18<|type|>title<|page|>1<|box|>756 143 773 274<|content|>APPLICATION\n<|id|>20<|type|>title<|page|>1<|box|>832 143 849 459<|content|>Prayer 1 — Leave to Enforce the Award\n<|id|>23<|type|>title<|page|>2<|box|>268 142 287 390<|content|>Prayer 2 — Entry of Judgment\n<|id|>31<|type|>title<|page|>2<|box|>691 142 709 437<|content|>Prayer 3 — Costs of This Application\n<|id|>33<|type|>title<|page|>2<|box|>763 142 781 426<|content|>Prayer 4 — Further or Other Relief\n<|id|>35<|type|>title<|page|>2<|box|>828 142 845 442<|content|>GROUNDS OF THE APPLICATION\n<|id|>37<|type|>title<|page|>3<|box|>90 142 106 259<|content|>A. The Parties\n<|id|>38<|type|>title<|page|>3<|box|>119 142 135 264<|content|>The Applicant.\n<|id|>48<|type|>title<|page|>3<|box|>584 142 601 279<|content|>The Respondent.\n<|id|>54<|type|>title<|page|>4<|box|>324 142 340 356<|content|>B. The Underlying Dispute\n<|id|>61<|type|>title<|page|>5<|box|>90 142 107 383<|content|>C. The Respondent's Breaches\n<|id|>67<|type|>title<|page|>5<|box|>718 142 734 344<|content|>D. The LCIA Arbitration\n<|id|>77<|type|>title<|page|>6<|box|>439 142 455 259<|content|>E. The Award\n<|id|>93<|type|>title<|page|>7<|box|>598 140 614 529<|content|>F. The Respondent's Failure to Satisfy the Award\n<|id|>101<|type|>title<|page|>8<|box|>527 140 545 447<|content|>G. Basis for Enforcement in Singapore\n<|id|>119<|type|>title<|page|>10<|box|>220 140 238 465<|content|>H. The Respondent's Assets in Singapore\n<|id|>125<|type|>title<|page|>10<|box|>801 140 819 372<|content|>SUPPORTING AFFIDAVIT\n<|id|>141<|type|>title<|page|>11<|box|>810 142 827 517<|content|>LEGISLATIVE PROVISIONS RELIED UPON\n<|id|>143<|type|>title<|page|>11<|box|>856 176 875 539<|content|>(a) International Arbitration Act (Cap. 143A):\n<|id|>154<|type|>title<|page|>12<|box|>446 140 465 230<|content|>SERVICE\n<|id|>159<|type|>title<|page|>12<|box|>859 142 877 475<|content|>ATTESTATION AND FILING DETAILS\n<|id|>173<|type|>title<|page|>14<|box|>89 303 106 692<|content|>SCHEDULE 1 — SUMMARY OF THE AWARD\n<|id|>174<|type|>table<|page|>14<|box|>159 143 518 852<|content|>None\n<|id|>175<|type|>title<|page|>15<|box|>89 250 106 746<|content|>SCHEDULE 2 — DETAILS OF THE ARBITRAL TRIBUNAL\n<|id|>176<|type|>table<|page|>15<|box|>140 143 234 852<|content|>None\n<|id|>184<|type|>title<|page|>16<|box|>89 323 106 674<|content|>SCHEDULE 3 — VESSEL PARTICULARS\n<|id|>185<|type|>table<|page|>16<|box|>157 143 339 852<|content|>None\n<|id|>186<|type|>title<|page|>16<|box|>375 142 390 313<|content|>Charter-Party Dates:",
+    "raw_response": "<|src_id|>174<|tgt_id|>173\n<|src_id|>176<|tgt_id|>175\n<|src_id|>185<|tgt_id|>184",
+    "parsed": [
+        {
+            "src_id": 174,
+            "tgt_id": 173
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 184
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        48
+    ],
+    "pages": [
+        1,
+        3,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        26,
+        33,
+        42,
+        43,
+        47
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>705 570 849 743<|content|>FEATURES Profile of the Economy Financial Operations International Statistics Special Reports\n<|id|>2<|page|>1<|box|>864 614 887 746<|content|>Produced and Published by\n<|id|>3<|page|>1<|box|>891 522 921 748<|content|>Department of the Treasury Bureau of the Fiscal Service\n<|id|>7<|page|>3<|box|>507 318 529 676<|content|>treasury. ... gov\n<|id|>8<|page|>3<|box|>544 122 580 874<|content|>Internet service subscribers can access the Treasu...rough the Bureau of the Fiscal Service’s home page\n<|id|>20<|page|>7<|box|>200 730 280 916<|content|>Profile of the Economy Federal Fiscal Operations Federal Debt\n<|id|>21<|page|>7<|box|>284 733 311 918<|content|>Fiscal Service Operations\n<|id|>22<|page|>7<|box|>310 686 335 918<|content|>Ownership of Federal Securities\n<|id|>24<|page|>7<|box|>359 782 385 918<|content|>and in Circulation\n<|id|>23<|page|>7<|box|>335 663 362 918<|content|>U. ... Currency and Coin Outstanding\n<|id|>39<|page|>9<|box|>789 80 910 491<|content|>In the fall of 2019, the unemployment rate fell to its lowest level since December 1969. ... In\n<|id|>40<|page|>9<|box|>89 504 135 913<|content|>October, the overall labor force participation rate (LFPR) rose to 63. ... 8 percent, a 10-year high\n<|id|>43<|page|>9<|box|>729 503 936 916<|content|>Rapid wage gains have been a consistent feature of... over the year through September 2019 (latest data\n<|id|>44<|page|>10<|box|>89 81 121 488<|content|>available), much faster than the 0. ... 7 percent gain over the previous 12-month period\n<|id|>60<|page|>11<|box|>488 107 503 325<|content|>(Percent change from a year earlier)\n<|id|>61<|page|>11<|box|>814 81 904 491<|content|>Headline inflation, as measured by the Personal Co...s. ... 0 percent pace over the year-earlier period\n<|id|>70<|page|>12<|box|>441 81 502 491<|content|>In December 2017, the United States enacted TCJA, ... strengthen incentives for economic growth through\n<|id|>71<|page|>12<|box|>90 504 263 915<|content|>investment, which should support a sustained incre...labor market and entrepreneurs to start businesses\n<|id|>93<|page|>14<|box|>516 380 527 616<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>94<|page|>14<|box|>536 83 551 266<|content|>Fourth-Quarter Receipts\n<|id|>95<|page|>14<|box|>554 81 643 488<|content|>The following capsule analysis of budget receipts,... to analyze adequately collections for the quarter\n<|id|>100<|page|>14<|box|>852 508 883 915<|content|>Contributions for other insurance and retirement— ...or other retirement were $1. ... 2 billion for the\n<|id|>101<|page|>15<|box|>357 160 393 839<|content|>Total On- and Off-Budget Results and Financing of ...ipts and Outlays of the United States Government”]\n<|id|>102<|page|>15<|box|>89 81 121 488<|content|>fourth quarter of fiscal year 2019. ... 1 billion from the comparable quarter of fiscal year 2018\n<|id|>143<|page|>26<|box|>612 503 657 861<|content|>Note— Collection and refund data may not be compar...rrent fiscal year. ... See Table 8 for refund data\n<|id|>144<|page|>26<|box|>659 504 750 861<|content|>Note— Classification by State is based on the indi...tions may be located in one or more other State(s)\n<|id|>166<|page|>33<|box|>686 81 717 491<|content|> Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>167<|page|>33<|box|>203 504 248 915<|content|> Table FD-5 illustrates the average length of mar...vestors and the maturity distribution of that debt\n<|id|>197<|page|>42<|box|>512 339 523 656<|content|>[Source: ... Bureau of the Fiscal Service, Division of Financing Operations]\n<|id|>198<|page|>42<|box|>530 112 547 169<|content|>JULY\n<|id|>217<|page|>43<|box|>253 522 327 885<|content|>On July 3, 2019, Treasury announced it would auction $38,000 million of 3-year notes. ... T\n<|id|>218<|page|>43<|box|>327 522 414 885<|content|>The 3-year notes of Series AP-2022 were dated and ...ich tenders were accepted on a yield auction basis\n<|id|>276<|page|>47<|box|>239 135 253 423<|content|>Auction of 45-Day Cash Management Bills\n<|id|>277<|page|>47<|box|>255 111 372 473<|content|>On July 31, 2019, Treasury announced it would auction $35,000 million of 45-day bills. ... 110 percent",
+    "raw_response": "<|src_id|>39<|tgt_id|>40\n<|src_id|>43<|tgt_id|>44\n<|src_id|>70<|tgt_id|>71\n<|src_id|>100<|tgt_id|>102",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 102
+        }
+    ]
+}

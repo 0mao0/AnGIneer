@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>224 140 260 854<|content|>FROM: ... Howard Bellamy, Partner, Antitrust & Com...P Gabriela Montoya, Partner, Whitfield & Crane LLP\n<|id|>4<|page|>1<|box|>268 140 304 854<|content|>CC: ... Harrison Wexford, Responsible Partner, M&A...wo, Lead Associate, M&A, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>313 140 330 310<|content|>DATE: ... May 22, 2025\n<|id|>6<|page|>1<|box|>339 140 375 852<|content|>RE: ... by Cascade Retail Holdings Inc\n<|id|>12<|page|>1<|box|>746 140 911 857<|content|>Federal Antitrust Status. ... Henrik Johansson of ...LC, clearance is expected in the September–October\n<|id|>13<|page|>2<|box|>90 140 125 854<|content|>2025 timeframe. ... Federal HSR clearance remains ...pal outstanding condition to closing under the SPA\n<|id|>199<|page|>21<|box|>404 140 440 854<|content|>Howard Bellamy Partner, Antitrust & Competition Ca...r New York, NY 10022 Telephone: ... (212) 555-4100\n<|id|>200<|page|>21<|box|>448 142 464 468<|content|>Email: ... com\n<|id|>201<|page|>21<|box|>465 140 501 854<|content|>Gabriela Montoya Partner Whitfield & Crane LLP 120...Washington, DC 20036 Telephone: ... (202) 555-7800\n<|id|>202<|page|>21<|box|>508 142 526 431<|content|>Email: ... com\n<|id|>203<|page|>21<|box|>526 140 563 854<|content|>Dr. ... (202) 555-3350\n<|id|>204<|page|>21<|box|>571 140 589 403<|content|>Email: ... com",
+    "raw_response": "<|src_id|>12<|tgt_id|>13",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        }
+    ]
+}

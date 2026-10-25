@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-u19x6o_6\\input\\pdfs\\doc-a37491e1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-u19x6o_6\\enriched\\doc-a37491e1.json",
+    "contd_output": "<|src_id|>28<|tgt_id|>29\n<|src_id|>43<|tgt_id|>44\n<|src_id|>110<|tgt_id|>111\n<|src_id|>157<|tgt_id|>158",
+    "title_output": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>25<|level|>2\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>53<|level|>3\n<|id|>69<|level|>3\n<|id|>84<|level|>3\n<|id|>90<|level|>3\n<|id|>95<|level|>4\n<|id|>109<|level|>3\n<|id|>127<|level|>3\n<|id|>143<|level|>3\n<|id|>148<|level|>3\n<|id|>155<|level|>3\n<|id|>180<|level|>2\n<|id|>185<|level|>3\n<|id|>189<|level|>2\n<|id|>195<|level|>2\n<|id|>197<|level|>3\n<|id|>199<|level|>4\n<|id|>202<|level|>3\n<|id|>205<|level|>3\n<|id|>208<|level|>3\n<|id|>211<|level|>3\n<|id|>214<|level|>2\n<|id|>217<|level|>2",
+    "image_output": "<|src_id|>182<|tgt_id|>180\n<|src_id|>183<|tgt_id|>180\n<|src_id|>184<|tgt_id|>180\n<|src_id|>215<|tgt_id|>214",
+    "contd_label": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 157,
+            "tgt_id": 158
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 4
+        },
+        {
+            "id": 202,
+            "level": 3
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 182,
+            "tgt_id": 180
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 180
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 180
+        },
+        {
+            "src_id": 215,
+            "tgt_id": 214
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 182,
+            "table2_idx": 183,
+            "upper_row_ss": [
+                [
+                    "8",
+                    "4.1",
+                    "Fraud/Willful",
+                    "B",
+                    "Accept; make"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Misconduct Carve-Out to Release",
+                    "",
+                    "mutual and limit to Settlement Agreement conduct"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 183,
+            "table2_idx": 184,
+            "upper_row_ss": [
+                [
+                    "21",
+                    "10.1",
+                    "90-Day Period for Return/Destruction of discovery",
+                    "A",
+                    "Accept as proposed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "22",
+                    "10.3",
+                    "Officer Certification of Destruction",
+                    "A",
+                    "Accept as proposed"
+                ]
+            ]
+        }
+    ]
+}

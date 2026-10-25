@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        10
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>17<|page|>2<|box|>768 181 804 854<|content|>• process development and transfer costs associate...rocess flows to the Fab 3 production line; ... and\n<|id|>19<|page|>2<|box|>844 140 900 856<|content|>The Company expects Fab 3 to commence initial volu...ing, is approximately €550 million to €620 million\n<|id|>29<|page|>3<|box|>845 181 900 856<|content|>• application-specific design programs developed i... deployment beginning in fiscal year 2028; ... and\n<|id|>31<|page|>4<|box|>128 140 275 856<|content|>These R&D activities will be conducted primarily a...con Valley and the broader US technology ecosystem\n<|id|>37<|page|>4<|box|>834 140 909 857<|content|>Upon repayment of the approximately $100,000,000 (...ancial covenants and borrowing conditions. ... The\n<|id|>38<|page|>5<|box|>90 140 127 854<|content|>Company may, in the future, re-borrow amounts unde...uirements, or for other general corporate purposes\n<|id|>65<|page|>7<|box|>643 183 698 854<|content|>• changes in applicable laws, regulations, or gove...he European Chips Act or similar programs; ... and\n<|id|>67<|page|>7<|box|>719 140 847 856<|content|>Accordingly, the Company's management will retain ... the Company's periodic reports filed with the SEC\n<|id|>86<|page|>10<|box|>128 181 162 854<|content|>• Second excess layer: ... and\n<|id|>88<|page|>10<|box|>203 140 239 854<|content|>The D&O insurance program was placed by Clearwater...become effective upon the closing of this offering",
+    "raw_response": "<|src_id|>37<|tgt_id|>38",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        }
+    ]
+}

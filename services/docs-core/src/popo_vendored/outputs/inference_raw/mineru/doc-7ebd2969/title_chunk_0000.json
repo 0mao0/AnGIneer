@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        53
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        13,
+        15,
+        17,
+        19,
+        23,
+        25,
+        35,
+        36,
+        37,
+        38,
+        39,
+        41,
+        42,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>338 157 414 831<|content|>内河航运工程船舶机械艘（台）班费用定额\n<|id|>2<|page|>1<|box|>451 152 543 834<|content|>Quota for Per-shift Cost of Construction Plant and\n<|id|>6<|page|>2<|box|>162 378 202 630<|content|>中华人民共和国行业标准\n<|id|>7<|page|>2<|box|>240 166 298 842<|content|>内河航运工程船舶机械艘（台）班费用定额\n<|id|>14<|page|>3<|box|>120 158 258 855<|content|>交通运输部关于发布《水运建设工程概算预算编制规定》及其配套定额的公告\n<|id|>21<|page|>5<|box|>134 401 197 617<|content|>修订说明\n<|id|>28<|page|>6<|box|>131 428 192 584<|content|>目 次\n<|id|>31<|page|>8<|box|>94 428 155 587<|content|>说明\n<|id|>66<|page|>13<|box|>89 428 124 571<|content|>一、挖 泥 船\n<|id|>69<|page|>15<|box|>91 94 120 136<|content|>续表\n<|id|>72<|page|>17<|box|>89 426 122 569<|content|>二、打桩船、锤\n<|id|>75<|page|>19<|box|>94 425 129 566<|content|>三、起重船\n<|id|>80<|page|>23<|box|>91 97 122 136<|content|>续表\n<|id|>83<|page|>25<|box|>89 91 120 131<|content|>续表\n<|id|>94<|page|>35<|box|>84 94 112 134<|content|>续表\n<|id|>96<|page|>36<|box|>87 434 122 577<|content|>七、机动艇\n<|id|>98<|page|>37<|box|>98 89 127 128<|content|>续表\n<|id|>100<|page|>38<|box|>89 439 122 563<|content|>八、锚 艇\n<|id|>102<|page|>39<|box|>98 436 131 558<|content|>九、其他\n<|id|>105<|page|>41<|box|>458 309 524 685<|content|>第二章 工程机械\n<|id|>106<|page|>42<|box|>96 428 129 571<|content|>一、土石方机械\n<|id|>117<|page|>52<|box|>91 94 120 133<|content|>续表",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>6<|level|>-1\n<|id|>7<|level|>1\n<|id|>14<|level|>1\n<|id|>21<|level|>2\n<|id|>28<|level|>2\n<|id|>31<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>3\n<|id|>72<|level|>2\n<|id|>75<|level|>2\n<|id|>80<|level|>3\n<|id|>83<|level|>3\n<|id|>94<|level|>3\n<|id|>96<|level|>2\n<|id|>98<|level|>3\n<|id|>100<|level|>2\n<|id|>102<|level|>2\n<|id|>105<|level|>1\n<|id|>106<|level|>2\n<|id|>117<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 3
+        }
+    ]
+}

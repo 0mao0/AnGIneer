@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 104 256<|content|>CONFIDENTIAL\n<|id|>1<|page|>1<|box|>112 140 128 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>2<|page|>1<|box|>138 140 174 854<|content|>555 California Street, 42nd Floor San Francisco, California 94104 Telephone: ... com\n<|id|>3<|page|>1<|box|>183 704 200 854<|content|>September 12, 2023\n<|id|>4<|page|>1<|box|>208 140 224 450<|content|>VIA EMAIL AND FIRST-CLASS MAIL\n<|id|>5<|page|>1<|box|>234 140 270 854<|content|>Lisa Cheng, Account Manager Trident intellectual P...800 Northwest Freeway, Suite 420 Houston, TX 77092\n<|id|>6<|page|>1<|box|>277 174 314 854<|content|>Re: ... (\"OWS\")\n<|id|>7<|page|>1<|box|>324 142 340 272<|content|>Dear Ms. ... Cheng\n<|id|>95<|page|>9<|box|>237 174 291 854<|content|>Christy Bauer (Primary Contact) Lead Associate, in...ifornia Street, 42nd Floor San Francisco, CA 94104\n<|id|>96<|page|>9<|box|>300 176 316 483<|content|>Email: ... com\n<|id|>97<|page|>9<|box|>316 176 335 388<|content|>Direct Dial: ... (415) 392-7834\n<|id|>98<|page|>9<|box|>343 174 398 854<|content|>Peter Vassiliev (Backup Contact — International Fi...ifornia Street, 42nd Floor San Francisco, CA 94104\n<|id|>99<|page|>9<|box|>405 176 440 508<|content|>Email: ... (415) 392-7861\n<|id|>100<|page|>9<|box|>449 174 503 854<|content|>Catherine Bloom (Responsible Partner — Copy on All...ifornia Street, 42nd Floor San Francisco, CA 94104\n<|id|>101<|page|>9<|box|>511 176 529 491<|content|>Email: ... com\n<|id|>102<|page|>9<|box|>529 176 546 388<|content|>Direct Dial: ... (415) 392-7802\n<|id|>108<|page|>9<|box|>790 174 828 854<|content|>(c) All automated or semi-automatic filing process...fee payments as described in Section 6(a); ... and\n<|id|>110<|page|>10<|box|>90 140 127 854<|content|>If any aspect of these instructions is unclear or ...ein, please do not hesitate to contact me directly\n<|id|>113<|page|>10<|box|>296 142 313 272<|content|>Very truly yours,\n<|id|>114<|page|>10<|box|>313 140 329 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>115<|page|>10<|box|>330 143 348 253<|content|>By: ... By\n<|id|>116<|page|>10<|box|>347 140 364 754<|content|>Christy Bauer Lead Associate, intellectual Property Group USPTO Reg. ... 74,329\n<|id|>117<|page|>10<|box|>364 140 400 852<|content|>cc: ... Catherine Bloom, Partner, Calderwood & Har... Koh, General Counsel, Optiwave Semiconductor Corp",
+    "raw_response": "<|src_id|>108<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 108,
+            "tgt_id": 110
+        }
+    ]
+}

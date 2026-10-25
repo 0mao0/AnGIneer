@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 238 118 758<|content|>BRING-DOWN DUE DILIGENCE CERTIFICATE\n<|id|>4<|page|>1<|box|>465 140 484 243<|content|>RECITALS\n<|id|>14<|page|>2<|box|>398 140 416 571<|content|>SECTION 1: IDENTIFICATION OF GUARANTORS\n<|id|>23<|page|>3<|box|>260 140 277 710<|content|>SECTION 2: NO MATERIAL ADVERSE CHANGE CERTIFICATIO\n<|id|>28<|page|>3<|box|>789 140 806 741<|content|>SECTION 3: ACCURACY OF REPRESENTATIONS AND WARRANT\n<|id|>43<|page|>6<|box|>794 140 811 671<|content|>SECTION 4: COMPLIANCE WITH CONDITIONS PRECEDENT\n<|id|>71<|page|>10<|box|>89 142 106 589<|content|>SECTION 5: NO DEFAULT OR EVENT OF DEFAULT\n<|id|>75<|page|>10<|box|>537 142 555 573<|content|>SECTION 6: USE OF PROCEEDS CONFIRMATION\n<|id|>79<|page|>11<|box|>204 140 220 629<|content|>SECTION 7: OFFERING MEMORANDA — NO OMISSION\n<|id|>103<|page|>12<|box|>618 140 633 517<|content|>SECTION 8: OWNERSHIP CONFIRMATION\n<|id|>107<|page|>13<|box|>148 140 166 418<|content|>SECTION 9: NO PROCEEDINGS\n<|id|>109<|page|>13<|box|>398 140 416 359<|content|>SECTION 10: RELIANCE\n<|id|>116<|page|>14<|box|>89 142 106 472<|content|>DUNMORE ENERGY HOLDINGS LTD.\n<|id|>132<|page|>14<|box|>386 174 404 821<|content|>ACKNOWLEDGED AND CONFIRMED ON BEHALF OF EACH GUARA\n<|id|>134<|page|>14<|box|>494 143 508 415<|content|>DUNMORE NIGERIA E&P LTD.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>14<|level|>2\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>43<|level|>2\n<|id|>71<|level|>2\n<|id|>75<|level|>2\n<|id|>79<|level|>2\n<|id|>103<|level|>2\n<|id|>107<|level|>2\n<|id|>109<|level|>2\n<|id|>116<|level|>2\n<|id|>132<|level|>3\n<|id|>134<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 2
+        }
+    ]
+}

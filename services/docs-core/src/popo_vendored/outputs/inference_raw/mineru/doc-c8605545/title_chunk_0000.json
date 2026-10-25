@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 214 118 784<|content|>FORM OF OFFICER'S COMPLIANCE CERTIFICATE\n<|id|>3<|page|>1<|box|>188 462 205 535<|content|>[FORM]\n<|id|>5<|page|>1<|box|>311 140 328 504<|content|>OFFICER'S COMPLIANCE CERTIFICATE\n<|id|>10<|page|>1<|box|>794 140 811 477<|content|>Section 1. Representations and Warranties\n<|id|>13<|page|>2<|box|>351 140 368 560<|content|>Section 2. Performance of Covenants and Obligation\n<|id|>15<|page|>2<|box|>496 140 513 452<|content|>Section 3. No Material Adverse Change\n<|id|>18<|page|>2<|box|>744 140 760 395<|content|>Section 4. Conditions to Closing\n<|id|>29<|page|>3<|box|>405 142 421 330<|content|>Section 5. No Litigation\n<|id|>31<|page|>3<|box|>661 140 678 416<|content|>Section 6. Consents and Approvals\n<|id|>35<|page|>4<|box|>133 140 148 370<|content|>Section 7. Authorized Shares\n<|id|>37<|page|>4<|box|>479 140 497 336<|content|>Section 8. Capitalization\n<|id|>40<|page|>4<|box|>821 140 837 318<|content|>Section 9. No Defaults\n<|id|>42<|page|>5<|box|>323 140 339 318<|content|>Section 10. Disclosure\n<|id|>44<|page|>6<|box|>89 142 106 310<|content|>SIGNATURE PAGE\n<|id|>46<|page|>6<|box|>160 143 176 385<|content|>[INSERT COMPANY NAME]\n<|id|>51<|page|>7<|box|>90 142 106 583<|content|>EXHIBIT A — DEFINITIONS (CROSS-REFERENCE)\n<|id|>62<|page|>7<|box|>426 312 440 684<|content|>DOCUMENT METADATA — TEMPLATE NOTATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>5<|level|>1\n<|id|>10<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>18<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>1\n<|id|>46<|level|>2\n<|id|>51<|level|>1\n<|id|>62<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        }
+    ]
+}

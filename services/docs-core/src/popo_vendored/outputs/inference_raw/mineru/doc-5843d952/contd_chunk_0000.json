@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        15
+    ],
+    "pages": [
+        2,
+        3,
+        6,
+        7,
+        9,
+        10,
+        12,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>12<|page|>2<|box|>784 140 895 857<|content|>8. ... Mariposa Sound controls all master recording rights in\n<|id|>13<|page|>3<|box|>90 174 126 854<|content|>Fonseca's catalog, including the exclusive rights ...mission with respect to Fonseca's sound recordings\n<|id|>42<|page|>6<|box|>859 174 896 854<|content|>(e) Despite maintaining a content management syste...failed to verify the license status of Plaintiffs'\n<|id|>43<|page|>7<|box|>90 174 145 854<|content|>Works for over four years. ... Crescendo's content...cense's expiration or the dissolution of Peregrine\n<|id|>72<|page|>9<|box|>768 678 787 854<|content|>Respectfully submitted,\n<|id|>73<|page|>9<|box|>794 681 811 854<|content|>DATED: ... April 3, 2023\n<|id|>74<|page|>9<|box|>854 142 871 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>75<|page|>9<|box|>873 140 907 330<|content|>By: ... Alan Ngo (SBN 198742)\n<|id|>76<|page|>10<|box|>89 140 123 852<|content|>Christy Bauer (SBN 302156) 777 South Figueroa Stre...es, California 90017 Telephone: ... (213) 555-7401\n<|id|>77<|page|>10<|box|>125 142 140 442<|content|>Email: ... com\n<|id|>78<|page|>10<|box|>141 142 156 452<|content|>Email: ... com\n<|id|>79<|page|>10<|box|>157 140 190 852<|content|>Attorneys for Plaintiffs Marguerite D. ... Fonseca...ublishing, LLC, and Mariposa Sound Recordings, LLC\n<|id|>87<|page|>12<|box|>453 145 470 851<|content|>Copyright Owner: ... Fonseca\n<|id|>91<|page|>14<|box|>546 140 593 854<|content|>All registrations listed in this Exhibit A were ti...neys' fees pursuant to 17 U. ... §§ 504(c) and 505\n<|id|>96<|page|>14<|box|>804 176 821 674<|content|>Attn: ... Priya Chandrasekaran, General Counsel & SVP, Legal Affairs\n<|id|>97<|page|>14<|box|>821 176 839 599<|content|>3100 Esperanza Crossing, Suite 600 Austin, Texas 78758\n<|id|>99<|page|>15<|box|>89 174 126 854<|content|>Capitol Registered Agents, Inc. ... ) 1209 Orange Street Wilmington, Delaware 19801\n<|id|>100<|page|>15<|box|>133 140 170 854<|content|>The filing fee required by 28 U. ... The Civil Cov...ed and filed contemporaneously with this Complaint",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>42<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ]
+}

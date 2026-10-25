@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>112 156 147 839<|content|>CALDERWOOD & HARKNESS LLP 555 California Street, 4\n<|id|>1<|type|>table<|page|>1<|box|>181 143 388 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>422 318 443 678<|content|>I. Interview Summary and Logistics\n<|id|>17<|type|>title<|page|>2<|box|>500 362 518 633<|content|>II. Background on Witness\n<|id|>18<|type|>title<|page|>2<|box|>544 140 561 504<|content|>A. Professional Background and Role at TMC\n<|id|>24<|type|>title<|page|>3<|box|>304 140 321 650<|content|>B. Reporting Relationship to the U.S. Specialty Mi\n<|id|>30<|type|>title<|page|>4<|box|>154 305 174 691<|content|>III. Knowledge of the Alleged Conduct\n<|id|>31<|type|>title<|page|>4<|box|>199 140 215 367<|content|>A. Lack of Prior Knowledge\n<|id|>36<|type|>title<|page|>4<|box|>820 140 837 367<|content|>B. Knowledge of Gavin Holt\n<|id|>41<|type|>title<|page|>5<|box|>539 140 556 545<|content|>C. Knowledge of Ridgecrest, Pinnacle, and Cascade\n<|id|>47<|type|>title<|page|>6<|box|>136 151 156 846<|content|>IV. TMC's Antitrust Compliance Program — History a\n<|id|>48<|type|>title<|page|>6<|box|>180 140 198 480<|content|>A. Adoption of the 2014 Compliance Policy\n<|id|>62<|type|>title<|page|>7<|box|>204 140 222 385<|content|>B. Training History and Lapse\n<|id|>69<|type|>title<|page|>7<|box|>821 140 839 437<|content|>C. Monitoring and Audit Deficiencies\n<|id|>73<|type|>title<|page|>8<|box|>402 140 419 553<|content|>D. Absence of a Dedicated Chief Compliance Officer\n<|id|>76<|type|>title<|page|>8<|box|>665 264 685 730<|content|>V. Document Preservation and Litigation Hold\n<|id|>77<|type|>title<|page|>8<|box|>710 140 727 449<|content|>A. Pre-Engagement Preservation Steps\n<|id|>84<|type|>title<|page|>9<|box|>375 140 390 351<|content|>B. Formal Litigation Hold\n<|id|>94<|type|>title<|page|>10<|box|>148 140 167 400<|content|>C. Data Collection Coordination\n<|id|>104<|type|>title<|page|>10<|box|>625 140 642 483<|content|>D. Challenges Regarding Gavin Holt's Data\n<|id|>112<|type|>title<|page|>11<|box|>415 181 435 813<|content|>VI. Coordination with External Auditor and Financi\n<|id|>113<|type|>title<|page|>11<|box|>459 140 477 550<|content|>A. Calvert & Associates LLP (Independent Auditor)\n<|id|>118<|type|>title<|page|>12<|box|>148 140 167 573<|content|>B. Ironbridge Capital Markets Inc. (Financial Advi\n<|id|>120<|type|>title<|page|>12<|box|>308 140 325 349<|content|>C. D&O Insurance Notice\n<|id|>122<|type|>table<|page|>12<|box|>393 143 507 852<|content|>None\n<|id|>128<|type|>title<|page|>13<|box|>90 238 111 758<|content|>VII. TMC Management Awareness and Governance\n<|id|>129<|type|>title<|page|>13<|box|>136 140 152 393<|content|>A. CEO and Board Notification\n<|id|>140<|type|>title<|page|>13<|box|>729 140 746 413<|content|>B. Delegation of Pricing Authority\n<|id|>145<|type|>title<|page|>14<|box|>388 236 409 759<|content|>VIII. Witness Credibility and Demeanor Assessment\n<|id|>155<|type|>title<|page|>15<|box|>305 310 325 684<|content|>IX. Open Issues and Follow-Up Items\n<|id|>163<|type|>title<|page|>16<|box|>263 292 285 704<|content|>X. Privilege Designation and Distribution\n<|id|>165<|type|>title<|page|>16<|box|>474 140 492 759<|content|>Distribution of this memorandum is strictly limite",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>122<|tgt_id|>120",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 120
+        }
+    ]
+}

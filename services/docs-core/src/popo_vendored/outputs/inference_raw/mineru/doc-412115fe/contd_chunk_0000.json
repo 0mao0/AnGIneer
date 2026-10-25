@@ -1,0 +1,43 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        17,
+        26,
+        27,
+        28,
+        29
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>202 423 219 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>228 142 244 333<|content|>Matter No. ... 1007-00008\n<|id|>4<|page|>1<|box|>253 140 271 689<|content|>To: ... Bernard Crawford, Responsible Partner Conrad Ashby, Billing Partner\n<|id|>5<|page|>1<|box|>279 140 297 658<|content|>From: ... Gabrielle Moss, Lead Associate Aaron Liu, Working Associate\n<|id|>6<|page|>1<|box|>305 142 321 341<|content|>Date: ... September 15, 2023\n<|id|>7<|page|>1<|box|>330 140 402 854<|content|>Re: ... Applicable Michigan intellectual Property Law\n<|id|>8<|page|>1<|box|>412 140 430 514<|content|>Client: ... (\"VMS\")\n<|id|>9<|page|>1<|box|>438 140 455 777<|content|>Counterparty: ... MCDT)\n<|id|>10<|page|>1<|box|>463 142 479 408<|content|>Right-click to update Table of Contents\n<|id|>14<|page|>1<|box|>816 140 907 856<|content|>VMS's Position. ... VMS contends that the mere fact that these modules interact with and extend the\n<|id|>15<|page|>2<|box|>90 140 126 854<|content|>ATLAS-RT embedded RTOS does not transform them int...nder Section 7. ... 2 should be narrowly construed\n<|id|>32<|page|>3<|box|>849 140 905 857<|content|>Dormancy Status. ... VMS's dormancy notice was tra...2023 — six days before the 120-day trigger date of\n<|id|>33<|page|>4<|box|>89 140 218 856<|content|>July 20, 2023 (calculated from the March 22, 2023 ...ne, fee structure, and scope of licensed platforms\n<|id|>61<|page|>6<|box|>864 176 900 854<|content|>\"7. ... Any modifications, adaptations, or extensi...g the Integration Period (as defined in Exhibit B)\n<|id|>62<|page|>7<|box|>90 174 236 854<|content|>shall be deemed jointly owned by Licensor and Licensee ('Derivative Works'). ... \"\n<|id|>87<|page|>9<|box|>814 174 851 854<|content|>(d) How the jointly owned works are to be maintain... bears responsibility for such activities; ... and\n<|id|>89<|page|>10<|box|>90 140 164 854<|content|>Absent further contractual specification on these ...een these frameworks creates additional complexity\n<|id|>157<|page|>17<|box|>599 174 655 854<|content|>(e) Assessment of the separability of each module from the ATLAS-RT codebase — i. ... and\n<|id|>159<|page|>17<|box|>705 140 743 854<|content|>Dr. ... A final assessment incorporating additiona...ering documentation is expected by October 1, 2023\n<|id|>234<|page|>26<|box|>854 140 910 856<|content|>We recommend that VMS provide early notice to Comm...ridianCode's claim of joint ownership, and reserve\n<|id|>235<|page|>27<|box|>90 140 143 854<|content|>VMS's rights to seek coverage for any losses arisi...MS's insurance broker, within the next thirty days\n<|id|>247<|page|>28<|box|>424 142 440 320<|content|>Respectfully submitted,\n<|id|>248<|page|>28<|box|>441 142 457 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>249<|page|>28<|box|>459 143 474 253<|content|>By: ... By\n<|id|>250<|page|>28<|box|>476 142 492 375<|content|>Gabrielle Moss Lead Associate\n<|id|>251<|page|>28<|box|>494 143 510 253<|content|>By: ... By\n<|id|>255<|page|>28<|box|>617 140 652 854<|content|>Appendix A: ... 2 of the Master Embedded Software ...Services Agreement dated June 21, 2022 (full text)\n<|id|>256<|page|>28<|box|>661 140 696 854<|content|>Appendix B: ... Exhibit C to the MESLSA — Derivative Works Ownership and License-Back Terms (full text)\n<|id|>257<|page|>28<|box|>704 140 758 854<|content|>Appendix C: ... , Lead Consultant) (Draft dated September 1, 2023)\n<|id|>258<|page|>28<|box|>767 140 804 856<|content|>Appendix D: ... Description, Lines of Code, Coupli...s, Estimated Value, and Ownership Position Summary\n<|id|>261<|page|>29<|box|>662 140 709 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV...o. ... 1007- 00008 | Vantage Mobility Systems Corp",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>32<|tgt_id|>33\n<|src_id|>61<|tgt_id|>62\n<|src_id|>234<|tgt_id|>235",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 234,
+            "tgt_id": 235
+        }
+    ]
+}

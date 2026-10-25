@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>12<|type|>title<|page|>1<|box|>797 140 814 442<|content|>1. Purpose and Engagement Overview\n<|id|>14<|type|>title<|page|>2<|box|>223 140 239 334<|content|>2. Scope of Engagement\n<|id|>15<|type|>title<|page|>2<|box|>253 140 270 352<|content|>2.1 Description of Services\n<|id|>26<|type|>title<|page|>3<|box|>646 140 662 339<|content|>2.2 Limitations on Scope\n<|id|>33<|type|>title<|page|>4<|box|>446 140 464 323<|content|>3. Client Identification\n<|id|>37<|type|>title<|page|>4<|box|>804 140 821 313<|content|>4. Engagement Team\n<|id|>44<|type|>title<|page|>5<|box|>619 140 636 338<|content|>5. Fees and Billing Rates\n<|id|>45<|type|>title<|page|>5<|box|>650 142 667 282<|content|>5.1 Fee Structure\n<|id|>47<|type|>table<|page|>5<|box|>734 143 828 852<|content|>None\n<|id|>50<|type|>title<|page|>6<|box|>239 140 256 346<|content|>5.2 Estimated Fee Budget\n<|id|>62<|type|>title<|page|>7<|box|>167 140 184 380<|content|>6. Billing and Payment Terms\n<|id|>66<|type|>title<|page|>7<|box|>488 140 505 390<|content|>7. Confidentiality and Privilege\n<|id|>70<|type|>title<|page|>8<|box|>167 140 184 321<|content|>8. Conflicts of Interest\n<|id|>81<|type|>title<|page|>8<|box|>741 140 758 287<|content|>9. Governing Law\n<|id|>84<|type|>title<|page|>9<|box|>204 142 222 354<|content|>10. Term and Termination\n<|id|>91<|type|>title<|page|>9<|box|>657 142 674 334<|content|>11. Document Retention\n<|id|>94<|type|>title<|page|>10<|box|>90 142 107 379<|content|>12. No Guarantee of Outcome\n<|id|>96<|type|>title<|page|>10<|box|>304 142 320 380<|content|>13. Acceptance and Execution\n<|id|>108<|type|>title<|page|>10<|box|>710 313 726 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>110<|type|>title<|page|>10<|box|>797 143 814 439<|content|>ACKNOWLEDGED AND AGREED:",
+    "raw_response": "<|src_id|>47<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        }
+    ]
+}

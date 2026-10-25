@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 285 125 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>159 143 333 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>400 215 436 781<|content|>DEFENDANT CASCADE RETAIL HOLDINGS INC.'S FIRST SET\n<|id|>3<|type|>table<|page|>1<|box|>478 143 535 852<|content|>None\n<|id|>4<|type|>table<|page|>1<|box|>602 143 810 852<|content|>None\n<|id|>5<|type|>title<|page|>2<|box|>89 140 106 581<|content|>PRELIMINARY STATEMENT AND INSTRUCTIONS\n<|id|>6<|type|>title<|page|>2<|box|>121 142 138 289<|content|>A. Statutory Basis\n<|id|>24<|type|>title<|page|>3<|box|>511 140 527 331<|content|>C. General Instructions\n<|id|>32<|type|>title<|page|>4<|box|>222 140 239 328<|content|>INTERROGATORIES\n<|id|>33<|type|>title<|page|>4<|box|>248 140 263 367<|content|>INTERROGATORY NO. 1:\n<|id|>35<|type|>title<|page|>4<|box|>539 140 555 367<|content|>INTERROGATORY NO. 2:\n<|id|>37<|type|>title<|page|>4<|box|>845 140 863 367<|content|>INTERROGATORY NO. 3:\n<|id|>40<|type|>title<|page|>5<|box|>263 140 279 367<|content|>INTERROGATORY NO. 4:\n<|id|>42<|type|>title<|page|>5<|box|>551 140 569 367<|content|>INTERROGATORY NO. 5:\n<|id|>44<|type|>title<|page|>5<|box|>842 140 859 367<|content|>INTERROGATORY NO. 6:\n<|id|>46<|type|>title<|page|>6<|box|>335 140 352 367<|content|>INTERROGATORY NO. 7:\n<|id|>48<|type|>title<|page|>6<|box|>607 142 625 367<|content|>INTERROGATORY NO. 8:\n<|id|>51<|type|>title<|page|>7<|box|>133 140 151 367<|content|>INTERROGATORY NO. 9:\n<|id|>53<|type|>title<|page|>7<|box|>441 140 459 375<|content|>INTERROGATORY NO. 10:\n<|id|>55<|type|>title<|page|>7<|box|>714 140 729 377<|content|>INTERROGATORY NO. 11:\n<|id|>57<|type|>title<|page|>8<|box|>170 140 186 377<|content|>INTERROGATORY NO. 12:\n<|id|>59<|type|>title<|page|>8<|box|>424 140 440 377<|content|>INTERROGATORY NO. 13:\n<|id|>61<|type|>title<|page|>8<|box|>714 140 729 377<|content|>INTERROGATORY NO. 14:\n<|id|>63<|type|>title<|page|>9<|box|>133 140 151 377<|content|>INTERROGATORY NO. 15:\n<|id|>65<|type|>title<|page|>9<|box|>441 140 459 377<|content|>INTERROGATORY NO. 16:\n<|id|>67<|type|>title<|page|>9<|box|>676 140 694 377<|content|>INTERROGATORY NO. 17:\n<|id|>69<|type|>title<|page|>10<|box|>90 140 106 375<|content|>INTERROGATORY NO. 18:\n<|id|>71<|type|>title<|page|>10<|box|>324 140 340 377<|content|>INTERROGATORY NO. 19:\n<|id|>73<|type|>title<|page|>10<|box|>541 142 558 375<|content|>INTERROGATORY NO. 20:\n<|id|>75<|type|>title<|page|>10<|box|>794 140 811 375<|content|>INTERROGATORY NO. 21:\n<|id|>77<|type|>title<|page|>11<|box|>244 140 260 375<|content|>INTERROGATORY NO. 22:\n<|id|>79<|type|>title<|page|>11<|box|>479 140 494 375<|content|>INTERROGATORY NO. 23:\n<|id|>81<|type|>title<|page|>11<|box|>640 142 657 377<|content|>INTERROGATORY NO. 24:\n<|id|>83<|type|>title<|page|>12<|box|>89 140 106 375<|content|>INTERROGATORY NO. 25:\n<|id|>85<|type|>title<|page|>12<|box|>303 140 320 285<|content|>VERIFICATION\n<|id|>94<|type|>title<|page|>12<|box|>606 142 623 326<|content|>PROOF OF SERVICE\n<|id|>95<|type|>title<|page|>12<|box|>631 142 648 326<|content|>PROOF OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>3<|tgt_id|>2\n<|src_id|>4<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 2
+        }
+    ]
+}

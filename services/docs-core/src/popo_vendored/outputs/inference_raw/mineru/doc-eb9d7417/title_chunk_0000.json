@@ -1,0 +1,166 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        62
+    ],
+    "pages": [
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        22,
+        25,
+        26,
+        28,
+        30,
+        31,
+        35,
+        36,
+        42,
+        43,
+        46,
+        50,
+        61
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>7<|box|>0 128 253 860<|content|>TREASURY BULLETIN\n<|id|>15<|page|>9<|box|>109 369 132 590<|content|>Table of Contents\n<|id|>17<|page|>10<|box|>65 426 82 585<|content|>Reporting Bases\n<|id|>25<|page|>11<|box|>67 334 84 633<|content|>Reporting Bases - (Continued)\n<|id|>29<|page|>13<|box|>116 343 133 652<|content|>Treasury Financing Operations\n<|id|>30<|page|>13<|box|>170 59 184 237<|content|>January Advance Refunding\n<|id|>37<|page|>14<|box|>55 258 72 716<|content|>Treasury Financing Operations - (Continued)\n<|id|>47<|page|>15<|box|>56 269 74 725<|content|>Treasury Financing Operations - (Continued)\n<|id|>57<|page|>16<|box|>56 245 74 701<|content|>Treasury Financing Operations - (Continued)\n<|id|>65<|page|>16<|box|>502 482 516 590<|content|>One-Year Bills\n<|id|>69<|page|>17<|box|>56 272 74 730<|content|>Treasury Financing Operations - (Continued)\n<|id|>70<|page|>17<|box|>104 63 119 227<|content|>Tax anticipation bills\n<|id|>73<|page|>17<|box|>452 68 465 250<|content|>13-Week and 26-Week Bills\n<|id|>76<|page|>17<|box|>792 71 806 373<|content|>Foreign Series and Foreign Currency Series\n<|id|>80<|page|>19<|box|>79 342 94 654<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>83<|page|>20<|box|>69 170 84 797<|content|>SUMMARY OF ADMINISTRATIVE BUDGET AND TRUST FUND RE\n<|id|>89<|page|>22<|box|>539 341 553 658<|content|>Footnotes to Table 1 - (Continued)\n<|id|>105<|page|>25<|box|>615 350 629 667<|content|>Footnotes to Table 3.- (Continued)\n<|id|>117<|page|>26<|box|>89 41 118 930<|content|>Table 5.- Summary of Appropriations and Authorizat\n<|id|>121<|page|>28<|box|>68 351 82 630<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>122<|page|>28<|box|>102 200 118 772<|content|>Table 6.- Expenditures and Balances by Functions -\n<|id|>135<|page|>30<|box|>70 373 84 616<|content|>TRUST AND OTHER TRANSACTIONS\n<|id|>136<|page|>30<|box|>103 139 118 867<|content|>Table 3.- Trust, Deposit Fund, and Government-Spon\n<|id|>139<|page|>31<|box|>100 187 113 777<|content|>Table 4.- Investments in Public Debt and Agency Se\n<|id|>153<|page|>35<|box|>55 388 70 571<|content|>CASH INCOME AND OUTGO\n<|id|>155<|page|>36<|box|>62 421 75 605<|content|>CASH INCOME AND OUTGO\n<|id|>170<|page|>42<|box|>63 316 78 704<|content|>ACCOUNT OF THE TREASURER OF THE UNITED STATES\n<|id|>171<|page|>42<|box|>91 205 107 810<|content|>Source and Availability of the Balance in the Trea\n<|id|>182<|page|>43<|box|>62 285 77 674<|content|>ACCOUNT OF THE TREASURER OF THE UNITED STATES\n<|id|>192<|page|>46<|box|>60 426 75 565<|content|>DEBT OUTSTANDING\n<|id|>204<|page|>50<|box|>91 135 137 840<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>235<|page|>61<|box|>65 385 79 580<|content|>PUBLIC DEBT OPERATIONS",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>30<|level|>3\n<|id|>37<|level|>2\n<|id|>47<|level|>2\n<|id|>57<|level|>2\n<|id|>65<|level|>3\n<|id|>69<|level|>2\n<|id|>70<|level|>3\n<|id|>73<|level|>3\n<|id|>76<|level|>3\n<|id|>80<|level|>2\n<|id|>83<|level|>2\n<|id|>89<|level|>3\n<|id|>105<|level|>3\n<|id|>117<|level|>2\n<|id|>121<|level|>2\n<|id|>122<|level|>3\n<|id|>135<|level|>2\n<|id|>136<|level|>3\n<|id|>139<|level|>3\n<|id|>153<|level|>2\n<|id|>155<|level|>2\n<|id|>170<|level|>2\n<|id|>171<|level|>3\n<|id|>182<|level|>2\n<|id|>192<|level|>2\n<|id|>204<|level|>3\n<|id|>235<|level|>2",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 235,
+            "level": 2
+        }
+    ]
+}

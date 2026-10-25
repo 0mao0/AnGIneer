@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>353 140 369 367<|content|>1. Introduction and Purpose\n<|id|>10<|page|>1<|box|>819 140 835 483<|content|>2. Rationale for Buyer Corporate Guaranty\n<|id|>11<|page|>1<|box|>849 142 867 612<|content|>2.1 Long-Term Nature of the PPA and Revenue Depend\n<|id|>15<|page|>2<|box|>502 140 518 346<|content|>2.2 Buyer's Credit Profile\n<|id|>19<|page|>3<|box|>90 140 107 470<|content|>2.3 Lender Requirements and Bankability\n<|id|>22<|page|>3<|box|>482 142 498 303<|content|>2.4 Market Practice\n<|id|>25<|page|>3<|box|>792 140 809 565<|content|>3. Terms of the Requested Buyer Corporate Guaranty\n<|id|>27<|page|>4<|box|>90 140 107 385<|content|>3.1 Guarantor and Beneficiary\n<|id|>30<|page|>4<|box|>244 140 261 362<|content|>3.2 Guaranteed Obligations\n<|id|>36<|page|>4<|box|>566 140 584 290<|content|>3.3 Guaranty Cap\n<|id|>39<|page|>4<|box|>829 140 847 320<|content|>3.4 Form of Guaranty\n<|id|>47<|page|>5<|box|>638 140 657 656<|content|>4. Seller's Credit Support — Irrevocable Standby L\n<|id|>49<|page|>5<|box|>733 140 750 633<|content|>4.1 Confirmation of Seller's Willingness to Post C\n<|id|>51<|page|>6<|box|>90 140 107 277<|content|>4.2 Issuing Bank\n<|id|>53<|page|>6<|box|>253 140 271 269<|content|>4.3 LC Amount\n<|id|>56<|page|>6<|box|>481 140 498 367<|content|>4.4 Form of Letter of Credit\n<|id|>63<|page|>7<|box|>138 140 156 308<|content|>4.5 Draw Conditions\n<|id|>70<|page|>7<|box|>498 140 515 566<|content|>5. Reciprocal Nature of Credit Support Arrangement\n<|id|>75<|page|>8<|box|>90 140 107 524<|content|>6. Interaction with Change of Control Provisions\n<|id|>79<|page|>8<|box|>520 140 537 452<|content|>7. Request for Response and Next Steps\n<|id|>88<|page|>9<|box|>148 140 167 334<|content|>8. Reservation of Rights\n<|id|>99<|page|>9<|box|>628 142 645 238<|content|>Enclosures:",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>10<|level|>1\n<|id|>11<|level|>2\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>22<|level|>2\n<|id|>25<|level|>1\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>47<|level|>1\n<|id|>49<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>56<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>1\n<|id|>75<|level|>1\n<|id|>79<|level|>1\n<|id|>88<|level|>1\n<|id|>99<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        }
+    ]
+}

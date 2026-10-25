@@ -1,0 +1,46 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        50
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>478<|page|>47<|box|>393 140 410 691<|content|>C. Response to CMGA's Answering Testimony (Filed J\n<|id|>479<|page|>47<|box|>416 140 434 805<|content|>Q. Please respond to the principal arguments raise\n<|id|>485<|page|>48<|box|>321 140 338 544<|content|>XX. CONCLUSION AND PRAYER FOR RELIEF\n<|id|>486<|page|>48<|box|>348 140 364 665<|content|>Q. Please summarize your testimony and state Ridge\n<|id|>509<|page|>49<|box|>675 140 693 285<|content|>VERIFICATION\n<|id|>511<|page|>50<|box|>125 142 141 292<|content|>NOTARIZATION\n<|id|>516<|page|>50<|box|>303 140 320 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>478<|level|>1\n<|id|>479<|level|>2\n<|id|>485<|level|>1\n<|id|>486<|level|>2\n<|id|>509<|level|>1\n<|id|>511<|level|>1\n<|id|>516<|level|>1",
+    "parsed": [
+        {
+            "id": 478,
+            "level": 1
+        },
+        {
+            "id": 479,
+            "level": 2
+        },
+        {
+            "id": 485,
+            "level": 1
+        },
+        {
+            "id": 486,
+            "level": 2
+        },
+        {
+            "id": 509,
+            "level": 1
+        },
+        {
+            "id": 511,
+            "level": 1
+        },
+        {
+            "id": 516,
+            "level": 1
+        }
+    ]
+}

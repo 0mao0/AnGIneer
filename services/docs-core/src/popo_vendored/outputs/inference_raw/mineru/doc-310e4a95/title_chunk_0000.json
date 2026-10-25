@@ -1,0 +1,155 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 194 152 802<|content|>MEMORANDUM PRIVILEGED AND CONFIDENTIAL ATTORNEY-CL\n<|id|>10<|page|>1<|box|>431 385 450 612<|content|>I. Executive Summary\n<|id|>20<|page|>2<|box|>569 299 588 697<|content|>II. Background and Procedural Context\n<|id|>30<|page|>3<|box|>631 362 651 633<|content|>III. Issue-by-Issue Analysis\n<|id|>31<|page|>4<|box|>90 140 107 635<|content|>A. Most Favored Nation Pricing (MSA Section 7.4 /\n<|id|>32<|page|>4<|box|>121 140 138 447<|content|>1. Cedarpoint's Position: Mutual MFN\n<|id|>43<|page|>5<|box|>90 140 107 405<|content|>2. Analysis and Recommendation\n<|id|>49<|page|>6<|box|>148 140 167 470<|content|>B. Indemnification Cap (MSA Section 11)\n<|id|>50<|page|>6<|box|>180 140 198 790<|content|>1. Cedarpoint's Position: Reduction from 200% to 1\n<|id|>65<|page|>7<|box|>319 142 337 405<|content|>2. Analysis and Recommendation\n<|id|>76<|page|>9<|box|>90 140 107 630<|content|>C. Change of Control Definition (MSA Section 14 /\n<|id|>77<|page|>9<|box|>121 142 138 710<|content|>1. Cedarpoint's Position: Deletion of Board-Turnov\n<|id|>91<|page|>10<|box|>90 140 107 405<|content|>2. Analysis and Recommendation\n<|id|>102<|page|>12<|box|>90 140 107 514<|content|>D. SLA Credit Cap (MSA Section 6 / Exhibit B)\n<|id|>103<|page|>12<|box|>121 142 138 828<|content|>1. Cedarpoint's Position: Reduction from 30% to 15\n<|id|>114<|page|>13<|box|>90 140 107 405<|content|>2. Analysis and Recommendation\n<|id|>121<|page|>13<|box|>777 140 814 816<|content|>E. Escrow Release Timeline and Partial Release on\n<|id|>122<|page|>13<|box|>828 142 844 334<|content|>1. Cedarpoint's Position\n<|id|>136<|page|>14<|box|>809 142 825 405<|content|>2. Analysis and Recommendation\n<|id|>146<|page|>16<|box|>90 284 111 712<|content|>IV. Issues Resolved in the Counter-Redline\n<|id|>159<|page|>17<|box|>667 212 688 782<|content|>V. Recommended Negotiation Strategy for June 1 Ses\n<|id|>160<|page|>17<|box|>713 142 729 419<|content|>A. Priority Ranking of Open Issues\n<|id|>162<|page|>17<|box|>782 142 800 380<|content|>1. Non-negotiable / Hold firm:\n<|id|>165<|page|>18<|box|>189 140 207 385<|content|>2. Resist but identify fall-back:\n<|id|>167<|page|>18<|box|>277 140 294 321<|content|>3. Offer as concession:\n<|id|>170<|page|>18<|box|>462 140 479 403<|content|>B. Trade-off / Package Approach\n<|id|>173<|page|>18<|box|>613 176 630 341<|content|>Northgate concedes:\n<|id|>177<|page|>18<|box|>789 178 806 380<|content|>In exchange, Cedarpoint:\n<|id|>182<|page|>19<|box|>242 140 258 377<|content|>C. Attendees and Preparation\n<|id|>183<|page|>19<|box|>268 140 285 776<|content|>Anticipated Northgate / Calderwood & Harkness atte\n<|id|>193<|page|>19<|box|>513 142 530 478<|content|>Pre-session preparation recommendations:\n<|id|>198<|page|>20<|box|>172 424 191 573<|content|>VI. Next Steps",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>20<|level|>1\n<|id|>30<|level|>1\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>43<|level|>3\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>65<|level|>3\n<|id|>76<|level|>2\n<|id|>77<|level|>3\n<|id|>91<|level|>3\n<|id|>102<|level|>2\n<|id|>103<|level|>3\n<|id|>114<|level|>3\n<|id|>121<|level|>2\n<|id|>122<|level|>3\n<|id|>136<|level|>3\n<|id|>146<|level|>1\n<|id|>159<|level|>1\n<|id|>160<|level|>2\n<|id|>162<|level|>3\n<|id|>165<|level|>3\n<|id|>167<|level|>3\n<|id|>170<|level|>2\n<|id|>173<|level|>3\n<|id|>177<|level|>3\n<|id|>182<|level|>2\n<|id|>183<|level|>3\n<|id|>193<|level|>3\n<|id|>198<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 198,
+            "level": 1
+        }
+    ]
+}

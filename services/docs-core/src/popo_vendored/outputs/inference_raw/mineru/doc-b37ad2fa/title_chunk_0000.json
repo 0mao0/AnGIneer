@@ -1,0 +1,125 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 133 714<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 701 Bri\n<|id|>2<|page|>1<|box|>167 140 184 447<|content|>VIA HAND DELIVERY AND EMAIL\n<|id|>6<|page|>1<|box|>340 142 358 366<|content|>1. Introduction and Purpose\n<|id|>11<|page|>2<|box|>90 140 107 370<|content|>2. Identification of the Client\n<|id|>23<|page|>3<|box|>148 140 167 354<|content|>3. Scope of Representation\n<|id|>25<|page|>3<|box|>279 140 297 506<|content|>3.1 Transaction Structuring and Tax Planning\n<|id|>36<|page|>4<|box|>257 140 273 383<|content|>3.2 Trust Instrument Drafting\n<|id|>44<|page|>4<|box|>723 140 739 390<|content|>3.3 Transaction Documentation\n<|id|>54<|page|>5<|box|>579 140 597 359<|content|>3.4 Valuation Coordination\n<|id|>61<|page|>6<|box|>239 140 256 475<|content|>3.5 Trustee and Third-Party Coordination\n<|id|>67<|page|>6<|box|>616 140 633 370<|content|>3.6 Closing and Post-Closing\n<|id|>74<|page|>7<|box|>239 140 256 351<|content|>3.7 Exclusions from Scope\n<|id|>82<|page|>7<|box|>696 140 714 313<|content|>4. Engagement Team\n<|id|>90<|page|>8<|box|>508 140 527 290<|content|>5. Fees and Billing\n<|id|>91<|page|>8<|box|>540 140 556 279<|content|>5.1 Hourly Rates\n<|id|>97<|page|>8<|box|>825 142 843 276<|content|>5.2 Fee Estimate\n<|id|>104<|page|>9<|box|>583 140 599 400<|content|>5.4 Disbursements and Expenses\n<|id|>113<|page|>10<|box|>157 140 175 320<|content|>5.5 Billing Procedures\n<|id|>117<|page|>10<|box|>457 140 474 405<|content|>6. Conflict of Interest Disclosures\n<|id|>123<|page|>11<|box|>204 140 222 390<|content|>7. Confidentiality and Privilege\n<|id|>132<|page|>11<|box|>763 140 780 326<|content|>8. Document Retention\n<|id|>136<|page|>12<|box|>286 140 303 385<|content|>9. Termination of Engagement\n<|id|>144<|page|>12<|box|>763 142 780 348<|content|>10. Limitation of Liability\n<|id|>151<|page|>13<|box|>491 140 508 480<|content|>11. Governing Law and Dispute Resolution\n<|id|>156<|page|>14<|box|>90 142 107 379<|content|>12. Acceptance and Execution\n<|id|>161<|page|>14<|box|>458 346 473 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>162<|page|>14<|box|>483 142 500 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>167<|page|>14<|box|>569 348 585 647<|content|>ACKNOWLEDGED AND AGREED:\n<|id|>168<|page|>14<|box|>595 336 611 660<|content|>PELLEGRINO CAPITAL GROUP LLC\n<|id|>174<|page|>14<|box|>729 143 744 233<|content|>Enclosures\n<|id|>184<|page|>15<|box|>344 344 363 651<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>-1\n<|id|>6<|level|>1\n<|id|>11<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>2\n<|id|>54<|level|>2\n<|id|>61<|level|>2\n<|id|>67<|level|>2\n<|id|>74<|level|>2\n<|id|>82<|level|>1\n<|id|>90<|level|>1\n<|id|>91<|level|>2\n<|id|>97<|level|>2\n<|id|>104<|level|>2\n<|id|>113<|level|>2\n<|id|>117<|level|>1\n<|id|>123<|level|>1\n<|id|>132<|level|>1\n<|id|>136<|level|>1\n<|id|>144<|level|>1\n<|id|>151<|level|>1\n<|id|>156<|level|>1\n<|id|>161<|level|>-1\n<|id|>162<|level|>-1\n<|id|>167<|level|>-1\n<|id|>168<|level|>-1\n<|id|>174<|level|>1\n<|id|>184<|level|>-1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 1
+        }
+    ]
+}

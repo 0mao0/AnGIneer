@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|page|>1<|box|>352 140 369 493<|content|>1. Purpose and Confirmation of Engagement\n<|id|>10<|page|>1<|box|>782 140 799 354<|content|>2. Scope of Representation\n<|id|>23<|page|>3<|box|>531 140 547 372<|content|>3. Identification of the Client\n<|id|>28<|page|>4<|box|>167 140 185 313<|content|>4. Engagement Team\n<|id|>35<|page|>5<|box|>90 140 107 444<|content|>5. Fee Arrangement and Hourly Rates\n<|id|>41<|page|>5<|box|>571 140 587 338<|content|>6. Estimated Fee Budget\n<|id|>46<|page|>6<|box|>231 140 247 362<|content|>7. Costs and Disbursements\n<|id|>59<|page|>6<|box|>824 140 842 379<|content|>8. Billing and Payment Terms\n<|id|>66<|page|>7<|box|>454 140 472 321<|content|>9. Conflicts of Interest\n<|id|>70<|page|>8<|box|>90 140 107 524<|content|>10. Confidentiality and Attorney-Client Privilege\n<|id|>74<|page|>8<|box|>446 142 464 334<|content|>11. Document Retention\n<|id|>78<|page|>8<|box|>731 142 748 393<|content|>12. Termination of Engagement\n<|id|>83<|page|>9<|box|>377 142 393 297<|content|>13. Governing Law\n<|id|>85<|page|>9<|box|>500 142 515 380<|content|>14. No Guarantee of Outcome\n<|id|>88<|page|>9<|box|>775 142 792 455<|content|>15. Entire Agreement and Amendments\n<|id|>91<|page|>10<|box|>167 142 184 380<|content|>16. Acceptance and Execution",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>10<|level|>2\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>35<|level|>2\n<|id|>41<|level|>2\n<|id|>46<|level|>2\n<|id|>59<|level|>2\n<|id|>66<|level|>2\n<|id|>70<|level|>2\n<|id|>74<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>85<|level|>2\n<|id|>88<|level|>2\n<|id|>91<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        }
+    ]
+}

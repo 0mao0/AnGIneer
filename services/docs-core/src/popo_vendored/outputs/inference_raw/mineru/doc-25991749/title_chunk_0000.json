@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>354 140 369 390<|content|>I. NATURE OF THE ACTION\n<|id|>6<|page|>1<|box|>715 142 733 294<|content|>II. THE PARTIES\n<|id|>7<|page|>1<|box|>747 140 763 480<|content|>A. Plaintiff Optiwave Semiconductor Corp.\n<|id|>15<|page|>2<|box|>585 140 602 424<|content|>B. Defendant Lumos Photonics, Inc.\n<|id|>23<|page|>3<|box|>371 142 388 421<|content|>III. JURISDICTION AND VENUE\n<|id|>27<|page|>4<|box|>90 142 106 374<|content|>IV. BACKGROUND FACTS\n<|id|>28<|page|>4<|box|>121 142 138 468<|content|>A. OWS's Innovation in Silicon Photonics\n<|id|>32<|page|>4<|box|>654 143 671 393<|content|>B. Lumos's Infringing Products\n<|id|>36<|page|>5<|box|>342 140 359 367<|content|>C. Pre-Suit Notice to Lumos\n<|id|>40<|page|>6<|box|>90 142 106 370<|content|>V. THE PATENTS-IN-SUIT\n<|id|>41<|page|>6<|box|>121 142 138 504<|content|>A. U.S. Patent No. 10,234,567 (the '567 Patent)\n<|id|>48<|page|>6<|box|>731 142 748 504<|content|>B. U.S. Patent No. 10,891,234 (the '234 Patent)\n<|id|>55<|page|>7<|box|>565 140 582 504<|content|>C. U.S. Patent No. 11,045,678 (the '678 Patent)\n<|id|>62<|page|>8<|box|>323 140 339 506<|content|>D. U.S. Patent No. 11,312,890 (the '890 Patent)\n<|id|>69<|page|>9<|box|>167 142 184 254<|content|>VI. COUNTS\n<|id|>70<|page|>9<|box|>198 140 215 661<|content|>COUNT I — INFRINGEMENT OF U.S. PATENT NO. 10,234,5\n<|id|>78<|page|>10<|box|>232 140 250 669<|content|>COUNT II — INFRINGEMENT OF U.S. PATENT NO. 10,891,\n<|id|>86<|page|>11<|box|>268 140 285 676<|content|>COUNT III — INFRINGEMENT OF U.S. PATENT NO. 11,045\n<|id|>94<|page|>12<|box|>398 140 414 674<|content|>COUNT IV — INFRINGEMENT OF U.S. PATENT NO. 11,312,\n<|id|>102<|page|>13<|box|>482 142 500 421<|content|>VII. DEMAND FOR JURY TRIAL\n<|id|>104<|page|>13<|box|>585 140 603 380<|content|>VIII. PRAYER FOR RELIEF\n<|id|>124<|page|>14<|box|>661 142 678 236<|content|>EXHIBITS",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>6<|level|>1\n<|id|>7<|level|>2\n<|id|>15<|level|>2\n<|id|>23<|level|>1\n<|id|>27<|level|>1\n<|id|>28<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>40<|level|>1\n<|id|>41<|level|>2\n<|id|>48<|level|>2\n<|id|>55<|level|>2\n<|id|>62<|level|>2\n<|id|>69<|level|>1\n<|id|>70<|level|>2\n<|id|>78<|level|>2\n<|id|>86<|level|>2\n<|id|>94<|level|>2\n<|id|>102<|level|>1\n<|id|>104<|level|>1\n<|id|>124<|level|>1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        }
+    ]
+}

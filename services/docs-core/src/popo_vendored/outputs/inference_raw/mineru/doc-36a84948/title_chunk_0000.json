@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>411 140 429 362<|content|>I. Purpose and Background\n<|id|>13<|page|>2<|box|>148 140 167 468<|content|>II. Summary of the Litigation and Claims\n<|id|>14<|page|>2<|box|>180 142 196 261<|content|>A. The Parties\n<|id|>16<|page|>2<|box|>325 140 343 300<|content|>B. Causes of Action\n<|id|>21<|page|>2<|box|>647 140 662 380<|content|>C. Factual Basis of the Claims\n<|id|>27<|page|>3<|box|>90 142 107 310<|content|>D. Damages Claimed\n<|id|>31<|page|>3<|box|>362 142 378 429<|content|>III. Summary of Litigation Outcome\n<|id|>32<|page|>3<|box|>393 142 409 313<|content|>A. Cascade's Defense\n<|id|>41<|page|>4<|box|>90 140 107 323<|content|>C. Dispositive Motions\n<|id|>52<|page|>4<|box|>810 140 827 627<|content|>IV. Request for Insurance Contribution to Settleme\n<|id|>57<|page|>5<|box|>439 140 457 588<|content|>V. Request for Reimbursement of Covered Defense Co\n<|id|>59<|page|>5<|box|>532 140 550 488<|content|>A. Calderwood & Harkness LLP Legal Fees\n<|id|>63<|page|>6<|box|>90 140 107 308<|content|>B. E-discovery Costs\n<|id|>65<|page|>6<|box|>272 140 290 264<|content|>C. Expert Fees\n<|id|>67<|page|>6<|box|>474 140 489 320<|content|>D. Local Counsel Fees\n<|id|>69<|page|>6<|box|>638 140 655 482<|content|>E. Defense Cost Reimbursement Requested\n<|id|>71<|page|>6<|box|>811 140 829 462<|content|>VI. Total Insurance Recovery Requested\n<|id|>84<|page|>7<|box|>474 140 492 269<|content|>VII. Enclosures\n<|id|>91<|page|>7<|box|>792 140 809 555<|content|>VIII. Payment Instructions and Contact Information\n<|id|>102<|page|>8<|box|>570 212 587 516<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>16<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>31<|level|>1\n<|id|>32<|level|>2\n<|id|>41<|level|>2\n<|id|>52<|level|>1\n<|id|>57<|level|>1\n<|id|>59<|level|>2\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>1\n<|id|>84<|level|>1\n<|id|>91<|level|>1\n<|id|>102<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        }
+    ]
+}

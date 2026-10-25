@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        6,
+        13
+    ],
+    "pages": [
+        6,
+        7,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>64<|page|>6<|box|>854 140 930 854<|content|>39. ... In each of these seven months, Cardinal Peak CONFIDENTIAL\n<|id|>65<|page|>7<|box|>90 174 126 852<|content|>delivered its Surcharge Notice after the deadline ...elve business days beyond the contractual deadline\n<|id|>136<|page|>12<|box|>676 676 694 854<|content|>Respectfully submitted,\n<|id|>137<|page|>12<|box|>703 730 719 854<|content|>October 3, 2022\n<|id|>141<|page|>12<|box|>866 140 902 571<|content|>Priya Anand (ARDC No. ... 6287431) Billing Partner\n<|id|>142<|page|>13<|box|>90 140 191 854<|content|>Simone Laroche (ARDC No. ... com\n<|id|>145<|page|>13<|box|>299 174 335 854<|content|>Garrett Blackwood Megan Hsu Blackwood Stein & Asso...enteenth Street, Suite 2200 Denver, Colorado 80202\n<|id|>146<|page|>13<|box|>344 140 416 854<|content|>Service was made by the following methods: ... and...l, postage prepaid, to the address set forth above",
+    "raw_response": "<|src_id|>64<|tgt_id|>65",
+    "parsed": [
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        }
+    ]
+}

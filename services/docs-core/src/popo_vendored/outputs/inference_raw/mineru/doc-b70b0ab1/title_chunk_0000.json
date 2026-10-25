@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>127 223 143 772<|content|>CALDERWOOD & HARKNESS LLP INTERNAL MEMORANDUM\n<|id|>9<|page|>1<|box|>354 385 375 611<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>209 419 229 576<|content|>II. Background\n<|id|>15<|page|>2<|box|>253 140 271 398<|content|>A. The Cease-and-Desist Letters\n<|id|>25<|page|>3<|box|>339 140 357 303<|content|>B. WND's Response\n<|id|>34<|page|>4<|box|>90 326 111 671<|content|>III. Analysis of WND's Arguments\n<|id|>35<|page|>4<|box|>136 140 154 772<|content|>A. Argument 1: Non-Compete Provisions Are Overbroa\n<|id|>41<|page|>5<|box|>419 140 436 550<|content|>B. Argument 2: Non-Compete Duration Is Excessive\n<|id|>48<|page|>6<|box|>419 140 436 674<|content|>C. Argument 3: Inadequacy of Consideration for Cer\n<|id|>55<|page|>7<|box|>525 140 542 689<|content|>D. Argument 4: The Covenants Are Unreasonable in F\n<|id|>63<|page|>9<|box|>90 140 107 566<|content|>E. Argument 5: No Misappropriation of Trade Secret\n<|id|>77<|page|>10<|box|>481 140 500 478<|content|>F. Argument 6: Threatened Counterclaims\n<|id|>84<|page|>11<|box|>614 357 633 640<|content|>IV. Additional Observations\n<|id|>85<|page|>11<|box|>657 142 675 511<|content|>A. WND Does Not Address Verdana's Conduct\n<|id|>90<|page|>12<|box|>421 140 438 527<|content|>B. WND Represents All Eight Individuals Jointly\n<|id|>94<|page|>13<|box|>90 140 107 480<|content|>C. Implications for TRO/PI Filing Strategy\n<|id|>103<|page|>14<|box|>136 352 155 643<|content|>V. Recommended Next Steps\n<|id|>112<|page|>15<|box|>209 421 229 576<|content|>VI. Conclusion",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>25<|level|>3\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>41<|level|>3\n<|id|>48<|level|>3\n<|id|>55<|level|>3\n<|id|>63<|level|>3\n<|id|>77<|level|>3\n<|id|>84<|level|>2\n<|id|>85<|level|>3\n<|id|>90<|level|>3\n<|id|>94<|level|>3\n<|id|>103<|level|>2\n<|id|>112<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        }
+    ]
+}

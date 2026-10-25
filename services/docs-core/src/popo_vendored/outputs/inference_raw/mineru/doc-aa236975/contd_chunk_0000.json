@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        11,
+        12,
+        21,
+        22,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>181 140 198 377<|content|>To: ... Francesca Morano, Partner\n<|id|>3<|page|>1<|box|>207 140 224 400<|content|>From: ... Carlos Espinoza, Associate\n<|id|>4<|page|>1<|box|>233 142 250 303<|content|>Date: ... April 15, 2024\n<|id|>5<|page|>1<|box|>258 140 313 857<|content|>Re: ... 24STCV-01892, Superior Court of California, County of Los Angeles\n<|id|>6<|page|>1<|box|>321 140 339 380<|content|>Client: ... Redstone Gaming Corp\n<|id|>88<|page|>11<|box|>854 140 909 856<|content|>3. ... Redstone's Related-Party Shell Game\") was b...eading picture of the relationship between RGC and\n<|id|>89<|page|>12<|box|>89 140 143 854<|content|>Vermilion Holdings LLC. ... Calloway is inaccurate\n<|id|>179<|page|>21<|box|>867 140 902 854<|content|>Third, the Vermilion Holdings allegation in Report...nalyst, Ava Lin, acknowledged in internal Meridian\n<|id|>180<|page|>22<|box|>90 140 217 854<|content|>Solutions messages before publication. ... None of...oven true, and the substantial-truth defense fails\n<|id|>202<|page|>24<|box|>628 140 661 854<|content|>Carlos Espinoza Associate Calderwood & Harkness LL...uth Grand Avenue, Suite 4800 Los Angeles, CA 90071\n<|id|>203<|page|>24<|box|>662 140 723 854<|content|>Distribution: ... Any unauthorized disclosure, dis... memorandum or its contents is strictly prohibited",
+    "raw_response": "<|src_id|>88<|tgt_id|>89\n<|src_id|>179<|tgt_id|>180",
+    "parsed": [
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 180
+        }
+    ]
+}

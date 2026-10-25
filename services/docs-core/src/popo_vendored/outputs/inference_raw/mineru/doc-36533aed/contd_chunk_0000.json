@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        5,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>116 433 133 565<|content|>Attorneys at Law\n<|id|>2<|page|>1<|box|>141 279 159 720<|content|>375 Park Avenue, 30th Floor · New York, New York 10152\n<|id|>3<|page|>1<|box|>167 303 185 694<|content|>Washington, D. ... · San Francisco · Boston · London\n<|id|>4<|page|>1<|box|>193 769 210 854<|content|>INVOICE\n<|id|>5<|page|>1<|box|>219 388 237 854<|content|>Invoice No. ... June 10, 2024\n<|id|>6<|page|>1<|box|>244 142 263 362<|content|>Payment Terms: ... Net 30 Days\n<|id|>7<|page|>1<|box|>262 707 279 854<|content|>FINAL INVOICE\n<|id|>10<|page|>1<|box|>354 140 391 661<|content|>Attn: ... Theresa Nakamura, General Counsel & VP o...0 Torrey Pines Road, Suite 300 San Diego, CA 92130\n<|id|>12<|page|>1<|box|>618 140 654 854<|content|>Billing offices for this matter: ... 20006 (Callow...eet, Suite 3200, San Francisco, CA 94104 (Strauss)\n<|id|>24<|page|>5<|box|>790 143 806 315<|content|>Rate: ... 00 per hour\n<|id|>34<|page|>10<|box|>560 140 637 854<|content|>Reconciliation note: ... 50 in professional fees across the three invoices comprising this engagement\n<|id|>46<|page|>12<|box|>446 174 484 854<|content|>Miriam Calloway, Partner Calderwood & Harkness LLP...et NW, Suite 900 Washington, D. ... (202) 555-0184\n<|id|>47<|page|>12<|box|>492 176 508 514<|content|>Email: ... com\n<|id|>53<|page|>12<|box|>734 176 750 398<|content|>Calderwood & Harkness LLP\n<|id|>54<|page|>12<|box|>760 176 775 379<|content|>Attn: ... Accounts Receivable\n<|id|>55<|page|>12<|box|>776 176 792 558<|content|>375 Park Avenue, 30th Floor New York, NY 10152\n<|id|>58<|page|>12<|box|>854 140 898 854<|content|>Interest on past-due balances accrues at 1. ... Qu...& Harkness LLP, 555 California Street, Suite 3200,\n<|id|>59<|page|>13<|box|>89 140 142 854<|content|>San Francisco, CA 94104; ... CALDERWOOD & HARKNESS LLP — CONFIDENTIAL",
+    "raw_response": "<|src_id|>58<|tgt_id|>59",
+    "parsed": [
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        }
+    ]
+}

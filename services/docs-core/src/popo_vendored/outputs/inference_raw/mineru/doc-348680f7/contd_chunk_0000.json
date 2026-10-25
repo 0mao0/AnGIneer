@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 751 184 854<|content|>July 25, 2023\n<|id|>5<|page|>1<|box|>219 140 253 852<|content|>Catherine Langford, Esq. ... Partner Mercer, Haigh... LLP 2100 Ross Avenue, Suite 3600 Dallas, TX 75201\n<|id|>6<|page|>1<|box|>263 174 335 854<|content|>Re: ... 1025-00006 Master Services Agreement dated November 12, 2019, as amended (the \"MSA\")\n<|id|>14<|page|>1<|box|>868 140 904 854<|content|>The Demand Letter identified two independent but r...ons under the MSA, specifically those set forth in\n<|id|>15<|page|>2<|box|>90 140 218 854<|content|>Exhibit D to the MSA (the \"Data Security Exhibit\")... proximate cause of the security incident at issue\n<|id|>99<|page|>12<|box|>309 210 364 854<|content|>(c) Mandatory quarterly vulnerability scanning of ...ithin ten (10) business days of each scan; ... and\n<|id|>103<|page|>12<|box|>619 140 656 854<|content|>These requirements are non-exhaustive, and Quorum ... conditions as its review of this matter continues\n<|id|>111<|page|>13<|box|>222 181 258 854<|content|>• The right to seek consequential, incidental, and...t permitted by the MSA and applicable law; ... and\n<|id|>113<|page|>13<|box|>279 140 388 854<|content|>Nothing in this letter, in the Demand Letter dated...as an admission of any fact, liability, or defense\n<|id|>118<|page|>13<|box|>733 140 750 272<|content|>Very truly yours,\n<|id|>119<|page|>13<|box|>750 140 766 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>120<|page|>13<|box|>768 142 784 254<|content|>By: ... By\n<|id|>121<|page|>13<|box|>784 140 816 852<|content|>Kevin Ostrowski Partner, Privacy & Data Security 1...et NW, Suite 900 Washington, D. ... (202) 554-8847\n<|id|>122<|page|>13<|box|>818 140 834 480<|content|>Email: ... com\n<|id|>123<|page|>13<|box|>838 142 849 171<|content|>cc: ... cc\n<|id|>124<|page|>13<|box|>859 174 898 854<|content|>Thomas R. ... ,\n<|id|>125<|page|>14<|box|>89 174 143 854<|content|>Partner, Calderwood & Harkness LLP (51 West 52nd S... Esq. ... , Associate, Mercer, Haight & Dunlop LLP\n<|id|>126<|page|>14<|box|>152 140 170 813<|content|>Enclosures: ... )",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>124<|tgt_id|>125",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 125
+        }
+    ]
+}

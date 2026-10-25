@@ -1,0 +1,406 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0jojbhf9\\input\\pdfs\\doc-645c5aff.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0jojbhf9\\enriched\\doc-645c5aff.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>12<|level|>3\n<|id|>15<|level|>3\n<|id|>19<|level|>3\n<|id|>24<|level|>3\n<|id|>27<|level|>3\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>37<|level|>3\n<|id|>43<|level|>3\n<|id|>50<|level|>3\n<|id|>54<|level|>3\n<|id|>57<|level|>2\n<|id|>58<|level|>3\n<|id|>62<|level|>3\n<|id|>69<|level|>3\n<|id|>73<|level|>2\n<|id|>74<|level|>3\n<|id|>80<|level|>3\n<|id|>83<|level|>3\n<|id|>85<|level|>2\n<|id|>86<|level|>3\n<|id|>92<|level|>3\n<|id|>98<|level|>3\n<|id|>101<|level|>3\n<|id|>104<|level|>3\n<|id|>109<|level|>3\n<|id|>118<|level|>3\n<|id|>123<|level|>2\n<|id|>124<|level|>3\n<|id|>128<|level|>3\n<|id|>130<|level|>2\n<|id|>131<|level|>3\n<|id|>133<|level|>3\n<|id|>137<|level|>3\n<|id|>142<|level|>2\n<|id|>143<|level|>3\n<|id|>148<|level|>2\n<|id|>149<|level|>3\n<|id|>157<|level|>2\n<|id|>158<|level|>3\n<|id|>161<|level|>3\n<|id|>164<|level|>3\n<|id|>166<|level|>2\n<|id|>167<|level|>3\n<|id|>172<|level|>2\n<|id|>173<|level|>3\n<|id|>175<|level|>3\n<|id|>186<|level|>2\n<|id|>187<|level|>3\n<|id|>195<|level|>3\n<|id|>197<|level|>2\n<|id|>211<|level|>3\n<|id|>213<|level|>2",
+    "image_output": "<|src_id|>13<|tgt_id|>12\n<|src_id|>21<|tgt_id|>19\n<|src_id|>22<|tgt_id|>19\n<|src_id|>25<|tgt_id|>24\n<|src_id|>29<|tgt_id|>27\n<|src_id|>39<|tgt_id|>37\n<|src_id|>40<|tgt_id|>37\n<|src_id|>52<|tgt_id|>50\n<|src_id|>70<|tgt_id|>69\n<|src_id|>75<|tgt_id|>74\n<|src_id|>76<|tgt_id|>74\n<|src_id|>88<|tgt_id|>86\n<|src_id|>89<|tgt_id|>86\n<|src_id|>94<|tgt_id|>92\n<|src_id|>99<|tgt_id|>98\n<|src_id|>102<|tgt_id|>101\n<|src_id|>139<|tgt_id|>137\n<|src_id|>152<|tgt_id|>149\n<|src_id|>168<|tgt_id|>167\n<|src_id|>169<|tgt_id|>167",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 3
+        },
+        {
+            "id": 213,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 167
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 167
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 39,
+            "table2_idx": 40,
+            "upper_row_ss": [
+                [
+                    "Decatur Manufacturing Plant",
+                    "2200 Industrial Boulevard, Decatur,",
+                    "Macon County",
+                    "Illinois",
+                    "Manufacturing facility; production"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "IL 62521",
+                    "",
+                    "",
+                    "equipment, formulation and blending equipment, inventory (raw materials, work-in-process, finished goods), packaging lines, maintenance equipment"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 75,
+            "table2_idx": 76,
+            "upper_row_ss": [
+                [
+                    "Bank / Financial Institution",
+                    "Account Number (last 4 digits)",
+                    "Account Type",
+                    "Branch / Location",
+                    "Approximate Balance as of Petition Date (May 15, 2025)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Prairie State Bank, N.A.",
+                    "**6014",
+                    "Operating Account (primary)",
+                    "1200 Main Street, Kansas City, MO 64105",
+                    "$6,420,000"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 88,
+            "table2_idx": 89,
+            "upper_row_ss": [
+                [
+                    "U.S. Patent No.",
+                    "Temperature-Stable",
+                    "Issued",
+                    "October 24, 2023",
+                    "USPTO"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "11,798,003",
+                    "Fungicide Suspension Concentrate",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 168,
+            "table2_idx": 169,
+            "upper_row_ss": [
+                [
+                    "Automobile",
+                    "Heartland Mutual",
+                    "HM-AUTO-2024-",
+                    "January 1, 2025 –",
+                    "$5,000,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Liability",
+                    "Insurance Company",
+                    "33415",
+                    "January 1, 2026",
+                    "combined single limit"
+                ]
+            ]
+        }
+    ]
+}

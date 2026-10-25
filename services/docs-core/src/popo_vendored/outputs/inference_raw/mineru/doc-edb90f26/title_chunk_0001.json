@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        136,
+        144
+    ],
+    "pages": [
+        137,
+        139,
+        144
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>347<|page|>137<|box|>165 97 190 492<|content|>附录 B 通用施工信息属性组\n<|id|>350<|page|>139<|box|>165 105 188 502<|content|>附录 C 临时工程模型精细度\n<|id|>356<|page|>144<|box|>188 122 212 401<|content|>本标准用词用语说明",
+    "raw_response": "<|id|>347<|level|>1\n<|id|>350<|level|>1\n<|id|>356<|level|>1",
+    "parsed": [
+        {
+            "id": 347,
+            "level": 1
+        },
+        {
+            "id": 350,
+            "level": 1
+        },
+        {
+            "id": 356,
+            "level": 1
+        }
+    ]
+}

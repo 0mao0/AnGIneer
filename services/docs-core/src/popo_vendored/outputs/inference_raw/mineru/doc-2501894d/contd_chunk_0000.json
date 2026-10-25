@@ -1,0 +1,48 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        53
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        10,
+        11,
+        20,
+        25,
+        26,
+        29,
+        30,
+        31,
+        32,
+        45,
+        52
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT — DRAFT FOR DISCUSSION PURPOSES ONLY\n<|id|>1<|page|>1<|box|>127 331 143 666<|content|>AGREEMENT AND PLAN OF MERGER\n<|id|>2<|page|>1<|box|>152 143 189 854<|content|>REDLINE — Whitford Jessup & Crane LLP Comments — F...erwood & Harkness LLP Draft Dated January 17, 2025\n<|id|>3<|page|>1<|box|>199 468 215 529<|content|>among\n<|id|>5<|page|>1<|box|>277 295 319 700<|content|>and VELOPAY SYSTEMS, INC. ... , a Delaware corporation\n<|id|>6<|page|>1<|box|>327 416 344 580<|content|>Dated as of [●], 2025\n<|id|>7<|page|>1<|box|>353 192 369 803<|content|>DRAFT — January 17, 2025 Calderwood & Harkness LLP Matter No. ... 1003-00003\n<|id|>8<|page|>1<|box|>378 158 395 838<|content|>Sandra — Please find our tracked-changes markup below. ... We look forward to discussing the\n<|id|>9<|page|>1<|box|>398 403 414 594<|content|>open points. ... — RTH / JO\n<|id|>10<|page|>1<|box|>421 140 452 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT — DRAFT FOR DISCUSSION PURPOSES ONLY\n<|id|>12<|page|>1<|box|>486 142 502 408<|content|>Right-click to update Table of Contents\n<|id|>13<|page|>1<|box|>508 140 540 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT — DRAFT FOR DISCUSSION PURPOSES ONLY\n<|id|>24<|page|>2<|box|>612 140 704 856<|content|>WHEREAS, concurrently with the execution and deliv...he payment of the Reverse Termination Fee; ... and\n<|id|>25<|page|>2<|box|>710 140 766 856<|content|>WHEREAS, the Merger is intended to be effected as ... the Merger as a wholly-owned subsidiary of Parent\n<|id|>30<|page|>3<|box|>188 138 315 854<|content|>\"Acquisition Proposal\" means any inquiry, proposal...the Company and its Subsidiaries are attributable,\n<|id|>32<|page|>3<|box|>433 140 470 854<|content|>\"Action\" means any claim, action, suit, arbitratio...proceeding by or before any Governmental Authority\n<|id|>130<|page|>10<|box|>851 140 906 857<|content|>\"Transaction Documents\" means this Agreement, the ...Agreement, the Rollover Agreement, the Stockholder\n<|id|>131<|page|>11<|box|>90 140 127 854<|content|>Representative Agreement, the Non-Competition and ...cument or agreement contemplated hereby or thereby\n<|id|>198<|page|>20<|box|>674 174 691 838<|content|>(i) Nathan Aldridge: ... and\n<|id|>200<|page|>20<|box|>726 140 780 854<|content|>The aggregate amount contributed to the Co-Invest ...ollars ($23,900,000) (the \"Total Rollover Amount\")\n<|id|>254<|page|>25<|box|>797 138 907 857<|content|>(a) The execution, delivery, and performance by th...te any Law applicable to the Company or any of its\n<|id|>255<|page|>26<|box|>90 140 273 856<|content|>Subsidiaries or by which any of their respective p...expected to have a Company Material Adverse Effect\n<|id|>295<|page|>29<|box|>869 140 906 854<|content|>(d) Neither the Company nor any of its Subsidiarie... for Tax purposes (other than a group of which the\n<|id|>296<|page|>30<|box|>90 140 143 854<|content|>Company is the common parent), or has any liabilit...transferee or successor, by Contract, or otherwise\n<|id|>321<|page|>31<|box|>814 140 906 857<|content|>(e) Company Disclosure Schedule 4. ... To the Know...impose any obligation on the Company or any of its\n<|id|>322<|page|>32<|box|>89 140 127 854<|content|>Subsidiaries to disclose, distribute, license, or ...pany or any of its Subsidiaries to any third party\n<|id|>444<|page|>45<|box|>339 174 431 856<|content|>(iii) furnish any non-public information relating ...xpected to lead to an Acquisition Proposal; ... or\n<|id|>446<|page|>45<|box|>518 138 758 857<|content|>Notwithstanding the foregoing, during the fifteen ...ny Person regarding an Acquisition Proposal. ... 3\n<|id|>489<|page|>52<|box|>488 140 542 854<|content|>(c) any event, change, or occurrence that such Par...rue or inaccurate in any material respect; ... and\n<|id|>491<|page|>52<|box|>594 138 742 856<|content|>The delivery of any notice pursuant to this Sectio...edies available to the party receiving such notice",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>130<|tgt_id|>131\n<|src_id|>254<|tgt_id|>255\n<|src_id|>295<|tgt_id|>296\n<|src_id|>321<|tgt_id|>322",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 254,
+            "tgt_id": 255
+        },
+        {
+            "src_id": 295,
+            "tgt_id": 296
+        },
+        {
+            "src_id": 321,
+            "tgt_id": 322
+        }
+    ]
+}

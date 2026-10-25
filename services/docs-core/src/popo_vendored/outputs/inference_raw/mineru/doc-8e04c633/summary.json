@@ -1,0 +1,125 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rrv3mkrn\\input\\pdfs\\doc-8e04c633.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rrv3mkrn\\enriched\\doc-8e04c633.json",
+    "contd_output": "<|src_id|>153<|tgt_id|>154",
+    "title_output": "<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>25<|level|>2\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>47<|level|>3\n<|id|>60<|level|>3\n<|id|>66<|level|>4\n<|id|>72<|level|>3\n<|id|>83<|level|>4\n<|id|>86<|level|>3\n<|id|>107<|level|>4\n<|id|>110<|level|>3\n<|id|>126<|level|>2\n<|id|>130<|level|>2\n<|id|>135<|level|>2\n<|id|>146<|level|>2",
+    "image_output": "<|src_id|>3<|tgt_id|>1\n<|src_id|>128<|tgt_id|>126\n<|src_id|>129<|tgt_id|>126\n<|src_id|>133<|tgt_id|>130",
+    "contd_label": [
+        {
+            "src_id": 153,
+            "tgt_id": 154
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 4
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 4
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 3,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 130
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 128,
+            "table2_idx": 129,
+            "upper_row_ss": [
+                [
+                    "EBITDA Add-Back Cap",
+                    "25% of LTM Adjusted EBITDA; add-backs must be factually supportable and reasonably expected",
+                    "Agreed — to be drafted by Broadwick & Thayer"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "to be realized within 18 months of the relevant calculation date",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>330 140 347 292<|content|>Dear Mr. Whitaker:\n<|id|>9<|page|>1<|box|>661 140 679 506<|content|>1. Transmittal of Executed Escrow Agreement\n<|id|>16<|page|>2<|box|>250 140 266 485<|content|>2. Escrow Amount and Deposit Instructions\n<|id|>24<|page|>3<|box|>359 140 375 442<|content|>3. Summary of Escrow Release Terms\n<|id|>31<|page|>4<|box|>476 140 493 380<|content|>4. Authorized Representatives\n<|id|>33<|page|>4<|box|>625 142 641 712<|content|>Buyer's Authorized Representatives (Crestline Pack\n<|id|>34<|page|>4<|box|>648 142 664 285<|content|>Primary Contact:\n<|id|>37<|page|>4<|box|>736 142 751 300<|content|>Secondary Contact:\n<|id|>43<|page|>5<|box|>90 140 108 692<|content|>Seller's Authorized Representatives (Allegheny Val\n<|id|>54<|page|>5<|box|>453 140 470 356<|content|>5. Notices to Escrow Agent\n<|id|>59<|page|>5<|box|>717 140 734 379<|content|>6. Tax Matters and Reporting\n<|id|>66<|page|>6<|box|>505 140 522 287<|content|>7. Governing Law\n<|id|>68<|page|>6<|box|>646 140 662 369<|content|>8. Acknowledgment Request\n<|id|>87<|page|>7<|box|>619 400 637 596<|content|>ACKNOWLEDGMENT",
+    "raw_response": "<|id|>6<|level|>-1\n<|id|>9<|level|>1\n<|id|>16<|level|>1\n<|id|>24<|level|>1\n<|id|>31<|level|>1\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>37<|level|>3\n<|id|>43<|level|>2\n<|id|>54<|level|>1\n<|id|>59<|level|>1\n<|id|>66<|level|>1\n<|id|>68<|level|>1\n<|id|>87<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 341 118 655<|content|>SIDE LETTER AGREEMENT\n<|id|>2<|page|>1<|box|>161 351 179 645<|content|>Ridgeline-Clarion Co-Invest GP LLC\n<|id|>3<|page|>1<|box|>189 480 205 517<|content|>and\n<|id|>4<|page|>1<|box|>213 377 232 620<|content|>Pellegrino Capital Group LLC\n<|id|>10<|page|>1<|box|>512 142 529 241<|content|>RECITALS\n<|id|>18<|page|>2<|box|>465 140 482 424<|content|>Section 1. Definitions; Construction\n<|id|>31<|page|>3<|box|>476 140 493 450<|content|>Section 2. Most-Favored-Nation Rights\n<|id|>38<|page|>4<|box|>674 140 691 555<|content|>Section 3. Limited Partner Advisory Committee Seat\n<|id|>48<|page|>5<|box|>715 140 732 537<|content|>Section 4. Future Co-Investment Allocation Rights\n<|id|>59<|page|>7<|box|>204 140 222 442<|content|>Section 5. Enhanced Reporting Rights\n<|id|>70<|page|>8<|box|>431 140 449 348<|content|>Section 6. ESG Reporting\n<|id|>78<|page|>9<|box|>630 140 647 486<|content|>Section 7. Excuse and Exclusion Protections\n<|id|>84<|page|>10<|box|>410 140 428 323<|content|>Section 8. Tax Matters\n<|id|>90<|page|>11<|box|>90 140 107 284<|content|>Section 9. Notices\n<|id|>108<|page|>11<|box|>794 140 811 352<|content|>Section 10. Confidentiality\n<|id|>114<|page|>12<|box|>575 140 592 486<|content|>Section 11. Representations and Warranties\n<|id|>127<|page|>13<|box|>616 140 633 383<|content|>Section 12. General Provisions\n<|id|>136<|page|>15<|box|>380 400 398 596<|content|>[Signature Page Follows]\n<|id|>138<|page|>15<|box|>449 140 465 334<|content|>GENERAL PARTNER:\n<|id|>150<|page|>15<|box|>674 401 690 596<|content|>ACKNOWLEDGMENT",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>2\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>18<|level|>2\n<|id|>31<|level|>2\n<|id|>38<|level|>2\n<|id|>48<|level|>2\n<|id|>59<|level|>2\n<|id|>70<|level|>2\n<|id|>78<|level|>2\n<|id|>84<|level|>2\n<|id|>90<|level|>2\n<|id|>108<|level|>2\n<|id|>114<|level|>2\n<|id|>127<|level|>2\n<|id|>136<|level|>-1\n<|id|>138<|level|>2\n<|id|>150<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        }
+    ]
+}

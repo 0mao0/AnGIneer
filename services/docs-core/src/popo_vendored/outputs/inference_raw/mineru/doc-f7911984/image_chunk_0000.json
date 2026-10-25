@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 153 143 844<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 780 Thi\n<|id|>7<|type|>title<|page|>1<|box|>469 142 486 486<|content|>1. Engagement and Scope of Representation\n<|id|>26<|type|>title<|page|>3<|box|>520 142 537 313<|content|>2. Engagement Team\n<|id|>33<|type|>title<|page|>4<|box|>304 140 320 403<|content|>3. Billing Rates and Fee Estimate\n<|id|>34<|type|>title<|page|>4<|box|>334 140 352 279<|content|>3.1 Hourly Rates\n<|id|>35<|type|>table<|page|>4<|box|>381 143 477 852<|content|>None\n<|id|>38<|type|>title<|page|>4<|box|>732 140 750 339<|content|>3.2 Estimated Fee Range\n<|id|>42<|type|>title<|page|>5<|box|>349 140 366 400<|content|>3.3 Disbursements and Expenses\n<|id|>51<|type|>title<|page|>5<|box|>832 140 849 380<|content|>4. Billing and Payment Terms\n<|id|>55<|type|>title<|page|>6<|box|>421 140 438 504<|content|>5. Client Identity and Related Representations\n<|id|>65<|type|>title<|page|>7<|box|>150 140 167 321<|content|>6. Conflicts of Interest\n<|id|>69<|type|>title<|page|>7<|box|>598 140 614 390<|content|>7. Confidentiality and Privilege\n<|id|>72<|type|>title<|page|>8<|box|>148 140 167 264<|content|>8. Termination\n<|id|>76<|type|>title<|page|>8<|box|>523 140 542 287<|content|>9. Governing Law\n<|id|>78<|type|>title<|page|>8<|box|>700 142 719 349<|content|>10. Limitation of Liability\n<|id|>83<|type|>title<|page|>9<|box|>212 142 229 334<|content|>11. Document Retention\n<|id|>86<|type|>title<|page|>9<|box|>470 143 487 437<|content|>12. Acceptance and Countersignature\n<|id|>96<|type|>title<|page|>10<|box|>107 143 141 683<|content|>780 Third Avenue, 30th Floor New York, New York 10",
+    "raw_response": "<|src_id|>35<|tgt_id|>34",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 34
+        }
+    ]
+}

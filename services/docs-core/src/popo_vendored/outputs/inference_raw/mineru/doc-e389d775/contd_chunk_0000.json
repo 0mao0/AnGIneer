@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 398 176 598<|content|>A Delaware Corporation\n<|id|>2<|page|>1<|box|>185 630 202 854<|content|>Effective Date: ... April 5, 2024\n<|id|>3<|page|>1<|box|>210 140 340 857<|content|>This written consent (this \"Consent\") is executed ...ll be effective as of the date first written above\n<|id|>14<|page|>2<|box|>732 174 824 854<|content|>(iv) an Escrow Agreement (the \"Escrow Agreement\") ... Purchasers, and Meridian Pacific Bank, N. ... and\n<|id|>16<|page|>3<|box|>90 140 162 854<|content|>Substantially final drafts of the NPA, the form of...& Harkness LLP and is attached hereto as Exhibit D\n<|id|>59<|page|>7<|box|>851 174 887 854<|content|>(c) cause the preparation and filing of any Curren...curities Exchange Act of 1934, as amended; ... and\n<|id|>61<|page|>8<|box|>215 140 232 230<|content|>and further\n<|id|>80<|page|>10<|box|>301 140 319 352<|content|>Name: ... Marcus Avellino\n<|id|>81<|page|>10<|box|>319 142 335 256<|content|>Title: ... Director\n<|id|>82<|page|>10<|box|>335 142 354 290<|content|>Date: ... April 5, 2024\n<|id|>83<|page|>10<|box|>386 142 404 401<|content|>Name: ... Thornberg\n<|id|>84<|page|>10<|box|>404 142 420 256<|content|>Title: ... Director\n<|id|>85<|page|>10<|box|>421 142 439 290<|content|>Date: ... April 5, 2024\n<|id|>86<|page|>10<|box|>470 142 489 359<|content|>Name: ... Nakashima\n<|id|>87<|page|>10<|box|>489 142 505 254<|content|>Title: ... Director\n<|id|>88<|page|>10<|box|>506 142 523 290<|content|>Date: ... April 5, 2024\n<|id|>89<|page|>10<|box|>556 140 574 357<|content|>Name: ... Hagen\n<|id|>90<|page|>10<|box|>574 142 590 254<|content|>Title: ... Director\n<|id|>91<|page|>10<|box|>592 142 609 290<|content|>Date: ... April 5, 2024\n<|id|>92<|page|>10<|box|>642 140 659 346<|content|>Name: ... Carruthers\n<|id|>93<|page|>10<|box|>659 142 676 256<|content|>Title: ... Director\n<|id|>96<|page|>11<|box|>215 140 251 854<|content|>Exhibit A — Form of Note Purchase Agreement (subst...3, 2024, as prepared by Calderwood & Harkness LLP)\n<|id|>97<|page|>11<|box|>258 140 295 854<|content|>Exhibit B — Form of Senior Unsecured Convertible Promissory Note (being Exhibit A to the NPA)\n<|id|>98<|page|>11<|box|>303 140 339 854<|content|>Exhibit C — Form of Escrow Agreement by and among ...nt (substantially final draft dated April 2, 2024)\n<|id|>99<|page|>11<|box|>348 140 383 852<|content|>Exhibit D — Summary of Key Terms of the Note Offer...d Calderwood & Harkness LLP, dated March 28, 2024)\n<|id|>100<|page|>11<|box|>391 140 436 854<|content|>CONFIDENTIAL — This document constitutes a written...ectors, officers, and legal counsel of the Company",
+    "raw_response": "<|src_id|>14<|tgt_id|>16\n<|src_id|>59<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 61
+        }
+    ]
+}

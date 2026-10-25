@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 152 854<|content|>777 South Flower Street, Suite 4200 Los Angeles, California 90017 Telephone: ... com\n<|id|>2<|page|>1<|box|>161 730 178 854<|content|>August 20, 2023\n<|id|>3<|page|>1<|box|>186 140 203 433<|content|>VIA EMAIL AND CERTIFIED MAIL\n<|id|>4<|page|>1<|box|>212 140 229 848<|content|>Claims Department Pemberton Mutual Assurance Co. ... 3400 Asylum Avenue Hartford, CT 06105\n<|id|>5<|page|>1<|box|>237 174 309 856<|content|>Re: ... 1017-00004\n<|id|>6<|page|>1<|box|>319 140 335 334<|content|>Dear Claims Department: ... Dear Claims Department\n<|id|>13<|page|>1<|box|>859 140 895 854<|content|>2. ... All three named plaintiffs — Marisol Fuentes, Derek\n<|id|>14<|page|>2<|box|>90 174 143 856<|content|>Halloran, and Yesenia Padilla — are former non-exe...uction facilities during the relevant class period\n<|id|>24<|page|>3<|box|>128 181 199 854<|content|>• Karen Fong, Payroll Manager, who testified regar...he calculation and payment of premium pay; ... and\n<|id|>26<|page|>3<|box|>258 140 369 854<|content|>Third-Party discovery. ... The production was over...es, who also sat for a deposition on June 22, 2023\n<|id|>95<|page|>9<|box|>710 174 747 854<|content|>Bernard Crawford, Partner Calderwood & Harkness LL...es, California 90017 Telephone: ... (213) 555-7214\n<|id|>96<|page|>9<|box|>755 176 771 509<|content|>Email: ... com\n<|id|>97<|page|>9<|box|>773 143 789 258<|content|>With copies to: ... With copies to\n<|id|>98<|page|>9<|box|>797 174 834 852<|content|>Gregory Tanaka Vice President, Legal & Compliance ...evard, Suite 1400 West Hollywood, California 90069\n<|id|>99<|page|>9<|box|>843 176 859 447<|content|>Email: ... com\n<|id|>100<|page|>9<|box|>859 176 895 852<|content|>Samuel Okonkwo Managing Director Kestrel Risk Advi... ... One Broadgate London EC2M 2QS, United Kingdom\n<|id|>101<|page|>10<|box|>90 176 106 446<|content|>Email: ... uk\n<|id|>102<|page|>10<|box|>107 140 162 854<|content|>AMA's insurance broker, Kestrel Risk Advisors Ltd.... settlement participation, and any related matters\n<|id|>109<|page|>10<|box|>594 142 609 220<|content|>Sincerely,\n<|id|>110<|page|>10<|box|>609 140 627 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>111<|page|>10<|box|>628 143 645 254<|content|>By: ... By\n<|id|>112<|page|>10<|box|>646 143 661 338<|content|>Bernard Crawford Partner\n<|id|>113<|page|>10<|box|>664 143 678 238<|content|>Enclosures: ... Enclosures\n<|id|>114<|page|>10<|box|>688 176 724 852<|content|>1. ... Raymond Escobedo, August 11, 2023)\n<|id|>116<|page|>10<|box|>785 143 797 171<|content|>cc: ... cc",
+    "raw_response": "<|src_id|>13<|tgt_id|>14",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        }
+    ]
+}

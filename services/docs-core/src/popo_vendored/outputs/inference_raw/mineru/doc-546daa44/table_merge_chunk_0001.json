@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Unresolved Anomalies List', 'Yes (Major)', 'Yes', 'Seven (7) open anomalies are documented. Each']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'anomaly has a severity classification and a description. However, the anomalies have not been assessed for clinical significance in the context of the FDA submission — that is, whether any anomaly could result in erroneous glucose readings, missed alerts, or other clinically meaningful consequences. This assessment must be performed and documented. This is a minor gap addressed as part of Gap 6 in Section VI.']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 116,
+    "table2_idx": 117
+}

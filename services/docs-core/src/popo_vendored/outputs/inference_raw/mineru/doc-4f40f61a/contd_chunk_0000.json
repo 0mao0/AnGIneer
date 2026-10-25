@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 179 151 818<|content|>One Liberty Plaza, 50th Floor New York, New York 10006 Telephone: ... com\n<|id|>2<|page|>1<|box|>161 723 176 854<|content|>October 16, 2023\n<|id|>4<|page|>1<|box|>212 140 247 854<|content|>Markos Theodorakis, Esq. ... General Counsel Thala...Logistics SA 42 Akti Miaouli Piraeus 185 38 Greece\n<|id|>5<|page|>1<|box|>256 174 310 856<|content|>Re: ... 655421/2023, Supreme Court of the State of New York, New York County\n<|id|>6<|page|>1<|box|>318 176 335 398<|content|>C&H Matter No. ... 1044-00006\n<|id|>7<|page|>1<|box|>344 142 361 313<|content|>Dear Mr. ... Theodorakis\n<|id|>14<|page|>1<|box|>867 140 904 854<|content|>Northwind Maritime Corporation (\"Northwind\"), a co...rincipal office at 1700 Harbor Gateway, Suite 500,\n<|id|>15<|page|>2<|box|>90 140 236 856<|content|>Stamford, Connecticut 06902, commenced the Action ...a daily hire rate of $14,750 (the \"Charter-Party\")\n<|id|>27<|page|>3<|box|>359 174 393 854<|content|>(h) Post-trial motions and any appeal to the Appel..., or beyond, if authorized by the Clients; ... and\n<|id|>29<|page|>3<|box|>446 140 464 753<|content|>The scope of this engagement is subject to the fol...ubject to the following limitations and exclusions\n<|id|>65<|page|>6<|box|>612 174 648 854<|content|>(g) Computerized legal research charges (e. ... and\n<|id|>67<|page|>6<|box|>700 140 792 856<|content|>Costs and disbursements will be billed as incurred...ts, which will be in addition to professional fees\n<|id|>112<|page|>11<|box|>133 142 150 349<|content|>Name: ... Douglas Carmichael\n<|id|>113<|page|>11<|box|>150 143 167 248<|content|>Title: ... Partner\n<|id|>114<|page|>11<|box|>167 142 186 266<|content|>Date: ... Date\n<|id|>116<|page|>11<|box|>202 142 219 334<|content|>Name: ... Francesca Morano\n<|id|>117<|page|>11<|box|>219 142 236 248<|content|>Title: ... Partner\n<|id|>118<|page|>11<|box|>237 143 255 266<|content|>Date: ... Date\n<|id|>122<|page|>11<|box|>344 142 361 352<|content|>Name: ... Markos Theodorakis\n<|id|>123<|page|>11<|box|>361 142 378 315<|content|>Title: ... General Counsel\n<|id|>124<|page|>11<|box|>378 142 396 266<|content|>Date: ... Date\n<|id|>127<|page|>11<|box|>439 140 455 354<|content|>Name: ... Alexandros Stavridis\n<|id|>128<|page|>11<|box|>455 140 474 473<|content|>Title: ... Chairman and Chief Executive Officer\n<|id|>129<|page|>11<|box|>474 142 489 267<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>14<|tgt_id|>15",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        40
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        17,
+        20,
+        25,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>135 200 152 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>9<|type|>title<|page|>1<|box|>375 142 392 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>22<|type|>title<|page|>2<|box|>643 140 662 578<|content|>II. BACKGROUND AND TRANSACTION CONTEXT\n<|id|>23<|type|>title<|page|>2<|box|>676 140 693 501<|content|>A. The Credit Facility and Collateral Package\n<|id|>36<|type|>title<|page|>3<|box|>746 142 763 418<|content|>B. Mortgaged Properties Overview\n<|id|>38<|type|>table<|page|>3<|box|>811 143 895 852<|content|>None\n<|id|>39<|type|>table<|page|>4<|box|>88 143 359 852<|content|>None\n<|id|>42<|type|>title<|page|>4<|box|>633 140 650 473<|content|>C. Coordination with Other Workstreams\n<|id|>49<|type|>title<|page|>5<|box|>784 140 819 774<|content|>III. GENERAL STANDARDS AND REQUIREMENTS APPLICABLE\n<|id|>50<|type|>title<|page|>5<|box|>833 140 849 339<|content|>A. Lender's Policy Form\n<|id|>54<|type|>title<|page|>7<|box|>90 140 107 666<|content|>C. Standard Requirements Across All Commitments (S\n<|id|>64<|type|>title<|page|>8<|box|>580 140 598 594<|content|>D. Standard Exceptions to Be Removed or Endorsed O\n<|id|>70<|type|>title<|page|>9<|box|>489 140 507 480<|content|>E. Required Endorsements (All Properties)\n<|id|>85<|type|>title<|page|>11<|box|>258 140 276 594<|content|>IV. PROPERTY-SPECIFIC COMMITMENT REVIEWS\n<|id|>86<|type|>title<|page|>11<|box|>290 140 325 852<|content|>A. Property 1: 1400 Industrial Parkway, Schaumburg\n<|id|>123<|type|>title<|page|>17<|box|>89 140 126 852<|content|>B. Property 2: 2750 Commerce Drive, Rockford, IL 6\n<|id|>146<|type|>title<|page|>20<|box|>393 140 410 442<|content|>5. Action Items — Rockford Property.\n<|id|>155<|type|>title<|page|>20<|box|>712 140 747 852<|content|>C. Property 3: 600 Manufacturers Row, Greenville,\n<|id|>181<|type|>title<|page|>25<|box|>679 140 696 450<|content|>5. Action Items — Greenville Property.\n<|id|>236<|type|>title<|page|>32<|box|>813 140 829 434<|content|>6. Action Items — Houston Property.\n<|id|>249<|type|>title<|page|>33<|box|>527 140 544 712<|content|>V. AGGREGATE / CROSS-COLLATERAL ENDORSEMENT (TIE-I\n<|id|>259<|type|>title<|page|>34<|box|>589 140 606 473<|content|>VI. PREMIUM AND COST ESTIMATES\n<|id|>261<|type|>table<|page|>34<|box|>713 143 906 852<|content|>None\n<|id|>262<|type|>table<|page|>35<|box|>88 143 234 852<|content|>None\n<|id|>266<|type|>title<|page|>35<|box|>674 140 690 508<|content|>VII. INTERCREDITOR CONSIDERATIONS\n<|id|>272<|type|>title<|page|>36<|box|>464 140 482 666<|content|>VIII. COORDINATION WITH POST-CLOSING OBLIGATIONS\n<|id|>276<|type|>title<|page|>36<|box|>734 176 751 493<|content|>Week of April 14, 2025 (Current Week):\n<|id|>288<|type|>title<|page|>37<|box|>207 178 224 511<|content|>By April 30, 2025 (Post-Closing Deadline):\n<|id|>293<|type|>title<|page|>37<|box|>496 142 513 581<|content|>IX. SUMMARY OF OUTSTANDING ACTION ITEMS\n<|id|>294<|type|>table<|page|>37<|box|>565 143 896 852<|content|>None\n<|id|>295<|type|>table<|page|>38<|box|>89 143 897 854<|content|>None\n<|id|>296<|type|>table<|page|>39<|box|>89 143 449 852<|content|>None\n<|id|>297<|type|>title<|page|>39<|box|>500 142 515 364<|content|>X. RECOMMENDATIONS\n<|id|>306<|type|>title<|page|>40<|box|>667 140 684 447<|content|>XI. ATTACHMENTS / APPENDICES",
+    "raw_response": "<|src_id|>38<|tgt_id|>36\n<|src_id|>39<|tgt_id|>36\n<|src_id|>261<|tgt_id|>259\n<|src_id|>262<|tgt_id|>259\n<|src_id|>294<|tgt_id|>293\n<|src_id|>295<|tgt_id|>293\n<|src_id|>296<|tgt_id|>293",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 261,
+            "tgt_id": 259
+        },
+        {
+            "src_id": 262,
+            "tgt_id": 259
+        },
+        {
+            "src_id": 294,
+            "tgt_id": 293
+        },
+        {
+            "src_id": 295,
+            "tgt_id": 293
+        },
+        {
+            "src_id": 296,
+            "tgt_id": 293
+        }
+    ]
+}

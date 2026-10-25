@@ -1,0 +1,152 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 168 125 828<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>2<|page|>1<|box|>202 424 218 573<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>474 267 493 727<|content|>I. PURPOSE AND EXECUTIVE SUMMARY\n<|id|>20<|page|>2<|box|>513 150 558 844<|content|>II. BACKGROUND — THE DEFAMATORY PUBLICATIONS AND T\n<|id|>21<|page|>2<|box|>582 142 599 359<|content|>A. The Three GPR Reports\n<|id|>30<|page|>3<|box|>446 140 464 325<|content|>B. Vindication of RGC\n<|id|>35<|page|>4<|box|>258 140 277 321<|content|>C. Stock-Price Impact\n<|id|>40<|page|>4<|box|>751 140 768 357<|content|>D. Damages Quantification\n<|id|>47<|page|>5<|box|>630 163 674 833<|content|>III. CURRENT LITIGATION POSTURE AND ASSESSMENT OF\n<|id|>48<|page|>5<|box|>699 142 715 300<|content|>A. Causes of Action\n<|id|>56<|page|>6<|box|>446 140 464 387<|content|>B. Strengths of RGC's Position\n<|id|>67<|page|>7<|box|>667 140 685 294<|content|>C. Litigation Risks\n<|id|>75<|page|>8<|box|>660 343 679 653<|content|>IV. TRIAL COST ESTIMATE\n<|id|>82<|page|>9<|box|>493 169 537 825<|content|>V. DEFENDANTS' FINANCIAL CAPACITY AND INSURANCE CO\n<|id|>83<|page|>9<|box|>561 143 579 429<|content|>A. GPR and GPCP Financial Profile\n<|id|>89<|page|>10<|box|>267 140 284 501<|content|>B. Ironclad Surety & Insurance Co. Coverage\n<|id|>98<|page|>10<|box|>696 140 714 434<|content|>C. Implications for Settlement Range\n<|id|>101<|page|>11<|box|>152 168 199 828<|content|>VI. NON-MONETARY SETTLEMENT TERMS — STRATEGIC VALU\n<|id|>103<|page|>11<|box|>329 140 345 344<|content|>A. Corrective Statements\n<|id|>112<|page|>12<|box|>359 140 376 341<|content|>B. Permanent Injunction\n<|id|>116<|page|>12<|box|>715 140 732 326<|content|>C. Non-Disparagement\n<|id|>118<|page|>13<|box|>90 140 107 287<|content|>D. Confidentiality\n<|id|>123<|page|>13<|box|>354 212 375 784<|content|>VII. RECOMMENDED SETTLEMENT PARAMETERS\n<|id|>125<|page|>13<|box|>450 142 469 295<|content|>A. Monetary Floor\n<|id|>134<|page|>14<|box|>241 140 258 372<|content|>B. Non-Monetary Minimums\n<|id|>142<|page|>14<|box|>614 140 632 272<|content|>C. Other Terms\n<|id|>150<|page|>15<|box|>172 243 193 753<|content|>VIII. COMPARISON: SETTLEMENT VS. TRIAL\n<|id|>153<|page|>16<|box|>90 341 109 655<|content|>IX. MEDIATION LOGISTICS\n<|id|>165<|page|>16<|box|>737 305 756 689<|content|>X. REQUEST FOR BOARD ACTION\n<|id|>176<|page|>17<|box|>573 398 592 598<|content|>XI. CONCLUSION\n<|id|>186<|page|>18<|box|>415 297 435 700<|content|>ENCLOSURES AND ATTACHMENTS",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>9<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>30<|level|>3\n<|id|>35<|level|>3\n<|id|>40<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>56<|level|>3\n<|id|>67<|level|>3\n<|id|>75<|level|>2\n<|id|>82<|level|>2\n<|id|>83<|level|>3\n<|id|>89<|level|>3\n<|id|>98<|level|>3\n<|id|>101<|level|>2\n<|id|>103<|level|>3\n<|id|>112<|level|>3\n<|id|>116<|level|>3\n<|id|>118<|level|>3\n<|id|>123<|level|>2\n<|id|>125<|level|>3\n<|id|>134<|level|>3\n<|id|>142<|level|>3\n<|id|>150<|level|>2\n<|id|>153<|level|>2\n<|id|>165<|level|>2\n<|id|>176<|level|>2\n<|id|>186<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 2
+        }
+    ]
+}

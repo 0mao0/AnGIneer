@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 274 118 723<|content|>REVOLVING LOAN PROMISSORY NOTE\n<|id|>7<|page|>1<|box|>709 140 727 303<|content|>Section 1. Principal.\n<|id|>12<|page|>2<|box|>321 140 339 292<|content|>Section 2. Interest.\n<|id|>19<|page|>3<|box|>148 140 167 308<|content|>Section 3. Payments.\n<|id|>24<|page|>3<|box|>496 140 513 326<|content|>Section 4. Prepayment.\n<|id|>27<|page|>3<|box|>808 140 825 446<|content|>Section 5. Credit Agreement; Security.\n<|id|>33<|page|>4<|box|>691 140 709 473<|content|>Section 6. Events of Default; Acceleration.\n<|id|>35<|page|>5<|box|>148 140 167 367<|content|>Section 7. Revolving Nature.\n<|id|>37<|page|>5<|box|>362 140 380 295<|content|>Section 8. Waivers.\n<|id|>40<|page|>5<|box|>638 140 655 352<|content|>Section 9. Governing Law.\n<|id|>42<|page|>5<|box|>815 140 833 444<|content|>Section 10. Submission to Jurisdiction.\n<|id|>44<|page|>6<|box|>369 140 386 401<|content|>Section 11. Waiver of Jury Trial.\n<|id|>46<|page|>6<|box|>710 140 728 419<|content|>Section 12. Successors and Assigns.\n<|id|>48<|page|>7<|box|>90 142 107 343<|content|>Section 13. Amendments.\n<|id|>50<|page|>7<|box|>194 140 210 333<|content|>Section 14. Severability.\n<|id|>52<|page|>7<|box|>337 140 354 336<|content|>[Signature Pages Follow]\n<|id|>53<|page|>7<|box|>362 215 378 779<|content|>[SIGNATURE PAGE TO REVOLVING LOAN PROMISSORY NOTE]\n<|id|>55<|page|>7<|box|>433 143 449 272<|content|>BORROWERS:\n<|id|>56<|page|>7<|box|>459 142 474 450<|content|>CASCADE RETAIL HOLDINGS INC.\n<|id|>63<|page|>7<|box|>579 143 595 562<|content|>CASCADE RETAIL OPERATING COMPANY LLC\n<|id|>71<|page|>7<|box|>715 181 752 813<|content|>[ACKNOWLEDGMENT AND ACCEPTANCE PAGE TO REVOLVING L\n<|id|>73<|page|>7<|box|>787 140 804 702<|content|>CRESCENT HARBOR BANK, NATIONAL ASSOCIATION, as Len\n<|id|>75<|page|>9<|box|>89 437 107 560<|content|>SCHEDULE A\n<|id|>76<|page|>9<|box|>114 323 132 674<|content|>LOANS AND PAYMENTS OF PRINCIPAL",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>19<|level|>2\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>-1\n<|id|>53<|level|>-1\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>63<|level|>3\n<|id|>71<|level|>-1\n<|id|>73<|level|>3\n<|id|>75<|level|>2\n<|id|>76<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        }
+    ]
+}

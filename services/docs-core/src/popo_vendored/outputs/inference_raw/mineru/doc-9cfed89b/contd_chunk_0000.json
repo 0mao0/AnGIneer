@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        8,
+        11
+    ],
+    "pages": [
+        8,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>117<|page|>8<|box|>872 140 909 854<|content|>No current client of the Firm is adverse to BFO in... is adverse to Meridian Peak Capital Advisors LLC,\n<|id|>118<|page|>9<|box|>89 140 127 854<|content|>Meridian Peak Capital Partners Fund IV, L. ... , M...ak in any pending or reasonably anticipated matter\n<|id|>143<|page|>11<|box|>619 140 652 818<|content|>THERESA KIM Lead Associate, Funds & Asset Manageme...lderwood & Harkness LLP Date: ... January 22, 2024\n<|id|>144<|page|>11<|box|>652 140 685 854<|content|>OWEN FISCHER Working Associate, Funds & Asset Management Calderwood & Harkness LLP\n<|id|>145<|page|>11<|box|>686 142 704 316<|content|>Date: ... January 22, 2024\n<|id|>147<|page|>11<|box|>729 140 763 854<|content|>PAMELA CROSS Partner, Funds & Asset Management Cal...LP Responsible Partner — Matter No. ... 1026-00001\n<|id|>148<|page|>11<|box|>763 143 780 300<|content|>Signature: ... Signature\n<|id|>149<|page|>11<|box|>780 142 796 413<|content|>Date of Clearance: ... January 22, 2024\n<|id|>150<|page|>11<|box|>797 140 842 854<|content|>Distribution: ... Do not distribute externally",
+    "raw_response": "<|src_id|>117<|tgt_id|>118",
+    "parsed": [
+        {
+            "src_id": 117,
+            "tgt_id": 118
+        }
+    ]
+}

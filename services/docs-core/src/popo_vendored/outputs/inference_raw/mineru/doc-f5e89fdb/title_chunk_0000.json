@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 205 142 790<|content|>WRITTEN CONSENT OF PINNACLE RIDGE CAPITAL PARTNERS\n<|id|>1<|page|>1<|box|>167 148 203 846<|content|>Approval of Enterprise Software-as-a-Service Agree\n<|id|>3<|page|>1<|box|>453 142 470 243<|content|>RECITALS\n<|id|>4<|page|>1<|box|>479 142 496 246<|content|>WHEREAS:\n<|id|>44<|page|>6<|box|>167 140 184 370<|content|>CONSENT RESOLUTIONS\n<|id|>46<|page|>6<|box|>279 140 297 638<|content|>Resolution 1 — Approval of the MSA and Ancillary D\n<|id|>59<|page|>7<|box|>294 140 310 465<|content|>Resolution 2 — Authorization of Officers\n<|id|>66<|page|>8<|box|>90 140 107 362<|content|>Resolution 3 — Ratification\n<|id|>68<|page|>8<|box|>282 140 299 550<|content|>EFFECTIVENESS AND GENERAL PROVISIONS\n<|id|>70<|page|>8<|box|>491 140 508 367<|content|>No Other Actions Approved\n<|id|>73<|page|>8<|box|>723 140 739 388<|content|>Preservation of Consent Rights\n<|id|>75<|page|>9<|box|>89 142 106 310<|content|>SIGNATURE PAGE\n<|id|>77<|page|>9<|box|>160 142 176 524<|content|>PINNACLE RIDGE CAPITAL PARTNERS, LP\n<|id|>82<|page|>9<|box|>267 143 284 338<|content|>ACKNOWLEDGMENT\n<|id|>84<|page|>9<|box|>375 143 390 439<|content|>ACKNOWLEDGED AND AGREED:\n<|id|>85<|page|>9<|box|>392 143 407 388<|content|>SKYBRIDGE FINTECH LTD.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>2\n<|id|>4<|level|>3\n<|id|>44<|level|>2\n<|id|>46<|level|>3\n<|id|>59<|level|>3\n<|id|>66<|level|>3\n<|id|>68<|level|>2\n<|id|>70<|level|>3\n<|id|>73<|level|>3\n<|id|>75<|level|>2\n<|id|>77<|level|>3\n<|id|>82<|level|>2\n<|id|>84<|level|>3\n<|id|>85<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 4
+        }
+    ]
+}

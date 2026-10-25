@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        45,
+        96
+    ],
+    "pages": [
+        46,
+        51,
+        57,
+        73,
+        81,
+        95,
+        96
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>317<|page|>46<|box|>457 104 473 483<|content|>108/ Yields accepted ranged from 9. ... 947)\n<|id|>347<|page|>46<|box|>561 526 572 724<|content|>* Less than \\$500,000. ... p Preliminary\n<|id|>355<|page|>51<|box|>371 85 383 420<|content|>3/ Treasury Notes, 7-3/8% Series C-1981 and 7-3/8% Series E-1981\n<|id|>357<|page|>51<|box|>365 510 375 628<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>370<|page|>57<|box|>90 417 104 589<|content|>Footnotes to Table PDO-7\n<|id|>371<|page|>57<|box|>153 104 164 296<|content|>Source: ... Bureau of the Public Debt\n<|id|>478<|page|>73<|box|>86 129 178 446<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>479<|page|>73<|box|>87 510 179 826<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1977\n<|id|>502<|page|>81<|box|>76 464 87 585<|content|>JANUARY 31, 1980\n<|id|>503<|page|>81<|box|>87 344 100 727<|content|>Table TSO-2. ... - Interest-Bearing Marketable Public Debt Securities\n<|id|>575<|page|>95<|box|>666 206 686 468<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>576<|page|>95<|box|>690 206 716 461<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>578<|page|>95<|box|>457 545 468 730<|content|>(EQ2) E_{x} \\equiv \\Sigma(\\Delta f c_{1}/\\$ * X_{i}/\\Sigma x)\n<|id|>579<|page|>95<|box|>472 567 500 864<|content|>Where: ... E_{x} is the weighted average of percentage changes in the foreign currency cost of dollars\n<|id|>580<|page|>95<|box|>504 617 523 860<|content|>\\Delta f c_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>581<|page|>95<|box|>527 617 554 855<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>583<|page|>95<|box|>572 545 584 823<|content|>(EQ3) E = [(E_m * m/m+x)*(-1)] + [E_x * x/m+x]\n<|id|>584<|page|>95<|box|>587 567 615 867<|content|>Where: ... and\n<|id|>585<|page|>95<|box|>620 615 646 871<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>599<|page|>96<|box|>876 103 908 481<|content|>A number of changes in geographical classification..... Several countries formerly included in \"Eastern\n<|id|>600<|page|>96<|box|>179 519 289 898<|content|>Europe\" and in \"Other Latin American Republics\" ar...justed in accordance with the revised country stub",
+    "raw_response": "<|src_id|>478<|tgt_id|>479\n<|src_id|>599<|tgt_id|>600",
+    "parsed": [
+        {
+            "src_id": 478,
+            "tgt_id": 479
+        },
+        {
+            "src_id": 599,
+            "tgt_id": 600
+        }
+    ]
+}

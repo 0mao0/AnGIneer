@@ -1,0 +1,153 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gbw6g4j8\\input\\pdfs\\doc-ec42dd92.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gbw6g4j8\\enriched\\doc-ec42dd92.json",
+    "contd_output": "<|src_id|>146<|tgt_id|>147",
+    "title_output": "<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>20<|level|>1\n<|id|>21<|level|>2\n<|id|>25<|level|>2\n<|id|>30<|level|>2\n<|id|>36<|level|>1\n<|id|>37<|level|>2\n<|id|>42<|level|>2\n<|id|>46<|level|>2\n<|id|>49<|level|>2\n<|id|>52<|level|>2\n<|id|>55<|level|>1\n<|id|>63<|level|>1\n<|id|>76<|level|>1\n<|id|>86<|level|>1\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>98<|level|>2\n<|id|>101<|level|>2\n<|id|>104<|level|>1\n<|id|>110<|level|>1\n<|id|>117<|level|>1\n<|id|>134<|level|>1",
+    "image_output": "<|src_id|>39<|tgt_id|>37\n<|src_id|>40<|tgt_id|>37\n<|src_id|>151<|tgt_id|>140",
+    "contd_label": [
+        {
+            "src_id": 146,
+            "tgt_id": 147
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 140
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 39,
+            "table2_idx": 40,
+            "upper_row_ss": [
+                [
+                    "Costa Luma Resort Holdings",
+                    "FL LLC",
+                    "Florida",
+                    "100%",
+                    "$18,500,000",
+                    "$3,700,000",
+                    "$14,800,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "LLC",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

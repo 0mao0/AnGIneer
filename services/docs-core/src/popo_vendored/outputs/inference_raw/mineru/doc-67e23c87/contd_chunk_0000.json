@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        11,
+        12,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 140 196 854<|content|>To: ... Elaine Forsythe, Responsible Partner, Anti...petition Practice Group, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>204 140 239 854<|content|>From: ... Aaron Liu, Lead Associate, Antitrust & Competition Practice Group, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>248 140 266 307<|content|>Date: ... August 5, 2022\n<|id|>5<|page|>1<|box|>273 140 311 854<|content|>Re: ... Specialty Minerals Sales, Torchlight Mining Corp\n<|id|>7<|page|>1<|box|>362 140 378 330<|content|>Matter No. ... 1039-00001\n<|id|>8<|page|>1<|box|>387 140 479 854<|content|>Classification: ... is made in furtherance of the ...s not waive any applicable privilege or protection\n<|id|>19<|page|>2<|box|>819 140 893 854<|content|>Holt had direct authority over pricing decisions w...he U. ... While Holt reported to Marcus Fairchild,\n<|id|>20<|page|>3<|box|>90 140 145 854<|content|>Senior Vice President and General Manager of the G...commercial judgment on matters within the Division\n<|id|>28<|page|>3<|box|>851 140 907 856<|content|>The DOJ investigation, as reflected in the grand j...iod of approximately four and a half years — Gavin\n<|id|>29<|page|>4<|box|>90 140 219 856<|content|>Holt engaged in an agreement with Carl Edgerton, V...re-earth concentrates during the conspiracy period\n<|id|>52<|page|>7<|box|>189 174 244 854<|content|>(f) Offered flexibility as to the timing, location...or at a neutral location selected by Holt; ... and\n<|id|>54<|page|>7<|box|>314 140 351 854<|content|>The email was deliberate in its tone, seeking to c...tential contribution to the internal investigation\n<|id|>67<|page|>8<|box|>319 174 391 854<|content|>(c) An interview conducted under a proffer-type ag...ing and would not be disclosed to the DOJ; ... and\n<|id|>69<|page|>8<|box|>462 140 665 856<|content|>After careful consideration, we determined that fu...al dynamics that would serve no productive purpose\n<|id|>91<|page|>11<|box|>852 140 907 856<|content|>Finding: ... The internal investigation has found ...air Margaret Caldwell, Audit Committee Chair Janet\n<|id|>92<|page|>12<|box|>90 140 292 856<|content|>Moreau-Shaw) had any knowledge of or involvement i...nd in any cooperation proffer submitted to the DOJ\n<|id|>130<|page|>17<|box|>109 140 157 854<|content|>Elaine Forsythe Responsible Partner Antitrust & Co...Francisco, CA 94104 Telephone: ... (415) 555- 7100\n<|id|>131<|page|>17<|box|>159 142 176 468<|content|>Email: ... com\n<|id|>132<|page|>17<|box|>176 143 194 264<|content|>Date: ... Date\n<|id|>133<|page|>17<|box|>194 140 210 642<|content|>cc: ... 1039-00001 file)\n<|id|>134<|page|>17<|box|>217 140 281 856<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV...in waiver of applicable privileges and protections",
+    "raw_response": "<|src_id|>19<|tgt_id|>20\n<|src_id|>28<|tgt_id|>29\n<|src_id|>91<|tgt_id|>92",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 92
+        }
+    ]
+}

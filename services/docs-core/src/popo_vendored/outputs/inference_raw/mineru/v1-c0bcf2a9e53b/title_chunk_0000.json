@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 317<|content|>【1372265#10】数据库事务\n<|id|>2<|page|>1<|box|>156 107 173 248<|content|>【8070#5】数据库\n<|id|>4<|page|>1<|box|>224 107 240 310<|content|>【7633546#0】数据库引擎\n<|id|>6<|page|>1<|box|>307 107 323 319<|content|>【284939#2】分布式数据库\n<|id|>8<|page|>1<|box|>425 107 441 292<|content|>【1806050#2】图数据库\n<|id|>10<|page|>1<|box|>544 107 560 359<|content|>【7082317#3】数据类型 (C语言)\n<|id|>12<|page|>1<|box|>609 107 626 319<|content|>【284939#0】分布式数据库\n<|id|>14<|page|>1<|box|>694 107 709 327<|content|>【5785380#1】多模型数据库\n<|id|>17<|page|>2<|box|>168 107 185 285<|content|>【136969#2】資料倉儲\n<|id|>19<|page|>2<|box|>287 107 303 248<|content|>【8070#4】数据库",
+    "raw_response": "<|id|>0<|level|>2\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        }
+    ]
+}

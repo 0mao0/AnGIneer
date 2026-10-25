@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 202 138 794<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>6<|page|>1<|box|>378 140 396 251<|content|>I. PURPOSE\n<|id|>11<|page|>2<|box|>148 140 166 450<|content|>II. SCOPE OF CONFLICTS SEARCH\n<|id|>15<|page|>2<|box|>571 142 589 439<|content|>Parties and Related Entities Searched\n<|id|>17<|page|>2<|box|>662 140 679 321<|content|>A. Client-Side Entities\n<|id|>25<|page|>3<|box|>383 140 398 431<|content|>B. Landlord / Adverse Party Entities\n<|id|>35<|page|>4<|box|>344 140 361 290<|content|>C. Lender Entities\n<|id|>39<|page|>4<|box|>609 142 627 313<|content|>D. Opposing Counsel\n<|id|>44<|page|>5<|box|>90 140 106 305<|content|>E. Lender's Counsel\n<|id|>48<|page|>5<|box|>318 140 335 529<|content|>F. Brokers, Consultants, and Other Third Parties\n<|id|>61<|page|>6<|box|>428 140 445 341<|content|>III. SEARCH RESULTS\n<|id|>63<|page|>6<|box|>521 140 539 550<|content|>A. Aurelius Global Media Group PLC and Affiliates\n<|id|>68<|page|>7<|box|>90 140 107 625<|content|>B. Greystone Metropolitan Realty LLC and Affiliate\n<|id|>74<|page|>7<|box|>651 140 667 395<|content|>C. Atlas Continental Bank, N.A.\n<|id|>79<|page|>8<|box|>330 140 347 596<|content|>D. Pemberton Locke & Strauss LLP (Landlord's Couns\n<|id|>84<|page|>8<|box|>681 140 699 511<|content|>E. Halsted & Brinkley LLP (Lender's Counsel)\n<|id|>88<|page|>9<|box|>157 140 174 529<|content|>F. Brokers, Consultants, and Other Third Parties\n<|id|>104<|page|>10<|box|>393 140 412 395<|content|>IV. SUMMARY OF FINDINGS\n<|id|>108<|page|>10<|box|>733 140 750 354<|content|>V. RECOMMENDATION\n<|id|>118<|page|>11<|box|>450 140 468 423<|content|>VI. DISTRIBUTION AND FILING\n<|id|>125<|page|>11<|box|>704 200 720 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>1\n<|id|>11<|level|>1\n<|id|>15<|level|>2\n<|id|>17<|level|>3\n<|id|>25<|level|>3\n<|id|>35<|level|>3\n<|id|>39<|level|>3\n<|id|>44<|level|>3\n<|id|>48<|level|>3\n<|id|>61<|level|>1\n<|id|>63<|level|>2\n<|id|>68<|level|>2\n<|id|>74<|level|>2\n<|id|>79<|level|>2\n<|id|>84<|level|>2\n<|id|>88<|level|>2\n<|id|>104<|level|>1\n<|id|>108<|level|>1\n<|id|>118<|level|>1\n<|id|>125<|level|>-1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        }
+    ]
+}

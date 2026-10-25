@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        57,
+        110
+    ],
+    "pages": [
+        58,
+        66,
+        89,
+        90,
+        109,
+        110
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>261<|page|>58<|box|>791 9 921 496<|content|>1/ Differences between the amounts of internal rev...he payments are included in budget receipts in the\n<|id|>270<|page|>66<|box|>68 12 290 467<|content|>Data relating to capital movements between the Uni...e United States are included in the published data\n<|id|>271<|page|>66<|box|>303 9 452 467<|content|>The term \"foreigner\" as used in these reports cove...in the June 1954 issue of the \"Treasury Bulletin,\"\n<|id|>272<|page|>66<|box|>66 518 113 978<|content|>pages 45-47. ... As a result of changes in present... will be exactly comparable to those now presented\n<|id|>315<|page|>89<|box|>108 421 122 576<|content|>(In thousands of dollars)\n<|id|>317<|page|>90<|box|>43 255 57 734<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV...RATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIVITIES\n<|id|>346<|page|>109<|box|>377 33 407 454<|content|>2/ Activities reporting pursuant to Supplement No....om the June 30, 1957, figures are those activities\n<|id|>347<|page|>109<|box|>361 545 389 942<|content|>whose reports for that date cover assets only (see...urnished the data required by Supplement No. ... 1\n<|id|>368<|page|>109<|box|>729 28 741 456<|content|>2/ Represents net appropriations, capitalization of assets, and accu-\n<|id|>369<|page|>109<|box|>736 521 747 641<|content|>* Less than \\$500. ... * Less than \\$500\n<|id|>386<|page|>110<|box|>273 50 286 460<|content|>5/ Consists of activities of the Office of the Administrator other\n<|id|>387<|page|>110<|box|>129 566 149 956<|content|>than revolving funde, and administrative expenses ...tive expenses of the Public Housing Administration",
+    "raw_response": "<|src_id|>271<|tgt_id|>272\n<|src_id|>346<|tgt_id|>347\n<|src_id|>386<|tgt_id|>387",
+    "parsed": [
+        {
+            "src_id": 271,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 346,
+            "tgt_id": 347
+        },
+        {
+            "src_id": 386,
+            "tgt_id": 387
+        }
+    ]
+}

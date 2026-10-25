@@ -1,0 +1,138 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        14,
+        17,
+        18,
+        19,
+        20,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>111 161 147 834<|content|>CALDERWOOD & HARKNESS LLP 600 Lexington Avenue, 30\n<|id|>2<|page|>1<|box|>156 424 172 573<|content|>MEMORANDUM\n<|id|>10<|page|>1<|box|>383 370 402 625<|content|>1. Purpose and Summary\n<|id|>15<|page|>2<|box|>90 374 111 622<|content|>2. Transaction Overview\n<|id|>32<|page|>4<|box|>90 395 111 601<|content|>3. Proposed Staffing\n<|id|>33<|page|>4<|box|>136 142 152 303<|content|>3.1 Core Deal Team\n<|id|>37<|page|>5<|box|>597 140 614 323<|content|>3.2 Support Resources\n<|id|>41<|page|>6<|box|>186 140 204 503<|content|>3.3 Staffing Notes and Coordination Protocols\n<|id|>48<|page|>7<|box|>90 362 111 633<|content|>4. Work Stream Allocation\n<|id|>50<|page|>7<|box|>244 140 260 570<|content|>4.1 Work Stream 1: Indenture and Related Documents\n<|id|>53<|page|>7<|box|>325 140 343 264<|content|>Scope of Work\n<|id|>69<|page|>8<|box|>843 142 859 465<|content|>4.2 Work Stream 2: Purchase Agreement\n<|id|>73<|page|>9<|box|>147 140 164 264<|content|>Scope of Work\n<|id|>84<|page|>10<|box|>253 140 271 488<|content|>4.3 Work Stream 3: Offering Memorandum\n<|id|>88<|page|>10<|box|>398 140 416 264<|content|>Scope of Work\n<|id|>112<|page|>12<|box|>327 140 344 524<|content|>4.4 Work Stream 4: Capped Call Documentation\n<|id|>116<|page|>12<|box|>454 140 470 264<|content|>Scope of Work\n<|id|>143<|page|>14<|box|>253 140 271 751<|content|>4.5 Work Stream 5: Legal Opinions, Closing Deliver\n<|id|>148<|page|>14<|box|>425 140 441 264<|content|>Scope of Work\n<|id|>178<|page|>17<|box|>90 282 111 714<|content|>5. Internal Memoranda and Analysis Work\n<|id|>184<|page|>18<|box|>90 312 111 684<|content|>6. Estimated Budget Against Fee Cap\n<|id|>185<|page|>18<|box|>136 140 152 361<|content|>6.1 Summary Budget Table\n<|id|>189<|page|>18<|box|>578 140 594 375<|content|>6.2 Fee Cap and Contingency\n<|id|>201<|page|>19<|box|>633 140 652 356<|content|>6.3 Disbursement Estimate\n<|id|>206<|page|>20<|box|>272 140 289 395<|content|>6.4 Client Billing Arrangements\n<|id|>213<|page|>20<|box|>693 290 712 705<|content|>7. Projected Timeline and Key Milestones\n<|id|>218<|page|>22<|box|>90 361 111 635<|content|>8. Approval and Next Steps",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>32<|level|>1\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>1\n<|id|>50<|level|>2\n<|id|>53<|level|>3\n<|id|>69<|level|>2\n<|id|>73<|level|>3\n<|id|>84<|level|>2\n<|id|>88<|level|>3\n<|id|>112<|level|>2\n<|id|>116<|level|>3\n<|id|>143<|level|>2\n<|id|>148<|level|>3\n<|id|>178<|level|>1\n<|id|>184<|level|>1\n<|id|>185<|level|>2\n<|id|>189<|level|>2\n<|id|>201<|level|>2\n<|id|>206<|level|>2\n<|id|>213<|level|>1\n<|id|>218<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 184,
+            "level": 1
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 213,
+            "level": 1
+        },
+        {
+            "id": 218,
+            "level": 1
+        }
+    ]
+}

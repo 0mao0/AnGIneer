@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['CYB-001', 'Cyber', '6/14/2023', 'Unauthorized access to internal HR', 'Austin, TX (HQ)', 'Closed', '$85,000', '$85,000', '$0']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'database (~340 employee records); phishing attack', '', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 296,
+    "table2_idx": 297
+}

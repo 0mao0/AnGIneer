@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 8,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 交通安全设施构件', '护栏和栏杆', '△', '▲', '应符合本标准第J.1.4条的有关规定']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=5, 交通安全设施构件', '视线诱导设施', '△', '▲', '应符合本标准第J.1.5条的有关规定']]\n",
+    "raw_response": "[1, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 190,
+    "table2_idx": 191
+}

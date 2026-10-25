@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 316 107 679<|content|>QUORUM INSURANCE HOLDINGS CORP.\n<|id|>7<|page|>1<|box|>286 142 303 323<|content|>Purpose of This Notice\n<|id|>10<|page|>1<|box|>580 140 598 277<|content|>What Happened\n<|id|>17<|page|>2<|box|>458 142 474 401<|content|>What Information Was Involved\n<|id|>24<|page|>2<|box|>739 140 755 331<|content|>What Quorum Is Doing\n<|id|>36<|page|>4<|box|>90 140 126 820<|content|>What You Can Do — Complimentary Credit Monitoring\n<|id|>49<|page|>4<|box|>825 140 842 687<|content|>Additional Steps You Can Take to Protect Your Pers\n<|id|>54<|page|>5<|box|>273 140 289 403<|content|>Credit Freezes / Security Freezes\n<|id|>66<|page|>5<|box|>670 142 686 303<|content|>Free Credit Reports\n<|id|>72<|page|>6<|box|>90 140 107 390<|content|>Monitoring Financial Accounts\n<|id|>74<|page|>6<|box|>253 140 271 380<|content|>FTC Identity Theft Resources\n<|id|>80<|page|>6<|box|>503 142 520 316<|content|>Filing a Police Report\n<|id|>82<|page|>6<|box|>659 140 676 308<|content|>State-Specific Rights\n<|id|>84<|page|>7<|box|>90 142 107 400<|content|>Contact Information / Questions\n<|id|>93<|page|>7<|box|>457 140 474 210<|content|>Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>24<|level|>2\n<|id|>36<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>3\n<|id|>66<|level|>3\n<|id|>72<|level|>3\n<|id|>74<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>3\n<|id|>84<|level|>2\n<|id|>93<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        }
+    ]
+}

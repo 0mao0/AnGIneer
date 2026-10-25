@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['T形梁', '', 'colspan=4, \\\\begin{array}{c|cc|cc} \\\\hline B/h & 0.5 & 0.7 & \\\\geqslant 0.9 \\\\\\\\ \\\\hline C_w & 2.28 & 2.12 & 1.92 \\\\end{array}注:\\\\frac{B}{h}<0.5时,采用矩形梁C_w值']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['名称', '简图', 'colspan=6, 水流阻力系数C_w']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 388,
+    "table2_idx": 389
+}

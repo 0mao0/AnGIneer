@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>4<|type|>table<|page|>1<|box|>300 143 535 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>569 156 604 838<|content|>STIPULATION FOR DISMISSAL OF ENTIRE ACTION AND CRO\n<|id|>6<|type|>title<|page|>1<|box|>613 143 628 759<|content|>TO THE COURT, ALL PARTIES, AND THEIR ATTORNEYS OF\n<|id|>8<|type|>title<|page|>2<|box|>89 142 107 241<|content|>RECITALS\n<|id|>27<|type|>title<|page|>3<|box|>131 140 148 333<|content|>STIPULATED TERMS\n<|id|>44<|type|>table<|page|>4<|box|>689 143 905 852<|content|>None\n<|id|>45<|type|>title<|page|>5<|box|>123 171 140 825<|content|>[PROPOSED] ORDER ON STIPULATION FOR DISMISSAL WITH\n<|id|>47<|type|>title<|page|>5<|box|>229 140 246 370<|content|>IT IS HEREBY ORDERED:\n<|id|>55<|type|>title<|page|>5<|box|>773 140 791 604<|content|>STATE OF CALIFORNIA, COUNTY OF LOS ANGELES",
+    "raw_response": "<|src_id|>4<|tgt_id|>5\n<|src_id|>44<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 27
+        }
+    ]
+}

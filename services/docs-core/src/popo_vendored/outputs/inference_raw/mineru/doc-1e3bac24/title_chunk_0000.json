@@ -1,0 +1,158 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 366 118 630<|content|>JOINDER AGREEMENT\n<|id|>1<|page|>1<|box|>136 236 154 761<|content|>Joinder to Restructuring Support Agreement dated M\n<|id|>4<|page|>1<|box|>448 140 465 243<|content|>RECITALS\n<|id|>5<|page|>1<|box|>474 140 491 246<|content|>WHEREAS:\n<|id|>19<|page|>4<|box|>90 142 107 245<|content|>ARTICLE 1\n<|id|>20<|page|>4<|box|>131 140 148 269<|content|>DEFINITIONS\n<|id|>37<|page|>5<|box|>148 142 166 245<|content|>ARTICLE 2\n<|id|>38<|page|>5<|box|>190 140 207 397<|content|>JOINDER AND AGREEMENT\n<|id|>54<|page|>7<|box|>248 142 265 245<|content|>ARTICLE 3\n<|id|>55<|page|>7<|box|>289 140 306 498<|content|>REPRESENTATIONS AND WARRANTIES\n<|id|>62<|page|>8<|box|>412 142 430 245<|content|>ARTICLE 4\n<|id|>63<|page|>8<|box|>454 140 470 282<|content|>TERMINATION\n<|id|>71<|page|>9<|box|>239 142 257 245<|content|>ARTICLE 5\n<|id|>72<|page|>9<|box|>282 140 299 307<|content|>MISCELLANEOUS\n<|id|>102<|page|>11<|box|>674 290 690 705<|content|>SIGNATURE PAGES TO JOINDER AGREEMENT\n<|id|>103<|page|>11<|box|>699 390 715 607<|content|>CONSENTING LENDERS\n<|id|>104<|page|>11<|box|>726 140 742 852<|content|>NORDBANK INTERNATIONAL AG (in its capacity as a Le\n<|id|>123<|page|>12<|box|>228 143 243 385<|content|>HARBORSTONE BANK PLC\n<|id|>132<|page|>12<|box|>383 143 398 450<|content|>PACIFICA TRADE FINANCE CORP.\n<|id|>141<|page|>12<|box|>537 143 554 529<|content|>CONTINENTAL MARITIME LENDING GmbH\n<|id|>150<|page|>12<|box|>709 143 724 423<|content|>TRITON CREDIT PARTNERS LP\n<|id|>159<|page|>12<|box|>880 143 896 433<|content|>LAURENTIAN SHIPPING FUND II\n<|id|>168<|page|>13<|box|>228 143 243 475<|content|>CASPIAN ASSET MANAGEMENT LTD.\n<|id|>177<|page|>13<|box|>414 143 430 513<|content|>PELAGOS INSTITUTIONAL CREDIT FUND\n<|id|>186<|page|>13<|box|>570 299 585 697<|content|>AGGREGATE COMMITMENT VERIFICATION\n<|id|>189<|page|>14<|box|>152 352 169 645<|content|>ACKNOWLEDGED AND AGREED\n<|id|>190<|page|>14<|box|>178 357 195 640<|content|>COUNTERPARTY SIGNATURES\n<|id|>209<|page|>14<|box|>556 437 574 560<|content|>SCHEDULE A\n<|id|>210<|page|>14<|box|>583 274 599 723<|content|>CONSENTING LENDER COMMITMENT SCHEDULE\n<|id|>215<|page|>15<|box|>354 447 371 550<|content|>EXHIBIT A\n<|id|>216<|page|>15<|box|>381 359 398 637<|content|>FORM OF TRANSFER JOINDER\n<|id|>217<|page|>15<|box|>407 343 424 653<|content|>TRANSFER JOINDER AGREEMENT\n<|id|>238<|page|>16<|box|>494 140 512 790<|content|>NORDBANK INTERNATIONAL AG (as Administrative Agent",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>5<|level|>3\n<|id|>19<|level|>2\n<|id|>20<|level|>2\n<|id|>37<|level|>2\n<|id|>38<|level|>2\n<|id|>54<|level|>2\n<|id|>55<|level|>2\n<|id|>62<|level|>2\n<|id|>63<|level|>2\n<|id|>71<|level|>2\n<|id|>72<|level|>2\n<|id|>102<|level|>1\n<|id|>103<|level|>2\n<|id|>104<|level|>3\n<|id|>123<|level|>3\n<|id|>132<|level|>3\n<|id|>141<|level|>3\n<|id|>150<|level|>3\n<|id|>159<|level|>3\n<|id|>168<|level|>3\n<|id|>177<|level|>3\n<|id|>186<|level|>2\n<|id|>189<|level|>1\n<|id|>190<|level|>2\n<|id|>209<|level|>1\n<|id|>210<|level|>2\n<|id|>215<|level|>1\n<|id|>216<|level|>2\n<|id|>217<|level|>3\n<|id|>238<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 1
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 1
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 1
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 4
+        }
+    ]
+}

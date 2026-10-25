@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['CUT-03', 'License of mature rare', 'June 2013', 'Europe and Asia-', '3.8% of net', 'Approved product;', 'Commercial Database', 'PPC-IDR25-']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'disease compound; fixed royalty rate; 10-year term with renewal option; licensee responsible for local regulatory filings', '', 'Pacific', 'sales', 'rare disease therapeutic area; mature compound with declining sales trajectory', '(Vireo Health IT)', '000120 - 000178']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 64,
+    "table2_idx": 65
+}

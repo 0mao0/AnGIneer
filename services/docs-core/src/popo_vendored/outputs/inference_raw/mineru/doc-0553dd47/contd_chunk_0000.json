@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        16
+    ],
+    "pages": [
+        2,
+        3,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>14<|page|>2<|box|>875 140 909 856<|content|>6. ... In response to the allegations of Paragraph...y of San Bernardino pursuant to California Code of\n<|id|>15<|page|>3<|box|>89 174 127 854<|content|>Civil Procedure sections 395 and 395. ... 5, based...37, which is situated within San Bernardino County\n<|id|>77<|page|>13<|box|>784 140 893 857<|content|>Vantage's meal and rest break policies, as documen...nce with the substantive requirements of the Labor\n<|id|>78<|page|>14<|box|>90 140 164 856<|content|>Code and applicable Wage Orders provides a complet...ulation that forms the predicate for the UCL claim\n<|id|>95<|page|>16<|box|>89 651 108 854<|content|>Dated: ... September 11, 2025\n<|id|>96<|page|>16<|box|>150 142 167 320<|content|>Respectfully submitted,\n<|id|>97<|page|>16<|box|>175 140 193 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>98<|page|>16<|box|>236 143 253 251<|content|>By: ... By\n<|id|>99<|page|>16<|box|>253 140 271 692<|content|>Renata Vasquez (SBN 247812) Responsible Partner, Labor & Employment\n<|id|>100<|page|>16<|box|>271 140 289 673<|content|>Bernard Crawford (SBN 219476) Billing Partner, Labor & Employment\n<|id|>101<|page|>16<|box|>287 140 305 676<|content|>James Underwood (SBN 312954) Lead Associate, Labor & Employment\n<|id|>102<|page|>16<|box|>305 142 323 674<|content|>Devon Archer (SBN 338261) Working Associate, Labor & Employment\n<|id|>103<|page|>16<|box|>321 140 354 854<|content|>633 West Fifth Street, Suite 4400 Los Angeles, California 90071 Telephone: ... (213) 486-7001\n<|id|>104<|page|>16<|box|>356 140 375 566<|content|>Attorneys for Defendant Vantage Mobility Systems C...orneys for Defendant Vantage Mobility Systems Corp\n<|id|>107<|page|>16<|box|>450 140 467 465<|content|>Elena Garza (SBN 258193) Contact Partner\n<|id|>108<|page|>16<|box|>465 140 500 854<|content|>290 North D Street, Suite 510 San Bernardino, California 92401 Telephone: ... (909) 381-4201",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>77<|tgt_id|>78",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        }
+    ]
+}

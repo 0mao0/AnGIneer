@@ -1,0 +1,153 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 169 125 826<|content|>MEMORANDUM — PRIVILEGED AND CONFIDENTIAL / ATTORNE\n<|id|>6<|page|>1<|box|>297 142 314 383<|content|>1. Overview and Call Logistics\n<|id|>24<|page|>2<|box|>267 140 284 555<|content|>2. Springing Fixed Charge Coverage Ratio Covenant\n<|id|>25<|page|>2<|box|>297 140 314 344<|content|>2.1 HCB's Initial Position\n<|id|>28<|page|>2<|box|>633 140 651 406<|content|>2.2 Greenfield's Counter-Position\n<|id|>32<|page|>3<|box|>349 140 364 321<|content|>2.3 Resolution / Status\n<|id|>36<|page|>3<|box|>666 140 683 511<|content|>3. Distribution / Restricted Payments Covenant\n<|id|>37<|page|>3<|box|>696 140 714 393<|content|>3.1 HCB's Proposed Conditions\n<|id|>43<|page|>4<|box|>257 140 273 336<|content|>3.2 Greenfield's Position\n<|id|>48<|page|>5<|box|>90 140 107 305<|content|>3.3 HCB's Response\n<|id|>54<|page|>5<|box|>771 140 789 388<|content|>4. Change of Control Provision\n<|id|>55<|page|>5<|box|>801 140 819 390<|content|>4.1 KBW's Proposed Definition\n<|id|>60<|page|>6<|box|>246 140 263 338<|content|>4.2 Greenfield's Position\n<|id|>65<|page|>7<|box|>90 140 107 303<|content|>4.3 HCB's Response\n<|id|>71<|page|>7<|box|>734 140 751 411<|content|>5. Capital Expenditure Limitation\n<|id|>72<|page|>7<|box|>763 140 782 346<|content|>5.1 KBW's Proposed Cap\n<|id|>74<|page|>8<|box|>89 140 107 336<|content|>5.2 Greenfield's Position\n<|id|>80<|page|>8<|box|>484 140 503 305<|content|>5.3 HCB's Response\n<|id|>88<|page|>9<|box|>286 140 303 436<|content|>6. Investment and Acquisition Basket\n<|id|>89<|page|>9<|box|>316 140 333 364<|content|>6.1 KBW's Proposed Terms\n<|id|>95<|page|>9<|box|>602 140 619 336<|content|>6.2 Greenfield's Position\n<|id|>100<|page|>10<|box|>294 140 311 305<|content|>6.3 HCB's Response\n<|id|>105<|page|>10<|box|>729 140 746 419<|content|>7. Additional Indebtedness Baskets\n<|id|>114<|page|>11<|box|>527 140 545 454<|content|>8. Commodity Hedging Negative Pledge\n<|id|>115<|page|>11<|box|>559 140 575 398<|content|>8.1 KBW's Proposed Restriction\n<|id|>117<|page|>11<|box|>741 140 758 336<|content|>8.2 Greenfield's Position\n<|id|>124<|page|>12<|box|>481 140 498 305<|content|>8.3 HCB's Response\n<|id|>131<|page|>13<|box|>285 140 301 339<|content|>9. Other Items Discussed\n<|id|>132<|page|>13<|box|>316 140 334 380<|content|>9.1 Field Examination Update\n<|id|>137<|page|>14<|box|>90 140 107 352<|content|>9.2 Timing and Next Steps\n<|id|>143<|page|>14<|box|>715 142 733 503<|content|>10. Summary of Open Items and Action Items\n<|id|>146<|page|>15<|box|>670 142 686 251<|content|>Action Items.",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>1\n<|id|>24<|level|>1\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>1\n<|id|>37<|level|>2\n<|id|>43<|level|>2\n<|id|>48<|level|>2\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>65<|level|>2\n<|id|>71<|level|>1\n<|id|>72<|level|>2\n<|id|>74<|level|>2\n<|id|>80<|level|>2\n<|id|>88<|level|>1\n<|id|>89<|level|>2\n<|id|>95<|level|>2\n<|id|>100<|level|>2\n<|id|>105<|level|>1\n<|id|>114<|level|>1\n<|id|>115<|level|>2\n<|id|>117<|level|>2\n<|id|>124<|level|>2\n<|id|>131<|level|>1\n<|id|>132<|level|>2\n<|id|>137<|level|>2\n<|id|>143<|level|>1\n<|id|>146<|level|>2",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 2
+        }
+    ]
+}

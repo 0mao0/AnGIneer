@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>8<|type|>title<|page|>1<|box|>619 140 638 357<|content|>1. Description of the Client\n<|id|>12<|type|>title<|page|>2<|box|>314 140 332 354<|content|>2. Scope of Representation\n<|id|>37<|type|>title<|page|>4<|box|>825 140 844 313<|content|>3. Engagement Team\n<|id|>45<|type|>title<|page|>5<|box|>773 140 790 547<|content|>4. Identification of Other Parties and Their Couns\n<|id|>47<|type|>table<|page|>5<|box|>840 143 907 852<|content|>None\n<|id|>48<|type|>table<|page|>6<|box|>88 143 415 852<|content|>None\n<|id|>50<|type|>title<|page|>6<|box|>545 140 563 310<|content|>5. Fee Arrangements\n<|id|>51<|type|>title<|page|>6<|box|>575 140 594 240<|content|>5.1 Fee Cap\n<|id|>54<|type|>title<|page|>7<|box|>90 140 108 413<|content|>5.2 Billing Rates and Methodology\n<|id|>56<|type|>table<|page|>7<|box|>193 143 305 852<|content|>None\n<|id|>59<|type|>title<|page|>7<|box|>561 140 578 400<|content|>5.3 Disbursements and Expenses\n<|id|>69<|type|>title<|page|>8<|box|>138 140 157 506<|content|>5.4 Lender's Counsel Expense Reimbursement\n<|id|>73<|type|>title<|page|>8<|box|>500 140 516 397<|content|>6. Conflict of Interest Clearance\n<|id|>78<|type|>title<|page|>9<|box|>204 140 222 285<|content|>7. Confidentiality\n<|id|>82<|type|>title<|page|>9<|box|>616 140 633 326<|content|>8. Document Retention\n<|id|>85<|type|>title<|page|>10<|box|>90 140 107 264<|content|>9. Termination\n<|id|>88<|type|>title<|page|>10<|box|>329 143 347 297<|content|>10. Governing Law\n<|id|>90<|type|>title<|page|>10<|box|>450 142 469 339<|content|>11. Anticipated Timeline\n<|id|>91<|type|>table<|page|>10<|box|>518 143 678 852<|content|>None\n<|id|>93<|type|>title<|page|>10<|box|>844 142 861 406<|content|>12. Acceptance and Counterparts\n<|id|>98<|type|>title<|page|>11<|box|>358 212 375 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>109<|type|>title<|page|>11<|box|>556 380 573 617<|content|>AGREED AND ACCEPTED:\n<|id|>116<|type|>title<|page|>11<|box|>696 142 710 171<|content|>cc:",
+    "raw_response": "<|src_id|>47<|tgt_id|>45\n<|src_id|>48<|tgt_id|>45\n<|src_id|>56<|tgt_id|>54\n<|src_id|>91<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 90
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        7,
+        11,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 264 133 733<|content|>555 Mission Street, Suite 3100 San Francisco, California 94105\n<|id|>2<|page|>1<|box|>142 140 181 813<|content|>Telephone: ... com CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED\n<|id|>3<|page|>1<|box|>190 748 207 854<|content|>June 15, 2026\n<|id|>4<|page|>1<|box|>215 457 233 854<|content|>Matter Number: ... 001\n<|id|>5<|page|>1<|box|>242 140 258 537<|content|>Mr. ... Sandeep Rajan Managing Partner & GP Principal\n<|id|>6<|page|>1<|box|>268 140 285 457<|content|>Ms. ... Christine Aldridge Partner, Deal Lead\n<|id|>7<|page|>1<|box|>294 140 330 854<|content|>Pinnacle Venture Fund II LP c/o Pinnacle Capital M...levard, Suite 1200 San Francisco, California 94115\n<|id|>8<|page|>1<|box|>338 140 356 761<|content|>Re: ... Closing of Series A Preferred Stock Financing — Quillen Technologies, Inc\n<|id|>67<|page|>7<|box|>587 174 622 854<|content|>(j) The hiring, termination, or change in compensa... of the Company's Chief Executive Officer; ... and\n<|id|>69<|page|>7<|box|>675 140 767 856<|content|>The full text of the protective provisions is set ...y consent required under the protective provisions\n<|id|>114<|page|>11<|box|>472 174 491 834<|content|>(b) Inspect the books, records, and facilities of the Company upon reasonable request; ... and\n<|id|>116<|page|>11<|box|>542 140 654 856<|content|>These management rights are intended to be suffici...isfy the applicable VCOC requirements for the Fund\n<|id|>149<|page|>14<|box|>864 140 900 854<|content|>We wish to express our sincere appreciation for th...ed working with Sandeep, Christine, and the entire\n<|id|>150<|page|>15<|box|>90 140 181 854<|content|>Pinnacle team, and we are proud of the result achi...member of the engagement team, at your convenience\n<|id|>154<|page|>15<|box|>250 140 282 852<|content|>Rachel Bernstein, Partner 555 Mission Street, Suit...co, California 94105 Telephone: ... (415) 782-6010\n<|id|>155<|page|>15<|box|>282 140 299 473<|content|>Email: ... com\n<|id|>156<|page|>15<|box|>299 140 354 854<|content|>cc: ... Robert Jansen, Calderwood & Harkness LLP\n<|id|>157<|page|>15<|box|>362 140 380 470<|content|>Encl. ... Closing Binder (under separate cover)",
+    "raw_response": "<|src_id|>149<|tgt_id|>150",
+    "parsed": [
+        {
+            "src_id": 149,
+            "tgt_id": 150
+        }
+    ]
+}

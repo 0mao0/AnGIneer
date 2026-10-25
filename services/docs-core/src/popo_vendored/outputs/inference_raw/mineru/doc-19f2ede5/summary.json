@@ -1,0 +1,173 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kozq_mxi\\input\\pdfs\\doc-19f2ede5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kozq_mxi\\enriched\\doc-19f2ede5.json",
+    "contd_output": "<|src_id|>75<|tgt_id|>76\n<|src_id|>122<|tgt_id|>123",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>9<|level|>2\n<|id|>16<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>3\n<|id|>52<|level|>3\n<|id|>56<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>63<|level|>4\n<|id|>71<|level|>4\n<|id|>77<|level|>4\n<|id|>83<|level|>4\n<|id|>89<|level|>3\n<|id|>90<|level|>4\n<|id|>99<|level|>4\n<|id|>104<|level|>4\n<|id|>109<|level|>4\n<|id|>118<|level|>3\n<|id|>119<|level|>4\n<|id|>126<|level|>4\n<|id|>132<|level|>3\n<|id|>133<|level|>4\n<|id|>138<|level|>4\n<|id|>142<|level|>2\n<|id|>148<|level|>2\n<|id|>165<|level|>2\n<|id|>167<|level|>3\n<|id|>170<|level|>3",
+    "image_output": "<|src_id|>1<|tgt_id|>0\n<|src_id|>54<|tgt_id|>52\n<|src_id|>55<|tgt_id|>52",
+    "contd_label": [
+        {
+            "src_id": 75,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 4
+        },
+        {
+            "id": 99,
+            "level": 4
+        },
+        {
+            "id": 104,
+            "level": 4
+        },
+        {
+            "id": 109,
+            "level": 4
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 4
+        },
+        {
+            "id": 126,
+            "level": 4
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 4
+        },
+        {
+            "id": 138,
+            "level": 4
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 52
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 54,
+            "table2_idx": 55,
+            "upper_row_ss": [
+                [
+                    "Factor 3: Management Approach",
+                    "Good",
+                    "Good"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "(Overall)",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

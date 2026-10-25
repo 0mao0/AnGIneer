@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        13,
+        14,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>253 140 309 854<|content|>GREYSTONE MERIDIAN PARTNERS FUND III, L. ... and\n<|id|>5<|page|>1<|box|>316 140 372 854<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST, a Maryland...eake Parkway, Suite 1100, Columbia, Maryland 21044\n<|id|>14<|page|>2<|box|>526 140 637 856<|content|>E. ... and\n<|id|>16<|page|>2<|box|>724 140 799 854<|content|>NOW, THEREFORE, in consideration of the mutual cov... hereby acknowledged, the Parties agree as follows\n<|id|>120<|page|>13<|box|>160 174 196 852<|content|>Greystone Meridian Partners Fund III, L. ... 3300 Peachtree Road NE, Suite 2200 Atlanta, Georgia 30326\n<|id|>121<|page|>13<|box|>204 176 220 622<|content|>Attention: ... Victor Lansdell, Co-Founder & Managing Partner\n<|id|>122<|page|>13<|box|>222 176 239 545<|content|>With a copy to (which shall not constitute notice)...With a copy to (which shall not constitute notice)\n<|id|>123<|page|>13<|box|>247 176 282 854<|content|>Blackridge Hayes LLP 1285 Avenue of the Americas, 34th Floor New York, New York 10019\n<|id|>124<|page|>13<|box|>292 178 308 377<|content|>Attention: ... Nathaniel Pryce\n<|id|>125<|page|>13<|box|>309 178 325 294<|content|>If to Assignee: ... If to Assignee\n<|id|>126<|page|>13<|box|>334 174 369 852<|content|>Fairwater Real Estate Investment Trust 7200 Chesapeake Parkway, Suite 1100 Columbia, Maryland 21044\n<|id|>127<|page|>13<|box|>378 176 395 517<|content|>Attention: ... David Elgin Park, General Counsel\n<|id|>128<|page|>13<|box|>396 176 412 544<|content|>With a copy to (which shall not constitute notice)...With a copy to (which shall not constitute notice)\n<|id|>129<|page|>13<|box|>422 176 439 825<|content|>Calderwood & Harkness LLP 450 Park Avenue, 28th Floor New York, New York 10022\n<|id|>130<|page|>13<|box|>448 176 465 392<|content|>Attention: ... Douglas Fairchild\n<|id|>139<|page|>14<|box|>159 140 178 792<|content|>GREYSTONE MERIDIAN PARTNERS FUND III, L. ... , a Delaware limited partnership\n<|id|>140<|page|>14<|box|>176 142 194 424<|content|>By: ... Greystone Meridian Capital LLC,\n<|id|>141<|page|>14<|box|>195 140 212 560<|content|>a Delaware limited liability company, its General Partner\n<|id|>142<|page|>14<|box|>213 143 229 253<|content|>By: ... By\n<|id|>143<|page|>14<|box|>229 142 244 315<|content|>Name: ... Victor Lansdell\n<|id|>144<|page|>14<|box|>246 142 263 433<|content|>Title: ... Co-Founder & Managing Partner\n<|id|>145<|page|>14<|box|>263 142 279 285<|content|>Date: ... June 6, 2024\n<|id|>149<|page|>14<|box|>386 142 402 339<|content|>Name: ... Marcus Devereaux\n<|id|>150<|page|>14<|box|>402 140 419 475<|content|>Title: ... Executive Vice President, Acquisitions\n<|id|>151<|page|>14<|box|>420 142 436 287<|content|>Date: ... June 6, 2024\n<|id|>152<|page|>14<|box|>436 246 454 750<|content|>ACKNOWLEDGMENT AND CONSENT OF THE COMPANY\n<|id|>153<|page|>14<|box|>463 140 609 854<|content|>GMP Katy LLC, a Delaware limited liability company... in full force and effect as of the Effective Date\n<|id|>154<|page|>14<|box|>616 140 635 557<|content|>GMP KATY LLC, a Delaware limited liability company\n<|id|>155<|page|>14<|box|>635 142 652 253<|content|>By: ... By\n<|id|>156<|page|>14<|box|>652 142 667 339<|content|>Name: ... Marcus Devereaux\n<|id|>157<|page|>14<|box|>669 142 686 343<|content|>Title: ... Authorized Manager\n<|id|>158<|page|>14<|box|>686 142 703 287<|content|>Date: ... June 6, 2024\n<|id|>183<|page|>17<|box|>465 142 479 674<|content|>Calderwood & Harkness LLP 450 Park Avenue, 28th Floor New York, New York 10022\n<|id|>184<|page|>17<|box|>488 140 518 852<|content|>Responsible Partner: ... Sylvia Hartwell",
+    "raw_response": "<|src_id|>4<|tgt_id|>5\n<|src_id|>140<|tgt_id|>141\n<|src_id|>142<|tgt_id|>143\n<|src_id|>155<|tgt_id|>156\n<|src_id|>156<|tgt_id|>157",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 141
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 156
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 157
+        }
+    ]
+}

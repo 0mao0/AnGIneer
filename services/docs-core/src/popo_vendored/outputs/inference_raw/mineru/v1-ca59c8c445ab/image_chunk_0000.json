@@ -1,0 +1,70 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>181 266 210 782<|content|>附录 A 设计船型尺度及其他参数\n<|id|>4<|type|>table<|page|>1<|box|>461 148 776 900<|content|>None\n<|id|>5<|type|>table<|page|>1<|box|>830 150 904 900<|content|>None\n<|id|>7<|type|>table<|page|>2<|box|>121 96 536 846<|content|>None\n<|id|>8<|type|>table<|page|>2<|box|>589 98 903 846<|content|>None\n<|id|>10<|type|>table<|page|>3<|box|>121 150 242 900<|content|>None\n<|id|>11<|type|>table<|page|>3<|box|>292 148 656 900<|content|>None\n<|id|>12<|type|>table<|page|>3<|box|>781 150 903 900<|content|>None\n<|id|>13<|type|>table<|page|>4<|box|>100 179 901 901<|content|>None\n<|id|>14<|type|>table<|page|>5<|box|>101 127 901 846<|content|>None\n<|id|>16<|type|>table<|page|>6<|box|>101 179 901 901<|content|>None\n<|id|>17<|type|>table<|page|>7<|box|>101 127 901 848<|content|>None\n<|id|>18<|type|>table<|page|>8<|box|>101 179 901 900<|content|>None",
+    "raw_response": "<|src_id|>4<|tgt_id|>0\n<|src_id|>5<|tgt_id|>0\n<|src_id|>7<|tgt_id|>0\n<|src_id|>8<|tgt_id|>0\n<|src_id|>10<|tgt_id|>0\n<|src_id|>11<|tgt_id|>0\n<|src_id|>12<|tgt_id|>0\n<|src_id|>13<|tgt_id|>0\n<|src_id|>14<|tgt_id|>0\n<|src_id|>16<|tgt_id|>0\n<|src_id|>17<|tgt_id|>0\n<|src_id|>18<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 0
+        }
+    ]
+}

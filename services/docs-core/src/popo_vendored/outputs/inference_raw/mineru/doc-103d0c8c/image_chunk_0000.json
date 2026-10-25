@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>151 351 170 645<|content|>OFFICER'S CERTIFICATE\n<|id|>2<|type|>title<|page|>1<|box|>189 267 205 730<|content|>Delivered Pursuant to Section [__] of the Credit A\n<|id|>4<|type|>title<|page|>1<|box|>401 140 419 243<|content|>RECITALS\n<|id|>10<|type|>title<|page|>2<|box|>148 140 166 307<|content|>CERTIFICATIONS\n<|id|>11<|type|>title<|page|>2<|box|>181 140 196 578<|content|>Section 1. Accuracy of Representations and Warrant\n<|id|>31<|type|>title<|page|>4<|box|>715 140 733 467<|content|>Section 2. No Default or Event of Default.\n<|id|>40<|type|>title<|page|>5<|box|>470 140 488 455<|content|>Section 3. No Material Adverse Change.\n<|id|>48<|type|>title<|page|>6<|box|>138 140 157 532<|content|>Section 4. Compliance with Conditions Precedent.\n<|id|>133<|type|>title<|page|>12<|box|>781 140 799 787<|content|>Section 5. Attachment of Organizational Documents,\n<|id|>135<|type|>title<|page|>13<|box|>90 142 107 460<|content|>Exhibit A — Organizational Documents.\n<|id|>144<|type|>title<|page|>14<|box|>90 142 107 343<|content|>Exhibit B — Resolutions.\n<|id|>149<|type|>table<|page|>15<|box|>166 143 276 852<|content|>None\n<|id|>151<|type|>title<|page|>15<|box|>391 140 409 676<|content|>[Remainder of this page intentionally left blank.\n<|id|>152<|type|>title<|page|>15<|box|>416 277 433 718<|content|>[SIGNATURE PAGE TO OFFICER'S CERTIFICATE]\n<|id|>154<|type|>title<|page|>15<|box|>486 140 502 540<|content|>GREENFIELD AGRICULTURAL PARTNERS LLC\n<|id|>159<|type|>title<|page|>15<|box|>593 292 609 704<|content|>[NOTARY ACKNOWLEDGMENT — OPTIONAL]\n<|id|>162<|type|>title<|page|>15<|box|>667 140 683 312<|content|>COUNTY OF POLK\n<|id|>164<|type|>title<|page|>16<|box|>89 450 106 547<|content|>EXHIBITS",
+    "raw_response": "<|src_id|>149<|tgt_id|>144",
+    "parsed": [
+        {
+            "src_id": 149,
+            "tgt_id": 144
+        }
+    ]
+}

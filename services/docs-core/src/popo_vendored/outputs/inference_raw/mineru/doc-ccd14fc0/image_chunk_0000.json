@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|type|>title<|page|>1<|box|>386 142 402 364<|content|>I. Introduction and Purpose\n<|id|>12<|type|>title<|page|>1<|box|>779 142 796 344<|content|>II. Transaction Overview\n<|id|>22<|type|>title<|page|>2<|box|>789 140 806 339<|content|>III. Enclosed Documents\n<|id|>33<|type|>title<|page|>3<|box|>789 140 805 563<|content|>IV. Summary of Key Commercial and Legal Positions\n<|id|>35<|type|>title<|page|>4<|box|>90 140 107 388<|content|>4.1 Grant of License and Scope\n<|id|>39<|type|>title<|page|>5<|box|>90 140 107 521<|content|>4.2 Service Level Agreement (SLA) — Exhibit A\n<|id|>42<|type|>table<|page|>5<|box|>428 143 522 852<|content|>None\n<|id|>47<|type|>table<|page|>5<|box|>840 143 891 852<|content|>None\n<|id|>48<|type|>table<|page|>6<|box|>88 143 296 852<|content|>None\n<|id|>50<|type|>title<|page|>7<|box|>90 140 107 397<|content|>4.3 Security Terms — Exhibit B\n<|id|>59<|type|>title<|page|>9<|box|>90 140 107 401<|content|>4.4 Data Processing — Exhibit C\n<|id|>73<|type|>title<|page|>10<|box|>375 140 392 287<|content|>4.6 Liability Caps\n<|id|>83<|type|>title<|page|>11<|box|>176 140 194 359<|content|>4.7 Regulatory Compliance\n<|id|>87<|type|>title<|page|>11<|box|>484 140 501 434<|content|>4.8 Term, Renewal, and Termination\n<|id|>98<|type|>title<|page|>12<|box|>383 140 398 331<|content|>4.10 Dispute Resolution\n<|id|>104<|type|>title<|page|>12<|box|>760 140 777 344<|content|>4.11 Source Code Escrow\n<|id|>111<|type|>title<|page|>13<|box|>436 140 453 488<|content|>V. Pinnacle Ridge Capital Partners Consent\n<|id|>114<|type|>title<|page|>13<|box|>731 140 748 519<|content|>VI. Request for Markup and Proposed Timeline\n<|id|>119<|type|>title<|page|>14<|box|>458 140 474 351<|content|>VII. Reservation of Rights\n<|id|>121<|type|>title<|page|>14<|box|>652 140 669 362<|content|>VIII. Confidentiality Notice\n<|id|>131<|type|>title<|page|>15<|box|>282 143 297 263<|content|>Enclosures (6):",
+    "raw_response": "<|src_id|>42<|tgt_id|>39\n<|src_id|>47<|tgt_id|>39\n<|src_id|>48<|tgt_id|>39",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 39
+        }
+    ]
+}

@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        96,
+        102
+    ],
+    "pages": [
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1127<|page|>96<|box|>154 354 181 601<|content|>8 紧固件连接\n<|id|>1128<|page|>96<|box|>214 329 233 627<|content|>8.2 连接件加工及摩擦面处理\n<|id|>1130<|page|>96<|box|>329 372 347 585<|content|>8.3 高强度螺栓连接\n<|id|>1134<|page|>96<|box|>557 384 574 574<|content|>8.5 其他紧固连接\n<|id|>1136<|page|>97<|box|>205 335 233 694<|content|>9 结构件加工与组装\n<|id|>1137<|page|>97<|box|>266 430 285 601<|content|>9.2 圆管结构件\n<|id|>1140<|page|>97<|box|>405 430 423 601<|content|>9.3 H型结构件\n<|id|>1144<|page|>97<|box|>635 430 653 601<|content|>9.4 箱型结构件\n<|id|>1147<|page|>97<|box|>888 428 907 599<|content|>9.5 板架结构件\n<|id|>1152<|page|>98<|box|>356 396 374 564<|content|>9.6 桁架结构件\n<|id|>1154<|page|>98<|box|>493 396 512 567<|content|>9.7 网架结构件\n<|id|>1158<|page|>98<|box|>700 395 719 576<|content|>9.10 预拼装\n<|id|>1162<|page|>99<|box|>207 347 234 682<|content|>10 运输与成品保护\n<|id|>1163<|page|>99<|box|>267 435 286 594<|content|>10.2 运输\n<|id|>1165<|page|>100<|box|>158 361 185 587<|content|>11 安装\n<|id|>1166<|page|>100<|box|>219 384 237 564<|content|>11.1 一般规定\n<|id|>1174<|page|>100<|box|>700 343 718 617<|content|>11.2 基础、支承面和预埋件\n<|id|>1177<|page|>101<|box|>133 440 151 599<|content|>11.9 网架\n<|id|>1181<|page|>102<|box|>158 343 185 569<|content|>12 涂 装\n<|id|>1182<|page|>102<|box|>219 366 237 546<|content|>12.1 一般规定\n<|id|>1185<|page|>102<|box|>425 368 443 548<|content|>12.2 表面处理\n<|id|>1187<|page|>102<|box|>517 368 535 548<|content|>12.4 热 喷 涂",
+    "raw_response": "<|id|>1127<|level|>1\n<|id|>1128<|level|>2\n<|id|>1130<|level|>2\n<|id|>1134<|level|>2\n<|id|>1136<|level|>1\n<|id|>1137<|level|>2\n<|id|>1140<|level|>2\n<|id|>1144<|level|>2\n<|id|>1147<|level|>2\n<|id|>1152<|level|>2\n<|id|>1154<|level|>2\n<|id|>1158<|level|>2\n<|id|>1162<|level|>1\n<|id|>1163<|level|>2\n<|id|>1165<|level|>1\n<|id|>1166<|level|>2\n<|id|>1174<|level|>2\n<|id|>1177<|level|>2\n<|id|>1181<|level|>1\n<|id|>1182<|level|>2\n<|id|>1185<|level|>2\n<|id|>1187<|level|>2",
+    "parsed": [
+        {
+            "id": 1127,
+            "level": 1
+        },
+        {
+            "id": 1128,
+            "level": 2
+        },
+        {
+            "id": 1130,
+            "level": 2
+        },
+        {
+            "id": 1134,
+            "level": 2
+        },
+        {
+            "id": 1136,
+            "level": 1
+        },
+        {
+            "id": 1137,
+            "level": 2
+        },
+        {
+            "id": 1140,
+            "level": 2
+        },
+        {
+            "id": 1144,
+            "level": 2
+        },
+        {
+            "id": 1147,
+            "level": 2
+        },
+        {
+            "id": 1152,
+            "level": 2
+        },
+        {
+            "id": 1154,
+            "level": 2
+        },
+        {
+            "id": 1158,
+            "level": 2
+        },
+        {
+            "id": 1162,
+            "level": 1
+        },
+        {
+            "id": 1163,
+            "level": 2
+        },
+        {
+            "id": 1165,
+            "level": 1
+        },
+        {
+            "id": 1166,
+            "level": 2
+        },
+        {
+            "id": 1174,
+            "level": 2
+        },
+        {
+            "id": 1177,
+            "level": 2
+        },
+        {
+            "id": 1181,
+            "level": 1
+        },
+        {
+            "id": 1182,
+            "level": 2
+        },
+        {
+            "id": 1185,
+            "level": 2
+        },
+        {
+            "id": 1187,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>11<|page|>1<|box|>839 140 885 854<|content|>[Note to Draft: ... The language above should be c...cisely to the bring-down standard contained in the\n<|id|>12<|page|>2<|box|>89 140 119 854<|content|>Purchase Agreement. ... ]\n<|id|>35<|page|>3<|box|>849 143 868 516<|content|>[INSERT FULL LEGAL NAME OF COMPANY]\n<|id|>36<|page|>3<|box|>869 143 885 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>11<|tgt_id|>12",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        }
+    ]
+}

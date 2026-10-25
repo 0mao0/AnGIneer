@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>401 140 417 339<|content|>I. Purpose of This Letter\n<|id|>13<|page|>2<|box|>90 140 107 423<|content|>II. Case Summary and Background\n<|id|>22<|page|>3<|box|>167 140 184 602<|content|>III. Litigation Status Update — Q2 2023 (April–Jun\n<|id|>24<|page|>3<|box|>244 140 260 398<|content|>A. Discovery Phase — Overview\n<|id|>28<|page|>3<|box|>523 140 539 348<|content|>B. Document Productions\n<|id|>33<|page|>4<|box|>367 140 383 393<|content|>C. Written discovery Responses\n<|id|>36<|page|>4<|box|>612 142 628 312<|content|>D. Discovery Dispute\n<|id|>42<|page|>5<|box|>502 142 520 321<|content|>E. Expert Proceedings\n<|id|>59<|page|>6<|box|>797 142 814 455<|content|>IV. Assessment of Claims and Exposure\n<|id|>67<|page|>8<|box|>321 140 339 303<|content|>V. Financial Impact\n<|id|>73<|page|>9<|box|>186 140 204 354<|content|>VI. Anticipated Next Steps\n<|id|>80<|page|>9<|box|>632 140 648 465<|content|>VII. Covenant Compliance Confirmation\n<|id|>85<|page|>10<|box|>90 140 107 370<|content|>VIII. Next Quarterly Update\n<|id|>87<|page|>10<|box|>285 140 301 400<|content|>IX. Confidentiality and Privilege",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>2\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>36<|level|>2\n<|id|>42<|level|>2\n<|id|>59<|level|>1\n<|id|>67<|level|>1\n<|id|>73<|level|>1\n<|id|>80<|level|>1\n<|id|>85<|level|>1\n<|id|>87<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        }
+    ]
+}

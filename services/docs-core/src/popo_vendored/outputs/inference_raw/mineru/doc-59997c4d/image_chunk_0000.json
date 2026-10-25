@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>table<|page|>1<|box|>199 143 521 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>570 142 587 364<|content|>1. Purpose and Background\n<|id|>7<|type|>title<|page|>2<|box|>439 140 457 330<|content|>2. Enclosed Certificates\n<|id|>9<|type|>title<|page|>2<|box|>532 140 549 560<|content|>2.1 Certificate of Good Standing — State of Delawa\n<|id|>24<|type|>title<|page|>3<|box|>633 140 650 333<|content|>3. SPA Cross-Reference\n<|id|>29<|type|>title<|page|>4<|box|>395 140 412 339<|content|>4. Scope and Limitations\n<|id|>34<|type|>title<|page|>5<|box|>314 140 332 473<|content|>5. Filing and Record-Keeping Instructions\n<|id|>41<|type|>title<|page|>5<|box|>729 140 744 326<|content|>6. Contact Information\n<|id|>53<|type|>title<|page|>6<|box|>396 383 412 614<|content|>ENCLOSURES / EXHIBITS",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 215 143 856<|content|>CALDERWOOD & HARKNESS LLP 1 Market Street, Spear T\n<|id|>2<|type|>title<|page|>1<|box|>178 140 195 246<|content|>Via EDGAR\n<|id|>5<|type|>title<|page|>1<|box|>311 140 328 346<|content|>Dear Members of the Staff:\n<|id|>10<|type|>title<|page|>1<|box|>729 140 748 313<|content|>Revenue Recognition\n<|id|>11<|type|>title<|page|>1<|box|>761 140 779 720<|content|>Comment 1: Revenue Recognition — Remaining Perform\n<|id|>13<|type|>title<|page|>2<|box|>171 142 189 297<|content|>Company Response:\n<|id|>18<|type|>title<|page|>2<|box|>652 140 689 854<|content|>Comment 2: Revenue Recognition — Variable Consider\n<|id|>20<|type|>title<|page|>2<|box|>813 140 830 297<|content|>Company Response:\n<|id|>26<|type|>title<|page|>3<|box|>609 140 643 854<|content|>Comment 3: Revenue Recognition — Multi-Element Arr\n<|id|>28<|type|>title<|page|>3<|box|>823 142 840 297<|content|>Company Response:\n<|id|>37<|type|>title<|page|>5<|box|>90 140 107 300<|content|>Concentration Risk\n<|id|>38<|type|>title<|page|>5<|box|>121 140 138 720<|content|>Comment 4: Concentration Risk Disclosure — Top Cus\n<|id|>40<|type|>title<|page|>5<|box|>299 142 316 297<|content|>Company Response:\n<|id|>48<|type|>title<|page|>6<|box|>250 140 267 297<|content|>Company Response:\n<|id|>54<|type|>title<|page|>7<|box|>90 140 107 393<|content|>Non-GAAP Financial Measures\n<|id|>55<|type|>title<|page|>7<|box|>121 140 138 777<|content|>Comment 6: Non-GAAP Financial Measures — Adjusted\n<|id|>57<|type|>title<|page|>7<|box|>335 142 353 295<|content|>Company Response:\n<|id|>59<|type|>table<|page|>7<|box|>484 143 703 852<|content|>None\n<|id|>63<|type|>title<|page|>8<|box|>329 142 347 359<|content|>Stock-Based Compensation\n<|id|>64<|type|>title<|page|>8<|box|>359 140 378 710<|content|>Comment 7: Stock-Based Compensation — Fair Value o\n<|id|>66<|type|>title<|page|>8<|box|>611 143 628 295<|content|>Company Response:\n<|id|>69<|type|>table<|page|>8<|box|>760 143 909 852<|content|>None\n<|id|>70<|type|>table<|page|>9<|box|>88 143 393 852<|content|>None\n<|id|>75<|type|>title<|page|>10<|box|>239 140 256 653<|content|>Comment 8: Stock-Based Compensation — Cheap Stock\n<|id|>77<|type|>title<|page|>10<|box|>398 143 416 297<|content|>Company Response:\n<|id|>79<|type|>table<|page|>10<|box|>529 143 698 852<|content|>None\n<|id|>85<|type|>title<|page|>11<|box|>510 140 527 707<|content|>Comment 9: Stock-Based Compensation — Black-Drubec\n<|id|>87<|type|>title<|page|>11<|box|>614 142 632 295<|content|>Company Response:\n<|id|>89<|type|>table<|page|>11<|box|>755 143 896 852<|content|>None\n<|id|>90<|type|>table<|page|>12<|box|>88 143 540 851<|content|>None\n<|id|>93<|type|>title<|page|>12<|box|>768 142 786 362<|content|>Related-Party Transactions\n<|id|>94<|type|>title<|page|>12<|box|>800 140 835 852<|content|>Comment 10: Related-Party Transactions — Investor\n<|id|>97<|type|>title<|page|>13<|box|>208 142 226 297<|content|>Company Response:\n<|id|>107<|type|>title<|page|>14<|box|>643 140 662 214<|content|>Dilution\n<|id|>108<|type|>title<|page|>14<|box|>675 140 693 620<|content|>Comment 11: Dilution Table — Presentation and Calc\n<|id|>110<|type|>title<|page|>14<|box|>816 142 835 297<|content|>Company Response:\n<|id|>113<|type|>table<|page|>15<|box|>239 143 609 852<|content|>None\n<|id|>118<|type|>title<|page|>16<|box|>402 142 420 367<|content|>Description of Capital Stock\n<|id|>119<|type|>title<|page|>16<|box|>434 140 469 852<|content|>Comment 12: Description of Capital Stock — Dual-Cl\n<|id|>121<|type|>title<|page|>16<|box|>611 142 628 295<|content|>Company Response:\n<|id|>123<|type|>table<|page|>16<|box|>779 143 895 852<|content|>None\n<|id|>124<|type|>table<|page|>17<|box|>88 143 171 852<|content|>None\n<|id|>139<|type|>title<|page|>18<|box|>564 140 582 209<|content|>Closing",
+    "raw_response": "<|src_id|>59<|tgt_id|>57\n<|src_id|>69<|tgt_id|>66\n<|src_id|>70<|tgt_id|>66\n<|src_id|>79<|tgt_id|>77\n<|src_id|>89<|tgt_id|>87\n<|src_id|>90<|tgt_id|>87\n<|src_id|>113<|tgt_id|>108\n<|src_id|>123<|tgt_id|>121\n<|src_id|>124<|tgt_id|>121",
+    "parsed": [
+        {
+            "src_id": 59,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 121
+        }
+    ]
+}

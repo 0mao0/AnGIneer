@@ -1,0 +1,45 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 189 122 807<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>2<|page|>1<|box|>315 171 332 823<|content|>ORDER ON DEFENDANTS' MOTION FOR PARTIAL SUMMARY JU\n<|id|>16<|page|>2<|box|>311 140 328 323<|content|>ORDERED as follows:\n<|id|>17<|page|>2<|box|>352 140 369 849<|content|>I. Branch One — Liquidated Damages Cap Interpretat\n<|id|>19<|page|>2<|box|>422 140 439 519<|content|>It is hereby DECLARED AND ADJUDGED that:\n<|id|>27<|page|>3<|box|>258 140 277 758<|content|>II. Branch Two — Deviation Claim (Maputo, Mozambiq\n<|id|>29<|page|>3<|box|>329 140 347 508<|content|>It is hereby ORDERED AND ADJUDGED that:\n<|id|>33<|page|>3<|box|>691 142 709 346<|content|>III. Additional Provisions\n<|id|>37<|page|>3<|box|>868 431 883 563<|content|>SO ORDERED:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>16<|level|>3\n<|id|>17<|level|>4\n<|id|>19<|level|>-1\n<|id|>27<|level|>4\n<|id|>29<|level|>-1\n<|id|>33<|level|>4\n<|id|>37<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 4
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 33,
+            "level": 4
+        },
+        {
+            "id": 37,
+            "level": 3
+        }
+    ]
+}

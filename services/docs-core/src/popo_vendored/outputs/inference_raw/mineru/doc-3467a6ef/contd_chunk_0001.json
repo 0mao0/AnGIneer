@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        48,
+        99
+    ],
+    "pages": [
+        49,
+        63,
+        94,
+        98,
+        99
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>200<|page|>49<|box|>516 0 555 435<|content|>ties maturing November 15, 1967. ... subscriptions for \\$100,000\n<|id|>201<|page|>49<|box|>335 481 356 942<|content|>20/ Includes \\$6,105 million of the 6-3/8% notes a...d to Federal Reserve banks and Government accounts\n<|id|>209<|page|>49<|box|>264 0 275 399<|content|>8/ Consists of allotments paid for with Treasury bonds, notes, or\n<|id|>210<|page|>49<|box|>277 0 378 443<|content|>certificates of indebtedness maturing on issue dat...tted 35 percent but in no case less than \\$100,000\n<|id|>213<|page|>49<|box|>444 0 471 443<|content|>2/ Subscriptions from States, political subdivisio...tions in which the United States holds membership,\n<|id|>214<|page|>49<|box|>95 511 114 938<|content|>or less were allotted in full, and subscriptions f...an \\$100,000 were allotted not less than \\$100,000\n<|id|>220<|page|>49<|box|>220 481 249 920<|content|>18/ As provided in the offering circular subscript...lic pension and retirement and other public funds,\n<|id|>228<|page|>49<|box|>500 481 509 590<|content|>p Preliminary. ... p Preliminary\n<|id|>221<|page|>49<|box|>319 481 344 942<|content|>19/ Includes \\$5,336 million of the 5-5/8% notes a...ion of the 6-3/8% notes and \\$2,833 million of the\n<|id|>260<|page|>63<|box|>73 250 88 681<|content|>Table PDO-9. ... - Foreign Series Securities (Nonmarketable)\n<|id|>261<|page|>63<|box|>92 217 105 719<|content|>Issued to Official Institutions of Foreign Countries - (Continued)\n<|id|>340<|page|>94<|box|>912 65 924 477<|content|>1/ Series includes bonds on which the interest income is subject to\n<|id|>341<|page|>94<|box|>861 550 935 995<|content|>normal tax and surtax which are neither due nor ca...n number of years as follows: ... 4/ Market closed\n<|id|>351<|page|>98<|box|>406 75 438 502<|content|>Table IFS-2 brings together the various statistica...nts of the liabilities which enter into the United\n<|id|>352<|page|>98<|box|>128 571 241 1000<|content|>States balance of payments calculated on the liqui...stics, see headnote to \"Capital Movements\" section\n<|id|>355<|page|>98<|box|>353 574 385 998<|content|>Table IFS-5 sets forth the factors which affect th...States position in the International Monetary Fund\n<|id|>356<|page|>98<|box|>389 576 437 998<|content|>Table IFS-6 presents United States net monetary go...tries and international and regional organizations\n<|id|>366<|page|>99<|box|>827 14 867 432<|content|>U. ... Upon termination of investment, the same quantity of gold can be\n<|id|>367<|page|>99<|box|>649 497 660 785<|content|>reacquired by the International Monetary Fund. ... reacquired by the International Monetary Fund",
+    "raw_response": "<|src_id|>209<|tgt_id|>210\n<|src_id|>213<|tgt_id|>214\n<|src_id|>340<|tgt_id|>341\n<|src_id|>351<|tgt_id|>352\n<|src_id|>366<|tgt_id|>367",
+    "parsed": [
+        {
+            "src_id": 209,
+            "tgt_id": 210
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 214
+        },
+        {
+            "src_id": 340,
+            "tgt_id": 341
+        },
+        {
+            "src_id": 351,
+            "tgt_id": 352
+        },
+        {
+            "src_id": 366,
+            "tgt_id": 367
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 153 152 843<|content|>700 Louisiana Street, Suite 3400 Houston, Texas 77002 Telephone: ... (713) 547-8201\n<|id|>2<|page|>1<|box|>160 147 196 851<|content|>New York — 1251 Avenue of the Americas, 42nd Floor... University Avenue, Suite 800, Palo Alto, CA 94301\n<|id|>3<|page|>1<|box|>205 380 220 617<|content|>www. ... com\n<|id|>4<|page|>1<|box|>229 702 248 854<|content|>September 15, 2023\n<|id|>5<|page|>1<|box|>256 140 273 330<|content|>Via Email and U. ... Mail\n<|id|>6<|page|>1<|box|>282 140 316 854<|content|>Daniel Oshiro, Esq. ... 4200 Bluebonnet Parkway, Suite 1100 Austin, TX 78745\n<|id|>7<|page|>1<|box|>325 140 362 854<|content|>Re: ... BCS-NEXILIS-LIC-2023\n<|id|>8<|page|>1<|box|>369 142 387 241<|content|>Dear Daniel: ... Dear Daniel\n<|id|>42<|page|>5<|box|>773 140 902 857<|content|>We note that the standard carve-outs set forth in ...ry to comply with the Firm's obligations under the\n<|id|>43<|page|>6<|box|>90 140 143 854<|content|>Texas Disciplinary Rules of Professional Conduct a...nformation in accordance with the terms of the NDA\n<|id|>67<|page|>8<|box|>821 140 854 852<|content|>Catherine Bloom Partner, intellectual Property Cal... 3400 Houston, TX 77002 Direct: ... (713) 547-8224\n<|id|>68<|page|>9<|box|>89 174 107 758<|content|>Priya Chandrasekaran, Chief Executive Officer, Bri... Executive Officer, Brightfield Cloud Services Inc\n<|id|>70<|page|>9<|box|>160 174 178 738<|content|>Graham Hollister, Managing Director, Vantage Summit Capital Partners, LP\n<|id|>71<|page|>9<|box|>186 176 203 542<|content|>Alan Ngo, Partner, Calderwood & Harkness LLP\n<|id|>72<|page|>9<|box|>212 174 229 650<|content|>Wendy Schultz, Senior Associate, Calderwood & Harkness LLP\n<|id|>73<|page|>9<|box|>237 140 255 570<|content|>Encl. ... None (final invoice to follow under separate cover)",
+    "raw_response": "<|src_id|>42<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ]
+}

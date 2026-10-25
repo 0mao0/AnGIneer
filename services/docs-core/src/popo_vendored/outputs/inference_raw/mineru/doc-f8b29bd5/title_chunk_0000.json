@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>523 140 542 354<|content|>I. The Copyrighted Works\n<|id|>11<|page|>2<|box|>204 140 222 310<|content|>II. The Infringement\n<|id|>16<|page|>2<|box|>752 140 768 563<|content|>III. The Expired Blanket License — No Authorizatio\n<|id|>26<|page|>3<|box|>799 142 816 251<|content|>IV. Demands\n<|id|>44<|page|>5<|box|>508 140 527 397<|content|>V. Statutory Damages Exposure\n<|id|>51<|page|>6<|box|>204 140 222 511<|content|>VI. Response Deadline and Litigation Warning\n<|id|>59<|page|>6<|box|>700 140 719 351<|content|>VII. Reservation of Rights\n<|id|>71<|page|>7<|box|>353 449 369 550<|content|>EXHIBIT A\n<|id|>72<|page|>7<|box|>378 339 395 656<|content|>SCHEDULE OF INFRINGED WORKS",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>26<|level|>1\n<|id|>44<|level|>1\n<|id|>51<|level|>1\n<|id|>59<|level|>1\n<|id|>71<|level|>1\n<|id|>72<|level|>2",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        }
+    ]
+}

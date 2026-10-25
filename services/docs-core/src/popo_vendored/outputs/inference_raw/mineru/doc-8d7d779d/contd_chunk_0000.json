@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        7,
+        55
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        25,
+        31,
+        53,
+        54
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>7<|box|>487 269 527 607<|content|>DECEMBER - 1952\n<|id|>6<|page|>7<|box|>813 69 873 890<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>8<|page|>9<|box|>132 151 736 815<|content|>Page Treasury financing operations. ... 74\n<|id|>9<|page|>9<|box|>751 151 827 813<|content|>Note: ... Consequently the details may not check to the totals shown\n<|id|>12<|page|>11<|box|>135 60 310 492<|content|>In accordance with an announcement by the Secretar...million, leaving \\$190 million to be paid in cash,\n<|id|>13<|page|>11<|box|>325 58 421 490<|content|>Reports to the Treasury on the ownership of Govern...r 30 are the latest published for commercial banks\n<|id|>14<|page|>11<|box|>436 60 534 490<|content|>The new certificates of Series C-1953 are an addit...2, and bear interest from that date at the rate of\n<|id|>15<|page|>11<|box|>123 521 215 954<|content|>2 percent per annum, payable with the principal at...harged, and the difference was paid to subscribers\n<|id|>53<|page|>25<|box|>439 482 451 920<|content|>4/ Treated as noncash expenditures at the time of issuance and as cash\n<|id|>55<|page|>25<|box|>482 220 495 726<|content|>Table 4. ... - Derivation of Cash Trust Account Transactions\n<|id|>69<|page|>31<|box|>108 403 120 556<|content|>(In millions of dollars)\n<|id|>71<|page|>31<|box|>465 495 475 783<|content|>6/ For Farmers' Home Administration programs. ... 6/ For Farmers' Home Administration programs\n<|id|>123<|page|>53<|box|>113 401 124 564<|content|>(Price decimals are 32nds)\n<|id|>128<|page|>54<|box|>46 351 60 647<|content|>MARKET QUOTATIONS, OCTOBER 31, 1952\n<|id|>130<|page|>54<|box|>392 42 447 489<|content|>Prices are the mean of closing bid and ask quotati... lows, in case of recurrence, are the latest dates\n<|id|>133<|page|>54<|box|>464 42 485 508<|content|>5/ Yield to maturity. ... the yield to\n<|id|>134<|page|>54<|box|>385 515 414 960<|content|>maturity as more significant when an issue is sell...own under \"Yields of Treasury and Corporate Bonds\"",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>133<|tgt_id|>134",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        }
+    ]
+}

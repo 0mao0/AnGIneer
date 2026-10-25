@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        10
+    ],
+    "pages": [
+        4,
+        5,
+        6,
+        7,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>25<|page|>4<|box|>465 174 521 854<|content|>(b) Verimark Harborview Hotel & Conference Center,...on a barrier island in the Gulf of Mexico; ... and\n<|id|>27<|page|>4<|box|>574 140 647 856<|content|>Given the coastal and barrier-island locations of ...portance to the Company's risk management strategy\n<|id|>35<|page|>5<|box|>875 140 909 854<|content|>17. ... Monroe County, Florida issued a mandatory evacuation order on\n<|id|>36<|page|>6<|box|>89 174 253 856<|content|>September 16, 2022, applicable to all residents an...ets to the extent possible under the circumstances\n<|id|>41<|page|>6<|box|>792 142 883 856<|content|>19. ... VHG also provided contemporaneous notice to the excess carriers—\n<|id|>42<|page|>7<|box|>90 174 125 854<|content|>Pinnacle, Montclair, and Sovereign Re—in accordanc...the notice provisions of their respective policies\n<|id|>71<|page|>10<|box|>468 140 484 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>72<|page|>10<|box|>501 140 571 854<|content|>Elaine Forsythe, Esq. ... com Counsel for Plaintiff Verimark Hospitality Group Inc",
+    "raw_response": "<|src_id|>35<|tgt_id|>36\n<|src_id|>41<|tgt_id|>42",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        }
+    ]
+}

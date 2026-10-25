@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        12
+    ],
+    "pages": [
+        2,
+        6,
+        7,
+        8,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>2<|box|>422 174 458 854<|content|>Depositary: ... 101 Barclay Street, New York, NY 10286\n<|id|>7<|page|>2<|box|>467 174 503 854<|content|>Company: ... Maximilianstraße 72, 80539 Munich, Germany\n<|id|>8<|page|>2<|box|>511 176 547 854<|content|>ADS Ratio: ... Each American Depositary Share (\"AD..., no par value, of the Company (\"Ordinary Shares\")\n<|id|>9<|page|>2<|box|>555 176 590 854<|content|>Transfer Agent and Registrar for the ADSs: ... , 6201 15th Avenue, Brooklyn, NY 11219\n<|id|>10<|page|>2<|box|>599 176 617 784<|content|>Proposed Listing of ADSs: ... Nasdaq Global Select Market, ticker symbol \"HCYN\"\n<|id|>11<|page|>2<|box|>625 176 661 854<|content|>Existing Listing of Ordinary Shares: ... HCY), Prime Standard segment\n<|id|>12<|page|>2<|box|>669 140 742 854<|content|>The fees, charges, and expenses set forth in this ...arge less than the maximum amounts specified below\n<|id|>59<|page|>6<|box|>811 140 885 856<|content|>7. ... for its services as ADS transfer agent and ... the separate transfer agent agreement between the\n<|id|>60<|page|>7<|box|>89 140 127 854<|content|>Depositary and Crestfield Transfer Services Inc. ....rovided in such agreement or the Deposit Agreement\n<|id|>70<|page|>7<|box|>690 174 763 854<|content|>(b) any transaction or event relating to the ADSs,...n taken pursuant to the Deposit Agreement; ... and\n<|id|>72<|page|>7<|box|>815 140 907 857<|content|>9. ... Holders of ADSs that are residents of the U...ited States of America and the Federal Republic of\n<|id|>73<|page|>8<|box|>90 140 237 857<|content|>Germany for the Avoidance of Double Taxation and t...ss withholding tax from the German tax authorities\n<|id|>111<|page|>12<|box|>160 174 195 854<|content|>Depositary: ... Depositary Receipts Division 101 Barclay Street New York, NY 10286\n<|id|>112<|page|>12<|box|>204 176 222 638<|content|>Attention: ... Patricia Novak, Vice President, Depositary Receipts\n<|id|>113<|page|>12<|box|>222 176 239 383<|content|>Telephone: ... (212) 815-2050\n<|id|>114<|page|>12<|box|>247 176 263 521<|content|>Email: ... com\n<|id|>115<|page|>12<|box|>263 174 300 854<|content|>Transfer Agent and Registrar: ... 6201 15th Avenue Brooklyn, NY 11219\n<|id|>116<|page|>12<|box|>309 176 325 583<|content|>Attention: ... Angela Moretti, Director, Corporate Actions\n<|id|>117<|page|>12<|box|>325 176 344 383<|content|>Telephone: ... (718) 921-8200\n<|id|>118<|page|>12<|box|>352 176 369 535<|content|>Email: ... com\n<|id|>119<|page|>12<|box|>369 140 405 854<|content|>ADS Holders holding ADSs through a broker, bank, o...uch broker, bank, or nominee in the first instance\n<|id|>124<|page|>12<|box|>518 142 534 310<|content|>Name: ... Patricia Novak\n<|id|>125<|page|>12<|box|>535 142 553 452<|content|>Title: ... Vice President, Depositary Receipts\n<|id|>126<|page|>12<|box|>553 143 569 264<|content|>Date: ... Date\n<|id|>128<|page|>12<|box|>595 140 612 627<|content|>HALCYON SEMICONDUCTOR AKTIENGESELLSCHAFT\n<|id|>129<|page|>12<|box|>614 142 630 254<|content|>By: ... By\n<|id|>135<|page|>12<|box|>715 142 733 263<|content|>Date: ... [●], 2026\n<|id|>136<|page|>12<|box|>734 151 806 844<|content|>This Fee Schedule is an integral part of and is in...rs of American Depositary Shares from time to time",
+    "raw_response": "<|src_id|>59<|tgt_id|>60\n<|src_id|>72<|tgt_id|>73",
+    "parsed": [
+        {
+            "src_id": 59,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        }
+    ]
+}

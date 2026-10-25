@@ -1,0 +1,48 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        24
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        6,
+        9,
+        10,
+        13,
+        14,
+        16,
+        17,
+        21,
+        22,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>18<|page|>2<|box|>814 142 888 856<|content|>11. ... Lumicore's principal place of business and corporate headquarters is located at 9200\n<|id|>19<|page|>3<|box|>89 174 125 854<|content|>Spectrum Boulevard, Building C, Austin, Texas 7875...ore's Employer Identification Number is 81-2547639\n<|id|>56<|page|>5<|box|>869 140 929 854<|content|>40. ... The inventions claimed in the '562 Patent ...JECT TO TEAM REVIEW AND DECISION ON LEAVE TO AMEND\n<|id|>57<|page|>6<|box|>90 174 217 856<|content|>address critical thermal dissipation challenges in... bulk and complexity of external cooling solutions\n<|id|>102<|page|>9<|box|>820 142 893 854<|content|>77. ... OWS's Motion to\n<|id|>103<|page|>10<|box|>90 174 125 852<|content|>Compel production of the referenced opinion letter... this Court, having been filed on October 21, 2024\n<|id|>148<|page|>13<|box|>832 140 929 856<|content|>114. ... The Benchmark reports identify specific s...JECT TO TEAM REVIEW AND DECISION ON LEAVE TO AMEND\n<|id|>149<|page|>14<|box|>90 174 181 854<|content|>and map those features to each element and limitat...ric characteristics recited in the asserted claims\n<|id|>179<|page|>16<|box|>747 174 839 854<|content|>(c) Promoting the infringing features of the Accus...d customer-facing technical documentation; ... and\n<|id|>180<|page|>16<|box|>845 174 883 854<|content|>(d) Providing on-site installation support, traini... support personnel, including personnel located at\n<|id|>181<|page|>17<|box|>90 174 126 854<|content|>Lumicore's Tyler, Texas office, to ensure that cus...icore—a manner that infringes the Asserted Patents\n<|id|>239<|page|>21<|box|>883 140 929 816<|content|>The following exhibits are attached to and incorpo...JECT TO TEAM REVIEW AND DECISION ON LEAVE TO AMEND\n<|id|>240<|page|>22<|box|>44 148 71 848<|content|>Optiwave Semiconductor Corp. ... 24-cv-00319-JRG — DRAFT — NOT YET FILED\n<|id|>244<|page|>23<|box|>141 142 159 320<|content|>Respectfully submitted,\n<|id|>245<|page|>23<|box|>167 140 184 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>246<|page|>23<|box|>185 143 202 253<|content|>By: ... By\n<|id|>247<|page|>23<|box|>202 140 267 854<|content|>Alan Ngo (CA Bar No. ... (213) 555-4801\n<|id|>248<|page|>23<|box|>268 142 284 437<|content|>Email: ... com\n<|id|>249<|page|>23<|box|>285 142 301 470<|content|>Email: ... com\n<|id|>250<|page|>23<|box|>301 143 318 465<|content|>Email: ... com\n<|id|>251<|page|>23<|box|>319 142 353 467<|content|>Email: ... com and\n<|id|>252<|page|>23<|box|>361 142 378 406<|content|>WHITMORE & CALLAHAN LLP\n<|id|>253<|page|>23<|box|>378 140 412 852<|content|>James \"Jim\" Callahan (TX Bar No. ... (903) 555-2101\n<|id|>254<|page|>23<|box|>412 142 429 447<|content|>Email: ... com\n<|id|>255<|page|>23<|box|>430 142 446 527<|content|>Counsel for Plaintiff Optiwave Semiconductor Corp.... Counsel for Plaintiff Optiwave Semiconductor Corp\n<|id|>264<|page|>24<|box|>89 174 126 854<|content|>Catherine \"Kate\" Rourke Darren Cho Samantha Briggs...00 Congress Avenue, Suite 2400 Austin, Texas 78701\n<|id|>265<|page|>24<|box|>133 174 169 854<|content|>Maria Garza TRASK EDDINGTON LLP 425 East Front Street, Suite 300 Tyler, Texas 75701\n<|id|>266<|page|>24<|box|>178 176 196 557<|content|>Counsel for Defendant Lumicore Technologies, Inc. ... Counsel for Defendant Lumicore Technologies, Inc",
+    "raw_response": "<|src_id|>18<|tgt_id|>19\n<|src_id|>56<|tgt_id|>57\n<|src_id|>102<|tgt_id|>103\n<|src_id|>148<|tgt_id|>149\n<|src_id|>180<|tgt_id|>181",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 181
+        }
+    ]
+}

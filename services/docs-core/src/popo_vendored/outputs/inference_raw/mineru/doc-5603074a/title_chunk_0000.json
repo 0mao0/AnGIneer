@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 236 169 759<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>4<|page|>1<|box|>527 142 545 308<|content|>I. INTRODUCTION\n<|id|>9<|page|>2<|box|>148 140 166 436<|content|>II. PROCEDURAL BACKGROUND\n<|id|>17<|page|>3<|box|>167 140 184 532<|content|>III. STATUS OF SETTLEMENT DISCUSSIONS\n<|id|>22<|page|>3<|box|>678 140 695 558<|content|>IV. STATUS OF PRESERVATION OBLIGATIONS\n<|id|>25<|page|>4<|box|>148 140 166 442<|content|>V. REQUEST TO CONTINUE STAY\n<|id|>30<|page|>4<|box|>587 140 604 653<|content|>VI. CONFIRMATION THAT ALL RIGHTS ARE PRESERVED\n<|id|>38<|page|>5<|box|>204 140 220 352<|content|>VII. PROPOSED ORDER\n<|id|>41<|page|>5<|box|>428 367 444 630<|content|>RESPECTFULLY SUBMITTED\n<|id|>42<|page|>5<|box|>454 424 470 573<|content|>December 16, 2022\n<|id|>43<|page|>5<|box|>513 142 530 511<|content|>FOR PLAINTIFF ESTUARY FOUNDATION:\n<|id|>49<|page|>5<|box|>676 143 693 687<|content|>FOR DEFENDANT THE WHITFIELD-GARNER FAMILY TRUST:\n<|id|>55<|page|>5<|box|>830 285 881 712<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>56<|page|>5<|box|>891 238 907 759<|content|>THE HONORABLE PATRICIA R. WAINWRIGHT, PRESIDING",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>25<|level|>2\n<|id|>30<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>-1\n<|id|>42<|level|>-1\n<|id|>43<|level|>3\n<|id|>49<|level|>3\n<|id|>55<|level|>1\n<|id|>56<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 2
+        }
+    ]
+}

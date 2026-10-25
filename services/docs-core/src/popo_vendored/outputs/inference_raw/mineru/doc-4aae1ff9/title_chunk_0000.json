@@ -1,0 +1,47 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        7
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>2<|box|>90 142 107 444<|content|>I. Summary of Existing Credit Facility\n<|id|>15<|page|>2<|box|>700 140 718 542<|content|>II. Payoff Letter — Key Terms and Payoff Amount\n<|id|>19<|page|>3<|box|>90 142 107 426<|content|>Total Payoff Amount: $7,341,822.16\n<|id|>24<|page|>3<|box|>811 140 829 470<|content|>III. Wire Transfer Instructions for Payoff\n<|id|>29<|page|>4<|box|>618 140 633 656<|content|>IV. UCC Termination Statements and Lien Release Re\n<|id|>40<|page|>6<|box|>90 140 107 584<|content|>V. Confirmation of Consistency with Closing Docume\n<|id|>45<|page|>6<|box|>724 140 742 263<|content|>VI. Enclosures\n<|id|>50<|page|>7<|box|>186 140 204 478<|content|>VII. Action Items and Closing Instructions\n<|id|>57<|page|>7<|box|>768 212 785 517<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>15<|level|>1\n<|id|>19<|level|>-1\n<|id|>24<|level|>1\n<|id|>29<|level|>1\n<|id|>40<|level|>1\n<|id|>45<|level|>1\n<|id|>50<|level|>1\n<|id|>57<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        }
+    ]
+}

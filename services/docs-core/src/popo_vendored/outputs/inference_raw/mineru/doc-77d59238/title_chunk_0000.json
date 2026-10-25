@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        9,
+        11,
+        13,
+        15,
+        16,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>114 200 132 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|page|>1<|box|>330 140 348 312<|content|>I. Purpose and Scope\n<|id|>17<|page|>2<|box|>289 140 306 372<|content|>II. Summary of Loan Parties\n<|id|>18<|page|>2<|box|>320 142 337 295<|content|>A. Overview Table\n<|id|>22<|page|>3<|box|>345 140 364 413<|content|>B. Ownership Structure Summary\n<|id|>35<|page|>4<|box|>359 140 375 444<|content|>III. Detailed Entity-by-Entity Analysis\n<|id|>36<|page|>4<|box|>388 140 407 558<|content|>A. Greenfield Agricultural Partners LLC (Borrower)\n<|id|>64<|page|>7<|box|>469 142 487 531<|content|>B. Greenfield Holdings Corp. (Parent Guarantor)\n<|id|>82<|page|>9<|box|>625 140 643 594<|content|>C. Greenfield Grain Storage LLC (Subsidiary Guaran\n<|id|>101<|page|>11<|box|>704 140 722 573<|content|>D. Greenfield Crop Inputs Inc. (Subsidiary Guarant\n<|id|>121<|page|>13<|box|>848 140 864 810<|content|>IV. Good Standing and Qualification Certificates —\n<|id|>126<|page|>15<|box|>294 140 310 517<|content|>V. Organizational Document Delivery Checklist\n<|id|>131<|page|>16<|box|>811 140 829 534<|content|>VI. Authorization Analysis — Key Considerations\n<|id|>132<|page|>16<|box|>843 142 859 503<|content|>A. Member/Stockholder Approval Thresholds\n<|id|>138<|page|>18<|box|>90 140 106 266<|content|>B. No Conflicts\n<|id|>145<|page|>18<|box|>566 140 584 532<|content|>C. Existing Indebtedness and Lien Authorizations\n<|id|>152<|page|>19<|box|>329 140 347 411<|content|>VII. Open Items and Action Items\n<|id|>165<|page|>20<|box|>630 142 648 279<|content|>VIII. Conclusion",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>8<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>22<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>64<|level|>3\n<|id|>82<|level|>3\n<|id|>101<|level|>3\n<|id|>121<|level|>2\n<|id|>126<|level|>2\n<|id|>131<|level|>2\n<|id|>132<|level|>3\n<|id|>138<|level|>3\n<|id|>145<|level|>3\n<|id|>152<|level|>2\n<|id|>165<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        }
+    ]
+}

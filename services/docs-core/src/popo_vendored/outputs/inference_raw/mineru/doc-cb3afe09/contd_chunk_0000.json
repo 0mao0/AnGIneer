@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        16,
+        17,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>90 143 179 852<|content|>JAMS ARBITRATION JAMS Reference No. ... ), Arbitra...0 Royal Palm Way, Suite 300, Palm Beach, FL 33480,\n<|id|>1<|page|>1<|box|>186 460 204 535<|content|>Claimant,\n<|id|>3<|page|>1<|box|>238 148 273 846<|content|>PELLEGRINO CAPITAL GROUP LLC, a Florida limited li...0 Bayshore Boulevard, Suite 1400, Tampa, FL 33606,\n<|id|>4<|page|>1<|box|>282 450 300 544<|content|>Respondent. ... Respondent\n<|id|>6<|page|>1<|box|>393 705 411 854<|content|>Filed: ... April 5, 2023\n<|id|>7<|page|>1<|box|>420 140 494 854<|content|>Respondent Pellegrino Capital Group LLC (\"PCG\" or ...terclaim for Declaratory Relief as set forth below\n<|id|>11<|page|>1<|box|>813 140 905 854<|content|>The present dispute arises from PCG's lawful and c...the fifth anniversary of the Operating Agreement's\n<|id|>12<|page|>2<|box|>89 140 145 854<|content|>Effective Date—that is, after June 15, 2022. ... P...substantive requirement of the Operating Agreement\n<|id|>54<|page|>6<|box|>566 147 601 854<|content|>• Enhancement of the Hotel's beachfront amenities,...ation of a premium cabana service program; ... and\n<|id|>56<|page|>6<|box|>623 140 696 854<|content|>The result of this renovation program was the tran...s strong operating performance, as discussed below\n<|id|>154<|page|>16<|box|>779 140 890 856<|content|>B. ... Jurisdiction is also proper under the JAMS Comprehensive\n<|id|>155<|page|>17<|box|>90 140 127 854<|content|>Arbitration Rules and Procedures, which permit the... assertion of counterclaims in the same proceeding\n<|id|>198<|page|>20<|box|>116 700 133 854<|content|>Dated: ... April 5, 2023\n<|id|>199<|page|>20<|box|>142 142 159 320<|content|>Respectfully submitted,\n<|id|>200<|page|>20<|box|>167 140 184 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>201<|page|>20<|box|>193 140 210 756<|content|>Counsel for Respondent and Counterclaim-Claimant Pellegrino Capital Group LLC\n<|id|>202<|page|>20<|box|>220 143 237 251<|content|>By: ... By\n<|id|>203<|page|>20<|box|>236 142 253 656<|content|>Francesca Morano, Esq. ... 0987241\n<|id|>204<|page|>20<|box|>253 140 271 599<|content|>Samuel Eklund, Esq. ... 1023856\n<|id|>205<|page|>20<|box|>271 140 287 607<|content|>Simone Laroche, Esq. ... 1145023\n<|id|>206<|page|>20<|box|>287 140 305 606<|content|>Jeffrey Park, Esq. ... 1198467\n<|id|>207<|page|>20<|box|>305 140 387 854<|content|>CALDERWOOD & HARKNESS LLP 801 Brickell Avenue, Sui...800 Miami, Florida 33131 Telephone: ... 1027-00003\n<|id|>210<|page|>20<|box|>534 174 608 854<|content|>Victoria Castillo, Esq. ... com Counsel for Claima...rclaim- Respondent Meridian Shores Hospitality LLC\n<|id|>211<|page|>20<|box|>614 176 631 230<|content|>JAMS\n<|id|>212<|page|>20<|box|>641 178 657 331<|content|>Attn: ... Case Manager\n<|id|>213<|page|>20<|box|>657 176 693 852<|content|>1 Independent Drive, Suite 1600 Jacksonville, Florida 32202 JAMS Reference No. ... 1440032871\n<|id|>214<|page|>20<|box|>703 143 720 251<|content|>By: ... By",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>154<|tgt_id|>155",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 155
+        }
+    ]
+}

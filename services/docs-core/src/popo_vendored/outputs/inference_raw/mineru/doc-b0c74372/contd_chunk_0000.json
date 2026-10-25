@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        11,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 297 133 699<|content|>600 Market Street, Suite 4200 Philadelphia, PA 19106\n<|id|>2<|page|>1<|box|>141 303 159 694<|content|>New York | Washington, D. ... | Wilmington | Boston\n<|id|>3<|page|>1<|box|>167 179 185 818<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>193 715 210 854<|content|>February 10, 2026\n<|id|>5<|page|>1<|box|>219 140 236 464<|content|>VIA EMAIL AND FIRST CLASS MAIL\n<|id|>6<|page|>1<|box|>244 140 281 854<|content|>Priya Anand-Desai, Esq. ... General Counsel Wyndme...andywine Boulevard, Suite 300 Wilmington, DE 19801\n<|id|>7<|page|>1<|box|>289 176 327 854<|content|>Re: ... Engagement of Calderwood & Harkness LLP by...igation Matters Arising from Faculty Restructuring\n<|id|>8<|page|>1<|box|>334 176 351 617<|content|>C&H Matter No. ... C-88214\n<|id|>9<|page|>1<|box|>359 140 376 321<|content|>Dear Ms. ... Anand-Desai\n<|id|>21<|page|>2<|box|>815 138 907 857<|content|>(c) Defense of Individual Claims. ... In addition,\n<|id|>22<|page|>3<|box|>89 138 183 856<|content|>WET has identified eight (8) former faculty member... potential pre-litigation resolution opportunities\n<|id|>70<|page|>7<|box|>487 174 522 854<|content|>(vi) Electronic legal research charges (e. ... and\n<|id|>72<|page|>7<|box|>556 140 612 854<|content|>All expenses will be itemized on each monthly invo...inistrative surcharges to any reimbursable expense\n<|id|>78<|page|>7<|box|>806 138 880 857<|content|>C&H will use commercially reasonable efforts to mi...icipated travel expense that is expected to exceed\n<|id|>79<|page|>8<|box|>89 140 126 854<|content|>One Thousand Dollars ($1,000. ... 00) in the aggre...e communicated to WET's General Counsel in advance\n<|id|>87<|page|>8<|box|>422 174 440 669<|content|>(vi) Adherence to the OGG's document retention requirements; ... and\n<|id|>89<|page|>8<|box|>474 140 529 856<|content|>In addition, C&H will provide semi-annual diversit...&H attorneys and staff assigned to this engagement\n<|id|>99<|page|>9<|box|>366 174 402 854<|content|>(iv) Data return and destruction obligations upon ...nclusion or termination of the engagement; ... and\n<|id|>101<|page|>9<|box|>436 140 527 854<|content|>C&H's Chief Information Security Officer, Patricia...uiries from WET during the term of this engagement\n<|id|>124<|page|>11<|box|>724 183 739 504<|content|>• Policy Number: ... PRU-EPLI-2025-44872\n<|id|>128<|page|>11<|box|>801 140 893 854<|content|>WET has indicated its intention to tender the PERB...with the tender and coverage determination process\n<|id|>125<|page|>11<|box|>744 183 760 599<|content|>• Coverage Period: ... July 1, 2025 through June 30, 2026\n<|id|>126<|page|>11<|box|>763 183 780 720<|content|>• Coverage Limits: ... 00 aggregate\n<|id|>127<|page|>11<|box|>782 183 799 620<|content|>• Self-Insured Retention (\"SIR\"): ... 00 per claim\n<|id|>161<|page|>14<|box|>705 176 742 854<|content|>Priya Anand-Desai, Esq. ... General Counsel Wyndme...andywine Boulevard, Suite 300 Wilmington, DE 19801\n<|id|>162<|page|>14<|box|>751 176 768 485<|content|>Email: ... org\n<|id|>164<|page|>14<|box|>794 174 830 854<|content|>Miriam Calloway, Esq. ... Partner Calderwood & Har...0 Market Street, Suite 4200 Philadelphia, PA 19106\n<|id|>165<|page|>14<|box|>839 176 854 514<|content|>Email: ... com\n<|id|>166<|page|>14<|box|>856 140 892 854<|content|>Either party may change its address for purposes o... in accordance with the procedures set forth above\n<|id|>172<|page|>15<|box|>421 210 438 344<|content|>Very truly yours,\n<|id|>173<|page|>15<|box|>446 140 462 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>174<|page|>15<|box|>464 142 481 253<|content|>By: ... By\n<|id|>175<|page|>15<|box|>481 142 498 330<|content|>Name: ... Miriam Calloway\n<|id|>176<|page|>15<|box|>500 143 515 246<|content|>Title: ... Partner\n<|id|>177<|page|>15<|box|>517 142 534 264<|content|>Date: ... Date\n<|id|>179<|page|>15<|box|>559 140 574 426<|content|>WYNDMERE EDUCATION TRUST\n<|id|>180<|page|>15<|box|>577 142 594 253<|content|>By: ... By\n<|id|>181<|page|>15<|box|>594 140 609 339<|content|>Name: ... Priya Anand-Desai\n<|id|>182<|page|>15<|box|>611 142 626 315<|content|>Title: ... General Counsel\n<|id|>183<|page|>15<|box|>628 142 645 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>78<|tgt_id|>79",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        }
+    ]
+}

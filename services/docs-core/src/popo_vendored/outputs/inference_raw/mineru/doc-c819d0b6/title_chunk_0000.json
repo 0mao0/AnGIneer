@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        13
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>89 437 111 560<|content|>EXHIBIT F\n<|id|>1<|page|>2<|box|>135 299 152 697<|content|>FORM OF TENANT ESTOPPEL CERTIFICATE\n<|id|>4<|page|>2<|box|>378 302 398 694<|content|>TENANT ESTOPPEL CERTIFICATE\n<|id|>12<|page|>3<|box|>90 142 106 488<|content|>SECTION 1 — LEASE IDENTIFICATION\n<|id|>21<|page|>3<|box|>667 140 684 388<|content|>SECTION 2 — LEASE TERM\n<|id|>35<|page|>4<|box|>440 140 455 527<|content|>SECTION 3 — RENT AND OTHER CHARGES\n<|id|>47<|page|>5<|box|>483 140 500 447<|content|>SECTION 4 — SECURITY DEPOSIT\n<|id|>57<|page|>6<|box|>89 140 106 784<|content|>SECTION 5 — TENANT IMPROVEMENTS AND LANDLORD OBLIG\n<|id|>61<|page|>6<|box|>446 140 463 486<|content|>SECTION 6 — DEFAULTS AND CLAIMS\n<|id|>67<|page|>7<|box|>90 142 106 555<|content|>SECTION 7 — ASSIGNMENT AND SUBLETTING\n<|id|>76<|page|>7<|box|>429 140 446 553<|content|>SECTION 8 — OPTIONS AND SPECIAL RIGHTS\n<|id|>83<|page|>8<|box|>148 140 185 797<|content|>SECTION 9 — SUBORDINATION, NON-DISTURBANCE, AND AT\n<|id|>90<|page|>8<|box|>510 140 527 508<|content|>SECTION 10 — HAZARDOUS MATERIALS\n<|id|>93<|page|>8<|box|>823 140 839 406<|content|>SECTION 11 — BANKRUPTCY\n<|id|>96<|page|>9<|box|>222 140 239 383<|content|>SECTION 12 — GUARANTY\n<|id|>104<|page|>9<|box|>500 142 516 361<|content|>SECTION 13 — NOTICES\n<|id|>113<|page|>10<|box|>191 140 209 823<|content|>SECTION 14 — MISCELLANEOUS REPRESENTATIONS AND CON\n<|id|>120<|page|>10<|box|>813 142 830 230<|content|>TENANT:\n<|id|>124<|page|>11<|box|>162 140 179 421<|content|>NOTARY ACKNOWLEDGMENT\n<|id|>129<|page|>12<|box|>89 437 107 560<|content|>SCHEDULE 1\n<|id|>130<|page|>12<|box|>119 140 138 295<|content|>COPY OF LEASE\n<|id|>145<|page|>13<|box|>90 140 108 717<|content|>(Appendix — For Distribution Purposes Only; Not Pa",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>1\n<|id|>12<|level|>2\n<|id|>21<|level|>2\n<|id|>35<|level|>2\n<|id|>47<|level|>2\n<|id|>57<|level|>2\n<|id|>61<|level|>2\n<|id|>67<|level|>2\n<|id|>76<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>2\n<|id|>93<|level|>2\n<|id|>96<|level|>2\n<|id|>104<|level|>2\n<|id|>113<|level|>2\n<|id|>120<|level|>2\n<|id|>124<|level|>2\n<|id|>129<|level|>1\n<|id|>130<|level|>2\n<|id|>145<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        52
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>433<|type|>title<|page|>45<|box|>167 140 184 236<|content|>Conclusion\n<|id|>435<|type|>title<|page|>46<|box|>90 300 111 697<|content|>Appendix E: Intercompany Agreements\n<|id|>436<|type|>title<|page|>46<|box|>136 140 152 223<|content|>Overview\n<|id|>439<|type|>table<|page|>46<|box|>380 143 628 852<|content|>None\n<|id|>440<|type|>table<|page|>46<|box|>700 143 893 852<|content|>None\n<|id|>441<|type|>table<|page|>47<|box|>89 143 127 852<|content|>None\n<|id|>442<|type|>table<|page|>47<|box|>200 143 450 852<|content|>None\n<|id|>443<|type|>table<|page|>48<|box|>127 143 893 852<|content|>None\n<|id|>444<|type|>table<|page|>49<|box|>88 143 238 852<|content|>None\n<|id|>445<|type|>title<|page|>50<|box|>90 323 111 674<|content|>Appendix G: Organizational Chart\n<|id|>446<|type|>title<|page|>50<|box|>136 142 154 573<|content|>Halcyon Group — Simplified Organizational Structur\n<|id|>447<|type|>title<|page|>50<|box|>161 165 196 831<|content|>HALCYON SEMICONDUCTOR AG (HSAG — Germany) Ultimate\n<|id|>450<|type|>title<|page|>50<|box|>363 142 380 531<|content|>Intercompany Transaction Flows (HSI ↔ HSAG)\n<|id|>453<|type|>title<|page|>51<|box|>90 297 111 700<|content|>Appendix H: Professional Qualifications\n<|id|>454<|type|>title<|page|>51<|box|>136 140 154 552<|content|>Calderwood & Harkness LLP — Engagement Team\n<|id|>459<|type|>title<|page|>51<|box|>611 140 628 586<|content|>Meridian Economics GmbH — Economic Analysis Team\n<|id|>462<|type|>title<|page|>52<|box|>90 140 107 410<|content|>Professional Standards Statement\n<|id|>467<|type|>title<|page|>52<|box|>340 142 354 630<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC",
+    "raw_response": "<|src_id|>439<|tgt_id|>436\n<|src_id|>440<|tgt_id|>436\n<|src_id|>441<|tgt_id|>435\n<|src_id|>442<|tgt_id|>435\n<|src_id|>443<|tgt_id|>435\n<|src_id|>444<|tgt_id|>435",
+    "parsed": [
+        {
+            "src_id": 439,
+            "tgt_id": 436
+        },
+        {
+            "src_id": 440,
+            "tgt_id": 436
+        },
+        {
+            "src_id": 441,
+            "tgt_id": 435
+        },
+        {
+            "src_id": 442,
+            "tgt_id": 435
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 435
+        },
+        {
+            "src_id": 444,
+            "tgt_id": 435
+        }
+    ]
+}

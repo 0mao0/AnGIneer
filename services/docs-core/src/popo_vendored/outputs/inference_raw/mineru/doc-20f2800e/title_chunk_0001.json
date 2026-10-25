@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        51,
+        74
+    ],
+    "pages": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        57,
+        59,
+        61,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        73,
+        74
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>564<|page|>51<|box|>166 406 196 628<|content|>引用标准名录\n<|id|>573<|page|>52<|box|>184 272 210 669<|content|>中华人民共和国国家标准\n<|id|>574<|page|>52<|box|>255 265 284 674<|content|>软土地基路基监控标准\n<|id|>577<|page|>53<|box|>168 366 194 570<|content|>编制说明\n<|id|>581<|page|>54<|box|>169 401 196 542<|content|>目次\n<|id|>583<|page|>55<|box|>161 376 188 578<|content|>1 总 则\n<|id|>589<|page|>57<|box|>164 371 191 611<|content|>2 术语和符号\n<|id|>590<|page|>57<|box|>233 401 255 585<|content|>2.1 术语\n<|id|>597<|page|>59<|box|>171 373 198 616<|content|>3 基本规定\n<|id|>617<|page|>61<|box|>169 358 196 601<|content|>4 监控设计\n<|id|>618<|page|>61<|box|>238 373 260 585<|content|>4.2 施工期监控\n<|id|>642<|page|>64<|box|>151 414 171 626<|content|>4.3 运营期监控\n<|id|>643<|page|>64<|box|>191 141 211 578<|content|>4.3.2 本条对监控断面进行了规定。\n<|id|>646<|page|>65<|box|>164 381 191 621<|content|>5 监测实施\n<|id|>647<|page|>65<|box|>233 396 253 606<|content|>5.1 一般规定\n<|id|>650<|page|>65<|box|>447 396 468 608<|content|>5.2 沉降监测\n<|id|>663<|page|>66<|box|>579 388 600 623<|content|>5.3 水平位移监测\n<|id|>672<|page|>67<|box|>400 371 421 633<|content|>5.4 孔隙水压力监测\n<|id|>683<|page|>68<|box|>287 393 309 606<|content|>5.5 土压力监测\n<|id|>686<|page|>69<|box|>166 308 193 691<|content|>6 监测资料分析与应用\n<|id|>687<|page|>69<|box|>236 381 255 621<|content|>6.2 监测资料分析\n<|id|>692<|page|>70<|box|>124 368 146 633<|content|>6.3 路基稳定性评估\n<|id|>696<|page|>71<|box|>310 118 332 714<|content|>6.3.4 本条对拐点法评估路基稳定性进行了规定。\n<|id|>706<|page|>73<|box|>141 356 161 595<|content|>6.4 工后沉降预测\n<|id|>716<|page|>73<|box|>838 361 858 598<|content|>6.5 施工时间确定\n<|id|>722<|page|>74<|box|>643 421 663 631<|content|>6.6 监控报告",
+    "raw_response": "<|id|>564<|level|>1\n<|id|>573<|level|>2\n<|id|>574<|level|>2\n<|id|>577<|level|>1\n<|id|>581<|level|>1\n<|id|>583<|level|>1\n<|id|>589<|level|>1\n<|id|>590<|level|>2\n<|id|>597<|level|>1\n<|id|>617<|level|>1\n<|id|>618<|level|>2\n<|id|>642<|level|>2\n<|id|>643<|level|>-1\n<|id|>646<|level|>1\n<|id|>647<|level|>2\n<|id|>650<|level|>2\n<|id|>663<|level|>2\n<|id|>672<|level|>2\n<|id|>683<|level|>2\n<|id|>686<|level|>1\n<|id|>687<|level|>2\n<|id|>692<|level|>2\n<|id|>696<|level|>-1\n<|id|>706<|level|>2\n<|id|>716<|level|>2\n<|id|>722<|level|>2",
+    "parsed": [
+        {
+            "id": 564,
+            "level": 1
+        },
+        {
+            "id": 573,
+            "level": 2
+        },
+        {
+            "id": 574,
+            "level": 2
+        },
+        {
+            "id": 577,
+            "level": 1
+        },
+        {
+            "id": 581,
+            "level": 1
+        },
+        {
+            "id": 583,
+            "level": 1
+        },
+        {
+            "id": 589,
+            "level": 1
+        },
+        {
+            "id": 590,
+            "level": 2
+        },
+        {
+            "id": 597,
+            "level": 1
+        },
+        {
+            "id": 617,
+            "level": 1
+        },
+        {
+            "id": 618,
+            "level": 2
+        },
+        {
+            "id": 642,
+            "level": 2
+        },
+        {
+            "id": 646,
+            "level": 1
+        },
+        {
+            "id": 647,
+            "level": 2
+        },
+        {
+            "id": 650,
+            "level": 2
+        },
+        {
+            "id": 663,
+            "level": 2
+        },
+        {
+            "id": 672,
+            "level": 2
+        },
+        {
+            "id": 683,
+            "level": 2
+        },
+        {
+            "id": 686,
+            "level": 1
+        },
+        {
+            "id": 687,
+            "level": 2
+        },
+        {
+            "id": 692,
+            "level": 2
+        },
+        {
+            "id": 706,
+            "level": 2
+        },
+        {
+            "id": 716,
+            "level": 2
+        },
+        {
+            "id": 722,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        9,
+        16,
+        17,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 151 692<|content|>TO: ... Leonard Cross, Responsible Partner Garrett Simmons, Lead Associate\n<|id|>2<|page|>1<|box|>160 140 176 452<|content|>FROM: ... Leila Nazari, Working Associate\n<|id|>3<|page|>1<|box|>186 140 203 331<|content|>DATE: ... August 18, 2022\n<|id|>4<|page|>1<|box|>212 140 248 854<|content|>RE: ... IRS Transfer Pricing Examination Defense (TY 2017–2020)\n<|id|>5<|page|>1<|box|>255 140 273 362<|content|>MATTER NO. ... 1018-00009\n<|id|>6<|page|>1<|box|>282 140 299 455<|content|>CLIENT: ... Penterra Pharmaceuticals Corp\n<|id|>72<|page|>9<|box|>465 174 501 854<|content|>(v) Whether the entity's operations would be recog...arty as a bona fide commercial enterprise; ... and\n<|id|>74<|page|>9<|box|>554 140 590 854<|content|>These factors are not applied mechanically; ... th...as economic reality independent of its tax effects\n<|id|>129<|page|>16<|box|>869 140 907 854<|content|>PBI's Role. ... PBI initiates and funds non-Americ...inical studies, including studies required by non-\n<|id|>130<|page|>17<|box|>90 138 310 857<|content|>Americas regulatory agencies as conditions of mark...n the Enhancement function is assessed as moderate\n<|id|>195<|page|>24<|box|>489 140 523 854<|content|>1. ... , So the Development Function Resides with PPC\n<|id|>196<|page|>24<|box|>531 140 641 856<|content|>Anticipated IRS Position: ... Under this argument,...aningful participation in the Development function",
+    "raw_response": "<|src_id|>129<|tgt_id|>130",
+    "parsed": [
+        {
+            "src_id": 129,
+            "tgt_id": 130
+        }
+    ]
+}

@@ -1,0 +1,205 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-n43ls000\\input\\pdfs\\doc-ed39df6a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-n43ls000\\enriched\\doc-ed39df6a.json",
+    "contd_output": "<|src_id|>6<|tgt_id|>7\n<|src_id|>17<|tgt_id|>18",
+    "title_output": "<|id|>3<|level|>1\n<|id|>10<|level|>1\n<|id|>11<|level|>2\n<|id|>20<|level|>2\n<|id|>27<|level|>2\n<|id|>44<|level|>2\n<|id|>50<|level|>1\n<|id|>51<|level|>2\n<|id|>59<|level|>2\n<|id|>66<|level|>2\n<|id|>72<|level|>2\n<|id|>76<|level|>1\n<|id|>77<|level|>2\n<|id|>85<|level|>2\n<|id|>91<|level|>1\n<|id|>93<|level|>2\n<|id|>103<|level|>2\n<|id|>109<|level|>2\n<|id|>119<|level|>2\n<|id|>128<|level|>2\n<|id|>135<|level|>2\n<|id|>138<|level|>2\n<|id|>142<|level|>2\n<|id|>149<|level|>2\n<|id|>154<|level|>2\n<|id|>156<|level|>1\n<|id|>157<|level|>2\n<|id|>162<|level|>2\n<|id|>169<|level|>2\n<|id|>173<|level|>2\n<|id|>179<|level|>1\n<|id|>188<|level|>1\n<|id|>198<|level|>1\n<|id|>213<|level|>1\n<|id|>215<|level|>2\n<|id|>220<|level|>2\n<|id|>222<|level|>2",
+    "image_output": "<|src_id|>1<|tgt_id|>3\n<|src_id|>217<|tgt_id|>215\n<|src_id|>218<|tgt_id|>215\n<|src_id|>219<|tgt_id|>215",
+    "contd_label": [
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        }
+    ],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 1
+        },
+        {
+            "id": 188,
+            "level": 1
+        },
+        {
+            "id": 198,
+            "level": 1
+        },
+        {
+            "id": 213,
+            "level": 1
+        },
+        {
+            "id": 215,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 215
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 215
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 215
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 218,
+            "table2_idx": 219,
+            "upper_row_ss": [
+                [
+                    "November 15, 2022",
+                    "$30.00",
+                    "Calderwood & Harkness"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "engagement opens"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        35
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        33,
+        34,
+        35
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 111 152 885<|content|>LC-PLM: Long-context Protein Language Modeling Usi\n<|id|>8<|page|>1<|box|>510 455 530 542<|content|>Abstract\n<|id|>10<|page|>2<|box|>101 112 119 261<|content|>1 Introduction\n<|id|>19<|page|>3<|box|>257 112 273 282<|content|>2 Related Works\n<|id|>20<|page|>3<|box|>289 112 306 485<|content|>2.1 Long-context LMs and State Space Models\n<|id|>25<|page|>4<|box|>104 112 119 478<|content|>2.2 Long-context LMs for biological sequences\n<|id|>29<|page|>4<|box|>523 112 540 390<|content|>2.3 Protein LMs trained on graphs\n<|id|>31<|page|>4<|box|>720 112 738 264<|content|>3 Preliminaries\n<|id|>43<|page|>5<|box|>470 112 488 576<|content|>4 LC-PLM: Long Context Protein Language Model\n<|id|>45<|page|>5<|box|>579 112 595 633<|content|>4.1 BiMamba-S: Bidirectional Mamba with Shared Pro\n<|id|>54<|page|>6<|box|>661 112 676 357<|content|>4.2 Two-stage Training Recipe\n<|id|>63<|page|>7<|box|>756 112 773 263<|content|>5 Experiments\n<|id|>65<|page|>8<|box|>393 112 411 406<|content|>5.1 (RQ1) Exploring the Scaling Law\n<|id|>67<|page|>8<|box|>602 112 619 455<|content|>5.2 (RQ2) Length Extrapolation Evaluation\n<|id|>69<|page|>9<|box|>103 112 119 450<|content|>5.3 (RQ3) The Efectiveness of BiMamba-S\n<|id|>71<|page|>9<|box|>315 112 332 527<|content|>5.4 (RQ4) Protein Structure Prediction with LMFold\n<|id|>76<|page|>10<|box|>228 112 244 571<|content|>5.5 (RQ5) LC-PLM-G Encodes Graph Relational Inform\n<|id|>79<|page|>10<|box|>637 112 654 580<|content|>5.6 (RQ6) Interaction Information Helps Downstream\n<|id|>84<|page|>11<|box|>785 112 803 681<|content|>5.7 (RQ7) Protein Function Prediction and Link Pre\n<|id|>86<|page|>12<|box|>101 112 119 519<|content|>6 Conclusion, Discussion, and Future Work\n<|id|>92<|page|>12<|box|>638 112 655 217<|content|>References\n<|id|>215<|page|>20<|box|>99 112 119 200<|content|>Contents\n<|id|>218<|page|>21<|box|>608 112 636 308<|content|>Appendices\n<|id|>219<|page|>21<|box|>657 112 675 606<|content|>Appendix A Definitions of Criterions Used in Table\n<|id|>227<|page|>22<|box|>375 112 393 553<|content|>Appendix B More Discussion on General pLMs\n<|id|>235<|page|>23<|box|>386 112 404 506<|content|>Appendix C Datasets, Tasks, and Metrics\n<|id|>236<|page|>23<|box|>419 112 435 364<|content|>C.1 Protein Sequence Datasets\n<|id|>245<|page|>24<|box|>753 112 768 385<|content|>C.2 Structure Prediction Datasets\n<|id|>250<|page|>25<|box|>531 112 547 334<|content|>C.3 TAPE and ProteinGym\n<|id|>253<|page|>25<|box|>791 112 806 728<|content|>C.4 Datasets for Protein Function Prediction and L\n<|id|>258<|page|>26<|box|>599 112 617 423<|content|>Appendix D Experimental Setup\n<|id|>259<|page|>26<|box|>632 112 648 338<|content|>D.1 Hardware and Software\n<|id|>261<|page|>26<|box|>782 112 800 374<|content|>D.2 Masked Language Modeling\n<|id|>265<|page|>27<|box|>281 112 296 416<|content|>D.3 Structure Prediction with LMFold\n<|id|>268<|page|>27<|box|>688 112 703 361<|content|>D.4 Evaluation on TAPE tasks\n<|id|>273<|page|>28<|box|>598 112 614 361<|content|>D.5 Evaluating on ProteinGym\n<|id|>277<|page|>28<|box|>806 111 821 558<|content|>D.6 Protein Function Prediction and PPI Link Predi\n<|id|>282<|page|>29<|box|>375 112 392 547<|content|>Appendix E More results and details on TAPE\n<|id|>284<|page|>29<|box|>773 112 792 498<|content|>Appendix F More results on ProteinGym\n<|id|>288<|page|>30<|box|>316 112 334 823<|content|>Appendix G Robustness of downsampling for structur\n<|id|>290<|page|>30<|box|>595 112 614 872<|content|>Appendix H More Details for Protein Function Predi\n<|id|>296<|page|>31<|box|>508 112 526 591<|content|>Appendix I On the Absence of Massive Activations\n<|id|>300<|page|>31<|box|>845 112 864 349<|content|>Appendix J Pseudocode\n<|id|>327<|page|>33<|box|>448 112 467 529<|content|>Appendix K Sampling Bias in Random Walk\n<|id|>340<|page|>34<|box|>154 112 172 522<|content|>Appendix L Training and Evaluation Curves\n<|id|>341<|page|>34<|box|>188 112 204 364<|content|>L.1 The First-stage Pretraining\n<|id|>343<|page|>34<|box|>511 112 527 383<|content|>L.2 The Scaling Law Experiments\n<|id|>345<|page|>34<|box|>851 112 867 450<|content|>L.3 The Length Extrapolation Experiments\n<|id|>347<|page|>35<|box|>761 112 777 500<|content|>L.4 The Second-stage Graph Contextual Training",
+    "raw_response": "",
+    "parsed": []
+}

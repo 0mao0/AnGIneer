@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        7
+    ],
+    "pages": [
+        5,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>40<|page|>5<|box|>184 140 202 521<|content|>**III. REMAINING SCHEDULES — CONFIRMED**\n<|id|>57<|page|>7<|box|>184 140 200 483<|content|>**V. TEMPLATE DPA — LOOKING AHEAD**",
+    "raw_response": "<|id|>40<|level|>1\n<|id|>57<|level|>1",
+    "parsed": [
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        }
+    ]
+}

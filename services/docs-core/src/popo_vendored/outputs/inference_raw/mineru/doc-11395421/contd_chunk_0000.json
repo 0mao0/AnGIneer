@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        53
+    ],
+    "pages": [
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        36,
+        38,
+        39,
+        45,
+        52
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>3<|box|>494 486 592 738<|content|>LIBRARY DEC 13 1963 TREASURY DEPARTMENT\n<|id|>2<|page|>3<|box|>797 711 838 845<|content|>LIBRARY ROOM 5030\n<|id|>3<|page|>3<|box|>845 713 873 847<|content|>JUN 2. ... 3 1972\n<|id|>4<|page|>3<|box|>878 657 908 906<|content|>TREASURY DEPARTMENT\n<|id|>7<|page|>6<|box|>368 577 583 715<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>10<|page|>7<|box|>504 419 539 637<|content|>APRIL - 1962\n<|id|>11<|page|>7<|box|>797 136 853 901<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>12<|page|>8<|box|>390 284 408 701<|content|>The Treasury Bulletin is for sale by the\n<|id|>13<|page|>8<|box|>407 345 423 640<|content|>Superintendent of Documents,\n<|id|>15<|page|>8<|box|>437 224 454 753<|content|>Subscription per year \\$7. ... 75 foreign\n<|id|>16<|page|>8<|box|>452 355 469 612<|content|>Single copy price varies\n<|id|>18<|page|>9<|box|>180 184 636 805<|content|>Page Treasury financing operations. ... 130\n<|id|>19<|page|>10<|box|>124 8 309 475<|content|>Data on receipts, expenditures, and debt which app... is given in connection with the tables themselves\n<|id|>182<|page|>36<|box|>520 112 535 883<|content|>Table 2. ... - Computed Interest Charge and Computed Interest Rate on Federal Securities\n<|id|>187<|page|>38<|box|>457 568 489 990<|content|>Adjusted Service Certificate Fund (through Decembe...ecial Term Insurance Fund. ... Less than \\$500,000\n<|id|>188<|page|>38<|box|>486 23 499 490<|content|>2/ Consists of: ... Farm Tenant Mortgage Insurance Fund (through March 1956),\n<|id|>190<|page|>39<|box|>481 532 511 956<|content|>pursuant to the act approved July 18, 1956 (22 U. ... \"\n<|id|>213<|page|>45<|box|>778 552 789 966<|content|>Except \\$200,000 at 98. ... 365,\n<|id|>214<|page|>45<|box|>798 552 808 893<|content|>at 98. ... 050\n<|id|>240<|page|>52<|box|>688 41 818 490<|content|>35/ Subscriptions from savings-type investors tota...0 percent. ... and full payment by April 23, 1959)\n<|id|>254<|page|>52<|box|>815 527 826 762<|content|>Remaining footnotes on following page. ... Remaining footnotes on following page",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>188<|tgt_id|>190\n<|src_id|>213<|tgt_id|>214",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 214
+        }
+    ]
+}

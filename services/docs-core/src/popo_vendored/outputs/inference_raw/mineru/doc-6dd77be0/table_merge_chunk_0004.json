@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, 2', 'rowspan=2, 平整度', '极值', '\\\\leqslant 5', '\\\\leqslant 7', 'rowspan=2, 每200m纵向工作缝,每条3处,每处间隔2m测3尺,共9尺', 'rowspan=2, 每200m纵向工作缝,每条2处,每处间隔2m测3尺,共6尺', 'rowspan=2, 尺测']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['3', 'colspan=2, 接缝顺直度(mm)', 'colspan=2, \\\\leqslant 10', '每200m测6条', '每200m测4条', '20m拉线测']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 358,
+    "table2_idx": 359
+}

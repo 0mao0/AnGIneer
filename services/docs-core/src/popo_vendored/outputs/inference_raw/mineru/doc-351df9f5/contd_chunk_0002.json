@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        101,
+        131
+    ],
+    "pages": [
+        102,
+        103,
+        104,
+        123,
+        131
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>652<|page|>102<|box|>705 94 717 386<|content|>1/ See country detail in Sections I and II\n<|id|>654<|page|>103<|box|>59 34 73 856<|content|>Section IV. ... – Liabilities to, and Claims on, F...nbanking Business Enterprises in the United States\n<|id|>656<|page|>104<|box|>939 84 959 851<|content|>* Less than \\$500,000. ... 2/ Includes Algeria, Gabon, Libya, and Nigeria\n<|id|>754<|page|>123<|box|>891 64 904 495<|content|>3 A non-interest-bearing liability to the U. ... Treasury resulting from the transfer to the\n<|id|>755<|page|>123<|box|>849 516 905 946<|content|>Exchange Stabilization Fund of foreign currencies ...ts published in the January 1979 Treasury Bulletin\n<|id|>785<|page|>131<|box|>479 37 495 164<|content|>New Subscribers\n<|id|>786<|page|>131<|box|>495 37 513 560<|content|>To order a new subscription . ... please use the order form provided below\n<|id|>788<|page|>131<|box|>577 27 605 108<|content|>Order Processing Code *6191\n<|id|>789<|page|>131<|box|>579 590 609 752<|content|>Charge your order. ... It's easy\n<|id|>794<|page|>131<|box|>694 27 712 187<|content|>Please Type or Print\n<|id|>798<|page|>131<|box|>734 518 753 923<|content|>☐ Check payable to the Superintendent of Documents\n<|id|>795<|page|>131<|box|>729 46 746 238<|content|>(Company or personal name)\n<|id|>797<|page|>131<|box|>760 46 776 268<|content|>(Additional address/attention line)\n<|id|>799<|page|>131<|box|>755 520 774 717<|content|>□ GPO Deposit Account\n<|id|>801<|page|>131<|box|>774 520 795 775<|content|>□ VISA or MasterCard Account\n<|id|>800<|page|>131<|box|>792 46 806 150<|content|>(Street address)\n<|id|>803<|page|>131<|box|>823 733 841 935<|content|>Thank you for your order! ... Thank you for your order\n<|id|>802<|page|>131<|box|>821 46 839 203<|content|>(City, State, ZIP Code)",
+    "raw_response": "<|src_id|>754<|tgt_id|>755",
+    "parsed": [
+        {
+            "src_id": 754,
+            "tgt_id": 755
+        }
+    ]
+}

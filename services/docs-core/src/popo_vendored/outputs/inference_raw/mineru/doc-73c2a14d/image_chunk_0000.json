@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>152 143 169 617<|content|>Attorneys for Defendant AURELIUS MEDIA AMERICAS IN\n<|id|>2<|type|>table<|page|>1<|box|>210 143 478 852<|content|>None\n<|id|>4<|type|>table<|page|>1<|box|>606 143 904 852<|content|>None\n<|id|>5<|type|>table<|page|>2<|box|>88 145 119 852<|content|>None\n<|id|>6<|type|>title<|page|>2<|box|>152 385 169 612<|content|>TABLE OF AUTHORITIES\n<|id|>7<|type|>table<|page|>2<|box|>202 143 470 852<|content|>None\n<|id|>8<|type|>table<|page|>2<|box|>529 143 782 852<|content|>None\n<|id|>9<|type|>table<|page|>2<|box|>840 145 904 852<|content|>None\n<|id|>10<|type|>title<|page|>3<|box|>138 140 155 310<|content|>I. INTRODUCTION\n<|id|>16<|type|>title<|page|>3<|box|>839 140 856 379<|content|>II. STATEMENT OF FACTS\n<|id|>23<|type|>title<|page|>5<|box|>89 140 106 346<|content|>III. LEGAL STANDARD\n<|id|>29<|type|>title<|page|>5<|box|>736 142 753 285<|content|>IV. ARGUMENT\n<|id|>44<|type|>title<|page|>7<|box|>824 140 840 482<|content|>B. Plaintiff Lacks Standing Under the UCL\n<|id|>54<|type|>title<|page|>9<|box|>282 140 299 522<|content|>C. The UCL Claim Is Uncertain and Ambiguous\n<|id|>70<|type|>title<|page|>11<|box|>565 140 582 397<|content|>D. Amendment Would Be Futile\n<|id|>78<|type|>title<|page|>12<|box|>300 140 316 292<|content|>V. CONCLUSION",
+    "raw_response": "<|src_id|>2<|tgt_id|>1\n<|src_id|>4<|tgt_id|>1\n<|src_id|>5<|tgt_id|>1\n<|src_id|>7<|tgt_id|>6\n<|src_id|>8<|tgt_id|>6\n<|src_id|>9<|tgt_id|>6",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 6
+        }
+    ]
+}

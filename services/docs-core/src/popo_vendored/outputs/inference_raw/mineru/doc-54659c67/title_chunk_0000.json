@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>325 140 344 496<|content|>1. Purpose and Matter Closure Confirmation\n<|id|>9<|page|>1<|box|>756 140 773 403<|content|>2. Summary of Permits Obtained\n<|id|>14<|page|>2<|box|>513 140 529 552<|content|>3. Summary of Professional Fees and Disbursements\n<|id|>16<|page|>2<|box|>606 140 623 308<|content|>3.1 Professional Fees\n<|id|>30<|page|>3<|box|>731 140 748 307<|content|>3.3 Invoice Enclosed\n<|id|>32<|page|>4<|box|>90 140 107 594<|content|>4. Ongoing Permit Conditions Requiring GAP's Atten\n<|id|>34<|page|>4<|box|>294 140 310 500<|content|>4.1 PSD Construction Permit (No. 23-A-0481)\n<|id|>44<|page|>5<|box|>410 140 428 423<|content|>4.2 NPDES Permit (No. IA0082917)\n<|id|>55<|page|>6<|box|>840 140 858 447<|content|>5. Acknowledgments and Appreciation\n<|id|>59<|page|>7<|box|>494 140 511 416<|content|>6. Future Engagement Availability",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>1\n<|id|>34<|level|>2\n<|id|>44<|level|>2\n<|id|>55<|level|>1\n<|id|>59<|level|>1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        }
+    ]
+}

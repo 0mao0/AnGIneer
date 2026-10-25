@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 316 118 681<|content|>APPLICATION FOR AUTHORITY\n<|id|>2<|page|>1<|box|>175 269 195 728<|content|>HUDSON YARDS WEST MEZZANINE LLC\n<|id|>3<|page|>1<|box|>220 274 238 723<|content|>Under Section 802 of the Limited Liability Company\n<|id|>9<|page|>1<|box|>411 158 446 838<|content|>APPLICATION FOR AUTHORITY OF HUDSON YARDS WEST MEZ\n<|id|>12<|page|>1<|box|>544 176 561 468<|content|>Hudson Yards West Mezzanine LLC\n<|id|>37<|page|>4<|box|>133 439 151 557<|content|>EXECUTION\n<|id|>47<|page|>5<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>48<|page|>5<|box|>114 151 152 844<|content|>Certificate of Existence / Good Standing of Hudson\n<|id|>51<|page|>5<|box|>359 142 375 375<|content|>Delaware Filing Information:\n<|id|>54<|page|>5<|box|>465 284 483 712<|content|>FILING INSTRUCTIONS COVER MEMORANDUM\n<|id|>55<|page|>5<|box|>491 156 527 839<|content|>PRIVILEGED AND CONFIDENTIAL INTERNAL — NOT FOR FIL\n<|id|>60<|page|>5<|box|>681 143 699 243<|content|>1. Filing Fee\n<|id|>62<|page|>5<|box|>827 142 844 277<|content|>2. Filing Method\n<|id|>68<|page|>6<|box|>547 140 564 313<|content|>3. Transmittal Letter\n<|id|>71<|page|>6<|box|>640 176 656 400<|content|>Attention: Rafael Dominguez\n<|id|>73<|page|>6<|box|>705 140 724 424<|content|>4. Coordination with Parallel Filing\n<|id|>75<|page|>7<|box|>90 140 108 429<|content|>5. Closing Deliverable Requirements\n<|id|>84<|page|>7<|box|>382 140 398 354<|content|>6. Post-Filing Action Items",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>3\n<|id|>9<|level|>1\n<|id|>12<|level|>2\n<|id|>37<|level|>1\n<|id|>47<|level|>1\n<|id|>48<|level|>2\n<|id|>51<|level|>3\n<|id|>54<|level|>2\n<|id|>55<|level|>-1\n<|id|>60<|level|>3\n<|id|>62<|level|>3\n<|id|>68<|level|>3\n<|id|>71<|level|>-1\n<|id|>73<|level|>3\n<|id|>75<|level|>3\n<|id|>84<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 3
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        }
+    ]
+}

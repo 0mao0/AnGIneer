@@ -1,0 +1,138 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>6<|page|>1<|box|>316 297 335 700<|content|>I. Purpose and Summary of Conclusions\n<|id|>12<|page|>2<|box|>325 419 345 578<|content|>II. Background\n<|id|>13<|page|>2<|box|>371 140 388 377<|content|>A. The TSA and Its Structure\n<|id|>21<|page|>3<|box|>520 140 537 418<|content|>B. Vantor's Exclusivity Allegations\n<|id|>25<|page|>4<|box|>167 140 185 501<|content|>C. The Kirkwood Email (September 22, 2021)\n<|id|>31<|page|>5<|box|>90 181 111 815<|content|>III. Schedule C — Lane Designations and Exclusivit\n<|id|>32<|page|>6<|box|>90 140 107 357<|content|>A. Structure of Schedule C\n<|id|>39<|page|>6<|box|>598 140 614 403<|content|>B. Primary Lanes — Section 2(a)\n<|id|>50<|page|>7<|box|>762 140 780 421<|content|>C. Secondary Lanes — Section 2(b)\n<|id|>57<|page|>8<|box|>429 140 445 495<|content|>D. Lane Modification Provisions — Section 3\n<|id|>61<|page|>9<|box|>90 153 111 844<|content|>IV. Mapping of Cascade and Briarwood Usage to Lane\n<|id|>62<|page|>9<|box|>136 140 154 331<|content|>A. Information Sources\n<|id|>69<|page|>9<|box|>753 140 771 397<|content|>B. Cascade Freight Systems Inc.\n<|id|>78<|page|>10<|box|>364 140 382 361<|content|>C. Briarwood Trucking Co.\n<|id|>86<|page|>10<|box|>690 140 707 415<|content|>D. Summary Lane Mapping Table\n<|id|>90<|page|>11<|box|>275 140 292 338<|content|>E. Context for Diversion\n<|id|>94<|page|>11<|box|>691 410 710 588<|content|>V. Legal Analysis\n<|id|>95<|page|>12<|box|>90 140 107 403<|content|>A. Plain Language of Schedule C\n<|id|>100<|page|>12<|box|>638 140 654 542<|content|>B. Conditional Nature of Primary Lane Exclusivity\n<|id|>111<|page|>13<|box|>537 140 554 473<|content|>C. Vantor's Potential Counter-Arguments\n<|id|>113<|page|>13<|box|>626 140 643 607<|content|>1. Argument that all numbered lanes (1–14) are \"Pr\n<|id|>115<|page|>13<|box|>878 140 896 416<|content|>2. Argument of implied exclusivity.\n<|id|>119<|page|>14<|box|>498 140 515 403<|content|>3. Argument of course of dealing.\n<|id|>123<|page|>15<|box|>136 300 156 694<|content|>VI. Implications for Litigation Strategy\n<|id|>129<|page|>15<|box|>816 380 835 614<|content|>VII. Recommendations\n<|id|>136<|page|>17<|box|>90 297 109 699<|content|>VIII. Exhibits / Attachments Referenced\n<|id|>141<|page|>17<|box|>359 142 375 630<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>21<|level|>3\n<|id|>25<|level|>3\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>39<|level|>3\n<|id|>50<|level|>3\n<|id|>57<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>69<|level|>3\n<|id|>78<|level|>3\n<|id|>86<|level|>3\n<|id|>90<|level|>3\n<|id|>94<|level|>2\n<|id|>95<|level|>3\n<|id|>100<|level|>3\n<|id|>111<|level|>3\n<|id|>113<|level|>4\n<|id|>115<|level|>4\n<|id|>119<|level|>4\n<|id|>123<|level|>2\n<|id|>129<|level|>2\n<|id|>136<|level|>2\n<|id|>141<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 4
+        },
+        {
+            "id": 115,
+            "level": 4
+        },
+        {
+            "id": 119,
+            "level": 4
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        }
+    ]
+}

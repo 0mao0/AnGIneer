@@ -1,0 +1,38 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 184 142 813<|content|>UNANIMOUS WRITTEN CONSENT OF THE BOARD OF DIRECTOR\n<|id|>4<|page|>1<|box|>388 142 405 243<|content|>RECITALS\n<|id|>35<|page|>5<|box|>566 140 584 279<|content|>RESOLUTIONS\n<|id|>46<|page|>7<|box|>393 140 411 393<|content|>CONSENT AND EXECUTION\n<|id|>67<|page|>8<|box|>417 142 434 236<|content|>EXHIBITS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>35<|level|>2\n<|id|>46<|level|>2\n<|id|>67<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        }
+    ]
+}

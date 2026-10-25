@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        53
+    ],
+    "pages": [
+        46,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>517<|type|>title<|page|>46<|box|>597 236 616 761<|content|>XVIII. RECOMMENDATIONS AND NEXT STEPS\n<|id|>533<|type|>title<|page|>48<|box|>652 395 672 602<|content|>XIX. APPENDICES\n<|id|>535<|type|>table<|page|>49<|box|>114 143 830 852<|content|>None\n<|id|>536<|type|>title<|page|>50<|box|>90 140 107 849<|content|>Appendix B — Pro Forma Capitalization Tables (No R\n<|id|>538<|type|>table<|page|>51<|box|>113 143 406 852<|content|>None\n<|id|>539<|type|>title<|page|>52<|box|>90 140 107 643<|content|>Appendix D — Section 367(b) Regulatory Framework S\n<|id|>541<|type|>title<|page|>53<|box|>90 140 107 578<|content|>Appendix E — Key Transaction Documents Referenced",
+    "raw_response": "<|src_id|>535<|tgt_id|>533\n<|src_id|>538<|tgt_id|>536",
+    "parsed": [
+        {
+            "src_id": 535,
+            "tgt_id": 533
+        },
+        {
+            "src_id": 538,
+            "tgt_id": 536
+        }
+    ]
+}

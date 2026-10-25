@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 16,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Balance at end of reporting period....', '42,336', '8,360', '7', '-237', '1,239', '1,100', '2,532']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Account', 'colspan=2, General ServicesAdministration - (Continued)', 'colspan=3, Agriculture Department', 'colspan=2, Commerce Department']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 367,
+    "table2_idx": 370
+}

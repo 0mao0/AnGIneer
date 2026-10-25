@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 196 118 800<|content|>MEMORANDUM — PRIVILEGED AND CONFIDENTIAL\n<|id|>1<|type|>title<|page|>1<|box|>143 364 160 633<|content|>ATTORNEY WORK PRODUCT\n<|id|>9<|type|>title<|page|>1<|box|>426 140 444 421<|content|>I. Purpose and Executive Summary\n<|id|>19<|type|>title<|page|>2<|box|>630 140 647 395<|content|>II. Background: The Settlement\n<|id|>20<|type|>title<|page|>2<|box|>661 140 678 326<|content|>A. Litigation Overview\n<|id|>34<|type|>table<|page|>4<|box|>440 143 621 852<|content|>None\n<|id|>36<|type|>title<|page|>4<|box|>704 142 720 307<|content|>B. Settlement Terms\n<|id|>52<|type|>title<|page|>6<|box|>90 140 107 405<|content|>III. Federal Income Tax Analysis\n<|id|>53<|type|>title<|page|>6<|box|>121 140 138 486<|content|>A. General Rule: IRC § 61 — Gross Income\n<|id|>58<|type|>title<|page|>6<|box|>674 140 691 447<|content|>B. The \"Origin of the Claim\" Doctrine\n<|id|>68<|type|>title<|page|>7<|box|>753 140 771 627<|content|>C. Allocation of the $14.75 Million Among Claim Co\n<|id|>87<|type|>title<|page|>10<|box|>575 140 593 655<|content|>D. Insurance Proceeds Component ($10.25 Million fr\n<|id|>91<|type|>title<|page|>11<|box|>204 140 222 480<|content|>IV. Deductibility of RGC's Litigation Costs\n<|id|>92<|type|>title<|page|>11<|box|>234 140 252 480<|content|>A. Calderwood & Harkness Fees and Costs\n<|id|>97<|type|>title<|page|>11<|box|>508 140 525 705<|content|>Total Calderwood & Harkness fees and costs: approx\n<|id|>102<|type|>title<|page|>12<|box|>330 140 347 362<|content|>B. Other Professional Costs\n<|id|>107<|type|>table<|page|>13<|box|>113 143 263 852<|content|>None\n<|id|>110<|type|>title<|page|>13<|box|>518 140 537 388<|content|>C. IRC § 162(f) Considerations\n<|id|>117<|type|>title<|page|>14<|box|>212 140 229 366<|content|>V. State Tax Considerations\n<|id|>126<|type|>title<|page|>15<|box|>375 140 391 269<|content|>C. Other States\n<|id|>132<|type|>title<|page|>16<|box|>90 140 107 454<|content|>VI. Financial Reporting Considerations\n<|id|>140<|type|>title<|page|>17<|box|>90 140 107 419<|content|>VII. Timing of Income Recognition\n<|id|>152<|type|>title<|page|>18<|box|>186 140 204 334<|content|>VIII. Recommendations\n<|id|>178<|type|>title<|page|>19<|box|>845 142 863 264<|content|>IX. Conclusion\n<|id|>187<|type|>title<|page|>20<|box|>801 142 819 320<|content|>Respectfully submitted,",
+    "raw_response": "<|src_id|>34<|tgt_id|>20\n<|src_id|>107<|tgt_id|>102",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 102
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        50
+    ],
+    "pages": [
+        3,
+        6,
+        10,
+        11,
+        25,
+        28,
+        37,
+        43,
+        49
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>3<|box|>346 415 551 725<|content|>LIBRARY ROOM 5030 APR 5 1973 TREASURY DEPARTMENT\n<|id|>2<|page|>6<|box|>148 191 164 389<|content|>OFFICIAL BUSINESS\n<|id|>3<|page|>6<|box|>373 561 574 694<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>24<|page|>10<|box|>664 547 731 1000<|content|>All bidders were required to agree not to purchase...ific rate or price, until after 1: ... , EDST, May\n<|id|>25<|page|>10<|box|>742 545 843 1000<|content|>Commercial banks were prohibited from making unsec...s were requested to refrain from making such loans\n<|id|>39<|page|>11<|box|>655 465 669 797<|content|>Foreign Series and Foreign Currency Series\n<|id|>40<|page|>11<|box|>678 461 782 927<|content|>Foreign series securities issued in April totaled ...ertificates of indebtedness and seven notes. ... )\n<|id|>77<|page|>25<|box|>464 0 530 422<|content|>For Federal Budget presentation a concept of \"net ...the agencies prior to reports submitted for Budget\n<|id|>78<|page|>25<|box|>469 476 528 905<|content|>Gross obligations incurred (as above). ... 169,334\n<|id|>79<|page|>25<|box|>528 466 541 612<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>86<|page|>28<|box|>239 51 356 512<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>87<|page|>28<|box|>138 540 203 1000<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>116<|page|>37<|box|>472 491 484 874<|content|>1/ Of \\$3,250 million in participation certificates subject to\n<|id|>117<|page|>37<|box|>481 491 492 937<|content|>limitation issued in fiscal 1968, \\$1,465 million ...n fiscal 1968, \\$1,465 million are now outstanding\n<|id|>122<|page|>37<|box|>653 0 736 442<|content|>The computed annual interest charge represents the...pplicable annual rate of interest. ... The average\n<|id|>123<|page|>37<|box|>644 485 699 910<|content|>annual interest rate is computed by dividing the c...ate it was based on the coupon rate for all issues\n<|id|>141<|page|>43<|box|>120 346 134 554<|content|>Footnotes to Table PDO-2\n<|id|>142<|page|>43<|box|>179 0 189 371<|content|>Source: ... Bureau of the Public Debt\n<|id|>201<|page|>49<|box|>754 0 769 457<|content|>accepted ranged from 100. ... Sale of a \"atrink\" of Treasum bills consisting of an additional \\$201\n<|id|>202<|page|>49<|box|>766 0 791 463<|content|>21/ Sale of a \"strip\" of Treasury bills consisting..., 14, 21, and 28, and February 4, 11, and 18, 1971",
+    "raw_response": "<|src_id|>86<|tgt_id|>87\n<|src_id|>116<|tgt_id|>117\n<|src_id|>122<|tgt_id|>123",
+    "parsed": [
+        {
+            "src_id": 86,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        }
+    ]
+}

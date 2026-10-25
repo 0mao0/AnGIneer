@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 143 125 852<|content|>CALDERWOOD & HARKNESS LLP 1800 Page Mill Road, Sui\n<|id|>1<|type|>table<|page|>1<|box|>159 143 316 852<|content|>None\n<|id|>2<|type|>table<|page|>1<|box|>376 143 571 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>880 395 896 601<|content|>STATE OF DELAWARE\n<|id|>6<|type|>title<|page|>2<|box|>89 321 106 674<|content|>OFFICE OF THE SECRETARY OF STATE\n<|id|>7<|type|>title<|page|>2<|box|>114 338 132 658<|content|>CERTIFICATE OF GOOD STANDING\n<|id|>9<|type|>title<|page|>2<|box|>222 274 239 720<|content|>MERIDIAN DIAGNOSTICS, INC. File Number: 7294531\n<|id|>15<|type|>table<|page|>2<|box|>568 143 771 852<|content|>None\n<|id|>20<|type|>title<|page|>3<|box|>133 142 150 627<|content|>SECRETARY OF STATE OF THE STATE OF DELAWARE\n<|id|>27<|type|>title<|page|>3<|box|>320 214 337 782<|content|>CALDERWOOD & HARKNESS LLP CLOSING BINDER NOTATION\n<|id|>29<|type|>title<|page|>3<|box|>377 142 393 318<|content|>Binder Tab Reference\n<|id|>30<|type|>title<|page|>3<|box|>401 140 419 833<|content|>Tab Designation: Tab 4(a) — Good Standing Certific\n<|id|>32<|type|>title<|page|>3<|box|>494 140 511 379<|content|>Condition to Closing Satisfied\n<|id|>35<|type|>title<|page|>3<|box|>794 142 811 403<|content|>Companion Document Reference\n<|id|>39<|type|>table<|page|>4<|box|>215 143 380 852<|content|>None",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>2<|tgt_id|>0\n<|src_id|>15<|tgt_id|>7\n<|src_id|>39<|tgt_id|>7",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 2,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 7
+        }
+    ]
+}

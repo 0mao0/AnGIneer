@@ -1,0 +1,58 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 104 795<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT PRIVILEG\n<|id|>4<|page|>1<|box|>191 176 210 820<|content|>INVOICE — STATEMENT FOR PROFESSIONAL SERVICES\n<|id|>6<|page|>1<|box|>393 143 409 261<|content|>Addressed To:\n<|id|>8<|page|>1<|box|>478 142 494 387<|content|>Client and Matter Information\n<|id|>12<|page|>1<|box|>651 142 667 490<|content|>Summary of Professional Services Rendered\n<|id|>31<|page|>4<|box|>344 140 361 331<|content|>Description of Services:\n<|id|>37<|page|>4<|box|>776 140 794 331<|content|>Description of Services:\n<|id|>43<|page|>5<|box|>295 142 313 331<|content|>Description of Services:\n<|id|>49<|page|>5<|box|>727 142 744 331<|content|>Description of Services:\n<|id|>58<|page|>7<|box|>251 142 267 315<|content|>Payment Instructions\n<|id|>69<|page|>7<|box|>631 140 648 321<|content|>Terms and Conditions",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>1\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>31<|level|>3\n<|id|>37<|level|>3\n<|id|>43<|level|>3\n<|id|>49<|level|>3\n<|id|>58<|level|>2\n<|id|>69<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        }
+    ]
+}

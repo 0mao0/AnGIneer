@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>195 153 231 843<|content|>Filed Pursuant to Section 17-201 of the Delaware R...form Limited Partnership Act (6 Del. ... § 17-201)\n<|id|>4<|page|>1<|box|>239 233 256 854<|content|>SOS File Number: ... 00\n<|id|>5<|page|>1<|box|>266 143 282 601<|content|>FIRST: ... The name of the limited partnership formed hereby is\n<|id|>6<|page|>1<|box|>292 178 308 406<|content|>ICM Cascadia Co-Invest, LP\n<|id|>7<|page|>1<|box|>316 140 353 852<|content|>SECOND: ... The address of the registered office of the limited partnership in the State of Delaware is\n<|id|>10<|page|>1<|box|>414 178 430 315<|content|>Cascade Systems\n<|id|>11<|page|>1<|box|>439 142 457 836<|content|>THIRD: ... The name and mailing address of the sole general partner of the limited partnership is\n<|id|>12<|page|>1<|box|>465 176 482 738<|content|>Meridian Infrastructure GP IV LLC a Delaware limited liability company\n<|id|>13<|page|>1<|box|>491 176 508 640<|content|>200 Clarendon Street, Suite 4200 Boston, Massachusetts 02116\n<|id|>14<|page|>1<|box|>517 140 553 852<|content|>FOURTH: ... This Certificate of Limited Partnershi...th the Secretary of State of the State of Delaware\n<|id|>16<|page|>1<|box|>660 238 678 758<|content|>[Remainder of Page Intentionally Left Blank; ... Signature Page Follows]\n<|id|>17<|page|>1<|box|>686 140 722 852<|content|>IN WITNESS WHEREOF, the undersigned has executed t...mited Partnership as of the 22nd day of July, 2022\n<|id|>18<|page|>1<|box|>729 142 762 852<|content|>MERIDIAN INFRASTRUCTURE GP IV LLC, as General Partner of ICM Cascadia Co- Invest, LP\n<|id|>19<|page|>1<|box|>763 143 780 251<|content|>By: ... By\n<|id|>20<|page|>1<|box|>781 143 797 352<|content|>Name: ... Hargreaves\n<|id|>21<|page|>1<|box|>799 143 815 323<|content|>Title: ... Managing Partner\n<|id|>22<|page|>1<|box|>816 143 830 290<|content|>Date: ... July 22, 2022\n<|id|>23<|page|>1<|box|>832 155 849 839<|content|>STATE OF DELAWARE SECRETARY OF STATE DIVISION OF CORPORATIONS\n<|id|>25<|page|>1<|box|>883 178 898 354<|content|>File Number: ... 7439218\n<|id|>26<|page|>1<|box|>916 142 929 241<|content|>File No. ... 7439218\n<|id|>27<|page|>2<|box|>89 176 108 398<|content|>Date of Filing: ... July 22, 2022",
+    "raw_response": "<|src_id|>5<|tgt_id|>6\n<|src_id|>11<|tgt_id|>12",
+    "parsed": [
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        }
+    ]
+}

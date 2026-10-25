@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 248<|content|>【156077#2】梁左\n<|id|>2<|page|>1<|box|>209 105 225 354<|content|>【156557#2】多倫多國際電影節\n<|id|>4<|page|>1<|box|>275 107 291 371<|content|>【157219#2】中国通信标准化协会\n<|id|>6<|page|>1<|box|>341 107 357 300<|content|>【157269#1】圖靈完備性\n<|id|>8<|page|>1<|box|>442 107 458 267<|content|>【1579#5】美国国旗\n<|id|>10<|page|>1<|box|>544 107 560 267<|content|>【1579#8】美国国旗\n<|id|>12<|page|>1<|box|>627 107 643 267<|content|>【1581#1】英国国旗\n<|id|>14<|page|>1<|box|>677 107 692 292<|content|>【1581559#8】白猪笼草\n<|id|>16<|page|>1<|box|>795 105 810 391<|content|>【1591528#1】艾蒂安-路易·马吕斯\n<|id|>18<|page|>1<|box|>878 107 895 300<|content|>【159363#4】心理统计学\n<|id|>20<|page|>2<|box|>152 105 168 337<|content|>【1599679#1】AKB48歌曲列表\n<|id|>22<|page|>2<|box|>374 107 388 337<|content|>【1599679#2】AKB48歌曲列表\n<|id|>24<|page|>2<|box|>474 107 489 248<|content|>【16009#28】杜牧\n<|id|>26<|page|>2<|box|>575 107 590 275<|content|>【160397#16】汶川县\n<|id|>28<|page|>3<|box|>73 107 89 265<|content|>【160397#6】汶川县\n<|id|>30<|page|>3<|box|>225 105 242 347<|content|>【1608005#0】易易壹金融集團\n<|id|>32<|page|>3<|box|>326 105 343 346<|content|>【1608005#1】易易壹金融集團\n<|id|>34<|page|>3<|box|>410 107 426 346<|content|>【1608005#2】易易壹金融集團\n<|id|>36<|page|>3<|box|>476 107 493 337<|content|>【1612148#16】爱德华猪笼草\n<|id|>38<|page|>3<|box|>577 107 594 319<|content|>【1624037#26】暗色猪笼草\n<|id|>40<|page|>3<|box|>678 107 695 319<|content|>【1624037#46】暗色猪笼草\n<|id|>42<|page|>3<|box|>780 105 796 292<|content|>【1627587#0】四大名剧\n<|id|>44<|page|>3<|box|>846 105 863 302<|content|>【1629106#11】兰亭集势\n<|id|>47<|page|>4<|box|>99 105 116 302<|content|>【1629106#13】兰亭集势\n<|id|>49<|page|>4<|box|>200 105 217 275<|content|>【163280#19】盱眙县\n<|id|>51<|page|>4<|box|>336 105 353 346<|content|>【1634994#0】有性生殖的演化\n<|id|>53<|page|>4<|box|>454 105 470 310<|content|>【1640384#1】狐狸打猎人\n<|id|>55<|page|>4<|box|>573 107 589 312<|content|>【1643630#1】刚毛猪笼草\n<|id|>57<|page|>4<|box|>639 105 655 319<|content|>【1654071#14】卓越猪笼草\n<|id|>60<|page|>5<|box|>73 107 87 275<|content|>【1654592#0】YY直播",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>47<|level|>1\n<|id|>49<|level|>1\n<|id|>51<|level|>1\n<|id|>53<|level|>1\n<|id|>55<|level|>1\n<|id|>57<|level|>1\n<|id|>60<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        }
+    ]
+}

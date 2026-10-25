@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        10,
+        11,
+        12,
+        13,
+        14,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>184 140 219 854<|content|>To: ... Simone Laroche, Lead Associate\n<|id|>3<|page|>1<|box|>228 140 244 743<|content|>From: ... Harold Wren, Of Counsel (Communications & Regulatory Practice Group)\n<|id|>4<|page|>1<|box|>253 140 271 321<|content|>Date: ... January 15, 2024\n<|id|>5<|page|>1<|box|>279 140 315 854<|content|>Re: ... 0010287-EX — Regulatory Timeline and Risk of Dismissal for Failure to Prosecute\n<|id|>6<|page|>1<|box|>324 140 340 331<|content|>Matter No. ... 1018-00009\n<|id|>7<|page|>1<|box|>349 140 367 728<|content|>Client: ... Northgate Telecommunications PLC / Northgate Wireless Americas Inc\n<|id|>15<|page|>2<|box|>215 174 270 854<|content|>(b) Negotiate a joint stipulation for abeyance wit...nding resolution of the commercial dispute; ... or\n<|id|>17<|page|>2<|box|>321 140 357 854<|content|>The analysis supporting these recommendations, and...cussed in detail in Sections IV through VIII below\n<|id|>31<|page|>3<|box|>849 140 930 856<|content|>December 9, 2022: ... 1018-00009 — PRIVILEGED AND ...ATTORNEY-CLIENT PRIVILEGED / ATTORNEY WORK PRODUCT\n<|id|>32<|page|>4<|box|>90 140 145 854<|content|>applicable to investments from World Trade Organiz...nterest harm arising from the proposed transaction\n<|id|>98<|page|>10<|box|>861 140 897 854<|content|>Loss of processing progress. ... All progress achi...blic notice and comment period, disposition of the\n<|id|>99<|page|>11<|box|>90 140 145 854<|content|>Great Basin informal objection, and the WTB's subs...sing history would carry over to a new application\n<|id|>108<|page|>11<|box|>833 140 930 856<|content|>Weakened negotiating position. ... 1018-00009 — PR...ATTORNEY-CLIENT PRIVILEGED / ATTORNEY WORK PRODUCT\n<|id|>109<|page|>12<|box|>90 140 145 854<|content|>Ridgeline that Northgate's commitment to the trans... more aggressive terms in any renewed negotiations\n<|id|>132<|page|>13<|box|>859 140 893 854<|content|>Timing: ... A draft status update letter has been prepared by Broadfield Whitaker in coordination with\n<|id|>133<|page|>14<|box|>89 140 126 854<|content|>Calderwood & Harkness and is available for review ...ft letter to FCC, circulated under separate cover)\n<|id|>198<|page|>19<|box|>215 181 232 720<|content|>• Priya Dasgupta, General Counsel, Northgate Telecommunications PLC\n<|id|>199<|page|>19<|box|>234 181 270 854<|content|>Thomas Brennan, Senior Vice President, Regulatory Affairs, Northgate Telecommunications PLC\n<|id|>201<|page|>19<|box|>292 140 366 856<|content|>The call should address, at a minimum, the client'...otiations that may bear on the regulatory strategy\n<|id|>210<|page|>20<|box|>369 181 386 732<|content|>• FCC Application Options: ... Maintain / Revive / Withdraw (in preparation)\n<|id|>215<|page|>20<|box|>468 140 484 797<|content|>I am available to discuss this memorandum and its ...randum and its recommendations at your convenience\n<|id|>211<|page|>20<|box|>388 183 405 720<|content|>• APA Termination Rights and Long-Stop Date Analysis (in preparation)\n<|id|>212<|page|>20<|box|>409 183 425 723<|content|>• Escrow Deposit Recovery / Forfeiture Risk Assessment (in preparation)\n<|id|>213<|page|>20<|box|>429 183 445 643<|content|>• FCC Buildout Compliance Risk Assessment (in preparation)\n<|id|>214<|page|>20<|box|>448 183 464 660<|content|>• Anti-Trafficking / Unjust Enrichment Analysis (in preparation)",
+    "raw_response": "<|src_id|>31<|tgt_id|>32\n<|src_id|>98<|tgt_id|>99\n<|src_id|>108<|tgt_id|>109\n<|src_id|>132<|tgt_id|>133",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        }
+    ]
+}

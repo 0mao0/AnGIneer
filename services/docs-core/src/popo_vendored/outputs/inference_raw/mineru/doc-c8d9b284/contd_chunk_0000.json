@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 143 167 852<|content|>345 Park Avenue New York, New York 10154 Telephone: ... (212) 554- 7899\n<|id|>2<|page|>1<|box|>179 723 195 854<|content|>February 8, 2024\n<|id|>3<|page|>1<|box|>204 140 222 769<|content|>To the Several Underwriters named in the Underwrit...ed in the Underwriting Agreement referred to below\n<|id|>4<|page|>1<|box|>229 140 266 854<|content|>Whitfield Barrow & Co. ... , LLC 383 Madison Avenu...79 (as Representative of the Several Underwriters)\n<|id|>5<|page|>1<|box|>273 140 292 810<|content|>Calloway Pierce Securities LLC 200 Park Avenue, 40th Floor New York, New York 10166\n<|id|>6<|page|>1<|box|>300 140 318 844<|content|>Velthorn Capital Partners Inc. ... 555 California Street, Suite 3000 San Francisco, California 94104\n<|id|>7<|page|>1<|box|>325 140 344 758<|content|>Pemberton Wallis LLC 100 Federal Street, 28th Floor Boston, Massachusetts 02110\n<|id|>8<|page|>1<|box|>352 140 395 810<|content|>Re: ... — Initial Public Offering of Common Stock Ladies and Gentlemen\n<|id|>13<|page|>1<|box|>869 140 906 854<|content|>This letter has been prepared in accordance with t...ntants (\"AICPA\") as set forth in AU-C Section 920,\n<|id|>14<|page|>2<|box|>90 138 183 856<|content|>Letters for Underwriters and Certain Other Request...irs of the Company in connection with the Offering\n<|id|>24<|page|>2<|box|>654 174 671 772<|content|>(e) Consolidated statements of cash flows for each of those three fiscal years; ... and\n<|id|>26<|page|>2<|box|>724 138 907 857<|content|>We audited the Audited Financial Statements, and o...s, modifications, or emphasis-of-matter paragraphs\n<|id|>47<|page|>4<|box|>845 140 883 854<|content|>We compared the amounts in the capitalization tabl...2023 on an \"actual\" basis to the Audited Financial\n<|id|>48<|page|>5<|box|>89 140 127 854<|content|>Statements, specifically the audited consolidated ... ledger, and found such amounts to be in agreement\n<|id|>64<|page|>6<|box|>337 183 353 321<|content|>• Cost of revenue\n<|id|>72<|page|>6<|box|>493 140 529 854<|content|>Each of the foregoing amounts, as set forth in the...onding amounts in the Audited Financial Statements\n<|id|>65<|page|>6<|box|>356 183 373 295<|content|>• Gross profit\n<|id|>66<|page|>6<|box|>376 183 393 334<|content|>• Operating income\n<|id|>67<|page|>6<|box|>395 183 411 290<|content|>• Net income\n<|id|>68<|page|>6<|box|>415 183 430 292<|content|>• Total assets\n<|id|>69<|page|>6<|box|>434 183 450 316<|content|>• Total liabilities\n<|id|>70<|page|>6<|box|>454 183 470 352<|content|>• Stockholders' equity\n<|id|>71<|page|>6<|box|>474 183 489 395<|content|>• Cash and cash equivalents\n<|id|>109<|page|>9<|box|>369 210 441 854<|content|>(iii) whether, for the Change Period, there were a... income, or (C) net income of the Company; ... and\n<|id|>111<|page|>9<|box|>494 140 549 854<|content|>Based upon our reading of the minutes described in...me to our attention that caused us to believe that\n<|id|>112<|page|>9<|box|>556 174 686 857<|content|>(i) At the Cut-Off Date, there was any change in t...023 included in the Registration Statement; ... or\n<|id|>114<|page|>9<|box|>753 138 883 856<|content|>The foregoing negative assurance is subject to the...our attention that would have been reported to you",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>47<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        }
+    ]
+}

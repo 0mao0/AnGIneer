@@ -1,0 +1,117 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-be1rks6u\\input\\pdfs\\doc-68e6e7dc.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-be1rks6u\\enriched\\doc-68e6e7dc.json",
+    "contd_output": "<|src_id|>12<|tgt_id|>13\n<|src_id|>69<|tgt_id|>70",
+    "title_output": "<|id|>7<|level|>1\n<|id|>26<|level|>1\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>47<|level|>1\n<|id|>52<|level|>1\n<|id|>64<|level|>1\n<|id|>71<|level|>1\n<|id|>76<|level|>1\n<|id|>81<|level|>1\n<|id|>88<|level|>1\n<|id|>92<|level|>1\n<|id|>98<|level|>1\n<|id|>100<|level|>1\n<|id|>103<|level|>1",
+    "image_output": "<|src_id|>36<|tgt_id|>34\n<|src_id|>37<|tgt_id|>34",
+    "contd_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 34
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 36,
+            "table2_idx": 37,
+            "upper_row_ss": [
+                [
+                    "Vivienne St. Claire",
+                    "Partner",
+                    "$1,525.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        9,
+        10,
+        19,
+        20,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>534 150 570 844<|content|>DESIGNATION: ... ATTORNEY WORK PRODUCT — PRIVILEGE...NOT TO BE DISCLOSED TO WITNESS OR OPPOSING COUNSEL\n<|id|>5<|page|>1<|box|>579 143 594 408<|content|>Right-click to update Table of Contents\n<|id|>55<|page|>5<|box|>859 174 895 856<|content|>Participation in prosecution. ... Did\n<|id|>56<|page|>6<|box|>90 174 162 854<|content|>Tanaka participate in or provide input to the pros...mitted in response to the office action rejections\n<|id|>63<|page|>6<|box|>539 174 575 854<|content|>An integrated optical coupler comprising a tapered...cally coupled to a silicon nitride waveguide layer\n<|id|>64<|page|>6<|box|>584 140 619 852<|content|>The term \"adiabatically coupled\" is the most signi...ted the following competing proposed constructions\n<|id|>101<|page|>9<|box|>824 140 880 856<|content|>Tanaka's '456,012 patent is the single most import...n history estoppel arguments now being advanced by\n<|id|>102<|page|>10<|box|>90 140 127 854<|content|>Lumos. ... Understanding the content and scope of ...ny is essential to our claim construction strategy\n<|id|>231<|page|>19<|box|>801 174 893 857<|content|>Line 4: ... She may point to specific language in the Chen &\n<|id|>232<|page|>20<|box|>89 174 127 854<|content|>Liu paper that distinguishes segmented taper coupl... that this distinction was understood in the field\n<|id|>294<|page|>25<|box|>662 267 679 730<|content|>— END OF DEPOSITION PREPARATION OUTLINE —\n<|id|>295<|page|>25<|box|>688 140 718 854<|content|>ATTORNEY WORK PRODUCT — PRIVILEGED AND CONFIDENTIA...NOT TO BE DISCLOSED TO WITNESS OR OPPOSING COUNSEL\n<|id|>296<|page|>25<|box|>726 140 801 854<|content|>This document was prepared by attorneys at Calderw...ent representatives at Optiwave Semiconductor Corp",
+    "raw_response": "<|src_id|>55<|tgt_id|>56\n<|src_id|>101<|tgt_id|>102\n<|src_id|>231<|tgt_id|>232",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 231,
+            "tgt_id": 232
+        }
+    ]
+}

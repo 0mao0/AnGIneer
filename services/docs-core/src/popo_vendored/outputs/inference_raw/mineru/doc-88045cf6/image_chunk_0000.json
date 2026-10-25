@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|type|>title<|page|>1<|box|>193 140 210 578<|content|>VIA ELECTRONIC MAIL AND FIRST CLASS MAIL\n<|id|>8<|type|>title<|page|>1<|box|>367 142 383 367<|content|>1. Introduction and Purpose\n<|id|>13<|type|>title<|page|>1<|box|>823 140 840 388<|content|>2. Summary of the Transaction\n<|id|>29<|type|>title<|page|>3<|box|>186 140 204 452<|content|>3. Key Protective Provisions Negotiated\n<|id|>35<|type|>title<|page|>4<|box|>90 140 107 441<|content|>4. Key Dates and Milestones Achieved\n<|id|>37<|type|>table<|page|>4<|box|>176 143 599 852<|content|>None\n<|id|>39<|type|>title<|page|>4<|box|>712 140 729 369<|content|>5. Scope of Work Performed\n<|id|>68<|type|>title<|page|>7<|box|>231 140 248 313<|content|>6. Engagement Team\n<|id|>76<|type|>title<|page|>7<|box|>800 140 818 349<|content|>7. Final Invoice Summary\n<|id|>78<|type|>table<|page|>8<|box|>114 143 227 852<|content|>None\n<|id|>79<|type|>table<|page|>8<|box|>285 143 518 852<|content|>None\n<|id|>83<|type|>title<|page|>8<|box|>791 140 808 478<|content|>8. Closing Binder and Document Retention\n<|id|>88<|type|>title<|page|>9<|box|>439 140 457 421<|content|>9. Ongoing Matters and Reminders\n<|id|>96<|type|>title<|page|>10<|box|>250 140 266 450<|content|>10. Acknowledgment and Appreciation",
+    "raw_response": "<|src_id|>37<|tgt_id|>35\n<|src_id|>78<|tgt_id|>76\n<|src_id|>79<|tgt_id|>76",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 76
+        }
+    ]
+}

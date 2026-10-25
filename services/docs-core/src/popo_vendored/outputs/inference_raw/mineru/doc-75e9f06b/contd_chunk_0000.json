@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>127 147 181 856<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1999 Av...0 Los Angeles, California 90067 Telephone: ... com\n<|id|>2<|page|>1<|box|>190 756 208 854<|content|>May 5, 2023\n<|id|>4<|page|>1<|box|>260 140 295 854<|content|>Claims Department Northbridge Mutual Insurance Co....ull Street, Suite 1400 Hartford, Connecticut 06103\n<|id|>5<|page|>1<|box|>304 174 340 852<|content|>Re: ... NM-EPLI-2023-00417 — Aurelius Global Media Group PLC / Aurelius Pacific Studios Inc\n<|id|>6<|page|>1<|box|>348 176 364 563<|content|>Calderwood & Harkness Matter No. ... 1017-00005\n<|id|>7<|page|>1<|box|>375 142 392 334<|content|>Dear Claims Department: ... Dear Claims Department\n<|id|>18<|page|>2<|box|>806 140 898 856<|content|>Aurelius Pacific Studios Inc. ... 12 billion for the fiscal year ending\n<|id|>19<|page|>3<|box|>89 140 126 854<|content|>December 31, 2022. ... APS is the direct employer ...uals referenced in the allegations described below\n<|id|>47<|page|>5<|box|>854 174 909 856<|content|>(b) Potential violations of the Company's own internal policies, including: ... 3 (Anti-\n<|id|>48<|page|>6<|box|>90 174 143 854<|content|>Harassment & Anti-Discrimination Policy), Section ...idelines, Section 12 (Executive Conduct Standards)\n<|id|>95<|page|>10<|box|>571 174 607 854<|content|>Bernard Crawford Partner Calderwood & Harkness LLP...es, California 90067 Telephone: ... (310) 556-8217\n<|id|>96<|page|>10<|box|>614 176 651 511<|content|>Email: ... com With a copy to\n<|id|>97<|page|>10<|box|>659 174 695 854<|content|>Devon Archer Associate Calderwood & Harkness LLP 1...es, California 90067 Telephone: ... (310) 556-8244\n<|id|>98<|page|>10<|box|>704 142 738 570<|content|>Email: ... com Internal company correspondence may also be directed to\n<|id|>99<|page|>10<|box|>744 174 782 852<|content|>Fiona Blackwood General Counsel Aurelius Global Me... United Kingdom Telephone: ... +44 (0)20 7946 0283\n<|id|>100<|page|>10<|box|>791 142 825 803<|content|>Email: ... 1017-00005 in all correspondence\n<|id|>106<|page|>11<|box|>329 140 345 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>107<|page|>11<|box|>348 143 364 253<|content|>By: ... By\n<|id|>108<|page|>11<|box|>364 143 380 338<|content|>Bernard Crawford Partner\n<|id|>109<|page|>11<|box|>381 143 398 285<|content|>Date: ... May 5, 2023\n<|id|>110<|page|>11<|box|>401 142 414 171<|content|>cc: ... cc",
+    "raw_response": "<|src_id|>18<|tgt_id|>19\n<|src_id|>47<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        12,
+        18
+    ],
+    "pages": [
+        12,
+        16,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>53<|page|>12<|box|>406 87 422 327<|content|>TOTAL ESCROW DEPO28900000\n<|id|>55<|page|>12<|box|>495 85 511 462<|content|>INDEMNIFICATION PARAMETERS (for reference):\n<|id|>74<|page|>16<|box|>192 87 208 194<|content|>MILESTONE 1\n<|id|>76<|page|>16<|box|>299 87 315 196<|content|>MILESTONE 2\n<|id|>81<|page|>18<|box|>193 87 208 213<|content|>USES OF FUNDS\n<|id|>83<|page|>18<|box|>353 87 369 319<|content|>SOURCES0 Balanced",
+    "raw_response": "<|id|>53<|level|>1\n<|id|>55<|level|>1\n<|id|>74<|level|>2\n<|id|>76<|level|>2\n<|id|>81<|level|>1\n<|id|>83<|level|>1",
+    "parsed": [
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        }
+    ]
+}

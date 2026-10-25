@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 240 133 759<|content|>1251 Avenue of the Americas, 40th Floor New York,\n<|id|>8<|page|>1<|box|>340 142 357 336<|content|>I. Introduction and Role\n<|id|>12<|page|>1<|box|>679 142 695 341<|content|>II. Documents Examined\n<|id|>14<|page|>1<|box|>753 142 770 354<|content|>A. Transaction Documents\n<|id|>22<|page|>2<|box|>547 142 564 486<|content|>B. Organizational and Ancillary Documents\n<|id|>39<|page|>4<|box|>148 142 167 279<|content|>III. Assumptions\n<|id|>52<|page|>5<|box|>364 140 383 250<|content|>IV. Opinions\n<|id|>54<|page|>5<|box|>441 140 459 764<|content|>4.1 Due Organization and Good Standing — Crestline\n<|id|>57<|page|>5<|box|>686 140 704 669<|content|>4.2 Due Organization and Good Standing — Crestline\n<|id|>60<|page|>6<|box|>138 140 157 434<|content|>4.3 Authorization and Due Execution\n<|id|>69<|page|>7<|box|>367 140 383 272<|content|>4.5 No Conflicts\n<|id|>76<|page|>8<|box|>311 140 329 465<|content|>4.6 No Governmental Consents Required\n<|id|>82<|page|>8<|box|>726 140 744 581<|content|>4.7 Perfection of Security Interests — Personal Pr\n<|id|>86<|page|>9<|box|>404 140 421 686<|content|>4.8 Perfection of Security Interests — Pledge of M\n<|id|>91<|page|>9<|box|>810 140 827 550<|content|>4.9 Perfection of Security Interests — Real Proper\n<|id|>94<|page|>10<|box|>321 140 339 406<|content|>V. Qualifications and Limitations\n<|id|>105<|page|>12<|box|>148 140 167 338<|content|>VI. Reliance and Benefit",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>22<|level|>2\n<|id|>39<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>2\n<|id|>57<|level|>2\n<|id|>60<|level|>2\n<|id|>69<|level|>2\n<|id|>76<|level|>2\n<|id|>82<|level|>2\n<|id|>86<|level|>2\n<|id|>91<|level|>2\n<|id|>94<|level|>1\n<|id|>105<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        }
+    ]
+}

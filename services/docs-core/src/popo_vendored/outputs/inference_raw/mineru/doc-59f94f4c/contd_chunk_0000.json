@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        5,
+        9,
+        10,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>138 423 154 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>164 140 181 522<|content|>TO: ... Harrison Wexford, Responsible Partner, M&A\n<|id|>3<|page|>1<|box|>190 140 224 854<|content|>FROM: ... Andrew Fitzpatrick, Working Associate, M&A\n<|id|>4<|page|>1<|box|>234 142 252 334<|content|>DATE: ... January 14, 2024\n<|id|>5<|page|>1<|box|>260 140 295 854<|content|>RE: ... Equity Commitment Letter and Limited Guara...tructural Analysis and Delaware Law Considerations\n<|id|>6<|page|>1<|box|>304 142 321 361<|content|>MATTER NO. ... 1041-00003\n<|id|>7<|page|>1<|box|>330 140 347 457<|content|>CLIENT: ... Solara Digital Infrastructure LP\n<|id|>8<|page|>1<|box|>356 142 372 408<|content|>Right-click to update Table of Contents\n<|id|>46<|page|>5<|box|>699 183 715 517<|content|>• Total funding requirement: ... $7,188,944,048\n<|id|>50<|page|>5<|box|>777 140 905 857<|content|>The commitment amount represents approximately 41....tification required for investments exceeding 20%)\n<|id|>47<|page|>5<|box|>718 183 734 517<|content|>• Less: ... ($3,740,000,000)\n<|id|>48<|page|>5<|box|>738 183 753 517<|content|>• Less: ... ($616,055,952)\n<|id|>49<|page|>5<|box|>757 183 773 697<|content|>• Equals: ... $2,832,888,096\n<|id|>89<|page|>9<|box|>842 140 897 854<|content|>Guarantor. ... The Guarantor was organized under the Delaware Limited Liability\n<|id|>90<|page|>10<|box|>90 138 181 854<|content|>Company Act and is managed by its sole member, Sol...ture LP (the ultimate sponsor entity). ... C below\n<|id|>152<|page|>16<|box|>90 181 126 854<|content|>• Cause the equity financing to be funded under the ECL (i. ... and\n<|id|>154<|page|>16<|box|>166 140 239 854<|content|>This is the so-called \"equity funding specific per...o a monetary payment (the reverse termination fee)",
+    "raw_response": "<|src_id|>89<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        }
+    ]
+}

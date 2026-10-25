@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        14,
+        15,
+        16,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 143 141 852<|content|>UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF\n<|id|>3<|page|>1<|box|>200 380 219 614<|content|>LUMOS PHOTONICS, INC.,\n<|id|>7<|page|>1<|box|>305 171 340 826<|content|>PLAINTIFF OPTIWAVE SEMICONDUCTOR CORP.'S PRELIMINA\n<|id|>9<|page|>1<|box|>375 393 393 604<|content|>I. INTRODUCTION\n<|id|>21<|page|>2<|box|>369 207 388 789<|content|>II. LEGAL STANDARD FOR CLAIM CONSTRUCTION\n<|id|>30<|page|>3<|box|>678 246 698 750<|content|>III. IDENTIFICATION OF ASSERTED CLAIMS\n<|id|>31<|page|>3<|box|>723 140 739 526<|content|>A. U.S. Patent No. 10,234,567 (\"the '567 Patent\")\n<|id|>34<|page|>4<|box|>148 140 167 524<|content|>B. U.S. Patent No. 10,891,234 (\"the '234 Patent\")\n<|id|>37<|page|>4<|box|>388 140 406 526<|content|>C. U.S. Patent No. 11,045,678 (\"the '678 Patent\")\n<|id|>40<|page|>4<|box|>628 140 645 526<|content|>D. U.S. Patent No. 11,312,890 (\"the '890 Patent\")\n<|id|>43<|page|>5<|box|>90 160 135 836<|content|>IV. CLAIM TERMS REQUIRING CONSTRUCTION AND OWS'S P\n<|id|>50<|page|>5<|box|>398 140 416 640<|content|>Intrinsic Evidence in Support of OWS's Proposed Co\n<|id|>58<|page|>6<|box|>803 140 844 821<|content|>2. \"tapered silicon waveguide having a tip width o\n<|id|>63<|page|>7<|box|>429 140 446 498<|content|>3. \"silicon nitride waveguide layer\" (Claim 1)\n<|id|>67<|page|>7<|box|>747 140 763 620<|content|>B. Terms from U.S. Patent No. 10,891,234 (\"the '23\n<|id|>71<|page|>8<|box|>133 140 152 640<|content|>Intrinsic Evidence in Support of OWS's Proposed Co\n<|id|>77<|page|>9<|box|>250 140 267 470<|content|>5. \"germanium absorber layer\" (Claim 1)\n<|id|>81<|page|>9<|box|>556 140 574 660<|content|>6. \"enhanced responsivity\" (Title; referenced in d\n<|id|>99<|page|>11<|box|>755 140 773 519<|content|>8. \"multi-channel optical transceiver\" (Claim 1)\n<|id|>103<|page|>12<|box|>250 140 266 390<|content|>9. \"single silicon die\" (Claim 1)\n<|id|>107<|page|>12<|box|>547 140 566 622<|content|>D. Terms from U.S. Patent No. 11,312,890 (\"the '89\n<|id|>126<|page|>14<|box|>810 142 828 475<|content|>11. \"Mach-Zehnder modulator\" (Claim 1)\n<|id|>130<|page|>15<|box|>363 233 382 761<|content|>V. EXTRINSIC EVIDENCE TO BE RELIED UPON\n<|id|>137<|page|>16<|box|>333 385 353 611<|content|>VI. CLAIM CHARTS\n<|id|>143<|page|>20<|box|>476 321 496 674<|content|>VII. RESERVATION OF RIGHTS\n<|id|>149<|page|>21<|box|>171 315 191 681<|content|>VIII. CERTIFICATE OF SERVICE\n<|id|>157<|page|>21<|box|>500 212 518 501<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>-1\n<|id|>7<|level|>1\n<|id|>9<|level|>2\n<|id|>21<|level|>2\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>34<|level|>3\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>43<|level|>2\n<|id|>50<|level|>3\n<|id|>58<|level|>4\n<|id|>63<|level|>4\n<|id|>67<|level|>3\n<|id|>71<|level|>4\n<|id|>77<|level|>4\n<|id|>81<|level|>4\n<|id|>99<|level|>4\n<|id|>103<|level|>4\n<|id|>107<|level|>3\n<|id|>126<|level|>4\n<|id|>130<|level|>2\n<|id|>137<|level|>2\n<|id|>143<|level|>2\n<|id|>149<|level|>2\n<|id|>157<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 63,
+            "level": 4
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 81,
+            "level": 4
+        },
+        {
+            "id": 99,
+            "level": 4
+        },
+        {
+            "id": 103,
+            "level": 4
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 4
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        }
+    ]
+}

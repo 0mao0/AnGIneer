@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        9,
+        11,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 179 167 818<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>4<|type|>title<|page|>1<|box|>272 318 289 678<|content|>Index No. 654871/2024 Hon. Althea Marchetti\n<|id|>5<|type|>title<|page|>1<|box|>297 150 351 846<|content|>REPLY MEMORANDUM OF LAW IN FURTHER SUPPORT OF COUN\n<|id|>11<|type|>title<|page|>1<|box|>507 398 523 598<|content|>TABLE OF CONTENTS\n<|id|>12<|type|>table<|page|>1<|box|>531 143 896 852<|content|>None\n<|id|>13<|type|>table<|page|>2<|box|>88 143 426 852<|content|>None\n<|id|>14<|type|>title<|page|>2<|box|>474 142 491 397<|content|>PRELIMINARY STATEMENT\n<|id|>20<|type|>title<|page|>3<|box|>376 142 393 256<|content|>ARGUMENT\n<|id|>21<|type|>title<|page|>3<|box|>407 140 462 854<|content|>I. THE LEGAL STANDARD FOR PUNITIVE DAMAGES IN PRIV\n<|id|>35<|type|>title<|page|>5<|box|>655 140 691 854<|content|>II. THE AARONSON MEMORANDUM DOES NOT ESTABLISH THE\n<|id|>56<|type|>title<|page|>9<|box|>194 140 212 818<|content|>III. THE REEVES EMAIL DOES NOT SUPPORT A PUNITIVE\n<|id|>73<|type|>title<|page|>11<|box|>755 140 772 846<|content|>IV. COUNTERCLAIM PLAINTIFFS' REMAINING ARGUMENTS A\n<|id|>87<|type|>title<|page|>14<|box|>89 140 125 854<|content|>V. THE SOPHISTICATION OF THE COUNTERCLAIM PLAINTIF\n<|id|>95<|type|>title<|page|>15<|box|>339 140 356 271<|content|>CONCLUSION\n<|id|>99<|type|>title<|page|>15<|box|>700 410 717 586<|content|>Respectfully submitted,\n<|id|>100<|type|>title<|page|>15<|box|>724 142 741 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>107<|type|>title<|page|>15<|box|>862 375 878 620<|content|>CERTIFICATE OF SERVICE\n<|id|>111<|type|>title<|page|>16<|box|>295 366 311 630<|content|>WORD COUNT COMPLIANCE",
+    "raw_response": "<|src_id|>12<|tgt_id|>11\n<|src_id|>13<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        }
+    ]
+}

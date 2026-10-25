@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>183 140 199 292<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>209 140 227 820<|content|>FROM: ... Nadia Petrov, Lead Associate, Labor & Employment, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>234 140 271 854<|content|>TO: ... Bernard Crawford, Responsible Partner, Lab...ner, Labor & Employment, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>279 140 314 854<|content|>CC: ... James Underwood, Working Associate, Labor & Employment, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>324 140 340 343<|content|>DATE: ... February 11, 2026\n<|id|>7<|page|>1<|box|>349 140 386 854<|content|>RE: ... Verimark Shores Clearwater Property\n<|id|>8<|page|>1<|box|>393 142 410 325<|content|>MATTER: ... 1021-00005\n<|id|>9<|page|>1<|box|>419 140 436 462<|content|>CLIENT: ... Verimark Hospitality Group Inc\n<|id|>16<|page|>2<|box|>146 140 181 854<|content|>2. ... and\n<|id|>18<|page|>2<|box|>239 140 460 856<|content|>Conclusion preview: ... We recommend that VHG and ...d in detail once the complete agreement is in hand\n<|id|>23<|page|>2<|box|>829 140 902 854<|content|>Palomar Realty Partners LLC. ... Based on publicly available records and information provided by VHG,\n<|id|>24<|page|>3<|box|>90 140 143 854<|content|>Palomar appears to be a single-asset or limited-po... holdings may be warranted as this matter develops\n<|id|>159<|page|>17<|box|>838 140 893 856<|content|>United defense vs. ... VHG should consider whether...or to maintain separation from Palomar to preserve\n<|id|>160<|page|>18<|box|>90 140 143 854<|content|>VHG's ability to assert indemnification and contri...gation, and the parties respective risk tolerances\n<|id|>165<|page|>18<|box|>409 183 425 490<|content|>• Policy Number: ... PIN-EPL-2025-44781\n<|id|>169<|page|>18<|box|>487 140 633 854<|content|>A threshold question for the insurance analysis is...k Shores Clearwater could present a coverage issue\n<|id|>166<|page|>18<|box|>429 183 446 645<|content|>• Limits: ... $10,000,000 per occurrence / $25,000,000 aggregate\n<|id|>167<|page|>18<|box|>448 183 465 527<|content|>• Self-Insured Retention (\"SIR\"): ... $500,000\n<|id|>168<|page|>18<|box|>467 183 484 573<|content|>• Policy Period: ... July 1, 2025 through June 30, 2026",
+    "raw_response": "<|src_id|>23<|tgt_id|>24\n<|src_id|>159<|tgt_id|>160",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 160
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        102,
+        143
+    ],
+    "pages": [
+        103,
+        110,
+        111,
+        113,
+        114,
+        115,
+        117,
+        118,
+        120,
+        121,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        139,
+        142,
+        143
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>398<|page|>103<|box|>53 378 69 603<|content|>CAPITAL MOVEMENTS.\n<|id|>399<|page|>103<|box|>142 3 155 93<|content|>Background\n<|id|>403<|page|>103<|box|>469 3 483 147<|content|>Basic definitions\n<|id|>408<|page|>103<|box|>207 510 220 661<|content|>Reporting coverage\n<|id|>412<|page|>103<|box|>561 510 574 721<|content|>Description of statistics\n<|id|>432<|page|>110<|box|>72 109 107 890<|content|>Section I - Liabilities to Foreigners Reported by\n<|id|>435<|page|>111<|box|>49 375 63 593<|content|>CAPITAL MOVEMENTS\n<|id|>438<|page|>113<|box|>57 369 71 595<|content|>_CAPITAL MOVEMENTS\n<|id|>439<|page|>113<|box|>74 193 110 797<|content|>Section II - Claims on Foreigners Reported by Bank\n<|id|>445<|page|>114<|box|>76 207 112 820<|content|>Section II - Claims on Foreigners Reported by Bank\n<|id|>447<|page|>115<|box|>47 380 61 596<|content|>CAPITAL MOVEMENTS.\n<|id|>453<|page|>117<|box|>66 204 100 811<|content|>Section II - Claims on Foreigners Reported by Bank\n<|id|>455<|page|>118<|box|>44 397 58 619<|content|>CAPITAL MOVEMENTS.\n<|id|>459<|page|>120<|box|>46 396 60 617<|content|>CAPITAL MOVEMENTS\n<|id|>461<|page|>121<|box|>45 383 60 605<|content|>CAPITAL MOVEMENTS\n<|id|>465<|page|>123<|box|>50 376 65 596<|content|>CAPITAL MOVEMENTS\n<|id|>470<|page|>124<|box|>71 160 104 903<|content|>Section IV - Claims on Foreigners Reported by Nonb\n<|id|>472<|page|>125<|box|>47 376 62 598<|content|>CAPITAL MOVEMENTS\n<|id|>475<|page|>126<|box|>47 390 63 616<|content|>CAPITAL MOVEMENTS\n<|id|>480<|page|>127<|box|>51 382 63 603<|content|>CAPITAL MOVEMENTS.\n<|id|>483<|page|>128<|box|>72 135 107 876<|content|>Section IV - Claims on Foreigners Reported by Nonb\n<|id|>485<|page|>129<|box|>49 364 62 586<|content|>CAPITAL MOVEMENTS\n<|id|>486<|page|>129<|box|>63 218 94 737<|content|>Section V - Transactions in Long-Term Securities b\n<|id|>525<|page|>139<|box|>74 190 111 806<|content|>Section VI - Foreign Credit and Debit Balances in\n<|id|>537<|page|>142<|box|>63 10 79 953<|content|>FOREIGN CURRENCIES ACQUIRED BY THE U.S. GOVERNMENT\n<|id|>539<|page|>142<|box|>565 267 581 740<|content|>Table FC-4. - Foreign Currency Transactions, Trust\n<|id|>541<|page|>143<|box|>47 180 66 794<|content|>.FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND F\n<|id|>542<|page|>143<|box|>71 328 85 640<|content|>Section III - Federal Credit Programs\n<|id|>543<|page|>143<|box|>88 253 104 716<|content|>Table GA-III-1. - Direct Sales and Repurchases of",
+    "raw_response": "<|id|>398<|level|>1\n<|id|>399<|level|>2\n<|id|>403<|level|>2\n<|id|>408<|level|>2\n<|id|>412<|level|>2\n<|id|>432<|level|>2\n<|id|>435<|level|>-1\n<|id|>438<|level|>-1\n<|id|>439<|level|>2\n<|id|>445<|level|>2\n<|id|>447<|level|>-1\n<|id|>453<|level|>2\n<|id|>455<|level|>-1\n<|id|>459<|level|>-1\n<|id|>461<|level|>-1\n<|id|>465<|level|>-1\n<|id|>470<|level|>2\n<|id|>472<|level|>-1\n<|id|>475<|level|>-1\n<|id|>480<|level|>-1\n<|id|>483<|level|>2\n<|id|>485<|level|>-1\n<|id|>486<|level|>2\n<|id|>525<|level|>2\n<|id|>537<|level|>2\n<|id|>539<|level|>3\n<|id|>541<|level|>1\n<|id|>542<|level|>2\n<|id|>543<|level|>3",
+    "parsed": [
+        {
+            "id": 398,
+            "level": 1
+        },
+        {
+            "id": 399,
+            "level": 2
+        },
+        {
+            "id": 403,
+            "level": 2
+        },
+        {
+            "id": 408,
+            "level": 2
+        },
+        {
+            "id": 412,
+            "level": 2
+        },
+        {
+            "id": 432,
+            "level": 2
+        },
+        {
+            "id": 439,
+            "level": 2
+        },
+        {
+            "id": 445,
+            "level": 2
+        },
+        {
+            "id": 453,
+            "level": 2
+        },
+        {
+            "id": 470,
+            "level": 2
+        },
+        {
+            "id": 483,
+            "level": 2
+        },
+        {
+            "id": 486,
+            "level": 2
+        },
+        {
+            "id": 525,
+            "level": 2
+        },
+        {
+            "id": 537,
+            "level": 2
+        },
+        {
+            "id": 539,
+            "level": 3
+        },
+        {
+            "id": 541,
+            "level": 1
+        },
+        {
+            "id": 542,
+            "level": 2
+        },
+        {
+            "id": 543,
+            "level": 3
+        }
+    ]
+}

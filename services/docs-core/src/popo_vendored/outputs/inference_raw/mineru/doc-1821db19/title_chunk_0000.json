@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>243 403 263 593<|content|>MEMORANDUM\n<|id|>12<|page|>1<|box|>587 142 604 343<|content|>I. Purpose and Summary\n<|id|>17<|page|>2<|box|>267 140 284 267<|content|>II. Background\n<|id|>18<|page|>2<|box|>297 140 314 343<|content|>A. Transaction Overview\n<|id|>22<|page|>2<|box|>715 140 732 370<|content|>B. PSA SNDA Requirements\n<|id|>32<|page|>3<|box|>715 140 734 303<|content|>C. Status at Closing\n<|id|>36<|page|>4<|box|>157 140 175 446<|content|>D. Post-Closing Carve-Out Side Letter\n<|id|>43<|page|>4<|box|>662 140 679 534<|content|>III. Identification of the Four Outstanding SNDAs\n<|id|>49<|page|>6<|box|>90 140 107 532<|content|>IV. Review and Confirmation of Executed SNDAs\n<|id|>50<|page|>6<|box|>121 142 138 310<|content|>A. Form Compliance\n<|id|>59<|page|>6<|box|>648 142 667 357<|content|>B. Counterparty Execution\n<|id|>77<|page|>7<|box|>648 140 665 447<|content|>V. Updated SNDA Tracking Summary\n<|id|>87<|page|>8<|box|>431 140 449 406<|content|>VI. Release of $200,000 Holdback\n<|id|>88<|page|>8<|box|>463 140 479 326<|content|>A. Conditions Satisfied\n<|id|>90<|page|>8<|box|>627 142 643 339<|content|>B. Recommended Action\n<|id|>98<|page|>9<|box|>398 140 416 310<|content|>C. Seller Notification\n<|id|>100<|page|>9<|box|>574 140 590 589<|content|>VII. Coordination with Post-Closing Obligations Tr\n<|id|>108<|page|>10<|box|>520 140 537 390<|content|>VIII. Enclosures / Attachments",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>1\n<|id|>12<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>22<|level|>3\n<|id|>32<|level|>3\n<|id|>36<|level|>3\n<|id|>43<|level|>2\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>59<|level|>3\n<|id|>77<|level|>2\n<|id|>87<|level|>2\n<|id|>88<|level|>3\n<|id|>90<|level|>3\n<|id|>98<|level|>3\n<|id|>100<|level|>2\n<|id|>108<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        }
+    ]
+}

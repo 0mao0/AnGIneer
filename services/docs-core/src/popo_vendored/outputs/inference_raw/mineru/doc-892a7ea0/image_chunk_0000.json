@@ -1,0 +1,114 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>145 89 182 912<|content|>中华人民共和国交通行业标准\n<|id|>3<|type|>title<|page|>1<|box|>399 250 477 754<|content|>工程船舶劳动定员 第 2 部分: 航道工程船舶\n<|id|>4<|type|>title<|page|>1<|box|>500 312 547 695<|content|>Manning norm for engineering ship Part 2: Channel\n<|id|>8<|type|>title<|page|>2<|box|>117 464 139 577<|content|>目次\n<|id|>10<|type|>title<|page|>3<|box|>132 426 154 545<|content|>前言\n<|id|>23<|type|>title<|page|>4<|box|>118 233 141 770<|content|>工程船舶劳动定员 第2部分:航道工程船舶\n<|id|>24<|type|>title<|page|>4<|box|>177 99 193 171<|content|>1 范围\n<|id|>27<|type|>title<|page|>4<|box|>253 95 270 169<|content|>2 定员\n<|id|>32<|type|>table<|page|>4<|box|>377 99 495 902<|content|>None\n<|id|>34<|type|>table<|page|>4<|box|>538 99 661 902<|content|>None\n<|id|>39<|type|>table<|page|>4<|box|>763 99 886 904<|content|>None\n<|id|>40<|type|>table<|page|>5<|box|>111 85 246 890<|content|>None\n<|id|>45<|type|>table<|page|>5<|box|>350 85 418 890<|content|>None\n<|id|>47<|type|>table<|page|>5<|box|>462 85 532 890<|content|>None\n<|id|>53<|type|>table<|page|>5<|box|>653 85 766 890<|content|>None\n<|id|>55<|type|>table<|page|>5<|box|>810 85 900 890<|content|>None\n<|id|>57<|type|>table<|page|>6<|box|>117 109 193 910<|content|>None\n<|id|>62<|type|>table<|page|>6<|box|>296 109 399 910<|content|>None\n<|id|>64<|type|>table<|page|>6<|box|>442 111 519 910<|content|>None\n<|id|>69<|type|>table<|page|>6<|box|>622 111 724 912<|content|>None\n<|id|>71<|type|>table<|page|>6<|box|>768 111 845 912<|content|>None\n<|id|>76<|type|>table<|page|>7<|box|>120 97 233 898<|content|>None\n<|id|>77<|type|>title<|page|>7<|box|>238 95 255 326<|content|>2.7.4 轮机部定员见表15。\n<|id|>78<|type|>table<|page|>7<|box|>276 97 368 898<|content|>None\n<|id|>79<|type|>title<|page|>7<|box|>373 95 388 189<|content|>2.8 拖轮\n<|id|>83<|type|>table<|page|>7<|box|>469 99 583 898<|content|>None\n<|id|>84<|type|>title<|page|>7<|box|>589 95 605 328<|content|>2.8.5 轮机部定员见表17。\n<|id|>85<|type|>table<|page|>7<|box|>626 99 733 898<|content|>None\n<|id|>86<|type|>title<|page|>7<|box|>740 97 755 191<|content|>2.9 锚艇\n<|id|>90<|type|>table<|page|>7<|box|>834 101 926 900<|content|>None\n<|id|>92<|type|>table<|page|>8<|box|>130 103 201 906<|content|>None\n<|id|>95<|type|>table<|page|>8<|box|>261 103 331 906<|content|>None\n<|id|>96<|type|>table<|page|>8<|box|>373 103 443 906<|content|>None\n<|id|>100<|type|>table<|page|>8<|box|>523 103 616 906<|content|>None\n<|id|>101<|type|>title<|page|>8<|box|>620 99 637 342<|content|>2.10.3 轮机部定员见表23。\n<|id|>102<|type|>table<|page|>8<|box|>658 103 750 906<|content|>None",
+    "raw_response": "<|src_id|>32<|tgt_id|>27\n<|src_id|>34<|tgt_id|>27\n<|src_id|>39<|tgt_id|>27\n<|src_id|>40<|tgt_id|>27\n<|src_id|>45<|tgt_id|>27\n<|src_id|>47<|tgt_id|>27\n<|src_id|>53<|tgt_id|>27\n<|src_id|>55<|tgt_id|>27\n<|src_id|>57<|tgt_id|>27\n<|src_id|>62<|tgt_id|>27\n<|src_id|>64<|tgt_id|>27\n<|src_id|>69<|tgt_id|>27\n<|src_id|>71<|tgt_id|>27\n<|src_id|>76<|tgt_id|>27\n<|src_id|>78<|tgt_id|>77\n<|src_id|>83<|tgt_id|>79\n<|src_id|>85<|tgt_id|>84\n<|src_id|>90<|tgt_id|>86\n<|src_id|>92<|tgt_id|>86\n<|src_id|>95<|tgt_id|>86\n<|src_id|>96<|tgt_id|>86\n<|src_id|>100<|tgt_id|>86\n<|src_id|>102<|tgt_id|>101",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 101
+        }
+    ]
+}

@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>372 140 388 483<|content|>1. Reference to Existing Engagement Letter\n<|id|>11<|page|>1<|box|>827 140 844 439<|content|>2. Current Fee Cap and Billing Status\n<|id|>23<|page|>2<|box|>667 140 684 718<|content|>3. Increased Scope and Complexity — Rationale for\n<|id|>25<|page|>2<|box|>779 140 796 584<|content|>(a) Security Document Package — 18 Mortgaged Vesse\n<|id|>32<|page|>3<|box|>744 140 762 488<|content|>(b) Multi-Jurisdictional Guarantor Analysis\n<|id|>42<|page|>4<|box|>561 140 579 521<|content|>(c) Collateral Agent / Security Trustee Structure\n<|id|>46<|page|>5<|box|>231 140 250 493<|content|>(d) Extended Credit Agreement Negotiations\n<|id|>70<|page|>6<|box|>768 140 785 410<|content|>4. Proposed Fee Cap Modification\n<|id|>78<|page|>7<|box|>546 140 564 694<|content|>5. Alternative — Time-Based Monitoring Without For\n<|id|>85<|page|>8<|box|>267 140 284 418<|content|>6. Anticipated Remaining Timeline\n<|id|>94<|page|>8<|box|>625 140 640 303<|content|>7. Requested Action\n<|id|>97<|page|>8<|box|>829 142 845 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>103<|page|>9<|box|>133 142 148 486<|content|>THALASSA SHIPPING & LOGISTICS SA\n<|id|>109<|page|>9<|box|>257 142 273 225<|content|>8. Closing\n<|id|>118<|page|>9<|box|>564 142 580 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>11<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>2\n<|id|>32<|level|>2\n<|id|>42<|level|>2\n<|id|>46<|level|>2\n<|id|>70<|level|>1\n<|id|>78<|level|>1\n<|id|>85<|level|>1\n<|id|>94<|level|>1\n<|id|>97<|level|>-1\n<|id|>103<|level|>-1\n<|id|>109<|level|>1\n<|id|>118<|level|>-1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        20
+    ],
+    "pages": [
+        2,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>135 330 152 668<|content|>FORM OF LENDER CONSENT LETTER\n<|id|>1<|type|>title<|page|>2<|box|>162 256 179 741<|content|>to the Purchase and Sale Agreement dated as of Feb\n<|id|>19<|type|>title<|page|>2<|box|>702 142 719 403<|content|>Section 1. Reference and Recitals\n<|id|>32<|type|>title<|page|>4<|box|>564 140 582 292<|content|>Section 2. Consent\n<|id|>37<|type|>title<|page|>5<|box|>148 140 167 400<|content|>Section 3. Conditions to Consent\n<|id|>56<|type|>title<|page|>7<|box|>575 140 592 632<|content|>Section 4. Representations, Warranties, and Acknow\n<|id|>63<|type|>title<|page|>8<|box|>720 140 739 323<|content|>Section 5. Consent Fee\n<|id|>71<|type|>title<|page|>9<|box|>446 140 464 460<|content|>Section 6. Release of Existing Guarantor\n<|id|>74<|type|>title<|page|>10<|box|>90 140 107 457<|content|>Section 7. Loan Document Amendments\n<|id|>80<|type|>title<|page|>10<|box|>627 140 643 284<|content|>Section 8. Notices\n<|id|>82<|type|>title<|page|>10<|box|>715 142 732 601<|content|>To Buyer / New Indirect Owner / Replacement Guaran\n<|id|>94<|type|>title<|page|>11<|box|>291 140 308 362<|content|>Section 9. Lender's Counsel\n<|id|>110<|type|>title<|page|>12<|box|>90 142 107 344<|content|>Section 10. Miscellaneous\n<|id|>118<|type|>title<|page|>12<|box|>809 367 825 629<|content|>[SIGNATURE PAGES FOLLOW]\n<|id|>120<|type|>title<|page|>12<|box|>880 142 895 228<|content|>LENDER:\n<|id|>125<|type|>title<|page|>13<|box|>180 143 196 601<|content|>ACKNOWLEDGMENT AND AGREEMENT BY BUYER\n<|id|>127<|type|>title<|page|>13<|box|>340 140 358 558<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST\n<|id|>134<|type|>title<|page|>13<|box|>484 142 501 609<|content|>ACKNOWLEDGMENT AND AGREEMENT BY SELLER\n<|id|>141<|type|>title<|page|>13<|box|>715 142 733 750<|content|>ACKNOWLEDGMENT AND AGREEMENT BY EXISTING GUARANTOR\n<|id|>147<|type|>title<|page|>15<|box|>89 372 106 624<|content|>SCHEDULE 1 TO EXHIBIT R\n<|id|>150<|type|>table<|page|>16<|box|>111 143 671 852<|content|>None\n<|id|>152<|type|>table<|page|>17<|box|>111 143 387 852<|content|>None\n<|id|>154<|type|>table<|page|>18<|box|>111 143 304 852<|content|>None\n<|id|>156<|type|>title<|page|>19<|box|>89 454 107 544<|content|>ANNEX A\n<|id|>157<|type|>title<|page|>19<|box|>121 140 138 480<|content|>FORM OF ASSUMPTION AGREEMENT\n<|id|>160<|type|>title<|page|>20<|box|>89 455 106 542<|content|>ANNEX B\n<|id|>161<|type|>title<|page|>20<|box|>121 142 137 486<|content|>FORM OF REPLACEMENT GUARANTY\n<|id|>162<|type|>title<|page|>20<|box|>143 142 162 549<|content|>[Form of Replacement Guaranty — see PSA Exhibit S]",
+    "raw_response": "<|src_id|>150<|tgt_id|>147\n<|src_id|>152<|tgt_id|>147\n<|src_id|>154<|tgt_id|>147",
+    "parsed": [
+        {
+            "src_id": 150,
+            "tgt_id": 147
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 147
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 147
+        }
+    ]
+}

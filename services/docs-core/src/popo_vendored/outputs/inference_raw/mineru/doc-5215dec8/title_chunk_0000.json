@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        4,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 148 142 848<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF PENTERRA\n<|id|>6<|page|>1<|box|>407 140 424 243<|content|>RECITALS\n<|id|>18<|page|>4<|box|>185 140 203 281<|content|>RESOLUTIONS\n<|id|>59<|page|>9<|box|>648 140 664 444<|content|>SIGNATURES AND ATTESTATION\n<|id|>88<|page|>10<|box|>484 140 502 580<|content|>CERTIFICATE OF THE CORPORATE SECRETARY\n<|id|>95<|page|>11<|box|>89 410 107 586<|content|>[CORPORATE SEAL]\n<|id|>96<|page|>12<|box|>89 140 107 245<|content|>EXHIBIT A\n<|id|>97<|page|>12<|box|>114 348 132 648<|content|>SPECIAL COMMITTEE CHARTER",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>18<|level|>2\n<|id|>59<|level|>2\n<|id|>88<|level|>2\n<|id|>95<|level|>2\n<|id|>96<|level|>2\n<|id|>97<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        }
+    ]
+}

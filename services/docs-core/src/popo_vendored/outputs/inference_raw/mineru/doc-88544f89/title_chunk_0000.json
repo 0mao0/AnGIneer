@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>366 142 383 361<|content|>1. Recitals and Background\n<|id|>12<|page|>1<|box|>840 140 857 604<|content|>2. Instruction to Authenticate and Deliver — Base\n<|id|>25<|page|>2<|box|>664 140 681 504<|content|>3. Over-Allotment Option — Additional Notes\n<|id|>33<|page|>3<|box|>446 140 464 330<|content|>4. Delivery Instructions\n<|id|>40<|page|>4<|box|>148 140 167 444<|content|>5. Officers' Certificate and Conditions\n<|id|>51<|page|>4<|box|>834 140 851 328<|content|>6. Form of Global Note\n<|id|>59<|page|>5<|box|>434 140 450 380<|content|>7. Reliance and Authorization\n<|id|>63<|page|>5<|box|>790 140 806 326<|content|>8. Contact Information\n<|id|>71<|page|>6<|box|>296 140 313 287<|content|>9. Governing Law\n<|id|>75<|page|>6<|box|>510 318 527 678<|content|>[Signature Page to Instruction Letter to Trustee]\n<|id|>78<|page|>6<|box|>623 142 638 475<|content|>OPTIWAVE SEMICONDUCTOR CORP.\n<|id|>86<|page|>6<|box|>804 142 820 748<|content|>BROADMERE TRUST COMPANY, NATIONAL ASSOCIATION, as",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>25<|level|>1\n<|id|>33<|level|>1\n<|id|>40<|level|>1\n<|id|>51<|level|>1\n<|id|>59<|level|>1\n<|id|>63<|level|>1\n<|id|>71<|level|>1\n<|id|>75<|level|>1\n<|id|>78<|level|>2\n<|id|>86<|level|>2",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        95,
+        106
+    ],
+    "pages": [
+        95,
+        96,
+        97,
+        100,
+        105,
+        106
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>344<|type|>title<|page|>95<|box|>57 264 73 696<|content|>Section III - Preliminary Details by Countries\n<|id|>345<|type|>table<|page|>95<|box|>103 0 916 963<|content|>None\n<|id|>346<|type|>table<|page|>96<|box|>85 41 910 997<|content|>None\n<|id|>347<|type|>table<|page|>97<|box|>103 0 876 963<|content|>None\n<|id|>348<|type|>image<|page|>100<|box|>340 352 617 513<|content|>None\n<|id|>350<|type|>image<|page|>105<|box|>0 4 996 992<|content|>None\n<|id|>351<|type|>image<|page|>106<|box|>8 769 44 902<|content|>None",
+    "raw_response": "<|src_id|>345<|tgt_id|>344\n<|src_id|>346<|tgt_id|>344\n<|src_id|>347<|tgt_id|>344\n<|src_id|>348<|tgt_id|>344\n<|src_id|>350<|tgt_id|>344\n<|src_id|>351<|tgt_id|>344",
+    "parsed": [
+        {
+            "src_id": 345,
+            "tgt_id": 344
+        },
+        {
+            "src_id": 346,
+            "tgt_id": 344
+        },
+        {
+            "src_id": 347,
+            "tgt_id": 344
+        },
+        {
+            "src_id": 348,
+            "tgt_id": 344
+        },
+        {
+            "src_id": 350,
+            "tgt_id": 344
+        },
+        {
+            "src_id": 351,
+            "tgt_id": 344
+        }
+    ]
+}

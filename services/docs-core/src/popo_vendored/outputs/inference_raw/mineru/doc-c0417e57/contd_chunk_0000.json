@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        63
+    ],
+    "pages": [
+        3,
+        9,
+        10,
+        19,
+        30,
+        32,
+        62,
+        63
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>3<|box|>136 81 700 915<|content|>GERMAN MARK POSITIONS FCP-II-1. ... Inside back cover\n<|id|>5<|page|>3<|box|>712 81 746 888<|content|>NOTES: ... r= Revised\n<|id|>73<|page|>9<|box|>405 488 422 627<|content|>(In billions of dollars)\n<|id|>74<|page|>9<|box|>93 81 166 488<|content|>Table FFO-2 includes on- and off-budget receipts b...es, customs duties, and net miscellaneous receipts\n<|id|>76<|page|>9<|box|>194 81 314 488<|content|>Table FFO-4 (revised from March issue) summarizes ...y States and other areas and by type of tax. ... ,\n<|id|>77<|page|>9<|box|>757 267 858 508<|content|>CHART FFO-B. ... Revisions resulted in a change to the State distribution only\n<|id|>81<|page|>10<|box|>143 81 369 277<|content|>Only modest improvement in the Federal budget bala..... After rough ad- justments for all these special\n<|id|>83<|page|>10<|box|>369 81 398 486<|content|>developments, continuation of the pattern of signi...t im- provement in the budget balance is indicated\n<|id|>132<|page|>19<|box|>267 81 383 488<|content|>Under authority of Public Law 95-147, Treasury imp...interest-bearing obligations participate under the\n<|id|>133<|page|>19<|box|>132 506 262 916<|content|>Note Option. ... Likewise, those institutions wish... account at FRBs do so under the Remittance Option\n<|id|>165<|page|>30<|box|>156 84 172 223<|content|>(In billions of dollars)\n<|id|>166<|page|>30<|box|>523 411 542 584<|content|>As of December 31\n<|id|>198<|page|>32<|box|>882 83 912 488<|content|>The bonds of February 2026 were dated February 15,...February 15, 2026, with interest payable on August\n<|id|>199<|page|>32<|box|>128 508 172 915<|content|>15 and February 15 until maturity. ... An interest...ich tenders were accepted on a yield auction basis\n<|id|>372<|page|>62<|box|>334 323 362 694<|content|>Page Intentionally Left Blank\n<|id|>373<|page|>63<|box|>334 323 362 694<|content|>Page Intentionally Left Blank",
+    "raw_response": "<|src_id|>81<|tgt_id|>83\n<|src_id|>132<|tgt_id|>133\n<|src_id|>198<|tgt_id|>199",
+    "parsed": [
+        {
+            "src_id": 81,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 199
+        }
+    ]
+}

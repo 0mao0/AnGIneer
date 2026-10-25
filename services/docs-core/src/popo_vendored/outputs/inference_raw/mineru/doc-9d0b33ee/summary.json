@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7v7xqhy8\\input\\pdfs\\doc-9d0b33ee.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7v7xqhy8\\enriched\\doc-9d0b33ee.json",
+    "contd_output": "<|src_id|>169<|tgt_id|>170",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>25<|level|>2\n<|id|>36<|level|>2\n<|id|>43<|level|>1\n<|id|>45<|level|>2\n<|id|>53<|level|>2\n<|id|>61<|level|>2\n<|id|>68<|level|>2\n<|id|>75<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>1\n<|id|>84<|level|>2\n<|id|>93<|level|>2\n<|id|>99<|level|>2\n<|id|>107<|level|>2\n<|id|>111<|level|>1\n<|id|>112<|level|>2\n<|id|>115<|level|>2\n<|id|>129<|level|>2\n<|id|>141<|level|>2\n<|id|>152<|level|>1\n<|id|>153<|level|>2\n<|id|>162<|level|>2\n<|id|>173<|level|>2\n<|id|>179<|level|>2\n<|id|>187<|level|>2\n<|id|>195<|level|>2\n<|id|>202<|level|>1\n<|id|>203<|level|>2\n<|id|>210<|level|>2\n<|id|>216<|level|>2\n<|id|>222<|level|>1\n<|id|>231<|level|>1\n<|id|>232<|level|>2",
+    "image_output": "<|src_id|>109<|tgt_id|>107\n<|src_id|>143<|tgt_id|>141\n<|src_id|>145<|tgt_id|>141\n<|src_id|>146<|tgt_id|>141",
+    "contd_label": [
+        {
+            "src_id": 169,
+            "tgt_id": 170
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 1
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 1
+        },
+        {
+            "id": 231,
+            "level": 1
+        },
+        {
+            "id": 232,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 109,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 141
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 141
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 141
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 145,
+            "table2_idx": 146,
+            "upper_row_ss": [
+                [
+                    "Use",
+                    "Amount"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Enterprise Value (Acquisition Price)",
+                    "$1,950,000,000"
+                ]
+            ]
+        }
+    ]
+}

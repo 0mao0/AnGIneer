@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 11,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=8, 游览船', 'rowspan=2, 中型', '游览船8', '10.8', '2.6', '0.9', '0.4', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=12, 游览船', 'rowspan=7, 中型', '游览船9', '11.7', '3.2', '1.1', '0.7', '']]\n",
+    "raw_response": "[1, 1, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 977,
+    "table2_idx": 978
+}

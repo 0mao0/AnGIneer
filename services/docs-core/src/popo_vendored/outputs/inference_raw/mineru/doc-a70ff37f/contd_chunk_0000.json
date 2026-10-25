@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>202 328 219 668<|content|>STONEFIELD LOGISTICS GROUP INC. ... ,\n<|id|>3<|page|>1<|box|>228 491 244 576<|content|>Defendant. ... Defendant\n<|id|>4<|page|>1<|box|>253 383 270 612<|content|>Case No. ... 25-cv-01847-RBC\n<|id|>5<|page|>1<|box|>280 343 297 653<|content|>Hon. ... District Judge\n<|id|>14<|page|>1<|box|>871 140 930 854<|content|>5. ... From 2006 through 2012, I worked as a fleet...later as an operations supervisor for CONFIDENTIAL\n<|id|>15<|page|>2<|box|>90 174 199 854<|content|>Redline Transport Services, a regional freight car...tation industry spans approximately nineteen years",
+    "raw_response": "<|src_id|>14<|tgt_id|>15",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        }
+    ]
+}

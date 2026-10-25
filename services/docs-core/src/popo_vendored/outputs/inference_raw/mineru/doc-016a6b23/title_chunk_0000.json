@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 189 142 807<|content|>OFFICER'S CERTIFICATE OF Marlowe Asset Management\n<|id|>1<|page|>1<|box|>159 223 176 774<|content|>Certificate Pursuant to Section 7.1(c) of the Stoc\n<|id|>5<|page|>1<|box|>424 140 441 243<|content|>RECITALS\n<|id|>10<|page|>1<|box|>789 140 806 426<|content|>Section 1. Certification of Authority\n<|id|>14<|page|>2<|box|>366 140 383 519<|content|>Section 2. CFIUS Filing and Review Completion\n<|id|>20<|page|>3<|box|>148 140 167 583<|content|>Section 3. Execution of the National Security Agre\n<|id|>32<|page|>3<|box|>732 140 750 364<|content|>Section 4. CFIUS Clearance\n<|id|>38<|page|>4<|box|>348 140 364 393<|content|>Section 5. Board Reconstitution\n<|id|>48<|page|>5<|box|>476 140 493 645<|content|>Section 6. Establishment of the Government Securit\n<|id|>59<|page|>6<|box|>454 140 472 589<|content|>Section 7. Facility Security Clearance and FSO Ret\n<|id|>65<|page|>7<|box|>267 140 284 393<|content|>Section 8. Personnel Continuity\n<|id|>72<|page|>8<|box|>90 140 107 498<|content|>Section 9. Technology Control Plan Adoption\n<|id|>82<|page|>9<|box|>90 140 107 442<|content|>Section 10. Cybersecurity Compliance\n<|id|>89<|page|>9<|box|>781 140 797 370<|content|>Section 11. Data Segregation\n<|id|>93<|page|>10<|box|>304 140 321 596<|content|>Section 12. Third-Party Compliance Monitor Engagem\n<|id|>99<|page|>11<|box|>90 140 107 442<|content|>Section 13. Facility Access Procedures\n<|id|>102<|page|>11<|box|>241 142 258 810<|content|>13.2. The facility access procedures include, with\n<|id|>106<|page|>11<|box|>652 140 669 509<|content|>Section 14. Government Contract Notifications\n<|id|>112<|page|>12<|box|>727 140 744 455<|content|>Section 15. Pre-Notification Obligations\n<|id|>120<|page|>13<|box|>381 140 398 434<|content|>Section 16. Penalty Acknowledgment\n<|id|>129<|page|>13<|box|>830 140 848 486<|content|>Section 17. Representations and Warranties\n<|id|>137<|page|>14<|box|>845 140 863 398<|content|>Section 18. No Other Conditions",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>20<|level|>2\n<|id|>32<|level|>2\n<|id|>38<|level|>2\n<|id|>48<|level|>2\n<|id|>59<|level|>2\n<|id|>65<|level|>2\n<|id|>72<|level|>2\n<|id|>82<|level|>2\n<|id|>89<|level|>2\n<|id|>93<|level|>2\n<|id|>99<|level|>2\n<|id|>102<|level|>3\n<|id|>106<|level|>2\n<|id|>112<|level|>2\n<|id|>120<|level|>2\n<|id|>129<|level|>2\n<|id|>137<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|type|>title<|page|>1<|box|>601 140 618 467<|content|>Background — The Off-Take Agreement\n<|id|>17<|type|>title<|page|>2<|box|>502 140 518 341<|content|>The Musgrave Guaranty\n<|id|>20<|type|>title<|page|>3<|box|>90 140 107 421<|content|>PBGC's Breach — Unpaid Invoices\n<|id|>22<|type|>table<|page|>3<|box|>349 143 537 852<|content|>None\n<|id|>25<|type|>title<|page|>3<|box|>766 140 782 455<|content|>Prior Demands and Failed Forbearance\n<|id|>33<|type|>title<|page|>4<|box|>645 140 662 315<|content|>Demand for Payment\n<|id|>38<|type|>title<|page|>5<|box|>241 140 258 575<|content|>Reservation of Rights — Attorneys' Fees and Litiga\n<|id|>43<|type|>title<|page|>5<|box|>752 142 768 442<|content|>Direction Regarding Communications\n<|id|>46<|type|>title<|page|>6<|box|>90 176 106 496<|content|>Email: fmorano@calderwoodharkness.com\n<|id|>49<|type|>title<|page|>6<|box|>214 142 229 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>53<|type|>title<|page|>6<|box|>319 143 332 218<|content|>Enclosures:",
+    "raw_response": "<|src_id|>22<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        }
+    ]
+}

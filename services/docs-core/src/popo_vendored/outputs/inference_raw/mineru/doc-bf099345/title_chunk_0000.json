@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>217 424 234 573<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>429 321 449 674<|content|>I. Purpose and Executive Summary\n<|id|>14<|page|>2<|box|>344 313 364 683<|content|>II. Background and Change in Scope\n<|id|>15<|page|>2<|box|>388 140 407 387<|content|>A. Original Engagement Scope\n<|id|>24<|page|>3<|box|>167 140 185 519<|content|>B. Key Developments Reducing Projected Scope\n<|id|>31<|page|>4<|box|>267 140 284 374<|content|>C. Remaining Scope of Work\n<|id|>44<|page|>5<|box|>260 411 281 586<|content|>III. Staffing Plan\n<|id|>51<|page|>6<|box|>344 279 364 717<|content|>IV. Revised Fee Estimate — By Timekeeper\n<|id|>53<|page|>6<|box|>478 142 494 500<|content|>A. Bernard Crawford — Responsible Partner\n<|id|>66<|page|>7<|box|>760 142 777 437<|content|>B. Renata Vasquez — Billing Partner\n<|id|>80<|page|>9<|box|>223 140 239 457<|content|>C. James Underwood — Lead Associate\n<|id|>96<|page|>11<|box|>90 140 107 452<|content|>D. Devon Archer — Working Associate\n<|id|>112<|page|>12<|box|>669 142 686 431<|content|>E. Total Estimated Professional Fees\n<|id|>115<|page|>13<|box|>154 352 174 643<|content|>V. Revised Expense Estimate\n<|id|>117<|page|>13<|box|>253 142 271 547<|content|>Total Estimated Expenses: Approximately $308,600\n<|id|>128<|page|>14<|box|>494 312 515 684<|content|>VI. Total Revised Estimate Summary\n<|id|>131<|page|>14<|box|>821 316 842 679<|content|>VII. Comparison to Original Budget\n<|id|>136<|page|>15<|box|>425 165 445 831<|content|>VIII. Offsetting Recovery — Fee Reimbursement Unde\n<|id|>144<|page|>16<|box|>154 312 174 684<|content|>IX. Budget Assumptions and Caveats\n<|id|>154<|page|>17<|box|>210 374 229 622<|content|>X. Billing Arrangements\n<|id|>161<|page|>17<|box|>580 421 599 575<|content|>XI. Conclusion\n<|id|>171<|page|>18<|box|>90 176 104 509<|content|>Email: bcrawford@calderwoodharkness.com",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>24<|level|>3\n<|id|>31<|level|>3\n<|id|>44<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>3\n<|id|>66<|level|>3\n<|id|>80<|level|>3\n<|id|>96<|level|>3\n<|id|>112<|level|>3\n<|id|>115<|level|>2\n<|id|>117<|level|>3\n<|id|>128<|level|>2\n<|id|>131<|level|>2\n<|id|>136<|level|>2\n<|id|>144<|level|>2\n<|id|>154<|level|>2\n<|id|>161<|level|>2\n<|id|>171<|level|>-1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        }
+    ]
+}

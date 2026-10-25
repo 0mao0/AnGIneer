@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 238 108 759<|content|>IN THE COURT OF CHANCERY OF THE STATE OF DELAWARE\n<|id|>1<|type|>table<|page|>1<|box|>141 143 325 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>393 165 429 831<|content|>DECLARATION OF SANDRA FIELDING IN SUPPORT OF PLAIN\n<|id|>3<|type|>title<|page|>1<|box|>473 142 489 475<|content|>I, Sandra Fielding, hereby declare as follows:\n<|id|>6<|type|>title<|page|>1<|box|>760 142 777 651<|content|>I. QUALIFICATIONS AND BACKGROUND OF DECLARANT\n<|id|>14<|type|>title<|page|>2<|box|>612 140 628 553<|content|>II. RETENTION AND SCOPE OF ENGAGEMENT\n<|id|>24<|type|>title<|page|>3<|box|>565 142 582 576<|content|>III. THE DEPARTING EMPLOYEES — OVERVIEW\n<|id|>36<|type|>title<|page|>5<|box|>89 140 106 782<|content|>IV. INVESTIGATION FINDINGS: THE JANUARY 6, 2025 DI\n<|id|>45<|type|>title<|page|>6<|box|>185 140 220 820<|content|>V. INVESTIGATION FINDINGS: PRE-RESIGNATION COORDIN\n<|id|>51<|type|>title<|page|>7<|box|>89 142 106 663<|content|>VI. INVESTIGATION FINDINGS: OFFER LETTER TIMELINE\n<|id|>59<|type|>title<|page|>8<|box|>89 140 106 769<|content|>VII. INVESTIGATION FINDINGS: DATA EXFILTRATION COR\n<|id|>69<|type|>title<|page|>9<|box|>89 142 106 781<|content|>VIII. INVESTIGATION FINDINGS: VERDANA'S PUBLIC ANN\n<|id|>74<|type|>title<|page|>9<|box|>655 142 672 650<|content|>IX. INVESTIGATION FINDINGS: COMPETITIVE OVERLAP\n<|id|>84<|type|>title<|page|>10<|box|>621 142 638 584<|content|>X. SUMMARY OF INVESTIGATION CONCLUSIONS\n<|id|>91<|type|>title<|page|>11<|box|>574 140 592 661<|content|>XI. DOCUMENTS REVIEWED AND SOURCES RELIED UPON\n<|id|>104<|type|>title<|page|>12<|box|>505 142 523 320<|content|>XII. VERIFICATION\n<|id|>108<|type|>title<|page|>12<|box|>683 375 700 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['12', 'N68335-22-C-0219', 'NAWC WD China Lake', 'Subcontract', 'RF front-end assemblies for test range', '$3,600,000', '$2,100,000', '08/2022 - 08/2025', 'UNCLASSIFIED', 'No']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'instrumentation', '', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 580,
+    "table2_idx": 581
+}

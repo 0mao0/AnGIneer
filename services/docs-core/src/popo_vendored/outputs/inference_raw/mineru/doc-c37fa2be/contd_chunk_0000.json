@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        8
+    ],
+    "pages": [
+        3,
+        4,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>27<|page|>3<|box|>843 140 878 857<|content|>Vantor Holdings Corp. ... has failed to retain sub...ro LLP, which was approved by the Court on October\n<|id|>28<|page|>4<|box|>90 140 127 854<|content|>18, 2023. ... That deadline passed without compliance\n<|id|>69<|page|>8<|box|>204 183 257 854<|content|>• Key document indices, including the privileged a... prepared for anticipated motion practice; ... and\n<|id|>71<|page|>8<|box|>297 140 334 854<|content|>These materials should be maintained in a readily ...the defense effort should circumstances require it\n<|id|>75<|page|>8<|box|>507 140 523 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>76<|page|>8<|box|>526 143 542 253<|content|>By: ... By\n<|id|>77<|page|>8<|box|>542 143 559 285<|content|>Name: ... Helen Tsao\n<|id|>78<|page|>8<|box|>560 143 575 310<|content|>Title: ... Senior Paralegal\n<|id|>79<|page|>8<|box|>577 142 594 310<|content|>Date: ... October 7, 2024\n<|id|>86<|page|>8<|box|>808 176 825 808<|content|>Matter No. ... 1012-00005 Calderwood & Harkness LLP Document Management System\n<|id|>87<|page|>8<|box|>833 140 893 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...r written authorization of the Responsible Partner",
+    "raw_response": "<|src_id|>27<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        }
+    ]
+}

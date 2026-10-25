@@ -1,0 +1,44 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        48,
+        50
+    ],
+    "pages": [
+        49,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>476<|page|>49<|box|>89 142 106 243<|content|>EXHIBIT C\n<|id|>477<|page|>49<|box|>114 250 132 746<|content|>LIST OF SUBSIDIARIES AND ORGANIZATIONAL CHART\n<|id|>479<|page|>49<|box|>246 142 263 269<|content|>I. Parent Entity\n<|id|>481<|page|>49<|box|>337 142 354 348<|content|>II. Operating Partnership\n<|id|>486<|page|>49<|box|>493 142 510 485<|content|>III. Material Property-Owning Subsidiaries\n<|id|>490<|page|>50<|box|>181 143 198 393<|content|>IV. Other Material Subsidiaries\n<|id|>492<|page|>50<|box|>329 143 345 338<|content|>V. Organizational Chart\n<|id|>494<|page|>50<|box|>420 351 436 645<|content|>[Organizational Chart to be Inserted]",
+    "raw_response": "<|id|>476<|level|>1\n<|id|>477<|level|>2\n<|id|>479<|level|>3\n<|id|>481<|level|>3\n<|id|>486<|level|>3\n<|id|>490<|level|>3\n<|id|>492<|level|>3\n<|id|>494<|level|>-1",
+    "parsed": [
+        {
+            "id": 476,
+            "level": 1
+        },
+        {
+            "id": 477,
+            "level": 2
+        },
+        {
+            "id": 479,
+            "level": 3
+        },
+        {
+            "id": 481,
+            "level": 3
+        },
+        {
+            "id": 486,
+            "level": 3
+        },
+        {
+            "id": 490,
+            "level": 3
+        },
+        {
+            "id": 492,
+            "level": 3
+        }
+    ]
+}

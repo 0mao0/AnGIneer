@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>116 303 133 692<|content|>601 Lexington Avenue New York, New York 10022\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 730 184 854<|content|>October 2, 2023\n<|id|>4<|page|>1<|box|>194 140 229 854<|content|>Robert D. ... 4800 Commerce Parkway, Suite 1200 Fort Worth, Texas 76107\n<|id|>5<|page|>1<|box|>237 140 273 854<|content|>Re: ... 1012-00001\n<|id|>6<|page|>1<|box|>282 142 299 243<|content|>Dear Robert: ... Dear Robert\n<|id|>11<|page|>1<|box|>757 183 773 496<|content|>• Stephanie Okafor, Responsible Partner\n<|id|>16<|page|>1<|box|>854 140 909 854<|content|>This letter serves both as a transmittal for the e...ment (as amended), and the Intercreditor Agreement\n<|id|>12<|page|>1<|box|>776 183 792 454<|content|>• Philip Hartmann, Billing Partner\n<|id|>13<|page|>1<|box|>796 183 811 410<|content|>• Daniel Obi, Lead Associate\n<|id|>14<|page|>1<|box|>815 183 830 455<|content|>• Lisa Morrow, Working Associate\n<|id|>15<|page|>1<|box|>835 184 851 493<|content|>• Sylvia Hartwell, Tax Specialist Partner\n<|id|>29<|page|>2<|box|>875 140 909 854<|content|>Tab 10: ... Prescott, Chief Financial\n<|id|>30<|page|>2<|box|>916 142 929 272<|content|>Matter No. ... 1012-00001\n<|id|>31<|page|>3<|box|>90 140 126 854<|content|>Officer of Stonefield, certifying satisfaction of ...losing set forth in the Mezzanine Credit Agreement\n<|id|>44<|page|>3<|box|>862 140 898 854<|content|>The following is a summary of the key post-closing...ement (as amended by Amendment No. ... 3), and the\n<|id|>45<|page|>4<|box|>90 138 181 854<|content|>Intercreditor Agreement. ... Stonefield should con...) with respect to any specific compliance question\n<|id|>59<|page|>5<|box|>439 178 454 411<|content|>Attention: ... Stroud\n<|id|>60<|page|>5<|box|>455 176 472 653<|content|>767 Lexington Avenue, 22nd Floor New York, New York 10065\n<|id|>62<|page|>5<|box|>501 176 518 410<|content|>Attention: ... Feinberg\n<|id|>61<|page|>5<|box|>481 181 498 833<|content|>• Whitmore National Bank, N. ... (as Senior Agent under the Senior Credit Agreement)\n<|id|>63<|page|>5<|box|>518 176 534 524<|content|>350 Park Avenue New York, New York 10022\n<|id|>64<|page|>5<|box|>544 140 599 854<|content|>Delivery to the Senior Agent is required both unde...ons between the senior and mezzanine lender groups\n<|id|>77<|page|>6<|box|>873 140 930 854<|content|>With respect to the Parent Equity Pledge Agreement...cade Ridge SLG Holdings, Matter No. ... 1012-00001\n<|id|>78<|page|>7<|box|>90 140 219 854<|content|>LLC is perfected by possession of the original sto...unsel to ensure that perfection is not interrupted\n<|id|>92<|page|>8<|box|>340 174 376 854<|content|>(ii) Stonefield ceases to be a direct, wholly-owne...sidiary of Cascade Ridge SLG Holdings, LLC; ... or\n<|id|>94<|page|>8<|box|>446 140 594 854<|content|>The occurrence of a Change of Control constitutes ...s set forth in Section 8 of the Warrant Agreement)\n<|id|>117<|page|>11<|box|>429 176 446 676<|content|>Stephanie Okafor, Responsible Partner Telephone: ... (212) 506-7134\n<|id|>118<|page|>11<|box|>454 176 470 491<|content|>Email: ... com\n<|id|>119<|page|>11<|box|>472 176 488 588<|content|>Daniel Obi, Lead Associate Telephone: ... (212) 506-7291\n<|id|>120<|page|>11<|box|>498 176 513 468<|content|>Email: ... com\n<|id|>121<|page|>11<|box|>515 176 532 635<|content|>Lisa Morrow, Working Associate Telephone: ... (212) 506-7318\n<|id|>122<|page|>11<|box|>541 176 556 498<|content|>Email: ... com\n<|id|>123<|page|>11<|box|>558 176 575 849<|content|>Sylvia Hartwell, Tax Specialist Partner (for tax-related matters) Telephone: ... (212) 506-7205\n<|id|>124<|page|>11<|box|>584 176 599 501<|content|>Email: ... com\n<|id|>125<|page|>11<|box|>599 140 637 854<|content|>Please reference Matter No. ... SLG in all corresp... Calderwood & Harkness relating to this engagement\n<|id|>132<|page|>12<|box|>133 140 165 854<|content|>Stephanie Okafor Partner, Banking & Finance 601 Lexington Avenue New York, New York 10022\n<|id|>133<|page|>12<|box|>166 142 184 416<|content|>Enclosures: ... Closing Binders (2 sets)",
+    "raw_response": "<|src_id|>29<|tgt_id|>31\n<|src_id|>44<|tgt_id|>45\n<|src_id|>77<|tgt_id|>78",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        19,
+        20,
+        21,
+        23
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 261 118 735<|content|>CONTRACTOR SUBORDINATION OF LIEN\n<|id|>1<|type|>title<|page|>1<|box|>136 174 172 821<|content|>Subordination Agreement by Cobalt Construction Gro\n<|id|>8<|type|>title<|page|>1<|box|>698 140 715 243<|content|>RECITALS\n<|id|>18<|type|>title<|page|>3<|box|>329 140 345 390<|content|>SECTION 1 — DEFINITIONS\n<|id|>45<|type|>title<|page|>5<|box|>614 140 633 503<|content|>SECTION 2 — SUBORDINATION OF LIEN\n<|id|>50<|type|>title<|page|>6<|box|>739 140 775 728<|content|>SECTION 3 — ACKNOWLEDGMENTS AND REPRESENTATIONS OF\n<|id|>64<|type|>title<|page|>8<|box|>773 140 789 547<|content|>SECTION 4 — COVENANTS OF CONTRACTOR\n<|id|>80<|type|>title<|page|>10<|box|>744 140 760 715<|content|>SECTION 5 — LIEN LAW ARTICLE 3-A TRUST FUND PROVIS\n<|id|>85<|type|>title<|page|>11<|box|>549 140 565 588<|content|>SECTION 6 — BORROWER/OWNER OBLIGATIONS\n<|id|>90<|type|>title<|page|>12<|box|>321 140 338 424<|content|>SECTION 7 — AGENT'S RIGHTS\n<|id|>94<|type|>title<|page|>13<|box|>89 140 106 352<|content|>SECTION 8 — NOTICES\n<|id|>96<|type|>title<|page|>13<|box|>252 140 268 267<|content|>To Contractor:\n<|id|>102<|type|>title<|page|>13<|box|>426 143 443 227<|content|>To Agent:\n<|id|>108<|type|>title<|page|>13<|box|>565 143 580 256<|content|>To Borrower:\n<|id|>116<|type|>title<|page|>14<|box|>167 140 184 545<|content|>SECTION 9 — MISCELLANEOUS PROVISIONS\n<|id|>129<|type|>title<|page|>16<|box|>244 140 409 856<|content|>9.13 WAIVER OF JURY TRIAL. CONTRACTOR HEREBY KNOWI\n<|id|>131<|type|>title<|page|>16<|box|>441 413 458 584<|content|>EXECUTION PAGE\n<|id|>133<|type|>title<|page|>16<|box|>512 140 529 284<|content|>CONTRACTOR:\n<|id|>140<|type|>title<|page|>16<|box|>650 142 666 264<|content|>BORROWER:\n<|id|>155<|type|>title<|page|>17<|box|>90 142 106 218<|content|>AGENT:\n<|id|>161<|type|>title<|page|>17<|box|>218 352 234 643<|content|>NOTARY ACKNOWLEDGMENTS\n<|id|>162<|type|>title<|page|>17<|box|>244 140 261 763<|content|>ACKNOWLEDGMENT — CONTRACTOR (Cobalt Construction G\n<|id|>172<|type|>title<|page|>19<|box|>89 434 111 563<|content|>EXHIBIT A\n<|id|>173<|type|>title<|page|>19<|box|>135 313 152 683<|content|>LEGAL DESCRIPTION OF THE PREMISES\n<|id|>175<|type|>title<|page|>19<|box|>224 140 242 310<|content|>PARCEL 1 (LOT 1):\n<|id|>182<|type|>title<|page|>19<|box|>515 142 532 310<|content|>PARCEL 2 (LOT 5):\n<|id|>189<|type|>title<|page|>19<|box|>806 142 824 318<|content|>PARCEL 3 (LOT 12):\n<|id|>196<|type|>title<|page|>20<|box|>311 142 328 320<|content|>PARCEL 4 (LOT 15):\n<|id|>207<|type|>title<|page|>21<|box|>90 437 109 560<|content|>EXHIBIT B\n<|id|>208<|type|>title<|page|>21<|box|>136 264 152 733<|content|>DESCRIPTION OF THE BUILDING LOAN MORTGAGE\n<|id|>210<|type|>title<|page|>21<|box|>189 143 205 362<|content|>1. Building Loan Mortgage:\n<|id|>211<|type|>table<|page|>21<|box|>212 143 463 852<|content|>None\n<|id|>212<|type|>title<|page|>21<|box|>497 143 513 462<|content|>2. Project Loan Mortgage (if applicable):\n<|id|>213<|type|>table<|page|>21<|box|>521 143 786 852<|content|>None\n<|id|>214<|type|>title<|page|>21<|box|>821 143 837 330<|content|>3. Related Instruments:\n<|id|>218<|type|>title<|page|>23<|box|>90 434 109 562<|content|>EXHIBIT C\n<|id|>219<|type|>title<|page|>23<|box|>136 267 152 730<|content|>DESCRIPTION OF THE CONSTRUCTION CONTRACT\n<|id|>220<|type|>table<|page|>23<|box|>204 143 684 852<|content|>None",
+    "raw_response": "<|src_id|>211<|tgt_id|>210\n<|src_id|>213<|tgt_id|>212\n<|src_id|>220<|tgt_id|>219",
+    "parsed": [
+        {
+            "src_id": 211,
+            "tgt_id": 210
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 212
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 219
+        }
+    ]
+}

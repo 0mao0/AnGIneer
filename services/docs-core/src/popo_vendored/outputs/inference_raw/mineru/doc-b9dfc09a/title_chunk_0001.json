@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        55
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        51,
+        52,
+        53,
+        54,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>392<|page|>46<|box|>216 295 243 724<|content|>6 跨越航道建筑物、构筑物\n<|id|>401<|page|>47<|box|>141 411 159 574<|content|>6.2 通航孔设置\n<|id|>403<|page|>47<|box|>229 411 247 574<|content|>6.3 净空高度\n<|id|>417<|page|>48<|box|>716 423 735 586<|content|>6.4 净空宽度\n<|id|>431<|page|>51<|box|>172 275 198 705<|content|>7 穿越航道建筑物、构筑物\n<|id|>436<|page|>51<|box|>431 411 448 571<|content|>7.2 埋设要求\n<|id|>439<|page|>52<|box|>214 292 242 722<|content|>8 临海临河建筑物、构筑物\n<|id|>440<|page|>52<|box|>275 371 292 643<|content|>8.6 其他固定建筑物、构筑物\n<|id|>442<|page|>53<|box|>166 388 193 591<|content|>9 船 闸\n<|id|>444<|page|>54<|box|>210 386 237 638<|content|>10 安全保障\n<|id|>446<|page|>55<|box|>166 265 194 727<|content|>附录 A 船舶水线以上高度表",
+    "raw_response": "<|id|>392<|level|>1\n<|id|>401<|level|>2\n<|id|>403<|level|>2\n<|id|>417<|level|>2\n<|id|>431<|level|>1\n<|id|>436<|level|>2\n<|id|>439<|level|>1\n<|id|>440<|level|>2\n<|id|>442<|level|>1\n<|id|>444<|level|>1\n<|id|>446<|level|>1",
+    "parsed": [
+        {
+            "id": 392,
+            "level": 1
+        },
+        {
+            "id": 401,
+            "level": 2
+        },
+        {
+            "id": 403,
+            "level": 2
+        },
+        {
+            "id": 417,
+            "level": 2
+        },
+        {
+            "id": 431,
+            "level": 1
+        },
+        {
+            "id": 436,
+            "level": 2
+        },
+        {
+            "id": 439,
+            "level": 1
+        },
+        {
+            "id": 440,
+            "level": 2
+        },
+        {
+            "id": 442,
+            "level": 1
+        },
+        {
+            "id": 444,
+            "level": 1
+        },
+        {
+            "id": 446,
+            "level": 1
+        }
+    ]
+}

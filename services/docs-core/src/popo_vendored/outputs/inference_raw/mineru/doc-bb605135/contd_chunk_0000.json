@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        51
+    ],
+    "pages": [
+        1,
+        10,
+        20,
+        27,
+        31,
+        33,
+        50,
+        51
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>165 433 187 569<|content|>August 1977\n<|id|>3<|page|>1<|box|>846 149 887 917<|content|>DEPARTMENT OF THE TREASURY OFFICE OF THE SECRETARY WASHINGTON, D. ... C\n<|id|>54<|page|>10<|box|>280 114 311 465<|content|>2/ Current fiscal year to date transactions throug...amounts include transactions in transit as of June\n<|id|>64<|page|>10<|box|>309 516 318 831<|content|>r Revised. ... ** In billions of dollars\n<|id|>62<|page|>10<|box|>285 513 315 868<|content|>12/ Budget receipts and outlays are revised to ref... income tax refunds. ... ** In billions of dollars\n<|id|>88<|page|>20<|box|>468 154 479 491<|content|>Obligations are classified according to a uniform set\n<|id|>89<|page|>20<|box|>238 508 342 871<|content|>Federal agencies and firms often do business with ...es FO-2, 3, and 4 show only those incurred outside\n<|id|>113<|page|>27<|box|>240 122 340 487<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>114<|page|>27<|box|>153 510 209 877<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>127<|page|>31<|box|>783 117 875 503<|content|>Note: ... Beginning with data for December 31, 1958, the computation is based on\n<|id|>128<|page|>31<|box|>797 513 806 692<|content|>2/ Excludes Federal Financing Bank. ... 2/ Excludes Federal Financing Bank\n<|id|>136<|page|>33<|box|>769 117 879 484<|content|>1/ Consists of Government National Mortgage Associ... Overseas Private Investment Corporation beginning\n<|id|>137<|page|>33<|box|>747 526 857 868<|content|>February 1975. ... Special Investment Account\n<|id|>238<|page|>50<|box|>472 123 482 459<|content|>22/ Prices accepted ranged from 102. ... 80\n<|id|>239<|page|>50<|box|>487 125 497 458<|content|>23/ Prices accepted ranged from 100. ... 80\n<|id|>248<|page|>50<|box|>636 123 646 481<|content|>33/ Yields accepted ranged from 8. ... 37% (price\n<|id|>272<|page|>50<|box|>484 519 495 852<|content|>58/ Prices accepted ranged from 101. ... 34\n<|id|>279<|page|>50<|box|>592 516 601 851<|content|>65/ Prices accepted ranged from 102. ... 42\n<|id|>283<|page|>51<|box|>443 515 451 639<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>289<|page|>51<|box|>180 123 189 448<|content|>73/ Yields accepted ranged from 7. ... 19%\n<|id|>329<|page|>51<|box|>450 513 459 606<|content|>p Preliminary. ... p Preliminary\n<|id|>304<|page|>51<|box|>391 123 406 475<|content|>86/ Yields accepted ranged from 7. ... 02%\n<|id|>305<|page|>51<|box|>406 123 415 457<|content|>87/ Prices accepted ranged from 101. ... 58",
+    "raw_response": "<|src_id|>113<|tgt_id|>114\n<|src_id|>136<|tgt_id|>137",
+    "parsed": [
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 137
+        }
+    ]
+}

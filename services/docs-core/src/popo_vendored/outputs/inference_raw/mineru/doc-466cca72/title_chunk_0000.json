@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 246 118 751<|content|>FIRST AMENDMENT TO LETTER OF INTENT\n<|id|>7<|page|>1<|box|>434 140 452 241<|content|>RECITALS\n<|id|>16<|page|>2<|box|>354 142 372 267<|content|>AGREEMENT\n<|id|>17<|page|>2<|box|>386 140 402 346<|content|>Section 1. Defined Terms.\n<|id|>19<|page|>2<|box|>532 140 549 473<|content|>Section 2. Extension of Exclusivity Period.\n<|id|>28<|page|>3<|box|>690 140 707 415<|content|>Section 3. No Other Modifications.\n<|id|>32<|page|>4<|box|>239 140 256 532<|content|>Section 4. Binding Effect of Exclusivity Extension\n<|id|>34<|page|>4<|box|>421 140 438 589<|content|>Section 5. Non-Binding Nature of Remaining LOI Ter\n<|id|>36<|page|>4<|box|>732 140 750 348<|content|>Section 6. Confidentiality.\n<|id|>39<|page|>5<|box|>157 140 174 351<|content|>Section 7. Governing Law.\n<|id|>41<|page|>5<|box|>395 140 412 537<|content|>Section 8. Counterparts and Electronic Signatures.\n<|id|>43<|page|>5<|box|>590 400 609 596<|content|>[Signature Pages Follow]\n<|id|>45<|page|>5<|box|>661 460 676 535<|content|>BUYER:\n<|id|>46<|page|>5<|box|>686 142 719 854<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST, a Maryland\n<|id|>61<|page|>6<|box|>202 455 219 540<|content|>SELLER:\n<|id|>62<|page|>6<|box|>227 140 244 815<|content|>GREYSTONE MERIDIAN PARTNERS FUND III, L.P., a Dela",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>19<|level|>3\n<|id|>28<|level|>3\n<|id|>32<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>3\n<|id|>39<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>-1\n<|id|>45<|level|>-1\n<|id|>46<|level|>-1\n<|id|>61<|level|>-1\n<|id|>62<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,155 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 405 119 591<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>375 140 391 421<|content|>I. Purpose and Executive Summary\n<|id|>15<|page|>2<|box|>458 140 474 349<|content|>II. Original Budget Recap\n<|id|>16<|page|>2<|box|>489 140 506 361<|content|>A. Engagement Parameters\n<|id|>20<|page|>4<|box|>90 140 107 408<|content|>B. Original Hourly Rate Schedule\n<|id|>23<|page|>4<|box|>571 140 589 506<|content|>C. Original Timeline and Budget Assumptions\n<|id|>31<|page|>5<|box|>539 140 556 617<|content|>III. Actual Fee Burn — August 2022 Through Februar\n<|id|>32<|page|>5<|box|>570 140 587 457<|content|>A. Summary of Fees Incurred by Period\n<|id|>34<|page|>5<|box|>674 140 709 854<|content|>August – October 2022 (Engagement Opening, NDA, Te\n<|id|>38<|page|>6<|box|>270 140 287 754<|content|>November – December 2022 (MDLA Drafting Phase): Ap\n<|id|>44<|page|>7<|box|>289 140 323 854<|content|>January – February 2023 (First Negotiation Session\n<|id|>49<|page|>8<|box|>138 140 157 527<|content|>B. Fees by Timekeeper (Through February 2023)\n<|id|>54<|page|>9<|box|>90 142 107 312<|content|>C. Budget Utilization\n<|id|>61<|page|>9<|box|>479 140 494 601<|content|>IV. Key Drivers of Extended Timeline and Increased\n<|id|>63<|page|>9<|box|>627 140 643 281<|content|>A. MFN Impasse\n<|id|>68<|page|>10<|box|>513 140 531 393<|content|>B. Derived-Data Rights Dispute\n<|id|>77<|page|>11<|box|>646 140 662 542<|content|>C. Parallel Regulatory and Ancillary Workstreams\n<|id|>80<|page|>12<|box|>268 140 285 400<|content|>D. Multiple Negotiation Sessions\n<|id|>84<|page|>12<|box|>750 140 767 354<|content|>V. Revised Fee Projections\n<|id|>85<|page|>12<|box|>781 140 797 308<|content|>A. Scenario Analysis\n<|id|>87<|page|>12<|box|>885 140 902 620<|content|>Scenario 1: Resolution and Closing by June 2023 (O\n<|id|>97<|page|>13<|box|>566 140 584 647<|content|>Scenario 2: Extended Negotiations Through Q3 2023\n<|id|>107<|page|>14<|box|>236 140 253 805<|content|>Scenario 3: Protracted Negotiations or Impasse Thr\n<|id|>116<|page|>14<|box|>705 142 722 671<|content|>B. Projected Hours by Timekeeper (Remaining Work —\n<|id|>122<|page|>15<|box|>375 140 392 500<|content|>VI. Options for Fee Discussions with Quorum\n<|id|>124<|page|>15<|box|>450 140 468 683<|content|>A. Option 1: Maintain Current Soft Cap; Absorb Mod\n<|id|>128<|page|>15<|box|>849 142 866 480<|content|>B. Option 2: Reset the Soft Cap with Client\n<|id|>133<|page|>16<|box|>510 140 527 633<|content|>C. Option 3: Hybrid — Phase-Based Billing with Adj\n<|id|>140<|page|>17<|box|>257 140 273 477<|content|>D. Option 4: Alternative Fee Arrangement\n<|id|>147<|page|>17<|box|>724 140 742 328<|content|>VII. Recommendations\n<|id|>164<|page|>19<|box|>410 140 428 274<|content|>VIII. Next Steps",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>20<|level|>3\n<|id|>23<|level|>3\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>34<|level|>4\n<|id|>38<|level|>4\n<|id|>44<|level|>4\n<|id|>49<|level|>3\n<|id|>54<|level|>3\n<|id|>61<|level|>2\n<|id|>63<|level|>3\n<|id|>68<|level|>3\n<|id|>77<|level|>3\n<|id|>80<|level|>3\n<|id|>84<|level|>2\n<|id|>85<|level|>3\n<|id|>87<|level|>4\n<|id|>97<|level|>4\n<|id|>107<|level|>4\n<|id|>116<|level|>3\n<|id|>122<|level|>2\n<|id|>124<|level|>3\n<|id|>128<|level|>3\n<|id|>133<|level|>3\n<|id|>140<|level|>3\n<|id|>147<|level|>2\n<|id|>164<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 4
+        },
+        {
+            "id": 38,
+            "level": 4
+        },
+        {
+            "id": 44,
+            "level": 4
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 107,
+            "level": 4
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        }
+    ]
+}

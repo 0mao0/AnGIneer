@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 367 118 630<|content|>HEALTH CARE PROXY\n<|id|>1<|page|>1<|box|>136 192 154 803<|content|>Pursuant to Article 29-C of the New York Public He\n<|id|>3<|page|>1<|box|>229 140 246 429<|content|>Section 1: Identification of Principal\n<|id|>6<|page|>1<|box|>469 140 484 501<|content|>Section 2: Appointment of Health Care Agent\n<|id|>13<|page|>1<|box|>830 140 847 580<|content|>Section 3: Appointment of Successor Health Care Ag\n<|id|>20<|page|>2<|box|>388 140 405 514<|content|>Section 4: Scope of Authority Granted to Agent\n<|id|>34<|page|>3<|box|>571 140 589 517<|content|>Section 5: Statement of Wishes and Instructions\n<|id|>40<|page|>4<|box|>421 140 438 370<|content|>Section 6: Duration of Proxy\n<|id|>44<|page|>4<|box|>667 140 684 540<|content|>Section 7: Revocation of Prior Health Care Proxies\n<|id|>46<|page|>4<|box|>809 140 825 428<|content|>Section 8: Reliance by Third Parties\n<|id|>49<|page|>5<|box|>285 140 303 321<|content|>Section 9: Severability\n<|id|>51<|page|>5<|box|>444 140 460 359<|content|>Section 10: Governing Law\n<|id|>53<|page|>6<|box|>89 140 108 408<|content|>Section 11: Signature of Principal\n<|id|>55<|page|>6<|box|>277 140 295 537<|content|>Section 12: Statement and Signatures of Witnesses\n<|id|>57<|page|>6<|box|>421 140 438 230<|content|>Witness 1:\n<|id|>60<|page|>6<|box|>705 142 723 238<|content|>Care Agent\n<|id|>61<|page|>6<|box|>734 140 753 467<|content|>Statement of Primary Health Care Agent\n<|id|>64<|page|>7<|box|>205 140 224 477<|content|>Statement of Successor Health Care Agent",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>3\n<|id|>6<|level|>3\n<|id|>13<|level|>3\n<|id|>20<|level|>3\n<|id|>34<|level|>3\n<|id|>40<|level|>3\n<|id|>44<|level|>3\n<|id|>46<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>3\n<|id|>53<|level|>3\n<|id|>55<|level|>3\n<|id|>57<|level|>4\n<|id|>60<|level|>4\n<|id|>61<|level|>4\n<|id|>64<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 3
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 64,
+            "level": 4
+        }
+    ]
+}

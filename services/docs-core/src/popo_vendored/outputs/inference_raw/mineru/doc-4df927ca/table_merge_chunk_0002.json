@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['ES', 'Estas cookies se utilizan para ofrecer publicidad personalizada basada en sus intereses. Se utilizan para publicidad programática, segmentación de audiencia y seguimiento entre dispositivos. Los datos pueden']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'compartirse con socios publicitarios como Pendleton AdTech Solutions Ltd y VoltGraph Analytics GmbH. Consulte la lista completa de proveedores para más detalles.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 463,
+    "table2_idx": 464
+}

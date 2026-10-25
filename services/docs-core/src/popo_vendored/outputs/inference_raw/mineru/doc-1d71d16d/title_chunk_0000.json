@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>1<|page|>1<|box|>128 421 148 575<|content|>CALL NOTES\n<|id|>4<|page|>1<|box|>457 143 474 258<|content|>ATTENDEES\n<|id|>13<|page|>2<|box|>89 140 107 449<|content|>1. CALL TO ORDER AND PURPOSE\n<|id|>18<|page|>2<|box|>472 140 489 738<|content|>2. SUMMARY OF REJECTION — PRESENTED BY RENATA VASQ\n<|id|>20<|page|>2<|box|>566 140 584 429<|content|>2.1 Background and Timeline Recap\n<|id|>34<|page|>3<|box|>753 140 771 584<|content|>2.2 Content of Hargrove's Rejection (September 9,\n<|id|>39<|page|>4<|box|>160 142 178 480<|content|>1. Change in Control Severance Multiplier.\n<|id|>43<|page|>4<|box|>392 142 409 393<|content|>2. Section 280G Tax Treatment.\n<|id|>54<|page|>5<|box|>244 140 263 612<|content|>3. Change in Control Definition — Board Turnover T\n<|id|>57<|page|>5<|box|>488 140 505 452<|content|>Additionally, on Restrictive Covenants:\n<|id|>63<|page|>6<|box|>138 140 157 348<|content|>2.3 Vasquez's Assessment\n<|id|>70<|page|>6<|box|>626 140 643 848<|content|>3. ISS AND SHAREHOLDER CONCERNS — PRESENTED BY GEO\n<|id|>72<|page|>6<|box|>719 140 737 437<|content|>3.1 Veltrano Proxy Advisors Analysis\n<|id|>81<|page|>7<|box|>506 140 523 566<|content|>3.2 Say-on-Pay Vote History and 2025 AGM Exposure\n<|id|>85<|page|>7<|box|>851 140 867 457<|content|>3.3 Institutional Shareholder Landscape\n<|id|>90<|page|>8<|box|>652 140 669 524<|content|>3.4 UK Corporate Governance Code Constraints\n<|id|>95<|page|>9<|box|>266 140 282 346<|content|>4. BOARD DISCUSSION\n<|id|>97<|page|>9<|box|>342 140 359 588<|content|>4.1 Dame Philippa Thornton-Hale — Chair's Perspect\n<|id|>103<|page|>10<|box|>157 140 175 642<|content|>4.2 Geoffrey Stanton — Remuneration Committee Chai\n<|id|>109<|page|>10<|box|>718 140 734 616<|content|>4.3 Lucinda Farrow — Nomination Committee Chair's\n<|id|>116<|page|>11<|box|>511 140 527 326<|content|>4.4 Dr. Tomás Herrera\n<|id|>120<|page|>11<|box|>837 140 854 576<|content|>4.5 Elaine Whitford — General Counsel's Observatio\n<|id|>126<|page|>12<|box|>556 140 573 573<|content|>5. BOARD DIRECTION — UNANIMOUS DECISION\n<|id|>142<|page|>13<|box|>410 140 428 655<|content|>6. SEARCH AND SUCCESSION — NEXT STEPS DISCUSSION\n<|id|>150<|page|>14<|box|>315 142 332 250<|content|>7. CLOSING",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>1\n<|id|>13<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>3\n<|id|>43<|level|>3\n<|id|>54<|level|>3\n<|id|>57<|level|>-1\n<|id|>63<|level|>2\n<|id|>70<|level|>1\n<|id|>72<|level|>2\n<|id|>81<|level|>2\n<|id|>85<|level|>2\n<|id|>90<|level|>2\n<|id|>95<|level|>1\n<|id|>97<|level|>2\n<|id|>103<|level|>2\n<|id|>109<|level|>2\n<|id|>116<|level|>2\n<|id|>120<|level|>2\n<|id|>126<|level|>1\n<|id|>142<|level|>1\n<|id|>150<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        }
+    ]
+}

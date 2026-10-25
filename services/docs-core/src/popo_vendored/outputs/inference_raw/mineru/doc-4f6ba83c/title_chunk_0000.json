@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 215 107 854<|content|>CALDERWOOD & HARKNESS LLP 599 Lexington Avenue New\n<|id|>46<|page|>4<|box|>268 176 286 818<|content|>INTERNAL ANNOTATIONS / DRAFT NOTES (To Be Removed",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>46<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        }
+    ]
+}

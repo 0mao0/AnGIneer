@@ -1,0 +1,110 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        53,
+        62
+    ],
+    "pages": [
+        53,
+        54,
+        56,
+        57,
+        59,
+        60,
+        61,
+        62
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>570<|page|>53<|box|>189 140 207 416<|content|>Additional Capitalization Matters:\n<|id|>572<|page|>54<|box|>89 433 107 566<|content|>SCHEDULE 4.6\n<|id|>573<|page|>54<|box|>131 375 148 622<|content|>FINANCIAL INFORMATION\n<|id|>575<|page|>54<|box|>219 143 237 390<|content|>1. Net Operating Income (2024)\n<|id|>577<|page|>54<|box|>372 142 388 364<|content|>2. Revenue Summary (2024)\n<|id|>579<|page|>54<|box|>523 140 541 500<|content|>3. Estimated Annual Distributable Cash Flow\n<|id|>582<|page|>54<|box|>753 140 772 388<|content|>4. Debt Service Coverage Ratio\n<|id|>584<|page|>54<|box|>861 142 878 310<|content|>5. Valuation Support\n<|id|>588<|page|>56<|box|>89 431 107 566<|content|>SCHEDULE 4.9\n<|id|>589<|page|>56<|box|>130 418 148 580<|content|>REAL PROPERTY\n<|id|>591<|page|>56<|box|>200 142 219 426<|content|>1. Meridian Shores Hospitality LLC\n<|id|>609<|page|>56<|box|>835 140 854 431<|content|>2. Costa Luma Resort Holdings LLC\n<|id|>612<|page|>57<|box|>90 176 107 428<|content|>County: Monroe County, Florida\n<|id|>627<|page|>57<|box|>703 140 719 352<|content|>3. Azulia Beach Club LLC\n<|id|>644<|page|>59<|box|>88 426 108 571<|content|>SCHEDULE 4.12\n<|id|>645<|page|>59<|box|>128 437 148 560<|content|>LITIGATION\n<|id|>647<|page|>59<|box|>256 140 273 194<|content|>None.\n<|id|>649<|page|>60<|box|>89 426 107 570<|content|>SCHEDULE 4.13\n<|id|>650<|page|>60<|box|>130 385 148 611<|content|>MATERIAL CONTRACTS\n<|id|>652<|page|>60<|box|>200 140 219 426<|content|>1. Meridian Shores Hospitality LLC\n<|id|>659<|page|>60<|box|>694 140 710 433<|content|>2. Costa Luma Resort Holdings LLC\n<|id|>666<|page|>61<|box|>358 140 375 354<|content|>3. Azulia Beach Club LLC\n<|id|>674<|page|>62<|box|>89 398 107 599<|content|>[END OF SCHEDULES]",
+    "raw_response": "<|id|>570<|level|>1\n<|id|>572<|level|>1\n<|id|>573<|level|>2\n<|id|>575<|level|>3\n<|id|>577<|level|>3\n<|id|>579<|level|>3\n<|id|>582<|level|>3\n<|id|>584<|level|>3\n<|id|>588<|level|>1\n<|id|>589<|level|>2\n<|id|>591<|level|>3\n<|id|>609<|level|>3\n<|id|>612<|level|>-1\n<|id|>627<|level|>3\n<|id|>644<|level|>1\n<|id|>645<|level|>2\n<|id|>647<|level|>3\n<|id|>649<|level|>1\n<|id|>650<|level|>2\n<|id|>652<|level|>3\n<|id|>659<|level|>3\n<|id|>666<|level|>3\n<|id|>674<|level|>1",
+    "parsed": [
+        {
+            "id": 570,
+            "level": 1
+        },
+        {
+            "id": 572,
+            "level": 1
+        },
+        {
+            "id": 573,
+            "level": 2
+        },
+        {
+            "id": 575,
+            "level": 3
+        },
+        {
+            "id": 577,
+            "level": 3
+        },
+        {
+            "id": 579,
+            "level": 3
+        },
+        {
+            "id": 582,
+            "level": 3
+        },
+        {
+            "id": 584,
+            "level": 3
+        },
+        {
+            "id": 588,
+            "level": 1
+        },
+        {
+            "id": 589,
+            "level": 2
+        },
+        {
+            "id": 591,
+            "level": 3
+        },
+        {
+            "id": 609,
+            "level": 3
+        },
+        {
+            "id": 627,
+            "level": 3
+        },
+        {
+            "id": 644,
+            "level": 1
+        },
+        {
+            "id": 645,
+            "level": 2
+        },
+        {
+            "id": 647,
+            "level": 3
+        },
+        {
+            "id": 649,
+            "level": 1
+        },
+        {
+            "id": 650,
+            "level": 2
+        },
+        {
+            "id": 652,
+            "level": 3
+        },
+        {
+            "id": 659,
+            "level": 3
+        },
+        {
+            "id": 666,
+            "level": 3
+        },
+        {
+            "id": 674,
+            "level": 1
+        }
+    ]
+}

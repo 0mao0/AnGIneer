@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 343 118 653<|content|>LETTER OF TRANSMITTAL\n<|id|>1<|type|>title<|page|>1<|box|>135 153 208 844<|content|>For Exchange of Shares of Common Stock of Cascadia\n<|id|>4<|type|>title<|page|>1<|box|>284 147 398 848<|content|>║ IMPORTANT NOTICE ║ ║ ║ ║ DO NOT SEND STOCK CERTI\n<|id|>6<|type|>title<|page|>1<|box|>573 140 590 537<|content|>IMPORTANT: INSTRUCTIONS AND NOTICES\n<|id|>11<|type|>title<|page|>2<|box|>233 140 306 854<|content|>HOLDERS OF SHARES ARE URGED TO COMPLETE, SIGN, AND\n<|id|>12<|type|>title<|page|>2<|box|>329 142 345 625<|content|>SECTION 1: DESCRIPTION OF SHARES SURRENDERED\n<|id|>14<|type|>table<|page|>2<|box|>417 145 542 851<|content|>None\n<|id|>19<|type|>title<|page|>3<|box|>89 140 107 777<|content|>SECTION 2: DELIVERY OF CERTIFICATES OR BOOK-ENTRY\n<|id|>20<|type|>title<|page|>3<|box|>121 140 138 423<|content|>2.1 Physical Delivery of Certificates\n<|id|>28<|type|>title<|page|>3<|box|>494 140 513 341<|content|>2.2 Book-Entry Transfer\n<|id|>32<|type|>title<|page|>4<|box|>90 140 107 336<|content|>2.3 Guaranteed Delivery\n<|id|>38<|type|>title<|page|>4<|box|>477 140 494 617<|content|>SECTION 3: PAYMENT OF MERGER CONSIDERATION\n<|id|>47<|type|>title<|page|>5<|box|>321 140 338 676<|content|>SECTION 4: SPECIAL PAYMENT / DELIVERY INSTRUCTIONS\n<|id|>48<|type|>title<|page|>5<|box|>353 142 369 401<|content|>4.1 Special Payment Instructions\n<|id|>55<|type|>title<|page|>5<|box|>728 142 744 398<|content|>4.2 Special Delivery Instructions\n<|id|>60<|type|>title<|page|>6<|box|>121 140 138 470<|content|>4.3 Wire Transfer Instructions (Optional)\n<|id|>68<|type|>title<|page|>6<|box|>450 140 486 777<|content|>SECTION 5: REPRESENTATIONS, WARRANTIES, AND AGREEM\n<|id|>79<|type|>title<|page|>7<|box|>595 140 612 700<|content|>SECTION 6: SUBSTITUTE IRS FORM W-9 / TAX CERTIFICA\n<|id|>80<|type|>title<|page|>7<|box|>626 140 643 379<|content|>6.1 Purpose and Requirement\n<|id|>86<|type|>title<|page|>8<|box|>319 143 335 339<|content|>6.2 Substitute Form W-9\n<|id|>88<|type|>title<|page|>8<|box|>386 143 402 578<|content|>PART I — TAXPAYER IDENTIFICATION NUMBER\n<|id|>105<|type|>title<|page|>9<|box|>116 142 132 176<|content|>OR\n<|id|>108<|type|>title<|page|>9<|box|>194 142 210 464<|content|>Under penalties of perjury, I certify that:\n<|id|>116<|type|>title<|page|>9<|box|>568 140 584 312<|content|>6.3 Non-U.S. Holders\n<|id|>125<|type|>title<|page|>10<|box|>186 140 203 392<|content|>SECTION 7: WITHHOLDING\n<|id|>129<|type|>title<|page|>10<|box|>579 140 595 821<|content|>SECTION 8: AFFIDAVIT OF LOST, STOLEN, OR DESTROYED\n<|id|>131<|type|>title<|page|>10<|box|>667 210 684 785<|content|>AFFIDAVIT OF LOST, STOLEN, OR DESTROYED CERTIFICAT\n<|id|>151<|type|>title<|page|>13<|box|>90 140 107 488<|content|>9.1 Signature block for Registered Holder(s)\n<|id|>159<|type|>title<|page|>14<|box|>90 140 107 421<|content|>9.2 Medallion Signature Guarantee\n<|id|>160<|type|>title<|page|>14<|box|>114 140 130 549<|content|>A Medallion Signature Guarantee is REQUIRED if:\n<|id|>174<|type|>title<|page|>14<|box|>712 142 729 493<|content|>SECTION 10: GENERAL INSTRUCTIONS\n<|id|>175<|type|>title<|page|>14<|box|>743 143 758 462<|content|>10.1 Completion of Letter of Transmittal\n<|id|>184<|type|>title<|page|>15<|box|>416 143 431 323<|content|>10.2 Partial Surrender\n<|id|>189<|type|>title<|page|>15<|box|>843 142 859 272<|content|>10.4 No Interest\n<|id|>191<|type|>title<|page|>16<|box|>138 142 157 413<|content|>10.5 Important Tax Consequences\n<|id|>194<|type|>title<|page|>16<|box|>366 142 383 480<|content|>10.6 Questions and Requests for Assistance\n<|id|>202<|type|>title<|page|>16<|box|>678 142 694 297<|content|>LEGAL NOTICES\n<|id|>204<|type|>title<|page|>17<|box|>89 158 180 838<|content|>NEITHER THE SECURITIES AND EXCHANGE COMMISSION NOR",
+    "raw_response": "<|src_id|>14<|tgt_id|>12",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        }
+    ]
+}

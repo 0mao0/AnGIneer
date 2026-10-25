@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, 2', 'rowspan=2, 氮氧化物(NO_x)', '24h平均', '100', '100', 'rowspan=4, \\\\mu g/m^3']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['2', '氮氧化物(NO_x)', '1h平均', '250', '250', 'rowspan=5, μg/m^3']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 2097,
+    "table2_idx": 2098
+}

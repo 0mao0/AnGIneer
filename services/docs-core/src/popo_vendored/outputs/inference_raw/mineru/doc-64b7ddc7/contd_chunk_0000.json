@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>127 161 143 834<|content|>CALDERWOOD & HARKNESS LLP 787 Seventh Avenue New York, New York 10019\n<|id|>2<|page|>1<|box|>152 665 170 854<|content|>Matter No. ... 1017-00002\n<|id|>3<|page|>1<|box|>179 694 196 854<|content|>Date: ... April 19, 2024\n<|id|>4<|page|>1<|box|>205 142 220 292<|content|>MEMORANDUM\n<|id|>5<|page|>1<|box|>231 140 250 785<|content|>TO: ... Special Committee of the Board of Directors of Aurelius Global Media Group PLC\n<|id|>6<|page|>1<|box|>257 176 273 671<|content|>Tobias Kessler, Chair Lucinda Farrow-Grant Dr. ... Anwen Llewellyn\n<|id|>7<|page|>1<|box|>282 140 319 854<|content|>CC: ... Dame Elspeth Greenvale, Independent Non-Ex... & Corporate Secretary (non-voting board attendee)\n<|id|>8<|page|>1<|box|>327 140 344 710<|content|>FROM: ... Nathaniel Bower, Responsible Partner Audrey Zhou, Lead Associate\n<|id|>9<|page|>1<|box|>353 140 388 854<|content|>RE: ... Conflicts of Interest Analysis — Jonathan ...Damien Solberg and Corvus Peak Capital Partners LP\n<|id|>20<|page|>2<|box|>859 140 895 854<|content|>Current board-level support for Hale's candidacy i...red candidate — Tobias Kessler (who also serves as\n<|id|>21<|page|>3<|box|>90 138 200 856<|content|>Chair of the Special Committee), Reginald Osei, an...ne vacancy — are not relevant to the current count\n<|id|>123<|page|>16<|box|>388 143 404 318<|content|>Respectfully submitted,\n<|id|>124<|page|>16<|box|>405 142 420 444<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>125<|page|>16<|box|>422 143 439 253<|content|>By: ... By\n<|id|>126<|page|>16<|box|>439 143 455 328<|content|>Nathaniel Bower Partner\n<|id|>127<|page|>16<|box|>457 143 474 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>20<|tgt_id|>21",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        }
+    ]
+}

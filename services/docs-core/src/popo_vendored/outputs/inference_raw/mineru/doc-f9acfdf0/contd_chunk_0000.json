@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        12,
+        13,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>220 349 237 647<|content|>IN LIEU OF A SPECIAL MEETING\n<|id|>4<|page|>1<|box|>247 241 263 754<|content|>Marlowe Asset Management Photonics Inc. ... a Delaware corporation\n<|id|>5<|page|>1<|box|>272 150 306 844<|content|>EIN: ... 07- 812-4493\n<|id|>6<|page|>1<|box|>316 161 352 834<|content|>Corporate Headquarters: ... 9200 Innovation Boulevard, Albuquerque, NM 87113\n<|id|>7<|page|>1<|box|>359 370 378 627<|content|>Effective Date: ... February 9, 2024\n<|id|>8<|page|>1<|box|>386 140 551 854<|content|>The undersigned, constituting all of the members o...ere present and voted in favor of such resolutions\n<|id|>15<|page|>2<|box|>295 174 333 854<|content|>(e) holders of employee stock options exercisable for or representing approximately 11. ... and\n<|id|>17<|page|>2<|box|>383 140 513 856<|content|>The aggregate purchase price payable under the SPA...iary of HSAG, held through Halcyon US Holdings Inc\n<|id|>23<|page|>3<|box|>152 174 208 854<|content|>(e) engagement of a third-party compliance monitor...d report to the CFIUS Monitoring Agencies; ... and\n<|id|>25<|page|>3<|box|>295 138 515 857<|content|>WHEREAS (C) — Board Reconstitution Requirement. .....rs, filed by counsel for HSAG on December 1, 2023)\n<|id|>30<|page|>3<|box|>643 174 680 852<|content|>(iv) Olivia Hartmann — Director (designee of Cascadian Capital Partners Growth Fund II, L. ... and\n<|id|>32<|page|>3<|box|>714 138 881 857<|content|>As a result of the Closing and the consummation of...nd shall continue in her capacity as the Company's\n<|id|>33<|page|>4<|box|>90 140 127 854<|content|>President and Chief Operating Officer. ... Sung-Av...curity Board Members appointed pursuant to the NSA\n<|id|>64<|page|>7<|box|>474 176 492 521<|content|>(b) Col. ... and\n<|id|>66<|page|>7<|box|>526 138 637 856<|content|>No HSAG Designee (including Dr. ... A quorum of th...Board Members, including the Chair or her designee\n<|id|>70<|page|>7<|box|>815 174 907 857<|content|>(b) ITAR-Controlled and EAR-Controlled Programs. ....), including items classified under Export Control\n<|id|>71<|page|>8<|box|>90 174 200 854<|content|>Classification Numbers (ECCNs) 3A001 (certain micr...uired under ITAR or EAR for VPI's controlled items\n<|id|>80<|page|>9<|box|>90 210 143 854<|content|>(iv) A subcontract to Ironclad Defense Systems Inc. ... and\n<|id|>85<|page|>9<|box|>494 140 585 854<|content|>The foregoing enumeration of matters within the ex... set forth in Annex C to the NSA (the GSC Charter)\n<|id|>113<|page|>12<|box|>738 140 886 857<|content|>RESOLVED, that the engagement of Whitmore Complian...es of America, acting through the CFIUS Monitoring\n<|id|>114<|page|>13<|box|>89 140 126 854<|content|>Agencies. ... WCG was approved as the Monitor by t...nitoring Agencies by letter dated December 8, 2023\n<|id|>162<|page|>17<|box|>396 140 414 602<|content|>Col. ... ) Bryce Hendrickson, USAF Security Board Member\n<|id|>163<|page|>17<|box|>415 143 431 303<|content|>Signature: ... Signature\n<|id|>164<|page|>17<|box|>431 142 448 316<|content|>Date: ... February 9, 2024\n<|id|>165<|page|>17<|box|>448 142 465 470<|content|>Adrienne Delacroix Security Board Member\n<|id|>166<|page|>17<|box|>465 143 483 300<|content|>Signature: ... Signature\n<|id|>167<|page|>17<|box|>483 143 500 316<|content|>Date: ... February 9, 2024\n<|id|>168<|page|>17<|box|>500 140 532 854<|content|>Margaret E. ... Caldwell Security Board Member / Independent Security Director / Chair of the Board\n<|id|>169<|page|>17<|box|>534 143 550 300<|content|>Signature: ... Signature\n<|id|>170<|page|>17<|box|>551 143 566 316<|content|>Date: ... February 9, 2024\n<|id|>171<|page|>17<|box|>568 142 584 313<|content|>HSAG DESIGNEES: ... HSAG DESIGNEES\n<|id|>172<|page|>17<|box|>594 142 611 408<|content|>Dr. ... Lukas Breitner HSAG Designee\n<|id|>173<|page|>17<|box|>612 142 628 300<|content|>Signature: ... Signature\n<|id|>174<|page|>17<|box|>628 142 645 318<|content|>Date: ... February 9, 2024\n<|id|>175<|page|>17<|box|>646 142 662 367<|content|>Annika Vogt HSAG Designee\n<|id|>176<|page|>17<|box|>664 142 680 300<|content|>Signature: ... Signature",
+    "raw_response": "<|src_id|>32<|tgt_id|>33\n<|src_id|>70<|tgt_id|>71\n<|src_id|>113<|tgt_id|>114",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        }
+    ]
+}

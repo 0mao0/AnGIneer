@@ -1,0 +1,68 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        42
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        11,
+        12,
+        13,
+        14,
+        18,
+        19,
+        20,
+        22,
+        23,
+        28,
+        29,
+        30,
+        32,
+        41,
+        42
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>169 299 186 697<|content|>CONDITIONAL RANK-RANK REGRESSION<sup>∗</sup>\n<|id|>3<|type|>title<|page|>2<|box|>130 429 146 568<|content|>1<sub>.</sub> I<sub>ntroduction</sub>\n<|id|>15<|type|>title<|page|>6<|box|>130 339 146 656<|content|>2<sub>.</sub> C<sub>onditional</sub> R<sub>ank-</s\n<|id|>72<|type|>title<|page|>11<|box|>633 331 650 663<|content|>3<sub>.</sub> CRRR <sub>vs</sub> RRR<sub>:</sub> A\n<|id|>84<|type|>table<|page|>12<|box|>443 217 571 777<|content|>None\n<|id|>87<|type|>table<|page|>13<|box|>164 217 295 777<|content|>None\n<|id|>89<|type|>table<|page|>14<|box|>166 281 607 715<|content|>None\n<|id|>90<|type|>title<|page|>14<|box|>675 308 691 687<|content|>4<sub>.</sub> D<sub>istribution</sub> R<sub>egress\n<|id|>136<|type|>title<|page|>18<|box|>279 112 297 462<|content|>Algorithm 3 (Inference on\\rho _ { C }b<sub>ase</su\n<|id|>145<|type|>title<|page|>18<|box|>574 393 590 602<|content|>5<sub>.</sub> E<sub>mpirical</sub> A<sub>pplicatio\n<|id|>148<|type|>table<|page|>19<|box|>260 217 493 779<|content|>None\n<|id|>152<|type|>table<|page|>20<|box|>343 147 555 848<|content|>None\n<|id|>157<|type|>table<|page|>22<|box|>627 147 835 848<|content|>None\n<|id|>159<|type|>table<|page|>23<|box|>263 147 476 848<|content|>None\n<|id|>161<|type|>title<|page|>23<|box|>565 406 580 589<|content|>6<sub>.</sub> A<sub>symptotic</sub> T<sub>heory</s\n<|id|>230<|type|>title<|page|>28<|box|>604 437 621 558<|content|>7<sub>.</sub> <sub>conclusion</sub>\n<|id|>234<|type|>title<|page|>29<|box|>430 450 446 547<|content|>R<sub>eferences</sub>\n<|id|>262<|type|>title<|page|>30<|box|>786 326 803 669<|content|>A<sub>ppendix</sub> A<sub>.</sub> R<sub>egression-\n<|id|>284<|type|>title<|page|>32<|box|>130 367 146 630<|content|>A<sub>ppendix</sub> B<sub>.</sub> P<sub>roofs of</\n<|id|>413<|type|>title<|page|>41<|box|>330 393 347 602<|content|>A<sub>ppendix</sub> C<sub>.</sub> S<sub>imulations\n<|id|>419<|type|>table<|page|>42<|box|>167 287 407 707<|content|>None\n<|id|>420<|type|>table<|page|>42<|box|>578 287 818 707<|content|>None",
+    "raw_response": "<|src_id|>84<|tgt_id|>72\n<|src_id|>87<|tgt_id|>72\n<|src_id|>89<|tgt_id|>72\n<|src_id|>148<|tgt_id|>145\n<|src_id|>152<|tgt_id|>145\n<|src_id|>157<|tgt_id|>145\n<|src_id|>159<|tgt_id|>145\n<|src_id|>419<|tgt_id|>413\n<|src_id|>420<|tgt_id|>413",
+    "parsed": [
+        {
+            "src_id": 84,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 157,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 419,
+            "tgt_id": 413
+        },
+        {
+            "src_id": 420,
+            "tgt_id": 413
+        }
+    ]
+}

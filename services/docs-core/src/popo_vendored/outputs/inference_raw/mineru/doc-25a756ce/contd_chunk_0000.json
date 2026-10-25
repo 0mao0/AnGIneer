@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 133 854<|content|>Douglas Carmichael (SBN 198742) Simone Laroche (SB...co, California 94105 Telephone: ... (415) 772-3001\n<|id|>1<|page|>1<|box|>142 140 172 558<|content|>Email: ... com\n<|id|>2<|page|>1<|box|>179 142 194 794<|content|>Attorneys for Cross-Defendant ESTUARY FOUNDATION, a California nonprofit public benefit corporation\n<|id|>35<|page|>4<|box|>776 140 904 857<|content|>14. ... EF admits that approximately $700,000 of t...t Funds remained unexpended as of the wind-down of\n<|id|>36<|page|>5<|box|>89 174 180 854<|content|>BATRI in December 2021. ... EF further states that...e upon the continuing grant relationship with WGFT\n<|id|>91<|page|>12<|box|>128 697 145 854<|content|>Dated: ... July 22, 2022\n<|id|>92<|page|>12<|box|>154 142 170 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>93<|page|>12<|box|>172 143 189 253<|content|>By: ... By\n<|id|>94<|page|>12<|box|>189 140 238 852<|content|>Douglas Carmichael (SBN 198742) Attorneys for Cros...co, California 94105 Telephone: ... (415) 772-3001\n<|id|>95<|page|>12<|box|>239 140 270 852<|content|>Prepared by Simone Laroche (SBN 312056), Lead Asso...the supervision of Douglas Carmichael (SBN 198742)\n<|id|>111<|page|>13<|box|>152 174 188 854<|content|>Victoria Huang, Esq. ... Pratchett, Huang & Solano...Street, 28th Floor San Francisco, California 94104\n<|id|>112<|page|>13<|box|>196 176 214 393<|content|>Email: ... com\n<|id|>113<|page|>13<|box|>214 174 250 852<|content|>Derek Solano Jr. ... Pratchett, Huang & Solano LLP...Street, 28th Floor San Francisco, California 94104\n<|id|>114<|page|>13<|box|>258 176 275 397<|content|>Email: ... com\n<|id|>115<|page|>13<|box|>275 176 292 674<|content|>Counsel for Cross-Complainant The Whitfield-Garner Family Trust\n<|id|>116<|page|>13<|box|>301 140 337 854<|content|>I declare under penalty of perjury under the laws ... California that the foregoing is true and correct",
+    "raw_response": "<|src_id|>35<|tgt_id|>36",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        }
+    ]
+}

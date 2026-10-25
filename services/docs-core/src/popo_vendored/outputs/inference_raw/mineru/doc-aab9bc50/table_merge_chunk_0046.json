@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 46,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['沟渠', 'rowspan=3, A)水利设施的几何类型为点、线;B)输水槽、双线干沟、单线干沟、地下灌渠、地下灌渠出入口的几何类型为线,抽水机站、水轮泵、水磨房、水车的几何类型为点', 'rowspan=3, WATCON(水利设施)(M)CATWCN(水利设施类)=[1(倒虹吸),2(输水槽),3(沟渠),4(地下灌渠及出水口),5(干沟),6(阀门),7(水轮泵),8(抽水机站),100(储水池),999(其他)](O)OBJNAM(英文名称)=[水利设施英文名称](O)NOBJNM(中文名称)=[水利设施中文名称](O)CONDTN=[1(建造中),2(废弃的),3(改造中),5(计划建造的),999(其他)](O)INFORM(英文信息)=[水利设施英文信息](O)NINFOM(中文信息)=[水利设施中文信息]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['——', 'rowspan=4, ', 'rowspan=4, ']]\n",
+    "raw_response": "[0, 1, 1]",
+    "parsed": [
+        0,
+        1,
+        1
+    ],
+    "table1_idx": 2955,
+    "table2_idx": 2956
+}

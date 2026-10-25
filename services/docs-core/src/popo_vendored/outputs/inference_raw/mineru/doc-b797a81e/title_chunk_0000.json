@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>339 142 354 357<|content|>1. Purpose and Acceptance\n<|id|>10<|page|>1<|box|>669 140 686 323<|content|>2. Client Identification\n<|id|>15<|page|>2<|box|>340 140 357 354<|content|>3. Scope of Representation\n<|id|>32<|page|>4<|box|>715 140 732 313<|content|>4. Engagement Team\n<|id|>39<|page|>5<|box|>502 142 518 303<|content|>5. Fee Arrangement\n<|id|>40<|page|>5<|box|>532 142 549 279<|content|>5.1 Hourly Rates\n<|id|>44<|page|>5<|box|>830 142 848 323<|content|>5.2 Voluntary Fee Cap\n<|id|>50<|page|>6<|box|>648 140 665 400<|content|>5.4 Expenses and Disbursements\n<|id|>62<|page|>7<|box|>281 140 297 325<|content|>6. Billing and Payment\n<|id|>67<|page|>7<|box|>737 140 753 321<|content|>7. Conflicts of Interest\n<|id|>71<|page|>8<|box|>359 140 375 284<|content|>8. Confidentiality\n<|id|>74<|page|>8<|box|>708 140 724 326<|content|>9. Document Retention\n<|id|>77<|page|>9<|box|>223 142 239 274<|content|>10. Termination\n<|id|>81<|page|>9<|box|>579 142 597 349<|content|>11. Limitation of Liability\n<|id|>84<|page|>9<|box|>801 142 816 297<|content|>12. Governing Law\n<|id|>86<|page|>10<|box|>150 143 166 316<|content|>13. Entire Agreement\n<|id|>95<|page|>10<|box|>633 142 648 511<|content|>ACKNOWLEDGMENT AND ACCEPTANCE",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>32<|level|>1\n<|id|>39<|level|>1\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>50<|level|>2\n<|id|>62<|level|>1\n<|id|>67<|level|>1\n<|id|>71<|level|>1\n<|id|>74<|level|>1\n<|id|>77<|level|>1\n<|id|>81<|level|>1\n<|id|>84<|level|>1\n<|id|>86<|level|>1\n<|id|>95<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        }
+    ]
+}

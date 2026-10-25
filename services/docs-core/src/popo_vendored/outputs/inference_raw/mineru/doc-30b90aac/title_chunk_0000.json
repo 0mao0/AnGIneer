@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>145 87 183 907<|content|>中 华 人 民 共 和 国 国 家 标 准\n<|id|>3<|page|>1<|box|>395 287 474 707<|content|>道路交通标志和标线 第6部分:铁路道口\n<|id|>4<|page|>1<|box|>502 297 548 699<|content|>Roadtrafficsignsandmarkings— Part6:Highway-railway\n<|id|>7<|page|>2<|box|>134 445 156 552<|content|>目次\n<|id|>9<|page|>3<|box|>135 442 156 554<|content|>前言\n<|id|>10<|page|>3<|box|>193 142 209 473<|content|>GB5768的本部分全部技术内容为强制性。\n<|id|>33<|page|>4<|box|>135 376 181 620<|content|>道路交通标志和标线 第6部分:铁路道口\n<|id|>34<|page|>4<|box|>219 107 234 176<|content|>1 范围\n<|id|>37<|page|>4<|box|>349 107 365 263<|content|>2 规范性引用文件\n<|id|>41<|page|>4<|box|>480 107 495 211<|content|>3 一般规定\n<|id|>53<|page|>6<|box|>447 107 462 176<|content|>4 设置\n<|id|>54<|page|>6<|box|>481 107 497 295<|content|>41 无人看守铁路道口\n<|id|>65<|page|>7<|box|>574 107 589 295<|content|>42 有人看守铁路道口\n<|id|>69<|page|>7<|box|>722 107 738 700<|content|>43 铁路道口附近路段存在弯道 下陡坡路段 上跨桥等特殊路段或构造物时",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>7<|level|>1\n<|id|>9<|level|>1\n<|id|>10<|level|>-1\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>65<|level|>3\n<|id|>69<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        }
+    ]
+}

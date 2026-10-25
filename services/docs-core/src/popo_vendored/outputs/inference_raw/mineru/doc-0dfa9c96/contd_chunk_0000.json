@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        28
+    ],
+    "pages": [
+        3,
+        4,
+        5,
+        6,
+        24,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>23<|page|>3<|box|>816 140 890 856<|content|>Pending Applications. ... These applications are t...ce our engagement as patent prosecution counsel on\n<|id|>24<|page|>4<|box|>89 140 127 854<|content|>February 14, 2022. ... C below\n<|id|>37<|page|>5<|box|>834 174 907 857<|content|>3. ... Failure to respond will result in deemed wi...application under the rules of the European Patent\n<|id|>38<|page|>6<|box|>90 210 126 854<|content|>Convention (\"EPC\"), permanently foreclosing Europe...ctrode fabrication process covered by Sub-Family B\n<|id|>200<|page|>24<|box|>114 140 132 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>201<|page|>24<|box|>133 143 150 253<|content|>By: ... By\n<|id|>202<|page|>24<|box|>148 140 181 854<|content|>Catherine Bloom Partner, intellectual Property Group USPTO Reg. ... (415) 392-7200\n<|id|>203<|page|>24<|box|>184 142 200 455<|content|>Email: ... com\n<|id|>204<|page|>24<|box|>202 143 218 253<|content|>By: ... By\n<|id|>205<|page|>24<|box|>218 140 250 852<|content|>Christy Bauer Lead Associate, intellectual Property Group USPTO Reg. ... (415) 392-7248\n<|id|>206<|page|>24<|box|>251 142 268 450<|content|>Email: ... com\n<|id|>231<|page|>28<|box|>354 174 373 815<|content|>(e) all licenses, sublicenses, and other agreements relating to any of the foregoing; ... and\n<|id|>233<|page|>28<|box|>425 140 500 856<|content|>Note: ... 15(a)",
+    "raw_response": "<|src_id|>23<|tgt_id|>24\n<|src_id|>37<|tgt_id|>38",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        }
+    ]
+}

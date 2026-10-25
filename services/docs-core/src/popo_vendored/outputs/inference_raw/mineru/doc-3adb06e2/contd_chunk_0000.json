@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 133 563<|content|>901 Fifth Avenue, Suite 3200 Seattle, Washington 98164\n<|id|>2<|page|>1<|box|>142 140 159 772<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 743 185 854<|content|>April 14, 2023\n<|id|>13<|page|>1<|box|>915 142 929 308<|content|>C&H Matter No. ... 00001\n<|id|>16<|page|>2<|box|>215 140 287 856<|content|>As further set forth in Article IV, the capital co...in two equal tranches per member. ... Specifically\n<|id|>26<|page|>2<|box|>837 140 910 857<|content|>CSIA timely funded its Second Tranche capital cont...ars ($9,900,000), which represents the entirety of\n<|id|>27<|page|>3<|box|>90 140 127 854<|content|>CSIA's capital commitment under the JV Agreement. ... of its capital obligations under the JV Agreement\n<|id|>61<|page|>6<|box|>440 174 476 854<|content|>Oliver Mackenzie, Partner Calderwood & Harkness LL...00 Seattle, WA 98164 Telephone: ... (206) 448-7200\n<|id|>62<|page|>6<|box|>484 174 501 522<|content|>Email: ... com\n<|id|>63<|page|>6<|box|>501 140 537 854<|content|>CSIA's General Counsel, David Tanaka, should be co...ed to or concerning CSIA, at the following address\n<|id|>64<|page|>6<|box|>546 174 582 854<|content|>David Tanaka, General Counsel Cascadia State Infra...00 Olympia, WA 98501 Telephone: ... (360) 902-3100\n<|id|>65<|page|>6<|box|>590 176 607 395<|content|>Email: ... gov\n<|id|>66<|page|>6<|box|>608 142 625 272<|content|>Very truly yours,\n<|id|>67<|page|>6<|box|>633 140 648 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>68<|page|>6<|box|>652 143 667 251<|content|>By: ... By\n<|id|>69<|page|>6<|box|>669 142 684 336<|content|>Oliver Mackenzie Partner\n<|id|>70<|page|>6<|box|>685 140 702 526<|content|>On behalf of Cascadia State Infrastructure Authority\n<|id|>71<|page|>6<|box|>705 142 718 169<|content|>cc: ... cc\n<|id|>72<|page|>6<|box|>728 176 763 852<|content|>Elaine Prescott, Esq. ... Whitfield, Aarons & Greer LLP 1455 SW Broadway, Suite 2100 Portland, OR 97201\n<|id|>73<|page|>6<|box|>772 174 808 852<|content|>Cynthia Voss, Chief Operating Officer Pinnacle Wat... SW Quelston Street, Suite 1500 Portland, OR 97205\n<|id|>74<|page|>6<|box|>816 176 852 854<|content|>David Tanaka, General Counsel Cascadia State Infra...0 Jefferson Street SE, Suite 400 Olympia, WA 98501\n<|id|>75<|page|>6<|box|>859 174 896 854<|content|>Margaret Ellsworth, Executive Director Cascadia St...0 Jefferson Street SE, Suite 400 Olympia, WA 98501\n<|id|>76<|page|>7<|box|>89 176 107 612<|content|>Harrison Wexford, Calderwood & Harkness LLP (internal)\n<|id|>77<|page|>7<|box|>114 140 183 611<|content|>Tiffany Rosenthal, Calderwood & Harkness LLP (internal) Enclosure: ... 00001",
+    "raw_response": "<|src_id|>26<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        }
+    ]
+}

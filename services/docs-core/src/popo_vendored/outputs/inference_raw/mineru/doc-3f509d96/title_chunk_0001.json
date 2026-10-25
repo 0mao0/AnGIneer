@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        49,
+        55
+    ],
+    "pages": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>548<|page|>49<|box|>170 414 197 560<|content|>目 次\n<|id|>550<|page|>50<|box|>167 289 194 686<|content|>4 数学模型试验工作量\n<|id|>552<|page|>50<|box|>450 342 468 638<|content|>4.2 水流数学模型试验工作量\n<|id|>556<|page|>50<|box|>807 343 825 640<|content|>4.3 波浪数学模型试验工作量\n<|id|>560<|page|>51<|box|>303 334 321 640<|content|>4.4 泥沙数学模型试验工作量\n<|id|>564<|page|>51<|box|>816 332 835 638<|content|>4.5 浮体数学模型试验工作量\n<|id|>568<|page|>52<|box|>429 326 448 666<|content|>4.6 船舶操纵数值模拟试验工作量\n<|id|>570<|page|>52<|box|>563 285 582 710<|content|>4.7 船闸输水水力特性数学模型试验工作量\n<|id|>572<|page|>53<|box|>197 289 224 694<|content|>5 物理模型试验工作量\n<|id|>581<|page|>54<|box|>254 329 272 647<|content|>5.2 内河水动力模型试验工作量\n<|id|>583<|page|>55<|box|>197 218 227 777<|content|>6 模型试验费用构成及计算标准\n<|id|>584<|page|>55<|box|>259 388 278 607<|content|>6.2 人工费计算标准",
+    "raw_response": "<|id|>548<|level|>1\n<|id|>550<|level|>1\n<|id|>552<|level|>2\n<|id|>556<|level|>2\n<|id|>560<|level|>2\n<|id|>564<|level|>2\n<|id|>568<|level|>2\n<|id|>570<|level|>2\n<|id|>572<|level|>1\n<|id|>581<|level|>2\n<|id|>583<|level|>1\n<|id|>584<|level|>2",
+    "parsed": [
+        {
+            "id": 548,
+            "level": 1
+        },
+        {
+            "id": 550,
+            "level": 1
+        },
+        {
+            "id": 552,
+            "level": 2
+        },
+        {
+            "id": 556,
+            "level": 2
+        },
+        {
+            "id": 560,
+            "level": 2
+        },
+        {
+            "id": 564,
+            "level": 2
+        },
+        {
+            "id": 568,
+            "level": 2
+        },
+        {
+            "id": 570,
+            "level": 2
+        },
+        {
+            "id": 572,
+            "level": 1
+        },
+        {
+            "id": 581,
+            "level": 2
+        },
+        {
+            "id": 583,
+            "level": 1
+        },
+        {
+            "id": 584,
+            "level": 2
+        }
+    ]
+}

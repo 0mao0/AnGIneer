@@ -1,0 +1,172 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4mdkphga\\input\\pdfs\\doc-3f753c2b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4mdkphga\\enriched\\doc-3f753c2b.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>15<|level|>2\n<|id|>29<|level|>2\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>38<|level|>3\n<|id|>43<|level|>3\n<|id|>45<|level|>3\n<|id|>51<|level|>3\n<|id|>54<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>63<|level|>3\n<|id|>66<|level|>3\n<|id|>73<|level|>2\n<|id|>90<|level|>2\n<|id|>95<|level|>2\n<|id|>97<|level|>3\n<|id|>99<|level|>3\n<|id|>114<|level|>3\n<|id|>134<|level|>2\n<|id|>145<|level|>2\n<|id|>147<|level|>3\n<|id|>149<|level|>3\n<|id|>156<|level|>2\n<|id|>159<|level|>3\n<|id|>162<|level|>3\n<|id|>170<|level|>3\n<|id|>173<|level|>3\n<|id|>178<|level|>2",
+    "image_output": "<|src_id|>13<|tgt_id|>0\n<|src_id|>14<|tgt_id|>0\n<|src_id|>40<|tgt_id|>38\n<|src_id|>41<|tgt_id|>38\n<|src_id|>180<|tgt_id|>178",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 178
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 13,
+            "table2_idx": 14,
+            "upper_row_ss": [
+                [
+                    "Do Nothing",
+                    "You will remain a member of the settlement class. If the settlement is approved, you will automatically receive a payment. You will give up the right to sue AMA separately for the claims covered by the settlement (as described in Section 6).",
+                    "No action required."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Opt Out (Exclude Yourself)",
+                    "You will not receive any payment from the settlement. You will retain the right to sue AMA separately for the claims you may have, subject to applicable statutes of limitations and other legal defenses.",
+                    "Your written request for exclusion must be postmarked no later than January 2, 2024."
+                ]
+            ]
+        }
+    ]
+}

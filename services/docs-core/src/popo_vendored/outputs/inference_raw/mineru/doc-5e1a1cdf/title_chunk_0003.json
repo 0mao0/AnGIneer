@@ -1,0 +1,45 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        185,
+        191
+    ],
+    "pages": [
+        186,
+        187,
+        191
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1604<|page|>186<|box|>135 453 149 546<|content|>附录 E\n<|id|>1605<|page|>186<|box|>153 442 168 554<|content|>(资料性附录)\n<|id|>1606<|page|>186<|box|>172 344 187 652<|content|>停车让行标志和减速让行标志设置条件\n<|id|>1607<|page|>186<|box|>210 107 225 339<|content|>E.1 停车让行标志设置条件\n<|id|>1636<|page|>187<|box|>153 107 168 337<|content|>E.2 减速让行标志设置条件\n<|id|>1638<|page|>187<|box|>219 107 233 433<|content|>E.2.2 下列情况下应设置减速让行标志：\n<|id|>1658<|page|>191<|box|>134 408 149 588<|content|>交通标志中文名称索引",
+    "raw_response": "<|id|>1604<|level|>1\n<|id|>1605<|level|>2\n<|id|>1606<|level|>1\n<|id|>1607<|level|>2\n<|id|>1636<|level|>2\n<|id|>1638<|level|>3\n<|id|>1658<|level|>1",
+    "parsed": [
+        {
+            "id": 1604,
+            "level": 1
+        },
+        {
+            "id": 1605,
+            "level": 2
+        },
+        {
+            "id": 1606,
+            "level": 1
+        },
+        {
+            "id": 1607,
+            "level": 2
+        },
+        {
+            "id": 1636,
+            "level": 2
+        },
+        {
+            "id": 1638,
+            "level": 3
+        },
+        {
+            "id": 1658,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,495 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-e7c64icv\\input\\pdfs\\doc-a6401110.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-e7c64icv\\enriched\\doc-a6401110.json",
+    "contd_output": "<|src_id|>97<|tgt_id|>98\n<|src_id|>287<|tgt_id|>288\n<|src_id|>343<|tgt_id|>344",
+    "title_output": "<|id|>0<|level|>1\n<|id|>4<|level|>1\n<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>18<|level|>1\n<|id|>26<|level|>1\n<|id|>27<|level|>2\n<|id|>99<|level|>2\n<|id|>112<|level|>2\n<|id|>119<|level|>1\n<|id|>120<|level|>2\n<|id|>124<|level|>2\n<|id|>128<|level|>2\n<|id|>133<|level|>2\n<|id|>138<|level|>2\n<|id|>143<|level|>2\n<|id|>147<|level|>2\n<|id|>152<|level|>2\n<|id|>155<|level|>2\n<|id|>158<|level|>1\n<|id|>159<|level|>2\n<|id|>167<|level|>2\n<|id|>169<|level|>2\n<|id|>171<|level|>1\n<|id|>172<|level|>2\n<|id|>202<|level|>2\n<|id|>216<|level|>1\n<|id|>218<|level|>2\n<|id|>220<|level|>2\n<|id|>222<|level|>2\n<|id|>224<|level|>2\n<|id|>226<|level|>2\n<|id|>228<|level|>2\n<|id|>232<|level|>2\n<|id|>234<|level|>2\n<|id|>236<|level|>2\n<|id|>238<|level|>2\n<|id|>248<|level|>2\n<|id|>250<|level|>2\n<|id|>252<|level|>2\n<|id|>254<|level|>2\n<|id|>256<|level|>1\n<|id|>257<|level|>2\n<|id|>274<|level|>2\n<|id|>284<|level|>2\n<|id|>293<|level|>1\n<|id|>294<|level|>2\n<|id|>313<|level|>2\n<|id|>321<|level|>2\n<|id|>334<|level|>1\n<|id|>335<|level|>2\n<|id|>345<|level|>2\n<|id|>347<|level|>2\n<|id|>349<|level|>1\n<|id|>350<|level|>2\n<|id|>353<|level|>2\n<|id|>355<|level|>2\n<|id|>357<|level|>1\n<|id|>358<|level|>2\n<|id|>374<|level|>2\n<|id|>379<|level|>2\n<|id|>383<|level|>2\n<|id|>385<|level|>2\n<|id|>388<|level|>2\n<|id|>390<|level|>2\n<|id|>392<|level|>2\n<|id|>394<|level|>2\n<|id|>397<|level|>2\n<|id|>407<|level|>2\n<|id|>409<|level|>2\n<|id|>413<|level|>2\n<|id|>415<|level|>2\n<|id|>444<|level|>1\n<|id|>445<|level|>2\n<|id|>480<|level|>1\n<|id|>481<|level|>2\n<|id|>507<|level|>1\n<|id|>508<|level|>2\n<|id|>509<|level|>3\n<|id|>515<|level|>3\n<|id|>522<|level|>1\n<|id|>523<|level|>2\n<|id|>527<|level|>1\n<|id|>528<|level|>2\n<|id|>533<|level|>1\n<|id|>534<|level|>2",
+    "image_output": "<|src_id|>10<|tgt_id|>9\n<|src_id|>11<|tgt_id|>9\n<|src_id|>12<|tgt_id|>9\n<|src_id|>13<|tgt_id|>9\n<|src_id|>497<|tgt_id|>481\n<|src_id|>525<|tgt_id|>523\n<|src_id|>526<|tgt_id|>523\n<|src_id|>530<|tgt_id|>528\n<|src_id|>531<|tgt_id|>528",
+    "contd_label": [
+        {
+            "src_id": 97,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 287,
+            "tgt_id": 288
+        },
+        {
+            "src_id": 343,
+            "tgt_id": 344
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 1
+        },
+        {
+            "id": 218,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 224,
+            "level": 2
+        },
+        {
+            "id": 226,
+            "level": 2
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 232,
+            "level": 2
+        },
+        {
+            "id": 234,
+            "level": 2
+        },
+        {
+            "id": 236,
+            "level": 2
+        },
+        {
+            "id": 238,
+            "level": 2
+        },
+        {
+            "id": 248,
+            "level": 2
+        },
+        {
+            "id": 250,
+            "level": 2
+        },
+        {
+            "id": 252,
+            "level": 2
+        },
+        {
+            "id": 254,
+            "level": 2
+        },
+        {
+            "id": 256,
+            "level": 1
+        },
+        {
+            "id": 257,
+            "level": 2
+        },
+        {
+            "id": 274,
+            "level": 2
+        },
+        {
+            "id": 284,
+            "level": 2
+        },
+        {
+            "id": 293,
+            "level": 1
+        },
+        {
+            "id": 294,
+            "level": 2
+        },
+        {
+            "id": 313,
+            "level": 2
+        },
+        {
+            "id": 321,
+            "level": 2
+        },
+        {
+            "id": 334,
+            "level": 1
+        },
+        {
+            "id": 335,
+            "level": 2
+        },
+        {
+            "id": 345,
+            "level": 2
+        },
+        {
+            "id": 347,
+            "level": 2
+        },
+        {
+            "id": 349,
+            "level": 1
+        },
+        {
+            "id": 350,
+            "level": 2
+        },
+        {
+            "id": 353,
+            "level": 2
+        },
+        {
+            "id": 355,
+            "level": 2
+        },
+        {
+            "id": 357,
+            "level": 1
+        },
+        {
+            "id": 358,
+            "level": 2
+        },
+        {
+            "id": 374,
+            "level": 2
+        },
+        {
+            "id": 379,
+            "level": 2
+        },
+        {
+            "id": 383,
+            "level": 2
+        },
+        {
+            "id": 385,
+            "level": 2
+        },
+        {
+            "id": 388,
+            "level": 2
+        },
+        {
+            "id": 390,
+            "level": 2
+        },
+        {
+            "id": 392,
+            "level": 2
+        },
+        {
+            "id": 394,
+            "level": 2
+        },
+        {
+            "id": 397,
+            "level": 2
+        },
+        {
+            "id": 407,
+            "level": 2
+        },
+        {
+            "id": 409,
+            "level": 2
+        },
+        {
+            "id": 413,
+            "level": 2
+        },
+        {
+            "id": 415,
+            "level": 2
+        },
+        {
+            "id": 444,
+            "level": 1
+        },
+        {
+            "id": 445,
+            "level": 2
+        },
+        {
+            "id": 480,
+            "level": 1
+        },
+        {
+            "id": 481,
+            "level": 2
+        },
+        {
+            "id": 507,
+            "level": 1
+        },
+        {
+            "id": 508,
+            "level": 2
+        },
+        {
+            "id": 509,
+            "level": 3
+        },
+        {
+            "id": 515,
+            "level": 3
+        },
+        {
+            "id": 522,
+            "level": 1
+        },
+        {
+            "id": 523,
+            "level": 2
+        },
+        {
+            "id": 527,
+            "level": 1
+        },
+        {
+            "id": 528,
+            "level": 2
+        },
+        {
+            "id": 533,
+            "level": 1
+        },
+        {
+            "id": 534,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 10,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 497,
+            "tgt_id": 481
+        },
+        {
+            "src_id": 525,
+            "tgt_id": 523
+        },
+        {
+            "src_id": 526,
+            "tgt_id": 523
+        },
+        {
+            "src_id": 530,
+            "tgt_id": 528
+        },
+        {
+            "src_id": 531,
+            "tgt_id": 528
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 10,
+            "table2_idx": 11,
+            "upper_row_ss": [
+                [
+                    "ARTICLE III",
+                    "ADVANCE REQUEST PROCEDURES",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Section 3.01",
+                    "Advance Request",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 11,
+            "table2_idx": 12,
+            "upper_row_ss": [
+                [
+                    "Section 7.01",
+                    "Events of Default",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Section 7.02",
+                    "Remedies",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 12,
+            "table2_idx": 13,
+            "upper_row_ss": [
+                [
+                    "Exhibit B",
+                    "Form of Compliance Certificate",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "SCHEDULES",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 525,
+            "table2_idx": 526,
+            "upper_row_ss": [
+                [
+                    "Default Interest Rate",
+                    "SOFR + 350 basis points (3.50%) per annum"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Day Count Convention (Interest)",
+                    "Actual/360"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 530,
+            "table2_idx": 531,
+            "upper_row_ss": [
+                [
+                    "8.",
+                    "Liquidity Facility Agreement (this Agreement)",
+                    "QRF 2022-1 (Borrower) / Northvane Bank, N.A. (Lender)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "9.",
+                    "Account Control Agreement",
+                    "QRF 2022-1 (Account Holder) / Calvoneth Trust Company, N.A. (Securities Intermediary)"
+                ]
+            ]
+        }
+    ]
+}

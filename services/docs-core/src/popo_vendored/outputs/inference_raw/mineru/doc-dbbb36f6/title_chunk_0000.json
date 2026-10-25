@@ -1,0 +1,125 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 187 142 810<|content|>FORM OF SECRETARY'S CERTIFICATE OF SKYBRIDGE FINTE\n<|id|>2<|page|>1<|box|>203 200 219 797<|content|>BLANK FORM — TO BE COMPLETED AND EXECUTED AT CLOSI\n<|id|>4<|page|>1<|box|>342 140 359 712<|content|>I. INTRODUCTORY RECITALS AND CERTIFICATION PREAMBL\n<|id|>9<|page|>1<|box|>797 142 815 375<|content|>II. CERTIFICATION BODY\n<|id|>10<|page|>1<|box|>829 140 847 441<|content|>Section 1. Certificate of Incorporation\n<|id|>13<|page|>2<|box|>294 140 311 284<|content|>Section 2. Bylaws\n<|id|>15<|page|>2<|box|>458 140 474 370<|content|>Section 3. Board Resolutions\n<|id|>20<|page|>3<|box|>90 140 107 398<|content|>Section 4. Stockholder Approval\n<|id|>25<|page|>3<|box|>481 142 497 408<|content|>Section 5. Incumbency of Officers\n<|id|>29<|page|>4<|box|>148 140 165 454<|content|>Section 6. Good Standing and Existence\n<|id|>33<|page|>4<|box|>474 140 491 460<|content|>Section 7. No Dissolution or Winding Up\n<|id|>35<|page|>4<|box|>666 140 683 725<|content|>III. GENERAL REPRESENTATIONS OF THE CERTIFYING OFF\n<|id|>39<|page|>5<|box|>186 140 203 382<|content|>IV. RELIANCE LANGUAGE\n<|id|>42<|page|>6<|box|>89 142 106 349<|content|>V. EXECUTION BLOCK\n<|id|>45<|page|>6<|box|>226 142 243 421<|content|>VI. COUNTER-CERTIFICATION\n<|id|>48<|page|>7<|box|>88 202 160 794<|content|>EXHIBIT A Certificate of Incorporation of [Insert\n<|id|>50<|page|>8<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>51<|page|>8<|box|>114 284 133 714<|content|>Bylaws of [Insert Full Legal Name of Target Compan\n<|id|>52<|page|>8<|box|>142 359 159 637<|content|>(as amended through the date hereof)\n<|id|>54<|page|>9<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>55<|page|>9<|box|>116 166 133 828<|content|>Resolutions of the Board of Directors of [Insert F\n<|id|>64<|page|>10<|box|>89 447 107 550<|content|>EXHIBIT D\n<|id|>65<|page|>10<|box|>114 410 133 588<|content|>Stockholder Approval\n<|id|>70<|page|>11<|box|>89 447 107 550<|content|>EXHIBIT E\n<|id|>71<|page|>11<|box|>114 390 133 607<|content|>Good Standing Certificates",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>10<|level|>3\n<|id|>13<|level|>3\n<|id|>15<|level|>3\n<|id|>20<|level|>3\n<|id|>25<|level|>3\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>35<|level|>2\n<|id|>39<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>52<|level|>4\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>70<|level|>2\n<|id|>71<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 4
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 3
+        }
+    ]
+}

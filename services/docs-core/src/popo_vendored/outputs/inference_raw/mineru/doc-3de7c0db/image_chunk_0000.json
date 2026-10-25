@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 147 125 849<|content|>COMMONWEALTH OF MASSACHUSETTS SUPERIOR COURT BUSIN\n<|id|>1<|type|>table<|page|>1<|box|>157 143 292 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>359 174 395 821<|content|>AFFIDAVIT OF RACHEL MENDEZ IN SUPPORT OF PLAINTIFF\n<|id|>5<|type|>title<|page|>1<|box|>616 142 633 390<|content|>Background and Qualifications\n<|id|>11<|type|>title<|page|>2<|box|>463 140 479 555<|content|>The Exclusive Distribution Agreement and Territory\n<|id|>18<|type|>title<|page|>3<|box|>388 140 405 684<|content|>Penterra's Distribution Logistics System and the T\n<|id|>27<|type|>title<|page|>4<|box|>704 140 720 594<|content|>Discovery of Vantage's Unauthorized Tri-State Ship\n<|id|>33<|type|>title<|page|>5<|box|>630 140 647 455<|content|>Vantage's Authorized Purchase History\n<|id|>36<|type|>table<|page|>5<|box|>821 143 896 852<|content|>None\n<|id|>37<|type|>table<|page|>6<|box|>89 143 125 852<|content|>None\n<|id|>40<|type|>title<|page|>6<|box|>455 140 473 602<|content|>The Meridian Term Sheet and Tri-State Distribution\n<|id|>44<|type|>title<|page|>7<|box|>90 140 107 429<|content|>The January 12, 2018 Kapoor Email\n<|id|>48<|type|>title<|page|>7<|box|>526 140 542 236<|content|>Conclusion\n<|id|>57<|type|>title<|page|>8<|box|>299 140 316 210<|content|>JURAT\n<|id|>64<|type|>title<|page|>8<|box|>544 452 561 545<|content|>EXHIBITS\n<|id|>66<|type|>table<|page|>8<|box|>681 143 780 851<|content|>None",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>36<|tgt_id|>33\n<|src_id|>37<|tgt_id|>33\n<|src_id|>66<|tgt_id|>64",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 64
+        }
+    ]
+}

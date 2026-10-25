@@ -1,0 +1,123 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-amqlqjwq\\input\\pdfs\\doc-c4ebf66d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-amqlqjwq\\enriched\\doc-c4ebf66d.json",
+    "contd_output": "<|src_id|>55<|tgt_id|>56",
+    "title_output": "<|id|>11<|level|>1\n<|id|>20<|level|>1\n<|id|>31<|level|>1\n<|id|>37<|level|>1\n<|id|>40<|level|>1\n<|id|>49<|level|>1\n<|id|>60<|level|>1\n<|id|>66<|level|>1\n<|id|>70<|level|>1\n<|id|>94<|level|>1\n<|id|>95<|level|>2\n<|id|>97<|level|>3\n<|id|>104<|level|>3\n<|id|>131<|level|>1\n<|id|>132<|level|>2\n<|id|>134<|level|>3\n<|id|>157<|level|>1\n<|id|>162<|level|>3",
+    "image_output": "<|src_id|>139<|tgt_id|>134\n<|src_id|>142<|tgt_id|>134\n<|src_id|>143<|tgt_id|>134",
+    "contd_label": [
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        }
+    ],
+    "title_label": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 139,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 134
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 142,
+            "table2_idx": 143,
+            "upper_row_ss": [
+                [
+                    "Year 5",
+                    "$12,300,000",
+                    "$3,075,000",
+                    "$12,300,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Total",
+                    "",
+                    "",
+                    "$60,000,000"
+                ]
+            ]
+        }
+    ]
+}

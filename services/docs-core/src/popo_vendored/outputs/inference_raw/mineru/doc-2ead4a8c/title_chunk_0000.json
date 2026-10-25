@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 158 143 838<|content|>OFFICER'S CERTIFICATE OF CASCADIA FIBER NETWORKS,\n<|id|>1<|page|>1<|box|>159 205 176 790<|content|>Delivered Pursuant to Section 7.02(c) of the Agree\n<|id|>4<|page|>1<|box|>398 140 415 243<|content|>RECITALS\n<|id|>10<|page|>2<|box|>90 140 107 478<|content|>Section 1. Representations and Warranties\n<|id|>14<|page|>2<|box|>630 140 647 433<|content|>Section 2. Performance of Covenants\n<|id|>25<|page|>4<|box|>739 140 757 439<|content|>Section 3. No Material Adverse Effect\n<|id|>35<|page|>5<|box|>734 140 750 395<|content|>Section 4. No Legal Proceedings\n<|id|>40<|page|>6<|box|>273 140 292 398<|content|>Section 5. Stockholder Approval\n<|id|>46<|page|>6<|box|>792 140 810 385<|content|>Section 6. Closing Deliverables\n<|id|>55<|page|>8<|box|>414 140 431 423<|content|>Section 7. Bring-Down of Authority\n<|id|>58<|page|>8<|box|>633 140 652 295<|content|>Section 8. Reliance\n<|id|>63<|page|>9<|box|>114 187 151 808<|content|>[SIGNATURE PAGE TO OFFICER'S CERTIFICATE OF CASCAD\n<|id|>70<|page|>9<|box|>290 359 306 637<|content|>NOTARY ACKNOWLEDGMENT\n<|id|>71<|page|>9<|box|>316 140 332 563<|content|>STATE OF OREGON COUNTY OF MULTNOMAH",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>25<|level|>2\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>55<|level|>2\n<|id|>58<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>71<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>614 142 631 454<|content|>I. Background — Investigation Context\n<|id|>14<|page|>2<|box|>258 142 277 370<|content|>II. Grounds for Termination\n<|id|>15<|page|>2<|box|>291 142 306 496<|content|>A. Premature Revenue-Recognition Practices\n<|id|>21<|page|>3<|box|>323 140 340 707<|content|>B. Expense-Reimbursement Irregularities and Fictit\n<|id|>29<|page|>4<|box|>340 140 357 490<|content|>III. Formal Notice of Termination for Cause\n<|id|>33<|page|>4<|box|>752 142 768 408<|content|>IV. Post-Termination Obligations\n<|id|>34<|page|>4<|box|>782 142 800 398<|content|>A. Return of Company Property\n<|id|>37<|page|>5<|box|>294 140 311 470<|content|>B. Continuing Confidentiality Obligations\n<|id|>39<|page|>5<|box|>458 140 474 361<|content|>C. Cooperation Obligations\n<|id|>41<|page|>5<|box|>676 140 694 720<|content|>D. Forfeiture, Clawback, and Recovery of Improperl\n<|id|>45<|page|>6<|box|>250 142 265 352<|content|>E. Document Preservation\n<|id|>47<|page|>6<|box|>441 140 459 338<|content|>V. Reservation of Rights\n<|id|>51<|page|>7<|box|>90 142 107 406<|content|>VI. Request for Acknowledgment",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>21<|level|>2\n<|id|>29<|level|>1\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>2\n<|id|>41<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>1\n<|id|>51<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>243 295 262 702<|content|>CERTIFICATE OF INCORPORATION\n<|id|>3<|page|>1<|box|>319 334 339 661<|content|>STRATOS MERGER SUB INC.\n<|id|>4<|page|>1<|box|>358 403 375 593<|content|>A Delaware Corporation\n<|id|>5<|page|>1<|box|>383 223 401 774<|content|>Formed Pursuant to the General Corporation Law of\n<|id|>7<|page|>1<|box|>505 143 522 243<|content|>ARTICLE I\n<|id|>9<|page|>1<|box|>595 142 613 250<|content|>ARTICLE II\n<|id|>10<|page|>1<|box|>626 142 643 573<|content|>REGISTERED OFFICE AND REGISTERED AGENT\n<|id|>12<|page|>1<|box|>727 142 744 256<|content|>ARTICLE III\n<|id|>15<|page|>2<|box|>222 140 239 256<|content|>ARTICLE IV\n<|id|>16<|page|>2<|box|>253 140 270 424<|content|>AUTHORIZED CAPITAL STOCK\n<|id|>20<|page|>2<|box|>553 142 570 250<|content|>ARTICLE V\n<|id|>24<|page|>3<|box|>89 142 107 256<|content|>ARTICLE VI\n<|id|>25<|page|>3<|box|>119 140 138 354<|content|>BOARD OF DIRECTORS\n<|id|>31<|page|>3<|box|>545 142 561 263<|content|>ARTICLE VII\n<|id|>32<|page|>3<|box|>575 140 593 493<|content|>LIMITATION OF DIRECTOR LIABILITY\n<|id|>35<|page|>4<|box|>89 140 107 271<|content|>ARTICLE VIII\n<|id|>40<|page|>5<|box|>89 142 107 256<|content|>ARTICLE IX\n<|id|>45<|page|>5<|box|>474 142 492 248<|content|>ARTICLE X\n<|id|>47<|page|>5<|box|>675 143 691 254<|content|>ARTICLE XI\n<|id|>49<|page|>5<|box|>747 142 763 258<|content|>EXECUTION\n<|id|>56<|page|>6<|box|>142 362 236 637<|content|>ENDORSEMENT STATE OF DELAWARE SECRETARY OF STATE D\n<|id|>57<|page|>6<|box|>244 140 335 854<|content|>I, JEFFREY W. BULLOCK, SECRETARY OF STATE OF THE S\n<|id|>58<|page|>6<|box|>344 428 359 568<|content|>File No.: 7923841",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>4<|level|>3\n<|id|>5<|level|>3\n<|id|>7<|level|>2\n<|id|>9<|level|>2\n<|id|>10<|level|>3\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>20<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>2\n<|id|>56<|level|>-1\n<|id|>57<|level|>-1\n<|id|>58<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 5,
+            "level": 3
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        }
+    ]
+}

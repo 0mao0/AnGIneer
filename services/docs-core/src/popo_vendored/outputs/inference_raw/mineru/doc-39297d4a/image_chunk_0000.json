@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        19,
+        20,
+        22,
+        23,
+        24,
+        25,
+        26
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>133 212 152 784<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>10<|type|>title<|page|>1<|box|>479 142 496 320<|content|>I. Executive Summary\n<|id|>17<|type|>title<|page|>2<|box|>476 140 493 344<|content|>II. Scope and Limitations\n<|id|>30<|type|>title<|page|>3<|box|>458 140 474 336<|content|>III. Factual Background\n<|id|>31<|type|>title<|page|>3<|box|>489 140 505 467<|content|>A. Overview of the Proposed Transaction\n<|id|>36<|type|>title<|page|>4<|box|>213 140 229 395<|content|>B. Veldran's Business Segments\n<|id|>42<|type|>title<|page|>5<|box|>90 140 107 354<|content|>C. The Kestrel Acquisition\n<|id|>54<|type|>title<|page|>6<|box|>231 140 248 455<|content|>D. Harrowgate's Acquisition of Veldran\n<|id|>59<|type|>title<|page|>6<|box|>710 140 728 390<|content|>E. Other Veldran Shareholders\n<|id|>63<|type|>table<|page|>7<|box|>195 143 323 852<|content|>None\n<|id|>64<|type|>title<|page|>7<|box|>372 142 388 403<|content|>IV. Applicable Legal Framework\n<|id|>65<|type|>title<|page|>7<|box|>404 142 420 496<|content|>A. Section 355(b)(1) — General Requirement\n<|id|>70<|type|>title<|page|>8<|box|>90 140 107 723<|content|>B. Section 355(b)(2) — Definition of Active Conduc\n<|id|>79<|type|>title<|page|>9<|box|>194 140 212 405<|content|>C. Treasury Regulation § 1.355-3\n<|id|>89<|type|>title<|page|>10<|box|>356 140 373 539<|content|>D. Relevant Judicial and Administrative Authority\n<|id|>96<|type|>title<|page|>11<|box|>439 140 457 238<|content|>V. Analysis\n<|id|>97<|type|>title<|page|>11<|box|>470 140 488 599<|content|>A. Engineered Coatings Division (Distributing — Ve\n<|id|>104<|type|>title<|page|>12<|box|>619 140 637 625<|content|>B. Precision Flow Solutions Division (Controlled —\n<|id|>152<|type|>title<|page|>19<|box|>90 140 107 540<|content|>VI. Open Items and Additional Diligence Required\n<|id|>161<|type|>title<|page|>20<|box|>277 140 294 272<|content|>VII. Conclusion\n<|id|>167<|type|>title<|page|>22<|box|>90 142 107 720<|content|>Appendix A — Key Transaction Dates and Five-Year L\n<|id|>168<|type|>table<|page|>22<|box|>159 143 560 852<|content|>None\n<|id|>169<|type|>title<|page|>22<|box|>594 142 611 480<|content|>Five-Year Look-Back Window Illustration:\n<|id|>171<|type|>title<|page|>23<|box|>90 142 107 715<|content|>Appendix B — Revenue Composition of Precision Flow\n<|id|>172<|type|>table<|page|>23<|box|>176 143 282 852<|content|>None\n<|id|>173<|type|>table<|page|>23<|box|>315 143 390 852<|content|>None\n<|id|>175<|type|>title<|page|>24<|box|>90 140 107 622<|content|>Appendix C — Relevant Statutory and Regulatory Pro\n<|id|>177<|type|>title<|page|>24<|box|>165 140 183 614<|content|>1. IRC § 355(b)(1) — Active Trade or Business Requ\n<|id|>182<|type|>title<|page|>24<|box|>388 140 406 537<|content|>2. IRC § 355(b)(2) — Definition of Active Conduct\n<|id|>190<|type|>title<|page|>24<|box|>781 140 799 563<|content|>3. IRC § 355(b)(3) — Separate Affiliated Group Rul\n<|id|>195<|type|>title<|page|>25<|box|>292 140 311 581<|content|>4. Treas. Reg. § 1.355-3(b)(2) — Five-Year Require\n<|id|>197<|type|>title<|page|>25<|box|>476 140 493 517<|content|>5. Treas. Reg. § 1.355-3(b)(3) — Active Conduct\n<|id|>201<|type|>title<|page|>25<|box|>728 140 763 854<|content|>6. Treas. Reg. § 1.355-3(b)(4)(iii) — Acquisition\n<|id|>203<|type|>title<|page|>26<|box|>157 140 175 542<|content|>7. Relevant Examples from Treas. Reg. § 1.355-3(c)",
+    "raw_response": "<|src_id|>63<|tgt_id|>59\n<|src_id|>168<|tgt_id|>167\n<|src_id|>172<|tgt_id|>171\n<|src_id|>173<|tgt_id|>171",
+    "parsed": [
+        {
+            "src_id": 63,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 167
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 171
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 171
+        }
+    ]
+}

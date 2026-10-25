@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>194 212 210 282<|content|>Plaintiff,\n<|id|>5<|page|>1<|box|>244 140 300 856<|content|>IRONCLAD INDEMNITY CORPORATION, a Connecticut corporation; ... , a Bermuda entity,\n<|id|>6<|page|>1<|box|>309 212 324 305<|content|>Defendants. ... Defendants\n<|id|>18<|page|>2<|box|>127 174 164 854<|content|>(a) Plaintiff's Motion for Partial Summary Judgment re: ... and\n<|id|>21<|page|>2<|box|>234 140 253 802<|content|>DONE AND ORDERED in Miami-Dade County, Florida, th... County, Florida, this \\\\\\\\\\\\ day of January, 2024",
+    "raw_response": "<|src_id|>3<|tgt_id|>5\n<|src_id|>5<|tgt_id|>6",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        }
+    ]
+}

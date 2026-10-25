@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        12,
+        13,
+        14,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>234 140 271 854<|content|>FROM: ... 20005\n<|id|>5<|page|>1<|box|>279 140 315 854<|content|>TO: ... Elaine Forsythe, Responsible Partner, Cald...ron Liu, Lead Associate, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>324 140 340 758<|content|>CC: ... Deputy General Counsel, Northgate Networks America Inc\n<|id|>7<|page|>1<|box|>349 140 402 854<|content|>RE: ... WC-23-0042\n<|id|>8<|page|>1<|box|>411 140 429 617<|content|>ENGAGEMENT REFERENCE NO. ... C&H-2022-ATR-00419\n<|id|>9<|page|>1<|box|>438 140 455 836<|content|>CLASSIFICATION: ... Attorney-Client Privilege / Work Product Doctrine — Do Not Distribute\n<|id|>10<|page|>1<|box|>464 142 479 408<|content|>Right-click to update Table of Contents\n<|id|>119<|page|>12<|box|>844 140 898 856<|content|>The stay of the District Court Action has been in ...earing before ALJ Fenwick, initially scheduled for\n<|id|>120<|page|>13<|box|>90 140 199 857<|content|>September 2023, has been postponed to January 2024...tially well into the second half of 2024 or beyond\n<|id|>133<|page|>14<|box|>244 181 280 854<|content|>• Fees to date: ... $294,000 (inclusive of initial... through August 2023, and incremental collections)\n<|id|>137<|page|>14<|box|>579 140 669 854<|content|>These figures underscore the importance of effecti...budget estimate for the full document review phase\n<|id|>134<|page|>14<|box|>284 183 319 854<|content|>• Anticipated incremental hosting and collection c...rmancy: ... approximately $8,000–$12,000 per month\n<|id|>135<|page|>14<|box|>321 183 375 854<|content|>• Full document review (when triggered): ... estim...lume of documents ultimately requiring full review\n<|id|>174<|page|>22<|box|>217 142 234 307<|content|>Date: ... August 1, 2023\n<|id|>175<|page|>22<|box|>243 142 261 313<|content|>To: ... [Custodian Name]\n<|id|>176<|page|>22<|box|>268 140 304 854<|content|>From: ... and Northgate Telecommunications PLC\n<|id|>177<|page|>22<|box|>313 140 349 854<|content|>Re: ... WC-23-0042\n<|id|>178<|page|>22<|box|>357 140 393 852<|content|>This is a reminder of your ongoing obligation to p...ection with the above-referenced legal proceedings",
+    "raw_response": "<|src_id|>119<|tgt_id|>120",
+    "parsed": [
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        }
+    ]
+}

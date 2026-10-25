@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        10,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 147 162 849<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>7<|page|>1<|box|>585 163 676 834<|content|>DEFENDANT AURELIUS MEDIA AMERICAS INC.'S EVIDENTIA\n<|id|>8<|page|>1<|box|>700 143 718 308<|content|>I. INTRODUCTION\n<|id|>13<|page|>2<|box|>457 140 474 635<|content|>II. LEGAL STANDARD FOR EVIDENTIARY OBJECTIONS\n<|id|>22<|page|>3<|box|>483 140 500 295<|content|>III. OBJECTIONS\n<|id|>23<|page|>3<|box|>513 142 531 269<|content|>Objection No. 1\n<|id|>24<|page|>3<|box|>537 142 555 594<|content|>Paragraphs 14–19 and Table 3 of the Rennick Declar\n<|id|>39<|page|>5<|box|>573 142 589 269<|content|>Objection No. 2\n<|id|>40<|page|>5<|box|>595 142 613 594<|content|>Paragraphs 20–24 and Table 4 of the Rennick Declar\n<|id|>41<|page|>5<|box|>622 142 638 748<|content|>Rest Period Damages Calculation — Unsupported 50%\n<|id|>61<|page|>7<|box|>239 142 255 271<|content|>Objection No. 3\n<|id|>62<|page|>7<|box|>262 142 279 594<|content|>Paragraphs 25–29 and Table 5 of the Rennick Declar\n<|id|>80<|page|>8<|box|>864 143 880 271<|content|>Objection No. 4\n<|id|>81<|page|>8<|box|>887 143 902 500<|content|>Paragraphs 30–34 of the Rennick Declaration\n<|id|>97<|page|>10<|box|>527 142 545 271<|content|>Objection No. 5\n<|id|>98<|page|>10<|box|>551 142 569 594<|content|>Paragraphs 35–40 and Table 7 of the Rennick Declar\n<|id|>111<|page|>12<|box|>89 140 107 271<|content|>Objection No. 6\n<|id|>112<|page|>12<|box|>114 140 131 500<|content|>Paragraphs 41–43 of the Rennick Declaration\n<|id|>121<|page|>13<|box|>157 142 175 271<|content|>Objection No. 7\n<|id|>122<|page|>13<|box|>181 140 199 500<|content|>Paragraphs 44–46 of the Rennick Declaration\n<|id|>131<|page|>14<|box|>393 140 411 300<|content|>IV. CONCLUSION\n<|id|>139<|page|>15<|box|>128 142 145 326<|content|>PROOF OF SERVICE\n<|id|>140<|page|>15<|box|>154 140 171 604<|content|>STATE OF CALIFORNIA, COUNTY OF LOS ANGELES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>24<|level|>4\n<|id|>39<|level|>3\n<|id|>40<|level|>4\n<|id|>41<|level|>5\n<|id|>61<|level|>3\n<|id|>62<|level|>4\n<|id|>80<|level|>3\n<|id|>81<|level|>4\n<|id|>97<|level|>3\n<|id|>98<|level|>4\n<|id|>111<|level|>3\n<|id|>112<|level|>4\n<|id|>121<|level|>3\n<|id|>122<|level|>4\n<|id|>131<|level|>2\n<|id|>139<|level|>1\n<|id|>140<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 4
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 4
+        },
+        {
+            "id": 41,
+            "level": 5
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 4
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 4
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 4
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 2
+        }
+    ]
+}

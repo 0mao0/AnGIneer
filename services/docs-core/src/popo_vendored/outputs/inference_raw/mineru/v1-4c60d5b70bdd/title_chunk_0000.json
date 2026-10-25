@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        13,
+        19,
+        20,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>131 53 205 838<|content|>Analysis of Anxiety Disorders and Post-Traumatic S\n<|id|>14<|page|>1<|box|>681 275 697 418<|content|>1. Introduction\n<|id|>20<|page|>2<|box|>793 273 809 655<|content|>2. Previous Literature Selection Methods\n<|id|>24<|page|>3<|box|>636 272 669 941<|content|>3. Characteristics, Pathophysiology, and Treatment\n<|id|>25<|page|>3<|box|>673 273 689 781<|content|>Disorders in the Clinic 3.1. Prevalence and Sympto\n<|id|>28<|page|>4<|box|>592 273 608 658<|content|>3.2. Pathophysiology of Anxiety Disorders in the C\n<|id|>31<|page|>6<|box|>85 273 99 737<|content|>3.3. Pharmacological Treatments of Anxiety Disorde\n<|id|>34<|page|>8<|box|>83 272 117 942<|content|>4. Anxiolytic Substances Used in Non-Clinical Stud\n<|id|>35<|page|>8<|box|>120 273 136 559<|content|>4.1. Conventional Anxiolytic Substances\n<|id|>44<|page|>13<|box|>329 273 346 873<|content|>5. Types and Properties for Animal Models of Anxie\n<|id|>47<|page|>13<|box|>775 273 791 714<|content|>5.1. Shaping an Animal Model ofAnxiety Disorders a\n<|id|>57<|page|>19<|box|>85 273 99 568<|content|>5.2. Testing Anxiety and PTSD Behaviors\n<|id|>62<|page|>20<|box|>495 273 512 794<|content|>6. Opinion from Preclinical Studies to Clinical Re\n<|id|>69<|page|>23<|box|>83 273 99 410<|content|>7. Limitations\n<|id|>71<|page|>23<|box|>284 273 300 416<|content|>8. Conclusions\n<|id|>77<|page|>23<|box|>683 55 699 163<|content|>References",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>14<|level|>2\n<|id|>20<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>28<|level|>3\n<|id|>31<|level|>3\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>44<|level|>2\n<|id|>47<|level|>3\n<|id|>57<|level|>3\n<|id|>62<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>2\n<|id|>77<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        }
+    ]
+}

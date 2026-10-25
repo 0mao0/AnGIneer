@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        13,
+        14,
+        15,
+        16,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>213 403 231 594<|content|>A Delaware Corporation\n<|id|>4<|page|>1<|box|>238 416 256 580<|content|>DE File No. ... 7923841\n<|id|>5<|page|>1<|box|>263 385 282 612<|content|>Adopted as of January 8, 2024\n<|id|>6<|page|>1<|box|>290 143 308 408<|content|>Right-click to update Table of Contents\n<|id|>11<|page|>1<|box|>652 140 709 854<|content|>WHEREAS, these Bylaws are intended to supplement t...and the applicable provisions of the DGCL; ... and\n<|id|>12<|page|>1<|box|>715 140 789 854<|content|>WHEREAS, as used herein, the term \"Corporation\" sh...plemented, or otherwise modified from time to time\n<|id|>99<|page|>13<|box|>833 140 906 857<|content|>Notwithstanding the foregoing, except as otherwise... Indemnified Person was authorized by the Board of\n<|id|>100<|page|>14<|box|>90 140 219 857<|content|>Directors. ... The Corporation shall not be requir...or such expenses that such court shall deem proper\n<|id|>112<|page|>15<|box|>810 138 901 857<|content|>The rights to indemnification and Advancement of E... Corporation and shall inure to the benefit of the\n<|id|>113<|page|>16<|box|>90 140 181 857<|content|>Indemnified Person's heirs, executors, and adminis...g prior to such amendment, repeal, or modification\n<|id|>146<|page|>18<|box|>641 142 656 346<|content|>Name: ... Sole Initial Director\n<|id|>147<|page|>18<|box|>657 143 674 254<|content|>Title: ... Director\n<|id|>148<|page|>18<|box|>675 142 691 307<|content|>Date: ... January 8, 2024\n<|id|>149<|page|>18<|box|>691 140 708 439<|content|>ACKNOWLEDGED AND AGREED: ... ACKNOWLEDGED AND AGREED\n<|id|>150<|page|>18<|box|>718 140 734 794<|content|>SOLARA DIGITAL INFRASTRUCTURE FUND VI LP, a Delaware limited partnership\n<|id|>151<|page|>18<|box|>736 142 752 475<|content|>By: ... Solara Digital Infrastructure GP VI LLC,\n<|id|>152<|page|>18<|box|>753 143 768 285<|content|>its General Partner\n<|id|>153<|page|>18<|box|>770 143 787 253<|content|>By: ... By\n<|id|>154<|page|>18<|box|>787 143 804 357<|content|>Name: ... Authorized Signatory\n<|id|>155<|page|>18<|box|>804 143 821 331<|content|>Title: ... Managing Member\n<|id|>156<|page|>18<|box|>821 143 837 308<|content|>Date: ... January 8, 2024\n<|id|>157<|page|>18<|box|>839 140 883 854<|content|>These Bylaws constitute a confidential document of...tructure Fund VI LP, and Cloudium Technologies plc",
+    "raw_response": "<|src_id|>99<|tgt_id|>100\n<|src_id|>112<|tgt_id|>113",
+    "parsed": [
+        {
+            "src_id": 99,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        }
+    ]
+}

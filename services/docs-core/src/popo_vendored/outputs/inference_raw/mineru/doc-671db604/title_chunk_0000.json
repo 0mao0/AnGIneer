@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 171 118 823<|content|>SECRETARY'S CERTIFICATE OF LUMOS ANALYTICS INC.\n<|id|>6<|page|>1<|box|>501 140 518 483<|content|>Section 1. Organization and Good Standing\n<|id|>10<|page|>1<|box|>747 140 763 514<|content|>Section 2. Authorization of the SAFE Financing\n<|id|>16<|page|>2<|box|>429 140 445 408<|content|>Section 3. Incumbency of Officers\n<|id|>20<|page|>2<|box|>818 140 834 372<|content|>Section 4. Board of Directors\n<|id|>26<|page|>3<|box|>224 140 243 336<|content|>Section 5. Capitalization\n<|id|>34<|page|>4<|box|>150 140 167 434<|content|>Section 6. Organizational Documents\n<|id|>38<|page|>4<|box|>396 140 414 437<|content|>Section 7. No Conflicts; No Litigation\n<|id|>41<|page|>4<|box|>746 140 762 419<|content|>Section 8. Additional Certifications\n<|id|>45<|page|>5<|box|>268 263 287 733<|content|>[SIGNATURE PAGE TO SECRETARY'S CERTIFICATE]\n<|id|>47<|page|>6<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>48<|page|>6<|box|>127 156 162 841<|content|>UNANIMOUS WRITTEN CONSENT OF THE BOARD OF DIRECTOR\n<|id|>51<|page|>6<|box|>321 140 339 388<|content|>SAFE Financing Authorization\n<|id|>61<|page|>7<|box|>415 160 450 834<|content|>[SIGNATURE PAGE TO UNANIMOUS WRITTEN CONSENT OF TH",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>20<|level|>2\n<|id|>26<|level|>2\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>1\n<|id|>48<|level|>2\n<|id|>51<|level|>3\n<|id|>61<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>425 140 443 537<|content|>I. Purpose and Reference to Prior Correspondence\n<|id|>15<|page|>2<|box|>90 140 107 447<|content|>II. Interview Date, Time, and Location\n<|id|>19<|page|>2<|box|>484 140 500 354<|content|>III. Attendance of Counsel\n<|id|>32<|page|>3<|box|>396 142 412 500<|content|>IV. Upjohn / Corporate Miranda Admonition\n<|id|>41<|page|>4<|box|>167 140 185 370<|content|>V. Scope of Interview Topics\n<|id|>52<|page|>5<|box|>267 140 284 388<|content|>VI. Written Position Statement\n<|id|>57<|page|>5<|box|>631 140 648 431<|content|>VII. Recording and Memorialization\n<|id|>61<|page|>6<|box|>90 140 107 308<|content|>VIII. Confidentiality\n<|id|>65<|page|>6<|box|>446 140 464 398<|content|>IX. Administrative Leave Status\n<|id|>68<|page|>6<|box|>723 140 739 393<|content|>X. Cooperation and Good Faith\n<|id|>72<|page|>7<|box|>231 140 247 480<|content|>XI. Contact Information and Confirmation",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>19<|level|>1\n<|id|>32<|level|>1\n<|id|>41<|level|>1\n<|id|>52<|level|>1\n<|id|>57<|level|>1\n<|id|>61<|level|>1\n<|id|>65<|level|>1\n<|id|>68<|level|>1\n<|id|>72<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        }
+    ]
+}

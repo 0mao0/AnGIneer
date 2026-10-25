@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 381<|content|>【342781#14】中華人民共和國媒體\n<|id|>2<|page|>1<|box|>225 105 242 381<|content|>【342781#33】中華人民共和國媒體\n<|id|>4<|page|>1<|box|>344 107 360 354<|content|>【6382236#23】台灣媒體財團化\n<|id|>6<|page|>1<|box|>410 107 426 302<|content|>【23078#43】中国新闻社\n<|id|>8<|page|>1<|box|>494 107 510 302<|content|>【7621547#33】韩国媒体\n<|id|>10<|page|>1<|box|>595 105 611 373<|content|>【3980463#2】迈克尔·H·普罗瑟\n<|id|>12<|page|>1<|box|>731 105 747 302<|content|>【23078#24】中国新闻社\n<|id|>14<|page|>1<|box|>815 105 831 373<|content|>【342781#9】中華人民共和國媒體\n<|id|>17<|page|>2<|box|>99 107 116 302<|content|>【23078#23】中国新闻社\n<|id|>19<|page|>2<|box|>184 107 200 381<|content|>【342781#36】中華人民共和國媒體",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>2\n<|id|>8<|level|>1\n<|id|>10<|level|>-1\n<|id|>12<|level|>2\n<|id|>14<|level|>1\n<|id|>17<|level|>2\n<|id|>19<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 1
+        }
+    ]
+}

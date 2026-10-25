@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>123 143 349 852<|content|>None\n<|id|>1<|type|>title<|page|>1<|box|>383 205 400 790<|content|>PROPOSED ORDER DENYING DEFENDANT'S MOTION TO DISMI\n<|id|>3<|type|>title<|page|>1<|box|>527 142 544 321<|content|>ORDERED as follows:\n<|id|>4<|type|>title<|page|>1<|box|>568 142 585 241<|content|>RECITALS\n<|id|>13<|type|>title<|page|>2<|box|>318 140 335 356<|content|>ORDERED PROVISIONS\n<|id|>14<|type|>title<|page|>2<|box|>349 142 366 521<|content|>1. First Cause of Action — Common-Law Fraud\n<|id|>19<|type|>title<|page|>3<|box|>157 140 174 568<|content|>2. Second Cause of Action — Fraudulent Concealment\n<|id|>22<|type|>title<|page|>3<|box|>494 140 511 584<|content|>3. Third Cause of Action — Negligent Misrepresenta\n<|id|>26<|type|>title<|page|>4<|box|>90 140 107 522<|content|>4. Fourth Cause of Action — Breach of Contract\n<|id|>30<|type|>title<|page|>4<|box|>599 140 616 555<|content|>5. Fifth Cause of Action — Breach of Fiduciary Dut\n<|id|>33<|type|>title<|page|>5<|box|>90 140 107 570<|content|>6. Sixth Cause of Action — Aiding and Abetting Fra\n<|id|>36<|type|>title<|page|>5<|box|>390 140 407 531<|content|>7. Seventh Cause of Action — Unjust Enrichment\n<|id|>39<|type|>title<|page|>5<|box|>709 140 724 354<|content|>8. Economic Loss Doctrine\n<|id|>42<|type|>title<|page|>6<|box|>231 140 248 349<|content|>9. Martin Act Preemption\n<|id|>44<|type|>title<|page|>6<|box|>459 140 476 364<|content|>DIRECTIVE TO ANSWER\n<|id|>46<|type|>title<|page|>6<|box|>618 140 635 374<|content|>FURTHER PROCEEDINGS\n<|id|>49<|type|>title<|page|>6<|box|>859 433 877 563<|content|>SO ORDERED.",
+    "raw_response": "<|src_id|>0<|tgt_id|>1",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        }
+    ]
+}

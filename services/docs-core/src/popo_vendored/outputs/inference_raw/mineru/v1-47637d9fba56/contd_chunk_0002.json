@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        103,
+        108
+    ],
+    "pages": [
+        104,
+        105,
+        108
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1097<|page|>104<|box|>363 24 376 169<|content|>+Federally chartered\n<|id|>1098<|page|>104<|box|>376 24 390 181<|content|>% China Business Trust\n<|id|>1099<|page|>104<|box|>401 24 416 166<|content|>Also doing business as: ... Also doing business as\n<|id|>1108<|page|>105<|box|>169 29 205 241<|content|>Wlelote: ... rehe P\n<|id|>1109<|page|>105<|box|>208 24 222 171<|content|>Minneapolis, Minnesota\n<|id|>1110<|page|>105<|box|>220 24 234 122<|content|>March 24, 2017\n<|id|>1140<|page|>108<|box|>244 24 258 181<|content|>Date: ... March 24, 2017\n<|id|>1141<|page|>108<|box|>244 599 258 691<|content|>/s/ Hubert Joly\n<|id|>1142<|page|>108<|box|>262 599 277 674<|content|>Hubert Joly\n<|id|>1143<|page|>108<|box|>279 599 294 830<|content|>Chairman and Chief Executive Officer",
+    "raw_response": "<|src_id|>1097<|tgt_id|>1098",
+    "parsed": [
+        {
+            "src_id": 1097,
+            "tgt_id": 1098
+        }
+    ]
+}

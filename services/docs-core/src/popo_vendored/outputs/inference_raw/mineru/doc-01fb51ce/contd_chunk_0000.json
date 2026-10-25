@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        4
+    ],
+    "pages": [
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>17<|page|>2<|box|>886 140 902 658<|content|>Authentication / Verification Number: ... SR-20260131-7294531-8843\n<|id|>18<|page|>2<|box|>915 140 930 388<|content|>CONFIDENTIAL — Attorney Work Product\n<|id|>19<|page|>3<|box|>89 143 126 854<|content|>IN TESTIMONY WHEREOF, I have hereunto set my hand ... the City of Dover, this 31st day of January, 2026\n<|id|>22<|page|>3<|box|>169 143 185 339<|content|>Name: ... Bullock\n<|id|>23<|page|>3<|box|>186 143 202 323<|content|>Title: ... Secretary of State\n<|id|>25<|page|>3<|box|>220 143 236 318<|content|>Date: ... January 31, 2026\n<|id|>24<|page|>3<|box|>203 143 220 468<|content|>[SEAL] Great Seal of the State of Delaware\n<|id|>26<|page|>3<|box|>237 140 313 854<|content|>This certificate has been issued by the Office of ...ohn G. ... Eastern Time, excluding state holidays)\n<|id|>37<|page|>3<|box|>861 174 897 854<|content|>Good Standing Certificate — Commonwealth of Massachusetts (Foreign Qualification Jurisdiction)\n<|id|>38<|page|>4<|box|>89 174 183 854<|content|>This companion certificate, to be issued by the Se...cate is filed under Tab 4(b) of the closing binder",
+    "raw_response": "<|src_id|>37<|tgt_id|>38",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        }
+    ]
+}

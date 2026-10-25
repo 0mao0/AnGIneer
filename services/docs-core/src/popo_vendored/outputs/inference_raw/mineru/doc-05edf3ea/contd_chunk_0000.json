@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 143 174 852<|content|>399 Park Avenue, 31st Floor New York, New York 10022 Telephone: ... com\n<|id|>3<|page|>1<|box|>183 230 200 766<|content|>New York · Washington, DC · London · Frankfurt · Hong Kong · Tokyo\n<|id|>4<|page|>1<|box|>208 748 224 854<|content|>June 20, 2023\n<|id|>6<|page|>1<|box|>260 140 297 854<|content|>Stefan Lohse, LL. ... General Counsel / Chefjustit...t Industriestraße 44 01099 Dresden, Saxony Germany\n<|id|>7<|page|>1<|box|>304 174 359 854<|content|>Re: ... 1 to Engagement Letter dated June 12, 2023...uisition of Marlowe Asset Management Photonics Inc\n<|id|>8<|page|>1<|box|>367 176 383 388<|content|>Our Matter No. ... 1032-00004\n<|id|>9<|page|>1<|box|>393 142 409 267<|content|>Dear Mr. ... Lohse\n<|id|>30<|page|>3<|box|>786 174 897 857<|content|>(a) Product Classification Review. ... VPI current...Classification Numbers (\"ECCNs\") 3A001, 3A991, and\n<|id|>31<|page|>4<|box|>90 174 164 856<|content|>3E001 on the Commerce Control List (\"CCL\"). ... C&... in light of recent amendments to the USML and CCL\n<|id|>90<|page|>10<|box|>222 140 238 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>91<|page|>10<|box|>239 142 257 251<|content|>By: ... By\n<|id|>92<|page|>10<|box|>257 140 273 336<|content|>Name: ... Beatrice Holloway\n<|id|>93<|page|>10<|box|>273 142 291 428<|content|>Title: ... Partner, Mergers & Acquisitions\n<|id|>94<|page|>10<|box|>291 140 308 787<|content|>Calderwood & Harkness LLP 399 Park Avenue, 31st Floor New York, New York 10022\n<|id|>95<|page|>10<|box|>309 142 325 441<|content|>ACKNOWLEDGED AND AGREED: ... ACKNOWLEDGED AND AGREED\n<|id|>99<|page|>10<|box|>386 142 402 418<|content|>Title: ... General Counsel / Chefjustitiar\n<|id|>100<|page|>10<|box|>402 140 436 851<|content|>Halcyon Semiconductor Aktiengesellschaft Industrie...triestraße 44, 01099 Dresden, Saxony, Germany Date",
+    "raw_response": "<|src_id|>30<|tgt_id|>31",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        }
+    ]
+}

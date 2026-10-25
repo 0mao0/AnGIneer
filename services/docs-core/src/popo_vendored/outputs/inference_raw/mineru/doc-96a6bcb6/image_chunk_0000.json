@@ -1,0 +1,66 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|type|>title<|page|>1<|box|>114 325 133 671<|content|>425 Park Avenue New York, New York 10022\n<|id|>9<|type|>title<|page|>1<|box|>411 140 429 364<|content|>I. Introduction and Purpose\n<|id|>14<|type|>table<|page|>1<|box|>887 143 907 852<|content|>None\n<|id|>15<|type|>table<|page|>2<|box|>89 143 183 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>276 140 294 540<|content|>II. Background — Permanent Financing Structure\n<|id|>28<|type|>title<|page|>3<|box|>148 140 167 377<|content|>III. Request for Payoff Letter\n<|id|>38<|type|>title<|page|>4<|box|>383 140 402 604<|content|>IV. Request for Mortgage Release / Satisfaction Do\n<|id|>40<|type|>title<|page|>4<|box|>551 140 568 326<|content|>A. Texas (5 Properties)\n<|id|>41<|type|>table<|page|>4<|box|>599 143 742 852<|content|>None\n<|id|>43<|type|>title<|page|>5<|box|>90 142 108 341<|content|>B. Georgia (3 Properties)\n<|id|>44<|type|>table<|page|>5<|box|>137 143 258 852<|content|>None\n<|id|>46<|type|>title<|page|>5<|box|>378 142 396 338<|content|>C. Florida (3 Properties)\n<|id|>47<|type|>table<|page|>5<|box|>425 143 532 852<|content|>None\n<|id|>49<|type|>title<|page|>5<|box|>651 142 669 398<|content|>D. North Carolina (2 Properties)\n<|id|>51<|type|>table<|page|>5<|box|>699 143 787 852<|content|>None\n<|id|>53<|type|>title<|page|>6<|box|>90 142 107 346<|content|>E. Tennessee (1 Property)\n<|id|>54<|type|>table<|page|>6<|box|>137 143 191 852<|content|>None\n<|id|>59<|type|>title<|page|>6<|box|>691 140 709 511<|content|>V. Request for UCC-3 Termination Statements\n<|id|>61<|type|>title<|page|>6<|box|>804 140 821 573<|content|>A. Delaware Secretary of State Filings (Equity Ple\n<|id|>64<|type|>title<|page|>7<|box|>176 140 193 470<|content|>B. Fixture Filings (County Land Records)\n<|id|>74<|type|>title<|page|>7<|box|>631 142 647 444<|content|>VI. Confirmation of Wire Instructions\n<|id|>84<|type|>title<|page|>8<|box|>271 140 287 599<|content|>VII. Proposed Timeline for Delivery of Release Doc\n<|id|>86<|type|>table<|page|>8<|box|>357 143 662 852<|content|>None\n<|id|>88<|type|>title<|page|>8<|box|>847 142 864 431<|content|>VIII. Escrow and Closing Mechanics\n<|id|>94<|type|>title<|page|>9<|box|>648 142 665 326<|content|>IX. Additional Matters\n<|id|>100<|type|>title<|page|>10<|box|>476 140 493 472<|content|>X. Contact Information and Coordination\n<|id|>122<|type|>table<|page|>11<|box|>651 143 902 852<|content|>None\n<|id|>123<|type|>table<|page|>12<|box|>88 143 452 852<|content|>None",
+    "raw_response": "<|src_id|>14<|tgt_id|>9\n<|src_id|>15<|tgt_id|>9\n<|src_id|>41<|tgt_id|>40\n<|src_id|>44<|tgt_id|>43\n<|src_id|>47<|tgt_id|>46\n<|src_id|>51<|tgt_id|>49\n<|src_id|>54<|tgt_id|>53\n<|src_id|>86<|tgt_id|>84\n<|src_id|>122<|tgt_id|>100\n<|src_id|>123<|tgt_id|>100",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 100
+        }
+    ]
+}

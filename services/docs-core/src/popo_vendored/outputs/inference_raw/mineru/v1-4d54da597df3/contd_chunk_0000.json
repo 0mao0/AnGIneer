@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>17<|page|>1<|box|>869 97 920 882<|content|>寬永二十年（1643年）十一月十六日出生，是加賀藩第三代藩主前田光高的嫡長子，幼名犬千代。 ... 由於年 幼的犬千代不可能處理政事，因此藩政由祖父前田利常（第二代藩主，寬永十六年（1639年）時退位後隱\n<|id|>18<|page|>2<|box|>73 100 89 215<|content|>居小松）治理。 ... 居小松）治理",
+    "raw_response": "<|src_id|>17<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        }
+    ]
+}

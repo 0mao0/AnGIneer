@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        60
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        54,
+        55,
+        56,
+        60
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>338<|page|>46<|box|>696 140 714 519<|content|>B. States with Independent Filing Requirements\n<|id|>343<|page|>47<|box|>215 147 234 848<|content|>VIII. FOLLOW-UP AND DEFICIENCY RESPONSE PROCEDURES\n<|id|>344<|page|>47<|box|>261 142 279 369<|content|>A. Tracking and Monitoring\n<|id|>349<|page|>47<|box|>681 142 696 449<|content|>B. Deficiency Letter Response Protocol\n<|id|>356<|page|>48<|box|>90 218 106 714<|content|>• Rebecca Thornton-Hayes, Partner, Whitford Jessup\n<|id|>363<|page|>48<|box|>518 140 535 348<|content|>C. Conditional Approvals\n<|id|>369<|page|>49<|box|>90 294 109 702<|content|>IX. POST-CLOSING NOTIFICATIONS\n<|id|>370<|page|>49<|box|>136 140 154 563<|content|>A. Jurisdictions Requiring Post-Closing Confirmati\n<|id|>393<|page|>50<|box|>243 142 260 504<|content|>B. Jurisdictions Requiring Ongoing Reporting\n<|id|>401<|page|>50<|box|>670 408 690 589<|content|>X. APPENDICES\n<|id|>402<|page|>51<|box|>90 142 108 825<|content|>Appendix 1 — Complete List of VeloPay Money Transm\n<|id|>406<|page|>54<|box|>89 140 108 815<|content|>Appendix 2 — Form of NMLS MU1 (Company Form) — Com\n<|id|>428<|page|>55<|box|>90 140 107 671<|content|>Appendix 3 — Form of NMLS MU2 (Individual Form) —\n<|id|>435<|page|>56<|box|>90 142 107 535<|content|>Appendix 4 — Sample Deficiency Response Letter\n<|id|>465<|page|>60<|box|>90 142 107 663<|content|>Appendix 6 — Record of All Filings Made and Approv",
+    "raw_response": "<|id|>338<|level|>2\n<|id|>343<|level|>1\n<|id|>344<|level|>2\n<|id|>349<|level|>2\n<|id|>356<|level|>-1\n<|id|>363<|level|>2\n<|id|>369<|level|>1\n<|id|>370<|level|>2\n<|id|>393<|level|>2\n<|id|>401<|level|>1\n<|id|>402<|level|>2\n<|id|>406<|level|>2\n<|id|>428<|level|>2\n<|id|>435<|level|>2\n<|id|>465<|level|>2",
+    "parsed": [
+        {
+            "id": 338,
+            "level": 2
+        },
+        {
+            "id": 343,
+            "level": 1
+        },
+        {
+            "id": 344,
+            "level": 2
+        },
+        {
+            "id": 349,
+            "level": 2
+        },
+        {
+            "id": 363,
+            "level": 2
+        },
+        {
+            "id": 369,
+            "level": 1
+        },
+        {
+            "id": 370,
+            "level": 2
+        },
+        {
+            "id": 393,
+            "level": 2
+        },
+        {
+            "id": 401,
+            "level": 1
+        },
+        {
+            "id": 402,
+            "level": 2
+        },
+        {
+            "id": 406,
+            "level": 2
+        },
+        {
+            "id": 428,
+            "level": 2
+        },
+        {
+            "id": 435,
+            "level": 2
+        },
+        {
+            "id": 465,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 145 151 852<|content|>2200 Ross Avenue, Suite 3600 Dallas, Texas 75201 T\n<|id|>7<|page|>1<|box|>359 140 377 477<|content|>1. Purpose and Acceptance of Engagement\n<|id|>11<|page|>1<|box|>698 140 715 364<|content|>2. Description of the Matter\n<|id|>16<|page|>2<|box|>402 140 420 334<|content|>3. Scope of Engagement\n<|id|>33<|page|>4<|box|>186 140 204 323<|content|>4. Client Identification\n<|id|>41<|page|>4<|box|>646 140 664 230<|content|>5. Staffing\n<|id|>49<|page|>5<|box|>546 140 564 303<|content|>6. Fee Arrangement\n<|id|>54<|page|>6<|box|>175 140 194 300<|content|>Phase 1 Billing Cap\n<|id|>67<|page|>7<|box|>597 140 614 380<|content|>7. Billing and Payment Terms\n<|id|>72<|page|>8<|box|>296 140 313 390<|content|>8. Expenses and Disbursements\n<|id|>86<|page|>9<|box|>90 140 107 390<|content|>9. Confidentiality and Privilege\n<|id|>90<|page|>9<|box|>593 142 609 437<|content|>10. Insurance Coverage Coordination\n<|id|>94<|page|>10<|box|>204 140 222 331<|content|>11. Conflicts of Interest\n<|id|>98<|page|>10<|box|>542 142 560 274<|content|>12. Termination\n<|id|>102<|page|>10<|box|>825 140 844 380<|content|>13. No Guarantee of Outcome\n<|id|>106<|page|>11<|box|>383 142 402 480<|content|>14. Governing Law and Dispute Resolution\n<|id|>110<|page|>11<|box|>667 142 684 436<|content|>15. Acknowledgment and Acceptance\n<|id|>114<|page|>11<|box|>881 140 897 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>121<|page|>12<|box|>193 383 210 614<|content|>ACCEPTED AND AGREED\n<|id|>123<|page|>12<|box|>281 140 297 478<|content|>STONEFIELD LOGISTICS GROUP INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>33<|level|>2\n<|id|>41<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>3\n<|id|>67<|level|>2\n<|id|>72<|level|>2\n<|id|>86<|level|>2\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>98<|level|>2\n<|id|>102<|level|>2\n<|id|>106<|level|>2\n<|id|>110<|level|>2\n<|id|>114<|level|>-1\n<|id|>121<|level|>2\n<|id|>123<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        }
+    ]
+}

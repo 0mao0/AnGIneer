@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>156 143 172 290<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>183 142 199 331<|content|>Matter No. ... 1007-00008\n<|id|>4<|page|>1<|box|>209 751 224 854<|content|>July 18, 2023\n<|id|>5<|page|>1<|box|>234 142 252 694<|content|>TO: ... Bernard Crawford, Responsible Partner Conrad Ashby, Billing Partner\n<|id|>6<|page|>1<|box|>260 142 276 444<|content|>FROM: ... Gabrielle Moss, Lead Associate\n<|id|>7<|page|>1<|box|>286 140 340 854<|content|>RE: ... 4 of the Master Embedded Software License ...ces Agreement with Meridian Code Technologies, Inc\n<|id|>33<|page|>3<|box|>833 140 888 857<|content|>Integration Services Fee. ... As of the suspension of integration work, VMS has completed and paid for\n<|id|>34<|page|>4<|box|>89 140 127 854<|content|>Milestones 1 through 3, representing $1,920,000 in...npaid, with $1,280,000 in remaining milestone fees\n<|id|>53<|page|>5<|box|>662 174 901 857<|content|>If Licensee suspends active integration of the Lic... granted hereunder to \"Dormancy Status. ... During\n<|id|>54<|page|>6<|box|>90 174 199 856<|content|>Dormancy Status, Licensee shall not sublicense the...sonable time and all tolled deadlines shall resume\n<|id|>97<|page|>10<|box|>816 138 891 857<|content|>This provision establishes an outer limit on the d...internal workflow requirements, we anticipate that\n<|id|>98<|page|>11<|box|>90 140 127 854<|content|>MeridianCode's acknowledgment will be issued in Au...e an assumed acknowledgment date of August 3, 2023\n<|id|>207<|page|>23<|box|>133 174 170 852<|content|>(d) Section 9. ... and\n<|id|>209<|page|>23<|box|>204 140 222 849<|content|>We are available to discuss this memorandum and th...um and the recommended actions at your convenience\n<|id|>210<|page|>23<|box|>229 140 247 321<|content|>Respectfully submitted,\n<|id|>211<|page|>23<|box|>247 140 263 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>212<|page|>23<|box|>265 142 282 253<|content|>By: ... By\n<|id|>213<|page|>23<|box|>282 140 299 547<|content|>Gabrielle Moss Lead Associate Direct: ... (313) 555-4218\n<|id|>214<|page|>23<|box|>299 140 315 447<|content|>Email: ... com\n<|id|>215<|page|>23<|box|>315 140 330 774<|content|>cc: ... Restricted — Partner Distribution Only",
+    "raw_response": "<|src_id|>33<|tgt_id|>34\n<|src_id|>53<|tgt_id|>54\n<|src_id|>97<|tgt_id|>98",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 98
+        }
+    ]
+}

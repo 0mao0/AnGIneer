@@ -1,0 +1,226 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3_b8lj3i\\input\\pdfs\\doc-f5497e65.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3_b8lj3i\\enriched\\doc-f5497e65.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>30<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>45<|level|>3\n<|id|>59<|level|>3\n<|id|>62<|level|>4\n<|id|>72<|level|>3\n<|id|>75<|level|>4\n<|id|>89<|level|>3\n<|id|>91<|level|>4\n<|id|>95<|level|>2\n<|id|>97<|level|>3\n<|id|>99<|level|>4\n<|id|>103<|level|>3\n<|id|>105<|level|>4\n<|id|>115<|level|>3\n<|id|>120<|level|>2\n<|id|>122<|level|>3\n<|id|>124<|level|>4\n<|id|>128<|level|>3\n<|id|>130<|level|>4\n<|id|>134<|level|>3\n<|id|>140<|level|>2\n<|id|>142<|level|>4\n<|id|>146<|level|>2\n<|id|>154<|level|>2\n<|id|>160<|level|>2\n<|id|>162<|level|>3\n<|id|>165<|level|>3\n<|id|>168<|level|>3\n<|id|>172<|level|>3\n<|id|>178<|level|>2\n<|id|>184<|level|>2\n<|id|>197<|level|>2",
+    "image_output": "<|src_id|>180<|tgt_id|>178\n<|src_id|>181<|tgt_id|>178\n<|src_id|>182<|tgt_id|>178\n<|src_id|>195<|tgt_id|>184",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 4
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 4
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 4
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 4
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 4
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 180,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 184
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 180,
+            "table2_idx": 181,
+            "upper_row_ss": [
+                [
+                    "Renewal options",
+                    "No renewal options; term expires after 10 years",
+                    "Two 5-year renewal options at IHDC's election (12 months' notice), with escalation formula continuing",
+                    "Protects long-term operational continuity; supports asset value and financing",
+                    "High"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Energization date guarantee",
+                    "No firm commitment to energization date",
+                    "Guaranteed Energization Date (June 1, 2027) with $15K/day LD credits for delay; termination right after 90 days' delay",
+                    "Substation energization is critical path; delay cascades through entire project schedule",
+                    "High"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 181,
+            "table2_idx": 182,
+            "upper_row_ss": [
+                [
+                    "Demand charge credits for outages",
+                    "No remedy for unplanned outages",
+                    "Per-hour credit at 150% of pro-rata hourly demand charge for",
+                    "Creates financial incentive for VPC to maintain service levels",
+                    "Medium"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "unplanned outage exceeding annual threshold",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

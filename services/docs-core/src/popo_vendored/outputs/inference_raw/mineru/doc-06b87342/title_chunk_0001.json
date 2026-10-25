@@ -1,0 +1,44 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        71,
+        95
+    ],
+    "pages": [
+        72,
+        84,
+        90,
+        91,
+        94,
+        95
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>280<|page|>72<|box|>65 170 96 832<|content|>Section II - Interest-Bearing Securities Issued by\n<|id|>322<|page|>84<|box|>38 391 51 627<|content|>.EXCHANGE STABILIZATION FUND.\n<|id|>335<|page|>90<|box|>67 270 96 725<|content|>Section II - Summary by Countries Table 2.- Short-\n<|id|>337<|page|>91<|box|>66 330 79 643<|content|>Section II - Summary by Countries\n<|id|>341<|page|>94<|box|>52 284 69 712<|content|>Section III - Preliminary Details by Countries\n<|id|>344<|page|>95<|box|>57 264 73 696<|content|>Section III - Preliminary Details by Countries",
+    "raw_response": "<|id|>280<|level|>1\n<|id|>322<|level|>2\n<|id|>335<|level|>3\n<|id|>337<|level|>2\n<|id|>341<|level|>2\n<|id|>344<|level|>2",
+    "parsed": [
+        {
+            "id": 280,
+            "level": 1
+        },
+        {
+            "id": 322,
+            "level": 2
+        },
+        {
+            "id": 335,
+            "level": 3
+        },
+        {
+            "id": 337,
+            "level": 2
+        },
+        {
+            "id": 341,
+            "level": 2
+        },
+        {
+            "id": 344,
+            "level": 2
+        }
+    ]
+}

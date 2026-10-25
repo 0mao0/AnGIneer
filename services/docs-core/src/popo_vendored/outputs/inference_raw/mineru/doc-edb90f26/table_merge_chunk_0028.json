@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 28,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=25, 一般桥梁工程', 'rowspan=18, 桥面系、附属工程及桥梁总体', 'rowspan=9, 钢桥面板上防水黏结层', 'rowspan=9, 钢桥面板上防水黏结层', '黏结层与钢桥板底漆间结合力', '○', '△', '▲', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=23, 一般桥梁工程', 'rowspan=23, 桥面系、附属工程及桥梁总体', 'rowspan=23, 混凝土桥面板桥面铺装', 'rowspan=11, 水泥混凝土桥面铺装', '设计信息', '▲', '▲', '▲', '继承L3.0模型的设计信息']]\n",
+    "raw_response": "[1, 1, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 275,
+    "table2_idx": 276
+}

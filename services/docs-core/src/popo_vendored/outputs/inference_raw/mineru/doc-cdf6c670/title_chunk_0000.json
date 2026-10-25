@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 159 720<|content|>SECRETARY'S CERTIFICATE OF SOLARA DIGITAL INFRASTR\n<|id|>7<|page|>1<|box|>345 367 362 629<|content|>SECRETARY'S CERTIFICATE\n<|id|>9<|page|>1<|box|>397 277 414 720<|content|>SOLARA DIGITAL INFRASTRUCTURE FUND VI LP\n<|id|>14<|page|>2<|box|>90 142 107 415<|content|>1. Limited Partnership Agreement\n<|id|>17<|page|>2<|box|>549 140 566 434<|content|>2. Resolutions of the General Partner\n<|id|>23<|page|>3<|box|>234 176 252 480<|content|>(d) the Rollover Agreements, including:\n<|id|>33<|page|>4<|box|>304 140 321 403<|content|>3. Formation and Good Standing\n<|id|>38<|page|>4<|box|>741 140 758 287<|content|>4. No Proceedings\n<|id|>40<|page|>5<|box|>90 140 107 263<|content|>5. Incumbency\n<|id|>44<|page|>5<|box|>597 140 614 542<|content|>6. Limited Partner Consents; Conditions Precedent\n<|id|>48<|page|>6<|box|>148 142 167 300<|content|>7. Reliance; Benefit\n<|id|>57<|page|>6<|box|>584 400 602 596<|content|>[Signature Page Follows]\n<|id|>64<|page|>6<|box|>790 449 806 549<|content|>EXHIBIT A\n<|id|>65<|page|>6<|box|>815 192 859 805<|content|>AMENDED AND RESTATED AGREEMENT OF LIMITED PARTNERS\n<|id|>66<|page|>6<|box|>867 277 883 720<|content|>SOLARA DIGITAL INFRASTRUCTURE FUND VI LP\n<|id|>78<|page|>7<|box|>364 447 380 549<|content|>EXHIBIT B\n<|id|>79<|page|>7<|box|>390 300 407 696<|content|>RESOLUTIONS OF SOLARA FUND VI GP LLC\n<|id|>80<|page|>7<|box|>417 351 433 647<|content|>AS SOLE GENERAL PARTNER OF\n<|id|>81<|page|>7<|box|>441 277 458 720<|content|>SOLARA DIGITAL INFRASTRUCTURE FUND VI LP\n<|id|>82<|page|>7<|box|>468 405 484 593<|content|>Dated January 22, 2024",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>3\n<|id|>17<|level|>3\n<|id|>23<|level|>4\n<|id|>33<|level|>3\n<|id|>38<|level|>3\n<|id|>40<|level|>3\n<|id|>44<|level|>3\n<|id|>48<|level|>3\n<|id|>57<|level|>-1\n<|id|>64<|level|>1\n<|id|>65<|level|>1\n<|id|>66<|level|>2\n<|id|>78<|level|>1\n<|id|>79<|level|>1\n<|id|>80<|level|>2\n<|id|>81<|level|>2\n<|id|>82<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 4
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        }
+    ]
+}

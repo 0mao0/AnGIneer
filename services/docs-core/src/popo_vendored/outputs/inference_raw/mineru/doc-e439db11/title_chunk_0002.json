@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        111,
+        140
+    ],
+    "pages": [
+        112,
+        115,
+        116,
+        117,
+        120,
+        121,
+        124,
+        126,
+        128,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>431<|page|>112<|box|>76 158 106 849<|content|>Section II - Income and Expense for the Six Months\n<|id|>437<|page|>115<|box|>54 244 70 714<|content|>.CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTI\n<|id|>439<|page|>116<|box|>51 272 65 752<|content|>.CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTI\n<|id|>442<|page|>117<|box|>52 244 68 714<|content|>.CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTI\n<|id|>447<|page|>120<|box|>72 166 103 856<|content|>Section II - Income and Expense for the Six Months\n<|id|>449<|page|>121<|box|>79 133 112 818<|content|>Section II - Income and Expense for the Six Months\n<|id|>454<|page|>124<|box|>80 90 111 914<|content|>Section III - Source and Application of Funds for\n<|id|>457<|page|>126<|box|>81 101 113 919<|content|>Section III - Source and Application of Funds for\n<|id|>460<|page|>128<|box|>49 263 64 744<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>467<|page|>134<|box|>80 88 111 914<|content|>Section III - Source and Application of Funds for\n<|id|>469<|page|>135<|box|>55 251 70 734<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>471<|page|>136<|box|>52 257 67 741<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>473<|page|>137<|box|>54 250 70 733<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>475<|page|>138<|box|>84 96 115 916<|content|>Section III - Source and Application of Funds for\n<|id|>477<|page|>139<|box|>52 253 68 736<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>479<|page|>140<|box|>77 83 109 908<|content|>Section III - Source and Application of Funds for",
+    "raw_response": "<|id|>431<|level|>2\n<|id|>437<|level|>1\n<|id|>439<|level|>1\n<|id|>442<|level|>1\n<|id|>447<|level|>2\n<|id|>449<|level|>2\n<|id|>454<|level|>2\n<|id|>457<|level|>2\n<|id|>460<|level|>1\n<|id|>467<|level|>2\n<|id|>469<|level|>1\n<|id|>471<|level|>1\n<|id|>473<|level|>1\n<|id|>475<|level|>2\n<|id|>477<|level|>1\n<|id|>479<|level|>2",
+    "parsed": [
+        {
+            "id": 431,
+            "level": 2
+        },
+        {
+            "id": 437,
+            "level": 1
+        },
+        {
+            "id": 439,
+            "level": 1
+        },
+        {
+            "id": 442,
+            "level": 1
+        },
+        {
+            "id": 447,
+            "level": 2
+        },
+        {
+            "id": 449,
+            "level": 2
+        },
+        {
+            "id": 454,
+            "level": 2
+        },
+        {
+            "id": 457,
+            "level": 2
+        },
+        {
+            "id": 460,
+            "level": 1
+        },
+        {
+            "id": 467,
+            "level": 2
+        },
+        {
+            "id": 469,
+            "level": 1
+        },
+        {
+            "id": 471,
+            "level": 1
+        },
+        {
+            "id": 473,
+            "level": 1
+        },
+        {
+            "id": 475,
+            "level": 2
+        },
+        {
+            "id": 477,
+            "level": 1
+        },
+        {
+            "id": 479,
+            "level": 2
+        }
+    ]
+}

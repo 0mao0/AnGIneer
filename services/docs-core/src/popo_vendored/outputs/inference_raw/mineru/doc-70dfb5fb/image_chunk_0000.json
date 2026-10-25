@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>3<|type|>title<|page|>1<|box|>186 140 203 397<|content|>VIA FACSIMILE AND EMAIL\n<|id|>4<|type|>title<|page|>1<|box|>212 140 229 596<|content|>Sovereign Re Ltd. 14 Front Street Hamilton HM 11,\n<|id|>5<|type|>title<|page|>1<|box|>238 176 253 537<|content|>Attention: Claims Department / General Counsel\n<|id|>7<|type|>title<|page|>1<|box|>335 142 353 294<|content|>Dear Sir or Madam:\n<|id|>10<|type|>title<|page|>1<|box|>628 140 647 584<|content|>I. THE INSURED AND THE INSURANCE PROGRAM\n<|id|>11<|type|>title<|page|>1<|box|>660 142 678 295<|content|>A. VHG's Business\n<|id|>13<|type|>title<|page|>2<|box|>90 140 106 336<|content|>B. The Insurance Tower\n<|id|>15<|type|>table<|page|>2<|box|>310 143 523 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>662 140 680 336<|content|>C. Sovereign Re's Policy\n<|id|>19<|type|>title<|page|>3<|box|>90 140 106 495<|content|>II. THE LOSS — HURRICANE CALLISTA\n<|id|>20<|type|>title<|page|>3<|box|>121 140 138 297<|content|>A. Hurricane Facts\n<|id|>23<|type|>title<|page|>3<|box|>402 140 420 395<|content|>B. Damage to VHG's Properties\n<|id|>34<|type|>title<|page|>4<|box|>742 140 758 321<|content|>C. Total Claimed Loss\n<|id|>36<|type|>table<|page|>4<|box|>808 143 901 852<|content|>None\n<|id|>38<|type|>title<|page|>5<|box|>219 140 236 441<|content|>III. NOTICE AND PROOF OF LOSS\n<|id|>42<|type|>title<|page|>5<|box|>575 140 593 751<|content|>IV. COVERAGE ANALYSIS — SOVEREIGN RE'S OBLIGATION\n<|id|>43<|type|>title<|page|>5<|box|>607 142 625 313<|content|>A. All-Risk Coverage\n<|id|>46<|type|>title<|page|>6<|box|>90 140 107 426<|content|>B. Exhaustion of Underlying Layers\n<|id|>50<|type|>title<|page|>6<|box|>416 140 433 367<|content|>C. No Applicable Exclusions\n<|id|>58<|type|>title<|page|>7<|box|>420 140 436 390<|content|>V. DEMAND FOR PAYMENT\n<|id|>61<|type|>title<|page|>7<|box|>604 140 622 514<|content|>VI. CONSEQUENCES OF FAILURE TO PAY\n<|id|>70<|type|>title<|page|>8<|box|>318 140 335 421<|content|>VII. RESERVATION OF RIGHTS\n<|id|>73<|type|>title<|page|>8<|box|>594 140 611 694<|content|>VIII. REQUEST FOR RESPONSE AND CONTACT INFORMATION\n<|id|>82<|type|>title<|page|>9<|box|>89 140 107 321<|content|>Elaine Forsythe Partner\n<|id|>84<|type|>title<|page|>9<|box|>169 140 186 192<|content|>Encl.:",
+    "raw_response": "<|src_id|>15<|tgt_id|>13\n<|src_id|>36<|tgt_id|>34",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        }
+    ]
+}

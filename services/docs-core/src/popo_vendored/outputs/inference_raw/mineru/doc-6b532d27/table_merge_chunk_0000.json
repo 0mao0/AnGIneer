@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Warrant redemption', \"We may redeem the outstanding public warrants at a price of $0.01 per warrant, upon not less than 30 days' prior written notice, if the last reported sale price of our Class A common stock equals or exceeds $18.00 per share for any 20 trading days within a 30-trading day period ending three trading days before we send the\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'notice of redemption']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 75,
+    "table2_idx": 76
+}

@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['R-4', 'Dr. Li Wei, \"Thermal Solutions for Photonic Integrated Circuits: A Survey and Outlook,\" Proceedings of the Optical Fiber Communication Conference (OFC 2013), Paper', 'Conference paper', 'March 2013', \"'562 Patent\", '1, 4, 6, 11', 'Anticipation (§ 102)', 'Also combined: R-4 + R-2']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'OTh4A.3', '', '', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 55,
+    "table2_idx": 56
+}

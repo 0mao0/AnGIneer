@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['45', 'CLIN structure', 'Documents the contract line item number structure: CLIN 0001 (Production Units, Firm-Fixed-Price); CLIN 0002 (Engineering Support Services, FFP per labor hour); CLIN 0003 (Spare']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'Parts/Repair Kits, FFP); CLIN 0004 (Data/Technical Publications, FFP).']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 26,
+    "table2_idx": 27
+}

@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>635 142 652 333<|content|>1. Scope of Engagement\n<|id|>20<|type|>title<|page|>3<|box|>212 140 229 313<|content|>2. Engagement Team\n<|id|>26<|type|>title<|page|>3<|box|>657 140 674 290<|content|>3. Fees and Billing\n<|id|>28<|type|>table<|page|>3<|box|>762 143 838 852<|content|>None\n<|id|>33<|type|>title<|page|>4<|box|>575 140 592 235<|content|>4. Retainer\n<|id|>36<|type|>title<|page|>5<|box|>90 140 107 383<|content|>5. Disbursements and Vendors\n<|id|>43<|type|>title<|page|>5<|box|>652 140 669 321<|content|>6. Conflicts of Interest\n<|id|>52<|type|>title<|page|>6<|box|>450 140 469 390<|content|>7. Confidentiality and Privilege\n<|id|>56<|type|>title<|page|>7<|box|>90 140 107 339<|content|>8. Client Responsibilities\n<|id|>62<|type|>title<|page|>7<|box|>810 142 827 318<|content|>9. Limitation of Scope\n<|id|>71<|type|>title<|page|>8<|box|>616 142 633 274<|content|>10. Termination\n<|id|>75<|type|>title<|page|>9<|box|>167 140 184 480<|content|>11. Governing Law and Dispute Resolution\n<|id|>86<|type|>title<|page|>9<|box|>811 316 828 679<|content|>ACKNOWLEDGMENT AND AGREEMENT\n<|id|>88<|type|>title<|page|>10<|box|>89 142 104 439<|content|>ACKNOWLEDGED AND AGREED:",
+    "raw_response": "<|src_id|>28<|tgt_id|>26",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        }
+    ]
+}

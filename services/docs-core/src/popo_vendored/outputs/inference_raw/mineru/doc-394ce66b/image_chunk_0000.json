@@ -1,0 +1,52 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>375 140 392 437<|content|>1. Introduction and Purpose of Letter\n<|id|>12<|type|>title<|page|>2<|box|>148 140 167 535<|content|>2. Background — Original Series 2024-A Issuance\n<|id|>16<|type|>table<|page|>2<|box|>496 143 628 852<|content|>None\n<|id|>19<|type|>title<|page|>3<|box|>90 140 107 444<|content|>3. Summary of Proposed Tap Issuance\n<|id|>22<|type|>table<|page|>3<|box|>356 143 652 852<|content|>None\n<|id|>27<|type|>title<|page|>4<|box|>304 140 321 462<|content|>4. Tap Pool — Collateral Characteristics\n<|id|>30<|type|>table<|page|>4<|box|>507 143 675 852<|content|>None\n<|id|>32<|type|>title<|page|>4<|box|>753 143 772 382<|content|>Equipment Type Distribution:\n<|id|>33<|type|>table<|page|>4<|box|>779 143 907 852<|content|>None\n<|id|>34<|type|>table<|page|>5<|box|>88 143 119 852<|content|>None\n<|id|>36<|type|>table<|page|>5<|box|>292 143 425 852<|content|>None\n<|id|>39<|type|>title<|page|>5<|box|>599 140 617 480<|content|>5. Post-Tap Credit Enhancement Structure\n<|id|>41<|type|>title<|page|>5<|box|>689 140 705 318<|content|>Overcollateralization:\n<|id|>44<|type|>title<|page|>6<|box|>135 142 151 285<|content|>Reserve Account:\n<|id|>46<|type|>title<|page|>6<|box|>277 140 294 267<|content|>Subordination:\n<|id|>48<|type|>title<|page|>6<|box|>385 142 402 264<|content|>Excess Spread:\n<|id|>56<|type|>title<|page|>6<|box|>710 140 727 354<|content|>6. Servicing Arrangements\n<|id|>64<|type|>title<|page|>7<|box|>429 140 446 320<|content|>7. Transaction Parties\n<|id|>65<|type|>table<|page|>7<|box|>497 143 811 852<|content|>None\n<|id|>68<|type|>title<|page|>8<|box|>148 140 167 313<|content|>8. Rating Agency Fee\n<|id|>71<|type|>title<|page|>8<|box|>388 140 405 315<|content|>9. Enclosed Materials\n<|id|>78<|type|>title<|page|>9<|box|>90 142 107 366<|content|>10. Requested Confirmation\n<|id|>85<|type|>title<|page|>9<|box|>616 142 633 336<|content|>11. Contact Information\n<|id|>104<|type|>title<|page|>10<|box|>467 142 484 240<|content|>Enclosures:",
+    "raw_response": "<|src_id|>16<|tgt_id|>12\n<|src_id|>22<|tgt_id|>19\n<|src_id|>30<|tgt_id|>27\n<|src_id|>33<|tgt_id|>32\n<|src_id|>34<|tgt_id|>27\n<|src_id|>36<|tgt_id|>27\n<|src_id|>65<|tgt_id|>64",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 64
+        }
+    ]
+}

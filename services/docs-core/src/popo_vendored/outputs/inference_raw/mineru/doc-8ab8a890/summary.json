@@ -1,0 +1,208 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-i7apn7dl\\input\\pdfs\\doc-8ab8a890.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-i7apn7dl\\enriched\\doc-8ab8a890.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>36<|level|>3\n<|id|>42<|level|>3\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>54<|level|>3\n<|id|>64<|level|>3\n<|id|>70<|level|>3\n<|id|>85<|level|>2\n<|id|>86<|level|>3\n<|id|>123<|level|>3\n<|id|>146<|level|>4\n<|id|>155<|level|>3\n<|id|>181<|level|>4\n<|id|>236<|level|>4\n<|id|>249<|level|>2\n<|id|>259<|level|>2\n<|id|>266<|level|>2\n<|id|>272<|level|>2\n<|id|>293<|level|>2\n<|id|>297<|level|>2\n<|id|>306<|level|>2",
+    "image_output": "<|src_id|>38<|tgt_id|>36\n<|src_id|>39<|tgt_id|>36\n<|src_id|>261<|tgt_id|>259\n<|src_id|>262<|tgt_id|>259\n<|src_id|>294<|tgt_id|>293\n<|src_id|>295<|tgt_id|>293\n<|src_id|>296<|tgt_id|>293",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 4
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 4
+        },
+        {
+            "id": 236,
+            "level": 4
+        },
+        {
+            "id": 249,
+            "level": 2
+        },
+        {
+            "id": 259,
+            "level": 2
+        },
+        {
+            "id": 266,
+            "level": 2
+        },
+        {
+            "id": 272,
+            "level": 2
+        },
+        {
+            "id": 293,
+            "level": 2
+        },
+        {
+            "id": 297,
+            "level": 2
+        },
+        {
+            "id": 306,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 261,
+            "tgt_id": 259
+        },
+        {
+            "src_id": 262,
+            "tgt_id": 259
+        },
+        {
+            "src_id": 294,
+            "tgt_id": 293
+        },
+        {
+            "src_id": 295,
+            "tgt_id": 293
+        },
+        {
+            "src_id": 296,
+            "tgt_id": 293
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 261,
+            "table2_idx": 262,
+            "upper_row_ss": [
+                [
+                    "Greenville, SC",
+                    "$38,000,000",
+                    "$22,000 (est.)",
+                    "$5,500 – $8,000",
+                    "~$152,000 (SC"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "mortgage recording fee at 0.4% of face amount)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 294,
+            "table2_idx": 295,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "Obtain and deliver Atlas Meridian mortgage releases (recorded Releases",
+                    "All",
+                    "C&H (Marcus Leung) / Atlas Meridian (Sandra Vickers)",
+                    "April 18, 2025"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "of Mortgage / Satisfaction of Mortgage / Release of Deed of Trust in all four counties)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 295,
+            "table2_idx": 296,
+            "upper_row_ss": [
+                [
+                    "10",
+                    "Confirm tie-in / aggregation",
+                    "All",
+                    "Landmark Title / C&H (Marcus",
+                    "April 18, 2025"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "endorsement feasibility across Illinois, South Carolina, and Texas",
+                    "",
+                    "Leung) / W&G (Margaret Ashby)",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

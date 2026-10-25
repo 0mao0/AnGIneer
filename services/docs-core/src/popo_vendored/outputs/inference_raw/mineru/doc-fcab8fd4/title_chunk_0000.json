@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>128 403 148 593<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>348 140 364 362<|content|>I. Purpose and Background\n<|id|>16<|page|>2<|box|>574 140 592 344<|content|>II. Status Check Protocol\n<|id|>25<|page|>3<|box|>446 140 464 503<|content|>III. Findings — January 5, 2024 Status Check\n<|id|>27<|page|>3<|box|>521 140 537 552<|content|>A. Government Contact — Calderwood & Harkness\n<|id|>30<|page|>3<|box|>803 142 820 408<|content|>B. Government Contact — Client\n<|id|>33<|page|>4<|box|>273 140 291 410<|content|>C. PACER / Court Docket Search\n<|id|>43<|page|>4<|box|>786 140 803 473<|content|>D. Public Filings and Regulatory Searches\n<|id|>48<|page|>5<|box|>411 142 428 431<|content|>E. Media and News Database Search\n<|id|>57<|page|>6<|box|>90 140 107 359<|content|>F. Status of Related Parties\n<|id|>63<|page|>6<|box|>698 140 714 436<|content|>IV. Billing and Administrative Status\n<|id|>76<|page|>7<|box|>768 140 785 313<|content|>V. Recommendations\n<|id|>84<|page|>8<|box|>833 142 849 264<|content|>VI. Conclusion\n<|id|>89<|page|>9<|box|>296 142 313 320<|content|>Respectfully submitted,\n<|id|>93<|page|>9<|box|>388 176 406 356<|content|>Matter File 1034-00001",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>16<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>3\n<|id|>30<|level|>3\n<|id|>33<|level|>3\n<|id|>43<|level|>3\n<|id|>48<|level|>3\n<|id|>57<|level|>3\n<|id|>63<|level|>2\n<|id|>76<|level|>2\n<|id|>84<|level|>2\n<|id|>89<|level|>-1\n<|id|>93<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        }
+    ]
+}

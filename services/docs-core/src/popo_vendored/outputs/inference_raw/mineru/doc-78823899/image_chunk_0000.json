@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>12<|type|>title<|page|>1<|box|>719 142 736 478<|content|>1. The Insured and the Insurance Program\n<|id|>15<|type|>table<|page|>2<|box|>242 143 397 852<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>699 140 715 462<|content|>2. Hurricane Callista and the Loss Event\n<|id|>23<|type|>title<|page|>3<|box|>421 140 438 607<|content|>3. The Insured Properties and Business-Interruptio\n<|id|>25<|type|>title<|page|>3<|box|>569 140 587 570<|content|>3.1 Verimark Grand Key Resort — Marathon, Florida\n<|id|>29<|type|>title<|page|>4<|box|>202 140 219 797<|content|>3.2 Verimark Harborview Hotel & Conference Center\n<|id|>33<|type|>title<|page|>4<|box|>619 140 636 566<|content|>3.3 Verimark Sunset Shores — St. Pete Beach, Flori\n<|id|>37<|type|>title<|page|>5<|box|>157 140 175 500<|content|>3.4 Total Claimed Business-Interruption Loss\n<|id|>39<|type|>table<|page|>5<|box|>224 143 375 852<|content|>None\n<|id|>41<|type|>title<|page|>5<|box|>503 140 520 527<|content|>4. Notice of Loss, Proof of Loss, and Claim Status\n<|id|>48<|type|>title<|page|>6<|box|>321 140 339 416<|content|>5. Pinnacle's Coverage Obligations\n<|id|>53<|type|>title<|page|>6<|box|>814 140 832 498<|content|>6. Rebuttal of Anticipated Coverage Defenses\n<|id|>55<|type|>title<|page|>7<|box|>138 140 156 410<|content|>6.1 Named-Windstorm Sub-Limit\n<|id|>58<|type|>title<|page|>7<|box|>494 140 511 486<|content|>6.2 Concurrent Causation / Flood Exclusion\n<|id|>62<|type|>title<|page|>8<|box|>90 140 107 341<|content|>6.3 Period of Restoration\n<|id|>66<|type|>title<|page|>8<|box|>453 140 470 462<|content|>6.4 Duty to Mitigate / Failure to Mitigate\n<|id|>74<|type|>title<|page|>9<|box|>90 140 107 393<|content|>7. Formal Demand for Payment\n<|id|>81<|type|>title<|page|>9<|box|>460 140 478 607<|content|>8. Reservation of Rights and Warning Regarding Bad\n<|id|>90<|type|>title<|page|>10<|box|>167 140 184 529<|content|>9. Request for Response and Contact Information\n<|id|>99<|type|>title<|page|>10<|box|>512 140 529 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>107<|type|>title<|page|>10<|box|>720 143 737 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>15<|tgt_id|>12\n<|src_id|>39<|tgt_id|>37",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        22
+    ],
+    "pages": [
+        2,
+        3,
+        9,
+        10,
+        11,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>2<|box|>229 351 244 645<|content|>CFIUS Case No. ... CFIUS-023-07-3841\n<|id|>5<|page|>2<|box|>255 397 272 599<|content|>Filing Date: ... July 14, 2023\n<|id|>6<|page|>2<|box|>281 189 297 805<|content|>Prepared by: ... Calderwood & Harkness LLP Counsel to Halcyon Semiconductor AG\n<|id|>7<|page|>2<|box|>305 142 321 663<|content|>CONFIDENTIAL — CONTAINS BUSINESS PROPRIETARY INFORMATION\n<|id|>8<|page|>2<|box|>328 140 420 854<|content|>This document has been submitted to the Committee ...osure may result in penalties under applicable law\n<|id|>14<|page|>2<|box|>829 140 902 854<|content|>Founding and History. ... Maximilian Ehrhardt, who...s served as Vorstandsvorsitzender (Chief Executive\n<|id|>15<|page|>3<|box|>90 140 164 856<|content|>Officer) since 2011, HSAG has grown from a regiona...ented by selective, technology-driven acquisitions\n<|id|>83<|page|>9<|box|>851 174 905 857<|content|>Mr. ... Lohse holds a\n<|id|>84<|page|>10<|box|>90 174 143 854<|content|>Staatsexamen in law (First and Second State Examin...ang Goethe- Universität Frankfurt and an LL. ... C\n<|id|>96<|page|>10<|box|>875 140 910 856<|content|>Composition and Codetermination. ... Under German ...00 employees is subject to the requirements of the\n<|id|>97<|page|>11<|box|>90 140 218 854<|content|>Mitbestimmungsgesetz (Codetermination Act) of 1976..., or representatives of any governmental authority\n<|id|>184<|page|>20<|box|>90 174 143 856<|content|>(d) German Foreign Trade and Payments Act (Außenwi...nance (Außenwirtschaftsverordnung, \"AWV\"); ... and\n<|id|>186<|page|>20<|box|>196 140 270 854<|content|>HSAG's trade compliance program includes designate...esses, and regular training for relevant personnel\n<|id|>200<|page|>21<|box|>422 176 439 774<|content|>Calderwood & Harkness LLP 399 Park Avenue, 31st Floor New York, NY 10022\n<|id|>201<|page|>21<|box|>449 176 464 210<|content|>and\n<|id|>224<|page|>22<|box|>532 140 549 320<|content|>Respectfully submitted,\n<|id|>225<|page|>22<|box|>549 140 583 830<|content|>CALDERWOOD & HARKNESS LLP Counsel to Halcyon Semic...sel to Halcyon Semiconductor Aktiengesellschaft By\n<|id|>226<|page|>22<|box|>584 142 602 408<|content|>Name: ... Margaret \"Peggy\" Ashworth\n<|id|>227<|page|>22<|box|>602 142 618 277<|content|>Title: ... Of Counsel\n<|id|>228<|page|>22<|box|>619 142 635 290<|content|>Date: ... July 14, 2023\n<|id|>229<|page|>22<|box|>635 140 669 852<|content|>Calderwood & Harkness LLP 1750 K Street NW, Suite ...Washington, DC 20006 Telephone: ... (202) 555-0147\n<|id|>230<|page|>22<|box|>669 142 705 663<|content|>Email: ... com Contact for inquiries regarding this Exhibit\n<|id|>231<|page|>22<|box|>712 174 750 823<|content|>Margaret \"Peggy\" Ashworth Calderwood & Harkness LL...Washington, DC 20006 Telephone: ... (202) 555-0147\n<|id|>232<|page|>22<|box|>757 142 773 475<|content|>Email: ... com",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>83<|tgt_id|>84\n<|src_id|>96<|tgt_id|>97",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 97
+        }
+    ]
+}

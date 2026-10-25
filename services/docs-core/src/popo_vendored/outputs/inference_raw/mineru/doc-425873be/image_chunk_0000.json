@@ -1,0 +1,55 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>122 145 195 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>282 145 391 849<|content|>DEBTORS' MOTION FOR ENTRY OF INTERIM AND FINAL ORD\n<|id|>4<|type|>title<|page|>1<|box|>696 142 713 413<|content|>I. PRELIMINARY STATEMENT\n<|id|>13<|type|>title<|page|>2<|box|>833 142 849 413<|content|>II. JURISDICTION AND VENUE\n<|id|>18<|type|>title<|page|>3<|box|>353 142 369 310<|content|>III. BACKGROUND\n<|id|>19<|type|>title<|page|>3<|box|>383 140 402 529<|content|>A. General Background and Business Description\n<|id|>29<|type|>title<|page|>4<|box|>595 142 613 388<|content|>B. The 2017 Leveraged Buyout\n<|id|>36<|type|>title<|page|>5<|box|>429 142 446 397<|content|>C. Prepetition Capital Structure\n<|id|>37<|type|>table<|page|>5<|box|>470 143 621 852<|content|>None\n<|id|>41<|type|>title<|page|>6<|box|>90 140 107 480<|content|>D. Events Leading to the Chapter 11 Filing\n<|id|>56<|type|>title<|page|>7<|box|>401 142 419 344<|content|>IV. THE DIP FACILITY\n<|id|>57<|type|>title<|page|>7<|box|>433 140 450 393<|content|>A. Summary of Material Terms\n<|id|>78<|type|>title<|page|>9<|box|>367 142 383 403<|content|>B. Security and Priority — Liens\n<|id|>84<|type|>title<|page|>10<|box|>138 140 157 519<|content|>C. Superpriority Administrative Expense Status\n<|id|>86<|type|>title<|page|>10<|box|>359 142 375 259<|content|>D. Carve-Out.\n<|id|>92<|type|>title<|page|>10<|box|>656 140 672 292<|content|>E. Cash Collateral\n<|id|>95<|type|>title<|page|>11<|box|>89 140 107 743<|content|>V. ADEQUATE PROTECTION FOR PREPETITION SECURED PAR\n<|id|>97<|type|>title<|page|>11<|box|>239 140 256 464<|content|>A. Prepetition First Lien Secured Parties\n<|id|>105<|type|>title<|page|>12<|box|>138 142 157 480<|content|>B. Prepetition Second Lien Secured Parties\n<|id|>110<|type|>title<|page|>12<|box|>659 140 676 815<|content|>VI. NEED FOR POSTPETITION FINANCING AND USE OF CAS\n<|id|>121<|type|>title<|page|>14<|box|>89 140 106 750<|content|>VII. THE DEBTORS WERE UNABLE TO OBTAIN UNSECURED C\n<|id|>127<|type|>title<|page|>14<|box|>693 140 709 689<|content|>VIII. THE DIP FACILITY TERMS ARE FAIR AND REASONAB\n<|id|>128<|type|>title<|page|>14<|box|>724 142 741 506<|content|>A. Good Faith and Arm's-Length Negotiations\n<|id|>131<|type|>title<|page|>15<|box|>231 140 248 372<|content|>B. Reasonableness of Pricing\n<|id|>137<|type|>title<|page|>15<|box|>638 142 656 299<|content|>C. Budget Controls\n<|id|>143<|type|>title<|page|>16<|box|>248 142 265 434<|content|>IX. INTERIM AND FINAL RELIEF\n<|id|>144<|type|>title<|page|>16<|box|>279 142 297 403<|content|>A. Request for Interim Approval\n<|id|>148<|type|>title<|page|>16<|box|>611 142 628 383<|content|>B. Request for Final Approval\n<|id|>150<|type|>title<|page|>16<|box|>757 142 773 316<|content|>C. Proposed Timeline\n<|id|>152<|type|>table<|page|>16<|box|>816 143 907 852<|content|>None\n<|id|>153<|type|>table<|page|>17<|box|>88 143 204 852<|content|>None\n<|id|>155<|type|>title<|page|>17<|box|>297 140 314 772<|content|>X. REQUEST FOR WAIVER OF BANKRUPTCY RULES 6004(a)\n<|id|>157<|type|>title<|page|>17<|box|>529 140 546 250<|content|>XI. NOTICE\n<|id|>167<|type|>title<|page|>18<|box|>167 142 184 544<|content|>XII. CONCLUSION AND PRAYER FOR RELIEF\n<|id|>187<|type|>title<|page|>18<|box|>787 143 804 236<|content|>EXHIBITS\n<|id|>189<|type|>table<|page|>18<|box|>837 143 895 852<|content|>None\n<|id|>190<|type|>table<|page|>19<|box|>88 143 161 852<|content|>None\n<|id|>191<|type|>title<|page|>19<|box|>194 375 210 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>0<|tgt_id|>2\n<|src_id|>37<|tgt_id|>36\n<|src_id|>152<|tgt_id|>150\n<|src_id|>153<|tgt_id|>150\n<|src_id|>189<|tgt_id|>187\n<|src_id|>190<|tgt_id|>187",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 150
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 150
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 187
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 187
+        }
+    ]
+}

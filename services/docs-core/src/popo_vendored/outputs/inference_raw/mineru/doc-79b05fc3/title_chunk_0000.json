@@ -1,0 +1,59 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 200 118 795<|content|>FIRST AMENDMENT TO EXCLUSIVITY AGREEMENT\n<|id|>6<|page|>1<|box|>339 449 354 550<|content|>RECITALS\n<|id|>12<|page|>1<|box|>801 140 819 316<|content|>Section 1. Definitions.\n<|id|>16<|page|>2<|box|>238 140 253 491<|content|>Section 2. Amendment to Exclusivity Period.\n<|id|>20<|page|>3<|box|>90 140 107 513<|content|>Section 3. Ratification; No Other Amendments.\n<|id|>24<|page|>3<|box|>539 140 556 534<|content|>Section 4. Representations and Acknowledgments.\n<|id|>28<|page|>4<|box|>277 140 294 352<|content|>Section 5. Governing Law.\n<|id|>30<|page|>4<|box|>527 140 545 336<|content|>Section 6. Counterparts.\n<|id|>32<|page|>4<|box|>686 140 704 339<|content|>Section 7. Miscellaneous.\n<|id|>47<|page|>5<|box|>525 401 542 594<|content|>[Signature Page Follows]\n<|id|>48<|page|>5<|box|>550 165 566 830<|content|>SIGNATURE PAGE TO FIRST AMENDMENT TO EXCLUSIVITY A\n<|id|>50<|page|>5<|box|>619 143 635 436<|content|>PINNACLE VENTURE FUND II LP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>20<|level|>2\n<|id|>24<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>2\n<|id|>47<|level|>-1\n<|id|>48<|level|>2\n<|id|>50<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        }
+    ]
+}

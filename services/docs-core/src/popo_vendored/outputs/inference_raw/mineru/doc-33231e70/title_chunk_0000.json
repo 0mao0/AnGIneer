@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|page|>1<|box|>359 140 377 364<|content|>I. Introduction and Purpose\n<|id|>12<|page|>2<|box|>167 140 184 434<|content|>II. Summary of the Covered Incident\n<|id|>13<|page|>2<|box|>199 140 215 348<|content|>2.1 Nature of the Incident\n<|id|>15<|page|>2<|box|>473 140 489 390<|content|>2.2 Attack Vector and Timeline\n<|id|>21<|page|>3<|box|>90 140 107 395<|content|>2.3 Scope of Compromised Data\n<|id|>26<|page|>3<|box|>411 140 428 490<|content|>2.4 Incident Response Activities Undertaken\n<|id|>38<|page|>4<|box|>713 140 731 344<|content|>2.5 Regulatory Outcomes\n<|id|>44<|page|>5<|box|>428 142 445 385<|content|>III. Policy Coverage Summary\n<|id|>57<|page|>7<|box|>90 140 107 550<|content|>IV. Final Cost Summary / Itemized Schedule of Loss\n<|id|>61<|page|>7<|box|>364 140 381 488<|content|>4.2 Category 1: Forensic Investigation Costs\n<|id|>65<|page|>7<|box|>722 142 739 390<|content|>Total Fees Invoiced: $1,847,000\n<|id|>67<|page|>7<|box|>815 140 832 589<|content|>4.3 Category 2: Notification and Credit Monitoring\n<|id|>70<|page|>8<|box|>189 174 207 545<|content|>(a) Notification Printing and Mailing: $636,000\n<|id|>72<|page|>8<|box|>369 176 387 470<|content|>(b) Call Center Operations: $478,500\n<|id|>74<|page|>8<|box|>531 176 549 764<|content|>(c) Credit Monitoring and Identity Theft Protectio\n<|id|>76<|page|>8<|box|>766 142 782 392<|content|>Total Fees Invoiced: $3,214,500\n<|id|>78<|page|>9<|box|>90 140 107 637<|content|>4.4 Category 3: Crisis Communications / Public Rel\n<|id|>82<|page|>9<|box|>411 142 428 377<|content|>Total Fees Invoiced: $385,000\n<|id|>84<|page|>9<|box|>486 140 503 483<|content|>4.5 Category 4: Outside Counsel Legal Fees\n<|id|>98<|page|>10<|box|>348 142 364 380<|content|>Timekeeper Rates and Hours:\n<|id|>101<|page|>10<|box|>660 142 676 390<|content|>Total Fees Invoiced: $2,163,750\n<|id|>103<|page|>10<|box|>753 142 771 380<|content|>4.6 Category 5: Internal Costs\n<|id|>117<|page|>11<|box|>464 143 481 465<|content|>Total Estimated Internal Costs: $620,000\n<|id|>119<|page|>11<|box|>540 142 556 367<|content|>4.7 Reconciliation Summary\n<|id|>123<|page|>12<|box|>167 140 185 460<|content|>V. Application of Self-Insured Retention\n<|id|>126<|page|>12<|box|>388 140 406 702<|content|>VI. Palomar Indemnification Recovery and Subrogati\n<|id|>137<|page|>13<|box|>421 140 438 473<|content|>VII. Supporting Documentation / Exhibits\n<|id|>148<|page|>14<|box|>167 140 184 495<|content|>VIII. Certification and Reservation of Rights\n<|id|>160<|page|>14<|box|>816 140 834 395<|content|>IX. Request for Reimbursement",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>21<|level|>2\n<|id|>26<|level|>2\n<|id|>38<|level|>2\n<|id|>44<|level|>1\n<|id|>57<|level|>1\n<|id|>61<|level|>2\n<|id|>65<|level|>-1\n<|id|>67<|level|>2\n<|id|>70<|level|>3\n<|id|>72<|level|>3\n<|id|>74<|level|>3\n<|id|>76<|level|>-1\n<|id|>78<|level|>2\n<|id|>82<|level|>-1\n<|id|>84<|level|>2\n<|id|>98<|level|>-1\n<|id|>101<|level|>-1\n<|id|>103<|level|>2\n<|id|>117<|level|>-1\n<|id|>119<|level|>2\n<|id|>123<|level|>1\n<|id|>126<|level|>1\n<|id|>137<|level|>1\n<|id|>148<|level|>1\n<|id|>160<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        }
+    ]
+}

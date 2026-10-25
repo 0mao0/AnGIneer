@@ -1,0 +1,53 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        47
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        17,
+        23,
+        36,
+        37,
+        38,
+        39,
+        45,
+        46
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 354 157 643<|content|>ASSET PURCHASE AGREEMENT\n<|id|>3<|page|>1<|box|>167 403 184 594<|content|>dated as of April 2, 2024\n<|id|>4<|page|>1<|box|>194 436 210 562<|content|>by and between\n<|id|>15<|page|>1<|box|>881 143 897 408<|content|>Right-click to update Table of Contents\n<|id|>16<|page|>1<|box|>916 142 930 452<|content|>CONFIDENTIAL — Subject to Attorney-Client Privilege\n<|id|>29<|page|>3<|box|>832 140 888 856<|content|>A detailed inventory of material items of tangible...ch location, is set forth in the Personal Property\n<|id|>30<|page|>4<|box|>90 140 126 854<|content|>Inventory prepared as of March 15, 2024, by CPI's ...vailable to Purchaser in Data Room Folder 2. ... 1\n<|id|>62<|page|>5<|box|>852 140 907 854<|content|>All telephone numbers, facsimile numbers, email ad.... ... , X (formerly Fenmore Solutions), and Crowne\n<|id|>63<|page|>6<|box|>89 140 126 852<|content|>Albany Partners LLC), and any other electronic or ...r in connection with the operation of the Business\n<|id|>79<|page|>7<|box|>844 140 900 854<|content|>All equity interests in Cardinal Peak Labs, Inc. ... As of the date hereof,\n<|id|>80<|page|>8<|box|>90 140 127 854<|content|>Cardinal Peak Labs, Inc. ... shall be retained by Seller\n<|id|>162<|page|>17<|box|>142 183 157 446<|content|>• State of Incorporation: ... Delaware\n<|id|>169<|page|>17<|box|>334 140 369 854<|content|>Foreign Qualifications: ... CPI is qualified to do...equivalent) in each of the following jurisdictions\n<|id|>163<|page|>17<|box|>161 183 178 517<|content|>• Date of Incorporation: ... September 14, 2011\n<|id|>164<|page|>17<|box|>181 183 196 446<|content|>• Delaware File Number: ... 5487231\n<|id|>165<|page|>17<|box|>200 183 218 643<|content|>• Federal Employer Identification Number (EIN): ... 82-3947561\n<|id|>166<|page|>17<|box|>220 183 253 854<|content|>• Principal Executive Offices: ... 8400 Crescent Ridge Parkway, Suite 200, Nashville, Tennessee 37215\n<|id|>167<|page|>17<|box|>258 183 292 852<|content|>• Registered Agent in Delaware: ... Pemberton Industries, 251 Little Falls Drive, Wilmington, DE 19808\n<|id|>168<|page|>17<|box|>296 183 330 854<|content|>• Authorized Capital: ... no preferred stock authorized\n<|id|>173<|page|>17<|box|>664 183 680 447<|content|>• State of Incorporation: ... Delaware\n<|id|>177<|page|>17<|box|>742 183 832 854<|content|>Status: ... It has maintained its corporate franch...of State, but has conducted no business activities\n<|id|>174<|page|>17<|box|>683 183 700 480<|content|>• Date of Incorporation: ... April 10, 2015\n<|id|>175<|page|>17<|box|>703 183 719 447<|content|>• Delaware File Number: ... 6021847\n<|id|>176<|page|>17<|box|>722 183 739 643<|content|>• Federal Employer Identification Number (EIN): ... 82-4183920\n<|id|>220<|page|>23<|box|>292 174 310 782<|content|>(b) Audited Financial Statements for the fiscal year ended December 31, 2022; ... and\n<|id|>222<|page|>23<|box|>344 140 491 856<|content|>The Audited Financial Statements were audited by L... cash flows of CPI for the periods covered thereby\n<|id|>294<|page|>36<|box|>854 140 910 854<|content|>UCC-3 termination statements for both of the foreg...ment in full of all obligations under the Velthorn\n<|id|>295<|page|>37<|box|>90 140 126 852<|content|>Credit Agreement at Closing. ... 2\n<|id|>300<|page|>38<|box|>756 174 902 857<|content|>(i) PeakConnect Patient-Engagement Software Platform: ... The platform was developed entirely by\n<|id|>301<|page|>39<|box|>90 174 200 854<|content|>CPI employees within the scope of their employment... title, and interest in and to the platform. ... 3\n<|id|>309<|page|>39<|box|>592 174 628 854<|content|>(iv) Ashbury Holdings Enterprise Agreement for Ash...uctivity suite and related cloud services; ... and\n<|id|>311<|page|>39<|box|>681 140 736 854<|content|>To Seller's knowledge, none of the foregoing inbou... of the transactions contemplated by the Agreement\n<|id|>355<|page|>45<|box|>868 174 904 856<|content|>(a) Representations and Warranties Insurance: ... ... policy from Sentinel Specialty Insurance Company,\n<|id|>356<|page|>46<|box|>89 174 145 854<|content|>Policy No. ... This policy is a Purchaser policy and is not a Seller policy listed on this Schedule",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>62<|tgt_id|>63\n<|src_id|>79<|tgt_id|>80\n<|src_id|>294<|tgt_id|>295\n<|src_id|>300<|tgt_id|>301\n<|src_id|>355<|tgt_id|>356",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 294,
+            "tgt_id": 295
+        },
+        {
+            "src_id": 300,
+            "tgt_id": 301
+        },
+        {
+            "src_id": 355,
+            "tgt_id": 356
+        }
+    ]
+}

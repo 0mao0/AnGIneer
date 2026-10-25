@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        4
+    ],
+    "pages": [
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>13<|page|>2<|box|>859 140 896 854<|content|>9. ... The\n<|id|>14<|page|>3<|box|>90 174 143 854<|content|>Parties have continued to cooperate with the DCMA ... office in connection with the ongoing field audit\n<|id|>22<|page|>3<|box|>710 517 728 854<|content|>Dated: ... March 11, 2024 New York, New York\n<|id|>23<|page|>3<|box|>737 140 753 320<|content|>Respectfully submitted,\n<|id|>27<|page|>4<|box|>114 140 167 852<|content|>VOSS, TRAGER & KENDALL LLP 900 17th Street NW, Suite 800 Washington, D. ... /s/ Leonard Trager\n<|id|>28<|page|>4<|box|>199 140 252 620<|content|>Leonard Trager (LT-4019) Megan Forsythe (MF-6821) ...n Defense Systems, Inc. ... CERTIFICATE OF SERVICE\n<|id|>29<|page|>4<|box|>260 140 334 854<|content|>I hereby certify that on March 11, 2024, I caused ...to all counsel of record in this matter, including\n<|id|>31<|page|>4<|box|>402 176 439 854<|content|>Priya Anand Patrick Gallagher Calderwood & Harknes...022 Attorneys for Plaintiff Whitmore Aerospace LLC\n<|id|>32<|page|>4<|box|>446 142 465 261<|content|>/s/ Priya Anand",
+    "raw_response": "<|src_id|>13<|tgt_id|>14",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        }
+    ]
+}

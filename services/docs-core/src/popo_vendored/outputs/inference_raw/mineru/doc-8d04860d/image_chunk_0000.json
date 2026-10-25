@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 156 142 839<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF CASCADE R\n<|id|>4<|type|>title<|page|>1<|box|>247 142 263 390<|content|>PREAMBLE AND RECITALS\n<|id|>21<|type|>title<|page|>2<|box|>261 142 277 493<|content|>Attendance of Outside Counsel and Advisors\n<|id|>42<|type|>title<|page|>5<|box|>186 140 203 787<|content|>RESOLUTION 1: ADOPTION OF THE AMENDED AND RESTATED\n<|id|>52<|type|>title<|page|>7<|box|>303 140 320 823<|content|>RESOLUTION 2: ADOPTION OF THE REVISED AUDIT COMMIT\n<|id|>62<|type|>title<|page|>8<|box|>556 140 593 797<|content|>RESOLUTION 3: ADOPTION OF THE REVISED COMPENSATION\n<|id|>70<|type|>title<|page|>9<|box|>527 140 563 816<|content|>RESOLUTION 4: ADOPTION OF THE REVISED NOMINATING &\n<|id|>78<|type|>title<|page|>10<|box|>501 140 537 839<|content|>RESOLUTION 5: ESTABLISHMENT OF THE TECHNOLOGY & CY\n<|id|>90<|type|>title<|page|>11<|box|>733 140 768 846<|content|>RESOLUTION 6: DISSOLUTION OF THE AD HOC TECHNOLOGY\n<|id|>95<|type|>title<|page|>12<|box|>321 140 339 620<|content|>RESOLUTION 7: AUTHORIZATION TO FILE FORM 8-K\n<|id|>99<|type|>title<|page|>12<|box|>714 140 751 854<|content|>RESOLUTION 8: RECOMMENDATION OF CHARTER AMENDMENT\n<|id|>105<|type|>title<|page|>13<|box|>666 140 683 509<|content|>GENERAL AUTHORIZING RESOLUTIONS\n<|id|>111<|type|>title<|page|>15<|box|>89 143 106 271<|content|>EXHIBIT LIST\n<|id|>112<|type|>table<|page|>15<|box|>138 143 328 852<|content|>None\n<|id|>113<|type|>title<|page|>15<|box|>377 142 393 295<|content|>CERTIFICATION",
+    "raw_response": "<|src_id|>112<|tgt_id|>111",
+    "parsed": [
+        {
+            "src_id": 112,
+            "tgt_id": 111
+        }
+    ]
+}

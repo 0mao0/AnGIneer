@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        9,
+        10,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>141 140 159 681<|content|>To: ... Robert Adeyemi, Responsible Partner Jennifer Kwon, Billing Partner\n<|id|>2<|page|>1<|box|>167 140 204 854<|content|>From: ... Claire Dempsey, Working Associate (prepared by) Eric Johannsen, Lead Associate (reviewed by)\n<|id|>3<|page|>1<|box|>212 140 229 303<|content|>Date: ... April 25, 2026\n<|id|>4<|page|>1<|box|>237 140 273 854<|content|>Re: ... — Preliminary Corporate Authority & Charte...Universal Shelf Registration Statement on Form S-3\n<|id|>5<|page|>1<|box|>282 140 299 331<|content|>Matter No. ... 1038-00003\n<|id|>6<|page|>1<|box|>306 142 325 441<|content|>Billing Partner Code: ... JKW-2026-0406\n<|id|>42<|page|>5<|box|>750 138 898 857<|content|>Forum Selection Clause. ... We have requested that...aint asserting a cause of action arising under the\n<|id|>43<|page|>6<|box|>89 140 145 854<|content|>Securities Act of 1933, as amended (the \"Securities Act\"). ... 11 below\n<|id|>71<|page|>9<|box|>777 174 814 854<|content|>(e) the execution and filing of any certificates o...erred stock to be offered under the shelf; ... and\n<|id|>73<|page|>10<|box|>90 138 292 856<|content|>The proposed composition of the Pricing Committee ...tion with the preparation of the board resolutions\n<|id|>119<|page|>16<|box|>260 181 277 771<|content|>• Clearfield Rating Services Inc. ... BBB (stable outlook), assigned February 2025\n<|id|>121<|page|>16<|box|>299 140 392 854<|content|>The investment-grade credit ratings are relevant t...h any offerings of debt securities under the shelf\n<|id|>120<|page|>16<|box|>280 183 297 712<|content|>• Atlas Rating Group LLC: ... Baa2 (stable outlook), assigned March 2025",
+    "raw_response": "<|src_id|>42<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ]
+}

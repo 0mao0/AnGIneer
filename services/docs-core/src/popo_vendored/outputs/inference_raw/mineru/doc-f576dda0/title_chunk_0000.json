@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        36
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12,
+        18,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        31,
+        36
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>291 103 341 854<|content|>疏浚工程土石方计量标准\n<|id|>1<|page|>1<|box|>378 155 407 806<|content|>Standard for Measuring of Quantities of\n<|id|>6<|page|>2<|box|>165 263 259 701<|content|>中华人民共和国行业标准 疏浚工程土石方计量标准\n<|id|>13<|page|>3<|box|>114 266 182 683<|content|>关于发布《疏浚工程土石方计量标准》的通知\n<|id|>20<|page|>4<|box|>170 424 203 587<|content|>前言\n<|id|>26<|page|>5<|box|>138 374 170 530<|content|>目 次\n<|id|>28<|page|>6<|box|>129 346 160 608<|content|>1 总 则\n<|id|>33<|page|>7<|box|>148 344 179 648<|content|>2 术语和符号\n<|id|>34<|page|>7<|box|>218 404 242 587<|content|>2.1 术语\n<|id|>46<|page|>8<|box|>88 407 110 587<|content|>2.2 符号\n<|id|>94<|page|>10<|box|>105 341 134 645<|content|>3 一般规定\n<|id|>112<|page|>12<|box|>112 321 143 663<|content|>4 疏浚工程计量\n<|id|>186<|page|>18<|box|>112 314 141 658<|content|>5 吹填工程计量\n<|id|>231<|page|>21<|box|>136 311 162 680<|content|>附录 本标准用词用语说明\n<|id|>244<|page|>22<|box|>191 208 223 809<|content|>本标准主编单位和主要起草人名单\n<|id|>249<|page|>23<|box|>204 281 233 685<|content|>中华人民共和国行业标准\n<|id|>250<|page|>23<|box|>276 266 308 706<|content|>疏浚工程土石方计量标准\n<|id|>253<|page|>24<|box|>131 391 163 595<|content|>制定说明\n<|id|>258<|page|>25<|box|>174 442 206 600<|content|>目 次\n<|id|>260<|page|>26<|box|>124 351 155 615<|content|>1 总 则\n<|id|>265<|page|>27<|box|>170 351 197 658<|content|>3 一般规定\n<|id|>267<|page|>27<|box|>469 188 489 336<|content|>1. 测量图比\n<|id|>270<|page|>27<|box|>682 188 704 442<|content|>2. 图上测量断面间距\n<|id|>273<|page|>28<|box|>165 173 187 452<|content|>3. 图上定位点最大间距\n<|id|>277<|page|>28<|box|>462 175 482 532<|content|>4. 图上内插水深点的最大间距\n<|id|>288<|page|>31<|box|>165 326 196 670<|content|>4 疏浚工程计量\n<|id|>327<|page|>36<|box|>146 314 177 658<|content|>5 吹填工程计量",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>6<|level|>1\n<|id|>13<|level|>1\n<|id|>20<|level|>2\n<|id|>26<|level|>2\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>46<|level|>3\n<|id|>94<|level|>2\n<|id|>112<|level|>2\n<|id|>186<|level|>2\n<|id|>231<|level|>2\n<|id|>244<|level|>2\n<|id|>249<|level|>1\n<|id|>250<|level|>1\n<|id|>253<|level|>2\n<|id|>258<|level|>2\n<|id|>260<|level|>2\n<|id|>265<|level|>2\n<|id|>267<|level|>3\n<|id|>270<|level|>3\n<|id|>273<|level|>3\n<|id|>277<|level|>3\n<|id|>288<|level|>2\n<|id|>327<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 231,
+            "level": 2
+        },
+        {
+            "id": 244,
+            "level": 2
+        },
+        {
+            "id": 249,
+            "level": 1
+        },
+        {
+            "id": 250,
+            "level": 1
+        },
+        {
+            "id": 253,
+            "level": 2
+        },
+        {
+            "id": 258,
+            "level": 2
+        },
+        {
+            "id": 260,
+            "level": 2
+        },
+        {
+            "id": 265,
+            "level": 2
+        },
+        {
+            "id": 267,
+            "level": 3
+        },
+        {
+            "id": 270,
+            "level": 3
+        },
+        {
+            "id": 273,
+            "level": 3
+        },
+        {
+            "id": 277,
+            "level": 3
+        },
+        {
+            "id": 288,
+            "level": 2
+        },
+        {
+            "id": 327,
+            "level": 2
+        }
+    ]
+}

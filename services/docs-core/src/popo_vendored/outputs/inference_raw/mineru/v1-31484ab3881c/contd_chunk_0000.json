@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        8,
+        9,
+        10,
+        16,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>226 393 268 604<|content|>Kazu Ghalamkari RIKEN AIP kazu. ... jp\n<|id|>2<|page|>1<|box|>289 238 332 462<|content|>Jesper Løve Hinrich Technical University of Denmark jehi@dtu. ... dk\n<|id|>3<|page|>1<|box|>289 535 330 758<|content|>Morten Mørup Technical University of Denmark mmor@dtu. ... dk\n<|id|>20<|page|>3<|box|>340 171 372 826<|content|>Many-body approximation for tensors The many-body ... the diagram for a fourth-order tensor in Figure 2\n<|id|>21<|page|>3<|box|>383 169 493 625<|content|>where each node (circle) corresponds to a tensor m...zes the KL divergence from the tensor\\dot { \\tau }\n<|id|>25<|page|>3<|box|>800 169 914 826<|content|>In probabilistic tensor decomposition, tensor elem... the EM algorithm [32, 66, 51]. ... Interestingly,\n<|id|>27<|page|>4<|box|>113 614 308 826<|content|>Figure 3: ... These low-rank tensors correspond to the many-body approximation with hidden variables r\n<|id|>78<|page|>8<|box|>344 169 387 825<|content|>Since the tensor to be optimized in the M-step is ...which involves the dense core tensor\\mathcal { G }\n<|id|>79<|page|>8<|box|>392 171 454 825<|content|>Specifically, in Equations( 3 ) – ( 5 ), we can re...ranks are( R , \\ldots , R )for all low-rank models\n<|id|>95<|page|>9<|box|>800 169 912 826<|content|>Classification with real datasets We download eigh...the procedure described in Section E. ... Overall,\n<|id|>97<|page|>10<|box|>402 169 460 826<|content|>EMCPTTN outperforms the single low-rank model EMCP...ts indicating that all mixture components are used\n<|id|>202<|page|>16<|box|>617 168 632 450<|content|>ford = 1 , \\ldots , D ,assumingr _ { 0 } = r _ { D } = 1\n<|id|>203<|page|>16<|box|>635 169 650 614<|content|>Proof. ... The objective function of the many-body approximation is\n<|id|>239<|page|>18<|box|>492 171 529 825<|content|>for any tensors\\Phi \\in { \\mathcal { D } }where\\be...Phi _ { i r } ^ { k } = 1 \\} } \\end{array}. ... R□\n<|id|>240<|page|>18<|box|>530 171 560 825<|content|>Proposition 3. ... In M-step, the optimal update f...at optimizes J ( \\eta )in Equation (9) is given as\n<|id|>263<|page|>19<|box|>641 210 671 825<|content|>1. ... The accumulation points are included in the... of the objective function L and its lower bound L\n<|id|>265<|page|>19<|box|>732 169 873 826<|content|>This section is organized as follows. ... 4 proves...n is a stationary point at the accumulation points\n<|id|>279<|page|>20<|box|>667 171 683 730<|content|>Proof. ... It is evident from the update rules in Equations (1), (4), (5), (12), and (10)\n<|id|>280<|page|>20<|box|>689 169 797 826<|content|>Although Corollary 1 is mathematically correct, we... digits, and consequently Corollary 1 is satisfied\n<|id|>283<|page|>20<|box|>862 171 912 825<|content|>In the following, we consider approximating a give...mes \\cdot \\cdot \\cdot \\times [ R _ { V ^ { k } } ]\n<|id|>284<|page|>21<|box|>90 171 107 602<|content|>The objective function of the EM algorithm is defi...function of the EM algorithm is defined as follows\n<|id|>320<|page|>22<|box|>781 169 797 707<|content|>that means it holds that\\hat { \\mathcal { Q } } \\i...n F ( s ). ... Thus, we sayF ( s ) \\subset B ( c )\n<|id|>321<|page|>22<|box|>800 169 815 573<|content|>Proposition 5. ... For anys < 0 ,the level setF ( s )is compact\n<|id|>322<|page|>22<|box|>819 169 912 826<|content|>Proof. ... □\n<|id|>323<|page|>23<|box|>90 171 107 517<|content|>The above result leads to the following propositio...e above result leads to the following propositions\n<|id|>324<|page|>23<|box|>111 171 127 366<|content|>Corollary2 . ... \\ \\hat { \\mathcal { Q } } ^ { * } \\in \\mathrm { d o m } ( L )\n<|id|>325<|page|>23<|box|>131 169 196 825<|content|>Proof. ... Furthermore, given the relationshipF ( ...thcal { Q } } ^ { * } \\in \\mathrm { d o m } ( L )□\n<|id|>326<|page|>23<|box|>200 171 218 405<|content|>Corollary 3. ... ( \\hat { \\mathcal { Q } } ^ { * }... } ) \\in \\mathrm { d o m } ( \\overline { { L } } )\n<|id|>327<|page|>23<|box|>220 169 265 825<|content|>Proof. ... From Equation (10), the update rule for Φ in E-step is given as\n<|id|>339<|page|>23<|box|>878 169 912 823<|content|>which holds for any\\hat { \\mathcal { Q } } \\in \\pm..., * } , \\ldots , \\lambda ^ { K , * } , \\mu ^ { * }\n<|id|>340<|page|>24<|box|>90 171 107 403<|content|>satisfying the following equations: ... satisfying the following equations\n<|id|>348<|page|>24<|box|>549 171 566 823<|content|>which implies the objective functionL ( \\hat { \\ma...\\hat { \\mathcal { Q } } ^ { * } . ... \\quad \\sqcup\n<|id|>349<|page|>24<|box|>571 169 700 826<|content|>Since any bounded sequence of point converges to i...ary of the domain and the set of stationary points\n<|id|>393<|page|>27<|box|>537 169 625 826<|content|>Indices The visible variables\\pmb { i } = ( i _ { ...{ T } } _ { i } \\neq 0 \\} \\subseteq \\Omega _ { I }\n<|id|>394<|page|>27<|box|>640 169 669 825<|content|>Metric The proposed framework and baseline methods...vergence between tensors [64], which is defined as",
+    "raw_response": "",
+    "parsed": []
+}

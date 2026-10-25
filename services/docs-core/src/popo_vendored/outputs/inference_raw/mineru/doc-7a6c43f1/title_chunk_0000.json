@@ -1,0 +1,48 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 720<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>1<|page|>1<|box|>114 179 160 818<|content|>1301 Avenue of the Americas, 40th Floor New York,\n<|id|>3<|page|>1<|box|>357 142 375 292<|content|>SUBMITTED TO:\n<|id|>6<|page|>1<|box|>648 143 665 256<|content|>Billing Period\n<|id|>8<|page|>1<|box|>715 142 732 411<|content|>Summary of Professional Services\n<|id|>25<|page|>4<|box|>306 143 323 313<|content|>Payment Instructions\n<|id|>28<|page|>4<|box|>595 142 613 276<|content|>Check Payment:\n<|id|>33<|page|>4<|box|>768 143 785 267<|content|>Billing Contact",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>25<|level|>2\n<|id|>28<|level|>3\n<|id|>33<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        }
+    ]
+}

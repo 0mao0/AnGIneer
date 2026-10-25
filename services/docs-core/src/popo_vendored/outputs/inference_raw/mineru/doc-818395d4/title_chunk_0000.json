@@ -1,0 +1,141 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        14,
+        18,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 104 604<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|page|>1<|box|>114 305 133 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>2<|page|>1<|box|>151 264 167 733<|content|>51 West 52nd Street, 40th Floor New York, New York\n<|id|>3<|page|>1<|box|>191 424 209 573<|content|>MEMORANDUM\n<|id|>5<|page|>1<|box|>453 142 470 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>12<|page|>2<|box|>428 142 445 380<|content|>II. QUESTION PRESENTED\n<|id|>21<|page|>3<|box|>241 140 258 318<|content|>III. BRIEF ANSWER\n<|id|>27<|page|>4<|box|>358 140 375 401<|content|>IV. FACTUAL BACKGROUND\n<|id|>28<|page|>4<|box|>388 140 407 442<|content|>A. The Parties and Their Relationship\n<|id|>41<|page|>5<|box|>378 140 395 517<|content|>B. The Master Fund Administration Agreement\n<|id|>51<|page|>6<|box|>601 140 618 442<|content|>C. The Misvaluation and Its discovery\n<|id|>69<|page|>8<|box|>659 142 676 320<|content|>D. Damages Overview\n<|id|>78<|page|>9<|box|>465 140 483 330<|content|>V. LEGAL ANALYSIS\n<|id|>79<|page|>9<|box|>497 140 513 679<|content|>A. The Economic Loss Doctrine in New York — Genera\n<|id|>85<|page|>10<|box|>465 140 483 563<|content|>B. Exception One: Fraud and Intentional Tort Claim\n<|id|>113<|page|>14<|box|>599 140 617 830<|content|>C. Exception Two: Negligent Misrepresentation and\n<|id|>144<|page|>18<|box|>594 142 611 534<|content|>D. Addressing Vantor's Likely Counterarguments\n<|id|>160<|page|>21<|box|>213 140 229 478<|content|>E. Interaction with Other Causes of Action\n<|id|>164<|page|>21<|box|>657 140 674 457<|content|>VI. SURVEY OF KEY AUTHORITIES\n<|id|>166<|page|>21<|box|>752 140 768 614<|content|>A. Authorities Establishing the General Economic L\n<|id|>169<|page|>22<|box|>250 140 266 519<|content|>B. Authorities Establishing the Fraud Exception\n<|id|>177<|page|>23<|box|>311 140 329 630<|content|>C. Authorities Establishing the Special-Relationsh\n<|id|>183<|page|>24<|box|>157 140 175 588<|content|>D. Commercial Division Decisions in Analogous Cont\n<|id|>186<|page|>24<|box|>412 140 429 705<|content|>VII. PRACTICAL CONSIDERATIONS FOR PLEADING STRATEG\n<|id|>188<|page|>24<|box|>488 140 505 676<|content|>A. Fraud and Fraudulent Concealment (Anticipated C\n<|id|>195<|page|>25<|box|>325 140 343 560<|content|>B. Negligent Misrepresentation (Anticipated Count\n<|id|>201<|page|>25<|box|>720 140 738 452<|content|>C. Particularity Under CPLR § 3016(b)\n<|id|>203<|page|>26<|box|>90 140 107 405<|content|>D. Anticipated Motion to Dismiss\n<|id|>205<|page|>26<|box|>319 140 335 315<|content|>VIII. CONCLUSION\n<|id|>212<|page|>27<|box|>90 364 104 633<|content|>— END OF MEMORANDUM —\n<|id|>213<|page|>28<|box|>89 142 106 660<|content|>APPENDIX: RELATED MEMORANDA CROSS-REFERENCES",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>2<|level|>-1\n<|id|>3<|level|>1\n<|id|>5<|level|>2\n<|id|>12<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>41<|level|>3\n<|id|>51<|level|>3\n<|id|>69<|level|>3\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>85<|level|>3\n<|id|>113<|level|>3\n<|id|>144<|level|>3\n<|id|>160<|level|>3\n<|id|>164<|level|>2\n<|id|>166<|level|>3\n<|id|>169<|level|>3\n<|id|>177<|level|>3\n<|id|>183<|level|>3\n<|id|>186<|level|>2\n<|id|>188<|level|>3\n<|id|>195<|level|>3\n<|id|>201<|level|>3\n<|id|>203<|level|>3\n<|id|>205<|level|>2\n<|id|>212<|level|>-1\n<|id|>213<|level|>2",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 205,
+            "level": 2
+        },
+        {
+            "id": 213,
+            "level": 2
+        }
+    ]
+}

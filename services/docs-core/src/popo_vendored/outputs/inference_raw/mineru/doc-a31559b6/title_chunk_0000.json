@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|page|>1<|box|>277 424 294 573<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>304 168 339 828<|content|>WIRE TRANSFER CONFIRMATION REPRESENTATIONS AND WAR\n<|id|>9<|page|>1<|box|>782 142 799 341<|content|>I. Purpose and Summary\n<|id|>14<|page|>2<|box|>502 140 518 431<|content|>II. R&W Insurance Policy Summary\n<|id|>34<|page|>3<|box|>768 142 785 348<|content|>III. Wire Transfer Details\n<|id|>40<|page|>4<|box|>827 142 844 366<|content|>IV. Confirmation of Receipt\n<|id|>45<|page|>5<|box|>604 140 621 415<|content|>V. Reconciliation with Funds Flow\n<|id|>50<|page|>6<|box|>513 142 529 431<|content|>Notes on Funds Flow Reconciliation:\n<|id|>56<|page|>7<|box|>267 140 284 388<|content|>VI. Supporting Documentation\n<|id|>66<|page|>8<|box|>280 140 297 395<|content|>VII. Filing and Record-Keeping\n<|id|>76<|page|>9<|box|>241 421 258 576<|content|>ATTACHMENT A\n<|id|>80<|page|>9<|box|>420 421 436 576<|content|>ATTACHMENT B",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>6<|level|>1\n<|id|>7<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>34<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>3\n<|id|>56<|level|>2\n<|id|>66<|level|>2\n<|id|>76<|level|>1\n<|id|>80<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>429<|page|>45<|box|>385 140 401 346<|content|>4. Required Attachments:\n<|id|>442<|page|>46<|box|>89 449 106 549<|content|>EXHIBIT D\n<|id|>443<|page|>46<|box|>131 253 148 745<|content|>FORM OF MONTHLY RESERVE ACCOUNT STATEMENT\n<|id|>444<|page|>46<|box|>156 147 191 851<|content|>IRONCLAD NATIONAL BANK, N.A. Real Estate Finance —\n<|id|>445<|page|>46<|box|>200 297 217 700<|content|>MONTHLY RESERVE ACCOUNT STATEMENT\n<|id|>447<|page|>46<|box|>359 143 375 359<|content|>1. Interest Reserve Account\n<|id|>449<|page|>46<|box|>585 143 603 441<|content|>2. Tax and Insurance Escrow Account\n<|id|>450<|page|>46<|box|>609 143 626 339<|content|>Tax Escrow Subaccount:\n<|id|>452<|page|>46<|box|>820 143 835 385<|content|>Insurance Escrow Subaccount:\n<|id|>455<|page|>47<|box|>243 142 258 400<|content|>3. Replacement Reserve Account\n<|id|>457<|page|>47<|box|>470 143 486 349<|content|>4. TI/LC Reserve Account\n<|id|>459<|page|>47<|box|>698 143 714 338<|content|>5. Compliance Summary\n<|id|>461<|page|>48<|box|>90 140 107 470<|content|>6. Deficiencies / Required Replenishments\n<|id|>464<|page|>48<|box|>165 142 181 313<|content|>Contact Information:",
+    "raw_response": "<|id|>429<|level|>2\n<|id|>442<|level|>1\n<|id|>443<|level|>2\n<|id|>444<|level|>2\n<|id|>445<|level|>2\n<|id|>447<|level|>3\n<|id|>449<|level|>3\n<|id|>450<|level|>4\n<|id|>452<|level|>4\n<|id|>455<|level|>3\n<|id|>457<|level|>3\n<|id|>459<|level|>3\n<|id|>461<|level|>3\n<|id|>464<|level|>3",
+    "parsed": [
+        {
+            "id": 429,
+            "level": 2
+        },
+        {
+            "id": 442,
+            "level": 1
+        },
+        {
+            "id": 443,
+            "level": 2
+        },
+        {
+            "id": 444,
+            "level": 2
+        },
+        {
+            "id": 445,
+            "level": 2
+        },
+        {
+            "id": 447,
+            "level": 3
+        },
+        {
+            "id": 449,
+            "level": 3
+        },
+        {
+            "id": 450,
+            "level": 4
+        },
+        {
+            "id": 452,
+            "level": 4
+        },
+        {
+            "id": 455,
+            "level": 3
+        },
+        {
+            "id": 457,
+            "level": 3
+        },
+        {
+            "id": 459,
+            "level": 3
+        },
+        {
+            "id": 461,
+            "level": 3
+        },
+        {
+            "id": 464,
+            "level": 3
+        }
+    ]
+}

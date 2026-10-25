@@ -1,0 +1,54 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>487 140 503 341<|content|>I. Purpose of This Notice\n<|id|>12<|page|>1<|box|>825 140 843 483<|content|>II. Description of the Proposed Transaction\n<|id|>19<|page|>3<|box|>223 140 239 547<|content|>III. Financial Terms of the Data License Agreement\n<|id|>29<|page|>3<|box|>789 140 806 506<|content|>IV. Key Terms of the Data License Agreement\n<|id|>39<|page|>5<|box|>204 140 222 364<|content|>V. Corporate Authorization\n<|id|>43<|page|>5<|box|>542 140 560 457<|content|>VI. Covenant Compliance Confirmation\n<|id|>49<|page|>6<|box|>167 140 184 573<|content|>VII. Objection Period / Administrative Agent Respo\n<|id|>52<|page|>6<|box|>425 140 441 437<|content|>VIII. Offer of Additional Information\n<|id|>55<|page|>6<|box|>590 142 609 439<|content|>IX. Contact Information for Inquiries\n<|id|>63<|page|>6<|box|>890 140 907 488<|content|>ARBOR HEALTH TECHNOLOGIES INC.",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>19<|level|>1\n<|id|>29<|level|>1\n<|id|>39<|level|>1\n<|id|>43<|level|>1\n<|id|>49<|level|>1\n<|id|>52<|level|>1\n<|id|>55<|level|>1\n<|id|>63<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        }
+    ]
+}

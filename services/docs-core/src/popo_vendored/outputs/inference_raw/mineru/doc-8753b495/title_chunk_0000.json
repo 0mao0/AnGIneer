@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>2<|page|>1<|box|>174 415 191 583<|content|>ORIGINAL FILING\n<|id|>9<|page|>1<|box|>443 143 459 437<|content|>Box A — DEBTOR INFORMATION\n<|id|>10<|page|>1<|box|>474 143 491 493<|content|>1. DEBTOR'S NAME (Organization Debtor)\n<|id|>13<|page|>1<|box|>776 143 792 442<|content|>1b. DEBTOR'S MAILING ADDRESS\n<|id|>17<|page|>2<|box|>200 142 219 514<|content|>Box B — SECURED PARTY INFORMATION\n<|id|>21<|page|>2<|box|>566 142 583 519<|content|>2b. SECURED PARTY'S MAILING ADDRESS\n<|id|>23<|page|>2<|box|>750 142 767 419<|content|>Box 3 — ADDITIONAL PARTIES\n<|id|>27<|page|>3<|box|>90 140 107 475<|content|>Box 4 — COLLATERAL DESCRIPTION\n<|id|>63<|page|>6<|box|>89 200 109 795<|content|>FILING INSTRUCTIONS AND COVER LETTER NOTES\n<|id|>65<|page|>6<|box|>188 142 205 267<|content|>I. Filing Details\n<|id|>66<|page|>6<|box|>214 142 232 251<|content|>Filing Office:\n<|id|>72<|page|>6<|box|>516 142 534 374<|content|>Return Acknowledgment To:\n<|id|>77<|page|>6<|box|>648 142 667 344<|content|>II. Timing and Reporting\n<|id|>85<|page|>7<|box|>238 140 253 457<|content|>III. Related Filings for This Transaction\n<|id|>90<|page|>8<|box|>90 140 107 470<|content|>IV. Context — Debtor Entity Information\n<|id|>91<|page|>8<|box|>116 142 133 284<|content|>Entity Summary:\n<|id|>93<|page|>8<|box|>314 142 332 334<|content|>Role in the Transaction:\n<|id|>95<|page|>8<|box|>458 142 476 383<|content|>Applicable Filing Jurisdiction:\n<|id|>97<|page|>8<|box|>652 140 669 341<|content|>V. Verification Checklist\n<|id|>108<|page|>9<|box|>678 168 694 826<|content|>— END OF UCC-1 FINANCING STATEMENT AND FILING INST\n<|id|>109<|page|>9<|box|>704 156 739 841<|content|>Ridgepoint Specialty Coatings, LLC (Debtor) Cresce",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>9<|level|>2\n<|id|>10<|level|>3\n<|id|>13<|level|>3\n<|id|>17<|level|>2\n<|id|>21<|level|>3\n<|id|>23<|level|>2\n<|id|>27<|level|>2\n<|id|>63<|level|>1\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>72<|level|>3\n<|id|>77<|level|>2\n<|id|>85<|level|>2\n<|id|>90<|level|>2\n<|id|>91<|level|>3\n<|id|>93<|level|>3\n<|id|>95<|level|>3\n<|id|>97<|level|>2\n<|id|>108<|level|>-1\n<|id|>109<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        }
+    ]
+}

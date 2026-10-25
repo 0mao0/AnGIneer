@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        55
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        55
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>482<|type|>title<|page|>45<|box|>89 140 126 836<|content|>D. Signature Page — Marlowe Asset Management Trust\n<|id|>483<|type|>title<|page|>45<|box|>133 307 152 689<|content|>[UNEXECUTED — FOR REFERENCE ONLY]\n<|id|>489<|type|>title<|page|>46<|box|>90 169 109 826<|content|>IX. SUMMARY TABLE OF ASSEMBLED SIGNATURE PAGES\n<|id|>490<|type|>table<|page|>46<|box|>172 143 907 854<|content|>None\n<|id|>491<|type|>table<|page|>47<|box|>89 143 907 854<|content|>None\n<|id|>492<|type|>table<|page|>48<|box|>89 143 905 854<|content|>None\n<|id|>493<|type|>table<|page|>49<|box|>89 143 898 854<|content|>None\n<|id|>494<|type|>table<|page|>50<|box|>88 143 125 852<|content|>None\n<|id|>508<|type|>title<|page|>50<|box|>486 174 530 821<|content|>X. NOTES ON CLOSING CONDITIONS AND OUTSTANDING ITE\n<|id|>509<|type|>title<|page|>51<|box|>90 142 107 571<|content|>A. Documents Not Included in Signature Page Packag\n<|id|>511<|type|>title<|page|>51<|box|>179 178 196 328<|content|>1. Legal Opinions.\n<|id|>523<|type|>title<|page|>52<|box|>354 176 369 575<|content|>B. Outstanding Conditions Precedent Not Satisfied\n<|id|>535<|type|>title<|page|>53<|box|>266 295 285 700<|content|>XI. REACTIVATION INSTRUCTIONS\n<|id|>537<|type|>title<|page|>53<|box|>420 176 438 580<|content|>FILE NOTE — REACTIVATION PROCEDURES\n<|id|>551<|type|>title<|page|>55<|box|>339 308 358 687<|content|>XII. CERTIFICATION / FILE NOTE\n<|id|>552<|type|>title<|page|>55<|box|>376 366 393 665<|content|>CERTIFICATION AND FILE NOTE",
+    "raw_response": "<|src_id|>490<|tgt_id|>489\n<|src_id|>491<|tgt_id|>489\n<|src_id|>492<|tgt_id|>489\n<|src_id|>493<|tgt_id|>489\n<|src_id|>494<|tgt_id|>489",
+    "parsed": [
+        {
+            "src_id": 490,
+            "tgt_id": 489
+        },
+        {
+            "src_id": 491,
+            "tgt_id": 489
+        },
+        {
+            "src_id": 492,
+            "tgt_id": 489
+        },
+        {
+            "src_id": 493,
+            "tgt_id": 489
+        },
+        {
+            "src_id": 494,
+            "tgt_id": 489
+        }
+    ]
+}

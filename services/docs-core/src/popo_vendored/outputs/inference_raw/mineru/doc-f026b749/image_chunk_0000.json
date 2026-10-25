@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 223 107 854<|content|>MORNINGSTAR ZANTHOR & CO. 600 Lexington Avenue New\n<|id|>13<|type|>table<|page|>1<|box|>746 143 902 852<|content|>None\n<|id|>14<|type|>table<|page|>2<|box|>88 143 138 852<|content|>None",
+    "raw_response": "<|src_id|>13<|tgt_id|>0\n<|src_id|>14<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 0
+        }
+    ]
+}

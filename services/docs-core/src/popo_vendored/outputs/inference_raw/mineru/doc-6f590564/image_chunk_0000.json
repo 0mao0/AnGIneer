@@ -1,0 +1,53 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 274 133 723<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law 125 Br\n<|id|>1<|type|>title<|page|>1<|box|>142 158 204 839<|content|>Telephone: (212) 558-4000 Facsimile: (212) 558-358\n<|id|>3<|type|>table<|page|>1<|box|>273 143 481 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>554 142 571 320<|content|>I. Executive Summary\n<|id|>9<|type|>title<|page|>2<|box|>494 140 511 607<|content|>II. Background and Structure of the Co-Investment\n<|id|>10<|type|>title<|page|>2<|box|>525 140 542 354<|content|>A. Formation and Purpose\n<|id|>14<|type|>table<|page|>2<|box|>880 143 902 852<|content|>None\n<|id|>15<|type|>table<|page|>3<|box|>88 143 161 852<|content|>None\n<|id|>24<|type|>title<|page|>4<|box|>90 140 107 594<|content|>C. LP Agreement Key Terms Relevant to ERISA Analys\n<|id|>30<|type|>title<|page|>4<|box|>779 142 796 465<|content|>D. Distinguishing Features from Fund IV\n<|id|>35<|type|>title<|page|>5<|box|>439 140 457 406<|content|>III. Applicable Legal Framework\n<|id|>36<|type|>title<|page|>5<|box|>470 142 488 599<|content|>A. ERISA Plan Asset Regulation — 29 C.F.R. § 2510.\n<|id|>45<|type|>title<|page|>6<|box|>565 140 582 475<|content|>B. Exemptions from Plan Asset Treatment\n<|id|>53<|type|>title<|page|>8<|box|>90 140 107 591<|content|>C. \"Look-Through\" Analysis for Ironside's Investor\n<|id|>58<|type|>title<|page|>8<|box|>617 142 633 514<|content|>IV. Analysis of Ironside's Investor Composition\n<|id|>59<|type|>title<|page|>8<|box|>648 140 664 470<|content|>A. Overview of Ironside's Fund Structure\n<|id|>66<|type|>title<|page|>9<|box|>338 142 354 423<|content|>B. Benefit Plan Investor Percentage\n<|id|>69<|type|>table<|page|>9<|box|>638 143 893 852<|content|>None\n<|id|>70<|type|>table<|page|>10<|box|>88 143 204 852<|content|>None\n<|id|>84<|type|>title<|page|>11<|box|>257 140 273 383<|content|>C. Measurement Methodology\n<|id|>92<|type|>title<|page|>12<|box|>90 140 108 486<|content|>D. Subscription Agreement Representations\n<|id|>99<|type|>title<|page|>12<|box|>724 140 741 506<|content|>V. Structural Safeguards in the LP Agreement\n<|id|>100<|type|>title<|page|>12<|box|>753 140 771 377<|content|>A. ERISA-Related Provisions\n<|id|>106<|type|>title<|page|>13<|box|>619 140 638 472<|content|>B. Single-Investor Structure as a Mitigant\n<|id|>110<|type|>title<|page|>14<|box|>304 140 321 707<|content|>VI. Consequences if Plan Asset Treatment Were to A\n<|id|>125<|type|>title<|page|>16<|box|>204 140 222 602<|content|>VII. Interaction with Co-Investment Allocation Agr\n<|id|>131<|type|>title<|page|>17<|box|>186 140 204 565<|content|>VIII. State Law and Other Regulatory Consideration\n<|id|>135<|type|>title<|page|>18<|box|>90 140 107 483<|content|>IX. Ongoing Monitoring Recommendations\n<|id|>144<|type|>title<|page|>19<|box|>407 140 424 258<|content|>X. Conclusion\n<|id|>153<|type|>title<|page|>20<|box|>321 140 339 403<|content|>XI. Appendices and Attachments\n<|id|>173<|type|>title<|page|>21<|box|>282 281 297 715<|content|>DISTRIBUTION AND CONFIDENTIALITY NOTICE",
+    "raw_response": "<|src_id|>3<|tgt_id|>4\n<|src_id|>14<|tgt_id|>10\n<|src_id|>15<|tgt_id|>10\n<|src_id|>69<|tgt_id|>66\n<|src_id|>70<|tgt_id|>66",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 66
+        }
+    ]
+}

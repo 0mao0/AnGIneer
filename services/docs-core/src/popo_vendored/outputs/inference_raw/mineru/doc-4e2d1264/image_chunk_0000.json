@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>338 142 354 442<|content|>1. Purpose and Engagement Overview\n<|id|>11<|type|>title<|page|>1<|box|>731 140 750 354<|content|>2. Scope of Representation\n<|id|>25<|type|>title<|page|>3<|box|>637 140 655 313<|content|>3. Engagement Team\n<|id|>33<|type|>title<|page|>4<|box|>619 140 636 406<|content|>4. Fees and Billing Arrangements\n<|id|>35<|type|>table<|page|>4<|box|>686 143 782 852<|content|>None\n<|id|>42<|type|>title<|page|>5<|box|>719 140 734 390<|content|>5. Disbursements and Expenses\n<|id|>45<|type|>title<|page|>6<|box|>186 140 204 514<|content|>6. Identification of Adverse and Related Parties\n<|id|>54<|type|>title<|page|>6<|box|>750 140 768 284<|content|>7. Confidentiality\n<|id|>57<|type|>title<|page|>7<|box|>296 140 313 326<|content|>8. Document Retention\n<|id|>60<|type|>title<|page|>7<|box|>608 140 626 330<|content|>9. Anticipated Timeline\n<|id|>62<|type|>table<|page|>7<|box|>695 143 901 852<|content|>None\n<|id|>64<|type|>title<|page|>8<|box|>273 142 291 297<|content|>10. Governing Law\n<|id|>66<|type|>title<|page|>8<|box|>433 140 450 274<|content|>11. Termination\n<|id|>69<|type|>title<|page|>8<|box|>744 140 762 348<|content|>12. Limitation of Liability\n<|id|>72<|type|>title<|page|>9<|box|>213 142 229 406<|content|>13. Acceptance and Counterparts\n<|id|>83<|type|>title<|page|>9<|box|>691 313 707 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>86<|type|>title<|page|>9<|box|>805 142 821 388<|content|>SKYBRIDGE FINTECH LTD.",
+    "raw_response": "<|src_id|>35<|tgt_id|>33\n<|src_id|>62<|tgt_id|>60",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        }
+    ]
+}

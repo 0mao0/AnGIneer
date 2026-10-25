@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        47,
+        95
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        52,
+        61,
+        62,
+        74,
+        82,
+        84,
+        85,
+        87,
+        90,
+        94,
+        95
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>177<|page|>48<|box|>79 221 111 808<|content|>Table 6. ... - Treasury Holdings of Securities Issued by Government Corporations and Other Agencies\n<|id|>178<|page|>48<|box|>114 441 127 597<|content|>(In millions of dollars)\n<|id|>181<|page|>49<|box|>484 6 526 452<|content|>Source: ... 1/ The proprietary interest of the United States in these banks ended in July 1951\n<|id|>180<|page|>49<|box|>113 413 125 568<|content|>(In millions of dollars)\n<|id|>183<|page|>50<|box|>75 26 273 500<|content|>The Second Liberty Bond Act (31 U. ... \\$3 billion from July 1, 1956, through June 30, 1957 (act of\n<|id|>184<|page|>50<|box|>71 521 268 994<|content|>July 9, 1956); ... Obligations issued on a discoun...utory debt limitation at current redemption values\n<|id|>188<|page|>52<|box|>104 436 118 590<|content|>(In millions of dollars)\n<|id|>198<|page|>61<|box|>106 28 154 475<|content|>1/ Issued at par except as noted. ... In re-openin... is in addition to the amount in original offering\n<|id|>219<|page|>61<|box|>856 21 922 482<|content|>23/ Subscriptions from savings-type investors tota...cent. ... All other subscriptions for \\$5,000 were\n<|id|>220<|page|>61<|box|>108 522 210 974<|content|>allotted in full. ... In addition, \\$100 million o...tes was allotted to Government investment accounts\n<|id|>250<|page|>62<|box|>748 18 768 478<|content|>53/ Includes \\$3,411 million allotted to Federal R...nt accounts of the 3-1/2% certificates and \\$1,518\n<|id|>251<|page|>62<|box|>108 538 118 694<|content|>million of the 4% note. ... million of the 4% note\n<|id|>310<|page|>74<|box|>71 38 148 494<|content|>Series E and H are the only savings bonds currentl... F and G were sold from May 1, 1941, through April\n<|id|>311<|page|>74<|box|>71 546 148 1000<|content|>30, 1952. ... Details of the principal changes in ...ctober and December 1959, and May and October 1961\n<|id|>327<|page|>82<|box|>104 384 116 617<|content|>(Par values - in millions of dollars)\n<|id|>331<|page|>84<|box|>71 10 148 473<|content|>Current market quotations shown here are over-the-...ecause they are not regularly quoted in the market\n<|id|>334<|page|>84<|box|>585 382 599 612<|content|>Table 3. ... - Treasury Notes\n<|id|>337<|page|>85<|box|>594 18 635 500<|content|>2/ Beginning April 1953, prices are closing bid qu...e-counter market. ... \"When issued\" prices are in-\n<|id|>342<|page|>87<|box|>820 512 898 981<|content|>given number of years as follows: ... 2/ Change in series (see footnote 1)\n<|id|>339<|page|>87<|box|>90 435 103 559<|content|>(Percent per annum)\n<|id|>347<|page|>90<|box|>98 402 111 580<|content|>(Dollar amounts in millions)\n<|id|>350<|page|>90<|box|>797 541 816 959<|content|>of \\$156. ... 0 million against United States notes and through June 30, 1961, Treasury notes of 1890\n<|id|>361<|page|>94<|box|>503 352 518 642<|content|>Section I - Summary by Periods\n<|id|>362<|page|>94<|box|>518 130 535 864<|content|>Table 1. ... - Net Capital Movement Between the United States and Foreign Countries\n<|id|>363<|page|>94<|box|>539 228 551 848<|content|>(In millions of dollars; ... negative figures indicate a net outflow of capital from the United States)\n<|id|>366<|page|>95<|box|>602 6 625 505<|content|>2/ Beginning in August 1956 and again in April 195...\"Other foreign\" are included in \"Foreign official\"\n<|id|>368<|page|>95<|box|>594 517 604 623<|content|>p Preliminary. ... p Preliminary",
+    "raw_response": "<|src_id|>183<|tgt_id|>184\n<|src_id|>219<|tgt_id|>220\n<|src_id|>250<|tgt_id|>251\n<|src_id|>310<|tgt_id|>311",
+    "parsed": [
+        {
+            "src_id": 183,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 220
+        },
+        {
+            "src_id": 250,
+            "tgt_id": 251
+        },
+        {
+            "src_id": 310,
+            "tgt_id": 311
+        }
+    ]
+}

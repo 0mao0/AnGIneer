@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>99 334 118 663<|content|>BRING-DOWN CERTIFICATE\n<|id|>1<|type|>title<|page|>1<|box|>136 168 152 828<|content|>Delivered Pursuant to Section [____] of the Master\n<|id|>3<|type|>title<|page|>1<|box|>368 140 383 346<|content|>SECTION 1: RECITALS\n<|id|>7<|type|>title<|page|>2<|box|>148 140 166 374<|content|>SECTION 2: DEFINITIONS\n<|id|>13<|type|>title<|page|>2<|box|>448 140 464 411<|content|>SECTION 3: CERTIFICATIONS\n<|id|>15<|type|>title<|page|>2<|box|>542 140 559 545<|content|>3.1 Bring-Down of Representations and Warranties\n<|id|>24<|type|>title<|page|>3<|box|>681 140 699 330<|content|>3.2 No Material Breach\n<|id|>27<|type|>title<|page|>4<|box|>90 140 107 351<|content|>3.3 Security Certifications\n<|id|>32<|type|>title<|page|>4<|box|>698 140 715 331<|content|>3.4 Insurance Coverage\n<|id|>42<|type|>title<|page|>5<|box|>632 140 648 433<|content|>3.5 Compliance with Applicable Law\n<|id|>51<|type|>title<|page|>6<|box|>381 140 398 398<|content|>3.6 No Litigation or Proceedings\n<|id|>57<|type|>title<|page|>6<|box|>777 140 794 282<|content|>3.7 Data Security\n<|id|>61<|type|>table<|page|>7<|box|>478 143 587 852<|content|>None\n<|id|>63<|type|>title<|page|>7<|box|>734 140 751 349<|content|>SECTION 4: RELIANCE\n<|id|>66<|type|>title<|page|>8<|box|>258 140 276 415<|content|>SECTION 5: GOVERNING LAW\n<|id|>68<|type|>title<|page|>8<|box|>436 140 452 362<|content|>SECTION 6: EXECUTION\n<|id|>76<|type|>title<|page|>9<|box|>89 142 106 423<|content|>SCHEDULE OF ATTACHMENTS\n<|id|>78<|type|>table<|page|>9<|box|>195 143 488 852<|content|>None\n<|id|>80<|type|>title<|page|>9<|box|>590 330 606 668<|content|>[END OF BRING-DOWN CERTIFICATE]",
+    "raw_response": "<|src_id|>61<|tgt_id|>57\n<|src_id|>78<|tgt_id|>76",
+    "parsed": [
+        {
+            "src_id": 61,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        }
+    ]
+}

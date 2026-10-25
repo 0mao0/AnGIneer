@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        10,
+        11,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>198 174 234 854<|content|>Catherine Ng U. ... 8200 Dulles Corner Boulevard, Suite 1100 Tysons Corner, VA 22182\n<|id|>3<|page|>1<|box|>243 174 279 854<|content|>James Whitford Group General Counsel Northgate Tel...LC 14 Broadwall Lane London SE1 9PQ United Kingdom\n<|id|>4<|page|>1<|box|>287 140 304 210<|content|>FROM: ... FROM\n<|id|>5<|page|>1<|box|>313 174 348 854<|content|>Elaine Forsythe Calderwood & Harkness LLP 1200 K Street NW, Suite 900 Washington, D. ... 20005\n<|id|>6<|page|>1<|box|>356 140 375 334<|content|>DATE: ... February 1, 2024\n<|id|>7<|page|>1<|box|>383 140 455 857<|content|>RE: ... — Complaint Regarding Interconnection Obligations under Section 251)\n<|id|>8<|page|>1<|box|>464 142 482 511<|content|>Engagement Reference: ... C&H-2022-ATR-00419\n<|id|>81<|page|>10<|box|>834 145 907 857<|content|>• If the FCC rules against Northgate on the interc...e — i. ... As the Supreme Court held in Harborview\n<|id|>82<|page|>11<|box|>90 174 273 857<|content|>Holdings Inc. ... We discuss these strategic considerations in greater detail in Section VII below\n<|id|>166<|page|>18<|box|>133 140 151 321<|content|>Respectfully submitted,\n<|id|>167<|page|>18<|box|>151 142 167 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>168<|page|>18<|box|>169 143 186 251<|content|>By: ... By\n<|id|>169<|page|>18<|box|>185 140 219 852<|content|>Elaine Forsythe Partner, Antitrust & Competition 1...et NW, Suite 900 Washington, D. ... (202) 555-0147\n<|id|>170<|page|>18<|box|>219 140 237 468<|content|>Email: ... com\n<|id|>171<|page|>18<|box|>239 142 252 171<|content|>cc: ... cc",
+    "raw_response": "<|src_id|>81<|tgt_id|>82",
+    "parsed": [
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        }
+    ]
+}

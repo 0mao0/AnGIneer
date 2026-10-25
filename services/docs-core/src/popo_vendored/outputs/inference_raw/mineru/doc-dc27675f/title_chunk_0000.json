@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        61
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        14,
+        20,
+        21,
+        25,
+        26,
+        31,
+        33,
+        36,
+        45,
+        47,
+        58,
+        60
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>5<|box|>305 168 338 796<|content|>TREASURY DEPARTMENT\n<|id|>15<|page|>7<|box|>293 180 326 810<|content|>TREASURY DEPARTMENT\n<|id|>23<|page|>9<|box|>160 389 177 587<|content|>Table of Contents\n<|id|>34<|page|>14<|box|>443 326 459 657<|content|>Summary of Receipts and Expenditures\n<|id|>43<|page|>20<|box|>101 274 131 731<|content|>COLLECTIONS OF INTERNAL REVENUE\n<|id|>44<|page|>21<|box|>68 235 97 755<|content|>Customs Duties and Taxes Estimated, and Value of D\n<|id|>52<|page|>25<|box|>64 260 90 725<|content|>Receipts and Expenditures Under Railroad Retiremen\n<|id|>54<|page|>25<|box|>463 371 478 624<|content|>Railroad Retirement Account\n<|id|>56<|page|>26<|box|>56 326 70 666<|content|>Cash Income and Outgo of the Treasury\n<|id|>62<|page|>31<|box|>389 155 404 844<|content|>Statement of the Outstanding Public Debt on June 3\n<|id|>70<|page|>33<|box|>625 362 640 642<|content|>Composition of the Public Debt\n<|id|>75<|page|>36<|box|>56 381 68 613<|content|>Statutory Debt Limitation\n<|id|>78<|page|>36<|box|>561 311 573 692<|content|>RECONCILEMENT WITH DAILY TREASURY STATEMENT - DECE\n<|id|>96<|page|>45<|box|>70 205 99 783<|content|>Uses of Funds of Certain Governmental Corporations\n<|id|>101<|page|>47<|box|>65 207 91 783<|content|>Uses of Funds of Certain Governmental Corporations\n<|id|>114<|page|>58<|box|>49 180 77 840<|content|>FOREIGN PURCHASES AND SALES OF U.S. DOMESTIC SECUR\n<|id|>117<|page|>60<|box|>56 203 87 739<|content|>Outstanding Forward Exchange Contracts as Reported\n<|id|>119<|page|>60<|box|>702 181 734 771<|content|>Net Position in Foreign Currencies of Reporting Ba",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>15<|level|>1\n<|id|>23<|level|>1\n<|id|>34<|level|>1\n<|id|>43<|level|>1\n<|id|>44<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>3\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>96<|level|>2\n<|id|>101<|level|>2\n<|id|>114<|level|>1\n<|id|>117<|level|>2\n<|id|>119<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        }
+    ]
+}

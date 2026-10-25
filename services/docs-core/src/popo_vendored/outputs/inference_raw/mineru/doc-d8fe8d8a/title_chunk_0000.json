@@ -1,0 +1,119 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        17,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 714<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 158 152 839<|content|>1700 K Street NW, Suite 900 Washington, D.C. 20006\n<|id|>4<|page|>1<|box|>231 424 247 573<|content|>MEMORANDUM\n<|id|>10<|page|>1<|box|>441 321 460 674<|content|>Section 1: Purpose and Instructions\n<|id|>11<|page|>1<|box|>486 142 503 240<|content|>1.1 Purpose\n<|id|>14<|page|>1<|box|>724 142 742 362<|content|>1.2 Prior Filings Completed\n<|id|>19<|page|>2<|box|>450 142 469 387<|content|>1.3 Remaining 24 Jurisdictions\n<|id|>28<|page|>3<|box|>339 140 356 387<|content|>1.4 Customization Instructions\n<|id|>40<|page|>3<|box|>815 143 832 287<|content|>1.5 Filing Method\n<|id|>47<|page|>4<|box|>319 143 335 400<|content|>1.6 Notifying Entity Information\n<|id|>52<|page|>4<|box|>559 331 578 665<|content|>Section 2: Template Cover Letter\n<|id|>54<|page|>4<|box|>638 282 657 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>62<|page|>5<|box|>157 140 174 558<|content|>2.5 — Opening Paragraph — Purpose of Notification\n<|id|>65<|page|>5<|box|>506 140 523 405<|content|>2.6 — Description of the Incident\n<|id|>73<|page|>6<|box|>439 140 457 364<|content|>2.7 — Information Involved\n<|id|>84<|page|>7<|box|>186 140 203 429<|content|>2.8 — Number of Affected Residents\n<|id|>87<|page|>7<|box|>315 140 333 390<|content|>2.9 — Steps Taken in Response\n<|id|>98<|page|>8<|box|>372 140 388 383<|content|>2.10 — Consumer Notification\n<|id|>104<|page|>9<|box|>90 140 107 367<|content|>2.11 — Contact Information\n<|id|>112<|page|>9<|box|>364 140 383 292<|content|>2.12 — Enclosures\n<|id|>118<|page|>9<|box|>645 140 664 267<|content|>2.13 — Closing\n<|id|>128<|page|>10<|box|>220 142 237 228<|content|>Enclosures\n<|id|>129<|page|>10<|box|>244 140 263 450<|content|>[END OF TEMPLATE COVER LETTER]\n<|id|>130<|page|>10<|box|>273 220 292 776<|content|>Section 3: State-Specific Customization Reference\n<|id|>142<|page|>17<|box|>356 142 373 692<|content|>Total affected residents across all 24 states + D.\n<|id|>144<|page|>17<|box|>518 367 539 630<|content|>Section 4: Filing Checklist\n<|id|>150<|page|>19<|box|>296 143 313 284<|content|>Additional Notes:\n<|id|>152<|page|>19<|box|>527 344 547 653<|content|>Section 5: Filing Log Template\n<|id|>164<|page|>20<|box|>498 140 527 854<|content|>CONFIDENTIAL AND PRIVILEGED — ATTORNEY-CLIENT COMM",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>4<|level|>1\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>14<|level|>3\n<|id|>19<|level|>3\n<|id|>28<|level|>3\n<|id|>40<|level|>3\n<|id|>47<|level|>3\n<|id|>52<|level|>2\n<|id|>54<|level|>-1\n<|id|>62<|level|>3\n<|id|>65<|level|>3\n<|id|>73<|level|>3\n<|id|>84<|level|>3\n<|id|>87<|level|>3\n<|id|>98<|level|>3\n<|id|>104<|level|>3\n<|id|>112<|level|>3\n<|id|>118<|level|>3\n<|id|>128<|level|>2\n<|id|>129<|level|>-1\n<|id|>130<|level|>2\n<|id|>142<|level|>-1\n<|id|>144<|level|>2\n<|id|>150<|level|>2\n<|id|>152<|level|>2\n<|id|>164<|level|>-1",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        }
+    ]
+}

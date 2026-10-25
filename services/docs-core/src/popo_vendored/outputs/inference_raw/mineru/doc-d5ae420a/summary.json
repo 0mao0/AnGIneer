@@ -1,0 +1,495 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-j3qdisfj\\input\\pdfs\\doc-d5ae420a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-j3qdisfj\\enriched\\doc-d5ae420a.json",
+    "contd_output": "<|src_id|>63<|tgt_id|>64\n<|src_id|>73<|tgt_id|>74\n<|src_id|>105<|tgt_id|>106\n<|src_id|>176<|tgt_id|>177",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>31<|level|>3\n<|id|>35<|level|>3\n<|id|>37<|level|>2\n<|id|>38<|level|>3\n<|id|>47<|level|>3\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>58<|level|>3\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>76<|level|>3\n<|id|>82<|level|>2\n<|id|>83<|level|>3\n<|id|>88<|level|>3\n<|id|>93<|level|>3\n<|id|>95<|level|>2\n<|id|>96<|level|>3\n<|id|>98<|level|>3\n<|id|>100<|level|>3\n<|id|>102<|level|>3\n<|id|>104<|level|>3\n<|id|>107<|level|>3\n<|id|>109<|level|>3\n<|id|>111<|level|>4\n<|id|>138<|level|>2\n<|id|>139<|level|>3\n<|id|>142<|level|>4\n<|id|>150<|level|>4\n<|id|>158<|level|>2\n<|id|>159<|level|>3\n<|id|>164<|level|>4\n<|id|>171<|level|>4\n<|id|>173<|level|>4\n<|id|>179<|level|>2\n<|id|>180<|level|>3\n<|id|>184<|level|>3",
+    "image_output": "<|src_id|>143<|tgt_id|>142\n<|src_id|>144<|tgt_id|>142\n<|src_id|>145<|tgt_id|>142\n<|src_id|>146<|tgt_id|>142\n<|src_id|>147<|tgt_id|>142\n<|src_id|>148<|tgt_id|>142\n<|src_id|>149<|tgt_id|>142\n<|src_id|>162<|tgt_id|>159\n<|src_id|>163<|tgt_id|>159\n<|src_id|>167<|tgt_id|>159\n<|src_id|>168<|tgt_id|>159\n<|src_id|>169<|tgt_id|>159\n<|src_id|>170<|tgt_id|>159\n<|src_id|>172<|tgt_id|>159",
+    "contd_label": [
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 177
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 4
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 4
+        },
+        {
+            "id": 150,
+            "level": 4
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 4
+        },
+        {
+            "id": 171,
+            "level": 4
+        },
+        {
+            "id": 173,
+            "level": 4
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 143,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 159
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 143,
+            "table2_idx": 144,
+            "upper_row_ss": [
+                [
+                    "Solstice Wellness Studio Inc.",
+                    "Corporation (New York)",
+                    "Floor 1 (Lower Level) & Floor 2",
+                    "14,400 SF",
+                    "April 1, 2019",
+                    "March 31, 2029",
+                    "$938,000 ($65.14/SF)",
+                    "One (1) five-year renewal option at FMV with 5% floor",
+                    "$312,667 (cash)",
+                    "Retail/Wellness; specialized HVAC and plumbing requirements; personal guarantee of Maria E. Solstice"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "RidgepointConsultingGroupLLC",
+                    "LLC (Delaware)",
+                    "Floors 3-5",
+                    "41,700 SF",
+                    "September 1, 2020",
+                    "August 31, 2030",
+                    "$2,293,500 ($55.00/SF)",
+                    "Two (2) five-year renewal options at 95% FMV",
+                    "$764,500 (letter of credit — issued by Greaves Bancorp)",
+                    "Office; right of first offer on Floor 6 (expired); sublease of approx. 6,500 SF on Floor 4 to Ridgepoint Analytics LLC (affiliate)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 144,
+            "table2_idx": 145,
+            "upper_row_ss": [
+                [
+                    "Whitebridge Capital Advisors LP",
+                    "LP (Delaware)",
+                    "Floor 9, Suite 901",
+                    "8,200 SF",
+                    "May 1, 2020",
+                    "April 30, 2029",
+                    "$467,400 ($57.00/SF)",
+                    "One (1) five-year renewal option at",
+                    "$155,800 (cash)",
+                    "Office; personal guarantee of Kenneth"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "95% FMV",
+                    "",
+                    "Whitebridge"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 146,
+            "table2_idx": 147,
+            "upper_row_ss": [
+                [
+                    "11A",
+                    "Michael & Jenna Reeves",
+                    "1,250 SF",
+                    "February 1, 2019",
+                    "Annual — January",
+                    "$4,400",
+                    "$52,800",
+                    "$4,400 (cash)",
+                    "Rent stabilized"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "31, 2027",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 147,
+            "table2_idx": 148,
+            "upper_row_ss": [
+                [
+                    "12G",
+                    "Min-Ji Park",
+                    "1,050 SF",
+                    "February 1, 2022",
+                    "Annual — January",
+                    "$3,700",
+                    "$44,400",
+                    "$3,700 (cash)",
+                    "Rent stabilized"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "12H",
+                    "vacant",
+                    "1,050 SF",
+                    "—",
+                    "—",
+                    "—",
+                    "—",
+                    "—",
+                    "Vacant unit"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 148,
+            "table2_idx": 149,
+            "upper_row_ss": [
+                [
+                    "14E",
+                    "Grace & Philip Quelston",
+                    "1,100 SF",
+                    "October 1, 2021",
+                    "Annual — September 30, 2026",
+                    "$3,950",
+                    "$47,400",
+                    "$3,950 (cash)",
+                    "Rent stabilized"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "14F",
+                    "Devi Subraman iam",
+                    "850 SF",
+                    "March 1, 2024",
+                    "Annual — February 28, 2027",
+                    "$3,400",
+                    "$40,800",
+                    "$3,400 (cash)",
+                    "Rent stabilized"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 162,
+            "table2_idx": 163,
+            "upper_row_ss": [
+                [
+                    "Calderon Specialty",
+                    "Cash",
+                    "$382,250.00",
+                    "Eastbridge",
+                    "xxxxxx7843"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Insurance Digital Media Corp.",
+                    "",
+                    "",
+                    "Commercial Bank, N.A.",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 167,
+            "table2_idx": 168,
+            "upper_row_ss": [
+                [
+                    "10F",
+                    "Robert Chen",
+                    "Cash",
+                    "$3,300.00",
+                    "Signature Bridge Bank (successor),",
+                    "xxxxxx9201"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "N.A.",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 168,
+            "table2_idx": 169,
+            "upper_row_ss": [
+                [
+                    "12D",
+                    "William & Margaret Tran",
+                    "Cash",
+                    "$4,200.00",
+                    "Signature Bridge Bank",
+                    "xxxxxx9201"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "(successor), N.A.",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 169,
+            "table2_idx": 170,
+            "upper_row_ss": [
+                [
+                    "14B",
+                    "Rachel Nguyen",
+                    "Cash",
+                    "$3,900.00",
+                    "Signature",
+                    "xxxxxx9201"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Bridge Bank (successor), N.A.",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

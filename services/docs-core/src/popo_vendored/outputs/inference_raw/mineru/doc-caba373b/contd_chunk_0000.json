@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        41
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        13,
+        14,
+        16,
+        17,
+        37,
+        41
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>228 140 244 611<|content|>TO: ... Sylvia Hartwell, Partner, Tax\n<|id|>4<|page|>1<|box|>253 140 271 697<|content|>FROM: ... Robert Jansen, Associate, Tax\n<|id|>5<|page|>1<|box|>279 140 297 316<|content|>DATE: ... April 14, 2025\n<|id|>6<|page|>1<|box|>305 140 340 854<|content|>RE: ... Functional Analysis — Halcyon Semiconductor AG (Manufacturing & IP Owner/Developer)\n<|id|>7<|page|>1<|box|>349 140 367 362<|content|>MATTER NO. ... 1032-00006\n<|id|>8<|page|>1<|box|>375 140 393 411<|content|>BILLING CODE: ... HSAG-TP-2025\n<|id|>17<|page|>2<|box|>253 181 289 854<|content|>• Halcyon Semiconductor Japan K. ... and\n<|id|>19<|page|>2<|box|>347 140 457 856<|content|>HSAG designs and manufactures advanced-node semico... of the semiconductor industry in the coming years\n<|id|>26<|page|>3<|box|>166 181 200 854<|content|>• Dr. ... and\n<|id|>28<|page|>3<|box|>258 140 500 856<|content|>This memorandum is based on information obtained t...ssociate) regarding the German statutory framework\n<|id|>89<|page|>8<|box|>854 140 909 856<|content|>The Aufsichtsrat supervises the Vorstand and is co... and the German Corporate Governance Code. ... The\n<|id|>90<|page|>9<|box|>90 140 237 854<|content|>Aufsichtsrat approves major capital investments, e...terization as the entrepreneurial principal entity\n<|id|>140<|page|>13<|box|>857 140 893 854<|content|>A critical element of HSAG's manufacturing process...loped advanced statistical process control (\"SPC\")\n<|id|>141<|page|>14<|box|>90 140 181 856<|content|>algorithms, machine learning-based defect classifi...uable process technology intangibles owned by HSAG\n<|id|>173<|page|>16<|box|>857 140 893 856<|content|>Under the CSA (effective July 15, 2018), HSAG and ...ram. ... The CSA is structured as a Qualified Cost\n<|id|>174<|page|>17<|box|>90 140 145 854<|content|>Sharing Arrangement under Treas. ... The key terms of the CSA are as follows\n<|id|>360<|page|>37<|box|>218 183 253 852<|content|>• Non-CSA R&D costs (by year), representing sustai...oduct design costs borne entirely by HSAG; ... and\n<|id|>362<|page|>37<|box|>275 140 330 854<|content|>This exhibit demonstrates the consistency and magn...cipal developer of the group's intangible property\n<|id|>382<|page|>41<|box|>196 140 213 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>383<|page|>41<|box|>214 142 232 254<|content|>By: ... By\n<|id|>384<|page|>41<|box|>231 140 248 294<|content|>Name: ... Leila Nazari\n<|id|>385<|page|>41<|box|>248 140 265 352<|content|>Title: ... Senior Associate, Tax\n<|id|>386<|page|>41<|box|>265 142 282 300<|content|>Date: ... April 14, 2025\n<|id|>387<|page|>41<|box|>284 142 300 256<|content|>By: ... By\n<|id|>388<|page|>41<|box|>301 140 316 305<|content|>Name: ... Robert Jansen\n<|id|>389<|page|>41<|box|>316 140 334 302<|content|>Title: ... Associate, Tax\n<|id|>390<|page|>41<|box|>334 140 352 300<|content|>Date: ... April 14, 2025",
+    "raw_response": "<|src_id|>89<|tgt_id|>90\n<|src_id|>140<|tgt_id|>141\n<|src_id|>173<|tgt_id|>174",
+    "parsed": [
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 141
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 174
+        }
+    ]
+}

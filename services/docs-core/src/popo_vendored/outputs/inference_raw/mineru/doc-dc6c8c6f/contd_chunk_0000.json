@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        15,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>465 705 483 854<|content|>Filed: ... April 1, 2025\n<|id|>4<|page|>1<|box|>526 150 580 846<|content|>CALDERWOOD & HARKNESS LLP Marcus Delgado (Bar No. ... (302) 658-7400\n<|id|>27<|page|>4<|box|>862 140 898 854<|content|>7. ... The parties submitted a Joint Claim Construction\n<|id|>28<|page|>5<|box|>89 174 126 854<|content|>Brief (D. ... )\n<|id|>113<|page|>15<|box|>518 174 555 852<|content|>wherein the cutting blade is deployed to the deplo... overcomes the bias of the spring element; ... and\n<|id|>114<|page|>15<|box|>563 174 598 854<|content|>wherein the cutting blade retracts to the retracte...e of the affirmative manual actuating force. ... \"\n<|id|>169<|page|>22<|box|>594 140 659 854<|content|>Marcus Delgado (Bar No. ... com\n<|id|>170<|page|>22<|box|>659 140 676 504<|content|>Attorneys for Defendant Solstice Biomedical, Inc. ... Attorneys for Defendant Solstice Biomedical, Inc\n<|id|>174<|page|>23<|box|>89 174 143 854<|content|>Victoria Stanton, Esq. ... com\n<|id|>175<|page|>23<|box|>152 176 171 573<|content|>Attorneys for Plaintiff Apex Surgical Innovations,...rneys for Plaintiff Apex Surgical Innovations, Inc",
+    "raw_response": "<|src_id|>27<|tgt_id|>28\n<|src_id|>113<|tgt_id|>114",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        45,
+        84
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        55,
+        56,
+        59,
+        60,
+        71,
+        83,
+        84
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>348<|page|>45<|box|>860 159 882 858<|content|>5 口型件安装应以隧道中心线进行控制,口型件的坡度在\n<|id|>349<|page|>46<|box|>110 108 132 780<|content|>成环隧道基础上结合设计坡度进行调整,接缝平顺无错台。 ... 成环隧道基础上结合设计坡度进行调整,接缝平顺无错台\n<|id|>358<|page|>46<|box|>830 108 878 861<|content|>1 构件表面应无缺棱掉角、混凝土剥落和大于 0. ... 5～1 分并\n<|id|>359<|page|>47<|box|>112 116 132 270<|content|>应进行处理。 ... 应进行处理\n<|id|>416<|page|>55<|box|>156 297 174 671<|content|>表 B. ... 3 单位工程质量检验评定表\n<|id|>417<|page|>55<|box|>179 111 198 267<|content|>单位工程名称： ... 单位工程名称\n<|id|>427<|page|>56<|box|>174 244 191 709<|content|>表 B. ... 4 建设项目(合同段)质量检验评定表\n<|id|>428<|page|>56<|box|>196 103 218 232<|content|>项目名称： ... 项目名称\n<|id|>462<|page|>59<|box|>860 123 882 878<|content|>式中 mf_{\\mathrm{cu}} ——同一检验批混凝土立方体抗压强度的平均值\n<|id|>464<|page|>60<|box|>139 179 159 722<|content|>f_{cu,k} ——混凝土立方体抗压强度标准值(MPa); ... f_{cu,k} ——混凝土立方体抗压强度标准值(MPa)\n<|id|>527<|page|>71<|box|>331 343 351 623<|content|>DG/TJ 08-2250-2017\n<|id|>528<|page|>71<|box|>357 393 378 573<|content|>J 14101-2018\n<|id|>529<|page|>71<|box|>423 391 448 575<|content|>条文说明\n<|id|>604<|page|>83<|box|>875 161 895 863<|content|>1 试拼装也可采用 BIM 技术, 即建筑信息模型 (Building\n<|id|>605<|page|>84<|box|>122 111 169 856<|content|>Information Modeling)代替,但应征得业主、设计单位和监理的同意。 ... Information Modeling)代替,但应征得业主、设计单位和监理的同意",
+    "raw_response": "<|src_id|>348<|tgt_id|>349\n<|src_id|>358<|tgt_id|>359\n<|src_id|>462<|tgt_id|>464\n<|src_id|>604<|tgt_id|>605",
+    "parsed": [
+        {
+            "src_id": 348,
+            "tgt_id": 349
+        },
+        {
+            "src_id": 358,
+            "tgt_id": 359
+        },
+        {
+            "src_id": 462,
+            "tgt_id": 464
+        },
+        {
+            "src_id": 604,
+            "tgt_id": 605
+        }
+    ]
+}

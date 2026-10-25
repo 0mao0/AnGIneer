@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        15,
+        16,
+        17,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>142 145 159 852<|content|>CALDERWOOD & HARKNESS LLP 1700 K Street NW, Suite 900 Washington, D. ... 20006\n<|id|>2<|page|>1<|box|>167 756 185 854<|content|>June 5, 2023\n<|id|>25<|page|>3<|box|>792 140 902 857<|content|>Palomar is Quorum's second-largest vendor by reven... processes, stores, and transmits large volumes of\n<|id|>26<|page|>4<|box|>90 140 127 854<|content|>Quorum policyholder and claimant PII, financial da...alth-related claims — protected health information\n<|id|>32<|page|>4<|box|>553 174 608 854<|content|>(iii) Identification and characterization of all d...rum policyholder and claimant information; ... and\n<|id|>34<|page|>4<|box|>660 140 715 856<|content|>Graystone's preliminary findings report was delive...f the findings contained in that privileged report\n<|id|>130<|page|>15<|box|>415 181 450 854<|content|>• Internal remediation costs, including the cost o...urity measures necessitated by the breach; ... and\n<|id|>132<|page|>15<|box|>489 140 691 857<|content|>The indemnification obligation under Section 12. .... of the liability cap to the indemnification claim\n<|id|>143<|page|>16<|box|>825 140 898 856<|content|>Recommendation: ... We recommend that Quorum consu...Risk Management, and Robert Wentworth, Senior Vice\n<|id|>144<|page|>17<|box|>90 140 162 854<|content|>President of Claims Operations, to assess the oper...mensions of this decision as the situation evolves\n<|id|>152<|page|>17<|box|>444 183 459 447<|content|>• Crisis communications costs; ... and\n<|id|>154<|page|>17<|box|>500 140 609 854<|content|>The $2,500,000 self-insured retention (\"SIR\") must...tlas's coverage will be triggered in the near term\n<|id|>192<|page|>22<|box|>294 140 327 854<|content|>Alan Burke Lead Associate, Privacy & Data Security...et NW, Suite 900 Washington, D. ... (202) 555-0147\n<|id|>193<|page|>22<|box|>328 142 344 450<|content|>Email: ... com\n<|id|>195<|page|>22<|box|>369 174 424 854<|content|>Kevin Ostrowski, Partner (Responsible Partner), Ca...ate (Working Associate), Calderwood & Harkness LLP\n<|id|>196<|page|>22<|box|>431 140 477 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...prior written consent of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>25<|tgt_id|>26\n<|src_id|>143<|tgt_id|>144",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 144
+        }
+    ]
+}

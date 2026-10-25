@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>138 83 174 935<|content|>中华人民共和国城镇建设行业标准\n<|id|>3<|type|>title<|page|>1<|box|>396 176 433 841<|content|>饮用净水水质标准\n<|id|>4<|type|>title<|page|>1<|box|>461 246 483 772<|content|>Water quality standards for fine drinking water\n<|id|>7<|type|>title<|page|>2<|box|>125 420 150 538<|content|>目次\n<|id|>9<|type|>title<|page|>3<|box|>122 458 144 579<|content|>前言\n<|id|>34<|type|>title<|page|>4<|box|>122 305 146 691<|content|>饮用净水水质标准\n<|id|>35<|type|>title<|page|>4<|box|>183 77 200 152<|content|>1 范围\n<|id|>38<|type|>title<|page|>4<|box|>279 75 298 249<|content|>2 规范性引用文件\n<|id|>42<|type|>title<|page|>4<|box|>416 77 433 190<|content|>3 水质标准\n<|id|>44<|type|>table<|page|>4<|box|>483 77 903 914<|content|>None\n<|id|>45<|type|>table<|page|>5<|box|>114 69 659 903<|content|>None\n<|id|>46<|type|>title<|page|>5<|box|>674 69 690 179<|content|>4 水质检验",
+    "raw_response": "<|src_id|>44<|tgt_id|>42\n<|src_id|>45<|tgt_id|>42",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 42
+        }
+    ]
+}

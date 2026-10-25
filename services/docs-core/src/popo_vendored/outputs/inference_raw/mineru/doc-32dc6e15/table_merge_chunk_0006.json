@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['13', 'Chen (U.S. 2015/033', 'U.S. patent pub.', 'Nov. 2015', \"'847\", '§ 103 (obviousness)', 'Yes (IDS)', 'Not relied upon by examiner', 'Low — before the examiner']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '1181)', '', '', '', '', '', 'in any rejection; considered in view of IDS', 'via IDS']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 626,
+    "table2_idx": 627
+}

@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        70,
+        119
+    ],
+    "pages": [
+        71,
+        73,
+        78,
+        97,
+        98,
+        99,
+        104,
+        106,
+        107,
+        116,
+        118
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>277<|page|>71<|box|>79 400 92 593<|content|>Footnotes to Table 6\n<|id|>308<|page|>73<|box|>74 213 102 771<|content|>Table 8.- Foreign Currency Series Securities (Nonm\n<|id|>319<|page|>78<|box|>569 201 599 815<|content|>Table 2.- Net Market Purchases or Sales of Federal\n<|id|>375<|page|>97<|box|>75 233 106 742<|content|>Section II - Summary by Countries Table 1.- Short-\n<|id|>377<|page|>98<|box|>78 258 109 738<|content|>Section II - Summary by Countries Table 2.- Short-\n<|id|>379<|page|>99<|box|>80 341 95 655<|content|>Section II - Summary by Countries\n<|id|>386<|page|>104<|box|>71 300 87 714<|content|>Section IV - Supplementary Data by Countries\n<|id|>395<|page|>106<|box|>75 295 90 711<|content|>Section IV - Supplementary Data by Countries\n<|id|>396<|page|>106<|box|>93 203 108 813<|content|>Table 4.- Foreign Credit and Debit Balances in Bro\n<|id|>398<|page|>107<|box|>73 171 119 813<|content|>Section IV - Supplementary Data by Countries Table\n<|id|>414<|page|>116<|box|>80 293 95 719<|content|>Section I - Statements of Financial Condition\n<|id|>418<|page|>118<|box|>53 263 68 748<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>419<|page|>118<|box|>89 300 103 726<|content|>Section I - Statements of Financial Condition",
+    "raw_response": "<|id|>277<|level|>3\n<|id|>308<|level|>2\n<|id|>319<|level|>2\n<|id|>375<|level|>1\n<|id|>377<|level|>1\n<|id|>379<|level|>1\n<|id|>386<|level|>1\n<|id|>395<|level|>1\n<|id|>396<|level|>2\n<|id|>398<|level|>1\n<|id|>414<|level|>1\n<|id|>418<|level|>1\n<|id|>419<|level|>2",
+    "parsed": [
+        {
+            "id": 277,
+            "level": 3
+        },
+        {
+            "id": 308,
+            "level": 2
+        },
+        {
+            "id": 319,
+            "level": 2
+        },
+        {
+            "id": 375,
+            "level": 1
+        },
+        {
+            "id": 377,
+            "level": 1
+        },
+        {
+            "id": 379,
+            "level": 1
+        },
+        {
+            "id": 386,
+            "level": 1
+        },
+        {
+            "id": 395,
+            "level": 1
+        },
+        {
+            "id": 396,
+            "level": 2
+        },
+        {
+            "id": 398,
+            "level": 1
+        },
+        {
+            "id": 414,
+            "level": 1
+        },
+        {
+            "id": 418,
+            "level": 1
+        },
+        {
+            "id": 419,
+            "level": 2
+        }
+    ]
+}

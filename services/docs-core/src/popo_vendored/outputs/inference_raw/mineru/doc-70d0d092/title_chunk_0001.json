@@ -1,0 +1,33 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        50
+    ],
+    "pages": [
+        47,
+        48,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>497<|page|>47<|box|>89 142 107 602<|content|>APPENDIX: SUMMARY TABLE OF C&H COMMENTS\n<|id|>499<|page|>47<|box|>224 142 243 651<|content|>Key Negotiation Issues Flagged for Priority Discus\n<|id|>503<|page|>48<|box|>773 142 792 488<|content|>Items Requiring Client Input from Thalassa\n<|id|>507<|page|>50<|box|>90 142 107 519<|content|>Cross-Reference to Parallel Document Markups",
+    "raw_response": "<|id|>497<|level|>1\n<|id|>499<|level|>2\n<|id|>503<|level|>2\n<|id|>507<|level|>2",
+    "parsed": [
+        {
+            "id": 497,
+            "level": 1
+        },
+        {
+            "id": 499,
+            "level": 2
+        },
+        {
+            "id": 503,
+            "level": 2
+        },
+        {
+            "id": 507,
+            "level": 2
+        }
+    ]
+}

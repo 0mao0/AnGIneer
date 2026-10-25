@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        11,
+        12,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>510 169 547 854<|content|>Calderwood & Harkness LLP 2200 Ross Avenue, Suite ... Dallas, Texas 75201 Telephone: ... (214) 555-7201\n<|id|>6<|page|>1<|box|>555 145 590 856<|content|>Bernard Crawford, Responsible Partner Renata Vasqu...od, Lead Associate Devon Archer, Working Associate\n<|id|>7<|page|>1<|box|>599 700 616 854<|content|>Date: ... July 20, 2025\n<|id|>19<|page|>2<|box|>838 140 893 854<|content|>Delano alleges in his Complaint that he and the pu...y on a per-delivery basis under the terms of their\n<|id|>20<|page|>3<|box|>90 140 164 854<|content|>Independent Contractor Operating Agreements (\"ICOA...visions throughout the relevant limitations period\n<|id|>32<|page|>4<|box|>823 140 878 856<|content|>Plaintiff estimates that the proposed collective e...tor of Driver Relations Karen Lund, identify 1,187\n<|id|>34<|page|>5<|box|>474 140 604 854<|content|>As discussed in greater detail in Sections IV. ... § 216(b)\n<|id|>43<|page|>6<|box|>229 176 250 632<|content|>(5) the degree of permanence of the working relationship; ... and\n<|id|>45<|page|>6<|box|>282 140 354 854<|content|>See Hopkins, 545 F. ... 3d at 379\n<|id|>84<|page|>11<|box|>840 140 897 856<|content|>It is important to note that Named Plaintiff Marcu...to Delano individually, and he would remain as the\n<|id|>85<|page|>12<|box|>89 140 145 854<|content|>Named Plaintiff in the collective action. ... Howe... the litigation and the potential damages exposure\n<|id|>131<|page|>16<|box|>840 140 878 854<|content|>Based on the foregoing analysis, Stonefield has de...se scenarios are presented for internal evaluation\n<|id|>133<|page|>17<|box|>531 140 641 854<|content|>Stonefield's position is that Scenarios C or D mos...s merits defenses substantially limit the downside\n<|id|>137<|page|>17<|box|>814 176 832 470<|content|>Policy Number: ... BIC-EPL-2024-07831\n<|id|>138<|page|>17<|box|>840 176 858 544<|content|>Policy Period: ... January 1, 2025 – January 1, 2026\n<|id|>139<|page|>17<|box|>866 176 883 517<|content|>Self-Insured Retention (\"SIR\"): ... $2,000,000\n<|id|>147<|page|>18<|box|>857 140 893 854<|content|>It is also worth noting that Broadleaf's duty to d...coverage, the carrier is currently contributing to\n<|id|>148<|page|>19<|box|>90 140 145 854<|content|>Stonefield's defense costs subject to the reservat...forward, in addition to any settlement or judgment\n<|id|>165<|page|>20<|box|>859 174 895 854<|content|>(a) The Court has ruled on Plaintiff's Motion for ...tional Certification (filed July 14, 2025; ... and\n<|id|>167<|page|>21<|box|>152 140 244 854<|content|>Under this timeline, mediation would likely be pro...dgepoint's exit process reaches a definitive stage\n<|id|>238<|page|>28<|box|>248 140 297 852<|content|>James Underwood Associate Texas Bar No. ... (214) 555-7201\n<|id|>239<|page|>28<|box|>299 140 315 540<|content|>Counsel for Defendant Stonefield Logistics Group I...unsel for Defendant Stonefield Logistics Group Inc",
+    "raw_response": "<|src_id|>19<|tgt_id|>20\n<|src_id|>84<|tgt_id|>85\n<|src_id|>147<|tgt_id|>148",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 148
+        }
+    ]
+}

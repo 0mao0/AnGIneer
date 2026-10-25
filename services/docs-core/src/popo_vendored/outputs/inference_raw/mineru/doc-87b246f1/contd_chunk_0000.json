@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        53
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        19,
+        20,
+        26,
+        27,
+        41,
+        42,
+        51,
+        52
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>188 243 205 753<|content|>VELOPAY SYSTEMS, INC. ... , a Delaware corporation, as Borrower,\n<|id|>4<|page|>1<|box|>213 166 250 830<|content|>HARROWGATE PRIVATE EQUITY FUND IV LP, a Delaware limited partnership, as Holdings,\n<|id|>5<|page|>1<|box|>258 143 292 852<|content|>TRALVENDO NATIONAL BANK, as Administrative Agent for the Term Loan Facility and as a Lender,\n<|id|>6<|page|>1<|box|>301 148 337 849<|content|>PRAIRIE STATE BANK, N. ... , as Administrative Agent for the Revolving Credit Facility and as a Lender,\n<|id|>7<|page|>1<|box|>347 483 362 514<|content|>and\n<|id|>8<|page|>1<|box|>372 207 388 789<|content|>THE SEVERAL LENDERS FROM TIME TO TIME PARTIES HERETO\n<|id|>9<|page|>1<|box|>398 160 415 836<|content|>Tralvendo National Bank, as Lead Arranger and Sole Bookrunner for the Term Loan Facility\n<|id|>10<|page|>1<|box|>424 227 441 769<|content|>Prairie State Bank, N. ... , as Co-Arranger for the Revolving Credit Facility\n<|id|>11<|page|>1<|box|>450 303 465 692<|content|>Reference: ... Commitment Letter CRE-2025-SPF-0441\n<|id|>12<|page|>1<|box|>474 145 521 849<|content|>Prepared by Maplewood & Strauss LLP, counsel to th...787 Seventh Avenue, 38th Floor, New York, NY 10019\n<|id|>50<|page|>5<|box|>627 140 902 857<|content|>\"Consolidated EBITDA\" means, for any period, Conso...eed the greater of (i) $15,000,000 and (ii) 15% of\n<|id|>51<|page|>6<|box|>90 140 329 857<|content|>Consolidated EBITDA (calculated before giving effe...the twelve-month period ending on the Closing Date\n<|id|>174<|page|>19<|box|>773 138 883 857<|content|>(a) Each Borrowing of Revolving Loans (other than ...d date of such Borrowing, in the case of Base Rate\n<|id|>175<|page|>20<|box|>90 140 126 856<|content|>Loans), which notice shall be in the form of a Com...Loan Notice substantially in the form of Exhibit A\n<|id|>226<|page|>26<|box|>816 138 909 857<|content|>(b) Each Administrative Agent shall maintain at it...nistrative Agent, and the Lenders shall treat each\n<|id|>227<|page|>27<|box|>90 140 127 854<|content|>Person whose name is recorded in the Register purs...ender hereunder for all purposes of this Agreement\n<|id|>343<|page|>41<|box|>857 140 893 857<|content|>No part of the proceeds of any Loan will be used, ...within the meaning of Regulation U of the Board of\n<|id|>344<|page|>42<|box|>90 140 162 856<|content|>Governors of the Federal Reserve System, or for th... Regulations T, U, or X of such Board of Governors\n<|id|>454<|page|>51<|box|>864 140 902 854<|content|>(b) the Borrower may make tax distributions to Hol...attributable to the income of the Borrower and its\n<|id|>455<|page|>52<|box|>90 140 127 854<|content|>Subsidiaries, determined on a basis consistent wit...asonably satisfactory to the Administrative Agents\n<|id|>457<|page|>52<|box|>196 140 306 856<|content|>(d) the Borrower may make other Restricted Payment...age Ratio covenant set forth in Section 7. ... and\n<|id|>459<|page|>52<|box|>395 140 505 857<|content|>For purposes of this Section 6. ... 05, \"Restricte...n of capital to any holder of such equity interest",
+    "raw_response": "<|src_id|>50<|tgt_id|>51\n<|src_id|>174<|tgt_id|>175\n<|src_id|>226<|tgt_id|>227\n<|src_id|>343<|tgt_id|>344\n<|src_id|>454<|tgt_id|>455",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 227
+        },
+        {
+            "src_id": 343,
+            "tgt_id": 344
+        },
+        {
+            "src_id": 454,
+            "tgt_id": 455
+        }
+    ]
+}

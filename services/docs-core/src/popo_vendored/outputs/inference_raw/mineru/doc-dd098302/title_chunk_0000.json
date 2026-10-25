@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 259 118 736<|content|>MUTUAL NON-DISCLOSURE AGREEMENT\n<|id|>1<|page|>1<|box|>136 338 152 658<|content|>Reference No. AHT-PCA-NDA-2024-001\n<|id|>5<|page|>1<|box|>295 142 311 176<|content|>and\n<|id|>8<|page|>1<|box|>445 142 462 243<|content|>RECITALS\n<|id|>13<|page|>1<|box|>773 140 790 522<|content|>Section 1. Definition of Confidential Information\n<|id|>25<|page|>2<|box|>804 140 820 550<|content|>Section 2. Exclusions from Confidential Informatio\n<|id|>32<|page|>3<|box|>446 140 464 524<|content|>Section 3. Permitted Use and Restrictions on Use\n<|id|>38<|page|>4<|box|>241 140 258 390<|content|>Section 4. Permitted Disclosure\n<|id|>49<|page|>5<|box|>304 140 321 395<|content|>Section 5. Compelled Disclosure\n<|id|>55<|page|>5<|box|>767 140 784 434<|content|>Section 6. Ownership and No License\n<|id|>59<|page|>6<|box|>321 140 339 493<|content|>Section 7. No Representations or Warranties\n<|id|>62<|page|>6<|box|>579 140 597 509<|content|>Section 8. Return and Destruction of Materials\n<|id|>70<|page|>7<|box|>484 140 501 491<|content|>Section 9. Term and Duration of Obligations\n<|id|>74<|page|>7<|box|>821 140 839 310<|content|>Section 10. Remedies\n<|id|>78<|page|>8<|box|>329 140 347 457<|content|>Section 11. No Solicitation of Employees\n<|id|>81<|page|>8<|box|>604 140 623 357<|content|>Section 12. Governing Law\n<|id|>83<|page|>8<|box|>709 140 726 547<|content|>Section 13. Dispute Resolution and Exclusive Venue\n<|id|>86<|page|>9<|box|>90 140 106 292<|content|>Section 14. Notices\n<|id|>105<|page|>9<|box|>674 140 691 326<|content|>Section 15. Assignment\n<|id|>109<|page|>10<|box|>150 140 167 480<|content|>Section 16. Entire Agreement; Amendment\n<|id|>112<|page|>10<|box|>388 140 405 328<|content|>Section 17. Severability\n<|id|>115<|page|>10<|box|>609 140 627 294<|content|>Section 18. Waiver\n<|id|>118<|page|>10<|box|>794 140 811 341<|content|>Section 19. Counterparts\n<|id|>121<|page|>11<|box|>150 140 166 338<|content|>Section 20. Construction\n<|id|>126<|page|>11<|box|>425 359 441 635<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>128<|page|>11<|box|>494 143 511 486<|content|>ARBOR HEALTH TECHNOLOGIES INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>-1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>25<|level|>2\n<|id|>32<|level|>2\n<|id|>38<|level|>2\n<|id|>49<|level|>2\n<|id|>55<|level|>2\n<|id|>59<|level|>2\n<|id|>62<|level|>2\n<|id|>70<|level|>2\n<|id|>74<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>2\n<|id|>86<|level|>2\n<|id|>105<|level|>2\n<|id|>109<|level|>2\n<|id|>112<|level|>2\n<|id|>115<|level|>2\n<|id|>118<|level|>2\n<|id|>121<|level|>2\n<|id|>126<|level|>-1\n<|id|>128<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        }
+    ]
+}

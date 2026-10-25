@@ -1,0 +1,82 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>table<|page|>1<|box|>232 143 324 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>372 142 388 416<|content|>INTRODUCTORY STATEMENT\n<|id|>6<|type|>title<|page|>2<|box|>148 140 166 633<|content|>SECTION 1: RECIPIENT / BENEFICIARY INFORMATION\n<|id|>7<|type|>table<|page|>2<|box|>218 143 409 852<|content|>None\n<|id|>9<|type|>title<|page|>2<|box|>594 142 611 488<|content|>SECTION 2: WIRE TRANSFER DETAILS\n<|id|>11<|type|>table<|page|>2<|box|>681 143 779 852<|content|>None\n<|id|>13<|type|>table<|page|>2<|box|>875 143 895 852<|content|>None\n<|id|>14<|type|>table<|page|>3<|box|>89 143 127 852<|content|>None\n<|id|>15<|type|>table<|page|>3<|box|>159 143 316 852<|content|>None\n<|id|>17<|type|>table<|page|>3<|box|>547 143 709 852<|content|>None\n<|id|>19<|type|>title<|page|>4<|box|>89 142 106 674<|content|>SECTION 3: ORIGINATOR / SENDING PARTY INFORMATION\n<|id|>21<|type|>table<|page|>4<|box|>159 143 234 852<|content|>None\n<|id|>22<|type|>table<|page|>4<|box|>266 143 354 852<|content|>None\n<|id|>25<|type|>title<|page|>4<|box|>765 140 782 604<|content|>SECTION 4: AUTHORIZATION AND CONFIRMATION\n<|id|>27<|type|>title<|page|>4<|box|>873 142 890 529<|content|>For Nexford Industrial Holdings Inc. (Borrower):\n<|id|>31<|type|>title<|page|>5<|box|>296 142 314 532<|content|>For Granite Peak NIH Holdings, LLC (Holdings):\n<|id|>34<|type|>title<|page|>5<|box|>626 140 643 599<|content|>SECTION 5: CALLBACK VERIFICATION CONTACTS\n<|id|>36<|type|>table<|page|>5<|box|>757 143 852 852<|content|>None\n<|id|>37<|type|>title<|page|>5<|box|>886 142 902 437<|content|>For Nexford Industrial Holdings Inc.:\n<|id|>39<|type|>table<|page|>6<|box|>88 143 183 852<|content|>None\n<|id|>40<|type|>table<|page|>6<|box|>215 143 309 852<|content|>None\n<|id|>41<|type|>table<|page|>6<|box|>367 143 462 852<|content|>None\n<|id|>42<|type|>table<|page|>6<|box|>494 143 588 852<|content|>None\n<|id|>44<|type|>title<|page|>6<|box|>753 140 771 627<|content|>SECTION 6: IMPORTANT NOTICES AND DISCLAIMERS\n<|id|>51<|type|>title<|page|>8<|box|>89 142 106 534<|content|>ACKNOWLEDGMENT AND CONFIRMATION\n<|id|>53<|type|>title<|page|>8<|box|>214 142 231 473<|content|>GRANITE PEAK NIH HOLDINGS, LLC\n<|id|>75<|type|>title<|page|>8<|box|>641 143 657 326<|content|>DISTRIBUTION LIST\n<|id|>77<|type|>table<|page|>8<|box|>728 143 905 852<|content|>None\n<|id|>78<|type|>table<|page|>9<|box|>89 143 222 852<|content|>None",
+    "raw_response": "<|src_id|>7<|tgt_id|>6\n<|src_id|>11<|tgt_id|>9\n<|src_id|>13<|tgt_id|>9\n<|src_id|>14<|tgt_id|>9\n<|src_id|>15<|tgt_id|>9\n<|src_id|>17<|tgt_id|>9\n<|src_id|>21<|tgt_id|>19\n<|src_id|>22<|tgt_id|>19\n<|src_id|>36<|tgt_id|>34\n<|src_id|>39<|tgt_id|>34\n<|src_id|>40<|tgt_id|>34\n<|src_id|>41<|tgt_id|>34\n<|src_id|>42<|tgt_id|>34\n<|src_id|>77<|tgt_id|>75\n<|src_id|>78<|tgt_id|>75",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 75
+        }
+    ]
+}

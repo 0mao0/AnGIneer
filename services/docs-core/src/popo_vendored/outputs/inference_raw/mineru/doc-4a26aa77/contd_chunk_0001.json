@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        51,
+        109
+    ],
+    "pages": [
+        52,
+        58,
+        59,
+        80,
+        81,
+        108
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>336<|page|>52<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>337<|page|>52<|box|>198 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund\n<|id|>382<|page|>58<|box|>750 81 883 491<|content|>The geographical allocation of the transactions da... reporting purposes would be recorded opposite the\n<|id|>383<|page|>58<|box|>89 504 164 915<|content|>United Kingdom and not opposite Japan. ... In that...ported opposite Switzerland and not opposite Italy\n<|id|>389<|page|>59<|box|>154 269 166 727<|content|>[Position at end of period in millions of dollars. ... Treasury International Capital Reporting System]\n<|id|>391<|page|>59<|box|>856 503 886 880<|content|>^{2} Data may be as of preceding quarter-end for m...ged foreign offices and other foreign institutions\n<|id|>437<|page|>80<|box|>130 194 151 792<|content|>[In millions of dollars; ... Treasury International Capital Reporting System]\n<|id|>440<|page|>81<|box|>821 488 848 885<|content|>Latvia, Lithuania, Luxembourg, Malta, the Netherla...f January 2007, also includes Bulgaria and Romania\n<|id|>536<|page|>108<|box|>199 723 268 913<|content|>Financial Report of the United States Government Excerpt\n<|id|>537<|page|>108<|box|>282 820 309 913<|content|>Trust Funds",
+    "raw_response": "<|src_id|>382<|tgt_id|>383",
+    "parsed": [
+        {
+            "src_id": 382,
+            "tgt_id": 383
+        }
+    ]
+}

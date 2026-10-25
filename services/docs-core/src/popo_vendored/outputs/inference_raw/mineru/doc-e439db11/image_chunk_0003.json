@@ -1,0 +1,60 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        136,
+        154
+    ],
+    "pages": [
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        144,
+        145,
+        154
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>471<|type|>title<|page|>136<|box|>52 257 67 741<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>472<|type|>table<|page|>136<|box|>127 11 914 978<|content|>None\n<|id|>473<|type|>title<|page|>137<|box|>54 250 70 733<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>474<|type|>table<|page|>137<|box|>129 3 916 969<|content|>None\n<|id|>475<|type|>title<|page|>138<|box|>84 96 115 916<|content|>Section III - Source and Application of Funds for\n<|id|>476<|type|>table<|page|>138<|box|>128 18 913 986<|content|>None\n<|id|>477<|type|>title<|page|>139<|box|>52 253 68 736<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>478<|type|>table<|page|>139<|box|>127 8 915 976<|content|>None\n<|id|>479<|type|>title<|page|>140<|box|>77 83 109 908<|content|>Section III - Source and Application of Funds for\n<|id|>480<|type|>table<|page|>140<|box|>125 21 916 983<|content|>None\n<|id|>482<|type|>table<|page|>141<|box|>127 11 921 976<|content|>None\n<|id|>484<|type|>table<|page|>142<|box|>128 26 918 991<|content|>None\n<|id|>512<|type|>table<|page|>144<|box|>106 23 922 989<|content|>None\n<|id|>513<|type|>table<|page|>145<|box|>105 6 938 974<|content|>None\n<|id|>516<|type|>image<|page|>154<|box|>17 826 46 952<|content|>None",
+    "raw_response": "<|src_id|>472<|tgt_id|>471\n<|src_id|>474<|tgt_id|>473\n<|src_id|>476<|tgt_id|>475\n<|src_id|>478<|tgt_id|>477\n<|src_id|>480<|tgt_id|>479\n<|src_id|>482<|tgt_id|>479\n<|src_id|>484<|tgt_id|>479\n<|src_id|>512<|tgt_id|>479\n<|src_id|>513<|tgt_id|>479",
+    "parsed": [
+        {
+            "src_id": 472,
+            "tgt_id": 471
+        },
+        {
+            "src_id": 474,
+            "tgt_id": 473
+        },
+        {
+            "src_id": 476,
+            "tgt_id": 475
+        },
+        {
+            "src_id": 478,
+            "tgt_id": 477
+        },
+        {
+            "src_id": 480,
+            "tgt_id": 479
+        },
+        {
+            "src_id": 482,
+            "tgt_id": 479
+        },
+        {
+            "src_id": 484,
+            "tgt_id": 479
+        },
+        {
+            "src_id": 512,
+            "tgt_id": 479
+        },
+        {
+            "src_id": 513,
+            "tgt_id": 479
+        }
+    ]
+}

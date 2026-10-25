@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 147 176 851<|content|>1999 Avenue of the Stars, Suite 2800 Los Angeles, California 90067 Telephone: ... com\n<|id|>3<|page|>1<|box|>186 746 204 854<|content|>May 10, 2023\n<|id|>5<|page|>1<|box|>237 140 273 854<|content|>Sandra Reeves, Esq. ... Partner Nakamura Reeves LL...th Flower Street, Suite 3600 Los Angeles, CA 90071\n<|id|>6<|page|>1<|box|>282 174 316 854<|content|>Re: ... 1017-00005\n<|id|>7<|page|>1<|box|>325 142 343 277<|content|>Dear Ms. ... Reeves\n<|id|>27<|page|>3<|box|>273 218 290 542<|content|>• Anti-Retaliation Policy (Section 5. ... and\n<|id|>30<|page|>3<|box|>333 140 406 854<|content|>Legal Analysis. ... ), as well as any other state ...cts as they are developed during the investigation\n<|id|>47<|page|>4<|box|>773 174 811 854<|content|>(d) AGMG may, in its sole discretion, choose to wa...cluding government agencies or regulators; ... and\n<|id|>49<|page|>5<|box|>90 140 143 854<|content|>We trust that this process is consistent with your...he opportunity to discuss them with you in advance\n<|id|>61<|page|>6<|box|>273 174 310 854<|content|>Bernard Crawford, Partner Calderwood & Harkness LL...ifornia 90067 Direct Telephone: ... (310) 553-4127\n<|id|>62<|page|>6<|box|>319 176 335 514<|content|>Email: ... com\n<|id|>63<|page|>6<|box|>335 140 465 856<|content|>We respectfully request that all future correspond...ved, reviewed, and responded to in a timely manner\n<|id|>72<|page|>7<|box|>133 140 150 509<|content|>Bernard Crawford Partner Direct: ... (310) 553-4127\n<|id|>73<|page|>7<|box|>151 140 167 480<|content|>Email: ... com\n<|id|>74<|page|>7<|box|>167 140 204 852<|content|>cc: ... Renata Vasquez, Calderwood & Harkness LLP\n<|id|>75<|page|>7<|box|>210 140 303 854<|content|>CONFIDENTIALITY NOTICE: ... Thank you",
+    "raw_response": "<|src_id|>27<|tgt_id|>30",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 30
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>112 194 160 800<|content|>DEPARTMENT OF THE TREASURY — INTERNAL REVENUE SERV\n<|id|>1<|type|>title<|page|>1<|box|>185 290 202 707<|content|>Power of Attorney and Declaration of Representativ\n<|id|>6<|type|>title<|page|>1<|box|>320 142 338 439<|content|>PART I — POWER OF ATTORNEY\n<|id|>8<|type|>title<|page|>1<|box|>396 142 412 397<|content|>Line 1 — Taxpayer Information\n<|id|>10<|type|>table<|page|>1<|box|>443 143 574 852<|content|>None\n<|id|>11<|type|>title<|page|>1<|box|>614 142 631 357<|content|>Line 2 — Representative(s)\n<|id|>13<|type|>title<|page|>1<|box|>700 143 715 282<|content|>Representative 1:\n<|id|>14<|type|>table<|page|>1<|box|>723 143 907 852<|content|>None\n<|id|>15<|type|>table<|page|>2<|box|>88 143 170 852<|content|>None\n<|id|>16<|type|>table<|page|>2<|box|>228 143 468 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>507 142 523 349<|content|>Line 3 — Acts Authorized\n<|id|>19<|type|>table<|page|>2<|box|>573 143 882 851<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>213 140 229 416<|content|>Line 4 — Specific Acts Authorized\n<|id|>32<|type|>title<|page|>4<|box|>90 140 107 620<|content|>Line 5 — Retention/Revocation of Prior Power(s) of\n<|id|>36<|type|>title<|page|>5<|box|>90 140 108 397<|content|>Line 6 — Taxpayer Signature(s)\n<|id|>39<|type|>table<|page|>5<|box|>291 143 404 852<|content|>None\n<|id|>41<|type|>title<|page|>5<|box|>589 142 606 576<|content|>PART II — DECLARATION OF REPRESENTATIVE\n<|id|>58<|type|>table<|page|>6<|box|>434 143 547 852<|content|>None\n<|id|>60<|type|>table<|page|>6<|box|>779 143 892 852<|content|>None\n<|id|>62<|type|>title<|page|>7<|box|>277 364 292 633<|content|>ATTACHMENT TO FORM 2848\n<|id|>63<|type|>title<|page|>7<|box|>303 258 319 738<|content|>COVER NOTE — PRIVATE LETTER RULING REQUEST\n<|id|>64<|type|>title<|page|>7<|box|>329 272 345 725<|content|>Fairwater Real Estate Investment Trust (EIN 52-471\n<|id|>89<|type|>title<|page|>9<|box|>90 142 125 638<|content|>Garrett Simmons Counsel (202) 555-7100 FILING / SU\n<|id|>90<|type|>title<|page|>9<|box|>133 323 150 673<|content|>(Internal Use — Calderwood & Harkness LLP)\n<|id|>91<|type|>table<|page|>9<|box|>195 143 431 852<|content|>None\n<|id|>92<|type|>title<|page|>9<|box|>465 143 482 359<|content|>Accompanying Documents:\n<|id|>97<|type|>title<|page|>9<|box|>696 176 714 429<|content|>5. Supporting exhibits, including:",
+    "raw_response": "<|src_id|>10<|tgt_id|>8\n<|src_id|>14<|tgt_id|>13\n<|src_id|>15<|tgt_id|>11\n<|src_id|>16<|tgt_id|>11\n<|src_id|>19<|tgt_id|>17\n<|src_id|>39<|tgt_id|>36\n<|src_id|>58<|tgt_id|>41\n<|src_id|>60<|tgt_id|>41\n<|src_id|>91<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 62
+        }
+    ]
+}

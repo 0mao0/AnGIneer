@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        54,
+        102
+    ],
+    "pages": [
+        55,
+        56,
+        62,
+        66,
+        68,
+        73,
+        77,
+        81,
+        83,
+        85,
+        87,
+        88,
+        96,
+        98,
+        101
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>179<|page|>55<|box|>220 407 244 565<|content|>1-1-19 渗水路堤\n<|id|>181<|page|>56<|box|>178 419 201 592<|content|>1-1-20 机械碾压路基\n<|id|>195<|page|>62<|box|>189 397 220 626<|content|>第二节 特殊路基处理工程\n<|id|>196<|page|>62<|box|>267 475 294 548<|content|>说明\n<|id|>209<|page|>66<|box|>174 338 199 694<|content|>1-2-3 粉(浆)体喷射搅拌桩、高压旋喷桩处理地基\n<|id|>217<|page|>68<|box|>170 419 195 606<|content|>1-2-4 CFG 桩处理地基\n<|id|>229<|page|>73<|box|>222 406 246 555<|content|>1-2-7 抛石挤淤\n<|id|>236<|page|>77<|box|>215 390 240 562<|content|>1-2-11 采空区处置※\n<|id|>246<|page|>81<|box|>220 352 246 600<|content|>1-2-12 预应力管桩处理软土地基\n<|id|>254<|page|>83<|box|>213 393 238 565<|content|>1-2-13 路基注浆处理\n<|id|>260<|page|>85<|box|>213 362 238 593<|content|>1-2-15 泡沫轻质土浇筑路堤※\n<|id|>268<|page|>87<|box|>225 393 256 566<|content|>第三节 排水工程\n<|id|>269<|page|>87<|box|>304 444 330 515<|content|>说明\n<|id|>276<|page|>88<|box|>170 440 195 589<|content|>1-3-1 路基盲沟\n<|id|>291<|page|>96<|box|>180 432 203 604<|content|>1-3-7 雨水井、检查井\n<|id|>301<|page|>98<|box|>174 447 199 596<|content|>1-3-8 井点降水\n<|id|>310<|page|>101<|box|>222 395 257 570<|content|>第四节 防护工程\n<|id|>311<|page|>101<|box|>290 445 323 521<|content|>说明",
+    "raw_response": "<|id|>179<|level|>4\n<|id|>181<|level|>4\n<|id|>195<|level|>2\n<|id|>196<|level|>3\n<|id|>209<|level|>4\n<|id|>217<|level|>4\n<|id|>229<|level|>4\n<|id|>236<|level|>4\n<|id|>246<|level|>4\n<|id|>254<|level|>4\n<|id|>260<|level|>4\n<|id|>268<|level|>2\n<|id|>269<|level|>3\n<|id|>276<|level|>4\n<|id|>291<|level|>4\n<|id|>301<|level|>4\n<|id|>310<|level|>2\n<|id|>311<|level|>3",
+    "parsed": [
+        {
+            "id": 179,
+            "level": 4
+        },
+        {
+            "id": 181,
+            "level": 4
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 4
+        },
+        {
+            "id": 217,
+            "level": 4
+        },
+        {
+            "id": 229,
+            "level": 4
+        },
+        {
+            "id": 236,
+            "level": 4
+        },
+        {
+            "id": 246,
+            "level": 4
+        },
+        {
+            "id": 254,
+            "level": 4
+        },
+        {
+            "id": 260,
+            "level": 4
+        },
+        {
+            "id": 268,
+            "level": 2
+        },
+        {
+            "id": 269,
+            "level": 3
+        },
+        {
+            "id": 276,
+            "level": 4
+        },
+        {
+            "id": 291,
+            "level": 4
+        },
+        {
+            "id": 301,
+            "level": 4
+        },
+        {
+            "id": 310,
+            "level": 2
+        },
+        {
+            "id": 311,
+            "level": 3
+        }
+    ]
+}

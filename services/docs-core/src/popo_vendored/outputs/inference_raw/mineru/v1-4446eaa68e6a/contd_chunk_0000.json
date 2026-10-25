@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        11,
+        12,
+        15,
+        16,
+        17,
+        18,
+        32
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>166 124 238 872<|content|>Wei Wang College of Economics and Management, Chan...y, Xi’an, Shaanxi, 710064, China wwang@chd. ... cn\n<|id|>2<|page|>1<|box|>270 444 290 553<|content|>Haibo Wang\n<|id|>3<|page|>1<|box|>296 145 316 857<|content|>Department of International Business and Technology Studies, Texas A&M International\n<|id|>4<|page|>1<|box|>321 370 342 629<|content|>University, Laredo, Texas, USA\n<|id|>5<|page|>1<|box|>348 419 368 578<|content|>hwang@tamui. ... edu\n<|id|>6<|page|>1<|box|>400 415 420 581<|content|>Wendy Hong Wang\n<|id|>7<|page|>1<|box|>426 138 446 857<|content|>Department of Computer Science and Information Systems, University of North Alabama,\n<|id|>8<|page|>1<|box|>452 390 472 607<|content|>Florence, AL 35632, USA\n<|id|>9<|page|>1<|box|>479 416 500 580<|content|>hwang21@una. ... edu\n<|id|>10<|page|>1<|box|>531 437 551 558<|content|>Martin Enilov\n<|id|>11<|page|>1<|box|>556 263 579 735<|content|>Southampton Business School, University of Southampton\n<|id|>12<|page|>1<|box|>583 326 604 673<|content|>12 University Rd Southampton, SO17 1BJ\n<|id|>13<|page|>1<|box|>609 367 630 630<|content|>Email: ... uk\n<|id|>14<|page|>1<|box|>714 111 760 777<|content|>Corresponding authors: ... edu\n<|id|>15<|page|>1<|box|>811 109 886 887<|content|>Abstract: ... The discoveries from this study offe...ncerning systematic risk and investment strategies\n<|id|>79<|page|>11<|box|>715 410 733 588<|content|>Insert Figure 2 Here\n<|id|>80<|page|>11<|box|>750 410 766 588<|content|>Insert Figure 3 Here\n<|id|>81<|page|>11<|box|>782 410 799 588<|content|>Insert Figure 4 Here\n<|id|>87<|page|>12<|box|>803 410 821 588<|content|>Insert Figure 6 Here\n<|id|>88<|page|>12<|box|>837 410 854 588<|content|>Insert Figure 7 Here\n<|id|>100<|page|>15<|box|>292 112 343 885<|content|>Al-Mohamad, S. ... 1747890\n<|id|>101<|page|>15<|box|>359 112 412 885<|content|>Alexakis, C. ... Journal of Behavioral and Experimental Finance, 29, 100428\n<|id|>111<|page|>16<|box|>125 112 161 885<|content|>Fofack, A. ... Journal of Applied Economics, 23(1), 89-105\n<|id|>112<|page|>16<|box|>176 112 214 885<|content|>Gil-Alana, L. ... Research in International Business and Finance, 51, 101063\n<|id|>123<|page|>16<|box|>872 109 909 834<|content|>Ljung, G. ... 2307/2335207\n<|id|>124<|page|>17<|box|>107 111 145 887<|content|>Loh, L. ... Research in International Business and Finance, 29, 1-13\n<|id|>142<|page|>18<|box|>491 112 527 885<|content|>Yu, X. ... Journal of Applied Economics, 24(1), 416-440\n<|id|>143<|page|>18<|box|>541 112 595 888<|content|>Zhang, W. ... International Review of Financial Analysis, 71, 101454\n<|id|>144<|page|>18<|box|>611 111 667 885<|content|>Stensås, A. ... 1593072\n<|id|>145<|page|>18<|box|>681 112 736 887<|content|>Zhang, Y. ... The North American Journal of Economics and Finance, 55, 101296\n<|id|>165<|page|>32<|box|>109 169 128 883<|content|>Figure 4. ... NPDC measure plot of the TVP-VAR connectedness analysis before COVID-19\n<|id|>166<|page|>32<|box|>138 109 227 885<|content|>Note: ... Bold lines in the graph denote a higher spillover than fine lines between variables",
+    "raw_response": "<|src_id|>3<|tgt_id|>4\n<|src_id|>7<|tgt_id|>8",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['', 'Total', '......', '11,996', '5,628', '......', '......', '......']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Year and month', 'rowspan=3, Description of security 2/', 'rowspan=2, Fixed-maturity issuea', 'colspan=2, Callable issues classified by year of:', 'rowspan=3, Date of issue', 'rowspan=3, Tax status 3/', 'rowspan=3, Earliest date on which commercial banks may own bank restricted issues 4/']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 147,
+    "table2_idx": 149
+}

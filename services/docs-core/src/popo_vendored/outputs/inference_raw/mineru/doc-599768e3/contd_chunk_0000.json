@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 406 152 854<|content|>Telephone: ... +1 (345) 949-7733\n<|id|>2<|page|>1<|box|>160 702 178 854<|content|>September 12, 2023\n<|id|>3<|page|>1<|box|>186 140 203 767<|content|>Re: ... — Issuance of Secured and Subordinated Notes\n<|id|>4<|page|>1<|box|>212 140 248 854<|content|>Ironclad Trust Company, N. ... (as Trustee, Note R...or) 100 Wall Street, Suite 1650 New York, NY 10005\n<|id|>5<|page|>1<|box|>256 140 292 854<|content|>Meridian Atlantic Securities LLC (as Lead Placemen... 383 Madison Avenue, 22nd Floor New York, NY 10179\n<|id|>6<|page|>1<|box|>300 140 335 854<|content|>Northbridge Capital Markets Inc. ... (as Co-Placem...nue of the Americas, 34th Floor New York, NY 10020\n<|id|>7<|page|>1<|box|>344 140 362 810<|content|>Calderwood & Harkness LLP (as Issuer's Counsel) 450 Park Avenue New York, NY 10022\n<|id|>8<|page|>1<|box|>369 140 387 318<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>30<|page|>2<|box|>862 178 898 854<|content|>11. ... The written resolutions of the Board of Di...on, delivery, and performance by the Issuer of the\n<|id|>31<|page|>3<|box|>90 210 125 854<|content|>Transaction Documents (as defined below) and the i...he issuance of the Notes (the \"Board Resolutions\")\n<|id|>33<|page|>3<|box|>166 176 238 854<|content|>13. ... and\n<|id|>35<|page|>3<|box|>277 140 369 856<|content|>The Indenture, the First Supplemental Indenture, t...y referred to as the \"Transaction Documents. ... \"\n<|id|>60<|page|>5<|box|>324 174 378 854<|content|>(b) issue the Notes (being the Class A-1 Notes, th...ggregate principal amount of $400,000,000; ... and\n<|id|>62<|page|>5<|box|>431 140 505 854<|content|>The objects clause contained in the Memorandum of ...e Issuer to undertake any of the foregoing actions\n<|id|>67<|page|>5<|box|>785 140 895 857<|content|>Each of the Transaction Documents to which the Iss...rs and Officers, that the persons who executed the\n<|id|>68<|page|>6<|box|>90 140 127 852<|content|>Transaction Documents on behalf of the Issuer were...directors, or authorized signatories of the Issuer\n<|id|>88<|page|>7<|box|>287 176 305 513<|content|>(b) the issuance by the Issuer of the Notes; ... or\n<|id|>90<|page|>7<|box|>357 140 412 854<|content|>The foregoing opinion is given on the basis that t...c in the Cayman Islands to subscribe for the Notes\n<|id|>124<|page|>10<|box|>854 140 890 857<|content|>This opinion may not be relied upon by any other p...ribed herein, without the prior written consent of\n<|id|>125<|page|>11<|box|>90 140 126 854<|content|>Applegategate Offshore Services Ltd. ... No person...the addressees is entitled to rely on this opinion\n<|id|>129<|page|>11<|box|>377 143 393 269<|content|>Yours faithfully,\n<|id|>130<|page|>11<|box|>402 143 417 501<|content|>APPLEGATE OFFSHORE SERVICES LTD. ... APPLEGATE OFFSHORE SERVICES LTD\n<|id|>132<|page|>11<|box|>436 142 454 323<|content|>Name: ... Nigel Pemberton\n<|id|>133<|page|>11<|box|>455 143 470 248<|content|>Title: ... Partner\n<|id|>134<|page|>11<|box|>470 142 489 777<|content|>Windward House, 4th Floor George Town, Grand Cayman KY1-1306, Cayman Islands",
+    "raw_response": "<|src_id|>30<|tgt_id|>31\n<|src_id|>67<|tgt_id|>68\n<|src_id|>124<|tgt_id|>125",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 125
+        }
+    ]
+}

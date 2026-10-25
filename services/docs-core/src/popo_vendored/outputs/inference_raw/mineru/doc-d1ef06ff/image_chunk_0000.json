@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|type|>title<|page|>1<|box|>419 142 436 366<|content|>1. Introduction and Purpose\n<|id|>16<|type|>title<|page|>2<|box|>250 140 265 372<|content|>2. Identification of the Client\n<|id|>20<|type|>title<|page|>2<|box|>734 140 751 333<|content|>3. Scope of Engagement\n<|id|>22<|type|>title<|page|>3<|box|>90 140 107 563<|content|>3.1 Custodian Identification and Document Collecti\n<|id|>27<|type|>title<|page|>3<|box|>661 140 679 491<|content|>3.2 Document Review and Privilege Analysis\n<|id|>32<|type|>title<|page|>4<|box|>294 140 310 401<|content|>3.3 Structured Data Submissions\n<|id|>35<|type|>title<|page|>4<|box|>630 140 647 465<|content|>3.4 Economic and Narrative Submissions\n<|id|>39<|type|>title<|page|>5<|box|>194 140 212 408<|content|>3.5 FTC Advocacy and Clearance\n<|id|>44<|type|>title<|page|>5<|box|>766 140 782 316<|content|>3.6 Excluded Services\n<|id|>54<|type|>title<|page|>6<|box|>481 140 497 313<|content|>4. Engagement Team\n<|id|>55<|type|>table<|page|>6<|box|>529 143 718 852<|content|>None\n<|id|>59<|type|>title<|page|>7<|box|>366 140 383 303<|content|>5. Fee Arrangement\n<|id|>60<|type|>title<|page|>7<|box|>397 140 414 279<|content|>5.1 Hourly Rates\n<|id|>62<|type|>table<|page|>7<|box|>482 143 594 852<|content|>None\n<|id|>66<|type|>title<|page|>8<|box|>90 140 107 315<|content|>5.2 Estimated Budget\n<|id|>68<|type|>table<|page|>8<|box|>210 143 332 852<|content|>None\n<|id|>72<|type|>title<|page|>8<|box|>705 140 722 400<|content|>5.3 Expenses and Disbursements\n<|id|>76<|type|>title<|page|>9<|box|>286 140 303 325<|content|>6. Billing and Payment\n<|id|>80<|type|>title<|page|>9<|box|>542 140 559 285<|content|>6.2 Late Payment\n<|id|>83<|type|>title<|page|>9<|box|>766 140 784 390<|content|>7. Confidentiality and Privilege\n<|id|>88<|type|>title<|page|>10<|box|>465 140 482 321<|content|>8. Conflicts of Interest\n<|id|>92<|type|>title<|page|>11<|box|>90 140 107 326<|content|>9. Document Retention\n<|id|>96<|type|>title<|page|>11<|box|>392 142 409 349<|content|>10. Limitation of Liability\n<|id|>100<|type|>title<|page|>11<|box|>712 142 729 274<|content|>11. Termination\n<|id|>101<|type|>title<|page|>11<|box|>743 143 760 287<|content|>11.1 By the Client\n<|id|>103<|type|>title<|page|>12<|box|>90 142 107 279<|content|>11.2 By the Firm\n<|id|>106<|type|>title<|page|>12<|box|>436 142 454 480<|content|>12. Governing Law and Dispute Resolution\n<|id|>109<|type|>title<|page|>12<|box|>731 142 748 428<|content|>13. Entire Agreement; Amendments\n<|id|>112<|type|>title<|page|>13<|box|>150 142 167 380<|content|>14. Acceptance and Execution\n<|id|>116<|type|>title<|page|>13<|box|>362 140 378 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>120<|type|>title<|page|>13<|box|>455 380 472 617<|content|>AGREED AND ACCEPTED:\n<|id|>121<|type|>title<|page|>13<|box|>482 140 517 854<|content|>SOLARA DIGITAL INFRASTRUCTURE LP By its General Pa",
+    "raw_response": "<|src_id|>55<|tgt_id|>54\n<|src_id|>62<|tgt_id|>60\n<|src_id|>68<|tgt_id|>66",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 66
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 163 151 834<|content|>425 Lexington Avenue, 31st Floor New York, New Yor\n<|id|>7<|page|>1<|box|>359 140 377 264<|content|>I. Introduction\n<|id|>12<|page|>3<|box|>90 140 107 723<|content|>II. Schedule 2.1(a) — Assumed Contracts (Completen\n<|id|>24<|page|>5<|box|>90 140 107 625<|content|>III. Schedule 3.17 — Pending OIG Inquiry (Syracuse\n<|id|>33<|page|>7<|box|>90 140 107 627<|content|>IV. Schedule 3.10 — Real Property (Updated Lease A\n<|id|>48<|page|>9<|box|>90 140 107 485<|content|>V. Schedule 3.14 — Employee Benefit Plans\n<|id|>60<|page|>11<|box|>90 140 107 490<|content|>VI. Schedule 3.4 — Consents and Approvals\n<|id|>73<|page|>12<|box|>792 142 809 341<|content|>VII. Additional Requests\n<|id|>79<|page|>13<|box|>758 140 775 433<|content|>VIII. Response Deadline and Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>24<|level|>2\n<|id|>33<|level|>2\n<|id|>48<|level|>2\n<|id|>60<|level|>2\n<|id|>73<|level|>2\n<|id|>79<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>127 140 143 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|type|>title<|page|>1<|box|>223 140 258 854<|content|>VIA ELECTRONIC MAIL — PRIVILEGED AND CONFIDENTIAL\n<|id|>9<|type|>title<|page|>1<|box|>496 140 513 343<|content|>I. Purpose and Summary\n<|id|>14<|type|>title<|page|>2<|box|>186 140 204 501<|content|>II. Status of the Declaratory Judgment Action\n<|id|>15<|type|>title<|page|>2<|box|>217 140 234 320<|content|>A. Procedural History\n<|id|>18<|type|>title<|page|>2<|box|>554 140 571 292<|content|>B. The Stay Order\n<|id|>20<|type|>title<|page|>2<|box|>736 140 753 328<|content|>C. Joint Status Reports\n<|id|>26<|type|>title<|page|>3<|box|>214 142 229 299<|content|>D. Current Posture\n<|id|>28<|type|>title<|page|>3<|box|>333 142 349 517<|content|>III. Status of the DCMA Administrative Review\n<|id|>29<|type|>title<|page|>3<|box|>364 142 381 468<|content|>A. The Underlying Government Contract\n<|id|>31<|type|>table<|page|>3<|box|>565 143 678 852<|content|>None\n<|id|>32<|type|>title<|page|>3<|box|>718 142 734 486<|content|>B. The COPD and Identified Cost Overruns\n<|id|>39<|type|>title<|page|>4<|box|>345 140 363 454<|content|>C. HDDS Response and COFD Request\n<|id|>41<|type|>title<|page|>4<|box|>473 140 489 557<|content|>D. Coordination with Government-Contract Counsel\n<|id|>44<|type|>title<|page|>4<|box|>718 140 734 354<|content|>E. Assessment of the Delay\n<|id|>46<|type|>title<|page|>5<|box|>90 140 107 581<|content|>IV. WAL's Litigation Position — Recap of Key Defen\n<|id|>48<|type|>title<|page|>5<|box|>184 140 200 364<|content|>A. Three Principal Defenses\n<|id|>56<|type|>title<|page|>6<|box|>176 140 194 370<|content|>B. Section 11.5 Liability Cap\n<|id|>58<|type|>title<|page|>6<|box|>340 140 358 292<|content|>C. Governing Law\n<|id|>60<|type|>title<|page|>6<|box|>441 140 459 390<|content|>V. Insurance Coverage Posture\n<|id|>61<|type|>title<|page|>6<|box|>472 140 489 411<|content|>A. Tender and Policy Information\n<|id|>63<|type|>table<|page|>6<|box|>556 143 643 852<|content|>None\n<|id|>64<|type|>title<|page|>6<|box|>683 142 700 336<|content|>B. Reservation of Rights\n<|id|>68<|type|>title<|page|>7<|box|>90 140 107 383<|content|>C. Follow-Up Correspondence\n<|id|>70<|type|>title<|page|>7<|box|>291 140 308 287<|content|>D. Current Status\n<|id|>75<|type|>title<|page|>7<|box|>728 140 746 388<|content|>VI. Credit Facility Compliance\n<|id|>76<|type|>title<|page|>7<|box|>758 140 777 318<|content|>A. The Credit Facility\n<|id|>78<|type|>title<|page|>7<|box|>849 142 867 380<|content|>B. Litigation-Notice Covenant\n<|id|>82<|type|>title<|page|>8<|box|>263 140 281 287<|content|>C. Current Status\n<|id|>85<|type|>title<|page|>8<|box|>483 140 500 426<|content|>VII. Financial Statement Treatment\n<|id|>86<|type|>title<|page|>8<|box|>513 140 530 333<|content|>A. ASC 450 Assessment\n<|id|>88<|type|>title<|page|>8<|box|>678 140 695 410<|content|>B. Financial Statement Disclosure\n<|id|>91<|type|>title<|page|>9<|box|>148 140 167 321<|content|>VIII. Fees and Budget\n<|id|>92<|type|>title<|page|>9<|box|>180 142 198 323<|content|>A. Engagement Terms\n<|id|>94<|type|>table<|page|>9<|box|>263 143 359 852<|content|>None\n<|id|>96<|type|>title<|page|>9<|box|>537 140 556 300<|content|>C. Q1 2024 Activity\n<|id|>102<|type|>title<|page|>9<|box|>733 142 750 251<|content|>D. Fee Status\n<|id|>104<|type|>title<|page|>10<|box|>90 140 107 606<|content|>IX. Recommended Next Steps and Strategic Considera\n<|id|>113<|type|>title<|page|>11<|box|>359 140 376 230<|content|>X. Closing",
+    "raw_response": "<|src_id|>31<|tgt_id|>29\n<|src_id|>63<|tgt_id|>61\n<|src_id|>94<|tgt_id|>92",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 92
+        }
+    ]
+}

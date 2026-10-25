@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>390 372 409 624<|content|>I. Purpose and Summary\n<|id|>13<|page|>2<|box|>507 419 526 576<|content|>II. Background\n<|id|>14<|page|>2<|box|>551 140 569 395<|content|>A. The Receivership Proceeding\n<|id|>22<|page|>3<|box|>527 140 544 390<|content|>B. GAP's Claim Against PBGC\n<|id|>26<|page|>4<|box|>123 140 141 473<|content|>Total principal outstanding: $4,870,050.00\n<|id|>34<|page|>4<|box|>583 140 599 434<|content|>C. The Musgrave Personal Guaranty\n<|id|>39<|page|>5<|box|>154 346 174 650<|content|>III. Analysis of Claim Priority\n<|id|>40<|page|>5<|box|>199 140 215 604<|content|>A. Framework for Claim Priorities in Illinois Rece\n<|id|>50<|page|>6<|box|>518 140 537 553<|content|>B. Heartland Prairie Bank's Senior Secured Positio\n<|id|>63<|page|>7<|box|>638 140 654 560<|content|>C. GAP's Classification as Unsecured Trade Credito\n<|id|>70<|page|>8<|box|>612 140 628 547<|content|>D. Estimated Asset Shortfall and Recovery Analysis\n<|id|>75<|page|>9<|box|>179 142 196 410<|content|>Illustrative Recovery Calculation:\n<|id|>86<|page|>9<|box|>584 143 599 395<|content|>Pro Rata Distribution Estimate:\n<|id|>100<|page|>10<|box|>429 225 449 771<|content|>IV. PBGC's Financial Distress — Contributing Facto\n<|id|>108<|page|>11<|box|>635 169 654 828<|content|>V. Potential Recovery from Triton Mutual Insurance\n<|id|>117<|page|>12<|box|>723 233 742 763<|content|>VI. Status of the Musgrave Personal Guaranty Claim\n<|id|>129<|page|>14<|box|>393 233 414 763<|content|>VII. Summary of Estimated Total Potential Recovery\n<|id|>131<|page|>14<|box|>738 143 753 292<|content|>Key Observations:\n<|id|>137<|page|>15<|box|>301 377 321 620<|content|>VIII. Recommendations\n<|id|>145<|page|>16<|box|>468 421 487 575<|content|>IX. Conclusion",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>22<|level|>2\n<|id|>26<|level|>-1\n<|id|>34<|level|>2\n<|id|>39<|level|>1\n<|id|>40<|level|>2\n<|id|>50<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>3\n<|id|>86<|level|>3\n<|id|>100<|level|>1\n<|id|>108<|level|>1\n<|id|>117<|level|>1\n<|id|>129<|level|>1\n<|id|>131<|level|>2\n<|id|>137<|level|>1\n<|id|>145<|level|>1",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 1
+        }
+    ]
+}

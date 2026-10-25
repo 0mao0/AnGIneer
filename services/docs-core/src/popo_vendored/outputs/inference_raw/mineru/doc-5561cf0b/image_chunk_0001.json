@@ -1,0 +1,65 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        60
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>462<|type|>title<|page|>45<|box|>90 142 107 467<|content|>12.3 Recommended OM Disclosure Items\n<|id|>473<|type|>title<|page|>46<|box|>90 142 107 542<|content|>12.4 Open Items / Outstanding Document Requests\n<|id|>475<|type|>table<|page|>46<|box|>178 143 907 852<|content|>None\n<|id|>476<|type|>table<|page|>47<|box|>88 143 109 852<|content|>None\n<|id|>478<|type|>title<|page|>47<|box|>205 388 226 607<|content|>XIII. CONCLUSION\n<|id|>492<|type|>title<|page|>48<|box|>590 423 611 575<|content|>APPENDICES\n<|id|>493<|type|>title<|page|>49<|box|>90 140 107 405<|content|>Appendix A — Data Room Index\n<|id|>510<|type|>title<|page|>51<|box|>90 142 107 519<|content|>Appendix B — Corporate Organizational Chart\n<|id|>514<|type|>title<|page|>51<|box|>229 176 247 450<|content|>Management ESOP Trust — 9.5%\n<|id|>530<|type|>title<|page|>52<|box|>90 142 107 501<|content|>Appendix C — Fleet Schedule (All 50 Vessels)\n<|id|>532<|type|>table<|page|>52<|box|>159 143 446 852<|content|>None\n<|id|>534<|type|>title<|page|>53<|box|>90 142 107 565<|content|>Appendix D — Collateral Vessel Schedule (28 Vessel\n<|id|>536<|type|>table<|page|>53<|box|>159 143 450 852<|content|>None\n<|id|>538<|type|>title<|page|>54<|box|>90 142 107 570<|content|>Appendix E — Material Contracts Summary Schedule\n<|id|>540<|type|>table<|page|>54<|box|>159 143 420 852<|content|>None\n<|id|>542<|type|>table<|page|>55<|box|>140 143 558 852<|content|>None\n<|id|>544<|type|>title<|page|>56<|box|>90 142 107 501<|content|>Appendix G — Insurance Summary Schedule\n<|id|>545<|type|>table<|page|>56<|box|>159 143 489 852<|content|>None\n<|id|>547<|type|>title<|page|>57<|box|>90 142 107 419<|content|>Appendix H — Litigation Schedule\n<|id|>549<|type|>title<|page|>57<|box|>161 143 176 282<|content|>Pending Matters:\n<|id|>550<|type|>table<|page|>57<|box|>183 143 395 852<|content|>None\n<|id|>553<|type|>title<|page|>58<|box|>90 142 107 539<|content|>Appendix I — Regulatory Compliance Certificates\n<|id|>554<|type|>table<|page|>58<|box|>159 143 585 852<|content|>None\n<|id|>556<|type|>title<|page|>59<|box|>90 142 107 446<|content|>Appendix J — Tax Structure Diagram\n<|id|>558<|type|>title<|page|>59<|box|>160 176 176 511<|content|>Kallistratos Maritime Holdings Ltd. (BVI)\n<|id|>563<|type|>title<|page|>59<|box|>263 179 282 250<|content|>↓ Equity\n<|id|>564<|type|>title<|page|>59<|box|>290 178 308 516<|content|>Thalassa Shipping & Logistics SA (Greece)\n<|id|>570<|type|>title<|page|>59<|box|>420 178 436 581<|content|>Thalassa Finance Pte. Ltd. (Singapore) — Co-Issuer\n<|id|>576<|type|>title<|page|>59<|box|>569 178 585 517<|content|>Thalassa Dry Bulk Operations Ltd. (Malta)\n<|id|>583<|type|>title<|page|>59<|box|>718 178 734 522<|content|>Thalassa Port Services FZCO (Dubai, UAE)\n<|id|>587<|type|>title<|page|>59<|box|>821 178 839 553<|content|>Thalassa Freight Solutions Pte. Ltd. (Singapore)\n<|id|>590<|type|>title<|page|>59<|box|>887 143 902 267<|content|>Key Tax Risks:\n<|id|>597<|type|>title<|page|>60<|box|>285 388 301 607<|content|>END OF MEMORANDUM",
+    "raw_response": "<|src_id|>475<|tgt_id|>473\n<|src_id|>476<|tgt_id|>473\n<|src_id|>532<|tgt_id|>530\n<|src_id|>536<|tgt_id|>534\n<|src_id|>540<|tgt_id|>538\n<|src_id|>542<|tgt_id|>538\n<|src_id|>545<|tgt_id|>544\n<|src_id|>550<|tgt_id|>547\n<|src_id|>554<|tgt_id|>553",
+    "parsed": [
+        {
+            "src_id": 475,
+            "tgt_id": 473
+        },
+        {
+            "src_id": 476,
+            "tgt_id": 473
+        },
+        {
+            "src_id": 532,
+            "tgt_id": 530
+        },
+        {
+            "src_id": 536,
+            "tgt_id": 534
+        },
+        {
+            "src_id": 540,
+            "tgt_id": 538
+        },
+        {
+            "src_id": 542,
+            "tgt_id": 538
+        },
+        {
+            "src_id": 545,
+            "tgt_id": 544
+        },
+        {
+            "src_id": 550,
+            "tgt_id": 547
+        },
+        {
+            "src_id": 554,
+            "tgt_id": 553
+        }
+    ]
+}

@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 148 142 848<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF REDSTONE\n<|id|>5<|page|>1<|box|>405 140 422 243<|content|>RECITALS\n<|id|>16<|page|>4<|box|>364 140 383 851<|content|>SECTION 1: APPROVAL OF THE COOPERATION AND STANDST\n<|id|>20<|page|>5<|box|>89 140 107 638<|content|>SECTION 2: APPROVAL OF EXPENSE REIMBURSEMENT\n<|id|>22<|page|>5<|box|>376 140 393 846<|content|>SECTION 3: APPOINTMENT OF FRANKLIN CHU TO THE BOAR\n<|id|>26<|page|>6<|box|>148 140 166 771<|content|>SECTION 4: STRATEGIC REVIEW OF INTERACTIVE GAMING\n<|id|>30<|page|>7<|box|>89 140 106 694<|content|>SECTION 5: JOINT PRESS RELEASE AND PUBLIC DISCLOSU\n<|id|>33<|page|>7<|box|>566 140 584 771<|content|>SECTION 6: WITHDRAWAL OF NOMINATIONS AND ANNUAL ME\n<|id|>37<|page|>8<|box|>167 140 184 627<|content|>SECTION 7: D&O INSURANCE AND INDEMNIFICATION\n<|id|>39<|page|>8<|box|>508 140 526 514<|content|>SECTION 8: GENERAL AUTHORIZATIONS\n<|id|>44<|page|>10<|box|>89 398 107 599<|content|>EXHIBIT REFERENCE\n<|id|>46<|page|>11<|box|>89 248 106 750<|content|>UNANIMOUS WRITTEN CONSENT — SIGNATURE PAGES\n<|id|>50<|page|>12<|box|>89 307 106 689<|content|>CORPORATE SECRETARY'S CERTIFICATE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>16<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>2\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        }
+    ]
+}

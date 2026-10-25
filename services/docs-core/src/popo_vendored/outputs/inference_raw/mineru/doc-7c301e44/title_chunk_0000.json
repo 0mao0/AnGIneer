@@ -1,0 +1,122 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 403 119 593<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 191 154 805<|content|>CALDERWOOD & HARKNESS LLP 425 Park Avenue, New Yor\n<|id|>8<|page|>1<|box|>351 140 369 364<|content|>I. Purpose of Memorandum\n<|id|>16<|page|>2<|box|>321 140 339 468<|content|>II. Summary of Entities and Jurisdictions\n<|id|>29<|page|>5<|box|>90 142 107 359<|content|>III. Fee Schedule Summary\n<|id|>32<|page|>6<|box|>148 142 167 369<|content|>IV. Transmittal Instructions\n<|id|>42<|page|>7<|box|>128 171 174 825<|content|>MARYLAND STATE DEPARTMENT OF ASSESSMENTS AND TAXAT\n<|id|>43<|page|>7<|box|>191 292 212 704<|content|>(Fairwater Real Estate Investment Trust)\n<|id|>65<|page|>8<|box|>329 256 349 740<|content|>DELAWARE DIVISION OF CORPORATIONS\n<|id|>66<|page|>8<|box|>368 151 412 846<|content|>(Fairwater Operating Partnership, L.P. and Fairwat\n<|id|>82<|page|>9<|box|>680 176 696 691<|content|>Calderwood & Harkness LLP 425 Park Avenue New York\n<|id|>83<|page|>9<|box|>705 176 722 367<|content|>Attention: Marcus Leung\n<|id|>92<|page|>10<|box|>90 439 109 557<|content|>LETTER 3\n<|id|>93<|page|>10<|box|>128 325 148 671<|content|>TEXAS SECRETARY OF STATE\n<|id|>94<|page|>10<|box|>167 174 212 823<|content|>(Fairwater Sun Belt I LLC through Fairwater Sun Be\n<|id|>117<|page|>11<|box|>484 439 503 557<|content|>LETTER 4\n<|id|>118<|page|>11<|box|>523 308 542 687<|content|>GEORGIA SECRETARY OF STATE\n<|id|>119<|page|>11<|box|>561 153 606 844<|content|>(Fairwater Sun Belt VI LLC through Fairwater Sun B\n<|id|>122<|page|>11<|box|>693 143 710 362<|content|>VIA OVERNIGHT COURIER\n<|id|>142<|page|>13<|box|>90 439 109 558<|content|>LETTER 5\n<|id|>143<|page|>13<|box|>128 220 174 776<|content|>FLORIDA DEPARTMENT OF STATE, DIVISION OF CORPORATI\n<|id|>144<|page|>13<|box|>191 161 236 836<|content|>(Fairwater Sun Belt IX LLC through Fairwater Sun B\n<|id|>170<|page|>14<|box|>635 169 679 826<|content|>(Fairwater Sun Belt XII LLC and Fairwater Sun Belt\n<|id|>173<|page|>14<|box|>766 143 782 362<|content|>VIA OVERNIGHT COURIER\n<|id|>184<|page|>15<|box|>662 178 678 367<|content|>Attention: Marcus Leung\n<|id|>193<|page|>16<|box|>90 439 109 558<|content|>LETTER 7\n<|id|>194<|page|>16<|box|>128 295 148 700<|content|>TENNESSEE SECRETARY OF STATE\n<|id|>195<|page|>16<|box|>167 222 189 774<|content|>(Fairwater Sun Belt XIV LLC — Foreign Qualificatio\n<|id|>208<|page|>17<|box|>90 176 106 692<|content|>Calderwood & Harkness LLP 425 Park Avenue New York\n<|id|>218<|page|>18<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>219<|page|>19<|box|>90 256 190 741<|content|>MASTER TRACKING SCHEDULE Good Standing / Existence\n<|id|>220<|page|>19<|box|>207 383 226 614<|content|>Matter No. 1036-00001",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>42<|level|>3\n<|id|>43<|level|>4\n<|id|>65<|level|>3\n<|id|>66<|level|>4\n<|id|>82<|level|>-1\n<|id|>83<|level|>-1\n<|id|>92<|level|>3\n<|id|>93<|level|>3\n<|id|>94<|level|>4\n<|id|>117<|level|>3\n<|id|>118<|level|>3\n<|id|>119<|level|>4\n<|id|>122<|level|>-1\n<|id|>142<|level|>3\n<|id|>143<|level|>3\n<|id|>144<|level|>4\n<|id|>170<|level|>-1\n<|id|>173<|level|>-1\n<|id|>184<|level|>-1\n<|id|>193<|level|>3\n<|id|>194<|level|>3\n<|id|>195<|level|>4\n<|id|>208<|level|>-1\n<|id|>218<|level|>2\n<|id|>219<|level|>2\n<|id|>220<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 4
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 4
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 4
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 4
+        },
+        {
+            "id": 218,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 2
+        }
+    ]
+}

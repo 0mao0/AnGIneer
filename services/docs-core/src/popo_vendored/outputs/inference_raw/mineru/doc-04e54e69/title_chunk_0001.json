@@ -1,0 +1,40 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        50
+    ],
+    "pages": [
+        47,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>541<|page|>47<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>542<|page|>47<|box|>131 339 148 656<|content|>FORM OF TRANSFER AGREEMENT\n<|id|>543<|page|>47<|box|>157 142 174 367<|content|>TRANSFER AGREEMENT\n<|id|>546<|page|>47<|box|>362 140 378 243<|content|>RECITALS\n<|id|>584<|page|>50<|box|>89 408 107 589<|content|>SIGNATURE PAGES\n<|id|>586<|page|>50<|box|>194 142 210 334<|content|>GENERAL PARTNER:",
+    "raw_response": "<|id|>541<|level|>1\n<|id|>542<|level|>2\n<|id|>543<|level|>3\n<|id|>546<|level|>4\n<|id|>584<|level|>2\n<|id|>586<|level|>4",
+    "parsed": [
+        {
+            "id": 541,
+            "level": 1
+        },
+        {
+            "id": 542,
+            "level": 2
+        },
+        {
+            "id": 543,
+            "level": 3
+        },
+        {
+            "id": 546,
+            "level": 4
+        },
+        {
+            "id": 584,
+            "level": 2
+        },
+        {
+            "id": 586,
+            "level": 4
+        }
+    ]
+}

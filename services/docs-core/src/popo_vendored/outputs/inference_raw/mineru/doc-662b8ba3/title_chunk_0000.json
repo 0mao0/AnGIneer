@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        8,
+        10,
+        12,
+        14,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 292 118 705<|content|>AMENDED AND RESTATED BYLAWS\n<|id|>1<|page|>1<|box|>137 480 157 517<|content|>OF\n<|id|>2<|page|>1<|box|>175 354 195 643<|content|>VELOPAY SYSTEMS, INC.\n<|id|>8<|page|>1<|box|>619 142 636 348<|content|>ARTICLE I — OFFICES\n<|id|>13<|page|>2<|box|>303 140 320 428<|content|>ARTICLE II — STOCKHOLDERS\n<|id|>24<|page|>5<|box|>258 140 276 490<|content|>ARTICLE III — BOARD OF DIRECTORS\n<|id|>37<|page|>8<|box|>358 140 375 374<|content|>ARTICLE IV — OFFICERS\n<|id|>50<|page|>10<|box|>720 140 738 424<|content|>ARTICLE V — CAPITAL STOCK\n<|id|>56<|page|>12<|box|>204 140 220 772<|content|>ARTICLE VI — INDEMNIFICATION AND ADVANCEMENT OF EX\n<|id|>65<|page|>14<|box|>549 140 565 495<|content|>ARTICLE VII — GENERAL PROVISIONS\n<|id|>87<|page|>17<|box|>186 140 203 429<|content|>ARTICLE VIII — AMENDMENTS\n<|id|>90<|page|>17<|box|>626 140 643 596<|content|>ARTICLE IX — CONSTRUCTION AND DEFINITIONS\n<|id|>100<|page|>18<|box|>487 140 503 297<|content|>CERTIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>24<|level|>2\n<|id|>37<|level|>2\n<|id|>50<|level|>2\n<|id|>56<|level|>2\n<|id|>65<|level|>2\n<|id|>87<|level|>2\n<|id|>90<|level|>2\n<|id|>100<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        }
+    ]
+}

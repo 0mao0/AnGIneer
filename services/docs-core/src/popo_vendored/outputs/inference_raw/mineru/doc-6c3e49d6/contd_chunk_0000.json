@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 140 155 620<|content|>TO: ... James Underwood, Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>164 140 181 620<|content|>FROM: ... Devon Archer, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>190 142 207 303<|content|>DATE: ... June 6, 2024\n<|id|>5<|page|>1<|box|>215 140 253 854<|content|>RE: ... Enforceability of Non-Compete Agreements U... York Law — Current Status and Pending Legislation\n<|id|>6<|page|>1<|box|>260 140 296 854<|content|>MATTER: ... Northgate Telecommunications PLC — CEO Employment Negotiation (1022- 00004)\n<|id|>7<|page|>1<|box|>304 140 321 493<|content|>CLIENT: ... Northgate Telecommunications PLC\n<|id|>11<|page|>1<|box|>734 138 900 857<|content|>As of the date of this memorandum, the parties' re... schedule of eight (8) named direct competitors of\n<|id|>12<|page|>2<|box|>90 140 127 854<|content|>Northgate. ... The gap between these positions — i... the key open issues in the employment negotiation\n<|id|>39<|page|>6<|box|>853 140 907 856<|content|>Assessment. ... 26 billion revenue global telecommunications and\n<|id|>40<|page|>7<|box|>90 140 164 854<|content|>SaaS enterprise — with access to the full spectrum...fied as warranting restrictive covenant protection\n<|id|>97<|page|>15<|box|>401 147 436 854<|content|>• Distinctions between outright bans and limitatio...ion, scope, or consideration requirements; ... and\n<|id|>99<|page|>15<|box|>476 140 568 856<|content|>No bill has been enacted as of the date of this me...is clearly in the direction of greater restriction",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>39<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ]
+}

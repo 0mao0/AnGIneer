@@ -1,0 +1,54 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        49,
+        103
+    ],
+    "pages": [
+        50,
+        56,
+        65,
+        80,
+        83,
+        85,
+        88,
+        94,
+        99,
+        100,
+        101,
+        102
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>155<|page|>50<|box|>211 32 222 458<|content|>5/ Except \\$15,000 at 97. ... 113\n<|id|>156<|page|>50<|box|>222 32 231 213<|content|>and \\$100,000 at 97. ... 099\n<|id|>208<|page|>56<|box|>608 15 628 491<|content|>24/ Sold at auction through competitive and noncompetitive bidding. ... 02%)\n<|id|>209<|page|>56<|box|>100 532 112 796<|content|>with the average at 101. ... 98%)\n<|id|>248<|page|>65<|box|>396 383 410 600<|content|>Footnotes to Table PDO-7\n<|id|>249<|page|>65<|box|>454 12 466 420<|content|>Source: ... Daily Treasury statement and Bureau of the Public Debt\n<|id|>255<|page|>65<|box|>580 13 634 470<|content|>1/ Subscribers exchanging these securities may ele...at cash was received by the subscriber (other than\n<|id|>256<|page|>65<|box|>453 527 472 937<|content|>as an interest adjustment) must be recognized in t...nt) must be recognized in the year of the exchange\n<|id|>295<|page|>80<|box|>78 12 174 475<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>296<|page|>80<|box|>77 505 174 968<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1972\n<|id|>305<|page|>83<|box|>800 0 830 475<|content|>2/ Because there is a normal lag in classifying re...nning with the Treasury Bulletin of March 1961 the\n<|id|>314<|page|>85<|box|>97 0 160 440<|content|>United States savings notes were on sale May 1, 19...he simultaneous purchase of Series E savings bonds\n<|id|>321<|page|>88<|box|>120 0 310 461<|content|>The monthly Treasury Survey of Ownership covers se...ished for banks and insurance companies in the May\n<|id|>322<|page|>88<|box|>118 529 176 996<|content|>1941 Treasury Bulletin, for corporations and savin...nd local governments in the February 1962 Bulletin\n<|id|>347<|page|>94<|box|>541 17 624 480<|content|>4/ Consists of corporate pension trust funds and p...\" The quarterly data are presented as supplemental\n<|id|>353<|page|>94<|box|>612 532 623 682<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>361<|page|>99<|box|>182 0 886 27<|content|>AVERAGE YIELDS OF LONG-TERM TREASURY, CORPORATE AND MUNICIPAL BONDS\n<|id|>362<|page|>100<|box|>124 27 194 489<|content|>The tables in this section are designed to provide...ulletin to increase the usefulness of this section\n<|id|>384<|page|>101<|box|>929 0 976 456<|content|>2/ Includes Bank for International Settlements and European Fund. ... Federally-sponsored agencies and\n<|id|>386<|page|>102<|box|>530 555 551 996<|content|>age to those shown for the preceding date; ... fig...e comparable to those shown for the following date\n<|id|>391<|page|>102<|box|>649 50 671 510<|content|>Data on the two lines shown for this date differ b...Figures on the first line are comparable in cover-\n<|id|>392<|page|>102<|box|>550 531 629 1000<|content|>4/ Includes \\$101 million increase in dollar value...lect market exchange rates as of December 31, 1971",
+    "raw_response": "<|src_id|>155<|tgt_id|>156\n<|src_id|>208<|tgt_id|>209\n<|src_id|>255<|tgt_id|>256\n<|src_id|>295<|tgt_id|>296\n<|src_id|>305<|tgt_id|>314\n<|src_id|>321<|tgt_id|>322\n<|src_id|>391<|tgt_id|>392",
+    "parsed": [
+        {
+            "src_id": 155,
+            "tgt_id": 156
+        },
+        {
+            "src_id": 208,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 255,
+            "tgt_id": 256
+        },
+        {
+            "src_id": 295,
+            "tgt_id": 296
+        },
+        {
+            "src_id": 305,
+            "tgt_id": 314
+        },
+        {
+            "src_id": 321,
+            "tgt_id": 322
+        },
+        {
+            "src_id": 391,
+            "tgt_id": 392
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Severity 2', 'Major Functionality Impaired: A major feature or module is significantly degraded or partially inoperable, with a workaround available but', 'Four (4) hours', 'Best commercial efforts during business hours until resolved.']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'not acceptable for sustained use.', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 193,
+    "table2_idx": 194
+}

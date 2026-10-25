@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>667 142 684 393<|content|>1. SCOPE OF ENGAGEMENT\n<|id|>19<|page|>2<|box|>816 142 834 357<|content|>2. ENGAGEMENT TEAM\n<|id|>26<|page|>3<|box|>529 140 545 263<|content|>3. RETAINER\n<|id|>30<|page|>4<|box|>89 140 106 383<|content|>4. BILLING AND PAYMENT\n<|id|>36<|page|>4<|box|>608 140 625 434<|content|>5. THIRD-PARTY CONSULTANTS\n<|id|>41<|page|>5<|box|>267 140 282 397<|content|>6. CONFLICTS OF INTEREST\n<|id|>45<|page|>5<|box|>678 140 695 488<|content|>7. CONFIDENTIALITY AND PRIVILEGE\n<|id|>49<|page|>6<|box|>204 140 220 333<|content|>8. COMMUNICATION\n<|id|>59<|page|>6<|box|>703 140 719 300<|content|>9. TERMINATION\n<|id|>64<|page|>7<|box|>285 142 301 419<|content|>10. LIMITATION OF LIABILITY\n<|id|>67<|page|>7<|box|>487 142 503 586<|content|>11. GOVERNING LAW AND DISPUTE RESOLUTION\n<|id|>70<|page|>7<|box|>744 143 762 367<|content|>12. ENTIRE AGREEMENT\n<|id|>76<|page|>8<|box|>321 212 337 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>79<|page|>8<|box|>382 349 398 647<|content|>ACCEPTANCE AND AGREEMENT",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>19<|level|>1\n<|id|>26<|level|>1\n<|id|>30<|level|>1\n<|id|>36<|level|>1\n<|id|>41<|level|>1\n<|id|>45<|level|>1\n<|id|>49<|level|>1\n<|id|>59<|level|>1\n<|id|>64<|level|>1\n<|id|>67<|level|>1\n<|id|>70<|level|>1\n<|id|>76<|level|>-1\n<|id|>79<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        }
+    ]
+}

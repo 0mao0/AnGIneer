@@ -1,0 +1,47 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        48,
+        102
+    ],
+    "pages": [
+        49,
+        50,
+        73,
+        79,
+        93,
+        96,
+        97,
+        101,
+        102
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>252<|page|>49<|box|>116 423 128 569<|content|>(Dollar amounts in millions)\n<|id|>255<|page|>50<|box|>869 103 885 407<|content|>taxes due on the 15th of the month in which the bi...he bills me 6/ Sold at fixed price by subscription\n<|id|>425<|page|>73<|box|>107 122 194 497<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>426<|page|>73<|box|>106 519 194 895<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1974\n<|id|>439<|page|>79<|box|>244 427 256 554<|content|>(In millions of dollars)\n<|id|>440<|page|>79<|box|>121 107 179 468<|content|>United States savings notes were on sale May 1, 19...he simultaneous purchase of Series E savings bonds\n<|id|>499<|page|>93<|box|>604 107 625 491<|content|>3/ Data on the two lines shown for this date diffe...e. ... Figures on the first line are comparable in\n<|id|>500<|page|>93<|box|>517 519 537 893<|content|>coverage to those shown for the preceding date; .....e comparable to those shown for the following date\n<|id|>534<|page|>96<|box|>655 186 674 449<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>535<|page|>96<|box|>679 186 704 436<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>537<|page|>96<|box|>435 519 447 704<|content|>(EQ2) E_x = \\Sigma(\\Delta f c_i / \\$ * x_i / \\Sigma x)\n<|id|>538<|page|>96<|box|>452 540 479 838<|content|>Where: ... E_{x} is the weighted average of percentage changes in the foreign currency cost of dollars\n<|id|>539<|page|>96<|box|>484 589 503 834<|content|>\\Delta f c_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>540<|page|>96<|box|>508 590 534 828<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>543<|page|>96<|box|>587 545 614 844<|content|>Where: ... and\n<|id|>544<|page|>96<|box|>619 593 645 848<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>551<|page|>97<|box|>269 103 331 487<|content|>The report forms and instructions used in the coll...istics have been revised a number of times. ... 1/\n<|id|>552<|page|>97<|box|>334 104 434 489<|content|>The present form of the published presentation of ...rt-term liquid claims of large nonbanking concerns\n<|id|>576<|page|>101<|box|>719 582 729 639<|content|>Feb. ... 12\n<|id|>577<|page|>101<|box|>728 582 736 639<|content|>Mar. ... 5\n<|id|>580<|page|>101<|box|>751 582 760 639<|content|>June. ... 5\n<|id|>581<|page|>101<|box|>762 582 771 639<|content|>July. ... 6\n<|id|>582<|page|>101<|box|>771 582 781 639<|content|>Aug. ... 8\n<|id|>583<|page|>101<|box|>780 582 789 639<|content|>Sept. ... 4\n<|id|>584<|page|>101<|box|>787 582 796 639<|content|>Oct. ... 4\n<|id|>586<|page|>101<|box|>815 557 826 639<|content|>1977-Jan. ... 4\n<|id|>587<|page|>101<|box|>825 516 835 604<|content|>p Preliminary. ... p Preliminary\n<|id|>590<|page|>102<|box|>106 395 116 618<|content|>(Position at end of period in millions of dollars)\n<|id|>591<|page|>102<|box|>866 152 900 481<|content|>1/ Data in the two columns for this date differ be...e comparable to those shown for the following date",
+    "raw_response": "<|src_id|>425<|tgt_id|>426\n<|src_id|>499<|tgt_id|>500\n<|src_id|>534<|tgt_id|>535\n<|src_id|>538<|tgt_id|>539\n<|src_id|>539<|tgt_id|>540\n<|src_id|>543<|tgt_id|>544",
+    "parsed": [
+        {
+            "src_id": 425,
+            "tgt_id": 426
+        },
+        {
+            "src_id": 499,
+            "tgt_id": 500
+        },
+        {
+            "src_id": 534,
+            "tgt_id": 535
+        },
+        {
+            "src_id": 538,
+            "tgt_id": 539
+        },
+        {
+            "src_id": 539,
+            "tgt_id": 540
+        },
+        {
+            "src_id": 543,
+            "tgt_id": 544
+        }
+    ]
+}

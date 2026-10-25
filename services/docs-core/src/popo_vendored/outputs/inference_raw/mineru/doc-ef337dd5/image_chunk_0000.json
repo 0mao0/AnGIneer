@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 143 123 852<|content|>UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF\n<|id|>1<|type|>table<|page|>1<|box|>157 143 324 852<|content|>None\n<|id|>8<|type|>title<|page|>1<|box|>709 143 724 612<|content|>1. DESCRIPTION OF THE CASE AND RELIEF SOUGHT\n<|id|>9<|type|>title<|page|>1<|box|>739 143 757 344<|content|>1.1 Plaintiff's Description\n<|id|>17<|type|>title<|page|>2<|box|>776 140 794 380<|content|>OWS seeks the following relief:\n<|id|>25<|type|>title<|page|>3<|box|>279 143 296 362<|content|>1.2 Defendant's Description\n<|id|>30<|type|>title<|page|>3<|box|>787 140 804 441<|content|>2. JURISDICTIONAL STATEMENT\n<|id|>31<|type|>title<|page|>3<|box|>819 140 835 388<|content|>2.1 Subject Matter Jurisdiction\n<|id|>34<|type|>title<|page|>4<|box|>157 140 174 339<|content|>2.2 Personal Jurisdiction\n<|id|>38<|type|>title<|page|>4<|box|>589 140 606 377<|content|>3. FACTS NOT IN DISPUTE\n<|id|>47<|type|>title<|page|>5<|box|>224 140 241 441<|content|>4. PRINCIPAL ISSUES IN DISPUTE\n<|id|>48<|type|>title<|page|>5<|box|>255 140 272 330<|content|>4.1 Claim Construction\n<|id|>64<|type|>title<|page|>7<|box|>319 140 335 316<|content|>5. RELATED CASES\n<|id|>67<|type|>title<|page|>8<|box|>89 140 126 767<|content|>6. PATENT LOCAL RULES COMPLIANCE AND CLAIM CONSTRU\n<|id|>68<|type|>title<|page|>8<|box|>138 140 156 321<|content|>6.1 Patent Local Rules\n<|id|>70<|type|>title<|page|>8<|box|>304 140 320 517<|content|>6.2 Initial Disclosures Under Patent Local Rules\n<|id|>73<|type|>title<|page|>9<|box|>90 140 107 478<|content|>6.3 Proposed Claim Construction Schedule\n<|id|>74<|type|>table<|page|>9<|box|>155 143 369 852<|content|>None\n<|id|>76<|type|>title<|page|>9<|box|>536 142 553 328<|content|>7. DISCOVERY PLAN\n<|id|>77<|type|>title<|page|>9<|box|>566 142 584 287<|content|>7.1 Fact discovery\n<|id|>83<|type|>title<|page|>10<|box|>367 142 383 406<|content|>7.2 Claim Construction discovery\n<|id|>86<|type|>title<|page|>10<|box|>575 142 593 307<|content|>7.3 Expert discovery\n<|id|>92<|type|>title<|page|>10<|box|>819 143 835 264<|content|>Plaintiff OWS:\n<|id|>95<|type|>title<|page|>11<|box|>239 143 255 292<|content|>Defendant Lumos:\n<|id|>99<|type|>title<|page|>11<|box|>445 142 460 307<|content|>7.4 Protective Order\n<|id|>103<|type|>title<|page|>12<|box|>89 140 107 758<|content|>8. PROPOSED SCHEDULE FOR REMAINING PRETRIAL PROCEE\n<|id|>105<|type|>table<|page|>12<|box|>159 143 416 852<|content|>None\n<|id|>108<|type|>title<|page|>12<|box|>681 140 699 477<|content|>9. CONSENT TO MAGISTRATE JUDGE\n<|id|>110<|type|>title<|page|>12<|box|>785 143 801 383<|content|>10. ADR CONSIDERATIONS\n<|id|>111<|type|>title<|page|>12<|box|>816 143 833 405<|content|>10.1 Prior Settlement Discussions\n<|id|>115<|type|>title<|page|>13<|box|>239 143 256 318<|content|>10.2 ADR Willingness\n<|id|>119<|type|>title<|page|>13<|box|>555 143 573 334<|content|>11. OTHER MATTERS\n<|id|>120<|type|>title<|page|>13<|box|>587 142 604 349<|content|>11.1 Corporate Disclosure\n<|id|>123<|type|>title<|page|>13<|box|>851 142 867 377<|content|>11.2 Preservation of Evidence\n<|id|>126<|type|>title<|page|>14<|box|>275 140 292 504<|content|>11.3 Number of Patents and Accused Products\n<|id|>129<|type|>title<|page|>14<|box|>446 142 464 387<|content|>11.4 Estimated Length of Trial\n<|id|>136<|type|>title<|page|>15<|box|>89 140 106 442<|content|>For Defendant Lumos Photonics, Inc.:\n<|id|>143<|type|>title<|page|>15<|box|>242 374 258 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>8\n<|src_id|>74<|tgt_id|>73\n<|src_id|>105<|tgt_id|>103",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 103
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 166 125 828<|content|>SECRETARY'S CERTIFICATE OF FAIRWATER REAL ESTATE I\n<|id|>48<|page|>6<|box|>585 450 602 545<|content|>EXHIBITS\n<|id|>49<|page|>6<|box|>612 142 628 421<|content|>Exhibit A — List of Target Entities",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>48<|level|>2\n<|id|>49<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        }
+    ]
+}

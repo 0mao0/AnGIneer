@@ -1,0 +1,115 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pv1a0_um\\input\\pdfs\\doc-75b1fcff.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pv1a0_um\\enriched\\doc-75b1fcff.json",
+    "contd_output": "<|src_id|>85<|tgt_id|>86\n<|src_id|>87<|tgt_id|>88\n<|src_id|>91<|tgt_id|>92",
+    "title_output": "<|id|>12<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>25<|level|>2\n<|id|>31<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>1\n<|id|>50<|level|>2\n<|id|>54<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>65<|level|>1\n<|id|>69<|level|>1\n<|id|>74<|level|>1\n<|id|>80<|level|>1",
+    "image_output": "<|src_id|>66<|tgt_id|>65\n<|src_id|>67<|tgt_id|>65",
+    "contd_label": [
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 92
+        }
+    ],
+    "title_label": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 66,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 65
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 66,
+            "table2_idx": 67,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "Board Minutes — 2019 Meetings (12 meetings: January 30, March 13, March 27, April 24, May 15, June 19, July 10,",
+                    "January 30, 2019 – December 11, 2019",
+                    "PPC-IDR09-000619 – PPC-IDR09-000974"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "August 7, September 18, October 23, November 13, December 11, 2019)",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

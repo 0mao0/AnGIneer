@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 212 133 785<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT — PRIVILEGED\n<|id|>10<|page|>1<|box|>604 140 619 310<|content|>I. Purpose and Scope\n<|id|>15<|page|>2<|box|>476 140 494 490<|content|>II. Background on the Pinnacle Engagement\n<|id|>16<|page|>2<|box|>507 140 523 447<|content|>A. Overview of the Client Relationship\n<|id|>18<|page|>2<|box|>671 140 688 437<|content|>B. TruScan 360 — Product Overview\n<|id|>20<|page|>3<|box|>90 140 107 393<|content|>C. The Active Litigation Matter\n<|id|>23<|page|>3<|box|>316 142 334 544<|content|>D. Pinnacle Engagement Team and Client Contacts\n<|id|>32<|page|>3<|box|>667 140 684 439<|content|>E. Financial Scope of the Engagement\n<|id|>34<|page|>3<|box|>776 140 792 367<|content|>F. Client Entity Information\n<|id|>36<|page|>4<|box|>90 140 107 697<|content|>III. Categories of Pinnacle Confidential Informati\n<|id|>38<|page|>4<|box|>220 140 237 555<|content|>A. Technical Specifications — TruScan 360 Platform\n<|id|>43<|page|>4<|box|>755 140 772 462<|content|>B. Source-Code Architecture Summaries\n<|id|>47<|page|>5<|box|>367 140 383 334<|content|>C. Data-Flow Diagrams\n<|id|>52<|page|>6<|box|>90 140 107 431<|content|>D. Biometric-Data Retention Policies\n<|id|>57<|page|>6<|box|>680 140 696 398<|content|>E. Algorithm Design Documents\n<|id|>62<|page|>7<|box|>393 140 410 447<|content|>F. Patent-Prosecution Correspondence\n<|id|>66<|page|>8<|box|>90 140 107 547<|content|>G. Litigation Strategy and Work-Product Materials\n<|id|>77<|page|>8<|box|>744 140 760 475<|content|>H. Commercial and Financial Information\n<|id|>85<|page|>9<|box|>546 142 563 540<|content|>IV. Relevance to the Proposed MTDC Engagement\n<|id|>86<|page|>9<|box|>577 140 594 462<|content|>A. Scope of the Proposed Representation\n<|id|>92<|page|>10<|box|>325 140 342 522<|content|>B. Direct Overlap with Confidential Information\n<|id|>95<|page|>10<|box|>691 140 708 460<|content|>C. The Irreconcilable Positional Conflict\n<|id|>97<|page|>11<|box|>90 140 108 444<|content|>D. Impossibility of Effective Screening\n<|id|>99<|page|>11<|box|>301 140 318 444<|content|>V. Conclusions and Recommendations\n<|id|>107<|page|>12<|box|>279 140 295 277<|content|>VI. Certification\n<|id|>121<|page|>13<|box|>90 142 107 758<|content|>Appendix — Index of Physical and Electronic File L\n<|id|>123<|page|>13<|box|>655 142 672 795<|content|>Total estimated document count: Approximately 2,16\n<|id|>126<|page|>14<|box|>90 418 107 578<|content|>End of Memorandum",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>18<|level|>2\n<|id|>20<|level|>2\n<|id|>23<|level|>2\n<|id|>32<|level|>2\n<|id|>34<|level|>2\n<|id|>36<|level|>1\n<|id|>38<|level|>2\n<|id|>43<|level|>2\n<|id|>47<|level|>2\n<|id|>52<|level|>2\n<|id|>57<|level|>2\n<|id|>62<|level|>2\n<|id|>66<|level|>2\n<|id|>77<|level|>2\n<|id|>85<|level|>1\n<|id|>86<|level|>2\n<|id|>92<|level|>2\n<|id|>95<|level|>2\n<|id|>97<|level|>2\n<|id|>99<|level|>1\n<|id|>107<|level|>1\n<|id|>121<|level|>1\n<|id|>123<|level|>-1\n<|id|>126<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 104 630<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|type|>title<|page|>1<|box|>112 424 128 573<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>332 305 351 689<|content|>I. Purpose and Scope of Memorandum\n<|id|>19<|type|>title<|page|>2<|box|>477 393 497 602<|content|>II. Entities Searched\n<|id|>20<|type|>table<|page|>2<|box|>575 143 792 852<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>444 339 463 656<|content|>III. Summary of Search Results\n<|id|>25<|type|>title<|page|>3<|box|>489 140 505 246<|content|>A. Overview\n<|id|>31<|type|>title<|page|>4<|box|>175 140 191 377<|content|>B. Detailed Results by Debtor\n<|id|>33<|type|>title<|page|>4<|box|>268 142 287 637<|content|>1. Stonefield Logistics Group Inc. (Delaware Secre\n<|id|>35<|type|>title<|page|>4<|box|>373 142 391 214<|content|>Filing 1:\n<|id|>45<|type|>title<|page|>5<|box|>90 140 107 671<|content|>2. Cascade Ridge SLG Holdings, LLC (Delaware Secre\n<|id|>49<|type|>title<|page|>5<|box|>416 140 433 643<|content|>3. Stonefield Intermodal Services, Inc. (Texas Sec\n<|id|>51<|type|>title<|page|>5<|box|>502 143 518 214<|content|>Filing 1:\n<|id|>60<|type|>title<|page|>5<|box|>830 140 848 640<|content|>4. Stonefield Fleet Management, LLC (Texas Secreta\n<|id|>62<|type|>title<|page|>6<|box|>90 142 107 214<|content|>Filing 1:\n<|id|>71<|type|>title<|page|>6<|box|>438 140 455 660<|content|>5. Stonefield Freight Brokerage, Inc. (Delaware Se\n<|id|>73<|type|>title<|page|>6<|box|>523 143 541 214<|content|>Filing 1:\n<|id|>82<|type|>title<|page|>7<|box|>90 330 111 666<|content|>IV. Consolidated Summary Table\n<|id|>83<|type|>table<|page|>7<|box|>189 143 619 852<|content|>None\n<|id|>85<|type|>title<|page|>7<|box|>734 349 753 647<|content|>V. Analysis and Observations\n<|id|>86<|type|>title<|page|>7<|box|>779 142 795 473<|content|>A. Consistency with Senior Credit Facility\n<|id|>94<|type|>title<|page|>8<|box|>382 140 398 390<|content|>B. Absence of Competing Liens\n<|id|>98<|type|>title<|page|>8<|box|>794 140 811 326<|content|>C. Collateral Coverage\n<|id|>102<|type|>title<|page|>9<|box|>439 140 457 423<|content|>D. Continuation Filing Observation\n<|id|>106<|type|>title<|page|>10<|box|>90 385 111 611<|content|>VI. Recommendations\n<|id|>108<|type|>title<|page|>10<|box|>188 140 205 473<|content|>A. Proceed with Mezzanine UCC-1 Filings\n<|id|>115<|type|>title<|page|>10<|box|>781 140 797 352<|content|>B. Confirm Debtor Names\n<|id|>118<|type|>title<|page|>11<|box|>222 140 239 401<|content|>C. UCC/Lien Perfection Opinion\n<|id|>121<|type|>title<|page|>11<|box|>554 140 570 468<|content|>D. Intercreditor Agreement Coordination\n<|id|>124<|type|>title<|page|>11<|box|>834 410 853 588<|content|>VII. Attachments\n<|id|>130<|type|>title<|page|>12<|box|>349 142 366 251<|content|>Prepared by:\n<|id|>132<|type|>title<|page|>12<|box|>393 143 407 250<|content|>Distribution:",
+    "raw_response": "<|src_id|>20<|tgt_id|>19\n<|src_id|>83<|tgt_id|>82",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 82
+        }
+    ]
+}

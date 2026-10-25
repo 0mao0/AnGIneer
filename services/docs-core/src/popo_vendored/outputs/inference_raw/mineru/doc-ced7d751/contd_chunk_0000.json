@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 142 104 362<|content|>PRIVILEGED & CONFIDENTIAL\n<|id|>1<|page|>1<|box|>112 207 128 854<|content|>CALDERWOOD & HARKNESS LLP 425 Park Avenue New York, New York 10022\n<|id|>2<|page|>1<|box|>138 728 156 854<|content|>August 11, 2025\n<|id|>3<|page|>1<|box|>164 140 200 854<|content|>David A. ... General Counsel Fairwater Real Estate... Center Drive, Suite 1200 Columbia, Maryland 21044\n<|id|>4<|page|>1<|box|>208 140 244 854<|content|>Re: ... 1036-00001\n<|id|>5<|page|>1<|box|>253 142 270 294<|content|>Dear Mr. ... Whitfield\n<|id|>43<|page|>6<|box|>204 140 276 857<|content|>Based on our experience with transactions of compa...gement will be in the range of Seven Hundred Fifty\n<|id|>44<|page|>6<|box|>277 140 479 856<|content|>Thousand Dollars ($750,000) to One Million One Hun...rially exceed the upper end of the estimated range\n<|id|>59<|page|>7<|box|>393 174 429 854<|content|>Naomi T. ... Sinclair Chief Financial Officer Fair... Center Drive, Suite 1200 Columbia, Maryland 21044\n<|id|>60<|page|>7<|box|>436 176 454 441<|content|>Email: ... com\n<|id|>61<|page|>7<|box|>454 140 546 854<|content|>If Fairwater has any questions or disputes regardi... invoice within the thirty (30)-day payment period\n<|id|>64<|page|>7<|box|>804 140 896 857<|content|>Prior to issuing this Letter, we have conducted a ...ership, L. ... , Pinnacle Trust Company, Greystone\n<|id|>65<|page|>8<|box|>90 140 219 856<|content|>Commerce Bank, Redfield Capital Markets, LLC, Beac...vise you of any potential conflicts that may arise\n<|id|>93<|page|>10<|box|>412 143 429 341<|content|>Name: ... Whitfield\n<|id|>94<|page|>10<|box|>430 143 446 313<|content|>Title: ... General Counsel\n<|id|>95<|page|>10<|box|>448 143 465 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>43<|tgt_id|>44\n<|src_id|>64<|tgt_id|>65",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        }
+    ]
+}

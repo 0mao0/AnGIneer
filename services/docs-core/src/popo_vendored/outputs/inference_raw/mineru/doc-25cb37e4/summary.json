@@ -1,0 +1,131 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gj03cypm\\input\\pdfs\\doc-25cb37e4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gj03cypm\\enriched\\doc-25cb37e4.json",
+    "contd_output": "<|src_id|>56<|tgt_id|>57\n<|src_id|>74<|tgt_id|>75",
+    "title_output": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>28<|level|>2\n<|id|>39<|level|>2\n<|id|>40<|level|>3\n<|id|>47<|level|>3\n<|id|>53<|level|>3\n<|id|>59<|level|>3\n<|id|>65<|level|>3\n<|id|>72<|level|>3\n<|id|>81<|level|>3\n<|id|>88<|level|>3\n<|id|>93<|level|>2\n<|id|>94<|level|>3\n<|id|>99<|level|>3\n<|id|>108<|level|>3\n<|id|>114<|level|>3\n<|id|>119<|level|>2\n<|id|>122<|level|>2\n<|id|>137<|level|>2",
+    "image_output": "<|src_id|>120<|tgt_id|>119\n<|src_id|>121<|tgt_id|>119",
+    "contd_label": [
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 75
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 120,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 119
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 120,
+            "table2_idx": 121,
+            "upper_row_ss": [
+                [
+                    "1. Escrow Release Trigger",
+                    "Release upon entry of Court's Order of Dismissal with Prejudice; TTAB withdrawal to be filed simultaneously or prior to filing of Joint Stipulation of Dismissal",
+                    "Release upon both (a) entry of dismissal order and (b) MCB's withdrawal of TTAB opposition",
+                    "Accept dual trigger, but second condition satisfied uponfiling(not processing or acceptance) of withdrawal of opposition; if TTAB processing exceeds 10 business days after filing, filing itself satisfies condition; Calderwood & Harkness provides written release instructions to Dralvecen National Bank accompanied by filed-stamped Order and proof"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "of TTAB filing"
+                ]
+            ]
+        }
+    ]
+}

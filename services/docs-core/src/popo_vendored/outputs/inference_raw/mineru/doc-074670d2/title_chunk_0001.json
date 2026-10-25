@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        55,
+        76
+    ],
+    "pages": [
+        56,
+        61,
+        62,
+        64,
+        66,
+        67,
+        68,
+        69,
+        74,
+        75,
+        76
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>150<|page|>56<|box|>44 358 59 648<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>151<|page|>56<|box|>78 226 93 778<|content|>Table 2.- Detail of Collections by Type of Tax ^{y\n<|id|>170<|page|>61<|box|>410 353 423 628<|content|>Section I - Historical Summary\n<|id|>171<|page|>61<|box|>429 142 443 837<|content|>Table 1.- Net Capital Movement between the United\n<|id|>173<|page|>62<|box|>73 358 86 637<|content|>Section I - Historical Summary\n<|id|>179<|page|>64<|box|>74 342 88 639<|content|>Section II - Summary by Countries\n<|id|>182<|page|>66<|box|>81 346 95 641<|content|>Section II - Summary by Countries\n<|id|>183<|page|>66<|box|>99 231 114 764<|content|>Table 3.- Short-Term Claims on and Liabilities to\n<|id|>185<|page|>67<|box|>74 331 88 627<|content|>Section II - Summary by Countries\n<|id|>187<|page|>68<|box|>78 286 93 713<|content|>Section III - Details for Month of November 1947\n<|id|>189<|page|>69<|box|>79 266 92 686<|content|>Section III - Details for Month of November 1947\n<|id|>190<|page|>69<|box|>100 273 113 677<|content|>Table 2.- Short-Term Liabilities to Foreigners\n<|id|>198<|page|>74<|box|>43 233 57 790<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>200<|page|>75<|box|>39 212 55 757<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>202<|page|>76<|box|>81 416 94 602<|content|>Footnotes to Table 2",
+    "raw_response": "<|id|>150<|level|>1\n<|id|>151<|level|>2\n<|id|>170<|level|>2\n<|id|>171<|level|>2\n<|id|>173<|level|>2\n<|id|>179<|level|>2\n<|id|>182<|level|>2\n<|id|>183<|level|>2\n<|id|>185<|level|>2\n<|id|>187<|level|>2\n<|id|>189<|level|>2\n<|id|>190<|level|>2\n<|id|>198<|level|>1\n<|id|>200<|level|>1\n<|id|>202<|level|>2",
+    "parsed": [
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 1
+        },
+        {
+            "id": 200,
+            "level": 1
+        },
+        {
+            "id": 202,
+            "level": 2
+        }
+    ]
+}

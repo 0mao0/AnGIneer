@@ -1,0 +1,23 @@
+{
+    "task": "table_merge",
+    "chunk_index": 8,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=13, 装机总功率<5000kW的小型绞吸挖泥船', '13', '1600', '16', '39.6', '-', '960', '746', '746×1', '385', '斗轮3200×16']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=10, 装机总功率<5000kW的小型绞吸挖泥船', '14', '1571', '15', '40.7', '—', '350', '970', '—', '970', '—']]\n",
+    "raw_response": "[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 1469,
+    "table2_idx": 1470
+}

@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        36
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        17,
+        18,
+        25,
+        35,
+        36
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>151 140 169 532<|content|>From: ... Marcus Leung, Calderwood & Harkness LLP\n<|id|>2<|page|>1<|box|>176 140 194 653<|content|>To: ... Lisa Morrow and Philip Hartmann, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>203 140 220 323<|content|>Date: ... October 25, 2025\n<|id|>4<|page|>1<|box|>229 140 282 854<|content|>Re: ... 1036-00001\n<|id|>5<|page|>1<|box|>291 140 309 490<|content|>Client: ... Fairwater Real Estate Investment Trust\n<|id|>6<|page|>1<|box|>316 140 335 614<|content|>Proposed Lender: ... Clarendon Metropolitan Insurance Company\n<|id|>7<|page|>1<|box|>343 140 359 663<|content|>Title Insurer: ... Marlowe Asset Management Title Insurance Group, Inc\n<|id|>19<|page|>2<|box|>839 140 895 857<|content|>2. ... The Surveys have been re-certified to Clarendon Metropolitan\n<|id|>20<|page|>3<|box|>90 174 180 856<|content|>Insurance Company, Marlowe Asset Management Title ... and bear dates of certification in September 2025\n<|id|>171<|page|>17<|box|>849 174 905 857<|content|>(b) Dumpster Pad. ... This is a removable structur...permanent building improvement), and Marlowe Asset\n<|id|>172<|page|>18<|box|>89 174 162 854<|content|>Management Title has confirmed its willingness to ...the pad could be readily relocated at minimal cost\n<|id|>263<|page|>25<|box|>709 174 763 854<|content|>(iii) Whether the closing mechanics can be structu...eaning of the applicable Florida statutes; ... and\n<|id|>265<|page|>25<|box|>834 140 888 854<|content|>This credit could significantly reduce the closing...taxes. ... We recommend prioritizing this analysis\n<|id|>388<|page|>35<|box|>835 178 909 857<|content|>15. ... This is a critical endorsement for\n<|id|>389<|page|>36<|box|>89 210 125 854<|content|>CMBS securitization, as the loan and associated ti...le policy must be freely assignable into the Trust",
+    "raw_response": "<|src_id|>19<|tgt_id|>20\n<|src_id|>171<|tgt_id|>172\n<|src_id|>388<|tgt_id|>389",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 172
+        },
+        {
+            "src_id": 388,
+            "tgt_id": 389
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        7,
+        11
+    ],
+    "pages": [
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>34<|page|>7<|box|>537 174 612 854<|content|>(d) the retention of the remaining net proceeds of...ction and project development activities); ... and\n<|id|>36<|page|>7<|box|>737 140 810 857<|content|>The pro forma adjustments reflected in the selecte...ntended use of the net proceeds from this offering\n<|id|>39<|page|>7<|box|>888 142 905 310<|content|>Corporate-Level Debt\n<|id|>40<|page|>8<|box|>90 174 273 856<|content|>Corporate Revolving Credit Facility. ... 50% per a...he Company's consolidated total net leverage ratio\n<|id|>61<|page|>10<|box|>816 140 891 857<|content|>The Company's consolidated financial statements fo...ublic accounting firm. ... The report of Ashford &\n<|id|>62<|page|>11<|box|>89 140 126 854<|content|>Pemberton LLP on such consolidated financial state...ctus. ... See \"Experts\" for additional information",
+    "raw_response": "<|src_id|>61<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        }
+    ]
+}

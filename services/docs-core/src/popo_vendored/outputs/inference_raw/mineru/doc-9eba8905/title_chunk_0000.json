@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>152 140 170 315<|content|>Via Email and FedEx\n<|id|>11<|page|>1<|box|>659 140 675 361<|content|>I. Background and Recitals\n<|id|>14<|page|>2<|box|>258 142 277 343<|content|>II. Notice of Termination\n<|id|>23<|page|>3<|box|>212 140 229 616<|content|>III. Acknowledgment of Expense-Reimbursement Oblig\n<|id|>32<|page|>3<|box|>699 140 715 501<|content|>IV. Underwriting discount and Placement Fee\n<|id|>35<|page|>4<|box|>167 140 184 338<|content|>V. Reservation of Rights\n<|id|>42<|page|>4<|box|>675 140 691 413<|content|>VI. Ongoing Obligations; Survival\n<|id|>46<|page|>5<|box|>321 140 339 375<|content|>VII. Request for Cooperation\n<|id|>52<|page|>5<|box|>750 140 765 308<|content|>VIII. Defined Terms\n<|id|>54<|page|>5<|box|>834 142 851 300<|content|>IX. Governing Law\n<|id|>56<|page|>6<|box|>167 142 184 331<|content|>X. Contact Information\n<|id|>65<|page|>6<|box|>484 142 500 444<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>68<|page|>6<|box|>536 241 553 754<|content|>ACKNOWLEDGED AND AGREED on behalf of the Issuer Pa\n<|id|>70<|page|>6<|box|>606 142 622 388<|content|>SKYBRIDGE FINTECH LTD.",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>11<|level|>1\n<|id|>14<|level|>1\n<|id|>23<|level|>1\n<|id|>32<|level|>1\n<|id|>35<|level|>1\n<|id|>42<|level|>1\n<|id|>46<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>1\n<|id|>65<|level|>-1\n<|id|>68<|level|>-1\n<|id|>70<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        }
+    ]
+}

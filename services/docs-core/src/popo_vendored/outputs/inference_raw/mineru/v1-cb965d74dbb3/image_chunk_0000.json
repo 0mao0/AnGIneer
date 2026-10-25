@@ -1,0 +1,52 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>114 135 154 864<|content|>PREDICTING FUTURE STATES WITH SPATIAL POINT PROCES\n<|id|>3<|type|>title<|page|>1<|box|>369 240 385 334<|content|>ABSTRACT\n<|id|>6<|type|>title<|page|>1<|box|>717 207 732 364<|content|>1. INTRODUCTION\n<|id|>8<|type|>title<|page|>2<|box|>547 230 561 343<|content|>2. METHODS\n<|id|>9<|type|>title<|page|>2<|box|>575 83 592 418<|content|>2.1. Experimental set-up for embryo collection\n<|id|>11<|type|>title<|page|>2<|box|>768 84 784 218<|content|>2.2. Live Imaging\n<|id|>14<|type|>title<|page|>2<|box|>143 509 160 692<|content|>2.3. Data Pre-processing\n<|id|>16<|type|>title<|page|>2<|box|>719 509 736 612<|content|>2.4. Training\n<|id|>18<|type|>title<|page|>2<|box|>843 509 858 627<|content|>2.5. Evaluation\n<|id|>20<|type|>image<|page|>3<|box|>82 104 199 501<|content|>None\n<|id|>21<|type|>image<|page|>3<|box|>205 102 416 501<|content|>None\n<|id|>23<|type|>title<|page|>3<|box|>799 158 814 413<|content|>3. EXPERIMENT AND RESULTS\n<|id|>24<|type|>title<|page|>3<|box|>829 83 859 488<|content|>3.1. Comprehensive Analysis of super-resolution li\n<|id|>26<|type|>image<|page|>3<|box|>90 511 229 707<|content|>None\n<|id|>27<|type|>image<|page|>3<|box|>93 725 229 913<|content|>None\n<|id|>28<|type|>image<|page|>3<|box|>241 519 372 705<|content|>None\n<|id|>30<|type|>image<|page|>4<|box|>112 57 478 504<|content|>None\n<|id|>33<|type|>table<|page|>4<|box|>88 537 184 882<|content|>None\n<|id|>34<|type|>title<|page|>4<|box|>313 509 329 913<|content|>3.2. Comparative Evaluation of sogD and sogD\\Delta\n<|id|>38<|type|>title<|page|>5<|box|>458 223 473 349<|content|>4. DISCUSSION\n<|id|>41<|type|>title<|page|>5<|box|>824 217 839 354<|content|>5. CONCLUSION\n<|id|>43<|type|>title<|page|>5<|box|>170 524 185 898<|content|>6. COMPLIANCE WITH ETHICAL STANDARDS\n<|id|>45<|type|>title<|page|>5<|box|>279 607 292 816<|content|>7. ACKNOWLEDGMENTS\n<|id|>47<|type|>title<|page|>5<|box|>477 643 491 781<|content|>8. REFERENCES\n<|id|>59<|type|>title<|page|>8<|box|>90 372 106 625<|content|>9. SUPPLEMENTAL MATERIAL\n<|id|>60<|type|>image<|page|>8<|box|>133 294 239 702<|content|>None",
+    "raw_response": "<|src_id|>20<|tgt_id|>24\n<|src_id|>21<|tgt_id|>24\n<|src_id|>26<|tgt_id|>24\n<|src_id|>27<|tgt_id|>24\n<|src_id|>28<|tgt_id|>24\n<|src_id|>30<|tgt_id|>24\n<|src_id|>33<|tgt_id|>34\n<|src_id|>60<|tgt_id|>59",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 59
+        }
+    ]
+}

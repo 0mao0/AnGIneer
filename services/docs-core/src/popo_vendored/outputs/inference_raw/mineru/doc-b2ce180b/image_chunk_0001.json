@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        55,
+        76
+    ],
+    "pages": [
+        56,
+        60,
+        61,
+        62,
+        64,
+        65,
+        67,
+        68,
+        69,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>497<|type|>title<|page|>56<|box|>380 431 400 566<|content|>ARTICLE X\n<|id|>498<|type|>title<|page|>56<|box|>425 140 441 354<|content|>GENERAL PROVISIONS\n<|id|>500<|type|>title<|page|>56<|box|>588 140 604 403<|content|>If to the Company (pre-Closing):\n<|id|>508<|type|>title<|page|>56<|box|>760 142 776 359<|content|>If to PVAC or Merger Sub:\n<|id|>540<|type|>table<|page|>60<|box|>397 143 640 852<|content|>None\n<|id|>545<|type|>title<|page|>61<|box|>214 140 231 522<|content|>PINNACLE VENTURE ACQUISITION CORP.\n<|id|>560<|type|>title<|page|>62<|box|>89 434 111 563<|content|>EXHIBIT A\n<|id|>561<|type|>title<|page|>62<|box|>135 300 152 694<|content|>FORM OF SPONSOR SUPPORT AGREEMENT\n<|id|>563<|type|>title<|page|>62<|box|>260 140 277 243<|content|>RECITALS\n<|id|>578<|type|>title<|page|>64<|box|>332 142 349 467<|content|>PINNACLE VENTURE SPONSOR LLC\n<|id|>593<|type|>title<|page|>65<|box|>89 434 111 563<|content|>EXHIBIT B\n<|id|>594<|type|>title<|page|>65<|box|>135 346 152 650<|content|>FORM OF LOCK-UP AGREEMENT\n<|id|>596<|type|>title<|page|>65<|box|>224 140 241 243<|content|>RECITALS\n<|id|>600<|type|>title<|page|>65<|box|>438 142 455 336<|content|>1. Lock-Up Restrictions.\n<|id|>619<|type|>title<|page|>67<|box|>89 434 111 563<|content|>EXHIBIT C\n<|id|>620<|type|>title<|page|>67<|box|>135 281 154 715<|content|>FORM OF REGISTRATION RIGHTS AGREEMENT\n<|id|>622<|type|>title<|page|>67<|box|>260 140 277 243<|content|>RECITALS\n<|id|>628<|type|>title<|page|>67<|box|>727 140 744 393<|content|>2. Shelf Registration Statement.\n<|id|>634<|type|>title<|page|>68<|box|>744 140 760 294<|content|>6. Indemnification.\n<|id|>658<|type|>title<|page|>69<|box|>890 143 905 294<|content|>Dr. James Whitfield\n<|id|>659<|type|>title<|page|>71<|box|>90 434 109 562<|content|>EXHIBIT D\n<|id|>660<|type|>title<|page|>71<|box|>135 217 152 781<|content|>AMENDED AND RESTATED CERTIFICATE OF INCORPORATION\n<|id|>662<|type|>title<|page|>71<|box|>218 303 234 694<|content|>HELIX BIO THERAPEUTICS HOLDINGS INC.\n<|id|>668<|type|>title<|page|>71<|box|>571 142 588 325<|content|>ARTICLE I — NAME\n<|id|>670<|type|>title<|page|>71<|box|>638 142 655 578<|content|>ARTICLE II — REGISTERED AGENT AND OFFICE\n<|id|>672<|type|>title<|page|>71<|box|>742 142 758 367<|content|>ARTICLE III — PURPOSE\n<|id|>674<|type|>title<|page|>71<|box|>827 142 844 441<|content|>ARTICLE IV — CAPITALIZATION\n<|id|>680<|type|>title<|page|>72<|box|>574 140 592 480<|content|>ARTICLE V — BOARD OF DIRECTORS\n<|id|>685<|type|>title<|page|>73<|box|>420 140 438 500<|content|>ARTICLE VI — STOCKHOLDER ACTION\n<|id|>688<|type|>title<|page|>73<|box|>604 140 622 643<|content|>ARTICLE VII — EXCULPATION AND INDEMNIFICATION\n<|id|>692<|type|>title<|page|>74<|box|>303 140 320 473<|content|>ARTICLE VIII — EXCLUSIVE FORUM\n<|id|>695<|type|>title<|page|>74<|box|>614 140 632 403<|content|>ARTICLE IX — AMENDMENT\n<|id|>697<|type|>title<|page|>74<|box|>811 142 828 434<|content|>ARTICLE X — MISCELLANEOUS\n<|id|>705<|type|>title<|page|>75<|box|>272 424 291 571<|content|>SCHEDULES\n<|id|>706<|type|>title<|page|>75<|box|>316 142 334 390<|content|>Company Disclosure Schedules\n<|id|>708<|type|>table<|page|>75<|box|>440 143 827 852<|content|>None\n<|id|>709<|type|>title<|page|>76<|box|>90 142 107 385<|content|>Acquiror Disclosure Schedules\n<|id|>711<|type|>table<|page|>76<|box|>214 143 304 852<|content|>None",
+    "raw_response": "<|src_id|>540<|tgt_id|>508\n<|src_id|>708<|tgt_id|>706\n<|src_id|>711<|tgt_id|>709",
+    "parsed": [
+        {
+            "src_id": 540,
+            "tgt_id": 508
+        },
+        {
+            "src_id": 708,
+            "tgt_id": 706
+        },
+        {
+            "src_id": 711,
+            "tgt_id": 709
+        }
+    ]
+}

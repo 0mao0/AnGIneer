@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        23,
+        24
+    ],
+    "pages": [
+        23,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>232<|page|>23<|box|>842 563 859 854<|content|>Dated: ... May 15, 2025 Cedar Falls, Iowa\n<|id|>233<|page|>24<|box|>109 140 143 854<|content|>Patricia Langford Chief Financial Officer Greenfie...C 1400 Prairie Ridge Drive Cedar Falls, Iowa 50613\n<|id|>237<|page|>24<|box|>241 140 277 852<|content|>450 Park Avenue New York, New York 10022 Telephone: ... (212) 555- 7001\n<|id|>238<|page|>24<|box|>285 140 321 854<|content|>Iowa Office: ... (515) 555-4201\n<|id|>239<|page|>24<|box|>329 140 367 854<|content|>Nathaniel Bower, Responsible Partner Colette Whitm..., Lead Associate Amy Chesterton, Working Associate\n<|id|>240<|page|>24<|box|>375 140 392 785<|content|>Counsel to the Debtor and Debtor-in-Possession, Greenfield Agricultural Partners LLC",
+    "raw_response": "<|src_id|>239<|tgt_id|>240",
+    "parsed": [
+        {
+            "src_id": 239,
+            "tgt_id": 240
+        }
+    ]
+}

@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>330 145 404 851<|content|>PLAINTIFF OPTIWAVE SEMICONDUCTOR CORP.'S MOTION TO\n<|id|>9<|page|>1<|box|>426 142 444 310<|content|>I. INTRODUCTION\n<|id|>15<|page|>2<|box|>364 142 383 395<|content|>II. FACTUAL BACKGROUND\n<|id|>16<|page|>2<|box|>397 142 412 334<|content|>A. The Asserted Patents\n<|id|>23<|page|>3<|box|>330 140 347 750<|content|>B. Pre-Suit Licensing Outreach and Lumicore's Noti\n<|id|>35<|page|>4<|box|>625 140 640 423<|content|>C. Lumicore's Post-Notice Conduct\n<|id|>38<|page|>5<|box|>157 140 175 725<|content|>D. Evidence from Lumicore's Own Personnel Regardin\n<|id|>42<|page|>5<|box|>539 140 556 344<|content|>E. The Present Litigation\n<|id|>45<|page|>6<|box|>90 140 107 539<|content|>F. Discovery Dispute and Meet-and-Confer Efforts\n<|id|>50<|page|>6<|box|>607 140 625 506<|content|>G. Deposition Testimony of Raymond Bautista\n<|id|>57<|page|>7<|box|>212 140 229 346<|content|>III. LEGAL STANDARD\n<|id|>58<|page|>7<|box|>243 140 260 656<|content|>A. Motion to Compel Under Federal Rule of Civil Pr\n<|id|>61<|page|>7<|box|>523 140 542 535<|content|>B. Attorney-Client Privilege — General Principles\n<|id|>66<|page|>8<|box|>138 140 157 527<|content|>C. Work-Product Doctrine — General Principles\n<|id|>69<|page|>8<|box|>412 140 429 287<|content|>IV. ARGUMENT\n<|id|>70<|page|>8<|box|>443 140 479 854<|content|>A. Lumicore Has Waived Attorney-Client Privilege b\n<|id|>84<|page|>10<|box|>755 140 773 645<|content|>B. Lumicore Cannot Use the Opinions as Both Sword\n<|id|>90<|page|>11<|box|>753 140 770 777<|content|>C. The Scope of Waiver Encompasses All Related Com\n<|id|>103<|page|>13<|box|>536 140 554 779<|content|>D. Lumicore's Deposition Conduct Confirms the Cent\n<|id|>109<|page|>14<|box|>231 140 250 589<|content|>E. Policy Considerations Support Compelling Produc\n<|id|>113<|page|>14<|box|>731 140 748 354<|content|>V. RELIEF REQUESTED\n<|id|>121<|page|>15<|box|>464 140 481 483<|content|>VI. CERTIFICATION OF CONFERENCE\n<|id|>123<|page|>15<|box|>751 140 768 308<|content|>VII. CONCLUSION\n<|id|>139<|page|>16<|box|>444 140 460 388<|content|>CERTIFICATE OF SERVICE\n<|id|>151<|page|>16<|box|>825 142 843 297<|content|>EXHIBITS INDEX",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>23<|level|>3\n<|id|>35<|level|>3\n<|id|>38<|level|>3\n<|id|>42<|level|>3\n<|id|>45<|level|>3\n<|id|>50<|level|>3\n<|id|>57<|level|>2\n<|id|>58<|level|>3\n<|id|>61<|level|>3\n<|id|>66<|level|>3\n<|id|>69<|level|>2\n<|id|>70<|level|>3\n<|id|>84<|level|>3\n<|id|>90<|level|>3\n<|id|>103<|level|>3\n<|id|>109<|level|>3\n<|id|>113<|level|>2\n<|id|>121<|level|>2\n<|id|>123<|level|>2\n<|id|>139<|level|>2\n<|id|>151<|level|>2",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        }
+    ]
+}

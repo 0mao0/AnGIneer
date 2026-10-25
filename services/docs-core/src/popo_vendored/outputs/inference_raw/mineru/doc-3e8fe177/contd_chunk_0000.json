@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        14,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>143 364 160 632<|content|>ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>169 140 186 537<|content|>FROM: ... Hannah Brinkley, Lead Associate, Litigation\n<|id|>3<|page|>1<|box|>195 140 213 500<|content|>TO: ... Linda Osei, Responsible Partner, Litigation\n<|id|>4<|page|>1<|box|>220 140 239 674<|content|>CC: ... Patrick Gallagher, Working Associate\n<|id|>5<|page|>1<|box|>246 140 263 354<|content|>DATE: ... September 12, 2022\n<|id|>6<|page|>1<|box|>273 140 327 854<|content|>RE: ... 2184-CV-01537-BLS (MA Superior Court, Business Litigation Session, Suffolk County)\n<|id|>7<|page|>1<|box|>335 140 353 362<|content|>MATTER NO. ... 1018-00007\n<|id|>8<|page|>1<|box|>361 140 378 455<|content|>CLIENT: ... Penterra Pharmaceuticals Corp\n<|id|>25<|page|>2<|box|>902 140 929 839<|content|>Calderwood & Harkness LLP — Matter Closing Memoran...ticals Corp. ... Vantage Medical Distribution, LLC\n<|id|>27<|page|>3<|box|>364 140 417 854<|content|>In addition to the core team, the Firm utilized it...d information collected from Penterra's custodians\n<|id|>33<|page|>3<|box|>834 140 888 857<|content|>Defendant. ... Vantage was founded in\n<|id|>34<|page|>4<|box|>90 140 145 854<|content|>2009 by Donald R. ... Vantage is a regional specia...unology products in the northeastern United States\n<|id|>70<|page|>7<|box|>784 140 893 856<|content|>During the pre-filing phase, the C&H team conducte...y-judgment action proactively in the Massachusetts\n<|id|>71<|page|>8<|box|>90 140 143 854<|content|>Superior Court, Business Litigation Session, Suffo...ould file an affirmative breach-of-contract action\n<|id|>126<|page|>14<|box|>724 148 742 289<|content|>• Court filing fees\n<|id|>132<|page|>14<|box|>861 140 897 854<|content|>All costs and disbursements were incurred in the o...the categories identified in the engagement letter\n<|id|>127<|page|>14<|box|>744 147 762 781<|content|>• Deposition transcript costs (four depositions, including expedited transcript delivery)\n<|id|>128<|page|>14<|box|>765 147 782 712<|content|>• Travel expenses (principally for depositions and the oral argument hearing)\n<|id|>129<|page|>14<|box|>784 148 800 336<|content|>• Service of process fees\n<|id|>130<|page|>14<|box|>804 147 820 532<|content|>• Copying, printing, and document production costs\n<|id|>131<|page|>14<|box|>824 145 858 854<|content|>• Miscellaneous costs (including courier services, postage, and court-related administrative expenses)\n<|id|>193<|page|>20<|box|>468 142 484 684<|content|>Hannah Brinkley Lead Associate, Litigation Calderwood & Harkness LLP\n<|id|>194<|page|>20<|box|>487 143 502 264<|content|>Date: ... Date\n<|id|>196<|page|>20<|box|>553 140 570 674<|content|>Linda Osei Responsible Partner, Litigation Calderwood & Harkness LLP\n<|id|>197<|page|>20<|box|>571 143 587 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>33<|tgt_id|>34\n<|src_id|>70<|tgt_id|>71",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        }
+    ]
+}

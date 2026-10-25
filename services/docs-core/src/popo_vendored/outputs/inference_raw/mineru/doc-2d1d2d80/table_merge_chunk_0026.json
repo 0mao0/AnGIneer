@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 26,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['', '', '印章:年 月 日'], ['colspan=3, 备注:']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['检查报告'], ['测量工程质量检查报告正文包括下列内容:(1)任务概要;(2)检查概述,包括设备、人员组成等;(3)检查的技术依据和检查方法;(4)主要问题及处理意见;(5)遗留问题及建议;(6)质量统计和检查结论等。'], ['报告撰写人(签字): 年 月 日']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 242,
+    "table2_idx": 243
+}

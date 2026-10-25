@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>555<|type|>title<|page|>45<|box|>90 143 106 266<|content|>SCHEDULE II\n<|id|>556<|type|>table<|page|>45<|box|>138 145 224 852<|content|>None\n<|id|>557<|type|>title<|page|>46<|box|>89 143 106 274<|content|>SCHEDULE III\n<|id|>558<|type|>title<|page|>46<|box|>114 390 132 607<|content|>MILESTONE SCHEDULE\n<|id|>559<|type|>table<|page|>46<|box|>138 143 328 852<|content|>None\n<|id|>561<|type|>title<|page|>47<|box|>89 142 106 272<|content|>SCHEDULE IV\n<|id|>562<|type|>title<|page|>47<|box|>114 403 132 593<|content|>NOTICE ADDRESSES\n<|id|>563<|type|>title<|page|>47<|box|>147 143 164 305<|content|>A. Company Parties\n<|id|>590<|type|>title<|page|>48<|box|>90 140 107 382<|content|>H. Consenting Senior Lenders",
+    "raw_response": "<|src_id|>556<|tgt_id|>555\n<|src_id|>559<|tgt_id|>558",
+    "parsed": [
+        {
+            "src_id": 556,
+            "tgt_id": 555
+        },
+        {
+            "src_id": 559,
+            "tgt_id": 558
+        }
+    ]
+}

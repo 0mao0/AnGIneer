@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>10<|page|>1<|box|>827 140 900 857<|content|>During the public comment period, the proposed Con..., United States District Court for the District of\n<|id|>11<|page|>2<|box|>89 140 181 854<|content|>Montana, Missoula Division, Russell Smith Federal ...lectronic request to the contacts identified below\n<|id|>19<|page|>2<|box|>864 140 901 854<|content|>The State of Montana, acting through its Departmen...ities located within the State of Montana. ... The\n<|id|>20<|page|>3<|box|>89 140 200 857<|content|>State of Nevada, acting through its Division of En...h the federal action by Order dated April 12, 2024\n<|id|>52<|page|>6<|box|>756 174 792 854<|content|>(3) Twenty-five percent ($7,875,000) twenty-four (... entry of the Consent Decree by the Court; ... and\n<|id|>54<|page|>6<|box|>844 140 898 854<|content|>Interest shall accrue on any unpaid balance at the...rdance with written instructions to be provided to\n<|id|>55<|page|>7<|box|>89 140 145 854<|content|>Defendants following entry of the Consent Decree. ...ween the United States and each co-plaintiff State\n<|id|>57<|page|>7<|box|>214 174 287 854<|content|>(1) $14,300,000 for removal actions conducted by E...ion of a temporary water-treatment system; ... and\n<|id|>59<|page|>7<|box|>340 140 450 856<|content|>Reimbursement of past response costs shall be made...Sites that are not addressed by the Consent Decree\n<|id|>73<|page|>9<|box|>664 174 700 854<|content|>(2) $3,000 per day per violation for each day of n...ng the applicable deadline or requirement; ... and\n<|id|>75<|page|>9<|box|>752 140 806 854<|content|>Stipulated penalties shall accrue regardless of wh...the co-plaintiff States under federal or state law\n<|id|>85<|page|>10<|box|>867 140 902 857<|content|>The proposed Consent Decree may be examined at the... Montana, Missoula Division, Russell Smith Federal\n<|id|>86<|page|>11<|box|>89 140 200 854<|content|>Courthouse, 201 East Broadway Street, Missoula, Mo...ry at https: ... Please allow 15 days for delivery",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>19<|tgt_id|>20\n<|src_id|>54<|tgt_id|>55\n<|src_id|>85<|tgt_id|>86",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        }
+    ]
+}

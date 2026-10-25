@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=4, 水泥粉煤灰稳定类', 'rowspan=2, 底基层', '二级及二级以下公路', '2.0~3.0', '1.5~2.5', '1.0~2.0']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=4, 石灰粉煤灰稳定类', 'rowspan=2, 基层', '高速公路、一级公路', '\\\\geqslant 1.1', '\\\\geqslant 1.0', '\\\\geqslant 0.9']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 211,
+    "table2_idx": 212
+}

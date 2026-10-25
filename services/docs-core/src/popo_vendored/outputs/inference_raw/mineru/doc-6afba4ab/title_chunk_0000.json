@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>157 174 200 821<|content|>SECRETARY'S / MANAGER'S CERTIFICATE OF SAGUARO FLA\n<|id|>10<|page|>1<|box|>779 140 795 483<|content|>Section 1. Organization and Good Standing\n<|id|>15<|page|>2<|box|>383 140 402 354<|content|>Section 2. LLC Agreement\n<|id|>19<|page|>2<|box|>704 140 722 390<|content|>Section 3. Manager Resolutions\n<|id|>30<|page|>3<|box|>652 140 670 524<|content|>Section 4. Incumbency of Authorized Signatories\n<|id|>35<|page|>4<|box|>306 140 321 323<|content|>Section 5. No Conflicts\n<|id|>42<|page|>4<|box|>814 140 830 393<|content|>Section 6. Full Force and Effect\n<|id|>45<|page|>5<|box|>267 140 284 349<|content|>Section 7. Governing Law\n<|id|>48<|page|>5<|box|>510 230 527 767<|content|>[Remainder of this page intentionally left blank.\n<|id|>57<|page|>6<|box|>88 433 112 565<|content|>EXHIBIT A\n<|id|>58<|page|>6<|box|>127 235 172 761<|content|>Limited Liability Company Agreement of Saguaro Fla\n<|id|>62<|page|>7<|box|>90 434 111 563<|content|>EXHIBIT B\n<|id|>63<|page|>7<|box|>128 148 190 846<|content|>Resolutions of the Sole Manager of Saguaro Flats S\n<|id|>72<|page|>8<|box|>89 140 107 379<|content|>NOW, THEREFORE, BE IT:\n<|id|>73<|page|>8<|box|>121 140 138 612<|content|>Resolution 1 — Approval of the Power Purchase Agre\n<|id|>83<|page|>8<|box|>804 140 821 609<|content|>Resolution 2 — Approval of the Lender Consent Agre\n<|id|>91<|page|>9<|box|>470 142 488 509<|content|>Resolution 3 — Acceptance of Buyer Guaranty\n<|id|>93<|page|>9<|box|>652 140 670 707<|content|>Resolution 4 — Authorization of Seller Credit Supp\n<|id|>95<|page|>10<|box|>90 142 107 581<|content|>Resolution 5 — Authorization of Authorized Signato\n<|id|>100<|page|>10<|box|>544 142 560 446<|content|>Resolution 6 — General Authorization\n<|id|>108<|page|>11<|box|>202 142 218 362<|content|>Resolution 7 — Ratification\n<|id|>110<|page|>11<|box|>361 230 378 767<|content|>[Remainder of this page intentionally left blank.\n<|id|>118<|page|>12<|box|>90 434 109 562<|content|>EXHIBIT C\n<|id|>119<|page|>12<|box|>128 403 146 593<|content|>Incumbency Certificate\n<|id|>120<|page|>12<|box|>154 145 189 851<|content|>INCUMBENCY CERTIFICATE OF AUTHORIZED SIGNATORIES S",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>-1\n<|id|>57<|level|>1\n<|id|>58<|level|>1\n<|id|>62<|level|>1\n<|id|>63<|level|>1\n<|id|>72<|level|>-1\n<|id|>73<|level|>2\n<|id|>83<|level|>2\n<|id|>91<|level|>2\n<|id|>93<|level|>2\n<|id|>95<|level|>2\n<|id|>100<|level|>2\n<|id|>108<|level|>2\n<|id|>110<|level|>-1\n<|id|>118<|level|>1\n<|id|>119<|level|>1\n<|id|>120<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        }
+    ]
+}

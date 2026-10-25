@@ -1,0 +1,34 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        63,
+        83
+    ],
+    "pages": [
+        64,
+        70,
+        78,
+        83
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>266<|page|>64<|box|>83 187 116 839<|content|>Section II - Interest-Bearing Securities Issued by\n<|id|>275<|page|>70<|box|>48 407 62 648<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>307<|page|>78<|box|>63 356 77 639<|content|>Section I - Summary by Periods\n<|id|>314<|page|>83<|box|>74 270 88 705<|content|>Section III - Preliminary Details by Countries",
+    "raw_response": "<|id|>266<|level|>1\n<|id|>275<|level|>2\n<|id|>307<|level|>3\n<|id|>314<|level|>3",
+    "parsed": [
+        {
+            "id": 266,
+            "level": 1
+        },
+        {
+            "id": 275,
+            "level": 2
+        },
+        {
+            "id": 307,
+            "level": 3
+        },
+        {
+            "id": 314,
+            "level": 3
+        }
+    ]
+}

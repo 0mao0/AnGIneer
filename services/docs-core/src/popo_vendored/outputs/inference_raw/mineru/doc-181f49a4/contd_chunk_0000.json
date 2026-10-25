@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 125 854<|content|>CALDERWOOD & HARKNESS LLP 600 Lexington Avenue, 28th Floor New York, NY 10022\n<|id|>1<|page|>1<|box|>133 140 152 444<|content|>Practice Group: ... Privacy & Data Security\n<|id|>2<|page|>1<|box|>159 140 178 542<|content|>Telephone: ... (212) 554-7801\n<|id|>3<|page|>1<|box|>186 756 203 854<|content|>June 4, 2025\n<|id|>4<|page|>1<|box|>212 140 247 854<|content|>Meredith Tanaka General Counsel Cascade Retail Hol... Elliott Avenue West, Suite 1200 Seattle, WA 98119\n<|id|>5<|page|>1<|box|>256 140 310 856<|content|>Re: ... 1038-00010 (US State Privacy Compliance Program)\n<|id|>6<|page|>1<|box|>319 140 335 279<|content|>Dear Ms. ... Tanaka\n<|id|>24<|page|>3<|box|>90 218 107 450<|content|>• Partner rate: ... $1,175 per hour\n<|id|>27<|page|>3<|box|>148 174 185 854<|content|>These rates are fixed for the duration of the Enga...adjustments unless agreed to in writing by Cascade\n<|id|>25<|page|>3<|box|>109 218 127 506<|content|>• Senior Associate rate: ... $785 per hour\n<|id|>26<|page|>3<|box|>130 218 146 455<|content|>• Associate rate: ... $625 per hour\n<|id|>34<|page|>3<|box|>806 174 880 857<|content|>(h) Travel Expenses. ... First-class or business-c...approval has been obtained from Meredith Tanaka or\n<|id|>35<|page|>4<|box|>90 174 127 854<|content|>Diana Polk. ... Hotel, ground transportation, and ...ctions as specified in the corporate travel policy\n<|id|>42<|page|>4<|box|>726 174 910 857<|content|>(b) Fieldhaven Consulting Group LLC — Privacy-Prog...ginia Consumer Data Protection Act, the Texas Data\n<|id|>43<|page|>5<|box|>90 174 164 854<|content|>Privacy and Security Act, and other state privacy ...restrictions set forth in Section 5 of this letter\n<|id|>50<|page|>5<|box|>835 174 891 857<|content|>(c) Privilege Log. ... Upon request by Cascade, C&...each document or communication sufficient to allow\n<|id|>51<|page|>6<|box|>90 174 126 854<|content|>Cascade to assess the basis for the privilege asse...disclosing the substance of the privileged content\n<|id|>72<|page|>8<|box|>835 174 909 857<|content|>(d) Urgent and Time-Sensitive Matters. ... In the ... will communicate immediately by telephone to both\n<|id|>73<|page|>9<|box|>89 174 164 854<|content|>Meredith Tanaka and Diana Polk, followed by writte...diate notification as among its highest priorities\n<|id|>83<|page|>10<|box|>234 140 251 272<|content|>Very truly yours,\n<|id|>84<|page|>10<|box|>258 140 275 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>85<|page|>10<|box|>277 143 294 253<|content|>By: ... By\n<|id|>86<|page|>10<|box|>294 140 325 852<|content|>Kevin Ostrowski Partner, Privacy & Data Security C...00 Lexington Avenue, 28th Floor New York, NY 10022\n<|id|>87<|page|>10<|box|>327 140 344 441<|content|>ACKNOWLEDGED AND AGREED: ... ACKNOWLEDGED AND AGREED\n<|id|>89<|page|>10<|box|>387 140 404 326<|content|>Name: ... Meredith Tanaka\n<|id|>90<|page|>10<|box|>404 142 421 315<|content|>Title: ... General Counsel\n<|id|>91<|page|>10<|box|>422 143 439 267<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>34<|tgt_id|>35\n<|src_id|>42<|tgt_id|>43\n<|src_id|>50<|tgt_id|>51\n<|src_id|>72<|tgt_id|>73",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        }
+    ]
+}

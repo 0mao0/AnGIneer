@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['FairLend Digital LLC', 'FairLend Digital LLC', \"BaaS partner; online small-business lending platform; approximately $1.4 billion in loan originations through BRB in fiscal year 2024; 28% of BRB's\", 'Delaware LLC; 100 Summer Street, Suite 800, Boston, MA 02110', 'Aisha Okonkwo, CEO']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'total BaaS transaction volume; onboarded as BaaS partner in 2022', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 57,
+    "table2_idx": 58
+}

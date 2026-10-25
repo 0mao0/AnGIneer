@@ -1,0 +1,149 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 143 155 821<|content|>CALDERWOOD & HARKNESS LLP 425 Park Avenue New York\n<|id|>4<|page|>1<|box|>364 387 383 611<|content|>I. Executive Summary\n<|id|>10<|page|>2<|box|>253 321 272 674<|content|>II. Structure of the MAE Definition\n<|id|>11<|page|>2<|box|>297 142 314 331<|content|>A. The Two-Prong Test\n<|id|>14<|page|>2<|box|>503 140 520 547<|content|>Several features of this formulation warrant discu\n<|id|>26<|page|>3<|box|>625 140 641 424<|content|>B. Relationship to MIPA Provisions\n<|id|>45<|page|>5<|box|>90 228 111 767<|content|>III. Exclusions (Carve-Outs) from the MAE Definiti\n<|id|>47<|page|>5<|box|>279 140 297 434<|content|>A. Seller's Draft — Initial Exclusions\n<|id|>59<|page|>6<|box|>674 140 691 488<|content|>B. Buyer's Counter-Proposals on Exclusions\n<|id|>66<|page|>7<|box|>801 140 819 604<|content|>C. Calderwood & Harkness LLP's Recommended Positio\n<|id|>73<|page|>9<|box|>190 202 210 792<|content|>IV. Disproportionate-Impact Qualifier — Detailed A\n<|id|>74<|page|>9<|box|>236 140 253 501<|content|>A. Description of Buyer's Proposed Language\n<|id|>80<|page|>9<|box|>827 142 844 310<|content|>B. Market Precedent\n<|id|>87<|page|>10<|box|>755 140 772 388<|content|>C. Our Recommended Position\n<|id|>94<|page|>11<|box|>703 140 720 470<|content|>D. Resolution Reached (as of Memo Date)\n<|id|>100<|page|>12<|box|>449 267 467 730<|content|>V. Analysis of Additional Contested Provisions\n<|id|>101<|page|>12<|box|>494 140 510 455<|content|>A. Announcement / Pendency Exclusion\n<|id|>110<|page|>13<|box|>810 140 827 367<|content|>B. Known Trends Exception\n<|id|>116<|page|>14<|box|>674 140 691 326<|content|>C. Pandemic Exclusion\n<|id|>121<|page|>15<|box|>494 140 511 395<|content|>D. Decline in Operating Metrics\n<|id|>128<|page|>16<|box|>315 179 359 816<|content|>VI. Comparison to Calderwood & Harkness LLP Recomm\n<|id|>135<|page|>17<|box|>511 243 531 753<|content|>VII. Remaining Open Items and Recommendations\n<|id|>142<|page|>18<|box|>500 411 518 584<|content|>VIII. Conclusion\n<|id|>148<|page|>20<|box|>90 274 111 723<|content|>Appendix A: Side-by-Side Comparison Table\n<|id|>153<|page|>23<|box|>90 246 111 750<|content|>Appendix B: Key Defined Terms Cross-References\n<|id|>155<|page|>23<|box|>191 140 209 573<|content|>Article III — Representations and Warranties of Se\n<|id|>165<|page|>23<|box|>797 142 813 328<|content|>Article V — Covenants\n<|id|>167<|page|>24<|box|>128 142 145 419<|content|>Article VI — Conditions to Closing\n<|id|>170<|page|>24<|box|>304 142 319 383<|content|>Article VII — Indemnification\n<|id|>172<|page|>24<|box|>494 142 512 294<|content|>Closing Certificate",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>14<|level|>-1\n<|id|>26<|level|>3\n<|id|>45<|level|>2\n<|id|>47<|level|>3\n<|id|>59<|level|>3\n<|id|>66<|level|>3\n<|id|>73<|level|>2\n<|id|>74<|level|>3\n<|id|>80<|level|>3\n<|id|>87<|level|>3\n<|id|>94<|level|>3\n<|id|>100<|level|>2\n<|id|>101<|level|>3\n<|id|>110<|level|>3\n<|id|>116<|level|>3\n<|id|>121<|level|>3\n<|id|>128<|level|>2\n<|id|>135<|level|>2\n<|id|>142<|level|>2\n<|id|>148<|level|>2\n<|id|>153<|level|>2\n<|id|>155<|level|>3\n<|id|>165<|level|>3\n<|id|>167<|level|>3\n<|id|>170<|level|>3\n<|id|>172<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 3
+        }
+    ]
+}

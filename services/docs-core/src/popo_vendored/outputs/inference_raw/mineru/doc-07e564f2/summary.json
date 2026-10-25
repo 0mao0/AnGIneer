@@ -1,0 +1,207 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-iypxwou8\\input\\pdfs\\doc-07e564f2.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-iypxwou8\\enriched\\doc-07e564f2.json",
+    "contd_output": "<|src_id|>35<|tgt_id|>36",
+    "title_output": "<|id|>4<|level|>1\n<|id|>10<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>1\n<|id|>21<|level|>2\n<|id|>24<|level|>2\n<|id|>30<|level|>2\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>48<|level|>1\n<|id|>49<|level|>2\n<|id|>52<|level|>2\n<|id|>74<|level|>2\n<|id|>81<|level|>1\n<|id|>89<|level|>2\n<|id|>96<|level|>1\n<|id|>98<|level|>2\n<|id|>101<|level|>2\n<|id|>108<|level|>2\n<|id|>116<|level|>2\n<|id|>120<|level|>1\n<|id|>121<|level|>2\n<|id|>127<|level|>2\n<|id|>129<|level|>2\n<|id|>131<|level|>2\n<|id|>135<|level|>1\n<|id|>136<|level|>2\n<|id|>140<|level|>2\n<|id|>148<|level|>2\n<|id|>156<|level|>1\n<|id|>157<|level|>2\n<|id|>160<|level|>2\n<|id|>163<|level|>2\n<|id|>173<|level|>1\n<|id|>177<|level|>2",
+    "image_output": "<|src_id|>2<|tgt_id|>4\n<|src_id|>122<|tgt_id|>121\n<|src_id|>123<|tgt_id|>121\n<|src_id|>125<|tgt_id|>121\n<|src_id|>133<|tgt_id|>131",
+    "contd_label": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        }
+    ],
+    "title_label": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 1
+        },
+        {
+            "id": 177,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 2,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 131
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 122,
+            "table2_idx": 123,
+            "upper_row_ss": [
+                [
+                    "Accrual Period",
+                    "June 7, 2024 through the earliest of (i) drawdown, (ii)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "commitment termination, or (iii) December 10, 2024"
+                ]
+            ]
+        }
+    ]
+}

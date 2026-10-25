@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        49
+    ],
+    "pages": [
+        1,
+        2,
+        15,
+        25,
+        26,
+        28,
+        32,
+        36,
+        38,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>128 261 146 735<|content|>TOWARDS THE QUANTUM EXCEPTIONAL SERIES\n<|id|>5<|page|>1<|box|>527 454 542 544<|content|>Contents\n<|id|>8<|page|>2<|box|>588 424 603 573<|content|>1. Introduction\n<|id|>194<|page|>15<|box|>704 429 720 568<|content|>2. Background\n<|id|>313<|page|>25<|box|>488 112 506 308<|content|>2.5.3. Golden categories.\n<|id|>325<|page|>26<|box|>672 112 691 233<|content|>2.5.5. Rep(�<sub>3</sub>).\n<|id|>347<|page|>28<|box|>90 424 106 571<|content|>3. Main results\n<|id|>355<|page|>28<|box|>503 111 521 377<|content|>3.1. Quantum Jacobi relation.\n<|id|>396<|page|>32<|box|>450 112 469 334<|content|>3.2. Squares and crosses.\n<|id|>458<|page|>36<|box|>583 274 599 720<|content|>4. From the classical to the qantum conjecture\n<|id|>479<|page|>38<|box|>417 424 434 573<|content|>5. Calculations\n<|id|>597<|page|>48<|box|>89 112 107 658<|content|>(which contains the functions which compute the po\n<|id|>598<|page|>48<|box|>125 339 138 656<|content|>arxiv-code/StoringQESCalculations.nb",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>8<|level|>2\n<|id|>194<|level|>2\n<|id|>313<|level|>4\n<|id|>325<|level|>4\n<|id|>347<|level|>2\n<|id|>355<|level|>3\n<|id|>396<|level|>3\n<|id|>458<|level|>2\n<|id|>479<|level|>2\n<|id|>597<|level|>-1\n<|id|>598<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 313,
+            "level": 4
+        },
+        {
+            "id": 325,
+            "level": 4
+        },
+        {
+            "id": 347,
+            "level": 2
+        },
+        {
+            "id": 355,
+            "level": 3
+        },
+        {
+            "id": 396,
+            "level": 3
+        },
+        {
+            "id": 458,
+            "level": 2
+        },
+        {
+            "id": 479,
+            "level": 2
+        }
+    ]
+}

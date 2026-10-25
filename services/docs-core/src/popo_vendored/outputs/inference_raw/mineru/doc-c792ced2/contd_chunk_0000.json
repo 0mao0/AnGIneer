@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        21
+    ],
+    "pages": [
+        3,
+        4,
+        5,
+        9,
+        10,
+        17,
+        18,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>19<|page|>3<|box|>114 174 152 854<|content|>(e) QC&S's internal premium accounting workpapers ...l Markets, Quorum Insurance Holdings Corp. ... and\n<|id|>21<|page|>3<|box|>204 140 239 854<|content|>The following additional materials have been reque...ay materially affect the analysis set forth herein\n<|id|>24<|page|>3<|box|>354 174 409 854<|content|>(c) Loss ratio computations prepared by Velthorn Actuarial Advisors LLC (Dr. ... and\n<|id|>26<|page|>3<|box|>462 140 553 854<|content|>This memorandum is governed by New York law, which...re procedural or statutory provisions are relevant\n<|id|>40<|page|>4<|box|>862 140 898 856<|content|>Article 3. ... 2 establishes a provisional treaty ...of 42% of ceded earned premium, payable by QC&S to\n<|id|>41<|page|>5<|box|>90 138 255 857<|content|>Pinnacle Atlantic on a quarterly basis in connecti... the premium rate increases toward the 52% maximum\n<|id|>77<|page|>9<|box|>816 138 910 857<|content|>Ambiguity and the Drafter's Rule. ... In this case,\n<|id|>78<|page|>10<|box|>90 138 200 857<|content|>Broadreach placed the Treaty on behalf of QC&S, wh...e contra proferentem analysis would not be reached\n<|id|>138<|page|>17<|box|>383 176 419 854<|content|>Loss ratio = Ceded incurred losses / Ceded earned premium = $69,700,000 / $45,200,000 ≈ 154. ... 2%\n<|id|>139<|page|>17<|box|>428 174 464 854<|content|>At a loss ratio of 154. ... 2%, which vastly excee...-scale premium rate would be at the maximum of 52%\n<|id|>141<|page|>17<|box|>498 176 534 854<|content|>Loss ratio = Ceded incurred losses / Ceded earned premium = $69,700,000 / $38,400,000 ≈ 181. ... 5%\n<|id|>142<|page|>17<|box|>542 174 579 854<|content|>At a loss ratio of 181. ... 5%, which also vastly ...emium rate would likewise be at the maximum of 52%\n<|id|>153<|page|>18<|box|>614 181 633 816<|content|>• Q3 2022 installment (July–September 2022): ... due approximately November 14, 2022\n<|id|>157<|page|>18<|box|>694 140 750 854<|content|>Assuming an average payment due date of approximat...timated interest on the underpayment is as follows\n<|id|>154<|page|>18<|box|>635 181 652 830<|content|>• Q4 2022 installment (October–December 2022): ... due approximately February 14, 2023\n<|id|>155<|page|>18<|box|>655 183 672 771<|content|>• Q1 2023 installment (January–March 2023): ... due approximately May 15, 2023\n<|id|>156<|page|>18<|box|>674 181 691 758<|content|>• Q2 2023 installment (April–June 2023): ... due approximately August 14, 2023\n<|id|>181<|page|>20<|box|>797 140 909 857<|content|>Estoppel. ... QC&S may further argue that it was prejudiced by Pinnacle\n<|id|>182<|page|>21<|box|>90 140 127 854<|content|>Atlantic's delay — for example, if contemporaneous... QC&S from curing any reporting error in real time",
+    "raw_response": "<|src_id|>40<|tgt_id|>41\n<|src_id|>77<|tgt_id|>78\n<|src_id|>181<|tgt_id|>182",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 182
+        }
+    ]
+}

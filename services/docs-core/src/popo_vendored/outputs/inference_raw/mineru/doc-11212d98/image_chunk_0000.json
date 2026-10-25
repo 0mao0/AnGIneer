@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 276 107 720<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>4<|type|>title<|page|>1<|box|>193 140 210 651<|content|>VIA HAND DELIVERY AND ELECTRONIC TRANSMISSION\n<|id|>7<|type|>title<|page|>1<|box|>349 142 366 328<|content|>I. Purpose and Context\n<|id|>11<|type|>title<|page|>1<|box|>760 140 777 406<|content|>II. Documents Returned to Client\n<|id|>13<|type|>title<|page|>2<|box|>90 142 108 589<|content|>Category A: Engagement and Administrative Document\n<|id|>18<|type|>table<|page|>2<|box|>344 143 453 852<|content|>None\n<|id|>20<|type|>table<|page|>2<|box|>542 143 654 852<|content|>None\n<|id|>21<|type|>title<|page|>2<|box|>694 142 710 560<|content|>Category B: Term Sheets and Negotiation Documents\n<|id|>28<|type|>title<|page|>3<|box|>306 140 324 594<|content|>Category C: Draft Employment Agreements and Redlin\n<|id|>35<|type|>title<|page|>3<|box|>776 140 794 589<|content|>Category D: Correspondence with Counterparty Couns\n<|id|>37<|type|>title<|page|>3<|box|>863 142 878 331<|content|>Email Correspondence:\n<|id|>47<|type|>title<|page|>4<|box|>338 143 354 272<|content|>Formal Letters:\n<|id|>50<|type|>title<|page|>4<|box|>450 140 469 540<|content|>Category E: Client Correspondence and Reporting\n<|id|>52<|type|>title<|page|>4<|box|>518 142 536 529<|content|>Emails from Renata Vasquez to Elaine Whitford:\n<|id|>68<|type|>title<|page|>5<|box|>253 140 271 457<|content|>Category F: Meeting and Call Materials\n<|id|>74<|type|>title<|page|>5<|box|>612 140 628 377<|content|>Category G: Board Materials\n<|id|>78<|type|>title<|page|>5<|box|>821 140 839 792<|content|>Category H: Research and Advisory Memoranda (Non-P\n<|id|>94<|type|>title<|page|>7<|box|>640 140 657 467<|content|>Category I: Third-Party Correspondence\n<|id|>97<|type|>title<|page|>7<|box|>794 140 811 457<|content|>Category J: Post-Engagement Materials\n<|id|>103<|type|>title<|page|>8<|box|>373 140 390 598<|content|>III. Documents Retained by Calderwood & Harkness L\n<|id|>105<|type|>title<|page|>8<|box|>484 140 502 614<|content|>Category 1: Internal Administrative and Conflicts\n<|id|>108<|type|>title<|page|>8<|box|>705 140 723 772<|content|>Category 2: Attorney Work Product and Internal Pri\n<|id|>113<|type|>title<|page|>9<|box|>232 140 250 544<|content|>Category 3: Document Retention and Privilege Log\n<|id|>115<|type|>title<|page|>9<|box|>378 140 396 565<|content|>Category 4: Firm Financial and Timekeeping Records\n<|id|>117<|type|>table<|page|>9<|box|>494 143 588 852<|content|>None\n<|id|>119<|type|>title<|page|>9<|box|>718 142 734 411<|content|>IV. Format of Document Transfer\n<|id|>124<|type|>title<|page|>10<|box|>321 140 339 447<|content|>V. Privilege and Confidentiality Notice\n<|id|>128<|type|>title<|page|>10<|box|>770 140 787 408<|content|>VI. Acknowledgment and Receipt\n<|id|>130<|type|>title<|page|>11<|box|>148 140 166 400<|content|>VII. Document Retention Period\n<|id|>134<|type|>title<|page|>11<|box|>506 140 523 352<|content|>VIII. Contact Information\n<|id|>146<|type|>title<|page|>11<|box|>854 343 871 653<|content|>ACKNOWLEDGMENT OF RECEIPT",
+    "raw_response": "<|src_id|>18<|tgt_id|>13\n<|src_id|>20<|tgt_id|>13\n<|src_id|>117<|tgt_id|>113",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 113
+        }
+    ]
+}

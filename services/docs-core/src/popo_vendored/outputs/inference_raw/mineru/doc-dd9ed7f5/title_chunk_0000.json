@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        15,
+        16,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 158 118 838<|content|>NON-COMPETITION AND NON-SOLICITATION AGREEMENT\n<|id|>7<|page|>1<|box|>580 140 598 243<|content|>RECITALS\n<|id|>17<|page|>2<|box|>626 140 643 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>34<|page|>4<|box|>347 140 364 562<|content|>ARTICLE II — NON-COMPETITION COVENANT\n<|id|>47<|page|>6<|box|>190 140 224 854<|content|>Section 2.3 — Acknowledgment of Reasonableness. Se\n<|id|>52<|page|>6<|box|>718 142 734 571<|content|>ARTICLE III — NON-SOLICITATION COVENANT\n<|id|>64<|page|>8<|box|>393 140 412 568<|content|>ARTICLE IV — ENFORCEMENT AND REMEDIES\n<|id|>69<|page|>9<|box|>486 140 503 624<|content|>ARTICLE V — REPRESENTATIONS AND WARRANTIES\n<|id|>81<|page|>10<|box|>816 140 834 517<|content|>ARTICLE VI — TERM AND TERMINATION\n<|id|>83<|page|>11<|box|>90 140 107 346<|content|>Section 6.2 — Expiration.\n<|id|>87<|page|>11<|box|>464 140 482 462<|content|>ARTICLE VII — CONFIDENTIALITY\n<|id|>90<|page|>12<|box|>295 140 311 503<|content|>ARTICLE VIII — GENERAL PROVISIONS\n<|id|>121<|page|>15<|box|>595 142 612 447<|content|>GENOME DX THERAPEUTICS INC.\n<|id|>131<|page|>16<|box|>89 436 107 562<|content|>SCHEDULE A\n<|id|>132<|page|>16<|box|>114 331 132 665<|content|>LIST OF TRANSFERRED EMPLOYEES\n<|id|>134<|page|>16<|box|>319 142 335 565<|content|>I. OncuPath Research & Development (23 Employees)\n<|id|>139<|page|>18<|box|>450 143 467 681<|content|>V. OncuPath Program Management & Administration (8",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>17<|level|>2\n<|id|>34<|level|>2\n<|id|>47<|level|>3\n<|id|>52<|level|>2\n<|id|>64<|level|>2\n<|id|>69<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>3\n<|id|>87<|level|>2\n<|id|>90<|level|>2\n<|id|>121<|level|>-1\n<|id|>131<|level|>2\n<|id|>132<|level|>3\n<|id|>134<|level|>4\n<|id|>139<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 4
+        },
+        {
+            "id": 139,
+            "level": 4
+        }
+    ]
+}

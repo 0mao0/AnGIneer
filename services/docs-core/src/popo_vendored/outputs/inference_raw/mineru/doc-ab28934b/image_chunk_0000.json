@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        10,
+        12,
+        13,
+        15,
+        16,
+        18,
+        19,
+        21,
+        22,
+        23,
+        24,
+        25,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 142 104 748<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT — FOR SETTLEM\n<|id|>1<|type|>title<|page|>1<|box|>112 143 128 852<|content|>CALDERWOOD & HARKNESS LLP 1735 Market Street, Suit\n<|id|>4<|type|>title<|page|>1<|box|>190 142 205 630<|content|>VIA ELECTRONIC MAIL AND SECURE FILE TRANSFER\n<|id|>11<|type|>title<|page|>1<|box|>518 308 537 689<|content|>DATA PROCESSING AGREEMENT\n<|id|>12<|type|>title<|page|>1<|box|>556 303 574 694<|content|>Bank-Grade Template — Clean Counter-Proposal\n<|id|>18<|type|>title<|page|>1<|box|>722 348 739 648<|content|>DATA PROCESSING AGREEMENT\n<|id|>24<|type|>title<|page|>2<|box|>210 140 229 243<|content|>RECITALS\n<|id|>31<|type|>title<|page|>2<|box|>811 140 828 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>52<|type|>title<|page|>5<|box|>364 140 383 614<|content|>ARTICLE 2 — SCOPE AND PURPOSE OF PROCESSING\n<|id|>83<|type|>title<|page|>7<|box|>585 140 603 831<|content|>ARTICLE 3 — CONTROLLER INSTRUCTIONS AND PROCESSOR\n<|id|>87<|type|>title<|page|>8<|box|>306 140 324 467<|content|>3.4 Restriction on Use. Processor shall not:\n<|id|>93<|type|>title<|page|>8<|box|>696 140 714 470<|content|>ARTICLE 4 — SECURITY MEASURES\n<|id|>109<|type|>title<|page|>10<|box|>512 142 529 429<|content|>ARTICLE 5 — SUB-PROCESSING\n<|id|>136<|type|>title<|page|>12<|box|>792 140 809 483<|content|>ARTICLE 6 — DATA SUBJECT RIGHTS\n<|id|>149<|type|>title<|page|>13<|box|>737 140 753 647<|content|>ARTICLE 7 — PERSONAL DATA BREACH NOTIFICATION\n<|id|>171<|type|>title<|page|>15<|box|>659 140 694 767<|content|>ARTICLE 8 — DATA PROTECTION IMPACT ASSESSMENTS AND\n<|id|>174<|type|>title<|page|>16<|box|>222 140 239 593<|content|>ARTICLE 9 — INTERNATIONAL DATA TRANSFERS\n<|id|>197<|type|>title<|page|>18<|box|>148 140 166 413<|content|>ARTICLE 10 — AUDIT RIGHTS\n<|id|>213<|type|>title<|page|>19<|box|>684 140 702 676<|content|>ARTICLE 11 — DATA RETENTION, RETURN, AND DELETION\n<|id|>226<|type|>title<|page|>21<|box|>89 142 107 594<|content|>ARTICLE 12 — LIABILITY AND INDEMNIFICATION\n<|id|>242<|type|>title<|page|>22<|box|>535 142 551 388<|content|>ARTICLE 13 — INSURANCE\n<|id|>251<|type|>title<|page|>23<|box|>420 140 438 581<|content|>ARTICLE 14 — RECORDS AND DOCUMENTATION\n<|id|>254<|type|>title<|page|>23<|box|>806 140 823 602<|content|>ARTICLE 15 — COOPERATION WITH REGULATORS\n<|id|>257<|type|>title<|page|>24<|box|>468 142 484 514<|content|>ARTICLE 16 — TERM AND TERMINATION\n<|id|>272<|type|>title<|page|>25<|box|>450 140 469 486<|content|>ARTICLE 17 — GENERAL PROVISIONS\n<|id|>291<|type|>title<|page|>27<|box|>457 140 474 259<|content|>SCHEDULES\n<|id|>293<|type|>title<|page|>28<|box|>90 140 108 457<|content|>Schedule A — Description of Processing\n<|id|>294<|type|>title<|page|>28<|box|>114 140 131 540<|content|>Reference: schedule-a-description-of-processing.do\n<|id|>300<|type|>title<|page|>29<|box|>90 142 107 405<|content|>Schedule B — Security Measures\n<|id|>301<|type|>title<|page|>29<|box|>114 140 131 485<|content|>Reference: schedule-b-security-measures.docx\n<|id|>310<|type|>title<|page|>30<|box|>90 140 107 490<|content|>Schedule C — Approved Sub-Processor List\n<|id|>313<|type|>table<|page|>30<|box|>164 143 251 851<|content|>None\n<|id|>315<|type|>title<|page|>31<|box|>90 142 107 545<|content|>Schedule D — Data Breach Notification Procedures\n<|id|>319<|type|>table<|page|>31<|box|>251 143 377 852<|content|>None\n<|id|>323<|type|>title<|page|>31<|box|>529 142 547 349<|content|>SCC Package (Appended)\n<|id|>334<|type|>title<|page|>32<|box|>89 142 106 267<|content|>SIGNATURES\n<|id|>336<|type|>title<|page|>32<|box|>160 140 176 630<|content|>CONTROLLER — MERIDIAN FEDERAL SAVINGS BANK",
+    "raw_response": "<|src_id|>313<|tgt_id|>310\n<|src_id|>319<|tgt_id|>315",
+    "parsed": [
+        {
+            "src_id": 313,
+            "tgt_id": 310
+        },
+        {
+            "src_id": 319,
+            "tgt_id": 315
+        }
+    ]
+}

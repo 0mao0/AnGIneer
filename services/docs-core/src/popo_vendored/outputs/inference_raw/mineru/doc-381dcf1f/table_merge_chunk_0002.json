@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Preclusive Effect', 'Judgment binds only named plaintiffs and consenting opt-in', 'Judgment binds all class members who did not timely opt out,']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'plaintiffs. Non-participating employees retain the right to bring individual claims.', 'including absent members who took no action. Broader preclusive effect.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 178,
+    "table2_idx": 179
+}

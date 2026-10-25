@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Mar', '24,363,642', '8,586,031', '8,596,370', '3,587,376', '1,505,762', '2,088,103', '65']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, End of fiscal year or month', 'rowspan=2, Statutory debt limit1(1)', 'colspan=3, Debt subject to limit', 'colspan=2, Securities outstanding', 'rowspan=2, Securities not subject to limit (7)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 150,
+    "table2_idx": 151
+}

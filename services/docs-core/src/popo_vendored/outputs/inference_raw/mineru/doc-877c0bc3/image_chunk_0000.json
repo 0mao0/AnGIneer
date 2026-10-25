@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 158 125 838<|content|>CALDERWOOD & HARKNESS LLP 200 Park Avenue, 38th Fl\n<|id|>1<|type|>table<|page|>1<|box|>171 143 402 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>536 142 553 390<|content|>1. Purpose and Scope of Report\n<|id|>7<|type|>title<|page|>2<|box|>204 140 222 362<|content|>2. Docket Review Summary\n<|id|>9<|type|>table<|page|>2<|box|>273 143 409 852<|content|>None\n<|id|>19<|type|>title<|page|>3<|box|>262 140 279 511<|content|>3. Chronological Summary of Inactivity Period\n<|id|>29<|type|>title<|page|>4<|box|>667 140 684 571<|content|>4. Status of discovery and Case Management Deadlin\n<|id|>31<|type|>table<|page|>4<|box|>790 143 880 852<|content|>None\n<|id|>37<|type|>title<|page|>5<|box|>638 140 654 486<|content|>5. Status of Pending or Anticipated Motions\n<|id|>43<|type|>title<|page|>6<|box|>402 140 420 589<|content|>6. Communications and Correspondence During Q4 202\n<|id|>50<|type|>title<|page|>7<|box|>241 140 258 395<|content|>7. Assessment and Observations\n<|id|>57<|type|>title<|page|>8<|box|>560 140 577 429<|content|>8. Next Steps and Recommendations\n<|id|>71<|type|>title<|page|>9<|box|>626 140 643 429<|content|>9. Report Certification and Sign-Off\n<|id|>73<|type|>title<|page|>9<|box|>714 142 733 251<|content|>Prepared by:",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>9<|tgt_id|>7\n<|src_id|>31<|tgt_id|>29",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        }
+    ]
+}

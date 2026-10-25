@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        14
+    ],
+    "pages": [
+        2,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>15<|page|>2<|box|>616 174 708 857<|content|>(ii) the alleged misconduct involves both breaches...tual valuation obligations under FAA §§ 3. ... and\n<|id|>17<|page|>2<|box|>796 142 814 580<|content|>This question encompasses three interrelated sub-q...stion encompasses three interrelated sub-questions\n<|id|>98<|page|>12<|box|>787 138 897 857<|content|>Moreover, the nature of Vantor's conduct — a delib... non-performance. ... The emails between Orris and\n<|id|>99<|page|>13<|box|>90 140 162 857<|content|>Rajaram — including Orris's instruction to \"hold t...from the realm of mere contractual non-performance\n<|id|>108<|page|>13<|box|>844 140 898 857<|content|>3. ... 2d 107, 118 (1st\n<|id|>109<|page|>14<|box|>90 138 217 856<|content|>Dep't 1998), the First Department held that a frau...each of contract claim and therefore barred. ... \"",
+    "raw_response": "<|src_id|>98<|tgt_id|>99\n<|src_id|>108<|tgt_id|>109",
+    "parsed": [
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        }
+    ]
+}

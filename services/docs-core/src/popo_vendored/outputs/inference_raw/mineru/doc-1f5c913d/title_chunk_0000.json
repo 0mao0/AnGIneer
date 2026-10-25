@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 285 118 710<|content|>OFFICER'S CERTIFICATE OF SELLER\n<|id|>1<|page|>1<|box|>137 163 154 834<|content|>Delivered Pursuant to Section 8.02(c) of the Membe\n<|id|>8<|page|>1<|box|>753 140 771 477<|content|>Section 1. Representations and Warranties\n<|id|>14<|page|>2<|box|>556 140 574 433<|content|>Section 2. Performance of Covenants\n<|id|>22<|page|>3<|box|>375 140 391 576<|content|>Section 3. No Orders, Injunctions, or Legal Procee\n<|id|>27<|page|>4<|box|>90 140 107 424<|content|>Section 4. Governmental Approvals\n<|id|>29<|page|>4<|box|>239 140 256 602<|content|>(a) Hart-Scott-Rodino Antitrust Improvements Act o\n<|id|>32<|page|>4<|box|>593 140 611 385<|content|>(b) Canadian Competition Act\n<|id|>36<|page|>5<|box|>138 140 157 593<|content|>(c) Committee on Foreign Investment in the United\n<|id|>38<|page|>5<|box|>395 140 412 423<|content|>(d) Other Governmental Approvals\n<|id|>40<|page|>5<|box|>625 140 641 397<|content|>Section 5. Third-Party Consents\n<|id|>42<|page|>5<|box|>753 140 772 514<|content|>(a) Oakbridge Distribution Alliance Agreement\n<|id|>44<|page|>6<|box|>194 140 212 545<|content|>(b) Major Author and Content License Agreements\n<|id|>52<|page|>6<|box|>587 140 604 477<|content|>(c) Lease Consents — Landlord Approvals\n<|id|>55<|page|>7<|box|>140 140 157 401<|content|>(d) Intercompany Arrangements\n<|id|>58<|page|>7<|box|>705 140 723 439<|content|>Section 6. No Material Adverse Effect\n<|id|>63<|page|>8<|box|>329 140 347 473<|content|>Section 7. Delivery of Closing Deliverables\n<|id|>78<|page|>10<|box|>285 140 301 429<|content|>Section 8. Disclaimer and Limitation\n<|id|>82<|page|>10<|box|>681 403 699 593<|content|>[Signature page follows]\n<|id|>84<|page|>10<|box|>751 142 768 450<|content|>AURELIUS MEDIA HOLDINGS INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>22<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>3\n<|id|>32<|level|>3\n<|id|>36<|level|>3\n<|id|>38<|level|>3\n<|id|>40<|level|>2\n<|id|>42<|level|>3\n<|id|>44<|level|>3\n<|id|>52<|level|>3\n<|id|>55<|level|>3\n<|id|>58<|level|>2\n<|id|>63<|level|>2\n<|id|>78<|level|>2\n<|id|>82<|level|>-1\n<|id|>84<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        }
+    ]
+}

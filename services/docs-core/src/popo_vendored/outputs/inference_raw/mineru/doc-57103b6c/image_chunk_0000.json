@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        10,
+        12,
+        13,
+        15,
+        16,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|type|>title<|page|>1<|box|>500 140 517 517<|content|>I. Introduction and Acknowledgment of Receipt\n<|id|>17<|type|>title<|page|>2<|box|>476 142 493 364<|content|>II. Summary of Open Issues\n<|id|>18<|type|>table<|page|>2<|box|>544 143 787 852<|content|>None\n<|id|>20<|type|>title<|page|>3<|box|>90 140 107 614<|content|>III. Issue 1 — SLA Uptime Standard (Exhibit A, Sec\n<|id|>21<|type|>title<|page|>3<|box|>121 140 138 321<|content|>A. Meridian's Position\n<|id|>23<|type|>title<|page|>3<|box|>212 140 229 398<|content|>B. Skybridge's Counter-Position\n<|id|>33<|type|>title<|page|>5<|box|>90 140 107 566<|content|>IV. Issue 2 — SLA Credit Cap (Exhibit A, Section 3\n<|id|>34<|type|>title<|page|>5<|box|>121 142 138 321<|content|>A. Meridian's Position\n<|id|>36<|type|>title<|page|>5<|box|>212 140 229 398<|content|>B. Skybridge's Counter-Position\n<|id|>38<|type|>table<|page|>5<|box|>340 143 449 852<|content|>None\n<|id|>51<|type|>table<|page|>6<|box|>349 143 459 852<|content|>None\n<|id|>53<|type|>title<|page|>6<|box|>569 140 588 689<|content|>V. Issue 3 — Data Breach Indemnification Cap (MSA,\n<|id|>54<|type|>title<|page|>6<|box|>601 142 618 321<|content|>A. Meridian's Position\n<|id|>56<|type|>title<|page|>6<|box|>710 142 728 398<|content|>B. Skybridge's Counter-Position\n<|id|>69<|type|>title<|page|>8<|box|>89 140 126 810<|content|>VI. Issue 4 — Consequential Damages Carve-Out for\n<|id|>70<|type|>title<|page|>8<|box|>138 140 156 321<|content|>A. Meridian's Position\n<|id|>72<|type|>title<|page|>8<|box|>304 140 321 398<|content|>B. Skybridge's Counter-Position\n<|id|>84<|type|>title<|page|>10<|box|>90 140 107 743<|content|>VII. Issue 5 — Security Incident Notification Wind\n<|id|>85<|type|>title<|page|>10<|box|>121 140 138 321<|content|>A. Meridian's Position\n<|id|>87<|type|>title<|page|>10<|box|>212 140 229 398<|content|>B. Skybridge's Counter-Position\n<|id|>100<|type|>title<|page|>12<|box|>90 140 107 655<|content|>VIII. Issue 6 — Penetration Testing Scope (Exhibit\n<|id|>101<|type|>title<|page|>12<|box|>121 140 138 321<|content|>A. Meridian's Position\n<|id|>103<|type|>title<|page|>12<|box|>212 140 229 398<|content|>B. Skybridge's Counter-Position\n<|id|>117<|type|>title<|page|>13<|box|>671 140 689 730<|content|>IX. Issue 7 — Confidentiality/Data Security Super-\n<|id|>118<|type|>title<|page|>13<|box|>702 142 719 321<|content|>A. Meridian's Position\n<|id|>120<|type|>title<|page|>13<|box|>792 142 810 398<|content|>B. Skybridge's Counter-Position\n<|id|>137<|type|>title<|page|>15<|box|>303 140 321 805<|content|>X. Issue 8 — Additional Insured Status on Cyber Li\n<|id|>138<|type|>title<|page|>15<|box|>334 140 351 323<|content|>A. Meridian's Position\n<|id|>140<|type|>title<|page|>15<|box|>444 140 460 398<|content|>B. Skybridge's Counter-Position\n<|id|>154<|type|>title<|page|>16<|box|>521 140 537 426<|content|>XI. Summary of Accepted Revisions\n<|id|>173<|type|>title<|page|>18<|box|>523 140 541 370<|content|>XII. Proposed Path Forward\n<|id|>181<|type|>title<|page|>19<|box|>539 140 555 359<|content|>XIII. Reservation of Rights\n<|id|>188<|type|>title<|page|>20<|box|>90 140 107 483<|content|>Email: achesterton@calderwoodharkness.com\n<|id|>189<|type|>title<|page|>20<|box|>108 143 125 240<|content|>Enclosures:\n<|id|>195<|type|>title<|page|>20<|box|>250 142 266 254<|content|>cc: (via email)",
+    "raw_response": "<|src_id|>18<|tgt_id|>17\n<|src_id|>38<|tgt_id|>36\n<|src_id|>51<|tgt_id|>36",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 36
+        }
+    ]
+}

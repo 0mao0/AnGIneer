@@ -1,0 +1,190 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-5y3fmgxn\\input\\pdfs\\doc-ea3ff68d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-5y3fmgxn\\enriched\\doc-ea3ff68d.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>9<|level|>1\n<|id|>22<|level|>1\n<|id|>23<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>1\n<|id|>69<|level|>2\n<|id|>73<|level|>2\n<|id|>81<|level|>2\n<|id|>103<|level|>2\n<|id|>115<|level|>2\n<|id|>119<|level|>2\n<|id|>122<|level|>1\n<|id|>127<|level|>1\n<|id|>128<|level|>2\n<|id|>137<|level|>2\n<|id|>142<|level|>2\n<|id|>147<|level|>1\n<|id|>148<|level|>2\n<|id|>150<|level|>2\n<|id|>158<|level|>1\n<|id|>159<|level|>2\n<|id|>165<|level|>2\n<|id|>171<|level|>2\n<|id|>176<|level|>2\n<|id|>181<|level|>2\n<|id|>186<|level|>1\n<|id|>187<|level|>2\n<|id|>193<|level|>2\n<|id|>198<|level|>1\n<|id|>208<|level|>1\n<|id|>226<|level|>1\n<|id|>238<|level|>1\n<|id|>249<|level|>1",
+    "image_output": "<|src_id|>75<|tgt_id|>73\n<|src_id|>76<|tgt_id|>73\n<|src_id|>169<|tgt_id|>165\n<|src_id|>215<|tgt_id|>208",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 1
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 1
+        },
+        {
+            "id": 208,
+            "level": 1
+        },
+        {
+            "id": 226,
+            "level": 1
+        },
+        {
+            "id": 238,
+            "level": 1
+        },
+        {
+            "id": 249,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 75,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 165
+        },
+        {
+            "src_id": 215,
+            "tgt_id": 208
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 75,
+            "table2_idx": 76,
+            "upper_row_ss": [
+                [
+                    "Total Assumed Liabilities",
+                    "~$4,720,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Total Consideration for Allocation Purposes",
+                    "~$29,720,000"
+                ]
+            ]
+        }
+    ]
+}

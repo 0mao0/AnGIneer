@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 210 131 787<|content|>CALDERWOOD & HARKNESS LLP CONFIDENTIAL — ATTORNEY-\n<|id|>7<|type|>title<|page|>1<|box|>371 140 388 230<|content|>I. Purpose\n<|id|>12<|type|>title<|page|>2<|box|>186 140 204 614<|content|>II. Summary of Dr. Rennick's Methodology and Concl\n<|id|>13<|type|>title<|page|>2<|box|>217 140 234 397<|content|>A. Overall Damages Calculation\n<|id|>15<|type|>table<|page|>2<|box|>301 143 518 852<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>719 142 734 272<|content|>B. Data Sources\n<|id|>29<|type|>title<|page|>3<|box|>679 140 696 589<|content|>C. Meal Period Damages Model — Detailed Methodolog\n<|id|>38<|type|>title<|page|>4<|box|>544 140 560 390<|content|>D. Rest Period Damages Model\n<|id|>46<|type|>title<|page|>5<|box|>334 140 351 408<|content|>E. Off-the-Clock Overtime Model\n<|id|>53<|type|>title<|page|>5<|box|>829 140 847 370<|content|>F. Wage Statement Penalties\n<|id|>57<|type|>title<|page|>6<|box|>292 140 310 297<|content|>G. PAGA Penalties\n<|id|>61<|type|>title<|page|>6<|box|>647 140 665 477<|content|>III. Critical Flaws in Dr. Rennick's Report\n<|id|>63<|type|>title<|page|>6<|box|>777 140 795 696<|content|>A. Flaw #1 — Meal Period Auto-Deduction Assumption\n<|id|>72<|type|>title<|page|>8<|box|>202 142 219 831<|content|>B. Flaw #2 — Failure to Account for Facility-by-Fa\n<|id|>75<|type|>title<|page|>8<|box|>351 176 367 604<|content|>Facilities where the Attestation Feature was Activ\n<|id|>93<|type|>title<|page|>9<|box|>429 140 446 643<|content|>C. Flaw #3 — Rest Period Violation Rate Is Entirel\n<|id|>102<|type|>title<|page|>10<|box|>294 140 311 684<|content|>D. Flaw #4 — Off-the-Clock Time Assumption Lacks E\n<|id|>108<|type|>title<|page|>11<|box|>90 140 107 674<|content|>E. Flaw #5 — No Accounting for AMA's Compliant Wri\n<|id|>117<|type|>title<|page|>11<|box|>604 140 640 854<|content|>F. Flaw #6 — PAGA Penalties Assume Maximum Assessm\n<|id|>126<|type|>title<|page|>12<|box|>388 140 406 653<|content|>G. Flaw #7 — Overtime Rate Assumption for Off-the-\n<|id|>133<|type|>title<|page|>13<|box|>148 142 167 501<|content|>IV. Comparison to Defense Damages Analysis\n<|id|>136<|type|>table<|page|>13<|box|>372 143 609 852<|content|>None\n<|id|>141<|type|>title<|page|>14<|box|>267 140 284 398<|content|>V. Impact on Class Certification\n<|id|>150<|type|>title<|page|>15<|box|>556 140 574 540<|content|>VI. *Sargon*/*Daubert* Challenge Considerations\n<|id|>159<|type|>title<|page|>16<|box|>508 140 525 496<|content|>VII. Recommendations for Rebuttal Strategy\n<|id|>161<|type|>title<|page|>16<|box|>601 140 618 573<|content|>A. Dr. Lindstrom's Rebuttal Report (Due June 9, 20\n<|id|>168<|type|>title<|page|>17<|box|>674 140 691 547<|content|>B. Dr. Makhija's Expert Report (Due May 19, 2023)\n<|id|>177<|type|>title<|page|>18<|box|>494 140 511 349<|content|>C. Evidentiary Objections\n<|id|>183<|type|>title<|page|>19<|box|>157 140 175 359<|content|>D. Certification Opposition\n<|id|>188<|type|>title<|page|>19<|box|>665 140 683 274<|content|>VIII. Next Steps\n<|id|>189<|type|>table<|page|>19<|box|>734 143 898 852<|content|>None\n<|id|>191<|type|>table<|page|>20<|box|>88 143 224 852<|content|>None\n<|id|>193<|type|>title<|page|>20<|box|>320 431 335 565<|content|>End of Memorandum",
+    "raw_response": "<|src_id|>15<|tgt_id|>13\n<|src_id|>136<|tgt_id|>133\n<|src_id|>189<|tgt_id|>188\n<|src_id|>191<|tgt_id|>188",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 133
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 188
+        }
+    ]
+}

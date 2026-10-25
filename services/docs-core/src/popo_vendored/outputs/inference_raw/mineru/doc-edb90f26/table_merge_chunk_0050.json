@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 50,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=21, 交通安全设施', 'rowspan=21, 标志、标线、突起路标、轮廓标', 'rowspan=11, 交通标线', '抗滑值(BPN)', '△', '▲', '▲', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=12, 交通安全设施', 'rowspan=12, 标志、标线、突起路标、轮廓标', 'rowspan=7, 突起路标', '设计信息', '▲', '▲', '▲', '继承L3.0模型的设计信息']]\n",
+    "raw_response": "[1, 1, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 315,
+    "table2_idx": 316
+}

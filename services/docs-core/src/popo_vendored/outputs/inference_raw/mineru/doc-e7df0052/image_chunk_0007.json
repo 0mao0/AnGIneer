@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 7,
+    "range": [
+        361,
+        371
+    ],
+    "pages": [
+        361,
+        362,
+        363,
+        364,
+        365,
+        366,
+        367,
+        368,
+        370,
+        371
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3767<|type|>title<|page|>361<|box|>217 374 243 611<|content|>3 基本规定\n<|id|>3769<|type|>title<|page|>362<|box|>180 391 207 630<|content|>4 信息模型\n<|id|>3770<|type|>title<|page|>362<|box|>239 430 258 591<|content|>4.1 一般规定\n<|id|>3774<|type|>title<|page|>362<|box|>437 420 454 600<|content|>4.2 信息模型体系\n<|id|>3779<|type|>image<|page|>362<|box|>710 171 877 848<|content|>None\n<|id|>3780<|type|>title<|page|>363<|box|>144 394 163 574<|content|>4.3 信息模型创建\n<|id|>3783<|type|>title<|page|>364<|box|>182 401 209 601<|content|>5 协 同\n<|id|>3784<|type|>title<|page|>364<|box|>239 423 258 584<|content|>5.3 协同内容\n<|id|>3787<|type|>title<|page|>365<|box|>214 366 242 603<|content|>6 分类与编码\n<|id|>3790<|type|>title<|page|>365<|box|>377 406 395 568<|content|>6.2 分类规则\n<|id|>3793<|type|>title<|page|>365<|box|>549 406 566 569<|content|>6.4 编码应用\n<|id|>3794<|type|>title<|page|>365<|box|>580 99 597 391<|content|>6.4.3 各运算符号的示例如下：\n<|id|>3799<|type|>table<|page|>365<|box|>836 104 926 878<|content|>None\n<|id|>3801<|type|>table<|page|>366<|box|>118 127 517 900<|content|>None\n<|id|>3803<|type|>title<|page|>367<|box|>217 363 243 600<|content|>7 数据交换\n<|id|>3804<|type|>title<|page|>367<|box|>275 400 293 563<|content|>7.1 一般规定\n<|id|>3806<|type|>title<|page|>367<|box|>490 389 508 571<|content|>7.2 数据交换结构\n<|id|>3810<|type|>image<|page|>368<|box|>100 132 669 885<|content|>None\n<|id|>3812<|type|>title<|page|>368<|box|>775 428 793 591<|content|>7.3 数据扩展\n<|id|>3818<|type|>title<|page|>370<|box|>179 406 207 608<|content|>8 交 付\n<|id|>3819<|type|>title<|page|>370<|box|>238 426 255 589<|content|>8.1 一般规定\n<|id|>3822<|type|>title<|page|>370<|box|>366 418 385 601<|content|>8.2 模型深度等级\n<|id|>3825<|type|>title<|page|>370<|box|>496 430 514 591<|content|>8.3 交付物\n<|id|>3828<|type|>title<|page|>371<|box|>214 277 242 699<|content|>附录 C 信息模型对象命名",
+    "raw_response": "<|src_id|>3779<|tgt_id|>3774\n<|src_id|>3799<|tgt_id|>3794\n<|src_id|>3801<|tgt_id|>3794\n<|src_id|>3810<|tgt_id|>3806",
+    "parsed": [
+        {
+            "src_id": 3779,
+            "tgt_id": 3774
+        },
+        {
+            "src_id": 3799,
+            "tgt_id": 3794
+        },
+        {
+            "src_id": 3801,
+            "tgt_id": 3794
+        },
+        {
+            "src_id": 3810,
+            "tgt_id": 3806
+        }
+    ]
+}

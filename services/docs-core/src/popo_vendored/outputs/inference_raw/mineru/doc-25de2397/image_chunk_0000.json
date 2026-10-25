@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>10<|type|>title<|page|>1<|box|>409 281 429 717<|content|>1. Introduction and Purpose of Engagement\n<|id|>17<|type|>title<|page|>2<|box|>352 300 372 696<|content|>2. Privileged Nature of the Engagement\n<|id|>22<|type|>title<|page|>2<|box|>840 176 876 854<|content|>\"PRIVILEGED ANDCONFIDENTIALATTORNEY-CLIENT COMMUNI\n<|id|>24<|type|>title<|page|>3<|box|>209 398 229 599<|content|>3. Scope of Services\n<|id|>26<|type|>title<|page|>3<|box|>342 140 359 421<|content|>3.1 Fire Origin-and-Cause Analysis\n<|id|>31<|type|>title<|page|>3<|box|>816 140 834 387<|content|>3.2 Electrical Panel Evaluation\n<|id|>36<|type|>title<|page|>4<|box|>446 140 464 506<|content|>3.3 Sprinkler System Performance Assessment\n<|id|>40<|type|>title<|page|>4<|box|>785 140 803 450<|content|>3.4 Municipal Water Pressure Analysis\n<|id|>46<|type|>title<|page|>5<|box|>483 140 501 410<|content|>3.5 Storage Configuration Review\n<|id|>52<|type|>title<|page|>6<|box|>209 421 229 575<|content|>4. Deliverables\n<|id|>60<|type|>title<|page|>7<|box|>90 310 111 686<|content|>5. Compensation and Payment Terms\n<|id|>69<|type|>title<|page|>7<|box|>739 284 760 712<|content|>6. Background Information to Be Provided\n<|id|>83<|type|>title<|page|>8<|box|>680 323 699 673<|content|>7. Key Cargo Details for Reference\n<|id|>84<|type|>table<|page|>8<|box|>758 143 898 852<|content|>None\n<|id|>85<|type|>table<|page|>9<|box|>88 143 119 852<|content|>None\n<|id|>87<|type|>title<|page|>9<|box|>253 295 273 700<|content|>8. Fire Timeline Summary for Reference\n<|id|>94<|type|>title<|page|>9<|box|>648 321 667 674<|content|>9. Independence and Qualifications\n<|id|>98<|type|>title<|page|>10<|box|>234 326 255 669<|content|>10. Insurance and Indemnification\n<|id|>101<|type|>title<|page|>10<|box|>545 364 565 632<|content|>11. Term and Termination\n<|id|>106<|type|>title<|page|>11<|box|>136 401 155 596<|content|>12. Governing Law\n<|id|>108<|type|>title<|page|>11<|box|>255 348 273 648<|content|>13. Acceptance and Execution\n<|id|>119<|type|>title<|page|>11<|box|>648 142 665 511<|content|>ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>121<|type|>title<|page|>11<|box|>736 142 753 509<|content|>RIDGELINE FORENSIC CONSULTANTS LLC",
+    "raw_response": "<|src_id|>84<|tgt_id|>83\n<|src_id|>85<|tgt_id|>83",
+    "parsed": [
+        {
+            "src_id": 84,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 83
+        }
+    ]
+}

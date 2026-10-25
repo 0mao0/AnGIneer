@@ -1,0 +1,147 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mfko7fbg\\input\\pdfs\\doc-4f8fbde1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mfko7fbg\\enriched\\doc-4f8fbde1.json",
+    "contd_output": "<|src_id|>22<|tgt_id|>23",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>7<|level|>1\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>3\n<|id|>53<|level|>3\n<|id|>60<|level|>3\n<|id|>67<|level|>3\n<|id|>74<|level|>3\n<|id|>81<|level|>3\n<|id|>88<|level|>3\n<|id|>93<|level|>3\n<|id|>100<|level|>3\n<|id|>107<|level|>3\n<|id|>110<|level|>3\n<|id|>115<|level|>3\n<|id|>123<|level|>3\n<|id|>131<|level|>3\n<|id|>134<|level|>3\n<|id|>137<|level|>2\n<|id|>141<|level|>2\n<|id|>149<|level|>2",
+    "image_output": "<|src_id|>153<|tgt_id|>149\n<|src_id|>154<|tgt_id|>149",
+    "contd_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 153,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 149
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 153,
+            "table2_idx": 154,
+            "upper_row_ss": [
+                [
+                    "H",
+                    "M/V Aegean Fortuna Maintenance and Classification Records (January 2021–December 2022)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "I",
+                    "Voyage Log (Deck Log) for M/V Aegean Fortuna(September 2022)"
+                ]
+            ]
+        }
+    ]
+}

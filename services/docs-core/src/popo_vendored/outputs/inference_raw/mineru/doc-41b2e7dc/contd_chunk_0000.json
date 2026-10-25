@@ -1,0 +1,66 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 156 176 839<|content|>Delivered pursuant to Section 4. ... 01(a)(iv) of the Credit Agreement dated as of March 28, 2025\n<|id|>2<|page|>1<|box|>188 470 204 527<|content|>among\n<|id|>3<|page|>1<|box|>210 228 229 767<|content|>Nexford Industrial Holdings Inc. ... , a Delaware corporation, as Borrower,\n<|id|>4<|page|>1<|box|>238 387 253 611<|content|>the Guarantors party thereto,\n<|id|>5<|page|>1<|box|>263 212 280 782<|content|>Crescent Harbor Bank, N. ... , as Administrative Agent and Collateral Agent,\n<|id|>6<|page|>1<|box|>289 147 324 851<|content|>Ironwood Capital Markets, LLC and Northvane Securi.... , as Joint Lead Arrangers and Joint Bookrunners,\n<|id|>7<|page|>1<|box|>334 401 377 594<|content|>and the Lenders party thereto\n<|id|>8<|page|>1<|box|>383 142 401 307<|content|>Date: ... March 28, 2025\n<|id|>9<|page|>1<|box|>402 142 420 287<|content|>Certifying Entity: ... Certifying Entity\n<|id|>10<|page|>1<|box|>428 174 483 854<|content|>Granite Peak NIH Holdings, LLC a Delaware limited ...es, 1209 Orange Street, Wilmington, Delaware 19801\n<|id|>11<|page|>1<|box|>489 140 637 854<|content|>Capitalized terms used but not otherwise defined h...s, and the Lenders party thereto from time to time\n<|id|>30<|page|>4<|box|>133 174 299 857<|content|>(vi) The authorization of each of Derek Calloway, ...o be conclusive evidence of such approval; ... and\n<|id|>32<|page|>4<|box|>406 140 553 857<|content|>The Resolutions have not been rescinded, revoked, ... the Credit Agreement and the other Loan Documents\n<|id|>56<|page|>6<|box|>785 140 801 455<|content|>GRANITE PEAK NIH HOLDINGS, LLC\n<|id|>57<|page|>6<|box|>803 143 819 251<|content|>By: ... By\n<|id|>58<|page|>6<|box|>819 142 835 320<|content|>Name: ... Ryan Ostrowski\n<|id|>59<|page|>6<|box|>837 142 853 326<|content|>Title: ... Authorized Person\n<|id|>63<|page|>7<|box|>277 174 332 854<|content|>(b) Ryan Ostrowski held the title and position of ... title and position as of the date hereof; ... and\n<|id|>65<|page|>7<|box|>383 142 401 455<|content|>GRANITE PEAK NIH HOLDINGS, LLC\n<|id|>66<|page|>7<|box|>402 143 419 253<|content|>By: ... By\n<|id|>67<|page|>7<|box|>419 142 435 320<|content|>Name: ... Derek Calloway\n<|id|>68<|page|>7<|box|>436 142 453 405<|content|>Title: ... Authorized Person / Manager\n<|id|>69<|page|>7<|box|>453 143 470 308<|content|>Date: ... March 28, 2025",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>2<|tgt_id|>3\n<|src_id|>3<|tgt_id|>4\n<|src_id|>4<|tgt_id|>5\n<|src_id|>5<|tgt_id|>6\n<|src_id|>6<|tgt_id|>7\n<|src_id|>9<|tgt_id|>10\n<|src_id|>57<|tgt_id|>58\n<|src_id|>58<|tgt_id|>59\n<|src_id|>66<|tgt_id|>67\n<|src_id|>67<|tgt_id|>68\n<|src_id|>68<|tgt_id|>69",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 69
+        }
+    ]
+}

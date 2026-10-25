@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['6/15/67', '2-1/2% Bond', '- 6/15/67', '5/5/42', '344', '344', '-', '-', '-', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Date of refunding or retire-ment', 'colspan=4, Called or maturing securities 1/', 'colspan=2, Disposition offers by Treasury', 'colspan=2, Results of ex-change offers', 'rowspan=2, Description of new securities offered (See also Table 4)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 208,
+    "table2_idx": 209
+}

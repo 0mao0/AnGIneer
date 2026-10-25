@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>212 140 248 854<|content|>TO: ... Rachel Bernstein, Partner, Privacy & Data Security Devon Archer, Associate, Labor & Employment\n<|id|>2<|page|>1<|box|>256 140 273 852<|content|>FROM: ... Nadia Petrov, Associate, Labor & Employment (under the supervision of Devon Archer)\n<|id|>3<|page|>1<|box|>281 140 299 312<|content|>DATE: ... May 13, 2024\n<|id|>4<|page|>1<|box|>308 140 362 854<|content|>RE: ... 1031-00001\n<|id|>5<|page|>1<|box|>369 140 406 854<|content|>CC: ... Lawrence Keating, Chair, Conflicts Committ...Colleen Farrow, Director, Conflicts & New Business\n<|id|>11<|page|>1<|box|>839 140 895 854<|content|>3. ... — is diametrically opposed to the position ...tion in the Eastern District of Virginia, in which\n<|id|>12<|page|>2<|box|>109 140 200 854<|content|>the Firm champions the technological and commercia...tinct question addressed in a companion memorandum\n<|id|>17<|page|>2<|box|>393 147 430 854<|content|>• Whether any former-client duties are implicated — analyzed under Rule 1. ... and\n<|id|>19<|page|>2<|box|>470 140 489 839<|content|>Nothing in this memorandum should be read as expre...as expressing any view on those distinct questions\n<|id|>26<|page|>2<|box|>864 147 880 473<|content|>• Terrence Whitfield, General Counsel; ... and\n<|id|>28<|page|>3<|box|>89 140 164 856<|content|>MTDC's existing outside litigation counsel is Harg...y practice group — for that specialized capability\n<|id|>48<|page|>5<|box|>90 174 108 753<|content|>(1) the representation of one client will be directly adverse to another client; ... or\n<|id|>50<|page|>5<|box|>179 140 252 854<|content|>Although the Illinois rule closely tracks ABA Mode... is not necessary to the conclusion reached herein\n<|id|>64<|page|>6<|box|>455 147 489 854<|content|>• that MTDC relied on Pinnacle's representations a...es concerning BIPA compliance in the MSLA; ... and\n<|id|>66<|page|>6<|box|>531 140 641 854<|content|>To advance those arguments — as competent BIPA def...ient that directly and foreseeably injures another\n<|id|>72<|page|>7<|box|>146 147 200 854<|content|>• initiating and prosecuting cross-claim, third-pa... co-respondent, in the enforcement action; ... and\n<|id|>74<|page|>7<|box|>239 140 386 857<|content|>Each of these steps is direct adversity in the mos...and unambiguous sense the rule contemplates. ... \"\n<|id|>90<|page|>8<|box|>752 147 787 856<|content|>• algorithm design and training documentation, inc...escribing the provenance of training data; ... and\n<|id|>92<|page|>8<|box|>828 140 901 856<|content|>Each of these information categories is directly r...sent concrete, not hypothetical, risks to Pinnacle",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>26<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 28
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>152 140 170 699<|content|>- From: ... com>\n<|id|>4<|page|>1<|box|>279 142 295 210<|content|>Pamela,\n<|id|>1<|page|>1<|box|>184 140 200 578<|content|>- To: ... com>\n<|id|>2<|page|>1<|box|>215 140 234 661<|content|>- Cc: ... com>\n<|id|>3<|page|>1<|box|>246 140 263 465<|content|>- Date: ... 00 -0000\n<|id|>8<|page|>1<|box|>715 140 902 851<|content|>**Withdrawal Letter. ... 25% schedule), co-investm...ransfer rights, K-1 delivery provisions, placement\n<|id|>9<|page|>2<|box|>90 140 145 852<|content|>fee offset, confidentiality carve-outs, and all ot...ce or effect. ... I'll turn it around the same day\n<|id|>14<|page|>2<|box|>590 142 608 250<|content|>Best regards,\n<|id|>15<|page|>2<|box|>652 140 670 300<|content|>Sandra M. ... Whitfield\n<|id|>16<|page|>2<|box|>684 142 700 274<|content|>General Counsel\n<|id|>17<|page|>2<|box|>715 142 733 370<|content|>Briarwood Family Office LLC\n<|id|>18<|page|>2<|box|>746 142 763 370<|content|>780 Park Avenue, Suite 3200\n<|id|>19<|page|>2<|box|>777 142 795 308<|content|>New York, NY 10021\n<|id|>20<|page|>2<|box|>809 140 827 307<|content|>Tel: ... (212) 555-0184\n<|id|>21<|page|>2<|box|>840 140 858 449<|content|>swhitfield@briarwoodfamilyoffice. ... com",
+    "raw_response": "<|src_id|>8<|tgt_id|>9",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        52
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        11,
+        14,
+        27,
+        31,
+        36,
+        37,
+        51
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>2<|box|>488 361 597 614<|content|>LIBRARY 520V-61\n<|id|>1<|page|>3<|box|>779 753 826 887<|content|>LIBRARY ROOM 5030\n<|id|>2<|page|>3<|box|>831 755 862 890<|content|>JUN 2. ... 1 1972\n<|id|>3<|page|>3<|box|>865 701 899 947<|content|>TREASURY DEPARTMENT\n<|id|>4<|page|>5<|box|>152 163 203 308<|content|>Treasury\n<|id|>10<|page|>5<|box|>604 284 624 679<|content|>Analysis of Receipts and Expenditures\n<|id|>11<|page|>5<|box|>624 313 644 639<|content|>Composition of the Public Debt\n<|id|>12<|page|>5<|box|>644 258 664 703<|content|>Prices and Yields of Government Securities\n<|id|>13<|page|>5<|box|>666 334 684 608<|content|>Other Treasury Statistics\n<|id|>14<|page|>5<|box|>804 358 828 600<|content|>UNITED STATES\n<|id|>15<|page|>5<|box|>828 298 851 658<|content|>TREASURY DEPARTMENT\n<|id|>16<|page|>5<|box|>806 731 831 868<|content|>LIBRARY\n<|id|>17<|page|>5<|box|>827 734 848 863<|content|>POO: ... 1 5020\n<|id|>18<|page|>5<|box|>855 331 873 625<|content|>OFFICE OF THE SECRETARY\n<|id|>19<|page|>5<|box|>859 722 888 863<|content|>JUN 2. ... 1 1972\n<|id|>20<|page|>5<|box|>892 663 924 917<|content|>TREASURY DEPARTMENT\n<|id|>25<|page|>11<|box|>447 593 470 788<|content|>STATISTICS\n<|id|>29<|page|>14<|box|>446 247 515 736<|content|>RECEIPTS AND EXPENDITURES AND APPROPRIATIONS\n<|id|>75<|page|>27<|box|>636 95 665 493<|content|>3/ Compriee Public Building Administration, Public...river and harbor work and flood control, Tennessee\n<|id|>81<|page|>31<|box|>449 120 497 884<|content|>PUBLIC DEBT AND GUARANTEED OBLIGATIONS OF THE UNITED STATES GOVERNMENT\n<|id|>88<|page|>36<|box|>622 67 673 916<|content|>Reconciliation of the Debt Position under Section ...e Daily Treasury Statement As of December 31, 1943\n<|id|>90<|page|>37<|box|>527 62 539 272<|content|>Source: ... Daily Treasury Statement\n<|id|>91<|page|>37<|box|>52 61 84 917<|content|>Computed Interest Charge and Computed Interest Rat...anteed Obligations of the United States Government\n<|id|>93<|page|>37<|box|>537 89 576 479<|content|>1/ Treasury bills are included in interest-bearing...lue is used. ... For the purposes of computing the\n<|id|>94<|page|>37<|box|>526 509 574 912<|content|>annual interest charge and rate of interest on Uni...s to interest only, are not included in this table\n<|id|>127<|page|>51<|box|>538 118 699 513<|content|>1/ These notes were originally designed to help ta...ve been redeemed for cash at the tax payment value\n<|id|>128<|page|>51<|box|>519 534 609 926<|content|>current at the time of presentation. ... The notes...eemed for cash only at the original purchase price",
+    "raw_response": "<|src_id|>93<|tgt_id|>94\n<|src_id|>127<|tgt_id|>128",
+    "parsed": [
+        {
+            "src_id": 93,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 128
+        }
+    ]
+}

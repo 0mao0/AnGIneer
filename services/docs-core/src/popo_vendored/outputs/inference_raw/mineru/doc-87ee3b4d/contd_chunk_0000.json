@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>112 215 128 854<|content|>Calderwood & Harkness LLP 599 Lexington Avenue, 38th Floor New York, NY 10022\n<|id|>1<|page|>1<|box|>138 635 155 854<|content|>Engagement No. ... 1032-00005\n<|id|>3<|page|>1<|box|>250 282 267 712<|content|>Adopted at a Special Meeting of the Supervisory Board\n<|id|>4<|page|>1<|box|>276 447 292 550<|content|>June 5, 2023\n<|id|>5<|page|>1<|box|>301 325 316 671<|content|>DRAFT — FOR DISCUSSION PURPOSES\n<|id|>6<|page|>1<|box|>327 277 344 718<|content|>Prepared by Outside Counsel Calderwood & Harkness LLP\n<|id|>17<|page|>2<|box|>768 138 898 857<|content|>WHEREAS, the aggregate equity consideration for th...-share price represents a premium of approximately\n<|id|>19<|page|>3<|box|>208 138 409 857<|content|>WHEREAS, the Supervisory Board has considered the ...h adjacencies within the semiconductor value chain\n<|id|>23<|page|>3<|box|>842 174 897 857<|content|>(a) The proposed Transaction will require the fili...mmission (\"FTC\") and the Antitrust Division of the\n<|id|>24<|page|>4<|box|>90 174 162 854<|content|>United States Department of Justice (\"DOJ\"), and t...l information) prior to consummation of the Merger\n<|id|>29<|page|>4<|box|>824 140 898 857<|content|>WHEREAS, the Vorstand recommends that the acquisit...market for optical interconnect solutions. ... The\n<|id|>30<|page|>5<|box|>90 140 256 856<|content|>Vorstand has identified the following principal st...etitive position against key industry participants\n<|id|>53<|page|>7<|box|>779 174 907 857<|content|>(c) Additional Filings. ... Any other antitrust, c...e German Federal Ministry for Economic Affairs and\n<|id|>54<|page|>8<|box|>90 174 162 856<|content|>Climate Action (Bundesministerium für Wirtschaft u... following consultation with Calderwood & Harkness\n<|id|>75<|page|>10<|box|>703 174 794 854<|content|>(e) Take all actions necessary to comply with all ...the Frankfurt Stock Exchange Rules, the U. ... and\n<|id|>77<|page|>11<|box|>90 140 145 854<|content|>Any and all actions heretofore taken by any office... ratified, approved, and confirmed in all respects\n<|id|>83<|page|>11<|box|>479 142 494 390<|content|>Name: ... Friedrich Wendt\n<|id|>84<|page|>11<|box|>496 140 513 653<|content|>Title: ... Chair of the Supervisory Board (Vorsitzender des Aufsichtsrats)\n<|id|>85<|page|>11<|box|>513 142 530 285<|content|>Date: ... June 5, 2023\n<|id|>86<|page|>11<|box|>530 140 561 854<|content|>As prepared by Calderwood & Harkness LLP 599 Lexin... New York, New York 10022 United States of America\n<|id|>87<|page|>11<|box|>566 140 599 854<|content|>Engagement No. ... Howard Bellamy",
+    "raw_response": "<|src_id|>23<|tgt_id|>24\n<|src_id|>29<|tgt_id|>30\n<|src_id|>53<|tgt_id|>54\n<|src_id|>75<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 77
+        }
+    ]
+}

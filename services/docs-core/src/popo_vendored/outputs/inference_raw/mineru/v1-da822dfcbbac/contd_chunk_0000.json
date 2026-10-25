@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        13,
+        14,
+        16,
+        17,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>169 179 185 805<|content|>Ayesha Vermani<sup>1</sup>, Josue Nassar<sup>2</su...w Dowling<sup>1</sup>, Il Memming Park<sup>1</sup>\n<|id|>2<|page|>1<|box|>185 181 199 710<|content|><sup>1</sup> Champalimaud Centre for the Unknown, Champalimaud Foundation, Portugal\n<|id|>3<|page|>1<|box|>198 181 213 300<|content|><sup>2</sup> RyvivyR, USA\n<|id|>4<|page|>1<|box|>214 183 228 743<|content|>{ayesha. ... org\n<|id|>10<|page|>1<|box|>868 169 924 825<|content|>Motivated by these observations, we propose a nove...uring training, the model learns to adapt a common\n<|id|>13<|page|>2<|box|>393 169 439 826<|content|>latent dynamical system model conditioned on the d...e commonly encountered in neuroscience experiments\n<|id|>20<|page|>2<|box|>784 171 882 486<|content|>As an illustrative example, let’s consider a case ... like- lihood functions that map these dynamics to\n<|id|>22<|page|>2<|box|>882 171 925 826<|content|>individual recordings (Pandarinath et al. ... 1A)\n<|id|>66<|page|>5<|box|>489 509 698 826<|content|>After training, we observed that the shared dy- na...as well as the generalization of the trained model\n<|id|>67<|page|>5<|box|>696 169 726 825<|content|>to new data in Appendix B. ... , 2023) in Appendix B\n<|id|>81<|page|>7<|box|>282 169 311 825<|content|>withc = 0 . ... We choseM = 2 0pairs of( a ^ { i } , b ^ { i } )values (Fig 13),\n<|id|>83<|page|>7<|box|>575 169 675 826<|content|>and generated latent trajectories of lengthT = 3 0... to make rankd _ { r } = 1changes for our approach\n<|id|>147<|page|>13<|box|>838 169 925 826<|content|>A Additional Related Works 14 B Proof-of-Concept Experiment 14 C Hopf Bifurcation Systems 15\n<|id|>148<|page|>14<|box|>101 169 436 826<|content|>D Alternative Inference and Learning Approaches 16 D. ... 4 Hyperparameters 24\n<|id|>168<|page|>16<|box|>895 169 924 825<|content|>As the proposed formulation requires inference of ...ial to infer constants in state-space models using\n<|id|>169<|page|>17<|box|>104 169 132 823<|content|>SMC (Doucet et al. ... We can express the log marginal likelihood of the proposed generative model as\n<|id|>223<|page|>23<|box|>647 169 705 825<|content|>We additionally align all learned vector field plo...ystem for ease of visual comparison (Fig. ... 10A)\n<|id|>224<|page|>23<|box|>710 169 795 826<|content|>Context Interpolation. ... 7, 21 and 22\n<|id|>234<|page|>24<|box|>667 217 681 357<|content|>• Inference network\n<|id|>237<|page|>24<|box|>827 246 840 316<|content|>– lr: ... 01\n<|id|>235<|page|>24<|box|>738 217 752 352<|content|>• Generative model\n<|id|>236<|page|>24<|box|>809 217 824 292<|content|>• Training\n<|id|>238<|page|>24<|box|>844 245 858 393<|content|>– weight decay: ... 05\n<|id|>239<|page|>24<|box|>859 245 875 508<|content|>– batch size: ... 64 trials from 20 datasets",
+    "raw_response": "",
+    "parsed": []
+}

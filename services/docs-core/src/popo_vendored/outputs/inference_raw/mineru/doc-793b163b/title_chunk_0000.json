@@ -1,0 +1,142 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 169 123 826<|content|>UNITED STATES DISTRICT COURT EASTERN DISTRICT OF T\n<|id|>2<|page|>1<|box|>359 228 404 769<|content|>[PROPOSED] ORDER CONSTRUING DISPUTED CLAIM TERMS B\n<|id|>3<|page|>1<|box|>446 307 464 689<|content|>Filed by Plaintiff Optiwave Semiconductor Corp.\n<|id|>6<|page|>1<|box|>550 328 569 668<|content|>I. INTRODUCTORY RECITALS\n<|id|>24<|page|>4<|box|>308 437 327 558<|content|>II. ORDER\n<|id|>26<|page|>4<|box|>554 210 574 785<|content|>III. CONSTRUCTIONS OF DISPUTED CLAIM TERMS\n<|id|>41<|page|>6<|box|>285 140 303 503<|content|>B. Term 2: \"integrated on a silicon substrate\"\n<|id|>53<|page|>7<|box|>628 140 647 442<|content|>C. Term 3: \"micro-channel heat sink\"\n<|id|>65<|page|>9<|box|>89 140 108 535<|content|>D. Term 4: \"polarization-diverse grating coupler\"\n<|id|>81<|page|>10<|box|>556 142 574 460<|content|>E. Term 5: \"coherent detection module\"\n<|id|>93<|page|>11<|box|>844 140 859 388<|content|>F. Term 6: \"low insertion loss\"\n<|id|>95<|page|>12<|box|>89 140 108 367<|content|>Claim(s): Claims 1, 9, and 14\n<|id|>106<|page|>13<|box|>329 140 347 367<|content|>G. Term 7: \"multi-channel\"\n<|id|>117<|page|>14<|box|>273 140 292 383<|content|>H. Term 8: \"high-bandwidth\"\n<|id|>129<|page|>15<|box|>212 140 229 683<|content|>I. Term 9: \"embedded\" (as in \"embedded micro-chann\n<|id|>140<|page|>16<|box|>248 140 266 473<|content|>J. Term 10: \"silicon photonic transceiver\"\n<|id|>151<|page|>17<|box|>329 140 347 687<|content|>K. Term 11: \"transceiver integrated on silicon sub\n<|id|>160<|page|>18<|box|>148 140 167 578<|content|>L. Term 12: \"two-dimensional sub-wavelength gratin\n<|id|>171<|page|>19<|box|>352 348 371 648<|content|>IV. AGREED-UPON TERMS\n<|id|>173<|page|>19<|box|>503 140 521 550<|content|>A. Agreed Term A: \"optical signal channel spacing\"\n<|id|>183<|page|>20<|box|>90 297 109 697<|content|>V. MEANS-PLUS-FUNCTION TERMS\n<|id|>185<|page|>20<|box|>243 140 279 800<|content|>A. Claim 9 of the '847 Patent: \"means for dynamica\n<|id|>191<|page|>20<|box|>743 140 779 803<|content|>B. Claim 15 of the '193 Patent: \"means for compens\n<|id|>198<|page|>21<|box|>407 251 426 743<|content|>VI. SUMMARY TABLE OF CONSTRUCTIONS\n<|id|>201<|page|>22<|box|>803 212 821 785<|content|>VII. RESERVATION OF RIGHTS AND APPLICATION\n<|id|>207<|page|>23<|box|>585 426 606 570<|content|>VIII. ORDER\n<|id|>208<|page|>23<|box|>623 140 640 315<|content|>IT IS SO ORDERED.\n<|id|>211<|page|>23<|box|>741 323 761 671<|content|>IX. CERTIFICATE OF SERVICE\n<|id|>216<|page|>24<|box|>196 140 214 552<|content|>Counsel for Defendant Lumicore Technologies, Inc.:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>-1\n<|id|>6<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>2\n<|id|>41<|level|>3\n<|id|>53<|level|>3\n<|id|>65<|level|>3\n<|id|>81<|level|>3\n<|id|>93<|level|>3\n<|id|>95<|level|>3\n<|id|>106<|level|>3\n<|id|>117<|level|>3\n<|id|>129<|level|>3\n<|id|>140<|level|>3\n<|id|>151<|level|>3\n<|id|>160<|level|>3\n<|id|>171<|level|>2\n<|id|>173<|level|>3\n<|id|>183<|level|>2\n<|id|>185<|level|>3\n<|id|>191<|level|>3\n<|id|>198<|level|>2\n<|id|>201<|level|>2\n<|id|>207<|level|>2\n<|id|>208<|level|>-1\n<|id|>211<|level|>2\n<|id|>216<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 191,
+            "level": 3
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 3
+        }
+    ]
+}

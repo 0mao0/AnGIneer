@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12,
+        13,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 143 126 852<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 633 Wes\n<|id|>2<|type|>title<|page|>1<|box|>171 424 188 573<|content|>MEMORANDUM\n<|id|>7<|type|>title<|page|>1<|box|>335 140 352 321<|content|>I. Executive Summary\n<|id|>9<|type|>table<|page|>1<|box|>520 143 690 852<|content|>None\n<|id|>12<|type|>title<|page|>2<|box|>186 140 204 424<|content|>II. Notice Administration Summary\n<|id|>18<|type|>title<|page|>3<|box|>90 140 107 316<|content|>III. Opt-Out Analysis\n<|id|>19<|type|>title<|page|>3<|box|>121 140 138 321<|content|>A. Summary Statistics\n<|id|>23<|type|>title<|page|>3<|box|>392 142 409 299<|content|>B. Pattern Analysis\n<|id|>32<|type|>title<|page|>4<|box|>518 140 534 274<|content|>IV. Claims Data\n<|id|>38<|type|>title<|page|>5<|box|>476 140 493 318<|content|>V. Objection Analysis\n<|id|>41<|type|>title<|page|>5<|box|>708 140 724 511<|content|>B. Objection 1: Carlos Vega — Attorneys' Fees\n<|id|>45<|type|>title<|page|>6<|box|>135 140 151 243<|content|>Assessment:\n<|id|>58<|type|>title<|page|>7<|box|>429 140 446 566<|content|>C. Objection 2: Rachel Kimura — Allocation Formula\n<|id|>62<|type|>title<|page|>7<|box|>733 140 748 243<|content|>Assessment:\n<|id|>68<|type|>title<|page|>8<|box|>638 140 655 633<|content|>D. Objection 3: Samuel Torres — Settlement Amount\n<|id|>72<|type|>title<|page|>8<|box|>868 140 883 243<|content|>Assessment:\n<|id|>85<|type|>title<|page|>10<|box|>239 140 256 710<|content|>E. Objection 4: Dawn Prescott — Broad Release of N\n<|id|>89<|type|>title<|page|>10<|box|>597 140 613 243<|content|>Assessment:\n<|id|>100<|type|>title<|page|>12<|box|>340 140 357 655<|content|>VI. Comparative Analysis — Opt-Outs and Objections\n<|id|>101<|type|>table<|page|>12<|box|>426 143 532 852<|content|>None\n<|id|>105<|type|>title<|page|>13<|box|>90 140 107 328<|content|>VII. Recommendations\n<|id|>116<|type|>title<|page|>15<|box|>90 140 107 460<|content|>VIII. Appendix / Attachments Reference",
+    "raw_response": "<|src_id|>9<|tgt_id|>7\n<|src_id|>101<|tgt_id|>100",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 100
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        12,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 152 511<|content|>TO: ... Alan Ngo, Responsible Partner, IP Litigation\n<|id|>2<|page|>1<|box|>160 140 178 568<|content|>FROM: ... Omar Siddiqui, Working Associate, IP Litigation\n<|id|>3<|page|>1<|box|>186 140 222 854<|content|>CC: ... Marcus Delgado, Billing Partner, IP Litigation\n<|id|>4<|page|>1<|box|>229 140 247 326<|content|>DATE: ... October 8, 2024\n<|id|>5<|page|>1<|box|>256 140 291 854<|content|>RE: ... 10,234,847 (\"'847 Patent\"), Claims 1, 3, and 5\n<|id|>6<|page|>1<|box|>300 140 318 455<|content|>CLIENT: ... Optiwave Semiconductor Corp\n<|id|>12<|page|>1<|box|>835 140 909 854<|content|>This analysis is prepared in coordination with the... support the preparation of Optiwave Semiconductor\n<|id|>13<|page|>2<|box|>90 140 126 854<|content|>Corp. ... 's (\"OWS\") Opening Claim Construction Br...red by the Court pursuant to Local Patent Rule 4-5\n<|id|>21<|page|>2<|box|>849 140 902 854<|content|>In the present litigation, the '847 Patent is one ... asserted by OWS against Lumicore. ... fiscal year\n<|id|>22<|page|>3<|box|>89 140 162 856<|content|>2023 revenue: ... These products incorporate silic...t include on-chip waveguide multiplexer structures\n<|id|>88<|page|>12<|box|>580 181 598 733<|content|>• Prosecution History Estoppel Analysis — '193 Patent (October 10, 2024)\n<|id|>93<|page|>12<|box|>698 140 770 854<|content|>Coordination among these analyses is essential to ...fied and coherent theory across all disputed terms\n<|id|>89<|page|>12<|box|>601 183 618 733<|content|>• Prosecution History Estoppel Analysis — '015 Patent (October 12, 2024)\n<|id|>90<|page|>12<|box|>619 183 637 839<|content|>• Means-Plus-Function Analysis Memorandum — '847 Patent, Claim 9 (October 5, 2024)\n<|id|>91<|page|>12<|box|>640 183 674 852<|content|>• Doctrine of Equivalents Analysis Memorandum — All Asserted Patents (September 5, 2024)\n<|id|>92<|page|>12<|box|>678 184 695 717<|content|>• Prosecution History Review — All Asserted Patents (September 2024)\n<|id|>124<|page|>16<|box|>436 210 473 854<|content|>wherein the waveguide multiplexer exhibits an insertion loss of less than 2. ... and\n<|id|>125<|page|>16<|box|>479 210 517 854<|content|>wherein the plurality of input waveguides, the wav...monolithically integrated on the silicon substrate\n<|id|>127<|page|>16<|box|>550 174 642 854<|content|>3. ... narrows \"waveguide multiplexer\" genus to sp...species with slab couplers and phase-shifted arms]\n<|id|>128<|page|>16<|box|>643 142 661 393<|content|>Claim 5 (Dependent on Claim 1): ... Claim 5 (Dependent on Claim 1)\n<|id|>129<|page|>16<|box|>669 176 761 856<|content|>5. ... narrows \"waveguide multiplexer\" genus to specific cascaded MZI species with thermal tuning]\n<|id|>130<|page|>16<|box|>763 140 891 857<|content|>Annotation Summary: ... If Claim 1 were construed ...y inconsistent with a parent claim limited to AWGs",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>21<|tgt_id|>22\n<|src_id|>124<|tgt_id|>125",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 125
+        }
+    ]
+}

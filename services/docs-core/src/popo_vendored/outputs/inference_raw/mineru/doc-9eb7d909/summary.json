@@ -1,0 +1,129 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-y9s26xy_\\input\\pdfs\\doc-9eb7d909.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-y9s26xy_\\enriched\\doc-9eb7d909.json",
+    "contd_output": "<|src_id|>30<|tgt_id|>31\n<|src_id|>128<|tgt_id|>129",
+    "title_output": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>3\n<|id|>45<|level|>3\n<|id|>52<|level|>3\n<|id|>64<|level|>3\n<|id|>78<|level|>3\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>102<|level|>2\n<|id|>109<|level|>2\n<|id|>114<|level|>2\n<|id|>127<|level|>2\n<|id|>133<|level|>2\n<|id|>137<|level|>2\n<|id|>146<|level|>2",
+    "image_output": "<|src_id|>87<|tgt_id|>78\n<|src_id|>92<|tgt_id|>90\n<|src_id|>96<|tgt_id|>94\n<|src_id|>97<|tgt_id|>94",
+    "contd_label": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 129
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 87,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 94
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 96,
+            "table2_idx": 97,
+            "upper_row_ss": [
+                [
+                    "Review Platform Licensing",
+                    "$35 per user per month (10 users × 3 months)",
+                    "$1,050"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Production (TIFF + load files)",
+                    "$0.06 per page",
+                    "Estimated; varies based on production volume"
+                ]
+            ]
+        }
+    ]
+}

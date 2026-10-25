@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Illinois', '815 ILCS 530/1 et seq.', 'Name + SSN, DL,financial acct (w/code),medical,biometric,email +', 'Access/Acquisiti on', 'Yes', 'Yes (>500)', 'Most expedient time', '712', 'Email/ credential prong applies']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'password', '', '', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 377,
+    "table2_idx": 378
+}

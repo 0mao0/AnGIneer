@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 364<|content|>【5720189#8】中國－盧旺達關係\n<|id|>2<|page|>1<|box|>140 105 156 436<|content|>【5715010#7】中華人民共和國與海地關係\n<|id|>4<|page|>1<|box|>224 105 240 356<|content|>【7526092#11】中国－东盟关系\n<|id|>6<|page|>1<|box|>341 105 357 381<|content|>【4271750#7】中國－阿塞拜疆關係\n<|id|>8<|page|>1<|box|>442 107 458 292<|content|>【464765#25】中法关系\n<|id|>10<|page|>1<|box|>544 105 560 389<|content|>【4879199#19】中国－尼加拉瓜关系\n<|id|>12<|page|>1<|box|>645 105 661 389<|content|>【3466363#52】中華民國與法國關係\n<|id|>14<|page|>1<|box|>763 105 778 391<|content|>【7083162#67】2020年中印邊境衝突\n<|id|>16<|page|>1<|box|>881 107 898 292<|content|>【4435918#1】法美關係\n<|id|>18<|page|>2<|box|>168 107 185 292<|content|>【796484#15】法國經濟",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

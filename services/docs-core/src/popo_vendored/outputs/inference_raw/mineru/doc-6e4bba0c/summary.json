@@ -1,0 +1,141 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2_89wrrs\\input\\pdfs\\doc-6e4bba0c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2_89wrrs\\enriched\\doc-6e4bba0c.json",
+    "contd_output": "<|src_id|>12<|tgt_id|>13",
+    "title_output": "<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>3\n<|id|>46<|level|>2\n<|id|>57<|level|>1\n<|id|>58<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>3\n<|id|>70<|level|>3\n<|id|>76<|level|>2\n<|id|>83<|level|>1\n<|id|>84<|level|>2\n<|id|>89<|level|>2\n<|id|>94<|level|>1\n<|id|>98<|level|>1\n<|id|>107<|level|>1\n<|id|>109<|level|>2\n<|id|>117<|level|>2\n<|id|>123<|level|>2\n<|id|>129<|level|>2",
+    "image_output": "<|src_id|>96<|tgt_id|>94\n<|src_id|>97<|tgt_id|>94",
+    "contd_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        }
+    ],
+    "title_label": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 94
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 96,
+            "table2_idx": 97,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "Landlord Waiver — Outlet Store #38, Gilroy Premium Outlets, Gilroy, CA",
+                    "CRH / Cascade Outlet Stores LLC; C&H to prepare form",
+                    "July 18, 2023",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "10",
+                    "Landlord Waiver — Outlet Store #44, Park City Outlet Mall, Park City, UT",
+                    "CRH / Cascade Outlet Stores LLC; C&H to prepare form",
+                    "July 18, 2023",
+                    "Pending"
+                ]
+            ]
+        }
+    ]
+}

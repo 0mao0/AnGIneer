@@ -1,0 +1,65 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        141,
+        151
+    ],
+    "pages": [
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>359<|type|>title<|page|>141<|box|>108 410 136 608<|content|>七、固定皮带机安装\n<|id|>361<|type|>table<|page|>141<|box|>187 70 748 948<|content|>None\n<|id|>362<|type|>title<|page|>142<|box|>134 45 161 88<|content|>续表\n<|id|>364<|type|>table<|page|>142<|box|>167 47 801 925<|content|>None\n<|id|>365<|type|>title<|page|>143<|box|>119 72 147 116<|content|>续表\n<|id|>367<|type|>table<|page|>143<|box|>156 74 452 950<|content|>None\n<|id|>368<|type|>table<|page|>144<|box|>181 49 777 929<|content|>None\n<|id|>371<|type|>table<|page|>145<|box|>147 75 783 955<|content|>None\n<|id|>374<|type|>table<|page|>146<|box|>169 47 467 925<|content|>None\n<|id|>375<|type|>title<|page|>147<|box|>114 410 143 608<|content|>八、螺旋送料机安装\n<|id|>377<|type|>table<|page|>147<|box|>194 68 754 948<|content|>None\n<|id|>380<|type|>table<|page|>148<|box|>176 52 757 932<|content|>None\n<|id|>381<|type|>title<|page|>149<|box|>119 426 150 592<|content|>九、缆车安装\n<|id|>383<|type|>table<|page|>149<|box|>200 68 763 947<|content|>None\n<|id|>384<|type|>title<|page|>150<|box|>143 407 174 574<|content|>十、趸船安装\n<|id|>387<|type|>table<|page|>150<|box|>225 52 754 931<|content|>None\n<|id|>388<|type|>title<|page|>151<|box|>227 197 328 811<|content|>本局部修订主编单位、主要起草人、参加人和管理组人员名单",
+    "raw_response": "<|src_id|>361<|tgt_id|>359\n<|src_id|>364<|tgt_id|>362\n<|src_id|>367<|tgt_id|>365\n<|src_id|>368<|tgt_id|>365\n<|src_id|>371<|tgt_id|>365\n<|src_id|>374<|tgt_id|>365\n<|src_id|>377<|tgt_id|>375\n<|src_id|>380<|tgt_id|>375\n<|src_id|>383<|tgt_id|>381\n<|src_id|>387<|tgt_id|>384",
+    "parsed": [
+        {
+            "src_id": 361,
+            "tgt_id": 359
+        },
+        {
+            "src_id": 364,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 367,
+            "tgt_id": 365
+        },
+        {
+            "src_id": 368,
+            "tgt_id": 365
+        },
+        {
+            "src_id": 371,
+            "tgt_id": 365
+        },
+        {
+            "src_id": 374,
+            "tgt_id": 365
+        },
+        {
+            "src_id": 377,
+            "tgt_id": 375
+        },
+        {
+            "src_id": 380,
+            "tgt_id": 375
+        },
+        {
+            "src_id": 383,
+            "tgt_id": 381
+        },
+        {
+            "src_id": 387,
+            "tgt_id": 384
+        }
+    ]
+}

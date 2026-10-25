@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 145 143 851<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 350 Sou\n<|id|>3<|page|>1<|box|>204 140 220 823<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>7<|page|>1<|box|>359 140 377 341<|content|>1. Purpose of This Letter\n<|id|>15<|page|>2<|box|>90 140 107 421<|content|>2. Current Status of the Proceeding\n<|id|>16<|page|>2<|box|>121 140 138 326<|content|>2.1 Procedural Posture\n<|id|>27<|page|>3<|box|>359 140 375 346<|content|>2.2 Estate Administration\n<|id|>32<|page|>4<|box|>90 142 106 349<|content|>2.3 Status of Estate Assets\n<|id|>34<|page|>4<|box|>176 142 194 264<|content|>Real Property:\n<|id|>37<|page|>4<|box|>565 142 582 292<|content|>Business Interests:\n<|id|>40<|page|>4<|box|>881 143 897 302<|content|>Financial Accounts:\n<|id|>44<|page|>5<|box|>258 140 277 491<|content|>intellectual Property and Personal Property:\n<|id|>47<|page|>5<|box|>446 142 464 395<|content|>Total Probate Estate Valuation:\n<|id|>50<|page|>5<|box|>652 140 669 307<|content|>Non-Probate Assets:\n<|id|>52<|page|>6<|box|>90 140 107 428<|content|>3. Summary of Legal Fees and Costs\n<|id|>53<|page|>6<|box|>121 140 137 259<|content|>3.1 Fees Billed\n<|id|>58<|page|>6<|box|>647 140 662 300<|content|>3.2 Costs Advanced\n<|id|>65<|page|>7<|box|>138 140 157 442<|content|>3.3 Outstanding Balance and Retainer\n<|id|>69<|page|>7<|box|>402 140 419 495<|content|>4. Recommendation — Standstill Renewal #3\n<|id|>70<|page|>7<|box|>433 140 450 303<|content|>4.1 Proposed Terms\n<|id|>82<|page|>8<|box|>228 140 244 349<|content|>4.2 Rationale for Renewal\n<|id|>89<|page|>9<|box|>90 140 107 356<|content|>4.3 Client Action Required\n<|id|>92<|page|>9<|box|>327 140 344 439<|content|>5. Options Upon Standstill Expiration\n<|id|>94<|page|>9<|box|>439 140 455 406<|content|>5.1 Option A — Further Renewal\n<|id|>97<|page|>9<|box|>702 140 719 488<|content|>5.2 Option B — Renewed Settlement Efforts\n<|id|>107<|page|>11<|box|>90 140 107 472<|content|>5.3 Option C — Reactivation of Litigation\n<|id|>116<|page|>12<|box|>90 140 107 470<|content|>6. Upcoming Action Items and Next Steps\n<|id|>123<|page|>12<|box|>763 142 779 254<|content|>7. Conclusion",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>7<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>27<|level|>2\n<|id|>32<|level|>2\n<|id|>34<|level|>3\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>44<|level|>3\n<|id|>47<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>1\n<|id|>53<|level|>2\n<|id|>58<|level|>2\n<|id|>65<|level|>2\n<|id|>69<|level|>1\n<|id|>70<|level|>2\n<|id|>82<|level|>2\n<|id|>89<|level|>2\n<|id|>92<|level|>1\n<|id|>94<|level|>2\n<|id|>97<|level|>2\n<|id|>107<|level|>2\n<|id|>116<|level|>1\n<|id|>123<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        }
+    ]
+}

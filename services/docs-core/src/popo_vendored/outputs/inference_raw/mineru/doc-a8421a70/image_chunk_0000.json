@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 176 118 820<|content|>OFFICER'S CERTIFICATE OF THALASSA AMERICAS INC.\n<|id|>1<|type|>title<|page|>1<|box|>136 143 190 854<|content|>Delivered Pursuant to Section 7.01(c) of the Restr\n<|id|>3<|type|>title<|page|>1<|box|>239 142 256 251<|content|>PREAMBLE\n<|id|>21<|type|>title<|page|>2<|box|>758 140 776 307<|content|>CERTIFICATIONS\n<|id|>23<|type|>title<|page|>2<|box|>816 140 834 415<|content|>Section 1. Authority and Capacity.\n<|id|>33<|type|>title<|page|>3<|box|>522 140 539 684<|content|>Section 2. Representations and Warranties — Truth\n<|id|>42<|type|>title<|page|>5<|box|>90 140 107 467<|content|>Section 3. No Default or Event of Default.\n<|id|>51<|type|>title<|page|>6<|box|>601 142 618 511<|content|>Section 4. Satisfaction of Conditions Precedent.\n<|id|>65<|type|>table<|page|>8<|box|>196 143 401 852<|content|>None\n<|id|>73<|type|>title<|page|>9<|box|>356 140 375 542<|content|>Section 5. Litigation and Material Adverse Change.\n<|id|>76<|type|>title<|page|>9<|box|>691 140 709 408<|content|>Section 6. Compliance with Laws.\n<|id|>81<|type|>title<|page|>10<|box|>257 140 273 640<|content|>Section 7. Senior Secured Debt Outstanding (Post-A\n<|id|>83<|type|>table<|page|>10<|box|>359 143 502 852<|content|>None\n<|id|>89<|type|>title<|page|>11<|box|>90 140 106 297<|content|>Section 8. Reliance.\n<|id|>92<|type|>title<|page|>11<|box|>372 140 388 583<|content|>Section 9. Personal Knowledge and Capacity Limitat\n<|id|>101<|type|>title<|page|>11<|box|>782 143 797 339<|content|>ACKNOWLEDGMENT\n<|id|>102<|type|>title<|page|>11<|box|>806 140 824 303<|content|>STATE OF TEXAS\n<|id|>103<|type|>title<|page|>11<|box|>833 142 849 331<|content|>COUNTY OF HARRIS",
+    "raw_response": "<|src_id|>65<|tgt_id|>51\n<|src_id|>83<|tgt_id|>81",
+    "parsed": [
+        {
+            "src_id": 65,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 81
+        }
+    ]
+}

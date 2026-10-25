@@ -1,0 +1,75 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3<|type|>title<|page|>1<|box|>218 367 234 629<|content|>PRELIMINARY PROSPECTUS\n<|id|>4<|type|>title<|page|>1<|box|>244 388 261 609<|content|>Halcyon Semiconductor AG\n<|id|>5<|type|>title<|page|>1<|box|>270 341 287 656<|content|>Halcyon Semiconductor Aktiengesellschaft\n<|id|>6<|type|>title<|page|>1<|box|>296 341 313 655<|content|>21,400,000 American Depositary Shares\n<|id|>7<|type|>title<|page|>1<|box|>321 253 339 745<|content|>Each Representing 2 Ordinary Shares (Stammaktien),\n<|id|>15<|type|>table<|page|>1<|box|>710 143 859 852<|content|>None\n<|id|>22<|type|>table<|page|>2<|box|>510 143 604 852<|content|>None\n<|id|>24<|type|>title<|page|>2<|box|>666 356 685 640<|content|>PROSPECTUS SUMMARY\n<|id|>28<|type|>title<|page|>3<|box|>258 140 277 261<|content|>Our Company\n<|id|>32<|type|>title<|page|>3<|box|>645 140 662 410<|content|>Industry Position and Technology\n<|id|>39<|type|>title<|page|>4<|box|>454 140 472 424<|content|>Global Operations and Subsidiaries\n<|id|>61<|type|>title<|page|>7<|box|>242 140 258 331<|content|>Selected Financial Data\n<|id|>62<|type|>title<|page|>7<|box|>273 142 291 508<|content|>Key Financial Highlights (IFRS, Consolidated)\n<|id|>64<|type|>table<|page|>7<|box|>484 143 718 852<|content|>None\n<|id|>71<|type|>title<|page|>8<|box|>289 140 305 416<|content|>Financial Statements and Auditors\n<|id|>74<|type|>title<|page|>8<|box|>561 143 579 251<|content|>Management\n<|id|>75<|type|>title<|page|>8<|box|>593 142 609 390<|content|>Vorstand (Management Board)\n<|id|>77<|type|>table<|page|>8<|box|>676 143 906 852<|content|>None\n<|id|>78<|type|>table<|page|>9<|box|>89 143 202 851<|content|>None\n<|id|>80<|type|>title<|page|>9<|box|>286 143 303 405<|content|>Aufsichtsrat (Supervisory Board)\n<|id|>84<|type|>title<|page|>9<|box|>469 142 486 416<|content|>Principal and Selling Shareholders\n<|id|>85<|type|>table<|page|>9<|box|>539 143 667 852<|content|>None\n<|id|>89<|type|>title<|page|>10<|box|>138 140 157 437<|content|>Selling Shareholders in This Offering\n<|id|>91<|type|>table<|page|>10<|box|>224 143 366 852<|content|>None\n<|id|>93<|type|>title<|page|>10<|box|>503 142 521 447<|content|>Post-Offering Capitalization Summary\n<|id|>95<|type|>table<|page|>10<|box|>568 143 768 852<|content|>None\n<|id|>97<|type|>title<|page|>11<|box|>89 142 107 250<|content|>The Offering\n<|id|>98<|type|>title<|page|>11<|box|>121 142 138 370<|content|>Summary of Offering Terms\n<|id|>100<|type|>table<|page|>11<|box|>205 143 672 852<|content|>None\n<|id|>101<|type|>title<|page|>11<|box|>712 143 728 271<|content|>Use of Proceeds\n<|id|>104<|type|>table<|page|>11<|box|>858 143 897 852<|content|>None\n<|id|>105<|type|>table<|page|>12<|box|>89 143 228 852<|content|>None\n<|id|>113<|type|>table<|page|>12<|box|>729 143 843 852<|content|>None\n<|id|>121<|type|>title<|page|>13<|box|>554 142 570 406<|content|>ADSs and the Deposit Agreement\n<|id|>129<|type|>title<|page|>14<|box|>554 140 571 374<|content|>Foreign Private Issuer Status\n<|id|>133<|type|>title<|page|>15<|box|>90 140 107 413<|content|>Regulation S Concurrent Offering\n<|id|>135<|type|>title<|page|>15<|box|>236 142 253 328<|content|>Risk Factors Summary",
+    "raw_response": "<|src_id|>15<|tgt_id|>6\n<|src_id|>22<|tgt_id|>6\n<|src_id|>64<|tgt_id|>62\n<|src_id|>77<|tgt_id|>75\n<|src_id|>78<|tgt_id|>75\n<|src_id|>85<|tgt_id|>84\n<|src_id|>91<|tgt_id|>89\n<|src_id|>95<|tgt_id|>93\n<|src_id|>100<|tgt_id|>98\n<|src_id|>104<|tgt_id|>101\n<|src_id|>105<|tgt_id|>101\n<|src_id|>113<|tgt_id|>101",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 101
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        15,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>85 257 141 739<|content|>公路建设市场管理办法（2015 修正） 中华人民共和国交通运输部令 2015 年第 11 号\n<|id|>5<|page|>2<|box|>96 268 117 727<|content|>关于修改《公路建设市场管理办法》的决定\n<|id|>10<|page|>3<|box|>96 376 117 621<|content|>公路建设市场管理办法\n<|id|>12<|page|>3<|box|>309 410 330 586<|content|>第一章 总 则\n<|id|>21<|page|>4<|box|>180 396 203 600<|content|>第二章 管理职责\n<|id|>47<|page|>6<|box|>309 374 331 621<|content|>第三章 市场准入管理\n<|id|>56<|page|>7<|box|>565 351 587 643<|content|>第四章 市场主体行为管理\n<|id|>122<|page|>15<|box|>181 400 202 598<|content|>第五章 动态管理\n<|id|>127<|page|>15<|box|>865 400 887 598<|content|>第六章 法律责任\n<|id|>147<|page|>19<|box|>181 410 202 586<|content|>第七章 附 则",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>3\n<|id|>21<|level|>3\n<|id|>47<|level|>3\n<|id|>56<|level|>3\n<|id|>122<|level|>3\n<|id|>127<|level|>3\n<|id|>147<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        }
+    ]
+}

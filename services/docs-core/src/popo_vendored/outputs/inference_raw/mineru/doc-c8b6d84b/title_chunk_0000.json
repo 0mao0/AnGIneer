@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        59
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        17,
+        18,
+        20,
+        22,
+        24,
+        25,
+        32,
+        33,
+        37,
+        39,
+        58
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>7<|box|>118 90 274 903<|content|>TREASURY BULLETIN\n<|id|>14<|page|>9<|box|>75 331 98 620<|content|>Table of Contents\n<|id|>26<|page|>11<|box|>44 335 60 627<|content|>Treasury Financing Operations\n<|id|>27<|page|>11<|box|>93 66 106 290<|content|>September Advance Refunding\n<|id|>37<|page|>12<|box|>40 306 57 715<|content|>Treasury Financing Operations (Continued)\n<|id|>45<|page|>13<|box|>43 281 60 694<|content|>Treasury Financing Operations (Continued)\n<|id|>54<|page|>14<|box|>51 313 67 719<|content|>Treasury Financing Operations (Continued)\n<|id|>55<|page|>14<|box|>98 102 112 432<|content|>One-Year Bills and Tax Anticipation Bills\n<|id|>66<|page|>14<|box|>441 532 456 738<|content|>13-Week and 26-Week Bills\n<|id|>83<|page|>17<|box|>533 327 548 645<|content|>Footnotes to Table 1 - (Continued)\n<|id|>97<|page|>18<|box|>598 373 612 686<|content|>Footnotes to Table 4 - (Continued)\n<|id|>116<|page|>20<|box|>52 369 65 644<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>120<|page|>22<|box|>82 215 98 784<|content|>Table 6.- Expenditures and Balances by Functions -\n<|id|>137<|page|>22<|box|>627 369 640 684<|content|>Footnotes to Table 5 - (Continued)\n<|id|>147<|page|>24<|box|>82 260 97 750<|content|>Table 3.- Trust and Deposit Fund Account Expenditu\n<|id|>155<|page|>25<|box|>54 319 67 634<|content|>TRUST ACCOUNT AND OTHER TRANSACTIONS\n<|id|>171<|page|>32<|box|>56 449 70 635<|content|>CASH INCOME AND OUTGO\n<|id|>172<|page|>32<|box|>84 451 98 639<|content|>Footnotes to Table 3\n<|id|>193<|page|>32<|box|>231 452 243 641<|content|>Footnotes to Table 4\n<|id|>200<|page|>32<|box|>375 472 388 661<|content|>Footnotes to Table 5\n<|id|>206<|page|>32<|box|>602 474 615 663<|content|>Footnotes to Table 6\n<|id|>211<|page|>32<|box|>783 476 796 664<|content|>Footnotes to Table 7\n<|id|>218<|page|>33<|box|>52 283 67 674<|content|>ACCOUNT OF THE TREASURER OF THE UNITED STATES.\n<|id|>219<|page|>33<|box|>85 163 102 768<|content|>Source and Availability of the Balance in the Trea\n<|id|>237<|page|>37<|box|>52 415 65 558<|content|>DEBT OUTSTANDING\n<|id|>242<|page|>39<|box|>52 413 65 555<|content|>DEBT OUTSTANDING\n<|id|>306<|page|>58<|box|>79 358 93 672<|content|>Footnotes to Table 6 - (Continued)",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>14<|level|>2\n<|id|>26<|level|>2\n<|id|>27<|level|>3\n<|id|>37<|level|>2\n<|id|>45<|level|>2\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>66<|level|>3\n<|id|>83<|level|>3\n<|id|>97<|level|>3\n<|id|>116<|level|>2\n<|id|>120<|level|>2\n<|id|>137<|level|>3\n<|id|>147<|level|>2\n<|id|>155<|level|>2\n<|id|>171<|level|>2\n<|id|>172<|level|>3\n<|id|>193<|level|>3\n<|id|>200<|level|>3\n<|id|>206<|level|>3\n<|id|>211<|level|>3\n<|id|>218<|level|>2\n<|id|>219<|level|>3\n<|id|>237<|level|>2\n<|id|>242<|level|>2\n<|id|>306<|level|>3",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 3
+        },
+        {
+            "id": 218,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 3
+        },
+        {
+            "id": 237,
+            "level": 2
+        },
+        {
+            "id": 242,
+            "level": 2
+        },
+        {
+            "id": 306,
+            "level": 3
+        }
+    ]
+}

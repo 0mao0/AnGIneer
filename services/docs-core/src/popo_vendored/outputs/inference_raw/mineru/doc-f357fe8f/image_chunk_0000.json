@@ -1,0 +1,50 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 156 125 839<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>1<|type|>title<|page|>1<|box|>135 406 154 591<|content|>MEMORANDUM\n<|id|>2<|type|>table<|page|>1<|box|>171 143 359 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>521 142 537 321<|content|>I. Executive Summary\n<|id|>11<|type|>table<|page|>2<|box|>263 143 414 852<|content|>None\n<|id|>14<|type|>title<|page|>2<|box|>770 140 787 367<|content|>II. Background and Context\n<|id|>15<|type|>title<|page|>2<|box|>801 140 819 390<|content|>A. The Fieldhaven Engagement\n<|id|>27<|type|>title<|page|>4<|box|>343 140 359 514<|content|>B. Regulatory Framework Driving This Review\n<|id|>56<|type|>title<|page|>5<|box|>816 140 834 504<|content|>C. Cascade's Regulatory History — Relevance\n<|id|>59<|type|>title<|page|>6<|box|>321 140 339 305<|content|>III. Scope of Review\n<|id|>75<|type|>title<|page|>7<|box|>449 140 467 589<|content|>IV. Analysis of Current SOW Data-Protection Provis\n<|id|>76<|type|>title<|page|>7<|box|>479 142 498 563<|content|>A. Existing Confidentiality Clause (Section 8 of S\n<|id|>85<|type|>title<|page|>8<|box|>382 140 400 583<|content|>B. Existing Data-Handling Provision (Section 9 of\n<|id|>93<|type|>title<|page|>9<|box|>306 140 323 375<|content|>C. Absence of Key Provisions\n<|id|>105<|type|>title<|page|>10<|box|>261 140 277 393<|content|>V. Recommended Amendments\n<|id|>107<|type|>title<|page|>10<|box|>409 140 426 599<|content|>A. CCPA Service-Provider Classification and Certif\n<|id|>117<|type|>title<|page|>11<|box|>367 140 383 624<|content|>B. Sub-Contractor / Sub-Processor Flow-Down Requir\n<|id|>125<|type|>title<|page|>12<|box|>356 140 373 537<|content|>C. Data Destruction and Return Upon Completion\n<|id|>133<|type|>title<|page|>13<|box|>385 140 402 596<|content|>D. Incident-Response and Breach-Notification Oblig\n<|id|>141<|type|>table<|page|>13<|box|>744 143 840 852<|content|>None\n<|id|>150<|type|>title<|page|>14<|box|>815 140 833 442<|content|>E. Compliance-Assistance Obligations\n<|id|>152<|type|>table<|page|>15<|box|>176 143 271 852<|content|>None\n<|id|>159<|type|>title<|page|>16<|box|>90 140 108 393<|content|>F. Audit and Monitoring Rights\n<|id|>167<|type|>title<|page|>17<|box|>138 140 157 503<|content|>G. Security Standards and Data Minimization\n<|id|>175<|type|>title<|page|>18<|box|>90 140 107 563<|content|>VI. Interaction with Other Engagement Workstreams\n<|id|>177<|type|>title<|page|>18<|box|>184 140 200 498<|content|>A. Coordination with Master DPA Templates\n<|id|>182<|type|>title<|page|>18<|box|>645 140 662 517<|content|>B. Coordination with Vendor DPA Rollout Plan\n<|id|>185<|type|>title<|page|>19<|box|>90 140 107 500<|content|>C. Coordination with OnPoint Data Solutions\n<|id|>188<|type|>title<|page|>19<|box|>372 140 388 434<|content|>D. Fieldhaven Data-Mapping Report\n<|id|>191<|type|>title<|page|>19<|box|>645 140 662 313<|content|>VII. Risk Assessment\n<|id|>199<|type|>title<|page|>21<|box|>90 140 107 393<|content|>VIII. Recommended Next Steps\n<|id|>209<|type|>title<|page|>22<|box|>89 140 107 508<|content|>IX. Appendices (Referenced but Not Attached)\n<|id|>216<|type|>title<|page|>22<|box|>558 142 575 241<|content|>Prepared by:",
+    "raw_response": "<|src_id|>2<|tgt_id|>1\n<|src_id|>11<|tgt_id|>4\n<|src_id|>141<|tgt_id|>133\n<|src_id|>152<|tgt_id|>150",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 133
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 150
+        }
+    ]
+}

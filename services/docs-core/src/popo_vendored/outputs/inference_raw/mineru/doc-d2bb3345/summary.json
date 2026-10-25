@@ -1,0 +1,152 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-af3tyrig\\input\\pdfs\\doc-d2bb3345.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-af3tyrig\\enriched\\doc-d2bb3345.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>32<|level|>1\n<|id|>36<|level|>2\n<|id|>43<|level|>1\n<|id|>44<|level|>2\n<|id|>45<|level|>2\n<|id|>46<|level|>2\n<|id|>47<|level|>2\n<|id|>48<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>1\n<|id|>56<|level|>2\n<|id|>57<|level|>2\n<|id|>64<|level|>2\n<|id|>68<|level|>2\n<|id|>73<|level|>2",
+    "image_output": "<|src_id|>38<|tgt_id|>32\n<|src_id|>39<|tgt_id|>32\n<|src_id|>50<|tgt_id|>43\n<|src_id|>51<|tgt_id|>43",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 38,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 43
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 38,
+            "table2_idx": 39,
+            "upper_row_ss": [
+                [
+                    "[Item No.]",
+                    "[Brief",
+                    "PPC-",
+                    "[Brief",
+                    "[Number]",
+                    "[Electronic /",
+                    "[Notes /"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "description of the IDR item request]",
+                    "[XXXXXX] through PPC- [XXXXXX]",
+                    "description of the documents produced]",
+                    "pages / [Number] files",
+                    "Hard Copy]",
+                    "Comments]"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 50,
+            "table2_idx": 51,
+            "upper_row_ss": [
+                [
+                    "[5]",
+                    "[Date]",
+                    "[Name(s)",
+                    "[Name(s)",
+                    "[Document",
+                    "[General",
+                    "[Privilege(s)",
+                    "[Basis for"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "and title(s) / role(s)]",
+                    "and title(s) / role(s)]",
+                    "Type]",
+                    "description of subject matter]",
+                    ") Asserted]",
+                    "Privilege]"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 140 128 586<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>411 140 428 320<|content|>Dear Marcus and Theo:\n<|id|>14<|type|>title<|page|>2<|box|>90 143 136 854<|content|>Section 1: Summary of Closing — Key Actions Comple\n<|id|>15<|type|>title<|page|>2<|box|>159 143 176 563<|content|>1.1 Execution and Delivery of Transaction Document\n<|id|>29<|type|>title<|page|>3<|box|>556 142 574 511<|content|>1.2 Funding and Release of Escrowed Amounts\n<|id|>36<|type|>title<|page|>4<|box|>311 142 329 452<|content|>1.3 Opinions and Certificates Delivered\n<|id|>38<|type|>title<|page|>4<|box|>381 142 398 259<|content|>Tax Opinions:\n<|id|>41<|type|>title<|page|>4<|box|>752 143 768 264<|content|>Legal Opinion:\n<|id|>44<|type|>title<|page|>5<|box|>244 142 261 243<|content|>Certificates:\n<|id|>48<|type|>title<|page|>5<|box|>566 142 585 315<|content|>Third-Party Reports:\n<|id|>51<|type|>title<|page|>5<|box|>787 142 805 272<|content|>1.4 UCC Filings\n<|id|>58<|type|>title<|page|>6<|box|>329 142 347 362<|content|>1.5 Insurance Confirmation\n<|id|>61<|type|>title<|page|>6<|box|>551 142 566 516<|content|>1.6 Project Status — All Seven Projects at COD\n<|id|>62<|type|>table<|page|>6<|box|>619 143 902 852<|content|>None\n<|id|>64<|type|>title<|page|>7<|box|>242 151 262 844<|content|>Section 2: Key Transaction Economics — Summary for\n<|id|>66<|type|>title<|page|>7<|box|>339 140 356 498<|content|>2.1 Tax-Equity Investment (Partnership Flip)\n<|id|>78<|type|>title<|page|>7<|box|>717 140 734 480<|content|>2.2 Transferable Credit Sale (Section 6418)\n<|id|>86<|type|>title<|page|>8<|box|>281 142 297 387<|content|>2.3 Total Deal Value Summary\n<|id|>87<|type|>table<|page|>8<|box|>330 143 441 852<|content|>None\n<|id|>89<|type|>title<|page|>8<|box|>539 228 559 769<|content|>Section 3: Pending Items and Post-Closing Obligati\n<|id|>91<|type|>title<|page|>8<|box|>654 140 671 545<|content|>3.1 Ridgeline Second Tranche Capital Contribution\n<|id|>94<|type|>title<|page|>9<|box|>148 140 167 552<|content|>3.2 Section 6418 Transfer Election Statement Filin\n<|id|>104<|type|>title<|page|>9<|box|>643 140 660 750<|content|>3.3 Prevailing Wage and Apprenticeship Compliance\n<|id|>108<|type|>title<|page|>10<|box|>223 140 239 509<|content|>3.4 ITC Recapture Monitoring (5-Year Period)\n<|id|>109<|type|>table<|page|>10<|box|>309 143 459 852<|content|>None\n<|id|>116<|type|>title<|page|>11<|box|>90 140 107 516<|content|>3.5 Domestic Content Bonus Adder Compliance\n<|id|>120<|type|>title<|page|>11<|box|>375 140 391 480<|content|>3.6 Partnership Representative Obligations\n<|id|>126<|type|>title<|page|>11<|box|>819 140 835 408<|content|>3.7 PPA and Revenue Obligations\n<|id|>131<|type|>title<|page|>12<|box|>335 140 352 517<|content|>3.8 Osprey National Bank Reporting Covenants\n<|id|>137<|type|>title<|page|>12<|box|>710 292 731 704<|content|>Section 4: Document Retention Guidance\n<|id|>138<|type|>title<|page|>12<|box|>756 140 773 292<|content|>4.1 Closing Binder\n<|id|>145<|type|>title<|page|>13<|box|>369 140 385 354<|content|>4.2 Tax Records Retention\n<|id|>151<|type|>title<|page|>13<|box|>796 140 811 452<|content|>4.3 Real Estate and Permitting Records\n<|id|>155<|type|>title<|page|>14<|box|>199 235 218 761<|content|>Section 5: Calderwood & Harkness Billing Summary\n<|id|>163<|type|>title<|page|>14<|box|>496 328 516 668<|content|>Section 6: Continuing Availability\n<|id|>175<|type|>title<|page|>15<|box|>239 140 256 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>181<|type|>title<|page|>15<|box|>470 142 487 473<|content|>Enclosures (delivered under separate cover):",
+    "raw_response": "<|src_id|>62<|tgt_id|>61\n<|src_id|>87<|tgt_id|>86\n<|src_id|>109<|tgt_id|>108",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 108
+        }
+    ]
+}

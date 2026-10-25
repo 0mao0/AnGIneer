@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>217 143 233 290<|content|>MEMORANDUM\n<|id|>3<|type|>table<|page|>1<|box|>241 143 523 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>559 385 579 611<|content|>I. Executive Summary\n<|id|>12<|type|>title<|page|>2<|box|>531 419 551 576<|content|>II. Background\n<|id|>13<|type|>title<|page|>2<|box|>575 140 594 300<|content|>A. The Transaction\n<|id|>20<|type|>title<|page|>3<|box|>513 140 530 535<|content|>B. Timeline of Key Events Leading to the Demand\n<|id|>33<|type|>title<|page|>4<|box|>752 140 768 524<|content|>C. Ridgeline's Ownership and Consent Structure\n<|id|>41<|type|>title<|page|>5<|box|>527 140 545 351<|content|>D. The Vantage Valuation\n<|id|>47<|type|>title<|page|>6<|box|>253 313 273 683<|content|>III. Summary of Ridgeline's Demand\n<|id|>48<|type|>title<|page|>6<|box|>297 140 314 483<|content|>A. Content of the December 14, 2022 Letter\n<|id|>55<|type|>title<|page|>7<|box|>186 140 204 274<|content|>B. Implied Basis\n<|id|>60<|type|>title<|page|>7<|box|>683 218 702 777<|content|>IV. Analysis of APA Section 3.1 — Fixed Purchase P\n<|id|>61<|type|>title<|page|>7<|box|>728 142 744 313<|content|>A. Text of Section 3.1\n<|id|>68<|type|>title<|page|>8<|box|>421 140 438 524<|content|>B. Absence of Any Price Adjustment Mechanism\n<|id|>78<|type|>title<|page|>9<|box|>395 140 412 411<|content|>C. Integration and Merger Clause\n<|id|>82<|type|>title<|page|>9<|box|>789 140 805 423<|content|>D. No-Shop / Exclusivity Provisions\n<|id|>86<|type|>title<|page|>10<|box|>479 277 500 718<|content|>V. Analysis of the Competing Bid Allegation\n<|id|>87<|type|>title<|page|>10<|box|>525 140 542 511<|content|>A. Lack of Specificity and Evidentiary Support\n<|id|>94<|type|>title<|page|>11<|box|>340 140 357 372<|content|>B. Relevance Under the APA\n<|id|>100<|type|>title<|page|>12<|box|>204 140 222 571<|content|>C. EA Nos. 155 and 159 — California License Specif\n<|id|>105<|type|>title<|page|>12<|box|>683 281 703 715<|content|>VI. Contractual Remedies and Implications\n<|id|>106<|type|>title<|page|>12<|box|>727 142 744 473<|content|>A. Ridgeline's Obligations Under the APA\n<|id|>114<|type|>title<|page|>13<|box|>411 140 429 316<|content|>B. Northgate's Rights\n<|id|>120<|type|>title<|page|>14<|box|>204 140 222 454<|content|>C. Impact on Pending FCC Application\n<|id|>126<|type|>title<|page|>15<|box|>90 140 107 434<|content|>D. Impact on Earnest Money Deposit\n<|id|>134<|type|>title<|page|>15<|box|>604 140 622 413<|content|>E. Long-Stop Date Considerations\n<|id|>139<|type|>title<|page|>16<|box|>290 228 310 769<|content|>VII. Consideration of Ridgeline's Potential Argume\n<|id|>141<|type|>title<|page|>16<|box|>422 140 440 462<|content|>A. Changed Circumstances / Frustration\n<|id|>146<|type|>title<|page|>17<|box|>239 140 258 295<|content|>B. Mutual Mistake\n<|id|>151<|type|>title<|page|>18<|box|>90 142 107 310<|content|>C. Unconscionability\n<|id|>155<|type|>title<|page|>18<|box|>489 310 507 687<|content|>VIII. Recommended Course of Action\n<|id|>157<|type|>title<|page|>18<|box|>566 142 583 318<|content|>A. Immediate Actions\n<|id|>161<|type|>title<|page|>19<|box|>90 140 107 491<|content|>B. Letter to Hargrove, Sato & Caldwell LLP\n<|id|>163<|type|>title<|page|>19<|box|>267 140 284 390<|content|>C. Preserving FCC Application\n<|id|>169<|type|>title<|page|>19<|box|>675 140 691 346<|content|>D. Client Communication\n<|id|>175<|type|>title<|page|>20<|box|>186 140 204 403<|content|>E. R&W Insurance Policy Status\n<|id|>178<|type|>title<|page|>20<|box|>429 421 450 576<|content|>IX. Conclusion\n<|id|>191<|type|>table<|page|>21<|box|>306 143 400 852<|content|>None",
+    "raw_response": "<|src_id|>3<|tgt_id|>2\n<|src_id|>191<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 2
+        }
+    ]
+}

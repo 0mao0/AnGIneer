@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 127 790<|content|># Re: ... — Investigation Status Update [PRIVILEGED & CONFIDENTIAL — COMMON INTEREST COMMUNICATION]\n<|id|>5<|page|>1<|box|>295 140 333 736<|content|>**ATTORNEY-CLIENT PRIVILEGED & CONFIDENTIAL / COMMON INTEREST COMMUNICATION**\n<|id|>1<|page|>1<|box|>171 140 189 673<|content|>- From: ... com>\n<|id|>2<|page|>1<|box|>203 140 220 684<|content|>- To: ... com>\n<|id|>3<|page|>1<|box|>234 140 252 589<|content|>- Cc: ... com>\n<|id|>4<|page|>1<|box|>265 140 284 452<|content|>- Date: ... 00 -0000\n<|id|>6<|page|>1<|box|>378 140 489 830<|content|>This communication is protected by the attorney-cl...prior written consent of Calderwood & Harkness LLP\n<|id|>7<|page|>1<|box|>534 140 551 245<|content|>Dear Arthur,\n<|id|>8<|page|>1<|box|>595 140 763 851<|content|>I wanted to provide you with a quarterly status up...d be helpful to schedule a call at his convenience\n<|id|>9<|page|>1<|box|>808 140 902 826<|content|>**Personnel Actions. ... Derek Hargrave, President of DTI in Dubai, was placed on\n<|id|>10<|page|>2<|box|>90 140 277 848<|content|>administrative leave on July 1, 2022, and remains ...iation, and their respective employment agreements\n<|id|>13<|page|>2<|box|>744 140 895 851<|content|>**Forensic Accounting. ... 3 million in notional v... crude oil ultimately sourced from or destined for\n<|id|>14<|page|>3<|box|>90 140 296 852<|content|>entities connected to Volkhov Industrial Group JSC...'s final forensic report is expected in early 2023\n<|id|>21<|page|>4<|box|>559 142 575 250<|content|>Best regards,\n<|id|>22<|page|>4<|box|>621 140 638 292<|content|>Victoria Chambers\n<|id|>23<|page|>4<|box|>652 140 669 504<|content|>Partner, White Collar Defense & Investigations\n<|id|>24<|page|>4<|box|>684 140 700 369<|content|>Calderwood & Harkness LLP\n<|id|>25<|page|>4<|box|>714 142 732 470<|content|>1750 Pennsylvania Avenue NW, Suite 800\n<|id|>26<|page|>4<|box|>746 140 763 326<|content|>Washington, DC 20006\n<|id|>27<|page|>4<|box|>777 140 794 307<|content|>Tel: ... (202) 555-4180\n<|id|>28<|page|>4<|box|>809 140 825 447<|content|>vchambers@calderwoodharkness. ... com\n<|id|>29<|page|>4<|box|>840 142 857 331<|content|>Matter No. ... 1016-00009",
+    "raw_response": "<|src_id|>9<|tgt_id|>10\n<|src_id|>13<|tgt_id|>14",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        }
+    ]
+}

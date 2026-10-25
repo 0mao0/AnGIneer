@@ -1,0 +1,111 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kt1ovqhl\\input\\pdfs\\doc-e08d0988.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kt1ovqhl\\enriched\\doc-e08d0988.json",
+    "contd_output": "<|src_id|>104<|tgt_id|>105",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>18<|level|>3\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>33<|level|>3\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>54<|level|>3\n<|id|>81<|level|>2\n<|id|>87<|level|>2\n<|id|>92<|level|>2\n<|id|>103<|level|>2\n<|id|>113<|level|>2",
+    "image_output": "<|src_id|>48<|tgt_id|>33\n<|src_id|>49<|tgt_id|>33\n<|src_id|>76<|tgt_id|>54",
+    "contd_label": [
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 48,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 54
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 48,
+            "table2_idx": 49,
+            "upper_row_ss": [
+                [
+                    "Pollutant",
+                    "Facility-Wide PTE (tpy)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "NO_x",
+                    "312"
+                ]
+            ]
+        }
+    ]
+}

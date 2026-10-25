@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>228 140 246 653<|content|>TO: ... Linda Osei, Billing Partner\n<|id|>4<|page|>1<|box|>253 140 270 462<|content|>FROM: ... Patrick Gallagher, Lead Associate\n<|id|>5<|page|>1<|box|>279 140 297 343<|content|>DATE: ... February 14, 2024\n<|id|>6<|page|>1<|box|>305 140 342 854<|content|>RE: ... ) — Strategy Following Vantorovich Pro Se Appearance on February 12, 2024\n<|id|>7<|page|>1<|box|>349 140 367 362<|content|>MATTER NO. ... 1012-00005\n<|id|>8<|page|>1<|box|>375 140 393 455<|content|>CLIENT: ... Stonefield Logistics Group Inc\n<|id|>109<|page|>13<|box|>844 140 898 857<|content|>We recommend voluntary dismissal of the countercla...ial determination of the parties' rights under the\n<|id|>110<|page|>14<|box|>90 140 181 856<|content|>TSA, particularly in the event that Vantor obtaine...essed as part of the overall dismissal stipulation\n<|id|>130<|page|>15<|box|>880 176 897 498<|content|>Responsible: ... Helen Tsao, Senior Paralegal\n<|id|>131<|page|>16<|box|>90 140 162 854<|content|>Action Item 2: ... Hold in reserve for filing prom...s) after April 12 if no counsel appears for Vantor",
+    "raw_response": "<|src_id|>109<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        }
+    ]
+}

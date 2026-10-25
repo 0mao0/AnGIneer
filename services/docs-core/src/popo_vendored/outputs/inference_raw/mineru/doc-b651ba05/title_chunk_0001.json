@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        54,
+        132
+    ],
+    "pages": [
+        55,
+        68,
+        85,
+        89,
+        90,
+        96,
+        97,
+        131
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>147<|page|>55<|box|>193 187 218 283<|content|>五、其他说明\n<|id|>174<|page|>68<|box|>199 183 224 278<|content|>五、其他说明\n<|id|>202<|page|>85<|box|>166 183 191 278<|content|>五、其他说明\n<|id|>210<|page|>89<|box|>474 340 527 644<|content|>第六章 吹 泥 船\n<|id|>213<|page|>90<|box|>228 179 253 279<|content|>三、其他说明：\n<|id|>222<|page|>96<|box|>472 327 529 652<|content|>第七章 船舶调遣\n<|id|>224<|page|>97<|box|>224 176 251 508<|content|>二、船舶调遣按调遣方式分为自航调遣和拖带调遣。\n<|id|>227<|page|>97<|box|>310 176 339 596<|content|>三、船舶调遣定额按调遣地区分为沿海区域调遣、内河区域调遣。\n<|id|>230<|page|>97<|box|>457 176 484 279<|content|>六、其他说明：\n<|id|>360<|page|>131<|box|>182 290 228 684<|content|>附录A 疏浚岩土分类和分级",
+    "raw_response": "<|id|>147<|level|>2\n<|id|>174<|level|>2\n<|id|>202<|level|>2\n<|id|>210<|level|>1\n<|id|>213<|level|>2\n<|id|>222<|level|>1\n<|id|>224<|level|>2\n<|id|>227<|level|>2\n<|id|>230<|level|>2\n<|id|>360<|level|>1",
+    "parsed": [
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 1
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 1
+        },
+        {
+            "id": 224,
+            "level": 2
+        },
+        {
+            "id": 227,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 360,
+            "level": 1
+        }
+    ]
+}

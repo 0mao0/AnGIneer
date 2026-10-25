@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 285 125 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>159 143 372 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>439 143 474 852<|content|>[PROPOSED] TEMPORARY RESTRAINING ORDER AND ORDER T\n<|id|>25<|type|>title<|page|>3<|box|>599 140 618 694<|content|>I. TEMPORARY RESTRAINING ORDER — INJUNCTIVE RELIEF\n<|id|>26<|type|>title<|page|>3<|box|>632 142 648 671<|content|>A. Prohibition on Use, Disclosure, and Exploitatio\n<|id|>37<|type|>title<|page|>4<|box|>705 140 722 689<|content|>B. Prohibition on Destruction, Alteration, or Conc\n<|id|>46<|type|>title<|page|>5<|box|>679 140 696 584<|content|>C. Preservation of Electronic Devices and Storage\n<|id|>52<|type|>title<|page|>6<|box|>301 140 318 468<|content|>D. Return and Sequestration of Materials\n<|id|>54<|type|>title<|page|>6<|box|>493 140 510 406<|content|>II. SCOPE AND APPLICATION\n<|id|>58<|type|>title<|page|>6<|box|>813 140 830 689<|content|>III. ORDER TO SHOW CAUSE RE: PRELIMINARY INJUNCTIO\n<|id|>71<|type|>title<|page|>7<|box|>536 140 553 403<|content|>IV. SERVICE OF THIS ORDER\n<|id|>74<|type|>title<|page|>7<|box|>775 140 792 330<|content|>V. BOND / SECURITY\n<|id|>76<|type|>title<|page|>8<|box|>186 140 203 413<|content|>VI. RESERVATION OF RIGHTS\n<|id|>81<|type|>title<|page|>8<|box|>479 411 496 584<|content|>IT IS SO ORDERED.\n<|id|>95<|type|>title<|page|>9<|box|>89 142 106 625<|content|>STATE OF CALIFORNIA, COUNTY OF SAN FRANCISCO\n<|id|>98<|type|>table<|page|>9<|box|>284 143 411 852<|content|>None",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>98<|tgt_id|>95",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 95
+        }
+    ]
+}

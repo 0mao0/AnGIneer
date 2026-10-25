@@ -1,0 +1,125 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 272 118 725<|content|>BRING-DOWN OFFICER'S CERTIFICATE\n<|id|>5<|page|>1<|box|>383 142 398 243<|content|>RECITALS\n<|id|>27<|page|>3<|box|>186 140 203 390<|content|>SECTION 1 — DEFINITIONS\n<|id|>34<|page|>3<|box|>547 140 564 524<|content|>SECTION 2 — CAPACITY AND AUTHORITY\n<|id|>36<|page|>4<|box|>89 142 107 774<|content|>SECTION 3 — BRING-DOWN OF REPRESENTATIONS AND WARR\n<|id|>37<|page|>4<|box|>121 140 138 514<|content|>Section 3.1 — Organization and Good Standing\n<|id|>43<|page|>4<|box|>426 140 443 514<|content|>Section 3.2 — Authorization and Enforceability\n<|id|>45<|page|>4<|box|>681 142 698 354<|content|>Section 3.3 — No Conflicts\n<|id|>52<|page|>5<|box|>411 142 428 447<|content|>Section 3.4 — Consents and Approvals\n<|id|>58<|page|>6<|box|>90 140 107 665<|content|>Section 3.5 — Accuracy of Information Provided to\n<|id|>60<|page|>6<|box|>300 140 318 540<|content|>SECTION 4 — BRING-DOWN OF COVENANTS\n<|id|>61<|page|>6<|box|>332 140 349 429<|content|>Section 4.1 — Compliance with LPA\n<|id|>67<|page|>7<|box|>90 140 107 442<|content|>Section 4.2 — Side-Letter Compliance\n<|id|>73<|page|>7<|box|>761 140 777 593<|content|>Section 4.3 — Compliance with Restructuring Docume\n<|id|>75<|page|>8<|box|>89 142 106 573<|content|>SECTION 5 — NO MATERIAL ADVERSE CHANGE\n<|id|>76<|page|>8<|box|>121 140 138 457<|content|>Section 5.1 — Fund-Level Confirmation\n<|id|>85<|page|>8<|box|>484 140 501 549<|content|>Section 5.2 — Management Company Confirmation\n<|id|>87<|page|>8<|box|>684 140 700 500<|content|>Section 5.3 — GP Commitment Confirmation\n<|id|>91<|page|>9<|box|>186 140 203 501<|content|>SECTION 6 — NO DEFAULT OR BREACH\n<|id|>99<|page|>9<|box|>536 140 553 413<|content|>SECTION 7 — NO LITIGATION\n<|id|>104<|page|>9<|box|>845 140 862 545<|content|>SECTION 8 — ACCRUED CARRIED INTEREST\n<|id|>113<|page|>10<|box|>662 140 680 750<|content|>SECTION 9 — POST-RESTRUCTURING ECONOMICS CONFIRMAT\n<|id|>117<|page|>11<|box|>241 140 257 503<|content|>SECTION 10 — REGULATORY MATTERS\n<|id|>123<|page|>11<|box|>704 140 720 375<|content|>SECTION 11 — RELIANCE\n<|id|>131<|page|>12<|box|>212 140 229 439<|content|>SECTION 12 — GOVERNING LAW\n<|id|>134<|page|>12<|box|>362 366 378 630<|content|>ARDENT CAPITAL GP III LLC\n<|id|>135<|page|>12<|box|>388 287 406 709<|content|>as sole general partner of Ardent Capital Partners",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>43<|level|>3\n<|id|>45<|level|>3\n<|id|>52<|level|>3\n<|id|>58<|level|>3\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>67<|level|>3\n<|id|>73<|level|>3\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>85<|level|>3\n<|id|>87<|level|>3\n<|id|>91<|level|>2\n<|id|>99<|level|>2\n<|id|>104<|level|>2\n<|id|>113<|level|>2\n<|id|>117<|level|>2\n<|id|>123<|level|>2\n<|id|>131<|level|>2\n<|id|>134<|level|>-1\n<|id|>135<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        }
+    ]
+}

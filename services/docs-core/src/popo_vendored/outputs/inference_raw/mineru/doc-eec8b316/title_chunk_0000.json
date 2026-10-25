@@ -1,0 +1,135 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        65
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        13,
+        25,
+        34,
+        35,
+        43,
+        44,
+        46,
+        50,
+        51,
+        64
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>7<|box|>184 1 345 942<|content|>TREASURY 946 All '85 BULLETIN\n<|id|>5<|page|>9<|box|>45 105 174 855<|content|>TREASURY BULLETIN\n<|id|>9<|page|>11<|box|>109 116 122 277<|content|>FINANCIAL OPERATIONS\n<|id|>13<|page|>13<|box|>24 327 44 642<|content|>Nonquarterly Tables and Reports\n<|id|>33<|page|>25<|box|>229 35 243 888<|content|>Table FO-1. — Gross Obligations Incurred Within an\n<|id|>52<|page|>34<|box|>54 309 67 732<|content|>TREASURY FINANCING OPERATIONS, OCTOBER-DECEMBER 19\n<|id|>53<|page|>34<|box|>75 470 85 547<|content|>OCTOBER\n<|id|>54<|page|>34<|box|>100 89 110 221<|content|>Auction of 2-Year Notes\n<|id|>58<|page|>34<|box|>145 532 156 612<|content|>52-Week Bills\n<|id|>60<|page|>34<|box|>270 470 279 560<|content|>NOVEMBER\n<|id|>61<|page|>34<|box|>294 89 304 247<|content|>November Quarterly Financing\n<|id|>72<|page|>34<|box|>800 90 810 223<|content|>Auction of 2-Year Notes\n<|id|>76<|page|>34<|box|>332 534 343 709<|content|>Auction of 5-Year 2-Month Notes\n<|id|>83<|page|>34<|box|>651 534 660 614<|content|>52-Week Bills\n<|id|>86<|page|>34<|box|>829 534 840 656<|content|>Cash Management 8111s\n<|id|>89<|page|>35<|box|>39 263 52 695<|content|>TREASURY FINANCING OPERATIONS, OCTOBER-DECEMBER 19\n<|id|>90<|page|>35<|box|>63 434 74 523<|content|>DECEMBER\n<|id|>91<|page|>35<|box|>84 42 95 174<|content|>Auction of 2-Year Notes\n<|id|>95<|page|>35<|box|>270 37 280 170<|content|>Auction of 4-Year Notes\n<|id|>99<|page|>35<|box|>88 491 101 779<|content|>Auctions of 7-Year Notes and 19-Year 10-Month Bond\n<|id|>105<|page|>35<|box|>345 487 354 567<|content|>52-Week Bills\n<|id|>122<|page|>43<|box|>169 159 192 762<|content|>Table SBN-1. — Sales and Redemptions by Series, Cu\n<|id|>125<|page|>44<|box|>56 280 69 794<|content|>Table SBN-3. — Sales and Redemptions by Period, Se\n<|id|>130<|page|>46<|box|>48 401 62 736<|content|>MARKET BID YIELDS ON TREASURY SECURITIES\n<|id|>133<|page|>50<|box|>69 347 81 750<|content|>Government Corporations and Other Business-Type Ac\n<|id|>139<|page|>51<|box|>34 129 66 810<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>156<|page|>64<|box|>44 160 62 829<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>5<|level|>1\n<|id|>9<|level|>2\n<|id|>13<|level|>3\n<|id|>33<|level|>3\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>54<|level|>4\n<|id|>58<|level|>4\n<|id|>60<|level|>3\n<|id|>61<|level|>4\n<|id|>72<|level|>4\n<|id|>76<|level|>4\n<|id|>83<|level|>4\n<|id|>86<|level|>4\n<|id|>89<|level|>2\n<|id|>90<|level|>3\n<|id|>91<|level|>4\n<|id|>95<|level|>4\n<|id|>99<|level|>4\n<|id|>105<|level|>4\n<|id|>122<|level|>3\n<|id|>125<|level|>3\n<|id|>130<|level|>2\n<|id|>133<|level|>2\n<|id|>139<|level|>2\n<|id|>156<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 4
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 76,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 4
+        },
+        {
+            "id": 86,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 99,
+            "level": 4
+        },
+        {
+            "id": 105,
+            "level": 4
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        }
+    ]
+}

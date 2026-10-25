@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>127 282 145 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>223 140 239 496<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>9<|page|>1<|box|>441 142 458 482<|content|>I. PURPOSE AND LEGAL OBLIGATION\n<|id|>16<|page|>2<|box|>311 140 329 459<|content|>II. BACKGROUND OF THE DISPUTE\n<|id|>27<|page|>3<|box|>483 140 500 790<|content|>III. SCOPE OF PRESERVATION — CATEGORIES OF DOCUMEN\n<|id|>30<|page|>3<|box|>638 140 657 619<|content|>3.1 Operating Agreement and Related Formation Docu\n<|id|>38<|page|>4<|box|>246 140 263 529<|content|>3.2 Call Option Exercise and Valuation Materials\n<|id|>47<|page|>4<|box|>773 140 792 663<|content|>3.3 The Palmetto Grand Resort & Spa — Property and\n<|id|>56<|page|>5<|box|>643 140 660 423<|content|>3.4 Loan and Financing Documents\n<|id|>65<|page|>6<|box|>272 140 289 609<|content|>3.5 Communications with Meridian Shores Hospitalit\n<|id|>72<|page|>6<|box|>619 142 637 333<|content|>3.6 Insurance Materials\n<|id|>78<|page|>7<|box|>90 140 107 401<|content|>3.7 Accounting and Tax Records\n<|id|>85<|page|>7<|box|>383 140 400 506<|content|>3.8 Governance and Decision-Making Records\n<|id|>92<|page|>7<|box|>650 140 667 754<|content|>IV. TYPES OF MEDIA AND STORAGE LOCATIONS SUBJECT T\n<|id|>103<|page|>8<|box|>670 140 688 334<|content|>V. KEY CUSTODIANS\n<|id|>111<|page|>9<|box|>279 140 295 477<|content|>VI. IMMEDIATE ACTIONS REQUIRED\n<|id|>112<|page|>9<|box|>305 140 321 710<|content|>PCG must take the following actions immediately up\n<|id|>123<|page|>10<|box|>311 140 328 473<|content|>VII. DURATION AND MODIFICATION\n<|id|>127<|page|>10<|box|>575 140 593 545<|content|>VIII. CONSEQUENCES OF NON-COMPLIANCE\n<|id|>134<|page|>11<|box|>193 140 210 560<|content|>IX. CONTACT INFORMATION AND QUESTIONS\n<|id|>150<|page|>11<|box|>720 419 737 576<|content|>ATTACHMENT A\n<|id|>151<|page|>11<|box|>746 143 781 851<|content|>ACKNOWLEDGMENT AND CONFIRMATION OF RECEIPT OF LITI",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>4<|level|>-1\n<|id|>9<|level|>1\n<|id|>16<|level|>1\n<|id|>27<|level|>1\n<|id|>30<|level|>2\n<|id|>38<|level|>2\n<|id|>47<|level|>2\n<|id|>56<|level|>2\n<|id|>65<|level|>2\n<|id|>72<|level|>2\n<|id|>78<|level|>2\n<|id|>85<|level|>2\n<|id|>92<|level|>1\n<|id|>103<|level|>1\n<|id|>111<|level|>1\n<|id|>112<|level|>2\n<|id|>123<|level|>1\n<|id|>127<|level|>1\n<|id|>134<|level|>1\n<|id|>150<|level|>1\n<|id|>151<|level|>2",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 2
+        }
+    ]
+}

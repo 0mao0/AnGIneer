@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|type|>title<|page|>1<|box|>114 143 152 852<|content|>450 Park Avenue, 28th Floor New York, New York 100\n<|id|>7<|type|>title<|page|>1<|box|>359 142 377 367<|content|>1. Purpose and Introduction\n<|id|>12<|type|>title<|page|>1<|box|>815 140 833 455<|content|>2. PSA Estoppel Delivery Requirements\n<|id|>19<|type|>title<|page|>2<|box|>564 140 582 563<|content|>3. Form of Estoppel Certificate — Key Confirmation\n<|id|>37<|type|>title<|page|>3<|box|>667 140 684 426<|content|>4. Distribution Instructions to Seller\n<|id|>46<|type|>title<|page|>4<|box|>454 140 470 413<|content|>5. Property and Target Entity List\n<|id|>48<|type|>table<|page|>4<|box|>577 143 900 852<|content|>None\n<|id|>49<|type|>table<|page|>5<|box|>89 143 712 852<|content|>None\n<|id|>51<|type|>title<|page|>6<|box|>90 140 107 383<|content|>6. Major Tenant Identification\n<|id|>53<|type|>table<|page|>6<|box|>257 143 491 852<|content|>None\n<|id|>56<|type|>title<|page|>6<|box|>720 140 737 393<|content|>7. Tracking and Status Updates\n<|id|>61<|type|>title<|page|>7<|box|>439 140 457 424<|content|>8. Coordination with SNDA Process\n<|id|>65<|type|>title<|page|>7<|box|>777 140 794 336<|content|>9. Lender Requirements\n<|id|>72<|type|>title<|page|>8<|box|>329 143 347 261<|content|>10. Enclosures\n<|id|>78<|type|>title<|page|>8<|box|>573 142 590 235<|content|>11. Closing\n<|id|>87<|type|>title<|page|>9<|box|>89 142 106 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>94<|type|>title<|page|>9<|box|>309 225 327 771<|content|>ENCLOSURE 1 Form of Tenant Estoppel Certificate (P\n<|id|>98<|type|>title<|page|>9<|box|>578 140 595 723<|content|>[PSA Exhibit E — Form of Tenant Estoppel Certifica\n<|id|>99<|type|>title<|page|>9<|box|>604 287 619 709<|content|>ENCLOSURE 2 Rent Roll Reference (PSA Exhibit H)\n<|id|>102<|type|>table<|page|>9<|box|>753 143 883 852<|content|>None\n<|id|>105<|type|>title<|page|>10<|box|>248 223 265 772<|content|>ENCLOSURE 3 Suggested Form of Landlord Cover Lette",
+    "raw_response": "<|src_id|>48<|tgt_id|>46\n<|src_id|>49<|tgt_id|>46\n<|src_id|>53<|tgt_id|>51\n<|src_id|>102<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 99
+        }
+    ]
+}

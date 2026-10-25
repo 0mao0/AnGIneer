@@ -1,0 +1,130 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qfihrooh\\input\\pdfs\\doc-f3cc48a3.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qfihrooh\\enriched\\doc-f3cc48a3.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>12<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>26<|level|>2\n<|id|>32<|level|>1\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>51<|level|>2\n<|id|>54<|level|>1\n<|id|>62<|level|>1\n<|id|>64<|level|>2\n<|id|>70<|level|>2\n<|id|>80<|level|>2\n<|id|>87<|level|>2\n<|id|>97<|level|>1\n<|id|>104<|level|>1\n<|id|>118<|level|>1\n<|id|>127<|level|>1\n<|id|>141<|level|>1",
+    "image_output": "<|src_id|>28<|tgt_id|>26\n<|src_id|>29<|tgt_id|>26\n<|src_id|>52<|tgt_id|>51",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 51
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 28,
+            "table2_idx": 29,
+            "upper_row_ss": [
+                [
+                    "Second Excess",
+                    "Montclair",
+                    "$10,000,000",
+                    "$40,000,000 xs",
+                    "MAC-XS2-",
+                    "$265,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Assurance Company",
+                    "",
+                    "",
+                    "2022-09817",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

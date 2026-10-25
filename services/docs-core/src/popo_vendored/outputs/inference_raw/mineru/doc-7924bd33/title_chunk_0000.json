@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 297 118 700<|content|>OFFICER'S CLOSING CERTIFICATE\n<|id|>1<|page|>1<|box|>135 148 171 848<|content|>Delivered pursuant to Section 4.01(f) of the Maste\n<|id|>7<|page|>1<|box|>339 140 358 243<|content|>RECITALS\n<|id|>13<|page|>2<|box|>193 140 210 602<|content|>SECTION 1. REPRESENTATIONS AND WARRANTIES\n<|id|>19<|page|>3<|box|>89 140 107 370<|content|>SECTION 2. NO DEFAULT\n<|id|>23<|page|>3<|box|>318 140 335 483<|content|>SECTION 3. CONDITIONS PRECEDENT\n<|id|>37<|page|>4<|box|>699 140 715 591<|content|>SECTION 4. FINANCIAL COVENANT COMPLIANCE\n<|id|>39<|page|>5<|box|>89 142 108 424<|content|>4(a). Minimum Tangible Net Worth\n<|id|>41<|page|>5<|box|>194 176 212 671<|content|>Actual Tangible Net Worth as of the Closing Date:\n<|id|>43<|page|>5<|box|>356 176 375 444<|content|>Compliance Status: In compliance.\n<|id|>44<|page|>5<|box|>387 142 404 343<|content|>4(b). Minimum Liquidity\n<|id|>46<|page|>5<|box|>491 176 508 828<|content|>Actual Unrestricted Cash and Cash Equivalents as o\n<|id|>48<|page|>5<|box|>633 176 652 444<|content|>Compliance Status: In compliance.\n<|id|>49<|page|>5<|box|>666 142 683 390<|content|>4(c). Maximum Leverage Ratio\n<|id|>51<|page|>5<|box|>768 176 787 609<|content|>Actual Leverage Ratio as of the Closing Date: 2.37\n<|id|>54<|page|>6<|box|>121 142 138 455<|content|>4(d). Minimum Servicing Portfolio UPB\n<|id|>58<|page|>6<|box|>332 176 349 444<|content|>Compliance Status: In compliance.\n<|id|>60<|page|>6<|box|>574 140 590 531<|content|>SECTION 5. ADDITIONAL CERTIFICATIONS\n<|id|>67<|page|>7<|box|>666 140 683 655<|content|>SECTION 6. ORGANIZATIONAL DOCUMENTS DELIVERED\n<|id|>69<|page|>7<|box|>843 140 859 348<|content|>SECTION 7. RELIANCE\n<|id|>73<|page|>8<|box|>351 140 369 647<|content|>[Remainder of page intentionally left blank; signa\n<|id|>75<|page|>8<|box|>421 142 436 429<|content|>SBF WAREHOUSE I LLC, as Seller\n<|id|>85<|page|>9<|box|>89 142 107 266<|content|>SCHEDULE A\n<|id|>86<|page|>9<|box|>114 294 132 702<|content|>ORGANIZATIONAL DOCUMENTS DELIVERED",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>23<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>3\n<|id|>41<|level|>-1\n<|id|>43<|level|>-1\n<|id|>44<|level|>3\n<|id|>46<|level|>-1\n<|id|>48<|level|>-1\n<|id|>49<|level|>3\n<|id|>51<|level|>-1\n<|id|>54<|level|>3\n<|id|>58<|level|>-1\n<|id|>60<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>2\n<|id|>73<|level|>-1\n<|id|>75<|level|>-1\n<|id|>85<|level|>1\n<|id|>86<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        }
+    ]
+}

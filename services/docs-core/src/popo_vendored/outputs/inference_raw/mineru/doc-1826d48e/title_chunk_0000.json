@@ -1,0 +1,110 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        19,
+        20,
+        26,
+        27
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 189 141 807<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>8<|page|>1<|box|>349 183 393 815<|content|>MEMORANDUM OF LAW IN SUPPORT OF DEFENDANTS' MOTION\n<|id|>13<|page|>1<|box|>584 385 602 612<|content|>TABLE OF AUTHORITIES\n<|id|>17<|page|>2<|box|>785 143 799 290<|content|>Statutes and Rules\n<|id|>21<|page|>3<|box|>398 142 415 397<|content|>PRELIMINARY STATEMENT\n<|id|>30<|page|>4<|box|>710 140 728 356<|content|>STATEMENT OF FACTS\n<|id|>32<|page|>4<|box|>823 140 839 261<|content|>A. The Parties\n<|id|>37<|page|>5<|box|>674 140 691 254<|content|>B. The Vessel\n<|id|>40<|page|>6<|box|>138 140 157 316<|content|>C. The Charter-Party\n<|id|>52<|page|>7<|box|>436 140 454 424<|content|>D. The Alleged Mechanical Failures\n<|id|>61<|page|>8<|box|>681 140 700 480<|content|>E. The Alleged Deviation (September 2022)\n<|id|>69<|page|>9<|box|>810 140 828 411<|content|>F. Northwind's Claimed Damages\n<|id|>81<|page|>10<|box|>684 140 700 321<|content|>G. Procedural History\n<|id|>92<|page|>11<|box|>431 142 449 250<|content|>(SUMF ¶ 75.)\n<|id|>95<|page|>11<|box|>633 142 652 256<|content|>ARGUMENT\n<|id|>96<|page|>11<|box|>664 140 681 583<|content|>I. LEGAL STANDARD FOR SUMMARY JUDGMENT\n<|id|>102<|page|>12<|box|>619 140 654 854<|content|>II. THE LIQUIDATED DAMAGES CAP UNDER CLAUSE 28 APP\n<|id|>153<|page|>19<|box|>614 140 632 344<|content|>(Sørensen Decl. ¶¶ 35–38.)\n<|id|>158<|page|>20<|box|>327 140 344 750<|content|>III. NORTHWIND'S DEVIATION CLAIM FAILS AS A MATTER\n<|id|>224<|page|>26<|box|>167 140 184 272<|content|>CONCLUSION\n<|id|>236<|page|>26<|box|>607 140 625 388<|content|>CERTIFICATE OF SERVICE\n<|id|>240<|page|>27<|box|>89 142 106 428<|content|>WORD COUNT CERTIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>13<|level|>2\n<|id|>17<|level|>3\n<|id|>21<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>3\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>52<|level|>3\n<|id|>61<|level|>3\n<|id|>69<|level|>3\n<|id|>81<|level|>3\n<|id|>92<|level|>-1\n<|id|>95<|level|>2\n<|id|>96<|level|>3\n<|id|>102<|level|>3\n<|id|>153<|level|>-1\n<|id|>158<|level|>3\n<|id|>224<|level|>2\n<|id|>236<|level|>2\n<|id|>240<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 224,
+            "level": 2
+        },
+        {
+            "id": 236,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 2
+        }
+    ]
+}

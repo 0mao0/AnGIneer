@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>12<|type|>title<|page|>1<|box|>508 140 523 473<|content|>I. Introduction and Purpose of This Letter\n<|id|>17<|type|>title<|page|>2<|box|>250 140 266 483<|content|>II. The Insured and the Insurance Program\n<|id|>18<|type|>title<|page|>2<|box|>279 140 297 424<|content|>A. Verimark Hospitality Group Inc.\n<|id|>26<|type|>title<|page|>2<|box|>647 140 664 658<|content|>B. VHG's Property and Business-Interruption Insura\n<|id|>28<|type|>table<|page|>2<|box|>768 143 902 852<|content|>None\n<|id|>29<|type|>table<|page|>3<|box|>88 143 186 852<|content|>None\n<|id|>32<|type|>title<|page|>3<|box|>397 140 414 493<|content|>III. Hurricane Callista and the Covered Loss\n<|id|>33<|type|>title<|page|>3<|box|>428 142 444 254<|content|>A. The Storm\n<|id|>38<|type|>title<|page|>4<|box|>90 140 108 383<|content|>B. Damage to VHG Properties\n<|id|>51<|type|>title<|page|>5<|box|>609 142 626 321<|content|>C. Total Claimed Loss\n<|id|>52<|type|>table<|page|>5<|box|>675 143 824 852<|content|>None\n<|id|>54<|type|>title<|page|>6<|box|>258 140 277 506<|content|>IV. VHG's Compliance with Policy Conditions\n<|id|>62<|type|>title<|page|>7<|box|>212 140 229 516<|content|>V. Response to Ironclad's Reservation of Rights\n<|id|>64<|type|>title<|page|>7<|box|>361 140 378 555<|content|>A. The Named Windstorm Sub-Limit Is Inapplicable\n<|id|>70<|type|>title<|page|>8<|box|>157 140 174 503<|content|>B. The Periods of Restoration Are Reasonable\n<|id|>80<|type|>title<|page|>8<|box|>772 140 789 717<|content|>C. The Concurrent Causation / Flood Exclusion Defe\n<|id|>87<|type|>title<|page|>9<|box|>638 140 655 581<|content|>D. The Failure-to-Mitigate Defense Is Factually Ba\n<|id|>97<|type|>title<|page|>10<|box|>318 142 335 344<|content|>VI. Demand for Payment\n<|id|>99<|type|>title<|page|>10<|box|>424 437 441 560<|content|>$24,500,000.00\n<|id|>104<|type|>title<|page|>10<|box|>825 140 843 540<|content|>VII. Bad-Faith Warning and Reservation of Rights\n<|id|>118<|type|>title<|page|>11<|box|>664 140 681 540<|content|>VIII. Request for Ongoing Good-Faith Adjustment\n<|id|>127<|type|>title<|page|>12<|box|>304 140 320 236<|content|>IX. Closing\n<|id|>141<|type|>title<|page|>13<|box|>90 142 106 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>28<|tgt_id|>26\n<|src_id|>29<|tgt_id|>26\n<|src_id|>52<|tgt_id|>51",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 51
+        }
+    ]
+}

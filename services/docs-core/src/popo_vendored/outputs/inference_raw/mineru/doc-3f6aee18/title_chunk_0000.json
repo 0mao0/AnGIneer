@@ -1,0 +1,125 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>114 200 133 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>10<|page|>1<|box|>422 387 441 611<|content|>I. Executive Summary\n<|id|>22<|page|>3<|box|>162 370 181 625<|content|>II. Scope and Limitations\n<|id|>32<|page|>4<|box|>209 165 253 831<|content|>III. U.S. Federal Withholding Tax on Interest Paym\n<|id|>33<|page|>4<|box|>277 140 294 601<|content|>A. Statutory Withholding Under IRC Sections 871 an\n<|id|>41<|page|>5<|box|>285 140 301 647<|content|>B. Portfolio Interest Exemption (IRC Sections 871(\n<|id|>54<|page|>7<|box|>377 140 393 410<|content|>C. Income Tax Treaty Reductions\n<|id|>68<|page|>9<|box|>154 151 199 844<|content|>IV. FATCA (Foreign Account Tax Compliance Act) — S\n<|id|>69<|page|>9<|box|>222 140 239 423<|content|>A. Overview of the FATCA Regime\n<|id|>78<|page|>10<|box|>458 140 474 513<|content|>B. Application to the Term Loan B Syndication\n<|id|>87<|page|>11<|box|>794 140 811 604<|content|>C. FATCA Documentation Requirements for the Syndic\n<|id|>97<|page|>12<|box|>827 184 847 810<|content|>V. Credit Agreement Tax Provisions — Key Recommend\n<|id|>99<|page|>13<|box|>204 140 222 468<|content|>A. Withholding Tax Gross-Up Obligation\n<|id|>114<|page|>14<|box|>684 140 700 627<|content|>B. Tax Documentation Requirements in the Credit Ag\n<|id|>121<|page|>15<|box|>628 140 647 287<|content|>C. Tax Indemnity\n<|id|>126<|page|>16<|box|>277 140 294 383<|content|>D. FATCA-Specific Provisions\n<|id|>132<|page|>17<|box|>90 277 111 718<|content|>VI. Analysis of Identified Syndicate Lenders\n<|id|>133<|page|>17<|box|>136 140 154 575<|content|>A. U.S. Domestic Lenders — No Withholding Concerns\n<|id|>144<|page|>18<|box|>830 140 849 563<|content|>B. Potential Non-U.S. Lenders in General Syndicati\n<|id|>152<|page|>20<|box|>135 289 156 707<|content|>VII. Backup Withholding — U.S. Lenders\n<|id|>160<|page|>20<|box|>684 320 704 676<|content|>VIII. Withholding on Fees and OID\n<|id|>167<|page|>21<|box|>500 339 518 658<|content|>IX. Practical Recommendations\n<|id|>175<|page|>23<|box|>172 424 191 571<|content|>X. Conclusion\n<|id|>184<|page|>24<|box|>180 140 196 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>10<|level|>2\n<|id|>22<|level|>2\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>41<|level|>3\n<|id|>54<|level|>3\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>78<|level|>3\n<|id|>87<|level|>3\n<|id|>97<|level|>2\n<|id|>99<|level|>3\n<|id|>114<|level|>3\n<|id|>121<|level|>3\n<|id|>126<|level|>3\n<|id|>132<|level|>2\n<|id|>133<|level|>3\n<|id|>144<|level|>3\n<|id|>152<|level|>2\n<|id|>160<|level|>2\n<|id|>167<|level|>2\n<|id|>175<|level|>2\n<|id|>184<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        }
+    ]
+}

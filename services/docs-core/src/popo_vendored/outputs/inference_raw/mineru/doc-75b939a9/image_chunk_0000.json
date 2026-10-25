@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 174 123 821<|content|>UNITED STATES DISTRICT COURT CENTRAL DISTRICT OF C\n<|id|>1<|type|>table<|page|>1<|box|>157 143 392 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>460 333 476 663<|content|>DECLARATION OF LENA KOWALSKI\n<|id|>67<|type|>title<|page|>10<|box|>263 429 279 568<|content|>ATTESTATION",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

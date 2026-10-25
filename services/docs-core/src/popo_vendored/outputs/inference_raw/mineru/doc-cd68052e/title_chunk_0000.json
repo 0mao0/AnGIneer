@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>345 142 363 398<|content|>1. Introduction and Background\n<|id|>14<|page|>2<|box|>223 140 239 434<|content|>2. Purchase Agreement Requirement\n<|id|>22<|page|>2<|box|>792 140 809 609<|content|>3. Scope of Comfort Letter — Audited Financial Sta\n<|id|>27<|page|>3<|box|>549 140 566 740<|content|>4. Scope of Comfort Letter — Unaudited Financial D\n<|id|>39<|page|>5<|box|>186 140 204 589<|content|>5. Specified Financial Data in the Offering Memora\n<|id|>51<|page|>6<|box|>186 140 203 277<|content|>6. Cut-Off Dates\n<|id|>61<|page|>6<|box|>715 140 734 418<|content|>7. Capsule Information and Tables\n<|id|>64<|page|>7<|box|>258 140 277 385<|content|>8. Bring-Down Comfort Letter\n<|id|>67<|page|>7<|box|>590 140 607 333<|content|>9. Draft Review Process\n<|id|>76<|page|>8<|box|>241 142 258 313<|content|>10. Fee Confirmation\n<|id|>78<|page|>8<|box|>436 140 454 308<|content|>11. Closing Logistics\n<|id|>83<|page|>8<|box|>744 142 763 292<|content|>12. Confidentiality\n<|id|>103<|page|>9<|box|>667 142 684 240<|content|>Enclosures:",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>22<|level|>1\n<|id|>27<|level|>1\n<|id|>39<|level|>1\n<|id|>51<|level|>1\n<|id|>61<|level|>1\n<|id|>64<|level|>1\n<|id|>67<|level|>1\n<|id|>76<|level|>1\n<|id|>78<|level|>1\n<|id|>83<|level|>1\n<|id|>103<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        }
+    ]
+}

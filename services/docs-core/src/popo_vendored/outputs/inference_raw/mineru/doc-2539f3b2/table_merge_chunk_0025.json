@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 25,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=4, 26', 'rowspan=4, 一体化机柜', '26.4 防盗和防破坏', '安装防盗锁,柜体无裸露可拆卸部件', '实操检验']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=4, 26', 'rowspan=4, 一体化机柜', '26.5 门禁控制', '门禁能远程控制,并可对开、关状态进行监测', '实操检验']]\n",
+    "raw_response": "[1, 1, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 360,
+    "table2_idx": 361
+}

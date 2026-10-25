@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        6,
+        10
+    ],
+    "pages": [
+        6,
+        7,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>66<|page|>6<|box|>862 140 898 854<|content|>34. ... The target in-service date for the interco...to resolution of the interconnection proceeding in\n<|id|>67<|page|>7<|box|>90 174 125 854<|content|>Docket No. ... RP22-847-001, receipt of all necess...provals, and completion of construction activities\n<|id|>92<|page|>10<|box|>114 142 133 320<|content|>Respectfully submitted,\n<|id|>93<|page|>10<|box|>166 140 218 854<|content|>James K. ... May 12, 2022\n<|id|>98<|page|>10<|box|>470 140 488 419<|content|>Notary Public, State of West Virginia\n<|id|>99<|page|>10<|box|>488 140 505 277<|content|>Name: ... Name\n<|id|>101<|page|>10<|box|>522 143 540 305<|content|>[NOTARIAL SEAL]\n<|id|>102<|page|>10<|box|>573 140 619 854<|content|>Note: ... Either method of execution is sufficient...satisfy the Commission's verification requirements",
+    "raw_response": "<|src_id|>66<|tgt_id|>67",
+    "parsed": [
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        }
+    ]
+}

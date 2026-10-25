@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 6,
+    "range": [
+        288,
+        336
+    ],
+    "pages": [
+        289,
+        293,
+        303,
+        305,
+        307,
+        315,
+        318,
+        321,
+        322,
+        325,
+        330,
+        332,
+        335
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1083<|page|>289<|box|>140 295 171 678<|content|>二、打桩船打钢筋混凝土方桩（岸上供桩）\n<|id|>1085<|page|>289<|box|>218 99 245 321<|content|>(一) 断面 40cm \\times 40cm 方桩\n<|id|>1095<|page|>293<|box|>146 92 173 315<|content|>(二) 断面 45cm \\times 45cm 方桩\n<|id|>1121<|page|>303<|box|>144 102 169 324<|content|>(四) 断面 55cm \\times 55cm 方桩\n<|id|>1126<|page|>305<|box|>142 62 167 104<|content|>续表\n<|id|>1132<|page|>307<|box|>144 290 175 673<|content|>三、打桩船打钢筋混凝土管桩（方驳供桩）\n<|id|>1162<|page|>315<|box|>154 275 183 697<|content|>五、打桩船水冲打钢筋混凝土方桩（方驳供桩）\n<|id|>1173<|page|>318<|box|>200 75 224 117<|content|>续表\n<|id|>1183<|page|>321<|box|>138 70 164 112<|content|>续表\n<|id|>1186<|page|>322<|box|>185 344 216 655<|content|>六、打桩船水冲打钢筋混凝土管桩\n<|id|>1195<|page|>325<|box|>148 310 177 660<|content|>七、柴油打桩机陆上打钢筋混凝土方桩\n<|id|>1197<|page|>325<|box|>226 99 249 321<|content|>(一) 断面 40cm \\times 40cm 方桩\n<|id|>1210<|page|>330<|box|>204 110 230 334<|content|>(三) 断面 50cm \\times 50cm 方桩\n<|id|>1216<|page|>332<|box|>204 282 232 707<|content|>八、柴油打桩机打钢筋混凝土管桩（陆上运输）\n<|id|>1229<|page|>335<|box|>144 100 169 238<|content|>(二) \\Phi80cm 以内",
+    "raw_response": "<|id|>1083<|level|>1\n<|id|>1085<|level|>2\n<|id|>1095<|level|>2\n<|id|>1121<|level|>2\n<|id|>1126<|level|>-1\n<|id|>1132<|level|>1\n<|id|>1162<|level|>1\n<|id|>1173<|level|>-1\n<|id|>1183<|level|>-1\n<|id|>1186<|level|>1\n<|id|>1195<|level|>1\n<|id|>1197<|level|>2\n<|id|>1210<|level|>2\n<|id|>1216<|level|>1\n<|id|>1229<|level|>2",
+    "parsed": [
+        {
+            "id": 1083,
+            "level": 1
+        },
+        {
+            "id": 1085,
+            "level": 2
+        },
+        {
+            "id": 1095,
+            "level": 2
+        },
+        {
+            "id": 1121,
+            "level": 2
+        },
+        {
+            "id": 1132,
+            "level": 1
+        },
+        {
+            "id": 1162,
+            "level": 1
+        },
+        {
+            "id": 1186,
+            "level": 1
+        },
+        {
+            "id": 1195,
+            "level": 1
+        },
+        {
+            "id": 1197,
+            "level": 2
+        },
+        {
+            "id": 1210,
+            "level": 2
+        },
+        {
+            "id": 1216,
+            "level": 1
+        },
+        {
+            "id": 1229,
+            "level": 2
+        }
+    ]
+}

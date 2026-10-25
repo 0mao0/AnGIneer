@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 272 107 723<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>5<|type|>title<|page|>1<|box|>234 140 251 388<|content|>Via Email and First Class Mail\n<|id|>9<|type|>title<|page|>1<|box|>409 143 425 486<|content|>1. Purpose and Effective Date Confirmation\n<|id|>13<|type|>title<|page|>2<|box|>90 142 107 433<|content|>2. Summary of Transaction Timeline\n<|id|>15<|type|>table<|page|>2<|box|>159 143 747 852<|content|>None\n<|id|>17<|type|>title<|page|>3<|box|>90 140 107 429<|content|>3. Summary of Executed Documents\n<|id|>23<|type|>table<|page|>3<|box|>383 143 551 852<|content|>None\n<|id|>47<|type|>title<|page|>5<|box|>281 140 297 426<|content|>4. Conditions Precedent Satisfaction\n<|id|>56<|type|>title<|page|>6<|box|>90 140 107 372<|content|>5. Delivery of Closing Binder\n<|id|>60<|type|>title<|page|>6<|box|>411 140 428 665<|content|>6. Key Terms Reminder — Governing Law and Dispute\n<|id|>68<|type|>title<|page|>7<|box|>90 140 107 565<|content|>7. Ongoing Post-Closing Obligations and Action Ite\n<|id|>87<|type|>title<|page|>8<|box|>741 140 757 483<|content|>8. Engagement Team and Ongoing Support\n<|id|>96<|type|>title<|page|>9<|box|>366 140 383 439<|content|>9. Acknowledgment and Appreciation\n<|id|>105<|type|>title<|page|>10<|box|>89 140 107 483<|content|>Email: m.calloway@calderwoodharkness.com\n<|id|>107<|type|>title<|page|>10<|box|>196 142 212 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>15<|tgt_id|>13\n<|src_id|>23<|tgt_id|>17",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 17
+        }
+    ]
+}

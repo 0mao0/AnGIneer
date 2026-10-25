@@ -1,0 +1,23 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['1,606', '3-1/4 - 6/15/78-83 8/', '100.12', '+.07', '3.23 9/', '-.01', '5/1/53', '100.12', '8/31/53', '98.20', '6/1/53']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'colspan=2, Treasury bonde - bank restricted: 10/', '', '', '', '', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 119,
+    "table2_idx": 120
+}

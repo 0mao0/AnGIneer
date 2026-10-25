@@ -1,0 +1,491 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6insfgt9\\input\\pdfs\\doc-21dd880b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6insfgt9\\enriched\\doc-21dd880b.json",
+    "contd_output": "<|src_id|>13<|tgt_id|>14\n<|src_id|>147<|tgt_id|>148\n<|src_id|>155<|tgt_id|>156\n<|src_id|>226<|tgt_id|>227\n<|src_id|>301<|tgt_id|>302\n<|src_id|>302<|tgt_id|>303\n<|src_id|>303<|tgt_id|>304",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>20<|level|>2\n<|id|>44<|level|>2\n<|id|>58<|level|>2\n<|id|>69<|level|>2\n<|id|>90<|level|>2\n<|id|>104<|level|>2\n<|id|>116<|level|>2\n<|id|>121<|level|>2\n<|id|>132<|level|>2\n<|id|>146<|level|>2\n<|id|>151<|level|>2\n<|id|>163<|level|>2\n<|id|>176<|level|>2\n<|id|>182<|level|>2\n<|id|>186<|level|>3\n<|id|>191<|level|>2\n<|id|>204<|level|>2\n<|id|>214<|level|>2\n<|id|>220<|level|>3\n<|id|>224<|level|>3\n<|id|>236<|level|>2\n<|id|>238<|level|>3\n<|id|>243<|level|>3\n<|id|>248<|level|>2\n<|id|>249<|level|>3\n<|id|>251<|level|>4\n<|id|>253<|level|>4\n<|id|>256<|level|>4\n<|id|>261<|level|>4\n<|id|>263<|level|>4\n<|id|>266<|level|>4\n<|id|>268<|level|>4\n<|id|>271<|level|>2\n<|id|>272<|level|>3\n<|id|>282<|level|>2\n<|id|>283<|level|>3\n<|id|>289<|level|>4\n<|id|>297<|level|>4\n<|id|>299<|level|>2\n<|id|>300<|level|>3",
+    "image_output": "<|src_id|>252<|tgt_id|>251\n<|src_id|>254<|tgt_id|>253\n<|src_id|>255<|tgt_id|>253\n<|src_id|>257<|tgt_id|>256\n<|src_id|>258<|tgt_id|>256\n<|src_id|>259<|tgt_id|>256\n<|src_id|>260<|tgt_id|>256\n<|src_id|>262<|tgt_id|>261\n<|src_id|>264<|tgt_id|>263\n<|src_id|>265<|tgt_id|>263\n<|src_id|>267<|tgt_id|>266\n<|src_id|>269<|tgt_id|>268\n<|src_id|>270<|tgt_id|>268\n<|src_id|>274<|tgt_id|>272\n<|src_id|>275<|tgt_id|>272\n<|src_id|>276<|tgt_id|>272\n<|src_id|>277<|tgt_id|>272\n<|src_id|>278<|tgt_id|>272\n<|src_id|>279<|tgt_id|>272\n<|src_id|>280<|tgt_id|>272\n<|src_id|>281<|tgt_id|>272\n<|src_id|>285<|tgt_id|>283\n<|src_id|>286<|tgt_id|>283\n<|src_id|>287<|tgt_id|>283\n<|src_id|>288<|tgt_id|>283\n<|src_id|>308<|tgt_id|>300",
+    "contd_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 156
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 227
+        },
+        {
+            "src_id": 301,
+            "tgt_id": 302
+        },
+        {
+            "src_id": 302,
+            "tgt_id": 303
+        },
+        {
+            "src_id": 303,
+            "tgt_id": 304
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 3
+        },
+        {
+            "id": 224,
+            "level": 3
+        },
+        {
+            "id": 236,
+            "level": 2
+        },
+        {
+            "id": 238,
+            "level": 3
+        },
+        {
+            "id": 243,
+            "level": 3
+        },
+        {
+            "id": 248,
+            "level": 2
+        },
+        {
+            "id": 249,
+            "level": 3
+        },
+        {
+            "id": 251,
+            "level": 4
+        },
+        {
+            "id": 253,
+            "level": 4
+        },
+        {
+            "id": 256,
+            "level": 4
+        },
+        {
+            "id": 261,
+            "level": 4
+        },
+        {
+            "id": 263,
+            "level": 4
+        },
+        {
+            "id": 266,
+            "level": 4
+        },
+        {
+            "id": 268,
+            "level": 4
+        },
+        {
+            "id": 271,
+            "level": 2
+        },
+        {
+            "id": 272,
+            "level": 3
+        },
+        {
+            "id": 282,
+            "level": 2
+        },
+        {
+            "id": 283,
+            "level": 3
+        },
+        {
+            "id": 289,
+            "level": 4
+        },
+        {
+            "id": 297,
+            "level": 4
+        },
+        {
+            "id": 299,
+            "level": 2
+        },
+        {
+            "id": 300,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 252,
+            "tgt_id": 251
+        },
+        {
+            "src_id": 254,
+            "tgt_id": 253
+        },
+        {
+            "src_id": 255,
+            "tgt_id": 253
+        },
+        {
+            "src_id": 257,
+            "tgt_id": 256
+        },
+        {
+            "src_id": 258,
+            "tgt_id": 256
+        },
+        {
+            "src_id": 259,
+            "tgt_id": 256
+        },
+        {
+            "src_id": 260,
+            "tgt_id": 256
+        },
+        {
+            "src_id": 262,
+            "tgt_id": 261
+        },
+        {
+            "src_id": 264,
+            "tgt_id": 263
+        },
+        {
+            "src_id": 265,
+            "tgt_id": 263
+        },
+        {
+            "src_id": 267,
+            "tgt_id": 266
+        },
+        {
+            "src_id": 269,
+            "tgt_id": 268
+        },
+        {
+            "src_id": 270,
+            "tgt_id": 268
+        },
+        {
+            "src_id": 274,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 275,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 276,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 277,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 278,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 279,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 280,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 281,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 285,
+            "tgt_id": 283
+        },
+        {
+            "src_id": 286,
+            "tgt_id": 283
+        },
+        {
+            "src_id": 287,
+            "tgt_id": 283
+        },
+        {
+            "src_id": 288,
+            "tgt_id": 283
+        },
+        {
+            "src_id": 308,
+            "tgt_id": 300
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 254,
+            "table2_idx": 255,
+            "upper_row_ss": [
+                [
+                    "1.2.1",
+                    "Formulation Composition — 25 mg Film-Coated Tablet (quantitative bill of",
+                    "PDF/Excel",
+                    "5"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "materials)",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 257,
+            "table2_idx": 258,
+            "upper_row_ss": [
+                [
+                    "1.3.5",
+                    "Elemental Impurities",
+                    "PDF",
+                    "15"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Method (ICP-MS) — API and Finished Dosage Form",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 259,
+            "table2_idx": 260,
+            "upper_row_ss": [
+                [
+                    "1.4.5",
+                    "Process Validation Reports — API",
+                    "PDF",
+                    "80"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1.4.6",
+                    "Process Validation Reports — Finished Dosage Form (25 mg and 50 mg)",
+                    "PDF",
+                    "120"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 264,
+            "table2_idx": 265,
+            "upper_row_ss": [
+                [
+                    "1.6.4",
+                    "Relevant Regulatory Correspondence (manufacturing-related)",
+                    "PDF",
+                    "50"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1.7.1",
+                    "Batch Records for Clinical Supply Manufacture — Study PPC-4187-201 (Phase IIb, 420 patients)",
+                    "PDF",
+                    "120"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 269,
+            "table2_idx": 270,
+            "upper_row_ss": [
+                [
+                    "1.9.4",
+                    "Waste Stream Characterization and",
+                    "PDF",
+                    "15"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Disposal Requirements",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 275,
+            "table2_idx": 276,
+            "upper_row_ss": [
+                [
+                    "2.3",
+                    "Training Records",
+                    "Completed training records, including training session descriptions, trainer and attendee signatures, dates, and competency"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "assessments (where applicable), are on file."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 278,
+            "table2_idx": 279,
+            "upper_row_ss": [
+                [
+                    "4.1",
+                    "Engineering Batch — API",
+                    "At least one (1) engineering batch of API has been manufactured at the Receiving Facility and meets all pre-defined quality specifications"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "(identity, assay ≥ 98.0% and ≤ 102.0%, total impurities within specification, individual specified impurities within specification, residual solvents within ICH limits, water content within specification, particle size distribution within specification)."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 280,
+            "table2_idx": 281,
+            "upper_row_ss": [
+                [
+                    "5.2",
+                    "Validation Batches — Finished Dosage Form",
+                    "Three (3) consecutive validation batches of finished dosage form (for each strength: 25 mg and 50 mg) have been successfully manufactured at the Receiving Facility in accordance with the approved process validation"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "protocol."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 286,
+            "table2_idx": 287,
+            "upper_row_ss": [
+                [
+                    "Quality Agreement execution",
+                    "Joint",
+                    "Joint"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Monthly progress reporting",
+                    "Primary (Penterra report)",
+                    "Primary (Meridian report)"
+                ]
+            ]
+        }
+    ]
+}

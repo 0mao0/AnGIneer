@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=4, 化学腐蚀环境', 'VI-F', 'C50', 'C45', 'C40', 'C35', 'rowspan=4, C35']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 磨蚀环境', 'VII-C', 'C45', 'C40', 'C35', 'C30', 'rowspan=3, C35']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 261,
+    "table2_idx": 262
+}

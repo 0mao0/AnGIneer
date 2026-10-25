@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        58
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        58
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>467<|type|>title<|page|>45<|box|>241 140 258 361<|content|>Relationships and Conflicts\n<|id|>471<|type|>title<|page|>45<|box|>671 140 688 230<|content|>No Listing\n<|id|>473<|type|>title<|page|>45<|box|>829 140 847 246<|content|>Stabilization\n<|id|>480<|type|>title<|page|>46<|box|>354 140 371 207<|content|>Escrow\n<|id|>483<|type|>title<|page|>46<|box|>633 395 654 602<|content|>LEGAL MATTERS\n<|id|>484<|type|>title<|page|>46<|box|>672 142 689 617<|content|>This section has been prepared by Calderwood & Har\n<|id|>495<|type|>title<|page|>47<|box|>757 348 776 648<|content|>INDEPENDENT AUDITORS\n<|id|>498<|type|>title<|page|>48<|box|>253 442 272 553<|content|>RATINGS\n<|id|>499<|type|>table<|page|>48<|box|>314 143 387 852<|content|>None\n<|id|>503<|type|>title<|page|>48<|box|>719 359 738 638<|content|>REGISTRATION RIGHTS\n<|id|>516<|type|>title<|page|>49<|box|>770 361 789 635<|content|>NOTICE TO INVESTORS\n<|id|>518<|type|>title<|page|>50<|box|>90 142 107 421<|content|>Transfer Restrictions — Rule 144A\n<|id|>524<|type|>title<|page|>50<|box|>554 142 571 439<|content|>Transfer Restrictions — Regulation S\n<|id|>530<|type|>title<|page|>51<|box|>90 142 107 325<|content|>ERISA Considerations\n<|id|>535<|type|>title<|page|>51<|box|>550 236 569 759<|content|>WHERE YOU CAN FIND MORE INFORMATION\n<|id|>548<|type|>title<|page|>53<|box|>90 256 109 740<|content|>ANNEX A: GLOSSARY OF DEFINED TERMS\n<|id|>600<|type|>title<|page|>58<|box|>90 233 109 764<|content|>ANNEX B: INDEX TO FINANCIAL STATEMENTS\n<|id|>602<|type|>table<|page|>58<|box|>199 143 500 852<|content|>None\n<|id|>603<|type|>table<|page|>58<|box|>560 143 744 852<|content|>None",
+    "raw_response": "<|src_id|>499<|tgt_id|>498\n<|src_id|>602<|tgt_id|>600\n<|src_id|>603<|tgt_id|>600",
+    "parsed": [
+        {
+            "src_id": 499,
+            "tgt_id": 498
+        },
+        {
+            "src_id": 602,
+            "tgt_id": 600
+        },
+        {
+            "src_id": 603,
+            "tgt_id": 600
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 184 126 856<|content|>CALDERWOOD & HARKNESS LLP 777 South Flower Street,\n<|id|>3<|page|>1<|box|>178 140 195 248<|content|>VIA EMAIL\n<|id|>8<|page|>1<|box|>542 142 559 374<|content|>1. Staffing (OCG Section 4.3)\n<|id|>18<|page|>2<|box|>554 140 571 486<|content|>2. Expense Pre-Approval (OCG Section 5.1)\n<|id|>24<|page|>3<|box|>431 140 449 460<|content|>3. Monthly Reporting (OCG Section 6.2)\n<|id|>31<|page|>4<|box|>90 140 107 475<|content|>4. Settlement Authority (OCG Section 7.4)\n<|id|>37<|page|>4<|box|>523 140 539 383<|content|>5. Diversity (OCG Section 8.1)",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>3<|level|>-1\n<|id|>8<|level|>1\n<|id|>18<|level|>1\n<|id|>24<|level|>1\n<|id|>31<|level|>1\n<|id|>37<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        }
+    ]
+}

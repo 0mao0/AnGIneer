@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>87 117 107 240<|content|>Basic Plans\n<|id|>2<|page|>1<|box|>206 576 219 653<|content|>Information:\n<|id|>27<|page|>3<|box|>401 115 418 344<|content|>Conservatory / Outhouse\n<|id|>34<|page|>3<|box|>650 115 665 413<|content|>This requires dedicated 16AMP Supply\n<|id|>35<|page|>3<|box|>678 115 694 213<|content|>Loft Space\n<|id|>39<|page|>3<|box|>829 115 846 225<|content|>Understairs\n<|id|>43<|page|>4<|box|>130 115 146 206<|content|>Outdoors\n<|id|>47<|page|>4<|box|>237 115 254 173<|content|>Porch",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>3\n<|id|>35<|level|>2\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>47<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        }
+    ]
+}

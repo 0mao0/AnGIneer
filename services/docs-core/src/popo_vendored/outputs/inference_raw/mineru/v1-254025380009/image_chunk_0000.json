@@ -1,0 +1,65 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>image<|page|>1<|box|>159 116 568 880<|content|>None\n<|id|>2<|type|>title<|page|>2<|box|>90 112 108 349<|content|>2. Asphalt Roof, Conifer, CO\n<|id|>3<|type|>image<|page|>2<|box|>125 114 455 880<|content|>None\n<|id|>5<|type|>image<|page|>3<|box|>107 114 494 787<|content|>None\n<|id|>7<|type|>image<|page|>4<|box|>104 114 501 880<|content|>None\n<|id|>9<|type|>image<|page|>5<|box|>106 114 501 882<|content|>None\n<|id|>10<|type|>image<|page|>6<|box|>109 114 580 880<|content|>None\n<|id|>11<|type|>image<|page|>7<|box|>107 114 500 882<|content|>None\n<|id|>12<|type|>image<|page|>8<|box|>106 116 696 882<|content|>None\n<|id|>13<|type|>image<|page|>9<|box|>107 114 500 883<|content|>None\n<|id|>14<|type|>image<|page|>10<|box|>111 116 503 880<|content|>None\n<|id|>15<|type|>image<|page|>11<|box|>89 114 421 687<|content|>None",
+    "raw_response": "<|src_id|>3<|tgt_id|>2\n<|src_id|>5<|tgt_id|>2\n<|src_id|>7<|tgt_id|>2\n<|src_id|>9<|tgt_id|>2\n<|src_id|>10<|tgt_id|>2\n<|src_id|>11<|tgt_id|>2\n<|src_id|>12<|tgt_id|>2\n<|src_id|>13<|tgt_id|>2\n<|src_id|>14<|tgt_id|>2\n<|src_id|>15<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 2
+        }
+    ]
+}

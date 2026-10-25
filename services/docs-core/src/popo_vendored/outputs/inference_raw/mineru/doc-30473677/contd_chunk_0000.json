@@ -1,0 +1,68 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        48
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        9,
+        11,
+        12,
+        19,
+        20,
+        43,
+        44,
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>214 460 231 537<|content|>(\"Parent\")\n<|id|>3<|page|>1<|box|>239 370 256 625<|content|>NTP ACQUISITION SUB, INC. ... NTP ACQUISITION SUB, INC\n<|id|>4<|page|>1<|box|>266 267 282 728<|content|>a Delaware corporation and wholly owned subsidiary of Parent\n<|id|>6<|page|>1<|box|>318 483 333 514<|content|>and\n<|id|>5<|page|>1<|box|>292 439 309 557<|content|>(\"Merger Sub\")\n<|id|>8<|page|>1<|box|>369 411 386 586<|content|>a Delaware corporation\n<|id|>10<|page|>1<|box|>420 403 438 594<|content|>Dated as of April 7, 2025\n<|id|>9<|page|>1<|box|>395 434 412 563<|content|>(the \"Company\")\n<|id|>11<|page|>1<|box|>446 398 463 598<|content|>TABLE OF CONTENTS\n<|id|>12<|page|>1<|box|>473 143 489 408<|content|>Right-click to update Table of Contents\n<|id|>29<|page|>4<|box|>421 140 623 857<|content|>WHEREAS, concurrently with the execution and deliv...th Partners, LP (holding approximately 42. ... and\n<|id|>30<|page|>4<|box|>630 140 685 854<|content|>WHEREAS, the Parties desire to set forth certain r...rtain conditions to the consummation of the Merger\n<|id|>34<|page|>4<|box|>843 140 898 854<|content|>Upon the terms and subject to the conditions set f...Merger, the separate corporate existence of Merger\n<|id|>35<|page|>5<|box|>89 140 145 854<|content|>Sub shall cease, and the Company shall continue as...are as a direct, wholly owned subsidiary of Parent\n<|id|>63<|page|>8<|box|>808 140 900 857<|content|>(a) Notwithstanding anything in this Agreement to ...uch shares being herein referred to as \"Dissenting\n<|id|>64<|page|>9<|box|>89 140 181 854<|content|>Shares\") shall not be converted into the right to ...erwise loses the right to appraisal under the DGCL\n<|id|>77<|page|>11<|box|>625 135 882 857<|content|>(b) Estimated Closing Statement. ... \"Closing Net ...ries (determined in accordance with the Accounting\n<|id|>78<|page|>12<|box|>89 140 125 854<|content|>Principles), in each case as of the close of busin... on the day immediately preceding the Closing Date\n<|id|>140<|page|>19<|box|>756 176 773 714<|content|>(ii) Priya Ramachandran, Chief Technology Officer and Co-Founder; ... and\n<|id|>142<|page|>19<|box|>808 140 883 857<|content|>(b) Neither the Company nor any of its Subsidiarie...tion. ... There is no pending or, to the Company's\n<|id|>143<|page|>20<|box|>90 140 127 854<|content|>Knowledge, threatened strike, lockout, work stoppa...mployees of the Company or any of its Subsidiaries\n<|id|>358<|page|>43<|box|>838 140 893 856<|content|>(a) Representations and Warranties. ... The repres...) shall be true and correct as of the date of this\n<|id|>359<|page|>44<|box|>90 140 200 856<|content|>Agreement and as of the Closing Date as though mad... other transactions contemplated by this Agreement\n<|id|>369<|page|>44<|box|>787 174 898 856<|content|>(i) if the Merger shall not have been consummated ... Party on or prior to the Outside Date, extend the\n<|id|>370<|page|>45<|box|>90 174 200 856<|content|>Outside Date to November 29, 2025 (the \"Extended O...Date (or the Extended Outside Date, as applicable)\n<|id|>387<|page|>46<|box|>760 174 777 743<|content|>(iii) by Parent pursuant to Section 7. ... or\n<|id|>388<|page|>46<|box|>786 174 896 857<|content|>(iv) by either Parent or the Company pursuant to S...ing Proposal shall be deemed replaced with \"50%\"),\n<|id|>389<|page|>47<|box|>133 138 318 856<|content|>then the Company shall pay to Parent, by wire tran...e Competing Proposal referred to in clause (iv)(B)\n<|id|>392<|page|>47<|box|>377 174 393 697<|content|>(ii) by the Company pursuant to Section 7. ... or\n<|id|>394<|page|>47<|box|>502 140 593 856<|content|>then Parent shall pay to the Company, by wire tran...n two (2) Business Days following such termination\n<|id|>393<|page|>47<|box|>402 174 494 854<|content|>(iii) by either Parent or the Company pursuant to ...(B) the Financing has not been obtained by Parent,",
+    "raw_response": "<|src_id|>34<|tgt_id|>35\n<|src_id|>63<|tgt_id|>64\n<|src_id|>77<|tgt_id|>78\n<|src_id|>142<|tgt_id|>143\n<|src_id|>358<|tgt_id|>359\n<|src_id|>369<|tgt_id|>370\n<|src_id|>387<|tgt_id|>388\n<|src_id|>388<|tgt_id|>389\n<|src_id|>392<|tgt_id|>393\n<|src_id|>393<|tgt_id|>394",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 358,
+            "tgt_id": 359
+        },
+        {
+            "src_id": 369,
+            "tgt_id": 370
+        },
+        {
+            "src_id": 387,
+            "tgt_id": 388
+        },
+        {
+            "src_id": 388,
+            "tgt_id": 389
+        },
+        {
+            "src_id": 392,
+            "tgt_id": 393
+        },
+        {
+            "src_id": 393,
+            "tgt_id": 394
+        }
+    ]
+}

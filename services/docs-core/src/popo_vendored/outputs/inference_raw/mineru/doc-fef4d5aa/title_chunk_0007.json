@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 7,
+    "range": [
+        450,
+        490
+    ],
+    "pages": [
+        451,
+        454,
+        458,
+        463,
+        467,
+        476,
+        477,
+        482,
+        484,
+        490
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1444<|page|>451<|box|>156 426 185 593<|content|>6-2 监控系统\n<|id|>1454<|page|>454<|box|>161 408 189 574<|content|>6-3 通信系统\n<|id|>1467<|page|>458<|box|>154 405 183 571<|content|>6-4 收费系统\n<|id|>1483<|page|>463<|box|>158 403 185 616<|content|>6-5 隧道工程机电设施\n<|id|>1496<|page|>467<|box|>147 381 176 631<|content|>6-6 独立大桥工程机电设施\n<|id|>1522<|page|>476<|box|>231 361 271 621<|content|>第七章 临时工程\n<|id|>1523<|page|>476<|box|>322 448 353 537<|content|>说明\n<|id|>1528<|page|>476<|box|>620 95 646 245<|content|>4. 工程量计算规则\n<|id|>1533<|page|>477<|box|>152 423 181 589<|content|>7-1 临时便道\n<|id|>1550<|page|>482<|box|>161 406 189 571<|content|>7-2 临时便桥\n<|id|>1557<|page|>484<|box|>156 403 185 569<|content|>7-3 临时码头\n<|id|>1573<|page|>490<|box|>238 331 275 657<|content|>附录一 设备购置费参考值",
+    "raw_response": "<|id|>1444<|level|>2\n<|id|>1454<|level|>2\n<|id|>1467<|level|>2\n<|id|>1483<|level|>2\n<|id|>1496<|level|>2\n<|id|>1522<|level|>1\n<|id|>1523<|level|>2\n<|id|>1528<|level|>3\n<|id|>1533<|level|>2\n<|id|>1550<|level|>2\n<|id|>1557<|level|>2\n<|id|>1573<|level|>1",
+    "parsed": [
+        {
+            "id": 1444,
+            "level": 2
+        },
+        {
+            "id": 1454,
+            "level": 2
+        },
+        {
+            "id": 1467,
+            "level": 2
+        },
+        {
+            "id": 1483,
+            "level": 2
+        },
+        {
+            "id": 1496,
+            "level": 2
+        },
+        {
+            "id": 1522,
+            "level": 1
+        },
+        {
+            "id": 1523,
+            "level": 2
+        },
+        {
+            "id": 1528,
+            "level": 3
+        },
+        {
+            "id": 1533,
+            "level": 2
+        },
+        {
+            "id": 1550,
+            "level": 2
+        },
+        {
+            "id": 1557,
+            "level": 2
+        },
+        {
+            "id": 1573,
+            "level": 1
+        }
+    ]
+}

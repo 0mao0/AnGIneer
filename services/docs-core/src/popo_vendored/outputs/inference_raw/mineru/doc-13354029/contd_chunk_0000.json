@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>324 174 397 856<|content|>(i) That certain Data Processing Agreement (the \"D...ly chartered savings bank (OCC Charter No. ... and\n<|id|>5<|page|>1<|box|>559 140 614 854<|content|>Each capitalized term used but not otherwise defin...tion of the conditions precedent set forth therein\n<|id|>18<|page|>3<|box|>215 174 343 854<|content|>(b) The Standard Contractual Clauses adopted pursu...cluding Module 2 (Controller-to-Processor: ... and\n<|id|>20<|page|>3<|box|>431 140 467 854<|content|>The specimen signature of Nadia Karimova, as it wi...r on the Transaction Documents, is set forth below\n<|id|>22<|page|>3<|box|>502 176 518 357<|content|>Name: ... Nadia Karimova\n<|id|>23<|page|>3<|box|>518 176 535 401<|content|>Title: ... Chief Executive Officer\n<|id|>27<|page|>3<|box|>854 174 909 854<|content|>(a) The Company's existing Master Cloud Services A...rastructure, Inc. ... 1 thereto dated November 15,\n<|id|>28<|page|>4<|box|>90 174 127 854<|content|>2024, which governs the processing of personal dat...Inc. ... as a sub-processor on behalf of Skybridge\n<|id|>29<|page|>4<|box|>133 174 208 856<|content|>(b) The Company's Intra-Group Data Transfer Agreem...Agreement with Skybridge Fintech Europe B. ... and\n<|id|>31<|page|>4<|box|>258 140 333 854<|content|>To the best of my knowledge after due inquiry, the...summation of the transactions contemplated thereby\n<|id|>36<|page|>4<|box|>824 140 898 857<|content|>EU-US Data Privacy Framework. ... The Company's DP...overs all personal data received from the European\n<|id|>37<|page|>5<|box|>90 140 219 856<|content|>Economic Area in reliance on the DPF, including pe...n, Access, and Recourse, Enforcement and Liability\n<|id|>47<|page|>6<|box|>107 140 125 318<|content|>Name: ... Thomas Elridge\n<|id|>48<|page|>6<|box|>125 140 142 504<|content|>Title: ... General Counsel and Chief Privacy Officer\n<|id|>49<|page|>6<|box|>142 140 157 217<|content|>Address: ... Address",
+    "raw_response": "<|src_id|>27<|tgt_id|>28\n<|src_id|>36<|tgt_id|>37",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        }
+    ]
+}

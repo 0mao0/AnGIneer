@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        13,
+        16,
+        19,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 202 108 794<|content|>UNITED STATES DISTRICT COURT FOR THE DISTRICT OF D\n<|id|>2<|page|>1<|box|>368 145 424 852<|content|>DEFENDANT SOLSTICE BIOMEDICAL, INC.'S MEMORANDUM O\n<|id|>8<|page|>3<|box|>89 385 106 612<|content|>TABLE OF AUTHORITIES\n<|id|>11<|page|>3<|box|>816 143 832 290<|content|>Statutes and Rules\n<|id|>14<|page|>4<|box|>223 140 239 413<|content|>I. PRELIMINARY STATEMENT\n<|id|>20<|page|>5<|box|>229 140 247 377<|content|>II. STATEMENT OF FACTS\n<|id|>21<|page|>5<|box|>261 142 277 261<|content|>A. The Parties\n<|id|>25<|page|>5<|box|>715 140 732 334<|content|>B. The Asserted Patents\n<|id|>31<|page|>6<|box|>656 140 672 400<|content|>C. The Accused PE-12000 Series\n<|id|>35<|page|>7<|box|>231 140 248 511<|content|>D. Procedural History Relevant to This Motion\n<|id|>41<|page|>7<|box|>763 140 782 346<|content|>III. LEGAL STANDARD\n<|id|>42<|page|>7<|box|>796 140 813 653<|content|>A. Summary Judgment Under Federal Rule of Civil Pr\n<|id|>46<|page|>8<|box|>411 140 428 557<|content|>B. Summary Judgment in Patent Infringement Cases\n<|id|>50<|page|>9<|box|>90 140 107 578<|content|>C. Literal Infringement and the Doctrine of Equiva\n<|id|>56<|page|>9<|box|>660 140 678 285<|content|>IV. ARGUMENT\n<|id|>77<|page|>13<|box|>275 140 311 854<|content|>B. Genuine Disputes of Material Fact Preclude Summ\n<|id|>101<|page|>16<|box|>797 140 833 854<|content|>C. Genuine Disputes of Material Fact Preclude Summ\n<|id|>117<|page|>19<|box|>294 140 329 852<|content|>D. Apex Fails to Establish Infringement Under the\n<|id|>133<|page|>21<|box|>257 140 273 763<|content|>E. Solstice's Invalidity Defenses Further Demonstr\n<|id|>137<|page|>21<|box|>647 140 664 294<|content|>V. CONCLUSION\n<|id|>153<|page|>22<|box|>515 375 531 622<|content|>CERTIFICATE OF SERVICE\n<|id|>157<|page|>22<|box|>790 142 824 668<|content|>Marcus Delgado (Bar No. 4817) CALDERWOOD & HARKNES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>8<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>25<|level|>3\n<|id|>31<|level|>3\n<|id|>35<|level|>3\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>46<|level|>3\n<|id|>50<|level|>3\n<|id|>56<|level|>2\n<|id|>77<|level|>3\n<|id|>101<|level|>3\n<|id|>117<|level|>3\n<|id|>133<|level|>3\n<|id|>137<|level|>2\n<|id|>153<|level|>2\n<|id|>157<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        }
+    ]
+}

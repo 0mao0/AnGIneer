@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        51
+    ],
+    "pages": [
+        1,
+        3,
+        10,
+        11,
+        13,
+        14,
+        16,
+        27,
+        36,
+        50
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>705 570 849 743<|content|>FEATURES Profile of the Economy Financial Operations International Statistics Special Reports\n<|id|>2<|page|>1<|box|>866 614 887 746<|content|>Produced and Published by\n<|id|>3<|page|>1<|box|>891 522 921 750<|content|>Department of the Treasury Bureau of the Fiscal Service\n<|id|>7<|page|>3<|box|>508 343 529 653<|content|>treasury. ... gov\n<|id|>8<|page|>3<|box|>544 120 580 875<|content|>Internet service subscribers can access the Treasu...t through the Bureau of Fiscal Service's home page\n<|id|>41<|page|>10<|box|>732 504 909 916<|content|>Job losses during the recession were spread broadl...wth, all of these sectors have added jobs. ... The\n<|id|>42<|page|>11<|box|>90 102 107 267<|content|>Payroll Employment\n<|id|>44<|page|>11<|box|>398 81 516 491<|content|>government sector also added workers to payrolls d...nt jobs (of which 269,000 were in local education)\n<|id|>43<|page|>11<|box|>108 104 131 316<|content|>(Average monthly change in thousands from end of quarter to end of quarter)\n<|id|>60<|page|>13<|box|>458 81 534 491<|content|>Financial markets have largely recovered from the ...tes as well as globally, and about strains in debt\n<|id|>61<|page|>13<|box|>89 504 323 915<|content|>markets in Europe. ... After some deterioration in...of risk tolerance and volatility have all improved\n<|id|>65<|page|>14<|box|>482 81 674 491<|content|>Key interest rates on private securities, which sp...narrowing again to 23 basis points in early August\n<|id|>67<|page|>14<|box|>234 504 324 915<|content|>Rates for conforming mortgages have trended lower ..., as have rates for jumbo mortgages. ... 5 percent\n<|id|>90<|page|>16<|box|>515 380 527 617<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>91<|page|>16<|box|>535 83 551 269<|content|>Third-Quarter Receipts\n<|id|>92<|page|>16<|box|>554 81 657 491<|content|>The following capsule analysis of budget receipts,... to adequately analyze collections for the quarter\n<|id|>136<|page|>27<|box|>685 81 717 491<|content|>• Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>138<|page|>27<|box|>250 504 397 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>167<|page|>36<|box|>424 367 436 627<|content|>[Source: ... Bureau of the Fiscal Service, Office of Financing]\n<|id|>168<|page|>36<|box|>444 83 460 169<|content|>APRIL\n<|id|>296<|page|>50<|box|>167 604 189 915<|content|>STATISTICS\n<|id|>297<|page|>50<|box|>199 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund",
+    "raw_response": "<|src_id|>41<|tgt_id|>44\n<|src_id|>60<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        }
+    ]
+}

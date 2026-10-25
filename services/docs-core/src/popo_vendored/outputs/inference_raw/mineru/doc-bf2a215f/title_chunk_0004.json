@@ -1,0 +1,45 @@
+{
+    "task": "title",
+    "chunk_index": 4,
+    "range": [
+        208,
+        210
+    ],
+    "pages": [
+        208,
+        209,
+        210
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>922<|page|>208<|box|>88 386 101 620<|content|>Section III - Trust Funds\n<|id|>923<|page|>208<|box|>113 125 128 878<|content|>Table GA-III-9. - Investments of Specified Trust A\n<|id|>924<|page|>208<|box|>136 228 153 707<|content|>and Agency Securities by Issues, as of June 30, 19\n<|id|>926<|page|>209<|box|>50 333 63 605<|content|>CUMULATIVE TABLE OF CONTENTS\n<|id|>927<|page|>209<|box|>77 331 90 614<|content|>September 1979 through August 1980\n<|id|>929<|page|>210<|box|>51 372 63 649<|content|>CUMULATIVE TABLE OF CONTENTS\n<|id|>930<|page|>210<|box|>78 331 91 688<|content|>September 1979 through August 1980-Continued",
+    "raw_response": "<|id|>922<|level|>1\n<|id|>923<|level|>2\n<|id|>924<|level|>2\n<|id|>926<|level|>1\n<|id|>927<|level|>2\n<|id|>929<|level|>1\n<|id|>930<|level|>2",
+    "parsed": [
+        {
+            "id": 922,
+            "level": 1
+        },
+        {
+            "id": 923,
+            "level": 2
+        },
+        {
+            "id": 924,
+            "level": 2
+        },
+        {
+            "id": 926,
+            "level": 1
+        },
+        {
+            "id": 927,
+            "level": 2
+        },
+        {
+            "id": 929,
+            "level": 1
+        },
+        {
+            "id": 930,
+            "level": 2
+        }
+    ]
+}

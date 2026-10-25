@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        9
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 437 109 560<|content|>EXHIBIT F\n<|id|>1<|page|>2<|box|>136 307 152 689<|content|>TO AGREEMENT OF PURCHASE AND SALE\n<|id|>2<|page|>2<|box|>162 171 179 825<|content|>BARGAIN AND SALE DEED WITH COVENANT AGAINST GRANTO\n<|id|>4<|page|>2<|box|>285 171 301 826<|content|>BARGAIN AND SALE DEED WITH COVENANT AGAINST GRANTO\n<|id|>5<|page|>2<|box|>310 140 325 604<|content|>RECORDING REQUESTED BY AND WHEN RECORDED RETURN TO\n<|id|>9<|page|>2<|box|>508 171 525 826<|content|>BARGAIN AND SALE DEED WITH COVENANT AGAINST GRANTO\n<|id|>11<|page|>2<|box|>559 143 575 245<|content|>BETWEEN:\n<|id|>13<|page|>2<|box|>648 143 664 189<|content|>AND\n<|id|>15<|page|>2<|box|>751 143 768 241<|content|>RECITALS\n<|id|>19<|page|>3<|box|>321 140 338 326<|content|>GRANTING CLAUSE\n<|id|>24<|page|>3<|box|>612 140 628 385<|content|>TOGETHER WITH CLAUSE\n<|id|>31<|page|>4<|box|>292 140 309 338<|content|>SUBJECT TO CLAUSE\n<|id|>32<|page|>4<|box|>318 142 335 601<|content|>The conveyance made hereby is SUBJECT TO the follo\n<|id|>41<|page|>5<|box|>89 140 106 503<|content|>COVENANT AGAINST GRANTOR'S ACTS\n<|id|>44<|page|>5<|box|>329 140 345 684<|content|>COMPLIANCE WITH TAX LAW AND FILING REQUIREMENTS\n<|id|>50<|page|>6<|box|>89 142 106 367<|content|>FIRPTA CERTIFICATION\n<|id|>52<|page|>6<|box|>248 140 265 334<|content|>ENTITY AUTHORITY\n<|id|>54<|page|>6<|box|>460 142 479 259<|content|>EXECUTION\n<|id|>60<|page|>6<|box|>622 142 638 339<|content|>ACKNOWLEDGMENT\n<|id|>64<|page|>7<|box|>89 142 106 655<|content|>DEED INFORMATION — RECORDING COVER PAGE DATA\n<|id|>67<|page|>8<|box|>89 434 107 563<|content|>SCHEDULE A\n<|id|>68<|page|>8<|box|>116 364 133 630<|content|>Legal Description of the Premises\n<|id|>77<|page|>9<|box|>90 437 106 560<|content|>SCHEDULE B\n<|id|>78<|page|>9<|box|>116 334 133 663<|content|>Existing Tenancies Affecting the Premises\n<|id|>80<|page|>9<|box|>606 143 622 501<|content|>Total Leased Area (Approximate): 168,400 SF",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>3\n<|id|>4<|level|>3\n<|id|>5<|level|>4\n<|id|>9<|level|>3\n<|id|>11<|level|>5\n<|id|>13<|level|>5\n<|id|>15<|level|>5\n<|id|>19<|level|>4\n<|id|>24<|level|>4\n<|id|>31<|level|>4\n<|id|>32<|level|>-1\n<|id|>41<|level|>4\n<|id|>44<|level|>4\n<|id|>50<|level|>4\n<|id|>52<|level|>4\n<|id|>54<|level|>4\n<|id|>60<|level|>4\n<|id|>64<|level|>4\n<|id|>67<|level|>4\n<|id|>68<|level|>5\n<|id|>77<|level|>4\n<|id|>78<|level|>5\n<|id|>80<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 3
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 5,
+            "level": 4
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 5
+        },
+        {
+            "id": 13,
+            "level": 5
+        },
+        {
+            "id": 15,
+            "level": 5
+        },
+        {
+            "id": 19,
+            "level": 4
+        },
+        {
+            "id": 24,
+            "level": 4
+        },
+        {
+            "id": 31,
+            "level": 4
+        },
+        {
+            "id": 41,
+            "level": 4
+        },
+        {
+            "id": 44,
+            "level": 4
+        },
+        {
+            "id": 50,
+            "level": 4
+        },
+        {
+            "id": 52,
+            "level": 4
+        },
+        {
+            "id": 54,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 4
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 67,
+            "level": 4
+        },
+        {
+            "id": 68,
+            "level": 5
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 78,
+            "level": 5
+        }
+    ]
+}

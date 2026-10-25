@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-c467x_9a\\input\\pdfs\\doc-30213dc3.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-c467x_9a\\enriched\\doc-30213dc3.json",
+    "contd_output": "<|src_id|>235<|tgt_id|>236",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>8<|level|>2\n<|id|>12<|level|>3\n<|id|>19<|level|>3\n<|id|>29<|level|>3\n<|id|>44<|level|>3\n<|id|>54<|level|>3\n<|id|>67<|level|>3\n<|id|>72<|level|>3\n<|id|>81<|level|>3\n<|id|>90<|level|>3\n<|id|>95<|level|>3\n<|id|>104<|level|>3\n<|id|>112<|level|>3\n<|id|>116<|level|>3\n<|id|>122<|level|>3\n<|id|>135<|level|>3\n<|id|>160<|level|>2\n<|id|>167<|level|>2\n<|id|>177<|level|>2\n<|id|>178<|level|>3\n<|id|>195<|level|>2\n<|id|>196<|level|>3\n<|id|>216<|level|>2\n<|id|>221<|level|>2\n<|id|>228<|level|>3\n<|id|>237<|level|>2\n<|id|>238<|level|>2\n<|id|>241<|level|>2",
+    "image_output": "<|src_id|>1<|tgt_id|>0\n<|src_id|>213<|tgt_id|>196\n<|src_id|>225<|tgt_id|>221\n<|src_id|>226<|tgt_id|>221\n<|src_id|>239<|tgt_id|>238\n<|src_id|>240<|tgt_id|>238",
+    "contd_label": [
+        {
+            "src_id": 235,
+            "tgt_id": 236
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 228,
+            "level": 3
+        },
+        {
+            "id": 237,
+            "level": 2
+        },
+        {
+            "id": 238,
+            "level": 2
+        },
+        {
+            "id": 241,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 196
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 239,
+            "tgt_id": 238
+        },
+        {
+            "src_id": 240,
+            "tgt_id": 238
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 225,
+            "table2_idx": 226,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "5.4",
+                    "Co-investment notice period (GP to Investor) and election period (Investor response)",
+                    "10 business days notice / 5 business — days election (to be confirmed) 10 business days notice / 5 business days election",
+                    "To be confirmed 7 business days notice / 3 business days election",
+                    "Open"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "4",
+                    "11.2",
+                    "Timing/mechanics of placement fee offset application",
+                    "Shorter amortization period or lump sum preferred Resolved four (4) years accepted",
+                    "Pro rata over four (4) years",
+                    "Open Resolved"
+                ]
+            ]
+        }
+    ]
+}

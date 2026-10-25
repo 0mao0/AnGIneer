@@ -1,0 +1,160 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-eesgpkvq\\input\\pdfs\\doc-bc826ae1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-eesgpkvq\\enriched\\doc-bc826ae1.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>9<|level|>1\n<|id|>10<|level|>2\n<|id|>17<|level|>3\n<|id|>21<|level|>2\n<|id|>23<|level|>2\n<|id|>26<|level|>3\n<|id|>28<|level|>2\n<|id|>49<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>61<|level|>3\n<|id|>63<|level|>3\n<|id|>66<|level|>2\n<|id|>73<|level|>2\n<|id|>77<|level|>1\n<|id|>78<|level|>2\n<|id|>85<|level|>2\n<|id|>88<|level|>3\n<|id|>91<|level|>2\n<|id|>99<|level|>3\n<|id|>104<|level|>3\n<|id|>107<|level|>3\n<|id|>114<|level|>3\n<|id|>116<|level|>3\n<|id|>120<|level|>3\n<|id|>125<|level|>3",
+    "image_output": "<|src_id|>101<|tgt_id|>99\n<|src_id|>102<|tgt_id|>99",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 101,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 99
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 101,
+            "table2_idx": 102,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Nexford Engineered",
+                    "(To be confirmed)",
+                    "LLC",
+                    "Subsidiary"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Systems, LLC",
+                    "",
+                    "",
+                    "Guarantor"
+                ]
+            ]
+        }
+    ]
+}

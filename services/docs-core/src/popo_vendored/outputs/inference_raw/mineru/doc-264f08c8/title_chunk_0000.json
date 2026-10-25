@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 168 107 828<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>2<|page|>1<|box|>199 403 219 593<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>436 140 454 421<|content|>I. Purpose and Executive Summary\n<|id|>24<|page|>2<|box|>744 140 760 410<|content|>II. Summary of Material Changes\n<|id|>26<|page|>4<|box|>90 140 126 854<|content|>A. Customer Data Ownership (Section 7.1 of Agreeme\n<|id|>38<|page|>6<|box|>90 140 126 854<|content|>B. Aggregated Data Use Restrictions (Section 7.3 o\n<|id|>46<|page|>7<|box|>138 140 157 653<|content|>C. Indemnification Structure and Caps (Section 10\n<|id|>65<|page|>9<|box|>89 140 108 557<|content|>D. General Liability Cap (Section 11.2 of Agreemen\n<|id|>74<|page|>10<|box|>90 140 107 658<|content|>E. SLA Uptime Threshold (Exhibit B — Service Level\n<|id|>82<|page|>11<|box|>90 140 107 750<|content|>F. Chronic Failure Termination Right (Exhibit B —\n<|id|>86<|page|>12<|box|>89 140 126 854<|content|>G. Data Portability Timeline (Section 7.5 of Agree\n<|id|>95<|page|>14<|box|>90 140 108 813<|content|>H. Subprocessor Objection Right (Exhibit C — Data\n<|id|>106<|page|>15<|box|>231 140 250 712<|content|>I. Change-of-Control Assignment Restriction (Secti\n<|id|>116<|page|>16<|box|>422 140 439 674<|content|>J. Governing Law and Dispute Resolution (Section 1\n<|id|>125<|page|>18<|box|>90 140 107 450<|content|>III. Additional Negotiated Refinements\n<|id|>140<|page|>19<|box|>704 140 722 547<|content|>IV. Dravello Data Compliance Advisors Assessment\n<|id|>150<|page|>20<|box|>343 140 359 426<|content|>V. Recommendation and Next Steps\n<|id|>166<|page|>22<|box|>90 140 107 534<|content|>VI. Appendix — Comparison Table of Key Terms",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>8<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>3\n<|id|>38<|level|>3\n<|id|>46<|level|>3\n<|id|>65<|level|>3\n<|id|>74<|level|>3\n<|id|>82<|level|>3\n<|id|>86<|level|>3\n<|id|>95<|level|>3\n<|id|>106<|level|>3\n<|id|>116<|level|>3\n<|id|>125<|level|>2\n<|id|>140<|level|>2\n<|id|>150<|level|>2\n<|id|>166<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        }
+    ]
+}

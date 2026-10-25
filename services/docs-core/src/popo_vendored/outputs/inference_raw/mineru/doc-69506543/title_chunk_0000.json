@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 310 118 687<|content|>PRO RATA RIGHTS SIDE LETTER\n<|id|>6<|page|>1<|box|>371 140 388 243<|content|>RECITALS\n<|id|>15<|page|>2<|box|>90 142 107 313<|content|>Section 1. Definitions\n<|id|>29<|page|>3<|box|>167 140 185 344<|content|>Section 2. Pro Rata Right\n<|id|>30<|page|>3<|box|>199 140 215 294<|content|>2.1 Grant of Right.\n<|id|>40<|page|>4<|box|>487 140 503 344<|content|>2.4 Closing Participation.\n<|id|>47<|page|>5<|box|>138 140 157 344<|content|>2.5 Termination of Right.\n<|id|>53<|page|>5<|box|>398 140 416 676<|content|>Section 3. Representations and Warranties of Each\n<|id|>60<|page|>6<|box|>241 140 258 604<|content|>Section 4. Representations and Warranties of the C\n<|id|>65<|page|>6<|box|>661 140 678 344<|content|>Section 5. Confidentiality\n<|id|>71<|page|>7<|box|>411 140 426 418<|content|>Section 6. Amendment and Waiver\n<|id|>73<|page|>7<|box|>679 140 695 318<|content|>Section 7. Assignment\n<|id|>75<|page|>8<|box|>204 140 220 348<|content|>Section 8. Governing Law\n<|id|>77<|page|>8<|box|>325 140 343 367<|content|>Section 9. Entire Agreement\n<|id|>79<|page|>8<|box|>521 140 537 292<|content|>Section 10. Notices\n<|id|>81<|page|>8<|box|>684 142 700 285<|content|>If to the Company:\n<|id|>100<|page|>9<|box|>340 140 358 328<|content|>Section 11. Severability\n<|id|>102<|page|>9<|box|>555 140 571 341<|content|>Section 12. Counterparts\n<|id|>104<|page|>9<|box|>715 400 734 596<|content|>[Signature Pages Follow]\n<|id|>105<|page|>9<|box|>741 251 758 745<|content|>SIGNATURE PAGE TO PRO RATA RIGHTS SIDE LETTER\n<|id|>106<|page|>9<|box|>767 424 784 571<|content|>— COMPANY —\n<|id|>112<|page|>10<|box|>89 142 150 818<|content|>Date: April 15, 2022 COUNTERPART SIGNATURE PAGE TO\n<|id|>119<|page|>10<|box|>321 176 339 816<|content|>COUNTERPART SIGNATURE PAGE TO PRO RATA RIGHTS SIDE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>15<|level|>2\n<|id|>29<|level|>2\n<|id|>30<|level|>3\n<|id|>40<|level|>3\n<|id|>47<|level|>3\n<|id|>53<|level|>2\n<|id|>60<|level|>2\n<|id|>65<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>3\n<|id|>100<|level|>2\n<|id|>102<|level|>2\n<|id|>104<|level|>-1\n<|id|>105<|level|>1\n<|id|>106<|level|>2\n<|id|>112<|level|>-1\n<|id|>119<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 2
+        }
+    ]
+}

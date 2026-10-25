@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-d927hdz2\\input\\pdfs\\doc-32ebdba8.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-d927hdz2\\enriched\\doc-32ebdba8.json",
+    "contd_output": "<|src_id|>61<|tgt_id|>62\n<|src_id|>132<|tgt_id|>133",
+    "title_output": "<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>34<|level|>1\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>67<|level|>2\n<|id|>88<|level|>2\n<|id|>93<|level|>3\n<|id|>99<|level|>3\n<|id|>110<|level|>3\n<|id|>112<|level|>3\n<|id|>119<|level|>2\n<|id|>137<|level|>3\n<|id|>141<|level|>3\n<|id|>144<|level|>3\n<|id|>147<|level|>3\n<|id|>159<|level|>2\n<|id|>174<|level|>1\n<|id|>180<|level|>1\n<|id|>196<|level|>1\n<|id|>198<|level|>2\n<|id|>208<|level|>2\n<|id|>213<|level|>2\n<|id|>218<|level|>2\n<|id|>222<|level|>2\n<|id|>225<|level|>2\n<|id|>230<|level|>1\n<|id|>233<|level|>1",
+    "image_output": "<|src_id|>107<|tgt_id|>99\n<|src_id|>108<|tgt_id|>99\n<|src_id|>156<|tgt_id|>147\n<|src_id|>157<|tgt_id|>147\n<|src_id|>231<|tgt_id|>230",
+    "contd_label": [
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 180,
+            "level": 1
+        },
+        {
+            "id": 196,
+            "level": 1
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 1
+        },
+        {
+            "id": 233,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 107,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 147
+        },
+        {
+            "src_id": 157,
+            "tgt_id": 147
+        },
+        {
+            "src_id": 231,
+            "tgt_id": 230
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 107,
+            "table2_idx": 108,
+            "upper_row_ss": [
+                [
+                    "Cumulative underreported GRR (2013–2021)",
+                    "$197.8 million"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 156,
+            "table2_idx": 157,
+            "upper_row_ss": [
+                [
+                    "VI — Negligent Misrepresentation",
+                    "Whether the monthly GRR reports constituted representations of fact, independently of the contractual reporting obligation, and whether the economic loss rule"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "applies"
+                ]
+            ]
+        }
+    ]
+}

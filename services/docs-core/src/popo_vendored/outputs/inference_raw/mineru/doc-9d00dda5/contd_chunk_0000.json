@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>556 140 849 857<|content|>WHEREAS, on September 20, 2024, Defendants Thalass...ics SA and Aegean Fortuna Shipholding Ltd. ... and\n<|id|>6<|page|>1<|box|>857 140 893 854<|content|>WHEREAS, the parties, through their respective cou...e the Honorable Gerald K. ... ) of Bayside Dispute\n<|id|>7<|page|>2<|box|>90 140 199 854<|content|>Resolution Services LLC. ... In connection with th...tion for Partial Summary Judgment described herein\n<|id|>17<|page|>2<|box|>830 143 847 346<|content|>Dated: ... November 25, 2024\n<|id|>18<|page|>2<|box|>848 142 864 478<|content|>HARGROVE, DELACROIX & STERN LLP\n<|id|>19<|page|>2<|box|>866 143 883 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>6<|tgt_id|>7",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        }
+    ]
+}

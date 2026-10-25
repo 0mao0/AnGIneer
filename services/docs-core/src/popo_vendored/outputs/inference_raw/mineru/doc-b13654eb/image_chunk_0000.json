@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>10<|type|>title<|page|>1<|box|>691 142 708 333<|content|>1. Scope of Engagement\n<|id|>11<|type|>title<|page|>1<|box|>720 142 737 328<|content|>1.1 Overview of Matter\n<|id|>14<|type|>title<|page|>2<|box|>257 142 273 346<|content|>1.2 Covered Transactions\n<|id|>20<|type|>title<|page|>3<|box|>90 142 107 429<|content|>1.3 APA Scope and Coverage Period\n<|id|>27<|type|>title<|page|>3<|box|>414 140 431 694<|content|>1.4 Phase 1 — APA Application and Contemporaneous\n<|id|>46<|type|>title<|page|>5<|box|>157 142 175 460<|content|>1.5 Phase 2 — APA Negotiation Support\n<|id|>54<|type|>title<|page|>5<|box|>757 143 773 351<|content|>1.6 Exclusions from Scope\n<|id|>60<|type|>title<|page|>6<|box|>464 140 482 230<|content|>2. Staffing\n<|id|>61<|type|>title<|page|>6<|box|>494 140 512 334<|content|>2.1 Responsible Partner\n<|id|>63<|type|>title<|page|>6<|box|>641 140 659 292<|content|>2.2 Billing Partner\n<|id|>65<|type|>title<|page|>6<|box|>750 142 768 321<|content|>2.3 Engagement Team\n<|id|>69<|type|>title<|page|>7<|box|>232 140 250 375<|content|>2.4 Subcontracted Economist\n<|id|>77<|type|>title<|page|>7<|box|>690 140 707 310<|content|>3. Fee Arrangements\n<|id|>78<|type|>title<|page|>7<|box|>720 140 738 279<|content|>3.1 Hourly Rates\n<|id|>80<|type|>table<|page|>7<|box|>767 143 863 852<|content|>None\n<|id|>82<|type|>title<|page|>8<|box|>250 140 266 248<|content|>3.2 Fee Caps\n<|id|>88<|type|>title<|page|>8<|box|>681 140 699 334<|content|>3.3 Billing and Payment\n<|id|>92<|type|>title<|page|>9<|box|>157 140 175 400<|content|>3.4 Disbursements and Expenses\n<|id|>102<|type|>title<|page|>9<|box|>704 140 720 447<|content|>4. Client Contacts and Communication\n<|id|>103<|type|>title<|page|>9<|box|>734 140 752 339<|content|>4.1 Day-to-Day Contacts\n<|id|>108<|type|>title<|page|>10<|box|>231 140 248 367<|content|>4.2 Ultimate Client Contacts\n<|id|>114<|type|>title<|page|>10<|box|>406 140 424 671<|content|>4.3 Functional Contacts (for Interviews and Inform\n<|id|>119<|type|>title<|page|>10<|box|>646 140 662 483<|content|>5. Key Milestones and Deliverable Timeline\n<|id|>121<|type|>table<|page|>10<|box|>751 143 897 852<|content|>None\n<|id|>122<|type|>table<|page|>11<|box|>89 143 232 852<|content|>None\n<|id|>124<|type|>title<|page|>11<|box|>398 140 415 284<|content|>6. Confidentiality\n<|id|>132<|type|>title<|page|>12<|box|>148 140 167 321<|content|>7. Conflicts of Interest\n<|id|>136<|type|>title<|page|>12<|box|>542 140 560 508<|content|>8. Applicable Law and Regulatory Framework\n<|id|>147<|type|>title<|page|>13<|box|>392 140 409 339<|content|>9. Limitation of Liability\n<|id|>151<|type|>title<|page|>13<|box|>767 142 784 274<|content|>10. Termination\n<|id|>156<|type|>title<|page|>14<|box|>366 140 383 480<|content|>11. Governing Law and Dispute Resolution\n<|id|>159<|type|>title<|page|>14<|box|>679 142 696 380<|content|>12. Acceptance and Execution\n<|id|>164<|type|>title<|page|>15<|box|>160 140 176 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>171<|type|>title<|page|>15<|box|>289 383 305 614<|content|>ACCEPTED AND AGREED\n<|id|>173<|type|>title<|page|>15<|box|>378 142 393 441<|content|>HALCYON SEMICONDUCTOR AG\n<|id|>185<|type|>title<|page|>15<|box|>642 434 659 563<|content|>ENCLOSURES",
+    "raw_response": "<|src_id|>80<|tgt_id|>78\n<|src_id|>121<|tgt_id|>119\n<|src_id|>122<|tgt_id|>119",
+    "parsed": [
+        {
+            "src_id": 80,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 119
+        }
+    ]
+}

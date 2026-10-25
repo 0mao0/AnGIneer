@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>305 153 340 844<|content|>DEFENDANT STONEFIELD LOGISTICS GROUP INC.'S NOTICE\n<|id|>5<|page|>1<|box|>643 140 660 382<|content|>I. DEPOSITION LOGISTICS\n<|id|>12<|page|>2<|box|>329 142 345 423<|content|>II. DESIGNATION OBLIGATION\n<|id|>18<|page|>2<|box|>773 140 790 413<|content|>III. TOPICS OF EXAMINATION\n<|id|>20<|page|>2<|box|>830 142 849 740<|content|>Topic 1: Corporate Structure, Organization, and De\n<|id|>31<|page|>3<|box|>559 143 575 509<|content|>Topic 2: Negotiation and Execution of the TSA\n<|id|>46<|page|>4<|box|>540 142 558 815<|content|>Topic 3: Performance of the TSA — VTS Service Leve\n<|id|>58<|page|>5<|box|>407 142 425 751<|content|>Topic 4: Fleet Management, Capacity Allocation, an\n<|id|>68<|page|>6<|box|>257 142 273 478<|content|>Topic 5: The Cure Notice and Cure Period\n<|id|>82<|page|>7<|box|>202 140 219 725<|content|>Topic 6: Vantor's Allegations of Breach by Stonefi\n<|id|>89<|page|>7<|box|>642 142 659 609<|content|>Topic 7: Vantor's Allegations of Lane Exclusivity\n<|id|>95<|page|>8<|box|>202 140 219 720<|content|>Topic 8: Termination of the TSA and Vantor's Claim\n<|id|>101<|page|>8<|box|>598 142 616 697<|content|>Topic 9: Damages Calculation — Methodology, Data,\n<|id|>115<|page|>9<|box|>551 142 569 401<|content|>Topic 10: Mitigation of Damages\n<|id|>126<|page|>10<|box|>263 142 282 607<|content|>Topic 11: Workforce Reduction and Stranded Asset C\n<|id|>139<|page|>11<|box|>90 142 107 596<|content|>Topic 12: Communications with Counsel and Fee Disp\n<|id|>146<|page|>11<|box|>575 142 594 612<|content|>IV. DOCUMENTS TO BE AVAILABLE AT DEPOSITION\n<|id|>159<|page|>12<|box|>395 140 412 290<|content|>V. DEFINITIONS\n<|id|>172<|page|>13<|box|>223 142 239 315<|content|>VI. INSTRUCTIONS\n<|id|>177<|page|>13<|box|>696 140 714 421<|content|>VII. RESERVATION OF RIGHTS\n<|id|>181<|page|>14<|box|>170 403 188 591<|content|>Respectfully submitted,\n<|id|>191<|page|>14<|box|>375 374 393 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>12<|level|>2\n<|id|>18<|level|>2\n<|id|>20<|level|>3\n<|id|>31<|level|>3\n<|id|>46<|level|>3\n<|id|>58<|level|>3\n<|id|>68<|level|>3\n<|id|>82<|level|>3\n<|id|>89<|level|>3\n<|id|>95<|level|>3\n<|id|>101<|level|>3\n<|id|>115<|level|>3\n<|id|>126<|level|>3\n<|id|>139<|level|>3\n<|id|>146<|level|>2\n<|id|>159<|level|>2\n<|id|>172<|level|>2\n<|id|>177<|level|>2\n<|id|>181<|level|>-1\n<|id|>191<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 191,
+            "level": 1
+        }
+    ]
+}

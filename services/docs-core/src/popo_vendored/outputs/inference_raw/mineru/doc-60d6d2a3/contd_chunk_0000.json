@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 176 107 854<|content|>DUNMORE ENERGY HOLDINGS LTD. ... 2200 Post Oak Boulevard, Suite 3100 Houston,\n<|id|>1<|page|>1<|box|>108 754 126 856<|content|>Texas 77056\n<|id|>2<|page|>1<|box|>133 722 152 854<|content|>October 15, 2023\n<|id|>3<|page|>1<|box|>160 140 196 854<|content|>Dr. ... Carolyn Whitford Founder & Managing Direct...00 Richmond Avenue, Suite 800 Houston, Texas 77098\n<|id|>4<|page|>1<|box|>204 140 239 854<|content|>Re: ... IN23-7-000\n<|id|>5<|page|>1<|box|>248 140 265 287<|content|>Dear Dr. ... Whitford\n<|id|>40<|page|>5<|box|>329 174 383 854<|content|>(e) Reporting obligations of market participants a...nd Dunmore's internal compliance policies; ... and\n<|id|>42<|page|>5<|box|>454 140 527 854<|content|>The initial compliance training session shall be d...ent Agreement with FERC in Docket No. ... 3 below)\n<|id|>53<|page|>6<|box|>304 174 339 854<|content|>(f) Adherence by DPT trading personnel and managem...set forth in the Enhanced Compliance Plan; ... and\n<|id|>55<|page|>6<|box|>410 140 503 854<|content|>Following each quarterly audit, Ridgeway shall pre...each calendar quarter during the Monitoring Period\n<|id|>64<|page|>7<|box|>277 174 332 854<|content|>(d) Guidance on the configuration and calibration ...an and FERC's anti-manipulation framework; ... and\n<|id|>66<|page|>7<|box|>402 140 458 854<|content|>Ridgeway shall deliver a written trade surveillanc...Harkness upon completion of the validation process\n<|id|>144<|page|>14<|box|>311 142 329 330<|content|>Name: ... Martin Llewellyn\n<|id|>145<|page|>14<|box|>330 143 345 315<|content|>Title: ... General Counsel\n<|id|>146<|page|>14<|box|>347 143 363 318<|content|>Date: ... October 15, 2023\n<|id|>147<|page|>14<|box|>364 143 380 490<|content|>Address: ... 2200 Post Oak Boulevard, Suite 3100\n<|id|>148<|page|>14<|box|>381 142 397 313<|content|>Houston, Texas 77056\n<|id|>149<|page|>14<|box|>398 143 414 379<|content|>ACCEPTED AND AGREED: ... ACCEPTED AND AGREED\n<|id|>152<|page|>14<|box|>459 142 474 359<|content|>Name: ... Carolyn Whitford\n<|id|>153<|page|>14<|box|>476 143 493 415<|content|>Title: ... Founder & Managing Director\n<|id|>154<|page|>14<|box|>493 143 508 318<|content|>Date: ... October 15, 2023\n<|id|>155<|page|>14<|box|>510 143 526 470<|content|>Address: ... 3000 Richmond Avenue, Suite 800\n<|id|>156<|page|>14<|box|>527 142 544 313<|content|>Houston, Texas 77098\n<|id|>162<|page|>14<|box|>744 142 760 326<|content|>Name: ... Catherine Bloom\n<|id|>163<|page|>14<|box|>761 143 776 248<|content|>Title: ... Partner\n<|id|>164<|page|>14<|box|>777 142 794 318<|content|>Date: ... October 15, 2023\n<|id|>165<|page|>14<|box|>794 142 811 442<|content|>Address: ... 1001 Fannin Street, Suite 4200\n<|id|>166<|page|>14<|box|>811 142 829 529<|content|>Houston, Texas 77002 C&H Matter No. ... 1016-00004",
+    "raw_response": "<|src_id|>0<|tgt_id|>1\n<|src_id|>147<|tgt_id|>148\n<|src_id|>155<|tgt_id|>156\n<|src_id|>165<|tgt_id|>166",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 156
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 166
+        }
+    ]
+}

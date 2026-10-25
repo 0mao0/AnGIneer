@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        13,
+        26
+    ],
+    "pages": [
+        13,
+        14,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>98<|page|>13<|box|>859 140 895 857<|content|>The auto-deduction creates a problem only when an ...uction reduces the employee's compensable hours by\n<|id|>99<|page|>14<|box|>90 140 183 856<|content|>30 minutes that should have been paid, and the emp...what actually happened during the employee's shift\n<|id|>193<|page|>26<|box|>184 140 220 854<|content|>3. ... and\n<|id|>195<|page|>26<|box|>275 676 294 854<|content|>Respectfully submitted,\n<|id|>196<|page|>26<|box|>301 694 319 854<|content|>Dated: ... June 16, 2023\n<|id|>205<|page|>26<|box|>667 174 723 854<|content|>Marco Castellano, Esq. ... (213) 555-3401 Attorneys for Plaintiffs\n<|id|>206<|page|>26<|box|>729 174 785 854<|content|>Sandra Higuera, Esq. ... (310) 555-8801 PAGA Co-Counsel for Plaintiffs\n<|id|>207<|page|>26<|box|>792 140 848 854<|content|>BY ELECTRONIC SERVICE: ... Based on a court order ...sted above via File & ServeXpress on June 16, 2023",
+    "raw_response": "<|src_id|>98<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        }
+    ]
+}

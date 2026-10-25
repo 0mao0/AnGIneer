@@ -1,0 +1,711 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-5xpoyer0\\input\\pdfs\\doc-a7146bd6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-5xpoyer0\\enriched\\doc-a7146bd6.json",
+    "contd_output": "<|src_id|>10<|tgt_id|>11\n<|src_id|>35<|tgt_id|>36\n<|src_id|>114<|tgt_id|>115\n<|src_id|>122<|tgt_id|>123\n<|src_id|>200<|tgt_id|>201\n<|src_id|>463<|tgt_id|>464",
+    "title_output": "<|id|>8<|level|>1\n<|id|>9<|level|>2\n<|id|>20<|level|>2\n<|id|>26<|level|>2\n<|id|>34<|level|>2\n<|id|>37<|level|>3\n<|id|>40<|level|>1\n<|id|>41<|level|>2\n<|id|>55<|level|>2\n<|id|>58<|level|>2\n<|id|>65<|level|>2\n<|id|>70<|level|>2\n<|id|>76<|level|>1\n<|id|>77<|level|>2\n<|id|>88<|level|>2\n<|id|>91<|level|>3\n<|id|>107<|level|>3\n<|id|>119<|level|>3\n<|id|>126<|level|>3\n<|id|>132<|level|>3\n<|id|>150<|level|>2\n<|id|>157<|level|>2\n<|id|>161<|level|>1\n<|id|>162<|level|>2\n<|id|>166<|level|>2\n<|id|>170<|level|>2\n<|id|>180<|level|>2\n<|id|>188<|level|>1\n<|id|>189<|level|>2\n<|id|>208<|level|>2\n<|id|>213<|level|>2\n<|id|>225<|level|>2\n<|id|>240<|level|>2\n<|id|>248<|level|>1\n<|id|>249<|level|>2\n<|id|>255<|level|>2\n<|id|>259<|level|>2\n<|id|>272<|level|>2\n<|id|>280<|level|>2\n<|id|>288<|level|>1\n<|id|>289<|level|>2\n<|id|>295<|level|>2\n<|id|>298<|level|>2\n<|id|>301<|level|>2\n<|id|>308<|level|>1\n<|id|>309<|level|>2\n<|id|>313<|level|>2\n<|id|>315<|level|>3\n<|id|>322<|level|>3\n<|id|>329<|level|>3\n<|id|>336<|level|>3\n<|id|>344<|level|>2\n<|id|>351<|level|>2\n<|id|>359<|level|>2\n<|id|>364<|level|>1\n<|id|>365<|level|>2\n<|id|>375<|level|>2\n<|id|>379<|level|>2\n<|id|>382<|level|>2\n<|id|>388<|level|>1\n<|id|>389<|level|>2\n<|id|>392<|level|>2\n<|id|>398<|level|>2\n<|id|>409<|level|>2\n<|id|>416<|level|>1\n<|id|>417<|level|>2\n<|id|>422<|level|>2\n<|id|>431<|level|>2\n<|id|>441<|level|>1\n<|id|>442<|level|>2\n<|id|>448<|level|>2\n<|id|>459<|level|>1\n<|id|>460<|level|>2\n<|id|>467<|level|>2\n<|id|>472<|level|>2\n<|id|>476<|level|>2\n<|id|>486<|level|>1\n<|id|>498<|level|>1\n<|id|>499<|level|>2\n<|id|>509<|level|>2\n<|id|>513<|level|>2\n<|id|>517<|level|>2\n<|id|>521<|level|>2\n<|id|>525<|level|>3",
+    "image_output": "<|src_id|>6<|tgt_id|>8\n<|src_id|>22<|tgt_id|>20\n<|src_id|>24<|tgt_id|>20\n<|src_id|>43<|tgt_id|>41\n<|src_id|>60<|tgt_id|>58\n<|src_id|>61<|tgt_id|>58\n<|src_id|>67<|tgt_id|>65\n<|src_id|>93<|tgt_id|>91\n<|src_id|>94<|tgt_id|>91\n<|src_id|>109<|tgt_id|>107\n<|src_id|>121<|tgt_id|>119\n<|src_id|>128<|tgt_id|>126\n<|src_id|>168<|tgt_id|>166\n<|src_id|>177<|tgt_id|>170\n<|src_id|>186<|tgt_id|>180\n<|src_id|>210<|tgt_id|>208\n<|src_id|>242<|tgt_id|>240\n<|src_id|>243<|tgt_id|>240\n<|src_id|>251<|tgt_id|>249\n<|src_id|>252<|tgt_id|>249\n<|src_id|>256<|tgt_id|>255\n<|src_id|>310<|tgt_id|>309\n<|src_id|>311<|tgt_id|>309\n<|src_id|>348<|tgt_id|>344\n<|src_id|>376<|tgt_id|>375\n<|src_id|>394<|tgt_id|>392\n<|src_id|>395<|tgt_id|>392\n<|src_id|>418<|tgt_id|>417\n<|src_id|>419<|tgt_id|>417\n<|src_id|>433<|tgt_id|>431\n<|src_id|>501<|tgt_id|>499\n<|src_id|>510<|tgt_id|>509\n<|src_id|>511<|tgt_id|>509\n<|src_id|>515<|tgt_id|>513\n<|src_id|>518<|tgt_id|>517\n<|src_id|>519<|tgt_id|>517\n<|src_id|>522<|tgt_id|>521\n<|src_id|>523<|tgt_id|>521\n<|src_id|>524<|tgt_id|>521\n<|src_id|>526<|tgt_id|>525",
+    "contd_label": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 200,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 463,
+            "tgt_id": 464
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 1
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 2
+        },
+        {
+            "id": 248,
+            "level": 1
+        },
+        {
+            "id": 249,
+            "level": 2
+        },
+        {
+            "id": 255,
+            "level": 2
+        },
+        {
+            "id": 259,
+            "level": 2
+        },
+        {
+            "id": 272,
+            "level": 2
+        },
+        {
+            "id": 280,
+            "level": 2
+        },
+        {
+            "id": 288,
+            "level": 1
+        },
+        {
+            "id": 289,
+            "level": 2
+        },
+        {
+            "id": 295,
+            "level": 2
+        },
+        {
+            "id": 298,
+            "level": 2
+        },
+        {
+            "id": 301,
+            "level": 2
+        },
+        {
+            "id": 308,
+            "level": 1
+        },
+        {
+            "id": 309,
+            "level": 2
+        },
+        {
+            "id": 313,
+            "level": 2
+        },
+        {
+            "id": 315,
+            "level": 3
+        },
+        {
+            "id": 322,
+            "level": 3
+        },
+        {
+            "id": 329,
+            "level": 3
+        },
+        {
+            "id": 336,
+            "level": 3
+        },
+        {
+            "id": 344,
+            "level": 2
+        },
+        {
+            "id": 351,
+            "level": 2
+        },
+        {
+            "id": 359,
+            "level": 2
+        },
+        {
+            "id": 364,
+            "level": 1
+        },
+        {
+            "id": 365,
+            "level": 2
+        },
+        {
+            "id": 375,
+            "level": 2
+        },
+        {
+            "id": 379,
+            "level": 2
+        },
+        {
+            "id": 382,
+            "level": 2
+        },
+        {
+            "id": 388,
+            "level": 1
+        },
+        {
+            "id": 389,
+            "level": 2
+        },
+        {
+            "id": 392,
+            "level": 2
+        },
+        {
+            "id": 398,
+            "level": 2
+        },
+        {
+            "id": 409,
+            "level": 2
+        },
+        {
+            "id": 416,
+            "level": 1
+        },
+        {
+            "id": 417,
+            "level": 2
+        },
+        {
+            "id": 422,
+            "level": 2
+        },
+        {
+            "id": 431,
+            "level": 2
+        },
+        {
+            "id": 441,
+            "level": 1
+        },
+        {
+            "id": 442,
+            "level": 2
+        },
+        {
+            "id": 448,
+            "level": 2
+        },
+        {
+            "id": 459,
+            "level": 1
+        },
+        {
+            "id": 460,
+            "level": 2
+        },
+        {
+            "id": 467,
+            "level": 2
+        },
+        {
+            "id": 472,
+            "level": 2
+        },
+        {
+            "id": 476,
+            "level": 2
+        },
+        {
+            "id": 486,
+            "level": 1
+        },
+        {
+            "id": 498,
+            "level": 1
+        },
+        {
+            "id": 499,
+            "level": 2
+        },
+        {
+            "id": 509,
+            "level": 2
+        },
+        {
+            "id": 513,
+            "level": 2
+        },
+        {
+            "id": 517,
+            "level": 2
+        },
+        {
+            "id": 521,
+            "level": 2
+        },
+        {
+            "id": 525,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 6,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 180
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 242,
+            "tgt_id": 240
+        },
+        {
+            "src_id": 243,
+            "tgt_id": 240
+        },
+        {
+            "src_id": 251,
+            "tgt_id": 249
+        },
+        {
+            "src_id": 252,
+            "tgt_id": 249
+        },
+        {
+            "src_id": 256,
+            "tgt_id": 255
+        },
+        {
+            "src_id": 310,
+            "tgt_id": 309
+        },
+        {
+            "src_id": 311,
+            "tgt_id": 309
+        },
+        {
+            "src_id": 348,
+            "tgt_id": 344
+        },
+        {
+            "src_id": 376,
+            "tgt_id": 375
+        },
+        {
+            "src_id": 394,
+            "tgt_id": 392
+        },
+        {
+            "src_id": 395,
+            "tgt_id": 392
+        },
+        {
+            "src_id": 418,
+            "tgt_id": 417
+        },
+        {
+            "src_id": 419,
+            "tgt_id": 417
+        },
+        {
+            "src_id": 433,
+            "tgt_id": 431
+        },
+        {
+            "src_id": 501,
+            "tgt_id": 499
+        },
+        {
+            "src_id": 510,
+            "tgt_id": 509
+        },
+        {
+            "src_id": 511,
+            "tgt_id": 509
+        },
+        {
+            "src_id": 515,
+            "tgt_id": 513
+        },
+        {
+            "src_id": 518,
+            "tgt_id": 517
+        },
+        {
+            "src_id": 519,
+            "tgt_id": 517
+        },
+        {
+            "src_id": 522,
+            "tgt_id": 521
+        },
+        {
+            "src_id": 523,
+            "tgt_id": 521
+        },
+        {
+            "src_id": 524,
+            "tgt_id": 521
+        },
+        {
+            "src_id": 526,
+            "tgt_id": 525
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 93,
+            "table2_idx": 94,
+            "upper_row_ss": [
+                [
+                    "Prepayment Premium",
+                    "1.0% of outstanding principal = $826,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 242,
+            "table2_idx": 243,
+            "upper_row_ss": [
+                [
+                    "CFIUS",
+                    "~May 1, 2025",
+                    "June – August 2025 (45–",
+                    "Voluntary filing for safe"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "90 days)",
+                    "harbor"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 251,
+            "table2_idx": 252,
+            "upper_row_ss": [
+                [
+                    "U.S. Patent",
+                    "10,892,XXX",
+                    "SDN-Based Traffic",
+                    "Issued",
+                    "July 2036"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Optimization for Dark Fiber",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 394,
+            "table2_idx": 395,
+            "upper_row_ss": [
+                [
+                    "Reno Colocation Facility: 500 S.",
+                    "Virginia Street",
+                    "5 years (exp. June",
+                    "$96,000",
+                    "Standard assignment"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Virginia St., Ste.B-3, Reno, NV",
+                    "Holdings, Inc.",
+                    "2028)",
+                    "",
+                    "clause"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 418,
+            "table2_idx": 419,
+            "upper_row_ss": [
+                [
+                    "Cyber Liability",
+                    "Beazley PLC",
+                    "$10,000,000 per claim",
+                    "$95,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Directors & Officers Liability",
+                    "Pemberton D&O Assurance, Ltd.",
+                    "$25,000,000",
+                    "$145,000"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 510,
+            "table2_idx": 511,
+            "upper_row_ss": [
+                [
+                    "6",
+                    "Alpine Equipment Finance",
+                    "Alpine Equipment Finance,",
+                    "Assignment consent required",
+                    "Not to be unreasonably withheld",
+                    "$5.8M outstanding",
+                    "Low",
+                    "Send consent request;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Capital Lease",
+                    "Inc.",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "confirm terms"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 518,
+            "table2_idx": 519,
+            "upper_row_ss": [
+                [
+                    "Gerald Foss",
+                    "Independent Director",
+                    "No",
+                    "N/A",
+                    "N/A",
+                    "N/A",
+                    "50,000 options"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "(board service grants)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 523,
+            "table2_idx": 524,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "Irrevocable Standby Letter of Credit",
+                    "Thurman Street Partners, LLC (HQ landlord)",
+                    "$250,000",
+                    "Issued by Columbia Gorge National Bank; reduces to $125,000 on"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "September 1, 2025"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,175 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-t0p_mhx3\\input\\pdfs\\doc-4c534cdd.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-t0p_mhx3\\enriched\\doc-4c534cdd.json",
+    "contd_output": "<|src_id|>18<|tgt_id|>19",
+    "title_output": "<|id|>0<|level|>1\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>21<|level|>3\n<|id|>24<|level|>3\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>34<|level|>3\n<|id|>45<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>60<|level|>3\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>76<|level|>3\n<|id|>88<|level|>3\n<|id|>96<|level|>3\n<|id|>99<|level|>3\n<|id|>113<|level|>3\n<|id|>115<|level|>3\n<|id|>117<|level|>2\n<|id|>130<|level|>2\n<|id|>131<|level|>3\n<|id|>135<|level|>3\n<|id|>141<|level|>2\n<|id|>146<|level|>2\n<|id|>159<|level|>2\n<|id|>168<|level|>2\n<|id|>170<|level|>3\n<|id|>180<|level|>3",
+    "image_output": "<|src_id|>22<|tgt_id|>21\n<|src_id|>133<|tgt_id|>131\n<|src_id|>134<|tgt_id|>131\n<|src_id|>143<|tgt_id|>141\n<|src_id|>181<|tgt_id|>180",
+    "contd_label": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 141
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 180
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 133,
+            "table2_idx": 134,
+            "upper_row_ss": [
+                [
+                    "Steps being taken regarding the breach",
+                    "Comprehensive forensic investigation completed; individual consumer notifications mailed; 24 months of complimentary credit monitoring and identity theft protection services offered; dedicated toll-free call"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "center established; vendor remediation and enhanced security measures implemented; vendor indemnification rights asserted; Quorum's own vendor risk management program and incident response capabilities enhanced"
+                ]
+            ]
+        }
+    ]
+}

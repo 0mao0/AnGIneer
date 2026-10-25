@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        98,
+        105
+    ],
+    "pages": [
+        98,
+        99,
+        101,
+        102,
+        103,
+        104,
+        105
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>739<|type|>title<|page|>98<|box|>174 368 200 608<|content|>6 大中修工程\n<|id|>740<|type|>title<|page|>98<|box|>255 398 277 580<|content|>6.2 设计要求\n<|id|>750<|type|>title<|page|>99<|box|>438 393 460 606<|content|>6.3 栽植前准备\n<|id|>751<|type|>title<|page|>99<|box|>492 128 512 401<|content|>6.3.1 施工依据如下：\n<|id|>756<|type|>title<|page|>99<|box|>863 133 885 404<|content|>6.3.2 土壤准备如下：\n<|id|>765<|type|>title<|page|>101<|box|>255 419 275 575<|content|>6.4 栽植\n<|id|>777<|type|>title<|page|>102<|box|>233 123 253 452<|content|>6.4.7 大树移植要求如下：\n<|id|>784<|type|>title<|page|>103<|box|>168 393 194 595<|content|>7 应急处置\n<|id|>785<|type|>title<|page|>103<|box|>250 406 270 585<|content|>7.1 一般规定\n<|id|>788<|type|>image<|page|>103<|box|>478 340 655 656<|content|>None\n<|id|>789<|type|>title<|page|>104<|box|>179 404 205 611<|content|>8 技术档案\n<|id|>790<|type|>title<|page|>104<|box|>260 416 282 601<|content|>8.2 档案装订\n<|id|>811<|type|>title<|page|>105<|box|>321 121 368 866<|content|>8.2.2 应急处置工作(级别为重大级及以上)档案包括以下内容：",
+    "raw_response": "<|src_id|>788<|tgt_id|>785",
+    "parsed": [
+        {
+            "src_id": 788,
+            "tgt_id": 785
+        }
+    ]
+}

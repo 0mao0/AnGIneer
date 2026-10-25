@@ -1,0 +1,108 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        47,
+        97
+    ],
+    "pages": [
+        47,
+        48,
+        70,
+        82,
+        83,
+        96
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>171<|page|>47<|box|>181 360 214 634<|content|>2—5 地形测量 图比 1:10000\n<|id|>174<|page|>48<|box|>251 362 301 629<|content|>第三章 水深测量\n<|id|>175<|page|>48<|box|>364 454 400 540<|content|>说明\n<|id|>176<|page|>48<|box|>428 162 463 316<|content|>一、外业工作内容\n<|id|>178<|page|>48<|box|>597 163 632 317<|content|>二、内业工作内容\n<|id|>182<|page|>48<|box|>767 163 802 446<|content|>三、水深测量难度类别划分见表7\n<|id|>210<|page|>70<|box|>249 341 298 642<|content|>第四章 扫海(床)测量\n<|id|>211<|page|>70<|box|>360 449 395 535<|content|>说明\n<|id|>214<|page|>70<|box|>592 158 630 311<|content|>二、内业工作内容\n<|id|>218<|page|>70<|box|>762 158 800 484<|content|>三、扫海(床)测量难度类别划分见表8\n<|id|>231<|page|>82<|box|>242 357 291 624<|content|>第五章 水文测验\n<|id|>232<|page|>82<|box|>355 449 390 535<|content|>说明\n<|id|>233<|page|>82<|box|>421 158 456 313<|content|>一、外业工作内容\n<|id|>235<|page|>82<|box|>545 158 583 313<|content|>二、内业工作内容\n<|id|>239<|page|>82<|box|>717 160 752 341<|content|>三、泥沙、含盐度测析\n<|id|>242<|page|>83<|box|>150 162 185 441<|content|>四、水文测验难度类别划分见表9\n<|id|>244<|page|>83<|box|>729 162 764 505<|content|>五、适用本章定额的工作范围和计算规定\n<|id|>261<|page|>96<|box|>240 365 291 635<|content|>第六章 专项测量\n<|id|>262<|page|>96<|box|>352 457 390 545<|content|>说明\n<|id|>263<|page|>96<|box|>416 165 451 322<|content|>一、外业工作内容\n<|id|>266<|page|>96<|box|>585 166 623 322<|content|>二、内业工作内容\n<|id|>270<|page|>96<|box|>755 166 792 321<|content|>三、难度类别划分",
+    "raw_response": "<|id|>171<|level|>1\n<|id|>174<|level|>1\n<|id|>175<|level|>2\n<|id|>176<|level|>3\n<|id|>178<|level|>3\n<|id|>182<|level|>3\n<|id|>210<|level|>1\n<|id|>211<|level|>2\n<|id|>214<|level|>3\n<|id|>218<|level|>3\n<|id|>231<|level|>1\n<|id|>232<|level|>2\n<|id|>233<|level|>3\n<|id|>235<|level|>3\n<|id|>239<|level|>3\n<|id|>242<|level|>3\n<|id|>244<|level|>3\n<|id|>261<|level|>1\n<|id|>262<|level|>2\n<|id|>263<|level|>3\n<|id|>266<|level|>3\n<|id|>270<|level|>3",
+    "parsed": [
+        {
+            "id": 171,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 3
+        },
+        {
+            "id": 210,
+            "level": 1
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 214,
+            "level": 3
+        },
+        {
+            "id": 218,
+            "level": 3
+        },
+        {
+            "id": 231,
+            "level": 1
+        },
+        {
+            "id": 232,
+            "level": 2
+        },
+        {
+            "id": 233,
+            "level": 3
+        },
+        {
+            "id": 235,
+            "level": 3
+        },
+        {
+            "id": 239,
+            "level": 3
+        },
+        {
+            "id": 242,
+            "level": 3
+        },
+        {
+            "id": 244,
+            "level": 3
+        },
+        {
+            "id": 261,
+            "level": 1
+        },
+        {
+            "id": 262,
+            "level": 2
+        },
+        {
+            "id": 263,
+            "level": 3
+        },
+        {
+            "id": 266,
+            "level": 3
+        },
+        {
+            "id": 270,
+            "level": 3
+        }
+    ]
+}

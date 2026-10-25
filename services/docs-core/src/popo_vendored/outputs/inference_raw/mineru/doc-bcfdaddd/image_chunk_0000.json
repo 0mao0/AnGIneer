@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>8<|type|>title<|page|>1<|box|>375 140 391 493<|content|>1. Purpose and Confirmation of Engagement\n<|id|>12<|type|>title<|page|>1<|box|>821 140 839 354<|content|>2. Scope of Representation\n<|id|>14<|type|>title<|page|>2<|box|>90 140 107 549<|content|>(a) Anchor Limited Partner Side Letter Agreements\n<|id|>20<|type|>title<|page|>2<|box|>559 140 575 434<|content|>(b) Side Letter Terms and Provisions\n<|id|>34<|type|>title<|page|>3<|box|>694 140 712 501<|content|>(c) Most Favored Nation Election Framework\n<|id|>41<|type|>title<|page|>4<|box|>638 140 656 495<|content|>(d) Coordination with Counterparty Counsel\n<|id|>47<|type|>title<|page|>5<|box|>195 140 212 504<|content|>(e) Internal Analyses and Negotiation Support\n<|id|>53<|type|>title<|page|>5<|box|>554 140 571 517<|content|>(f) Closing Checklist — First Close Deliverables\n<|id|>55<|type|>title<|page|>5<|box|>691 140 709 491<|content|>3. Matters Outside the Scope of Engagement\n<|id|>65<|type|>title<|page|>6<|box|>536 140 553 312<|content|>4. Engagement Team\n<|id|>67<|type|>table<|page|>6<|box|>604 143 902 851<|content|>None\n<|id|>68<|type|>table<|page|>7<|box|>88 143 292 851<|content|>None\n<|id|>70<|type|>title<|page|>7<|box|>440 140 458 290<|content|>5. Fees and Billing\n<|id|>71<|type|>title<|page|>7<|box|>472 142 489 274<|content|>(a) Billing Rates\n<|id|>72<|type|>table<|page|>7<|box|>537 143 651 852<|content|>None\n<|id|>74<|type|>title<|page|>7<|box|>789 142 806 277<|content|>(b) Fee Estimate\n<|id|>77<|type|>title<|page|>8<|box|>294 140 311 397<|content|>(c) Disbursements and Expenses\n<|id|>79<|type|>title<|page|>8<|box|>458 140 474 334<|content|>(d) Billing and Payment\n<|id|>82<|type|>title<|page|>8<|box|>694 140 712 390<|content|>6. Key Timeline and Milestones\n<|id|>84<|type|>table<|page|>8<|box|>781 143 906 852<|content|>None\n<|id|>85<|type|>table<|page|>9<|box|>88 143 186 852<|content|>None\n<|id|>87<|type|>title<|page|>9<|box|>371 140 388 284<|content|>7. Confidentiality\n<|id|>90<|type|>title<|page|>9<|box|>647 140 664 321<|content|>8. Conflicts of Interest\n<|id|>94<|type|>title<|page|>10<|box|>223 140 239 393<|content|>9. Client Identity and Authority\n<|id|>100<|type|>title<|page|>10<|box|>559 142 575 334<|content|>10. Document Retention\n<|id|>103<|type|>title<|page|>10<|box|>779 140 796 297<|content|>11. Governing Law\n<|id|>105<|type|>title<|page|>11<|box|>148 142 167 274<|content|>12. Termination\n<|id|>108<|type|>title<|page|>11<|box|>407 142 424 406<|content|>13. Acceptance and Counterparts\n<|id|>113<|type|>title<|page|>11<|box|>773 140 790 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>117<|type|>title<|page|>11<|box|>868 351 883 645<|content|>ACKNOWLEDGED AND AGREED\n<|id|>118<|type|>title<|page|>12<|box|>89 140 106 602<|content|>PINNACLE VENTURE CAPITAL MANAGEMENT LLC",
+    "raw_response": "<|src_id|>67<|tgt_id|>65\n<|src_id|>68<|tgt_id|>65\n<|src_id|>72<|tgt_id|>71\n<|src_id|>84<|tgt_id|>82\n<|src_id|>85<|tgt_id|>82",
+    "parsed": [
+        {
+            "src_id": 67,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 82
+        }
+    ]
+}

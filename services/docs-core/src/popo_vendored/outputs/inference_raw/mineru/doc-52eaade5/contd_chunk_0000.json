@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        7,
+        12
+    ],
+    "pages": [
+        7,
+        8,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>55<|page|>7<|box|>825 140 898 857<|content|>10. ... Green Building\n<|id|>56<|page|>8<|box|>90 140 181 856<|content|>Council's Leadership in Energy and Environmental D...ainers or access to centralized recycling stations\n<|id|>95<|page|>12<|box|>402 174 439 854<|content|>(c) Commercial umbrella/excess liability insurance...,000) per occurrence and in the aggregate; ... and\n<|id|>97<|page|>12<|box|>508 140 583 854<|content|>Tenant shall deliver certificates of insurance evi...ty and umbrella policies, as required by the Lease",
+    "raw_response": "<|src_id|>55<|tgt_id|>56",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        }
+    ]
+}

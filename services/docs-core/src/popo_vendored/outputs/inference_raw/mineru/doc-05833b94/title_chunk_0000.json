@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 416 118 580<|content|>BILL OF SALE\n<|id|>2<|page|>1<|box|>162 274 179 722<|content|>LAKEWOOD REGIONAL HEALTH PARTNERS, LLC\n<|id|>4<|page|>1<|box|>214 310 229 687<|content|>CRESTLINE PACKAGING SOLUTIONS LLC\n<|id|>7<|page|>1<|box|>364 140 381 241<|content|>RECITALS\n<|id|>12<|page|>1<|box|>710 140 728 470<|content|>Section 1 — Transfer of Purchased Assets\n<|id|>17<|page|>2<|box|>267 140 284 400<|content|>Section 2 — Excluded Liabilities\n<|id|>19<|page|>2<|box|>536 140 551 524<|content|>Section 3 — Asset Purchase Agreement Controls\n<|id|>22<|page|>2<|box|>848 140 864 398<|content|>Section 4 — Further Assurances\n<|id|>26<|page|>3<|box|>277 140 294 424<|content|>Section 5 — Successors and Assigns\n<|id|>28<|page|>3<|box|>417 140 434 367<|content|>Section 6 — Governing Law\n<|id|>30<|page|>3<|box|>559 140 575 349<|content|>Section 7 — Counterparts\n<|id|>32<|page|>3<|box|>734 140 752 341<|content|>Section 8 — Amendment\n<|id|>35<|page|>3<|box|>885 334 901 663<|content|>SIGNATURE PAGE TO BILL OF SALE\n<|id|>37<|page|>4<|box|>133 142 150 225<|content|>SELLER:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>2\n<|id|>22<|level|>2\n<|id|>26<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        }
+    ]
+}

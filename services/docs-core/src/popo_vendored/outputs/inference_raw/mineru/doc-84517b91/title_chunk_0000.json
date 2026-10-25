@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>113 148 157 848<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF PENTERRA\n<|id|>1<|page|>1<|box|>174 228 218 769<|content|>Adopted by Unanimous Written Consent in Lieu of a\n<|id|>2<|page|>1<|box|>241 142 258 390<|content|>PREAMBLE AND RECITALS\n<|id|>40<|page|>6<|box|>186 140 203 279<|content|>RESOLUTIONS\n<|id|>41<|page|>6<|box|>210 140 229 377<|content|>NOW, THEREFORE, BE IT:\n<|id|>42<|page|>6<|box|>243 142 260 576<|content|>Resolution 1: Determination of Material Adverse Ef\n<|id|>44<|page|>6<|box|>517 142 534 617<|content|>Resolution 2: Determination of Failure of Closing\n<|id|>48<|page|>6<|box|>843 142 859 534<|content|>Resolution 3: Authorization to Terminate the SPA\n<|id|>51<|page|>7<|box|>231 140 248 598<|content|>Resolution 4: Authorization to Deliver Termination\n<|id|>53<|page|>7<|box|>505 140 522 580<|content|>Resolution 5: Authorization to Deliver Ancillary N\n<|id|>60<|page|>8<|box|>239 140 256 643<|content|>Resolution 6: Engagement of Counsel for Litigation\n<|id|>62<|page|>8<|box|>604 140 621 594<|content|>Resolution 7: Authorization to Implement Litigatio\n<|id|>64<|page|>9<|box|>157 140 174 583<|content|>Resolution 8: Authorization to Take All Further Ac\n<|id|>71<|page|>9<|box|>799 142 816 346<|content|>Resolution 9: Ratification\n<|id|>73<|page|>10<|box|>167 140 184 444<|content|>UNANIMOUS WRITTEN CONSENT\n<|id|>75<|page|>10<|box|>383 142 400 496<|content|>MARGARET LIU WHITFIELD Board Chair\n<|id|>96<|page|>10<|box|>767 140 784 426<|content|>SECRETARY'S CERTIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>42<|level|>4\n<|id|>44<|level|>4\n<|id|>48<|level|>4\n<|id|>51<|level|>4\n<|id|>53<|level|>4\n<|id|>60<|level|>4\n<|id|>62<|level|>4\n<|id|>64<|level|>4\n<|id|>71<|level|>4\n<|id|>73<|level|>2\n<|id|>75<|level|>3\n<|id|>96<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 4
+        },
+        {
+            "id": 44,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 53,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 192 176 803<|content|>CALDERWOOD & HARKNESS LLP MEMORANDUM CONFIDENTIAL\n<|id|>7<|type|>title<|page|>1<|box|>378 372 398 624<|content|>I. Purpose and Summary\n<|id|>12<|type|>title<|page|>2<|box|>90 388 111 607<|content|>II. Engagement Team\n<|id|>13<|type|>table<|page|>2<|box|>152 143 265 852<|content|>None\n<|id|>16<|type|>title<|page|>2<|box|>462 377 482 620<|content|>III. Client Identification\n<|id|>18<|type|>title<|page|>2<|box|>544 142 561 570<|content|>Full Legal Name: Cascadia State Infrastructure Aut\n<|id|>29<|type|>title<|page|>3<|box|>286 333 305 665<|content|>IV. Transaction Parties Searched\n<|id|>31<|type|>title<|page|>3<|box|>436 142 454 276<|content|>A. Underwriters\n<|id|>32<|type|>title<|page|>3<|box|>468 142 486 663<|content|>1. Meridian Capital Partners LLC (Senior Managing\n<|id|>39<|type|>title<|page|>3<|box|>854 140 871 601<|content|>2. Dralvecen Fenn & Co., Inc. (Co-Managing Underwr\n<|id|>46<|type|>title<|page|>4<|box|>398 140 417 601<|content|>B. Bond Trustee / Paying Agent / Registrar / Escro\n<|id|>47<|type|>title<|page|>4<|box|>430 140 448 540<|content|>3. Pacific Northwest Trust Company, N.A. (PNTC)\n<|id|>55<|type|>title<|page|>5<|box|>258 140 277 413<|content|>C. Bond Insurer / Surety Provider\n<|id|>63<|type|>title<|page|>5<|box|>704 142 720 308<|content|>D. Co-Bond Counsel\n<|id|>64<|type|>title<|page|>5<|box|>734 140 752 333<|content|>5. Pryor Crestfield LLP\n<|id|>71<|type|>title<|page|>6<|box|>348 140 364 346<|content|>E. Underwriters' Counsel\n<|id|>72<|type|>title<|page|>6<|box|>378 140 395 357<|content|>6. Alderman & Locke LLP\n<|id|>73<|type|>title<|page|>6<|box|>402 140 419 464<|content|>Full Legal Name: Alderman & Locke LLP\n<|id|>79<|type|>title<|page|>7<|box|>90 142 107 313<|content|>F. Municipal Advisor\n<|id|>80<|type|>title<|page|>7<|box|>121 140 138 442<|content|>7. Clearfield Municipal Advisors LLC\n<|id|>87<|type|>title<|page|>7<|box|>516 140 534 334<|content|>G. Independent Auditor\n<|id|>88<|type|>title<|page|>7<|box|>547 140 564 450<|content|>8. Hargrove & Associates CPAs, PLLC\n<|id|>95<|type|>title<|page|>8<|box|>90 140 107 362<|content|>H. Design-Build Contractor\n<|id|>96<|type|>title<|page|>8<|box|>121 140 138 500<|content|>9. Northtide Environmental Engineering, Inc.\n<|id|>103<|type|>title<|page|>8<|box|>516 140 534 290<|content|>I. Rating Agencies\n<|id|>104<|type|>title<|page|>8<|box|>547 142 564 413<|content|>10. Lakeshore Ratings Group, Inc.\n<|id|>111<|type|>title<|page|>9<|box|>90 140 107 411<|content|>11. Pinnacle Credit Analytics, Inc.\n<|id|>118<|type|>title<|page|>9<|box|>380 379 400 617<|content|>V. Search Methodology\n<|id|>127<|type|>title<|page|>10<|box|>396 344 415 653<|content|>VI. Analysis of Potential Issues\n<|id|>129<|type|>title<|page|>10<|box|>511 142 527 504<|content|>A. Multi-Party Representation Considerations\n<|id|>133<|type|>title<|page|>11<|box|>167 140 184 393<|content|>B. Prior PNTC Representations\n<|id|>140<|type|>title<|page|>11<|box|>840 140 857 527<|content|>C. Governmental Instrumentality Considerations\n<|id|>143<|type|>title<|page|>12<|box|>308 343 328 655<|content|>VII. Conclusion and Clearance\n<|id|>146<|type|>title<|page|>12<|box|>561 140 579 571<|content|>This matter (No. 1030-00001) is cleared for accept\n<|id|>149<|type|>title<|page|>12<|box|>714 421 734 576<|content|>VIII. Approval\n<|id|>150<|type|>title<|page|>12<|box|>751 140 768 250<|content|>Prepared by:\n<|id|>154<|type|>title<|page|>14<|box|>90 243 111 754<|content|>Appendix A — Summary Table of Parties Searched\n<|id|>155<|type|>table<|page|>14<|box|>172 143 804 852<|content|>None",
+    "raw_response": "<|src_id|>13<|tgt_id|>12\n<|src_id|>155<|tgt_id|>154",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 154
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 176 142 820<|content|>SECRETARY'S CERTIFICATE OF GREYSTONE MERIDIAN CAPI\n<|id|>5<|type|>title<|page|>1<|box|>479 142 496 506<|content|>1. CERTIFYING PARTY IDENTIFICATION\n<|id|>10<|type|>title<|page|>1<|box|>806 140 824 259<|content|>2. RECITALS\n<|id|>12<|type|>table<|page|>2<|box|>89 143 368 854<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>784 140 801 323<|content|>3. CERTIFICATIONS\n<|id|>19<|type|>title<|page|>2<|box|>816 140 833 500<|content|>3.1 Organization and Good Standing of GMC\n<|id|>24<|type|>title<|page|>3<|box|>474 140 491 570<|content|>3.2 Organization and Good Standing of GMP Fund III\n<|id|>30<|type|>title<|page|>4<|box|>294 140 310 401<|content|>3.3 Authorization — Resolutions\n<|id|>51<|type|>title<|page|>5<|box|>837 140 854 266<|content|>3.4 No Conflict\n<|id|>62<|type|>table<|page|>6<|box|>744 143 801 852<|content|>None\n<|id|>65<|type|>title<|page|>7<|box|>220 140 238 415<|content|>3.6 Seller's Knowledge Individuals\n<|id|>71<|type|>title<|page|>7<|box|>488 140 505 297<|content|>3.7 No Proceedings\n<|id|>77<|type|>title<|page|>7<|box|>773 140 792 444<|content|>3.8 LP Agreement Consent / Approval\n<|id|>80<|type|>title<|page|>8<|box|>248 140 265 330<|content|>4. LIST OF EXHIBITS\n<|id|>87<|type|>title<|page|>8<|box|>536 140 553 263<|content|>5. RELIANCE\n<|id|>95<|type|>title<|page|>9<|box|>89 210 125 854<|content|>(iii) Sycamore Life Insurance Company and its coun\n<|id|>98<|type|>title<|page|>10<|box|>89 140 107 274<|content|>6. SIGNATURE\n<|id|>105<|type|>title<|page|>10<|box|>299 140 316 392<|content|>COUNTER-CERTIFICATION\n<|id|>112<|type|>title<|page|>11<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>113<|type|>title<|page|>11<|box|>128 173 164 823<|content|>Certificate of Formation of Greystone Meridian Cap\n<|id|>114<|type|>title<|page|>11<|box|>172 140 190 473<|content|>Filed with the Delaware Secretary of State\n<|id|>115<|type|>title<|page|>11<|box|>199 140 215 465<|content|>[Organizational document attached hereto]\n<|id|>117<|type|>title<|page|>12<|box|>90 434 109 563<|content|>EXHIBIT B\n<|id|>118<|type|>title<|page|>12<|box|>128 174 147 821<|content|>Operating Agreement of Greystone Meridian Capital\n<|id|>119<|type|>title<|page|>12<|box|>154 140 172 465<|content|>[Organizational document attached hereto]\n<|id|>121<|type|>title<|page|>13<|box|>90 434 109 563<|content|>EXHIBIT C\n<|id|>127<|type|>title<|page|>14<|box|>90 434 109 563<|content|>EXHIBIT D\n<|id|>128<|type|>title<|page|>14<|box|>128 174 164 823<|content|>Limited Partnership Agreement of Greystone Meridia\n<|id|>131<|type|>title<|page|>15<|box|>89 434 111 563<|content|>EXHIBIT E\n<|id|>132<|type|>title<|page|>15<|box|>127 150 183 844<|content|>RESOLUTIONS OF THE MANAGING PARTNERS OF GREYSTONE\n<|id|>157<|type|>title<|page|>16<|box|>364 140 380 473<|content|>Resolution 1: Approval of the Transaction\n<|id|>174<|type|>title<|page|>16<|box|>791 140 808 540<|content|>Resolution 2: Approval of the Purchase Agreement\n<|id|>176<|type|>title<|page|>17<|box|>157 140 175 537<|content|>Resolution 3: Authorization of Closing Documents\n<|id|>178<|type|>title<|page|>17<|box|>340 140 357 473<|content|>Resolution 4: Authorization of Signatories\n<|id|>180<|type|>title<|page|>17<|box|>503 140 522 539<|content|>Resolution 5: Receipt and Distribution of Proceeds\n<|id|>182<|type|>title<|page|>17<|box|>669 140 685 346<|content|>Resolution 6: Ratification\n<|id|>184<|type|>title<|page|>17<|box|>833 140 849 398<|content|>Resolution 7: General Authority\n<|id|>187<|type|>title<|page|>18<|box|>214 143 268 852<|content|>SIGNATURE PAGE TO RESOLUTIONS OF THE MANAGING PART",
+    "raw_response": "<|src_id|>12<|tgt_id|>10\n<|src_id|>62<|tgt_id|>51",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 51
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Sanjay Mehta', 'Data Protection Officer, NTP PLC', '25 May 2023, 7 June 2023, 19 June 2023, 2 July 2023', 'Lawful basis analysis (Article 6 and Article 9);', 'Provided input on lawful basis assessment; advised']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'regulatory risk assessment; data subject rights and exercise mechanisms; DPO opinion on residual risk', 'on heightened regulatory scrutiny context; confirmed residual risk as acceptable subject to full mitigation implementation']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 330,
+    "table2_idx": 331
+}

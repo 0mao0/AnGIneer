@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>281 151 391 844<|content|>INTERIM ORDER (I) AUTHORIZING THE DEBTORS TO OBTAI\n<|id|>5<|page|>1<|box|>758 142 775 241<|content|>RECITALS\n<|id|>20<|page|>5<|box|>314 140 330 578<|content|>FINDINGS OF FACT AND CONCLUSIONS OF LAW\n<|id|>30<|page|>6<|box|>801 140 819 215<|content|>ORDER\n<|id|>36<|page|>7<|box|>435 140 453 431<|content|>3. DIP Budget and Variance Testing.\n<|id|>109<|page|>18<|box|>441 480 458 516<|content|>###\n<|id|>110<|page|>18<|box|>494 140 544 854<|content|>HONORABLE PATRICIA A. WALSH UNITED STATES BANKRUPT\n<|id|>112<|page|>18<|box|>561 447 578 550<|content|>EXHIBIT A\n<|id|>113<|page|>18<|box|>585 437 604 558<|content|>DIP BUDGET\n<|id|>114<|page|>18<|box|>613 359 631 640<|content|>13-Week Rolling Cash Flow Budget\n<|id|>116<|page|>18<|box|>792 447 810 550<|content|>EXHIBIT B\n<|id|>117<|page|>18<|box|>819 380 835 617<|content|>DIP CREDIT AGREEMENT\n<|id|>119<|page|>19<|box|>152 375 169 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>20<|level|>2\n<|id|>30<|level|>2\n<|id|>36<|level|>3\n<|id|>109<|level|>-1\n<|id|>110<|level|>-1\n<|id|>112<|level|>2\n<|id|>113<|level|>3\n<|id|>114<|level|>4\n<|id|>116<|level|>2\n<|id|>117<|level|>3\n<|id|>119<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 4
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 2
+        }
+    ]
+}

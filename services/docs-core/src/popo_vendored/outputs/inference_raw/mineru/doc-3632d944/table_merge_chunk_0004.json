@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['TN-01', '500Leeville', 'Volunteer State', 'Nov. 3, 2019', '10 yrs.(Dec.', '290,000', '$2,175,000', 'Notice required', 'Notice sent Apr.']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Pike,Lebanon,TN 37090', 'Warehous e LLC', '', '2019 – Nov.2029)', '', '', '(30 days)', '28, 2025']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 192,
+    "table2_idx": 193
+}

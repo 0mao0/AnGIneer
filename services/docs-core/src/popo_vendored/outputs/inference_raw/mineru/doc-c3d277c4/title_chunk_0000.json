@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>92 112 166 884<|content|>Technical Tutorial for the Court\n<|id|>1<|page|>1<|box|>251 54 379 827<|content|>• Optiwave Semiconductor Corp. v. Lumos Photonics,\n<|id|>8<|page|>2<|box|>94 69 170 925<|content|>Purpose and Scope of This Tutorial\n<|id|>13<|page|>3<|box|>92 170 166 825<|content|>What Is Silicon Photonics?\n<|id|>14<|page|>3<|box|>251 55 520 925<|content|>• Silicon photonics uses silicon — the same materi\n<|id|>19<|page|>4<|box|>42 120 220 875<|content|>Key Building blocks of a Silicon Photonics Chip\n<|id|>26<|page|>5<|box|>42 59 214 933<|content|>Waveguides and Light Guidance on Silicon\n<|id|>32<|page|>6<|box|>42 77 222 916<|content|>Waveguide Coupling: Transferring Light Between Wav\n<|id|>38<|page|>7<|box|>44 152 222 838<|content|>Adiabatic Coupling vs. Non- Adiabatic Coupling\n<|id|>39<|page|>7<|box|>251 55 592 925<|content|>• Adiabatic coupling: a gradual transition where t\n<|id|>44<|page|>8<|box|>44 172 216 826<|content|>Germanium-on-Silicon Photodetectors: Overview\n<|id|>45<|page|>8<|box|>251 55 451 916<|content|>• A photodetector converts light (photons) into el\n<|id|>51<|page|>9<|box|>44 68 218 930<|content|>Bufer Layer Designs: Continuously Graded vs. Step-\n<|id|>52<|page|>9<|box|>251 55 525 941<|content|>Continuously graded bufer: the germanium concentra\n<|id|>57<|page|>10<|box|>0 66 259 929<|content|>Multi-Channel Optical Transceivers and Wavelength-\n<|id|>63<|page|>11<|box|>44 162 224 833<|content|>Monolithic Integration vs. Heterogeneous Integrati\n<|id|>70<|page|>12<|box|>42 97 224 897<|content|>Micro-Transfer Printing and Flip- Chip Bonding\n<|id|>76<|page|>13<|box|>0 56 174 941<|content|>Mach-Zehnder Modulators (MZMs): How Data Is Encode\n<|id|>83<|page|>14<|box|>44 79 222 916<|content|>Driver Co-Integration: On-Chip vs. Separately Pack\n<|id|>84<|page|>14<|box|>251 55 596 925<|content|>• Co-integrated driver: the driver circuit is fabr\n<|id|>89<|page|>15<|box|>42 83 222 913<|content|>Person of Ordinary Skill in the Art (POSITA)\n<|id|>94<|page|>16<|box|>42 123 222 870<|content|>Summary of Technologies and Corresponding Patent C\n<|id|>100<|page|>17<|box|>92 154 170 841<|content|>Glossary of Technical Terms",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>19<|level|>2\n<|id|>26<|level|>2\n<|id|>32<|level|>2\n<|id|>38<|level|>2\n<|id|>39<|level|>3\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>76<|level|>2\n<|id|>83<|level|>2\n<|id|>84<|level|>3\n<|id|>89<|level|>2\n<|id|>94<|level|>2\n<|id|>100<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        }
+    ]
+}

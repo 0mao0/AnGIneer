@@ -1,0 +1,86 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 258 118 738<|content|>FORM OF COMMON STOCK CERTIFICATE\n<|id|>1<|page|>1<|box|>137 279 156 717<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>4<|page|>1<|box|>299 331 318 665<|content|>CERTIFICATE FACE (FRONT)\n<|id|>5<|page|>1<|box|>335 447 353 550<|content|>SPECIMEN\n<|id|>9<|page|>1<|box|>455 325 472 671<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>10<|page|>1<|box|>481 297 500 699<|content|>Incorporated Under the Laws of the State of Delawa\n<|id|>11<|page|>1<|box|>506 161 542 834<|content|>AUTHORIZED COMMON STOCK: 400,000,000 SHARES, PAR V\n<|id|>27<|page|>2<|box|>800 315 819 681<|content|>CERTIFICATE REVERSE (BACK)\n<|id|>28<|page|>2<|box|>845 143 861 269<|content|>ASSIGNMENT\n<|id|>30<|page|>3<|box|>89 178 108 653<|content|>[Insert Social Security or Other Identifying Numbe\n<|id|>39<|page|>3<|box|>773 142 790 235<|content|>LEGENDS\n<|id|>41<|page|>3<|box|>848 142 864 480<|content|>LEGEND 1: SECURITIES ACT LEGEND\n<|id|>45<|page|>4<|box|>323 140 339 413<|content|>LEGEND 2: LOCK-UP LEGEND\n<|id|>50<|page|>5<|box|>229 140 247 661<|content|>LEGEND 3: CHARTER AND BYLAWS REFERENCE LEGEND\n<|id|>52<|page|>5<|box|>449 140 465 493<|content|>LEGEND 4: SECTION 203 DGCL NOTICE\n<|id|>54<|page|>6<|box|>89 142 106 558<|content|>GENERAL LEGEND REMOVAL INSTRUCTIONS\n<|id|>64<|page|>6<|box|>825 261 845 735<|content|>ADDITIONAL INSTRUCTIONS AND NOTES\n<|id|>66<|page|>7<|box|>90 142 107 364<|content|>Transfer Agent Instructions\n<|id|>73<|page|>8<|box|>90 142 107 364<|content|>Book-Entry / DTC Notation\n<|id|>77<|page|>8<|box|>446 143 464 316<|content|>Applicable Identifiers",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>5<|level|>3\n<|id|>9<|level|>-1\n<|id|>10<|level|>-1\n<|id|>11<|level|>-1\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>30<|level|>-1\n<|id|>39<|level|>2\n<|id|>41<|level|>3\n<|id|>45<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>3\n<|id|>54<|level|>2\n<|id|>64<|level|>2\n<|id|>66<|level|>2\n<|id|>73<|level|>2\n<|id|>77<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        }
+    ]
+}

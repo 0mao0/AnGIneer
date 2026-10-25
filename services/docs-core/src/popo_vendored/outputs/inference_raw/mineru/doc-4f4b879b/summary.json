@@ -1,0 +1,435 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l72mtood\\input\\pdfs\\doc-4f4b879b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l72mtood\\enriched\\doc-4f4b879b.json",
+    "contd_output": "<|src_id|>43<|tgt_id|>44\n<|src_id|>76<|tgt_id|>77\n<|src_id|>86<|tgt_id|>87\n<|src_id|>186<|tgt_id|>187\n<|src_id|>239<|tgt_id|>240\n<|src_id|>300<|tgt_id|>301",
+    "title_output": "<|id|>2<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>34<|level|>3\n<|id|>39<|level|>2\n<|id|>40<|level|>3\n<|id|>61<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>75<|level|>4\n<|id|>79<|level|>4\n<|id|>90<|level|>4\n<|id|>95<|level|>3\n<|id|>96<|level|>4\n<|id|>100<|level|>4\n<|id|>111<|level|>4\n<|id|>117<|level|>3\n<|id|>129<|level|>3\n<|id|>141<|level|>2\n<|id|>142<|level|>3\n<|id|>147<|level|>3\n<|id|>155<|level|>3\n<|id|>160<|level|>2\n<|id|>161<|level|>3\n<|id|>165<|level|>3\n<|id|>172<|level|>3\n<|id|>176<|level|>2\n<|id|>177<|level|>3\n<|id|>181<|level|>3\n<|id|>190<|level|>3\n<|id|>193<|level|>2\n<|id|>194<|level|>3\n<|id|>201<|level|>3\n<|id|>209<|level|>3\n<|id|>216<|level|>2\n<|id|>218<|level|>3\n<|id|>221<|level|>3\n<|id|>226<|level|>3\n<|id|>228<|level|>3\n<|id|>230<|level|>3\n<|id|>234<|level|>2\n<|id|>236<|level|>3\n<|id|>242<|level|>3\n<|id|>248<|level|>3\n<|id|>257<|level|>2\n<|id|>272<|level|>2\n<|id|>273<|level|>3\n<|id|>294<|level|>3\n<|id|>296<|level|>4\n<|id|>303<|level|>4\n<|id|>309<|level|>4\n<|id|>312<|level|>3\n<|id|>316<|level|>3\n<|id|>322<|level|>3\n<|id|>328<|level|>2",
+    "image_output": "<|src_id|>21<|tgt_id|>15\n<|src_id|>232<|tgt_id|>230\n<|src_id|>238<|tgt_id|>236\n<|src_id|>255<|tgt_id|>248\n<|src_id|>259<|tgt_id|>257\n<|src_id|>260<|tgt_id|>257\n<|src_id|>261<|tgt_id|>257\n<|src_id|>262<|tgt_id|>257\n<|src_id|>263<|tgt_id|>257\n<|src_id|>264<|tgt_id|>257\n<|src_id|>265<|tgt_id|>257\n<|src_id|>266<|tgt_id|>257\n<|src_id|>267<|tgt_id|>257\n<|src_id|>268<|tgt_id|>257\n<|src_id|>269<|tgt_id|>257\n<|src_id|>270<|tgt_id|>257\n<|src_id|>271<|tgt_id|>257",
+    "contd_label": [
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 187
+        },
+        {
+            "src_id": 239,
+            "tgt_id": 240
+        },
+        {
+            "src_id": 300,
+            "tgt_id": 301
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 79,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 4
+        },
+        {
+            "id": 100,
+            "level": 4
+        },
+        {
+            "id": 111,
+            "level": 4
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 226,
+            "level": 3
+        },
+        {
+            "id": 228,
+            "level": 3
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 2
+        },
+        {
+            "id": 236,
+            "level": 3
+        },
+        {
+            "id": 242,
+            "level": 3
+        },
+        {
+            "id": 248,
+            "level": 3
+        },
+        {
+            "id": 257,
+            "level": 2
+        },
+        {
+            "id": 272,
+            "level": 2
+        },
+        {
+            "id": 273,
+            "level": 3
+        },
+        {
+            "id": 294,
+            "level": 3
+        },
+        {
+            "id": 296,
+            "level": 4
+        },
+        {
+            "id": 303,
+            "level": 4
+        },
+        {
+            "id": 309,
+            "level": 4
+        },
+        {
+            "id": 312,
+            "level": 3
+        },
+        {
+            "id": 316,
+            "level": 3
+        },
+        {
+            "id": 322,
+            "level": 3
+        },
+        {
+            "id": 328,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 21,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 230
+        },
+        {
+            "src_id": 238,
+            "tgt_id": 236
+        },
+        {
+            "src_id": 255,
+            "tgt_id": 248
+        },
+        {
+            "src_id": 259,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 260,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 261,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 262,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 263,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 264,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 265,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 266,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 267,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 268,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 269,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 270,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 271,
+            "tgt_id": 257
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 259,
+            "table2_idx": 260,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "Identification of NFA as Delaware corporation, NY principal office, Delaware File No. and EIN",
+                    "Admit",
+                    "NFA's own corporate records"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "3",
+                    "Identification of parent Northgate Telecommunications PLC, LSE/Nasdaq listing",
+                    "Admit",
+                    "Public record; no adverse effect"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 261,
+            "table2_idx": 262,
+            "upper_row_ss": [
+                [
+                    "17",
+                    "Scope: ~18,500 route miles, 7 states",
+                    "Admit",
+                    "Per MCA Exhibit A"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "18",
+                    "Contract price: $1.2B (65% fixed, 35% unit-rate)",
+                    "Admit",
+                    "Per MCA § 7.1"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 263,
+            "table2_idx": 264,
+            "upper_row_ss": [
+                [
+                    "59–61",
+                    "Phase 2 MS7 91 days late; MS8 not completed",
+                    "Admit in Part",
+                    "Admit delay durations; deny causation"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "62",
+                    "Permits were Owner's responsibility (MCA § 5.3)",
+                    "Deny",
+                    "NFA reads § 5.3 differently; Contractor had primary permit responsibility"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 265,
+            "table2_idx": 266,
+            "upper_row_ss": [
+                [
+                    "117–118",
+                    "Meridian's response (April",
+                    "Admit",
+                    "Admit receipt of response"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "8, 2024)",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 269,
+            "table2_idx": 270,
+            "upper_row_ss": [
+                [
+                    "168–172",
+                    "Meridian substantially",
+                    "Deny",
+                    "Contract was terminated"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "performed",
+                    "",
+                    "for cause; 287 NCRs outstanding"
+                ]
+            ]
+        }
+    ]
+}

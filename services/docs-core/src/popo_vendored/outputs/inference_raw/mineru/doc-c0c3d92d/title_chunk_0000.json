@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>434 140 450 437<|content|>I. Introduction and Purpose of Letter\n<|id|>15<|page|>2<|box|>258 140 277 344<|content|>II. Transaction Overview\n<|id|>29<|page|>3<|box|>712 140 729 328<|content|>III. Procedural History\n<|id|>41<|page|>5<|box|>304 140 321 532<|content|>IV. Scope of Document Collection and Production\n<|id|>48<|page|>6<|box|>90 140 107 424<|content|>B. Document Collection and Review\n<|id|>66<|page|>7<|box|>308 140 325 361<|content|>C. Interrogatory Responses\n<|id|>75<|page|>7<|box|>840 142 858 307<|content|>D. Data Productions\n<|id|>83<|page|>8<|box|>518 140 535 477<|content|>V. Certification of Substantial Compliance\n<|id|>93<|page|>9<|box|>428 140 446 282<|content|>VI. Privilege Log\n<|id|>103<|page|>10<|box|>186 140 204 352<|content|>VII. Reservation of Rights\n<|id|>109<|page|>10<|box|>686 140 704 310<|content|>VIII. Confidentiality\n<|id|>113<|page|>11<|box|>267 140 284 413<|content|>IX. Request for Prompt Clearance\n<|id|>121<|page|>12<|box|>186 140 204 331<|content|>X. Contact Information\n<|id|>140<|page|>12<|box|>777 142 794 269<|content|>XII. Enclosures\n<|id|>144<|page|>13<|box|>135 176 152 537<|content|>Enclosure B: Narrative Interrogatory Responses\n<|id|>146<|page|>13<|box|>204 176 222 388<|content|>Enclosure C: Privilege Log\n<|id|>148<|page|>13<|box|>292 176 309 478<|content|>Enclosure D: Index of Data Productions\n<|id|>150<|page|>13<|box|>396 142 412 316<|content|>XIII. CC Distribution",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>29<|level|>1\n<|id|>41<|level|>1\n<|id|>48<|level|>2\n<|id|>66<|level|>2\n<|id|>75<|level|>2\n<|id|>83<|level|>1\n<|id|>93<|level|>1\n<|id|>103<|level|>1\n<|id|>109<|level|>1\n<|id|>113<|level|>1\n<|id|>121<|level|>1\n<|id|>140<|level|>1\n<|id|>144<|level|>2\n<|id|>146<|level|>2\n<|id|>148<|level|>2\n<|id|>150<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 1
+        }
+    ]
+}

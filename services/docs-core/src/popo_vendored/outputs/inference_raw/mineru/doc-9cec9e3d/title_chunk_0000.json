@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 166 159 854<|content|>CALDERWOOD & HARKNESS LLP 1301 Avenue of the Ameri\n<|id|>15<|page|>2<|box|>89 140 107 498<|content|>I. CORPORATE AND ORGANIZATIONAL\n<|id|>42<|page|>4<|box|>266 140 284 506<|content|>II. SECURITIES AND CAPITAL MARKETS\n<|id|>57<|page|>5<|box|>414 140 431 281<|content|>III. FINANCIAL\n<|id|>70<|page|>6<|box|>785 140 801 418<|content|>IV. INSURANCE REGULATORY\n<|id|>87<|page|>8<|box|>460 140 479 483<|content|>V. LITIGATION AND CONTINGENCIES\n<|id|>98<|page|>9<|box|>266 140 284 410<|content|>VI. MATERIAL AGREEMENTS\n<|id|>121<|page|>10<|box|>612 140 628 433<|content|>VII. INTELLECTUAL PROPERTY\n<|id|>131<|page|>11<|box|>402 140 419 669<|content|>VIII. ENVIRONMENTAL, SOCIAL, AND GOVERNANCE (ESG)\n<|id|>150<|page|>12<|box|>680 142 696 336<|content|>PRIMARY CONTACT:\n<|id|>153<|page|>12<|box|>768 143 784 367<|content|>ADDITIONAL CONTACT:\n<|id|>155<|page|>12<|box|>839 176 854 517<|content|>Email: ejohannsen@calderwoodharkness.com",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>15<|level|>2\n<|id|>42<|level|>2\n<|id|>57<|level|>2\n<|id|>70<|level|>2\n<|id|>87<|level|>2\n<|id|>98<|level|>2\n<|id|>121<|level|>2\n<|id|>131<|level|>2\n<|id|>150<|level|>2\n<|id|>153<|level|>2\n<|id|>155<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        }
+    ]
+}

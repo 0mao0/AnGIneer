@@ -1,0 +1,67 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        47,
+        60
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>417<|type|>title<|page|>48<|box|>89 140 107 349<|content|>SCHEDULE 3.19 — TAX\n<|id|>418<|type|>title<|page|>48<|box|>121 142 138 333<|content|>Part (a) — Tax Returns\n<|id|>421<|type|>table<|page|>48<|box|>256 143 508 852<|content|>None\n<|id|>422<|type|>table<|page|>48<|box|>585 143 686 852<|content|>None\n<|id|>425<|type|>title<|page|>49<|box|>157 140 175 426<|content|>Part (b) — Tax Audits and Disputes\n<|id|>427<|type|>title<|page|>49<|box|>340 140 357 470<|content|>Part (c) — Tax Elections and Agreements\n<|id|>433<|type|>title<|page|>50<|box|>90 140 107 449<|content|>Part (d) — Tax Liens and Withholding\n<|id|>436<|type|>title<|page|>50<|box|>390 140 407 473<|content|>Part (e) — State and Local Tax Exposures\n<|id|>439<|type|>title<|page|>50<|box|>635 140 652 336<|content|>Part (f) — Tax Advisors\n<|id|>442<|type|>title<|page|>51<|box|>89 140 107 493<|content|>SCHEDULE 3.20 — PAYOR CONTRACTS\n<|id|>443<|type|>title<|page|>51<|box|>121 140 138 390<|content|>Part (a) — Government Payors\n<|id|>455<|type|>title<|page|>52<|box|>157 142 175 390<|content|>Part (b) — Commercial Payors\n<|id|>456<|type|>table<|page|>52<|box|>224 143 902 852<|content|>None\n<|id|>457<|type|>table<|page|>53<|box|>88 143 125 852<|content|>None\n<|id|>459<|type|>title<|page|>53<|box|>207 142 224 493<|content|>Part (c) — Payor Disputes and Recoupments\n<|id|>464<|type|>title<|page|>54<|box|>90 140 107 482<|content|>Part (d) — Fee Schedule and Rate Changes\n<|id|>470<|type|>title<|page|>55<|box|>89 142 107 717<|content|>SCHEDULE 3.23 — CHANGE OF CONTROL CONSENTS REQUIRE\n<|id|>471<|type|>title<|page|>55<|box|>121 142 138 403<|content|>Part (a) — Contractual Consents\n<|id|>472<|type|>table<|page|>55<|box|>186 143 898 852<|content|>None\n<|id|>473<|type|>table<|page|>56<|box|>89 143 902 852<|content|>None\n<|id|>474<|type|>table<|page|>57<|box|>90 143 713 852<|content|>None\n<|id|>475<|type|>title<|page|>57<|box|>752 142 768 532<|content|>Part (b) — Governmental / Regulatory Approvals\n<|id|>477<|type|>table<|page|>57<|box|>816 143 898 852<|content|>None\n<|id|>478<|type|>table<|page|>58<|box|>90 143 907 852<|content|>None\n<|id|>479<|type|>table<|page|>59<|box|>88 143 205 852<|content|>None\n<|id|>480<|type|>title<|page|>59<|box|>244 140 262 491<|content|>Part (c) — Other Consents and Notifications\n<|id|>494<|type|>title<|page|>60<|box|>484 281 501 715<|content|>SIGNATURE PAGE TO DISCLOSURE SCHEDULES\n<|id|>496<|type|>title<|page|>60<|box|>573 142 589 290<|content|>THE COMPANY:",
+    "raw_response": "<|src_id|>421<|tgt_id|>418\n<|src_id|>422<|tgt_id|>418\n<|src_id|>456<|tgt_id|>455\n<|src_id|>457<|tgt_id|>455\n<|src_id|>472<|tgt_id|>471\n<|src_id|>473<|tgt_id|>471\n<|src_id|>474<|tgt_id|>471\n<|src_id|>477<|tgt_id|>475\n<|src_id|>478<|tgt_id|>475\n<|src_id|>479<|tgt_id|>475",
+    "parsed": [
+        {
+            "src_id": 421,
+            "tgt_id": 418
+        },
+        {
+            "src_id": 422,
+            "tgt_id": 418
+        },
+        {
+            "src_id": 456,
+            "tgt_id": 455
+        },
+        {
+            "src_id": 457,
+            "tgt_id": 455
+        },
+        {
+            "src_id": 472,
+            "tgt_id": 471
+        },
+        {
+            "src_id": 473,
+            "tgt_id": 471
+        },
+        {
+            "src_id": 474,
+            "tgt_id": 471
+        },
+        {
+            "src_id": 477,
+            "tgt_id": 475
+        },
+        {
+            "src_id": 478,
+            "tgt_id": 475
+        },
+        {
+            "src_id": 479,
+            "tgt_id": 475
+        }
+    ]
+}

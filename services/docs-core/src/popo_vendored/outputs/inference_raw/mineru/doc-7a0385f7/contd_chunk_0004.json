@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 4,
+    "range": [
+        200,
+        251
+    ],
+    "pages": [
+        200,
+        201,
+        202,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        226,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        250,
+        251
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>792<|page|>200<|box|>187 52 214 894<|content|>工程内容： ... 100\\mathrm{m}^3\n<|id|>794<|page|>201<|box|>228 85 252 126<|content|>续表\n<|id|>795<|page|>201<|box|>226 875 250 924<|content|>100\\mathrm{m}^3\n<|id|>798<|page|>202<|box|>169 52 191 92<|content|>续表\n<|id|>853<|page|>216<|box|>197 843 222 892<|content|>100\\mathrm{m}^3\n<|id|>855<|page|>217<|box|>232 82 256 122<|content|>续表\n<|id|>860<|page|>218<|box|>211 843 236 894<|content|>100\\mathrm{m}^3\n<|id|>862<|page|>219<|box|>228 82 254 122<|content|>续表\n<|id|>867<|page|>220<|box|>209 845 236 894<|content|>100\\mathrm{m}^3\n<|id|>869<|page|>221<|box|>226 78 250 119<|content|>续表\n<|id|>892<|page|>226<|box|>199 55 226 774<|content|>工程内容： ... 拖运，测量、放样，\n<|id|>893<|page|>226<|box|>230 144 256 336<|content|>移船定位，抛石、平整。 ... 移船定位，抛石、平整\n<|id|>917<|page|>232<|box|>159 779 185 902<|content|>100\\mathrm{m}^3 抛筑体积\n<|id|>919<|page|>233<|box|>228 70 252 112<|content|>续表\n<|id|>920<|page|>233<|box|>224 789 250 912<|content|>100\\mathrm{m}^3 抛筑体积\n<|id|>922<|page|>234<|box|>163 65 189 107<|content|>续表\n<|id|>923<|page|>234<|box|>165 783 191 905<|content|>100\\mathrm{m}^3 抛筑体积\n<|id|>925<|page|>235<|box|>260 70 287 667<|content|>工程内容： ... 充填袋场内运输，测量放线，移船定位，充填砂袋、封口，抛筑\n<|id|>927<|page|>235<|box|>260 788 285 912<|content|>100\\mathrm{m}^3 抛筑体积\n<|id|>929<|page|>236<|box|>167 63 193 105<|content|>续表\n<|id|>930<|page|>236<|box|>167 783 193 905<|content|>100\\mathrm{m}^3 抛筑体积\n<|id|>932<|page|>237<|box|>226 73 252 115<|content|>续表\n<|id|>937<|page|>238<|box|>197 779 226 904<|content|>100\\mathrm{m}^3 抛筑体积\n<|id|>940<|page|>239<|box|>226 73 250 115<|content|>续表\n<|id|>939<|page|>239<|box|>224 789 248 912<|content|>100\\mathrm{m}^3 抛筑体积\n<|id|>943<|page|>240<|box|>163 779 189 902<|content|>100\\mathrm{m}^3 抛筑体积\n<|id|>945<|page|>241<|box|>264 72 291 912<|content|>工程内容： ... 100\\mathrm{m}^3 砌筑体积\n<|id|>980<|page|>250<|box|>207 793 234 915<|content|>100\\mathrm{m}^3 抛筑体积\n<|id|>983<|page|>251<|box|>272 70 299 428<|content|>工程内容： ... 装船（车）、运输、选修石、砌筑",
+    "raw_response": "<|src_id|>892<|tgt_id|>893",
+    "parsed": [
+        {
+            "src_id": 892,
+            "tgt_id": 893
+        }
+    ]
+}

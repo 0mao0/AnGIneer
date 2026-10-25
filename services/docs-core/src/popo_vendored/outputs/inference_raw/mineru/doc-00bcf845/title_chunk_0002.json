@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        90,
+        112
+    ],
+    "pages": [
+        90,
+        91,
+        92,
+        93,
+        94,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        105,
+        108,
+        112
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>828<|page|>90<|box|>162 181 183 298<|content|>条文说明\n<|id|>834<|page|>91<|box|>699 357 722 587<|content|>9.5 防排水构造\n<|id|>838<|page|>92<|box|>444 365 467 627<|content|>9.6 检修养护设施\n<|id|>843<|page|>93<|box|>217 286 246 656<|content|>10 制造、安装与防腐\n<|id|>852<|page|>94<|box|>402 374 426 618<|content|>10.2 钢结构制造\n<|id|>864<|page|>96<|box|>827 116 849 868<|content|>10.2.8 钢管混凝土桁式结构的主管与支管相贯焊缝的修磨方位\n<|id|>867<|page|>97<|box|>625 350 647 594<|content|>10.3 钢结构安装\n<|id|>872<|page|>98<|box|>465 343 488 646<|content|>10.4 管内混凝土灌注\n<|id|>881<|page|>99<|box|>543 346 566 589<|content|>10.5 钢结构涂装\n<|id|>884<|page|>100<|box|>162 178 183 295<|content|>条文说明\n<|id|>886<|page|>101<|box|>220 219 248 718<|content|>附录 A 钢管混凝土徐变系数\n<|id|>896<|page|>102<|box|>217 250 248 749<|content|>附录 B 钢管混凝土本构关系\n<|id|>898<|page|>102<|box|>663 176 683 293<|content|>条文说明\n<|id|>915<|page|>105<|box|>220 176 250 751<|content|>附录 C 钢管混凝土构件应力计算\n<|id|>925<|page|>105<|box|>775 143 795 260<|content|>条文说明\n<|id|>944<|page|>108<|box|>217 248 248 761<|content|>附录 D 钢-混凝土组合桥面板\n<|id|>945<|page|>108<|box|>282 128 303 756<|content|>D.0.1 钢-混凝土组合桥面板的构造应符合下列规定：\n<|id|>961<|page|>112<|box|>215 322 243 675<|content|>本规程用词用语说明",
+    "raw_response": "<|id|>828<|level|>2\n<|id|>834<|level|>2\n<|id|>838<|level|>2\n<|id|>843<|level|>1\n<|id|>852<|level|>2\n<|id|>864<|level|>3\n<|id|>867<|level|>2\n<|id|>872<|level|>2\n<|id|>881<|level|>2\n<|id|>884<|level|>2\n<|id|>886<|level|>1\n<|id|>896<|level|>1\n<|id|>898<|level|>2\n<|id|>915<|level|>1\n<|id|>925<|level|>2\n<|id|>944<|level|>1\n<|id|>945<|level|>2\n<|id|>961<|level|>1",
+    "parsed": [
+        {
+            "id": 828,
+            "level": 2
+        },
+        {
+            "id": 834,
+            "level": 2
+        },
+        {
+            "id": 838,
+            "level": 2
+        },
+        {
+            "id": 843,
+            "level": 1
+        },
+        {
+            "id": 852,
+            "level": 2
+        },
+        {
+            "id": 864,
+            "level": 3
+        },
+        {
+            "id": 867,
+            "level": 2
+        },
+        {
+            "id": 872,
+            "level": 2
+        },
+        {
+            "id": 881,
+            "level": 2
+        },
+        {
+            "id": 884,
+            "level": 2
+        },
+        {
+            "id": 886,
+            "level": 1
+        },
+        {
+            "id": 896,
+            "level": 1
+        },
+        {
+            "id": 898,
+            "level": 2
+        },
+        {
+            "id": 915,
+            "level": 1
+        },
+        {
+            "id": 925,
+            "level": 2
+        },
+        {
+            "id": 944,
+            "level": 1
+        },
+        {
+            "id": 945,
+            "level": 2
+        },
+        {
+            "id": 961,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 158 142 836<|content|>OFFICER'S CERTIFICATE AND SECRETARY'S CERTIFICATE\n<|id|>1<|page|>1<|box|>159 163 195 833<|content|>Delivered Pursuant to Section 5.3 of the Series B\n<|id|>7<|page|>1<|box|>409 142 426 354<|content|>1. Introductory Paragraph\n<|id|>11<|page|>1<|box|>839 140 856 604<|content|>2. Certification Regarding Representations and War\n<|id|>14<|page|>2<|box|>450 140 467 522<|content|>3. Certification Regarding Conditions to Closing\n<|id|>27<|page|>4<|box|>476 140 493 566<|content|>4. Certification Regarding No Material Adverse Eff\n<|id|>30<|page|>4<|box|>770 140 787 464<|content|>5. Certification Regarding Capitalization\n<|id|>43<|page|>5<|box|>768 462 785 535<|content|>PART II\n<|id|>44<|page|>5<|box|>795 367 811 629<|content|>SECRETARY'S CERTIFICATE\n<|id|>45<|page|>5<|box|>837 142 854 354<|content|>7. Introductory Paragraph\n<|id|>49<|page|>6<|box|>377 140 393 568<|content|>8. Certification Regarding Certificate of Incorpor\n<|id|>51<|page|>6<|box|>575 140 593 477<|content|>The Restated Certificate, among other things:\n<|id|>61<|page|>7<|box|>718 140 734 411<|content|>9. Certification Regarding Bylaws\n<|id|>63<|page|>8<|box|>90 142 107 506<|content|>10. Certification Regarding Board Resolutions\n<|id|>77<|page|>9<|box|>359 140 376 658<|content|>11. Certification Regarding Incumbency and Specime\n<|id|>82<|page|>10<|box|>90 140 107 480<|content|>12. Certification Regarding Good Standing\n<|id|>85<|page|>10<|box|>329 142 347 460<|content|>13. Certification Regarding No Conflicts\n<|id|>90<|page|>10<|box|>750 142 766 428<|content|>14. Post-Closing Board Composition\n<|id|>95<|page|>11<|box|>416 142 433 367<|content|>15. Additional Certifications\n<|id|>106<|page|>12<|box|>308 441 329 558<|content|>EXHIBITS\n<|id|>107<|page|>12<|box|>345 145 407 849<|content|>EXHIBIT A AMENDED AND RESTATED CERTIFICATE OF INCO\n<|id|>116<|page|>12<|box|>699 447 715 550<|content|>EXHIBIT B\n<|id|>117<|page|>12<|box|>724 318 742 676<|content|>BYLAWS OF SKYBRIDGE FINTECH LTD.\n<|id|>120<|page|>12<|box|>873 447 890 549<|content|>EXHIBIT C\n<|id|>121<|page|>13<|box|>89 191 125 803<|content|>UNANIMOUS WRITTEN CONSENT OF THE BOARD OF DIRECTOR\n<|id|>127<|page|>13<|box|>359 447 376 550<|content|>EXHIBIT D\n<|id|>128<|page|>13<|box|>385 200 402 795<|content|>CERTIFICATE OF GOOD STANDING OF SKYBRIDGE FINTECH\n<|id|>129<|page|>13<|box|>412 279 429 718<|content|>Issued by the Secretary of State of the State of D",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>3\n<|id|>11<|level|>3\n<|id|>14<|level|>3\n<|id|>27<|level|>3\n<|id|>30<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>45<|level|>4\n<|id|>49<|level|>4\n<|id|>51<|level|>-1\n<|id|>61<|level|>4\n<|id|>63<|level|>4\n<|id|>77<|level|>4\n<|id|>82<|level|>4\n<|id|>85<|level|>4\n<|id|>90<|level|>4\n<|id|>95<|level|>4\n<|id|>106<|level|>2\n<|id|>107<|level|>3\n<|id|>116<|level|>3\n<|id|>117<|level|>3\n<|id|>120<|level|>3\n<|id|>121<|level|>3\n<|id|>127<|level|>3\n<|id|>128<|level|>3\n<|id|>129<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 49,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 63,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 85,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        }
+    ]
+}

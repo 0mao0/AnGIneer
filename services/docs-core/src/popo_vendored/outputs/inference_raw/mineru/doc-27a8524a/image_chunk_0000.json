@@ -1,0 +1,51 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 200 106 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>9<|type|>title<|page|>1<|box|>421 385 441 612<|content|>I. Executive Summary\n<|id|>16<|type|>title<|page|>2<|box|>479 282 500 714<|content|>II. The Document — Full Text and Context\n<|id|>17<|type|>title<|page|>2<|box|>525 142 542 357<|content|>A. Document Identification\n<|id|>18<|type|>table<|page|>2<|box|>575 143 869 852<|content|>None\n<|id|>20<|type|>title<|page|>3<|box|>223 140 239 282<|content|>B. Key Language\n<|id|>29<|type|>title<|page|>4<|box|>393 140 412 439<|content|>C. Timing and Chronological Context\n<|id|>31<|type|>table<|page|>4<|box|>617 143 898 852<|content|>None\n<|id|>32<|type|>table<|page|>5<|box|>89 143 688 852<|content|>None\n<|id|>34<|type|>title<|page|>6<|box|>90 269 111 727<|content|>III. Analysis of Impact on Key Liability Issues\n<|id|>35<|type|>title<|page|>6<|box|>136 140 172 787<|content|>A. Demonstrates Material Breach by VTS — Failure t\n<|id|>42<|type|>title<|page|>7<|box|>204 140 222 478<|content|>B. Undermines Vantor's Causation Theory\n<|id|>52<|type|>title<|page|>8<|box|>494 140 511 437<|content|>C. Supports First-to-Breach Doctrine\n<|id|>60<|type|>title<|page|>9<|box|>373 140 390 428<|content|>D. Supports Unclean Hands Defense\n<|id|>64<|type|>title<|page|>10<|box|>90 140 107 638<|content|>E. Impact on Vantor's Claim That Termination Was P\n<|id|>69<|type|>title<|page|>10<|box|>696 153 739 844<|content|>IV. Analysis of Vantor's February 14, 2022 Cure Re\n<|id|>76<|type|>title<|page|>11<|box|>505 140 523 423<|content|>This has three important implications:\n<|id|>80<|type|>title<|page|>12<|box|>136 310 156 687<|content|>V. Implications for Damages Analysis\n<|id|>82<|type|>title<|page|>12<|box|>232 140 250 547<|content|>A. Impact on Liquidated Damages Claim ($67.23M)\n<|id|>84<|type|>table<|page|>12<|box|>417 143 535 852<|content|>None\n<|id|>86<|type|>title<|page|>12<|box|>737 140 753 468<|content|>B. Impact on Lost Profits Claim ($18.7M)\n<|id|>91<|type|>title<|page|>13<|box|>321 140 339 570<|content|>C. Impact on Consequential Damages Claims ($9.47M)\n<|id|>92<|type|>table<|page|>13<|box|>371 143 496 852<|content|>None\n<|id|>95<|type|>title<|page|>14<|box|>90 140 107 397<|content|>D. Expert Rebuttal Implications\n<|id|>102<|type|>title<|page|>14<|box|>602 218 621 779<|content|>VI. Anticipated Counterarguments and Risk Assessme\n<|id|>103<|type|>title<|page|>14<|box|>646 142 664 442<|content|>A. Vantor's Likely Counterarguments\n<|id|>114<|type|>title<|page|>16<|box|>296 140 313 299<|content|>B. Risk Assessment\n<|id|>118<|type|>title<|page|>16<|box|>767 266 787 730<|content|>VII. Cross-Reference with Deposition Strategy\n<|id|>146<|type|>title<|page|>18<|box|>544 377 563 620<|content|>VIII. Recommendations\n<|id|>156<|type|>title<|page|>19<|box|>825 421 844 575<|content|>IX. Conclusion",
+    "raw_response": "<|src_id|>18<|tgt_id|>17\n<|src_id|>31<|tgt_id|>29\n<|src_id|>32<|tgt_id|>29\n<|src_id|>84<|tgt_id|>82\n<|src_id|>92<|tgt_id|>91",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 91
+        }
+    ]
+}

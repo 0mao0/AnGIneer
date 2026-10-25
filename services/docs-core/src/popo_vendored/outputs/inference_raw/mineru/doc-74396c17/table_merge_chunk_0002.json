@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Warren Ashby', 'Head of Fintech Partnerships / BaaS Division', 'Directly responsible for BaaS channel operations where the most significant', 'Elevated']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'OFAC screening deficiencies (NovaPay — approximately 3.8 million unscreened transactions out of 31.7 million total in CY 2023) and CDD/EDD deficiencies (47,000 high-risk accounts primarily BaaS-onboarded) were concentrated; BaaS transaction volume of approximately $74.3 billion and revenue of $127.4 million in CY 2024; the concentration of the most severe deficiencies in his business line makes him a potential enforcement target', '']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 183,
+    "table2_idx": 184
+}

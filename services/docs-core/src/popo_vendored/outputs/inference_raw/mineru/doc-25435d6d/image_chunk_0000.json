@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>10<|type|>title<|page|>1<|box|>654 140 671 503<|content|>I. Summary of the Temporary Custody Order\n<|id|>12<|type|>title<|page|>1<|box|>729 142 747 282<|content|>A. Legal Custody\n<|id|>16<|type|>title<|page|>2<|box|>330 140 347 423<|content|>B. Physical Custody and Timeshare\n<|id|>24<|type|>title<|page|>3<|box|>176 140 193 418<|content|>C. Temporary Nature of the Order\n<|id|>28<|type|>title<|page|>3<|box|>531 142 547 336<|content|>II. Child Support Status\n<|id|>36<|type|>title<|page|>4<|box|>223 140 239 349<|content|>III. Respondent's Counsel\n<|id|>39<|type|>title<|page|>4<|box|>500 142 516 261<|content|>IV. Next Steps\n<|id|>41<|type|>title<|page|>4<|box|>574 140 590 426<|content|>A. Appointment of Minor's Counsel\n<|id|>45<|type|>title<|page|>5<|box|>90 140 107 323<|content|>B. Custody Evaluation\n<|id|>58<|type|>title<|page|>6<|box|>90 140 107 369<|content|>C. Forensic Income Analysis\n<|id|>62<|type|>title<|page|>6<|box|>453 140 469 462<|content|>D. Mediation and Settlement Discussions\n<|id|>66<|type|>title<|page|>6<|box|>806 140 824 362<|content|>V. Costs and Billing Update\n<|id|>72<|type|>table<|page|>7<|box|>260 143 354 852<|content|>None\n<|id|>74<|type|>title<|page|>7<|box|>484 140 502 375<|content|>VI. Confidentiality Reminder\n<|id|>79<|type|>title<|page|>8<|box|>148 140 167 364<|content|>VII. Action Items for Client\n<|id|>90<|type|>title<|page|>8<|box|>784 142 800 344<|content|>VIII. Closing Assessment",
+    "raw_response": "<|src_id|>72<|tgt_id|>66",
+    "parsed": [
+        {
+            "src_id": 72,
+            "tgt_id": 66
+        }
+    ]
+}

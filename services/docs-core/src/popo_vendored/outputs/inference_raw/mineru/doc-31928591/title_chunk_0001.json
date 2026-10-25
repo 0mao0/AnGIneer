@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        58
+    ],
+    "pages": [
+        46,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        56,
+        57,
+        58
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>440<|page|>46<|box|>90 142 108 403<|content|>Appendix B: Sample Test Report\n<|id|>442<|page|>46<|box|>212 344 229 651<|content|>GENOME DX THERAPEUTICS INC.\n<|id|>444<|page|>46<|box|>561 313 578 683<|content|>THERAPY RESPONSE INDEX (TRI) SCORE\n<|id|>445<|page|>46<|box|>587 442 604 555<|content|>TRI Score: 78\n<|id|>454<|page|>48<|box|>89 140 108 586<|content|>Appendix C: CLARITY-LUNG Trial Protocol Summary\n<|id|>469<|page|>48<|box|>641 142 657 328<|content|>Key Inclusion Criteria:\n<|id|>476<|page|>49<|box|>215 140 232 457<|content|>Data Safety Monitoring Board (DSMB):\n<|id|>486<|page|>50<|box|>90 140 108 655<|content|>Appendix D: Larkfield Health Economics Analysis —\n<|id|>498<|page|>51<|box|>90 140 107 573<|content|>Appendix E: Analytical Validation Publication Repr\n<|id|>502<|page|>52<|box|>90 140 107 714<|content|>Appendix F: Laboratory Certifications and Accredit\n<|id|>509<|page|>53<|box|>90 140 108 455<|content|>Appendix G: Patent Portfolio Summary\n<|id|>517<|page|>56<|box|>90 142 108 637<|content|>Appendix H: Crosswalk Comparator Analysis Supporti\n<|id|>521<|page|>56<|box|>862 140 898 854<|content|>Comparator 3: PLA Code 0239U — TumorMap Pro (Marlo\n<|id|>523<|page|>57<|box|>434 143 450 390<|content|>Weighted Average Calculation:\n<|id|>525<|page|>57<|box|>604 143 621 318<|content|>Premium Calculation:\n<|id|>528<|page|>58<|box|>89 142 106 406<|content|>DOCUMENT STATUS NOTICE\n<|id|>529<|page|>58<|box|>114 367 132 630<|content|>DOCUMENT STATUS NOTICE\n<|id|>537<|page|>58<|box|>512 444 529 553<|content|>Prepared by:\n<|id|>540<|page|>58<|box|>607 416 625 580<|content|>Date: April 30, 2024\n<|id|>541<|page|>58<|box|>633 143 650 285<|content|>Primary Contact:",
+    "raw_response": "<|id|>440<|level|>1\n<|id|>442<|level|>2\n<|id|>444<|level|>2\n<|id|>445<|level|>3\n<|id|>454<|level|>1\n<|id|>469<|level|>2\n<|id|>476<|level|>2\n<|id|>486<|level|>1\n<|id|>498<|level|>1\n<|id|>502<|level|>1\n<|id|>509<|level|>1\n<|id|>517<|level|>1\n<|id|>521<|level|>2\n<|id|>523<|level|>3\n<|id|>525<|level|>3\n<|id|>528<|level|>1\n<|id|>529<|level|>2\n<|id|>537<|level|>-1\n<|id|>540<|level|>-1\n<|id|>541<|level|>-1",
+    "parsed": [
+        {
+            "id": 440,
+            "level": 1
+        },
+        {
+            "id": 442,
+            "level": 2
+        },
+        {
+            "id": 444,
+            "level": 2
+        },
+        {
+            "id": 445,
+            "level": 3
+        },
+        {
+            "id": 454,
+            "level": 1
+        },
+        {
+            "id": 469,
+            "level": 2
+        },
+        {
+            "id": 476,
+            "level": 2
+        },
+        {
+            "id": 486,
+            "level": 1
+        },
+        {
+            "id": 498,
+            "level": 1
+        },
+        {
+            "id": 502,
+            "level": 1
+        },
+        {
+            "id": 509,
+            "level": 1
+        },
+        {
+            "id": 517,
+            "level": 1
+        },
+        {
+            "id": 521,
+            "level": 2
+        },
+        {
+            "id": 523,
+            "level": 3
+        },
+        {
+            "id": 525,
+            "level": 3
+        },
+        {
+            "id": 528,
+            "level": 1
+        },
+        {
+            "id": 529,
+            "level": 2
+        }
+    ]
+}

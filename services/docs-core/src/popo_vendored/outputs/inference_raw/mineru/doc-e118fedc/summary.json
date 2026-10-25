@@ -1,0 +1,773 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1cuyubob\\input\\pdfs\\doc-e118fedc.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1cuyubob\\enriched\\doc-e118fedc.json",
+    "contd_output": "<|src_id|>23<|tgt_id|>24\n<|src_id|>32<|tgt_id|>33\n<|src_id|>78<|tgt_id|>79",
+    "title_output": "<|id|>1<|level|>1\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>20<|level|>3\n<|id|>34<|level|>3\n<|id|>41<|level|>3\n<|id|>46<|level|>3\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>91<|level|>3\n<|id|>94<|level|>3\n<|id|>97<|level|>2\n<|id|>98<|level|>3\n<|id|>111<|level|>3\n<|id|>132<|level|>3\n<|id|>143<|level|>3\n<|id|>154<|level|>3\n<|id|>156<|level|>4\n<|id|>162<|level|>2\n<|id|>163<|level|>3\n<|id|>170<|level|>3\n<|id|>177<|level|>3\n<|id|>209<|level|>3\n<|id|>215<|level|>3\n<|id|>222<|level|>2\n<|id|>223<|level|>3\n<|id|>231<|level|>3\n<|id|>238<|level|>3\n<|id|>267<|level|>3\n<|id|>273<|level|>3\n<|id|>280<|level|>2\n<|id|>281<|level|>3\n<|id|>294<|level|>3\n<|id|>301<|level|>3\n<|id|>340<|level|>3\n<|id|>346<|level|>3\n<|id|>354<|level|>2\n<|id|>355<|level|>3\n<|id|>361<|level|>3\n<|id|>368<|level|>3\n<|id|>397<|level|>3\n<|id|>405<|level|>3\n<|id|>413<|level|>2\n<|id|>414<|level|>3\n<|id|>420<|level|>3\n<|id|>428<|level|>3\n<|id|>429<|level|>4\n<|id|>448<|level|>4\n<|id|>457<|level|>4\n<|id|>473<|level|>4\n<|id|>483<|level|>4\n<|id|>498<|level|>3\n<|id|>504<|level|>3\n<|id|>513<|level|>2\n<|id|>514<|level|>3\n<|id|>519<|level|>3\n<|id|>535<|level|>3\n<|id|>545<|level|>3\n<|id|>555<|level|>2\n<|id|>556<|level|>3\n<|id|>559<|level|>3\n<|id|>561<|level|>4\n<|id|>564<|level|>4\n<|id|>566<|level|>4\n<|id|>571<|level|>3\n<|id|>581<|level|>2\n<|id|>582<|level|>3\n<|id|>586<|level|>3\n<|id|>593<|level|>2\n<|id|>594<|level|>3\n<|id|>596<|level|>4\n<|id|>599<|level|>4\n<|id|>602<|level|>4\n<|id|>605<|level|>4\n<|id|>608<|level|>4\n<|id|>611<|level|>4\n<|id|>614<|level|>3\n<|id|>619<|level|>2\n<|id|>620<|level|>3\n<|id|>623<|level|>3\n<|id|>627<|level|>3\n<|id|>648<|level|>2\n<|id|>649<|level|>3\n<|id|>659<|level|>3\n<|id|>670<|level|>3\n<|id|>678<|level|>2\n<|id|>708<|level|>2\n<|id|>709<|level|>3\n<|id|>715<|level|>3\n<|id|>725<|level|>3\n<|id|>727<|level|>3\n<|id|>728<|level|>4\n<|id|>731<|level|>5\n<|id|>744<|level|>3",
+    "image_output": "<|src_id|>93<|tgt_id|>91\n<|src_id|>95<|tgt_id|>94\n<|src_id|>96<|tgt_id|>94\n<|src_id|>208<|tgt_id|>177\n<|src_id|>265<|tgt_id|>238\n<|src_id|>266<|tgt_id|>238\n<|src_id|>339<|tgt_id|>301\n<|src_id|>395<|tgt_id|>368\n<|src_id|>396<|tgt_id|>368\n<|src_id|>496<|tgt_id|>483\n<|src_id|>497<|tgt_id|>483\n<|src_id|>516<|tgt_id|>514\n<|src_id|>558<|tgt_id|>556\n<|src_id|>584<|tgt_id|>582\n<|src_id|>621<|tgt_id|>620\n<|src_id|>651<|tgt_id|>649\n<|src_id|>652<|tgt_id|>649\n<|src_id|>710<|tgt_id|>709\n<|src_id|>711<|tgt_id|>709\n<|src_id|>712<|tgt_id|>709\n<|src_id|>713<|tgt_id|>709\n<|src_id|>714<|tgt_id|>709\n<|src_id|>717<|tgt_id|>715\n<|src_id|>718<|tgt_id|>715\n<|src_id|>719<|tgt_id|>715\n<|src_id|>720<|tgt_id|>715\n<|src_id|>721<|tgt_id|>715\n<|src_id|>722<|tgt_id|>715\n<|src_id|>723<|tgt_id|>715\n<|src_id|>724<|tgt_id|>715\n<|src_id|>726<|tgt_id|>725\n<|src_id|>738<|tgt_id|>727\n<|src_id|>739<|tgt_id|>727\n<|src_id|>755<|tgt_id|>744",
+    "contd_label": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 4
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 3
+        },
+        {
+            "id": 231,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 3
+        },
+        {
+            "id": 267,
+            "level": 3
+        },
+        {
+            "id": 273,
+            "level": 3
+        },
+        {
+            "id": 280,
+            "level": 2
+        },
+        {
+            "id": 281,
+            "level": 3
+        },
+        {
+            "id": 294,
+            "level": 3
+        },
+        {
+            "id": 301,
+            "level": 3
+        },
+        {
+            "id": 340,
+            "level": 3
+        },
+        {
+            "id": 346,
+            "level": 3
+        },
+        {
+            "id": 354,
+            "level": 2
+        },
+        {
+            "id": 355,
+            "level": 3
+        },
+        {
+            "id": 361,
+            "level": 3
+        },
+        {
+            "id": 368,
+            "level": 3
+        },
+        {
+            "id": 397,
+            "level": 3
+        },
+        {
+            "id": 405,
+            "level": 3
+        },
+        {
+            "id": 413,
+            "level": 2
+        },
+        {
+            "id": 414,
+            "level": 3
+        },
+        {
+            "id": 420,
+            "level": 3
+        },
+        {
+            "id": 428,
+            "level": 3
+        },
+        {
+            "id": 429,
+            "level": 4
+        },
+        {
+            "id": 448,
+            "level": 4
+        },
+        {
+            "id": 457,
+            "level": 4
+        },
+        {
+            "id": 473,
+            "level": 4
+        },
+        {
+            "id": 483,
+            "level": 4
+        },
+        {
+            "id": 498,
+            "level": 3
+        },
+        {
+            "id": 504,
+            "level": 3
+        },
+        {
+            "id": 513,
+            "level": 2
+        },
+        {
+            "id": 514,
+            "level": 3
+        },
+        {
+            "id": 519,
+            "level": 3
+        },
+        {
+            "id": 535,
+            "level": 3
+        },
+        {
+            "id": 545,
+            "level": 3
+        },
+        {
+            "id": 555,
+            "level": 2
+        },
+        {
+            "id": 556,
+            "level": 3
+        },
+        {
+            "id": 559,
+            "level": 3
+        },
+        {
+            "id": 561,
+            "level": 4
+        },
+        {
+            "id": 564,
+            "level": 4
+        },
+        {
+            "id": 566,
+            "level": 4
+        },
+        {
+            "id": 571,
+            "level": 3
+        },
+        {
+            "id": 581,
+            "level": 2
+        },
+        {
+            "id": 582,
+            "level": 3
+        },
+        {
+            "id": 586,
+            "level": 3
+        },
+        {
+            "id": 593,
+            "level": 2
+        },
+        {
+            "id": 594,
+            "level": 3
+        },
+        {
+            "id": 596,
+            "level": 4
+        },
+        {
+            "id": 599,
+            "level": 4
+        },
+        {
+            "id": 602,
+            "level": 4
+        },
+        {
+            "id": 605,
+            "level": 4
+        },
+        {
+            "id": 608,
+            "level": 4
+        },
+        {
+            "id": 611,
+            "level": 4
+        },
+        {
+            "id": 614,
+            "level": 3
+        },
+        {
+            "id": 619,
+            "level": 2
+        },
+        {
+            "id": 620,
+            "level": 3
+        },
+        {
+            "id": 623,
+            "level": 3
+        },
+        {
+            "id": 627,
+            "level": 3
+        },
+        {
+            "id": 648,
+            "level": 2
+        },
+        {
+            "id": 649,
+            "level": 3
+        },
+        {
+            "id": 659,
+            "level": 3
+        },
+        {
+            "id": 670,
+            "level": 3
+        },
+        {
+            "id": 678,
+            "level": 2
+        },
+        {
+            "id": 708,
+            "level": 2
+        },
+        {
+            "id": 709,
+            "level": 3
+        },
+        {
+            "id": 715,
+            "level": 3
+        },
+        {
+            "id": 725,
+            "level": 3
+        },
+        {
+            "id": 727,
+            "level": 3
+        },
+        {
+            "id": 728,
+            "level": 4
+        },
+        {
+            "id": 731,
+            "level": 5
+        },
+        {
+            "id": 744,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 93,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 208,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 265,
+            "tgt_id": 238
+        },
+        {
+            "src_id": 266,
+            "tgt_id": 238
+        },
+        {
+            "src_id": 339,
+            "tgt_id": 301
+        },
+        {
+            "src_id": 395,
+            "tgt_id": 368
+        },
+        {
+            "src_id": 396,
+            "tgt_id": 368
+        },
+        {
+            "src_id": 496,
+            "tgt_id": 483
+        },
+        {
+            "src_id": 497,
+            "tgt_id": 483
+        },
+        {
+            "src_id": 516,
+            "tgt_id": 514
+        },
+        {
+            "src_id": 558,
+            "tgt_id": 556
+        },
+        {
+            "src_id": 584,
+            "tgt_id": 582
+        },
+        {
+            "src_id": 621,
+            "tgt_id": 620
+        },
+        {
+            "src_id": 651,
+            "tgt_id": 649
+        },
+        {
+            "src_id": 652,
+            "tgt_id": 649
+        },
+        {
+            "src_id": 710,
+            "tgt_id": 709
+        },
+        {
+            "src_id": 711,
+            "tgt_id": 709
+        },
+        {
+            "src_id": 712,
+            "tgt_id": 709
+        },
+        {
+            "src_id": 713,
+            "tgt_id": 709
+        },
+        {
+            "src_id": 714,
+            "tgt_id": 709
+        },
+        {
+            "src_id": 717,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 718,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 719,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 720,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 721,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 722,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 723,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 724,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 726,
+            "tgt_id": 725
+        },
+        {
+            "src_id": 738,
+            "tgt_id": 727
+        },
+        {
+            "src_id": 739,
+            "tgt_id": 727
+        },
+        {
+            "src_id": 755,
+            "tgt_id": 744
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 95,
+            "table2_idx": 96,
+            "upper_row_ss": [
+                [
+                    "July 15, 2025",
+                    "CDD/EDD remediation —",
+                    "Patricia Langston",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "50% of 47,000 accounts (23,500) completed",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 265,
+            "table2_idx": 266,
+            "upper_row_ss": [
+                [
+                    "QA framework",
+                    "July 31, 2025",
+                    "Thomas Ikeda / Patricia",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "operational",
+                    "",
+                    "Langston",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 651,
+            "table2_idx": 652,
+            "upper_row_ss": [
+                [
+                    "February 10, 2025",
+                    "Thornfield engagement executed (Engagement"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Reference: TCG-BRB-2025-001)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 710,
+            "table2_idx": 711,
+            "upper_row_ss": [
+                [
+                    "March 31, 2025",
+                    "Amended Bylaws adopted",
+                    "Art. VII",
+                    "WS5",
+                    "BRFG Board / Gregory",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Nardone",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 711,
+            "table2_idx": 712,
+            "upper_row_ss": [
+                [
+                    "June 1, 2025",
+                    "TMS v.10.0 environment setup and data migration",
+                    "Art. VI",
+                    "WS4",
+                    "Linda Petrosian / Veridian",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "complete",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 712,
+            "table2_idx": 713,
+            "upper_row_ss": [
+                [
+                    "August 1, 2025",
+                    "Veridian TMS v.10.0 UAT complete and deployed to",
+                    "Art. VI",
+                    "WS1, WS4",
+                    "Linda Petrosian",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "production",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 713,
+            "table2_idx": 714,
+            "upper_row_ss": [
+                [
+                    "January 15, 2026",
+                    "CDD/EDD remediation — 100% of 47,000 accounts",
+                    "Art. V",
+                    "WS3",
+                    "Patricia Langston",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "completed",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 718,
+            "table2_idx": 719,
+            "upper_row_ss": [
+                [
+                    "Alert disposition (backlog",
+                    "A",
+                    "I",
+                    "R",
+                    "I",
+                    "C",
+                    "I"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "clearance)",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 720,
+            "table2_idx": 721,
+            "upper_row_ss": [
+                [
+                    "CDD/EDD validation",
+                    "I",
+                    "I",
+                    "I",
+                    "I",
+                    "I",
+                    "A",
+                    "I"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "testing",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 723,
+            "table2_idx": 724,
+            "upper_row_ss": [
+                [
+                    "Monthly Compliance Committee",
+                    "I",
+                    "R",
+                    "R",
+                    "A",
+                    "C",
+                    "C",
+                    "I"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "reporting",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

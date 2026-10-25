@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>114 251 133 746<|content|>PRINCIPAL AND SELLING STOCKHOLDERS\n<|id|>20<|page|>4<|box|>450 142 467 462<|content|>Footnotes to Beneficial Ownership Table\n<|id|>30<|page|>6<|box|>250 140 266 300<|content|>Selling Stockholder\n<|id|>31<|page|>6<|box|>279 140 297 344<|content|>Identity and Background\n<|id|>36<|page|>7<|box|>89 140 107 290<|content|>Shares Being Sold\n<|id|>40<|page|>7<|box|>494 142 512 393<|content|>Relationship with the Company\n<|id|>47<|page|>8<|box|>279 140 296 315<|content|>Lock-Up Agreements\n<|id|>65<|page|>10<|box|>229 140 248 503<|content|>Post-IPO Equity Plans and Dilutive Securities\n<|id|>80<|page|>11<|box|>419 140 436 509<|content|>Controlled-Company Status and Voting Power",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>20<|level|>2\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>36<|level|>2\n<|id|>40<|level|>2\n<|id|>47<|level|>2\n<|id|>65<|level|>2\n<|id|>80<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        }
+    ]
+}

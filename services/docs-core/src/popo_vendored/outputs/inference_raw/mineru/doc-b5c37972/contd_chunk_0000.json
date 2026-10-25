@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>248 179 266 816<|content|>[Insert Firm Address Line 1] [Insert Firm Address Line 2] [Insert City, State ZIP]\n<|id|>5<|page|>1<|box|>273 217 291 779<|content|>Telephone: ... [Insert Facsimile Number]\n<|id|>6<|page|>1<|box|>299 140 359 854<|content|>INSTRUCTIONAL NOTE: ... Confirm with Lender's coun...nk-signed letter, a PDF copy, or both are required\n<|id|>7<|page|>1<|box|>368 697 385 854<|content|>[Insert Closing Date]\n<|id|>8<|page|>1<|box|>393 140 454 854<|content|>INSTRUCTIONAL NOTE: ... The opinions expressed herein will speak only as of this date\n<|id|>9<|page|>1<|box|>460 142 497 854<|content|>[Insert Lender Full Legal Name] [Insert Lender Add...er Address Line 2] [Insert Lender City, State ZIP]\n<|id|>10<|page|>1<|box|>506 143 522 622<|content|>Attention: ... [Insert name and title of relationship contact at Lender]\n<|id|>11<|page|>1<|box|>522 140 598 854<|content|>INSTRUCTIONAL NOTE: ... If addressed to multiple p...the following format for each additional addressee\n<|id|>12<|page|>1<|box|>604 140 636 854<|content|>[Insert Co-Lender / Participant Full Legal Name] [...] [Insert Co-Lender / Participant City, State ZIP]\n<|id|>13<|page|>1<|box|>642 143 657 343<|content|>Attention: ... [Insert name and title]\n<|id|>14<|page|>1<|box|>657 140 712 854<|content|>Re: ... Construction Loan in the amount of $[Inser...rower\") — [Insert Project Name / Property Address]\n<|id|>15<|page|>1<|box|>719 140 795 854<|content|>INSTRUCTIONAL NOTE: ... line should be sufficientl...n from other financings involving the same parties\n<|id|>18<|page|>1<|box|>869 140 906 854<|content|>We have acted as counsel to [Insert Borrower Full ...e \"Borrower\"), and to [Insert Managing Member Full\n<|id|>19<|page|>2<|box|>90 140 219 857<|content|>Legal Name], a [Insert entity type, e. ... , Maryl... described herein and on Exhibit A attached hereto\n<|id|>22<|page|>2<|box|>462 140 493 854<|content|>\"The Managing Member is also a guarantor under the...capacity as the 'Managing Member Guarantor. ... '\"\n<|id|>23<|page|>2<|box|>500 140 531 852<|content|>If the opinion is also being delivered on behalf o...tifying such additional entity and the firm's role\n<|id|>123<|page|>10<|box|>654 174 691 854<|content|>(ii) the filing of UCC financing statements with the [Insert filing office, e. ... and\n<|id|>125<|page|>10<|box|>742 140 833 854<|content|>INSTRUCTIONAL NOTE: ... Do not opine that no feder...nder's counsel and supported by appropriate review\n<|id|>127<|page|>10<|box|>869 140 906 854<|content|>To our knowledge, there is no action, suit, procee...gainst [Insert Borrower Name] or [Insert Guarantor\n<|id|>128<|page|>11<|box|>90 140 218 854<|content|>Name] before any court, governmental authority, ar...ons under the Loan Documents or Guaranty Documents\n<|id|>146<|page|>12<|box|>489 174 618 856<|content|>(b) general principles of equity (whether applied ...dered in a proceeding in equity or at law; ... and\n<|id|>148<|page|>12<|box|>667 140 715 854<|content|>INSTRUCTIONAL NOTE: ... Do not attempt to narrow o...s on the enforceability of contractual obligations\n<|id|>172<|page|>14<|box|>773 138 883 857<|content|>We express no opinion as to any federal, state, or... the enforceability of the Environmental Indemnity\n<|id|>173<|page|>15<|box|>90 140 126 854<|content|>Agreement as a contractual obligation of the parti...o (subject to the qualifications set forth herein)\n<|id|>188<|page|>16<|box|>135 174 279 854<|content|>(a) this opinion letter may be disclosed to any su... such successor, assignee, or participant; ... and\n<|id|>190<|page|>16<|box|>332 140 422 854<|content|>INSTRUCTIONAL NOTE: ... coordinate with Lender's c...reliance language for a securitization transaction\n<|id|>192<|page|>16<|box|>457 142 474 272<|content|>Very truly yours,\n<|id|>194<|page|>16<|box|>500 143 517 253<|content|>By: ... By\n<|id|>193<|page|>16<|box|>482 143 500 287<|content|>[Insert Firm Name]\n<|id|>195<|page|>16<|box|>517 142 534 418<|content|>Name: ... [Insert Signing Partner Name]\n<|id|>196<|page|>16<|box|>534 143 550 380<|content|>Title: ... , Partner]\n<|id|>197<|page|>16<|box|>550 140 642 854<|content|>INSTRUCTIONAL NOTE: ... Retain a fully executed copy in the opinion backup file\n<|id|>268<|page|>23<|box|>212 176 229 575<|content|>(h) A copy of the final opinion letter as delivered; ... and\n<|id|>270<|page|>23<|box|>282 140 318 854<|content|>The opinion backup file should be maintained in ac...rdance with the firm's document retention policies",
+    "raw_response": "<|src_id|>18<|tgt_id|>19\n<|src_id|>127<|tgt_id|>128\n<|src_id|>172<|tgt_id|>173",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 173
+        }
+    ]
+}

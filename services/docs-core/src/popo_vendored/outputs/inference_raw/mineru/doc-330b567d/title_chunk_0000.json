@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        11
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>16<|page|>2<|box|>212 140 229 390<|content|>I. FACTUAL BACKGROUND\n<|id|>17<|page|>2<|box|>243 140 260 406<|content|>A. The 30(b)(6) Deposition Notice\n<|id|>23<|page|>2<|box|>821 142 839 501<|content|>B. Lumicore's Designation and the Deposition\n<|id|>27<|page|>3<|box|>292 140 311 361<|content|>C. The Deficient Testimony\n<|id|>34<|page|>4<|box|>330 140 347 400<|content|>D. The Meet-and-Confer Efforts\n<|id|>39<|page|>5<|box|>175 140 191 339<|content|>II. LEGAL STANDARD\n<|id|>40<|page|>5<|box|>205 140 224 367<|content|>A. Rule 30(b)(6) Obligations\n<|id|>46<|page|>6<|box|>157 140 175 496<|content|>B. Remedies for Deficient 30(b)(6) Testimony\n<|id|>49<|page|>6<|box|>540 140 558 287<|content|>III. ARGUMENT\n<|id|>50<|page|>6<|box|>571 140 589 665<|content|>A. Lumicore's Designee Was Not Adequately Prepared\n<|id|>56<|page|>7<|box|>521 140 537 743<|content|>B. Lumicore's Privilege Objections Are Unfounded a\n<|id|>63<|page|>8<|box|>539 140 556 460<|content|>C. The Deficiency Is Prejudicial to OWS\n<|id|>69<|page|>9<|box|>530 140 547 361<|content|>IV. RELIEF REQUESTED\n<|id|>76<|page|>10<|box|>296 140 314 478<|content|>V. CERTIFICATION OF CONFERENCE\n<|id|>80<|page|>10<|box|>617 140 633 261<|content|>VI. CLOSING\n<|id|>94<|page|>11<|box|>313 140 330 388<|content|>CERTIFICATE OF SERVICE\n<|id|>100<|page|>11<|box|>613 142 630 261<|content|>Wendy Schultz\n<|id|>101<|page|>11<|box|>650 142 669 238<|content|>EXHIBITS",
+    "raw_response": "<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>23<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>1\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>49<|level|>1\n<|id|>50<|level|>2\n<|id|>56<|level|>2\n<|id|>63<|level|>2\n<|id|>69<|level|>1\n<|id|>76<|level|>1\n<|id|>80<|level|>1\n<|id|>94<|level|>1\n<|id|>100<|level|>-1\n<|id|>101<|level|>1",
+    "parsed": [
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        }
+    ]
+}

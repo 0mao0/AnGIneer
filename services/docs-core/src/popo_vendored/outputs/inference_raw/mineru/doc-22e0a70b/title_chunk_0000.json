@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 165 142 831<|content|>CERTIFICATION OF NON-FOREIGN STATUS PURSUANT TO SE\n<|id|>3<|page|>1<|box|>226 140 243 387<|content|>Section 1. Introductory Recital\n<|id|>7<|page|>1<|box|>656 140 674 532<|content|>Section 2. Certifications Under Penalty of Perjury\n<|id|>15<|page|>2<|box|>342 142 359 426<|content|>Section 3. No Withholding Required\n<|id|>17<|page|>2<|box|>574 142 590 498<|content|>Section 4. Acknowledgments and Agreements\n<|id|>21<|page|>3<|box|>258 142 277 374<|content|>Section 5. General Provisions\n<|id|>24<|page|>3<|box|>502 400 518 596<|content|>[Signature Page Follows]\n<|id|>25<|page|>3<|box|>527 202 544 792<|content|>SIGNATURE PAGE TO CERTIFICATION OF NON-FOREIGN STA\n<|id|>27<|page|>3<|box|>597 143 614 450<|content|>AURELIUS MEDIA HOLDINGS INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>7<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>24<|level|>-1\n<|id|>25<|level|>1\n<|id|>27<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        }
+    ]
+}

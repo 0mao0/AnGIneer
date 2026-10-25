@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 147 143 849<|content|>SECRETARY'S CERTIFICATE OF GENOME DX THERAPEUTICS\n<|id|>8<|page|>1<|box|>648 140 666 501<|content|>Section 1. Certification of Charter Documents\n<|id|>9<|page|>1<|box|>680 142 696 460<|content|>1.1 Restated Certificate of Incorporation\n<|id|>12<|page|>2<|box|>241 140 258 491<|content|>Section 2. Certification of Board Resolutions\n<|id|>18<|page|>3<|box|>90 142 107 604<|content|>Section 3. Certification of Good Standing and Qual\n<|id|>21<|page|>3<|box|>476 140 493 521<|content|>Section 4. Incumbency and Specimen Signatures\n<|id|>27<|page|>4<|box|>204 140 222 419<|content|>Section 5. Additional Certifications\n<|id|>32<|page|>4<|box|>477 140 494 294<|content|>Section 6. Reliance\n<|id|>47<|page|>6<|box|>89 433 107 565<|content|>EXHIBIT LIST",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>12<|level|>2\n<|id|>18<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>32<|level|>2\n<|id|>47<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        }
+    ]
+}

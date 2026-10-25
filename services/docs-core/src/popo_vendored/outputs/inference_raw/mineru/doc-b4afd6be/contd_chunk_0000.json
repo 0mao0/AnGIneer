@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>90 140 108 756<|content|># RE: ... 17/814,057 (Restriction\n<|id|>1<|page|>1<|box|>109 140 127 480<|content|>Requirement) — Emergency Authorization\n<|id|>6<|page|>1<|box|>296 142 315 207<|content|>Christy,\n<|id|>2<|page|>1<|box|>171 140 189 568<|content|>- From: ... com>\n<|id|>3<|page|>1<|box|>203 140 220 583<|content|>- To: ... com>\n<|id|>4<|page|>1<|box|>234 140 252 630<|content|>- Cc: ... com>\n<|id|>5<|page|>1<|box|>265 140 282 457<|content|>- Date: ... 00 -0000\n<|id|>10<|page|>1<|box|>809 140 883 834<|content|>To be clear on scope: ... The 4-month extension sh...d to address the substantive election and response\n<|id|>11<|page|>2<|box|>90 140 126 844<|content|>separately as that date approaches. ... We'll circ...ack with you and Catherine on that well in advance\n<|id|>16<|page|>2<|box|>703 142 720 250<|content|>Best regards,\n<|id|>17<|page|>2<|box|>763 140 782 238<|content|>Sandra Koh\n<|id|>18<|page|>2<|box|>796 140 814 442<|content|>IP Manager / In-House Patent Counsel\n<|id|>19<|page|>2<|box|>827 140 845 387<|content|>Optiwave Semiconductor Corp. ... Optiwave Semiconductor Corp\n<|id|>20<|page|>2<|box|>858 140 877 424<|content|>4710 Ridgeview Parkway, Suite 300\n<|id|>21<|page|>2<|box|>888 140 907 320<|content|>Santa Clara, CA 95054\n<|id|>22<|page|>3<|box|>90 143 108 292<|content|>P: ... (408) 555-0194\n<|id|>23<|page|>3<|box|>122 142 138 413<|content|>E: ... com",
+    "raw_response": "<|src_id|>10<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        }
+    ]
+}

@@ -1,0 +1,193 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-tkxu7s_0\\input\\pdfs\\doc-c1360307.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-tkxu7s_0\\enriched\\doc-c1360307.json",
+    "contd_output": "<|src_id|>29<|tgt_id|>30\n<|src_id|>38<|tgt_id|>39\n<|src_id|>259<|tgt_id|>260",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>28<|level|>3\n<|id|>36<|level|>3\n<|id|>41<|level|>3\n<|id|>45<|level|>2\n<|id|>47<|level|>3\n<|id|>54<|level|>3\n<|id|>61<|level|>3\n<|id|>66<|level|>3\n<|id|>72<|level|>3\n<|id|>77<|level|>3\n<|id|>81<|level|>3\n<|id|>87<|level|>2\n<|id|>89<|level|>3\n<|id|>105<|level|>4\n<|id|>110<|level|>3\n<|id|>154<|level|>3\n<|id|>168<|level|>3\n<|id|>173<|level|>4\n<|id|>177<|level|>3\n<|id|>185<|level|>4\n<|id|>189<|level|>2\n<|id|>193<|level|>2\n<|id|>195<|level|>3\n<|id|>204<|level|>3\n<|id|>211<|level|>3\n<|id|>216<|level|>3\n<|id|>221<|level|>2\n<|id|>233<|level|>2\n<|id|>242<|level|>2",
+    "image_output": "<|src_id|>43<|tgt_id|>41\n<|src_id|>190<|tgt_id|>189\n<|src_id|>191<|tgt_id|>189",
+    "contd_label": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 259,
+            "tgt_id": 260
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 4
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 4
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 4
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 233,
+            "level": 2
+        },
+        {
+            "id": 242,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 43,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 189
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 189
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 190,
+            "table2_idx": 191,
+            "upper_row_ss": [
+                [
+                    "Confidentiality Duration (indefinite for all CI)",
+                    "Moderate",
+                    "Potentially overbroad as applied to non-trade-secret confidential",
+                    "Bifurcate: indefinite for trade secrets; 3 years post-separation for other",
+                    "High"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "information; may implicate § 16600",
+                    "confidential information",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

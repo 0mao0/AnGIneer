@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>219 174 255 854<|content|>Pinnacle National Bank, National Association as Le...00 Lexington Avenue, 35th Floor New York, NY 10022\n<|id|>4<|page|>1<|box|>263 176 297 852<|content|>Meridian Whitcomb LLC as Collateral Agent 100 Wall Street, 18th Floor New York, NY 10005\n<|id|>5<|page|>1<|box|>308 140 400 856<|content|>Reference: ... , a Delaware corporation (the \"Borr...enior secured term loan facility (the \"Term Loan\")\n<|id|>22<|page|>2<|box|>838 174 875 854<|content|>(c) the execution, delivery, and performance by th... the Company in favor of Meridian Whitcomb LLC, as\n<|id|>23<|page|>3<|box|>90 174 127 854<|content|>Collateral Agent for the benefit of Pinnacle Natio...nterest in substantially all assets of the Company\n<|id|>29<|page|>3<|box|>319 210 354 854<|content|>(iv) payment of fees, costs, and expenses incurred...s contemplated by the Term Loan Agreement; ... and\n<|id|>34<|page|>3<|box|>796 140 906 856<|content|>The Resolutions were duly adopted by the Board of ...the Certificate of Incorporation and Bylaws of the\n<|id|>32<|page|>3<|box|>561 174 671 856<|content|>(g) the execution and delivery of all other docume...ested by Pinnacle or the Collateral Agent; ... and\n<|id|>35<|page|>4<|box|>89 140 127 854<|content|>Company. ... The Resolutions have not been amended...ain in full force and effect as of the date hereof\n<|id|>43<|page|>5<|box|>133 174 170 854<|content|>(b) conflicts with, or results in a breach or viol...rs of the Company or any committee thereof; ... or\n<|id|>45<|page|>5<|box|>241 140 369 854<|content|>The Company has obtained all necessary corporate a... the Term Loan Agreement and the related documents\n<|id|>54<|page|>6<|box|>125 143 141 321<|content|>Name: ... Jerome Hartwell\n<|id|>55<|page|>6<|box|>142 143 157 416<|content|>Title: ... General Counsel and Secretary\n<|id|>56<|page|>6<|box|>159 142 176 767<|content|>Brightfield Cloud Services Inc. ... 4200 Lone Star Parkway, Suite 800 Austin, TX 78731\n<|id|>62<|page|>6<|box|>412 143 429 316<|content|>Name: ... Marcus Elliston\n<|id|>63<|page|>6<|box|>429 143 445 364<|content|>Title: ... Chief Executive Officer\n<|id|>64<|page|>6<|box|>446 143 464 313<|content|>Date: ... August 12, 2022\n<|id|>89<|page|>7<|box|>808 140 900 854<|content|>WHEREAS, the Company intends to use the proceeds o...ng capital and general corporate purposes; ... and\n<|id|>90<|page|>8<|box|>133 140 244 856<|content|>WHEREAS, the Board of Directors has reviewed and c...summation of the transactions contemplated thereby\n<|id|>98<|page|>9<|box|>289 183 305 504<|content|>• Marcus Elliston, Chief Executive Officer\n<|id|>101<|page|>9<|box|>348 140 439 854<|content|>and any one of such officers, acting alone, is her...lusive evidence of such officer's approval thereof\n<|id|>99<|page|>9<|box|>309 183 324 517<|content|>• Priya Ramanathan, Chief Financial Officer\n<|id|>100<|page|>9<|box|>328 183 344 557<|content|>• Jerome Hartwell, General Counsel and Secretary\n<|id|>102<|page|>9<|box|>446 140 520 856<|content|>RESOLVED FURTHER, that all actions heretofore take..., confirmed, and approved in all respects; ... and\n<|id|>103<|page|>9<|box|>527 140 674 856<|content|>RESOLVED FURTHER, that each of the foregoing offic...t, or the payment of such fees, costs, or expenses\n<|id|>108<|page|>9<|box|>803 140 895 856<|content|>The undersigned, Jerome Hartwell, General Counsel ... behalf of the Company in connection with the Term\n<|id|>109<|page|>10<|box|>90 140 143 854<|content|>Loan Agreement dated as of July 28, 2022, the Secu...d delivered by the Company in connection therewith\n<|id|>114<|page|>10<|box|>420 140 436 323<|content|>Name: ... Jerome Hartwell\n<|id|>115<|page|>10<|box|>436 142 454 416<|content|>Title: ... General Counsel and Secretary\n<|id|>116<|page|>10<|box|>454 143 470 313<|content|>Date: ... August 12, 2022\n<|id|>117<|page|>10<|box|>470 140 517 854<|content|>This Secretary's Certificate, together with all Ex... Loan Agreement and their respective legal counsel",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>34<|tgt_id|>35\n<|src_id|>108<|tgt_id|>109",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        }
+    ]
+}

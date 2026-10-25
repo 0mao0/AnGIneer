@@ -1,0 +1,42 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>160 142 176 433<|content|>VIA CM/ECF ELECTRONIC FILING\n<|id|>7<|page|>1<|box|>598 140 614 477<|content|>I. Background of the District Court Action\n<|id|>11<|page|>2<|box|>167 140 185 331<|content|>II. The FCC Complaint\n<|id|>16<|page|>2<|box|>825 140 842 717<|content|>III. Substantial Overlap Between the FCC and Distr\n<|id|>24<|page|>3<|box|>744 140 761 730<|content|>IV. Relevance to the Pending Motion and the Primar\n<|id|>30<|page|>5<|box|>89 140 107 233<|content|>V. Request\n<|id|>45<|page|>5<|box|>582 374 599 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>24<|level|>1\n<|id|>30<|level|>1\n<|id|>45<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        }
+    ]
+}

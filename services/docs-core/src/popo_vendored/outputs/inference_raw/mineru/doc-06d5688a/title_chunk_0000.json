@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>1<|box|>250 140 265 316<|content|>Ladies and Gentlemen:\n<|id|>7<|page|>1<|box|>597 140 614 527<|content|>I. DEFINED TERMS AND INTERPRETATION\n<|id|>31<|page|>3<|box|>561 140 578 632<|content|>II. SCOPE OF EXAMINATION; DOCUMENTS EXAMINED\n<|id|>46<|page|>5<|box|>89 142 106 310<|content|>III. ASSUMPTIONS\n<|id|>58<|page|>6<|box|>193 142 210 509<|content|>IV. QUALIFICATIONS AND LIMITATIONS\n<|id|>68<|page|>7<|box|>446 140 464 261<|content|>V. OPINIONS\n<|id|>70<|page|>7<|box|>522 140 539 465<|content|>A. Due Organization and Valid Existence\n<|id|>75<|page|>8<|box|>194 142 210 334<|content|>B. Power and Authority\n<|id|>84<|page|>9<|box|>257 140 273 315<|content|>C. Due Authorization\n<|id|>90<|page|>10<|box|>275 140 292 351<|content|>D. Execution and Delivery\n<|id|>92<|page|>10<|box|>439 140 457 500<|content|>E. No Violation of Organizational Documents\n<|id|>94<|page|>10<|box|>657 142 675 403<|content|>F. No Violation of Delaware Law\n<|id|>98<|page|>11<|box|>89 142 106 400<|content|>VI. RELIANCE AND BENEFIT\n<|id|>104<|page|>11<|box|>479 140 496 442<|content|>VII. NO OBLIGATION TO UPDATE\n<|id|>106<|page|>11<|box|>625 400 641 596<|content|>[Signature Page Follows]\n<|id|>108<|page|>11<|box|>675 143 690 424<|content|>BRIARCLIFF LEGAL GROUP PA\n<|id|>114<|page|>11<|box|>804 334 820 661<|content|>LIST OF DELAWARE LOAN PARTIES",
+    "raw_response": "<|id|>4<|level|>-1\n<|id|>7<|level|>1\n<|id|>31<|level|>1\n<|id|>46<|level|>1\n<|id|>58<|level|>1\n<|id|>68<|level|>1\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>84<|level|>2\n<|id|>90<|level|>2\n<|id|>92<|level|>2\n<|id|>94<|level|>2\n<|id|>98<|level|>1\n<|id|>104<|level|>1\n<|id|>106<|level|>-1\n<|id|>108<|level|>-1\n<|id|>114<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        }
+    ]
+}

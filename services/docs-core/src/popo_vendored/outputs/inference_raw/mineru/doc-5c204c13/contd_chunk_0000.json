@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>137 143 229 854<|content|>Delivered pursuant to Section 4. ... , a Delaware ...nd Collateral Agent, and the Lenders party thereto\n<|id|>2<|page|>1<|box|>234 143 290 854<|content|>and delivered in connection with the Restructuring...nine Capital LLC, and KFO Holdings Société Anonyme\n<|id|>3<|page|>1<|box|>297 140 315 294<|content|>Date: ... June 30, 2023\n<|id|>12<|page|>2<|box|>133 174 208 854<|content|>(e) the Amended and Restated Intercompany Promisso...r), reducing the interest rate on the $76. ... and\n<|id|>14<|page|>2<|box|>277 140 407 856<|content|>In addition, the undersigned has reviewed the fina...ercial outlook, and expected financial performance\n<|id|>21<|page|>2<|box|>821 174 895 857<|content|>(iv) Financial Covenant Resets. ... 50x by the fiscal quarter ending\n<|id|>22<|page|>3<|box|>90 174 183 854<|content|>December 31, 2025, and each fiscal quarter thereaf...00x by the fiscal quarter ending December 31, 2024\n<|id|>68<|page|>8<|box|>590 174 681 854<|content|>(iv) the 13-week cash flow projections and longer-... for the period through December 31, 2025; ... and\n<|id|>70<|page|>8<|box|>768 140 787 852<|content|>The undersigned notes the following qualifications...s and limitations with respect to this Certificate\n<|id|>81<|page|>9<|box|>710 140 726 313<|content|>Name: ... Diana Restrepo\n<|id|>82<|page|>9<|box|>727 142 744 380<|content|>Title: ... Vice President of Finance\n<|id|>83<|page|>9<|box|>744 142 760 295<|content|>Date: ... June 30, 2023\n<|id|>84<|page|>9<|box|>762 140 777 674<|content|>Principal Office: ... 1400 McKinney Street, Suite 2200 Houston, TX 77010\n<|id|>85<|page|>9<|box|>777 140 795 766<|content|>Jurisdiction of Organization: ... 84-3291057",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>21<|tgt_id|>22",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        }
+    ]
+}

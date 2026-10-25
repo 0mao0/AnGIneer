@@ -1,0 +1,137 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 214 133 782<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>3<|page|>1<|box|>444 413 464 583<|content|>1. ATTENDEES\n<|id|>4<|page|>1<|box|>489 142 507 359<|content|>1.1 IRS Examination Team\n<|id|>11<|page|>2<|box|>90 142 107 424<|content|>1.2 Penterra Pharmaceuticals Corp.\n<|id|>13<|page|>2<|box|>194 142 210 408<|content|>1.3 Calderwood & Harkness LLP\n<|id|>18<|page|>2<|box|>402 212 422 782<|content|>2. PURPOSE AND BACKGROUND OF CONFERENCE\n<|id|>24<|page|>3<|box|>135 246 155 750<|content|>3. EXAMINATION STATUS — IDR PROGRESS\n<|id|>25<|page|>3<|box|>180 140 198 305<|content|>3.1 Completed IDRs\n<|id|>34<|page|>4<|box|>531 140 547 444<|content|>3.2 Outstanding and Anticipated IDRs\n<|id|>43<|page|>5<|box|>325 140 345 854<|content|>4. IRS PRELIMINARY POSITIONS — SUBSTANTIVE DISCUSS\n<|id|>45<|page|>5<|box|>460 140 477 663<|content|>4.1 Cost-Sharing Arrangement — Reasonably Anticipa\n<|id|>51<|page|>6<|box|>513 140 529 292<|content|>4.2 PCT Valuation\n<|id|>60<|page|>7<|box|>619 140 636 359<|content|>4.3 Legacy IP Royalty Rate\n<|id|>68<|page|>8<|box|>691 140 708 390<|content|>4.4 Economic Substance of PBI\n<|id|>83<|page|>10<|box|>377 140 393 354<|content|>4.5 Penalty Considerations\n<|id|>87<|page|>10<|box|>719 305 739 691<|content|>5. ANTICIPATED NOPA TIMELINE\n<|id|>94<|page|>11<|box|>433 254 452 740<|content|>6. STATUTE OF LIMITATIONS DISCUSSION\n<|id|>99<|page|>12<|box|>90 348 109 648<|content|>7. COORDINATION ISSUES\n<|id|>100<|page|>12<|box|>136 140 152 374<|content|>7.1 IRS Economist's Analysis\n<|id|>104<|page|>12<|box|>455 140 474 321<|content|>7.2 Irish Coordination\n<|id|>108<|page|>13<|box|>90 140 107 477<|content|>7.3 Penterra Holdings Luxembourg S.à r.l.\n<|id|>111<|page|>13<|box|>366 140 383 406<|content|>7.4 PMI Contract Manufacturing\n<|id|>114<|page|>13<|box|>609 297 628 700<|content|>8. ACTION ITEMS AND NEXT STEPS\n<|id|>123<|page|>14<|box|>265 251 285 743<|content|>9. OBSERVATIONS AND STRATEGIC NOTES\n<|id|>124<|page|>14<|box|>303 143 356 852<|content|>ATTORNEY WORK PRODUCT — INTERNAL ONLY PROTECTED CO\n<|id|>135<|page|>16<|box|>479 142 496 349<|content|>Internal C&H Follow-Up:\n<|id|>140<|page|>16<|box|>718 269 738 728<|content|>10. CERTIFICATION AND DISTRIBUTION\n<|id|>142<|page|>16<|box|>801 142 818 250<|content|>Prepared by:\n<|id|>143<|page|>17<|box|>90 142 108 367<|content|>Reviewed and Approved by:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>3<|level|>1\n<|id|>4<|level|>2\n<|id|>11<|level|>2\n<|id|>13<|level|>2\n<|id|>18<|level|>1\n<|id|>24<|level|>1\n<|id|>25<|level|>2\n<|id|>34<|level|>2\n<|id|>43<|level|>1\n<|id|>45<|level|>2\n<|id|>51<|level|>2\n<|id|>60<|level|>2\n<|id|>68<|level|>2\n<|id|>83<|level|>2\n<|id|>87<|level|>1\n<|id|>94<|level|>1\n<|id|>99<|level|>1\n<|id|>100<|level|>2\n<|id|>104<|level|>2\n<|id|>108<|level|>2\n<|id|>111<|level|>2\n<|id|>114<|level|>1\n<|id|>123<|level|>1\n<|id|>124<|level|>-1\n<|id|>135<|level|>2\n<|id|>140<|level|>1\n<|id|>142<|level|>2\n<|id|>143<|level|>2",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        }
+    ]
+}

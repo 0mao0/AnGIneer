@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        34
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        11,
+        12,
+        16,
+        17,
+        20,
+        21,
+        23,
+        34
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>202 140 219 292<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>228 140 244 851<|content|>FROM: ... Leonard Cross, Partner, and Wendy Schultz, Associate — Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>253 140 290 854<|content|>TO: ... Carolyn Whitford, General Counsel & Executive Vice President, Quorum Insurance Holdings Corp\n<|id|>5<|page|>1<|box|>297 142 315 325<|content|>DATE: ... March 28, 2024\n<|id|>6<|page|>1<|box|>324 140 359 854<|content|>RE: ... — Strategic Options and Recommendations for Q2 2024\n<|id|>7<|page|>1<|box|>368 140 385 488<|content|>MATTER NO. ... 1025-00008\n<|id|>8<|page|>1<|box|>393 140 412 823<|content|>CC: ... (via hand delivery)\n<|id|>9<|page|>1<|box|>419 140 435 410<|content|>Right-click to update Table of Contents\n<|id|>43<|page|>4<|box|>847 140 904 857<|content|>March 9, 2023. ... Meridian's negotiating team — c...ing), Arthur Pennington (Vice President, Strategic\n<|id|>44<|page|>5<|box|>90 140 164 854<|content|>Partnerships), and Ben Overstreet (Director, Legal... a fundamental restructuring of Quorum's proposals\n<|id|>114<|page|>11<|box|>797 140 907 857<|content|>Quorum's Original Position. ... This provision was intended to ensure that Quorum, as one of\n<|id|>115<|page|>12<|box|>90 140 127 854<|content|>Meridian's largest enterprise licensees, would not...negotiate lower pricing in subsequent transactions\n<|id|>163<|page|>16<|box|>835 174 909 856<|content|>(i) Copyright \"Derivative Work\" Analysis. ... Our ...e unlikely to qualify as \"derivative works\" of the\n<|id|>164<|page|>17<|box|>90 174 200 857<|content|>Meridian training data within the meaning of 17 U....ndermined by any intervening case law developments\n<|id|>205<|page|>20<|box|>869 174 907 854<|content|>Quorum's Position: ... Termination of the data license does not\n<|id|>206<|page|>21<|box|>42 158 71 839<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION — ATTORNEY WORK PRODUCT\n<|id|>207<|page|>21<|box|>90 174 126 854<|content|>retroactively divest Quorum of ownership in output...s it independently created during the license term\n<|id|>241<|page|>23<|box|>573 181 590 566<|content|>• SOC 2 Type II audit requirements for both parties\n<|id|>246<|page|>23<|box|>689 140 762 854<|content|>We recommend finalizing the DSA early in the resta...ressed in the initial re-engagement communications\n<|id|>242<|page|>23<|box|>592 183 609 570<|content|>• ISO 27001 certification requirements for Meridian\n<|id|>243<|page|>23<|box|>612 183 628 488<|content|>• 48-hour breach notification obligations\n<|id|>244<|page|>23<|box|>631 183 666 852<|content|>• Quorum's audit rights with respect to Meridian's...ecurity practices (annual, with reasonable notice)\n<|id|>245<|page|>23<|box|>669 183 686 709<|content|>• Minimum encryption standards (AES-256 at rest, TLS 1. ... 2+ in transit)\n<|id|>351<|page|>34<|box|>422 140 439 320<|content|>Respectfully submitted,\n<|id|>352<|page|>34<|box|>440 142 455 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>353<|page|>34<|box|>458 143 474 254<|content|>By: ... By\n<|id|>354<|page|>34<|box|>474 143 489 313<|content|>Leonard Cross Partner\n<|id|>355<|page|>34<|box|>492 143 508 253<|content|>By: ... By\n<|id|>356<|page|>34<|box|>508 142 523 334<|content|>Wendy Schultz Associate\n<|id|>357<|page|>34<|box|>525 140 599 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...ege and the work product doctrine. ... 1025- 00008",
+    "raw_response": "<|src_id|>43<|tgt_id|>44\n<|src_id|>114<|tgt_id|>115\n<|src_id|>163<|tgt_id|>164\n<|src_id|>205<|tgt_id|>207",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 207
+        }
+    ]
+}

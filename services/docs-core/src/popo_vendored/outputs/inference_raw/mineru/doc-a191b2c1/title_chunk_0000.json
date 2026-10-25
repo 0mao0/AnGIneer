@@ -1,0 +1,86 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 174 126 854<|content|>CALDERWOOD & HARKNESS LLP 555 Mission Street, Suit\n<|id|>7<|page|>1<|box|>325 140 343 316<|content|>Ladies and Gentlemen:\n<|id|>10<|page|>1<|box|>657 142 674 486<|content|>1. Defined Terms and Document References\n<|id|>21<|page|>2<|box|>425 140 441 416<|content|>2. Documents and Items Examined\n<|id|>36<|page|>3<|box|>715 140 732 267<|content|>3. Assumptions\n<|id|>49<|page|>4<|box|>814 140 832 238<|content|>4. Opinions\n<|id|>51<|page|>5<|box|>90 140 107 607<|content|>4.1 Due Incorporation, Valid Existence, and Good S\n<|id|>53<|page|>5<|box|>273 140 290 424<|content|>4.2 Corporate Power and Authority\n<|id|>55<|page|>5<|box|>510 140 527 633<|content|>4.3 Due Authorization, Execution, and Delivery; En\n<|id|>57<|page|>5<|box|>638 142 654 274<|content|>4.4 No Violation\n<|id|>63<|page|>6<|box|>275 140 292 379<|content|>4.5 Securities Law Exemption\n<|id|>65<|page|>6<|box|>476 140 493 586<|content|>4.6 Valid Reservation and Issuance of Conversion S\n<|id|>69<|page|>7<|box|>204 140 222 403<|content|>5. Qualifications and Limitations\n<|id|>71<|page|>7<|box|>261 140 279 375<|content|>5.1 Enforceability Exceptions\n<|id|>77<|page|>7<|box|>584 140 601 315<|content|>5.2 Scope Limitations\n<|id|>81<|page|>8<|box|>157 140 174 521<|content|>5.3 Reliance on Certificates and Representations\n<|id|>83<|page|>8<|box|>359 140 375 344<|content|>5.4 As-of Date Limitation\n<|id|>85<|page|>8<|box|>513 140 532 352<|content|>6. Reliance and Disclosure",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>-1\n<|id|>10<|level|>1\n<|id|>21<|level|>1\n<|id|>36<|level|>1\n<|id|>49<|level|>1\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>69<|level|>1\n<|id|>71<|level|>2\n<|id|>77<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>2\n<|id|>85<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        }
+    ]
+}

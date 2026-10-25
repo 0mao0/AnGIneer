@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 156 118 839<|content|>UCC FINANCING STATEMENT — DRAFT — NOT FOR FILING\n<|id|>1<|type|>title<|page|>1<|box|>135 158 171 838<|content|>PREPARED FOR REVIEW PURPOSES ONLY THIS DOCUMENT HA\n<|id|>8<|type|>title<|page|>1<|box|>391 362 407 633<|content|>UCC FINANCING STATEMENT\n<|id|>9<|type|>title<|page|>1<|box|>431 433 449 565<|content|>(FORM UCC-1)\n<|id|>10<|type|>title<|page|>1<|box|>459 424 474 571<|content|>Follow Instructions\n<|id|>11<|type|>table<|page|>1<|box|>510 143 619 852<|content|>None\n<|id|>13<|type|>title<|page|>1<|box|>712 142 728 674<|content|>Box 1 — DEBTOR INFORMATION (ORGANIZATION DEBTOR)\n<|id|>15<|type|>title<|page|>1<|box|>816 143 833 344<|content|>1a. Organization's Name:\n<|id|>16<|type|>title<|page|>1<|box|>842 176 858 434<|content|>Quorum Premium Finance LLC\n<|id|>18<|type|>title<|page|>2<|box|>171 143 189 310<|content|>1b. Mailing Address:\n<|id|>19<|type|>title<|page|>2<|box|>196 174 214 558<|content|>400 Atlantic Street, Suite 2200 Stamford, CT 06901\n<|id|>21<|type|>title<|page|>2<|box|>285 142 301 282<|content|>1c. Tax ID / EIN:\n<|id|>22<|type|>title<|page|>2<|box|>311 176 328 272<|content|>84-2653198\n<|id|>24<|type|>title<|page|>2<|box|>436 143 454 401<|content|>1d. Jurisdiction of Organization:\n<|id|>25<|type|>title<|page|>2<|box|>463 176 479 254<|content|>Delaware\n<|id|>27<|type|>title<|page|>2<|box|>604 143 623 390<|content|>1e. Organizational ID Number:\n<|id|>30<|type|>title<|page|>2<|box|>799 140 816 416<|content|>Box 2 — ADDITIONAL DEBTOR\n<|id|>32<|type|>title<|page|>3<|box|>138 140 156 511<|content|>Box 3 — SECURED PARTY INFORMATION\n<|id|>34<|type|>title<|page|>3<|box|>226 140 242 344<|content|>3a. Organization's Name:\n<|id|>35<|type|>title<|page|>3<|box|>251 176 268 452<|content|>Quorum Receivables Holding LLC\n<|id|>36<|type|>title<|page|>3<|box|>277 140 294 310<|content|>3b. Mailing Address:\n<|id|>37<|type|>title<|page|>3<|box|>303 176 319 558<|content|>400 Atlantic Street, Suite 2200 Stamford, CT 06901\n<|id|>39<|type|>title<|page|>3<|box|>446 140 464 594<|content|>3c. Tax ID / EIN (optional but included for comple\n<|id|>40<|type|>title<|page|>3<|box|>472 176 489 272<|content|>88-1247619\n<|id|>42<|type|>title<|page|>3<|box|>602 140 619 493<|content|>Box 4 — ADDITIONAL SECURED PARTY\n<|id|>44<|type|>title<|page|>3<|box|>710 140 728 475<|content|>Box 5 — COLLATERAL DESCRIPTION\n<|id|>63<|type|>title<|page|>5<|box|>828 140 844 620<|content|>Box 6 — CHECK BOXES / ADDITIONAL INFORMATION\n<|id|>65<|type|>table<|page|>6<|box|>88 143 198 852<|content|>None\n<|id|>68<|type|>title<|page|>6<|box|>434 140 452 596<|content|>Box 7 — ALTERNATIVE DESIGNATION (OPTIONAL)\n<|id|>70<|type|>title<|page|>6<|box|>575 140 592 457<|content|>PRECAUTIONARY FILING NOTICE:\n<|id|>73<|type|>title<|page|>7<|box|>89 140 107 545<|content|>Box 8 — OPTIONAL FILER REFERENCE DATA\n<|id|>75<|type|>table<|page|>7<|box|>174 143 263 852<|content|>None\n<|id|>76<|type|>title<|page|>7<|box|>314 290 330 707<|content|>FILING INSTRUCTION COVER MEMORANDUM\n<|id|>77<|type|>title<|page|>7<|box|>340 178 357 818<|content|>Attached to Draft UCC-1 Financing Statement — QPF\n<|id|>78<|type|>table<|page|>7<|box|>386 143 523 852<|content|>None\n<|id|>79<|type|>title<|page|>7<|box|>561 142 579 308<|content|>I. Filing Instructions\n<|id|>89<|type|>title<|page|>8<|box|>253 140 270 403<|content|>II. Context and Purpose of Filing\n<|id|>96<|type|>title<|page|>9<|box|>268 140 284 331<|content|>III. Coordination Notes\n<|id|>108<|type|>title<|page|>10<|box|>361 142 377 230<|content|>IV. Status.\n<|id|>109<|type|>title<|page|>10<|box|>383 176 400 372<|content|>DRAFT — NOT FILED",
+    "raw_response": "<|src_id|>11<|tgt_id|>8\n<|src_id|>65<|tgt_id|>63\n<|src_id|>75<|tgt_id|>73\n<|src_id|>78<|tgt_id|>76",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        }
+    ]
+}

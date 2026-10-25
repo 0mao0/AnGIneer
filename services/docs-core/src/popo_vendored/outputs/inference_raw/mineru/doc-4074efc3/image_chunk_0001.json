@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        49
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>462<|type|>title<|page|>46<|box|>90 142 107 609<|content|>Appendix F: Organizational Chart — Compliance Func\n<|id|>467<|type|>table<|page|>46<|box|>297 143 616 852<|content|>None\n<|id|>468<|type|>table<|page|>47<|box|>140 143 263 852<|content|>None\n<|id|>470<|type|>title<|page|>47<|box|>489 143 506 279<|content|>Payment Details:\n<|id|>471<|type|>table<|page|>47<|box|>513 143 659 852<|content|>None\n<|id|>472<|type|>table<|page|>48<|box|>114 143 508 852<|content|>None\n<|id|>473<|type|>table<|page|>49<|box|>114 143 429 852<|content|>None\n<|id|>475<|type|>title<|page|>49<|box|>542 413 559 583<|content|>SIGNATURE PAGE\n<|id|>477<|type|>title<|page|>49<|box|>613 140 628 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>467<|tgt_id|>462\n<|src_id|>468<|tgt_id|>462\n<|src_id|>471<|tgt_id|>470\n<|src_id|>472<|tgt_id|>470\n<|src_id|>473<|tgt_id|>470",
+    "parsed": [
+        {
+            "src_id": 467,
+            "tgt_id": 462
+        },
+        {
+            "src_id": 468,
+            "tgt_id": 462
+        },
+        {
+            "src_id": 471,
+            "tgt_id": 470
+        },
+        {
+            "src_id": 472,
+            "tgt_id": 470
+        },
+        {
+            "src_id": 473,
+            "tgt_id": 470
+        }
+    ]
+}

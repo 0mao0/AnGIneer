@@ -1,0 +1,58 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        59
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        13,
+        14,
+        15,
+        21,
+        22,
+        28,
+        29,
+        39,
+        43,
+        44,
+        58,
+        59
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>334 166 369 828<|content|>HUDSON YARDS WEST MORTGAGE LLC, a Delaware limited liability company, as Borrower,\n<|id|>5<|page|>1<|box|>378 258 395 738<|content|>THE LENDERS FROM TIME TO TIME PARTY HERETO,\n<|id|>6<|page|>1<|box|>405 480 421 517<|content|>and\n<|id|>7<|page|>1<|box|>430 163 465 831<|content|>IRONCLAD NATIONAL BANK, N. ... , a national bankin...ciation, as Administrative Agent and Lead Arranger\n<|id|>8<|page|>1<|box|>474 183 518 813<|content|>Senior Secured Mortgage Loan in the Original Princ...... 450 West 34th Street, New York, New York 10001\n<|id|>16<|page|>2<|box|>449 140 560 856<|content|>WHEREAS, the Loan is evidenced by the Note (as def...e to Administrative Agent and the Lenders; ... and\n<|id|>17<|page|>2<|box|>566 140 623 854<|content|>WHEREAS, Metropolitan Transit Development Corp. .....th the Loan, as more particularly described herein\n<|id|>33<|page|>3<|box|>835 138 909 857<|content|>\"Appraised Value\" means One Billion Twenty-Five Mi...repared in accordance with USPAP and the Financial\n<|id|>34<|page|>4<|box|>90 140 145 854<|content|>Institutions Reform, Recovery, and Enforcement Act...of any updated Appraisal prior to its finalization\n<|id|>135<|page|>13<|box|>843 140 880 857<|content|>\"Permitted Transfer\" means (a) the leasing of spac...ling interests in MTDC or entities above Mezzanine\n<|id|>136<|page|>14<|box|>90 140 127 854<|content|>Borrower in the ownership structure, subject to th...ers as Administrative Agent may approve in writing\n<|id|>147<|page|>14<|box|>851 140 906 857<|content|>\"Qualified Manager\" means a reputable and experien... feet of property under management, as approved by\n<|id|>148<|page|>15<|box|>90 138 181 856<|content|>Administrative Agent in its reasonable discretion....e deemed a Qualified Manager as of the date hereof\n<|id|>224<|page|>21<|box|>869 174 906 857<|content|>(i) Casualty/Condemnation Proceeds. ... To the ext...tion with a Casualty or Condemnation affecting the\n<|id|>225<|page|>22<|box|>90 174 181 857<|content|>Project are not applied to Restoration in accordan...nt approval, so long as no Event of Default exists\n<|id|>285<|page|>28<|box|>737 138 902 857<|content|>If at any time Administrative Agent determines (ba...nto the Cash Management Account. ... The Balancing\n<|id|>286<|page|>29<|box|>90 140 145 854<|content|>Deposit shall be disbursed prior to any further Ad...ime specified shall constitute an Event of Default\n<|id|>405<|page|>39<|box|>650 140 724 854<|content|>(h) Administrative Agent shall have received evide...r written consent of Administrative Agent; ... and\n<|id|>408<|page|>39<|box|>819 140 875 854<|content|>The submission of each Draw Request by Borrower sh...h Draw Request and the date of the related Advance\n<|id|>451<|page|>43<|box|>856 174 893 856<|content|>(ii) With respect to a Cash Management Period trig...shall terminate on the date on which such Event of\n<|id|>452<|page|>44<|box|>90 174 127 854<|content|>Default has been cured to the satisfaction of Admi...gent (acting at the direction of Required Lenders)\n<|id|>591<|page|>58<|box|>366 174 421 854<|content|>(E) Insurance proceeds (together with any deficien...Project immediately prior to the Casualty; ... and\n<|id|>593<|page|>58<|box|>473 174 527 856<|content|>Insurance proceeds of $2,500,000 or less shall be ... Conditions, so long as no Event of Default exists\n<|id|>598<|page|>58<|box|>806 138 878 857<|content|>(c) Borrower shall have the right to participate i...l. ... Borrower shall not settle or compromise any\n<|id|>599<|page|>59<|box|>90 140 126 854<|content|>Condemnation claim in excess of $5,000,000 without... the prior written consent of Administrative Agent\n<|id|>612<|page|>59<|box|>795 138 905 854<|content|>(b) Borrower or Guarantor fails to perform or obse...t it cannot reasonably be cured within thirty (30)",
+    "raw_response": "<|src_id|>33<|tgt_id|>34\n<|src_id|>135<|tgt_id|>136\n<|src_id|>147<|tgt_id|>148\n<|src_id|>224<|tgt_id|>225\n<|src_id|>285<|tgt_id|>286\n<|src_id|>451<|tgt_id|>452\n<|src_id|>598<|tgt_id|>599",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 136
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 285,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 451,
+            "tgt_id": 452
+        },
+        {
+            "src_id": 598,
+            "tgt_id": 599
+        }
+    ]
+}

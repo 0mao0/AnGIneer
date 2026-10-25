@@ -1,0 +1,147 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 611<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>113 403 133 593<|content|>MEMORANDUM\n<|id|>10<|page|>1<|box|>483 140 500 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>16<|page|>2<|box|>604 140 621 578<|content|>II. BACKGROUND AND SCOPE OF ENGAGEMENT\n<|id|>17<|page|>2<|box|>635 140 652 295<|content|>A. Project Context\n<|id|>23<|page|>3<|box|>527 140 546 609<|content|>B. Engagement of Pendleton Environmental Associate\n<|id|>28<|page|>4<|box|>366 140 383 352<|content|>C. Due Diligence Timeline\n<|id|>32<|page|>5<|box|>89 140 106 702<|content|>III. PHASE I ENVIRONMENTAL SITE ASSESSMENT — FINDI\n<|id|>33<|page|>5<|box|>121 140 138 441<|content|>A. Site Description and Historical Use\n<|id|>39<|page|>5<|box|>845 142 863 294<|content|>B. Records Review\n<|id|>56<|page|>7<|box|>90 140 106 326<|content|>C. Site Reconnaissance\n<|id|>71<|page|>8<|box|>494 140 512 609<|content|>E. Recognized Environmental Conditions (RECs) Iden\n<|id|>75<|page|>9<|box|>138 140 157 503<|content|>F. De Minimis Conditions and Other Findings\n<|id|>81<|page|>9<|box|>718 140 734 506<|content|>G. Phase I Conclusions and Recommendations\n<|id|>84<|page|>10<|box|>185 140 222 728<|content|>IV. PHASE II ENVIRONMENTAL SITE ASSESSMENT — SCOPE\n<|id|>85<|page|>10<|box|>234 142 253 408<|content|>A. Scope of Phase II Investigation\n<|id|>96<|page|>11<|box|>398 142 415 346<|content|>B. Status of Phase II ESA\n<|id|>104<|page|>11<|box|>809 140 825 617<|content|>C. Anticipated Outcomes and Risk Assessment (Preli\n<|id|>119<|page|>13<|box|>614 140 630 733<|content|>V. IMPLICATIONS FOR THE STONEBRIDGE PARCEL ACQUISI\n<|id|>120<|page|>13<|box|>643 140 662 339<|content|>A. Due Diligence Timing\n<|id|>125<|page|>14<|box|>411 140 428 450<|content|>B. Purchase Agreement Considerations\n<|id|>132<|page|>15<|box|>90 140 107 607<|content|>C. Impact on Construction Loan and Lender Requirem\n<|id|>137<|page|>15<|box|>607 140 625 372<|content|>D. Impact on Title Insurance\n<|id|>141<|page|>16<|box|>157 140 174 421<|content|>E. Impact on Entitlements / ZMOD\n<|id|>145<|page|>16<|box|>638 140 657 750<|content|>VI. COORDINATION WITH OTHER DUE DILIGENCE WORKSTRE\n<|id|>147<|page|>16<|box|>752 140 768 377<|content|>A. Geotechnical Investigation\n<|id|>150<|page|>17<|box|>194 140 212 308<|content|>B. Civil / Site Design\n<|id|>156<|page|>17<|box|>553 140 569 282<|content|>C. EPC Contract\n<|id|>166<|page|>18<|box|>696 140 714 648<|content|>VII. PENDING ACTION ITEMS AND RECOMMENDATIONS\n<|id|>175<|page|>20<|box|>222 142 239 334<|content|>VIII. ATTACHMENTS\n<|id|>182<|page|>20<|box|>647 375 662 620<|content|>— END OF MEMORANDUM —",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>23<|level|>3\n<|id|>28<|level|>3\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>39<|level|>3\n<|id|>56<|level|>3\n<|id|>71<|level|>3\n<|id|>75<|level|>3\n<|id|>81<|level|>3\n<|id|>84<|level|>2\n<|id|>85<|level|>3\n<|id|>96<|level|>3\n<|id|>104<|level|>3\n<|id|>119<|level|>2\n<|id|>120<|level|>3\n<|id|>125<|level|>3\n<|id|>132<|level|>3\n<|id|>137<|level|>3\n<|id|>141<|level|>3\n<|id|>145<|level|>2\n<|id|>147<|level|>3\n<|id|>150<|level|>3\n<|id|>156<|level|>3\n<|id|>166<|level|>2\n<|id|>175<|level|>2\n<|id|>182<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        }
+    ]
+}

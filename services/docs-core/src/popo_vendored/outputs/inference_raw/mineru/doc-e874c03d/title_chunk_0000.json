@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 437 107 560<|content|>SCHEDULE A\n<|id|>1<|page|>1<|box|>114 437 133 560<|content|>Trust Property\n<|id|>5<|page|>1<|box|>271 142 289 411<|content|>1. Identification of Trust Property\n<|id|>8<|page|>1<|box|>492 142 508 424<|content|>2. Life Insurance Policy Description\n<|id|>9<|page|>1<|box|>523 142 540 281<|content|>2.1 Policy Details\n<|id|>13<|page|>1<|box|>863 142 878 282<|content|>2.2 Insured Lives\n<|id|>15<|page|>2<|box|>90 142 106 292<|content|>First Insured Life:\n<|id|>17<|page|>2<|box|>160 140 176 310<|content|>Second Insured Life:\n<|id|>20<|page|>2<|box|>353 142 369 282<|content|>2.3 Death Benefit\n<|id|>23<|page|>2<|box|>640 143 657 346<|content|>2.4 Premium Information\n<|id|>32<|page|>3<|box|>452 142 469 313<|content|>2.5 Policy Ownership\n<|id|>45<|page|>4<|box|>282 142 300 359<|content|>2.6 Beneficiary Designation\n<|id|>50<|page|>4<|box|>650 142 667 305<|content|>3. Insurance Broker\n<|id|>55<|page|>5<|box|>90 142 107 370<|content|>4. Additional Trust Property\n<|id|>59<|page|>5<|box|>411 140 428 444<|content|>5. Confirmation and Acknowledgment\n<|id|>63<|page|>5<|box|>660 142 676 246<|content|>GRANTOR:\n<|id|>65<|page|>5<|box|>773 140 789 568<|content|>NORTHGATE TRUST COMPANY OF DELAWARE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>13<|level|>3\n<|id|>15<|level|>4\n<|id|>17<|level|>4\n<|id|>20<|level|>3\n<|id|>23<|level|>3\n<|id|>32<|level|>3\n<|id|>45<|level|>3\n<|id|>50<|level|>2\n<|id|>55<|level|>2\n<|id|>59<|level|>2\n<|id|>63<|level|>3\n<|id|>65<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 4
+        },
+        {
+            "id": 17,
+            "level": 4
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        }
+    ]
+}

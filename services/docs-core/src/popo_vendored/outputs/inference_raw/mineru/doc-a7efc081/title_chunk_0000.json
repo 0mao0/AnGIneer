@@ -1,0 +1,59 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        3,
+        60
+    ],
+    "pages": [
+        3,
+        5,
+        7,
+        9,
+        27,
+        45,
+        47,
+        59,
+        60
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>3<|box|>0 56 260 892<|content|>TREASURY BULLETIN\n<|id|>7<|page|>5<|box|>102 342 124 585<|content|>Table of Contents\n<|id|>10<|page|>7<|box|>123 296 143 636<|content|>Treasury Financing Operations\n<|id|>19<|page|>9<|box|>39 279 54 681<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>62<|page|>27<|box|>79 207 112 778<|content|>Table 7.- Treasury Holdings of Securities Issued b\n<|id|>108<|page|>45<|box|>76 168 110 819<|content|>Section II - Interest-Bearing Securities Issued by\n<|id|>124<|page|>47<|box|>78 146 92 836<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>154<|page|>59<|box|>74 348 87 634<|content|>Table 6.- Seigniorage on Silver\n<|id|>159<|page|>60<|box|>472 347 486 635<|content|>Section I - Historical Summary",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>10<|level|>2\n<|id|>19<|level|>2\n<|id|>62<|level|>3\n<|id|>108<|level|>3\n<|id|>124<|level|>3\n<|id|>154<|level|>3\n<|id|>159<|level|>3",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        }
+    ]
+}

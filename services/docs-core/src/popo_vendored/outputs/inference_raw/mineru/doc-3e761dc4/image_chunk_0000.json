@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 163 125 834<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>2<|type|>title<|page|>1<|box|>262 424 277 573<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>555 321 574 674<|content|>I. Purpose and Executive Summary\n<|id|>14<|type|>title<|page|>2<|box|>455 251 474 745<|content|>II. Background — The Palomar Security Incident\n<|id|>15<|type|>title<|page|>2<|box|>500 142 516 442<|content|>A. Palomar's Role as Quorum Vendor\n<|id|>20<|type|>title<|page|>3<|box|>250 140 266 403<|content|>B. Incident Notification Timeline\n<|id|>26<|type|>title<|page|>3<|box|>804 140 821 500<|content|>C. Preliminary Understanding of the Incident\n<|id|>39<|type|>title<|page|>5<|box|>136 236 156 759<|content|>III. Formal Activation of the Incident Response Pl\n<|id|>51<|type|>title<|page|>6<|box|>494 357 515 638<|content|>IV. Immediate Action Items\n<|id|>53<|type|>title<|page|>6<|box|>628 140 646 468<|content|>A. Evidence Preservation and Legal Hold\n<|id|>64<|type|>title<|page|>7<|box|>752 140 768 566<|content|>B. Retention of Forensic Investigators Under Privi\n<|id|>80<|type|>title<|page|>9<|box|>186 140 204 563<|content|>C. Communications Lockdown and Privilege Protocol\n<|id|>87<|type|>title<|page|>10<|box|>204 140 222 398<|content|>D. Cyber-Insurance Notification\n<|id|>108<|type|>title<|page|>11<|box|>375 140 391 465<|content|>E. Vendor Accountability — Initial Steps\n<|id|>118<|type|>title<|page|>12<|box|>845 140 864 395<|content|>F. Data Inventory and Mapping\n<|id|>128<|type|>title<|page|>13<|box|>321 179 337 361<|content|>Financial Information:\n<|id|>133<|type|>title<|page|>13<|box|>444 178 460 467<|content|>Protected Health Information (PHI):\n<|id|>141<|type|>title<|page|>14<|box|>90 140 107 566<|content|>G. Regulatory Notification — Preliminary Assessmen\n<|id|>151<|type|>title<|page|>15<|box|>502 140 518 442<|content|>H. Board and Management Reporting\n<|id|>156<|type|>title<|page|>16<|box|>375 241 393 754<|content|>V. Anticipated Workstream Timeline (Preliminary)\n<|id|>158<|type|>table<|page|>16<|box|>489 143 900 852<|content|>None\n<|id|>159<|type|>table<|page|>17<|box|>89 143 354 851<|content|>None\n<|id|>161<|type|>title<|page|>17<|box|>472 259 492 738<|content|>VI. Key Contacts and Communication Protocols\n<|id|>162<|type|>table<|page|>17<|box|>570 143 897 852<|content|>None\n<|id|>163<|type|>table<|page|>18<|box|>88 143 337 852<|content|>None\n<|id|>169<|type|>title<|page|>18<|box|>756 434 777 563<|content|>VII. Closing",
+    "raw_response": "<|src_id|>158<|tgt_id|>156\n<|src_id|>159<|tgt_id|>156\n<|src_id|>162<|tgt_id|>161\n<|src_id|>163<|tgt_id|>161",
+    "parsed": [
+        {
+            "src_id": 158,
+            "tgt_id": 156
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 156
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 161
+        }
+    ]
+}

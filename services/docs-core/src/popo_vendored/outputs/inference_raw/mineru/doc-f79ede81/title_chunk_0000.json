@@ -1,0 +1,65 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 212 143 784<|content|>SECRETARY'S CERTIFICATE OF CASCADIA FIBER NETWORKS\n<|id|>7<|page|>1<|box|>714 140 732 441<|content|>Section 1. Certificate of Incorporation\n<|id|>11<|page|>2<|box|>359 140 376 282<|content|>Section 2. Bylaws\n<|id|>15<|page|>2<|box|>679 140 696 547<|content|>Section 3. Board Resolutions Approving the Merger\n<|id|>32<|page|>4<|box|>583 140 599 398<|content|>Section 4. Stockholder Approval\n<|id|>40<|page|>5<|box|>492 140 508 522<|content|>Section 5. Incumbency and Authority of Officers\n<|id|>45<|page|>6<|box|>333 140 349 344<|content|>Section 6. Good Standing\n<|id|>52<|page|>6<|box|>731 140 747 460<|content|>Section 7. No Dissolution or Winding Up\n<|id|>54<|page|>7<|box|>148 140 167 419<|content|>Section 8. Additional Certifications\n<|id|>58<|page|>8<|box|>90 143 106 241<|content|>Exhibit List\n<|id|>60<|page|>8<|box|>378 142 393 413<|content|>Acknowledgment and Verification\n<|id|>63<|page|>8<|box|>694 400 710 596<|content|>[Signature Page Follows]\n<|id|>64<|page|>8<|box|>719 218 736 777<|content|>[Signature Page to Secretary's Certificate of Casc",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>15<|level|>2\n<|id|>32<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>-1\n<|id|>64<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        }
+    ]
+}

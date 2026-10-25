@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>116 428 133 568<|content|>Attorneys at Law\n<|id|>2<|page|>1<|box|>141 156 176 839<|content|>1735 Market Street, Suite 3100 Philadelphia, Pennsylvania 19103 Telephone: ... (215) 564-8201\n<|id|>4<|page|>1<|box|>231 382 246 614<|content|>www. ... com\n<|id|>3<|page|>1<|box|>185 143 219 854<|content|>600 Lexington Avenue New York, New York 10022 Telephone: ... (212) 848-1001\n<|id|>5<|page|>1<|box|>256 748 273 854<|content|>May 10, 2023\n<|id|>13<|page|>1<|box|>844 140 900 854<|content|>The current examination was opened on May 16, 2022...ion. ... The examination is being conducted by the\n<|id|>14<|page|>2<|box|>90 140 126 854<|content|>Large Business & International Division, Northeast...Practice, under Exam Team ID LB&I-NE-TP-2022-00641\n<|id|>45<|page|>4<|box|>875 140 909 856<|content|>PPC's cooperation in this examination has required...forts of Calderwood & Harkness's examination team,\n<|id|>46<|page|>5<|box|>90 140 291 856<|content|>PPC's internal tax department, led by Marcus Whitf...xamination. ... Rohan Chakrabarti, Senior Director\n<|id|>55<|page|>5<|box|>762 174 816 854<|content|>(iii) The PCT valuation of $312 million, including...r inputs used in PPC's valuation analysis; ... and\n<|id|>57<|page|>6<|box|>135 140 354 856<|content|>PPC believes that the extensive documentation prod...ce is well-supported by the contemporaneous record\n<|id|>68<|page|>7<|box|>321 174 358 854<|content|>(iii) The expected date by which the examination t... analysis of the issues under examination; ... and\n<|id|>70<|page|>7<|box|>410 140 518 856<|content|>PPC recognizes that the scope of this examination ...ions considerations in a timely and orderly manner\n<|id|>82<|page|>8<|box|>781 181 815 854<|content|>• Leonard Cross, Partner, Tax Department, Calderwo... LLP (Responsible Partner and lead representative)\n<|id|>83<|page|>8<|box|>819 181 854 854<|content|>• Garrett Simmons, Associate, Tax Department, Cald...kness LLP (lead associate for examination defense)\n<|id|>84<|page|>8<|box|>857 181 892 854<|content|>• Marcus Whitfield, Vice President, Global Tax, Pe...cals Corp. ... (PPC's senior internal tax officer)\n<|id|>85<|page|>9<|box|>90 140 219 854<|content|>PPC suggests that the examination team be represen...may be as productive and comprehensive as possible\n<|id|>94<|page|>9<|box|>883 174 902 743<|content|>Leonard Cross Direct Dial: ... (215) 564-8318\n<|id|>95<|page|>10<|box|>90 174 106 478<|content|>Email: ... com\n<|id|>96<|page|>10<|box|>107 142 125 777<|content|>Thank you for your attention to this request. ... We look forward to your prompt response\n<|id|>97<|page|>10<|box|>133 142 148 321<|content|>Respectfully submitted,\n<|id|>98<|page|>10<|box|>150 140 166 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>99<|page|>10<|box|>167 140 185 253<|content|>By: ... By\n<|id|>100<|page|>10<|box|>185 140 232 856<|content|>Leonard Cross Partner, Tax Department Calderwood &...New York, New Jersey, and the District of Columbia\n<|id|>101<|page|>10<|box|>234 140 251 743<|content|>cc: ... Marcus Whitfield, Vice President, Global Tax, Penterra Pharmaceuticals Corp\n<|id|>103<|page|>10<|box|>285 140 320 854<|content|>cc: ... Revenue Agent Patricia Dunleavy, Internal ...e Service, Large Business & International Division\n<|id|>104<|page|>10<|box|>329 140 347 573<|content|>cc: ... Sylvia Hartwell, Partner, Calderwood & Harkness LLP\n<|id|>105<|page|>10<|box|>354 140 373 601<|content|>cc: ... Garrett Simmons, Associate, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>45<|tgt_id|>46\n<|src_id|>55<|tgt_id|>57\n<|src_id|>68<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 70
+        }
+    ]
+}

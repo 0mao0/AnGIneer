@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        10
+    ],
+    "pages": [
+        2,
+        3,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>89 437 111 560<|content|>ANNEX III\n<|id|>1<|page|>2<|box|>135 377 154 620<|content|>LIST OF SUB-PROCESSORS\n<|id|>2<|page|>2<|box|>161 424 179 573<|content|>Execution Version\n<|id|>4<|page|>2<|box|>250 147 287 848<|content|>Applicable Modules: Module 2 (Controller-to-Proces\n<|id|>10<|page|>2<|box|>621 140 638 521<|content|>SECTION 1: INTRODUCTORY PROVISIONS\n<|id|>16<|page|>3<|box|>512 140 529 594<|content|>SECTION 2: LIST OF APPROVED SUB-PROCESSORS\n<|id|>85<|page|>7<|box|>643 140 660 555<|content|>SECTION 3: SUPPLEMENTARY INFORMATION\n<|id|>95<|page|>9<|box|>89 140 106 640<|content|>SECTION 4: UPDATE AND NOTIFICATION PROCEDURES\n<|id|>101<|page|>10<|box|>89 140 107 326<|content|>SIGNATURE BLOCK",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>3\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>85<|level|>2\n<|id|>95<|level|>2\n<|id|>101<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        }
+    ]
+}

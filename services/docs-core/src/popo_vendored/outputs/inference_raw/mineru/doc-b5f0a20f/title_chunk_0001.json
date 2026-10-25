@@ -1,0 +1,48 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        46,
+        47
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>523<|page|>46<|box|>90 277 109 718<|content|>SCHEDULE F — QUALITY STANDARDS\n<|id|>524<|page|>46<|box|>136 140 154 405<|content|>1. General Quality Requirements\n<|id|>526<|page|>46<|box|>258 140 275 547<|content|>2. Specifications by Product Type and Process Node\n<|id|>528<|page|>46<|box|>417 140 434 501<|content|>3. Automotive-Grade Qualification Standards\n<|id|>533<|page|>46<|box|>708 140 724 555<|content|>4. Industrial and Data-Center Application Standard\n<|id|>538<|page|>47<|box|>90 140 107 344<|content|>5. Defect Rate Tolerances\n<|id|>541<|page|>47<|box|>310 140 327 450<|content|>6. Incoming Quality Assurance Testing\n<|id|>546<|page|>47<|box|>564 140 580 513<|content|>7. Non-Conformance Reporting and Resolution",
+    "raw_response": "<|id|>523<|level|>1\n<|id|>524<|level|>2\n<|id|>526<|level|>2\n<|id|>528<|level|>2\n<|id|>533<|level|>2\n<|id|>538<|level|>2\n<|id|>541<|level|>2\n<|id|>546<|level|>2",
+    "parsed": [
+        {
+            "id": 523,
+            "level": 1
+        },
+        {
+            "id": 524,
+            "level": 2
+        },
+        {
+            "id": 526,
+            "level": 2
+        },
+        {
+            "id": 528,
+            "level": 2
+        },
+        {
+            "id": 533,
+            "level": 2
+        },
+        {
+            "id": 538,
+            "level": 2
+        },
+        {
+            "id": 541,
+            "level": 2
+        },
+        {
+            "id": 546,
+            "level": 2
+        }
+    ]
+}

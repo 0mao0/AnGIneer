@@ -1,0 +1,42 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>13<|page|>1<|box|>693 142 710 326<|content|>Engagement and Roles\n<|id|>17<|page|>2<|box|>208 140 224 349<|content|>Status of the Investigation\n<|id|>22<|page|>2<|box|>612 142 628 491<|content|>Administrative Leave Status of Marcus Hale\n<|id|>24<|page|>2<|box|>792 142 809 558<|content|>Response to Request for Interim Protective Measure\n<|id|>31<|page|>3<|box|>659 142 675 346<|content|>Limitations on Disclosure\n<|id|>35<|page|>4<|box|>152 140 170 331<|content|>Continued Cooperation",
+    "raw_response": "<|id|>13<|level|>1\n<|id|>17<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>31<|level|>1\n<|id|>35<|level|>1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        }
+    ]
+}

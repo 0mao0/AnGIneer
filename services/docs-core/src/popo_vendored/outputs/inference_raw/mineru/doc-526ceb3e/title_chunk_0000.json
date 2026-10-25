@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>128 299 148 697<|content|>COMMON-INTEREST AGREEMENT\n<|id|>8<|page|>1<|box|>484 447 503 550<|content|>RECITALS\n<|id|>9<|page|>1<|box|>510 140 529 248<|content|>WHEREAS:\n<|id|>22<|page|>3<|box|>545 447 563 550<|content|>ARTICLE I\n<|id|>23<|page|>3<|box|>585 434 604 563<|content|>DEFINITIONS\n<|id|>36<|page|>4<|box|>773 444 792 553<|content|>ARTICLE II\n<|id|>37<|page|>4<|box|>815 398 832 598<|content|>SCOPE AND PURPOSE\n<|id|>47<|page|>6<|box|>189 140 207 761<|content|>Section 2.3 — Limitations. Notwithstanding any oth\n<|id|>51<|page|>6<|box|>436 441 453 557<|content|>ARTICLE III\n<|id|>52<|page|>6<|box|>476 356 494 640<|content|>PRESERVATION OF PRIVILEGE\n<|id|>60<|page|>7<|box|>527 442 544 555<|content|>ARTICLE IV\n<|id|>61<|page|>7<|box|>568 354 585 643<|content|>OBLIGATIONS OF THE PARTIES\n<|id|>73<|page|>9<|box|>89 444 108 553<|content|>ARTICLE V\n<|id|>74<|page|>9<|box|>130 338 148 658<|content|>CLIENT CONSENT AND DIRECTION\n<|id|>82<|page|>9<|box|>664 442 681 555<|content|>ARTICLE VI\n<|id|>83<|page|>9<|box|>705 377 723 619<|content|>TERM AND TERMINATION\n<|id|>92<|page|>10<|box|>564 437 582 560<|content|>ARTICLE VII\n<|id|>93<|page|>10<|box|>604 393 622 604<|content|>DISPUTE RESOLUTION\n<|id|>96<|page|>11<|box|>89 434 108 563<|content|>ARTICLE VIII\n<|id|>97<|page|>11<|box|>128 413 148 583<|content|>MISCELLANEOUS\n<|id|>112<|page|>12<|box|>277 140 294 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>122<|page|>12<|box|>449 243 465 753<|content|>ACKNOWLEDGED AND CONSENTED TO BY THE CLIENT:\n<|id|>128<|page|>13<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>129<|page|>13<|box|>130 375 148 620<|content|>CLIENT CONSENT LETTER",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>-1\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>47<|level|>4\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>73<|level|>2\n<|id|>74<|level|>3\n<|id|>82<|level|>2\n<|id|>83<|level|>3\n<|id|>92<|level|>2\n<|id|>93<|level|>3\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>112<|level|>-1\n<|id|>122<|level|>2\n<|id|>128<|level|>2\n<|id|>129<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        }
+    ]
+}

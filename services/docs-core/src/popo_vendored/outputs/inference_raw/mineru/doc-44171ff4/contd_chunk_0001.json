@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        50,
+        82
+    ],
+    "pages": [
+        51,
+        60,
+        80,
+        82
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>307<|page|>51<|box|>878 81 909 491<|content|>On September 15, 2016, Treasury announced it would... \\$11,000 million of 9-year 10-month 0-1/8 percent\n<|id|>308<|page|>51<|box|>137 504 181 915<|content|>TIPS. ... The issue was to refund \\$87,776 million...o raise new cash of approximately \\$24,224 million\n<|id|>359<|page|>60<|box|>85 421 167 913<|content|>INTERNATIONAL\n<|id|>360<|page|>60<|box|>200 710 252 919<|content|>Foreign Currency Positions Exchange Stabilization Fund\n<|id|>361<|page|>60<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>460<|page|>80<|box|>148 388 162 609<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>461<|page|>80<|box|>184 81 258 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>469<|page|>80<|box|>839 81 901 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>470<|page|>80<|box|>184 504 229 915<|content|>Second Liberty Loan Act of 1917, the nature of the...o an overall limit on the outstanding Federal debt\n<|id|>501<|page|>82<|box|>140 81 172 491<|content|>United States—Includes the 50 States, District of ...ommonwealth of Puerto Rico, American Samoa, Midway\n<|id|>502<|page|>82<|box|>89 504 121 913<|content|>Island, Virgin Islands, Wake Island, and all other... Island, and all other territories and possessions",
+    "raw_response": "<|src_id|>307<|tgt_id|>308\n<|src_id|>469<|tgt_id|>470\n<|src_id|>501<|tgt_id|>502",
+    "parsed": [
+        {
+            "src_id": 307,
+            "tgt_id": 308
+        },
+        {
+            "src_id": 469,
+            "tgt_id": 470
+        },
+        {
+            "src_id": 501,
+            "tgt_id": 502
+        }
+    ]
+}

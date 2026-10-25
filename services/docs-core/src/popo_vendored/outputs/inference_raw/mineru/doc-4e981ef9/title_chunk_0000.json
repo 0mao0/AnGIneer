@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>133 174 170 821<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED / ATTORN\n<|id|>2<|page|>1<|box|>180 424 196 573<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>324 140 342 230<|content|>I. Purpose\n<|id|>11<|page|>1<|box|>737 142 753 323<|content|>II. Factual Foundation\n<|id|>12<|page|>1<|box|>768 140 784 496<|content|>A. Email Transmissions — Personal Account\n<|id|>23<|page|>2<|box|>699 140 717 816<|content|>B. Email Transmissions — Halcyon Creek Productions\n<|id|>30<|page|>3<|box|>583 140 599 547<|content|>C. Halcyon Creek Productions LLC — Background\n<|id|>36<|page|>4<|box|>356 140 375 761<|content|>D. Insubordination — Contextual Background (Not Ba\n<|id|>41<|page|>5<|box|>90 140 107 550<|content|>E. Timeline of DLP Audit and Termination Decision\n<|id|>51<|page|>5<|box|>647 140 664 359<|content|>III. Proposed Cross-Claims\n<|id|>52<|page|>5<|box|>678 140 696 784<|content|>A. First Cause of Action — Breach of Employment Ag\n<|id|>59<|page|>6<|box|>803 140 839 854<|content|>B. Second Cause of Action — Misappropriation of Tr\n<|id|>62<|page|>7<|box|>244 142 262 369<|content|>Both prongs are satisfied here:\n<|id|>67<|page|>8<|box|>231 140 248 566<|content|>C. Third Cause of Action — Breach of Fiduciary Dut\n<|id|>72<|page|>8<|box|>820 140 837 467<|content|>D. Fourth Cause of Action — Conversion\n<|id|>76<|page|>9<|box|>421 142 438 320<|content|>IV. Evidentiary Needs\n<|id|>80<|page|>10<|box|>191 142 209 526<|content|>Additional Evidence to Pursue During discovery:\n<|id|>85<|page|>10<|box|>633 140 652 514<|content|>V. Timeline Vulnerability — Pretext Argument\n<|id|>92<|page|>11<|box|>369 142 387 346<|content|>Response and Mitigation:\n<|id|>100<|page|>12<|box|>378 140 395 367<|content|>VI. Strategic Considerations\n<|id|>107<|page|>13<|box|>268 140 287 620<|content|>B. Potential Injunctive Relief (TRO / Preliminary\n<|id|>116<|page|>14<|box|>138 140 157 393<|content|>C. Halcyon Creek as Non-Party\n<|id|>123<|page|>14<|box|>786 140 803 413<|content|>D. Coordination with Class Action\n<|id|>132<|page|>15<|box|>424 142 440 352<|content|>E. Settlement Implications\n<|id|>141<|page|>16<|box|>148 140 167 385<|content|>VII. Recommended Next Steps\n<|id|>152<|page|>16<|box|>744 140 761 727<|content|>8. Prepare a comprehensive discovery plan for the",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>23<|level|>3\n<|id|>30<|level|>3\n<|id|>36<|level|>3\n<|id|>41<|level|>3\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>59<|level|>3\n<|id|>62<|level|>-1\n<|id|>67<|level|>3\n<|id|>72<|level|>3\n<|id|>76<|level|>2\n<|id|>80<|level|>3\n<|id|>85<|level|>2\n<|id|>92<|level|>3\n<|id|>100<|level|>2\n<|id|>107<|level|>3\n<|id|>116<|level|>3\n<|id|>123<|level|>3\n<|id|>132<|level|>3\n<|id|>141<|level|>2\n<|id|>152<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 3
+        }
+    ]
+}

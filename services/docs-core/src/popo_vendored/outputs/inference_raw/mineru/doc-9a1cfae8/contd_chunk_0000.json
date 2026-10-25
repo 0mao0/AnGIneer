@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        4,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 104 256<|content|>CONFIDENTIAL\n<|id|>1<|page|>1<|box|>112 215 130 854<|content|>CALDERWOOD & HARKNESS LLP 425 Lexington Avenue New York, NY 10174\n<|id|>2<|page|>1<|box|>138 223 156 854<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>164 733 181 854<|content|>March 21, 2023\n<|id|>4<|page|>1<|box|>190 140 224 854<|content|>Keystone Mercer & Co. ... , LLC as Representative ...ers 280 Park Avenue, 14th Floor New York, NY 10017\n<|id|>5<|page|>1<|box|>234 176 252 248<|content|>Copy to: ... Copy to\n<|id|>6<|page|>1<|box|>260 176 277 784<|content|>Ridgeline Capital Markets, Inc. ... 100 Summer Street, Suite 2400 Boston, MA 02110\n<|id|>7<|page|>1<|box|>285 174 303 720<|content|>Broadleaf Partners LLC 600 Travis Street, Suite 3100 Houston, TX 77002\n<|id|>8<|page|>1<|box|>311 140 329 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>43<|page|>4<|box|>258 142 330 854<|content|>14. ... and\n<|id|>45<|page|>4<|box|>371 140 481 854<|content|>In our examination, we have assumed the genuinenes...atements of public officials as to matters of fact\n<|id|>76<|page|>8<|box|>542 174 579 854<|content|>(b) to our knowledge, violate any federal statute,...tate of New York applicable to the Company; ... or\n<|id|>78<|page|>8<|box|>648 140 722 854<|content|>We note that the foregoing opinion does not addres...hereof as certified by the Secretary's Certificate\n<|id|>83<|page|>9<|box|>133 174 188 854<|content|>(d) the indication by the Financial Industry Regulatory Authority, Inc. ... and\n<|id|>85<|page|>9<|box|>258 140 349 854<|content|>Opinion 10 — Exchange Act Registration. ... 001-41...s been filed with the SEC and has become effective\n<|id|>95<|page|>10<|box|>395 174 431 854<|content|>(b) any financial data or other financial informat...from the accounting records of the Company; ... or\n<|id|>97<|page|>10<|box|>484 140 612 856<|content|>The statements set forth in this Section VI are pr...ancial data, or statistical data contained therein\n<|id|>109<|page|>11<|box|>734 142 750 272<|content|>Very truly yours,\n<|id|>110<|page|>11<|box|>751 140 767 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>111<|page|>11<|box|>768 143 785 254<|content|>By: ... By",
+    "raw_response": "<|src_id|>109<|tgt_id|>110\n<|src_id|>110<|tgt_id|>111",
+    "parsed": [
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        }
+    ]
+}

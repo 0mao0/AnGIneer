@@ -1,0 +1,78 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>113 295 133 700<|content|>CONFLICT CHECK MEMORANDUM\n<|id|>2<|type|>title<|page|>1<|box|>150 151 186 844<|content|>CALDERWOOD & HARKNESS LLP 1301 Avenue of the Ameri\n<|id|>9<|type|>title<|page|>1<|box|>402 140 420 480<|content|>Section 1: Nature of Proposed Engagement\n<|id|>14<|type|>title<|page|>2<|box|>304 140 320 405<|content|>Section 2: Identification of Client\n<|id|>25<|type|>title<|page|>2<|box|>729 140 748 459<|content|>Section 3: Parties Screened for Conflicts\n<|id|>27<|type|>title<|page|>2<|box|>842 140 859 395<|content|>3.1 Client Entities and Affiliates\n<|id|>29<|type|>table<|page|>3<|box|>89 143 363 852<|content|>None\n<|id|>31<|type|>title<|page|>3<|box|>518 142 537 419<|content|>3.2 Key Individuals — Harrowgate\n<|id|>33<|type|>table<|page|>3<|box|>584 143 784 852<|content|>None\n<|id|>35<|type|>table<|page|>4<|box|>111 143 210 852<|content|>None\n<|id|>49<|type|>title<|page|>4<|box|>736 140 753 388<|content|>3.4 Key Individuals — Veldran\n<|id|>51<|type|>table<|page|>4<|box|>801 143 905 852<|content|>None\n<|id|>52<|type|>table<|page|>5<|box|>88 143 205 852<|content|>None\n<|id|>54<|type|>table<|page|>5<|box|>364 143 464 852<|content|>None\n<|id|>61<|type|>title<|page|>5<|box|>743 140 760 661<|content|>3.6 Other Shareholders and Historical Transaction\n<|id|>63<|type|>table<|page|>5<|box|>809 143 904 852<|content|>None\n<|id|>64<|type|>table<|page|>6<|box|>88 143 409 852<|content|>None\n<|id|>68<|type|>title<|page|>6<|box|>835 140 853 467<|content|>3.7 Opposing and Co-Counsel Law Firms\n<|id|>70<|type|>table<|page|>7<|box|>88 143 251 852<|content|>None\n<|id|>76<|type|>title<|page|>7<|box|>609 140 625 433<|content|>3.8 Financial Institutions and Agents\n<|id|>78<|type|>table<|page|>7<|box|>674 143 897 852<|content|>None\n<|id|>79<|type|>table<|page|>8<|box|>88 143 109 852<|content|>None\n<|id|>84<|type|>title<|page|>8<|box|>348 140 364 434<|content|>3.9 Accounting / Tax Advisory Firms\n<|id|>86<|type|>table<|page|>8<|box|>414 143 547 852<|content|>None\n<|id|>92<|type|>title<|page|>9<|box|>90 140 107 681<|content|>Section 4: Transaction Context and Potential Confl\n<|id|>102<|type|>title<|page|>11<|box|>90 142 107 410<|content|>Section 5: Conflict Search Results\n<|id|>116<|type|>title<|page|>11<|box|>851 142 867 374<|content|>Section 6: Engagement Team\n<|id|>118<|type|>table<|page|>12<|box|>88 143 228 852<|content|>None\n<|id|>121<|type|>title<|page|>12<|box|>512 140 529 426<|content|>Section 7: Conclusion and Approval\n<|id|>125<|type|>title<|page|>13<|box|>167 140 185 310<|content|>Section 8: Approvals\n<|id|>126<|type|>title<|page|>13<|box|>194 140 210 388<|content|>Responsible Partner Approval:",
+    "raw_response": "<|src_id|>29<|tgt_id|>27\n<|src_id|>33<|tgt_id|>31\n<|src_id|>35<|tgt_id|>31\n<|src_id|>51<|tgt_id|>49\n<|src_id|>52<|tgt_id|>49\n<|src_id|>54<|tgt_id|>49\n<|src_id|>63<|tgt_id|>61\n<|src_id|>64<|tgt_id|>61\n<|src_id|>70<|tgt_id|>68\n<|src_id|>78<|tgt_id|>76\n<|src_id|>79<|tgt_id|>76\n<|src_id|>86<|tgt_id|>84\n<|src_id|>118<|tgt_id|>116",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        }
+    ]
+}

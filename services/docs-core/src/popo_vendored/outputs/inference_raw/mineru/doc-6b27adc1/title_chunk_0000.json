@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 594<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>12<|page|>1<|box|>694 142 710 545<|content|>1. Executive Employment Agreement — First Draft\n<|id|>27<|page|>3<|box|>505 140 523 795<|content|>2. Employee Non-Competition Agreement (Massachuset\n<|id|>35<|page|>4<|box|>406 140 422 485<|content|>3. Stock Option Award Agreement — Draft\n<|id|>40<|page|>4<|box|>773 140 790 549<|content|>4. Restricted Stock Unit Award Agreement — Draft\n<|id|>44<|page|>5<|box|>234 140 251 751<|content|>5. Schedule A to Employment Agreement — Prior Inve\n<|id|>46<|page|>5<|box|>450 140 467 772<|content|>6. Schedule B to Employment Agreement — Form of Ge\n<|id|>48<|page|>5<|box|>758 140 776 831<|content|>7. Exhibit A to Employment Agreement — Position De\n<|id|>51<|page|>6<|box|>152 142 169 416<|content|>Key Points for Counsel's Attention\n<|id|>58<|page|>7<|box|>135 142 152 315<|content|>Requested Next Steps\n<|id|>62<|page|>7<|box|>476 140 493 320<|content|>Confidentiality Notice",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>2\n<|id|>27<|level|>2\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>51<|level|>2\n<|id|>58<|level|>2\n<|id|>62<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        }
+    ]
+}

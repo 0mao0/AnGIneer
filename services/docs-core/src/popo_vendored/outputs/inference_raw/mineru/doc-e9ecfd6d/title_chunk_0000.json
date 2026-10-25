@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>320 140 337 367<|content|>1. Introduction and Purpose\n<|id|>12<|page|>1<|box|>776 140 792 333<|content|>2. Scope of Engagement\n<|id|>29<|page|>4<|box|>90 140 107 313<|content|>3. Engagement Team\n<|id|>36<|page|>4<|box|>726 140 744 379<|content|>4. Client Contact Information\n<|id|>43<|page|>5<|box|>405 140 422 477<|content|>5. Fee Structure and Billing Arrangements\n<|id|>58<|page|>6<|box|>667 140 685 235<|content|>6. Retainer\n<|id|>60<|page|>7<|box|>90 140 107 321<|content|>7. Conflicts of Interest\n<|id|>65<|page|>7<|box|>582 140 599 284<|content|>8. Confidentiality\n<|id|>69<|page|>8<|box|>148 140 167 326<|content|>9. Document Retention\n<|id|>73<|page|>8<|box|>450 140 469 395<|content|>10. Termination of Engagement\n<|id|>78<|page|>9<|box|>90 142 107 348<|content|>11. Limitation of Liability\n<|id|>81<|page|>9<|box|>383 142 402 297<|content|>12. Governing Law\n<|id|>83<|page|>9<|box|>542 142 560 437<|content|>13. Acceptance and Countersignature\n<|id|>88<|page|>9<|box|>873 140 890 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>102<|page|>10<|box|>396 142 409 171<|content|>cc:",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>29<|level|>1\n<|id|>36<|level|>1\n<|id|>43<|level|>1\n<|id|>58<|level|>1\n<|id|>60<|level|>1\n<|id|>65<|level|>1\n<|id|>69<|level|>1\n<|id|>73<|level|>1\n<|id|>78<|level|>1\n<|id|>81<|level|>1\n<|id|>83<|level|>1\n<|id|>88<|level|>-1\n<|id|>102<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        }
+    ]
+}

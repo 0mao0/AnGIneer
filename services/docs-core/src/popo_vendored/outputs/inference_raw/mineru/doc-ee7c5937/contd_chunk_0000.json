@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        8,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 223 152 854<|content|>Telephone: ... com\n<|id|>2<|page|>1<|box|>160 723 176 854<|content|>January 30, 2026\n<|id|>3<|page|>1<|box|>186 140 222 854<|content|>Prescott National Bank, N. ... , as Administrative... Lender 550 South Tryon Street Charlotte, NC 28202\n<|id|>4<|page|>1<|box|>229 140 247 648<|content|>Each of the Lenders party to the Credit Agreement ...ers party to the Credit Agreement referenced below\n<|id|>5<|page|>1<|box|>256 174 273 674<|content|>Harborview Trust Company 185 Asylum Street Hartford, CT 06103\n<|id|>6<|page|>1<|box|>282 174 316 854<|content|>Meridian Commercial Lending Corp. ... 233 South Wacker Drive, Suite 4100 Chicago, IL 60606\n<|id|>7<|page|>1<|box|>325 176 344 689<|content|>Atlas Fidelity Bank 1 Liberty Plaza, 30th Floor New York, NY 10006\n<|id|>8<|page|>1<|box|>352 176 369 821<|content|>Commonwealth Capital Markets, Inc. ... 100 Federal Street, Suite 2200 Boston, MA 02110\n<|id|>9<|page|>1<|box|>378 140 395 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>58<|page|>5<|box|>835 140 909 856<|content|>The execution, delivery, and performance by WDS of...ted on January 22, 2026, as certified to us in the\n<|id|>59<|page|>6<|box|>89 138 162 856<|content|>Officer's Certificate for WDS dated January 30, 20...cument has been duly executed and delivered by WDS\n<|id|>85<|page|>8<|box|>845 176 900 856<|content|>(e) Virginia statutory provisions relating to the ...otice requirements (including, without limitation,\n<|id|>86<|page|>9<|box|>90 174 164 854<|content|>Virginia Code § 55. ... relating to notice of fore...Virginia governmental authorities relating thereto\n<|id|>102<|page|>11<|box|>209 174 319 854<|content|>(a) any permitted assignee of a Lender's interest ... D to the Credit Agreement and Section 10. ... and\n<|id|>104<|page|>11<|box|>407 140 516 854<|content|>This opinion letter is given as of the date hereof...opinion letter speaks solely as of the date hereof\n<|id|>106<|page|>11<|box|>569 210 587 344<|content|>Very truly yours,\n<|id|>107<|page|>11<|box|>595 140 611 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>108<|page|>11<|box|>613 143 628 251<|content|>By: ... By\n<|id|>109<|page|>11<|box|>630 142 646 321<|content|>Name: ... Philip Hartmann\n<|id|>110<|page|>11<|box|>647 143 662 246<|content|>Title: ... Partner\n<|id|>111<|page|>11<|box|>664 140 695 852<|content|>Calderwood & Harkness LLP 1200 New Hampshire Avenue NW, Suite 600 Washington, DC 20036\n<|id|>115<|page|>11<|box|>792 140 810 756<|content|>Street Address: ... 2400 Centennial Tower Drive, Suite 800, Herndon, Virginia 20170\n<|id|>116<|page|>11<|box|>819 142 837 395<|content|>County: ... Fairfax County, Virginia\n<|id|>117<|page|>11<|box|>844 142 861 457<|content|>Tax Map Reference No. ... 0161-01-0025A",
+    "raw_response": "<|src_id|>58<|tgt_id|>59\n<|src_id|>85<|tgt_id|>86",
+    "parsed": [
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        }
+    ]
+}

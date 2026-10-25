@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        13
+    ],
+    "pages": [
+        2,
+        5,
+        6,
+        7,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>2<|box|>172 153 209 843<|content|>Filed as Exhibit B to the Formal Protest of Penter...als Corp. ... 22-3741856), dated December 22, 2023\n<|id|>3<|page|>2<|box|>215 163 253 833<|content|>IRS Examination Reference: ... 2017, 2018, 2019, 2020\n<|id|>4<|page|>2<|box|>260 161 297 834<|content|>Prepared by: ... 1018-00009\n<|id|>38<|page|>5<|box|>590 181 625 854<|content|>• Marketing intangibles, including trademarks, tra...l materials, and market-access strategies; ... and\n<|id|>40<|page|>5<|box|>666 140 700 852<|content|>The key commercial products subject to the CSA, to...ber 31, 2020, are set forth in the following table\n<|id|>51<|page|>6<|box|>792 140 883 857<|content|>Both PPC and PBI fund qualified research and devel...eclinical development, clinical development (Phase\n<|id|>52<|page|>7<|box|>89 140 127 854<|content|>I through Phase IV studies), regulatory affairs ac...eting studies and life-cycle management activities\n<|id|>104<|page|>13<|box|>184 181 219 854<|content|>• Financial data, including segmented financial re...ttributable to the CSA-covered activities; ... and\n<|id|>106<|page|>13<|box|>260 140 314 854<|content|>This contemporaneous documentation forms the basis...rther addressed in Exhibit E to the Formal Protest",
+    "raw_response": "<|src_id|>51<|tgt_id|>52",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        }
+    ]
+}

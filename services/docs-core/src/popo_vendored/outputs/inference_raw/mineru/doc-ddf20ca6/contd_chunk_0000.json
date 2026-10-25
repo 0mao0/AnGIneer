@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 152 774<|content|>Telephone: ... com\n<|id|>2<|page|>1<|box|>160 750 178 854<|content|>July 11, 2022\n<|id|>3<|page|>1<|box|>186 140 222 854<|content|>Thomas Reardon Managing Director, Leveraged Financ... Avenue South, 22nd Floor New York, New York 10016\n<|id|>4<|page|>1<|box|>229 140 284 854<|content|>Re: ... 1020-00003\n<|id|>5<|page|>1<|box|>292 140 309 285<|content|>Dear Mr. ... Reardon\n<|id|>10<|page|>1<|box|>839 140 895 854<|content|>For the avoidance of doubt, and as both parties ar... principal amount of the Notes (equal to $750,000)\n<|id|>11<|page|>2<|box|>90 138 181 856<|content|>was not earned by Ridgeline and is not payable by ...s agents to cancel such reservations in due course\n<|id|>23<|page|>3<|box|>568 174 585 782<|content|>Calderwood & Harkness LLP 600 Lexington Avenue New York, New York 10022\n<|id|>24<|page|>3<|box|>594 176 611 423<|content|>Attention: ... Robert Adeyemi, Esq\n<|id|>26<|page|>3<|box|>637 174 674 854<|content|>Douglas Evanston General Counsel & Corporate Secre... Ridge Boulevard, Suite 300 Des Moines, Iowa 50309\n<|id|>27<|page|>3<|box|>681 140 773 854<|content|>PGH's invoices should be itemized with reasonable ...rk performed, such descriptions should be included\n<|id|>38<|page|>5<|box|>208 140 224 272<|content|>Very truly yours,\n<|id|>39<|page|>5<|box|>224 140 241 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>40<|page|>5<|box|>243 142 258 253<|content|>By: ... By\n<|id|>41<|page|>5<|box|>258 140 276 450<|content|>Robert Adeyemi Partner, Capital Markets\n<|id|>42<|page|>5<|box|>276 140 292 516<|content|>On behalf of Greenfield Agricultural Partners LLC\n<|id|>43<|page|>5<|box|>294 140 311 395<|content|>cc (via email and first-class mail): ... cc (via email and first-class mail)\n<|id|>44<|page|>5<|box|>319 174 354 854<|content|>David Glendenning, Esq. ... Pryor, Glendenning & H...t 52nd Street, 40th Floor New York, New York 10019\n<|id|>45<|page|>5<|box|>364 174 398 854<|content|>Douglas Evanston, General Counsel & Corporate Secr... Ridge Boulevard, Suite 300 Des Moines, Iowa 50309\n<|id|>46<|page|>5<|box|>407 174 425 779<|content|>Linda Shao-Perkins, Chief Financial Officer Greenfield Agricultural Partners LLC\n<|id|>47<|page|>5<|box|>433 174 452 674<|content|>Jennifer Kwon, Esq. ... , Calderwood & Harkness LLP (billing partner)\n<|id|>48<|page|>5<|box|>459 176 477 566<|content|>Claire Dempsey, Esq. ... , Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>10<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        }
+    ]
+}

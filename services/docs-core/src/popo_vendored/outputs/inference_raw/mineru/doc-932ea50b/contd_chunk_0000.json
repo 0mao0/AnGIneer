@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>116 426 133 570<|content|>Attorneys at Law\n<|id|>2<|page|>1<|box|>141 156 176 839<|content|>7 Times Square New York, NY 10036 Telephone: ... com\n<|id|>4<|page|>1<|box|>229 733 247 854<|content|>March 24, 2025\n<|id|>3<|page|>1<|box|>185 150 222 846<|content|>555 California Street, Suite 3200, San Francisco, ...104 1 Angel Court, London EC2R 7HJ, United Kingdom\n<|id|>5<|page|>1<|box|>256 140 273 349<|content|>VIA EMAIL AND FEDEX\n<|id|>6<|page|>1<|box|>282 140 316 854<|content|>Patricia Okonkwo, Esq. ... Partner Caldwell, Raine...heppard LLP 51 West 52nd Street New York, NY 10019\n<|id|>7<|page|>1<|box|>325 174 417 854<|content|>Re: ... , a Delaware corporation (the \"Company\") — Transmittal of Execution Counterparts\n<|id|>14<|page|>1<|box|>864 174 901 857<|content|>2. ... The Buyer's Disclosure Schedules to the Mer...half of Parent pursuant to Article V of the Merger\n<|id|>15<|page|>2<|box|>90 210 143 854<|content|>Agreement, executed by an authorized officer of Pa...greement and are incorporated therein by reference\n<|id|>21<|page|>2<|box|>547 174 619 856<|content|>(b) Written Consent of the Board of Directors of Ardent Apex Merger Sub Inc. ... and\n<|id|>23<|page|>2<|box|>709 140 763 856<|content|>Copies of the foregoing resolutions and written co...ions as may be required at or prior to the Closing\n<|id|>49<|page|>5<|box|>691 176 709 555<|content|>James Prentice, Partner Telephone: ... (212) 848-4112\n<|id|>50<|page|>5<|box|>718 176 734 500<|content|>Email: ... com\n<|id|>51<|page|>5<|box|>734 176 752 578<|content|>Ryan Kowalski, Associate Telephone: ... (212) 848-4376\n<|id|>52<|page|>5<|box|>761 176 777 508<|content|>Email: ... com\n<|id|>53<|page|>5<|box|>777 140 830 854<|content|>We would also appreciate your copying Sandra Tung,...ce related to this matter for our internal records",
+    "raw_response": "<|src_id|>14<|tgt_id|>15",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        }
+    ]
+}

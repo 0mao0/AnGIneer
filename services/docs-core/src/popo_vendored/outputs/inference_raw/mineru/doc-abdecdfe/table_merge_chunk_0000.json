@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Change of Control', 'Upon the occurrence of a Change of Control Triggering']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Event, the Issuer must make an offer to repurchase all outstanding Notes at a price equal to 101.000% of the principal amount thereof, plus accrued and unpaid interest, if any, to the date of repurchase. See \"Description of Notes — Change of Control.\"']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 53,
+    "table2_idx": 54
+}

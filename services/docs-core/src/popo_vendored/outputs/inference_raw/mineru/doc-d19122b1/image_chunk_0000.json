@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 166 125 828<|content|>SECRETARY'S CERTIFICATE OF FAIRWATER REAL ESTATE I\n<|id|>36<|type|>table<|page|>5<|box|>440 143 584 852<|content|>None\n<|id|>48<|type|>title<|page|>6<|box|>585 450 602 545<|content|>EXHIBITS\n<|id|>49<|type|>title<|page|>6<|box|>612 142 628 421<|content|>Exhibit A — List of Target Entities\n<|id|>51<|type|>table<|page|>6<|box|>696 143 904 852<|content|>None\n<|id|>52<|type|>table<|page|>7<|box|>88 143 164 852<|content|>None",
+    "raw_response": "<|src_id|>36<|tgt_id|>0\n<|src_id|>51<|tgt_id|>49\n<|src_id|>52<|tgt_id|>49",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 49
+        }
+    ]
+}

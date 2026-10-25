@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        54,
+        71
+    ],
+    "pages": [
+        55,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        70,
+        71
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>133<|page|>55<|box|>70 209 88 781<|content|>Table 2.- Detail of Collections by Type of Tax 1/\n<|id|>160<|page|>61<|box|>67 200 98 754<|content|>Section I - Summary by Periods Table 2.- Short-Ter\n<|id|>164<|page|>62<|box|>72 370 86 652<|content|>Section I - Summary by Periods\n<|id|>167<|page|>63<|box|>70 333 86 642<|content|>Section II - Summary by Countries\n<|id|>171<|page|>64<|box|>70 357 85 665<|content|>Section II - Summary by Countries\n<|id|>173<|page|>65<|box|>75 328 93 638<|content|>Section II - Summary by Countries\n<|id|>174<|page|>65<|box|>93 200 112 755<|content|>Table 3.- Short-Term Claims on and Liabilities to\n<|id|>178<|page|>66<|box|>77 359 92 667<|content|>Section II - Summary by Countries\n<|id|>179<|page|>66<|box|>96 215 111 812<|content|>Table 4.- Foreign Debit and Credit Balances in Bro\n<|id|>181<|page|>67<|box|>67 284 84 722<|content|>Section III - Details for Month of October 1953\n<|id|>183<|page|>68<|box|>78 294 93 730<|content|>Section III - Details for Month of October 1953\n<|id|>184<|page|>68<|box|>101 300 115 724<|content|>Table 2.- Short-Term Liabilities to Foreigners\n<|id|>189<|page|>70<|box|>92 321 107 701<|content|>Table 1.- Short-Term Claims on Foreigners\n<|id|>191<|page|>71<|box|>69 198 107 770<|content|>Section III A - Preliminary Details for Month of D",
+    "raw_response": "<|id|>133<|level|>1\n<|id|>160<|level|>1\n<|id|>164<|level|>2\n<|id|>167<|level|>2\n<|id|>171<|level|>2\n<|id|>173<|level|>2\n<|id|>174<|level|>1\n<|id|>178<|level|>2\n<|id|>179<|level|>1\n<|id|>181<|level|>2\n<|id|>183<|level|>2\n<|id|>184<|level|>1\n<|id|>189<|level|>1\n<|id|>191<|level|>3",
+    "parsed": [
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 1
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 1
+        },
+        {
+            "id": 189,
+            "level": 1
+        },
+        {
+            "id": 191,
+            "level": 3
+        }
+    ]
+}

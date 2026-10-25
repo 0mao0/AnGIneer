@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        10,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>311 160 366 838<|content|>DEFENDANT SOLSTICE BIOMEDICAL, INC.'S SUR-REPLY IN\n<|id|>4<|page|>1<|box|>414 142 430 413<|content|>I. PRELIMINARY STATEMENT\n<|id|>10<|page|>2<|box|>393 140 411 434<|content|>II. PROCEDURAL BACKGROUND\n<|id|>11<|page|>2<|box|>426 140 443 336<|content|>A. The Pending Motions\n<|id|>16<|page|>3<|box|>138 140 156 410<|content|>B. The Claim Construction Order\n<|id|>23<|page|>3<|box|>726 140 743 320<|content|>C. The Expert Record\n<|id|>28<|page|>4<|box|>358 140 375 496<|content|>III. LEGAL STANDARD FOR SUR-REPLY\n<|id|>35<|page|>5<|box|>167 140 184 285<|content|>IV. ARGUMENT\n<|id|>59<|page|>9<|box|>338 140 373 854<|content|>C. Apex's Prosecution History Arguments Were Rejec\n<|id|>67<|page|>10<|box|>656 140 691 854<|content|>D. Genuine Disputes of Material Fact Preclude Summ\n<|id|>79<|page|>12<|box|>445 140 463 754<|content|>E. Apex's Damages Theory Does Not Support Summary\n<|id|>84<|page|>13<|box|>266 140 284 294<|content|>V. CONCLUSION\n<|id|>91<|page|>14<|box|>89 142 106 354<|content|>VI. SIGNATURE BLOCK\n<|id|>92<|page|>14<|box|>114 410 133 586<|content|>Respectfully submitted,\n<|id|>97<|page|>14<|box|>308 140 325 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>16<|level|>3\n<|id|>23<|level|>3\n<|id|>28<|level|>2\n<|id|>35<|level|>2\n<|id|>59<|level|>3\n<|id|>67<|level|>3\n<|id|>79<|level|>3\n<|id|>84<|level|>2\n<|id|>91<|level|>2\n<|id|>92<|level|>-1\n<|id|>97<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        }
+    ]
+}

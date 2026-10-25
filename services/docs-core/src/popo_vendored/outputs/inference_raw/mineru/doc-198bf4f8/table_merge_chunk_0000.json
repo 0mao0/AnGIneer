@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Tarrant Corporation, B-412278.5,', 'Mar. 20, 2017', 'Supply chain considerations in major defense', 'Sustained', 'Supply chain concentration risk is legitimate and']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['B-412278.7', '', 'acquisition', '', 'substantial evaluation concern']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 133,
+    "table2_idx": 134
+}

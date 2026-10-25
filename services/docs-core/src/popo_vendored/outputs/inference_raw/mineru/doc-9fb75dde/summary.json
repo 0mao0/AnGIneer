@@ -1,0 +1,173 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9ed5qzwy\\input\\pdfs\\doc-9fb75dde.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9ed5qzwy\\enriched\\doc-9fb75dde.json",
+    "contd_output": "<|src_id|>51<|tgt_id|>52",
+    "title_output": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>26<|level|>2\n<|id|>41<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>55<|level|>2\n<|id|>64<|level|>2\n<|id|>73<|level|>2\n<|id|>80<|level|>3\n<|id|>85<|level|>2\n<|id|>87<|level|>2\n<|id|>89<|level|>2\n<|id|>91<|level|>3\n<|id|>101<|level|>3\n<|id|>112<|level|>2\n<|id|>114<|level|>2\n<|id|>116<|level|>2\n<|id|>118<|level|>2\n<|id|>120<|level|>2\n<|id|>138<|level|>1\n<|id|>139<|level|>2\n<|id|>146<|level|>1\n<|id|>147<|level|>2\n<|id|>166<|level|>1\n<|id|>167<|level|>2",
+    "image_output": "<|src_id|>141<|tgt_id|>139\n<|src_id|>142<|tgt_id|>139\n<|src_id|>169<|tgt_id|>167",
+    "contd_label": [
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 1
+        },
+        {
+            "id": 167,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 141,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 167
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 141,
+            "table2_idx": 142,
+            "upper_row_ss": [
+                [
+                    "6",
+                    "Albany, NY",
+                    "1440 Western Avenue, Suite 205, Albany,",
+                    "Empire State Professional Plaza",
+                    "March 15, 2020; First Amendment dated",
+                    "March 14, 2031",
+                    "$375,000",
+                    "$46,875",
+                    "One (1) five-year renewal option"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "NY 12203",
+                    "LLC",
+                    "July 1, 2022",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,119 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 104 655<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>1<|page|>1<|box|>112 346 128 651<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>11<|page|>1<|box|>460 140 477 339<|content|>I. Purpose of This Letter\n<|id|>15<|page|>2<|box|>90 140 107 369<|content|>II. Summary of Engagement\n<|id|>16<|page|>2<|box|>121 140 138 344<|content|>A. Engagement Inception\n<|id|>19<|page|>2<|box|>316 140 334 338<|content|>C. Scope of Engagement\n<|id|>25<|page|>3<|box|>231 140 250 316<|content|>D. Engagement Team\n<|id|>31<|page|>3<|box|>369 140 387 344<|content|>E. Counterparty Counsel\n<|id|>33<|page|>3<|box|>470 140 488 504<|content|>III. Summary of Key Milestones and Outcome\n<|id|>57<|page|>6<|box|>223 142 239 354<|content|>IV. Final Billing Summary\n<|id|>58<|page|>6<|box|>253 142 270 307<|content|>A. Fee Arrangement\n<|id|>65<|page|>6<|box|>467 142 484 287<|content|>B. Invoices Issued\n<|id|>69<|page|>6<|box|>837 142 853 338<|content|>D. Hours by Timekeeper\n<|id|>73<|page|>7<|box|>222 142 238 321<|content|>E. Final Invoice Detail\n<|id|>80<|page|>7<|box|>398 142 415 290<|content|>F. Payment Status\n<|id|>83<|page|>7<|box|>617 140 633 397<|content|>V. Trust Account Reconciliation\n<|id|>87<|page|>8<|box|>90 140 107 480<|content|>VI. Document Retention and File Handling\n<|id|>88<|page|>8<|box|>121 140 138 470<|content|>A. Document Retention and Privilege Log\n<|id|>90<|page|>8<|box|>267 142 284 406<|content|>B. Documents Returned to Client\n<|id|>100<|page|>8<|box|>648 140 666 550<|content|>C. Documents Retained by Calderwood & Harkness\n<|id|>102<|page|>9<|box|>90 140 107 328<|content|>D. Privileged Materials\n<|id|>104<|page|>9<|box|>273 140 290 356<|content|>E. Counterparty Materials\n<|id|>106<|page|>9<|box|>484 140 500 500<|content|>VII. Confirmation of No Ongoing Obligations\n<|id|>112<|page|>10<|box|>148 140 167 398<|content|>VIII. Confidentiality Reminders\n<|id|>117<|page|>10<|box|>696 140 714 419<|content|>IX. Availability for Future Matters\n<|id|>126<|page|>11<|box|>444 140 462 230<|content|>X. Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>11<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>19<|level|>2\n<|id|>25<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>1\n<|id|>57<|level|>1\n<|id|>58<|level|>2\n<|id|>65<|level|>2\n<|id|>69<|level|>2\n<|id|>73<|level|>2\n<|id|>80<|level|>2\n<|id|>83<|level|>1\n<|id|>87<|level|>1\n<|id|>88<|level|>2\n<|id|>90<|level|>2\n<|id|>100<|level|>2\n<|id|>102<|level|>2\n<|id|>104<|level|>2\n<|id|>106<|level|>1\n<|id|>112<|level|>1\n<|id|>117<|level|>1\n<|id|>126<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        }
+    ]
+}

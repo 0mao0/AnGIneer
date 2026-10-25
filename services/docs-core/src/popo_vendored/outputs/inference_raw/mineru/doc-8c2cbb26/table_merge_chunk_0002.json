@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Jennifer Huang', 'VP, Legal & Privacy, Caldwell Analytics Inc.', '8 June 2023, 22 June 2023', 'Caldwell data processing operations; security', 'Provided operational information; confirmed']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'controls; US legal obligations; FISA/CLOUD Act exposure assessment', 'contractual commitments; assessed FISA status']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 442,
+    "table2_idx": 443
+}

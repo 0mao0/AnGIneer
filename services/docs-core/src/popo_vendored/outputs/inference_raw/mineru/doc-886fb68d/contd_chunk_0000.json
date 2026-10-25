@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>396 138 671 857<|content|>A. ... The General Partner is registered as an inv...er the Investment Advisers Act of 1940, as amended\n<|id|>6<|page|>1<|box|>679 138 898 857<|content|>B. ... 01 thereof, the\n<|id|>7<|page|>2<|box|>89 138 164 854<|content|>General Partner notified all Limited Partners of t...ners maintained by the Partnership's administrator\n<|id|>15<|page|>3<|box|>287 174 324 854<|content|>(i) Elaine R. ... and\n<|id|>17<|page|>3<|box|>376 140 578 856<|content|>Such designation shall be on a joint basis (and no...erests of the Partnership and the Limited Partners\n<|id|>24<|page|>4<|box|>791 174 900 857<|content|>(e) Designation of Marcus J. ... The Senior\n<|id|>25<|page|>5<|box|>90 174 219 854<|content|>Advisor designation is honorary in nature and is i...r Advisory Committee for review prior to execution\n<|id|>56<|page|>8<|box|>719 176 737 782<|content|>Calderwood & Harkness LLP 1585 Broadway, 34th Floor New York, NY 10036\n<|id|>57<|page|>8<|box|>744 176 762 411<|content|>Attention: ... Stephen Adler, Esq\n<|id|>61<|page|>9<|box|>135 210 151 462<|content|>sadler@calderwoodharkness. ... com\n<|id|>62<|page|>9<|box|>161 212 176 246<|content|>and\n<|id|>63<|page|>9<|box|>186 212 203 509<|content|>darf-consent@calderwoodharkness. ... com\n<|id|>65<|page|>9<|box|>256 210 273 357<|content|>+1 (212) 558-4037\n<|id|>66<|page|>9<|box|>282 210 299 441<|content|>Attention: ... Stephen Adler, Esq\n<|id|>67<|page|>9<|box|>299 210 316 635<|content|>Re: ... — LP Consent\n<|id|>68<|page|>9<|box|>325 140 453 854<|content|>Please note that delivery of this Written Consent ...ht to request delivery of the original at any time\n<|id|>70<|page|>9<|box|>503 176 522 774<|content|>Stephen Adler, Esq. ... +1 (212) 558-3900\n<|id|>71<|page|>9<|box|>531 176 547 478<|content|>Email: ... com\n<|id|>74<|page|>9<|box|>619 140 672 854<|content|>[Attached hereto: ... , dated as of March 15, 2017...m circulated to Limited Partners on July 15, 2024]\n<|id|>75<|page|>9<|box|>681 140 699 524<|content|>Cross-reference: ... docx\n<|id|>76<|page|>9<|box|>705 140 752 854<|content|>This page intentionally reserved for Exhibit A. .....tion and delivery of the foregoing Written Consent",
+    "raw_response": "<|src_id|>6<|tgt_id|>7\n<|src_id|>24<|tgt_id|>25",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        }
+    ]
+}

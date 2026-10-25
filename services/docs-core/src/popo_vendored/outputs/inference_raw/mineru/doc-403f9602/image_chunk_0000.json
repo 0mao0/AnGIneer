@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 104 637<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED COMMUNIC\n<|id|>12<|type|>title<|page|>1<|box|>775 305 794 691<|content|>I. DESCRIPTION OF THE INSURED\n<|id|>20<|type|>title<|page|>2<|box|>392 251 411 743<|content|>II. DESCRIPTION OF THE CLAIM / DEMAND\n<|id|>21<|type|>title<|page|>2<|box|>436 140 454 323<|content|>A. The Demand Letter\n<|id|>26<|type|>title<|page|>2<|box|>838 142 854 362<|content|>B. Nature of the Allegations\n<|id|>33<|type|>title<|page|>4<|box|>148 140 167 395<|content|>C. Putative Class and Collective\n<|id|>44<|type|>title<|page|>4<|box|>575 142 593 305<|content|>D. Demand Amount\n<|id|>46<|type|>title<|page|>4<|box|>702 248 722 748<|content|>III. PRELIMINARY EXPOSURE ASSESSMENT\n<|id|>49<|type|>title<|page|>5<|box|>150 140 167 442<|content|>A. Scenario A — Narrowest Exposure\n<|id|>51<|type|>title<|page|>5<|box|>325 140 343 356<|content|>B. Demand Letter Amount\n<|id|>53<|type|>title<|page|>5<|box|>430 140 446 521<|content|>C. Scenario B — Broadest Theoretical Exposure\n<|id|>56<|type|>title<|page|>5<|box|>724 140 741 405<|content|>D. Working Mid-Range Estimate\n<|id|>59<|type|>title<|page|>6<|box|>152 233 172 763<|content|>IV. POLICY TERMS AND COVERAGE REQUEST\n<|id|>60<|type|>title<|page|>6<|box|>199 142 215 326<|content|>A. Policy Identification\n<|id|>62<|type|>table<|page|>6<|box|>266 143 417 852<|content|>None\n<|id|>64<|type|>title<|page|>6<|box|>492 140 508 428<|content|>B. Tender of Defense and Indemnity\n<|id|>69<|type|>title<|page|>7<|box|>90 140 107 279<|content|>C. Defense Costs\n<|id|>72<|type|>title<|page|>7<|box|>388 277 407 718<|content|>V. CURRENT STATUS OF THE MATTER\n<|id|>81<|type|>title<|page|>8<|box|>433 326 452 671<|content|>VI. RESERVATION OF RIGHTS\n<|id|>89<|type|>title<|page|>9<|box|>171 174 215 821<|content|>VII. REQUESTED ACTIONS FROM PINNACLE INDEMNITY COR\n<|id|>98<|type|>title<|page|>9<|box|>768 390 789 607<|content|>VIII. ENCLOSURES\n<|id|>103<|type|>title<|page|>10<|box|>116 243 160 751<|content|>IX. CONTACT INFORMATION FOR ONGOING COMMUNICATIONS",
+    "raw_response": "<|src_id|>62<|tgt_id|>60",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        }
+    ]
+}

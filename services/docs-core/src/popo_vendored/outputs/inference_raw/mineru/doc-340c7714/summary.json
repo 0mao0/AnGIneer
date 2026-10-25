@@ -1,0 +1,103 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-83dli35j\\input\\pdfs\\doc-340c7714.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-83dli35j\\enriched\\doc-340c7714.json",
+    "contd_output": "<|src_id|>19<|tgt_id|>20",
+    "title_output": "<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>21<|level|>1\n<|id|>23<|level|>2\n<|id|>27<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>1\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>50<|level|>2\n<|id|>54<|level|>1\n<|id|>62<|level|>1\n<|id|>71<|level|>1\n<|id|>79<|level|>1",
+    "image_output": "<|src_id|>44<|tgt_id|>42\n<|src_id|>45<|tgt_id|>42",
+    "contd_label": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 42
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 44,
+            "table2_idx": 45,
+            "upper_row_ss": [
+                [
+                    "Total — PS-3 Permanent Easement and Temporary Construction",
+                    "",
+                    "3.7 acres",
+                    "$347,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Easement",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

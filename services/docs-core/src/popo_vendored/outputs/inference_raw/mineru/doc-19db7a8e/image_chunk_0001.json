@@ -1,0 +1,92 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        47,
+        53
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        51,
+        52,
+        53
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>306<|type|>title<|page|>47<|box|>90 143 106 465<|content|>APPENDIX A — KEY CONTACT LIST\n<|id|>308<|type|>table<|page|>47<|box|>186 143 356 852<|content|>None\n<|id|>309<|type|>title<|page|>47<|box|>396 143 411 318<|content|>NovaMart Global Inc.\n<|id|>310<|type|>table<|page|>47<|box|>416 143 631 852<|content|>None\n<|id|>311<|type|>table<|page|>47<|box|>691 143 794 852<|content|>None\n<|id|>312<|type|>title<|page|>47<|box|>834 143 849 519<|content|>Calderwood & Harkness LLP (Buyer's Counsel)\n<|id|>313<|type|>table<|page|>47<|box|>854 143 893 852<|content|>None\n<|id|>315<|type|>table<|page|>48<|box|>88 143 292 852<|content|>None\n<|id|>316<|type|>table<|page|>48<|box|>352 143 454 852<|content|>None\n<|id|>317<|type|>title<|page|>48<|box|>494 143 510 576<|content|>Whitfield & Crane LLP (Antitrust Counsel — Cascade\n<|id|>318<|type|>table<|page|>48<|box|>515 143 569 852<|content|>None\n<|id|>319<|type|>title<|page|>48<|box|>602 143 619 718<|content|>Address: 1200 New Hampshire Avenue NW, Suite 500,\n<|id|>320<|type|>table<|page|>48<|box|>654 143 724 852<|content|>None\n<|id|>321<|type|>title<|page|>48<|box|>758 142 775 593<|content|>Address: 900 G Street NW, Suite 700, Washington, D\n<|id|>322<|type|>table<|page|>48<|box|>810 143 867 852<|content|>None\n<|id|>323<|type|>table<|page|>49<|box|>111 143 165 852<|content|>None\n<|id|>324<|type|>table<|page|>49<|box|>226 143 343 851<|content|>None\n<|id|>326<|type|>table<|page|>49<|box|>448 143 517 852<|content|>None\n<|id|>327<|type|>table<|page|>49<|box|>577 143 632 852<|content|>None\n<|id|>329<|type|>table<|page|>49<|box|>717 143 772 852<|content|>None\n<|id|>330<|type|>table<|page|>49<|box|>830 143 886 852<|content|>None\n<|id|>332<|type|>title<|page|>51<|box|>89 142 107 795<|content|>APPENDIX B — CROSS-REFERENCE TO KEY TRANSACTION DO\n<|id|>333<|type|>title<|page|>51<|box|>116 140 152 854<|content|>The following table maps each closing condition an\n<|id|>334<|type|>table<|page|>51<|box|>160 143 898 852<|content|>None\n<|id|>335<|type|>table<|page|>52<|box|>90 143 898 852<|content|>None\n<|id|>337<|type|>table<|page|>53<|box|>88 143 109 852<|content|>None",
+    "raw_response": "<|src_id|>308<|tgt_id|>306\n<|src_id|>310<|tgt_id|>309\n<|src_id|>311<|tgt_id|>309\n<|src_id|>313<|tgt_id|>312\n<|src_id|>315<|tgt_id|>312\n<|src_id|>316<|tgt_id|>317\n<|src_id|>318<|tgt_id|>317\n<|src_id|>320<|tgt_id|>317\n<|src_id|>322<|tgt_id|>317\n<|src_id|>323<|tgt_id|>317\n<|src_id|>324<|tgt_id|>317\n<|src_id|>326<|tgt_id|>317\n<|src_id|>327<|tgt_id|>317\n<|src_id|>329<|tgt_id|>317\n<|src_id|>330<|tgt_id|>317\n<|src_id|>334<|tgt_id|>332\n<|src_id|>335<|tgt_id|>332\n<|src_id|>337<|tgt_id|>332",
+    "parsed": [
+        {
+            "src_id": 308,
+            "tgt_id": 306
+        },
+        {
+            "src_id": 310,
+            "tgt_id": 309
+        },
+        {
+            "src_id": 311,
+            "tgt_id": 309
+        },
+        {
+            "src_id": 313,
+            "tgt_id": 312
+        },
+        {
+            "src_id": 315,
+            "tgt_id": 312
+        },
+        {
+            "src_id": 316,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 318,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 320,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 322,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 323,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 324,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 326,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 327,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 329,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 330,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 334,
+            "tgt_id": 332
+        },
+        {
+            "src_id": 335,
+            "tgt_id": 332
+        },
+        {
+            "src_id": 337,
+            "tgt_id": 332
+        }
+    ]
+}

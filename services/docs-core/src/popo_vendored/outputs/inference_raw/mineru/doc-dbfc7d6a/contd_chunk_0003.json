@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 3,
+    "range": [
+        169,
+        186
+    ],
+    "pages": [
+        170,
+        171,
+        183,
+        186
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>608<|page|>170<|box|>298 34 651 456<|content|>Funds appropriated to the President: ... Fig for e...se amounts were not shown separately on the report\n<|id|>609<|page|>170<|box|>107 550 118 692<|content|>submitted by the fund. ... submitted by the fund\n<|id|>635<|page|>171<|box|>463 0 520 465<|content|>1/ The secondary market operations of Federal Nati..., 1967 \\$1,107 million, 1968 \\$2,316 million, 1969\n<|id|>637<|page|>171<|box|>461 529 472 760<|content|>through Sept. ... 30, 1968 \\$296 million\n<|id|>718<|page|>183<|box|>61 361 75 598<|content|>Section IV - Trust Funds\n<|id|>722<|page|>186<|box|>0 0 1000 996<|content|>The quick brown fox jumps over the lazy dog. ... The quick brown fox jumps over the lazy dog",
+    "raw_response": "<|src_id|>608<|tgt_id|>609\n<|src_id|>635<|tgt_id|>637",
+    "parsed": [
+        {
+            "src_id": 608,
+            "tgt_id": 609
+        },
+        {
+            "src_id": 635,
+            "tgt_id": 637
+        }
+    ]
+}

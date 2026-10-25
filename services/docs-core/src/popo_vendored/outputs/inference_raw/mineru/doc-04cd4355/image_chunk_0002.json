@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        91,
+        96
+    ],
+    "pages": [
+        91,
+        92,
+        93,
+        94,
+        96
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>963<|type|>title<|page|>91<|box|>436 142 453 271<|content|>8. Attachments:\n<|id|>980<|type|>title<|page|>92<|box|>89 142 107 612<|content|>EXHIBIT E — FORM OF COMPLIANCE CERTIFICATE\n<|id|>981<|type|>title<|page|>92<|box|>114 156 152 839<|content|>QUARTERLY COMPLIANCE CERTIFICATE Pursuant to the S\n<|id|>989<|type|>title<|page|>92<|box|>434 143 450 459<|content|>1. Debt Service Coverage Ratio (DSCR):\n<|id|>990<|type|>table<|page|>92<|box|>458 143 571 852<|content|>None\n<|id|>991<|type|>title<|page|>92<|box|>604 143 621 254<|content|>2. Debt Yield:\n<|id|>992<|type|>table<|page|>92<|box|>628 143 742 852<|content|>None\n<|id|>993<|type|>title<|page|>92<|box|>776 142 792 506<|content|>3. Loan-to-Value Ratio (LTV) (tested annually):\n<|id|>994<|type|>table<|page|>92<|box|>800 143 906 852<|content|>None\n<|id|>995<|type|>table<|page|>93<|box|>88 143 137 852<|content|>None\n<|id|>996<|type|>title<|page|>93<|box|>171 142 189 364<|content|>4. Cash Sweep Trigger Test:\n<|id|>997<|type|>table<|page|>93<|box|>195 143 289 852<|content|>None\n<|id|>998<|type|>title<|page|>93<|box|>324 142 340 282<|content|>5. Default Status:\n<|id|>1000<|type|>title<|page|>93<|box|>412 142 429 421<|content|>6. Representations and Warranties:\n<|id|>1002<|type|>title<|page|>93<|box|>518 142 535 349<|content|>7. Calculation Worksheet:\n<|id|>1011<|type|>title<|page|>94<|box|>89 142 107 767<|content|>EXHIBIT F — FORM OF ASSIGNMENT AND ASSUMPTION AGRE\n<|id|>1012<|type|>title<|page|>94<|box|>114 290 132 707<|content|>ASSIGNMENT AND ASSUMPTION AGREEMENT\n<|id|>1014<|type|>title<|page|>94<|box|>204 142 220 241<|content|>RECITALS\n<|id|>1019<|type|>table<|page|>94<|box|>460 143 536 852<|content|>None\n<|id|>1055<|type|>title<|page|>96<|box|>89 142 106 620<|content|>EXHIBIT G — FORM OF TENANT DIRECTION LETTER",
+    "raw_response": "<|src_id|>990<|tgt_id|>989\n<|src_id|>992<|tgt_id|>991\n<|src_id|>994<|tgt_id|>993\n<|src_id|>995<|tgt_id|>993\n<|src_id|>997<|tgt_id|>996\n<|src_id|>1019<|tgt_id|>1012",
+    "parsed": [
+        {
+            "src_id": 990,
+            "tgt_id": 989
+        },
+        {
+            "src_id": 992,
+            "tgt_id": 991
+        },
+        {
+            "src_id": 994,
+            "tgt_id": 993
+        },
+        {
+            "src_id": 995,
+            "tgt_id": 993
+        },
+        {
+            "src_id": 997,
+            "tgt_id": 996
+        },
+        {
+            "src_id": 1019,
+            "tgt_id": 1012
+        }
+    ]
+}

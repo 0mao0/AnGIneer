@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        19
+    ],
+    "pages": [
+        2,
+        4,
+        6,
+        14,
+        17,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>19<|page|>2<|box|>246 87 261 213<|content|>USES OF FUNDS\n<|id|>24<|page|>4<|box|>156 87 173 339<|content|>ROLLOVER EQUITY DEDUCTIONS\n<|id|>29<|page|>4<|box|>317 87 332 369<|content|>NET CASH MERGER CONSIDERATION\n<|id|>31<|page|>4<|box|>406 87 422 201<|content|>VERIFICATION\n<|id|>33<|page|>6<|box|>85 85 102 606<|content|>Line Item ReferenceCloudium EC&H PropoAdjusted AC&\n<|id|>36<|page|>6<|box|>244 87 262 253<|content|>CURRENT LIABILITIES\n<|id|>58<|page|>14<|box|>335 87 350 552<|content|>TARGET-SIDE EXPENSES (payable from merger consider\n<|id|>70<|page|>17<|box|>85 87 102 450<|content|>ItemAmount / Calculatio C&H Comments\n<|id|>81<|page|>17<|box|>299 87 315 226<|content|>R&W INSURANCE\n<|id|>90<|page|>17<|box|>476 87 493 344<|content|>TOTAL AGGREGATE PROTECTION\n<|id|>105<|page|>19<|box|>299 240 315 594<|content|>SUMMARY OF NET PROPOSED ADJUSTMENTS",
+    "raw_response": "<|id|>19<|level|>1\n<|id|>24<|level|>1\n<|id|>29<|level|>1\n<|id|>31<|level|>1\n<|id|>33<|level|>1\n<|id|>36<|level|>1\n<|id|>58<|level|>1\n<|id|>70<|level|>1\n<|id|>81<|level|>1\n<|id|>90<|level|>1\n<|id|>105<|level|>1",
+    "parsed": [
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        }
+    ]
+}

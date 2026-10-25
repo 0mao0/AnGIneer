@@ -1,0 +1,132 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        91,
+        116
+    ],
+    "pages": [
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        116
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>234<|type|>title<|page|>92<|box|>60 215 76 806<|content|>Capital Movements Between the United States and Fo\n<|id|>243<|type|>title<|page|>92<|box|>384 375 398 652<|content|>Section I - Historical Summary\n<|id|>244<|type|>table<|page|>92<|box|>433 48 838 973<|content|>None\n<|id|>248<|type|>table<|page|>93<|box|>142 41 483 916<|content|>None\n<|id|>249<|type|>table<|page|>93<|box|>526 43 901 919<|content|>None\n<|id|>252<|type|>title<|page|>94<|box|>94 137 126 897<|content|>Table 4.- Purchases and Sales of Long-Term Domesti\n<|id|>253<|type|>table<|page|>94<|box|>142 74 496 961<|content|>None\n<|id|>254<|type|>table<|page|>94<|box|>561 76 912 963<|content|>None\n<|id|>259<|type|>table<|page|>95<|box|>132 47 938 926<|content|>None\n<|id|>262<|type|>table<|page|>96<|box|>129 62 946 953<|content|>None\n<|id|>263<|type|>title<|page|>97<|box|>101 294 116 672<|content|>Table 3.- Net Movement in Brokerage Balances\n<|id|>266<|type|>table<|page|>97<|box|>132 45 922 921<|content|>None\n<|id|>270<|type|>table<|page|>98<|box|>142 74 933 965<|content|>None\n<|id|>272<|type|>table<|page|>99<|box|>124 52 921 942<|content|>None\n<|id|>275<|type|>table<|page|>100<|box|>125 48 933 975<|content|>None\n<|id|>278<|type|>title<|page|>101<|box|>90 167 118 813<|content|>Table 7.- Foreign Debit Balances (Balances Due Fro\n<|id|>279<|type|>table<|page|>101<|box|>136 48 927 933<|content|>None\n<|id|>283<|type|>table<|page|>102<|box|>136 64 926 954<|content|>None\n<|id|>284<|type|>title<|page|>103<|box|>56 156 120 825<|content|>Capital Movements Between the United States and Fo\n<|id|>285<|type|>table<|page|>103<|box|>132 48 946 935<|content|>None\n<|id|>286<|type|>title<|page|>104<|box|>49 189 64 846<|content|>Capital Movements Between the United States and Fo\n<|id|>290<|type|>table<|page|>104<|box|>130 83 957 954<|content|>None\n<|id|>292<|type|>table<|page|>105<|box|>146 45 949 932<|content|>None\n<|id|>293<|type|>table<|page|>106<|box|>105 60 672 951<|content|>None\n<|id|>294<|type|>table<|page|>107<|box|>106 57 891 940<|content|>None\n<|id|>295<|type|>table<|page|>108<|box|>101 64 889 954<|content|>None\n<|id|>297<|type|>table<|page|>109<|box|>106 50 847 930<|content|>None\n<|id|>299<|type|>table<|page|>110<|box|>106 62 854 951<|content|>None\n<|id|>300<|type|>table<|page|>111<|box|>114 48 855 928<|content|>None\n<|id|>303<|type|>table<|page|>112<|box|>105 67 852 953<|content|>None\n<|id|>308<|type|>table<|page|>116<|box|>1 0 997 996<|content|>None",
+    "raw_response": "<|src_id|>244<|tgt_id|>243\n<|src_id|>248<|tgt_id|>243\n<|src_id|>249<|tgt_id|>243\n<|src_id|>253<|tgt_id|>252\n<|src_id|>254<|tgt_id|>252\n<|src_id|>259<|tgt_id|>243\n<|src_id|>262<|tgt_id|>243\n<|src_id|>266<|tgt_id|>263\n<|src_id|>270<|tgt_id|>243\n<|src_id|>272<|tgt_id|>243\n<|src_id|>275<|tgt_id|>243\n<|src_id|>279<|tgt_id|>278\n<|src_id|>283<|tgt_id|>278\n<|src_id|>285<|tgt_id|>284\n<|src_id|>290<|tgt_id|>286\n<|src_id|>292<|tgt_id|>286\n<|src_id|>293<|tgt_id|>286\n<|src_id|>294<|tgt_id|>286\n<|src_id|>295<|tgt_id|>286\n<|src_id|>297<|tgt_id|>286\n<|src_id|>299<|tgt_id|>286\n<|src_id|>300<|tgt_id|>286\n<|src_id|>303<|tgt_id|>286\n<|src_id|>308<|tgt_id|>234",
+    "parsed": [
+        {
+            "src_id": 244,
+            "tgt_id": 243
+        },
+        {
+            "src_id": 248,
+            "tgt_id": 243
+        },
+        {
+            "src_id": 249,
+            "tgt_id": 243
+        },
+        {
+            "src_id": 253,
+            "tgt_id": 252
+        },
+        {
+            "src_id": 254,
+            "tgt_id": 252
+        },
+        {
+            "src_id": 259,
+            "tgt_id": 243
+        },
+        {
+            "src_id": 262,
+            "tgt_id": 243
+        },
+        {
+            "src_id": 266,
+            "tgt_id": 263
+        },
+        {
+            "src_id": 270,
+            "tgt_id": 243
+        },
+        {
+            "src_id": 272,
+            "tgt_id": 243
+        },
+        {
+            "src_id": 275,
+            "tgt_id": 243
+        },
+        {
+            "src_id": 279,
+            "tgt_id": 278
+        },
+        {
+            "src_id": 283,
+            "tgt_id": 278
+        },
+        {
+            "src_id": 285,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 290,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 292,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 293,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 294,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 295,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 297,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 299,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 300,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 303,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 308,
+            "tgt_id": 234
+        }
+    ]
+}

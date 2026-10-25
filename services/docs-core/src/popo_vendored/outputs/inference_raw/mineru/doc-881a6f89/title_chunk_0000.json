@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 200 137 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|page|>1<|box|>404 140 421 228<|content|>I. Purpose\n<|id|>11<|page|>1<|box|>753 140 768 318<|content|>II. Client Information\n<|id|>24<|page|>2<|box|>527 142 545 302<|content|>III. Adverse Parties\n<|id|>38<|page|>3<|box|>276 140 294 511<|content|>B. Darren K. Musgrave (Individual Defendant)\n<|id|>41<|page|>3<|box|>458 142 474 320<|content|>IV. Opposing Counsel\n<|id|>46<|page|>3<|box|>768 140 784 511<|content|>V. Calderwood & Harkness Engagement Team\n<|id|>51<|page|>4<|box|>393 140 410 457<|content|>VI. Summary of the Underlying Dispute\n<|id|>52<|page|>4<|box|>424 140 441 367<|content|>A. The Off-Take Agreement\n<|id|>64<|page|>5<|box|>444 142 462 330<|content|>B. The Unpaid Invoices\n<|id|>67<|page|>5<|box|>765 142 782 480<|content|>Total Principal Outstanding: $4,870,050.00\n<|id|>69<|page|>6<|box|>90 140 106 375<|content|>C. PBGC's Financial Distress\n<|id|>76<|page|>6<|box|>777 142 795 416<|content|>VII. Chronological Matter History\n<|id|>77<|page|>6<|box|>809 142 825 493<|content|>A. Pre-Litigation Phase (January–May 2022)\n<|id|>89<|page|>8<|box|>138 140 157 477<|content|>B. Litigation Phase (May–November 2022)\n<|id|>109<|page|>10<|box|>194 140 212 689<|content|>C. Receivership and Dismissal Phase (November 2022\n<|id|>118<|page|>11<|box|>402 140 420 323<|content|>VIII. Final Disposition\n<|id|>121<|page|>11<|box|>679 140 696 460<|content|>IX. Open Matters and Preserved Claims\n<|id|>123<|page|>11<|box|>772 142 789 321<|content|>A. Receivership Claim\n<|id|>127<|page|>12<|box|>90 183 106 506<|content|>• Attorneys' Fees and Costs: $302,037.85\n<|id|>131<|page|>12<|box|>449 140 465 398<|content|>B. Musgrave Personal Guaranty\n<|id|>136<|page|>12<|box|>824 140 840 460<|content|>C. Statute of Limitations Considerations\n<|id|>141<|page|>13<|box|>494 142 511 303<|content|>X. Billing Summary\n<|id|>142<|page|>13<|box|>525 142 541 303<|content|>A. Professional Fees\n<|id|>146<|page|>13<|box|>869 142 885 364<|content|>B. Costs and Disbursements\n<|id|>154<|page|>14<|box|>243 140 258 263<|content|>C. Total Billed\n<|id|>157<|page|>14<|box|>388 140 405 354<|content|>XI. Key Documents in File\n<|id|>200<|page|>15<|box|>667 142 684 441<|content|>XII. Document Retention Instructions\n<|id|>205<|page|>16<|box|>383 140 402 352<|content|>XIII. Closing Certification",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>11<|level|>1\n<|id|>24<|level|>1\n<|id|>38<|level|>2\n<|id|>41<|level|>1\n<|id|>46<|level|>1\n<|id|>51<|level|>1\n<|id|>52<|level|>2\n<|id|>64<|level|>2\n<|id|>67<|level|>-1\n<|id|>69<|level|>2\n<|id|>76<|level|>1\n<|id|>77<|level|>2\n<|id|>89<|level|>2\n<|id|>109<|level|>2\n<|id|>118<|level|>1\n<|id|>121<|level|>1\n<|id|>123<|level|>2\n<|id|>127<|level|>3\n<|id|>131<|level|>2\n<|id|>136<|level|>2\n<|id|>141<|level|>1\n<|id|>142<|level|>2\n<|id|>146<|level|>2\n<|id|>154<|level|>2\n<|id|>157<|level|>1\n<|id|>200<|level|>1\n<|id|>205<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 200,
+            "level": 1
+        },
+        {
+            "id": 205,
+            "level": 1
+        }
+    ]
+}

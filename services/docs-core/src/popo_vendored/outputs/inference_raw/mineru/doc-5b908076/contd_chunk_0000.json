@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        49
+    ],
+    "pages": [
+        3,
+        5,
+        7,
+        9,
+        10,
+        19,
+        23,
+        43,
+        48,
+        49
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>3<|box|>122 80 808 913<|content|>FCP-I-3. ... In side back cover\n<|id|>6<|page|>3<|box|>821 80 854 883<|content|>NOTES: ... r = Re vised\n<|id|>17<|page|>5<|box|>866 78 914 490<|content|>At the pro ducer level, the pattern for finished g... consumer level. ... 4 percent pace in the first 4\n<|id|>18<|page|>5<|box|>157 504 258 913<|content|>The national ac counts measures of in flation ac c...es. ... 2 per cent rate in the prev i ous quar ter\n<|id|>20<|page|>5<|box|>311 524 327 825<|content|>(Percent change, fourth quarter to fourth quarter)\n<|id|>21<|page|>5<|box|>619 506 724 923<|content|>months of 2000, up from 2. ... Fur ther back in th...t prices for core in ter me di ate goods picked up\n<|id|>33<|page|>7<|box|>868 83 912 490<|content|>Industrial production in manufacturing, mining and utilities continues to pick up in 2000. ... This\n<|id|>35<|page|>7<|box|>323 506 368 913<|content|>rep re sent a sharp im prove ment from 4. ... 5 pe... effects of the Asian cri sis cur tailed ac tivity\n<|id|>60<|page|>9<|box|>839 83 912 490<|content|>Construction of new housing units moved up to 1. ....her in the first quarter of 2000 to an annual rate\n<|id|>61<|page|>9<|box|>93 511 179 921<|content|>Mort gage in ter est rates, which follow the patte...ge in ter est rates have dampened housing activity\n<|id|>68<|page|>10<|box|>297 83 354 490<|content|>Net national saving averaged 7. ... (Net saving an...b so lete equipment, soft ware and structures used\n<|id|>69<|page|>10<|box|>276 506 362 916<|content|>Private saving de clined from a re cent high of 9. ... In 1999, personal saving was equiv alent to\n<|id|>70<|page|>10<|box|>354 84 436 282<|content|>in production. ... 9 percent reached in 1993, the lowest rate for any year since the 1930s\n<|id|>72<|page|>10<|box|>401 297 416 475<|content|>(Saving as a percent of NNP)\n<|id|>73<|page|>10<|box|>436 83 635 281<|content|>The swing in the Federal budget from large deficit... per cent of NN Pav er aged in the 1950s and 1960s\n<|id|>130<|page|>19<|box|>842 81 863 486<|content|>^{1} Data for the pe riod do not re flect postyear...e United States Gov ern ment,” the source for this\n<|id|>131<|page|>19<|box|>842 508 863 900<|content|>Note. ... —On-budget and off-budget es ti mates ar...e of Man age ment and Bud get on Febru ary 7, 2000\n<|id|>146<|page|>23<|box|>691 80 796 491<|content|>- Table FD-4 presents interest-bearing securities is sued by Government agencies. ... ”)\n<|id|>148<|page|>23<|box|>194 506 268 916<|content|>The aver age length hit a low of 2 years, 5 months... 1996 the aver age length was at 5 years, 3 months\n<|id|>256<|page|>43<|box|>209 81 233 485<|content|>^{3} In reopenings, the amount accepted is in addition to the amount of original offerings\n<|id|>257<|page|>43<|box|>233 81 268 488<|content|>4 In cludes securities is sued to U. ... and to fo...n exchange for maturing securities or for new cash\n<|id|>285<|page|>48<|box|>520 163 532 825<|content|>[In millions of dollars. ... \"Monthly Statement of...f the Public Debt, Of face of Public Debt Account]\n<|id|>287<|page|>49<|box|>914 81 936 462<|content|>Note—Se ries E and EE in clude U. ... savings note...y 1, 1967, through June 30, 1970, to E bond buyers",
+    "raw_response": "<|src_id|>17<|tgt_id|>21\n<|src_id|>33<|tgt_id|>35\n<|src_id|>69<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        }
+    ]
+}

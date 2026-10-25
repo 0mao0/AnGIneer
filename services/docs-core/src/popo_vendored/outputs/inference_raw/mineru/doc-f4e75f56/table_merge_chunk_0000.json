@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Integration testing', 'June–July 2025', 'End-to-end testing of all BaaS partner data feeds, OFAC screening integration, case management workflow, reporting and dashboard functionality, and system performance under expected transaction volumes. Defect identification and resolution.']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['User Acceptance Testing (UAT)', 'July 2025', \"Formal UAT conducted by BRB's BSA/AML team and compliance personnel. UAT will include testing of all detection scenarios against historical transaction data, validation of OFAC screening results, review of case management workflows, and verification of reporting accuracy. UAT sign-off is required from Thomas Ikeda (BSA Officer) and Patricia Langston (CCO) prior to production deployment.\"]]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 146,
+    "table2_idx": 147
+}

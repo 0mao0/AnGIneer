@@ -1,0 +1,46 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        9,
+        10,
+        15,
+        16,
+        17,
+        18,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>151 746 169 854<|content|>May 22, 2023\n<|id|>3<|page|>1<|box|>176 140 213 854<|content|>FROM: ... Patrick Gallagher, Lead Associate, Litig...e Laroche, Working Associate, Litigation (General)\n<|id|>4<|page|>1<|box|>220 140 258 854<|content|>TO: ... Samuel Eklund, Responsible Partner, Litiga... Linda Osei, Billing Partner, Litigation (General)\n<|id|>5<|page|>1<|box|>265 140 301 854<|content|>RE: ... Philip Trask (Trask Greystone & Associates)\n<|id|>6<|page|>1<|box|>309 140 328 455<|content|>CLIENT: ... Stonefield Logistics Group Inc\n<|id|>7<|page|>1<|box|>334 142 352 362<|content|>MATTER NO. ... 1012-00005\n<|id|>8<|page|>1<|box|>361 142 378 408<|content|>Right-click to update Table of Contents\n<|id|>14<|page|>1<|box|>805 174 896 857<|content|>(iii) Dr. ... and\n<|id|>16<|page|>2<|box|>171 140 208 854<|content|>Each of these weaknesses is analyzed in detail in ...tative implications for the claimed damages figure\n<|id|>32<|page|>4<|box|>89 183 107 531<|content|>• Fact discovery deadline: ... September 29, 2023\n<|id|>38<|page|>4<|box|>208 140 354 854<|content|>Dr. ... Trask before his report date\n<|id|>33<|page|>4<|box|>109 183 127 490<|content|>• Plaintiff's expert reports: ... May 15, 2023\n<|id|>34<|page|>4<|box|>128 183 146 614<|content|>• Defendant's expert and rebuttal reports: ... August 25, 2023\n<|id|>35<|page|>4<|box|>148 183 166 656<|content|>• Expert depositions: ... September 15 through November 15, 2023\n<|id|>36<|page|>4<|box|>169 183 185 529<|content|>• Expert discovery deadline: ... January 12, 2024\n<|id|>37<|page|>4<|box|>188 183 204 558<|content|>• Dispositive motions deadline: ... February 16, 2024\n<|id|>49<|page|>5<|box|>186 183 220 854<|content|>• Selected discovery materials produced in this litigation, as provided to Dr. ... and\n<|id|>51<|page|>5<|box|>263 140 354 854<|content|>Dr. ... This lack of specificity is itself a metho...eteness of the factual foundation for his opinions\n<|id|>81<|page|>9<|box|>710 138 877 857<|content|>COVID-Era Distortion. ... Any reasonable forward-looking projection of\n<|id|>82<|page|>10<|box|>89 140 126 854<|content|>VTS's margins on the SLG account for the period Ma...hould have accounted for this market normalization\n<|id|>131<|page|>15<|box|>819 174 837 820<|content|>(e) VTS's post-termination revenue trajectory relative to the loss of the SLG contract; ... or\n<|id|>133<|page|>16<|box|>90 140 200 856<|content|>The $1. ... In reality, the question is not whethe...mitigation efforts would have yielded such revenue\n<|id|>150<|page|>17<|box|>853 174 907 854<|content|>\"IN NO EVENT SHALL EITHER PARTY BE LIABLE TO THE O...ISING OUT OF OR RELATED TO THIS AGREEMENT, WHETHER\n<|id|>151<|page|>18<|box|>89 174 126 854<|content|>BASED IN CONTRACT, TORT, STRICT LIABILITY, OR OTHE... ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. ... \"\n<|id|>190<|page|>22<|box|>465 181 518 854<|content|>• VTS Q4 2021 Performance Report (internal VTS doc...'s SLO failures across all five service categories\n<|id|>195<|page|>22<|box|>729 183 782 854<|content|>TSA negotiation file produced by Ashford Meridian ...thereof) for the 75% liquidated damages multiplier\n<|id|>191<|page|>22<|box|>522 183 575 854<|content|>• VTS financial records from the full document pro...— for account-level margin analysis on SLG freight\n<|id|>192<|page|>22<|box|>578 181 632 854<|content|>• Publicly available freight market data and indic... data — for market context and mitigation analysis\n<|id|>193<|page|>22<|box|>633 183 669 852<|content|>• Force majeure notice dated April 14, 2020 and re...correspondence — for the adjusted CY2 ACV analysis\n<|id|>194<|page|>22<|box|>672 181 724 854<|content|>• Stonefield's alternative carrier invoices and re...21 and Q1 2022 — for the setoff/offset calculation\n<|id|>196<|page|>22<|box|>784 140 876 854<|content|>The target deadline for Dr. ... Chung in mid-July ...inary findings and align on the rebuttal framework\n<|id|>204<|page|>23<|box|>530 210 584 854<|content|>(c) Deducting a mitigation offset reflecting the r... in the robust Q1 –Q2 2022 freight market; ... and\n<|id|>206<|page|>23<|box|>655 174 747 856<|content|>Opinion 3: ... 4 above",
+    "raw_response": "<|src_id|>14<|tgt_id|>16\n<|src_id|>49<|tgt_id|>51\n<|src_id|>81<|tgt_id|>82\n<|src_id|>131<|tgt_id|>133\n<|src_id|>150<|tgt_id|>151",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 133
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        }
+    ]
+}

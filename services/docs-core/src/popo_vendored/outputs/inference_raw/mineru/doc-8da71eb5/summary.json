@@ -1,0 +1,163 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_s71ck9r\\input\\pdfs\\doc-8da71eb5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_s71ck9r\\enriched\\doc-8da71eb5.json",
+    "contd_output": "<|src_id|>89<|tgt_id|>90",
+    "title_output": "<|id|>7<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>30<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>1\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>49<|level|>3\n<|id|>58<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>67<|level|>3\n<|id|>76<|level|>3\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>86<|level|>3\n<|id|>93<|level|>3\n<|id|>101<|level|>2\n<|id|>102<|level|>3\n<|id|>106<|level|>3\n<|id|>116<|level|>2\n<|id|>117<|level|>3\n<|id|>119<|level|>3\n<|id|>122<|level|>3\n<|id|>124<|level|>3\n<|id|>126<|level|>1\n<|id|>142<|level|>1\n<|id|>150<|level|>1",
+    "image_output": "<|src_id|>156<|tgt_id|>150\n<|src_id|>157<|tgt_id|>150",
+    "contd_label": [
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 156,
+            "tgt_id": 150
+        },
+        {
+            "src_id": 157,
+            "tgt_id": 150
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 156,
+            "table2_idx": 157,
+            "upper_row_ss": [
+                [
+                    "Section 4 — Events of Default",
+                    "Occurrence of a Change of Control constitutes an Event of Default with immediate acceleration rights",
+                    "Conforms to the amended Change of Control definition; acknowledges that IPO-related events do not constitute a Material Adverse Effect",
+                    "Prevents the IPO from triggering an Event of Default under the Credit Agreement"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Party",
+                    "Role",
+                    "Key Contact(s)",
+                    "Address"
+                ]
+            ]
+        }
+    ]
+}

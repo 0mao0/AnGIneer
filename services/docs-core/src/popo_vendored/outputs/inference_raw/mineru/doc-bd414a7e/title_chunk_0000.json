@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>445 140 462 436<|content|>I. Introduction and Purpose of Letter\n<|id|>12<|page|>1<|box|>757 140 773 470<|content|>II. Summary of the Proposed Transaction\n<|id|>13<|page|>1<|box|>787 142 805 343<|content|>A. Transaction Overview\n<|id|>18<|page|>2<|box|>411 142 428 292<|content|>B. Use of Proceeds\n<|id|>24<|page|>2<|box|>843 142 859 261<|content|>C. Key Parties\n<|id|>28<|page|>3<|box|>421 143 436 351<|content|>D. Timeline of Key Events\n<|id|>32<|page|>4<|box|>375 142 391 395<|content|>III. Termination of the Offering\n<|id|>33<|page|>4<|box|>405 142 421 339<|content|>A. Basis for Termination\n<|id|>38<|page|>5<|box|>138 140 157 480<|content|>B. C&H's Analysis of Termination Validity\n<|id|>41<|page|>5<|box|>421 140 438 426<|content|>C. Status of Transaction Documents\n<|id|>50<|page|>6<|box|>167 140 184 444<|content|>IV. Surviving Contractual Obligations\n<|id|>52<|page|>6<|box|>262 140 279 563<|content|>A. Expense Reimbursement (Purchase Agreement §7)\n<|id|>58<|page|>6<|box|>731 142 747 379<|content|>B. Indemnification Provisions\n<|id|>60<|page|>7<|box|>138 140 157 596<|content|>C. Summary of Estimated Transaction Expenses Incur\n<|id|>64<|page|>7<|box|>563 140 580 377<|content|>V. CUSIP / ISIN Cancellation\n<|id|>67<|page|>8<|box|>90 140 107 336<|content|>VI. Document Retention\n<|id|>68<|page|>8<|box|>121 140 138 351<|content|>Firm Document Retention\n<|id|>70<|page|>8<|box|>286 140 303 387<|content|>Company Document Retention\n<|id|>83<|page|>9<|box|>148 140 167 544<|content|>VII. Considerations for a Potential Future Offerin\n<|id|>85<|page|>9<|box|>279 140 297 290<|content|>A. Market Timing\n<|id|>88<|page|>9<|box|>542 140 559 388<|content|>B. Financial Statement Refresh\n<|id|>92<|page|>10<|box|>90 142 108 413<|content|>C. Rating Agency Re-Engagement\n<|id|>96<|page|>10<|box|>416 142 433 457<|content|>D. Due Diligence and Document Refresh\n<|id|>106<|page|>11<|box|>138 140 157 354<|content|>E. Sponsor Considerations\n<|id|>109<|page|>11<|box|>393 140 412 477<|content|>VIII. Administrative Closing of the Matter\n<|id|>118<|page|>11<|box|>819 142 835 310<|content|>IX. Closing Remarks",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>24<|level|>2\n<|id|>28<|level|>2\n<|id|>32<|level|>1\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>50<|level|>1\n<|id|>52<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>1\n<|id|>67<|level|>1\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>83<|level|>1\n<|id|>85<|level|>2\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>96<|level|>2\n<|id|>106<|level|>2\n<|id|>109<|level|>1\n<|id|>118<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        }
+    ]
+}

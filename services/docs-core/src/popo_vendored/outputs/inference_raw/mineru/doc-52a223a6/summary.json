@@ -1,0 +1,101 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-96snpux1\\input\\pdfs\\doc-52a223a6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-96snpux1\\enriched\\doc-52a223a6.json",
+    "contd_output": "<|src_id|>4<|tgt_id|>5",
+    "title_output": "<|id|>6<|level|>1\n<|id|>9<|level|>2\n<|id|>17<|level|>2\n<|id|>24<|level|>2\n<|id|>28<|level|>2\n<|id|>36<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>53<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>2\n<|id|>68<|level|>2\n<|id|>76<|level|>2",
+    "image_output": "<|src_id|>19<|tgt_id|>17\n<|src_id|>20<|tgt_id|>17",
+    "contd_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        }
+    ],
+    "title_label": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 19,
+            "table2_idx": 20,
+            "upper_row_ss": [
+                [
+                    "3rd Excess",
+                    "Sovereign Re Ltd.",
+                    "$10,000,000",
+                    "$50,000,000",
+                    "SRL-XS3-2022-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "5102"
+                ]
+            ]
+        }
+    ]
+}

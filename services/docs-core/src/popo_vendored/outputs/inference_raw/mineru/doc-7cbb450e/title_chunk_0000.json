@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 756<|content|>CALDERWOOD & HARKNESS LLP 780 Third Avenue New Yor\n<|id|>6<|page|>1<|box|>323 142 340 437<|content|>1. Introduction and Purpose of Letter\n<|id|>11<|page|>2<|box|>148 140 167 651<|content|>2. Summary of RSA Transactions Requiring Greek Law\n<|id|>13<|page|>2<|box|>261 140 277 509<|content|>2.1 Senior Secured Credit Facility Amendment\n<|id|>25<|page|>3<|box|>455 140 472 387<|content|>2.2 Mezzanine Notes Exchange\n<|id|>30<|page|>4<|box|>367 140 383 447<|content|>2.3 KFO Holdings Equity Subscription\n<|id|>33<|page|>5<|box|>90 142 107 416<|content|>2.4 Vessel Disposition Undertaking\n<|id|>36<|page|>5<|box|>372 142 388 426<|content|>2.5 Intercompany Note Amendment\n<|id|>39<|page|>5<|box|>681 140 718 776<|content|>3. Greek Law 4738/2020 — Confirmation That RSA Doe\n<|id|>48<|page|>6<|box|>763 140 780 480<|content|>4. Greek Regulatory Filings and Approvals\n<|id|>55<|page|>7<|box|>601 140 619 684<|content|>5. Greek Corporate Approvals — Board and Sharehold\n<|id|>62<|page|>8<|box|>411 140 428 369<|content|>6. Greek Law Legal Opinion\n<|id|>71<|page|>9<|box|>348 140 364 447<|content|>7. Coordination on Greek Tax Matters\n<|id|>80<|page|>10<|box|>329 140 347 486<|content|>8. Closing Deliverables — Greek Law Items\n<|id|>92<|page|>11<|box|>167 140 184 490<|content|>9. Coordination with Other Parties' Counsel\n<|id|>99<|page|>11<|box|>750 143 765 364<|content|>10. Timeline and Next Steps\n<|id|>106<|page|>12<|box|>696 142 713 382<|content|>11. Background on the Matter",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>11<|level|>2\n<|id|>13<|level|>3\n<|id|>25<|level|>3\n<|id|>30<|level|>3\n<|id|>33<|level|>3\n<|id|>36<|level|>3\n<|id|>39<|level|>2\n<|id|>48<|level|>2\n<|id|>55<|level|>2\n<|id|>62<|level|>2\n<|id|>71<|level|>2\n<|id|>80<|level|>2\n<|id|>92<|level|>2\n<|id|>99<|level|>2\n<|id|>106<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        }
+    ]
+}

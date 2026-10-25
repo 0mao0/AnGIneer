@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['5', '\"blade shield housing\"', \"'884\", '1, 5, 14', 'An enclosed housing structure containing the blade and a movable', 'Any structure associated with the trocar tip that encloses or', 'Spec.: \"self-contained enclosure\" (Col. 4, l. 8); guide rails,', 'Dr. Ostrowski : \"housing\" in engineering = enclosed', 'Favorable']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', \"shield covering the blade's cutting edge in retracted position\", 'partially encloses the blade', 'spring cavity, shield stop; \"fully encloses\" (Col. 4, ll. 5-14). No significant t PH.', \"structure.Shigley's: housing definition.\", '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 405,
+    "table2_idx": 406
+}

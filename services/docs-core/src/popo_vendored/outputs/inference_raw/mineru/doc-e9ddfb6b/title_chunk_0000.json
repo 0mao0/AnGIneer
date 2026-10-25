@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>381 142 398 294<|content|>Dear Sir or Madam:\n<|id|>10<|page|>1<|box|>811 140 829 537<|content|>1. Background and Reference to Prior Notification\n<|id|>16<|page|>2<|box|>784 140 801 336<|content|>2. Settlement Resolution\n<|id|>21<|page|>3<|box|>366 140 383 439<|content|>3. Summary of Key Settlement Terms\n<|id|>23<|page|>3<|box|>496 140 513 328<|content|>3.1 Monetary Recovery\n<|id|>25<|page|>3<|box|>642 140 659 320<|content|>3.2 Equity Forfeitures\n<|id|>27<|page|>3<|box|>843 140 859 375<|content|>3.3 Total Economic Recovery\n<|id|>30<|page|>4<|box|>222 140 238 419<|content|>3.4 Modified Restrictive Covenants\n<|id|>35<|page|>4<|box|>647 140 664 401<|content|>3.5 Data Return and Destruction\n<|id|>38<|page|>5<|box|>90 140 108 362<|content|>3.6 Compliance Monitoring\n<|id|>41<|page|>5<|box|>335 140 352 563<|content|>3.7 Consent Order and Continuing Court Jurisdictio\n<|id|>43<|page|>5<|box|>454 140 472 769<|content|>4. Financial Impact Assessment and Confirmation of\n<|id|>52<|page|>6<|box|>439 140 457 367<|content|>5. Status of Injunction Bond\n<|id|>54<|page|>6<|box|>633 140 652 367<|content|>6. Request for Confirmation\n<|id|>56<|page|>6<|box|>792 142 809 326<|content|>7. Contact Information\n<|id|>68<|page|>7<|box|>393 142 405 171<|content|>cc:",
+    "raw_response": "<|id|>6<|level|>-1\n<|id|>10<|level|>1\n<|id|>16<|level|>1\n<|id|>21<|level|>1\n<|id|>23<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>1\n<|id|>68<|level|>-1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        }
+    ]
+}

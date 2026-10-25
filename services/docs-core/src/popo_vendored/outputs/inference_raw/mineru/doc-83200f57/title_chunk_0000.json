@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>152 140 170 498<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>14<|page|>2<|box|>90 140 107 313<|content|>Section 1: Definitions\n<|id|>29<|page|>3<|box|>337 140 354 401<|content|>Section 2: Exclusivity Covenants\n<|id|>40<|page|>4<|box|>676 140 694 524<|content|>Section 3: Due Diligence Access and Cooperation\n<|id|>50<|page|>6<|box|>148 140 167 496<|content|>Section 4: Term, Extension, and Termination\n<|id|>60<|page|>7<|box|>148 140 167 529<|content|>Section 5: No Binding Obligation to Consummate\n<|id|>70<|page|>7<|box|>809 140 825 303<|content|>Section 6: Remedies\n<|id|>73<|page|>8<|box|>260 140 277 300<|content|>Section 7: Expenses\n<|id|>75<|page|>8<|box|>473 140 489 624<|content|>Section 8: Governing Law; Jurisdiction; Waiver of\n<|id|>80<|page|>9<|box|>277 140 294 423<|content|>Section 9: Miscellaneous Provisions\n<|id|>85<|page|>10<|box|>133 176 151 334<|content|>If to HPE Fund IV:\n<|id|>107<|page|>11<|box|>171 230 189 767<|content|>[Remainder of Page Intentionally Left Blank — Sign\n<|id|>117<|page|>11<|box|>405 352 422 643<|content|>ACKNOWLEDGED AND AGREED",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>14<|level|>1\n<|id|>29<|level|>1\n<|id|>40<|level|>1\n<|id|>50<|level|>1\n<|id|>60<|level|>1\n<|id|>70<|level|>1\n<|id|>73<|level|>1\n<|id|>75<|level|>1\n<|id|>80<|level|>1\n<|id|>85<|level|>-1\n<|id|>107<|level|>1\n<|id|>117<|level|>2",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 2
+        }
+    ]
+}

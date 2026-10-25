@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 119 852<|content|>CONTAINS INFORMATION SUBJECT TO FEDERAL RULE OF CR...PRODUCT — ATTORNEY-CLIENT PRIVILEGED COMMUNICATION\n<|id|>1<|page|>1<|box|>127 140 143 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>2<|page|>1<|box|>152 140 170 622<|content|>555 California Street, 40th Floor San Francisco, California 94104\n<|id|>3<|page|>1<|box|>179 140 196 774<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>205 142 250 854<|content|>Elaine Forsythe Partner Antitrust & Competition Practice Group Direct Dial: ... com\n<|id|>5<|page|>1<|box|>250 725 265 854<|content|>February 5, 2024\n<|id|>6<|page|>1<|box|>273 140 291 581<|content|>VIA EMAIL AND Severin Partners LLC OVERNIGHT\n<|id|>7<|page|>1<|box|>300 140 335 854<|content|>Julia Stafford-Hayes Deputy Assistant Attorney General Antitrust Division U. ... 20530\n<|id|>8<|page|>1<|box|>344 174 398 854<|content|>Re: ... 's Counter-Draft Non-Prosecution Agreement\n<|id|>9<|page|>1<|box|>407 140 424 560<|content|>Dear Deputy Assistant Attorney General Stafford-Ha...r Deputy Assistant Attorney General Stafford-Hayes\n<|id|>24<|page|>3<|box|>392 176 426 854<|content|>1. ... and\n<|id|>26<|page|>3<|box|>468 140 541 854<|content|>TMC's counter-draft also includes revised drafts o...he principal areas of disagreement in detail below\n<|id|>73<|page|>8<|box|>282 174 319 854<|content|>(ii) Torchlight Mining (U. ... and\n<|id|>75<|page|>8<|box|>371 138 555 857<|content|>TMC's Position. ... subsidiary entity notwithstand... and create unacceptable legal uncertainty for TMC\n<|id|>87<|page|>10<|box|>252 212 268 390<|content|>Respectfully submitted,\n<|id|>88<|page|>10<|box|>277 140 292 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>89<|page|>10<|box|>295 142 311 251<|content|>By: ... By\n<|id|>90<|page|>10<|box|>311 140 345 854<|content|>Elaine Forsythe Partner, Antitrust & Competition P..., California 94104 Direct Dial: ... (415) 723-8847\n<|id|>91<|page|>10<|box|>345 142 362 468<|content|>Email: ... com\n<|id|>92<|page|>10<|box|>364 142 378 254<|content|>cc: ... (via email)\n<|id|>93<|page|>10<|box|>388 174 424 854<|content|>Denise Kowalski, Trial Attorney, Antitrust Divisio...Gate Avenue, Room 10-0101, San Francisco, CA 94102\n<|id|>94<|page|>10<|box|>431 174 468 852<|content|>Marcus Reeves, Senior Trial Attorney, Antitrust Di...Gate Avenue, Room 10-0101, San Francisco, CA 94102\n<|id|>95<|page|>10<|box|>477 140 494 400<|content|>cc: ... (via separate cover, privileged)\n<|id|>96<|page|>10<|box|>502 176 520 673<|content|>Søren Dalmqvist, Chief Executive Officer, Torchlig...t, Chief Executive Officer, Torchlight Mining Corp\n<|id|>98<|page|>10<|box|>554 142 571 318<|content|>cc: ... (via email, internal)\n<|id|>99<|page|>10<|box|>580 176 597 591<|content|>Howard Bellamy, Partner, Calderwood & Harkness LLP\n<|id|>100<|page|>10<|box|>606 176 623 562<|content|>Aaron Liu, Associate, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>24<|tgt_id|>26\n<|src_id|>73<|tgt_id|>75",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 75
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        59
+    ],
+    "pages": [
+        46,
+        49,
+        51,
+        53,
+        57,
+        59
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>222<|page|>46<|box|>554 107 569 287<|content|>E.6 沉井预制与下沉\n<|id|>228<|page|>49<|box|>353 107 369 287<|content|>E. 7 沉箱出运与安装\n<|id|>233<|page|>51<|box|>791 107 807 304<|content|>E.8 闸阀门吊运及安装\n<|id|>237<|page|>53<|box|>816 107 831 233<|content|>E.9 拆除施工\n<|id|>243<|page|>57<|box|>126 453 143 544<|content|>附 录 F\n<|id|>244<|page|>57<|box|>167 406 183 589<|content|>安全管理评估指标体系\n<|id|>249<|page|>59<|box|>130 445 146 552<|content|>参 考 文 献",
+    "raw_response": "<|id|>222<|level|>2\n<|id|>228<|level|>2\n<|id|>233<|level|>2\n<|id|>237<|level|>2\n<|id|>243<|level|>1\n<|id|>244<|level|>2\n<|id|>249<|level|>1",
+    "parsed": [
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 233,
+            "level": 2
+        },
+        {
+            "id": 237,
+            "level": 2
+        },
+        {
+            "id": 243,
+            "level": 1
+        },
+        {
+            "id": 244,
+            "level": 2
+        },
+        {
+            "id": 249,
+            "level": 1
+        }
+    ]
+}

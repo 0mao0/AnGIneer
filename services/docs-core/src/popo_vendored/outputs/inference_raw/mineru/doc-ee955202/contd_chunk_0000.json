@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 142 156 303<|content|>TO: ... Renata Vasquez\n<|id|>3<|page|>1<|box|>164 142 181 310<|content|>FROM: ... Nadia Petrov\n<|id|>4<|page|>1<|box|>190 142 207 323<|content|>DATE: ... March 15, 2023\n<|id|>5<|page|>1<|box|>215 140 252 852<|content|>RE: ... )\n<|id|>70<|page|>8<|box|>794 140 904 857<|content|>We note that Aldrich's Reply Brief does not engage... dispute involving a California-based employee and\n<|id|>71<|page|>9<|box|>90 140 255 854<|content|>California-based employer will almost certainly ap...rest in applying its own more permissive framework\n<|id|>104<|page|>12<|box|>755 140 771 537<|content|>Nadia Petrov Associate Calderwood & Harkness LLP\n<|id|>105<|page|>12<|box|>773 142 789 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>70<|tgt_id|>71",
+    "parsed": [
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        }
+    ]
+}

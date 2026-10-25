@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 150 118 844<|content|>SECRETARY'S CERTIFICATE OF STRATOS MERGER SUB INC.\n<|id|>4<|page|>1<|box|>412 140 429 434<|content|>1. Identification of Certifying Officer\n<|id|>8<|page|>1<|box|>732 140 750 380<|content|>2. Certificate of Incorporation\n<|id|>12<|page|>2<|box|>321 140 339 223<|content|>3. Bylaws\n<|id|>15<|page|>2<|box|>523 140 542 584<|content|>4. Board Consent (Resolutions of the Board of Dire\n<|id|>24<|page|>3<|box|>539 140 555 625<|content|>5. Stockholder Consent (Written Consent of Sole St\n<|id|>28<|page|>4<|box|>150 140 167 349<|content|>6. Incumbency Certificate\n<|id|>32<|page|>4<|box|>614 142 632 393<|content|>7. Good Standing and Existence\n<|id|>37<|page|>5<|box|>204 140 222 390<|content|>8. No Amendments or Conflicts\n<|id|>43<|page|>5<|box|>704 140 722 235<|content|>9. Reliance\n<|id|>46<|page|>6<|box|>252 400 268 596<|content|>[Signature Page Follows]\n<|id|>47<|page|>6<|box|>277 145 311 849<|content|>SIGNATURE PAGE TO SECRETARY'S CERTIFICATE OF STRAT\n<|id|>55<|page|>7<|box|>89 434 107 563<|content|>EXHIBIT LIST",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>28<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>47<|level|>2\n<|id|>55<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        }
+    ]
+}

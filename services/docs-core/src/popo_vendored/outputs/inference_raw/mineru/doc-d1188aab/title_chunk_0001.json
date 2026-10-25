@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>389<|page|>45<|box|>89 140 125 792<|content|>EXHIBIT F — FORM OF OPINION OF RAJENDRA & OSMAN LL\n<|id|>391<|page|>46<|box|>89 140 125 810<|content|>EXHIBIT G — FORM OF NEGATIVE ASSURANCE LETTER OF W\n<|id|>393<|page|>46<|box|>196 408 212 588<|content|>SIGNATURE PAGES\n<|id|>396<|page|>46<|box|>292 143 309 593<|content|>THALASSA SHIPPING & LOGISTICS SA (as Company)\n<|id|>432<|page|>47<|box|>89 140 107 676<|content|>HALCYON PARTNERS INTERNATIONAL LTD. (as Co-Manager\n<|id|>436<|page|>47<|box|>159 163 176 833<|content|>[Signature pages assembled but unexecuted — offeri",
+    "raw_response": "<|id|>389<|level|>1\n<|id|>391<|level|>1\n<|id|>393<|level|>1\n<|id|>396<|level|>2\n<|id|>432<|level|>2\n<|id|>436<|level|>-1",
+    "parsed": [
+        {
+            "id": 389,
+            "level": 1
+        },
+        {
+            "id": 391,
+            "level": 1
+        },
+        {
+            "id": 393,
+            "level": 1
+        },
+        {
+            "id": 396,
+            "level": 2
+        },
+        {
+            "id": 432,
+            "level": 2
+        }
+    ]
+}

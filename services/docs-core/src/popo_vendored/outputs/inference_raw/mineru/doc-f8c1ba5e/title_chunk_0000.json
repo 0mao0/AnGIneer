@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 147 161 849<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>6<|page|>1<|box|>362 158 416 836<|content|>DECLARATION OF DEVON ARCHER IN SUPPORT OF DEFENDAN\n<|id|>8<|page|>1<|box|>534 142 549 408<|content|>I, Devon Archer, declare as follows:\n<|id|>11<|page|>2<|box|>90 140 107 638<|content|>Exhibit A — AMA Employee Handbook (March 2021 Revi\n<|id|>13<|page|>2<|box|>411 142 428 663<|content|>Exhibit B — AMA Meal and Rest Break Policy (Standa\n<|id|>15<|page|>2<|box|>603 142 619 609<|content|>Exhibit C — TimeTrack Pro System Configuration Rec\n<|id|>17<|page|>2<|box|>886 143 902 714<|content|>Exhibit D — Missed Meal Attestation Feature Activa\n<|id|>28<|page|>3<|box|>599 140 617 655<|content|>Exhibit E — Missed Meal Attestation Usage Rate Dat\n<|id|>35<|page|>4<|box|>89 140 126 854<|content|>Exhibit F — NovaPay TimeTrack Pro Data Summary — S\n<|id|>37<|page|>4<|box|>410 140 445 854<|content|>Exhibit G — NovaPay TimeTrack Pro Data Summary — O\n<|id|>39<|page|>4<|box|>621 142 637 705<|content|>Exhibit H — AMA Production Schedules for Represent\n<|id|>46<|page|>5<|box|>152 140 170 764<|content|>Exhibit I — Deposition Transcript Excerpts — Named\n<|id|>53<|page|>5<|box|>529 140 546 763<|content|>Exhibit J — Deposition Transcript Excerpts — Named\n<|id|>59<|page|>5<|box|>861 140 878 764<|content|>Exhibit K — Deposition Transcript Excerpts — Named\n<|id|>65<|page|>6<|box|>459 140 494 854<|content|>Exhibit L — Deposition Transcript Excerpts — Lorra\n<|id|>72<|page|>7<|box|>234 140 268 854<|content|>Exhibit M — Deposition Transcript Excerpts — Celin\n<|id|>79<|page|>7<|box|>773 140 792 751<|content|>Exhibit N — Deposition Transcript Excerpts — Karen\n<|id|>86<|page|>8<|box|>476 142 494 540<|content|>Exhibit O — Expert Report of Dr. Rajesh Makhija\n<|id|>88<|page|>8<|box|>723 142 739 578<|content|>Exhibit P — Expert Report of Dr. Catherine Lindstr\n<|id|>90<|page|>9<|box|>184 142 200 609<|content|>Exhibit Q — AMA Employee Complaint Records Summary\n<|id|>92<|page|>9<|box|>467 142 484 509<|content|>Document Production and discovery Summary\n<|id|>96<|page|>9<|box|>782 140 799 274<|content|>/s/ Devon Archer",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>-1\n<|id|>11<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>28<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>2\n<|id|>46<|level|>2\n<|id|>53<|level|>2\n<|id|>59<|level|>2\n<|id|>65<|level|>2\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>86<|level|>2\n<|id|>88<|level|>2\n<|id|>90<|level|>2\n<|id|>92<|level|>2\n<|id|>96<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        }
+    ]
+}

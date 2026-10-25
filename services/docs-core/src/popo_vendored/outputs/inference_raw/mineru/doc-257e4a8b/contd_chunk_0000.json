@@ -1,0 +1,48 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        78
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        13,
+        14,
+        16,
+        17,
+        19,
+        28,
+        77,
+        78
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>695 573 809 746<|content|>Profile of the Economy Financial Operations International Statistics Special Reports\n<|id|>4<|page|>1<|box|>840 516 907 743<|content|>Produced and Published by Department of the Treasury Bureau of the Fiscal Service\n<|id|>6<|page|>2<|box|>358 133 430 864<|content|>The Treasury Bulletin is issued quarterly in March... as well as various other Federal program agencies\n<|id|>8<|page|>2<|box|>500 318 520 676<|content|>treasury. ... gov\n<|id|>9<|page|>2<|box|>535 150 573 846<|content|>Internet service subscribers can access the Treasu...t through the Bureau of Fiscal Service's home page\n<|id|>22<|page|>5<|box|>148 81 741 893<|content|>SECTION I—Canadian Dollar Positions FCP-I-1—Weekly Report of Major Market Participants. ... 70\n<|id|>23<|page|>5<|box|>787 78 854 908<|content|>GLOSSARY. ... = Not available\n<|id|>24<|page|>6<|box|>220 751 248 916<|content|>Profile of the Economy\n<|id|>25<|page|>6<|box|>250 733 275 918<|content|>Federal Fiscal Operations\n<|id|>26<|page|>6<|box|>277 818 303 916<|content|>Federal Debt\n<|id|>27<|page|>6<|box|>304 733 330 918<|content|>Fiscal Service Operations\n<|id|>28<|page|>6<|box|>330 687 357 918<|content|>Ownership of Federal Securities\n<|id|>30<|page|>6<|box|>382 782 407 918<|content|>and in Circulation\n<|id|>29<|page|>6<|box|>356 663 383 918<|content|>U. ... Currency and Coin Outstanding\n<|id|>32<|page|>7<|box|>119 349 138 647<|content|>(Office of Macroeconomic Analysis)\n<|id|>33<|page|>7<|box|>148 429 167 565<|content|>August 18, 2021\n<|id|>39<|page|>7<|box|>679 109 910 887<|content|>For the second consecutive quarter, personal consu... of March. ... Household expenditures on services—\n<|id|>40<|page|>8<|box|>90 109 198 885<|content|>roughly two-thirds of PCE and the component most s...centage points to GDP growth in the second quarter\n<|id|>63<|page|>13<|box|>792 109 900 885<|content|>Measures of manufacturing and services business ac.... ... Similarly, the ISM's services index in April\n<|id|>64<|page|>14<|box|>90 111 143 862<|content|>2020 fell to its lowest level since March 2009. .....ing expansion for the fourteenth consecutive month\n<|id|>76<|page|>16<|box|>739 109 882 888<|content|>In addition, Treasury and the Small Business Admin... authorization at the end of March 2020. ... As of\n<|id|>77<|page|>17<|box|>90 111 128 885<|content|>August 15, 2021, the PPP had processed a total of 11. ... 1 billion of borrowing\n<|id|>103<|page|>19<|box|>516 380 529 617<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>104<|page|>19<|box|>536 83 551 258<|content|>Third-Quarter Receipts\n<|id|>105<|page|>19<|box|>554 81 643 486<|content|>The following capsule analysis of budget receipts,... to analyze adequately collections for the quarter\n<|id|>142<|page|>28<|box|>686 81 717 491<|content|>- Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>144<|page|>28<|box|>250 504 397 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>467<|page|>77<|box|>148 388 164 609<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>468<|page|>77<|box|>184 81 258 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>476<|page|>77<|box|>839 81 901 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>477<|page|>77<|box|>184 504 229 915<|content|>Second Liberty Loan Act of 1917, the nature of the...o an overall limit on the outstanding Federal debt\n<|id|>486<|page|>77<|box|>840 504 902 916<|content|>Government account series (FD-2)—Certain trust fun...urities. ... These securities are sold directly by\n<|id|>487<|page|>78<|box|>90 81 209 491<|content|>Treasury to a specific Government agency, trust fund, or account. ... and the Unemployment Trust Fund",
+    "raw_response": "<|src_id|>39<|tgt_id|>40\n<|src_id|>63<|tgt_id|>64\n<|src_id|>76<|tgt_id|>77\n<|src_id|>476<|tgt_id|>477\n<|src_id|>486<|tgt_id|>487",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 476,
+            "tgt_id": 477
+        },
+        {
+            "src_id": 486,
+            "tgt_id": 487
+        }
+    ]
+}

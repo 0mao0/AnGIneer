@@ -1,0 +1,115 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 415 119 581<|content|>BILL OF SALE\n<|id|>1<|page|>1<|box|>136 392 154 604<|content|>Dated as of August 8, 2023\n<|id|>3<|page|>1<|box|>294 140 311 243<|content|>RECITALS\n<|id|>9<|page|>1<|box|>830 140 849 535<|content|>Section 1. Definitions; Incorporation by Reference\n<|id|>13<|page|>2<|box|>383 140 402 656<|content|>Section 2. Transfer and Conveyance of Tangible Pur\n<|id|>14<|page|>2<|box|>416 140 433 344<|content|>2.1 Grant of Conveyance.\n<|id|>16<|page|>2<|box|>616 140 633 498<|content|>2.2 Description of Tangible Purchased Assets.\n<|id|>33<|page|>4<|box|>821 140 838 318<|content|>2.3 Facility Locations.\n<|id|>38<|page|>5<|box|>402 140 419 352<|content|>Section 3. Excluded Assets\n<|id|>46<|page|>6<|box|>90 140 107 632<|content|>Section 4. \"As Is\" Qualification; Purchase Agreeme\n<|id|>50<|page|>6<|box|>446 140 464 380<|content|>Section 5. Further Assurances\n<|id|>53<|page|>6<|box|>723 140 739 452<|content|>Section 6. No Third-Party Beneficiaries\n<|id|>55<|page|>7<|box|>90 140 107 441<|content|>Section 7. Binding Effect; Assignment\n<|id|>58<|page|>7<|box|>329 140 347 349<|content|>Section 8. Governing Law\n<|id|>60<|page|>7<|box|>506 140 523 333<|content|>Section 9. Counterparts\n<|id|>63<|page|>7<|box|>744 140 762 375<|content|>Section 10. Entire Agreement\n<|id|>65<|page|>8<|box|>135 228 152 767<|content|>[Remainder of this page intentionally left blank.\n<|id|>66<|page|>8<|box|>160 334 176 661<|content|>SIGNATURE PAGE TO BILL OF SALE\n<|id|>68<|page|>8<|box|>229 142 246 225<|content|>SELLER:\n<|id|>69<|page|>8<|box|>256 140 272 447<|content|>GENOME DX THERAPEUTICS INC.\n<|id|>77<|page|>8<|box|>393 143 410 558<|content|>ACKNOWLEDGED AND ACCEPTED BY BUYER:\n<|id|>79<|page|>8<|box|>482 142 500 524<|content|>MERIDIAN PRECISION DIAGNOSTICS, INC.\n<|id|>87<|page|>9<|box|>89 447 107 553<|content|>EXHIBIT A\n<|id|>88<|page|>10<|box|>89 336 106 660<|content|>SCHEDULE OF MAJOR EQUIPMENT",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>2\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>16<|level|>3\n<|id|>33<|level|>3\n<|id|>38<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>65<|level|>-1\n<|id|>66<|level|>2\n<|id|>68<|level|>3\n<|id|>69<|level|>4\n<|id|>77<|level|>3\n<|id|>79<|level|>4\n<|id|>87<|level|>2\n<|id|>88<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 4
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        }
+    ]
+}

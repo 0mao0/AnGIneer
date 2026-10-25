@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        39
+    ],
+    "pages": [
+        1,
+        2,
+        33,
+        34,
+        39
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>160 733 176 854<|content|>March 28, 2026\n<|id|>2<|page|>1<|box|>185 140 203 292<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>212 140 229 656<|content|>FROM: ... Jeffrey Park, Senior Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>237 140 255 740<|content|>TO: ... Douglas Carmichael, Responsible Partner Francesca Morano, Billing Partner\n<|id|>5<|page|>1<|box|>263 140 299 854<|content|>RE: ... 1025-00005\n<|id|>6<|page|>1<|box|>308 140 325 689<|content|>CLASSIFICATION: ... Attorney-Client Privileged / Work Product Doctrine\n<|id|>7<|page|>1<|box|>333 142 349 408<|content|>Right-click to update Table of Contents\n<|id|>13<|page|>1<|box|>829 174 885 856<|content|>(1) Late Notice (Article 7): ... CGL-2020-09844), asserting a 14-month, 7-day gap between\n<|id|>14<|page|>2<|box|>89 174 127 854<|content|>QC&S's first reserving of the claims on March 15, ...rmediaries Inc. ... (\"Broadreach\") on May 22, 2022\n<|id|>313<|page|>33<|box|>838 181 892 856<|content|>• NYDFS Notification. ... Elaine Whitfield-Ross)\n<|id|>314<|page|>34<|box|>90 210 126 854<|content|>is necessary to ensure that NYDFS notification obl...ication is consistent with our discovery positions\n<|id|>363<|page|>39<|box|>496 140 527 852<|content|>Jeffrey Park Senior Associate Litigation Department jpark@calderwoodharkness. ... com (212) 555- 0147\n<|id|>364<|page|>39<|box|>529 143 544 308<|content|>Date: ... March 28, 2026\n<|id|>365<|page|>39<|box|>545 140 606 854<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT. ... 1025-00005",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>313<|tgt_id|>314",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 313,
+            "tgt_id": 314
+        }
+    ]
+}

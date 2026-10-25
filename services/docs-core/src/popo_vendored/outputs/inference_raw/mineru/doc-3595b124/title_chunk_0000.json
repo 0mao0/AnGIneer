@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 147 133 849<|content|>CALDERWOOD & HARKNESS LLP 1900 Euclid Avenue, Suit\n<|id|>7<|page|>1<|box|>335 444 354 553<|content|>I. Purpose\n<|id|>11<|page|>1<|box|>763 214 782 782<|content|>II. Requesting Attorney and Proposed Engagement Te\n<|id|>17<|page|>2<|box|>486 377 506 620<|content|>III. Client Identification\n<|id|>19<|page|>2<|box|>568 142 584 202<|content|>Client:\n<|id|>26<|page|>3<|box|>90 140 107 310<|content|>Key Client Contacts:\n<|id|>31<|page|>3<|box|>231 142 248 326<|content|>Key Sponsor Contacts:\n<|id|>36<|page|>3<|box|>398 331 417 663<|content|>IV. Parties and Entities Searched\n<|id|>38<|page|>3<|box|>549 140 566 388<|content|>A. Target and Target Affiliates\n<|id|>48<|page|>4<|box|>281 142 297 294<|content|>B. Seller's Counsel\n<|id|>52<|page|>4<|box|>460 140 478 514<|content|>C. Seller's Financial Advisor / Investment Bank\n<|id|>56<|page|>4<|box|>640 140 657 637<|content|>D. Client and Client Affiliates (for Adverse-Party\n<|id|>69<|page|>5<|box|>190 140 207 385<|content|>E. Other Known Third Parties\n<|id|>83<|page|>5<|box|>839 140 857 694<|content|>F. Potential Insurance and Advisory Parties (Known\n<|id|>87<|page|>6<|box|>194 380 213 617<|content|>V. Search Methodology\n<|id|>106<|page|>7<|box|>477 441 497 557<|content|>VI. Results\n<|id|>107<|page|>7<|box|>522 140 539 328<|content|>A. Entity-Level Results\n<|id|>109<|page|>7<|box|>592 140 609 370<|content|>Target and Target Affiliates.\n<|id|>115<|page|>8<|box|>179 140 195 276<|content|>Seller's Counsel.\n<|id|>117<|page|>8<|box|>286 140 301 496<|content|>Seller's Financial Advisor / Investment Bank.\n<|id|>119<|page|>8<|box|>375 142 390 359<|content|>Client and Client Affiliates.\n<|id|>130<|page|>9<|box|>314 142 330 367<|content|>Other Known Third Parties.\n<|id|>142<|page|>10<|box|>194 140 210 359<|content|>B. Individual-Level Results\n<|id|>164<|page|>11<|box|>282 140 299 406<|content|>C. Lateral Attorney Cross-Check\n<|id|>168<|page|>11<|box|>643 351 662 645<|content|>VII. Analysis and Conclusion\n<|id|>177<|page|>12<|box|>734 375 753 622<|content|>IX. Ongoing Obligations",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>19<|level|>2\n<|id|>26<|level|>2\n<|id|>31<|level|>2\n<|id|>36<|level|>1\n<|id|>38<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>69<|level|>2\n<|id|>83<|level|>2\n<|id|>87<|level|>1\n<|id|>106<|level|>1\n<|id|>107<|level|>2\n<|id|>109<|level|>3\n<|id|>115<|level|>3\n<|id|>117<|level|>3\n<|id|>119<|level|>3\n<|id|>130<|level|>3\n<|id|>142<|level|>2\n<|id|>164<|level|>2\n<|id|>168<|level|>1\n<|id|>177<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 177,
+            "level": 1
+        }
+    ]
+}

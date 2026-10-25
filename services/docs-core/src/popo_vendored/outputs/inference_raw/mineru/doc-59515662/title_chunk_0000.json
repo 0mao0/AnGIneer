@@ -1,0 +1,138 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        17,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 160 126 836<|content|>CALDERWOOD & HARKNESS LLP 1900 Avenue of the Stars\n<|id|>1<|page|>1<|box|>133 174 169 821<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED / ATTORN\n<|id|>2<|page|>1<|box|>178 424 195 573<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>372 277 391 720<|content|>I. Executive Summary and Recommendation\n<|id|>21<|page|>2<|box|>513 300 534 694<|content|>II. Background and Procedural History\n<|id|>22<|page|>2<|box|>559 142 575 405<|content|>A. Employment and Termination\n<|id|>33<|page|>4<|box|>204 140 222 310<|content|>B. Litigation Posture\n<|id|>50<|page|>5<|box|>818 140 835 392<|content|>C. Prior Settlement Discussions\n<|id|>56<|page|>6<|box|>671 385 690 612<|content|>III. Merits Assessment\n<|id|>57<|page|>6<|box|>715 140 733 305<|content|>A. AMA's Strengths\n<|id|>64<|page|>8<|box|>241 140 258 344<|content|>B. AMA's Vulnerabilities\n<|id|>70<|page|>9<|box|>505 140 522 351<|content|>C. Probability Assessment\n<|id|>74<|page|>10<|box|>90 142 107 321<|content|>D. Overall Assessment\n<|id|>79<|page|>10<|box|>587 316 607 679<|content|>IV. Damages and Exposure Analysis\n<|id|>80<|page|>10<|box|>632 143 648 395<|content|>A. Aldrich's Aggregate Demand\n<|id|>86<|page|>11<|box|>640 140 657 452<|content|>B. AMA's Cross-Claim Recovery Value\n<|id|>92<|page|>12<|box|>531 140 547 475<|content|>C. Net Exposure After Cross-Claim Offset\n<|id|>98<|page|>12<|box|>815 339 834 656<|content|>V. Cost of Continued Litigation\n<|id|>105<|page|>14<|box|>90 377 111 619<|content|>VI. Insurance Coverage\n<|id|>116<|page|>15<|box|>253 312 273 684<|content|>VII. Proposed Settlement Parameters\n<|id|>117<|page|>15<|box|>297 142 314 303<|content|>A. Economic Terms\n<|id|>120<|page|>15<|box|>681 140 699 339<|content|>B. Non-Economic Terms\n<|id|>133<|page|>17<|box|>329 140 347 285<|content|>C. Tax Allocation\n<|id|>139<|page|>17<|box|>766 233 786 761<|content|>VIII. Negotiation Strategy for December 8 Mediatio\n<|id|>154<|page|>19<|box|>542 284 561 712<|content|>IX. Comparison to Class Action Resolution\n<|id|>164<|page|>20<|box|>465 385 486 611<|content|>X. Approval Required\n<|id|>170<|page|>21<|box|>172 310 191 684<|content|>XI. Conclusion and Recommendation",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>8<|level|>2\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>33<|level|>3\n<|id|>50<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>64<|level|>3\n<|id|>70<|level|>3\n<|id|>74<|level|>3\n<|id|>79<|level|>2\n<|id|>80<|level|>3\n<|id|>86<|level|>3\n<|id|>92<|level|>3\n<|id|>98<|level|>2\n<|id|>105<|level|>2\n<|id|>116<|level|>2\n<|id|>117<|level|>3\n<|id|>120<|level|>3\n<|id|>133<|level|>3\n<|id|>139<|level|>2\n<|id|>154<|level|>2\n<|id|>164<|level|>2\n<|id|>170<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        }
+    ]
+}

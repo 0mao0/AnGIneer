@@ -1,0 +1,115 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        9,
+        12,
+        13,
+        16,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        26,
+        27
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>127 189 162 854<|content|>Calderwood & Harkness LLP 777 South Flower Street,\n<|id|>2<|page|>1<|box|>171 264 188 733<|content|>SETTLEMENT AGREEMENT AND MUTUAL RELEASE\n<|id|>3<|page|>1<|box|>196 156 214 839<|content|>**DRAFT — VERSION 1** REDLINE COMPARISON — VERSION\n<|id|>10<|page|>1<|box|>744 142 761 251<|content|>PREAMBLE\n<|id|>17<|page|>2<|box|>318 140 335 243<|content|>RECITALS\n<|id|>27<|page|>3<|box|>809 140 827 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>40<|page|>5<|box|>518 140 537 491<|content|>ARTICLE 2 — SETTLEMENT PAYMENT\n<|id|>54<|page|>7<|box|>530 140 547 460<|content|>ARTICLE 3 — RSU ACCELERATION\n<|id|>63<|page|>9<|box|>90 142 106 532<|content|>ARTICLE 4 — MUTUAL GENERAL RELEASE\n<|id|>89<|page|>12<|box|>171 140 189 522<|content|>4.4 Scope of Release — Workers' Compensation.\n<|id|>101<|page|>13<|box|>840 140 858 794<|content|>ARTICLE 5 — MODIFICATION OF RESTRICTIVE COVENANT P\n<|id|>115<|page|>16<|box|>186 140 203 491<|content|>ARTICLE 6 — RETURN OF MATERIALS\n<|id|>130<|page|>18<|box|>89 142 106 514<|content|>ARTICLE 7 — DISMISSAL OF LITIGATION\n<|id|>133<|page|>18<|box|>439 140 455 478<|content|>ARTICLE 8 — NON-DISPARAGEMENT\n<|id|>141<|page|>19<|box|>593 142 609 475<|content|>ARTICLE 9 — NEUTRAL REFERENCE\n<|id|>150<|page|>20<|box|>420 140 438 609<|content|>ARTICLE 10 — CONFIDENTIALITY OF SETTLEMENT\n<|id|>161<|page|>21<|box|>464 140 482 630<|content|>ARTICLE 11 — REPRESENTATIONS AND WARRANTIES\n<|id|>177<|page|>22<|box|>814 142 832 545<|content|>ARTICLE 12 — NO ADMISSION OF LIABILITY\n<|id|>182<|page|>23<|box|>574 140 592 555<|content|>ARTICLE 13 — MISCELLANEOUS PROVISIONS\n<|id|>208<|page|>26<|box|>285 140 301 267<|content|>SIGNATURES\n<|id|>227<|page|>26<|box|>710 142 729 238<|content|>EXHIBITS\n<|id|>234<|page|>27<|box|>89 148 143 849<|content|>**DRAFTING NOTES / OPEN ITEMS SUMMARY OF OPEN POIN",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>-1\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>27<|level|>2\n<|id|>40<|level|>2\n<|id|>54<|level|>2\n<|id|>63<|level|>2\n<|id|>89<|level|>3\n<|id|>101<|level|>2\n<|id|>115<|level|>2\n<|id|>130<|level|>2\n<|id|>133<|level|>2\n<|id|>141<|level|>2\n<|id|>150<|level|>2\n<|id|>161<|level|>2\n<|id|>177<|level|>2\n<|id|>182<|level|>2\n<|id|>208<|level|>2\n<|id|>227<|level|>2\n<|id|>234<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 227,
+            "level": 2
+        },
+        {
+            "id": 234,
+            "level": 2
+        }
+    ]
+}

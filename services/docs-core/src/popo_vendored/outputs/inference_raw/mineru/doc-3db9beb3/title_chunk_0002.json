@@ -1,0 +1,42 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        100,
+        120
+    ],
+    "pages": [
+        101,
+        107,
+        108,
+        120
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>296<|page|>101<|box|>71 124 87 818<|content|>Capital Movements Between the United States and Fo\n<|id|>297<|page|>101<|box|>93 264 109 682<|content|>Section II - Summary by Countries - (Continued)\n<|id|>321<|page|>107<|box|>96 278 111 694<|content|>Section II - Summary by Countries - (Continued)\n<|id|>322<|page|>107<|box|>120 151 149 810<|content|>Table 8.- Foreign Credit Balances (Balances Due to\n<|id|>326<|page|>108<|box|>97 247 126 794<|content|>Table 1. Short-Term Claims on Foreigners as Report\n<|id|>346<|page|>120<|box|>365 534 580 670<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS",
+    "raw_response": "<|id|>296<|level|>1\n<|id|>297<|level|>2\n<|id|>321<|level|>2\n<|id|>322<|level|>3\n<|id|>326<|level|>3\n<|id|>346<|level|>1",
+    "parsed": [
+        {
+            "id": 296,
+            "level": 1
+        },
+        {
+            "id": 297,
+            "level": 2
+        },
+        {
+            "id": 321,
+            "level": 2
+        },
+        {
+            "id": 322,
+            "level": 3
+        },
+        {
+            "id": 326,
+            "level": 3
+        },
+        {
+            "id": 346,
+            "level": 1
+        }
+    ]
+}

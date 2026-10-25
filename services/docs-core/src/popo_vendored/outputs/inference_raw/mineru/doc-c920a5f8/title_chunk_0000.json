@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 125 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>1<|page|>1<|box|>133 352 151 643<|content|>MEMORANDUM OF INTERVIEW\n<|id|>8<|page|>1<|box|>609 142 627 503<|content|>1. Preliminary Matters and Upjohn Warnings\n<|id|>18<|page|>2<|box|>491 140 508 462<|content|>2. Background and Employment History\n<|id|>32<|page|>3<|box|>498 140 515 468<|content|>3. Revenue-Recognition Practices at VCR\n<|id|>33<|page|>3<|box|>529 140 546 527<|content|>3.1 Overview of Timeshare-Interest Sales Process\n<|id|>37<|page|>4<|box|>176 140 194 509<|content|>3.2 Premature Booking of Deposits as Revenue\n<|id|>48<|page|>5<|box|>736 140 753 398<|content|>3.3 Awareness of HSA Concerns\n<|id|>53<|page|>6<|box|>383 140 402 594<|content|>4. Expense-Reporting Practices and Vendor Relation\n<|id|>54<|page|>6<|box|>415 140 433 485<|content|>4.1 Capital-Improvement Approval Process\n<|id|>57<|page|>6<|box|>715 140 733 460<|content|>4.2 Questioning Regarding Shell Entities\n<|id|>71<|page|>8<|box|>138 140 157 534<|content|>4.3 Questioning Regarding Personal Expenditures\n<|id|>79<|page|>8<|box|>513 140 531 500<|content|>4.4 Approval of GSC, CDC, and SPS Invoices\n<|id|>83<|page|>9<|box|>90 140 107 568<|content|>5. Relationship with Nicole Prescott and Ryan Serr\n<|id|>88<|page|>9<|box|>601 140 618 535<|content|>6. Interactions with VHG Corporate Management\n<|id|>93<|page|>10<|box|>359 140 376 486<|content|>7. SOX Certifications and Internal Controls\n<|id|>97<|page|>10<|box|>734 140 751 488<|content|>8. Administrative Leave and Current Status\n<|id|>102<|page|>11<|box|>359 140 376 408<|content|>9. Refusal of Follow-Up Interview\n<|id|>107<|page|>11<|box|>723 142 739 405<|content|>10. Assessment and Observations",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>18<|level|>2\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>37<|level|>3\n<|id|>48<|level|>3\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>57<|level|>3\n<|id|>71<|level|>3\n<|id|>79<|level|>3\n<|id|>83<|level|>2\n<|id|>88<|level|>2\n<|id|>93<|level|>2\n<|id|>97<|level|>2\n<|id|>102<|level|>2\n<|id|>107<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        }
+    ]
+}

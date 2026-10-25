@@ -1,0 +1,134 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 161 165 834<|content|>MINUTES OF THE INITIAL ORGANIZATIONAL MEETING OF T\n<|id|>4<|page|>1<|box|>294 142 311 397<|content|>1. Call to Order and Attendance\n<|id|>13<|page|>2<|box|>281 140 299 382<|content|>2. Certificate of Incorporation\n<|id|>20<|page|>2<|box|>789 140 806 326<|content|>3. Election of Directors\n<|id|>31<|page|>3<|box|>508 140 527 316<|content|>4. Election of Officers\n<|id|>38<|page|>4<|box|>340 140 357 318<|content|>5. Adoption of Bylaws\n<|id|>53<|page|>5<|box|>506 140 523 370<|content|>6. Designation of Fiscal Year\n<|id|>57<|page|>5<|box|>753 142 770 421<|content|>7. Employer Identification Number\n<|id|>61<|page|>6<|box|>212 140 229 416<|content|>8. Authorization of Bank Accounts\n<|id|>71<|page|>6<|box|>760 140 777 460<|content|>9. Adoption of Conflict of Interest Policy\n<|id|>88<|page|>8<|box|>250 140 266 669<|content|>10. Authorization to Apply for Tax-Exempt Status (\n<|id|>97<|page|>9<|box|>212 140 229 661<|content|>11. Authorization to Apply for State Registrations\n<|id|>103<|page|>9<|box|>657 142 674 330<|content|>12. Initial Contribution\n<|id|>111<|page|>10<|box|>502 142 518 447<|content|>13. Adoption of Gift Acceptance Policy\n<|id|>120<|page|>11<|box|>292 140 309 493<|content|>14. Adoption of Investment Policy Statement\n<|id|>122<|page|>11<|box|>473 140 489 509<|content|>The IPS establishes the following key parameters:\n<|id|>131<|page|>12<|box|>411 142 426 570<|content|>15. Mission Statement and Grant-Making Focus Areas\n<|id|>140<|page|>13<|box|>167 142 185 406<|content|>16. Engagement of Legal Counsel\n<|id|>148<|page|>13<|box|>554 140 571 534<|content|>17. Engagement of Accountants and Tax Advisors\n<|id|>157<|page|>14<|box|>301 142 316 480<|content|>18. Registered Office and Registered Agent\n<|id|>160<|page|>14<|box|>503 142 520 455<|content|>19. Books, Records, and Corporate Seal\n<|id|>170<|page|>15<|box|>229 140 248 495<|content|>20. Indemnification of Directors and Officers\n<|id|>174<|page|>15<|box|>625 140 641 318<|content|>21. General Authority\n<|id|>183<|page|>17<|box|>90 142 107 457<|content|>22. Schedule of Regular Board Meetings\n<|id|>187<|page|>17<|box|>354 142 372 282<|content|>23. Adjournment\n<|id|>195<|page|>17<|box|>594 142 612 236<|content|>EXHIBITS\n<|id|>198<|page|>18<|box|>89 354 106 640<|content|>SECRETARY'S CERTIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>13<|level|>2\n<|id|>20<|level|>2\n<|id|>31<|level|>2\n<|id|>38<|level|>2\n<|id|>53<|level|>2\n<|id|>57<|level|>2\n<|id|>61<|level|>2\n<|id|>71<|level|>2\n<|id|>88<|level|>2\n<|id|>97<|level|>2\n<|id|>103<|level|>2\n<|id|>111<|level|>2\n<|id|>120<|level|>2\n<|id|>122<|level|>-1\n<|id|>131<|level|>2\n<|id|>140<|level|>2\n<|id|>148<|level|>2\n<|id|>157<|level|>2\n<|id|>160<|level|>2\n<|id|>170<|level|>2\n<|id|>174<|level|>2\n<|id|>183<|level|>2\n<|id|>187<|level|>2\n<|id|>195<|level|>2\n<|id|>198<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        }
+    ]
+}

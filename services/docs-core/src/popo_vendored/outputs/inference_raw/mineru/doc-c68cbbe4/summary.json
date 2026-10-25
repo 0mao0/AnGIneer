@@ -1,0 +1,160 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3j896b16\\input\\pdfs\\doc-c68cbbe4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3j896b16\\enriched\\doc-c68cbbe4.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>10<|level|>1\n<|id|>11<|level|>1\n<|id|>22<|level|>1\n<|id|>23<|level|>1\n<|id|>34<|level|>1\n<|id|>35<|level|>1\n<|id|>46<|level|>1\n<|id|>47<|level|>1\n<|id|>59<|level|>1\n<|id|>60<|level|>1\n<|id|>72<|level|>1\n<|id|>84<|level|>1\n<|id|>85<|level|>1\n<|id|>97<|level|>1\n<|id|>98<|level|>1\n<|id|>109<|level|>1\n<|id|>111<|level|>1\n<|id|>122<|level|>1\n<|id|>123<|level|>1\n<|id|>134<|level|>1\n<|id|>135<|level|>1\n<|id|>147<|level|>1\n<|id|>158<|level|>1\n<|id|>163<|level|>2",
+    "image_output": "<|src_id|>160<|tgt_id|>158\n<|src_id|>161<|tgt_id|>158",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 163,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 160,
+            "tgt_id": 158
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 158
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 160,
+            "table2_idx": 161,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "Nexford Manufacturin",
+                    "LLC",
+                    "Illinois",
+                    "Subsidiary Guarantor",
+                    "David Engstrom",
+                    "Authorized Person"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "g Services, LLC",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        111,
+        187
+    ],
+    "pages": [
+        112,
+        115,
+        116,
+        132,
+        140,
+        141,
+        142,
+        143,
+        144,
+        146,
+        147,
+        148,
+        149,
+        150,
+        186
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>516<|page|>112<|box|>676 46 696 495<|content|>3/ Data on the two lines shown for this date diffe...e. ... Figures on the first line are comparable in\n<|id|>520<|page|>112<|box|>669 531 679 634<|content|>p Preliminary. ... p Preliminary\n<|id|>542<|page|>115<|box|>620 34 634 250<|content|>(EQ1) E_m = \\Sigma(\\Delta\\$/f c_i * M_i/\\Sigma M)\n<|id|>543<|page|>115<|box|>638 59 667 408<|content|>Where: ... E_{m} is the weighted average of percen...n the dollar cost of individual foreign currencies\n<|id|>544<|page|>115<|box|>673 115 694 420<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>545<|page|>115<|box|>699 115 726 406<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>548<|page|>115<|box|>483 585 504 867<|content|>\\Delta fc_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>549<|page|>115<|box|>509 585 538 858<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>552<|page|>115<|box|>597 532 625 880<|content|>Where: ... and\n<|id|>553<|page|>115<|box|>630 590 660 884<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>559<|page|>116<|box|>293 41 339 493<|content|>The report forms and instructions used in the coll...istics have been revised a number of times. ... 1/\n<|id|>560<|page|>116<|box|>347 39 457 492<|content|>The present form of the published presentation of ...rt-term liquid claims of large nonbanking concerns\n<|id|>616<|page|>132<|box|>765 66 785 493<|content|>1/ Data are shown for calendar year ends and for m...ich figures are available. ... Data are also shown\n<|id|>617<|page|>132<|box|>729 545 785 948<|content|>for earlier quarter ends when the reporting coverage changed. ... p Preliminary\n<|id|>632<|page|>140<|box|>52 156 97 845<|content|>Section IV - Claims on Foreigners Reported by Nonb...6. ... by Type and Country, as of January 31, 1976\n<|id|>634<|page|>141<|box|>111 323 125 622<|content|>'Position at end of period in millions of dollars)\n<|id|>637<|page|>142<|box|>57 265 72 754<|content|>Section V - Transactions in Long-Term Securities by Foreigners\n<|id|>638<|page|>142<|box|>73 305 85 718<|content|>Reported by Banks and Brokers in the United States\n<|id|>639<|page|>142<|box|>85 174 102 859<|content|>Table CM-V-1. ... - Foreign Purchases and Sales of Long-Term Domestic Securities by Type\n<|id|>643<|page|>143<|box|>91 93 110 841<|content|>Table CM-V-3. ... - Net Foreign Transactions in Marketable Treasury Bonds and Notes by Country\n<|id|>645<|page|>144<|box|>882 516 891 962<|content|>2/ Through December 31, 1975, Surinam included wit..., 1975, Surinam included with Netherlands Antilles\n<|id|>649<|page|>146<|box|>54 255 70 749<|content|>Section V - Transactions in Long-Term Securities by Foreigners\n<|id|>650<|page|>146<|box|>70 298 84 713<|content|>Reported by Banks and Brokers in the United States\n<|id|>651<|page|>146<|box|>85 219 99 789<|content|>Table CM-V-6. ... - Net Foreign Transactions in Domestic Stocks by Country\n<|id|>652<|page|>146<|box|>99 147 110 900<|content|>(In millions of dollars; ... negative figures indi...r a net outflow of capital from the United States)\n<|id|>654<|page|>147<|box|>52 146 100 784<|content|>Section V - Transactions in Long-Term Securities b...Transactions in Long-Term Foreign Bonds by Country\n<|id|>657<|page|>148<|box|>58 219 99 773<|content|>Section V - Transactions in Long-Term Securities b... Foreign Transactions in Foreign Stocks by Country\n<|id|>659<|page|>149<|box|>50 212 108 750<|content|>Section V - Transactions in Long-Term Securities b...Type and Country, During February 1976 Preliminary\n<|id|>661<|page|>150<|box|>38 404 51 610<|content|>CAPITAL MOVEMENTS\n<|id|>662<|page|>150<|box|>43 234 100 787<|content|>CAPITAL MOVEMENTS Section V - Transactions in Long...es, by Type and Country, During Calendar Year 1974\n<|id|>775<|page|>186<|box|>79 427 93 621<|content|>Footnotes to Table GA-I-1\n<|id|>776<|page|>186<|box|>135 69 162 504<|content|>Source: ... 966, Revised",
+    "raw_response": "<|src_id|>544<|tgt_id|>545\n<|src_id|>548<|tgt_id|>549\n<|src_id|>616<|tgt_id|>617",
+    "parsed": [
+        {
+            "src_id": 544,
+            "tgt_id": 545
+        },
+        {
+            "src_id": 548,
+            "tgt_id": 549
+        },
+        {
+            "src_id": 616,
+            "tgt_id": 617
+        }
+    ]
+}

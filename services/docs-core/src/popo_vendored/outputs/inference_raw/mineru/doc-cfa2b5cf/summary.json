@@ -1,0 +1,144 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-tzc6kp6v\\input\\pdfs\\doc-cfa2b5cf.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-tzc6kp6v\\enriched\\doc-cfa2b5cf.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>22<|level|>2\n<|id|>34<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>44<|level|>2\n<|id|>47<|level|>2\n<|id|>58<|level|>2\n<|id|>64<|level|>2\n<|id|>66<|level|>3\n<|id|>68<|level|>3\n<|id|>70<|level|>3\n<|id|>74<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>2\n<|id|>85<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>2\n<|id|>102<|level|>1\n<|id|>103<|level|>1\n<|id|>105<|level|>2",
+    "image_output": "<|src_id|>13<|tgt_id|>11\n<|src_id|>61<|tgt_id|>58\n<|src_id|>62<|tgt_id|>58",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 58
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 61,
+            "table2_idx": 62,
+            "upper_row_ss": [
+                [
+                    "Cool Springs Office Park",
+                    "GMP Cool Springs LLC",
+                    "$620,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Lakeland Crossings Industrial",
+                    "GMP Lakeland LLC",
+                    "$380,000"
+                ]
+            ]
+        }
+    ]
+}

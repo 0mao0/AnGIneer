@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>4<|page|>1<|box|>223 143 239 181<|content|>TO:\n<|id|>9<|page|>1<|box|>445 295 465 700<|content|>LITIGATION HOLD MEMORANDUM\n<|id|>10<|page|>1<|box|>491 142 508 395<|content|>I. Purpose and Legal Obligation\n<|id|>16<|page|>2<|box|>267 140 284 377<|content|>II. Summary of the Litigation\n<|id|>23<|page|>3<|box|>148 140 167 395<|content|>III. Scope of the Litigation Hold\n<|id|>24<|page|>3<|box|>180 142 196 388<|content|>A. Effective Date and Duration\n<|id|>28<|page|>3<|box|>523 140 541 339<|content|>B. Relevant Time Period\n<|id|>35<|page|>4<|box|>90 140 107 447<|content|>C. Relevant Subject Matter Categories\n<|id|>63<|page|>5<|box|>412 140 429 738<|content|>5. Cure Notice and Termination. All documents and\n<|id|>69<|page|>5<|box|>700 140 736 854<|content|>6. Volume Tenders and Committed Volumes. All recor\n<|id|>88<|page|>6<|box|>650 140 667 750<|content|>9. Rate Adjustment Mechanism. All documents and co\n<|id|>130<|page|>8<|box|>699 140 715 393<|content|>IV. Types of Materials Covered\n<|id|>132<|page|>8<|box|>792 140 809 477<|content|>A. Electronically Stored Information (ESI)\n<|id|>146<|page|>10<|box|>157 142 175 349<|content|>B. Hard-Copy Documents\n<|id|>154<|page|>10<|box|>445 140 462 411<|content|>C. Social Media and Web Content\n<|id|>157<|page|>10<|box|>646 140 662 292<|content|>V. Key Custodians\n<|id|>163<|page|>12<|box|>204 140 222 437<|content|>VI. Specific Preservation Instructions\n<|id|>164<|page|>12<|box|>234 142 253 377<|content|>A. Immediate Steps Required\n<|id|>173<|page|>13<|box|>367 142 383 331<|content|>B. Ongoing Obligations\n<|id|>179<|page|>14<|box|>90 140 107 426<|content|>VII. Acknowledgment Requirement\n<|id|>188<|page|>14<|box|>539 140 556 455<|content|>VIII. Consequences of Non-Compliance\n<|id|>199<|page|>15<|box|>285 140 303 338<|content|>IX. Contact Information\n<|id|>208<|page|>15<|box|>690 140 708 341<|content|>X. Confidentiality Notice\n<|id|>218<|page|>16<|box|>354 400 375 596<|content|>ATTACHMENT A\n<|id|>219<|page|>16<|box|>398 282 417 712<|content|>LITIGATION HOLD ACKNOWLEDGMENT FORM\n<|id|>234<|page|>17<|box|>518 140 536 450<|content|>CUSTODIAN ACKNOWLEDGMENT",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>-1\n<|id|>9<|level|>1\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>28<|level|>3\n<|id|>35<|level|>3\n<|id|>63<|level|>4\n<|id|>69<|level|>4\n<|id|>88<|level|>4\n<|id|>130<|level|>2\n<|id|>132<|level|>3\n<|id|>146<|level|>3\n<|id|>154<|level|>3\n<|id|>157<|level|>2\n<|id|>163<|level|>2\n<|id|>164<|level|>3\n<|id|>173<|level|>3\n<|id|>179<|level|>2\n<|id|>188<|level|>2\n<|id|>199<|level|>2\n<|id|>208<|level|>2\n<|id|>218<|level|>1\n<|id|>219<|level|>2\n<|id|>234<|level|>2",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 4
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 1
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 234,
+            "level": 2
+        }
+    ]
+}

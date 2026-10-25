@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>271 140 289 367<|content|>1. Introduction and Purpose\n<|id|>16<|page|>2<|box|>222 140 239 413<|content|>2. Client Background and Context\n<|id|>30<|page|>2<|box|>811 140 829 395<|content|>3. Data and Document Requests\n<|id|>32<|page|>3<|box|>138 140 156 475<|content|>3.1 Federal and State Income Tax Returns\n<|id|>39<|page|>3<|box|>633 140 652 462<|content|>3.2 Federal Gift Tax Returns (Form 709)\n<|id|>46<|page|>4<|box|>263 140 282 627<|content|>3.3 Existing Trust Documents and Estate Planning D\n<|id|>53<|page|>4<|box|>648 140 667 803<|content|>3.4 Caldwell Ridgeline Capital LLC — Fund Statemen\n<|id|>64<|page|>5<|box|>635 140 652 779<|content|>3.5 Stonecrest Realty Holdings LLC — Operating Agr\n<|id|>74<|page|>7<|box|>267 140 285 380<|content|>3.6 Liquid Securities Portfolio\n<|id|>78<|page|>7<|box|>556 140 574 331<|content|>3.7 Art and Collectibles\n<|id|>83<|page|>7<|box|>835 142 851 276<|content|>3.8 Other Assets\n<|id|>88<|page|>8<|box|>474 140 489 480<|content|>3.9 Eleanor V. Caldwell — Separate Assets\n<|id|>91<|page|>8<|box|>700 140 717 517<|content|>3.10 Prior Gift and Estate Tax Planning History\n<|id|>97<|page|>9<|box|>250 140 266 433<|content|>4. Coordination with Other Advisors\n<|id|>111<|page|>10<|box|>238 140 255 390<|content|>5. Confidentiality and Privilege\n<|id|>115<|page|>10<|box|>559 140 575 331<|content|>6. Delivery Instructions\n<|id|>126<|page|>11<|box|>204 140 222 227<|content|>7. Closing",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>16<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>2\n<|id|>39<|level|>2\n<|id|>46<|level|>2\n<|id|>53<|level|>2\n<|id|>64<|level|>2\n<|id|>74<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>88<|level|>2\n<|id|>91<|level|>2\n<|id|>97<|level|>1\n<|id|>111<|level|>1\n<|id|>115<|level|>1\n<|id|>126<|level|>1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        }
+    ]
+}

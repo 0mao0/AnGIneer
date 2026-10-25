@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        18
+    ],
+    "pages": [
+        4,
+        5,
+        9,
+        10,
+        12,
+        13,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>22<|page|>4<|box|>852 140 907 857<|content|>The testimony of Redstone's key creative personnel...is deposition on August 5, 2024, that the Ironclad\n<|id|>23<|page|>5<|box|>90 140 200 857<|content|>Dominion project was conceived in late 2019 and th...assembly of a fourteen-person core art team. ... )\n<|id|>52<|page|>9<|box|>795 138 905 857<|content|>By contrast, Dr. ... Lautner\n<|id|>53<|page|>10<|box|>90 140 126 854<|content|>Rebuttal Report ¶¶ 21–25. ... ) Luminos has not ch...enre-convention analysis, and it stands unrebutted\n<|id|>73<|page|>12<|box|>849 138 904 857<|content|>4. ... at\n<|id|>75<|page|>13<|box|>169 140 352 857<|content|>The undisputed facts are stark. ... 1 million in fiscal year 2023\n<|id|>109<|page|>17<|box|>786 410 804 586<|content|>Respectfully submitted,\n<|id|>110<|page|>17<|box|>845 140 862 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>111<|page|>17<|box|>864 143 883 253<|content|>By: ... By\n<|id|>112<|page|>18<|box|>89 140 141 854<|content|>Catherine Bloom Responsible Partner Nevada Bar No. ... (213) 555-4201\n<|id|>113<|page|>18<|box|>190 140 260 854<|content|>Of Counsel: ... com\n<|id|>114<|page|>18<|box|>292 140 311 500<|content|>Attorneys for Defendant Redstone Gaming Corp. ... Attorneys for Defendant Redstone Gaming Corp\n<|id|>115<|page|>18<|box|>318 651 335 854<|content|>Dated: ... September 30, 2024\n<|id|>116<|page|>18<|box|>378 140 409 854<|content|>Prepared by: ... Omar Siddiqui, Lead Associate, Ca...auer, Working Associate, Calderwood & Harkness LLP\n<|id|>117<|page|>18<|box|>415 142 430 290<|content|>Matter No. ... 1033-00004\n<|id|>120<|page|>18<|box|>578 174 633 854<|content|>Daniel Hargrove, Esq. ... (512) 555-7101\n<|id|>121<|page|>18<|box|>641 176 659 416<|content|>Email: ... com\n<|id|>122<|page|>18<|box|>659 176 676 408<|content|>Email: ... com\n<|id|>123<|page|>18<|box|>676 176 694 519<|content|>Counsel for Plaintiff Luminos Interactive LLC",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>52<|tgt_id|>53",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        }
+    ]
+}

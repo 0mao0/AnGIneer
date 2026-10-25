@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        104,
+        116
+    ],
+    "pages": [
+        104,
+        105,
+        106,
+        107,
+        109,
+        116
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1110<|page|>104<|box|>46 217 61 779<|content|>REPORT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTING\n<|id|>1121<|page|>105<|box|>49 76 79 898<|content|>ITEM 9. CHANGES IN AND DISAGREEMENTS WITH ACCOUNTA\n<|id|>1123<|page|>105<|box|>114 76 128 410<|content|>ITEM 9A. CONTROLS AND PROCEDURES\n<|id|>1124<|page|>105<|box|>141 76 156 334<|content|>Disclosure Controls and Procedures\n<|id|>1127<|page|>105<|box|>402 76 419 614<|content|>Management's Annual Report on Internal Control ove\n<|id|>1130<|page|>105<|box|>573 76 589 460<|content|>Changes in Internal Control over Financial Reporti\n<|id|>1132<|page|>105<|box|>641 76 656 346<|content|>ITEM 9B. OTHER INFORMATION\n<|id|>1134<|page|>105<|box|>694 76 709 148<|content|>PART III\n<|id|>1135<|page|>105<|box|>720 76 736 717<|content|>ITEM 10. DIRECTORS, EXECUTIVE OFFICERS AND CORPORA\n<|id|>1137<|page|>105<|box|>834 76 849 395<|content|>ITEM 11. EXECUTIVE COMPENSATION\n<|id|>1139<|page|>105<|box|>887 76 917 919<|content|>ITEM 12. SECURITY OWNERSHIP OF CERTAIN BENEFICIAL\n<|id|>1141<|page|>106<|box|>49 76 65 893<|content|>ITEM 13. CERTAIN RELATIONSHIPS AND RELATED TRANSAC\n<|id|>1143<|page|>106<|box|>103 76 118 535<|content|>ITEM 14. PRINCIPAL ACCOUNTING FEES AND SERVICES\n<|id|>1145<|page|>106<|box|>156 76 170 148<|content|>PART IV\n<|id|>1146<|page|>106<|box|>183 76 198 545<|content|>ITEM 15. EXHIBITS, FINANCIAL STATEMENT SCHEDULES\n<|id|>1149<|page|>107<|box|>49 442 65 555<|content|>SIGNATURES\n<|id|>1151<|page|>107<|box|>127 526 143 797<|content|>ADOBE SYSTEMS INCORPORATED\n<|id|>1154<|page|>107<|box|>334 403 349 593<|content|>POWER OF ATTORNEY\n<|id|>1167<|page|>109<|box|>49 377 64 617<|content|>SUMMARY OF TRADEMARKS\n<|id|>1177<|page|>116<|box|>49 73 66 281<|content|>Stock Performance Graph ^{(*)}\n<|id|>1178<|page|>116<|box|>77 73 93 364<|content|>Five-Year Stockholder Return Comparison",
+    "raw_response": "<|id|>1110<|level|>1\n<|id|>1121<|level|>2\n<|id|>1123<|level|>3\n<|id|>1124<|level|>4\n<|id|>1127<|level|>4\n<|id|>1130<|level|>4\n<|id|>1132<|level|>3\n<|id|>1134<|level|>2\n<|id|>1135<|level|>3\n<|id|>1137<|level|>3\n<|id|>1139<|level|>3\n<|id|>1141<|level|>3\n<|id|>1143<|level|>3\n<|id|>1145<|level|>2\n<|id|>1146<|level|>3\n<|id|>1149<|level|>2\n<|id|>1151<|level|>-1\n<|id|>1154<|level|>3\n<|id|>1167<|level|>3\n<|id|>1177<|level|>3\n<|id|>1178<|level|>4",
+    "parsed": [
+        {
+            "id": 1110,
+            "level": 1
+        },
+        {
+            "id": 1121,
+            "level": 2
+        },
+        {
+            "id": 1123,
+            "level": 3
+        },
+        {
+            "id": 1124,
+            "level": 4
+        },
+        {
+            "id": 1127,
+            "level": 4
+        },
+        {
+            "id": 1130,
+            "level": 4
+        },
+        {
+            "id": 1132,
+            "level": 3
+        },
+        {
+            "id": 1134,
+            "level": 2
+        },
+        {
+            "id": 1135,
+            "level": 3
+        },
+        {
+            "id": 1137,
+            "level": 3
+        },
+        {
+            "id": 1139,
+            "level": 3
+        },
+        {
+            "id": 1141,
+            "level": 3
+        },
+        {
+            "id": 1143,
+            "level": 3
+        },
+        {
+            "id": 1145,
+            "level": 2
+        },
+        {
+            "id": 1146,
+            "level": 3
+        },
+        {
+            "id": 1149,
+            "level": 2
+        },
+        {
+            "id": 1154,
+            "level": 3
+        },
+        {
+            "id": 1167,
+            "level": 3
+        },
+        {
+            "id": 1177,
+            "level": 3
+        },
+        {
+            "id": 1178,
+            "level": 4
+        }
+    ]
+}

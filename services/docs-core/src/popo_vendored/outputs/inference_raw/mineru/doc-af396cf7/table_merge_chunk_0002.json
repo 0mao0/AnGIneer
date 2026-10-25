@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['6.4', 'Interquartile Range: 3.1%–6.8%; Median: 4.4%. The 14 comparable license agreements yielded running royalty']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', \"rates on net sales ranging from 2.0% to 9.5%. After application of the interquartile range methodology, the arm's-length range was established at 3.1% (25th percentile) to 6.8% (75th percentile), with a median of 4.4%. PPC's 4.5% royalty rate falls slightly above the median of the interquartile range, confirming that the rate is within the arm's-length range.\"]]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 44,
+    "table2_idx": 45
+}

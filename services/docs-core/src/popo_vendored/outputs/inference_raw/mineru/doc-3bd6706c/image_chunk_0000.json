@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 163 143 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 555 Mis\n<|id|>2<|type|>title<|page|>1<|box|>178 140 195 447<|content|>VIA EMAIL AND HAND DELIVERY\n<|id|>10<|type|>title<|page|>1<|box|>510 142 527 442<|content|>1. Purpose and Engagement Overview\n<|id|>14<|type|>title<|page|>2<|box|>90 142 107 354<|content|>2. Scope of Representation\n<|id|>36<|type|>title<|page|>3<|box|>763 140 780 313<|content|>3. Engagement Team\n<|id|>43<|type|>title<|page|>4<|box|>527 140 545 338<|content|>4. Fees and Billing Rates\n<|id|>45<|type|>table<|page|>4<|box|>614 143 739 852<|content|>None\n<|id|>50<|type|>title<|page|>5<|box|>421 140 438 390<|content|>5. Expenses and Disbursements\n<|id|>60<|type|>title<|page|>5<|box|>797 140 814 563<|content|>6. Company Reimbursement of Investor Counsel Fees\n<|id|>65<|type|>title<|page|>6<|box|>465 140 482 380<|content|>7. Billing and Payment Terms\n<|id|>69<|type|>title<|page|>6<|box|>696 176 714 591<|content|>Billing Code: 78412.001 Matter Number: 1002-00002\n<|id|>71<|type|>title<|page|>6<|box|>801 140 818 395<|content|>8. Client Identity and Authority\n<|id|>79<|type|>title<|page|>7<|box|>498 140 515 284<|content|>9. Confidentiality\n<|id|>83<|type|>title<|page|>8<|box|>148 142 167 331<|content|>10. Conflicts of Interest\n<|id|>87<|type|>title<|page|>8<|box|>598 142 614 297<|content|>11. Governing Law\n<|id|>89<|type|>title<|page|>8<|box|>756 142 773 274<|content|>12. Termination\n<|id|>93<|type|>title<|page|>9<|box|>285 142 301 334<|content|>13. Document Retention\n<|id|>96<|type|>title<|page|>9<|box|>523 142 542 560<|content|>14. Limitation of Liability; No Guarantee of Outco\n<|id|>99<|type|>title<|page|>9<|box|>782 142 799 584<|content|>15. Key Transaction Dates and Timeline (For Refere\n<|id|>101<|type|>table<|page|>9<|box|>868 143 907 852<|content|>None\n<|id|>102<|type|>table<|page|>10<|box|>89 143 253 852<|content|>None\n<|id|>104<|type|>title<|page|>10<|box|>439 143 455 264<|content|>16. Acceptance\n<|id|>110<|type|>title<|page|>10<|box|>758 142 773 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>45<|tgt_id|>43\n<|src_id|>101<|tgt_id|>99\n<|src_id|>102<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 99
+        }
+    ]
+}

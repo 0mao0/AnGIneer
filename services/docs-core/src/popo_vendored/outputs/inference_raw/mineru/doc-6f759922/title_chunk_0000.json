@@ -1,0 +1,28 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 194 108 800<|content|>UNITED STATES DISTRICT COURT CENTRAL DISTRICT OF C\n<|id|>2<|page|>1<|box|>404 285 420 710<|content|>STIPULATION OF DISMISSAL WITH PREJUDICE\n<|id|>8<|page|>2<|box|>186 140 204 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>13<|page|>2<|box|>339 140 356 488<|content|>HARGROVE, PENNINGTON & CAO LLP\n<|id|>18<|page|>2<|box|>443 462 459 535<|content|>ORDER\n<|id|>20<|page|>2<|box|>512 142 529 316<|content|>IT IS SO ORDERED.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>8<|level|>-1\n<|id|>13<|level|>-1\n<|id|>18<|level|>2\n<|id|>20<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        }
+    ]
+}

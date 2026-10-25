@@ -1,0 +1,48 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>741 142 758 331<|content|>1. Settlement Summary\n<|id|>13<|page|>3<|box|>90 140 107 411<|content|>2. Prospective License Monitoring\n<|id|>19<|page|>3<|box|>773 140 790 328<|content|>3. Payment Monitoring\n<|id|>28<|page|>4<|box|>523 140 540 326<|content|>4. Important Deadlines\n<|id|>33<|page|>5<|box|>267 140 284 276<|content|>5. Fee Summary\n<|id|>42<|page|>6<|box|>148 140 167 277<|content|>6. File Retention\n<|id|>46<|page|>6<|box|>523 140 542 285<|content|>7. Matter Closing\n<|id|>52<|page|>7<|box|>114 140 133 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>19<|level|>1\n<|id|>28<|level|>1\n<|id|>33<|level|>1\n<|id|>42<|level|>1\n<|id|>46<|level|>1\n<|id|>52<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        }
+    ]
+}

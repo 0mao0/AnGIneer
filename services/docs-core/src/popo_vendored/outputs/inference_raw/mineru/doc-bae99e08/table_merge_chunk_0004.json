@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['7', '\"blade housing fixedly secured to\"', \"'884\", '1, 2', 'A housing for the blade that is attached to [the specified component] in a manner that prevents relative movement', 'A housing for the blade that is permanently and rigidly attached to [the specified component] such that no relative']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'during normal operation.', 'movement or disassembly is possible without destruction of the connection, e.g., by welding, adhesive bonding, or over-molding.']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 80,
+    "table2_idx": 81
+}

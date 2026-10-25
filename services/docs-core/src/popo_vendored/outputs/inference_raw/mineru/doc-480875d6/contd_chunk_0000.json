@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        50
+    ],
+    "pages": [
+        3,
+        6,
+        7,
+        8,
+        28,
+        29,
+        35,
+        36,
+        39,
+        49
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>3<|box|>348 410 552 717<|content|>LIBRARY ROOM 5030 APR 5 1973 TREASURY DEPARTMENT\n<|id|>3<|page|>6<|box|>147 200 162 392<|content|>OFFICIAL BUSINESS\n<|id|>4<|page|>6<|box|>369 566 566 693<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>5<|page|>7<|box|>946 287 966 608<|content|>OFFICE OF THE SECRETARY\n<|id|>8<|page|>7<|box|>195 359 222 510<|content|>April 1972\n<|id|>10<|page|>8<|box|>461 352 516 754<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents, U. ... Single copy price varies\n<|id|>83<|page|>28<|box|>320 94 745 116<|content|>Table FO-4. ... - Gross Obligations Incurred Outside the Federal Government\n<|id|>84<|page|>28<|box|>430 126 635 148<|content|>Comparative Statement by Months\n<|id|>89<|page|>29<|box|>243 0 359 460<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>90<|page|>29<|box|>143 491 208 967<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>112<|page|>35<|box|>882 0 915 431<|content|>Consists of Federal Housing Administration fund; ... Federal supplementary\n<|id|>113<|page|>36<|box|>893 542 921 998<|content|>3/ Effective December 31, 1968, banks for cooperat... provisions of Public Law 90-582, October 17, 1968\n<|id|>123<|page|>39<|box|>74 231 89 728<|content|>Table FD-9. ... - Status and Application of Statutory Limitation\n<|id|>124<|page|>39<|box|>97 0 208 457<|content|>The Second Liberty Bond Act (31 U. ... and Public ...orarily increased by \\$20 billion to \\$450 billion\n<|id|>163<|page|>49<|box|>533 0 561 455<|content|>/ Includes \\$2,421 million of the 7-3/4% notes and...subscriptions allotted could be made in cash or in\n<|id|>164<|page|>49<|box|>561 0 586 463<|content|>Treasury bonds or notes maturing on the issue date...ds or notes maturing on issue date of new security",
+    "raw_response": "<|src_id|>89<|tgt_id|>90\n<|src_id|>163<|tgt_id|>164",
+    "parsed": [
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        }
+    ]
+}

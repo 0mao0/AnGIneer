@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        6,
+        57
+    ],
+    "pages": [
+        6,
+        8,
+        12,
+        25,
+        36,
+        56,
+        57
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>22<|page|>6<|box|>292 524 309 825<|content|>(Percent change, fourth quarter to fourth quarter)\n<|id|>23<|page|>6<|box|>630 511 800 918<|content|>At the producer level, prices actually declined la...e prices for crude and intermediate goods declined\n<|id|>38<|page|>8<|box|>853 86 912 493<|content|>Real consumer spending growth slowed progressively... the third quarter of 2001 was dampened by a sharp\n<|id|>39<|page|>8<|box|>102 506 137 769<|content|>Establishment Employment (Average monthly change in thousands)\n<|id|>40<|page|>8<|box|>452 511 537 918<|content|>drop in September when consumers reined in their p...ttacks. ... 0 percent, the slowest pace since 1995\n<|id|>77<|page|>12<|box|>116 81 172 488<|content|>Net national saving declined significantly in 2001. ... These readings are\n<|id|>78<|page|>12<|box|>172 81 297 326<|content|>substantially below the 6. ... )\n<|id|>79<|page|>12<|box|>297 81 507 326<|content|>The decline in saving in 2001 stemmed mainly from ...together with a low personal saving rate. ... How-\n<|id|>80<|page|>12<|box|>95 508 167 916<|content|>Government saving decreased from 2. ... Last year'... quarter, although State and local government sur-\n<|id|>84<|page|>12<|box|>388 750 500 916<|content|>Net domestic investment (by government and private...average of 7-1/2 percent of NNP in the first three\n<|id|>85<|page|>12<|box|>500 508 585 918<|content|>quarters of 2001 from about 9-3/4 percent in each ...-4-1/2 percent in the first three quarters of 2001\n<|id|>157<|page|>25<|box|>212 508 316 915<|content|>- Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>159<|page|>25<|box|>364 508 512 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>194<|page|>36<|box|>449 310 465 689<|content|>[Source: ... Bureau of the Public Debt, Office of Financing]\n<|id|>195<|page|>36<|box|>477 81 536 488<|content|>On July 23, 2001, Treasury announced plans to begi...ced July 30, auctioned July 31 and issued August 2\n<|id|>297<|page|>56<|box|>140 326 157 687<|content|>Based on closing bid quotations (in percentages)\n<|id|>298<|page|>56<|box|>816 434 859 586<|content|>Years to maturity * Source: ... Office of Market Finance\n<|id|>300<|page|>57<|box|>109 271 125 727<|content|>[In percentages. ... Office of Market Finance, Office of the Under Secretary for Domestic Finance]",
+    "raw_response": "<|src_id|>38<|tgt_id|>40\n<|src_id|>77<|tgt_id|>78\n<|src_id|>84<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        }
+    ]
+}

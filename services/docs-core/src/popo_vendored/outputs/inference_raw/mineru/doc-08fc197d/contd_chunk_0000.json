@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 303 133 694<|content|>425 Lexington Avenue New York, New York 10017\n<|id|>2<|page|>1<|box|>141 297 159 697<|content|>Telephone: ... (212) 554-7201\n<|id|>3<|page|>1<|box|>167 723 184 854<|content|>February 5, 2025\n<|id|>4<|page|>1<|box|>193 140 229 854<|content|>Mr. ... 1400 Industrial Parkway Schaumburg, IL 60173\n<|id|>5<|page|>1<|box|>237 140 255 797<|content|>Re: ... Acknowledgment of Outside Counsel Guidelines — Nexford Industrial Holdings Inc\n<|id|>6<|page|>1<|box|>263 174 300 854<|content|>Matter: ... Representation in Connection with $1,4...m Loan B Refinancing and Dividend Recapitalization\n<|id|>7<|page|>1<|box|>308 176 325 403<|content|>Our Matter No. ... 1005-00001\n<|id|>8<|page|>1<|box|>334 176 351 429<|content|>Billing Code: ... IBL-NIH-2025-031\n<|id|>9<|page|>1<|box|>359 140 377 295<|content|>Dear Mr. ... Engstrom\n<|id|>23<|page|>3<|box|>866 181 902 857<|content|>• Briarcliff Legal Group PA, 1000 North King Stree...Delaware 19801 (lead partner: ... Briarcliff Legal\n<|id|>24<|page|>4<|box|>90 210 143 854<|content|>Group will advise on Delaware corporate law matter...aware- organized subsidiaries and holding entities\n<|id|>29<|page|>5<|box|>252 181 268 620<|content|>• David Engstrom, General Counsel & Corporate Secretary\n<|id|>32<|page|>5<|box|>311 140 566 856<|content|>Status updates will be provided at such intervals ...y additional expenditures before they are incurred\n<|id|>30<|page|>5<|box|>271 183 287 504<|content|>• Michelle Kaplan, Chief Financial Officer\n<|id|>31<|page|>5<|box|>291 183 308 638<|content|>• Priya Mehta, Vice President, Treasury & Corporate Finance\n<|id|>39<|page|>6<|box|>367 142 383 313<|content|>Name: ... Ian Blackwood\n<|id|>40<|page|>6<|box|>383 142 401 450<|content|>Title: ... Billing Partner, Banking & Finance\n<|id|>42<|page|>6<|box|>422 143 434 171<|content|>cc: ... cc\n<|id|>41<|page|>6<|box|>401 142 419 630<|content|>(Reviewed and approved by Claudia Merritt, Responsible Partner)",
+    "raw_response": "<|src_id|>23<|tgt_id|>24",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        }
+    ]
+}

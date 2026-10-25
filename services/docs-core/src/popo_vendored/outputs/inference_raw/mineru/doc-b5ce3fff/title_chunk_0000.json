@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 251 222 746<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION W\n<|id|>18<|page|>2<|box|>241 142 258 346<|content|>Emerging growth company\n<|id|>20<|page|>2<|box|>344 140 361 354<|content|>INTRODUCTORY NOTE\n<|id|>24<|page|>2<|box|>792 140 809 732<|content|>ITEM 1.01 — ENTRY INTO A MATERIAL DEFINITIVE AGREE\n<|id|>25<|page|>2<|box|>824 140 840 460<|content|>Overview of the Cooperation Agreement\n<|id|>29<|page|>3<|box|>502 140 518 493<|content|>Board Expansion and Director Appointment\n<|id|>32<|page|>3<|box|>765 140 782 395<|content|>Withdrawal of Second Nominee\n<|id|>34<|page|>4<|box|>138 140 157 506<|content|>Standstill Provisions — Greystone Obligations\n<|id|>44<|page|>5<|box|>294 140 311 504<|content|>Standstill Provisions — Northgate Obligations\n<|id|>61<|page|>7<|box|>411 140 428 362<|content|>Governing Law and Forum\n<|id|>63<|page|>7<|box|>612 140 628 526<|content|>Strategic Review of Enterprise Software Division\n<|id|>66<|page|>8<|box|>157 140 175 421<|content|>Cross-Reference to Full Agreement\n<|id|>68<|page|>8<|box|>295 140 349 834<|content|>ITEM 5.02 — DEPARTURE OF DIRECTORS OR CERTAIN OFFI\n<|id|>69<|page|>8<|box|>363 140 380 545<|content|>Appointment of Catherine \"Kate\" Sinclair-Moreau\n<|id|>80<|page|>9<|box|>715 140 733 627<|content|>ITEM 9.01 — FINANCIAL STATEMENTS AND EXHIBITS.\n<|id|>83<|page|>10<|box|>157 140 174 267<|content|>SIGNATURES\n<|id|>91<|page|>10<|box|>366 142 383 540<|content|>DRAFTING NOTES / MARGIN ANNOTATIONS\n<|id|>96<|page|>10<|box|>501 142 518 370<|content|>Open Items and Annotations",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>18<|level|>-1\n<|id|>20<|level|>1\n<|id|>24<|level|>1\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>34<|level|>2\n<|id|>44<|level|>2\n<|id|>61<|level|>2\n<|id|>63<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>1\n<|id|>69<|level|>2\n<|id|>80<|level|>1\n<|id|>83<|level|>1\n<|id|>91<|level|>1\n<|id|>96<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 2
+        }
+    ]
+}

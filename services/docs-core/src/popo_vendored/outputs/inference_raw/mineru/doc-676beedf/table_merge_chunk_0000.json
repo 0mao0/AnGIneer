@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Total Latin America', '218,941', '215,934', '141,124', '74,810', '43,312', '78,356', '65,527', '5,393', '3,624', '14,959', '4,763', '3,007']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Country', 'rowspan=2, Total liabilities payable in dollars and foreign currency (1)', 'rowspan=2, Total liabilities payable in dollars (2)', 'rowspan=2, Total own liabilities payable in dollars (3)', 'rowspan=2, Total custody liabilities payable in dollars (4)', 'colspan=2, Non-negotiable deposits and brokerage balances 1', 'colspan=3, Negotiable CDs and short-term securities', 'colspan=2, Other Miscellaneous liabilities 2', 'rowspan=2, Total liabilities payable in foreign currency 3 (12)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 376,
+    "table2_idx": 377
+}

@@ -1,0 +1,45 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        51,
+        53
+    ],
+    "pages": [
+        51,
+        52,
+        53
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>496<|page|>51<|box|>90 140 107 465<|content|>Exhibit A — Form of Quality Agreement\n<|id|>499<|page|>52<|box|>90 140 107 480<|content|>Exhibit B — Agreed Form of Press Release\n<|id|>502<|page|>52<|box|>200 359 219 637<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>503<|page|>52<|box|>227 240 244 754<|content|>SIGNATURE PAGE TO EXCLUSIVE LICENSE AGREEMENT\n<|id|>505<|page|>52<|box|>297 142 314 496<|content|>PENTERRA PHARMACEUTICALS CORP.\n<|id|>519<|page|>52<|box|>539 303 555 692<|content|>ACKNOWLEDGMENT OF EFFECTIVE DATE\n<|id|>528<|page|>53<|box|>239 140 257 496<|content|>PENTERRA PHARMACEUTICALS CORP.\n<|id|>533<|page|>53<|box|>327 142 343 511<|content|>MERIDIAN BIO THERAPEUTICS LIMITED",
+    "raw_response": "<|id|>496<|level|>1\n<|id|>499<|level|>1\n<|id|>502<|level|>-1\n<|id|>503<|level|>2\n<|id|>505<|level|>3\n<|id|>519<|level|>2\n<|id|>528<|level|>3\n<|id|>533<|level|>3",
+    "parsed": [
+        {
+            "id": 496,
+            "level": 1
+        },
+        {
+            "id": 499,
+            "level": 1
+        },
+        {
+            "id": 503,
+            "level": 2
+        },
+        {
+            "id": 505,
+            "level": 3
+        },
+        {
+            "id": 519,
+            "level": 2
+        },
+        {
+            "id": 528,
+            "level": 3
+        },
+        {
+            "id": 533,
+            "level": 3
+        }
+    ]
+}

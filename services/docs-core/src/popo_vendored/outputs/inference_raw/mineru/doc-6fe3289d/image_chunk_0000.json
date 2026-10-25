@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        10,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 187 141 808<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>3<|type|>title<|page|>1<|box|>200 156 237 841<|content|>THALASSA SHIPPING & LOGISTICS SA and AEGEAN FORTUN\n<|id|>6<|type|>title<|page|>1<|box|>297 171 333 826<|content|>REPLY MEMORANDUM OF LAW IN FURTHER SUPPORT OF DEFE\n<|id|>11<|type|>title<|page|>1<|box|>515 385 532 612<|content|>TABLE OF AUTHORITIES\n<|id|>13<|type|>table<|page|>1<|box|>569 145 904 852<|content|>None\n<|id|>14<|type|>table<|page|>2<|box|>89 143 551 852<|content|>None\n<|id|>15<|type|>table<|page|>2<|box|>612 143 699 852<|content|>None\n<|id|>16<|type|>table<|page|>2<|box|>758 143 893 852<|content|>None\n<|id|>17<|type|>title<|page|>3<|box|>138 142 155 398<|content|>PRELIMINARY STATEMENT\n<|id|>25<|type|>title<|page|>4<|box|>212 140 229 258<|content|>ARGUMENT\n<|id|>26<|type|>title<|page|>4<|box|>242 140 279 854<|content|>I. COUNT V (UNJUST ENRICHMENT) MUST BE DISMISSED B\n<|id|>52<|type|>title<|page|>8<|box|>527 140 564 854<|content|>II. COUNT III (THIRD-PARTY SHIPPER CLAIMS AS CHART\n<|id|>53<|type|>title<|page|>8<|box|>575 140 628 854<|content|>A. Northwind Cannot Recover Third-Party Shipper Cl\n<|id|>66<|type|>title<|page|>10<|box|>424 140 441 790<|content|>##### 2. Northwind's Opposition Conflates Indemnit\n<|id|>91<|type|>title<|page|>14<|box|>501 140 537 854<|content|>III. NORTHWIND'S OPPOSITION RAISES NO GENUINE FACT\n<|id|>99<|type|>table<|page|>15<|box|>621 143 808 852<|content|>None\n<|id|>104<|type|>title<|page|>16<|box|>556 140 573 271<|content|>CONCLUSION\n<|id|>116<|type|>title<|page|>17<|box|>253 375 272 622<|content|>CERTIFICATE OF SERVICE\n<|id|>122<|type|>title<|page|>17<|box|>551 354 569 640<|content|>WORD COUNT CERTIFICATION",
+    "raw_response": "<|src_id|>13<|tgt_id|>11\n<|src_id|>14<|tgt_id|>11\n<|src_id|>15<|tgt_id|>11\n<|src_id|>16<|tgt_id|>11\n<|src_id|>99<|tgt_id|>91",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 91
+        }
+    ]
+}

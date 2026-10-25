@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        31
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        15,
+        31
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 155 133 839<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>2<|page|>1<|box|>142 140 157 419<|content|>From: ... Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>167 174 222 854<|content|>Miriam Calloway, Partner, Healthcare & Life Scienc...te, Healthcare & Life Sciences — Working Associate\n<|id|>4<|page|>1<|box|>229 140 266 854<|content|>To: ... Operations, Solstice Biomedical Inc\n<|id|>5<|page|>1<|box|>273 140 328 854<|content|>CC: ... Joel Strauss, Billing Partner, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>337 142 354 287<|content|>Date: ... May 2, 2025\n<|id|>7<|page|>1<|box|>362 140 398 854<|content|>Re: ... Analysis of Integrated Continuous Glucose ...ble Special Controls — Solstice Lumina™ CGM System\n<|id|>8<|page|>1<|box|>406 142 425 455<|content|>Engagement Reference No. ... 1037-00002\n<|id|>9<|page|>1<|box|>431 140 449 408<|content|>Right-click to update Table of Contents\n<|id|>41<|page|>4<|box|>835 140 907 854<|content|>The iCGM classification was established by FDA thr...ted DEN170088, which was granted in 2018. ... When\n<|id|>42<|page|>5<|box|>90 140 145 854<|content|>FDA grants a De Novo classification request, it si... traditional 510(k) premarket notification pathway\n<|id|>49<|page|>5<|box|>872 140 909 856<|content|>FDA issued a reclassification order effective Marc..... The reclassification order consolidated several\n<|id|>50<|page|>6<|box|>90 140 236 856<|content|>CGM device types under 21 C. ... Specifically, the...e device seeks iCGM or standard CGM classification\n<|id|>65<|page|>7<|box|>773 147 792 423<|content|>• Hypoglycemic range: ... < 70 mg/dL\n<|id|>68<|page|>7<|box|>834 140 907 857<|content|>Accurate performance in the hypoglycemic range is ...glycemic-range accuracy data with particular rigor\n<|id|>66<|page|>7<|box|>794 148 811 424<|content|>• Euglycemic range: ... 70–180 mg/dL\n<|id|>67<|page|>7<|box|>814 147 830 437<|content|>• Hyperglycemic range: ... > 180 mg/dL\n<|id|>74<|page|>8<|box|>669 145 703 854<|content|>• ± 15 mg/dL of the reference glucose value, for reference glucose concentrations < 100 mg/dL; ... and\n<|id|>76<|page|>8<|box|>724 140 799 854<|content|>These point accuracy thresholds provide a more gra...ition to the primary MARD and Error Grid endpoints\n<|id|>131<|page|>15<|box|>152 145 170 714<|content|>• AID systems (also known as \"closed-loop\" or \"artificial pancreas\" systems)\n<|id|>135<|page|>15<|box|>250 140 321 856<|content|>Solstice should confirm with its management team (...ue proposition and be referenced in the submission\n<|id|>132<|page|>15<|box|>172 147 207 854<|content|>• Secondary glucose display devices (e. ... , smartwatch applications, caregiver monitoring devices)\n<|id|>133<|page|>15<|box|>210 147 227 506<|content|>• Insulin pumps with CGM data input capability\n<|id|>134<|page|>15<|box|>229 145 246 439<|content|>• Diabetes data management platforms\n<|id|>270<|page|>31<|box|>133 140 210 854<|content|>This memorandum constitutes a privileged and confi...or factual circumstances occurring after such date\n<|id|>271<|page|>31<|box|>217 140 233 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>272<|page|>31<|box|>234 143 251 253<|content|>By: ... By\n<|id|>275<|page|>31<|box|>320 140 337 763<|content|>Sean Morrissey Associate, Healthcare & Life Sciences Calderwood & Harkness LLP\n<|id|>276<|page|>31<|box|>338 140 354 763<|content|>Calderwood & Harkness LLP 1401 K Street NW, Suite 900 Washington, D. ... 20005",
+    "raw_response": "<|src_id|>41<|tgt_id|>42\n<|src_id|>49<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        }
+    ]
+}

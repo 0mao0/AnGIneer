@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 161 176 836<|content|>Delivered Pursuant to Section 9. ... 2 of the Master Services Agreement dated June 9, 2023\n<|id|>2<|page|>1<|box|>185 447 202 550<|content|>June 9, 2023\n<|id|>3<|page|>1<|box|>210 140 321 856<|content|>The undersigned, Rajiv Sundaram, in his capacity a...oint Systems Integration, Inc. ... (the \"Company\")\n<|id|>28<|page|>4<|box|>664 174 718 854<|content|>(iii) seek to restrain, enjoin, prohibit, or other...itions or limitations on such transactions; ... or\n<|id|>30<|page|>4<|box|>806 140 898 856<|content|>The undersigned further certifies that Cedarpoint ...wise have a Material Adverse Effect on the Company\n<|id|>46<|page|>6<|box|>864 140 901 856<|content|>Financial Capacity. ... The undersigned certifies ...bligations under the MSA and the other Transaction\n<|id|>47<|page|>7<|box|>90 140 237 857<|content|>Documents for the duration of the Initial Term and...terial disruption to its other business operations\n<|id|>58<|page|>8<|box|>276 142 292 320<|content|>Name: ... Rajiv Sundaram\n<|id|>59<|page|>8<|box|>292 142 309 367<|content|>Title: ... Chief Executive Officer\n<|id|>60<|page|>8<|box|>310 140 327 285<|content|>Date: ... June 9, 2023",
+    "raw_response": "<|src_id|>46<|tgt_id|>47",
+    "parsed": [
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        }
+    ]
+}

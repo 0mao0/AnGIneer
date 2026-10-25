@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>151 140 169 602<|content|>TO: ... Samuel Eklund, Responsible Partner, Litigation (General)\n<|id|>3<|page|>1<|box|>176 140 195 612<|content|>FROM: ... Patrick Gallagher, Lead Associate, Litigation (General)\n<|id|>4<|page|>1<|box|>203 142 220 325<|content|>DATE: ... January 6, 2023\n<|id|>5<|page|>1<|box|>229 140 265 854<|content|>RE: ... )\n<|id|>6<|page|>1<|box|>272 140 290 362<|content|>MATTER NO. ... 1012-00005\n<|id|>7<|page|>1<|box|>297 140 316 454<|content|>CLIENT: ... Stonefield Logistics Group Inc\n<|id|>12<|page|>1<|box|>589 174 645 854<|content|>(2) That no liquidated damages are owed to Vantor ...ort Services LLC (\"VTS\") under Section 14. ... and\n<|id|>14<|page|>1<|box|>733 140 861 856<|content|>Conclusion and Recommendation. ... The target fili...ive Defenses, and Counterclaim is January 13, 2023\n<|id|>41<|page|>4<|box|>845 140 901 856<|content|>However, on December 2, 2022 — prior to the filing...e service of a responsive pleading or motion under\n<|id|>42<|page|>5<|box|>90 140 143 854<|content|>Rule 12(b), (e), or (f). ... The Court denied the ...miss as moot by text order dated December 16, 2022\n<|id|>68<|page|>8<|box|>746 140 892 856<|content|>Even in the event the Court were to find that the ...ceability of Liquidated Damages Clause prepared by\n<|id|>69<|page|>9<|box|>90 140 199 854<|content|>Simone Laroche on September 19, 2022, the $67. ......ancial modeling underlying the 75%- of-ACV formula\n<|id|>82<|page|>10<|box|>839 140 893 856<|content|>However, New York law is clear that courts do not ...tual grounds for termination are satisfied. ... 3d\n<|id|>83<|page|>11<|box|>90 140 200 856<|content|>452, 457 (2008). ... The Memorandum re Pretext and...re careful handling in discovery and at deposition\n<|id|>95<|page|>12<|box|>222 174 258 854<|content|>(iii) VTS did not cure the identified deficiencies... response did not demonstrate remediation; ... and\n<|id|>97<|page|>12<|box|>311 140 383 854<|content|>then the counterclaim offers a clean vehicle for a...rongful termination claim fails as a matter of law\n<|id|>96<|page|>12<|box|>267 174 304 854<|content|>(iv) Stonefield terminated the TSA pursuant to Sec... letter citing the specific contractual provision,\n<|id|>156<|page|>18<|box|>339 140 373 761<|content|>Patrick Gallagher Lead Associate, Litigation (Gene...lderwood & Harkness LLP Direct: ... (212) 555-4817\n<|id|>157<|page|>18<|box|>375 142 391 477<|content|>Email: ... com\n<|id|>158<|page|>18<|box|>391 140 407 820<|content|>cc: ... 1012-00005\n<|id|>159<|page|>18<|box|>412 140 443 854<|content|>CALDERWOOD & HARKNESS LLP — PRIVILEGED AND CONFIDE... ATTORNEY WORK PRODUCT — Matter No. ... 1012-00005",
+    "raw_response": "<|src_id|>41<|tgt_id|>42\n<|src_id|>68<|tgt_id|>69\n<|src_id|>82<|tgt_id|>83\n<|src_id|>95<|tgt_id|>96",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 96
+        }
+    ]
+}

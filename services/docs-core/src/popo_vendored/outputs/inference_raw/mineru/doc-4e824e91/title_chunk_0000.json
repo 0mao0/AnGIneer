@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 153 133 843<|content|>CALDERWOOD & HARKNESS LLP 1301 Avenue of the Ameri\n<|id|>2<|page|>1<|box|>167 214 290 782<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>3<|page|>1<|box|>311 142 329 418<|content|>INTRODUCTORY PARAGRAPH\n<|id|>8<|page|>2<|box|>89 140 106 254<|content|>I. OPINIONS\n<|id|>10<|page|>2<|box|>166 140 183 493<|content|>Opinion 1: Organization and Good Standing\n<|id|>14<|page|>2<|box|>546 140 564 370<|content|>Opinion 2: Corporate Power\n<|id|>17<|page|>2<|box|>809 140 825 344<|content|>Opinion 3: Authorization\n<|id|>25<|page|>3<|box|>625 140 641 349<|content|>Opinion 4: Valid Issuance\n<|id|>32<|page|>4<|box|>338 140 354 406<|content|>Opinion 5: No Preemptive Rights\n<|id|>35<|page|>4<|box|>601 140 619 455<|content|>Opinion 6: Description of Capital Stock\n<|id|>43<|page|>5<|box|>345 142 363 333<|content|>Opinion 7: No Conflicts\n<|id|>53<|page|>6<|box|>356 140 373 334<|content|>Opinion 8: No Consents\n<|id|>61<|page|>7<|box|>138 140 157 415<|content|>Opinion 9: Registration Statement\n<|id|>65<|page|>7<|box|>465 140 483 444<|content|>Opinion 10: Investment Company Act\n<|id|>68<|page|>7<|box|>756 140 773 383<|content|>II. NEGATIVE ASSURANCE\n<|id|>85<|page|>9<|box|>464 140 482 516<|content|>III. ASSUMPTIONS AND QUALIFICATIONS\n<|id|>95<|page|>10<|box|>491 140 508 406<|content|>B. Qualifications and Limitations\n<|id|>104<|page|>11<|box|>492 140 510 387<|content|>C. Disclosure Regarding Scope\n<|id|>107<|page|>11<|box|>765 140 782 377<|content|>IV. DELIVERY AND FORM\n<|id|>112<|page|>12<|box|>186 176 203 442<|content|>Attention: Gregory R. Tannenbaum\n<|id|>114<|page|>12<|box|>299 140 316 606<|content|>V. COORDINATION WITH CLOSING DELIVERABLES\n<|id|>124<|page|>13<|box|>449 140 465 614<|content|>Prepared by: Robert Adeyemi / Natasha Forbes Calde",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>-1\n<|id|>3<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>25<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>2\n<|id|>43<|level|>2\n<|id|>53<|level|>2\n<|id|>61<|level|>2\n<|id|>65<|level|>2\n<|id|>68<|level|>1\n<|id|>85<|level|>1\n<|id|>95<|level|>2\n<|id|>104<|level|>2\n<|id|>107<|level|>1\n<|id|>112<|level|>-1\n<|id|>114<|level|>1\n<|id|>124<|level|>-1",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        }
+    ]
+}

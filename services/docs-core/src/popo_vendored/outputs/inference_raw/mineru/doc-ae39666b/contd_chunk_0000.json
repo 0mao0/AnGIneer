@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        67
+    ],
+    "pages": [
+        3,
+        5,
+        7,
+        10,
+        23,
+        40,
+        66,
+        67
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>3<|box|>122 80 744 913<|content|>FCP-I-3. ... In side back cover\n<|id|>6<|page|>3<|box|>758 80 792 883<|content|>NOTES: ... r = Re vised\n<|id|>17<|page|>5<|box|>866 78 912 488<|content|>At the pro ducer level, the pattern for fin ished ...the consumer level. ... 8 per cent an nual rate in\n<|id|>18<|page|>5<|box|>157 503 258 911<|content|>The national accounts measures of in flation showe...d quar ter. ... 1 per cent in the sec ond quar ter\n<|id|>20<|page|>5<|box|>311 524 327 825<|content|>(Percent change, fourth quarter to fourth quarter)\n<|id|>21<|page|>5<|box|>619 506 756 919<|content|>the first half of 2000, up from 2. ... Further bac...e goods picked up from the modest increase in 1999\n<|id|>30<|page|>7<|box|>784 83 912 491<|content|>The greater in crease in spending than in dis poss...in as set values are not counted as in come in the\n<|id|>31<|page|>7<|box|>99 501 239 915<|content|>Wage gains have remained sur pris ingly low given ...gher in flation as a res ult of the oil price hike\n<|id|>67<|page|>10<|box|>434 78 534 488<|content|>Net national saving averaged 6. ... ) Figures from...cting the regular corporation of new data into the\n<|id|>68<|page|>10<|box|>93 508 250 918<|content|>Since 1992, growth in Federal outlays has remained... the acceleration in tax receipts this fiscal year\n<|id|>71<|page|>10<|box|>457 504 527 915<|content|>Pri vate sav ing de clined from a re cent high of ...por tant fac tor in the re duced de sire of house-\n<|id|>72<|page|>10<|box|>532 78 686 274<|content|>national in come and product accounts. ... 9 per cent of 1993, the low est for any year since the 1930s\n<|id|>75<|page|>10<|box|>573 290 587 468<|content|>(Saving as a percent of NNP)\n<|id|>76<|page|>10<|box|>527 697 666 915<|content|>holds to save out of current income. ... 1 percent in the first quarter\n<|id|>146<|page|>23<|box|>691 80 796 491<|content|>- Table FD-4 presents interest-bearing securities is sued by Government agencies. ... ”)\n<|id|>148<|page|>23<|box|>194 506 268 916<|content|>The aver age length hit a low of 2 years, 5 months... 1996 the aver age length was at 5 years, 3 months\n<|id|>205<|page|>40<|box|>209 81 233 485<|content|>^{3} In reopenings, the amount accepted is in addition to the amount of original offerings\n<|id|>206<|page|>40<|box|>233 81 268 488<|content|>4 In cludes securities is sued to U. ... and to fo...n exchange for maturing securities or for new cash\n<|id|>302<|page|>66<|box|>87 140 123 857<|content|>TABLE CM-I-4. ... Treasury International Capital Reporting System]\n<|id|>305<|page|>67<|box|>852 501 906 913<|content|>^{5} In cludes data on Ser bia and Montenegro, whi... United States. ... ^{6} For merely known as Zaire",
+    "raw_response": "<|src_id|>17<|tgt_id|>21\n<|src_id|>30<|tgt_id|>72\n<|src_id|>71<|tgt_id|>76",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 76
+        }
+    ]
+}

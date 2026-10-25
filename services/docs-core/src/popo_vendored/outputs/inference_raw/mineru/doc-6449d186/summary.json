@@ -1,0 +1,477 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-647zec_o\\input\\pdfs\\doc-6449d186.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-647zec_o\\enriched\\doc-6449d186.json",
+    "contd_output": "<|src_id|>26<|tgt_id|>27\n<|src_id|>99<|tgt_id|>100\n<|src_id|>107<|tgt_id|>108\n<|src_id|>190<|tgt_id|>191",
+    "title_output": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>30<|level|>3\n<|id|>49<|level|>3\n<|id|>54<|level|>2\n<|id|>90<|level|>2\n<|id|>95<|level|>3\n<|id|>134<|level|>2\n<|id|>138<|level|>3\n<|id|>178<|level|>2\n<|id|>180<|level|>3\n<|id|>194<|level|>3\n<|id|>203<|level|>2\n<|id|>208<|level|>3\n<|id|>244<|level|>3\n<|id|>245<|level|>4\n<|id|>251<|level|>2\n<|id|>253<|level|>3\n<|id|>262<|level|>2\n<|id|>266<|level|>3\n<|id|>296<|level|>3\n<|id|>303<|level|>3\n<|id|>306<|level|>2\n<|id|>307<|level|>3\n<|id|>318<|level|>3\n<|id|>323<|level|>2\n<|id|>333<|level|>2\n<|id|>340<|level|>2\n<|id|>348<|level|>2\n<|id|>349<|level|>3\n<|id|>357<|level|>3\n<|id|>363<|level|>2\n<|id|>364<|level|>3\n<|id|>369<|level|>3\n<|id|>374<|level|>2\n<|id|>375<|level|>3\n<|id|>381<|level|>3\n<|id|>388<|level|>2\n<|id|>400<|level|>2\n<|id|>402<|level|>3\n<|id|>405<|level|>3\n<|id|>408<|level|>3\n<|id|>411<|level|>3",
+    "image_output": "<|src_id|>58<|tgt_id|>54\n<|src_id|>59<|tgt_id|>54\n<|src_id|>91<|tgt_id|>90\n<|src_id|>96<|tgt_id|>95\n<|src_id|>106<|tgt_id|>95\n<|src_id|>117<|tgt_id|>95\n<|src_id|>133<|tgt_id|>95\n<|src_id|>139<|tgt_id|>138\n<|src_id|>154<|tgt_id|>138\n<|src_id|>163<|tgt_id|>138\n<|src_id|>176<|tgt_id|>138\n<|src_id|>177<|tgt_id|>138\n<|src_id|>181<|tgt_id|>180\n<|src_id|>195<|tgt_id|>194\n<|src_id|>205<|tgt_id|>203\n<|src_id|>209<|tgt_id|>208\n<|src_id|>220<|tgt_id|>208\n<|src_id|>228<|tgt_id|>208\n<|src_id|>246<|tgt_id|>245\n<|src_id|>250<|tgt_id|>244\n<|src_id|>260<|tgt_id|>253\n<|src_id|>261<|tgt_id|>253\n<|src_id|>268<|tgt_id|>266\n<|src_id|>269<|tgt_id|>266\n<|src_id|>282<|tgt_id|>266\n<|src_id|>304<|tgt_id|>303\n<|src_id|>305<|tgt_id|>303\n<|src_id|>309<|tgt_id|>307\n<|src_id|>311<|tgt_id|>307\n<|src_id|>319<|tgt_id|>318\n<|src_id|>351<|tgt_id|>349\n<|src_id|>352<|tgt_id|>349\n<|src_id|>366<|tgt_id|>364\n<|src_id|>367<|tgt_id|>364\n<|src_id|>370<|tgt_id|>369",
+    "contd_label": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 191
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 244,
+            "level": 3
+        },
+        {
+            "id": 245,
+            "level": 4
+        },
+        {
+            "id": 251,
+            "level": 2
+        },
+        {
+            "id": 253,
+            "level": 3
+        },
+        {
+            "id": 262,
+            "level": 2
+        },
+        {
+            "id": 266,
+            "level": 3
+        },
+        {
+            "id": 296,
+            "level": 3
+        },
+        {
+            "id": 303,
+            "level": 3
+        },
+        {
+            "id": 306,
+            "level": 2
+        },
+        {
+            "id": 307,
+            "level": 3
+        },
+        {
+            "id": 318,
+            "level": 3
+        },
+        {
+            "id": 323,
+            "level": 2
+        },
+        {
+            "id": 333,
+            "level": 2
+        },
+        {
+            "id": 340,
+            "level": 2
+        },
+        {
+            "id": 348,
+            "level": 2
+        },
+        {
+            "id": 349,
+            "level": 3
+        },
+        {
+            "id": 357,
+            "level": 3
+        },
+        {
+            "id": 363,
+            "level": 2
+        },
+        {
+            "id": 364,
+            "level": 3
+        },
+        {
+            "id": 369,
+            "level": 3
+        },
+        {
+            "id": 374,
+            "level": 2
+        },
+        {
+            "id": 375,
+            "level": 3
+        },
+        {
+            "id": 381,
+            "level": 3
+        },
+        {
+            "id": 388,
+            "level": 2
+        },
+        {
+            "id": 400,
+            "level": 2
+        },
+        {
+            "id": 402,
+            "level": 3
+        },
+        {
+            "id": 405,
+            "level": 3
+        },
+        {
+            "id": 408,
+            "level": 3
+        },
+        {
+            "id": 411,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 58,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 180
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 203
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 246,
+            "tgt_id": 245
+        },
+        {
+            "src_id": 250,
+            "tgt_id": 244
+        },
+        {
+            "src_id": 260,
+            "tgt_id": 253
+        },
+        {
+            "src_id": 261,
+            "tgt_id": 253
+        },
+        {
+            "src_id": 268,
+            "tgt_id": 266
+        },
+        {
+            "src_id": 269,
+            "tgt_id": 266
+        },
+        {
+            "src_id": 282,
+            "tgt_id": 266
+        },
+        {
+            "src_id": 304,
+            "tgt_id": 303
+        },
+        {
+            "src_id": 305,
+            "tgt_id": 303
+        },
+        {
+            "src_id": 309,
+            "tgt_id": 307
+        },
+        {
+            "src_id": 311,
+            "tgt_id": 307
+        },
+        {
+            "src_id": 319,
+            "tgt_id": 318
+        },
+        {
+            "src_id": 351,
+            "tgt_id": 349
+        },
+        {
+            "src_id": 352,
+            "tgt_id": 349
+        },
+        {
+            "src_id": 366,
+            "tgt_id": 364
+        },
+        {
+            "src_id": 367,
+            "tgt_id": 364
+        },
+        {
+            "src_id": 370,
+            "tgt_id": 369
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 176,
+            "table2_idx": 177,
+            "upper_row_ss": [
+                [
+                    "SUPP-001",
+                    "Valterra Metals Corp.",
+                    "Nexford Precision Compone",
+                    "$95M",
+                    "Y",
+                    "N",
+                    "N (but PMSI issue)",
+                    "Medium",
+                    "Verify PMSI; confirm"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "nts",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Permitted Lien"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 268,
+            "table2_idx": 269,
+            "upper_row_ss": [
+                [
+                    "Licensor",
+                    "Albion Materials Science, Inc."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Licensee",
+                    "Nexford Coatings & Surface Technologies, Inc."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 304,
+            "table2_idx": 305,
+            "upper_row_ss": [
+                [
+                    "IP-008",
+                    "Consolida",
+                    "Patent",
+                    "Nexford",
+                    "$0.5M",
+                    "N",
+                    "N",
+                    "Royalty",
+                    "Low"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "ted Materials (out)",
+                    "license",
+                    "Precision",
+                    "income",
+                    "",
+                    "",
+                    "pledged",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 351,
+            "table2_idx": 352,
+            "upper_row_ss": [
+                [
+                    "Supply Agmt —",
+                    "Valterra Metals",
+                    "Nexford Precision",
+                    "$95M spend",
+                    ">50% voting",
+                    "No",
+                    "N",
+                    "No action"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Supplier A",
+                    "Corp.",
+                    "Comp.",
+                    "",
+                    "power of buyer",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 366,
+            "table2_idx": 367,
+            "upper_row_ss": [
+                [
+                    "Meridian Precision JV LLC Agreement",
+                    "Kessler Engineering Group, Inc.",
+                    "Consent to pledge of Nexford Engineered Systems' 60%",
+                    "To be initiated",
+                    "David Engstrom (Nexford GC) / Whitfield & Gage"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "membership interest",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        11,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>378 158 415 836<|content|>DEFENDANT CASCADE RETAIL HOLDINGS INC.'S MOTION TO\n<|id|>2<|page|>1<|box|>473 142 489 292<|content|>INTRODUCTION\n<|id|>11<|page|>2<|box|>655 140 672 297<|content|>I. BACKGROUND\n<|id|>12<|page|>2<|box|>686 140 703 299<|content|>A. The Transaction\n<|id|>18<|page|>3<|box|>446 140 465 334<|content|>B. The FTC's Challenge\n<|id|>23<|page|>4<|box|>138 140 157 480<|content|>C. Dr. Keenan's Engagement and Opinions\n<|id|>26<|page|>4<|box|>430 140 448 341<|content|>II. LEGAL STANDARD\n<|id|>27<|page|>4<|box|>462 140 479 397<|content|>A. Federal Rule of Evidence 702\n<|id|>35<|page|>5<|box|>90 140 107 361<|content|>B. Daubert and Its Progeny\n<|id|>39<|page|>5<|box|>508 140 525 648<|content|>C. Application to Economic Expert Testimony in Ant\n<|id|>43<|page|>6<|box|>148 140 167 287<|content|>III. ARGUMENT\n<|id|>44<|page|>6<|box|>180 140 215 854<|content|>A. Dr. Keenan's Market Definition Analysis Is Unre\n<|id|>75<|page|>11<|box|>292 140 329 854<|content|>C. Dr. Keenan's Competitive Effects Analysis Relie\n<|id|>96<|page|>14<|box|>349 140 366 813<|content|>D. The Flaws in Dr. Keenan's Analysis Are Not Matt\n<|id|>102<|page|>15<|box|>268 140 285 687<|content|>E. In the Alternative, the Court Should Limit Dr.\n<|id|>108<|page|>15<|box|>801 140 818 300<|content|>IV. CONCLUSION\n<|id|>122<|page|>16<|box|>503 375 521 622<|content|>CERTIFICATE OF SERVICE\n<|id|>131<|page|>17<|box|>398 163 454 833<|content|>[PROPOSED] ORDER GRANTING DEFENDANT CASCADE RETAIL",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>18<|level|>3\n<|id|>23<|level|>3\n<|id|>26<|level|>2\n<|id|>27<|level|>3\n<|id|>35<|level|>3\n<|id|>39<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>75<|level|>3\n<|id|>96<|level|>3\n<|id|>102<|level|>3\n<|id|>108<|level|>2\n<|id|>122<|level|>2\n<|id|>131<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 1
+        }
+    ]
+}

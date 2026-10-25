@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 194 125 802<|content|>UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF\n<|id|>3<|page|>1<|box|>186 397 203 601<|content|>APEX NATURALS INC.,\n<|id|>4<|page|>1<|box|>213 455 229 540<|content|>Defendant.\n<|id|>6<|page|>1<|box|>263 158 299 838<|content|>DECLARATION OF JULIA WHITMORE IN SUPPORT OF PLAINT\n<|id|>9<|page|>1<|box|>521 142 537 694<|content|>I. BACKGROUND AND QUALIFICATIONS OF THE DECLARANT\n<|id|>13<|page|>2<|box|>332 140 349 625<|content|>II. MERIDIAN CONSUMER BRANDS LLC — OVERVIEW\n<|id|>16<|page|>2<|box|>773 140 789 482<|content|>III. THE DERMATRŪE PRODUCT LINE\n<|id|>21<|page|>4<|box|>89 140 106 769<|content|>IV. APEX NATURALS INC. AND \"THE PURACLEAR TRUTH\" C\n<|id|>35<|page|>6<|box|>523 140 539 643<|content|>V. FINANCIAL AND COMMERCIAL HARM TO MERIDIAN\n<|id|>40<|page|>7<|box|>714 140 729 452<|content|>VI. BRAND-PERCEPTION DAMAGE\n<|id|>46<|page|>8<|box|>691 140 709 671<|content|>VII. PRE-LITIGATION EFFORTS TO RESOLVE THE DISPUTE\n<|id|>52<|page|>9<|box|>494 140 510 509<|content|>VIII. ONGOING AND ESCALATING HARM\n<|id|>55<|page|>10<|box|>89 140 107 668<|content|>IX. IDENTIFICATION AND AUTHENTICATION OF EXHIBITS\n<|id|>64<|page|>10<|box|>722 140 739 753<|content|>X. CONCLUSION AND DECLARATION UNDER PENALTY OF PER",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>4<|level|>2\n<|id|>6<|level|>1\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>16<|level|>2\n<|id|>21<|level|>2\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>52<|level|>2\n<|id|>55<|level|>2\n<|id|>64<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        }
+    ]
+}

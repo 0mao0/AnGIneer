@@ -1,0 +1,62 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 292 118 705<|content|>ESCROW FUNDING CONFIRMATION\n<|id|>7<|type|>title<|page|>1<|box|>358 140 375 441<|content|>I. INTRODUCTION AND PURPOSE\n<|id|>12<|type|>title<|page|>2<|box|>222 140 239 406<|content|>II. WIRE TRANSFER DETAILS\n<|id|>13<|type|>title<|page|>2<|box|>253 140 271 380<|content|>A. Sending Party Information\n<|id|>15<|type|>table<|page|>2<|box|>319 143 469 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>662 142 680 514<|content|>B. Receiving Party Information (Escrow Agent)\n<|id|>18<|type|>table<|page|>2<|box|>709 143 893 852<|content|>None\n<|id|>19<|type|>table<|page|>3<|box|>89 143 125 852<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>244 140 260 442<|content|>C. Wire Transfer Amount and Details\n<|id|>23<|type|>table<|page|>3<|box|>290 143 455 852<|content|>None\n<|id|>25<|type|>title<|page|>3<|box|>622 140 638 627<|content|>III. CONFIRMATION FROM COBALT TRUST COMPANY\n<|id|>26<|type|>title<|page|>3<|box|>654 140 671 388<|content|>A. Acknowledgment of Receipt\n<|id|>31<|type|>title<|page|>4<|box|>194 140 210 464<|content|>B. Escrow Account Confirmation Details\n<|id|>33<|type|>table<|page|>4<|box|>258 143 369 852<|content|>None\n<|id|>36<|type|>title<|page|>4<|box|>734 140 752 473<|content|>C. Reference to Escrow Agreement Terms\n<|id|>45<|type|>title<|page|>6<|box|>257 142 273 540<|content|>D. Authorized Signatory of Cobalt Trust Company\n<|id|>52<|type|>title<|page|>6<|box|>431 142 449 495<|content|>IV. RECONCILIATION TO FUNDS FLOW\n<|id|>54<|type|>table<|page|>6<|box|>617 145 727 852<|content|>None\n<|id|>55<|type|>table<|page|>6<|box|>785 143 907 852<|content|>None\n<|id|>56<|type|>table<|page|>7<|box|>88 143 119 852<|content|>None\n<|id|>59<|type|>title<|page|>7<|box|>439 140 474 746<|content|>V. INTERPLAY WITH INDEMNIFICATION AND REPRESENTATI\n<|id|>70<|type|>title<|page|>8<|box|>638 140 654 668<|content|>VI. RELATED CLOSING DOCUMENTS CROSS-REFERENCED\n<|id|>80<|type|>title<|page|>9<|box|>448 140 465 542<|content|>VII. NOTICES AND CONTACT INFORMATION\n<|id|>82<|type|>title<|page|>9<|box|>561 142 577 344<|content|>For Fund VI (Depositor):\n<|id|>91<|type|>title<|page|>9<|box|>828 143 844 294<|content|>For Escrow Agent:\n<|id|>96<|type|>title<|page|>10<|box|>143 142 162 398<|content|>For Stockholder Representative:\n<|id|>98<|type|>title<|page|>10<|box|>212 176 228 287<|content|>Email: On file\n<|id|>100<|type|>title<|page|>11<|box|>89 140 107 509<|content|>VIII. SIGNATURE / CONFIRMATION Block\n<|id|>102<|type|>title<|page|>11<|box|>200 140 219 630<|content|>Acknowledgment by Solara Digital Infrastructure Fu\n<|id|>109<|type|>title<|page|>11<|box|>340 140 358 488<|content|>Acknowledgment by Cobalt Trust Company\n<|id|>122<|type|>title<|page|>12<|box|>89 439 107 558<|content|>APPENDIX A\n<|id|>123<|type|>title<|page|>12<|box|>114 290 133 705<|content|>Wire Transfer Confirmation Receipt (Sending Bank)\n<|id|>125<|type|>title<|page|>12<|box|>222 143 258 852<|content|>MERIDIAN ATLANTIC BANK, N.A. WIRE TRANSFER CONFIRM\n<|id|>126<|type|>table<|page|>12<|box|>265 143 630 852<|content|>None\n<|id|>128<|type|>title<|page|>13<|box|>88 439 108 558<|content|>APPENDIX B\n<|id|>129<|type|>title<|page|>13<|box|>114 292 133 705<|content|>Cobalt Trust Company Receipt Confirmation Letter",
+    "raw_response": "<|src_id|>15<|tgt_id|>13\n<|src_id|>18<|tgt_id|>17\n<|src_id|>19<|tgt_id|>17\n<|src_id|>23<|tgt_id|>21\n<|src_id|>33<|tgt_id|>31\n<|src_id|>54<|tgt_id|>52\n<|src_id|>55<|tgt_id|>52\n<|src_id|>56<|tgt_id|>52\n<|src_id|>126<|tgt_id|>125",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 125
+        }
+    ]
+}

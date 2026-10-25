@@ -1,0 +1,205 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-55dhm452\\input\\pdfs\\doc-399542cc.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-55dhm452\\enriched\\doc-399542cc.json",
+    "contd_output": "<|src_id|>167<|tgt_id|>168\n<|src_id|>223<|tgt_id|>224",
+    "title_output": "<|id|>1<|level|>1\n<|id|>11<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>56<|level|>3\n<|id|>60<|level|>2\n<|id|>62<|level|>3\n<|id|>71<|level|>3\n<|id|>80<|level|>3\n<|id|>90<|level|>3\n<|id|>95<|level|>3\n<|id|>101<|level|>3\n<|id|>106<|level|>3\n<|id|>111<|level|>2\n<|id|>113<|level|>3\n<|id|>122<|level|>3\n<|id|>128<|level|>3\n<|id|>140<|level|>2\n<|id|>142<|level|>3\n<|id|>152<|level|>3\n<|id|>161<|level|>3\n<|id|>169<|level|>3\n<|id|>177<|level|>3\n<|id|>183<|level|>2\n<|id|>186<|level|>2\n<|id|>188<|level|>3\n<|id|>206<|level|>3\n<|id|>211<|level|>3\n<|id|>216<|level|>2\n<|id|>226<|level|>2\n<|id|>231<|level|>2\n<|id|>241<|level|>2\n<|id|>247<|level|>2\n<|id|>256<|level|>2",
+    "image_output": "<|src_id|>184<|tgt_id|>183\n<|src_id|>228<|tgt_id|>226\n<|src_id|>229<|tgt_id|>226",
+    "contd_label": [
+        {
+            "src_id": 167,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 224
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 226,
+            "level": 2
+        },
+        {
+            "id": 231,
+            "level": 2
+        },
+        {
+            "id": 241,
+            "level": 2
+        },
+        {
+            "id": 247,
+            "level": 2
+        },
+        {
+            "id": 256,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 184,
+            "tgt_id": 183
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 226
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 226
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 228,
+            "table2_idx": 229,
+            "upper_row_ss": [
+                [
+                    "May 1, 2025",
+                    "Dashboard go-live (operational); all users granted access per the RBAC framework; analyst task queues",
+                    "Linda Petrosian (CIO/CTO)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "populated; automated alert framework activated",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

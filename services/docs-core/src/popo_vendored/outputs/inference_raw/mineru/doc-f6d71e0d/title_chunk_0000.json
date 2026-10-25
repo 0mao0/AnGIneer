@@ -1,0 +1,137 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 233 159 761<|content|>KINCAID & MOREAU LLP Attorneys-at-Law — Cayman Isl\n<|id|>12<|page|>1<|box|>454 142 472 400<|content|>1. Introduction and Engagement\n<|id|>16<|page|>1<|box|>829 142 847 336<|content|>2. Documents Examined\n<|id|>18<|page|>2<|box|>90 140 108 622<|content|>2.1 Constitutional and Corporate Documents of the\n<|id|>24<|page|>2<|box|>468 140 484 361<|content|>2.2 Transaction Documents\n<|id|>32<|page|>3<|box|>138 142 156 313<|content|>2.3 Other Documents\n<|id|>38<|page|>3<|box|>417 140 434 267<|content|>3. Assumptions\n<|id|>50<|page|>4<|box|>700 140 718 238<|content|>4. Opinions\n<|id|>52<|page|>4<|box|>775 140 792 473<|content|>4.1 Due Incorporation and Good Standing\n<|id|>54<|page|>5<|box|>138 140 157 418<|content|>4.2 Corporate Power and Capacity\n<|id|>62<|page|>5<|box|>532 140 549 321<|content|>4.3 Due Authorization\n<|id|>68<|page|>6<|box|>138 140 157 357<|content|>4.4 Execution and Delivery\n<|id|>73<|page|>6<|box|>585 140 602 266<|content|>4.6 No Conflict\n<|id|>78<|page|>6<|box|>791 140 808 442<|content|>4.7 No Consent or Approval Required\n<|id|>83<|page|>7<|box|>338 140 354 472<|content|>4.8 Tax Status — No Cayman Islands Tax\n<|id|>91<|page|>8<|box|>90 140 107 349<|content|>4.9 No Exchange Controls\n<|id|>93<|page|>8<|box|>253 140 272 468<|content|>4.10 Enforceability of Foreign Judgments\n<|id|>100<|page|>8<|box|>731 140 748 289<|content|>4.11 No Immunity\n<|id|>102<|page|>9<|box|>90 140 107 403<|content|>5. Qualifications and Limitations\n<|id|>104<|page|>9<|box|>165 140 183 465<|content|>5.1 General Enforceability Qualifications\n<|id|>110<|page|>9<|box|>542 142 560 315<|content|>5.2 Scope Limitations\n<|id|>114<|page|>10<|box|>138 140 157 503<|content|>5.3 Qualification Regarding Security Interests\n<|id|>116<|page|>10<|box|>359 140 376 700<|content|>5.4 Qualification Regarding Sanctions and Complian\n<|id|>118<|page|>10<|box|>523 140 540 444<|content|>5.5 No Opinion on Commercial Terms\n<|id|>120<|page|>10<|box|>661 140 676 326<|content|>6. Reliance and Benefit\n<|id|>127<|page|>11<|box|>337 142 354 413<|content|>7. Governing Law of This Opinion\n<|id|>131<|page|>11<|box|>494 143 511 374<|content|>KINCAID & MOREAU LLP\n<|id|>137<|page|>11<|box|>607 437 625 560<|content|>SCHEDULE A\n<|id|>138<|page|>11<|box|>633 160 650 834<|content|>LIST OF TRANSACTION DOCUMENTS AND OTHER DOCUMENTS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>3\n<|id|>24<|level|>3\n<|id|>32<|level|>3\n<|id|>38<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>3\n<|id|>54<|level|>3\n<|id|>62<|level|>3\n<|id|>68<|level|>3\n<|id|>73<|level|>3\n<|id|>78<|level|>3\n<|id|>83<|level|>3\n<|id|>91<|level|>3\n<|id|>93<|level|>3\n<|id|>100<|level|>3\n<|id|>102<|level|>2\n<|id|>104<|level|>3\n<|id|>110<|level|>3\n<|id|>114<|level|>3\n<|id|>116<|level|>3\n<|id|>118<|level|>3\n<|id|>120<|level|>2\n<|id|>127<|level|>2\n<|id|>131<|level|>-1\n<|id|>137<|level|>2\n<|id|>138<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 3
+        }
+    ]
+}

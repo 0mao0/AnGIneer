@@ -1,0 +1,21 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        48
+    ],
+    "pages": [
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>393<|type|>title<|page|>46<|box|>90 140 107 717<|content|>Appendix E — Sample BIS Deemed Export License Appl\n<|id|>395<|type|>title<|page|>47<|box|>90 142 108 844<|content|>Appendix F — Coordination Timeline: Immigration Fi\n<|id|>396<|type|>table<|page|>47<|box|>159 143 496 852<|content|>None\n<|id|>397<|type|>title<|page|>48<|box|>90 140 107 374<|content|>Appendix G — Key Contacts\n<|id|>399<|type|>title<|page|>48<|box|>179 250 199 746<|content|>XVII. ACKNOWLEDGMENT AND ADOPTION",
+    "raw_response": "<|src_id|>396<|tgt_id|>395",
+    "parsed": [
+        {
+            "src_id": 396,
+            "tgt_id": 395
+        }
+    ]
+}

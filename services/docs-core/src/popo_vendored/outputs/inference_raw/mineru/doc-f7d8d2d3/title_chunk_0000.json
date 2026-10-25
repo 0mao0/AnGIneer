@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 145 107 851<|content|>CALDERWOOD & HARKNESS LLP One Liberty Plaza, 50th\n<|id|>12<|page|>2<|box|>89 140 106 653<|content|>I. AGREED CHANGES ACCEPTED IN THE SECOND DRAFT\n<|id|>14<|page|>2<|box|>166 142 183 364<|content|>A. Recitals and Background\n<|id|>18<|page|>2<|box|>508 140 526 418<|content|>B. Definition of \"Released Claims\"\n<|id|>21<|page|>2<|box|>791 140 808 562<|content|>C. Payment Mechanics — Wire Transfer Instructions\n<|id|>24<|page|>3<|box|>239 140 255 483<|content|>D. Confidentiality — Permitted Disclosures\n<|id|>27<|page|>3<|box|>593 140 609 495<|content|>E. Return/Destruction of discovery Materials\n<|id|>30<|page|>4<|box|>90 140 108 473<|content|>F. Representations Regarding Bankruptcy\n<|id|>32<|page|>4<|box|>253 140 271 380<|content|>G. Miscellaneous / Boilerplate\n<|id|>37<|page|>4<|box|>633 140 651 575<|content|>II. CHANGES ACCEPTED WITH MODIFICATIONS\n<|id|>39<|page|>4<|box|>710 140 727 555<|content|>A. Scope of Release — Affiliates and Related Entit\n<|id|>44<|page|>5<|box|>367 140 383 437<|content|>B. Consent Judgment — Cure Period\n<|id|>49<|page|>6<|box|>90 140 107 475<|content|>C. Confidentiality — Scope of Restrictions\n<|id|>55<|page|>6<|box|>569 140 585 736<|content|>III. PROPOSED CHANGES NOT ACCEPTED / COUNTER-PROPO\n<|id|>57<|page|>6<|box|>645 140 661 325<|content|>A. Acceleration Clause\n<|id|>63<|page|>7<|box|>411 140 428 478<|content|>B. Indemnification for Third-Party Claims\n<|id|>70<|page|>8<|box|>220 140 238 589<|content|>C. Interest on Late Payments Prior to Consent Judg\n<|id|>74<|page|>8<|box|>564 140 582 694<|content|>D. Northwind's Proposed Addition — Attorney's Fees\n<|id|>79<|page|>9<|box|>176 140 194 545<|content|>E. Representation Regarding Assignment of Claims\n<|id|>84<|page|>9<|box|>665 142 683 380<|content|>IV. ESCROW AGREEMENT\n<|id|>89<|page|>10<|box|>193 140 210 460<|content|>V. P&I CLUB APPROVAL TIMELINE\n<|id|>94<|page|>10<|box|>612 140 628 544<|content|>VI. COURT FILINGS AND PENDING MOTIONS\n<|id|>101<|page|>11<|box|>334 140 351 401<|content|>VII. LENDER NOTIFICATION\n<|id|>105<|page|>11<|box|>672 140 689 315<|content|>VIII. ENCLOSURES",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>21<|level|>2\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>1\n<|id|>39<|level|>2\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>55<|level|>1\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>74<|level|>2\n<|id|>79<|level|>2\n<|id|>84<|level|>1\n<|id|>89<|level|>1\n<|id|>94<|level|>1\n<|id|>101<|level|>1\n<|id|>105<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        }
+    ]
+}

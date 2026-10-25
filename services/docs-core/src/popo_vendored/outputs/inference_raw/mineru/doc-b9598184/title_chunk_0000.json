@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        67
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        10,
+        13,
+        19,
+        24,
+        29,
+        42,
+        67
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>5<|box|>154 310 194 630<|content|>BULLETIN\n<|id|>7<|page|>5<|box|>287 154 321 788<|content|>TREASURY DEPARTMENT\n<|id|>17<|page|>7<|box|>156 319 196 639<|content|>BULLETIN\n<|id|>19<|page|>7<|box|>288 165 325 797<|content|>TREASURY DEPARTMENT\n<|id|>26<|page|>9<|box|>128 394 145 582<|content|>Table of Contents\n<|id|>28<|page|>10<|box|>116 343 134 680<|content|>Table of Contents - (Continued)\n<|id|>29<|page|>10<|box|>178 426 193 587<|content|>Custom Statistics\n<|id|>31<|page|>10<|box|>253 322 283 698<|content|>Capital Movements between the United States and Fo\n<|id|>33<|page|>10<|box|>432 400 447 629<|content|>Gold and Silver Statistics\n<|id|>35<|page|>10<|box|>568 400 584 622<|content|>Other Treasury Statistics\n<|id|>43<|page|>13<|box|>88 245 108 729<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>55<|page|>19<|box|>84 145 106 842<|content|>CASH INCOME AND OUTGO OF THE TREASURY\n<|id|>58<|page|>24<|box|>48 147 62 847<|content|>Statement of the Outstanding Public Debt on June 3\n<|id|>67<|page|>29<|box|>60 87 93 880<|content|>Securities Held in Treasury Trust Funds and by Cer\n<|id|>89<|page|>42<|box|>44 210 73 784<|content|>Maturity Schedule of Securities Guaranteed by the\n<|id|>118<|page|>67<|box|>60 231 94 807<|content|>Revisions in Statistics on Capital Movements betwe",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>7<|level|>1\n<|id|>17<|level|>1\n<|id|>19<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>29<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>2\n<|id|>43<|level|>1\n<|id|>55<|level|>1\n<|id|>58<|level|>2\n<|id|>67<|level|>2\n<|id|>89<|level|>2\n<|id|>118<|level|>1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 1
+        }
+    ]
+}

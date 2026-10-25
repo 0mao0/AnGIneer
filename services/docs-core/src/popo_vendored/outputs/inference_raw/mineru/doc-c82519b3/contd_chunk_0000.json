@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 303 133 696<|content|>1700 K Street NW, Suite 900 Washington, DC 20006\n<|id|>3<|page|>1<|box|>185 179 229 818<|content|>Telephone: ... 52-1843976\n<|id|>2<|page|>1<|box|>141 163 176 833<|content|>375 Park Avenue, 30th Floor | New York, NY 10152 5...ornia Street, Suite 3200 | San Francisco, CA 94104\n<|id|>4<|page|>1<|box|>237 627 253 854<|content|>Invoice Date: ... March 15, 2024\n<|id|>54<|page|>6<|box|>530 138 878 857<|content|>Attend and lead project kickoff meeting via videoc...CD filing target of August 2024 for Cascade Fiscal\n<|id|>55<|page|>7<|box|>89 140 127 854<|content|>Intermediaries Jurisdiction E. ... Post-meeting de...sess project risks, and confirm internal deadlines\n<|id|>112<|page|>12<|box|>164 140 195 854<|content|>Joel Strauss, Billing Partner Calderwood & Harknes...r New York, NY 10152 Telephone: ... (212) 555-3120\n<|id|>113<|page|>12<|box|>203 142 218 403<|content|>Email: ... com\n<|id|>114<|page|>12<|box|>217 357 234 638<|content|>— PAID — Payment received in full. ... — PAID — Payment received in full",
+    "raw_response": "<|src_id|>54<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        }
+    ]
+}

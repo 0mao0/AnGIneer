@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        11,
+        20,
+        21,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>180 140 215 854<|content|>From: ... Leonard Cross, Partner, and Robert Janse...P One Liberty Plaza, 45th Floor New York, NY 10006\n<|id|>3<|page|>1<|box|>224 140 260 854<|content|>To: ... Marcus Pellegrino, Partner, Healthcare Ard...00 Lexington Avenue, 38th Floor New York, NY 10022\n<|id|>4<|page|>1<|box|>268 140 305 854<|content|>CC: ... Claire Ashworth, Co-Founder & Managing Par... Harcourt Shaw & DeVries LLP (buyer's M&A counsel)\n<|id|>5<|page|>1<|box|>313 142 330 302<|content|>Date: ... March 8, 2024\n<|id|>6<|page|>1<|box|>338 140 375 854<|content|>Re: ... Acquisition of Pinnacle Health Services Group LLC\n<|id|>7<|page|>1<|box|>383 142 401 411<|content|>Engagement Number: ... 1001-00006\n<|id|>8<|page|>1<|box|>407 142 426 370<|content|>Matter Number: ... 1001-00006\n<|id|>9<|page|>1<|box|>434 142 450 408<|content|>Right-click to update Table of Contents\n<|id|>24<|page|>2<|box|>768 174 859 857<|content|>(ii) Ardent Healthcare Intermediate Inc. ... and\n<|id|>26<|page|>3<|box|>152 138 318 856<|content|>Holdings LLC serves as the equity aggregator for t...y: ... 5% of fully diluted equity in Holdings LLC)\n<|id|>61<|page|>7<|box|>446 176 465 810<|content|>(iii) The partner does not dispose of the profits interest within two years of receipt; ... and\n<|id|>63<|page|>7<|box|>517 140 645 856<|content|>Application to the Class B Units. ... \" This satisfies the first condition of Revenue Procedure 93-27\n<|id|>66<|page|>7<|box|>797 174 869 856<|content|>(i) The partnership and the service provider treat..., and credit associated with the interest; ... and\n<|id|>68<|page|>8<|box|>152 140 263 856<|content|>Revenue Procedure 2001-43 is particularly importan...ue procedure was silent on the question of vesting\n<|id|>77<|page|>9<|box|>277 174 332 854<|content|>(c) File a protective Section 83(b) election withi...of the profits interest at grant is zero); ... and\n<|id|>79<|page|>9<|box|>402 140 494 856<|content|>This \"belt-and-suspenders\" approach — combining th...ection 83(b) election in detail in Section V below\n<|id|>97<|page|>10<|box|>772 183 806 854<|content|>• The general macroeconomic environment, interest ...ealthcare utilization and capital markets; ... and\n<|id|>99<|page|>11<|box|>89 140 143 854<|content|>Conclusion: ... This condition is satisfied\n<|id|>190<|page|>20<|box|>810 138 883 857<|content|>This is the intended and expected tax result. ... ...ollover), the \"investment company\" exception under\n<|id|>191<|page|>21<|box|>89 140 126 854<|content|>Section 721(b) (which is inapplicable because Hold... basis allocation rules under Sections 722 and 723\n<|id|>234<|page|>26<|box|>526 181 579 856<|content|>• Tax Provisions of LLC Agreement — Draft Markup, ... of the Holdings LLC operating agreement); ... and\n<|id|>236<|page|>26<|box|>619 140 710 854<|content|>No representation is made regarding the tax treatm...r employee benefit implications of the Transaction",
+    "raw_response": "<|src_id|>24<|tgt_id|>26\n<|src_id|>190<|tgt_id|>191",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 191
+        }
+    ]
+}

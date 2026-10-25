@@ -1,0 +1,107 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zadmpuh8\\input\\pdfs\\doc-84d4358b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zadmpuh8\\enriched\\doc-84d4358b.json",
+    "contd_output": "<|src_id|>17<|tgt_id|>18\n<|src_id|>30<|tgt_id|>31\n<|src_id|>43<|tgt_id|>44",
+    "title_output": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>5<|level|>1\n<|id|>11<|level|>1\n<|id|>14<|level|>1\n<|id|>20<|level|>1\n<|id|>21<|level|>2\n<|id|>35<|level|>2\n<|id|>56<|level|>2\n<|id|>73<|level|>2\n<|id|>87<|level|>2\n<|id|>95<|level|>1\n<|id|>107<|level|>1\n<|id|>111<|level|>1",
+    "image_output": "<|src_id|>12<|tgt_id|>11\n<|src_id|>13<|tgt_id|>11",
+    "contd_label": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 12,
+            "table2_idx": 13,
+            "upper_row_ss": [
+                [
+                    "III. THE REEVES EMAIL DOES NOT SUPPORT A",
+                    "14"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "PUNITIVE DAMAGES CLAIM",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>118 95 158 894<|content|>Relationship between early maladaptive schemas (EM\n<|id|>5<|type|>title<|page|>1<|box|>273 115 285 184<|content|>ABSTRACT\n<|id|>17<|type|>title<|page|>1<|box|>325 742 337 818<|content|>KEYWORDS\n<|id|>19<|type|>title<|page|>1<|box|>388 742 400 855<|content|>PALABRAS CLAVE\n<|id|>21<|type|>title<|page|>1<|box|>453 742 464 821<|content|>HIGHLIGHTS\n<|id|>27<|type|>title<|page|>2<|box|>252 97 267 226<|content|>1. Introduction\n<|id|>33<|type|>title<|page|>3<|box|>116 510 131 823<|content|>1.1. Research aims of the present study\n<|id|>35<|type|>title<|page|>3<|box|>489 509 502 712<|content|>2. Materials & methods\n<|id|>36<|type|>title<|page|>3<|box|>512 509 527 870<|content|>2.1. Participants, procedure and study design\n<|id|>38<|type|>title<|page|>3<|box|>808 509 822 625<|content|>2.2. Measures\n<|id|>40<|type|>table<|page|>4<|box|>72 95 653 484<|content|>None\n<|id|>41<|type|>table<|page|>4<|box|>72 509 684 900<|content|>None\n<|id|>49<|type|>title<|page|>5<|box|>592 95 608 242<|content|>2.3. Data analysis\n<|id|>53<|type|>title<|page|>5<|box|>470 509 487 598<|content|>3. Results\n<|id|>54<|type|>title<|page|>5<|box|>495 509 510 759<|content|>3.1. Prevalence and diferences\n<|id|>57<|type|>title<|page|>5<|box|>807 509 822 626<|content|>4. Discussion\n<|id|>59<|type|>table<|page|>6<|box|>99 95 722 484<|content|>None\n<|id|>61<|type|>title<|page|>6<|box|>112 507 159 860<|content|>4.1. High prevalence for adverse childhood experie\n<|id|>63<|type|>title<|page|>6<|box|>590 509 623 845<|content|>4.2. Elevated EMSs and diferences among AFAB and A\n<|id|>65<|type|>table<|page|>7<|box|>74 95 363 900<|content|>None\n<|id|>67<|type|>table<|page|>7<|box|>697 95 890 900<|content|>None\n<|id|>68<|type|>image<|page|>8<|box|>59 95 282 484<|content|>None\n<|id|>70<|type|>title<|page|>8<|box|>839 95 885 445<|content|>4.3. Schema domains are related to adverse childho\n<|id|>72<|type|>title<|page|>9<|box|>329 94 360 421<|content|>4.4. Limitations and recommendation for further re\n<|id|>74<|type|>title<|page|>9<|box|>131 509 147 630<|content|>5. Conclusion\n<|id|>76<|type|>title<|page|>9<|box|>645 509 659 673<|content|>Acknowledgement\n<|id|>78<|type|>title<|page|>9<|box|>720 509 736 694<|content|>Disclosure statement\n<|id|>80<|type|>title<|page|>9<|box|>795 509 810 682<|content|>Financial disclosure\n<|id|>82<|type|>title<|page|>9<|box|>877 509 892 744<|content|>Data availability statement\n<|id|>86<|type|>title<|page|>10<|box|>118 95 133 193<|content|>References",
+    "raw_response": "<|src_id|>40<|tgt_id|>38\n<|src_id|>41<|tgt_id|>38\n<|src_id|>59<|tgt_id|>54\n<|src_id|>65<|tgt_id|>63\n<|src_id|>67<|tgt_id|>63\n<|src_id|>68<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 70
+        }
+    ]
+}

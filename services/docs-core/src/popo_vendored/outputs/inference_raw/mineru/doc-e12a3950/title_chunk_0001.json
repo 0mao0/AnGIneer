@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        52
+    ],
+    "pages": [
+        47,
+        51,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>600<|page|>47<|box|>90 155 135 841<|content|>APPENDIX B: KEY DOCUMENT EXEMPLARS FOR REVIEWER CA\n<|id|>603<|page|>47<|box|>300 140 318 547<|content|>Selected Exemplar Documents and Correct Coding:\n<|id|>618<|page|>51<|box|>90 166 109 830<|content|>APPENDIX C: GLOSSARY OF KEY TERMS AND ACRONYMS\n<|id|>621<|page|>52<|box|>258 385 273 612<|content|>— END OF PROTOCOL —",
+    "raw_response": "<|id|>600<|level|>1\n<|id|>603<|level|>2\n<|id|>618<|level|>1\n<|id|>621<|level|>-1",
+    "parsed": [
+        {
+            "id": 600,
+            "level": 1
+        },
+        {
+            "id": 603,
+            "level": 2
+        },
+        {
+            "id": 618,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 142 104 620<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT / DRAFT TEMPLATE\n<|id|>1<|page|>1<|box|>112 142 126 467<|content|>Calderwood & Harkness LLP Matter No. ... 1025-00008\n<|id|>4<|page|>1<|box|>241 176 258 818<|content|>[FORM — FOR CLOSING USE ONLY; ... TO BE COMPLETED UPON EXECUTION]\n<|id|>5<|page|>1<|box|>267 415 284 583<|content|>Dated as of [●], 20[●]\n<|id|>6<|page|>1<|box|>294 140 458 856<|content|>I, [●], the undersigned, do hereby certify that I ...ecretary) of Quorum Insurance Holdings Corp. ... \"\n<|id|>11<|page|>1<|box|>770 138 898 857<|content|>Attached hereto as Exhibit A is a true, correct, a...have been filed with the Secretary of State of the\n<|id|>12<|page|>2<|box|>90 140 143 856<|content|>State of Delaware or are pending as of the date of...ins in full force and effect as of the date hereof\n<|id|>28<|page|>4<|box|>90 174 162 854<|content|>(b) violate, contravene, or conflict with any appl...Company or any of its assets or properties; ... or\n<|id|>30<|page|>4<|box|>306 138 582 857<|content|>Notwithstanding the foregoing, I acknowledge and c...actions contemplated by the Transaction Documents]\n<|id|>34<|page|>4<|box|>862 140 898 856<|content|>This Certificate is being furnished to Meridian Cr...he closing of the transactions contemplated by the\n<|id|>35<|page|>5<|box|>89 140 181 854<|content|>Transaction Documents, and such parties (and their...sactions contemplated by the Transaction Documents\n<|id|>60<|page|>9<|box|>228 140 244 444<|content|>[To be obtained and attached at closing]\n<|id|>61<|page|>9<|box|>253 142 268 315<|content|>Document Administration\n<|id|>62<|page|>9<|box|>275 140 306 854<|content|>Prepared by: ... 1025-00008\n<|id|>63<|page|>9<|box|>313 140 329 521<|content|>CONFIDENTIAL — Attorney Work Product / Draft Template",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>34<|tgt_id|>35",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        }
+    ]
+}

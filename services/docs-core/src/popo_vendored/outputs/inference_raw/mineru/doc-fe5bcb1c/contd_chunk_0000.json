@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        10,
+        11,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>464 140 526 854<|content|>This memorandum is protected by the attorney-clien...ot constitute a waiver of any applicable privilege\n<|id|>3<|page|>1<|box|>532 143 549 408<|content|>Right-click to update Table of Contents\n<|id|>108<|page|>10<|box|>840 181 895 857<|content|>• September 9, 2024: ... The motion is accompanied...nt of undisputed material facts, declarations from\n<|id|>109<|page|>11<|box|>90 210 143 854<|content|>Jordan Kessler and Seo-Yeon Park, Dr. ... Lautner'...s rebuttal damages report, and supporting exhibits\n<|id|>204<|page|>20<|box|>222 140 239 852<|content|>Omar Siddiqui Senior Associate, intellectual Property Calderwood & Harkness LLP 600 South\n<|id|>205<|page|>20<|box|>239 140 256 769<|content|>Grand Avenue, Suite 4400 Los Angeles, California 90071 Telephone: ... (213) 555-4200\n<|id|>206<|page|>20<|box|>256 142 273 473<|content|>Email: ... com\n<|id|>207<|page|>20<|box|>273 142 289 321<|content|>Matter No. ... 1033-00004\n<|id|>208<|page|>20<|box|>290 142 306 320<|content|>Date: ... October 22, 2024\n<|id|>209<|page|>20<|box|>306 140 325 802<|content|>cc: ... Christy Bauer, Working Associate, intellectual Property, Calderwood & Harkness LLP\n<|id|>210<|page|>20<|box|>333 140 393 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC... memorandum or its contents is strictly prohibited",
+    "raw_response": "<|src_id|>108<|tgt_id|>109",
+    "parsed": [
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        }
+    ]
+}

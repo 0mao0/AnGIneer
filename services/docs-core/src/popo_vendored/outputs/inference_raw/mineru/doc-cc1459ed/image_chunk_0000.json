@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>178 140 195 464<|content|>VIA EMAIL AND FIRST CLASS MAIL\n<|id|>6<|type|>title<|page|>1<|box|>334 140 351 477<|content|>1. Purpose and Acceptance of Engagement\n<|id|>10<|type|>title<|page|>1<|box|>672 140 689 354<|content|>2. Scope of Representation\n<|id|>28<|type|>title<|page|>3<|box|>410 140 428 313<|content|>3. Engagement Team\n<|id|>35<|type|>title<|page|>4<|box|>204 140 222 447<|content|>4. Billing Rates and Fee Arrangements\n<|id|>36<|type|>table<|page|>4<|box|>273 143 348 852<|content|>None\n<|id|>52<|type|>title<|page|>5<|box|>465 140 484 379<|content|>5. Billing and Payment Terms\n<|id|>57<|type|>title<|page|>6<|box|>90 140 107 370<|content|>6. Identification of the Client\n<|id|>66<|type|>title<|page|>6<|box|>594 140 612 321<|content|>7. Conflicts of Interest\n<|id|>70<|type|>title<|page|>7<|box|>90 140 107 390<|content|>8. Confidentiality and Privilege\n<|id|>74<|type|>title<|page|>7<|box|>465 140 482 326<|content|>9. Document Retention\n<|id|>78<|type|>title<|page|>7<|box|>804 142 821 393<|content|>10. Termination of Engagement\n<|id|>82<|type|>title<|page|>8<|box|>329 142 347 297<|content|>11. Governing Law\n<|id|>85<|type|>title<|page|>8<|box|>569 142 585 349<|content|>12. Limitation of Liability\n<|id|>88<|type|>title<|page|>8<|box|>789 142 806 540<|content|>13. Key Company Information (For Firm Records)\n<|id|>90<|type|>table<|page|>8<|box|>876 143 898 852<|content|>None\n<|id|>91<|type|>table<|page|>9<|box|>89 143 402 852<|content|>None\n<|id|>92<|type|>title<|page|>9<|box|>452 143 469 284<|content|>14. Miscellaneous\n<|id|>98<|type|>title<|page|>9<|box|>825 142 842 444<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>105<|type|>title<|page|>10<|box|>141 313 157 684<|content|>ACKNOWLEDGMENT AND ACCEPTANCE",
+    "raw_response": "<|src_id|>36<|tgt_id|>35\n<|src_id|>90<|tgt_id|>88\n<|src_id|>91<|tgt_id|>88",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 88
+        }
+    ]
+}

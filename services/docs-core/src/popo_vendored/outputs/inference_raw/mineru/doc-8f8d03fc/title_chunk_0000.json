@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>138 140 155 292<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>337 357 358 638<|content|>I. Introduction and Purpose\n<|id|>16<|page|>2<|box|>345 313 364 684<|content|>II. Investigation Team and Resources\n<|id|>17<|page|>2<|box|>390 142 407 468<|content|>A. Calderwood & Harkness LLP Staffing\n<|id|>21<|page|>3<|box|>90 140 107 393<|content|>B. Forensic Accounting Advisor\n<|id|>26<|page|>3<|box|>690 140 708 325<|content|>C. E-discovery Vendor\n<|id|>36<|page|>4<|box|>324 285 343 710<|content|>III. Document Preservation and Collection\n<|id|>37<|page|>4<|box|>369 140 385 331<|content|>A. Preservation Notices\n<|id|>47<|page|>5<|box|>204 140 222 473<|content|>B. Custodian Identification and Collection\n<|id|>51<|page|>5<|box|>542 140 559 341<|content|>C. Volume of Documents\n<|id|>56<|page|>6<|box|>90 246 111 750<|content|>IV. Administrative Leave of Investigation Subjects\n<|id|>64<|page|>7<|box|>136 334 155 663<|content|>V. Interviews Conducted to Date\n<|id|>65<|page|>7<|box|>181 142 196 246<|content|>A. Overview\n<|id|>73<|page|>7<|box|>676 140 694 759<|content|>B. Interview of William \"Bill\" Gentry, CPA — HSA L\n<|id|>81<|page|>8<|box|>483 140 501 692<|content|>C. Interview of Thomas Rhett Griffith — VHG Chief\n<|id|>82<|page|>8<|box|>508 174 563 854<|content|>Date: August 22, 2023 Location: Calderwood & Harkn\n<|id|>88<|page|>9<|box|>267 140 284 712<|content|>D. Interview of Margaret \"Meg\" Calder — VHG Chief\n<|id|>95<|page|>9<|box|>797 181 840 815<|content|>VI. Coordination with Independent Auditor (Hargrov\n<|id|>103<|page|>10<|box|>575 230 595 767<|content|>VII. SEC Disclosure Coordination — Form 8-K Filing\n<|id|>104<|page|>10<|box|>619 142 637 524<|content|>A. Coordination with Outside Securities Counsel\n<|id|>107<|page|>11<|box|>90 140 107 297<|content|>B. Form 8-K Filing\n<|id|>112<|page|>11<|box|>513 341 534 656<|content|>VIII. Preliminary Observations\n<|id|>118<|page|>12<|box|>462 300 482 696<|content|>IX. Upcoming Activities and Next Steps\n<|id|>126<|page|>13<|box|>266 370 286 625<|content|>X. Budget and Fee Status\n<|id|>130<|page|>13<|box|>776 282 795 714<|content|>XI. Privilege and Confidentiality Reminder",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>21<|level|>3\n<|id|>26<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>47<|level|>3\n<|id|>51<|level|>3\n<|id|>56<|level|>2\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>73<|level|>3\n<|id|>81<|level|>3\n<|id|>82<|level|>-1\n<|id|>88<|level|>3\n<|id|>95<|level|>2\n<|id|>103<|level|>2\n<|id|>104<|level|>3\n<|id|>107<|level|>3\n<|id|>112<|level|>2\n<|id|>118<|level|>2\n<|id|>126<|level|>2\n<|id|>130<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        }
+    ]
+}

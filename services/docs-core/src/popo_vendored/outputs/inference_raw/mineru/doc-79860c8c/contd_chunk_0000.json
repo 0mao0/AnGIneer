@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        15,
+        16,
+        18,
+        19,
+        22,
+        23,
+        24,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>194 140 229 854<|content|>CALDERWOOD & HARKNESS LLP 1750 K Street NW, Suite 1100 Washington, D. ... 20006\n<|id|>4<|page|>1<|box|>238 142 255 411<|content|>TO: ... 1019-00003\n<|id|>5<|page|>1<|box|>263 142 282 480<|content|>FROM: ... Claudia Merritt, Responsible Partner\n<|id|>6<|page|>1<|box|>290 142 308 343<|content|>DATE: ... February 14, 2024\n<|id|>7<|page|>1<|box|>315 140 352 854<|content|>RE: ... 2)\n<|id|>8<|page|>1<|box|>359 142 377 408<|content|>Right-click to update Table of Contents\n<|id|>55<|page|>6<|box|>787 140 880 857<|content|>Solicitation No. ... The procurement was conducted...nder Federal Acquisition Regulation (FAR) Part 15,\n<|id|>56<|page|>7<|box|>90 140 125 854<|content|>Contracting by Negotiation. ... The solicitation w...ion, with no set-aside for small business concerns\n<|id|>67<|page|>7<|box|>724 140 742 519<|content|>Factor 1: ... Technical Approach — Most Important\n<|id|>71<|page|>7<|box|>829 142 845 460<|content|>Factor 2: ... Past Performance — Important\n<|id|>68<|page|>7<|box|>751 176 768 419<|content|>(a) System Design & Integration\n<|id|>69<|page|>7<|box|>777 176 794 395<|content|>(b) Manufacturing Readiness\n<|id|>70<|page|>7<|box|>803 176 819 377<|content|>(c) Test & Evaluation Plan\n<|id|>72<|page|>7<|box|>854 142 871 504<|content|>Factor 3: ... Management Approach — Important\n<|id|>74<|page|>7<|box|>915 142 929 475<|content|>ATTORNEY WORK PRODUCT — DO NOT DISTRIBUTE\n<|id|>73<|page|>7<|box|>880 176 897 370<|content|>(a) Program Management\n<|id|>150<|page|>15<|box|>843 140 898 856<|content|>The document production motion for AR Tabs 22 and ...cumented a specific, significant concern regarding\n<|id|>151<|page|>16<|box|>89 140 145 856<|content|>Halcyon's supply chain risk that was not raised du...he agency's own contemporaneous evaluation records\n<|id|>182<|page|>18<|box|>840 140 896 854<|content|>The Ridgeline Consulting Group fees of $8,200. ......r capacity as admitted technical advisor under the\n<|id|>183<|page|>19<|box|>89 140 162 854<|content|>Protective Order. ... to Dayton, Ohio, for in-pers... that were available only for in-person inspection\n<|id|>216<|page|>22<|box|>737 140 883 857<|content|>Ground 3 (OCI) — Insufficient Evidence. ... Future...tially including Freedom of Information Act (FOIA)\n<|id|>217<|page|>23<|box|>90 140 127 854<|content|>requests for the AoA deliverables and contract doc...e specific discovery during the protest proceeding\n<|id|>231<|page|>24<|box|>474 147 491 416<|content|>• 30-day follow-up: ... March 8, 2024\n<|id|>233<|page|>24<|box|>513 140 550 854<|content|>If the claim has not been resolved by the 60-day m...ngagement is warranted to pursue the claim further\n<|id|>232<|page|>24<|box|>494 145 511 408<|content|>• 60-day follow-up: ... April 7, 2024\n<|id|>247<|page|>26<|box|>203 140 220 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>248<|page|>26<|box|>222 143 239 251<|content|>By: ... By\n<|id|>249<|page|>26<|box|>238 140 255 725<|content|>Claudia Merritt Partner 1750 K Street NW, Suite 1100 Washington, D. ... 20006\n<|id|>250<|page|>26<|box|>256 142 273 326<|content|>Date: ... February 14, 2024\n<|id|>253<|page|>26<|box|>344 147 359 387<|content|>• File (Matter No. ... 1019-00003)\n<|id|>257<|page|>26<|box|>421 140 483 854<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT....he applicable protective order handling procedures\n<|id|>254<|page|>26<|box|>364 147 378 397<|content|>• Ian Blackwood, Billing Partner\n<|id|>255<|page|>26<|box|>383 147 398 483<|content|>• Lt. ... ) Nathan Yardley, Of Counsel\n<|id|>256<|page|>26<|box|>402 145 419 661<|content|>• Firm General Counsel / Conflicts Office (for matter closing records)",
+    "raw_response": "<|src_id|>55<|tgt_id|>56\n<|src_id|>150<|tgt_id|>151\n<|src_id|>182<|tgt_id|>183\n<|src_id|>216<|tgt_id|>217",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 183
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 217
+        }
+    ]
+}

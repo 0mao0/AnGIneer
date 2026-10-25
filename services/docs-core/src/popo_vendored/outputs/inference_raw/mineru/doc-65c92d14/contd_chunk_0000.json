@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>136 748 152 854<|content|>June 30, 2024\n<|id|>2<|page|>1<|box|>162 140 290 856<|content|>This Seller's Closing Certificate (this \"Certifica...e meanings ascribed to such terms in the Agreement\n<|id|>7<|page|>1<|box|>580 140 599 852<|content|>WHEREAS, the Closing is occurring on the date hereof, June 30, 2024 (the \"Closing Date\"); ... and\n<|id|>8<|page|>1<|box|>607 140 662 854<|content|>WHEREAS, the undersigned, Dr. ... Whitfield, is th...y as a duly elected and authorized officer thereof\n<|id|>98<|page|>11<|box|>845 140 897 514<|content|>Name: ... 8400 Crescent Ridge Parkway, Suite 200\n<|id|>99<|page|>12<|box|>89 140 106 300<|content|>Nashville, TN 37215\n<|id|>100<|page|>12<|box|>107 140 125 277<|content|>EIN: ... 82-3947561\n<|id|>101<|page|>12<|box|>125 140 142 295<|content|>Date: ... June 30, 2024",
+    "raw_response": "<|src_id|>98<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        }
+    ]
+}

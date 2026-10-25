@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        87
+    ],
+    "pages": [
+        50,
+        51,
+        53,
+        57,
+        59,
+        60,
+        61,
+        62,
+        64,
+        65,
+        71,
+        72,
+        79,
+        80,
+        86,
+        87
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>122<|page|>50<|box|>59 266 92 737<|content|>Sales of Treasury Savings Notes ^{1} Table 1.- Sum\n<|id|>124<|page|>51<|box|>44 301 59 708<|content|>Sales of Treasury Savings Notes ^{1/} - (Continued\n<|id|>125<|page|>51<|box|>66 209 80 799<|content|>Table 1.- Summary of Sales and Redemptions, by Ser\n<|id|>132<|page|>53<|box|>52 328 67 657<|content|>Sales of United States Savings Stamps\n<|id|>144<|page|>57<|box|>296 191 310 802<|content|>Table I.- Analysis of Ownership by Type of Securit\n<|id|>150<|page|>59<|box|>44 115 80 860<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>151<|page|>59<|box|>92 207 107 766<|content|>Table II.- Distribution of Ownership for Each Issu\n<|id|>153<|page|>60<|box|>47 131 84 878<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>154<|page|>60<|box|>98 164 112 844<|content|>Table II.- Distribution of Ownership for Each Issu\n<|id|>156<|page|>61<|box|>56 120 93 865<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>159<|page|>62<|box|>58 121 95 866<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>163<|page|>64<|box|>41 84 75 911<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>167<|page|>65<|box|>56 85 91 907<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>169<|page|>65<|box|>123 116 138 881<|content|>Table I.- Securities Issued or Guaranteed by the U\n<|id|>178<|page|>71<|box|>50 186 80 794<|content|>Assets and Liabilities of Government Corporations\n<|id|>180<|page|>72<|box|>43 190 75 804<|content|>Assets and Liabilities of Government Corporations\n<|id|>203<|page|>79<|box|>72 155 97 795<|content|>COLLECTIONS OF INTERNAL REVENUE\n<|id|>204<|page|>80<|box|>51 269 67 788<|content|>Detailed Analysis of Current Internal Revenue Coll\n<|id|>218<|page|>86<|box|>741 231 756 780<|content|>Schedules for Balance Sheet of the Exchange Stabil\n<|id|>219<|page|>86<|box|>764 456 780 553<|content|>Schedule 1\n<|id|>224<|page|>87<|box|>683 446 695 542<|content|>Schedule 4",
+    "raw_response": "<|id|>122<|level|>1\n<|id|>124<|level|>1\n<|id|>125<|level|>2\n<|id|>132<|level|>1\n<|id|>144<|level|>2\n<|id|>150<|level|>1\n<|id|>151<|level|>2\n<|id|>153<|level|>1\n<|id|>154<|level|>2\n<|id|>156<|level|>1\n<|id|>159<|level|>1\n<|id|>163<|level|>1\n<|id|>167<|level|>1\n<|id|>169<|level|>2\n<|id|>178<|level|>1\n<|id|>180<|level|>1\n<|id|>203<|level|>1\n<|id|>204<|level|>2\n<|id|>218<|level|>1\n<|id|>219<|level|>2\n<|id|>224<|level|>2",
+    "parsed": [
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 1
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 167,
+            "level": 1
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 180,
+            "level": 1
+        },
+        {
+            "id": 203,
+            "level": 1
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 1
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 224,
+            "level": 2
+        }
+    ]
+}

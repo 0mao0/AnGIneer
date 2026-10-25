@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 202 137 794<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|page|>1<|box|>388 140 404 446<|content|>I. Purpose and Scope of Memorandum\n<|id|>14<|page|>2<|box|>231 140 248 620<|content|>II. Background: FERC Staff's Allegations and Quant\n<|id|>15<|page|>2<|box|>261 140 277 379<|content|>A. Overview of Staff's Theory\n<|id|>23<|page|>3<|box|>362 142 378 390<|content|>B. FERC Staff's Quantification\n<|id|>32<|page|>4<|box|>148 140 167 408<|content|>III. Dr. Whitfield's Qualifications\n<|id|>38<|page|>4<|box|>723 140 739 500<|content|>IV. Summary of Dr. Whitfield's Key Findings\n<|id|>40<|page|>4<|box|>797 140 834 854<|content|>A. Finding 1: DPT's Negative Day-Ahead Offers Were\n<|id|>48<|page|>6<|box|>330 140 366 854<|content|>B. Finding 2: Congestion Patterns at Indiana Hub W\n<|id|>54<|page|>7<|box|>294 140 329 852<|content|>C. Finding 3: Actual Market Impact Estimated at No\n<|id|>64<|page|>8<|box|>508 140 546 854<|content|>D. Finding 4: FTR Positions Were Acquired Months B\n<|id|>71<|page|>9<|box|>531 140 547 620<|content|>V. Assessment of FERC Staff's Methodology and Weak\n<|id|>78<|page|>10<|box|>739 140 756 457<|content|>VI. Implications for Settlement Strategy\n<|id|>85<|page|>11<|box|>747 140 763 349<|content|>VII. Status of Expert Fees\n<|id|>89<|page|>12<|box|>250 140 265 462<|content|>VIII. Attachments and Cross-References",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>23<|level|>2\n<|id|>32<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>2\n<|id|>48<|level|>2\n<|id|>54<|level|>2\n<|id|>64<|level|>2\n<|id|>71<|level|>1\n<|id|>78<|level|>1\n<|id|>85<|level|>1\n<|id|>89<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        }
+    ]
+}

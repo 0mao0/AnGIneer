@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        196,
+        199
+    ],
+    "pages": [
+        196,
+        197,
+        198,
+        199
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2315<|type|>title<|page|>196<|box|>184 115 207 603<|content|>附录 Q 沉井下沉过程中刃脚的计算\n<|id|>2320<|type|>title<|page|>197<|box|>160 107 185 882<|content|>附录 R 按支护结构与土体相互作用原理的水平土压力计算\n<|id|>2323<|type|>table<|page|>197<|box|>353 107 477 880<|content|>None\n<|id|>2325<|type|>image<|page|>197<|box|>679 310 805 673<|content|>None\n<|id|>2326<|type|>title<|page|>198<|box|>180 112 204 658<|content|>附录 S 直线形地下连续墙支护结构计算\n<|id|>2333<|type|>title<|page|>199<|box|>162 104 186 618<|content|>附录 T 圆形地下连续墙支护结构计算",
+    "raw_response": "<|src_id|>2323<|tgt_id|>2320\n<|src_id|>2325<|tgt_id|>2320",
+    "parsed": [
+        {
+            "src_id": 2323,
+            "tgt_id": 2320
+        },
+        {
+            "src_id": 2325,
+            "tgt_id": 2320
+        }
+    ]
+}

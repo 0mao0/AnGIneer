@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        9,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>127 140 164 854<|content|>CALDERWOOD & HARKNESS LLP 555 California Street, 4...co, California 94104 Telephone: ... (415) 555-7201\n<|id|>2<|page|>1<|box|>171 140 207 854<|content|>125 Broad Street New York, New York 10004 Telephone: ... (212) 555- 4401\n<|id|>3<|page|>1<|box|>215 746 233 854<|content|>June 30, 2023\n<|id|>4<|page|>1<|box|>242 140 258 375<|content|>Via Email and First-Class Mail\n<|id|>5<|page|>1<|box|>268 140 304 854<|content|>Priya Chandrasekaran Chief Executive Officer Lumos...hard Parkway, Suite 300 San Jose, California 95134\n<|id|>6<|page|>1<|box|>311 140 348 854<|content|>Thomas Brightwell General Counsel Lumos Analytics ...hard Parkway, Suite 300 San Jose, California 95134\n<|id|>7<|page|>1<|box|>356 140 410 854<|content|>Re: ... 1008-00005*\n<|id|>8<|page|>1<|box|>419 142 436 326<|content|>Dear Priya and Thomas: ... Dear Priya and Thomas\n<|id|>52<|page|>5<|box|>809 181 901 857<|content|>• September 26, 2022 File Transfer. ... Anand ackn...s as non-proprietary \"general reference materials\"\n<|id|>53<|page|>6<|box|>90 210 162 854<|content|>and \"personal work product. ... \" This characteriz...mentation bearing Lumos's confidentiality markings\n<|id|>92<|page|>9<|box|>839 174 893 856<|content|>Strength of Forensic Evidence. ... The Brindoval P...umos and that those materials were deployed within\n<|id|>93<|page|>10<|box|>90 174 127 854<|content|>NovaSpark's operations. ... This evidence is diffi...t exposure on the CUTSA and breach-of-PIIAA claims\n<|id|>118<|page|>12<|box|>338 140 354 527<|content|>Marcus Delgado Partner Telephone: ... (415) 555-7200\n<|id|>119<|page|>12<|box|>356 142 372 472<|content|>Email: ... com\n<|id|>120<|page|>12<|box|>373 140 406 854<|content|>cc: ... Catherine Bloom, Calderwood & Harkness LLP Wendy Schultz, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>52<|tgt_id|>53\n<|src_id|>92<|tgt_id|>93",
+    "parsed": [
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 93
+        }
+    ]
+}

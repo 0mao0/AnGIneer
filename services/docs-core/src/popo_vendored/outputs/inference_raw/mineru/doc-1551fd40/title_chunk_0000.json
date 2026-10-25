@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 352 118 645<|content|>OFFICER'S CERTIFICATE\n<|id|>1<|page|>1<|box|>136 354 154 643<|content|>Satisfaction of Conditions to Closing\n<|id|>7<|page|>1<|box|>618 140 635 545<|content|>Section 1. Minimum Condition — Tender of Shares\n<|id|>15<|page|>2<|box|>464 142 482 848<|content|>The Minimum Condition set forth in Section 7.01(a)\n<|id|>17<|page|>2<|box|>714 140 732 573<|content|>Section 2. Regulatory Condition — HSR Act Clearanc\n<|id|>23<|page|>3<|box|>366 140 383 687<|content|>Section 3. Regulatory Condition — Investment Canad\n<|id|>29<|page|>4<|box|>90 140 107 696<|content|>Section 4. Representations and Warranties of Ridge\n<|id|>43<|page|>6<|box|>366 140 383 439<|content|>Section 5. No Material Adverse Effect\n<|id|>51<|page|>7<|box|>150 140 167 444<|content|>Section 6. Compliance with Covenants\n<|id|>58<|page|>8<|box|>148 140 167 426<|content|>Section 7. Additional Confirmations\n<|id|>69<|page|>9<|box|>520 140 537 486<|content|>Section 8. Short-Form Merger Qualification\n<|id|>74<|page|>10<|box|>186 140 204 490<|content|>Section 9. No Other Conditions Outstanding\n<|id|>79<|page|>10<|box|>516 413 532 584<|content|>EXECUTION PAGE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>15<|level|>3\n<|id|>17<|level|>2\n<|id|>23<|level|>2\n<|id|>29<|level|>2\n<|id|>43<|level|>2\n<|id|>51<|level|>2\n<|id|>58<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>2\n<|id|>79<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        }
+    ]
+}

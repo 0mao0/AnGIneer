@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 151 143 846<|content|>OFFICER'S CERTIFICATE OF MERIDIAN CONSUMER BRANDS\n<|id|>1<|page|>1<|box|>159 227 176 769<|content|>Delivered Pursuant to Section 8.2(d) of the Asset\n<|id|>6<|page|>1<|box|>319 140 335 395<|content|>INTRODUCTORY RECITALS\n<|id|>12<|page|>2<|box|>90 140 107 665<|content|>Section 1. Certification Regarding Representations\n<|id|>16<|page|>2<|box|>630 140 647 496<|content|>Section 2. Certification Regarding Covenants\n<|id|>28<|page|>4<|box|>90 140 107 627<|content|>Section 3. Certification Regarding No Material Adv\n<|id|>30<|page|>4<|box|>286 140 303 604<|content|>Section 4. Certification Regarding Consents and Ap\n<|id|>38<|page|>5<|box|>90 142 107 604<|content|>Section 5. Certification Regarding Organizational\n<|id|>43<|page|>5<|box|>473 140 489 697<|content|>Section 6. Certification Regarding Authorization;\n<|id|>50<|page|>6<|box|>311 140 329 535<|content|>Section 7. Certification Regarding No Proceedings\n<|id|>54<|page|>6<|box|>594 140 612 478<|content|>Section 8. Certification Regarding Brokers\n<|id|>56<|page|>6<|box|>771 140 789 573<|content|>Section 9. Certification Regarding Closing Deliver\n<|id|>71<|page|>8<|box|>231 140 247 478<|content|>Section 10. Reliance; No Personal Liability\n<|id|>75<|page|>8<|box|>590 400 607 596<|content|>[Signature Page Follows]\n<|id|>76<|page|>8<|box|>614 284 632 712<|content|>SIGNATURE PAGE TO OFFICER'S CERTIFICATE\n<|id|>78<|page|>8<|box|>686 142 702 473<|content|>MERIDIAN CONSUMER BRANDS LLC\n<|id|>84<|page|>8<|box|>797 143 814 473<|content|>MERIDIAN CONSUMER BRANDS LLC\n<|id|>89<|page|>9<|box|>89 434 112 563<|content|>EXHIBIT A\n<|id|>90<|page|>9<|box|>135 207 154 790<|content|>UNANIMOUS WRITTEN CONSENT OF THE BOARD OF MANAGERS\n<|id|>91<|page|>9<|box|>176 316 194 679<|content|>OF MERIDIAN CONSUMER BRANDS LLC\n<|id|>92<|page|>9<|box|>203 357 220 638<|content|>Adopted Effective as of May 14, 2025\n<|id|>108<|page|>11<|box|>89 140 107 633<|content|>OPERATIVE RESOLUTIONS. NOW, THEREFORE, BE IT:\n<|id|>116<|page|>11<|box|>753 142 768 261<|content|>and it is further\n<|id|>125<|page|>12<|box|>781 178 816 816<|content|>SIGNATURE PAGE UNANIMOUS WRITTEN CONSENT OF THE BO",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>6<|level|>2\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>2\n<|id|>38<|level|>2\n<|id|>43<|level|>2\n<|id|>50<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>71<|level|>2\n<|id|>75<|level|>-1\n<|id|>76<|level|>2\n<|id|>78<|level|>-1\n<|id|>84<|level|>-1\n<|id|>89<|level|>2\n<|id|>90<|level|>3\n<|id|>91<|level|>3\n<|id|>92<|level|>-1\n<|id|>108<|level|>3\n<|id|>116<|level|>-1\n<|id|>125<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 352 118 645<|content|>OFFICER'S CERTIFICATE\n<|id|>14<|type|>title<|page|>1<|box|>799 140 816 477<|content|>Section 1. Representations and Warranties\n<|id|>27<|type|>title<|page|>3<|box|>590 140 608 560<|content|>Section 2. Performance of Covenants and Obligation\n<|id|>43<|type|>title<|page|>5<|box|>402 140 419 501<|content|>Section 3. Absence of Material Adverse Effect\n<|id|>49<|type|>title<|page|>6<|box|>148 142 167 336<|content|>Section 4. Capitalization\n<|id|>54<|type|>table<|page|>6<|box|>424 143 847 852<|content|>None\n<|id|>60<|type|>table<|page|>7<|box|>493 143 599 852<|content|>None\n<|id|>62<|type|>title<|page|>7<|box|>763 140 782 470<|content|>Section 5. Completion of Required Filings\n<|id|>70<|type|>title<|page|>8<|box|>508 140 527 331<|content|>Section 6. No Litigation\n<|id|>75<|type|>title<|page|>9<|box|>90 140 107 522<|content|>Section 7. Legal Opinion and Other Deliverables\n<|id|>82<|type|>title<|page|>9<|box|>598 140 614 377<|content|>Section 8. Board Composition\n<|id|>90<|type|>title<|page|>10<|box|>186 140 204 431<|content|>Section 9. Legal Fee Reimbursement\n<|id|>92<|type|>title<|page|>10<|box|>398 140 417 357<|content|>Section 10. Governing Law\n<|id|>94<|type|>title<|page|>10<|box|>506 140 523 647<|content|>[Remainder of page intentionally left blank; signa\n<|id|>95<|type|>title<|page|>10<|box|>532 284 549 712<|content|>SIGNATURE PAGE TO OFFICER'S CERTIFICATE\n<|id|>96<|type|>title<|page|>10<|box|>556 359 574 637<|content|>MERIDIAN DIAGNOSTICS, INC.\n<|id|>98<|type|>title<|page|>10<|box|>646 142 662 419<|content|>MERIDIAN DIAGNOSTICS, INC.",
+    "raw_response": "<|src_id|>54<|tgt_id|>49\n<|src_id|>60<|tgt_id|>49",
+    "parsed": [
+        {
+            "src_id": 54,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 49
+        }
+    ]
+}

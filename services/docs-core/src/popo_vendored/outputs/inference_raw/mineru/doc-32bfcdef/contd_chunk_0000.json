@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1 Federal Street, 35th Floor Boston, Massachusetts 02110\n<|id|>1<|page|>1<|box|>133 140 152 774<|content|>Telephone: ... com\n<|id|>2<|page|>1<|box|>160 733 176 854<|content|>March 29, 2021\n<|id|>3<|page|>1<|box|>186 140 222 854<|content|>Jennifer Chao, Esq. ... 400 Carnegie Center Drive, Suite 600 Princeton, New Jersey 08540\n<|id|>4<|page|>1<|box|>229 140 282 854<|content|>Re: ... 1018-00007\n<|id|>5<|page|>1<|box|>292 140 309 264<|content|>Dear Ms. ... Chao\n<|id|>19<|page|>2<|box|>571 174 608 854<|content|>(g) Trial, including all in-court proceedings thro...and including the entry of final judgment; ... and\n<|id|>21<|page|>2<|box|>660 140 678 674<|content|>The scope of this engagement expressly does not in...ngagement expressly does not include the following\n<|id|>43<|page|>4<|box|>814 140 906 856<|content|>Based on the Firm's preliminary assessment of this... to trial in the Business Litigation Session — the\n<|id|>44<|page|>5<|box|>89 140 127 854<|content|>Firm estimates that total professional fees for th..., will fall in the range of $750,000 to $1,200,000\n<|id|>51<|page|>5<|box|>508 181 544 854<|content|>• Whether the matter proceeds to trial or is resol...itive motions, settlement, or other means; ... and\n<|id|>53<|page|>5<|box|>584 140 712 856<|content|>The Firm is committed to providing Penterra with c...action is required to protect Penterra's interests\n<|id|>63<|page|>6<|box|>409 183 444 854<|content|>• Computerized legal research charges, including c...and other online legal research databases; ... and\n<|id|>65<|page|>6<|box|>484 140 556 854<|content|>All costs and disbursements will be billed at the ...cessary to meet an imminent court-imposed deadline\n<|id|>71<|page|>6<|box|>857 140 893 854<|content|>Invoices will be directed to Jennifer Chao, Esq. ....ch other address or electronic billing platform as\n<|id|>72<|page|>7<|box|>89 140 162 854<|content|>Penterra may designate in writing from time to tim...stration requirements at your earliest convenience\n<|id|>84<|page|>8<|box|>128 183 146 643<|content|>• Steven Kapoor, Vice President, Commercial Operations; ... and\n<|id|>86<|page|>8<|box|>167 140 204 854<|content|>Additional custodians may be identified as the Fir...stodians to the litigation hold in a timely manner\n<|id|>96<|page|>8<|box|>575 183 592 501<|content|>• Meridian National Distributors, Inc. ... and\n<|id|>98<|page|>8<|box|>614 140 688 854<|content|>The Firm's conflict check also encompassed all oth...onduct supplemental conflict checks as appropriate\n<|id|>124<|page|>11<|box|>157 140 191 852<|content|>Linda Osei, Partner Calderwood & Harkness LLP 1 Fe... Massachusetts 02110 Telephone: ... (617) 548-3112\n<|id|>125<|page|>11<|box|>193 142 209 436<|content|>Email: ... com\n<|id|>131<|page|>11<|box|>349 143 366 315<|content|>Title: ... General Counsel\n<|id|>132<|page|>11<|box|>367 143 383 267<|content|>Date: ... Date\n<|id|>133<|page|>11<|box|>383 140 402 846<|content|>Encl. ... Calderwood & Harkness LLP Standard Terms of Engagement (incorporated by reference)\n<|id|>134<|page|>11<|box|>409 140 446 854<|content|>cc: ... Marcus Lindholm, Chief Executive Officer, Penterra Pharmaceuticals Corp",
+    "raw_response": "<|src_id|>43<|tgt_id|>44\n<|src_id|>71<|tgt_id|>72",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        }
+    ]
+}

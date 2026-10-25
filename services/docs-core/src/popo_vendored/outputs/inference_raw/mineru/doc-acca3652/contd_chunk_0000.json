@@ -1,0 +1,43 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        56
+    ],
+    "pages": [
+        3,
+        6,
+        7,
+        8,
+        13,
+        17,
+        20,
+        21,
+        25,
+        26,
+        41,
+        43,
+        55
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>3<|box|>493 485 594 738<|content|>LIBRARY DEC 19 1963 TREASURY DEPARTMENT\n<|id|>2<|page|>3<|box|>796 655 912 906<|content|>LIBRARY ROOM 5030 JUN 2,3 1972 TREASURY DEPARTMENT\n<|id|>4<|page|>6<|box|>360 558 578 695<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>7<|page|>7<|box|>498 397 536 650<|content|>MARCH-1962\n<|id|>8<|page|>7<|box|>815 75 875 873<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>9<|page|>8<|box|>410 285 442 736<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents,\n<|id|>28<|page|>13<|box|>512 50 616 459<|content|>The announcement stated that the Treasury was comb...rm issues). ... On terms mutually advantageous the\n<|id|>29<|page|>13<|box|>510 493 572 902<|content|>Treasury thus offered holders of certain bonds an ...periods ranging between 6^{1/2} and 26^{1/2} years\n<|id|>60<|page|>17<|box|>879 25 919 486<|content|>2/ Excess of receipts, or expenditures (-). ... pu...ar 1955 (previously included from November 1949 as\n<|id|>61<|page|>17<|box|>754 526 872 976<|content|>interest checks and coupons outstanding); ... Thereafter it will revert to \\$285 billion\n<|id|>80<|page|>20<|box|>780 63 899 525<|content|>Note: ... beginning 1958, Federal Facilities Corpo...edia Guaranty Fund from \"Funds appropriated to the\n<|id|>81<|page|>20<|box|>743 574 819 992<|content|>President\" to \"Independent offices\"; ... 1813)\n<|id|>87<|page|>21<|box|>570 16 602 444<|content|>By various agencies for programs under the Defense Production Act. ... Virgin Islands\n<|id|>88<|page|>21<|box|>477 509 550 936<|content|>Corporation; ... Lawrence Seaway Development Corporation beginning 1960\n<|id|>126<|page|>25<|box|>506 313 519 617<|content|>Table 2. ... - Trust Account Receipts\n<|id|>129<|page|>26<|box|>895 516 907 831<|content|>* Less than \\$500,000. ... Not available\n<|id|>208<|page|>41<|box|>115 402 129 551<|content|>(In millions of dollars)\n<|id|>211<|page|>43<|box|>81 10 280 460<|content|>The Second Liberty Bond Act (31 U. ... Obligations...utory debt limitation at current redemption values\n<|id|>276<|page|>55<|box|>412 10 495 462<|content|>57/ There were allotted in full all subscriptions ...5 million for the certificates which were allotted\n<|id|>288<|page|>55<|box|>486 500 497 601<|content|>p Preliminary. ... p Preliminary",
+    "raw_response": "<|src_id|>28<|tgt_id|>29\n<|src_id|>60<|tgt_id|>61\n<|src_id|>80<|tgt_id|>81\n<|src_id|>87<|tgt_id|>88",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        }
+    ]
+}

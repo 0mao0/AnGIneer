@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        10,
+        11,
+        16,
+        17,
+        18,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 143 104 834<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT ATTORNEY-CLIENT PRIVILEGED\n<|id|>1<|page|>1<|box|>112 158 148 839<|content|>CALDERWOOD & HARKNESS LLP 125 Broad Street, 44th Floor New York, New York 10004 Telephone: ... com\n<|id|>2<|page|>1<|box|>156 424 172 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>181 140 219 854<|content|>TO: ... Calloway, Founder & Chief Investment Offic...or, Infrastructure, Ironside Capital Management LP\n<|id|>4<|page|>1<|box|>227 140 281 854<|content|>FROM: ... Owen Fischer, Working Associate, Funds &...unds & Asset Management, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>289 140 324 854<|content|>REVIEWED BY: ... Pamela Cross, Responsible Partner, Funds & Asset Management, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>333 140 351 330<|content|>DATE: ... August 29, 2022\n<|id|>7<|page|>1<|box|>359 140 395 854<|content|>RE: ... Due Diligence Memorandum — Environmental L... and Compliance, Cascadia Renewables Holdings, Inc\n<|id|>8<|page|>1<|box|>402 140 420 361<|content|>MATTER NO. ... 1023-00001\n<|id|>9<|page|>1<|box|>429 140 445 408<|content|>Right-click to update Table of Contents\n<|id|>86<|page|>10<|box|>837 140 892 857<|content|>Risk Assessment: ... However, the absence of\n<|id|>87<|page|>11<|box|>90 140 164 854<|content|>AST closure documentation represents a regulatory ... Cascadia to complete the cleanup prior to closing\n<|id|>137<|page|>16<|box|>864 140 901 856<|content|>The VCP Agreed Order represents a binding obligati...dia Acquisition Corp. ... It is essential that the\n<|id|>138<|page|>17<|box|>89 140 127 854<|content|>EPA clearly address the allocation of remediation ...row mechanism as recommended in Section VIII below\n<|id|>156<|page|>18<|box|>441 147 476 854<|content|>• Absence of pending or threatened environmental proceedings, enforcement actions, or orders; ... and\n<|id|>158<|page|>18<|box|>500 140 536 854<|content|>The draft disclosure schedules reference the North...ent with the findings described in this memorandum\n<|id|>203<|page|>24<|box|>866 140 902 856<|content|>Appendix D: ... North Cascades Hydroelectric Stati...rts — including a copy of the Agreed Order between\n<|id|>204<|page|>25<|box|>90 140 143 854<|content|>Cascadia and Washington Department of Ecology, all...pondence with Ecology regarding the VCP enrollment\n<|id|>207<|page|>25<|box|>316 142 332 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>208<|page|>25<|box|>334 142 351 240<|content|>Prepared by: ... Prepared by\n<|id|>209<|page|>25<|box|>383 142 401 606<|content|>Owen Fischer Working Associate, Funds & Asset Management\n<|id|>210<|page|>25<|box|>434 142 470 571<|content|>Theresa Kim Lead Associate, Funds & Asset Manageme... Funds & Asset Management Reviewed and Approved by",
+    "raw_response": "<|src_id|>86<|tgt_id|>87\n<|src_id|>137<|tgt_id|>138\n<|src_id|>203<|tgt_id|>204",
+    "parsed": [
+        {
+            "src_id": 86,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 204
+        }
+    ]
+}

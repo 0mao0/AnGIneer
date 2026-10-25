@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 281 133 715<|content|>250 Park Avenue, 40th Floor New York, New York 10177\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 746 185 854<|content|>May 17, 2024\n<|id|>4<|page|>1<|box|>193 140 229 854<|content|>Belmont Ridge Equipment Trust 2024-A c/o Keyline T...Street, Suite 800 Philadelphia, Pennsylvania 19103\n<|id|>5<|page|>1<|box|>237 140 273 854<|content|>Belmont Ridge Bank, National Association 600 Lexington Avenue, 32nd Floor New York, New York 10022\n<|id|>6<|page|>1<|box|>282 140 300 828<|content|>Ashford Capital Markets LLC 383 Madison Avenue, 22nd Floor New York, New York 10179\n<|id|>7<|page|>1<|box|>308 140 343 854<|content|>Meridian Fiduciary Services, Inc. ... , as Indentu...arclay Street, 12th Floor New York, New York 10007\n<|id|>8<|page|>1<|box|>352 140 369 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>23<|page|>2<|box|>744 174 815 854<|content|>(e) The Trust Agreement dated as of January 22, 20... terms of its governance were established; ... and\n<|id|>25<|page|>3<|box|>133 140 189 856<|content|>The Base Indenture, the Supplemental Indenture, the Original SSA, Amendment No. ... \"\n<|id|>94<|page|>9<|box|>862 174 898 854<|content|>(a) any financial statements, financial schedules,...ncorporated by reference into, or omitted from the\n<|id|>95<|page|>10<|box|>89 174 143 854<|content|>Prospectus, including without limitation the pool-...d other quantitative information set forth therein\n<|id|>96<|page|>10<|box|>152 174 244 854<|content|>(b) any reports, filings, or information filed or ...e Registration Statement or the Prospectus; ... or\n<|id|>98<|page|>10<|box|>296 174 424 856<|content|>We note that the scope and nature of our negative ...ess of the information contained in the Prospectus\n<|id|>103<|page|>10<|box|>617 218 633 545<|content|>• Summit Creek Capital Advisors LLC; ... and\n<|id|>106<|page|>10<|box|>719 140 864 857<|content|>This opinion letter is rendered as of the date her...rred beyond the matters expressly set forth herein\n<|id|>104<|page|>10<|box|>637 218 652 495<|content|>• Iron Gate Insurance Company; ... and\n<|id|>111<|page|>11<|box|>266 140 282 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>112<|page|>11<|box|>285 143 301 253<|content|>By: ... By\n<|id|>113<|page|>11<|box|>301 142 318 336<|content|>Name: ... Francesca Morano\n<|id|>114<|page|>11<|box|>319 142 334 248<|content|>Title: ... Partner\n<|id|>115<|page|>11<|box|>335 140 352 571<|content|>250 Park Avenue, 40th Floor New York, New York 10177\n<|id|>116<|page|>11<|box|>353 142 367 261<|content|>FM/rkl Enclosures\n<|id|>117<|page|>11<|box|>375 140 406 852<|content|>cc: ... Whitfield & Donahue LLP (Wilmington, Delaw...Velthorn Accounting Group LLP (New York, New York)",
+    "raw_response": "<|src_id|>23<|tgt_id|>25\n<|src_id|>94<|tgt_id|>95",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        }
+    ]
+}

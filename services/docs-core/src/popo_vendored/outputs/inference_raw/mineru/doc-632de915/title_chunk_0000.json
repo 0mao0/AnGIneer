@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 140 128 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>208 140 224 611<|content|>VIA OVERNIGHT COURIER AND ELECTRONIC MAIL\n<|id|>11<|page|>1<|box|>532 142 550 439<|content|>1. Introduction and Purpose of Notice\n<|id|>17<|page|>2<|box|>348 140 364 805<|content|>2. Factual Background — Marlowe Asset Management-2\n<|id|>18<|page|>2<|box|>378 140 396 622<|content|>2.1 The Marlowe Asset Management-2 Phase II Clinic\n<|id|>22<|page|>3<|box|>90 140 107 678<|content|>2.2 Data Monitoring Committee Interim Analysis — A\n<|id|>29<|page|>4<|box|>90 142 106 421<|content|>2.3 Broadleaf Scientific Assessment\n<|id|>32<|page|>4<|box|>500 140 517 527<|content|>2.4 FDA Partial Clinical Hold — August 22, 2024\n<|id|>36<|page|>5<|box|>90 140 107 433<|content|>2.5 Company's Protocol Amendment\n<|id|>44<|page|>5<|box|>750 140 766 764<|content|>3. Non-Satisfaction of Closing Condition Under Sec\n<|id|>45<|page|>5<|box|>768 142 785 401<|content|>Representations and Warranties\n<|id|>60<|page|>7<|box|>500 140 534 813<|content|>4. Non-Satisfaction of Closing Condition Under Sec\n<|id|>62<|page|>7<|box|>684 140 700 488<|content|>4.1 Occurrence of a Material Adverse Effect\n<|id|>71<|page|>9<|box|>157 140 175 439<|content|>4.2 Inapplicability of MAE Carveouts\n<|id|>83<|page|>10<|box|>212 140 229 334<|content|>5. Reservation of Rights\n<|id|>91<|page|>11<|box|>167 140 185 334<|content|>6. Request for Response\n<|id|>99<|page|>12<|box|>90 140 107 382<|content|>7. Governing Law and Notices\n<|id|>105<|page|>12<|box|>483 140 500 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>4<|level|>1\n<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>1\n<|id|>45<|level|>2\n<|id|>60<|level|>1\n<|id|>62<|level|>2\n<|id|>71<|level|>2\n<|id|>83<|level|>1\n<|id|>91<|level|>1\n<|id|>99<|level|>1\n<|id|>105<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        }
+    ]
+}

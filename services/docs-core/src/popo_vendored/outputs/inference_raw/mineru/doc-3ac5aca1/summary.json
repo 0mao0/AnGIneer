@@ -1,0 +1,191 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-b1suzmls\\input\\pdfs\\doc-3ac5aca1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-b1suzmls\\enriched\\doc-3ac5aca1.json",
+    "contd_output": "<|src_id|>30<|tgt_id|>31",
+    "title_output": "<|id|>4<|level|>1\n<|id|>6<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>23<|level|>3\n<|id|>27<|level|>3\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>53<|level|>3\n<|id|>57<|level|>3\n<|id|>62<|level|>2\n<|id|>64<|level|>3\n<|id|>73<|level|>3\n<|id|>83<|level|>3\n<|id|>91<|level|>3\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>104<|level|>3\n<|id|>110<|level|>3\n<|id|>113<|level|>2\n<|id|>114<|level|>3\n<|id|>117<|level|>3\n<|id|>123<|level|>3\n<|id|>127<|level|>2\n<|id|>129<|level|>3\n<|id|>133<|level|>3\n<|id|>137<|level|>3\n<|id|>142<|level|>3\n<|id|>152<|level|>2\n<|id|>153<|level|>3\n<|id|>160<|level|>3\n<|id|>166<|level|>3\n<|id|>177<|level|>2\n<|id|>184<|level|>2\n<|id|>193<|level|>2",
+    "image_output": "<|src_id|>5<|tgt_id|>4\n<|src_id|>93<|tgt_id|>91\n<|src_id|>94<|tgt_id|>91",
+    "contd_label": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        }
+    ],
+    "title_label": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 5,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 91
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 93,
+            "table2_idx": 94,
+            "upper_row_ss": [
+                [
+                    "Excess Availability (%)",
+                    "N/A",
+                    "29.9%",
+                    "N/A"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "(over $35M)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

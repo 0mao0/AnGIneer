@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 228 130 854<|content|>CALDERWOOD & HARKNESS LLP Avenue Louise 480 1050 B\n<|id|>11<|page|>1<|box|>616 140 633 264<|content|>1. Background\n<|id|>36<|page|>3<|box|>555 142 571 333<|content|>2. Scope of Engagement\n<|id|>38<|page|>3<|box|>630 140 647 349<|content|>(a) Classification Analysis\n<|id|>46<|page|>4<|box|>411 140 429 289<|content|>(b) Expert Report\n<|id|>48<|page|>4<|box|>570 142 588 426<|content|>The expert report shall, at a minimum:\n<|id|>54<|page|>5<|box|>90 140 108 367<|content|>(c) BTI Application Support\n<|id|>56<|page|>5<|box|>253 140 272 450<|content|>(d) Comparative BTI Analysis Support\n<|id|>64<|page|>6<|box|>90 140 107 334<|content|>3. Expert Qualifications\n<|id|>72<|page|>6<|box|>580 142 597 367<|content|>4. Deliverables and Timeline\n<|id|>78<|page|>7<|box|>398 142 415 310<|content|>5. Fee Arrangements\n<|id|>84<|page|>8<|box|>297 140 314 274<|content|>6. Independence\n<|id|>94<|page|>8<|box|>791 140 808 390<|content|>7. Privilege and Confidentiality\n<|id|>101<|page|>9<|box|>619 140 636 482<|content|>8. Document Handling and Data Protection\n<|id|>105<|page|>10<|box|>148 140 167 264<|content|>9. Termination\n<|id|>110<|page|>10<|box|>459 142 476 297<|content|>10. Governing Law\n<|id|>113<|page|>10<|box|>625 142 642 310<|content|>11. Points of Contact\n<|id|>115<|page|>10<|box|>676 142 693 385<|content|>Calderwood & Harkness LLP:\n<|id|>128<|page|>11<|box|>281 142 297 264<|content|>12. Acceptance",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>11<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>-1\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>64<|level|>1\n<|id|>72<|level|>1\n<|id|>78<|level|>1\n<|id|>84<|level|>1\n<|id|>94<|level|>1\n<|id|>101<|level|>1\n<|id|>105<|level|>1\n<|id|>110<|level|>1\n<|id|>113<|level|>1\n<|id|>115<|level|>2\n<|id|>128<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 1
+        }
+    ]
+}

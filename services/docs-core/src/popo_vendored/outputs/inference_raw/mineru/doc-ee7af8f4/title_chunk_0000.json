@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 183 119 813<|content|>CERTIFICATE OF GOOD STANDING REQUEST LETTERS\n<|id|>1<|page|>1<|box|>136 344 157 653<|content|>DELAWARE AND FLORIDA\n<|id|>23<|page|>2<|box|>518 143 536 228<|content|>Daniel Obi\n<|id|>32<|page|>2<|box|>881 143 898 421<|content|>1. Verimark Hospitality Group Inc.\n<|id|>34<|page|>3<|box|>152 140 170 424<|content|>2. Verimark Resort Properties LLC\n<|id|>36<|page|>3<|box|>241 140 258 415<|content|>3. VHG Management Services Inc.\n<|id|>38<|page|>3<|box|>329 140 347 452<|content|>4. Verimark Convention Holdings LLC\n<|id|>40<|page|>3<|box|>417 140 435 375<|content|>5. Cascadia Hospitality Corp.\n<|id|>42<|page|>3<|box|>506 140 523 431<|content|>Processing and Delivery Instructions\n<|id|>46<|page|>3<|box|>683 176 699 343<|content|>Attention: Daniel Obi\n<|id|>48<|page|>3<|box|>763 142 780 316<|content|>Payment Information\n<|id|>50<|page|>4<|box|>152 140 169 308<|content|>Contact Information\n<|id|>69<|page|>4<|box|>773 142 791 421<|content|>1. Palmetto Beachfront Hotels LLC\n<|id|>72<|page|>5<|box|>171 140 189 431<|content|>Processing and Delivery Instructions\n<|id|>78<|page|>5<|box|>428 140 445 534<|content|>Note Regarding Foreign Qualification Certificates\n<|id|>80<|page|>5<|box|>626 142 643 316<|content|>Payment Information\n<|id|>82<|page|>5<|box|>751 142 768 308<|content|>Contact Information\n<|id|>93<|page|>7<|box|>90 441 107 557<|content|>APPENDIX A\n<|id|>94<|page|>7<|box|>131 261 148 736<|content|>GOOD STANDING CERTIFICATE REQUEST TRACKER\n<|id|>95<|page|>7<|box|>172 292 189 705<|content|>(Internal Use Only — Calderwood & Harkness LLP)",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>23<|level|>-1\n<|id|>32<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>3\n<|id|>38<|level|>3\n<|id|>40<|level|>3\n<|id|>42<|level|>4\n<|id|>46<|level|>-1\n<|id|>48<|level|>4\n<|id|>50<|level|>4\n<|id|>69<|level|>3\n<|id|>72<|level|>4\n<|id|>78<|level|>4\n<|id|>80<|level|>4\n<|id|>82<|level|>4\n<|id|>93<|level|>1\n<|id|>94<|level|>2\n<|id|>95<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 50,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 78,
+            "level": 4
+        },
+        {
+            "id": 80,
+            "level": 4
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 2
+        }
+    ]
+}

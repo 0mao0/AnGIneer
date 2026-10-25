@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        12,
+        22,
+        23,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>160 142 176 341<|content|>TO: ... Caldwell\n<|id|>2<|page|>1<|box|>186 140 203 568<|content|>FROM: ... , Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>212 142 229 315<|content|>DATE: ... March 8, 2023\n<|id|>4<|page|>1<|box|>237 140 273 854<|content|>RE: ... 312847/2022, New York Supreme Court, New York County, Matrimonial Part 7\n<|id|>5<|page|>1<|box|>282 140 299 671<|content|>CC: ... Nadia Petrov, Esq\n<|id|>12<|page|>1<|box|>839 140 893 854<|content|>The procedural posture of the case is as follows: ... Expert reports on the valuation of Caldwell\n<|id|>13<|page|>2<|box|>89 140 200 854<|content|>Meridian Capital LLC and Caldwell Realty Holdings ...t are not expected to be material to the mediation\n<|id|>129<|page|>12<|box|>618 181 635 629<|content|>• Mr. ... 745 million\n<|id|>132<|page|>12<|box|>729 140 801 854<|content|>Our opening position on this issue is a buyout at ...nd should not require significant negotiation time\n<|id|>130<|page|>12<|box|>638 183 655 627<|content|>• Dr. ... 555 million\n<|id|>250<|page|>22<|box|>773 140 883 856<|content|>IRC § 1041 Transfers. ... To qualify as incident t...the marriage as defined in the applicable Treasury\n<|id|>251<|page|>23<|box|>90 140 127 854<|content|>Regulations. ... The settlement agreement should c... § 1041 and are being made incident to the divorce\n<|id|>277<|page|>25<|box|>571 140 606 854<|content|>Priya Anand, Esq. ... (212) 555-8200\n<|id|>278<|page|>25<|box|>606 142 623 454<|content|>Email: ... com\n<|id|>279<|page|>25<|box|>625 143 638 299<|content|>Date: ... March 8, 2023\n<|id|>280<|page|>25<|box|>638 140 700 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...press written consent of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>250<|tgt_id|>251",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 250,
+            "tgt_id": 251
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 346 133 651<|content|>780 Third Avenue New York, NY 10017\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 723 184 854<|content|>October 20, 2025\n<|id|>4<|page|>1<|box|>194 140 229 854<|content|>Gregory Alston, Esq. ... General Counsel & Secreta...entennial Tower Drive, Suite 800 Herndon, VA 20170\n<|id|>5<|page|>1<|box|>237 140 300 854<|content|>Re: ... Alston\n<|id|>28<|page|>3<|box|>851 140 926 856<|content|>Lead Associate: ... Morrow will Page 3\n<|id|>29<|page|>4<|box|>90 140 145 854<|content|>coordinate the drafting and negotiation of documen...he Administrative Agent and local counsel. ... com\n<|id|>48<|page|>6<|box|>436 174 472 854<|content|>Gregory Alston, Esq. ... General Counsel & Secreta...entennial Tower Drive, Suite 800 Herndon, VA 20170\n<|id|>49<|page|>6<|box|>479 140 517 854<|content|>WAL may designate an alternative address or email ...ten notice to the billing partner, Claudia Merritt\n<|id|>83<|page|>10<|box|>89 140 123 854<|content|>Philip Hartmann, Partner Banking & Finance Practic..., New York, NY 10017 Telephone: ... (212) 554-7112\n<|id|>84<|page|>10<|box|>125 142 141 478<|content|>Email: ... com\n<|id|>88<|page|>10<|box|>228 142 244 397<|content|>WHITMORE AEROSPACE LLC\n<|id|>89<|page|>10<|box|>244 143 262 253<|content|>By: ... By\n<|id|>90<|page|>10<|box|>263 142 279 315<|content|>Name: ... Gregory Alston\n<|id|>91<|page|>10<|box|>279 142 296 403<|content|>Title: ... General Counsel & Secretary\n<|id|>92<|page|>10<|box|>297 143 314 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>28<|tgt_id|>29",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        }
+    ]
+}

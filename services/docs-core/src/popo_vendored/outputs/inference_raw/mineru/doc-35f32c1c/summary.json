@@ -1,0 +1,106 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rb6_qywu\\input\\pdfs\\doc-35f32c1c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rb6_qywu\\enriched\\doc-35f32c1c.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>34<|level|>2\n<|id|>41<|level|>2\n<|id|>47<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>58<|level|>2\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>70<|level|>3\n<|id|>72<|level|>3\n<|id|>83<|level|>2",
+    "image_output": "<|src_id|>7<|tgt_id|>4\n<|src_id|>11<|tgt_id|>9\n<|src_id|>12<|tgt_id|>9",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 7,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 9
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 11,
+            "table2_idx": 12,
+            "upper_row_ss": [
+                [
+                    "3b. Mailing Address",
+                    "320 Federal Street"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "3c. City",
+                    "Boston"
+                ]
+            ]
+        }
+    ]
+}

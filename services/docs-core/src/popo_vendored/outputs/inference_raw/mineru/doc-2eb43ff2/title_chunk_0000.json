@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 202 108 794<|content|>UNITED STATES DISTRICT COURT FOR THE DISTRICT OF D\n<|id|>2<|page|>1<|box|>334 158 388 838<|content|>DEFENDANT SOLSTICE BIOMEDICAL, INC.'S NOTICE OF DE\n<|id|>3<|page|>1<|box|>445 140 463 390<|content|>I. INTRODUCTORY NOTICE\n<|id|>6<|page|>1<|box|>739 142 757 388<|content|>II. DEPOSITION LOGISTICS\n<|id|>7<|page|>1<|box|>771 142 787 367<|content|>A. Date, Time, and Location\n<|id|>13<|page|>2<|box|>301 142 318 316<|content|>B. Recording Method\n<|id|>16<|page|>2<|box|>561 140 578 547<|content|>III. OBLIGATION TO DESIGNATE WITNESSES\n<|id|>20<|page|>3<|box|>186 140 203 483<|content|>IV. DEFINITIONS AND INSTRUCTIONS\n<|id|>34<|page|>4<|box|>309 142 324 267<|content|>B. Instructions.\n<|id|>40<|page|>4<|box|>761 140 777 419<|content|>V. TOPICS FOR EXAMINATION\n<|id|>42<|page|>5<|box|>90 140 126 854<|content|>Topic 1: Conception, Development, and Reduction to\n<|id|>49<|page|>5<|box|>512 142 529 550<|content|>Topic 2: Prosecution History of the Asserted Paten\n<|id|>57<|page|>6<|box|>184 142 200 640<|content|>Topic 3: Claim Scope and Interpretation of the Ass\n<|id|>64<|page|>6<|box|>513 142 531 700<|content|>Topic 4: Apex's Investigation and Basis for Its In\n<|id|>72<|page|>7<|box|>138 140 157 665<|content|>Topic 5: Prior Art Known to Apex Relating to the A\n<|id|>80<|page|>7<|box|>587 140 623 854<|content|>Topic 6: Licensing History and Practices Relating\n<|id|>88<|page|>8<|box|>246 142 263 700<|content|>Topic 7: Apex's Damages Theories and Calculation o\n<|id|>98<|page|>8<|box|>709 140 744 854<|content|>Topic 8: Apex's Commercial Activities Relating to\n<|id|>112<|page|>9<|box|>773 142 792 620<|content|>Topic 10: Assignment and Ownership of the Asserted\n<|id|>126<|page|>10<|box|>792 142 810 805<|content|>Topic 12: Inequitable Conduct and Disclosure Oblig\n<|id|>134<|page|>11<|box|>443 140 460 727<|content|>VI. DOCUMENT REQUEST ACCOMPANYING DEPOSITION NOTIC\n<|id|>143<|page|>12<|box|>212 140 229 421<|content|>VII. RESERVATION OF RIGHTS\n<|id|>147<|page|>12<|box|>477 140 494 504<|content|>VIII. COMPLIANCE WITH LOCAL RULES\n<|id|>159<|page|>12<|box|>842 375 858 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>2\n<|id|>7<|level|>3\n<|id|>13<|level|>3\n<|id|>16<|level|>2\n<|id|>20<|level|>2\n<|id|>34<|level|>3\n<|id|>40<|level|>2\n<|id|>42<|level|>3\n<|id|>49<|level|>3\n<|id|>57<|level|>3\n<|id|>64<|level|>3\n<|id|>72<|level|>3\n<|id|>80<|level|>3\n<|id|>88<|level|>3\n<|id|>98<|level|>3\n<|id|>112<|level|>3\n<|id|>126<|level|>3\n<|id|>134<|level|>2\n<|id|>143<|level|>2\n<|id|>147<|level|>2\n<|id|>159<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        }
+    ]
+}

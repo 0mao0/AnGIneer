@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        5,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 147 142 849<|content|>RESOLUTIONS OF THE SPECIAL COMMITTEE OF THE BOARD\n<|id|>1<|page|>1<|box|>159 256 176 740<|content|>Adopted by Unanimous Written Consent on January 20\n<|id|>4<|page|>1<|box|>361 140 378 243<|content|>RECITALS\n<|id|>32<|page|>5<|box|>148 142 166 279<|content|>RESOLUTIONS\n<|id|>34<|page|>5<|box|>224 140 241 478<|content|>1. Authorization of Settlement Discussions.\n<|id|>36<|page|>5<|box|>554 140 571 560<|content|>2. Settlement Parameters and Negotiation Guideline\n<|id|>58<|page|>9<|box|>138 140 157 364<|content|>3. Limitations on Authority.\n<|id|>64<|page|>9<|box|>664 140 681 527<|content|>4. Engagement of Advisors in Settlement Process.\n<|id|>69<|page|>10<|box|>338 140 354 401<|content|>5. Coordination with Full Board.\n<|id|>73<|page|>10<|box|>664 140 681 343<|content|>6. Preservation of Rights.\n<|id|>77<|page|>11<|box|>257 142 273 344<|content|>7. General Authorization.\n<|id|>79<|page|>11<|box|>559 140 575 452<|content|>CERTIFICATION AND EXECUTION\n<|id|>83<|page|>12<|box|>89 142 106 830<|content|>SPECIAL COMMITTEE OF THE BOARD OF DIRECTORS REDSTO\n<|id|>87<|page|>12<|box|>280 142 297 542<|content|>ATTESTATION OF CORPORATE SECRETARY",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>32<|level|>2\n<|id|>34<|level|>3\n<|id|>36<|level|>3\n<|id|>58<|level|>3\n<|id|>64<|level|>3\n<|id|>69<|level|>3\n<|id|>73<|level|>3\n<|id|>77<|level|>3\n<|id|>79<|level|>2\n<|id|>83<|level|>1\n<|id|>87<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 2
+        }
+    ]
+}

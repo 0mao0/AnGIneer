@@ -1,0 +1,54 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        53,
+        100
+    ],
+    "pages": [
+        54,
+        68,
+        77,
+        83,
+        91,
+        96,
+        97,
+        99
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>237<|page|>54<|box|>83 352 96 661<|content|>Footnotes to Table 4.- (Continued)\n<|id|>315<|page|>68<|box|>50 397 62 631<|content|>UNITED STATES SAVINGS BONDS\n<|id|>337<|page|>77<|box|>55 242 76 735<|content|>MARKET QUOTATIONS ON TREASURY SECURITIES, FEBRUARY\n<|id|>351<|page|>83<|box|>83 194 102 744<|content|>INTERNAL REVENUE COLLECTIONS BY PRINCIPAL SOURCES\n<|id|>370<|page|>91<|box|>520 109 535 816<|content|>Table 1.- Net Capital Movement Between the United\n<|id|>379<|page|>96<|box|>90 185 106 856<|content|>Table 3.- Net Transactions in Long-Term Domestic S\n<|id|>381<|page|>97<|box|>81 336 100 637<|content|>Section II - Summary by Countries\n<|id|>388<|page|>99<|box|>83 262 100 681<|content|>Section III - Preliminary Details by Countries",
+    "raw_response": "<|id|>237<|level|>2\n<|id|>315<|level|>1\n<|id|>337<|level|>1\n<|id|>351<|level|>1\n<|id|>370<|level|>1\n<|id|>379<|level|>1\n<|id|>381<|level|>2\n<|id|>388<|level|>2",
+    "parsed": [
+        {
+            "id": 237,
+            "level": 2
+        },
+        {
+            "id": 315,
+            "level": 1
+        },
+        {
+            "id": 337,
+            "level": 1
+        },
+        {
+            "id": 351,
+            "level": 1
+        },
+        {
+            "id": 370,
+            "level": 1
+        },
+        {
+            "id": 379,
+            "level": 1
+        },
+        {
+            "id": 381,
+            "level": 2
+        },
+        {
+            "id": 388,
+            "level": 2
+        }
+    ]
+}

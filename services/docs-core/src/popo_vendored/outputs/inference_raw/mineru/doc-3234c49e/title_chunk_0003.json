@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        143,
+        149
+    ],
+    "pages": [
+        144,
+        145,
+        146,
+        147,
+        148,
+        149
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2266<|page|>144<|box|>192 324 219 667<|content|>5 钢结构加固与修复\n<|id|>2267<|page|>144<|box|>251 415 269 579<|content|>5.1 一般规定\n<|id|>2269<|page|>144<|box|>358 406 376 589<|content|>5.3 增大截面加固\n<|id|>2272<|page|>144<|box|>638 418 655 579<|content|>5.4 连接的加固\n<|id|>2274<|page|>145<|box|>179 304 206 751<|content|>6 基础与倒滤结构修复加固\n<|id|>2275<|page|>145<|box|>238 447 255 611<|content|>6.1 一般规定\n<|id|>2281<|page|>145<|box|>644 458 663 603<|content|>6.2 材料\n<|id|>2285<|page|>146<|box|>122 396 138 601<|content|>6.3 桩基础修复加固\n<|id|>2288<|page|>146<|box|>315 378 333 621<|content|>6.4 重力式基础修复加固\n<|id|>2300<|page|>147<|box|>365 438 383 618<|content|>6.5 倒滤结构修复\n<|id|>2302<|page|>148<|box|>188 346 214 653<|content|>7 结构耐久性修复\n<|id|>2303<|page|>148<|box|>247 420 264 583<|content|>7.1 一般规定\n<|id|>2307<|page|>148<|box|>527 421 543 583<|content|>7.2 材料与设备\n<|id|>2313<|page|>149<|box|>125 400 143 663<|content|>7.3 混凝土结构耐久性修复\n<|id|>2318<|page|>149<|box|>748 453 764 615<|content|>7.5 检验与验收",
+    "raw_response": "<|id|>2266<|level|>1\n<|id|>2267<|level|>2\n<|id|>2269<|level|>2\n<|id|>2272<|level|>2\n<|id|>2274<|level|>1\n<|id|>2275<|level|>2\n<|id|>2281<|level|>2\n<|id|>2285<|level|>2\n<|id|>2288<|level|>2\n<|id|>2300<|level|>2\n<|id|>2302<|level|>1\n<|id|>2303<|level|>2\n<|id|>2307<|level|>2\n<|id|>2313<|level|>2\n<|id|>2318<|level|>2",
+    "parsed": [
+        {
+            "id": 2266,
+            "level": 1
+        },
+        {
+            "id": 2267,
+            "level": 2
+        },
+        {
+            "id": 2269,
+            "level": 2
+        },
+        {
+            "id": 2272,
+            "level": 2
+        },
+        {
+            "id": 2274,
+            "level": 1
+        },
+        {
+            "id": 2275,
+            "level": 2
+        },
+        {
+            "id": 2281,
+            "level": 2
+        },
+        {
+            "id": 2285,
+            "level": 2
+        },
+        {
+            "id": 2288,
+            "level": 2
+        },
+        {
+            "id": 2300,
+            "level": 2
+        },
+        {
+            "id": 2302,
+            "level": 1
+        },
+        {
+            "id": 2303,
+            "level": 2
+        },
+        {
+            "id": 2307,
+            "level": 2
+        },
+        {
+            "id": 2313,
+            "level": 2
+        },
+        {
+            "id": 2318,
+            "level": 2
+        }
+    ]
+}

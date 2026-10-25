@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        59,
+        72
+    ],
+    "pages": [
+        60,
+        64,
+        66,
+        67,
+        69,
+        71,
+        72
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>117<|page|>60<|box|>56 203 87 739<|content|>Outstanding Forward Exchange Contracts as Reported\n<|id|>119<|page|>60<|box|>702 181 734 771<|content|>Net Position in Foreign Currencies of Reporting Ba\n<|id|>125<|page|>64<|box|>89 241 119 775<|content|>MONETARY STOCKS OF GOLD AND SILVER IN U.S.\n<|id|>131<|page|>66<|box|>56 240 72 715<|content|>Net Movement of Silver to and from the United Stat\n<|id|>135<|page|>67<|box|>444 117 474 404<|content|>Indexes of Prices of 40 Foreign Currencies in New\n<|id|>142<|page|>69<|box|>470 383 488 640<|content|>MISCELLANEOUS\n<|id|>144<|page|>71<|box|>64 288 91 746<|content|>Commodities Imported under Quota Provisions During\n<|id|>147<|page|>72<|box|>58 40 85 458<|content|>Summary of Criminal Cases in the United States Dis\n<|id|>152<|page|>72<|box|>56 548 73 859<|content|>Treasury Criminal Cases, by Months",
+    "raw_response": "<|id|>117<|level|>1\n<|id|>119<|level|>1\n<|id|>125<|level|>1\n<|id|>131<|level|>1\n<|id|>135<|level|>1\n<|id|>142<|level|>1\n<|id|>144<|level|>1\n<|id|>147<|level|>1\n<|id|>152<|level|>2",
+    "parsed": [
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 2
+        }
+    ]
+}

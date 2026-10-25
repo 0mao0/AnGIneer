@@ -1,0 +1,151 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        54
+    ],
+    "pages": [
+        7,
+        9,
+        10,
+        11,
+        15,
+        17,
+        19,
+        24,
+        27,
+        30,
+        31,
+        32,
+        36,
+        40,
+        42,
+        43,
+        46,
+        49,
+        51,
+        53,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>14<|page|>7<|box|>30 0 125 927<|content|>Treasury Bulletin\n<|id|>20<|page|>9<|box|>162 386 186 541<|content|>CONTENTS\n<|id|>23<|page|>10<|box|>121 335 140 618<|content|>Treasury Financing Operations\n<|id|>24<|page|>10<|box|>208 20 222 185<|content|>Tax Anticipation Bills\n<|id|>29<|page|>10<|box|>552 27 566 221<|content|>9-Month and One-year Bills\n<|id|>33<|page|>10<|box|>198 497 212 688<|content|>13-Week and 26-Week Bills\n<|id|>36<|page|>10<|box|>583 507 597 691<|content|>Treasury Bills - General\n<|id|>39<|page|>11<|box|>127 205 146 615<|content|>Treasury Financing Operations - (Continued)\n<|id|>50<|page|>15<|box|>66 270 88 766<|content|>Table FFO-2. - Budget Receipts by Principal Source\n<|id|>54<|page|>17<|box|>76 334 95 658<|content|>Table FFO-3. - Budget Outlays by Agencies\n<|id|>59<|page|>19<|box|>70 266 86 698<|content|>Table FFO-4. - Undistributed Intrabudgetary Transa\n<|id|>68<|page|>24<|box|>45 353 63 654<|content|>FEDERAL FISCAL OPERATIONS\n<|id|>99<|page|>27<|box|>53 154 86 824<|content|>Table FO-1. - Gross Obligations Incurred Within an\n<|id|>106<|page|>30<|box|>35 233 58 759<|content|>ACCOUNT OF THE TREASURER OF THE UNITED STATES_\n<|id|>107<|page|>30<|box|>68 216 93 793<|content|>Source and Availability of the Balance in the Trea\n<|id|>116<|page|>31<|box|>27 215 43 737<|content|>ACCOUNT OF THE TREASURER OF THE UNITED STATES.\n<|id|>117<|page|>31<|box|>53 220 71 751<|content|>Table TUS-2. - Analysis of Changes in Tax and Loan\n<|id|>119<|page|>32<|box|>31 226 53 751<|content|>ACCOUNT OF THE TREASURER OF THE UNITED STATES.\n<|id|>120<|page|>32<|box|>58 238 92 754<|content|>Table TUS-3. - Summary of Cash Transactions throug\n<|id|>131<|page|>36<|box|>602 404 617 592<|content|>Footnotes to Table FD-2\n<|id|>146<|page|>40<|box|>210 311 225 732<|content|>Part A. - Status Under Limitation February 28, 197\n<|id|>159<|page|>42<|box|>38 363 57 622<|content|>PUBLIC DEBT OPERATIONS.\n<|id|>164<|page|>43<|box|>40 351 55 606<|content|>PUBLIC DEBT OPERATIONS.\n<|id|>169<|page|>46<|box|>43 373 58 632<|content|>PUBLIC DEBT OPERATIONS\n<|id|>221<|page|>49<|box|>38 354 55 606<|content|>PUBLIC DEBT OPERATIONS\n<|id|>222<|page|>49<|box|>58 215 96 726<|content|>Table PDO-4. - Offerings of Public Marketable Secu\n<|id|>231<|page|>51<|box|>66 381 79 578<|content|>Footnotes to Table PDO-4\n<|id|>266<|page|>53<|box|>42 351 57 608<|content|>PUBLIC DEBT OPERATIONS\n<|id|>268<|page|>54<|box|>46 367 63 627<|content|>PUBLIC DEBT OPERATIONS",
+    "raw_response": "<|id|>14<|level|>1\n<|id|>20<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>36<|level|>3\n<|id|>39<|level|>2\n<|id|>50<|level|>3\n<|id|>54<|level|>3\n<|id|>59<|level|>3\n<|id|>68<|level|>2\n<|id|>99<|level|>3\n<|id|>106<|level|>2\n<|id|>107<|level|>3\n<|id|>116<|level|>2\n<|id|>117<|level|>3\n<|id|>119<|level|>2\n<|id|>120<|level|>3\n<|id|>131<|level|>4\n<|id|>146<|level|>4\n<|id|>159<|level|>2\n<|id|>164<|level|>2\n<|id|>169<|level|>2\n<|id|>221<|level|>2\n<|id|>222<|level|>3\n<|id|>231<|level|>4\n<|id|>266<|level|>2\n<|id|>268<|level|>2",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 4
+        },
+        {
+            "id": 146,
+            "level": 4
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 231,
+            "level": 4
+        },
+        {
+            "id": 266,
+            "level": 2
+        },
+        {
+            "id": 268,
+            "level": 2
+        }
+    ]
+}

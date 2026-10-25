@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['28', 'PPC-IDR44-002697 to PPC-IDR44-002738', 'Consolidated Capital Expenditure Summary', 'March 18, 2020', 'PBI Finance Dept.', '42']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'Schedule — FY 2019', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 98,
+    "table2_idx": 99
+}

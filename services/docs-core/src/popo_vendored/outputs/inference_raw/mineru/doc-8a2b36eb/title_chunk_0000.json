@@ -1,0 +1,166 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 272 106 723<|content|>CALDERWOOD & HARKNESS LLP MEMORANDUM\n<|id|>9<|page|>1<|box|>402 385 422 611<|content|>I. Executive Summary\n<|id|>13<|page|>2<|box|>209 383 229 612<|content|>II. Question Presented\n<|id|>15<|page|>2<|box|>401 410 420 588<|content|>III. Brief Answer\n<|id|>18<|page|>2<|box|>803 375 823 620<|content|>IV. Factual Background\n<|id|>20<|page|>3<|box|>148 140 167 480<|content|>A. The Transportation Services Agreement\n<|id|>25<|page|>3<|box|>733 140 750 426<|content|>B. Service Level Obligations (SLOs)\n<|id|>33<|page|>4<|box|>553 140 571 459<|content|>C. VTS's Q4 2021 Performance Failures\n<|id|>41<|page|>5<|box|>439 140 457 397<|content|>D. Cure Notice and Cure Period\n<|id|>47<|page|>6<|box|>340 140 357 269<|content|>E. Termination\n<|id|>50<|page|>6<|box|>598 140 614 522<|content|>F. Relevant discovery Information (Preliminary)\n<|id|>56<|page|>7<|box|>290 408 310 588<|content|>V. Legal Analysis\n<|id|>57<|page|>7<|box|>334 140 352 519<|content|>A. The New York Standard for Material Breach\n<|id|>58<|page|>7<|box|>364 142 382 325<|content|>1. General Framework\n<|id|>62<|page|>8<|box|>90 140 107 477<|content|>2. The Restatement (Second) § 241 Factors\n<|id|>70<|page|>8<|box|>611 140 628 480<|content|>3. New York Case Law on Material Breach\n<|id|>76<|page|>9<|box|>729 140 747 558<|content|>4. Contractual Definition vs. Common Law Standard\n<|id|>83<|page|>10<|box|>739 140 757 707<|content|>B. Application of the Material Breach Factors to V\n<|id|>85<|page|>10<|box|>815 140 832 501<|content|>1. Factor (a): Deprivation of Expected Benefit\n<|id|>98<|page|>12<|box|>455 140 472 467<|content|>2. Factor (b): Adequacy of Compensation\n<|id|>103<|page|>13<|box|>121 140 138 514<|content|>3. Factor (c): Forfeiture by the Breaching Party\n<|id|>110<|page|>13<|box|>816 140 834 401<|content|>4. Factor (d): Likelihood of Cure\n<|id|>124<|page|>14<|box|>771 140 787 475<|content|>5. Factor (e): Good Faith and Fair Dealing\n<|id|>131<|page|>15<|box|>674 140 691 663<|content|>C. The Significance of Simultaneous Failures Acros\n<|id|>136<|page|>16<|box|>359 140 375 624<|content|>D. The Role of Contractually Defined Performance S\n<|id|>141<|page|>17<|box|>223 140 239 483<|content|>E. Vantor's Anticipated Counterarguments\n<|id|>143<|page|>17<|box|>334 140 352 529<|content|>1. The \"First Breach\" / Volume Shortfall Defense\n<|id|>150<|page|>18<|box|>311 140 329 529<|content|>2. The \"Industry-Wide Driver Shortage\" Defense\n<|id|>154<|page|>18<|box|>729 140 746 437<|content|>3. The \"Substantial Cure\" Argument\n<|id|>157<|page|>19<|box|>223 140 239 584<|content|>F. Impact of the Cure Period on the Materiality An\n<|id|>162<|page|>19<|box|>756 320 776 676<|content|>VI. Potential Risks and Weaknesses\n<|id|>175<|page|>21<|box|>594 307 614 689<|content|>VII. Conclusion and Recommendation\n<|id|>192<|page|>23<|box|>90 151 136 846<|content|>VIII. Appendix — Summary Table of VTS Q4 2021 SLO",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>18<|level|>2\n<|id|>20<|level|>3\n<|id|>25<|level|>3\n<|id|>33<|level|>3\n<|id|>41<|level|>3\n<|id|>47<|level|>3\n<|id|>50<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>58<|level|>4\n<|id|>62<|level|>4\n<|id|>70<|level|>4\n<|id|>76<|level|>4\n<|id|>83<|level|>3\n<|id|>85<|level|>4\n<|id|>98<|level|>4\n<|id|>103<|level|>4\n<|id|>110<|level|>4\n<|id|>124<|level|>4\n<|id|>131<|level|>3\n<|id|>136<|level|>3\n<|id|>141<|level|>3\n<|id|>143<|level|>4\n<|id|>150<|level|>4\n<|id|>154<|level|>4\n<|id|>157<|level|>3\n<|id|>162<|level|>2\n<|id|>175<|level|>2\n<|id|>192<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 70,
+            "level": 4
+        },
+        {
+            "id": 76,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 4
+        },
+        {
+            "id": 98,
+            "level": 4
+        },
+        {
+            "id": 103,
+            "level": 4
+        },
+        {
+            "id": 110,
+            "level": 4
+        },
+        {
+            "id": 124,
+            "level": 4
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 4
+        },
+        {
+            "id": 150,
+            "level": 4
+        },
+        {
+            "id": 154,
+            "level": 4
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 2
+        }
+    ]
+}

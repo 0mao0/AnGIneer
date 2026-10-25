@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 166 125 828<|content|>CALDERWOOD & HARKNESS LLP 1301 K Street NW, Suite\n<|id|>1<|type|>title<|page|>1<|box|>133 194 169 802<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>8<|type|>title<|page|>1<|box|>424 140 441 228<|content|>I. Purpose\n<|id|>16<|type|>title<|page|>2<|box|>518 140 537 300<|content|>II. Current Posture\n<|id|>29<|type|>title<|page|>4<|box|>90 140 107 308<|content|>III. Penalty Analysis\n<|id|>30<|type|>title<|page|>4<|box|>121 140 138 444<|content|>A. BIS Penalty Guidelines Framework\n<|id|>39<|type|>title<|page|>4<|box|>741 140 758 460<|content|>B. Aggravating Factors (DOJ's Position)\n<|id|>46<|type|>title<|page|>6<|box|>89 140 108 452<|content|>C. Mitigating Factors (C&H's Position)\n<|id|>59<|type|>title<|page|>8<|box|>311 142 329 383<|content|>D. Expected Resolution Range\n<|id|>71<|type|>title<|page|>9<|box|>435 140 452 328<|content|>IV. Form of Resolution\n<|id|>81<|type|>title<|page|>11<|box|>89 140 108 374<|content|>V. Compliance Undertakings\n<|id|>83<|type|>title<|page|>11<|box|>220 143 238 357<|content|>A. Undertakings Summary\n<|id|>84<|type|>table<|page|>11<|box|>242 143 904 851<|content|>None\n<|id|>85<|type|>table<|page|>12<|box|>89 143 503 851<|content|>None\n<|id|>86<|type|>title<|page|>12<|box|>542 142 559 511<|content|>B. Cost Estimate for Compliance Undertakings\n<|id|>94<|type|>title<|page|>13<|box|>419 140 436 361<|content|>C. Combined Cost Analysis\n<|id|>104<|type|>title<|page|>14<|box|>205 140 224 323<|content|>VI. Lansheng Strategy\n<|id|>106<|type|>title<|page|>14<|box|>299 142 316 281<|content|>A. DOJ's Theory\n<|id|>108<|type|>title<|page|>14<|box|>518 140 535 537<|content|>B. Legal and Factual Deficiencies in DOJ's Theory\n<|id|>116<|type|>title<|page|>15<|box|>510 140 527 591<|content|>C. Consequences of Including Lansheng in the Settl\n<|id|>121<|type|>title<|page|>16<|box|>157 140 175 367<|content|>D. Recommended Approach\n<|id|>124<|type|>title<|page|>16<|box|>449 140 467 346<|content|>VII. Negotiation Timeline\n<|id|>125<|type|>table<|page|>16<|box|>517 143 901 852<|content|>None\n<|id|>126<|type|>table<|page|>17<|box|>89 143 199 852<|content|>None\n<|id|>128<|type|>title<|page|>17<|box|>311 140 327 540<|content|>VIII. Recommendation and Authorization Request\n<|id|>145<|type|>title<|page|>18<|box|>556 410 574 586<|content|>Respectfully submitted,",
+    "raw_response": "<|src_id|>84<|tgt_id|>83\n<|src_id|>85<|tgt_id|>83\n<|src_id|>125<|tgt_id|>124\n<|src_id|>126<|tgt_id|>124",
+    "parsed": [
+        {
+            "src_id": 84,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 124
+        }
+    ]
+}

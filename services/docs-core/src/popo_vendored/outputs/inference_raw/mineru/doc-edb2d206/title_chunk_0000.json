@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 375 106 620<|content|>MANAGER'S CERTIFICATE\n<|id|>2<|page|>1<|box|>141 318 157 679<|content|>HUDSON YARDS WEST MORTGAGE LLC\n<|id|>8<|page|>1<|box|>550 142 566 241<|content|>RECITALS\n<|id|>14<|page|>2<|box|>212 140 229 617<|content|>SECTION 1 — ORGANIZATION AND GOOD STANDING\n<|id|>20<|page|>2<|box|>821 140 838 584<|content|>SECTION 2 — AUTHORIZATION AND EXECUTION\n<|id|>24<|page|>3<|box|>530 140 547 563<|content|>SECTION 3 — ORGANIZATIONAL DOCUMENTS\n<|id|>31<|page|>4<|box|>383 140 401 397<|content|>SECTION 4 — INCUMBENCY\n<|id|>37<|page|>5<|box|>148 140 166 620<|content|>SECTION 5 — REPRESENTATIONS AND WARRANTIES\n<|id|>55<|page|>8<|box|>585 140 603 702<|content|>SECTION 6 — NO DEFAULT; NO MATERIAL ADVERSE CHANGE\n<|id|>58<|page|>8<|box|>787 140 805 501<|content|>SECTION 7 — CONDITIONS PRECEDENT\n<|id|>60<|page|>9<|box|>239 140 258 377<|content|>SECTION 8 — INSURANCE\n<|id|>62<|page|>9<|box|>489 140 508 413<|content|>SECTION 9 — GROUND LEASE\n<|id|>67<|page|>10<|box|>148 140 166 521<|content|>SECTION 10 — CONSTRUCTION MATTERS\n<|id|>75<|page|>10<|box|>756 140 773 480<|content|>SECTION 11 — RELIANCE; SURVIVAL\n<|id|>78<|page|>11<|box|>239 140 257 439<|content|>SECTION 12 — GOVERNING LAW\n<|id|>81<|page|>11<|box|>373 271 390 725<|content|>[SIGNATURE PAGE TO MANAGER'S CERTIFICATE]\n<|id|>83<|page|>11<|box|>443 140 460 779<|content|>HUDSON YARDS WEST MORTGAGE LLC, a Delaware limited\n<|id|>88<|page|>11<|box|>530 447 546 550<|content|>EXHIBIT A\n<|id|>89<|page|>11<|box|>556 251 573 745<|content|>Certificate of Formation of Hudson Yards West Mort\n<|id|>93<|page|>11<|box|>710 447 727 550<|content|>EXHIBIT B\n<|id|>94<|page|>11<|box|>737 163 772 834<|content|>Limited Liability Company Agreement (Operating Agr\n<|id|>98<|page|>12<|box|>212 447 227 550<|content|>EXHIBIT C\n<|id|>99<|page|>12<|box|>238 202 253 794<|content|>Written Consent of the Sole Member of Hudson Yards\n<|id|>108<|page|>12<|box|>796 447 811 550<|content|>EXHIBIT D\n<|id|>112<|page|>13<|box|>193 447 209 550<|content|>EXHIBIT E\n<|id|>113<|page|>13<|box|>219 189 237 807<|content|>Certificate of Authority / Good Standing of Hudson",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>20<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>37<|level|>2\n<|id|>55<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>2\n<|id|>67<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>3\n<|id|>88<|level|>2\n<|id|>89<|level|>3\n<|id|>93<|level|>2\n<|id|>94<|level|>3\n<|id|>98<|level|>2\n<|id|>99<|level|>3\n<|id|>108<|level|>2\n<|id|>112<|level|>2\n<|id|>113<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 3
+        }
+    ]
+}

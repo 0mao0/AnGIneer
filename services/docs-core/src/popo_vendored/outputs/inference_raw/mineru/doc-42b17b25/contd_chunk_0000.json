@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>219 212 236 464<|content|>Case No. ... 2021-CA-002748-18-W\n<|id|>3<|page|>1<|box|>244 142 287 848<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST, a Maryland...a Maryland real estate investment trust, Defendant\n<|id|>39<|page|>5<|box|>856 140 891 854<|content|>23. ... As an extinguished interest, the Cross-Parcel\n<|id|>40<|page|>6<|box|>90 174 162 854<|content|>Easement was no longer available to be conveyed, a...oss-Parcel Easement in the 2019 deed of conveyance\n<|id|>83<|page|>9<|box|>720 676 738 852<|content|>Dated: ... August 30, 2021\n<|id|>84<|page|>9<|box|>747 140 763 318<|content|>Respectfully submitted,\n<|id|>85<|page|>9<|box|>773 140 789 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>86<|page|>9<|box|>791 143 808 251<|content|>By: ... By\n<|id|>87<|page|>9<|box|>806 140 854 854<|content|>Francesca Morano, Esq. ... (202) 555-4101\n<|id|>88<|page|>9<|box|>857 140 907 602<|content|>Email: ... com Counsel for Defendant Fairwater Real Estate Investment Trust\n<|id|>91<|page|>10<|box|>125 140 157 852<|content|>Brenda Hargrove, Esq. ... (407) 555-7201\n<|id|>92<|page|>10<|box|>157 140 175 437<|content|>Email: ... com\n<|id|>93<|page|>10<|box|>174 140 191 648<|content|>Local Counsel for Defendant Fairwater Real Estate Investment Trust\n<|id|>96<|page|>10<|box|>280 174 316 854<|content|>Marco D. ... (407) 555-3300\n<|id|>97<|page|>10<|box|>324 176 342 444<|content|>Email: ... com\n<|id|>98<|page|>10<|box|>342 176 359 620<|content|>Counsel for Plaintiff Ridgemark Development Partners LLC\n<|id|>99<|page|>10<|box|>369 142 386 254<|content|>By: ... By",
+    "raw_response": "<|src_id|>39<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ]
+}

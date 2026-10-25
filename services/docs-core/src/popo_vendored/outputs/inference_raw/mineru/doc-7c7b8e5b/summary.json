@@ -1,0 +1,166 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-t4t2me8i\\input\\pdfs\\doc-7c7b8e5b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-t4t2me8i\\enriched\\doc-7c7b8e5b.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>18<|level|>3\n<|id|>24<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>2\n<|id|>34<|level|>3\n<|id|>40<|level|>3\n<|id|>47<|level|>3\n<|id|>54<|level|>3\n<|id|>58<|level|>2\n<|id|>59<|level|>3\n<|id|>90<|level|>3\n<|id|>93<|level|>3\n<|id|>96<|level|>3\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>114<|level|>3\n<|id|>122<|level|>3\n<|id|>133<|level|>2\n<|id|>134<|level|>3\n<|id|>140<|level|>3\n<|id|>143<|level|>3\n<|id|>150<|level|>2\n<|id|>159<|level|>2\n<|id|>166<|level|>2\n<|id|>172<|level|>2",
+    "image_output": "<|src_id|>16<|tgt_id|>14\n<|src_id|>136<|tgt_id|>134\n<|src_id|>137<|tgt_id|>134\n<|src_id|>173<|tgt_id|>172",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 172
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 136,
+            "table2_idx": 137,
+            "upper_row_ss": [
+                [
+                    "Policy Number",
+                    "PRU-EPLI-2025-44872"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

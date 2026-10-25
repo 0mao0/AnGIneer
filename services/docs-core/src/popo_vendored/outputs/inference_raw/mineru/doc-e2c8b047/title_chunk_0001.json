@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        46,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>437<|page|>46<|box|>89 142 107 243<|content|>EXHIBIT C\n<|id|>438<|page|>46<|box|>114 279 132 717<|content|>FORM OF TRADEMARK SECURITY AGREEMENT\n<|id|>460<|page|>48<|box|>89 142 107 243<|content|>EXHIBIT D\n<|id|>461<|page|>48<|box|>114 284 132 710<|content|>FORM OF COPYRIGHT SECURITY AGREEMENT",
+    "raw_response": "<|id|>437<|level|>1\n<|id|>438<|level|>2\n<|id|>460<|level|>1\n<|id|>461<|level|>2",
+    "parsed": [
+        {
+            "id": 437,
+            "level": 1
+        },
+        {
+            "id": 438,
+            "level": 2
+        },
+        {
+            "id": 460,
+            "level": 1
+        },
+        {
+            "id": 461,
+            "level": 2
+        }
+    ]
+}

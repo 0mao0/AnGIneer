@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 220 136 777<|content|>STATE OF DELAWARE OFFICE OF THE SECRETARY OF STATE\n<|id|>2<|type|>title<|page|>1<|box|>194 272 213 725<|content|>ARDENT HEALTHCARE HOLDINGS LLC\n<|id|>4<|type|>title<|page|>1<|box|>258 205 273 790<|content|>Pursuant to Section 18-201 of the Delaware Limited\n<|id|>7<|type|>title<|page|>1<|box|>334 359 351 637<|content|>CERTIFICATE OF FORMATION\n<|id|>9<|type|>title<|page|>1<|box|>386 320 402 676<|content|>ARDENT HEALTHCARE HOLDINGS LLC\n<|id|>11<|type|>title<|page|>1<|box|>545 143 561 243<|content|>ARTICLE I\n<|id|>13<|type|>title<|page|>1<|box|>599 364 617 632<|content|>Ardent Healthcare Holdings LLC\n<|id|>15<|type|>title<|page|>1<|box|>720 143 738 250<|content|>ARTICLE II\n<|id|>16<|type|>title<|page|>1<|box|>752 142 768 452<|content|>Registered Office and Registered Agent\n<|id|>22<|type|>title<|page|>2<|box|>185 140 204 258<|content|>ARTICLE III\n<|id|>29<|type|>title<|page|>2<|box|>530 140 549 256<|content|>ARTICLE IV\n<|id|>31<|type|>title<|page|>2<|box|>638 140 657 250<|content|>ARTICLE V\n<|id|>33<|type|>title<|page|>2<|box|>803 140 821 256<|content|>ARTICLE VI\n<|id|>35<|type|>title<|page|>3<|box|>90 400 107 596<|content|>[Signature Page Follows]\n<|id|>41<|type|>title<|page|>3<|box|>229 143 263 795<|content|>Calderwood & Harkness LLP One Liberty Plaza, 45th\n<|id|>47<|type|>title<|page|>3<|box|>443 142 479 854<|content|>PREPARER'S NOTATION — FOR INTERNAL REFERENCE ONLY\n<|id|>55<|type|>table<|page|>3<|box|>666 143 849 852<|content|>None\n<|id|>56<|type|>title<|page|>3<|box|>883 143 898 318<|content|>Federal Tax Classification:\n<|id|>59<|type|>title<|page|>4<|box|>157 140 172 354<|content|>Structure and Ownership Notes:",
+    "raw_response": "<|src_id|>55<|tgt_id|>47",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 47
+        }
+    ]
+}

@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-a71t_e5e\\input\\pdfs\\doc-c906cd30.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-a71t_e5e\\enriched\\doc-c906cd30.json",
+    "contd_output": "<|src_id|>53<|tgt_id|>54",
+    "title_output": "<|id|>3<|level|>1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>18<|level|>3\n<|id|>24<|level|>3\n<|id|>33<|level|>3\n<|id|>40<|level|>2\n<|id|>42<|level|>3\n<|id|>45<|level|>3\n<|id|>51<|level|>3\n<|id|>60<|level|>3\n<|id|>66<|level|>3\n<|id|>74<|level|>3\n<|id|>76<|level|>2\n<|id|>77<|level|>3\n<|id|>80<|level|>3\n<|id|>84<|level|>3\n<|id|>89<|level|>2\n<|id|>90<|level|>3\n<|id|>93<|level|>3\n<|id|>98<|level|>3\n<|id|>107<|level|>2\n<|id|>109<|level|>3\n<|id|>117<|level|>3\n<|id|>124<|level|>2\n<|id|>126<|level|>3\n<|id|>132<|level|>3\n<|id|>139<|level|>3\n<|id|>146<|level|>2\n<|id|>156<|level|>2",
+    "image_output": "<|src_id|>4<|tgt_id|>3\n<|src_id|>79<|tgt_id|>77\n<|src_id|>82<|tgt_id|>80\n<|src_id|>91<|tgt_id|>90\n<|src_id|>95<|tgt_id|>93\n<|src_id|>100<|tgt_id|>98\n<|src_id|>101<|tgt_id|>98",
+    "contd_label": [
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        }
+    ],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 98
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 100,
+            "table2_idx": 101,
+            "upper_row_ss": [
+                [
+                    "Less: Palomar fee reduction (18 months)",
+                    "($1,956,000)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Less: Atlas insurance recovery (above SIR)",
+                    "($5,730,250)"
+                ]
+            ]
+        }
+    ]
+}

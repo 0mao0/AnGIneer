@@ -1,0 +1,67 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        92,
+        105
+    ],
+    "pages": [
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        102,
+        103,
+        104,
+        105
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>827<|type|>title<|page|>92<|box|>76 89 102 671<|content|>NOTE 16 — COMMITMENTS AND CONTINGENCIES\n<|id|>831<|type|>title<|page|>92<|box|>410 84 426 276<|content|>BELGIAN CUSTOMS CLAIM\n<|id|>833<|type|>title<|page|>92<|box|>525 89 547 311<|content|>NOTE 17 — LEASES\n<|id|>836<|type|>table<|page|>92<|box|>695 85 859 907<|content|>None\n<|id|>838<|type|>table<|page|>93<|box|>99 85 157 907<|content|>None\n<|id|>839<|type|>table<|page|>93<|box|>202 85 298 907<|content|>None\n<|id|>840<|type|>title<|page|>93<|box|>312 87 338 627<|content|>NOTE 18 — ACQUISITIONS AND DIVESTITURES\n<|id|>841<|type|>title<|page|>93<|box|>359 84 379 220<|content|>ACQUISITIONS\n<|id|>843<|type|>title<|page|>93<|box|>444 84 463 215<|content|>DIVESTITURES\n<|id|>849<|type|>title<|page|>93<|box|>751 84 766 240<|content|>OTHER DIVESTITURES\n<|id|>851<|type|>title<|page|>94<|box|>71 89 95 420<|content|>NOTE 19 — RESTRUCTURING\n<|id|>855<|type|>title<|page|>95<|box|>65 84 153 791<|content|>ITEM 9. CHANGES IN AND DISAGREEMENTS WITH ACCOUNTA\n<|id|>857<|type|>title<|page|>95<|box|>215 85 245 641<|content|>ITEM 9A. CONTROLS AND PROCEDURES\n<|id|>863<|type|>title<|page|>95<|box|>581 85 609 540<|content|>ITEM 9B. OTHER INFORMATION\n<|id|>865<|type|>title<|page|>95<|box|>658 82 719 715<|content|>ITEM 9C. DISCLOSURE REGARDING FOREIGN JURISDICTION\n<|id|>867<|type|>title<|page|>96<|box|>136 84 196 760<|content|>ITEM 10. DIRECTORS, EXECUTIVE OFFICERS AND CORPORA\n<|id|>869<|type|>title<|page|>96<|box|>355 85 383 614<|content|>ITEM 11. EXECUTIVE COMPENSATION\n<|id|>871<|type|>title<|page|>96<|box|>485 84 571 888<|content|>ITEM 12. SECURITY OWNERSHIP OF CERTAIN BENEFICIAL\n<|id|>873<|type|>title<|page|>96<|box|>673 84 731 781<|content|>ITEM 13. CERTAIN RELATIONSHIPS AND RELATED TRANSAC\n<|id|>875<|type|>title<|page|>96<|box|>804 85 832 863<|content|>ITEM 14. PRINCIPAL ACCOUNTANT FEES AND SERVICES\n<|id|>877<|type|>title<|page|>97<|box|>136 84 195 764<|content|>ITEM 15. EXHIBITS AND FINANCIAL STATEMENT SCHEDULE\n<|id|>879<|type|>table<|page|>97<|box|>232 84 882 909<|content|>None\n<|id|>880<|type|>table<|page|>98<|box|>69 84 927 909<|content|>None\n<|id|>881<|type|>table<|page|>99<|box|>68 85 191 905<|content|>None\n<|id|>885<|type|>title<|page|>100<|box|>67 84 91 749<|content|>SCHEDULE II — VALUATION AND QUALIFYING ACCOUNTS\n<|id|>886<|type|>table<|page|>100<|box|>105 85 213 904<|content|>None\n<|id|>888<|type|>title<|page|>102<|box|>67 84 90 632<|content|>Consent of Independent Registered Public Accountin\n<|id|>891<|type|>title<|page|>103<|box|>67 84 96 267<|content|>SIGNATURES\n<|id|>893<|type|>table<|page|>103<|box|>149 87 219 907<|content|>None\n<|id|>895<|type|>table<|page|>103<|box|>267 84 773 907<|content|>None\n<|id|>896<|type|>title<|page|>104<|box|>77 75 93 178<|content|>D I R E C T O R S\n<|id|>911<|type|>title<|page|>104<|box|>78 526 96 722<|content|>C O R P O R AT E O F F I C E R S\n<|id|>925<|type|>image<|page|>105<|box|>187 237 263 346<|content|>None\n<|id|>933<|type|>title<|page|>105<|box|>244 612 259 841<|content|>GREATER CHINA HEADQUARTERS\n<|id|>940<|type|>title<|page|>105<|box|>674 80 688 237<|content|>Shareholder Information\n<|id|>942<|type|>title<|page|>105<|box|>760 80 776 205<|content|>Dividend Payments\n<|id|>944<|type|>title<|page|>105<|box|>821 80 835 272<|content|>Other Shareholder Assistance",
+    "raw_response": "<|src_id|>836<|tgt_id|>833\n<|src_id|>838<|tgt_id|>833\n<|src_id|>839<|tgt_id|>833\n<|src_id|>879<|tgt_id|>877\n<|src_id|>880<|tgt_id|>877\n<|src_id|>881<|tgt_id|>877\n<|src_id|>886<|tgt_id|>885\n<|src_id|>893<|tgt_id|>891\n<|src_id|>895<|tgt_id|>891\n<|src_id|>925<|tgt_id|>911",
+    "parsed": [
+        {
+            "src_id": 836,
+            "tgt_id": 833
+        },
+        {
+            "src_id": 838,
+            "tgt_id": 833
+        },
+        {
+            "src_id": 839,
+            "tgt_id": 833
+        },
+        {
+            "src_id": 879,
+            "tgt_id": 877
+        },
+        {
+            "src_id": 880,
+            "tgt_id": 877
+        },
+        {
+            "src_id": 881,
+            "tgt_id": 877
+        },
+        {
+            "src_id": 886,
+            "tgt_id": 885
+        },
+        {
+            "src_id": 893,
+            "tgt_id": 891
+        },
+        {
+            "src_id": 895,
+            "tgt_id": 891
+        },
+        {
+            "src_id": 925,
+            "tgt_id": 911
+        }
+    ]
+}

@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        65
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        14,
+        15,
+        19,
+        23,
+        24,
+        29,
+        30,
+        38,
+        64
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>7<|box|>0 90 266 880<|content|>TREASURY BULLETIN\n<|id|>13<|page|>9<|box|>81 351 106 631<|content|>Table of Contents\n<|id|>24<|page|>11<|box|>51 393 66 662<|content|>Treasury Financing Operations\n<|id|>25<|page|>11<|box|>96 149 109 465<|content|>Tax Anticipation and One-Year Treasury Bills\n<|id|>36<|page|>11<|box|>435 546 450 734<|content|>13-Week and 26-Week Bills\n<|id|>42<|page|>14<|box|>50 369 63 642<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>47<|page|>15<|box|>539 336 552 650<|content|>Footnotes to Table 1 - (Continued)\n<|id|>66<|page|>19<|box|>63 192 76 761<|content|>Table 5.- Expenditures and Balances by Functions -\n<|id|>82<|page|>19<|box|>554 325 567 640<|content|>Footnotes to Table 3 - (Continued)\n<|id|>101<|page|>23<|box|>48 324 60 640<|content|>TRUST ACCOUNT AND OTHER TRANSACTIONS\n<|id|>103<|page|>24<|box|>48 423 63 606<|content|>CASH INCOME AND OUTGO\n<|id|>117<|page|>29<|box|>79 381 91 574<|content|>Footnotes to Table 4\n<|id|>124<|page|>29<|box|>234 379 248 571<|content|>Footnotes to Table 5\n<|id|>131<|page|>29<|box|>462 379 473 569<|content|>Footnotes to Table 6\n<|id|>141<|page|>29<|box|>623 379 635 569<|content|>Footnotes to Table 7\n<|id|>150<|page|>30<|box|>77 206 93 804<|content|>Source and Availability of the Balance in the Trea\n<|id|>178<|page|>38<|box|>74 169 89 868<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>266<|page|>64<|box|>83 187 116 839<|content|>Section II - Interest-Bearing Securities Issued by",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>13<|level|>1\n<|id|>24<|level|>1\n<|id|>25<|level|>2\n<|id|>36<|level|>2\n<|id|>42<|level|>1\n<|id|>47<|level|>2\n<|id|>66<|level|>1\n<|id|>82<|level|>2\n<|id|>101<|level|>1\n<|id|>103<|level|>1\n<|id|>117<|level|>2\n<|id|>124<|level|>2\n<|id|>131<|level|>2\n<|id|>141<|level|>2\n<|id|>150<|level|>1\n<|id|>178<|level|>1\n<|id|>266<|level|>1",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 266,
+            "level": 1
+        }
+    ]
+}

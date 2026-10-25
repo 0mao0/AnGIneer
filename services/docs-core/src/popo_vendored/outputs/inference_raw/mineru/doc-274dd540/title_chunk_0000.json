@@ -1,0 +1,127 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 274 118 723<|content|>REVOLVING LOAN PROMISSORY NOTE\n<|id|>5<|page|>1<|box|>474 140 492 452<|content|>Section 1. Credit Agreement Reference.\n<|id|>8<|page|>2<|box|>90 140 107 292<|content|>Section 2. Interest.\n<|id|>15<|page|>3<|box|>90 140 107 383<|content|>Section 3. Principal Payments.\n<|id|>19<|page|>3<|box|>446 140 464 398<|content|>Section 4. Optional Prepayment.\n<|id|>21<|page|>3<|box|>660 140 678 385<|content|>Section 5. Manner of Payment.\n<|id|>25<|page|>4<|box|>304 140 321 478<|content|>Section 6. Records of Loans and Payments.\n<|id|>27<|page|>4<|box|>609 140 626 297<|content|>Section 7. Security.\n<|id|>30<|page|>5<|box|>296 140 313 307<|content|>Section 8. Guaranty.\n<|id|>32<|page|>5<|box|>527 140 544 472<|content|>Section 9. Events of Default; Acceleration.\n<|id|>36<|page|>6<|box|>212 140 229 305<|content|>Section 10. Waivers.\n<|id|>39<|page|>6<|box|>542 140 560 444<|content|>Section 11. Expenses; Indemnification.\n<|id|>41<|page|>6<|box|>792 140 810 437<|content|>Section 12. Amendments; No Waiver.\n<|id|>44<|page|>7<|box|>204 140 222 331<|content|>Section 13. Assignment.\n<|id|>46<|page|>7<|box|>454 140 472 419<|content|>Section 14. Successors and Assigns.\n<|id|>48<|page|>7<|box|>631 140 648 362<|content|>Section 15. Governing Law.\n<|id|>50<|page|>7<|box|>844 140 862 504<|content|>Section 16. Submission to Jurisdiction; Venue.\n<|id|>55<|page|>8<|box|>421 140 438 403<|content|>Section 17. Waiver of Jury Trial.\n<|id|>57<|page|>8<|box|>799 140 816 334<|content|>Section 18. Severability.\n<|id|>59<|page|>9<|box|>186 140 203 485<|content|>Section 19. Conflict with Credit Agreement.\n<|id|>62<|page|>9<|box|>318 220 335 774<|content|>SIGNATURE PAGE TO REVOLVING LOAN PROMISSORY NOTE\n<|id|>64<|page|>9<|box|>388 142 405 630<|content|>CASCADE RETAIL HOLDINGS INC., a Delaware corporati\n<|id|>66<|page|>9<|box|>508 222 526 774<|content|>SIGNATURE PAGE TO REVOLVING LOAN PROMISSORY NOTE\n<|id|>68<|page|>9<|box|>672 295 689 700<|content|>PAYEE ACKNOWLEDGMENT AND NOTATION\n<|id|>74<|page|>9<|box|>864 439 878 557<|content|>SCHEDULE 1\n<|id|>75<|page|>9<|box|>888 323 906 673<|content|>LOANS AND PAYMENTS OF PRINCIPAL",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>8<|level|>2\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>41<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>2\n<|id|>62<|level|>1\n<|id|>64<|level|>2\n<|id|>66<|level|>1\n<|id|>68<|level|>1\n<|id|>74<|level|>1\n<|id|>75<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>419 140 436 398<|content|>1. Introduction and Background\n<|id|>13<|page|>1<|box|>811 140 829 401<|content|>2. Description of the Transaction\n<|id|>20<|page|>3<|box|>90 140 107 457<|content|>3. Description of the License Agreement\n<|id|>25<|page|>3<|box|>710 140 728 325<|content|>4. Request for Consent\n<|id|>34<|page|>4<|box|>645 140 662 477<|content|>5. Confirmation of Continuing Obligations\n<|id|>38<|page|>5<|box|>204 140 222 517<|content|>6. Request for Execution and Return of Consent\n<|id|>44<|page|>5<|box|>762 215 779 781<|content|>[CONSENT AND SIGNATURE BLOCKS FOLLOW ON NEXT PAGE]\n<|id|>45<|page|>5<|box|>803 142 819 364<|content|>CONSENT OF LICENSOR\n<|id|>46<|page|>5<|box|>829 143 845 393<|content|>ARCWAVE SOFTWARE LLC\n<|id|>49<|page|>7<|box|>89 142 106 367<|content|>NOVAMART SIGNATURE\n<|id|>55<|page|>7<|box|>223 140 239 771<|content|>ACKNOWLEDGED AND AGREED BY CASCADE RETAIL HOLDINGS\n<|id|>63<|page|>7<|box|>489 142 508 235<|content|>Enclosures\n<|id|>66<|page|>7<|box|>638 142 655 243<|content|>Distribution",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>20<|level|>1\n<|id|>25<|level|>1\n<|id|>34<|level|>1\n<|id|>38<|level|>1\n<|id|>44<|level|>-1\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>49<|level|>3\n<|id|>55<|level|>2\n<|id|>63<|level|>1\n<|id|>66<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        }
+    ]
+}

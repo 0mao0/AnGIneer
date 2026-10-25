@@ -1,0 +1,53 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 107 651<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>114 374 133 624<|content|>INTERNAL MEMORANDUM\n<|id|>2<|type|>title<|page|>1<|box|>140 214 159 784<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>12<|type|>title<|page|>1<|box|>434 431 454 566<|content|>I. PURPOSE\n<|id|>17<|type|>title<|page|>2<|box|>89 336 109 661<|content|>II. CLIENT IDENTIFICATION\n<|id|>18<|type|>title<|page|>2<|box|>136 142 154 320<|content|>A. Engagement Client\n<|id|>34<|type|>title<|page|>3<|box|>204 140 222 307<|content|>C. Grantor's Spouse\n<|id|>40<|type|>title<|page|>3<|box|>580 344 599 653<|content|>III. TRUST BENEFICIARIES\n<|id|>42<|type|>table<|page|>3<|box|>734 143 907 851<|content|>None\n<|id|>43<|type|>table<|page|>4<|box|>88 143 186 852<|content|>None\n<|id|>46<|type|>title<|page|>4<|box|>438 225 458 771<|content|>IV. PARTIES SEARCHED IN CONFLICTS SYSTEM\n<|id|>48<|type|>title<|page|>4<|box|>627 140 643 316<|content|>A. Client-Side Parties\n<|id|>57<|type|>title<|page|>5<|box|>148 142 167 517<|content|>B. Hospitality Portfolio Entities (Subject Assets)\n<|id|>59<|type|>title<|page|>5<|box|>238 178 253 467<|content|>1. Meridian Shores Hospitality LLC\n<|id|>64<|type|>title<|page|>5<|box|>426 176 444 472<|content|>2. Costa Luma Resort Holdings LLC\n<|id|>69<|type|>title<|page|>5<|box|>561 176 578 393<|content|>3. Azulia Beach Club LLC\n<|id|>74<|type|>title<|page|>5<|box|>753 142 772 333<|content|>C. Independent Trustee\n<|id|>77<|type|>title<|page|>5<|box|>849 142 867 529<|content|>FL Trust Company License No.: FTC-2014-00287\n<|id|>93<|type|>title<|page|>6<|box|>845 142 863 449<|content|>F. Family Accountants / Tax Preparers\n<|id|>99<|type|>title<|page|>7<|box|>319 140 335 303<|content|>G. Depository Bank\n<|id|>105<|type|>title<|page|>7<|box|>584 313 604 683<|content|>V. CONFLICTS CHECK RESULTS\n<|id|>106<|type|>title<|page|>7<|box|>630 142 647 330<|content|>A. Search Methodology\n<|id|>116<|type|>title<|page|>8<|box|>417 140 434 227<|content|>B. Results\n<|id|>126<|type|>title<|page|>9<|box|>90 140 107 491<|content|>C. Potential Issues Considered and Resolved\n<|id|>134<|type|>title<|page|>10<|box|>90 163 109 831<|content|>VI. MATTER DESCRIPTION AND TRANSACTION SUMMARY\n<|id|>135<|type|>title<|page|>10<|box|>136 140 154 343<|content|>A. Transaction Overview\n<|id|>138<|type|>table<|page|>10<|box|>364 143 460 852<|content|>None\n<|id|>144<|type|>title<|page|>11<|box|>250 140 266 531<|content|>B. Scope of Calderwood & Harkness Engagement\n<|id|>158<|type|>title<|page|>12<|box|>227 351 246 645<|content|>VII. ENGAGEMENT TEAM\n<|id|>159<|type|>table<|page|>12<|box|>287 143 402 852<|content|>None\n<|id|>162<|type|>title<|page|>12<|box|>689 316 709 679<|content|>VIII. BILLING ARRANGEMENTS\n<|id|>175<|type|>title<|page|>13<|box|>508 411 527 586<|content|>IX. KEY DATES\n<|id|>176<|type|>table<|page|>13<|box|>588 143 904 852<|content|>None\n<|id|>177<|type|>table<|page|>14<|box|>89 143 220 849<|content|>None\n<|id|>179<|type|>title<|page|>14<|box|>318 377 338 617<|content|>X. GOVERNING LAW\n<|id|>181<|type|>title<|page|>14<|box|>492 406 511 589<|content|>XI. APPROVALS\n<|id|>182<|type|>title<|page|>14<|box|>537 142 554 323<|content|>A. Conflicts Clearance\n<|id|>189<|type|>title<|page|>14<|box|>741 142 758 341<|content|>B. New-Matter Approval\n<|id|>195<|type|>title<|page|>15<|box|>196 140 214 264<|content|>C. Distribution\n<|id|>202<|type|>title<|page|>15<|box|>401 388 417 609<|content|>END OF MEMORANDUM",
+    "raw_response": "<|src_id|>42<|tgt_id|>40\n<|src_id|>43<|tgt_id|>40\n<|src_id|>138<|tgt_id|>135\n<|src_id|>159<|tgt_id|>158\n<|src_id|>176<|tgt_id|>175\n<|src_id|>177<|tgt_id|>175",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 158
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 175
+        }
+    ]
+}

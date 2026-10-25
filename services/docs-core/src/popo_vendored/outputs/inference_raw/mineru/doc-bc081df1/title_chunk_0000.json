@@ -1,0 +1,140 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 651<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>141 200 157 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>9<|page|>1<|box|>383 140 398 321<|content|>I. Executive Summary\n<|id|>15<|page|>2<|box|>340 140 357 604<|content|>II. Transaction Background and Capital Structure C\n<|id|>16<|page|>2<|box|>371 142 388 299<|content|>A. The Transaction\n<|id|>24<|page|>2<|box|>732 142 750 395<|content|>B. Pro Forma Capital Structure\n<|id|>32<|page|>3<|box|>348 140 364 302<|content|>C. Sponsor Context\n<|id|>35<|page|>3<|box|>604 140 621 475<|content|>III. Parties to the Intercreditor Agreement\n<|id|>36<|page|>3<|box|>633 140 652 380<|content|>A. First Lien Collateral Agent\n<|id|>40<|page|>4<|box|>138 140 156 493<|content|>B. Unsecured Notes Trustee / Representative\n<|id|>42<|page|>4<|box|>267 140 284 359<|content|>C. Borrower / Loan Parties\n<|id|>59<|page|>4<|box|>784 140 801 684<|content|>IV. Nature of the Intercreditor Relationship: Firs\n<|id|>60<|page|>4<|box|>815 140 832 316<|content|>A. Structural Priority\n<|id|>63<|page|>5<|box|>294 140 311 584<|content|>B. Purpose and Necessity of the Intercreditor Agre\n<|id|>71<|page|>5<|box|>664 140 681 658<|content|>V. Key Substantive Provisions — Analysis and Borro\n<|id|>72<|page|>5<|box|>696 142 712 442<|content|>A. Lien Priority and Collateral Access\n<|id|>80<|page|>6<|box|>646 140 662 318<|content|>B. Proceeds Waterfall\n<|id|>89<|page|>7<|box|>585 140 602 349<|content|>C. Enforcement Standstill\n<|id|>99<|page|>8<|box|>441 140 459 444<|content|>D. Bankruptcy / Insolvency Provisions\n<|id|>106<|page|>9<|box|>398 140 414 421<|content|>E. Release of Liens and Guarantees\n<|id|>110<|page|>9<|box|>765 140 782 583<|content|>F. Amendments to First Lien and Unsecured Document\n<|id|>117<|page|>10<|box|>388 140 407 303<|content|>G. Purchase Option\n<|id|>120<|page|>10<|box|>579 140 597 486<|content|>H. Permitted Payments on Unsecured Notes\n<|id|>127<|page|>11<|box|>138 140 157 398<|content|>I. Change of Control Interaction\n<|id|>130<|page|>11<|box|>449 140 467 683<|content|>VI. Comparison to First Lien / Second Lien Intercr\n<|id|>134<|page|>11<|box|>824 140 842 542<|content|>VII. Interaction with Existing Indenture Provision\n<|id|>142<|page|>12<|box|>522 140 539 638<|content|>VIII. Provisions Permitting Future Intercreditor A\n<|id|>149<|page|>13<|box|>90 140 107 539<|content|>IX. Recommended Borrower Negotiation Positions\n<|id|>159<|page|>13<|box|>667 140 684 349<|content|>X. Process and Next Steps\n<|id|>165<|page|>14<|box|>242 140 258 264<|content|>XI. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>9<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>24<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>1\n<|id|>36<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>2\n<|id|>59<|level|>1\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>71<|level|>1\n<|id|>72<|level|>2\n<|id|>80<|level|>2\n<|id|>89<|level|>2\n<|id|>99<|level|>2\n<|id|>106<|level|>2\n<|id|>110<|level|>2\n<|id|>117<|level|>2\n<|id|>120<|level|>2\n<|id|>127<|level|>2\n<|id|>130<|level|>1\n<|id|>134<|level|>1\n<|id|>142<|level|>1\n<|id|>149<|level|>1\n<|id|>159<|level|>1\n<|id|>165<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        }
+    ]
+}

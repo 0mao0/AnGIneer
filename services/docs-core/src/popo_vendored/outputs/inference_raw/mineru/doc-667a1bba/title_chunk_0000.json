@@ -1,0 +1,84 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 274 133 722<|content|>200 South Wacker Drive, Suite 4400 Chicago, Illino\n<|id|>4<|page|>1<|box|>193 142 210 560<|content|>VIA ELECTRONIC MAIL AND HAND DELIVERY\n<|id|>8<|page|>1<|box|>369 140 398 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>10<|page|>1<|box|>491 142 508 339<|content|>Dear Deborah and Martin:\n<|id|>13<|page|>2<|box|>90 140 107 419<|content|>1. Completion of Written discovery\n<|id|>14<|page|>2<|box|>121 142 138 413<|content|>1.1 Nexford's discovery Responses\n<|id|>26<|page|>3<|box|>157 142 175 460<|content|>1.2 Cardinal Peak's discovery Responses\n<|id|>35<|page|>3<|box|>744 140 761 256<|content|>2. Depositions\n<|id|>37<|page|>3<|box|>819 140 837 586<|content|>2.1 Deposition of Natalie Gunderson — January 18,\n<|id|>46<|page|>5<|box|>90 140 107 575<|content|>2.2 Deposition of Russell Okonkwo — February 7, 20\n<|id|>56<|page|>5<|box|>739 140 756 442<|content|>3. Expert Work and Report Exchange\n<|id|>57<|page|>5<|box|>768 140 787 694<|content|>3.1 Dr. Anita Rosenthal — Damages Rebuttal Report\n<|id|>65<|page|>6<|box|>825 140 844 462<|content|>3.2 Anticipated Plaintiff's Expert Report\n<|id|>69<|page|>7<|box|>377 140 393 539<|content|>4. Current Case Posture and Upcoming Milestones\n<|id|>76<|page|>8<|box|>90 140 107 464<|content|>5. Recommendation to Pursue Mediation\n<|id|>86<|page|>9<|box|>241 140 258 372<|content|>6. Budget and Billing Update\n<|id|>91<|page|>9<|box|>787 140 804 513<|content|>7. Lender and Sponsor Coordination Reminder\n<|id|>95<|page|>10<|box|>329 140 347 250<|content|>8. Next Steps\n<|id|>103<|page|>11<|box|>90 140 108 207<|content|>Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>4<|level|>-1\n<|id|>8<|level|>-1\n<|id|>10<|level|>-1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>26<|level|>2\n<|id|>35<|level|>1\n<|id|>37<|level|>2\n<|id|>46<|level|>2\n<|id|>56<|level|>1\n<|id|>57<|level|>2\n<|id|>65<|level|>2\n<|id|>69<|level|>1\n<|id|>76<|level|>1\n<|id|>86<|level|>1\n<|id|>91<|level|>1\n<|id|>95<|level|>1\n<|id|>103<|level|>1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        }
+    ]
+}

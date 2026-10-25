@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>426 140 443 264<|content|>I. Introduction\n<|id|>13<|page|>2<|box|>90 140 107 287<|content|>II. Defined Terms\n<|id|>33<|page|>3<|box|>354 142 372 393<|content|>III. Documents Being Delivered\n<|id|>35<|page|>3<|box|>449 140 465 519<|content|>A. 10b-5 Disclosure Letter (Negative Assurance)\n<|id|>39<|page|>4<|box|>176 140 193 468<|content|>B. New York Law Enforceability Opinion\n<|id|>46<|page|>4<|box|>616 140 633 661<|content|>C. Corporate Authorization Opinion (DUFC and U.S.\n<|id|>53<|page|>5<|box|>268 140 285 488<|content|>D. Securities Law / No-Registration Opinion\n<|id|>59<|page|>5<|box|>765 140 782 562<|content|>IV. Additional Closing Opinions Delivered Separate\n<|id|>67<|page|>7<|box|>321 140 339 316<|content|>V. Tax Memorandum\n<|id|>70<|page|>7<|box|>671 140 688 483<|content|>VI. Distribution to Other Initial Purchasers\n<|id|>72<|page|>7<|box|>741 176 758 380<|content|>(a) Clarion Securities Inc.\n<|id|>79<|page|>8<|box|>167 140 184 470<|content|>VII. Copies to Initial Purchasers' Counsel\n<|id|>84<|page|>8<|box|>321 140 339 385<|content|>VIII. Reliance and Limitations\n<|id|>88<|page|>8<|box|>625 142 641 338<|content|>IX. Contact Information\n<|id|>96<|page|>8<|box|>886 140 902 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>33<|level|>1\n<|id|>35<|level|>2\n<|id|>39<|level|>2\n<|id|>46<|level|>2\n<|id|>53<|level|>2\n<|id|>59<|level|>1\n<|id|>67<|level|>1\n<|id|>70<|level|>1\n<|id|>72<|level|>2\n<|id|>79<|level|>1\n<|id|>84<|level|>1\n<|id|>88<|level|>1\n<|id|>96<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        }
+    ]
+}

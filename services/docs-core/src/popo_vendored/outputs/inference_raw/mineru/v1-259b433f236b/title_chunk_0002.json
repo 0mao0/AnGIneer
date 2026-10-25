@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        92,
+        97
+    ],
+    "pages": [
+        92,
+        93,
+        94,
+        95,
+        96,
+        97
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>660<|page|>92<|box|>74 58 95 334<|content|>Department of Defense\n<|id|>665<|page|>93<|box|>74 109 95 408<|content|>Department of Education\n<|id|>668<|page|>93<|box|>74 544 95 808<|content|>Department of Energy\n<|id|>672<|page|>94<|box|>74 57 119 367<|content|>Department of Health and Human Services\n<|id|>677<|page|>95<|box|>74 109 95 361<|content|>Department of Labor\n<|id|>681<|page|>95<|box|>73 542 119 919<|content|>National Aeronautics and Space Administration\n<|id|>685<|page|>96<|box|>74 53 94 393<|content|>National Science Foundation\n<|id|>690<|page|>96<|box|>73 486 95 849<|content|>U.S. Department of Agriculture\n<|id|>694<|page|>97<|box|>73 107 178 944<|content|>APPENDIX B: ADVANCED MANUFACTURING NATIONAL PROGRA\n<|id|>722<|page|>97<|box|>529 109 549 362<|content|>Department of Commerce",
+    "raw_response": "<|id|>660<|level|>1\n<|id|>665<|level|>1\n<|id|>668<|level|>1\n<|id|>672<|level|>1\n<|id|>677<|level|>1\n<|id|>681<|level|>1\n<|id|>685<|level|>1\n<|id|>690<|level|>1\n<|id|>694<|level|>1\n<|id|>722<|level|>2",
+    "parsed": [
+        {
+            "id": 660,
+            "level": 1
+        },
+        {
+            "id": 665,
+            "level": 1
+        },
+        {
+            "id": 668,
+            "level": 1
+        },
+        {
+            "id": 672,
+            "level": 1
+        },
+        {
+            "id": 677,
+            "level": 1
+        },
+        {
+            "id": 681,
+            "level": 1
+        },
+        {
+            "id": 685,
+            "level": 1
+        },
+        {
+            "id": 690,
+            "level": 1
+        },
+        {
+            "id": 694,
+            "level": 1
+        },
+        {
+            "id": 722,
+            "level": 2
+        }
+    ]
+}

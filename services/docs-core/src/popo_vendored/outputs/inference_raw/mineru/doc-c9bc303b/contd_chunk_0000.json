@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        7,
+        10,
+        11,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 715 184 854<|content|>February 18, 2025\n<|id|>5<|page|>1<|box|>219 140 253 854<|content|>Theresa Yun-Park, Esq. ... 2200 Elliott Avenue West, Suite 3400 Seattle, WA 98119\n<|id|>6<|page|>1<|box|>263 140 299 854<|content|>Re: ... 1038-00006\n<|id|>7<|page|>1<|box|>309 142 325 295<|content|>Dear Ms. ... Yun-Park\n<|id|>75<|page|>7<|box|>472 174 507 852<|content|>(g) Electronic legal research charges (e. ... and\n<|id|>77<|page|>7<|box|>542 140 671 857<|content|>Vendors retained by the Firm on behalf of CRH in c...oiced separately from the Firm's professional fees\n<|id|>108<|page|>10<|box|>840 174 893 854<|content|>(f) All access logs, file transfer records, downlo... and their access to CRH systems and data; ... and\n<|id|>110<|page|>11<|box|>135 140 262 856<|content|>The Firm will prepare and provide to CRH a separat...icable to the relevant data sources and custodians\n<|id|>113<|page|>11<|box|>391 176 428 854<|content|>Bernard Crawford, Partner Calderwood & Harkness LL...Washington, DC 20005 Telephone: ... (202) 555-7418\n<|id|>114<|page|>11<|box|>436 176 452 511<|content|>Email: ... com\n<|id|>115<|page|>11<|box|>454 140 580 854<|content|>The Firm will provide CRH with regular and timely ...d and confidential attorney- client communications\n<|id|>136<|page|>13<|box|>866 142 883 220<|content|>Sincerely,\n<|id|>137<|page|>13<|box|>891 140 907 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>138<|page|>14<|box|>90 142 107 251<|content|>By: ... By\n<|id|>139<|page|>14<|box|>107 140 140 854<|content|>Bernard Crawford Partner, Labor & Employment 1301 ...Washington, DC 20005 Telephone: ... (202) 555-7418\n<|id|>140<|page|>14<|box|>140 142 157 475<|content|>Email: ... com\n<|id|>144<|page|>14<|box|>218 142 234 334<|content|>Name: ... Theresa Yun-Park\n<|id|>145<|page|>14<|box|>234 142 252 315<|content|>Title: ... General Counsel\n<|id|>146<|page|>14<|box|>253 142 270 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>108<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 108,
+            "tgt_id": 110
+        }
+    ]
+}

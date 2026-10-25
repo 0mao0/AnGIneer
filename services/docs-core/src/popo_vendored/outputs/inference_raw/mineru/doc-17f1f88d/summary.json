@@ -1,0 +1,82 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-o6_mrzgr\\input\\pdfs\\doc-17f1f88d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-o6_mrzgr\\enriched\\doc-17f1f88d.json",
+    "contd_output": "",
+    "title_output": "<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>15<|level|>1\n<|id|>17<|level|>1\n<|id|>25<|level|>1\n<|id|>31<|level|>1\n<|id|>44<|level|>1\n<|id|>47<|level|>1\n<|id|>53<|level|>1\n<|id|>62<|level|>1\n<|id|>70<|level|>1",
+    "image_output": "<|src_id|>27<|tgt_id|>25\n<|src_id|>28<|tgt_id|>25",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 27,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 25
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 27,
+            "table2_idx": 28,
+            "upper_row_ss": [
+                [
+                    "Fine Particulate Matter (PM_{2.5})",
+                    "87"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Carbon Monoxide (CO)",
+                    "245"
+                ]
+            ]
+        }
+    ]
+}

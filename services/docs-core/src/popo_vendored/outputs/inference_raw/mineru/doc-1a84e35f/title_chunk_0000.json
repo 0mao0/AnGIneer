@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 277 118 718<|content|>BORROWER'S CLOSING CERTIFICATE\n<|id|>1<|page|>1<|box|>143 303 161 692<|content|>(Bring-Down of Representations and Warranties)\n<|id|>8<|page|>1<|box|>669 140 686 241<|content|>RECITALS\n<|id|>16<|page|>2<|box|>417 140 454 779<|content|>SECTION 1 — BRING-DOWN OF REPRESENTATIONS AND WARR\n<|id|>34<|page|>5<|box|>702 140 739 779<|content|>SECTION 2 — BRING-DOWN OF REPRESENTATIONS AND WARR\n<|id|>48<|page|>8<|box|>321 140 339 388<|content|>SECTION 3 — NO DEFAULT\n<|id|>52<|page|>8<|box|>733 140 750 575<|content|>SECTION 4 — NO MATERIAL ADVERSE CHANGE\n<|id|>57<|page|>9<|box|>537 140 555 761<|content|>SECTION 5 — ORGANIZATIONAL AND AUTHORITY CONFIRMAT\n<|id|>67<|page|>10<|box|>542 140 559 511<|content|>SECTION 6 — CONSTRUCTION MATTERS\n<|id|>73<|page|>11<|box|>537 140 555 539<|content|>SECTION 7 — RELIANCE AND INDUCEMENT\n<|id|>77<|page|>12<|box|>89 142 106 511<|content|>SECTION 8 — SCHEDULES AND UPDATES\n<|id|>80<|page|>12<|box|>311 140 328 429<|content|>SECTION 9 — MISCELLANEOUS\n<|id|>86<|page|>12<|box|>739 166 777 831<|content|>EXECUTION PAGE — BORROWER'S CLOSING CERTIFICATE (B\n<|id|>88<|page|>12<|box|>829 143 845 377<|content|>MORTGAGE BORROWER:\n<|id|>108<|page|>14<|box|>89 437 107 560<|content|>SCHEDULE 1\n<|id|>109<|page|>14<|box|>114 158 133 838<|content|>Disclosure of Updates, Qualifications, or Exceptio\n<|id|>111<|page|>14<|box|>260 142 276 194<|content|>None.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>34<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>57<|level|>2\n<|id|>67<|level|>2\n<|id|>73<|level|>2\n<|id|>77<|level|>2\n<|id|>80<|level|>2\n<|id|>86<|level|>2\n<|id|>88<|level|>3\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>111<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        }
+    ]
+}

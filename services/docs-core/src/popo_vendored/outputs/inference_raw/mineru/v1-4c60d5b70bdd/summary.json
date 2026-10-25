@@ -1,0 +1,227 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-x7kl1qf2\\input\\pdfs\\v1-4c60d5b70bdd.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-x7kl1qf2\\enriched\\v1-4c60d5b70bdd.json",
+    "contd_output": "<|src_id|>21<|tgt_id|>22",
+    "title_output": "<|id|>1<|level|>1\n<|id|>14<|level|>2\n<|id|>20<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>28<|level|>3\n<|id|>31<|level|>3\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>44<|level|>2\n<|id|>47<|level|>3\n<|id|>57<|level|>3\n<|id|>62<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>2\n<|id|>77<|level|>2",
+    "image_output": "<|src_id|>8<|tgt_id|>1\n<|src_id|>23<|tgt_id|>20\n<|src_id|>30<|tgt_id|>28\n<|src_id|>33<|tgt_id|>31\n<|src_id|>39<|tgt_id|>35\n<|src_id|>40<|tgt_id|>35\n<|src_id|>53<|tgt_id|>47\n<|src_id|>54<|tgt_id|>47\n<|src_id|>55<|tgt_id|>47\n<|src_id|>56<|tgt_id|>47\n<|src_id|>68<|tgt_id|>62",
+    "contd_label": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 8,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 62
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 39,
+            "table2_idx": 40,
+            "upper_row_ss": [
+                [
+                    "4. Activation of melatonin",
+                    "PTSD",
+                    "Conditioned fear learning animal models",
+                    "1. Activation of melatonin receptor2. Impairs contextual fear conditioning",
+                    "[16]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "5. Activation of cannabidiol",
+                    "Anxiety disorders (e.g., generalized anxiety disorder, panic disorder, social anxiety disorder, PTSD)",
+                    "Multiple anxiety disorder animal models",
+                    "1. Agonism of the CB1 receptor2. Impair multiple anxiety disorders (including generalized anxiety disorder, panic disorder, social anxiety disorder, and PTSD)",
+                    "[15]"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 53,
+            "table2_idx": 54,
+            "upper_row_ss": [
+                [
+                    "10. Early life stress",
+                    "Maternal separation induces trauma events.",
+                    "Face, predictive, and constructive validity.",
+                    "Long-term conduction.",
+                    "PTSD",
+                    "**",
+                    "[67]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "11. Predator-based stress",
+                    "Predators or predator-related stimuli (such as predator urine) produce trauma induction.",
+                    "Place the predator and its related stimuli to induce stress; easy manipulation.",
+                    "---",
+                    "PTSD",
+                    "**",
+                    "[67]"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 54,
+            "table2_idx": 55,
+            "upper_row_ss": [
+                [
+                    "7. Marble burying test",
+                    "Animals with previous stress are placed in the test cage and then test amounts of marble burying up to 2/3 of the depth with bedding.",
+                    "Face, predictive, and constructive validity for anxiety disorders.",
+                    "A digging activity for a species-typical reaction to stress (e.g., rats and mice).",
+                    "Multiple anxiety disorders; PTSD",
+                    "**",
+                    "[73]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "8. Defensive shock-prod burying test",
+                    "A familiar test cage or home cage with plentiful bedding and a hole in the wall 2 cm above the bedding. An electrical probe is connected to a shock source. Measuring the depth to which the prod is buried.",
+                    "Face, predictive, and constructive validity.",
+                    "Animals do not touch the electrical probe and cannot induce anxiety.",
+                    "Multiple anxiety disorders",
+                    "**",
+                    "[74]"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 55,
+            "table2_idx": 56,
+            "upper_row_ss": [
+                [
+                    "11. Suok test",
+                    "The Suok task simultaneously tests anxiety, vestibular, and neuromuscular deficits by combining an unstable rod with novelty. The threats of height, loss of balance, and novelty are presented to analyze anxiety and assess animal exploration.",
+                    "Face validity.",
+                    "Doubt in predictive and constructive validity.Competitions in testing for multiple behaviors.",
+                    "Multiple anxiety disorders; PTSD",
+                    "*",
+                    "[75]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "12. Stress-induced hyperthermia test",
+                    "Based on the evolutionarily important role of hyperthermia, whereby body temperature rises upon encountering stressful stimuli.",
+                    "Across many species, including humans.",
+                    "Testing errors from a lot of confounding factors.",
+                    "Multiple anxiety disorders; PTSD",
+                    "*",
+                    "[10]"
+                ]
+            ]
+        }
+    ]
+}

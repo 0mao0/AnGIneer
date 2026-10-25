@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>142 140 157 380<|content|>TO: ... Francesca Morano, Partner\n<|id|>3<|page|>1<|box|>167 140 184 452<|content|>FROM: ... Carlos Espinoza, Lead Associate\n<|id|>4<|page|>1<|box|>193 140 210 312<|content|>DATE: ... June 10, 2024\n<|id|>5<|page|>1<|box|>219 140 255 854<|content|>RE: ... 24STCV-01892, Superior Court of California, County of Los Angeles\n<|id|>6<|page|>1<|box|>263 140 280 428<|content|>CC: ... Samuel Eklund, Hannah Brinkley\n<|id|>12<|page|>1<|box|>633 176 650 676<|content|>(3) Unfair Business Practices (Cal. ... and\n<|id|>14<|page|>1<|box|>685 140 905 857<|content|>The overarching objectives of the discovery plan a...ary to support RGC's request for injunctive relief\n<|id|>21<|page|>2<|box|>775 138 904 857<|content|>Report 2: ... This allegation was definitively reb...dependent RNG audit on March 29, 2024, and cleared\n<|id|>22<|page|>3<|box|>90 140 143 854<|content|>RGC of any wrongdoing. ... We will seek evidence t...redible basis for its purported technical analysis\n<|id|>184<|page|>14<|box|>843 181 897 854<|content|>• Search terms and custodians: ... On the defendan...odians will include at a minimum Tobias Fenchurch,\n<|id|>185<|page|>15<|box|>90 210 125 854<|content|>Ava Lin, and any additional GPR or GPCP personnel ...PCP personnel identified through written discovery",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>184<|tgt_id|>185",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 185
+        }
+    ]
+}

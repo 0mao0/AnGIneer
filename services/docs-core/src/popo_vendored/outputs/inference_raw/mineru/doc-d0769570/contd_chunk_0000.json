@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        24,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>217 460 234 537<|content|>Plaintiffs,\n<|id|>3<|page|>1<|box|>244 480 258 517<|content|>and\n<|id|>8<|page|>1<|box|>434 565 450 854<|content|>Civil Action No. ... 24-cv-00087-DWM\n<|id|>9<|page|>1<|box|>460 357 478 854<|content|>Hon. ... District Judge (by designation)\n<|id|>58<|page|>6<|box|>815 140 888 857<|content|>The alleged violations at the Ridgecrest site include: ... §\n<|id|>59<|page|>7<|box|>89 140 127 854<|content|>6924; ... § 9607\n<|id|>207<|page|>24<|box|>599 147 616 761<|content|>• $245. ... and\n<|id|>209<|page|>24<|box|>638 140 693 854<|content|>The grand total estimated obligation under the Dec...hat no comment warrants modification of the Decree\n<|id|>219<|page|>25<|box|>172 699 190 854<|content|>Dated: ... April _, 2025\n<|id|>220<|page|>25<|box|>199 140 232 852<|content|>TODD KIM Assistant Attorney General Environment an...al Resources Division U. ... Department of Justice\n<|id|>221<|page|>25<|box|>234 143 250 251<|content|>By: ... By\n<|id|>222<|page|>25<|box|>250 140 297 854<|content|>PHILIP ORENSTEIN Trial Attorney Environmental Enfo...d Natural Resources Division U. ... (202) 514-2000\n<|id|>223<|page|>25<|box|>299 142 316 401<|content|>Email: ... gov\n<|id|>224<|page|>25<|box|>316 140 364 854<|content|>KATHERINE ROWE-HALPERN Senior Counsel (Supervising...d Natural Resources Division U. ... (202) 514-2000\n<|id|>225<|page|>25<|box|>366 143 382 457<|content|>Email: ... gov\n<|id|>226<|page|>25<|box|>382 140 431 854<|content|>MARGARET COULSON Lead Case Attorney Office of Enfo...ent and Compliance Assurance U. ... (202) 564-2000\n<|id|>227<|page|>25<|box|>431 142 448 400<|content|>Email: ... gov\n<|id|>231<|page|>25<|box|>508 140 556 854<|content|>ANNIKA HEDSTROM Assistant Attorney General Environ...l's Office 215 North Sanders P. ... (406) 444-2026\n<|id|>232<|page|>25<|box|>559 143 575 343<|content|>Email: ... gov\n<|id|>233<|page|>25<|box|>575 143 590 313<|content|>STATE OF NEVADA\n<|id|>234<|page|>25<|box|>594 143 609 251<|content|>By: ... By\n<|id|>235<|page|>25<|box|>609 142 643 854<|content|>RICARDO FUENTES Deputy Attorney General Nevada Att...n City, Nevada 89701 Telephone: ... (775) 684-1100\n<|id|>236<|page|>25<|box|>643 143 660 346<|content|>Email: ... gov\n<|id|>237<|page|>25<|box|>661 143 676 372<|content|>STATE OF WEST VIRGINIA\n<|id|>238<|page|>25<|box|>679 143 695 253<|content|>By: ... By\n<|id|>239<|page|>25<|box|>695 140 728 854<|content|>LORETTA MAY HATCHER Assistant Attorney General Wes... West Virginia 25301 Telephone: ... (304) 558-2021\n<|id|>240<|page|>25<|box|>729 142 746 419<|content|>Email: ... gov\n<|id|>244<|page|>26<|box|>89 176 126 852<|content|>Harrison Wexford, Esq. ... (212) 558-4000\n<|id|>245<|page|>26<|box|>133 176 169 504<|content|>Email: ... com Lead Outside Counsel for all Defendants\n<|id|>246<|page|>26<|box|>176 176 214 852<|content|>Russell Dane, Esq. ... (406) 443-7100\n<|id|>247<|page|>26<|box|>220 176 257 482<|content|>Email: ... com Local Counsel for Defendants (Montana)\n<|id|>248<|page|>26<|box|>263 176 301 854<|content|>Denise Quartaro, Esq. ... (775) 322-9900\n<|id|>249<|page|>26<|box|>308 176 344 472<|content|>Email: ... com Local Counsel for Defendants (Nevada)\n<|id|>250<|page|>26<|box|>351 174 388 852<|content|>Nathan Tully, Esq. ... (304) 345-6800\n<|id|>251<|page|>26<|box|>395 176 412 380<|content|>Email: ... com\n<|id|>252<|page|>26<|box|>412 176 431 514<|content|>Local Counsel for Defendants (West Virginia)\n<|id|>253<|page|>26<|box|>465 140 500 854<|content|>PHILIP ORENSTEIN Trial Attorney Environmental Enfo...al Resources Division U. ... Department of Justice",
+    "raw_response": "<|src_id|>58<|tgt_id|>59\n<|src_id|>251<|tgt_id|>252",
+    "parsed": [
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 251,
+            "tgt_id": 252
+        }
+    ]
+}

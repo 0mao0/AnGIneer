@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        101,
+        137
+    ],
+    "pages": [
+        101,
+        102,
+        107,
+        113,
+        125,
+        136,
+        137
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>940<|page|>101<|box|>85 24 102 112<|content|>(In millions)\n<|id|>942<|page|>101<|box|>693 22 710 591<|content|>Corning did not have outstanding commercial paper ...ing commercial paper at December 31, 2020 and 2019\n<|id|>947<|page|>102<|box|>194 22 238 942<|content|>During the fourth quarter of 2020, Corning redeeme.... The redemption resulted in a loss of $22 million\n<|id|>948<|page|>102<|box|>250 22 319 968<|content|>In conjunction with the change in control of HSG o...ed financial statements for additional information\n<|id|>953<|page|>102<|box|>520 22 535 557<|content|> $400 million 3. ... and\n<|id|>954<|page|>102<|box|>536 22 551 519<|content|> $1. ... 45% senior unsecured notes with a maturity of 60 years\n<|id|>958<|page|>102<|box|>671 22 686 566<|content|> ¥31. ... and\n<|id|>959<|page|>102<|box|>686 22 700 527<|content|> ¥5. ... 513% senior unsecured notes with a maturity of 20 years\n<|id|>977<|page|>107<|box|>276 29 289 184<|content|>benefit obligations recognized\n<|id|>980<|page|>107<|box|>598 24 613 326<|content|>Other changes in plan assets and benefit obligations\n<|id|>982<|page|>107<|box|>731 22 760 929<|content|>The components of net periodic benefit cost other ...nse, net, in the consolidated statements of income\n<|id|>1036<|page|>113<|box|>409 22 424 730<|content|> Financial instruments and transactions denominat...foreign currencies, which impact earnings; ... and\n<|id|>1037<|page|>113<|box|>424 24 439 758<|content|> The translation of net assets in foreign subsidi...h the functional currency is not the U. ... dollar\n<|id|>1129<|page|>125<|box|>334 21 488 968<|content|>Financial results for the reportable segments are ...they are included in reported consolidated results\n<|id|>1130<|page|>125<|box|>497 22 541 926<|content|>Earnings of equity affiliates that are closely ass...e consistent with measures used by other companies\n<|id|>1164<|page|>136<|box|>329 101 354 906<|content|>(c) Evaluated the effectiveness of the registrant’...d by this report based on such evaluation; ... and\n<|id|>1169<|page|>136<|box|>516 84 531 233<|content|>Date: ... February 12, 2021\n<|id|>1165<|page|>136<|box|>362 102 398 910<|content|>(d) Disclosed in this report any change in the reg...internal control over financial reporting; ... and\n<|id|>1167<|page|>136<|box|>439 101 464 888<|content|>(a) All significant deficiencies and material weak...ummarize and report financial information; ... and\n<|id|>1178<|page|>137<|box|>329 101 354 906<|content|>(c) Evaluated the effectiveness of the registrant’...d by this report based on such evaluation; ... and\n<|id|>1183<|page|>137<|box|>516 84 531 233<|content|>Date: ... February 12, 2021\n<|id|>1179<|page|>137<|box|>361 102 398 910<|content|>(d) Disclosed in this report any change in the reg...internal control over financial reporting; ... and\n<|id|>1181<|page|>137<|box|>439 101 464 888<|content|>(a) All significant deficiencies and material weak...ummarize and report financial information; ... and",
+    "raw_response": "<|src_id|>953<|tgt_id|>954\n<|src_id|>958<|tgt_id|>959\n<|src_id|>1036<|tgt_id|>1037",
+    "parsed": [
+        {
+            "src_id": 953,
+            "tgt_id": 954
+        },
+        {
+            "src_id": 958,
+            "tgt_id": 959
+        },
+        {
+            "src_id": 1036,
+            "tgt_id": 1037
+        }
+    ]
+}

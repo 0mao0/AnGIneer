@@ -1,0 +1,79 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-aib40zwl\\input\\pdfs\\doc-1cb22ac1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-aib40zwl\\enriched\\doc-1cb22ac1.json",
+    "contd_output": "<|src_id|>56<|tgt_id|>57",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>15<|level|>2\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>45<|level|>2",
+    "image_output": "<|src_id|>16<|tgt_id|>15\n<|src_id|>19<|tgt_id|>18\n<|src_id|>20<|tgt_id|>18",
+    "contd_label": [
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 16,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 19,
+            "table2_idx": 20,
+            "upper_row_ss": [
+                [
+                    "Role in Transaction",
+                    "Saguaro Flats Solar LLC is the special-purpose project"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "company that will own, develop, construct, and operate the Saguaro Flats Solar Project, a 150 MWac solar photovoltaic facility in Pecos County, Texas. It will serve as the contractual Seller under the PPA with Meridian DataCore Solutions Inc. and as the Borrower under the Credit Facility with Tralvendo National Bank, N.A."
+                ]
+            ]
+        }
+    ]
+}

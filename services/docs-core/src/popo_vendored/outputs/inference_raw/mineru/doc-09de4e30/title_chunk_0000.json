@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV\n<|id|>1<|page|>1<|box|>126 160 162 834<|content|>CALDERWOOD & HARKNESS LLP 200 South Biscayne Boule\n<|id|>4<|page|>1<|box|>224 143 239 181<|content|>TO:\n<|id|>19<|page|>1<|box|>579 285 599 710<|content|>DOCUMENT PRESERVATION NOTICE\n<|id|>20<|page|>1<|box|>625 140 642 343<|content|>I. Purpose and Authority\n<|id|>26<|page|>2<|box|>494 140 511 370<|content|>II. Scope of the Investigation\n<|id|>28<|page|>2<|box|>606 142 623 406<|content|>1. Revenue-Recognition Practices\n<|id|>33<|page|>3<|box|>138 140 157 630<|content|>2. Expense-Reporting and Capital-Improvement Expen\n<|id|>36<|page|>3<|box|>449 140 467 428<|content|>III. Temporal Scope of Preservation\n<|id|>40<|page|>3<|box|>806 140 823 483<|content|>IV. Categories of Materials to Be Preserved\n<|id|>43<|page|>4<|box|>140 140 156 312<|content|>A. Financial Records\n<|id|>50<|page|>4<|box|>609 140 626 540<|content|>B. Purchase Orders, Invoices, and Vendor Records\n<|id|>62<|page|>5<|box|>310 140 327 364<|content|>C. Timeshare Sales Records\n<|id|>70<|page|>5<|box|>763 142 779 470<|content|>D. Email and Electronic Communications\n<|id|>77<|page|>6<|box|>436 142 454 410<|content|>E. Personal Devices and Accounts\n<|id|>82<|page|>6<|box|>806 140 824 426<|content|>F. Hard-Copy and Physical Records\n<|id|>87<|page|>7<|box|>289 140 305 287<|content|>G. Other Records\n<|id|>94<|page|>7<|box|>714 140 729 547<|content|>V. Preservation Obligations — Specific Instruction\n<|id|>96<|page|>7<|box|>789 140 805 598<|content|>A. Prohibition on Destruction, Alteration, or Conc\n<|id|>102<|page|>8<|box|>474 142 491 408<|content|>B. Affirmative Preservation Steps\n<|id|>109<|page|>9<|box|>250 140 268 325<|content|>C. Ongoing Obligation\n<|id|>112<|page|>9<|box|>469 140 486 295<|content|>VI. Confidentiality\n<|id|>119<|page|>10<|box|>148 140 167 346<|content|>VII. Contact Information\n<|id|>126<|page|>10<|box|>512 140 529 462<|content|>VIII. Acknowledgment and Certification\n<|id|>135<|page|>11<|box|>207 140 223 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>140<|page|>11<|box|>292 142 327 823<|content|>200 South Biscayne Boulevard, Suite 4400 Miami, Fl\n<|id|>141<|page|>11<|box|>335 303 353 694<|content|>ACKNOWLEDGMENT AND CERTIFICATION\n<|id|>142<|page|>11<|box|>363 148 397 846<|content|>Document Preservation Notice dated July 24, 2023 C\n<|id|>155<|page|>12<|box|>133 176 151 503<|content|>Email: ldonahue@calderwoodharkness.com",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>4<|level|>-1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>26<|level|>2\n<|id|>28<|level|>3\n<|id|>33<|level|>3\n<|id|>36<|level|>2\n<|id|>40<|level|>2\n<|id|>43<|level|>3\n<|id|>50<|level|>3\n<|id|>62<|level|>3\n<|id|>70<|level|>3\n<|id|>77<|level|>3\n<|id|>82<|level|>3\n<|id|>87<|level|>3\n<|id|>94<|level|>2\n<|id|>96<|level|>3\n<|id|>102<|level|>3\n<|id|>109<|level|>3\n<|id|>112<|level|>2\n<|id|>119<|level|>2\n<|id|>126<|level|>2\n<|id|>135<|level|>-1\n<|id|>140<|level|>-1\n<|id|>141<|level|>2\n<|id|>142<|level|>-1\n<|id|>155<|level|>-1",
+    "parsed": [
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        }
+    ]
+}

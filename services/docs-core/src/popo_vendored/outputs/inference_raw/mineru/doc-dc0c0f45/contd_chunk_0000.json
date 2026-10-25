@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        14,
+        15,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>166 140 202 854<|content|>TO: ... Derek Huang, General Counsel, Crestline Pa...Health & Safety, Crestline Packaging Solutions LLC\n<|id|>3<|page|>1<|box|>210 140 246 854<|content|>FROM: ... Harrison Caldwell, Of Counsel (Environme...Associate (Real Estate), Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>253 140 272 346<|content|>DATE: ... September 2, 2022\n<|id|>5<|page|>1<|box|>280 140 316 854<|content|>RE: ... )\n<|id|>6<|page|>1<|box|>324 140 340 361<|content|>MATTER NO. ... 1006-00003\n<|id|>7<|page|>1<|box|>349 140 411 854<|content|>This memorandum constitutes a privileged and confi...prior written consent of Calderwood & Harkness LLP\n<|id|>12<|page|>1<|box|>844 140 881 854<|content|>The Phase I ESA identified one Controlled Recogniz...EC\") at the Property. ... No Historical Recognized\n<|id|>13<|page|>2<|box|>89 140 125 854<|content|>Environmental Conditions (\"HRECs\") were identified. ... A summary of these findings is provided below\n<|id|>138<|page|>14<|box|>866 140 902 856<|content|>However, the lease does not contain an express lan... the lease did not identify any provision in which\n<|id|>139<|page|>15<|box|>90 140 145 854<|content|>Mountainview Properties LLC assumes responsibility...ase's environmental liability allocation framework\n<|id|>209<|page|>22<|box|>670 140 724 854<|content|>Appendix A: ... TerraVerde Environmental Consultin...2022 (provided under separate cover due to volume)\n<|id|>210<|page|>22<|box|>732 140 768 852<|content|>Appendix B: ... West Virginia Department of Enviro...Letter, Site ID WVUST-2012-04887, dated March 2013\n<|id|>211<|page|>22<|box|>776 140 811 852<|content|>Appendix C: ... Institutional Control — Land-Use R...arrison County Clerk's Office, Book 1245, Page 312\n<|id|>212<|page|>22<|box|>821 140 857 852<|content|>Appendix D: ... 4)\n<|id|>213<|page|>22<|box|>864 140 898 854<|content|>Appendix E: ... Site Plan / Parcel Map — Parcel ID...0056-0000 (reproduced from TerraVerde Phase I ESA)\n<|id|>214<|page|>23<|box|>89 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...derwood & Harkness LLP | Matter No. ... 1006-00003",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>138<|tgt_id|>139",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 139
+        }
+    ]
+}

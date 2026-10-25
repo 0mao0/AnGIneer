@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        19,
+        24,
+        25,
+        27,
+        28,
+        30
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>196 140 234 854<|content|>FROM: ... Wendy Schultz, Associate, intellectual P..., intellectual Property, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>241 140 258 334<|content|>DATE: ... January 25, 2023\n<|id|>5<|page|>1<|box|>268 140 304 854<|content|>RE: ... Data License Negotiation\n<|id|>6<|page|>1<|box|>311 140 329 379<|content|>C&H Matter No. ... 1025-00008\n<|id|>7<|page|>1<|box|>338 140 373 854<|content|>CC: ... Leonard Cross, Partner (Responsible Partne...icia Heng, Senior Counsel, Technology Transactions\n<|id|>8<|page|>1<|box|>382 140 398 408<|content|>Right-click to update Table of Contents\n<|id|>165<|page|>19<|box|>90 174 108 828<|content|>Training data → training process → model weights → inference on new inputs → output\n<|id|>166<|page|>19<|box|>116 140 190 854<|content|>At each stage, the connection to Meridian's origin...ned model to new (potentially non-Meridian) inputs\n<|id|>215<|page|>24<|box|>845 140 902 857<|content|>7. ... However, Quorum should retain ownership and use rights in all\n<|id|>216<|page|>25<|box|>89 140 164 854<|content|>Derived Data, model weights, trained models, and i...ommercially devastating and technically infeasible\n<|id|>242<|page|>27<|box|>829 140 886 854<|content|>Real-Time API Scoring. ... For example, when a new insurance application is submitted,\n<|id|>243<|page|>28<|box|>89 140 126 852<|content|>QuorumScore may process the application data in re...n real time and return a risk score within seconds\n<|id|>261<|page|>30<|box|>560 140 652 854<|content|>This memorandum constitutes legal advice protected...ubject to revision as new legal authorities emerge\n<|id|>262<|page|>30<|box|>659 142 675 320<|content|>Respectfully submitted,\n<|id|>263<|page|>30<|box|>676 140 691 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>264<|page|>30<|box|>694 143 710 253<|content|>By: ... By\n<|id|>265<|page|>30<|box|>710 142 727 743<|content|>Wendy Schultz, Associate Intellectual Property Group Telephone: ... (212) 555-4218\n<|id|>266<|page|>30<|box|>728 142 744 465<|content|>Email: ... com\n<|id|>267<|page|>30<|box|>746 143 762 251<|content|>By: ... By\n<|id|>268<|page|>30<|box|>762 142 779 738<|content|>Omar Siddiqui, Associate Intellectual Property Group Telephone: ... (212) 555-4392\n<|id|>269<|page|>30<|box|>780 142 797 470<|content|>Email: ... com",
+    "raw_response": "<|src_id|>215<|tgt_id|>216\n<|src_id|>242<|tgt_id|>243",
+    "parsed": [
+        {
+            "src_id": 215,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 242,
+            "tgt_id": 243
+        }
+    ]
+}

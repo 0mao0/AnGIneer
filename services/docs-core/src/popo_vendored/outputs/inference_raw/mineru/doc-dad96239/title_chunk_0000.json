@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        61
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        12,
+        13,
+        22,
+        30,
+        32,
+        34,
+        35,
+        40,
+        51,
+        60
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>7<|box|>0 85 258 871<|content|>TREASURY BULLETIN\n<|id|>8<|page|>9<|box|>163 344 186 605<|content|>Table of Contents\n<|id|>11<|page|>11<|box|>52 324 67 635<|content|>Treasury Financing Operations\n<|id|>12<|page|>11<|box|>98 39 113 280<|content|>Refunding of Five Securities\n<|id|>22<|page|>12<|box|>206 549 222 938<|content|>Other Treasury Bonds Callable on June 15, 1954\n<|id|>24<|page|>12<|box|>332 549 347 807<|content|>Treasury 91-Day Bills Refunded\n<|id|>27<|page|>13<|box|>77 324 92 639<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>62<|page|>22<|box|>48 345 63 656<|content|>TRUST ACCOUNT AND OTHER TRANSACTIONS\n<|id|>80<|page|>30<|box|>66 208 96 783<|content|>Table 5.- Treasury Holdings of Securities Issued b\n<|id|>84<|page|>32<|box|>51 351 66 637<|content|>DEBT OUTSTANDING AND GENERAL FUND\n<|id|>90<|page|>34<|box|>77 146 126 850<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>93<|page|>35<|box|>88 137 120 833<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>103<|page|>40<|box|>55 380 70 615<|content|>UNITED STATES SAVINGS BONDS.\n<|id|>124<|page|>51<|box|>79 159 111 811<|content|>Section II - Interest-Bearing Securities Issued by\n<|id|>148<|page|>60<|box|>40 373 53 619<|content|>.INTERNAL REVENUE COLLECTIONS\n<|id|>149<|page|>60<|box|>68 214 85 789<|content|>Table 2.- Detail of Collections by Type of Tax \\fr",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>8<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>22<|level|>3\n<|id|>24<|level|>3\n<|id|>27<|level|>2\n<|id|>62<|level|>2\n<|id|>80<|level|>3\n<|id|>84<|level|>2\n<|id|>90<|level|>3\n<|id|>93<|level|>3\n<|id|>103<|level|>2\n<|id|>124<|level|>3\n<|id|>148<|level|>2\n<|id|>149<|level|>3",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 3
+        }
+    ]
+}

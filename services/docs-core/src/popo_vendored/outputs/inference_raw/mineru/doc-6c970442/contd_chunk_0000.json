@@ -1,0 +1,48 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        11,
+        12,
+        14,
+        15,
+        18,
+        19,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>150 462 167 534<|content|>Plaintiff,\n<|id|>2<|page|>1<|box|>176 447 193 550<|content|>— against —\n<|id|>3<|page|>1<|box|>202 333 219 663<|content|>NORTHGATE FIBER AMERICAS INC. ... ,\n<|id|>19<|page|>2<|box|>794 140 905 857<|content|>H. ... , Harborline Technologies, or any other mes...ranscriptions, chat logs, presentations (including\n<|id|>20<|page|>3<|box|>90 138 219 857<|content|>Northgate Services Inc. ... ), drawings, photograp... any other form, and whether an original or a copy\n<|id|>59<|page|>7<|box|>864 140 902 854<|content|>All Documents relating to the twenty-two (22) day ...the Project, including without limitation: ... (b)\n<|id|>60<|page|>8<|box|>90 140 237 856<|content|>internal analyses, memoranda, and Communications a... response, objections, and any supporting analyses\n<|id|>86<|page|>11<|box|>849 140 905 856<|content|>All Documents that Meridian contends support its a... limitation: ... (a) any Documents suggesting that\n<|id|>87<|page|>12<|box|>90 140 273 856<|content|>NFA's asserted grounds for termination were a pret...consistent with the stated grounds for termination\n<|id|>109<|page|>14<|box|>864 140 902 856<|content|>All Documents constituting, reflecting, or relatin...cial models, or pro forma analyses relating to the\n<|id|>110<|page|>15<|box|>90 140 237 856<|content|>Northgate MCA or the Fiber Build-Out Program, incl...performance and projections under the NFA contract\n<|id|>136<|page|>18<|box|>281 140 316 854<|content|>REQUEST NO. ... 44 — Dralvecen Commercial Finance — Loan Documents and Communications\n<|id|>137<|page|>18<|box|>324 140 563 856<|content|>All Documents constituting or relating to Meridian...volving credit facility during the Relevant Period\n<|id|>147<|page|>19<|box|>739 140 887 857<|content|>All presentations, reports, memoranda, dashboards,...the present, including without limitation: ... (d)\n<|id|>148<|page|>20<|box|>90 140 126 854<|content|>investment committee presentations to Ridgepoint; ...red flag\" reports, or similar escalation documents\n<|id|>166<|page|>21<|box|>872 142 888 320<|content|>Linda Osei Jeffrey Park\n<|id|>167<|page|>22<|box|>89 140 122 852<|content|>425 Park Avenue, 33rd Floor New York, New York 10022 Telephone: ... (212) 558-3588\n<|id|>168<|page|>22<|box|>125 140 140 547<|content|>Attorneys for Defendant Northgate Fiber Americas I...torneys for Defendant Northgate Fiber Americas Inc\n<|id|>172<|page|>22<|box|>263 210 318 854<|content|>Thomas Deluca, Esq. ... (212) 903-1299\n<|id|>173<|page|>22<|box|>327 212 344 429<|content|>Email: ... com\n<|id|>174<|page|>22<|box|>345 212 362 447<|content|>Email: ... com\n<|id|>175<|page|>22<|box|>393 142 412 236<|content|>Jeffrey Park",
+    "raw_response": "<|src_id|>19<|tgt_id|>20\n<|src_id|>59<|tgt_id|>60\n<|src_id|>86<|tgt_id|>87\n<|src_id|>109<|tgt_id|>110\n<|src_id|>147<|tgt_id|>148",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 148
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        84
+    ],
+    "pages": [
+        46,
+        47,
+        50,
+        51,
+        52,
+        53,
+        56,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        67,
+        68,
+        70,
+        72,
+        73,
+        74,
+        76,
+        77,
+        78,
+        84
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>97<|type|>table<|page|>46<|box|>106 42 909 505<|content|>None\n<|id|>98<|type|>table<|page|>46<|box|>104 512 905 952<|content|>None\n<|id|>99<|type|>table<|page|>47<|box|>95 56 484 920<|content|>None\n<|id|>100<|type|>table<|page|>47<|box|>503 54 877 920<|content|>None\n<|id|>102<|type|>table<|page|>50<|box|>106 37 856 962<|content|>None\n<|id|>103<|type|>table<|page|>51<|box|>107 47 824 924<|content|>None\n<|id|>104<|type|>table<|page|>52<|box|>100 70 836 936<|content|>None\n<|id|>105<|type|>title<|page|>53<|box|>66 229 96 738<|content|>Imports of Cotton and Cotton Waste under Quota Pro\n<|id|>106<|type|>table<|page|>53<|box|>120 56 721 911<|content|>None\n<|id|>110<|type|>table<|page|>56<|box|>102 24 942 964<|content|>None\n<|id|>111<|type|>table<|page|>58<|box|>104 31 934 969<|content|>None\n<|id|>113<|type|>table<|page|>59<|box|>108 24 938 961<|content|>None\n<|id|>114<|type|>table<|page|>60<|box|>98 31 905 973<|content|>None\n<|id|>115<|type|>table<|page|>61<|box|>104 8 917 943<|content|>None\n<|id|>117<|type|>table<|page|>62<|box|>104 24 917 962<|content|>None\n<|id|>118<|type|>table<|page|>63<|box|>112 5 418 936<|content|>None\n<|id|>119<|type|>table<|page|>63<|box|>594 0 804 936<|content|>None\n<|id|>120<|type|>table<|page|>64<|box|>108 33 790 973<|content|>None\n<|id|>121<|type|>table<|page|>65<|box|>94 38 776 897<|content|>None\n<|id|>122<|type|>table<|page|>67<|box|>120 12 885 941<|content|>None\n<|id|>123<|type|>table<|page|>68<|box|>108 40 656 973<|content|>None\n<|id|>124<|type|>table<|page|>68<|box|>786 40 892 969<|content|>None\n<|id|>125<|type|>table<|page|>70<|box|>84 65 351 946<|content|>None\n<|id|>126<|type|>table<|page|>70<|box|>434 67 687 948<|content|>None\n<|id|>127<|type|>table<|page|>70<|box|>698 70 950 950<|content|>None\n<|id|>128<|type|>table<|page|>72<|box|>108 65 355 939<|content|>None\n<|id|>129<|type|>title<|page|>72<|box|>434 139 448 457<|content|>Components of Silver Monetary Stock\n<|id|>130<|type|>table<|page|>72<|box|>478 65 820 533<|content|>None\n<|id|>131<|type|>table<|page|>72<|box|>496 545 794 941<|content|>None\n<|id|>132<|type|>table<|page|>73<|box|>106 47 302 916<|content|>None\n<|id|>133<|type|>table<|page|>73<|box|>480 49 775 920<|content|>None\n<|id|>134<|type|>table<|page|>74<|box|>99 90 385 939<|content|>None\n<|id|>135<|type|>table<|page|>74<|box|>397 88 678 939<|content|>None\n<|id|>136<|type|>table<|page|>76<|box|>100 77 856 925<|content|>None\n<|id|>137<|type|>table<|page|>77<|box|>104 60 463 931<|content|>None\n<|id|>138<|type|>table<|page|>77<|box|>474 60 835 932<|content|>None\n<|id|>139<|type|>table<|page|>78<|box|>84 33 779 964<|content|>None\n<|id|>141<|type|>image<|page|>84<|box|>1 833 39 963<|content|>None",
+    "raw_response": "<|src_id|>106<|tgt_id|>105\n<|src_id|>130<|tgt_id|>129\n<|src_id|>131<|tgt_id|>129",
+    "parsed": [
+        {
+            "src_id": 106,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 129
+        }
+    ]
+}

@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 424 128 573<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>405 357 424 638<|content|>I. Purpose of Memorandum\n<|id|>12<|page|>1<|box|>760 300 779 696<|content|>II. Background and Procedural History\n<|id|>13<|page|>1<|box|>804 142 821 339<|content|>A. The Collection Action\n<|id|>23<|page|>2<|box|>789 140 806 395<|content|>B. Key Litigation Developments\n<|id|>34<|page|>4<|box|>321 140 339 513<|content|>C. PBGC's Financial Distress and Receivership\n<|id|>45<|page|>5<|box|>704 232 724 764<|content|>III. Preservation of GAP's Claims in the Receivers\n<|id|>47<|page|>5<|box|>820 140 837 390<|content|>A. Letter to Receiver's Counsel\n<|id|>54<|page|>6<|box|>672 142 689 285<|content|>B. Proof of Claim\n<|id|>64<|page|>7<|box|>356 140 373 426<|content|>C. Claim Classification and Priority\n<|id|>70<|page|>8<|box|>90 194 111 802<|content|>IV. Legal Analysis — Voluntary Dismissal Without P\n<|id|>71<|page|>8<|box|>136 142 152 390<|content|>A. Effect of the Automatic Stay\n<|id|>76<|page|>8<|box|>647 140 664 527<|content|>B. Voluntary Dismissal Under 735 ILCS 5/2-1009\n<|id|>86<|page|>9<|box|>527 140 545 413<|content|>C. The Musgrave Guaranty Claim\n<|id|>93<|page|>10<|box|>402 140 419 344<|content|>D. Preservation of Rights\n<|id|>100<|page|>10<|box|>835 395 854 602<|content|>V. Recommendation\n<|id|>109<|page|>11<|box|>651 424 671 573<|content|>VI. Next Steps\n<|id|>116<|page|>12<|box|>393 375 414 622<|content|>VII. Financial Summary\n<|id|>123<|page|>13<|box|>90 277 111 718<|content|>VIII. Closing and Request for Authorization",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>23<|level|>3\n<|id|>34<|level|>3\n<|id|>45<|level|>2\n<|id|>47<|level|>3\n<|id|>54<|level|>3\n<|id|>64<|level|>3\n<|id|>70<|level|>2\n<|id|>71<|level|>3\n<|id|>76<|level|>3\n<|id|>86<|level|>3\n<|id|>93<|level|>3\n<|id|>100<|level|>2\n<|id|>109<|level|>2\n<|id|>116<|level|>2\n<|id|>123<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        }
+    ]
+}

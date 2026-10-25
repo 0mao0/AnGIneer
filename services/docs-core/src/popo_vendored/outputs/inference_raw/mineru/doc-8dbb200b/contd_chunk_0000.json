@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>152 140 171 553<|content|>- From: ... com>\n<|id|>5<|page|>1<|box|>277 140 296 736<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>2<|page|>1<|box|>184 140 202 540<|content|>- To: ... com>\n<|id|>3<|page|>1<|box|>215 140 234 620<|content|>- Cc: ... com>\n<|id|>4<|page|>1<|box|>246 140 263 454<|content|>- Date: ... 00 -0000\n<|id|>9<|page|>1<|box|>659 142 676 326<|content|>**Engagement Status**\n<|id|>10<|page|>1<|box|>722 140 854 846<|content|>The engagement letter between Calderwood & Harknes... coordinate with you on the final engagement terms\n<|id|>17<|page|>2<|box|>864 140 902 831<|content|>- **Litigation Hold (Target: ... Kevin Fong,\n<|id|>18<|page|>3<|box|>89 140 146 841<|content|>Dr. ... We recommend distributing the hold before the complaint is filed\n<|id|>21<|page|>3<|box|>445 140 464 429<|content|>**Coordination with Vantage Point**\n<|id|>22<|page|>3<|box|>508 140 640 848<|content|>Given that Vantage Point holds approximately 62% o...dum to the full Board or a designated subcommittee\n<|id|>23<|page|>3<|box|>683 140 702 344<|content|>**Damages Expectation**\n<|id|>24<|page|>3<|box|>744 140 840 828<|content|>On a preliminary basis, we expect Optiwave's damag...e formalize expert engagement following the filing\n<|id|>26<|page|>4<|box|>239 142 258 250<|content|>Best regards,\n<|id|>27<|page|>4<|box|>303 140 321 220<|content|>Alan Ngo\n<|id|>28<|page|>4<|box|>334 140 353 426<|content|>Partner, intellectual Property Group\n<|id|>29<|page|>4<|box|>364 140 383 370<|content|>Calderwood & Harkness LLP\n<|id|>30<|page|>4<|box|>396 140 414 431<|content|>One Embarcadero Center, 34th Floor\n<|id|>31<|page|>4<|box|>428 140 445 338<|content|>San Francisco, CA 94111\n<|id|>32<|page|>4<|box|>459 140 478 450<|content|>T: ... (415) 772-4138\n<|id|>33<|page|>4<|box|>491 140 508 400<|content|>ango@calderwoodharkness. ... com",
+    "raw_response": "<|src_id|>17<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        }
+    ]
+}

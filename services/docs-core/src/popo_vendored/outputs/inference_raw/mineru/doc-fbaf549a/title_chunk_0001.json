@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        55,
+        82
+    ],
+    "pages": [
+        55,
+        56,
+        60,
+        62,
+        77,
+        80,
+        82
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>524<|page|>55<|box|>124 107 140 369<|content|>C3 双车道公路作业区布置示例\n<|id|>530<|page|>56<|box|>105 104 122 658<|content|>C32 双车道公路封闭一车道作业时,作业区布置示例如图 所示:\n<|id|>545<|page|>56<|box|>423 139 439 336<|content|>d) 对向车道标志设置:\n<|id|>591<|page|>60<|box|>441 139 458 337<|content|>) 对向车道标志设置:\n<|id|>606<|page|>62<|box|>124 107 140 352<|content|>C4 城市道路作业区布置示例\n<|id|>711<|page|>77<|box|>737 107 753 317<|content|>C5 临时作业区布置示例\n<|id|>729<|page|>80<|box|>638 107 653 315<|content|>C6 移动作业区布置示例\n<|id|>735<|page|>82<|box|>134 433 149 564<|content|>参 考 文 献",
+    "raw_response": "<|id|>524<|level|>1\n<|id|>530<|level|>2\n<|id|>545<|level|>3\n<|id|>591<|level|>3\n<|id|>606<|level|>1\n<|id|>711<|level|>1\n<|id|>729<|level|>1\n<|id|>735<|level|>1",
+    "parsed": [
+        {
+            "id": 524,
+            "level": 1
+        },
+        {
+            "id": 530,
+            "level": 2
+        },
+        {
+            "id": 545,
+            "level": 3
+        },
+        {
+            "id": 591,
+            "level": 3
+        },
+        {
+            "id": 606,
+            "level": 1
+        },
+        {
+            "id": 711,
+            "level": 1
+        },
+        {
+            "id": 729,
+            "level": 1
+        },
+        {
+            "id": 735,
+            "level": 1
+        }
+    ]
+}

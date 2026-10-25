@@ -1,0 +1,265 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-83340nhj\\input\\pdfs\\doc-a5d2d1ec.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-83340nhj\\enriched\\doc-a5d2d1ec.json",
+    "contd_output": "<|src_id|>26<|tgt_id|>27\n<|src_id|>41<|tgt_id|>42",
+    "title_output": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>28<|level|>2\n<|id|>43<|level|>2\n<|id|>54<|level|>2\n<|id|>81<|level|>2\n<|id|>85<|level|>2\n<|id|>95<|level|>2\n<|id|>106<|level|>2\n<|id|>114<|level|>2\n<|id|>121<|level|>2\n<|id|>129<|level|>2\n<|id|>131<|level|>3\n<|id|>142<|level|>2\n<|id|>149<|level|>2\n<|id|>151<|level|>2\n<|id|>156<|level|>2\n<|id|>157<|level|>3\n<|id|>162<|level|>2\n<|id|>163<|level|>3\n<|id|>168<|level|>2\n<|id|>169<|level|>3\n<|id|>171<|level|>4\n<|id|>174<|level|>4\n<|id|>177<|level|>2\n<|id|>178<|level|>3\n<|id|>181<|level|>2",
+    "image_output": "<|src_id|>46<|tgt_id|>43\n<|src_id|>159<|tgt_id|>157\n<|src_id|>160<|tgt_id|>157\n<|src_id|>165<|tgt_id|>163\n<|src_id|>166<|tgt_id|>163\n<|src_id|>172<|tgt_id|>171\n<|src_id|>173<|tgt_id|>171\n<|src_id|>175<|tgt_id|>174\n<|src_id|>179<|tgt_id|>178\n<|src_id|>180<|tgt_id|>178",
+    "contd_label": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 4
+        },
+        {
+            "id": 174,
+            "level": 4
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 46,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 171
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 171
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 178
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 159,
+            "table2_idx": 160,
+            "upper_row_ss": [
+                [
+                    "5.",
+                    "Cascadia Hospitality",
+                    "Delaware",
+                    "Secretary of State",
+                    "7291889",
+                    "February 14, 2020"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Corp.",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 165,
+            "table2_idx": 166,
+            "upper_row_ss": [
+                [
+                    "Illinois",
+                    "2",
+                    "Verimark Resort",
+                    "Cook and DuPage"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Properties LLC",
+                    "counties"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 172,
+            "table2_idx": 173,
+            "upper_row_ss": [
+                [
+                    "2.",
+                    "Notice of Security Interest — Trademarks",
+                    "Reel 5487 / Frame 0245",
+                    "February 21, 2020",
+                    "VHG Management Services Inc.",
+                    "Covering all registered trademarks and pending trademark applications of"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "VHGManagementservices Inc."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 179,
+            "table2_idx": 180,
+            "upper_row_ss": [
+                [
+                    "5.",
+                    "Cascadia Hospitality",
+                    "Delaware",
+                    "Common Stock",
+                    "100%",
+                    "CS-001",
+                    "Verimark Hospitality"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Corp.",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Group Inc."
+                ]
+            ]
+        }
+    ]
+}

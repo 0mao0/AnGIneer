@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 326 117 669<|content|>UCC FINANCING STATEMENT\n<|id|>1<|page|>1<|box|>137 426 157 570<|content|>(Form UCC1)\n<|id|>2<|page|>1<|box|>175 228 191 767<|content|>Filed Pursuant to the Uniform Commercial Code — Re\n<|id|>4<|page|>1<|box|>226 143 243 250<|content|>Filing Office:\n<|id|>7<|page|>1<|box|>424 297 440 700<|content|>UCC FINANCING STATEMENT — FORM UCC1\n<|id|>8<|page|>1<|box|>465 143 481 295<|content|>Box 1 — DEBTOR\n<|id|>19<|page|>2<|box|>89 142 107 470<|content|>1j. Organizational Identification Number:\n<|id|>21<|page|>2<|box|>154 143 171 372<|content|>Box 2 — SECURED PARTY\n<|id|>22<|page|>2<|box|>185 142 203 344<|content|>2a. Organization's Name:\n<|id|>24<|page|>2<|box|>239 143 257 310<|content|>2b. Mailing Address:\n<|id|>31<|page|>2<|box|>450 140 468 599<|content|>Box 3 — ADDITIONAL SECURED PARTY / ASSIGNEE\n<|id|>33<|page|>2<|box|>518 143 535 475<|content|>Box 4 — COLLATERAL DESCRIPTION\n<|id|>65<|page|>5<|box|>114 140 132 620<|content|>IMPORTANT NOTICE REGARDING SCOPE OF FILING:\n<|id|>67<|page|>5<|box|>383 142 401 638<|content|>Box 5 — CHECK BOXES / ALTERNATIVE DESIGNATIONS\n<|id|>68<|page|>5<|box|>415 142 433 431<|content|>5a. Transmitting Utility Designation:\n<|id|>70<|page|>5<|box|>469 142 487 720<|content|>5b. Alternative Designations (check only if applic\n<|id|>76<|page|>6<|box|>138 142 155 437<|content|>FILING FEE AND INSTRUCTIONS\n<|id|>82<|page|>6<|box|>434 142 450 305<|content|>AUTHORIZATION\n<|id|>84<|page|>6<|box|>651 142 667 354<|content|>Filer Contact Information:\n<|id|>87<|page|>6<|box|>760 339 776 656<|content|>INTERNAL COVER MEMORANDUM\n<|id|>88<|page|>6<|box|>801 295 818 702<|content|>(Appended for File Purposes Only — Not for Filing)\n<|id|>96<|page|>7<|box|>282 140 300 364<|content|>UCC-1 Filings — Summary\n<|id|>99<|page|>8<|box|>157 140 174 563<|content|>UCC-3 Termination Statements — Prior Lien Release\n<|id|>109<|page|>8<|box|>686 140 703 380<|content|>Calderwood & Harkness LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>-1\n<|id|>4<|level|>-1\n<|id|>7<|level|>1\n<|id|>8<|level|>2\n<|id|>19<|level|>3\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>24<|level|>3\n<|id|>31<|level|>2\n<|id|>33<|level|>2\n<|id|>65<|level|>1\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>70<|level|>3\n<|id|>76<|level|>1\n<|id|>82<|level|>1\n<|id|>84<|level|>2\n<|id|>87<|level|>1\n<|id|>88<|level|>-1\n<|id|>96<|level|>1\n<|id|>99<|level|>1\n<|id|>109<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        }
+    ]
+}

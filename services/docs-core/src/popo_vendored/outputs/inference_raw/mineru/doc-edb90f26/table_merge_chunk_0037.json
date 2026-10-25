@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 37,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=24, 特大斜拉桥、特大悬索桥工程', 'rowspan=15, 上部钢结构制作与防护', 'rowspan=15, 索鞍', 'rowspan=15, 索鞍制作,索鞍防护', 'rowspan=15, 主索鞍', '鞍槽表面粗糙度R_a', '△', '▲', '▲', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=23, 特大斜拉桥、特大悬索桥工程', 'rowspan=23, 上部钢结构制作与防护', 'rowspan=14, 索鞍', 'rowspan=14, 索鞍制作,索鞍防护', 'rowspan=14, 散索鞍', '设计信息', '▲', '▲', '▲', '继承L3.0模型的设计信息']]\n",
+    "raw_response": "[1, 1, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 288,
+    "table2_idx": 289
+}

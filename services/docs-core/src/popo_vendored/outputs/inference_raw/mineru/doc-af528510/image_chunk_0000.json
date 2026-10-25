@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>294 140 311 367<|content|>1. Purpose and Introduction\n<|id|>11<|type|>title<|page|>2<|box|>90 140 107 542<|content|>2. Summary of the Proceedings and Current Status\n<|id|>17<|type|>title<|page|>2<|box|>681 140 699 736<|content|>3. Ms. Fonseca's Rights as Surviving Spouse Under\n<|id|>23<|type|>title<|page|>3<|box|>465 140 482 537<|content|>4. Overview of Estate Assets and Estimated Values\n<|id|>24<|type|>title<|page|>3<|box|>496 140 513 374<|content|>4.1 Estimated Probate Estate\n<|id|>26<|type|>title<|page|>3<|box|>604 140 623 287<|content|>4.2 Real Property\n<|id|>33<|type|>title<|page|>4<|box|>369 140 386 315<|content|>4.3 Business Interests\n<|id|>40<|type|>title<|page|>5<|box|>294 140 310 325<|content|>4.4 Financial Accounts\n<|id|>42<|type|>table<|page|>5<|box|>359 143 464 852<|content|>None\n<|id|>44<|type|>title<|page|>5<|box|>675 140 691 316<|content|>4.5 Personal Property\n<|id|>46<|type|>title<|page|>5<|box|>803 140 819 457<|content|>4.6 Non-Probate Assets (Life Insurance)\n<|id|>48<|type|>table<|page|>5<|box|>869 143 907 852<|content|>None\n<|id|>49<|type|>table<|page|>6<|box|>88 143 171 852<|content|>None\n<|id|>51<|type|>title<|page|>6<|box|>364 140 381 401<|content|>4.7 Summary and Reconciliation\n<|id|>53<|type|>table<|page|>6<|box|>411 143 617 852<|content|>None\n<|id|>55<|type|>title<|page|>6<|box|>729 140 744 457<|content|>5. Identification of Key Contested Issues\n<|id|>57<|type|>title<|page|>6<|box|>821 140 839 473<|content|>5.1 Potential Premarital Agreement Claim\n<|id|>70<|type|>title<|page|>7<|box|>843 140 859 424<|content|>5.2 Asset Characterization Disputes\n<|id|>77<|type|>title<|page|>8<|box|>652 140 670 529<|content|>5.3 Anticipated Claims by Individual Contestants\n<|id|>82<|type|>title<|page|>9<|box|>429 140 446 504<|content|>5.4 Background on Decedent's Prior Marriage\n<|id|>85<|type|>title<|page|>9<|box|>758 140 775 506<|content|>6. Initial Steps Taken and Near-Term Strategy\n<|id|>86<|type|>title<|page|>9<|box|>789 140 806 372<|content|>6.1 Steps Already Completed\n<|id|>93<|type|>title<|page|>10<|box|>474 140 489 367<|content|>6.2 Near-Term Action Items\n<|id|>103<|type|>title<|page|>11<|box|>436 140 454 323<|content|>6.3 Strategic Overview\n<|id|>110<|type|>title<|page|>12<|box|>148 140 167 437<|content|>7. Billing and Administrative Matters\n<|id|>112<|type|>table<|page|>12<|box|>199 143 311 852<|content|>None\n<|id|>115<|type|>title<|page|>12<|box|>541 140 559 496<|content|>8. Request for Client Input and Next Meeting\n<|id|>126<|type|>title<|page|>13<|box|>398 140 416 338<|content|>9. Confidentiality Notice",
+    "raw_response": "<|src_id|>42<|tgt_id|>40\n<|src_id|>48<|tgt_id|>46\n<|src_id|>49<|tgt_id|>46\n<|src_id|>53<|tgt_id|>51\n<|src_id|>112<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 110
+        }
+    ]
+}

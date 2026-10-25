@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        8,
+        10
+    ],
+    "pages": [
+        8,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>23<|page|>8<|box|>441 87 458 549<|content|>USES OF FUNDS — CASH EQUALIZATION PAYMENTS (GROSS)\n<|id|>25<|page|>8<|box|>548 87 565 504<|content|>ADMINISTRATION COSTS (deducted from liquid assets)\n<|id|>27<|page|>8<|box|>708 87 725 374<|content|>NET CASH EQUALIZATION PAYMENTS\n<|id|>48<|page|>10<|box|>514 87 529 194<|content|>Reviewed by:",
+    "raw_response": "<|id|>23<|level|>1\n<|id|>25<|level|>1\n<|id|>27<|level|>1\n<|id|>48<|level|>1",
+    "parsed": [
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        }
+    ]
+}

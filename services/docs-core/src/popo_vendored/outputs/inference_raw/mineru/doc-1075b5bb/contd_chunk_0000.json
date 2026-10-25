@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        54
+    ],
+    "pages": [
+        3,
+        6,
+        7,
+        8,
+        26,
+        28,
+        29,
+        30,
+        32,
+        33,
+        42,
+        43,
+        53
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>3<|box|>345 419 547 733<|content|>LIBRARY ROOM 5030 APR 5 1973 TREASURY DEPARTMENT\n<|id|>3<|page|>6<|box|>86 137 173 500<|content|>THE DEPARTMENT OF THE TREASURY FISCAL SERVICE, BUR...SSIONER WASHINGTON, D. ... 20226 OFFICIAL BUSINESS\n<|id|>4<|page|>6<|box|>380 580 577 707<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>6<|page|>7<|box|>196 361 219 526<|content|>March 1972\n<|id|>8<|page|>8<|box|>466 332 519 741<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents, U. ... Single copy price varies\n<|id|>94<|page|>26<|box|>206 538 302 996<|content|>Federal agencies and firms often do business with ...es FO-2, 3, and 4 show only those incurred outside\n<|id|>95<|page|>26<|box|>310 540 423 998<|content|>Obligation data for the administrative budget fund...s of the President's Commission on Budget Concepts\n<|id|>100<|page|>28<|box|>517 886 941 941<|content|>Source: ... For purposes of this report this objec...ed as totally within the Federal Government except\n<|id|>101<|page|>29<|box|>845 960 950 991<|content|>* Less than $500,000. ... p Preliminary\n<|id|>103<|page|>30<|box|>104 440 116 595<|content|>(In millions of dollars)\n<|id|>104<|page|>30<|box|>483 549 503 862<|content|>Advances, reimbursements, other income, etc. ... Offsetting receipts\n<|id|>109<|page|>32<|box|>457 123 561 137<|content|>(In millions of dollars\n<|id|>110<|page|>32<|box|>387 91 607 113<|content|>Comparative Statement by Months 1/\n<|id|>115<|page|>33<|box|>238 0 355 446<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>116<|page|>33<|box|>138 477 202 957<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>149<|page|>42<|box|>454 48 496 528<|content|>Note: ... For a summary of legislation on debt limitation under the Second Liberty\n<|id|>150<|page|>42<|box|>466 576 477 977<|content|>1/ Of \\$3,250 million in participation certificates subject to\n<|id|>151<|page|>42<|box|>475 576 486 1000<|content|>limitation issued in fiscal 1968, \\$1,465 million are now outsta\n<|id|>152<|page|>42<|box|>494 576 504 729<|content|>Less than \\$500,000. ... Less than \\$500,000\n<|id|>154<|page|>42<|box|>599 435 613 631<|content|>Footnotes to Table FD-2\n<|id|>155<|page|>43<|box|>77 202 94 702<|content|>Table FD-9. ... - Status and Application of Statutory Limitation\n<|id|>156<|page|>43<|box|>113 0 215 432<|content|>The Second Liberty Bond Act (31 U. ... Pub-law 92-...orarily increased by \\$30 billion to \\$430 billion\n<|id|>194<|page|>53<|box|>497 0 525 451<|content|>Includes \\$2,421 million of the 7-3/4% notes and \\...subscriptions allotted could be made in cash or in\n<|id|>195<|page|>53<|box|>524 0 550 458<|content|>Treasury bonds or notes maturing on the issue date...ds or notes maturing on issue date of new security\n<|id|>206<|page|>53<|box|>366 482 384 945<|content|>25/ Includes \\$1,457 million of the 5% notes and \\...ed to Federal Reserve banks and Government account\n<|id|>219<|page|>53<|box|>649 482 659 689<|content|>p Preliminary. ... r Revised\n<|id|>207<|page|>53<|box|>378 482 394 970<|content|>5-3/4% notes allotted to Federal Reserve banks and...f Treasury bills consisting of an additional \\$201",
+    "raw_response": "<|src_id|>115<|tgt_id|>116\n<|src_id|>150<|tgt_id|>151\n<|src_id|>194<|tgt_id|>195",
+    "parsed": [
+        {
+            "src_id": 115,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 195
+        }
+    ]
+}

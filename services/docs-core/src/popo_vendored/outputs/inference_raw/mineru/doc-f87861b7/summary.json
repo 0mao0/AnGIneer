@@ -1,0 +1,194 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xbjullw_\\input\\pdfs\\doc-f87861b7.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xbjullw_\\enriched\\doc-f87861b7.json",
+    "contd_output": "",
+    "title_output": "<|id|>9<|level|>1\n<|id|>13<|level|>2\n<|id|>21<|level|>1\n<|id|>22<|level|>2\n<|id|>28<|level|>2\n<|id|>32<|level|>2\n<|id|>39<|level|>1\n<|id|>40<|level|>2\n<|id|>52<|level|>1\n<|id|>53<|level|>2\n<|id|>59<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>1\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>99<|level|>2\n<|id|>118<|level|>2\n<|id|>127<|level|>2\n<|id|>139<|level|>2\n<|id|>145<|level|>1\n<|id|>146<|level|>2\n<|id|>150<|level|>2\n<|id|>157<|level|>2\n<|id|>168<|level|>2\n<|id|>179<|level|>1\n<|id|>180<|level|>2\n<|id|>189<|level|>2\n<|id|>193<|level|>2\n<|id|>198<|level|>2\n<|id|>203<|level|>1\n<|id|>211<|level|>2\n<|id|>216<|level|>2\n<|id|>219<|level|>2\n<|id|>227<|level|>1\n<|id|>228<|level|>2\n<|id|>232<|level|>2\n<|id|>240<|level|>2\n<|id|>257<|level|>1",
+    "image_output": "<|src_id|>230<|tgt_id|>228\n<|src_id|>231<|tgt_id|>228",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 1
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 1
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 227,
+            "level": 1
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 232,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 2
+        },
+        {
+            "id": 257,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 230,
+            "tgt_id": 228
+        },
+        {
+            "src_id": 231,
+            "tgt_id": 228
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 230,
+            "table2_idx": 231,
+            "upper_row_ss": [
+                [
+                    "Data Privacy — BIPA",
+                    "Potentially Significant",
+                    "Facial recognition ELD login feature may trigger BIPA obligations; documentation pending",
+                    "Specific SPA representation and indemnity; flag for R&W insurance underwriting with Atlas Meridian Underwriters Ltd."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Data Privacy — CCPA/CPRA",
+                    "Moderate",
+                    "Privacy policy appears deficient; enforcement exposure from California AG and CPPA",
+                    "SPA representation; require remediation of privacy policy"
+                ]
+            ]
+        }
+    ]
+}

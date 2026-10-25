@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        59
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        26,
+        27,
+        43,
+        58
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>7<|box|>0 74 263 866<|content|>TREASURY BULLETIN\n<|id|>14<|page|>9<|box|>168 357 191 613<|content|>Table of Contents\n<|id|>18<|page|>11<|box|>64 324 81 630<|content|>Treasury Financing Operations\n<|id|>19<|page|>11<|box|>108 34 122 342<|content|>Cash Offering of 1-5/8 Percent Notes\n<|id|>24<|page|>11<|box|>401 496 416 755<|content|>Treasury 91-Day Bille Refunded\n<|id|>95<|page|>26<|box|>78 208 95 774<|content|>Table 5.- Treasury Holdings of Securities Issued b\n<|id|>102<|page|>27<|box|>373 138 406 838<|content|>Table 2.- Application of Limitation to Public Debt\n<|id|>141<|page|>43<|box|>75 152 108 800<|content|>Section II - Interest-Bearing Securities Issued by\n<|id|>188<|page|>58<|box|>72 355 86 633<|content|>Section I - Summary by Periods",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>24<|level|>3\n<|id|>95<|level|>2\n<|id|>102<|level|>2\n<|id|>141<|level|>2\n<|id|>188<|level|>2",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        }
+    ]
+}

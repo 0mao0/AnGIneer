@@ -1,0 +1,169 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bxz4qklz\\input\\pdfs\\doc-949dfa2a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bxz4qklz\\enriched\\doc-949dfa2a.json",
+    "contd_output": "<|src_id|>88<|tgt_id|>89\n<|src_id|>175<|tgt_id|>176",
+    "title_output": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>3\n<|id|>42<|level|>3\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>69<|level|>3\n<|id|>87<|level|>3\n<|id|>107<|level|>3\n<|id|>113<|level|>4\n<|id|>124<|level|>3\n<|id|>149<|level|>2\n<|id|>153<|level|>2\n<|id|>154<|level|>3\n<|id|>164<|level|>3\n<|id|>169<|level|>3\n<|id|>177<|level|>3\n<|id|>184<|level|>2\n<|id|>194<|level|>2",
+    "image_output": "<|src_id|>60<|tgt_id|>45\n<|src_id|>61<|tgt_id|>45\n<|src_id|>64<|tgt_id|>45\n<|src_id|>65<|tgt_id|>45\n<|src_id|>126<|tgt_id|>124\n<|src_id|>151<|tgt_id|>149\n<|src_id|>152<|tgt_id|>149",
+    "contd_label": [
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 176
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 4
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 60,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 149
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 151,
+            "table2_idx": 152,
+            "upper_row_ss": [
+                [
+                    "Cooperative Agreement",
+                    "Oregon Municipal Broadband Cooperative",
+                    "Board approval required",
+                    "Termination upon 60 days' written notice if approval not obtained",
+                    "Board discretion",
+                    "Municipal broadband backbone infrastructure",
+                    "Low-Medium",
+                    "Coordinate with Cascadia management to identify board meeting schedule; place consent on",
+                    "Next scheduled or special board meeting (target: May-July 2025)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "agenda;request special meeting if needed",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

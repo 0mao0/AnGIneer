@@ -1,0 +1,172 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kwivphl3\\input\\pdfs\\doc-5223194e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kwivphl3\\enriched\\doc-5223194e.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>2\n<|id|>6<|level|>3\n<|id|>21<|level|>3\n<|id|>26<|level|>3\n<|id|>28<|level|>4\n<|id|>37<|level|>4\n<|id|>45<|level|>4\n<|id|>50<|level|>3\n<|id|>56<|level|>3\n<|id|>63<|level|>3\n<|id|>64<|level|>4\n<|id|>71<|level|>4\n<|id|>74<|level|>3\n<|id|>82<|level|>2",
+    "image_output": "<|src_id|>31<|tgt_id|>28\n<|src_id|>32<|tgt_id|>28\n<|src_id|>33<|tgt_id|>28\n<|src_id|>35<|tgt_id|>28\n<|src_id|>36<|tgt_id|>28\n<|src_id|>40<|tgt_id|>37\n<|src_id|>41<|tgt_id|>37\n<|src_id|>42<|tgt_id|>37\n<|src_id|>44<|tgt_id|>37\n<|src_id|>47<|tgt_id|>45",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 4
+        },
+        {
+            "id": 37,
+            "level": 4
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 31,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 32,
+            "table2_idx": 33,
+            "upper_row_ss": [
+                [
+                    "4.",
+                    "Plus: Depreciation expense (to the extent deducted in calculating Consolidated Net Income)",
+                    "$[_]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "5.",
+                    "Plus: Amortization expense (including amortization of intangible assets, deferred financing costs, and debt discount, to the extent deducted in calculating Consolidated Net Income)",
+                    "$[___]"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 35,
+            "table2_idx": 36,
+            "upper_row_ss": [
+                [
+                    "2.",
+                    "Consolidated EBITDA (Part B, line",
+                    "$[_]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "10)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 41,
+            "table2_idx": 42,
+            "upper_row_ss": [
+                [
+                    "3.",
+                    "Plus: Net payments under Swap Agreements in respect of interest rate hedging (i.e., cash amounts paid by the Borrower or its Subsidiaries in excess of cash amounts received during the Test Period in connection",
+                    "$[_]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "with interest rate Swap Agreements)",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

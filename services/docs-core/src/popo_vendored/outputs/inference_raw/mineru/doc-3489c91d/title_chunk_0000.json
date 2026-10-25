@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>271 140 289 362<|content|>I. Engagement and Purpose\n<|id|>9<|page|>1<|box|>683 140 700 473<|content|>II. Documents Examined and Relied Upon\n<|id|>19<|page|>2<|box|>429 140 446 279<|content|>III. Assumptions\n<|id|>29<|page|>3<|box|>212 140 229 250<|content|>IV. Opinions\n<|id|>31<|page|>3<|box|>306 140 323 792<|content|>Opinion 1: Classification of Units — Treatment as\n<|id|>33<|page|>3<|box|>561 140 579 504<|content|>Opinion 2: Tax Basis in Component Securities\n<|id|>35<|page|>3<|box|>799 140 816 354<|content|>Opinion 3: Holding Period\n<|id|>38<|page|>4<|box|>157 140 175 571<|content|>Opinion 4: Separation of Units — Not a Taxable Eve\n<|id|>40<|page|>4<|box|>304 140 321 694<|content|>Opinion 5: Exercise of Warrants — Generally Not a\n<|id|>43<|page|>4<|box|>695 140 712 490<|content|>Opinion 6: Lapse or Expiration of Warrants\n<|id|>45<|page|>5<|box|>90 140 107 653<|content|>Opinion 7: Redemption of Shares for Pro Rata Trust\n<|id|>56<|page|>6<|box|>367 140 383 728<|content|>Opinion 8: Company Status — Not a Passive Foreign\n<|id|>58<|page|>6<|box|>604 140 622 560<|content|>Opinion 9: Redemption of Warrants by the Company\n<|id|>60<|page|>6<|box|>840 140 859 759<|content|>Opinion 10: Sale or Other Disposition of Class A C\n<|id|>62<|page|>7<|box|>277 140 294 455<|content|>V. Scope Limitations and Qualifications\n<|id|>85<|page|>9<|box|>90 140 107 424<|content|>VI. Consent to Filing and Reference\n<|id|>87<|page|>9<|box|>267 140 284 336<|content|>VII. Reliance Limitation",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>9<|level|>1\n<|id|>19<|level|>1\n<|id|>29<|level|>1\n<|id|>31<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>1\n<|id|>85<|level|>1\n<|id|>87<|level|>1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        }
+    ]
+}

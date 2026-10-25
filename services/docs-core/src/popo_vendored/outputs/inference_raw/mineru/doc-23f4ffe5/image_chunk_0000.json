@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 143 104 604<|content|>ATTORNEY WORK PRODUCT — PRIVILEGED AND CONFIDENTIA\n<|id|>1<|type|>title<|page|>1<|box|>112 326 128 669<|content|>STOCK OPTION AWARD AGREEMENT\n<|id|>2<|type|>title<|page|>1<|box|>138 156 172 839<|content|>Under the Arbor Health Technologies Inc. 2020 Equi\n<|id|>5<|type|>title<|page|>1<|box|>276 326 292 669<|content|>STOCK OPTION AWARD AGREEMENT\n<|id|>11<|type|>title<|page|>1<|box|>523 142 540 243<|content|>RECITALS\n<|id|>17<|type|>title<|page|>2<|box|>148 140 166 424<|content|>SECTION 1: GRANT OF OPTION\n<|id|>21<|type|>title<|page|>2<|box|>542 140 559 406<|content|>SECTION 2: EXERCISE PRICE\n<|id|>24<|type|>title<|page|>4<|box|>89 140 107 439<|content|>SECTION 3: VESTING SCHEDULE\n<|id|>31<|type|>title<|page|>5<|box|>89 140 106 470<|content|>SECTION 4: TERM AND EXPIRATION\n<|id|>34<|type|>title<|page|>5<|box|>311 140 328 450<|content|>SECTION 5: EXERCISE OF OPTION\n<|id|>45<|type|>title<|page|>7<|box|>89 140 106 553<|content|>SECTION 6: TERMINATION OF EMPLOYMENT\n<|id|>47<|type|>title<|page|>7<|box|>252 140 268 531<|content|>6.2 Termination by Reason of Death or Disability.\n<|id|>50<|type|>title<|page|>7<|box|>641 140 659 833<|content|>6.3 Termination Without Cause or Resignation for G\n<|id|>55<|type|>title<|page|>8<|box|>343 140 361 529<|content|>6.4 Voluntary Resignation Without Good Reason.\n<|id|>59<|type|>title<|page|>8<|box|>681 140 699 452<|content|>SECTION 7: CHANGE IN CONTROL\n<|id|>72<|type|>title<|page|>11<|box|>89 140 107 496<|content|>SECTION 8: RESTRICTIVE COVENANTS\n<|id|>78<|type|>title<|page|>11<|box|>736 140 753 473<|content|>SECTION 9: NON-TRANSFERABILITY\n<|id|>81<|type|>title<|page|>12<|box|>339 140 357 398<|content|>SECTION 10: ADJUSTMENTS\n<|id|>84<|type|>title<|page|>12<|box|>633 140 670 756<|content|>SECTION 11: SECURITIES LAW COMPLIANCE AND STOCKHOL\n<|id|>89<|type|>title<|page|>13<|box|>676 140 694 517<|content|>SECTION 12: SECTION 409A COMPLIANCE\n<|id|>93<|type|>title<|page|>14<|box|>468 140 484 674<|content|>SECTION 13: GOVERNING LAW AND DISPUTE RESOLUTION\n<|id|>98<|type|>title<|page|>15<|box|>222 140 239 406<|content|>SECTION 14: PLAN GOVERNS\n<|id|>101<|type|>title<|page|>15<|box|>553 140 570 537<|content|>SECTION 15: MISCELLANEOUS PROVISIONS\n<|id|>127<|type|>title<|page|>17<|box|>694 439 710 557<|content|>APPENDIX A\n<|id|>128<|type|>title<|page|>17<|box|>719 377 736 620<|content|>SUMMARY OF KEY TERMS\n<|id|>129<|type|>title<|page|>17<|box|>746 246 763 750<|content|>(Incorporated by Reference into the Stock Option A\n<|id|>131<|type|>table<|page|>17<|box|>869 145 906 852<|content|>None\n<|id|>132<|type|>table<|page|>18<|box|>89 143 633 852<|content|>None",
+    "raw_response": "<|src_id|>131<|tgt_id|>128\n<|src_id|>132<|tgt_id|>128",
+    "parsed": [
+        {
+            "src_id": 131,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 128
+        }
+    ]
+}

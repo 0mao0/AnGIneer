@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>42 27 133 258<|content|>M A R K E T B E AT UNITED STATES RETAIL Q4 2025\n<|id|>2<|page|>1<|box|>191 40 213 198<|content|>MARKET FUNDAMENTALS\n<|id|>8<|page|>1<|box|>589 41 618 113<|content|>159.4M\n<|id|>14<|page|>1<|box|>205 263 224 367<|content|>KEY TAKEAWAYS\n<|id|>17<|page|>1<|box|>558 262 599 575<|content|>VACANCY REMAINED NEAR HISTORIC LOWS DESPITE REGION\n<|id|>21<|page|>2<|box|>409 351 449 647<|content|>SUPPLY CONSTRAINTS PERSIST BUT THE PIPELINE SLOWLY\n<|id|>24<|page|>2<|box|>12 777 66 948<|content|>UNITED STATES RETAIL Q4 2025\n<|id|>25<|page|>2<|box|>114 728 133 790<|content|>OUTLOOK\n<|id|>28<|page|>3<|box|>61 19 80 177<|content|>NET ABSORPTION Q4 2025\n<|id|>32<|page|>4<|box|>61 19 79 170<|content|>VACANCY RATES Q4 2025\n<|id|>36<|page|>5<|box|>61 19 80 159<|content|>ASKING RENTS Q4 2025\n<|id|>40<|page|>6<|box|>61 20 79 141<|content|>INVENTORY Q4 2025\n<|id|>44<|page|>7<|box|>127 19 143 105<|content|>METHODOLOGY\n<|id|>47<|page|>7<|box|>349 18 366 293<|content|>A CUSHMAN & WAKEFIELD RESEARCH PUBLICATION",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>8<|level|>-1\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>24<|level|>1\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>47<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        }
+    ]
+}

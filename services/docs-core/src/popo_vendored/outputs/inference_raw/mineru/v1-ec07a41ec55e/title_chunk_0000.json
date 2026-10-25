@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>191 105 208 248<|content|>【2847#0】成都市\n<|id|>3<|page|>1<|box|>430 107 445 319<|content|>【284939#0】分布式数据库\n<|id|>5<|page|>1<|box|>514 107 530 319<|content|>【284939#2】分布式数据库\n<|id|>7<|page|>1<|box|>633 105 648 381<|content|>【285065#12】中国大陆的性服务业\n<|id|>9<|page|>1<|box|>837 107 852 248<|content|>【285385#0】滇池\n<|id|>13<|page|>2<|box|>168 107 185 373<|content|>【286731#2】最终幻想：灵魂深处\n<|id|>15<|page|>2<|box|>253 107 269 337<|content|>【289814#1】中西伯利亞高原\n<|id|>17<|page|>2<|box|>354 107 370 302<|content|>【290507#0】网络成瘾症\n<|id|>19<|page|>2<|box|>455 107 470 310<|content|>【290507#22】网络成瘾症\n<|id|>21<|page|>3<|box|>73 107 89 337<|content|>【2905864#14】數位音樂下載\n<|id|>23<|page|>3<|box|>329 105 344 284<|content|>【294150#0】婆羅浮屠\n<|id|>25<|page|>3<|box|>447 107 464 275<|content|>【2957108#1】劉榮廣\n<|id|>27<|page|>3<|box|>514 107 530 275<|content|>【2960628#1】莎斯拉\n<|id|>29<|page|>3<|box|>598 107 614 329<|content|>【2965969#5】德国国营铁路\n<|id|>31<|page|>3<|box|>697 107 715 332<|content|>【2968146#0】熊島 (南極洲)\n<|id|>33<|page|>3<|box|>765 107 781 310<|content|>【2971046#1】真宗大谷派\n<|id|>35<|page|>3<|box|>848 107 865 275<|content|>【2971524#0】廣隆寺\n<|id|>38<|page|>4<|box|>99 105 116 312<|content|>【2974812#1】瑞士葡萄酒\n<|id|>40<|page|>4<|box|>218 107 234 310<|content|>【2974812#3】瑞士葡萄酒\n<|id|>42<|page|>4<|box|>319 105 335 396<|content|>【2990655#23】香港中文大學（深圳）\n<|id|>44<|page|>4<|box|>403 107 419 319<|content|>【301494#8】德意志國防軍\n<|id|>46<|page|>4<|box|>504 107 520 284<|content|>【3015#7】特别行政区\n<|id|>48<|page|>5<|box|>73 107 89 273<|content|>【3056799#1】史占春\n<|id|>50<|page|>5<|box|>209 107 225 416<|content|>【305756#10】英国电影和电视艺术学院\n<|id|>52<|page|>5<|box|>292 107 309 416<|content|>【305756#17】英国电影和电视艺术学院\n<|id|>54<|page|>5<|box|>359 107 375 416<|content|>【305756#18】英国电影和电视艺术学院\n<|id|>56<|page|>5<|box|>425 107 441 408<|content|>【305756#5】英国电影和电视艺术学院\n<|id|>58<|page|>5<|box|>527 105 542 408<|content|>【305756#7】英国电影和电视艺术学院",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>5<|level|>2\n<|id|>7<|level|>1\n<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>1\n<|id|>17<|level|>1\n<|id|>19<|level|>2\n<|id|>21<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>1\n<|id|>27<|level|>1\n<|id|>29<|level|>1\n<|id|>31<|level|>1\n<|id|>33<|level|>1\n<|id|>35<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>2\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>1\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|type|>title<|page|>1<|box|>561 140 579 434<|content|>1. Purpose and Scope of Engagement\n<|id|>23<|type|>title<|page|>4<|box|>90 142 107 339<|content|>1.2 Limitations on Scope\n<|id|>29<|type|>title<|page|>4<|box|>771 140 789 230<|content|>2. Staffing\n<|id|>31<|type|>table<|page|>4<|box|>839 143 896 852<|content|>None\n<|id|>32<|type|>table<|page|>5<|box|>89 143 145 852<|content|>None\n<|id|>39<|type|>title<|page|>6<|box|>90 140 107 310<|content|>3. Fee Arrangements\n<|id|>40<|type|>title<|page|>6<|box|>121 140 138 279<|content|>3.1 Hourly Rates\n<|id|>48<|type|>title<|page|>6<|box|>470 140 488 400<|content|>3.2 Disbursements and Expenses\n<|id|>58<|type|>title<|page|>7<|box|>90 140 107 334<|content|>3.3 Billing and Payment\n<|id|>62<|type|>title<|page|>7<|box|>378 140 397 315<|content|>3.4 Estimated Budget\n<|id|>65<|type|>title<|page|>7<|box|>744 140 761 372<|content|>4. Identification of the Client\n<|id|>68<|type|>title<|page|>8<|box|>267 140 284 415<|content|>5. Conflicts of Interest and Waiver\n<|id|>69<|type|>title<|page|>8<|box|>297 140 314 328<|content|>5.1 Conflicts Clearance\n<|id|>71<|type|>title<|page|>8<|box|>444 140 460 653<|content|>5.2 Elkhorn Capital Markets — Dual Role Disclosure\n<|id|>77<|type|>title<|page|>9<|box|>275 140 292 305<|content|>5.3 Advance Waiver\n<|id|>79<|type|>title<|page|>9<|box|>523 140 540 390<|content|>6. Confidentiality and Privilege\n<|id|>83<|type|>title<|page|>10<|box|>148 140 167 326<|content|>7. Document Retention\n<|id|>86<|type|>title<|page|>10<|box|>425 140 443 385<|content|>8. Termination of Engagement\n<|id|>90<|type|>title<|page|>10<|box|>819 140 835 287<|content|>9. Governing Law\n<|id|>92<|type|>title<|page|>11<|box|>167 142 184 390<|content|>10. Counterparty Identification\n<|id|>110<|type|>title<|page|>12<|box|>90 142 107 388<|content|>11. Acceptance and Agreement\n<|id|>115<|type|>title<|page|>12<|box|>364 140 382 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>120<|type|>title<|page|>12<|box|>484 142 501 534<|content|>NORTHGATE TELECOMMUNICATIONS PLC\n<|id|>127<|type|>title<|page|>12<|box|>627 142 638 171<|content|>cc:",
+    "raw_response": "<|src_id|>31<|tgt_id|>29\n<|src_id|>32<|tgt_id|>29",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 29
+        }
+    ]
+}

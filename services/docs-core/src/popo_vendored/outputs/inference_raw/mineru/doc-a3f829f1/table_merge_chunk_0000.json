@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Florida', 'Fla. Stat. §§ 627.840', 'FL Office of', 'PF-000452', 'Active', '9/30/2023', 'Per statute schedule', '3rd largest pool']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '-.848', 'Insurance Regulation', '', '', '', '', 'concentration (9.6%)']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 82,
+    "table2_idx": 83
+}

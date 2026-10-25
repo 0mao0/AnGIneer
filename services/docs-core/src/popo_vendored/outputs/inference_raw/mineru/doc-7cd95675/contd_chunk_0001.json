@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        52,
+        110
+    ],
+    "pages": [
+        53,
+        59,
+        71,
+        109
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>321<|page|>53<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>322<|page|>53<|box|>198 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund\n<|id|>363<|page|>59<|box|>744 81 877 491<|content|>The geographical allocation of the transactions da... reporting purposes would be recorded opposite the\n<|id|>364<|page|>59<|box|>89 504 164 915<|content|>United Kingdom and not opposite Japan. ... In that...ported opposite Switzerland and not opposite Italy\n<|id|>394<|page|>71<|box|>388 183 436 816<|content|>■United Kingdom □All other Europe ■Caribbean banki...enters □Japan □All other Asia ■All other countries\n<|id|>395<|page|>71<|box|>77 109 126 888<|content|>CHART CM-B. ... Banks, Brokers, and Dealers with Respect to Selected Countries\n<|id|>397<|page|>71<|box|>751 114 811 870<|content|>In September 2012, U. ... However, they decreased \\$276 billion in 2011\n<|id|>510<|page|>109<|box|>199 723 268 913<|content|>Financial Report of the United States Government Excerpt\n<|id|>511<|page|>109<|box|>282 820 309 913<|content|>Trust Funds",
+    "raw_response": "<|src_id|>363<|tgt_id|>364",
+    "parsed": [
+        {
+            "src_id": 363,
+            "tgt_id": 364
+        }
+    ]
+}

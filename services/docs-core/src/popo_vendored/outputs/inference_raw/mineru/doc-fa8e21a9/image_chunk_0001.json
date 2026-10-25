@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        50,
+        63
+    ],
+    "pages": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        56,
+        57,
+        59,
+        61,
+        62,
+        63
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>533<|type|>title<|page|>50<|box|>90 140 107 359<|content|>Section 10.7 — Assignment\n<|id|>535<|type|>title<|page|>50<|box|>285 140 301 493<|content|>Section 10.8 — No Third-Party Beneficiaries\n<|id|>537<|type|>title<|page|>50<|box|>536 140 551 361<|content|>Section 10.9 — Severability\n<|id|>539<|type|>title<|page|>50<|box|>731 140 747 442<|content|>Section 10.10 — Specific Performance\n<|id|>542<|type|>title<|page|>51<|box|>223 140 239 552<|content|>Section 10.11 — Counterparts; Electronic Execution\n<|id|>544<|type|>title<|page|>51<|box|>400 142 417 421<|content|>Section 10.12 — Fees and Expenses\n<|id|>547<|type|>title<|page|>51<|box|>532 143 549 374<|content|>Parent-Side Estimated Costs:\n<|id|>548<|type|>table<|page|>51<|box|>556 143 718 852<|content|>None\n<|id|>549<|type|>title<|page|>51<|box|>752 142 787 854<|content|>Company-Side Transaction Expenses (to be deducted\n<|id|>550<|type|>table<|page|>51<|box|>794 143 902 852<|content|>None\n<|id|>551<|type|>table<|page|>52<|box|>88 148 109 852<|content|>None\n<|id|>552<|type|>title<|page|>52<|box|>157 140 174 387<|content|>Section 10.13 — Interpretation\n<|id|>554<|type|>title<|page|>52<|box|>243 140 258 437<|content|>Section 10.14 — Disclosure Schedules\n<|id|>558<|type|>title<|page|>52<|box|>585 441 604 558<|content|>EXHIBITS\n<|id|>559<|type|>title<|page|>53<|box|>90 140 127 844<|content|>Exhibit A — Form of Amended and Restated Certifica\n<|id|>560<|type|>title<|page|>53<|box|>133 156 169 839<|content|>AMENDED AND RESTATED CERTIFICATE OF INCORPORATION\n<|id|>573<|type|>title<|page|>54<|box|>90 142 107 464<|content|>Exhibit B — Form of Escrow Agreement\n<|id|>574<|type|>title<|page|>54<|box|>114 393 132 602<|content|>ESCROW AGREEMENT\n<|id|>579<|type|>title<|page|>54<|box|>263 142 279 243<|content|>RECITALS\n<|id|>595<|type|>title<|page|>56<|box|>90 142 107 480<|content|>Exhibit C — Form of Certificate of Merger\n<|id|>596<|type|>title<|page|>56<|box|>116 161 152 834<|content|>CERTIFICATE OF MERGER OF BRB ACQUISITION SUB, INC.\n<|id|>613<|type|>title<|page|>57<|box|>90 142 107 650<|content|>Exhibit D — Form of Written Consent of Company Sto\n<|id|>614<|type|>title<|page|>57<|box|>114 153 151 843<|content|>WRITTEN CONSENT IN LIEU OF SPECIAL MEETING OF THE\n<|id|>626<|type|>title<|page|>59<|box|>90 142 107 480<|content|>Exhibit E — Form of Letter of Transmittal\n<|id|>627<|type|>title<|page|>59<|box|>114 374 132 622<|content|>LETTER OF TRANSMITTAL\n<|id|>630<|type|>title<|page|>59<|box|>212 142 229 312<|content|>To the Paying Agent:\n<|id|>632<|type|>title<|page|>59<|box|>410 143 426 357<|content|>Certificate(s) Surrendered:\n<|id|>633<|type|>table<|page|>59<|box|>435 148 455 851<|content|>None\n<|id|>634<|type|>title<|page|>59<|box|>489 143 506 318<|content|>Payment Instructions:\n<|id|>640<|type|>title<|page|>59<|box|>654 143 671 287<|content|>Tax Certification:\n<|id|>642<|type|>title<|page|>59<|box|>724 143 742 428<|content|>Representations of the Undersigned:\n<|id|>648<|type|>title<|page|>61<|box|>90 140 107 617<|content|>Exhibit F — Form of Stockholder Representative Agr\n<|id|>649<|type|>title<|page|>61<|box|>114 277 132 718<|content|>STOCKHOLDER REPRESENTATIVE AGREEMENT\n<|id|>651<|type|>title<|page|>61<|box|>222 142 239 243<|content|>RECITALS\n<|id|>664<|type|>title<|page|>62<|box|>217 424 236 571<|content|>SCHEDULES\n<|id|>686<|type|>title<|page|>63<|box|>631 408 647 588<|content|>SIGNATURE PAGES\n<|id|>688<|type|>title<|page|>63<|box|>700 143 717 390<|content|>BELMONT RIDGE BANK NA",
+    "raw_response": "<|src_id|>548<|tgt_id|>547\n<|src_id|>550<|tgt_id|>549\n<|src_id|>551<|tgt_id|>549\n<|src_id|>633<|tgt_id|>632",
+    "parsed": [
+        {
+            "src_id": 548,
+            "tgt_id": 547
+        },
+        {
+            "src_id": 550,
+            "tgt_id": 549
+        },
+        {
+            "src_id": 551,
+            "tgt_id": 549
+        },
+        {
+            "src_id": 633,
+            "tgt_id": 632
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>99 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>table<|page|>1<|box|>160 143 299 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>349 142 366 339<|content|>I. Engagement Overview\n<|id|>17<|type|>title<|page|>2<|box|>494 142 511 274<|content|>II. Staffing Plan\n<|id|>18<|type|>title<|page|>2<|box|>525 140 542 486<|content|>A. Core Deal Team — Assignments & Roles\n<|id|>20<|type|>title<|page|>2<|box|>628 142 647 661<|content|>1. Douglas Fairchild — Partner, Real Estate (Respo\n<|id|>29<|type|>title<|page|>3<|box|>339 140 357 609<|content|>2. Angela Fontaine — Partner, Real Estate (Billing\n<|id|>39<|type|>title<|page|>4<|box|>128 140 145 684<|content|>3. Grace Nakamura — Senior Associate, Real Estate\n<|id|>51<|type|>title<|page|>5<|box|>191 140 208 666<|content|>4. Rafael Dominguez — Associate, Real Estate (Work\n<|id|>61<|type|>title<|page|>6<|box|>166 140 183 537<|content|>5. Sylvia Hartwell — Partner, Tax (Tax Specialist)\n<|id|>71<|type|>title<|page|>7<|box|>90 140 107 377<|content|>B. Support Staff & Resources\n<|id|>74<|type|>title<|page|>7<|box|>419 140 435 434<|content|>III. Hourly Rates & Estimated Hours\n<|id|>75<|type|>title<|page|>7<|box|>449 140 467 398<|content|>A. Standard Billing Rates (2025)\n<|id|>76<|type|>table<|page|>7<|box|>515 143 647 852<|content|>None\n<|id|>78<|type|>title<|page|>8<|box|>90 140 107 374<|content|>B. Estimated Hours by Phase\n<|id|>80<|type|>table<|page|>8<|box|>255 143 405 852<|content|>None\n<|id|>82<|type|>table<|page|>8<|box|>744 143 895 852<|content|>None\n<|id|>84<|type|>table<|page|>9<|box|>631 143 781 852<|content|>None\n<|id|>86<|type|>table<|page|>10<|box|>340 143 492 852<|content|>None\n<|id|>88<|type|>title<|page|>10<|box|>849 140 867 450<|content|>C. Total Estimated Hours — Summary\n<|id|>90<|type|>table<|page|>11<|box|>89 143 244 852<|content|>None\n<|id|>92<|type|>title<|page|>11<|box|>465 142 483 331<|content|>IV. Preliminary Budget\n<|id|>93<|type|>title<|page|>11<|box|>497 142 513 387<|content|>A. Estimated Professional Fees\n<|id|>95<|type|>title<|page|>11<|box|>661 142 678 367<|content|>B. Estimated Disbursements\n<|id|>97<|type|>table<|page|>11<|box|>726 143 902 852<|content|>None\n<|id|>98<|type|>table<|page|>12<|box|>88 143 127 852<|content|>None\n<|id|>100<|type|>table<|page|>12<|box|>231 143 308 852<|content|>None\n<|id|>107<|type|>title<|page|>12<|box|>667 142 684 339<|content|>D. Billing Arrangements\n<|id|>111<|type|>title<|page|>13<|box|>186 140 204 446<|content|>V. Key Milestones & Staffing Intensity\n<|id|>113<|type|>table<|page|>13<|box|>272 143 575 852<|content|>None\n<|id|>115<|type|>title<|page|>13<|box|>705 140 723 403<|content|>VI. Risk & Scope Considerations\n<|id|>123<|type|>title<|page|>15<|box|>186 140 204 267<|content|>VII. Approvals\n<|id|>125<|type|>title<|page|>15<|box|>311 140 329 259<|content|>Submitted by:",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>76<|tgt_id|>75\n<|src_id|>80<|tgt_id|>78\n<|src_id|>82<|tgt_id|>78\n<|src_id|>84<|tgt_id|>78\n<|src_id|>86<|tgt_id|>78\n<|src_id|>90<|tgt_id|>88\n<|src_id|>97<|tgt_id|>95\n<|src_id|>98<|tgt_id|>95\n<|src_id|>100<|tgt_id|>95\n<|src_id|>113<|tgt_id|>111",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 111
+        }
+    ]
+}

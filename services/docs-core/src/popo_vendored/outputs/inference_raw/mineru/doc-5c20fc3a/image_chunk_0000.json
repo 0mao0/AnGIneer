@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        3,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        16,
+        17,
+        21,
+        23,
+        24,
+        25,
+        26
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 305 118 689<|content|>SPONSOR SUPPORT AGREEMENT\n<|id|>1<|type|>title<|page|>1<|box|>135 395 152 601<|content|>EXECUTION VERSION\n<|id|>7<|type|>title<|page|>1<|box|>419 447 436 550<|content|>RECITALS\n<|id|>17<|type|>title<|page|>3<|box|>248 142 265 243<|content|>ARTICLE I\n<|id|>18<|type|>title<|page|>3<|box|>289 142 306 267<|content|>DEFINITIONS\n<|id|>63<|type|>title<|page|>6<|box|>715 142 732 250<|content|>ARTICLE II\n<|id|>64<|type|>title<|page|>6<|box|>756 140 773 488<|content|>VOTING AND APPROVAL COVENANTS\n<|id|>71<|type|>title<|page|>7<|box|>787 140 805 799<|content|>Section 2.3 No Redemption. Sponsor hereby irrevoca\n<|id|>76<|type|>title<|page|>8<|box|>549 142 566 256<|content|>ARTICLE III\n<|id|>77<|type|>title<|page|>8<|box|>589 140 606 334<|content|>SHARE FORFEITURE\n<|id|>88<|type|>title<|page|>10<|box|>321 142 339 256<|content|>ARTICLE IV\n<|id|>89<|type|>title<|page|>10<|box|>362 140 378 540<|content|>WAIVER OF ANTI-DILUTION ADJUSTMENTS\n<|id|>98<|type|>title<|page|>11<|box|>314 142 330 250<|content|>ARTICLE V\n<|id|>99<|type|>title<|page|>11<|box|>354 140 372 387<|content|>TRANSFER RESTRICTIONS\n<|id|>109<|type|>title<|page|>12<|box|>674 142 690 254<|content|>ARTICLE VI\n<|id|>110<|type|>title<|page|>12<|box|>714 140 731 383<|content|>ADDITIONAL COVENANTS\n<|id|>120<|type|>title<|page|>14<|box|>674 142 691 263<|content|>ARTICLE VII\n<|id|>121<|type|>title<|page|>14<|box|>714 140 732 617<|content|>REPRESENTATIONS AND WARRANTIES OF SPONSOR\n<|id|>122<|type|>title<|page|>14<|box|>741 140 758 740<|content|>Sponsor hereby represents and warrants to PGAC as\n<|id|>130<|type|>title<|page|>16<|box|>266 142 282 269<|content|>ARTICLE VIII\n<|id|>131<|type|>title<|page|>16<|box|>308 140 324 583<|content|>REPRESENTATIONS AND WARRANTIES OF PGAC\n<|id|>136<|type|>title<|page|>16<|box|>763 142 780 256<|content|>ARTICLE IX\n<|id|>137<|type|>title<|page|>16<|box|>804 142 821 282<|content|>TERMINATION\n<|id|>144<|type|>title<|page|>17<|box|>691 142 709 250<|content|>ARTICLE X\n<|id|>145<|type|>title<|page|>17<|box|>733 140 750 354<|content|>GENERAL PROVISIONS\n<|id|>184<|type|>title<|page|>21<|box|>497 243 513 753<|content|>[SIGNATURE PAGE TO SPONSOR SUPPORT AGREEMENT]\n<|id|>186<|type|>title<|page|>21<|box|>566 142 583 480<|content|>RIDGEWAY CAPITAL HOLDINGS LLC\n<|id|>188<|type|>title<|page|>21<|box|>652 243 670 753<|content|>[SIGNATURE PAGE TO SPONSOR SUPPORT AGREEMENT]\n<|id|>189<|type|>title<|page|>21<|box|>679 143 695 517<|content|>PINNACLE GROWTH ACQUISITION CORP.\n<|id|>191<|type|>title<|page|>21<|box|>765 243 782 753<|content|>[SIGNATURE PAGE TO SPONSOR SUPPORT AGREEMENT]\n<|id|>192<|type|>title<|page|>21<|box|>792 143 808 637<|content|>ACKNOWLEDGED AND AGREED (Third-Party Beneficiary)\n<|id|>193<|type|>title<|page|>21<|box|>816 142 833 388<|content|>SKYBRIDGE FINTECH LTD.\n<|id|>195<|type|>title<|page|>23<|box|>89 437 107 560<|content|>SCHEDULE A\n<|id|>196<|type|>title<|page|>23<|box|>131 411 148 586<|content|>COVERED SHARES\n<|id|>198<|type|>table<|page|>23<|box|>199 143 313 852<|content|>None\n<|id|>201<|type|>title<|page|>24<|box|>88 447 108 552<|content|>EXHIBIT A\n<|id|>202<|type|>title<|page|>24<|box|>130 348 148 648<|content|>FORM OF JOINDER AGREEMENT\n<|id|>220<|type|>title<|page|>25<|box|>553 143 569 274<|content|>TRANSFEREE:\n<|id|>231<|type|>table<|page|>25<|box|>849 143 904 852<|content|>None\n<|id|>232<|type|>table<|page|>26<|box|>88 145 109 852<|content|>None",
+    "raw_response": "<|src_id|>198<|tgt_id|>196\n<|src_id|>231<|tgt_id|>201\n<|src_id|>232<|tgt_id|>201",
+    "parsed": [
+        {
+            "src_id": 198,
+            "tgt_id": 196
+        },
+        {
+            "src_id": 231,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 201
+        }
+    ]
+}

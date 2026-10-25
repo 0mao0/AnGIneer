@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>1<|page|>1<|box|>143 441 161 555<|content|>(Form UCC1)\n<|id|>2<|page|>1<|box|>169 153 205 841<|content|>INTERNATIONAL ASSOCIATION OF COMMERCIAL ADMINISTRA\n<|id|>4<|page|>1<|box|>239 142 256 290<|content|>FILING OFFICE:\n<|id|>7<|page|>1<|box|>392 362 409 633<|content|>UCC FINANCING STATEMENT\n<|id|>10<|page|>1<|box|>626 142 643 674<|content|>Box 1 — DEBTOR INFORMATION (ORGANIZATION DEBTOR)\n<|id|>11<|page|>1<|box|>650 143 667 344<|content|>1a. Organization's Name:\n<|id|>14<|page|>1<|box|>864 143 880 308<|content|>1b. Mailing Address:\n<|id|>17<|page|>2<|box|>227 143 243 419<|content|>1c. Additional Debtor Information:\n<|id|>20<|page|>2<|box|>444 140 462 571<|content|>Box 2 — ADDITIONAL DEBTOR (IF APPLICABLE)\n<|id|>22<|page|>2<|box|>554 142 570 509<|content|>Box 3 — SECURED PARTY INFORMATION\n<|id|>25<|page|>2<|box|>806 142 824 310<|content|>3b. Mailing Address:\n<|id|>28<|page|>3<|box|>147 140 164 475<|content|>Box 4 — COLLATERAL DESCRIPTION\n<|id|>50<|page|>5<|box|>479 142 496 428<|content|>Reference to Governing Documents:\n<|id|>53<|page|>5<|box|>854 140 871 638<|content|>Box 5 — CHECK BOXES / ALTERNATIVE DESIGNATIONS\n<|id|>54<|page|>5<|box|>878 142 895 367<|content|>5a. Check only if applicable:\n<|id|>63<|page|>6<|box|>556 143 573 473<|content|>Box 7 — ADDITIONAL INFORMATION\n<|id|>64<|page|>6<|box|>580 143 597 401<|content|>7a. Filing to Which This Relates:\n<|id|>67<|page|>6<|box|>751 143 768 383<|content|>7b. Filer Contact Information:\n<|id|>75<|page|>7<|box|>121 140 138 437<|content|>FILING FEE AND INSTRUCTIONS\n<|id|>87<|page|>8<|box|>359 390 377 607<|content|>FILING MEMORANDUM\n<|id|>96<|page|>8<|box|>648 142 665 308<|content|>Debtor Information:\n<|id|>98<|page|>8<|box|>809 140 827 362<|content|>Secured Party Information:\n<|id|>100<|page|>9<|box|>90 140 107 325<|content|>Collateral Description:\n<|id|>102<|page|>9<|box|>343 140 361 509<|content|>Prior Liens — Termination of Existing Filings:\n<|id|>104<|page|>9<|box|>487 140 503 424<|content|>Confirmation of Filing Jurisdiction:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>-1\n<|id|>4<|level|>-1\n<|id|>7<|level|>1\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>14<|level|>3\n<|id|>17<|level|>3\n<|id|>20<|level|>2\n<|id|>22<|level|>2\n<|id|>25<|level|>3\n<|id|>28<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>63<|level|>2\n<|id|>64<|level|>3\n<|id|>67<|level|>3\n<|id|>75<|level|>1\n<|id|>87<|level|>1\n<|id|>96<|level|>2\n<|id|>98<|level|>2\n<|id|>100<|level|>2\n<|id|>102<|level|>2\n<|id|>104<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,96 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7ezj48yw\\input\\pdfs\\doc-15a9c4e9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7ezj48yw\\enriched\\doc-15a9c4e9.json",
+    "contd_output": "",
+    "title_output": "<|id|>6<|level|>1\n<|id|>20<|level|>1\n<|id|>25<|level|>1\n<|id|>27<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>2\n<|id|>51<|level|>1\n<|id|>58<|level|>1\n<|id|>73<|level|>1\n<|id|>78<|level|>1",
+    "image_output": "<|src_id|>22<|tgt_id|>20\n<|src_id|>23<|tgt_id|>20",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 20
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 22,
+            "table2_idx": 23,
+            "upper_row_ss": [
+                [
+                    "Veltrano Employment Law Group",
+                    "0",
+                    "No matches were identified in the"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "PC",
+                    "",
+                    "Firm's database. Cleared."
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        62
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        50,
+        51,
+        52,
+        53,
+        54,
+        56,
+        57,
+        59,
+        61,
+        62
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>412<|type|>title<|page|>46<|box|>223 140 239 434<|content|>Treatment of Original Issue discount\n<|id|>414<|type|>title<|page|>46<|box|>400 140 417 272<|content|>Interest Income\n<|id|>416<|type|>title<|page|>46<|box|>539 140 556 361<|content|>Sale or Disposition of Notes\n<|id|>418<|type|>title<|page|>46<|box|>734 140 752 285<|content|>Non-U.S. Holders\n<|id|>421<|type|>title<|page|>47<|box|>204 142 220 212<|content|>FATCA\n<|id|>423<|type|>title<|page|>47<|box|>381 142 398 310<|content|>Backup Withholding\n<|id|>426<|type|>title<|page|>47<|box|>606 357 625 638<|content|>PLAN OF DISTRIBUTION\n<|id|>427<|type|>title<|page|>47<|box|>651 142 667 321<|content|>The Initial Purchasers\n<|id|>429<|type|>table<|page|>47<|box|>773 143 906 852<|content|>None\n<|id|>430<|type|>table<|page|>48<|box|>88 143 186 852<|content|>None\n<|id|>431<|type|>title<|page|>48<|box|>234 142 252 310<|content|>Purchase Agreement\n<|id|>433<|type|>table<|page|>48<|box|>412 143 507 852<|content|>None\n<|id|>437<|type|>title<|page|>48<|box|>799 142 816 312<|content|>Offering Restrictions\n<|id|>445<|type|>title<|page|>50<|box|>148 140 167 418<|content|>Selling Restrictions by Jurisdiction\n<|id|>450<|type|>title<|page|>50<|box|>587 140 604 452<|content|>Price Stabilization and Market-Making\n<|id|>454<|type|>title<|page|>51<|box|>152 395 172 602<|content|>LEGAL MATTERS\n<|id|>459<|type|>title<|page|>51<|box|>532 348 553 648<|content|>INDEPENDENT ENGINEER\n<|id|>463<|type|>title<|page|>52<|box|>90 348 109 648<|content|>INDEPENDENT AUDITORS\n<|id|>467<|type|>title<|page|>52<|box|>316 338 337 658<|content|>AVAILABLE INFORMATION\n<|id|>474<|type|>title<|page|>52<|box|>718 290 737 707<|content|>INDEX TO FINANCIAL STATEMENTS\n<|id|>475<|type|>title<|page|>52<|box|>763 140 780 635<|content|>Torchlight Mining Corp. — Consolidated Financial S\n<|id|>483<|type|>title<|page|>53<|box|>198 140 215 485<|content|>Notes to Consolidated Financial Statements\n<|id|>498<|type|>title<|page|>54<|box|>90 233 109 764<|content|>APPENDIX A — GLOSSARY OF MINING TERMS\n<|id|>514<|type|>title<|page|>56<|box|>89 169 135 828<|content|>APPENDIX B — SUMMARY OF INDEPENDENT ENGINEER'S REP\n<|id|>519<|type|>title<|page|>56<|box|>268 142 285 295<|content|>Purpose and Scope\n<|id|>521<|type|>title<|page|>56<|box|>450 140 468 370<|content|>Mineral Resource Statement\n<|id|>522<|type|>table<|page|>56<|box|>516 143 604 852<|content|>None\n<|id|>525<|type|>title<|page|>56<|box|>804 142 821 357<|content|>Phase I Operations Review\n<|id|>529<|type|>title<|page|>57<|box|>220 140 238 383<|content|>Phase II Expansion Feasibility\n<|id|>534<|type|>title<|page|>57<|box|>681 142 699 375<|content|>Mine Life Extension Analysis\n<|id|>536<|type|>title<|page|>57<|box|>828 140 844 421<|content|>Conclusions and Recommendations\n<|id|>544<|type|>title<|page|>59<|box|>90 181 133 815<|content|>APPENDIX C — FORM OF GLOBAL NOTE (RULE 144A) — EXH\n<|id|>548<|type|>title<|page|>59<|box|>248 328 263 669<|content|>CUSIP: 891207 AA 3 ISIN: US891207AA38\n<|id|>553<|type|>title<|page|>61<|box|>90 155 133 843<|content|>APPENDIX D — FORM OF GLOBAL NOTE (REGULATION S) —\n<|id|>556<|type|>title<|page|>61<|box|>222 344 239 651<|content|>8.750% Senior Secured Notes due 2029\n<|id|>561<|type|>title<|page|>61<|box|>829 418 848 578<|content|>BACK COVER\n<|id|>562<|type|>title<|page|>61<|box|>866 366 907 630<|content|>$300,000,000 TORCHLIGHT MINING CORP.\n<|id|>563<|type|>title<|page|>62<|box|>89 294 160 702<|content|>8.750% Senior Secured Notes due 2029 Lead Initial",
+    "raw_response": "<|src_id|>429<|tgt_id|>427\n<|src_id|>430<|tgt_id|>427\n<|src_id|>433<|tgt_id|>431\n<|src_id|>522<|tgt_id|>521",
+    "parsed": [
+        {
+            "src_id": 429,
+            "tgt_id": 427
+        },
+        {
+            "src_id": 430,
+            "tgt_id": 427
+        },
+        {
+            "src_id": 433,
+            "tgt_id": 431
+        },
+        {
+            "src_id": 522,
+            "tgt_id": 521
+        }
+    ]
+}

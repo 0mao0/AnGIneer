@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 192 142 803<|content|>OFFICER'S CERTIFICATE OF BELMONT RIDGE BANK, NATIO\n<|id|>2<|type|>title<|page|>1<|box|>251 142 268 253<|content|>PREAMBLE\n<|id|>7<|type|>title<|page|>1<|box|>762 140 780 653<|content|>SECTION 1: DEFINITIONS AND REFERENCE DOCUMENTS\n<|id|>16<|type|>title<|page|>2<|box|>535 140 551 508<|content|>SECTION 2: AUTHORITY AND CAPACITY\n<|id|>24<|type|>title<|page|>3<|box|>266 140 284 800<|content|>SECTION 3: CERTIFICATION (I) — REPRESENTATIONS AND\n<|id|>31<|type|>title<|page|>3<|box|>792 140 829 803<|content|>SECTION 4: CERTIFICATION (II) — NO EVENT OF DEFAUL\n<|id|>36<|type|>title<|page|>4<|box|>474 140 493 676<|content|>SECTION 5: CERTIFICATION (III) — TAP POOL ELIGIBIL\n<|id|>47<|type|>table<|page|>5<|box|>510 143 679 852<|content|>None\n<|id|>49<|type|>table<|page|>5<|box|>755 143 887 852<|content|>None\n<|id|>51<|type|>table<|page|>6<|box|>184 143 334 852<|content|>None\n<|id|>53<|type|>title<|page|>6<|box|>426 140 444 697<|content|>SECTION 6: CERTIFICATION (IV) — RATING CONFIRMATIO\n<|id|>58<|type|>title<|page|>6<|box|>809 140 827 720<|content|>SECTION 7: CERTIFICATION (V) — OCC CHARTER COMPLIA\n<|id|>63<|type|>title<|page|>7<|box|>494 142 510 532<|content|>SECTION 8: ADDITIONAL CERTIFICATIONS\n<|id|>67<|type|>table<|page|>7<|box|>852 143 907 852<|content|>None\n<|id|>68<|type|>table<|page|>8<|box|>88 143 227 852<|content|>None\n<|id|>72<|type|>title<|page|>8<|box|>700 140 718 349<|content|>SECTION 9: RELIANCE\n<|id|>80<|type|>title<|page|>9<|box|>337 140 354 424<|content|>SECTION 10: GOVERNING LAW\n<|id|>83<|type|>title<|page|>9<|box|>469 142 486 596<|content|>BELMONT RIDGE BANK, NATIONAL ASSOCIATION",
+    "raw_response": "<|src_id|>47<|tgt_id|>36\n<|src_id|>49<|tgt_id|>36\n<|src_id|>51<|tgt_id|>36\n<|src_id|>67<|tgt_id|>63\n<|src_id|>68<|tgt_id|>63",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 63
+        }
+    ]
+}

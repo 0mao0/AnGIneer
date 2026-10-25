@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        94,
+        98
+    ],
+    "pages": [
+        95,
+        97,
+        98
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>892<|page|>95<|box|>89 140 106 663<|content|>EXHIBIT F — FORM OF LENDER ACCESSION AGREEMENT\n<|id|>915<|page|>97<|box|>89 140 106 673<|content|>EXHIBIT G — FORM OF OFFICER'S CLOSING CERTIFICATE\n<|id|>929<|page|>98<|box|>89 142 106 614<|content|>EXHIBIT H — FORM OF SECRETARY'S CERTIFICATE",
+    "raw_response": "<|id|>892<|level|>1\n<|id|>915<|level|>1\n<|id|>929<|level|>1",
+    "parsed": [
+        {
+            "id": 892,
+            "level": 1
+        },
+        {
+            "id": 915,
+            "level": 1
+        },
+        {
+            "id": 929,
+            "level": 1
+        }
+    ]
+}

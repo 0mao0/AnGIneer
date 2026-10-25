@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['11', 'Retail Holdings N.V. v. Harvest Capital Strategies LP, Index No. 652640/2017, 2018 N.Y. Misc. LEXIS 3874 (Sup. Ct. N.Y. Cnty. Sept. 5, 2018) (Commercial Division)', \"The Commercial Division held that allegations of intentional inflation of asset valuations coupled with active concealment of the true methodology used by the defendant fund administrator constituted independent tortious conduct supporting fraud and fraudulent concealment claims separate from the breach of the underlying administration agreement. The Court specifically rejected the defendant's argument that because the administration agreement required accurate valuations, any claim based\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'on inaccurate valuations was necessarily a contract claim. The Court reasoned that the affirmative acts of misrepresentation—including the creation of false valuation memoranda and the intentional suppression of internal reports showing known valuation discrepancies—were \"independent of and collateral to\" the contractual promise to provide accurate valuations, and therefore supported independent fraud claims.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 28,
+    "table2_idx": 29
+}

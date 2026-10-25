@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        13,
+        14,
+        18,
+        20,
+        21,
+        23,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 424 151 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>160 140 196 854<|content|>TO: ... Stephanie Okafor (Billing Partner, Banking...en (Working Associate, Healthcare & Life Sciences)\n<|id|>3<|page|>1<|box|>204 140 222 635<|content|>FROM: ... Ian Blackwood (Responsible Partner, Banking & Finance)\n<|id|>4<|page|>1<|box|>229 140 247 346<|content|>DATE: ... September 5, 2022\n<|id|>5<|page|>1<|box|>256 140 310 854<|content|>RE: ... IDOT-TS-2022-014 (Illinois Integrated Transit Modernization Program)\n<|id|>6<|page|>1<|box|>318 140 335 361<|content|>MATTER NO. ... 1031-00003\n<|id|>7<|page|>1<|box|>344 140 362 522<|content|>CLIENT: ... Metropolitan Transit Development Corp\n<|id|>13<|page|>1<|box|>803 140 877 854<|content|>Having reviewed the Source Selection Decision Docu...oncerning Pinnacle Transit Solutions, Inc. ... and\n<|id|>14<|page|>2<|box|>90 140 126 856<|content|>Northlake Harborline Technologies Systems, Inc. .....ing summary assessment of our five protest grounds\n<|id|>98<|page|>13<|box|>871 140 907 856<|content|>The cost-realism failure also reinforces Ground 1 ...ation. ... The SSA's decision to pay a premium for\n<|id|>99<|page|>14<|box|>90 138 181 854<|content|>Pinnacle's proposal was based in part on the Cost/...ned beyond the already substantial 30-point margin\n<|id|>133<|page|>18<|box|>354 181 388 854<|content|>• The complete evaluation record, including TEP co...aluation narratives for each factor and sub-factor\n<|id|>142<|page|>18<|box|>623 138 732 854<|content|>Our Comments on the Agency Report will be our sing... core of our record for Court of Claims escalation\n<|id|>134<|page|>18<|box|>393 181 426 854<|content|>• Individual evaluator score sheets showing each TEP member's scores for each offeror on each factor\n<|id|>135<|page|>18<|box|>430 181 465 854<|content|>• The cost-realism analysis documentation (if any ...realism memorandum, worksheets, or evaluator notes\n<|id|>136<|page|>18<|box|>469 181 503 854<|content|>• OCI review records, including any OCI determinat...ake regarding the OCI, and any OCI mitigation plan\n<|id|>137<|page|>18<|box|>506 183 523 566<|content|>• TEP member conflict-of-interest disclosure forms\n<|id|>138<|page|>18<|box|>526 181 561 854<|content|>• The SSA's complete tradeoff analysis with suppor... appears in the Source Selection Decision Document\n<|id|>139<|page|>18<|box|>564 181 580 816<|content|>• The Independent Government Cost Estimate (IGCE) and its supporting methodology\n<|id|>140<|page|>18<|box|>584 183 599 558<|content|>• All RFP amendments and questions and answers\n<|id|>141<|page|>18<|box|>603 181 619 491<|content|>• Debriefing records and correspondence\n<|id|>163<|page|>20<|box|>801 140 875 857<|content|>The Court of Claims has exclusive jurisdiction ove..., specifically alleging violations of the Illinois\n<|id|>164<|page|>21<|box|>89 140 126 854<|content|>Procurement Code, the terms of RFP No. ... IDOT-TS-2022-014, and applicable procurement regulations\n<|id|>188<|page|>23<|box|>428 181 500 854<|content|>• Analysis of IDOT's technical scoring methodology... sheets (once available through the Agency Report)\n<|id|>190<|page|>23<|box|>559 181 630 854<|content|>Analysis of the adequacy of IDOT's cost-realism ev...eviation was adequately investigated and addressed\n<|id|>189<|page|>23<|box|>502 181 556 854<|content|>• Assessment of the reasonableness and internal co...tive evaluations and the numerical scores assigned\n<|id|>192<|page|>23<|box|>671 140 797 856<|content|>Dr. ... Fernwood should begin no later than September 8, 2022\n<|id|>191<|page|>23<|box|>633 181 667 854<|content|>• Preparation of a written expert analysis suitabl...as an exhibit to our Comments on the Agency Report\n<|id|>212<|page|>25<|box|>801 140 876 857<|content|>The engagement team should focus immediate efforts...ies: ... Fernwood and Strickland in advance of the\n<|id|>213<|page|>26<|box|>90 140 127 852<|content|>Agency Report production, to ensure that our exper...prepared to contribute to a strong Comments filing\n<|id|>216<|page|>26<|box|>258 140 292 854<|content|>Ian Blackwood Partner, Banking & Finance Calderwoo...00 Chicago, IL 60606 Telephone: ... (312) 555-7200\n<|id|>217<|page|>26<|box|>292 140 309 485<|content|>Email: ... com\n<|id|>218<|page|>26<|box|>310 142 325 320<|content|>Matter No. ... 1031-00003\n<|id|>219<|page|>26<|box|>325 140 387 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV...istribute, copy, or disclose without authorization",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>98<|tgt_id|>99\n<|src_id|>163<|tgt_id|>164\n<|src_id|>212<|tgt_id|>213",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 213
+        }
+    ]
+}

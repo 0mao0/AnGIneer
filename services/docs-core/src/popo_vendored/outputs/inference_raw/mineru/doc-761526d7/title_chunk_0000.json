@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 143 118 854<|content|>ASSIGNMENT AND ASSUMPTION OF MEMBERSHIP INTERESTS\n<|id|>1<|page|>1<|box|>143 413 160 584<|content|>GMP Lakeland LLC\n<|id|>5<|page|>1<|box|>411 447 429 550<|content|>RECITALS\n<|id|>6<|page|>1<|box|>436 140 454 248<|content|>WHEREAS:\n<|id|>14<|page|>2<|box|>556 140 573 656<|content|>ARTICLE 1 — ASSIGNMENT OF MEMBERSHIP INTERESTS\n<|id|>18<|page|>3<|box|>387 142 404 553<|content|>ARTICLE 2 — ASSUMPTION OF OBLIGATIONS\n<|id|>34<|page|>4<|box|>758 140 776 748<|content|>ARTICLE 3 — REPRESENTATIONS AND WARRANTIES OF ASSI\n<|id|>35<|page|>4<|box|>785 142 803 772<|content|>Assignor hereby represents and warrants to Assigne\n<|id|>41<|page|>6<|box|>258 140 276 745<|content|>ARTICLE 4 — REPRESENTATIONS AND WARRANTIES OF ASSI\n<|id|>47<|page|>7<|box|>239 140 257 483<|content|>ARTICLE 5 — FURTHER ASSURANCES\n<|id|>53<|page|>7<|box|>739 140 757 599<|content|>ARTICLE 6 — GOVERNING LAW; MISCELLANEOUS\n<|id|>62<|page|>9<|box|>190 245 207 751<|content|>[Remainder of page intentionally left blank. Signa\n<|id|>63<|page|>9<|box|>214 173 250 823<|content|>SIGNATURE PAGE TO ASSIGNMENT AND ASSUMPTION OF MEM\n<|id|>65<|page|>9<|box|>304 142 319 248<|content|>ASSIGNOR:\n<|id|>72<|page|>9<|box|>449 173 484 823<|content|>SIGNATURE PAGE TO ASSIGNMENT AND ASSUMPTION OF MEM\n<|id|>73<|page|>9<|box|>494 143 510 245<|content|>ASSIGNEE:\n<|id|>79<|page|>10<|box|>90 449 106 550<|content|>EXHIBIT A\n<|id|>83<|page|>11<|box|>395 142 412 290<|content|>Legal Description:\n<|id|>86<|page|>11<|box|>652 305 669 692<|content|>ACKNOWLEDGMENT AND NOTARIZATION\n<|id|>87<|page|>11<|box|>678 143 694 436<|content|>ASSIGNOR ACKNOWLEDGMENT\n<|id|>88<|page|>11<|box|>703 142 720 318<|content|>STATE OF GEORGIA\n<|id|>89<|page|>11<|box|>729 142 746 326<|content|>COUNTY OF FULTON",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>5<|level|>2\n<|id|>6<|level|>3\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>41<|level|>2\n<|id|>47<|level|>2\n<|id|>53<|level|>2\n<|id|>62<|level|>-1\n<|id|>63<|level|>2\n<|id|>65<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>79<|level|>2\n<|id|>83<|level|>3\n<|id|>86<|level|>2\n<|id|>87<|level|>3\n<|id|>88<|level|>4\n<|id|>89<|level|>5",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 5
+        }
+    ]
+}

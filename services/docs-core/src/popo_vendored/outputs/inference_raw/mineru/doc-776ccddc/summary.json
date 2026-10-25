@@ -1,0 +1,711 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-s7um5ji8\\input\\pdfs\\doc-776ccddc.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-s7um5ji8\\enriched\\doc-776ccddc.json",
+    "contd_output": "<|src_id|>83<|tgt_id|>84\n<|src_id|>142<|tgt_id|>143\n<|src_id|>193<|tgt_id|>194\n<|src_id|>201<|tgt_id|>202",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>5<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>106<|level|>2\n<|id|>107<|level|>3\n<|id|>113<|level|>2\n<|id|>114<|level|>3\n<|id|>127<|level|>2\n<|id|>128<|level|>3\n<|id|>132<|level|>4\n<|id|>135<|level|>2\n<|id|>136<|level|>3\n<|id|>153<|level|>2\n<|id|>154<|level|>3\n<|id|>157<|level|>2\n<|id|>158<|level|>3\n<|id|>160<|level|>2\n<|id|>161<|level|>3\n<|id|>170<|level|>2\n<|id|>171<|level|>3\n<|id|>177<|level|>2\n<|id|>178<|level|>3\n<|id|>233<|level|>1\n<|id|>234<|level|>2\n<|id|>236<|level|>3\n<|id|>242<|level|>3\n<|id|>259<|level|>1\n<|id|>260<|level|>2\n<|id|>265<|level|>3\n<|id|>267<|level|>3\n<|id|>269<|level|>1\n<|id|>270<|level|>2",
+    "image_output": "<|src_id|>237<|tgt_id|>236\n<|src_id|>238<|tgt_id|>236\n<|src_id|>239<|tgt_id|>236\n<|src_id|>240<|tgt_id|>236\n<|src_id|>241<|tgt_id|>236\n<|src_id|>243<|tgt_id|>242\n<|src_id|>244<|tgt_id|>242\n<|src_id|>245<|tgt_id|>242\n<|src_id|>246<|tgt_id|>242\n<|src_id|>247<|tgt_id|>242\n<|src_id|>248<|tgt_id|>242\n<|src_id|>249<|tgt_id|>242\n<|src_id|>250<|tgt_id|>242\n<|src_id|>251<|tgt_id|>242\n<|src_id|>252<|tgt_id|>242\n<|src_id|>253<|tgt_id|>242\n<|src_id|>254<|tgt_id|>242\n<|src_id|>255<|tgt_id|>242\n<|src_id|>256<|tgt_id|>242\n<|src_id|>257<|tgt_id|>242\n<|src_id|>258<|tgt_id|>242\n<|src_id|>262<|tgt_id|>260\n<|src_id|>263<|tgt_id|>260\n<|src_id|>264<|tgt_id|>260\n<|src_id|>266<|tgt_id|>265\n<|src_id|>268<|tgt_id|>267\n<|src_id|>272<|tgt_id|>270\n<|src_id|>273<|tgt_id|>270\n<|src_id|>274<|tgt_id|>270",
+    "contd_label": [
+        {
+            "src_id": 83,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 193,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 202
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 4
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 233,
+            "level": 1
+        },
+        {
+            "id": 234,
+            "level": 2
+        },
+        {
+            "id": 236,
+            "level": 3
+        },
+        {
+            "id": 242,
+            "level": 3
+        },
+        {
+            "id": 259,
+            "level": 1
+        },
+        {
+            "id": 260,
+            "level": 2
+        },
+        {
+            "id": 265,
+            "level": 3
+        },
+        {
+            "id": 267,
+            "level": 3
+        },
+        {
+            "id": 269,
+            "level": 1
+        },
+        {
+            "id": 270,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 237,
+            "tgt_id": 236
+        },
+        {
+            "src_id": 238,
+            "tgt_id": 236
+        },
+        {
+            "src_id": 239,
+            "tgt_id": 236
+        },
+        {
+            "src_id": 240,
+            "tgt_id": 236
+        },
+        {
+            "src_id": 241,
+            "tgt_id": 236
+        },
+        {
+            "src_id": 243,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 244,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 245,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 246,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 247,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 248,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 249,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 250,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 251,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 252,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 253,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 254,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 255,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 256,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 257,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 258,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 262,
+            "tgt_id": 260
+        },
+        {
+            "src_id": 263,
+            "tgt_id": 260
+        },
+        {
+            "src_id": 264,
+            "tgt_id": 260
+        },
+        {
+            "src_id": 266,
+            "tgt_id": 265
+        },
+        {
+            "src_id": 268,
+            "tgt_id": 267
+        },
+        {
+            "src_id": 272,
+            "tgt_id": 270
+        },
+        {
+            "src_id": 273,
+            "tgt_id": 270
+        },
+        {
+            "src_id": 274,
+            "tgt_id": 270
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 237,
+            "table2_idx": 238,
+            "upper_row_ss": [
+                [
+                    "Day-to-Day Operations — Fairfield Logistics Center II",
+                    "Continue building operations, maintenance, dock",
+                    "Sean Kilpatrick, Portfolio Manager",
+                    "Leah Torrance, SVP Operations",
+                    "September 4, 2024",
+                    "Ongoing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "management, and site operations at 4300 Fairfield Industrial Blvd, Fairburn, GA",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 238,
+            "table2_idx": 239,
+            "upper_row_ss": [
+                [
+                    "Day-to-Day Operations — Southport",
+                    "Continue building operations,",
+                    "Sean Kilpatrick, Portfolio Manager",
+                    "Leah Torrance, SVP Operations",
+                    "September 4, 2024",
+                    "Ongoing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Logistics Park",
+                    "maintenance, dock management, and site operations at 3200 Southport Connector Road, Jacksonville, FL",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 239,
+            "table2_idx": 240,
+            "upper_row_ss": [
+                [
+                    "Day-to-Day",
+                    "Continue",
+                    "Sean Kilpatrick,",
+                    "Leah Torrance,",
+                    "September 4,",
+                    "Ongoing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Operations — Brickell Bay Office Building",
+                    "building operations, tenant services, and common area management at 1450 Brickell Avenue, Miami, FL",
+                    "Portfolio Manager",
+                    "SVP Operations",
+                    "2024",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 240,
+            "table2_idx": 241,
+            "upper_row_ss": [
+                [
+                    "Building Systems Maintenance",
+                    "Coordinate routine and preventive maintenance for HVAC,",
+                    "Sean Kilpatrick, Portfolio Manager",
+                    "Leah Torrance, SVP Operations",
+                    "September 4, 2024",
+                    "Ongoing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "electrical, plumbing, fire suppression, elevator, and security systems at all 14 Properties",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 243,
+            "table2_idx": 244,
+            "upper_row_ss": [
+                [
+                    "Operating Account Management",
+                    "Maintain and manage Target Entity operating accounts at Magnolia Commerce Bank, N.A. (contact: Linda Prescott, VP); process deposits",
+                    "Sean Kilpatrick, Portfolio Manager",
+                    "Leah Torrance, SVP Operations",
+                    "July 6, 2024 (30 days for signatory transfer); September 4, 2024 (full transition)",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "and disbursements",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 244,
+            "table2_idx": 245,
+            "upper_row_ss": [
+                [
+                    "Security Deposit Administration",
+                    "Administer $4,283,000 in",
+                    "Sean Kilpatrick, Portfolio",
+                    "Leah Torrance,",
+                    "September 4,",
+                    "Ongoing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "aggregate tenant security deposits held in Target Entity bank accounts; maintain accurate records; coordinate handover",
+                    "Manager",
+                    "SVP Operations",
+                    "2024",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 246,
+            "table2_idx": 247,
+            "upper_row_ss": [
+                [
+                    "Option/Renewal Date Tracking",
+                    "Provide comprehensive critical date report covering",
+                    "Sean Kilpatrick, Portfolio Manager",
+                    "Leah Torrance, SVP Operations",
+                    "July 6, 2024 (30 days)",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "renewal options, purchase options, expansion options, and ROFR dates",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 248,
+            "table2_idx": 249,
+            "upper_row_ss": [
+                [
+                    "Contract Inventory and Cataloguing",
+                    "Prepare and deliver complete inventory of approximately 63 service contracts, including vendor name, scope, term, cost, and renewal/termination provisions",
+                    "Sean Kilpatrick, Portfolio Manager",
+                    "Leah Torrance, SVP Operations",
+                    "June 27, 2024 (21 days)",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Vendor Novation/Assignment Coordination",
+                    "Coordinate with vendors and Recipient to novate or assign contracts to Recipient or Target Entities under new ownership",
+                    "Sean Kilpatrick, Portfolio Manager",
+                    "Leah Torrance, SVP Operations",
+                    "August 5, 2024 (60 days)",
+                    "Pending"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 250,
+            "table2_idx": 251,
+            "upper_row_ss": [
+                [
+                    "Loss Run Data Transfer",
+                    "Provide complete loss",
+                    "Sean Kilpatrick, Portfolio",
+                    "Leah Torrance, SVP Operations",
+                    "June 27, 2024 (21 days)",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "run data and incident history for all Properties for the prior 5 years",
+                    "Manager",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 252,
+            "table2_idx": 253,
+            "upper_row_ss": [
+                [
+                    "Portal Transition",
+                    "Coordinate",
+                    "Sean Kilpatrick,",
+                    "Leah Torrance,",
+                    "September 4,",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "transition of tenant-facing portals and online payment systems to Recipient's platform",
+                    "Portfolio Manager",
+                    "SVP Operations",
+                    "2024",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 254,
+            "table2_idx": 255,
+            "upper_row_ss": [
+                [
+                    "Key/Access Card Transfer",
+                    "Deliver all keys, access cards, security codes, gate codes, elevator keys, and mechanical room credentials",
+                    "Sean Kilpatrick, Portfolio Manager",
+                    "Leah Torrance, SVP Operations",
+                    "September 4, 2024",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "for all 14 Properties",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 256,
+            "table2_idx": 257,
+            "upper_row_ss": [
+                [
+                    "Final Account Reconciliation",
+                    "Prepare and deliver final reconciliation of all Operating Accounts, including security deposit accounts, upon completion of Transition Period",
+                    "Sean Kilpatrick, Portfolio Manager",
+                    "Leah Torrance, SVP Operations",
+                    "September 24, 2024 (20 business days post-expiration)",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Permit and License Transfers — Georgia",
+                    "Assist with transfer of business licenses, building permits, and other governmental authorizations for Properties in Fairburn, Atlanta, and Peachtree Corners, GA",
+                    "Sean Kilpatrick, Portfolio Manager",
+                    "Leah Torrance, SVP Operations",
+                    "August 5, 2024 (60 days)",
+                    "Pending"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 257,
+            "table2_idx": 258,
+            "upper_row_ss": [
+                [
+                    "Permit and License Transfers — Tennessee",
+                    "Assist with transfer of business licenses, building permits, and other",
+                    "Sean Kilpatrick, Portfolio Manager",
+                    "Leah Torrance, SVP Operations",
+                    "August 5, 2024 (60 days)",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "governmental authorizations for Properties in Murfreesboro, Brentwood, and Mount Juliet, TN",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 262,
+            "table2_idx": 263,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "Westlake Distribution",
+                    "11500 Westlake",
+                    "Logistics",
+                    "625,000",
+                    "GMP Westlake",
+                    "Loan 1-C"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Hub",
+                    "Parkway, Houston, TX 77079",
+                    "",
+                    "",
+                    "LLC",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 263,
+            "table2_idx": 264,
+            "upper_row_ss": [
+                [
+                    "13",
+                    "Cool Springs Office Park",
+                    "5000 Virginia Way, Brentwood,",
+                    "Office",
+                    "196,000",
+                    "GMP Cool Springs LLC",
+                    "Loan 3-A"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "TN 37027",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 272,
+            "table2_idx": 273,
+            "upper_row_ss": [
+                [
+                    "Recipient — Primary Contact",
+                    "Leah Torrance",
+                    "SVP Operations",
+                    "Fairwater Property Management LLC",
+                    "7200 Chesapeake Parkway, Suite 1150, Columbia,",
+                    "(443) 555-7100",
+                    "ltorrance@fairwaterpm.com"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "MD 21044",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 273,
+            "table2_idx": 274,
+            "upper_row_ss": [
+                [
+                    "Bank Contact",
+                    "Linda",
+                    "VP,",
+                    "Magnolia",
+                    "225 Peachtree",
+                    "(404) 555-",
+                    "lprescott@ma"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Prescott",
+                    "Commercial Banking",
+                    "Commerce Bank, N.A.",
+                    "Street NE, Suite 100, Atlanta, GA 30303",
+                    "1200",
+                    "gnoliabank.com"
+                ]
+            ]
+        }
+    ]
+}

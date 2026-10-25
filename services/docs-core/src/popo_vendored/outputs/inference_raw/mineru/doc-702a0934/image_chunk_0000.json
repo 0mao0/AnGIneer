@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 256 156 740<|content|>CALDERWOOD & HARKNESS LLP Barristers & Solicitors\n<|id|>7<|type|>title<|page|>1<|box|>330 142 347 305<|content|>For transmission to:\n<|id|>13<|type|>title<|page|>1<|box|>743 377 762 617<|content|>I. NOTICE OF CLAIM\n<|id|>14<|type|>title<|page|>1<|box|>789 142 805 416<|content|>A. Formal Claim Notice Statement\n<|id|>16<|type|>title<|page|>2<|box|>148 142 167 295<|content|>B. Nature of Claim\n<|id|>19<|type|>title<|page|>2<|box|>462 140 479 450<|content|>C. Assessment Notices — Identification\n<|id|>21<|type|>title<|page|>2<|box|>518 140 535 483<|content|>1. Assessment Notice No. 1 — Classification\n<|id|>30<|type|>title<|page|>3<|box|>90 140 107 455<|content|>2. Assessment Notice No. 2 — Valuation\n<|id|>42<|type|>title<|page|>3<|box|>699 142 715 290<|content|>D. Total Exposure\n<|id|>43<|type|>table<|page|>3<|box|>750 143 906 852<|content|>None\n<|id|>44<|type|>table<|page|>4<|box|>88 143 194 852<|content|>None\n<|id|>46<|type|>title<|page|>4<|box|>434 142 450 406<|content|>E. Date TSL First Became Aware\n<|id|>48<|type|>title<|page|>4<|box|>614 348 633 648<|content|>II. POLICY INFORMATION\n<|id|>49<|type|>title<|page|>4<|box|>660 142 676 276<|content|>A. Policy Details\n<|id|>50<|type|>table<|page|>4<|box|>709 143 904 852<|content|>None\n<|id|>51<|type|>table<|page|>5<|box|>88 143 145 852<|content|>None\n<|id|>52<|type|>title<|page|>5<|box|>195 140 212 370<|content|>B. Insuring Clause Coverage\n<|id|>55<|type|>title<|page|>5<|box|>455 294 474 702<|content|>III. BACKGROUND OF THE DISPUTE\n<|id|>56<|type|>title<|page|>5<|box|>502 142 518 287<|content|>A. TSL's Business\n<|id|>60<|type|>title<|page|>5<|box|>804 142 821 323<|content|>B. Equipment Imports\n<|id|>62<|type|>table<|page|>6<|box|>176 143 361 852<|content|>None\n<|id|>64<|type|>title<|page|>6<|box|>526 140 544 419<|content|>C. Classification Dispute Summary\n<|id|>70<|type|>title<|page|>7<|box|>148 140 167 393<|content|>D. Valuation Dispute Summary\n<|id|>75<|type|>title<|page|>7<|box|>752 140 768 284<|content|>E. TSL's Position\n<|id|>83<|type|>title<|page|>8<|box|>542 357 561 638<|content|>IV. COVERAGE SOUGHT\n<|id|>84<|type|>title<|page|>8<|box|>589 142 604 279<|content|>A. Defense Costs\n<|id|>95<|type|>title<|page|>9<|box|>356 140 372 313<|content|>B. Assessed Amounts\n<|id|>102<|type|>title<|page|>9<|box|>680 140 696 406<|content|>C. Anticipated Coverage Amount\n<|id|>105<|type|>title<|page|>10<|box|>135 419 155 578<|content|>V. REQUESTS\n<|id|>111<|type|>title<|page|>10<|box|>632 326 652 671<|content|>VI. RESERVATION OF RIGHTS\n<|id|>119<|type|>title<|page|>11<|box|>241 326 261 669<|content|>VII. CONTACT INFORMATION\n<|id|>127<|type|>title<|page|>11<|box|>500 284 518 712<|content|>VIII. SUPPORTING DOCUMENTATION",
+    "raw_response": "<|src_id|>43<|tgt_id|>42\n<|src_id|>44<|tgt_id|>42\n<|src_id|>50<|tgt_id|>49\n<|src_id|>51<|tgt_id|>49\n<|src_id|>62<|tgt_id|>60",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        }
+    ]
+}

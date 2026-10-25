@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        9,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>226 364 244 633<|content|>Prepared on or about October 2025\n<|id|>5<|page|>1<|box|>253 166 287 831<|content|>This registration statement is being prepared on a...ow-on equity offering and may not need to be filed\n<|id|>12<|page|>1<|box|>551 174 588 852<|content|>Darren Whitfield Executive Vice President & Genera...as Boulevard South, Suite 1200 Las Vegas, NV 89119\n<|id|>13<|page|>1<|box|>595 142 614 364<|content|>Delaware Registered Agent: ... Delaware Registered Agent\n<|id|>14<|page|>1<|box|>622 174 640 733<|content|>Capitol Corporate Services, Inc. ... 1209 Orange Street Wilmington, DE 19801\n<|id|>15<|page|>1<|box|>648 148 684 848<|content|>Approximate date of commencement of proposed sale ...fter this registration statement becomes effective\n<|id|>41<|page|>4<|box|>607 140 625 604<|content|>Title of Securities: ... 001 per share\n<|id|>42<|page|>4<|box|>633 142 650 540<|content|>Ticker Symbol: ... RDGM (New York Stock Exchange)\n<|id|>43<|page|>4<|box|>657 140 675 372<|content|>CUSIP Number: ... 76134Q 108\n<|id|>44<|page|>4<|box|>684 140 830 854<|content|>Number of Additional Shares to Be Registered: ... ...nder this registration statement will be necessary\n<|id|>52<|page|>5<|box|>616 174 724 857<|content|>(d) The description of the Registrant's Common Sto...by reference in Registration Statement No. ... and\n<|id|>54<|page|>5<|box|>777 140 907 857<|content|>All documents subsequently filed by the Registrant...o constitute a part of this registration statement\n<|id|>74<|page|>8<|box|>271 210 473 856<|content|>(ii) To reflect in the prospectus any facts or eve...n set forth in the registration statement. ... and\n<|id|>76<|page|>8<|box|>542 174 654 854<|content|>provided, however, that paragraphs (1)(i), (1)(ii)...424(b) that is part of this registration statement\n<|id|>80<|page|>8<|box|>811 210 866 854<|content|>(i) Each prospectus filed by the Registrant pursua...nd included in the registration statement; ... and\n<|id|>85<|page|>9<|box|>614 210 669 856<|content|>(iii) The portion of any other free writing prospe...rovided by or on behalf of the Registrant; ... and\n<|id|>88<|page|>10<|box|>152 140 208 854<|content|>The Registrant hereby incorporates by reference th...ration statement and not otherwise set forth above\n<|id|>93<|page|>10<|box|>372 143 387 294<|content|>Name: ... Marcus Hale\n<|id|>94<|page|>10<|box|>388 143 405 449<|content|>Title: ... Chief Executive Officer & Director\n<|id|>95<|page|>10<|box|>407 143 422 253<|content|>By: ... By\n<|id|>96<|page|>10<|box|>422 143 439 294<|content|>Name: ... Lena Okafor\n<|id|>97<|page|>10<|box|>440 143 455 361<|content|>Title: ... Chief Financial Officer\n<|id|>99<|page|>10<|box|>474 140 565 854<|content|>Pursuant to the requirements of the Securities Act... S-3, or as separately executed and filed herewith\n<|id|>98<|page|>10<|box|>457 142 474 598<|content|>(Principal Financial Officer and Principal Accounting Officer)\n<|id|>125<|page|>12<|box|>577 181 594 622<|content|>• Pinnacle Zanthor & Co. ... — Lead Bookrunning Manager\n<|id|>129<|page|>12<|box|>674 140 746 857<|content|>Coordination with Whitmore & Pratt LLP will be req... account for the additional registration statement\n<|id|>126<|page|>12<|box|>595 183 613 704<|content|>• Hargrove Williams Securities LLC — Joint Bookrunning Manager\n<|id|>127<|page|>12<|box|>616 183 633 576<|content|>• Clearwater Capital Markets Inc. ... — Co-Manager\n<|id|>128<|page|>12<|box|>635 183 670 854<|content|>• Whitmore & Pratt LLP (Underwriters' Counsel) — Thomas Beaumont and Rebecca Ling\n<|id|>136<|page|>13<|box|>268 176 286 805<|content|>Vivienne St. ... (212) 555-1200\n<|id|>137<|page|>13<|box|>295 176 311 498<|content|>Email: ... com\n<|id|>138<|page|>13<|box|>313 176 329 784<|content|>Brendan Walsh, Counsel Calderwood & Harkness LLP Telephone: ... (212) 555-1247\n<|id|>139<|page|>13<|box|>339 176 354 488<|content|>Email: ... com\n<|id|>140<|page|>13<|box|>357 411 373 586<|content|>— End of Document —",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>52<|tgt_id|>54\n<|src_id|>74<|tgt_id|>76\n<|src_id|>80<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 85
+        }
+    ]
+}

@@ -1,0 +1,451 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-au9i7oel\\input\\pdfs\\doc-b706b721.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-au9i7oel\\enriched\\doc-b706b721.json",
+    "contd_output": "<|src_id|>80<|tgt_id|>81\n<|src_id|>85<|tgt_id|>86",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>1\n<|id|>13<|level|>2\n<|id|>27<|level|>2\n<|id|>35<|level|>1\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>38<|level|>4\n<|id|>44<|level|>4\n<|id|>49<|level|>4\n<|id|>71<|level|>3\n<|id|>75<|level|>4\n<|id|>79<|level|>4\n<|id|>87<|level|>3\n<|id|>88<|level|>4\n<|id|>95<|level|>4\n<|id|>102<|level|>4\n<|id|>119<|level|>4\n<|id|>122<|level|>4\n<|id|>129<|level|>3\n<|id|>130<|level|>4\n<|id|>133<|level|>4\n<|id|>139<|level|>4\n<|id|>142<|level|>4\n<|id|>148<|level|>4\n<|id|>154<|level|>3\n<|id|>163<|level|>1\n<|id|>164<|level|>2\n<|id|>165<|level|>3\n<|id|>166<|level|>4\n<|id|>177<|level|>4\n<|id|>179<|level|>5\n<|id|>185<|level|>5\n<|id|>191<|level|>5\n<|id|>197<|level|>5\n<|id|>227<|level|>4\n<|id|>230<|level|>1\n<|id|>231<|level|>2\n<|id|>232<|level|>3\n<|id|>233<|level|>4\n<|id|>237<|level|>4\n<|id|>239<|level|>5\n<|id|>251<|level|>5\n<|id|>257<|level|>5\n<|id|>269<|level|>5\n<|id|>275<|level|>4\n<|id|>279<|level|>1\n<|id|>280<|level|>2\n<|id|>281<|level|>3\n<|id|>282<|level|>4\n<|id|>289<|level|>4\n<|id|>294<|level|>4\n<|id|>298<|level|>4\n<|id|>306<|level|>3\n<|id|>308<|level|>4\n<|id|>313<|level|>4\n<|id|>318<|level|>3\n<|id|>319<|level|>4\n<|id|>329<|level|>4\n<|id|>333<|level|>4\n<|id|>337<|level|>1\n<|id|>338<|level|>2\n<|id|>354<|level|>2\n<|id|>359<|level|>2\n<|id|>360<|level|>3\n<|id|>361<|level|>4\n<|id|>372<|level|>3\n<|id|>375<|level|>3\n<|id|>376<|level|>4\n<|id|>381<|level|>2\n<|id|>386<|level|>2\n<|id|>387<|level|>3\n<|id|>390<|level|>3\n<|id|>393<|level|>3\n<|id|>398<|level|>1",
+    "image_output": "<|src_id|>50<|tgt_id|>49\n<|src_id|>60<|tgt_id|>49\n<|src_id|>69<|tgt_id|>49\n<|src_id|>84<|tgt_id|>79\n<|src_id|>283<|tgt_id|>282\n<|src_id|>284<|tgt_id|>282\n<|src_id|>310<|tgt_id|>308\n<|src_id|>315<|tgt_id|>313\n<|src_id|>352<|tgt_id|>338\n<|src_id|>353<|tgt_id|>338\n<|src_id|>356<|tgt_id|>354\n<|src_id|>357<|tgt_id|>354\n<|src_id|>382<|tgt_id|>381\n<|src_id|>384<|tgt_id|>381\n<|src_id|>399<|tgt_id|>398\n<|src_id|>400<|tgt_id|>398",
+    "contd_label": [
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 4
+        },
+        {
+            "id": 44,
+            "level": 4
+        },
+        {
+            "id": 49,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 79,
+            "level": 4
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 119,
+            "level": 4
+        },
+        {
+            "id": 122,
+            "level": 4
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 4
+        },
+        {
+            "id": 133,
+            "level": 4
+        },
+        {
+            "id": 139,
+            "level": 4
+        },
+        {
+            "id": 142,
+            "level": 4
+        },
+        {
+            "id": 148,
+            "level": 4
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 4
+        },
+        {
+            "id": 177,
+            "level": 4
+        },
+        {
+            "id": 179,
+            "level": 5
+        },
+        {
+            "id": 185,
+            "level": 5
+        },
+        {
+            "id": 191,
+            "level": 5
+        },
+        {
+            "id": 197,
+            "level": 5
+        },
+        {
+            "id": 227,
+            "level": 4
+        },
+        {
+            "id": 230,
+            "level": 1
+        },
+        {
+            "id": 231,
+            "level": 2
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 233,
+            "level": 4
+        },
+        {
+            "id": 237,
+            "level": 4
+        },
+        {
+            "id": 239,
+            "level": 5
+        },
+        {
+            "id": 251,
+            "level": 5
+        },
+        {
+            "id": 257,
+            "level": 5
+        },
+        {
+            "id": 269,
+            "level": 5
+        },
+        {
+            "id": 275,
+            "level": 4
+        },
+        {
+            "id": 279,
+            "level": 1
+        },
+        {
+            "id": 280,
+            "level": 2
+        },
+        {
+            "id": 281,
+            "level": 3
+        },
+        {
+            "id": 282,
+            "level": 4
+        },
+        {
+            "id": 289,
+            "level": 4
+        },
+        {
+            "id": 294,
+            "level": 4
+        },
+        {
+            "id": 298,
+            "level": 4
+        },
+        {
+            "id": 306,
+            "level": 3
+        },
+        {
+            "id": 308,
+            "level": 4
+        },
+        {
+            "id": 313,
+            "level": 4
+        },
+        {
+            "id": 318,
+            "level": 3
+        },
+        {
+            "id": 319,
+            "level": 4
+        },
+        {
+            "id": 329,
+            "level": 4
+        },
+        {
+            "id": 333,
+            "level": 4
+        },
+        {
+            "id": 337,
+            "level": 1
+        },
+        {
+            "id": 338,
+            "level": 2
+        },
+        {
+            "id": 354,
+            "level": 2
+        },
+        {
+            "id": 359,
+            "level": 2
+        },
+        {
+            "id": 360,
+            "level": 3
+        },
+        {
+            "id": 361,
+            "level": 4
+        },
+        {
+            "id": 372,
+            "level": 3
+        },
+        {
+            "id": 375,
+            "level": 3
+        },
+        {
+            "id": 376,
+            "level": 4
+        },
+        {
+            "id": 381,
+            "level": 2
+        },
+        {
+            "id": 386,
+            "level": 2
+        },
+        {
+            "id": 387,
+            "level": 3
+        },
+        {
+            "id": 390,
+            "level": 3
+        },
+        {
+            "id": 393,
+            "level": 3
+        },
+        {
+            "id": 398,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 50,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 283,
+            "tgt_id": 282
+        },
+        {
+            "src_id": 284,
+            "tgt_id": 282
+        },
+        {
+            "src_id": 310,
+            "tgt_id": 308
+        },
+        {
+            "src_id": 315,
+            "tgt_id": 313
+        },
+        {
+            "src_id": 352,
+            "tgt_id": 338
+        },
+        {
+            "src_id": 353,
+            "tgt_id": 338
+        },
+        {
+            "src_id": 356,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 357,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 382,
+            "tgt_id": 381
+        },
+        {
+            "src_id": 384,
+            "tgt_id": 381
+        },
+        {
+            "src_id": 399,
+            "tgt_id": 398
+        },
+        {
+            "src_id": 400,
+            "tgt_id": 398
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 283,
+            "table2_idx": 284,
+            "upper_row_ss": [
+                [
+                    "Transaction Value",
+                    "$900,000,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Filing Fee",
+                    "$280,500 (per 2024 HSR filing fee schedule for transaction values exceeding $500 million but not exceeding $1 billion)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 352,
+            "table2_idx": 353,
+            "upper_row_ss": [
+                [
+                    "4(c)-8",
+                    "TBD",
+                    "Various",
+                    "Various",
+                    "Various",
+                    "Additional documents (to be supplemented)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "4(d)-1",
+                    "PPCA-VRD-00199 - 00268",
+                    "Feb. 14, 2024",
+                    "Garrison Zanthor & Co. (K. Driscoll)",
+                    "Penterra Board; N. Reiner; C. Burgess; A. Rajagopal",
+                    "Engagement Presentation and Strategic Assessment"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 399,
+            "table2_idx": 400,
+            "upper_row_ss": [
+                [
+                    "8",
+                    "Client review and sign-off",
+                    "T. Holbrook (Penterra); N.",
+                    "April 20, 2024"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "on final narrative and filing materials by Thomas F. Holbrook (General Counsel) and Natalie Reiner (SVP, Corporate Development)",
+                    "Reiner (Penterra)",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

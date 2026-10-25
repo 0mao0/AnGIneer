@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        11,
+        12,
+        13,
+        16,
+        20,
+        21,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 140 195 854<|content|>TO: ... Audrey Zhou, Working Associate — Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>204 140 220 660<|content|>FROM: ... Leonard Cross, Partner, Tax — Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>229 142 248 334<|content|>DATE: ... January 31, 2026\n<|id|>5<|page|>1<|box|>256 140 310 854<|content|>RE: ... — German Withholding Tax on Dividends Paid...olders of Halcyon Semiconductor Aktiengesellschaft\n<|id|>6<|page|>1<|box|>318 142 335 362<|content|>MATTER NO. ... 1032-00003\n<|id|>7<|page|>1<|box|>344 142 361 408<|content|>Right-click to update Table of Contents\n<|id|>37<|page|>4<|box|>468 140 540 856<|content|>Halcyon Semiconductor AG (Issuer) → German Custodi... Custodian Banks → ADS Holders (Beneficial Owners)\n<|id|>38<|page|>4<|box|>549 140 604 854<|content|>The principal contact at Meridian Trust for matter...ositary Receipts, Meridian Trust Company, N. ... A\n<|id|>42<|page|>4<|box|>806 145 898 857<|content|>• Treaty Rate Under the US-Germany Income Tax Trea... the beneficial owner is a US resident entitled to\n<|id|>43<|page|>5<|box|>90 174 143 854<|content|>Treaty benefits. ... A reduced rate of 5% may appl... rate will not be available to typical ADS holders\n<|id|>101<|page|>11<|box|>659 174 696 854<|content|>(d) is positioned to aggregate and transmit benefi...an or the BZSt for Treaty relief purposes; ... and\n<|id|>103<|page|>11<|box|>750 140 839 854<|content|>Under the terms of the Deposit Agreement, Meridian...ce necessary to claim Treaty benefits. ... B below\n<|id|>104<|page|>11<|box|>847 140 902 856<|content|>Meridian Trust's QI-equivalent function for German...older identities and residency — through the Forms\n<|id|>105<|page|>12<|box|>89 140 162 856<|content|>W-8BEN, W-8BEN-E, and W-9 collected from ADS holde...with the BZSt on behalf of US-resident ADS holders\n<|id|>114<|page|>12<|box|>741 138 888 857<|content|>A significant practical challenge arises in the ca...tional coordination and data collection for German\n<|id|>115<|page|>13<|box|>90 140 127 854<|content|>Treaty relief purposes, as the BZSt's documentatio...pects more demanding than — the IRS's requirements\n<|id|>147<|page|>16<|box|>571 147 589 555<|content|>• Dr. ... Christoph Maurelban, Partner, Capital Markets\n<|id|>149<|page|>16<|box|>609 140 647 852<|content|>Bähr Stein's offices are located at Bockenheimer L...er Landstraße 20, 60323 Frankfurt am Main, Germany\n<|id|>148<|page|>16<|box|>592 145 608 413<|content|>• Johanna Weiß, Senior Associate\n<|id|>187<|page|>20<|box|>277 174 295 643<|content|>(a) The first draft F-1 (target circulation: ... and\n<|id|>189<|page|>20<|box|>347 140 383 854<|content|>All action items should be tracked through the pro...s should be reported at the next deal team meeting\n<|id|>196<|page|>20<|box|>869 174 907 854<|content|>(d) Coordination Among Advisors. ... Christoph Maurelban),\n<|id|>197<|page|>21<|box|>89 174 145 854<|content|>Meridian Trust Company, N. ... (Patricia Novak), a...erational from the first post-IPO dividend payment\n<|id|>211<|page|>23<|box|>243 174 260 700<|content|>Declares and pays dividend in EUR on ordinary shares (Stammaktien) ↓\n<|id|>212<|page|>23<|box|>268 140 287 650<|content|>Step 2: ... Ashgrove Enterprises Banking AG (Frankfurt, Germany)\n<|id|>213<|page|>23<|box|>294 176 311 750<|content|>Central securities depository; ... distributes dividend to participating custodians ↓",
+    "raw_response": "<|src_id|>42<|tgt_id|>43\n<|src_id|>104<|tgt_id|>105\n<|src_id|>114<|tgt_id|>115\n<|src_id|>196<|tgt_id|>197",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 197
+        }
+    ]
+}

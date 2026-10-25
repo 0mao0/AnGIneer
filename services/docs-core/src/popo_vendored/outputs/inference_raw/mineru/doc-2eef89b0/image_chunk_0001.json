@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        48,
+        51
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>540<|type|>title<|page|>48<|box|>194 140 212 437<|content|>Section 15.15 — Like-Kind Exchange\n<|id|>542<|type|>title<|page|>48<|box|>468 140 484 450<|content|>Section 15.16 — Limitation of Liability\n<|id|>544<|type|>title<|page|>48<|box|>633 140 648 388<|content|>Section 15.17 — Press Releases\n<|id|>546<|type|>title<|page|>49<|box|>133 361 151 637<|content|>[SIGNATURE PAGES FOLLOW]\n<|id|>548<|type|>title<|page|>49<|box|>204 455 220 540<|content|>SELLER:\n<|id|>555<|type|>title<|page|>49<|box|>333 460 349 535<|content|>BUYER:\n<|id|>561<|type|>title<|page|>49<|box|>445 377 462 617<|content|>ESCROW AGENT JOINDER\n<|id|>568<|type|>title<|page|>49<|box|>727 434 744 563<|content|>EXHIBIT LIST\n<|id|>570<|type|>table<|page|>49<|box|>796 143 907 851<|content|>None\n<|id|>571<|type|>table<|page|>50<|box|>89 143 799 852<|content|>None\n<|id|>572<|type|>title<|page|>50<|box|>858 423 875 573<|content|>SCHEDULE LIST\n<|id|>574<|type|>table<|page|>51<|box|>89 143 284 852<|content|>None\n<|id|>575<|type|>title<|page|>51<|box|>319 143 335 718<|content|>Total: 16 Schedules (Schedule A, Schedule 1, and S\n<|id|>576<|type|>title<|page|>51<|box|>344 320 359 678<|content|>DRAFTING NOTES / BRACKETED ITEMS",
+    "raw_response": "<|src_id|>570<|tgt_id|>568\n<|src_id|>571<|tgt_id|>568\n<|src_id|>574<|tgt_id|>572",
+    "parsed": [
+        {
+            "src_id": 570,
+            "tgt_id": 568
+        },
+        {
+            "src_id": 571,
+            "tgt_id": 568
+        },
+        {
+            "src_id": 574,
+            "tgt_id": 572
+        }
+    ]
+}

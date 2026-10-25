@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        108,
+        117
+    ],
+    "pages": [
+        109,
+        110,
+        114,
+        117
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>346<|page|>109<|box|>377 33 407 454<|content|>2/ Activities reporting pursuant to Supplement No....om the June 30, 1957, figures are those activities\n<|id|>347<|page|>109<|box|>361 545 389 942<|content|>whose reports for that date cover assets only (see...urnished the data required by Supplement No. ... 1\n<|id|>368<|page|>109<|box|>729 28 741 456<|content|>2/ Represents net appropriations, capitalization of assets, and accu-\n<|id|>369<|page|>109<|box|>736 521 747 641<|content|>* Less than \\$500. ... * Less than \\$500\n<|id|>386<|page|>110<|box|>273 50 286 460<|content|>5/ Consists of activities of the Office of the Administrator other\n<|id|>387<|page|>110<|box|>129 566 149 956<|content|>than revolving funde, and administrative expenses ...tive expenses of the Public Housing Administration\n<|id|>400<|page|>114<|box|>351 477 569 612<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>401<|page|>117<|box|>0 0 998 995<|content|>The quick brown fox jumps over the lazy dog. ... The quick brown fox jumps over the lazy dog",
+    "raw_response": "<|src_id|>346<|tgt_id|>347\n<|src_id|>386<|tgt_id|>387",
+    "parsed": [
+        {
+            "src_id": 346,
+            "tgt_id": 347
+        },
+        {
+            "src_id": 386,
+            "tgt_id": 387
+        }
+    ]
+}

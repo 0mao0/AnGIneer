@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        30
+    ],
+    "pages": [
+        3,
+        26,
+        29,
+        30
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>20<|page|>3<|box|>583 147 599 393<|content|>• Claim 1 — Independent claim\n<|id|>24<|page|>3<|box|>661 138 844 856<|content|>Claim 1 is directed to a locking seal assembly for...produced verbatim in Appendix A to this memorandum\n<|id|>21<|page|>3<|box|>602 181 619 457<|content|>• Claim 3 — Depends from Claim 1\n<|id|>22<|page|>3<|box|>622 183 638 457<|content|>• Claim 7 — Depends from Claim 1\n<|id|>23<|page|>3<|box|>641 217 657 727<|content|>• Claim 12 — Depends from Claim 7 (which depends from Claim 1)\n<|id|>210<|page|>26<|box|>256 174 292 852<|content|>a locking mechanism configured to engage the seal ...f the seal member relative to the housing; ... and\n<|id|>211<|page|>26<|box|>300 174 356 854<|content|>a release actuator operatively connected to the lo...o permit removal or replacement of the seal member\n<|id|>232<|page|>29<|box|>808 142 843 787<|content|>Christy Bauer Lead Associate, intellectual Propert... Calderwood & Harkness LLP Date: ... July 20, 2024\n<|id|>233<|page|>30<|box|>89 140 125 419<|content|>Date: ... July 20, 2024 REVIEWED AND APPROVED BY",
+    "raw_response": "<|src_id|>210<|tgt_id|>211",
+    "parsed": [
+        {
+            "src_id": 210,
+            "tgt_id": 211
+        }
+    ]
+}

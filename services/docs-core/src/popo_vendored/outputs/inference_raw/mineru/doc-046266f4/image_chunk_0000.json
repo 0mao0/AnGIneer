@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>2<|type|>title<|page|>1<|box|>174 161 210 834<|content|>Filed with the Delaware Secretary of State Divisio\n<|id|>7<|type|>title<|page|>1<|box|>378 295 396 700<|content|>UCC FINANCING STATEMENT — FORM UCC1\n<|id|>8<|type|>title<|page|>1<|box|>410 143 426 550<|content|>Box 1 — DEBTOR INFORMATION (Organization)\n<|id|>9<|type|>title<|page|>1<|box|>434 143 450 344<|content|>1a. Organization's Name:\n<|id|>16<|type|>title<|page|>1<|box|>744 143 762 281<|content|>1g. Tax ID / EIN:\n<|id|>18<|type|>title<|page|>1<|box|>833 143 849 346<|content|>1h. Type of Organization:\n<|id|>20<|type|>title<|page|>1<|box|>883 143 902 395<|content|>1i. Jurisdiction of Organization:\n<|id|>21<|type|>title<|page|>2<|box|>90 176 106 254<|content|>Delaware\n<|id|>22<|type|>title<|page|>2<|box|>116 143 133 470<|content|>1j. Organizational Identification Number:\n<|id|>24<|type|>title<|page|>2<|box|>246 142 263 416<|content|>Box 2 — ADDITIONAL DEBTOR\n<|id|>26<|type|>title<|page|>2<|box|>318 142 335 509<|content|>Box 3 — SECURED PARTY INFORMATION\n<|id|>27<|type|>title<|page|>2<|box|>342 140 359 344<|content|>3a. Organization's Name:\n<|id|>29<|type|>title<|page|>2<|box|>393 142 411 310<|content|>3b. Mailing Address:\n<|id|>36<|type|>title<|page|>2<|box|>652 142 670 264<|content|>Capacity Note:\n<|id|>38<|type|>title<|page|>3<|box|>89 140 106 475<|content|>Box 4 — COLLATERAL DESCRIPTION\n<|id|>59<|type|>title<|page|>5<|box|>89 140 106 638<|content|>Box 5 — CHECK BOXES / ALTERNATIVE DESIGNATIONS\n<|id|>68<|type|>title<|page|>5<|box|>410 142 426 545<|content|>Box 6 — OPTIONAL FILER REFERENCE DATA\n<|id|>72<|type|>title<|page|>5<|box|>571 142 588 614<|content|>Box 7 — FILING OFFICE COPY / ACKNOWLEDGMENT\n<|id|>78<|type|>title<|page|>5<|box|>767 277 784 718<|content|>FILING CONTEXT AND ADMINISTRATIVE NOTES\n<|id|>79<|type|>title<|page|>5<|box|>792 145 829 851<|content|>Internal Use Only — Not Part of the UCC-1 Financin\n<|id|>80<|type|>title<|page|>5<|box|>842 143 859 326<|content|>1. Transaction Context\n<|id|>83<|type|>title<|page|>6<|box|>294 140 310 333<|content|>2. Debtor Entity Details\n<|id|>86<|type|>title<|page|>6<|box|>520 140 537 305<|content|>3. Business Segment\n<|id|>88<|type|>title<|page|>6<|box|>703 140 720 514<|content|>4. Acquisition History and Mortgaged Property\n<|id|>92<|type|>title<|page|>7<|box|>157 140 175 388<|content|>5. Filing Jurisdiction Rationale\n<|id|>95<|type|>title<|page|>7<|box|>421 140 439 413<|content|>6. Companion Filings — Delaware\n<|id|>97<|type|>table<|page|>7<|box|>486 143 619 852<|content|>None\n<|id|>99<|type|>title<|page|>7<|box|>738 140 755 555<|content|>7. Companion Filings — Non-Delaware Jurisdictions\n<|id|>101<|type|>table<|page|>7<|box|>803 143 893 852<|content|>None\n<|id|>102<|type|>table<|page|>8<|box|>89 143 142 852<|content|>None\n<|id|>104<|type|>title<|page|>8<|box|>224 140 242 377<|content|>8. Termination of Prior Liens\n<|id|>109<|type|>title<|page|>8<|box|>577 140 594 339<|content|>9. Responsible Attorneys\n<|id|>114<|type|>table<|page|>8<|box|>785 143 906 852<|content|>None\n<|id|>115<|type|>table<|page|>9<|box|>89 143 239 852<|content|>None\n<|id|>116<|type|>title<|page|>9<|box|>273 156 289 836<|content|>— END OF UCC-1 FINANCING STATEMENT AND ADMINISTRAT",
+    "raw_response": "<|src_id|>97<|tgt_id|>95\n<|src_id|>101<|tgt_id|>99\n<|src_id|>102<|tgt_id|>99\n<|src_id|>114<|tgt_id|>109\n<|src_id|>115<|tgt_id|>109",
+    "parsed": [
+        {
+            "src_id": 97,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 109
+        }
+    ]
+}

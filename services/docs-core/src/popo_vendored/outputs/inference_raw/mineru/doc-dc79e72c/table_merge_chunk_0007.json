@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 7,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['December', '375', '134', '510', '422', '381', '41', '106', '57,940']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Period', 'rowspan=2, Salee', 'rowspan=2, Accrued diecount', 'rowspan=2, Sales plus accrued diecount', 'colspan=3, Redemptions 3/', 'rowspan=2, Amount outstanding (interest-bearing debt)', 'rowspan=2, Monthly redemptions as percent of amount outstanding']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 137,
+    "table2_idx": 138
+}

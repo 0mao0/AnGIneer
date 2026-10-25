@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>181 143 402 852<|content|>None\n<|id|>2<|type|>table<|page|>1<|box|>593 143 893 852<|content|>None\n<|id|>11<|type|>title<|page|>2<|box|>712 142 729 467<|content|>II. Background and Employment History\n<|id|>23<|type|>title<|page|>3<|box|>796 140 813 424<|content|>III. TMC's Internal Pricing Process\n<|id|>30<|type|>title<|page|>5<|box|>296 140 313 562<|content|>IV. Pricing-Adjustment Instructions from Gavin Hol\n<|id|>41<|type|>title<|page|>7<|box|>695 140 713 506<|content|>V. Knowledge of Competitor Communications\n<|id|>48<|type|>title<|page|>9<|box|>148 140 167 478<|content|>VI. TMC's Antitrust Compliance Program\n<|id|>55<|type|>title<|page|>10<|box|>90 140 107 500<|content|>VII. Holt's Departure and Subsequent Events\n<|id|>61<|type|>title<|page|>11<|box|>90 140 107 421<|content|>VIII. Assessment and Observations\n<|id|>76<|type|>title<|page|>12<|box|>845 140 863 356<|content|>IX. Documents Referenced\n<|id|>78<|type|>table<|page|>13<|box|>88 143 348 852<|content|>None\n<|id|>80<|type|>title<|page|>13<|box|>496 140 513 266<|content|>X. Distribution",
+    "raw_response": "<|src_id|>78<|tgt_id|>76",
+    "parsed": [
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        }
+    ]
+}

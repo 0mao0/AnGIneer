@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>16<|page|>2<|box|>90 343 109 653<|content|>I. DOCUMENTS EXAMINED\n<|id|>32<|page|>3<|box|>135 397 155 599<|content|>II. ASSUMPTIONS\n<|id|>46<|page|>4<|box|>412 419 433 578<|content|>III. OPINIONS\n<|id|>48<|page|>4<|box|>511 140 527 545<|content|>3.1 Due Formation and Valid Existence of the Fund\n<|id|>50<|page|>4<|box|>686 140 704 630<|content|>3.2 Due Formation and Valid Existence of the Gener\n<|id|>52<|page|>5<|box|>90 140 107 339<|content|>3.3 Power and Authority\n<|id|>56<|page|>5<|box|>465 140 482 513<|content|>3.4 Due Authorization, Execution, and Delivery\n<|id|>60<|page|>5<|box|>804 140 820 287<|content|>3.5 Enforceability\n<|id|>63<|page|>6<|box|>186 140 204 282<|content|>3.6 No Violations\n<|id|>69<|page|>6<|box|>686 140 704 354<|content|>3.7 Limited Partner Status\n<|id|>71<|page|>7<|box|>90 183 109 813<|content|>IV. QUALIFICATIONS, EXCEPTIONS, AND LIMITATIONS\n<|id|>73<|page|>7<|box|>189 140 205 398<|content|>4.1 Enforceability Qualifications\n<|id|>79<|page|>7<|box|>689 142 705 315<|content|>4.2 Scope Limitations\n<|id|>89<|page|>8<|box|>616 140 633 434<|content|>4.3 Certain Additional Qualifications\n<|id|>99<|page|>9<|box|>693 140 709 393<|content|>4.4 Reliance on Factual Matters\n<|id|>102<|page|>10<|box|>172 287 191 707<|content|>V. RELIANCE AND OTHER MATTERS\n<|id|>108<|page|>10<|box|>797 246 815 750<|content|>[Remainder of page intentionally left blank; signa\n<|id|>112<|page|>11<|box|>89 140 106 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>119<|page|>11<|box|>210 142 227 328<|content|>DISTRIBUTION LIST\n<|id|>121<|page|>11<|box|>262 176 279 450<|content|>1. Harrowgate Capital Partners LLC\n<|id|>124<|page|>11<|box|>325 176 340 334<|content|>2. Jonathan P. Birch",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>16<|level|>1\n<|id|>32<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>1\n<|id|>73<|level|>2\n<|id|>79<|level|>2\n<|id|>89<|level|>2\n<|id|>99<|level|>2\n<|id|>102<|level|>1\n<|id|>108<|level|>-1\n<|id|>112<|level|>-1\n<|id|>119<|level|>1\n<|id|>121<|level|>2\n<|id|>124<|level|>2",
+    "parsed": [
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        }
+    ]
+}

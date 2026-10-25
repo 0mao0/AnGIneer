@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>150 464 166 532<|content|>Plaintiff,\n<|id|>3<|page|>1<|box|>202 344 219 653<|content|>LUMICORE TECHNOLOGIES, INC. ... ,\n<|id|>4<|page|>1<|box|>229 455 244 540<|content|>Defendant. ... Defendant\n<|id|>5<|page|>1<|box|>253 388 270 607<|content|>Case No. ... 24-cv-00319-JRG\n<|id|>6<|page|>1<|box|>280 411 296 584<|content|>Hon. ... Gilstrap\n<|id|>64<|page|>7<|box|>853 140 907 854<|content|>40. ... Eric Dalmqvist informed the engineering te...g letter from an entity called FairPoint Licensing\n<|id|>65<|page|>8<|box|>90 174 198 856<|content|>Group, acting on behalf of OWS, identifying certai... '847 Patent, the '193 Patent, and the '562 Patent",
+    "raw_response": "<|src_id|>64<|tgt_id|>65",
+    "parsed": [
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        }
+    ]
+}

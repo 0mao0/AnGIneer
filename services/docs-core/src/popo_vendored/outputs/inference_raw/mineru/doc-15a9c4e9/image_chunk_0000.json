@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 330 131 666<|content|>CALDERWOOD & HARKNESS LLP CONFIDENTIAL — ATTORNEY\n<|id|>6<|type|>title<|page|>1<|box|>282 142 300 245<|content|>1. Summary\n<|id|>20<|type|>title<|page|>2<|box|>806 140 824 281<|content|>2. Search Results\n<|id|>22<|type|>table<|page|>3<|box|>133 143 898 852<|content|>None\n<|id|>23<|type|>table<|page|>4<|box|>88 143 412 852<|content|>None\n<|id|>25<|type|>title<|page|>4<|box|>560 142 577 323<|content|>3. Additional Searches\n<|id|>27<|type|>title<|page|>4<|box|>708 140 724 341<|content|>3.1 Key AMA Executives\n<|id|>36<|type|>title<|page|>5<|box|>234 140 252 433<|content|>3.2 Payroll and Timekeeping Vendor\n<|id|>38<|type|>title<|page|>5<|box|>380 140 398 555<|content|>3.3 Employment Practices Liability (\"EPL\") Insurer\n<|id|>40<|type|>title<|page|>5<|box|>618 140 635 642<|content|>3.4 Directors and Officers (\"D&O\") Insurer and Exc\n<|id|>45<|type|>title<|page|>6<|box|>90 140 106 313<|content|>3.5 Insurance Broker\n<|id|>47<|type|>title<|page|>6<|box|>181 140 198 310<|content|>3.6 External Auditor\n<|id|>49<|type|>title<|page|>6<|box|>345 140 363 393<|content|>3.7 California Registered Agent\n<|id|>51<|type|>title<|page|>6<|box|>446 140 464 457<|content|>4. Matters Within Scope of Engagement\n<|id|>58<|type|>title<|page|>7<|box|>659 140 676 313<|content|>5. Engagement Team\n<|id|>73<|type|>title<|page|>8<|box|>540 140 556 254<|content|>6. Conclusion\n<|id|>78<|type|>title<|page|>9<|box|>167 142 185 241<|content|>7. Approval",
+    "raw_response": "<|src_id|>22<|tgt_id|>20\n<|src_id|>23<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 20
+        }
+    ]
+}

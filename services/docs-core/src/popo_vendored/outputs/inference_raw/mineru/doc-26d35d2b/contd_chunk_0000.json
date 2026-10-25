@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 140 174 854<|content|>150 North Michigan Avenue, Suite 3600 Chicago, Illinois 60601 Telephone: ... com\n<|id|>3<|page|>1<|box|>183 704 199 854<|content|>November 14, 2022\n<|id|>4<|page|>1<|box|>208 140 244 854<|content|>Patricia \"Trish\" Calloway Chief Financial Officer ...rairie Boulevard, Suite 300 Des Moines, Iowa 50309\n<|id|>5<|page|>1<|box|>253 140 289 854<|content|>Re: ... 1020-00001\n<|id|>12<|page|>1<|box|>869 140 906 854<|content|>Pryor & Associates LLC (\"Pryor & Associates\"), the...site field examination of the Borrower. ... Thomas\n<|id|>13<|page|>2<|box|>90 140 200 856<|content|>Pryor, Managing Partner of Pryor & Associates, led...rop- input inventory, and grain warehouse receipts\n<|id|>28<|page|>3<|box|>518 174 554 854<|content|>(d) changes in applicable law or regulation, or changes in GAAP or the application thereof; ... and\n<|id|>30<|page|>3<|box|>626 140 736 856<|content|>In each case, Greenfield's proposed language provi...here Greenfield is uniquely and adversely affected\n<|id|>40<|page|>5<|box|>90 174 143 854<|content|>(c) the cure contribution must be received in cash...tificate demonstrating the FCCR shortfall; ... and\n<|id|>42<|page|>5<|box|>215 140 378 857<|content|>HCB Response. ... This is a reasonable concern, an...rrower free and clear of any liens or encumbrances\n<|id|>66<|page|>7<|box|>796 174 906 857<|content|>8. ... 2018-\n<|id|>75<|page|>8<|box|>430 140 448 821<|content|>In addition, Greenfield should be aware that the f...at the following closing-date payments will be due\n<|id|>118<|page|>12<|box|>875 142 891 272<|content|>Very truly yours,\n<|id|>119<|page|>13<|box|>89 142 106 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>120<|page|>13<|box|>125 142 172 854<|content|>Ian Blackwood Partner, Banking & Finance Calderwoo...te 3600 Chicago, Illinois 60601 Telephone: ... com\n<|id|>121<|page|>13<|box|>174 140 209 854<|content|>cc: ... Daniel Obi, Calderwood & Harkness LLP\n<|id|>122<|page|>13<|box|>218 140 234 687<|content|>Encl. ... None (ancillary documents previously delivered November 4, 2022)",
+    "raw_response": "<|src_id|>12<|tgt_id|>13",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        }
+    ]
+}

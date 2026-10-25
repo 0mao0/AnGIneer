@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 408 133 854<|content|>120 South LaSalle Street, Suite 4500 Chicago, Illinois 60603\n<|id|>2<|page|>1<|box|>142 223 159 854<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 751 185 854<|content|>July 11, 2023\n<|id|>4<|page|>1<|box|>193 142 210 330<|content|>Via Email and U. ... Mail\n<|id|>5<|page|>1<|box|>219 140 255 854<|content|>Philip M. ... 4200 West Lake Shore Drive, Suite 800 Chicago, Illinois 60604\n<|id|>6<|page|>1<|box|>263 140 299 856<|content|>Re: ... Engagement of Calderwood & Harkness LLP — ...sset Acquisition of Pinnacle Metal Fabricators LLC\n<|id|>7<|page|>1<|box|>308 142 325 292<|content|>Dear Mr. ... Stanhope\n<|id|>47<|page|>5<|box|>506 174 542 854<|content|>(e) Computerized legal research charges, including...Solutions, and similar research platforms; ... and\n<|id|>49<|page|>5<|box|>575 140 686 856<|content|>For the avoidance of doubt, third-party vendor cos...pursuant to their separate engagement arrangements\n<|id|>52<|page|>5<|box|>797 140 888 857<|content|>We wish to disclose, however, that the Firm has in...r of this engagement and do not involve the use of\n<|id|>53<|page|>6<|box|>90 140 127 854<|content|>Nexford's confidential information. ... This conse...of interest with respect to the Transaction itself\n<|id|>59<|page|>6<|box|>498 174 535 854<|content|>(a) Philip M. ... and\n<|id|>61<|page|>6<|box|>587 140 715 854<|content|>We understand that Nexford may authorize the Firm ...to all matters within the scope of this engagement\n<|id|>87<|page|>9<|box|>321 212 339 343<|content|>Very truly yours,\n<|id|>88<|page|>9<|box|>347 140 363 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>89<|page|>9<|box|>364 142 382 253<|content|>By: ... By\n<|id|>90<|page|>9<|box|>382 142 398 331<|content|>Name: ... Oliver Mackenzie\n<|id|>91<|page|>9<|box|>398 142 416 428<|content|>Title: ... Partner, Mergers & Acquisitions\n<|id|>92<|page|>9<|box|>416 140 449 854<|content|>Calderwood & Harkness LLP 120 South LaSalle Street...cago, Illinois 60603 Telephone: ... (312) 555-7812\n<|id|>93<|page|>9<|box|>450 140 465 486<|content|>Email: ... com\n<|id|>99<|page|>9<|box|>626 142 642 341<|content|>Name: ... Stanhope\n<|id|>100<|page|>9<|box|>643 143 659 313<|content|>Title: ... General Counsel\n<|id|>101<|page|>9<|box|>661 142 676 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>52<|tgt_id|>53",
+    "parsed": [
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        }
+    ]
+}

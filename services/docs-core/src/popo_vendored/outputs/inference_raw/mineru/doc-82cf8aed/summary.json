@@ -1,0 +1,127 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vfxxi4ii\\input\\pdfs\\doc-82cf8aed.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vfxxi4ii\\enriched\\doc-82cf8aed.json",
+    "contd_output": "<|src_id|>52<|tgt_id|>53\n<|src_id|>78<|tgt_id|>79",
+    "title_output": "<|id|>0<|level|>1\n<|id|>13<|level|>2\n<|id|>22<|level|>2\n<|id|>26<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>3\n<|id|>55<|level|>3\n<|id|>61<|level|>3\n<|id|>65<|level|>3\n<|id|>68<|level|>3\n<|id|>73<|level|>3\n<|id|>76<|level|>3\n<|id|>85<|level|>2\n<|id|>89<|level|>2\n<|id|>96<|level|>2\n<|id|>106<|level|>2\n<|id|>108<|level|>3\n<|id|>112<|level|>3",
+    "image_output": "<|src_id|>86<|tgt_id|>85\n<|src_id|>87<|tgt_id|>85\n<|src_id|>91<|tgt_id|>89",
+    "contd_label": [
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 86,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 89
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 86,
+            "table2_idx": 87,
+            "upper_row_ss": [
+                [
+                    "Common Equity",
+                    "Per ownership table below",
+                    "N/A",
+                    "N/A"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

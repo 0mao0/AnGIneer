@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 163 106 833<|content|>CALDERWOOD & HARKNESS LLP 333 SE 2nd Avenue, Suite\n<|id|>2<|type|>title<|page|>1<|box|>184 290 204 705<|content|>CONFLICTS CHECK MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>385 142 402 364<|content|>1. Purpose of Memorandum\n<|id|>12<|type|>title<|page|>1<|box|>760 142 777 398<|content|>2. Proposed Client Identification\n<|id|>27<|type|>title<|page|>2<|box|>529 140 547 369<|content|>3. Identified Adverse Parties\n<|id|>29<|type|>title<|page|>2<|box|>623 140 641 741<|content|>3.1 Ironclad Indemnity Corporation (Primary Insure\n<|id|>38<|type|>title<|page|>3<|box|>345 140 363 715<|content|>3.2 Pinnacle Surplus Lines Inc. (First Excess Laye\n<|id|>46<|type|>title<|page|>3<|box|>773 140 792 764<|content|>3.3 Montclair Assurance Company (Second Excess Lay\n<|id|>47<|type|>title<|page|>3<|box|>797 142 815 513<|content|>Full Legal Name: Montclair Assurance Company\n<|id|>50<|type|>title<|page|>4<|box|>89 140 107 645<|content|>Principal Office: 1 Liberty Plaza, 38th Floor, New\n<|id|>54<|type|>title<|page|>4<|box|>364 140 381 651<|content|>3.4 Sovereign Re Ltd. (Third Excess Layer / Propos\n<|id|>61<|type|>title<|page|>4<|box|>758 140 775 477<|content|>4. Related Parties and Third-Party Checks\n<|id|>63<|type|>title<|page|>4<|box|>852 140 869 617<|content|>4.1 Tidewater Risk Advisors LLC (VHG's Insurance B\n<|id|>70<|type|>title<|page|>5<|box|>462 142 479 627<|content|>4.2 Arbor Claims Services LLC (Independent Adjusti\n<|id|>82<|type|>title<|page|>6<|box|>176 140 193 761<|content|>4.4 Delvecchio & Kraus LLP (Defense Counsel for Mo\n<|id|>87<|type|>title<|page|>6<|box|>409 140 426 620<|content|>5. Engagement Team — Individual Attorney Conflicts\n<|id|>89<|type|>title<|page|>6<|box|>539 140 556 480<|content|>5.1 Elaine Forsythe — Responsible Partner\n<|id|>92<|type|>title<|page|>6<|box|>784 140 801 450<|content|>5.2 Howard Bellamy — Billing Partner\n<|id|>93<|type|>title<|page|>6<|box|>808 142 825 455<|content|>Practice Group: Antitrust & Competition\n<|id|>95<|type|>title<|page|>7<|box|>138 140 157 457<|content|>5.3 Tiffany Rosenthal — Lead Associate\n<|id|>98<|type|>title<|page|>7<|box|>311 140 329 501<|content|>5.4 Andrew Fitzpatrick — Working Associate\n<|id|>101<|type|>title<|page|>7<|box|>474 140 492 457<|content|>6. Scope of the Proposed Representation\n<|id|>105<|type|>title<|page|>7<|box|>657 176 674 718<|content|>3. Verimark Sunset Shores — St. Pete Beach, Florid\n<|id|>107<|type|>table<|page|>7<|box|>818 143 905 852<|content|>None\n<|id|>108<|type|>table<|page|>8<|box|>88 143 157 852<|content|>None\n<|id|>115<|type|>title<|page|>8<|box|>599 140 617 475<|content|>7. Conflicts Database Search Methodology\n<|id|>133<|type|>title<|page|>9<|box|>801 142 818 305<|content|>8. Results Summary\n<|id|>135<|type|>table<|page|>10<|box|>89 143 486 852<|content|>None\n<|id|>137<|type|>title<|page|>10<|box|>579 140 595 426<|content|>9. Conclusion and Recommendation\n<|id|>145<|type|>title<|page|>11<|box|>292 143 310 354<|content|>10. Approval and Sign-Off",
+    "raw_response": "<|src_id|>107<|tgt_id|>105\n<|src_id|>108<|tgt_id|>105\n<|src_id|>135<|tgt_id|>133",
+    "parsed": [
+        {
+            "src_id": 107,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 133
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        22
+    ],
+    "pages": [
+        4,
+        8,
+        9,
+        10,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>35<|page|>4<|box|>872 147 888 491<|content|>• Chief Executive Officer: ... Fiona Tierney\n<|id|>37<|page|>4<|box|>915 142 930 424<|content|>Case No. ... 24-cv-00587-RGA — CONFIDENTIAL\n<|id|>36<|page|>4<|box|>891 147 907 419<|content|>• General Counsel: ... Eamon Rourke\n<|id|>87<|page|>8<|box|>875 140 909 854<|content|>Solstice further notes that its investigation into...unsel, Kendrick & Lau LLP, 601 Pennsylvania Avenue\n<|id|>88<|page|>9<|box|>89 140 181 854<|content|>NW, Suite 820, Washington, DC 20004 (Dr. ... This ...subpoenaed from Veridian Medical Technologies, Inc\n<|id|>98<|page|>9<|box|>835 140 910 857<|content|>Solstice's formal Invalidity Contentions will be s...ty, 3401 Walnut Street, Philadelphia, Pennsylvania\n<|id|>99<|page|>10<|box|>90 140 145 854<|content|>19104, has been retained as Solstice's technical e...ng and invalidity analyses for each asserted claim\n<|id|>251<|page|>22<|box|>116 676 133 854<|content|>Respectfully submitted,\n<|id|>252<|page|>22<|box|>141 140 157 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>253<|page|>22<|box|>160 143 176 253<|content|>By: ... By\n<|id|>254<|page|>22<|box|>175 140 209 852<|content|>Marcus A. ... 6898)\n<|id|>255<|page|>22<|box|>242 142 258 405<|content|>cbloom@calderwoodharkness. ... com\n<|id|>256<|page|>22<|box|>258 140 273 421<|content|>pvassiliev@calderwoodharkness. ... com\n<|id|>257<|page|>22<|box|>275 140 292 504<|content|>Attorneys for Defendant Solstice Biomedical, Inc. ... Attorneys for Defendant Solstice Biomedical, Inc\n<|id|>258<|page|>22<|box|>292 140 309 320<|content|>Matter No. ... 0017\n<|id|>259<|page|>22<|box|>309 651 325 854<|content|>Dated: ... September 16, 2024\n<|id|>262<|page|>22<|box|>455 174 511 854<|content|>Victoria L. ... com\n<|id|>263<|page|>22<|box|>518 176 537 563<|content|>Counsel for Plaintiff Apex Surgical Innovations, I...unsel for Plaintiff Apex Surgical Innovations, Inc",
+    "raw_response": "<|src_id|>87<|tgt_id|>88\n<|src_id|>98<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        }
+    ]
+}

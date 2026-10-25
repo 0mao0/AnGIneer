@@ -1,0 +1,163 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8o7nco6q\\input\\pdfs\\doc-b57b6233.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8o7nco6q\\enriched\\doc-b57b6233.json",
+    "contd_output": "<|src_id|>21<|tgt_id|>22\n<|src_id|>177<|tgt_id|>178",
+    "title_output": "<|id|>9<|level|>1\n<|id|>20<|level|>1\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>48<|level|>2\n<|id|>56<|level|>1\n<|id|>57<|level|>2\n<|id|>65<|level|>2\n<|id|>75<|level|>2\n<|id|>81<|level|>2\n<|id|>88<|level|>1\n<|id|>89<|level|>2\n<|id|>98<|level|>2\n<|id|>103<|level|>2\n<|id|>108<|level|>1\n<|id|>111<|level|>2\n<|id|>121<|level|>2\n<|id|>130<|level|>2\n<|id|>140<|level|>1\n<|id|>151<|level|>1\n<|id|>153<|level|>2\n<|id|>159<|level|>1\n<|id|>169<|level|>1\n<|id|>184<|level|>1\n<|id|>192<|level|>1\n<|id|>200<|level|>1",
+    "image_output": "<|src_id|>33<|tgt_id|>20\n<|src_id|>41<|tgt_id|>39\n<|src_id|>45<|tgt_id|>43\n<|src_id|>46<|tgt_id|>43\n<|src_id|>91<|tgt_id|>89",
+    "contd_label": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 178
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 1
+        },
+        {
+            "id": 169,
+            "level": 1
+        },
+        {
+            "id": 184,
+            "level": 1
+        },
+        {
+            "id": 192,
+            "level": 1
+        },
+        {
+            "id": 200,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 33,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 89
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 45,
+            "table2_idx": 46,
+            "upper_row_ss": [
+                [
+                    "Source",
+                    "Amount"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Term Loan B (7-year; SOFR + 325 bps; Meridian Atlantic Bank, N.A. as lead arranger and administrative agent; Ironclad Capital Markets LLC as co-arranger)",
+                    "$3,740,000,000"
+                ]
+            ]
+        }
+    ]
+}

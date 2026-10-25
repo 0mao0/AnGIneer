@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 143 155 663<|content|>1285 Avenue of the Americas, 40th Floor New York, New York 10019\n<|id|>3<|page|>1<|box|>164 142 181 772<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>190 748 207 854<|content|>May 15, 2025\n<|id|>6<|page|>1<|box|>242 140 277 854<|content|>Jonathan Frey, National Bank Examiner Examiner-in-...Office 340 Madison Avenue New York, New York 10017\n<|id|>7<|page|>1<|box|>286 174 340 854<|content|>Re: ... OCC-2025-003\n<|id|>8<|page|>1<|box|>349 142 366 258<|content|>Dear Mr. ... Frey\n<|id|>34<|page|>5<|box|>779 174 907 857<|content|>Workstream 4 — Transaction Monitoring Model Valida...ber 1, 2025, in accordance with OCC Bulletin 2011-\n<|id|>35<|page|>6<|box|>89 174 162 854<|content|>12 and supplementary interagency guidance on model...orkstream plan is enclosed herewith as Enclosure 6\n<|id|>64<|page|>8<|box|>824 212 840 390<|content|>Respectfully submitted,\n<|id|>65<|page|>8<|box|>849 140 866 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>66<|page|>8<|box|>868 143 885 253<|content|>By: ... By\n<|id|>67<|page|>9<|box|>89 140 175 854<|content|>Philip Hartmann, Partner Calderwood & Harkness LLP...nt Ridge Bank National Association Enclosures (10)\n<|id|>68<|page|>9<|box|>184 140 200 320<|content|>cc (via electronic mail): ... cc (via electronic mail)\n<|id|>69<|page|>9<|box|>209 174 244 854<|content|>Gregory Nardone, General Counsel & Corporate Secretary, Belmont Ridge Bank National Association\n<|id|>70<|page|>9<|box|>253 176 271 823<|content|>Patricia Langston, Chief Compliance Officer, Belmont Ridge Bank National Association\n<|id|>71<|page|>9<|box|>279 176 315 854<|content|>Thomas Ikeda, BSA Officer / AML Program Director, Belmont Ridge Bank National Association\n<|id|>72<|page|>9<|box|>324 176 359 854<|content|>James Rutherford, Chair, Compliance Committee, Boa...d of Directors, Belmont Ridge Financial Group, Inc",
+    "raw_response": "<|src_id|>34<|tgt_id|>35",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        }
+    ]
+}

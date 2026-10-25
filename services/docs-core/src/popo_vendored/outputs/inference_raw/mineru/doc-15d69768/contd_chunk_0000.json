@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law One Market Plaza, Suite 3600 San Francisco, CA 94105\n<|id|>1<|page|>1<|box|>133 140 171 854<|content|>Douglas Carmichael Partner Direct Dial: ... com\n<|id|>2<|page|>1<|box|>178 741 195 854<|content|>March 3, 2022\n<|id|>3<|page|>1<|box|>204 140 220 380<|content|>VIA EMAIL AND U. ... MAIL\n<|id|>4<|page|>1<|box|>229 140 266 854<|content|>Victoria Huang, Esq. ... Pratchett, Huang & Solano...ifornia Street, 28th Floor San Francisco, CA 94104\n<|id|>5<|page|>1<|box|>273 174 329 854<|content|>Re: ... Gift Instrument and Grant Agreement Dated June 15, 2018 (Bay Area Teacher Residency Initiative)\n<|id|>19<|page|>2<|box|>393 181 409 612<|content|>• Unexpended balance of disbursed grant funds: ... $700,000\n<|id|>22<|page|>2<|box|>470 140 580 856<|content|>We note at the outset that the characterization of...ended $700,000 balance in the legal analysis below\n<|id|>20<|page|>2<|box|>412 183 429 465<|content|>• Undisbursed Tranche 4: ... $1,000,000\n<|id|>21<|page|>2<|box|>431 183 467 854<|content|>• Total funds referenced in your January 28, 2022 ...000 ($700,000 unexpended + $1,000,000 undisbursed)\n<|id|>25<|page|>2<|box|>787 140 898 856<|content|>Building on this success, a second cohort of thirt...g in September 2019. ... Despite these challenges,\n<|id|>26<|page|>3<|box|>90 140 143 854<|content|>Estuary Foundation adapted the program to a hybrid...reatest extent practicable under the circumstances\n<|id|>73<|page|>8<|box|>542 142 559 272<|content|>Very truly yours,\n<|id|>74<|page|>8<|box|>559 140 575 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>75<|page|>8<|box|>578 143 594 253<|content|>By: ... By\n<|id|>76<|page|>8<|box|>595 142 611 354<|content|>Douglas Carmichael Partner\n<|id|>77<|page|>8<|box|>611 140 647 852<|content|>cc: ... Margot Ellison-Yee, Executive Director, Estuary Foundation",
+    "raw_response": "<|src_id|>25<|tgt_id|>26",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        52
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>505<|type|>title<|page|>45<|box|>250 142 265 321<|content|>Part 3 — Volume Tier\n<|id|>511<|type|>title<|page|>45<|box|>488 437 503 560<|content|>SCHEDULE B\n<|id|>512<|type|>title<|page|>45<|box|>513 426 530 571<|content|>FEE SCHEDULE\n<|id|>514<|type|>table<|page|>45<|box|>582 143 700 852<|content|>None\n<|id|>515<|type|>table<|page|>45<|box|>758 143 893 852<|content|>None\n<|id|>517<|type|>table<|page|>46<|box|>89 143 277 851<|content|>None\n<|id|>521<|type|>title<|page|>46<|box|>460 447 479 550<|content|>EXHIBIT A\n<|id|>522<|type|>title<|page|>46<|box|>487 241 505 754<|content|>FORM OF FCRA PERMISSIBLE PURPOSE CERTIFICATION\n<|id|>523<|type|>title<|page|>46<|box|>513 142 531 566<|content|>FCRA PERMISSIBLE PURPOSE CERTIFICATION\n<|id|>535<|type|>title<|page|>47<|box|>483 142 500 504<|content|>QUORUM INSURANCE HOLDINGS CORP.\n<|id|>540<|type|>title<|page|>47<|box|>569 449 585 549<|content|>EXHIBIT B\n<|id|>541<|type|>title<|page|>47<|box|>595 287 612 710<|content|>DATA PROCESSING AGREEMENT (CCPA/CPRA)\n<|id|>552<|type|>title<|page|>48<|box|>321 447 339 550<|content|>EXHIBIT C\n<|id|>553<|type|>title<|page|>48<|box|>348 364 364 633<|content|>DATA SECURITY ADDENDUM\n<|id|>568<|type|>title<|page|>49<|box|>246 449 262 550<|content|>EXHIBIT D\n<|id|>569<|type|>title<|page|>49<|box|>272 361 289 635<|content|>SERVICE LEVEL AGREEMENT\n<|id|>581<|type|>table<|page|>49<|box|>882 145 904 852<|content|>None\n<|id|>583<|type|>table<|page|>50<|box|>90 143 898 852<|content|>None\n<|id|>584<|type|>table<|page|>51<|box|>90 143 902 852<|content|>None\n<|id|>585<|type|>table<|page|>52<|box|>89 145 125 852<|content|>None",
+    "raw_response": "<|src_id|>514<|tgt_id|>512\n<|src_id|>515<|tgt_id|>512\n<|src_id|>517<|tgt_id|>512\n<|src_id|>581<|tgt_id|>569\n<|src_id|>583<|tgt_id|>569\n<|src_id|>584<|tgt_id|>569\n<|src_id|>585<|tgt_id|>569",
+    "parsed": [
+        {
+            "src_id": 514,
+            "tgt_id": 512
+        },
+        {
+            "src_id": 515,
+            "tgt_id": 512
+        },
+        {
+            "src_id": 517,
+            "tgt_id": 512
+        },
+        {
+            "src_id": 581,
+            "tgt_id": 569
+        },
+        {
+            "src_id": 583,
+            "tgt_id": 569
+        },
+        {
+            "src_id": 584,
+            "tgt_id": 569
+        },
+        {
+            "src_id": 585,
+            "tgt_id": 569
+        }
+    ]
+}

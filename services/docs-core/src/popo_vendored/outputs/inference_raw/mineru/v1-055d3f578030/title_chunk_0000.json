@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 347<|content|>【5531446#0】意大利社会运动\n<|id|>2<|page|>1<|box|>140 105 156 405<|content|>【5534311#3】意大利力量黨 (2013年)\n<|id|>4<|page|>1<|box|>258 105 274 351<|content|>【4689978#0】共产党 (意大利)\n<|id|>6<|page|>1<|box|>376 105 392 405<|content|>【5558910#0】意大利社会党 (2007年)\n<|id|>8<|page|>1<|box|>460 107 476 248<|content|>【11448#17】政党\n<|id|>10<|page|>1<|box|>613 107 629 294<|content|>【6075715#2】中右联盟\n<|id|>12<|page|>1<|box|>696 105 713 389<|content|>【5551849#0】意大利共产党（马列）\n<|id|>14<|page|>1<|box|>780 105 796 364<|content|>【5050243#0】意大利马列主义党\n<|id|>16<|page|>1<|box|>881 105 897 405<|content|>【5534311#0】意大利力量黨 (2013年)\n<|id|>19<|page|>2<|box|>83 107 99 403<|content|>【5409917#0】意大利共产党 (2016年)",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>1\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>16<|level|>2\n<|id|>19<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        }
+    ]
+}

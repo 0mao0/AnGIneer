@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|type|>title<|page|>1<|box|>359 140 377 364<|content|>I. Introduction and Purpose\n<|id|>12<|type|>title<|page|>2<|box|>167 140 184 434<|content|>II. Summary of the Covered Incident\n<|id|>13<|type|>title<|page|>2<|box|>199 140 215 348<|content|>2.1 Nature of the Incident\n<|id|>15<|type|>title<|page|>2<|box|>473 140 489 390<|content|>2.2 Attack Vector and Timeline\n<|id|>21<|type|>title<|page|>3<|box|>90 140 107 395<|content|>2.3 Scope of Compromised Data\n<|id|>26<|type|>title<|page|>3<|box|>411 140 428 490<|content|>2.4 Incident Response Activities Undertaken\n<|id|>38<|type|>title<|page|>4<|box|>713 140 731 344<|content|>2.5 Regulatory Outcomes\n<|id|>44<|type|>title<|page|>5<|box|>428 142 445 385<|content|>III. Policy Coverage Summary\n<|id|>46<|type|>table<|page|>5<|box|>496 143 646 852<|content|>None\n<|id|>57<|type|>title<|page|>7<|box|>90 140 107 550<|content|>IV. Final Cost Summary / Itemized Schedule of Loss\n<|id|>59<|type|>table<|page|>7<|box|>223 143 299 852<|content|>None\n<|id|>61<|type|>title<|page|>7<|box|>364 140 381 488<|content|>4.2 Category 1: Forensic Investigation Costs\n<|id|>65<|type|>title<|page|>7<|box|>722 142 739 390<|content|>Total Fees Invoiced: $1,847,000\n<|id|>67<|type|>title<|page|>7<|box|>815 140 832 589<|content|>4.3 Category 2: Notification and Credit Monitoring\n<|id|>70<|type|>title<|page|>8<|box|>189 174 207 545<|content|>(a) Notification Printing and Mailing: $636,000\n<|id|>72<|type|>title<|page|>8<|box|>369 176 387 470<|content|>(b) Call Center Operations: $478,500\n<|id|>74<|type|>title<|page|>8<|box|>531 176 549 764<|content|>(c) Credit Monitoring and Identity Theft Protectio\n<|id|>76<|type|>title<|page|>8<|box|>766 142 782 392<|content|>Total Fees Invoiced: $3,214,500\n<|id|>78<|type|>title<|page|>9<|box|>90 140 107 637<|content|>4.4 Category 3: Crisis Communications / Public Rel\n<|id|>82<|type|>title<|page|>9<|box|>411 142 428 377<|content|>Total Fees Invoiced: $385,000\n<|id|>84<|type|>title<|page|>9<|box|>486 140 503 483<|content|>4.5 Category 4: Outside Counsel Legal Fees\n<|id|>98<|type|>title<|page|>10<|box|>348 142 364 380<|content|>Timekeeper Rates and Hours:\n<|id|>99<|type|>table<|page|>10<|box|>371 143 508 852<|content|>None\n<|id|>101<|type|>title<|page|>10<|box|>660 142 676 390<|content|>Total Fees Invoiced: $2,163,750\n<|id|>103<|type|>title<|page|>10<|box|>753 142 771 380<|content|>4.6 Category 5: Internal Costs\n<|id|>117<|type|>title<|page|>11<|box|>464 143 481 465<|content|>Total Estimated Internal Costs: $620,000\n<|id|>119<|type|>title<|page|>11<|box|>540 142 556 367<|content|>4.7 Reconciliation Summary\n<|id|>121<|type|>table<|page|>11<|box|>604 143 824 852<|content|>None\n<|id|>123<|type|>title<|page|>12<|box|>167 140 185 460<|content|>V. Application of Self-Insured Retention\n<|id|>126<|type|>title<|page|>12<|box|>388 140 406 702<|content|>VI. Palomar Indemnification Recovery and Subrogati\n<|id|>137<|type|>title<|page|>13<|box|>421 140 438 473<|content|>VII. Supporting Documentation / Exhibits\n<|id|>148<|type|>title<|page|>14<|box|>167 140 184 495<|content|>VIII. Certification and Reservation of Rights\n<|id|>160<|type|>title<|page|>14<|box|>816 140 834 395<|content|>IX. Request for Reimbursement",
+    "raw_response": "<|src_id|>46<|tgt_id|>44\n<|src_id|>59<|tgt_id|>57\n<|src_id|>99<|tgt_id|>84\n<|src_id|>121<|tgt_id|>119",
+    "parsed": [
+        {
+            "src_id": 46,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 119
+        }
+    ]
+}

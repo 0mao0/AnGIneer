@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        4,
+        9,
+        12,
+        13,
+        16,
+        18,
+        19,
+        21,
+        22,
+        23,
+        24,
+        29
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>198 142 215 614<|content|>To: ... Follow-On Equity Offering\n<|id|>3<|page|>1<|box|>224 140 260 854<|content|>From: ... Natasha Forbes, Working Associate\n<|id|>4<|page|>1<|box|>268 140 286 321<|content|>Date: ... October 31, 2025\n<|id|>5<|page|>1<|box|>294 140 349 854<|content|>Re: ... RDGM)\n<|id|>6<|page|>1<|box|>357 142 375 452<|content|>Engagement No. ... C&H-2025-CM-04187\n<|id|>40<|page|>4<|box|>453 147 470 767<|content|>• Patricia Moynihan, Independent Director and Chair of the Finance Committee; ... and\n<|id|>42<|page|>4<|box|>492 140 547 854<|content|>These individuals participated in management inter... where applicable, closing certification processes\n<|id|>94<|page|>9<|box|>321 140 339 395<|content|>September 15 – October 5, 2025\n<|id|>96<|page|>9<|box|>446 140 593 857<|content|>The meeting covered the overall structure and timi...accuracy of capitalization and dilution disclosure\n<|id|>122<|page|>12<|box|>794 140 811 375<|content|>October 6 – October 10, 2025\n<|id|>123<|page|>12<|box|>823 140 896 857<|content|>V. ... Claire, Brendan\n<|id|>124<|page|>13<|box|>89 140 145 854<|content|>Walsh, and Natasha Forbes. ... Hargrove Williams participant Peter Langston also attended\n<|id|>157<|page|>16<|box|>577 142 595 383<|content|>October 17 – October 31, 2025\n<|id|>159<|page|>16<|box|>703 140 777 854<|content|>The comfort letter request covered financial infor...appropriate, and subsequent-period change language\n<|id|>178<|page|>18<|box|>459 140 477 383<|content|>October 28 – October 31, 2025\n<|id|>180<|page|>18<|box|>585 140 659 854<|content|>A pricing term sheet was circulated and confirmed ... Securities LLC and Clearwater Capital Markets Inc\n<|id|>194<|page|>19<|box|>321 147 337 416<|content|>• executed lock-up agreements; ... and\n<|id|>196<|page|>19<|box|>359 140 433 854<|content|>C&H confirmed the wire transfer of net proceeds. ....eds to the Company were approximately $171,450,000\n<|id|>223<|page|>21<|box|>819 140 875 856<|content|>VI. ... Syndicate allocations were confirmed as 60% to Pinnacle\n<|id|>224<|page|>22<|box|>89 140 126 854<|content|>Zanthor, representing 3,934,426 shares; ... and 10% to Clearwater, representing 655,738 shares\n<|id|>249<|page|>23<|box|>859 140 897 854<|content|>At the time the registration statement became effe... 2025, nothing came to C&H’s attention that caused\n<|id|>250<|page|>24<|box|>90 140 145 854<|content|>C&H to believe that the registration statement or ...sary to make the statements therein not misleading\n<|id|>335<|page|>29<|box|>890 145 907 563<|content|>• directors’ and officers’ insurance policy materials; ... and\n<|id|>336<|page|>29<|box|>915 142 930 393<|content|>C&H Engagement No. ... C&H-2025-CM-04187",
+    "raw_response": "<|src_id|>123<|tgt_id|>124\n<|src_id|>223<|tgt_id|>224\n<|src_id|>249<|tgt_id|>250",
+    "parsed": [
+        {
+            "src_id": 123,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 224
+        },
+        {
+            "src_id": 249,
+            "tgt_id": 250
+        }
+    ]
+}

@@ -1,0 +1,225 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2zjbjjok\\input\\pdfs\\doc-58ae6d12.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2zjbjjok\\enriched\\doc-58ae6d12.json",
+    "contd_output": "<|src_id|>178<|tgt_id|>179\n<|src_id|>221<|tgt_id|>222",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>10<|level|>2\n<|id|>18<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>3\n<|id|>45<|level|>3\n<|id|>56<|level|>3\n<|id|>66<|level|>3\n<|id|>76<|level|>3\n<|id|>90<|level|>3\n<|id|>102<|level|>3\n<|id|>110<|level|>2\n<|id|>112<|level|>3\n<|id|>117<|level|>3\n<|id|>126<|level|>3\n<|id|>130<|level|>3\n<|id|>134<|level|>2\n<|id|>135<|level|>3\n<|id|>144<|level|>3\n<|id|>148<|level|>3\n<|id|>152<|level|>2\n<|id|>161<|level|>2\n<|id|>167<|level|>2\n<|id|>174<|level|>2\n<|id|>184<|level|>2\n<|id|>199<|level|>2\n<|id|>200<|level|>2\n<|id|>208<|level|>2\n<|id|>209<|level|>2\n<|id|>210<|level|>2\n<|id|>214<|level|>3",
+    "image_output": "<|src_id|>186<|tgt_id|>184\n<|src_id|>202<|tgt_id|>200\n<|src_id|>203<|tgt_id|>200\n<|src_id|>204<|tgt_id|>200\n<|src_id|>205<|tgt_id|>200\n<|src_id|>206<|tgt_id|>200",
+    "contd_label": [
+        {
+            "src_id": 178,
+            "tgt_id": 179
+        },
+        {
+            "src_id": 221,
+            "tgt_id": 222
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 214,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 186,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 200
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 200
+        },
+        {
+            "src_id": 204,
+            "tgt_id": 200
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 200
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 200
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 203,
+            "table2_idx": 204,
+            "upper_row_ss": [
+                [
+                    "TMC-008",
+                    "Marcus",
+                    "Former VP,",
+                    "Torchlight",
+                    "Resigned",
+                    "Executive /",
+                    "Current"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Delacroix",
+                    "Africa Operations",
+                    "Mining Corp.",
+                    "November 15, 2024",
+                    "Operations",
+                    "residence: 47 Rue de la République, 69002 Lyon, France.Represented by Whitmore & Sharpe LLP (Helen Whitmore)."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 205,
+            "table2_idx": 206,
+            "upper_row_ss": [
+                [
+                    "SM-005",
+                    "Legal@torchlightmining.com",
+                    "Legal Department",
+                    "Torchlight",
+                    "Active",
+                    "Legal"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "shared mailbox",
+                    "Mining Corp.",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

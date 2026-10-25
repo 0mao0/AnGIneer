@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 143 104 633<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>8<|type|>title<|page|>1<|box|>345 140 363 477<|content|>1. Purpose and Acceptance of Engagement\n<|id|>11<|type|>title<|page|>1<|box|>657 140 675 354<|content|>2. Scope of Representation\n<|id|>24<|type|>title<|page|>3<|box|>267 140 284 447<|content|>3. Engagement Team and Billing Rates\n<|id|>25<|type|>title<|page|>3<|box|>297 140 315 334<|content|>3.1 Responsible Partner\n<|id|>27<|type|>title<|page|>3<|box|>425 140 443 292<|content|>3.2 Billing Partner\n<|id|>29<|type|>title<|page|>3<|box|>553 140 571 607<|content|>3.3 Engagement Team Members and Current Hourly Rat\n<|id|>31<|type|>table<|page|>3<|box|>619 143 732 852<|content|>None\n<|id|>34<|type|>title<|page|>4<|box|>231 140 248 495<|content|>4. Billing Arrangements and Payment Terms\n<|id|>36<|type|>title<|page|>4<|box|>421 140 436 400<|content|>4.2 Expenses and Disbursements\n<|id|>47<|type|>title<|page|>5<|box|>138 140 157 300<|content|>4.3 Payment Terms\n<|id|>51<|type|>title<|page|>5<|box|>429 140 446 305<|content|>4.4 Budget Estimate\n<|id|>54<|type|>title<|page|>5<|box|>739 140 756 284<|content|>5. Confidentiality\n<|id|>58<|type|>title<|page|>6<|box|>231 140 248 321<|content|>6. Conflicts of Interest\n<|id|>62<|type|>title<|page|>6<|box|>696 140 714 326<|content|>7. Document Retention\n<|id|>66<|type|>title<|page|>7<|box|>204 140 222 339<|content|>8. Limitation of Liability\n<|id|>69<|type|>title<|page|>7<|box|>444 140 460 385<|content|>9. Termination of Engagement\n<|id|>73<|type|>title<|page|>7<|box|>763 140 781 297<|content|>10. Governing Law\n<|id|>75<|type|>title<|page|>8<|box|>150 142 167 428<|content|>11. Entire Agreement; Amendments\n<|id|>81<|type|>title<|page|>8<|box|>542 140 559 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>90<|type|>title<|page|>8<|box|>728 143 744 439<|content|>ACKNOWLEDGED AND AGREED:",
+    "raw_response": "<|src_id|>31<|tgt_id|>29",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        }
+    ]
+}

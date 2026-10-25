@@ -1,0 +1,53 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        50,
+        66
+    ],
+    "pages": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        66
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>394<|type|>table<|page|>50<|box|>89 143 672 851<|content|>None\n<|id|>396<|type|>title<|page|>51<|box|>89 140 107 408<|content|>VI.A.3. Claim 5 of the '015 Patent\n<|id|>397<|type|>title<|page|>51<|box|>114 140 130 277<|content|>Full Claim Text:\n<|id|>400<|type|>title<|page|>51<|box|>318 140 335 410<|content|>VI.A.4. Claim 8 of the '015 Patent\n<|id|>401<|type|>title<|page|>51<|box|>340 140 358 277<|content|>Full Claim Text:\n<|id|>404<|type|>title<|page|>51<|box|>545 140 563 418<|content|>VI.A.5. Claim 12 of the '015 Patent\n<|id|>405<|type|>title<|page|>51<|box|>569 140 587 277<|content|>Full Claim Text:\n<|id|>410<|type|>title<|page|>52<|box|>329 140 347 418<|content|>VI.A.6. Claim 16 of the '015 Patent\n<|id|>411<|type|>title<|page|>52<|box|>354 142 369 277<|content|>Full Claim Text:\n<|id|>417<|type|>title<|page|>52<|box|>763 140 799 854<|content|>Summary — Lumicore's Prior-Conception Defense Fail\n<|id|>422<|type|>title<|page|>53<|box|>297 140 333 823<|content|>VI.B. Reference R-20: Taillaert et al., \"Grating C\n<|id|>429<|type|>title<|page|>53<|box|>768 140 804 826<|content|>VI.C. Reference R-21: U.S. Patent App. Pub. No. 20\n<|id|>434<|type|>title<|page|>54<|box|>347 140 364 620<|content|>VI.D. Reference R-22: Roelkens et al. (IEEE PTL, J\n<|id|>439<|type|>title<|page|>54<|box|>729 142 747 647<|content|>VI.E. Reference R-23: Watanabe et al. (OFC 2016) (\n<|id|>442<|type|>title<|page|>55<|box|>90 140 108 374<|content|>Claim 1 Missing Limitations:\n<|id|>447<|type|>title<|page|>55<|box|>531 140 547 539<|content|>Claims 5, 8, 12, 16 Additional Missing Limitations\n<|id|>453<|type|>title<|page|>55<|box|>840 140 858 669<|content|>VI.F. Combination of Bergmann + Simonsen Applied t\n<|id|>463<|type|>title<|page|>56<|box|>784 145 828 851<|content|>VII. SECONDARY CONSIDERATIONS OF NON-OBVIOUSNESS S\n<|id|>477<|type|>title<|page|>58<|box|>556 204 599 792<|content|>VIII. COMPREHENSIVE SUMMARY TABLE — ALL 23 REFEREN\n<|id|>479<|type|>table<|page|>58<|box|>686 143 902 852<|content|>None\n<|id|>480<|type|>table<|page|>59<|box|>89 143 907 852<|content|>None\n<|id|>481<|type|>table<|page|>60<|box|>89 143 898 852<|content|>None\n<|id|>482<|type|>table<|page|>61<|box|>89 143 907 854<|content|>None\n<|id|>483<|type|>table<|page|>62<|box|>88 143 540 852<|content|>None\n<|id|>486<|type|>title<|page|>63<|box|>90 348 109 648<|content|>IX. APPENDIX A EXHIBITS\n<|id|>487<|type|>title<|page|>64<|box|>89 142 107 287<|content|>IX.A. Exhibit List\n<|id|>503<|type|>title<|page|>66<|box|>90 287 109 707<|content|>X. CERTIFICATION AND SIGNATURE\n<|id|>504<|type|>title<|page|>66<|box|>128 140 146 532<|content|>I, Dr. Caroline Ashford, hereby certify the follow\n<|id|>511<|type|>title<|page|>66<|box|>803 142 819 434<|content|>CERTIFICATION AND SIGNATURE",
+    "raw_response": "<|src_id|>394<|tgt_id|>396\n<|src_id|>479<|tgt_id|>477\n<|src_id|>480<|tgt_id|>477\n<|src_id|>481<|tgt_id|>477\n<|src_id|>482<|tgt_id|>477\n<|src_id|>483<|tgt_id|>477",
+    "parsed": [
+        {
+            "src_id": 394,
+            "tgt_id": 396
+        },
+        {
+            "src_id": 479,
+            "tgt_id": 477
+        },
+        {
+            "src_id": 480,
+            "tgt_id": 477
+        },
+        {
+            "src_id": 481,
+            "tgt_id": 477
+        },
+        {
+            "src_id": 482,
+            "tgt_id": 477
+        },
+        {
+            "src_id": 483,
+            "tgt_id": 477
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 723 176 854<|content|>October 17, 2023\n<|id|>2<|page|>1<|box|>185 140 296 854<|content|>In connection with the Underwriting Agreement, dat...maceuticals Corp. ... 001 per share (the \"Shares\")\n<|id|>26<|page|>3<|box|>804 174 877 856<|content|>(a) The Company's cooperation with, and facilitati...he selling stockholders identified therein, namely\n<|id|>27<|page|>4<|box|>89 174 127 852<|content|>Dr. ... Marco Castellano, and Castellano Family Holdings LLC (collectively, the \"Selling Stockholders\")\n<|id|>53<|page|>6<|box|>231 142 247 320<|content|>Name: ... David Orenstein\n<|id|>54<|page|>6<|box|>248 143 265 491<|content|>Title: ... General Counsel and Corporate Secretary\n<|id|>55<|page|>6<|box|>266 142 282 470<|content|>Address: ... 400 Meridian Parkway, Suite 1200\n<|id|>56<|page|>6<|box|>284 142 300 361<|content|>Princeton, New Jersey 08540\n<|id|>61<|page|>6<|box|>500 142 516 359<|content|>Name: ... Marco Castellano\n<|id|>62<|page|>6<|box|>517 142 532 366<|content|>Title: ... Chief Executive Officer\n<|id|>63<|page|>6<|box|>534 142 551 318<|content|>Date: ... October 17, 2023\n<|id|>65<|page|>7<|box|>116 140 152 854<|content|>Exhibit A — Amended and Restated Certificate of In...h the Secretary of State of the State of Delaware)\n<|id|>66<|page|>7<|box|>160 142 178 725<|content|>Exhibit B — Amended and Restated Bylaws of Penterr...d Restated Bylaws of Penterra Pharmaceuticals Corp\n<|id|>67<|page|>7<|box|>186 142 220 854<|content|>Exhibit C — Resolutions of the Board of Directors ...rmaceuticals Corp. ... , adopted September 8, 2023\n<|id|>68<|page|>7<|box|>229 140 261 852<|content|>Each of the foregoing exhibits is incorporated her...maintained in the corporate records of the Company",
+    "raw_response": "<|src_id|>26<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        }
+    ]
+}

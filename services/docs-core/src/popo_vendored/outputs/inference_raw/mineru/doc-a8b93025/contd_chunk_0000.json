@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        13
+    ],
+    "pages": [
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>29<|page|>3<|box|>599 174 655 854<|content|>(d) payment of transaction fees and expenses, incl...us closing costs, estimated at $6,863,285. ... and\n<|id|>31<|page|>3<|box|>688 140 707 656<|content|>for an aggregate application of net proceeds totaling $483,750,000. ... 00\n<|id|>45<|page|>4<|box|>845 140 898 857<|content|>RESOLVED, that the issuance and sale by the Compan... pursuant to Rule 144A under the Securities Act of\n<|id|>46<|page|>5<|box|>90 140 127 854<|content|>1933, as amended, and to non-U. ... persons in off...hereby is, authorized and approved in all respects\n<|id|>72<|page|>7<|box|>815 174 888 857<|content|>(a) the Company shall file a registration statemen...ll material respects to the Notes (except that the\n<|id|>73<|page|>8<|box|>90 174 127 852<|content|>Exchange Notes will not contain transfer restricti...e offering (i. ... , on or before January 4, 2025)\n<|id|>85<|page|>8<|box|>845 176 881 854<|content|>(d) Verimark Capital Holdings LLC, a Delaware limi...t, wholly owned subsidiary of the Company; ... and\n<|id|>87<|page|>9<|box|>133 140 226 857<|content|>FURTHER RESOLVED, that each such guarantee (each, ...future subordinated indebtedness of such Guarantor\n<|id|>119<|page|>11<|box|>696 174 714 601<|content|>(c) David K. ... and\n<|id|>121<|page|>11<|box|>748 138 893 856<|content|>FURTHER RESOLVED, that any Authorized Officer is h...executed, is not materially adverse to the Company\n<|id|>144<|page|>13<|box|>496 142 513 326<|content|>Name: ... Moretti\n<|id|>145<|page|>13<|box|>513 142 530 403<|content|>Title: ... General Counsel & Secretary\n<|id|>146<|page|>13<|box|>531 142 547 295<|content|>Date: ... June 14, 2024",
+    "raw_response": "<|src_id|>29<|tgt_id|>31\n<|src_id|>45<|tgt_id|>46\n<|src_id|>72<|tgt_id|>73\n<|src_id|>85<|tgt_id|>87",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 87
+        }
+    ]
+}

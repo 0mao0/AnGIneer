@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>308 153 343 854<|content|>DECLARATION OF DR. KATHARINA REINHARDT IN SUPPORT\n<|id|>10<|page|>1<|box|>511 142 527 460<|content|>1. Identity and Background of Declarant\n<|id|>16<|page|>2<|box|>90 140 107 589<|content|>2. Halcyon Semiconductor AG — Corporate Background\n<|id|>24<|page|>2<|box|>676 140 694 586<|content|>3. Meridian Dynamics Inc. — Counterparty Backgroun\n<|id|>31<|page|>3<|box|>316 140 334 464<|content|>4. The Exclusive Distribution Agreement\n<|id|>44<|page|>4<|box|>664 140 681 562<|content|>5. Meridian's Breaches of the Distribution Agreeme\n<|id|>53<|page|>5<|box|>816 140 833 405<|content|>6. Commencement of Arbitration\n<|id|>58<|page|>6<|box|>244 140 261 470<|content|>7. The Arbitral Tribunal and Proceedings\n<|id|>69<|page|>7<|box|>224 140 241 300<|content|>8. The Final Award\n<|id|>80<|page|>8<|box|>262 140 279 475<|content|>9. Meridian's Refusal to Satisfy the Award\n<|id|>88<|page|>8<|box|>844 143 859 462<|content|>10. Derek Calloway's Personal Guaranty\n<|id|>92<|page|>9<|box|>299 142 315 506<|content|>11. Retention of Calderwood & Harkness LLP\n<|id|>95<|page|>9<|box|>494 142 512 380<|content|>12. Authentication of Exhibits\n<|id|>101<|page|>10<|box|>267 143 284 506<|content|>13. Ongoing Harm and Need for Confirmation\n<|id|>108<|page|>10<|box|>724 143 757 656<|content|>Dr. Katharina Reinhardt General Counsel Halcyon Se",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>44<|level|>2\n<|id|>53<|level|>2\n<|id|>58<|level|>2\n<|id|>69<|level|>2\n<|id|>80<|level|>2\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>95<|level|>2\n<|id|>101<|level|>2\n<|id|>108<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        }
+    ]
+}

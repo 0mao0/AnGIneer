@@ -1,0 +1,152 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        16,
+        17,
+        18,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>118 71 155 947<|content|>中华人民共和国交通行业标准\n<|id|>4<|page|>1<|box|>452 167 500 851<|content|>Anchor chains for buoys mooring systems (ISO 1704:\n<|id|>7<|page|>1<|box|>951 197 984 807<|content|>中华人民共和国交通部 发布\n<|id|>8<|page|>2<|box|>103 436 129 557<|content|>目次\n<|id|>10<|page|>3<|box|>106 437 129 560<|content|>前言\n<|id|>25<|page|>4<|box|>114 401 136 618<|content|>浮 标 锚 链\n<|id|>26<|page|>4<|box|>213 76 230 153<|content|>1 范围\n<|id|>29<|page|>4<|box|>318 74 335 252<|content|>2 规范性引用文件\n<|id|>35<|page|>4<|box|>500 74 517 208<|content|>3 术语和定义\n<|id|>37<|page|>4<|box|>555 74 570 112<|content|>3.1\n<|id|>40<|page|>4<|box|>645 74 662 250<|content|>4 链环及附件标记\n<|id|>44<|page|>5<|box|>288 62 305 177<|content|>5 配套要求\n<|id|>45<|page|>5<|box|>322 62 337 256<|content|>5.1 配套形式及要求\n<|id|>47<|page|>5<|box|>383 60 398 295<|content|>5.2 链节长度及连接要求\n<|id|>53<|page|>5<|box|>505 60 520 292<|content|>5.3 链环及附件连接要求\n<|id|>59<|page|>5<|box|>634 57 651 292<|content|>6 链环及附件型号和尺寸\n<|id|>60<|page|>5<|box|>668 60 683 196<|content|>6.1 普通链环\n<|id|>101<|page|>16<|box|>617 63 632 162<|content|>6.6 圆令\n<|id|>105<|page|>16<|box|>838 60 853 337<|content|>6.7 链环及其附件的允许偏差\n<|id|>116<|page|>17<|box|>315 82 333 200<|content|>7 技术要求\n<|id|>117<|page|>17<|box|>347 82 363 299<|content|>7.1 锚链及附件的材料\n<|id|>126<|page|>18<|box|>333 65 348 280<|content|>7.3 锚链和附件的工艺\n<|id|>129<|page|>18<|box|>412 65 427 200<|content|>7.4 表面质量\n<|id|>134<|page|>18<|box|>570 63 585 181<|content|>7.5 热处理\n<|id|>139<|page|>18<|box|>699 63 714 178<|content|>8 试验方法\n<|id|>140<|page|>18<|box|>729 63 744 200<|content|>8.1 材料试验\n<|id|>181<|page|>20<|box|>441 65 458 183<|content|>9 检验规则\n<|id|>183<|page|>20<|box|>490 65 507 204<|content|>9.1 出厂检验\n<|id|>186<|page|>20<|box|>822 65 838 202<|content|>9.2 型式检验\n<|id|>195<|page|>21<|box|>174 60 191 206<|content|>10 标志和贮存\n<|id|>196<|page|>21<|box|>204 60 219 206<|content|>10.1 锚链标志\n<|id|>204<|page|>21<|box|>696 60 712 167<|content|>10.2 贮存",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>1\n<|id|>7<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>25<|level|>1\n<|id|>26<|level|>2\n<|id|>29<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>3\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>47<|level|>3\n<|id|>53<|level|>3\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>101<|level|>3\n<|id|>105<|level|>3\n<|id|>116<|level|>2\n<|id|>117<|level|>3\n<|id|>126<|level|>3\n<|id|>129<|level|>3\n<|id|>134<|level|>3\n<|id|>139<|level|>2\n<|id|>140<|level|>3\n<|id|>181<|level|>2\n<|id|>183<|level|>3\n<|id|>186<|level|>3\n<|id|>195<|level|>2\n<|id|>196<|level|>3\n<|id|>204<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 3
+        }
+    ]
+}

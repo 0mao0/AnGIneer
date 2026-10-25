@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 241 154 756<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION W\n<|id|>1<|page|>1<|box|>250 222 268 776<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST\n<|id|>7<|page|>1<|box|>417 241 436 754<|content|>FAIRWATER OPERATING PARTNERSHIP, L.P.\n<|id|>64<|page|>4<|box|>594 421 612 576<|content|>PROSPECTUS\n<|id|>65<|page|>4<|box|>632 220 651 776<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST\n<|id|>66<|page|>4<|box|>670 243 689 754<|content|>FAIRWATER OPERATING PARTNERSHIP, L.P.\n<|id|>67<|page|>4<|box|>709 424 729 573<|content|>$2,000,000,000\n<|id|>74<|page|>5<|box|>89 475 106 522<|content|>Units\n<|id|>82<|page|>5<|box|>573 452 592 544<|content|>PART II\n<|id|>83<|page|>5<|box|>618 143 633 576<|content|>INFORMATION NOT REQUIRED IN PROSPECTUS\n<|id|>84<|page|>5<|box|>648 142 666 560<|content|>Item 14. Other Expenses of Issuance and Distributi\n<|id|>90<|page|>6<|box|>352 140 369 529<|content|>Item 15. Indemnification of Trustees and Officers\n<|id|>101<|page|>9<|box|>90 140 107 323<|content|>Item 17. Undertakings\n<|id|>123<|page|>11<|box|>297 142 315 267<|content|>SIGNATURES\n<|id|>130<|page|>11<|box|>520 142 537 352<|content|>POWER OF ATTORNEY\n<|id|>142<|page|>12<|box|>530 142 547 352<|content|>POWER OF ATTORNEY",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>64<|level|>1\n<|id|>65<|level|>2\n<|id|>66<|level|>2\n<|id|>67<|level|>-1\n<|id|>74<|level|>-1\n<|id|>82<|level|>1\n<|id|>83<|level|>2\n<|id|>84<|level|>3\n<|id|>90<|level|>3\n<|id|>101<|level|>3\n<|id|>123<|level|>1\n<|id|>130<|level|>1\n<|id|>142<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        }
+    ]
+}

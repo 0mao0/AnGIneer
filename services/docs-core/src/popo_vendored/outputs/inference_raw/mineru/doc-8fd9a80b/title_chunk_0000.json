@@ -1,0 +1,48 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>414 140 431 341<|content|>Dear Chief Counsel Pryor:\n<|id|>13<|page|>1<|box|>763 140 779 421<|content|>I. Procedural History of the Protest\n<|id|>24<|page|>2<|box|>704 140 722 441<|content|>II. Prior Unanswered Status Inquiries\n<|id|>30<|page|>3<|box|>457 140 474 333<|content|>III. Prejudice to MTDC\n<|id|>37<|page|>4<|box|>431 142 449 485<|content|>IV. Renewed Request for Immediate Action\n<|id|>43<|page|>4<|box|>840 140 857 398<|content|>V. Formal Reservation of Rights\n<|id|>51<|page|>5<|box|>517 140 534 483<|content|>VI. Exhaustion of Administrative Remedies\n<|id|>55<|page|>6<|box|>90 140 107 550<|content|>VII. Closing Request and Availability for Discussi",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>-1\n<|id|>13<|level|>1\n<|id|>24<|level|>1\n<|id|>30<|level|>1\n<|id|>37<|level|>1\n<|id|>43<|level|>1\n<|id|>51<|level|>1\n<|id|>55<|level|>1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        }
+    ]
+}

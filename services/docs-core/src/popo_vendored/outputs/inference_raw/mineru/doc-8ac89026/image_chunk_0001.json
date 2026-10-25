@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        49,
+        66
+    ],
+    "pages": [
+        50,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        65,
+        66
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1151<|type|>title<|page|>50<|box|>168 210 196 734<|content|>7 船厂水工工程设计说明及图纸\n<|id|>1152<|type|>title<|page|>50<|box|>230 391 248 556<|content|>7.1 总平面\n<|id|>1155<|type|>title<|page|>50<|box|>388 391 407 554<|content|>7.2 工艺及设备\n<|id|>1158<|type|>title<|page|>50<|box|>501 391 520 554<|content|>7.3 水工建筑物\n<|id|>1203<|type|>title<|page|>53<|box|>127 382 148 632<|content|>7.4 干船坞灌水排水系统\n<|id|>1205<|type|>title<|page|>53<|box|>230 134 249 469<|content|>7.4.1.1 设计说明应包括下列内容：\n<|id|>1222<|type|>title<|page|>54<|box|>171 284 199 678<|content|>附录 A 施工图文件格式\n<|id|>1223<|type|>title<|page|>54<|box|>233 397 250 564<|content|>A.1 一般规定\n<|id|>1227<|type|>title<|page|>54<|box|>368 397 387 564<|content|>A.2 文件格式\n<|id|>1234<|type|>title<|page|>55<|box|>263 435 289 576<|content|>(工程全称)\n<|id|>1238<|type|>title<|page|>55<|box|>838 374 863 637<|content|>设计单位(名称、印章)\n<|id|>1241<|type|>table<|page|>56<|box|>80 88 890 865<|content|>None\n<|id|>1244<|type|>table<|page|>57<|box|>273 139 481 887<|content|>None\n<|id|>1245<|type|>table<|page|>58<|box|>82 83 889 865<|content|>None\n<|id|>1246<|type|>table<|page|>59<|box|>92 124 900 904<|content|>None\n<|id|>1250<|type|>table<|page|>60<|box|>153 236 269 700<|content|>None\n<|id|>1256<|type|>title<|page|>61<|box|>181 295 210 724<|content|>附录 B 施工图文件总目录\n<|id|>1261<|type|>title<|page|>65<|box|>181 275 210 741<|content|>附录 C 本规定用词用语说明\n<|id|>1275<|type|>title<|page|>66<|box|>188 156 253 785<|content|>本规定主编单位、参编单位、 主要起草人、总校人员和管理组人员名单",
+    "raw_response": "<|src_id|>1241<|tgt_id|>1227\n<|src_id|>1244<|tgt_id|>1227\n<|src_id|>1245<|tgt_id|>1227\n<|src_id|>1246<|tgt_id|>1227\n<|src_id|>1250<|tgt_id|>1227",
+    "parsed": [
+        {
+            "src_id": 1241,
+            "tgt_id": 1227
+        },
+        {
+            "src_id": 1244,
+            "tgt_id": 1227
+        },
+        {
+            "src_id": 1245,
+            "tgt_id": 1227
+        },
+        {
+            "src_id": 1246,
+            "tgt_id": 1227
+        },
+        {
+            "src_id": 1250,
+            "tgt_id": 1227
+        }
+    ]
+}

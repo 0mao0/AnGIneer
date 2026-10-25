@@ -1,0 +1,86 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zx2rj3ns\\input\\pdfs\\doc-37365a6f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zx2rj3ns\\enriched\\doc-37365a6f.json",
+    "contd_output": "",
+    "title_output": "<|id|>7<|level|>1\n<|id|>9<|level|>1\n<|id|>11<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>2\n<|id|>45<|level|>1",
+    "image_output": "<|src_id|>19<|tgt_id|>17\n<|src_id|>20<|tgt_id|>17",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 19,
+            "table2_idx": 20,
+            "upper_row_ss": [
+                [
+                    "Total",
+                    "$3,785,000.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

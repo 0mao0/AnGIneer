@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>174 356 193 640<|content|>MEMORANDUM TO FILE\n<|id|>8<|page|>1<|box|>436 140 454 446<|content|>I. Purpose and Scope of Memorandum\n<|id|>14<|page|>2<|box|>204 140 222 700<|content|>II. Background: Engagement of Kessler Forensic Acc\n<|id|>15<|page|>2<|box|>236 142 253 426<|content|>A. Retention and Fee Arrangements\n<|id|>18<|page|>2<|box|>500 142 516 336<|content|>B. Scope of Engagement\n<|id|>23<|page|>2<|box|>777 140 794 325<|content|>C. Materials Reviewed\n<|id|>36<|page|>3<|box|>564 140 580 676<|content|>III. Summary of Damages Categories and Aggregate C\n<|id|>40<|page|>4<|box|>231 140 248 712<|content|>IV. Category 1: Aggregate Overvaluation — Direct L\n<|id|>41<|page|>4<|box|>261 140 277 370<|content|>A. Overview of Misvaluation\n<|id|>49<|page|>5<|box|>294 142 310 330<|content|>B. Breakdown by Fund\n<|id|>55<|page|>5<|box|>652 140 669 318<|content|>C. Temporal Analysis\n<|id|>66<|page|>6<|box|>795 140 813 653<|content|>V. Category 2: Investor Redemption Overpayments ($\n<|id|>71<|page|>7<|box|>612 140 628 758<|content|>VI. Category 3: Excess Management Fees Subject to\n<|id|>76<|page|>8<|box|>431 142 449 612<|content|>VII. Category 4: Regulatory Remediation Costs ($2,\n<|id|>83<|page|>9<|box|>223 140 239 638<|content|>VIII. Category 5: Investor Litigation Defense Cost\n<|id|>88<|page|>9<|box|>734 140 750 712<|content|>IX. Category 6: Reputational and Net AUM Outflow L\n<|id|>89<|page|>9<|box|>763 142 782 330<|content|>A. Factual Background\n<|id|>96<|page|>10<|box|>681 140 699 650<|content|>X. Relationship Between Damages and Contractual Li\n<|id|>98<|page|>10<|box|>789 140 806 416<|content|>Calculation of the contractual cap:\n<|id|>104<|page|>11<|box|>450 140 469 450<|content|>XI. Comparison to Complaint Demand\n<|id|>112<|page|>12<|box|>90 140 107 406<|content|>XII. Observations and Next Steps\n<|id|>113<|page|>12<|box|>121 140 138 400<|content|>A. Assessment of Kessler Report\n<|id|>115<|page|>12<|box|>304 140 321 468<|content|>B. Areas Requiring Further Development\n<|id|>120<|page|>12<|box|>691 140 709 320<|content|>C. Expert Availability\n<|id|>122<|page|>12<|box|>782 140 800 410<|content|>D. Distribution and Use of Report\n<|id|>125<|page|>13<|box|>194 140 210 462<|content|>XIII. Attachments and Cross-References",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>18<|level|>3\n<|id|>23<|level|>3\n<|id|>36<|level|>2\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>49<|level|>3\n<|id|>55<|level|>3\n<|id|>66<|level|>2\n<|id|>71<|level|>2\n<|id|>76<|level|>2\n<|id|>83<|level|>2\n<|id|>88<|level|>2\n<|id|>89<|level|>3\n<|id|>96<|level|>2\n<|id|>98<|level|>3\n<|id|>104<|level|>2\n<|id|>112<|level|>2\n<|id|>113<|level|>3\n<|id|>115<|level|>3\n<|id|>120<|level|>3\n<|id|>122<|level|>3\n<|id|>125<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 2
+        }
+    ]
+}

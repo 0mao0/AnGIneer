@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 277 118 720<|content|>SEED GIFT ASSIGNMENT AGREEMENT\n<|id|>5<|type|>title<|page|>1<|box|>239 143 276 851<|content|>CORNERSTONE FIDUCIARY SERVICES, INC. as Independen\n<|id|>6<|type|>title<|page|>1<|box|>282 323 300 674<|content|>SEED GIFT ASSIGNMENT AGREEMENT\n<|id|>12<|type|>title<|page|>1<|box|>640 449 657 547<|content|>RECITALS\n<|id|>25<|type|>title<|page|>3<|box|>420 140 438 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>39<|type|>title<|page|>4<|box|>428 140 445 447<|content|>ARTICLE II — GIFT ASSIGNMENT\n<|id|>44<|type|>title<|page|>5<|box|>148 140 166 736<|content|>ARTICLE III — METHOD OF TRANSFER AND WIRE INSTRUCT\n<|id|>60<|type|>title<|page|>6<|box|>167 140 184 714<|content|>ARTICLE IV — GIFT-TAX REPRESENTATIONS AND COVENANT\n<|id|>70<|type|>title<|page|>7<|box|>186 140 203 625<|content|>ARTICLE V — REPRESENTATIONS AND WARRANTIES\n<|id|>86<|type|>title<|page|>8<|box|>652 140 669 607<|content|>ARTICLE VI — TRUST ACCOUNT ADMINISTRATION\n<|id|>95<|type|>title<|page|>9<|box|>652 140 669 447<|content|>ARTICLE VII — TAX TREATMENT\n<|id|>99<|type|>title<|page|>10<|box|>321 140 339 571<|content|>ARTICLE VIII — MISCELLANEOUS PROVISIONS\n<|id|>125<|type|>title<|page|>12<|box|>208 400 224 596<|content|>[Signature Pages Follow]\n<|id|>126<|type|>title<|page|>12<|box|>233 225 250 771<|content|>SIGNATURE PAGE TO SEED GIFT ASSIGNMENT AGREEMENT\n<|id|>128<|type|>title<|page|>12<|box|>303 142 319 246<|content|>GRANTOR:\n<|id|>132<|type|>title<|page|>12<|box|>414 223 431 771<|content|>SIGNATURE PAGE TO SEED GIFT ASSIGNMENT AGREEMENT\n<|id|>133<|type|>title<|page|>12<|box|>440 142 455 238<|content|>TRUSTEE:\n<|id|>140<|type|>title<|page|>12<|box|>585 395 602 601<|content|>ACKNOWLEDGMENTS\n<|id|>145<|type|>title<|page|>13<|box|>89 140 106 504<|content|>STATE OF FLORIDA COUNTY OF DUVAL\n<|id|>150<|type|>title<|page|>13<|box|>375 447 391 550<|content|>EXHIBIT A\n<|id|>151<|type|>title<|page|>13<|box|>400 349 417 648<|content|>WIRE TRANSFER INSTRUCTIONS\n<|id|>153<|type|>table<|page|>13<|box|>487 143 753 852<|content|>None\n<|id|>154<|type|>title<|page|>13<|box|>787 142 804 331<|content|>Important Instructions:\n<|id|>159<|type|>title<|page|>14<|box|>313 447 329 549<|content|>EXHIBIT B\n<|id|>160<|type|>title<|page|>14<|box|>339 223 356 772<|content|>FORM OF TRUSTEE'S WRITTEN CONFIRMATION OF RECEIPT\n<|id|>166<|type|>table<|page|>14<|box|>574 143 720 852<|content|>None",
+    "raw_response": "<|src_id|>153<|tgt_id|>151\n<|src_id|>166<|tgt_id|>160",
+    "parsed": [
+        {
+            "src_id": 153,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 160
+        }
+    ]
+}

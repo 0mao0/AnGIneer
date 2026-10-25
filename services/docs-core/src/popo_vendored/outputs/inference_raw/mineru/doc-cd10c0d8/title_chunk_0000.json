@@ -1,0 +1,54 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 447 106 550<|content|>EXHIBIT N\n<|id|>1<|page|>1<|box|>114 346 132 651<|content|>ENVIRONMENTAL REPORTS LIST\n<|id|>5<|page|>1<|box|>527 140 544 539<|content|>Section 1: Phase I Environmental Site Assessments\n<|id|>13<|page|>6<|box|>736 140 753 545<|content|>Section 2: Phase II Environmental Site Assessments\n<|id|>16<|page|>7<|box|>204 140 222 397<|content|>Section 3: Summary of Findings\n<|id|>27<|page|>7<|box|>827 140 844 553<|content|>Section 4: Additional Environmental Documentation\n<|id|>38<|page|>9<|box|>148 142 167 439<|content|>Section 5: Reliance and Certifications\n<|id|>48<|page|>9<|box|>756 413 772 584<|content|>END OF EXHIBIT N\n<|id|>49<|page|>9<|box|>782 346 799 651<|content|>ENVIRONMENTAL REPORTS LIST",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>3\n<|id|>13<|level|>3\n<|id|>16<|level|>3\n<|id|>27<|level|>3\n<|id|>38<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        }
+    ]
+}

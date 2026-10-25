@@ -1,0 +1,152 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        15,
+        16,
+        17,
+        18,
+        20,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>114 212 133 784<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>9<|page|>1<|box|>340 385 361 611<|content|>I. Executive Summary\n<|id|>18<|page|>2<|box|>309 325 328 671<|content|>II. Background on the Transaction\n<|id|>19<|page|>2<|box|>353 142 369 344<|content|>A. Transaction Structure\n<|id|>28<|page|>3<|box|>464 140 482 299<|content|>B. Receivables Pool\n<|id|>40<|page|>4<|box|>90 140 107 300<|content|>C. Offering Format\n<|id|>48<|page|>4<|box|>468 328 488 668<|content|>III. Overview of Regulation AB II\n<|id|>49<|page|>4<|box|>513 142 530 321<|content|>A. Regulatory History\n<|id|>53<|page|>5<|box|>223 140 239 673<|content|>B. Key Requirements of Regulation AB II (for Regis\n<|id|>64<|page|>6<|box|>700 140 718 331<|content|>C. Scope of Application\n<|id|>68<|page|>7<|box|>308 153 328 843<|content|>IV. Analysis: Inapplicability of Reg AB II to the\n<|id|>69<|page|>7<|box|>353 142 369 496<|content|>A. The Offering Is Exempt from Registration\n<|id|>75<|page|>8<|box|>285 140 303 514<|content|>B. Reg AB II Requirements That Do Not Apply\n<|id|>83<|page|>9<|box|>186 140 204 405<|content|>C. Statutory Basis for Exemption\n<|id|>89<|page|>9<|box|>672 147 717 849<|content|>V. Limited Regulatory Requirements That May Apply\n<|id|>91<|page|>9<|box|>829 140 845 558<|content|>A. Form ABS-15G — Repurchase Request Reporting\n<|id|>97<|page|>10<|box|>638 140 655 426<|content|>B. Regulation RR — Risk Retention\n<|id|>102<|page|>11<|box|>402 140 419 344<|content|>C. Anti-Fraud Provisions\n<|id|>108<|page|>12<|box|>172 156 191 838<|content|>VI. Best-Practice Disclosure Standards for Rule 14\n<|id|>109<|page|>12<|box|>217 140 234 334<|content|>A. Market Expectations\n<|id|>113<|page|>12<|box|>665 140 683 527<|content|>B. Recommended Voluntary Disclosure Practices\n<|id|>148<|page|>15<|box|>643 140 662 524<|content|>C. Comfort Letter and Agreed-Upon Procedures\n<|id|>152<|page|>16<|box|>136 236 155 759<|content|>VII. Interaction with Other Regulatory Frameworks\n<|id|>153<|page|>16<|box|>181 140 196 429<|content|>A. Investment Company Act of 1940\n<|id|>158<|page|>16<|box|>801 140 818 272<|content|>B. Volcker Rule\n<|id|>161<|page|>17<|box|>340 140 357 387<|content|>C. Dodd-Frank Risk Retention\n<|id|>163<|page|>17<|box|>559 377 577 620<|content|>VIII. Recommendations\n<|id|>172<|page|>18<|box|>709 421 728 575<|content|>IX. Conclusion\n<|id|>184<|page|>20<|box|>90 191 135 805<|content|>Appendix A — Summary Table: Reg AB II Requirements\n<|id|>187<|page|>22<|box|>90 250 111 748<|content|>Appendix B — Transaction Parties Reference List",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>9<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>28<|level|>3\n<|id|>40<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>53<|level|>3\n<|id|>64<|level|>3\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>75<|level|>3\n<|id|>83<|level|>3\n<|id|>89<|level|>2\n<|id|>91<|level|>3\n<|id|>97<|level|>3\n<|id|>102<|level|>3\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>113<|level|>3\n<|id|>148<|level|>3\n<|id|>152<|level|>2\n<|id|>153<|level|>3\n<|id|>158<|level|>3\n<|id|>161<|level|>3\n<|id|>163<|level|>2\n<|id|>172<|level|>2\n<|id|>184<|level|>2\n<|id|>187<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        }
+    ]
+}

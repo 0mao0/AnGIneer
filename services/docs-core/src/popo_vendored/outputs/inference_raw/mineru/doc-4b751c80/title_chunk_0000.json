@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 401 119 594<|content|>CROSS-RECEIPT\n<|id|>1<|page|>1<|box|>136 361 154 635<|content|>Delivery of Notes Against Payment\n<|id|>7<|page|>1<|box|>324 140 342 241<|content|>RECITALS\n<|id|>23<|page|>2<|box|>696 140 733 802<|content|>SECTION 1 — ACKNOWLEDGMENT OF DELIVERY OF THE NOTE\n<|id|>28<|page|>3<|box|>420 140 457 736<|content|>SECTION 2 — ACKNOWLEDGMENT OF PAYMENT BY THE INITI\n<|id|>36<|page|>4<|box|>518 140 537 738<|content|>SECTION 3 — MUTUAL ACKNOWLEDGMENT AND CROSS-RECEIP\n<|id|>40<|page|>5<|box|>148 140 166 653<|content|>SECTION 4 — REPRESENTATIONS AND CONFIRMATIONS\n<|id|>44<|page|>5<|box|>707 140 724 545<|content|>SECTION 5 — MISCELLANEOUS PROVISIONS\n<|id|>50<|page|>6<|box|>431 401 449 596<|content|>[Signature Pages Follow]\n<|id|>51<|page|>6<|box|>457 323 474 673<|content|>SIGNATURE PAGE TO CROSS-RECEIPT\n<|id|>53<|page|>6<|box|>527 142 544 218<|content|>ISSUER:\n<|id|>54<|page|>6<|box|>553 142 569 596<|content|>BELMONT RIDGE BANK, NATIONAL ASSOCIATION\n<|id|>64<|page|>6<|box|>787 142 803 352<|content|>INITIAL PURCHASERS:\n<|id|>86<|page|>7<|box|>453 341 470 655<|content|>ACKNOWLEDGMENT OF TRUSTEE\n<|id|>92<|page|>7<|box|>845 142 863 748<|content|>BRINDOVAL TRUST COMPANY, NATIONAL ASSOCIATION (as",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>36<|level|>2\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>50<|level|>-1\n<|id|>51<|level|>2\n<|id|>53<|level|>3\n<|id|>54<|level|>4\n<|id|>64<|level|>3\n<|id|>86<|level|>2\n<|id|>92<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 4
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 4
+        }
+    ]
+}

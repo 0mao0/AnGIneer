@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>196 140 215 303<|content|>TO: ... Renata Vasquez\n<|id|>4<|page|>1<|box|>223 140 239 310<|content|>FROM: ... Nadia Petrov\n<|id|>5<|page|>1<|box|>250 140 267 325<|content|>DATE: ... January 8, 2024\n<|id|>6<|page|>1<|box|>275 140 311 854<|content|>RE: ... 1017-00004\n<|id|>53<|page|>6<|box|>750 181 820 856<|content|>• Retention and coordination with Plaintiffs' damages expert, Dr. ... and\n<|id|>55<|page|>7<|box|>90 140 162 854<|content|>Class counsel's litigation costs of $412,300 are s...ees, service of process costs, and travel expenses\n<|id|>80<|page|>9<|box|>619 174 654 854<|content|>4. ... and\n<|id|>82<|page|>9<|box|>694 138 840 856<|content|>This partial certification substantially discounte...e value of the non-certified claims being released\n<|id|>97<|page|>11<|box|>768 140 897 857<|content|>Practical Considerations. ... Had Plaintiffs insis... narrower release limited to the certified claims,\n<|id|>98<|page|>12<|box|>90 140 145 854<|content|>AMA would likely have offered a substantially lowe...erially lower individual payments to class members",
+    "raw_response": "<|src_id|>53<|tgt_id|>55\n<|src_id|>97<|tgt_id|>98",
+    "parsed": [
+        {
+            "src_id": 53,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 98
+        }
+    ]
+}

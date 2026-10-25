@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        112,
+        143
+    ],
+    "pages": [
+        112,
+        113,
+        114,
+        115,
+        116,
+        119,
+        120,
+        122,
+        124,
+        125,
+        126,
+        127,
+        128,
+        130,
+        133,
+        134,
+        135,
+        140,
+        142,
+        143
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>404<|page|>112<|box|>46 271 59 746<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>406<|page|>113<|box|>50 252 65 725<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>407<|page|>113<|box|>84 153 115 830<|content|>Section II - Income and Expense for the Six Months\n<|id|>409<|page|>114<|box|>47 262 62 739<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>411<|page|>115<|box|>52 247 66 723<|content|>.CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTI\n<|id|>412<|page|>115<|box|>86 139 116 823<|content|>Section II - Income and Expense for the Six Months\n<|id|>414<|page|>116<|box|>44 278 61 754<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>418<|page|>119<|box|>55 247 70 723<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>421<|page|>120<|box|>88 160 118 840<|content|>Section II - Income and Expense for the Six Months\n<|id|>425<|page|>122<|box|>54 273 67 747<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>426<|page|>122<|box|>85 165 116 850<|content|>Section II - Income and Expense for the Six Months\n<|id|>430<|page|>124<|box|>65 271 79 747<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>432<|page|>125<|box|>49 246 64 718<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>434<|page|>126<|box|>47 266 62 742<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>436<|page|>127<|box|>52 246 67 718<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>438<|page|>128<|box|>52 275 66 749<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>442<|page|>130<|box|>52 268 66 742<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>447<|page|>133<|box|>57 247 74 715<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>449<|page|>134<|box|>56 271 71 744<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>452<|page|>135<|box|>54 249 69 720<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>461<|page|>140<|box|>52 271 67 744<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>464<|page|>142<|box|>56 275 70 746<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>466<|page|>143<|box|>89 328 103 627<|content|>Footnotes to Sections II and III",
+    "raw_response": "<|id|>404<|level|>1\n<|id|>406<|level|>1\n<|id|>407<|level|>2\n<|id|>409<|level|>1\n<|id|>411<|level|>1\n<|id|>412<|level|>2\n<|id|>414<|level|>1\n<|id|>418<|level|>1\n<|id|>421<|level|>2\n<|id|>425<|level|>1\n<|id|>426<|level|>2\n<|id|>430<|level|>1\n<|id|>432<|level|>1\n<|id|>434<|level|>1\n<|id|>436<|level|>1\n<|id|>438<|level|>1\n<|id|>442<|level|>1\n<|id|>447<|level|>1\n<|id|>449<|level|>1\n<|id|>452<|level|>1\n<|id|>461<|level|>1\n<|id|>464<|level|>1\n<|id|>466<|level|>2",
+    "parsed": [
+        {
+            "id": 404,
+            "level": 1
+        },
+        {
+            "id": 406,
+            "level": 1
+        },
+        {
+            "id": 407,
+            "level": 2
+        },
+        {
+            "id": 409,
+            "level": 1
+        },
+        {
+            "id": 411,
+            "level": 1
+        },
+        {
+            "id": 412,
+            "level": 2
+        },
+        {
+            "id": 414,
+            "level": 1
+        },
+        {
+            "id": 418,
+            "level": 1
+        },
+        {
+            "id": 421,
+            "level": 2
+        },
+        {
+            "id": 425,
+            "level": 1
+        },
+        {
+            "id": 426,
+            "level": 2
+        },
+        {
+            "id": 430,
+            "level": 1
+        },
+        {
+            "id": 432,
+            "level": 1
+        },
+        {
+            "id": 434,
+            "level": 1
+        },
+        {
+            "id": 436,
+            "level": 1
+        },
+        {
+            "id": 438,
+            "level": 1
+        },
+        {
+            "id": 442,
+            "level": 1
+        },
+        {
+            "id": 447,
+            "level": 1
+        },
+        {
+            "id": 449,
+            "level": 1
+        },
+        {
+            "id": 452,
+            "level": 1
+        },
+        {
+            "id": 461,
+            "level": 1
+        },
+        {
+            "id": 464,
+            "level": 1
+        },
+        {
+            "id": 466,
+            "level": 2
+        }
+    ]
+}

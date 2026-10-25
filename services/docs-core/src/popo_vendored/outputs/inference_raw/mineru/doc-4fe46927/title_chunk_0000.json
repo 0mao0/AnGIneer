@@ -1,0 +1,122 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 174 151 820<|content|>CALDERWOOD & HARKNESS LLP 425 Park Avenue New York\n<|id|>9<|page|>1<|box|>411 318 431 676<|content|>I. PURPOSE OF MEMORANDUM\n<|id|>15<|page|>2<|box|>253 264 272 732<|content|>II. PARTIES AND AFFILIATES SEARCHED\n<|id|>17<|page|>2<|box|>404 140 422 434<|content|>A. Client Side — Seller and Affiliates\n<|id|>26<|page|>3<|box|>448 140 464 496<|content|>B. Counterparty Side — Buyer and Affiliates\n<|id|>32<|page|>4<|box|>186 140 204 616<|content|>C. Known Advisors and Other Transaction Parties Se\n<|id|>40<|page|>5<|box|>90 266 109 730<|content|>III. CONFLICTS CHECK METHODOLOGY\n<|id|>48<|page|>6<|box|>90 290 109 705<|content|>IV. RESULTS OF CONFLICTS CHECK\n<|id|>49<|page|>6<|box|>136 140 154 511<|content|>A. Client-Side Entities (Aurelius and Affiliates)\n<|id|>53<|page|>6<|box|>474 140 492 619<|content|>B. Counterparty-Side Entities (Pinnacle Ridge and\n<|id|>62<|page|>7<|box|>483 140 501 473<|content|>C. Advisor and Other Transaction Parties\n<|id|>74<|page|>8<|box|>462 140 479 295<|content|>D. Key Individuals\n<|id|>80<|page|>9<|box|>90 235 135 761<|content|>V. ANALYSIS OF APPLICABLE PROFESSIONAL RESPONSIBIL\n<|id|>82<|page|>9<|box|>266 140 284 517<|content|>Rule 1.7 — Conflict of Interest: Current Clients\n<|id|>86<|page|>9<|box|>585 142 604 429<|content|>Rule 1.9 — Duties to Former Clients\n<|id|>94<|page|>10<|box|>375 140 391 513<|content|>Rule 1.10 — Imputation of Conflicts of Interest\n<|id|>98<|page|>10<|box|>712 140 729 236<|content|>Conclusion\n<|id|>100<|page|>10<|box|>801 240 821 756<|content|>VI. SUPPLEMENTAL CHECK REQUIREMENTS\n<|id|>112<|page|>11<|box|>632 290 652 705<|content|>VII. CONCLUSION AND CLEARANCE\n<|id|>119<|page|>12<|box|>246 336 265 661<|content|>VIII. SIGNATURES / REVIEW\n<|id|>120<|page|>12<|box|>284 142 300 282<|content|>PREPARED BY:\n<|id|>123<|page|>12<|box|>460 421 481 576<|content|>APPENDICES\n<|id|>124<|page|>12<|box|>500 142 517 550<|content|>Appendix A: Conflicts Database Search Output Repor\n<|id|>126<|page|>12<|box|>642 140 660 581<|content|>Appendix B: List of All Search Terms and Variation",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>3\n<|id|>26<|level|>3\n<|id|>32<|level|>3\n<|id|>40<|level|>2\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>53<|level|>3\n<|id|>62<|level|>3\n<|id|>74<|level|>3\n<|id|>80<|level|>2\n<|id|>82<|level|>3\n<|id|>86<|level|>3\n<|id|>94<|level|>3\n<|id|>98<|level|>3\n<|id|>100<|level|>2\n<|id|>112<|level|>2\n<|id|>119<|level|>2\n<|id|>120<|level|>3\n<|id|>123<|level|>2\n<|id|>124<|level|>3\n<|id|>126<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        }
+    ]
+}

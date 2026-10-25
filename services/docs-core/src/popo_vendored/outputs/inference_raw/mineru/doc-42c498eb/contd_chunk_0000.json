@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        18,
+        19,
+        25,
+        29,
+        30,
+        31,
+        32
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>351 730 369 854<|content|>August 29, 2025\n<|id|>4<|page|>1<|box|>377 140 420 810<|content|>Filed on behalf of Defendants Cascade Retail Holdings Inc. ... Prepared by\n<|id|>5<|page|>1<|box|>429 174 484 854<|content|>Dr. ... com\n<|id|>6<|page|>1<|box|>491 143 508 408<|content|>Right-click to update Table of Contents\n<|id|>36<|page|>4<|box|>915 142 929 245<|content|>CONFIDENTIAL\n<|id|>37<|page|>5<|box|>90 174 125 854<|content|>His report is organized around four principal anal...ncentration, competitive effects, and efficiencies\n<|id|>60<|page|>7<|box|>801 140 893 857<|content|>33. ... Specifically, the Guidelines provide that ...rently produce the relevant product \"are likely to\n<|id|>61<|page|>7<|box|>915 142 929 245<|content|>CONFIDENTIAL\n<|id|>62<|page|>8<|box|>90 174 199 854<|content|>provide a rapid and effective competitive response... take rate increase by the hypothetical monopolist\n<|id|>82<|page|>10<|box|>830 140 904 854<|content|>49. ... Keenan derives these diversion ratios from a survey of approximately 800 marketplace\n<|id|>83<|page|>10<|box|>915 142 929 243<|content|>CONFIDENTIAL\n<|id|>84<|page|>11<|box|>89 174 162 854<|content|>sellers conducted by Thornfield Research Group (th...he diversion ratios derived from it are unreliable\n<|id|>142<|page|>18<|box|>833 140 906 856<|content|>92. ... The UPP framework estimates the merged ent...d by merger-specific efficiencies (the \"efficiency\n<|id|>143<|page|>18<|box|>915 142 929 245<|content|>CONFIDENTIAL\n<|id|>144<|page|>19<|box|>90 174 126 852<|content|>credit\"). ... a zero or negative net UPP suggests ...he merger is unlikely to generate a price increase\n<|id|>216<|page|>25<|box|>796 147 830 854<|content|>• FTC v. ... 2024) — Testifying expert on market definition and competitive effects\n<|id|>219<|page|>25<|box|>915 142 929 243<|content|>CONFIDENTIAL\n<|id|>217<|page|>25<|box|>834 147 869 854<|content|>• United States v. ... 2023) — Testifying expert on merger simulation and efficiencies\n<|id|>218<|page|>25<|box|>871 147 907 854<|content|>• In re Zenith Communications Corp. ... 9425 (2022...pert on platform competition and market definition\n<|id|>293<|page|>29<|box|>915 142 929 243<|content|>CONFIDENTIAL\n<|id|>300<|page|>30<|box|>500 140 555 854<|content|>Under the broader market definition, the market is...itive harm arises under these concentration levels\n<|id|>294<|page|>30<|box|>90 148 106 357<|content|>• Post-Merger HHI: ... 2,856\n<|id|>295<|page|>30<|box|>109 147 126 310<|content|>• Delta (ΔHHI): ... 495\n<|id|>297<|page|>30<|box|>441 148 458 464<|content|>• Pre-Merger HHI: ... Estimated below 800\n<|id|>298<|page|>30<|box|>460 147 478 470<|content|>• Post-Merger HHI: ... Estimated below 820\n<|id|>299<|page|>30<|box|>479 145 497 486<|content|>• Delta (ΔHHI): ... Estimated approximately 17\n<|id|>307<|page|>30<|box|>791 140 806 357<|content|>GUPPI₁ = D₁₂ × (P₂ - C₂) / P₁\n<|id|>308<|page|>30<|box|>816 140 869 854<|content|>where D₁₂ is the diversion ratio from firm 1 to fi...latform, and P₁ is the take rate (price) of firm 1\n<|id|>328<|page|>31<|box|>915 142 929 243<|content|>CONFIDENTIAL\n<|id|>330<|page|>32<|box|>250 140 286 854<|content|>Seller churn has nearly doubled from 12% in 2022 t...on in Pinnacle's ability to retain its seller base",
+    "raw_response": "<|src_id|>60<|tgt_id|>62\n<|src_id|>82<|tgt_id|>84\n<|src_id|>142<|tgt_id|>144\n<|src_id|>307<|tgt_id|>308",
+    "parsed": [
+        {
+            "src_id": 60,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 307,
+            "tgt_id": 308
+        }
+    ]
+}

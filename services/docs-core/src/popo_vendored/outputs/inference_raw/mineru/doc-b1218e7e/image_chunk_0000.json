@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 187 125 808<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT / ATTORNEY-CL\n<|id|>1<|type|>title<|page|>1<|box|>133 220 151 774<|content|>INTERNAL MEMORANDUM — CONFERENCE CALL SUMMARY\n<|id|>2<|type|>title<|page|>1<|box|>160 140 195 854<|content|>CALDERWOOD & HARKNESS LLP 1301 Avenue of the Ameri\n<|id|>3<|type|>table<|page|>1<|box|>203 143 359 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>410 142 426 256<|content|>1. Call Details\n<|id|>6<|type|>title<|page|>1<|box|>569 142 585 243<|content|>2. Attendees\n<|id|>8<|type|>title<|page|>1<|box|>625 142 641 379<|content|>Calderwood & Harkness LLP\n<|id|>12<|type|>title<|page|>1<|box|>719 143 736 848<|content|>Harrowgate Capital Advisors LLC (on behalf of Harr\n<|id|>23<|type|>title<|page|>2<|box|>297 140 314 287<|content|>3. Purpose of Call\n<|id|>28<|type|>title<|page|>2<|box|>752 140 768 348<|content|>4. Summary of Discussion\n<|id|>29<|type|>title<|page|>2<|box|>782 140 800 493<|content|>4.1 Market Conditions and Timing Concerns\n<|id|>35<|type|>title<|page|>4<|box|>90 140 107 630<|content|>4.2 Business Purpose Articulation — Tax Opinion Im\n<|id|>45<|type|>title<|page|>5<|box|>685 140 703 594<|content|>4.3 Veldran Management's Response on Business Purp\n<|id|>52<|type|>title<|page|>6<|box|>784 140 801 781<|content|>4.4 Cross's Advisory on the Interplay Between Busi\n<|id|>60<|type|>title<|page|>8<|box|>231 140 248 397<|content|>4.5 Lender Consent Uncertainty\n<|id|>66<|type|>title<|page|>9<|box|>176 140 193 578<|content|>4.6 Marcus Adler's Suggestion to Pause the Transac\n<|id|>75<|type|>title<|page|>10<|box|>148 140 167 377<|content|>5. Open Items and Next Steps\n<|id|>90<|type|>table<|page|>11<|box|>89 143 174 852<|content|>None\n<|id|>95<|type|>title<|page|>11<|box|>436 140 454 442<|content|>6. Privilege and Confidentiality Notice",
+    "raw_response": "<|src_id|>3<|tgt_id|>2\n<|src_id|>90<|tgt_id|>75",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 75
+        }
+    ]
+}

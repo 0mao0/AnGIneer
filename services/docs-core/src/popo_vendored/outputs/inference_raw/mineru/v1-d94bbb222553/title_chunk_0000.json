@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 284<|content|>【136969#2】資料倉儲\n<|id|>2<|page|>1<|box|>191 105 208 329<|content|>【1371141#0】吉珲客运专线\n<|id|>4<|page|>1<|box|>310 107 325 275<|content|>【137182#23】西姆拉\n<|id|>6<|page|>1<|box|>376 107 392 381<|content|>【1371842#0】日本最暢銷專輯列表\n<|id|>8<|page|>1<|box|>476 107 493 292<|content|>【1372232#1】电动汽车\n<|id|>10<|page|>1<|box|>577 107 594 319<|content|>【1372265#10】数据库事务\n<|id|>12<|page|>1<|box|>662 107 677 284<|content|>【138226#0】五邑大学\n<|id|>14<|page|>1<|box|>763 107 778 284<|content|>【138226#1】五邑大学\n<|id|>17<|page|>1<|box|>881 107 897 265<|content|>【1386252#54】芒市\n<|id|>19<|page|>2<|box|>168 105 185 267<|content|>【138751#5】骆驼科\n<|id|>21<|page|>2<|box|>287 105 303 346<|content|>【139297#15】中国国家足球队\n<|id|>23<|page|>2<|box|>388 105 404 337<|content|>【1410210#11】意大利葡萄酒\n<|id|>25<|page|>3<|box|>73 107 89 292<|content|>【1415320#1】北欧银行\n<|id|>27<|page|>3<|box|>175 105 191 248<|content|>【141963#0】杨吴\n<|id|>29<|page|>3<|box|>258 107 274 265<|content|>【142829#0】廣島市\n<|id|>31<|page|>3<|box|>359 107 375 265<|content|>【142922#0】涠洲岛\n<|id|>33<|page|>3<|box|>442 107 458 319<|content|>【143979#0】澳大利亚人口\n<|id|>35<|page|>3<|box|>544 105 560 334<|content|>【1444123#9】青山湖 (杭州)\n<|id|>37<|page|>3<|box|>645 105 661 337<|content|>【1455057#23】阿拉伯基督徒\n<|id|>39<|page|>3<|box|>745 105 762 336<|content|>【1455057#28】阿拉伯基督徒\n<|id|>41<|page|>3<|box|>829 105 846 337<|content|>【1455057#38】阿拉伯基督徒\n<|id|>43<|page|>4<|box|>117 105 133 337<|content|>【1455057#56】阿拉伯基督徒\n<|id|>45<|page|>4<|box|>218 105 234 310<|content|>【1459719#2】眼帶石斑魚\n<|id|>47<|page|>4<|box|>302 105 318 327<|content|>【1468382#0】中国植物学会\n<|id|>49<|page|>4<|box|>351 105 368 329<|content|>【1468382#1】中国植物学会\n<|id|>51<|page|>4<|box|>435 105 451 347<|content|>【1480187#0】日本百强单曲榜\n<|id|>55<|page|>4<|box|>568 105 583 347<|content|>【1480187#2】日本百强单曲榜",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>17<|level|>1\n<|id|>19<|level|>1\n<|id|>21<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>1\n<|id|>27<|level|>1\n<|id|>29<|level|>1\n<|id|>31<|level|>1\n<|id|>33<|level|>1\n<|id|>35<|level|>1\n<|id|>37<|level|>1\n<|id|>39<|level|>1\n<|id|>41<|level|>1\n<|id|>43<|level|>1\n<|id|>45<|level|>1\n<|id|>47<|level|>1\n<|id|>49<|level|>1\n<|id|>51<|level|>1\n<|id|>55<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        }
+    ]
+}

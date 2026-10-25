@@ -1,0 +1,143 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ng6vipfl\\input\\pdfs\\doc-87252ff5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ng6vipfl\\enriched\\doc-87252ff5.json",
+    "contd_output": "<|src_id|>131<|tgt_id|>132\n<|src_id|>132<|tgt_id|>133",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>9<|level|>2\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>3\n<|id|>46<|level|>3\n<|id|>53<|level|>2\n<|id|>62<|level|>2\n<|id|>84<|level|>3\n<|id|>98<|level|>3\n<|id|>103<|level|>3\n<|id|>111<|level|>3\n<|id|>118<|level|>2\n<|id|>129<|level|>2",
+    "image_output": "<|src_id|>10<|tgt_id|>9\n<|src_id|>11<|tgt_id|>9\n<|src_id|>14<|tgt_id|>12\n<|src_id|>15<|tgt_id|>12",
+    "contd_label": [
+        {
+            "src_id": 131,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 10,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 12
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 10,
+            "table2_idx": 11,
+            "upper_row_ss": [
+                [
+                    "C. To the Extent Helios Asserts a Freedom-to-Operate Analysis Privilege, That Privilege Has Been Placed at",
+                    "25"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Issue",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 14,
+            "table2_idx": 15,
+            "upper_row_ss": [
+                [
+                    "Weil v. Inv. / Indicators, Research & Mgmt., Inc., 647 F.2d 18 (9th Cir. 1981)",
+                    "11"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "35 U.S.C. § 284",
+                    "28"
+                ]
+            ]
+        }
+    ]
+}

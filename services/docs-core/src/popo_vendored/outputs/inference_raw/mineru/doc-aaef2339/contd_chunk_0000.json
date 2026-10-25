@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 390 176 607<|content|>Dated as of January 30, 2026\n<|id|>2<|page|>1<|box|>186 148 330 849<|content|>Delivered pursuant to Section 4. ... , as Administ...y in an aggregate principal amount of $450,000,000\n<|id|>20<|page|>2<|box|>724 174 816 856<|content|>(d) enter into, execute, and deliver each other Lo...dit Agreement or the other Loan Documents; ... and\n<|id|>22<|page|>3<|box|>133 140 281 857<|content|>The undersigned further certifies that the Resolut...summation of the transactions contemplated thereby\n<|id|>30<|page|>3<|box|>856 140 893 857<|content|>The undersigned further certifies that WPS is vali...taxes and fees required to be paid to the State of\n<|id|>31<|page|>4<|box|>90 140 126 854<|content|>Delaware, and has not been dissolved, merged, or c...r identification number (EIN) of WPS is 84-2057831\n<|id|>51<|page|>5<|box|>787 142 803 313<|content|>Name: ... Gregory Alston\n<|id|>52<|page|>5<|box|>804 143 820 261<|content|>Title: ... Secretary\n<|id|>54<|page|>5<|box|>868 140 904 854<|content|>The undersigned, Derek Whitmore, President of Whit... Alston is the duly elected, qualified, and acting\n<|id|>55<|page|>6<|box|>89 140 162 854<|content|>Secretary of Whitmore Propulsion Systems, Inc. ......cate on behalf of Whitmore Propulsion Systems, Inc\n<|id|>58<|page|>6<|box|>205 142 222 323<|content|>Name: ... Derek Whitmore\n<|id|>59<|page|>6<|box|>223 142 239 263<|content|>Title: ... President\n<|id|>60<|page|>6<|box|>239 140 257 316<|content|>Date: ... January 30, 2026\n<|id|>61<|page|>6<|box|>277 450 295 547<|content|>EXHIBITS\n<|id|>65<|page|>7<|box|>183 140 200 496<|content|>Delaware Secretary of State Filing No. ... 6104873\n<|id|>66<|page|>7<|box|>209 140 244 857<|content|>Entity Type: ... Corporation incorporated under th...eral Corporation Law, Title 8 of the Delaware Code\n<|id|>79<|page|>9<|box|>359 174 396 854<|content|>(iv) the execution, delivery, and performance of a...uments to which WPS is or will be a party; ... and\n<|id|>81<|page|>9<|box|>484 140 539 854<|content|>The Resolutions reference the Credit Agreement dat...tive Agent, Collateral Agent, and Swingline Lender\n<|id|>86<|page|>10<|box|>183 140 219 854<|content|>Date of Issuance: ... January 14, 2026 (within thi...ays prior to the Signing Date of January 30, 2026)\n<|id|>87<|page|>10<|box|>227 140 244 496<|content|>Delaware Secretary of State Filing No. ... 6104873",
+    "raw_response": "<|src_id|>30<|tgt_id|>31\n<|src_id|>54<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        }
+    ]
+}

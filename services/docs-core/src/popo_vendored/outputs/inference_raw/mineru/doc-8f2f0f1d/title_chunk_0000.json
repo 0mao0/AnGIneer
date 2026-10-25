@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        14,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 403 107 593<|content|>JAMS ARBITRATION\n<|id|>3<|page|>1<|box|>325 153 380 841<|content|>RESPONDENT PELLEGRINO CAPITAL GROUP LLC'S MEMORAND\n<|id|>12<|page|>2<|box|>801 142 819 413<|content|>I. PRELIMINARY STATEMENT\n<|id|>23<|page|>4<|box|>474 142 492 483<|content|>II. STATEMENT OF RELEVANT FACTS\n<|id|>24<|page|>4<|box|>507 142 523 629<|content|>A. Formation and Structure of Palmetto Grand Ventu\n<|id|>28<|page|>5<|box|>231 140 248 674<|content|>B. Acquisition and Renovation of The Palmetto Gran\n<|id|>34<|page|>6<|box|>250 140 266 401<|content|>C. Hotel Operating Performance\n<|id|>39<|page|>6<|box|>782 142 800 434<|content|>D. PCG's Exercise of the Call Option\n<|id|>51<|page|>8<|box|>257 142 273 478<|content|>E. Calculation and Tender of Buyout Price\n<|id|>57<|page|>9<|box|>90 140 107 470<|content|>F. MSH's Demand and Inflated Valuation\n<|id|>64<|page|>10<|box|>295 142 313 287<|content|>III. ARGUMENT\n<|id|>65<|page|>10<|box|>327 140 344 815<|content|>A. PCG Exercised the Call Option in Strict Complia\n<|id|>97<|page|>14<|box|>700 140 718 674<|content|>C. MSH's Bad-Faith Claim Under OA Section 12.7 Is\n<|id|>98<|page|>14<|box|>729 140 763 854<|content|>1. Section 12.7 Requires a Showing of Subjective B\n<|id|>126<|page|>18<|box|>212 140 248 854<|content|>D. MSH's Claim for Breach of OA Section 8.3 (Defer\n<|id|>138<|page|>19<|box|>699 142 715 656<|content|>E. PCG's Counterclaim for Declaratory Relief Shoul\n<|id|>145<|page|>20<|box|>604 140 621 625<|content|>F. The Dispute Resolution Provision Governs This P\n<|id|>148<|page|>21<|box|>89 142 106 300<|content|>IV. CONCLUSION\n<|id|>155<|page|>21<|box|>613 142 628 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>164<|page|>21<|box|>800 375 816 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>12<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>28<|level|>3\n<|id|>34<|level|>3\n<|id|>39<|level|>3\n<|id|>51<|level|>3\n<|id|>57<|level|>3\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>97<|level|>3\n<|id|>98<|level|>4\n<|id|>126<|level|>3\n<|id|>138<|level|>3\n<|id|>145<|level|>3\n<|id|>148<|level|>2\n<|id|>155<|level|>-1\n<|id|>164<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 4
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        }
+    ]
+}

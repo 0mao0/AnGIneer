@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        52,
+        110
+    ],
+    "pages": [
+        53,
+        59,
+        109
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>321<|page|>53<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>322<|page|>53<|box|>198 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund\n<|id|>361<|page|>59<|box|>750 81 883 491<|content|>The geographical allocation of the transactions da... reporting purposes would be recorded opposite the\n<|id|>362<|page|>59<|box|>89 504 164 915<|content|>United Kingdom and not opposite Japan. ... In that...ported opposite Switzerland and not opposite Italy\n<|id|>516<|page|>109<|box|>199 723 268 913<|content|>Financial Report of the United States Government Excerpt\n<|id|>517<|page|>109<|box|>282 820 309 913<|content|>Trust Funds",
+    "raw_response": "<|src_id|>361<|tgt_id|>362",
+    "parsed": [
+        {
+            "src_id": 361,
+            "tgt_id": 362
+        }
+    ]
+}

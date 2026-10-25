@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 197 142 800<|content|>OFFICER'S CERTIFICATE OF CEDARPOINT SYSTEMS INTEGR\n<|id|>9<|type|>title<|page|>1<|box|>784 140 801 465<|content|>(a) Due Organization and Good Standing\n<|id|>13<|type|>title<|page|>2<|box|>421 140 438 424<|content|>(b) Corporate Power and Authority\n<|id|>18<|type|>title<|page|>3<|box|>359 140 375 318<|content|>(c) Due Authorization\n<|id|>21<|type|>table<|page|>3<|box|>753 143 864 852<|content|>None\n<|id|>24<|type|>title<|page|>4<|box|>321 140 339 398<|content|>(d) No Litigation or Proceedings\n<|id|>32<|type|>title<|page|>5<|box|>260 140 277 424<|content|>(e) Representations and Warranties\n<|id|>45<|type|>title<|page|>6<|box|>839 142 856 341<|content|>Additional Certifications\n<|id|>50<|type|>title<|page|>7<|box|>549 140 566 333<|content|>Reliance and Addressee\n<|id|>53<|type|>title<|page|>8<|box|>90 142 107 269<|content|>Governing Law",
+    "raw_response": "<|src_id|>21<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 18
+        }
+    ]
+}

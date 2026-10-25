@@ -1,0 +1,57 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 405 118 591<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>135 194 171 802<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>11<|type|>title<|page|>1<|box|>594 142 611 310<|content|>I. Purpose and Scope\n<|id|>25<|type|>title<|page|>2<|box|>667 140 685 419<|content|>II. Executive Summary of Findings\n<|id|>32<|type|>title<|page|>3<|box|>546 140 563 362<|content|>III. Layer-by-Layer Review\n<|id|>33<|type|>title<|page|>3<|box|>577 140 594 614<|content|>A. Primary GL/PL — Midland Casualty & Surety Compa\n<|id|>35<|type|>table<|page|>3<|box|>681 143 887 852<|content|>None\n<|id|>48<|type|>table<|page|>6<|box|>130 143 388 852<|content|>None\n<|id|>73<|type|>title<|page|>9<|box|>527 140 546 614<|content|>B. 1st Excess / Umbrella — Great Basin Insurance C\n<|id|>75<|type|>table<|page|>9<|box|>633 143 801 852<|content|>None\n<|id|>86<|type|>title<|page|>11<|box|>494 140 512 527<|content|>C. 2nd Excess — Cornerstone Reinsurance Corp.\n<|id|>88<|type|>table<|page|>11<|box|>599 143 782 852<|content|>None\n<|id|>97<|type|>title<|page|>12<|box|>681 142 699 560<|content|>D. 3rd Excess — Allegheny Pacific Underwriters, In\n<|id|>99<|type|>table<|page|>12<|box|>786 143 898 852<|content|>None\n<|id|>100<|type|>table<|page|>13<|box|>89 143 161 852<|content|>None\n<|id|>108<|type|>title<|page|>14<|box|>90 142 107 586<|content|>IV. Aggregate Tower Summary — Renewal PL Program\n<|id|>109<|type|>table<|page|>14<|box|>159 143 462 852<|content|>None\n<|id|>116<|type|>title<|page|>15<|box|>90 140 108 617<|content|>V. Negotiated Wording Improvements — Compliance Ch\n<|id|>127<|type|>title<|page|>16<|box|>167 140 185 462<|content|>VI. Comparison with Prior Year Policies\n<|id|>129<|type|>title<|page|>16<|box|>347 140 366 493<|content|>Our comparison yielded the following findings:\n<|id|>135<|type|>title<|page|>17<|box|>90 140 107 455<|content|>VII. Open Items and Recommendations\n<|id|>136<|type|>title<|page|>17<|box|>121 140 138 550<|content|>A. Items Requiring No Further Action on PL Tower\n<|id|>140<|type|>title<|page|>17<|box|>392 142 409 405<|content|>B. Items for Ongoing Monitoring\n<|id|>148<|type|>title<|page|>18<|box|>446 140 464 555<|content|>C. Coordination with D&O Tower Post-Bind Review\n<|id|>151<|type|>title<|page|>18<|box|>747 140 763 566<|content|>D. Outstanding Endorsement Items (Cross-Reference)\n<|id|>155<|type|>title<|page|>19<|box|>186 140 203 279<|content|>VIII. Conclusion\n<|id|>171<|type|>title<|page|>20<|box|>90 142 107 253<|content|>Reviewed by:",
+    "raw_response": "<|src_id|>35<|tgt_id|>33\n<|src_id|>48<|tgt_id|>33\n<|src_id|>75<|tgt_id|>73\n<|src_id|>88<|tgt_id|>86\n<|src_id|>99<|tgt_id|>97\n<|src_id|>100<|tgt_id|>97\n<|src_id|>109<|tgt_id|>108",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 108
+        }
+    ]
+}

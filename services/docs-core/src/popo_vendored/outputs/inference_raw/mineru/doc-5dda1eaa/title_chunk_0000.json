@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        5
+    ],
+    "pages": [
+        2,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 436 109 560<|content|>EXHIBIT E\n<|id|>1<|page|>2<|box|>128 202 145 794<|content|>UNITED STATES DISTRICT COURT FOR THE DISTRICT OF D\n<|id|>3<|page|>2<|box|>406 145 441 849<|content|>STIPULATION OF DISMISSAL WITH PREJUDICE PURSUANT T\n<|id|>32<|page|>4<|box|>797 406 814 591<|content|>[PROPOSED] ORDER\n<|id|>40<|page|>5<|box|>454 374 470 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>2\n<|id|>32<|level|>2\n<|id|>40<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        }
+    ]
+}

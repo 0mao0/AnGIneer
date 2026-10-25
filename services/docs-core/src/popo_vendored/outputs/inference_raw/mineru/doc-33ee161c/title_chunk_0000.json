@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>183 279 210 766<|content|>6进港航道、锚地及导助航设施\n<|id|>1<|page|>1<|box|>242 446 260 602<|content|>6.1一般规定\n<|id|>8<|page|>1<|box|>549 387 567 661<|content|>6.2航道建设规模及航行标准\n<|id|>28<|page|>2<|box|>614 354 632 589<|content|>6.3 航道选线与轴线布置",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>8<|level|>2\n<|id|>28<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        }
+    ]
+}

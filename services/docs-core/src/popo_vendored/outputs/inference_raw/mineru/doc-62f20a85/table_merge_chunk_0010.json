@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['100702064000', '爬梯槽', 'm^3', '模板组拼、安装、拆除,混凝土制作、运输、浇筑等', '浇筑部位,混凝土强度等级、运距等']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['100702065000', '绳槽', 'm3', '模板组拼、安装、拆除,混凝土制作、运输、浇筑等', '浇筑部位,混凝土强度等级、运距等']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 287,
+    "table2_idx": 288
+}

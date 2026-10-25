@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>113 194 157 803<|content|>SECRETARY'S CERTIFICATE OF CALLOWAY-BRIGGS RENEWAB\n<|id|>1<|type|>title<|page|>1<|box|>174 240 191 758<|content|>Delivered Pursuant to Section [__] of the Underwri\n<|id|>2<|type|>title<|page|>1<|box|>200 264 219 733<|content|>[DRAFT — Subject to completion upon pricing and cl\n<|id|>4<|type|>title<|page|>1<|box|>359 140 376 243<|content|>RECITALS\n<|id|>11<|type|>title<|page|>2<|box|>148 140 166 531<|content|>SECTION 1: INCUMBENCY CERTIFICATION\n<|id|>13<|type|>table<|page|>2<|box|>311 143 556 852<|content|>None\n<|id|>15<|type|>table<|page|>2<|box|>806 143 898 852<|content|>None\n<|id|>16<|type|>table<|page|>3<|box|>89 143 179 852<|content|>None\n<|id|>18<|type|>title<|page|>3<|box|>345 140 363 725<|content|>SECTION 2: CERTIFICATION OF ORGANIZATIONAL DOCUMEN\n<|id|>19<|type|>title<|page|>3<|box|>377 140 393 573<|content|>2.1 Amended and Restated Certificate of Incorporat\n<|id|>23<|type|>title<|page|>3<|box|>811 140 829 415<|content|>2.2 Amended and Restated Bylaws\n<|id|>27<|type|>title<|page|>4<|box|>321 140 339 633<|content|>SECTION 3: CERTIFICATION OF BOARD RESOLUTIONS\n<|id|>28<|type|>title<|page|>4<|box|>353 140 369 630<|content|>3.1 Resolutions Authorizing the IPO and Related Tr\n<|id|>39<|type|>title<|page|>5<|box|>327 140 344 782<|content|>3.2 Resolutions Approving the Amended and Restated\n<|id|>42<|type|>title<|page|>5<|box|>590 140 607 625<|content|>3.3 Resolutions Approving the Amended and Restated\n<|id|>45<|type|>title<|page|>5<|box|>799 140 816 669<|content|>3.4 Resolutions Approving the 2022 Omnibus Equity\n<|id|>49<|type|>title<|page|>6<|box|>356 140 375 665<|content|>3.5 Resolutions Approving the 2022 Employee Stock\n<|id|>53<|type|>title<|page|>6<|box|>700 140 717 514<|content|>3.6 Resolutions Establishing Board Committees\n<|id|>60<|type|>title<|page|>7<|box|>373 140 390 663<|content|>SECTION 4: CERTIFICATION OF STOCKHOLDER ACTIONS\n<|id|>61<|type|>title<|page|>7<|box|>404 140 421 429<|content|>4.1 Written Consent of Stockholders\n<|id|>69<|type|>title<|page|>8<|box|>222 140 239 560<|content|>SECTION 5: GOOD STANDING AND EXISTENCE\n<|id|>73<|type|>title<|page|>8<|box|>652 140 669 413<|content|>SECTION 6: CAPITALIZATION\n<|id|>79<|type|>table<|page|>9<|box|>89 143 328 852<|content|>None\n<|id|>81<|type|>title<|page|>9<|box|>531 140 547 565<|content|>SECTION 7: NO CONFLICTS; NO PROCEEDINGS\n<|id|>84<|type|>title<|page|>10<|box|>89 142 106 648<|content|>SECTION 8: GENERAL QUALIFICATIONS AND RELIANCE\n<|id|>89<|type|>title<|page|>11<|box|>89 143 106 271<|content|>EXHIBIT LIST\n<|id|>90<|type|>table<|page|>11<|box|>138 143 477 852<|content|>None\n<|id|>92<|type|>title<|page|>11<|box|>579 334 595 660<|content|>[Remainder of page intentionally left blank]\n<|id|>93<|type|>title<|page|>11<|box|>604 241 621 754<|content|>[EXHIBITS A THROUGH I TO BE ATTACHED AT CLOSING]\n<|id|>94<|type|>title<|page|>11<|box|>630 142 645 468<|content|>DRAFT — Prepared by Calderwood & Harkness LLP\n<|id|>95<|type|>title<|page|>11<|box|>652 143 667 323<|content|>C&H Matter No. 1015-00001",
+    "raw_response": "<|src_id|>13<|tgt_id|>11\n<|src_id|>15<|tgt_id|>11\n<|src_id|>16<|tgt_id|>11\n<|src_id|>79<|tgt_id|>73\n<|src_id|>90<|tgt_id|>89",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 89
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 341 118 656<|content|>NO-CLAIMS DECLARATION\n<|id|>1<|type|>title<|page|>1<|box|>135 160 172 834<|content|>Representations and Warranties Insurance Policy No\n<|id|>12<|type|>title<|page|>1<|box|>527 142 544 241<|content|>RECITALS\n<|id|>14<|type|>title<|page|>1<|box|>603 142 619 405<|content|>A. Description of the Transaction\n<|id|>38<|type|>title<|page|>2<|box|>732 140 750 346<|content|>B. Description of the PSA\n<|id|>41<|type|>title<|page|>3<|box|>176 140 193 491<|content|>C. Description of the R&W Insurance Policy\n<|id|>50<|type|>title<|page|>3<|box|>594 142 611 387<|content|>D. Purpose of This Declaration\n<|id|>53<|type|>title<|page|>4<|box|>89 140 106 374<|content|>SECTION 1: DEFINITIONS\n<|id|>67<|type|>title<|page|>5<|box|>89 140 106 604<|content|>SECTION 2: DECLARATIONS AND CONFIRMATIONS\n<|id|>69<|type|>title<|page|>5<|box|>166 140 181 318<|content|>2.1 No Known Claims\n<|id|>71<|type|>title<|page|>5<|box|>348 140 364 527<|content|>2.2 No Known Breach of Seller's Representations\n<|id|>73<|type|>title<|page|>5<|box|>622 142 638 377<|content|>2.3 No Known Circumstances\n<|id|>75<|type|>title<|page|>5<|box|>840 140 858 367<|content|>2.4 Due Diligence Disclosure\n<|id|>94<|type|>title<|page|>8<|box|>90 140 107 383<|content|>2.5 Estoppel and SNDA Status\n<|id|>99<|type|>title<|page|>8<|box|>643 140 660 352<|content|>2.6 Lender Consent Status\n<|id|>107<|type|>title<|page|>9<|box|>518 140 536 560<|content|>SECTION 3: INDEMNITY ESCROW REFERENCE\n<|id|>111<|type|>title<|page|>10<|box|>89 140 107 761<|content|>SECTION 4: SELLER'S INDEMNIFICATION FRAMEWORK REFE\n<|id|>117<|type|>title<|page|>10<|box|>410 176 426 318<|content|>Survival Periods:\n<|id|>122<|type|>title<|page|>10<|box|>645 140 662 620<|content|>SECTION 5: CONFIRMATION OF PREMIUM PAYMENT\n<|id|>124<|type|>title<|page|>11<|box|>89 140 106 457<|content|>SECTION 6: RELIANCE AND SCOPE\n<|id|>130<|type|>title<|page|>11<|box|>516 140 532 666<|content|>SECTION 7: REPRESENTATIONS REGARDING DECLARANT\n<|id|>135<|type|>title<|page|>11<|box|>830 230 847 766<|content|>[Remainder of this page intentionally left blank.\n<|id|>137<|type|>title<|page|>12<|box|>89 142 104 267<|content|>DECLARANT:\n<|id|>143<|type|>title<|page|>12<|box|>220 140 237 753<|content|>ACKNOWLEDGMENT. STATE OF MARYLAND COUNTY OF HOWARD\n<|id|>146<|type|>title<|page|>13<|box|>89 374 133 622<|content|>EXHIBIT A LIST OF TARGET ENTITIES\n<|id|>147<|type|>table<|page|>13<|box|>185 143 901 852<|content|>None\n<|id|>148<|type|>table<|page|>14<|box|>88 143 409 852<|content|>None\n<|id|>149<|type|>title<|page|>14<|box|>443 143 459 303<|content|>Portfolio Summary:\n<|id|>150<|type|>table<|page|>14<|box|>465 143 542 852<|content|>None\n<|id|>151<|type|>table<|page|>14<|box|>599 143 731 852<|content|>None\n<|id|>152<|type|>title<|page|>15<|box|>89 449 106 549<|content|>EXHIBIT B\n<|id|>153<|type|>title<|page|>15<|box|>114 359 132 637<|content|>SUMMARY OF ASSUMED DEBT\n<|id|>154<|type|>table<|page|>15<|box|>184 143 484 852<|content|>None\n<|id|>155<|type|>title<|page|>15<|box|>518 142 534 197<|content|>Notes:",
+    "raw_response": "<|src_id|>147<|tgt_id|>146\n<|src_id|>148<|tgt_id|>146\n<|src_id|>150<|tgt_id|>149\n<|src_id|>151<|tgt_id|>149\n<|src_id|>154<|tgt_id|>153",
+    "parsed": [
+        {
+            "src_id": 147,
+            "tgt_id": 146
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 146
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 153
+        }
+    ]
+}

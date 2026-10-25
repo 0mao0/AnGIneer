@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 107 575<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|type|>title<|page|>1<|box|>224 140 241 390<|content|>Via Email and First-Class Mail\n<|id|>10<|type|>title<|page|>1<|box|>416 140 433 364<|content|>I. Purpose and Introduction\n<|id|>15<|type|>title<|page|>2<|box|>90 140 107 395<|content|>II. Background of the Litigation\n<|id|>21<|type|>title<|page|>2<|box|>570 140 587 308<|content|>B. Accused Products\n<|id|>27<|type|>title<|page|>2<|box|>782 140 799 336<|content|>C. Responsive Pleadings\n<|id|>29<|type|>title<|page|>3<|box|>148 140 167 452<|content|>III. Summary of Litigation Proceedings\n<|id|>30<|type|>title<|page|>3<|box|>180 142 198 367<|content|>A. Scheduling and discovery\n<|id|>34<|type|>title<|page|>3<|box|>488 140 503 323<|content|>B. Claim Construction\n<|id|>37<|type|>title<|page|>3<|box|>733 140 750 303<|content|>C. Expert discovery\n<|id|>39<|type|>title<|page|>3<|box|>801 176 818 325<|content|>Solstice's Experts:\n<|id|>43<|type|>title<|page|>4<|box|>222 176 239 307<|content|>Apex's Experts:\n<|id|>47<|type|>title<|page|>4<|box|>500 140 517 501<|content|>D. Settlement Efforts and Dispositive Motions\n<|id|>53<|type|>title<|page|>5<|box|>90 140 107 316<|content|>IV. Settlement Terms\n<|id|>54<|type|>title<|page|>5<|box|>121 140 138 444<|content|>A. Execution of Settlement Documents\n<|id|>56<|type|>title<|page|>5<|box|>250 140 266 297<|content|>B. Principal Terms\n<|id|>72<|type|>title<|page|>6<|box|>481 140 498 537<|content|>V. Insurance Coverage Analysis and Confirmation\n<|id|>79<|type|>title<|page|>6<|box|>829 140 845 457<|content|>VI. Summary of Defense Fees and Costs\n<|id|>81<|type|>table<|page|>7<|box|>88 143 164 852<|content|>None\n<|id|>83<|type|>table<|page|>7<|box|>239 143 381 852<|content|>None\n<|id|>87<|type|>title<|page|>7<|box|>710 142 728 504<|content|>VII. Confirmation of Billing Rate Information\n<|id|>89<|type|>table<|page|>7<|box|>797 143 873 852<|content|>None\n<|id|>96<|type|>title<|page|>8<|box|>272 140 289 511<|content|>VIII. Request for Confirmation and Next Steps\n<|id|>103<|type|>title<|page|>8<|box|>662 140 679 344<|content|>IX. Reservation of Rights\n<|id|>113<|type|>title<|page|>9<|box|>268 143 280 171<|content|>cc:\n<|id|>115<|type|>title<|page|>9<|box|>354 143 369 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>81<|tgt_id|>79\n<|src_id|>83<|tgt_id|>79\n<|src_id|>89<|tgt_id|>87",
+    "parsed": [
+        {
+            "src_id": 81,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 87
+        }
+    ]
+}

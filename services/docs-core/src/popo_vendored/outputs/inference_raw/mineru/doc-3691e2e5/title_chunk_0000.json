@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 344 118 653<|content|>DEPARTMENT OF JUSTICE\n<|id|>1<|page|>1<|box|>136 176 190 820<|content|>Notice of Lodging of Consent Decree Under the Clea\n<|id|>12<|page|>2<|box|>189 140 205 517<|content|>FOR FURTHER INFORMATION CONTACT:\n<|id|>15<|page|>2<|box|>373 140 390 450<|content|>SUPPLEMENTARY INFORMATION\n<|id|>16<|page|>2<|box|>404 140 422 514<|content|>I. Background and Description of the Litigation\n<|id|>21<|page|>3<|box|>212 140 229 426<|content|>II. Description of the Four Facilities\n<|id|>31<|page|>4<|box|>361 140 378 320<|content|>III. Alleged Violations\n<|id|>46<|page|>6<|box|>330 140 347 478<|content|>IV. Terms of the Proposed Consent Decree\n<|id|>83<|page|>10<|box|>708 140 724 411<|content|>V. Invitation for Public Comment",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>21<|level|>3\n<|id|>31<|level|>3\n<|id|>46<|level|>3\n<|id|>83<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        }
+    ]
+}

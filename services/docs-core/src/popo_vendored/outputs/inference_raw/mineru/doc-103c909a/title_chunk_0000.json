@@ -1,0 +1,63 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 215 157 781<|content|>FORM OF OFFICER'S CERTIFICATE OF HALCYON SEMICONDU\n<|id|>2<|page|>1<|box|>174 212 191 784<|content|>Delivered Pursuant to Section [___] of the Agreeme\n<|id|>6<|page|>1<|box|>450 140 468 243<|content|>RECITALS\n<|id|>12<|page|>2<|box|>131 140 148 745<|content|>SECTION 1: CERTIFICATION REGARDING REPRESENTATIONS\n<|id|>13<|page|>2<|box|>148 143 166 274<|content|>WARRANTIES\n<|id|>19<|page|>3<|box|>330 140 347 810<|content|>SECTION 2: CERTIFICATION REGARDING COVENANTS AND A\n<|id|>29<|page|>4<|box|>422 140 439 736<|content|>SECTION 3: LIMITATION OF LIABILITY; NO PERSONAL LI\n<|id|>32<|page|>4<|box|>753 140 770 349<|content|>SECTION 4: RELIANCE\n<|id|>35<|page|>5<|box|>239 142 257 413<|content|>SECTION 5: GOVERNING LAW\n<|id|>37<|page|>5<|box|>385 140 402 676<|content|>[Remainder of this page intentionally left blank.\n<|id|>38<|page|>5<|box|>410 218 445 777<|content|>[SIGNATURE PAGE TO OFFICER'S CERTIFICATE OF HALCYO\n<|id|>40<|page|>5<|box|>498 142 513 627<|content|>HALCYON SEMICONDUCTOR AKTIENGESELLSCHAFT",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>6<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>19<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>-1\n<|id|>38<|level|>2\n<|id|>40<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        }
+    ]
+}

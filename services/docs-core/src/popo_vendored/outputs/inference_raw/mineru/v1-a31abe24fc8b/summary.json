@@ -1,0 +1,108 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-u3jamwhw\\input\\pdfs\\v1-a31abe24fc8b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-u3jamwhw\\enriched\\v1-a31abe24fc8b.json",
+    "contd_output": "",
+    "title_output": "<|id|>2<|level|>2\n<|id|>13<|level|>1\n<|id|>26<|level|>1\n<|id|>39<|level|>1",
+    "image_output": "<|src_id|>4<|tgt_id|>2\n<|src_id|>5<|tgt_id|>2\n<|src_id|>12<|tgt_id|>13\n<|src_id|>18<|tgt_id|>13\n<|src_id|>19<|tgt_id|>13\n<|src_id|>41<|tgt_id|>39\n<|src_id|>58<|tgt_id|>39",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 39
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 67,
+            "table2_idx": 68,
+            "upper_row_ss": [
+                [
+                    "rowspan=2, Zoning District: Overlay District: Existing Use: Proposed Use: Required parking: Will impervious surface change? Yes No Existing impervious (sq. ft.): Proposed change in impervious (sq. ft.): Proposed total impervious (sq. ft.):",
+                    "colspan=3, Total construction cost:"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "colspan=3, MECHANICAL EQUIPMENT QUESTIONSIf the scope of the proposed work consists of replacement of existing mechanical equipment only, and the answer to ANY of the below questions is \"No\" then a Tier One Site Plan is required. See the Residential Tier One Site Plan Checklist for submission requirements. If the answer to ALL the below questions is \"Yes\" a permit could be obtained using the E-permit process."
+                ],
+                [
+                    "1. Is (are) the A/C unit(s) for which the permit is being applied for at the same location of the old/existing unit?",
+                    "YES",
+                    "NO"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 68,
+            "table2_idx": 69,
+            "upper_row_ss": [
+                [
+                    "colspan=3, NC law requires appointment of a lien agent. Contractors/subcontractors can give notice when they are working on the project. Lien Agent appointments are not required for improvements under $30,000, or to the owner's existing residence, or for public building projects."
+                ],
+                [
+                    "colspan=3, PLANS HOLDING POLICY"
+                ],
+                [
+                    "colspan=3, It is the responsibility of the Applicant to pick up plans after each review cycle. If plans are not picked up 180 days from the last review cycle, they will be considered abandoned and will be destroyed."
+                ],
+                [
+                    "colspan=3, RESIDENTIAL INFILL COMPATIBILITY (UDO 2.2.7)"
+                ],
+                [
+                    "colspan=3, If your project must comply with residential infill compatibility (UDO Section 2.2.7) it will be subject to more restrictive setback and height requirements. A foundation survey may be required for this project. For more information about residential infill compatibility visit the Residential Infill web page.Please select the response that applies to your application:Yes, this property does qualify as residential infill developmentNo, this property does not qualify as residential infill developmentNOTE:If you are not sure if your property meets the infill standards, you may submit an Infill Verification request form via the Permit and Development Portal.There is a $45 fee for this request."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "colspan=4, BUILDING"
+                ],
+                [
+                    "colspan=3, License Holder Name (PRINT):",
+                    "License Holder Signature:"
+                ]
+            ]
+        }
+    ]
+}

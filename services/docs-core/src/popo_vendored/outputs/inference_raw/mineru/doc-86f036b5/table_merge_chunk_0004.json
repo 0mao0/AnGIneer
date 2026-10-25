@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Grand total', '4,479,967', '4,611,120', '4,925,045', '4,605,273', '4,531,128', '4,579,758', '4,616,173', '4,618,890']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Country', 'rowspan=2, Total liabilities payable in dollars and foreign currency (1)', 'rowspan=2, Total liabilities payable in dollars (2)', 'rowspan=2, Total own liabilities payable in dollars (3)', 'rowspan=2, Total custody liabilities payable in dollars (4)', 'colspan=2, Non-negotiable deposits and brokerage balances 1', 'colspan=3, Negotiable CDs and short-term securities', 'colspan=2, Other Miscellaneous liabilities 2', 'rowspan=2, Total liabilities payable in foreign currency 3']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 380,
+    "table2_idx": 381
+}

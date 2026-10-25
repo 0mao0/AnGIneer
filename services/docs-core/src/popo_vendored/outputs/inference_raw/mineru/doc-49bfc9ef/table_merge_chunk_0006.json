@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['5', 'Orinoco', '0001923456', 'Form 8-K', 'June 14, 2021', 'Orinoco /', '\"The']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Semiconductor Inc.', '', '', '', 'Lakeshore', 'Company has entered into a non-exclusive, worldwide license agreement with Lakeshore Devices Corp.pursuant to which Lakeshore is granted the right to use the Company\\'s advanced logic process technology (14nm and 10nm FinFET nodes) for a period of ten years. The license includes sublicensing rights to third-party foundries for the purpose of manufacturing Lakeshore-designed products. Lakeshore will pay a running royalty of 5.8% of its net revenues from products manufactured using the licensed process technology.\" (Item 1.01, Entry into a Material Definitive']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 603,
+    "table2_idx": 604
+}

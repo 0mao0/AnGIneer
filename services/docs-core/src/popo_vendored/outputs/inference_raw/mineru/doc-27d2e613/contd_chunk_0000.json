@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        8,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>258 140 275 411<|content|>TO: ... 1016-00009\n<|id|>4<|page|>1<|box|>284 140 319 854<|content|>FROM: ... Victoria Chambers, Responsible Partner, ...Collar & Investigations, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>328 140 345 330<|content|>DATE: ... August 25, 2022\n<|id|>6<|page|>1<|box|>354 140 372 691<|content|>RE: ... Omar Al-Rashidi — Cooperation Assessment & Debriefing Summary\n<|id|>7<|page|>1<|box|>378 140 416 854<|content|>CC: ... Liam Donahue (Working Associate)\n<|id|>8<|page|>1<|box|>424 140 607 854<|content|>This memorandum assesses the cooperation and credi...g reports prepared by Ridgeline Advisory Group LLC\n<|id|>12<|page|>1<|box|>872 140 909 857<|content|>Critically, Al-Rashidi has provided material, corr...d the role of Natasha Sorokin (Senior Trader, DTI)\n<|id|>13<|page|>2<|box|>90 140 237 856<|content|>in transactions with Petronova Trading FZE and Zen...ensic evidence assembled by the investigation team\n<|id|>39<|page|>5<|box|>215 174 251 854<|content|>(iv) The interview is voluntary and Al-Rashidi is ...or to terminate the interview at any time; ... and\n<|id|>41<|page|>5<|box|>321 140 395 854<|content|>At each session, Al-Rashidi stated that he underst...oning, or condition his participation on any terms\n<|id|>71<|page|>8<|box|>859 140 896 854<|content|>Petronova's Beneficial Ownership. ... The session ...tructure and Sergei Volkov's connections to Arkady\n<|id|>72<|page|>9<|box|>90 140 219 857<|content|>Volkhov and the Volkhov Industrial Group. ... Acco...a trading vehicle for Volkhov-controlled interests\n<|id|>90<|page|>11<|box|>801 138 893 857<|content|>False End-User Certifications and Oilfield Equipme...n items for use in specific countries) — and asked\n<|id|>91<|page|>12<|box|>90 140 219 854<|content|>Al-Rashidi to describe his awareness of the end-us...ncomfortable with certain aspects of the shipments",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>71<|tgt_id|>72\n<|src_id|>90<|tgt_id|>91",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 91
+        }
+    ]
+}

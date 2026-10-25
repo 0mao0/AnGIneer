@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 140 128 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|page|>1<|box|>277 140 295 531<|content|>VIA SECURE E-MAIL AND FIRST-CLASS MAIL\n<|id|>12<|page|>1<|box|>797 140 814 423<|content|>I. Description of IDR No. 7 Request\n<|id|>17<|page|>2<|box|>279 140 296 609<|content|>II. Identification of Penterra Biopharma Internati\n<|id|>28<|page|>3<|box|>148 140 167 457<|content|>III. Description of Documents Produced\n<|id|>30<|page|>3<|box|>224 140 242 736<|content|>A. Tab 1: PBI Irish Statutory Financial Statements\n<|id|>45<|page|>4<|box|>183 140 200 694<|content|>B. Tab 2: PBI Irish Corporation Tax Returns (Fisca\n<|id|>50<|page|>4<|box|>517 140 534 393<|content|>C. Tab 3: Supporting Schedules\n<|id|>57<|page|>5<|box|>390 140 407 468<|content|>IV. Coordination with Irish Tax Advisors\n<|id|>59<|page|>5<|box|>566 140 584 336<|content|>V. Privilege Reservation\n<|id|>63<|page|>6<|box|>204 140 222 397<|content|>VI. Document Inventory / Index\n<|id|>65<|page|>6<|box|>659 142 676 352<|content|>Total pages produced: 862\n<|id|>66<|page|>6<|box|>700 140 717 348<|content|>VII. Offer of Cooperation\n<|id|>73<|page|>7<|box|>439 140 455 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>78<|page|>7<|box|>667 142 683 238<|content|>Enclosures:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>6<|level|>1\n<|id|>12<|level|>1\n<|id|>17<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>57<|level|>1\n<|id|>59<|level|>1\n<|id|>63<|level|>1\n<|id|>65<|level|>-1\n<|id|>66<|level|>1\n<|id|>73<|level|>-1\n<|id|>78<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        }
+    ]
+}

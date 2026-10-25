@@ -1,0 +1,137 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        49,
+        60
+    ],
+    "pages": [
+        49,
+        50,
+        51,
+        52,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>679<|page|>49<|box|>90 140 107 635<|content|>Appendix B: OFAC Screening System Configuration Su\n<|id|>680<|page|>49<|box|>116 142 133 277<|content|>Current System:\n<|id|>687<|page|>49<|box|>369 143 386 290<|content|>Planned Upgrade:\n<|id|>694<|page|>50<|box|>90 143 107 477<|content|>Appendix C: Hit Disposition Decision Tree\n<|id|>696<|page|>50<|box|>179 142 195 395<|content|>OFAC Screening Hit Generated\n<|id|>697<|page|>50<|box|>205 176 222 429<|content|>Step 1: Initial Data Comparison\n<|id|>701<|page|>50<|box|>345 176 361 558<|content|>Step 2: Customer/Counterparty Database Check\n<|id|>704<|page|>50<|box|>422 212 439 643<|content|>If yes → Proceed to Step 5: Disposition as False P\n<|id|>706<|page|>50<|box|>474 176 491 429<|content|>Step 3: Match-Score Evaluation\n<|id|>710<|page|>50<|box|>614 178 631 419<|content|>Step 4: Open-Source Research\n<|id|>716<|page|>50<|box|>787 176 804 457<|content|>Step 5: Disposition as False Positive\n<|id|>718<|page|>50<|box|>840 178 856 457<|content|>Escalation to Senior OFAC Analyst\n<|id|>721<|page|>51<|box|>90 176 107 403<|content|>True Match — Block/Reject\n<|id|>723<|page|>52<|box|>90 142 107 470<|content|>Appendix D: OFAC Reporting Templates\n<|id|>725<|page|>52<|box|>184 142 200 383<|content|>D.1 blocking Report Template\n<|id|>737<|page|>52<|box|>452 143 469 480<|content|>D.2 Rejected Transaction Report Template\n<|id|>749<|page|>52<|box|>702 143 719 511<|content|>D.3 Annual blocked Property Report Template\n<|id|>759<|page|>54<|box|>90 142 107 475<|content|>Appendix E: Escalation Contact Directory\n<|id|>763<|page|>55<|box|>90 142 107 643<|content|>Appendix F: BaaS Partner OFAC Screening Data Requi\n<|id|>764<|page|>55<|box|>121 140 138 477<|content|>F.1 Standardized Data Field Specifications\n<|id|>766<|page|>55<|box|>226 143 242 339<|content|>Transaction Data Fields:\n<|id|>770<|page|>56<|box|>157 143 175 586<|content|>Customer Data Fields (for onboarding and re-screen\n<|id|>772<|page|>56<|box|>726 142 743 442<|content|>F.2 Partner-Specific Integration Notes\n<|id|>773<|page|>56<|box|>750 142 767 356<|content|>NovaPay Technologies Inc.\n<|id|>776<|page|>57<|box|>152 140 170 321<|content|>FairLend Digital LLC\n<|id|>778<|page|>57<|box|>333 140 349 264<|content|>VaultEdge Inc.\n<|id|>780<|page|>57<|box|>476 140 494 372<|content|>Remaining 11 BaaS Partners\n<|id|>782<|page|>58<|box|>90 142 107 630<|content|>Appendix G: Key Remediation Milestones — OFAC Scre\n<|id|>785<|page|>59<|box|>90 142 107 669<|content|>Appendix H: Cross-Reference to Consent Order No. O\n<|id|>788<|page|>60<|box|>285 406 300 589<|content|>END OF DOCUMENT",
+    "raw_response": "<|id|>679<|level|>1\n<|id|>680<|level|>2\n<|id|>687<|level|>2\n<|id|>694<|level|>1\n<|id|>696<|level|>2\n<|id|>697<|level|>3\n<|id|>701<|level|>3\n<|id|>704<|level|>-1\n<|id|>706<|level|>3\n<|id|>710<|level|>3\n<|id|>716<|level|>3\n<|id|>718<|level|>3\n<|id|>721<|level|>3\n<|id|>723<|level|>1\n<|id|>725<|level|>2\n<|id|>737<|level|>2\n<|id|>749<|level|>2\n<|id|>759<|level|>1\n<|id|>763<|level|>1\n<|id|>764<|level|>2\n<|id|>766<|level|>3\n<|id|>770<|level|>3\n<|id|>772<|level|>2\n<|id|>773<|level|>3\n<|id|>776<|level|>3\n<|id|>778<|level|>3\n<|id|>780<|level|>3\n<|id|>782<|level|>1\n<|id|>785<|level|>1\n<|id|>788<|level|>-1",
+    "parsed": [
+        {
+            "id": 679,
+            "level": 1
+        },
+        {
+            "id": 680,
+            "level": 2
+        },
+        {
+            "id": 687,
+            "level": 2
+        },
+        {
+            "id": 694,
+            "level": 1
+        },
+        {
+            "id": 696,
+            "level": 2
+        },
+        {
+            "id": 697,
+            "level": 3
+        },
+        {
+            "id": 701,
+            "level": 3
+        },
+        {
+            "id": 706,
+            "level": 3
+        },
+        {
+            "id": 710,
+            "level": 3
+        },
+        {
+            "id": 716,
+            "level": 3
+        },
+        {
+            "id": 718,
+            "level": 3
+        },
+        {
+            "id": 721,
+            "level": 3
+        },
+        {
+            "id": 723,
+            "level": 1
+        },
+        {
+            "id": 725,
+            "level": 2
+        },
+        {
+            "id": 737,
+            "level": 2
+        },
+        {
+            "id": 749,
+            "level": 2
+        },
+        {
+            "id": 759,
+            "level": 1
+        },
+        {
+            "id": 763,
+            "level": 1
+        },
+        {
+            "id": 764,
+            "level": 2
+        },
+        {
+            "id": 766,
+            "level": 3
+        },
+        {
+            "id": 770,
+            "level": 3
+        },
+        {
+            "id": 772,
+            "level": 2
+        },
+        {
+            "id": 773,
+            "level": 3
+        },
+        {
+            "id": 776,
+            "level": 3
+        },
+        {
+            "id": 778,
+            "level": 3
+        },
+        {
+            "id": 780,
+            "level": 3
+        },
+        {
+            "id": 782,
+            "level": 1
+        },
+        {
+            "id": 785,
+            "level": 1
+        }
+    ]
+}

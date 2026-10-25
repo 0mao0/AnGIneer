@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 308 118 687<|content|>MEZZANINE PROMISSORY NOTE\n<|id|>6<|page|>1<|box|>574 140 590 292<|content|>Section 1. Interest.\n<|id|>11<|page|>2<|box|>171 142 188 333<|content|>1.2 Payment of Interest.\n<|id|>18<|page|>3<|box|>377 140 393 395<|content|>Section 2. Principal Repayment.\n<|id|>27<|page|>4<|box|>383 140 402 385<|content|>Section 3. Manner of Payment.\n<|id|>31<|page|>4<|box|>777 140 794 295<|content|>Section 4. Security.\n<|id|>37<|page|>5<|box|>648 140 665 343<|content|>Section 5. Subordination.\n<|id|>45<|page|>6<|box|>590 140 607 364<|content|>Section 6. Events of Default.\n<|id|>49<|page|>7<|box|>304 140 320 442<|content|>Section 7. Credit Agreement Controls.\n<|id|>57<|page|>8<|box|>90 142 107 295<|content|>Section 8. Waivers.\n<|id|>60<|page|>8<|box|>402 140 419 457<|content|>Section 9. Costs of Collection; Expenses.\n<|id|>62<|page|>8<|box|>616 140 633 343<|content|>Section 10. Amendments.\n<|id|>64<|page|>8<|box|>756 140 773 419<|content|>Section 11. Successors and Assigns.\n<|id|>66<|page|>9<|box|>167 140 184 362<|content|>Section 12. Governing Law.\n<|id|>68<|page|>9<|box|>308 140 325 421<|content|>Section 13. Jurisdiction and Venue.\n<|id|>70<|page|>9<|box|>667 140 684 401<|content|>Section 14. Waiver of Jury Trial.\n<|id|>72<|page|>10<|box|>90 142 107 333<|content|>Section 15. Severability.\n<|id|>74<|page|>10<|box|>286 140 301 297<|content|>Section 16. Notices.\n<|id|>76<|page|>10<|box|>392 178 407 331<|content|>If to the Borrower:\n<|id|>80<|page|>10<|box|>479 178 494 310<|content|>If to the Lender:\n<|id|>85<|page|>10<|box|>590 250 606 746<|content|>SIGNATURE PAGE TO MEZZANINE PROMISSORY NOTE\n<|id|>87<|page|>10<|box|>660 143 676 263<|content|>BORROWER:\n<|id|>94<|page|>10<|box|>797 143 814 228<|content|>LENDER:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>11<|level|>3\n<|id|>18<|level|>2\n<|id|>27<|level|>2\n<|id|>31<|level|>2\n<|id|>37<|level|>2\n<|id|>45<|level|>2\n<|id|>49<|level|>2\n<|id|>57<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>2\n<|id|>74<|level|>2\n<|id|>76<|level|>3\n<|id|>80<|level|>3\n<|id|>85<|level|>1\n<|id|>87<|level|>2\n<|id|>94<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        }
+    ]
+}

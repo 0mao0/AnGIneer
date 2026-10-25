@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 3,
+    "range": [
+        159,
+        206
+    ],
+    "pages": [
+        160,
+        184,
+        185,
+        189,
+        190,
+        193,
+        194,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1310<|page|>160<|box|>118 328 136 707<|content|>附表 K. ... 5 工程项目质量检验评定表\n<|id|>1311<|page|>160<|box|>141 157 159 306<|content|>工程项目名称： ... 工程项目名称\n<|id|>1414<|page|>184<|box|>832 224 853 867<|content|>2）每 20m 平整度测定值小于等于规定值的比例应大于等\n<|id|>1415<|page|>185<|box|>121 214 142 318<|content|>于 85%; ... 于 85%\n<|id|>1431<|page|>189<|box|>813 99 860 816<|content|>1 磨细矿渣粉——氧化镁(MgO)含量、三氧化硫( SO_{3} )含量、烧失量、氯离子( Cl^{-} )含量、比表面积(激光粒度分析法)、含水\n<|id|>1432<|page|>190<|box|>118 161 137 437<|content|>率、需水量比、活性指数。 ... 率、需水量比、活性指数\n<|id|>1475<|page|>193<|box|>836 185 857 828<|content|>1）当试验结果全部为钢材破坏，该批植筋抗拔承载力评为\n<|id|>1476<|page|>194<|box|>112 253 131 323<|content|>合格。 ... 合格\n<|id|>1548<|page|>199<|box|>329 359 350 615<|content|>DG/TJ 08-119-2018\n<|id|>1549<|page|>199<|box|>355 422 376 574<|content|>10632-2018\n<|id|>1550<|page|>199<|box|>417 400 446 574<|content|>条文说明\n<|id|>1553<|page|>200<|box|>228 99 847 818<|content|>1 总 则 … ... 208\n<|id|>1554<|page|>201<|box|>100 157 847 876<|content|>6. ... 222\n<|id|>1555<|page|>202<|box|>118 142 862 862<|content|>8. ... 242\n<|id|>1556<|page|>203<|box|>102 147 303 864<|content|>附录 L 路面横向力系数评定 … ... 250\n<|id|>1558<|page|>204<|box|>230 111 852 828<|content|>1 General provisions … ... 207\n<|id|>1559<|page|>205<|box|>100 142 847 864<|content|>6 Bridge engineering 208 6. ... 7 Concrete structure installation 222\n<|id|>1560<|page|>206<|box|>113 137 829 862<|content|>8. ... 5 Lawn and herbaceous ground cover 232 Appe... concrete flexural tensile strength evaluation 235",
+    "raw_response": "<|src_id|>1414<|tgt_id|>1415\n<|src_id|>1431<|tgt_id|>1432\n<|src_id|>1475<|tgt_id|>1476",
+    "parsed": [
+        {
+            "src_id": 1414,
+            "tgt_id": 1415
+        },
+        {
+            "src_id": 1431,
+            "tgt_id": 1432
+        },
+        {
+            "src_id": 1475,
+            "tgt_id": 1476
+        }
+    ]
+}

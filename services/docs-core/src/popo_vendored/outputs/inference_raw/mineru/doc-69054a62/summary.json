@@ -1,0 +1,167 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xg43j01m\\input\\pdfs\\doc-69054a62.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xg43j01m\\enriched\\doc-69054a62.json",
+    "contd_output": "<|src_id|>17<|tgt_id|>18",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>28<|level|>3\n<|id|>34<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>2\n<|id|>45<|level|>3\n<|id|>50<|level|>3\n<|id|>53<|level|>3\n<|id|>57<|level|>3\n<|id|>76<|level|>3\n<|id|>88<|level|>3\n<|id|>99<|level|>4\n<|id|>127<|level|>3\n<|id|>133<|level|>3\n<|id|>134<|level|>4\n<|id|>139<|level|>4\n<|id|>143<|level|>3\n<|id|>165<|level|>2\n<|id|>167<|level|>3\n<|id|>175<|level|>3\n<|id|>182<|level|>3\n<|id|>192<|level|>3\n<|id|>198<|level|>2\n<|id|>202<|level|>2",
+    "image_output": "<|src_id|>86<|tgt_id|>76\n<|src_id|>90<|tgt_id|>88\n<|src_id|>109<|tgt_id|>99\n<|src_id|>110<|tgt_id|>99\n<|src_id|>199<|tgt_id|>198",
+    "contd_label": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 4
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 4
+        },
+        {
+            "id": 139,
+            "level": 4
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 86,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 198
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 109,
+            "table2_idx": 110,
+            "upper_row_ss": [
+                [
+                    "Call center operations (12-week window)",
+                    "$478,500"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Credit monitoring and identity theft protection (24-month program, negotiated flat fee)",
+                    "$2,100,000"
+                ]
+            ]
+        }
+    ]
+}

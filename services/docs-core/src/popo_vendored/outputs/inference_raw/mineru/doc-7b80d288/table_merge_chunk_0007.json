@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 7,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['050302003', '树枝吊挂楣子', 'rowspan=3, 1.原木种类2.原木直(梢)径(不含树皮厚度)3.墙龙骨材料种类、规格4.墙底层材料种类、规格5.构件联结方式6.防护材料种类', 'rowspan=2, m^2', '按设计图示尺寸以框外围面积计算', 'rowspan=3, 1.构件制作2.构件安装3.刷防护材料']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['050302004', '竹柱、梁、檩、椽', '1.竹种类2.竹直(梢)径3.连接方式4.防护材料种类', 'm', '按设计图示尺寸以长度计算', 'rowspan=3, 1.构件制作2.构件安装3.刷防护材料']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 128,
+    "table2_idx": 129
+}

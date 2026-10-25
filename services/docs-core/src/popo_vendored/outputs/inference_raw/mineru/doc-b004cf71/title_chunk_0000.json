@@ -1,0 +1,50 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>356 143 373 397<|content|>PRELIMINARY STATEMENT\n<|id|>11<|page|>1<|box|>731 142 748 542<|content|>BACKGROUND AND PROCEDURAL HISTORY\n<|id|>17<|page|>2<|box|>648 140 664 598<|content|>STATUS OF THE DCMA ADMINISTRATIVE REVIEW\n<|id|>22<|page|>3<|box|>376 140 393 372<|content|>STATUS OF THIS ACTION\n<|id|>25<|page|>3<|box|>597 140 614 460<|content|>REQUEST TO MAINTAIN THE STAY\n<|id|>29<|page|>4<|box|>167 142 184 413<|content|>NEXT JOINT STATUS REPORT\n<|id|>31<|page|>4<|box|>308 140 324 271<|content|>CONCLUSION\n<|id|>33<|page|>4<|box|>450 488 468 854<|content|>Dated: November 12, 2023 New York, New York\n<|id|>34<|page|>4<|box|>476 140 494 562<|content|>FOR PLAINTIFF WHITMORE AEROSPACE LLC:",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>22<|level|>1\n<|id|>25<|level|>1\n<|id|>29<|level|>1\n<|id|>31<|level|>1\n<|id|>33<|level|>-1\n<|id|>34<|level|>2",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        }
+    ]
+}

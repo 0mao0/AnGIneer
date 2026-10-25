@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        12,
+        13,
+        17,
+        18,
+        19,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>151 140 169 475<|content|>TO: ... Douglas Carmichael, Francesca Morano\n<|id|>3<|page|>1<|box|>176 140 194 465<|content|>FROM: ... Carlos Espinoza, Hannah Brinkley\n<|id|>4<|page|>1<|box|>203 142 220 354<|content|>DATE: ... November 13, 2024\n<|id|>5<|page|>1<|box|>229 140 301 854<|content|>RE: ... 655421/2023 (Supreme Court of the State of New York, New York County, Commercial Division)\n<|id|>6<|page|>1<|box|>309 142 327 379<|content|>C&H Matter No. ... 1044-00006\n<|id|>7<|page|>1<|box|>335 142 352 408<|content|>Right-click to update Table of Contents\n<|id|>28<|page|>2<|box|>717 138 902 857<|content|>Northwind's Claims. ... off-hire deductions, liqui...reight claims asserted by sub-charterer Eastbourne\n<|id|>29<|page|>3<|box|>90 140 145 854<|content|>Bulk Carriers Ltd. ... (\"Eastbourne\"), additional ...rd- party shipper claims, and legal fees and costs\n<|id|>43<|page|>4<|box|>823 140 897 857<|content|>Change 3: ... LR-C-20167845), the registered owner...atory party to the Settlement Agreement and Mutual\n<|id|>44<|page|>5<|box|>90 140 126 854<|content|>General Release, rather than merely a released aff...iliate of TSL referenced in the release provisions\n<|id|>110<|page|>12<|box|>828 140 882 857<|content|>Change 15: ... 3 to require that a fully drafted f...t Agreement, pre-signed by TSL (and Aegean Fortuna\n<|id|>111<|page|>13<|box|>90 140 125 854<|content|>Shipholding Ltd. ... ), to be filed by Northwind w...e Court upon default without further notice to TSL\n<|id|>157<|page|>17<|box|>843 140 898 854<|content|>Analysis: ... The mediator's term sheet was executed in New\n<|id|>158<|page|>18<|box|>89 140 162 854<|content|>York. ... The exclusion of conflicts- of-law princ... does not refer to the law of another jurisdiction\n<|id|>167<|page|>18<|box|>763 176 780 795<|content|>To TSL: ... Thalassa Shipping & Logistics SA 42 Akti Miaouli Piraeus 185 38, Greece\n<|id|>168<|page|>18<|box|>789 176 805 540<|content|>Attention: ... Markos Theodorakis, General Counsel\n<|id|>169<|page|>18<|box|>806 176 823 496<|content|>Email: ... gr\n<|id|>170<|page|>18<|box|>821 176 857 852<|content|>With a copy to: ... Drummond & Fenwick LLP One Liberty Plaza, 50th Floor New York, NY 10006\n<|id|>171<|page|>18<|box|>867 176 902 439<|content|>Attention: ... com\n<|id|>172<|page|>19<|box|>89 176 125 854<|content|>To Northwind: ... Northwind Maritime Corporation 1700 Harbor Gateway, Suite 500 Stamford, CT 06902\n<|id|>173<|page|>19<|box|>133 176 151 534<|content|>Attention: ... Richard Hartnett, Chief Legal Officer\n<|id|>174<|page|>19<|box|>152 176 167 493<|content|>Email: ... com\n<|id|>175<|page|>19<|box|>169 176 204 854<|content|>With a copy to: ... Hargrove, Delacroix & Stern LLP 600 Lexington Avenue, 28th Floor New York, NY 10022\n<|id|>176<|page|>19<|box|>213 176 229 405<|content|>Attention: ... Margaret Delacroix\n<|id|>177<|page|>19<|box|>231 176 246 421<|content|>Email: ... com\n<|id|>178<|page|>19<|box|>248 140 320 854<|content|>Analysis: ... The \"deemed given\" provision (earlie...pt or two business days after deposit) is standard\n<|id|>203<|page|>22<|box|>803 140 819 444<|content|>Contact: ... David Okafor, Claims Director\n<|id|>204<|page|>22<|box|>829 140 901 856<|content|>Issue: ... A call with David Okafor is recommended...4 to confirm the Board meeting agenda and timeline",
+    "raw_response": "<|src_id|>28<|tgt_id|>29\n<|src_id|>43<|tgt_id|>44\n<|src_id|>110<|tgt_id|>111\n<|src_id|>157<|tgt_id|>158",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 157,
+            "tgt_id": 158
+        }
+    ]
+}

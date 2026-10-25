@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 166 143 831<|content|>OFFICERS' CERTIFICATE OF GENOME DX THERAPEUTICS IN\n<|id|>5<|type|>title<|page|>1<|box|>424 140 441 241<|content|>RECITALS\n<|id|>9<|type|>title<|page|>2<|box|>89 142 106 307<|content|>CERTIFICATIONS\n<|id|>11<|type|>title<|page|>2<|box|>166 140 181 495<|content|>Section 1 — Representations and Warranties\n<|id|>14<|type|>title<|page|>2<|box|>502 140 518 616<|content|>Section 2 — Organization, Good Standing, and Quali\n<|id|>20<|type|>title<|page|>3<|box|>239 140 255 504<|content|>Section 3 — Authorization and Due Execution\n<|id|>24<|type|>title<|page|>3<|box|>564 140 582 354<|content|>Section 4 — Capitalization\n<|id|>26<|type|>table<|page|>3<|box|>666 143 843 852<|content|>None\n<|id|>29<|type|>title<|page|>4<|box|>330 140 347 470<|content|>Section 5 — No Material Adverse Change\n<|id|>31<|type|>title<|page|>4<|box|>434 142 452 498<|content|>Without limiting the generality of the foregoing:\n<|id|>35<|type|>table<|page|>4<|box|>864 145 904 852<|content|>None\n<|id|>36<|type|>table<|page|>5<|box|>89 143 145 852<|content|>None\n<|id|>39<|type|>title<|page|>5<|box|>455 140 473 584<|content|>Section 6 — Compliance with Covenants and Conditio\n<|id|>42<|type|>title<|page|>5<|box|>683 140 699 457<|content|>Section 7 — No Conflicts; No Violations\n<|id|>49<|type|>title<|page|>6<|box|>319 140 337 545<|content|>Section 8 — No Governmental Approvals Required\n<|id|>56<|type|>title<|page|>6<|box|>758 140 776 424<|content|>Section 9 — Securities Law Matters\n<|id|>62<|type|>title<|page|>7<|box|>393 140 410 357<|content|>Section 10 — No Litigation\n<|id|>67<|type|>title<|page|>7<|box|>708 140 724 415<|content|>Section 11 — Disclosure Schedules\n<|id|>70<|type|>title<|page|>8<|box|>231 140 248 377<|content|>Section 12 — Use of Proceeds\n<|id|>72<|type|>table<|page|>8<|box|>315 143 589 852<|content|>None\n<|id|>74<|type|>title<|page|>8<|box|>709 140 727 349<|content|>Section 13 — Incumbency\n<|id|>76<|type|>table<|page|>8<|box|>830 143 902 852<|content|>None\n<|id|>77<|type|>table<|page|>9<|box|>89 143 125 852<|content|>None\n<|id|>79<|type|>title<|page|>9<|box|>244 140 260 413<|content|>Section 14 — Closing Deliverables\n<|id|>93<|type|>title<|page|>10<|box|>114 151 151 844<|content|>SIGNATURE PAGE TO OFFICERS' CERTIFICATE GENOME DX\n<|id|>105<|type|>title<|page|>10<|box|>393 447 411 550<|content|>EXHIBIT A\n<|id|>108<|type|>title<|page|>10<|box|>489 447 507 550<|content|>EXHIBIT B",
+    "raw_response": "<|src_id|>26<|tgt_id|>24\n<|src_id|>35<|tgt_id|>29\n<|src_id|>36<|tgt_id|>29\n<|src_id|>72<|tgt_id|>70\n<|src_id|>76<|tgt_id|>74\n<|src_id|>77<|tgt_id|>74",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 74
+        }
+    ]
+}

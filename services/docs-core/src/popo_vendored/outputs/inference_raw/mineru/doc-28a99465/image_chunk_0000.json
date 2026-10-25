@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        4,
+        8,
+        10,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>13<|type|>title<|page|>1<|box|>335 87 350 240<|content|>— TIME ENTRIES —\n<|id|>44<|type|>table<|page|>4<|box|>85 85 175 877<|content|>None\n<|id|>61<|type|>table<|page|>8<|box|>85 85 211 878<|content|>None\n<|id|>80<|type|>title<|page|>10<|box|>424 87 439 312<|content|>— INSURANCE COVERAGE —\n<|id|>113<|type|>title<|page|>12<|box|>353 87 368 188<|content|>— CLIENT —",
+    "raw_response": "<|src_id|>44<|tgt_id|>13\n<|src_id|>61<|tgt_id|>13",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 13
+        }
+    ]
+}

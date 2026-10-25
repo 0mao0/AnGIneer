@@ -1,0 +1,66 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ocpidwb_\\input\\pdfs\\doc-b6263407.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ocpidwb_\\enriched\\doc-b6263407.json",
+    "contd_output": "<|src_id|>5<|tgt_id|>6\n<|src_id|>21<|tgt_id|>22\n<|src_id|>64<|tgt_id|>65\n<|src_id|>101<|tgt_id|>102\n<|src_id|>118<|tgt_id|>119",
+    "title_output": "<|id|>3<|level|>1\n<|id|>36<|level|>1\n<|id|>124<|level|>1\n<|id|>128<|level|>2\n<|id|>132<|level|>1",
+    "image_output": "<|src_id|>0<|tgt_id|>3\n<|src_id|>67<|tgt_id|>36\n<|src_id|>68<|tgt_id|>36",
+    "contd_label": [
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 119
+        }
+    ],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 0,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 36
+        }
+    ],
+    "table_merge_candidates": []
+}

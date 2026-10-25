@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 140 148 856<|content|>CALDERWOOD & HARKNESS LLP Solicitors & Internation\n<|id|>6<|type|>title<|page|>1<|box|>252 142 268 310<|content|>By email and courier\n<|id|>9<|type|>title<|page|>1<|box|>407 140 424 367<|content|>1. Purpose and Introduction\n<|id|>14<|type|>title<|page|>2<|box|>90 140 107 612<|content|>2. Permission to Enforce — Section 66, Arbitration\n<|id|>21<|type|>title<|page|>2<|box|>816 140 834 377<|content|>3. Worldwide Freezing Order\n<|id|>22<|type|>title<|page|>2<|box|>849 140 866 424<|content|>3.1 The Without-Notice Application\n<|id|>25<|type|>title<|page|>3<|box|>256 140 273 320<|content|>3.2 Grant of the WFO\n<|id|>32<|type|>title<|page|>3<|box|>660 140 678 462<|content|>3.3 Service and the Return Date Hearing\n<|id|>35<|type|>title<|page|>4<|box|>138 140 157 415<|content|>3.4 Evidence of Risk of Dissipation\n<|id|>42<|type|>title<|page|>4<|box|>598 140 614 292<|content|>3.5 Current Status\n<|id|>44<|type|>title<|page|>4<|box|>734 140 753 624<|content|>4. Third-Party Debt Order Against Meridian Trust B\n<|id|>45<|type|>title<|page|>4<|box|>766 140 782 289<|content|>4.1 Interim Order\n<|id|>49<|type|>title<|page|>5<|box|>220 140 238 380<|content|>4.2 Final Order and Recovery\n<|id|>52<|type|>title<|page|>5<|box|>405 447 422 547<|content|>£18,720,000\n<|id|>56<|type|>title<|page|>5<|box|>652 140 669 821<|content|>5. Dismissal of KMH's Set-Aside Application (Secti\n<|id|>57<|type|>title<|page|>5<|box|>683 140 700 328<|content|>5.1 KMH's Application\n<|id|>63<|type|>title<|page|>6<|box|>300 140 319 313<|content|>5.2 TSL's Opposition\n<|id|>69<|type|>title<|page|>7<|box|>90 140 107 372<|content|>5.3 Internal Risk Assessment\n<|id|>71<|type|>title<|page|>7<|box|>218 140 234 390<|content|>5.4 The Hearing and Judgment\n<|id|>81<|type|>title<|page|>8<|box|>90 140 107 423<|content|>6. Summary of Award Composition\n<|id|>83<|type|>title<|page|>8<|box|>166 142 183 250<|content|>6.1 Damages.\n<|id|>84<|type|>table<|page|>8<|box|>186 143 468 852<|content|>None\n<|id|>85<|type|>table<|page|>8<|box|>529 143 604 852<|content|>None\n<|id|>86<|type|>title<|page|>8<|box|>643 143 660 272<|content|>6.3 Grand Total\n<|id|>87<|type|>table<|page|>8<|box|>665 143 714 852<|content|>None\n<|id|>88<|type|>title<|page|>8<|box|>753 142 770 333<|content|>6.4 Post-Award Interest\n<|id|>90<|type|>title<|page|>9<|box|>90 142 107 372<|content|>7. Current Recovery Position\n<|id|>92<|type|>table<|page|>9<|box|>140 143 256 852<|content|>None\n<|id|>96<|type|>title<|page|>9<|box|>529 140 547 513<|content|>8. Status of Enforcement in Other Jurisdictions\n<|id|>109<|type|>title<|page|>10<|box|>768 215 786 779<|content|>SGD $31,200,000 (approximately £18,450,000 at curr\n<|id|>113<|type|>title<|page|>11<|box|>138 140 156 348<|content|>8.3 United Arab Emirates\n<|id|>118<|type|>title<|page|>11<|box|>501 140 518 250<|content|>9. Next Steps\n<|id|>129<|type|>title<|page|>12<|box|>479 143 494 271<|content|>10. Fee Position\n<|id|>132<|type|>title<|page|>12<|box|>736 142 753 236<|content|>11. Closing\n<|id|>140<|type|>title<|page|>13<|box|>328 143 344 240<|content|>Enclosures:\n<|id|>143<|type|>title<|page|>13<|box|>431 143 444 171<|content|>cc:",
+    "raw_response": "<|src_id|>84<|tgt_id|>83\n<|src_id|>85<|tgt_id|>83\n<|src_id|>87<|tgt_id|>86\n<|src_id|>92<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 84,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 90
+        }
+    ]
+}

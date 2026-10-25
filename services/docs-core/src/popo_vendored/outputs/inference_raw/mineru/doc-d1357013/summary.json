@@ -1,0 +1,190 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-njwr43ec\\input\\pdfs\\doc-d1357013.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-njwr43ec\\enriched\\doc-d1357013.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>1\n<|id|>5<|level|>2\n<|id|>13<|level|>2\n<|id|>21<|level|>2\n<|id|>32<|level|>2\n<|id|>55<|level|>2\n<|id|>65<|level|>2\n<|id|>74<|level|>2\n<|id|>82<|level|>2\n<|id|>105<|level|>2\n<|id|>126<|level|>2\n<|id|>136<|level|>2\n<|id|>157<|level|>2\n<|id|>162<|level|>2\n<|id|>173<|level|>2\n<|id|>178<|level|>2\n<|id|>185<|level|>2\n<|id|>207<|level|>2\n<|id|>208<|level|>2\n<|id|>212<|level|>2\n<|id|>213<|level|>2\n<|id|>215<|level|>3\n<|id|>218<|level|>3\n<|id|>222<|level|>3\n<|id|>227<|level|>3\n<|id|>231<|level|>3\n<|id|>234<|level|>3\n<|id|>237<|level|>3\n<|id|>242<|level|>3\n<|id|>246<|level|>3\n<|id|>250<|level|>3\n<|id|>254<|level|>3\n<|id|>259<|level|>2\n<|id|>261<|level|>3\n<|id|>266<|level|>3",
+    "image_output": "<|src_id|>83<|tgt_id|>82\n<|src_id|>210<|tgt_id|>208\n<|src_id|>211<|tgt_id|>208",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 2
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 218,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 227,
+            "level": 3
+        },
+        {
+            "id": 231,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 3
+        },
+        {
+            "id": 237,
+            "level": 3
+        },
+        {
+            "id": 242,
+            "level": 3
+        },
+        {
+            "id": 246,
+            "level": 3
+        },
+        {
+            "id": 250,
+            "level": 3
+        },
+        {
+            "id": 254,
+            "level": 3
+        },
+        {
+            "id": 259,
+            "level": 2
+        },
+        {
+            "id": 261,
+            "level": 3
+        },
+        {
+            "id": 266,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 83,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 211,
+            "tgt_id": 208
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 210,
+            "table2_idx": 211,
+            "upper_row_ss": [
+                [
+                    "Types of Personal Data",
+                    "Names (including aliases and former names); mailing, residential, and business addresses; dates of birth; government-issued identification numbers (SSN, ITIN, EIN, passport numbers, driver's license numbers); account numbers and account information; transaction records (including amounts, dates, descriptions, originator/beneficiary details); financial data (including balances and income); AML/BSA screening data (including watch list, sanctions, PEP, and adverse media screening results); customer risk ratings and scores;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "model outputs (including transaction risk scores and behavioral analytics results); alert and case management data (including investigation notes and case dispositions); and SAR-related data"
+                ]
+            ]
+        }
+    ]
+}

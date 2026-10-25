@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 3,
+    "range": [
+        148,
+        152
+    ],
+    "pages": [
+        149,
+        150,
+        151,
+        152
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1322<|page|>149<|box|>362 22 388 970<|content|>c) Evaluated the effectiveness of the registrant’s...d by this report based on such evaluation; ... and\n<|id|>1327<|page|>149<|box|>544 24 558 169<|content|>Date: ... February 24, 2021\n<|id|>1323<|page|>149<|box|>395 22 434 970<|content|>d) Disclosed in this report any change in the regi...internal control over financial reporting; ... and\n<|id|>1325<|page|>149<|box|>473 22 500 970<|content|>a) All significant deficiencies and material weakn...ummarize and report financial information; ... and\n<|id|>1328<|page|>149<|box|>580 24 594 52<|content|>By: ... By\n<|id|>1329<|page|>149<|box|>580 114 594 263<|content|>/s/ WALTER J. ... LYNCH\n<|id|>1330<|page|>149<|box|>592 114 635 341<|content|>Walter J. ... Lynch President and Chief Executive Officer (Principal Executive Officer)\n<|id|>1339<|page|>150<|box|>363 22 388 970<|content|>c) Evaluated the effectiveness of the registrant’s...d by this report based on such evaluation; ... and\n<|id|>1344<|page|>150<|box|>544 24 556 169<|content|>Date: ... February 24, 2021\n<|id|>1340<|page|>150<|box|>395 22 434 970<|content|>d) Disclosed in this report any change in the regi...internal control over financial reporting; ... and\n<|id|>1342<|page|>150<|box|>473 22 500 970<|content|>a) All significant deficiencies and material weakn...ummarize and report financial information; ... and\n<|id|>1349<|page|>151<|box|>212 22 239 970<|content|>(1) The Company’s Annual Report on Form 10-K for t...curities Exchange Act of 1934, as amended; ... and\n<|id|>1351<|page|>151<|box|>282 24 349 312<|content|>By: ... Lynch President and Chief Executive Officer (Principal Executive Officer) February 24, 2021\n<|id|>1353<|page|>152<|box|>102 259 181 736<|content|>CERTIFICATION PURSUANT TO RULE 13a-14(b) UNDER THE...T TO SECTION 906 OF THE SARBANES-OXLEY ACT OF 2002\n<|id|>1354<|page|>152<|box|>194 22 220 970<|content|>I, M. ... (the “Company”), hereby certify that, based on my knowledge\n<|id|>1355<|page|>152<|box|>224 22 253 970<|content|>(1) The Company’s Annual Report on Form 10-K for t...curities Exchange Act of 1934, as amended; ... and\n<|id|>1357<|page|>152<|box|>294 24 309 228<|content|>By: ... SUSAN HARDWICK",
+    "raw_response": "<|src_id|>1328<|tgt_id|>1329\n<|src_id|>1329<|tgt_id|>1330\n<|src_id|>1340<|tgt_id|>1344\n<|src_id|>1344<|tgt_id|>1349",
+    "parsed": [
+        {
+            "src_id": 1328,
+            "tgt_id": 1329
+        },
+        {
+            "src_id": 1329,
+            "tgt_id": 1330
+        },
+        {
+            "src_id": 1340,
+            "tgt_id": 1344
+        },
+        {
+            "src_id": 1344,
+            "tgt_id": 1349
+        }
+    ]
+}

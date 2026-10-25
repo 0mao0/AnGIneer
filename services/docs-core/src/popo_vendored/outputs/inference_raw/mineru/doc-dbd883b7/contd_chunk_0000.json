@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>136 426 154 571<|content|>Up to $25,000,000\n<|id|>2<|page|>1<|box|>162 584 179 854<|content|>May 4, 2023 New York, New York\n<|id|>3<|page|>1<|box|>188 138 481 857<|content|>FOR VALUE RECEIVED, the undersigned, CASCADE RETAI...tions set forth herein and in the Credit Agreement\n<|id|>6<|page|>1<|box|>555 174 627 854<|content|>(a) Cascade Retail Holdings Inc. ... and\n<|id|>8<|page|>1<|box|>717 140 753 854<|content|>Each of the foregoing entities is referred to here...orrower\" and collectively as the \"Borrowers. ... \"\n<|id|>11<|page|>1<|box|>868 140 904 856<|content|>The Swingline Lender is entitled to act in such ca...onditions, and limitations set forth in the Credit\n<|id|>12<|page|>2<|box|>90 140 127 854<|content|>Agreement, and this Note evidences the obligation ... with the terms hereof and of the Credit Agreement\n<|id|>42<|page|>5<|box|>796 140 888 857<|content|>7. ... This Note and the Obligations evidenced her...therwise modified from time to time, the \"Security\n<|id|>43<|page|>6<|box|>90 140 127 854<|content|>Agreement\"), among the Borrowers, the other Granto...l Association, in its capacity as Collateral Agent\n<|id|>102<|page|>10<|box|>617 174 635 751<|content|>(a) the United States District Court for the Southern District of New York; ... and\n<|id|>104<|page|>10<|box|>669 140 760 854<|content|>and any appellate courts from any of the foregoing...ding may be heard and determined in any such court\n<|id|>103<|page|>10<|box|>643 176 661 679<|content|>(b) the Supreme Court of the State of New York, New York County,\n<|id|>117<|page|>12<|box|>239 140 255 315<|content|>Name: ... Nathaniel Voss\n<|id|>118<|page|>12<|box|>256 140 272 367<|content|>Title: ... Chief Executive Officer\n<|id|>119<|page|>12<|box|>273 140 289 563<|content|>CASCADE RETAIL OPERATING COMPANY LLC\n<|id|>120<|page|>12<|box|>290 142 306 514<|content|>By: ... , its sole member\n<|id|>121<|page|>12<|box|>309 142 325 253<|content|>By: ... By\n<|id|>122<|page|>12<|box|>325 140 340 313<|content|>Name: ... Nathaniel Voss\n<|id|>123<|page|>12<|box|>342 140 376 727<|content|>Title: ... , the sole member ACCEPTED AND ACKNOWLEDGED\n<|id|>124<|page|>12<|box|>383 140 402 779<|content|>CRESCENT HARBOR BANK, NATIONAL ASSOCIATION, as Swingline Lender\n<|id|>125<|page|>12<|box|>402 142 420 254<|content|>By: ... By\n<|id|>126<|page|>12<|box|>420 140 436 323<|content|>Name: ... Thomas Reiland\n<|id|>127<|page|>12<|box|>436 140 455 464<|content|>Title: ... Managing Director, ABL Origination",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>42<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ]
+}

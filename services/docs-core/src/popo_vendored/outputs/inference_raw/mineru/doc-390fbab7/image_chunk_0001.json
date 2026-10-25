@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>377<|type|>table<|page|>45<|box|>88 143 407 852<|content|>None\n<|id|>379<|type|>title<|page|>46<|box|>90 142 107 614<|content|>Appendix F: IP Assignment Agreements — Status Summ\n<|id|>380<|type|>table<|page|>46<|box|>142 143 559 852<|content|>None\n<|id|>381<|type|>table<|page|>46<|box|>619 143 797 852<|content|>None\n<|id|>382<|type|>table<|page|>46<|box|>858 143 897 852<|content|>None\n<|id|>383<|type|>title<|page|>47<|box|>44 153 59 843<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV\n<|id|>384<|type|>table<|page|>47<|box|>89 143 250 851<|content|>None\n<|id|>385<|type|>title<|page|>47<|box|>284 143 297 316<|content|>END OF MEMORANDUM",
+    "raw_response": "<|src_id|>380<|tgt_id|>379\n<|src_id|>381<|tgt_id|>379\n<|src_id|>382<|tgt_id|>379\n<|src_id|>384<|tgt_id|>379",
+    "parsed": [
+        {
+            "src_id": 380,
+            "tgt_id": 379
+        },
+        {
+            "src_id": 381,
+            "tgt_id": 379
+        },
+        {
+            "src_id": 382,
+            "tgt_id": 379
+        },
+        {
+            "src_id": 384,
+            "tgt_id": 379
+        }
+    ]
+}

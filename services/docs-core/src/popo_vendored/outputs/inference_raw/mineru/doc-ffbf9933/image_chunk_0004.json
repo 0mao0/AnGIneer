@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        188,
+        193
+    ],
+    "pages": [
+        188,
+        189,
+        190,
+        191,
+        192,
+        193
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>859<|type|>title<|page|>188<|box|>69 251 83 746<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>860<|type|>title<|page|>188<|box|>89 379 101 604<|content|>Section II-Federal Credit Programs\n<|id|>861<|type|>title<|page|>188<|box|>104 216 118 797<|content|>Table GA-II-2 - Direct and Guaranteed Loans Outsta\n<|id|>862<|type|>table<|page|>188<|box|>135 88 912 906<|content|>None\n<|id|>863<|type|>title<|page|>189<|box|>62 251 76 746<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>864<|type|>title<|page|>189<|box|>85 377 98 602<|content|>Section II-Federal Credit Programs\n<|id|>865<|type|>title<|page|>189<|box|>101 216 114 799<|content|>Table GA-II-2. - Direct and Guaranteed Loans Outst\n<|id|>866<|type|>table<|page|>189<|box|>127 90 881 903<|content|>None\n<|id|>867<|type|>title<|page|>190<|box|>62 256 76 751<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>868<|type|>title<|page|>190<|box|>89 382 101 606<|content|>Section II-Federal Credit Programs\n<|id|>869<|type|>title<|page|>190<|box|>106 224 119 807<|content|>Table GA-II-2. - Direct and Guaranteed Loans Outst\n<|id|>870<|type|>table<|page|>190<|box|>137 91 553 903<|content|>None\n<|id|>873<|type|>title<|page|>191<|box|>68 259 82 756<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>874<|type|>title<|page|>191<|box|>106 372 119 624<|content|>Footnotes to Table GA-II-2.—Continued\n<|id|>908<|type|>table<|page|>191<|box|>259 528 526 886<|content|>None\n<|id|>920<|type|>table<|page|>192<|box|>116 98 804 887<|content|>None\n<|id|>921<|type|>title<|page|>193<|box|>69 360 83 625<|content|>CUMULATIVE TABLE OF CONTENTS\n<|id|>922<|type|>title<|page|>193<|box|>94 360 109 641<|content|>May 1976 through April 1977—Continued\n<|id|>923<|type|>table<|page|>193<|box|>127 94 910 895<|content|>None",
+    "raw_response": "<|src_id|>862<|tgt_id|>861\n<|src_id|>866<|tgt_id|>865\n<|src_id|>870<|tgt_id|>869\n<|src_id|>908<|tgt_id|>874\n<|src_id|>920<|tgt_id|>874\n<|src_id|>923<|tgt_id|>922",
+    "parsed": [
+        {
+            "src_id": 862,
+            "tgt_id": 861
+        },
+        {
+            "src_id": 866,
+            "tgt_id": 865
+        },
+        {
+            "src_id": 870,
+            "tgt_id": 869
+        },
+        {
+            "src_id": 908,
+            "tgt_id": 874
+        },
+        {
+            "src_id": 920,
+            "tgt_id": 874
+        },
+        {
+            "src_id": 923,
+            "tgt_id": 922
+        }
+    ]
+}

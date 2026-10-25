@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        49,
+        95
+    ],
+    "pages": [
+        49,
+        50,
+        51,
+        54,
+        55,
+        59,
+        63,
+        66,
+        67,
+        69,
+        74,
+        76,
+        78,
+        95
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>181<|page|>49<|box|>50 216 79 781<|content|>Detailed Statement of the Public Debt and Guarante\n<|id|>183<|page|>50<|box|>47 224 75 782<|content|>Detailed Statement of the Public Debt and Guarante\n<|id|>186<|page|>51<|box|>50 211 80 776<|content|>Detailed Statement of the Public Debt and Guarante\n<|id|>192<|page|>54<|box|>59 204 103 779<|content|>Maturity Schedule of Interest-Bearing Public Marke\n<|id|>194<|page|>55<|box|>50 200 93 779<|content|>Maturity Schedule of Interest-Bearing Public Marke\n<|id|>204<|page|>59<|box|>72 311 87 686<|content|>Offerings and Maturities of Treasury Bills\n<|id|>211<|page|>63<|box|>50 276 65 713<|content|>Sales of United States Savings Bonds - (Continued)\n<|id|>219<|page|>66<|box|>333 373 349 665<|content|>Sales of Treasury Savings Notes 1/\n<|id|>221<|page|>67<|box|>57 297 73 702<|content|>Sales of Treasury Savings Notes^{1/} - (Continued)\n<|id|>229<|page|>69<|box|>50 316 66 648<|content|>Sales of United States Savings Stamps\n<|id|>241<|page|>74<|box|>85 213 108 809<|content|>Table 2.- Public Marketable Interest-Bearing Secur\n<|id|>246<|page|>76<|box|>57 149 87 883<|content|>Treasury Survey of Ownership of Securities Issued\n<|id|>247<|page|>76<|box|>96 213 112 811<|content|>Table 2.- Public Marketable Interest-Bearing Secur\n<|id|>250<|page|>78<|box|>57 146 89 850<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>291<|page|>95<|box|>61 211 77 783<|content|>Detailed Analysis of Internal Revenue Collections",
+    "raw_response": "<|id|>181<|level|>1\n<|id|>183<|level|>1\n<|id|>186<|level|>1\n<|id|>192<|level|>2\n<|id|>194<|level|>2\n<|id|>204<|level|>3\n<|id|>211<|level|>3\n<|id|>219<|level|>3\n<|id|>221<|level|>3\n<|id|>229<|level|>3\n<|id|>241<|level|>2\n<|id|>246<|level|>2\n<|id|>247<|level|>2\n<|id|>250<|level|>2\n<|id|>291<|level|>1",
+    "parsed": [
+        {
+            "id": 181,
+            "level": 1
+        },
+        {
+            "id": 183,
+            "level": 1
+        },
+        {
+            "id": 186,
+            "level": 1
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 3
+        },
+        {
+            "id": 219,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 241,
+            "level": 2
+        },
+        {
+            "id": 246,
+            "level": 2
+        },
+        {
+            "id": 247,
+            "level": 2
+        },
+        {
+            "id": 250,
+            "level": 2
+        },
+        {
+            "id": 291,
+            "level": 1
+        }
+    ]
+}

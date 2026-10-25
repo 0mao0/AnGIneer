@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>806 140 898 857<|content|>WHEREAS, on August 10, 2023, Halcyon Semiconductor...tate of Delaware (\"Vectris,\" Delaware Secretary of\n<|id|>8<|page|>2<|box|>89 140 164 854<|content|>State File No. ... 5918437), with its principal pl...odified from time to time, the \"Merger Agreement\")\n<|id|>23<|page|>3<|box|>844 174 898 856<|content|>(a) Litigate and Pursue Clearance. ... Calderwood &\n<|id|>24<|page|>4<|box|>89 174 273 856<|content|>Harkness LLP and Ridgeline Partners LLC have advis...n accounting for the automatic extension provision\n<|id|>42<|page|>6<|box|>375 176 390 651<|content|>Attention: ... Rebecca Lau, General Counsel & Corporate Secretary\n<|id|>43<|page|>6<|box|>391 176 407 627<|content|>4750 Ridgepoint Drive, Suite 300 San Jose, California 95134\n<|id|>44<|page|>6<|box|>417 176 434 540<|content|>with a copy (which shall not constitute notice) to...with a copy (which shall not constitute notice) to\n<|id|>45<|page|>6<|box|>443 176 460 424<|content|>Whitfield, Prager & Loomis LLP\n<|id|>46<|page|>6<|box|>469 176 484 444<|content|>Attention: ... Catherine Whitfield, Esq\n<|id|>47<|page|>6<|box|>486 178 503 668<|content|>1 Embarcadero Center, Suite 4200 San Francisco, California 94111\n<|id|>48<|page|>6<|box|>512 140 568 854<|content|>The targeted date for delivery of the notice of te...he advice of counsel, determines to be appropriate\n<|id|>79<|page|>10<|box|>133 140 152 537<|content|>Prof. ... Friedrich Wendt Chair of the Aufsichtsrat\n<|id|>80<|page|>10<|box|>152 143 169 254<|content|>By: ... By\n<|id|>82<|page|>10<|box|>185 140 204 553<|content|>Dr. ... Margit Schreiber Deputy Chair of the Aufsichtsrat\n<|id|>83<|page|>10<|box|>204 143 220 254<|content|>By: ... By\n<|id|>85<|page|>10<|box|>237 140 255 460<|content|>Heinrich Vogt Member of the Aufsichtsrat\n<|id|>86<|page|>10<|box|>256 143 273 254<|content|>By: ... By\n<|id|>88<|page|>10<|box|>289 142 306 491<|content|>Dr. ... Annika Reiser Member of the Aufsichtsrat\n<|id|>89<|page|>10<|box|>306 143 325 256<|content|>By: ... By\n<|id|>91<|page|>10<|box|>340 140 359 707<|content|>Thomas Kellermann Member of the Aufsichtsrat (Employee Representative)\n<|id|>92<|page|>10<|box|>359 142 377 256<|content|>By: ... By\n<|id|>94<|page|>10<|box|>392 140 411 692<|content|>Sabine Ostermeier Member of the Aufsichtsrat (Employee Representative)\n<|id|>95<|page|>10<|box|>410 142 428 256<|content|>By: ... By\n<|id|>112<|page|>11<|box|>801 140 835 854<|content|>Dr. ... Luisa Hartmann Corporate Secretary / Schri...ichtsrats Halcyon Semiconductor Aktiengesellschaft\n<|id|>113<|page|>11<|box|>835 143 854 254<|content|>By: ... By",
+    "raw_response": "<|src_id|>7<|tgt_id|>8\n<|src_id|>23<|tgt_id|>24",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        }
+    ]
+}

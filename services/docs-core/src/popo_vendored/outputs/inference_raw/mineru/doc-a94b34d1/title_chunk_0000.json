@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>388 142 406 364<|content|>1. Purpose and Background\n<|id|>15<|page|>2<|box|>186 140 204 418<|content|>2. Board Authorization to Suspend\n<|id|>20<|page|>3<|box|>90 140 107 415<|content|>3. Expiration of Exclusivity Period\n<|id|>24<|page|>3<|box|>556 140 574 423<|content|>4. Status of Transaction Documents\n<|id|>37<|page|>5<|box|>212 140 229 500<|content|>5. Notification to Counterparties and Counsel\n<|id|>43<|page|>6<|box|>90 140 107 375<|content|>6. Summary of Fees Incurred\n<|id|>51<|page|>7<|box|>148 140 167 442<|content|>7. Document Preservation Obligations\n<|id|>60<|page|>8<|box|>90 140 107 264<|content|>8. Reactivation\n<|id|>69<|page|>8<|box|>686 140 704 470<|content|>9. Continuing Obligations and Reminders\n<|id|>75<|page|>9<|box|>628 142 648 235<|content|>10. Closing",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>20<|level|>1\n<|id|>24<|level|>1\n<|id|>37<|level|>1\n<|id|>43<|level|>1\n<|id|>51<|level|>1\n<|id|>60<|level|>1\n<|id|>69<|level|>1\n<|id|>75<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        }
+    ]
+}

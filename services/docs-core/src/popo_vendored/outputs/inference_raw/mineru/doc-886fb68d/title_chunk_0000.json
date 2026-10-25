@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 156 148 838<|content|>FORM OF WRITTEN CONSENT OF THE LIMITED PARTNERS OF\n<|id|>2<|page|>1<|box|>157 171 193 823<|content|>In Lieu of a Meeting, Pursuant to Section 14.01 of\n<|id|>4<|page|>1<|box|>369 140 387 243<|content|>RECITALS\n<|id|>11<|page|>3<|box|>89 140 106 413<|content|>RESOLUTIONS AND CONSENT\n<|id|>13<|page|>3<|box|>202 142 219 544<|content|>Resolution 1 — Approval of Successor Key Persons\n<|id|>18<|page|>3<|box|>590 140 608 767<|content|>Resolution 2 — Approval of the First Amendment to\n<|id|>29<|page|>5<|box|>819 142 837 593<|content|>Resolution 3 — Authorization of General Partner Ac\n<|id|>31<|page|>6<|box|>314 140 330 573<|content|>REPRESENTATIONS AND ACKNOWLEDGMENTS\n<|id|>39<|page|>8<|box|>89 142 107 256<|content|>SIGNATURE\n<|id|>45<|page|>8<|box|>263 143 281 321<|content|>Authorized Signatory:\n<|id|>53<|page|>8<|box|>568 142 585 385<|content|>DELIVERY INSTRUCTIONS\n<|id|>72<|page|>9<|box|>547 447 564 550<|content|>EXHIBIT A\n<|id|>73<|page|>9<|box|>574 153 609 841<|content|>FORM OF FIRST AMENDMENT TO THE AMENDED & RESTATED",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>11<|level|>2\n<|id|>13<|level|>3\n<|id|>18<|level|>3\n<|id|>29<|level|>3\n<|id|>31<|level|>2\n<|id|>39<|level|>2\n<|id|>45<|level|>3\n<|id|>53<|level|>2\n<|id|>72<|level|>1\n<|id|>73<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        }
+    ]
+}

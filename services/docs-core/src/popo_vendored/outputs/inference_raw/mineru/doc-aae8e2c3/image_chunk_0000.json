@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 165 142 831<|content|>CERTIFICATION OF NON-FOREIGN STATUS PURSUANT TO SE\n<|id|>2<|type|>title<|page|>1<|box|>203 179 239 816<|content|>THIS IS A FORM DOCUMENT — TO BE COMPLETED AND EXEC\n<|id|>5<|type|>title<|page|>1<|box|>516 140 534 500<|content|>Section 1. Certification of Non-Foreign Status\n<|id|>8<|type|>title<|page|>1<|box|>755 140 773 490<|content|>Section 2. Company Identifying Information\n<|id|>9<|type|>table<|page|>1<|box|>823 143 895 852<|content|>None\n<|id|>10<|type|>table<|page|>2<|box|>88 143 127 852<|content|>None\n<|id|>12<|type|>title<|page|>2<|box|>214 140 231 606<|content|>Section 3. Statement Regarding U.S. Real Property\n<|id|>14<|type|>title<|page|>2<|box|>391 140 407 397<|content|>Section 4. Reliance and Delivery\n<|id|>17<|type|>title<|page|>2<|box|>666 140 684 403<|content|>Section 5. Authority of Signatory\n<|id|>19<|type|>title<|page|>2<|box|>789 140 805 349<|content|>Section 6. Governing Law\n<|id|>22<|type|>title<|page|>3<|box|>116 282 133 714<|content|>[Signature Page to Certification of Non-Foreign St",
+    "raw_response": "<|src_id|>9<|tgt_id|>8\n<|src_id|>10<|tgt_id|>8",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 8
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 22,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['', 'A)船闸引航道的几何类型为面', 'LCBSRT(船闸引航道)(O)CATLCB(船闸引航道类) = [1(船闸上引航道),2(船闸下引航道)](O)DATEND(终止日期) = [YYYYMMDD](O)DATSTA(开始日期) = [YYYYMMDD]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '(O)DRVAL1(深度范围值1) = [(xx.x)单位:m](O)OBJNAM(英文名称) = [船闸引航道英文名称](O)NOBJNM(中文名称) = [船闸引航道中文名称](O)INFORM(英文信息) = [船闸引航道英文信息](O)NINFOM(中文信息) = [船闸引航道中文信息]']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 2758,
+    "table2_idx": 2759
+}

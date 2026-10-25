@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        49,
+        62
+    ],
+    "pages": [
+        49,
+        50,
+        52,
+        54,
+        56,
+        57,
+        62
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>598<|page|>49<|box|>90 323 111 673<|content|>21. Policy Review and Amendment\n<|id|>608<|page|>49<|box|>601 310 619 687<|content|>22. Consequences of Non-Compliance\n<|id|>615<|page|>50<|box|>425 375 444 620<|content|>23. Contact Information\n<|id|>617<|page|>50<|box|>507 143 523 334<|content|>Data Protection Officer:\n<|id|>620<|page|>50<|box|>594 142 611 460<|content|>General Counsel & Company Secretary:\n<|id|>622<|page|>50<|box|>664 142 680 423<|content|>Chief Information Security Officer:\n<|id|>624<|page|>50<|box|>734 142 751 439<|content|>ICO Registration Number: ZA482917\n<|id|>625<|page|>50<|box|>761 143 776 426<|content|>Information Commissioner's Office:\n<|id|>627<|page|>50<|box|>830 143 847 447<|content|>Data Protection Commission (Ireland):\n<|id|>629<|page|>52<|box|>90 145 136 849<|content|>Appendix A — NTP Group Structure and Data Protecti\n<|id|>633<|page|>54<|box|>90 263 111 733<|content|>Appendix B — Related Policies and Procedures\n<|id|>638<|page|>56<|box|>416 143 431 197<|content|>Notes:\n<|id|>642<|page|>57<|box|>90 328 111 668<|content|>Appendix C — Glossary of Terms\n<|id|>709<|page|>62<|box|>233 361 250 635<|content|>APPROVAL AND SIGNATURES",
+    "raw_response": "<|id|>598<|level|>1\n<|id|>608<|level|>1\n<|id|>615<|level|>1\n<|id|>617<|level|>2\n<|id|>620<|level|>2\n<|id|>622<|level|>2\n<|id|>624<|level|>2\n<|id|>625<|level|>2\n<|id|>627<|level|>2\n<|id|>629<|level|>1\n<|id|>633<|level|>1\n<|id|>638<|level|>1\n<|id|>642<|level|>1\n<|id|>709<|level|>1",
+    "parsed": [
+        {
+            "id": 598,
+            "level": 1
+        },
+        {
+            "id": 608,
+            "level": 1
+        },
+        {
+            "id": 615,
+            "level": 1
+        },
+        {
+            "id": 617,
+            "level": 2
+        },
+        {
+            "id": 620,
+            "level": 2
+        },
+        {
+            "id": 622,
+            "level": 2
+        },
+        {
+            "id": 624,
+            "level": 2
+        },
+        {
+            "id": 625,
+            "level": 2
+        },
+        {
+            "id": 627,
+            "level": 2
+        },
+        {
+            "id": 629,
+            "level": 1
+        },
+        {
+            "id": 633,
+            "level": 1
+        },
+        {
+            "id": 638,
+            "level": 1
+        },
+        {
+            "id": 642,
+            "level": 1
+        },
+        {
+            "id": 709,
+            "level": 1
+        }
+    ]
+}

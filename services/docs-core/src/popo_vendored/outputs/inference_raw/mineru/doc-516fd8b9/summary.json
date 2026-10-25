@@ -1,0 +1,391 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pbjh42dc\\input\\pdfs\\doc-516fd8b9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pbjh42dc\\enriched\\doc-516fd8b9.json",
+    "contd_output": "<|src_id|>34<|tgt_id|>35\n<|src_id|>133<|tgt_id|>134",
+    "title_output": "<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>36<|level|>1\n<|id|>37<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>1\n<|id|>57<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>1\n<|id|>68<|level|>2\n<|id|>79<|level|>2\n<|id|>83<|level|>1\n<|id|>84<|level|>2\n<|id|>93<|level|>2\n<|id|>95<|level|>2\n<|id|>99<|level|>1\n<|id|>100<|level|>2\n<|id|>109<|level|>2\n<|id|>118<|level|>1\n<|id|>126<|level|>1\n<|id|>131<|level|>1\n<|id|>139<|level|>1\n<|id|>143<|level|>1\n<|id|>153<|level|>1\n<|id|>177<|level|>1\n<|id|>178<|level|>2",
+    "image_output": "<|src_id|>111<|tgt_id|>109\n<|src_id|>112<|tgt_id|>109\n<|src_id|>180<|tgt_id|>178\n<|src_id|>181<|tgt_id|>178\n<|src_id|>182<|tgt_id|>178\n<|src_id|>183<|tgt_id|>178\n<|src_id|>184<|tgt_id|>178\n<|src_id|>185<|tgt_id|>178\n<|src_id|>186<|tgt_id|>178\n<|src_id|>187<|tgt_id|>178",
+    "contd_label": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        }
+    ],
+    "title_label": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 177,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 178
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 111,
+            "table2_idx": 112,
+            "upper_row_ss": [
+                [
+                    "Quarterly Financial",
+                    "Quarterly",
+                    "45 days after quarter-end",
+                    "Ironclad; Granite Peak"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Statements (Borrower)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 180,
+            "table2_idx": 181,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "Recording",
+                    "Deliver recording confirmations and",
+                    "Sentinel Title (P. Eng)",
+                    "C&H; Clearfield; VRB",
+                    "48 hrs post-recording",
+                    "Open",
+                    "—"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "CRFN numbers",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 181,
+            "table2_idx": 182,
+            "upper_row_ss": [
+                [
+                    "11",
+                    "Gov't Filing",
+                    "NYS TP-584 — Confirm filing",
+                    "Hargrove & Linden (R. Cho)",
+                    "NYS Tax Dept.",
+                    "July 15, 2025",
+                    "Open",
+                    "Analysis pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "obligation; file if required",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 182,
+            "table2_idx": 183,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "Title",
+                    "Senior Lender's ALTA 2006 Loan Policy ($475M) — Final marked-up policy w/ endorsements",
+                    "Sentinel Title",
+                    "Ironclad; C&H; Clearfield",
+                    "July 15, 2025",
+                    "Open",
+                    "Commitment No. STN-2025-MH-04178; all req'd endorsements"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "17",
+                    "Title",
+                    "Mezzanine Lender's UCC Insurance Policy ($200M)",
+                    "Sentinel Title",
+                    "Granite Peak; C&H; VRB",
+                    "July 15, 2025",
+                    "Open",
+                    "Perfection and first-priority of pledge"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 183,
+            "table2_idx": 184,
+            "upper_row_ss": [
+                [
+                    "24",
+                    "Insurance",
+                    "Contractor's Professional Liability ($10M/clai",
+                    "Cobalt (G. Merriman)",
+                    "Ironclad; C&H",
+                    "Prior to first draw",
+                    "Open",
+                    "Condition to first draw"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "m) — Evidence of coverage",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 184,
+            "table2_idx": 185,
+            "upper_row_ss": [
+                [
+                    "30",
+                    "Organizational",
+                    "HYW Mortgage LLC — Confirm independent director/special",
+                    "C&H (R. Dominguez)",
+                    "Ironclad",
+                    "June 20, 2025",
+                    "Open",
+                    "Per SPE covenants"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "member appointment",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 185,
+            "table2_idx": 186,
+            "upper_row_ss": [
+                [
+                    "38",
+                    "Construction",
+                    "Circulate template lien waiver",
+                    "C&H",
+                    "Cobalt; MTDC; Ironclad",
+                    "June 20, 2025",
+                    "Open",
+                    "Monthly partial waivers"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "forms",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "required"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 186,
+            "table2_idx": 187,
+            "upper_row_ss": [
+                [
+                    "46",
+                    "Financial",
+                    "Initial Operating Budget",
+                    "MTDC (P. Subramanian)",
+                    "Ironclad",
+                    "July 15, 2025",
+                    "Open",
+                    "Coordinate w/ Evergreen"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "(construction period)",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "(T. Langford)"
+                ]
+            ]
+        }
+    ]
+}

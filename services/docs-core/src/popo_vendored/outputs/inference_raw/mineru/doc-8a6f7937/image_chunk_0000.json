@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>4<|type|>title<|page|>1<|box|>210 352 229 645<|content|>LETTER OF REPRESENTATIONS\n<|id|>6<|type|>title<|page|>1<|box|>319 142 335 316<|content|>Ladies and Gentlemen:\n<|id|>8<|type|>title<|page|>1<|box|>516 142 532 243<|content|>RECITALS\n<|id|>17<|type|>title<|page|>2<|box|>411 140 426 413<|content|>Section 1. Description of the Notes\n<|id|>31<|type|>title<|page|>3<|box|>89 142 107 532<|content|>ISIN (Regulation S Global Note): USU92384AA83\n<|id|>34<|type|>table<|page|>3<|box|>294 143 369 852<|content|>None\n<|id|>40<|type|>title<|page|>3<|box|>840 142 859 450<|content|>Section 2. Representations of the Issuer\n<|id|>57<|type|>title<|page|>5<|box|>575 140 593 818<|content|>Section 3. Representations of the Trustee, Registr\n<|id|>72<|type|>title<|page|>7<|box|>513 140 530 607<|content|>Section 4. Agreement Regarding DTC's Book-Entry Sy\n<|id|>79<|type|>title<|page|>8<|box|>704 140 720 387<|content|>Section 5. Contact Information\n<|id|>81<|type|>title<|page|>8<|box|>773 142 789 267<|content|>Issuer Contact:\n<|id|>100<|type|>title<|page|>9<|box|>419 140 435 419<|content|>Section 6. Miscellaneous Provisions\n<|id|>110<|type|>title<|page|>10<|box|>502 460 517 535<|content|>ISSUER:\n<|id|>111<|type|>title<|page|>10<|box|>527 142 542 491<|content|>VERIMARK HOSPITALITY GROUP INC.\n<|id|>122<|type|>title<|page|>10<|box|>784 143 800 473<|content|>THE DEPOSITORY TRUST COMPANY\n<|id|>127<|type|>title<|page|>10<|box|>871 455 887 542<|content|>ANNEX A\n<|id|>128<|type|>title<|page|>10<|box|>916 142 929 243<|content|>CONFIDENTIAL\n<|id|>129<|type|>title<|page|>11<|box|>89 359 106 637<|content|>GLOBAL NOTE INFORMATION\n<|id|>131<|type|>table<|page|>11<|box|>195 143 478 852<|content|>None\n<|id|>132<|type|>title<|page|>11<|box|>512 140 527 197<|content|>Notes:",
+    "raw_response": "<|src_id|>34<|tgt_id|>31\n<|src_id|>131<|tgt_id|>129",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 129
+        }
+    ]
+}

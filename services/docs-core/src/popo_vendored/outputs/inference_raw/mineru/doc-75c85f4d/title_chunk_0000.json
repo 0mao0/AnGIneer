@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 295 133 700<|content|>CONFLICT CHECK MEMORANDUM\n<|id|>2<|page|>1<|box|>150 151 186 844<|content|>CALDERWOOD & HARKNESS LLP 1301 Avenue of the Ameri\n<|id|>9<|page|>1<|box|>402 140 420 480<|content|>Section 1: Nature of Proposed Engagement\n<|id|>14<|page|>2<|box|>304 140 320 405<|content|>Section 2: Identification of Client\n<|id|>25<|page|>2<|box|>729 140 748 459<|content|>Section 3: Parties Screened for Conflicts\n<|id|>27<|page|>2<|box|>842 140 859 395<|content|>3.1 Client Entities and Affiliates\n<|id|>31<|page|>3<|box|>518 142 537 419<|content|>3.2 Key Individuals — Harrowgate\n<|id|>49<|page|>4<|box|>736 140 753 388<|content|>3.4 Key Individuals — Veldran\n<|id|>61<|page|>5<|box|>743 140 760 661<|content|>3.6 Other Shareholders and Historical Transaction\n<|id|>68<|page|>6<|box|>835 140 853 467<|content|>3.7 Opposing and Co-Counsel Law Firms\n<|id|>76<|page|>7<|box|>609 140 625 433<|content|>3.8 Financial Institutions and Agents\n<|id|>84<|page|>8<|box|>348 140 364 434<|content|>3.9 Accounting / Tax Advisory Firms\n<|id|>92<|page|>9<|box|>90 140 107 681<|content|>Section 4: Transaction Context and Potential Confl\n<|id|>102<|page|>11<|box|>90 142 107 410<|content|>Section 5: Conflict Search Results\n<|id|>116<|page|>11<|box|>851 142 867 374<|content|>Section 6: Engagement Team\n<|id|>121<|page|>12<|box|>512 140 529 426<|content|>Section 7: Conclusion and Approval\n<|id|>125<|page|>13<|box|>167 140 185 310<|content|>Section 8: Approvals\n<|id|>126<|page|>13<|box|>194 140 210 388<|content|>Responsible Partner Approval:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>3\n<|id|>31<|level|>3\n<|id|>49<|level|>3\n<|id|>61<|level|>3\n<|id|>68<|level|>3\n<|id|>76<|level|>3\n<|id|>84<|level|>3\n<|id|>92<|level|>2\n<|id|>102<|level|>2\n<|id|>116<|level|>2\n<|id|>121<|level|>2\n<|id|>125<|level|>2\n<|id|>126<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        }
+    ]
+}

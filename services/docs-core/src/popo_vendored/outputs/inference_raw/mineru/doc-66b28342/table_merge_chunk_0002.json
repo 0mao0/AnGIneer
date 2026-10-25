@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['13', '1600 Westgate Cir, Brentwo', 'Westgate Medical LLC', 'Jan. 1, 2022', 'Dec. 31, 2029', '~5.5 yrs', '$25,700', '7,100', 'Yes', 'Pending']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'od, TN 37027', '', '', '', '', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 263,
+    "table2_idx": 264
+}

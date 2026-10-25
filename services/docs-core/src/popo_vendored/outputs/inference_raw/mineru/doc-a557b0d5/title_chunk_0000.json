@@ -1,0 +1,70 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 202 118 794<|content|>WRITTEN CONSENT OF THE BOARD OF DIRECTORS\n<|id|>2<|page|>1<|box|>175 357 195 640<|content|>LUMOS ANALYTICS INC.\n<|id|>6<|page|>1<|box|>483 142 500 241<|content|>RECITALS\n<|id|>29<|page|>4<|box|>204 142 220 279<|content|>RESOLUTIONS\n<|id|>31<|page|>4<|box|>256 140 273 674<|content|>Resolution 1 — Authorization and Approval of the S\n<|id|>34<|page|>4<|box|>590 140 607 620<|content|>Resolution 2 — Authorization of Pro Rata Rights Si\n<|id|>36<|page|>4<|box|>752 142 768 555<|content|>Resolution 3 — Authorization of Information Rights\n<|id|>38<|page|>5<|box|>90 140 107 539<|content|>Resolution 4 — Delegation of Execution Authority.\n<|id|>45<|page|>5<|box|>527 140 545 513<|content|>Resolution 5 — Authorization to Accept Funds.\n<|id|>47<|page|>5<|box|>708 140 724 651<|content|>Resolution 6 — Authorization of Filings and Compli\n<|id|>50<|page|>6<|box|>133 140 151 493<|content|>Resolution 7 — Ratification of Prior Actions.\n<|id|>52<|page|>6<|box|>351 140 368 418<|content|>Resolution 8 — General Authority.\n<|id|>54<|page|>6<|box|>564 140 580 493<|content|>EFFECTIVENESS AND COUNTERPARTS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>6<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>3\n<|id|>38<|level|>3\n<|id|>45<|level|>3\n<|id|>47<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>3\n<|id|>54<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        }
+    ]
+}

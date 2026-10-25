@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 140 104 630<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|type|>title<|page|>1<|box|>111 423 128 573<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>390 140 407 321<|content|>I. Executive Summary\n<|id|>28<|type|>title<|page|>2<|box|>738 140 753 454<|content|>II. Background and Procedural Posture\n<|id|>39<|type|>title<|page|>4<|box|>286 140 301 622<|content|>III. Open Issue No. 1: Escrow Mechanics and Releas\n<|id|>40<|type|>title<|page|>4<|box|>316 140 333 352<|content|>A. Description of the Issue\n<|id|>47<|type|>title<|page|>5<|box|>90 140 106 408<|content|>B. MCB's Recommended Position\n<|id|>53<|type|>title<|page|>5<|box|>633 140 650 460<|content|>C. Recommended Fallback Compromise\n<|id|>59<|type|>title<|page|>6<|box|>311 142 329 361<|content|>D. Practical Considerations\n<|id|>65<|type|>title<|page|>6<|box|>741 140 758 352<|content|>A. Description of the Issue\n<|id|>72<|type|>title<|page|>7<|box|>681 140 699 410<|content|>B. MCB's Recommended Position\n<|id|>81<|type|>title<|page|>8<|box|>800 140 816 460<|content|>C. Recommended Fallback Compromise\n<|id|>88<|type|>title<|page|>9<|box|>646 140 662 361<|content|>D. Practical Considerations\n<|id|>93<|type|>title<|page|>10<|box|>359 140 376 741<|content|>V. Open Issue No. 3: Commencement Date for 120-Day\n<|id|>94<|type|>title<|page|>10<|box|>388 140 407 352<|content|>A. Description of the Issue\n<|id|>99<|type|>title<|page|>11<|box|>157 140 174 410<|content|>B. MCB's Recommended Position\n<|id|>108<|type|>title<|page|>12<|box|>138 140 157 460<|content|>C. Recommended Fallback Compromise\n<|id|>114<|type|>title<|page|>12<|box|>773 142 790 361<|content|>D. Practical Considerations\n<|id|>119<|type|>title<|page|>13<|box|>566 140 584 681<|content|>VI. Summary of Recommended Positions and Fallback\n<|id|>120<|type|>table<|page|>13<|box|>636 143 898 851<|content|>None\n<|id|>121<|type|>table<|page|>14<|box|>89 143 672 852<|content|>None\n<|id|>122<|type|>title<|page|>14<|box|>720 142 738 385<|content|>VII. Recommended Next Steps\n<|id|>137<|type|>title<|page|>16<|box|>89 140 107 468<|content|>VIII. Privilege and Confidentiality Notice",
+    "raw_response": "<|src_id|>120<|tgt_id|>119\n<|src_id|>121<|tgt_id|>119",
+    "parsed": [
+        {
+            "src_id": 120,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 119
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 187 133 808<|content|>Delivered pursuant to Section 4. ... 01 of the Credit Agreement dated as of July 21, 2022\n<|id|>2<|page|>1<|box|>143 470 159 527<|content|>among\n<|id|>3<|page|>1<|box|>167 187 184 810<|content|>VERIMARK HOSPITALITY GROUP INC. ... a Delaware corporation, as Borrower,\n<|id|>4<|page|>1<|box|>194 385 210 611<|content|>The Guarantors Party Thereto,\n<|id|>5<|page|>1<|box|>219 153 255 844<|content|>CRESCENT HARBOR BANK, NATIONAL ASSOCIATION as Administrative Agent and Collateral Agent,\n<|id|>6<|page|>1<|box|>263 483 279 514<|content|>and\n<|id|>7<|page|>1<|box|>289 398 306 598<|content|>The Lenders Party Thereto\n<|id|>9<|page|>1<|box|>340 150 376 846<|content|>Certificate Date: ... CHB-LF-2022-07814\n<|id|>8<|page|>1<|box|>315 331 332 666<|content|>$700,000,000 Senior Secured Term Loan B\n<|id|>10<|page|>1<|box|>383 338 402 658<|content|>OFFICER'S CLOSING CERTIFICATE\n<|id|>35<|page|>4<|box|>796 210 869 856<|content|>(iv) Approximately $3,200,000 in estimated legal f...iums, recording fees, and related charges; ... and\n<|id|>37<|page|>5<|box|>152 174 226 856<|content|>For the avoidance of doubt, the gross principal am...o the Borrower of $693,000,000 on the Closing Date\n<|id|>42<|page|>5<|box|>571 174 626 854<|content|>(b) the ability of the Borrower or any Guarantor t...ntee Agreement, or any other Loan Document; ... or\n<|id|>44<|page|>5<|box|>679 140 824 857<|content|>As of the Closing Date, the Borrower's hotel portf...the Borrower's FY2021 audited financial statements\n<|id|>84<|page|>10<|box|>848 142 864 307<|content|>Name: ... Renata Haines\n<|id|>85<|page|>10<|box|>864 143 881 359<|content|>Title: ... Chief Financial Officer\n<|id|>86<|page|>10<|box|>882 143 898 290<|content|>Date: ... July 21, 2022\n<|id|>92<|page|>11<|box|>275 176 292 599<|content|>600 Lexington Avenue, 34th Floor New York, NY 10022\n<|id|>93<|page|>11<|box|>301 142 354 743<|content|>Attention: ... Anika Holm, Director, Loan Syndications With a copy to\n<|id|>94<|page|>11<|box|>362 142 378 537<|content|>Whitfield Gage & Partridge LLP (Agent's Counsel)\n<|id|>95<|page|>11<|box|>387 176 404 588<|content|>383 Madison Avenue, 28th Floor New York, NY 10179\n<|id|>96<|page|>11<|box|>412 176 429 421<|content|>Attention: ... Harrison Whitfield III",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>2<|tgt_id|>3\n<|src_id|>3<|tgt_id|>4\n<|src_id|>4<|tgt_id|>5\n<|src_id|>5<|tgt_id|>6\n<|src_id|>6<|tgt_id|>7\n<|src_id|>93<|tgt_id|>94",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 94
+        }
+    ]
+}

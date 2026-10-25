@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 259 118 736<|content|>MUTUAL NON-DISCLOSURE AGREEMENT\n<|id|>8<|page|>1<|box|>474 140 493 243<|content|>RECITALS\n<|id|>16<|page|>2<|box|>311 140 328 374<|content|>SECTION 1: DEFINITIONS\n<|id|>31<|page|>4<|box|>273 140 291 588<|content|>SECTION 2: OBLIGATIONS OF CONFIDENTIALITY\n<|id|>41<|page|>5<|box|>501 140 518 712<|content|>SECTION 3: EXCLUSIONS FROM CONFIDENTIAL INFORMATIO\n<|id|>48<|page|>6<|box|>204 140 239 764<|content|>SECTION 4: PERMITTED DISCLOSURES — REGULATORY AND\n<|id|>64<|page|>7<|box|>751 140 768 823<|content|>SECTION 5: RETURN AND DESTRUCTION OF CONFIDENTIAL\n<|id|>68<|page|>8<|box|>270 140 287 568<|content|>5.2 Retained Copies. Notwithstanding Section 5.1 a\n<|id|>74<|page|>9<|box|>89 140 106 622<|content|>SECTION 6: NO REPRESENTATIONS OR WARRANTIES\n<|id|>77<|page|>9<|box|>566 140 584 501<|content|>SECTION 7: INTELLECTUAL PROPERTY\n<|id|>80<|page|>10<|box|>89 140 106 434<|content|>SECTION 8: NON-SOLICITATION\n<|id|>82<|page|>10<|box|>270 140 287 723<|content|>8.2 Exceptions. The restriction set forth in Secti\n<|id|>86<|page|>10<|box|>516 140 532 488<|content|>SECTION 9: TERM AND TERMINATION\n<|id|>89<|page|>11<|box|>89 142 106 359<|content|>SECTION 10: REMEDIES\n<|id|>92<|page|>11<|box|>494 140 511 674<|content|>SECTION 11: GOVERNING LAW AND DISPUTE RESOLUTION\n<|id|>96<|page|>12<|box|>204 140 220 468<|content|>SECTION 12: GENERAL PROVISIONS\n<|id|>116<|page|>14<|box|>90 400 108 596<|content|>[Signature Page Follows]\n<|id|>117<|page|>14<|box|>114 210 132 785<|content|>SIGNATURE PAGE TO MUTUAL NON-DISCLOSURE AGREEMENT\n<|id|>119<|page|>14<|box|>186 140 202 594<|content|>BELMONT RIDGE BANK NATIONAL ASSOCIATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>31<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>2\n<|id|>64<|level|>2\n<|id|>68<|level|>3\n<|id|>74<|level|>2\n<|id|>77<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>3\n<|id|>86<|level|>2\n<|id|>89<|level|>2\n<|id|>92<|level|>2\n<|id|>96<|level|>2\n<|id|>116<|level|>-1\n<|id|>117<|level|>1\n<|id|>119<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        19
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        6,
+        11,
+        12,
+        16,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>11<|page|>2<|box|>815 140 906 857<|content|>The System originates at the Wetzel County Interco...oordinates of 39. ... The System terminates at the\n<|id|>12<|page|>3<|box|>90 140 181 856<|content|>Waynesburg Compressor Station, located in Greene C...vania, New Jersey, and New York metropolitan areas\n<|id|>30<|page|>5<|box|>801 138 895 857<|content|>Clearwater Municipal Gas Authority (\"CMGA\"). ... C...ary concern is the potential for rate increases on\n<|id|>31<|page|>6<|box|>90 140 162 854<|content|>ATPC's system resulting from the interconnection w...and MGPC on the technical issues of IT rate design\n<|id|>81<|page|>11<|box|>667 140 684 424<|content|>Total Revised FT Rate: ... 3140/Dth\n<|id|>82<|page|>11<|box|>694 142 710 705<|content|>The total revised FT rate is the sum of the reserv...is the sum of the reservation and usage components\n<|id|>90<|page|>12<|box|>292 174 310 666<|content|>IT Daily Rate = FT Daily Reservation Rate + FT Daily Usage Rate\n<|id|>91<|page|>12<|box|>318 174 335 504<|content|>IT Daily Rate = $0. ... 0038/Dth\n<|id|>92<|page|>12<|box|>344 176 361 401<|content|>IT Daily Rate = $0. ... 3140/Dth\n<|id|>93<|page|>12<|box|>369 140 517 857<|content|>The FT reservation rate of $0. ... 3140 per Dth en...ipper operating at 100% of its contracted capacity\n<|id|>129<|page|>16<|box|>660 174 678 764<|content|>Credit to Firm Shipper i = Net IT Revenue × (MDQi ÷ Σ MDQall firm shippers)\n<|id|>130<|page|>16<|box|>686 140 758 856<|content|>Where MDQi is the time-weighted average MDQ of fir...pers' time-weighted average MDQs during the period\n<|id|>151<|page|>18<|box|>799 176 816 733<|content|>Estimated average daily IT volumes = 300,000 Dth/d × 0. ... 25 = 75,000 Dth/d\n<|id|>152<|page|>18<|box|>825 140 840 388<|content|>Estimated Annual IT Volumes. ... Estimated Annual IT Volumes\n<|id|>153<|page|>18<|box|>849 176 868 514<|content|>75,000 Dth/d × 365 days = 27,375,000 Dth/yr\n<|id|>154<|page|>18<|box|>877 142 893 447<|content|>Estimated Annual IT Revenue (Gross). ... Estimated Annual IT Revenue (Gross)\n<|id|>155<|page|>19<|box|>89 174 125 854<|content|>27,375,000 Dth × $0. ... 3140/Dth = approximately $8,591,750 (gross, before variable cost deductions)\n<|id|>156<|page|>19<|box|>133 140 208 856<|content|>Estimated Variable Cost Deductions. ... The precis...rates, which vary with system operating conditions",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>30<|tgt_id|>31\n<|src_id|>152<|tgt_id|>153\n<|src_id|>154<|tgt_id|>155",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 155
+        }
+    ]
+}

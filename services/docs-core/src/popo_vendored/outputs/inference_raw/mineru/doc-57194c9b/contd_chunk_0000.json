@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>125 142 141 395<|content|>BELMONT RIDGE BANK NA,\n<|id|>2<|page|>1<|box|>150 212 167 465<|content|>Plaintiff/Counterclaim Defendant,\n<|id|>3<|page|>1<|box|>176 446 193 550<|content|>— against —\n<|id|>6<|page|>1<|box|>272 676 289 854<|content|>Index No. ... 654871/2024\n<|id|>7<|page|>1<|box|>297 557 315 854<|content|>Assigned Justice: ... Althea Marchetti\n<|id|>16<|page|>1<|box|>839 140 876 854<|content|>WHEREAS, the approximate universe of documents und..., including electronically stored information, and\n<|id|>17<|page|>2<|box|>90 140 127 854<|content|>Triton Harbor will be producing its own financial ...(its restructuring advisor), and related documents\n<|id|>71<|page|>7<|box|>502 174 556 854<|content|>(a) BRB's HC-AEO material shall not be disclosed to Marcus J. ... and\n<|id|>73<|page|>7<|box|>627 140 643 656<|content|>The foregoing restriction is a material and essent...ion is a material and essential term of this Order\n<|id|>104<|page|>10<|box|>821 140 895 856<|content|>10. ... Such notice shall identify the document by Bates number (or, if the document was not\n<|id|>105<|page|>11<|box|>90 140 143 854<|content|>Bates-stamped, by such other means of identificati...eceiving Party to assess the validity of the claim\n<|id|>120<|page|>12<|box|>222 174 258 852<|content|>(d) Harborview Title & Escrow Co. ... and\n<|id|>122<|page|>12<|box|>311 140 347 854<|content|>The foregoing list is illustrative and shall not l...Order to discovery obtained from other non-parties\n<|id|>129<|page|>12<|box|>797 140 907 856<|content|>13. ... Notwithstanding the foregoing, Counsel of\n<|id|>130<|page|>13<|box|>90 140 162 854<|content|>Record may retain one (1) archival copy of all Con...es shall remain subject to the terms of this Order\n<|id|>148<|page|>14<|box|>345 142 395 851<|content|>Linda Osei, Esq. ... com Attorneys for Plaintiff/Counterclaim Defendant Belmont Ridge Bank NA\n<|id|>149<|page|>14<|box|>396 143 412 334<|content|>Date: ... December 20, 2024\n<|id|>150<|page|>14<|box|>412 142 448 852<|content|>For Defendants/Counterclaim Plaintiffs TRITON HARBOR INDUSTRIES, LLC, MARCUS J. ... KAPPEL\n<|id|>151<|page|>14<|box|>457 143 473 403<|content|>KESTREL VOSS & HUANG LLP\n<|id|>152<|page|>14<|box|>474 143 491 251<|content|>By: ... By\n<|id|>153<|page|>14<|box|>492 142 523 852<|content|>Theodore Huang, Esq. ... com\n<|id|>154<|page|>14<|box|>525 142 559 852<|content|>Attorneys for Defendants/Counterclaim Plaintiffs Triton Harbor Industries, LLC, Marcus J. ... Kappel\n<|id|>155<|page|>14<|box|>559 143 574 334<|content|>Date: ... December 20, 2024\n<|id|>165<|page|>14<|box|>915 140 929 694<|content|>STIPULATED PROTECTIVE ORDER GOVERNING CONFIDENTIAL DISCOVERY MATERIALS\n<|id|>167<|page|>15<|box|>90 142 108 383<|content|>Business Address: ... Business Address",
+    "raw_response": "<|src_id|>16<|tgt_id|>17\n<|src_id|>104<|tgt_id|>105\n<|src_id|>129<|tgt_id|>130",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 130
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        48,
+        63
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        58,
+        60,
+        61,
+        62,
+        63
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>559<|type|>title<|page|>48<|box|>90 397 109 599<|content|>SCHEDULE 1.01(a)\n<|id|>560<|type|>table<|page|>48<|box|>160 143 268 852<|content|>None\n<|id|>561<|type|>title<|page|>49<|box|>90 408 109 588<|content|>SCHEDULE 2.02\n<|id|>562<|type|>title<|page|>49<|box|>136 142 152 341<|content|>WIRE INSTRUCTIONS\n<|id|>563<|type|>title<|page|>49<|box|>167 143 184 380<|content|>1. Borrower Funding Account\n<|id|>565<|type|>title<|page|>49<|box|>258 140 276 472<|content|>2. Administrative Agent Funding Account\n<|id|>567<|type|>title<|page|>50<|box|>90 408 109 588<|content|>SCHEDULE 3.09\n<|id|>568<|type|>title<|page|>50<|box|>136 142 152 277<|content|>SUBSIDIARIES\n<|id|>576<|type|>title<|page|>51<|box|>90 408 109 588<|content|>SCHEDULE 3.10\n<|id|>577<|type|>title<|page|>51<|box|>136 142 152 281<|content|>TAX MATTERS\n<|id|>585<|type|>title<|page|>52<|box|>90 408 109 588<|content|>SCHEDULE 5.10\n<|id|>586<|type|>title<|page|>52<|box|>136 142 152 418<|content|>POST-CLOSING OBLIGATIONS\n<|id|>598<|type|>title<|page|>53<|box|>90 410 109 586<|content|>SCHEDULE 6.01\n<|id|>599<|type|>title<|page|>53<|box|>136 142 152 380<|content|>EXISTING INDEBTEDNESS\n<|id|>605<|type|>title<|page|>54<|box|>90 408 109 588<|content|>SCHEDULE 6.02\n<|id|>606<|type|>title<|page|>54<|box|>135 142 152 295<|content|>EXISTING LIENS\n<|id|>612<|type|>title<|page|>55<|box|>90 434 109 563<|content|>EXHIBIT A\n<|id|>613<|type|>title<|page|>55<|box|>136 142 152 447<|content|>FORM OF BORROWING REQUEST\n<|id|>628<|type|>title<|page|>56<|box|>90 436 109 562<|content|>EXHIBIT B\n<|id|>629<|type|>title<|page|>56<|box|>136 142 152 493<|content|>FORM OF COMPLIANCE CERTIFICATE\n<|id|>639<|type|>table<|page|>56<|box|>625 143 739 852<|content|>None\n<|id|>645<|type|>title<|page|>58<|box|>90 434 109 562<|content|>EXHIBIT C\n<|id|>646<|type|>title<|page|>58<|box|>136 142 152 527<|content|>FORM OF ASSIGNMENT AND ASSUMPTION\n<|id|>649<|type|>table<|page|>58<|box|>359 143 434 852<|content|>None\n<|id|>671<|type|>title<|page|>60<|box|>89 434 111 563<|content|>EXHIBIT D\n<|id|>672<|type|>title<|page|>60<|box|>135 140 152 468<|content|>FORM OF SOLVENCY CERTIFICATE\n<|id|>692<|type|>title<|page|>61<|box|>90 434 109 562<|content|>EXHIBIT E\n<|id|>693<|type|>title<|page|>61<|box|>136 142 152 415<|content|>FORM OF PROMISSORY NOTE\n<|id|>704<|type|>title<|page|>62<|box|>89 437 109 560<|content|>EXHIBIT F\n<|id|>705<|type|>title<|page|>62<|box|>136 142 152 442<|content|>FORM OF JOINDER AGREEMENT\n<|id|>706<|type|>title<|page|>62<|box|>167 140 184 447<|content|>(Guarantee and Collateral Agreement)\n<|id|>721<|type|>title<|page|>63<|box|>90 385 109 611<|content|>SIGNATURE PAGES",
+    "raw_response": "<|src_id|>560<|tgt_id|>559\n<|src_id|>639<|tgt_id|>629\n<|src_id|>649<|tgt_id|>646",
+    "parsed": [
+        {
+            "src_id": 560,
+            "tgt_id": 559
+        },
+        {
+            "src_id": 639,
+            "tgt_id": 629
+        },
+        {
+            "src_id": 649,
+            "tgt_id": 646
+        }
+    ]
+}

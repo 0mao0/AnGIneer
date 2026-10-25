@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 305 133 692<|content|>599 Lexington Avenue New York, New York 10022\n<|id|>2<|page|>1<|box|>142 140 181 813<|content|>Telephone: ... com DRAFT — SUBJECT TO REVISION\n<|id|>4<|page|>1<|box|>215 633 233 854<|content|>C&H Matter No. ... 1015-00001\n<|id|>3<|page|>1<|box|>190 774 208 854<|content|>[__], 2022\n<|id|>5<|page|>1<|box|>242 140 258 818<|content|>Calloway-Briggs Renewables Inc. ... 4200 Ridgeline Parkway, Suite 1100 Austin, Texas 78746\n<|id|>6<|page|>1<|box|>268 176 285 687<|content|>Attention: ... Sandra Haverford, General Counsel & Corporate Secretary\n<|id|>7<|page|>1<|box|>285 176 320 854<|content|>Re: ... Federal Income Tax Consequences to Holders of Common Stock\n<|id|>8<|page|>1<|box|>329 142 345 315<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>88<|page|>8<|box|>779 174 907 857<|content|>(iii) USRPHC Status. ... A corporation is a USRPHC...erests in real property located outside the United\n<|id|>89<|page|>9<|box|>90 174 127 854<|content|>States, and (z) its other assets used or held for ...2) of the Code and applicable Treasury Regulations\n<|id|>118<|page|>12<|box|>388 140 404 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>119<|page|>12<|box|>407 143 422 251<|content|>By: ... By\n<|id|>120<|page|>12<|box|>424 142 439 308<|content|>Name: ... Leonard Cross\n<|id|>121<|page|>12<|box|>440 142 457 356<|content|>Title: ... Specialist Partner, Tax\n<|id|>122<|page|>12<|box|>459 142 476 266<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>88<|tgt_id|>89",
+    "parsed": [
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        }
+    ]
+}

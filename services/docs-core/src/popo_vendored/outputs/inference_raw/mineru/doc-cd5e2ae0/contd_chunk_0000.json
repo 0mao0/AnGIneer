@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        24
+    ],
+    "pages": [
+        4,
+        5,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>35<|page|>4<|box|>864 140 900 854<|content|>A threshold question for the U. ... (i) integration with the\n<|id|>36<|page|>5<|box|>90 140 143 856<|content|>Notes as a single financial instrument, or (ii) tr...x treatment of both the Notes and the capped calls\n<|id|>169<|page|>23<|box|>785 140 877 857<|content|>Mitigation: ... This is a standard ISDA provision (Section 5(b)(ii) of the 2002 Master\n<|id|>170<|page|>24<|box|>90 140 127 854<|content|>Agreement already addresses \"Illegality,\" and the ...t this with a broader \"Regulatory Change\" trigger)",
+    "raw_response": "<|src_id|>35<|tgt_id|>36\n<|src_id|>169<|tgt_id|>170",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 170
+        }
+    ]
+}

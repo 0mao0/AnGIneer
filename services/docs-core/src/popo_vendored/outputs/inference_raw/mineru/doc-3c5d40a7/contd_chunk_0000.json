@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        11,
+        12,
+        13,
+        14,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>446 607 464 854<|content|>Date Served: ... November 21, 2022\n<|id|>4<|page|>1<|box|>507 138 765 857<|content|>Plaintiff Optiwave Semiconductor Corp. ... \"\n<|id|>30<|page|>3<|box|>854 140 890 856<|content|>Instruction No. ... Documents designated as \"Confi...all be produced and handled in accordance with the\n<|id|>31<|page|>4<|box|>89 140 125 854<|content|>Stipulated Protective Order entered by the Court on September 12, 2022 (Dkt. ... 47) in this action\n<|id|>71<|page|>6<|box|>916 140 930 464<|content|>CONFIDENTIAL — Subject to Stipulated Protective Order\n<|id|>72<|page|>7<|box|>90 140 164 854<|content|>All documents concerning prototypes, engineering s... or pre-production units to final production units\n<|id|>148<|page|>11<|box|>875 140 909 854<|content|>All documents concerning any prior art not yet ide... of the Asserted Patents under 35 U. ... §§ 102 or\n<|id|>149<|page|>12<|box|>90 140 125 854<|content|>103, including any prior art patents, printed publ..., systems, methods, processes, or other references\n<|id|>180<|page|>13<|box|>916 140 930 464<|content|>CONFIDENTIAL — Subject to Stipulated Protective Order\n<|id|>181<|page|>14<|box|>90 140 162 856<|content|>All documents concerning any patent infringement c...aims, settlement agreements, and consent judgments\n<|id|>269<|page|>19<|box|>678 653 695 854<|content|>Dated: ... November 21, 2022\n<|id|>270<|page|>19<|box|>704 176 722 354<|content|>Respectfully submitted,\n<|id|>271<|page|>19<|box|>729 176 746 467<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>272<|page|>20<|box|>89 140 174 852<|content|>Omar Siddiqui California State Bar No. ... CERTIFICATE OF SERVICE\n<|id|>273<|page|>20<|box|>184 140 257 856<|content|>I, Omar Siddiqui, hereby certify that on November ...ia electronic mail and FedEx, addressed as follows\n<|id|>274<|page|>20<|box|>263 174 299 852<|content|>Victoria Ashworth Daniel Kowalski Brannick Howell ...Street, Suite 2800 San Francisco, California 94104\n<|id|>275<|page|>20<|box|>308 176 344 477<|content|>Email: ... com\n<|id|>276<|page|>20<|box|>378 140 412 256<|content|>By: ... Omar Siddiqui",
+    "raw_response": "<|src_id|>30<|tgt_id|>31\n<|src_id|>148<|tgt_id|>149",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 149
+        }
+    ]
+}

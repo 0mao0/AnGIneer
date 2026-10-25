@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 258 118 738<|content|>FORM OF COMMON STOCK CERTIFICATE\n<|id|>1<|type|>title<|page|>1<|box|>137 279 156 717<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>4<|type|>title<|page|>1<|box|>299 331 318 665<|content|>CERTIFICATE FACE (FRONT)\n<|id|>5<|type|>title<|page|>1<|box|>335 447 353 550<|content|>SPECIMEN\n<|id|>9<|type|>title<|page|>1<|box|>455 325 472 671<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>10<|type|>title<|page|>1<|box|>481 297 500 699<|content|>Incorporated Under the Laws of the State of Delawa\n<|id|>11<|type|>title<|page|>1<|box|>506 161 542 834<|content|>AUTHORIZED COMMON STOCK: 400,000,000 SHARES, PAR V\n<|id|>27<|type|>title<|page|>2<|box|>800 315 819 681<|content|>CERTIFICATE REVERSE (BACK)\n<|id|>28<|type|>title<|page|>2<|box|>845 143 861 269<|content|>ASSIGNMENT\n<|id|>30<|type|>title<|page|>3<|box|>89 178 108 653<|content|>[Insert Social Security or Other Identifying Numbe\n<|id|>39<|type|>title<|page|>3<|box|>773 142 790 235<|content|>LEGENDS\n<|id|>41<|type|>title<|page|>3<|box|>848 142 864 480<|content|>LEGEND 1: SECURITIES ACT LEGEND\n<|id|>45<|type|>title<|page|>4<|box|>323 140 339 413<|content|>LEGEND 2: LOCK-UP LEGEND\n<|id|>50<|type|>title<|page|>5<|box|>229 140 247 661<|content|>LEGEND 3: CHARTER AND BYLAWS REFERENCE LEGEND\n<|id|>52<|type|>title<|page|>5<|box|>449 140 465 493<|content|>LEGEND 4: SECTION 203 DGCL NOTICE\n<|id|>54<|type|>title<|page|>6<|box|>89 142 106 558<|content|>GENERAL LEGEND REMOVAL INSTRUCTIONS\n<|id|>64<|type|>title<|page|>6<|box|>825 261 845 735<|content|>ADDITIONAL INSTRUCTIONS AND NOTES\n<|id|>66<|type|>title<|page|>7<|box|>90 142 107 364<|content|>Transfer Agent Instructions\n<|id|>73<|type|>title<|page|>8<|box|>90 142 107 364<|content|>Book-Entry / DTC Notation\n<|id|>77<|type|>title<|page|>8<|box|>446 143 464 316<|content|>Applicable Identifiers\n<|id|>78<|type|>table<|page|>8<|box|>515 143 847 852<|content|>None",
+    "raw_response": "<|src_id|>78<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 78,
+            "tgt_id": 77
+        }
+    ]
+}

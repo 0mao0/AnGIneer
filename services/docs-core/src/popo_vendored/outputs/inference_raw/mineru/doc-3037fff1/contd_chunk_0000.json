@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        23
+    ],
+    "pages": [
+        2,
+        3,
+        16,
+        17,
+        21,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>2<|box|>366 174 402 854<|content|>(2) [●], a Delaware corporation and a wholly owned subsidiary of the Buyer (\"Merger Sub\"); ... and\n<|id|>9<|page|>2<|box|>455 140 489 854<|content|>Each of the foregoing is sometimes referred to her... a \"Party\" and collectively as the \"Parties. ... \"\n<|id|>17<|page|>3<|box|>277 140 351 854<|content|>WHEREAS, this Agreement is being entered into as a...his Agreement by the Rollover Shareholder; ... and\n<|id|>18<|page|>3<|box|>359 140 469 856<|content|>WHEREAS, concurrently with the execution and deliv... transactions contemplated by the Merger Agreement\n<|id|>144<|page|>16<|box|>800 174 835 854<|content|>(a) Article VIII (Miscellaneous) shall survive the...e and effect in accordance with its terms; ... and\n<|id|>145<|page|>16<|box|>844 174 900 854<|content|>(b) nothing in this Section 7. ... 2(b), a \"willful and material breach\"\n<|id|>146<|page|>17<|box|>90 174 143 854<|content|>means a material breach of this Agreement that is ...or omission constitutes a breach of this Agreement\n<|id|>155<|page|>17<|box|>847 176 907 284<|content|>[●] Attention: ... [●]\n<|id|>156<|page|>17<|box|>916 143 930 383<|content|>Draft — Subject to Attorney-Client Privilege\n<|id|>184<|page|>21<|box|>321 143 338 334<|content|>[INSERT FUND NAME]\n<|id|>185<|page|>21<|box|>339 143 356 450<|content|>By: ... [Insert GP Name], its General Partner\n<|id|>186<|page|>21<|box|>357 143 375 251<|content|>By: ... By\n<|id|>188<|page|>21<|box|>391 143 407 215<|content|>Title: ... [●]\n<|id|>190<|page|>21<|box|>452 143 468 251<|content|>By: ... By\n<|id|>189<|page|>21<|box|>434 143 450 398<|content|>[INSERT MERGER SUB NAME]\n<|id|>207<|page|>23<|box|>205 140 243 856<|content|>Type of Interest: ... , Class A Limited Partnershi...Class A Membership Interest / Common Equity Units]\n<|id|>208<|page|>23<|box|>250 140 287 854<|content|>Issuing Entity: ... [Insert name of the Surviving ...he laws of the State of [●] (the \"Issuing Entity\")",
+    "raw_response": "<|src_id|>145<|tgt_id|>146",
+    "parsed": [
+        {
+            "src_id": 145,
+            "tgt_id": 146
+        }
+    ]
+}

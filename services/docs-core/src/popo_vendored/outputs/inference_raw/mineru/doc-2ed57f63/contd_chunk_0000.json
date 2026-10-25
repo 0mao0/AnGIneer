@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        11,
+        14,
+        15,
+        22,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>448 383 465 612<|content|>Date of Brief: ... August 30, 2023\n<|id|>5<|page|>1<|box|>474 446 491 552<|content|>Prepared by: ... Prepared by\n<|id|>6<|page|>1<|box|>500 156 534 839<|content|>CALDERWOOD & HARKNESS LLP 555 California Street, 40th Floor San Francisco, CA 94104\n<|id|>7<|page|>1<|box|>544 156 580 839<|content|>Marcus Delgado, Responsible Partner Catherine Bloo...z, Lead Associate Omar Siddiqui, Working Associate\n<|id|>8<|page|>1<|box|>589 151 623 844<|content|>Attorneys for Plaintiff Lumos Analytics Inc. ... 4700 Orchard Parkway, Suite 300 San Jose, CA 95134\n<|id|>9<|page|>1<|box|>631 140 678 854<|content|>THIS MEDIATION BRIEF IS CONFIDENTIAL AND PRIVILEGE...ERMITTED BY CALIFORNIA EVIDENCE CODE § 1119 ET SEQ\n<|id|>91<|page|>11<|box|>128 174 162 854<|content|>4. ... and\n<|id|>93<|page|>11<|box|>184 140 330 856<|content|>Simultaneously with the filing of the Complaint, o...os would suffer absent immediate injunctive relief\n<|id|>127<|page|>14<|box|>851 140 906 857<|content|>Yun later attempted to retract this admission, cla...nsic evidence, which shows that the files found on\n<|id|>128<|page|>15<|box|>90 140 127 854<|content|>NovaSpark's systems bear clear hallmarks of deriva...ing patterns, and identical algorithmic structures\n<|id|>199<|page|>22<|box|>825 140 881 856<|content|>The reputational consequences of a public trial wo...ith its investors — particularly Blackpine Capital\n<|id|>200<|page|>23<|box|>90 140 127 854<|content|>Partners — and its ability to attract future custo...ofessional reputations would suffer commensurately\n<|id|>216<|page|>24<|box|>494 140 508 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>217<|page|>24<|box|>512 143 527 251<|content|>By: ... By\n<|id|>218<|page|>24<|box|>529 142 546 423<|content|>Marcus Delgado, Responsible Partner\n<|id|>219<|page|>24<|box|>547 143 563 253<|content|>By: ... By\n<|id|>220<|page|>24<|box|>563 142 580 388<|content|>Catherine Bloom, Billing Partner\n<|id|>221<|page|>24<|box|>580 143 598 251<|content|>By: ... By\n<|id|>222<|page|>24<|box|>598 143 614 380<|content|>Wendy Schultz, Lead Associate\n<|id|>223<|page|>24<|box|>614 143 632 251<|content|>By: ... By\n<|id|>224<|page|>24<|box|>632 142 648 403<|content|>Omar Siddiqui, Working Associate\n<|id|>225<|page|>24<|box|>648 143 666 573<|content|>555 California Street, 40th Floor San Francisco, CA 94104\n<|id|>226<|page|>24<|box|>667 143 684 468<|content|>Attorneys for Plaintiff Lumos Analytics Inc. ... Attorneys for Plaintiff Lumos Analytics Inc\n<|id|>232<|page|>25<|box|>196 140 213 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>233<|page|>25<|box|>214 143 231 251<|content|>By: ... By",
+    "raw_response": "<|src_id|>127<|tgt_id|>128\n<|src_id|>199<|tgt_id|>200",
+    "parsed": [
+        {
+            "src_id": 127,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 200
+        }
+    ]
+}

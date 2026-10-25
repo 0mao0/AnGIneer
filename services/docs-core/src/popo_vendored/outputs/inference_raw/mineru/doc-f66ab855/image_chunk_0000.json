@@ -1,0 +1,58 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>5<|type|>title<|page|>1<|box|>367 362 383 633<|content|>UCC FINANCING STATEMENT\n<|id|>7<|type|>title<|page|>1<|box|>434 143 450 433<|content|>Box 1 — DEBTOR INFORMATION\n<|id|>8<|type|>table<|page|>1<|box|>486 143 597 852<|content|>None\n<|id|>10<|type|>title<|page|>1<|box|>825 143 843 318<|content|>1b. Individual's Name\n<|id|>12<|type|>table<|page|>2<|box|>111 143 243 852<|content|>None\n<|id|>13<|type|>title<|page|>2<|box|>282 143 299 415<|content|>1d. Additional Debtor Information\n<|id|>14<|type|>table<|page|>2<|box|>303 143 412 852<|content|>None\n<|id|>16<|type|>title<|page|>2<|box|>529 142 547 416<|content|>Box 2 — ADDITIONAL DEBTOR\n<|id|>18<|type|>title<|page|>2<|box|>651 142 669 509<|content|>Box 3 — SECURED PARTY INFORMATION\n<|id|>19<|type|>table<|page|>2<|box|>704 143 743 852<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>90 142 106 318<|content|>3b. Individual's Name\n<|id|>23<|type|>title<|page|>3<|box|>145 142 161 303<|content|>3c. Mailing Address\n<|id|>24<|type|>table<|page|>3<|box|>165 143 279 852<|content|>None\n<|id|>25<|type|>title<|page|>3<|box|>328 143 344 475<|content|>Box 4 — COLLATERAL DESCRIPTION\n<|id|>44<|type|>title<|page|>4<|box|>616 140 633 344<|content|>Pledged Equity Interests:\n<|id|>46<|type|>title<|page|>4<|box|>851 140 869 408<|content|>Reference to Security Agreement:\n<|id|>48<|type|>table<|page|>5<|box|>392 143 488 852<|content|>None\n<|id|>50<|type|>table<|page|>5<|box|>672 143 809 852<|content|>None\n<|id|>52<|type|>title<|page|>6<|box|>89 142 107 614<|content|>Box 7 — FILING OFFICE COPY / ACKNOWLEDGMENT\n<|id|>53<|type|>title<|page|>6<|box|>116 142 133 413<|content|>Return Acknowledgment Copy to:\n<|id|>58<|type|>title<|page|>7<|box|>89 142 106 665<|content|>AUTHORIZED SIGNATURE / FILING PARTY INFORMATION\n<|id|>65<|type|>title<|page|>7<|box|>443 142 459 253<|content|>FILING FEE\n<|id|>67<|type|>title<|page|>7<|box|>604 320 621 676<|content|>CONTEXT NOTE FOR CLOSING BINDER\n<|id|>70<|type|>table<|page|>7<|box|>810 143 904 852<|content|>None\n<|id|>71<|type|>table<|page|>8<|box|>89 143 239 852<|content|>None\n<|id|>73<|type|>title<|page|>8<|box|>390 140 407 364<|content|>Termination of Prior Liens:\n<|id|>75<|type|>title<|page|>8<|box|>625 140 642 506<|content|>Role of the Debtor — CFC Holding Company:",
+    "raw_response": "<|src_id|>8<|tgt_id|>7\n<|src_id|>12<|tgt_id|>10\n<|src_id|>14<|tgt_id|>13\n<|src_id|>19<|tgt_id|>18\n<|src_id|>24<|tgt_id|>23\n<|src_id|>48<|tgt_id|>25\n<|src_id|>50<|tgt_id|>25\n<|src_id|>70<|tgt_id|>65\n<|src_id|>71<|tgt_id|>65",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 65
+        }
+    ]
+}

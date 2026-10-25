@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 151 125 844<|content|>GREYSTONE FEDERAL CREDIT CORP. 200 Park Avenue Sou\n<|id|>13<|type|>title<|page|>1<|box|>585 142 602 333<|content|>1. Introductory Recitals\n<|id|>17<|type|>title<|page|>2<|box|>321 140 339 480<|content|>2. Confirmation of Receipt of Payoff Funds\n<|id|>20<|type|>table<|page|>2<|box|>488 143 750 852<|content|>None\n<|id|>22<|type|>title<|page|>3<|box|>223 140 239 357<|content|>3. Discharge of Obligations\n<|id|>28<|type|>title<|page|>4<|box|>90 140 107 465<|content|>4. Release of Security Interests and Liens\n<|id|>37<|type|>title<|page|>5<|box|>148 140 167 477<|content|>5. Authorization to File Lien Terminations\n<|id|>45<|type|>title<|page|>6<|box|>377 140 393 348<|content|>6. No Further Obligations\n<|id|>48<|type|>title<|page|>6<|box|>671 140 688 517<|content|>7. Return and Cancellation of Promissory Notes\n<|id|>50<|type|>title<|page|>7<|box|>90 140 107 276<|content|>8. Miscellaneous\n<|id|>55<|type|>title<|page|>7<|box|>531 400 549 596<|content|>[Signature Page Follows]\n<|id|>56<|type|>title<|page|>7<|box|>556 267 574 728<|content|>[Signature Page to Confirmation of Payoff and Rele",
+    "raw_response": "<|src_id|>20<|tgt_id|>17",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        }
+    ]
+}

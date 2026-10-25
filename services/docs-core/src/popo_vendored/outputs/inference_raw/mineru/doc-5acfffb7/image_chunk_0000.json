@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>152 140 169 527<|content|>VIA SECURE ELECTRONIC TRANSMISSION\n<|id|>12<|type|>title<|page|>1<|box|>720 140 738 555<|content|>I. Regulatory — TCEQ Voluntary Cleanup Program\n<|id|>13<|type|>title<|page|>1<|box|>751 140 768 356<|content|>A. VCP Application Status\n<|id|>25<|type|>title<|page|>2<|box|>676 140 693 318<|content|>B. APAR Preparation\n<|id|>40<|type|>title<|page|>4<|box|>306 140 324 390<|content|>C. Anticipated VCP Milestones\n<|id|>42<|type|>table<|page|>4<|box|>373 143 503 852<|content|>None\n<|id|>45<|type|>title<|page|>4<|box|>733 140 750 655<|content|>II. Site Access — Negotiations with Calera Propert\n<|id|>46<|type|>title<|page|>4<|box|>763 142 781 346<|content|>A. Background on Calera\n<|id|>51<|type|>title<|page|>5<|box|>429 142 446 517<|content|>B. Draft Site Access & Cost-Sharing Agreement\n<|id|>63<|type|>title<|page|>6<|box|>786 140 803 598<|content|>III. Cost Recovery — Rowan Creek Fuel Distributors\n<|id|>64<|type|>title<|page|>6<|box|>816 142 833 305<|content|>A. Pre-Suit Demand\n<|id|>67<|type|>title<|page|>7<|box|>233 176 250 633<|content|>RCFD's Allocated Share of Remediation Costs: $4,26\n<|id|>79<|type|>title<|page|>8<|box|>90 140 107 297<|content|>B. RCFD Response\n<|id|>85<|type|>title<|page|>8<|box|>675 140 691 372<|content|>C. Recommended Next Steps\n<|id|>94<|type|>title<|page|>10<|box|>90 142 107 256<|content|>IV. Insurance\n<|id|>95<|type|>title<|page|>10<|box|>121 140 138 408<|content|>A. Bridgemont PLL Policy Notice\n<|id|>106<|type|>title<|page|>10<|box|>840 142 858 338<|content|>B. Historic CGL Policies\n<|id|>110<|type|>title<|page|>11<|box|>329 140 347 352<|content|>V. Budget and Fee Update\n<|id|>111<|type|>title<|page|>11<|box|>361 143 378 316<|content|>A. Engagement Team\n<|id|>112<|type|>table<|page|>11<|box|>407 143 502 852<|content|>None\n<|id|>114<|type|>title<|page|>11<|box|>622 142 638 338<|content|>B. Fees Incurred to Date\n<|id|>117<|type|>title<|page|>11<|box|>848 140 866 478<|content|>C. Projected Fees Through Year-End 2025\n<|id|>125<|type|>title<|page|>12<|box|>636 142 652 334<|content|>D. Overall Fee Estimate\n<|id|>129<|type|>title<|page|>13<|box|>213 140 229 357<|content|>E. Retainer Replenishment\n<|id|>132<|type|>title<|page|>13<|box|>503 140 522 464<|content|>VI. Next Steps and Upcoming Milestones",
+    "raw_response": "<|src_id|>42<|tgt_id|>40\n<|src_id|>112<|tgt_id|>111",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 111
+        }
+    ]
+}

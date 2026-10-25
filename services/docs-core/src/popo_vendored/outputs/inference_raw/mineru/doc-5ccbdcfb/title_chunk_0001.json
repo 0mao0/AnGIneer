@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        53
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        50,
+        51,
+        52,
+        53
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>358<|page|>45<|box|>138 140 157 517<|content|>Document A-02: Conflicts Check Memorandum\n<|id|>361<|page|>45<|box|>348 140 364 609<|content|>Document A-03: Fee Arrangement & Budget Memorandum\n<|id|>364<|page|>45<|box|>556 140 573 668<|content|>Document A-04: Retainer Acknowledgment Letter — BR\n<|id|>367<|page|>46<|box|>90 140 107 514<|content|>Document A-05: Staffing Plan & Rate Schedule\n<|id|>370<|page|>46<|box|>299 140 316 700<|content|>Document A-06: Memorandum on Selection of Independ\n<|id|>373<|page|>46<|box|>544 140 560 640<|content|>Document A-07: Memorandum on OCC Non-Objection Pro\n<|id|>376<|page|>46<|box|>750 227 768 769<|content|>Section 5: Document Version Control and Change Log\n<|id|>377<|page|>46<|box|>792 140 809 393<|content|>5.1 Version Control Procedures\n<|id|>385<|page|>47<|box|>633 166 654 830<|content|>Section 6: Upcoming Document Milestones and Expect\n<|id|>386<|page|>47<|box|>679 140 696 424<|content|>6.1 Anticipated Version 2.0 Updates\n<|id|>392<|page|>48<|box|>421 140 438 524<|content|>6.2 Target Dates for Key Document Finalizations\n<|id|>402<|page|>50<|box|>90 326 111 669<|content|>Section 7: Distribution and Access\n<|id|>403<|page|>50<|box|>136 142 152 305<|content|>7.1 Distribution List\n<|id|>413<|page|>51<|box|>523 140 540 495<|content|>7.2 Privilege and Confidentiality Restrictions\n<|id|>422<|page|>52<|box|>386 279 405 717<|content|>Section 8: Total Document Count Summary\n<|id|>426<|page|>53<|box|>159 140 174 457<|content|>CONFIDENTIAL TREATMENT REQUESTED",
+    "raw_response": "<|id|>358<|level|>1\n<|id|>361<|level|>1\n<|id|>364<|level|>1\n<|id|>367<|level|>1\n<|id|>370<|level|>1\n<|id|>373<|level|>1\n<|id|>376<|level|>1\n<|id|>377<|level|>2\n<|id|>385<|level|>1\n<|id|>386<|level|>2\n<|id|>392<|level|>2\n<|id|>402<|level|>1\n<|id|>403<|level|>2\n<|id|>413<|level|>2\n<|id|>422<|level|>1\n<|id|>426<|level|>-1",
+    "parsed": [
+        {
+            "id": 358,
+            "level": 1
+        },
+        {
+            "id": 361,
+            "level": 1
+        },
+        {
+            "id": 364,
+            "level": 1
+        },
+        {
+            "id": 367,
+            "level": 1
+        },
+        {
+            "id": 370,
+            "level": 1
+        },
+        {
+            "id": 373,
+            "level": 1
+        },
+        {
+            "id": 376,
+            "level": 1
+        },
+        {
+            "id": 377,
+            "level": 2
+        },
+        {
+            "id": 385,
+            "level": 1
+        },
+        {
+            "id": 386,
+            "level": 2
+        },
+        {
+            "id": 392,
+            "level": 2
+        },
+        {
+            "id": 402,
+            "level": 1
+        },
+        {
+            "id": 403,
+            "level": 2
+        },
+        {
+            "id": 413,
+            "level": 2
+        },
+        {
+            "id": 422,
+            "level": 1
+        }
+    ]
+}

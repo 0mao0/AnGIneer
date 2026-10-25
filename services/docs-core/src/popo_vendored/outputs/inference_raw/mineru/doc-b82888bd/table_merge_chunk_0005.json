@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['5.1.2', 'Has the vendor provided its most recent SOC 2 Type II report (Trust Services Criteria: Security, Availability, Processing Integrity, Confidentiality, and Privacy)? Review', '', '', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'the report for scope, period covered, criteria, test results, and any exceptions or qualifications. Identify any exceptions that affect the security, availability, or confidentiality of BRB data.', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 152,
+    "table2_idx": 153
+}

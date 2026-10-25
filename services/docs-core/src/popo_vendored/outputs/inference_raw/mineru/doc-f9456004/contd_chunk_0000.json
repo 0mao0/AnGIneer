@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        7
+    ],
+    "pages": [
+        4,
+        5,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>39<|page|>4<|box|>815 140 906 857<|content|>(b) The Tenant has obtained all requisite permits,...rovals may be required in connection with Tenant's\n<|id|>40<|page|>5<|box|>90 140 143 854<|content|>Work (as defined in the Work Letter Agreement) and...e course in accordance with the terms of the Lease\n<|id|>66<|page|>7<|box|>330 142 345 367<|content|>Name: ... Castellano\n<|id|>67<|page|>7<|box|>348 140 364 529<|content|>Title: ... Executive Vice President and General Counsel\n<|id|>68<|page|>7<|box|>364 142 381 303<|content|>Date: ... August 1, 2023\n<|id|>69<|page|>7<|box|>382 140 441 854<|content|>Prepared by Calderwood & Harkness LLP, 425 Park Av...d herein as entitled to rely upon this Certificate",
+    "raw_response": "<|src_id|>39<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ]
+}

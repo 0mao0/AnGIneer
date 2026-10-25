@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        9,
+        11,
+        12,
+        16,
+        17,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>229 140 284 854<|content|>From: ... Calderwood & Harkness LLP — Energy & Inf...e Reviewed by George Trujillo, Responsible Partner\n<|id|>4<|page|>1<|box|>292 140 364 854<|content|>To: ... Winfield, CEO & President, Ridgeline Midst...ing & Operations, Ridgeline Midstream Services LLC\n<|id|>5<|page|>1<|box|>373 142 390 295<|content|>Date: ... October 2022\n<|id|>6<|page|>1<|box|>398 140 435 854<|content|>Re: ... Survey of FERC Precedent on Interconnectio... / Appalachian Trunk Pipeline Company, LLC Dispute\n<|id|>7<|page|>1<|box|>441 140 460 379<|content|>C&H Matter No. ... 1016-00005\n<|id|>8<|page|>1<|box|>468 140 487 733<|content|>FERC Docket Nos. ... RP22-847-001 (interconnection)\n<|id|>9<|page|>1<|box|>494 142 511 408<|content|>Right-click to update Table of Contents\n<|id|>40<|page|>4<|box|>854 140 909 854<|content|>On August 15, 2022, ATPC, through its counsel Kell...tation design. ... CMGA, through Fordham Municipal\n<|id|>41<|page|>5<|box|>90 140 127 854<|content|>Law Group PC (Stephen Greer, lead counsel), also f...ons were granted by order dated September 22, 2022\n<|id|>72<|page|>8<|box|>768 138 897 857<|content|>The Commission's Certificate Policy Statement, 88 ...nstruction and major system modifications. ... The\n<|id|>73<|page|>9<|box|>90 140 145 854<|content|>Commission's inquiry in certificate proceedings ex...ld be unfairly burdened by the proposed allocation\n<|id|>96<|page|>11<|box|>750 138 898 857<|content|>These factors are largely absent in the Ridgeline/...ng the receipt-point function of the Wetzel County\n<|id|>97<|page|>12<|box|>90 140 145 854<|content|>Interconnect on Ridgeline's pipeline. ... ATPC's 5... contested proceeding, not arms-length negotiation\n<|id|>132<|page|>16<|box|>760 138 888 857<|content|>Second, ATPC argues that Ridgeline's cost allocati...operly shifts\" $14. ... To allocate these costs to\n<|id|>133<|page|>17<|box|>90 140 127 854<|content|>Ridgeline's shippers would be the actual improper ...C's system that primarily benefit ATPC's customers\n<|id|>180<|page|>24<|box|>715 142 732 320<|content|>Respectfully submitted,\n<|id|>181<|page|>24<|box|>733 142 750 720<|content|>CALDERWOOD & HARKNESS LLP Energy & Infrastructure Practice Group\n<|id|>182<|page|>24<|box|>751 143 767 251<|content|>By: ... By\n<|id|>183<|page|>24<|box|>768 143 784 372<|content|>Brett Callahan, Lead Associate\n<|id|>184<|page|>24<|box|>785 143 801 253<|content|>By: ... By\n<|id|>185<|page|>24<|box|>801 143 819 400<|content|>David Stanton, Working Associate\n<|id|>186<|page|>24<|box|>820 143 835 357<|content|>Reviewed and Approved By: ... Reviewed and Approved By\n<|id|>188<|page|>24<|box|>854 143 871 415<|content|>George Trujillo, Responsible Partner\n<|id|>189<|page|>24<|box|>872 143 887 290<|content|>Date: ... October 2022\n<|id|>190<|page|>25<|box|>89 140 133 854<|content|>Calderwood & Harkness LLP | 1601 K Street NW, Suit...RIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT",
+    "raw_response": "<|src_id|>40<|tgt_id|>41\n<|src_id|>72<|tgt_id|>73\n<|src_id|>96<|tgt_id|>97\n<|src_id|>132<|tgt_id|>133",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        }
+    ]
+}

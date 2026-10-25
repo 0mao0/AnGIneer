@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>377 140 393 339<|content|>I. Purpose of This Letter\n<|id|>11<|page|>1<|box|>689 140 707 426<|content|>II. Acknowledgment of Intervention\n<|id|>15<|page|>2<|box|>267 140 284 387<|content|>III. Background on the Protest\n<|id|>26<|page|>3<|box|>383 140 402 612<|content|>IV. Protester's Position on Scope of Intervenor Pa\n<|id|>27<|page|>3<|box|>415 142 433 405<|content|>A. General Right of Participation\n<|id|>29<|page|>3<|box|>579 140 597 653<|content|>B. Access to Protected Material and Anticipated Pr\n<|id|>35<|page|>4<|box|>502 140 518 552<|content|>C. Limitations on Scope of Intervenor's Submission\n<|id|>38<|page|>4<|box|>801 140 819 303<|content|>D. Service of Filings\n<|id|>44<|page|>5<|box|>248 140 263 449<|content|>V. Identification of Protester's Counsel\n<|id|>48<|page|>5<|box|>457 140 474 344<|content|>VI. Service of This Letter\n<|id|>59<|page|>6<|box|>136 142 148 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>11<|level|>2\n<|id|>15<|level|>2\n<|id|>26<|level|>2\n<|id|>27<|level|>3\n<|id|>29<|level|>3\n<|id|>35<|level|>3\n<|id|>38<|level|>3\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>59<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,175 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-frsiiw0j\\input\\pdfs\\doc-702a0934.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-frsiiw0j\\enriched\\doc-702a0934.json",
+    "contd_output": "<|src_id|>68<|tgt_id|>69",
+    "title_output": "<|id|>1<|level|>1\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>16<|level|>3\n<|id|>19<|level|>3\n<|id|>21<|level|>4\n<|id|>30<|level|>4\n<|id|>42<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>52<|level|>3\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>60<|level|>3\n<|id|>64<|level|>3\n<|id|>70<|level|>3\n<|id|>75<|level|>3\n<|id|>83<|level|>2\n<|id|>84<|level|>3\n<|id|>95<|level|>3\n<|id|>102<|level|>3\n<|id|>105<|level|>2\n<|id|>111<|level|>2\n<|id|>119<|level|>2\n<|id|>127<|level|>2",
+    "image_output": "<|src_id|>43<|tgt_id|>42\n<|src_id|>44<|tgt_id|>42\n<|src_id|>50<|tgt_id|>49\n<|src_id|>51<|tgt_id|>49\n<|src_id|>62<|tgt_id|>60",
+    "contd_label": [
+        {
+            "src_id": 68,
+            "tgt_id": 69
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 4
+        },
+        {
+            "id": 30,
+            "level": 4
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 43,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 43,
+            "table2_idx": 44,
+            "upper_row_ss": [
+                [
+                    "Import VAT on increased customs value (€9,940,000 × 24%)",
+                    "2,385,600"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Subtotal: Import VAT adjustments",
+                    "2,740,416"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 50,
+            "table2_idx": 51,
+            "upper_row_ss": [
+                [
+                    "Applicable Sublimit",
+                    "Customs & Excise Duty Disputes — €3,000,000 (per"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Policy Section 3.2(d))"
+                ]
+            ]
+        }
+    ]
+}

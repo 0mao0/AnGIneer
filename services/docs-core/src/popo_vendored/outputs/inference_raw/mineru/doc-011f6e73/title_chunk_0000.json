@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 197 141 797<|content|>UNANIMOUS WRITTEN CONSENT OF THE BOARD OF DIRECTOR\n<|id|>5<|page|>1<|box|>479 140 496 243<|content|>RECITALS\n<|id|>18<|page|>3<|box|>329 142 345 279<|content|>RESOLUTIONS\n<|id|>19<|page|>3<|box|>361 142 378 441<|content|>1. Approval of the Merger Agreement\n<|id|>21<|page|>3<|box|>579 140 597 635<|content|>2. Authorization to Execute and Deliver the Merger\n<|id|>23<|page|>3<|box|>781 140 797 351<|content|>3. Approval of the Merger\n<|id|>25<|page|>4<|box|>231 140 250 457<|content|>4. Approval of the Certificate of Merger\n<|id|>27<|page|>4<|box|>431 140 449 455<|content|>5. Recommendation to Sole Stockholder\n<|id|>29<|page|>4<|box|>595 140 614 557<|content|>6. Approval of Ancillary Agreements and Documents\n<|id|>39<|page|>5<|box|>470 142 489 408<|content|>7. Approval of Regulatory Filings\n<|id|>47<|page|>6<|box|>319 140 335 362<|content|>8. Authorization of Officers\n<|id|>49<|page|>6<|box|>648 140 665 387<|content|>9. Ratification of Prior Actions\n<|id|>51<|page|>6<|box|>811 142 829 318<|content|>10. General Authority\n<|id|>53<|page|>7<|box|>148 140 166 410<|content|>EFFECTIVENESS AND FILING\n<|id|>57<|page|>7<|box|>435 163 470 833<|content|>SIGNATURE PAGE TO UNANIMOUS WRITTEN CONSENT OF THE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>25<|level|>3\n<|id|>27<|level|>3\n<|id|>29<|level|>3\n<|id|>39<|level|>3\n<|id|>47<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>3\n<|id|>53<|level|>2\n<|id|>57<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        }
+    ]
+}

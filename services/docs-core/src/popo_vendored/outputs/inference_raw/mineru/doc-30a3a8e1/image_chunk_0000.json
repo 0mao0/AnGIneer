@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        3,
+        16
+    ],
+    "pages": [
+        3,
+        11,
+        14,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>19<|type|>title<|page|>3<|box|>86 87 102 687<|content|>Line No. Source DesProvider ReferenceAmount ($Wire\n<|id|>34<|type|>table<|page|>11<|box|>85 85 404 873<|content|>None\n<|id|>52<|type|>title<|page|>14<|box|>86 87 102 295<|content|>ItemAmount ($Notes\n<|id|>64<|type|>title<|page|>16<|box|>86 87 101 258<|content|>Note No. Description",
+    "raw_response": "<|src_id|>34<|tgt_id|>19",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 19
+        }
+    ]
+}

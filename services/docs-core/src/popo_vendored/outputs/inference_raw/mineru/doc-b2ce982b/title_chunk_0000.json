@@ -1,0 +1,145 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 387 118 609<|content|>AMENDMENT NO. 1\n<|id|>2<|page|>1<|box|>175 191 196 805<|content|>AMENDED AND RESTATED RIGHT OF FIRST REFUSAL\n<|id|>3<|page|>1<|box|>214 339 234 658<|content|>AND CO-SALE AGREEMENT\n<|id|>15<|page|>2<|box|>89 140 107 243<|content|>RECITALS\n<|id|>22<|page|>2<|box|>707 142 724 243<|content|>ARTICLE 1\n<|id|>23<|page|>2<|box|>748 142 765 573<|content|>AMENDMENTS TO THE ORIGINAL AGREEMENT\n<|id|>24<|page|>2<|box|>773 140 792 535<|content|>Section 1.1 Addition of New Investors as \"Investor\n<|id|>36<|page|>4<|box|>306 140 324 395<|content|>Section 1.3 Right of First Refusal.\n<|id|>40<|page|>4<|box|>704 140 720 348<|content|>Section 1.4 Co-Sale Rights.\n<|id|>44<|page|>5<|box|>289 140 306 366<|content|>Section 1.5 Exempt Transfers.\n<|id|>46<|page|>5<|box|>523 140 541 498<|content|>Section 1.6 Supplemented Schedule of Investors.\n<|id|>52<|page|>6<|box|>329 142 345 245<|content|>ARTICLE 2\n<|id|>53<|page|>6<|box|>369 142 387 415<|content|>JOINDER OF NEW INVESTORS\n<|id|>54<|page|>6<|box|>397 140 412 294<|content|>Section 2.1 Joinder.\n<|id|>56<|page|>6<|box|>650 142 667 596<|content|>Section 2.2 Representations and Warranties of New\n<|id|>65<|page|>7<|box|>454 142 470 245<|content|>ARTICLE 3\n<|id|>66<|page|>7<|box|>494 140 512 308<|content|>MISCELLANEOUS\n<|id|>67<|page|>7<|box|>521 140 539 452<|content|>Section 3.1 Effect on Original Agreement.\n<|id|>69<|page|>7<|box|>719 140 737 403<|content|>Section 3.2 No Other Amendments.\n<|id|>71<|page|>7<|box|>881 140 898 351<|content|>Section 3.3 Governing Law.\n<|id|>73<|page|>8<|box|>152 140 170 473<|content|>Section 3.4 Dispute Resolution; Jurisdiction.\n<|id|>75<|page|>8<|box|>534 140 551 334<|content|>Section 3.5 Counterparts.\n<|id|>77<|page|>8<|box|>714 140 731 367<|content|>Section 3.6 Entire Agreement.\n<|id|>79<|page|>8<|box|>876 142 892 325<|content|>Section 3.7 Severability.\n<|id|>81<|page|>9<|box|>226 142 242 292<|content|>Section 3.8 Notices.\n<|id|>87<|page|>9<|box|>523 169 559 825<|content|>SIGNATURE PAGES TO AMENDMENT NO. 1 TO AMENDED AND\n<|id|>94<|page|>9<|box|>720 143 738 290<|content|>KEY HOLDERS:.\n<|id|>117<|page|>10<|box|>411 142 428 310<|content|>NEW INVESTORS:.\n<|id|>137<|page|>11<|box|>89 447 107 553<|content|>EXHIBIT A\n<|id|>138<|page|>12<|box|>89 300 106 697<|content|>SUPPLEMENTED SCHEDULE OF INVESTORS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>15<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>24<|level|>4\n<|id|>36<|level|>4\n<|id|>40<|level|>4\n<|id|>44<|level|>4\n<|id|>46<|level|>4\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>54<|level|>4\n<|id|>56<|level|>4\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>67<|level|>4\n<|id|>69<|level|>4\n<|id|>71<|level|>4\n<|id|>73<|level|>4\n<|id|>75<|level|>4\n<|id|>77<|level|>4\n<|id|>79<|level|>4\n<|id|>81<|level|>4\n<|id|>87<|level|>2\n<|id|>94<|level|>3\n<|id|>117<|level|>3\n<|id|>137<|level|>2\n<|id|>138<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 4
+        },
+        {
+            "id": 36,
+            "level": 4
+        },
+        {
+            "id": 40,
+            "level": 4
+        },
+        {
+            "id": 44,
+            "level": 4
+        },
+        {
+            "id": 46,
+            "level": 4
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 4
+        },
+        {
+            "id": 56,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 73,
+            "level": 4
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 79,
+            "level": 4
+        },
+        {
+            "id": 81,
+            "level": 4
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        }
+    ]
+}

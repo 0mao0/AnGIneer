@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        117,
+        132
+    ],
+    "pages": [
+        118,
+        121,
+        122,
+        126,
+        132
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>375<|page|>118<|box|>743 12 783 469<|content|>2/ The dollar equivalents of these loans are compu...ying rates. ... Loans executed in units of foreign\n<|id|>377<|page|>118<|box|>761 547 772 697<|content|>Certain other activity. ... Certain other activity\n<|id|>391<|page|>121<|box|>164 9 224 464<|content|>2/ Includes foreign currency assets, representing ... the Agricultural Trade Development and Assistance\n<|id|>392<|page|>121<|box|>100 532 222 963<|content|>Act of 1954, as amended, and the Mutual Security A...reasury sells such currency to Government agencies\n<|id|>450<|page|>122<|box|>596 14 625 466<|content|>12/ Figure for June 30, 1950, conaiats of Alasake ...es service (previously included under Public Works\n<|id|>451<|page|>122<|box|>99 545 284 982<|content|>Administration), preferbriceted housing loans (tra... as amended ((42 U. ... 10657 of February 14, 1956\n<|id|>462<|page|>126<|box|>368 493 588 631<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>464<|page|>132<|box|>41 796 55 893<|content|>1 0032006",
+    "raw_response": "<|src_id|>391<|tgt_id|>392\n<|src_id|>450<|tgt_id|>451",
+    "parsed": [
+        {
+            "src_id": 391,
+            "tgt_id": 392
+        },
+        {
+            "src_id": 450,
+            "tgt_id": 451
+        }
+    ]
+}

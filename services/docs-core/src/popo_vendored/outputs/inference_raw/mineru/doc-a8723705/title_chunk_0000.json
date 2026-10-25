@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>295 374 314 622<|content|>I. Purpose of This Letter\n<|id|>12<|page|>2<|box|>190 346 210 651<|content|>II. Summary of Agreed Terms\n<|id|>14<|page|>2<|box|>327 142 344 477<|content|>Base Compensation and Annual Incentive:\n<|id|>18<|page|>2<|box|>484 142 502 334<|content|>Sign-On Compensation:\n<|id|>21<|page|>2<|box|>787 143 805 380<|content|>Annual Long-Term Incentive:\n<|id|>23<|page|>3<|box|>90 142 107 429<|content|>Total Target Annual Compensation:\n<|id|>25<|page|>3<|box|>209 143 224 308<|content|>Retirement Benefits:\n<|id|>28<|page|>3<|box|>311 143 327 240<|content|>Perquisites:\n<|id|>33<|page|>3<|box|>415 143 431 300<|content|>Employment Term:\n<|id|>35<|page|>3<|box|>497 143 513 367<|content|>Dual-Contract Architecture:\n<|id|>37<|page|>3<|box|>652 142 669 439<|content|>D&O Indemnification and Insurance:\n<|id|>39<|page|>3<|box|>789 142 806 352<|content|>Section 409A Compliance:\n<|id|>41<|page|>3<|box|>872 143 888 310<|content|>Non-Disparagement:\n<|id|>44<|page|>4<|box|>301 176 345 820<|content|>III. Change in Control Severance Provisions — Nort\n<|id|>46<|page|>4<|box|>476 142 494 630<|content|>A. Northgate's Final Proposal on Change in Control\n<|id|>54<|page|>5<|box|>334 140 351 434<|content|>B. Definition of \"Change in Control\"\n<|id|>66<|page|>6<|box|>564 140 582 620<|content|>C. Rationale for 2.5x Multiplier (vs. Harding's De\n<|id|>75<|page|>8<|box|>148 140 167 813<|content|>D. Rationale for Best-Net Cutback (vs. Harding's D\n<|id|>83<|page|>9<|box|>308 173 352 823<|content|>IV. Restrictive Covenant Terms — Northgate's Final\n<|id|>85<|page|>9<|box|>483 142 500 496<|content|>A. Non-Compete: Northgate's Final Proposal\n<|id|>92<|page|>10<|box|>167 140 184 718<|content|>B. Rationale for 18-Month Duration (vs. Harding's\n<|id|>98<|page|>10<|box|>796 140 813 516<|content|>C. Rationale for Geographic and Activity Scope\n<|id|>104<|page|>11<|box|>739 140 757 514<|content|>D. Non-Solicitation: Northgate's Final Proposal\n<|id|>111<|page|>12<|box|>321 142 339 281<|content|>E. Garden Leave\n<|id|>114<|page|>12<|box|>602 334 622 661<|content|>V. Summary of Remaining Gaps\n<|id|>118<|page|>13<|box|>276 285 296 710<|content|>VI. Board's Perspective and Path Forward\n<|id|>123<|page|>14<|box|>90 366 111 630<|content|>VII. Request for Response\n<|id|>127<|page|>14<|box|>426 418 446 580<|content|>VIII. Enclosure\n<|id|>130<|page|>14<|box|>554 403 573 594<|content|>IX. Confidentiality",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>2\n<|id|>41<|level|>2\n<|id|>44<|level|>1\n<|id|>46<|level|>2\n<|id|>54<|level|>2\n<|id|>66<|level|>2\n<|id|>75<|level|>2\n<|id|>83<|level|>1\n<|id|>85<|level|>2\n<|id|>92<|level|>2\n<|id|>98<|level|>2\n<|id|>104<|level|>2\n<|id|>111<|level|>2\n<|id|>114<|level|>1\n<|id|>118<|level|>1\n<|id|>123<|level|>1\n<|id|>127<|level|>1\n<|id|>130<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        }
+    ]
+}

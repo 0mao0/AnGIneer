@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 140 141 810<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>3<|type|>title<|page|>1<|box|>202 140 237 854<|content|>THALASSA SHIPPING & LOGISTICS SA and AEGEAN FORTUN\n<|id|>5<|type|>title<|page|>1<|box|>272 362 289 854<|content|>Index No. 655421/2023 Part 49 (Hon. Lorraine K. Ch\n<|id|>6<|type|>title<|page|>1<|box|>297 163 333 833<|content|>DECLARATION OF DOUGLAS CARMICHAEL IN SUPPORT OF DE\n<|id|>45<|type|>table<|page|>7<|box|>875 143 895 852<|content|>None\n<|id|>46<|type|>table<|page|>8<|box|>89 143 352 852<|content|>None\n<|id|>51<|type|>title<|page|>8<|box|>741 375 758 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>45<|tgt_id|>6\n<|src_id|>46<|tgt_id|>6",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 6
+        }
+    ]
+}

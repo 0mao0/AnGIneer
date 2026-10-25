@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['\"adiabatically coupled\"', '\"Coupled through a gradual, continuous taper designed and configured to prevent excitation of higher-order modes over the entire transition length.\" Markman Order at 12.', \"Lumos's accused products use a segmented taper coupler architecture employing a series of discrete coupling sections (segments) rather than a single gradual, continuous taper. Each segment is a distinct\", 'NOT MET. DISPOSITIVE. The segmented taper is neither \"gradual\" nor \"continuous\" as required by the Court\\'s construction. The discontinuities between segments defeat the requirement of continuity']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'waveguide section with its own width and length parameters, separated by transition discontinuities.See LMPH-000148201 throughLMPH-000148367(coupler design specifications); Lumos 2021 OFC Paper (Dr. Petrov describing the \"segmented mode converter\"); Chen & Liu, J. Photonic Integration, Vol. 14, No. 3, pp. 217-229 (2016) (describing the segmented taper coupler methodology).', '\"over the entire transition length.\"']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 160,
+    "table2_idx": 161
+}

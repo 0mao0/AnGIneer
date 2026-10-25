@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 148 142 849<|content|>RESOLUTIONS OF THE PRICING COMMITTEE OF THE BOARD\n<|id|>4<|type|>title<|page|>1<|box|>343 140 361 243<|content|>RECITALS\n<|id|>12<|type|>title<|page|>2<|box|>428 142 445 336<|content|>RESOLVED CLAUSES\n<|id|>13<|type|>title<|page|>2<|box|>459 140 477 602<|content|>Resolution 1: Approval of Final Pricing Terms of t\n<|id|>27<|type|>title<|page|>3<|box|>715 140 734 573<|content|>Resolution 2: Approval of Optional Redemption Term\n<|id|>32<|type|>title<|page|>4<|box|>311 142 329 723<|content|>Resolution 3: Approval of Initial Purchasers' disc\n<|id|>45<|type|>title<|page|>5<|box|>157 140 175 601<|content|>Resolution 4: Approval of Capped Call Transaction\n<|id|>62<|type|>title<|page|>6<|box|>481 142 498 473<|content|>Resolution 5: Approval of Use of Proceeds\n<|id|>64<|type|>table<|page|>6<|box|>608 143 767 852<|content|>None\n<|id|>70<|type|>title<|page|>7<|box|>465 140 483 679<|content|>Resolution 6: Authorization to Execute Final Trans\n<|id|>87<|type|>title<|page|>8<|box|>823 140 839 346<|content|>Resolution 7: Ratification\n<|id|>89<|type|>title<|page|>9<|box|>194 142 210 364<|content|>Resolution 8: Effective Date\n<|id|>92<|type|>title<|page|>9<|box|>361 400 378 596<|content|>[Signature Page Follows]\n<|id|>93<|type|>title<|page|>9<|box|>386 156 422 838<|content|>SIGNATURE PAGE TO RESOLUTIONS OF THE PRICING COMMI\n<|id|>99<|type|>title<|page|>10<|box|>89 336 210 660<|content|>EXHIBIT A Summary Pricing Term Sheet 2.75% Convert\n<|id|>100<|type|>table<|page|>10<|box|>219 143 878 852<|content|>None",
+    "raw_response": "<|src_id|>64<|tgt_id|>62\n<|src_id|>100<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 99
+        }
+    ]
+}

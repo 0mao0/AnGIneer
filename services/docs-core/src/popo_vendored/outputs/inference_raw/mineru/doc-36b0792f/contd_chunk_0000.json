@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>127 620 143 854<|content|>www. ... com\n<|id|>2<|page|>1<|box|>152 562 169 852<|content|>March 9, 2023 Matter No. ... 1008-00001\n<|id|>3<|page|>1<|box|>178 140 214 854<|content|>Ridgeline National Bank, National Association as A...ington Avenue, 22nd Floor New York, New York 10022\n<|id|>4<|page|>1<|box|>222 140 239 668<|content|>Attention: ... Sarah Whitfield, Senior Vice President, Technology Lending\n<|id|>5<|page|>1<|box|>239 174 313 854<|content|>Re: ... , a Delaware corporation (the \"Borrower\"),...e Agent, Collateral Agent, and sole initial Lender\n<|id|>6<|page|>1<|box|>321 140 338 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>35<|page|>3<|box|>866 174 902 856<|content|>3. ... 4 That each party to the Loan Documents oth...n to duly authorize, execute, and deliver the Loan\n<|id|>36<|page|>4<|box|>90 174 127 854<|content|>Documents to which it is a party, and that the per...each such party have been duly authorized to do so\n<|id|>53<|page|>5<|box|>760 140 888 857<|content|>Each of the Loan Documents to which the Borrower i...rity Agreement were each executed on behalf of the\n<|id|>54<|page|>6<|box|>89 140 127 854<|content|>Borrower by Catherine Lindgren, in her capacity as... authorized signatory in the Officer's Certificate\n<|id|>61<|page|>6<|box|>513 174 680 857<|content|>(c) result in a breach of, or constitute a default...e excluded from the scope of this opinion); ... or\n<|id|>63<|page|>6<|box|>731 140 840 856<|content|>With respect to clause (c) above, we note that our...ny agreement or instrument not so identified to us\n<|id|>70<|page|>7<|box|>849 140 905 856<|content|>No consent, approval, license, permit, authorizati..., delivery, and performance by the Borrower of the\n<|id|>71<|page|>8<|box|>90 140 145 854<|content|>Loan Documents to which it is a party, or for the ...reement and the IP Security Agreement), except for\n<|id|>89<|page|>10<|box|>89 174 164 854<|content|>(b) the laws of the State of California, including...e California statutory and decisional law; ... and\n<|id|>91<|page|>10<|box|>214 138 599 857<|content|>We express no opinion with respect to the laws of ...ty interests by filing with the USPTO and the USCO\n<|id|>96<|page|>10<|box|>804 174 858 854<|content|>(c) the Delaware Good Standing Certificate and the...ications and statements contained therein; ... and\n<|id|>98<|page|>11<|box|>152 140 244 856<|content|>We have not independently verified the accuracy or... opinions expressed herein may be affected thereby\n<|id|>115<|page|>12<|box|>806 174 878 854<|content|>(c) to any prospective assignee or participant of ...e Credit Agreement pursuant to Section 10. ... and\n<|id|>117<|page|>13<|box|>133 140 189 854<|content|>Any person or entity to whom this Opinion is discl...ions, limitations, and exceptions set forth herein\n<|id|>119<|page|>13<|box|>260 140 277 274<|content|>Very truly yours,\n<|id|>120<|page|>13<|box|>285 140 301 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>121<|page|>13<|box|>303 142 319 253<|content|>By: ... By\n<|id|>122<|page|>13<|box|>320 140 335 330<|content|>Name: ... Stephanie Okafor\n<|id|>123<|page|>13<|box|>337 142 353 248<|content|>Title: ... Partner\n<|id|>124<|page|>13<|box|>354 140 386 852<|content|>Calderwood & Harkness LLP 555 Mission Street, Suit...co, California 94105 Telephone: ... (415) 772-6001\n<|id|>125<|page|>13<|box|>388 140 404 457<|content|>Email: ... com\n<|id|>126<|page|>13<|box|>405 140 421 331<|content|>cc: ... Lumos Analytics Inc\n<|id|>127<|page|>13<|box|>430 176 446 511<|content|>Attention: ... Marcus Delaney, General Counsel\n<|id|>128<|page|>13<|box|>446 174 464 645<|content|>2180 Gateway Boulevard, Suite 400 San Jose, California 95110\n<|id|>129<|page|>13<|box|>474 140 489 401<|content|>cc: ... Whitmore Graves & Fitch LLP\n<|id|>130<|page|>13<|box|>500 174 516 470<|content|>Attention: ... Rennick, Partner\n<|id|>131<|page|>13<|box|>517 174 532 630<|content|>51 West 52nd Street, 34th Floor New York, New York 10019",
+    "raw_response": "<|src_id|>35<|tgt_id|>36\n<|src_id|>53<|tgt_id|>54\n<|src_id|>70<|tgt_id|>71",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        }
+    ]
+}

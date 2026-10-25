@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>411 669 428 854<|content|>Filed: ... February 10, 2023\n<|id|>3<|page|>1<|box|>436 140 454 547<|content|>I, Catherine Soo-Hyun Park, hereby declare as foll...Catherine Soo-Hyun Park, hereby declare as follows\n<|id|>15<|page|>2<|box|>859 140 895 854<|content|>9. ... The Prime Contract was awarded by the Unite...CMC\"), located at Wright-Patterson Air Force Base,\n<|id|>16<|page|>3<|box|>90 174 161 854<|content|>Ohio, to Hargrove-Dalton Defense Systems, Inc. ... Matsuda, United States Air Force\n<|id|>94<|page|>11<|box|>834 140 883 852<|content|>Catherine Soo-Hyun Park Vice President, Government...0 Chantilly, Virginia 20151 CERTIFICATE OF SERVICE\n<|id|>95<|page|>12<|box|>89 140 181 854<|content|>I, Priya Anand, hereby certify that on February 10... send notification of such filing to the following\n<|id|>96<|page|>12<|box|>189 174 224 854<|content|>Leonard Trager, Esq. ... (202) 555-3400\n<|id|>97<|page|>12<|box|>234 176 268 638<|content|>Email: ... com Counsel for Defendant Hargrove-Dalton Defense Systems, Inc",
+    "raw_response": "<|src_id|>15<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        }
+    ]
+}

@@ -1,0 +1,455 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-t1t5tt8u\\input\\pdfs\\doc-4c38b456.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-t1t5tt8u\\enriched\\doc-4c38b456.json",
+    "contd_output": "<|src_id|>185<|tgt_id|>186\n<|src_id|>327<|tgt_id|>328\n<|src_id|>354<|tgt_id|>355",
+    "title_output": "<|id|>3<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>1\n<|id|>7<|level|>1\n<|id|>20<|level|>1\n<|id|>30<|level|>1\n<|id|>34<|level|>1\n<|id|>37<|level|>1\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>1\n<|id|>55<|level|>2\n<|id|>75<|level|>2\n<|id|>87<|level|>2\n<|id|>91<|level|>1\n<|id|>100<|level|>1\n<|id|>104<|level|>2\n<|id|>109<|level|>1\n<|id|>113<|level|>2\n<|id|>141<|level|>2\n<|id|>146<|level|>1\n<|id|>148<|level|>2\n<|id|>160<|level|>2\n<|id|>164<|level|>2\n<|id|>167<|level|>2\n<|id|>171<|level|>2\n<|id|>174<|level|>1\n<|id|>181<|level|>1\n<|id|>188<|level|>2\n<|id|>206<|level|>2\n<|id|>220<|level|>2\n<|id|>234<|level|>2\n<|id|>242<|level|>2\n<|id|>265<|level|>2\n<|id|>267<|level|>2\n<|id|>285<|level|>1\n<|id|>287<|level|>2\n<|id|>292<|level|>1\n<|id|>296<|level|>2\n<|id|>310<|level|>2\n<|id|>315<|level|>1\n<|id|>322<|level|>1\n<|id|>323<|level|>2\n<|id|>345<|level|>2\n<|id|>353<|level|>1\n<|id|>361<|level|>1\n<|id|>372<|level|>1\n<|id|>380<|level|>1\n<|id|>383<|level|>1\n<|id|>386<|level|>1\n<|id|>394<|level|>1\n<|id|>404<|level|>1\n<|id|>411<|level|>1\n<|id|>415<|level|>1\n<|id|>416<|level|>2",
+    "image_output": "<|src_id|>8<|tgt_id|>7\n<|src_id|>9<|tgt_id|>7\n<|src_id|>45<|tgt_id|>43\n<|src_id|>51<|tgt_id|>50\n<|src_id|>92<|tgt_id|>91\n<|src_id|>93<|tgt_id|>91\n<|src_id|>94<|tgt_id|>91\n<|src_id|>102<|tgt_id|>100\n<|src_id|>106<|tgt_id|>104\n<|src_id|>156<|tgt_id|>148\n<|src_id|>177<|tgt_id|>174\n<|src_id|>178<|tgt_id|>174\n<|src_id|>179<|tgt_id|>174\n<|src_id|>180<|tgt_id|>174\n<|src_id|>288<|tgt_id|>287\n<|src_id|>289<|tgt_id|>287\n<|src_id|>325<|tgt_id|>323\n<|src_id|>332<|tgt_id|>322\n<|src_id|>374<|tgt_id|>372\n<|src_id|>375<|tgt_id|>372\n<|src_id|>390<|tgt_id|>386\n<|src_id|>409<|tgt_id|>404\n<|src_id|>412<|tgt_id|>411\n<|src_id|>413<|tgt_id|>411\n<|src_id|>414<|tgt_id|>411",
+    "contd_label": [
+        {
+            "src_id": 185,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 327,
+            "tgt_id": 328
+        },
+        {
+            "src_id": 354,
+            "tgt_id": 355
+        }
+    ],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 181,
+            "level": 1
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 234,
+            "level": 2
+        },
+        {
+            "id": 242,
+            "level": 2
+        },
+        {
+            "id": 265,
+            "level": 2
+        },
+        {
+            "id": 267,
+            "level": 2
+        },
+        {
+            "id": 285,
+            "level": 1
+        },
+        {
+            "id": 287,
+            "level": 2
+        },
+        {
+            "id": 292,
+            "level": 1
+        },
+        {
+            "id": 296,
+            "level": 2
+        },
+        {
+            "id": 310,
+            "level": 2
+        },
+        {
+            "id": 315,
+            "level": 1
+        },
+        {
+            "id": 322,
+            "level": 1
+        },
+        {
+            "id": 323,
+            "level": 2
+        },
+        {
+            "id": 345,
+            "level": 2
+        },
+        {
+            "id": 353,
+            "level": 1
+        },
+        {
+            "id": 361,
+            "level": 1
+        },
+        {
+            "id": 372,
+            "level": 1
+        },
+        {
+            "id": 380,
+            "level": 1
+        },
+        {
+            "id": 383,
+            "level": 1
+        },
+        {
+            "id": 386,
+            "level": 1
+        },
+        {
+            "id": 394,
+            "level": 1
+        },
+        {
+            "id": 404,
+            "level": 1
+        },
+        {
+            "id": 411,
+            "level": 1
+        },
+        {
+            "id": 415,
+            "level": 1
+        },
+        {
+            "id": 416,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 8,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 288,
+            "tgt_id": 287
+        },
+        {
+            "src_id": 289,
+            "tgt_id": 287
+        },
+        {
+            "src_id": 325,
+            "tgt_id": 323
+        },
+        {
+            "src_id": 332,
+            "tgt_id": 322
+        },
+        {
+            "src_id": 374,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 375,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 390,
+            "tgt_id": 386
+        },
+        {
+            "src_id": 409,
+            "tgt_id": 404
+        },
+        {
+            "src_id": 412,
+            "tgt_id": 411
+        },
+        {
+            "src_id": 413,
+            "tgt_id": 411
+        },
+        {
+            "src_id": 414,
+            "tgt_id": 411
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 8,
+            "table2_idx": 9,
+            "upper_row_ss": [
+                [
+                    "Ranking:",
+                    "Subordinated unsecured obligations of the Issuer; junior to all senior indebtedness and deposits; pari passu with the Issuer's existing 5.250% Subordinated Notes due 2027 ($200,000,000 outstanding) and future pari passu subordinated debt; senior to any junior subordinated"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "debt and equity"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 93,
+            "table2_idx": 94,
+            "upper_row_ss": [
+                [
+                    "Total Uses",
+                    "$☐ $349,125,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Expense Category",
+                    "Amount"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 179,
+            "table2_idx": 180,
+            "upper_row_ss": [
+                [
+                    "Return on average equity",
+                    "10.73%",
+                    "10.63%",
+                    "9.56%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "(ROE)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 288,
+            "table2_idx": 289,
+            "upper_row_ss": [
+                [
+                    "Title",
+                    "5.250% Subordinated Notes due 2027"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Aggregate Principal Amount Outstanding",
+                    "$200,000,000"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 412,
+            "table2_idx": 413,
+            "upper_row_ss": [
+                [
+                    "Exchange Act",
+                    "Important Notices and Legends—Forward-Looking"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Statements Disclaimer"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 413,
+            "table2_idx": 414,
+            "upper_row_ss": [
+                [
+                    "Regulatory Capital Treatment Event",
+                    "Description of the Notes—Optional Redemption"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Reset Date",
+                    "Summary—The Offering—Summary of Terms"
+                ]
+            ]
+        }
+    ]
+}

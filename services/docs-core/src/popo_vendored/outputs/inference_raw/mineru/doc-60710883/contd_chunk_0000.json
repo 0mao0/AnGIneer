@@ -1,0 +1,49 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        56
+    ],
+    "pages": [
+        3,
+        5,
+        6,
+        8,
+        9,
+        10,
+        23,
+        32,
+        54,
+        55,
+        56
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>3<|box|>125 81 847 915<|content|>SECTION II. ... Inside back cover\n<|id|>6<|page|>3<|box|>859 80 895 883<|content|>NOTES: ... r= Revised\n<|id|>21<|page|>5<|box|>493 508 603 913<|content|>During the first 4 months of the year, the Consume...ce Index (CPI) rose at 3. ... 3 percent advance in\n<|id|>22<|page|>6<|box|>92 81 189 490<|content|>1998 and the same as in 1997. ... )\n<|id|>26<|page|>6<|box|>92 506 176 913<|content|>in March. ... After adjusting for the effects of a\n<|id|>27<|page|>6<|box|>758 83 787 281<|content|>Labor markets remained very tight at the beginning... employment in this sector peaked, totaled 402,000\n<|id|>31<|page|>6<|box|>625 717 792 913<|content|>Wages continued to rise, but at a slower pace comp...s ago. ... 4 percent pace recorded in the same pe-\n<|id|>32<|page|>6<|box|>786 81 843 488<|content|>the year. ... Nevertheless, the unemployment rate remained at a level not seen in nearly three decades\n<|id|>52<|page|>8<|box|>179 93 195 488<|content|>The reversal of the dollar over the August through December\n<|id|>53<|page|>8<|box|>190 81 541 295<|content|>The reversal of the dollar over a period, particul... improved against most major currencies since then\n<|id|>56<|page|>8<|box|>108 506 203 913<|content|>Since November, the Federal Reserve Board's moneta...d. ... 5 percent and the Federal funds target (the\n<|id|>57<|page|>8<|box|>202 710 348 913<|content|>rate that banks charge one another for overnight b... ... Since then, it has fluctuated near that level\n<|id|>61<|page|>8<|box|>777 712 820 913<|content|>Housing continues to be one of the strongest sectors of the economy. ... Growth has been\n<|id|>62<|page|>8<|box|>819 506 905 915<|content|>fueled by exceptionally low mortgage interest rate...s. ... 7 percent in the first quarter of this year\n<|id|>68<|page|>9<|box|>436 81 450 312<|content|>(Saving as a percent of net national product)\n<|id|>69<|page|>9<|box|>92 506 162 913<|content|>highest such ratio since 1956, and resulted in a r... reached an all-time high of \\$290 billion in 1992\n<|id|>81<|page|>10<|box|>833 81 893 488<|content|>Offsetting receipts in receipt accounts cannot be used without appropriation. ... (2)\n<|id|>82<|page|>10<|box|>135 508 223 913<|content|>intragovernmental transactions, or payments into r... receipts which include foreign cash contributions\n<|id|>151<|page|>23<|box|>703 81 811 488<|content|>- Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>153<|page|>23<|box|>189 508 268 915<|content|>The average length hit a low of 2 years, 5 months ...f 1996 the average length was at 5 years, 3 months\n<|id|>179<|page|>32<|box|>392 81 436 488<|content|>- Table PDO-2 presents the results of weekly aucti...held every 4 weeks. ... Treasury bills mature each\n<|id|>180<|page|>32<|box|>136 506 250 913<|content|>Thursday. ... High, low and average yields on acce...ade on both a competitive and noncompetitive basis\n<|id|>185<|page|>32<|box|>494 310 510 687<|content|>[Source: ... Bureau of the Public Debt, Office of Financing]\n<|id|>186<|page|>32<|box|>513 83 531 196<|content|>JANUARY\n<|id|>187<|page|>32<|box|>540 83 554 233<|content|>Auction of 10-Year\n<|id|>188<|page|>32<|box|>555 83 570 269<|content|>Inflation-Indexed Notes\n<|id|>189<|page|>32<|box|>571 81 654 486<|content|>December 30, 1998, Treasury announced it would auc...t is payable July 15 and January 15 until maturity\n<|id|>193<|page|>32<|box|>518 509 532 700<|content|>Auction of 2-Year Notes\n<|id|>194<|page|>32<|box|>532 509 585 913<|content|>January 20 Treasury announced it would auction \\$1... January 31 and to pay down about \\$14,604 million\n<|id|>372<|page|>54<|box|>119 271 133 725<|content|>[In percentages. ... Office of Market Finance, Office of the Under Secretary for Domestic Finance]\n<|id|>374<|page|>55<|box|>90 93 109 903<|content|>TABLE MY-2. ... —Average Yields of Long-Term Treasury, Corporate and Municipal Bonds, con\n<|id|>375<|page|>55<|box|>119 271 133 727<|content|>[In percentages. ... Office of Market Finance, Office of the Under Secretary for Domestic Finance]\n<|id|>377<|page|>56<|box|>89 91 109 901<|content|>TABLE MY-2. ... —Average Yields of Long-Term Treasury, Corporate and Municipal Bonds, con",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>31<|tgt_id|>32\n<|src_id|>56<|tgt_id|>57\n<|src_id|>61<|tgt_id|>62\n<|src_id|>179<|tgt_id|>180\n<|src_id|>187<|tgt_id|>188",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 180
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 188
+        }
+    ]
+}

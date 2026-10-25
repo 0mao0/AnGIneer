@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        11,
+        12,
+        15,
+        16,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>142 751 159 854<|content|>July 18, 2025\n<|id|>2<|page|>1<|box|>167 140 204 852<|content|>TO: ... Prescott, General Counsel & Corporate Secretary, Belmont Ridge Bank NA\n<|id|>3<|page|>1<|box|>212 140 247 852<|content|>FROM: ... Brendan Walsh, Lead Associate, Calderwoo...tasha Forbes, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>256 140 273 834<|content|>RE: ... 1045-00003)\n<|id|>5<|page|>1<|box|>282 140 358 854<|content|>This memorandum is a privileged and confidential a...e may constitute a waiver of applicable privileges\n<|id|>72<|page|>8<|box|>878 142 895 416<|content|>Independence Status: ... Independent\n<|id|>73<|page|>9<|box|>90 140 200 856<|content|>Margaret R. ... Ellsworth retired from Hargrove Mu...loyed by any financial institution since that time\n<|id|>99<|page|>11<|box|>804 174 896 857<|content|>Timing of Departure. ... At the time of her initial appointment, her departure from\n<|id|>100<|page|>12<|box|>90 174 126 854<|content|>Lakemont was approximately one year in the past — ... the look-back period when measured from that date\n<|id|>134<|page|>15<|box|>816 140 909 856<|content|>Independence Determination — Nasdaq. ... She does ...nsulting, advisory, or other compensatory fee from\n<|id|>135<|page|>16<|box|>89 140 125 854<|content|>BRB beyond her board and committee retainers, and ...not an affiliate of BRB or any of its subsidiaries\n<|id|>226<|page|>25<|box|>806 140 880 857<|content|>Coordination with Related Work Streams. ... The Di...e Risk Committee Charter, the Amended and Restated\n<|id|>227<|page|>26<|box|>89 140 126 854<|content|>Corporate Governance Guidelines, and the coordinat...toltz) on related operational remediation elements",
+    "raw_response": "<|src_id|>99<|tgt_id|>100\n<|src_id|>134<|tgt_id|>135\n<|src_id|>226<|tgt_id|>227",
+    "parsed": [
+        {
+            "src_id": 99,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 227
+        }
+    ]
+}

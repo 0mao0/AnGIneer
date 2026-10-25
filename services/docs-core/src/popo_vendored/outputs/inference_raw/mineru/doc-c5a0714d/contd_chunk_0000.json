@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 104 506<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED\n<|id|>1<|page|>1<|box|>112 140 167 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1501 Fo...e, Suite 4800 Seattle, WA 98101 Telephone: ... com\n<|id|>2<|page|>1<|box|>175 753 193 854<|content|>April 9, 2026\n<|id|>3<|page|>1<|box|>200 140 237 854<|content|>Ms. ... 4200 Harbor Boulevard, Suite 1100 Bellevue, WA 98004\n<|id|>4<|page|>1<|box|>244 174 281 854<|content|>Re: ... 1038-00003\n<|id|>5<|page|>1<|box|>289 142 306 295<|content|>Dear Ms. ... Kowalski\n<|id|>83<|page|>9<|box|>840 140 895 857<|content|>Upon termination of this engagement, the Company w...nts described in Section 3 of this Letter. ... The\n<|id|>84<|page|>10<|box|>89 140 127 854<|content|>Firm will render a final invoice promptly followin...dance with the terms set forth in Section 3. ... 4\n<|id|>101<|page|>11<|box|>702 210 718 343<|content|>Very truly yours,\n<|id|>102<|page|>11<|box|>727 140 743 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>103<|page|>11<|box|>744 143 761 253<|content|>By: ... By\n<|id|>104<|page|>11<|box|>762 143 777 321<|content|>Name: ... Robert Adeyemi\n<|id|>105<|page|>11<|box|>779 143 794 246<|content|>Title: ... Partner\n<|id|>106<|page|>11<|box|>796 140 813 741<|content|>Calderwood & Harkness LLP 1501 Fourth Avenue, Suite 4800 Seattle, WA 98101\n<|id|>110<|page|>12<|box|>89 140 106 320<|content|>Name: ... Diane Kowalski\n<|id|>111<|page|>12<|box|>107 140 125 673<|content|>Title: ... Executive Vice President, General Counsel & Corporate Secretary\n<|id|>112<|page|>12<|box|>125 140 142 777<|content|>Cascade Retail Holdings Inc. ... 4200 Harbor Boulevard, Suite 1100 Bellevue, WA 98004\n<|id|>113<|page|>12<|box|>142 142 160 267<|content|>Date: ... Date\n<|id|>117<|page|>12<|box|>253 174 272 576<|content|>Jennifer Kwon, Partner, Calderwood & Harkness LLP\n<|id|>118<|page|>12<|box|>280 174 297 596<|content|>Eric Johannsen, Associate, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>83<|tgt_id|>84",
+    "parsed": [
+        {
+            "src_id": 83,
+            "tgt_id": 84
+        }
+    ]
+}

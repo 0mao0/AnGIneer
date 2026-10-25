@@ -1,0 +1,183 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vrec1nfu\\input\\pdfs\\doc-86c72a3c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vrec1nfu\\enriched\\doc-86c72a3c.json",
+    "contd_output": "<|src_id|>81<|tgt_id|>82",
+    "title_output": "<|id|>7<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>23<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>39<|level|>2\n<|id|>44<|level|>1\n<|id|>45<|level|>2\n<|id|>52<|level|>2\n<|id|>61<|level|>2\n<|id|>67<|level|>1\n<|id|>68<|level|>2\n<|id|>74<|level|>2\n<|id|>78<|level|>2\n<|id|>86<|level|>2\n<|id|>88<|level|>1\n<|id|>89<|level|>2\n<|id|>95<|level|>2\n<|id|>98<|level|>2\n<|id|>102<|level|>2\n<|id|>104<|level|>1\n<|id|>111<|level|>1\n<|id|>113<|level|>2\n<|id|>119<|level|>2\n<|id|>126<|level|>2\n<|id|>133<|level|>1\n<|id|>138<|level|>1\n<|id|>148<|level|>1",
+    "image_output": "<|src_id|>135<|tgt_id|>133\n<|src_id|>136<|tgt_id|>133\n<|src_id|>137<|tgt_id|>133",
+    "contd_label": [
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 135,
+            "tgt_id": 133
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 133
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 133
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 135,
+            "table2_idx": 136,
+            "upper_row_ss": [
+                [
+                    "Information Leakage Risk",
+                    "High",
+                    "TMC's internal investigation has produced highly sensitive findings — including the 37 Holt-competitor VaultChat exchanges, the VaultChat"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "content analysis, pricing-data correlations between competitor communications and TMC pricing decisions, and Sandra Chu's testimony regarding the 12 pricing-adjustment instructions she received from Holt — that constitute the core of TMC's cooperation proffer. Disclosure of this information to co-targets' counsel through a JDA could be catastrophic to TMC's negotiating position and could enable co-targets to develop blame-shifting strategies targeting TMC."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 136,
+            "table2_idx": 137,
+            "upper_row_ss": [
+                [
+                    "Reputational Risk with DOJ",
+                    "Moderate",
+                    "The DOJ Antitrust Division's San Francisco Field Office and the criminal enforcement section in Washington are likely to become aware of any JDA through informal professional channels, co-target disclosures, or direct inquiry. Even if the DOJ does not formally penalize JDA participation, the perception of coordinated defense"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "could color the DOJ's assessment of TMC's cooperation and credibility throughout the investigation and resolution process."
+                ]
+            ]
+        }
+    ]
+}

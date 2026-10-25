@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>132 80 170 936<|content|>中华人民共和国国家标准\n<|id|>3<|page|>1<|box|>386 100 421 919<|content|>中国海区水中建(构)筑物助航标志规定\n<|id|>4<|page|>1<|box|>450 117 472 900<|content|>Regulation on aids to navigation for marking of of\n<|id|>7<|page|>2<|box|>133 452 156 564<|content|>目次\n<|id|>9<|page|>3<|box|>133 452 156 570<|content|>前言\n<|id|>31<|page|>4<|box|>136 264 156 738<|content|>中国海区水中建(构)筑物助航标志规定\n<|id|>32<|page|>4<|box|>193 94 210 164<|content|>1 范围\n<|id|>36<|page|>4<|box|>328 92 344 257<|content|>2 规范性引用文件\n<|id|>39<|page|>4<|box|>442 94 456 221<|content|>3 术语和定义\n<|id|>41<|page|>4<|box|>500 94 513 124<|content|>3.1\n<|id|>44<|page|>4<|box|>576 94 590 126<|content|>3.2\n<|id|>46<|page|>4<|box|>633 94 647 126<|content|>3.3\n<|id|>48<|page|>4<|box|>707 94 723 203<|content|>4 总体要求\n<|id|>52<|page|>4<|box|>823 94 838 203<|content|>5 视觉航标\n<|id|>53<|page|>4<|box|>858 94 873 219<|content|>5.1 灯光要求\n<|id|>58<|page|>5<|box|>230 92 244 233<|content|>5.2 标志牌要求\n<|id|>62<|page|>5<|box|>373 92 387 219<|content|>6 无线电航标\n<|id|>65<|page|>5<|box|>467 92 482 200<|content|>7 音响航标\n<|id|>71<|page|>5<|box|>620 92 633 219<|content|>8 海上风电场\n<|id|>77<|page|>6<|box|>407 100 421 207<|content|>9 其他要求\n<|id|>83<|page|>7<|box|>134 419 150 556<|content|>参考文献",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>7<|level|>1\n<|id|>9<|level|>1\n<|id|>31<|level|>1\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>41<|level|>3\n<|id|>44<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>58<|level|>3\n<|id|>62<|level|>2\n<|id|>65<|level|>2\n<|id|>71<|level|>2\n<|id|>77<|level|>2\n<|id|>83<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13,
+        15,
+        17,
+        18,
+        20,
+        21,
+        22,
+        23,
+        24
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>174 405 193 591<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>441 140 459 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>20<|type|>title<|page|>2<|box|>364 142 383 348<|content|>II. TOWER OVERVIEW\n<|id|>21<|type|>title<|page|>2<|box|>397 140 414 630<|content|>A. Current D&O Tower Structure (July 1, 2021 – Jul\n<|id|>23<|type|>table<|page|>2<|box|>500 143 837 852<|content|>None\n<|id|>28<|type|>title<|page|>3<|box|>510 140 527 485<|content|>B. Named Insureds and Board Composition\n<|id|>40<|type|>title<|page|>4<|box|>316 140 333 307<|content|>C. Relevant Context\n<|id|>46<|type|>title<|page|>5<|box|>89 140 107 594<|content|>III. IDENTIFIED COVERAGE GAPS AND CONCERNS\n<|id|>47<|type|>title<|page|>5<|box|>121 140 162 663<|content|>Gap No. 1: Severability of the Application — Vande\n<|id|>56<|type|>title<|page|>6<|box|>250 140 266 687<|content|>Gap No. 2: Inconsistent Definition of \"Insured Per\n<|id|>66<|type|>table<|page|>7<|box|>465 143 672 852<|content|>None\n<|id|>80<|type|>title<|page|>9<|box|>138 140 176 854<|content|>Gap No. 4: Coordination Between Vandermeer Primary\n<|id|>93<|type|>title<|page|>10<|box|>755 140 773 645<|content|>Gap No. 5: Entity Coverage SIR — Application to Mi\n<|id|>94<|type|>title<|page|>10<|box|>779 140 796 330<|content|>Severity: MODERATE\n<|id|>104<|type|>title<|page|>11<|box|>642 140 659 712<|content|>Gap No. 6: \"Insured vs. Insured\" Exclusion — Bread\n<|id|>121<|type|>title<|page|>13<|box|>575 140 616 823<|content|>Gap No. 7: Definition of \"Claim\" — Inconsistency R\n<|id|>140<|type|>title<|page|>15<|box|>800 140 818 607<|content|>Gap No. 9: Priority of Payment / Order of Payments\n<|id|>141<|type|>title<|page|>15<|box|>823 140 840 328<|content|>Severity: MODERATE\n<|id|>160<|type|>title<|page|>17<|box|>696 142 714 527<|content|>Gap No. 11: Pollution Exclusion in D&O Context\n<|id|>171<|type|>title<|page|>18<|box|>623 140 641 746<|content|>Gap No. 12: Change of Control / Acquisition Provis\n<|id|>185<|type|>title<|page|>20<|box|>305 140 323 517<|content|>Gap No. 13: Defense Cost Advancement Timing\n<|id|>186<|type|>title<|page|>20<|box|>328 140 345 267<|content|>Severity: LOW\n<|id|>193<|type|>title<|page|>21<|box|>89 140 131 709<|content|>Gap No. 14: Subsidiary Coverage — Newly Acquired o\n<|id|>202<|type|>title<|page|>22<|box|>89 142 106 421<|content|>IV. SUMMARY TABLE OF GAPS\n<|id|>203<|type|>table<|page|>22<|box|>160 143 875 852<|content|>None\n<|id|>204<|type|>title<|page|>23<|box|>90 140 108 323<|content|>Summary by Severity:\n<|id|>208<|type|>title<|page|>23<|box|>195 140 213 522<|content|>V. NEXT STEPS AND RECOMMENDATIONS\n<|id|>219<|type|>title<|page|>24<|box|>315 140 332 411<|content|>VI. DOCUMENT REVIEW LIST",
+    "raw_response": "<|src_id|>23<|tgt_id|>21\n<|src_id|>66<|tgt_id|>56\n<|src_id|>203<|tgt_id|>202",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 202
+        }
+    ]
+}

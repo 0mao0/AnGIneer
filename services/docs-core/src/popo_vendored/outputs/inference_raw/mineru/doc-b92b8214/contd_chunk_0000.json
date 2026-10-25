@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        9,
+        20
+    ],
+    "pages": [
+        9,
+        10,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>132<|page|>9<|box|>651 181 667 694<|content|>• Grand Key Resort: ... occupancy rate of 82%\n<|id|>133<|page|>9<|box|>671 183 704 856<|content|>• Harborview Hotel & Conference Center: ... occupancy rate of 74%\n<|id|>134<|page|>9<|box|>709 183 724 660<|content|>• Sunset Shores: ... occupancy rate of 79%\n<|id|>137<|page|>9<|box|>859 147 895 854<|content|>• Did she account for ancillary revenue streams — ...nt for lost revenue from the Grand Key marina, the\n<|id|>138<|page|>10<|box|>90 174 125 852<|content|>Harborview conference center, food and beverage op... spa services, and other non- room revenue sources\n<|id|>316<|page|>20<|box|>491 142 521 854<|content|>ATTORNEY WORK PRODUCT / PRIVILEGED AND CONFIDENTIAL — PREPARED IN ANTICIPATION OF LITIGATION\n<|id|>317<|page|>20<|box|>529 140 604 854<|content|>This document was prepared by attorneys at Calderw...lease notify Calderwood & Harkness LLP immediately\n<|id|>319<|page|>20<|box|>662 140 694 852<|content|>Tiffany Rosenthal Lead Associate Calderwood & Hark... LLP 333 SE 2nd Avenue, Suite 4400 Miami, FL 33131\n<|id|>320<|page|>20<|box|>713 142 729 419<|content|>REVIEWED AND APPROVED BY: ... REVIEWED AND APPROVED BY",
+    "raw_response": "<|src_id|>137<|tgt_id|>138",
+    "parsed": [
+        {
+            "src_id": 137,
+            "tgt_id": 138
+        }
+    ]
+}

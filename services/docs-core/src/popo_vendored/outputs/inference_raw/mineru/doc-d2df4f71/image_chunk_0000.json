@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 308 118 689<|content|>UNANIMOUS WRITTEN CONSENT\n<|id|>1<|type|>title<|page|>1<|box|>136 318 156 679<|content|>OF THE BOARD OF DIRECTORS\n<|id|>3<|type|>title<|page|>1<|box|>213 274 233 720<|content|>DUNMORE UPSTREAM FINANCE CORP.\n<|id|>4<|type|>title<|page|>1<|box|>252 312 272 686<|content|>IN LIEU OF A SPECIAL MEETING\n<|id|>12<|type|>title<|page|>1<|box|>650 140 667 241<|content|>RECITALS\n<|id|>15<|type|>table<|page|>2<|box|>186 143 445 852<|content|>None\n<|id|>29<|type|>table<|page|>3<|box|>551 143 672 852<|content|>None\n<|id|>44<|type|>title<|page|>5<|box|>89 140 106 279<|content|>RESOLUTIONS\n<|id|>45<|type|>title<|page|>5<|box|>121 140 138 697<|content|>Resolution 1 — Authorization of the Offering and I\n<|id|>47<|type|>title<|page|>5<|box|>377 140 393 702<|content|>Resolution 2 — Authorization, Execution, and Deliv\n<|id|>49<|type|>title<|page|>5<|box|>651 140 667 787<|content|>Resolution 3 — Authorization, Execution, and Deliv\n<|id|>51<|type|>title<|page|>6<|box|>138 140 175 854<|content|>Resolution 4 — Authorization, Execution, and Deliv\n<|id|>53<|type|>title<|page|>6<|box|>431 140 449 779<|content|>Resolution 5 — Authorization, Execution, and Deliv\n<|id|>58<|type|>title<|page|>7<|box|>157 140 175 816<|content|>Resolution 6 — Authorization, Execution, and Deliv\n<|id|>63<|type|>title<|page|>7<|box|>583 140 599 830<|content|>Resolution 7 — Authorization, Execution, and Deliv\n<|id|>65<|type|>title<|page|>7<|box|>801 140 819 772<|content|>Resolution 8 — Authorization of the Preliminary an\n<|id|>67<|type|>title<|page|>8<|box|>213 140 229 614<|content|>Resolution 9 — Authorization of UCC Financing Stat\n<|id|>69<|type|>title<|page|>8<|box|>431 140 449 673<|content|>Resolution 10 — Authorization of Ancillary Transac\n<|id|>81<|type|>title<|page|>9<|box|>481 140 498 549<|content|>Resolution 11 — Designation of Authorized Officers\n<|id|>83<|type|>table<|page|>9<|box|>583 143 659 852<|content|>None\n<|id|>85<|type|>title<|page|>9<|box|>834 142 849 500<|content|>Resolution 12 — Ratification of Prior Actions\n<|id|>87<|type|>title<|page|>10<|box|>323 140 339 537<|content|>Resolution 13 — Authorization of Further Actions\n<|id|>89<|type|>title<|page|>10<|box|>651 140 667 380<|content|>Resolution 14 — Effectiveness\n<|id|>91<|type|>title<|page|>10<|box|>770 140 787 238<|content|>GENERAL\n<|id|>95<|type|>title<|page|>11<|box|>159 161 195 833<|content|>SIGNATURE PAGE TO UNANIMOUS WRITTEN CONSENT OF THE\n<|id|>100<|type|>title<|page|>11<|box|>532 447 551 550<|content|>EXHIBIT A\n<|id|>101<|type|>title<|page|>11<|box|>559 367 577 630<|content|>SECRETARY'S CERTIFICATE\n<|id|>107<|type|>table<|page|>12<|box|>219 143 310 852<|content|>None",
+    "raw_response": "<|src_id|>15<|tgt_id|>12\n<|src_id|>29<|tgt_id|>12\n<|src_id|>83<|tgt_id|>81\n<|src_id|>107<|tgt_id|>101",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 101
+        }
+    ]
+}

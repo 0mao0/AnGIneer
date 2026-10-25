@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Peachtree Corners Logistics Center', 'GMP Peachtree LLC', '5900 Peachtree Industrial Blvd, Peachtree Corners, GA', '345,000', 'Logistics', 'Loan 3-A']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '30071', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 101,
+    "table2_idx": 102
+}

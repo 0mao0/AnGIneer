@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 277 133 718<|content|>One Liberty Plaza, 52nd Floor New York, New York 10006\n<|id|>2<|page|>1<|box|>141 297 159 699<|content|>Telephone: ... (212) 555-7801\n<|id|>3<|page|>1<|box|>167 750 185 854<|content|>July 21, 2022\n<|id|>4<|page|>1<|box|>194 140 229 854<|content|>Crescent Harbor Bank, National Association, as Adm...ington Avenue, 34th Floor New York, New York 10022\n<|id|>5<|page|>1<|box|>237 140 273 852<|content|>The Lenders party to the Credit Agreement referred... (each a \"Lender\" and collectively, the \"Lenders\")\n<|id|>6<|page|>1<|box|>282 210 318 854<|content|>Re: ... Enforceability Opinion — $700,000,000 Seni...B Credit Facility — Verimark Hospitality Group Inc\n<|id|>15<|page|>2<|box|>699 174 882 857<|content|>4. ... The\n<|id|>16<|page|>3<|box|>90 210 125 856<|content|>Intercreditor Agreement is governed by and constru... accordance with the laws of the State of New York\n<|id|>28<|page|>4<|box|>133 174 226 857<|content|>(i) The Perfection Certificate dated July 21, 2022...d under the Pledge and Security Agreement; ... and\n<|id|>30<|page|>4<|box|>296 140 388 857<|content|>We have not independently verified or investigated...entations and statements of fact contained therein\n<|id|>62<|page|>7<|box|>501 174 537 854<|content|>(iv) Palmetto Beachfront Hotels LLC, a limited lia...ng under the laws of the State of Florida; ... and\n<|id|>64<|page|>7<|box|>589 138 883 857<|content|>We note that the enforcement of the guarantee obli...ed insolvent by, the incurrence of such obligation\n<|id|>110<|page|>13<|box|>584 174 638 854<|content|>(b) the laws of the State of Florida, which is the...maintains its principal executive offices; ... and\n<|id|>112<|page|>13<|box|>691 140 782 857<|content|>We note that the organizational matters pertaining...on Opinion and are not the subject of this opinion\n<|id|>119<|page|>14<|box|>743 140 760 272<|content|>Very truly yours,\n<|id|>120<|page|>14<|box|>768 140 784 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>121<|page|>14<|box|>786 143 803 253<|content|>By: ... By\n<|id|>122<|page|>14<|box|>803 142 819 312<|content|>Name: ... Ian Blackwood\n<|id|>123<|page|>14<|box|>820 143 835 246<|content|>Title: ... Partner",
+    "raw_response": "<|src_id|>15<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        }
+    ]
+}

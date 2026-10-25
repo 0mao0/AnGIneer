@@ -1,0 +1,167 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-36noyvf5\\input\\pdfs\\doc-d2a73c7b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-36noyvf5\\enriched\\doc-d2a73c7b.json",
+    "contd_output": "<|src_id|>162<|tgt_id|>163\n<|src_id|>163<|tgt_id|>164\n<|src_id|>169<|tgt_id|>170\n<|src_id|>170<|tgt_id|>171\n<|src_id|>171<|tgt_id|>172\n<|src_id|>172<|tgt_id|>173",
+    "title_output": "<|id|>1<|level|>1\n<|id|>8<|level|>1\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>16<|level|>1\n<|id|>24<|level|>1\n<|id|>25<|level|>2\n<|id|>31<|level|>2\n<|id|>48<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>66<|level|>1\n<|id|>67<|level|>2\n<|id|>71<|level|>2\n<|id|>77<|level|>2\n<|id|>81<|level|>1\n<|id|>105<|level|>2\n<|id|>127<|level|>2\n<|id|>141<|level|>2\n<|id|>153<|level|>1\n<|id|>167<|level|>1",
+    "image_output": "<|src_id|>0<|tgt_id|>1\n<|src_id|>6<|tgt_id|>1\n<|src_id|>7<|tgt_id|>1\n<|src_id|>10<|tgt_id|>8\n<|src_id|>11<|tgt_id|>1\n<|src_id|>13<|tgt_id|>12\n<|src_id|>15<|tgt_id|>14",
+    "contd_label": [
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 171
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 172
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 173
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 167,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 14
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 10,
+            "table2_idx": 11,
+            "upper_row_ss": [
+                [
+                    "Cellspin Soft, Inc. v. Fitbit, Inc., 927 F.3d 1306 (Fed. Cir. 2019)",
+                    "37, 38"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Genetic Techs. Ltd. v. Merial LLC, 818 F.3d 1369 (Fed. Cir. 2016)",
+                    "17, 23"
+                ]
+            ]
+        }
+    ]
+}

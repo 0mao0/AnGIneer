@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 119 854<|content|>CALDERWOOD & HARKNESS LLP 555 California Street, 42nd Floor San Francisco, CA 94104 Telephone: ... com\n<|id|>1<|page|>1<|box|>128 140 145 364<|content|>intellectual Property Group\n<|id|>2<|page|>1<|box|>152 733 171 854<|content|>January 8, 2025\n<|id|>4<|page|>1<|box|>204 140 222 800<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>5<|page|>1<|box|>231 140 267 854<|content|>Marcus Whitfield, Esq. ... 4710 Ridgeview Parkway, Suite 300 Santa Clara, CA 95054\n<|id|>6<|page|>1<|box|>275 174 313 854<|content|>Re: ... Patent Application Family (12 Pending Applications)\n<|id|>7<|page|>1<|box|>319 142 335 248<|content|>Dear Marcus: ... Dear Marcus\n<|id|>17<|page|>2<|box|>329 140 364 854<|content|>Title: ... \"Multi-Channel Silicon-Photonic Mach-Ze... Segmented Traveling- Wave Electrode Architecture\"\n<|id|>18<|page|>2<|box|>373 140 390 483<|content|>Status: ... Non-final Office Action response due\n<|id|>83<|page|>10<|box|>574 142 589 272<|content|>Very truly yours,\n<|id|>84<|page|>10<|box|>590 142 606 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>85<|page|>10<|box|>608 143 625 251<|content|>By: ... By\n<|id|>86<|page|>10<|box|>625 140 674 854<|content|>Catherine Bloom Partner, intellectual Property Group USPTO Reg. ... com\n<|id|>87<|page|>10<|box|>676 142 689 171<|content|>cc: ... cc\n<|id|>88<|page|>10<|box|>700 174 753 854<|content|>Sandra Koh, IP Manager / In-House Patent Counsel, ...y Bauer, Lead Associate, Calderwood & Harkness LLP\n<|id|>89<|page|>10<|box|>763 142 779 285<|content|>Enclosures: ... None",
+    "raw_response": "<|src_id|>83<|tgt_id|>84\n<|src_id|>84<|tgt_id|>85\n<|src_id|>85<|tgt_id|>86\n<|src_id|>87<|tgt_id|>88",
+    "parsed": [
+        {
+            "src_id": 83,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        }
+    ]
+}

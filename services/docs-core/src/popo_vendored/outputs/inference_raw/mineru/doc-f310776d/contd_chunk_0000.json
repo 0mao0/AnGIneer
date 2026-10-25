@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>90 140 108 833<|content|># Matter No. ... — Formally Closed\n<|id|>5<|page|>1<|box|>277 140 295 336<|content|>Miriam, Devon, Nadia —\n<|id|>1<|page|>1<|box|>152 140 170 656<|content|>- From: ... com>\n<|id|>2<|page|>1<|box|>184 140 202 637<|content|>- To: ... com>\n<|id|>4<|page|>1<|box|>246 140 263 465<|content|>- Date: ... 00 -0000\n<|id|>6<|page|>1<|box|>340 140 454 843<|content|>I am writing to confirm that Matter No. ... No att...ere billed or disbursements incurred on the matter\n<|id|>7<|page|>1<|box|>496 140 513 295<|content|>**Cease All Work**\n<|id|>8<|page|>1<|box|>559 140 614 846<|content|>Please immediately cease any and all work related ...been initiated before or during the intake process\n<|id|>9<|page|>1<|box|>659 140 676 287<|content|>**File Archiving**\n<|id|>10<|page|>1<|box|>722 138 873 854<|content|>Each of you should archive all files, documents, n...ot retain any materials in personal or local files\n<|id|>11<|page|>2<|box|>90 140 107 410<|content|>**Confidentiality and Discretion**\n<|id|>12<|page|>2<|box|>152 140 265 852<|content|>I want to remind everyone that the existence and n... staff not involved in the matter — and externally\n<|id|>13<|page|>2<|box|>308 140 325 300<|content|>**Client Materials**\n<|id|>14<|page|>2<|box|>371 140 426 849<|content|>The firm received no confidential documents or mat...erials to return or segregate. ... Whitfield today\n<|id|>15<|page|>2<|box|>470 140 488 243<|content|>**Referral**\n<|id|>16<|page|>2<|box|>534 140 589 852<|content|>For your awareness, a referral letter recommending...her action is required from the team on that front\n<|id|>18<|page|>2<|box|>715 142 733 250<|content|>Best regards,\n<|id|>19<|page|>2<|box|>777 142 795 279<|content|>Rachel Bernstein\n<|id|>20<|page|>2<|box|>809 140 827 397<|content|>Partner, Privacy & Data Security\n<|id|>21<|page|>2<|box|>840 142 858 369<|content|>Calderwood & Harkness LLP\n<|id|>22<|page|>2<|box|>872 140 888 429<|content|>One North Wacker Drive, Suite 4200\n<|id|>23<|page|>3<|box|>90 142 109 287<|content|>Chicago, IL 60606\n<|id|>25<|page|>3<|box|>152 140 170 442<|content|>rbernstein@calderwoodharkness. ... com\n<|id|>24<|page|>3<|box|>121 142 138 272<|content|>(312) 555-4781",
+    "raw_response": "<|src_id|>22<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ]
+}

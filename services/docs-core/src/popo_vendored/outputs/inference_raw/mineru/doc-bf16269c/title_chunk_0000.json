@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>111 155 181 841<|content|>CALDERWOOD & HARKNESS LLP 599 Lexington Avenue New\n<|id|>12<|page|>1<|box|>553 140 569 264<|content|>I. Introduction\n<|id|>15<|page|>2<|box|>241 140 258 475<|content|>II. Scope of Engagement and Participation\n<|id|>29<|page|>3<|box|>681 140 699 413<|content|>III. Limitations and Qualifications\n<|id|>30<|page|>3<|box|>713 140 729 401<|content|>A. Nature of Negative Assurance\n<|id|>32<|page|>4<|box|>90 140 107 308<|content|>B. Scope Limitations\n<|id|>35<|page|>4<|box|>407 140 425 573<|content|>C. Financial Statements and Financial Data Carve-O\n<|id|>42<|page|>4<|box|>830 142 845 312<|content|>D. Other Carve-Outs\n<|id|>46<|page|>5<|box|>304 140 321 330<|content|>IV. Negative Assurance\n<|id|>51<|page|>5<|box|>723 140 739 568<|content|>V. Description of Key Disclosure Documents Reviewe\n<|id|>67<|page|>7<|box|>473 142 489 338<|content|>VI. Reliance and Benefit\n<|id|>69<|page|>7<|box|>667 142 684 307<|content|>VII. Governing Law\n<|id|>71<|page|>7<|box|>753 142 770 370<|content|>VIII. No Ongoing Obligation",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>29<|level|>2\n<|id|>30<|level|>3\n<|id|>32<|level|>3\n<|id|>35<|level|>3\n<|id|>42<|level|>3\n<|id|>46<|level|>2\n<|id|>51<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        }
+    ]
+}

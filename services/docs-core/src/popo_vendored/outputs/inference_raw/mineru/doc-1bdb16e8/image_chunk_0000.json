@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        9,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 153 125 844<|content|>CALDERWOOD & HARKNESS LLP 1301 Avenue of the Ameri\n<|id|>2<|type|>title<|page|>1<|box|>159 212 176 784<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>8<|type|>title<|page|>1<|box|>352 142 369 256<|content|>Circulated to:\n<|id|>15<|type|>title<|page|>1<|box|>657 142 674 416<|content|>INTRODUCTORY STATEMENT\n<|id|>25<|type|>title<|page|>2<|box|>720 140 738 620<|content|>I. ORGANIZATIONAL AND CORPORATE DOCUMENTS\n<|id|>47<|type|>title<|page|>4<|box|>574 140 592 732<|content|>II. FEDERAL AND STATE INCOME TAX RETURNS AND ELECT\n<|id|>74<|type|>title<|page|>7<|box|>89 140 107 723<|content|>III. KESTREL PRECISION CONTROLS ACQUISITION DOCUME\n<|id|>99<|type|>title<|page|>9<|box|>89 140 107 733<|content|>IV. HARROWGATE ACQUISITION OF VELDRAN (SEPTEMBER 2\n<|id|>117<|type|>title<|page|>10<|box|>648 140 666 622<|content|>V. FIVE-YEAR ACTIVE TRADE OR BUSINESS HISTORY\n<|id|>141<|type|>title<|page|>12<|box|>821 140 839 678<|content|>VI. INTERCOMPANY AGREEMENTS AND SHARED SERVICES\n<|id|>164<|type|>title<|page|>14<|box|>175 140 191 601<|content|>VII. CAPITAL STRUCTURE AND DEBT DOCUMENTS\n<|id|>181<|type|>title<|page|>15<|box|>303 140 320 707<|content|>VIII. EQUITY CAPITALIZATION AND SHAREHOLDER RECORD\n<|id|>183<|type|>table<|page|>15<|box|>390 143 561 852<|content|>None\n<|id|>200<|type|>title<|page|>16<|box|>656 140 674 524<|content|>IX. BUSINESS PURPOSE DOCUMENTATION\n<|id|>212<|type|>title<|page|>17<|box|>814 140 832 560<|content|>X. EARNINGS AND PROFITS; TAX ATTRIBUTES\n<|id|>231<|type|>title<|page|>19<|box|>89 140 107 336<|content|>XI. MISCELLANEOUS\n<|id|>252<|type|>title<|page|>20<|box|>436 140 453 524<|content|>CONTACT AND RESPONSE INSTRUCTIONS",
+    "raw_response": "<|src_id|>183<|tgt_id|>181",
+    "parsed": [
+        {
+            "src_id": 183,
+            "tgt_id": 181
+        }
+    ]
+}

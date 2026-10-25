@@ -1,0 +1,78 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 382 106 614<|content|>OFFICERS' CERTIFICATE\n<|id|>10<|type|>title<|page|>1<|box|>821 140 839 462<|content|>Section 1. Description of the Transaction\n<|id|>20<|type|>title<|page|>2<|box|>796 140 814 665<|content|>Section 2. Certification Regarding Representations\n<|id|>25<|type|>title<|page|>3<|box|>439 140 457 500<|content|>Section 3. Certification Regarding No Default\n<|id|>31<|type|>title<|page|>3<|box|>773 140 792 720<|content|>Section 4. Certification Regarding Compliance with\n<|id|>32<|type|>title<|page|>3<|box|>805 140 823 531<|content|>(a) Fixed Charge Coverage Ratio Incurrence Test\n<|id|>40<|type|>title<|page|>4<|box|>513 140 532 581<|content|>(b) Additional Notes Authorization Under the Inden\n<|id|>42<|type|>title<|page|>4<|box|>734 140 751 450<|content|>(c) Pro Forma Capitalization Summary\n<|id|>44<|type|>table<|page|>4<|box|>818 143 905 852<|content|>None\n<|id|>45<|type|>table<|page|>5<|box|>88 143 174 852<|content|>None\n<|id|>46<|type|>table<|page|>5<|box|>205 143 297 852<|content|>None\n<|id|>47<|type|>table<|page|>5<|box|>330 143 402 852<|content|>None\n<|id|>48<|type|>table<|page|>5<|box|>434 143 507 852<|content|>None\n<|id|>49<|type|>table<|page|>5<|box|>539 143 592 852<|content|>None\n<|id|>50<|type|>title<|page|>5<|box|>632 142 648 504<|content|>(d) Restricted Payments and Other Covenants\n<|id|>52<|type|>title<|page|>6<|box|>90 140 107 581<|content|>Section 5. Certification Regarding Conditions Prec\n<|id|>66<|type|>title<|page|>7<|box|>429 140 446 594<|content|>Section 6. Certification Regarding the Kessler Acq\n<|id|>74<|type|>title<|page|>8<|box|>304 140 321 534<|content|>Section 7. Certification Regarding the Guarantors\n<|id|>76<|type|>table<|page|>8<|box|>388 143 746 852<|content|>None\n<|id|>79<|type|>title<|page|>9<|box|>258 140 277 594<|content|>Section 8. Certification Regarding Security and Co\n<|id|>88<|type|>table<|page|>9<|box|>820 143 895 852<|content|>None\n<|id|>89<|type|>table<|page|>10<|box|>88 143 145 852<|content|>None\n<|id|>91<|type|>title<|page|>10<|box|>275 140 292 419<|content|>Section 9. Additional Certifications\n<|id|>96<|type|>title<|page|>10<|box|>750 140 767 387<|content|>Section 10. Reliance and Scope\n<|id|>100<|type|>title<|page|>11<|box|>314 400 332 596<|content|>[Signature Page Follows]\n<|id|>112<|type|>title<|page|>11<|box|>556 455 571 542<|content|>ANNEX A\n<|id|>113<|type|>title<|page|>11<|box|>583 243 599 753<|content|>Pro Forma Fixed Charge Coverage Ratio Calculation\n<|id|>116<|type|>title<|page|>11<|box|>757 143 773 395<|content|>I. Pro Forma Adjusted EBITDA\n<|id|>117<|type|>table<|page|>11<|box|>779 145 895 852<|content|>None\n<|id|>118<|type|>table<|page|>12<|box|>88 145 109 852<|content|>None\n<|id|>119<|type|>table<|page|>12<|box|>169 143 372 852<|content|>None\n<|id|>120<|type|>table<|page|>12<|box|>431 143 508 852<|content|>None\n<|id|>121<|type|>title<|page|>12<|box|>547 142 564 385<|content|>IV. Compliance Determination",
+    "raw_response": "<|src_id|>44<|tgt_id|>42\n<|src_id|>45<|tgt_id|>42\n<|src_id|>46<|tgt_id|>42\n<|src_id|>47<|tgt_id|>42\n<|src_id|>48<|tgt_id|>42\n<|src_id|>49<|tgt_id|>42\n<|src_id|>76<|tgt_id|>74\n<|src_id|>88<|tgt_id|>79\n<|src_id|>89<|tgt_id|>79\n<|src_id|>117<|tgt_id|>116\n<|src_id|>118<|tgt_id|>116\n<|src_id|>119<|tgt_id|>116\n<|src_id|>120<|tgt_id|>116",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 116
+        }
+    ]
+}

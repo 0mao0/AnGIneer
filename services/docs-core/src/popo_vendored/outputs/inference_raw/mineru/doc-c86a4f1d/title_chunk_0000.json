@@ -1,0 +1,86 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 143 123 852<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>2<|page|>1<|box|>369 173 405 823<|content|>JOINT MOTION TO STAY ALL PROCEEDINGS PENDING COMPL\n<|id|>6<|page|>1<|box|>720 140 739 485<|content|>I. BACKGROUND OF THE LITIGATION\n<|id|>16<|page|>3<|box|>297 140 315 785<|content|>II. THE MSA REQUIRES MANDATORY MEDIATION BEFORE LI\n<|id|>24<|page|>4<|box|>315 140 351 784<|content|>III. THE PARTIES HAVE SELECTED A MEDIATOR AND SCHE\n<|id|>31<|page|>5<|box|>89 142 106 758<|content|>IV. A STAY IS APPROPRIATE PENDING COMPLETION OF ME\n<|id|>32<|page|>5<|box|>121 142 138 486<|content|>A. Strong Public Policy Favoring Mediation\n<|id|>36<|page|>5<|box|>508 142 525 447<|content|>B. Discovery Is Substantially Complete\n<|id|>41<|page|>6<|box|>90 140 107 522<|content|>C. Conservation of Party and Judicial Resources\n<|id|>45<|page|>6<|box|>458 142 474 393<|content|>D. No Prejudice to Either Party\n<|id|>49<|page|>6<|box|>781 140 797 462<|content|>V. PROPOSED TERMS OF THE STAY\n<|id|>56<|page|>7<|box|>483 140 500 361<|content|>VI. RELIEF REQUESTED\n<|id|>69<|page|>8<|box|>357 140 375 388<|content|>CERTIFICATE OF SERVICE\n<|id|>75<|page|>8<|box|>675 200 710 795<|content|>EXHIBIT A [PROPOSED] ORDER STAYING PROCEEDINGS PEN\n<|id|>76<|page|>8<|box|>753 143 787 852<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>80<|page|>9<|box|>220 151 237 844<|content|>ORDER STAYING ALL PROCEEDINGS PENDING COMPLETION O\n<|id|>87<|page|>9<|box|>744 142 761 271<|content|>SO ORDERED.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>6<|level|>2\n<|id|>16<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>36<|level|>3\n<|id|>41<|level|>3\n<|id|>45<|level|>3\n<|id|>49<|level|>2\n<|id|>56<|level|>2\n<|id|>69<|level|>2\n<|id|>75<|level|>2\n<|id|>76<|level|>1\n<|id|>80<|level|>1\n<|id|>87<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        }
+    ]
+}

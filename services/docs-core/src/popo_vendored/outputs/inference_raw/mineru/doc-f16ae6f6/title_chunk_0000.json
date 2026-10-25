@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        8,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>191 140 208 544<|content|>DRAFT — SUBJECT TO FURTHER REVIEW AND REVISION\n<|id|>8<|page|>1<|box|>330 142 347 294<|content|>Dear Sir or Madam:\n<|id|>12<|page|>1<|box|>797 140 814 387<|content|>Comment 1 — Use of Proceeds\n<|id|>29<|page|>4<|box|>258 140 277 364<|content|>Comment 2 — Risk Factors\n<|id|>40<|page|>6<|box|>148 142 167 377<|content|>Comment 3 — Dilution Table\n<|id|>61<|page|>8<|box|>90 140 107 478<|content|>Comment 4 — Incorporation by Reference\n<|id|>75<|page|>9<|box|>194 140 210 419<|content|>Comment 5 — Plan of Distribution\n<|id|>76<|page|>9<|box|>220 140 256 854<|content|>The Staff requests clarification regarding stabili\n<|id|>87<|page|>11<|box|>90 140 107 477<|content|>Comment 6 — Legal Opinion (Exhibit 5.1)\n<|id|>98<|page|>12<|box|>304 140 321 313<|content|>Concluding Remarks\n<|id|>113<|page|>13<|box|>90 140 107 254<|content|>cc: (via email)\n<|id|>115<|page|>13<|box|>215 142 232 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>-1\n<|id|>8<|level|>-1\n<|id|>12<|level|>1\n<|id|>29<|level|>1\n<|id|>40<|level|>1\n<|id|>61<|level|>1\n<|id|>75<|level|>1\n<|id|>76<|level|>2\n<|id|>87<|level|>1\n<|id|>98<|level|>1\n<|id|>113<|level|>1\n<|id|>115<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        }
+    ]
+}

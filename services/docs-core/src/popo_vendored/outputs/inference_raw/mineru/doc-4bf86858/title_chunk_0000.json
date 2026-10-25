@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>192 243 208 569<|content|>SECTION A — TRANSACTION DOCUMENTS\n<|id|>3<|page|>1<|box|>335 243 350 561<|content|>SECTION B — CORPORATE DELIVERABLES\n<|id|>5<|page|>1<|box|>424 243 439 561<|content|>SECTION C — PERFECTION DELIVERABLES\n<|id|>7<|page|>1<|box|>548 243 564 484<|content|>SECTION D — LEGAL OPINIONS\n<|id|>9<|page|>1<|box|>620 243 634 443<|content|>SECTION E — INSURANCE\n<|id|>11<|page|>1<|box|>690 243 707 539<|content|>SECTION F — FINANCIAL STATEMENTS\n<|id|>13<|page|>1<|box|>745 243 760 393<|content|>SECTION G — FEESSECTION G — FEES\n<|id|>15<|page|>1<|box|>833 243 848 485<|content|>SECTION H — MISCELLANEOUS\n<|id|>18<|page|>2<|box|>121 243 136 396<|content|>STATUS SUMMARY",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>5<|level|>1\n<|id|>7<|level|>1\n<|id|>9<|level|>1\n<|id|>11<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>1\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

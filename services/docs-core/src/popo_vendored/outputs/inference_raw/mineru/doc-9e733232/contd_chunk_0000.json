@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        11,
+        16,
+        17,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>142 142 157 357<|content|>Case No. ... 2022-CA-031547\n<|id|>2<|page|>1<|box|>167 140 184 496<|content|>VERIMARK HOSPITALITY GROUP INC. ... ,\n<|id|>3<|page|>1<|box|>193 212 210 282<|content|>Plaintiff,\n<|id|>8<|page|>1<|box|>378 643 395 854<|content|>Served: ... September 20, 2023\n<|id|>9<|page|>1<|box|>404 140 477 854<|content|>Plaintiff Verimark Hospitality Group Inc. ... VHG states as follows\n<|id|>102<|page|>11<|box|>571 140 608 854<|content|>Sunset Shores — 73 Days Full Closure (September 18...22) Plus Partial Closure Through February 28, 2023\n<|id|>103<|page|>11<|box|>613 140 686 854<|content|>VHG claims a period of restoration that includes t...mained unavailable due to ongoing restoration work\n<|id|>152<|page|>16<|box|>804 174 895 857<|content|>(c) Premium-Rate Contractor Labor and Expedited Ma...erties, and particularly at the Harborview Hotel &\n<|id|>153<|page|>17<|box|>90 174 126 854<|content|>Conference Center, where approximately $2. ... 1 m...n in extra expenses were incurred for this purpose\n<|id|>194<|page|>21<|box|>196 140 213 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>195<|page|>21<|box|>214 142 231 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>152<|tgt_id|>153",
+    "parsed": [
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        }
+    ]
+}

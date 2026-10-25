@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>8<|type|>title<|page|>1<|box|>414 140 430 292<|content|>Dear Sir or Madam:\n<|id|>11<|type|>title<|page|>1<|box|>818 142 834 390<|content|>1. Escrow Account Information\n<|id|>13<|type|>table<|page|>1<|box|>885 143 906 852<|content|>None\n<|id|>14<|type|>table<|page|>2<|box|>89 143 250 852<|content|>None\n<|id|>16<|type|>title<|page|>2<|box|>398 140 415 656<|content|>2. Identification of Funding Sources and Expected\n<|id|>18<|type|>title<|page|>2<|box|>492 140 508 612<|content|>2.1 Wire Transfer No. 1 — Ironclad Surety & Insura\n<|id|>21<|type|>title<|page|>3<|box|>89 140 125 852<|content|>2.2 Wire Transfer No. 2 — Grizzly Peak Research LL\n<|id|>23<|type|>title<|page|>3<|box|>383 140 400 395<|content|>2.3 Aggregate Settlement Funds\n<|id|>24<|type|>table<|page|>3<|box|>430 143 531 852<|content|>None\n<|id|>27<|type|>title<|page|>4<|box|>90 140 107 354<|content|>3. Confirmation of Receipt\n<|id|>46<|type|>title<|page|>4<|box|>756 140 773 372<|content|>4. Disbursement Instructions\n<|id|>50<|type|>title<|page|>5<|box|>286 140 301 434<|content|>5. Contact Information for Questions\n<|id|>52<|type|>title<|page|>5<|box|>375 142 390 285<|content|>Primary Contact:",
+    "raw_response": "<|src_id|>13<|tgt_id|>11\n<|src_id|>14<|tgt_id|>11\n<|src_id|>24<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 23
+        }
+    ]
+}

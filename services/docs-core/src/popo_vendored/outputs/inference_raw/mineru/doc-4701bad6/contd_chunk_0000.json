@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        18,
+        19,
+        20,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 151 702<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>2<|page|>1<|box|>159 140 195 854<|content|>FROM: ... Sylvia Hartwell, Partner, Tax Calderwood...P 1700 K Street NW, Suite 900 Washington, DC 20006\n<|id|>3<|page|>1<|box|>203 140 257 854<|content|>TO: ... Douglas Fairchild, Partner, Real Estate — ...aomi Ikeda, CPA, Tax Partner — Ashford Prewitt LLP\n<|id|>4<|page|>1<|box|>265 687 282 854<|content|>DATE: ... May 17, 2024\n<|id|>5<|page|>1<|box|>291 140 328 854<|content|>RE: ... State Income and Franchise Tax Filing Obli...gia, Texas, Florida, Tennessee, and North Carolina\n<|id|>6<|page|>1<|box|>334 142 352 362<|content|>MATTER NO. ... 1036-00004\n<|id|>7<|page|>1<|box|>361 140 378 511<|content|>CLIENT: ... Fairwater Real Estate Investment Trust\n<|id|>8<|page|>1<|box|>387 142 404 410<|content|>Right-click to update Table of Contents\n<|id|>12<|page|>1<|box|>742 140 890 857<|content|>The entity-level acquisition structure — pursuant ...ties themselves continue without interruption, and\n<|id|>13<|page|>2<|box|>90 140 127 854<|content|>Fairwater REIT, as the new sole member, assumes re... those obligations from and after the Closing Date\n<|id|>20<|page|>2<|box|>546 174 564 754<|content|>(e) Impact on Fairwater REIT's existing Maryland state income tax filings; ... and\n<|id|>22<|page|>2<|box|>616 138 726 857<|content|>All state income and franchise tax returns referen...sis — Five States memorandum prepared by this firm\n<|id|>25<|page|>2<|box|>803 140 895 857<|content|>Fairwater Real Estate Investment Trust is a Maryla...ns 856 through 860 of the Internal Revenue Code of\n<|id|>26<|page|>3<|box|>89 140 217 854<|content|>1986, as amended (the \"Code\"), and has maintained ...ations, as discussed in detail in Section VI below\n<|id|>50<|page|>5<|box|>867 140 904 857<|content|>3. ... Delaware LLCs that are qualified to do busi...annual registrations with the Georgia Secretary of\n<|id|>51<|page|>6<|box|>90 140 237 856<|content|>State pursuant to O. ... Until such updates are fi... registrations remain current and in good standing\n<|id|>161<|page|>18<|box|>856 140 893 854<|content|>GMP Fund III is responsible for reporting and payi...Entities during the pre-closing period (January 1,\n<|id|>162<|page|>19<|box|>89 140 200 856<|content|>2024 through June 5, 2024). ... GMP Fund III's tax...r pay taxes with respect to the pre-closing period\n<|id|>172<|page|>20<|box|>196 176 214 434<|content|>Texas: ... Breckenridge Osgood LLP\n<|id|>173<|page|>20<|box|>223 176 239 434<|content|>Attn: ... James Breckenridge, Partner\n<|id|>174<|page|>20<|box|>239 176 256 553<|content|>717 Texas Avenue, Suite 2600 Houston, TX 77002\n<|id|>175<|page|>20<|box|>266 176 282 444<|content|>Georgia: ... Talmadge Beaumont LLP\n<|id|>176<|page|>20<|box|>292 176 308 437<|content|>Attn: ... Catherine Beaumont, Partner\n<|id|>177<|page|>20<|box|>309 176 325 598<|content|>1180 Peachtree Street NE, Suite 1900 Atlanta, GA 30309\n<|id|>178<|page|>20<|box|>334 176 351 483<|content|>North Carolina: ... Haversham Cole PLLC\n<|id|>179<|page|>20<|box|>361 176 377 524<|content|>Attn: ... Marshall Haversham, Managing Member\n<|id|>180<|page|>20<|box|>378 176 395 606<|content|>301 South College Street, Suite 1400 Charlotte, NC 28202\n<|id|>181<|page|>20<|box|>404 176 420 433<|content|>Tennessee: ... Ellsworth Ridley LLP\n<|id|>182<|page|>20<|box|>430 176 446 406<|content|>Attn: ... Diane Ellsworth, Partner\n<|id|>183<|page|>20<|box|>446 176 463 558<|content|>424 Church Street, Suite 1500 Nashville, TN 37219\n<|id|>184<|page|>20<|box|>473 176 489 400<|content|>Florida: ... Palmetto Strauss PA\n<|id|>185<|page|>20<|box|>500 176 513 437<|content|>Attn: ... Roberto Strauss, Shareholder\n<|id|>186<|page|>20<|box|>515 176 532 607<|content|>100 Southeast Second Street, Suite 2800 Miami, FL 33131\n<|id|>187<|page|>20<|box|>542 140 688 854<|content|>Local counsel opinions delivered at closing in con...with the applicable local counsel identified above\n<|id|>210<|page|>23<|box|>106 140 152 854<|content|>cc: ... 1036-00004\n<|id|>211<|page|>23<|box|>159 140 204 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...STATE INVESTMENT TRUST — MATTER NO. ... 1036-00004",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>25<|tgt_id|>26\n<|src_id|>50<|tgt_id|>51\n<|src_id|>161<|tgt_id|>162",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 162
+        }
+    ]
+}

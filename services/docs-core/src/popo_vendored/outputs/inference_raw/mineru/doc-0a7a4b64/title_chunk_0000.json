@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>127 357 170 638<|content|>STATE OF DELAWARE CERTIFICATE OF FORMATION\n<|id|>3<|page|>1<|box|>205 277 250 718<|content|>LIMITED LIABILITY COMPANY SOLARA CONSOLIDATED MAST\n<|id|>4<|page|>1<|box|>308 145 343 849<|content|>CERTIFICATE OF FORMATION OF SOLARA CONSOLIDATED MA\n<|id|>6<|page|>1<|box|>430 142 448 325<|content|>ARTICLE I — NAME\n<|id|>8<|page|>1<|box|>483 328 500 668<|content|>Solara Consolidated Master Fund GP LLC\n<|id|>11<|page|>1<|box|>758 140 775 700<|content|>ARTICLE II — REGISTERED OFFICE AND REGISTERED AGEN\n<|id|>16<|page|>2<|box|>186 140 203 483<|content|>ARTICLE III — AUTHORIZED PERSON\n<|id|>21<|page|>2<|box|>587 140 604 439<|content|>ARTICLE IV — EFFECTIVE DATE\n<|id|>24<|page|>3<|box|>89 142 106 359<|content|>ARTICLE V — PURPOSE\n<|id|>27<|page|>3<|box|>364 140 382 380<|content|>ARTICLE VI — DURATION\n<|id|>37<|page|>3<|box|>674 303 690 692<|content|>FILING INSTRUCTIONS AND COVER SHEET\n<|id|>38<|page|>3<|box|>700 316 715 681<|content|>Internal Use Only — Not Part of Filed Document\n<|id|>39<|page|>3<|box|>731 142 747 486<|content|>Cover Letter to Delaware Secretary of State\n<|id|>64<|page|>4<|box|>611 323 627 674<|content|>INTERNAL NOTES AND ANNOTATIONS\n<|id|>65<|page|>4<|box|>637 143 655 852<|content|>Draft Review Purposes Only — Privileged & Confiden\n<|id|>66<|page|>4<|box|>667 142 685 638<|content|>Transaction Context — Five-Step Cross-Border Reorg\n<|id|>72<|page|>5<|box|>138 140 157 467<|content|>Role of This Entity in the Fund Structure\n<|id|>78<|page|>5<|box|>315 142 332 447<|content|>Entity Classification and Tax Elections\n<|id|>83<|page|>5<|box|>684 140 700 390<|content|>Registered Agent Confirmation\n<|id|>85<|page|>5<|box|>811 140 828 398<|content|>Authorized Person — Execution\n<|id|>88<|page|>6<|box|>138 140 157 493<|content|>Coordination with Contemporaneous Filings",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>2\n<|id|>8<|level|>3\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>21<|level|>2\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>37<|level|>2\n<|id|>38<|level|>-1\n<|id|>39<|level|>3\n<|id|>64<|level|>2\n<|id|>65<|level|>-1\n<|id|>66<|level|>3\n<|id|>72<|level|>3\n<|id|>78<|level|>3\n<|id|>83<|level|>3\n<|id|>85<|level|>3\n<|id|>88<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        }
+    ]
+}

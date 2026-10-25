@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 142 104 256<|content|>CONFIDENTIAL\n<|id|>1<|page|>1<|box|>112 165 128 854<|content|>CALDERWOOD & HARKNESS LLP One Liberty Plaza, 50th Floor New York, NY 10006\n<|id|>2<|page|>1<|box|>138 223 156 854<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>164 704 181 854<|content|>November 22, 2024\n<|id|>4<|page|>1<|box|>190 140 226 854<|content|>Mr. ... Lukas Brandt Relationship Manager Meridian Capital Bank AG Ballindamm 40 20095 Hamburg, Germany\n<|id|>5<|page|>1<|box|>234 174 289 854<|content|>Re: ... $340,000,000 Secured Credit Facility\n<|id|>6<|page|>1<|box|>297 176 314 413<|content|>C&H Matter No. ... 1044-00006\n<|id|>7<|page|>1<|box|>323 142 340 274<|content|>Dear Mr. ... Brandt\n<|id|>26<|page|>3<|box|>824 140 878 856<|content|>Mediation. ... ), serving as mediator at Bayside Dispute Resolution\n<|id|>27<|page|>4<|box|>89 140 127 854<|content|>Services LLC. ... The mediation proved successful ...ment in principle, as described in Section 3 below\n<|id|>32<|page|>4<|box|>398 174 435 854<|content|>(b) Payment 2: ... and\n<|id|>34<|page|>4<|box|>506 140 542 854<|content|>The \"Effective Date\" of the Settlement Agreement i...4, being the date of full execution by all parties\n<|id|>37<|page|>4<|box|>693 174 747 854<|content|>(a) TSL Corporate Funds: ... and\n<|id|>39<|page|>4<|box|>837 140 912 856<|content|>Mutual General Release. ... Accordingly, by enteri...nd waived its right to recover on its Counterclaim\n<|id|>53<|page|>6<|box|>530 174 585 854<|content|>(a) The aggregate Settlement Amount of $7,850,000 represents approximately 1. ... and\n<|id|>55<|page|>6<|box|>655 140 691 854<|content|>TSL anticipates that its fiscal year 2023 and 2024...eeding the fiscal year 2022 benchmarks cited above\n<|id|>68<|page|>7<|box|>727 174 763 854<|content|>Douglas Carmichael Partner Calderwood & Harkness L...r New York, NY 10006 Telephone: ... (212) 558-3591\n<|id|>69<|page|>7<|box|>771 176 787 529<|content|>Email: ... com\n<|id|>70<|page|>7<|box|>789 176 824 854<|content|>Markos Theodorakis General Counsel Thalassa Shippi...eus 185 38, Greece Telephone: ... +30 210 429 7300\n<|id|>71<|page|>7<|box|>832 176 849 460<|content|>Email: ... com\n<|id|>72<|page|>7<|box|>849 176 885 854<|content|>Elena Papadimitriou Chief Financial Officer Thalas...eus 185 38, Greece Telephone: ... +30 210 429 7400\n<|id|>73<|page|>8<|box|>90 176 106 470<|content|>Email: ... com\n<|id|>74<|page|>8<|box|>107 140 162 854<|content|>We trust that the foregoing provides Meridian with... address any further inquiries at your convenience\n<|id|>75<|page|>8<|box|>170 142 188 272<|content|>Very truly yours,\n<|id|>76<|page|>8<|box|>195 140 212 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>77<|page|>8<|box|>214 143 229 253<|content|>By: ... By\n<|id|>78<|page|>8<|box|>231 143 246 354<|content|>Douglas Carmichael Partner\n<|id|>79<|page|>8<|box|>247 142 265 488<|content|>On behalf of Thalassa Shipping & Logistics SA\n<|id|>80<|page|>8<|box|>268 142 280 171<|content|>cc: ... cc",
+    "raw_response": "<|src_id|>26<|tgt_id|>27\n<|src_id|>72<|tgt_id|>73",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        }
+    ]
+}

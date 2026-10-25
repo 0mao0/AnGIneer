@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>1<|box|>761 140 854 856<|content|>WHEREAS, Dr. ... and\n<|id|>9<|page|>2<|box|>90 140 143 854<|content|>WHEREAS, to induce Buyer to consummate the transac...the undersigned makes the following certifications",
+    "raw_response": "<|src_id|>8<|tgt_id|>9",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        }
+    ]
+}

@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 119 854<|content|>CONFIDENTIAL SETTLEMENT COMMUNICATION — SUBJECT TO\n<|id|>1<|page|>1<|box|>127 197 148 799<|content|>TERM SHEET — FOR SETTLEMENT PURPOSES ONLY\n<|id|>4<|page|>1<|box|>250 142 268 228<|content|>PARTIES\n<|id|>6<|page|>1<|box|>321 143 338 225<|content|>Plaintiffs:\n<|id|>11<|page|>1<|box|>488 143 503 235<|content|>Defendant:\n<|id|>14<|page|>1<|box|>616 142 633 243<|content|>RECITALS\n<|id|>21<|page|>2<|box|>311 140 329 527<|content|>SECTION 1: CASH SETTLEMENT PAYMENT\n<|id|>29<|page|>3<|box|>89 142 107 447<|content|>SECTION 2: PAYMENT SCHEDULE\n<|id|>37<|page|>3<|box|>678 140 695 465<|content|>SECTION 3: PROSPECTIVE LICENSE\n<|id|>41<|page|>4<|box|>252 142 268 405<|content|>3.4 Minimum Annual Guarantee.\n<|id|>45<|page|>4<|box|>593 142 611 364<|content|>3.5 Reporting and Payment.\n<|id|>54<|page|>5<|box|>196 142 214 277<|content|>3.6 Sublicensing.\n<|id|>57<|page|>5<|box|>402 140 420 480<|content|>3.7 Automatic Termination and Takedown.\n<|id|>62<|page|>6<|box|>89 140 106 387<|content|>SECTION 4: AUDIT RIGHTS\n<|id|>67<|page|>6<|box|>458 140 474 426<|content|>4.5 Discrepancies and Cost of Audit.\n<|id|>72<|page|>6<|box|>803 140 820 423<|content|>SECTION 5: MUTUAL RELEASE\n<|id|>80<|page|>7<|box|>614 140 633 426<|content|>SECTION 6: CONFIDENTIALITY\n<|id|>90<|page|>8<|box|>589 140 607 354<|content|>SECTION 7: DISMISSAL\n<|id|>95<|page|>9<|box|>148 140 166 483<|content|>SECTION 8: DEFINITIVE AGREEMENT\n<|id|>111<|page|>9<|box|>780 140 797 684<|content|>SECTION 9: BINDING EFFECT AND NATURE OF TERM SHEET\n<|id|>117<|page|>10<|box|>421 400 439 596<|content|>[Signature Page Follows]\n<|id|>118<|page|>10<|box|>446 163 463 833<|content|>SIGNATURE PAGE TO TERM SHEET — FOR SETTLEMENT PURP\n<|id|>120<|page|>10<|box|>498 142 513 303<|content|>FOR PLAINTIFFS:\n<|id|>128<|page|>10<|box|>676 143 693 308<|content|>FOR DEFENDANT:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>3\n<|id|>11<|level|>3\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>29<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>3\n<|id|>45<|level|>3\n<|id|>54<|level|>3\n<|id|>57<|level|>3\n<|id|>62<|level|>2\n<|id|>67<|level|>3\n<|id|>72<|level|>2\n<|id|>80<|level|>2\n<|id|>90<|level|>2\n<|id|>95<|level|>2\n<|id|>111<|level|>2\n<|id|>117<|level|>-1\n<|id|>118<|level|>2\n<|id|>120<|level|>3\n<|id|>128<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        }
+    ]
+}

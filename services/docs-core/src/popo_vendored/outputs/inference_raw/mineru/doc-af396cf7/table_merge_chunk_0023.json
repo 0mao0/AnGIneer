@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 23,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['31.1', 'PPC Corporate Overview. Penterra Pharmaceuticals Corp. (\"PPC\") is a Delaware corporation, publicly traded on the Nasdaq Stock Market under the ticker symbol PPCA. PPC\\'s corporate headquarters is located at 2200 Independence Boulevard, Princeton Junction, New Jersey 08550. For fiscal year 2020, PPC reported consolidated revenue of $6.82 billion and consolidated pre-tax income of $1.47 billion. PPC employs approximately 14,500 individuals globally. PPC is a specialty pharmaceutical company focused on the development and commercialization of innovative therapies in the oncology, immunology, and rare disease therapeutic areas. PPC\\'s principal revenue-generating']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'products are Veritaxol (oncology), Imvara (immunology), and Cerulon (rare disease).']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 128,
+    "table2_idx": 129
+}

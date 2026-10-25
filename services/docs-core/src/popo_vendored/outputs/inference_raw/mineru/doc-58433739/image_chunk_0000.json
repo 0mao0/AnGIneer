@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3<|type|>title<|page|>1<|box|>181 140 199 578<|content|>VIA HAND DELIVERY AND CFIUS SECURE PORTAL\n<|id|>10<|type|>title<|page|>1<|box|>801 140 818 339<|content|>I. Transaction Summary\n<|id|>13<|type|>title<|page|>2<|box|>431 140 449 501<|content|>II. Description of the Request for Information\n<|id|>21<|type|>title<|page|>3<|box|>223 140 239 550<|content|>III. Description of Enclosed Supplemental Material\n<|id|>22<|type|>title<|page|>3<|box|>253 140 270 537<|content|>A. Attachment 1: Substantive Response Document\n<|id|>30<|type|>title<|page|>4<|box|>90 140 108 794<|content|>B. Attachment 2: Supplemental Exhibit — HSAG Cyber\n<|id|>38<|type|>title<|page|>5<|box|>90 140 108 753<|content|>C. Attachment 3: Supplemental Exhibit — HSAG China\n<|id|>46<|type|>title<|page|>5<|box|>768 142 784 344<|content|>IV. Index of Attachments\n<|id|>48<|type|>table<|page|>5<|box|>816 143 904 852<|content|>None\n<|id|>49<|type|>table<|page|>6<|box|>89 143 125 852<|content|>None\n<|id|>50<|type|>title<|page|>6<|box|>172 140 190 563<|content|>V. Reservation of Rights and Continuing Cooperatio\n<|id|>55<|type|>title<|page|>6<|box|>628 140 646 348<|content|>VI. Confidentiality Notice\n<|id|>58<|type|>title<|page|>7<|box|>204 140 222 346<|content|>VII. Contact Information\n<|id|>77<|type|>title<|page|>7<|box|>748 142 761 171<|content|>cc:\n<|id|>80<|type|>title<|page|>8<|box|>135 143 151 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>48<|tgt_id|>46\n<|src_id|>49<|tgt_id|>46",
+    "parsed": [
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 46
+        }
+    ]
+}

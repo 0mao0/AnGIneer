@@ -1,0 +1,93 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        75
+    ],
+    "pages": [
+        45,
+        46,
+        49,
+        51,
+        52,
+        53,
+        54,
+        55,
+        57,
+        58,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        69,
+        70,
+        75
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>102<|type|>table<|page|>45<|box|>118 57 765 926<|content|>None\n<|id|>103<|type|>table<|page|>46<|box|>97 95 355 941<|content|>None\n<|id|>104<|type|>table<|page|>46<|box|>455 91 890 943<|content|>None\n<|id|>106<|type|>table<|page|>49<|box|>121 26 935 956<|content|>None\n<|id|>107<|type|>table<|page|>51<|box|>111 42 952 943<|content|>None\n<|id|>109<|type|>table<|page|>52<|box|>110 84 889 964<|content|>None\n<|id|>110<|type|>table<|page|>53<|box|>115 45 910 934<|content|>None\n<|id|>111<|type|>table<|page|>54<|box|>106 73 606 950<|content|>None\n<|id|>112<|type|>table<|page|>54<|box|>707 77 892 950<|content|>None\n<|id|>113<|type|>table<|page|>55<|box|>100 66 865 929<|content|>None\n<|id|>117<|type|>table<|page|>57<|box|>114 50 940 924<|content|>None\n<|id|>118<|type|>title<|page|>58<|box|>55 241 85 778<|content|>Outstanding Forward Exchange Contracts as Reported\n<|id|>119<|type|>table<|page|>58<|box|>109 66 622 955<|content|>None\n<|id|>120<|type|>title<|page|>58<|box|>702 214 731 806<|content|>Net Position in Foreign Currencies of Reporting Ba\n<|id|>121<|type|>table<|page|>58<|box|>756 68 857 957<|content|>None\n<|id|>122<|type|>table<|page|>61<|box|>98 54 346 938<|content|>None\n<|id|>123<|type|>table<|page|>61<|box|>418 52 677 938<|content|>None\n<|id|>124<|type|>table<|page|>61<|box|>723 54 965 938<|content|>None\n<|id|>125<|type|>title<|page|>62<|box|>128 244 156 775<|content|>MONETARY STOCKS OF GOLD AND SILVER IN U.S.\n<|id|>128<|type|>title<|page|>63<|box|>63 133 78 456<|content|>Components of Silver Monetary Stock\n<|id|>129<|type|>table<|page|>63<|box|>102 61 421 532<|content|>None\n<|id|>130<|type|>table<|page|>63<|box|>115 544 397 936<|content|>None\n<|id|>131<|type|>table<|page|>63<|box|>551 61 811 934<|content|>None\n<|id|>132<|type|>table<|page|>64<|box|>101 95 606 943<|content|>None\n<|id|>133<|type|>table<|page|>64<|box|>703 98 931 945<|content|>None\n<|id|>134<|type|>table<|page|>65<|box|>102 63 373 929<|content|>None\n<|id|>135<|type|>title<|page|>65<|box|>440 108 469 393<|content|>Indexes of Prices of 40 Foreign Currencies in New\n<|id|>136<|type|>table<|page|>65<|box|>493 65 773 434<|content|>None\n<|id|>137<|type|>table<|page|>65<|box|>492 449 772 934<|content|>None\n<|id|>138<|type|>table<|page|>66<|box|>122 75 403 443<|content|>None\n<|id|>139<|type|>table<|page|>66<|box|>123 457 403 948<|content|>None\n<|id|>141<|type|>table<|page|>69<|box|>118 65 353 929<|content|>None\n<|id|>142<|type|>table<|page|>69<|box|>497 63 768 931<|content|>None\n<|id|>144<|type|>title<|page|>70<|box|>59 68 86 491<|content|>Summary of Criminal Cases in the United States Dis\n<|id|>146<|type|>table<|page|>70<|box|>140 56 267 505<|content|>None\n<|id|>147<|type|>table<|page|>70<|box|>300 56 444 508<|content|>None\n<|id|>148<|type|>table<|page|>70<|box|>480 58 615 508<|content|>None\n<|id|>149<|type|>title<|page|>70<|box|>60 577 75 890<|content|>Treasury Criminal Cases, by Months\n<|id|>150<|type|>table<|page|>70<|box|>122 517 240 959<|content|>None\n<|id|>151<|type|>table<|page|>70<|box|>280 519 419 961<|content|>None\n<|id|>152<|type|>table<|page|>70<|box|>455 519 586 961<|content|>None\n<|id|>155<|type|>table<|page|>75<|box|>460 381 565 736<|content|>None",
+    "raw_response": "<|src_id|>119<|tgt_id|>118\n<|src_id|>121<|tgt_id|>120\n<|src_id|>129<|tgt_id|>128\n<|src_id|>130<|tgt_id|>128\n<|src_id|>131<|tgt_id|>128\n<|src_id|>136<|tgt_id|>135\n<|src_id|>137<|tgt_id|>135\n<|src_id|>138<|tgt_id|>135\n<|src_id|>139<|tgt_id|>135\n<|src_id|>146<|tgt_id|>144\n<|src_id|>147<|tgt_id|>144\n<|src_id|>148<|tgt_id|>144\n<|src_id|>150<|tgt_id|>149\n<|src_id|>151<|tgt_id|>149\n<|src_id|>152<|tgt_id|>149",
+    "parsed": [
+        {
+            "src_id": 119,
+            "tgt_id": 118
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 149
+        }
+    ]
+}

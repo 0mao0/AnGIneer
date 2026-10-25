@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        7,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>179 140 214 854<|content|>FROM: ... Douglas Fairchild, Engagement Partner, a...Dempsey, Lead Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>223 140 239 354<|content|>DATE: ... November 18, 2022\n<|id|>5<|page|>1<|box|>250 140 284 854<|content|>RE: ... Initial Situational Assessment — Activist Campaign by Pinnacle Harbor Capital Partners, LP\n<|id|>6<|page|>1<|box|>294 142 310 331<|content|>Matter No. ... 1033-00003\n<|id|>7<|page|>1<|box|>319 140 375 854<|content|>CC: ... Marcus Leung, Working Associate, Calderwood & Harkness LLP\n<|id|>59<|page|>7<|box|>299 174 334 854<|content|>2. ... and\n<|id|>61<|page|>7<|box|>375 140 503 854<|content|>The decision to file a Schedule 13D rather than a ...gagement campaign rather than a passive investment\n<|id|>65<|page|>7<|box|>676 174 729 854<|content|>(b) Pursuing a comprehensive strategic review of t...otential sale, spin-off, or joint venture; ... and\n<|id|>67<|page|>7<|box|>782 140 893 857<|content|>The filing further states that Pinnacle Harbor res...nary actions) without the need to amend the filing\n<|id|>110<|page|>13<|box|>579 181 594 653<|content|>• Jim Delacroix, Chair — also serves on the Audit Committee\n<|id|>113<|page|>13<|box|>637 140 747 856<|content|>The Special Committee has been authorized to overs...s, settlement terms, and other strategic decisions\n<|id|>111<|page|>13<|box|>598 183 614 668<|content|>• Carmen Vasquez — also serves on the Governance Committee\n<|id|>112<|page|>13<|box|>618 183 633 668<|content|>• Randall Morse — also serves on the Compensation Committee",
+    "raw_response": "<|src_id|>59<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 59,
+            "tgt_id": 61
+        }
+    ]
+}

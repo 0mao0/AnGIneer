@@ -1,0 +1,168 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 447 106 550<|content|>EXHIBIT A\n<|id|>1<|page|>1<|box|>114 197 132 797<|content|>FORM OF SENIOR UNSECURED CONVERTIBLE PROMISSORY NO\n<|id|>3<|page|>1<|box|>253 243 270 754<|content|>SENIOR UNSECURED CONVERTIBLE PROMISSORY NOTE\n<|id|>10<|page|>1<|box|>569 142 585 313<|content|>Section 1. Definitions\n<|id|>30<|page|>3<|box|>212 140 229 287<|content|>Section 2. Interest\n<|id|>31<|page|>3<|box|>244 140 260 279<|content|>(a) Interest Rate.\n<|id|>33<|page|>3<|box|>462 140 479 359<|content|>(b) Payment in Kind (PIK).\n<|id|>43<|page|>4<|box|>232 140 250 377<|content|>(c) Interest Upon Conversion.\n<|id|>45<|page|>4<|box|>425 140 441 424<|content|>Section 3. Maturity and Repayment\n<|id|>46<|page|>4<|box|>455 140 474 290<|content|>(a) Maturity Date.\n<|id|>48<|page|>4<|box|>675 140 693 341<|content|>(b) Optional Repayment.\n<|id|>50<|page|>4<|box|>821 140 838 393<|content|>(c) Holder Election at Maturity.\n<|id|>55<|page|>5<|box|>366 140 383 316<|content|>Section 4. Conversion\n<|id|>56<|page|>5<|box|>397 140 414 557<|content|>(a) Automatic Conversion Upon Qualified Financing.\n<|id|>67<|page|>6<|box|>411 140 428 444<|content|>(b) Voluntary Conversion at Maturity.\n<|id|>69<|page|>6<|box|>612 140 628 542<|content|>(c) Voluntary Conversion Upon Change of Control.\n<|id|>71<|page|>6<|box|>867 140 883 374<|content|>(d) Mechanics of Conversion.\n<|id|>78<|page|>7<|box|>789 140 806 370<|content|>Section 5. Change of Control\n<|id|>79<|page|>7<|box|>820 140 837 493<|content|>(a) Holder Election Upon Change of Control.\n<|id|>84<|page|>8<|box|>492 140 508 491<|content|>(b) Payment of Change of Control Premium.\n<|id|>86<|page|>8<|box|>758 140 773 361<|content|>Section 6. Events of Default\n<|id|>87<|page|>8<|box|>789 140 805 377<|content|>(a) Events of Default Defined.\n<|id|>94<|page|>9<|box|>547 140 564 429<|content|>(b) Remedies Upon Event of Default.\n<|id|>100<|page|>10<|box|>250 140 266 310<|content|>Section 7. Covenants\n<|id|>106<|page|>11<|box|>340 140 357 447<|content|>Section 8. Seniority and Subordination\n<|id|>108<|page|>11<|box|>609 140 626 393<|content|>Section 9. Transfer Restrictions\n<|id|>109<|page|>11<|box|>638 140 657 367<|content|>(a) Restrictions on Transfer.\n<|id|>116<|page|>12<|box|>489 140 506 468<|content|>Section 10. Representations of the Holder\n<|id|>123<|page|>13<|box|>321 140 339 344<|content|>Section 11. Miscellaneous\n<|id|>124<|page|>13<|box|>353 140 369 300<|content|>(a) Governing Law.\n<|id|>127<|page|>13<|box|>713 140 729 338<|content|>(c) Waiver of Jury Trial.\n<|id|>129<|page|>14<|box|>89 140 125 854<|content|>THAT IT HAS READ AND UNDERSTANDS THE EFFECT OF THI\n<|id|>138<|page|>14<|box|>551 140 569 383<|content|>(e) Amendments and Waivers.\n<|id|>147<|page|>15<|box|>138 140 157 354<|content|>(f) Successors and Assigns.\n<|id|>151<|page|>15<|box|>457 140 474 313<|content|>(i) Entire Agreement.\n<|id|>153<|page|>15<|box|>584 140 603 279<|content|>(j) Paying Agent.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>10<|level|>2\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>33<|level|>3\n<|id|>43<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>67<|level|>3\n<|id|>69<|level|>3\n<|id|>71<|level|>3\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>84<|level|>3\n<|id|>86<|level|>2\n<|id|>87<|level|>3\n<|id|>94<|level|>3\n<|id|>100<|level|>2\n<|id|>106<|level|>2\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>116<|level|>2\n<|id|>123<|level|>2\n<|id|>124<|level|>3\n<|id|>127<|level|>3\n<|id|>129<|level|>-1\n<|id|>138<|level|>3\n<|id|>147<|level|>3\n<|id|>151<|level|>3\n<|id|>153<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 3
+        }
+    ]
+}

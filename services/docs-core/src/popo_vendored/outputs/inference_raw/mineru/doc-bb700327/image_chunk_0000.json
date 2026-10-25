@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>3<|type|>title<|page|>1<|box|>166 163 203 834<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>4<|type|>title<|page|>1<|box|>210 142 229 292<|content|>MEMORANDUM\n<|id|>10<|type|>title<|page|>1<|box|>441 385 460 611<|content|>I. Executive Summary\n<|id|>18<|type|>title<|page|>2<|box|>388 305 409 691<|content|>II. Case Status and Procedural Update\n<|id|>19<|type|>title<|page|>2<|box|>434 140 450 452<|content|>A. Motion for Conditional Certification\n<|id|>31<|type|>title<|page|>3<|box|>340 142 359 281<|content|>B. Key Deadlines\n<|id|>33<|type|>table<|page|>3<|box|>409 143 571 852<|content|>None\n<|id|>35<|type|>title<|page|>3<|box|>719 140 737 310<|content|>C. Scheduling Order\n<|id|>37<|type|>title<|page|>4<|box|>90 233 111 763<|content|>III. Conditional Certification Opposition Preparat\n<|id|>38<|type|>title<|page|>4<|box|>136 142 154 281<|content|>A. Brief Drafting\n<|id|>47<|type|>title<|page|>5<|box|>304 140 321 359<|content|>B. Supporting Declarations\n<|id|>54<|type|>title<|page|>6<|box|>186 140 204 395<|content|>C. Hub-Level Data Compilation\n<|id|>58<|type|>title<|page|>6<|box|>529 228 549 767<|content|>IV. Expert Engagement — Corbin Risk Advisors LLC\n<|id|>72<|type|>title<|page|>7<|box|>760 390 779 607<|content|>V. Discovery Activity\n<|id|>73<|type|>title<|page|>7<|box|>805 140 821 424<|content|>A. Defendant's discovery Responses\n<|id|>83<|type|>title<|page|>8<|box|>551 142 566 339<|content|>B. Document Production\n<|id|>93<|type|>title<|page|>9<|box|>167 140 185 408<|content|>C. Plaintiff's discovery Responses\n<|id|>95<|type|>title<|page|>9<|box|>363 140 380 274<|content|>D. Privilege Log\n<|id|>98<|type|>title<|page|>9<|box|>643 336 662 660<|content|>VI. Arbitration Strategy Update\n<|id|>110<|type|>title<|page|>11<|box|>90 334 111 661<|content|>VII. Insurance Coverage Update\n<|id|>123<|type|>title<|page|>11<|box|>775 323 795 674<|content|>VIII. Damages Exposure Summary\n<|id|>125<|type|>title<|page|>12<|box|>90 140 107 364<|content|>Plaintiff's Damages Theory:\n<|id|>133<|type|>table<|page|>12<|box|>313 143 494 852<|content|>None\n<|id|>134<|type|>title<|page|>12<|box|>527 143 545 434<|content|>Additional Exposure Considerations:\n<|id|>138<|type|>title<|page|>13<|box|>90 271 111 725<|content|>IX. Financial Summary — Billing and Budget\n<|id|>139<|type|>title<|page|>13<|box|>136 142 154 457<|content|>A. Fee Summary Through July 31, 2025\n<|id|>141<|type|>table<|page|>13<|box|>204 143 347 852<|content|>None\n<|id|>144<|type|>title<|page|>13<|box|>520 143 537 364<|content|>B. Phase 1 Budget Tracking\n<|id|>145<|type|>table<|page|>13<|box|>544 143 635 852<|content|>None\n<|id|>153<|type|>title<|page|>14<|box|>263 140 280 303<|content|>C. Billing Narrative\n<|id|>162<|type|>title<|page|>14<|box|>625 318 643 678<|content|>X. Key Action Items and Next Steps\n<|id|>173<|type|>title<|page|>15<|box|>525 395 544 602<|content|>XI. Risk Assessment\n<|id|>174<|type|>title<|page|>15<|box|>561 140 579 423<|content|>Overall Risk Level: Moderate-High\n<|id|>178<|type|>title<|page|>16<|box|>135 140 152 383<|content|>Strongest Defense Arguments:\n<|id|>182<|type|>title<|page|>16<|box|>476 143 492 287<|content|>Key Risk Factors:\n<|id|>188<|type|>title<|page|>17<|box|>135 364 155 633<|content|>XII. Confidentiality Notice",
+    "raw_response": "<|src_id|>33<|tgt_id|>31\n<|src_id|>133<|tgt_id|>125\n<|src_id|>141<|tgt_id|>139\n<|src_id|>145<|tgt_id|>144",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 125
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 144
+        }
+    ]
+}

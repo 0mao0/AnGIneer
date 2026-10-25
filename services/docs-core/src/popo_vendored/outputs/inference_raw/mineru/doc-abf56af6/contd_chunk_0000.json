@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 143 172 852<|content|>450 Park Avenue New York, New York 10022 Telephone: ... (212) 558- 3588\n<|id|>3<|page|>1<|box|>181 158 218 836<|content|>Iowa Office: ... (515) 246-7210\n<|id|>4<|page|>1<|box|>227 746 244 854<|content|>May 19, 2025\n<|id|>5<|page|>1<|box|>253 142 268 437<|content|>VIA EMAIL AND HAND DELIVERY\n<|id|>6<|page|>1<|box|>277 140 296 831<|content|>Richard Yeung, Esq. ... Harmon & Keach LLP 51 West 52nd Street New York, New York 10019\n<|id|>7<|page|>1<|box|>304 176 359 854<|content|>Re: ... Iowa) — Debtor's Revised Markup of Senior ...uperpriority Debtor-in-Possession Credit Agreement\n<|id|>8<|page|>1<|box|>367 176 385 408<|content|>Engagement No. ... 1020-00002\n<|id|>9<|page|>1<|box|>393 142 409 250<|content|>Dear Richard: ... Dear Richard\n<|id|>24<|page|>2<|box|>785 181 840 856<|content|>• Exit Fee: ... and\n<|id|>26<|page|>3<|box|>90 140 200 854<|content|>Draw Availability. ... This structure is consisten...ons pending final approval by the Bankruptcy Court\n<|id|>30<|page|>3<|box|>425 183 479 854<|content|>• First-priority priming liens on all assets of th...-petition secured lenders described below; ... and\n<|id|>32<|page|>3<|box|>518 140 611 856<|content|>Governing Law. ... The Debtor has accepted the gov...y Code as applied in the Northern District of Iowa\n<|id|>35<|page|>3<|box|>755 181 809 854<|content|>• Post-Trigger Carve-Out for Estate Professionals: ... and\n<|id|>37<|page|>3<|box|>849 176 868 571<|content|>for an aggregate post-trigger carve-out of $3,000,... an aggregate post-trigger carve-out of $3,000,000\n<|id|>36<|page|>3<|box|>811 181 847 854<|content|>• Post-Trigger Carve-Out for U. ... § 1930(a)(6),\n<|id|>40<|page|>4<|box|>209 181 262 854<|content|>• Maximum Budget Variance: ... and\n<|id|>42<|page|>4<|box|>304 140 376 854<|content|>Adequate Protection Package. ... , as participating lenders) as proposed, including\n<|id|>65<|page|>7<|box|>676 174 896 857<|content|>(a) Financial Covenant Breach — 3 Business Day Not...in Budget Weeks 9 through 13 (July 10 – August 13,\n<|id|>67<|page|>8<|box|>171 174 244 856<|content|>We note that the Debtor is not requesting any grac...ccommodate the Debtor's seasonal operating profile\n<|id|>103<|page|>13<|box|>724 210 797 856<|content|>(c) Declaration of Nolan Ashworth, Managing Direct... viable alternative sources of financing); ... and\n<|id|>106<|page|>14<|box|>90 210 126 854<|content|>22, 2025. ... We are awaiting confirmation from chambers and will advise you promptly upon receipt\n<|id|>121<|page|>15<|box|>252 142 268 274<|content|>Very truly yours,\n<|id|>122<|page|>15<|box|>277 140 292 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>123<|page|>15<|box|>295 142 311 251<|content|>By: ... By\n<|id|>124<|page|>15<|box|>311 140 329 334<|content|>Nathaniel Bower, Partner\n<|id|>125<|page|>15<|box|>329 140 345 689<|content|>450 Park Avenue New York, New York 10022 Telephone: ... (212) 558-4127\n<|id|>126<|page|>15<|box|>347 142 363 455<|content|>Email: ... com\n<|id|>127<|page|>15<|box|>364 142 381 254<|content|>Enclosures (3)\n<|id|>128<|page|>15<|box|>390 140 407 254<|content|>cc: ... (via email)\n<|id|>129<|page|>15<|box|>415 174 654 856<|content|>Colette Whitman, Esq. ... , General Counsel & Secr...President, Corporate Trust, Meridian Trust Company",
+    "raw_response": "<|src_id|>24<|tgt_id|>26\n<|src_id|>35<|tgt_id|>37\n<|src_id|>103<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 106
+        }
+    ]
+}

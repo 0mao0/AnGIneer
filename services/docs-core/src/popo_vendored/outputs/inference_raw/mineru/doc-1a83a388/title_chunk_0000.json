@@ -1,0 +1,124 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>617 140 633 465<|content|>I. IDENTIFICATION OF THE CLIENT\n<|id|>17<|page|>2<|box|>358 140 375 398<|content|>II. SCOPE OF ENGAGEMENT\n<|id|>18<|page|>2<|box|>388 140 407 367<|content|>A. Description of the Matter\n<|id|>23<|page|>3<|box|>90 140 106 352<|content|>B. Services to Be Provided\n<|id|>36<|page|>3<|box|>814 140 830 334<|content|>C. Limitations on Scope\n<|id|>45<|page|>4<|box|>614 142 633 271<|content|>III. STAFFING\n<|id|>51<|page|>5<|box|>578 142 594 562<|content|>IV. BILLING RATES AND FEE ARRANGEMENTS\n<|id|>52<|page|>5<|box|>609 143 626 351<|content|>A. Standard Hourly Rates\n<|id|>56<|page|>6<|box|>138 140 157 387<|content|>B. Ridgeline Portfolio discount\n<|id|>60<|page|>6<|box|>375 140 391 310<|content|>C. Rate Adjustments\n<|id|>63<|page|>6<|box|>592 140 609 433<|content|>V. COSTS AND DISBURSEMENTS\n<|id|>77<|page|>7<|box|>474 140 493 462<|content|>VI. BILLING AND PAYMENT TERMS\n<|id|>85<|page|>8<|box|>335 140 352 269<|content|>D. Fee Disputes\n<|id|>88<|page|>8<|box|>535 140 551 374<|content|>VII. ESTIMATED BUDGET\n<|id|>96<|page|>9<|box|>510 140 527 619<|content|>VIII. CLIENT RESPONSIBILITIES AND COOPERATION\n<|id|>104<|page|>10<|box|>446 140 463 500<|content|>IX. CONFIDENTIALITY AND PRIVILEGE\n<|id|>110<|page|>11<|box|>229 140 247 401<|content|>X. CONFLICTS OF INTEREST\n<|id|>115<|page|>11<|box|>704 140 720 450<|content|>XI. COMMUNICATION PROTOCOL\n<|id|>122<|page|>12<|box|>446 140 464 483<|content|>XII. TERMINATION OF ENGAGEMENT\n<|id|>127<|page|>13<|box|>89 140 106 352<|content|>XIII. GOVERNING LAW\n<|id|>130<|page|>13<|box|>292 140 309 411<|content|>XIV. DOCUMENT RETENTION\n<|id|>133<|page|>13<|box|>494 142 512 465<|content|>XV. ACCEPTANCE AND EXECUTION\n<|id|>139<|page|>13<|box|>775 140 792 313<|content|>XVI. ENCLOSURES\n<|id|>144<|page|>14<|box|>224 140 239 281<|content|>XVII. CLOSING\n<|id|>149<|page|>14<|box|>444 550 460 856<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>150<|page|>14<|box|>470 140 487 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>155<|page|>14<|box|>556 383 573 614<|content|>ACCEPTED AND AGREED",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>23<|level|>2\n<|id|>36<|level|>2\n<|id|>45<|level|>1\n<|id|>51<|level|>1\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>1\n<|id|>77<|level|>1\n<|id|>85<|level|>2\n<|id|>88<|level|>1\n<|id|>96<|level|>1\n<|id|>104<|level|>1\n<|id|>110<|level|>1\n<|id|>115<|level|>1\n<|id|>122<|level|>1\n<|id|>127<|level|>1\n<|id|>130<|level|>1\n<|id|>133<|level|>1\n<|id|>139<|level|>1\n<|id|>144<|level|>1\n<|id|>149<|level|>-1\n<|id|>150<|level|>-1\n<|id|>155<|level|>-1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        }
+    ]
+}

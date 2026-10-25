@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        9,
+        11,
+        12,
+        13,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 119 854<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL (UNTIL...MISSION) NOT FOR SUBMISSION WITHOUT BOARD APPROVAL\n<|id|>1<|page|>1<|box|>127 187 171 854<|content|>BELMONT RIDGE BANK NA 600 Lexington Avenue, 34th Floor New York, NY 10022 OCC Charter Number: ... 19842\n<|id|>2<|page|>1<|box|>179 774 198 854<|content|>___, 2025\n<|id|>3<|page|>1<|box|>205 140 241 854<|content|>Office of the Comptroller of the Currency [Name of...sion] [OCC Field Office Address — to be confirmed]\n<|id|>4<|page|>1<|box|>250 140 285 854<|content|>Re: ... MRA Letter SA-2024-0315, dated November 15, 2024\n<|id|>5<|page|>1<|box|>294 142 311 354<|content|>Dear [Examiner-in-Charge]: ... Dear [Examiner-in-Charge]\n<|id|>31<|page|>4<|box|>842 140 897 856<|content|>Committee Composition and Leadership. ... Venkataraman previously served as Chief Risk\n<|id|>32<|page|>5<|box|>90 140 218 856<|content|>Officer of Lakemont Financial Corporation, a diver...he Bank's enhanced director independence standards\n<|id|>56<|page|>8<|box|>797 140 907 857<|content|>Coordination with Ashford Pike Advisory LLC. ... A...g requirements established by the Information Flow\n<|id|>57<|page|>9<|box|>90 140 127 854<|content|>Policy. ... This operational workstream is proceed...cted to be fully implemented by the end of Q4 2025\n<|id|>82<|page|>11<|box|>861 140 897 856<|content|>The Board of Directors has adopted a comprehensive... of which is attached hereto as Exhibit F. ... The\n<|id|>83<|page|>12<|box|>90 140 126 854<|content|>Evaluation Framework establishes an annual self-ev...stitutions with total assets exceeding $10 billion\n<|id|>88<|page|>12<|box|>311 174 347 854<|content|>(iv) Board leadership effectiveness, including the...ndependent Director, and committee chairs; ... and\n<|id|>90<|page|>12<|box|>400 140 508 854<|content|>The evaluation process incorporates the engagement...action items identified and tracked for completion\n<|id|>98<|page|>13<|box|>109 183 127 653<|content|>• Franklin D. ... and\n<|id|>100<|page|>13<|box|>148 140 222 854<|content|>Each of these directors is classified as non-indep...dependent under the Updated Independence Standards\n<|id|>134<|page|>17<|box|>252 143 268 320<|content|>Respectfully submitted,\n<|id|>135<|page|>17<|box|>268 143 284 380<|content|>BELMONT RIDGE BANK NA\n<|id|>136<|page|>17<|box|>287 143 303 253<|content|>By: ... By\n<|id|>137<|page|>17<|box|>304 140 335 852<|content|>James W. ... (212) _-__\n<|id|>138<|page|>17<|box|>337 142 354 447<|content|>Email: ... com\n<|id|>139<|page|>17<|box|>357 142 369 171<|content|>cc: ... cc\n<|id|>140<|page|>17<|box|>380 176 397 681<|content|>Margaret R. ... Ellsworth, Chair of the Board, Belmont Ridge Bank NA\n<|id|>141<|page|>17<|box|>406 176 422 815<|content|>Richard A. ... Montague, Chief Executive Officer and President, Belmont Ridge Bank NA\n<|id|>142<|page|>17<|box|>431 176 448 511<|content|>Board of Directors, Belmont Ridge Bank NA\n<|id|>143<|page|>17<|box|>457 176 474 531<|content|>Colette Whitman, Calderwood & Harkness LLP\n<|id|>144<|page|>17<|box|>483 176 500 527<|content|>Kenneth R. ... Stoltz, Ashford Pike Advisory LLC\n<|id|>145<|page|>17<|box|>508 176 525 493<|content|>Harold F. ... Dunleavy, Meridian Cobalt LLP\n<|id|>148<|page|>17<|box|>619 176 637 627<|content|>Exhibit A: ... Revised Risk Committee Charter (adopted [date])\n<|id|>149<|page|>17<|box|>646 176 662 633<|content|>Exhibit B: ... Revised Audit Committee Charter (adopted [date])\n<|id|>150<|page|>17<|box|>672 176 689 616<|content|>Exhibit C: ... Board Information Flow Policy (adopted [date])\n<|id|>151<|page|>17<|box|>698 176 715 790<|content|>Exhibit D: ... Revised Governance & Nominating Committee Charter (adopted [date])\n<|id|>152<|page|>17<|box|>724 176 741 803<|content|>Exhibit E: ... Amended and Restated Corporate Governance Guidelines (adopted [date])\n<|id|>153<|page|>17<|box|>750 176 767 751<|content|>Exhibit F: ... Board and Committee Self-Evaluation Framework (adopted [date])\n<|id|>154<|page|>17<|box|>776 176 792 694<|content|>Exhibit G: ... Updated Director Independence Standards (adopted [date])",
+    "raw_response": "<|src_id|>31<|tgt_id|>32\n<|src_id|>56<|tgt_id|>57\n<|src_id|>82<|tgt_id|>83",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        }
+    ]
+}

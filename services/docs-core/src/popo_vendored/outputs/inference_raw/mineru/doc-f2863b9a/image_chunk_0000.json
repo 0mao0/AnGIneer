@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|type|>title<|page|>1<|box|>323 140 340 477<|content|>1. Purpose and Acceptance of Engagement\n<|id|>11<|type|>title<|page|>1<|box|>680 140 698 334<|content|>2. Scope of Engagement\n<|id|>29<|type|>title<|page|>3<|box|>417 140 435 491<|content|>3. Matters Outside the Scope of Engagement\n<|id|>33<|type|>title<|page|>3<|box|>792 140 810 313<|content|>4. Engagement Team\n<|id|>40<|type|>title<|page|>4<|box|>564 140 582 500<|content|>5. Authorized Representatives Before the IRS\n<|id|>45<|type|>title<|page|>5<|box|>90 142 107 303<|content|>6. Fee Arrangement\n<|id|>47<|type|>table<|page|>5<|box|>176 143 271 852<|content|>None\n<|id|>52<|type|>title<|page|>5<|box|>790 140 806 421<|content|>7. Disbursements and IRS User Fee\n<|id|>63<|type|>title<|page|>6<|box|>630 140 647 380<|content|>8. Billing and Payment Terms\n<|id|>68<|type|>title<|page|>7<|box|>194 140 210 339<|content|>9. Client Responsibilities\n<|id|>84<|type|>title<|page|>8<|box|>334 140 351 294<|content|>10. Confidentiality\n<|id|>87<|type|>title<|page|>8<|box|>664 140 681 330<|content|>11. Conflicts of Interest\n<|id|>91<|type|>title<|page|>9<|box|>229 140 248 349<|content|>12. Limitation of Liability\n<|id|>95<|type|>title<|page|>9<|box|>625 142 641 274<|content|>13. Termination\n<|id|>98<|type|>title<|page|>10<|box|>90 142 107 297<|content|>14. Governing Law\n<|id|>100<|type|>title<|page|>10<|box|>231 142 247 315<|content|>15. Entire Agreement\n<|id|>102<|type|>title<|page|>10<|box|>407 142 424 486<|content|>16. Key Engagement Information Summary\n<|id|>103<|type|>table<|page|>10<|box|>474 143 659 852<|content|>None\n<|id|>111<|type|>title<|page|>11<|box|>125 379 141 617<|content|>AGREED AND ACCEPTED:\n<|id|>118<|type|>title<|page|>11<|box|>265 142 279 171<|content|>cc:",
+    "raw_response": "<|src_id|>47<|tgt_id|>45\n<|src_id|>103<|tgt_id|>102",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 102
+        }
+    ]
+}

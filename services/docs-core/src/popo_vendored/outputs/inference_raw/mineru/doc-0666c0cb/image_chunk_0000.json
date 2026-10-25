@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 212 133 782<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>11<|type|>title<|page|>1<|box|>523 142 541 274<|content|>I. ATTENDEES\n<|id|>12<|type|>title<|page|>1<|box|>555 143 571 300<|content|>A. IRS Participants\n<|id|>16<|type|>title<|page|>2<|box|>90 140 107 419<|content|>B. Taxpayer / Counsel Participants\n<|id|>20<|type|>title<|page|>2<|box|>294 140 310 583<|content|>C. Not Present but Noted as Involved in the Engage\n<|id|>25<|type|>title<|page|>2<|box|>569 142 585 397<|content|>II. PRELIMINARY MATTERS\n<|id|>26<|type|>title<|page|>2<|box|>601 143 617 397<|content|>A. Representation Confirmation\n<|id|>34<|type|>title<|page|>3<|box|>195 142 212 367<|content|>B. Engagement Background\n<|id|>42<|type|>title<|page|>3<|box|>589 140 607 601<|content|>III. EXAMINATION SCOPE — AS DESCRIBED BY IRS\n<|id|>43<|type|>title<|page|>3<|box|>621 140 638 418<|content|>A. Overview of Examination Focus\n<|id|>46<|type|>title<|page|>3<|box|>830 140 847 495<|content|>B. Area 1: Cost-Sharing Arrangement (CSA)\n<|id|>54<|type|>table<|page|>4<|box|>628 143 722 852<|content|>None\n<|id|>56<|type|>title<|page|>4<|box|>824 140 842 416<|content|>C. Area 2: Legacy IP Royalty Rate\n<|id|>60<|type|>table<|page|>5<|box|>313 143 407 852<|content|>None\n<|id|>62<|type|>title<|page|>5<|box|>489 140 507 446<|content|>D. Area 3: Economic Substance of PBI\n<|id|>75<|type|>title<|page|>6<|box|>434 142 450 364<|content|>E. Other Entities of Interest\n<|id|>80<|type|>title<|page|>7<|box|>90 140 107 348<|content|>F. Penalty Considerations\n<|id|>84<|type|>title<|page|>8<|box|>89 140 106 575<|content|>IV. ANTICIPATED IDR SCHEDULE AND PROCESS\n<|id|>85<|type|>title<|page|>8<|box|>121 142 138 313<|content|>A. IDR Issuance Plan\n<|id|>106<|type|>title<|page|>9<|box|>273 142 289 357<|content|>B. IDR Response Protocols\n<|id|>113<|type|>title<|page|>9<|box|>712 140 729 400<|content|>C. IDR Enforcement Procedures\n<|id|>116<|type|>title<|page|>10<|box|>89 140 106 424<|content|>V. KEY PRODUCTS IDENTIFIED\n<|id|>122<|type|>title<|page|>10<|box|>443 140 459 535<|content|>VI. STATUTE OF LIMITATIONS DISCUSSION\n<|id|>128<|type|>title<|page|>11<|box|>148 140 166 473<|content|>VII. IRS ECONOMIST INVOLVEMENT\n<|id|>132<|type|>title<|page|>11<|box|>561 140 578 517<|content|>VIII. IRS CHIEF COUNSEL INVOLVEMENT\n<|id|>134<|type|>title<|page|>11<|box|>719 142 736 491<|content|>IX. PPC'S PRELIMINARY STATEMENTS\n<|id|>135<|type|>title<|page|>11<|box|>751 143 768 372<|content|>A. Cross's Opening Remarks\n<|id|>142<|type|>title<|page|>12<|box|>508 142 526 344<|content|>B. Whitfield's Comments\n<|id|>146<|type|>title<|page|>12<|box|>845 140 862 462<|content|>X. NEXT STEPS AND ACTION ITEMS\n<|id|>155<|type|>title<|page|>13<|box|>705 140 723 640<|content|>XI. INTERNAL OBSERVATIONS AND STRATEGIC NOTES\n<|id|>156<|type|>title<|page|>13<|box|>731 179 767 816<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>158<|type|>title<|page|>14<|box|>90 142 106 334<|content|>A. Cross's Observations\n<|id|>164<|type|>title<|page|>15<|box|>90 140 107 359<|content|>B. Simmons's Observations\n<|id|>170<|type|>title<|page|>16<|box|>89 142 106 267<|content|>XII. CLOSING\n<|id|>174<|type|>title<|page|>16<|box|>229 142 247 250<|content|>Distribution:",
+    "raw_response": "<|src_id|>54<|tgt_id|>46\n<|src_id|>60<|tgt_id|>56",
+    "parsed": [
+        {
+            "src_id": 54,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 56
+        }
+    ]
+}

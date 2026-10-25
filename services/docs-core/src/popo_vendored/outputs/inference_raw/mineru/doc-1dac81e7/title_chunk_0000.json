@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>140 143 155 584<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>165 233 184 763<|content|>FORM OF OFFICER'S CERTIFICATE OF BUYER\n<|id|>3<|page|>1<|box|>236 248 253 750<|content|>Delivered Pursuant to Section [__] of the Stock Pu\n<|id|>6<|page|>1<|box|>494 334 512 663<|content|>OFFICER'S CERTIFICATE OF BUYER\n<|id|>7<|page|>1<|box|>536 142 553 241<|content|>RECITALS\n<|id|>13<|page|>2<|box|>193 140 210 784<|content|>SECTION 1: CERTIFICATION OF REPRESENTATIONS AND WA\n<|id|>14<|page|>2<|box|>224 142 242 545<|content|>1.1 Bring-Down of Representations and Warranties\n<|id|>18<|page|>2<|box|>739 140 755 733<|content|>SECTION 2: CERTIFICATION OF COMPLIANCE WITH COVENA\n<|id|>19<|page|>2<|box|>770 142 787 508<|content|>2.1 Performance of Covenants and Obligations\n<|id|>22<|page|>3<|box|>247 140 263 473<|content|>SECTION 3: NO LEGAL IMPEDIMENT\n<|id|>24<|page|>3<|box|>340 142 359 558<|content|>[If applicable per the Agreement, include the foll\n<|id|>27<|page|>3<|box|>579 140 595 532<|content|>SECTION 4: ADDITIONAL CERTIFICATIONS\n<|id|>36<|page|>4<|box|>89 142 106 491<|content|>SECTION 5: RELIANCE AND DELIVERY\n<|id|>42<|page|>4<|box|>553 230 570 764<|content|>[SIGNATURE PAGE TO OFFICER'S CERTIFICATE OF BUYER]\n<|id|>44<|page|>4<|box|>623 143 638 457<|content|>[INSERT BUYER FULL LEGAL NAME]",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>3<|level|>-1\n<|id|>6<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>22<|level|>2\n<|id|>24<|level|>-1\n<|id|>27<|level|>2\n<|id|>36<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        }
+    ]
+}

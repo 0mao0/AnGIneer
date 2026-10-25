@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>253 140 270 733<|content|>VIA EMAIL AND CERTIFIED MAIL, RETURN RECEIPT REQUE\n<|id|>12<|page|>1<|box|>705 142 722 310<|content|>I. Policy Information\n<|id|>17<|page|>2<|box|>275 140 292 375<|content|>II. Description of the Insured\n<|id|>21<|page|>2<|box|>632 140 648 385<|content|>III. Description of the Incident\n<|id|>31<|page|>4<|box|>90 140 107 459<|content|>IV. Data Categories Potentially Exposed\n<|id|>46<|page|>4<|box|>821 140 839 341<|content|>V. Forensic Investigation\n<|id|>54<|page|>5<|box|>719 140 736 377<|content|>VI. Breach Response Counsel\n<|id|>65<|page|>6<|box|>426 140 444 609<|content|>VII. Immediate Containment and Remediation Steps T\n<|id|>77<|page|>7<|box|>320 140 335 437<|content|>VIII. Anticipated Costs and Expenses\n<|id|>87<|page|>8<|box|>167 140 185 576<|content|>IX. Notification Obligations — Preliminary Assessm\n<|id|>92<|page|>8<|box|>569 140 585 498<|content|>X. Significant Enterprise Customers Affected\n<|id|>98<|page|>9<|box|>204 140 222 248<|content|>XI. Requests\n<|id|>106<|page|>9<|box|>578 142 595 351<|content|>XII. Reservation of Rights\n<|id|>109<|page|>9<|box|>799 142 816 352<|content|>XIII. Contact Information\n<|id|>114<|page|>10<|box|>152 142 169 508<|content|>With a copy to — Insured's In-House Counsel:\n<|id|>116<|page|>10<|box|>222 176 238 475<|content|>Email: allison.cho@lumosanalytics.com\n<|id|>119<|page|>10<|box|>325 212 343 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>120<|page|>10<|box|>353 140 369 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>124<|page|>10<|box|>449 142 462 169<|content|>cc:",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>12<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>31<|level|>2\n<|id|>46<|level|>2\n<|id|>54<|level|>2\n<|id|>65<|level|>2\n<|id|>77<|level|>2\n<|id|>87<|level|>2\n<|id|>92<|level|>2\n<|id|>98<|level|>2\n<|id|>106<|level|>2\n<|id|>109<|level|>2\n<|id|>114<|level|>-1\n<|id|>116<|level|>-1\n<|id|>119<|level|>-1\n<|id|>120<|level|>-1\n<|id|>124<|level|>-1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>114 200 133 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>6<|page|>1<|box|>349 142 366 364<|content|>1. Purpose of Memorandum\n<|id|>15<|page|>2<|box|>90 140 107 470<|content|>2. Parties and Affiliated Entities Searched\n<|id|>17<|page|>2<|box|>202 140 219 683<|content|>2.1 Proposed Client — Solstice Biomedical Devices\n<|id|>25<|page|>2<|box|>631 140 648 555<|content|>2.2 Adverse Party — Apex Surgical Innovations, Inc\n<|id|>36<|page|>3<|box|>260 140 277 614<|content|>2.3 Opposing Counsel — Hargrove, Tate & Bennington\n<|id|>41<|page|>3<|box|>489 140 507 419<|content|>2.4 Related Third Parties Searched\n<|id|>49<|page|>4<|box|>90 140 107 388<|content|>3. Conflict Check Methodology\n<|id|>50<|page|>4<|box|>121 140 137 305<|content|>3.1 Database Search\n<|id|>53<|page|>4<|box|>348 140 364 403<|content|>3.2 Search Terms and Variations\n<|id|>55<|page|>4<|box|>416 143 431 274<|content|>Entity Searches:\n<|id|>64<|page|>4<|box|>635 143 650 307<|content|>Individual Searches:\n<|id|>76<|page|>5<|box|>157 140 174 300<|content|>3.3 Scope of Review\n<|id|>82<|page|>5<|box|>563 140 580 344<|content|>4. Conflict Check Results\n<|id|>83<|page|>5<|box|>594 140 611 624<|content|>4.1 Solstice Biomedical Devices Ltd. / Solstice Bi\n<|id|>86<|page|>6<|box|>90 140 107 418<|content|>4.2 Apex Surgical Innovations, Inc.\n<|id|>89<|page|>6<|box|>280 140 297 447<|content|>4.3 Hargrove, Tate & Bennington LLP\n<|id|>94<|page|>6<|box|>614 140 630 344<|content|>4.4 Related Third Parties\n<|id|>100<|page|>7<|box|>327 140 344 330<|content|>4.5 Individual Searches\n<|id|>107<|page|>7<|box|>679 140 695 362<|content|>5. Ethical Rules Considered\n<|id|>109<|page|>7<|box|>750 140 765 468<|content|>New York Rules of Professional Conduct:\n<|id|>114<|page|>8<|box|>351 142 367 540<|content|>Delaware Lawyers' Rules of Professional Conduct:\n<|id|>117<|page|>8<|box|>589 140 607 370<|content|>6. Conclusion and Clearance\n<|id|>120<|page|>8<|box|>832 140 849 401<|content|>The matter is cleared to proceed.\n<|id|>122<|page|>9<|box|>167 140 185 310<|content|>7. Approval / Review\n<|id|>128<|page|>9<|box|>383 140 401 261<|content|>8. Distribution",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>6<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>3\n<|id|>25<|level|>3\n<|id|>36<|level|>3\n<|id|>41<|level|>3\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>53<|level|>3\n<|id|>55<|level|>4\n<|id|>64<|level|>4\n<|id|>76<|level|>3\n<|id|>82<|level|>2\n<|id|>83<|level|>3\n<|id|>86<|level|>3\n<|id|>89<|level|>3\n<|id|>94<|level|>3\n<|id|>100<|level|>3\n<|id|>107<|level|>2\n<|id|>109<|level|>3\n<|id|>114<|level|>3\n<|id|>117<|level|>2\n<|id|>120<|level|>-1\n<|id|>122<|level|>2\n<|id|>128<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 4
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        }
+    ]
+}

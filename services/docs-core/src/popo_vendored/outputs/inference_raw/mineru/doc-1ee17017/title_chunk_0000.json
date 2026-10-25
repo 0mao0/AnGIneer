@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 171 143 854<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law 7 Time\n<|id|>9<|page|>1<|box|>426 140 444 264<|content|>I. Introduction\n<|id|>17<|page|>2<|box|>340 140 357 437<|content|>II. Scope of Review and Participation\n<|id|>40<|page|>4<|box|>90 140 107 415<|content|>III. Limitations and Qualifications\n<|id|>42<|page|>4<|box|>166 140 181 401<|content|>A. Nature of Negative Assurance\n<|id|>44<|page|>4<|box|>421 140 438 633<|content|>B. Scope Limitations — Financial and Accounting In\n<|id|>46<|page|>4<|box|>657 140 675 506<|content|>C. Scope Limitations — Excluded Information\n<|id|>48<|page|>5<|box|>90 140 107 334<|content|>D. Temporal Limitation\n<|id|>50<|page|>5<|box|>236 140 253 323<|content|>E. Reliance Limitation\n<|id|>52<|page|>5<|box|>465 140 482 413<|content|>IV. Negative Assurance Statement\n<|id|>58<|page|>6<|box|>359 140 375 367<|content|>V. Additional Qualifications\n<|id|>64<|page|>7<|box|>286 142 301 299<|content|>VI. Governing Law\n<|id|>67<|page|>7<|box|>398 212 415 517<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>17<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>3\n<|id|>44<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>2\n<|id|>58<|level|>2\n<|id|>64<|level|>2\n<|id|>67<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 145 152 849<|content|>Pursuant to Section 17-203 of the Delaware Revised...form Limited Partnership Act (6 Del. ... § 17-203)\n<|id|>3<|page|>1<|box|>186 297 203 700<|content|>Target Filing Date: ... No Later Than December 31, 2025\n<|id|>2<|page|>1<|box|>160 277 178 720<|content|>[DRAFT — For Filing Upon Completion of Wind-Down]\n<|id|>24<|page|>2<|box|>608 176 625 455<|content|>By: ... Pinnacle Holdings Group LLC,\n<|id|>25<|page|>2<|box|>626 176 641 320<|content|>its General Partner\n<|id|>26<|page|>2<|box|>652 142 667 253<|content|>By: ... By\n<|id|>27<|page|>2<|box|>669 140 684 341<|content|>Name: ... Sandoval\n<|id|>28<|page|>2<|box|>686 143 702 333<|content|>Title: ... Managing Member\n<|id|>32<|page|>2<|box|>799 176 815 733<|content|>Calderwood & Harkness LLP 599 Lexington Avenue New York, NY 10022\n<|id|>33<|page|>2<|box|>825 176 840 416<|content|>Attention: ... Yuki Nakamura, Esq\n<|id|>34<|page|>2<|box|>842 176 859 383<|content|>Telephone: ... (212) 555-4800\n<|id|>35<|page|>2<|box|>869 176 883 519<|content|>Email: ... com\n<|id|>42<|page|>3<|box|>549 174 604 854<|content|>(v) the distribution of all remaining cash proceed...ble provisions of the Wind-Down Agreement; ... and\n<|id|>44<|page|>3<|box|>691 140 748 857<|content|>No filing shall be made until counsel to the Partn... been satisfied or waived by the appropriate party\n<|id|>46<|page|>3<|box|>781 174 799 727<|content|>Capitol Registered Agents, Inc. ... 1209 Orange Street Wilmington, DE 19801\n<|id|>47<|page|>3<|box|>806 174 898 856<|content|>Capitol Registered Agents, Inc. ... of the filing ...icate of Cancellation has been accepted for filing\n<|id|>53<|page|>4<|box|>329 176 345 272<|content|>84-3290167\n<|id|>54<|page|>4<|box|>354 174 502 856<|content|>The EIN is noted herein for purposes of IRS notifi...ng the IRS of the closure of the Partnership's EIN\n<|id|>57<|page|>4<|box|>597 174 614 818<|content|>(a) Briarwood Family Office LLC 712 Park Avenue, 18th Floor New York, NY 10021\n<|id|>58<|page|>4<|box|>623 176 640 637<|content|>Attention: ... Briarwood / Margaux Briarwood-Feldstein\n<|id|>60<|page|>4<|box|>666 176 683 555<|content|>Attention: ... Hartwell\n<|id|>59<|page|>4<|box|>641 176 659 815<|content|>(b) Pinnacle Holdings Group LLC 400 King Street, Suite 310 Wilmington, DE 19801\n<|id|>62<|page|>4<|box|>728 176 744 455<|content|>Attention: ... Ashford, Esq\n<|id|>61<|page|>4<|box|>684 176 719 854<|content|>(c) Ashford & Crane LLP (Counsel to Briarwood Fami...rth Market Street, Suite 1400 Wilmington, DE 19801\n<|id|>63<|page|>4<|box|>744 176 781 854<|content|>(d) Calderwood & Harkness LLP (Counsel to the Part...Group LLC) 599 Lexington Avenue New York, NY 10022\n<|id|>64<|page|>4<|box|>789 176 806 550<|content|>Attention: ... / Yuki Nakamura, Esq\n<|id|>65<|page|>4<|box|>806 176 842 854<|content|>(e) Fieldstone Accounting Partners LLP (Tax Adviso...0 Market Street, Suite 1500 Philadelphia, PA 19103\n<|id|>66<|page|>4<|box|>851 176 886 669<|content|>Attention: ... Tran, CPA [END OF INTERNAL DRAFTING NOTE]",
+    "raw_response": "<|src_id|>24<|tgt_id|>25\n<|src_id|>26<|tgt_id|>27\n<|src_id|>27<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        }
+    ]
+}

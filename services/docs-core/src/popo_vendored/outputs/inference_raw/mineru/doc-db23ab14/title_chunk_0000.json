@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 308 133 687<|content|>STATE OF DELAWARE CERTIFICATE OF LIMITED PARTNERSH\n<|id|>2<|page|>1<|box|>167 297 184 700<|content|>HARROWGATE PRIVATE EQUITY FUND V LP\n<|id|>25<|page|>2<|box|>89 163 126 834<|content|>FILING INSTRUCTIONS / ADMINISTRATIVE NOTES (Intern\n<|id|>31<|page|>2<|box|>444 142 460 253<|content|>Prepared By:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>25<|level|>1\n<|id|>31<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        }
+    ]
+}

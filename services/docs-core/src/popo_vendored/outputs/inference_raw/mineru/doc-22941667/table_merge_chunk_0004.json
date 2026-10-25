@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['9', \"Swersky v. Dreyer & Traub, 219 A.D.2d 321, 326–28 (1st Dep't 1996)\", 'The First Department held that fraudulent concealment constitutes a separate tort distinct from breach of contract where three conditions are met: (i) the defendant had a duty to disclose material information, whether arising from a fiduciary relationship, a partial disclosure that created an obligation to speak fully, or a special relationship of trust and confidence; (ii) the defendant intentionally withheld the material information; and (iii) the concealment was of existing facts, not merely a failure to perform a future contractual obligation. The']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'Court observed that even where the subject matter of the concealment overlaps with a contractual obligation, the independent tort of fraudulent concealment is established by the deliberate withholding of material information that the defendant had a duty to disclose, coupled with the requisite scienter.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 27,
+    "table2_idx": 28
+}

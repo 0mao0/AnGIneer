@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 145 194 852<|content|>Delivered Pursuant to Section 7(m) of the Amended ...y Distribution Agreement dated as of July 18, 2025\n<|id|>2<|page|>1<|box|>205 470 220 527<|content|>among\n<|id|>3<|page|>1<|box|>229 343 246 655<|content|>Fairwater Real Estate Investment Trust\n<|id|>4<|page|>1<|box|>255 346 273 651<|content|>Fairwater Operating Partnership, L. ... P\n<|id|>6<|page|>1<|box|>306 393 324 604<|content|>Clarendon Securities LLC\n<|id|>7<|page|>1<|box|>333 374 349 622<|content|>Veltrano Capital Partners LLC\n<|id|>9<|page|>1<|box|>385 140 494 854<|content|>The undersigned, Jonathan Delacroix, hereby certif...cate (this \"Certificate\") on behalf of the Company\n<|id|>8<|page|>1<|box|>359 357 376 640<|content|>(the \"Equity Distribution Agreement\")\n<|id|>37<|page|>4<|box|>799 140 909 857<|content|>The undersigned hereby certifies that attached her...Amendment filed with the SDAT on May 21, 2010, (d)\n<|id|>38<|page|>5<|box|>90 138 237 854<|content|>Articles Supplementary filed with the SDAT on Nove... modification is currently contemplated or pending\n<|id|>46<|page|>5<|box|>843 140 898 856<|content|>The undersigned further certifies that the Company...nder the Securities Act on August 1, 2025, and the\n<|id|>47<|page|>6<|box|>90 140 143 854<|content|>Registration Statement referenced herein was filed...ccess to the capital markets on a registered basis\n<|id|>63<|page|>7<|box|>714 140 731 558<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST\n<|id|>64<|page|>7<|box|>733 143 750 253<|content|>By: ... By\n<|id|>65<|page|>7<|box|>750 142 765 341<|content|>Name: ... Jonathan Delacroix\n<|id|>66<|page|>7<|box|>767 140 784 606<|content|>Title: ... Executive Vice President, General Counsel and Secretary\n<|id|>68<|page|>7<|box|>830 140 904 856<|content|>The undersigned, Margaret Chen-Whitfield, hereby c... duly elected and acting Executive Vice President,\n<|id|>69<|page|>8<|box|>90 140 181 854<|content|>General Counsel and Secretary of the Company and t..., representations, and statements contained herein\n<|id|>71<|page|>8<|box|>205 140 223 387<|content|>Name: ... Margaret Chen-Whitfield\n<|id|>72<|page|>8<|box|>223 140 239 666<|content|>Title: ... Chief Executive Officer and Chairperson of the Board of Trustees\n<|id|>73<|page|>8<|box|>241 142 258 267<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>9<|tgt_id|>8\n<|src_id|>37<|tgt_id|>38\n<|src_id|>46<|tgt_id|>47\n<|src_id|>68<|tgt_id|>69",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 69
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 245 176 751<|content|>IN THE CIRCUIT COURT OF SANGAMON COUNTY, ILLINOIS\n<|id|>1<|type|>title<|page|>1<|box|>186 192 203 805<|content|>PROOF OF CLAIM OF GREENFIELD AGRICULTURAL PARTNERS\n<|id|>4<|type|>title<|page|>1<|box|>334 142 349 452<|content|>I. IDENTIFICATION OF CLAIMANT\n<|id|>5<|type|>title<|page|>1<|box|>364 142 381 341<|content|>A. Claimant Information\n<|id|>11<|type|>title<|page|>1<|box|>626 142 643 321<|content|>B. Claimant's Counsel\n<|id|>14<|type|>title<|page|>2<|box|>89 140 106 684<|content|>II. IDENTIFICATION OF DEBTOR / ENTITY IN RECEIVERS\n<|id|>20<|type|>title<|page|>2<|box|>508 140 527 328<|content|>III. BASIS OF CLAIM\n<|id|>21<|type|>title<|page|>2<|box|>541 140 558 584<|content|>A. The Master Grain Purchase and Off-Take Agreemen\n<|id|>30<|type|>title<|page|>3<|box|>585 140 602 426<|content|>B. PBGC's Breach — Failure to Pay\n<|id|>33<|type|>table<|page|>3<|box|>811 143 898 852<|content|>None\n<|id|>34<|type|>table<|page|>4<|box|>89 143 190 852<|content|>None\n<|id|>37<|type|>title<|page|>4<|box|>385 140 402 544<|content|>C. Pre-Litigation Demand and Forbearance Efforts\n<|id|>45<|type|>title<|page|>5<|box|>454 142 470 395<|content|>D. Pre-Suit Demand by Counsel\n<|id|>50<|type|>title<|page|>5<|box|>824 142 840 310<|content|>E. Related Litigation\n<|id|>63<|type|>title<|page|>7<|box|>204 142 220 356<|content|>IV. AMOUNT OF CLAIM\n<|id|>64<|type|>title<|page|>7<|box|>234 143 252 246<|content|>A. Principal.\n<|id|>66<|type|>table<|page|>7<|box|>313 143 444 852<|content|>None\n<|id|>68<|type|>title<|page|>7<|box|>547 142 563 300<|content|>B. Accrued Interest\n<|id|>77<|type|>title<|page|>8<|box|>393 140 411 372<|content|>C. Attorneys' Fees and Costs\n<|id|>85<|type|>title<|page|>9<|box|>90 142 106 331<|content|>D. Total Claim Amount\n<|id|>87<|type|>table<|page|>9<|box|>150 143 244 852<|content|>None\n<|id|>89<|type|>title<|page|>9<|box|>375 142 390 421<|content|>V. CLASSIFICATION OF CLAIM\n<|id|>90<|type|>title<|page|>9<|box|>405 142 421 297<|content|>A. Nature of Claim\n<|id|>93<|type|>title<|page|>9<|box|>570 143 587 235<|content|>B. Priority.\n<|id|>97<|type|>title<|page|>10<|box|>89 140 106 562<|content|>VI. RELATED CLAIMS AND RIGHTS RESERVED\n<|id|>98<|type|>title<|page|>10<|box|>121 142 138 504<|content|>A. Personal Guaranty — Darren K. Musgrave\n<|id|>103<|type|>title<|page|>10<|box|>582 142 599 336<|content|>B. Reservation of Rights\n<|id|>108<|type|>title<|page|>11<|box|>148 140 166 348<|content|>VII. LIST OF EXHIBITS\n<|id|>116<|type|>title<|page|>11<|box|>737 140 753 753<|content|>VIII. VERIFICATION / DECLARATION UNDER PENALTY OF\n<|id|>119<|type|>title<|page|>13<|box|>116 287 159 707<|content|>Respectfully submitted, GREENFIELD AGRICULTURAL PA\n<|id|>121<|type|>title<|page|>13<|box|>193 346 209 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>129<|type|>title<|page|>13<|box|>393 140 410 410<|content|>X. CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>33<|tgt_id|>30\n<|src_id|>34<|tgt_id|>30\n<|src_id|>66<|tgt_id|>64\n<|src_id|>87<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 85
+        }
+    ]
+}

@@ -1,0 +1,113 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>604 140 623 354<|content|>1. Scope of Representation\n<|id|>30<|page|>3<|box|>429 140 446 313<|content|>2. Engagement Team\n<|id|>32<|page|>3<|box|>522 142 539 504<|content|>2.1 Francesca Morano — Responsible Partner\n<|id|>36<|page|>3<|box|>738 142 755 437<|content|>2.2 Samuel Eklund — Billing Partner\n<|id|>40<|page|>4<|box|>90 140 107 444<|content|>2.3 Carlos Espinoza — Lead Associate\n<|id|>44<|page|>4<|box|>287 140 305 482<|content|>2.4 Hannah Brinkley — Working Associate\n<|id|>50<|page|>4<|box|>731 142 748 303<|content|>3. Fee Arrangement\n<|id|>51<|page|>4<|box|>761 140 777 416<|content|>3.1 Modified Hourly Fee Structure\n<|id|>55<|page|>5<|box|>391 140 407 312<|content|>3.2 Success Premium\n<|id|>63<|page|>6<|box|>138 140 157 388<|content|>3.3 Billing and Payment Terms\n<|id|>68<|page|>6<|box|>556 140 573 362<|content|>4. Costs and Disbursements\n<|id|>82<|page|>7<|box|>498 140 515 339<|content|>5. Client Responsibilities\n<|id|>93<|page|>8<|box|>400 140 417 321<|content|>6. Conflicts of Interest\n<|id|>98<|page|>9<|box|>90 140 107 390<|content|>7. Confidentiality and Privilege\n<|id|>102<|page|>9<|box|>502 140 518 339<|content|>8. Insurance Notification\n<|id|>105<|page|>9<|box|>758 140 777 264<|content|>9. Termination\n<|id|>111<|page|>10<|box|>494 142 511 334<|content|>10. Document Retention\n<|id|>114<|page|>10<|box|>734 142 750 348<|content|>11. Limitation of Liability\n<|id|>118<|page|>11<|box|>148 142 167 480<|content|>12. Governing Law and Dispute Resolution\n<|id|>122<|page|>11<|box|>488 142 503 428<|content|>13. Entire Agreement; Amendments\n<|id|>125<|page|>11<|box|>728 140 744 439<|content|>14. Acceptance and Countersignature\n<|id|>130<|page|>12<|box|>214 140 231 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>134<|page|>12<|box|>308 316 324 679<|content|>ACKNOWLEDGMENT AND AGREEMENT\n<|id|>137<|page|>12<|box|>422 140 439 390<|content|>REDSTONE GAMING CORP.",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>50<|level|>1\n<|id|>51<|level|>2\n<|id|>55<|level|>2\n<|id|>63<|level|>2\n<|id|>68<|level|>1\n<|id|>82<|level|>1\n<|id|>93<|level|>1\n<|id|>98<|level|>1\n<|id|>102<|level|>1\n<|id|>105<|level|>1\n<|id|>111<|level|>1\n<|id|>114<|level|>1\n<|id|>118<|level|>1\n<|id|>122<|level|>1\n<|id|>125<|level|>1\n<|id|>130<|level|>-1\n<|id|>134<|level|>1\n<|id|>137<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        }
+    ]
+}

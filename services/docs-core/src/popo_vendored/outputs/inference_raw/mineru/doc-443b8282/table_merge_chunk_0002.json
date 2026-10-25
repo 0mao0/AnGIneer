@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['12.1', 'PECR', 'PECR Reg. 6;', 'High', 'aureliusnews.co.', 'ICO: up to']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Regulation 6 non-compliance on UK sites', 'UK GDPR', '', 'uk;shopaurelia.co.uk', '£17.5M']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 325,
+    "table2_idx": 326
+}

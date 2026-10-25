@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>238 313 257 684<|content|>EQUITY COMMITMENT LETTER\n<|id|>7<|type|>title<|page|>1<|box|>282 142 300 361<|content|>1. Recitals and Background\n<|id|>11<|type|>title<|page|>1<|box|>786 140 803 271<|content|>2. Commitment\n<|id|>13<|type|>table<|page|>2<|box|>231 143 325 852<|content|>None\n<|id|>14<|type|>table<|page|>2<|box|>359 143 468 852<|content|>None\n<|id|>17<|type|>title<|page|>3<|box|>90 140 107 341<|content|>3. Conditions to Funding\n<|id|>23<|type|>title<|page|>3<|box|>792 140 809 267<|content|>4. Enforcement\n<|id|>26<|type|>title<|page|>4<|box|>487 140 503 537<|content|>5. Limited Recourse; No Third-Party Beneficiaries\n<|id|>30<|type|>title<|page|>5<|box|>340 140 357 511<|content|>6. Representations and Warranties of the Fund\n<|id|>38<|type|>title<|page|>6<|box|>676 142 694 264<|content|>7. Termination\n<|id|>46<|type|>title<|page|>7<|box|>348 140 364 562<|content|>8. Governing Law; Jurisdiction; Waiver of Jury Tri\n<|id|>50<|type|>title<|page|>8<|box|>388 140 404 276<|content|>9. Miscellaneous\n<|id|>71<|type|>title<|page|>10<|box|>263 400 280 596<|content|>[Signature Page Follows]\n<|id|>73<|type|>title<|page|>10<|box|>332 142 348 465<|content|>ARDENT CAPITAL PARTNERS III LP",
+    "raw_response": "<|src_id|>13<|tgt_id|>11\n<|src_id|>14<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 11
+        }
+    ]
+}

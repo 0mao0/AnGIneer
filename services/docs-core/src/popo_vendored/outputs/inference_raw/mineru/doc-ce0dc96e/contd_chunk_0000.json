@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 156 152 839<|content|>200 South Biscayne Boulevard, Suite 4100 Miami, Florida 33131 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 723 178 856<|content|>January 30, 2026\n<|id|>3<|page|>1<|box|>185 671 203 856<|content|>Matter No. ... 1027-00002\n<|id|>4<|page|>1<|box|>212 140 266 854<|content|>Ridgeline-Clarion Co-Invest GP LLC in its capacity...9 Park Avenue, 28th Floor New York, New York 10022\n<|id|>5<|page|>1<|box|>273 174 310 854<|content|>Re: ... P\n<|id|>18<|page|>2<|box|>388 174 478 856<|content|>8. ... and\n<|id|>20<|page|>2<|box|>537 140 628 856<|content|>The documents referenced in items (1) through (3) ...red to herein as the \"Transaction Documents. ... \"\n<|id|>70<|page|>7<|box|>821 140 895 857<|content|>This opinion letter is furnished solely for the be...itten consent. ... and Ridgeline Equity Management\n<|id|>71<|page|>8<|box|>90 140 145 854<|content|>LLC in connection with the transactions contemplat...ons, limitations, and other terms set forth herein\n<|id|>80<|page|>8<|box|>809 140 875 852<|content|>Nicholas Stern, Partner Funds & Asset Management P...0 Brickell Avenue, Suite 3200 Miami, Florida 33131\n<|id|>81<|page|>9<|box|>89 140 104 658<|content|>cc: ... Hartwell Velmoran & Pratt LLP 51 West 52nd Street New York, New York 10019\n<|id|>82<|page|>9<|box|>112 142 127 359<|content|>Attention: ... Cheng, Esq",
+    "raw_response": "<|src_id|>70<|tgt_id|>71",
+    "parsed": [
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        }
+    ]
+}

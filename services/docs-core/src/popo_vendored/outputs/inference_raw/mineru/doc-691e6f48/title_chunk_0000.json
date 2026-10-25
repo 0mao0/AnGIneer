@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 274 107 720<|content|>WHITAKER, POOLE & SIMMS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>406 140 422 316<|content|>Ladies and Gentlemen:\n<|id|>12<|page|>1<|box|>792 140 809 334<|content|>I. Documents Examined\n<|id|>32<|page|>3<|box|>661 142 678 272<|content|>II. Assumptions\n<|id|>43<|page|>4<|box|>708 140 724 251<|content|>III. Opinions\n<|id|>45<|page|>4<|box|>782 140 800 517<|content|>Opinion 1 — Due Organization of the Company\n<|id|>48<|page|>5<|box|>250 140 267 599<|content|>Opinion 2 — Due Organization of the Selling Stockh\n<|id|>52<|page|>5<|box|>556 140 575 627<|content|>Opinion 3 — Corporate Power and Authority of the C\n<|id|>54<|page|>5<|box|>739 140 757 537<|content|>Opinion 4 — Authority of the Selling Stockholders\n<|id|>57<|page|>6<|box|>231 140 250 586<|content|>Opinion 5 — Due Authorization; Execution and Deliv\n<|id|>59<|page|>6<|box|>450 140 468 362<|content|>Opinion 6 — Enforceability\n<|id|>62<|page|>6<|box|>695 140 712 349<|content|>Opinion 7 — No Conflicts\n<|id|>68<|page|>7<|box|>556 140 574 351<|content|>Opinion 8 — No Consents\n<|id|>75<|page|>8<|box|>292 140 309 413<|content|>IV. Qualifications and Limitations\n<|id|>77<|page|>8<|box|>368 142 385 370<|content|>A. Enforceability Exceptions\n<|id|>83<|page|>8<|box|>690 142 708 377<|content|>B. Governing Law Limitation\n<|id|>90<|page|>9<|box|>311 140 329 310<|content|>C. Excluded Matters\n<|id|>103<|page|>10<|box|>635 140 652 413<|content|>D. No Opinion on Factual Matters\n<|id|>105<|page|>11<|box|>90 140 107 411<|content|>E. Date and Currency of Opinions\n<|id|>107<|page|>11<|box|>263 140 281 370<|content|>V. Reliance and Distribution\n<|id|>118<|page|>12<|box|>125 454 141 544<|content|>ANNEX A\n<|id|>119<|page|>12<|box|>148 387 167 609<|content|>SPECIFIED CONTRACTS\n<|id|>120<|page|>12<|box|>176 220 194 776<|content|>(Reviewed for purposes of the no-conflicts opinion\n<|id|>122<|page|>12<|box|>319 140 337 393<|content|>I. Credit Facility / Indebtedness\n<|id|>124<|page|>12<|box|>474 140 493 468<|content|>II. Managed Care and Payor Agreements\n<|id|>127<|page|>12<|box|>614 142 631 465<|content|>III. Technology and Services Agreements\n<|id|>129<|page|>12<|box|>714 142 729 318<|content|>IV. Lease Agreements\n<|id|>140<|page|>13<|box|>398 140 417 367<|content|>V. Employment Agreements",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>-1\n<|id|>12<|level|>1\n<|id|>32<|level|>1\n<|id|>43<|level|>1\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>75<|level|>1\n<|id|>77<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>2\n<|id|>103<|level|>2\n<|id|>105<|level|>2\n<|id|>107<|level|>1\n<|id|>118<|level|>1\n<|id|>119<|level|>2\n<|id|>120<|level|>3\n<|id|>122<|level|>3\n<|id|>124<|level|>3\n<|id|>127<|level|>3\n<|id|>129<|level|>3\n<|id|>140<|level|>3",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        }
+    ]
+}

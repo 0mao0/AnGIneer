@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Phase 5: Financial Assurance and Trust Instruments', 'Nov 28, 2024 – Feb 20, 2025', 'Nov 28: Financial assurance requirements memo; Dec 10: Surety bond application; Jan 10: Trust agreement draft; Jan 15: Monitor']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'selection memo; Jan 30: Monitor agreement draft; Feb 15: Surety bond execution (ISA-ENV-2025-08934; $165.0M); Feb 15: Monitor agreement execution; Feb 17: Trust agreement execution (LTC-REM-2025-1177; $80.0M); Feb 17: Escrow agreement; Feb 20: Adequacy and adjustment memo']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 298,
+    "table2_idx": 299
+}

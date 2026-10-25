@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 107 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|page|>1<|box|>508 140 527 336<|content|>I. Transaction Overview\n<|id|>14<|page|>1<|box|>785 140 803 292<|content|>II. The Agreement\n<|id|>19<|page|>2<|box|>292 140 310 560<|content|>III. Background on Meridian Consumer Brands LLC\n<|id|>28<|page|>2<|box|>833 142 849 397<|content|>IV. Formal Request for Consent\n<|id|>37<|page|>3<|box|>523 140 541 387<|content|>V. Requested Form of Consent\n<|id|>43<|page|>4<|box|>89 140 107 295<|content|>VI. Confidentiality\n<|id|>45<|page|>4<|box|>285 140 301 344<|content|>VII. Contact Information\n<|id|>54<|page|>4<|box|>585 140 604 251<|content|>VIII. Closing\n<|id|>64<|page|>5<|box|>89 328 157 666<|content|>ATTACHMENT A FORM OF CONSENT TO ASSIGNMENT CONSENT\n<|id|>65<|page|>5<|box|>167 142 185 418<|content|>Reference is made to the following:\n<|id|>70<|page|>5<|box|>486 142 503 344<|content|>1. Consent to Assignment\n<|id|>72<|page|>5<|box|>594 142 612 411<|content|>2. Conditions and Understandings\n<|id|>78<|page|>6<|box|>140 140 157 421<|content|>3. Representations of Counterparty\n<|id|>82<|page|>6<|box|>301 142 316 287<|content|>4. Governing Law\n<|id|>91<|page|>6<|box|>672 143 689 439<|content|>ACKNOWLEDGED AND AGREED:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>11<|level|>1\n<|id|>14<|level|>1\n<|id|>19<|level|>1\n<|id|>28<|level|>1\n<|id|>37<|level|>1\n<|id|>43<|level|>1\n<|id|>45<|level|>1\n<|id|>54<|level|>1\n<|id|>64<|level|>1\n<|id|>65<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>2\n<|id|>78<|level|>2\n<|id|>82<|level|>2\n<|id|>91<|level|>2",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        }
+    ]
+}

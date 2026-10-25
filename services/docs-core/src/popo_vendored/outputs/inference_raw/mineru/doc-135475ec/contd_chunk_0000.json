@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        14,
+        15,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>222 676 239 854<|content|>Date: ... October 21, 2024\n<|id|>4<|page|>1<|box|>248 140 284 854<|content|>TO: ... Marcus Delgado, Responsible Partner, intel...risty Bauer, Lead Associate, intellectual Property\n<|id|>5<|page|>1<|box|>292 140 309 625<|content|>FROM: ... Peter Vassiliev, Working Associate, intellectual Property\n<|id|>6<|page|>1<|box|>318 140 354 854<|content|>RE: ... Production (APEX-000001 through APEX-031450)\n<|id|>7<|page|>1<|box|>362 140 398 854<|content|>MATTER: ... )\n<|id|>8<|page|>1<|box|>406 140 424 361<|content|>MATTER NO. ... 0017\n<|id|>9<|page|>1<|box|>431 140 450 663<|content|>CLIENT: ... / Solstice Biomedical, Inc\n<|id|>24<|page|>2<|box|>821 140 877 857<|content|>Apex served its document production on October 7, ...rising 38 individual requests served on August 19,\n<|id|>26<|page|>3<|box|>135 140 316 857<|content|>The production was delivered in a mixed format, re...ulti-page PDF files with OCR-generated text layers\n<|id|>41<|page|>4<|box|>785 140 895 856<|content|>A. ... The production also includes file wrapper m...t is publicly available through the USPTO's Patent\n<|id|>42<|page|>5<|box|>90 140 145 854<|content|>Application Information Retrieval (\"PAIR\") system,...w to characterize the prior art during prosecution\n<|id|>55<|page|>6<|box|>815 140 907 856<|content|>APEX-007891 through APEX-007934. ... In response,\n<|id|>56<|page|>7<|box|>90 140 181 856<|content|>Apex amended the claims to require that the retrac... the basis of the spring-biased retraction feature\n<|id|>109<|page|>14<|box|>869 140 907 856<|content|>Invalidity. ... The prior art references identifie...ent the prior art already identified by Kendrick &\n<|id|>110<|page|>15<|box|>90 140 162 854<|content|>Lau LLP and Dr. ... The fact that some of these re... FTO analysis further corroborates their relevance\n<|id|>153<|page|>18<|box|>853 140 907 854<|content|>A. ... The Apex production includes a range of int...and their competitive relationship with Solstice's\n<|id|>154<|page|>19<|box|>90 140 162 856<|content|>PrecisionEdge™ products. ... These documents are r... — and to the broader narrative of this litigation",
+    "raw_response": "<|src_id|>41<|tgt_id|>42\n<|src_id|>55<|tgt_id|>56\n<|src_id|>109<|tgt_id|>110\n<|src_id|>153<|tgt_id|>154",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 154
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 12,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Post-Closing Employment Agreement', 'To be superseded at Closing by a new employment agreement with Cascade Retail Holdings Inc., providing: 3-year term; $575,000 base salary; 70% target bonus (as a percentage of base salary); 125,000 restricted shares of Cascade common stock vesting ratably over 3 years;']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'restrictive covenants substantially similar to existing agreement']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 450,
+    "table2_idx": 451
+}

@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['3.', 'Refrigerants', 'Refrigerant gases (e.g., R-410A, R-134a, R-1234ze, or other commercially available refrigerants) for HVAC, chilled-water, and direct-expansion cooling', 'Compliance with Clean Air Act Section 608, EPA regulations at 40 C.F.R. Part 82, and applicable ASHRAE standards; leak detection and monitoring systems; certified technician', 'Quantities as required for cooling systems serving up to 120 MW critical IT load']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'systems', 'handling; proper recovery, recycling, and reclamation procedures', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 321,
+    "table2_idx": 322
+}

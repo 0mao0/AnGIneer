@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 210 118 787<|content|>ESTOPPEL AND SNDA COMPLIANCE CERTIFICATE\n<|id|>1<|type|>title<|page|>1<|box|>136 214 154 782<|content|>Delivered Pursuant to Section 8.2(d) of the Purcha\n<|id|>5<|type|>title<|page|>1<|box|>313 143 329 250<|content|>Delivered to:\n<|id|>11<|type|>title<|page|>1<|box|>518 140 535 526<|content|>SECTION 1: RECITALS AND BACKGROUND\n<|id|>26<|type|>title<|page|>2<|box|>109 178 126 370<|content|>13. GMP Peachtree LLC\n<|id|>27<|type|>title<|page|>2<|box|>128 178 146 390<|content|>14. GMP Mount Juliet LLC\n<|id|>34<|type|>title<|page|>2<|box|>648 140 666 802<|content|>SECTION 2: ESTOPPEL CERTIFICATE CONDITION — PSA RE\n<|id|>41<|type|>title<|page|>3<|box|>483 140 500 722<|content|>SECTION 3: ESTOPPEL CERTIFICATE COMPLIANCE — FINDI\n<|id|>42<|type|>title<|page|>3<|box|>513 140 532 411<|content|>3.1 Estoppel Certificates Received\n<|id|>50<|type|>title<|page|>3<|box|>801 140 819 364<|content|>3.2 Major Tenant Estoppels\n<|id|>52<|type|>table<|page|>4<|box|>132 143 366 852<|content|>None\n<|id|>55<|type|>title<|page|>4<|box|>511 140 529 316<|content|>3.3 Form Compliance\n<|id|>61<|type|>title<|page|>5<|box|>338 140 354 429<|content|>3.4 Estoppel Compliance Conclusion\n<|id|>66<|type|>title<|page|>5<|box|>571 140 588 627<|content|>SECTION 4: SNDA CONDITION — PSA REQUIREMENTS\n<|id|>76<|type|>title<|page|>6<|box|>270 140 287 547<|content|>SECTION 5: SNDA COMPLIANCE — FINDINGS\n<|id|>77<|type|>title<|page|>6<|box|>301 140 319 310<|content|>5.1 Required SNDAs\n<|id|>79<|type|>title<|page|>6<|box|>448 140 465 411<|content|>5.2 SNDAs Executed as of Closing\n<|id|>83<|type|>title<|page|>6<|box|>681 140 699 545<|content|>5.3 Outstanding SNDAs — Post-Closing Carve-Out\n<|id|>92<|type|>title<|page|>7<|box|>525 140 542 413<|content|>5.4 SNDA Compliance Conclusion\n<|id|>97<|type|>title<|page|>7<|box|>795 140 811 627<|content|>SECTION 6: ASSUMED LOAN LENDER COORDINATION\n<|id|>99<|type|>table<|page|>8<|box|>89 143 253 852<|content|>None\n<|id|>104<|type|>title<|page|>8<|box|>632 140 648 620<|content|>SECTION 7: REFERENCE DOCUMENTS AND EXHIBITS\n<|id|>115<|type|>title<|page|>9<|box|>542 140 559 584<|content|>SECTION 8: QUALIFICATIONS AND LIMITATIONS\n<|id|>123<|type|>title<|page|>10<|box|>347 140 364 401<|content|>SECTION 9: CERTIFICATION\n<|id|>129<|type|>title<|page|>10<|box|>612 140 628 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>137<|type|>title<|page|>11<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>138<|type|>title<|page|>11<|box|>114 330 133 668<|content|>Summary of Estoppel Certificate Coverage\n<|id|>139<|type|>table<|page|>11<|box|>204 143 887 852<|content|>None\n<|id|>140<|type|>title<|page|>12<|box|>123 142 138 197<|content|>Notes:\n<|id|>144<|type|>title<|page|>13<|box|>89 449 107 550<|content|>EXHIBIT B\n<|id|>145<|type|>title<|page|>13<|box|>116 395 133 602<|content|>Summary of SNDA Status\n<|id|>147<|type|>table<|page|>13<|box|>203 143 797 852<|content|>None\n<|id|>148<|type|>title<|page|>13<|box|>830 142 847 197<|content|>Notes:",
+    "raw_response": "<|src_id|>52<|tgt_id|>50\n<|src_id|>99<|tgt_id|>97\n<|src_id|>139<|tgt_id|>138\n<|src_id|>147<|tgt_id|>145",
+    "parsed": [
+        {
+            "src_id": 52,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 145
+        }
+    ]
+}

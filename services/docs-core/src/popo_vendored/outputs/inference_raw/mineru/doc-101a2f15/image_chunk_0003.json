@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        138,
+        158
+    ],
+    "pages": [
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        146,
+        147,
+        148,
+        149,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1388<|type|>title<|page|>139<|box|>118 329 136 657<|content|>4.3 低桩结构桩的轴向承载力验算\n<|id|>1393<|type|>title<|page|>139<|box|>425 322 444 665<|content|>4.4 特殊条件下桩的轴向承载力验算\n<|id|>1397<|type|>title<|page|>139<|box|>690 363 708 626<|content|>4.5 水平力作用下桩的计算\n<|id|>1412<|type|>title<|page|>140<|box|>772 425 790 566<|content|>4.6 沉降\n<|id|>1416<|type|>table<|page|>141<|box|>148 110 233 882<|content|>None\n<|id|>1424<|type|>title<|page|>142<|box|>186 315 212 657<|content|>5 预制混凝土桩结构\n<|id|>1425<|type|>title<|page|>142<|box|>245 416 263 561<|content|>5.1 计算\n<|id|>1433<|type|>table<|page|>142<|box|>784 104 909 875<|content|>None\n<|id|>1435<|type|>table<|page|>143<|box|>128 112 295 887<|content|>None\n<|id|>1447<|type|>title<|page|>144<|box|>156 376 175 601<|content|>5.2 混凝土方桩的构造\n<|id|>1455<|type|>title<|page|>144<|box|>575 347 593 631<|content|>5.3 预应力混凝土管桩的构造\n<|id|>1465<|type|>title<|page|>146<|box|>184 374 211 611<|content|>6 钢管桩结构\n<|id|>1466<|type|>title<|page|>146<|box|>244 421 262 566<|content|>6.1 材料\n<|id|>1471<|type|>title<|page|>146<|box|>529 413 548 576<|content|>6.2 计算和构造\n<|id|>1480<|type|>title<|page|>147<|box|>115 421 133 584<|content|>6.3 防 腐 蚀\n<|id|>1485<|type|>title<|page|>148<|box|>184 211 212 764<|content|>7 预制高强混凝土薄壁钢管桩结构\n<|id|>1486<|type|>title<|page|>148<|box|>245 408 263 571<|content|>7.1 一般规定\n<|id|>1493<|type|>title<|page|>148<|box|>531 420 549 561<|content|>7.2 计算\n<|id|>1501<|type|>table<|page|>149<|box|>427 112 678 887<|content|>None\n<|id|>1504<|type|>title<|page|>149<|box|>823 428 841 571<|content|>7.3 构造\n<|id|>1507<|type|>title<|page|>151<|box|>188 379 215 616<|content|>8 组合桩结构\n<|id|>1510<|type|>title<|page|>152<|box|>183 376 210 613<|content|>9 灌注桩结构\n<|id|>1511<|type|>title<|page|>152<|box|>243 426 260 568<|content|>9.2 构造\n<|id|>1517<|type|>title<|page|>153<|box|>186 373 214 621<|content|>10 嵌岩桩结构\n<|id|>1518<|type|>title<|page|>153<|box|>246 371 265 623<|content|>10.3 预制型嵌岩桩的构造\n<|id|>1522<|type|>title<|page|>154<|box|>182 230 210 763<|content|>附录 A 桩的压屈计算长度的确定\n<|id|>1531<|type|>title<|page|>155<|box|>184 302 212 692<|content|>附录 C 超大直径钢管桩\n<|id|>1535<|type|>title<|page|>156<|box|>183 194 211 793<|content|>附录 F 桩的吊点布置及吊运内力计算\n<|id|>1536<|type|>title<|page|>156<|box|>233 147 250 255<|content|>1. 吊运参数\n<|id|>1541<|type|>title<|page|>156<|box|>453 147 470 297<|content|>2. 弯矩计算系数\n<|id|>1543<|type|>title<|page|>156<|box|>541 147 558 257<|content|>3. 水平吊运\n<|id|>1545<|type|>title<|page|>157<|box|>181 203 242 789<|content|>附录 G 常用预应力混凝土管桩型号、规格和力学性能\n<|id|>1548<|type|>title<|page|>158<|box|>183 332 211 653<|content|>附录 K 吊耳板设计",
+    "raw_response": "<|src_id|>1416<|tgt_id|>1412\n<|src_id|>1433<|tgt_id|>1425\n<|src_id|>1435<|tgt_id|>1425\n<|src_id|>1501<|tgt_id|>1493",
+    "parsed": [
+        {
+            "src_id": 1416,
+            "tgt_id": 1412
+        },
+        {
+            "src_id": 1433,
+            "tgt_id": 1425
+        },
+        {
+            "src_id": 1435,
+            "tgt_id": 1425
+        },
+        {
+            "src_id": 1501,
+            "tgt_id": 1493
+        }
+    ]
+}

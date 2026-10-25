@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        31
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        31
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 165 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT — ATTORNEY-CLIENT COMMUNICATION\n<|id|>2<|page|>1<|box|>174 140 191 338<|content|>TO: ... Priya Anand, Partner\n<|id|>3<|page|>1<|box|>199 140 217 468<|content|>FROM: ... Hannah Brinkley, Senior Associate\n<|id|>4<|page|>1<|box|>224 140 243 334<|content|>DATE: ... January 15, 2024\n<|id|>5<|page|>1<|box|>251 140 287 854<|content|>RE: ... , Commercial Division)\n<|id|>6<|page|>1<|box|>295 140 313 362<|content|>MATTER NO. ... 1024-00003\n<|id|>7<|page|>1<|box|>321 140 339 501<|content|>CLIENT: ... Driftwood Absolute Return Fund Ltd\n<|id|>12<|page|>1<|box|>604 183 676 854<|content|>• Prejudgment Interest: ... and\n<|id|>14<|page|>1<|box|>734 140 864 856<|content|>The judgment was entered as a default judgment aga... and personal liability for, the fraudulent scheme\n<|id|>64<|page|>7<|box|>797 181 907 857<|content|>• Competing Creditors and Regulatory Claims. ... S...modity Futures Trading Commission, or the New York\n<|id|>65<|page|>8<|box|>90 210 143 854<|content|>Attorney General's office — may take an interest i...o date, we should monitor for any such development\n<|id|>280<|page|>31<|box|>114 142 133 321<|content|>Respectfully submitted,\n<|id|>281<|page|>31<|box|>133 140 148 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>282<|page|>31<|box|>151 143 167 253<|content|>By: ... By\n<|id|>283<|page|>31<|box|>167 140 200 852<|content|>Hannah Brinkley Senior Associate 200 Park Avenue, 42nd Floor New York, NY 10166 Tel: ... com\n<|id|>284<|page|>31<|box|>200 142 218 316<|content|>Date: ... January 15, 2024\n<|id|>285<|page|>31<|box|>220 142 234 171<|content|>cc: ... cc\n<|id|>286<|page|>31<|box|>244 176 261 671<|content|>Douglas Carmichael, Billing Partner, Calderwood & Harkness LLP\n<|id|>287<|page|>31<|box|>268 176 287 681<|content|>Patrick Gallagher, Working Associate, Calderwood & Harkness LLP\n<|id|>288<|page|>31<|box|>295 140 357 854<|content|>This memorandum is protected by the attorney-clien...sure may result in waiver of applicable privileges",
+    "raw_response": "<|src_id|>64<|tgt_id|>65",
+    "parsed": [
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        }
+    ]
+}

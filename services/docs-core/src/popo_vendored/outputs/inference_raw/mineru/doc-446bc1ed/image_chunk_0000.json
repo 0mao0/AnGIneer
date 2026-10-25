@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|type|>title<|page|>1<|box|>193 140 210 733<|content|>VIA EMAIL AND CERTIFIED MAIL, RETURN RECEIPT REQUE\n<|id|>9<|type|>title<|page|>1<|box|>393 140 410 437<|content|>I. Introduction and Purpose of Letter\n<|id|>13<|type|>title<|page|>1<|box|>804 140 821 390<|content|>II. Identification of the Insured\n<|id|>17<|type|>title<|page|>2<|box|>340 140 357 325<|content|>III. Policy Information\n<|id|>18<|type|>table<|page|>2<|box|>390 143 574 852<|content|>None\n<|id|>20<|type|>title<|page|>2<|box|>703 140 720 393<|content|>IV. Description of the Claimant\n<|id|>28<|type|>title<|page|>3<|box|>243 140 261 367<|content|>V. The Underlying Contract\n<|id|>43<|type|>title<|page|>4<|box|>392 140 409 483<|content|>VI. Nature and Circumstances of the Claim\n<|id|>44<|type|>title<|page|>4<|box|>422 140 440 419<|content|>A. The Alleged Service Disruptions\n<|id|>51<|type|>title<|page|>5<|box|>138 140 157 468<|content|>B. Pinnacle's Additional Damages Claims\n<|id|>57<|type|>title<|page|>5<|box|>627 140 643 323<|content|>C. The Demand Letter\n<|id|>59<|type|>title<|page|>5<|box|>782 140 800 689<|content|>VII. Lumos's Preliminary Defenses (Summary for Cla\n<|id|>68<|type|>title<|page|>7<|box|>439 140 457 393<|content|>VIII. Applicability of the Policy\n<|id|>75<|type|>title<|page|>8<|box|>194 140 210 362<|content|>IX. Formal Tender Request\n<|id|>82<|type|>title<|page|>8<|box|>792 140 810 418<|content|>X. Engagement of Defense Counsel\n<|id|>84<|type|>table<|page|>8<|box|>878 143 900 852<|content|>None\n<|id|>85<|type|>table<|page|>9<|box|>89 143 164 852<|content|>None\n<|id|>88<|type|>title<|page|>9<|box|>412 140 429 344<|content|>XI. Reservation of Rights\n<|id|>91<|type|>title<|page|>9<|box|>669 142 686 344<|content|>XII. Enclosed Documents\n<|id|>98<|type|>title<|page|>10<|box|>148 140 167 521<|content|>XIII. Contact Information and Communications\n<|id|>105<|type|>title<|page|>10<|box|>383 140 400 250<|content|>XIV. Closing",
+    "raw_response": "<|src_id|>18<|tgt_id|>17\n<|src_id|>84<|tgt_id|>82\n<|src_id|>85<|tgt_id|>82",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 82
+        }
+    ]
+}

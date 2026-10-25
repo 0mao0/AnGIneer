@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 251 133 743<|content|>2100 First Avenue North, Suite 1400 Birmingham, Alabama 35203\n<|id|>2<|page|>1<|box|>142 297 159 697<|content|>Telephone: ... (205) 714-8201\n<|id|>3<|page|>1<|box|>167 333 184 663<|content|>Licensed to Practice in the State of Alabama\n<|id|>4<|page|>1<|box|>194 723 210 854<|content|>January 30, 2026\n<|id|>5<|page|>1<|box|>219 140 253 854<|content|>Prescott National Bank, N. ... , as Administrative...South Tryon Street Charlotte, North Carolina 28202\n<|id|>6<|page|>1<|box|>263 140 280 643<|content|>Each of the Lenders party to the Credit Agreement referred to below\n<|id|>7<|page|>1<|box|>289 140 306 712<|content|>Calderwood & Harkness LLP 780 Third Avenue New York, New York 10017\n<|id|>8<|page|>1<|box|>315 143 332 455<|content|>Attention: ... Philip Hartmann / Lisa Morrow\n<|id|>9<|page|>1<|box|>333 174 422 854<|content|>Re: ... , as Administrative Agent, Collateral Agent, and Swingline Lender (CUSIP 96438LAA3)\n<|id|>10<|page|>1<|box|>431 142 449 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>25<|page|>2<|box|>864 140 901 854<|content|>\"Security Agreement\" means the Pledge and Security...tors (including WPS) in favor of Prescott National\n<|id|>26<|page|>3<|box|>90 140 127 854<|content|>Bank, N. ... , as Collateral Agent for the benefit... personal property collateral as described therein\n<|id|>44<|page|>4<|box|>481 176 609 856<|content|>12. ... and\n<|id|>46<|page|>4<|box|>703 140 739 854<|content|>We have also made such inquiries of officers and r...nsidered relevant to the opinions expressed herein\n<|id|>57<|page|>5<|box|>839 174 876 854<|content|>(i) Value has been given by the Lenders and the ot...it Agreement and the other Loan Documents, and the\n<|id|>58<|page|>6<|box|>90 174 126 854<|content|>Administrative Agent, the Collateral Agent, and ea...s have acted in good faith in connection therewith\n<|id|>77<|page|>8<|box|>340 174 449 856<|content|>(iv) liens, claims, and encumbrances that would ha...en's liens under Section 35-11-210 et seq. ... and\n<|id|>79<|page|>8<|box|>502 140 612 856<|content|>We call your attention to the fact that under Alab...liens exist with respect to the Mortgaged Property\n<|id|>94<|page|>10<|box|>835 140 909 857<|content|>Bankruptcy and Insolvency Qualification. ... §§\n<|id|>95<|page|>11<|box|>90 140 145 856<|content|>101 et seq. ... of the Code of Alabama 1975) and any successor legislation thereto\n<|id|>108<|page|>13<|box|>89 140 108 274<|content|>Very truly yours,\n<|id|>109<|page|>13<|box|>114 140 132 408<|content|>OVERSTREET & HAWKINS LLP\n<|id|>110<|page|>13<|box|>133 143 150 254<|content|>By: ... By\n<|id|>111<|page|>13<|box|>151 142 167 352<|content|>David R. ... Overstreet Partner\n<|id|>112<|page|>13<|box|>167 143 184 316<|content|>Birmingham, Alabama\n<|id|>113<|page|>13<|box|>185 142 202 393<|content|>Enclosures: ... As referenced herein\n<|id|>115<|page|>13<|box|>236 176 253 750<|content|>Calderwood & Harkness LLP 780 Third Avenue New York, New York 10017\n<|id|>116<|page|>13<|box|>262 176 279 491<|content|>Attention: ... Philip Hartmann / Lisa Morrow\n<|id|>117<|page|>13<|box|>279 176 297 849<|content|>Caldwell Pryor & Shea LLP 300 Madison Avenue, 22nd Floor New York, New York 10017\n<|id|>118<|page|>13<|box|>305 176 323 496<|content|>Attention: ... Raymond Okafor / Jennifer Tsai\n<|id|>120<|page|>13<|box|>349 174 385 854<|content|>Gregory Alston General Counsel & Secretary Whitmor...ial Tower Drive, Suite 800 Herndon, Virginia 20170\n<|id|>119<|page|>13<|box|>324 176 340 315<|content|>(Agent's Counsel)\n<|id|>121<|page|>13<|box|>392 140 439 854<|content|>CONFIDENTIAL — This opinion letter contains inform...tion of this opinion letter is strictly prohibited",
+    "raw_response": "<|src_id|>25<|tgt_id|>26\n<|src_id|>57<|tgt_id|>58\n<|src_id|>94<|tgt_id|>95",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        }
+    ]
+}

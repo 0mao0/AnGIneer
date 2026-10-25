@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>112 424 128 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>138 140 155 661<|content|>TO: ... James Underwood, Lead Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>164 140 181 620<|content|>FROM: ... Devon Archer, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>190 142 207 310<|content|>DATE: ... June 25, 2025\n<|id|>5<|page|>1<|box|>215 140 252 856<|content|>RE: ... )\n<|id|>6<|page|>1<|box|>260 140 277 638<|content|>CC: ... Lisa Cheng, Paralegal\n<|id|>8<|page|>1<|box|>324 140 489 854<|content|>This memorandum presents a detailed analysis of Ro...is protected by the attorney work product doctrine\n<|id|>7<|page|>1<|box|>287 385 306 612<|content|>I. ... Executive Summary\n<|id|>39<|page|>3<|box|>857 181 893 857<|content|>• Actual hours worked per day and per week: ... Ca... ignition-off event for each day, less any gaps of\n<|id|>40<|page|>4<|box|>90 210 143 854<|content|>60 minutes or more between ignition-off and subseq...ology described in Dr. ... Ramanathan's work plan)\n<|id|>185<|page|>20<|box|>821 176 893 856<|content|>3. ... Phone calls, text messages, in-person conve...hat may bear on the degree of control exercised by\n<|id|>186<|page|>21<|box|>90 210 180 854<|content|>SLG are not reflected in the RouteSync data. ... T... important supplements to the data-driven analysis",
+    "raw_response": "<|src_id|>39<|tgt_id|>40\n<|src_id|>185<|tgt_id|>186",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 186
+        }
+    ]
+}

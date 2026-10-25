@@ -1,0 +1,166 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        100,
+        147
+    ],
+    "pages": [
+        100,
+        101,
+        102,
+        103,
+        108,
+        112,
+        114,
+        122,
+        124,
+        126,
+        127,
+        132,
+        133,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>340<|page|>100<|box|>42 395 55 610<|content|>CAPITAL MOVEMENTS\n<|id|>341<|page|>100<|box|>131 48 145 129<|content|>Background\n<|id|>345<|page|>100<|box|>460 46 473 172<|content|>Basic definitions\n<|id|>350<|page|>100<|box|>231 528 243 667<|content|>Reporting coverage\n<|id|>354<|page|>100<|box|>590 526 603 719<|content|>Description of statistics\n<|id|>358<|page|>101<|box|>43 364 58 577<|content|>CAPITAL MOVEMENTS.\n<|id|>364<|page|>102<|box|>38 402 52 615<|content|>CAPITAL MOVEMENTS.\n<|id|>370<|page|>103<|box|>45 377 60 587<|content|>CAPITAL MOVEMENTS\n<|id|>381<|page|>108<|box|>42 402 55 615<|content|>CAPITAL MOVEMENTS.\n<|id|>387<|page|>112<|box|>43 406 57 619<|content|>CAPITAL MOVEMENTS\n<|id|>391<|page|>114<|box|>70 189 85 857<|content|>Section II - Claims on Foreigners Reported by Bank\n<|id|>405<|page|>122<|box|>44 390 59 605<|content|>CAPITAL MOVEMENTS.\n<|id|>411<|page|>124<|box|>42 406 55 617<|content|>CAPITAL MOVEMENTS.\n<|id|>415<|page|>126<|box|>72 258 101 765<|content|>Section V - Transactions in Long-Term Securities b\n<|id|>418<|page|>127<|box|>42 378 57 587<|content|>CAPITAL MOVEMENTS,\n<|id|>434<|page|>132<|box|>44 397 59 614<|content|>CAPITAL MOVEMENTS,\n<|id|>435<|page|>132<|box|>64 231 110 795<|content|>Section V - Transactions in Long-Term Securities b\n<|id|>437<|page|>133<|box|>45 366 58 574<|content|>CAPITAL MOVEMENTS\n<|id|>445<|page|>137<|box|>46 180 66 763<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>450<|page|>138<|box|>34 213 50 810<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>451<|page|>138<|box|>60 226 97 800<|content|>Section I - Government Corporations and Other Busi\n<|id|>454<|page|>139<|box|>70 149 110 818<|content|>Section I - Government Corporations and Other Busi\n<|id|>456<|page|>140<|box|>63 179 98 857<|content|>Section I - Government Corporations and Other Busi\n<|id|>459<|page|>141<|box|>59 141 102 807<|content|>Section I - Government Corporations and Other Busi\n<|id|>461<|page|>142<|box|>58 186 93 864<|content|>Section I - Government Corporations and Other Busi\n<|id|>463<|page|>143<|box|>64 139 105 804<|content|>Section I - Government Corporations and Other Busi\n<|id|>465<|page|>144<|box|>63 181 98 855<|content|>Section I - Government Corporations and Other Busi\n<|id|>468<|page|>145<|box|>32 187 57 770<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>469<|page|>145<|box|>58 148 102 811<|content|>Section I - Government Corporations and Other Busi\n<|id|>471<|page|>146<|box|>39 214 55 808<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>472<|page|>146<|box|>64 179 100 851<|content|>Section I - Government Corporations and Other Busi\n<|id|>474<|page|>147<|box|>59 139 101 810<|content|>Section I - Government Corporations and Other Busi",
+    "raw_response": "<|id|>340<|level|>1\n<|id|>341<|level|>2\n<|id|>345<|level|>2\n<|id|>350<|level|>2\n<|id|>354<|level|>2\n<|id|>358<|level|>1\n<|id|>364<|level|>1\n<|id|>370<|level|>1\n<|id|>381<|level|>1\n<|id|>387<|level|>1\n<|id|>391<|level|>2\n<|id|>405<|level|>1\n<|id|>411<|level|>1\n<|id|>415<|level|>2\n<|id|>418<|level|>1\n<|id|>434<|level|>1\n<|id|>435<|level|>2\n<|id|>437<|level|>1\n<|id|>445<|level|>1\n<|id|>450<|level|>1\n<|id|>451<|level|>2\n<|id|>454<|level|>2\n<|id|>456<|level|>2\n<|id|>459<|level|>2\n<|id|>461<|level|>2\n<|id|>463<|level|>2\n<|id|>465<|level|>2\n<|id|>468<|level|>1\n<|id|>469<|level|>2\n<|id|>471<|level|>1\n<|id|>472<|level|>2\n<|id|>474<|level|>2",
+    "parsed": [
+        {
+            "id": 340,
+            "level": 1
+        },
+        {
+            "id": 341,
+            "level": 2
+        },
+        {
+            "id": 345,
+            "level": 2
+        },
+        {
+            "id": 350,
+            "level": 2
+        },
+        {
+            "id": 354,
+            "level": 2
+        },
+        {
+            "id": 358,
+            "level": 1
+        },
+        {
+            "id": 364,
+            "level": 1
+        },
+        {
+            "id": 370,
+            "level": 1
+        },
+        {
+            "id": 381,
+            "level": 1
+        },
+        {
+            "id": 387,
+            "level": 1
+        },
+        {
+            "id": 391,
+            "level": 2
+        },
+        {
+            "id": 405,
+            "level": 1
+        },
+        {
+            "id": 411,
+            "level": 1
+        },
+        {
+            "id": 415,
+            "level": 2
+        },
+        {
+            "id": 418,
+            "level": 1
+        },
+        {
+            "id": 434,
+            "level": 1
+        },
+        {
+            "id": 435,
+            "level": 2
+        },
+        {
+            "id": 437,
+            "level": 1
+        },
+        {
+            "id": 445,
+            "level": 1
+        },
+        {
+            "id": 450,
+            "level": 1
+        },
+        {
+            "id": 451,
+            "level": 2
+        },
+        {
+            "id": 454,
+            "level": 2
+        },
+        {
+            "id": 456,
+            "level": 2
+        },
+        {
+            "id": 459,
+            "level": 2
+        },
+        {
+            "id": 461,
+            "level": 2
+        },
+        {
+            "id": 463,
+            "level": 2
+        },
+        {
+            "id": 465,
+            "level": 2
+        },
+        {
+            "id": 468,
+            "level": 1
+        },
+        {
+            "id": 469,
+            "level": 2
+        },
+        {
+            "id": 471,
+            "level": 1
+        },
+        {
+            "id": 472,
+            "level": 2
+        },
+        {
+            "id": 474,
+            "level": 2
+        }
+    ]
+}

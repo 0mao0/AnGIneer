@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>2<|type|>title<|page|>1<|box|>169 424 184 573<|content|>MEMORANDUM\n<|id|>7<|type|>title<|page|>1<|box|>299 352 318 643<|content|>I. EXECUTIVE SUMMARY\n<|id|>17<|type|>title<|page|>2<|box|>455 397 474 599<|content|>II. BACKGROUND\n<|id|>18<|type|>title<|page|>2<|box|>501 142 518 297<|content|>A. The Partnership\n<|id|>32<|type|>title<|page|>3<|box|>726 140 744 325<|content|>B. The Film Properties\n<|id|>34<|type|>table<|page|>3<|box|>813 143 907 852<|content|>None\n<|id|>35<|type|>table<|page|>4<|box|>88 143 119 852<|content|>None\n<|id|>37<|type|>title<|page|>4<|box|>303 140 320 447<|content|>C. RSV and the Self-Dealing Structure\n<|id|>42<|type|>title<|page|>5<|box|>90 354 109 643<|content|>III. LIABILITY ANALYSIS\n<|id|>43<|type|>title<|page|>5<|box|>136 140 172 816<|content|>A. Excess Management Fees (Claim 1 — Breach of Par\n<|id|>62<|type|>title<|page|>7<|box|>446 140 482 854<|content|>B. Improper Revenue Reclassifications (Claim 2 — B\n<|id|>76<|type|>title<|page|>9<|box|>223 140 239 720<|content|>C. Rennick's Potential Counterclaim — Breach of Go\n<|id|>84<|type|>title<|page|>10<|box|>90 140 107 372<|content|>D. Additional Legal Theories\n<|id|>89<|type|>title<|page|>10<|box|>568 330 587 668<|content|>IV. DAMAGES CALCULATION\n<|id|>90<|type|>title<|page|>10<|box|>614 142 631 464<|content|>A. Core Damages (Fonseca's 55% Share)\n<|id|>92<|type|>table<|page|>10<|box|>681 143 773 852<|content|>None\n<|id|>94<|type|>title<|page|>11<|box|>90 140 107 344<|content|>B. Pre-Judgment Interest\n<|id|>102<|type|>title<|page|>11<|box|>507 140 523 264<|content|>C. Total Claim\n<|id|>108<|type|>title<|page|>11<|box|>676 142 694 290<|content|>D. Attorney's Fees\n<|id|>112<|type|>title<|page|>12<|box|>148 140 167 361<|content|>E. Reconstructed Waterfal\n<|id|>115<|type|>title<|page|>12<|box|>411 246 430 750<|content|>V. RECOMMENDED LITIGATION STRATEGY\n<|id|>116<|type|>title<|page|>12<|box|>455 142 473 410<|content|>A. Pre-Litigation Phase (Current)\n<|id|>121<|type|>title<|page|>13<|box|>90 140 107 217<|content|>B. Filing\n<|id|>129<|type|>title<|page|>13<|box|>445 140 463 287<|content|>C. Discovery Plan\n<|id|>135<|type|>title<|page|>14<|box|>148 142 167 297<|content|>D. Early Mediation\n<|id|>141<|type|>title<|page|>14<|box|>631 140 648 316<|content|>E. Settlement Posture\n<|id|>146<|type|>title<|page|>15<|box|>190 290 209 705<|content|>VI. LITIGATION BUDGET ESTIMATE\n<|id|>147<|type|>title<|page|>15<|box|>236 142 252 352<|content|>A. Phase-by-Phase Budget\n<|id|>149<|type|>table<|page|>15<|box|>304 143 487 852<|content|>None\n<|id|>151<|type|>title<|page|>15<|box|>672 142 689 493<|content|>B. Consultant Fees (Billed Directly to Client)\n<|id|>159<|type|>title<|page|>16<|box|>323 140 340 313<|content|>C. Budget Discussion\n<|id|>165<|type|>title<|page|>16<|box|>827 401 847 594<|content|>VII. NEXT STEPS\n<|id|>172<|type|>title<|page|>17<|box|>579 388 599 607<|content|>VIII. CONCLUSION",
+    "raw_response": "<|src_id|>34<|tgt_id|>32\n<|src_id|>35<|tgt_id|>32\n<|src_id|>92<|tgt_id|>90\n<|src_id|>149<|tgt_id|>147",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 147
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>606 140 680 854<|content|>CALDERWOOD & HARKNESS LLP Douglas Carmichael (SBN ...es, California 90071 Telephone: ... (213) 555-9801\n<|id|>5<|page|>1<|box|>686 140 741 854<|content|>Of Counsel: ... (213) 555-4101\n<|id|>6<|page|>1<|box|>750 142 768 665<|content|>Attorneys for Plaintiff Vantor Holdings Corp. ... (Counsel of Record)\n<|id|>12<|page|>2<|box|>352 176 387 854<|content|>1. ... and\n<|id|>14<|page|>2<|box|>428 140 500 856<|content|>This motion is made pursuant to California Code of...dgment as a matter of law on both causes of action\n<|id|>34<|page|>4<|box|>857 140 893 856<|content|>The Three Suppliers. ... (1) Hemsworth Consumer Pr... Oregon limited liability company headquartered in\n<|id|>35<|page|>5<|box|>90 138 183 856<|content|>Portland, Oregon, which manufactures and distributes home goods products; ... )\n<|id|>51<|page|>6<|box|>823 140 897 857<|content|>Discovery in this action revealed a total of 2,847... referencing potential new suppliers. ... Nakamura\n<|id|>52<|page|>7<|box|>89 140 237 856<|content|>Decl. ... )\n<|id|>70<|page|>9<|box|>353 140 388 854<|content|>A. ... The Second Cause of Action for Tortious Int...ective Economic Advantage Fails as a Matter of Law\n<|id|>72<|page|>9<|box|>551 138 698 857<|content|>Critically, as the California Supreme Court establ... fact of interference itself. ... 4th at 1158–1159\n<|id|>123<|page|>17<|box|>354 176 390 854<|content|>1. ... and\n<|id|>125<|page|>17<|box|>431 140 468 854<|content|>In the alternative, Cascade respectfully requests ...to California Code of Civil Procedure § 437c(f)(1)\n<|id|>126<|page|>17<|box|>508 678 527 854<|content|>Respectfully submitted,\n<|id|>127<|page|>17<|box|>535 140 551 323<|content|>Date: ... February 28, 2023\n<|id|>128<|page|>17<|box|>585 140 602 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>129<|page|>17<|box|>604 142 621 254<|content|>By: ... By\n<|id|>130<|page|>17<|box|>621 142 638 359<|content|>Douglas Carmichael, Partner\n<|id|>131<|page|>17<|box|>638 140 655 795<|content|>Francesca Morano, Partner Yuki Nakamura, Senior Associate Carlos Espinoza, Associate\n<|id|>132<|page|>17<|box|>655 140 688 854<|content|>600 South Grand Avenue, Suite 3200 Los Angeles, California 90071 Telephone: ... (213) 555-9801\n<|id|>133<|page|>17<|box|>689 142 705 539<|content|>Attorneys for Defendant Cascade Retail Holdings In...ttorneys for Defendant Cascade Retail Holdings Inc\n<|id|>141<|page|>18<|box|>268 174 325 854<|content|>Martin Kessler, Senior Partner Natalie Whitfield, ...es, California 90067 Telephone: ... (310) 555-7201\n<|id|>142<|page|>18<|box|>332 176 368 772<|content|>Email: ... com Attorneys for Plaintiff Vantor Holdings Corp",
+    "raw_response": "<|src_id|>34<|tgt_id|>35\n<|src_id|>51<|tgt_id|>52",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        }
+    ]
+}

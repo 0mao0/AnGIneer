@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 189 107 805<|content|>DRAFT — CERTIFICATE OF FORMATION OF BFO 450 WEST 3\n<|id|>7<|page|>1<|box|>550 142 566 325<|content|>ARTICLE I — NAME\n<|id|>9<|page|>1<|box|>602 398 619 598<|content|>BFO 450 West 34th LLC\n<|id|>11<|page|>1<|box|>705 140 723 834<|content|>ARTICLE II — REGISTERED OFFICE AND REGISTERED AGEN\n<|id|>17<|page|>2<|box|>90 142 106 483<|content|>ARTICLE III — AUTHORIZED PERSON\n<|id|>21<|page|>2<|box|>410 142 426 439<|content|>ARTICLE IV — EFFECTIVE DATE\n<|id|>24<|page|>2<|box|>578 142 594 359<|content|>ARTICLE V — PURPOSE\n<|id|>27<|page|>2<|box|>843 142 859 418<|content|>ARTICLE VI — SOLE MEMBER\n<|id|>31<|page|>3<|box|>277 143 294 259<|content|>EXECUTION\n<|id|>39<|page|>3<|box|>691 142 709 261<|content|>I. Filing Office\n<|id|>44<|page|>4<|box|>89 140 107 250<|content|>II. Filing Fee\n<|id|>46<|page|>4<|box|>181 140 199 344<|content|>III. Expedited Processing\n<|id|>53<|page|>4<|box|>431 142 448 303<|content|>IV. Certified Copies\n<|id|>58<|page|>4<|box|>691 140 709 393<|content|>V. Certificate of Good Standing\n<|id|>63<|page|>5<|box|>220 142 238 308<|content|>VI. Post-Filing Steps\n<|id|>71<|page|>6<|box|>128 187 146 810<|content|>ANNOTATIONS AND DRAFTING NOTES (Internal Use Only",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>9<|level|>-1\n<|id|>11<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>31<|level|>2\n<|id|>39<|level|>3\n<|id|>44<|level|>3\n<|id|>46<|level|>3\n<|id|>53<|level|>3\n<|id|>58<|level|>3\n<|id|>63<|level|>3\n<|id|>71<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        }
+    ]
+}

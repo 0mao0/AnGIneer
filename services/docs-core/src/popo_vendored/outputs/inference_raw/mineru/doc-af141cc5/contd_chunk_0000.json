@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        8,
+        19,
+        20,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>164 140 181 369<|content|>Matter Number: ... 1038-00001\n<|id|>4<|page|>1<|box|>190 759 208 854<|content|>July 5, 2025\n<|id|>5<|page|>1<|box|>215 140 252 854<|content|>From: ... 20005\n<|id|>6<|page|>1<|box|>260 140 295 854<|content|>To: ... Howard Bellamy, Responsible Partner, Antit...petition Practice Group, Calderwood & Harkness LLP\n<|id|>7<|page|>1<|box|>304 140 321 637<|content|>cc: ... Aaron Liu, Working Associate\n<|id|>8<|page|>1<|box|>330 140 385 854<|content|>Re: ... 's Proposed Acquisition of Pinnacle Market Group Inc\n<|id|>14<|page|>1<|box|>790 140 900 857<|content|>Summary Conclusion: ... In this case, several fact...he March 14, 2026 outside date (extendable to June\n<|id|>15<|page|>2<|box|>90 140 199 856<|content|>14, 2026 only if the sole unsatisfied closing cond... the motion if our defense is executed effectively\n<|id|>56<|page|>6<|box|>540 176 556 560<|content|>\"Whenever the Commission has reason to believe—\n<|id|>59<|page|>6<|box|>654 174 746 854<|content|>the Commission by any of its attorneys designated ...d States to enjoin any such act or practice. ... \"\n<|id|>57<|page|>6<|box|>566 174 602 852<|content|>(1) that any person, partnership, or corporation i... law enforced by the Federal Trade Commission, and\n<|id|>58<|page|>6<|box|>609 174 646 854<|content|>(2) that the enjoining thereof pending the complet...proceeding would be in the interest of the public—\n<|id|>67<|page|>7<|box|>792 138 902 857<|content|>A critical feature of Section 7 is its \"incipiency\" standard. ... This probabilistic standard reflects\n<|id|>68<|page|>8<|box|>90 140 145 854<|content|>Congress's judgment that preventing anticompetitiv...damage to competitive dynamics may be irreversible\n<|id|>162<|page|>19<|box|>873 140 909 854<|content|>Even the FTC's own narrow market share data underm...competitive theory. ... 3%, which, while above the\n<|id|>163<|page|>20<|box|>90 140 200 854<|content|>Guidelines' presumptive threshold, is notable for ... traditionally credited the structural presumption\n<|id|>243<|page|>28<|box|>806 140 839 854<|content|>Elliot Nguyen Lead Associate Antitrust & Competiti...1 K Street NW, Suite 1200 Washington, D. ... 20005\n<|id|>244<|page|>28<|box|>840 140 900 854<|content|>DISTRIBUTION RESTRICTION: ... This memorandum may ... prior written approval of the Responsible Partner",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>67<|tgt_id|>68\n<|src_id|>162<|tgt_id|>163",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        }
+    ]
+}

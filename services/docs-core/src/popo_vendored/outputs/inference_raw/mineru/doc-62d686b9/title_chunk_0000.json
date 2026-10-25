@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        37
+    ],
+    "pages": [
+        1,
+        4,
+        9,
+        11,
+        19,
+        26,
+        27,
+        31,
+        36,
+        37
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 290 185 705<|content|>DRAFT — SUBJECT TO REVISION CLOSING AGENDA $1,400,\n<|id|>25<|page|>4<|box|>356 143 372 408<|content|>II. GUARANTEE AGREEMENT\n<|id|>45<|page|>9<|box|>859 143 876 454<|content|>IV. INTERCREDITOR AGREEMENT\n<|id|>48<|page|>11<|box|>89 140 106 446<|content|>V. UCC FINANCING STATEMENTS\n<|id|>61<|page|>19<|box|>864 142 880 653<|content|>VII. RESOLUTIONS AND ORGANIZATIONAL DOCUMENTS\n<|id|>71<|page|>26<|box|>157 143 174 290<|content|>X. FUNDS FLOW\n<|id|>76<|page|>27<|box|>696 143 713 568<|content|>XI. MISCELLANEOUS CLOSING DELIVERABLES\n<|id|>83<|page|>31<|box|>814 140 830 465<|content|>XII. POST-CLOSING DELIVERABLES\n<|id|>90<|page|>36<|box|>506 428 523 568<|content|>DISTRIBUTION\n<|id|>104<|page|>37<|box|>133 142 152 547<|content|>Hargrove & Whitmore LLP (Illinois Local Counsel)\n<|id|>106<|page|>37<|box|>186 142 204 555<|content|>Briarcliff Legal Group PA (Delaware Local Counsel)\n<|id|>108<|page|>37<|box|>237 295 253 700<|content|>DRAFT — FOR DISCUSSION PURPOSES ONLY",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>25<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>61<|level|>2\n<|id|>71<|level|>2\n<|id|>76<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>2\n<|id|>104<|level|>3\n<|id|>106<|level|>3\n<|id|>108<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        }
+    ]
+}

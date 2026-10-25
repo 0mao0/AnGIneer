@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        3,
+        6,
+        8,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 200 118 795<|content|>SETTLEMENT AGREEMENT AND MUTUAL RELEASE\n<|id|>4<|type|>title<|page|>1<|box|>213 153 250 844<|content|>SOLSTICE BIOMEDICAL DEVICES LTD. a private limited\n<|id|>14<|type|>title<|page|>1<|box|>652 140 669 243<|content|>RECITALS\n<|id|>22<|type|>title<|page|>3<|box|>212 140 229 390<|content|>ARTICLE I — DEFINITIONS\n<|id|>53<|type|>title<|page|>6<|box|>89 140 107 625<|content|>ARTICLE II — REPRESENTATIONS AND WARRANTIES\n<|id|>71<|type|>title<|page|>8<|box|>222 140 239 444<|content|>ARTICLE III — PAYMENT TERMS\n<|id|>83<|type|>title<|page|>10<|box|>659 140 675 625<|content|>ARTICLE IV — LICENSE AND COVENANT NOT TO SUE\n<|id|>89<|type|>title<|page|>12<|box|>186 140 203 519<|content|>ARTICLE V — MOST-FAVORED LICENSEE\n<|id|>93<|type|>title<|page|>12<|box|>780 140 797 415<|content|>ARTICLE VI — AUDIT RIGHTS\n<|id|>98<|type|>title<|page|>14<|box|>89 140 106 457<|content|>ARTICLE VII — MUTUAL RELEASE\n<|id|>103<|type|>title<|page|>15<|box|>659 140 675 544<|content|>ARTICLE VIII — DISMISSAL OF THE ACTION\n<|id|>107<|type|>title<|page|>16<|box|>339 140 357 455<|content|>ARTICLE IX — CONFIDENTIALITY\n<|id|>116<|type|>title<|page|>17<|box|>622 140 638 511<|content|>ARTICLE X — TERM AND TERMINATION\n<|id|>120<|type|>title<|page|>18<|box|>449 140 467 455<|content|>ARTICLE XI — INDEMNIFICATION\n<|id|>127<|type|>title<|page|>19<|box|>684 140 702 493<|content|>ARTICLE XII — DISPUTE RESOLUTION\n<|id|>133<|type|>title<|page|>20<|box|>720 140 738 503<|content|>ARTICLE XIII — GENERAL PROVISIONS\n<|id|>155<|type|>title<|page|>23<|box|>643 228 662 767<|content|>[Remainder of this page intentionally left blank.\n<|id|>156<|type|>title<|page|>23<|box|>669 163 686 831<|content|>SIGNATURE PAGE TO SETTLEMENT AGREEMENT AND MUTUAL\n<|id|>158<|type|>title<|page|>23<|box|>739 140 756 493<|content|>SOLSTICE BIOMEDICAL DEVICES LTD.\n<|id|>176<|type|>title<|page|>24<|box|>271 413 287 583<|content|>LIST OF EXHIBITS\n<|id|>178<|type|>table<|page|>24<|box|>339 143 907 852<|content|>None\n<|id|>179<|type|>table<|page|>25<|box|>88 145 125 852<|content|>None\n<|id|>180<|type|>title<|page|>25<|box|>157 199 175 797<|content|>ANCILLARY DOCUMENTS (Referenced herein but not app",
+    "raw_response": "<|src_id|>178<|tgt_id|>176\n<|src_id|>179<|tgt_id|>176",
+    "parsed": [
+        {
+            "src_id": 178,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 176
+        }
+    ]
+}

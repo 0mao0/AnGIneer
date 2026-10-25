@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['单项检查结论', 'colspan=2, 项目专业技术负责人:年 月 日', '单项验收结论', 'colspan=5, 监理工程师:(建设单位专业技术负责人)年 月 日'], ['colspan=9, 注:子项质量缺陷的确定:根据对建筑工程消防功能实现的影响及其整改的难易程度,划分为严重缺陷(A)、一般缺陷(B)、轻度缺陷(C)三类。']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 子项名称', 'rowspan=2, 验收内容', 'rowspan=2, 验收标准', 'rowspan=2, 检查部位区段', 'rowspan=2, 抽样数量', 'colspan=2, 施工单位检查评定结果', 'colspan=2, 监理(建设)单位检查评定结果']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 1173,
+    "table2_idx": 1174
+}

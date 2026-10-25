@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        55,
+        102
+    ],
+    "pages": [
+        56,
+        57,
+        59,
+        65,
+        66,
+        71,
+        76,
+        98,
+        99,
+        101
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>124<|page|>56<|box|>44 208 59 815<|content|>Sales and Redemptions of United States Savings Bon\n<|id|>126<|page|>57<|box|>73 258 89 685<|content|>Sales and Redemptions of Treasury Savings Notes\n<|id|>134<|page|>59<|box|>64 299 80 632<|content|>Sales of United States Savings Stamps\n<|id|>156<|page|>65<|box|>131 160 149 777<|content|>Table 2.- Public Marketable Interest-Bearing Secur\n<|id|>160<|page|>66<|box|>108 190 124 815<|content|>Table 2.- Public Marketable Interest-Bearing Secur\n<|id|>177<|page|>71<|box|>67 109 98 830<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>191<|page|>76<|box|>177 193 192 833<|content|>Section I - Assets, Liabilities, and Capital as of\n<|id|>280<|page|>98<|box|>50 169 66 882<|content|>Capital Movements Between the United States and Fo\n<|id|>281<|page|>98<|box|>77 323 93 725<|content|>Section I - Historical Summary - (Continued)\n<|id|>282<|page|>98<|box|>101 196 130 851<|content|>Table 2.- Short-Term Claims on and Liabilities to\n<|id|>286<|page|>99<|box|>96 278 111 676<|content|>Section I - Historical Summary - (Continued)\n<|id|>289<|page|>99<|box|>548 80 579 872<|content|>Table 5.- Purchases and Sales of Long-Term Foreign\n<|id|>296<|page|>101<|box|>71 124 87 818<|content|>Capital Movements Between the United States and Fo\n<|id|>297<|page|>101<|box|>93 264 109 682<|content|>Section II - Summary by Countries - (Continued)",
+    "raw_response": "<|id|>124<|level|>1\n<|id|>126<|level|>1\n<|id|>134<|level|>1\n<|id|>156<|level|>2\n<|id|>160<|level|>2\n<|id|>177<|level|>1\n<|id|>191<|level|>2\n<|id|>280<|level|>1\n<|id|>281<|level|>2\n<|id|>282<|level|>3\n<|id|>286<|level|>2\n<|id|>289<|level|>3\n<|id|>296<|level|>1\n<|id|>297<|level|>2",
+    "parsed": [
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 1
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 280,
+            "level": 1
+        },
+        {
+            "id": 281,
+            "level": 2
+        },
+        {
+            "id": 282,
+            "level": 3
+        },
+        {
+            "id": 286,
+            "level": 2
+        },
+        {
+            "id": 289,
+            "level": 3
+        },
+        {
+            "id": 296,
+            "level": 1
+        },
+        {
+            "id": 297,
+            "level": 2
+        }
+    ]
+}

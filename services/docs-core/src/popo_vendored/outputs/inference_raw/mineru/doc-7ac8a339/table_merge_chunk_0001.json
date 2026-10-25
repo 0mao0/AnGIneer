@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Canada-U.S. Tax Convention, Article XI', 'Canada / United States (bilateral)', 'Interest withholding', 'Provides for a 0% withholding tax rate on interest arising in one Contracting State and paid to a resident of the other']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'Contracting State, subject to certain conditions (including that the interest is not contingent on or determined by reference to receipts, sales, income, or profits). Eliminates the 25% statutory Canadian withholding rate on qualifying interest payments from NCH ULC and NCM to U.S. persons.']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 246,
+    "table2_idx": 247
+}

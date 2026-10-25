@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 4,
+    "range": [
+        185,
+        233
+    ],
+    "pages": [
+        186,
+        188,
+        190,
+        195,
+        199,
+        201,
+        211,
+        216,
+        220,
+        232
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>665<|page|>186<|box|>242 386 280 634<|content|>第二章 路面工程\n<|id|>666<|page|>186<|box|>331 468 362 553<|content|>说明\n<|id|>674<|page|>188<|box|>169 382 203 624<|content|>第一节 路面基层及垫层\n<|id|>675<|page|>188<|box|>260 462 291 545<|content|>说明\n<|id|>695<|page|>190<|box|>165 407 194 593<|content|>2-1-1 路面垫层\n<|id|>711<|page|>195<|box|>121 412 145 553<|content|>II. 稳定土拌和机拌和\n<|id|>721<|page|>199<|box|>119 410 141 550<|content|>II. 拖拉机带铧犁拌和\n<|id|>727<|page|>201<|box|>119 414 143 560<|content|>III. 稳定土拌和机拌和\n<|id|>751<|page|>211<|box|>121 414 145 553<|content|>II. 拖拉机带铧犁拌和\n<|id|>764<|page|>216<|box|>147 447 169 587<|content|>II. 拖拉机带铧犁拌和\n<|id|>774<|page|>220<|box|>130 357 158 619<|content|>2-1-7 厂拌基层稳定土混合料\n<|id|>792<|page|>232<|box|>147 136 172 184<|content|>续前页",
+    "raw_response": "<|id|>665<|level|>1\n<|id|>666<|level|>2\n<|id|>674<|level|>2\n<|id|>675<|level|>3\n<|id|>695<|level|>3\n<|id|>711<|level|>4\n<|id|>721<|level|>4\n<|id|>727<|level|>4\n<|id|>751<|level|>4\n<|id|>764<|level|>4\n<|id|>774<|level|>3\n<|id|>792<|level|>-1",
+    "parsed": [
+        {
+            "id": 665,
+            "level": 1
+        },
+        {
+            "id": 666,
+            "level": 2
+        },
+        {
+            "id": 674,
+            "level": 2
+        },
+        {
+            "id": 675,
+            "level": 3
+        },
+        {
+            "id": 695,
+            "level": 3
+        },
+        {
+            "id": 711,
+            "level": 4
+        },
+        {
+            "id": 721,
+            "level": 4
+        },
+        {
+            "id": 727,
+            "level": 4
+        },
+        {
+            "id": 751,
+            "level": 4
+        },
+        {
+            "id": 764,
+            "level": 4
+        },
+        {
+            "id": 774,
+            "level": 3
+        }
+    ]
+}

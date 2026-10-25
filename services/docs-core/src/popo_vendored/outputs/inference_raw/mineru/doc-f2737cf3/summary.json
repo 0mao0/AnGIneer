@@ -1,0 +1,151 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-78tjhjpq\\input\\pdfs\\doc-f2737cf3.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-78tjhjpq\\enriched\\doc-f2737cf3.json",
+    "contd_output": "<|src_id|>55<|tgt_id|>56\n<|src_id|>57<|tgt_id|>58",
+    "title_output": "<|id|>2<|level|>1\n<|id|>6<|level|>1\n<|id|>9<|level|>1\n<|id|>19<|level|>1\n<|id|>25<|level|>1\n<|id|>27<|level|>2\n<|id|>31<|level|>2\n<|id|>34<|level|>1\n<|id|>37<|level|>2\n<|id|>44<|level|>1\n<|id|>51<|level|>1\n<|id|>53<|level|>2\n<|id|>75<|level|>1",
+    "image_output": "<|src_id|>7<|tgt_id|>6\n<|src_id|>11<|tgt_id|>9\n<|src_id|>13<|tgt_id|>9\n<|src_id|>14<|tgt_id|>9\n<|src_id|>15<|tgt_id|>9\n<|src_id|>17<|tgt_id|>9\n<|src_id|>21<|tgt_id|>19\n<|src_id|>22<|tgt_id|>19\n<|src_id|>36<|tgt_id|>34\n<|src_id|>39<|tgt_id|>34\n<|src_id|>40<|tgt_id|>34\n<|src_id|>41<|tgt_id|>34\n<|src_id|>42<|tgt_id|>34\n<|src_id|>77<|tgt_id|>75\n<|src_id|>78<|tgt_id|>75",
+    "contd_label": [
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 7,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 75
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 77,
+            "table2_idx": 78,
+            "upper_row_ss": [
+                [
+                    "",
+                    "Jonathan Ferris, Associate"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Kellner Brandt & Associates LLP (Sponsor's Counsel)",
+                    "Patricia Voss, Partner"
+                ]
+            ]
+        }
+    ]
+}

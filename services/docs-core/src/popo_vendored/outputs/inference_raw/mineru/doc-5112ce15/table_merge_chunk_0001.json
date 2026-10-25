@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=5, 胶体性能', '抗压强度(MPa)', '≥70', 'rowspan=5, 《树脂浇铸体性能试验方法》(GB/T 2567)']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 粘结能力', '钢—钢拉伸抗剪强度标准值(MPa)', '\\\\geqslant 14', '《胶粘剂拉伸剪切强度的测定(刚性材料对刚性材料)》(GB/T 7124)']]\n",
+    "raw_response": "[0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 213,
+    "table2_idx": 214
+}

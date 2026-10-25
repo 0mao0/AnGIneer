@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 143 118 854<|content|>ASSIGNMENT AND ASSUMPTION OF MEMBERSHIP INTERESTS\n<|id|>1<|type|>title<|page|>1<|box|>143 413 160 584<|content|>GMP Lakeland LLC\n<|id|>5<|type|>title<|page|>1<|box|>411 447 429 550<|content|>RECITALS\n<|id|>6<|type|>title<|page|>1<|box|>436 140 454 248<|content|>WHEREAS:\n<|id|>14<|type|>title<|page|>2<|box|>556 140 573 656<|content|>ARTICLE 1 — ASSIGNMENT OF MEMBERSHIP INTERESTS\n<|id|>18<|type|>title<|page|>3<|box|>387 142 404 553<|content|>ARTICLE 2 — ASSUMPTION OF OBLIGATIONS\n<|id|>34<|type|>title<|page|>4<|box|>758 140 776 748<|content|>ARTICLE 3 — REPRESENTATIONS AND WARRANTIES OF ASSI\n<|id|>35<|type|>title<|page|>4<|box|>785 142 803 772<|content|>Assignor hereby represents and warrants to Assigne\n<|id|>41<|type|>title<|page|>6<|box|>258 140 276 745<|content|>ARTICLE 4 — REPRESENTATIONS AND WARRANTIES OF ASSI\n<|id|>47<|type|>title<|page|>7<|box|>239 140 257 483<|content|>ARTICLE 5 — FURTHER ASSURANCES\n<|id|>53<|type|>title<|page|>7<|box|>739 140 757 599<|content|>ARTICLE 6 — GOVERNING LAW; MISCELLANEOUS\n<|id|>62<|type|>title<|page|>9<|box|>190 245 207 751<|content|>[Remainder of page intentionally left blank. Signa\n<|id|>63<|type|>title<|page|>9<|box|>214 173 250 823<|content|>SIGNATURE PAGE TO ASSIGNMENT AND ASSUMPTION OF MEM\n<|id|>65<|type|>title<|page|>9<|box|>304 142 319 248<|content|>ASSIGNOR:\n<|id|>72<|type|>title<|page|>9<|box|>449 173 484 823<|content|>SIGNATURE PAGE TO ASSIGNMENT AND ASSUMPTION OF MEM\n<|id|>73<|type|>title<|page|>9<|box|>494 143 510 245<|content|>ASSIGNEE:\n<|id|>79<|type|>title<|page|>10<|box|>90 449 106 550<|content|>EXHIBIT A\n<|id|>80<|type|>table<|page|>10<|box|>140 143 431 852<|content|>None\n<|id|>82<|type|>table<|page|>11<|box|>138 143 359 852<|content|>None\n<|id|>83<|type|>title<|page|>11<|box|>395 142 412 290<|content|>Legal Description:\n<|id|>86<|type|>title<|page|>11<|box|>652 305 669 692<|content|>ACKNOWLEDGMENT AND NOTARIZATION\n<|id|>87<|type|>title<|page|>11<|box|>678 143 694 436<|content|>ASSIGNOR ACKNOWLEDGMENT\n<|id|>88<|type|>title<|page|>11<|box|>703 142 720 318<|content|>STATE OF GEORGIA\n<|id|>89<|type|>title<|page|>11<|box|>729 142 746 326<|content|>COUNTY OF FULTON",
+    "raw_response": "<|src_id|>80<|tgt_id|>79\n<|src_id|>82<|tgt_id|>79",
+    "parsed": [
+        {
+            "src_id": 80,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 79
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 367 118 630<|content|>ESCROW AGREEMENT\n<|id|>3<|type|>title<|page|>1<|box|>186 393 204 604<|content|>ESCROW AGREEMENT\n<|id|>10<|type|>title<|page|>1<|box|>570 449 585 549<|content|>RECITALS\n<|id|>20<|type|>title<|page|>2<|box|>515 142 532 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>37<|type|>title<|page|>4<|box|>90 140 107 754<|content|>Section 1.2 Interpretation. In this Agreement, unl\n<|id|>45<|type|>title<|page|>4<|box|>513 140 530 645<|content|>ARTICLE II — ESTABLISHMENT OF ESCROW; DEPOSITS\n<|id|>55<|type|>title<|page|>5<|box|>845 140 863 583<|content|>ARTICLE III — INVESTMENT OF ESCROW FUNDS\n<|id|>66<|type|>title<|page|>7<|box|>148 140 166 604<|content|>ARTICLE IV — DISBURSEMENT OF ESCROW FUNDS\n<|id|>75<|type|>title<|page|>8<|box|>393 140 412 826<|content|>ARTICLE V — DUTIES, RIGHTS, AND OBLIGATIONS OF THE\n<|id|>89<|type|>title<|page|>10<|box|>549 142 565 573<|content|>ARTICLE VI — DEFAULT; CONSENT JUDGMENT\n<|id|>94<|type|>title<|page|>11<|box|>566 140 584 491<|content|>ARTICLE VII — DISPUTE RESOLUTION\n<|id|>101<|type|>title<|page|>12<|box|>549 142 565 377<|content|>ARTICLE VIII — NOTICES\n<|id|>103<|type|>title<|page|>12<|box|>784 143 800 313<|content|>If to the TSL Parties:\n<|id|>111<|type|>title<|page|>13<|box|>151 143 166 274<|content|>If to Northwind:\n<|id|>124<|type|>title<|page|>13<|box|>486 142 503 517<|content|>ARTICLE IX — TERM AND TERMINATION\n<|id|>131<|type|>title<|page|>14<|box|>186 140 203 625<|content|>ARTICLE X — REPRESENTATIONS AND WARRANTIES\n<|id|>151<|type|>title<|page|>16<|box|>204 140 220 441<|content|>ARTICLE XI — MISCELLANEOUS\n<|id|>169<|type|>title<|page|>18<|box|>469 245 486 751<|content|>[Remainder of page intentionally left blank. Signa\n<|id|>171<|type|>title<|page|>18<|box|>537 143 554 486<|content|>THALASSA SHIPPING & LOGISTICS SA\n<|id|>173<|type|>title<|page|>18<|box|>883 450 898 547<|content|>EXHIBIT A\n<|id|>174<|type|>title<|page|>19<|box|>90 259 107 736<|content|>Wire Transfer Instructions for Deposits into Escro\n<|id|>176<|type|>table<|page|>19<|box|>159 143 323 852<|content|>None\n<|id|>179<|type|>title<|page|>19<|box|>518 449 535 550<|content|>EXHIBIT B\n<|id|>180<|type|>title<|page|>19<|box|>545 264 561 733<|content|>Wire Transfer Instructions for Disbursements to No\n<|id|>181<|type|>table<|page|>19<|box|>613 143 763 852<|content|>None\n<|id|>184<|type|>title<|page|>20<|box|>178 447 194 550<|content|>EXHIBIT C\n<|id|>185<|type|>title<|page|>20<|box|>204 388 220 607<|content|>Escrow Agent Fee Schedule\n<|id|>186<|type|>table<|page|>20<|box|>273 143 489 852<|content|>None\n<|id|>187<|type|>title<|page|>20<|box|>525 140 541 264<|content|>Fee Allocation:\n<|id|>189<|type|>title<|page|>20<|box|>650 142 667 277<|content|>Payment Terms:\n<|id|>191<|type|>title<|page|>20<|box|>739 142 755 416<|content|>No Deduction from Escrow Funds:\n<|id|>194<|type|>title<|page|>21<|box|>133 361 178 637<|content|>EXHIBIT D Form of Joint Written Instructions",
+    "raw_response": "<|src_id|>176<|tgt_id|>174\n<|src_id|>181<|tgt_id|>180\n<|src_id|>186<|tgt_id|>185",
+    "parsed": [
+        {
+            "src_id": 176,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 180
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 185
+        }
+    ]
+}

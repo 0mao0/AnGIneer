@@ -1,0 +1,45 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        51,
+        55
+    ],
+    "pages": [
+        51,
+        52,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>561<|page|>51<|box|>376 447 393 550<|content|>EXHIBIT D\n<|id|>562<|page|>51<|box|>402 248 420 750<|content|>**SERVICE LEVEL AGREEMENT(July 2023 Revised Versio\n<|id|>563<|page|>51<|box|>428 140 465 854<|content|>[C&H Comment: SUBSTANTIALLY AGREED — REVISED TO RE\n<|id|>577<|page|>52<|box|>587 331 606 665<|content|>[Remainder of Page Intentionally Left Blank]\n<|id|>578<|page|>52<|box|>613 424 630 573<|content|>APPENDIX VII-A\n<|id|>579<|page|>52<|box|>638 267 656 730<|content|>DERIVED DATA COMMERCIALIZATION PROTOCOL\n<|id|>581<|page|>52<|box|>763 223 781 774<|content|>APPENDIX — SUMMARY OF OPEN ISSUES / STATUS TRACKER\n<|id|>589<|page|>55<|box|>869 215 886 782<|content|>TRANSMITTAL NOTE (C&H INTERNAL — APPENDED FOR FILE",
+    "raw_response": "<|id|>561<|level|>1\n<|id|>562<|level|>2\n<|id|>563<|level|>3\n<|id|>577<|level|>-1\n<|id|>578<|level|>1\n<|id|>579<|level|>2\n<|id|>581<|level|>1\n<|id|>589<|level|>1",
+    "parsed": [
+        {
+            "id": 561,
+            "level": 1
+        },
+        {
+            "id": 562,
+            "level": 2
+        },
+        {
+            "id": 563,
+            "level": 3
+        },
+        {
+            "id": 578,
+            "level": 1
+        },
+        {
+            "id": 579,
+            "level": 2
+        },
+        {
+            "id": 581,
+            "level": 1
+        },
+        {
+            "id": 589,
+            "level": 1
+        }
+    ]
+}

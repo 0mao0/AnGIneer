@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 279 118 718<|content|>FORM OF BRING-DOWN CERTIFICATE\n<|id|>1<|page|>1<|box|>136 292 154 704<|content|>Bring-Down Certificate of Quillen Technologies, In\n<|id|>4<|page|>1<|box|>232 367 248 627<|content|>BRING-DOWN CERTIFICATE\n<|id|>9<|page|>1<|box|>579 140 595 583<|content|>Section 1 — Identity and Authority of Certifying O\n<|id|>12<|page|>1<|box|>840 140 858 614<|content|>Section 2 — Bring-Down of Representations and Warr\n<|id|>17<|page|>2<|box|>541 140 558 584<|content|>Section 3 — Compliance with Covenants and Conditio\n<|id|>25<|page|>3<|box|>263 140 281 457<|content|>Section 4 — No Material Adverse Effect\n<|id|>28<|page|>3<|box|>522 140 539 413<|content|>Section 5 — No Legal Impediment\n<|id|>34<|page|>4<|box|>167 140 184 643<|content|>Section 6 — Amended and Restated Certificate of In\n<|id|>41<|page|>4<|box|>553 140 569 475<|content|>Section 7 — Authorized and Issued Shares\n<|id|>48<|page|>6<|box|>90 142 107 467<|content|>Section 8 — Disclosure Schedule Updates\n<|id|>51<|page|>6<|box|>277 176 295 429<|content|>(b) [Select applicable alternative:]\n<|id|>56<|page|>6<|box|>647 140 664 447<|content|>Section 9 — Limitation and Disclaimer\n<|id|>62<|page|>7<|box|>450 400 467 596<|content|>[Signature Page Follows]\n<|id|>69<|page|>7<|box|>627 142 643 424<|content|>EXHIBITS AND ATTACHMENTS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>12<|level|>2\n<|id|>17<|level|>2\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>34<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>2\n<|id|>51<|level|>3\n<|id|>56<|level|>2\n<|id|>62<|level|>-1\n<|id|>69<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        }
+    ]
+}

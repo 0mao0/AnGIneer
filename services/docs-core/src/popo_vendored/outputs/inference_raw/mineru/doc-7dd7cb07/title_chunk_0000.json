@@ -1,0 +1,144 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        13,
+        14,
+        15,
+        16,
+        18,
+        20,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 153 171 841<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT PRIVILEG\n<|id|>9<|page|>1<|box|>449 140 465 321<|content|>I. Executive Summary\n<|id|>19<|page|>2<|box|>571 140 589 547<|content|>II. Overview of State Antitrust Filing Requirement\n<|id|>20<|page|>2<|box|>602 140 619 651<|content|>A. General Framework — State Pre-Merger Notificati\n<|id|>25<|page|>3<|box|>440 140 457 292<|content|>B. States Analyzed\n<|id|>27<|page|>3<|box|>563 140 579 370<|content|>Cascade Retail Holdings Inc.\n<|id|>34<|page|>3<|box|>816 143 830 318<|content|>NovaMart Global Inc.\n<|id|>55<|page|>4<|box|>844 140 862 648<|content|>C. Conclusion — No Mandatory State Antitrust Filin\n<|id|>59<|page|>5<|box|>329 140 347 656<|content|>III. State Attorney General Notification and Engag\n<|id|>60<|page|>5<|box|>361 142 378 529<|content|>A. State AG Independent Investigatory Authority\n<|id|>66<|page|>6<|box|>239 140 255 385<|content|>B. States of Particular Interest\n<|id|>73<|page|>7<|box|>612 140 628 491<|content|>C. Proactive Engagement Recommendations\n<|id|>82<|page|>8<|box|>503 140 522 455<|content|>IV. State-by-State Regulatory Checklist\n<|id|>108<|page|>11<|box|>319 142 337 259<|content|>E. New Jersey\n<|id|>132<|page|>13<|box|>184 140 200 250<|content|>L. New York\n<|id|>142<|page|>13<|box|>645 140 662 272<|content|>M. Other States\n<|id|>146<|page|>14<|box|>223 140 239 558<|content|>V. Industry-Specific State Regulatory Consideratio\n<|id|>148<|page|>14<|box|>334 140 352 542<|content|>A. Ecommerce and Online Marketplace Regulation\n<|id|>151<|page|>14<|box|>616 140 633 452<|content|>B. Logistics and Fulfillment Operations\n<|id|>155<|page|>15<|box|>250 140 267 326<|content|>C. Payment Processing\n<|id|>158<|page|>15<|box|>531 140 547 511<|content|>D. Sales Tax and Marketplace Facilitator Laws\n<|id|>162<|page|>16<|box|>90 140 107 473<|content|>E. Data Privacy and Consumer Protection\n<|id|>171<|page|>16<|box|>597 140 614 527<|content|>VI. Multistate AG Coordination Risk Assessment\n<|id|>185<|page|>18<|box|>297 140 314 387<|content|>VII. Summary Checklist Table\n<|id|>189<|page|>20<|box|>387 140 404 454<|content|>VIII. Recommendations and Next Steps\n<|id|>197<|page|>21<|box|>334 140 351 338<|content|>IX. Contact Information\n<|id|>205<|page|>22<|box|>90 142 107 666<|content|>Appendix A: State Antitrust Statutes — Summary Ref\n<|id|>209<|page|>23<|box|>90 142 107 625<|content|>Appendix B: NovaMart Fulfillment Center Locations",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>9<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>25<|level|>3\n<|id|>27<|level|>4\n<|id|>34<|level|>4\n<|id|>55<|level|>3\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>66<|level|>3\n<|id|>73<|level|>3\n<|id|>82<|level|>2\n<|id|>108<|level|>3\n<|id|>132<|level|>3\n<|id|>142<|level|>3\n<|id|>146<|level|>2\n<|id|>148<|level|>3\n<|id|>151<|level|>3\n<|id|>155<|level|>3\n<|id|>158<|level|>3\n<|id|>162<|level|>3\n<|id|>171<|level|>2\n<|id|>185<|level|>2\n<|id|>189<|level|>2\n<|id|>197<|level|>2\n<|id|>205<|level|>2\n<|id|>209<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 34,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 2
+        }
+    ]
+}

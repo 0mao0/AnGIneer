@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 104 653<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>1<|page|>1<|box|>112 196 148 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1725 K\n<|id|>11<|page|>1<|box|>727 142 744 333<|content|>1. Scope of Engagement\n<|id|>23<|page|>3<|box|>337 140 354 313<|content|>2. Engagement Team\n<|id|>34<|page|>4<|box|>280 140 297 339<|content|>3. Florida Local Counsel\n<|id|>42<|page|>5<|box|>90 142 107 338<|content|>4. Fees and Billing Rates\n<|id|>47<|page|>5<|box|>482 140 500 305<|content|>5. Estimated Budget\n<|id|>63<|page|>6<|box|>525 140 542 361<|content|>6. Costs and Disbursements\n<|id|>77<|page|>7<|box|>382 140 398 379<|content|>7. Billing and Payment Terms\n<|id|>83<|page|>8<|box|>90 140 107 235<|content|>8. Retainer\n<|id|>85<|page|>8<|box|>212 140 229 346<|content|>9. Title Insurance Tender\n<|id|>90<|page|>8<|box|>741 142 758 330<|content|>10. Conflicts of Interest\n<|id|>96<|page|>9<|box|>458 140 474 398<|content|>11. Confidentiality and Privilege\n<|id|>101<|page|>10<|box|>90 142 107 334<|content|>12. Document Retention\n<|id|>105<|page|>10<|box|>392 142 409 274<|content|>13. Termination\n<|id|>110<|page|>10<|box|>811 140 829 297<|content|>14. Governing Law\n<|id|>114<|page|>11<|box|>321 142 339 379<|content|>15. No Guarantee of Outcome\n<|id|>116<|page|>11<|box|>536 142 551 421<|content|>16. Entire Agreement; Amendment\n<|id|>122<|page|>11<|box|>891 140 907 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>128<|page|>12<|box|>159 313 175 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>130<|page|>12<|box|>248 142 263 441<|content|>ACKNOWLEDGED AND AGREED:\n<|id|>131<|page|>12<|box|>273 140 290 581<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>11<|level|>1\n<|id|>23<|level|>1\n<|id|>34<|level|>1\n<|id|>42<|level|>1\n<|id|>47<|level|>1\n<|id|>63<|level|>1\n<|id|>77<|level|>1\n<|id|>83<|level|>1\n<|id|>85<|level|>1\n<|id|>90<|level|>1\n<|id|>96<|level|>1\n<|id|>101<|level|>1\n<|id|>105<|level|>1\n<|id|>110<|level|>1\n<|id|>114<|level|>1\n<|id|>116<|level|>1\n<|id|>122<|level|>-1\n<|id|>128<|level|>1\n<|id|>130<|level|>2\n<|id|>131<|level|>3",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        }
+    ]
+}

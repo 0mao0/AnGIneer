@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 284<|content|>【915095#0】吉舒铁路\n<|id|>2<|page|>1<|box|>140 107 156 292<|content|>【4098385#0】浩吉铁路\n<|id|>4<|page|>1<|box|>224 107 240 285<|content|>【914539#0】沈吉铁路\n<|id|>6<|page|>1<|box|>324 107 341 329<|content|>【1371141#0】吉珲客运专线\n<|id|>8<|page|>1<|box|>442 107 458 285<|content|>【915095#1】吉舒铁路\n<|id|>10<|page|>1<|box|>527 107 542 265<|content|>【12694#39】吉林市\n<|id|>12<|page|>1<|box|>627 105 643 292<|content|>【101761#26】长图铁路\n<|id|>14<|page|>1<|box|>745 105 762 292<|content|>【4562107#0】兴宁铁路\n<|id|>16<|page|>1<|box|>829 107 846 265<|content|>【425#18】黑龙江省\n<|id|>18<|page|>2<|box|>152 107 167 292<|content|>【7605057#0】辽长铁路",
+    "raw_response": "<|id|>0<|level|>2\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>1\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>16<|level|>1\n<|id|>18<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 423 107 573<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>114 212 133 784<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>8<|type|>title<|page|>1<|box|>404 140 421 321<|content|>I. Executive Summary\n<|id|>14<|type|>title<|page|>2<|box|>304 140 321 416<|content|>II. Background on the Transaction\n<|id|>20<|type|>title<|page|>3<|box|>213 142 229 321<|content|>Key Financial Metrics\n<|id|>21<|type|>table<|page|>3<|box|>279 143 369 852<|content|>None\n<|id|>23<|type|>title<|page|>3<|box|>453 142 470 406<|content|>Key Rollover Equity Participants\n<|id|>28<|type|>title<|page|>3<|box|>729 140 746 581<|content|>III. UK Nexus and Jurisdictional Basis for CMA Rev\n<|id|>29<|type|>title<|page|>3<|box|>758 140 777 361<|content|>Cloudium's UK Operations\n<|id|>33<|type|>title<|page|>4<|box|>361 140 378 348<|content|>CMA Jurisdictional Tests\n<|id|>38<|type|>title<|page|>5<|box|>90 140 107 439<|content|>IV. CMA Filing Process and Timeline\n<|id|>46<|type|>title<|page|>6<|box|>148 140 167 550<|content|>V. Summary of CMA Phase 1 Analysis and Decision\n<|id|>48<|type|>title<|page|>6<|box|>244 140 260 377<|content|>A. Relevant Merger Situation\n<|id|>56<|type|>title<|page|>7<|box|>202 140 219 478<|content|>C. Frame of Reference (Market Definition)\n<|id|>65<|type|>title<|page|>8<|box|>268 140 284 526<|content|>D. Competitive Assessment — Horizontal Effects\n<|id|>73<|type|>title<|page|>9<|box|>393 140 410 650<|content|>E. Competitive Assessment — Vertical and Conglomer\n<|id|>86<|type|>title<|page|>10<|box|>369 140 386 656<|content|>VI. Implications for Transaction Timeline and Clos\n<|id|>87<|type|>title<|page|>10<|box|>398 140 417 462<|content|>Satisfaction of UK Regulatory Condition\n<|id|>89<|type|>title<|page|>10<|box|>582 140 599 557<|content|>All Antitrust / Competition Conditions Now Satisfi\n<|id|>91<|type|>title<|page|>10<|box|>709 142 727 385<|content|>Remaining Closing Conditions\n<|id|>99<|type|>title<|page|>11<|box|>554 140 571 449<|content|>Outside Date and Timeline Assessment\n<|id|>102<|type|>title<|page|>11<|box|>809 140 825 566<|content|>VII. Other Regulatory Clearances — Status Summary\n<|id|>104<|type|>table<|page|>12<|box|>89 143 824 852<|content|>None\n<|id|>106<|type|>title<|page|>13<|box|>89 140 107 433<|content|>VIII. Coordination with UK Counsel\n<|id|>113<|type|>title<|page|>13<|box|>689 140 705 380<|content|>IX. Recommended Next Steps\n<|id|>125<|type|>title<|page|>14<|box|>843 142 859 483<|content|>X. Document Retention and Confidentiality",
+    "raw_response": "<|src_id|>21<|tgt_id|>20\n<|src_id|>104<|tgt_id|>102",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 102
+        }
+    ]
+}

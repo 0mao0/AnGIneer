@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2yxl9bgv\\input\\pdfs\\doc-7eff700d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2yxl9bgv\\enriched\\doc-7eff700d.json",
+    "contd_output": "<|src_id|>200<|tgt_id|>201\n<|src_id|>232<|tgt_id|>233",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>18<|level|>3\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>3\n<|id|>62<|level|>4\n<|id|>67<|level|>3\n<|id|>87<|level|>4\n<|id|>92<|level|>3\n<|id|>117<|level|>4\n<|id|>122<|level|>3\n<|id|>144<|level|>4\n<|id|>150<|level|>3\n<|id|>172<|level|>4\n<|id|>178<|level|>4\n<|id|>183<|level|>2\n<|id|>192<|level|>2\n<|id|>197<|level|>2\n<|id|>198<|level|>3\n<|id|>199<|level|>4\n<|id|>207<|level|>4\n<|id|>209<|level|>3\n<|id|>210<|level|>4\n<|id|>212<|level|>3\n<|id|>213<|level|>4\n<|id|>215<|level|>4\n<|id|>217<|level|>3\n<|id|>219<|level|>2\n<|id|>220<|level|>3\n<|id|>229<|level|>3\n<|id|>236<|level|>3\n<|id|>239<|level|>3\n<|id|>249<|level|>2\n<|id|>258<|level|>2",
+    "image_output": "<|src_id|>193<|tgt_id|>192\n<|src_id|>194<|tgt_id|>192",
+    "contd_label": [
+        {
+            "src_id": 200,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 233
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 4
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 4
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 4
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 4
+        },
+        {
+            "id": 178,
+            "level": 4
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 4
+        },
+        {
+            "id": 207,
+            "level": 4
+        },
+        {
+            "id": 209,
+            "level": 3
+        },
+        {
+            "id": 210,
+            "level": 4
+        },
+        {
+            "id": 212,
+            "level": 3
+        },
+        {
+            "id": 213,
+            "level": 4
+        },
+        {
+            "id": 215,
+            "level": 4
+        },
+        {
+            "id": 217,
+            "level": 3
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 3
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 236,
+            "level": 3
+        },
+        {
+            "id": 239,
+            "level": 3
+        },
+        {
+            "id": 249,
+            "level": 2
+        },
+        {
+            "id": 258,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 193,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 192
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 193,
+            "table2_idx": 194,
+            "upper_row_ss": [
+                [
+                    "Zürich,",
+                    "Luminex",
+                    "~CHF",
+                    "~$2,415,00",
+                    "December",
+                    "1 × 5-year",
+                    "No —",
+                    "Draft"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Switzerland",
+                    "Systems AG",
+                    "2,100,000",
+                    "0",
+                    "31, 2029",
+                    "(at market rent)",
+                    "Notice only (within 30 days of closing)",
+                    "notice prepared by Breitfeld Hess & Partner AG; to be delivered post-closing"
+                ]
+            ]
+        }
+    ]
+}

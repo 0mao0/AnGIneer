@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 145 174 849<|content|>CALDERWOOD & HARKNESS LLP One North Wacker Drive, Suite 4200 Chicago, Illinois 60606\n<|id|>3<|page|>1<|box|>181 140 237 854<|content|>To: ... Lawrence Keating, Senior Partner & Chair, ...Rachel Bernstein, Partner, Privacy & Data Security\n<|id|>4<|page|>1<|box|>244 140 281 854<|content|>From: ... Nadia Petrov, Associate, Labor & Employm...on of Devon Archer, Associate, Labor & Employment)\n<|id|>5<|page|>1<|box|>289 140 306 297<|content|>Date: ... May 13, 2024\n<|id|>6<|page|>1<|box|>315 140 369 854<|content|>Re: ... 1031-00001)\n<|id|>16<|page|>2<|box|>786 138 896 857<|content|>Critically, as a result of the ongoing representat...nt to the TruScan 360 biometric platform. ... (iv)\n<|id|>17<|page|>3<|box|>90 140 200 856<|content|>biometric-data retention policies and schedules; ....ich is attached hereto as referenced in Appendix D\n<|id|>51<|page|>7<|box|>204 174 241 854<|content|>(1) the personally disqualified lawyer is timely s... apportioned no part of the fee therefrom; ... and\n<|id|>53<|page|>7<|box|>292 140 348 854<|content|>This provision establishes the sole circumstance u...ose three critical limitations on its availability",
+    "raw_response": "<|src_id|>16<|tgt_id|>17",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        }
+    ]
+}

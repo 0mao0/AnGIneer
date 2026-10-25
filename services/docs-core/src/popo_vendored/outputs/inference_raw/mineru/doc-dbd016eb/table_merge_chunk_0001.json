@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['3', 'Ashford, Julian', '—', 'Managing Partner, Thornfield Capital', 'Individual', 'c/o Thornfield Capital Partners LP,', '—']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'Partners LP; Member, Board of Managers of CPS', '', '590 Lexington Avenue, Suite 3200, New York, NY 10022', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 213,
+    "table2_idx": 214
+}

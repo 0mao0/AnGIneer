@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 160 118 836<|content|>INTERNAL MEMORANDUM — CALDERWOOD & HARKNESS\n<|id|>8<|type|>title<|page|>1<|box|>393 142 410 316<|content|>1. Purpose of Request\n<|id|>15<|type|>title<|page|>2<|box|>186 140 204 598<|content|>2. Entity Information — Calloway-Briggs Renewables\n<|id|>16<|type|>table<|page|>2<|box|>253 143 498 852<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>646 140 664 534<|content|>3. Entity Information — Saguaro Flats Solar LLC\n<|id|>19<|type|>table<|page|>2<|box|>715 143 898 852<|content|>None\n<|id|>20<|type|>table<|page|>3<|box|>89 143 232 851<|content|>None\n<|id|>22<|type|>title<|page|>3<|box|>417 140 434 338<|content|>4. Ordering Instructions\n<|id|>33<|type|>title<|page|>4<|box|>378 140 397 359<|content|>5. Billing and Charge Code\n<|id|>37<|type|>title<|page|>4<|box|>643 140 662 326<|content|>6. Timing and Delivery\n<|id|>45<|type|>title<|page|>5<|box|>316 140 334 297<|content|>7. Additional Notes",
+    "raw_response": "<|src_id|>16<|tgt_id|>15\n<|src_id|>19<|tgt_id|>18\n<|src_id|>20<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 405 119 591<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>135 200 154 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>9<|type|>title<|page|>1<|box|>412 142 429 361<|content|>I. Purpose and Background\n<|id|>15<|type|>title<|page|>2<|box|>148 140 167 344<|content|>II. Transaction Overview\n<|id|>26<|type|>title<|page|>3<|box|>311 140 329 411<|content|>III. Stonefield Financial Overview\n<|id|>40<|type|>title<|page|>4<|box|>507 142 523 415<|content|>IV. Post-Closing Capital Structure\n<|id|>42<|type|>table<|page|>4<|box|>594 143 758 852<|content|>None\n<|id|>49<|type|>title<|page|>5<|box|>337 140 354 433<|content|>V. Interest Rate and Payment Terms\n<|id|>57<|type|>title<|page|>6<|box|>90 140 107 300<|content|>VI. Warrant Terms\n<|id|>69<|type|>title<|page|>7<|box|>189 140 205 468<|content|>VII. Fee Structure and Transaction Costs\n<|id|>77<|type|>table<|page|>7<|box|>851 143 905 852<|content|>None\n<|id|>78<|type|>table<|page|>8<|box|>88 143 208 852<|content|>None\n<|id|>80<|type|>title<|page|>8<|box|>375 140 392 398<|content|>VIII. Guarantors and Collateral\n<|id|>87<|type|>title<|page|>9<|box|>90 140 107 336<|content|>B. Mezzanine Collateral\n<|id|>92<|type|>title<|page|>9<|box|>643 140 660 491<|content|>C. Senior Facility Collateral (For Reference)\n<|id|>94<|type|>title<|page|>9<|box|>799 142 816 336<|content|>IX. Financial Covenants\n<|id|>105<|type|>title<|page|>10<|box|>809 142 825 367<|content|>X. Intercreditor Framework\n<|id|>115<|type|>title<|page|>12<|box|>431 140 449 545<|content|>XI. Mandatory Prepayment and Change of Control\n<|id|>123<|type|>title<|page|>13<|box|>333 140 349 674<|content|>XII. Other Key Terms to Be Negotiated in Definitiv\n<|id|>131<|type|>title<|page|>15<|box|>90 143 107 295<|content|>XIII. Key Advisors\n<|id|>132<|type|>table<|page|>15<|box|>157 143 395 852<|content|>None\n<|id|>133<|type|>title<|page|>15<|box|>444 142 462 473<|content|>XIV. Anticipated Timeline and Next Steps\n<|id|>135<|type|>title<|page|>15<|box|>518 143 536 313<|content|>Anticipated Timeline.\n<|id|>136<|type|>table<|page|>15<|box|>540 143 777 852<|content|>None\n<|id|>138<|type|>title<|page|>16<|box|>138 140 156 336<|content|>Immediate Action Items\n<|id|>145<|type|>title<|page|>16<|box|>723 140 739 442<|content|>XV. Conclusion and Recommendation",
+    "raw_response": "<|src_id|>42<|tgt_id|>40\n<|src_id|>77<|tgt_id|>69\n<|src_id|>78<|tgt_id|>69\n<|src_id|>132<|tgt_id|>131\n<|src_id|>136<|tgt_id|>135",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 135
+        }
+    ]
+}

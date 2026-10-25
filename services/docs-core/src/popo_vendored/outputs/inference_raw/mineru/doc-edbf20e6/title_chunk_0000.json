@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 359 106 637<|content|>CERTIFICATE OF FORMATION\n<|id|>1<|page|>1<|box|>114 483 131 514<|content|>OF\n<|id|>2<|page|>1<|box|>142 357 157 640<|content|>HARROWGATE FUND V GP LLC\n<|id|>4<|page|>1<|box|>250 142 263 243<|content|>ARTICLE I\n<|id|>5<|page|>1<|box|>273 142 290 204<|content|>NAME\n<|id|>7<|page|>1<|box|>325 382 343 614<|content|>Harrowgate Fund V GP LLC\n<|id|>8<|page|>1<|box|>352 142 368 250<|content|>ARTICLE II\n<|id|>9<|page|>1<|box|>378 142 393 573<|content|>REGISTERED OFFICE AND REGISTERED AGENT\n<|id|>11<|page|>1<|box|>484 143 501 256<|content|>ARTICLE III\n<|id|>12<|page|>1<|box|>510 143 526 349<|content|>AUTHORIZED PERSON\n<|id|>21<|page|>1<|box|>755 250 771 748<|content|>FILING INSTRUCTIONS AND INTERNAL MEMORANDUM\n<|id|>22<|page|>1<|box|>781 251 797 743<|content|>(For Internal Use Only — Not Part of the Certifica\n<|id|>24<|page|>1<|box|>830 143 847 297<|content|>Filing Instructions:\n<|id|>34<|page|>2<|box|>491 142 508 251<|content|>Prepared By:\n<|id|>36<|page|>2<|box|>561 176 578 436<|content|>C&H Matter Number: 1003-00002",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>5<|level|>2\n<|id|>7<|level|>-1\n<|id|>8<|level|>2\n<|id|>9<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>2\n<|id|>21<|level|>2\n<|id|>22<|level|>-1\n<|id|>24<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        }
+    ]
+}

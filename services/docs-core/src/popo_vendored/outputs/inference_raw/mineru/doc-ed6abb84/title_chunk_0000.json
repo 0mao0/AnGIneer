@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 171 118 823<|content|>SECRETARY'S CERTIFICATE OF LUMOS ANALYTICS INC.\n<|id|>1<|page|>1<|box|>136 184 154 810<|content|>Board Resolutions, Incumbency, Good Standing, and\n<|id|>5<|page|>1<|box|>273 140 289 467<|content|>I. INTRODUCTORY CERTIFICATION\n<|id|>11<|page|>2<|box|>212 140 229 553<|content|>II. CERTIFICATION OF BOARD RESOLUTIONS\n<|id|>12<|page|>2<|box|>243 140 258 398<|content|>A. Recitals to Board Resolutions\n<|id|>19<|page|>3<|box|>338 140 354 444<|content|>B. Authorizing Resolutions (Full Text)\n<|id|>36<|page|>5<|box|>90 140 106 434<|content|>III. INCUMBENCY CERTIFICATE\n<|id|>37<|page|>5<|box|>121 140 138 315<|content|>A. Incumbency Table\n<|id|>41<|page|>5<|box|>470 142 488 388<|content|>B. Authorization Confirmation\n<|id|>43<|page|>5<|box|>662 142 680 513<|content|>IV. CERTIFICATION OF GOOD STANDING\n<|id|>44<|page|>5<|box|>694 142 712 364<|content|>A. Delaware Good Standing\n<|id|>47<|page|>6<|box|>138 140 157 483<|content|>B. California Good Standing / Qualification\n<|id|>50<|page|>6<|box|>430 140 448 643<|content|>V. CERTIFICATION OF ORGANIZATIONAL DOCUMENTS\n<|id|>51<|page|>6<|box|>463 140 479 385<|content|>A. Certificate of Incorporation\n<|id|>56<|page|>7<|box|>89 140 106 457<|content|>VI. ADDITIONAL CERTIFICATIONS\n<|id|>62<|page|>7<|box|>753 140 771 348<|content|>VII. LIST OF EXHIBITS\n<|id|>66<|page|>8<|box|>243 142 260 300<|content|>VIII. EXECUTION\n<|id|>68<|page|>8<|box|>349 142 366 367<|content|>LUMOS ANALYTICS INC.\n<|id|>73<|page|>8<|box|>457 140 474 712<|content|>IX. OFFICER'S ACKNOWLEDGMENT AND COUNTERSIGNATURE\n<|id|>75<|page|>8<|box|>637 143 654 366<|content|>LUMOS ANALYTICS INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>19<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>47<|level|>3\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>-1\n<|id|>73<|level|>2\n<|id|>75<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        }
+    ]
+}

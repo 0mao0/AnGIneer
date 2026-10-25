@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        7
+    ],
+    "pages": [
+        5,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>34<|page|>5<|box|>210 164 225 339<|content|>B. TRANSACTION FEES\n<|id|>37<|page|>5<|box|>298 164 315 502<|content|>C. LEGAL AND CLOSING COSTS (ESTIMATED)\n<|id|>44<|page|>5<|box|>476 164 494 426<|content|>E. NET PROCEEDS TO BORROWER\n<|id|>49<|page|>7<|box|>192 87 208 134<|content|>USES",
+    "raw_response": "<|id|>34<|level|>1\n<|id|>37<|level|>1\n<|id|>44<|level|>1\n<|id|>49<|level|>1",
+    "parsed": [
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        }
+    ]
+}

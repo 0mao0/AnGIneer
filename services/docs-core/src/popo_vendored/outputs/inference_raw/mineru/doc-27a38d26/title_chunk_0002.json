@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        100,
+        114
+    ],
+    "pages": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        109,
+        110,
+        111,
+        112,
+        114
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>463<|page|>100<|box|>94 328 114 668<|content|>SECTION IV.—Sterling Positions\n<|id|>464<|page|>100<|box|>122 215 140 782<|content|>TABLE FCP-IV-1.—Weekly Report of Major Market Part\n<|id|>466<|page|>101<|box|>90 302 111 694<|content|>SECTION IV.—Sterling Positions, con.\n<|id|>467<|page|>101<|box|>118 210 136 787<|content|>TABLE FCP-IV-2.—Monthly Report of Major Market Par\n<|id|>470<|page|>102<|box|>94 316 114 679<|content|>SECTION V.—U.S. Dollar Positions\n<|id|>471<|page|>102<|box|>122 218 140 777<|content|>TABLE FCP-V-1.—Weekly Report of Major Market Parti\n<|id|>473<|page|>103<|box|>90 297 109 712<|content|>SECTION V.—U.S. Dollar Positions, con.\n<|id|>474<|page|>103<|box|>118 223 136 790<|content|>TABLE FCP-V-2.—Monthly Report of Major Market Part\n<|id|>477<|page|>104<|box|>94 341 114 655<|content|>SECTION VI.—Euro Positions\n<|id|>478<|page|>104<|box|>122 215 140 782<|content|>TABLE FCP-VI-1.—Weekly Report of Major Market Part\n<|id|>480<|page|>105<|box|>90 313 109 676<|content|>SECTION VI.—Euro Positions, con.\n<|id|>481<|page|>105<|box|>118 209 136 784<|content|>TABLE FCP-VI-2.—Monthly Report of Major Market Par\n<|id|>484<|page|>106<|box|>98 243 118 753<|content|>INTRODUCTION: Exchange Stabilization Fund\n<|id|>491<|page|>107<|box|>90 334 108 663<|content|>TABLE ESF-2.—Income and Expense\n<|id|>496<|page|>109<|box|>98 223 133 774<|content|>INTRODUCTION: Black Lung Disability Trust Fund Par\n<|id|>507<|page|>110<|box|>555 200 592 797<|content|>Black Lung Disability Trust Fund Expected Conditio\n<|id|>509<|page|>111<|box|>90 331 108 666<|content|>TABLE TF-6A.—Highway Trust Fund\n<|id|>513<|page|>111<|box|>493 405 508 596<|content|>Mass Transit Account\n<|id|>515<|page|>112<|box|>89 388 109 609<|content|>Research Paper Series\n<|id|>516<|page|>112<|box|>128 143 148 854<|content|>Available through the Office of the Assistant Secr\n<|id|>541<|page|>114<|box|>98 446 119 552<|content|>Glossary\n<|id|>542<|page|>114<|box|>125 258 143 743<|content|>With References to Applicable Sections and Tables",
+    "raw_response": "<|id|>463<|level|>1\n<|id|>464<|level|>2\n<|id|>466<|level|>1\n<|id|>467<|level|>2\n<|id|>470<|level|>1\n<|id|>471<|level|>2\n<|id|>473<|level|>1\n<|id|>474<|level|>2\n<|id|>477<|level|>1\n<|id|>478<|level|>2\n<|id|>480<|level|>1\n<|id|>481<|level|>2\n<|id|>484<|level|>1\n<|id|>491<|level|>2\n<|id|>496<|level|>1\n<|id|>507<|level|>2\n<|id|>509<|level|>1\n<|id|>513<|level|>2\n<|id|>515<|level|>-1\n<|id|>516<|level|>-1\n<|id|>541<|level|>1\n<|id|>542<|level|>2",
+    "parsed": [
+        {
+            "id": 463,
+            "level": 1
+        },
+        {
+            "id": 464,
+            "level": 2
+        },
+        {
+            "id": 466,
+            "level": 1
+        },
+        {
+            "id": 467,
+            "level": 2
+        },
+        {
+            "id": 470,
+            "level": 1
+        },
+        {
+            "id": 471,
+            "level": 2
+        },
+        {
+            "id": 473,
+            "level": 1
+        },
+        {
+            "id": 474,
+            "level": 2
+        },
+        {
+            "id": 477,
+            "level": 1
+        },
+        {
+            "id": 478,
+            "level": 2
+        },
+        {
+            "id": 480,
+            "level": 1
+        },
+        {
+            "id": 481,
+            "level": 2
+        },
+        {
+            "id": 484,
+            "level": 1
+        },
+        {
+            "id": 491,
+            "level": 2
+        },
+        {
+            "id": 496,
+            "level": 1
+        },
+        {
+            "id": 507,
+            "level": 2
+        },
+        {
+            "id": 509,
+            "level": 1
+        },
+        {
+            "id": 513,
+            "level": 2
+        },
+        {
+            "id": 541,
+            "level": 1
+        },
+        {
+            "id": 542,
+            "level": 2
+        }
+    ]
+}

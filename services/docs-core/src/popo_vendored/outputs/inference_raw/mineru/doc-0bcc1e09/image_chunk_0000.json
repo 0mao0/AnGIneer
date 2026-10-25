@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        13,
+        16,
+        17,
+        18,
+        21,
+        22,
+        23,
+        25,
+        26,
+        27
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 143 104 604<|content|>RECORDING REQUESTED BY AND WHEN RECORDED RETURN TO\n<|id|>1<|type|>title<|page|>1<|box|>112 143 126 627<|content|>Clearfield & Associates LLP 399 Park Avenue, 28th\n<|id|>3<|type|>table<|page|>1<|box|>174 143 417 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>452 285 470 712<|content|>ASSIGNMENT OF LEASES AND RENTS\n<|id|>19<|type|>title<|page|>2<|box|>204 140 220 243<|content|>RECITALS\n<|id|>27<|type|>title<|page|>3<|box|>292 140 309 326<|content|>GRANTING CLAUSE\n<|id|>39<|type|>title<|page|>4<|box|>420 140 438 390<|content|>SECTION 1 — DEFINITIONS\n<|id|>61<|type|>title<|page|>6<|box|>501 140 518 633<|content|>SECTION 2 — ASSIGNMENT; NATURE OF ASSIGNMENT\n<|id|>66<|type|>title<|page|>7<|box|>494 140 511 537<|content|>SECTION 3 — LICENSE TO COLLECT RENTS\n<|id|>83<|type|>title<|page|>9<|box|>321 140 339 746<|content|>SECTION 4 — REPRESENTATIONS AND WARRANTIES OF ASSI\n<|id|>95<|type|>title<|page|>10<|box|>781 140 797 511<|content|>SECTION 5 — COVENANTS OF ASSIGNOR\n<|id|>123<|type|>title<|page|>13<|box|>720 140 738 609<|content|>SECTION 6 — RIGHTS AND REMEDIES OF ASSIGNEE\n<|id|>139<|type|>title<|page|>16<|box|>277 140 294 794<|content|>SECTION 7 — SUBORDINATION, NON-DISTURBANCE, AND AT\n<|id|>143<|type|>title<|page|>17<|box|>89 140 106 681<|content|>SECTION 8 — BANKRUPTCY AND INSOLVENCY PROVISIONS\n<|id|>148<|type|>title<|page|>18<|box|>148 140 166 429<|content|>SECTION 9 — MISCELLANEOUS\n<|id|>186<|type|>title<|page|>21<|box|>369 444 383 550<|content|>ASSIGNOR:\n<|id|>187<|type|>title<|page|>21<|box|>393 140 412 779<|content|>HUDSON YARDS WEST MORTGAGE LLC, a Delaware limited\n<|id|>193<|type|>title<|page|>21<|box|>537 142 554 460<|content|>ACKNOWLEDGMENT — ASSIGNOR\n<|id|>198<|type|>title<|page|>21<|box|>849 380 864 616<|content|>ACCEPTED AND AGREED:\n<|id|>203<|type|>title<|page|>22<|box|>207 142 224 457<|content|>ACKNOWLEDGMENT — ASSIGNEE\n<|id|>204<|type|>title<|page|>22<|box|>233 140 250 620<|content|>STATE OF NEW YORK ) ) ss.: COUNTY OF NEW YORK )\n<|id|>207<|type|>title<|page|>23<|box|>89 447 108 552<|content|>EXHIBIT A\n<|id|>208<|type|>title<|page|>23<|box|>114 310 133 687<|content|>LEGAL DESCRIPTION OF THE PROPERTY\n<|id|>222<|type|>title<|page|>25<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>223<|type|>title<|page|>25<|box|>114 393 132 602<|content|>SCHEDULE OF LEASES\n<|id|>225<|type|>title<|page|>25<|box|>186 140 202 205<|content|>NONE.\n<|id|>227<|type|>table<|page|>25<|box|>335 143 513 852<|content|>None\n<|id|>229<|type|>title<|page|>26<|box|>89 320 133 676<|content|>EXHIBIT C FORM OF TENANT DIRECTION LETTER\n<|id|>243<|type|>title<|page|>27<|box|>89 176 107 815<|content|>HUDSON YARDS WEST MORTGAGE LLC, a Delaware limited\n<|id|>248<|type|>title<|page|>27<|box|>210 361 227 635<|content|>TENANT ACKNOWLEDGMENT",
+    "raw_response": "<|src_id|>3<|tgt_id|>4\n<|src_id|>227<|tgt_id|>223",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 223
+        }
+    ]
+}

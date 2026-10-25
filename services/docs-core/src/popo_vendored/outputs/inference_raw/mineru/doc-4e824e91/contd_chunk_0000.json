@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        10
+    ],
+    "pages": [
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>22<|page|>3<|box|>267 174 412 856<|content|>(c) designated Martin R. ... and\n<|id|>24<|page|>3<|box|>502 140 612 856<|content|>Based on the foregoing, no further corporate actio...n Stock in the manner contemplated by the Offering\n<|id|>47<|page|>5<|box|>556 174 648 856<|content|>(c) result in a breach of, constitute a default un...r 31, 2020, or filed as an exhibit thereto; ... or\n<|id|>49<|page|>5<|box|>718 140 753 854<|content|>In rendering the opinion set forth in clause (c) a..., the following material agreements of the Company\n<|id|>57<|page|>6<|box|>657 174 694 854<|content|>(c) the filing of the Prospectus Supplement with t...t to Rule 424(b) under the Securities Act; ... and\n<|id|>59<|page|>6<|box|>765 138 875 857<|content|>We specifically note that the offering and sale of... of the Connecticut Department of Insurance or the\n<|id|>60<|page|>7<|box|>89 140 127 854<|content|>Delaware Department of Insurance, and we recommend... this conclusion with insurance regulatory counsel\n<|id|>75<|page|>8<|box|>414 174 450 854<|content|>(e) our review of certain agreements, contracts, a...mpany and deemed relevant to the Offering; ... and\n<|id|>77<|page|>8<|box|>539 140 574 854<|content|>Based on the foregoing, the negative assurance let...me to our attention that causes us to believe that\n<|id|>78<|page|>8<|box|>582 174 675 856<|content|>(a) the Registration Statement, as of its effectiv...make the statements therein not misleading; ... or\n<|id|>80<|page|>8<|box|>781 140 816 854<|content|>The negative assurance letter will be subject to t...following customary qualifications and limitations\n<|id|>90<|page|>9<|box|>779 174 907 857<|content|>4. ... Prescott (Chief Financial Officer), as to f...e disclosure in the Registration Statement and the\n<|id|>91<|page|>10<|box|>90 210 125 854<|content|>Prospectus, and the Company's compliance with the ...agreements set forth in the Underwriting Agreement",
+    "raw_response": "<|src_id|>59<|tgt_id|>60\n<|src_id|>90<|tgt_id|>91",
+    "parsed": [
+        {
+            "src_id": 59,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 91
+        }
+    ]
+}

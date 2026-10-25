@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>143 212 186 784<|content|>CONFIDENTIAL / ATTORNEY-CLIENT PRIVILEGED INTERNAL\n<|id|>8<|page|>1<|box|>402 140 419 532<|content|>I. PURPOSE AND SCOPE OF MEMORANDUM\n<|id|>12<|page|>2<|box|>89 140 106 599<|content|>II. PROPOSED CLIENT AND MATTER DESCRIPTION\n<|id|>13<|page|>2<|box|>121 142 138 316<|content|>A. Client Information\n<|id|>17<|page|>2<|box|>708 142 724 318<|content|>B. Matter Description\n<|id|>28<|page|>3<|box|>496 140 513 393<|content|>C. Proposed Engagement Team\n<|id|>32<|page|>4<|box|>89 140 106 362<|content|>III. PARTIES SEARCHED\n<|id|>34<|page|>4<|box|>239 140 255 403<|content|>A. Proposed Client and Affiliates\n<|id|>43<|page|>4<|box|>491 140 508 385<|content|>B. Counterparty and Affiliates\n<|id|>55<|page|>4<|box|>839 140 856 416<|content|>C. Counterparty's Known Counsel\n<|id|>60<|page|>5<|box|>160 140 176 442<|content|>D. Known Advisors and Third Parties\n<|id|>71<|page|>5<|box|>626 140 643 496<|content|>IV. CONFLICT CHECK METHODOLOGY\n<|id|>82<|page|>6<|box|>633 140 651 452<|content|>V. RESULTS OF CONFLICT CHECK\n<|id|>84<|page|>6<|box|>728 140 744 421<|content|>A. Penterra Pharmaceuticals Corp.\n<|id|>89<|page|>7<|box|>202 140 219 552<|content|>B. Meridian Bio Therapeutics Limited and Affiliate\n<|id|>95<|page|>7<|box|>633 140 652 558<|content|>C. Meridian's Counsel — Lam, Cheung & Firth LLP\n<|id|>100<|page|>8<|box|>202 142 218 316<|content|>D. Financial Advisors\n<|id|>105<|page|>8<|box|>571 140 589 532<|content|>E. Escrow Agent — Velthorn National Bank, N.A.\n<|id|>109<|page|>9<|box|>90 140 107 323<|content|>F. Other Third Parties\n<|id|>113<|page|>9<|box|>375 142 391 410<|content|>Conclusion: No conflict identified.\n<|id|>120<|page|>9<|box|>670 142 688 460<|content|>G. Engagement Team Personal Conflicts\n<|id|>125<|page|>10<|box|>318 140 335 460<|content|>VI. CONCLUSION AND CLEARANCE\n<|id|>132<|page|>10<|box|>843 142 859 295<|content|>VII. APPROVALS\n<|id|>133<|page|>10<|box|>869 143 887 250<|content|>Prepared by:\n<|id|>141<|page|>11<|box|>351 142 369 325<|content|>VIII. DISTRIBUTION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>17<|level|>2\n<|id|>28<|level|>2\n<|id|>32<|level|>1\n<|id|>34<|level|>2\n<|id|>43<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>71<|level|>1\n<|id|>82<|level|>1\n<|id|>84<|level|>2\n<|id|>89<|level|>2\n<|id|>95<|level|>2\n<|id|>100<|level|>2\n<|id|>105<|level|>2\n<|id|>109<|level|>2\n<|id|>113<|level|>2\n<|id|>120<|level|>2\n<|id|>125<|level|>1\n<|id|>132<|level|>1\n<|id|>133<|level|>2\n<|id|>141<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 1
+        }
+    ]
+}

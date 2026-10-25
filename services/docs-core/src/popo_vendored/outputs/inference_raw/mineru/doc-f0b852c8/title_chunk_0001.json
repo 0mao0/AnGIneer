@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        52,
+        68
+    ],
+    "pages": [
+        53,
+        54,
+        55,
+        62,
+        68
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1139<|page|>53<|box|>152 456 168 513<|content|>附录 C\n<|id|>1140<|page|>53<|box|>171 426 187 543<|content|>(规范性附录)\n<|id|>1141<|page|>53<|box|>191 241 208 727<|content|>隧道火灾自动报警系统及烟控效果模拟火灾试验方法和要求\n<|id|>1159<|page|>54<|box|>143 482 161 541<|content|>附录D\n<|id|>1160<|page|>54<|box|>164 398 200 625<|content|>（规范性附录） 火灾自动报警系统调试报告\n<|id|>1162<|page|>55<|box|>155 454 171 515<|content|>附录 E\n<|id|>1178<|page|>62<|box|>126 480 142 538<|content|>附录 F\n<|id|>1192<|page|>68<|box|>124 484 141 543<|content|>附录G",
+    "raw_response": "<|id|>1139<|level|>1\n<|id|>1140<|level|>2\n<|id|>1141<|level|>1\n<|id|>1159<|level|>1\n<|id|>1160<|level|>2\n<|id|>1162<|level|>1\n<|id|>1178<|level|>1\n<|id|>1192<|level|>1",
+    "parsed": [
+        {
+            "id": 1139,
+            "level": 1
+        },
+        {
+            "id": 1140,
+            "level": 2
+        },
+        {
+            "id": 1141,
+            "level": 1
+        },
+        {
+            "id": 1159,
+            "level": 1
+        },
+        {
+            "id": 1160,
+            "level": 2
+        },
+        {
+            "id": 1162,
+            "level": 1
+        },
+        {
+            "id": 1178,
+            "level": 1
+        },
+        {
+            "id": 1192,
+            "level": 1
+        }
+    ]
+}

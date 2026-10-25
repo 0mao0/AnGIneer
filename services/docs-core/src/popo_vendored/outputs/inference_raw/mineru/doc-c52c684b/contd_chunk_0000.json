@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        59
+    ],
+    "pages": [
+        3,
+        4,
+        5,
+        7,
+        18,
+        19,
+        22,
+        28,
+        30,
+        31,
+        46,
+        58
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>3<|box|>746 707 795 852<|content|>LIBRARY ROOM 5030\n<|id|>3<|page|>3<|box|>802 701 832 848<|content|>JUN 23 1972\n<|id|>4<|page|>3<|box|>836 635 872 906<|content|>TREASURY DEPARTMENT\n<|id|>5<|page|>4<|box|>341 520 568 668<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>8<|page|>5<|box|>481 382 521 681<|content|>OCTOBER-1955\n<|id|>9<|page|>5<|box|>813 73 875 901<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>11<|page|>7<|box|>143 157 744 842<|content|>Page Treasury financing operations. ... 79\n<|id|>12<|page|>7<|box|>758 157 810 827<|content|>Note: ... Where calculations have been made from u...res, the details may not check to the totals shown\n<|id|>71<|page|>18<|box|>74 166 105 850<|content|>Table 4. ... negative figures are excess of redemptions)\n<|id|>72<|page|>19<|box|>839 496 859 937<|content|>4/ Net redemption, or sale (-), by Government-spon...e included in deposit fund expenditures in Table 3\n<|id|>94<|page|>22<|box|>893 20 923 473<|content|>5/ Includes proceeds of ship sales carried in trus... accounts, and payment of earnings or repayment of\n<|id|>95<|page|>22<|box|>739 541 777 968<|content|>capital stock to the Treasury by corporations not ...ust 31, 1947, these bonds were redeemable for cash\n<|id|>115<|page|>28<|box|>421 7 450 469<|content|>1/ On account of withheld taxes and sales of Gover...are no longer treated as liability accounts of the\n<|id|>116<|page|>28<|box|>412 526 450 968<|content|>Treasurer of the U. ... , but are classified and t... Department transactions (see page 5, footnote 37)\n<|id|>122<|page|>30<|box|>130 404 142 558<|content|>(In millions of dollars)\n<|id|>124<|page|>31<|box|>51 419 63 554<|content|>. ... DEBT OPERATIONS\n<|id|>188<|page|>46<|box|>670 517 688 983<|content|>13/ The proprietary interest of the United States in these banks ended in July 1951\n<|id|>190<|page|>46<|box|>716 524 728 672<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>215<|page|>58<|box|>347 62 486 476<|content|>The term \"foreigner\" as used in these reports cove...in the June 1954 issue of the \"Treasury Bulletin,\"\n<|id|>216<|page|>58<|box|>117 524 156 940<|content|>pages 45-47. ... As a result of changes in present... will be exactly comparable to those now presented",
+    "raw_response": "<|src_id|>94<|tgt_id|>95\n<|src_id|>115<|tgt_id|>116\n<|src_id|>215<|tgt_id|>216",
+    "parsed": [
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 215,
+            "tgt_id": 216
+        }
+    ]
+}

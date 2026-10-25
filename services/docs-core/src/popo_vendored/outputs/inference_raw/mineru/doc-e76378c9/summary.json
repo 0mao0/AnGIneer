@@ -1,0 +1,191 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-uyvr2dtk\\input\\pdfs\\doc-e76378c9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-uyvr2dtk\\enriched\\doc-e76378c9.json",
+    "contd_output": "<|src_id|>43<|tgt_id|>44\n<|src_id|>95<|tgt_id|>96",
+    "title_output": "<|id|>3<|level|>1\n<|id|>7<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>29<|level|>3\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>41<|level|>3\n<|id|>47<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>62<|level|>3\n<|id|>66<|level|>3\n<|id|>72<|level|>3\n<|id|>82<|level|>2\n<|id|>83<|level|>3\n<|id|>88<|level|>3\n<|id|>94<|level|>3\n<|id|>100<|level|>2\n<|id|>101<|level|>3\n<|id|>107<|level|>3\n<|id|>118<|level|>3\n<|id|>124<|level|>2\n<|id|>125<|level|>3\n<|id|>138<|level|>3\n<|id|>144<|level|>2\n<|id|>145<|level|>3\n<|id|>158<|level|>3\n<|id|>164<|level|>3\n<|id|>167<|level|>2\n<|id|>177<|level|>2\n<|id|>183<|level|>2",
+    "image_output": "<|src_id|>4<|tgt_id|>3\n<|src_id|>64<|tgt_id|>62\n<|src_id|>110<|tgt_id|>107\n<|src_id|>114<|tgt_id|>107\n<|src_id|>115<|tgt_id|>107\n<|src_id|>116<|tgt_id|>107",
+    "contd_label": [
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 96
+        }
+    ],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 107
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 115,
+            "table2_idx": 116,
+            "upper_row_ss": [
+                [
+                    "Total defense costs",
+                    "$4,466,022"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Less: D&O entity retention",
+                    "($2,500,000)"
+                ]
+            ]
+        }
+    ]
+}

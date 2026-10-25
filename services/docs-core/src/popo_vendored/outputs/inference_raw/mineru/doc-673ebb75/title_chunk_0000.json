@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 104 645<|content|>CONFIDENTIAL — SUBJECT TO FTC RULES OF PRACTICE 16\n<|id|>1<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>208 140 224 630<|content|>VIA HAND DELIVERY AND ELECTRONIC TRANSMISSION\n<|id|>8<|page|>1<|box|>382 142 398 364<|content|>I. Introduction and Purpose\n<|id|>13<|page|>2<|box|>186 140 204 426<|content|>II. Background on Prior Production\n<|id|>20<|page|>3<|box|>277 140 295 617<|content|>III. Summary of the Eight Supplemental Document Re\n<|id|>31<|page|>4<|box|>674 140 691 573<|content|>IV. Scope and Methodology of Supplemental Collecti\n<|id|>32<|page|>4<|box|>705 140 722 323<|content|>A. Custodian Universe\n<|id|>36<|page|>5<|box|>250 140 266 267<|content|>B. Date Ranges\n<|id|>38<|page|>5<|box|>523 140 540 274<|content|>C. Data Sources\n<|id|>42<|page|>6<|box|>157 140 175 393<|content|>D. De-Duplication and Filtering\n<|id|>44<|page|>6<|box|>377 140 393 403<|content|>E. Review and Privilege Analysis\n<|id|>48<|page|>7<|box|>90 140 107 563<|content|>V. Description of Supplemental Document Production\n<|id|>49<|page|>7<|box|>121 140 138 315<|content|>A. Document Volume\n<|id|>53<|page|>7<|box|>652 142 671 444<|content|>B. Supplemental Privilege Log Entries\n<|id|>55<|page|>7<|box|>835 140 853 506<|content|>C. Supplemental Structured Data Submissions\n<|id|>61<|page|>8<|box|>612 140 628 485<|content|>VI. Coordination with Counsel for Pinnacle\n<|id|>64<|page|>9<|box|>167 140 184 352<|content|>VII. Reservation of Rights\n<|id|>68<|page|>9<|box|>652 140 670 473<|content|>VIII. Continuing Availability for Dialogue\n<|id|>73<|page|>10<|box|>402 140 419 264<|content|>IX. Conclusion\n<|id|>76<|page|>10<|box|>681 210 699 390<|content|>Respectfully submitted,\n<|id|>85<|page|>11<|box|>152 143 169 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>4<|level|>-1\n<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>20<|level|>1\n<|id|>31<|level|>1\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>48<|level|>1\n<|id|>49<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>61<|level|>1\n<|id|>64<|level|>1\n<|id|>68<|level|>1\n<|id|>73<|level|>1\n<|id|>76<|level|>-1\n<|id|>85<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        }
+    ]
+}

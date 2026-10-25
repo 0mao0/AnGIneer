@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 743 184 854<|content|>March 9, 2026\n<|id|>14<|page|>1<|box|>760 174 815 854<|content|>(a) Dunmore Renewables Inc. ... and\n<|id|>16<|page|>2<|box|>90 138 237 856<|content|>Notwithstanding the foregoing, the Client for purp...ent relationship exists solely between C&H and DEH\n<|id|>25<|page|>2<|box|>856 174 892 854<|content|>(a) IRC § 6418 Transfer Mechanics. ... Analysis of...way Wind Project under IRC § 6418 and the Treasury\n<|id|>26<|page|>3<|box|>89 174 181 856<|content|>Regulations promulgated thereunder, including Trea...the transferee, and any applicable recapture rules\n<|id|>39<|page|>4<|box|>507 174 542 854<|content|>(f) Advice on closing mechanics, funds flow, and t...ables and conditions precedent to closing; ... and\n<|id|>41<|page|>4<|box|>595 140 667 854<|content|>Any expansion of the scope of this engagement to i...ment letter, executed by both parties. ... 2 above\n<|id|>45<|page|>4<|box|>829 174 902 856<|content|>(b) C&H is not acting as counsel to any affiliate,...essly specified in Section 1 of this letter. ... ,\n<|id|>46<|page|>5<|box|>90 174 127 854<|content|>Commonwealth Fiduciary Trust Company, or any other...r, or service provider to the proposed transaction\n<|id|>73<|page|>7<|box|>414 183 431 651<|content|>• Long-distance telephone and video conferencing charges; ... and\n<|id|>75<|page|>7<|box|>489 140 527 854<|content|>All expenses will be billed at cost, without marku...urring any single expense item in excess of $2,500\n<|id|>115<|page|>12<|box|>189 142 205 272<|content|>Very truly yours,\n<|id|>116<|page|>12<|box|>205 140 222 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>117<|page|>12<|box|>224 143 239 253<|content|>By: ... By\n<|id|>118<|page|>12<|box|>241 143 257 321<|content|>Sylvia Hartwell Partner\n<|id|>119<|page|>12<|box|>258 143 273 348<|content|>Telephone: ... (212) 554-7218\n<|id|>120<|page|>12<|box|>275 142 291 467<|content|>Email: ... com\n<|id|>126<|page|>12<|box|>433 143 449 308<|content|>Name: ... Marcus Petrov\n<|id|>127<|page|>12<|box|>450 143 465 334<|content|>Title: ... Vice President, Tax\n<|id|>128<|page|>12<|box|>468 143 484 267<|content|>Date: ... Date\n<|id|>129<|page|>12<|box|>484 143 501 284<|content|>Enclosures: ... None\n<|id|>130<|page|>12<|box|>510 140 546 854<|content|>cc: ... Leonard Cross, Billing Partner, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>25<|tgt_id|>26\n<|src_id|>45<|tgt_id|>46",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        }
+    ]
+}

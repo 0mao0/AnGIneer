@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        15,
+        16,
+        19,
+        20,
+        21,
+        29,
+        30
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 140 233 854<|content|>TO: ... Patricia Langston, Chief Compliance Officer, Belmont Ridge Bank National Association\n<|id|>3<|page|>1<|box|>241 140 277 854<|content|>FROM: ... Carlos Espinoza, Working Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>285 142 301 297<|content|>DATE: ... March 2025\n<|id|>5<|page|>1<|box|>311 140 347 852<|content|>RE: ... Review and Analysis of Ridgeline Data Syst...nsaction Monitoring & Sanctions Screening Platform\n<|id|>6<|page|>1<|box|>354 140 372 377<|content|>C&H Matter No. ... 1045-00002\n<|id|>7<|page|>1<|box|>381 140 472 854<|content|>This memorandum is a privileged and confidential a...ot constitute a waiver of any applicable privilege\n<|id|>44<|page|>4<|box|>830 140 905 856<|content|>Ridgeline Data Systems LLC was identified during t...on of industry referrals, prior familiarity within\n<|id|>45<|page|>5<|box|>90 140 127 854<|content|>BRB's technology team, and the independent consult...ld Consulting Group LLC) preliminary market survey\n<|id|>164<|page|>15<|box|>866 174 902 856<|content|>(b) Data Portability. ... C&H recommends that the definitive agreement require\n<|id|>165<|page|>16<|box|>90 174 200 854<|content|>Ridgeline to: ... and (iii) provide reasonable tra...to support BRB's migration to a successor platform\n<|id|>206<|page|>19<|box|>619 183 638 735<|content|>• Existing ACV (continuing through December 2026): ... $4,100,000 per year\n<|id|>211<|page|>19<|box|>737 140 790 854<|content|>Assuming the Veridian contract is renewed post-Dec...imated 5-year cost of the Veridian upgrade path is\n<|id|>207<|page|>19<|box|>640 183 657 844<|content|>• Incremental licensing for TMS v. ... $1,900,000 per year\n<|id|>208<|page|>19<|box|>659 183 676 820<|content|>• Post-upgrade ACV: ... $6,000,000 per year ($4,100,000 base + $1,900,000 incremental)\n<|id|>209<|page|>19<|box|>679 183 695 562<|content|>• One-time implementation fee: ... $2,800,000 (fixed)\n<|id|>210<|page|>19<|box|>699 183 734 852<|content|>• No annual escalation provision through December ... terms beyond December 2026 are not yet negotiated\n<|id|>217<|page|>20<|box|>306 183 323 604<|content|>• ACV: ... $7,200,000 per year (nominal, before escalation)\n<|id|>218<|page|>20<|box|>325 183 359 854<|content|>One-time implementation fee: ... $3,750,000 (estimated midpoint of $3,000,000 to $4,500,000 range)\n<|id|>219<|page|>20<|box|>364 183 380 738<|content|>• Annual escalation: ... CPI + 2% (illustrative 5% per year, assuming 3% CPI)\n<|id|>224<|page|>21<|box|>172 138 375 857<|content|>Budget Context. ... Given the significant demands ...budget reallocation warrants careful consideration\n<|id|>299<|page|>29<|box|>633 183 667 852<|content|>• Ridgeline Data Systems LLC — Non-Disclosure Agreement (Mutual NDA, executed February 2025)\n<|id|>305<|page|>29<|box|>842 183 877 854<|content|>Comprehensive Remediation Action Plan — Draft (Wor...saction Monitoring Model Validation & Tuning Plan)\n<|id|>300<|page|>29<|box|>671 183 705 852<|content|>• Memorandum on Veridian vs. ... 1045- 00002)\n<|id|>301<|page|>29<|box|>709 183 742 852<|content|>• Technology Implementation Timeline & Risk Assessment Memorandum (C&H Matter No. ... 1045-00002)\n<|id|>302<|page|>29<|box|>747 183 763 848<|content|>• Third-Party Technology Vendor Due Diligence Checklist (C&H Matter No. ... 1045-00002)\n<|id|>303<|page|>29<|box|>767 183 800 851<|content|>• Veridian Analytics — Amendment to Master Services Agreement (Contract No. ... 1045-00002)\n<|id|>304<|page|>29<|box|>804 183 838 852<|content|>• Veridian Analytics — Statement of Work for OFAC Module Enhancement (C&H Matter No. ... 1045-00002)\n<|id|>306<|page|>30<|box|>90 138 181 857<|content|>This memorandum reflects the analysis and recommen...vailable and as the remediation process progresses\n<|id|>310<|page|>30<|box|>250 140 281 852<|content|>Philip Hartmann Partner, Banking & Finance Practic...nue of the Americas, 40th Floor New York, NY 10019\n<|id|>311<|page|>30<|box|>284 143 300 251<|content|>By: ... By\n<|id|>312<|page|>30<|box|>300 140 332 852<|content|>Carlos Espinoza Associate, Litigation (General) Pr...nue of the Americas, 40th Floor New York, NY 10019\n<|id|>313<|page|>30<|box|>332 140 424 854<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT PRIVIL...ot constitute a waiver of any applicable privilege",
+    "raw_response": "<|src_id|>44<|tgt_id|>45\n<|src_id|>164<|tgt_id|>165",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 165
+        }
+    ]
+}

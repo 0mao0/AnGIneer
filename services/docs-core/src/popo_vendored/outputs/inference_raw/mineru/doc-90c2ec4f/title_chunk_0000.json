@@ -1,0 +1,134 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 759<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL ATTORN\n<|id|>1<|page|>1<|box|>113 403 133 593<|content|>MEMORANDUM\n<|id|>10<|page|>1<|box|>433 142 449 421<|content|>I. Purpose and Executive Summary\n<|id|>25<|page|>3<|box|>90 140 107 267<|content|>II. Background\n<|id|>26<|page|>3<|box|>121 140 138 318<|content|>A. The OPDP Inquiry\n<|id|>36<|page|>4<|box|>306 140 324 429<|content|>B. Penterra and Zelvara® Overview\n<|id|>40<|page|>4<|box|>797 140 815 589<|content|>C. The Clarity Campaign and Ridgeline Health Analy\n<|id|>44<|page|>5<|box|>448 140 465 336<|content|>D. Prior Remedial Steps\n<|id|>47<|page|>5<|box|>794 142 811 348<|content|>III. Scope of Investigation\n<|id|>48<|page|>5<|box|>825 140 842 642<|content|>A. Workstream 1 — Review of Zelvara® Promotional M\n<|id|>61<|page|>7<|box|>627 140 643 560<|content|>B. Workstream 2 — Review of PRC Meeting Minutes\n<|id|>73<|page|>9<|box|>282 140 300 754<|content|>C. Workstream 3 — Forensic Review of Sales Represe\n<|id|>88<|page|>11<|box|>90 140 107 457<|content|>D. Workstream 4 — Witness Interviews\n<|id|>92<|page|>11<|box|>484 140 518 854<|content|>1. Derek Foss — Vice President, Commercial Operati\n<|id|>107<|page|>12<|box|>458 140 494 852<|content|>3. Dr. Lina Gerhardt, Pharm.D. — Senior Director,\n<|id|>114<|page|>13<|box|>90 140 107 805<|content|>4. Monica Chu — Account Lead (Penterra Account), R\n<|id|>128<|page|>14<|box|>281 140 297 488<|content|>IV. Privilege and Work-Product Protections\n<|id|>136<|page|>15<|box|>285 140 301 359<|content|>V. Timeline and Milestones\n<|id|>140<|page|>16<|box|>204 140 222 333<|content|>VI. Budget and Staffing\n<|id|>141<|page|>16<|box|>234 140 252 539<|content|>A. Calderwood & Harkness LLP — Internal Costs\n<|id|>148<|page|>16<|box|>724 140 741 470<|content|>B. Tavrenis Stern Consulting Group LLC\n<|id|>150<|page|>17<|box|>138 140 156 439<|content|>C. Whitfield Bauer & Associates LLP\n<|id|>152<|page|>17<|box|>359 140 376 460<|content|>D. Total Estimated Investigation Budget\n<|id|>155<|page|>17<|box|>664 140 680 281<|content|>VII. Deliverables\n<|id|>162<|page|>18<|box|>667 140 684 534<|content|>VIII. Coordination with Penterra and Co-Counsel\n<|id|>168<|page|>19<|box|>513 140 530 423<|content|>IX. Risk Factors and Contingencies\n<|id|>175<|page|>20<|box|>685 140 703 370<|content|>X. Approvals and Next Steps",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>36<|level|>3\n<|id|>40<|level|>3\n<|id|>44<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>61<|level|>3\n<|id|>73<|level|>3\n<|id|>88<|level|>3\n<|id|>92<|level|>4\n<|id|>107<|level|>4\n<|id|>114<|level|>4\n<|id|>128<|level|>2\n<|id|>136<|level|>2\n<|id|>140<|level|>2\n<|id|>141<|level|>3\n<|id|>148<|level|>3\n<|id|>150<|level|>3\n<|id|>152<|level|>3\n<|id|>155<|level|>2\n<|id|>162<|level|>2\n<|id|>168<|level|>2\n<|id|>175<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 4
+        },
+        {
+            "id": 107,
+            "level": 4
+        },
+        {
+            "id": 114,
+            "level": 4
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        }
+    ]
+}

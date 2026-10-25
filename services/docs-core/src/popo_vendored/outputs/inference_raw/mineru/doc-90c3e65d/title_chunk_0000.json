@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 156 152 841<|content|>555 South Hope Street, Suite 4400 Los Angeles, Cal\n<|id|>10<|page|>1<|box|>602 140 619 341<|content|>1. Transaction Summary\n<|id|>16<|page|>2<|box|>377 140 393 379<|content|>2. Policy Terms Confirmation\n<|id|>27<|page|>3<|box|>609 140 626 428<|content|>3. Premium Payment Arrangements\n<|id|>36<|page|>4<|box|>421 140 438 531<|content|>4. Interplay with APA Indemnification Provisions\n<|id|>47<|page|>5<|box|>508 140 527 465<|content|>5. Closing Deliverables and Coordination\n<|id|>55<|page|>6<|box|>340 140 357 326<|content|>6. Contact Information\n<|id|>75<|page|>7<|box|>282 143 297 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>10<|level|>1\n<|id|>16<|level|>1\n<|id|>27<|level|>1\n<|id|>36<|level|>1\n<|id|>47<|level|>1\n<|id|>55<|level|>1\n<|id|>75<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        }
+    ]
+}

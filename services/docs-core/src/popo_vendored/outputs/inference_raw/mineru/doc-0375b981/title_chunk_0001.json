@@ -1,0 +1,127 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        54,
+        58
+    ],
+    "pages": [
+        54,
+        55,
+        56,
+        57,
+        58
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>698<|page|>54<|box|>311 450 327 547<|content|>EXHIBIT F\n<|id|>699<|page|>54<|box|>337 366 354 632<|content|>INSURANCE REQUIREMENTS\n<|id|>701<|page|>54<|box|>388 142 405 411<|content|>I. Construction Period Coverages:\n<|id|>703<|page|>54<|box|>672 143 689 550<|content|>II. Operating Period Coverages (Post-Construction)\n<|id|>705<|page|>55<|box|>125 143 138 300<|content|>III. Title Insurance:\n<|id|>707<|page|>55<|box|>268 142 285 442<|content|>IV. Additional Insured Requirements:\n<|id|>714<|page|>55<|box|>436 143 453 431<|content|>V. General Insurance Requirements:\n<|id|>719<|page|>55<|box|>632 447 648 550<|content|>EXHIBIT G\n<|id|>720<|page|>55<|box|>657 346 674 651<|content|>FORM OF CAPITAL CALL NOTICE\n<|id|>721<|page|>55<|box|>684 390 700 607<|content|>CAPITAL CALL NOTICE\n<|id|>722<|page|>55<|box|>709 316 726 679<|content|>HARBOR POINT DEVELOPMENT JV, LLC\n<|id|>728<|page|>56<|box|>90 140 108 478<|content|>1. Aggregate Capital Call Amount: $[____]\n<|id|>729<|page|>56<|box|>116 140 133 344<|content|>2. Allocation by Member:\n<|id|>731<|page|>56<|box|>250 140 267 354<|content|>3. Purpose of Capital Call:\n<|id|>733<|page|>56<|box|>320 142 337 310<|content|>4. Funding Deadline:\n<|id|>735<|page|>56<|box|>409 140 425 380<|content|>5. Wire Transfer Instructions:\n<|id|>746<|page|>56<|box|>803 447 819 550<|content|>EXHIBIT H\n<|id|>747<|page|>56<|box|>829 433 845 565<|content|>KEY PERSONS\n<|id|>749<|page|>57<|box|>90 142 107 316<|content|>1. Harold K. Brennan\n<|id|>753<|page|>57<|box|>258 142 273 328<|content|>2. Marcus D. Okonkwo\n<|id|>758<|page|>57<|box|>525 450 541 547<|content|>EXHIBIT I\n<|id|>759<|page|>57<|box|>550 349 568 647<|content|>FORM OF JOINDER AGREEMENT\n<|id|>760<|page|>57<|box|>575 393 594 604<|content|>JOINDER AGREEMENT\n<|id|>762<|page|>57<|box|>665 142 681 241<|content|>RECITALS\n<|id|>765<|page|>57<|box|>834 142 851 267<|content|>AGREEMENT\n<|id|>782<|page|>58<|box|>575 439 592 558<|content|>SCHEDULE 1\n<|id|>783<|page|>58<|box|>599 341 617 655<|content|>LIST OF ANCILLARY DOCUMENTS",
+    "raw_response": "<|id|>698<|level|>1\n<|id|>699<|level|>2\n<|id|>701<|level|>3\n<|id|>703<|level|>3\n<|id|>705<|level|>3\n<|id|>707<|level|>3\n<|id|>714<|level|>3\n<|id|>719<|level|>1\n<|id|>720<|level|>2\n<|id|>721<|level|>2\n<|id|>722<|level|>2\n<|id|>728<|level|>3\n<|id|>729<|level|>3\n<|id|>731<|level|>3\n<|id|>733<|level|>3\n<|id|>735<|level|>3\n<|id|>746<|level|>1\n<|id|>747<|level|>2\n<|id|>749<|level|>3\n<|id|>753<|level|>3\n<|id|>758<|level|>1\n<|id|>759<|level|>2\n<|id|>760<|level|>2\n<|id|>762<|level|>3\n<|id|>765<|level|>3\n<|id|>782<|level|>1\n<|id|>783<|level|>2",
+    "parsed": [
+        {
+            "id": 698,
+            "level": 1
+        },
+        {
+            "id": 699,
+            "level": 2
+        },
+        {
+            "id": 701,
+            "level": 3
+        },
+        {
+            "id": 703,
+            "level": 3
+        },
+        {
+            "id": 705,
+            "level": 3
+        },
+        {
+            "id": 707,
+            "level": 3
+        },
+        {
+            "id": 714,
+            "level": 3
+        },
+        {
+            "id": 719,
+            "level": 1
+        },
+        {
+            "id": 720,
+            "level": 2
+        },
+        {
+            "id": 721,
+            "level": 2
+        },
+        {
+            "id": 722,
+            "level": 2
+        },
+        {
+            "id": 728,
+            "level": 3
+        },
+        {
+            "id": 729,
+            "level": 3
+        },
+        {
+            "id": 731,
+            "level": 3
+        },
+        {
+            "id": 733,
+            "level": 3
+        },
+        {
+            "id": 735,
+            "level": 3
+        },
+        {
+            "id": 746,
+            "level": 1
+        },
+        {
+            "id": 747,
+            "level": 2
+        },
+        {
+            "id": 749,
+            "level": 3
+        },
+        {
+            "id": 753,
+            "level": 3
+        },
+        {
+            "id": 758,
+            "level": 1
+        },
+        {
+            "id": 759,
+            "level": 2
+        },
+        {
+            "id": 760,
+            "level": 2
+        },
+        {
+            "id": 762,
+            "level": 3
+        },
+        {
+            "id": 765,
+            "level": 3
+        },
+        {
+            "id": 782,
+            "level": 1
+        },
+        {
+            "id": 783,
+            "level": 2
+        }
+    ]
+}

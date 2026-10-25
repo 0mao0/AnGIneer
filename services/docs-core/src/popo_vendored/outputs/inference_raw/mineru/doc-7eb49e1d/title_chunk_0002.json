@@ -1,0 +1,39 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        114,
+        162
+    ],
+    "pages": [
+        115,
+        131,
+        147,
+        153,
+        161
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>184<|page|>115<|box|>191 390 218 611<|content|>五、混凝土、钢筋及木作机械\n<|id|>201<|page|>131<|box|>187 397 213 600<|content|>六、钢结构加工及焊接机械\n<|id|>218<|page|>147<|box|>191 432 220 563<|content|>七、动力机械\n<|id|>225<|page|>153<|box|>191 430 218 561<|content|>八、泵类机械\n<|id|>234<|page|>161<|box|>189 434 217 565<|content|>九、其他机械",
+    "raw_response": "<|id|>184<|level|>1\n<|id|>201<|level|>1\n<|id|>218<|level|>1\n<|id|>225<|level|>1\n<|id|>234<|level|>1",
+    "parsed": [
+        {
+            "id": 184,
+            "level": 1
+        },
+        {
+            "id": 201,
+            "level": 1
+        },
+        {
+            "id": 218,
+            "level": 1
+        },
+        {
+            "id": 225,
+            "level": 1
+        },
+        {
+            "id": 234,
+            "level": 1
+        }
+    ]
+}

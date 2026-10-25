@@ -1,0 +1,94 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6flkisww\\input\\pdfs\\doc-31dcf400.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6flkisww\\enriched\\doc-31dcf400.json",
+    "contd_output": "",
+    "title_output": "<|id|>9<|level|>1\n<|id|>19<|level|>1\n<|id|>26<|level|>1\n<|id|>30<|level|>1\n<|id|>36<|level|>1\n<|id|>41<|level|>1\n<|id|>45<|level|>1\n<|id|>49<|level|>1\n<|id|>59<|level|>1\n<|id|>64<|level|>1\n<|id|>67<|level|>1\n<|id|>70<|level|>1\n<|id|>79<|level|>1",
+    "image_output": "<|src_id|>21<|tgt_id|>19\n<|src_id|>22<|tgt_id|>19",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 21,
+            "table2_idx": 22,
+            "upper_row_ss": [
+                [
+                    "Attorney",
+                    "Role",
+                    "Practice Group",
+                    "Hourly Rate"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Samuel Eklund",
+                    "Responsible Partner",
+                    "Litigation (General)",
+                    "$895.00"
+                ]
+            ]
+        }
+    ]
+}

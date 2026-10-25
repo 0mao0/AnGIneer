@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3<|type|>title<|page|>1<|box|>381 90 418 885<|content|>高速公路夯实水泥土桩复合地基技术规范\n<|id|>6<|type|>title<|page|>2<|box|>157 438 180 526<|content|>前言\n<|id|>11<|type|>title<|page|>3<|box|>138 236 161 727<|content|>高速公路夯实水泥土桩复合地基技术规范\n<|id|>12<|type|>title<|page|>3<|box|>188 90 204 159<|content|>1 范围\n<|id|>15<|type|>title<|page|>3<|box|>299 90 315 248<|content|>2 规范性引用文件\n<|id|>22<|type|>title<|page|>3<|box|>484 90 500 211<|content|>3 术语和定义\n<|id|>24<|type|>title<|page|>3<|box|>549 90 564 124<|content|>3.1\n<|id|>27<|type|>title<|page|>3<|box|>642 90 657 124<|content|>3.2\n<|id|>30<|type|>title<|page|>3<|box|>717 90 731 124<|content|>3.3\n<|id|>33<|type|>title<|page|>3<|box|>792 90 805 124<|content|>3.4\n<|id|>36<|type|>title<|page|>3<|box|>874 89 889 194<|content|>4 基本规定\n<|id|>41<|type|>title<|page|>4<|box|>345 112 361 183<|content|>5 设计\n<|id|>42<|type|>title<|page|>4<|box|>382 112 397 236<|content|>5.1 一般规定\n<|id|>62<|type|>title<|page|>5<|box|>318 89 334 231<|content|>5.2 承载力计算\n<|id|>75<|type|>table<|page|>5<|box|>731 82 885 890<|content|>None\n<|id|>76<|type|>table<|page|>6<|box|>129 105 283 914<|content|>None\n<|id|>77<|type|>table<|page|>6<|box|>320 105 704 914<|content|>None\n<|id|>85<|type|>title<|page|>7<|box|>114 90 130 213<|content|>5.3 变形计算\n<|id|>87<|type|>title<|page|>7<|box|>179 90 194 159<|content|>6 施工\n<|id|>88<|type|>title<|page|>7<|box|>214 90 231 213<|content|>6.1 施工准备\n<|id|>95<|type|>title<|page|>7<|box|>429 90 444 213<|content|>6.2 成孔施工\n<|id|>99<|type|>title<|page|>7<|box|>633 90 649 284<|content|>6.3 制备水泥土混合料\n<|id|>104<|type|>title<|page|>8<|box|>160 112 176 245<|content|>6.4 夯实施工\n<|id|>116<|type|>title<|page|>8<|box|>633 114 649 218<|content|>7 质量检验\n<|id|>122<|type|>table<|page|>9<|box|>129 84 377 890<|content|>None",
+    "raw_response": "<|src_id|>75<|tgt_id|>62\n<|src_id|>76<|tgt_id|>62\n<|src_id|>77<|tgt_id|>62\n<|src_id|>122<|tgt_id|>116",
+    "parsed": [
+        {
+            "src_id": 75,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 116
+        }
+    ]
+}

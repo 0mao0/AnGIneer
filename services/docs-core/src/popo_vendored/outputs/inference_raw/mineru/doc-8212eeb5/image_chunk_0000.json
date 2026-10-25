@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 349 118 648<|content|>SOLVENCY CERTIFICATE\n<|id|>7<|type|>title<|page|>1<|box|>359 140 378 566<|content|>RECITALS AND INTRODUCTORY STATEMENTS\n<|id|>23<|type|>title<|page|>2<|box|>792 140 809 374<|content|>SECTION 1: DEFINITIONS\n<|id|>35<|type|>title<|page|>4<|box|>655 140 672 767<|content|>SECTION 2: FINANCIAL OVERVIEW AND BASIS FOR CERTIF\n<|id|>37<|type|>title<|page|>4<|box|>744 142 761 406<|content|>Historical Financial Performance\n<|id|>41<|type|>table<|page|>5<|box|>311 143 462 852<|content|>None\n<|id|>42<|type|>title<|page|>5<|box|>496 142 513 393<|content|>Leverage and Coverage Metrics\n<|id|>46<|type|>title<|page|>5<|box|>875 142 892 367<|content|>Ownership and Sponsorship\n<|id|>48<|type|>title<|page|>6<|box|>244 140 261 328<|content|>Subsidiary Guarantors\n<|id|>50<|type|>title<|page|>6<|box|>439 140 455 516<|content|>SECTION 3: SOLVENCY CERTIFICATIONS\n<|id|>52<|type|>title<|page|>6<|box|>532 140 550 733<|content|>Section 3(a): Balance Sheet Solvency — Fair Value\n<|id|>55<|type|>title<|page|>7<|box|>213 140 229 604<|content|>Section 3(b): Fair Saleable Value Exceeds Stated L\n<|id|>58<|type|>title<|page|>7<|box|>549 140 566 661<|content|>Section 3(c): Adequate Capital — Not Unreasonably\n<|id|>66<|type|>title<|page|>8<|box|>590 140 608 570<|content|>Section 3(d): Ability to Pay Debts as They Become\n<|id|>75<|type|>title<|page|>9<|box|>544 140 561 627<|content|>Section 3(e): No Intent to Hinder, Delay, or Defra\n<|id|>77<|type|>title<|page|>9<|box|>734 140 753 591<|content|>SECTION 4: QUALIFICATIONS AND ASSUMPTIONS\n<|id|>85<|type|>title<|page|>10<|box|>845 140 863 431<|content|>SECTION 5: RELIANCE AND USE",
+    "raw_response": "<|src_id|>41<|tgt_id|>37",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 37
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>10<|type|>title<|page|>1<|box|>402 140 419 364<|content|>I. Introduction and Purpose\n<|id|>15<|type|>title<|page|>2<|box|>90 140 107 457<|content|>II. Background and Procedural Context\n<|id|>16<|type|>title<|page|>2<|box|>121 140 138 343<|content|>A. The Chapter 11 Filing\n<|id|>20<|type|>title<|page|>2<|box|>612 142 628 403<|content|>B. Pre-Petition Capital Structure\n<|id|>23<|type|>table<|page|>2<|box|>795 143 900 852<|content|>None\n<|id|>24<|type|>table<|page|>3<|box|>88 143 142 852<|content|>None\n<|id|>29<|type|>title<|page|>3<|box|>484 140 503 300<|content|>C. The DIP Facility\n<|id|>43<|type|>title<|page|>4<|box|>383 140 400 400<|content|>D. The Ad Hoc Group Objection\n<|id|>49<|type|>title<|page|>5<|box|>148 140 167 565<|content|>III. Proposed Enhanced Adequate Protection Package\n<|id|>51<|type|>title<|page|>5<|box|>316 140 334 318<|content|>A. Replacement Liens\n<|id|>58<|type|>title<|page|>5<|box|>719 140 737 638<|content|>B. Section 507(b) Superpriority Administrative Exp\n<|id|>64<|type|>title<|page|>6<|box|>246 140 263 480<|content|>C. Monthly Adequate Protection Payments\n<|id|>66<|type|>table<|page|>6<|box|>503 143 657 852<|content|>None\n<|id|>68<|type|>title<|page|>6<|box|>814 140 830 395<|content|>D. Adequate Protection Reserve\n<|id|>72<|type|>title<|page|>7<|box|>338 140 354 537<|content|>E. Reimbursement of Ad Hoc Group Counsel Fees\n<|id|>75<|type|>title<|page|>7<|box|>628 140 647 442<|content|>IV. Budget and Reporting Protections\n<|id|>80<|type|>title<|page|>8<|box|>340 140 357 424<|content|>V. Basis for Adequacy of Protection\n<|id|>86<|type|>title<|page|>9<|box|>277 140 294 478<|content|>VI. Proposed Documentation and Timeline\n<|id|>95<|type|>table<|page|>9<|box|>772 145 897 852<|content|>None\n<|id|>96<|type|>table<|page|>10<|box|>88 143 191 852<|content|>None\n<|id|>98<|type|>title<|page|>10<|box|>339 140 356 379<|content|>VII. Withdrawal of Objection\n<|id|>101<|type|>title<|page|>10<|box|>633 140 650 359<|content|>VIII. Reservation of Rights\n<|id|>106<|type|>title<|page|>11<|box|>285 140 303 431<|content|>IX. Closing and Response Requested",
+    "raw_response": "<|src_id|>23<|tgt_id|>20\n<|src_id|>24<|tgt_id|>20\n<|src_id|>66<|tgt_id|>64\n<|src_id|>95<|tgt_id|>86\n<|src_id|>96<|tgt_id|>86",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 86
+        }
+    ]
+}

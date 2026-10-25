@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>16<|type|>title<|page|>1<|box|>609 142 625 344<|content|>1. Reference and Purpose\n<|id|>24<|type|>title<|page|>2<|box|>454 142 472 285<|content|>2. Payoff Amount\n<|id|>25<|type|>title<|page|>2<|box|>484 142 502 377<|content|>2.1 Estimated Payoff Amount\n<|id|>27<|type|>table<|page|>2<|box|>587 143 750 852<|content|>None\n<|id|>29<|type|>title<|page|>3<|box|>157 140 175 633<|content|>2.2 Estimated Nature of Payoff Amount; Per Diem Ad\n<|id|>31<|type|>title<|page|>3<|box|>304 140 320 380<|content|>2.3 Per Diem Interest Accrual\n<|id|>35<|type|>title<|page|>3<|box|>628 142 647 382<|content|>2.4 Satisfaction and Discharge\n<|id|>37<|type|>title<|page|>4<|box|>90 140 107 377<|content|>3. Wire Transfer Instructions\n<|id|>38<|type|>title<|page|>4<|box|>121 140 138 553<|content|>3.1 Primary Wire Instructions — Term Loan Payoff\n<|id|>40<|type|>table<|page|>4<|box|>186 143 460 852<|content|>None\n<|id|>42<|type|>title<|page|>4<|box|>636 140 652 377<|content|>3.2 Wire Amount and Timing\n<|id|>47<|type|>title<|page|>5<|box|>250 140 266 455<|content|>4. Confirmation and Release Mechanics\n<|id|>62<|type|>title<|page|>6<|box|>726 140 743 506<|content|>5. Contact Information for Wire Confirmation\n<|id|>64<|type|>title<|page|>6<|box|>833 142 849 285<|content|>Primary Contact:\n<|id|>71<|type|>title<|page|>7<|box|>345 140 363 433<|content|>6. Good Through Date and Per Diem\n<|id|>78<|type|>title<|page|>8<|box|>90 142 107 334<|content|>7. Governing Provisions\n<|id|>82<|type|>title<|page|>8<|box|>375 140 390 274<|content|>8. Authorization\n<|id|>90<|type|>title<|page|>8<|box|>611 143 628 339<|content|>ACKNOWLEDGMENT\n<|id|>92<|type|>title<|page|>8<|box|>717 142 734 496<|content|>NEXFORD INDUSTRIAL HOLDINGS INC.",
+    "raw_response": "<|src_id|>27<|tgt_id|>25\n<|src_id|>40<|tgt_id|>38",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        }
+    ]
+}

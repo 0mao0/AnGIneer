@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>10<|page|>1<|box|>864 176 901 852<|content|>(b) U. ... and\n<|id|>12<|page|>2<|box|>133 140 152 831<|content|>Certified copies of these registrations are attach...ached hereto as Exhibits A, B, and C, respectively\n<|id|>43<|page|>4<|box|>830 140 902 854<|content|>25. ... Consumers throughout the United States associate the MERIDIAN and MERIDIAN\n<|id|>44<|page|>5<|box|>89 174 127 854<|content|>CLEAN marks exclusively with MCB as the single sou...household cleaning products sold under those marks\n<|id|>131<|page|>13<|box|>655 174 709 854<|content|>(c) Using any mark, name, word, symbol, device, tr...n of any of Brindoval's products with MCB; ... and\n<|id|>135<|page|>13<|box|>915 140 930 750<|content|>COMPLAINT FOR TRADEMARK INFRINGEMENT, FALSE DESIGNATION OF ORIGIN, AND DILUTION\n<|id|>146<|page|>14<|box|>637 142 654 320<|content|>Respectfully submitted,\n<|id|>147<|page|>14<|box|>654 140 671 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>148<|page|>14<|box|>672 143 689 253<|content|>By: ... By\n<|id|>149<|page|>14<|box|>689 140 720 854<|content|>Alan Ngo (AN-4821) Marcus Delgado (MD-6377) Christy Bauer (CB-9154) Peter Vassiliev (PV-2063)\n<|id|>150<|page|>14<|box|>722 142 753 852<|content|>1251 Avenue of the Americas, 40th Floor New York, New York 10020 Telephone: ... (212) 554-7299\n<|id|>151<|page|>14<|box|>756 142 773 437<|content|>Email: ... com\n<|id|>152<|page|>14<|box|>773 142 789 472<|content|>Email: ... com\n<|id|>153<|page|>14<|box|>790 142 806 450<|content|>Email: ... com\n<|id|>154<|page|>14<|box|>808 142 824 473<|content|>Email: ... com\n<|id|>155<|page|>14<|box|>824 140 842 550<|content|>Attorneys for Plaintiff Meridian Consumer Brands LLC",
+    "raw_response": "<|src_id|>10<|tgt_id|>12\n<|src_id|>43<|tgt_id|>44",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        }
+    ]
+}

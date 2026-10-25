@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['8', 'In-Cabin Temperature', 'Interior cabin temperature readings reported in degrees Celsius (°C) and Fahrenheit (°F), derived from climate control system sensors', 'Standard Vehicle Data']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['9', 'In-Cabin Humidity', 'Interior cabin relative humidity readings reported as a percentage (%), derived from humidity sensors integrated with the climate control system', 'Standard Vehicle Data']]\n",
+    "raw_response": "[0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 366,
+    "table2_idx": 367
+}

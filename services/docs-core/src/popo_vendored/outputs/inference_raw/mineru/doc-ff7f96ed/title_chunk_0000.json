@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>113 194 157 803<|content|>SECRETARY'S CERTIFICATE OF CALLOWAY-BRIGGS RENEWAB\n<|id|>1<|page|>1<|box|>174 240 191 758<|content|>Delivered Pursuant to Section [__] of the Underwri\n<|id|>2<|page|>1<|box|>200 264 219 733<|content|>[DRAFT — Subject to completion upon pricing and cl\n<|id|>4<|page|>1<|box|>359 140 376 243<|content|>RECITALS\n<|id|>11<|page|>2<|box|>148 140 166 531<|content|>SECTION 1: INCUMBENCY CERTIFICATION\n<|id|>18<|page|>3<|box|>345 140 363 725<|content|>SECTION 2: CERTIFICATION OF ORGANIZATIONAL DOCUMEN\n<|id|>19<|page|>3<|box|>377 140 393 573<|content|>2.1 Amended and Restated Certificate of Incorporat\n<|id|>23<|page|>3<|box|>811 140 829 415<|content|>2.2 Amended and Restated Bylaws\n<|id|>27<|page|>4<|box|>321 140 339 633<|content|>SECTION 3: CERTIFICATION OF BOARD RESOLUTIONS\n<|id|>28<|page|>4<|box|>353 140 369 630<|content|>3.1 Resolutions Authorizing the IPO and Related Tr\n<|id|>39<|page|>5<|box|>327 140 344 782<|content|>3.2 Resolutions Approving the Amended and Restated\n<|id|>42<|page|>5<|box|>590 140 607 625<|content|>3.3 Resolutions Approving the Amended and Restated\n<|id|>45<|page|>5<|box|>799 140 816 669<|content|>3.4 Resolutions Approving the 2022 Omnibus Equity\n<|id|>49<|page|>6<|box|>356 140 375 665<|content|>3.5 Resolutions Approving the 2022 Employee Stock\n<|id|>53<|page|>6<|box|>700 140 717 514<|content|>3.6 Resolutions Establishing Board Committees\n<|id|>60<|page|>7<|box|>373 140 390 663<|content|>SECTION 4: CERTIFICATION OF STOCKHOLDER ACTIONS\n<|id|>61<|page|>7<|box|>404 140 421 429<|content|>4.1 Written Consent of Stockholders\n<|id|>69<|page|>8<|box|>222 140 239 560<|content|>SECTION 5: GOOD STANDING AND EXISTENCE\n<|id|>73<|page|>8<|box|>652 140 669 413<|content|>SECTION 6: CAPITALIZATION\n<|id|>81<|page|>9<|box|>531 140 547 565<|content|>SECTION 7: NO CONFLICTS; NO PROCEEDINGS\n<|id|>84<|page|>10<|box|>89 142 106 648<|content|>SECTION 8: GENERAL QUALIFICATIONS AND RELIANCE\n<|id|>89<|page|>11<|box|>89 143 106 271<|content|>EXHIBIT LIST\n<|id|>92<|page|>11<|box|>579 334 595 660<|content|>[Remainder of page intentionally left blank]\n<|id|>93<|page|>11<|box|>604 241 621 754<|content|>[EXHIBITS A THROUGH I TO BE ATTACHED AT CLOSING]\n<|id|>94<|page|>11<|box|>630 142 645 468<|content|>DRAFT — Prepared by Calderwood & Harkness LLP\n<|id|>95<|page|>11<|box|>652 143 667 323<|content|>C&H Matter No. 1015-00001",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>-1\n<|id|>4<|level|>2\n<|id|>11<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>23<|level|>3\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>39<|level|>3\n<|id|>42<|level|>3\n<|id|>45<|level|>3\n<|id|>49<|level|>3\n<|id|>53<|level|>3\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>69<|level|>2\n<|id|>73<|level|>2\n<|id|>81<|level|>2\n<|id|>84<|level|>2\n<|id|>89<|level|>2\n<|id|>92<|level|>-1\n<|id|>93<|level|>-1\n<|id|>94<|level|>-1\n<|id|>95<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        }
+    ]
+}

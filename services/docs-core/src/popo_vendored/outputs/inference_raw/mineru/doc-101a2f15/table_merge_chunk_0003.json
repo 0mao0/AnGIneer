@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, Q235', '40 < t \\\\leqslant 100', '200', '115', 'rowspan=3, 320']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['牌号', '厚度t(\\\\mathrm{{mm}})', 'rowspan=2, 抗拉、抗压和抗弯f', 'rowspan=2, 抗剪{f}_{\\\\mathrm{v}}', 'rowspan=2, 端面承压(刨平顶紧){f}_{\\\\mathrm{{ce}}}']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 666,
+    "table2_idx": 667
+}

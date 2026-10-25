@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 246 142 750<|content|>SECRETARY'S CERTIFICATE OF OPTIWAVE SEMICONDUCTOR\n<|id|>1<|type|>title<|page|>1<|box|>159 158 195 839<|content|>Delivered in connection with the offering of $287,\n<|id|>13<|type|>title<|page|>2<|box|>292 142 310 380<|content|>1. Certificate of Incorporation\n<|id|>15<|type|>title<|page|>2<|box|>542 140 560 223<|content|>2. Bylaws\n<|id|>17<|type|>title<|page|>2<|box|>738 140 753 308<|content|>3. Board Resolutions\n<|id|>28<|type|>title<|page|>3<|box|>825 140 842 406<|content|>4. Pricing Committee Resolutions\n<|id|>43<|type|>title<|page|>4<|box|>808 140 825 263<|content|>5. Incumbency\n<|id|>45<|type|>table<|page|>5<|box|>88 143 199 852<|content|>None\n<|id|>48<|type|>title<|page|>5<|box|>518 140 535 359<|content|>6. Additional Certifications\n<|id|>58<|type|>title<|page|>6<|box|>648 142 665 392<|content|>COUNTER-CERTIFICATION\n<|id|>61<|type|>title<|page|>7<|box|>89 142 107 236<|content|>EXHIBITS",
+    "raw_response": "<|src_id|>45<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 43
+        }
+    ]
+}

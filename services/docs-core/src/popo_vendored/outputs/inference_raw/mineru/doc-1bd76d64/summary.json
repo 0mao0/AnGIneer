@@ -1,0 +1,575 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xrdrth6f\\input\\pdfs\\doc-1bd76d64.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xrdrth6f\\enriched\\doc-1bd76d64.json",
+    "contd_output": "<|src_id|>22<|tgt_id|>23\n<|src_id|>51<|tgt_id|>52\n<|src_id|>69<|tgt_id|>70\n<|src_id|>216<|tgt_id|>217\n<|src_id|>226<|tgt_id|>227",
+    "title_output": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>24<|level|>3\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>3\n<|id|>43<|level|>4\n<|id|>46<|level|>2\n<|id|>47<|level|>3\n<|id|>48<|level|>4\n<|id|>53<|level|>4\n<|id|>61<|level|>4\n<|id|>65<|level|>4\n<|id|>67<|level|>4\n<|id|>71<|level|>3\n<|id|>72<|level|>4\n<|id|>74<|level|>4\n<|id|>86<|level|>4\n<|id|>90<|level|>3\n<|id|>91<|level|>4\n<|id|>94<|level|>4\n<|id|>99<|level|>4\n<|id|>102<|level|>4\n<|id|>107<|level|>4\n<|id|>110<|level|>3\n<|id|>111<|level|>4\n<|id|>115<|level|>4\n<|id|>118<|level|>4\n<|id|>120<|level|>4\n<|id|>124<|level|>3\n<|id|>125<|level|>4\n<|id|>131<|level|>4\n<|id|>138<|level|>4\n<|id|>144<|level|>4\n<|id|>148<|level|>3\n<|id|>149<|level|>4\n<|id|>153<|level|>4\n<|id|>157<|level|>4\n<|id|>162<|level|>4\n<|id|>169<|level|>4\n<|id|>173<|level|>3\n<|id|>174<|level|>4\n<|id|>177<|level|>4\n<|id|>181<|level|>4\n<|id|>187<|level|>4\n<|id|>190<|level|>4\n<|id|>195<|level|>3\n<|id|>196<|level|>4\n<|id|>201<|level|>4\n<|id|>207<|level|>4\n<|id|>215<|level|>4\n<|id|>221<|level|>2\n<|id|>222<|level|>3\n<|id|>230<|level|>3\n<|id|>239<|level|>2\n<|id|>240<|level|>3\n<|id|>243<|level|>3\n<|id|>244<|level|>4\n<|id|>247<|level|>4\n<|id|>249<|level|>4\n<|id|>252<|level|>4\n<|id|>254<|level|>4\n<|id|>256<|level|>4\n<|id|>259<|level|>4\n<|id|>261<|level|>4\n<|id|>263<|level|>4\n<|id|>266<|level|>4\n<|id|>268<|level|>4\n<|id|>271<|level|>2\n<|id|>280<|level|>2\n<|id|>282<|level|>3\n<|id|>284<|level|>4\n<|id|>289<|level|>4\n<|id|>292<|level|>4\n<|id|>297<|level|>4\n<|id|>301<|level|>4\n<|id|>304<|level|>3\n<|id|>311<|level|>3\n<|id|>315<|level|>3\n<|id|>320<|level|>3\n<|id|>324<|level|>3\n<|id|>329<|level|>2\n<|id|>330<|level|>3\n<|id|>337<|level|>3\n<|id|>351<|level|>3\n<|id|>355<|level|>2\n<|id|>369<|level|>2",
+    "image_output": "<|src_id|>26<|tgt_id|>24\n<|src_id|>35<|tgt_id|>33\n<|src_id|>41<|tgt_id|>39\n<|src_id|>42<|tgt_id|>39\n<|src_id|>44<|tgt_id|>43\n<|src_id|>245<|tgt_id|>244\n<|src_id|>246<|tgt_id|>244\n<|src_id|>248<|tgt_id|>247\n<|src_id|>250<|tgt_id|>249\n<|src_id|>251<|tgt_id|>249\n<|src_id|>253<|tgt_id|>252\n<|src_id|>255<|tgt_id|>254\n<|src_id|>257<|tgt_id|>256\n<|src_id|>258<|tgt_id|>256\n<|src_id|>260<|tgt_id|>259\n<|src_id|>262<|tgt_id|>261\n<|src_id|>264<|tgt_id|>263\n<|src_id|>265<|tgt_id|>263\n<|src_id|>267<|tgt_id|>266\n<|src_id|>269<|tgt_id|>268\n<|src_id|>270<|tgt_id|>268\n<|src_id|>322<|tgt_id|>320\n<|src_id|>353<|tgt_id|>351\n<|src_id|>372<|tgt_id|>369\n<|src_id|>373<|tgt_id|>369",
+    "contd_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 217
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 227
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 53,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 67,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 74,
+            "level": 4
+        },
+        {
+            "id": 86,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 94,
+            "level": 4
+        },
+        {
+            "id": 99,
+            "level": 4
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 107,
+            "level": 4
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 4
+        },
+        {
+            "id": 115,
+            "level": 4
+        },
+        {
+            "id": 118,
+            "level": 4
+        },
+        {
+            "id": 120,
+            "level": 4
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 4
+        },
+        {
+            "id": 131,
+            "level": 4
+        },
+        {
+            "id": 138,
+            "level": 4
+        },
+        {
+            "id": 144,
+            "level": 4
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 4
+        },
+        {
+            "id": 153,
+            "level": 4
+        },
+        {
+            "id": 157,
+            "level": 4
+        },
+        {
+            "id": 162,
+            "level": 4
+        },
+        {
+            "id": 169,
+            "level": 4
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 4
+        },
+        {
+            "id": 177,
+            "level": 4
+        },
+        {
+            "id": 181,
+            "level": 4
+        },
+        {
+            "id": 187,
+            "level": 4
+        },
+        {
+            "id": 190,
+            "level": 4
+        },
+        {
+            "id": 195,
+            "level": 3
+        },
+        {
+            "id": 196,
+            "level": 4
+        },
+        {
+            "id": 201,
+            "level": 4
+        },
+        {
+            "id": 207,
+            "level": 4
+        },
+        {
+            "id": 215,
+            "level": 4
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 239,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 3
+        },
+        {
+            "id": 243,
+            "level": 3
+        },
+        {
+            "id": 244,
+            "level": 4
+        },
+        {
+            "id": 247,
+            "level": 4
+        },
+        {
+            "id": 249,
+            "level": 4
+        },
+        {
+            "id": 252,
+            "level": 4
+        },
+        {
+            "id": 254,
+            "level": 4
+        },
+        {
+            "id": 256,
+            "level": 4
+        },
+        {
+            "id": 259,
+            "level": 4
+        },
+        {
+            "id": 261,
+            "level": 4
+        },
+        {
+            "id": 263,
+            "level": 4
+        },
+        {
+            "id": 266,
+            "level": 4
+        },
+        {
+            "id": 268,
+            "level": 4
+        },
+        {
+            "id": 271,
+            "level": 2
+        },
+        {
+            "id": 280,
+            "level": 2
+        },
+        {
+            "id": 282,
+            "level": 3
+        },
+        {
+            "id": 284,
+            "level": 4
+        },
+        {
+            "id": 289,
+            "level": 4
+        },
+        {
+            "id": 292,
+            "level": 4
+        },
+        {
+            "id": 297,
+            "level": 4
+        },
+        {
+            "id": 301,
+            "level": 4
+        },
+        {
+            "id": 304,
+            "level": 3
+        },
+        {
+            "id": 311,
+            "level": 3
+        },
+        {
+            "id": 315,
+            "level": 3
+        },
+        {
+            "id": 320,
+            "level": 3
+        },
+        {
+            "id": 324,
+            "level": 3
+        },
+        {
+            "id": 329,
+            "level": 2
+        },
+        {
+            "id": 330,
+            "level": 3
+        },
+        {
+            "id": 337,
+            "level": 3
+        },
+        {
+            "id": 351,
+            "level": 3
+        },
+        {
+            "id": 355,
+            "level": 2
+        },
+        {
+            "id": 369,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 26,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 245,
+            "tgt_id": 244
+        },
+        {
+            "src_id": 246,
+            "tgt_id": 244
+        },
+        {
+            "src_id": 248,
+            "tgt_id": 247
+        },
+        {
+            "src_id": 250,
+            "tgt_id": 249
+        },
+        {
+            "src_id": 251,
+            "tgt_id": 249
+        },
+        {
+            "src_id": 253,
+            "tgt_id": 252
+        },
+        {
+            "src_id": 255,
+            "tgt_id": 254
+        },
+        {
+            "src_id": 257,
+            "tgt_id": 256
+        },
+        {
+            "src_id": 258,
+            "tgt_id": 256
+        },
+        {
+            "src_id": 260,
+            "tgt_id": 259
+        },
+        {
+            "src_id": 262,
+            "tgt_id": 261
+        },
+        {
+            "src_id": 264,
+            "tgt_id": 263
+        },
+        {
+            "src_id": 265,
+            "tgt_id": 263
+        },
+        {
+            "src_id": 267,
+            "tgt_id": 266
+        },
+        {
+            "src_id": 269,
+            "tgt_id": 268
+        },
+        {
+            "src_id": 270,
+            "tgt_id": 268
+        },
+        {
+            "src_id": 322,
+            "tgt_id": 320
+        },
+        {
+            "src_id": 353,
+            "tgt_id": 351
+        },
+        {
+            "src_id": 372,
+            "tgt_id": 369
+        },
+        {
+            "src_id": 373,
+            "tgt_id": 369
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 41,
+            "table2_idx": 42,
+            "upper_row_ss": [
+                [
+                    "Ingrid Baumann",
+                    "Chief Operating Officer",
+                    "46",
+                    "18 years at Halcyon; overseeing manufacturing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "operations and supply chain"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 245,
+            "table2_idx": 246,
+            "upper_row_ss": [
+                [
+                    "Recommended Action",
+                    "Detailed disclosure of familial relationship; description of Rheintal's ownership, selling shareholder participation, and post-IPO ownership (~16.1%); arm's-length confirmation for services agreement; corporate governance discussion addressing concentrated ownership and influence"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Category",
+                    "Sanctions / Export Controls"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 257,
+            "table2_idx": 258,
+            "upper_row_ss": [
+                [
+                    "Finding",
+                    "Fab 3 under construction; $280M of IPO proceeds allocated; environmental impact assessment approved; target operational date H2 2027"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Risk Level",
+                    "Moderate"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 264,
+            "table2_idx": 265,
+            "upper_row_ss": [
+                [
+                    "Attribute",
+                    "Detail"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 269,
+            "table2_idx": 270,
+            "upper_row_ss": [
+                [
+                    "Recommended Action",
+                    "Prepare notification letters in advance; send within 30 days of Nasdaq listing date"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Category",
+                    "Tax"
+                ]
+            ]
+        }
+    ]
+}

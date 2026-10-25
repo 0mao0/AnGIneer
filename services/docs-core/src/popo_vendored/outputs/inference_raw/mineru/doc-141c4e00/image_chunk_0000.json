@@ -1,0 +1,61 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>181 457 212 598<|content|>目次\n<|id|>2<|type|>title<|page|>5<|box|>183 279 210 766<|content|>6进港航道、锚地及导助航设施\n<|id|>3<|type|>title<|page|>5<|box|>242 446 260 602<|content|>6.1 一般规定\n<|id|>10<|type|>title<|page|>5<|box|>549 387 567 661<|content|>6.2 航道建设规模及航行标准\n<|id|>30<|type|>title<|page|>6<|box|>614 354 632 589<|content|>6.3 航道选线与轴线布置\n<|id|>38<|type|>image<|page|>7<|box|>195 287 395 766<|content|>None\n<|id|>48<|type|>title<|page|>7<|box|>810 446 829 602<|content|>6.4 航道尺度\n<|id|>50<|type|>image<|page|>8<|box|>107 161 280 782<|content|>None\n<|id|>65<|type|>table<|page|>8<|box|>780 98 865 848<|content|>None\n<|id|>67<|type|>table<|page|>9<|box|>121 148 287 900<|content|>None\n<|id|>84<|type|>table<|page|>10<|box|>454 98 683 848<|content|>None\n<|id|>85<|type|>table<|page|>10<|box|>734 98 836 848<|content|>None\n<|id|>100<|type|>table<|page|>11<|box|>555 148 904 900<|content|>None\n<|id|>102<|type|>table<|page|>12<|box|>120 96 386 848<|content|>None\n<|id|>104<|type|>title<|page|>12<|box|>505 401 523 540<|content|>6.5 锚地\n<|id|>135<|type|>image<|page|>14<|box|>106 243 258 702<|content|>None\n<|id|>136<|type|>title<|page|>14<|box|>327 393 345 552<|content|>6.6 导助航设施\n<|id|>161<|type|>title<|page|>15<|box|>570 401 589 647<|content|>6.7航道、锚地疏浚和维护",
+    "raw_response": "<|src_id|>38<|tgt_id|>30\n<|src_id|>50<|tgt_id|>48\n<|src_id|>65<|tgt_id|>48\n<|src_id|>67<|tgt_id|>48\n<|src_id|>84<|tgt_id|>48\n<|src_id|>85<|tgt_id|>48\n<|src_id|>100<|tgt_id|>48\n<|src_id|>102<|tgt_id|>48\n<|src_id|>135<|tgt_id|>104",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 104
+        }
+    ]
+}

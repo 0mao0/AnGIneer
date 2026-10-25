@@ -1,0 +1,42 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        11,
+        12,
+        21,
+        22,
+        23,
+        25,
+        26,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 130 852<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGE / ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>138 140 156 640<|content|>To: ... Daniel Ostroff, VP, Legal & Compliance, Lumos Analytics Inc\n<|id|>3<|page|>1<|box|>164 140 200 854<|content|>From: ... with input from Alistair Drummond, Partner, Thornbridge Whitaker LLP\n<|id|>4<|page|>1<|box|>208 140 224 312<|content|>Date: ... March 15, 2024\n<|id|>5<|page|>1<|box|>234 140 271 854<|content|>Re: ... GDPR / UK GDPR Data Transfer Compliance An...rogram Agreement with Meridian Data Solutions GmbH\n<|id|>6<|page|>1<|box|>277 140 295 334<|content|>Matter No. ... 1008-00010\n<|id|>7<|page|>1<|box|>304 140 320 408<|content|>Right-click to update Table of Contents\n<|id|>30<|page|>4<|box|>828 140 902 856<|content|>Meridian has been represented in the negotiation o...sions, audit rights, and the completion of the SCC\n<|id|>31<|page|>5<|box|>90 140 125 854<|content|>annexes. ... The DPA reflects the agreed-upon posi...parties as of the execution date of March 22, 2024\n<|id|>57<|page|>8<|box|>460 183 478 705<|content|>• Regular vulnerability scanning and patch management protocols; ... and\n<|id|>59<|page|>8<|box|>518 140 628 854<|content|>Sub-Processor Engagement. ... During that thirty-d...otection grounds, as described in Section VI below\n<|id|>85<|page|>11<|box|>835 140 909 857<|content|>Clause 8 — Data Protection Safeguards. ... Clause ...data exporter in meeting its obligations under the\n<|id|>86<|page|>12<|box|>90 140 164 854<|content|>GDPR. ... This parallelism is intentional and refl...tent with the underlying data processing agreement\n<|id|>163<|page|>21<|box|>823 183 858 854<|content|>• U. ... and\n<|id|>165<|page|>22<|box|>90 140 162 854<|content|>The scope of U. ... -based remote access is minimized to the greatest extent practicable\n<|id|>180<|page|>23<|box|>541 183 595 854<|content|>• Processing Restriction: ... and\n<|id|>182<|page|>23<|box|>635 140 726 854<|content|>Meridian, as the entity with the direct customer r...y Article 12(3) of the GDPR, subject to extension)\n<|id|>200<|page|>25<|box|>813 140 904 856<|content|>The UK Extension to the EU-U. ... Data Privacy Framework and designating itself as covered by the UK\n<|id|>201<|page|>26<|box|>90 140 199 854<|content|>Extension. ... DPF self- certification would also ...erving as a further belt-and-suspenders protection\n<|id|>220<|page|>28<|box|>223 174 258 854<|content|>(c) Sub-processor changes, including compliance wi...ridian's exercise of its objection rights; ... and\n<|id|>222<|page|>28<|box|>329 140 383 854<|content|>This memorandum is based on the law and regulatory... the analysis and recommendations set forth herein\n<|id|>224<|page|>28<|box|>472 140 487 712<|content|>Calderwood & Harkness LLP 801 South Figueroa Street, Suite 4200 Los Angeles, CA 90017\n<|id|>225<|page|>28<|box|>494 140 508 290<|content|>Matter No. ... 1008-00010",
+    "raw_response": "<|src_id|>30<|tgt_id|>31\n<|src_id|>85<|tgt_id|>86\n<|src_id|>163<|tgt_id|>165\n<|src_id|>200<|tgt_id|>201",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 165
+        },
+        {
+            "src_id": 200,
+            "tgt_id": 201
+        }
+    ]
+}

@@ -1,0 +1,239 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xq_q4y7q\\input\\pdfs\\doc-a3ebe374.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xq_q4y7q\\enriched\\doc-a3ebe374.json",
+    "contd_output": "<|src_id|>13<|tgt_id|>14\n<|src_id|>90<|tgt_id|>91",
+    "title_output": "<|id|>12<|level|>1\n<|id|>17<|level|>1\n<|id|>24<|level|>1\n<|id|>25<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>1\n<|id|>70<|level|>1\n<|id|>83<|level|>1\n<|id|>87<|level|>1\n<|id|>94<|level|>1\n<|id|>102<|level|>1\n<|id|>118<|level|>1",
+    "image_output": "<|src_id|>29<|tgt_id|>25\n<|src_id|>30<|tgt_id|>25\n<|src_id|>64<|tgt_id|>62\n<|src_id|>65<|tgt_id|>62\n<|src_id|>66<|tgt_id|>62\n<|src_id|>67<|tgt_id|>62\n<|src_id|>68<|tgt_id|>62",
+    "contd_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 91
+        }
+    ],
+    "title_label": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 29,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 62
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 29,
+            "table2_idx": 30,
+            "upper_row_ss": [
+                [
+                    "2017",
+                    "$814,600,000",
+                    "4.5%",
+                    "$36,657,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 64,
+            "table2_idx": 65,
+            "upper_row_ss": [
+                [
+                    "CUT-03",
+                    "License of mature rare",
+                    "June 2013",
+                    "Europe and Asia-",
+                    "3.8% of net",
+                    "Approved product;",
+                    "Commercial Database",
+                    "PPC-IDR25-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "disease compound; fixed royalty rate; 10-year term with renewal option; licensee responsible for local regulatory filings",
+                    "",
+                    "Pacific",
+                    "sales",
+                    "rare disease therapeutic area; mature compound with declining sales trajectory",
+                    "(Vireo Health IT)",
+                    "000120 - 000178"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 65,
+            "table2_idx": 66,
+            "upper_row_ss": [
+                [
+                    "CUT-06",
+                    "License of approved immunology compound; running royalty",
+                    "Feb. 2017",
+                    "Europe",
+                    "4.3% of net sales",
+                    "Approved product; immunology area; exclusive European territory;",
+                    "SEC Filing (10-Q Exhibit)",
+                    "PPC-IDR25-000302 - 000355"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "with minimum annual payment; exclusive license for defined territory",
+                    "",
+                    "",
+                    "",
+                    "licensee performs distribution and marketing",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 66,
+            "table2_idx": 67,
+            "upper_row_ss": [
+                [
+                    "CUT-09",
+                    "License of late-stage (Phase III) oncology compound; higher royalty reflecting development-stage risk premium;",
+                    "Oct. 2013",
+                    "Global ex-U.S.",
+                    "4.8% of net sales",
+                    "Late-stage clinical compound; higher risk profile; adjusted downward for development-stage differential",
+                    "Commercial Database (Vireo Health IT)",
+                    "PPC-IDR25-000482 - 000534"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "licensee to complete Phase III and file for regulatory approval",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 67,
+            "table2_idx": 68,
+            "upper_row_ss": [
+                [
+                    "CUT-13",
+                    "License of",
+                    "Sept. 2016",
+                    "Ex-U.S.",
+                    "6.5% of net",
+                    "Approved",
+                    "Commercia",
+                    "PPC-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "approved rare disease biologic; higher royalty reflecting premium pricing dynamics in rare disease market; exclusive license",
+                    "",
+                    "(global)",
+                    "sales",
+                    "biologic; rare disease premium pricing; exclusive global ex-U.S. rights; licensor retained co-promotion rights (adjusted)",
+                    "1 Database (Calderon Data Systems)",
+                    "IDR25-000721 - 000789"
+                ]
+            ]
+        }
+    ]
+}

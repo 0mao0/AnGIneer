@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>557<|type|>table<|page|>45<|box|>89 143 742 852<|content|>None\n<|id|>558<|type|>title<|page|>45<|box|>790 143 806 591<|content|>XXIII. ATTACHMENTS / REFERENCE DOCUMENTS\n<|id|>560<|type|>table<|page|>45<|box|>858 143 897 852<|content|>None\n<|id|>561<|type|>table<|page|>46<|box|>88 143 303 852<|content|>None\n<|id|>562<|type|>table<|page|>46<|box|>361 143 436 852<|content|>None\n<|id|>563<|type|>table<|page|>46<|box|>469 143 508 852<|content|>None\n<|id|>564<|type|>title<|page|>46<|box|>542 143 558 357<|content|>Exhibit F — Capital Stack:\n<|id|>565<|type|>table<|page|>46<|box|>565 143 660 852<|content|>None\n<|id|>566<|type|>table<|page|>46<|box|>693 143 746 852<|content|>None\n<|id|>567<|type|>title<|page|>46<|box|>780 143 797 460<|content|>Exhibit G — Tax and CEMA Summary:\n<|id|>568<|type|>table<|page|>46<|box|>804 143 898 852<|content|>None\n<|id|>569<|type|>table<|page|>47<|box|>88 145 109 852<|content|>None\n<|id|>570<|type|>title<|page|>47<|box|>142 148 160 455<|content|>| MRT Savings from CEMA | $803,600 |\n<|id|>572<|type|>table<|page|>47<|box|>210 143 503 852<|content|>None\n<|id|>576<|type|>title<|page|>47<|box|>714 143 729 426<|content|>Email: cho@calderwoodharkness.com",
+    "raw_response": "<|src_id|>560<|tgt_id|>558\n<|src_id|>565<|tgt_id|>564\n<|src_id|>568<|tgt_id|>567\n<|src_id|>569<|tgt_id|>570\n<|src_id|>572<|tgt_id|>570",
+    "parsed": [
+        {
+            "src_id": 560,
+            "tgt_id": 558
+        },
+        {
+            "src_id": 565,
+            "tgt_id": 564
+        },
+        {
+            "src_id": 568,
+            "tgt_id": 567
+        },
+        {
+            "src_id": 569,
+            "tgt_id": 570
+        },
+        {
+            "src_id": 572,
+            "tgt_id": 570
+        }
+    ]
+}

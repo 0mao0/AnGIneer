@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        66,
+        114
+    ],
+    "pages": [
+        67,
+        75,
+        82,
+        89,
+        90,
+        93,
+        94,
+        105,
+        108,
+        113
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>327<|page|>67<|box|>100 96 190 487<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>328<|page|>67<|box|>101 512 192 903<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1973\n<|id|>348<|page|>75<|box|>457 401 467 601<|content|>(Par values - in millions of dollars)\n<|id|>349<|page|>75<|box|>131 80 309 471<|content|>The monthly Treasury Survey of Ownership covers se...ished for banks and insurance companies in the May\n<|id|>350<|page|>75<|box|>131 531 186 922<|content|>1941 Treasury Bulletin, for corporations and savin...nd local governments in the February 1962 Bulletin\n<|id|>376<|page|>82<|box|>99 299 112 689<|content|>Footnotes to Treasury survey of ownership Tables\n<|id|>377<|page|>82<|box|>140 85 167 461<|content|>Securities issued by the Treasury and Government a...... For debt subject to limitation, see Table FD-9\n<|id|>380<|page|>82<|box|>217 87 293 471<|content|>4/ Consists of corporate pension trust funds and p...\" The quarterly data are presented as supplemental\n<|id|>381<|page|>82<|box|>141 544 159 902<|content|>information in a memorandum column accompanying th...h reporting date, beginning with December 31, 1953\n<|id|>414<|page|>89<|box|>682 80 913 491<|content|>Note: ... Government bonds and notes held by foreign\n<|id|>415<|page|>89<|box|>907 81 925 470<|content|>7/ Includes marketable U. ... Government bonds and notes held by foreign banks\n<|id|>422<|page|>90<|box|>648 91 667 490<|content|>3/ Data on the two lines shown for this date diffe...e. ... Figures on the first line are comparable in\n<|id|>423<|page|>90<|box|>541 510 625 909<|content|>line are comparable to those shown for the followi...lect market exchange rates as of December 31, 1971\n<|id|>438<|page|>93<|box|>125 423 136 573<|content|>(In millions of dollars) 1/\n<|id|>439<|page|>93<|box|>643 506 677 874<|content|>2/ Includes International Monetary Fund gold sales...rawal, amounting to \\$17 million, was in June 1968\n<|id|>444<|page|>94<|box|>291 90 335 491<|content|>The report forms and instructions used in the coll...istics have been revised a number of times. ... 1/\n<|id|>445<|page|>94<|box|>342 88 447 490<|content|>The present form of the published presentation of ...rt-term liquid claims of large nonbanking concerns\n<|id|>476<|page|>105<|box|>127 365 138 630<|content|>(Postion at end of period in millions of dollars)\n<|id|>480<|page|>108<|box|>804 851 812 922<|content|>(1) \\frac{1}{2} 为 x = - \\frac{1}{2}\n<|id|>486<|page|>113<|box|>63 398 77 585<|content|>CAPITAL MOVEMENTS. ... CAPITAL MOVEMENTS",
+    "raw_response": "<|src_id|>327<|tgt_id|>328\n<|src_id|>349<|tgt_id|>350\n<|src_id|>380<|tgt_id|>381\n<|src_id|>422<|tgt_id|>423",
+    "parsed": [
+        {
+            "src_id": 327,
+            "tgt_id": 328
+        },
+        {
+            "src_id": 349,
+            "tgt_id": 350
+        },
+        {
+            "src_id": 380,
+            "tgt_id": 381
+        },
+        {
+            "src_id": 422,
+            "tgt_id": 423
+        }
+    ]
+}

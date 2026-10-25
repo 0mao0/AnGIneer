@@ -1,0 +1,139 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8zri60at\\input\\pdfs\\doc-d066dd27.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8zri60at\\enriched\\doc-d066dd27.json",
+    "contd_output": "<|src_id|>17<|tgt_id|>18\n<|src_id|>47<|tgt_id|>48",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>22<|level|>2\n<|id|>30<|level|>2\n<|id|>36<|level|>2\n<|id|>50<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>77<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>2\n<|id|>113<|level|>2\n<|id|>114<|level|>3\n<|id|>121<|level|>2\n<|id|>122<|level|>3",
+    "image_output": "<|src_id|>116<|tgt_id|>114\n<|src_id|>117<|tgt_id|>114\n<|src_id|>118<|tgt_id|>114\n<|src_id|>119<|tgt_id|>114\n<|src_id|>120<|tgt_id|>114",
+    "contd_label": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 116,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 114
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 116,
+            "table2_idx": 117,
+            "upper_row_ss": [
+                [
+                    "Integration Milestone Status",
+                    "Milestone 3 (Functional Integration and Validation) — Completed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Module Designation",
+                    "DW-002"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 118,
+            "table2_idx": 119,
+            "upper_row_ss": [
+                [
+                    "Functional Description",
+                    "DW-003 is a cross-platform hardware abstraction layer and diagnostic interface module applicable to multiple Argonaut configurations. The XPHADIM module"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "provides a unified hardware abstraction interface that enables the ATLAS-RT operating system and VMS application software to operate across different Argonaut hardware variants (including the Argonaut-A and Argonaut-C target platforms) without requiring platform-specific source-code modifications at the application layer. DW-003 includes a portable driver framework supporting GPIO, SPI, I2C, CAN, and Ethernet interfaces, a standardized diagnostic data logging and reporting system compliant with ISO 14229 (Unified Diagnostic Services), and a remote diagnostics communication interface enabling over-the-air (OTA) diagnostic queries and firmware status reporting. The module also implements VMS-originated self-test routines for adaptive mobility hardware verification during vehicle startup sequences."
+                ]
+            ]
+        }
+    ]
+}

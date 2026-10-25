@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        75,
+        123
+    ],
+    "pages": [
+        76,
+        79,
+        85,
+        86,
+        90,
+        92,
+        94,
+        95,
+        97,
+        98,
+        99,
+        100,
+        101,
+        105,
+        113,
+        114,
+        115,
+        116,
+        119,
+        123
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>402<|page|>76<|box|>73 381 86 659<|content|>Section I - Summary by Periods\n<|id|>406<|page|>79<|box|>66 333 80 640<|content|>Section II - Summary by Countries\n<|id|>413<|page|>85<|box|>40 244 54 718<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>419<|page|>86<|box|>70 181 101 845<|content|>Section II - Income and Expense for the Twelve Mon\n<|id|>425<|page|>90<|box|>75 183 106 843<|content|>Section II - Income and Expense for the Twelve Mon\n<|id|>428<|page|>92<|box|>66 183 96 845<|content|>Section II - Income and Expense for the Twelve Mon\n<|id|>431<|page|>94<|box|>63 181 94 843<|content|>Section II - Income and Expense for the Twelve Mon\n<|id|>433<|page|>95<|box|>69 160 100 824<|content|>Section II.- Income and Expense for the Twelve Mon\n<|id|>436<|page|>97<|box|>44 253 59 724<|content|>.CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTI\n<|id|>437<|page|>97<|box|>73 155 107 819<|content|>Section II - Income and Expense for the Twelve Mon\n<|id|>440<|page|>98<|box|>47 275 60 745<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>442<|page|>99<|box|>63 158 96 822<|content|>Section II - Income and Expense for the Twelve Mon\n<|id|>444<|page|>100<|box|>64 174 96 839<|content|>Section II - Income and Expense for the Twelve Mon\n<|id|>447<|page|>101<|box|>63 149 96 813<|content|>Section II - Income and Expense for the Twelve Mon\n<|id|>452<|page|>105<|box|>66 147 99 817<|content|>Section II - Income and Expense for the Twelve Mon\n<|id|>462<|page|>113<|box|>63 78 95 883<|content|>Section III - Source and Application of Funds for\n<|id|>464<|page|>114<|box|>63 111 94 911<|content|>Section III - Source and Application of Funds for\n<|id|>466<|page|>115<|box|>48 251 63 729<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>468<|page|>116<|box|>47 275 60 751<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>472<|page|>119<|box|>58 78 93 883<|content|>Section III - Source and Application of Funds for\n<|id|>478<|page|>123<|box|>65 74 97 881<|content|>Section III - Source and Application of Funds for",
+    "raw_response": "<|id|>402<|level|>1\n<|id|>406<|level|>1\n<|id|>413<|level|>-1\n<|id|>419<|level|>2\n<|id|>425<|level|>2\n<|id|>428<|level|>2\n<|id|>431<|level|>2\n<|id|>433<|level|>2\n<|id|>436<|level|>-1\n<|id|>437<|level|>2\n<|id|>440<|level|>-1\n<|id|>442<|level|>2\n<|id|>444<|level|>2\n<|id|>447<|level|>2\n<|id|>452<|level|>2\n<|id|>462<|level|>2\n<|id|>464<|level|>2\n<|id|>466<|level|>-1\n<|id|>468<|level|>-1\n<|id|>472<|level|>2\n<|id|>478<|level|>2",
+    "parsed": [
+        {
+            "id": 402,
+            "level": 1
+        },
+        {
+            "id": 406,
+            "level": 1
+        },
+        {
+            "id": 419,
+            "level": 2
+        },
+        {
+            "id": 425,
+            "level": 2
+        },
+        {
+            "id": 428,
+            "level": 2
+        },
+        {
+            "id": 431,
+            "level": 2
+        },
+        {
+            "id": 433,
+            "level": 2
+        },
+        {
+            "id": 437,
+            "level": 2
+        },
+        {
+            "id": 442,
+            "level": 2
+        },
+        {
+            "id": 444,
+            "level": 2
+        },
+        {
+            "id": 447,
+            "level": 2
+        },
+        {
+            "id": 452,
+            "level": 2
+        },
+        {
+            "id": 462,
+            "level": 2
+        },
+        {
+            "id": 464,
+            "level": 2
+        },
+        {
+            "id": 472,
+            "level": 2
+        },
+        {
+            "id": 478,
+            "level": 2
+        }
+    ]
+}

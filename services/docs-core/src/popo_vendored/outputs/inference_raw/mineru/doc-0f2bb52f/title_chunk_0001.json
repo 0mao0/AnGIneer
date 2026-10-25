@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        55
+    ],
+    "pages": [
+        51,
+        54,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>622<|page|>51<|box|>90 142 107 594<|content|>Appendix B: State Registration and Fee Payment Tra\n<|id|>624<|page|>51<|box|>564 143 580 197<|content|>Notes:\n<|id|>631<|page|>54<|box|>90 142 107 663<|content|>Appendix D: State-by-State Applicability Determina\n<|id|>635<|page|>55<|box|>476 142 492 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>622<|level|>1\n<|id|>624<|level|>2\n<|id|>631<|level|>1\n<|id|>635<|level|>-1",
+    "parsed": [
+        {
+            "id": 622,
+            "level": 1
+        },
+        {
+            "id": 624,
+            "level": 2
+        },
+        {
+            "id": 631,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        54,
+        70
+    ],
+    "pages": [
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        64,
+        65,
+        67,
+        68,
+        70
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>750<|type|>title<|page|>54<|box|>496 277 515 720<|content|>IV. COMPARATIVE SUMMARY TABLES\n<|id|>752<|type|>table<|page|>54<|box|>652 143 886 852<|content|>None\n<|id|>753<|type|>title<|page|>55<|box|>123 140 140 282<|content|>Notes on Timing:\n<|id|>756<|type|>table<|page|>55<|box|>422 143 694 852<|content|>None\n<|id|>757<|type|>title<|page|>55<|box|>729 140 744 348<|content|>Notes on AG Notification:\n<|id|>761<|type|>table<|page|>56<|box|>174 143 383 852<|content|>None\n<|id|>762<|type|>title<|page|>56<|box|>419 142 436 400<|content|>Notes on Content Requirements:\n<|id|>771<|type|>table<|page|>56<|box|>799 143 895 852<|content|>None\n<|id|>772<|type|>table<|page|>57<|box|>88 143 257 852<|content|>None\n<|id|>773<|type|>title<|page|>57<|box|>291 140 308 367<|content|>Notes on Credit Monitoring:\n<|id|>776<|type|>title<|page|>57<|box|>566 140 584 601<|content|>4.5 Substitute Notice Provisions — Comparative Sum\n<|id|>778<|type|>table<|page|>57<|box|>654 143 875 852<|content|>None\n<|id|>779<|type|>title<|page|>58<|box|>90 140 106 357<|content|>Notes on Substitute Notice:\n<|id|>785<|type|>table<|page|>58<|box|>393 143 761 852<|content|>None\n<|id|>786<|type|>title<|page|>58<|box|>796 142 813 403<|content|>Notes on Private Right of Action:\n<|id|>792<|type|>title<|page|>59<|box|>414 160 434 836<|content|>V. STATES OF PARTICULAR CONCERN FOR THIS INCIDENT\n<|id|>794<|type|>title<|page|>59<|box|>547 140 565 740<|content|>5.1 Tier 1 — Largest Affected Populations and Most\n<|id|>801<|type|>title<|page|>60<|box|>574 140 592 498<|content|>5.2 Tier 2 — Significant Affected Populations\n<|id|>808<|type|>title<|page|>61<|box|>285 140 301 547<|content|>5.3 Tier 3 — Shortest Deadlines (Calendar Priority\n<|id|>813<|type|>title<|page|>61<|box|>613 140 628 563<|content|>5.4 States with Insurance-Specific Data Security L\n<|id|>831<|type|>title<|page|>62<|box|>422 253 443 743<|content|>VI. RECOMMENDATIONS AND NEXT STEPS\n<|id|>832<|type|>title<|page|>62<|box|>469 140 486 486<|content|>6.1 Notification Planning Recommendations\n<|id|>861<|type|>title<|page|>64<|box|>261 140 277 320<|content|>6.2 Credit Monitoring\n<|id|>868<|type|>title<|page|>64<|box|>688 140 705 444<|content|>6.3 Substitute Notice / Website Posting\n<|id|>880<|type|>title<|page|>65<|box|>398 140 416 336<|content|>6.4 Ongoing Monitoring\n<|id|>896<|type|>title<|page|>67<|box|>90 187 135 808<|content|>APPENDIX A: REFERENCE TO COMPARATIVE MATRIX SPREAD\n<|id|>899<|type|>table<|page|>67<|box|>257 143 694 852<|content|>None\n<|id|>901<|type|>title<|page|>68<|box|>90 266 109 730<|content|>APPENDIX B: GLOSSARY OF KEY TERMS\n<|id|>920<|type|>title<|page|>70<|box|>487 197 503 797<|content|>CALDERWOOD & HARKNESS LLP Privacy & Data Security",
+    "raw_response": "<|src_id|>752<|tgt_id|>750\n<|src_id|>756<|tgt_id|>753\n<|src_id|>761<|tgt_id|>757\n<|src_id|>771<|tgt_id|>762\n<|src_id|>772<|tgt_id|>762\n<|src_id|>778<|tgt_id|>776\n<|src_id|>785<|tgt_id|>779\n<|src_id|>899<|tgt_id|>896",
+    "parsed": [
+        {
+            "src_id": 752,
+            "tgt_id": 750
+        },
+        {
+            "src_id": 756,
+            "tgt_id": 753
+        },
+        {
+            "src_id": 761,
+            "tgt_id": 757
+        },
+        {
+            "src_id": 771,
+            "tgt_id": 762
+        },
+        {
+            "src_id": 772,
+            "tgt_id": 762
+        },
+        {
+            "src_id": 778,
+            "tgt_id": 776
+        },
+        {
+            "src_id": 785,
+            "tgt_id": 779
+        },
+        {
+            "src_id": 899,
+            "tgt_id": 896
+        }
+    ]
+}

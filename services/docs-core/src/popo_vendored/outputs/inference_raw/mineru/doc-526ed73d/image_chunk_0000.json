@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 147 143 854<|content|>CONTINENTAL SHARE SERVICES, INC. 1 Ashbury Asset A\n<|id|>15<|type|>title<|page|>1<|box|>840 140 858 524<|content|>1. Appointment as Transfer Agent and Registrar\n<|id|>18<|type|>title<|page|>2<|box|>340 142 357 383<|content|>2. Description of the Securities\n<|id|>20<|type|>table<|page|>2<|box|>426 143 689 852<|content|>None\n<|id|>22<|type|>title<|page|>3<|box|>90 140 107 395<|content|>3. DTC Eligibility Confirmation\n<|id|>31<|type|>title<|page|>3<|box|>758 140 777 316<|content|>4. FAST Agent Status\n<|id|>40<|type|>title<|page|>4<|box|>433 140 450 415<|content|>5. Closing Mechanics and Delivery\n<|id|>45<|type|>title<|page|>5<|box|>223 140 239 441<|content|>6. Representations and Confirmations\n<|id|>53<|type|>title<|page|>6<|box|>90 140 107 326<|content|>7. Contact Information\n<|id|>61<|type|>title<|page|>6<|box|>422 140 439 233<|content|>8. Reliance",
+    "raw_response": "<|src_id|>20<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        }
+    ]
+}

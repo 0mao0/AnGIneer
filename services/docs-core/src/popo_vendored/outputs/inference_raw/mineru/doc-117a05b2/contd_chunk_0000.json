@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>170 460 186 535<|content|>Plaintiffs,\n<|id|>3<|page|>1<|box|>220 148 257 848<|content|>AURELIUS MEDIA AMERICAS INC. ... and DOES 1 through 50, inclusive,\n<|id|>4<|page|>1<|box|>266 452 282 542<|content|>Defendants. ... Defendants\n<|id|>5<|page|>1<|box|>292 143 309 718<|content|>Lead Case No. ... 22STCV39501)\n<|id|>6<|page|>1<|box|>316 143 335 763<|content|>Assigned for All Purposes to the Honorable Raymond Escobedo, Department 34\n<|id|>58<|page|>5<|box|>847 140 902 854<|content|>IDENTIFY each SHOW UNIT to which YOU were assigned...riod. ... (b) the dates of YOUR assignment to that\n<|id|>59<|page|>6<|box|>89 140 162 854<|content|>SHOW UNIT, including start and end dates; ... and ...hat SHOW UNIT during the period of YOUR assignment\n<|id|>75<|page|>7<|box|>845 140 901 856<|content|>IDENTIFY each specific shift or date during YOUR E...take a REST PERIOD as required by law. ... (c) the\n<|id|>76<|page|>8<|box|>90 140 219 856<|content|>SHOW UNIT to which YOU were assigned; ... and (h) ...revent YOU from taking the required REST PERIOD(s)\n<|id|>128<|page|>15<|box|>638 142 655 261<|content|>Derek Halloran\n<|id|>129<|page|>15<|box|>656 663 672 854<|content|>Dated: ... February 24, 2023\n<|id|>132<|page|>15<|box|>724 142 742 854<|content|>Devon Archer (SBN 301462) 777 South Flower Street, Suite 4200 Los Angeles, California 90017\n<|id|>133<|page|>15<|box|>741 142 758 542<|content|>Telephone: ... (213) 555-7201\n<|id|>134<|page|>15<|box|>758 142 775 455<|content|>Email: ... com\n<|id|>135<|page|>15<|box|>775 143 792 547<|content|>Attorneys for Defendant Aurelius Media Americas In...ttorneys for Defendant Aurelius Media Americas Inc\n<|id|>146<|page|>16<|box|>454 174 508 854<|content|>Marco Castellano, Esq. ... (310) 555-4800\n<|id|>147<|page|>16<|box|>517 176 532 441<|content|>Email: ... com\n<|id|>148<|page|>16<|box|>534 176 550 400<|content|>Email: ... com\n<|id|>149<|page|>16<|box|>551 176 568 390<|content|>Email: ... com\n<|id|>150<|page|>16<|box|>569 176 585 750<|content|>Attorneys for Plaintiffs Marisol Fuentes, Derek Halloran, and Yesenia Padilla\n<|id|>151<|page|>16<|box|>594 176 630 854<|content|>Sandra Higuera, Esq. ... (213) 555-3300\n<|id|>152<|page|>16<|box|>638 176 655 450<|content|>Email: ... com\n<|id|>153<|page|>16<|box|>656 174 672 750<|content|>Attorneys for Plaintiffs Marisol Fuentes, Derek Halloran, and Yesenia Padilla\n<|id|>154<|page|>16<|box|>681 140 717 854<|content|>I declare under penalty of perjury under the laws ... California that the foregoing is true and correct",
+    "raw_response": "<|src_id|>58<|tgt_id|>59\n<|src_id|>75<|tgt_id|>76",
+    "parsed": [
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 76
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "task": "table_merge",
+    "chunk_index": 7,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['8', 'Sum mit', '5/1/2 023', '3 yr (exp.', 'Auto 1-yr;', '$10.8 M', 'Proces-sing', 'Notifi cation', 'No assig', 'None', 'Cause (30-', 'Mass achus', 'LOW']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Education Corporation', '', '5/1/2026)', '90-day notice', '', '(ACH/CC), Tuition Billing, Gateway', '(20 bus. days)', 'nment w/o consent', '', 'day cure); Convenience (90-day notice after initial )', 'etts', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 717,
+    "table2_idx": 718
+}

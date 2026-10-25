@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Maturity Date', 'December 31, 2025']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Extension Option', 'One 6-month extension to June 30, 2026, subject to (a) no event of default, (b) LTV ≤ 65%, (c) DSCR ≥ 1.20x, and (d) payment of 25 bps extension fee ($600,000)']]\n",
+    "raw_response": "[0, 0]",
+    "parsed": [
+        0,
+        0
+    ],
+    "table1_idx": 32,
+    "table2_idx": 33
+}

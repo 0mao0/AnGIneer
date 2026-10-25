@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 陕西', 'III', '0.52', '0.72', '0.78']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=5, 福建', 'I', '0.53', '0.65', '0.70']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 1055,
+    "table2_idx": 1056
+}

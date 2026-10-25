@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Algorithm Design Document', 'Yes (Major)', 'Partial', 'A high-level algorithmic flow is documented, showing the general signal processing pipeline from raw sensor signal to calibrated glucose output. However, the detailed mathematical model, training data description (if machine learning or pattern recognition']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'elements exist in the algorithm), calibration methodology and calibration model parameters, signal drift compensation methodology, and edge-case handling (e.g., behavior at measurement range boundaries of 40 and 400 mg/dL) are not fully documented in a form suitable for FDA review. This is a significant gap — Gap 2 in Section VI.']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 121,
+    "table2_idx": 122
+}

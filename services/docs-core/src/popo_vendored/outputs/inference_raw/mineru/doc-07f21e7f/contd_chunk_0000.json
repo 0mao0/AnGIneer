@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 330 133 668<|content|>599 Lexington Avenue New York, NY 10022\n<|id|>2<|page|>1<|box|>142 181 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 733 184 854<|content|>March 10, 2022\n<|id|>4<|page|>1<|box|>193 633 210 854<|content|>Firm Matter No. ... 1015-00001\n<|id|>5<|page|>1<|box|>219 140 237 462<|content|>VIA EMAIL AND Sundial Data Systems\n<|id|>6<|page|>1<|box|>244 140 281 854<|content|>Sandra Haverford, Esq. ... 4200 Ridgeline Parkway, Suite 1100 Austin, TX 78746\n<|id|>7<|page|>1<|box|>289 140 306 300<|content|>Dear Ms. ... Haverford\n<|id|>98<|page|>12<|box|>464 142 479 308<|content|>Name: ... Jennifer Kwon\n<|id|>99<|page|>12<|box|>481 142 498 416<|content|>Title: ... Partner — Responsible Partner\n<|id|>100<|page|>12<|box|>500 143 516 253<|content|>By: ... By\n<|id|>101<|page|>12<|box|>516 142 532 344<|content|>Name: ... Theodore Langston\n<|id|>102<|page|>12<|box|>534 142 549 380<|content|>Title: ... Partner — Billing Partner\n<|id|>103<|page|>12<|box|>550 143 566 379<|content|>AGREED AND ACCEPTED: ... AGREED AND ACCEPTED\n<|id|>106<|page|>12<|box|>619 140 636 331<|content|>Name: ... Sandra Haverford\n<|id|>107<|page|>12<|box|>636 140 654 480<|content|>Title: ... General Counsel & Corporate Secretary\n<|id|>108<|page|>12<|box|>654 142 670 308<|content|>Date: ... March 10, 2022\n<|id|>109<|page|>12<|box|>672 143 686 233<|content|>Enclosure: ... Enclosure\n<|id|>110<|page|>12<|box|>696 176 714 633<|content|>Schedule of Standard Hourly Rates (referenced in Section 3. ... 2)\n<|id|>111<|page|>12<|box|>723 140 739 254<|content|>cc: ... (via email)\n<|id|>112<|page|>12<|box|>748 174 766 838<|content|>Garrett Calloway, Chairman & Chief Executive Offic... Executive Officer, Calloway-Briggs Renewables Inc",
+    "raw_response": "<|src_id|>109<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        }
+    ]
+}

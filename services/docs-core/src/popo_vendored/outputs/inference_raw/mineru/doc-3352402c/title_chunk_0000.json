@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 200 106 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>2<|page|>1<|box|>198 176 234 820<|content|>CALDERWOOD & HARKNESS LLP Meeting Notes — Conferen\n<|id|>14<|page|>1<|box|>529 434 549 563<|content|>1. Attendees\n<|id|>15<|page|>1<|box|>573 142 590 287<|content|>1.1 IRS Attendees\n<|id|>21<|page|>2<|box|>90 142 107 408<|content|>1.2 Taxpayer / Counsel Attendees\n<|id|>27<|page|>2<|box|>392 303 412 692<|content|>2. Purpose and Background of the Call\n<|id|>32<|page|>3<|box|>263 254 284 741<|content|>3. Dr. Washburne's Presentation of Methodology\n<|id|>33<|page|>3<|box|>309 140 325 352<|content|>3.1 Overview of Approach\n<|id|>39<|page|>4<|box|>89 140 107 442<|content|>3.2 PCT Valuation — Income Method\n<|id|>58<|page|>6<|box|>90 140 107 434<|content|>3.3 CSA Cost-Sharing Ratio Analysis\n<|id|>74<|page|>8<|box|>90 140 107 558<|content|>3.4 Legacy IP Royalty Rate Analysis — CUT Method\n<|id|>89<|page|>9<|box|>656 140 672 560<|content|>3.5 Correlative Offset and Interaction of Adjustme\n<|id|>94<|page|>10<|box|>267 140 284 537<|content|>3.6 discount Rate Discussion — Detailed Exchange\n<|id|>108<|page|>11<|box|>719 326 739 669<|content|>4. Economic Substance Discussion\n<|id|>119<|page|>13<|box|>154 302 174 694<|content|>5. Discussion of Penalty Considerations\n<|id|>124<|page|>13<|box|>643 297 664 699<|content|>6. Procedural Discussion and Next Steps\n<|id|>126<|page|>13<|box|>762 140 779 848<|content|>Note: The Notice of Proposed Adjustment (NOPA) was\n<|id|>132<|page|>14<|box|>359 258 378 738<|content|>7. C&H Internal Observations and Action Items\n<|id|>134<|page|>14<|box|>479 140 497 315<|content|>7.1 Key Observations\n<|id|>140<|page|>15<|box|>593 140 609 276<|content|>7.2 Action Items\n<|id|>153<|page|>16<|box|>731 423 750 573<|content|>8. Distribution\n<|id|>155<|page|>16<|box|>794 140 810 385<|content|>Calderwood & Harkness LLP:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>21<|level|>3\n<|id|>27<|level|>2\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>39<|level|>3\n<|id|>58<|level|>3\n<|id|>74<|level|>3\n<|id|>89<|level|>3\n<|id|>94<|level|>3\n<|id|>108<|level|>2\n<|id|>119<|level|>2\n<|id|>124<|level|>2\n<|id|>126<|level|>-1\n<|id|>132<|level|>2\n<|id|>134<|level|>3\n<|id|>140<|level|>3\n<|id|>153<|level|>2\n<|id|>155<|level|>3",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 3
+        }
+    ]
+}

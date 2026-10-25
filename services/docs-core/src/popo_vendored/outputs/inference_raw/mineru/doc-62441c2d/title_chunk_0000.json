@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 178 143 818<|content|>SECRETARY'S CERTIFICATE OF CEDARPOINT SYSTEMS INTE\n<|id|>7<|page|>1<|box|>678 142 695 310<|content|>1. Board Resolutions\n<|id|>11<|page|>2<|box|>304 140 321 475<|content|>2. Certificate of Incorporation and Bylaws\n<|id|>15<|page|>2<|box|>642 140 659 390<|content|>3. Certificate of Good Standing\n<|id|>17<|page|>2<|box|>801 140 816 349<|content|>4. Incumbency Certificate\n<|id|>23<|page|>3<|box|>481 142 500 763<|content|>[Remainder of page intentionally left blank; signa\n<|id|>24<|page|>3<|box|>507 161 542 834<|content|>SIGNATURE PAGE TO SECRETARY'S CERTIFICATE CEDARPOI\n<|id|>32<|page|>3<|box|>708 143 724 305<|content|>Address for Notices:\n<|id|>35<|page|>3<|box|>816 142 833 439<|content|>NOTARIAL ACKNOWLEDGMENT\n<|id|>36<|page|>3<|box|>842 140 859 635<|content|>COMMONWEALTH OF VIRGINIA COUNTY OF FAIRFAX\n<|id|>41<|page|>5<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>42<|page|>5<|box|>135 289 152 707<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS\n<|id|>43<|page|>5<|box|>176 483 195 514<|content|>OF\n<|id|>44<|page|>5<|box|>218 300 234 696<|content|>CEDARPOINT SYSTEMS INTEGRATION, INC.\n<|id|>76<|page|>9<|box|>90 437 109 560<|content|>EXHIBIT B\n<|id|>77<|page|>9<|box|>136 338 152 658<|content|>CERTIFICATE OF INCORPORATION\n<|id|>78<|page|>9<|box|>176 483 194 514<|content|>OF\n<|id|>79<|page|>9<|box|>218 300 234 694<|content|>CEDARPOINT SYSTEMS INTEGRATION, INC.\n<|id|>80<|page|>9<|box|>258 410 276 586<|content|>(As Amended to Date)\n<|id|>86<|page|>10<|box|>89 434 111 562<|content|>EXHIBIT C\n<|id|>87<|page|>10<|box|>135 455 154 542<|content|>BYLAWS\n<|id|>88<|page|>10<|box|>176 483 194 514<|content|>OF\n<|id|>89<|page|>10<|box|>217 300 234 694<|content|>CEDARPOINT SYSTEMS INTEGRATION, INC.\n<|id|>90<|page|>10<|box|>258 410 277 588<|content|>(As Amended to Date)\n<|id|>94<|page|>11<|box|>90 434 109 562<|content|>EXHIBIT D\n<|id|>95<|page|>11<|box|>135 338 152 658<|content|>CERTIFICATE OF GOOD STANDING\n<|id|>96<|page|>11<|box|>176 300 194 694<|content|>CEDARPOINT SYSTEMS INTEGRATION, INC.\n<|id|>97<|page|>11<|box|>219 426 234 570<|content|>State of Delaware",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>23<|level|>-1\n<|id|>24<|level|>1\n<|id|>32<|level|>2\n<|id|>35<|level|>1\n<|id|>36<|level|>2\n<|id|>41<|level|>1\n<|id|>42<|level|>2\n<|id|>43<|level|>2\n<|id|>44<|level|>2\n<|id|>76<|level|>1\n<|id|>77<|level|>2\n<|id|>78<|level|>2\n<|id|>79<|level|>2\n<|id|>80<|level|>2\n<|id|>86<|level|>1\n<|id|>87<|level|>2\n<|id|>88<|level|>2\n<|id|>89<|level|>2\n<|id|>90<|level|>2\n<|id|>94<|level|>1\n<|id|>95<|level|>2\n<|id|>96<|level|>2\n<|id|>97<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        }
+    ]
+}

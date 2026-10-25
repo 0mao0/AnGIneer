@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 259 118 736<|content|>MUTUAL NON-DISCLOSURE AGREEMENT\n<|id|>7<|page|>1<|box|>452 142 470 243<|content|>RECITALS\n<|id|>13<|page|>2<|box|>89 142 107 390<|content|>SECTION 1 — DEFINITIONS\n<|id|>25<|page|>3<|box|>358 140 375 604<|content|>SECTION 2 — OBLIGATIONS OF CONFIDENTIALITY\n<|id|>26<|page|>3<|box|>383 142 402 598<|content|>2.1 Non-Disclosure and Non-Use. The Receiving Part\n<|id|>33<|page|>4<|box|>186 140 203 730<|content|>SECTION 3 — EXCLUSIONS FROM CONFIDENTIAL INFORMATI\n<|id|>40<|page|>4<|box|>693 140 710 508<|content|>SECTION 4 — COMPELLED DISCLOSURE\n<|id|>46<|page|>5<|box|>329 140 347 838<|content|>SECTION 5 — RETURN AND DESTRUCTION OF CONFIDENTIAL\n<|id|>50<|page|>5<|box|>561 142 579 833<|content|>5.2 Retained Copies Exception. Notwithstanding Sec\n<|id|>56<|page|>6<|box|>148 140 166 557<|content|>SECTION 6 — NO LICENSE OR OTHER RIGHTS\n<|id|>60<|page|>6<|box|>469 140 486 410<|content|>SECTION 7 — NO WARRANTY\n<|id|>63<|page|>6<|box|>782 140 799 504<|content|>SECTION 8 — TERM AND TERMINATION\n<|id|>68<|page|>7<|box|>321 140 338 367<|content|>SECTION 9 — REMEDIES\n<|id|>71<|page|>7<|box|>652 140 669 460<|content|>SECTION 10 — NON-SOLICITATION\n<|id|>75<|page|>8<|box|>148 140 166 393<|content|>SECTION 11 — STANDSTILL\n<|id|>77<|page|>8<|box|>417 140 434 361<|content|>SECTION 12 — NOTICES\n<|id|>79<|page|>8<|box|>580 142 597 385<|content|>If to Northgate Americas, Inc.:\n<|id|>84<|page|>8<|box|>719 140 736 475<|content|>If to Cedarpoint Systems Integration, Inc.:\n<|id|>88<|page|>9<|box|>89 140 106 485<|content|>SECTION 13 — GENERAL PROVISIONS\n<|id|>97<|page|>10<|box|>479 400 497 596<|content|>[Signature Page Follows]\n<|id|>98<|page|>10<|box|>503 210 521 784<|content|>SIGNATURE PAGE TO MUTUAL NON-DISCLOSURE AGREEMENT\n<|id|>100<|page|>10<|box|>593 142 609 413<|content|>NORTHGATE AMERICAS, INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>33<|level|>2\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>3\n<|id|>56<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>-1\n<|id|>84<|level|>-1\n<|id|>88<|level|>2\n<|id|>97<|level|>-1\n<|id|>98<|level|>1\n<|id|>100<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 2
+        }
+    ]
+}

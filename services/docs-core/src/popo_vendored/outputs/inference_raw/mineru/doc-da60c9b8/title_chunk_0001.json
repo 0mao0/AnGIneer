@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        55,
+        65
+    ],
+    "pages": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        62,
+        63,
+        64,
+        65
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>603<|page|>55<|box|>89 380 106 617<|content|>SCHEDULE OF PARTNERS\n<|id|>606<|page|>56<|box|>89 437 107 560<|content|>SCHEDULE B\n<|id|>607<|page|>56<|box|>130 431 148 566<|content|>KEY PERSONS\n<|id|>609<|page|>56<|box|>200 142 218 343<|content|>1. Marcus J. Harrowgate\n<|id|>613<|page|>56<|box|>414 142 430 321<|content|>2. Diana R. Castellano\n<|id|>617<|page|>57<|box|>89 437 107 560<|content|>SCHEDULE C\n<|id|>618<|page|>57<|box|>131 359 148 637<|content|>GP CLAWBACK GUARANTORS\n<|id|>622<|page|>58<|box|>89 437 107 560<|content|>SCHEDULE D\n<|id|>623<|page|>58<|box|>131 315 148 683<|content|>INVESTMENT RESTRICTIONS SUMMARY\n<|id|>627<|page|>59<|box|>89 437 107 560<|content|>SCHEDULE E\n<|id|>630<|page|>62<|box|>89 447 107 552<|content|>EXHIBIT A\n<|id|>631<|page|>62<|box|>130 344 148 653<|content|>FORM OF CAPITAL CALL NOTICE\n<|id|>633<|page|>63<|box|>90 447 107 550<|content|>EXHIBIT B\n<|id|>634<|page|>63<|box|>131 346 148 651<|content|>FORM OF DISTRIBUTION NOTICE\n<|id|>636<|page|>64<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>637<|page|>64<|box|>131 339 148 656<|content|>FORM OF TRANSFER AGREEMENT\n<|id|>639<|page|>65<|box|>89 447 107 552<|content|>EXHIBIT D\n<|id|>640<|page|>65<|box|>131 321 148 676<|content|>FORM OF SUBSCRIPTION AGREEMENT",
+    "raw_response": "<|id|>603<|level|>1\n<|id|>606<|level|>1\n<|id|>607<|level|>2\n<|id|>609<|level|>3\n<|id|>613<|level|>3\n<|id|>617<|level|>1\n<|id|>618<|level|>2\n<|id|>622<|level|>1\n<|id|>623<|level|>2\n<|id|>627<|level|>1\n<|id|>630<|level|>1\n<|id|>631<|level|>2\n<|id|>633<|level|>1\n<|id|>634<|level|>2\n<|id|>636<|level|>1\n<|id|>637<|level|>2\n<|id|>639<|level|>1\n<|id|>640<|level|>2",
+    "parsed": [
+        {
+            "id": 603,
+            "level": 1
+        },
+        {
+            "id": 606,
+            "level": 1
+        },
+        {
+            "id": 607,
+            "level": 2
+        },
+        {
+            "id": 609,
+            "level": 3
+        },
+        {
+            "id": 613,
+            "level": 3
+        },
+        {
+            "id": 617,
+            "level": 1
+        },
+        {
+            "id": 618,
+            "level": 2
+        },
+        {
+            "id": 622,
+            "level": 1
+        },
+        {
+            "id": 623,
+            "level": 2
+        },
+        {
+            "id": 627,
+            "level": 1
+        },
+        {
+            "id": 630,
+            "level": 1
+        },
+        {
+            "id": 631,
+            "level": 2
+        },
+        {
+            "id": 633,
+            "level": 1
+        },
+        {
+            "id": 634,
+            "level": 2
+        },
+        {
+            "id": 636,
+            "level": 1
+        },
+        {
+            "id": 637,
+            "level": 2
+        },
+        {
+            "id": 639,
+            "level": 1
+        },
+        {
+            "id": 640,
+            "level": 2
+        }
+    ]
+}

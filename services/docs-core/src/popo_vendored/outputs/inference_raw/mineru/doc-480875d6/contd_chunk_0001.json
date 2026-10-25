@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        48,
+        96
+    ],
+    "pages": [
+        49,
+        81,
+        91,
+        93,
+        95
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>163<|page|>49<|box|>533 0 561 455<|content|>/ Includes \\$2,421 million of the 7-3/4% notes and...subscriptions allotted could be made in cash or in\n<|id|>164<|page|>49<|box|>561 0 586 463<|content|>Treasury bonds or notes maturing on the issue date...ds or notes maturing on issue date of new security\n<|id|>262<|page|>81<|box|>120 0 310 431<|content|>The monthly Treasury Survey of Ownership covers se...ished for banks and insurance companies in the May\n<|id|>263<|page|>81<|box|>119 501 176 965<|content|>1941 Treasury Bulletin, for corporations and savin...nd local governments in the February 1962 Bulletin\n<|id|>295<|page|>91<|box|>799 1 828 436<|content|>Treasury series based on reoffering yields of new ...s Investors Service. ... Currently 5 years of call\n<|id|>296<|page|>91<|box|>763 484 791 960<|content|>3/ Index of new issue reoffering yields on Aa 20 y...kly series are not available prior to January 1970\n<|id|>300<|page|>93<|box|>82 185 99 800<|content|>Table ESF-1. ... - Balance Sheets as of June 30, 1971 and December 31, 1971 p\n<|id|>304<|page|>95<|box|>123 0 192 448<|content|>The tables in this section are designed to provide...ulletin to increase the usefulness of this section\n<|id|>316<|page|>95<|box|>900 0 913 463<|content|>5/ The United States has the right to purchase foreign currencies equiva-\n<|id|>317<|page|>95<|box|>766 493 874 977<|content|>lent to its reserve position in the Fund automatic...eeded. ... See also footnotes 3 and 4, Table IFS-4",
+    "raw_response": "<|src_id|>163<|tgt_id|>164\n<|src_id|>262<|tgt_id|>263\n<|src_id|>316<|tgt_id|>317",
+    "parsed": [
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 262,
+            "tgt_id": 263
+        },
+        {
+            "src_id": 316,
+            "tgt_id": 317
+        }
+    ]
+}

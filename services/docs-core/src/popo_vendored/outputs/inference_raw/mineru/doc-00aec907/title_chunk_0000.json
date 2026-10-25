@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        8,
+        22
+    ],
+    "pages": [
+        8,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>26<|page|>8<|box|>86 87 101 295<|content|>SWIFT CodReferenceNotes\n<|id|>68<|page|>22<|box|>86 556 101 608<|content|>Notes",
+    "raw_response": "<|id|>26<|level|>1\n<|id|>68<|level|>1",
+    "parsed": [
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        }
+    ]
+}

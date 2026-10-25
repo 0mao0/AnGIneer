@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 297 118 700<|content|>OFFICER'S CLOSING CERTIFICATE\n<|id|>1<|type|>title<|page|>1<|box|>135 148 171 848<|content|>Delivered pursuant to Section 4.01(f) of the Maste\n<|id|>7<|type|>title<|page|>1<|box|>339 140 358 243<|content|>RECITALS\n<|id|>13<|type|>title<|page|>2<|box|>193 140 210 602<|content|>SECTION 1. REPRESENTATIONS AND WARRANTIES\n<|id|>19<|type|>title<|page|>3<|box|>89 140 107 370<|content|>SECTION 2. NO DEFAULT\n<|id|>23<|type|>title<|page|>3<|box|>318 140 335 483<|content|>SECTION 3. CONDITIONS PRECEDENT\n<|id|>37<|type|>title<|page|>4<|box|>699 140 715 591<|content|>SECTION 4. FINANCIAL COVENANT COMPLIANCE\n<|id|>39<|type|>title<|page|>5<|box|>89 142 108 424<|content|>4(a). Minimum Tangible Net Worth\n<|id|>41<|type|>title<|page|>5<|box|>194 176 212 671<|content|>Actual Tangible Net Worth as of the Closing Date:\n<|id|>43<|type|>title<|page|>5<|box|>356 176 375 444<|content|>Compliance Status: In compliance.\n<|id|>44<|type|>title<|page|>5<|box|>387 142 404 343<|content|>4(b). Minimum Liquidity\n<|id|>46<|type|>title<|page|>5<|box|>491 176 508 828<|content|>Actual Unrestricted Cash and Cash Equivalents as o\n<|id|>48<|type|>title<|page|>5<|box|>633 176 652 444<|content|>Compliance Status: In compliance.\n<|id|>49<|type|>title<|page|>5<|box|>666 142 683 390<|content|>4(c). Maximum Leverage Ratio\n<|id|>51<|type|>title<|page|>5<|box|>768 176 787 609<|content|>Actual Leverage Ratio as of the Closing Date: 2.37\n<|id|>54<|type|>title<|page|>6<|box|>121 142 138 455<|content|>4(d). Minimum Servicing Portfolio UPB\n<|id|>58<|type|>title<|page|>6<|box|>332 176 349 444<|content|>Compliance Status: In compliance.\n<|id|>59<|type|>table<|page|>6<|box|>400 143 523 852<|content|>None\n<|id|>60<|type|>title<|page|>6<|box|>574 140 590 531<|content|>SECTION 5. ADDITIONAL CERTIFICATIONS\n<|id|>67<|type|>title<|page|>7<|box|>666 140 683 655<|content|>SECTION 6. ORGANIZATIONAL DOCUMENTS DELIVERED\n<|id|>69<|type|>title<|page|>7<|box|>843 140 859 348<|content|>SECTION 7. RELIANCE\n<|id|>73<|type|>title<|page|>8<|box|>351 140 369 647<|content|>[Remainder of page intentionally left blank; signa\n<|id|>75<|type|>title<|page|>8<|box|>421 142 436 429<|content|>SBF WAREHOUSE I LLC, as Seller\n<|id|>85<|type|>title<|page|>9<|box|>89 142 107 266<|content|>SCHEDULE A\n<|id|>86<|type|>title<|page|>9<|box|>114 294 132 702<|content|>ORGANIZATIONAL DOCUMENTS DELIVERED\n<|id|>88<|type|>table<|page|>9<|box|>220 143 897 852<|content|>None\n<|id|>89<|type|>table<|page|>10<|box|>89 143 498 851<|content|>None",
+    "raw_response": "<|src_id|>59<|tgt_id|>54\n<|src_id|>88<|tgt_id|>86\n<|src_id|>89<|tgt_id|>86",
+    "parsed": [
+        {
+            "src_id": 59,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 86
+        }
+    ]
+}

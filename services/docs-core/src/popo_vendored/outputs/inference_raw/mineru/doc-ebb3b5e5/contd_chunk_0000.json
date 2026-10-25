@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>30<|page|>1<|box|>763 163 778 875<|content|>Initial Pur Ridgeline Writen acRidgeline 2022-06-3PENDING Ridgeline: ... 399 Park Avenue Sou\n<|id|>31<|page|>1<|box|>781 163 797 877<|content|>Initial Pur Ridgeline SLeters fr Ridgeline S2022-06-3PENDING —Book-building not completed; ... o\n<|id|>35<|page|>1<|box|>887 164 903 877<|content|>MiscellanePreliminarConfirmatiCalderwoo2022-06-0COMPLETEDFinal version distributed; ... no fin\n<|id|>36<|page|>2<|box|>85 87 137 875<|content|>25MiscellaneEvidence oCertificat Greenfield2022-06...alderwood2022-06-3NOT STAR Moot due to termination\n<|id|>37<|page|>6<|box|>84 85 903 878<|content|>FieldValue Transactio$30,000,000 Rule 144A Private...R$50,000 (Purchase Agreement §7) GoverningNew York\n<|id|>38<|page|>7<|box|>86 87 102 581<|content|>Securities Securities Act Section 4(a)(2); ... Rule 144A resale to QIBs\n<|id|>39<|page|>7<|box|>104 87 120 389<|content|>Targeted CJune 30, 2022 (not achieved)\n<|id|>40<|page|>7<|box|>121 87 137 450<|content|>Ofering StPULLED AT LAUNCH — June 28, 2022\n<|id|>41<|page|>7<|box|>139 87 155 566<|content|>Terminati Ridgeline exercised §9(b) market-out on July 1, 2022\n<|id|>42<|page|>7<|box|>158 87 173 270<|content|>Mater CloJuly 15, 2022\n<|id|>43<|page|>9<|box|>87 85 405 438<|content|>DateEvent ResponsiblStatus 2022-02-2Mater opeCalde...woodCOMPLETED 2022-07-1Mater forCalderwooCOMPLETED\n<|id|>45<|page|>10<|box|>102 85 229 875<|content|>Issuer's CoCalderwoo$385,000 Through termination; ... + $15,000 + $75,000 + $22,000 + $18,000 = $725,00\n<|id|>46<|page|>10<|box|>244 85 282 877<|content|>PlacementRidgeline S$02. ... cap of $50,000 for out-of-pocket expenses r",
+    "raw_response": "<|src_id|>37<|tgt_id|>38",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        }
+    ]
+}

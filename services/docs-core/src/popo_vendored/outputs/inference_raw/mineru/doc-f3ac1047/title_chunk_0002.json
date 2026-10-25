@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        110,
+        112
+    ],
+    "pages": [
+        110,
+        111,
+        112
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>594<|page|>110<|box|>176 122 201 569<|content|>3 投资估算费用标准和计算方法\n<|id|>595<|page|>110<|box|>261 121 279 324<|content|>3.1 建筑安装工程费\n<|id|>602<|page|>110<|box|>667 142 684 487<|content|>3.1.2 人工费、材料费相关说明如下：\n<|id|>609<|page|>111<|box|>165 104 181 396<|content|>3.1.4 工程类别划分说明如下：\n<|id|>612<|page|>111<|box|>250 105 267 376<|content|>3.1.6 措施费相关说明如下：\n<|id|>613<|page|>111<|box|>271 126 289 307<|content|>1 冬季施工增加费\n<|id|>615<|page|>111<|box|>549 124 566 307<|content|>2 雨季施工增加费\n<|id|>617<|page|>111<|box|>656 122 673 347<|content|>4 特殊地区施工增加费\n<|id|>619<|page|>111<|box|>847 102 866 223<|content|>3.1.8 规费\n<|id|>621<|page|>112<|box|>104 147 121 321<|content|>3.1.11 专项费用\n<|id|>627<|page|>112<|box|>281 129 298 391<|content|>3.2 土地使用及拆迁补偿费\n<|id|>629<|page|>112<|box|>415 129 434 332<|content|>3.3 工程建设其他费\n<|id|>631<|page|>112<|box|>548 149 566 502<|content|>3.3.2 建设项目管理费相关说明如下：\n<|id|>635<|page|>112<|box|>745 171 763 443<|content|>3 工程监理费相关说明如下：\n<|id|>637<|page|>112<|box|>853 152 872 546<|content|>3.3.4 建设项目前期工作费相关说明如下：",
+    "raw_response": "<|id|>594<|level|>1\n<|id|>595<|level|>2\n<|id|>602<|level|>3\n<|id|>609<|level|>3\n<|id|>612<|level|>3\n<|id|>613<|level|>4\n<|id|>615<|level|>4\n<|id|>617<|level|>4\n<|id|>619<|level|>3\n<|id|>621<|level|>3\n<|id|>627<|level|>2\n<|id|>629<|level|>2\n<|id|>631<|level|>3\n<|id|>635<|level|>3\n<|id|>637<|level|>3",
+    "parsed": [
+        {
+            "id": 594,
+            "level": 1
+        },
+        {
+            "id": 595,
+            "level": 2
+        },
+        {
+            "id": 602,
+            "level": 3
+        },
+        {
+            "id": 609,
+            "level": 3
+        },
+        {
+            "id": 612,
+            "level": 3
+        },
+        {
+            "id": 613,
+            "level": 4
+        },
+        {
+            "id": 615,
+            "level": 4
+        },
+        {
+            "id": 617,
+            "level": 4
+        },
+        {
+            "id": 619,
+            "level": 3
+        },
+        {
+            "id": 621,
+            "level": 3
+        },
+        {
+            "id": 627,
+            "level": 2
+        },
+        {
+            "id": 629,
+            "level": 2
+        },
+        {
+            "id": 631,
+            "level": 3
+        },
+        {
+            "id": 635,
+            "level": 3
+        },
+        {
+            "id": 637,
+            "level": 3
+        }
+    ]
+}

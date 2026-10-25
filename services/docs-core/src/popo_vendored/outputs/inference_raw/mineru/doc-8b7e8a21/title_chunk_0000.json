@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>561 140 579 434<|content|>1. Purpose and Scope of Engagement\n<|id|>23<|page|>4<|box|>90 142 107 339<|content|>1.2 Limitations on Scope\n<|id|>29<|page|>4<|box|>771 140 789 230<|content|>2. Staffing\n<|id|>39<|page|>6<|box|>90 140 107 310<|content|>3. Fee Arrangements\n<|id|>40<|page|>6<|box|>121 140 138 279<|content|>3.1 Hourly Rates\n<|id|>48<|page|>6<|box|>470 140 488 400<|content|>3.2 Disbursements and Expenses\n<|id|>58<|page|>7<|box|>90 140 107 334<|content|>3.3 Billing and Payment\n<|id|>62<|page|>7<|box|>378 140 397 315<|content|>3.4 Estimated Budget\n<|id|>65<|page|>7<|box|>744 140 761 372<|content|>4. Identification of the Client\n<|id|>68<|page|>8<|box|>267 140 284 415<|content|>5. Conflicts of Interest and Waiver\n<|id|>69<|page|>8<|box|>297 140 314 328<|content|>5.1 Conflicts Clearance\n<|id|>71<|page|>8<|box|>444 140 460 653<|content|>5.2 Elkhorn Capital Markets — Dual Role Disclosure\n<|id|>77<|page|>9<|box|>275 140 292 305<|content|>5.3 Advance Waiver\n<|id|>79<|page|>9<|box|>523 140 540 390<|content|>6. Confidentiality and Privilege\n<|id|>83<|page|>10<|box|>148 140 167 326<|content|>7. Document Retention\n<|id|>86<|page|>10<|box|>425 140 443 385<|content|>8. Termination of Engagement\n<|id|>90<|page|>10<|box|>819 140 835 287<|content|>9. Governing Law\n<|id|>92<|page|>11<|box|>167 142 184 390<|content|>10. Counterparty Identification\n<|id|>110<|page|>12<|box|>90 142 107 388<|content|>11. Acceptance and Agreement\n<|id|>115<|page|>12<|box|>364 140 382 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>120<|page|>12<|box|>484 142 501 534<|content|>NORTHGATE TELECOMMUNICATIONS PLC\n<|id|>127<|page|>12<|box|>627 142 638 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>1\n<|id|>23<|level|>2\n<|id|>29<|level|>1\n<|id|>39<|level|>1\n<|id|>40<|level|>2\n<|id|>48<|level|>2\n<|id|>58<|level|>2\n<|id|>62<|level|>2\n<|id|>65<|level|>1\n<|id|>68<|level|>1\n<|id|>69<|level|>2\n<|id|>71<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>1\n<|id|>83<|level|>1\n<|id|>86<|level|>1\n<|id|>90<|level|>1\n<|id|>92<|level|>1\n<|id|>110<|level|>1\n<|id|>115<|level|>2\n<|id|>120<|level|>2\n<|id|>127<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        }
+    ]
+}

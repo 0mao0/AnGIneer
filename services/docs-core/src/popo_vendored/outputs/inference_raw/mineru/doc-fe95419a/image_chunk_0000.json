@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 277 107 720<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>6<|type|>title<|page|>1<|box|>297 140 314 442<|content|>1. Purpose and Engagement Overview\n<|id|>9<|type|>title<|page|>1<|box|>609 142 628 333<|content|>2. Scope of Engagement\n<|id|>10<|type|>title<|page|>1<|box|>641 140 657 352<|content|>2.1 Description of Services\n<|id|>23<|type|>title<|page|>3<|box|>375 140 391 318<|content|>2.2 Opinion Standard\n<|id|>26<|type|>title<|page|>3<|box|>766 140 782 339<|content|>2.3 Limitations on Scope\n<|id|>37<|type|>title<|page|>4<|box|>804 140 821 455<|content|>2.4 Transaction Description (Summary)\n<|id|>44<|type|>title<|page|>5<|box|>747 140 763 228<|content|>3. Staffing\n<|id|>45<|type|>table<|page|>5<|box|>797 143 892 852<|content|>None\n<|id|>51<|type|>title<|page|>6<|box|>506 140 523 405<|content|>4. Fees and Billing Arrangements\n<|id|>52<|type|>title<|page|>6<|box|>537 140 554 279<|content|>4.1 Hourly Rates\n<|id|>54<|type|>table<|page|>6<|box|>603 143 678 852<|content|>None\n<|id|>56<|type|>title<|page|>6<|box|>835 142 852 250<|content|>4.2 Rate Cap\n<|id|>60<|type|>title<|page|>7<|box|>257 140 273 379<|content|>4.3 Estimated Hours and Fees\n<|id|>62<|type|>table<|page|>7<|box|>359 143 498 852<|content|>None\n<|id|>64<|type|>title<|page|>7<|box|>654 142 671 400<|content|>4.4 Disbursements and Expenses\n<|id|>73<|type|>title<|page|>8<|box|>176 140 194 334<|content|>4.5 Billing and Payment\n<|id|>78<|type|>title<|page|>8<|box|>484 140 501 480<|content|>5. Client Representations and Assumptions\n<|id|>83<|type|>title<|page|>9<|box|>222 140 239 284<|content|>6. Confidentiality\n<|id|>90<|type|>title<|page|>9<|box|>804 140 821 321<|content|>7. Conflicts of Interest\n<|id|>103<|type|>title<|page|>10<|box|>479 140 497 573<|content|>8. No Guarantee of Outcome; Tax Authority Challeng\n<|id|>108<|type|>title<|page|>11<|box|>229 140 248 504<|content|>9. Pinnacle Growth Equity Partners Approval\n<|id|>111<|type|>title<|page|>11<|box|>542 142 560 274<|content|>10. Termination\n<|id|>115<|type|>title<|page|>12<|box|>90 140 107 334<|content|>11. Document Retention\n<|id|>118<|type|>title<|page|>12<|box|>348 140 364 480<|content|>12. Governing Law and Dispute Resolution\n<|id|>121<|type|>title<|page|>12<|box|>679 142 696 380<|content|>13. Acceptance and Execution\n<|id|>126<|type|>title<|page|>13<|box|>159 140 176 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>136<|type|>title<|page|>13<|box|>349 140 367 637<|content|>SOLSTICE BIOMEDICAL DEVICES LTD. (CRO No. 587241)\n<|id|>141<|type|>title<|page|>13<|box|>465 142 484 233<|content|>Enclosures",
+    "raw_response": "<|src_id|>45<|tgt_id|>44\n<|src_id|>54<|tgt_id|>52\n<|src_id|>62<|tgt_id|>60",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        }
+    ]
+}

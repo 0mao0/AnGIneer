@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 209 142 787<|content|>SECRETARY'S CERTIFICATE OF CASCADE RETAIL OPERATIN\n<|id|>6<|page|>1<|box|>579 140 595 416<|content|>Section 1. Certificate of Formation\n<|id|>10<|page|>2<|box|>148 140 167 529<|content|>Section 2. Limited Liability Company Agreement\n<|id|>14<|page|>2<|box|>450 140 469 388<|content|>Section 3. Member Resolutions\n<|id|>24<|page|>3<|box|>527 140 544 408<|content|>Section 4. Incumbency Certificate\n<|id|>31<|page|>4<|box|>356 140 373 419<|content|>Section 5. Additional Certifications\n<|id|>42<|page|>5<|box|>305 142 321 390<|content|>COUNTER-CERTIFICATION\n<|id|>49<|page|>6<|box|>162 153 224 839<|content|>STATE OF DELAWARE SECRETARY OF STATE DIVISION OF C\n<|id|>60<|page|>7<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>61<|page|>7<|box|>114 174 178 821<|content|>Limited Liability Company Agreement of Cascade Ret\n<|id|>62<|page|>7<|box|>186 379 203 617<|content|>Dated as of September 12, 2018\n<|id|>64<|page|>7<|box|>297 142 314 415<|content|>ARTICLE I — ORGANIZATION\n<|id|>71<|page|>7<|box|>737 142 753 506<|content|>ARTICLE II — MEMBERSHIP INTERESTS\n<|id|>75<|page|>8<|box|>157 140 174 419<|content|>ARTICLE III — MANAGEMENT\n<|id|>80<|page|>8<|box|>729 140 744 674<|content|>ARTICLE IV — CAPITAL CONTRIBUTIONS; DISTRIBUTIONS\n<|id|>83<|page|>9<|box|>138 140 156 637<|content|>ARTICLE V — ALLOCATIONS OF PROFITS AND LOSSES\n<|id|>85<|page|>9<|box|>212 140 229 408<|content|>ARTICLE VI — DISSOLUTION\n<|id|>87<|page|>9<|box|>321 142 338 447<|content|>ARTICLE VII — MISCELLANEOUS\n<|id|>96<|page|>10<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>97<|page|>10<|box|>114 145 176 851<|content|>Written Consent of the Sole Member of Cascade Reta\n<|id|>123<|page|>13<|box|>89 447 107 550<|content|>EXHIBIT D\n<|id|>124<|page|>13<|box|>114 143 159 852<|content|>Incumbency Certificate of Cascade Retail Operating",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>42<|level|>2\n<|id|>49<|level|>-1\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>62<|level|>-1\n<|id|>64<|level|>4\n<|id|>71<|level|>4\n<|id|>75<|level|>4\n<|id|>80<|level|>4\n<|id|>83<|level|>4\n<|id|>85<|level|>4\n<|id|>87<|level|>4\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>123<|level|>2\n<|id|>124<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 80,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 4
+        },
+        {
+            "id": 85,
+            "level": 4
+        },
+        {
+            "id": 87,
+            "level": 4
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,147 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 140 148 856<|content|>CALDERWOOD & HARKNESS LLP Solicitors & Internation\n<|id|>6<|page|>1<|box|>252 142 268 310<|content|>By email and courier\n<|id|>9<|page|>1<|box|>407 140 424 367<|content|>1. Purpose and Introduction\n<|id|>14<|page|>2<|box|>90 140 107 612<|content|>2. Permission to Enforce — Section 66, Arbitration\n<|id|>21<|page|>2<|box|>816 140 834 377<|content|>3. Worldwide Freezing Order\n<|id|>22<|page|>2<|box|>849 140 866 424<|content|>3.1 The Without-Notice Application\n<|id|>25<|page|>3<|box|>256 140 273 320<|content|>3.2 Grant of the WFO\n<|id|>32<|page|>3<|box|>660 140 678 462<|content|>3.3 Service and the Return Date Hearing\n<|id|>35<|page|>4<|box|>138 140 157 415<|content|>3.4 Evidence of Risk of Dissipation\n<|id|>42<|page|>4<|box|>598 140 614 292<|content|>3.5 Current Status\n<|id|>44<|page|>4<|box|>734 140 753 624<|content|>4. Third-Party Debt Order Against Meridian Trust B\n<|id|>45<|page|>4<|box|>766 140 782 289<|content|>4.1 Interim Order\n<|id|>49<|page|>5<|box|>220 140 238 380<|content|>4.2 Final Order and Recovery\n<|id|>52<|page|>5<|box|>405 447 422 547<|content|>£18,720,000\n<|id|>56<|page|>5<|box|>652 140 669 821<|content|>5. Dismissal of KMH's Set-Aside Application (Secti\n<|id|>57<|page|>5<|box|>683 140 700 328<|content|>5.1 KMH's Application\n<|id|>63<|page|>6<|box|>300 140 319 313<|content|>5.2 TSL's Opposition\n<|id|>69<|page|>7<|box|>90 140 107 372<|content|>5.3 Internal Risk Assessment\n<|id|>71<|page|>7<|box|>218 140 234 390<|content|>5.4 The Hearing and Judgment\n<|id|>81<|page|>8<|box|>90 140 107 423<|content|>6. Summary of Award Composition\n<|id|>83<|page|>8<|box|>166 142 183 250<|content|>6.1 Damages.\n<|id|>86<|page|>8<|box|>643 143 660 272<|content|>6.3 Grand Total\n<|id|>88<|page|>8<|box|>753 142 770 333<|content|>6.4 Post-Award Interest\n<|id|>90<|page|>9<|box|>90 142 107 372<|content|>7. Current Recovery Position\n<|id|>96<|page|>9<|box|>529 140 547 513<|content|>8. Status of Enforcement in Other Jurisdictions\n<|id|>109<|page|>10<|box|>768 215 786 779<|content|>SGD $31,200,000 (approximately £18,450,000 at curr\n<|id|>113<|page|>11<|box|>138 140 156 348<|content|>8.3 United Arab Emirates\n<|id|>118<|page|>11<|box|>501 140 518 250<|content|>9. Next Steps\n<|id|>129<|page|>12<|box|>479 143 494 271<|content|>10. Fee Position\n<|id|>132<|page|>12<|box|>736 142 753 236<|content|>11. Closing\n<|id|>140<|page|>13<|box|>328 143 344 240<|content|>Enclosures:\n<|id|>143<|page|>13<|box|>431 143 444 171<|content|>cc:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>6<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>25<|level|>3\n<|id|>32<|level|>3\n<|id|>35<|level|>3\n<|id|>42<|level|>3\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>49<|level|>3\n<|id|>52<|level|>-1\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>63<|level|>3\n<|id|>69<|level|>3\n<|id|>71<|level|>3\n<|id|>81<|level|>2\n<|id|>83<|level|>3\n<|id|>86<|level|>3\n<|id|>88<|level|>3\n<|id|>90<|level|>2\n<|id|>96<|level|>2\n<|id|>109<|level|>-1\n<|id|>113<|level|>3\n<|id|>118<|level|>2\n<|id|>129<|level|>2\n<|id|>132<|level|>2\n<|id|>140<|level|>2\n<|id|>143<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        }
+    ]
+}

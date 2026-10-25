@@ -1,0 +1,177 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nqm53y8t\\input\\pdfs\\doc-ae1c4398.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nqm53y8t\\enriched\\doc-ae1c4398.json",
+    "contd_output": "<|src_id|>151<|tgt_id|>152\n<|src_id|>161<|tgt_id|>162",
+    "title_output": "<|id|>2<|level|>1\n<|id|>11<|level|>1\n<|id|>14<|level|>2\n<|id|>24<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>71<|level|>2\n<|id|>89<|level|>2\n<|id|>90<|level|>3\n<|id|>101<|level|>3\n<|id|>106<|level|>2\n<|id|>130<|level|>2\n<|id|>155<|level|>2\n<|id|>163<|level|>2\n<|id|>170<|level|>3\n<|id|>176<|level|>2\n<|id|>182<|level|>2\n<|id|>194<|level|>2\n<|id|>239<|level|>1\n<|id|>240<|level|>1\n<|id|>242<|level|>2\n<|id|>274<|level|>1\n<|id|>275<|level|>1\n<|id|>277<|level|>1\n<|id|>294<|level|>1\n<|id|>295<|level|>1\n<|id|>297<|level|>1\n<|id|>318<|level|>1\n<|id|>319<|level|>1\n<|id|>333<|level|>1\n<|id|>334<|level|>1",
+    "image_output": "<|src_id|>336<|tgt_id|>334\n<|src_id|>338<|tgt_id|>334\n<|src_id|>339<|tgt_id|>334",
+    "contd_label": [
+        {
+            "src_id": 151,
+            "tgt_id": 152
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 162
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 239,
+            "level": 1
+        },
+        {
+            "id": 240,
+            "level": 1
+        },
+        {
+            "id": 242,
+            "level": 2
+        },
+        {
+            "id": 274,
+            "level": 1
+        },
+        {
+            "id": 275,
+            "level": 1
+        },
+        {
+            "id": 277,
+            "level": 1
+        },
+        {
+            "id": 294,
+            "level": 1
+        },
+        {
+            "id": 295,
+            "level": 1
+        },
+        {
+            "id": 297,
+            "level": 1
+        },
+        {
+            "id": 318,
+            "level": 1
+        },
+        {
+            "id": 319,
+            "level": 1
+        },
+        {
+            "id": 333,
+            "level": 1
+        },
+        {
+            "id": 334,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 336,
+            "tgt_id": 334
+        },
+        {
+            "src_id": 338,
+            "tgt_id": 334
+        },
+        {
+            "src_id": 339,
+            "tgt_id": 334
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 338,
+            "table2_idx": 339,
+            "upper_row_ss": [
+                [
+                    "Maximum Annual Bonus (300% of Base Salary)",
+                    "$5,250,000",
+                    "$5,250,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Sign-On Cash Bonus (Make-Whole)",
+                    "$5,000,000",
+                    "$5,000,000 (12-month clawback)"
+                ]
+            ]
+        }
+    ]
+}

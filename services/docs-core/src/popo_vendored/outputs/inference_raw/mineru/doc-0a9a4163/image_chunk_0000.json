@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 233 118 764<|content|>SPOUSAL CONSENT AND ACKNOWLEDGMENT\n<|id|>3<|type|>title<|page|>1<|box|>203 142 219 241<|content|>RECITALS\n<|id|>10<|type|>title<|page|>2<|box|>285 140 321 854<|content|>SECTION 1: DESCRIPTION OF ESTATE PLAN STRUCTURES T\n<|id|>11<|type|>title<|page|>2<|box|>334 143 351 504<|content|>1.1 Overview of Jonathan R. Caldwell's Estate\n<|id|>13<|type|>table<|page|>2<|box|>455 143 662 852<|content|>None\n<|id|>15<|type|>title<|page|>2<|box|>763 143 780 511<|content|>1.2 Grantor Retained Annuity Trusts (GRATs)\n<|id|>47<|type|>title<|page|>4<|box|>724 143 742 419<|content|>1.3 Caldwell Family Dynasty Trust\n<|id|>59<|type|>title<|page|>5<|box|>777 142 795 431<|content|>1.4 The Caldwell Family Foundation\n<|id|>71<|type|>title<|page|>6<|box|>720 142 738 486<|content|>1.5 Caldwell Family Insurance Trust (ILIT)\n<|id|>79<|type|>title<|page|>7<|box|>204 176 222 424<|content|>(g) Annual Premium: $187,500.\n<|id|>85<|type|>title<|page|>7<|box|>547 142 564 560<|content|>1.6 Amended and Restated Caldwell Revocable Trust\n<|id|>88<|type|>title<|page|>7<|box|>678 176 696 563<|content|>(b) Operative Provisions Upon Jonathan's Death:\n<|id|>94<|type|>title<|page|>8<|box|>238 140 255 299<|content|>1.7 Pour-Over Will\n<|id|>96<|type|>title<|page|>8<|box|>421 142 438 385<|content|>1.8 Durable Power of Attorney\n<|id|>98<|type|>title<|page|>8<|box|>530 142 547 630<|content|>1.9 Health Care Proxy, Living Will, and HIPAA Auth\n<|id|>103<|type|>title<|page|>8<|box|>800 140 816 782<|content|>SECTION 2: ELEANOR V. CALDWELL'S SPECIFIC ACKNOWLE\n<|id|>105<|type|>title<|page|>9<|box|>90 140 107 452<|content|>2.1 Understanding of GRAT Structures\n<|id|>107<|type|>title<|page|>9<|box|>345 140 363 426<|content|>2.2 Understanding of Dynasty Trust\n<|id|>109<|type|>title<|page|>9<|box|>510 140 527 509<|content|>2.3 Understanding of Foundation Contribution\n<|id|>111<|type|>title<|page|>9<|box|>691 140 709 504<|content|>2.4 Understanding of ILIT and Life Insurance\n<|id|>113<|type|>title<|page|>10<|box|>90 140 107 596<|content|>2.5 Understanding of Revocable Trust and Will Prov\n<|id|>115<|type|>title<|page|>10<|box|>291 140 308 426<|content|>2.6 Impact on Eleanor's Own Estate\n<|id|>117<|type|>title<|page|>10<|box|>537 140 555 684<|content|>SECTION 3: REPRESENTATIONS OF ELEANOR V. CALDWELL\n<|id|>119<|type|>title<|page|>10<|box|>595 140 613 323<|content|>3.1 Voluntary Consent\n<|id|>121<|type|>title<|page|>10<|box|>741 140 758 388<|content|>3.2 Independent Legal Counsel\n<|id|>124<|type|>title<|page|>11<|box|>157 140 174 343<|content|>3.3 Review of Documents\n<|id|>141<|type|>title<|page|>11<|box|>585 140 601 292<|content|>3.4 Full Disclosure\n<|id|>143<|type|>title<|page|>11<|box|>786 140 804 509<|content|>3.5 No Waiver of Marital Rights Beyond Scope\n<|id|>146<|type|>title<|page|>12<|box|>271 140 289 415<|content|>SECTION 4: GOVERNING LAW\n<|id|>148<|type|>title<|page|>12<|box|>375 140 392 390<|content|>SECTION 5: SEVERABILITY\n<|id|>150<|type|>title<|page|>12<|box|>534 140 550 446<|content|>SECTION 6: ENTIRE AGREEMENT\n<|id|>152<|type|>title<|page|>13<|box|>89 140 107 485<|content|>SIGNATURE OF CONSENTING SPOUSE\n<|id|>155<|type|>title<|page|>13<|box|>294 140 311 594<|content|>ACKNOWLEDGMENT OF INDEPENDENT COUNSEL\n<|id|>166<|type|>title<|page|>14<|box|>564 140 583 423<|content|>NOTARY ACKNOWLEDGMENT\n<|id|>167<|type|>title<|page|>14<|box|>590 140 609 560<|content|>STATE OF NEW YORK COUNTY OF NEW YORK\n<|id|>170<|type|>title<|page|>16<|box|>89 142 107 243<|content|>EXHIBIT A\n<|id|>171<|type|>title<|page|>16<|box|>114 282 132 714<|content|>LIST OF ESTATE PLAN DOCUMENTS REVIEWED\n<|id|>172<|type|>table<|page|>16<|box|>204 143 869 852<|content|>None",
+    "raw_response": "<|src_id|>13<|tgt_id|>11\n<|src_id|>172<|tgt_id|>171",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 171
+        }
+    ]
+}

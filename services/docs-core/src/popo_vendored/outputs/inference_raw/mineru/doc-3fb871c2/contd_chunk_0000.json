@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 142 104 362<|content|>PRIVILEGED & CONFIDENTIAL\n<|id|>1<|page|>1<|box|>112 140 148 854<|content|>CALDERWOOD & HARKNESS LLP Solicitors 45 Moorgate London EC2R 6AR United Kingdom\n<|id|>2<|page|>1<|box|>156 140 174 336<|content|>Tel: ... +44 (0)20 7493 8200\n<|id|>3<|page|>1<|box|>181 140 199 338<|content|>Fax: ... +44 (0)20 7493 8201\n<|id|>4<|page|>1<|box|>200 142 217 375<|content|>www. ... com\n<|id|>5<|page|>1<|box|>224 756 243 854<|content|>17 July 2024\n<|id|>7<|page|>1<|box|>277 140 314 854<|content|>Catherine Whitford Partner, International Arbitrat... ... 12 Fetter Lane London EC4A 1JP United Kingdom\n<|id|>8<|page|>1<|box|>321 140 338 702<|content|>Our Ref: ... CW/JT/KMH-2024\n<|id|>9<|page|>1<|box|>347 140 383 852<|content|>Re: ... 224718\n<|id|>10<|page|>1<|box|>392 140 409 287<|content|>Dear Ms Whitford,\n<|id|>14<|page|>1<|box|>657 174 693 854<|content|>(a) the Worldwide Freezing Order granted by Mr. ... and\n<|id|>16<|page|>1<|box|>763 140 782 665<|content|>together with the supporting documents enumerated ...supporting documents enumerated in Section 9 below\n<|id|>15<|page|>1<|box|>700 174 755 854<|content|>(b) the Application Notice filed on 15 July 2024 p... order of the Commercial Court to the same effect,\n<|id|>23<|page|>2<|box|>531 176 549 839<|content|>(a) LCIA administrative charges and the fees and expenses of the tribunal: ... and\n<|id|>25<|page|>2<|box|>582 140 599 450<|content|>giving a total costs award of £12,150,000. ... giving a total costs award of £12,150,000\n<|id|>24<|page|>2<|box|>556 176 574 588<|content|>(b) TSL's legal costs on an indemnity basis: ... £8,910,000,\n<|id|>43<|page|>4<|box|>239 210 277 854<|content|>(iii) Korinthian DMCC, Unit 3407, Almas Tower, Jum...Lakes Towers, Dubai, United Arab Emirates; ... and\n<|id|>49<|page|>4<|box|>469 140 542 854<|content|>KMH is prohibited from taking any steps to sell, t...nder them unavailable for execution or enforcement\n<|id|>47<|page|>4<|box|>417 210 435 596<|content|>(ii) M/V Crimson Horizon (IMO No. ... and\n<|id|>59<|page|>5<|box|>270 174 343 854<|content|>(e) details of all shares, securities, units, bond...units held, and the current value thereof; ... and\n<|id|>61<|page|>5<|box|>414 140 487 856<|content|>The disclosure must be made by way of a sworn affi...enquiries to inform himself or herself of the same\n<|id|>74<|page|>6<|box|>359 176 377 436<|content|>(c) Alexei Demidov, Director; ... and\n<|id|>76<|page|>6<|box|>411 140 484 854<|content|>The warning also extends to any other person who i... this contempt warning at the earliest opportunity\n<|id|>82<|page|>6<|box|>763 174 801 854<|content|>(c) Emirates Gulf Commercial Bank PJSC, Gate Villa...ncial Centre, Dubai, United Arab Emirates; ... and\n<|id|>84<|page|>6<|box|>854 140 888 854<|content|>KMH is not to take any steps, whether directly or ...the WFO and will be drawn to the court's attention\n<|id|>95<|page|>7<|box|>746 174 818 854<|content|>Account Name: ... TSL-KMH- Enforcement\n<|id|>96<|page|>7<|box|>827 140 882 854<|content|>In the event that KMH fails to satisfy the Award a... and seize KMH's assets wherever they may be found\n<|id|>101<|page|>8<|box|>301 176 391 854<|content|>2. ... and\n<|id|>103<|page|>8<|box|>450 140 469 728<|content|>We look forward to receiving your prompt response ...g your prompt response on each of the above points\n<|id|>107<|page|>8<|box|>537 140 568 852<|content|>Samuel Eklund Partner, Litigation Calderwood & Harkness LLP 45 Moorgate, London EC2R 6AR\n<|id|>108<|page|>8<|box|>569 142 585 393<|content|>Direct Line: ... +44 (0)20 7493 8247\n<|id|>109<|page|>8<|box|>588 142 604 460<|content|>Email: ... com\n<|id|>110<|page|>8<|box|>606 143 619 184<|content|>Enc. ... Enc",
+    "raw_response": "<|src_id|>14<|tgt_id|>16\n<|src_id|>23<|tgt_id|>25\n<|src_id|>107<|tgt_id|>108\n<|src_id|>108<|tgt_id|>109\n<|src_id|>109<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>151 715 169 854<|content|>February 10, 2023\n<|id|>2<|page|>1<|box|>176 140 213 854<|content|>TO: ... (Lead Associate, Banking & Finance)\n<|id|>3<|page|>1<|box|>220 140 239 614<|content|>FROM: ... Lisa Morrow (Working Associate, Banking & Finance)\n<|id|>4<|page|>1<|box|>247 140 282 852<|content|>RE: ... District Court, Southern District of New York)\n<|id|>5<|page|>1<|box|>290 140 308 361<|content|>MATTER NO. ... 1034-00001\n<|id|>6<|page|>1<|box|>316 140 334 383<|content|>CLIENT: ... Caldwel\n<|id|>61<|page|>7<|box|>835 140 909 857<|content|>Management Fee Dispute Documentation. ... These do...e charges and requesting an accounting, as well as\n<|id|>62<|page|>8<|box|>90 140 238 857<|content|>Stavros's responses. ... However, the team should ...quiry regarding the timing of Caldwell's knowledge",
+    "raw_response": "<|src_id|>61<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        }
+    ]
+}

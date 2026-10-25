@@ -1,0 +1,50 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        6
+    ],
+    "pages": [
+        2,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 344 109 651<|content|>SCHEDULE OF INVESTORS\n<|id|>14<|page|>2<|box|>553 142 570 468<|content|>PART I — INVESTOR INFORMATION\n<|id|>70<|page|>4<|box|>642 140 659 838<|content|>PART II — SUMMARY OF INVESTMENT AMOUNTS AND SHARE\n<|id|>76<|page|>5<|box|>319 140 335 544<|content|>PART III — WIRE TRANSFER INSTRUCTIONS\n<|id|>88<|page|>5<|box|>839 140 854 496<|content|>Individual Investor Wire Amounts to Escrow\n<|id|>91<|page|>6<|box|>241 142 257 341<|content|>Release of Escrow Funds\n<|id|>93<|page|>6<|box|>450 140 468 620<|content|>PART IV — ACCREDITED INVESTOR CONFIRMATION\n<|id|>96<|page|>6<|box|>744 140 762 810<|content|>PART V — INVESTOR NOTICES AND CONTACT INFORMATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>14<|level|>2\n<|id|>70<|level|>2\n<|id|>76<|level|>2\n<|id|>88<|level|>3\n<|id|>91<|level|>3\n<|id|>93<|level|>2\n<|id|>96<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        }
+    ]
+}

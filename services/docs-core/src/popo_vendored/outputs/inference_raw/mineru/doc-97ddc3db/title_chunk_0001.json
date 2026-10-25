@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>375<|page|>46<|box|>90 285 111 712<|content|>XVI. Exhibit D — Auto-Renewal Calendar\n<|id|>381<|page|>47<|box|>608 140 625 485<|content|>Critical Action Items — Flagged Contracts:\n<|id|>394<|page|>48<|box|>411 143 426 238<|content|>Enclosures:",
+    "raw_response": "<|id|>375<|level|>1\n<|id|>381<|level|>2\n<|id|>394<|level|>2",
+    "parsed": [
+        {
+            "id": 375,
+            "level": 1
+        },
+        {
+            "id": 381,
+            "level": 2
+        },
+        {
+            "id": 394,
+            "level": 2
+        }
+    ]
+}

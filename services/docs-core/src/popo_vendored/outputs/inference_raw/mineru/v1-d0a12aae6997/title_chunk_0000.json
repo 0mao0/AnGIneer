@@ -1,0 +1,70 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>74 107 90 497<|content|>【Intergovernmental_Panel_on_Climate_Change】\n<|id|>2<|page|>1<|box|>414 105 432 497<|content|>【Intergovernmental_Panel_on_Climate_Change】\n<|id|>4<|page|>1<|box|>551 105 567 497<|content|>【Intergovernmental_Panel_on_Climate_Change】\n<|id|>6<|page|>2<|box|>74 107 90 497<|content|>【Intergovernmental_Panel_on_Climate_Change】\n<|id|>8<|page|>2<|box|>313 105 328 497<|content|>【Intergovernmental_Panel_on_Climate_Change】\n<|id|>10<|page|>2<|box|>500 105 514 497<|content|>【Intergovernmental_Panel_on_Climate_Change】\n<|id|>26<|page|>5<|box|>74 107 90 497<|content|>【Intergovernmental_Panel_on_Climate_Change】\n<|id|>28<|page|>5<|box|>278 105 294 497<|content|>【Intergovernmental_Panel_on_Climate_Change】\n<|id|>30<|page|>5<|box|>414 107 430 497<|content|>【Intergovernmental_Panel_on_Climate_Change】\n<|id|>32<|page|>5<|box|>583 105 599 497<|content|>【Intergovernmental_Panel_on_Climate_Change】\n<|id|>42<|page|>8<|box|>74 107 90 497<|content|>【Intergovernmental_Panel_on_Climate_Change】\n<|id|>44<|page|>8<|box|>365 105 380 497<|content|>【Intergovernmental_Panel_on_Climate_Change】\n<|id|>46<|page|>8<|box|>535 105 550 497<|content|>【Intergovernmental_Panel_on_Climate_Change】",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        }
+    ]
+}

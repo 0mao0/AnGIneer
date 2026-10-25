@@ -1,0 +1,148 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 119 854<|content|>CONFIDENTIAL — SUBJECT TO ATTORNEY-CLIENT PRIVILEG\n<|id|>1<|page|>1<|box|>127 277 143 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>431 140 448 418<|content|>I. Introduction and Representation\n<|id|>15<|page|>2<|box|>267 140 284 522<|content|>II. Background — The Contractual Relationship\n<|id|>16<|page|>2<|box|>297 140 315 419<|content|>A. The Master Services Agreement\n<|id|>20<|page|>2<|box|>642 142 659 406<|content|>B. Amendment 1 (March 3, 2021)\n<|id|>22<|page|>2<|box|>806 140 823 447<|content|>C. Amendment 2 (September 15, 2022)\n<|id|>24<|page|>3<|box|>250 140 265 367<|content|>D. Nature of Data Processed\n<|id|>34<|page|>3<|box|>714 140 732 465<|content|>III. Key Contractual Obligations at Issue\n<|id|>36<|page|>4<|box|>90 140 107 583<|content|>A. Data Security Obligations — Exhibit D (as Amend\n<|id|>42<|page|>4<|box|>614 140 631 517<|content|>B. Breach Notification Obligation — Section 9.4\n<|id|>45<|page|>5<|box|>138 140 156 413<|content|>C. Indemnification — Section 12.2\n<|id|>48<|page|>6<|box|>90 140 107 460<|content|>D. Insurance Requirements — Exhibit E\n<|id|>50<|page|>6<|box|>273 140 289 465<|content|>E. Termination for Cause — Section 14.2\n<|id|>52<|page|>6<|box|>446 140 464 413<|content|>IV. The Security Incident — Facts\n<|id|>54<|page|>6<|box|>559 140 575 465<|content|>A. Unauthorized Access and Exploitation\n<|id|>58<|page|>7<|box|>157 140 174 483<|content|>B. Lateral Movement and Data Exfiltration\n<|id|>61<|page|>7<|box|>439 140 457 326<|content|>C. Palomar's discovery\n<|id|>63<|page|>7<|box|>549 140 566 475<|content|>D. Palomar's Late Notification to Quorum\n<|id|>67<|page|>8<|box|>138 140 157 658<|content|>E. Scope of Compromised Data — Forensic Investigat\n<|id|>72<|page|>8<|box|>702 140 719 416<|content|>V. Palomar's Breaches of the MSA\n<|id|>74<|page|>9<|box|>90 140 107 540<|content|>A. Breach of Data Security Obligations (Exhibit D)\n<|id|>78<|page|>9<|box|>635 142 652 526<|content|>B. Breach of Notification Obligation (Section 9.4)\n<|id|>81<|page|>10<|box|>90 140 107 352<|content|>C. Materiality of Breaches\n<|id|>84<|page|>10<|box|>419 140 435 596<|content|>VI. Damages and Losses Arising from Palomar's Brea\n<|id|>86<|page|>10<|box|>571 142 589 326<|content|>B. Categories of Losses\n<|id|>99<|page|>12<|box|>314 142 330 282<|content|>C. Total Demand\n<|id|>104<|page|>12<|box|>771 140 787 542<|content|>VII. Quorum's Remediation Efforts and Mitigation\n<|id|>110<|page|>13<|box|>520 140 537 359<|content|>VIII. Reservation of Rights\n<|id|>120<|page|>14<|box|>285 140 301 348<|content|>IX. Demand for Response\n<|id|>132<|page|>14<|box|>821 140 839 230<|content|>X. Closing\n<|id|>142<|page|>15<|box|>372 142 387 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>2\n<|id|>34<|level|>1\n<|id|>36<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>1\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>61<|level|>2\n<|id|>63<|level|>2\n<|id|>67<|level|>2\n<|id|>72<|level|>1\n<|id|>74<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>2\n<|id|>84<|level|>1\n<|id|>86<|level|>2\n<|id|>99<|level|>2\n<|id|>104<|level|>1\n<|id|>110<|level|>1\n<|id|>120<|level|>1\n<|id|>132<|level|>1\n<|id|>142<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        }
+    ]
+}

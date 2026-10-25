@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>186 140 203 364<|content|>TO: ... Renata Vasquez, Partner\n<|id|>4<|page|>1<|box|>212 140 229 660<|content|>FROM: ... Devon Archer, Senior Associate, and Nadia Petrov, Associate\n<|id|>5<|page|>1<|box|>237 142 253 308<|content|>DATE: ... July 10, 2023\n<|id|>6<|page|>1<|box|>263 140 281 736<|content|>RE: ... Analysis of Plaintiffs' Reply Brief on Class Certification (Filed July 7, 2023)\n<|id|>7<|page|>1<|box|>289 142 306 331<|content|>Matter No. ... 1017-00004\n<|id|>8<|page|>1<|box|>315 140 369 854<|content|>Case: ... 34\n<|id|>9<|page|>1<|box|>378 142 395 436<|content|>Hearing Date: ... m\n<|id|>16<|page|>2<|box|>152 176 189 854<|content|>(C) Dr. ... and\n<|id|>18<|page|>2<|box|>277 140 314 852<|content|>Having reviewed the Reply Brief in detail, along w...ovide the following updated probability assessment\n<|id|>60<|page|>6<|box|>729 138 875 857<|content|>Relevance. ... \" In other words, the fact that a field-based reality show like \"Summit Challenge\"\n<|id|>61<|page|>7<|box|>90 140 127 854<|content|>operates differently from a studio-based cooking c...e auto-deduction system applied to both was lawful\n<|id|>120<|page|>14<|box|>736 138 900 857<|content|>4. ... Similarly, off-the-clock work is, by defini... that captures the alleged off-the-clock work, and\n<|id|>121<|page|>15<|box|>89 140 145 854<|content|>Plaintiffs' evidence consists of only three anecdo...ity or predominance for a class of 1,850 employees",
+    "raw_response": "<|src_id|>60<|tgt_id|>61\n<|src_id|>120<|tgt_id|>121",
+    "parsed": [
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 121
+        }
+    ]
+}

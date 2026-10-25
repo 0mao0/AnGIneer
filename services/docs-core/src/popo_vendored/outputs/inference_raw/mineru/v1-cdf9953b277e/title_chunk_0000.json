@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 381<|content|>【6002210#0】天目湖国家森林公园\n<|id|>2<|page|>1<|box|>140 105 156 381<|content|>【6002210#7】天目湖国家森林公园\n<|id|>4<|page|>1<|box|>206 105 223 337<|content|>【6013256#51】腾讯相关争议\n<|id|>6<|page|>1<|box|>341 105 357 400<|content|>【6020774#0】株洲中车时代电动汽车\n<|id|>8<|page|>1<|box|>476 107 493 302<|content|>【6049722#17】星夢情深\n<|id|>10<|page|>1<|box|>544 107 560 294<|content|>【6050317#1】梧州学院\n<|id|>12<|page|>1<|box|>627 107 643 285<|content|>【606656#8】香港植物\n<|id|>14<|page|>1<|box|>728 107 745 302<|content|>【6071515#17】恐龙化石\n<|id|>16<|page|>1<|box|>795 107 810 292<|content|>【6075715#2】中右联盟\n<|id|>18<|page|>1<|box|>878 107 895 337<|content|>【6078387#35】新世界葡萄酒\n<|id|>22<|page|>2<|box|>218 105 234 354<|content|>【607875#1】香港十大自然勝景\n<|id|>30<|page|>2<|box|>587 105 604 250<|content|>【6106#0】北海道\n<|id|>32<|page|>2<|box|>706 105 722 258<|content|>【6106#23】北海道\n<|id|>34<|page|>4<|box|>73 107 87 257<|content|>【6106#24】北海道\n<|id|>36<|page|>4<|box|>294 107 310 258<|content|>【6106#26】北海道\n<|id|>38<|page|>4<|box|>464 107 481 258<|content|>【6106#31】北海道\n<|id|>40<|page|>4<|box|>583 107 599 258<|content|>【6106#36】北海道\n<|id|>42<|page|>4<|box|>804 107 820 258<|content|>【6106#38】北海道\n<|id|>44<|page|>5<|box|>99 107 116 258<|content|>【6106#45】北海道\n<|id|>46<|page|>5<|box|>287 107 303 267<|content|>【6114214#21】欧赖\n<|id|>48<|page|>5<|box|>354 107 370 531<|content|>【6125928#62】2020年夏季奥林匹克运动会日本代表团\n<|id|>50<|page|>6<|box|>73 107 89 292<|content|>【6130227#3】字节跳动\n<|id|>52<|page|>6<|box|>156 105 173 557<|content|>【6134311#2】第90屆奧斯卡金像獎最佳動畫短片角逐名單\n<|id|>54<|page|>6<|box|>241 107 256 337<|content|>【6137697#12】約翰·史威尼\n<|id|>56<|page|>6<|box|>325 107 341 337<|content|>【6137697#14】約翰·史威尼\n<|id|>58<|page|>6<|box|>391 107 407 292<|content|>【6150975#5】前置胎盤",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>22<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>1\n<|id|>58<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ]
+}

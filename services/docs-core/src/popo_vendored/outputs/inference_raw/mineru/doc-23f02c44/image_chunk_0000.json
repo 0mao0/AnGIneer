@@ -1,0 +1,51 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>141 75 180 928<|content|>中华人民共和国国家标准\n<|id|>3<|type|>title<|page|>1<|box|>398 284 433 721<|content|>视觉航标表面色规定\n<|id|>4<|type|>title<|page|>1<|box|>461 200 483 805<|content|>Regulation for surface colours of visual aids to n\n<|id|>7<|type|>title<|page|>2<|box|>141 450 164 561<|content|>目 次\n<|id|>9<|type|>title<|page|>3<|box|>147 436 170 554<|content|>前言\n<|id|>22<|type|>title<|page|>4<|box|>143 373 164 626<|content|>视觉航标表面色规定\n<|id|>23<|type|>title<|page|>4<|box|>207 94 221 164<|content|>1 范围\n<|id|>26<|type|>title<|page|>4<|box|>309 92 324 257<|content|>2 规范性引用文件\n<|id|>31<|type|>title<|page|>4<|box|>469 92 484 219<|content|>3 术语和定义\n<|id|>37<|type|>title<|page|>4<|box|>631 92 644 124<|content|>3.2\n<|id|>42<|type|>title<|page|>4<|box|>793 92 808 201<|content|>4 一般规定\n<|id|>47<|type|>title<|page|>5<|box|>127 91 143 182<|content|>5 表面色\n<|id|>48<|type|>title<|page|>5<|box|>163 91 179 233<|content|>5.1 普通表面色\n<|id|>49<|type|>title<|page|>5<|box|>191 92 207 233<|content|>5.1.1 色品范围\n<|id|>51<|type|>table<|page|>5<|box|>298 94 860 901<|content|>None\n<|id|>52<|type|>table<|page|>6<|box|>149 82 349 894<|content|>None\n<|id|>53<|type|>title<|page|>6<|box|>848 80 864 222<|content|>5.1.2 亮度因数\n<|id|>55<|type|>title<|page|>7<|box|>120 96 136 203<|content|>5.2 荧光色\n<|id|>56<|type|>title<|page|>7<|box|>147 96 164 238<|content|>5.2.1 色品范围\n<|id|>58<|type|>table<|page|>7<|box|>250 101 495 912<|content|>None\n<|id|>59<|type|>table<|page|>7<|box|>547 101 682 912<|content|>None\n<|id|>60<|type|>title<|page|>8<|box|>613 89 627 229<|content|>5.2.2 亮度因数\n<|id|>62<|type|>title<|page|>8<|box|>669 89 684 215<|content|>5.3 逆反射色\n<|id|>64<|type|>title<|page|>9<|box|>146 456 161 552<|content|>附录A\n<|id|>68<|type|>table<|page|>9<|box|>270 100 425 908<|content|>None\n<|id|>69<|type|>table<|page|>9<|box|>498 98 653 908<|content|>None\n<|id|>70<|type|>table<|page|>9<|box|>724 100 793 908<|content|>None",
+    "raw_response": "<|src_id|>51<|tgt_id|>49\n<|src_id|>52<|tgt_id|>49\n<|src_id|>58<|tgt_id|>56\n<|src_id|>59<|tgt_id|>56\n<|src_id|>68<|tgt_id|>64\n<|src_id|>69<|tgt_id|>64\n<|src_id|>70<|tgt_id|>64",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 64
+        }
+    ]
+}

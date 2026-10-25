@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 243 133 754<|content|>801 South Figueroa Street, Suite 4200 Los Angeles, California 90017\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 715 184 854<|content|>February 12, 2024\n<|id|>5<|page|>1<|box|>219 140 255 854<|content|>Dr. ... Stefan Kessler, Partner Kessler Hartmann R...artG mbB Maximilianstraße 35 80539 München Germany\n<|id|>6<|page|>1<|box|>263 174 299 854<|content|>Re: ... 1008-00010\n<|id|>7<|page|>1<|box|>309 142 324 276<|content|>Dear Dr. ... Kessler\n<|id|>14<|page|>1<|box|>869 140 907 854<|content|>Initial Term and Renewal. ... Following expiration of the initial term, the\n<|id|>15<|page|>2<|box|>90 140 143 854<|content|>Agreement will automatically renew for successive ...on-renewal before the end of the then-current term\n<|id|>44<|page|>5<|box|>854 140 891 854<|content|>We wish to note that this initial draft remains su...t, Legal & Compliance, and Tomoko Ishikawa, Senior\n<|id|>45<|page|>6<|box|>90 140 127 854<|content|>Vice President, Global Partnerships. ... Lumos exp...ements to the draft at any time prior to execution\n<|id|>55<|page|>7<|box|>196 212 214 343<|content|>Very truly yours,\n<|id|>56<|page|>7<|box|>222 140 238 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>57<|page|>7<|box|>241 143 257 251<|content|>By: ... By\n<|id|>58<|page|>7<|box|>257 140 273 702<|content|>Howard Bellamy Partner — Antitrust & Competition Direct: ... (213) 555-4837\n<|id|>59<|page|>7<|box|>275 142 291 473<|content|>Email: ... com\n<|id|>60<|page|>7<|box|>291 140 352 854<|content|>cc: ... Laura Pfeiffer, Associate, Kessler Hartmann Rechtsanwälte PartG mbB (via email)\n<|id|>62<|page|>7<|box|>385 174 494 854<|content|>(1) Initial Draft — Channel Reseller Program Agree..... Exhibit F — Minimum Annual Commitment Schedule)\n<|id|>63<|page|>7<|box|>502 140 563 854<|content|>This communication is from Calderwood & Harkness L...ution of this communication is strictly prohibited",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>44<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['13', 'Columbia Basin Conserv', 'U.S. District Court,', '3:21-cv-0187 4-MO', '11/12/2021', 'CWA citizen suit;', 'Injunctive relief + civil', 'Fact discovery; partial', '$1.0M – $3.0M (capital)', 'Ashbrook & Tillotso']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'ationAlliancev.Cascadia Hydro Operations,LLC', 'D. Or.', '', '', 'ESAcitizensuit (fish passage, water temp.)', \"penalties+attorney s' fees\", 'MSJ pending(arg. 9/9/2022); bench trialSept. 2023', 'cost)', 'n LLP']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 267,
+    "table2_idx": 268
+}

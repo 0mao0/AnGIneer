@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        46,
+        92
+    ],
+    "pages": [
+        47,
+        55,
+        56,
+        57,
+        58,
+        72,
+        90,
+        91,
+        92
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>195<|page|>47<|box|>511 339 523 658<|content|>[Source: ... Bureau of the Fiscal Service, Division of Financing Operations]\n<|id|>196<|page|>47<|box|>531 112 547 165<|content|>JULY\n<|id|>299<|page|>55<|box|>887 112 904 447<|content|>Auction of 42-Day Cash Management Bills\n<|id|>300<|page|>56<|box|>90 111 178 867<|content|>On August 15, 2024, Treasury announced it would au... \\$75,000 million of 42-day bills. ... 185 percent\n<|id|>323<|page|>57<|box|>828 111 898 877<|content|>Treasury received tenders for the notes before 12: ... Treasury accepted in full all\n<|id|>324<|page|>58<|box|>90 111 161 883<|content|>competitive tenders at yields lower than 3. ... 31... paid for the period from August 31 to September 3\n<|id|>431<|page|>72<|box|>85 421 167 913<|content|>INTERNATIONAL\n<|id|>432<|page|>72<|box|>200 710 252 919<|content|>Foreign Currency Positions Exchange Stabilization Fund\n<|id|>433<|page|>72<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>508<|page|>90<|box|>602 99 773 911<|content|>[In billions of dollars. ... 29\n<|id|>509<|page|>90<|box|>787 99 810 475<|content|>Note—Detail may not add due to rounding. ... 117-58\n<|id|>513<|page|>91<|box|>148 388 164 609<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>514<|page|>91<|box|>184 81 258 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>522<|page|>91<|box|>839 81 901 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>523<|page|>91<|box|>184 504 229 915<|content|>Second Liberty Loan Act of 1917, the nature of the...o an overall limit on the outstanding Federal debt\n<|id|>532<|page|>91<|box|>840 504 902 916<|content|>Government account series (FD-2)—Certain trust fun...urities. ... These securities are sold directly by\n<|id|>533<|page|>92<|box|>90 81 209 491<|content|>Treasury to a specific Government agency, trust fund, or account. ... and the Unemployment Trust Fund",
+    "raw_response": "<|src_id|>323<|tgt_id|>324\n<|src_id|>522<|tgt_id|>523\n<|src_id|>532<|tgt_id|>533",
+    "parsed": [
+        {
+            "src_id": 323,
+            "tgt_id": 324
+        },
+        {
+            "src_id": 522,
+            "tgt_id": 523
+        },
+        {
+            "src_id": 532,
+            "tgt_id": 533
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>260 140 277 715<|content|>FROM: ... Carlos Espinoza and Hannah Brinkley, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>286 140 304 720<|content|>TO: ... Linda Osei, Responsible Partner, Litigation, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>311 140 329 694<|content|>CC: ... Priya Anand, Billing Partner, Litigation, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>337 142 354 343<|content|>DATE: ... February 10, 2025\n<|id|>7<|page|>1<|box|>364 140 401 854<|content|>RE: ... Deposition Scheduled February 18, 2025\n<|id|>8<|page|>1<|box|>407 140 463 854<|content|>MATTER: ... Althea Marchetti)\n<|id|>9<|page|>1<|box|>470 140 488 377<|content|>C&H Matter No. ... 1022-00005\n<|id|>10<|page|>1<|box|>494 142 513 408<|content|>Right-click to update Table of Contents\n<|id|>13<|page|>1<|box|>771 140 881 856<|content|>Mr. ... Whitmore served as the senior BRB officer ... held through the execution of the Forbearance and\n<|id|>14<|page|>2<|box|>90 140 127 854<|content|>Modification Agreement on October 6, 2023, the sub...imate acceleration of the facilities in April 2024\n<|id|>24<|page|>2<|box|>587 176 604 655<|content|>(7) Coordination with subsequent depositions (Section VIII); ... and\n<|id|>26<|page|>2<|box|>638 140 694 854<|content|>This memorandum should be read in conjunction with...d separately for Joanna Reeves and Philip Aaronson\n<|id|>29<|page|>2<|box|>771 140 898 857<|content|>Derek Whitmore is 49 years old. ... This includes credits that have been downgraded to \"Special\n<|id|>30<|page|>3<|box|>90 140 145 854<|content|>Mention,\" \"Substandard,\" \"Doubtful,\" or \"Loss\" und...rency (\"OCC\") and other federal banking regulators\n<|id|>53<|page|>5<|box|>580 174 619 854<|content|>(ii) That if Triton Harbor successfully completed ..., BRB would \"seriously consider\" a new $6. ... and\n<|id|>55<|page|>5<|box|>707 140 743 854<|content|>These alleged statements are set forth in paragrap...stone of the fraudulent inducement cause of action\n<|id|>65<|page|>6<|box|>864 140 901 854<|content|>The Aaronson Memorandum is the single most importa...... It is a memorandum dated August 22, 2023, from\n<|id|>66<|page|>7<|box|>89 140 145 854<|content|>Philip Aaronson, Executive Vice President and Chie..., Senior Vice President and General Counsel. ... \"\n<|id|>220<|page|>20<|box|>777 138 888 857<|content|>If asked about the \"$6. ... None of these conditions had been satisfied at the time of the\n<|id|>221<|page|>21<|box|>90 140 126 854<|content|>September 12 meeting, and the discussion was under...d by all parties to be speculative and non-binding",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>29<|tgt_id|>30\n<|src_id|>65<|tgt_id|>66\n<|src_id|>220<|tgt_id|>221",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 221
+        }
+    ]
+}

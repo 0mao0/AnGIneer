@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 126 841<|content|># Multistate Attorney General Joint Demand Letter ...ED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION]\n<|id|>5<|page|>1<|box|>297 140 314 285<|content|>Tom and Jennifer,\n<|id|>1<|page|>1<|box|>171 140 189 658<|content|>- From: ... com>\n<|id|>2<|page|>1<|box|>203 140 220 645<|content|>- To: ... com>\n<|id|>3<|page|>1<|box|>234 140 251 563<|content|>- Cc: ... com>\n<|id|>4<|page|>1<|box|>265 140 282 450<|content|>- Date: ... 00 -0000\n<|id|>6<|page|>1<|box|>359 140 527 852<|content|>I am writing to alert you to a significant regulat...ent matter (Calderwood & Harkness Matter No. ... \"\n<|id|>8<|page|>1<|box|>746 140 896 843<|content|>The demand letter requests detailed information ac...r's license numbers), the 84,619 individuals whose\n<|id|>9<|page|>2<|box|>90 140 352 854<|content|>financial information was exposed, and the 41,203 ... submission date at approximately October 13, 2023\n<|id|>23<|page|>4<|box|>739 142 757 250<|content|>Best regards,\n<|id|>24<|page|>4<|box|>803 142 819 297<|content|>Kevin M. ... Ostrowski\n<|id|>25<|page|>4<|box|>834 142 849 210<|content|>Partner\n<|id|>26<|page|>4<|box|>864 142 882 367<|content|>Calderwood & Harkness LLP\n<|id|>27<|page|>5<|box|>89 143 108 367<|content|>1700 K Street NW, Suite 950\n<|id|>28<|page|>5<|box|>119 142 140 326<|content|>Washington, DC 20006\n<|id|>31<|page|>5<|box|>215 140 234 447<|content|>kostrowski@calderwoodharkness. ... com\n<|id|>29<|page|>5<|box|>152 143 172 334<|content|>(202) 555-0174 (direct)\n<|id|>30<|page|>5<|box|>183 143 203 316<|content|>(202) 555-0938 (cell)\n<|id|>32<|page|>5<|box|>339 140 377 818<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>33<|page|>5<|box|>422 140 554 844<|content|>This email and any attachments are protected by th...so may result in a waiver of applicable privileges",
+    "raw_response": "<|src_id|>8<|tgt_id|>9",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        }
+    ]
+}

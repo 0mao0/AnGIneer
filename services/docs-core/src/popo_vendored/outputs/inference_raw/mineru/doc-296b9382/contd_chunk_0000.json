@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        7,
+        24
+    ],
+    "pages": [
+        7,
+        8,
+        16,
+        17,
+        22,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>57<|page|>7<|box|>643 181 660 589<|content|>• Halcyon: ... approximately 19% domestic market share\n<|id|>59<|page|>7<|box|>681 140 737 854<|content|>The complaint further alleges that the pre-merger ...nificantly more so. ... The complaint alleges that\n<|id|>58<|page|>7<|box|>662 183 679 581<|content|>• Vectris: ... approximately 28% domestic market share\n<|id|>62<|page|>7<|box|>857 140 893 854<|content|>The DOJ identifies only two other significant comp...he complaint as \"Competitor A\" (which Calderwood &\n<|id|>63<|page|>8<|box|>90 140 164 854<|content|>Harkness understands to be Luminos Systems, Inc. ....olds more than a low-single-digit percentage share\n<|id|>133<|page|>16<|box|>839 140 893 854<|content|>Relationship to Outside Date. ... A trial in Q2–Q3 2024 would likely fall within the extended\n<|id|>134<|page|>17<|box|>89 140 256 857<|content|>Outside Date period. ... In sum, even if Halcyon w...actual deadlines for completion of the transaction\n<|id|>203<|page|>22<|box|>824 140 898 857<|content|>6. ... The EC's Phase II process operates on its o... and continued engagement is necessary to preserve\n<|id|>204<|page|>23<|box|>90 140 162 856<|content|>Halcyon's options and to avoid any inference of no...anics of that withdrawal with Halcyon's EU counsel\n<|id|>215<|page|>24<|box|>270 140 286 318<|content|>Respectfully submitted,\n<|id|>216<|page|>24<|box|>287 140 303 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>217<|page|>24<|box|>305 143 321 253<|content|>By: ... By\n<|id|>220<|page|>24<|box|>381 140 415 854<|content|>cc: ... Oliver Mackenzie, Responsible Partner, Mergers & Acquisitions, Calderwood & Harkness LLP\n<|id|>221<|page|>24<|box|>424 140 441 818<|content|>cc: ... Derek Okonkwo, Lead Associate, Mergers & Acquisitions, Calderwood & Harkness LLP\n<|id|>222<|page|>24<|box|>450 140 484 854<|content|>cc: ... Tiffany Rosenthal, Working Associate, Mergers & Acquisitions, Calderwood & Harkness LLP\n<|id|>223<|page|>24<|box|>494 140 555 857<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV...lease notify Calderwood & Harkness LLP immediately",
+    "raw_response": "<|src_id|>62<|tgt_id|>63\n<|src_id|>133<|tgt_id|>134\n<|src_id|>203<|tgt_id|>204",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 204
+        }
+    ]
+}

@@ -1,0 +1,124 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 204 107 792<|content|>MEMORANDUM — CONFIDENTIAL / ATTORNEY WORK PRODUCT\n<|id|>8<|page|>1<|box|>409 140 426 230<|content|>I. Purpose\n<|id|>16<|page|>2<|box|>348 140 364 318<|content|>II. Client Information\n<|id|>24<|page|>2<|box|>797 142 815 299<|content|>Key Financial Data\n<|id|>29<|page|>3<|box|>339 140 356 339<|content|>Primary Client Contacts\n<|id|>34<|page|>3<|box|>751 140 768 421<|content|>Other Relevant Penterra Personnel\n<|id|>40<|page|>4<|box|>316 142 334 383<|content|>III. Counterparty Information\n<|id|>51<|page|>5<|box|>140 140 157 364<|content|>Key Counterparty Contacts\n<|id|>58<|page|>5<|box|>573 140 590 387<|content|>Counterparty Outside Counsel\n<|id|>63<|page|>6<|box|>90 140 107 326<|content|>IV. Matter Description\n<|id|>64<|page|>6<|box|>121 140 138 331<|content|>A. Nature of the Matter\n<|id|>68<|page|>6<|box|>575 140 592 462<|content|>B. The Investigational Product and Trial\n<|id|>84<|page|>8<|box|>152 142 170 354<|content|>Key Secondary Endpoints:\n<|id|>88<|page|>8<|box|>304 140 321 388<|content|>C. Lead Sites and Investigators\n<|id|>94<|page|>9<|box|>138 142 156 339<|content|>D. Estimated Deal Value\n<|id|>98<|page|>9<|box|>792 140 810 676<|content|>E. Key Third-Party Service Providers (Referenced b\n<|id|>111<|page|>11<|box|>90 140 107 292<|content|>V. Governing Law\n<|id|>119<|page|>11<|box|>843 140 859 401<|content|>VI. Key Legal Issues Anticipated\n<|id|>138<|page|>14<|box|>685 140 702 330<|content|>VII. Engagement Team\n<|id|>147<|page|>15<|box|>564 140 582 493<|content|>VIII. Projected Timeline and Key Milestones\n<|id|>152<|page|>16<|box|>392 140 409 364<|content|>IX. Scope of Representation\n<|id|>176<|page|>17<|box|>698 142 714 312<|content|>Matters Not in Scope\n<|id|>182<|page|>18<|box|>186 140 204 385<|content|>X. Administrative Information\n<|id|>187<|page|>18<|box|>765 142 782 272<|content|>XI. Distribution\n<|id|>189<|page|>18<|box|>854 142 869 316<|content|>Internal Distribution:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>16<|level|>1\n<|id|>24<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>2\n<|id|>40<|level|>1\n<|id|>51<|level|>2\n<|id|>58<|level|>2\n<|id|>63<|level|>1\n<|id|>64<|level|>2\n<|id|>68<|level|>2\n<|id|>84<|level|>3\n<|id|>88<|level|>2\n<|id|>94<|level|>2\n<|id|>98<|level|>2\n<|id|>111<|level|>1\n<|id|>119<|level|>1\n<|id|>138<|level|>1\n<|id|>147<|level|>1\n<|id|>152<|level|>1\n<|id|>176<|level|>2\n<|id|>182<|level|>1\n<|id|>187<|level|>1\n<|id|>189<|level|>2",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 1
+        },
+        {
+            "id": 187,
+            "level": 1
+        },
+        {
+            "id": 189,
+            "level": 2
+        }
+    ]
+}

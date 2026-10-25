@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['10', '09/2021', 'Higgins, D.', 'NCS', 'Bodily injury — catastrophic crush injury from defective emergency stop', 'Open', '$0', '$6,950,000']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'mechanism on Model NCS-7200 conveyor; Case No. 2021-L-04382', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 445,
+    "table2_idx": 446
+}

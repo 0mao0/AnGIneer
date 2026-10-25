@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        7
+    ],
+    "pages": [
+        2,
+        3,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>13<|page|>2<|box|>851 140 906 854<|content|>We intend to use approximately $100,000,000 of the...is a utility-scale solar photovoltaic (\"Solar PV\")\n<|id|>14<|page|>3<|box|>90 140 255 856<|content|>generating facility with an expected nameplate cap...omary construction risks and permitting conditions\n<|id|>44<|page|>7<|box|>349 183 401 854<|content|>• \"Principal and Selling Stockholders\" — for infor... beneficial ownership of our common stock; ... and\n<|id|>45<|page|>7<|box|>405 183 457 854<|content|>\"Underwriting\" — for information regarding the und...nflicts of interest, and FINRA-related disclosures",
+    "raw_response": "<|src_id|>13<|tgt_id|>14",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        }
+    ]
+}

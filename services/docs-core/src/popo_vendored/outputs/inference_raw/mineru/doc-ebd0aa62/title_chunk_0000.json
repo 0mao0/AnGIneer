@@ -1,0 +1,145 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        47
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        10,
+        11,
+        15,
+        19,
+        20,
+        21,
+        23,
+        28,
+        33,
+        38,
+        40,
+        42,
+        44,
+        46
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>176 389 208 608<|content|>中华人民共和国行业标准\n<|id|>2<|page|>1<|box|>238 158 332 835<|content|>《沿海港口水工建筑工程定额》(JTS/T 276—1—2019) 局部修订(基础打入桩、灌注桩工程部\n<|id|>8<|page|>2<|box|>230 102 319 894<|content|>交通运输部关于发布《沿海港口水工建筑工程定额》 (JTS/T 276—1—2019)局部修订(基础打\n<|id|>15<|page|>4<|box|>228 430 267 565<|content|>修订说明\n<|id|>40<|page|>6<|box|>226 446 268 554<|content|>目次\n<|id|>42<|page|>8<|box|>463 290 517 706<|content|>第一部分 补充工程定额\n<|id|>43<|page|>10<|box|>127 461 156 535<|content|>说明\n<|id|>51<|page|>11<|box|>228 351 267 644<|content|>第一节 基础打入桩工程\n<|id|>52<|page|>11<|box|>312 413 342 582<|content|>2-1-4 水上打钢管桩\n<|id|>53<|page|>11<|box|>361 64 384 162<|content|>6. 桩径 200cm\n<|id|>66<|page|>15<|box|>129 410 156 584<|content|>2-1-10 水上桩头处理\n<|id|>67<|page|>15<|box|>174 64 201 162<|content|>4. 钢管桩截桩\n<|id|>83<|page|>19<|box|>129 409 157 587<|content|>2-1-29 陆上打钢管桩\n<|id|>84<|page|>19<|box|>176 64 200 162<|content|>1. 桩径 100cm\n<|id|>89<|page|>20<|box|>115 64 139 162<|content|>2. 桩径 150cm\n<|id|>94<|page|>21<|box|>129 393 157 603<|content|>2-1-30 陆上打管板组合桩\n<|id|>95<|page|>21<|box|>176 64 201 162<|content|>1. 桩径 200cm\n<|id|>101<|page|>23<|box|>260 352 299 644<|content|>第二节 基础灌注桩工程\n<|id|>102<|page|>23<|box|>344 408 373 585<|content|>2-2-11 冲击钻机冲孔\n<|id|>103<|page|>23<|box|>391 64 416 162<|content|>1. 桩径 150cm\n<|id|>116<|page|>28<|box|>115 64 139 162<|content|>2. 桩径 200cm\n<|id|>128<|page|>33<|box|>115 64 139 160<|content|>3. 桩径 250cm\n<|id|>140<|page|>38<|box|>176 64 200 162<|content|>1. 桩径 150cm\n<|id|>141<|page|>38<|box|>129 409 157 585<|content|>2-2-12 旋挖钻机钻孔\n<|id|>147<|page|>40<|box|>115 64 139 160<|content|>2. 桩径 200cm\n<|id|>153<|page|>42<|box|>115 64 139 160<|content|>3. 桩径 250cm\n<|id|>159<|page|>44<|box|>463 178 517 816<|content|>第二部分 补充工程机械台班费用定额\n<|id|>160<|page|>46<|box|>129 431 157 566<|content|>一、补充工程机械",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>8<|level|>1\n<|id|>15<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>53<|level|>4\n<|id|>66<|level|>3\n<|id|>67<|level|>4\n<|id|>83<|level|>3\n<|id|>84<|level|>4\n<|id|>89<|level|>4\n<|id|>94<|level|>3\n<|id|>95<|level|>4\n<|id|>101<|level|>2\n<|id|>102<|level|>3\n<|id|>103<|level|>4\n<|id|>116<|level|>4\n<|id|>128<|level|>4\n<|id|>140<|level|>4\n<|id|>141<|level|>3\n<|id|>147<|level|>4\n<|id|>153<|level|>4\n<|id|>159<|level|>1\n<|id|>160<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 4
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 4
+        },
+        {
+            "id": 116,
+            "level": 4
+        },
+        {
+            "id": 128,
+            "level": 4
+        },
+        {
+            "id": 140,
+            "level": 4
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 4
+        },
+        {
+            "id": 153,
+            "level": 4
+        },
+        {
+            "id": 159,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 2
+        }
+    ]
+}

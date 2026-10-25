@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        10,
+        14,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 215 108 779<|content|>UNITED STATES DISTRICT COURT FOR THE DISTRICT OF N\n<|id|>1<|type|>table<|page|>1<|box|>141 143 285 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>353 148 388 848<|content|>DEFENDANT REDSTONE GAMING CORP.'S REPLY IN SUPPORT\n<|id|>4<|type|>title<|page|>1<|box|>473 385 489 612<|content|>TABLE OF AUTHORITIES\n<|id|>6<|type|>table<|page|>1<|box|>526 143 895 852<|content|>None\n<|id|>7<|type|>table<|page|>2<|box|>89 143 380 852<|content|>None\n<|id|>8<|type|>table<|page|>2<|box|>441 143 545 852<|content|>None\n<|id|>9<|type|>table<|page|>2<|box|>604 143 704 852<|content|>None\n<|id|>10<|type|>title<|page|>2<|box|>753 143 768 308<|content|>I. INTRODUCTION\n<|id|>16<|type|>title<|page|>4<|box|>89 140 107 279<|content|>II. ARGUMENT\n<|id|>17<|type|>title<|page|>4<|box|>121 140 157 854<|content|>A. Luminos Has Failed to Demonstrate a Genuine Dis\n<|id|>39<|type|>title<|page|>7<|box|>556 140 574 723<|content|>B. Luminos's Reliance on Dr. Calvin Yates's Expert\n<|id|>55<|type|>title<|page|>10<|box|>220 140 238 846<|content|>C. The Four Fair-Use Factors Under 17 U.S.C. § 107\n<|id|>82<|type|>title<|page|>14<|box|>419 140 436 609<|content|>D. Luminos's Cited Authorities Are Readily Disting\n<|id|>95<|type|>title<|page|>16<|box|>422 140 440 797<|content|>E. No Genuine Dispute of Material Fact Exists — Su\n<|id|>106<|type|>title<|page|>17<|box|>561 140 579 300<|content|>III. CONCLUSION\n<|id|>118<|type|>title<|page|>18<|box|>453 374 470 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>6<|tgt_id|>4\n<|src_id|>7<|tgt_id|>4\n<|src_id|>8<|tgt_id|>4\n<|src_id|>9<|tgt_id|>4",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 4
+        }
+    ]
+}

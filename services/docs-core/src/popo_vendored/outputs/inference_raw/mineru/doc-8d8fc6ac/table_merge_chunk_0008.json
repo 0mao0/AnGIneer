@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 8,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['December p.', '25,322', '10,392', '940', '13,990', '85,465', '104,937', '-17,917', '-1,555', '110,787']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Calendar year or month', 'colspan=3, Domestic stocks', 'colspan=3, Domestic bonds', 'rowspan=2, Total purchases', 'rowspan=2, Total sales', 'rowspan=2, Net purchases of domestic securities']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 201,
+    "table2_idx": 202
+}

@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law One Lib\n<|id|>13<|type|>title<|page|>2<|box|>286 140 303 566<|content|>1. Comprehensive / Extended Coverage Endorsements\n<|id|>18<|type|>title<|page|>3<|box|>167 140 184 514<|content|>2. Environmental Protection Lien Endorsement\n<|id|>21<|type|>title<|page|>3<|box|>590 140 607 336<|content|>3. Survey Endorsements\n<|id|>25<|type|>title<|page|>4<|box|>258 140 277 331<|content|>4. Zoning Endorsement\n<|id|>33<|type|>title<|page|>5<|box|>241 140 258 622<|content|>5. Construction Loan / Pending Disbursements Endor\n<|id|>48<|type|>title<|page|>6<|box|>715 140 732 361<|content|>6. Leasehold Endorsements\n<|id|>56<|type|>title<|page|>7<|box|>816 140 834 450<|content|>7. Additional / Ancillary Endorsements\n<|id|>70<|type|>title<|page|>9<|box|>821 140 837 638<|content|>8. Mezzanine-Level UCC Insurance / Separate Policy\n<|id|>73<|type|>title<|page|>10<|box|>359 140 376 411<|content|>9. Premium Quotation and Billing\n<|id|>85<|type|>title<|page|>12<|box|>90 142 107 415<|content|>10. Schedule of Deliveries / Timing\n<|id|>87<|type|>table<|page|>12<|box|>176 143 440 852<|content|>None\n<|id|>90<|type|>title<|page|>12<|box|>742 143 758 334<|content|>11. Contact Information\n<|id|>104<|type|>title<|page|>13<|box|>398 212 414 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>116<|type|>title<|page|>14<|box|>133 143 151 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>87<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 87,
+            "tgt_id": 85
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['F. Internet or other similar network activity', 'Yes', \"Browsing history on cascade.com and in the Cascade mobile application; search queries entered on Cascade's platforms; interaction with advertisements served by or on behalf of Cascade (including click-through, impression, and conversion data); click-stream data; page-view history; session duration; referral URLs; and data collected through twelve (12) categories of cookies and tracking technologies deployed on cascade.com and the Cascade\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'mobile application (including strictly necessary cookies, performance cookies, functional cookies, advertising cookies, social-media cookies, analytics cookies, session-replay cookies, personalization cookies, consent-management cookies, A/B testing cookies, cart-persistence cookies, and fraud-detection cookies). Peakview Analytics Inc. processes approximately 2.1 billion consumer-event data records per month in connection with analytics services provided to Cascade.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 34,
+    "table2_idx": 35
+}

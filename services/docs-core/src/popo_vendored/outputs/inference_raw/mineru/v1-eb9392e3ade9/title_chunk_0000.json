@@ -1,0 +1,50 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>379 105 394 312<|content|>【passage e749ed056a51】\n<|id|>5<|page|>1<|box|>600 107 615 312<|content|>【passage 67074f14e090】\n<|id|>11<|page|>2<|box|>204 107 219 312<|content|>【passage b31638084535】\n<|id|>23<|page|>3<|box|>785 105 801 312<|content|>【passage 964e23cd9b87】\n<|id|>32<|page|>5<|box|>293 107 309 312<|content|>【passage 3853c129a4e2】\n<|id|>35<|page|>5<|box|>546 105 562 312<|content|>【passage 5c0a17de895a】\n<|id|>37<|page|>5<|box|>699 105 715 312<|content|>【passage 032d12f01916】\n<|id|>39<|page|>5<|box|>783 107 797 312<|content|>【passage b02c0a517993】",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>5<|level|>1\n<|id|>11<|level|>1\n<|id|>23<|level|>1\n<|id|>32<|level|>1\n<|id|>35<|level|>1\n<|id|>37<|level|>1\n<|id|>39<|level|>1",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        }
+    ]
+}

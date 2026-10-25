@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        45,
+        122
+    ],
+    "pages": [
+        46,
+        50,
+        61,
+        66,
+        121,
+        122
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>201<|page|>46<|box|>424 369 436 627<|content|>[Source: ... Bureau of the Fiscal Service, Office of Financing]\n<|id|>202<|page|>46<|box|>444 83 460 156<|content|>JULY\n<|id|>207<|page|>46<|box|>444 506 459 697<|content|>Auction of 5-Year Notes\n<|id|>208<|page|>46<|box|>465 504 523 913<|content|>On June 20, 2013, Treasury announced it would auct...o raise new cash of approximately \\$40,729 million\n<|id|>273<|page|>50<|box|>861 81 907 491<|content|>The 2-year notes of Series AQ-2015 were dated Augu... payable on the last calendar days of February and\n<|id|>274<|page|>50<|box|>137 504 181 915<|content|>August until maturity. ... Treasury set an interes...ich tenders were accepted on a yield auction basis\n<|id|>277<|page|>50<|box|>443 504 501 915<|content|>On August 22, 2013, Treasury announced it would au...o raise new cash of approximately \\$38,093 million\n<|id|>278<|page|>50<|box|>501 504 559 913<|content|>The 5-year notes of Series P-2018 were dated Augus...alendar days of February and August until maturity\n<|id|>343<|page|>61<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>344<|page|>61<|box|>198 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund\n<|id|>384<|page|>66<|box|>762 81 910 491<|content|>The data in these tables do not cover all types of...al transactions are published by the Department of\n<|id|>385<|page|>66<|box|>90 504 121 915<|content|>Commerce in its regular reports on the U. ... balance of payments\n<|id|>577<|page|>121<|box|>148 374 165 622<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>578<|page|>121<|box|>186 81 262 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>586<|page|>121<|box|>843 81 904 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>587<|page|>121<|box|>186 504 262 915<|content|>Second Liberty Loan Act of 1917, the nature of the...l debt. ... the limit may change from year to year\n<|id|>596<|page|>121<|box|>864 504 897 915<|content|>Foreigner (“Capital Movements,” IFS-2)—All institu...iduals living outside the United States, including\n<|id|>598<|page|>122<|box|>213 80 361 491<|content|>Foreign official institutions (“Capital Movements”...d by treaty or convention between sovereign states",
+    "raw_response": "<|src_id|>273<|tgt_id|>274\n<|src_id|>384<|tgt_id|>385\n<|src_id|>586<|tgt_id|>587\n<|src_id|>596<|tgt_id|>598",
+    "parsed": [
+        {
+            "src_id": 273,
+            "tgt_id": 274
+        },
+        {
+            "src_id": 384,
+            "tgt_id": 385
+        },
+        {
+            "src_id": 586,
+            "tgt_id": 587
+        },
+        {
+            "src_id": 596,
+            "tgt_id": 598
+        }
+    ]
+}

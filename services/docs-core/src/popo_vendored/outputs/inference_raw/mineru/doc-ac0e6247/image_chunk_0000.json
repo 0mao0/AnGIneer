@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 140 104 678<|content|>CONFIDENTIAL — SETTLEMENT COMMUNICATION — WITHOUT\n<|id|>1<|type|>title<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>13<|type|>title<|page|>1<|box|>731 140 750 411<|content|>Summary of Engagement Context\n<|id|>16<|type|>title<|page|>2<|box|>223 140 239 511<|content|>Summary of Key OWS Positions in the Redline\n<|id|>18<|type|>title<|page|>2<|box|>353 142 369 357<|content|>1. Term and Effective Date\n<|id|>21<|type|>title<|page|>2<|box|>633 140 652 467<|content|>2. Licensed Products — Scope Expansion\n<|id|>28<|type|>title<|page|>3<|box|>393 140 410 339<|content|>3. Seat Count Expansion\n<|id|>30<|type|>table<|page|>3<|box|>494 143 601 852<|content|>None\n<|id|>33<|type|>title<|page|>3<|box|>838 140 854 392<|content|>4. Pricing and Volume discount\n<|id|>40<|type|>title<|page|>4<|box|>635 140 652 267<|content|>5. Audit Rights\n<|id|>49<|type|>title<|page|>5<|box|>382 140 398 455<|content|>6. Intellectual Property Indemnification\n<|id|>57<|type|>title<|page|>6<|box|>273 140 292 339<|content|>7. Limitation of Liability\n<|id|>66<|type|>title<|page|>6<|box|>750 140 765 326<|content|>8. Source Code Escrow\n<|id|>74<|type|>title<|page|>7<|box|>573 140 590 486<|content|>9. Cloud Services — SLA and Data Security\n<|id|>84<|type|>title<|page|>8<|box|>481 142 498 480<|content|>10. Governing Law and Dispute Resolution\n<|id|>89<|type|>title<|page|>8<|box|>796 143 813 364<|content|>11. Other Notable Revisions\n<|id|>96<|type|>title<|page|>9<|box|>491 142 508 310<|content|>Enclosed Documents\n<|id|>102<|type|>title<|page|>9<|box|>715 140 733 573<|content|>Requested Response Timeline and Proposed Next Step\n<|id|>108<|type|>title<|page|>10<|box|>273 142 292 316<|content|>Reservation of Rights",
+    "raw_response": "<|src_id|>30<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        }
+    ]
+}

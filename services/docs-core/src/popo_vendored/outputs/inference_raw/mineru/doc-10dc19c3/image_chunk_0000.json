@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>114 200 133 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|type|>title<|page|>1<|box|>316 385 335 611<|content|>I. Executive Summary\n<|id|>16<|type|>title<|page|>2<|box|>210 328 229 668<|content|>II. Overview of the Credit Facility\n<|id|>17<|type|>title<|page|>2<|box|>255 142 272 357<|content|>A. Key Commercial Terms\n<|id|>19<|type|>table<|page|>2<|box|>340 143 559 852<|content|>None\n<|id|>22<|type|>title<|page|>3<|box|>90 142 107 380<|content|>B. Background on the Facility\n<|id|>30<|type|>title<|page|>3<|box|>536 331 555 666<|content|>III. Financial Covenants Analysis\n<|id|>32<|type|>title<|page|>3<|box|>651 142 669 403<|content|>A. Minimum Liquidity Covenant\n<|id|>40<|type|>title<|page|>4<|box|>747 140 763 385<|content|>B. ARR-Based Coverage Ratio\n<|id|>52<|type|>title<|page|>5<|box|>742 197 761 797<|content|>IV. Negative Covenants Relevant to the Series D Tr\n<|id|>54<|type|>title<|page|>6<|box|>90 140 107 633<|content|>A. Restriction on Equity Issuances / Capital Struc\n<|id|>64<|type|>title<|page|>6<|box|>797 142 814 398<|content|>B. Change of Control Provisions\n<|id|>68<|type|>title<|page|>7<|box|>234 140 251 816<|content|>Under Pinnacle's Proposed Terms ($260,000,000 Pre-\n<|id|>70<|type|>title<|page|>7<|box|>340 140 358 818<|content|>Under Verdana's Proposed Terms ($320,000,000 Pre-M\n<|id|>80<|type|>title<|page|>8<|box|>286 140 303 588<|content|>C. Restrictions on Incurrence of Additional Indebt\n<|id|>86<|type|>title<|page|>9<|box|>90 140 107 506<|content|>D. Restrictions on Liens and Security Interests\n<|id|>91<|type|>title<|page|>9<|box|>619 140 636 498<|content|>E. Restrictions on Fundamental Transactions\n<|id|>98<|type|>title<|page|>10<|box|>412 279 431 717<|content|>V. Structural Subordination Considerations\n<|id|>102<|type|>table<|page|>10<|box|>727 143 897 852<|content|>None\n<|id|>103<|type|>table<|page|>11<|box|>88 143 119 852<|content|>None\n<|id|>104<|type|>table<|page|>11<|box|>150 143 349 852<|content|>None\n<|id|>109<|type|>title<|page|>12<|box|>90 258 111 738<|content|>VI. Consent / Waiver Requirements and Process\n<|id|>110<|type|>title<|page|>12<|box|>136 142 154 377<|content|>A. Form of Consent Required\n<|id|>118<|type|>title<|page|>12<|box|>743 142 760 334<|content|>B. Process and Timeline\n<|id|>135<|type|>title<|page|>13<|box|>815 140 832 416<|content|>C. Risk if Consent Is Not Obtained\n<|id|>144<|type|>title<|page|>14<|box|>608 258 627 738<|content|>VII. Impact on Series D Transaction Documents\n<|id|>146<|type|>title<|page|>14<|box|>723 140 739 380<|content|>A. Stock Purchase Agreement\n<|id|>151<|type|>title<|page|>15<|box|>476 140 493 573<|content|>B. Amended and Restated Investors' Rights Agreemen\n<|id|>155<|type|>title<|page|>16<|box|>148 140 167 333<|content|>C. Disclosure Schedules\n<|id|>163<|type|>title<|page|>16<|box|>564 334 584 663<|content|>VIII. Open Items and Next Steps\n<|id|>175<|type|>title<|page|>17<|box|>833 421 852 575<|content|>IX. Conclusion\n<|id|>178<|type|>title<|page|>18<|box|>325 140 342 380<|content|>We recommend the following:\n<|id|>187<|type|>title<|page|>18<|box|>763 142 777 606<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC",
+    "raw_response": "<|src_id|>19<|tgt_id|>17\n<|src_id|>102<|tgt_id|>98\n<|src_id|>103<|tgt_id|>98\n<|src_id|>104<|tgt_id|>98",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 98
+        }
+    ]
+}

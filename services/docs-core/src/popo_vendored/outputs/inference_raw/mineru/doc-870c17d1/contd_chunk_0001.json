@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        60,
+        70
+    ],
+    "pages": [
+        61,
+        62,
+        63,
+        70
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>652<|page|>61<|box|>842 140 878 854<|content|>Calderwood & Harkness LLP, 400 South Ashbury Asset...el to Harrowgate Capital Partners LLC, the General\n<|id|>653<|page|>62<|box|>90 140 127 854<|content|>Partner, and the Fund entities. ... Calderwood & H...t on behalf of the Sponsor and the General Partner\n<|id|>664<|page|>62<|box|>792 176 828 854<|content|>Rachel M. ... (302) 555-7400\n<|id|>665<|page|>62<|box|>835 142 871 535<|content|>Email: ... com Osprey Capital Markets LLC — Placement Agent\n<|id|>666<|page|>63<|box|>89 176 126 854<|content|>Sandra J. ... (212) 555-9210\n<|id|>667<|page|>63<|box|>133 176 152 436<|content|>Email: ... com\n<|id|>723<|page|>70<|box|>303 176 339 854<|content|>Rachel M. ... (302) 555-7400\n<|id|>724<|page|>70<|box|>348 176 364 478<|content|>Email: ... com",
+    "raw_response": "<|src_id|>652<|tgt_id|>653",
+    "parsed": [
+        {
+            "src_id": 652,
+            "tgt_id": 653
+        }
+    ]
+}

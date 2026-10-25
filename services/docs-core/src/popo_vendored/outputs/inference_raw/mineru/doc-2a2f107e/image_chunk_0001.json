@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        59
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>246<|type|>table<|page|>45<|box|>129 110 896 887<|content|>None\n<|id|>247<|type|>table<|page|>46<|box|>128 110 495 885<|content|>None\n<|id|>248<|type|>table<|page|>46<|box|>538 110 896 885<|content|>None\n<|id|>249<|type|>table<|page|>47<|box|>129 110 895 885<|content|>None\n<|id|>250<|type|>table<|page|>48<|box|>128 110 583 885<|content|>None\n<|id|>251<|type|>table<|page|>48<|box|>630 110 896 885<|content|>None\n<|id|>252<|type|>table<|page|>49<|box|>129 110 895 887<|content|>None\n<|id|>253<|type|>table<|page|>50<|box|>129 110 687 885<|content|>None\n<|id|>254<|type|>table<|page|>50<|box|>728 110 896 885<|content|>None\n<|id|>255<|type|>table<|page|>51<|box|>129 110 896 885<|content|>None\n<|id|>256<|type|>table<|page|>52<|box|>128 110 340 885<|content|>None\n<|id|>257<|type|>table<|page|>52<|box|>386 110 896 885<|content|>None\n<|id|>258<|type|>table<|page|>53<|box|>129 110 896 885<|content|>None\n<|id|>259<|type|>table<|page|>54<|box|>129 110 896 885<|content|>None\n<|id|>260<|type|>table<|page|>55<|box|>129 110 493 885<|content|>None\n<|id|>261<|type|>table<|page|>55<|box|>538 110 896 885<|content|>None\n<|id|>262<|type|>table<|page|>56<|box|>129 110 751 885<|content|>None\n<|id|>263<|type|>title<|page|>57<|box|>126 453 142 544<|content|>附 录 H\n<|id|>265<|type|>title<|page|>57<|box|>170 406 186 589<|content|>安全管理评估指标体系\n<|id|>267<|type|>table<|page|>57<|box|>259 110 895 885<|content|>None\n<|id|>268<|type|>table<|page|>58<|box|>128 112 324 885<|content|>None\n<|id|>269<|type|>image<|page|>58<|box|>718 591 810 763<|content|>None\n<|id|>270<|type|>title<|page|>59<|box|>133 445 149 552<|content|>参 考 文 献\n<|id|>289<|type|>image<|page|>59<|box|>717 591 810 763<|content|>None",
+    "raw_response": "<|src_id|>267<|tgt_id|>265\n<|src_id|>268<|tgt_id|>265\n<|src_id|>269<|tgt_id|>265\n<|src_id|>289<|tgt_id|>270",
+    "parsed": [
+        {
+            "src_id": 267,
+            "tgt_id": 265
+        },
+        {
+            "src_id": 268,
+            "tgt_id": 265
+        },
+        {
+            "src_id": 269,
+            "tgt_id": 265
+        },
+        {
+            "src_id": 289,
+            "tgt_id": 270
+        }
+    ]
+}

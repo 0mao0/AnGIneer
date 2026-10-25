@@ -1,0 +1,70 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 356 107 640<|content|>NEW YORK STOCK EXCHANGE\n<|id|>5<|page|>1<|box|>219 140 236 576<|content|>VIA ELECTRONIC MAIL AND Sundial Data Systems\n<|id|>11<|page|>1<|box|>463 143 479 411<|content|>1. Approval of Listing Application\n<|id|>16<|page|>2<|box|>90 140 107 397<|content|>2. Shares Authorized for Listing\n<|id|>23<|page|>2<|box|>763 140 780 401<|content|>3. Listing Standards Compliance\n<|id|>30<|page|>4<|box|>90 140 107 457<|content|>4. Corporate Governance Requirements\n<|id|>39<|page|>5<|box|>476 140 493 331<|content|>5. Conditions to Listing\n<|id|>50<|page|>6<|box|>429 140 446 328<|content|>6. Ongoing Obligations\n<|id|>58<|page|>7<|box|>297 140 314 423<|content|>7. Representations by the Company\n<|id|>65<|page|>7<|box|>732 140 750 334<|content|>8. Reservation of Rights\n<|id|>72<|page|>8<|box|>356 140 372 326<|content|>9. Contact Information\n<|id|>90<|page|>9<|box|>90 176 107 415<|content|>Continental Share Services, Inc.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>30<|level|>2\n<|id|>39<|level|>2\n<|id|>50<|level|>2\n<|id|>58<|level|>2\n<|id|>65<|level|>2\n<|id|>72<|level|>2\n<|id|>90<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        }
+    ]
+}

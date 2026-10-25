@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>224 140 242 496<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>18<|page|>1<|box|>633 142 650 367<|content|>1. Introduction and Purpose\n<|id|>24<|page|>2<|box|>513 140 530 388<|content|>2. Legal Basis for This Request\n<|id|>32<|page|>3<|box|>758 140 775 617<|content|>3. Request to Luminex Systems Holdings Inc. (the C\n<|id|>37<|page|>4<|box|>402 140 420 604<|content|>4. Request to Selling Stockholders — United States\n<|id|>40<|page|>4<|box|>669 140 686 460<|content|>(a) Ridgeline Growth Equity Fund II LP\n<|id|>43<|page|>5<|box|>138 140 157 439<|content|>(b) Meridian Venture Partners IV LP\n<|id|>45<|page|>5<|box|>286 140 303 661<|content|>(c) Management Rollover Participants and Employee\n<|id|>54<|page|>6<|box|>348 140 364 640<|content|>5. Request to Selling Stockholders — Non-United St\n<|id|>62<|page|>7<|box|>513 140 530 485<|content|>6. Instructions for Completion and Delivery\n<|id|>63<|page|>7<|box|>544 140 560 354<|content|>6.1 Form W-9 Instructions\n<|id|>74<|page|>8<|box|>763 140 780 354<|content|>6.2 Form W-8 Instructions\n<|id|>85<|page|>9<|box|>686 140 704 411<|content|>6.3 Delivery Deadline and Method\n<|id|>102<|page|>10<|box|>537 140 555 429<|content|>7. Consequences of Non-Compliance\n<|id|>107<|page|>11<|box|>314 140 332 496<|content|>8. Request for Coordination by the Company\n<|id|>117<|page|>12<|box|>167 140 184 326<|content|>9. Contact Information\n<|id|>127<|page|>12<|box|>636 142 652 346<|content|>10. Confidentiality Notice\n<|id|>139<|page|>13<|box|>372 142 388 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>142<|page|>13<|box|>441 143 457 240<|content|>Enclosures:\n<|id|>147<|page|>13<|box|>619 142 636 254<|content|>cc: (via email)",
+    "raw_response": "<|id|>5<|level|>-1\n<|id|>18<|level|>1\n<|id|>24<|level|>1\n<|id|>32<|level|>1\n<|id|>37<|level|>1\n<|id|>40<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>2\n<|id|>54<|level|>1\n<|id|>62<|level|>1\n<|id|>63<|level|>2\n<|id|>74<|level|>2\n<|id|>85<|level|>2\n<|id|>102<|level|>1\n<|id|>107<|level|>1\n<|id|>117<|level|>1\n<|id|>127<|level|>1\n<|id|>139<|level|>-1\n<|id|>142<|level|>1\n<|id|>147<|level|>1",
+    "parsed": [
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 1
+        }
+    ]
+}

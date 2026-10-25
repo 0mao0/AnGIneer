@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>356 140 375 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>15<|page|>2<|box|>291 142 308 374<|content|>2. Background of the Dispute\n<|id|>17<|page|>2<|box|>402 140 419 370<|content|>2.1 Contractual Relationship\n<|id|>27<|page|>3<|box|>481 140 498 313<|content|>2.2 The Misvaluation\n<|id|>34<|page|>4<|box|>411 140 429 370<|content|>2.3 Aggregate Overvaluation\n<|id|>38<|page|>4<|box|>763 140 781 403<|content|>2.4 discovery of the Misvaluation\n<|id|>50<|page|>6<|box|>223 140 239 532<|content|>3. Scope of Engagement and Specific Assignments\n<|id|>52<|page|>6<|box|>316 140 333 415<|content|>3.1 Quantification of Direct Losses\n<|id|>54<|page|>6<|box|>554 140 571 457<|content|>3.2 Investor Redemption Overpayments\n<|id|>56<|page|>6<|box|>773 140 790 441<|content|>3.3 Excess Management Fees Analysis\n<|id|>58<|page|>7<|box|>157 140 174 433<|content|>3.4 Inflated Performance Allocations\n<|id|>60<|page|>7<|box|>340 140 357 411<|content|>3.5 Regulatory Remediation Costs\n<|id|>62<|page|>7<|box|>541 140 558 433<|content|>3.6 Investor Litigation Defense Costs\n<|id|>64<|page|>7<|box|>760 140 777 472<|content|>3.7 Reputational and AUM Loss Damages\n<|id|>66<|page|>8<|box|>250 140 267 411<|content|>3.8 Aggregate Damages Summary\n<|id|>68<|page|>8<|box|>414 140 430 397<|content|>3.9 Fee Analysis Under the FAA\n<|id|>70<|page|>8<|box|>651 140 667 517<|content|>3.10 Rebuttal of Defendant's Damages Positions\n<|id|>72<|page|>8<|box|>833 140 851 416<|content|>3.11 Expert Report and Testimony\n<|id|>74<|page|>9<|box|>223 140 239 524<|content|>4. Coordination with Other Experts and Counsel\n<|id|>89<|page|>10<|box|>229 140 248 361<|content|>5. Materials to Be Provided\n<|id|>106<|page|>11<|box|>337 140 354 362<|content|>6. Fee Structure and Billing\n<|id|>117<|page|>12<|box|>319 140 335 390<|content|>7. Confidentiality and Privilege\n<|id|>123<|page|>13<|box|>148 140 167 400<|content|>8. Independence and Objectivity\n<|id|>131<|page|>13<|box|>609 140 627 346<|content|>9. Term and Termination\n<|id|>136<|page|>14<|box|>90 143 107 377<|content|>10. Deliverables and Timeline\n<|id|>140<|page|>14<|box|>795 142 813 480<|content|>11. Applicable Law and Dispute Resolution\n<|id|>142<|page|>15<|box|>186 140 204 380<|content|>12. Acceptance and Execution",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>15<|level|>1\n<|id|>17<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>50<|level|>1\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>2\n<|id|>74<|level|>1\n<|id|>89<|level|>1\n<|id|>106<|level|>1\n<|id|>117<|level|>1\n<|id|>123<|level|>1\n<|id|>131<|level|>1\n<|id|>136<|level|>1\n<|id|>140<|level|>1\n<|id|>142<|level|>1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        }
+    ]
+}

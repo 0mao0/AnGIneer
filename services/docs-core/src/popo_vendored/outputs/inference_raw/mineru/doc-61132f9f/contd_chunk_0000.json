@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>1<|box|>342 658 359 854<|content|>Filed: ... November 17, 2023\n<|id|>7<|page|>1<|box|>368 140 551 854<|content|>Defendants Thalassa Shipping & Logistics SA (\"TSL\"...rmative defense set forth herein, state as follows\n<|id|>16<|page|>2<|box|>809 140 900 856<|content|>5. ... It is well established under New York law t...easonable proportion to the probable loss, and (b)\n<|id|>17<|page|>3<|box|>90 174 181 856<|content|>actual damages are difficult to ascertain. ... A r...cipated harm, and would therefore be unenforceable\n<|id|>25<|page|>3<|box|>814 142 887 856<|content|>11. ... The vessel has been properly maintained, s...all times held valid certificates of class, Safety\n<|id|>26<|page|>4<|box|>90 174 125 854<|content|>Construction Certificates, Safety Equipment Certif...tory and class certificates required for its trade\n<|id|>42<|page|>5<|box|>851 140 905 854<|content|>23. ... (b)\n<|id|>43<|page|>6<|box|>90 174 199 854<|content|>war-risk zones as defined in the London Joint War ...to or any other port in the Republic of Mozambique\n<|id|>83<|page|>9<|box|>875 176 892 477<|content|>(m) failure to join a necessary party; ... and\n<|id|>86<|page|>10<|box|>373 488 390 854<|content|>Dated: ... November 17, 2023 New York, New York\n<|id|>89<|page|>10<|box|>434 142 450 447<|content|>Douglas Carmichael Responsible Partner\n<|id|>90<|page|>10<|box|>450 140 483 854<|content|>One Liberty Plaza, 50th Floor New York, New York 10006 Telephone: ... (212) 558-3588\n<|id|>91<|page|>10<|box|>484 140 501 490<|content|>Email: ... com\n<|id|>92<|page|>10<|box|>502 140 534 852<|content|>Attorneys for Defendants Thalassa Shipping & Logis... & Logistics SA and Aegean Fortuna Shipholding Ltd\n<|id|>97<|page|>10<|box|>781 174 835 854<|content|>Margaret Delacroix, Esq. ... (212) 909-6000\n<|id|>98<|page|>10<|box|>844 140 878 764<|content|>Email: ... com Attorneys for Plaintiff Northwind Maritime Corporation\n<|id|>99<|page|>11<|box|>109 140 143 346<|content|>Carlos Espinoza Dated: ... November 17, 2023",
+    "raw_response": "<|src_id|>16<|tgt_id|>17\n<|src_id|>25<|tgt_id|>26\n<|src_id|>42<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ]
+}

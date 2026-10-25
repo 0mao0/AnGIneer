@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        3,
+        14
+    ],
+    "pages": [
+        3,
+        6,
+        10,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>20<|type|>table<|page|>3<|box|>85 85 192 877<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>210 87 225 368<|content|>USES OF FUNDS — PURCHASE PRICE\n<|id|>23<|type|>title<|page|>3<|box|>317 87 332 482<|content|>USES OF FUNDS — BUYER TRANSACTION EXPENSES\n<|id|>24<|type|>table<|page|>3<|box|>332 85 586 878<|content|>None\n<|id|>25<|type|>table<|page|>3<|box|>601 85 692 868<|content|>None\n<|id|>33<|type|>title<|page|>6<|box|>227 87 244 435<|content|>SELLER TRANSACTION EXPENSE DEDUCTIONS\n<|id|>43<|type|>table<|page|>10<|box|>118 85 370 534<|content|>None\n<|id|>45<|type|>title<|page|>10<|box|>388 87 403 339<|content|>SELLER TRANSACTION EXPENSES\n<|id|>46<|type|>table<|page|>10<|box|>405 85 476 532<|content|>None\n<|id|>78<|type|>table<|page|>14<|box|>85 84 460 878<|content|>None",
+    "raw_response": "<|src_id|>24<|tgt_id|>23\n<|src_id|>25<|tgt_id|>23\n<|src_id|>46<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 45
+        }
+    ]
+}

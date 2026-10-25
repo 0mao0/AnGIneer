@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        46,
+        48
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>545<|type|>title<|page|>46<|box|>89 449 107 549<|content|>EXHIBIT B\n<|id|>546<|type|>title<|page|>46<|box|>130 344 148 651<|content|>FORM OF CAPITAL CALL NOTICE\n<|id|>547<|type|>title<|page|>46<|box|>157 140 172 359<|content|>CAPITAL CALL NOTICE\n<|id|>557<|type|>table<|page|>46<|box|>497 143 573 852<|content|>None\n<|id|>565<|type|>title<|page|>48<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>566<|type|>title<|page|>48<|box|>130 364 148 633<|content|>FORM OF TRANSFER NOTICE\n<|id|>567<|type|>title<|page|>48<|box|>157 143 174 321<|content|>TRANSFER NOTICE\n<|id|>576<|type|>title<|page|>48<|box|>473 140 489 333<|content|>3. Proposed Transferee:",
+    "raw_response": "<|src_id|>557<|tgt_id|>547",
+    "parsed": [
+        {
+            "src_id": 557,
+            "tgt_id": 547
+        }
+    ]
+}

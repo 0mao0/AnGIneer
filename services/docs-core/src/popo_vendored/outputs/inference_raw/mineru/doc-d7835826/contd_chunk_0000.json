@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        15,
+        20,
+        24,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>136 140 171 852<|content|>FROM: ... Peter Vassiliev, Calderwood & Harkness L...ission Street, Suite 3100, San Francisco, CA 94105\n<|id|>2<|page|>1<|box|>180 140 198 841<|content|>TO: ... Catherine Bloom, Responsible Partner, intellectual Property, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>205 140 224 638<|content|>CC: ... Wendy Schultz, Working Associate\n<|id|>4<|page|>1<|box|>232 142 250 316<|content|>DATE: ... February 2026\n<|id|>5<|page|>1<|box|>258 140 313 854<|content|>RE: ... )\n<|id|>15<|page|>2<|box|>337 181 372 854<|content|>• Royalty base: ... $32,088,000 (8,400 ProstaSignal™ tests × $3,820 average reimbursement per test)\n<|id|>18<|page|>2<|box|>414 140 505 854<|content|>The Veridian license analysis feeds directly into ...ios's ProstaSignal™ sales continue post-March 2025\n<|id|>16<|page|>2<|box|>375 183 392 403<|content|>• Proposed royalty rate: ... 18%\n<|id|>17<|page|>2<|box|>393 183 411 692<|content|>• Reasonable royalty damages (through March 2025): ... $5,775,840\n<|id|>24<|page|>2<|box|>806 138 898 857<|content|>Licensed Patents. ... 11,891,647, titled \"Integrated Genomic-Clinical Prognostic Model for Cancer Risk\n<|id|>25<|page|>3<|box|>90 138 181 856<|content|>Stratification\") was not included in the Veridian ...t yet issued at the time of execution. ... 2 below\n<|id|>32<|page|>3<|box|>804 140 878 857<|content|>Under the reasonable-royalty framework established by Georgia-Pacific Corp. ... 3d\n<|id|>33<|page|>4<|box|>89 140 127 854<|content|>1308 (Fed. ... 2014), a reasonable royalty is dete...illing licensee at the time the infringement began\n<|id|>150<|page|>15<|box|>604 140 638 854<|content|>O. ... Factor 15 — Amount That a Prudent Licensor ...d Upon at the Time of the Hypothetical Negotiation\n<|id|>151<|page|>15<|box|>643 140 718 854<|content|>Georgia-Pacific factor 15 is the ultimate synthesizing factor: ... at 1120\n<|id|>191<|page|>20<|box|>511 176 529 426<|content|>$32,088,000 × 0. ... 18 = $5,775,840\n<|id|>192<|page|>20<|box|>537 140 665 854<|content|>Ongoing Accrual. ... Based on ProstaSignal™'s curr...e-royalty damages figure will increase accordingly\n<|id|>194<|page|>20<|box|>736 183 753 617<|content|>• Diverted tests: ... 6,100 (of 8,400 total ProstaSignal™ tests)\n<|id|>198<|page|>20<|box|>814 140 905 854<|content|>If the fact-finder determines that GenomeDx is ent...h lost profits cannot be established (e. ... § 284\n<|id|>195<|page|>20<|box|>756 183 772 468<|content|>• GenomeDx per-test revenue: ... $4,210\n<|id|>196<|page|>20<|box|>775 184 791 475<|content|>• GenomeDx incremental margin: ... 72%\n<|id|>197<|page|>20<|box|>794 184 811 575<|content|>• Lost profits: ... 72 = $18,490,320\n<|id|>231<|page|>24<|box|>835 140 909 857<|content|>Third-Party Subpoena to Corinth Ventures Fund III,...r other documents discussing the economic value of\n<|id|>232<|page|>25<|box|>90 140 183 857<|content|>ProstaSignal™, the competitive landscape in the ge...tive evidence supporting the proposed royalty rate\n<|id|>247<|page|>26<|box|>654 140 686 854<|content|>Peter Vassiliev Associate, intellectual Property L... Francisco, CA 94105 Telephone: ... (415) 555-7200\n<|id|>248<|page|>26<|box|>689 142 705 473<|content|>Email: ... com\n<|id|>249<|page|>26<|box|>707 143 723 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>24<|tgt_id|>25\n<|src_id|>32<|tgt_id|>33\n<|src_id|>231<|tgt_id|>232",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 231,
+            "tgt_id": 232
+        }
+    ]
+}

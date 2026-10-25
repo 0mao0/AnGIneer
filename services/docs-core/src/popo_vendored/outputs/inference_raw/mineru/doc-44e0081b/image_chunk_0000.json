@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 107 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>9<|type|>title<|page|>1<|box|>396 140 412 246<|content|>Dear Allison:\n<|id|>13<|type|>title<|page|>1<|box|>771 140 789 519<|content|>Description of Enclosed Certificate of Insurance\n<|id|>21<|type|>table<|page|>2<|box|>329 143 402 852<|content|>None\n<|id|>23<|type|>title<|page|>2<|box|>604 140 622 477<|content|>Confirmation of Additional Insured Status\n<|id|>32<|type|>title<|page|>3<|box|>414 142 431 537<|content|>Relationship to MCTA Indemnification Provisions\n<|id|>37<|type|>title<|page|>3<|box|>853 142 869 233<|content|>Enclosures\n<|id|>42<|type|>title<|page|>4<|box|>330 140 347 501<|content|>Request for Reciprocal Insurance Certificates\n<|id|>45<|type|>title<|page|>4<|box|>642 140 659 364<|content|>Annual Renewal Obligation",
+    "raw_response": "<|src_id|>21<|tgt_id|>13",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 13
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['colspan=2, 板面拉毛压槽深度', '1~2mm', '100m', '2块', '用尺量']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=2, 抗折强度', '不小于规定合格强度', '每400m^3每1000~2000m^3', '2组增1组', '1.小梁抗折试件2.现场钻圆柱体试件作校核']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 300,
+    "table2_idx": 301
+}

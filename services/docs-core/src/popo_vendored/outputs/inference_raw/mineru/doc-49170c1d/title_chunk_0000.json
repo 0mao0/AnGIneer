@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 153 157 844<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF AURELIUS\n<|id|>6<|page|>1<|box|>359 140 377 243<|content|>RECITALS\n<|id|>14<|page|>3<|box|>321 142 338 336<|content|>RESOLVED CLAUSES\n<|id|>15<|page|>3<|box|>353 140 369 578<|content|>Resolution 1 — Establishment of the Special Commit\n<|id|>17<|page|>3<|box|>536 142 553 504<|content|>Resolution 2 — Composition and Membership\n<|id|>24<|page|>4<|box|>496 142 513 418<|content|>Resolution 3 — Scope and Purpose\n<|id|>40<|page|>5<|box|>840 142 858 442<|content|>Resolution 4 — Authority and Powers\n<|id|>50<|page|>7<|box|>375 142 391 555<|content|>Resolution 5 — Independence and Conflict Protocols\n<|id|>57<|page|>8<|box|>194 142 212 444<|content|>Resolution 6 — Reporting Obligations\n<|id|>62<|page|>8<|box|>674 142 691 630<|content|>Resolution 7 — Compensation of Special Committee M\n<|id|>67<|page|>9<|box|>202 142 218 477<|content|>Resolution 8 — Duration and Termination\n<|id|>73<|page|>9<|box|>542 140 559 504<|content|>Resolution 9 — Ratification and Confirmation\n<|id|>76<|page|>9<|box|>806 140 823 464<|content|>Resolution 10 — Omnibus Authorization\n<|id|>78<|page|>10<|box|>167 142 184 473<|content|>ATTESTATION AND CERTIFICATION\n<|id|>80<|page|>10<|box|>292 142 309 483<|content|>AURELIUS GLOBAL MEDIA GROUP PLC\n<|id|>86<|page|>11<|box|>88 140 108 246<|content|>EXHIBIT A\n<|id|>87<|page|>11<|box|>114 387 133 609<|content|>Special Committee Charter",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>6<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>17<|level|>3\n<|id|>24<|level|>3\n<|id|>40<|level|>3\n<|id|>50<|level|>3\n<|id|>57<|level|>3\n<|id|>62<|level|>3\n<|id|>67<|level|>3\n<|id|>73<|level|>3\n<|id|>76<|level|>3\n<|id|>78<|level|>2\n<|id|>80<|level|>-1\n<|id|>86<|level|>1\n<|id|>87<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 2
+        }
+    ]
+}

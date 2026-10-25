@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        7,
+        11,
+        12,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 424 151 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>160 140 196 854<|content|>From: ... Howard Bellamy, Partner, and Elliot Nguy...ness LLP, 425 Lexington Avenue, New York, NY 10017\n<|id|>3<|page|>1<|box|>204 140 258 854<|content|>To: ... Gavin Trask, Managing Partner & Chairman, ...th Market Street, Suite 1400, Wilmington, DE 19801\n<|id|>4<|page|>1<|box|>266 142 284 294<|content|>Date: ... July 19, 2024\n<|id|>5<|page|>1<|box|>292 140 329 854<|content|>Re: ... P\n<|id|>6<|page|>1<|box|>335 140 354 331<|content|>Matter No. ... 1003-00001\n<|id|>7<|page|>1<|box|>362 140 378 401<|content|>FTC Transaction No. ... 2418-7603\n<|id|>8<|page|>1<|box|>388 142 404 408<|content|>Right-click to update Table of Contents\n<|id|>31<|page|>4<|box|>845 140 901 856<|content|>The horizontal overlap between Dunmore and Ridgema...e driver of the FTC's decision to issue the Second\n<|id|>32<|page|>5<|box|>89 140 162 854<|content|>Request. ... D and Section IV below\n<|id|>57<|page|>7<|box|>311 174 348 854<|content|>(v) competitive strategy, pricing, fee analysis, a...ive credit investment management services; ... and\n<|id|>59<|page|>7<|box|>417 140 545 854<|content|>Date Range. ... The breadth of the date range is c...ing cycles, and historical bidding and client data\n<|id|>92<|page|>11<|box|>731 138 878 857<|content|>Sub-Advisory Mandates as a Distinct Segment. ... I...isory segment is analyzed separately, the combined\n<|id|>93<|page|>12<|box|>90 140 127 854<|content|>Dunmore/Ridgemark share in direct alternative cred...an the 14% to 18% range estimated by the FTC staff\n<|id|>207<|page|>24<|box|>811 140 902 856<|content|>The FTC's Second Request, while not unexpected giv...lect a final determination by the FTC staff or the\n<|id|>208<|page|>25<|box|>90 140 143 854<|content|>Commission that the proposed transaction violates ...tely proceed to closing without enforcement action\n<|id|>214<|page|>25<|box|>584 140 601 736<|content|>Howard Bellamy Partner, Antitrust & Competition Group Direct: ... (212) 558-3744\n<|id|>215<|page|>25<|box|>603 142 618 468<|content|>Email: ... com\n<|id|>216<|page|>25<|box|>619 142 636 730<|content|>Elliot Nguyen Associate, Antitrust & Competition Group Direct: ... (212) 558-4291\n<|id|>217<|page|>25<|box|>637 142 652 462<|content|>Email: ... com\n<|id|>219<|page|>25<|box|>675 140 705 852<|content|>cc: ... Elaine Forsythe, Billing Partner, Calderwo... Liu, Working Associate, Calderwood & Harkness LLP\n<|id|>220<|page|>25<|box|>712 140 744 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...ithout Prior Approval of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>31<|tgt_id|>32\n<|src_id|>92<|tgt_id|>93\n<|src_id|>207<|tgt_id|>208",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 208
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        6
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>18<|page|>2<|box|>814 174 904 857<|content|>(g) the execution, delivery, and performance by th... Purchasers, and Granite Trust Company, N. ... and\n<|id|>20<|page|>3<|box|>208 140 318 856<|content|>The Board Consent has not been amended, modified, ...uld amend, modify, or supersede, the Board Consent\n<|id|>38<|page|>5<|box|>464 143 479 334<|content|>Name: ... Priya Ramanathan\n<|id|>39<|page|>5<|box|>479 142 497 403<|content|>Title: ... General Counsel & Secretary\n<|id|>40<|page|>5<|box|>498 142 513 316<|content|>Date: ... January 15, 2024\n<|id|>45<|page|>5<|box|>733 142 750 295<|content|>Name: ... Arjun Mehta\n<|id|>46<|page|>5<|box|>750 142 766 475<|content|>Title: ... Chief Executive Officer & Co-Founder\n<|id|>47<|page|>5<|box|>767 143 784 316<|content|>Date: ... January 15, 2024\n<|id|>51<|page|>6<|box|>90 142 125 852<|content|>Exhibit C — Unanimous Written Consent of the Board...kybridge Fintech Ltd. ... , dated January 10, 2024\n<|id|>52<|page|>6<|box|>133 142 169 852<|content|>Exhibit D — Certificate of Good Standing from the ...e of the State of Delaware, dated January 11, 2024",
+    "raw_response": "<|src_id|>18<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 20
+        }
+    ]
+}

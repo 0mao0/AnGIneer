@@ -1,0 +1,65 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        35
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        15,
+        16,
+        18,
+        25,
+        27,
+        28,
+        29,
+        31,
+        32,
+        34,
+        35
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 323 142 673<|content|>COMMONWEALTH OF MASSACHUSETTS SUFFOLK COUNTY SUPER\n<|id|>6<|type|>title<|page|>1<|box|>280 148 334 849<|content|>MEMORANDUM OF LAW IN SUPPORT OF PLAINTIFF ARBOR HE\n<|id|>15<|type|>table<|page|>1<|box|>575 143 897 852<|content|>None\n<|id|>16<|type|>table<|page|>2<|box|>90 143 801 852<|content|>None\n<|id|>20<|type|>table<|page|>3<|box|>89 143 901 852<|content|>None\n<|id|>21<|type|>table<|page|>4<|box|>89 143 262 852<|content|>None\n<|id|>22<|type|>title<|page|>4<|box|>296 143 311 297<|content|>Statutes and Rules:\n<|id|>23<|type|>table<|page|>4<|box|>319 143 474 852<|content|>None\n<|id|>24<|type|>title<|page|>4<|box|>511 143 526 290<|content|>Other Authorities:\n<|id|>25<|type|>table<|page|>4<|box|>534 143 657 852<|content|>None\n<|id|>26<|type|>title<|page|>4<|box|>705 142 723 413<|content|>I. PRELIMINARY STATEMENT\n<|id|>41<|type|>title<|page|>6<|box|>773 140 789 380<|content|>II. STATEMENT OF FACTS\n<|id|>43<|type|>title<|page|>7<|box|>90 140 106 261<|content|>A. The Parties\n<|id|>52<|type|>title<|page|>8<|box|>492 142 508 380<|content|>B. The Separation Agreement\n<|id|>79<|type|>title<|page|>10<|box|>728 140 744 532<|content|>C. Farris's Breaches of the Separation Agreement\n<|id|>118<|type|>title<|page|>15<|box|>90 140 107 357<|content|>D. Resulting Harm to AHT\n<|id|>134<|type|>title<|page|>16<|box|>401 140 417 557<|content|>E. Pre-Suit Demand and Defense Counsel's Response\n<|id|>139<|type|>title<|page|>16<|box|>780 140 797 712<|content|>III. LEGAL STANDARD FOR PRELIMINARY INJUNCTIVE REL\n<|id|>149<|type|>title<|page|>18<|box|>148 140 166 287<|content|>IV. ARGUMENT\n<|id|>150<|type|>title<|page|>18<|box|>180 140 196 475<|content|>A. AHT Is Likely to Succeed on the Merits\n<|id|>220<|type|>title<|page|>25<|box|>609 140 628 638<|content|>B. AHT Will Suffer Irreparable Harm Absent Injunct\n<|id|>232<|type|>title<|page|>27<|box|>583 140 599 472<|content|>C. The Balance of Hardships Favors AHT\n<|id|>241<|type|>title<|page|>28<|box|>781 140 799 527<|content|>D. The Public Interest Supports Injunctive Relief\n<|id|>248<|type|>title<|page|>29<|box|>590 140 608 488<|content|>E. Farris's Anticipated Defenses Lack Merit\n<|id|>264<|type|>title<|page|>31<|box|>582 140 619 812<|content|>V. THE COURT SHOULD NOT REQUIRE A BOND, OR IN THE\n<|id|>270<|type|>title<|page|>32<|box|>229 140 247 300<|content|>VI. CONCLUSION\n<|id|>291<|type|>title<|page|>34<|box|>89 184 127 794<|content|>• Prevailing party attorneys' fees and costs under\n<|id|>292<|type|>title<|page|>34<|box|>133 263 152 735<|content|>ARBOR HEALTH TECHNOLOGIES INC., By its attorneys,\n<|id|>303<|type|>title<|page|>34<|box|>364 375 382 620<|content|>CERTIFICATE OF SERVICE\n<|id|>309<|type|>title<|page|>34<|box|>619 413 635 583<|content|>LIST OF EXHIBITS\n<|id|>311<|type|>table<|page|>34<|box|>705 143 902 851<|content|>None\n<|id|>312<|type|>table<|page|>35<|box|>89 145 737 852<|content|>None",
+    "raw_response": "<|src_id|>15<|tgt_id|>6\n<|src_id|>16<|tgt_id|>6\n<|src_id|>20<|tgt_id|>6\n<|src_id|>21<|tgt_id|>6\n<|src_id|>23<|tgt_id|>22\n<|src_id|>25<|tgt_id|>24\n<|src_id|>311<|tgt_id|>309\n<|src_id|>312<|tgt_id|>309",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 311,
+            "tgt_id": 309
+        },
+        {
+            "src_id": 312,
+            "tgt_id": 309
+        }
+    ]
+}

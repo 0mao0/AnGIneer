@@ -1,0 +1,51 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        52,
+        62
+    ],
+    "pages": [
+        53,
+        54,
+        55,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>482<|type|>title<|page|>53<|box|>89 143 106 509<|content|>EXHIBIT D — USE OF PROCEEDS DETAIL\n<|id|>483<|type|>title<|page|>53<|box|>114 413 132 584<|content|>USE OF PROCEEDS\n<|id|>484<|type|>title<|page|>53<|box|>141 266 159 730<|content|>$35,000,000 — 13.50% Senior Subordinated Notes due\n<|id|>485<|type|>title<|page|>53<|box|>207 142 224 694<|content|>I. Project Catalyst — Digital Wagering Platform Up\n<|id|>487<|type|>table<|page|>53<|box|>292 143 523 852<|content|>None\n<|id|>488<|type|>title<|page|>53<|box|>561 142 580 789<|content|>II. Tribal Gaming Management Expansion (Arizona an\n<|id|>490<|type|>table<|page|>53<|box|>646 143 859 852<|content|>None\n<|id|>491<|type|>table<|page|>54<|box|>111 143 186 852<|content|>None\n<|id|>493<|type|>title<|page|>55<|box|>89 145 179 849<|content|>EXHIBIT E — FORM OF SECRETARY'S CERTIFICATE SECRET\n<|id|>500<|type|>table<|page|>55<|box|>739 143 834 852<|content|>None\n<|id|>511<|type|>title<|page|>57<|box|>89 142 107 437<|content|>SCHEDULE 4.02 — SUBSIDIARIES\n<|id|>512<|type|>table<|page|>57<|box|>157 143 291 852<|content|>None\n<|id|>514<|type|>title<|page|>58<|box|>89 142 106 468<|content|>SCHEDULE 4.05 — CAPITALIZATION\n<|id|>515<|type|>title<|page|>58<|box|>116 143 132 272<|content|>Common Stock:\n<|id|>516<|type|>table<|page|>58<|box|>138 143 253 852<|content|>None\n<|id|>517<|type|>title<|page|>58<|box|>287 142 305 795<|content|>Equity Incentive Plans, Outstanding Options, Warra\n<|id|>519<|type|>table<|page|>58<|box|>354 143 614 852<|content|>None\n<|id|>521<|type|>title<|page|>59<|box|>89 140 106 423<|content|>SCHEDULE 4.08 — LITIGATION\n<|id|>524<|type|>title<|page|>60<|box|>89 140 106 584<|content|>SCHEDULE 7.02(a) — PERMITTED INDEBTEDNESS\n<|id|>535<|type|>title<|page|>61<|box|>89 142 106 500<|content|>SCHEDULE 7.02(b) — PERMITTED LIENS\n<|id|>549<|type|>title<|page|>61<|box|>712 302 729 692<|content|>DRAFTING NOTES AND REVISION HISTORY\n<|id|>550<|type|>title<|page|>61<|box|>739 305 755 689<|content|>For Internal Use Only — Not Part of the Agreement\n<|id|>551<|type|>title<|page|>62<|box|>90 143 104 259<|content|>Revision History:\n<|id|>556<|type|>title<|page|>62<|box|>238 143 252 375<|content|>Outstanding Items / Open Brackets:\n<|id|>570<|type|>title<|page|>62<|box|>516 143 531 524<|content|>UNEXECUTED — FOR DISCUSSION PURPOSES ONLY",
+    "raw_response": "<|src_id|>487<|tgt_id|>485\n<|src_id|>490<|tgt_id|>488\n<|src_id|>491<|tgt_id|>488\n<|src_id|>500<|tgt_id|>493\n<|src_id|>512<|tgt_id|>511\n<|src_id|>516<|tgt_id|>515\n<|src_id|>519<|tgt_id|>517",
+    "parsed": [
+        {
+            "src_id": 487,
+            "tgt_id": 485
+        },
+        {
+            "src_id": 490,
+            "tgt_id": 488
+        },
+        {
+            "src_id": 491,
+            "tgt_id": 488
+        },
+        {
+            "src_id": 500,
+            "tgt_id": 493
+        },
+        {
+            "src_id": 512,
+            "tgt_id": 511
+        },
+        {
+            "src_id": 516,
+            "tgt_id": 515
+        },
+        {
+            "src_id": 519,
+            "tgt_id": 517
+        }
+    ]
+}

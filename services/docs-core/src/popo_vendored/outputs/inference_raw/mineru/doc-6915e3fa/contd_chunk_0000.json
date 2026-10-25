@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>234 140 253 269<|content|>STATE OF ___\n<|id|>5<|page|>1<|box|>261 140 277 287<|content|>COUNTY OF ___\n<|id|>6<|page|>1<|box|>287 140 415 856<|content|>This Owner's Affidavit (this \"Affidavit\") is deliv...erein. ... Kenneth Stanhope, Senior Vice President\n<|id|>69<|page|>8<|box|>189 174 244 854<|content|>(a) the General Rep Cap of Fifty-Five Million Doll...esentations (as defined in the Agreement); ... and\n<|id|>73<|page|>8<|box|>512 142 529 447<|content|>FURTHER AFFIANT SAYETH NOT. ... FURTHER AFFIANT SAYETH NOT\n<|id|>83<|page|>8<|box|>804 140 821 287<|content|>COUNTY OF ___\n<|id|>84<|page|>8<|box|>830 140 902 856<|content|>Before me, the undersigned Notary Public, on this ...rized capacity as Co-Founder & Managing Partner of\n<|id|>85<|page|>9<|box|>90 140 164 854<|content|>Greystone Meridian Capital LLC, a Delaware limited... of which the person acted executed the instrument\n<|id|>87<|page|>9<|box|>242 140 258 251<|content|>Notary Public\n<|id|>88<|page|>9<|box|>260 142 277 313<|content|>Print Name: ... Print Name",
+    "raw_response": "<|src_id|>84<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        }
+    ]
+}

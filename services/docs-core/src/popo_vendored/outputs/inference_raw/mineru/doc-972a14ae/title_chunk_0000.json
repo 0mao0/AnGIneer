@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        54
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        13,
+        23,
+        31,
+        53
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>5<|box|>292 169 325 782<|content|>TREASURY DEPARTMENT\n<|id|>10<|page|>7<|box|>297 180 330 802<|content|>TREASURY DEPARTMENT\n<|id|>15<|page|>9<|box|>155 398 173 592<|content|>Table of Contents\n<|id|>17<|page|>13<|box|>73 226 87 742<|content|>Summary Tables on Receipts, Expenditures and Publi\n<|id|>19<|page|>13<|box|>254 368 269 602<|content|>Receipts and Expenditures\n<|id|>33<|page|>23<|box|>120 306 148 705<|content|>COLLECTIONS OF INTERNAL REVENUE\n<|id|>40<|page|>31<|box|>69 207 83 714<|content|>Receipts and Expenditures Under Railroad Retiremen\n<|id|>63<|page|>53<|box|>70 200 96 765<|content|>Holdings of Direct and Guaranteed Interest-Bearing",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>17<|level|>1\n<|id|>19<|level|>2\n<|id|>33<|level|>2\n<|id|>40<|level|>2\n<|id|>63<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        }
+    ]
+}

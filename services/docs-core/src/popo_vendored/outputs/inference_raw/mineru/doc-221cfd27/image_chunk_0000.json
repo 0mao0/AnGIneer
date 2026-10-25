@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 156 133 839<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>2<|type|>title<|page|>1<|box|>167 142 184 292<|content|>MEMORANDUM\n<|id|>7<|type|>title<|page|>1<|box|>372 321 391 674<|content|>I. Purpose and Executive Summary\n<|id|>15<|type|>title<|page|>2<|box|>479 419 500 576<|content|>II. Background\n<|id|>16<|type|>title<|page|>2<|box|>525 140 542 442<|content|>A. The Parties and the Proposed MSA\n<|id|>20<|type|>title<|page|>3<|box|>267 142 284 475<|content|>B. Negotiation History and Current Status\n<|id|>34<|type|>title<|page|>4<|box|>428 140 445 524<|content|>C. Key Commercial Terms of the Proposed MSA\n<|id|>39<|type|>table<|page|>4<|box|>647 143 775 852<|content|>None\n<|id|>42<|type|>title<|page|>5<|box|>150 140 167 482<|content|>D. The Vaulton Acquisition Announcement\n<|id|>52<|type|>title<|page|>5<|box|>773 207 794 789<|content|>III. Analysis of Change-of-Control Provision in Dr\n<|id|>53<|type|>title<|page|>5<|box|>820 142 837 393<|content|>A. Relevant Contract Language\n<|id|>58<|type|>title<|page|>6<|box|>575 140 592 374<|content|>B. MCB's Termination Right\n<|id|>65<|type|>title<|page|>7<|box|>458 140 474 452<|content|>C. Status of the Four Unresolved Issues\n<|id|>73<|type|>title<|page|>8<|box|>352 227 372 769<|content|>IV. Data Security and Confidentiality Risk Assessm\n<|id|>74<|type|>title<|page|>8<|box|>397 142 414 393<|content|>A. Nature of MCB Data at Risk\n<|id|>81<|type|>title<|page|>9<|box|>231 140 247 488<|content|>B. Data Isolation Concerns Post-Acquisition\n<|id|>85<|type|>title<|page|>9<|box|>696 140 714 357<|content|>C. Contractual Protections\n<|id|>93<|type|>title<|page|>10<|box|>664 142 681 369<|content|>D. Insurance Considerations\n<|id|>95<|type|>table<|page|>10<|box|>732 143 806 852<|content|>None\n<|id|>97<|type|>title<|page|>11<|box|>227 333 247 663<|content|>V. Competitive Overlap Analysis\n<|id|>98<|type|>title<|page|>11<|box|>272 140 289 540<|content|>A. Vaulton's Relationships with MCB Competitors\n<|id|>103<|type|>title<|page|>11<|box|>763 142 782 334<|content|>B. Specific Risk Vectors\n<|id|>113<|type|>title<|page|>12<|box|>824 140 842 442<|content|>C. Contractual Mitigation Limitations\n<|id|>119<|type|>title<|page|>13<|box|>825 212 845 782<|content|>VI. Preliminary Antitrust and Regulatory Considera\n<|id|>123<|type|>title<|page|>14<|box|>425 282 444 714<|content|>VII. Impact on MCB's IT Services Strategy\n<|id|>124<|type|>title<|page|>14<|box|>470 142 487 390<|content|>A. Incumbent Vendor Fallback\n<|id|>128<|type|>title<|page|>15<|box|>148 140 167 500<|content|>B. No Data Migration or Transition-Out Risk\n<|id|>132<|type|>title<|page|>15<|box|>511 339 530 656<|content|>VIII. Recommended Next Steps\n<|id|>143<|type|>title<|page|>17<|box|>344 421 364 575<|content|>IX. Conclusion",
+    "raw_response": "<|src_id|>39<|tgt_id|>34\n<|src_id|>95<|tgt_id|>93",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 93
+        }
+    ]
+}

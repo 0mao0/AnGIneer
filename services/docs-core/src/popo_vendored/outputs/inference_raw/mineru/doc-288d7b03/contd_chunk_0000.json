@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        9,
+        10,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 263 133 735<|content|>600 Lexington Avenue, 38th Floor New York, New York 10022\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 746 185 854<|content|>May 12, 2025\n<|id|>5<|page|>1<|box|>219 140 255 852<|content|>Priya Narasimhan, Esq. ... General Counsel Solara ...rket Street, Suite 3400 Wilmington, Delaware 19801\n<|id|>6<|page|>1<|box|>263 174 316 854<|content|>Re: ... Engagement of Calderwood & Harkness LLP — ...Reorganization of Solara Digital Infrastructure LP\n<|id|>7<|page|>1<|box|>325 176 344 532<|content|>Engagement Number: ... 20250527-SDILP-PLR\n<|id|>8<|page|>1<|box|>352 142 369 313<|content|>Dear Ms. ... Narasimhan\n<|id|>28<|page|>3<|box|>90 174 143 854<|content|>(v) Solara Digital Partners Fund V-A (Cayman) LP —...limited partnership with approximately $2. ... and\n<|id|>30<|page|>3<|box|>252 140 287 854<|content|>The Reorganization contemplates the formation of t...w entities (collectively, the \"New Fund Vehicles\")\n<|id|>33<|page|>3<|box|>383 174 421 854<|content|>(iii) Solara International Feeder (Cayman) LP — a ... to serve as the feeder vehicle for non-U. ... and\n<|id|>35<|page|>3<|box|>473 140 601 856<|content|>The Reorganization involves a multi-step transacti...onsultation with the Client and its other advisors\n<|id|>39<|page|>3<|box|>854 174 907 856<|content|>(b) Private Letter Ruling Request. ... INTL\"), with secondary jurisdiction in the\n<|id|>40<|page|>4<|box|>90 174 164 854<|content|>Office of the Associate Chief Counsel (Passthrough...IRS guidance for purposes of transaction certainty\n<|id|>105<|page|>9<|box|>869 140 906 854<|content|>IRS Forms 2848 (Power of Attorney and Declaration ...l as authorized representatives for Solara Digital\n<|id|>106<|page|>10<|box|>89 140 143 854<|content|>Infrastructure LP (EIN: ... The Client will be ask...s 2848 in advance of the pre-submission conference\n<|id|>139<|page|>13<|box|>463 210 479 343<|content|>Very truly yours,\n<|id|>140<|page|>13<|box|>487 140 503 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>141<|page|>13<|box|>505 142 522 253<|content|>By: ... By\n<|id|>142<|page|>13<|box|>522 140 539 316<|content|>Name: ... Sylvia Hartwell\n<|id|>143<|page|>13<|box|>540 142 556 246<|content|>Title: ... Partner\n<|id|>144<|page|>13<|box|>556 142 575 264<|content|>Date: ... Date\n<|id|>146<|page|>13<|box|>599 140 616 488<|content|>SOLARA DIGITAL INFRASTRUCTURE LP\n<|id|>147<|page|>13<|box|>617 140 633 454<|content|>By: ... Solara Digital Infrastructure GP LLC,\n<|id|>148<|page|>13<|box|>635 142 651 285<|content|>its General Partner\n<|id|>149<|page|>13<|box|>652 143 669 253<|content|>By: ... By\n<|id|>150<|page|>13<|box|>669 142 685 331<|content|>Name: ... Priya Narasimhan\n<|id|>151<|page|>13<|box|>686 142 703 313<|content|>Title: ... General Counsel\n<|id|>152<|page|>13<|box|>704 142 720 266<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>39<|tgt_id|>40\n<|src_id|>105<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        }
+    ]
+}

@@ -1,0 +1,92 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>40 327 117 932<|content|>Sulforaphane as a potential therapeutic agent: a c\n<|id|>2<|type|>title<|page|>1<|box|>146 65 161 134<|content|>Review\n<|id|>5<|type|>title<|page|>1<|box|>295 65 306 129<|content|>Keywords:\n<|id|>7<|type|>title<|page|>1<|box|>340 65 351 151<|content|>Abbreviations:\n<|id|>13<|type|>title<|page|>1<|box|>278 337 292 403<|content|>Abstract\n<|id|>16<|type|>title<|page|>1<|box|>627 327 641 421<|content|>Introduction\n<|id|>20<|type|>image<|page|>2<|box|>78 110 356 885<|content|>None\n<|id|>22<|type|>title<|page|>2<|box|>641 62 656 250<|content|>Selection of clinical trials\n<|id|>26<|type|>title<|page|>2<|box|>501 505 517 702<|content|>Trials on healthy conditions\n<|id|>30<|type|>image<|page|>3<|box|>80 65 254 596<|content|>None\n<|id|>31<|type|>table<|page|>3<|box|>307 67 496 487<|content|>None\n<|id|>32<|type|>title<|page|>3<|box|>669 65 683 188<|content|>Trials on cancers\n<|id|>35<|type|>title<|page|>3<|box|>283 509 298 682<|content|>Trials on brain disorders\n<|id|>39<|type|>title<|page|>3<|box|>601 507 616 714<|content|>Trials on respiratory diseases\n<|id|>41<|type|>title<|page|>3<|box|>779 509 795 842<|content|>Trials on metabolic and cardiovascular diseases\n<|id|>43<|type|>table<|page|>4<|box|>104 61 825 921<|content|>None\n<|id|>44<|type|>table<|page|>5<|box|>78 61 927 921<|content|>None\n<|id|>45<|type|>table<|page|>6<|box|>95 61 458 921<|content|>None\n<|id|>46<|type|>table<|page|>6<|box|>579 61 875 921<|content|>None\n<|id|>47<|type|>table<|page|>7<|box|>87 61 630 921<|content|>None\n<|id|>48<|type|>table<|page|>8<|box|>84 60 907 924<|content|>None\n<|id|>49<|type|>table<|page|>9<|box|>95 61 702 923<|content|>None\n<|id|>50<|type|>table<|page|>10<|box|>223 60 734 921<|content|>None\n<|id|>51<|type|>table<|page|>11<|box|>161 60 426 921<|content|>None\n<|id|>52<|type|>table<|page|>11<|box|>623 61 818 920<|content|>None\n<|id|>53<|type|>table<|page|>12<|box|>275 60 678 921<|content|>None\n<|id|>54<|type|>image<|page|>13<|box|>80 154 440 847<|content|>None\n<|id|>55<|type|>table<|page|>13<|box|>503 65 718 932<|content|>None\n<|id|>56<|type|>title<|page|>13<|box|>759 65 774 262<|content|>Trials on infectious diseases\n<|id|>58<|type|>title<|page|>13<|box|>849 65 863 292<|content|>Trials on miscellaneous diseases\n<|id|>62<|type|>title<|page|>14<|box|>80 62 94 302<|content|>Conclusion and future directions\n<|id|>75<|type|>title<|page|>14<|box|>546 507 559 591<|content|>References",
+    "raw_response": "<|src_id|>20<|tgt_id|>16\n<|src_id|>30<|tgt_id|>26\n<|src_id|>31<|tgt_id|>26\n<|src_id|>43<|tgt_id|>32\n<|src_id|>44<|tgt_id|>32\n<|src_id|>45<|tgt_id|>32\n<|src_id|>46<|tgt_id|>32\n<|src_id|>47<|tgt_id|>32\n<|src_id|>48<|tgt_id|>32\n<|src_id|>49<|tgt_id|>32\n<|src_id|>50<|tgt_id|>32\n<|src_id|>51<|tgt_id|>32\n<|src_id|>52<|tgt_id|>32\n<|src_id|>53<|tgt_id|>32\n<|src_id|>54<|tgt_id|>39\n<|src_id|>55<|tgt_id|>39",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 39
+        }
+    ]
+}

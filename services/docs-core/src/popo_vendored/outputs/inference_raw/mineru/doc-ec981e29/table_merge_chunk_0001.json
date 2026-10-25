@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Level 3 (Executive)', 'Theodore Marsh, Chief Revenue', 'Severity 1 incident not resolved']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Officer (t.marsh@clearpoint.io)', 'within four (4) hours; repeated Severity 2 incidents (two or more) within any rolling thirty (30)-day period']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 100,
+    "table2_idx": 101
+}

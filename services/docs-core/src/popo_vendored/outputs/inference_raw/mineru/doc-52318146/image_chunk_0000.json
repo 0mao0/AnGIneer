@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 248 142 748<|content|>SECRETARY'S CERTIFICATE OF PENTERRA PHARMACEUTICAL\n<|id|>3<|type|>title<|page|>1<|box|>279 142 296 331<|content|>I. Introductory Recitals\n<|id|>9<|type|>title<|page|>1<|box|>834 140 851 428<|content|>II. Good Standing and Organization\n<|id|>14<|type|>title<|page|>2<|box|>484 140 501 514<|content|>III. Certification of Certificate of Incorporation\n<|id|>17<|type|>title<|page|>2<|box|>777 140 794 356<|content|>IV. Certification of Bylaws\n<|id|>20<|type|>title<|page|>3<|box|>223 140 239 434<|content|>V. Certification of Board Resolutions\n<|id|>30<|type|>title<|page|>4<|box|>476 142 493 473<|content|>VI. Incumbency and Authority of Officers\n<|id|>32<|type|>table<|page|>4<|box|>580 143 691 852<|content|>None\n<|id|>35<|type|>title<|page|>5<|box|>204 140 222 614<|content|>VII. Certification Regarding Chair of the Board of\n<|id|>38<|type|>title<|page|>5<|box|>425 140 441 411<|content|>VIII. No Conflict; No Proceedings\n<|id|>41<|type|>title<|page|>5<|box|>756 140 773 349<|content|>IX. Further Certifications\n<|id|>44<|type|>title<|page|>6<|box|>239 140 258 238<|content|>X. Reliance\n<|id|>49<|type|>title<|page|>6<|box|>590 140 609 526<|content|>Counter-Certification of Secretary's Incumbency\n<|id|>55<|type|>title<|page|>7<|box|>233 447 250 550<|content|>EXHIBIT B\n<|id|>56<|type|>title<|page|>7<|box|>260 331 277 665<|content|>Bylaws of Penterra Pharmaceuticals Corp.\n<|id|>57<|type|>title<|page|>7<|box|>286 336 303 658<|content|>(as amended to date and currently in effect)\n<|id|>60<|type|>title<|page|>7<|box|>398 447 415 550<|content|>EXHIBIT C\n<|id|>61<|type|>title<|page|>7<|box|>426 215 443 779<|content|>Resolutions of the Board of Directors of Penterra",
+    "raw_response": "<|src_id|>32<|tgt_id|>30",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        }
+    ]
+}

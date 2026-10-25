@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        56
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        17,
+        19,
+        20,
+        27,
+        28,
+        33,
+        34,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>7<|box|>100 122 260 934<|content|>TREASURY BULLETIN\n<|id|>7<|page|>9<|box|>104 355 128 625<|content|>Table of Contents\n<|id|>18<|page|>11<|box|>62 314 81 626<|content|>Treasury Financing Operations\n<|id|>19<|page|>11<|box|>136 26 149 197<|content|>April Cash Offering\n<|id|>25<|page|>11<|box|>471 495 484 758<|content|>Treasury 91-day Bills Reduced\n<|id|>58<|page|>17<|box|>78 140 93 854<|content|>Table 3.- Expenditures by Functions, Fiscal Years\n<|id|>77<|page|>17<|box|>544 340 559 661<|content|>Footnotes to Table 1.- (Continued)\n<|id|>95<|page|>19<|box|>71 252 88 750<|content|>Table 3.- Trust and Deposit Fund Account Expenditu\n<|id|>98<|page|>20<|box|>73 147 91 840<|content|>Table 4.- Net Investment by Government Agencies in\n<|id|>115<|page|>27<|box|>47 394 60 580<|content|>CASH INCOME AND OUTGO\n<|id|>116<|page|>27<|box|>88 392 101 585<|content|>Footnotes to Table 3\n<|id|>121<|page|>27<|box|>180 392 193 585<|content|>Footnotes to Table 4\n<|id|>131<|page|>27<|box|>347 394 360 590<|content|>Footnotes to Table 5\n<|id|>139<|page|>27<|box|>584 397 597 590<|content|>Footnotes to Table 6\n<|id|>149<|page|>27<|box|>772 406 786 600<|content|>Footnotes to Table 7\n<|id|>157<|page|>28<|box|>38 294 54 697<|content|>ACCOUNT OF THE TREASURER OF THE UNITED STATES\n<|id|>158<|page|>28<|box|>75 189 91 808<|content|>Source and Availability of the Balance in the Trea\n<|id|>178<|page|>33<|box|>227 264 244 752<|content|>Table 1.- Status under Limitation, February 28, 19\n<|id|>182<|page|>34<|box|>76 141 127 849<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>257<|page|>55<|box|>79 139 113 825<|content|>Section II - Interest-Bearing Securities Issued by",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>25<|level|>3\n<|id|>58<|level|>2\n<|id|>77<|level|>3\n<|id|>95<|level|>2\n<|id|>98<|level|>2\n<|id|>115<|level|>2\n<|id|>116<|level|>3\n<|id|>121<|level|>3\n<|id|>131<|level|>3\n<|id|>139<|level|>3\n<|id|>149<|level|>3\n<|id|>157<|level|>2\n<|id|>158<|level|>3\n<|id|>178<|level|>2\n<|id|>182<|level|>2\n<|id|>257<|level|>3",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 257,
+            "level": 3
+        }
+    ]
+}

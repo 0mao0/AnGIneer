@@ -1,0 +1,183 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-u6_6jitm\\input\\pdfs\\doc-00a7d5cc.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-u6_6jitm\\enriched\\doc-00a7d5cc.json",
+    "contd_output": "<|src_id|>220<|tgt_id|>221",
+    "title_output": "<|id|>9<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>33<|level|>2\n<|id|>41<|level|>2\n<|id|>44<|level|>1\n<|id|>61<|level|>1\n<|id|>63<|level|>2\n<|id|>65<|level|>3\n<|id|>76<|level|>3\n<|id|>84<|level|>3\n<|id|>99<|level|>2\n<|id|>101<|level|>3\n<|id|>105<|level|>3\n<|id|>113<|level|>2\n<|id|>114<|level|>3\n<|id|>123<|level|>2\n<|id|>124<|level|>3\n<|id|>132<|level|>2\n<|id|>134<|level|>3\n<|id|>142<|level|>3\n<|id|>148<|level|>3\n<|id|>158<|level|>3\n<|id|>164<|level|>3\n<|id|>170<|level|>1\n<|id|>186<|level|>1\n<|id|>190<|level|>1\n<|id|>192<|level|>2\n<|id|>204<|level|>2\n<|id|>209<|level|>2\n<|id|>215<|level|>2\n<|id|>219<|level|>1\n<|id|>230<|level|>1",
+    "image_output": "<|src_id|>188<|tgt_id|>186\n<|src_id|>189<|tgt_id|>186",
+    "contd_label": [
+        {
+            "src_id": 220,
+            "tgt_id": 221
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 1
+        },
+        {
+            "id": 186,
+            "level": 1
+        },
+        {
+            "id": 190,
+            "level": 1
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 1
+        },
+        {
+            "id": 230,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 188,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 186
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 188,
+            "table2_idx": 189,
+            "upper_row_ss": [
+                [
+                    "Clearwater Transfer",
+                    "No",
+                    "No",
+                    "No (transfer agent)",
+                    "None",
+                    "None"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Services Inc.",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

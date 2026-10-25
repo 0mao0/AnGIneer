@@ -1,0 +1,46 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        5,
+        11,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>299 87 315 334<|content|>ACKNOWLEDGED AND AGREED:\n<|id|>25<|page|>5<|box|>228 87 243 213<|content|>USES OF FUNDS\n<|id|>34<|page|>11<|box|>85 87 102 295<|content|>ItemAmount ($Notes\n<|id|>40<|page|>11<|box|>317 87 332 240<|content|>Post-Payof Actions\n<|id|>56<|page|>15<|box|>85 87 102 453<|content|>InstrumenPre-TransaAdjustmentPro Forma Notes\n<|id|>67<|page|>15<|box|>280 87 297 248<|content|>LEVERAGE METRICS:\n<|id|>73<|page|>15<|box|>405 87 423 270<|content|>EQUITY (for reference):",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>25<|level|>1\n<|id|>34<|level|>2\n<|id|>40<|level|>1\n<|id|>56<|level|>2\n<|id|>67<|level|>1\n<|id|>73<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        }
+    ]
+}

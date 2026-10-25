@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>315 140 332 339<|content|>I. Purpose of This Letter\n<|id|>8<|page|>1<|box|>584 140 601 573<|content|>II. Summary of Procedural History and Current Stat\n<|id|>16<|page|>2<|box|>821 140 838 846<|content|>III. Preservation of Rights — Without Prejudice di\n<|id|>29<|page|>4<|box|>571 140 589 674<|content|>IV. Scope of Investment and Claims — Summary for C\n<|id|>41<|page|>5<|box|>476 140 493 534<|content|>V. Return of Client Documents and File Retention\n<|id|>52<|page|>6<|box|>340 140 357 354<|content|>VI. Final Billing Summary\n<|id|>56<|page|>6<|box|>570 142 587 477<|content|>Total Professional Fees Billed: $287,450.00\n<|id|>60<|page|>6<|box|>835 140 852 529<|content|>VII. Termination of Attorney-Client Relationship\n<|id|>65<|page|>7<|box|>439 140 457 352<|content|>VIII. Contact Information",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>16<|level|>1\n<|id|>29<|level|>1\n<|id|>41<|level|>1\n<|id|>52<|level|>1\n<|id|>56<|level|>-1\n<|id|>60<|level|>1\n<|id|>65<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        }
+    ]
+}

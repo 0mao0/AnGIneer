@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        20
+    ],
+    "pages": [
+        3,
+        4,
+        10,
+        11,
+        12,
+        15,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>27<|page|>3<|box|>866 140 902 854<|content|>11. ... Defendants admit that TSL and Northwind ex...e Exchange 2015 form, as amended, bearing Charter-\n<|id|>28<|page|>4<|box|>90 138 181 854<|content|>Party Reference No. ... To the extent the allegati...xt thereof, Defendants deny such characterizations\n<|id|>82<|page|>10<|box|>868 140 904 854<|content|>60. ... With respect to Northwind's claimed legal ...are recoverable as an element of damages under the\n<|id|>83<|page|>11<|box|>90 140 143 854<|content|>Charter-Party or under New York law. ... Absent a ...rter-Party contains no such fee-shifting provision\n<|id|>92<|page|>11<|box|>814 140 888 856<|content|>Count III — Third-Party Shipper Claims as Charter-...ismiss Count III of the Complaint pursuant to CPLR\n<|id|>93<|page|>12<|box|>89 140 125 854<|content|>3211(a)(7) by motion filed on December 15, 2023, w...hich motion is presently pending before this Court\n<|id|>122<|page|>15<|box|>508 174 564 854<|content|>(c) Failing to adjust its Qingdao laycan window or...voidable demurrage and dead freight costs; ... and\n<|id|>124<|page|>15<|box|>633 140 671 854<|content|>Northwind's damages, to the extent any are recover...ough the exercise of reasonable mitigation efforts\n<|id|>170<|page|>20<|box|>161 140 194 854<|content|>One Liberty Plaza, 50th Floor New York, New York 10006 Telephone: ... (212) 558-3588\n<|id|>171<|page|>20<|box|>196 143 212 251<|content|>By: ... By\n<|id|>172<|page|>20<|box|>212 142 229 821<|content|>Douglas Carmichael, Partner (Responsible Attorney) dcarmichael@calderwoodharkness. ... com\n<|id|>173<|page|>20<|box|>229 142 247 609<|content|>Francesca Morano, Partner fmorano@calderwoodharkness. ... com\n<|id|>174<|page|>20<|box|>247 142 263 671<|content|>Carlos Espinoza, Senior Associate cespinoza@calderwoodharkness. ... com\n<|id|>175<|page|>20<|box|>263 142 281 625<|content|>Hannah Brinkley, Associate hbrinkley@calderwoodharkness. ... com\n<|id|>176<|page|>20<|box|>281 142 297 346<|content|>Dated: ... November 17, 2023",
+    "raw_response": "<|src_id|>27<|tgt_id|>28\n<|src_id|>82<|tgt_id|>83\n<|src_id|>92<|tgt_id|>93",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 93
+        }
+    ]
+}

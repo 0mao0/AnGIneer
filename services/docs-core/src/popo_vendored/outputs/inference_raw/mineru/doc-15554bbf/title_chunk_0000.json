@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>152 143 170 529<|content|>Attorneys for Plaintiff MARGUERITE D. FONSECA\n<|id|>4<|page|>1<|box|>496 143 513 228<|content|>PARTIES\n<|id|>9<|page|>2<|box|>167 142 184 390<|content|>JURISDICTION AND VENUE\n<|id|>12<|page|>2<|box|>419 140 435 375<|content|>GENERAL ALLEGATIONS\n<|id|>13<|page|>2<|box|>450 140 467 375<|content|>Formation of the Partnership\n<|id|>18<|page|>3<|box|>231 142 248 305<|content|>The Film Properties\n<|id|>26<|page|>3<|box|>654 140 671 380<|content|>The Excess Management Fees\n<|id|>34<|page|>4<|box|>628 142 646 460<|content|>The Improper Revenue Reclassifications\n<|id|>40<|page|>5<|box|>397 143 414 303<|content|>Damages Summary.\n<|id|>46<|page|>5<|box|>777 143 794 374<|content|>FIRST CAUSE OF ACTION\n<|id|>47<|page|>5<|box|>809 142 825 346<|content|>Breach of Fiduciary Duty\n<|id|>48<|page|>5<|box|>840 142 857 470<|content|>(Against Defendant Desmond R. Rennick)\n<|id|>59<|page|>7<|box|>89 143 106 395<|content|>SECOND CAUSE OF ACTION\n<|id|>60<|page|>7<|box|>122 143 138 410<|content|>Breach of Partnership Agreement\n<|id|>61<|page|>7<|box|>152 142 169 470<|content|>(Against Defendant Desmond R. Rennick)\n<|id|>71<|page|>7<|box|>794 143 811 379<|content|>THIRD CAUSE OF ACTION\n<|id|>72<|page|>7<|box|>827 142 844 240<|content|>Accounting.\n<|id|>73<|page|>8<|box|>90 140 107 738<|content|>(Against Defendants Desmond R. Rennick and Rennick\n<|id|>84<|page|>8<|box|>849 142 867 397<|content|>FOURTH CAUSE OF ACTION\n<|id|>85<|page|>8<|box|>882 142 897 303<|content|>Constructive Fraud.\n<|id|>87<|page|>9<|box|>90 140 107 472<|content|>(Against Defendant Desmond R. Rennick)\n<|id|>98<|page|>10<|box|>89 142 106 375<|content|>FIFTH CAUSE OF ACTION\n<|id|>99<|page|>10<|box|>121 142 138 302<|content|>Unjust Enrichment.\n<|id|>100<|page|>10<|box|>152 140 169 531<|content|>(Against Defendant Rennick Slate Ventures LLC)\n<|id|>107<|page|>10<|box|>753 140 770 339<|content|>PRAYER FOR RELIEF\n<|id|>119<|page|>11<|box|>450 143 468 385<|content|>DEMAND FOR JURY TRIAL\n<|id|>124<|page|>11<|box|>594 142 611 284<|content|>VERIFICATION",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>4<|level|>1\n<|id|>9<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>26<|level|>2\n<|id|>34<|level|>2\n<|id|>40<|level|>2\n<|id|>46<|level|>1\n<|id|>47<|level|>2\n<|id|>48<|level|>2\n<|id|>59<|level|>1\n<|id|>60<|level|>2\n<|id|>61<|level|>2\n<|id|>71<|level|>1\n<|id|>72<|level|>2\n<|id|>73<|level|>2\n<|id|>84<|level|>1\n<|id|>85<|level|>2\n<|id|>87<|level|>2\n<|id|>98<|level|>1\n<|id|>99<|level|>2\n<|id|>100<|level|>2\n<|id|>107<|level|>1\n<|id|>119<|level|>1\n<|id|>124<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        }
+    ]
+}

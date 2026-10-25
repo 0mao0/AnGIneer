@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        50
+    ],
+    "pages": [
+        46,
+        47,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>569<|page|>46<|box|>565 143 582 383<|content|>MEDIUM PRIORITY ITEMS\n<|id|>573<|page|>47<|box|>268 143 284 349<|content|>LOW PRIORITY ITEMS\n<|id|>575<|page|>47<|box|>561 138 579 666<|content|>24.2 Recommended Next Steps 24.2 Proposed Next Ste\n<|id|>593<|page|>50<|box|>89 140 107 473<|content|>SIGNATURE / DISTRIBUTION BLOCK\n<|id|>595<|page|>50<|box|>232 138 252 357<|content|>Prepared by: Delivered by:",
+    "raw_response": "<|id|>569<|level|>2\n<|id|>573<|level|>2\n<|id|>575<|level|>1\n<|id|>593<|level|>1\n<|id|>595<|level|>2",
+    "parsed": [
+        {
+            "id": 569,
+            "level": 2
+        },
+        {
+            "id": 573,
+            "level": 2
+        },
+        {
+            "id": 575,
+            "level": 1
+        },
+        {
+            "id": 593,
+            "level": 1
+        },
+        {
+            "id": 595,
+            "level": 2
+        }
+    ]
+}

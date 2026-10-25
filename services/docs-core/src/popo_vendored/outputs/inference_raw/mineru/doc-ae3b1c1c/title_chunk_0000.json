@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>127 271 143 725<|content|>CALDERWOOD & HARKNESS LLP MEMORANDUM\n<|id|>7<|page|>1<|box|>353 142 369 321<|content|>I. Executive Summary\n<|id|>17<|page|>2<|box|>674 140 691 522<|content|>II. Compliance Review — Reporting Obligations\n<|id|>18<|page|>2<|box|>705 140 722 343<|content|>A. Timeliness of Delivery\n<|id|>23<|page|>3<|box|>311 142 329 346<|content|>B. Content Requirements\n<|id|>40<|page|>4<|box|>700 140 719 413<|content|>C. Consistency with Prior Reports\n<|id|>43<|page|>5<|box|>167 140 185 429<|content|>III. Summary of Q3 Report Content\n<|id|>45<|page|>5<|box|>243 140 260 460<|content|>A. Status of Material Impediment Event\n<|id|>51<|page|>6<|box|>138 140 157 439<|content|>B. Equity Purchase Agreement Status\n<|id|>58<|page|>7<|box|>349 140 364 367<|content|>C. Debt Commitment Status\n<|id|>70<|page|>9<|box|>138 140 157 344<|content|>D. Regulatory Approvals\n<|id|>79<|page|>10<|box|>239 140 256 473<|content|>E. Financial Summary — Vehicle Position\n<|id|>88<|page|>11<|box|>393 140 409 349<|content|>F. R&W Insurance Status\n<|id|>94<|page|>12<|box|>330 140 347 475<|content|>G. GP's Assessment and Recommendation\n<|id|>103<|page|>13<|box|>377 140 393 488<|content|>IV. Analysis of Upcoming Critical Deadlines\n<|id|>105<|page|>13<|box|>470 142 488 560<|content|>A. Debt Commitment Expiration — October 31, 2023\n<|id|>115<|page|>14<|box|>773 140 791 483<|content|>B. EPA Outside Date — December 31, 2023\n<|id|>124<|page|>15<|box|>799 140 816 500<|content|>C. 18-Month Dormancy Mark — July 9, 2024\n<|id|>128<|page|>16<|box|>402 140 419 385<|content|>V. Observations and Concerns\n<|id|>129<|page|>16<|box|>434 140 450 560<|content|>A. Adequacy of Concession Renegotiation Disclosure\n<|id|>135<|page|>17<|box|>311 140 329 475<|content|>B. Convergence of Negative Developments\n<|id|>147<|page|>18<|box|>627 140 645 464<|content|>C. Expense Allocation During Dormancy\n<|id|>156<|page|>19<|box|>429 140 446 321<|content|>VI. Recommendations\n<|id|>165<|page|>21<|box|>90 140 107 527<|content|>VII. Document Appendix — Reference Materials\n<|id|>176<|page|>21<|box|>657 143 674 251<|content|>Prepared by:\n<|id|>180<|page|>21<|box|>744 143 760 250<|content|>Distribution:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>23<|level|>3\n<|id|>40<|level|>3\n<|id|>43<|level|>2\n<|id|>45<|level|>3\n<|id|>51<|level|>3\n<|id|>58<|level|>3\n<|id|>70<|level|>3\n<|id|>79<|level|>3\n<|id|>88<|level|>3\n<|id|>94<|level|>3\n<|id|>103<|level|>2\n<|id|>105<|level|>3\n<|id|>115<|level|>3\n<|id|>124<|level|>3\n<|id|>128<|level|>2\n<|id|>129<|level|>3\n<|id|>135<|level|>3\n<|id|>147<|level|>3\n<|id|>156<|level|>2\n<|id|>165<|level|>2\n<|id|>176<|level|>-1\n<|id|>180<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        55,
+        123
+    ],
+    "pages": [
+        56,
+        57,
+        58,
+        67,
+        91,
+        92,
+        122
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>297<|page|>56<|box|>140 326 157 687<|content|>Based on closing bid quotations (in percentages)\n<|id|>298<|page|>56<|box|>816 434 859 586<|content|>Years to maturity * Source: ... Office of Market Finance\n<|id|>300<|page|>57<|box|>109 271 125 727<|content|>[In percentages. ... Office of Market Finance, Office of the Under Secretary for Domestic Finance]\n<|id|>302<|page|>58<|box|>90 94 111 903<|content|>TABLE MY-2. ... —Average Yields of Long-Term Treasury, Corporate and Municipal Bonds, con\n<|id|>346<|page|>67<|box|>484 81 544 488<|content|>- Section V contains information on transactions w...The data cover transactions executed in the United\n<|id|>347<|page|>67<|box|>89 508 178 915<|content|>States for the accounts of foreigners and transact...able Treasury bonds and notes shown in table IFS-3\n<|id|>408<|page|>91<|box|>122 89 142 903<|content|>TABLE CM-V-1. ... Transactions with Foreigners in Long-Term Domestic Securities by Type\n<|id|>411<|page|>92<|box|>92 94 112 906<|content|>TABLE CM-V-2. ... Transactions with Foreigners in Long-Term Foreign Securities by Type\n<|id|>542<|page|>122<|box|>174 81 402 488<|content|>Amounts in the Harbor Maintenance Trust Fund are a...ct of 1986. ... Section 201 of the Water Resources\n<|id|>543<|page|>122<|box|>119 508 186 915<|content|>Development Act of 1996 (Public Law 104-303) autho...eral navigation projects for commercial navigation",
+    "raw_response": "<|src_id|>346<|tgt_id|>347\n<|src_id|>542<|tgt_id|>543",
+    "parsed": [
+        {
+            "src_id": 346,
+            "tgt_id": 347
+        },
+        {
+            "src_id": 542,
+            "tgt_id": 543
+        }
+    ]
+}

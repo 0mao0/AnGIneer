@@ -1,0 +1,39 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        49
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>482<|page|>45<|box|>90 142 107 513<|content|>Appendix B — Prosecution History Summaries\n<|id|>486<|page|>46<|box|>90 142 107 550<|content|>Appendix C — ProstaSignal™ Product Information\n<|id|>491<|page|>47<|box|>90 142 106 429<|content|>Appendix D — Prior Art References\n<|id|>496<|page|>48<|box|>90 142 107 612<|content|>Appendix E — Veridian Molecular Labs License Agree\n<|id|>499<|page|>49<|box|>90 142 107 475<|content|>Appendix F — Market and Financial Data",
+    "raw_response": "<|id|>482<|level|>1\n<|id|>486<|level|>1\n<|id|>491<|level|>1\n<|id|>496<|level|>1\n<|id|>499<|level|>1",
+    "parsed": [
+        {
+            "id": 482,
+            "level": 1
+        },
+        {
+            "id": 486,
+            "level": 1
+        },
+        {
+            "id": 491,
+            "level": 1
+        },
+        {
+            "id": 496,
+            "level": 1
+        },
+        {
+            "id": 499,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 348 184 650<|content|>CALDERWOOD & HARKNESS LLP PRIVILEGED AND CONFIDENT\n<|id|>8<|type|>title<|page|>1<|box|>481 142 498 250<|content|>I. PURPOSE\n<|id|>14<|type|>title<|page|>2<|box|>229 140 247 405<|content|>II. BACKGROUND SUMMARY\n<|id|>22<|type|>title<|page|>3<|box|>439 140 455 674<|content|>III. KEY MILESTONES SINCE LAST UPDATE (JANUARY 202\n<|id|>24<|type|>title<|page|>3<|box|>513 140 532 480<|content|>A. Completion of the Internal Investigation\n<|id|>40<|type|>title<|page|>5<|box|>275 140 292 315<|content|>B. Employee Proffers\n<|id|>43<|type|>title<|page|>5<|box|>539 140 555 408<|content|>C. Document Productions to DOJ\n<|id|>46<|type|>title<|page|>5<|box|>765 140 782 370<|content|>D. Voluntary Self-Disclosure\n<|id|>48<|type|>title<|page|>6<|box|>138 140 157 576<|content|>E. Ashford Pennington Phase I Compliance Assessmen\n<|id|>58<|type|>title<|page|>6<|box|>619 140 636 428<|content|>F. Resolution-in-Principle with DOJ\n<|id|>60<|type|>title<|page|>6<|box|>710 140 727 390<|content|>G. Draft Settlement Agreement\n<|id|>63<|type|>title<|page|>7<|box|>148 140 166 496<|content|>IV. ANTICIPATED RESOLUTION TERMS\n<|id|>65<|type|>table<|page|>7<|box|>255 143 901 852<|content|>None\n<|id|>66<|type|>table<|page|>8<|box|>89 143 592 852<|content|>None\n<|id|>68<|type|>title<|page|>8<|box|>739 140 757 467<|content|>V. TOTAL ESTIMATED ALL-IN COST\n<|id|>70<|type|>table<|page|>8<|box|>845 143 902 852<|content|>None\n<|id|>71<|type|>table<|page|>9<|box|>89 143 364 852<|content|>None\n<|id|>77<|type|>title<|page|>9<|box|>787 140 804 727<|content|>VI. FINANCIAL REPORTING AND DISCLOSURE CONSIDERATI\n<|id|>78<|type|>title<|page|>9<|box|>819 142 835 410<|content|>A. IAS 37 Contingency Disclosure\n<|id|>88<|type|>title<|page|>10<|box|>662 140 679 684<|content|>B. MAR Article 17 — Ad-Hoc Disclosure (Frankfurt S\n<|id|>96<|type|>title<|page|>11<|box|>467 140 484 323<|content|>C. SEC Regulation FD\n<|id|>101<|type|>title<|page|>12<|box|>90 140 107 483<|content|>D. Coordination with Professional Advisors\n<|id|>107<|type|>title<|page|>12<|box|>477 140 494 527<|content|>VII. BOARD AUTHORIZATION REQUESTED\n<|id|>119<|type|>title<|page|>13<|box|>325 140 343 415<|content|>VIII. ANTICIPATED TIMELINE\n<|id|>121<|type|>table<|page|>13<|box|>395 143 867 852<|content|>None\n<|id|>123<|type|>title<|page|>14<|box|>167 140 184 468<|content|>IX. ASSESSMENT AND CONCLUSION\n<|id|>137<|type|>title<|page|>15<|box|>703 142 719 320<|content|>Respectfully submitted,\n<|id|>138<|type|>title<|page|>15<|box|>720 142 736 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>65<|tgt_id|>63\n<|src_id|>66<|tgt_id|>63\n<|src_id|>70<|tgt_id|>68\n<|src_id|>71<|tgt_id|>68\n<|src_id|>121<|tgt_id|>119",
+    "parsed": [
+        {
+            "src_id": 65,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 119
+        }
+    ]
+}

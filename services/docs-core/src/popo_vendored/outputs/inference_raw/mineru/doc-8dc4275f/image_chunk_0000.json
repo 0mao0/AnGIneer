@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>12<|type|>title<|page|>1<|box|>724 140 741 390<|content|>1. Background of the Litigation\n<|id|>13<|type|>title<|page|>1<|box|>755 140 772 321<|content|>1.1 The Charter-Party\n<|id|>17<|type|>title<|page|>2<|box|>294 142 310 331<|content|>1.2 Northwind's Claims\n<|id|>26<|type|>table<|page|>2<|box|>851 143 906 852<|content|>None\n<|id|>27<|type|>table<|page|>3<|box|>88 143 297 852<|content|>None\n<|id|>29<|type|>title<|page|>3<|box|>436 143 452 470<|content|>1.3 Thalassa's Defenses and Counterclaim\n<|id|>39<|type|>title<|page|>4<|box|>338 143 354 349<|content|>1.4 Litigation Proceedings\n<|id|>57<|type|>title<|page|>5<|box|>446 140 464 285<|content|>2. The Settlement\n<|id|>58<|type|>title<|page|>5<|box|>477 140 494 468<|content|>2.1 Mediation and Settlement in Principle\n<|id|>61<|type|>title<|page|>5<|box|>739 142 757 388<|content|>2.2 Principal Settlement Terms\n<|id|>78<|type|>title<|page|>7<|box|>148 140 167 488<|content|>3. P&I Coverage and Basis for Contribution\n<|id|>79<|type|>title<|page|>7<|box|>180 140 198 333<|content|>3.1 Policy Identification\n<|id|>81<|type|>title<|page|>7<|box|>308 140 325 375<|content|>3.2 Covered Risks Implicated\n<|id|>87<|type|>title<|page|>8<|box|>90 140 107 429<|content|>3.3 Requested Contribution Amount\n<|id|>94<|type|>title<|page|>8<|box|>724 140 739 395<|content|>4. Proposed Funding Mechanics\n<|id|>98<|type|>title<|page|>9<|box|>340 140 357 416<|content|>5. Information and Documentation\n<|id|>107<|type|>title<|page|>9<|box|>667 140 684 333<|content|>6. Reservation of Rights\n<|id|>109<|type|>title<|page|>9<|box|>844 142 859 308<|content|>7. Related Insurance\n<|id|>115<|type|>title<|page|>10<|box|>348 140 364 318<|content|>8. Lender Notification\n<|id|>117<|type|>title<|page|>10<|box|>598 140 614 447<|content|>9. Contact Information and Next Steps\n<|id|>135<|type|>title<|page|>11<|box|>582 143 597 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>26<|tgt_id|>17\n<|src_id|>27<|tgt_id|>17",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 17
+        }
+    ]
+}

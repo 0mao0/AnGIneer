@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>489 140 508 607<|content|>1. ENGAGEMENT AND SCOPE OF REPRESENTATION\n<|id|>9<|page|>1<|box|>522 142 540 383<|content|>1.1 Engagement Confirmation\n<|id|>13<|page|>2<|box|>90 142 107 308<|content|>1.2 Scope of Services\n<|id|>26<|page|>4<|box|>594 143 611 339<|content|>1.3 Limitations on Scope\n<|id|>32<|page|>5<|box|>248 140 265 395<|content|>2. CLIENT IDENTIFICATION\n<|id|>39<|page|>5<|box|>683 140 700 459<|content|>3. STAFFING AND KEY PERSONNEL\n<|id|>40<|page|>5<|box|>714 140 731 334<|content|>3.1 Responsible Partner\n<|id|>42<|page|>5<|box|>840 140 859 292<|content|>3.2 Billing Partner\n<|id|>44<|page|>6<|box|>138 140 157 321<|content|>3.3 Engagement Team\n<|id|>47<|page|>6<|box|>654 140 672 511<|content|>4. MATTER NUMBER AND BILLING CODE\n<|id|>52<|page|>7<|box|>89 140 107 362<|content|>5. FEE ARRANGEMENTS\n<|id|>53<|page|>7<|box|>121 140 138 274<|content|>5.1 Basis of Fees\n<|id|>57<|page|>7<|box|>518 140 536 339<|content|>5.2 Estimated Fee Range\n<|id|>61<|page|>8<|box|>157 140 175 400<|content|>5.3 Disbursements and Expenses\n<|id|>72<|page|>8<|box|>646 140 664 388<|content|>5.4 Billing and Payment Terms\n<|id|>77<|page|>9<|box|>229 140 247 339<|content|>6. CONFIDENTIALITY\n<|id|>81<|page|>9<|box|>660 140 676 397<|content|>7. CONFLICTS OF INTEREST\n<|id|>86<|page|>10<|box|>321 140 338 555<|content|>8. COMMUNICATION AND CLIENT CONTACTS\n<|id|>88<|page|>10<|box|>411 176 426 303<|content|>Firm Contacts:\n<|id|>92<|page|>10<|box|>593 176 609 310<|content|>Client Contacts:\n<|id|>97<|page|>11<|box|>89 140 106 387<|content|>9. DOCUMENT RETENTION\n<|id|>101<|page|>11<|box|>446 140 464 475<|content|>10. TERMINATION OF ENGAGEMENT\n<|id|>103<|page|>11<|box|>590 140 608 419<|content|>Upon termination of the engagement:\n<|id|>108<|page|>12<|box|>89 142 106 586<|content|>11. GOVERNING LAW AND DISPUTE RESOLUTION\n<|id|>112<|page|>12<|box|>392 143 407 367<|content|>12. ENTIRE AGREEMENT\n<|id|>119<|page|>12<|box|>821 142 837 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>124<|page|>13<|box|>89 313 106 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>126<|page|>13<|box|>214 140 231 545<|content|>DRIFTWOOD ABSOLUTE RETURN FUND LTD.\n<|id|>133<|page|>13<|box|>356 143 369 171<|content|>cc:",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>26<|level|>2\n<|id|>32<|level|>1\n<|id|>39<|level|>1\n<|id|>40<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>47<|level|>1\n<|id|>52<|level|>1\n<|id|>53<|level|>2\n<|id|>57<|level|>2\n<|id|>61<|level|>2\n<|id|>72<|level|>2\n<|id|>77<|level|>1\n<|id|>81<|level|>1\n<|id|>86<|level|>1\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>97<|level|>1\n<|id|>101<|level|>1\n<|id|>103<|level|>2\n<|id|>108<|level|>1\n<|id|>112<|level|>1\n<|id|>119<|level|>-1\n<|id|>124<|level|>1\n<|id|>126<|level|>-1\n<|id|>133<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        }
+    ]
+}

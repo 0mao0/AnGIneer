@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 212 152 784<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>8<|page|>1<|box|>351 142 368 364<|content|>1. Purpose of Memorandum\n<|id|>12<|page|>1<|box|>835 140 853 315<|content|>2. Matter Description\n<|id|>14<|page|>2<|box|>152 142 170 295<|content|>Prospective Client:\n<|id|>17<|page|>2<|box|>340 142 357 370<|content|>Adverse Party / Respondent:\n<|id|>20<|page|>2<|box|>546 142 563 277<|content|>Minor Children:\n<|id|>23<|page|>2<|box|>696 143 714 287<|content|>Nature of Matter:\n<|id|>25<|page|>2<|box|>840 142 857 284<|content|>Underlying Case:\n<|id|>28<|page|>3<|box|>152 142 170 401<|content|>Opposing Counsel (Anticipated):\n<|id|>31<|page|>3<|box|>375 140 391 388<|content|>3. Proposed Engagement Team\n<|id|>35<|page|>3<|box|>703 142 719 393<|content|>4. Parties and Entities Searched\n<|id|>38<|page|>3<|box|>859 142 876 560<|content|>4.1 Marguerite Delphine Fonseca (Prospective Clien\n<|id|>46<|page|>4<|box|>324 142 340 495<|content|>4.2 Rafael Joaquín Medrano (Adverse Party)\n<|id|>53<|page|>4<|box|>580 142 598 547<|content|>4.3 Medrano Visuals, LLC (Adverse Party Affiliate)\n<|id|>60<|page|>5<|box|>90 140 107 704<|content|>4.4 Luminos Entertainment Group, Inc. (Prospective\n<|id|>67<|page|>5<|box|>494 142 511 653<|content|>4.5 Kwan, Delacroix & Samuels LLP (Opposing Counse\n<|id|>75<|page|>5<|box|>849 140 867 643<|content|>4.6 Gwendolyn R. Kwan (Opposing Lead Counsel — Ind\n<|id|>82<|page|>6<|box|>316 142 333 671<|content|>4.7 Benjamin T. Okafor (Opposing Associate Counsel\n<|id|>89<|page|>6<|box|>592 143 608 521<|content|>4.8 Isabela Luz Fonseca-Medrano (Minor Child)\n<|id|>104<|page|>7<|box|>209 142 227 493<|content|>4.10 Ridgeview Academy (Children's School)\n<|id|>112<|page|>7<|box|>511 142 527 553<|content|>4.11 Veridian Health Insurance Co. (Health Insurer\n<|id|>119<|page|>8<|box|>90 140 107 326<|content|>5. Search Methodology\n<|id|>129<|page|>8<|box|>796 140 813 370<|content|>6. Conclusion and Clearance\n<|id|>137<|page|>9<|box|>484 140 501 241<|content|>7. Approval\n<|id|>139<|page|>9<|box|>590 142 606 421<|content|>BILLING PARTNER APPROVAL\n<|id|>145<|page|>9<|box|>694 143 709 470<|content|>RESPONSIBLE PARTNER APPROVAL\n<|id|>151<|page|>9<|box|>797 143 813 274<|content|>PREPARED BY\n<|id|>156<|page|>10<|box|>90 142 107 261<|content|>8. Distribution",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>3\n<|id|>17<|level|>3\n<|id|>20<|level|>3\n<|id|>23<|level|>3\n<|id|>25<|level|>3\n<|id|>28<|level|>3\n<|id|>31<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>3\n<|id|>46<|level|>3\n<|id|>53<|level|>3\n<|id|>60<|level|>3\n<|id|>67<|level|>3\n<|id|>75<|level|>3\n<|id|>82<|level|>3\n<|id|>89<|level|>3\n<|id|>104<|level|>3\n<|id|>112<|level|>3\n<|id|>119<|level|>2\n<|id|>129<|level|>2\n<|id|>137<|level|>2\n<|id|>139<|level|>3\n<|id|>145<|level|>3\n<|id|>151<|level|>3\n<|id|>156<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,121 @@
+{
+    "task": "title",
+    "chunk_index": 4,
+    "range": [
+        197,
+        212
+    ],
+    "pages": [
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        207,
+        209,
+        210,
+        212
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1929<|page|>197<|box|>147 32 161 176<|content|>Spanish Translation\n<|id|>1939<|page|>198<|box|>117 32 132 160<|content|>NETHERLANDS\n<|id|>1941<|page|>198<|box|>189 34 204 107<|content|>POLAND\n<|id|>1942<|page|>198<|box|>218 34 233 120<|content|>Notifications\n<|id|>1944<|page|>198<|box|>361 34 376 98<|content|>RUSSIA\n<|id|>1945<|page|>198<|box|>390 35 406 122<|content|>Notifications\n<|id|>1951<|page|>199<|box|>186 34 200 133<|content|>SINGAPORE\n<|id|>1952<|page|>199<|box|>215 34 231 122<|content|>Notifications\n<|id|>1955<|page|>199<|box|>474 34 489 86<|content|>SPAIN\n<|id|>1961<|page|>200<|box|>405 34 421 122<|content|>Notifications\n<|id|>1968<|page|>201<|box|>388 34 402 107<|content|>SWEDEN\n<|id|>1970<|page|>201<|box|>460 34 474 104<|content|>TAIWAN\n<|id|>1971<|page|>201<|box|>489 35 503 122<|content|>Notifications\n<|id|>1975<|page|>202<|box|>189 34 204 125<|content|>THAILAND\n<|id|>1976<|page|>202<|box|>218 34 233 122<|content|>Notifications\n<|id|>1978<|page|>202<|box|>376 34 391 107<|content|>TURKEY\n<|id|>1979<|page|>202<|box|>405 34 421 122<|content|>Notifications\n<|id|>1982<|page|>203<|box|>59 34 74 236<|content|>UNITED ARAB EMIRATES\n<|id|>1983<|page|>203<|box|>89 35 103 122<|content|>Notifications\n<|id|>1986<|page|>203<|box|>247 34 261 184<|content|>UNITED KINGDOM\n<|id|>1999<|page|>207<|box|>53 295 69 702<|content|>Consent of Independent Registered Public Accountin\n<|id|>2034<|page|>209<|box|>90 421 103 575<|content|>POWER OF ATTORNEY\n<|id|>2037<|page|>210<|box|>59 333 85 665<|content|>Certification of Chief Executive Officer Pursuant\n<|id|>2038<|page|>210<|box|>94 32 109 197<|content|>I, Lisa T. Su, certify that:\n<|id|>2053<|page|>212<|box|>56 300 88 697<|content|>Certification of Chief Financial Officer Pursuant",
+    "raw_response": "<|id|>1929<|level|>1\n<|id|>1939<|level|>1\n<|id|>1941<|level|>1\n<|id|>1942<|level|>2\n<|id|>1944<|level|>1\n<|id|>1945<|level|>2\n<|id|>1951<|level|>1\n<|id|>1952<|level|>2\n<|id|>1955<|level|>1\n<|id|>1961<|level|>2\n<|id|>1968<|level|>1\n<|id|>1970<|level|>1\n<|id|>1971<|level|>2\n<|id|>1975<|level|>1\n<|id|>1976<|level|>2\n<|id|>1978<|level|>1\n<|id|>1979<|level|>2\n<|id|>1982<|level|>1\n<|id|>1983<|level|>2\n<|id|>1986<|level|>1\n<|id|>1999<|level|>1\n<|id|>2034<|level|>1\n<|id|>2037<|level|>1\n<|id|>2038<|level|>-1\n<|id|>2053<|level|>1",
+    "parsed": [
+        {
+            "id": 1929,
+            "level": 1
+        },
+        {
+            "id": 1939,
+            "level": 1
+        },
+        {
+            "id": 1941,
+            "level": 1
+        },
+        {
+            "id": 1942,
+            "level": 2
+        },
+        {
+            "id": 1944,
+            "level": 1
+        },
+        {
+            "id": 1945,
+            "level": 2
+        },
+        {
+            "id": 1951,
+            "level": 1
+        },
+        {
+            "id": 1952,
+            "level": 2
+        },
+        {
+            "id": 1955,
+            "level": 1
+        },
+        {
+            "id": 1961,
+            "level": 2
+        },
+        {
+            "id": 1968,
+            "level": 1
+        },
+        {
+            "id": 1970,
+            "level": 1
+        },
+        {
+            "id": 1971,
+            "level": 2
+        },
+        {
+            "id": 1975,
+            "level": 1
+        },
+        {
+            "id": 1976,
+            "level": 2
+        },
+        {
+            "id": 1978,
+            "level": 1
+        },
+        {
+            "id": 1979,
+            "level": 2
+        },
+        {
+            "id": 1982,
+            "level": 1
+        },
+        {
+            "id": 1983,
+            "level": 2
+        },
+        {
+            "id": 1986,
+            "level": 1
+        },
+        {
+            "id": 1999,
+            "level": 1
+        },
+        {
+            "id": 2034,
+            "level": 1
+        },
+        {
+            "id": 2037,
+            "level": 1
+        },
+        {
+            "id": 2053,
+            "level": 1
+        }
+    ]
+}

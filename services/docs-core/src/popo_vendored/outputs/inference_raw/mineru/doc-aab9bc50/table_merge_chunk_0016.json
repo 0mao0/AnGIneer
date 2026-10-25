@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 16,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['暗礁丛礁', 'rowspan=3, A)礁石区的几何类型为面', 'rowspan=3, UWTROC(暗礁/适淹礁)(M)VALSOU(水深值) = [(xx.x)单位:m](O)QUASOU(测深质量) = [1(已知深度),2(未知深度),3(可疑深度),4(不可靠水深),6(已知最浅深度),7(未知最浅深度(给出安全富裕量)),8(报告水深值(未经测量)),9(报告水深值(未经核实)),999(其他)](O)NATSUR(表面性质) = [2(黏土),5(石),6(砾石),9(岩石),999(其他)](O)EXPSOU(水深说明) = 1(在周围水深区的深度范围内),2(浅于周围水深区的深度范围),3(深于周围水深区的深度范围)](M)WATLEV = [3(水下/淹没),4(干出),5(适淹),999(其他)](O)OBJNAM(英文名称) = [礁石英文名称](O)NOBJNM(中文名称) = [礁石中文名称](O)INFORM(英文信息) = [礁石英文信息](O)NINFOM(中文信息) = [礁石中文信息](C)SORDAT(数据来源日期) = [YYYYMMDD](C)SORIND(数据来源表示) = [cc,cc,cccc,c⋯]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['示意图', '编码说明', '对应物标属性编码']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 2729,
+    "table2_idx": 2730
+}

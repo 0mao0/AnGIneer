@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>179 140 196 462<|content|>VIA EMAIL AND Sundial Data Systems\n<|id|>8<|page|>1<|box|>361 140 378 444<|content|>1. Purpose and Urgency of This Letter\n<|id|>14<|page|>2<|box|>231 140 248 486<|content|>2. Summary of Imminent Critical Deadlines\n<|id|>16<|page|>2<|box|>305 140 323 705<|content|>2.1 Application A1 — U.S. App. No. 17/672,204 (HIG\n<|id|>26<|page|>3<|box|>502 142 518 509<|content|>2.2 Application B1 — U.S. App. No. 17/814,057\n<|id|>32<|page|>4<|box|>157 140 175 506<|content|>2.3 Additional Near-Term Deadlines (Context)\n<|id|>38<|page|>4<|box|>691 140 709 625<|content|>3. Strategic Consequences of Abandonment — Applica\n<|id|>45<|page|>5<|box|>638 140 654 375<|content|>4. Portfolio Valuation Impact\n<|id|>50<|page|>6<|box|>476 140 493 477<|content|>5. Lender Covenant Compliance Concerns\n<|id|>57<|page|>7<|box|>556 140 574 501<|content|>6. Budget Context and Authorization Request\n<|id|>64<|page|>8<|box|>630 140 647 553<|content|>7. C&H's Ethical Obligations and Continuing Duties\n<|id|>71<|page|>9<|box|>484 140 501 334<|content|>8. Requested Next Steps\n<|id|>78<|page|>10<|box|>297 140 314 254<|content|>9. Conclusion",
+    "raw_response": "<|id|>3<|level|>-1\n<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>2\n<|id|>26<|level|>2\n<|id|>32<|level|>2\n<|id|>38<|level|>1\n<|id|>45<|level|>1\n<|id|>50<|level|>1\n<|id|>57<|level|>1\n<|id|>64<|level|>1\n<|id|>71<|level|>1\n<|id|>78<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        }
+    ]
+}

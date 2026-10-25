@@ -1,0 +1,135 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wwyjv7zg\\input\\pdfs\\doc-2f5a425d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wwyjv7zg\\enriched\\doc-2f5a425d.json",
+    "contd_output": "<|src_id|>73<|tgt_id|>74",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>31<|level|>3\n<|id|>38<|level|>3\n<|id|>46<|level|>3\n<|id|>52<|level|>2\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>64<|level|>3\n<|id|>66<|level|>3\n<|id|>71<|level|>3\n<|id|>75<|level|>2\n<|id|>81<|level|>2\n<|id|>86<|level|>2\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>97<|level|>2\n<|id|>101<|level|>2\n<|id|>104<|level|>2",
+    "image_output": "<|src_id|>62<|tgt_id|>60\n<|src_id|>83<|tgt_id|>81\n<|src_id|>84<|tgt_id|>81",
+    "contd_label": [
+        {
+            "src_id": 73,
+            "tgt_id": 74
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 81
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 83,
+            "table2_idx": 84,
+            "upper_row_ss": [
+                [
+                    "Late February 2024",
+                    "Board governance workshop/presentation to the CRH Board of Directors"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Early March 2024",
+                    "Circulation of revised draft Amended Bylaws and revised/new committee charters incorporating Client feedback"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        50
+    ],
+    "pages": [
+        3,
+        6,
+        7,
+        8,
+        9,
+        15,
+        21,
+        23,
+        36,
+        47,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>3<|box|>241 676 312 805<|content|>LIBRARY ROOM 5025 AUG 9 1966\n<|id|>2<|page|>3<|box|>328 634 351 840<|content|>TREASURY DEPARTMENT\n<|id|>3<|page|>6<|box|>400 555 595 683<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>5<|page|>7<|box|>171 319 195 599<|content|>FEBRUARY 1965\n<|id|>6<|page|>7<|box|>307 639 347 909<|content|>Note: ... See Questionnaire Inside\n<|id|>8<|page|>7<|box|>951 286 971 599<|content|>OFFICE OF THE SECRETARY\n<|id|>9<|page|>8<|box|>455 269 533 826<|content|>The Treasury Bulletin is for sale by the Superinte...uments, U. ... 00 foreign Single copy price varies\n<|id|>11<|page|>9<|box|>124 42 177 703<|content|>To properly evaluate the effectiveness and extent ...sted in the following questionnaire. ... Thank you\n<|id|>13<|page|>9<|box|>201 70 214 151<|content|>□ Government\n<|id|>14<|page|>9<|box|>201 177 214 248<|content|>Business\n<|id|>15<|page|>9<|box|>201 275 214 350<|content|>□ Education\n<|id|>16<|page|>9<|box|>201 378 214 444<|content|>□ Student\n<|id|>17<|page|>9<|box|>201 469 215 693<|content|>□ Other: ... ____\n<|id|>20<|page|>9<|box|>246 70 258 189<|content|>□ General reference\n<|id|>21<|page|>9<|box|>245 217 258 286<|content|>□ Research\n<|id|>22<|page|>9<|box|>245 471 257 528<|content|>Other: ... Other\n<|id|>25<|page|>9<|box|>844 67 855 701<|content|>b. ... ____\n<|id|>28<|page|>9<|box|>887 77 899 706<|content|>Name ____ Firm or agency ____\n<|id|>26<|page|>9<|box|>858 65 870 706<|content|>c. ... ____\n<|id|>27<|page|>9<|box|>875 46 886 205<|content|>9. ... Identification (Optional)\n<|id|>29<|page|>9<|box|>905 74 919 706<|content|>Address____ City ____ State ____ ZIP Coda____\n<|id|>30<|page|>9<|box|>919 51 931 598<|content|>*If additional space is required or if you have ot...ther comments or suggestions, use the reverse side\n<|id|>46<|page|>15<|box|>211 4 225 142<|content|>January Financing\n<|id|>47<|page|>15<|box|>227 1 346 466<|content|>On January 27, 1965, the Treasury announced an off...ription books were open only on Monday, February 1\n<|id|>83<|page|>21<|box|>472 1 522 456<|content|>Source: ... Estimates, including effect of proposed legislation, are from the 1966 Budget\n<|id|>84<|page|>21<|box|>482 492 512 961<|content|>1/ Consists of miscellaneous taxes (principally th...d undistributed proceeds, sale of foreign currency\n<|id|>99<|page|>23<|box|>828 0 950 452<|content|>Note: ... \" beginning 1959, Federal Civil Defense ...cutive Office of the President,\" Civil Aeronautics\n<|id|>100<|page|>23<|box|>791 495 885 933<|content|>Board from \"Commerce Department\" to \"Independent a...tional Aeronautics and Space Administration; ... \"\n<|id|>150<|page|>36<|box|>817 47 838 489<|content|>7/ Contributions under the Railroad Unemployment I..... 360 (a)), in excess of the amount specified for\n<|id|>151<|page|>36<|box|>548 551 577 978<|content|>administrative expenses. ... 361 (d))\n<|id|>193<|page|>47<|box|>121 404 133 555<|content|>(In millions of dollars)\n<|id|>196<|page|>49<|box|>91 0 246 457<|content|>The Second Liberty Bond Act (31 U. ... \\$8 billion from July 1, 1960, through June 30,\n<|id|>197<|page|>49<|box|>91 480 233 943<|content|>1961 (act of June 30, 1960); ... and \\$39 billion ... 1964 through June 30, 1965 (act of June 29, 1964)\n<|id|>201<|page|>50<|box|>71 434 86 623<|content|>PUBLIC DEBT OPERATIONS\n<|id|>202<|page|>50<|box|>100 180 147 875<|content|>Table 1. ... - Maturity Schedule of Interest-Beari...ther Than Regular Weekly and Annual Treasury Bills",
+    "raw_response": "<|src_id|>99<|tgt_id|>100\n<|src_id|>150<|tgt_id|>151\n<|src_id|>196<|tgt_id|>197",
+    "parsed": [
+        {
+            "src_id": 99,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 197
+        }
+    ]
+}

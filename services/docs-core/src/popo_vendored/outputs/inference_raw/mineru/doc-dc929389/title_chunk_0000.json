@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>9<|page|>1<|box|>412 142 428 240<|content|>Dear Stefan,\n<|id|>13<|page|>2<|box|>90 140 107 424<|content|>1. Summary of Negotiation Sessions\n<|id|>14<|page|>2<|box|>121 140 138 434<|content|>A. First Session — November 9, 2023\n<|id|>22<|page|>2<|box|>768 140 786 460<|content|>B. Second Session — November 13, 2023\n<|id|>32<|page|>3<|box|>707 140 724 390<|content|>2. Areas of Significant Progress\n<|id|>34<|page|>3<|box|>801 142 816 663<|content|>A. Board Governance and Government Security Commit\n<|id|>47<|page|>5<|box|>176 140 193 513<|content|>B. Technology Control Plan (TCP) Framework\n<|id|>56<|page|>6<|box|>90 142 107 334<|content|>C. Personnel Continuity\n<|id|>63<|page|>6<|box|>455 140 474 519<|content|>D. Facility Security Clearance (FCL) Continuity\n<|id|>70<|page|>6<|box|>771 140 789 555<|content|>3. Outstanding Issues Requiring Further Negotiatio\n<|id|>72<|page|>7<|box|>90 140 107 609<|content|>A. Third-Party Compliance Monitor — Scope and Sele\n<|id|>79<|page|>8<|box|>90 140 107 357<|content|>B. Monitor Cost Allocation\n<|id|>84<|page|>8<|box|>460 142 477 313<|content|>C. Penalty Provisions\n<|id|>102<|page|>9<|box|>631 140 648 563<|content|>D. Cybersecurity Requirements — Specific Standards\n<|id|>104<|page|>9<|box|>753 142 771 490<|content|>Two specific cybersecurity issues remain open:\n<|id|>107<|page|>10<|box|>367 140 383 511<|content|>E. Data Segregation — Implementation Details\n<|id|>115<|page|>11<|box|>90 140 107 455<|content|>F. Pre-Notification of Material Changes\n<|id|>121<|page|>11<|box|>547 140 564 388<|content|>G. Term and Sunset Provisions\n<|id|>130<|page|>12<|box|>281 140 297 647<|content|>4. Coordination with Wethersfield & Gale (VPI/Sell\n<|id|>135<|page|>12<|box|>681 140 698 416<|content|>5. Impact on Transaction Timeline\n<|id|>145<|page|>13<|box|>474 140 491 462<|content|>6. Next Steps and Recommended Actions\n<|id|>146<|page|>13<|box|>505 140 521 318<|content|>A. Immediate Actions\n<|id|>151<|page|>14<|box|>90 140 108 325<|content|>B. Upcoming Meetings\n<|id|>155<|page|>14<|box|>275 140 292 379<|content|>C. Client Decisions Requested\n<|id|>163<|page|>15<|box|>90 140 107 341<|content|>7. Fee and Budget Status\n<|id|>169<|page|>15<|box|>599 140 617 333<|content|>8. Closing Observations\n<|id|>185<|page|>16<|box|>569 140 584 674<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>-1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>22<|level|>2\n<|id|>32<|level|>1\n<|id|>34<|level|>2\n<|id|>47<|level|>2\n<|id|>56<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>1\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>84<|level|>2\n<|id|>102<|level|>2\n<|id|>104<|level|>3\n<|id|>107<|level|>2\n<|id|>115<|level|>2\n<|id|>121<|level|>2\n<|id|>130<|level|>1\n<|id|>135<|level|>1\n<|id|>145<|level|>1\n<|id|>146<|level|>2\n<|id|>151<|level|>2\n<|id|>155<|level|>2\n<|id|>163<|level|>1\n<|id|>169<|level|>1\n<|id|>185<|level|>-1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 169,
+            "level": 1
+        }
+    ]
+}

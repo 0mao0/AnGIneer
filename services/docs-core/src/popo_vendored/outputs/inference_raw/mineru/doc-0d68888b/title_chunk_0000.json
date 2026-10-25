@@ -1,0 +1,145 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 179 151 816<|content|>MEMORANDUM PRIVILEGED AND CONFIDENTIAL — ATTORNEY\n<|id|>8<|page|>1<|box|>340 307 361 689<|content|>I. Purpose and Summary of Clearance\n<|id|>13<|page|>2<|box|>90 359 111 637<|content|>II. Engagement Description\n<|id|>24<|page|>3<|box|>90 390 109 607<|content|>III. Entities Searched\n<|id|>26<|page|>3<|box|>261 142 279 282<|content|>A. Client Entities\n<|id|>42<|page|>4<|box|>595 140 614 364<|content|>B. Key Portfolio Companies\n<|id|>49<|page|>5<|box|>299 140 315 354<|content|>C. Key Personnel of Client\n<|id|>56<|page|>5<|box|>671 140 688 421<|content|>D. Counterparty / Adverse Counsel\n<|id|>62<|page|>6<|box|>316 140 334 555<|content|>E. Key Investors / Limited Partners (Representativ\n<|id|>69<|page|>7<|box|>90 140 107 509<|content|>F. Third-Party Service Providers and Advisors\n<|id|>83<|page|>8<|box|>266 375 286 622<|content|>IV. Search Methodology\n<|id|>105<|page|>9<|box|>551 408 571 588<|content|>V. Search Results\n<|id|>106<|page|>9<|box|>595 142 613 383<|content|>A. Client Entities (Items 1–14)\n<|id|>110<|page|>10<|box|>90 142 107 473<|content|>B. Key Portfolio Companies (Items 15–19)\n<|id|>117<|page|>10<|box|>474 140 492 392<|content|>C. Key Personnel (Items 20–24)\n<|id|>124<|page|>10<|box|>804 142 821 529<|content|>D. Counterparty / Adverse Counsel (Items 25–28)\n<|id|>131<|page|>11<|box|>685 140 703 532<|content|>E. Key Investors / Limited Partners (Items 29–33)\n<|id|>139<|page|>12<|box|>464 140 482 617<|content|>F. Third-Party Service Providers and Advisors (Ite\n<|id|>157<|page|>13<|box|>785 300 804 694<|content|>VI. Analysis of Potential Conflict Issues\n<|id|>159<|page|>14<|box|>90 140 107 555<|content|>A. Ashford National Bank, N.A. — Detailed Analysis\n<|id|>165<|page|>14<|box|>737 140 753 607<|content|>B. Whitfield, Carruthers & Doyle LLP — Detailed An\n<|id|>170<|page|>15<|box|>402 140 420 522<|content|>C. Multiple-Client / Multi-Entity Representation\n<|id|>176<|page|>16<|box|>198 339 218 656<|content|>VII. Confirmation of Clearance\n<|id|>180<|page|>16<|box|>516 289 536 707<|content|>VIII. Conditions and Ongoing Monitoring\n<|id|>192<|page|>17<|box|>500 424 520 573<|content|>IX. Approvals\n<|id|>201<|page|>19<|box|>90 266 111 730<|content|>Appendix A — Complete List of Search Terms\n<|id|>203<|page|>19<|box|>205 142 223 259<|content|>Client Entities\n<|id|>212<|page|>23<|box|>90 238 111 758<|content|>Appendix B — Practice Group Clearance Responses",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>3\n<|id|>42<|level|>3\n<|id|>49<|level|>3\n<|id|>56<|level|>3\n<|id|>62<|level|>3\n<|id|>69<|level|>3\n<|id|>83<|level|>2\n<|id|>105<|level|>2\n<|id|>106<|level|>3\n<|id|>110<|level|>3\n<|id|>117<|level|>3\n<|id|>124<|level|>3\n<|id|>131<|level|>3\n<|id|>139<|level|>3\n<|id|>157<|level|>2\n<|id|>159<|level|>3\n<|id|>165<|level|>3\n<|id|>170<|level|>3\n<|id|>176<|level|>2\n<|id|>180<|level|>2\n<|id|>192<|level|>2\n<|id|>201<|level|>2\n<|id|>203<|level|>3\n<|id|>212<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 212,
+            "level": 2
+        }
+    ]
+}

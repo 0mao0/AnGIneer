@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        10,
+        11,
+        12,
+        13,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>185 240 204 756<|content|>Alan Dao (Gia Tuan Dao)<sup>*</sup>, Dinh Bach Vu<sup>*</sup>, Huy Hoang Ha\n<|id|>2<|page|>1<|box|>205 444 220 555<|content|>Menlo Research\n<|id|>3<|page|>1<|box|>223 434 238 566<|content|>Equal contribution\n<|id|>4<|page|>1<|box|>243 403 255 593<|content|>alan, bach, rex@menlo. ... ai\n<|id|>5<|page|>1<|box|>276 442 294 555<|content|>April 7, 2025\n<|id|>56<|page|>6<|box|>878 111 909 885<|content|>During model training, we recognized the need for ...a synthetic dataset of random environmental noises\n<|id|>57<|page|>7<|box|>92 112 108 313<|content|>proved challenging to scale. ... proved challenging to scale\n<|id|>88<|page|>10<|box|>839 111 902 885<|content|>To validate the eficiency of Ichigo’s Tokenized Ea...urrent speech models and cascaded systems. ... 4 ±\n<|id|>91<|page|>11<|box|>284 109 345 883<|content|>Eficiency of Direct Generation: ... 0 2 ~ \\mathrm { m s } )\n<|id|>92<|page|>11<|box|>351 111 398 883<|content|>Comparison with Other Speech Language Models: ... 3 0 \\mathrm { \\ m s } )\n<|id|>93<|page|>11<|box|>404 111 452 885<|content|>VRAM Eficiency: ... This demonstrates Ichigo’s exc...lancing high performance with resource utilization\n<|id|>108<|page|>12<|box|>857 111 905 885<|content|>Handling Unclear Inputs: ... Instead, as illustrat... user to repeat their query, ensuring accurate and\n<|id|>111<|page|>13<|box|>689 111 737 885<|content|>These experiments complement our quantitative find... for advanced, user-friendly voice AI applications\n<|id|>170<|page|>17<|box|>849 112 912 885<|content|>OpenAI, Josh Achiam, Steven Adler, Sandhini Agarwa...pher Berner, Lenny Bogdonof, Oleg Boiko, Madelaine\n<|id|>171<|page|>18<|box|>90 125 681 887<|content|>Boyd, Anna-Luisa Brakman, Greg Brockman, Tim Brook...l, Pokorny, Michelle Pokrass, Vitchyr H. ... 08774",
+    "raw_response": "<|src_id|>56<|tgt_id|>57\n<|src_id|>170<|tgt_id|>171",
+    "parsed": [
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 171
+        }
+    ]
+}

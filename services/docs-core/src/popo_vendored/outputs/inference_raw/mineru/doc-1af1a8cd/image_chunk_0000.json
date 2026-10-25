@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 104 586<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|type|>title<|page|>1<|box|>112 346 128 651<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>2<|type|>title<|page|>1<|box|>138 423 155 573<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>510 142 527 300<|content|>I. PARTICIPANTS\n<|id|>21<|type|>title<|page|>2<|box|>167 140 184 346<|content|>II. TOPICS DISCUSSED\n<|id|>23<|type|>title<|page|>2<|box|>297 140 315 560<|content|>A. Confirmation of Extended CID Response Deadline\n<|id|>27<|type|>title<|page|>2<|box|>770 140 787 604<|content|>B. Scope of Document Requests 7–12 — Agreed Narrow\n<|id|>40<|type|>title<|page|>4<|box|>429 140 446 483<|content|>C. Privilege Log Format and Requirements\n<|id|>45<|type|>table<|page|>4<|box|>810 143 904 852<|content|>None\n<|id|>46<|type|>table<|page|>5<|box|>89 143 273 852<|content|>None\n<|id|>49<|type|>title<|page|>5<|box|>492 143 508 321<|content|>D. Production Format\n<|id|>60<|type|>title<|page|>6<|box|>275 140 292 557<|content|>E. Confidentiality Designations and Protective Ord\n<|id|>68<|type|>title<|page|>7<|box|>448 140 465 540<|content|>F. Oral Examination of Corporate Representatives\n<|id|>75<|type|>title<|page|>8<|box|>257 140 273 464<|content|>G. Cooperation Credit and AG's Posture\n<|id|>80<|type|>title<|page|>8<|box|>728 140 744 315<|content|>III. ACTION ITEMS",
+    "raw_response": "<|src_id|>45<|tgt_id|>40\n<|src_id|>46<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 40
+        }
+    ]
+}

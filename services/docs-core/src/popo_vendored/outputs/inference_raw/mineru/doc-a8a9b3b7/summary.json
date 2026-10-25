@@ -1,0 +1,181 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vn14l89v\\input\\pdfs\\doc-a8a9b3b7.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vn14l89v\\enriched\\doc-a8a9b3b7.json",
+    "contd_output": "<|src_id|>12<|tgt_id|>13\n<|src_id|>21<|tgt_id|>22\n<|src_id|>124<|tgt_id|>125",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>23<|level|>3\n<|id|>29<|level|>3\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>40<|level|>3\n<|id|>46<|level|>2\n<|id|>47<|level|>3\n<|id|>56<|level|>3\n<|id|>63<|level|>3\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>72<|level|>3\n<|id|>77<|level|>3\n<|id|>81<|level|>2\n<|id|>94<|level|>2\n<|id|>103<|level|>2\n<|id|>117<|level|>2\n<|id|>131<|level|>2\n<|id|>133<|level|>3\n<|id|>136<|level|>3\n<|id|>139<|level|>3\n<|id|>142<|level|>3\n<|id|>145<|level|>2\n<|id|>147<|level|>3\n<|id|>150<|level|>3\n<|id|>153<|level|>3\n<|id|>157<|level|>3\n<|id|>160<|level|>2",
+    "image_output": "<|src_id|>161<|tgt_id|>160\n<|src_id|>162<|tgt_id|>160",
+    "contd_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 125
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 161,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 160
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 161,
+            "table2_idx": 162,
+            "upper_row_ss": [
+                [
+                    "Ashbury Industries, Inc. v. Teva",
+                    "429 F.3d 1364 (Fed. Cir. 2005)",
+                    "Applies 35 U.S.C. § 112(d) to"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Pharms. USA, Inc.",
+                    "",
+                    "reinforce the claim-differentiation analysis, noting that dependent claims must \"specify a further limitation\" beyond the independent claim."
+                ]
+            ]
+        }
+    ]
+}

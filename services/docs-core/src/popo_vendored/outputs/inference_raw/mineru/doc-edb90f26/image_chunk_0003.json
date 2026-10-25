@@ -1,0 +1,50 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        136,
+        144
+    ],
+    "pages": [
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>347<|type|>title<|page|>137<|box|>165 97 190 492<|content|>附录 B 通用施工信息属性组\n<|id|>348<|type|>table<|page|>137<|box|>290 99 887 870<|content|>None\n<|id|>349<|type|>table<|page|>138<|box|>129 126 564 897<|content|>None\n<|id|>350<|type|>title<|page|>139<|box|>165 105 188 502<|content|>附录 C 临时工程模型精细度\n<|id|>351<|type|>table<|page|>139<|box|>268 107 888 880<|content|>None\n<|id|>352<|type|>table<|page|>140<|box|>128 117 900 890<|content|>None\n<|id|>353<|type|>table<|page|>141<|box|>131 102 888 875<|content|>None\n<|id|>354<|type|>table<|page|>142<|box|>148 122 897 895<|content|>None\n<|id|>355<|type|>table<|page|>143<|box|>117 102 313 873<|content|>None\n<|id|>356<|type|>title<|page|>144<|box|>188 122 212 401<|content|>本标准用词用语说明",
+    "raw_response": "<|src_id|>348<|tgt_id|>347\n<|src_id|>349<|tgt_id|>347\n<|src_id|>351<|tgt_id|>350\n<|src_id|>352<|tgt_id|>350\n<|src_id|>353<|tgt_id|>350\n<|src_id|>354<|tgt_id|>350\n<|src_id|>355<|tgt_id|>350",
+    "parsed": [
+        {
+            "src_id": 348,
+            "tgt_id": 347
+        },
+        {
+            "src_id": 349,
+            "tgt_id": 347
+        },
+        {
+            "src_id": 351,
+            "tgt_id": 350
+        },
+        {
+            "src_id": 352,
+            "tgt_id": 350
+        },
+        {
+            "src_id": 353,
+            "tgt_id": 350
+        },
+        {
+            "src_id": 354,
+            "tgt_id": 350
+        },
+        {
+            "src_id": 355,
+            "tgt_id": 350
+        }
+    ]
+}

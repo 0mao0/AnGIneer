@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 153 107 843<|content|>CALDERWOOD & HARKNESS LLP One Liberty Plaza, 45th\n<|id|>14<|page|>1<|box|>781 140 797 369<|content|>Enclosed Election Statement\n<|id|>17<|page|>2<|box|>304 142 320 259<|content|>Filing Method\n<|id|>21<|page|>2<|box|>564 142 580 377<|content|>Request for Acknowledgment\n<|id|>24<|page|>2<|box|>753 140 770 401<|content|>Copy Distribution Requirements\n<|id|>31<|page|>3<|box|>593 140 609 354<|content|>Critical Deadline Warning\n<|id|>37<|page|>4<|box|>250 142 266 403<|content|>Taxpayer Information Summary\n<|id|>42<|page|>4<|box|>718 176 734 480<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>62<|page|>6<|box|>150 140 167 514<|content|>Guidance on calculation of the 30-day deadline:\n<|id|>66<|page|>6<|box|>356 140 373 341<|content|>Checklist Before Mailing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>37<|level|>2\n<|id|>42<|level|>-1\n<|id|>62<|level|>2\n<|id|>66<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        }
+    ]
+}

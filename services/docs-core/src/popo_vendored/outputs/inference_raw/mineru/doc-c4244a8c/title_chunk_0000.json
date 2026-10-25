@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 173 123 823<|content|>UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF\n<|id|>11<|page|>1<|box|>744 142 760 336<|content|>I. FINDINGS OF FACT\n<|id|>12<|page|>1<|box|>775 142 791 259<|content|>A. The Parties\n<|id|>15<|page|>2<|box|>397 142 414 393<|content|>B. Plaintiff's Trademark Rights\n<|id|>24<|page|>3<|box|>359 140 378 419<|content|>C. Defendant's Infringing Conduct\n<|id|>31<|page|>4<|box|>250 140 267 429<|content|>D. Evidence of Consumer Confusion\n<|id|>33<|page|>4<|box|>542 140 559 364<|content|>E. Cease-and-Desist History\n<|id|>37<|page|>5<|box|>148 142 166 382<|content|>II. CONCLUSIONS OF LAW\n<|id|>38<|page|>5<|box|>180 142 198 501<|content|>A. Legal Standard for Preliminary Injunction\n<|id|>40<|page|>5<|box|>398 140 416 535<|content|>B. Substantial Likelihood of Success on the Merits\n<|id|>55<|page|>8<|box|>544 140 561 313<|content|>C. Irreparable Harm\n<|id|>60<|page|>9<|box|>268 142 286 321<|content|>D. Balance of Equities\n<|id|>64<|page|>9<|box|>637 142 652 285<|content|>E. Public Interest\n<|id|>67<|page|>10<|box|>89 142 107 245<|content|>III. ORDER\n<|id|>96<|page|>13<|box|>353 421 369 573<|content|>SUBMITTED BY:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>15<|level|>3\n<|id|>24<|level|>3\n<|id|>31<|level|>3\n<|id|>33<|level|>3\n<|id|>37<|level|>2\n<|id|>38<|level|>3\n<|id|>40<|level|>3\n<|id|>55<|level|>3\n<|id|>60<|level|>3\n<|id|>64<|level|>3\n<|id|>67<|level|>2\n<|id|>96<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>167 163 220 833<|content|>Delivered Pursuant to the Limited Liability Compan...ntribution Agreement, dated as of December 4, 2023\n<|id|>4<|page|>1<|box|>229 403 247 594<|content|>Dated: ... February 20, 2024\n<|id|>5<|page|>1<|box|>256 140 329 854<|content|>This Officer's Certificate (this \"Certificate\") is... company (\"Lumen Ridge\"), at the following address\n<|id|>6<|page|>1<|box|>337 174 372 852<|content|>Lumen Ridge Infrastructure Partners LLC 301 Tresser Boulevard, Suite 1400 Stamford, CT 06901\n<|id|>7<|page|>1<|box|>381 176 397 383<|content|>Attention: ... General Counse\n<|id|>8<|page|>1<|box|>398 140 546 854<|content|>This Certificate is delivered in connection with, ...ited liability company (the \"Company\" or the \"JV\")\n<|id|>13<|page|>2<|box|>226 140 316 854<|content|>WHEREAS, the LLC Agreement requires, as a conditio...atisfaction of certain closing conditions; ... and\n<|id|>14<|page|>2<|box|>324 140 378 854<|content|>WHEREAS, the Contribution Agreement similarly requ...certifying as to such matters as set forth therein\n<|id|>22<|page|>2<|box|>875 140 930 854<|content|>The undersigned hereby certifies that each of the ...h other Transaction Document to which CONFIDENTIAL\n<|id|>23<|page|>3<|box|>90 138 256 857<|content|>CBR is a party is true and correct in all material... all respects) as of such specified date or period\n<|id|>28<|page|>3<|box|>714 174 898 857<|content|>(d) Stockholder Consent. ... No other stockholder ...val is required under the Stockholders' Agreement,\n<|id|>29<|page|>4<|box|>90 174 127 854<|content|>CBR's certificate of incorporation, CBR's bylaws, ...very, and performance of the Transaction Documents\n<|id|>59<|page|>8<|box|>601 174 637 852<|content|>(ii) the Project Portfolio, including the conditio...evelopment timeline of any project therein; ... or\n<|id|>61<|page|>8<|box|>689 140 763 854<|content|>Without limiting the generality of the foregoing, ...terially adversely modified since the Signing Date\n<|id|>68<|page|>9<|box|>659 174 713 854<|content|>(i) seeks to restrain, enjoin, prevent, prohibit, ...es or other relief in connection therewith; ... or\n<|id|>70<|page|>9<|box|>801 140 875 856<|content|>The undersigned further certifies that, as of the ...ly be expected to give rise to any such Proceeding\n<|id|>79<|page|>10<|box|>628 142 643 393<|content|>Name: ... Margaret \"Meg\" Calloway\n<|id|>80<|page|>10<|box|>645 142 661 576<|content|>Title: ... Co-Founder, Chairwoman & Chief Executive Officer\n<|id|>81<|page|>10<|box|>662 142 678 214<|content|>Address: ... Address",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>28<|tgt_id|>29",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        }
+    ]
+}

@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 150 142 846<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF THALASSA\n<|id|>6<|page|>1<|box|>348 142 366 243<|content|>RECITALS\n<|id|>19<|page|>2<|box|>213 142 228 176<|content|>and\n<|id|>28<|page|>2<|box|>794 142 809 176<|content|>and\n<|id|>46<|page|>5<|box|>412 140 430 279<|content|>RESOLUTIONS\n<|id|>48<|page|>5<|box|>489 140 505 486<|content|>Resolution 1 — Authorization of Settlement\n<|id|>52<|page|>6<|box|>176 140 194 565<|content|>Resolution 2 — Designation of Authorized Signatori\n<|id|>55<|page|>6<|box|>361 176 378 627<|content|>(2) Markos Theodorakis, General Counsel of the Com\n<|id|>69<|page|>7<|box|>152 140 169 261<|content|>and it is further\n<|id|>71<|page|>7<|box|>282 140 299 570<|content|>Resolution 3 — Settlement Parameters and Condition\n<|id|>82<|page|>8<|box|>510 142 527 415<|content|>Resolution 4 — Insurance Matters\n<|id|>88<|page|>9<|box|>213 140 229 424<|content|>Resolution 5 — Lender Notification\n<|id|>91<|page|>9<|box|>549 142 566 441<|content|>Resolution 6 — Delegation to Counsel\n<|id|>94<|page|>10<|box|>90 140 106 362<|content|>Resolution 7 — Ratification\n<|id|>96<|page|>10<|box|>253 142 271 413<|content|>Resolution 8 — General Authority\n<|id|>98<|page|>10<|box|>518 142 536 444<|content|>UNANIMOUS WRITTEN CONSENT\n<|id|>123<|page|>11<|box|>386 140 404 403<|content|>SECRETARY'S CERTIFICATE\n<|id|>131<|page|>13<|box|>89 140 125 854<|content|>Exhibit A. Settlement Authority Memorandum from Ca\n<|id|>133<|page|>14<|box|>90 142 107 415<|content|>Exhibit B. Summary of the Action\n<|id|>135<|page|>14<|box|>176 142 193 209<|content|>Parties:\n<|id|>143<|page|>16<|box|>89 140 126 854<|content|>Exhibit D. Confirmation from Konstantinou & Rizos",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>19<|level|>-1\n<|id|>28<|level|>-1\n<|id|>46<|level|>2\n<|id|>48<|level|>3\n<|id|>52<|level|>3\n<|id|>55<|level|>-1\n<|id|>69<|level|>-1\n<|id|>71<|level|>3\n<|id|>82<|level|>3\n<|id|>88<|level|>3\n<|id|>91<|level|>3\n<|id|>94<|level|>3\n<|id|>96<|level|>3\n<|id|>98<|level|>2\n<|id|>123<|level|>2\n<|id|>131<|level|>2\n<|id|>133<|level|>2\n<|id|>135<|level|>3\n<|id|>143<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 2
+        }
+    ]
+}

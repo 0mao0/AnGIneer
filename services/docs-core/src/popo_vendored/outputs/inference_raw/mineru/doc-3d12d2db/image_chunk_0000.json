@@ -1,0 +1,53 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 424 128 573<|content|>MEMORANDUM\n<|id|>6<|type|>title<|page|>1<|box|>276 142 292 300<|content|>1. Matter Overview\n<|id|>31<|type|>title<|page|>3<|box|>90 140 107 413<|content|>2. Engagement Team Assignments\n<|id|>33<|type|>title<|page|>3<|box|>184 140 200 593<|content|>2.1 Douglas Fairchild — Responsible Partner, Real\n<|id|>36<|type|>title<|page|>3<|box|>277 142 294 370<|content|>Hourly Rate: $1,150 per hour\n<|id|>38<|type|>title<|page|>3<|box|>364 143 383 274<|content|>Responsibilities:\n<|id|>49<|type|>title<|page|>4<|box|>90 140 107 540<|content|>2.2 Angela Fontaine — Billing Partner, Real Estate\n<|id|>52<|type|>title<|page|>4<|box|>184 140 200 370<|content|>Hourly Rate: $1,100 per hour\n<|id|>54<|type|>title<|page|>4<|box|>272 143 289 274<|content|>Responsibilities:\n<|id|>63<|type|>title<|page|>4<|box|>722 140 739 550<|content|>2.3 Grace Nakamura — Lead Associate, Real Estate\n<|id|>66<|type|>title<|page|>4<|box|>815 142 833 357<|content|>Hourly Rate: $725 per hour\n<|id|>68<|type|>title<|page|>5<|box|>133 143 152 274<|content|>Responsibilities:\n<|id|>83<|type|>title<|page|>5<|box|>849 140 866 586<|content|>2.4 Rafael Dominguez — Working Associate, Real Est\n<|id|>86<|type|>title<|page|>6<|box|>133 142 152 357<|content|>Hourly Rate: $625 per hour\n<|id|>88<|type|>title<|page|>6<|box|>223 142 239 274<|content|>Responsibilities:\n<|id|>102<|type|>title<|page|>7<|box|>319 140 335 532<|content|>3. Anticipated Workstreams and Work Allocation\n<|id|>104<|type|>title<|page|>7<|box|>430 140 446 568<|content|>3.1 Pre-Commitment Phase (October–December 2022)\n<|id|>122<|type|>title<|page|>8<|box|>654 140 671 580<|content|>3.2 Due Diligence Phase (December 2022–January 202\n<|id|>156<|type|>title<|page|>11<|box|>90 140 108 653<|content|>3.3 Loan Document Negotiation Phase (December 2022\n<|id|>178<|type|>title<|page|>12<|box|>746 140 762 460<|content|>3.4 Entity and Authorization Documents\n<|id|>184<|type|>title<|page|>13<|box|>410 140 429 341<|content|>3.5 Existing Loan Payoff\n<|id|>199<|type|>title<|page|>14<|box|>289 140 306 383<|content|>3.6 Closing Phase (If Reached)\n<|id|>204<|type|>title<|page|>14<|box|>669 140 686 323<|content|>4. Key Client Contacts\n<|id|>205<|type|>table<|page|>14<|box|>720 143 900 852<|content|>None\n<|id|>206<|type|>table<|page|>15<|box|>88 143 169 852<|content|>None\n<|id|>208<|type|>title<|page|>15<|box|>262 140 279 370<|content|>5. Key Third-Party Contacts\n<|id|>209<|type|>table<|page|>15<|box|>311 143 582 852<|content|>None\n<|id|>211<|type|>title<|page|>15<|box|>710 140 729 316<|content|>6. Property Summary\n<|id|>217<|type|>title<|page|>16<|box|>89 140 107 328<|content|>Key Physical Statistics:\n<|id|>237<|type|>title<|page|>16<|box|>724 140 741 511<|content|>7. Estimated Fee Budget and Billing Guidelines\n<|id|>240<|type|>table<|page|>17<|box|>250 143 344 852<|content|>None\n<|id|>246<|type|>title<|page|>17<|box|>797 140 814 330<|content|>8. Anticipated Timeline\n<|id|>248<|type|>table<|page|>17<|box|>883 143 905 852<|content|>None\n<|id|>249<|type|>table<|page|>18<|box|>89 143 385 852<|content|>None\n<|id|>251<|type|>title<|page|>18<|box|>607 140 625 434<|content|>9. Filing and Document Management",
+    "raw_response": "<|src_id|>205<|tgt_id|>204\n<|src_id|>206<|tgt_id|>204\n<|src_id|>209<|tgt_id|>208\n<|src_id|>240<|tgt_id|>237\n<|src_id|>248<|tgt_id|>246\n<|src_id|>249<|tgt_id|>246",
+    "parsed": [
+        {
+            "src_id": 205,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 240,
+            "tgt_id": 237
+        },
+        {
+            "src_id": 248,
+            "tgt_id": 246
+        },
+        {
+            "src_id": 249,
+            "tgt_id": 246
+        }
+    ]
+}

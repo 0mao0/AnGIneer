@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 333 118 663<|content|>EMPLOYMENT AGREEMENT\n<|id|>1<|page|>1<|box|>143 344 161 653<|content|>Form for Founder Earnout Participant\n<|id|>6<|page|>1<|box|>281 367 297 630<|content|>EMPLOYMENT AGREEMENT\n<|id|>8<|page|>1<|box|>388 140 405 243<|content|>RECITALS\n<|id|>14<|page|>2<|box|>89 140 107 617<|content|>SECTION 1 — EMPLOYMENT; POSITION AND DUTIES\n<|id|>19<|page|>3<|box|>148 140 166 488<|content|>SECTION 2 — AT-WILL EMPLOYMENT\n<|id|>22<|page|>3<|box|>535 140 551 419<|content|>SECTION 3 — COMPENSATION\n<|id|>25<|page|>3<|box|>768 142 786 581<|content|>[Insert applicable Base Salary: $per year]\n<|id|>29<|page|>4<|box|>457 140 474 495<|content|>SECTION 4 — EQUITY COMPENSATION\n<|id|>36<|page|>5<|box|>393 140 412 519<|content|>SECTION 5 — EARNOUT CONSIDERATION\n<|id|>43<|page|>6<|box|>534 140 569 852<|content|>[Insert Employee's allocable percentage:%; maximum\n<|id|>54<|page|>8<|box|>349 140 368 468<|content|>SECTION 6 — EMPLOYEE BENEFITS\n<|id|>58<|page|>8<|box|>835 140 853 571<|content|>SECTION 7 — TERMINATION OF EMPLOYMENT\n<|id|>73<|page|>11<|box|>222 140 239 442<|content|>SECTION 8 — CONFIDENTIALITY\n<|id|>78<|page|>12<|box|>358 140 375 679<|content|>SECTION 9 — INTELLECTUAL PROPERTY; WORK PRODUCT\n<|id|>83<|page|>13<|box|>412 140 430 522<|content|>SECTION 10 — RESTRICTIVE COVENANTS\n<|id|>90<|page|>14<|box|>849 140 866 764<|content|>SECTION 11 — REPRESENTATIONS AND WARRANTIES OF EMP\n<|id|>91<|page|>14<|box|>875 142 893 838<|content|>11.1 Employee Representations. Employee hereby rep\n<|id|>97<|page|>15<|box|>582 140 599 452<|content|>SECTION 12 — INDEMNIFICATION\n<|id|>99<|page|>16<|box|>89 140 106 535<|content|>SECTION 13 — SECTION 409A COMPLIANCE\n<|id|>104<|page|>16<|box|>784 140 800 437<|content|>SECTION 14 — MISCELLANEOUS\n<|id|>130<|page|>19<|box|>460 400 479 596<|content|>[Signature Page Follows]\n<|id|>132<|page|>19<|box|>530 142 547 480<|content|>BRIGHTFIELD CLOUD SERVICES INC.\n<|id|>138<|page|>20<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>139<|page|>20<|box|>114 406 133 591<|content|>PRIOR INVENTIONS\n<|id|>145<|page|>21<|box|>89 439 106 558<|content|>SCHEDULE 1\n<|id|>146<|page|>21<|box|>114 328 132 668<|content|>INDIVIDUAL COMPENSATION TERMS\n<|id|>149<|page|>21<|box|>503 143 518 565<|content|>Reference Table — All Founder Earnout Participants",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>6<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>22<|level|>2\n<|id|>25<|level|>-1\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>43<|level|>-1\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>73<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>2\n<|id|>91<|level|>3\n<|id|>97<|level|>2\n<|id|>99<|level|>2\n<|id|>104<|level|>2\n<|id|>130<|level|>-1\n<|id|>132<|level|>-1\n<|id|>138<|level|>2\n<|id|>139<|level|>3\n<|id|>145<|level|>2\n<|id|>146<|level|>3\n<|id|>149<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 4
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        24,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>11<|page|>1<|box|>463 174 500 854<|content|>Securities Disclosure Obligations of Belmont Ridge Financial Group, Inc. ... OCC-2025-003\n<|id|>12<|page|>1<|box|>507 142 523 331<|content|>Matter No. ... 1045-00002\n<|id|>13<|page|>1<|box|>532 140 623 854<|content|>THIS MEMORANDUM IS PROTECTED BY THE ATTORNEY-CLIEN...ORNEY-CLIENT PRIVILEGE AND WORK PRODUCT PROTECTION\n<|id|>17<|page|>1<|box|>847 140 902 854<|content|>BRFG is a publicly traded bank holding company inc...ompany and controlling shareholder of BRB (EIN 13-\n<|id|>19<|page|>2<|box|>171 140 335 857<|content|>The Consent Order imposes significant obligations ...n connection with the Consent Order to $57,000,000\n<|id|>196<|page|>24<|box|>875 174 909 856<|content|>(b) Consistency Across Communications. ... The Com...ommunications with the OCC, FinCEN, and Thornfield\n<|id|>197<|page|>25<|box|>90 174 127 854<|content|>Consulting. ... Calderwood & Harkness will review ...res and regulatory submissions to ensure alignment\n<|id|>205<|page|>25<|box|>840 140 858 321<|content|>Respectfully submitted,\n<|id|>206<|page|>25<|box|>858 140 875 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>207<|page|>25<|box|>876 143 893 254<|content|>By: ... By\n<|id|>210<|page|>26<|box|>125 142 140 339<|content|>Yuki Nakamura Associate\n<|id|>211<|page|>26<|box|>140 140 218 854<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL ATTORN...tify the sender immediately and destroy all copies",
+    "raw_response": "<|src_id|>196<|tgt_id|>197",
+    "parsed": [
+        {
+            "src_id": 196,
+            "tgt_id": 197
+        }
+    ]
+}

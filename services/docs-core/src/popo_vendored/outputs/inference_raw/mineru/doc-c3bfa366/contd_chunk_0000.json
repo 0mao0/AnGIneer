@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        10,
+        11,
+        22,
+        29,
+        30
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>42 173 71 823<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>3<|page|>1<|box|>152 140 189 854<|content|>FROM: ... Sylvia Hartwell, Specialist Partner (Tax...e Vanderbilt Avenue, 44th Floor New York, NY 10017\n<|id|>4<|page|>1<|box|>196 140 215 669<|content|>TO: ... Nicholas Stern, Responsible Partner Owen Fischer, Lead Associate\n<|id|>5<|page|>1<|box|>223 140 239 354<|content|>DATE: ... November 22, 2023\n<|id|>6<|page|>1<|box|>250 140 286 854<|content|>RE: ... Tax Structuring Analysis — Management Comp...mics Realignment of Ardent Capital Partners III LP\n<|id|>7<|page|>1<|box|>292 140 311 362<|content|>MATTER NO. ... 1001-00002\n<|id|>21<|page|>2<|box|>819 140 893 856<|content|>The ManCo — Ardent Capital Management LLC (EIN 84-...and management services to the Fund pursuant to an\n<|id|>22<|page|>3<|box|>89 140 126 854<|content|>Investment Management Agreement dated as of April ...principals who hold membership interests in the GP\n<|id|>92<|page|>10<|box|>862 174 897 854<|content|>(ii) Liquidating distributions must be made in acc...ce with positive capital account balances; ... and\n<|id|>94<|page|>11<|box|>133 140 262 856<|content|>Alternatively, if the members are unwilling to acc...creases a deficit in such member's capital account\n<|id|>194<|page|>22<|box|>491 174 527 854<|content|>(ii) The partner receiving the profits interest do... the interest within two years of receipt; ... and\n<|id|>196<|page|>22<|box|>561 140 671 856<|content|>The carry interests granted to Marchetti and Okonk...archetti and Okonkwo should not be a taxable event\n<|id|>260<|page|>29<|box|>845 140 883 857<|content|>This memorandum also does not address any securiti...s SEC registration, the Fund's compliance with the\n<|id|>261<|page|>30<|box|>42 174 71 823<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>262<|page|>30<|box|>89 140 127 854<|content|>Investment Advisers Act and the Investment Company...by the appropriate practice groups within the firm",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>260<|tgt_id|>262",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 260,
+            "tgt_id": 262
+        }
+    ]
+}

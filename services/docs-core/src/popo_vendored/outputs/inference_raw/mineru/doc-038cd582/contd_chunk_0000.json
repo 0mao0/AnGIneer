@@ -1,0 +1,58 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>213 418 229 578<|content|>Dated as of [_], 2023\n<|id|>3<|page|>1<|box|>239 140 422 856<|content|>The undersigned, being all of the managers (the \"M...gers at which all Managers were present and voting\n<|id|>35<|page|>4<|box|>811 210 847 854<|content|>(viii) any comfort letters, opinion letters, or ot...les required by the Lender or its counsel; ... and\n<|id|>37<|page|>5<|box|>90 140 143 854<|content|>A list of the Loan Documents shall be finalized pr...ted Loan Documents is attached hereto as Exhibit B\n<|id|>39<|page|>5<|box|>181 140 345 856<|content|>RESOLVED, that the Company is hereby authorized an... Tidewater National Bank, N. ... and it is further\n<|id|>40<|page|>5<|box|>354 138 574 857<|content|>RESOLVED, that the authorized signatories designat...e Company's personal property and other collateral\n<|id|>46<|page|>5<|box|>786 174 840 854<|content|>(iv) the Lender's counsel legal fee cap of Two Hun...ments, payable by the Company as borrower; ... and\n<|id|>48<|page|>6<|box|>135 140 207 856<|content|>and the authorized signatories designated herein a...ized signatories may determine in their discretion\n<|id|>55<|page|>6<|box|>669 174 704 854<|content|>(c) Derek Huang, in his capacity as Senior Vice Pr...reasury of Verimark Hospitality Group Inc. ... and\n<|id|>58<|page|>6<|box|>801 140 893 856<|content|>RESOLVED, that each Authorized Signatory shall hav...mitations on such authority; ... and it is further\n<|id|>57<|page|>6<|box|>775 140 792 854<|content|>(each, an \"Authorized Signatory\" and, collectively...e \"Authorized Signatories\"); ... and it is further\n<|id|>59<|page|>7<|box|>152 140 226 854<|content|>RESOLVED, that any Authorized Signatory is hereby ...o the Loan Documents reflecting such modifications\n<|id|>67<|page|>8<|box|>114 140 315 854<|content|>RESOLVED, that the Authorized Signatories are here..., appropriate, or advisable; ... and it is further\n<|id|>68<|page|>8<|box|>323 140 395 854<|content|>RESOLVED, that any and all actions taken by any Au...cifically describe or identify such actions herein\n<|id|>70<|page|>8<|box|>431 140 486 854<|content|>RESOLVED, that these resolutions shall be effectiv...the Managers of the Company; ... and it is further\n<|id|>71<|page|>8<|box|>494 140 604 854<|content|>RESOLVED, that this Unanimous Written Consent may ...one and the same instrument. ... and it is further\n<|id|>72<|page|>8<|box|>612 140 667 854<|content|>RESOLVED, that this Unanimous Written Consent shal...as required by the Operating Agreement and the Act\n<|id|>75<|page|>8<|box|>758 142 775 483<|content|>CORAL PALMS RESORT HOLDINGS LLC\n<|id|>76<|page|>8<|box|>777 143 794 253<|content|>By: ... By\n<|id|>77<|page|>8<|box|>794 143 810 341<|content|>Name: ... Elliston\n<|id|>78<|page|>8<|box|>811 143 828 258<|content|>Title: ... Manager\n<|id|>79<|page|>8<|box|>829 143 845 264<|content|>Date: ... Date\n<|id|>81<|page|>8<|box|>863 143 878 312<|content|>Name: ... Natasha Ricard\n<|id|>82<|page|>8<|box|>880 143 897 256<|content|>Title: ... Manager\n<|id|>83<|page|>9<|box|>90 140 108 267<|content|>Date: ... Date\n<|id|>85<|page|>9<|box|>125 140 142 297<|content|>Name: ... Derek Huang\n<|id|>86<|page|>9<|box|>142 140 159 261<|content|>Title: ... Manager\n<|id|>87<|page|>9<|box|>159 140 176 266<|content|>Date: ... Date\n<|id|>92<|page|>10<|box|>229 140 248 428<|content|>Property Folio No. ... 00460780-000100\n<|id|>93<|page|>10<|box|>255 140 273 769<|content|>Street Address: ... 99000 Overseas Highway, Key Largo, Monroe County, Florida 33037\n<|id|>94<|page|>10<|box|>282 140 356 854<|content|>Together with all and singular the tenements, here...d other improvements of every kind and description",
+    "raw_response": "<|src_id|>76<|tgt_id|>77\n<|src_id|>77<|tgt_id|>78\n<|src_id|>78<|tgt_id|>79\n<|src_id|>79<|tgt_id|>81\n<|src_id|>81<|tgt_id|>82\n<|src_id|>82<|tgt_id|>83\n<|src_id|>83<|tgt_id|>85\n<|src_id|>85<|tgt_id|>86\n<|src_id|>86<|tgt_id|>87",
+    "parsed": [
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 87
+        }
+    ]
+}

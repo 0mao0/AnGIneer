@@ -1,0 +1,125 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 238 126 759<|content|>IN THE COURT OF CHANCERY OF THE STATE OF DELAWARE\n<|id|>3<|page|>1<|box|>185 163 239 834<|content|>PRIYA RATHORE, DEREK LINDEN, SONIA KACZMAREK, AMAR\n<|id|>6<|page|>1<|box|>299 148 335 851<|content|>PLAINTIFF'S MOTION TO DISSOLVE TEMPORARY RESTRAINI\n<|id|>11<|page|>1<|box|>518 142 534 310<|content|>I. INTRODUCTION\n<|id|>16<|page|>2<|box|>358 140 375 436<|content|>II. PROCEDURAL BACKGROUND\n<|id|>17<|page|>2<|box|>388 140 407 555<|content|>A. Filing of the Verified Complaint and TRO Motion\n<|id|>25<|page|>3<|box|>638 142 655 307<|content|>B. Entry of the TRO\n<|id|>29<|page|>4<|box|>138 140 157 663<|content|>C. Preliminary Injunction Proceedings and Consent\n<|id|>36<|page|>5<|box|>176 140 193 558<|content|>D. Settlement Documentation and the Consent Order\n<|id|>39<|page|>5<|box|>540 140 558 584<|content|>III. THE CONSENT ORDER SUPERSEDES THE TRO\n<|id|>40<|page|>5<|box|>571 140 589 717<|content|>A. The Modified Restrictive Covenant Terms Replace\n<|id|>50<|page|>6<|box|>800 140 816 704<|content|>B. The Consent Order Provides Additional Protectio\n<|id|>58<|page|>8<|box|>330 140 347 566<|content|>C. Continued Maintenance of the TRO Is Unnecessary\n<|id|>62<|page|>8<|box|>739 140 755 534<|content|>IV. DISCHARGE OF THE INJUNCTION BOND\n<|id|>67<|page|>9<|box|>420 140 436 413<|content|>V. CONSENT OF THE PARTIES\n<|id|>72<|page|>9<|box|>803 140 820 344<|content|>VI. PROPOSED ORDER\n<|id|>80<|page|>10<|box|>299 140 316 308<|content|>VII. CONCLUSION\n<|id|>92<|page|>10<|box|>704 140 722 388<|content|>CERTIFICATE OF SERVICE\n<|id|>97<|page|>11<|box|>196 450 214 547<|content|>EXHIBIT 1\n<|id|>98<|page|>11<|box|>222 395 239 601<|content|>CONSENT OF PARTIES\n<|id|>99<|page|>11<|box|>248 238 282 759<|content|>IN THE COURT OF CHANCERY OF THE STATE OF DELAWARE\n<|id|>105<|page|>11<|box|>457 379 474 617<|content|>CONSENT ENDORSEMENT\n<|id|>117<|page|>12<|box|>209 450 224 547<|content|>EXHIBIT 2\n<|id|>118<|page|>12<|box|>234 163 314 834<|content|>[PROPOSED] ORDER DISSOLVING TEMPORARY RESTRAINING\n<|id|>124<|page|>12<|box|>488 153 523 844<|content|>ORDER DISSOLVING TEMPORARY RESTRAINING ORDER AND D",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>6<|level|>1\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>25<|level|>3\n<|id|>29<|level|>3\n<|id|>36<|level|>3\n<|id|>39<|level|>2\n<|id|>40<|level|>3\n<|id|>50<|level|>3\n<|id|>58<|level|>3\n<|id|>62<|level|>2\n<|id|>67<|level|>2\n<|id|>72<|level|>2\n<|id|>80<|level|>2\n<|id|>92<|level|>2\n<|id|>97<|level|>2\n<|id|>98<|level|>3\n<|id|>99<|level|>4\n<|id|>105<|level|>3\n<|id|>117<|level|>2\n<|id|>118<|level|>3\n<|id|>124<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 4
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 4
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        57
+    ],
+    "pages": [
+        3,
+        6,
+        7,
+        9,
+        11,
+        14,
+        17,
+        26,
+        27,
+        29,
+        42,
+        43,
+        44,
+        46,
+        48,
+        49,
+        53,
+        56
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>3<|box|>739 649 783 793<|content|>LIBRARY ROOM 5030\n<|id|>1<|page|>3<|box|>791 647 820 795<|content|>JUN 2. ... 3 1972\n<|id|>2<|page|>3<|box|>829 587 856 857<|content|>TREASURY DEPARTMENT\n<|id|>4<|page|>6<|box|>352 535 569 672<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>7<|page|>7<|box|>504 381 542 632<|content|>MARCH-1955\n<|id|>8<|page|>7<|box|>825 52 887 847<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>10<|page|>9<|box|>132 147 728 810<|content|>Page Treasury financing operations. ... 62\n<|id|>11<|page|>9<|box|>740 150 791 812<|content|>Note: ... Where calculations have been made from u...res, the details may not check to the totals shown\n<|id|>14<|page|>11<|box|>292 110 308 372<|content|>February Bills Refunded\n<|id|>15<|page|>11<|box|>332 150 348 836<|content|>Treasury bills maturing in February were refunded in full in the\n<|id|>16<|page|>11<|box|>373 101 389 836<|content|>total of \\$6. ... The four new issues of 91-day bills amounted to\n<|id|>17<|page|>11<|box|>414 100 430 836<|content|>\\$1. ... The average\n<|id|>18<|page|>11<|box|>455 100 471 834<|content|>rates of discount on the new issues were 1. ... 134 percent for February 3\n<|id|>19<|page|>11<|box|>496 100 512 836<|content|>1. ... and\n<|id|>25<|page|>14<|box|>76 335 107 694<|content|>Table 1. ... - Receipts by Principal Sources (In millions of dollars)\n<|id|>32<|page|>17<|box|>125 21 151 464<|content|>1/ For further detail, see tables under \"Internal ...e Daily Treasury Statement for years prior to 1954\n<|id|>103<|page|>26<|box|>600 28 621 459<|content|>6/ Consiste of notes issued to borrow for the urba...learance program), the prefebricated housing loans\n<|id|>104<|page|>26<|box|>394 502 512 969<|content|>program beginning September 1950 when it was trans...nd \\$14 million to Small Businesses Administration\n<|id|>106<|page|>26<|box|>518 500 610 971<|content|>9/ Consists of notes issued by Federal Farm Mortga...the amount of \\$9,365 million, including interest,\n<|id|>109<|page|>27<|box|>69 28 174 474<|content|>The Second Liberty Bond Act, as amended (31 U. ......utory debt limitation at current redemption values\n<|id|>115<|page|>29<|box|>813 35 844 470<|content|>2/ It should be noted that callable issues appear ... issues with respect to which a definite notice of\n<|id|>116<|page|>29<|box|>790 532 819 925<|content|>call has been made, however, are listed as fixed maturities. ... \"\n<|id|>143<|page|>42<|box|>40 307 53 709<|content|>TREASURY SURVEY OF OWNERSHIP, DECEMBER 31, 1954\n<|id|>147<|page|>43<|box|>577 518 659 955<|content|>10/ Federal securities fall into three broad class...e with the income subject to normal tax and surtax\n<|id|>156<|page|>44<|box|>383 294 395 743<|content|>Table 2. ... - Summary of Public Marketable Securities\n<|id|>160<|page|>46<|box|>53 238 68 757<|content|>TREASURY SURVEY - COMMERCIAL BANK OWNERSHIP, DECEMBER 31, 1954\n<|id|>159<|page|>46<|box|>119 373 131 601<|content|>(Par values - in millions of dollars)\n<|id|>164<|page|>48<|box|>79 19 157 457<|content|>Current market quotations shown here are over-the-...ecause they are not regularly quoted in the market\n<|id|>168<|page|>49<|box|>98 401 109 561<|content|>(Price decimals are 32nds)\n<|id|>174<|page|>53<|box|>673 14 755 468<|content|>Source: ... The figures shown include collections ...sions, as reported by the Internal Revenue Service\n<|id|>185<|page|>56<|box|>751 37 774 495<|content|>3/ Beginning January 1951, withheld income tax and...loyers and employees are paid into the Treasury in\n<|id|>186<|page|>56<|box|>604 524 738 974<|content|>combined amounts, pursuant to the Social Security ...ipts is included only in the total of excise taxes",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>16<|tgt_id|>17\n<|src_id|>17<|tgt_id|>18\n<|src_id|>18<|tgt_id|>19\n<|src_id|>103<|tgt_id|>104\n<|src_id|>115<|tgt_id|>116\n<|src_id|>185<|tgt_id|>186",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 186
+        }
+    ]
+}

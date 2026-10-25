@@ -1,0 +1,61 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>90 140 125 803<|content|>UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF NEW YORK WHITMORE AEROSPACE LLC,\n<|id|>1<|page|>1<|box|>133 212 151 282<|content|>Plaintiff,\n<|id|>3<|page|>1<|box|>186 140 203 563<|content|>HARGROVE-DALTON DEFENSE SYSTEMS, INC. ... ,\n<|id|>4<|page|>1<|box|>213 212 229 297<|content|>Defendant. ... Defendant\n<|id|>5<|page|>1<|box|>238 620 253 854<|content|>Case No. ... 22-cv-10147-RMB\n<|id|>6<|page|>1<|box|>263 349 333 854<|content|>Hon. ... Kurtz United States Magistrate Judge SECOND JOINT STATUS REPORT\n<|id|>35<|page|>4<|box|>503 140 518 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>36<|page|>4<|box|>521 143 537 253<|content|>By: ... By\n<|id|>37<|page|>4<|box|>537 142 554 392<|content|>Priya Anand Douglas Carmichael\n<|id|>38<|page|>4<|box|>554 140 587 854<|content|>600 Lexington Avenue, 28th Floor New York, New York 10022 Telephone: ... com\n<|id|>39<|page|>4<|box|>587 142 603 437<|content|>dcarmichael@calderwoodharkness. ... com\n<|id|>40<|page|>4<|box|>604 142 619 501<|content|>Attorneys for Plaintiff Whitmore Aerospace LLC\n<|id|>41<|page|>4<|box|>621 142 638 723<|content|>FOR DEFENDANT HARGROVE-DALTON DEFENSE SYSTEMS, INC...FOR DEFENDANT HARGROVE-DALTON DEFENSE SYSTEMS, INC\n<|id|>42<|page|>4<|box|>646 142 662 421<|content|>VOSS, TRAGER & KENDALL LLP\n<|id|>43<|page|>4<|box|>665 143 681 253<|content|>By: ... By\n<|id|>44<|page|>4<|box|>681 142 698 383<|content|>Leonard Trager Megan Forsythe\n<|id|>45<|page|>4<|box|>696 140 750 852<|content|>900 17th Street NW, Suite 800 Washington, D. ... c...for Defendant Hargrove-Dalton Defense Systems, Inc\n<|id|>46<|page|>4<|box|>750 375 765 620<|content|>CERTIFICATE OF SERVICE\n<|id|>47<|page|>4<|box|>773 140 848 854<|content|>I, Priya Anand, hereby certify that on November 12...receive electronic notices in this case, including\n<|id|>48<|page|>4<|box|>854 174 892 854<|content|>Leonard Trager Megan Forsythe Voss, Trager & Kenda...0 17th Street NW, Suite 800 Washington, D. ... com\n<|id|>49<|page|>5<|box|>90 178 107 637<|content|>Counsel for Defendant Hargrove-Dalton Defense Syst...for Defendant Hargrove-Dalton Defense Systems, Inc",
+    "raw_response": "<|src_id|>0<|tgt_id|>1\n<|src_id|>3<|tgt_id|>4\n<|src_id|>36<|tgt_id|>37\n<|src_id|>37<|tgt_id|>38\n<|src_id|>38<|tgt_id|>39\n<|src_id|>39<|tgt_id|>40\n<|src_id|>40<|tgt_id|>41\n<|src_id|>43<|tgt_id|>44\n<|src_id|>44<|tgt_id|>45\n<|src_id|>47<|tgt_id|>48\n<|src_id|>48<|tgt_id|>49",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        }
+    ]
+}

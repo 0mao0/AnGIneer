@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 437 107 558<|content|>FEE LETTER\n<|id|>1<|page|>1<|box|>114 439 133 557<|content|>(Confidential)\n<|id|>10<|page|>1<|box|>737 142 753 303<|content|>1. Arrangement Fee\n<|id|>15<|page|>2<|box|>402 140 419 477<|content|>2. Original Issue discount — Term Loan B\n<|id|>22<|page|>3<|box|>90 140 107 364<|content|>3. Upfront / Structuring Fee\n<|id|>27<|page|>3<|box|>491 140 508 521<|content|>4. Commitment Fee — Revolving Credit Facility\n<|id|>34<|page|>4<|box|>241 140 258 366<|content|>5. Administrative Agent Fee\n<|id|>39<|page|>4<|box|>642 140 659 259<|content|>6. Syndication\n<|id|>52<|page|>5<|box|>789 140 805 348<|content|>7. Market Flex Provisions\n<|id|>67<|page|>7<|box|>359 140 375 397<|content|>8. Conditions to Fee Obligations\n<|id|>74<|page|>8<|box|>90 140 107 359<|content|>9. Expense Reimbursement\n<|id|>84<|page|>9<|box|>90 142 107 292<|content|>10. Confidentiality\n<|id|>98<|page|>10<|box|>388 142 406 629<|content|>11. Relationship to Commitment Letter and Credit A\n<|id|>109<|page|>11<|box|>392 142 409 344<|content|>12. Intercreditor Matters\n<|id|>113<|page|>12<|box|>90 142 107 400<|content|>13. Governing Law; Jurisdiction\n<|id|>118<|page|>12<|box|>729 142 746 285<|content|>14. Miscellaneous\n<|id|>130<|page|>13<|box|>878 140 896 498<|content|>STONEBRIDGE CREDIT PARTNERS LLC\n<|id|>142<|page|>14<|box|>309 142 325 228<|content|>Copies to:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>10<|level|>2\n<|id|>15<|level|>2\n<|id|>22<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>2\n<|id|>52<|level|>2\n<|id|>67<|level|>2\n<|id|>74<|level|>2\n<|id|>84<|level|>2\n<|id|>98<|level|>2\n<|id|>109<|level|>2\n<|id|>113<|level|>2\n<|id|>118<|level|>2\n<|id|>130<|level|>2\n<|id|>142<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        47,
+        51
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>477<|page|>48<|box|>114 140 148 854<|content|>[Form of legal opinion to be delivered by Langford...sociates LLP (Attn: ... Jonathan Hale) at Closing]\n<|id|>478<|page|>48<|box|>157 140 213 854<|content|>The legal opinion of the Company's counsel shall b...n shall cover, at a minimum, the following matters\n<|id|>502<|page|>49<|box|>772 140 882 856<|content|>A true, correct, and complete list of all Material...reement with Meridian Logistics Corp. ... For each\n<|id|>503<|page|>50<|box|>90 140 126 854<|content|>Material Contract, the schedule shall include the ...lue, and a brief description of the subject matter\n<|id|>523<|page|>51<|box|>179 292 196 702<|content|>[End of Series D Preferred Stock Purchase Agreement]\n<|id|>524<|page|>51<|box|>203 140 250 854<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT Calderwood & Harkness LLP — Matter No. ... All rights reserved",
+    "raw_response": "<|src_id|>502<|tgt_id|>503",
+    "parsed": [
+        {
+            "src_id": 502,
+            "tgt_id": 503
+        }
+    ]
+}

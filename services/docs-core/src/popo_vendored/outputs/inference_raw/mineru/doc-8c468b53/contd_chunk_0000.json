@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 143 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 425 Par..., 18th Floor New York, NY 10022 Telephone: ... com\n<|id|>1<|page|>1<|box|>152 753 170 854<|content|>April 6, 2023\n<|id|>2<|page|>1<|box|>178 140 195 478<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>3<|page|>1<|box|>204 140 239 854<|content|>Tariq Nassar, Esq. ... General Counsel Aurelius Gl... 14 Cavendish Square London W1G 0DW United Kingdom\n<|id|>4<|page|>1<|box|>250 174 284 854<|content|>Re: ... Engagement of Calderwood & Harkness LLP — ...rs Lease at 787 Seventh Avenue, New York, NY 10019\n<|id|>5<|page|>1<|box|>292 176 309 403<|content|>Matter Number: ... 1017-00009\n<|id|>11<|page|>1<|box|>811 140 902 857<|content|>The Landlord is Greystone Metropolitan Realty LLC,...public limited company organized under the laws of\n<|id|>12<|page|>2<|box|>90 140 143 854<|content|>England and Wales. ... In connection with the Leas...eunder, as more fully described in Section 2 below\n<|id|>29<|page|>3<|box|>241 174 277 854<|content|>(xii) building rules and regulations, signage righ...ss and security, and after-hours services; ... and\n<|id|>35<|page|>3<|box|>835 140 929 857<|content|>g. ... We will review applicable zoning regulation...ters — is permitted under the New York City Page 3\n<|id|>36<|page|>4<|box|>90 140 126 854<|content|>Zoning Resolution and any applicable restrictive d...arations or special permits affecting the Building\n<|id|>43<|page|>4<|box|>381 174 417 854<|content|>(vi) certificates of insurance evidencing the Tena...h the insurance requirements of the Lease; ... and\n<|id|>47<|page|>4<|box|>667 140 758 856<|content|>Approximate Deal Parameters. ... and an aggregate ... Dollars ($90,000,000) over the initial lease term\n<|id|>46<|page|>4<|box|>569 138 659 856<|content|>j. ... Following execution of the Lease, we will c...e reasonably necessary to finalize the transaction\n<|id|>67<|page|>7<|box|>133 174 170 854<|content|>Tariq Nassar, Esq. ... General Counsel Aurelius Gl...14 Cavendish Square London W1G 0DW, United Kingdom\n<|id|>68<|page|>7<|box|>179 176 195 444<|content|>Email: ... com\n<|id|>69<|page|>7<|box|>196 140 306 856<|content|>Unless otherwise instructed in writing by Mr. ... ...s and operational matters relating to the premises\n<|id|>79<|page|>7<|box|>851 140 906 856<|content|>Notwithstanding the foregoing, Aurelius acknowledg...transaction, including Commonwealth Fidelity Title\n<|id|>80<|page|>8<|box|>90 140 181 854<|content|>Insurance Co. ... Any such disclosure will be made...subject to appropriate confidentiality protections\n<|id|>100<|page|>9<|box|>702 142 718 331<|content|>Name: ... Douglas Fairchild\n<|id|>101<|page|>9<|box|>719 142 734 424<|content|>Title: ... Partner, Real Estate Department\n<|id|>102<|page|>9<|box|>737 140 753 740<|content|>Calderwood & Harkness LLP 425 Park Avenue, 18th Floor New York, NY 10022\n<|id|>105<|page|>9<|box|>824 143 839 480<|content|>AURELIUS GLOBAL MEDIA GROUP PLC\n<|id|>106<|page|>9<|box|>842 143 858 253<|content|>By: ... By\n<|id|>108<|page|>9<|box|>876 143 892 313<|content|>Title: ... General Counsel\n<|id|>109<|page|>10<|box|>90 140 125 836<|content|>Aurelius Global Media Group PLC 14 Cavendish Squar...vendish Square London W1G 0DW, United Kingdom Date\n<|id|>110<|page|>10<|box|>150 176 167 769<|content|>Angela Fontaine, Partner, Real Estate Department, Calderwood & Harkness LLP\n<|id|>111<|page|>10<|box|>175 174 210 854<|content|>Vivienne Caldwell, Senior Vice President, Global R...tate & Facilities, Aurelius Global Media Group PLC",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>35<|tgt_id|>36\n<|src_id|>79<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        }
+    ]
+}

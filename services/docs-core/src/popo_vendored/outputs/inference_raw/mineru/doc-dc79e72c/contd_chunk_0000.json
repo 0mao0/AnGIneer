@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        63
+    ],
+    "pages": [
+        3,
+        5,
+        7,
+        12,
+        13,
+        14,
+        18,
+        36,
+        62
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>3<|box|>775 676 801 820<|content|>JUN 2. ... 3 1972\n<|id|>6<|page|>3<|box|>813 614 837 880<|content|>TREASURY DEPARTMENT\n<|id|>9<|page|>5<|box|>487 295 523 590<|content|>FEBRUARY - 1953\n<|id|>10<|page|>5<|box|>804 77 863 876<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>12<|page|>7<|box|>175 143 759 811<|content|>Page Treasury financing operations. ... 82\n<|id|>13<|page|>7<|box|>771 145 848 832<|content|>Note: ... Consequently the details may not check to the totals shown\n<|id|>27<|page|>12<|box|>895 27 935 480<|content|>3/ Corporation income and profits taxes and indivi... withheld. ... Fiscal year figures exclude old-age\n<|id|>33<|page|>13<|box|>761 520 870 972<|content|>Security Administrator. ... Estimates of the breakdown are made on a fiscal year basis beginning 1952\n<|id|>32<|page|>13<|box|>777 30 917 486<|content|>1/ For basis of appropriations, see Table 7. ... B...mployment income records maintained by the Federal\n<|id|>36<|page|>14<|box|>699 493 788 957<|content|>34/ Consists of expenditures for the following: ... Sep also footnotes 33\n<|id|>50<|page|>18<|box|>639 29 738 471<|content|>Note: ... 1/ Fiscal year ending June 30 of year indicated\n<|id|>113<|page|>36<|box|>825 34 902 502<|content|>1/ Issues which commercial banks (banks accepting ...y be redeemed at par and accrued interest upon the\n<|id|>114<|page|>36<|box|>827 524 875 956<|content|>death of the owner if the proceeds are used to pay...nal bonds, and also conversion bonds prior to 1947\n<|id|>171<|page|>62<|box|>655 30 694 507<|content|>8/ Federal securities fall into three broad classe...artially\" tax-exempt securities are those with the\n<|id|>172<|page|>62<|box|>682 520 693 667<|content|>* Less than \\$500,000. ... * Less than \\$500,000",
+    "raw_response": "<|src_id|>113<|tgt_id|>114",
+    "parsed": [
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        }
+    ]
+}

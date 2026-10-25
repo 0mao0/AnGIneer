@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        12,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>200 419 218 576<|content|>September 29, 2023\n<|id|>4<|page|>1<|box|>224 140 304 854<|content|>This SAFE (Simple Agreement for Future Equity) is ...ial advisors prior to entering into this agreement\n<|id|>14<|page|>1<|box|>739 140 795 854<|content|>WHEREAS, the Company's Board of Directors has auth...ard Written Consent dated August 30, 2023; ... and\n<|id|>15<|page|>1<|box|>803 140 859 854<|content|>WHEREAS, in consideration of the mutual covenants ...ledged by each Party, the Parties agree as follows\n<|id|>26<|page|>3<|box|>133 174 171 854<|content|>(i) a cash payment from the Company (or, in the ca... in an amount equal to the Purchase Amount; ... or\n<|id|>28<|page|>3<|box|>241 140 277 854<|content|>The \"Liquidity Price\" shall mean the price per sha...apitalization, each as defined in Section 2 hereof\n<|id|>38<|page|>4<|box|>416 174 452 852<|content|>(i) the issuance of shares of Standard Preferred S...to Section 1(a) or Section 1(b)(ii) hereof; ... or\n<|id|>40<|page|>4<|box|>503 140 577 854<|content|>Upon termination of this SAFE, the Company shall h...any confidentiality or non- disclosure obligations\n<|id|>45<|page|>4<|box|>869 140 905 854<|content|>\"Change of Control\" means (i) any transaction or s...ections 13(d) and 14(d) of the Securities Exchange\n<|id|>46<|page|>5<|box|>90 138 273 857<|content|>Act of 1934, as amended) becomes the \"beneficial o... or substantially all of the assets of the Company\n<|id|>68<|page|>6<|box|>795 140 905 856<|content|>All corporate action on the part of the Company, i...ccordance with its terms, except as limited by (i)\n<|id|>69<|page|>7<|box|>90 140 236 856<|content|>applicable bankruptcy, insolvency, reorganization,...y of which has been made available to the Investor\n<|id|>119<|page|>12<|box|>561 176 579 800<|content|>Lumos Analytics Inc. ... 340 Folsom Street, Suite 1100 San Francisco, California 94105\n<|id|>120<|page|>12<|box|>587 176 604 573<|content|>Attention: ... Priya Narasimhan, Chief Executive Officer\n<|id|>121<|page|>12<|box|>604 176 622 434<|content|>Email: ... com\n<|id|>123<|page|>12<|box|>648 174 665 851<|content|>Canopy Growth Capital LLC 1455 Market Street, Suite 600 San Francisco, California 94103\n<|id|>124<|page|>12<|box|>674 176 690 504<|content|>Attention: ... Lena Petrova, Managing Member\n<|id|>125<|page|>12<|box|>691 176 708 447<|content|>Email: ... com\n<|id|>126<|page|>12<|box|>708 140 744 854<|content|>Either Party may change its address for the purpos...e to the other Party in the manner set forth above\n<|id|>144<|page|>14<|box|>345 142 362 331<|content|>Name: ... Priya Narasimhan\n<|id|>145<|page|>14<|box|>362 142 378 550<|content|>Title: ... Co-Founder, Chief Executive Officer & President\n<|id|>146<|page|>14<|box|>380 142 396 336<|content|>Date: ... September 29, 2023\n<|id|>147<|page|>14<|box|>397 143 412 250<|content|>INVESTOR: ... INVESTOR\n<|id|>148<|page|>14<|box|>422 142 439 442<|content|>CANOPY GROWTH CAPITAL LLC\n<|id|>149<|page|>14<|box|>441 143 458 254<|content|>By: ... By\n<|id|>150<|page|>14<|box|>458 142 474 299<|content|>Name: ... Lena Petrova\n<|id|>151<|page|>14<|box|>474 143 492 334<|content|>Title: ... Managing Member\n<|id|>152<|page|>14<|box|>492 142 508 336<|content|>Date: ... September 29, 2023\n<|id|>166<|page|>16<|box|>529 143 545 331<|content|>Name: ... Priya Narasimhan\n<|id|>167<|page|>16<|box|>546 142 563 550<|content|>Title: ... Co-Founder, Chief Executive Officer & President\n<|id|>168<|page|>16<|box|>564 142 580 336<|content|>Date: ... September 29, 2023\n<|id|>169<|page|>16<|box|>580 140 609 852<|content|>END OF DOCUMENT — SAFE (SIMPLE AGREEMENT FOR FUTUR...Y GROWTH CAPITAL LLC — EXECUTED SEPTEMBER 29, 2023",
+    "raw_response": "<|src_id|>45<|tgt_id|>46\n<|src_id|>68<|tgt_id|>69",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 69
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        59
+    ],
+    "pages": [
+        5,
+        6,
+        7,
+        23,
+        36,
+        37,
+        58
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>5<|box|>498 311 534 548<|content|>MARCH-1953\n<|id|>7<|page|>5<|box|>618 410 720 653<|content|>LIBRARY ROOM 5013 APR 2 1953 TREASURY DEPARTMENT\n<|id|>8<|page|>5<|box|>815 73 876 872<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>9<|page|>6<|box|>0 0 987 996<|content|>The image is too blurry to recognize any text cont... image is too blurry to recognize any text content\n<|id|>11<|page|>7<|box|>166 141 763 821<|content|>Page Treasury financing operations. ... 71\n<|id|>12<|page|>7<|box|>779 147 857 823<|content|>Note: ... Consequently the details may not check to the totals shown\n<|id|>46<|page|>23<|box|>491 226 505 745<|content|>Table 4. ... - Derivation of Cash Trust Account Transactions\n<|id|>48<|page|>23<|box|>833 521 870 976<|content|>3/ Prior to 1951 coasists of net investments of co...for prior years are included in budget expenditure\n<|id|>78<|page|>36<|box|>920 36 948 492<|content|>3/ These nonmarketable bonds, dated April 1, 1951,...notes; ... In the reopening, the Investment Series\n<|id|>80<|page|>37<|box|>79 9 283 462<|content|>United States savings bonds were first offered in ...ges see \"Treasury Bulletin\" for May 1952, page A-1\n<|id|>133<|page|>58<|box|>772 43 928 484<|content|>Note: ... Corporate bond yields are computed on the basis of closing prices on the New York Stock\n<|id|>134<|page|>58<|box|>766 531 797 994<|content|>Exchange and the American Stock Exchange (formerly...sell, the price of the last preceding sale is used",
+    "raw_response": "<|src_id|>78<|tgt_id|>80\n<|src_id|>133<|tgt_id|>134",
+    "parsed": [
+        {
+            "src_id": 78,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        }
+    ]
+}

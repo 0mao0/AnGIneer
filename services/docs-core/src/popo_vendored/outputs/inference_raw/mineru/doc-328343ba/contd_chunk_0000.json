@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        12,
+        13,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 454 133 854<|content|>Telephone: ... (212) 455-7201\n<|id|>2<|page|>1<|box|>142 707 157 854<|content|>December 19, 2023\n<|id|>3<|page|>1<|box|>167 140 220 854<|content|>Pinnacle National Bank, N. ... as Administrative A..., 2023 200 Liberty Street New York, New York 10281\n<|id|>4<|page|>1<|box|>229 140 247 689<|content|>Attention: ... Daniel Wexford, Managing Director, Loan Restructuring Group\n<|id|>5<|page|>1<|box|>248 140 301 854<|content|>Belvedere Credit Opportunities Fund LP as Administ...ington Avenue, 30th Floor New York, New York 10017\n<|id|>6<|page|>1<|box|>310 140 327 517<|content|>Attention: ... Christopher Hartigan, Managing Partner\n<|id|>7<|page|>1<|box|>327 140 369 823<|content|>Re: ... — Legal Opinion Ladies and Gentlemen\n<|id|>28<|page|>3<|box|>833 178 887 856<|content|>15. ... Secretary's Certificate — dated December 1...n Documents, and attaching certified copies of the\n<|id|>29<|page|>4<|box|>90 210 125 854<|content|>Board Resolutions, the Amended Charter, and the by...aws of the Company (the \"Secretary's Certificate\")\n<|id|>43<|page|>4<|box|>864 174 900 857<|content|>(k) Results of Uniform Commercial Code lien search..., conducted on or about December 15, 2023; ... and\n<|id|>45<|page|>5<|box|>179 140 252 854<|content|>In rendering the opinions set forth herein, we hav...ties are relevant to the opinions expressed herein\n<|id|>65<|page|>6<|box|>659 210 696 854<|content|>(iii) Stonefield Last Mile Inc. ... and\n<|id|>67<|page|>6<|box|>748 174 859 856<|content|>With respect to the opinions expressed in clauses ...aw, as further described in Section 7. ... 1 below\n<|id|>120<|page|>12<|box|>555 174 647 854<|content|>(c) the General Corporation Law of the State of De...e Company and of Stonefield Last Mile Inc. ... and\n<|id|>122<|page|>12<|box|>717 138 883 857<|content|>We expressly disclaim any opinion as to the laws o...od standing under the Texas Business Organizations\n<|id|>123<|page|>13<|box|>90 140 127 854<|content|>Code. ... We recommend that the addressees obtain ...matters governed by the laws of the State of Texas\n<|id|>147<|page|>15<|box|>347 140 378 852<|content|>Nathaniel Bower, Partner Bankruptcy & Restructurin... LLP 599 Lexington Avenue New York, New York 10022\n<|id|>148<|page|>15<|box|>378 140 409 852<|content|>cc: ... Howard Kessler, General Counsel and Secretary, Stonefield Logistics Group Inc",
+    "raw_response": "<|src_id|>28<|tgt_id|>29\n<|src_id|>122<|tgt_id|>123",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        }
+    ]
+}

@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        59,
+        78
+    ],
+    "pages": [
+        60,
+        65,
+        67,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        77,
+        78
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>148<|page|>60<|box|>40 373 53 619<|content|>.INTERNAL REVENUE COLLECTIONS\n<|id|>149<|page|>60<|box|>68 214 85 789<|content|>Table 2.- Detail of Collections by Type of Tax \\fr\n<|id|>172<|page|>65<|box|>52 375 67 601<|content|>EXCHANGE STABILIZATION FUND\n<|id|>178<|page|>67<|box|>475 346 489 632<|content|>Section I - Summary by Periods\n<|id|>185<|page|>70<|box|>79 338 92 648<|content|>Section II - Summary by Countries\n<|id|>186<|page|>70<|box|>99 192 114 796<|content|>Table 1.- Net Movement of Capital and of Short-Ter\n<|id|>188<|page|>71<|box|>79 331 94 641<|content|>Section II - Summary by Countries\n<|id|>191<|page|>72<|box|>85 349 100 659<|content|>Section II - Summary by Countries\n<|id|>192<|page|>72<|box|>103 225 118 780<|content|>Table 3.- Short-Term Claims on and Liabilities to\n<|id|>194<|page|>73<|box|>85 344 98 653<|content|>Section II - Summary by Countries\n<|id|>196<|page|>74<|box|>75 275 91 733<|content|>Section III' - Details for Month of September 1953\n<|id|>200<|page|>75<|box|>82 242 120 695<|content|>Section III - Details for Month of September 1953\n<|id|>206<|page|>77<|box|>74 197 90 771<|content|>Section III A - Preliminary Details for Month of N\n<|id|>208<|page|>78<|box|>75 212 91 789<|content|>Section III A - Preliminary Details for Month of N",
+    "raw_response": "<|id|>148<|level|>1\n<|id|>149<|level|>2\n<|id|>172<|level|>1\n<|id|>178<|level|>2\n<|id|>185<|level|>2\n<|id|>186<|level|>3\n<|id|>188<|level|>2\n<|id|>191<|level|>2\n<|id|>192<|level|>3\n<|id|>194<|level|>2\n<|id|>196<|level|>2\n<|id|>200<|level|>2\n<|id|>206<|level|>3\n<|id|>208<|level|>3",
+    "parsed": [
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,196 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pbrd_dd_\\input\\pdfs\\doc-a8e9df63.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pbrd_dd_\\enriched\\doc-a8e9df63.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>3\n<|id|>38<|level|>3\n<|id|>48<|level|>3\n<|id|>52<|level|>3\n<|id|>60<|level|>2\n<|id|>62<|level|>3\n<|id|>69<|level|>3\n<|id|>74<|level|>3\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>91<|level|>3\n<|id|>102<|level|>3\n<|id|>110<|level|>2\n<|id|>111<|level|>3\n<|id|>116<|level|>3\n<|id|>132<|level|>2\n<|id|>133<|level|>3\n<|id|>147<|level|>3\n<|id|>150<|level|>2\n<|id|>152<|level|>3\n<|id|>159<|level|>3\n<|id|>165<|level|>3\n<|id|>171<|level|>3\n<|id|>176<|level|>3\n<|id|>182<|level|>3\n<|id|>188<|level|>2\n<|id|>198<|level|>2\n<|id|>206<|level|>2\n<|id|>213<|level|>2\n<|id|>217<|level|>2",
+    "image_output": "<|src_id|>82<|tgt_id|>79\n<|src_id|>83<|tgt_id|>79\n<|src_id|>113<|tgt_id|>111\n<|src_id|>114<|tgt_id|>111",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 3
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 82,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 111
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 82,
+            "table2_idx": 83,
+            "upper_row_ss": [
+                [
+                    "PRIV-INS",
+                    "Insurance-Related Privilege",
+                    "Communication with Halcyon Specialty Insurance Co. or its"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "representatives regarding coverage, defense costs, or litigation strategy. All documents coded PRIV-INS must be flagged for second-pass review."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 113,
+            "table2_idx": 114,
+            "upper_row_ss": [
+                [
+                    "Subject / Description",
+                    "A brief, non-privileged description of the subject matter of the document, sufficient to allow Apex and the Court to assess the privilege claim without revealing the substance of the protected content. See Section V.B"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "below for detailed description guidelines."
+                ]
+            ]
+        }
+    ]
+}

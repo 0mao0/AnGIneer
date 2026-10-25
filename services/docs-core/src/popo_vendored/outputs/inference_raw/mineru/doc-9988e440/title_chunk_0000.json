@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>2<|page|>1<|box|>138 277 155 720<|content|>225 West Wacker Drive, Suite 4000 Chicago, Illinoi\n<|id|>10<|page|>1<|box|>407 142 424 470<|content|>1. Purpose and Confirmation of Dismissal\n<|id|>15<|page|>2<|box|>90 140 107 351<|content|>2. Summary of the Matter\n<|id|>17<|page|>2<|box|>166 140 183 436<|content|>2(a). Engagement and Pre-Suit Phase\n<|id|>23<|page|>2<|box|>845 140 863 390<|content|>2(b). Filing and Pleading Phase\n<|id|>33<|page|>3<|box|>797 140 814 312<|content|>2(c). Motion Practice\n<|id|>37<|page|>4<|box|>411 140 429 316<|content|>2(d). Discovery Phase\n<|id|>41<|page|>4<|box|>792 140 809 413<|content|>2(e). Defense Counsel Withdrawal\n<|id|>45<|page|>5<|box|>294 140 311 442<|content|>2(f). Receivership and Automatic Stay\n<|id|>50<|page|>5<|box|>829 140 845 462<|content|>2(g). Assertion of Claims in Receivership\n<|id|>55<|page|>6<|box|>518 140 537 455<|content|>3. Current Status and Preserved Claims\n<|id|>56<|page|>6<|box|>550 140 568 339<|content|>3(a). Receivership Claim\n<|id|>61<|page|>7<|box|>184 140 200 398<|content|>3(b). Musgrave Guaranty Claim\n<|id|>65<|page|>7<|box|>546 140 563 490<|content|>3(c). Right to Refile the Cook County Action\n<|id|>68<|page|>7<|box|>801 140 818 380<|content|>4. Summary of Fees and Costs\n<|id|>74<|page|>8<|box|>440 140 457 483<|content|>5. Document Retention and File Disposition\n<|id|>78<|page|>8<|box|>815 140 832 493<|content|>6. Recommendation for Ongoing Monitoring\n<|id|>88<|page|>9<|box|>531 140 549 227<|content|>7. Closing\n<|id|>99<|page|>10<|box|>133 143 151 238<|content|>Enclosures:",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>2<|level|>-1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>17<|level|>2\n<|id|>23<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>55<|level|>1\n<|id|>56<|level|>2\n<|id|>61<|level|>2\n<|id|>65<|level|>2\n<|id|>68<|level|>1\n<|id|>74<|level|>1\n<|id|>78<|level|>1\n<|id|>88<|level|>1\n<|id|>99<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        }
+    ]
+}

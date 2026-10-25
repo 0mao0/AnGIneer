@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        16
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>17<|page|>2<|box|>866 143 902 857<|content|>12. ... As CRO, Farris was a member of AHT's senio...chnology Officer, Chief Product Officer, and Chief\n<|id|>18<|page|>3<|box|>90 174 162 854<|content|>People Officer. ... Farris regularly participated ...nformation shared among the senior leadership team\n<|id|>33<|page|>3<|box|>862 142 897 854<|content|>18. ... On August 9, 2024, which was Farris's last...ion Agreement and General Release (the \"Separation\n<|id|>34<|page|>4<|box|>90 174 162 854<|content|>Agreement\"). ... A true and correct copy of the Se... as Exhibit A and incorporated herein by reference\n<|id|>53<|page|>5<|box|>842 140 897 857<|content|>30. ... The term \"Client\" is defined in the Separa...pective customer in AHT's sales pipeline as of the\n<|id|>54<|page|>6<|box|>90 174 143 854<|content|>Effective Date. ... This definition was tailored t...lly all of AHT's significant clients and prospects\n<|id|>172<|page|>16<|box|>616 140 650 852<|content|>Marcus Tremblay General Counsel, Arbor Health Tech...ral Street, Suite 1400 Boston, Massachusetts 02110\n<|id|>173<|page|>16<|box|>650 142 667 338<|content|>Date: ... November 21, 2025\n<|id|>177<|page|>16<|box|>806 142 824 251<|content|>Notary Public\n<|id|>178<|page|>16<|box|>824 142 840 331<|content|>Printed Name: ... Printed Name",
+    "raw_response": "<|src_id|>17<|tgt_id|>18\n<|src_id|>33<|tgt_id|>34\n<|src_id|>53<|tgt_id|>54",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        }
+    ]
+}

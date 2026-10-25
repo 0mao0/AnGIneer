@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 343 118 653<|content|>SELF-PROVING AFFIDAVIT\n<|id|>1<|page|>1<|box|>136 166 172 830<|content|>Pursuant to New York Estates, Powers and Trusts La\n<|id|>3<|page|>1<|box|>205 140 223 344<|content|>STATE OF NEW YORK\n<|id|>4<|page|>1<|box|>231 140 250 362<|content|>COUNTY OF NEW YORK\n<|id|>7<|page|>1<|box|>544 142 561 581<|content|>SECTION 1: IDENTIFICATION OF THE TESTATOR\n<|id|>13<|page|>1<|box|>806 140 823 697<|content|>SECTION 2: IDENTIFICATION OF THE ATTESTING WITNESS\n<|id|>15<|page|>1<|box|>859 143 875 230<|content|>Witness 1:\n<|id|>21<|page|>2<|box|>267 142 282 230<|content|>Witness 2:\n<|id|>29<|page|>2<|box|>585 140 603 390<|content|>3.1 Circumstances of Execution\n<|id|>32<|page|>3<|box|>90 140 106 326<|content|>3.3 Witness Attestation\n<|id|>34<|page|>3<|box|>291 140 308 472<|content|>3.4 Testator's Capacity and Voluntariness\n<|id|>36<|page|>3<|box|>547 140 564 450<|content|>3.5 Number of Pages and Identification\n<|id|>38<|page|>3<|box|>720 140 738 614<|content|>SECTION 4: SWORN STATEMENT OF THE TESTATOR\n<|id|>40<|page|>3<|box|>777 140 794 383<|content|>4.1 Identity and Voluntariness\n<|id|>42<|page|>4<|box|>90 140 108 361<|content|>4.2 Legal Age and Capacity\n<|id|>44<|page|>4<|box|>253 140 272 339<|content|>4.3 Request to Witnesses\n<|id|>46<|page|>4<|box|>382 140 398 426<|content|>4.4 Revocation of Prior Instruments\n<|id|>48<|page|>4<|box|>501 140 518 470<|content|>SECTION 5: NOTARIZATION / JURAT\n<|id|>52<|page|>6<|box|>90 142 107 331<|content|>6.1 Testator's Signature\n<|id|>58<|page|>7<|box|>90 142 107 330<|content|>6.2 Witness 1 Signature\n<|id|>65<|page|>8<|box|>89 142 107 330<|content|>6.3 Witness 2 Signature",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>2\n<|id|>4<|level|>2\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>3\n<|id|>21<|level|>3\n<|id|>29<|level|>3\n<|id|>32<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>3\n<|id|>38<|level|>2\n<|id|>40<|level|>3\n<|id|>42<|level|>3\n<|id|>44<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>2\n<|id|>52<|level|>3\n<|id|>58<|level|>3\n<|id|>65<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        }
+    ]
+}

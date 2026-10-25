@@ -1,0 +1,41 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 436 106 560<|content|>SCHEDULE D\n<|id|>1<|page|>1<|box|>114 390 132 604<|content|>LICENSED TERRITORY\n<|id|>4<|page|>1<|box|>282 140 299 341<|content|>1. Definition of Territory\n<|id|>7<|page|>1<|box|>575 140 594 635<|content|>2. List of Countries and Jurisdictions Comprising\n<|id|>10<|page|>2<|box|>213 140 229 393<|content|>3. Clarifications and Exclusions\n<|id|>14<|page|>3<|box|>90 142 107 580<|content|>4. Regulatory Authorities in Key Territory Jurisdi",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>3\n<|id|>7<|level|>3\n<|id|>10<|level|>3\n<|id|>14<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 104 611<|content|>CONFIDENTIAL — DRAFT — SUBJECT TO REVIEW AND COMME\n<|id|>2<|type|>title<|page|>1<|box|>136 383 155 614<|content|>PROMISSORY NOTE\n<|id|>7<|type|>title<|page|>1<|box|>750 140 768 303<|content|>Section 1. Principal.\n<|id|>10<|type|>table<|page|>2<|box|>294 143 388 852<|content|>None\n<|id|>13<|type|>title<|page|>2<|box|>691 140 708 292<|content|>Section 2. Interest.\n<|id|>18<|type|>title<|page|>4<|box|>90 140 107 302<|content|>Section 3. Maturity.\n<|id|>21<|type|>title<|page|>4<|box|>622 140 638 307<|content|>Section 4. Payments.\n<|id|>25<|type|>title<|page|>5<|box|>505 140 523 326<|content|>Section 5. Prepayment.\n<|id|>32<|type|>title<|page|>6<|box|>612 140 628 295<|content|>Section 6. Security.\n<|id|>40<|type|>title<|page|>7<|box|>648 140 665 477<|content|>Section 7. Events of Default and Remedies.\n<|id|>44<|type|>title<|page|>8<|box|>468 140 484 459<|content|>Section 8. Loan-to-Cost Ratio Covenant.\n<|id|>47<|type|>title<|page|>9<|box|>90 142 107 295<|content|>Section 9. Waivers.\n<|id|>54<|type|>title<|page|>9<|box|>542 140 560 437<|content|>Section 10. Transfer and Assignment.\n<|id|>57<|type|>title<|page|>9<|box|>837 140 854 362<|content|>Section 11. Governing Law.\n<|id|>60<|type|>title<|page|>10<|box|>340 140 357 586<|content|>Section 12. Integration and Credit Agreement Refer\n<|id|>64<|type|>title<|page|>10<|box|>696 140 714 336<|content|>Section 13. Amendment.\n<|id|>66<|type|>title<|page|>11<|box|>90 140 107 334<|content|>Section 14. Severability.\n<|id|>68<|type|>title<|page|>11<|box|>267 140 284 297<|content|>Section 15. Notices.\n<|id|>70<|type|>title<|page|>11<|box|>375 140 390 295<|content|>If to the Borrower:\n<|id|>85<|type|>title<|page|>11<|box|>768 140 785 393<|content|>Section 16. Costs and Expenses.\n<|id|>87<|type|>title<|page|>12<|box|>222 140 239 352<|content|>Section 17. Usury Savings.\n<|id|>93<|type|>title<|page|>12<|box|>704 140 720 401<|content|>Section 18. Waiver of Jury Trial.\n<|id|>95<|type|>title<|page|>13<|box|>89 140 253 854<|content|>THE BORROWER ACKNOWLEDGES AND AGREES THAT THIS WAI\n<|id|>97<|type|>title<|page|>13<|box|>287 307 305 689<|content|>SIGNATURE PAGE TO PROMISSORY NOTE\n<|id|>99<|type|>title<|page|>13<|box|>358 143 375 263<|content|>BORROWER:\n<|id|>109<|type|>title<|page|>13<|box|>539 282 556 712<|content|>ADMINISTRATIVE AGENT ACKNOWLEDGMENT\n<|id|>111<|type|>title<|page|>13<|box|>590 143 607 385<|content|>ADMINISTRATIVE AGENT:\n<|id|>118<|type|>title<|page|>13<|box|>744 330 762 666<|content|>ADVANCES AND PAYMENTS RECORD\n<|id|>121<|type|>table<|page|>14<|box|>287 143 352 852<|content|>None\n<|id|>123<|type|>title<|page|>14<|box|>429 359 446 637<|content|>EXHIBIT CROSS-REFERENCES",
+    "raw_response": "<|src_id|>10<|tgt_id|>7\n<|src_id|>121<|tgt_id|>118",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 118
+        }
+    ]
+}

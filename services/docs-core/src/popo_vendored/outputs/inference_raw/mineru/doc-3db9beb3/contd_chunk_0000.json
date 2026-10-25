@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        64
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        7,
+        13,
+        23,
+        25,
+        38,
+        39,
+        63,
+        64
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>2<|box|>448 490 573 734<|content|>TREASURY DEPARING LIERARI ROOM 5013\n<|id|>2<|page|>3<|box|>496 652 637 931<|content|>LIBRARY ROOM 5030 JUN ? ... 1 1972 TREASURY DEPARTMENT\n<|id|>4<|page|>3<|box|>771 664 834 928<|content|>JUN 21 1972 TREASURY DEPARTMENT\n<|id|>7<|page|>5<|box|>494 270 532 495<|content|>APRIL - 1947\n<|id|>8<|page|>5<|box|>624 691 671 833<|content|>LIBRARY ROOM 5030\n<|id|>9<|page|>5<|box|>677 688 706 833<|content|>JUN 2. ... 1 1972\n<|id|>10<|page|>5<|box|>713 629 744 896<|content|>TREASURY DEPARTMENT\n<|id|>11<|page|>5<|box|>818 68 879 860<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>13<|page|>7<|box|>158 124 610 762<|content|>Page Cumulative table of contents. ... 82\n<|id|>18<|page|>13<|box|>64 175 85 732<|content|>A Statement by the Secretary of the Treasury\n<|id|>19<|page|>13<|box|>116 8 344 278<|content|>During the past several months I have become incre...the recent rise is shown in the accompanying chart\n<|id|>20<|page|>13<|box|>357 11 431 281<|content|>When people find prices too high they stop buying. ... They\n<|id|>21<|page|>13<|box|>431 11 489 439<|content|>put off buying new cars and building new houses. ... They buy cheaper foods and less meat and bitter\n<|id|>56<|page|>23<|box|>87 388 102 540<|content|>(In millions of dollars)\n<|id|>61<|page|>25<|box|>554 516 601 913<|content|>Government corporations, etc. ... Increment on gol...es expenditures for national bank note retirements\n<|id|>89<|page|>38<|box|>569 60 609 501<|content|>1/ Treasury bills are included in interest-bearing...f computing the annual interest charge and rate of\n<|id|>90<|page|>38<|box|>558 531 598 963<|content|>interest on United States savings bonds, Series A-...s to interest only, are not included in this table\n<|id|>91<|page|>39<|box|>64 302 80 661<|content|>Statutory Limitation on the Public Debt\n<|id|>92<|page|>39<|box|>91 11 176 456<|content|>Section 21 of the Second Liberty Bond Act, as amen...utory debt limitation at current redemption values\n<|id|>143<|page|>63<|box|>68 151 101 771<|content|>Treasury Survey of Ownership of Securities Issued ...vernment and by Federal Agencies, January 31, 1947\n<|id|>144<|page|>63<|box|>112 0 202 442<|content|>The tables in Section I present summary data as of...banks and insurance companies in the United States\n<|id|>146<|page|>63<|box|>211 124 226 807<|content|>Section I - Securities Issued or Guaranteed by the United States Government\n<|id|>148<|page|>63<|box|>469 495 502 913<|content|>4/ C. ... 5/ Guaranteed securities held by the Treasury are not included\n<|id|>150<|page|>64<|box|>55 193 86 821<|content|>Treasury Survey of Ownership of Securities Issued ...y Federal Agencies, January 31, 1947 - (Continued)\n<|id|>151<|page|>64<|box|>93 111 108 906<|content|>Section I - Securities Issued or Guaranteed by the United States Government - (Continued)\n<|id|>152<|page|>64<|box|>113 199 128 818<|content|>Table 2. ... - Public Marketable Interest-Bearing Securities - (Continued)",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>89<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        }
+    ]
+}

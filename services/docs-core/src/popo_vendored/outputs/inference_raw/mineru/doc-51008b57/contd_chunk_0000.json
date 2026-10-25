@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>169 266 186 730<|content|>Delivered Pursuant to Section 4. ... 01 of the Credit Agreement\n<|id|>3<|page|>1<|box|>195 140 306 854<|content|>Reference: ... , as Joint Lead Arrangers and Joint...s, and the Lenders from time to time party thereto\n<|id|>4<|page|>1<|box|>313 140 330 397<|content|>Certificate Date: ... March 28, 2025\n<|id|>5<|page|>1<|box|>339 143 354 250<|content|>Delivered to: ... Delivered to\n<|id|>6<|page|>1<|box|>364 174 400 852<|content|>Crescent Harbor Bank, N. ... as Administrative Agent 320 Federal Street Boston, Massachusetts 02110\n<|id|>7<|page|>1<|box|>409 176 426 547<|content|>Attention: ... Agency Services — Leveraged Finance\n<|id|>25<|page|>3<|box|>160 210 215 854<|content|>(vii) other customary closing costs, including due...ent payoff, and administrative agent fees: ... and\n<|id|>29<|page|>3<|box|>354 140 503 856<|content|>For the avoidance of doubt, the existing $250,000,...f the leverage ratio calculations set forth herein\n<|id|>60<|page|>6<|box|>806 174 880 854<|content|>(c) No Default or Event of Default (each as define...edit Agreement or any other Loan Document; ... and\n<|id|>62<|page|>7<|box|>226 140 501 857<|content|>Note Regarding Springing Nature of Financial Covenant. ... 11, which are not currently applicable\n<|id|>77<|page|>9<|box|>253 142 271 323<|content|>Name: ... Michelle Kaplan\n<|id|>78<|page|>9<|box|>271 142 287 362<|content|>Title: ... Chief Financial Officer\n<|id|>79<|page|>9<|box|>289 140 305 310<|content|>Date: ... March 28, 2025",
+    "raw_response": "<|src_id|>5<|tgt_id|>6",
+    "parsed": [
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>114 217 151 779<|content|>INTERNAL MEMORANDUM — FILE PRESERVATION AND MATTER\n<|id|>2<|type|>table<|page|>1<|box|>159 143 347 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>396 143 412 300<|content|>1. Dormancy Status\n<|id|>11<|type|>title<|page|>2<|box|>429 140 446 320<|content|>2. Financial Summary\n<|id|>13<|type|>table<|page|>2<|box|>534 143 702 852<|content|>None\n<|id|>17<|type|>title<|page|>3<|box|>340 142 357 290<|content|>3. Staffing Record\n<|id|>19<|type|>table<|page|>3<|box|>409 143 503 852<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>688 140 704 537<|content|>4. File Preservation — Inventory of Work Product\n<|id|>24<|type|>table<|page|>4<|box|>89 143 898 854<|content|>None\n<|id|>25<|type|>table<|page|>5<|box|>88 143 172 852<|content|>None\n<|id|>31<|type|>title<|page|>6<|box|>148 140 167 488<|content|>5. Key Matter Context for Future Reference\n<|id|>33<|type|>title<|page|>6<|box|>261 140 279 429<|content|>5.1 The Drug and Current Approval\n<|id|>37<|type|>title<|page|>6<|box|>696 140 714 334<|content|>5.2 The Proposed sNDA\n<|id|>41<|type|>title<|page|>7<|box|>138 140 157 390<|content|>5.3 Clinical Program Summary\n<|id|>47<|type|>title<|page|>8<|box|>90 140 107 346<|content|>5.4 Key FDA Interactions\n<|id|>56<|type|>title<|page|>8<|box|>744 140 762 316<|content|>5.5 Pediatric Deferral\n<|id|>60<|type|>title<|page|>9<|box|>311 140 329 442<|content|>5.6 Coordination with Other Advisors\n<|id|>65<|type|>title<|page|>10<|box|>90 140 107 334<|content|>6. Reactivation Protocol\n<|id|>67<|type|>title<|page|>10<|box|>184 140 200 346<|content|>6.1 Staffing Confirmation\n<|id|>70<|type|>title<|page|>10<|box|>502 140 518 310<|content|>6.2 Conflicts Re-Run\n<|id|>72<|type|>title<|page|>10<|box|>703 140 720 524<|content|>6.3 Regulatory Landscape Update Memorandum\n<|id|>80<|type|>title<|page|>11<|box|>401 140 417 349<|content|>6.4 Work-Product Review\n<|id|>82<|type|>title<|page|>11<|box|>601 140 619 398<|content|>6.5 Updated Engagement Terms\n<|id|>84<|type|>title<|page|>11<|box|>794 140 811 370<|content|>7. Annual Dormancy Review\n<|id|>92<|type|>title<|page|>12<|box|>608 140 625 344<|content|>8. Distribution and Filing",
+    "raw_response": "<|src_id|>2<|tgt_id|>1\n<|src_id|>13<|tgt_id|>11\n<|src_id|>19<|tgt_id|>17\n<|src_id|>24<|tgt_id|>21\n<|src_id|>25<|tgt_id|>21",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 21
+        }
+    ]
+}

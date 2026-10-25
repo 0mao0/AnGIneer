@@ -1,0 +1,164 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 272 118 725<|content|>JS 44 (Rev. 04/21) — CIVIL COVER SHEET\n<|id|>4<|page|>1<|box|>270 143 287 297<|content|>I. (a) PLAINTIFFS\n<|id|>9<|page|>1<|box|>470 143 487 313<|content|>I. (b) DEFENDANTS\n<|id|>14<|page|>1<|box|>650 142 669 766<|content|>I. (c) ATTORNEYS (FIRM NAME, ADDRESS, AND TELEPHON\n<|id|>15<|page|>1<|box|>676 143 694 325<|content|>Attorneys for Plaintiff:\n<|id|>20<|page|>1<|box|>888 143 905 343<|content|>Attorneys for Defendant:\n<|id|>23<|page|>2<|box|>131 142 148 388<|content|>II. BASIS OF JURISDICTION\n<|id|>26<|page|>2<|box|>253 140 271 625<|content|>Selection: 3. Federal Question (U.S. Government No\n<|id|>28<|page|>2<|box|>393 142 410 513<|content|>III. CITIZENSHIP OF PRINCIPAL PARTIES\n<|id|>29<|page|>2<|box|>419 140 438 836<|content|>(For Diversity Cases Only — Place an \"X\" in One bo\n<|id|>36<|page|>3<|box|>186 142 203 331<|content|>IV. NATURE OF SUIT\n<|id|>37<|page|>3<|box|>212 142 229 380<|content|>(Place an \"X\" in One Box Only)\n<|id|>40<|page|>3<|box|>720 143 736 305<|content|>REAL PROPERTY.\n<|id|>45<|page|>4<|box|>821 143 838 361<|content|>FORFEITURE/PENALTY.\n<|id|>48<|page|>5<|box|>157 143 172 279<|content|>BANKRUPTCY.\n<|id|>50<|page|>5<|box|>296 143 311 325<|content|>PROPERTY RIGHTS.\n<|id|>57<|page|>6<|box|>463 143 478 315<|content|>OTHER STATUTES.\n<|id|>60<|page|>7<|box|>301 142 319 240<|content|>V. ORIGIN\n<|id|>63<|page|>7<|box|>568 140 585 344<|content|>VI. CAUSE OF ACTION\n<|id|>66<|page|>7<|box|>690 142 708 383<|content|>(b) Brief Description of Cause:\n<|id|>72<|page|>8<|box|>439 140 455 437<|content|>VII. REQUESTED IN COMPLAINT\n<|id|>73<|page|>8<|box|>470 140 487 609<|content|>(a) Check if This Is a Class Action Under Rule 23,\n<|id|>75<|page|>8<|box|>542 142 560 392<|content|>(b) DEMAND. $210,000,000.00\n<|id|>76<|page|>8<|box|>566 142 583 408<|content|>(Two Hundred Ten Million Dollars)\n<|id|>78<|page|>8<|box|>678 142 696 522<|content|>(c) CHECK YES only if demanded in complaint:\n<|id|>79<|page|>8<|box|>700 145 718 326<|content|>JURY DEMAND: Yes\n<|id|>81<|page|>8<|box|>786 143 803 418<|content|>VIII. RELATED CASE(S) IF ANY\n<|id|>84<|page|>9<|box|>273 140 291 413<|content|>IX. DIVISIONAL ASSIGNMENT\n<|id|>85<|page|>9<|box|>299 140 316 598<|content|>(Civil Local Rule 3.2 — Place one \"X\" in the appro\n<|id|>86<|page|>9<|box|>325 145 343 290<|content|>marshall Division\n<|id|>87<|page|>9<|box|>352 176 369 540<|content|>Basis for Assignment to the marshall Division:\n<|id|>95<|page|>10<|box|>89 142 106 524<|content|>X. SIGNATURE OF ATTORNEY OF RECORD\n<|id|>96<|page|>10<|box|>116 140 132 241<|content|>/s/ Alan Ngo\n<|id|>105<|page|>10<|box|>356 142 373 464<|content|>XI. SUPPLEMENTAL INFORMATION\n<|id|>107<|page|>10<|box|>686 143 704 480<|content|>XII. INSTRUCTIONS FOR ATTORNEYS\n<|id|>108<|page|>10<|box|>714 142 729 542<|content|>(Appearing on reverse side of form — provided here",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>20<|level|>3\n<|id|>23<|level|>2\n<|id|>26<|level|>3\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>45<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>57<|level|>3\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>66<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>75<|level|>3\n<|id|>76<|level|>3\n<|id|>78<|level|>3\n<|id|>79<|level|>3\n<|id|>81<|level|>2\n<|id|>84<|level|>2\n<|id|>85<|level|>3\n<|id|>86<|level|>3\n<|id|>87<|level|>4\n<|id|>95<|level|>2\n<|id|>96<|level|>-1\n<|id|>105<|level|>2\n<|id|>107<|level|>2\n<|id|>108<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 3
+        }
+    ]
+}

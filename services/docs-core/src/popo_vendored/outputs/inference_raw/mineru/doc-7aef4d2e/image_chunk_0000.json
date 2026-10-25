@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 214 142 782<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF CALLOWAY-\n<|id|>1<|type|>title<|page|>1<|box|>159 156 195 839<|content|>Establishment of Audit Committee, Appointment of M\n<|id|>4<|type|>title<|page|>1<|box|>380 140 397 243<|content|>RECITALS\n<|id|>22<|type|>title<|page|>2<|box|>753 140 772 704<|content|>RESOLUTION 1: ESTABLISHMENT OF THE AUDIT COMMITTEE\n<|id|>26<|type|>title<|page|>3<|box|>239 140 258 738<|content|>RESOLUTION 2: APPOINTMENT OF AUDIT COMMITTEE MEMBE\n<|id|>27<|type|>table<|page|>3<|box|>308 143 385 852<|content|>None\n<|id|>34<|type|>title<|page|>4<|box|>285 140 301 816<|content|>RESOLUTION 3: DESIGNATION OF AUDIT COMMITTEE FINAN\n<|id|>50<|type|>title<|page|>5<|box|>508 140 544 758<|content|>RESOLUTION 4: AUTHORITY AND RESPONSIBILITIES OF TH\n<|id|>62<|type|>title<|page|>7<|box|>167 140 184 666<|content|>RESOLUTION 5: AUDIT COMMITTEE CHARTER ADOPTION\n<|id|>66<|type|>title<|page|>7<|box|>523 140 541 656<|content|>RESOLUTION 6: INDEPENDENT AUDITOR RELATIONSHIP\n<|id|>70<|type|>title<|page|>8<|box|>89 140 106 571<|content|>RESOLUTION 7: DISCLOSURE AUTHORIZATION\n<|id|>73<|type|>title<|page|>8<|box|>383 142 401 542<|content|>RESOLUTION 8: GENERAL AUTHORIZATION\n<|id|>76<|type|>title<|page|>8<|box|>681 421 696 575<|content|>CERTIFICATION\n<|id|>85<|type|>title<|page|>9<|box|>164 447 181 550<|content|>EXHIBIT A\n<|id|>86<|type|>title<|page|>9<|box|>189 359 205 638<|content|>AUDIT COMMITTEE CHARTER\n<|id|>87<|type|>title<|page|>9<|box|>215 416 234 580<|content|>(Attached Separately)",
+    "raw_response": "<|src_id|>27<|tgt_id|>26",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 26
+        }
+    ]
+}

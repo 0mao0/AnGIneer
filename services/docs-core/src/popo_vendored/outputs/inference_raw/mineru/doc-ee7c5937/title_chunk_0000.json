@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 217 126 856<|content|>CALDERWOOD & HARKNESS LLP 1200 New Hampshire Avenu\n<|id|>11<|page|>1<|box|>522 330 541 666<|content|>I. INTRODUCTION AND ROLE\n<|id|>14<|page|>2<|box|>90 196 109 799<|content|>II. DEFINITIONS AND LOAN DOCUMENTS EXAMINED\n<|id|>15<|page|>2<|box|>136 142 154 287<|content|>A. Defined Terms\n<|id|>24<|page|>2<|box|>750 142 767 339<|content|>B. Documents Examined\n<|id|>38<|page|>4<|box|>90 393 109 604<|content|>III. ASSUMPTIONS\n<|id|>49<|page|>5<|box|>90 419 109 578<|content|>IV. OPINIONS\n<|id|>51<|page|>5<|box|>188 140 205 532<|content|>4.1 Entity Status — WAL (Virginia Qualification)\n<|id|>53<|page|>5<|box|>401 140 419 526<|content|>4.2 Entity Status — WDS (Virginia Corporation)\n<|id|>55<|page|>5<|box|>633 140 650 537<|content|>4.3 Authorization — WAL (Virginia Law Matters)\n<|id|>57<|page|>5<|box|>810 140 827 352<|content|>4.4 Authorization — WDS\n<|id|>60<|page|>6<|box|>186 140 203 401<|content|>4.5 No Conflicts — Virginia Law\n<|id|>65<|page|>6<|box|>532 140 549 609<|content|>4.6 Enforceability of the Deed of Trust — Virginia\n<|id|>69<|page|>7<|box|>258 140 277 550<|content|>4.7 Perfection of Security Interests — Virginia UC\n<|id|>74<|page|>8<|box|>90 140 107 635<|content|>4.8 No Governmental Approvals Required Under Virgi\n<|id|>79<|page|>8<|box|>404 272 422 723<|content|>V. ENFORCEABILITY QUALIFICATIONS\n<|id|>88<|page|>9<|box|>380 264 401 730<|content|>VI. LIMITATIONS AND QUALIFICATIONS\n<|id|>100<|page|>11<|box|>90 279 109 717<|content|>VII. RELIANCE AND OTHER MATTERS\n<|id|>112<|page|>11<|box|>696 437 713 560<|content|>SCHEDULE A\n<|id|>113<|page|>11<|box|>722 300 739 697<|content|>DESCRIPTION OF THE VIRGINIA PROPERTY\n<|id|>118<|page|>11<|box|>871 142 888 290<|content|>Legal Description:\n<|id|>125<|page|>12<|box|>518 437 536 560<|content|>SCHEDULE B\n<|id|>126<|page|>12<|box|>545 354 561 643<|content|>VIRGINIA UCC FILING DETAILS\n<|id|>129<|page|>13<|box|>251 143 268 449<|content|>Existing UCC Filing to Be Terminated:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>11<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>38<|level|>1\n<|id|>49<|level|>1\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>60<|level|>2\n<|id|>65<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>2\n<|id|>79<|level|>1\n<|id|>88<|level|>1\n<|id|>100<|level|>1\n<|id|>112<|level|>1\n<|id|>113<|level|>2\n<|id|>118<|level|>3\n<|id|>125<|level|>1\n<|id|>126<|level|>2\n<|id|>129<|level|>3",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        }
+    ]
+}

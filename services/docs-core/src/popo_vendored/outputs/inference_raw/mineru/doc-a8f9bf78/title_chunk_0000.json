@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>186 140 204 410<|content|>Via Overnight Courier and Email\n<|id|>5<|page|>1<|box|>319 142 335 290<|content|>Dear Mr. Caldwell:\n<|id|>9<|page|>1<|box|>693 140 729 789<|content|>I. STONEFIELD'S TERMINATION WAS VALID AND PROPER —\n<|id|>15<|page|>2<|box|>420 140 438 779<|content|>II. FACTUAL BASIS FOR TERMINATION — VTS'S MATERIAL\n<|id|>17<|page|>2<|box|>588 140 604 508<|content|>A. Service Level Obligation Failures (Q4 2021)\n<|id|>24<|page|>3<|box|>417 140 434 277<|content|>B. Cargo Claims\n<|id|>27<|page|>3<|box|>643 140 660 467<|content|>C. Failure to Provide Substitute Capacity\n<|id|>30<|page|>4<|box|>138 142 156 290<|content|>D. Failure to Cure\n<|id|>38<|page|>4<|box|>699 140 717 627<|content|>III. RESPONSE TO VANTOR'S SPECIFIC ALLEGATIONS\n<|id|>40<|page|>4<|box|>794 140 811 769<|content|>A. Allegation: Stonefield Failed to Tender Minimum\n<|id|>46<|page|>5<|box|>601 140 619 758<|content|>B. Allegation: Stonefield Diverted Freight in Viol\n<|id|>51<|page|>6<|box|>275 140 292 480<|content|>C. Allegation: Termination Was Pretextual\n<|id|>56<|page|>6<|box|>763 140 781 475<|content|>IV. REJECTION OF DAMAGES CLAIM\n<|id|>63<|page|>8<|box|>89 140 106 821<|content|>V. INVOCATION OF SECTION 16 — MANDATORY EXECUTIVE\n<|id|>71<|page|>8<|box|>623 142 638 413<|content|>VI. RESERVATION OF RIGHTS\n<|id|>80<|page|>9<|box|>318 140 335 439<|content|>VII. FUTURE CORRESPONDENCE\n<|id|>88<|page|>9<|box|>593 143 604 171<|content|>cc:",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>5<|level|>-1\n<|id|>9<|level|>1\n<|id|>15<|level|>1\n<|id|>17<|level|>2\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>38<|level|>1\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>1\n<|id|>63<|level|>1\n<|id|>71<|level|>1\n<|id|>80<|level|>1\n<|id|>88<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        }
+    ]
+}

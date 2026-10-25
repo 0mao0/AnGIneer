@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        50,
+        61
+    ],
+    "pages": [
+        50,
+        51,
+        52,
+        53,
+        55,
+        57,
+        58,
+        59,
+        60,
+        61
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>565<|type|>title<|page|>50<|box|>89 142 107 594<|content|>EXHIBIT B — PROJECT PORTFOLIO DESCRIPTION\n<|id|>566<|type|>table<|page|>50<|box|>159 143 506 852<|content|>None\n<|id|>567<|type|>title<|page|>50<|box|>540 140 556 197<|content|>Notes:\n<|id|>573<|type|>title<|page|>51<|box|>89 140 125 746<|content|>EXHIBIT C — DISTRIBUTION WATERFALL AND IRR CALCULA\n<|id|>574<|type|>title<|page|>51<|box|>133 143 151 233<|content|>1. General.\n<|id|>576<|type|>title<|page|>51<|box|>223 140 239 305<|content|>2. Definition of IRR.\n<|id|>578<|type|>title<|page|>51<|box|>366 140 383 328<|content|>3. Timing Conventions.\n<|id|>583<|type|>title<|page|>51<|box|>606 140 625 281<|content|>4. Compounding.\n<|id|>585<|type|>title<|page|>51<|box|>694 142 710 305<|content|>5. Tax Distributions.\n<|id|>587<|type|>title<|page|>51<|box|>782 142 799 307<|content|>6. Return of Capital.\n<|id|>589<|type|>title<|page|>51<|box|>852 142 869 328<|content|>7. Illustrative Example.\n<|id|>598<|type|>table<|page|>52<|box|>282 143 530 852<|content|>None\n<|id|>600<|type|>title<|page|>52<|box|>645 142 662 236<|content|>8. Disputes.\n<|id|>602<|type|>title<|page|>53<|box|>89 143 159 704<|content|>EXHIBIT D — FORM OF CAPITAL CALL NOTICE CAPITAL CA\n<|id|>614<|type|>title<|page|>53<|box|>564 140 580 308<|content|>5. Wire Instructions:\n<|id|>623<|type|>title<|page|>55<|box|>89 142 106 562<|content|>EXHIBIT E — FORM OF JOINDER AGREEMENT\n<|id|>624<|type|>title<|page|>55<|box|>114 393 132 604<|content|>JOINDER AGREEMENT\n<|id|>626<|type|>title<|page|>55<|box|>204 142 220 241<|content|>RECITALS\n<|id|>649<|type|>title<|page|>57<|box|>89 140 107 707<|content|>EXHIBIT F — INITIAL MANAGEMENT COMMITTEE DESIGNEES\n<|id|>650<|type|>title<|page|>57<|box|>114 140 133 297<|content|>CBR Designees (3):\n<|id|>654<|type|>title<|page|>57<|box|>200 142 219 364<|content|>Lumen Ridge Designees (3):\n<|id|>659<|type|>title<|page|>58<|box|>89 142 106 586<|content|>EXHIBIT G — FORM OF OFFICER'S CERTIFICATE\n<|id|>660<|type|>title<|page|>58<|box|>114 382 132 614<|content|>OFFICER'S CERTIFICATE\n<|id|>674<|type|>title<|page|>59<|box|>89 140 107 614<|content|>EXHIBIT H — APPROVED ANNUAL BUDGET (YEAR 1)\n<|id|>676<|type|>title<|page|>60<|box|>89 140 107 586<|content|>SCHEDULE 14.1 — DISCLOSURE SCHEDULE (CBR)\n<|id|>679<|type|>title<|page|>60<|box|>296 140 313 390<|content|>Section 14.1(d) — No Conflicts:\n<|id|>681<|type|>title<|page|>60<|box|>348 140 364 480<|content|>Section 14.1(e) — Title to Project Portfolio:\n<|id|>683<|type|>title<|page|>60<|box|>436 140 454 503<|content|>Section 14.1(f) — Environmental Compliance:\n<|id|>685<|type|>title<|page|>60<|box|>523 140 542 354<|content|>Section 14.1(g) — Permits:\n<|id|>688<|type|>title<|page|>60<|box|>651 142 669 370<|content|>Section 14.1(h) — Litigation:\n<|id|>690<|type|>title<|page|>60<|box|>703 140 719 388<|content|>Section 14.1(k) — Broker Fees:\n<|id|>692<|type|>title<|page|>61<|box|>89 140 106 678<|content|>SCHEDULE 14.2 — DISCLOSURE SCHEDULE (LUMEN RIDGE)\n<|id|>695<|type|>title<|page|>61<|box|>296 142 313 390<|content|>Section 14.2(d) — No Conflicts:\n<|id|>697<|type|>title<|page|>61<|box|>348 142 364 370<|content|>Section 14.2(g) — Litigation:\n<|id|>699<|type|>title<|page|>61<|box|>398 142 416 388<|content|>Section 14.2(h) — Broker Fees:\n<|id|>701<|type|>title<|page|>61<|box|>500 408 516 588<|content|>SIGNATURE PAGES\n<|id|>702<|type|>title<|page|>61<|box|>525 295 542 700<|content|>LIMITED LIABILITY COMPANY AGREEMENT\n<|id|>703<|type|>title<|page|>61<|box|>551 483 566 514<|content|>OF\n<|id|>704<|type|>title<|page|>61<|box|>577 292 594 704<|content|>SOLSTICE PLATEAU ENERGY HOLDINGS LLC",
+    "raw_response": "<|src_id|>566<|tgt_id|>565\n<|src_id|>598<|tgt_id|>573",
+    "parsed": [
+        {
+            "src_id": 566,
+            "tgt_id": 565
+        },
+        {
+            "src_id": 598,
+            "tgt_id": 573
+        }
+    ]
+}

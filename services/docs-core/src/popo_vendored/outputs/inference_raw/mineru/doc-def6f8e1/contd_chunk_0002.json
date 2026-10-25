@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        106,
+        154
+    ],
+    "pages": [
+        107,
+        130,
+        138,
+        144,
+        150,
+        154
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>484<|page|>107<|box|>199 723 268 913<|content|>Financial Report of the United States Government Excerpt\n<|id|>485<|page|>107<|box|>282 820 309 913<|content|>Trust Funds\n<|id|>619<|page|>130<|box|>184 81 446 491<|content|>Amounts in the Harbor Maintenance Trust Fund are a...elopment Act of 1986. ... Section 201 of the Water\n<|id|>620<|page|>130<|box|>125 504 199 915<|content|>Resources Development Act of 1996 (Public Law 104-...eral navigation projects for commercial navigation\n<|id|>652<|page|>138<|box|>534 89 710 911<|content|>[In billions of dollars. ... 20\n<|id|>653<|page|>138<|box|>724 91 739 274<|content|>* Numbers may not add due to rounding. ... * Numbers may not add due to rounding\n<|id|>690<|page|>144<|box|>492 81 522 490<|content|>Effective October 1, 2005, motorboat fuel taxes (l...ion transferred to the Land and Water Conservation\n<|id|>691<|page|>144<|box|>128 504 246 915<|content|>Fund) and small engine gasoline taxes [pursuant to... and pleasure craft are appropriated into the fund\n<|id|>727<|page|>150<|box|>412 106 441 490<|content|>- Supplemental Revenue Assistance Payments Program (SURE)\n<|id|>732<|page|>150<|box|>186 504 244 915<|content|>The Farm Service Agency shall invest such portions... interest bearing obligations of the United States\n<|id|>728<|page|>150<|box|>444 106 460 418<|content|>• Livestock Forage Disaster Program (LFP)\n<|id|>729<|page|>150<|box|>121 529 137 803<|content|>• Livestock Indemnity Program (LIP)\n<|id|>730<|page|>150<|box|>138 529 154 777<|content|>• Tree Assistance Program (TAP)\n<|id|>731<|page|>150<|box|>157 529 186 913<|content|>- Emergency Assistance for Livestock, Honey Bees, and Farm-Raised Fish Program (ELAP)\n<|id|>766<|page|>154<|box|>148 364 166 630<|content|>Source: ... Financial Management Service\n<|id|>767<|page|>154<|box|>186 81 262 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>775<|page|>154<|box|>842 81 904 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>776<|page|>154<|box|>186 504 262 915<|content|>Second Liberty Loan Act of 1917, the nature of the...l debt. ... the limit may change from year to year",
+    "raw_response": "<|src_id|>619<|tgt_id|>620\n<|src_id|>690<|tgt_id|>691\n<|src_id|>775<|tgt_id|>776",
+    "parsed": [
+        {
+            "src_id": 619,
+            "tgt_id": 620
+        },
+        {
+            "src_id": 690,
+            "tgt_id": 691
+        },
+        {
+            "src_id": 775,
+            "tgt_id": 776
+        }
+    ]
+}

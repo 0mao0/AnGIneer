@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 145 143 851<|content|>SECRETARY'S CERTIFICATE OF AURELIUS MEDIA HOLDINGS\n<|id|>7<|type|>title<|page|>1<|box|>714 140 732 441<|content|>Section 1. Certificate of Incorporation\n<|id|>9<|type|>title<|page|>2<|box|>90 140 107 284<|content|>Section 2. Bylaws\n<|id|>11<|type|>title<|page|>2<|box|>267 140 284 370<|content|>Section 3. Board Resolutions\n<|id|>24<|type|>title<|page|>3<|box|>223 140 239 584<|content|>Section 4. No Dissolution or Proceedings; Good Sta\n<|id|>27<|type|>title<|page|>3<|box|>500 140 516 521<|content|>Section 5. Incumbency and Specimen Signatures\n<|id|>29<|type|>table<|page|>3<|box|>622 143 698 852<|content|>None\n<|id|>45<|type|>title<|page|>4<|box|>669 140 686 428<|content|>Section 6. No Conflicts or Violations\n<|id|>54<|type|>title<|page|>5<|box|>330 140 345 392<|content|>COUNTER-CERTIFICATION\n<|id|>62<|type|>title<|page|>6<|box|>89 142 107 272<|content|>EXHIBIT LIST",
+    "raw_response": "<|src_id|>29<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 27
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        12,
+        13,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>472 687 489 854<|content|>Filed: ... March 17, 2025\n<|id|>4<|page|>1<|box|>532 140 604 854<|content|>Bernard Crawford (Bar No. ... (202) 555-7201\n<|id|>5<|page|>1<|box|>614 142 631 521<|content|>Attorneys for Plaintiff Cascade Retail Holdings In...ttorneys for Plaintiff Cascade Retail Holdings Inc\n<|id|>21<|page|>4<|box|>852 140 907 854<|content|>As to irreparable harm, the record could hardly be...and February 4, 2025, the Rathore Group downloaded\n<|id|>22<|page|>5<|box|>90 138 237 854<|content|>14,327 files — approximately 2. ... The harm from ...a direct competitor is, by its nature, irreparable\n<|id|>35<|page|>6<|box|>869 140 905 856<|content|>Duration. ... The remaining seven defendants' empl...agreements contain non-competes ranging from 12 to\n<|id|>36<|page|>7<|box|>90 140 292 857<|content|>18 months, depending on each individual's seniorit...ng 24-month non-compete for former vice president)\n<|id|>79<|page|>12<|box|>811 140 904 857<|content|>The harm from disclosure of these materials to a d...is, by its nature, irreparable. ... Leung, 2016 WL\n<|id|>80<|page|>13<|box|>89 140 164 856<|content|>4530639, at 9 (Del. ... \")\n<|id|>152<|page|>22<|box|>696 174 806 854<|content|>(e) Ordering Defendant Verdana Commerce Group, Inc. ... and\n<|id|>154<|page|>22<|box|>839 140 876 852<|content|>The existing $2,500,000 injunction bond posted thr...ect for the duration of the preliminary injunction\n<|id|>158<|page|>23<|box|>125 143 141 421<|content|>Bernard Crawford (Bar No. ... 5738291)\n<|id|>159<|page|>23<|box|>141 142 174 852<|content|>Renata Vasquez (Bar No. ... 6013489)\n<|id|>160<|page|>23<|box|>174 142 207 852<|content|>1301 K Street NW, Suite 1200 Washington, DC 20005 Telephone: ... (202) 555-7201\n<|id|>161<|page|>23<|box|>208 142 224 521<|content|>Attorneys for Plaintiff Cascade Retail Holdings In...ttorneys for Plaintiff Cascade Retail Holdings Inc\n<|id|>165<|page|>23<|box|>369 174 460 854<|content|>Catherine Nygaard, Esq. ... com Counsel for Defend...ia Fernandez-Gill, Nathan Tsao, and Kira Johansson\n<|id|>166<|page|>23<|box|>469 174 525 854<|content|>Gavin Blackhall, Esq. ... com Counsel for Defendant Verdana Commerce Group, Inc",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>35<|tgt_id|>36\n<|src_id|>79<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        }
+    ]
+}

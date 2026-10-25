@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        12
+    ],
+    "pages": [
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>18<|page|>2<|box|>854 140 931 856<|content|>WHEREAS, the Parties believe that it is in the int...opriate interim protections remain in CONFIDENTIAL\n<|id|>19<|page|>3<|box|>90 140 126 852<|content|>place to maintain the status quo and to preserve t...sts of all Parties during the documentation period\n<|id|>71<|page|>7<|box|>867 140 902 854<|content|>10. ... The Court of Chancery of the State of Dela...cing the terms of this Stipulation and the Consent\n<|id|>72<|page|>8<|box|>90 140 143 854<|content|>Interim Order, resolving any disputes arising here...ate to effectuate the purposes of this Stipulation\n<|id|>79<|page|>8<|box|>487 140 503 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>80<|page|>8<|box|>506 143 521 253<|content|>By: ... By\n<|id|>81<|page|>8<|box|>522 140 570 854<|content|>Bernard Crawford (Del. ... (202) 555- 8401\n<|id|>82<|page|>8<|box|>571 142 588 521<|content|>Attorneys for Plaintiff Cascade Retail Holdings In...ttorneys for Plaintiff Cascade Retail Holdings Inc\n<|id|>87<|page|>8<|box|>703 140 734 852<|content|>Catherine Nygaard (Del. ... (302) 555-6201\n<|id|>88<|page|>8<|box|>737 140 768 854<|content|>Attorneys for Defendants Priya Rathore, Derek Lind...ia Fernandez-Gill, Nathan Tsao, and Kira Johansson\n<|id|>89<|page|>8<|box|>768 143 785 307<|content|>Date: ... March 21, 2025\n<|id|>90<|page|>8<|box|>787 142 803 635<|content|>FOR DEFENDANT VERDANA COMMERCE GROUP, INC. ... FOR DEFENDANT VERDANA COMMERCE GROUP, INC\n<|id|>91<|page|>8<|box|>811 143 828 377<|content|>BLACKHALL & SOREN LLP\n<|id|>92<|page|>8<|box|>830 143 847 250<|content|>By: ... By\n<|id|>93<|page|>8<|box|>847 140 878 854<|content|>Gavin Blackhall (Del. ... (302) 555-7301\n<|id|>94<|page|>8<|box|>881 142 897 558<|content|>Attorneys for Defendant Verdana Commerce Group, In...ttorneys for Defendant Verdana Commerce Group, Inc\n<|id|>105<|page|>9<|box|>840 140 896 854<|content|>2. ... (a) entry of a Consent Order by this Court incorporating the terms of the Settlement\n<|id|>106<|page|>10<|box|>90 140 273 856<|content|>Agreement; ... For the avoidance of doubt, \"mercha...ing strategy, or private-label product development\n<|id|>129<|page|>12<|box|>446 174 520 854<|content|>Catherine Nygaard, Esq. ... com Counsel for Defend...a Fernandez- Gill, Nathan Tsao, and Kira Johansson\n<|id|>130<|page|>12<|box|>527 174 582 854<|content|>Gavin Blackhall, Esq. ... com Counsel for Defendant Verdana Commerce Group, Inc\n<|id|>131<|page|>12<|box|>589 140 607 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>132<|page|>12<|box|>625 140 657 852<|content|>Bernard Crawford (Del. ... (202) 555-8400\n<|id|>133<|page|>12<|box|>657 140 676 522<|content|>Attorneys for Plaintiff Cascade Retail Holdings In...ttorneys for Plaintiff Cascade Retail Holdings Inc",
+    "raw_response": "<|src_id|>18<|tgt_id|>19\n<|src_id|>71<|tgt_id|>72\n<|src_id|>105<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        }
+    ]
+}

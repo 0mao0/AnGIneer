@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 160 118 838<|content|>NON-COMPETITION AND NON-SOLICITATION AGREEMENT\n<|id|>5<|page|>1<|box|>239 181 257 815<|content|>RIDGELINE CONSUMER PARTNERS LLC a Delaware limited\n<|id|>6<|page|>1<|box|>265 230 282 766<|content|>NON-COMPETITION AND NON-SOLICITATION AGREEMENT\n<|id|>11<|page|>1<|box|>518 140 537 241<|content|>RECITALS\n<|id|>22<|page|>2<|box|>780 140 797 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>40<|page|>5<|box|>258 140 276 563<|content|>ARTICLE II — NON-COMPETITION COVENANT\n<|id|>59<|page|>7<|box|>619 142 635 611<|content|>ARTICLE III — NON-SOLICITATION OF EMPLOYEES\n<|id|>70<|page|>9<|box|>89 142 107 455<|content|>ARTICLE IV — CONFIDENTIALITY\n<|id|>83<|page|>10<|box|>431 140 449 372<|content|>ARTICLE V — REMEDIES\n<|id|>92<|page|>11<|box|>431 140 449 725<|content|>ARTICLE VI — ENFORCEABILITY; SEVERABILITY; BLUE PE\n<|id|>99<|page|>12<|box|>351 140 387 854<|content|>Section 6.3 — Acknowledgment of Reasonableness. Ca\n<|id|>106<|page|>12<|box|>821 140 839 638<|content|>ARTICLE VII — REPRESENTATIONS AND WARRANTIES\n<|id|>116<|page|>14<|box|>186 140 203 503<|content|>ARTICLE VIII — GENERAL PROVISIONS\n<|id|>159<|page|>18<|box|>263 243 280 751<|content|>[Remainder of page intentionally left blank. Signa\n<|id|>160<|page|>18<|box|>287 192 323 803<|content|>SIGNATURE PAGE TO NON-COMPETITION AND NON-SOLICITA",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>1\n<|id|>6<|level|>1\n<|id|>11<|level|>2\n<|id|>22<|level|>2\n<|id|>40<|level|>2\n<|id|>59<|level|>2\n<|id|>70<|level|>2\n<|id|>83<|level|>2\n<|id|>92<|level|>2\n<|id|>99<|level|>3\n<|id|>106<|level|>2\n<|id|>116<|level|>2\n<|id|>159<|level|>-1\n<|id|>160<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        }
+    ]
+}

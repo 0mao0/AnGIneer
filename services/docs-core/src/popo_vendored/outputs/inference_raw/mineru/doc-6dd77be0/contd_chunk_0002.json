@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        97,
+        103
+    ],
+    "pages": [
+        98,
+        99,
+        102,
+        103
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>742<|page|>98<|box|>666 162 848 878<|content|>对预应力混凝土路面面板中无粘结预应力钢绞线的张拉工艺，采用的是二次张拉。 ... 第二次张拉 12\\mathrm{h} 后，板端位移稳定，无粘结预应力钢绞线的伸长量\n<|id|>743<|page|>99<|box|>91 131 111 274<|content|>也稳定均匀。 ... 也稳定均匀\n<|id|>772<|page|>102<|box|>725 155 855 871<|content|>由表 3. ... 预应力混凝土板的平面尺\n<|id|>773<|page|>103<|box|>91 126 111 412<|content|>寸长为 100m、宽为 7. ... 5m",
+    "raw_response": "<|src_id|>742<|tgt_id|>743\n<|src_id|>772<|tgt_id|>773",
+    "parsed": [
+        {
+            "src_id": 742,
+            "tgt_id": 743
+        },
+        {
+            "src_id": 772,
+            "tgt_id": 773
+        }
+    ]
+}

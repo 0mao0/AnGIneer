@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        14,
+        15,
+        23,
+        24,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>171 424 188 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>198 730 215 854<|content|>August 23, 2024\n<|id|>4<|page|>1<|box|>224 140 239 331<|content|>Matter No. ... 1018-00008\n<|id|>5<|page|>1<|box|>250 140 267 553<|content|>To: ... Oliver Mackenzie, Partner, Mergers & Acquisitions\n<|id|>6<|page|>1<|box|>275 140 292 549<|content|>From: ... Megan Chu, Associate, Mergers & Acquisitions\n<|id|>7<|page|>1<|box|>301 140 337 852<|content|>Re: ... Impact of FDA Partial Clinical Hold on VRD...r the Stock Purchase Agreement Dated June 10, 2024\n<|id|>8<|page|>1<|box|>345 140 362 433<|content|>Client: ... Penterra Pharmaceuticals Corp\n<|id|>19<|page|>2<|box|>742 138 907 857<|content|>The strategic rationale for the Transaction was pr..., 2024, the Transaction was expected to \"transform\n<|id|>20<|page|>3<|box|>89 140 126 854<|content|>Penterra's immuno-oncology portfolio and provide a...idate with significant commercial potential. ... \"\n<|id|>61<|page|>7<|box|>768 173 898 857<|content|>\"This Agreement may be terminated by Buyer by writ...h in Section 7. ... 1(d) shall not be available to\n<|id|>62<|page|>8<|box|>90 174 126 854<|content|>Buyer if Buyer is then in material breach of any o...rranties, covenants or agreements hereunder. ... \"\n<|id|>73<|page|>8<|box|>684 174 719 854<|content|>(vi) changes in the financial, banking, or securit...rice of any security or any market index); ... and\n<|id|>75<|page|>8<|box|>771 140 806 852<|content|>Critically, carveouts (i) through (vi) are subject...act\" exception. ... Specifically, the SPA provides\n<|id|>122<|page|>14<|box|>854 174 909 856<|content|>(i) Grade ≥3 CRS at 23. ... CRS is a known class e... engagers, but the rates observed in Marlowe Asset\n<|id|>123<|page|>15<|box|>90 174 219 856<|content|>Management-2 substantially exceed those reported f... medical centers with intensive care capabilities)\n<|id|>198<|page|>23<|box|>686 183 704 496<|content|>• Policy Number: ... AIC-RWI-2024-07892\n<|id|>202<|page|>23<|box|>766 140 875 856<|content|>The R&W insurance policy provides coverage for los...m and $75,000 underwriting fee will be a sunk cost\n<|id|>199<|page|>23<|box|>707 183 723 411<|content|>• Policy Limit: ... $180,000,000\n<|id|>200<|page|>23<|box|>726 183 743 455<|content|>• Premium: ... $3,960,000 (fully paid)\n<|id|>201<|page|>23<|box|>746 183 763 496<|content|>• Underwriting Fee: ... $75,000 (fully paid)\n<|id|>208<|page|>24<|box|>523 183 541 609<|content|>• Margaret Liu Whitfield, Chair of the Board of Directors\n<|id|>213<|page|>24<|box|>622 140 750 856<|content|>The Board should be advised of the legal analysis ...in coordination with Penterra's securities counsel\n<|id|>209<|page|>24<|box|>544 183 560 542<|content|>• Dr. ... Anand Rajagopal, Chief Executive Officer\n<|id|>210<|page|>24<|box|>564 183 580 540<|content|>• Catherine M. ... Burgess, Chief Financial Officer\n<|id|>211<|page|>24<|box|>583 183 599 486<|content|>• Thomas F. ... Holbrook, General Counsel\n<|id|>212<|page|>24<|box|>603 183 619 658<|content|>• Natalie Reiner, Senior Vice President, Corporate Development\n<|id|>216<|page|>24<|box|>862 174 898 854<|content|>Specific Performance. ... In the event Penterra terminates, Veridian or the\n<|id|>217<|page|>25<|box|>90 174 181 854<|content|>Stockholder Representative may seek to compel Pent...t not satisfied and were incapable of satisfaction\n<|id|>241<|page|>26<|box|>824 174 878 854<|content|>Oliver Mackenzie, Partner, Mergers & Acquisitions ...ions Leonard Cross, Partner, Tax (for information)\n<|id|>242<|page|>26<|box|>888 140 904 383<|content|>cc: ... 1018-00008",
+    "raw_response": "<|src_id|>19<|tgt_id|>20\n<|src_id|>61<|tgt_id|>62\n<|src_id|>122<|tgt_id|>123\n<|src_id|>216<|tgt_id|>217",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 217
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 24,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=23, 一般桥梁工程', 'rowspan=23, 上部结构预制和安装', 'rowspan=23, 钢梁制作', 'rowspan=11, 斜拉桥钢箱梁(加劲梁段)', '横断面对角线差', '○', '△', '▲', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=23, 一般桥梁工程', 'rowspan=23, 上部结构预制和安装', 'rowspan=23, 钢梁制作', 'rowspan=6, 斜拉桥钢箱梁(加劲梁段)', '锚箱锚点坐标', '○', '△', '▲', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 269,
+    "table2_idx": 270
+}

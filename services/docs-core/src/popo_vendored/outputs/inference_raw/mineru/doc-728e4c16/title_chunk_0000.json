@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>416 140 433 364<|content|>I. Introduction and Purpose\n<|id|>19<|page|>2<|box|>90 140 107 406<|content|>II. Description of the Transaction\n<|id|>28<|page|>3<|box|>222 140 239 256<|content|>III. Filing Fee\n<|id|>31<|page|>3<|box|>479 140 498 651<|content|>IV. Identification of the Filing Person and Ultima\n<|id|>32<|page|>3<|box|>511 140 529 313<|content|>4.1 Acquiring Person\n<|id|>34<|page|>3<|box|>597 176 614 292<|content|>Filing Person:\n<|id|>38<|page|>3<|box|>744 176 762 553<|content|>Ultimate Parent Entity of the Acquiring Person:\n<|id|>41<|page|>4<|box|>90 140 107 307<|content|>4.2 Acquired Person\n<|id|>43<|page|>4<|box|>157 176 175 320<|content|>Acquired Person:\n<|id|>52<|page|>4<|box|>523 140 542 584<|content|>V. Identification of Entities Within the Acquiring\n<|id|>62<|page|>5<|box|>396 140 414 651<|content|>VI. Description of the Relevant Product and Geogra\n<|id|>70<|page|>6<|box|>377 140 393 450<|content|>VII. Transaction Structure and Timing\n<|id|>80<|page|>7<|box|>89 142 107 269<|content|>VIII. Financing\n<|id|>88<|page|>7<|box|>647 140 664 370<|content|>IX. Other Regulatory Filings\n<|id|>96<|page|>8<|box|>318 140 335 584<|content|>X. Voluntary Submissions and Item 4(c)/4(d) Docume\n<|id|>102<|page|>8<|box|>744 140 762 416<|content|>XI. Request for Early Termination\n<|id|>104<|page|>9<|box|>90 140 107 508<|content|>XII. Contact Information for Communications\n<|id|>116<|page|>9<|box|>460 140 478 277<|content|>XIII. Enclosures",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>19<|level|>1\n<|id|>28<|level|>1\n<|id|>31<|level|>1\n<|id|>32<|level|>2\n<|id|>34<|level|>3\n<|id|>38<|level|>3\n<|id|>41<|level|>2\n<|id|>43<|level|>3\n<|id|>52<|level|>1\n<|id|>62<|level|>1\n<|id|>70<|level|>1\n<|id|>80<|level|>1\n<|id|>88<|level|>1\n<|id|>96<|level|>1\n<|id|>102<|level|>1\n<|id|>104<|level|>1\n<|id|>116<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        }
+    ]
+}

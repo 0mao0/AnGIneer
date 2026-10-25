@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>558 140 574 547<|content|>I. Background of Blakemore & Stern's Engagement\n<|id|>11<|type|>table<|page|>1<|box|>878 143 900 852<|content|>None\n<|id|>12<|type|>table<|page|>2<|box|>89 143 183 852<|content|>None\n<|id|>20<|type|>title<|page|>2<|box|>736 140 753 493<|content|>II. Inventory of Materials Being Transferred\n<|id|>22<|type|>title<|page|>2<|box|>829 142 845 385<|content|>A. Court Filings and Pleadings\n<|id|>34<|type|>title<|page|>3<|box|>474 142 493 388<|content|>B. Pre-Litigation Workout File\n<|id|>41<|type|>title<|page|>4<|box|>138 140 157 423<|content|>C. Credit and Loan Documentation\n<|id|>52<|type|>title<|page|>4<|box|>585 176 603 441<|content|>4. Security documents, including:\n<|id|>66<|type|>title<|page|>5<|box|>503 142 518 534<|content|>D. Internal BRB Documents Received from Client\n<|id|>69<|type|>title<|page|>5<|box|>645 176 662 513<|content|>2. Borrower financial reporting, including:\n<|id|>72<|type|>title<|page|>5<|box|>789 176 806 660<|content|>3. Outstanding balance records as of March 8, 2023\n<|id|>76<|type|>title<|page|>5<|box|>887 176 904 697<|content|>4. Ridgeline Appraisal Group, Inc. appraisal repor\n<|id|>86<|type|>title<|page|>6<|box|>626 140 643 395<|content|>E. Third-Party Correspondence\n<|id|>91<|type|>title<|page|>7<|box|>148 140 167 575<|content|>III. Key Issues and Observations for Successor Cou\n<|id|>102<|type|>title<|page|>8<|box|>439 140 457 455<|content|>IV. Method and Timing of File Delivery\n<|id|>107<|type|>title<|page|>8<|box|>753 140 772 352<|content|>V. Substitution of Counsel\n<|id|>110<|type|>title<|page|>9<|box|>204 140 222 549<|content|>VI. Outstanding Billing and Administrative Matters\n<|id|>113<|type|>title<|page|>9<|box|>369 140 387 406<|content|>VII. Availability for Consultation\n<|id|>130<|type|>title<|page|>10<|box|>213 142 229 240<|content|>Enclosures:",
+    "raw_response": "<|src_id|>11<|tgt_id|>7\n<|src_id|>12<|tgt_id|>7",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 7
+        }
+    ]
+}

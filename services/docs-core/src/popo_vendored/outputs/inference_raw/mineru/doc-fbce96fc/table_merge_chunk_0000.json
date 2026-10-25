@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['3', 'Monitor Scope & Independence', 'Broad access to all VPI and HSAG U.S. facilities/personnel/records; reports directly to CFIUS agencies; unannounced', 'Monitor access limited to VPI and interacting HSAG U.S. personnel; annual audit + 1 mid-year check; 48-hour notice', 'No access to HSAG global systems/unrelated trade secrets; reasonableness limitation on document compulsion; must receive', 'Accept quarterly focused spot checks; HSAG receives reports within 5 business days; unannounced', '11/12 had monitors; fees $800K–$1.8M (median $1.1M); 5/12 simultaneous report sharing']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'inspections; quarterly spot checks + annual audits; indefinite term', 'for visits; simultaneous report sharing; propose WCG as monitor', 'copies of all reports with rebuttal opportunity', 'inspections limited to Albuquerque facility with same-day counsel notice', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 276,
+    "table2_idx": 277
+}

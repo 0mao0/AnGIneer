@@ -1,0 +1,164 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2yark49c\\input\\pdfs\\doc-648538f1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2yark49c\\enriched\\doc-648538f1.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>46<|level|>4\n<|id|>51<|level|>4\n<|id|>61<|level|>4\n<|id|>66<|level|>4\n<|id|>71<|level|>3\n<|id|>74<|level|>4\n<|id|>77<|level|>3\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>86<|level|>3\n<|id|>88<|level|>4\n<|id|>90<|level|>5\n<|id|>103<|level|>4\n<|id|>105<|level|>5\n<|id|>117<|level|>4\n<|id|>119<|level|>5\n<|id|>133<|level|>5\n<|id|>145<|level|>5\n<|id|>163<|level|>4\n<|id|>165<|level|>5\n<|id|>174<|level|>3\n<|id|>176<|level|>3\n<|id|>186<|level|>2\n<|id|>196<|level|>2\n<|id|>205<|level|>2",
+    "image_output": "<|src_id|>16<|tgt_id|>9\n<|src_id|>17<|tgt_id|>9\n<|src_id|>79<|tgt_id|>77\n<|src_id|>175<|tgt_id|>174",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 5
+        },
+        {
+            "id": 103,
+            "level": 4
+        },
+        {
+            "id": 105,
+            "level": 5
+        },
+        {
+            "id": 117,
+            "level": 4
+        },
+        {
+            "id": 119,
+            "level": 5
+        },
+        {
+            "id": 133,
+            "level": 5
+        },
+        {
+            "id": 145,
+            "level": 5
+        },
+        {
+            "id": 163,
+            "level": 4
+        },
+        {
+            "id": 165,
+            "level": 5
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 16,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 174
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 16,
+            "table2_idx": 17,
+            "upper_row_ss": [
+                [
+                    "Class B Notes",
+                    "$75,000,000",
+                    "15.0%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Class C Notes",
+                    "$35,000,000",
+                    "7.0%"
+                ]
+            ]
+        }
+    ]
+}

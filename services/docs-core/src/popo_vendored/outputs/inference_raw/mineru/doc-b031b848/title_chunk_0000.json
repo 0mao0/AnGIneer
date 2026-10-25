@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>42 168 71 828<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>12<|page|>1<|box|>603 142 619 299<|content|>I. CALL DETAILS\n<|id|>16<|page|>1<|box|>707 143 724 248<|content|>Participants:\n<|id|>30<|page|>2<|box|>196 140 213 341<|content|>II. PURPOSE OF CALL\n<|id|>39<|page|>2<|box|>681 140 699 663<|content|>III. SUMMARY OF DISCUSSION AND OUTCOMES BY TOPIC\n<|id|>40<|page|>2<|box|>713 140 729 669<|content|>A. Key Person Suspension Provision (Section 7 of D\n<|id|>48<|page|>3<|box|>633 140 670 854<|content|>B. Most Favored Nation (MFN) — Anchor Investor Car\n<|id|>54<|page|>4<|box|>565 140 582 638<|content|>C. Excuse/Exclusion Rights Cap (Section 3 of Draft\n<|id|>66<|page|>5<|box|>781 140 799 581<|content|>D. Co-Investment Rights (Section 5 of Draft Side L\n<|id|>72<|page|>6<|box|>492 142 508 571<|content|>E. Enhanced Reporting (Section 6 of Draft Side Let\n<|id|>79<|page|>6<|box|>840 140 857 627<|content|>F. Management Fee Reduction (Section 4 of Draft Si\n<|id|>85<|page|>7<|box|>296 140 313 635<|content|>G. Placement Agent Fee Offset (Section 11 of Draft\n<|id|>88<|page|>7<|box|>486 140 503 537<|content|>H. Transfer Rights (Section 8 of Draft Side Letter\n<|id|>93<|page|>7<|box|>838 140 854 640<|content|>I. Tax Reporting / K-1 Delivery (Section 10 of Dra\n<|id|>99<|page|>8<|box|>481 140 500 419<|content|>J. MFN Summary Delivery Timing\n<|id|>103<|page|>8<|box|>825 140 842 625<|content|>K. Confidentiality Carve-Outs (Section 9 of Draft\n<|id|>110<|page|>9<|box|>315 142 332 663<|content|>IV. SUMMARY OF OPEN POINTS REMAINING AFTER CALL\n<|id|>113<|page|>9<|box|>723 142 739 281<|content|>V. NEXT STEPS\n<|id|>121<|page|>10<|box|>484 140 500 535<|content|>VI. DISTRIBUTION AND PRIVILEGE NOTICE\n<|id|>124<|page|>10<|box|>654 142 670 313<|content|>Contact Information:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>12<|level|>1\n<|id|>16<|level|>2\n<|id|>30<|level|>1\n<|id|>39<|level|>1\n<|id|>40<|level|>2\n<|id|>48<|level|>2\n<|id|>54<|level|>2\n<|id|>66<|level|>2\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>85<|level|>2\n<|id|>88<|level|>2\n<|id|>93<|level|>2\n<|id|>99<|level|>2\n<|id|>103<|level|>2\n<|id|>110<|level|>1\n<|id|>113<|level|>1\n<|id|>121<|level|>1\n<|id|>124<|level|>2",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 2
+        }
+    ]
+}

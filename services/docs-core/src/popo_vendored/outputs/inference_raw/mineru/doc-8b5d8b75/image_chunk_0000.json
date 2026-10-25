@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 367 107 630<|content|>CONFIDENTIAL FEE LETTER\n<|id|>1<|type|>title<|page|>1<|box|>114 424 133 573<|content|>Execution Version\n<|id|>2<|type|>title<|page|>1<|box|>141 424 159 573<|content|>February 14, 2025\n<|id|>12<|type|>title<|page|>1<|box|>590 140 608 578<|content|>Section 1. Reference to Commitment Letter; Definit\n<|id|>18<|type|>title<|page|>2<|box|>366 140 383 370<|content|>Section 2. Arrangement Fees\n<|id|>21<|type|>title<|page|>3<|box|>90 140 107 328<|content|>Section 3. Upfront Fees\n<|id|>25<|type|>title<|page|>3<|box|>520 140 537 433<|content|>Section 4. Administrative Agent Fees\n<|id|>29<|type|>title<|page|>4<|box|>258 140 277 320<|content|>Section 5. Syndication\n<|id|>38<|type|>title<|page|>5<|box|>575 140 592 426<|content|>Section 6. Duration and Ticking Fee\n<|id|>43<|type|>title<|page|>6<|box|>250 140 266 460<|content|>Section 7. Expenses and Indemnification\n<|id|>53<|type|>title<|page|>7<|box|>314 140 332 344<|content|>Section 8. Confidentiality\n<|id|>62<|type|>title<|page|>8<|box|>421 140 438 403<|content|>Section 9. Conditions to Payment\n<|id|>66<|type|>title<|page|>9<|box|>90 140 107 441<|content|>Section 10. Amendments and Waiver\n<|id|>68<|type|>title<|page|>9<|box|>285 140 301 630<|content|>Section 11. Governing Law; Jurisdiction; Waiver of\n<|id|>72<|type|>title<|page|>9<|box|>844 140 859 341<|content|>Section 12. Counterparts\n<|id|>74<|type|>title<|page|>10<|box|>277 140 294 521<|content|>Section 13. Integration with Commitment Letter\n<|id|>76<|type|>title<|page|>10<|box|>531 403 549 591<|content|>[Signature pages follow]\n<|id|>79<|type|>title<|page|>10<|box|>626 142 642 421<|content|>TRALVENDO NATIONAL BANK\n<|id|>100<|type|>title<|page|>11<|box|>194 455 209 542<|content|>ANNEX A\n<|id|>101<|type|>title<|page|>11<|box|>219 377 234 620<|content|>FEE SUMMARY SCHEDULE\n<|id|>103<|type|>table<|page|>11<|box|>306 143 592 852<|content|>None\n<|id|>104<|type|>title<|page|>11<|box|>626 143 643 517<|content|>Summary of One-Time Fees Payable at Closing:\n<|id|>105<|type|>table<|page|>11<|box|>648 143 762 852<|content|>None\n<|id|>107<|type|>title<|page|>11<|box|>878 455 893 542<|content|>ANNEX B\n<|id|>108<|type|>title<|page|>12<|box|>89 398 106 598<|content|>WIRE INSTRUCTIONS",
+    "raw_response": "<|src_id|>103<|tgt_id|>101\n<|src_id|>105<|tgt_id|>104",
+    "parsed": [
+        {
+            "src_id": 103,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 104
+        }
+    ]
+}

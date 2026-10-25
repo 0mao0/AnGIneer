@@ -1,0 +1,63 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        48,
+        53
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        51,
+        53
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>601<|page|>48<|box|>479 140 497 560<|content|>SECTION 23: SPONSOR INVESTMENT HISTORY\n<|id|>603<|page|>48<|box|>588 140 604 388<|content|>Nexford Investment Summary:\n<|id|>614<|page|>49<|box|>222 140 239 803<|content|>SECTION 24: OPEN ISSUES SUMMARY / C&H RECOMMENDED\n<|id|>615<|page|>49<|box|>253 142 271 503<|content|>24.1 Summary of C&H Comments by Priority\n<|id|>617<|page|>49<|box|>321 142 338 354<|content|>HIGH PRIORITY ITEMS\n<|id|>620<|page|>50<|box|>378 143 393 383<|content|>MEDIUM PRIORITY ITEMS\n<|id|>622<|page|>50<|box|>827 143 843 349<|content|>LOW PRIORITY ITEMS\n<|id|>625<|page|>51<|box|>309 140 325 385<|content|>24.2 Recommended Next Steps\n<|id|>636<|page|>53<|box|>89 140 107 473<|content|>SIGNATURE / DISTRIBUTION BLOCK\n<|id|>638<|page|>53<|box|>215 142 233 251<|content|>Prepared by:\n<|id|>646<|page|>53<|box|>452 143 468 250<|content|>Distribution:",
+    "raw_response": "<|id|>601<|level|>1\n<|id|>603<|level|>2\n<|id|>614<|level|>1\n<|id|>615<|level|>2\n<|id|>617<|level|>3\n<|id|>620<|level|>3\n<|id|>622<|level|>3\n<|id|>625<|level|>2\n<|id|>636<|level|>1\n<|id|>638<|level|>2\n<|id|>646<|level|>2",
+    "parsed": [
+        {
+            "id": 601,
+            "level": 1
+        },
+        {
+            "id": 603,
+            "level": 2
+        },
+        {
+            "id": 614,
+            "level": 1
+        },
+        {
+            "id": 615,
+            "level": 2
+        },
+        {
+            "id": 617,
+            "level": 3
+        },
+        {
+            "id": 620,
+            "level": 3
+        },
+        {
+            "id": 622,
+            "level": 3
+        },
+        {
+            "id": 625,
+            "level": 2
+        },
+        {
+            "id": 636,
+            "level": 1
+        },
+        {
+            "id": 638,
+            "level": 2
+        },
+        {
+            "id": 646,
+            "level": 2
+        }
+    ]
+}

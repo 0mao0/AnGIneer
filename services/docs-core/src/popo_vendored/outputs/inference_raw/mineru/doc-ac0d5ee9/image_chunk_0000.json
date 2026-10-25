@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>342 140 358 357<|content|>Purpose and Authorization\n<|id|>10<|type|>title<|page|>1<|box|>654 140 671 434<|content|>Description of Applicant and Facility\n<|id|>15<|type|>title<|page|>2<|box|>304 140 321 423<|content|>Description of Proposed Discharges\n<|id|>17<|type|>title<|page|>2<|box|>359 140 377 483<|content|>Outfall 001 — Treated Process Wastewater\n<|id|>19<|type|>title<|page|>2<|box|>506 140 523 437<|content|>Outfall 002 — Industrial Stormwater\n<|id|>22<|type|>title<|page|>2<|box|>766 142 784 370<|content|>Treatment System Summary\n<|id|>29<|type|>title<|page|>3<|box|>373 142 390 446<|content|>Proposed Effluent Limits (Outfall 001)\n<|id|>31<|type|>table<|page|>3<|box|>459 143 686 852<|content|>None\n<|id|>33<|type|>title<|page|>3<|box|>834 142 849 336<|content|>Antidegradation Review\n<|id|>35<|type|>title<|page|>4<|box|>258 140 276 521<|content|>Stormwater Pollution Prevention Plan (SWPPP)\n<|id|>37<|type|>title<|page|>4<|box|>454 140 470 287<|content|>List of Enclosures\n<|id|>49<|type|>title<|page|>4<|box|>797 140 814 431<|content|>Technical Support Acknowledgment\n<|id|>53<|type|>title<|page|>5<|box|>267 140 284 227<|content|>Filing Fee\n<|id|>55<|type|>title<|page|>5<|box|>388 140 406 421<|content|>Companion Air Permit Application\n<|id|>57<|type|>title<|page|>5<|box|>565 140 583 410<|content|>Contact Information and Request\n<|id|>67<|type|>title<|page|>6<|box|>285 140 303 209<|content|>Closing",
+    "raw_response": "<|src_id|>31<|tgt_id|>29",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        }
+    ]
+}

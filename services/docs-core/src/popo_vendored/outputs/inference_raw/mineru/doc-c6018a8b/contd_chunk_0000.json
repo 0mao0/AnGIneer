@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        14,
+        15,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 423 132 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>142 140 159 665<|content|>TO: ... Linda Osei, Responsible Partner\n<|id|>3<|page|>1<|box|>167 140 184 486<|content|>FROM: ... Hannah Brinkley, Working Associate\n<|id|>4<|page|>1<|box|>193 140 210 354<|content|>DATE: ... November 15, 2024\n<|id|>5<|page|>1<|box|>219 140 253 854<|content|>RE: ... New York Fraudulent Inducement — Elements and Defenses in the Lender-Borrower Context\n<|id|>6<|page|>1<|box|>263 140 280 411<|content|>CLIENT: ... Belmont Ridge Bank NA\n<|id|>7<|page|>1<|box|>289 140 344 854<|content|>MATTER: ... Althea Marchetti)\n<|id|>8<|page|>1<|box|>351 140 369 362<|content|>MATTER NO. ... 1022-00005\n<|id|>9<|page|>1<|box|>377 140 393 408<|content|>Right-click to update Table of Contents\n<|id|>13<|page|>1<|box|>840 140 896 854<|content|>The key factual predicates underlying the counterc...hich recommended a structured exit from the Triton\n<|id|>14<|page|>2<|box|>90 140 273 854<|content|>Harbor relationship; ... and (f) Section 12(a) of ...rbearance Agreement, the integration/merger clause\n<|id|>108<|page|>14<|box|>828 140 902 856<|content|>The Counterclaim Plaintiffs may argue that the dis...r was itself procured by fraud — i. ... See Centro\n<|id|>109<|page|>15<|box|>89 140 145 854<|content|>Empresarial, 17 N. ... \")\n<|id|>177<|page|>22<|box|>873 140 910 854<|content|>The New York County Commercial Division, where thi...borrower disputes on multiple occasions. ... While\n<|id|>178<|page|>23<|box|>90 140 145 854<|content|>Commercial Division decisions do not carry the pre...e predispositions of the Commercial Division bench",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>108<|tgt_id|>109\n<|src_id|>177<|tgt_id|>178",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 178
+        }
+    ]
+}

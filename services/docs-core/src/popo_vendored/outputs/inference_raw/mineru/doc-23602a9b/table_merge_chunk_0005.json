@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['12', '基价', '元', '9999001', '13792', '16721', '25509', '4036']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=4, 顺序号', 'rowspan=4, 项目', 'rowspan=4, 单位', 'rowspan=4, 代号', 'colspan=2, 人工植草', 'colspan=2, 机械液压喷播植草', '喷混植草', 'colspan=2, 客土喷播植草']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 342,
+    "table2_idx": 343
+}

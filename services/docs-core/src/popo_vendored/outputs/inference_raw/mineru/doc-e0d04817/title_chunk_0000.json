@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|page|>1<|box|>323 140 340 397<|content|>I. Introduction and Background\n<|id|>13<|page|>2<|box|>167 140 184 746<|content|>II. Reference to Original Comfort Letter and Agree\n<|id|>28<|page|>3<|box|>90 140 107 491<|content|>III. Request for Bring-Down Comfort Letter\n<|id|>37<|page|>3<|box|>777 140 794 405<|content|>IV. Cut-Off Date and Procedures\n<|id|>42<|page|>4<|box|>513 140 529 308<|content|>V. Delivery Deadline\n<|id|>51<|page|>5<|box|>186 140 204 338<|content|>VI. Transaction Context\n<|id|>58<|page|>6<|box|>90 142 106 220<|content|>VII. Fees\n<|id|>64<|page|>6<|box|>398 142 415 352<|content|>VIII. Contact Information",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>28<|level|>2\n<|id|>37<|level|>2\n<|id|>42<|level|>2\n<|id|>51<|level|>2\n<|id|>58<|level|>2\n<|id|>64<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        }
+    ]
+}

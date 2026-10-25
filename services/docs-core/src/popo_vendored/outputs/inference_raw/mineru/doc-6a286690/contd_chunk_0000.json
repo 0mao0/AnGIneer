@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        31
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        16,
+        17,
+        31
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>237 140 292 854<|content|>CC: ... Angela Fontaine, Partner, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>299 140 335 854<|content|>FROM: ... Yuki Nakamura, Associate, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>344 140 361 310<|content|>DATE: ... June 13, 2022\n<|id|>6<|page|>1<|box|>369 140 405 854<|content|>RE: ... Prioritized Renewal Negotiation Points — D...uct-Liability Insurance Towers (2022–2023 Renewal)\n<|id|>7<|page|>1<|box|>414 142 431 333<|content|>Matter No. ... 1005-00003\n<|id|>8<|page|>1<|box|>439 140 455 408<|content|>Right-click to update Table of Contents\n<|id|>19<|page|>2<|box|>863 140 898 854<|content|>Carrier renewal quotes were received between May 1...enior Vice President, Executive Risk Practice, and\n<|id|>20<|page|>3<|box|>90 140 127 854<|content|>Tamara Fisk, Account Executive, at Ashford Breckin...in advance of the targeted June 28, 2022 bind date\n<|id|>55<|page|>7<|box|>90 174 145 854<|content|>(b) Board observers appointed at the request of an...uest of Veltrano Capital Partners Fund IV; ... and\n<|id|>57<|page|>7<|box|>215 140 306 854<|content|>The inclusion of de facto officers and shadow dire...tower must be positioned to respond to such claims\n<|id|>149<|page|>16<|box|>849 140 905 854<|content|>Issue. ... C&H has concluded, consistent with the analysis set forth in the Product Recall\n<|id|>150<|page|>17<|box|>89 140 143 854<|content|>Sub-Limit Adequacy Memorandum dated June 7, 2022, ...bution footprint, and historical recall experience\n<|id|>275<|page|>31<|box|>148 145 165 400<|content|>• Critical: ... 3 (D&O Points 1, 2, 3)\n<|id|>278<|page|>31<|box|>208 142 224 501<|content|>Summary by Priority — PL Tower (8 Points): ... Summary by Priority — PL Tower (8 Points)\n<|id|>276<|page|>31<|box|>167 147 185 416<|content|>• High: ... 5 (D&O Points 4, 5, 6, 7, 8)\n<|id|>277<|page|>31<|box|>188 145 204 405<|content|>• Moderate: ... 2 (D&O Points 9, 10)\n<|id|>279<|page|>31<|box|>233 147 250 362<|content|>• Critical: ... 2 (PL Points 1, 2)\n<|id|>282<|page|>31<|box|>292 140 310 549<|content|>Overall: ... 18 Points — 5 Critical, 8 High, 5 Moderate\n<|id|>280<|page|>31<|box|>253 147 270 362<|content|>• High: ... 3 (PL Points 3, 4, 5)\n<|id|>281<|page|>31<|box|>273 145 289 395<|content|>• Moderate: ... 3 (PL Points 6, 7, 8)\n<|id|>286<|page|>31<|box|>431 174 468 854<|content|>Naomi Petersen, Lead Associate Calderwood & Harkne...r New York, NY 10022 Telephone: ... (212) 555-4820\n<|id|>287<|page|>31<|box|>476 176 493 504<|content|>Email: ... com\n<|id|>288<|page|>31<|box|>493 174 529 854<|content|>Yuki Nakamura, Associate Calderwood & Harkness LLP...00 Chicago, IL 60606 Telephone: ... (312) 555-7314\n<|id|>289<|page|>31<|box|>537 174 554 517<|content|>Email: ... com\n<|id|>290<|page|>31<|box|>555 140 573 718<|content|>Supervising partners on this matter are Douglas Fa...s matter are Douglas Fairchild and Angela Fontaine",
+    "raw_response": "<|src_id|>19<|tgt_id|>20\n<|src_id|>149<|tgt_id|>150",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 150
+        }
+    ]
+}

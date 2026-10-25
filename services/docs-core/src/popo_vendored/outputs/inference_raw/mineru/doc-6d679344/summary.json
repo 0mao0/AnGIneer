@@ -1,0 +1,623 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ffxnaaii\\input\\pdfs\\doc-6d679344.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ffxnaaii\\enriched\\doc-6d679344.json",
+    "contd_output": "<|src_id|>55<|tgt_id|>56\n<|src_id|>206<|tgt_id|>207",
+    "title_output": "<|id|>0<|level|>1\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>19<|level|>3\n<|id|>25<|level|>3\n<|id|>28<|level|>3\n<|id|>31<|level|>3\n<|id|>41<|level|>4\n<|id|>47<|level|>4\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>62<|level|>3\n<|id|>70<|level|>3\n<|id|>91<|level|>2\n<|id|>92<|level|>3\n<|id|>101<|level|>3\n<|id|>112<|level|>3\n<|id|>117<|level|>2\n<|id|>118<|level|>3\n<|id|>120<|level|>4\n<|id|>127<|level|>4\n<|id|>129<|level|>4\n<|id|>131<|level|>3\n<|id|>140<|level|>3\n<|id|>153<|level|>3\n<|id|>161<|level|>3\n<|id|>174<|level|>2\n<|id|>175<|level|>3\n<|id|>181<|level|>3\n<|id|>190<|level|>3\n<|id|>198<|level|>3\n<|id|>200<|level|>3\n<|id|>203<|level|>2\n<|id|>204<|level|>3\n<|id|>211<|level|>3\n<|id|>216<|level|>3\n<|id|>221<|level|>2\n<|id|>222<|level|>3\n<|id|>226<|level|>3\n<|id|>232<|level|>3\n<|id|>238<|level|>2\n<|id|>239<|level|>3\n<|id|>243<|level|>3\n<|id|>248<|level|>3\n<|id|>253<|level|>2\n<|id|>254<|level|>3\n<|id|>264<|level|>3\n<|id|>269<|level|>3\n<|id|>278<|level|>3\n<|id|>283<|level|>2\n<|id|>284<|level|>3\n<|id|>291<|level|>3\n<|id|>297<|level|>3\n<|id|>302<|level|>3\n<|id|>306<|level|>2\n<|id|>307<|level|>3\n<|id|>313<|level|>3\n<|id|>319<|level|>3\n<|id|>321<|level|>3\n<|id|>325<|level|>2\n<|id|>326<|level|>3\n<|id|>332<|level|>3\n<|id|>335<|level|>3\n<|id|>339<|level|>3\n<|id|>343<|level|>2\n<|id|>344<|level|>3\n<|id|>350<|level|>3\n<|id|>358<|level|>3\n<|id|>359<|level|>4\n<|id|>362<|level|>4\n<|id|>365<|level|>3\n<|id|>371<|level|>3\n<|id|>376<|level|>2\n<|id|>377<|level|>3\n<|id|>381<|level|>3\n<|id|>386<|level|>3\n<|id|>391<|level|>2\n<|id|>392<|level|>3\n<|id|>397<|level|>3\n<|id|>401<|level|>3\n<|id|>405<|level|>2\n<|id|>406<|level|>3\n<|id|>414<|level|>3\n<|id|>421<|level|>3\n<|id|>427<|level|>3\n<|id|>437<|level|>2\n<|id|>438<|level|>3\n<|id|>448<|level|>4\n<|id|>450<|level|>3\n<|id|>453<|level|>4\n<|id|>470<|level|>5\n<|id|>472<|level|>3\n<|id|>475<|level|>3\n<|id|>494<|level|>3\n<|id|>497<|level|>4\n<|id|>502<|level|>3",
+    "image_output": "<|src_id|>30<|tgt_id|>28\n<|src_id|>94<|tgt_id|>92\n<|src_id|>235<|tgt_id|>232\n<|src_id|>241<|tgt_id|>239\n<|src_id|>346<|tgt_id|>344\n<|src_id|>429<|tgt_id|>427\n<|src_id|>440<|tgt_id|>438\n<|src_id|>442<|tgt_id|>438\n<|src_id|>443<|tgt_id|>438\n<|src_id|>444<|tgt_id|>438\n<|src_id|>445<|tgt_id|>438\n<|src_id|>446<|tgt_id|>438\n<|src_id|>447<|tgt_id|>438\n<|src_id|>449<|tgt_id|>448\n<|src_id|>473<|tgt_id|>472\n<|src_id|>474<|tgt_id|>472\n<|src_id|>492<|tgt_id|>475\n<|src_id|>495<|tgt_id|>494\n<|src_id|>503<|tgt_id|>502\n<|src_id|>504<|tgt_id|>502\n<|src_id|>505<|tgt_id|>502\n<|src_id|>506<|tgt_id|>502",
+    "contd_label": [
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 207
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 4
+        },
+        {
+            "id": 47,
+            "level": 4
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 4
+        },
+        {
+            "id": 127,
+            "level": 4
+        },
+        {
+            "id": 129,
+            "level": 4
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 198,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 226,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 2
+        },
+        {
+            "id": 239,
+            "level": 3
+        },
+        {
+            "id": 243,
+            "level": 3
+        },
+        {
+            "id": 248,
+            "level": 3
+        },
+        {
+            "id": 253,
+            "level": 2
+        },
+        {
+            "id": 254,
+            "level": 3
+        },
+        {
+            "id": 264,
+            "level": 3
+        },
+        {
+            "id": 269,
+            "level": 3
+        },
+        {
+            "id": 278,
+            "level": 3
+        },
+        {
+            "id": 283,
+            "level": 2
+        },
+        {
+            "id": 284,
+            "level": 3
+        },
+        {
+            "id": 291,
+            "level": 3
+        },
+        {
+            "id": 297,
+            "level": 3
+        },
+        {
+            "id": 302,
+            "level": 3
+        },
+        {
+            "id": 306,
+            "level": 2
+        },
+        {
+            "id": 307,
+            "level": 3
+        },
+        {
+            "id": 313,
+            "level": 3
+        },
+        {
+            "id": 319,
+            "level": 3
+        },
+        {
+            "id": 321,
+            "level": 3
+        },
+        {
+            "id": 325,
+            "level": 2
+        },
+        {
+            "id": 326,
+            "level": 3
+        },
+        {
+            "id": 332,
+            "level": 3
+        },
+        {
+            "id": 335,
+            "level": 3
+        },
+        {
+            "id": 339,
+            "level": 3
+        },
+        {
+            "id": 343,
+            "level": 2
+        },
+        {
+            "id": 344,
+            "level": 3
+        },
+        {
+            "id": 350,
+            "level": 3
+        },
+        {
+            "id": 358,
+            "level": 3
+        },
+        {
+            "id": 359,
+            "level": 4
+        },
+        {
+            "id": 362,
+            "level": 4
+        },
+        {
+            "id": 365,
+            "level": 3
+        },
+        {
+            "id": 371,
+            "level": 3
+        },
+        {
+            "id": 376,
+            "level": 2
+        },
+        {
+            "id": 377,
+            "level": 3
+        },
+        {
+            "id": 381,
+            "level": 3
+        },
+        {
+            "id": 386,
+            "level": 3
+        },
+        {
+            "id": 391,
+            "level": 2
+        },
+        {
+            "id": 392,
+            "level": 3
+        },
+        {
+            "id": 397,
+            "level": 3
+        },
+        {
+            "id": 401,
+            "level": 3
+        },
+        {
+            "id": 405,
+            "level": 2
+        },
+        {
+            "id": 406,
+            "level": 3
+        },
+        {
+            "id": 414,
+            "level": 3
+        },
+        {
+            "id": 421,
+            "level": 3
+        },
+        {
+            "id": 427,
+            "level": 3
+        },
+        {
+            "id": 437,
+            "level": 2
+        },
+        {
+            "id": 438,
+            "level": 3
+        },
+        {
+            "id": 448,
+            "level": 4
+        },
+        {
+            "id": 450,
+            "level": 3
+        },
+        {
+            "id": 453,
+            "level": 4
+        },
+        {
+            "id": 470,
+            "level": 5
+        },
+        {
+            "id": 472,
+            "level": 3
+        },
+        {
+            "id": 475,
+            "level": 3
+        },
+        {
+            "id": 494,
+            "level": 3
+        },
+        {
+            "id": 497,
+            "level": 4
+        },
+        {
+            "id": 502,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 235,
+            "tgt_id": 232
+        },
+        {
+            "src_id": 241,
+            "tgt_id": 239
+        },
+        {
+            "src_id": 346,
+            "tgt_id": 344
+        },
+        {
+            "src_id": 429,
+            "tgt_id": 427
+        },
+        {
+            "src_id": 440,
+            "tgt_id": 438
+        },
+        {
+            "src_id": 442,
+            "tgt_id": 438
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 438
+        },
+        {
+            "src_id": 444,
+            "tgt_id": 438
+        },
+        {
+            "src_id": 445,
+            "tgt_id": 438
+        },
+        {
+            "src_id": 446,
+            "tgt_id": 438
+        },
+        {
+            "src_id": 447,
+            "tgt_id": 438
+        },
+        {
+            "src_id": 449,
+            "tgt_id": 448
+        },
+        {
+            "src_id": 473,
+            "tgt_id": 472
+        },
+        {
+            "src_id": 474,
+            "tgt_id": 472
+        },
+        {
+            "src_id": 492,
+            "tgt_id": 475
+        },
+        {
+            "src_id": 495,
+            "tgt_id": 494
+        },
+        {
+            "src_id": 503,
+            "tgt_id": 502
+        },
+        {
+            "src_id": 504,
+            "tgt_id": 502
+        },
+        {
+            "src_id": 505,
+            "tgt_id": 502
+        },
+        {
+            "src_id": 506,
+            "tgt_id": 502
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 442,
+            "table2_idx": 443,
+            "upper_row_ss": [
+                [
+                    "3rd Excess",
+                    "Allegheny Pacific Underwriters,",
+                    "APU-XS-2021-7712",
+                    "7/1/2021",
+                    "7/1/2022",
+                    "$15,000,000",
+                    "$15,000,000",
+                    "N/A",
+                    "$218,400",
+                    "Follow-form; Financial Interest Clause;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Inc.",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Asbestos/Lead Exclusio n"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 444,
+            "table2_idx": 445,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "03/2019",
+                    "Midwest Logistics Partners, LP",
+                    "NCS",
+                    "Property damage — conveyor drive chain defect causing",
+                    "Closed",
+                    "$172,000",
+                    "$0"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "cargo damage at distribution center",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 445,
+            "table2_idx": 446,
+            "upper_row_ss": [
+                [
+                    "10",
+                    "09/2021",
+                    "Higgins, D.",
+                    "NCS",
+                    "Bodily injury — catastrophic crush injury from defective emergency stop",
+                    "Open",
+                    "$0",
+                    "$6,950,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "mechanism on Model NCS-7200 conveyor; Case No. 2021-L-04382",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 473,
+            "table2_idx": 474,
+            "upper_row_ss": [
+                [
+                    "Add'l Insured — Ongoing",
+                    "Yes (endorsement)",
+                    "Follow-form",
+                    "Follow-form (implicit)",
+                    "Follow-form (implicit)",
+                    "No"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Ops",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 504,
+            "table2_idx": 505,
+            "upper_row_ss": [
+                [
+                    "Historical Claims",
+                    "4 of 12 reported claims (33%) involve Triton products;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "pending litigation: $6,800,000 (Consolidated Builders)"
+                ]
+            ]
+        }
+    ]
+}

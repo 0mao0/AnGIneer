@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>1<|type|>table<|page|>1<|box|>138 143 299 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>347 142 364 421<|content|>I. Purpose and Executive Summary\n<|id|>10<|type|>title<|page|>2<|box|>282 142 299 276<|content|>II. The Property\n<|id|>12<|type|>table<|page|>2<|box|>386 143 734 852<|content|>None\n<|id|>16<|type|>title<|page|>3<|box|>377 140 393 483<|content|>III. ALTA/NSPS Land Title Survey Review\n<|id|>17<|type|>title<|page|>3<|box|>407 142 425 334<|content|>A. Survey Identification\n<|id|>45<|type|>title<|page|>4<|box|>598 140 614 433<|content|>B. Legal Description and Boundaries\n<|id|>54<|type|>title<|page|>5<|box|>313 140 330 467<|content|>C. Improvements and Building Footprint\n<|id|>60<|type|>title<|page|>5<|box|>837 140 854 545<|content|>D. Easements and Encumbrances Shown on Survey\n<|id|>67<|type|>title<|page|>6<|box|>800 140 816 372<|content|>E. Access and Ingress/Egress\n<|id|>75<|type|>title<|page|>7<|box|>452 142 469 364<|content|>F. Flood Zone Classification\n<|id|>89<|type|>title<|page|>8<|box|>588 140 604 424<|content|>H. Parking and Other Site Features\n<|id|>96<|type|>title<|page|>9<|box|>239 140 256 472<|content|>I. Survey Exceptions and Issues Identified\n<|id|>99<|type|>title<|page|>9<|box|>457 142 474 294<|content|>IV. Zoning Review\n<|id|>100<|type|>title<|page|>9<|box|>488 142 506 408<|content|>A. Applicable Zoning Designation\n<|id|>106<|type|>title<|page|>10<|box|>90 140 107 514<|content|>B. Permitted Uses Under the Zoning Resolution\n<|id|>122<|type|>title<|page|>11<|box|>669 140 686 527<|content|>C. Floor Area Ratio (FAR) and Bulk Compliance\n<|id|>128<|type|>title<|page|>12<|box|>367 140 383 364<|content|>D. Certificate of Occupancy\n<|id|>135<|type|>title<|page|>13<|box|>138 140 157 325<|content|>E. Signage and Zoning\n<|id|>145<|type|>title<|page|>14<|box|>231 140 248 462<|content|>F. Landmark or Special District Overlay\n<|id|>152<|type|>title<|page|>14<|box|>799 140 816 398<|content|>G. Other Zoning Considerations\n<|id|>158<|type|>title<|page|>15<|box|>446 140 464 673<|content|>V. Coordination with Title Commitment and Environm\n<|id|>163<|type|>title<|page|>16<|box|>296 140 313 321<|content|>VI. Recommendations\n<|id|>178<|type|>title<|page|>17<|box|>741 140 758 382<|content|>VII. Attachments / Enclosures\n<|id|>188<|type|>title<|page|>18<|box|>375 143 392 285<|content|>VIII. Distribution\n<|id|>190<|type|>title<|page|>18<|box|>426 176 444 393<|content|>File: Matter No. 1017-00009",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>12<|tgt_id|>10",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 10
+        }
+    ]
+}

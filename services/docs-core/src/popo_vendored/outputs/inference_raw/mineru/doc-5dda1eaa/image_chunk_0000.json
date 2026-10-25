@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        5
+    ],
+    "pages": [
+        2,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>90 436 109 560<|content|>EXHIBIT E\n<|id|>1<|type|>title<|page|>2<|box|>128 202 145 794<|content|>UNITED STATES DISTRICT COURT FOR THE DISTRICT OF D\n<|id|>2<|type|>table<|page|>2<|box|>179 143 338 852<|content|>None\n<|id|>3<|type|>title<|page|>2<|box|>406 145 441 849<|content|>STIPULATION OF DISMISSAL WITH PREJUDICE PURSUANT T\n<|id|>31<|type|>table<|page|>4<|box|>569 143 729 852<|content|>None\n<|id|>32<|type|>title<|page|>4<|box|>797 406 814 591<|content|>[PROPOSED] ORDER\n<|id|>40<|type|>title<|page|>5<|box|>454 374 470 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>2<|tgt_id|>3\n<|src_id|>31<|tgt_id|>32",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        }
+    ]
+}

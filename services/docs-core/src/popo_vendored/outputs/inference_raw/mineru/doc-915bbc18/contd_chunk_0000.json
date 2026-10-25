@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>103 87 120 842<|content|>Document TRedline Comparison Chart: ... Skybridge Counter-Proposal — Key Terms Matrix\n<|id|>1<|page|>1<|box|>121 87 137 803<|content|>Prepared Alan Burke, Working Associate, Privacy & Data Security, Calderwood & Harkness LLP\n<|id|>2<|page|>1<|box|>139 87 155 321<|content|>DateDecember 10, 2025\n<|id|>3<|page|>1<|box|>156 87 173 265<|content|>Mater Nu1009-00004\n<|id|>4<|page|>1<|box|>174 87 191 339<|content|>Client Skybridge Fintech Ltd. ... Client Skybridge Fintech Ltd\n<|id|>5<|page|>1<|box|>193 87 209 403<|content|>CounterpaMeridian Federal Savings Bank\n<|id|>6<|page|>1<|box|>210 87 227 668<|content|>CounterparBlackwell, Raines & Stoddard LLP (Constance Liu / Derek Faulkner)\n<|id|>7<|page|>1<|box|>228 87 244 322<|content|>BRS Form November 25, 2025\n<|id|>8<|page|>1<|box|>246 87 262 505<|content|>Skybridge December 12, 2025 (anticipated transmital)\n<|id|>9<|page|>1<|box|>263 87 280 875<|content|>Purpose Side-by-side comparison of key terms in the Meridian/BRS form DPA and the Skybridge count\n<|id|>10<|page|>1<|box|>281 87 298 873<|content|>DistributioKevin Ostrowski (Responsible Partner), ... Bernstein (Billing Partner), Priscilla Wynn (Lead\n<|id|>11<|page|>1<|box|>299 87 315 487<|content|>Classificat Atorney-Client Privileged / Work Product\n<|id|>12<|page|>3<|box|>87 85 353 793<|content|>Item No. ... Processor sProcessor sProcessor-aLowR...ntroller DPA term cDPA term cLowRecommend Resolved\n<|id|>13<|page|>4<|box|>85 85 458 497<|content|>Metric Value Total Prov14 High Sever4 Medium Se5 L...e counter-proposal DPA to BRS on December 12, 2025",
+    "raw_response": "<|src_id|>10<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        }
+    ]
+}

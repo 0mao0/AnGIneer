@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        19,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 405 119 591<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 212 152 784<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>8<|page|>1<|box|>386 142 402 321<|content|>I. Executive Summary\n<|id|>23<|page|>2<|box|>643 142 661 356<|content|>II. Scope and Methodology\n<|id|>46<|page|>3<|box|>679 140 696 519<|content|>III. Key-Person Analysis Under LPA Section 5.2\n<|id|>47<|page|>3<|box|>709 142 728 357<|content|>A. Designated Key Persons\n<|id|>56<|page|>4<|box|>536 140 554 527<|content|>B. Impact of Restructuring on Key Person Status\n<|id|>61<|page|>5<|box|>204 140 222 434<|content|>IV. Side-Letter Analysis by Category\n<|id|>62<|page|>5<|box|>234 140 252 661<|content|>A. Most Favored Nation (MFN) Provisions — 11 of 14\n<|id|>72<|page|>6<|box|>239 140 256 794<|content|>B. Expanded Key-Person / \"Contributing Person\" Pro\n<|id|>85<|page|>7<|box|>726 140 743 607<|content|>C. Fee discount or Rebate Provisions — 8 of 14 Sid\n<|id|>94<|page|>8<|box|>715 140 733 823<|content|>D. Management Structure Change / Transfer Consent\n<|id|>117<|page|>11<|box|>744 140 762 580<|content|>E. Co-Investment Priority Rights — 9 of 14 Side Le\n<|id|>131<|page|>12<|box|>622 140 638 413<|content|>V. Side-Letter Compliance Matrix\n<|id|>137<|page|>14<|box|>601 142 617 428<|content|>VI. Interaction with LPA Provisions\n<|id|>138<|page|>14<|box|>631 142 648 398<|content|>A. Section 9.4 — LPAC Consent\n<|id|>153<|page|>15<|box|>508 140 525 462<|content|>B. Section 8.3 — Transfer of GP Interest\n<|id|>158<|page|>16<|box|>90 140 107 398<|content|>C. Section 9.7 — Removal of GP\n<|id|>162<|page|>16<|box|>388 140 407 464<|content|>VII. Action Items and Recommendations\n<|id|>164<|page|>16<|box|>459 140 477 287<|content|>Completed Items:\n<|id|>168<|page|>16<|box|>728 140 744 282<|content|>Action Required:\n<|id|>172<|page|>17<|box|>276 142 292 316<|content|>Recommended Items:\n<|id|>175<|page|>17<|box|>545 140 561 279<|content|>VIII. Conclusion\n<|id|>184<|page|>19<|box|>90 142 107 545<|content|>Appendix A: Side-Letter Provision Summary Table\n<|id|>190<|page|>23<|box|>90 142 107 498<|content|>Appendix B: Timeline of Compliance Actions",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>8<|level|>2\n<|id|>23<|level|>2\n<|id|>46<|level|>2\n<|id|>47<|level|>3\n<|id|>56<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>72<|level|>3\n<|id|>85<|level|>3\n<|id|>94<|level|>3\n<|id|>117<|level|>3\n<|id|>131<|level|>2\n<|id|>137<|level|>2\n<|id|>138<|level|>3\n<|id|>153<|level|>3\n<|id|>158<|level|>3\n<|id|>162<|level|>2\n<|id|>164<|level|>3\n<|id|>168<|level|>3\n<|id|>172<|level|>3\n<|id|>175<|level|>2\n<|id|>184<|level|>2\n<|id|>190<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        }
+    ]
+}

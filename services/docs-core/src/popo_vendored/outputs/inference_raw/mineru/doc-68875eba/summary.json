@@ -1,0 +1,179 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-f6_h_4ic\\input\\pdfs\\doc-68875eba.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-f6_h_4ic\\enriched\\doc-68875eba.json",
+    "contd_output": "<|src_id|>29<|tgt_id|>30\n<|src_id|>196<|tgt_id|>197",
+    "title_output": "<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>34<|level|>1\n<|id|>39<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>2\n<|id|>72<|level|>2\n<|id|>78<|level|>2\n<|id|>85<|level|>1\n<|id|>87<|level|>2\n<|id|>97<|level|>2\n<|id|>112<|level|>2\n<|id|>124<|level|>2\n<|id|>129<|level|>2\n<|id|>135<|level|>2\n<|id|>147<|level|>1\n<|id|>149<|level|>2\n<|id|>152<|level|>2\n<|id|>158<|level|>2\n<|id|>164<|level|>2\n<|id|>169<|level|>2\n<|id|>181<|level|>1\n<|id|>188<|level|>1\n<|id|>193<|level|>1",
+    "image_output": "<|src_id|>20<|tgt_id|>11\n<|src_id|>36<|tgt_id|>34\n<|src_id|>37<|tgt_id|>34\n<|src_id|>38<|tgt_id|>34\n<|src_id|>43<|tgt_id|>39\n<|src_id|>84<|tgt_id|>78\n<|src_id|>189<|tgt_id|>188",
+    "contd_label": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 197
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 1
+        },
+        {
+            "id": 188,
+            "level": 1
+        },
+        {
+            "id": 193,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 20,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 188
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 36,
+            "table2_idx": 37,
+            "upper_row_ss": [
+                [
+                    "July 25, 2022",
+                    "Transaction structure finalized following agreement among QIH, Ridgeline, and this firm on capital structure, credit enhancement levels, waterfall mechanics, and early amortization triggers. QIH Board authorized the formation of the SPVs and the engagement of counterparties."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "August 3, 2022",
+                    "QRF 2022-1 LLC (Delaware Secretary of State File No. 7894231) and QRH LLC (Delaware Secretary of State File No. 7894228) formed as Delaware limited liability companies. LLC Agreements executed. Independent Manager Agreements with Fortbridge Corporate Services LLC executed. Ashgrove Services Inc. designated as registered agent for both entities."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 37,
+            "table2_idx": 38,
+            "upper_row_ss": [
+                [
+                    "November 2, 2022",
+                    "Investor roadshow concluded. Ridgeline provided indicative pricing to QIH reflecting the materially widened spread environment. Indicative spreads were"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "significantly above the initial coupon guidance established in the term sheet."
+                ]
+            ]
+        }
+    ]
+}

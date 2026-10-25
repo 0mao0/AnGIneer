@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 150 125 846<|content|>UNITED STATES OF AMERICA BEFORE THE FEDERAL ENERGY\n<|id|>2<|page|>1<|box|>282 150 319 846<|content|>NOTICE OF APPEARANCE AND DESIGNATION OF LEAD COUNS\n<|id|>5<|page|>1<|box|>429 140 446 645<|content|>I. INTRODUCTION AND FILING PARTY IDENTIFICATION\n<|id|>11<|page|>2<|box|>148 140 166 475<|content|>II. DESIGNATION OF LEAD COUNSEL\n<|id|>18<|page|>2<|box|>575 140 592 550<|content|>III. DESIGNATION OF ADDITIONAL COUNSEL\n<|id|>20<|page|>2<|box|>669 140 685 285<|content|>A. Brett Callahan\n<|id|>22<|page|>2<|box|>753 174 771 506<|content|>Email: bcallahan@calderwoodharkness.com\n<|id|>24<|page|>2<|box|>821 142 838 281<|content|>B. David Stanton\n<|id|>26<|page|>3<|box|>90 174 106 496<|content|>Email: dstanton@calderwoodharkness.com\n<|id|>29<|page|>3<|box|>320 140 338 468<|content|>IV. BILLING PARTNER DISCLOSURE\n<|id|>35<|page|>4<|box|>89 140 106 462<|content|>V. DESCRIPTION OF PROCEEDINGS\n<|id|>40<|page|>4<|box|>674 140 691 442<|content|>VI. SERVICE LIST INFORMATION\n<|id|>42<|page|>4<|box|>763 140 780 506<|content|>Lead Counsel (Person Designated for Service):\n<|id|>49<|page|>5<|box|>214 142 229 267<|content|>Client Contact:\n<|id|>53<|page|>5<|box|>431 140 450 308<|content|>VII. CONCLUSION\n<|id|>62<|page|>5<|box|>756 140 773 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>18<|level|>2\n<|id|>20<|level|>3\n<|id|>22<|level|>-1\n<|id|>24<|level|>3\n<|id|>26<|level|>-1\n<|id|>29<|level|>2\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>-1\n<|id|>49<|level|>-1\n<|id|>53<|level|>2\n<|id|>62<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        }
+    ]
+}

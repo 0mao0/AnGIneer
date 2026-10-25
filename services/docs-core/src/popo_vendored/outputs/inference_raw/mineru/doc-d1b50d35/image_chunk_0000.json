@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 156 836<|content|>[DRAFT — Prepared by Calderwood & Harkness LLP for\n<|id|>12<|type|>title<|page|>1<|box|>556 142 573 361<|content|>1. Recitals and Background\n<|id|>20<|type|>title<|page|>2<|box|>383 140 402 287<|content|>2. Payoff Amount\n<|id|>28<|type|>title<|page|>2<|box|>819 140 835 401<|content|>(b) Accrued and Unpaid Interest\n<|id|>32<|type|>title<|page|>3<|box|>179 176 196 834<|content|>(iii) Total Accrued and Unpaid Interest (estimated\n<|id|>34<|type|>title<|page|>3<|box|>345 140 363 344<|content|>(c) Prepayment Premium\n<|id|>38<|type|>title<|page|>3<|box|>561 140 579 369<|content|>(d) Other Fees and Amounts\n<|id|>41<|type|>title<|page|>3<|box|>861 140 878 455<|content|>(e) Aggregate Payoff Amount Summary\n<|id|>43<|type|>table<|page|>4<|box|>88 143 253 852<|content|>None\n<|id|>45<|type|>title<|page|>4<|box|>402 140 419 377<|content|>3. Wire Transfer Instructions\n<|id|>50<|type|>title<|page|>4<|box|>839 140 856 305<|content|>4. Per Diem Interest\n<|id|>56<|type|>title<|page|>5<|box|>436 140 454 465<|content|>5. Release of Security Interests and Liens\n<|id|>64<|type|>title<|page|>6<|box|>484 140 501 575<|content|>6. Termination of Credit Agreement and Commitments\n<|id|>70<|type|>title<|page|>7<|box|>148 140 167 638<|content|>7. Authorization and Acknowledgment of Administrat\n<|id|>73<|type|>title<|page|>7<|box|>407 140 424 527<|content|>8. Acknowledgment and Agreement by Borrower\n<|id|>80<|type|>title<|page|>8<|box|>90 140 107 397<|content|>9. Effective Date and Expiration\n<|id|>83<|type|>title<|page|>8<|box|>402 142 419 285<|content|>10. Miscellaneous\n<|id|>92<|type|>title<|page|>9<|box|>89 321 106 674<|content|>SIGNATURE PAGE TO PAYOFF LETTER\n<|id|>99<|type|>title<|page|>9<|box|>244 318 262 679<|content|>ACKNOWLEDGMENT AND AGREEMENT\n<|id|>101<|type|>title<|page|>9<|box|>334 143 351 490<|content|>VERIMARK HOSPITALITY GROUP INC.\n<|id|>109<|type|>title<|page|>9<|box|>472 449 489 547<|content|>EXHIBIT A\n<|id|>110<|type|>title<|page|>9<|box|>498 297 513 700<|content|>LENDER ALLOCATION OF PAYOFF AMOUNT\n<|id|>112<|type|>table<|page|>9<|box|>604 143 717 852<|content|>None\n<|id|>114<|type|>title<|page|>10<|box|>89 447 106 550<|content|>EXHIBIT B\n<|id|>115<|type|>title<|page|>10<|box|>114 184 151 810<|content|>LIST OF UCC FINANCING STATEMENTS AND RECORDED LIEN\n<|id|>116<|type|>title<|page|>10<|box|>165 143 183 429<|content|>Part I: UCC-1 Financing Statements\n<|id|>118<|type|>table<|page|>10<|box|>250 143 757 852<|content|>None\n<|id|>120<|type|>table<|page|>11<|box|>193 143 696 852<|content|>None",
+    "raw_response": "<|src_id|>43<|tgt_id|>41\n<|src_id|>112<|tgt_id|>110\n<|src_id|>118<|tgt_id|>116\n<|src_id|>120<|tgt_id|>116",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 116
+        }
+    ]
+}

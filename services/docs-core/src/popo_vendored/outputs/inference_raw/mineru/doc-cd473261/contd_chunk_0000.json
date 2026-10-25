@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        44
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        9,
+        19,
+        23,
+        44
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>181 462 199 535<|content|>Plaintiff,\n<|id|>3<|page|>1<|box|>286 383 303 614<|content|>Case No. ... 24-cv-00319-JRG\n<|id|>4<|page|>1<|box|>311 403 330 594<|content|>Hon. ... Gilstrap\n<|id|>5<|page|>1<|box|>339 233 359 764<|content|>EXPERT REPORT OF DR. ... CAROLINE ASHFORD\n<|id|>8<|page|>2<|box|>172 158 209 856<|content|>Prepared by: ... Caroline Ashford Professor of Ele...thfield Institute of Technology Evanston, Illinois\n<|id|>9<|page|>2<|box|>217 372 234 854<|content|>Date: ... DRAFT — for finalization by June 15, 2025 filing deadline\n<|id|>10<|page|>2<|box|>241 140 257 730<|content|>STATUS: ... DRAFT — ATTORNEY WORK PRODUCT / PRIVILEGED AND CONFIDENTIAL\n<|id|>11<|page|>2<|box|>263 140 325 854<|content|>RELATED DOCUMENTS: ... Lumicore design files produ...ery (designated Highly Confidential — Source Code)\n<|id|>63<|page|>7<|box|>575 174 612 854<|content|>(b) the rationale underlying the amendment bears o...ial relation to the equivalent in question; ... or\n<|id|>65<|page|>7<|box|>664 140 681 341<|content|>Festo, 535 U. ... at 740–41\n<|id|>82<|page|>9<|box|>578 174 595 784<|content|>a wavelength-division multiplexing element integrated on the silicon substrate; ... and\n<|id|>83<|page|>9<|box|>604 176 621 818<|content|>a control circuit electrically coupled to the transmitter module and the receiver module. ... \"\n<|id|>88<|page|>9<|box|>781 174 819 854<|content|>at least two pairs of balanced photodetectors, eac...onent of the mixed optical output signals; ... and\n<|id|>89<|page|>9<|box|>825 176 844 803<|content|>a transimpedance amplifier array electrically coupled to the balanced photodetectors. ... \"\n<|id|>162<|page|>19<|box|>459 174 494 854<|content|>a polarization rotator configured to rotate the TM polarization component to a TE polarization; ... and\n<|id|>163<|page|>19<|box|>503 174 540 854<|content|>dual 90-degree optical hybrid couplers, each confi...ation component using the local oscillator source,\n<|id|>164<|page|>19<|box|>547 174 584 854<|content|>whereby the coherent detection module is configure...ption of a dual-polarization optical signal. ... \"\n<|id|>212<|page|>23<|box|>595 174 651 854<|content|>a polarization-splitting region within the two-dim... component into a second output waveguide; ... and\n<|id|>213<|page|>23<|box|>657 174 694 854<|content|>a bottom reflector layer disposed beneath the sili...gured to enhance upward coupling efficiency. ... \"\n<|id|>355<|page|>44<|box|>209 142 226 362<|content|>DR. ... CAROLINE ASHFORD\n<|id|>356<|page|>44<|box|>227 143 244 254<|content|>By: ... By\n<|id|>357<|page|>44<|box|>244 140 277 854<|content|>Dr. ... Caroline Ashford Professor of Electrical E...thfield Institute of Technology Evanston, Illinois\n<|id|>358<|page|>44<|box|>277 143 294 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>82<|tgt_id|>83\n<|src_id|>88<|tgt_id|>89\n<|src_id|>162<|tgt_id|>163\n<|src_id|>163<|tgt_id|>164\n<|src_id|>212<|tgt_id|>213\n<|src_id|>356<|tgt_id|>357",
+    "parsed": [
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 356,
+            "tgt_id": 357
+        }
+    ]
+}

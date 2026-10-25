@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 148 166 848<|content|>SECRETARY'S CERTIFICATE OF HARROWGATE PRIVATE EQUI\n<|id|>6<|type|>title<|page|>1<|box|>638 140 655 637<|content|>SECTION 1: CERTIFICATION REGARDING HPE FUND IV\n<|id|>7<|type|>title<|page|>1<|box|>669 143 686 433<|content|>1.1 Organization and Good Standing\n<|id|>12<|type|>title<|page|>2<|box|>220 142 238 424<|content|>1.2 Limited Partnership Agreement\n<|id|>15<|type|>title<|page|>2<|box|>429 142 445 303<|content|>1.3 General Partner\n<|id|>19<|type|>title<|page|>2<|box|>791 142 808 496<|content|>1.4 Authorizing Resolutions — HPE Fund IV\n<|id|>26<|type|>title<|page|>3<|box|>664 142 681 542<|content|>1.5 Incumbency — HPE Fund IV / Harrowgate GP\n<|id|>28<|type|>table<|page|>3<|box|>803 143 893 852<|content|>None\n<|id|>30<|type|>title<|page|>4<|box|>219 140 255 846<|content|>SECTION 2: CERTIFICATION REGARDING HARROWGATE VELO\n<|id|>31<|type|>title<|page|>4<|box|>268 140 286 433<|content|>2.1 Organization and Good Standing\n<|id|>36<|type|>title<|page|>4<|box|>694 140 710 390<|content|>2.2 Certificate of Incorporation\n<|id|>41<|type|>title<|page|>5<|box|>286 140 301 307<|content|>2.4 Sole Stockholder\n<|id|>43<|type|>title<|page|>5<|box|>431 140 448 630<|content|>2.5 Authorizing Resolutions — Merger Sub Board of\n<|id|>51<|type|>title<|page|>6<|box|>220 140 238 684<|content|>2.6 Authorizing Resolutions — Merger Sub Sole Stoc\n<|id|>54<|type|>title<|page|>6<|box|>429 140 446 390<|content|>2.7 Incumbency — Merger Sub\n<|id|>56<|type|>table<|page|>6<|box|>549 143 607 852<|content|>None\n<|id|>58<|type|>title<|page|>6<|box|>736 140 753 504<|content|>SECTION 3: GENERAL CERTIFICATIONS\n<|id|>59<|type|>title<|page|>6<|box|>767 140 784 406<|content|>3.1 No Dissolution or Bankruptcy\n<|id|>62<|type|>title<|page|>7<|box|>250 140 265 267<|content|>3.2 No Conflict\n<|id|>64<|type|>title<|page|>7<|box|>450 140 467 527<|content|>3.3 No Amendment to Organizational Documents\n<|id|>66<|type|>title<|page|>7<|box|>614 140 630 341<|content|>3.4 Full Force and Effect\n<|id|>68<|type|>title<|page|>8<|box|>89 142 107 377<|content|>SECTION 4: EXHIBIT LIST\n<|id|>80<|type|>title<|page|>8<|box|>564 263 582 733<|content|>[SIGNATURE PAGE TO SECRETARY'S CERTIFICATE]\n<|id|>88<|type|>title<|page|>8<|box|>840 215 858 781<|content|>[COUNTER-CERTIFICATION — INCUMBENCY CONFIRMATION]",
+    "raw_response": "<|src_id|>28<|tgt_id|>26\n<|src_id|>56<|tgt_id|>54",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        }
+    ]
+}

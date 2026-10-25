@@ -1,0 +1,52 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        47
+    ],
+    "pages": [
+        1,
+        2,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        39,
+        40,
+        45,
+        46
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>214 369 229 627<|content|>A Delaware Limited Partnership\n<|id|>4<|page|>1<|box|>239 367 255 630<|content|>INITIAL DRAFT — May 9, 2025\n<|id|>6<|page|>1<|box|>290 142 305 594<|content|>CONFIDENTIAL — For Discussion Purposes Only — Subject to Revision\n<|id|>7<|page|>1<|box|>313 140 359 854<|content|>This document is a preliminary draft prepared for ... revision and negotiation. ... All rights reserved\n<|id|>17<|page|>2<|box|>152 140 208 854<|content|>WHEREAS, each Limited Partner desires to make a ca...greement executed by such Limited Partner; ... and\n<|id|>18<|page|>2<|box|>215 140 252 854<|content|>WHEREAS, the Partners desire to set forth their re...ations, and duties with respect to the Partnership\n<|id|>292<|page|>28<|box|>779 140 797 750<|content|>(l) All taxes, fees, and other governmental charges imposed on the Partnership; ... and\n<|id|>294<|page|>28<|box|>849 140 904 857<|content|>Notwithstanding the foregoing, the following shall...sor's obligation under the terms of this Agreement\n<|id|>306<|page|>29<|box|>782 140 876 854<|content|>One hundred percent (100%) of distributable amount...es, and Capital Contributions applied to repay the\n<|id|>307<|page|>30<|box|>90 140 127 854<|content|>Subscription Credit Facility, but excluding amount...ction with Subsequent Close equalization payments)\n<|id|>318<|page|>30<|box|>854 140 892 856<|content|>(c) If the amount required to be withheld exceeds ...such excess as a loan from the Partnership to such\n<|id|>319<|page|>31<|box|>89 140 127 854<|content|>Partner, which loan shall be repaid from future Di...e Capital Call payments under Section 4. ... 9(c))\n<|id|>343<|page|>32<|box|>835 140 909 856<|content|>(a) The General Partner shall cause the Independen...l Partner has received cumulative Carried Interest\n<|id|>344<|page|>33<|box|>89 140 125 852<|content|>Distributions in excess of the amount to which it ...would be entitled under the distribution waterfall\n<|id|>350<|page|>33<|box|>412 140 448 854<|content|>(a) Marcus J. ... and\n<|id|>352<|page|>33<|box|>500 140 518 594<|content|>The Key Persons are identified in Schedule B attac...rsons are identified in Schedule B attached hereto\n<|id|>371<|page|>34<|box|>825 140 881 854<|content|>(b) Three (3) LPAC members shall be designated at ...oor State Pension System, (ii) Edgecombe Insurance\n<|id|>372<|page|>35<|box|>89 140 127 854<|content|>Group Ltd. ... The remaining two (2) LPAC members shall be designated at or following the Final Close\n<|id|>437<|page|>39<|box|>847 174 883 854<|content|>(ii) The Limited Partners shall have the right to ...effective date of removal, and the removed General\n<|id|>438<|page|>40<|box|>90 174 126 854<|content|>Partner shall cooperate in the orderly transition ...n of management responsibilities to such successor\n<|id|>513<|page|>45<|box|>811 174 885 857<|content|>(iii) Made by a governmental plan Limited Partner ...and permitted by law) and shall cooperate with the\n<|id|>514<|page|>46<|box|>89 174 126 854<|content|>General Partner in seeking to minimize the scope o...uch disclosure or to obtain confidential treatment\n<|id|>521<|page|>46<|box|>506 174 523 833<|content|>Harrowgate Fund V GP LLC 1200 Concord Pike, Suite 600 Wilmington, Delaware 19803\n<|id|>522<|page|>46<|box|>532 176 549 540<|content|>Attention: ... Loomis, General Counsel\n<|id|>523<|page|>46<|box|>550 176 566 477<|content|>Email: ... com\n<|id|>524<|page|>46<|box|>566 176 584 540<|content|>with a copy (which shall not constitute notice) to...with a copy (which shall not constitute notice) to\n<|id|>525<|page|>46<|box|>592 174 628 852<|content|>Calderwood & Harkness LLP 400 South Ashbury Asset Advisors, Suite 3000 Wilmington, Delaware 19801\n<|id|>526<|page|>46<|box|>636 176 652 462<|content|>Attention: ... Pemberton, Esq",
+    "raw_response": "<|src_id|>306<|tgt_id|>307\n<|src_id|>318<|tgt_id|>319\n<|src_id|>343<|tgt_id|>344\n<|src_id|>371<|tgt_id|>372\n<|src_id|>437<|tgt_id|>438\n<|src_id|>513<|tgt_id|>514",
+    "parsed": [
+        {
+            "src_id": 306,
+            "tgt_id": 307
+        },
+        {
+            "src_id": 318,
+            "tgt_id": 319
+        },
+        {
+            "src_id": 343,
+            "tgt_id": 344
+        },
+        {
+            "src_id": 371,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 437,
+            "tgt_id": 438
+        },
+        {
+            "src_id": 513,
+            "tgt_id": 514
+        }
+    ]
+}

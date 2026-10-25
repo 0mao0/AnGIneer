@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        13,
+        14,
+        16,
+        17,
+        23,
+        24,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>157 743 174 854<|content|>April 25, 2022\n<|id|>3<|page|>1<|box|>181 142 199 290<|content|>MEMORANDUM\n<|id|>4<|page|>1<|box|>209 140 224 493<|content|>FROM: ... Leonard Cross, Specialist Partner, Tax\n<|id|>5<|page|>1<|box|>234 140 251 570<|content|>TO: ... Jennifer Kwon, Responsible Partner, Capital Markets\n<|id|>6<|page|>1<|box|>260 140 277 684<|content|>CC: ... Natasha Forbes, Working Associate\n<|id|>7<|page|>1<|box|>286 140 321 854<|content|>RE: ... Solaris West Solar LLC / Veltara Basin Financial LLC — Compliance Analysis\n<|id|>8<|page|>1<|box|>330 142 345 406<|content|>C&H MATTER NO. ... 1015-00001\n<|id|>9<|page|>1<|box|>354 140 416 854<|content|>This memorandum is a privileged and confidential a...artner, Capital Markets, Calderwood & Harkness LLP\n<|id|>14<|page|>1<|box|>777 140 905 857<|content|>1. ... The\n<|id|>15<|page|>2<|box|>90 174 199 856<|content|>IPO involves the issuance and sale of common stock...oses, provided the entity structure remains intact\n<|id|>30<|page|>3<|box|>779 176 797 725<|content|>Calloway-Briggs Renewables Inc. ... the IPO issuer)\n<|id|>31<|page|>3<|box|>805 212 823 354<|content|>↓ 100% ownership\n<|id|>32<|page|>3<|box|>830 212 848 643<|content|>CBR Holdings LLC (Delaware limited liability company)\n<|id|>33<|page|>3<|box|>857 214 875 354<|content|>↓ 100% ownership\n<|id|>34<|page|>3<|box|>883 212 900 797<|content|>Calloway-Briggs Operating Company LLC (Texas limited liability company)\n<|id|>117<|page|>13<|box|>258 174 296 854<|content|>(ii) a cessation of use of the property in a qualifying manner (e. ... or\n<|id|>119<|page|>13<|box|>383 140 439 854<|content|>The recapture rules are designed to ensure that th...transaction designed solely to generate the credit\n<|id|>127<|page|>13<|box|>771 174 789 843<|content|>(d) any membership interest in CBR Holdings LLC (the intermediate holding company); ... or\n<|id|>129<|page|>13<|box|>840 140 897 856<|content|>Before and after the IPO, the ownership chain is identical at every level below CBR: ... and\n<|id|>130<|page|>14<|box|>90 140 127 854<|content|>Calloway-Briggs Operating Company LLC retains its ...olved, merged, converted, or otherwise reorganized\n<|id|>157<|page|>16<|box|>864 140 902 856<|content|>Section 8. ... 06 of the Partnership Agreement req...ate to the Tax-Equity Investor confirming that the\n<|id|>158<|page|>17<|box|>90 140 181 856<|content|>Change of Control does not constitute a \"Disqualif...d delivered in connection with the consent request\n<|id|>227<|page|>23<|box|>768 140 878 856<|content|>2. ... Brendan\n<|id|>228<|page|>24<|box|>90 140 127 854<|content|>Walsh and Natasha Forbes should coordinate on the ...nput from Leonard Cross on tax-related disclosures\n<|id|>249<|page|>26<|box|>354 174 391 852<|content|>Solaris West Solar LLC Amended and Restated Operat...document; ... not assigned an C&H document number)\n<|id|>250<|page|>26<|box|>398 140 453 854<|content|>Please direct any questions or comments regarding ...eonard Cross at (212) 555-4190 or leonard. ... com",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>129<|tgt_id|>130\n<|src_id|>157<|tgt_id|>158\n<|src_id|>227<|tgt_id|>228",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 157,
+            "tgt_id": 158
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 228
+        }
+    ]
+}

@@ -1,0 +1,197 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 307 118 689<|content|>CERTIFICATE OF DESIGNATIONS\n<|id|>2<|page|>1<|box|>184 364 200 633<|content|>SERIES A PREFERRED STOCK\n<|id|>3<|page|>1<|box|>224 483 243 514<|content|>OF\n<|id|>4<|page|>1<|box|>266 330 282 666<|content|>STONEFIELD LOGISTICS GROUP INC.\n<|id|>5<|page|>1<|box|>292 183 309 813<|content|>Pursuant to Section 151 of the General Corporation\n<|id|>17<|page|>2<|box|>527 140 544 614<|content|>SECTION 1. DESIGNATION AND NUMBER OF SHARES\n<|id|>22<|page|>3<|box|>89 142 106 372<|content|>SECTION 2. DEFINITIONS\n<|id|>58<|page|>5<|box|>633 140 651 339<|content|>SECTION 3. RANKING\n<|id|>68<|page|>6<|box|>381 140 398 354<|content|>SECTION 4. DIVIDENDS\n<|id|>69<|page|>6<|box|>412 140 429 323<|content|>4.1 PIK Dividend Rate\n<|id|>71<|page|>6<|box|>648 142 667 308<|content|>4.2 Payment in Kind\n<|id|>73<|page|>6<|box|>851 142 867 367<|content|>4.3 Dividend Payment Dates\n<|id|>76<|page|>7<|box|>194 140 212 339<|content|>4.4 Priority of Dividends\n<|id|>79<|page|>7<|box|>522 140 539 377<|content|>SECTION 5. LIQUIDATION\n<|id|>80<|page|>7<|box|>554 140 570 354<|content|>5.1 Liquidation Preference\n<|id|>85<|page|>8<|box|>90 140 107 390<|content|>5.2 Deemed Liquidation Events\n<|id|>91<|page|>8<|box|>669 140 686 349<|content|>5.3 Distribution Waterfall\n<|id|>98<|page|>9<|box|>319 140 337 318<|content|>5.4 No Further Rights\n<|id|>100<|page|>9<|box|>474 140 492 374<|content|>SECTION 6. CONVERSION\n<|id|>101<|page|>9<|box|>506 140 523 336<|content|>6.1 Optional Conversion\n<|id|>103<|page|>9<|box|>724 140 742 310<|content|>6.2 Conversion Price\n<|id|>105<|page|>10<|box|>90 140 107 370<|content|>6.3 Mechanics of Conversion\n<|id|>110<|page|>10<|box|>625 140 642 383<|content|>6.4 Anti-Dilution Adjustments\n<|id|>122<|page|>11<|box|>804 140 821 356<|content|>6.5 Mandatory Conversion\n<|id|>128<|page|>12<|box|>446 140 463 377<|content|>SECTION 7. REDEMPTION\n<|id|>129<|page|>12<|box|>478 142 494 493<|content|>7.1 Optional Redemption by the Corporation\n<|id|>131<|page|>12<|box|>733 142 751 310<|content|>7.2 Holder Put Right\n<|id|>136<|page|>13<|box|>330 142 347 357<|content|>7.3 Redemption Mechanics\n<|id|>141<|page|>14<|box|>89 142 106 400<|content|>SECTION 8. VOTING RIGHTS\n<|id|>142<|page|>14<|box|>121 140 138 349<|content|>8.1 General Voting Rights\n<|id|>144<|page|>14<|box|>321 140 339 450<|content|>8.2 Class Voting / Protective Provisions\n<|id|>155<|page|>15<|box|>319 140 337 346<|content|>8.3 Board Representation\n<|id|>163<|page|>16<|box|>89 140 106 490<|content|>SECTION 9. TRANSFER RESTRICTIONS\n<|id|>171<|page|>16<|box|>532 140 549 470<|content|>SECTION 10. INFORMATION RIGHTS\n<|id|>178<|page|>17<|box|>439 140 455 455<|content|>SECTION 11. PREEMPTIVE RIGHTS\n<|id|>181<|page|>17<|box|>714 140 731 424<|content|>SECTION 12. NO SINKING FUND\n<|id|>183<|page|>17<|box|>837 140 854 343<|content|>SECTION 13. NOTICES\n<|id|>196<|page|>18<|box|>491 140 508 527<|content|>SECTION 14. AMENDMENTS AND WAIVERS\n<|id|>200<|page|>18<|box|>773 140 791 421<|content|>SECTION 15. GOVERNING LAW\n<|id|>203<|page|>19<|box|>186 140 203 398<|content|>SECTION 16. SEVERABILITY\n<|id|>205<|page|>19<|box|>398 140 416 410<|content|>SECTION 17. EFFECTIVENESS\n<|id|>216<|page|>20<|box|>88 140 108 267<|content|>SCHEDULE A",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>2\n<|id|>4<|level|>2\n<|id|>5<|level|>-1\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>58<|level|>2\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>71<|level|>3\n<|id|>73<|level|>3\n<|id|>76<|level|>3\n<|id|>79<|level|>2\n<|id|>80<|level|>3\n<|id|>85<|level|>3\n<|id|>91<|level|>3\n<|id|>98<|level|>3\n<|id|>100<|level|>2\n<|id|>101<|level|>3\n<|id|>103<|level|>3\n<|id|>105<|level|>3\n<|id|>110<|level|>3\n<|id|>122<|level|>3\n<|id|>128<|level|>2\n<|id|>129<|level|>3\n<|id|>131<|level|>3\n<|id|>136<|level|>3\n<|id|>141<|level|>2\n<|id|>142<|level|>3\n<|id|>144<|level|>3\n<|id|>155<|level|>3\n<|id|>163<|level|>2\n<|id|>171<|level|>2\n<|id|>178<|level|>2\n<|id|>181<|level|>2\n<|id|>183<|level|>2\n<|id|>196<|level|>2\n<|id|>200<|level|>2\n<|id|>203<|level|>2\n<|id|>205<|level|>2\n<|id|>216<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 2
+        }
+    ]
+}

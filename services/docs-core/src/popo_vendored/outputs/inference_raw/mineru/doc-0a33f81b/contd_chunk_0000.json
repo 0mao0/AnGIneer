@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        42
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        10,
+        11,
+        22,
+        23,
+        35,
+        41,
+        42
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>239 140 294 854<|content|>FROM: ... Miriam Calloway, Partner, Calderwood & H...my Whitfield, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>303 140 320 310<|content|>DATE: ... May 15, 2023\n<|id|>5<|page|>1<|box|>329 140 364 854<|content|>RE: ... Massachusetts Clinic Arrangements\n<|id|>6<|page|>1<|box|>372 142 390 362<|content|>MATTER NO. ... 1010-00003\n<|id|>7<|page|>1<|box|>398 140 415 408<|content|>Right-click to update Table of Contents\n<|id|>11<|page|>1<|box|>827 140 901 856<|content|>Our principal finding is that M. ... While the fed...hich payment may be made under Medicare, Medicaid,\n<|id|>12<|page|>2<|box|>90 138 273 856<|content|>TRICARE, and other federal healthcare programs — r... squarely within the Massachusetts statute's scope\n<|id|>17<|page|>2<|box|>549 147 565 725<|content|>• The Covenant Health Plans value-based incentive payment arrangement; ... and\n<|id|>19<|page|>2<|box|>606 140 696 856<|content|>In summary, several arrangements that present mana...n are set forth in Section VIII of this memorandum\n<|id|>27<|page|>3<|box|>500 147 535 852<|content|>• The Stark Law Compliance Assessment Memorandum (Matter No. ... and\n<|id|>29<|page|>3<|box|>594 140 758 856<|content|>This memorandum does not constitute a definitive l...these recommendations during the remediation phase\n<|id|>32<|page|>3<|box|>835 140 909 854<|content|>Arbor Health Technologies Inc. ... AHT is majority-owned by Ridgeline Capital Partners Fund\n<|id|>33<|page|>4<|box|>90 140 200 856<|content|>IV, LP (\"Ridgeline\"), a healthcare-focused private...management software-as-a-service (\"SaaS\") platform\n<|id|>84<|page|>10<|box|>739 145 756 684<|content|>• Personal services and management contracts (42 C. ... 952(d))\n<|id|>85<|page|>10<|box|>758 147 775 452<|content|>• Space rental (42 C. ... 952(b))\n<|id|>86<|page|>10<|box|>777 147 795 486<|content|>• Equipment rental (42 C. ... 952(c))\n<|id|>87<|page|>10<|box|>797 147 814 483<|content|>• Referral services (42 C. ... 952(f))\n<|id|>88<|page|>10<|box|>816 147 834 679<|content|>• Electronic health records items and services (42 C. ... 952(y))\n<|id|>89<|page|>10<|box|>835 147 853 601<|content|>• Value-based arrangements (42 C. ... 952(ee)–(hh))\n<|id|>90<|page|>10<|box|>856 147 873 694<|content|>• Investment interests in large and small entities (42 C. ... 952(a))\n<|id|>91<|page|>11<|box|>90 140 181 854<|content|>Massachusetts does not have equivalent regulatory ...nce risk in the Company's Massachusetts operations\n<|id|>174<|page|>22<|box|>859 140 896 856<|content|>Based on our review of the referral data provided ... physicians referred patients to AHT facilities in\n<|id|>175<|page|>23<|box|>90 138 181 854<|content|>Massachusetts. ... The volume of such cross-border...ucture was designed to incentivize these referrals\n<|id|>263<|page|>35<|box|>222 174 277 854<|content|>(a) in return for referring an individual to a per...er any health insurance policy or contract; ... or\n<|id|>265<|page|>35<|box|>348 174 402 854<|content|>No person shall knowingly and willfully offer or p...ash or in kind to any person to induce such person\n<|id|>266<|page|>35<|box|>410 176 465 854<|content|>(a) to refer an individual to a person for the fur...er any health insurance policy or contract; ... or\n<|id|>268<|page|>35<|box|>535 176 554 531<|content|>The provisions of this section shall not apply to:... The provisions of this section shall not apply to\n<|id|>296<|page|>41<|box|>885 364 901 630<|content|>— END OF MEMORANDUM —\n<|id|>297<|page|>42<|box|>89 140 106 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>298<|page|>42<|box|>108 140 125 254<|content|>By: ... By\n<|id|>299<|page|>42<|box|>125 140 142 341<|content|>Miriam Calloway, Partner\n<|id|>300<|page|>42<|box|>142 142 159 254<|content|>By: ... By\n<|id|>301<|page|>42<|box|>159 140 176 413<|content|>Christopher Aiken, Senior Associate\n<|id|>302<|page|>42<|box|>176 142 194 254<|content|>By: ... By\n<|id|>303<|page|>42<|box|>194 140 210 339<|content|>Amy Whitfield, Associate\n<|id|>304<|page|>42<|box|>210 140 228 295<|content|>Date: ... May 15, 2023",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>32<|tgt_id|>33\n<|src_id|>174<|tgt_id|>175",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 175
+        }
+    ]
+}

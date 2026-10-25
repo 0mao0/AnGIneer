@@ -1,0 +1,138 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vhymr3f0\\input\\pdfs\\doc-4bbace6b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vhymr3f0\\enriched\\doc-4bbace6b.json",
+    "contd_output": "",
+    "title_output": "<|id|>10<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>2\n<|id|>37<|level|>2\n<|id|>43<|level|>2\n<|id|>49<|level|>2\n<|id|>62<|level|>2\n<|id|>69<|level|>2\n<|id|>77<|level|>1\n<|id|>79<|level|>2\n<|id|>86<|level|>2\n<|id|>91<|level|>2\n<|id|>96<|level|>2\n<|id|>102<|level|>2\n<|id|>107<|level|>1\n<|id|>127<|level|>1\n<|id|>134<|level|>1\n<|id|>142<|level|>1\n<|id|>149<|level|>1\n<|id|>155<|level|>1\n<|id|>161<|level|>1\n<|id|>165<|level|>1\n<|id|>167<|level|>1\n<|id|>183<|level|>1",
+    "image_output": "<|src_id|>65<|tgt_id|>62\n<|src_id|>66<|tgt_id|>62\n<|src_id|>144<|tgt_id|>142",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 1
+        },
+        {
+            "id": 161,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 167,
+            "level": 1
+        },
+        {
+            "id": 183,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 65,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 142
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 65,
+            "table2_idx": 66,
+            "upper_row_ss": [
+                [
+                    "Revolving Credit Facility",
+                    "$6,200,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

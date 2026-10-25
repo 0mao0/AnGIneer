@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        55
+    ],
+    "pages": [
+        5,
+        6,
+        7,
+        8,
+        12,
+        20,
+        26,
+        28,
+        29,
+        30,
+        32,
+        36,
+        37,
+        38,
+        54
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>5<|box|>81 285 122 645<|content|>Eq: ... or the T-cov,\n<|id|>4<|page|>5<|box|>134 225 172 702<|content|>- TREAS ELECTRICAL\n<|id|>5<|page|>6<|box|>67 13 164 383<|content|>DEPARTMENT OF THE TREASURY FISCAL SERVICE, BUREAU ...6 OFFICIAL BUSINESS PENALTY FOR PRIVATE USE, \\$300\n<|id|>6<|page|>6<|box|>162 859 172 964<|content|>FIRST CLASS\n<|id|>12<|page|>7<|box|>914 106 962 871<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>13<|page|>8<|box|>430 128 562 842<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents, U. ... )\n<|id|>21<|page|>12<|box|>140 109 230 923<|content|>UNITED STATES SAVINGS BONDS Page SB-1. ... 67\n<|id|>22<|page|>12<|box|>277 105 635 923<|content|>UNITED STATES SAVINGS NOTES SN-1. ... 80\n<|id|>65<|page|>20<|box|>175 41 186 471<|content|>Note: ... Budget estimates are based on the Current Budget Estimates, March\n<|id|>66<|page|>20<|box|>183 42 200 499<|content|>1980, released on March 31, 1980, by the Office of...ment and Budget. ... 1/ For detail see Table FEO-2\n<|id|>68<|page|>20<|box|>213 44 246 500<|content|>3/ The joint Treasury-Office of Management and Bud... of the Exchange Stabilization Fund. ... 6 billion\n<|id|>70<|page|>20<|box|>235 44 256 499<|content|>Stabilization Fund. ... 7 billion for the deficit\n<|id|>71<|page|>20<|box|>209 44 219 475<|content|>3/ The joint Treasury-Office of Management and Budget Press Statement,\n<|id|>75<|page|>20<|box|>161 555 170 709<|content|>to Federal Reserve banks. ... to Federal Reserve banks\n<|id|>74<|page|>20<|box|>277 44 288 500<|content|>6/ Represents holdings of special drawing rights, less certificates issued\n<|id|>94<|page|>26<|box|>520 141 619 155<|content|>(In millions of dollars)\n<|id|>100<|page|>28<|box|>882 46 911 485<|content|>Source: ... Government, released January 28, 1980\n<|id|>97<|page|>28<|box|>123 435 135 584<|content|>(In millions of dollars)\n<|id|>102<|page|>29<|box|>307 147 765 167<|content|>Table FFO-7. ... - Trust Funds Transactions October 1, 1979 through April 30, 1980\n<|id|>105<|page|>29<|box|>630 678 927 767<|content|>Source: ... The Intragovernmental transactions are... from Federal funds to trust funds, and vice versa\n<|id|>103<|page|>29<|box|>490 186 588 200<|content|>(In millions of dollars)\n<|id|>107<|page|>30<|box|>204 78 322 444<|content|>EFFECTIVE WITH THE BEGINNING OF FY '80, TREASURY A...AYABLE AND OTHER LIABILITIES (INCLUDING OFF-BUDGET\n<|id|>108<|page|>30<|box|>204 574 306 940<|content|>FROM TABLE J OF THE COMBINED STATEMENT) PLUS THE P...T FROM TABLE J OF THE TREASURY COMBINED STATEMENT)\n<|id|>114<|page|>32<|box|>125 223 141 808<|content|>Source and Availability of the Balance in the Account of the U. ... Treasury\n<|id|>115<|page|>32<|box|>182 117 246 483<|content|>The operating cash of the Treasury is maintained i...untry authorized to maintain tax and loan accounts\n<|id|>136<|page|>36<|box|>865 47 969 502<|content|>Note: ... Beginning with data for December 31, 1958, the computation is based on\n<|id|>137<|page|>36<|box|>856 529 885 952<|content|>the rate of effective yield for issue sold at prem.../ As of July 1974, includes Federal Financing Bank\n<|id|>141<|page|>37<|box|>834 37 895 499<|content|>Source: ... and\n<|id|>146<|page|>38<|box|>829 545 959 996<|content|>February 1975. ... Less than \\$500,000\n<|id|>273<|page|>54<|box|>314 42 330 476<|content|>99/ Yields accepted ranged from 9. ... 755)\n<|id|>318<|page|>54<|box|>618 541 628 777<|content|>* Less than \\$500,000. ... p Preliminary",
+    "raw_response": "<|src_id|>65<|tgt_id|>66\n<|src_id|>107<|tgt_id|>108\n<|src_id|>136<|tgt_id|>137",
+    "parsed": [
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 137
+        }
+    ]
+}

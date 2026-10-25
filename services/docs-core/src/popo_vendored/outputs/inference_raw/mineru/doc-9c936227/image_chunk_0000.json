@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 147 125 849<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>1<|type|>table<|page|>1<|box|>166 143 364 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>433 434 453 562<|content|>SUMMONS\n<|id|>3<|type|>title<|page|>1<|box|>470 142 488 339<|content|>TO THE DEFENDANT:\n<|id|>11<|type|>title<|page|>1<|box|>830 142 848 661<|content|>RESPONSE DEADLINE AND CONSEQUENCES OF DEFAULT\n<|id|>14<|type|>title<|page|>2<|box|>239 142 258 354<|content|>FILING INSTRUCTIONS\n<|id|>20<|type|>title<|page|>2<|box|>445 140 463 380<|content|>CLERK'S CERTIFICATION\n<|id|>22<|type|>title<|page|>2<|box|>515 142 532 377<|content|>Date of Issuance: May 9, 2022\n<|id|>25<|type|>title<|page|>2<|box|>667 143 684 390<|content|>ATTORNEY INFORMATION\n<|id|>26<|type|>title<|page|>2<|box|>694 142 712 408<|content|>Prepared by / Attorney for Plaintiff:",
+    "raw_response": "<|src_id|>1<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        }
+    ]
+}

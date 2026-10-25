@@ -1,0 +1,65 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        54,
+        65
+    ],
+    "pages": [
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        61,
+        62,
+        63,
+        64,
+        65
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>554<|type|>table<|page|>54<|box|>89 143 306 852<|content|>None\n<|id|>555<|type|>table<|page|>54<|box|>366 143 570 852<|content|>None\n<|id|>556<|type|>table<|page|>54<|box|>630 143 819 852<|content|>None\n<|id|>557<|type|>title<|page|>54<|box|>859 143 875 256<|content|>Channel Risk.\n<|id|>558<|type|>table<|page|>54<|box|>878 143 900 852<|content|>None\n<|id|>559<|type|>table<|page|>55<|box|>89 143 198 852<|content|>None\n<|id|>560<|type|>title<|page|>55<|box|>237 143 253 352<|content|>Industry/Occupation Risk.\n<|id|>561<|type|>table<|page|>55<|box|>258 143 416 852<|content|>None\n<|id|>562<|type|>table<|page|>55<|box|>476 143 598 852<|content|>None\n<|id|>563<|type|>table<|page|>55<|box|>659 143 779 852<|content|>None\n<|id|>564<|type|>title<|page|>55<|box|>829 143 845 361<|content|>B.3 Risk Rating Thresholds\n<|id|>566<|type|>table<|page|>55<|box|>878 143 898 852<|content|>None\n<|id|>567<|type|>table<|page|>56<|box|>88 143 146 852<|content|>None\n<|id|>568<|type|>title<|page|>56<|box|>195 140 212 424<|content|>B.4 BaaS Channel Automatic Uplift\n<|id|>570<|type|>table<|page|>56<|box|>263 143 339 852<|content|>None\n<|id|>572<|type|>title<|page|>56<|box|>450 142 468 447<|content|>B.5 Automatic High-Risk Designations\n<|id|>580<|type|>title<|page|>57<|box|>90 179 135 818<|content|>APPENDIX C: BaaS PARTNER CDD/EDD RESPONSIBILITY MA\n<|id|>582<|type|>table<|page|>57<|box|>289 143 897 852<|content|>None\n<|id|>583<|type|>table<|page|>58<|box|>89 143 209 852<|content|>None\n<|id|>584<|type|>title<|page|>58<|box|>258 142 275 375<|content|>C.2 Partner-Specific Callouts\n<|id|>589<|type|>title<|page|>59<|box|>90 174 136 821<|content|>APPENDIX D: ESCALATION AND APPROVAL AUTHORITY MATR\n<|id|>590<|type|>table<|page|>59<|box|>195 143 776 852<|content|>None\n<|id|>591<|type|>title<|page|>59<|box|>809 143 825 197<|content|>Notes:\n<|id|>596<|type|>title<|page|>61<|box|>90 196 109 800<|content|>APPENDIX E: REMEDIATION MILESTONE SCHEDULE\n<|id|>597<|type|>table<|page|>61<|box|>172 143 904 852<|content|>None\n<|id|>598<|type|>table<|page|>62<|box|>88 143 311 852<|content|>None\n<|id|>599<|type|>title<|page|>62<|box|>345 142 361 287<|content|>Cross-References:\n<|id|>606<|type|>title<|page|>63<|box|>90 163 109 833<|content|>APPENDIX F: GLOSSARY AND REGULATORY REFERENCES\n<|id|>607<|type|>title<|page|>63<|box|>136 142 152 321<|content|>F.1 Glossary of Terms\n<|id|>608<|type|>table<|page|>63<|box|>204 143 905 852<|content|>None\n<|id|>609<|type|>table<|page|>64<|box|>89 143 609 852<|content|>None\n<|id|>610<|type|>title<|page|>64<|box|>657 143 675 352<|content|>F.2 Regulatory References\n<|id|>612<|type|>title<|page|>64<|box|>729 142 744 217<|content|>Statutes:\n<|id|>619<|type|>title<|page|>65<|box|>89 176 108 648<|content|>4. Trading with the Enemy Act (TWEA), 50 U.S.C. Ap\n<|id|>620<|type|>title<|page|>65<|box|>109 142 127 246<|content|>Regulations:\n<|id|>631<|type|>title<|page|>65<|box|>330 142 349 549<|content|>Regulatory Guidance and Examination Procedures:\n<|id|>638<|type|>title<|page|>65<|box|>584 142 602 470<|content|>Consent Orders and Supervisory Actions:",
+    "raw_response": "<|src_id|>558<|tgt_id|>557\n<|src_id|>561<|tgt_id|>560\n<|src_id|>566<|tgt_id|>564\n<|src_id|>570<|tgt_id|>568\n<|src_id|>582<|tgt_id|>580\n<|src_id|>590<|tgt_id|>589\n<|src_id|>597<|tgt_id|>596\n<|src_id|>598<|tgt_id|>596\n<|src_id|>608<|tgt_id|>607\n<|src_id|>609<|tgt_id|>607",
+    "parsed": [
+        {
+            "src_id": 558,
+            "tgt_id": 557
+        },
+        {
+            "src_id": 561,
+            "tgt_id": 560
+        },
+        {
+            "src_id": 566,
+            "tgt_id": 564
+        },
+        {
+            "src_id": 570,
+            "tgt_id": 568
+        },
+        {
+            "src_id": 582,
+            "tgt_id": 580
+        },
+        {
+            "src_id": 590,
+            "tgt_id": 589
+        },
+        {
+            "src_id": 597,
+            "tgt_id": 596
+        },
+        {
+            "src_id": 598,
+            "tgt_id": 596
+        },
+        {
+            "src_id": 608,
+            "tgt_id": 607
+        },
+        {
+            "src_id": 609,
+            "tgt_id": 607
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        19,
+        21,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>237 403 253 593<|content|>(a Delaware corporation)\n<|id|>4<|page|>1<|box|>263 140 299 854<|content|>Skybridge Fintech Ltd. ... , a corporation organiz...Delaware (the \"DGCL\"), hereby certifies as follows\n<|id|>19<|page|>2<|box|>310 174 345 854<|content|>(a) Thirty Million (30,000,000) shares of Common Stock, par value $0. ... and\n<|id|>24<|page|>2<|box|>549 140 623 854<|content|>The rights, preferences, privileges, restrictions,...tached hereto and incorporated herein by reference\n<|id|>22<|page|>2<|box|>443 210 479 854<|content|>(ii) Five Million (5,000,000) shares are hereby de...eferred Stock\" (the \"Series A Preferred\"); ... and\n<|id|>45<|page|>5<|box|>89 174 199 857<|content|>(i) the Series B Original Issue Price of Six Dollars ($6. ... or\n<|id|>47<|page|>5<|box|>270 140 417 857<|content|>For the avoidance of doubt, the Series B Preferred...ments) is Forty-Five Million Dollars ($45,000,000)\n<|id|>50<|page|>5<|box|>566 174 676 856<|content|>(i) the Series A Original Issue Price of Two Dollars ($2. ... or\n<|id|>52<|page|>5<|box|>747 140 893 857<|content|>For the avoidance of doubt, the Series A Preferred... adjustments) is Ten Million Dollars ($10,000,000)\n<|id|>55<|page|>6<|box|>233 174 343 854<|content|>(i) the Series Seed Original Issue Price of Fifty Cents ($0. ... or\n<|id|>57<|page|>6<|box|>412 140 578 857<|content|>For the avoidance of doubt, the Series Seed Prefer...Million Five Hundred Thousand Dollars ($1,500,000)\n<|id|>95<|page|>11<|box|>257 181 309 854<|content|>• B = the aggregate consideration received or deem...al Shares of Common Stock, divided by CP₁; ... and\n<|id|>97<|page|>11<|box|>349 140 385 854<|content|>This adjustment shall apply separately and indepen...ently to each series of Preferred Stock as follows\n<|id|>109<|page|>12<|box|>424 174 497 854<|content|>(vi) shares of Common Stock issued or issuable in ...ffirmative vote of the Series B Director); ... and\n<|id|>111<|page|>12<|box|>531 140 549 674<|content|>##### (c) Adjustment for Stock Splits, Dividends, ...for Stock Splits, Dividends, and Recapitalizations\n<|id|>113<|page|>12<|box|>820 140 893 857<|content|>In the event the Corporation shall declare a distr...and to the extent permitted by law, the holders of\n<|id|>114<|page|>13<|box|>90 140 162 856<|content|>Preferred Stock shall be entitled to a proportiona...Common Stock entitled to receive such distribution\n<|id|>122<|page|>13<|box|>828 174 883 856<|content|>(iii) Common Directors. ... As of the date of the filing of this Amended and\n<|id|>123<|page|>14<|box|>90 174 126 854<|content|>Restated Certificate of Incorporation, the initial... Directors are Naveen Raghavan and Claire Whitmore\n<|id|>131<|page|>14<|box|>845 174 883 854<|content|>(ii) authorize or issue, or obligate itself to iss...into or exercisable for any equity security of the\n<|id|>132<|page|>15<|box|>90 174 127 854<|content|>Corporation) having a preference over, or being on...o dividends, liquidation preference, or redemption\n<|id|>139<|page|>15<|box|>619 174 655 856<|content|>(ix) increase or decrease the authorized number of... the Board of Directors of the Corporation; ... or\n<|id|>141<|page|>15<|box|>744 140 761 534<|content|>##### (b) Additional Preferred Protective Provisio...### (b) Additional Preferred Protective Provisions\n<|id|>144<|page|>16<|box|>152 174 189 854<|content|>(ii) increase or decrease the total number of auth...erred Stock (including any series thereof); ... or\n<|id|>146<|page|>16<|box|>262 140 372 857<|content|>Section 4. ... 6 above and applicable law\n<|id|>166<|page|>19<|box|>222 174 258 854<|content|>(iii) under Section 174 of the DGCL (relating to u...stock purchases, and unlawful redemptions); ... or\n<|id|>168<|page|>19<|box|>292 140 366 854<|content|>This Article VII is adopted pursuant to the author...ullest extent permitted by the DGCL, as so amended\n<|id|>187<|page|>21<|box|>689 174 763 854<|content|>(iii) any action asserting a claim against the Cor...(as each may be amended from time to time); ... or\n<|id|>189<|page|>21<|box|>833 140 906 857<|content|>Federal Forum Provision. ... This Article X shall ...er the Securities Exchange Act of 1934, as amended\n<|id|>200<|page|>23<|box|>89 140 107 334<|content|>Name: ... Naveen Raghavan\n<|id|>201<|page|>23<|box|>107 140 125 488<|content|>Title: ... Co-Founder and Chief Executive Officer\n<|id|>202<|page|>23<|box|>125 140 140 292<|content|>Date: ... July 29, 2022\n<|id|>203<|page|>23<|box|>140 140 171 852<|content|>This Amended and Restated Certificate of Incorpora...of State of the State of Delaware on July 29, 2022",
+    "raw_response": "<|src_id|>113<|tgt_id|>114\n<|src_id|>122<|tgt_id|>123\n<|src_id|>131<|tgt_id|>132",
+    "parsed": [
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 132
+        }
+    ]
+}

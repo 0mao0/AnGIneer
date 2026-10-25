@@ -1,0 +1,149 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 202 133 794<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>6<|page|>1<|box|>305 140 321 343<|content|>I. Purpose and Summary\n<|id|>12<|page|>2<|box|>258 140 277 545<|content|>II. Proposed Client and Affiliated Entities Screen\n<|id|>14<|page|>2<|box|>353 140 369 359<|content|>A. Sponsor / Client Entities\n<|id|>23<|page|>3<|box|>270 140 287 573<|content|>B. Key Personnel of Harrowgate Capital Partners LL\n<|id|>32<|page|>3<|box|>844 140 861 697<|content|>III. Prospective Anchor Limited Partners and Count\n<|id|>34<|page|>4<|box|>157 140 174 398<|content|>A. Prospective Limited Partners\n<|id|>36<|page|>4<|box|>244 140 260 421<|content|>1. Northmoor State Pension System\n<|id|>44<|page|>4<|box|>486 140 503 441<|content|>2. The Kingsbridge Endowment Fund\n<|id|>52<|page|>4<|box|>729 140 746 429<|content|>3. Edgecombe Insurance Group Ltd.\n<|id|>60<|page|>5<|box|>171 140 188 388<|content|>4. Velthorn Family Office LLC\n<|id|>68<|page|>5<|box|>395 140 412 496<|content|>5. Tidewater Sovereign Investment Authority\n<|id|>76<|page|>5<|box|>691 140 709 483<|content|>6. Stonewall Partners Fund of Funds III LP\n<|id|>84<|page|>6<|box|>90 140 107 302<|content|>B. Placement Agent\n<|id|>85<|page|>6<|box|>113 140 131 395<|content|>7. Osprey Capital Markets LLC\n<|id|>92<|page|>6<|box|>396 140 412 328<|content|>C. Fund Administrator\n<|id|>93<|page|>6<|box|>419 140 436 388<|content|>8. Pinnacle Fund Services LLC\n<|id|>99<|page|>6<|box|>664 142 681 277<|content|>D. Fund Auditor\n<|id|>100<|page|>6<|box|>688 140 705 406<|content|>9. Caldwell, Fitch & Hartley LLP\n<|id|>106<|page|>7<|box|>89 140 107 444<|content|>E. Subscription Credit Facility Lender\n<|id|>107<|page|>7<|box|>113 142 130 398<|content|>10. Ashford National Bank, N.A.\n<|id|>113<|page|>7<|box|>340 140 357 491<|content|>F. Custodian. 11. Ridgeway Trust Company\n<|id|>119<|page|>7<|box|>537 140 554 542<|content|>IV. Counterparty / Investor-Side Counsel Screened\n<|id|>121<|page|>7<|box|>699 142 715 374<|content|>1. Aldworth & McBride LLP\n<|id|>127<|page|>8<|box|>89 140 106 349<|content|>2. Pelham Chambers LLP\n<|id|>133<|page|>8<|box|>294 140 310 442<|content|>3. Ramsden Clarke International LLP\n<|id|>139<|page|>8<|box|>549 140 566 493<|content|>V. Prior Relationships and Cross-References\n<|id|>150<|page|>9<|box|>476 140 493 388<|content|>VI. Analysis of Potential Issues\n<|id|>158<|page|>10<|box|>684 140 702 388<|content|>VII. Conclusion and Clearance\n<|id|>163<|page|>11<|box|>402 142 419 380<|content|>VIII. Approval and Clearance\n<|id|>165<|page|>11<|box|>473 142 489 388<|content|>Responsible Partner Approval:\n<|id|>178<|page|>11<|box|>738 143 753 297<|content|>Distribution Notice",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>23<|level|>2\n<|id|>32<|level|>1\n<|id|>34<|level|>2\n<|id|>36<|level|>3\n<|id|>44<|level|>3\n<|id|>52<|level|>3\n<|id|>60<|level|>3\n<|id|>68<|level|>3\n<|id|>76<|level|>3\n<|id|>84<|level|>2\n<|id|>85<|level|>3\n<|id|>92<|level|>2\n<|id|>93<|level|>3\n<|id|>99<|level|>2\n<|id|>100<|level|>3\n<|id|>106<|level|>2\n<|id|>107<|level|>3\n<|id|>113<|level|>2\n<|id|>119<|level|>1\n<|id|>121<|level|>2\n<|id|>127<|level|>2\n<|id|>133<|level|>2\n<|id|>139<|level|>1\n<|id|>150<|level|>1\n<|id|>158<|level|>1\n<|id|>163<|level|>1\n<|id|>165<|level|>2\n<|id|>178<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 1
+        }
+    ]
+}

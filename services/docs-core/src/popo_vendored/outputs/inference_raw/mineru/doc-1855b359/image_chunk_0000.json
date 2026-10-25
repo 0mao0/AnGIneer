@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 210 141 785<|content|>RISK FACTORS — ENVIRONMENTAL, SOCIAL AND GOVERNANC\n<|id|>8<|type|>title<|page|>1<|box|>443 142 459 290<|content|>Introductory Note\n<|id|>13<|type|>title<|page|>2<|box|>285 140 321 844<|content|>Risk Factor 1: Climate-Transition Risk — Regulator\n<|id|>24<|type|>title<|page|>5<|box|>204 140 258 848<|content|>Risk Factor 2: Climate-Transition Risk — Dunmore's\n<|id|>26<|type|>table<|page|>5<|box|>464 143 539 852<|content|>None\n<|id|>36<|type|>title<|page|>7<|box|>90 140 126 828<|content|>Risk Factor 3: Physical Climate Risk — Dunmore's O\n<|id|>45<|type|>title<|page|>8<|box|>612 140 648 833<|content|>Risk Factor 4: Evolving ESG Regulatory and Disclos\n<|id|>53<|type|>title<|page|>10<|box|>204 140 239 820<|content|>Risk Factor 5: Reputational Risk — Negative ESG Pe\n<|id|>63<|type|>title<|page|>11<|box|>530 140 566 803<|content|>Risk Factor 6: Environmental Remediation and Decom\n<|id|>70<|type|>title<|page|>12<|box|>667 140 684 485<|content|>Risk Factor 7: ESG-Related Litigation Risk\n<|id|>81<|type|>title<|page|>13<|box|>604 140 640 844<|content|>Risk Factor 8: Social and Governance Risks — Human\n<|id|>88<|type|>title<|page|>14<|box|>821 140 838 678<|content|>Cautionary Statement Regarding Forward-Looking ESG\n<|id|>105<|type|>title<|page|>16<|box|>280 140 310 852<|content|>DRAFTING NOTES AND INTERNAL COMMENTARY — NOT FOR I",
+    "raw_response": "<|src_id|>26<|tgt_id|>24",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 24
+        }
+    ]
+}

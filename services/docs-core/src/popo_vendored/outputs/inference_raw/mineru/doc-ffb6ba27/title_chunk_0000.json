@@ -1,0 +1,50 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>12<|page|>1<|box|>794 140 811 491<|content|>Summary of Proposed Scope of Engagement\n<|id|>20<|page|>2<|box|>481 142 497 357<|content|>Declination of Engagement\n<|id|>25<|page|>3<|box|>186 140 204 692<|content|>Confirmation That No Attorney-Client Relationship\n<|id|>29<|page|>3<|box|>561 140 578 393<|content|>Referral to Alternative Counsel\n<|id|>33<|page|>4<|box|>167 140 184 349<|content|>Time-Sensitivity Advisory\n<|id|>36<|page|>4<|box|>481 140 497 308<|content|>Contact Information\n<|id|>41<|page|>4<|box|>689 140 707 210<|content|>Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>2\n<|id|>20<|level|>2\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>33<|level|>2\n<|id|>36<|level|>2\n<|id|>41<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        }
+    ]
+}

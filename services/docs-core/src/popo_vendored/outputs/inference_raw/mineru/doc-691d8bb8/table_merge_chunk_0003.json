@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['每个轮胎接地面积宽度×长度(m×m)', '0.32×0.2', '0.36×0.2', '0.22×0.2', '0.32×0.2', '0.36×0.2', '0.22×0.2', '0.32×0.2', '0.36×0.2', '0.22×0.2']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['轴线数(个)', 'colspan=3, 12', 'colspan=3, 16', 'colspan=3, 20']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 52,
+    "table2_idx": 53
+}

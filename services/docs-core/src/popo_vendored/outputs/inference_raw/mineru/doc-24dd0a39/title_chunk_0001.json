@@ -1,0 +1,59 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        47,
+        54
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        53,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>576<|page|>48<|box|>90 142 107 495<|content|>Appendix D: Software Architecture Diagram\n<|id|>578<|page|>48<|box|>176 178 193 818<|content|>Figure D-1: Solstice Lumina™ CGM System — High-Lev\n<|id|>579<|page|>48<|box|>202 387 219 609<|content|>[Block Diagram Description]\n<|id|>581<|page|>48<|box|>253 142 270 676<|content|>Block 1 — Lumina C14 Implantable Sensor (Hardware\n<|id|>586<|page|>48<|box|>468 140 503 852<|content|>Block 2 — Lumina R7 Wearable Reader/Transmitter (H\n<|id|>592<|page|>48<|box|>866 142 883 565<|content|>Block 3 — Lumina Mobile App v1.0.3 (iOS / Android)\n<|id|>598<|page|>49<|box|>297 143 314 583<|content|>Block 4 — Solstice Lumina™ Cloud Platform (Backend\n<|id|>601<|page|>49<|box|>472 142 488 315<|content|>Data Flow Summary:\n<|id|>607<|page|>50<|box|>90 140 108 635<|content|>Appendix E: Cybersecurity Threat Model Summary (ST\n<|id|>613<|page|>53<|box|>784 142 801 413<|content|>Threat Model Methodology Notes:\n<|id|>619<|page|>54<|box|>313 215 330 782<|content|>END OF SECTION 4: PROPOSED PERFORMANCE TESTING PLA\n<|id|>621<|page|>54<|box|>407 140 422 390<|content|>SOLSTICE BIOMEDICAL INC.",
+    "raw_response": "<|id|>576<|level|>1\n<|id|>578<|level|>2\n<|id|>579<|level|>3\n<|id|>581<|level|>3\n<|id|>586<|level|>3\n<|id|>592<|level|>3\n<|id|>598<|level|>3\n<|id|>601<|level|>3\n<|id|>607<|level|>1\n<|id|>613<|level|>2\n<|id|>619<|level|>-1\n<|id|>621<|level|>-1",
+    "parsed": [
+        {
+            "id": 576,
+            "level": 1
+        },
+        {
+            "id": 578,
+            "level": 2
+        },
+        {
+            "id": 579,
+            "level": 3
+        },
+        {
+            "id": 581,
+            "level": 3
+        },
+        {
+            "id": 586,
+            "level": 3
+        },
+        {
+            "id": 592,
+            "level": 3
+        },
+        {
+            "id": 598,
+            "level": 3
+        },
+        {
+            "id": 601,
+            "level": 3
+        },
+        {
+            "id": 607,
+            "level": 1
+        },
+        {
+            "id": 613,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Ingrid Baumann', 'COO', \"Age 46. Ms. Baumann has been with Halcyon for 18 years, joining in 2008 as a process engineer. She was appointed Vice President of Manufacturing in 2016 and was named Chief Operating Officer in 2022. Ms. Baumann holds a Diplom-Ingenieur degree in process engineering from RWTH Aachen and has led the construction and ramp-up of the Company's Fab 2\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'facility in Dresden.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 248,
+    "table2_idx": 249
+}

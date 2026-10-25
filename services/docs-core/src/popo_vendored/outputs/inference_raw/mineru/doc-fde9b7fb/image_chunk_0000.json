@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 285 125 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>159 143 398 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>465 248 484 748<|content|>NOTICE OF DEPOSITION OF DEFENDANT RAJIV ANAND\n<|id|>3<|type|>title<|page|>1<|box|>527 142 544 638<|content|>TO ALL PARTIES AND THEIR ATTORNEYS OF RECORD:\n<|id|>6<|type|>title<|page|>1<|box|>782 142 799 423<|content|>I. DEPONENT IDENTIFICATION\n<|id|>9<|type|>title<|page|>2<|box|>220 140 237 576<|content|>II. DATE, TIME, AND LOCATION OF DEPOSITION\n<|id|>16<|type|>title<|page|>2<|box|>614 140 633 406<|content|>III. MANNER OF RECORDING\n<|id|>20<|type|>title<|page|>3<|box|>183 140 200 406<|content|>IV. SCOPE OF EXAMINATION\n<|id|>37<|type|>title<|page|>5<|box|>363 140 380 772<|content|>V. DOCUMENT PRODUCTION REQUEST ACCOMPANYING DEPOSI\n<|id|>48<|type|>title<|page|>6<|box|>481 140 498 550<|content|>VI. COMPLIANCE WITH PROTECTIVE ORDER\n<|id|>51<|type|>title<|page|>6<|box|>791 140 808 403<|content|>VII. SERVICE INFORMATION\n<|id|>58<|type|>title<|page|>7<|box|>273 212 290 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>64<|type|>title<|page|>7<|box|>417 406 434 589<|content|>PROOF OF SERVICE\n<|id|>65<|type|>title<|page|>7<|box|>478 140 494 625<|content|>STATE OF CALIFORNIA, COUNTY OF SAN FRANCISCO\n<|id|>66<|type|>title<|page|>7<|box|>503 140 521 446<|content|>I, Danielle K. Okafor, declare as follows:\n<|id|>69<|type|>title<|page|>7<|box|>618 248 635 750<|content|>NOTICE OF DEPOSITION OF DEFENDANT RAJIV ANAND",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-hpojtznl\\input\\pdfs\\doc-92459210.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-hpojtznl\\enriched\\doc-92459210.json",
+    "contd_output": "",
+    "title_output": "<|id|>90<|level|>1\n<|id|>111<|level|>2\n<|id|>117<|level|>2",
+    "image_output": "<|src_id|>85<|tgt_id|>90\n<|src_id|>93<|tgt_id|>90",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 85,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 90
+        }
+    ],
+    "table_merge_candidates": []
+}

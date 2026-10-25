@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>152 140 170 464<|content|>VIA FIRST CLASS MAIL AND EMAIL\n<|id|>4<|page|>1<|box|>223 174 285 852<|content|>Re: Arbor Health Technologies Inc. v. Desmond R. F\n<|id|>5<|page|>1<|box|>294 140 310 295<|content|>Dear Ms. Whitfield:\n<|id|>10<|page|>2<|box|>90 140 107 480<|content|>Background — The Separation Agreement\n<|id|>29<|page|>3<|box|>648 140 667 560<|content|>I. Breaches of the Non-Disparagement Covenant (§ 6\n<|id|>31<|page|>3<|box|>779 142 797 316<|content|>A. Social Media Posts\n<|id|>37<|page|>4<|box|>638 142 655 336<|content|>B. Podcast Appearances\n<|id|>42<|page|>5<|box|>377 140 393 527<|content|>II. Breaches of the Confidentiality Covenant (§ 7)\n<|id|>49<|page|>6<|box|>366 140 383 622<|content|>III. Breaches of the Non-Solicitation of Clients C\n<|id|>62<|page|>7<|box|>703 140 719 650<|content|>IV. Breaches of the Non-Solicitation of Employees\n<|id|>68<|page|>8<|box|>348 140 364 341<|content|>V. Summary of Damages\n<|id|>73<|page|>9<|box|>90 140 107 251<|content|>VI. Demands\n<|id|>80<|page|>10<|box|>90 140 107 447<|content|>VII. Consequences of Non-Compliance\n<|id|>93<|page|>11<|box|>90 142 107 315<|content|>Reservation of Rights",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>4<|level|>1\n<|id|>5<|level|>-1\n<|id|>10<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>3\n<|id|>37<|level|>3\n<|id|>42<|level|>2\n<|id|>49<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>73<|level|>2\n<|id|>80<|level|>2\n<|id|>93<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        }
+    ]
+}

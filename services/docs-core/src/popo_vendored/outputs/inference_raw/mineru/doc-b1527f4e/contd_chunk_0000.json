@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        64
+    ],
+    "pages": [
+        1,
+        6,
+        8,
+        10,
+        16,
+        20,
+        24,
+        28,
+        30,
+        40,
+        63,
+        64
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>164 432 185 566<|content|>March 1978\n<|id|>3<|page|>1<|box|>843 152 881 611<|content|>DEPARTMENT OF THE TREASURY WASHINGTON, D. ... C\n<|id|>16<|page|>6<|box|>150 152 180 852<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FUNDS Page\n<|id|>17<|page|>6<|box|>189 135 274 852<|content|>GOVERNMENT CORPORATIONS AND OTHER BUSINESS-TYPE ACTIVITIES GA-I-1. ... 226\n<|id|>40<|page|>8<|box|>269 123 394 471<|content|>Tenders are received at Federal Reserve banks and ...ent submitted and the actual issue price as deter-\n<|id|>41<|page|>8<|box|>402 123 469 470<|content|>mined in the auction. ... No deposit need accompan...ranches, or for definitive bills, where authorized\n<|id|>61<|page|>10<|box|>307 133 317 478<|content|>7/ As of July 1974, balances shown under \"Within general accounts of the\n<|id|>68<|page|>10<|box|>300 508 310 689<|content|>r Revised. ... Not available\n<|id|>91<|page|>16<|box|>193 467 206 560<|content|>(In millions of dollars)\n<|id|>96<|page|>20<|box|>125 142 282 497<|content|>\"Obligations\" are the basis on which the use of fu...r transactions requiring the disbursement of money\n<|id|>99<|page|>20<|box|>458 171 469 497<|content|>Obligations are classified according to a uniform set\n<|id|>100<|page|>20<|box|>234 513 335 864<|content|>Federal agencies and firms often do business with ...es FO-2, 3, and 4 show only those incurred outside\n<|id|>112<|page|>24<|box|>233 122 329 478<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>113<|page|>24<|box|>148 500 202 855<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>126<|page|>28<|box|>755 135 847 506<|content|>Note: ... Beginning with data for December 31, 1958, the computation is based on\n<|id|>127<|page|>28<|box|>771 512 780 687<|content|>2/ Excludes Federal Financing Bank. ... 2/ Excludes Federal Financing Bank\n<|id|>135<|page|>30<|box|>737 129 844 489<|content|>1/ Consists of Government National Mortgage Associ... Overseas Private Investment Corporation beginning\n<|id|>136<|page|>30<|box|>715 526 829 861<|content|>February 1975. ... Less than \\$500,000\n<|id|>190<|page|>40<|box|>174 513 181 666<|content|>18/ Except \\$1,170,000 at 96. ... 815\n<|id|>206<|page|>40<|box|>299 512 307 577<|content|>r Revised. ... r Revised\n<|id|>383<|page|>63<|box|>108 331 120 652<|content|>Other than Regular Weekly Treasury Bills—Continued\n<|id|>384<|page|>63<|box|>123 416 133 551<|content|>(Dollar amounts in millions)\n<|id|>386<|page|>64<|box|>114 133 123 353<|content|>1/ Original call and maturity dates are used. ... 1/ Original call and maturity dates are used",
+    "raw_response": "<|src_id|>40<|tgt_id|>41\n<|src_id|>112<|tgt_id|>113\n<|src_id|>135<|tgt_id|>136",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 136
+        }
+    ]
+}

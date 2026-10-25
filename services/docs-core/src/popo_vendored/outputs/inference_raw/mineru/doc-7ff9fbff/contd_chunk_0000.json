@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        59
+    ],
+    "pages": [
+        3,
+        4,
+        6,
+        7,
+        11,
+        12,
+        16,
+        21,
+        28,
+        31,
+        34,
+        40,
+        58,
+        59
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>3<|box|>0 26 132 510<|content|>Treas. ... I\n<|id|>2<|page|>4<|box|>0 8 998 996<|content|>The quick brown fox jumps over the lazy dog. ... The quick brown fox jumps over the lazy dog\n<|id|>3<|page|>6<|box|>72 25 170 393<|content|>DEPARTMENT OF THE TREASURY FISCAL SERVICE, BUREAU ...6 OFFICIAL BUSINESS PENALTY FOR PRIVATE USE, \\$300\n<|id|>4<|page|>6<|box|>165 868 178 972<|content|>FIRST CLASS\n<|id|>6<|page|>6<|box|>744 353 770 697<|content|>Buy U. ... Savings Bonds\n<|id|>8<|page|>7<|box|>161 375 185 597<|content|>December 1981\n<|id|>10<|page|>7<|box|>929 108 978 869<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>16<|page|>11<|box|>101 69 973 890<|content|>Article - Treasury Financing Operations. ... 81\n<|id|>17<|page|>12<|box|>118 584 694 944<|content|>FCP-II-3. ... 128\n<|id|>51<|page|>16<|box|>57 402 70 612<|content|>Footnotes to Table FFO-1\n<|id|>52<|page|>16<|box|>141 73 159 460<|content|>Source: ... Monthly Treasury Statement of Receipts and Outlays of the United States Government\n<|id|>76<|page|>21<|box|>817 57 836 485<|content|>Note: ... Agency shifts are shown\n<|id|>77<|page|>21<|box|>799 502 809 685<|content|>1/ For content see Table FFO-4. ... 1/ For content see Table FFO-4\n<|id|>102<|page|>28<|box|>90 268 104 792<|content|>Source and Availability of the Balance in the Account of the U. ... Treasury\n<|id|>103<|page|>28<|box|>150 80 201 487<|content|>The operating cash of the Treasury is maintained i...untry authorized to maintain tax and loan accounts\n<|id|>120<|page|>31<|box|>780 40 791 434<|content|>4/ Excludes Currency and Coin held by the Treasury and Currency and\n<|id|>121<|page|>31<|box|>782 460 791 534<|content|>r Revised. ... r Revised\n<|id|>128<|page|>34<|box|>666 68 791 497<|content|>Source: ... Emergency Loan Guarantee fund Comptroller\n<|id|>129<|page|>34<|box|>666 512 808 929<|content|>of the Currency assessment fund; ... * Less than \\$500,000\n<|id|>150<|page|>40<|box|>314 113 332 497<|content|>6/ Consists of liabilities taken over by the Assoc...cordance with the act approved August 2, 1954, and\n<|id|>151<|page|>40<|box|>109 560 135 938<|content|>notes issued by the Association under authority of...ferred from the Reconstruction Finance Corporation\n<|id|>187<|page|>58<|box|>96 355 110 682<|content|>Issued to Residents of Foreign Countries\n<|id|>189<|page|>59<|box|>91 28 164 438<|content|>Series EE and HH Bonds, on sale since January 1, 1...of the Treasury for fiscal years 1966 through 1980",
+    "raw_response": "<|src_id|>120<|tgt_id|>121\n<|src_id|>128<|tgt_id|>129\n<|src_id|>150<|tgt_id|>151",
+    "parsed": [
+        {
+            "src_id": 120,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        }
+    ]
+}

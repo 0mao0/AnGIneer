@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 143 125 852<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>2<|page|>1<|box|>349 189 402 807<|content|>DEFENDANT NEXFORD INDUSTRIAL HOLDINGS INC.'S RESPO\n<|id|>4<|page|>1<|box|>521 142 539 308<|content|>I. INTRODUCTION\n<|id|>10<|page|>2<|box|>364 140 383 674<|content|>II. RELEVANT FACTUAL AND PROCEDURAL BACKGROUND\n<|id|>11<|page|>2<|box|>397 142 414 483<|content|>A. Plaintiff's Employment and Termination\n<|id|>21<|page|>3<|box|>547 140 564 439<|content|>B. The Complaint and This Litigation\n<|id|>28<|page|>4<|box|>239 140 255 308<|content|>C. Discovery to Date\n<|id|>41<|page|>5<|box|>138 140 157 393<|content|>D. Plaintiff's Motion to Compel\n<|id|>45<|page|>5<|box|>493 140 510 346<|content|>III. LEGAL STANDARD\n<|id|>50<|page|>6<|box|>277 140 294 285<|content|>IV. ARGUMENT\n<|id|>51<|page|>6<|box|>309 140 325 787<|content|>A. Plaintiff's Request Is Overbroad and Disproport\n<|id|>58<|page|>7<|box|>429 140 465 854<|content|>B. Nexford Has Already Produced Comprehensive Docu\n<|id|>64<|page|>8<|box|>330 140 348 687<|content|>C. The Request Invades the Privacy Interests of No\n<|id|>72<|page|>9<|box|>349 140 366 730<|content|>D. Plaintiff's Request Fails to Meet the Threshold\n<|id|>79<|page|>10<|box|>402 140 439 854<|content|>E. If the Court Is Inclined to Permit Any Comparat\n<|id|>88<|page|>11<|box|>330 140 348 714<|content|>F. Plaintiff's Own discovery Defaults Weigh Agains\n<|id|>94<|page|>12<|box|>89 140 106 292<|content|>V. CONCLUSION\n<|id|>105<|page|>12<|box|>659 375 676 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>21<|level|>3\n<|id|>28<|level|>3\n<|id|>41<|level|>3\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>58<|level|>3\n<|id|>64<|level|>3\n<|id|>72<|level|>3\n<|id|>79<|level|>3\n<|id|>88<|level|>3\n<|id|>94<|level|>2\n<|id|>105<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        }
+    ]
+}

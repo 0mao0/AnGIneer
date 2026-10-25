@@ -1,0 +1,140 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>137 352 157 643<|content|>Entity Classification Election\n<|id|>2<|page|>1<|box|>175 287 193 709<|content|>Department of the Treasury Internal Revenue Servic\n<|id|>6<|page|>1<|box|>344 334 362 663<|content|>PART I — ELECTION INFORMATION\n<|id|>7<|page|>1<|box|>376 140 393 423<|content|>Line 1 — Check the Applicable box\n<|id|>16<|page|>1<|box|>813 140 830 674<|content|>Line 2 — Information About the Eligible Entity Mak\n<|id|>20<|page|>2<|box|>89 176 108 277<|content|>Applied For\n<|id|>22<|page|>2<|box|>233 140 270 854<|content|>Line 2c — Address (Including Suite, Room, or Other\n<|id|>25<|page|>2<|box|>402 140 420 424<|content|>Line 2d — Country of Organization\n<|id|>27<|page|>2<|box|>459 140 477 336<|content|>Line 3 — Type of Entity\n<|id|>28<|page|>2<|box|>483 140 500 348<|content|>Check the applicable box:\n<|id|>31<|page|>2<|box|>748 140 784 854<|content|>Line 4 — Was the Eligible Entity Previously Classi\n<|id|>35<|page|>3<|box|>157 140 175 666<|content|>Line 5 — Election Is To Be Effective Beginning (Mo\n<|id|>36<|page|>3<|box|>180 176 199 336<|content|>September 15, 2025\n<|id|>41<|page|>3<|box|>650 140 667 651<|content|>Line 6 — Entity's Federal Tax Classification Prior\n<|id|>42<|page|>3<|box|>674 176 691 303<|content|>Not Applicable.\n<|id|>45<|page|>4<|box|>138 140 179 602<|content|>Line 7 — Was Form 8832 Previously Filed for This E\n<|id|>47<|page|>4<|box|>266 336 282 658<|content|>PART II — LATE ELECTION RELIEF\n<|id|>48<|page|>4<|box|>292 142 309 374<|content|>This section is not applicable.\n<|id|>51<|page|>5<|box|>89 253 106 743<|content|>PART III — CONSENT STATEMENT AND SIGNATURE(S)\n<|id|>52<|page|>5<|box|>121 140 138 344<|content|>Consent of Each Member\n<|id|>55<|page|>5<|box|>402 140 420 437<|content|>Statement Under Penalties of Perjury\n<|id|>68<|page|>6<|box|>148 297 166 697<|content|>ATTACHMENT — SUPPORTING STATEMENT\n<|id|>69<|page|>6<|box|>175 303 191 694<|content|>Filed Pursuant to the Instructions for IRS Form 88\n<|id|>70<|page|>6<|box|>205 140 224 514<|content|>I. Description of Entity and Purpose of Election\n<|id|>77<|page|>7<|box|>367 140 383 727<|content|>II. Relationship to Other Entity Classification El\n<|id|>83<|page|>8<|box|>89 140 107 473<|content|>III. Confirmation of Eligible Entity Status\n<|id|>88<|page|>8<|box|>542 282 560 714<|content|>FILING INSTRUCTIONS AND MAILING ADDRESS\n<|id|>89<|page|>8<|box|>574 140 590 254<|content|>Where to File\n<|id|>91<|page|>8<|box|>641 176 659 500<|content|>Internal Revenue Service Ogden, UT 84201\n<|id|>94<|page|>9<|box|>90 143 108 274<|content|>Timing of Filing\n<|id|>99<|page|>9<|box|>301 142 318 321<|content|>Coordination of Filing\n<|id|>104<|page|>9<|box|>503 248 520 748<|content|>INTERNAL CALDERWOOD & HARKNESS COVER NOTES\n<|id|>105<|page|>9<|box|>529 140 570 816<|content|>THIS PAGE IS NOT PART OF THE IRS FILING AND IS FOR\n<|id|>107<|page|>9<|box|>818 142 834 482<|content|>Cross-References to Related Work Product\n<|id|>110<|page|>10<|box|>440 140 457 274<|content|>Filing Checklist.",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>6<|level|>2\n<|id|>7<|level|>3\n<|id|>16<|level|>3\n<|id|>20<|level|>4\n<|id|>22<|level|>4\n<|id|>25<|level|>4\n<|id|>27<|level|>3\n<|id|>28<|level|>4\n<|id|>31<|level|>3\n<|id|>35<|level|>3\n<|id|>36<|level|>-1\n<|id|>41<|level|>3\n<|id|>42<|level|>-1\n<|id|>45<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>-1\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>55<|level|>3\n<|id|>68<|level|>1\n<|id|>69<|level|>-1\n<|id|>70<|level|>2\n<|id|>77<|level|>2\n<|id|>83<|level|>2\n<|id|>88<|level|>1\n<|id|>89<|level|>2\n<|id|>91<|level|>-1\n<|id|>94<|level|>2\n<|id|>99<|level|>2\n<|id|>104<|level|>1\n<|id|>105<|level|>-1\n<|id|>107<|level|>2\n<|id|>110<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 4
+        },
+        {
+            "id": 22,
+            "level": 4
+        },
+        {
+            "id": 25,
+            "level": 4
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 4
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,183 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-z69e0ota\\input\\pdfs\\doc-f37a0528.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-z69e0ota\\enriched\\doc-f37a0528.json",
+    "contd_output": "<|src_id|>87<|tgt_id|>88",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>20<|level|>2\n<|id|>35<|level|>2\n<|id|>41<|level|>1\n<|id|>49<|level|>1\n<|id|>51<|level|>2\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>64<|level|>1\n<|id|>65<|level|>2\n<|id|>70<|level|>2\n<|id|>73<|level|>2\n<|id|>76<|level|>2\n<|id|>79<|level|>1\n<|id|>84<|level|>1\n<|id|>90<|level|>1\n<|id|>93<|level|>1\n<|id|>96<|level|>1\n<|id|>100<|level|>1\n<|id|>104<|level|>1\n<|id|>116<|level|>1\n<|id|>127<|level|>1\n<|id|>132<|level|>1\n<|id|>133<|level|>2\n<|id|>136<|level|>3\n<|id|>139<|level|>1\n<|id|>140<|level|>2",
+    "image_output": "<|src_id|>67<|tgt_id|>65\n<|src_id|>135<|tgt_id|>133\n<|src_id|>137<|tgt_id|>136\n<|src_id|>142<|tgt_id|>140\n<|src_id|>143<|tgt_id|>140",
+    "contd_label": [
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 67,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 133
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 136
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 140
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 142,
+            "table2_idx": 143,
+            "upper_row_ss": [
+                [
+                    "Elaine Forsythe",
+                    "Partner",
+                    "2005",
+                    "$1,375 per hour"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Brendan Walsh",
+                    "Associate",
+                    "2018",
+                    "$825 per hour"
+                ]
+            ]
+        }
+    ]
+}

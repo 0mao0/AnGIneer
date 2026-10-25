@@ -1,0 +1,195 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-x10jufuu\\input\\pdfs\\doc-53a8fc80.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-x10jufuu\\enriched\\doc-53a8fc80.json",
+    "contd_output": "<|src_id|>30<|tgt_id|>31\n<|src_id|>76<|tgt_id|>77",
+    "title_output": "<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>2\n<|id|>36<|level|>2\n<|id|>42<|level|>2\n<|id|>47<|level|>2\n<|id|>52<|level|>1\n<|id|>64<|level|>1\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>85<|level|>2\n<|id|>88<|level|>2\n<|id|>95<|level|>2\n<|id|>97<|level|>2\n<|id|>99<|level|>2\n<|id|>101<|level|>1\n<|id|>103<|level|>2\n<|id|>108<|level|>2\n<|id|>119<|level|>2\n<|id|>123<|level|>1\n<|id|>134<|level|>1\n<|id|>135<|level|>2\n<|id|>139<|level|>1\n<|id|>140<|level|>2",
+    "image_output": "<|src_id|>137<|tgt_id|>135\n<|src_id|>138<|tgt_id|>135\n<|src_id|>142<|tgt_id|>140\n<|src_id|>143<|tgt_id|>140",
+    "contd_label": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 137,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 140
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 137,
+            "table2_idx": 138,
+            "upper_row_ss": [
+                [
+                    "2.",
+                    "Equity Commitment Letter from Solara Digital Infrastructure Fund",
+                    "January 22, 2024"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "VI LP to Stratos Merger Sub Inc. ($2,832,888,096)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 142,
+            "table2_idx": 143,
+            "upper_row_ss": [
+                [
+                    "12.",
+                    "Secretary's Certificate of Solara Digital Infrastructure Fund VI LP (closing deliverable)",
+                    "July 9, 2024"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "13.",
+                    "Secretary's Certificate of Stratos Merger Sub Inc. (closing deliverable)",
+                    "July 9, 2024"
+                ]
+            ]
+        }
+    ]
+}

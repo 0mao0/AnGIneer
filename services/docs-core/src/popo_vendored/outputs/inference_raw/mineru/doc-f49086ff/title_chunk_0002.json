@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        92,
+        96
+    ],
+    "pages": [
+        93,
+        95,
+        96
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>899<|page|>93<|box|>89 140 107 645<|content|>SCHEDULE 4 — COLLATERAL DESCRIPTION SUMMARY\n<|id|>900<|page|>93<|box|>114 140 133 650<|content|>I. U.S. Collateral (governed by the laws of the St\n<|id|>905<|page|>93<|box|>410 142 428 763<|content|>II. Nigerian Collateral (governed by the laws of t\n<|id|>915<|page|>93<|box|>648 142 667 669<|content|>III. English Collateral (governed by the laws of E\n<|id|>918<|page|>93<|box|>763 142 781 723<|content|>IV. Senegalese Collateral (governed by the laws of\n<|id|>927<|page|>95<|box|>89 142 106 547<|content|>SCHEDULE 5 — SECURITY DOCUMENTS LIST\n<|id|>930<|page|>95<|box|>747 408 763 588<|content|>SIGNATURE PAGES\n<|id|>932<|page|>95<|box|>816 460 833 535<|content|>ISSUER:\n<|id|>940<|page|>96<|box|>159 442 175 553<|content|>CO-ISSUER:\n<|id|>945<|page|>96<|box|>253 428 270 568<|content|>GUARANTORS:\n<|id|>970<|page|>96<|box|>691 330 709 666<|content|>TRUSTEE AND COLLATERAL AGENT:",
+    "raw_response": "<|id|>899<|level|>1\n<|id|>900<|level|>2\n<|id|>905<|level|>2\n<|id|>915<|level|>2\n<|id|>918<|level|>2\n<|id|>927<|level|>1\n<|id|>930<|level|>1\n<|id|>932<|level|>2\n<|id|>940<|level|>2\n<|id|>945<|level|>2\n<|id|>970<|level|>2",
+    "parsed": [
+        {
+            "id": 899,
+            "level": 1
+        },
+        {
+            "id": 900,
+            "level": 2
+        },
+        {
+            "id": 905,
+            "level": 2
+        },
+        {
+            "id": 915,
+            "level": 2
+        },
+        {
+            "id": 918,
+            "level": 2
+        },
+        {
+            "id": 927,
+            "level": 1
+        },
+        {
+            "id": 930,
+            "level": 1
+        },
+        {
+            "id": 932,
+            "level": 2
+        },
+        {
+            "id": 940,
+            "level": 2
+        },
+        {
+            "id": 945,
+            "level": 2
+        },
+        {
+            "id": 970,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>42 156 71 838<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>2<|page|>1<|box|>172 424 189 573<|content|>MEMORANDUM\n<|id|>11<|page|>1<|box|>515 385 534 611<|content|>I. Executive Summary\n<|id|>18<|page|>2<|box|>561 419 580 576<|content|>II. Background\n<|id|>19<|page|>2<|box|>606 140 625 282<|content|>A. The Litigation\n<|id|>28<|page|>3<|box|>768 140 785 413<|content|>B. Pre-Litigation Patent Valuation\n<|id|>33<|page|>4<|box|>494 140 511 450<|content|>C. Vantage Point's Investment Position\n<|id|>37<|page|>5<|box|>136 210 155 785<|content|>III. Summary of the Markman Order (February 17, 20\n<|id|>42<|page|>5<|box|>835 140 853 696<|content|>A. '567 Patent — \"Adiabatically Coupled\" (U.S. Pat\n<|id|>52<|page|>7<|box|>89 140 126 820<|content|>B. '234 Patent — \"Continuously Varying Germanium C\n<|id|>61<|page|>8<|box|>89 140 107 700<|content|>C. '678 Patent — \"Monolithically Formed\" (U.S. Pat\n<|id|>71<|page|>9<|box|>89 140 107 633<|content|>D. '890 Patent — \"Co-Integrated\" (U.S. Patent No.\n<|id|>81<|page|>10<|box|>215 343 236 653<|content|>IV. Impact on Litigation Value\n<|id|>82<|page|>10<|box|>261 140 279 437<|content|>A. Infringement Viability Assessment\n<|id|>89<|page|>11<|box|>148 140 167 341<|content|>B. Damages Implications\n<|id|>94<|page|>11<|box|>789 140 805 450<|content|>C. Revised Expected Value Calculation\n<|id|>101<|page|>12<|box|>549 297 569 697<|content|>V. Impact on Patent Portfolio Valuation\n<|id|>102<|page|>12<|box|>594 140 611 377<|content|>A. The Four Asserted Patents\n<|id|>107<|page|>13<|box|>377 140 393 408<|content|>B. Broader Portfolio Implications\n<|id|>112<|page|>14<|box|>167 140 185 367<|content|>C. IP Monetization Strategy\n<|id|>117<|page|>14<|box|>719 187 739 808<|content|>VI. Impact on OWS Enterprise Value and Exit Consid\n<|id|>125<|page|>16<|box|>90 313 111 683<|content|>VII. Recommended Course of Action\n<|id|>126<|page|>16<|box|>136 140 154 254<|content|>A. Settlement\n<|id|>134<|page|>16<|box|>743 142 760 341<|content|>B. Portfolio Remediation\n<|id|>144<|page|>17<|box|>642 140 659 356<|content|>C. Lender Communication\n<|id|>150<|page|>18<|box|>167 140 185 408<|content|>D. Lessons for Future IP Strategy\n<|id|>154<|page|>18<|box|>638 411 659 584<|content|>VIII. Conclusion\n<|id|>165<|page|>19<|box|>561 437 580 560<|content|>Appendices",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>11<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>28<|level|>3\n<|id|>33<|level|>3\n<|id|>37<|level|>2\n<|id|>42<|level|>3\n<|id|>52<|level|>3\n<|id|>61<|level|>3\n<|id|>71<|level|>3\n<|id|>81<|level|>2\n<|id|>82<|level|>3\n<|id|>89<|level|>3\n<|id|>94<|level|>3\n<|id|>101<|level|>2\n<|id|>102<|level|>3\n<|id|>107<|level|>3\n<|id|>112<|level|>3\n<|id|>117<|level|>2\n<|id|>125<|level|>2\n<|id|>126<|level|>3\n<|id|>134<|level|>3\n<|id|>144<|level|>3\n<|id|>150<|level|>3\n<|id|>154<|level|>2\n<|id|>165<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        }
+    ]
+}

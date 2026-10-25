@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 5', 'rowspan=3, 表面平整度(mm)', '片石', '≤35', 'rowspan=3, 2m直尺:每20m测3处,每处测竖直、水平两个方向']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['1', 'colspan=2, 顶面高程(mm)', '±30', '水准仪:长度不大于30m时测5点,每增加10m增加1点']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 399,
+    "table2_idx": 400
+}

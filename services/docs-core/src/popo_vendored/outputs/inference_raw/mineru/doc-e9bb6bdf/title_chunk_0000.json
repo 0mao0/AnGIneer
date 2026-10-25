@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 341 118 656<|content|>SIDE LETTER AGREEMENT\n<|id|>1<|page|>1<|box|>136 271 154 727<|content|>Reduction of Management Fee During Wind-Down Perio\n<|id|>6<|page|>1<|box|>378 140 396 243<|content|>RECITALS\n<|id|>7<|page|>1<|box|>405 140 422 246<|content|>WHEREAS:\n<|id|>15<|page|>2<|box|>518 140 537 390<|content|>SECTION 1 — DEFINITIONS\n<|id|>28<|page|>3<|box|>308 142 325 738<|content|>1.5 \"Reduced Management Fee\" has the meaning set f\n<|id|>30<|page|>3<|box|>429 140 446 589<|content|>SECTION 2 — REDUCTION OF MANAGEMENT FEE\n<|id|>31<|page|>3<|box|>460 140 478 287<|content|>2.1 Reduced Rate.\n<|id|>34<|page|>3<|box|>797 140 814 416<|content|>2.2 Supersession of LPA Provision.\n<|id|>37<|page|>4<|box|>275 140 292 393<|content|>2.3 No Other Fee Modifications.\n<|id|>39<|page|>4<|box|>449 140 465 511<|content|>SECTION 3 — INVOICING AND PAYMENT\n<|id|>40<|page|>4<|box|>481 142 498 323<|content|>3.1 Monthly Invoicing.\n<|id|>46<|page|>4<|box|>840 140 857 545<|content|>3.2 Payment from Partnership Operating Accounts.\n<|id|>50<|page|>5<|box|>390 140 407 279<|content|>3.4 Audit Rights.\n<|id|>52<|page|>5<|box|>655 140 672 782<|content|>SECTION 4 — PINNACLE'S OBLIGATIONS DURING WIND-DOW\n<|id|>60<|page|>6<|box|>689 140 705 403<|content|>SECTION 5 — TERMINATION\n<|id|>64<|page|>7<|box|>229 140 247 640<|content|>SECTION 6 — RELATIONSHIP TO OTHER AGREEMENTS\n<|id|>65<|page|>7<|box|>261 140 279 364<|content|>6.1 Wind-Down Agreement.\n<|id|>68<|page|>7<|box|>585 140 602 326<|content|>6.3 Escrow Agreement.\n<|id|>70<|page|>7<|box|>777 140 794 694<|content|>SECTION 7 — REPRESENTATIONS AND ACKNOWLEDGMENTS\n<|id|>71<|page|>7<|box|>808 140 825 736<|content|>7.1 Authority. Each Party hereby represents and wa\n<|id|>78<|page|>8<|box|>463 142 479 496<|content|>7.2 Acknowledgment of Wind-Down Context.\n<|id|>80<|page|>8<|box|>691 140 708 475<|content|>SECTION 8 — GENERAL PROVISIONS\n<|id|>81<|page|>8<|box|>723 140 739 300<|content|>8.1 Governing Law.\n<|id|>85<|page|>9<|box|>291 176 306 310<|content|>If to Briarwood:\n<|id|>99<|page|>9<|box|>842 140 859 320<|content|>8.6 Entire Agreement.\n<|id|>102<|page|>10<|box|>176 140 193 357<|content|>8.7 Successors and Assigns.\n<|id|>105<|page|>10<|box|>473 361 489 637<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>107<|page|>10<|box|>542 142 559 457<|content|>BRIARWOOD FAMILY OFFICE LLC\n<|id|>117<|page|>10<|box|>715 142 732 339<|content|>ACKNOWLEDGMENT\n<|id|>119<|page|>10<|box|>804 142 819 483<|content|>GREYSTONE REALTY PARTNERS, L.P.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>6<|level|>2\n<|id|>7<|level|>-1\n<|id|>15<|level|>2\n<|id|>28<|level|>3\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>34<|level|>3\n<|id|>37<|level|>3\n<|id|>39<|level|>2\n<|id|>40<|level|>3\n<|id|>46<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>68<|level|>3\n<|id|>70<|level|>2\n<|id|>71<|level|>3\n<|id|>78<|level|>3\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>85<|level|>-1\n<|id|>99<|level|>3\n<|id|>102<|level|>3\n<|id|>105<|level|>-1\n<|id|>107<|level|>-1\n<|id|>117<|level|>2\n<|id|>119<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        }
+    ]
+}

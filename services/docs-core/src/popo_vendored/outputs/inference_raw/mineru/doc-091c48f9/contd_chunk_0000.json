@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        7,
+        10,
+        11,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>142 140 176 854<|content|>FROM: ... Elaine Forsythe, Specialist Partner, Antitrust & Competition, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>186 140 239 854<|content|>TO: ... Priya Narasimhan (Co-Managing Partner & CIO, Solara Digital Infrastructure LP)\n<|id|>4<|page|>1<|box|>248 140 284 854<|content|>CC: ... Fiona McAllister (Lead Partner, UK Competition, Albright & Kerr LLP)\n<|id|>5<|page|>1<|box|>292 140 310 307<|content|>DATE: ... April 3, 2024\n<|id|>6<|page|>1<|box|>318 140 354 852<|content|>RE: ... ME/7184/24\n<|id|>7<|page|>1<|box|>362 140 378 362<|content|>MATTER NO. ... 1041-00003\n<|id|>60<|page|>7<|box|>393 174 449 856<|content|>(ii) Customer relationship management (CRM) softwa...delivered via cloud-native SaaS platforms; ... and\n<|id|>62<|page|>7<|box|>520 140 611 856<|content|>The CMA noted a meaningful distinction between tra...t, which is the segment in which Cloudium operates\n<|id|>93<|page|>10<|box|>777 174 905 857<|content|>1. ... Voting/Support Agreements have been executed by\n<|id|>94<|page|>11<|box|>90 174 219 856<|content|>Jonathan Hargrove (approximately 4. ... Blackthorn...the stockholder outreach and solicitation campaign\n<|id|>116<|page|>13<|box|>821 174 876 857<|content|>2. ... 1(b) of the Merger\n<|id|>117<|page|>14<|box|>90 176 127 854<|content|>Agreement (or the equivalent regulatory condition ...ition approvals are required to proceed to closing\n<|id|>126<|page|>14<|box|>869 140 905 856<|content|>This memorandum is privileged and confidential att...ts representation of Solara Digital Infrastructure\n<|id|>127<|page|>15<|box|>89 140 181 856<|content|>LP and Solara Digital Infrastructure Fund VI LP in...en approval of Elaine Forsythe or Harrison Wexford\n<|id|>131<|page|>15<|box|>503 140 522 797<|content|>Elaine Forsythe Specialist Partner, Antitrust & Competition Calderwood & Harkness LLP\n<|id|>132<|page|>15<|box|>522 143 539 460<|content|>1601 K Street NW Washington, DC 20006\n<|id|>133<|page|>15<|box|>539 142 556 473<|content|>One Bartholomew Close London EC1A 7BL\n<|id|>134<|page|>15<|box|>556 140 573 486<|content|>Tel: ... +1 (202) 555-0147 / +44 (0)20 7555 0294\n<|id|>135<|page|>15<|box|>574 140 590 470<|content|>Email: ... com\n<|id|>136<|page|>15<|box|>590 140 652 854<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT ...tify the sender immediately and destroy all copies",
+    "raw_response": "<|src_id|>93<|tgt_id|>94\n<|src_id|>116<|tgt_id|>117\n<|src_id|>126<|tgt_id|>127",
+    "parsed": [
+        {
+            "src_id": 93,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 127
+        }
+    ]
+}

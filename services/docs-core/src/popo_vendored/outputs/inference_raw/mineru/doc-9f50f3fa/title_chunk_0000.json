@@ -1,0 +1,84 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>14<|page|>2<|box|>90 140 107 557<|content|>1. Indemnification Provisions (Article IX / Exhibi\n<|id|>29<|page|>4<|box|>90 140 107 447<|content|>2. Insurance Requirements (Exhibit E)\n<|id|>36<|page|>5<|box|>90 140 108 491<|content|>3. Budget and Payment Schedule (Exhibit B)\n<|id|>49<|page|>7<|box|>90 140 107 401<|content|>4. Publication Rights (Exhibit G)\n<|id|>53<|page|>7<|box|>398 140 415 638<|content|>5. Data Ownership and intellectual Property (Exhib\n<|id|>60<|page|>9<|box|>90 140 107 441<|content|>6. Regulatory Compliance (Exhibit H)\n<|id|>72<|page|>10<|box|>90 142 108 383<|content|>7. Safety Reporting (Exhibit J)\n<|id|>79<|page|>10<|box|>388 140 407 496<|content|>8. Termination and Wind-Down (Article XII)\n<|id|>82<|page|>10<|box|>633 140 652 419<|content|>9. Dispute Resolution (Article XIV)\n<|id|>89<|page|>11<|box|>338 143 354 362<|content|>10. Miscellaneous Revisions\n<|id|>94<|page|>11<|box|>724 142 741 330<|content|>Remaining Open Issues\n<|id|>102<|page|>12<|box|>521 142 537 379<|content|>Requested Response Timeline\n<|id|>105<|page|>12<|box|>779 140 795 308<|content|>Contact Information\n<|id|>108<|page|>13<|box|>90 176 106 514<|content|>Email: mcalloway@calderwoodharkness.com\n<|id|>117<|page|>13<|box|>417 143 433 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>14<|level|>1\n<|id|>29<|level|>1\n<|id|>36<|level|>1\n<|id|>49<|level|>1\n<|id|>53<|level|>1\n<|id|>60<|level|>1\n<|id|>72<|level|>1\n<|id|>79<|level|>1\n<|id|>82<|level|>1\n<|id|>89<|level|>1\n<|id|>94<|level|>1\n<|id|>102<|level|>1\n<|id|>105<|level|>1\n<|id|>108<|level|>-1\n<|id|>117<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        }
+    ]
+}

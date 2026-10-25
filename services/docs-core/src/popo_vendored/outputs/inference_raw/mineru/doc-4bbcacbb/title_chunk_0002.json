@@ -1,0 +1,50 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        95,
+        99
+    ],
+    "pages": [
+        96,
+        97,
+        98,
+        99
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>941<|page|>96<|box|>181 140 199 483<|content|>Notes to Consolidated Financial Statements\n<|id|>948<|page|>96<|box|>739 142 757 519<|content|>PINNACLE GROWTH ACQUISITION CORP.\n<|id|>949<|page|>96<|box|>771 142 789 599<|content|>Report of Independent Registered Public Accounting\n<|id|>951<|page|>96<|box|>821 142 838 413<|content|>Opinion on the Financial Statements\n<|id|>953<|page|>97<|box|>207 142 224 277<|content|>Basis for Opinion\n<|id|>957<|page|>97<|box|>494 142 508 339<|content|>/s/ Brindoval Tarvick LLP\n<|id|>965<|page|>98<|box|>324 143 340 344<|content|>Statements of Operations\n<|id|>967<|page|>98<|box|>542 143 559 509<|content|>Statements of Changes in Shareholders' Equity\n<|id|>970<|page|>99<|box|>311 140 329 377<|content|>Notes to Financial Statements\n<|id|>977<|page|>99<|box|>780 331 797 666<|content|>END OF REGISTRATION STATEMENT",
+    "raw_response": "<|id|>941<|level|>1\n<|id|>948<|level|>1\n<|id|>949<|level|>1\n<|id|>951<|level|>2\n<|id|>953<|level|>2\n<|id|>957<|level|>-1\n<|id|>965<|level|>1\n<|id|>967<|level|>1\n<|id|>970<|level|>1\n<|id|>977<|level|>-1",
+    "parsed": [
+        {
+            "id": 941,
+            "level": 1
+        },
+        {
+            "id": 948,
+            "level": 1
+        },
+        {
+            "id": 949,
+            "level": 1
+        },
+        {
+            "id": 951,
+            "level": 2
+        },
+        {
+            "id": 953,
+            "level": 2
+        },
+        {
+            "id": 965,
+            "level": 1
+        },
+        {
+            "id": 967,
+            "level": 1
+        },
+        {
+            "id": 970,
+            "level": 1
+        }
+    ]
+}

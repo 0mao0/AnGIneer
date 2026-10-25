@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 284 125 712<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>159 143 375 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>444 210 460 785<|content|>STIPULATION AND ORDER RE: CASE MANAGEMENT SCHEDULE\n<|id|>4<|type|>title<|page|>1<|box|>638 142 656 241<|content|>RECITALS\n<|id|>13<|type|>title<|page|>2<|box|>406 142 424 465<|content|>1. WRITTEN DISCOVERY — PHASE I\n<|id|>21<|type|>title<|page|>3<|box|>148 140 166 473<|content|>2. WRITTEN DISCOVERY — PHASE II\n<|id|>27<|type|>title<|page|>3<|box|>558 140 574 406<|content|>3. THIRD-PARTY DISCOVERY\n<|id|>31<|type|>title<|page|>4<|box|>89 142 106 308<|content|>4. ESI DISCOVERY\n<|id|>36<|type|>title<|page|>4<|box|>564 140 580 290<|content|>5. DEPOSITIONS\n<|id|>51<|type|>title<|page|>5<|box|>633 140 652 558<|content|>6. EXPERT DISCOVERY (PRE-CERTIFICATION)\n<|id|>60<|type|>title<|page|>7<|box|>89 140 107 573<|content|>7. CLASS CERTIFICATION BRIEFING SCHEDULE\n<|id|>68<|type|>title<|page|>7<|box|>641 140 659 477<|content|>8. POST-CERTIFICATION DEADLINES\n<|id|>78<|type|>title<|page|>8<|box|>219 140 236 506<|content|>9. ALTERNATIVE DISPUTE RESOLUTION\n<|id|>83<|type|>title<|page|>8<|box|>619 142 637 333<|content|>10. TRIAL ESTIMATE\n<|id|>86<|type|>title<|page|>9<|box|>89 142 106 380<|content|>11. GENERAL PROVISIONS\n<|id|>92<|type|>title<|page|>9<|box|>483 328 500 668<|content|>[SIGNATURES ON FOLLOWING PAGE]\n<|id|>94<|type|>title<|page|>9<|box|>569 140 585 449<|content|>CASTELLANO BYRNE & SALAS LLP\n<|id|>97<|type|>title<|page|>9<|box|>688 140 704 511<|content|>VELTRANO EMPLOYMENT LAW GROUP PC\n<|id|>100<|type|>title<|page|>9<|box|>808 140 824 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>103<|type|>title<|page|>10<|box|>87 460 107 537<|content|>ORDER",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

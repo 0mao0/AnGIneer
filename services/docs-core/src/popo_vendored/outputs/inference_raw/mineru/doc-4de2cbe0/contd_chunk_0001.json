@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        57,
+        89
+    ],
+    "pages": [
+        58,
+        76,
+        79,
+        84,
+        89
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>133<|page|>58<|box|>772 43 928 484<|content|>Note: ... Corporate bond yields are computed on the basis of closing prices on the New York Stock\n<|id|>134<|page|>58<|box|>766 531 797 994<|content|>Exchange and the American Stock Exchange (formerly...sell, the price of the last preceding sale is used\n<|id|>188<|page|>76<|box|>43 432 57 581<|content|>CAPITAL MOVEMENTS\n<|id|>189<|page|>76<|box|>66 288 81 722<|content|>Section III - Details for Month of October 1952\n<|id|>201<|page|>79<|box|>104 336 117 641<|content|>(Position at end of month in thousands of dollars)\n<|id|>207<|page|>84<|box|>374 497 596 636<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>208<|page|>89<|box|>318 309 417 380<|content|>Treas. ... 2",
+    "raw_response": "<|src_id|>133<|tgt_id|>134",
+    "parsed": [
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        }
+    ]
+}

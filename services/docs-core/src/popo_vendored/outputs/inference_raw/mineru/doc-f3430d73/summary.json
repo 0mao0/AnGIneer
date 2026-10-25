@@ -1,0 +1,237 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cqzx6mns\\input\\pdfs\\doc-f3430d73.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cqzx6mns\\enriched\\doc-f3430d73.json",
+    "contd_output": "<|src_id|>21<|tgt_id|>22\n<|src_id|>152<|tgt_id|>153",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>24<|level|>3\n<|id|>29<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>42<|level|>3\n<|id|>51<|level|>2\n<|id|>59<|level|>2\n<|id|>69<|level|>3\n<|id|>78<|level|>3\n<|id|>87<|level|>2\n<|id|>90<|level|>3\n<|id|>98<|level|>3\n<|id|>111<|level|>3\n<|id|>119<|level|>3\n<|id|>127<|level|>3\n<|id|>131<|level|>2\n<|id|>132<|level|>3\n<|id|>135<|level|>3\n<|id|>148<|level|>3\n<|id|>156<|level|>2\n<|id|>164<|level|>2\n<|id|>173<|level|>2\n<|id|>185<|level|>2\n<|id|>186<|level|>3\n<|id|>193<|level|>3\n<|id|>198<|level|>3\n<|id|>205<|level|>3\n<|id|>211<|level|>2\n<|id|>224<|level|>2",
+    "image_output": "<|src_id|>26<|tgt_id|>24\n<|src_id|>39<|tgt_id|>37\n<|src_id|>40<|tgt_id|>37\n<|src_id|>71<|tgt_id|>69\n<|src_id|>72<|tgt_id|>69\n<|src_id|>129<|tgt_id|>127\n<|src_id|>159<|tgt_id|>156",
+    "contd_label": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 198,
+            "level": 3
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 224,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 26,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 156
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 39,
+            "table2_idx": 40,
+            "upper_row_ss": [
+                [
+                    "Side-A DIC",
+                    "Harrington Specialty Insurance Co.",
+                    "Delaware",
+                    "HSI-DIC-2021-00342",
+                    "$15,000,000",
+                    "No SIR",
+                    "$224,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Total",
+                    "",
+                    "",
+                    "",
+                    "$55,000,000",
+                    "",
+                    "$1,363,450"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 71,
+            "table2_idx": 72,
+            "upper_row_ss": [
+                [
+                    "Peer D",
+                    "$1.0B–$1.5B",
+                    "$1.8B–$2.2B",
+                    "$50,000,000",
+                    "$1,375,000",
+                    "2.75%",
+                    "9",
+                    "70%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Peer E",
+                    "$2.0B–$2.5B",
+                    "$3.5B–$4.0B",
+                    "$75,000,000",
+                    "$2,850,000",
+                    "3.80%",
+                    "12",
+                    "55%"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|page|>1<|box|>325 142 343 300<|content|>Dear Mr. Nakamura:\n<|id|>14<|page|>2<|box|>321 140 358 826<|content|>I. QUORUM'S VENDOR OVERSIGHT AND THIRD-PARTY RISK\n<|id|>15<|page|>2<|box|>371 140 388 496<|content|>A. Organizational Structure and Governance\n<|id|>27<|page|>3<|box|>257 140 273 534<|content|>B. Vendor Due Diligence and Onboarding Process\n<|id|>43<|page|>4<|box|>821 140 839 444<|content|>C. Ongoing Monitoring and Oversight\n<|id|>50<|page|>6<|box|>89 140 106 767<|content|>II. PALOMAR MSA DATA SECURITY AND CONTRACTUAL PROV\n<|id|>51<|page|>6<|box|>121 140 138 460<|content|>A. Master Services Agreement Overview\n<|id|>55<|page|>6<|box|>575 140 592 328<|content|>B. Amendment History\n<|id|>60<|page|>8<|box|>90 140 107 532<|content|>C. Data Security Exhibit (Exhibit D, as Amended)\n<|id|>67<|page|>8<|box|>805 140 821 478<|content|>D. Breach Notification Clause (Section 9.4)\n<|id|>74<|page|>9<|box|>503 140 522 486<|content|>E. Indemnification Provisions (Section 12.2)\n<|id|>78<|page|>11<|box|>90 140 107 449<|content|>F. Insurance Requirements (Exhibit E)\n<|id|>81<|page|>11<|box|>426 140 444 457<|content|>G. Termination for Cause (Section 14.2)\n<|id|>85<|page|>12<|box|>89 140 107 720<|content|>III. INCIDENT SUMMARY AND CONNECTICUT-SPECIFIC IMP\n<|id|>86<|page|>12<|box|>121 140 138 361<|content|>A. Incident Timeline Recap\n<|id|>98<|page|>13<|box|>547 142 564 390<|content|>B. Scope of Compromised Data\n<|id|>104<|page|>14<|box|>90 140 108 390<|content|>C. Connecticut-Specific Impact\n<|id|>111<|page|>14<|box|>686 140 703 563<|content|>IV. POST-INCIDENT REMEDIATION MEASURES\n<|id|>112<|page|>14<|box|>717 140 734 419<|content|>A. Quorum's Internal Remediation\n<|id|>124<|page|>16<|box|>90 140 107 555<|content|>B. Vendor Accountability — Palomar Data Solutions\n<|id|>138<|page|>17<|box|>512 140 529 705<|content|>C. MSA Amendment 3 — Enhanced Data Security and Au\n<|id|>147<|page|>18<|box|>455 140 473 354<|content|>D. Consumer Remediation\n<|id|>153<|page|>19<|box|>229 140 247 455<|content|>V. CYBER-INSURANCE COVERAGE\n<|id|>155<|page|>19<|box|>338 142 354 271<|content|>Primary Layer:\n<|id|>161<|page|>19<|box|>460 142 477 256<|content|>Excess Layer:\n<|id|>169<|page|>20<|box|>89 140 106 483<|content|>VI. CONCLUSION AND COOPERATION\n<|id|>186<|page|>21<|box|>253 142 270 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>-1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>27<|level|>2\n<|id|>43<|level|>2\n<|id|>50<|level|>1\n<|id|>51<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>67<|level|>2\n<|id|>74<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>2\n<|id|>85<|level|>1\n<|id|>86<|level|>2\n<|id|>98<|level|>2\n<|id|>104<|level|>2\n<|id|>111<|level|>1\n<|id|>112<|level|>2\n<|id|>124<|level|>2\n<|id|>138<|level|>2\n<|id|>147<|level|>2\n<|id|>153<|level|>1\n<|id|>155<|level|>2\n<|id|>161<|level|>2\n<|id|>169<|level|>1\n<|id|>186<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 1
+        },
+        {
+            "id": 186,
+            "level": 1
+        }
+    ]
+}

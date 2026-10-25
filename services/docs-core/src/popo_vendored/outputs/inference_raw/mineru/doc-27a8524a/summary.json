@@ -1,0 +1,163 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mj4oeedg\\input\\pdfs\\doc-27a8524a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mj4oeedg\\enriched\\doc-27a8524a.json",
+    "contd_output": "<|src_id|>48<|tgt_id|>49\n<|src_id|>55<|tgt_id|>56\n<|src_id|>88<|tgt_id|>89\n<|src_id|>112<|tgt_id|>113\n<|src_id|>150<|tgt_id|>151",
+    "title_output": "<|id|>9<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>52<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>2\n<|id|>69<|level|>1\n<|id|>80<|level|>1\n<|id|>82<|level|>2\n<|id|>86<|level|>2\n<|id|>91<|level|>2\n<|id|>95<|level|>2\n<|id|>102<|level|>1\n<|id|>103<|level|>2\n<|id|>114<|level|>2\n<|id|>118<|level|>1\n<|id|>146<|level|>1\n<|id|>156<|level|>1",
+    "image_output": "<|src_id|>18<|tgt_id|>17\n<|src_id|>31<|tgt_id|>29\n<|src_id|>32<|tgt_id|>29\n<|src_id|>84<|tgt_id|>82\n<|src_id|>92<|tgt_id|>91",
+    "contd_label": [
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 18,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 91
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 31,
+            "table2_idx": 32,
+            "upper_row_ss": [
+                [
+                    "September 22, 2021",
+                    "Janet Kirkwood (VP, Carrier Relations, Stonefield) emails Carlos Medina (SVP, Operations, Stonefield) noting emerging VTS performance issues and that Stonefield was moving volume to Cascade and Briarwood on Lanes 8–14 (Secondary Lanes). This is the email Vantor identifies as evidence of Stonefield's"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "premeditated termination plan — but it postdates the onset of VTS performance problems and, critically, predates the tractor withdrawal confirmed by VHC-008417"
+                ]
+            ]
+        }
+    ]
+}

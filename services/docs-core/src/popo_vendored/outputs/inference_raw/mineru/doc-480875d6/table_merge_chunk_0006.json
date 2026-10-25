@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Mar', '582', '196', '777', '458', '369', '90', '55,075', '40']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Period', 'rowspan=2, Sales 1/', 'rowspan=2, Accrued discount', 'rowspan=2, Sales plus accrued discount', 'Total', 'Sales price 2/', 'Accrued discount 2/', 'Interest-bearing debt', 'Matured noninterest-bearing debt']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 249,
+    "table2_idx": 250
+}

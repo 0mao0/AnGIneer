@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['动量方程', '\\\\nu', '\\\\nu_{t}', '-\\\\left[\\\\frac{C_{\\\\xi} C_{\\\\eta} H}{\\\\Delta t} + \\\\frac{C_{\\\\xi} C_{\\\\eta} \\\\sqrt{u^{2} + \\\\nu^{2}}}{C^{2}} + H u \\\\frac{\\\\partial C_{\\\\eta}}{\\\\partial \\\\eta}\\\\right]', '\\\\frac{C_{\\\\xi} C_{\\\\eta} H \\\\nu^{*}}{\\\\Delta t} - g C_{\\\\xi} H \\\\frac{\\\\partial h}{\\\\partial \\\\eta} + H u^{2} \\\\frac{\\\\partial C_{\\\\xi}}{\\\\partial \\\\eta} + C_{\\\\xi} C_{\\\\eta} \\\\left[-\\\\frac{u}{C_{\\\\xi}} \\\\frac{\\\\partial}{\\\\partial \\\\xi} \\\\left(\\\\frac{\\\\nu_{t} H}{C_{\\\\xi} C_{\\\\eta}} \\\\frac{\\\\partial C_{\\\\xi}}{\\\\partial \\\\eta}\\\\right) - \\\\frac{2 \\\\nu_{t} H}{C_{\\\\xi}^{2} C_{\\\\eta}} \\\\frac{\\\\partial C_{\\\\xi}}{\\\\partial \\\\eta} \\\\frac{\\\\partial u}{\\\\partial \\\\xi}\\\\right) + \\\\frac{2 \\\\nu_{t} H}{C_{\\\\xi} C_{\\\\eta}^{2}} \\\\frac{\\\\partial C_{\\\\eta}}{\\\\partial \\\\xi} \\\\frac{\\\\partial u}{\\\\partial \\\\eta} + \\\\frac{\\\\nu_{t} H \\\\nu}{C_{\\\\xi}} \\\\frac{\\\\partial}{\\\\partial \\\\xi} \\\\left(\\\\frac{1}{C_{\\\\xi} C_{\\\\eta}} \\\\frac{\\\\partial C_{\\\\eta}}{\\\\partial \\\\xi}\\\\right) + \\\\frac{u}{C_{\\\\eta}} \\\\frac{\\\\partial}{\\\\partial \\\\eta} \\\\left(\\\\frac{\\\\nu_{t} H}{C_{\\\\xi} C_{\\\\eta}} \\\\frac{\\\\partial C_{\\\\xi}}{\\\\partial \\\\eta}\\\\right) + \\\\frac{\\\\nu_{t} H \\\\nu}{C_{\\\\xi}} \\\\frac{\\\\partial}{\\\\partial \\\\eta} \\\\left(\\\\frac{1}{C_{\\\\xi} C_{\\\\eta}} \\\\frac{\\\\partial C_{\\\\xi}}{\\\\partial \\\\eta}\\\\right)']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['K输运方程', '\\\\nu', '\\\\frac{\\\\nu_{t}}{\\\\sigma_{K}}', '-HC_{\\\\xi}C_{\\\\eta}\\\\left(2C_{u}K/\\\\nu_{t}+\\\\frac{1}{\\\\Delta t}\\\\right)', 'C_{\\\\xi}C_{\\\\eta}H\\\\left(P_{K}+P_{K\\\\nu}+\\\\varepsilon+\\\\frac{K^{*}}{\\\\Delta t}\\\\right)']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 1330,
+    "table2_idx": 1331
+}

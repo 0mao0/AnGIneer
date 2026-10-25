@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>116 233 133 763<|content|>599 Lexington Avenue, 36th Floor New York, NY 10022, United States\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 715 184 854<|content|>February 15, 2024\n<|id|>5<|page|>1<|box|>219 140 255 854<|content|>Ms. ... Unit 14, Corrib Technology Park, Headford Road Galway, H91 XR72 Ireland\n<|id|>6<|page|>1<|box|>263 174 337 854<|content|>Re: ... to Solstice IP Holdings Designated Activity Company\n<|id|>56<|page|>4<|box|>864 176 898 854<|content|>(c) The functions performed, assets used, and risk...sumed by SBD and any other group entities; ... and\n<|id|>57<|page|>4<|box|>914 143 928 187<|content|>Page 4\n<|id|>67<|page|>5<|box|>566 174 602 854<|content|>(c) Associated trade secrets, technical know-how, ..., and manufacturing process documentation; ... and\n<|id|>69<|page|>5<|box|>636 140 672 854<|content|>in each case relating to the \"NaviPulse\" catheter ...\"ClearVue\" intra- operative cardiac imaging system\n<|id|>68<|page|>5<|box|>611 176 628 442<|content|>(d) Proprietary software algorithms,\n<|id|>130<|page|>8<|box|>864 140 901 854<|content|>42. ... Qualified business asset investment (\"QBAI...epreciable property (if any) held by SIP Holdings,\n<|id|>131<|page|>8<|box|>912 143 928 187<|content|>Page 8\n<|id|>231<|page|>15<|box|>652 142 669 272<|content|>Very truly yours,\n<|id|>232<|page|>15<|box|>670 140 685 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>233<|page|>15<|box|>688 143 704 253<|content|>By: ... By\n<|id|>234<|page|>15<|box|>704 142 720 651<|content|>Leila Nazari Lead Associate, Tax Department Direct: ... (212) 554-7218\n<|id|>235<|page|>15<|box|>723 142 738 450<|content|>Email: ... com\n<|id|>236<|page|>15<|box|>739 142 755 254<|content|>cc: ... (via email)\n<|id|>237<|page|>15<|box|>765 176 781 599<|content|>Sylvia Hartwell, Partner — Calderwood & Harkness LLP\n<|id|>238<|page|>15<|box|>791 176 806 593<|content|>Leonard Cross, Partner — Calderwood & Harkness LLP\n<|id|>239<|page|>15<|box|>816 176 832 607<|content|>Robert Jansen, Associate — Calderwood & Harkness LLP\n<|id|>240<|page|>15<|box|>842 176 859 784<|content|>Dr. ... Cathal Morrissey, Chief Executive Officer — Solstice Biomedical Devices Ltd",
+    "raw_response": "<|src_id|>67<|tgt_id|>69",
+    "parsed": [
+        {
+            "src_id": 67,
+            "tgt_id": 69
+        }
+    ]
+}

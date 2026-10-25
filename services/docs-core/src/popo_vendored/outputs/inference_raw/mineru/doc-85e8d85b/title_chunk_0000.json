@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        5
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 436 109 562<|content|>EXHIBIT B\n<|id|>1<|page|>2<|box|>135 251 152 745<|content|>CALIFORNIA LABOR CODE § 2870 STATUTORY NOTICE\n<|id|>2<|page|>2<|box|>166 140 184 707<|content|>NOTICE TO EMPLOYEE REGARDING INVENTION ASSIGNMENT\n<|id|>6<|page|>2<|box|>292 142 309 374<|content|>INTRODUCTORY NOTICE\n<|id|>10<|page|>2<|box|>594 140 612 743<|content|>CALIFORNIA LABOR CODE § 2870 — EMPLOYMENT AGREEMEN\n<|id|>11<|page|>2<|box|>613 143 630 375<|content|>ASSIGNMENT OF RIGHTS\n<|id|>18<|page|>3<|box|>167 140 204 772<|content|>CALIFORNIA LABOR CODE § 2872 — NOTICE TO EMPLOYEE;\n<|id|>21<|page|>3<|box|>369 142 387 482<|content|>EXPLANATORY NOTE TO EMPLOYEE\n<|id|>31<|page|>4<|box|>494 142 510 452<|content|>ACKNOWLEDGMENT OF RECEIPT\n<|id|>34<|page|>4<|box|>643 143 661 251<|content|>EMPLOYEE\n<|id|>38<|page|>4<|box|>816 142 833 586<|content|>COMPANY — ACKNOWLEDGMENT OF DELIVERY\n<|id|>42<|page|>5<|box|>226 143 241 184<|content|>Date",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>6<|level|>2\n<|id|>10<|level|>2\n<|id|>11<|level|>2\n<|id|>18<|level|>2\n<|id|>21<|level|>2\n<|id|>31<|level|>2\n<|id|>34<|level|>3\n<|id|>38<|level|>2\n<|id|>42<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        }
+    ]
+}

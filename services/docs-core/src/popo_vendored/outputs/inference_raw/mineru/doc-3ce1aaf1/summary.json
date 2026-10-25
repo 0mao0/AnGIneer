@@ -1,0 +1,160 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9u2voluv\\input\\pdfs\\doc-3ce1aaf1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9u2voluv\\enriched\\doc-3ce1aaf1.json",
+    "contd_output": "",
+    "title_output": "<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>23<|level|>1\n<|id|>24<|level|>2\n<|id|>37<|level|>2\n<|id|>46<|level|>2\n<|id|>53<|level|>1\n<|id|>54<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>1\n<|id|>64<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>1\n<|id|>81<|level|>1\n<|id|>96<|level|>1\n<|id|>109<|level|>1\n<|id|>114<|level|>1\n<|id|>122<|level|>1\n<|id|>123<|level|>2\n<|id|>126<|level|>2\n<|id|>134<|level|>2\n<|id|>139<|level|>1\n<|id|>142<|level|>1\n<|id|>146<|level|>1\n<|id|>147<|level|>2\n<|id|>150<|level|>2\n<|id|>152<|level|>2\n<|id|>155<|level|>1\n<|id|>168<|level|>1\n<|id|>169<|level|>2",
+    "image_output": "<|src_id|>66<|tgt_id|>64\n<|src_id|>67<|tgt_id|>64",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 169,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 66,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 64
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 66,
+            "table2_idx": 67,
+            "upper_row_ss": [
+                [
+                    "Samuel Eklund",
+                    "Partner",
+                    "$1,475.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Linda Osei",
+                    "Partner",
+                    "$1,350.00"
+                ]
+            ]
+        }
+    ]
+}

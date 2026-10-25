@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 194 142 803<|content|>MANAGER'S CERTIFICATE OF HUDSON YARDS WEST MEZZANI\n<|id|>10<|page|>1<|box|>719 140 736 501<|content|>Section 1 — Organization and Good Standing\n<|id|>16<|page|>2<|box|>446 140 464 452<|content|>Section 2 — Organizational Documents\n<|id|>23<|page|>3<|box|>167 140 184 354<|content|>Section 3 — Authorization\n<|id|>30<|page|>3<|box|>804 140 821 547<|content|>Section 4 — Execution and Delivery; Enforceability\n<|id|>35<|page|>4<|box|>375 140 391 496<|content|>Section 5 — Representations and Warranties\n<|id|>42<|page|>5<|box|>439 140 457 330<|content|>Section 6 — No Default\n<|id|>45<|page|>5<|box|>696 140 714 343<|content|>Section 7 — No Conflicts\n<|id|>51<|page|>6<|box|>321 140 339 557<|content|>Section 8 — Incumbency and Authorized Signatories\n<|id|>56<|page|>6<|box|>750 140 767 349<|content|>Section 9 — No Litigation\n<|id|>62<|page|>7<|box|>392 140 409 323<|content|>Section 10 — Solvency\n<|id|>69<|page|>7<|box|>771 140 789 403<|content|>Section 11 — Additional Matters\n<|id|>76<|page|>8<|box|>556 140 574 321<|content|>Section 12 — Reliance\n<|id|>79<|page|>8<|box|>796 140 813 375<|content|>Section 13 — Governing Law\n<|id|>82<|page|>9<|box|>160 269 176 725<|content|>[SIGNATURE PAGE TO MANAGER'S CERTIFICATE]\n<|id|>87<|page|>10<|box|>87 444 108 553<|content|>EXHIBIT A\n<|id|>88<|page|>10<|box|>114 246 133 751<|content|>Certificate of Formation of Hudson Yards West Mezz\n<|id|>92<|page|>11<|box|>88 446 108 552<|content|>EXHIBIT B\n<|id|>93<|page|>11<|box|>114 189 133 807<|content|>Limited Liability Company Agreement of Hudson Yard\n<|id|>104<|page|>12<|box|>89 446 107 550<|content|>EXHIBIT C\n<|id|>105<|page|>12<|box|>114 302 133 694<|content|>Certificate of Good Standing — State of Delaware\n<|id|>110<|page|>13<|box|>88 444 108 553<|content|>EXHIBIT D\n<|id|>111<|page|>13<|box|>114 176 133 818<|content|>Certificate of Authority and/or Certificate of Goo\n<|id|>117<|page|>14<|box|>89 447 107 550<|content|>EXHIBIT E\n<|id|>118<|page|>14<|box|>116 315 132 681<|content|>Resolutions / Written Consent of Sole Member",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>69<|level|>2\n<|id|>76<|level|>2\n<|id|>79<|level|>2\n<|id|>82<|level|>2\n<|id|>87<|level|>1\n<|id|>88<|level|>2\n<|id|>92<|level|>1\n<|id|>93<|level|>2\n<|id|>104<|level|>1\n<|id|>105<|level|>2\n<|id|>110<|level|>1\n<|id|>111<|level|>2\n<|id|>117<|level|>1\n<|id|>118<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 2
+        }
+    ]
+}

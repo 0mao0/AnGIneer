@@ -1,0 +1,162 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 408 106 588<|content|>SIGNATURE PAGES\n<|id|>1<|page|>1<|box|>114 483 132 514<|content|>TO\n<|id|>2<|page|>1<|box|>141 398 157 598<|content|>CREDIT AGREEMENT\n<|id|>3<|page|>1<|box|>167 254 184 741<|content|>$1,400,000,000 SENIOR SECURED TERM LOAN B FACILITY\n<|id|>5<|page|>1<|box|>311 267 328 728<|content|>NIH CREDIT AGREEMENT — EXECUTION VERSION\n<|id|>20<|page|>2<|box|>489 449 507 549<|content|>SECTION I\n<|id|>21<|page|>2<|box|>516 359 532 638<|content|>BORROWER SIGNATURE PAGE\n<|id|>23<|page|>2<|box|>587 441 603 557<|content|>BORROWER\n<|id|>24<|page|>2<|box|>612 143 628 674<|content|>NEXFORD INDUSTRIAL HOLDINGS INC., a Delaware corpo\n<|id|>41<|page|>3<|box|>112 444 128 550<|content|>SECTION II\n<|id|>42<|page|>3<|box|>138 303 155 694<|content|>HOLDINGS GUARANTOR SIGNATURE PAGE\n<|id|>44<|page|>3<|box|>208 447 224 550<|content|>HOLDINGS\n<|id|>45<|page|>3<|box|>234 142 251 750<|content|>GRANITE PEAK NIH HOLDINGS, LLC, a Delaware limited\n<|id|>58<|page|>3<|box|>500 442 515 555<|content|>SECTION III\n<|id|>59<|page|>3<|box|>523 290 541 705<|content|>SUBSIDIARY GUARANTOR SIGNATURE PAGES\n<|id|>61<|page|>3<|box|>613 372 630 624<|content|>SUBSIDIARY GUARANTORS\n<|id|>62<|page|>3<|box|>638 142 656 699<|content|>NEXFORD PRECISION COMPONENTS, INC., a Delaware cor\n<|id|>118<|page|>5<|box|>90 178 106 328<|content|>Attention: Secretary\n<|id|>125<|page|>5<|box|>229 178 244 400<|content|>Attention: Authorized Officer\n<|id|>126<|page|>5<|box|>244 143 262 725<|content|>LAKESHORE PRECISION ENGINEERING, INC., a Michigan\n<|id|>134<|page|>5<|box|>435 442 452 553<|content|>SECTION IV\n<|id|>135<|page|>5<|box|>460 176 478 820<|content|>ADMINISTRATIVE AGENT AND COLLATERAL AGENT SIGNATUR\n<|id|>137<|page|>5<|box|>531 259 547 738<|content|>ADMINISTRATIVE AGENT AND COLLATERAL AGENT\n<|id|>138<|page|>5<|box|>556 140 574 769<|content|>CRESCENT HARBOR BANK, N.A., as Administrative Agen\n<|id|>150<|page|>5<|box|>790 444 806 550<|content|>SECTION V\n<|id|>151<|page|>5<|box|>816 207 832 787<|content|>JOINT LEAD ARRANGER AND BOOKRUNNER SIGNATURE PAGES\n<|id|>153<|page|>6<|box|>89 287 106 710<|content|>JOINT LEAD ARRANGERS AND BOOKRUNNERS\n<|id|>175<|page|>6<|box|>554 370 571 627<|content|>LENDER SIGNATURE PAGES\n<|id|>177<|page|>6<|box|>680 452 696 545<|content|>LENDERS\n<|id|>230<|page|>8<|box|>89 142 106 584<|content|>BLUEWATER FIXED INCOME FUND, LP, as a Lender\n<|id|>236<|page|>8<|box|>253 267 271 728<|content|>(Syndicate Lenders and CLO Vehicles — General Synd\n<|id|>248<|page|>8<|box|>640 437 657 558<|content|>SECTION VII\n<|id|>249<|page|>8<|box|>666 166 683 830<|content|>SIGNATURE PAGE ESCROW, RELEASE, AND EFFECTIVENESS\n<|id|>256<|page|>9<|box|>523 434 539 562<|content|>SECTION VIII\n<|id|>257<|page|>9<|box|>549 361 565 635<|content|>COMPILATION ATTESTATION\n<|id|>264<|page|>10<|box|>89 140 106 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>5<|level|>1\n<|id|>20<|level|>1\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>24<|level|>3\n<|id|>41<|level|>1\n<|id|>42<|level|>2\n<|id|>44<|level|>3\n<|id|>45<|level|>3\n<|id|>58<|level|>1\n<|id|>59<|level|>2\n<|id|>61<|level|>3\n<|id|>62<|level|>3\n<|id|>118<|level|>4\n<|id|>125<|level|>4\n<|id|>126<|level|>3\n<|id|>134<|level|>1\n<|id|>135<|level|>2\n<|id|>137<|level|>3\n<|id|>138<|level|>3\n<|id|>150<|level|>1\n<|id|>151<|level|>2\n<|id|>153<|level|>3\n<|id|>175<|level|>1\n<|id|>177<|level|>2\n<|id|>230<|level|>3\n<|id|>236<|level|>3\n<|id|>248<|level|>1\n<|id|>249<|level|>2\n<|id|>256<|level|>1\n<|id|>257<|level|>2\n<|id|>264<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 4
+        },
+        {
+            "id": 125,
+            "level": 4
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 236,
+            "level": 3
+        },
+        {
+            "id": 248,
+            "level": 1
+        },
+        {
+            "id": 249,
+            "level": 2
+        },
+        {
+            "id": 256,
+            "level": 1
+        },
+        {
+            "id": 257,
+            "level": 2
+        }
+    ]
+}

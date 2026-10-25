@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>205 143 261 854<|content|>Ardent Healthcare Merger Sub LLC, Ardent Healthcar...Group LLC identified on the signature pages hereto\n<|id|>4<|page|>1<|box|>268 694 286 854<|content|>Dated: ... May 31, 2024\n<|id|>5<|page|>1<|box|>294 142 310 408<|content|>Right-click to update Table of Contents\n<|id|>11<|page|>1<|box|>683 140 756 854<|content|>WHEREAS, pursuant to the Merger Agreement, at the ...red Twelve Million Dollars ($412,000,000); ... and\n<|id|>12<|page|>1<|box|>763 140 820 856<|content|>WHEREAS, each undersigned Seller desires to delive...tions, warranties, and covenants set forth therein\n<|id|>37<|page|>4<|box|>446 174 501 854<|content|>(e) State of North Carolina — Form D-403 (Partners...pany conducted business in North Carolina; ... and\n<|id|>41<|page|>4<|box|>862 140 898 854<|content|>3. ... The Company has not received any written no... underpayment, or 30-day or 90-day letter from the\n<|id|>42<|page|>5<|box|>90 140 200 854<|content|>Internal Revenue Service or any state or local tax...r credit reported on any Tax Return of the Company\n<|id|>58<|page|>6<|box|>869 140 906 854<|content|>6. ... The Company has not made, and is not subjec...lection under Section 338(g) or Section 338(h)(10)\n<|id|>59<|page|>7<|box|>90 140 145 854<|content|>of the Code), nor has any such election been reque... transactions contemplated by the Merger Agreement\n<|id|>103<|page|>12<|box|>772 143 787 364<|content|>Name: ... Raymond Carvallo\n<|id|>104<|page|>12<|box|>787 142 820 852<|content|>In his individual capacity as a Seller and as Co-F...tive Officer of Pinnacle Health Services Group LLC\n<|id|>105<|page|>12<|box|>821 143 838 294<|content|>Date: ... May 31, 2024\n<|id|>106<|page|>12<|box|>840 143 854 251<|content|>By: ... By\n<|id|>107<|page|>12<|box|>857 143 872 351<|content|>Name: ... Nadia Ostrowski\n<|id|>108<|page|>12<|box|>873 140 905 852<|content|>In her individual capacity as a Seller and as Co-F...ical Officer of Pinnacle Health Services Group LLC\n<|id|>109<|page|>13<|box|>89 140 107 294<|content|>Date: ... May 31, 2024\n<|id|>110<|page|>13<|box|>108 142 125 254<|content|>By: ... By\n<|id|>111<|page|>13<|box|>125 142 141 354<|content|>Name: ... Jonathan Farnsworth\n<|id|>112<|page|>13<|box|>141 140 174 854<|content|>In his individual capacity as a Seller and as Chie...cial Officer of Pinnacle Health Services Group LLC\n<|id|>113<|page|>13<|box|>174 142 191 295<|content|>Date: ... May 31, 2024\n<|id|>114<|page|>13<|box|>191 140 224 854<|content|>SELLERS' REPRESENTATIVE, on behalf of the 14 minor...physician-investors identified on Exhibit A hereto\n<|id|>116<|page|>13<|box|>242 142 258 367<|content|>Name: ... Raymond Carvallo\n<|id|>117<|page|>13<|box|>258 140 277 844<|content|>Title: ... 14 of the Merger Agreement)\n<|id|>118<|page|>13<|box|>277 142 294 295<|content|>Date: ... May 31, 2024",
+    "raw_response": "<|src_id|>41<|tgt_id|>42\n<|src_id|>58<|tgt_id|>59",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        }
+    ]
+}

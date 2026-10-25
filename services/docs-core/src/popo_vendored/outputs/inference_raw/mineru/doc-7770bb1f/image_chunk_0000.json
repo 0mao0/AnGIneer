@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 272 107 723<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>9<|type|>title<|page|>1<|box|>411 142 429 367<|content|>1. Introduction and Purpose\n<|id|>14<|type|>title<|page|>2<|box|>89 140 107 253<|content|>2. Definitions\n<|id|>20<|type|>title<|page|>2<|box|>609 140 626 459<|content|>3. Categories of Authorized Information\n<|id|>22<|type|>title<|page|>2<|box|>739 140 755 348<|content|>3.1 Financial Information\n<|id|>29<|type|>title<|page|>3<|box|>426 142 443 408<|content|>3.2 SaaS and Operational Metrics\n<|id|>35<|type|>title<|page|>3<|box|>750 140 766 501<|content|>3.3 Corporate and Organizational Documents\n<|id|>41<|type|>title<|page|>4<|box|>319 140 337 553<|content|>3.4 Material Contracts and Commercial Agreements\n<|id|>47<|type|>title<|page|>4<|box|>642 142 659 334<|content|>3.5 intellectual Property\n<|id|>52<|type|>title<|page|>5<|box|>90 140 106 258<|content|>3.6 Insurance.\n<|id|>55<|type|>title<|page|>5<|box|>299 140 316 424<|content|>3.7 Existing Indebtedness and Liens\n<|id|>59<|type|>title<|page|>5<|box|>551 142 569 393<|content|>3.8 Regulatory and Compliance\n<|id|>63<|type|>title<|page|>5<|box|>786 142 801 305<|content|>3.9 Tax Information\n<|id|>68<|type|>title<|page|>6<|box|>184 140 200 467<|content|>3.10 Litigation and Contingent Liabilities\n<|id|>71<|type|>title<|page|>6<|box|>366 140 383 568<|content|>4. Conditions to Sharing — Lender NDA Requirement\n<|id|>75<|type|>title<|page|>6<|box|>777 140 794 517<|content|>5. Reservation of Rights — Privileged Materials\n<|id|>80<|type|>title<|page|>7<|box|>531 140 547 475<|content|>6. Coordination with Meridian and Sellers\n<|id|>84<|type|>title<|page|>8<|box|>204 140 222 307<|content|>7. Scope Limitations\n<|id|>89<|type|>title<|page|>8<|box|>642 140 659 326<|content|>8. Transaction Context\n<|id|>93<|type|>title<|page|>8<|box|>838 142 854 214<|content|>Sources:\n<|id|>94<|type|>table<|page|>8<|box|>861 143 898 852<|content|>None\n<|id|>95<|type|>table<|page|>9<|box|>89 143 142 852<|content|>None\n<|id|>96<|type|>table<|page|>9<|box|>200 143 294 852<|content|>None\n<|id|>98<|type|>title<|page|>9<|box|>443 140 459 326<|content|>9. Contact Information\n<|id|>107<|type|>title<|page|>10<|box|>90 142 108 209<|content|>Closing\n<|id|>115<|type|>title<|page|>10<|box|>390 316 407 679<|content|>ACKNOWLEDGMENT AND AGREEMENT",
+    "raw_response": "<|src_id|>94<|tgt_id|>93\n<|src_id|>95<|tgt_id|>93\n<|src_id|>96<|tgt_id|>93",
+    "parsed": [
+        {
+            "src_id": 94,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 93
+        }
+    ]
+}

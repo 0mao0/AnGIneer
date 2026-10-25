@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>2<|page|>1<|box|>167 424 184 573<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>330 142 348 250<|content|>I. PURPOSE\n<|id|>16<|page|>2<|box|>285 142 301 387<|content|>II. RSV INVOICE ANALYSIS\n<|id|>17<|page|>2<|box|>316 140 333 364<|content|>A. Invoice Total: $2,694,500\n<|id|>25<|page|>3<|box|>220 142 238 328<|content|>B. Categories of Excess\n<|id|>27<|page|>3<|box|>306 142 324 674<|content|>1. Duplicative Post-Production Supervision — $814,\n<|id|>32<|page|>3<|box|>782 140 801 727<|content|>2. Unsupported Festival and Distribution Services\n<|id|>36<|page|>4<|box|>325 140 343 620<|content|>3. Miscellaneous Overcharges — $306,000 (remaining\n<|id|>39<|page|>4<|box|>609 140 627 307<|content|>C. Invoice Approval\n<|id|>43<|page|>5<|box|>167 140 184 547<|content|>III. REVENUE RECLASSIFICATION ANALYSIS\n<|id|>45<|page|>5<|box|>297 140 314 344<|content|>A. Salt Wind — $538,200\n<|id|>48<|page|>5<|box|>579 140 597 364<|content|>B. Iron Lullaby — $309,000\n<|id|>50<|page|>5<|box|>724 140 742 387<|content|>C. Total Reclassified: $847,200\n<|id|>52<|page|>5<|box|>797 140 815 511<|content|>D. Recoupment Status of Underlying Advances\n<|id|>58<|page|>6<|box|>537 140 555 462<|content|>IV. RECONSTRUCTED WATERFALL\n<|id|>71<|page|>7<|box|>426 140 443 364<|content|>V. RECOMMENDATIONS\n<|id|>73<|page|>7<|box|>539 142 555 320<|content|>1. Discovery Priorities\n<|id|>76<|page|>8<|box|>90 140 107 426<|content|>2. Deposition of Howard Moss, CPA\n<|id|>84<|page|>8<|box|>648 140 665 307<|content|>3. Expert Testimony\n<|id|>88<|page|>9<|box|>138 140 157 343<|content|>4. Pre-Judgment Interest\n<|id|>93<|page|>9<|box|>454 140 472 380<|content|>5. Coordination with Pleading",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>25<|level|>3\n<|id|>27<|level|>4\n<|id|>32<|level|>4\n<|id|>36<|level|>4\n<|id|>39<|level|>3\n<|id|>43<|level|>2\n<|id|>45<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>3\n<|id|>58<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>3\n<|id|>76<|level|>3\n<|id|>84<|level|>3\n<|id|>88<|level|>3\n<|id|>93<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 4
+        },
+        {
+            "id": 36,
+            "level": 4
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        }
+    ]
+}

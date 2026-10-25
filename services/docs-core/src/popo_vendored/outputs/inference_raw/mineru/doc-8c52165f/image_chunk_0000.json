@@ -1,0 +1,51 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>143 292 161 705<|content|>Power of Attorney and Declaration of Representativ\n<|id|>2<|type|>title<|page|>1<|box|>198 277 215 720<|content|>Department of the Treasury — Internal Revenue Serv\n<|id|>6<|type|>title<|page|>1<|box|>315 359 334 638<|content|>Part I — Power of Attorney\n<|id|>8<|type|>title<|page|>1<|box|>405 142 422 397<|content|>Line 1 — Taxpayer Information\n<|id|>10<|type|>table<|page|>1<|box|>450 143 602 852<|content|>None\n<|id|>11<|type|>title<|page|>1<|box|>651 143 667 357<|content|>Line 2 — Representative(s)\n<|id|>14<|type|>table<|page|>1<|box|>724 143 872 852<|content|>None\n<|id|>20<|type|>table<|page|>2<|box|>246 143 393 852<|content|>None\n<|id|>26<|type|>table<|page|>2<|box|>621 143 840 851<|content|>None\n<|id|>27<|type|>title<|page|>3<|box|>90 140 107 351<|content|>Line 3 — Acts Authorized\n<|id|>39<|type|>title<|page|>3<|box|>763 140 781 745<|content|>Line 4 — Specific Use Not Recorded on Centralized\n<|id|>42<|type|>title<|page|>4<|box|>90 140 107 620<|content|>Line 5 — Retention/Revocation of Prior Power(s) of\n<|id|>46<|type|>title<|page|>5<|box|>90 142 107 377<|content|>Line 6 — Taxpayer Signature\n<|id|>51<|type|>title<|page|>5<|box|>256 341 276 656<|content|>Form 2848 (Rev. January 2021)\n<|id|>52<|type|>title<|page|>5<|box|>301 470 318 527<|content|>Page 2\n<|id|>53<|type|>title<|page|>5<|box|>328 300 348 697<|content|>Part II — Declaration of Representative\n<|id|>54<|type|>title<|page|>5<|box|>366 142 383 470<|content|>Under penalties of perjury, I declare that:\n<|id|>60<|type|>table<|page|>5<|box|>750 143 858 852<|content|>None\n<|id|>65<|type|>table<|page|>6<|box|>191 143 301 852<|content|>None\n<|id|>70<|type|>title<|page|>7<|box|>90 346 111 651<|content|>Part II — Taxpayer Signature\n<|id|>71<|type|>title<|page|>7<|box|>137 140 152 235<|content|>Attestation\n<|id|>73<|type|>table<|page|>8<|box|>113 143 223 852<|content|>None\n<|id|>80<|type|>title<|page|>8<|box|>398 140 415 547<|content|>IF NOT SIGNED BY TAXPAYER, FILL IN HERE\n<|id|>82<|type|>title<|page|>8<|box|>506 310 526 684<|content|>Additional Notes / Cover Annotations\n<|id|>83<|type|>title<|page|>8<|box|>542 142 559 818<|content|>The following annotations are for internal filing\n<|id|>88<|type|>title<|page|>8<|box|>829 143 847 361<|content|>Engagement File Reference\n<|id|>91<|type|>title<|page|>9<|box|>157 143 175 321<|content|>Engagement Timeline.\n<|id|>97<|type|>title<|page|>9<|box|>513 285 530 710<|content|>END OF FORM 2848 AND COVER ANNOTATIONS",
+    "raw_response": "<|src_id|>10<|tgt_id|>8\n<|src_id|>14<|tgt_id|>11\n<|src_id|>20<|tgt_id|>11\n<|src_id|>26<|tgt_id|>11\n<|src_id|>60<|tgt_id|>53\n<|src_id|>65<|tgt_id|>53\n<|src_id|>73<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 70
+        }
+    ]
+}

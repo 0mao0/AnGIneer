@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        52
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        50,
+        51,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>454<|page|>46<|box|>692 110 719 289<|content|>三 试 件\n<|id|>456<|page|>46<|box|>792 110 819 318<|content|>四 试验步骤\n<|id|>460<|page|>47<|box|>107 110 134 380<|content|>五 试验结果计算\n<|id|>469<|page|>47<|box|>595 110 624 451<|content|>圆柱体劈裂抗拉强度试验\n<|id|>470<|page|>47<|box|>645 110 672 318<|content|>一 试验目的\n<|id|>472<|page|>47<|box|>744 110 771 318<|content|>二 试验仪具\n<|id|>477<|page|>48<|box|>429 110 456 318<|content|>三 试 件\n<|id|>479<|page|>48<|box|>626 110 653 318<|content|>四 试验步骤\n<|id|>483<|page|>48<|box|>858 110 883 377<|content|>五 试验结果计算\n<|id|>499<|page|>50<|box|>74 252 109 698<|content|>附录七 计量单位的换算\n<|id|>503<|page|>51<|box|>64 252 99 698<|content|>附录八 本规范用词说明\n<|id|>513<|page|>52<|box|>153 241 230 707<|content|>本规范主编单位 参加单位 和主要起草人名单",
+    "raw_response": "<|id|>454<|level|>3\n<|id|>456<|level|>3\n<|id|>460<|level|>3\n<|id|>469<|level|>1\n<|id|>470<|level|>2\n<|id|>472<|level|>2\n<|id|>477<|level|>2\n<|id|>479<|level|>2\n<|id|>483<|level|>2\n<|id|>499<|level|>1\n<|id|>503<|level|>1\n<|id|>513<|level|>1",
+    "parsed": [
+        {
+            "id": 454,
+            "level": 3
+        },
+        {
+            "id": 456,
+            "level": 3
+        },
+        {
+            "id": 460,
+            "level": 3
+        },
+        {
+            "id": 469,
+            "level": 1
+        },
+        {
+            "id": 470,
+            "level": 2
+        },
+        {
+            "id": 472,
+            "level": 2
+        },
+        {
+            "id": 477,
+            "level": 2
+        },
+        {
+            "id": 479,
+            "level": 2
+        },
+        {
+            "id": 483,
+            "level": 2
+        },
+        {
+            "id": 499,
+            "level": 1
+        },
+        {
+            "id": 503,
+            "level": 1
+        },
+        {
+            "id": 513,
+            "level": 1
+        }
+    ]
+}

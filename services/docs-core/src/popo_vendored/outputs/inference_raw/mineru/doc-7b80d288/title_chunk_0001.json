@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>204<|page|>45<|box|>99 367 125 620<|content|>3 工程计量\n<|id|>212<|page|>46<|box|>94 346 121 647<|content|>4 工程量清单编制\n<|id|>213<|page|>46<|box|>167 379 189 618<|content|>4.1 一般规定\n<|id|>220<|page|>46<|box|>469 373 492 624<|content|>4.2 分部分项工程\n<|id|>233<|page|>47<|box|>395 375 417 611<|content|>4.3 措施项目",
+    "raw_response": "<|id|>204<|level|>1\n<|id|>212<|level|>1\n<|id|>213<|level|>2\n<|id|>220<|level|>2\n<|id|>233<|level|>2",
+    "parsed": [
+        {
+            "id": 204,
+            "level": 1
+        },
+        {
+            "id": 212,
+            "level": 1
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 233,
+            "level": 2
+        }
+    ]
+}

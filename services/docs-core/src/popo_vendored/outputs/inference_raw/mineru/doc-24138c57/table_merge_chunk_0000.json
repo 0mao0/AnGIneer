@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['SHA-1', 'f1e2d3c4b5a697081234abcdef567890fedcba98']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['SHA-256', '2c6b3a8f9e1d7c4b5a0f6e2d8c1b3a7f9e4d6c0b5a8f2e1d7c3b9a4f6e0d2c1b']]\n",
+    "raw_response": "[0, 0]",
+    "parsed": [
+        0,
+        0
+    ],
+    "table1_idx": 326,
+    "table2_idx": 327
+}

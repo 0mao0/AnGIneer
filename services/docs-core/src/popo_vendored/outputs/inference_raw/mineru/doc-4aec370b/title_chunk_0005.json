@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 5,
+    "range": [
+        231,
+        307
+    ],
+    "pages": [
+        232,
+        246,
+        306
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>792<|page|>232<|box|>147 136 172 184<|content|>续前页\n<|id|>812<|page|>246<|box|>178 390 211 601<|content|>第二节 路面面层\n<|id|>813<|page|>246<|box|>267 454 298 537<|content|>说明\n<|id|>936<|page|>306<|box|>174 394 203 614<|content|>2-2-17 水泥混凝土路面",
+    "raw_response": "<|id|>792<|level|>-1\n<|id|>812<|level|>1\n<|id|>813<|level|>2\n<|id|>936<|level|>3",
+    "parsed": [
+        {
+            "id": 812,
+            "level": 1
+        },
+        {
+            "id": 813,
+            "level": 2
+        },
+        {
+            "id": 936,
+            "level": 3
+        }
+    ]
+}

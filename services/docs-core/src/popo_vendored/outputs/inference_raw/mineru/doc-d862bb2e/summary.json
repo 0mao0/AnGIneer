@@ -1,0 +1,163 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gg4ifoul\\input\\pdfs\\doc-d862bb2e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gg4ifoul\\enriched\\doc-d862bb2e.json",
+    "contd_output": "<|src_id|>8<|tgt_id|>9\n<|src_id|>62<|tgt_id|>63",
+    "title_output": "<|id|>4<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>26<|level|>1\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>2\n<|id|>60<|level|>1\n<|id|>61<|level|>2\n<|id|>64<|level|>2\n<|id|>72<|level|>2\n<|id|>77<|level|>1\n<|id|>82<|level|>1\n<|id|>83<|level|>2\n<|id|>88<|level|>1\n<|id|>98<|level|>1",
+    "image_output": "<|src_id|>3<|tgt_id|>4\n<|src_id|>44<|tgt_id|>43\n<|src_id|>47<|tgt_id|>46\n<|src_id|>48<|tgt_id|>46\n<|src_id|>68<|tgt_id|>64\n<|src_id|>69<|tgt_id|>64",
+    "contd_label": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        }
+    ],
+    "title_label": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 64
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 47,
+            "table2_idx": 48,
+            "upper_row_ss": [
+                [
+                    "Cargo damage — iron ore oxidation, Incident 2",
+                    "$3,420,000",
+                    "BWTS malfunction / boiler failure"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Demurrage and dead freight — Qingdao laycan miss",
+                    "$1,230,000",
+                    "Arising from Incident 1 delay"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 68,
+            "table2_idx": 69,
+            "upper_row_ss": [
+                [
+                    "Chief Engineer Petros Vlahos",
+                    "Chief Engineer of M/V Aegean Fortuna — vessel maintenance,",
+                    "June 2024 (anticipated)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "turbocharger failure, cylinder liner failure, BWTS conditions",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

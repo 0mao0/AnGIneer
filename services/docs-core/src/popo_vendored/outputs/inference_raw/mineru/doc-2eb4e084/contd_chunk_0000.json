@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        15,
+        16,
+        20,
+        21,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>239 140 257 702<|content|>TO: ... Victoria Chambers, Responsible Partner Howard Quinn, Billing Partner\n<|id|>4<|page|>1<|box|>265 140 282 722<|content|>FROM: ... Jasmine Thornton, Lead Associate Liam Donahue, Working Associate\n<|id|>5<|page|>1<|box|>291 142 308 316<|content|>DATE: ... April 21, 2022\n<|id|>6<|page|>1<|box|>316 140 353 854<|content|>RE: ... 22-418 — Scope, Categories, and Compliance Obligations\n<|id|>7<|page|>1<|box|>361 140 378 795<|content|>MATTER: ... — DOJ Sanctions & Export Controls Inquiry\n<|id|>8<|page|>1<|box|>386 140 404 362<|content|>MATTER NO. ... 1016-00009\n<|id|>9<|page|>1<|box|>412 140 430 630<|content|>CLIENT: ... (\"Dunmore\" or \"DEH\")\n<|id|>10<|page|>1<|box|>439 142 455 408<|content|>Right-click to update Table of Contents\n<|id|>14<|page|>1<|box|>810 140 902 856<|content|>The Subpoena arises in the context of a Department...nctions targeting the energy sector of the Russian\n<|id|>15<|page|>2<|box|>90 140 162 854<|content|>Federation) — as well as export control regulation...s (\"EAR\"), 15 C. ... 's (\"DTI\") Dubai trading desk\n<|id|>142<|page|>15<|box|>835 140 909 857<|content|>Directive 2 under Executive Order 13662. ... Volkh...as identified on the SSI List under Directive 2 on\n<|id|>143<|page|>16<|box|>89 140 164 854<|content|>November 15, 2019. ... However, the crude oil swap...he structure and tenor of the specific instruments\n<|id|>179<|page|>20<|box|>828 138 902 856<|content|>Second, the documents held at DTI's Dubai office i... responsive document set, the DIFC Data Protection\n<|id|>180<|page|>21<|box|>90 140 145 854<|content|>Law's requirements for consent or other lawful bas...ividual consents for the transfer of personal data\n<|id|>215<|page|>24<|box|>627 140 643 759<|content|>1. ... (DTI), Dubai\n<|id|>225<|page|>24<|box|>821 140 895 854<|content|>The litigation hold notices instructed each custod...er materials relating to the named counterparties,\n<|id|>216<|page|>24<|box|>646 140 662 519<|content|>2. ... Natasha Sorokin — Senior Trader, DTI, Dubai\n<|id|>217<|page|>24<|box|>665 140 681 656<|content|>3. ... Omar Al-Rashidi — Head of Middle East Operations, DTI, Dubai\n<|id|>218<|page|>24<|box|>685 140 702 627<|content|>4. ... Yves Leclerc — Director of Logistics & Shipping, DTI, Dubai\n<|id|>219<|page|>24<|box|>704 140 722 838<|content|>5. ... (DEH), Houston\n<|id|>220<|page|>24<|box|>724 140 741 496<|content|>6. ... Rajesh Malhotra — Controller, DTI, Dubai\n<|id|>221<|page|>24<|box|>744 140 760 617<|content|>7. ... Sandra Whitfield — Chief Financial Officer, DEH, Houston\n<|id|>222<|page|>24<|box|>763 140 780 620<|content|>8. ... Callum Renshaw — Chief Executive Officer, DEH, Houston\n<|id|>223<|page|>24<|box|>782 140 800 735<|content|>9. ... Tobias Engel — Managing Director, Dunmore Renewables GmbH, Hamburg\n<|id|>224<|page|>24<|box|>803 143 819 599<|content|>10. ... Marcus Wellbourne — General Counsel, DEH, Houston\n<|id|>226<|page|>25<|box|>90 140 162 854<|content|>Russian-origin crude oil transactions, or oilfield...ention policies with respect to relevant materials",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>142<|tgt_id|>143\n<|src_id|>179<|tgt_id|>180",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 180
+        }
+    ]
+}

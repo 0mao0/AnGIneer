@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Class A Common Stock, $0.0001 par value; 500,000,000 shares authorized; [●] shares issued and outstanding, actual; approximately 89,700,000 shares issued and outstanding, pro', '[●]', '[●]', '[●]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['forma; approximately 102,641,176 shares issued and outstanding, pro forma as adjusted', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 199,
+    "table2_idx": 200
+}

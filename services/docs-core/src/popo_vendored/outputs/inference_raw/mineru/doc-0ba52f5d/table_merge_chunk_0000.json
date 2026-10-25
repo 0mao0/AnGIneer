@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['船舶', '杂货船/散货船/油船/集装箱船/货物滚装船/汽车滚装船/客货滚装船/散装水泥船/化学品船/液化气船/客船/渡船/驳船/拖轮/船队', '■', '■', '■', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 水域空间', '通航水域', '■', '■', '■', '']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 400,
+    "table2_idx": 401
+}

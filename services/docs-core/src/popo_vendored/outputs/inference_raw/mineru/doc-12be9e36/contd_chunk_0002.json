@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        100,
+        139
+    ],
+    "pages": [
+        101,
+        105,
+        108,
+        132,
+        139
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>424<|page|>101<|box|>379 10 389 420<|content|>2/ Data on the two lines shown for this date differ because of changes\n<|id|>425<|page|>101<|box|>379 491 389 567<|content|>r Revised. ... r Revised\n<|id|>426<|page|>101<|box|>385 15 395 420<|content|>in reporting coverage. ... Figures on the first line are comparable in\n<|id|>427<|page|>101<|box|>395 34 405 432<|content|>coverage to those shown for the preceding date; ... figures on the second\n<|id|>428<|page|>101<|box|>404 36 413 368<|content|>line are comparable to those shown for the followi...e comparable to those shown for the following date\n<|id|>434<|page|>105<|box|>73 81 86 892<|content|>Section V - Claims on Foreigners Reported by Nonbanking Business Enterprises in the United States\n<|id|>436<|page|>105<|box|>321 39 356 461<|content|>1/ Data on the two lines shown for this date diffe...e comparable to those shown for the following date\n<|id|>443<|page|>108<|box|>117 175 133 867<|content|>Table CM-VI-1. ... - Foreign Purchases and Sales of Long-Term Domestic Securities by Type\n<|id|>446<|page|>108<|box|>527 185 543 857<|content|>Table CM-VI-2. ... -Foreign Purchases and Sales of Long-Term Foreign Securities by Type\n<|id|>444<|page|>108<|box|>143 175 153 867<|content|>(In millions of dollars; ... negative figures indi...r a net outflow of capital from the United States)\n<|id|>524<|page|>132<|box|>64 288 78 733<|content|>Section IX - United States Dollar Positions Abroad\n<|id|>525<|page|>132<|box|>83 226 98 816<|content|>Table FCP-IX-1. ... - Nonbanking Firms' Foreign Subsidiaries' Positions 1/\n<|id|>577<|page|>139<|box|>96 375 109 600<|content|>Section III - Trust Funds\n<|id|>578<|page|>139<|box|>122 449 133 532<|content|>Footnotes\n<|id|>589<|page|>139<|box|>571 32 610 467<|content|>1/ Includes payments for military service credits ...or interest on reimbursement of administrative and\n<|id|>592<|page|>139<|box|>548 527 565 932<|content|>million for vocational rehabilitation and \\$5 mill... million for construction of buildings for FY 1928\n<|id|>591<|page|>139<|box|>679 38 723 472<|content|>4/ Includes payment for Vocational Rehabilitation ... of buildings beginning FY 1967. ... Includes \\$84",
+    "raw_response": "<|src_id|>424<|tgt_id|>426\n<|src_id|>426<|tgt_id|>427\n<|src_id|>427<|tgt_id|>428\n<|src_id|>589<|tgt_id|>591",
+    "parsed": [
+        {
+            "src_id": 424,
+            "tgt_id": 426
+        },
+        {
+            "src_id": 426,
+            "tgt_id": 427
+        },
+        {
+            "src_id": 427,
+            "tgt_id": 428
+        },
+        {
+            "src_id": 589,
+            "tgt_id": 591
+        }
+    ]
+}

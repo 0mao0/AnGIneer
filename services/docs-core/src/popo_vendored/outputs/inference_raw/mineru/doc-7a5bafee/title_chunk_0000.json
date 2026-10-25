@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 348 340 648<|content|>STATE OF DELAWARE SECRETARY OF STATE DIVISION OF C\n<|id|>6<|page|>1<|box|>569 140 587 782<|content|>SECTION 1: NAME AND JURISDICTION OF EACH CONSTITUE\n<|id|>8<|page|>1<|box|>640 143 657 411<|content|>1.1 Merging Entity (Non-Surviving):\n<|id|>10<|page|>1<|box|>782 143 801 297<|content|>1.2 Surviving Entity:\n<|id|>13<|page|>2<|box|>133 140 151 661<|content|>SECTION 2: IDENTIFICATION OF THE SURVIVING ENTITY\n<|id|>17<|page|>2<|box|>549 140 565 620<|content|>SECTION 3: OWNERSHIP OF THE SURVIVING ENTITY\n<|id|>20<|page|>2<|box|>753 140 772 715<|content|>SECTION 4: AUTHORIZATION AND APPROVAL OF THE MERGE\n<|id|>26<|page|>3<|box|>657 140 674 568<|content|>SECTION 5: EFFECTIVE TIME OF THE MERGER\n<|id|>28<|page|>3<|box|>763 140 780 584<|content|>SECTION 6: AGREEMENT AND PLAN OF MERGER\n<|id|>32<|page|>4<|box|>152 140 169 692<|content|>SECTION 7: REGISTERED AGENT OF THE SURVIVING ENTIT\n<|id|>37<|page|>4<|box|>318 140 335 683<|content|>SECTION 8: AMENDMENT TO CERTIFICATE OF FORMATION\n<|id|>39<|page|>4<|box|>463 230 479 764<|content|>[Remainder of this page intentionally left blank.\n<|id|>40<|page|>4<|box|>487 276 503 720<|content|>SIGNATURE PAGE TO CERTIFICATE OF MERGER\n<|id|>42<|page|>4<|box|>575 142 592 330<|content|>SURVIVING ENTITY:\n<|id|>43<|page|>4<|box|>602 143 618 441<|content|>PRISMYX ACQUISITION SUB LLC\n<|id|>50<|page|>4<|box|>731 143 747 437<|content|>PRISMYX DATA SOLUTIONS LLC\n<|id|>55<|page|>4<|box|>818 326 833 671<|content|>PREPARER / CONTACT INFORMATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>8<|level|>3\n<|id|>10<|level|>3\n<|id|>13<|level|>2\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>26<|level|>2\n<|id|>28<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>-1\n<|id|>40<|level|>2\n<|id|>42<|level|>3\n<|id|>43<|level|>4\n<|id|>50<|level|>4\n<|id|>55<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 50,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 3
+        }
+    ]
+}

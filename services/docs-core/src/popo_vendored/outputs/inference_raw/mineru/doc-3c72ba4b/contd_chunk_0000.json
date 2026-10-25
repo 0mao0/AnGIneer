@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 256 133 740<|content|>One International Place, Suite 3400 Boston, Massachusetts 02110\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 730 185 854<|content|>August 30, 2022\n<|id|>4<|page|>1<|box|>193 140 210 437<|content|>VIA EMAIL AND HAND DELIVERY\n<|id|>5<|page|>1<|box|>219 140 253 854<|content|>Catherine A. ... Partner Fielding & Rowe LLP 101 Federal Street, Suite 2600 Boston, MA 02110\n<|id|>9<|page|>1<|box|>433 176 469 854<|content|>1. ... and\n<|id|>11<|page|>1<|box|>527 140 599 854<|content|>These second drafts reflect Calderwood & Harkness'...s was transmitted to your office on August 5, 2022\n<|id|>15<|page|>1<|box|>864 140 901 854<|content|>To facilitate an efficient review of the second dr...ppended to this letter an issues list (the \"Issues\n<|id|>16<|page|>2<|box|>90 140 126 854<|content|>List\") that categorizes each substantive point rai...we's August 19 markup into one of three categories\n<|id|>18<|page|>2<|box|>179 174 232 854<|content|>(B) Partially Resolved / Compromise Language — Poi...t and Fielding & Rowe's proposed revision; ... and\n<|id|>20<|page|>2<|box|>286 140 358 854<|content|>We would welcome the opportunity to schedule a cal...e to discuss the open items. ... Pryce's calendars\n<|id|>38<|page|>3<|box|>554 183 589 854<|content|>• Eighteen (18) months of employer-paid COBRA continuation coverage: ... and\n<|id|>40<|page|>3<|box|>611 140 666 854<|content|>The total estimated CIC cash severance (excluding ... open point regarding the CIC severance multiplier\n<|id|>44<|page|>3<|box|>811 181 829 813<|content|>• Twelve (12) months of employer-paid COBRA continuation coverage: ... and\n<|id|>46<|page|>3<|box|>851 140 886 854<|content|>The non-CIC severance provisions are subject to fu...n as noted in the Issues List at Items B-3 and B-4\n<|id|>61<|page|>5<|box|>366 140 402 854<|content|>A-1: ... 3)\n<|id|>62<|page|>5<|box|>409 140 539 856<|content|>Fielding & Rowe proposed reducing the post-termina...welve (12) months. ... Elliston's anticipated role\n<|id|>63<|page|>5<|box|>545 140 582 854<|content|>A-2: ... 3)\n<|id|>64<|page|>5<|box|>589 140 699 856<|content|>Fielding & Rowe proposed narrowing the definition ...uture employment should his tenure at AHT conclude\n<|id|>65<|page|>5<|box|>707 140 743 854<|content|>A-3: ... 14)\n<|id|>66<|page|>5<|box|>751 140 880 857<|content|>Fielding & Rowe proposed adding \"material diminuti...e with the Executive's participation and agreement\n<|id|>77<|page|>6<|box|>854 140 907 854<|content|>With respect to Board nomination, AHT has not acce...and certain other stockholders (the \"Stockholders'\n<|id|>78<|page|>7<|box|>90 140 219 856<|content|>Agreement\"), which establishes specific board desi...ompany's existing executive compensation framework\n<|id|>82<|page|>7<|box|>542 140 578 852<|content|>B-2: ... 10)\n<|id|>83<|page|>7<|box|>585 140 696 854<|content|>The first draft provided for full clawback of the ... end the employment relationship was the Company's\n<|id|>99<|page|>9<|box|>176 140 212 852<|content|>C-1: ... 19–20)\n<|id|>100<|page|>9<|box|>220 140 311 854<|content|>The second draft reflects a two-times (2×) multipl...ance (excluding equity acceleration) is $2,051,200\n<|id|>111<|page|>10<|box|>398 140 435 854<|content|>C-3: ... 5)\n<|id|>112<|page|>10<|box|>443 140 589 856<|content|>The second draft limits the customer and partner n...utive has only attenuated commercial relationships\n<|id|>117<|page|>11<|box|>196 140 232 852<|content|>C-4: ... 20–21)\n<|id|>118<|page|>11<|box|>241 140 351 854<|content|>Fielding & Rowe's markup requested the inclusion o...ter-tax value as if no excise tax had been imposed\n<|id|>132<|page|>12<|box|>593 142 609 272<|content|>Very truly yours,\n<|id|>133<|page|>12<|box|>609 140 625 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>134<|page|>12<|box|>627 143 643 253<|content|>By: ... By\n<|id|>135<|page|>12<|box|>643 143 659 310<|content|>Devon Archer Partner\n<|id|>136<|page|>12<|box|>660 140 676 718<|content|>One International Place, Suite 3400 Boston, MA 02110 Direct: ... (617) 854-7142\n<|id|>137<|page|>12<|box|>679 142 694 455<|content|>Email: ... com\n<|id|>138<|page|>12<|box|>696 142 712 254<|content|>cc: ... (via email)\n<|id|>139<|page|>12<|box|>720 174 772 854<|content|>Bernard Crawford, Esq. ... , Fielding & Rowe LLP",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>77<|tgt_id|>78",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        }
+    ]
+}

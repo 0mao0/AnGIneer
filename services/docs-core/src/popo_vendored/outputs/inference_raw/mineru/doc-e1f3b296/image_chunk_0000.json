@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>385 143 401 367<|content|>Recommended Distribution:\n<|id|>13<|type|>title<|page|>1<|box|>511 143 527 310<|content|>I. Purpose and Scope\n<|id|>18<|type|>title<|page|>2<|box|>267 140 284 560<|content|>II. Summary of Key Compliance Dates and Deadlines\n<|id|>20<|type|>table<|page|>2<|box|>409 143 897 852<|content|>None\n<|id|>21<|type|>table<|page|>3<|box|>89 143 574 852<|content|>None\n<|id|>23<|type|>title<|page|>3<|box|>685 140 703 687<|content|>III. Cyber-Insurance Renewal — Bastion Mutual Insu\n<|id|>33<|type|>title<|page|>4<|box|>781 140 797 627<|content|>IV. SOC 2 Type II Audit Cycle — Graystone & Ketchu\n<|id|>43<|type|>title<|page|>6<|box|>167 140 184 555<|content|>V. EU-US Data Privacy Framework Re-Certification\n<|id|>52<|type|>title<|page|>7<|box|>315 140 333 478<|content|>VI. Sub-Processor List Update Obligations\n<|id|>63<|type|>title<|page|>8<|box|>803 140 820 459<|content|>VII. Data Breach Notification Readiness\n<|id|>73<|type|>title<|page|>10<|box|>371 140 388 575<|content|>VIII. New Jersey Data Privacy Act (S3377) Complian\n<|id|>86<|type|>title<|page|>11<|box|>633 140 651 392<|content|>IX. Annual Penetration Testing\n<|id|>95<|type|>title<|page|>12<|box|>612 140 628 380<|content|>X. Audit Rights Preparedness\n<|id|>105<|type|>title<|page|>14<|box|>90 140 107 537<|content|>XI. Post-Termination Data Retention and Deletion\n<|id|>113<|type|>title<|page|>15<|box|>90 140 107 563<|content|>XII. Encryption and Security Standards Maintenance\n<|id|>122<|type|>title<|page|>16<|box|>89 140 107 390<|content|>XIII. CCPA/CPRA Obligations\n<|id|>129<|type|>title<|page|>16<|box|>640 140 657 573<|content|>XIV. Ongoing Monitoring of Regulatory Developments\n<|id|>137<|type|>title<|page|>17<|box|>464 140 482 434<|content|>XV. Summary of Responsible Parties\n<|id|>138<|type|>table<|page|>17<|box|>532 143 909 852<|content|>None\n<|id|>139<|type|>table<|page|>18<|box|>89 143 109 852<|content|>None\n<|id|>141<|type|>title<|page|>18<|box|>239 142 255 326<|content|>XVI. Recommendation",
+    "raw_response": "<|src_id|>20<|tgt_id|>18\n<|src_id|>21<|tgt_id|>18\n<|src_id|>138<|tgt_id|>137\n<|src_id|>139<|tgt_id|>137",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 137
+        }
+    ]
+}

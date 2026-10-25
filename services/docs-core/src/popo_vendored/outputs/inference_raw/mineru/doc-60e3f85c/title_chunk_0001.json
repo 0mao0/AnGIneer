@@ -1,0 +1,45 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        47,
+        50
+    ],
+    "pages": [
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>448<|page|>48<|box|>90 173 133 823<|content|>EXHIBIT D — APPLICABLE ENVIRONMENTAL LAWS AND REGU\n<|id|>450<|page|>48<|box|>210 142 229 403<|content|>Federal Statutes and Regulations\n<|id|>471<|page|>48<|box|>797 143 813 285<|content|>ASTM Standards\n<|id|>474<|page|>49<|box|>90 140 107 467<|content|>New York State Statutes and Regulations\n<|id|>487<|page|>49<|box|>445 140 462 447<|content|>Pennsylvania Statutes and Regulations\n<|id|>498<|page|>49<|box|>744 142 760 313<|content|>Guidance Documents\n<|id|>502<|page|>50<|box|>90 140 106 761<|content|>48. PA DEP, Land Recycling Program Technical Guida",
+    "raw_response": "<|id|>448<|level|>1\n<|id|>450<|level|>2\n<|id|>471<|level|>2\n<|id|>474<|level|>2\n<|id|>487<|level|>2\n<|id|>498<|level|>2\n<|id|>502<|level|>3",
+    "parsed": [
+        {
+            "id": 448,
+            "level": 1
+        },
+        {
+            "id": 450,
+            "level": 2
+        },
+        {
+            "id": 471,
+            "level": 2
+        },
+        {
+            "id": 474,
+            "level": 2
+        },
+        {
+            "id": 487,
+            "level": 2
+        },
+        {
+            "id": 498,
+            "level": 2
+        },
+        {
+            "id": 502,
+            "level": 3
+        }
+    ]
+}

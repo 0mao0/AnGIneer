@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 292<|content|>【149844#11】五家渠市\n<|id|>2<|page|>1<|box|>156 105 173 294<|content|>【6050317#1】梧州学院\n<|id|>4<|page|>1<|box|>241 107 256 284<|content|>【42871#24】悉尼大學\n<|id|>6<|page|>1<|box|>325 105 341 285<|content|>【34729#47】同济大学\n<|id|>8<|page|>1<|box|>407 105 424 284<|content|>【104942#2】新潟大学\n<|id|>10<|page|>1<|box|>508 105 525 284<|content|>【138226#0】五邑大学\n<|id|>12<|page|>1<|box|>609 105 626 364<|content|>【3989447#2】北京大学燕京学堂\n<|id|>14<|page|>1<|box|>848 105 865 408<|content|>【4227506#44】亚罗士打吉华独立中学\n<|id|>16<|page|>2<|box|>73 107 89 319<|content|>【339151#4】福州屏东中学\n<|id|>18<|page|>2<|box|>156 105 173 284<|content|>【138226#1】五邑大学",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

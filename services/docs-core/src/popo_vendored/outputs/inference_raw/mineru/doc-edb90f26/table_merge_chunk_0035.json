@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 35,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=19, 特大斜拉桥、特大悬索桥工程', 'rowspan=19, 锚碇', 'rowspan=18, 锚体', 'rowspan=17, 锚碇锚固体系制作、安装', 'rowspan=17, 预应力锚固系统', '连接平板轴线偏位', '○', '△', '▲', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=26, 特大斜拉桥、特大悬索桥工程', 'rowspan=26, 锚碇', 'rowspan=26, 锚体', 'rowspan=15, 锚碇锚固体系制作、安装', 'rowspan=15, 刚架锚固系统', '设计信息', '▲', '▲', '▲', '继承L3.0模型的设计信息']]\n",
+    "raw_response": "[1, 1, 1, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 286,
+    "table2_idx": 287
+}

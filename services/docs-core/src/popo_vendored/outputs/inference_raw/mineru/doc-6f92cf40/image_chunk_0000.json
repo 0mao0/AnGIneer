@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>10<|type|>title<|page|>1<|box|>494 140 511 364<|content|>1. Purpose and Engagement\n<|id|>14<|type|>title<|page|>2<|box|>148 140 167 334<|content|>2. Scope of Engagement\n<|id|>24<|type|>title<|page|>3<|box|>729 140 746 323<|content|>3. Client Identification\n<|id|>28<|type|>title<|page|>4<|box|>359 140 376 230<|content|>4. Staffing\n<|id|>35<|type|>title<|page|>5<|box|>150 140 167 303<|content|>5. Fee Arrangement\n<|id|>38<|type|>table<|page|>5<|box|>280 143 393 852<|content|>None\n<|id|>52<|type|>title<|page|>6<|box|>459 140 476 321<|content|>6. Conflicts Disclosure\n<|id|>61<|type|>title<|page|>7<|box|>348 140 364 390<|content|>7. Confidentiality and Privilege\n<|id|>66<|type|>title<|page|>7<|box|>821 140 839 426<|content|>8. Relationship with Other Advisors\n<|id|>71<|type|>title<|page|>8<|box|>502 140 518 287<|content|>9. Governing Law\n<|id|>73<|type|>title<|page|>8<|box|>752 142 768 274<|content|>10. Termination\n<|id|>82<|type|>title<|page|>9<|box|>627 142 643 349<|content|>11. Limitation of Liability\n<|id|>85<|type|>title<|page|>10<|box|>90 142 107 379<|content|>12. No Guarantee of Outcome\n<|id|>87<|type|>title<|page|>10<|box|>304 142 320 426<|content|>13. Entire Agreement; Amendments\n<|id|>90<|type|>title<|page|>10<|box|>561 142 578 379<|content|>14. Acceptance and Execution",
+    "raw_response": "<|src_id|>38<|tgt_id|>35",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 35
+        }
+    ]
+}

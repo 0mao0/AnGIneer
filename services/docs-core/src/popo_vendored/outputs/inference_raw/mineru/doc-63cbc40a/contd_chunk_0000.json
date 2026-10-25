@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 165 108 854<|content|>QUORUM INSURANCE HOLDINGS CORP. ... 400 Constitution Plaza, Suite 2200 Hartford,\n<|id|>1<|page|>1<|box|>108 774 125 854<|content|>CT 06103\n<|id|>2<|page|>1<|box|>133 727 152 854<|content|>August 12, 2023\n<|id|>4<|page|>1<|box|>185 140 204 383<|content|>Dear [First Name] [Last Name]: ... Dear [First Name] [Last Name]\n<|id|>3<|page|>1<|box|>160 140 179 756<|content|>[First Name] [Last Name] [Address Line 1] [Address Line 2] [City], CA [ZIP Code]\n<|id|>21<|page|>2<|box|>875 145 910 854<|content|>• Engaging Legal Counsel. ... Quorum engaged Calde...law firm, to manage and oversee all aspects of the\n<|id|>22<|page|>3<|box|>90 174 125 854<|content|>Company's incident response, including regulatory ...idual notifications, and coordination with Palomar\n<|id|>28<|page|>3<|box|>464 218 517 854<|content|>Engagement of an independent third-party security ... recommendations for further improvements; ... and\n<|id|>32<|page|>3<|box|>726 140 761 854<|content|>Quorum is committed to taking all reasonable and a...nd to minimize the risk of harm from this incident\n<|id|>39<|page|>4<|box|>449 174 486 854<|content|>Harborview Enterprises P. ... com\n<|id|>40<|page|>4<|box|>494 174 530 854<|content|>Penrose Group P. ... com\n<|id|>41<|page|>4<|box|>537 174 574 854<|content|>Penmark Enterprises P. ... com\n<|id|>55<|page|>5<|box|>739 183 773 854<|content|>Report suspected medical identity theft to the Fed...ssion at www. ... gov or by calling 1-877-438-4338\n<|id|>60<|page|>6<|box|>179 176 196 743<|content|>1. ... com/quorum\n<|id|>63<|page|>6<|box|>273 140 328 854<|content|>Enrollment Deadline. ... After this date, your uni...nd you will no longer be able to enroll at no cost\n<|id|>61<|page|>6<|box|>198 176 215 612<|content|>2. ... [Activation Code]\n<|id|>73<|page|>6<|box|>858 176 875 392<|content|>Telephone: ... 1-877-904-2618\n<|id|>74<|page|>7<|box|>90 174 126 854<|content|>Hours of Operation: ... Eastern Time (excluding federal holidays)\n<|id|>75<|page|>7<|box|>133 174 171 854<|content|>The call center will be available for a twelve (12...le to answer your questions in English and Spanish\n<|id|>78<|page|>7<|box|>250 176 265 333<|content|>Attn: ... Privacy Office\n<|id|>79<|page|>7<|box|>266 176 282 581<|content|>400 Constitution Plaza, Suite 2200 Hartford, CT 06103\n<|id|>80<|page|>7<|box|>292 140 364 854<|content|>Additional Information Online. ... This webpage al...mpliance with applicable notification requirements\n<|id|>83<|page|>7<|box|>534 142 551 220<|content|>Sincerely,\n<|id|>84<|page|>7<|box|>559 140 575 486<|content|>QUORUM INSURANCE HOLDINGS CORP. ... QUORUM INSURANCE HOLDINGS CORP\n<|id|>87<|page|>7<|box|>613 143 628 696<|content|>Enclosure: ... Credit Monitoring Enrollment Instructions and Activation Code\n<|id|>88<|page|>7<|box|>638 174 672 854<|content|>Your unique Activation Code: ... November 15, 2023\n<|id|>89<|page|>7<|box|>680 140 696 593<|content|>NOTICE REGARDING LEGAL BASIS FOR THIS NOTIFICATION\n<|id|>90<|page|>7<|box|>704 140 780 854<|content|>This notification is being provided pursuant to Cal. ... \"\n<|id|>92<|page|>7<|box|>854 140 885 854<|content|>This notice is being provided on behalf of Quorum Insurance Holdings Corp. ... A copy of\n<|id|>93<|page|>8<|box|>90 142 119 852<|content|>this notification was submitted to the California ...aches affecting more than 500 California residents",
+    "raw_response": "<|src_id|>0<|tgt_id|>1\n<|src_id|>21<|tgt_id|>22\n<|src_id|>92<|tgt_id|>93",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 93
+        }
+    ]
+}

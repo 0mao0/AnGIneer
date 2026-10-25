@@ -1,0 +1,76 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>136 285 152 712<|content|>1735 Market Street, Suite 2800 Philadelphia, PA 19\n<|id|>10<|type|>title<|page|>1<|box|>455 142 473 424<|content|>I. PURPOSE OF MEMORANDUM\n<|id|>20<|type|>title<|page|>2<|box|>263 140 281 486<|content|>II. PARTIES AND ENTITIES SEARCHED\n<|id|>22<|type|>table<|page|>2<|box|>397 143 700 852<|content|>None\n<|id|>24<|type|>table<|page|>2<|box|>823 143 898 852<|content|>None\n<|id|>25<|type|>table<|page|>3<|box|>89 143 213 852<|content|>None\n<|id|>27<|type|>table<|page|>3<|box|>390 143 667 852<|content|>None\n<|id|>29<|type|>table<|page|>4<|box|>111 143 287 852<|content|>None\n<|id|>31<|type|>table<|page|>4<|box|>446 143 665 852<|content|>None\n<|id|>33<|type|>table<|page|>4<|box|>843 143 901 852<|content|>None\n<|id|>35<|type|>table<|page|>5<|box|>89 143 213 852<|content|>None\n<|id|>37<|type|>title<|page|>5<|box|>424 140 440 388<|content|>G. Additional Parties Searched\n<|id|>39<|type|>table<|page|>5<|box|>551 143 657 852<|content|>None\n<|id|>41<|type|>table<|page|>5<|box|>715 143 806 852<|content|>None\n<|id|>43<|type|>table<|page|>5<|box|>864 143 904 852<|content|>None\n<|id|>44<|type|>table<|page|>6<|box|>89 143 125 851<|content|>None\n<|id|>46<|type|>table<|page|>6<|box|>199 143 301 852<|content|>None\n<|id|>48<|type|>title<|page|>6<|box|>450 142 467 498<|content|>III. CONFLICT CHECK METHODOLOGY\n<|id|>57<|type|>title<|page|>7<|box|>410 140 426 460<|content|>IV. RESULTS OF CONFLICT CHECK\n<|id|>58<|type|>title<|page|>7<|box|>441 140 459 604<|content|>A. Skybridge Fintech Ltd. / Skybridge Fintech Euro\n<|id|>59<|type|>title<|page|>7<|box|>464 142 481 450<|content|>Result: NO CONFLICT IDENTIFIED.\n<|id|>63<|type|>title<|page|>7<|box|>700 142 719 415<|content|>B. Meridian Federal Savings Bank\n<|id|>64<|type|>title<|page|>7<|box|>724 142 741 450<|content|>Result: NO CONFLICT IDENTIFIED.\n<|id|>68<|type|>title<|page|>8<|box|>229 140 248 444<|content|>C. Blackwell, Raines & Stoddard LLP\n<|id|>69<|type|>title<|page|>8<|box|>253 140 271 450<|content|>Result: NO CONFLICT IDENTIFIED.\n<|id|>74<|type|>title<|page|>8<|box|>536 142 553 431<|content|>D. Osprey Cloud Infrastructure, Inc.\n<|id|>75<|type|>title<|page|>8<|box|>558 142 575 450<|content|>Result: NO CONFLICT IDENTIFIED.\n<|id|>79<|type|>title<|page|>8<|box|>814 140 830 449<|content|>E. Halcyon Ridge Capital Partners, LP\n<|id|>80<|type|>title<|page|>8<|box|>835 140 854 450<|content|>Result: NO CONFLICT IDENTIFIED.\n<|id|>85<|type|>title<|page|>9<|box|>474 140 489 310<|content|>F. Additional Parties\n<|id|>86<|type|>title<|page|>9<|box|>496 142 513 460<|content|>Result: NO CONFLICTS IDENTIFIED.\n<|id|>93<|type|>title<|page|>9<|box|>777 140 794 468<|content|>V. ANALYSIS AND DETERMINATION\n<|id|>102<|type|>title<|page|>11<|box|>303 140 320 462<|content|>VI. CONCLUSION AND CLEARANCE\n<|id|>103<|type|>title<|page|>11<|box|>329 338 345 658<|content|>CONFLICT CLEARANCE: GRANTED\n<|id|>107<|type|>title<|page|>11<|box|>630 140 648 375<|content|>VII. REVIEWER SIGN-OFF\n<|id|>108<|type|>title<|page|>11<|box|>657 142 675 251<|content|>Prepared by:",
+    "raw_response": "<|src_id|>22<|tgt_id|>20\n<|src_id|>24<|tgt_id|>20\n<|src_id|>25<|tgt_id|>20\n<|src_id|>27<|tgt_id|>20\n<|src_id|>29<|tgt_id|>20\n<|src_id|>31<|tgt_id|>20\n<|src_id|>33<|tgt_id|>20\n<|src_id|>35<|tgt_id|>20\n<|src_id|>39<|tgt_id|>37\n<|src_id|>41<|tgt_id|>37\n<|src_id|>43<|tgt_id|>37\n<|src_id|>44<|tgt_id|>37\n<|src_id|>46<|tgt_id|>37",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 37
+        }
+    ]
+}

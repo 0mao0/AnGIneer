@@ -1,0 +1,513 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-26b5c2ts\\input\\pdfs\\doc-2bee9c32.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-26b5c2ts\\enriched\\doc-2bee9c32.json",
+    "contd_output": "<|src_id|>3<|tgt_id|>4\n<|src_id|>4<|tgt_id|>5",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>17<|level|>3\n<|id|>20<|level|>3\n<|id|>24<|level|>3\n<|id|>26<|level|>3\n<|id|>28<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>3\n<|id|>34<|level|>3\n<|id|>37<|level|>3\n<|id|>39<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>2\n<|id|>50<|level|>3\n<|id|>53<|level|>3\n<|id|>57<|level|>2\n<|id|>60<|level|>3\n<|id|>64<|level|>2\n<|id|>67<|level|>3\n<|id|>71<|level|>2\n<|id|>74<|level|>3\n<|id|>78<|level|>2\n<|id|>81<|level|>3\n<|id|>86<|level|>2\n<|id|>89<|level|>3\n<|id|>94<|level|>2\n<|id|>105<|level|>2\n<|id|>109<|level|>2\n<|id|>117<|level|>2",
+    "image_output": "<|src_id|>10<|tgt_id|>9\n<|src_id|>18<|tgt_id|>17\n<|src_id|>21<|tgt_id|>20\n<|src_id|>22<|tgt_id|>20\n<|src_id|>25<|tgt_id|>24\n<|src_id|>27<|tgt_id|>26\n<|src_id|>29<|tgt_id|>28\n<|src_id|>31<|tgt_id|>30\n<|src_id|>33<|tgt_id|>32\n<|src_id|>35<|tgt_id|>34\n<|src_id|>36<|tgt_id|>34\n<|src_id|>38<|tgt_id|>37\n<|src_id|>40<|tgt_id|>39\n<|src_id|>42<|tgt_id|>41\n<|src_id|>44<|tgt_id|>43\n<|src_id|>45<|tgt_id|>43\n<|src_id|>47<|tgt_id|>46\n<|src_id|>51<|tgt_id|>50\n<|src_id|>55<|tgt_id|>53\n<|src_id|>61<|tgt_id|>60\n<|src_id|>68<|tgt_id|>67\n<|src_id|>75<|tgt_id|>74\n<|src_id|>82<|tgt_id|>81\n<|src_id|>83<|tgt_id|>81\n<|src_id|>90<|tgt_id|>89\n<|src_id|>91<|tgt_id|>89\n<|src_id|>97<|tgt_id|>94\n<|src_id|>98<|tgt_id|>94\n<|src_id|>99<|tgt_id|>94\n<|src_id|>100<|tgt_id|>94\n<|src_id|>101<|tgt_id|>94\n<|src_id|>102<|tgt_id|>94\n<|src_id|>103<|tgt_id|>94\n<|src_id|>106<|tgt_id|>105\n<|src_id|>107<|tgt_id|>105",
+    "contd_label": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 10,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 105
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 21,
+            "table2_idx": 22,
+            "upper_row_ss": [
+                [
+                    "Field",
+                    "Detail"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 35,
+            "table2_idx": 36,
+            "upper_row_ss": [
+                [
+                    "Filing Date",
+                    "January 15, 2020 (national phase entry from PCT/US2019/045123)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Expected Expiration Date",
+                    "August 12, 2037 (if granted)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 44,
+            "table2_idx": 45,
+            "upper_row_ss": [
+                [
+                    "Field",
+                    "Detail"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Application No.",
+                    "1-2020-00234"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 82,
+            "table2_idx": 83,
+            "upper_row_ss": [
+                [
+                    "Indonesia",
+                    "IDP00202305678",
+                    "July 12, 2023",
+                    "—",
+                    "January 14, 2040",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Philippines",
+                    "PH 1-2023-551234",
+                    "July 10, 2023",
+                    "—",
+                    "January 14, 2040",
+                    "Pending"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 97,
+            "table2_idx": 98,
+            "upper_row_ss": [
+                [
+                    "1",
+                    "Composit",
+                    "Republic",
+                    "10-",
+                    "Jan. 14,",
+                    "Aug. 4,",
+                    "Aug. 12,",
+                    "Granted",
+                    "Penterra"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "ion of Matter",
+                    "of Korea",
+                    "2345678",
+                    "2020",
+                    "2023",
+                    "2037",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 98,
+            "table2_idx": 99,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "Crystalline Forms",
+                    "Thailand",
+                    "TH 2201001234",
+                    "May 3, 2022",
+                    "—",
+                    "Nov. 3, 2038",
+                    "Pending",
+                    "Penterra"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "2",
+                    "Crystalline Forms",
+                    "Malaysia",
+                    "MY PI202200 2345",
+                    "May 3, 2022",
+                    "—",
+                    "Nov. 3, 2038",
+                    "Pending",
+                    "Penterra"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 99,
+            "table2_idx": 100,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "Methods of Use",
+                    "Taiwan",
+                    "TW 11114321",
+                    "Nov. 25, 2022",
+                    "—",
+                    "May 28, 2039",
+                    "Pending",
+                    "Penterra"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "0",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 100,
+            "table2_idx": 101,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Pharmaceutical Formulations",
+                    "Taiwan",
+                    "TW 11210034",
+                    "Jan. 8, 2023",
+                    "—",
+                    "Jul. 12, 2039",
+                    "Pending",
+                    "Penterra"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Formulations",
+                    "",
+                    "5",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 106,
+            "table2_idx": 107,
+            "upper_row_ss": [
+                [
+                    "PCT/",
+                    "January 14, 2022",
+                    "Family 6 —",
+                    "Penterra",
+                    "National phase"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "US2022/012345",
+                    "",
+                    "Combination Therapy",
+                    "Pharmaceuticals Corp.",
+                    "entries completed; PCT application no longer pending"
+                ]
+            ]
+        }
+    ]
+}

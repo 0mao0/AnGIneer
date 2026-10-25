@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 153 174 843<|content|>1735 Market Street, Suite 3100 Philadelphia, PA 19103 Telephone: ... (215) 864-7001\n<|id|>4<|page|>1<|box|>228 383 244 614<|content|>www. ... com\n<|id|>3<|page|>1<|box|>181 148 215 846<|content|>600 Lexington Avenue New York, NY 10022 Telephone: ... (212) 558- 4001\n<|id|>5<|page|>1<|box|>253 704 270 854<|content|>September 12, 2022\n<|id|>6<|page|>1<|box|>277 140 295 702<|content|>VIA HAND DELIVERY AND SECURE ELECTRONIC TRANSMISSION\n<|id|>7<|page|>1<|box|>304 140 340 854<|content|>Revenue Agent Patricia Dunleavy Internal Revenue S... 600 Arch Street, Room 6456 Philadelphia, PA 19106\n<|id|>8<|page|>1<|box|>349 174 421 854<|content|>Re: ... 9 — Board Minutes and Governance Documents of Penterra Biopharma International DAC\n<|id|>9<|page|>1<|box|>430 142 446 379<|content|>Dear Revenue Agent Dunleavy: ... Dear Revenue Agent Dunleavy\n<|id|>85<|page|>11<|box|>553 140 569 320<|content|>Respectfully submitted,\n<|id|>86<|page|>11<|box|>570 140 587 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>87<|page|>11<|box|>589 143 604 253<|content|>By: ... By\n<|id|>88<|page|>11<|box|>604 140 636 852<|content|>Garrett Simmons Lead Associate, Tax Department Licensed in New York Direct Tel: ... (215) 864- 7184\n<|id|>89<|page|>11<|box|>638 142 655 475<|content|>Email: ... com\n<|id|>90<|page|>11<|box|>655 143 672 550<|content|>1735 Market Street, Suite 3100 Philadelphia, PA 19103\n<|id|>91<|page|>11<|box|>674 142 691 351<|content|>Reviewed and approved by: ... Reviewed and approved by\n<|id|>92<|page|>12<|box|>89 176 126 854<|content|>Supervisory Revenue Agent Gerald Meskill Internal ...n Team Manager, Exam Team ID LB&I-NE-TP-2022-00641\n<|id|>93<|page|>12<|box|>133 176 152 650<|content|>Sylvia Hartwell, Partner Calderwood & Harkness LLP (internal)\n<|id|>94<|page|>12<|box|>160 140 215 854<|content|>Enclosures: ... PPC-IDR09-000001 through PPC-IDR09...x set forth in Section 4 above (1,418 pages total)",
+    "raw_response": "<|src_id|>85<|tgt_id|>86\n<|src_id|>87<|tgt_id|>88\n<|src_id|>91<|tgt_id|>92",
+    "parsed": [
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 92
+        }
+    ]
+}

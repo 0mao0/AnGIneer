@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>3<|page|>1<|box|>186 140 202 496<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>7<|page|>1<|box|>345 142 361 333<|content|>Dear Marcus and Renata:\n<|id|>10<|page|>1<|box|>712 142 729 341<|content|>1. Capital Call Summary\n<|id|>12<|page|>1<|box|>782 142 799 457<|content|>Total Capital Call Amount: $22,500,000\n<|id|>18<|page|>2<|box|>707 140 724 377<|content|>2. Wire Transfer Instructions\n<|id|>25<|page|>3<|box|>489 140 506 493<|content|>3. Confirmation and Verification Procedures\n<|id|>42<|page|>4<|box|>267 140 284 434<|content|>4. Important Reminders and Caveats\n<|id|>49<|page|>5<|box|>204 140 222 338<|content|>5. Post-Funding Matters\n<|id|>61<|page|>6<|box|>251 142 267 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>66<|page|>6<|box|>390 142 405 700<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>7<|level|>-1\n<|id|>10<|level|>1\n<|id|>12<|level|>2\n<|id|>18<|level|>1\n<|id|>25<|level|>1\n<|id|>42<|level|>1\n<|id|>49<|level|>1\n<|id|>61<|level|>1\n<|id|>66<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        }
+    ]
+}

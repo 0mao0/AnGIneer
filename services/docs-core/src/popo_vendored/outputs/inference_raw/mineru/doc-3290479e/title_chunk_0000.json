@@ -1,0 +1,84 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 194 118 802<|content|>MUTUAL TERMINATION AND RELEASE AGREEMENT\n<|id|>1<|page|>1<|box|>136 383 152 612<|content|>Dated as of October 27, 2023\n<|id|>4<|page|>1<|box|>268 140 285 176<|content|>and\n<|id|>7<|page|>1<|box|>416 142 433 243<|content|>RECITALS\n<|id|>8<|page|>1<|box|>441 140 459 246<|content|>WHEREAS:\n<|id|>16<|page|>2<|box|>229 142 247 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>24<|page|>2<|box|>690 142 707 570<|content|>ARTICLE 2 — TERMINATION OF SUBJECT SAFE\n<|id|>28<|page|>3<|box|>449 140 467 566<|content|>ARTICLE 3 — REFUND OF PURCHASE AMOUNT\n<|id|>35<|page|>4<|box|>321 140 338 439<|content|>ARTICLE 4 — MUTUAL RELEASE\n<|id|>43<|page|>5<|box|>718 142 734 535<|content|>ARTICLE 5 — NO ADMISSION OF LIABILITY\n<|id|>45<|page|>6<|box|>148 140 166 620<|content|>ARTICLE 6 — REPRESENTATIONS AND WARRANTIES\n<|id|>57<|page|>7<|box|>428 142 445 488<|content|>ARTICLE 7 — COVENANT NOT TO SUE\n<|id|>60<|page|>7<|box|>739 142 758 444<|content|>ARTICLE 8 — CONFIDENTIALITY\n<|id|>67<|page|>8<|box|>428 140 445 477<|content|>ARTICLE 9 — NON-DISPARAGEMENT\n<|id|>69<|page|>8<|box|>714 142 732 437<|content|>ARTICLE 10 — MISCELLANEOUS\n<|id|>76<|page|>9<|box|>751 176 768 331<|content|>If to the Company:\n<|id|>92<|page|>10<|box|>625 361 643 637<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>94<|page|>10<|box|>695 143 710 367<|content|>LUMOS ANALYTICS INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>-1\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>16<|level|>2\n<|id|>24<|level|>2\n<|id|>28<|level|>2\n<|id|>35<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>2\n<|id|>57<|level|>2\n<|id|>60<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>2\n<|id|>76<|level|>-1\n<|id|>92<|level|>2\n<|id|>94<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        }
+    ]
+}

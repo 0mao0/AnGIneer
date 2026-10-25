@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        17,
+        19,
+        21,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 189 141 807<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>5<|page|>1<|box|>304 155 340 841<|content|>MEMORANDUM OF LAW OF COUNTERCLAIM DEFENDANT BELMON\n<|id|>10<|page|>1<|box|>489 398 506 599<|content|>TABLE OF CONTENTS\n<|id|>14<|page|>2<|box|>830 385 845 612<|content|>TABLE OF AUTHORITIES\n<|id|>19<|page|>4<|box|>176 142 191 290<|content|>Statutes and Rules\n<|id|>21<|page|>4<|box|>343 142 359 397<|content|>PRELIMINARY STATEMENT\n<|id|>33<|page|>5<|box|>792 140 808 354<|content|>STATEMENT OF FACTS\n<|id|>34<|page|>5<|box|>823 140 840 387<|content|>A. The Original Credit Facility\n<|id|>46<|page|>6<|box|>775 140 792 557<|content|>B. Loan Deterioration and Transfer to Special Asse\n<|id|>61<|page|>8<|box|>138 140 157 531<|content|>C. The Forbearance and Modification Agreement\n<|id|>75<|page|>9<|box|>314 140 332 818<|content|>Section 12(a) — Integration Clause. Section 12(a)\n<|id|>78<|page|>9<|box|>580 140 597 594<|content|>D. The Kappels' Sophistication and Independent Adv\n<|id|>84<|page|>10<|box|>311 142 329 594<|content|>E. Expiration of the Forbearance Period and Accele\n<|id|>92<|page|>11<|box|>406 140 422 318<|content|>F. Procedural History\n<|id|>97<|page|>12<|box|>89 140 107 256<|content|>ARGUMENT\n<|id|>98<|page|>12<|box|>119 140 156 854<|content|>I. THE FRAUDULENT INDUCEMENT COUNTERCLAIM FAILS AS\n<|id|>132<|page|>17<|box|>626 140 662 854<|content|>II. THE NEGLIGENT MISREPRESENTATION COUNTERCLAIM F\n<|id|>145<|page|>19<|box|>763 140 799 854<|content|>III. THE BREACH OF THE IMPLIED COVENANT OF GOOD FA\n<|id|>155<|page|>21<|box|>527 140 545 748<|content|>IV. THE RESCISSION COUNTERCLAIM FAILS AS A MATTER\n<|id|>170<|page|>23<|box|>238 140 255 691<|content|>V. THE PUNITIVE DAMAGES DEMAND SHOULD BE STRICKEN\n<|id|>176<|page|>24<|box|>89 142 106 271<|content|>CONCLUSION\n<|id|>190<|page|>24<|box|>750 140 766 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>1\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>19<|level|>3\n<|id|>21<|level|>2\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>46<|level|>3\n<|id|>61<|level|>3\n<|id|>75<|level|>4\n<|id|>78<|level|>3\n<|id|>84<|level|>3\n<|id|>92<|level|>3\n<|id|>97<|level|>2\n<|id|>98<|level|>3\n<|id|>132<|level|>3\n<|id|>145<|level|>3\n<|id|>155<|level|>3\n<|id|>170<|level|>3\n<|id|>176<|level|>2\n<|id|>190<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        }
+    ]
+}

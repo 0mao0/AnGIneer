@@ -1,0 +1,70 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        145,
+        156
+    ],
+    "pages": [
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1756<|type|>table<|page|>145<|box|>152 107 907 880<|content|>None\n<|id|>1757<|type|>title<|page|>146<|box|>125 131 143 517<|content|>B.2.17 拆迁电信、电力及管线调查记录簿\n<|id|>1759<|type|>table<|page|>146<|box|>163 114 443 887<|content|>None\n<|id|>1760<|type|>title<|page|>146<|box|>470 131 487 416<|content|>B.2.18 砍树、挖根调查记录簿\n<|id|>1762<|type|>table<|page|>146<|box|>507 114 908 887<|content|>None\n<|id|>1763<|type|>table<|page|>147<|box|>160 107 905 882<|content|>None\n<|id|>1764<|type|>table<|page|>148<|box|>164 112 907 885<|content|>None\n<|id|>1765<|type|>table<|page|>149<|box|>160 100 905 873<|content|>None\n<|id|>1766<|type|>title<|page|>150<|box|>124 142 141 334<|content|>B.2.22 取样记录簿\n<|id|>1768<|type|>title<|page|>150<|box|>412 142 428 495<|content|>B.2.23 工程材料市场供应调查记录簿\n<|id|>1770<|type|>table<|page|>150<|box|>448 124 905 895<|content|>None\n<|id|>1771<|type|>table<|page|>151<|box|>148 112 907 887<|content|>None\n<|id|>1772<|type|>table<|page|>152<|box|>165 110 892 884<|content|>None\n<|id|>1773<|type|>table<|page|>153<|box|>158 105 905 880<|content|>None\n<|id|>1777<|type|>table<|page|>154<|box|>162 117 907 890<|content|>None\n<|id|>1778<|type|>table<|page|>155<|box|>157 104 878 877<|content|>None\n<|id|>1779<|type|>title<|page|>156<|box|>189 115 214 450<|content|>附录 C 本细则用词说明",
+    "raw_response": "<|src_id|>1759<|tgt_id|>1757\n<|src_id|>1762<|tgt_id|>1760\n<|src_id|>1763<|tgt_id|>1760\n<|src_id|>1764<|tgt_id|>1760\n<|src_id|>1765<|tgt_id|>1760\n<|src_id|>1770<|tgt_id|>1768\n<|src_id|>1771<|tgt_id|>1768\n<|src_id|>1772<|tgt_id|>1768\n<|src_id|>1773<|tgt_id|>1768\n<|src_id|>1777<|tgt_id|>1768\n<|src_id|>1778<|tgt_id|>1768",
+    "parsed": [
+        {
+            "src_id": 1759,
+            "tgt_id": 1757
+        },
+        {
+            "src_id": 1762,
+            "tgt_id": 1760
+        },
+        {
+            "src_id": 1763,
+            "tgt_id": 1760
+        },
+        {
+            "src_id": 1764,
+            "tgt_id": 1760
+        },
+        {
+            "src_id": 1765,
+            "tgt_id": 1760
+        },
+        {
+            "src_id": 1770,
+            "tgt_id": 1768
+        },
+        {
+            "src_id": 1771,
+            "tgt_id": 1768
+        },
+        {
+            "src_id": 1772,
+            "tgt_id": 1768
+        },
+        {
+            "src_id": 1773,
+            "tgt_id": 1768
+        },
+        {
+            "src_id": 1777,
+            "tgt_id": 1768
+        },
+        {
+            "src_id": 1778,
+            "tgt_id": 1768
+        }
+    ]
+}

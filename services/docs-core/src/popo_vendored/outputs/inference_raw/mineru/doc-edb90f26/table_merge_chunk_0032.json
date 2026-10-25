@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 32,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=23, 特大斜拉桥、特大悬索桥工程', 'rowspan=23, 塔及辅助、过渡墩', 'rowspan=23, 索塔', 'rowspan=23, 混凝土索塔', 'rowspan=8, 悬索桥混凝土索塔柱', '外轮廓尺寸', '△', '▲', '▲', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=23, 特大斜拉桥、特大悬索桥工程', 'rowspan=23, 塔及辅助、过渡墩', 'rowspan=23, 索塔', 'rowspan=6, 混凝土索塔', 'rowspan=6, 悬索桥混凝土索塔柱', '壁厚', '△', '▲', '▲', '']]\n",
+    "raw_response": "[1, 1, 1, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 283,
+    "table2_idx": 284
+}

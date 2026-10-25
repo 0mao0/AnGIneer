@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        98,
+        137
+    ],
+    "pages": [
+        99,
+        101,
+        103,
+        105,
+        106,
+        122,
+        124,
+        133,
+        134,
+        136,
+        137
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>388<|page|>99<|box|>83 262 100 681<|content|>Section III - Preliminary Details by Countries\n<|id|>392<|page|>101<|box|>79 276 99 673<|content|>Section IV - Supplementary Data by Countries\n<|id|>396<|page|>103<|box|>77 183 118 770<|content|>Section IV - Supplementary Data by Countries Table\n<|id|>400<|page|>105<|box|>49 242 66 706<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>407<|page|>106<|box|>52 285 67 755<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>429<|page|>122<|box|>47 280 60 751<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>430<|page|>122<|box|>74 312 89 730<|content|>Section I - Statements of Financial Condition\n<|id|>431<|page|>122<|box|>89 170 105 861<|content|>Table 3.- Intragovernmental Revolving Funds, Decem\n<|id|>434<|page|>124<|box|>95 221 124 827<|content|>Section I - Statements of Financial Condition Tabl\n<|id|>447<|page|>133<|box|>95 275 113 687<|content|>Section I - Statements of Financial Condition\n<|id|>449<|page|>134<|box|>89 300 104 712<|content|>Section I - Statements of Financial Condition\n<|id|>450<|page|>134<|box|>105 176 136 818<|content|>Table 8.- Loans Outstanding by Periods for All Bus\n<|id|>460<|page|>136<|box|>56 278 70 751<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>461<|page|>136<|box|>90 420 104 609<|content|>Footnotes to Table 1\n<|id|>465<|page|>136<|box|>245 422 260 613<|content|>Footnotes to Table 2\n<|id|>484<|page|>136<|box|>594 426 606 615<|content|>Footnotes to Table 3\n<|id|>489<|page|>136<|box|>693 422 705 611<|content|>Footnotes to Table 4\n<|id|>505<|page|>137<|box|>85 389 100 577<|content|>Footnotes to Table 8",
+    "raw_response": "<|id|>388<|level|>1\n<|id|>392<|level|>1\n<|id|>396<|level|>2\n<|id|>400<|level|>2\n<|id|>407<|level|>2\n<|id|>429<|level|>2\n<|id|>430<|level|>3\n<|id|>431<|level|>4\n<|id|>434<|level|>3\n<|id|>447<|level|>3\n<|id|>449<|level|>3\n<|id|>450<|level|>4\n<|id|>460<|level|>2\n<|id|>461<|level|>5\n<|id|>465<|level|>5\n<|id|>484<|level|>5\n<|id|>489<|level|>5\n<|id|>505<|level|>5",
+    "parsed": [
+        {
+            "id": 388,
+            "level": 1
+        },
+        {
+            "id": 392,
+            "level": 1
+        },
+        {
+            "id": 396,
+            "level": 2
+        },
+        {
+            "id": 400,
+            "level": 2
+        },
+        {
+            "id": 407,
+            "level": 2
+        },
+        {
+            "id": 429,
+            "level": 2
+        },
+        {
+            "id": 430,
+            "level": 3
+        },
+        {
+            "id": 431,
+            "level": 4
+        },
+        {
+            "id": 434,
+            "level": 3
+        },
+        {
+            "id": 447,
+            "level": 3
+        },
+        {
+            "id": 449,
+            "level": 3
+        },
+        {
+            "id": 450,
+            "level": 4
+        },
+        {
+            "id": 460,
+            "level": 2
+        },
+        {
+            "id": 461,
+            "level": 5
+        },
+        {
+            "id": 465,
+            "level": 5
+        },
+        {
+            "id": 484,
+            "level": 5
+        },
+        {
+            "id": 489,
+            "level": 5
+        },
+        {
+            "id": 505,
+            "level": 5
+        }
+    ]
+}

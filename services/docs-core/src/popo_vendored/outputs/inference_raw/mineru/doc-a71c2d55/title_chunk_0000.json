@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 166 125 830<|content|>CALDERWOOD & HARKNESS LLP 1900 Euclid Avenue, Suit\n<|id|>1<|page|>1<|box|>133 212 151 784<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>4<|page|>1<|box|>489 392 510 604<|content|>I. Purpose and Scope\n<|id|>21<|page|>2<|box|>773 393 792 602<|content|>II. Facility Overview\n<|id|>33<|page|>4<|box|>436 251 457 743<|content|>III. NPDES Permit — Key Terms and Conditions\n<|id|>34<|page|>4<|box|>482 142 500 333<|content|>A. Permit Identification\n<|id|>38<|page|>5<|box|>377 140 393 392<|content|>B. Authorized Discharge Points\n<|id|>43<|page|>5<|box|>833 140 849 328<|content|>C. Effluent Limitations\n<|id|>52<|page|>6<|box|>627 142 643 488<|content|>D. Monitoring and Reporting Requirements\n<|id|>59<|page|>7<|box|>402 140 419 447<|content|>E. Best Management Practices (BMPs)\n<|id|>67<|page|>8<|box|>90 210 111 785<|content|>IV. Compliance History — Discharge Monitoring Repo\n<|id|>68<|page|>8<|box|>136 140 154 504<|content|>A. DMR Review Summary (Five-Year Period)\n<|id|>77<|page|>9<|box|>90 140 107 393<|content|>B. March 2022 TSS Exceedance\n<|id|>84<|page|>10<|box|>204 140 222 423<|content|>C. Corrective Actions Implemented\n<|id|>92<|page|>11<|box|>90 246 111 748<|content|>V. Spill Events with Water Discharge Implications\n<|id|>98<|page|>12<|box|>90 200 111 795<|content|>VI. Stormwater Pollution Prevention Plan (SWPPP) R\n<|id|>113<|page|>13<|box|>154 238 174 758<|content|>VII. Relationship to Phase I / Phase II ESA Findin\n<|id|>121<|page|>14<|box|>398 212 419 782<|content|>VIII. Regulatory Framework — Post-Closing Obligati\n<|id|>122<|page|>14<|box|>445 140 462 531<|content|>A. Permit Transfer / Name Change Requirements\n<|id|>128<|page|>15<|box|>90 140 107 295<|content|>B. Permit Renewal\n<|id|>132<|page|>15<|box|>483 140 500 477<|content|>C. Ongoing DMR and SWPPP Obligations\n<|id|>141<|page|>16<|box|>90 140 107 413<|content|>D. Potential Enhanced Monitoring\n<|id|>148<|page|>16<|box|>486 281 503 715<|content|>IX. Risk Assessment and Recommendations\n<|id|>149<|page|>16<|box|>531 142 547 531<|content|>A. Overall CWA/NPDES Compliance Assessment\n<|id|>154<|page|>17<|box|>148 142 167 263<|content|>B. Risk Rating\n<|id|>156<|page|>17<|box|>219 377 236 620<|content|>LOW TO MODERATE RISK\n<|id|>163<|page|>17<|box|>654 140 670 377<|content|>C. Specific Recommendations\n<|id|>179<|page|>19<|box|>590 377 609 620<|content|>X. Documents Reviewed\n<|id|>191<|page|>20<|box|>378 419 398 576<|content|>XI. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>4<|level|>1\n<|id|>21<|level|>1\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>43<|level|>2\n<|id|>52<|level|>2\n<|id|>59<|level|>2\n<|id|>67<|level|>1\n<|id|>68<|level|>2\n<|id|>77<|level|>2\n<|id|>84<|level|>2\n<|id|>92<|level|>1\n<|id|>98<|level|>1\n<|id|>113<|level|>1\n<|id|>121<|level|>1\n<|id|>122<|level|>2\n<|id|>128<|level|>2\n<|id|>132<|level|>2\n<|id|>141<|level|>2\n<|id|>148<|level|>1\n<|id|>149<|level|>2\n<|id|>154<|level|>2\n<|id|>156<|level|>-1\n<|id|>163<|level|>2\n<|id|>179<|level|>1\n<|id|>191<|level|>1",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 1
+        },
+        {
+            "id": 191,
+            "level": 1
+        }
+    ]
+}

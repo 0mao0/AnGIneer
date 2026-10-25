@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 303 133 692<|content|>600 Lexington Avenue New York, New York 10022\n<|id|>2<|page|>1<|box|>141 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 707 184 854<|content|>December 15, 2023\n<|id|>4<|page|>1<|box|>194 140 210 462<|content|>VIA EMAIL AND Sundial Data Systems\n<|id|>5<|page|>1<|box|>218 140 250 854<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVILEGED ATTORNEY WORK PRODUCT\n<|id|>6<|page|>1<|box|>257 140 292 854<|content|>Dana Prescott, Esq. ... Vice President & General C...on Boulevard, Suite 1100 Arlington, Virginia 22203\n<|id|>7<|page|>1<|box|>301 174 335 857<|content|>Re: ... Whitmore Aerospace LLC\n<|id|>8<|page|>1<|box|>345 176 363 406<|content|>Engagement No. ... 1019-00001\n<|id|>15<|page|>1<|box|>821 140 893 854<|content|>Claimant's Statement of Claim (filed April 28, 2023). ... Kestrel alleges that\n<|id|>16<|page|>2<|box|>90 140 181 854<|content|>WAL wrongfully terminated the MSA by applying an \"... porosity tolerance standard of ≤0. ... (\"Valkyr\")\n<|id|>61<|page|>6<|box|>857 140 893 856<|content|>WAL's Counterclaim (€5. ... Following Kestrel's quality failures and the termination of the\n<|id|>62<|page|>7<|box|>89 140 143 854<|content|>MSA, WAL was required to source replacement Ti-6Al.... Ostrovsky calculated the counterclaim as follows\n<|id|>158<|page|>17<|box|>750 183 767 764<|content|>• Real-time transcript services and transcript costs for the five-day hearing; ... and\n<|id|>160<|page|>17<|box|>789 140 898 854<|content|>We will provide a more detailed cost estimate for ...covery of a substantial portion of its legal costs\n<|id|>171<|page|>18<|box|>851 142 868 272<|content|>Very truly yours,\n<|id|>172<|page|>18<|box|>876 140 893 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>173<|page|>19<|box|>90 140 108 253<|content|>By: ... By\n<|id|>174<|page|>19<|box|>107 140 125 349<|content|>Theodore Langston Partner\n<|id|>175<|page|>19<|box|>125 140 141 352<|content|>Direct Dial: ... (212) 554-7148\n<|id|>176<|page|>19<|box|>142 140 159 473<|content|>Email: ... com\n<|id|>177<|page|>19<|box|>157 140 214 854<|content|>cc: ... Claire, Partner, Calderwood & Harkness LLP...Jeffrey Park, Associate, Calderwood & Harkness LLP\n<|id|>178<|page|>19<|box|>220 140 252 854<|content|>Enclosures: ... Cross-examination outlines and wit...ve been circulated separately under separate cover",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>61<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        }
+    ]
+}

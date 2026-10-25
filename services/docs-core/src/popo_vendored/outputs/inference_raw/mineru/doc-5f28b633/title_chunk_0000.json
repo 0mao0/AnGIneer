@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>143 207 160 790<|content|>PRIVILEGED AND CONFIDENTIAL / ATTORNEY WORK PRODUC\n<|id|>8<|page|>1<|box|>395 140 412 364<|content|>I. Purpose of Memorandum\n<|id|>12<|page|>2<|box|>90 140 107 424<|content|>II. Settlement Agreement Reference\n<|id|>17<|page|>2<|box|>583 140 599 401<|content|>III. Summary of Funds Received\n<|id|>18<|page|>2<|box|>614 140 630 348<|content|>A. Table of Wire Receipts\n<|id|>23<|page|>3<|box|>301 142 318 359<|content|>B. Aggregate Confirmation\n<|id|>28<|page|>3<|box|>643 142 661 348<|content|>IV. Wire Transfer Details\n<|id|>29<|page|>3<|box|>675 142 691 421<|content|>A. Ironclad and Pinnacle Payments\n<|id|>34<|page|>4<|box|>301 140 318 467<|content|>B. Montclair and Sovereign Re Payments\n<|id|>39<|page|>4<|box|>753 140 772 486<|content|>V. Reconciliation Against Settlement Terms\n<|id|>49<|page|>5<|box|>707 140 724 261<|content|>VI. Next Steps\n<|id|>50<|page|>5<|box|>738 140 755 330<|content|>A. Client Disbursement\n<|id|>53<|page|>6<|box|>152 176 170 267<|content|>Legal Fees\n<|id|>57<|page|>6<|box|>421 178 436 338<|content|>Expenses Advanced\n<|id|>66<|page|>6<|box|>731 176 747 442<|content|>Net Settlement Proceeds to Client\n<|id|>72<|page|>7<|box|>138 140 157 354<|content|>B. Stipulation of Dismissal\n<|id|>77<|page|>7<|box|>527 140 545 290<|content|>C. Matter Closing\n<|id|>82<|page|>8<|box|>90 140 107 537<|content|>VII. Document Retention and Confidentiality Note\n<|id|>86<|page|>8<|box|>539 140 555 388<|content|>VIII. Attachments / Enclosures\n<|id|>97<|page|>9<|box|>89 142 108 241<|content|>Prepared by:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>23<|level|>3\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>34<|level|>3\n<|id|>39<|level|>2\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>53<|level|>4\n<|id|>57<|level|>4\n<|id|>66<|level|>4\n<|id|>72<|level|>3\n<|id|>77<|level|>3\n<|id|>82<|level|>2\n<|id|>86<|level|>2\n<|id|>97<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 4
+        },
+        {
+            "id": 57,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>141 140 159 635<|content|>TO: ... Priya Anand, Billing Partner\n<|id|>2<|page|>1<|box|>167 140 185 488<|content|>FROM: ... Patrick Gallagher, Working Associate\n<|id|>3<|page|>1<|box|>193 140 210 321<|content|>DATE: ... August 8, 2022\n<|id|>4<|page|>1<|box|>219 140 273 854<|content|>RE: ... 2184-CV-01537-BLS (MA Superior Court, Business Litigation Session, Suffolk County)\n<|id|>5<|page|>1<|box|>281 140 299 362<|content|>MATTER NO. ... 1018-00007\n<|id|>6<|page|>1<|box|>308 140 325 455<|content|>CLIENT: ... Penterra Pharmaceuticals Corp\n<|id|>19<|page|>2<|box|>786 174 896 857<|content|>4. ... The court also found that Vantage's promiss... and definite promise, and because reliance on the\n<|id|>20<|page|>3<|box|>145 140 220 856<|content|>The Memorandum of Decision and Order was thorough,...ng position for Penterra in the event of an appeal\n<|id|>103<|page|>11<|box|>273 183 309 854<|content|>• The Post-Decision Analysis Memorandum dated July 20, 2022 prepared by Hannah Brinkley; ... and\n<|id|>105<|page|>11<|box|>349 140 404 854<|content|>All additional documents generated during the appe...d to the same matter workspace as they are created\n<|id|>110<|page|>11<|box|>848 140 930 857<|content|>Docket for Docket No. ... Vantage Medical Distribution, LLC\n<|id|>111<|page|>12<|box|>90 140 200 854<|content|>Mass. ... ) to follow on September 7, 2022\n<|id|>122<|page|>13<|box|>133 174 150 627<|content|>Linda Osei, Responsible Partner Priya Anand, Billing Partner\n<|id|>123<|page|>13<|box|>157 140 219 854<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT ...... Unauthorized disclosure is strictly prohibited",
+    "raw_response": "<|src_id|>110<|tgt_id|>111",
+    "parsed": [
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        }
+    ]
+}

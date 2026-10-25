@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        75
+    ],
+    "pages": [
+        1,
+        11,
+        12,
+        17,
+        24,
+        25,
+        35,
+        75
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>169 143 214 846<|content|>To that certain Purchase and Sale Agreement dated ...February 28, 2024 (the \"Agreement\") by and between\n<|id|>3<|page|>1<|box|>220 140 258 854<|content|>GREYSTONE MERIDIAN PARTNERS FUND III, L. ... , a Delaware limited partnership (\"Seller\")\n<|id|>4<|page|>1<|box|>266 140 282 176<|content|>and\n<|id|>5<|page|>1<|box|>291 140 328 854<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST, a Maryland real estate investment trust (\"Buyer\")\n<|id|>6<|page|>1<|box|>335 140 483 856<|content|>Capitalized terms used but not defined herein shal...tor Lansdell, Elise Rathborne, and Sean Kilpatrick\n<|id|>112<|page|>11<|box|>843 174 898 857<|content|>(c) Redstone Fulfillment Services Corp. ... Accordingly, this tenant is classified as a Major\n<|id|>113<|page|>12<|box|>90 174 126 854<|content|>Tenant. ... The Tenant holds one (1) three-year renewal option\n<|id|>178<|page|>17<|box|>753 140 770 369<|content|>Section F: ... Financial Matters\n<|id|>179<|page|>17<|box|>777 140 794 452<|content|>Allocated Purchase Price. ... Per Exhibit K\n<|id|>253<|page|>24<|box|>858 140 893 854<|content|>The Property is located within the AllianceTexas d...es, situated in the northern Fort Worth / southern\n<|id|>254<|page|>25<|box|>89 140 127 854<|content|>Denton County corridor. ... The Property benefits ...orth Alliance Airport, and Interstates 35W and 35E\n<|id|>372<|page|>35<|box|>489 140 507 370<|content|>Section F: ... Financial Matters\n<|id|>373<|page|>35<|box|>513 142 530 452<|content|>Allocated Purchase Price. ... Per Exhibit K\n<|id|>742<|page|>75<|box|>727 142 744 563<|content|>By: ... Greystone Meridian Capital LLC, its General Partner\n<|id|>743<|page|>75<|box|>744 143 762 253<|content|>By: ... By\n<|id|>744<|page|>75<|box|>762 143 777 315<|content|>Name: ... Victor Lansdell\n<|id|>745<|page|>75<|box|>779 142 795 433<|content|>Title: ... Co-Founder & Managing Partner\n<|id|>746<|page|>75<|box|>796 143 811 326<|content|>Date: ... February 28, 2024\n<|id|>747<|page|>75<|box|>811 140 873 854<|content|>CONFIDENTIAL — SUBJECT TO THE TERMS OF THE AGREEME...IES TO THE AGREEMENT AND THEIR RESPECTIVE ADVISORS",
+    "raw_response": "<|src_id|>112<|tgt_id|>113\n<|src_id|>253<|tgt_id|>254",
+    "parsed": [
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 253,
+            "tgt_id": 254
+        }
+    ]
+}

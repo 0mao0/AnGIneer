@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>354 140 369 473<|content|>I. Acknowledgment of Termination Notice\n<|id|>12<|type|>title<|page|>1<|box|>593 140 609 426<|content|>II. Recitation of Engagement Terms\n<|id|>22<|type|>title<|page|>2<|box|>327 140 344 522<|content|>III. Effective Date and Cessation of Active Work\n<|id|>29<|type|>title<|page|>2<|box|>705 140 723 527<|content|>IV. Transition Procedures and Final Deliverables\n<|id|>30<|type|>title<|page|>2<|box|>737 140 753 395<|content|>A. Final Work Product Package\n<|id|>42<|type|>title<|page|>4<|box|>575 140 593 428<|content|>B. Client File and Document Return\n<|id|>46<|type|>title<|page|>5<|box|>138 140 156 460<|content|>C. Coordination with Successor Counsel\n<|id|>50<|type|>title<|page|>5<|box|>474 140 492 439<|content|>V. Final Billing and Outstanding Fees\n<|id|>52<|type|>table<|page|>5<|box|>606 143 700 852<|content|>None\n<|id|>55<|type|>title<|page|>6<|box|>90 140 107 526<|content|>VI. Attorney-Client Privilege and Confidentiality\n<|id|>61<|type|>title<|page|>6<|box|>700 140 717 457<|content|>VII. Continuing Obligations of the Firm\n<|id|>66<|type|>title<|page|>7<|box|>321 140 339 401<|content|>VIII. Expression of Appreciation\n<|id|>69<|type|>title<|page|>7<|box|>561 140 578 236<|content|>IX. Closing",
+    "raw_response": "<|src_id|>52<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 52,
+            "tgt_id": 50
+        }
+    ]
+}

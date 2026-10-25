@@ -1,0 +1,97 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-yrbpbiql\\input\\pdfs\\doc-181f49a4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-yrbpbiql\\enriched\\doc-181f49a4.json",
+    "contd_output": "<|src_id|>34<|tgt_id|>35\n<|src_id|>42<|tgt_id|>43\n<|src_id|>50<|tgt_id|>51\n<|src_id|>72<|tgt_id|>73",
+    "title_output": "<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>21<|level|>1\n<|id|>39<|level|>1\n<|id|>46<|level|>1\n<|id|>54<|level|>1\n<|id|>61<|level|>1\n<|id|>67<|level|>1\n<|id|>74<|level|>1\n<|id|>79<|level|>1",
+    "image_output": "<|src_id|>13<|tgt_id|>11\n<|src_id|>14<|tgt_id|>11",
+    "contd_label": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 11
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 13,
+            "table2_idx": 14,
+            "upper_row_ss": [
+                [
+                    "Kevin Ostrowski",
+                    "Responsible Partner",
+                    "Privacy & Data Security"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Rachel Bernstein",
+                    "Billing Partner",
+                    "Privacy & Data Security"
+                ]
+            ]
+        }
+    ]
+}

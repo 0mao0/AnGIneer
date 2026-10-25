@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 367 118 629<|content|>STATE OF MARYLAND\n<|id|>1<|page|>1<|box|>143 277 160 720<|content|>DEPARTMENT OF ASSESSMENTS AND TAXATION\n<|id|>2<|page|>1<|box|>167 179 204 816<|content|>APPLICATION FOR REGISTRATION OF A FOREIGN LIMITED\n<|id|>6<|page|>1<|box|>395 140 412 540<|content|>1. Name of the Foreign Limited Liability Company\n<|id|>8<|page|>1<|box|>465 354 482 643<|content|>Harbor Point Development JV, LLC\n<|id|>11<|page|>1<|box|>686 140 703 364<|content|>2. Jurisdiction of Formation\n<|id|>15<|page|>2<|box|>89 140 107 357<|content|>3. Principal Office Address\n<|id|>22<|page|>2<|box|>433 140 450 401<|content|>4. Registered Agent in Maryland\n<|id|>27<|page|>2<|box|>760 140 777 645<|content|>5. Purpose and Nature of Business to Be Conducted\n<|id|>37<|page|>3<|box|>671 140 689 457<|content|>6. Members and Management Structure\n<|id|>48<|page|>4<|box|>616 142 633 526<|content|>7. Authorized Person Executing This Application\n<|id|>56<|page|>5<|box|>212 140 229 483<|content|>8. Federal Employer Identification Number\n<|id|>58<|page|>5<|box|>282 450 297 545<|content|>84-6213950\n<|id|>60<|page|>5<|box|>367 140 383 542<|content|>9. Date of Commencement of Business in Maryland\n<|id|>63<|page|>5<|box|>625 142 642 398<|content|>10. Certificate of Good Standing\n<|id|>67<|page|>5<|box|>816 143 834 424<|content|>11. Additional Required Statements\n<|id|>74<|page|>6<|box|>583 142 599 297<|content|>12. Governing Law\n<|id|>78<|page|>7<|box|>148 140 167 241<|content|>Verification\n<|id|>80<|page|>8<|box|>90 140 107 272<|content|>Signature block\n<|id|>87<|page|>9<|box|>89 145 152 848<|content|>EXHIBIT A CERTIFICATE OF GOOD STANDING FROM THE SE\n<|id|>92<|page|>10<|box|>89 341 133 656<|content|>EXHIBIT B CONSENT OF REGISTERED AGENT\n<|id|>93<|page|>10<|box|>147 140 164 769<|content|>Consent of Registered Agent to Serve as Resident A\n<|id|>95<|page|>10<|box|>233 218 250 777<|content|>Harbor Point Development JV, LLC a Delaware limite\n<|id|>99<|page|>10<|box|>464 142 481 633<|content|>NATIONAL REGISTERED AGENTS OF MARYLAND, INC.\n<|id|>105<|page|>10<|box|>589 313 606 683<|content|>FILING INSTRUCTIONS / COVER LETTER",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>6<|level|>2\n<|id|>8<|level|>-1\n<|id|>11<|level|>2\n<|id|>15<|level|>2\n<|id|>22<|level|>2\n<|id|>27<|level|>2\n<|id|>37<|level|>2\n<|id|>48<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>-1\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>67<|level|>2\n<|id|>74<|level|>2\n<|id|>78<|level|>2\n<|id|>80<|level|>2\n<|id|>87<|level|>2\n<|id|>92<|level|>2\n<|id|>93<|level|>3\n<|id|>95<|level|>-1\n<|id|>99<|level|>3\n<|id|>105<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        }
+    ]
+}

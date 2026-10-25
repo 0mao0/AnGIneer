@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|page|>1<|box|>372 140 388 328<|content|>I. Purpose and Context\n<|id|>13<|page|>2<|box|>340 140 357 602<|content|>II. Background on the Investigation and Triggering\n<|id|>24<|page|>4<|box|>186 140 204 743<|content|>III. Summary of Preliminary Findings Relevant to D\n<|id|>26<|page|>4<|box|>297 142 315 442<|content|>A. Revenue-Recognition Irregularities\n<|id|>34<|page|>5<|box|>294 140 311 426<|content|>B. Expense-Reporting Irregularities\n<|id|>40<|page|>5<|box|>670 140 688 310<|content|>C. SOX Implications\n<|id|>42<|page|>6<|box|>167 140 184 547<|content|>IV. Item 4.02 Form 8-K — Non-Reliance Disclosure\n<|id|>56<|page|>7<|box|>537 140 554 442<|content|>V. Ongoing Disclosure Considerations\n<|id|>64<|page|>9<|box|>90 140 107 844<|content|>VI. Coordination Protocols Between Calderwood & Ha\n<|id|>73<|page|>10<|box|>585 140 603 344<|content|>VII. Privilege Protections\n<|id|>79<|page|>11<|box|>494 140 511 359<|content|>VIII. Requested Next Steps\n<|id|>90<|page|>12<|box|>449 142 467 236<|content|>IX. Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>13<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>2\n<|id|>34<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>1\n<|id|>56<|level|>1\n<|id|>64<|level|>1\n<|id|>73<|level|>1\n<|id|>79<|level|>1\n<|id|>90<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        }
+    ]
+}

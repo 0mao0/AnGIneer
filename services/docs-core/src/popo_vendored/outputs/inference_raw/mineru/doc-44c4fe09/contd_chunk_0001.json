@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        56,
+        103
+    ],
+    "pages": [
+        57,
+        58,
+        77,
+        98,
+        99,
+        102,
+        103
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>366<|page|>57<|box|>126 420 137 570<|content|>(Dollar amounts in millions)\n<|id|>368<|page|>58<|box|>89 285 119 714<|content|>Table PDO-7. ... - Disposition of Public Marketabl...Other than Regular Weekly Treasury Bills—Continued\n<|id|>442<|page|>77<|box|>112 107 204 496<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>443<|page|>77<|box|>113 519 204 909<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1974\n<|id|>520<|page|>98<|box|>123 429 135 561<|content|>(In millions of dollars)\n<|id|>521<|page|>98<|box|>880 90 939 473<|content|>2/ Includes Bank for International Settlements and European Fund. ... corporations\n<|id|>533<|page|>99<|box|>125 436 137 567<|content|>(In millions of dollars)\n<|id|>534<|page|>99<|box|>564 522 582 898<|content|>4/ Includes \\$101 million increase in dollar value... to revaluation of the German mark in October 1969\n<|id|>539<|page|>99<|box|>660 94 681 490<|content|>3/ Data on the two lines shown for this date diffe...e. ... Figures on the first line are comparable in\n<|id|>540<|page|>99<|box|>548 538 567 912<|content|>coverage to those shown for the preceding date; .....e comparable to those shown for the following date\n<|id|>567<|page|>102<|box|>665 176 684 446<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>568<|page|>102<|box|>689 176 716 435<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>570<|page|>102<|box|>438 521 452 711<|content|>(EQ2) \\mathbf{E}_{\\mathbf{x}} = \\Sigma (\\Delta f c_{\\mathbf{i}} / \\$ * x_{\\mathbf{i}} / \\Sigma x)\n<|id|>571<|page|>102<|box|>454 542 483 850<|content|>Where: ... E_{x} is the weighted average of percentage changes in the foreign currency cost of dollars\n<|id|>572<|page|>102<|box|>488 593 509 845<|content|>\\Delta f c_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>573<|page|>102<|box|>513 593 540 839<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>576<|page|>102<|box|>596 547 625 855<|content|>Where: ... and\n<|id|>577<|page|>102<|box|>629 596 655 860<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>583<|page|>103<|box|>298 90 342 489<|content|>The report forms and instructions used in the coll...istics have been revised a number of times. ... 1/\n<|id|>584<|page|>103<|box|>350 88 454 487<|content|>The present form of the published presentation of ...rt-term liquid claims of large nonbanking concerns",
+    "raw_response": "<|src_id|>442<|tgt_id|>443\n<|src_id|>539<|tgt_id|>540",
+    "parsed": [
+        {
+            "src_id": 442,
+            "tgt_id": 443
+        },
+        {
+            "src_id": 539,
+            "tgt_id": 540
+        }
+    ]
+}

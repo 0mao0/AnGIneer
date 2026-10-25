@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 152 854<|content|>600 Lexington Avenue New York, NY 10022 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 707 176 854<|content|>December 19, 2022\n<|id|>4<|page|>1<|box|>212 140 248 854<|content|>International Court of Arbitration International C...-43 avenue du Président Wilson 75116 Paris, France\n<|id|>5<|page|>1<|box|>256 174 310 854<|content|>Re: ... Whitmore Aerospace LLC (Respondent) Nomina...uant to Article 12 of the ICC Rules of Arbitration\n<|id|>12<|page|>1<|box|>751 140 898 857<|content|>Judge Castillo is a national of the United States ...ions Convention on Contracts for the International\n<|id|>13<|page|>2<|box|>90 140 127 854<|content|>Sale of Goods (CISG), the Uniform Commercial Code,...ommon law principles governing commercial disputes\n<|id|>29<|page|>3<|box|>486 174 523 854<|content|>(d) He is not aware of any facts or circumstances,...tiality in the eyes of any of the parties; ... and\n<|id|>31<|page|>3<|box|>592 140 667 856<|content|>Enclosed with this letter, as Enclosure 1, is a si...cated his willingness to promptly provide the same\n<|id|>40<|page|>4<|box|>484 176 518 854<|content|>Theodore Langston, Partner Calderwood & Harkness L...ew York, NY 10022 Telephone: ... +1 (212) 558-4001\n<|id|>41<|page|>4<|box|>531 140 582 854<|content|>Email: ... com In accordance with Article 3(1) of ...sly on Claimant's counsel at the following address\n<|id|>42<|page|>4<|box|>589 174 625 852<|content|>Dr. ... Maximilian Haber Haber Reinhardt Schlosser...rschaft mbB Königstraße 35 70173 Stuttgart Germany\n<|id|>43<|page|>4<|box|>633 176 650 388<|content|>Email: ... de\n<|id|>47<|page|>4<|box|>847 142 864 320<|content|>Respectfully submitted,\n<|id|>48<|page|>4<|box|>872 142 888 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>49<|page|>4<|box|>891 142 907 253<|content|>By: ... By\n<|id|>50<|page|>5<|box|>89 143 122 852<|content|>Theodore Langston Partner Calderwood & Harkness LLP 600 Lexington Avenue New York, NY 10022\n<|id|>51<|page|>5<|box|>125 142 140 334<|content|>Date: ... December 19, 2022\n<|id|>52<|page|>5<|box|>143 143 156 171<|content|>cc: ... cc\n<|id|>53<|page|>5<|box|>165 176 202 854<|content|>Dana Prescott, Vice President & General Counsel, W... Wilson Boulevard, Suite 1100, Arlington, VA 22203\n<|id|>54<|page|>5<|box|>210 176 246 854<|content|>Dr. ... Maximilian Haber, Haber Reinhardt Schlosse...haft mbB, Königstraße 35, 70173 Stuttgart, Germany",
+    "raw_response": "<|src_id|>12<|tgt_id|>13",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        }
+    ]
+}

@@ -1,0 +1,142 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-oh7yti_l\\input\\pdfs\\doc-579ca883.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-oh7yti_l\\enriched\\doc-579ca883.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>19<|level|>2\n<|id|>39<|level|>2\n<|id|>40<|level|>3\n<|id|>47<|level|>3\n<|id|>54<|level|>3\n<|id|>69<|level|>3\n<|id|>73<|level|>2\n<|id|>74<|level|>3\n<|id|>82<|level|>3\n<|id|>89<|level|>3\n<|id|>105<|level|>3\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>116<|level|>3\n<|id|>125<|level|>3\n<|id|>145<|level|>3\n<|id|>149<|level|>2\n<|id|>151<|level|>3\n<|id|>159<|level|>3\n<|id|>164<|level|>3\n<|id|>169<|level|>2\n<|id|>179<|level|>2",
+    "image_output": "<|src_id|>181<|tgt_id|>179\n<|src_id|>182<|tgt_id|>179",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 181,
+            "tgt_id": 179
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 179
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 181,
+            "table2_idx": 182,
+            "upper_row_ss": [
+                [
+                    "Publication review scope",
+                    "Confidential information and patentable matter",
+                    "Redaction of \"Sponsor Confidential Information\" only; no editorial control",
+                    "Scope narrowing",
+                    "Accept; ensure defined term broadly covers trade secrets",
+                    "Medium"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "No-veto / anti-suppression language",
+                    "Not included",
+                    "Explicit no-veto provision; absolute",
+                    "New provision",
+                    "Accept modified version: no unreasonable withholding; preserve trade-secret removal right",
+                    "Medium"
+                ]
+            ]
+        }
+    ]
+}

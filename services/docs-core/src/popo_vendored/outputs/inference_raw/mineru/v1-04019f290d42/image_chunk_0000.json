@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>70 109 133 888<|content|>Optimizing a-DCF for Spoofing-Robust Speaker Verif\n<|id|>3<|type|>title<|page|>1<|box|>359 91 375 467<|content|>Index Terms—a-DCF, spoofing-robust speaker verific\n<|id|>4<|type|>title<|page|>1<|box|>385 217 398 349<|content|>I. INTRODUCTION\n<|id|>7<|type|>image<|page|>1<|box|>183 514 334 903<|content|>None\n<|id|>9<|type|>title<|page|>1<|box|>648 591 662 834<|content|>II. DETECTION COST FUNCTIONS\n<|id|>11<|type|>title<|page|>2<|box|>103 73 118 220<|content|>A. DCF and a-DCF\n<|id|>20<|type|>title<|page|>2<|box|>601 73 616 297<|content|>B. Differentiable a-DCF Metric\n<|id|>25<|type|>title<|page|>2<|box|>155 504 172 720<|content|>C. Optimization of soft a-DCF\n<|id|>34<|type|>title<|page|>3<|box|>479 84 494 482<|content|>III. EXPERIMENTAL SETUP, RESULTS AND DISCUSSION\n<|id|>35<|type|>title<|page|>3<|box|>500 73 513 158<|content|>A. Dataset\n<|id|>37<|type|>title<|page|>3<|box|>675 73 690 235<|content|>B. Experimental Setup\n<|id|>46<|type|>table<|page|>3<|box|>500 506 523 929<|content|>None\n<|id|>47<|type|>title<|page|>3<|box|>534 504 550 625<|content|>C. Baseline (S1)\n<|id|>49<|type|>title<|page|>3<|box|>638 503 654 898<|content|>D. Proposed a-DCF metric optimization (S2, S3 and\n<|id|>52<|type|>table<|page|>4<|box|>114 88 186 475<|content|>None\n<|id|>54<|type|>title<|page|>4<|box|>613 75 627 294<|content|>E. Impact of a-DCF Parameter\n<|id|>61<|type|>title<|page|>4<|box|>460 504 476 725<|content|>F. a-DCF Loss in Score Fusion\n<|id|>63<|type|>table<|page|>4<|box|>700 549 773 872<|content|>None\n<|id|>64<|type|>title<|page|>4<|box|>779 648 792 779<|content|>IV. CONCLUSION\n<|id|>66<|type|>title<|page|>5<|box|>70 235 83 331<|content|>REFERENCES",
+    "raw_response": "<|src_id|>7<|tgt_id|>4\n<|src_id|>46<|tgt_id|>37\n<|src_id|>52<|tgt_id|>49\n<|src_id|>63<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 61
+        }
+    ]
+}

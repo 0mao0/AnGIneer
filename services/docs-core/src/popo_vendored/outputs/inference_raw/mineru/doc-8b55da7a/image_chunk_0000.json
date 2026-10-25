@@ -1,0 +1,68 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 153 133 843<|content|>CALDERWOOD & HARKNESS LLP One Liberty Plaza, 45th\n<|id|>7<|type|>title<|page|>1<|box|>391 140 407 343<|content|>I. Purpose and Summary\n<|id|>13<|type|>title<|page|>2<|box|>148 140 167 346<|content|>II. Transaction Summary\n<|id|>17<|type|>table<|page|>2<|box|>386 143 454 852<|content|>None\n<|id|>29<|type|>title<|page|>3<|box|>90 140 106 292<|content|>Initial Purchasers:\n<|id|>35<|type|>table<|page|>3<|box|>261 143 422 852<|content|>None\n<|id|>40<|type|>title<|page|>3<|box|>599 142 617 539<|content|>III. Key Transaction Timeline — Confirmed Dates\n<|id|>42<|type|>table<|page|>3<|box|>704 143 897 852<|content|>None\n<|id|>43<|type|>table<|page|>4<|box|>88 143 546 852<|content|>None\n<|id|>44<|type|>title<|page|>4<|box|>594 140 612 464<|content|>IV. Confirmation of Closing Deliverables\n<|id|>46<|type|>title<|page|>4<|box|>689 140 705 563<|content|>A. Issuer Deliverables — All Received and Confirme\n<|id|>61<|type|>title<|page|>6<|box|>138 140 157 591<|content|>B. Transaction Documents — All Executed and Delive\n<|id|>78<|type|>title<|page|>7<|box|>752 140 768 560<|content|>C. Opinions and Negative Assurance — All Delivered\n<|id|>93<|type|>title<|page|>9<|box|>157 140 174 401<|content|>D. Initial Purchaser Deliverables\n<|id|>95<|type|>title<|page|>9<|box|>285 142 301 364<|content|>E. Third-Party Deliverables\n<|id|>101<|type|>title<|page|>9<|box|>679 140 695 692<|content|>V. Confirmation of Payoff and Lien Release — Exist\n<|id|>104<|type|>title<|page|>9<|box|>883 140 902 671<|content|>Original Principal Commitments under the Existing\n<|id|>113<|type|>table<|page|>10<|box|>294 143 388 852<|content|>None\n<|id|>120<|type|>title<|page|>11<|box|>285 140 301 460<|content|>VI. Funds Flow — Confirmed Execution\n<|id|>122<|type|>table<|page|>11<|box|>433 143 892 852<|content|>None\n<|id|>125<|type|>title<|page|>12<|box|>263 140 280 405<|content|>VII. Post-Closing Items — Status\n<|id|>126<|type|>title<|page|>12<|box|>294 140 311 763<|content|>A. Items Tracked Per Post-Closing Checklist Memora\n<|id|>128<|type|>table<|page|>12<|box|>378 143 597 852<|content|>None\n<|id|>130<|type|>title<|page|>12<|box|>680 142 696 390<|content|>B. Post-Closing Letter to Client\n<|id|>136<|type|>title<|page|>13<|box|>280 140 297 387<|content|>VIII. Closing Binder Assembly\n<|id|>149<|type|>title<|page|>13<|box|>739 140 777 839<|content|>IX. Outstanding / Forward-Looking Obligations (For\n<|id|>155<|type|>title<|page|>14<|box|>648 140 665 406<|content|>X. Engagement Team and Billing\n<|id|>156<|type|>table<|page|>14<|box|>696 143 811 852<|content|>None\n<|id|>162<|type|>title<|page|>15<|box|>332 142 349 313<|content|>XI. Recommendation\n<|id|>168<|type|>title<|page|>15<|box|>648 142 665 282<|content|>XII. Prepared By\n<|id|>175<|type|>table<|page|>15<|box|>821 143 895 852<|content|>None\n<|id|>176<|type|>table<|page|>16<|box|>89 143 145 852<|content|>None",
+    "raw_response": "<|src_id|>17<|tgt_id|>13\n<|src_id|>35<|tgt_id|>29\n<|src_id|>42<|tgt_id|>40\n<|src_id|>43<|tgt_id|>40\n<|src_id|>113<|tgt_id|>104\n<|src_id|>122<|tgt_id|>120\n<|src_id|>128<|tgt_id|>126\n<|src_id|>156<|tgt_id|>155\n<|src_id|>175<|tgt_id|>168\n<|src_id|>176<|tgt_id|>168",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 168
+        }
+    ]
+}

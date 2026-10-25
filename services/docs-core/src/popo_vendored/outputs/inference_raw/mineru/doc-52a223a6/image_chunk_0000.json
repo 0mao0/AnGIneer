@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>325 150 378 844<|content|>PLAINTIFF'S STATEMENT OF UNDISPUTED MATERIAL FACTS\n<|id|>7<|type|>title<|page|>1<|box|>388 245 405 751<|content|>Before the Honorable Catherine Embry Filed: Novemb\n<|id|>9<|type|>title<|page|>1<|box|>602 140 619 285<|content|>I. THE PARTIES\n<|id|>17<|type|>title<|page|>2<|box|>545 140 563 710<|content|>II. VHG'S INSURANCE PROGRAM AND THE INSURANCE TOWE\n<|id|>19<|type|>table<|page|>2<|box|>767 143 905 852<|content|>None\n<|id|>20<|type|>table<|page|>3<|box|>88 143 109 852<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>454 140 472 790<|content|>III. THE PRIOR POLICY YEAR AND THE NAMED WINDSTORM\n<|id|>28<|type|>title<|page|>4<|box|>167 140 204 810<|content|>IV. THE JULY 2022 RENEWAL NEGOTIATIONS AND DELETIO\n<|id|>36<|type|>title<|page|>5<|box|>303 140 320 782<|content|>V. THE IRONCLAD POLICY AS ISSUED AND THE SUB-LIMIT\n<|id|>42<|type|>title<|page|>6<|box|>258 140 276 754<|content|>VI. THE EXCESS LAYER POLICIES AND FOLLOW-FORM PROV\n<|id|>45<|type|>title<|page|>6<|box|>626 140 643 625<|content|>VII. HURRICANE CALLISTA AND PROPERTY DAMAGE\n<|id|>53<|type|>title<|page|>7<|box|>608 140 625 526<|content|>VIII. THE INSURANCE CLAIM AND DENIAL\n<|id|>60<|type|>title<|page|>8<|box|>574 140 609 782<|content|>IX. THE WINDSTORM SUB-LIMIT IS THE CENTRAL ISSUE F\n<|id|>64<|type|>title<|page|>9<|box|>258 140 295 836<|content|>X. DEFENDANTS HAVE NOT PRODUCED EVIDENCE SUPPORTIN\n<|id|>68<|type|>title<|page|>9<|box|>780 140 797 271<|content|>CONCLUSION\n<|id|>71<|type|>title<|page|>10<|box|>434 248 450 746<|content|>RESPECTFULLY SUBMITTED this 1st day of November, 2\n<|id|>76<|type|>title<|page|>10<|box|>626 375 643 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>19<|tgt_id|>17\n<|src_id|>20<|tgt_id|>17",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        }
+    ]
+}

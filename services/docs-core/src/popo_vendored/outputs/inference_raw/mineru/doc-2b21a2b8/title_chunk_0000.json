@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 104 584<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>3<|page|>1<|box|>494 140 512 421<|content|>I. Purpose and Executive Summary\n<|id|>7<|page|>2<|box|>148 142 167 267<|content|>II. Background\n<|id|>8<|page|>2<|box|>180 142 196 343<|content|>A. Transaction Overview\n<|id|>13<|page|>2<|box|>734 140 751 318<|content|>B. HSR Filing History\n<|id|>26<|page|>4<|box|>260 140 277 375<|content|>III. Early Termination Grant\n<|id|>27<|page|>4<|box|>292 140 308 264<|content|>A. FTC Action\n<|id|>35<|page|>5<|box|>223 140 239 506<|content|>IV. Satisfaction of Antitrust Closing Condition\n<|id|>36<|page|>5<|box|>253 140 270 362<|content|>A. Relevant SPA Provisions\n<|id|>41<|page|>5<|box|>715 140 733 465<|content|>B. Remaining Regulatory Considerations\n<|id|>46<|page|>6<|box|>439 140 457 483<|content|>V. Coordination with Transaction Timeline\n<|id|>51<|page|>7<|box|>444 140 460 277<|content|>VI. Action Items\n<|id|>58<|page|>8<|box|>148 140 166 272<|content|>VII. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>3<|level|>1\n<|id|>7<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>26<|level|>1\n<|id|>27<|level|>2\n<|id|>35<|level|>1\n<|id|>36<|level|>2\n<|id|>41<|level|>2\n<|id|>46<|level|>1\n<|id|>51<|level|>1\n<|id|>58<|level|>1",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ]
+}

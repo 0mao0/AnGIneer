@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>698 140 715 338<|content|>I. The Wells Notification\n<|id|>17<|page|>2<|box|>354 140 372 343<|content|>II. Request for Extension\n<|id|>20<|page|>2<|box|>594 140 611 495<|content|>III. Justification for the Requested Extension\n<|id|>22<|page|>2<|box|>669 140 686 542<|content|>A. Complexity of the Underlying Accounting Issues\n<|id|>28<|page|>3<|box|>693 142 710 573<|content|>B. Need to Finalize Forensic Accounting Expert Rep\n<|id|>36<|page|>4<|box|>719 140 736 617<|content|>C. Scope of the Document Production and Testimony\n<|id|>43<|page|>5<|box|>363 140 378 374<|content|>D. Additional Considerations\n<|id|>47<|page|>5<|box|>772 142 789 464<|content|>IV. Assurance of Continued Cooperation\n<|id|>50<|page|>6<|box|>229 140 247 591<|content|>V. Proposed New Deadline and Request for Confirmat",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>2\n<|id|>28<|level|>2\n<|id|>36<|level|>2\n<|id|>43<|level|>2\n<|id|>47<|level|>1\n<|id|>50<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        }
+    ]
+}

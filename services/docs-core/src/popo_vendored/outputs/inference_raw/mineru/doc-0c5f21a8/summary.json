@@ -1,0 +1,147 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l77nbelr\\input\\pdfs\\doc-0c5f21a8.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l77nbelr\\enriched\\doc-0c5f21a8.json",
+    "contd_output": "<|src_id|>20<|tgt_id|>21\n<|src_id|>76<|tgt_id|>77\n<|src_id|>129<|tgt_id|>130",
+    "title_output": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>6<|level|>3\n<|id|>38<|level|>2\n<|id|>39<|level|>3\n<|id|>40<|level|>4\n<|id|>48<|level|>4\n<|id|>56<|level|>4\n<|id|>65<|level|>4\n<|id|>73<|level|>4\n<|id|>82<|level|>4\n<|id|>97<|level|>4\n<|id|>102<|level|>4\n<|id|>105<|level|>4\n<|id|>114<|level|>4\n<|id|>120<|level|>4\n<|id|>126<|level|>4\n<|id|>133<|level|>4\n<|id|>141<|level|>4\n<|id|>143<|level|>2\n<|id|>147<|level|>2\n<|id|>158<|level|>2\n<|id|>216<|level|>2",
+    "image_output": "<|src_id|>99<|tgt_id|>97\n<|src_id|>100<|tgt_id|>97",
+    "contd_label": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 130
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 56,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 73,
+            "level": 4
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 105,
+            "level": 4
+        },
+        {
+            "id": 114,
+            "level": 4
+        },
+        {
+            "id": 120,
+            "level": 4
+        },
+        {
+            "id": 126,
+            "level": 4
+        },
+        {
+            "id": 133,
+            "level": 4
+        },
+        {
+            "id": 141,
+            "level": 4
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 99,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 97
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 99,
+            "table2_idx": 100,
+            "upper_row_ss": [
+                [
+                    "Investment Transactions (Single-Issuer)",
+                    "Investment Committee",
+                    "≤ $50.0M",
+                    "≤ $75.0M"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "M&A / Strategic Transactions",
+                    "Board approval threshold",
+                    "> $10.0M",
+                    "> $25.0M"
+                ]
+            ]
+        }
+    ]
+}

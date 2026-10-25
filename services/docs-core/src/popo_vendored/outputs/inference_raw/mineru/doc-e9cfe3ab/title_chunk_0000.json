@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>338 142 354 232<|content|>1. Purpose\n<|id|>10<|page|>1<|box|>742 140 758 362<|content|>2. Engagement Background\n<|id|>20<|page|>2<|box|>489 140 506 413<|content|>3. Engagement Status — Dormant\n<|id|>23<|page|>2<|box|>782 140 799 400<|content|>4. Summary of Work Performed\n<|id|>41<|page|>5<|box|>340 140 357 717<|content|>5. Status of Draft Tax Opinion and Work Product —\n<|id|>49<|page|>6<|box|>648 140 665 401<|content|>6. Preservation of Work Product\n<|id|>53<|page|>7<|box|>223 142 239 299<|content|>7. Billing Summary\n<|id|>64<|page|>7<|box|>712 143 728 294<|content|>Invoices Rendered.\n<|id|>71<|page|>8<|box|>167 176 184 393<|content|>Unbilled WIP: $177,350.00\n<|id|>74<|page|>8<|box|>426 140 443 385<|content|>8. Reactivation of Engagement\n<|id|>82<|page|>9<|box|>241 140 258 326<|content|>9. Contact Information\n<|id|>89<|page|>9<|box|>500 143 517 235<|content|>10. Closing",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>10<|level|>1\n<|id|>20<|level|>1\n<|id|>23<|level|>1\n<|id|>41<|level|>1\n<|id|>49<|level|>1\n<|id|>53<|level|>1\n<|id|>64<|level|>2\n<|id|>71<|level|>2\n<|id|>74<|level|>1\n<|id|>82<|level|>1\n<|id|>89<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        }
+    ]
+}

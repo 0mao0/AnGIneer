@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 24,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['', 'A)锚地的几何类型为点、面', 'ACHARE(锚泊区)(O)CATACH(锚地类) = [1(无限制的锚地),2(深水锚地),3(油轮锚地),4(易爆物锚地),5(检疫锚地),7(小型船锚地),8(小型船系泊区),9(当日锚地 24h),10(限定时间周期的锚地),100(拖轮锚地),101(非拖轮锚地),102(非危险货锚地),103(临时抛锚区),104(锚位),105(水上飞机锚地),999(其他锚泊区)](O)UNLOCD(地区编码) = [地区编码](O)OBJNAM(英文名称) = [锚地英文名称](O)NOBJNM(中文名称) = [锚地中文名称](C)SORDAT(数据来源日期) = [YYYYMMDD](C)SORIND(数据来源表示) = [cc,cc, ccccc, c...](O)INFORM(英文信息) = [锚地英文信息](O)NINFOM(中文信息) = [锚地中文信息]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['图像及示意图', '编码说明', '对应物标属性编码']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 2763,
+    "table2_idx": 2764
+}

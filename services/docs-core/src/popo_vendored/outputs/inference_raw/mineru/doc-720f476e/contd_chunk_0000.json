@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        21,
+        22,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 442 180 553<|content|>by and among\n<|id|>3<|page|>1<|box|>186 183 224 813<|content|>STONEBRIDGE CAMPUS HOLDINGS LLC, a Virginia limited liability company (\"Indemnitor-Borrower\")\n<|id|>4<|page|>1<|box|>231 155 268 841<|content|>IRONHAVEN DATA CENTERS LLC, a Delaware limited lia...ether with Indemnitor-Borrower, the \"Indemnitors\")\n<|id|>5<|page|>1<|box|>276 480 292 517<|content|>and\n<|id|>6<|page|>1<|box|>301 143 339 852<|content|>SUMMIT NATIONAL BANK, N. ... , as Administrative A... and together with the Lenders, the \"Indemnitees\")\n<|id|>7<|page|>1<|box|>388 143 482 852<|content|>In connection with the Construction Loan Agreement... in the aggregate principal amount of $390,000,000\n<|id|>8<|page|>1<|box|>531 398 549 599<|content|>TABLE OF CONTENTS\n<|id|>9<|page|>1<|box|>558 140 575 408<|content|>Right-click to update Table of Contents\n<|id|>15<|page|>2<|box|>306 174 362 854<|content|>(i) The \"Stonebridge Parcel\": ... and\n<|id|>17<|page|>2<|box|>431 140 560 854<|content|>together, the \"Property\" (approximately eighty-one... Hundred Million and No/100 Dollars ($600,000,000)\n<|id|>215<|page|>21<|box|>282 174 897 856<|content|>c/o Ironhaven Data Centers LLC 44680 Prentice Driv...ite 200 Ashburn, Virginia 20147 Attention: ... com\n<|id|>216<|page|>22<|box|>90 138 181 854<|content|>Any party may change its address for purposes of t...siness day after deposit in the United States mail\n<|id|>241<|page|>24<|box|>107 142 125 787<|content|>By: ... Ironhaven Data Centers LLC, a Delaware limited liability company, its sole member\n<|id|>242<|page|>24<|box|>125 143 141 253<|content|>By: ... By\n<|id|>243<|page|>24<|box|>142 143 157 313<|content|>Name: ... Marcus Thorne\n<|id|>244<|page|>24<|box|>159 142 175 584<|content|>Title: ... Chief Executive Officer, Ironhaven Data Centers LLC\n<|id|>245<|page|>24<|box|>176 143 194 253<|content|>By: ... By\n<|id|>246<|page|>24<|box|>194 143 210 313<|content|>Name: ... Priya Dasgupta\n<|id|>247<|page|>24<|box|>210 143 227 578<|content|>Title: ... Chief Financial Officer, Ironhaven Data Centers LLC\n<|id|>251<|page|>24<|box|>296 140 314 709<|content|>IRONHAVEN DATA CENTERS LLC, a Delaware limited liability company\n<|id|>252<|page|>24<|box|>315 143 330 253<|content|>By: ... By\n<|id|>253<|page|>24<|box|>332 143 347 313<|content|>Name: ... Marcus Thorne\n<|id|>254<|page|>24<|box|>348 143 364 366<|content|>Title: ... Chief Executive Officer\n<|id|>255<|page|>24<|box|>367 143 383 251<|content|>By: ... By\n<|id|>256<|page|>24<|box|>383 143 400 313<|content|>Name: ... Priya Dasgupta\n<|id|>257<|page|>24<|box|>400 143 415 361<|content|>Title: ... Chief Financial Officer\n<|id|>261<|page|>24<|box|>503 143 520 320<|content|>Name: ... Karen Ellsworth\n<|id|>262<|page|>24<|box|>521 143 537 480<|content|>Title: ... Managing Director, Real Estate Finance\n<|id|>274<|page|>25<|box|>337 140 375 854<|content|>The above description is the same property conveye...oudoun County, Virginia, as Instrument No. ... ___\n<|id|>275<|page|>25<|box|>381 140 417 854<|content|>The Stonebridge Parcel and the Meridian Parcel are...and four-tenths (81. ... 4) acres in the aggregate",
+    "raw_response": "<|src_id|>2<|tgt_id|>3\n<|src_id|>4<|tgt_id|>5\n<|src_id|>5<|tgt_id|>6\n<|src_id|>15<|tgt_id|>17",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 17
+        }
+    ]
+}

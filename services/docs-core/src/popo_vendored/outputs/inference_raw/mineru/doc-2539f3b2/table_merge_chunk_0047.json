@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 47,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=22, 机电工程', 'rowspan=7, 7 供配电设施', '7.7 电力监控系统', '监控中心', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=22, 机电工程', 'rowspan=4, 8 照明设施', '8.1 路段照明设施', '灯具以灯杆为抽样单位,亮度指标以两灯杆间距为单位测点', '']]\n",
+    "raw_response": "[1, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 754,
+    "table2_idx": 755
+}

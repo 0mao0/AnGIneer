@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>194 433 210 565<|content|>October 31, 2024\n<|id|>5<|page|>1<|box|>220 140 348 856<|content|>Reference is made to that certain Stock Purchase A...ive of the Sellers (the \"Sellers' Representative\")\n<|id|>12<|page|>1<|box|>875 140 909 857<|content|>Attached hereto as Exhibit A is a true, correct, a... filed with the Secretary of State of the State of\n<|id|>13<|page|>2<|box|>90 140 143 856<|content|>Delaware on April 22, 2024. ... The Charter has no...ins in full force and effect as of the date hereof\n<|id|>28<|page|>3<|box|>797 174 909 857<|content|>(e) Credit Agreement. ... , as administrative agen...facility in an aggregate principal amount of Fifty\n<|id|>29<|page|>4<|box|>90 174 219 857<|content|>Million Dollars ($50,000,000) (the \"Revolving Cred...r executed in connection with the Credit Agreement\n<|id|>59<|page|>7<|box|>194 142 210 313<|content|>Name: ... Patrick Lennox\n<|id|>60<|page|>7<|box|>212 142 229 261<|content|>Title: ... Secretary\n<|id|>65<|page|>7<|box|>410 142 426 303<|content|>Name: ... Helena Byrne\n<|id|>66<|page|>7<|box|>426 143 444 261<|content|>Title: ... President\n<|id|>67<|page|>7<|box|>444 142 460 318<|content|>Date: ... October 31, 2024\n<|id|>69<|page|>7<|box|>487 140 523 854<|content|>Exhibit A — Certificate of Incorporation of Solsti...f State of the State of Delaware on April 22, 2024\n<|id|>70<|page|>7<|box|>532 140 566 854<|content|>Exhibit B — Bylaws of Solstice Biomedical, Inc. .....e incorporator and in effect as of the date hereof\n<|id|>71<|page|>7<|box|>575 140 613 854<|content|>Exhibit C — Unanimous Written Consent of the Board...ions contemplated by the Stock Purchase Agreement)\n<|id|>72<|page|>7<|box|>619 140 674 854<|content|>Exhibit D — Written Consent of Sole Stockholder (S...ions contemplated by the Stock Purchase Agreement)",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>28<|tgt_id|>29",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        }
+    ]
+}

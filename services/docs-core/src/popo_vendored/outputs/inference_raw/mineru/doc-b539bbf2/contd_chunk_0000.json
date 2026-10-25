@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        12
+    ],
+    "pages": [
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>19<|page|>4<|box|>370 117 385 349<|content|>GB 12319 中国海图图式\n<|id|>20<|page|>4<|box|>387 117 404 403<|content|>GB 12320 中国航海图编绘规范\n<|id|>21<|page|>4<|box|>408 117 423 349<|content|>GB 12327 海道测量规范\n<|id|>22<|page|>4<|box|>427 117 443 449<|content|>GB/T 12898 国家三、四等水准测量规范\n<|id|>23<|page|>4<|box|>446 117 461 472<|content|>GB/T 18314 全球定位系统(GPS)测量规范\n<|id|>24<|page|>4<|box|>466 117 483 584<|content|>CH/T 2009 全球定位系统实时动态测量(RTK)技术规范\n<|id|>25<|page|>4<|box|>484 117 501 475<|content|>JT/T 790 多波束测深系统测量技术要求\n<|id|>26<|page|>4<|box|>505 117 521 510<|content|>JT/T 952 海事测绘产品质量评定方法及要求\n<|id|>27<|page|>4<|box|>524 117 540 456<|content|>JT/T 954 沿海港口航道测量技术要求\n<|id|>28<|page|>4<|box|>543 117 560 695<|content|>IHO S-44 国际海道测量规范(IHO Standards for Hydrographic Surveys)\n<|id|>40<|page|>4<|box|>810 117 826 795<|content|>通航水深 depth of navigable water\n<|id|>41<|page|>4<|box|>830 119 846 335<|content|>允许船舶航行的最浅水深。 ... 允许船舶航行的最浅水深\n<|id|>46<|page|>5<|box|>107 133 123 468<|content|>通航水位 water level of navigable water\n<|id|>47<|page|>5<|box|>126 134 141 458<|content|>能保证船舶正常航行的最高和最低水位。 ... 能保证船舶正常航行的最高和最低水位\n<|id|>52<|page|>5<|box|>240 134 255 418<|content|>水深监测 bathymetric monitoring\n<|id|>53<|page|>5<|box|>258 134 273 704<|content|>对通航水域的水深进行定期测量,确定水深及水下地形变化趋势的活动。 ... 对通航水域的水深进行定期测量,确定水深及水下地形变化趋势的活动\n<|id|>115<|page|>7<|box|>860 98 876 245<|content|>5. ... 1 平均海面\n<|id|>116<|page|>7<|box|>889 96 906 904<|content|>5. ... 1 长期水位站的平均海面可采用最近2年或2年以上连续观测的整点水位,用算术平均法\n<|id|>117<|page|>8<|box|>87 96 103 150<|content|>求得。 ... 求得\n<|id|>162<|page|>9<|box|>886 103 903 910<|content|>6. ... 测区水深大于20m应采用实\n<|id|>163<|page|>10<|box|>87 105 104 250<|content|>测声速进行改正。 ... 测声速进行改正\n<|id|>218<|page|>11<|box|>888 93 906 901<|content|>6. ... 5 探测时,调查船的船速应控制在 5 kn 以下,匀速、直线航行,航迹偏离设计测线不应大于测线\n<|id|>219<|page|>12<|box|>90 110 106 211<|content|>间距的 1/5。 ... 间距的 1/5",
+    "raw_response": "<|src_id|>116<|tgt_id|>117\n<|src_id|>162<|tgt_id|>163\n<|src_id|>218<|tgt_id|>219",
+    "parsed": [
+        {
+            "src_id": 116,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 219
+        }
+    ]
+}

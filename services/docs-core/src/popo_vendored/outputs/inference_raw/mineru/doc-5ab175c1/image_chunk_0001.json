@@ -1,0 +1,69 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        48,
+        58
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>173<|type|>title<|page|>48<|box|>441 333 501 653<|content|>第五章 其他\n<|id|>174<|type|>title<|page|>49<|box|>92 417 123 569<|content|>一、灌浆材料\n<|id|>175<|type|>title<|page|>49<|box|>136 123 165 242<|content|>(一) 止水灌浆\n<|id|>176<|type|>title<|page|>49<|box|>172 125 200 272<|content|>1. 水泥基止水灌浆\n<|id|>178<|type|>table<|page|>49<|box|>209 94 384 892<|content|>None\n<|id|>179<|type|>title<|page|>49<|box|>635 126 664 322<|content|>2. 水泥—水玻璃双液注浆\n<|id|>180<|type|>table<|page|>49<|box|>671 96 816 895<|content|>None\n<|id|>181<|type|>title<|page|>50<|box|>114 131 143 300<|content|>（二）预应力孔道灌浆\n<|id|>183<|type|>table<|page|>50<|box|>183 102 364 900<|content|>None\n<|id|>184<|type|>title<|page|>51<|box|>94 121 123 237<|content|>（三）锚固灌浆\n<|id|>186<|type|>table<|page|>51<|box|>165 91 339 889<|content|>None\n<|id|>187<|type|>title<|page|>52<|box|>121 348 152 662<|content|>二、钢筋混凝土管桩粘结（拼接）剂\n<|id|>189<|type|>table<|page|>52<|box|>203 107 379 903<|content|>None\n<|id|>190<|type|>title<|page|>53<|box|>97 396 128 593<|content|>三、细石混凝土灌浆料\n<|id|>192<|type|>table<|page|>53<|box|>178 96 388 894<|content|>None\n<|id|>193<|type|>title<|page|>54<|box|>445 311 507 688<|content|>第六章 参考定额\n<|id|>194<|type|>title<|page|>55<|box|>101 414 132 574<|content|>一、大管桩混凝土\n<|id|>196<|type|>table<|page|>55<|box|>181 94 355 894<|content|>None\n<|id|>197<|type|>title<|page|>56<|box|>121 422 154 582<|content|>二、自密实混凝土\n<|id|>199<|type|>table<|page|>56<|box|>205 102 556 902<|content|>None\n<|id|>200<|type|>title<|page|>57<|box|>99 420 128 573<|content|>三、环氧砂浆\n<|id|>201<|type|>title<|page|>57<|box|>143 126 169 245<|content|>(一) 环氧砂浆\n<|id|>203<|type|>table<|page|>57<|box|>211 97 388 895<|content|>None\n<|id|>204<|type|>title<|page|>57<|box|>501 126 529 279<|content|>（二）水泥环氧砂浆\n<|id|>206<|type|>table<|page|>57<|box|>571 97 816 897<|content|>None\n<|id|>207<|type|>table<|page|>58<|box|>203 105 346 900<|content|>None",
+    "raw_response": "<|src_id|>178<|tgt_id|>176\n<|src_id|>180<|tgt_id|>179\n<|src_id|>183<|tgt_id|>181\n<|src_id|>186<|tgt_id|>184\n<|src_id|>189<|tgt_id|>187\n<|src_id|>192<|tgt_id|>190\n<|src_id|>196<|tgt_id|>194\n<|src_id|>199<|tgt_id|>197\n<|src_id|>203<|tgt_id|>201\n<|src_id|>206<|tgt_id|>204\n<|src_id|>207<|tgt_id|>204",
+    "parsed": [
+        {
+            "src_id": 178,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 179
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 181
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 187
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 204
+        }
+    ]
+}

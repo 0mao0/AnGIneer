@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>5<|page|>1<|box|>252 140 287 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>15<|page|>1<|box|>574 142 590 395<|content|>I. Purpose and Legal Obligation\n<|id|>21<|page|>2<|box|>513 140 530 348<|content|>II. Background Summary\n<|id|>30<|page|>3<|box|>845 140 864 433<|content|>III. Scope of Preservation Obligation\n<|id|>32<|page|>4<|box|>138 140 156 398<|content|>A. Persons and Entities Covered\n<|id|>35<|page|>4<|box|>402 140 419 267<|content|>B. Time Period\n<|id|>48<|page|>5<|box|>90 140 107 375<|content|>C. Subject Matter Categories\n<|id|>61<|page|>7<|box|>241 140 258 447<|content|>IV. Types of Materials to Be Preserved\n<|id|>63<|page|>7<|box|>334 140 352 478<|content|>A. Electronically Stored Information (ESI)\n<|id|>73<|page|>8<|box|>554 142 571 348<|content|>B. Hard Copy Documents\n<|id|>79<|page|>9<|box|>90 140 106 351<|content|>C. Audio/Visual Materials\n<|id|>82<|page|>9<|box|>253 140 271 596<|content|>V. Prohibition on Destruction, Alteration, or Conc\n<|id|>88<|page|>9<|box|>809 140 825 305<|content|>VI. IT Coordination\n<|id|>96<|page|>10<|box|>700 140 717 589<|content|>VII. Key Custodians — Immediate Notification Requi\n<|id|>110<|page|>11<|box|>756 140 773 455<|content|>VIII. Acknowledgment and Compliance\n<|id|>120<|page|>12<|box|>513 140 532 310<|content|>IX. Duration of Hold\n<|id|>124<|page|>12<|box|>780 140 797 433<|content|>X. Consequences of Non-Compliance\n<|id|>134<|page|>13<|box|>573 140 590 210<|content|>Closing\n<|id|>145<|page|>14<|box|>227 143 243 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>-1\n<|id|>15<|level|>1\n<|id|>21<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>2\n<|id|>35<|level|>2\n<|id|>48<|level|>2\n<|id|>61<|level|>1\n<|id|>63<|level|>2\n<|id|>73<|level|>2\n<|id|>79<|level|>2\n<|id|>82<|level|>1\n<|id|>88<|level|>1\n<|id|>96<|level|>1\n<|id|>110<|level|>1\n<|id|>120<|level|>1\n<|id|>124<|level|>1\n<|id|>134<|level|>1\n<|id|>145<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 1
+        }
+    ]
+}

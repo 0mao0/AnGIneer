@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        103,
+        108
+    ],
+    "pages": [
+        104,
+        105,
+        108
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>569<|page|>104<|box|>875 119 891 858<|content|>A_{\\mathrm{s}} ——船艇值守艘班单价(元)，按巡航艘班可变费用中的人工费、 10\\% 燃料费及淡\n<|id|>570<|page|>105<|box|>108 228 127 805<|content|>水费计算,即船艇值守艘班单价 = 人工费 + 10% 燃料费 + 淡水费; ... 水费计算,即船艇值守艘班单价 = 人工费 + 10% 燃料费 + 淡水费\n<|id|>590<|page|>108<|box|>397 368 418 581<|content|>(JTG 3820—2018)\n<|id|>591<|page|>108<|box|>451 398 472 551<|content|>条文说明",
+    "raw_response": "<|src_id|>569<|tgt_id|>570",
+    "parsed": [
+        {
+            "src_id": 569,
+            "tgt_id": 570
+        }
+    ]
+}

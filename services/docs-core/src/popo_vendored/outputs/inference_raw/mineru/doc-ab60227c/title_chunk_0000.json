@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 153 142 844<|content|>SECRETARY'S/DIRECTOR'S CERTIFICATE OF MERIDIAN BIO\n<|id|>5<|page|>1<|box|>553 143 569 506<|content|>1. CERTIFYING PARTY IDENTIFICATION\n<|id|>8<|page|>1<|box|>704 179 720 653<|content|>18/F, Blossom Tower 88 Queen's Road Central Hong K\n<|id|>16<|page|>2<|box|>428 140 445 547<|content|>2. CERTIFICATION OF BOARD RESOLUTIONS\n<|id|>37<|page|>4<|box|>339 142 356 421<|content|>3. INCUMBENCY CERTIFICATE\n<|id|>45<|page|>5<|box|>89 140 106 638<|content|>4. CERTIFICATION OF ORGANIZATIONAL DOCUMENTS\n<|id|>50<|page|>5<|box|>489 142 508 498<|content|>5. GOOD STANDING / EXISTING STATUS\n<|id|>56<|page|>6<|box|>90 142 106 480<|content|>6. NO CONFLICTS / NO PROCEEDINGS\n<|id|>66<|page|>6<|box|>766 142 782 450<|content|>7. SUBSIDIARY AUTHORIZATIONS\n<|id|>73<|page|>7<|box|>608 140 625 486<|content|>8. REPRESENTATIONS AND RELIANCE\n<|id|>81<|page|>8<|box|>347 142 364 254<|content|>9. EXHIBITS\n<|id|>87<|page|>8<|box|>594 145 628 849<|content|>SIGNATURE PAGE TO SECRETARY'S/DIRECTOR'S CERTIFICA\n<|id|>100<|page|>9<|box|>323 143 358 852<|content|>CERTIFIED COPY OF BOARD RESOLUTIONS OF MERIDIAN BI\n<|id|>103<|page|>9<|box|>420 174 481 823<|content|>EXHIBIT B CERTIFIED COPY OF CERTIFICATE OF INCORPO\n<|id|>106<|page|>9<|box|>542 205 603 790<|content|>EXHIBIT C CERTIFIED COPY OF ARTICLES OF ASSOCIATIO",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>8<|level|>-1\n<|id|>16<|level|>2\n<|id|>37<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>56<|level|>2\n<|id|>66<|level|>2\n<|id|>73<|level|>2\n<|id|>81<|level|>2\n<|id|>87<|level|>2\n<|id|>100<|level|>2\n<|id|>103<|level|>2\n<|id|>106<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        }
+    ]
+}

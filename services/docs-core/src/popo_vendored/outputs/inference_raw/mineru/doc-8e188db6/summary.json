@@ -1,0 +1,435 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-785qb8co\\input\\pdfs\\doc-8e188db6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-785qb8co\\enriched\\doc-8e188db6.json",
+    "contd_output": "<|src_id|>18<|tgt_id|>19\n<|src_id|>189<|tgt_id|>190\n<|src_id|>316<|tgt_id|>317",
+    "title_output": "<|id|>0<|level|>1\n<|id|>12<|level|>2\n<|id|>42<|level|>2\n<|id|>43<|level|>3\n<|id|>52<|level|>4\n<|id|>56<|level|>4\n<|id|>59<|level|>4\n<|id|>63<|level|>4\n<|id|>65<|level|>4\n<|id|>77<|level|>2\n<|id|>78<|level|>3\n<|id|>81<|level|>4\n<|id|>87<|level|>4\n<|id|>91<|level|>4\n<|id|>94<|level|>4\n<|id|>98<|level|>4\n<|id|>100<|level|>4\n<|id|>113<|level|>2\n<|id|>114<|level|>3\n<|id|>117<|level|>4\n<|id|>123<|level|>4\n<|id|>127<|level|>4\n<|id|>130<|level|>4\n<|id|>135<|level|>4\n<|id|>137<|level|>4\n<|id|>150<|level|>2\n<|id|>151<|level|>3\n<|id|>154<|level|>4\n<|id|>160<|level|>4\n<|id|>164<|level|>4\n<|id|>167<|level|>4\n<|id|>171<|level|>4\n<|id|>173<|level|>4\n<|id|>186<|level|>2\n<|id|>187<|level|>3\n<|id|>191<|level|>4\n<|id|>197<|level|>4\n<|id|>201<|level|>4\n<|id|>204<|level|>4\n<|id|>209<|level|>4\n<|id|>211<|level|>4\n<|id|>222<|level|>2\n<|id|>223<|level|>3\n<|id|>226<|level|>4\n<|id|>232<|level|>4\n<|id|>236<|level|>4\n<|id|>239<|level|>4\n<|id|>243<|level|>4\n<|id|>245<|level|>4\n<|id|>258<|level|>2\n<|id|>259<|level|>3\n<|id|>262<|level|>4\n<|id|>268<|level|>4\n<|id|>272<|level|>4\n<|id|>275<|level|>4\n<|id|>280<|level|>4\n<|id|>282<|level|>4\n<|id|>295<|level|>2\n<|id|>296<|level|>3\n<|id|>298<|level|>4\n<|id|>304<|level|>4\n<|id|>308<|level|>4\n<|id|>311<|level|>4\n<|id|>315<|level|>4\n<|id|>318<|level|>4\n<|id|>330<|level|>2\n<|id|>331<|level|>3\n<|id|>340<|level|>4\n<|id|>344<|level|>4\n<|id|>347<|level|>4\n<|id|>351<|level|>4\n<|id|>353<|level|>4\n<|id|>366<|level|>2\n<|id|>367<|level|>3\n<|id|>370<|level|>4\n<|id|>376<|level|>4\n<|id|>380<|level|>4\n<|id|>383<|level|>4\n<|id|>387<|level|>4\n<|id|>389<|level|>4\n<|id|>401<|level|>2",
+    "image_output": "<|src_id|>34<|tgt_id|>12\n<|src_id|>35<|tgt_id|>12\n<|src_id|>61<|tgt_id|>59\n<|src_id|>96<|tgt_id|>94\n<|src_id|>132<|tgt_id|>130\n<|src_id|>133<|tgt_id|>130\n<|src_id|>169<|tgt_id|>167\n<|src_id|>206<|tgt_id|>204\n<|src_id|>207<|tgt_id|>204\n<|src_id|>241<|tgt_id|>239\n<|src_id|>277<|tgt_id|>275\n<|src_id|>278<|tgt_id|>275\n<|src_id|>313<|tgt_id|>311\n<|src_id|>349<|tgt_id|>347\n<|src_id|>385<|tgt_id|>383",
+    "contd_label": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 316,
+            "tgt_id": 317
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 4
+        },
+        {
+            "id": 56,
+            "level": 4
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 63,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 4
+        },
+        {
+            "id": 87,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 94,
+            "level": 4
+        },
+        {
+            "id": 98,
+            "level": 4
+        },
+        {
+            "id": 100,
+            "level": 4
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 4
+        },
+        {
+            "id": 123,
+            "level": 4
+        },
+        {
+            "id": 127,
+            "level": 4
+        },
+        {
+            "id": 130,
+            "level": 4
+        },
+        {
+            "id": 135,
+            "level": 4
+        },
+        {
+            "id": 137,
+            "level": 4
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 4
+        },
+        {
+            "id": 160,
+            "level": 4
+        },
+        {
+            "id": 164,
+            "level": 4
+        },
+        {
+            "id": 167,
+            "level": 4
+        },
+        {
+            "id": 171,
+            "level": 4
+        },
+        {
+            "id": 173,
+            "level": 4
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 191,
+            "level": 4
+        },
+        {
+            "id": 197,
+            "level": 4
+        },
+        {
+            "id": 201,
+            "level": 4
+        },
+        {
+            "id": 204,
+            "level": 4
+        },
+        {
+            "id": 209,
+            "level": 4
+        },
+        {
+            "id": 211,
+            "level": 4
+        },
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 3
+        },
+        {
+            "id": 226,
+            "level": 4
+        },
+        {
+            "id": 232,
+            "level": 4
+        },
+        {
+            "id": 236,
+            "level": 4
+        },
+        {
+            "id": 239,
+            "level": 4
+        },
+        {
+            "id": 243,
+            "level": 4
+        },
+        {
+            "id": 245,
+            "level": 4
+        },
+        {
+            "id": 258,
+            "level": 2
+        },
+        {
+            "id": 259,
+            "level": 3
+        },
+        {
+            "id": 262,
+            "level": 4
+        },
+        {
+            "id": 268,
+            "level": 4
+        },
+        {
+            "id": 272,
+            "level": 4
+        },
+        {
+            "id": 275,
+            "level": 4
+        },
+        {
+            "id": 280,
+            "level": 4
+        },
+        {
+            "id": 282,
+            "level": 4
+        },
+        {
+            "id": 295,
+            "level": 2
+        },
+        {
+            "id": 296,
+            "level": 3
+        },
+        {
+            "id": 298,
+            "level": 4
+        },
+        {
+            "id": 304,
+            "level": 4
+        },
+        {
+            "id": 308,
+            "level": 4
+        },
+        {
+            "id": 311,
+            "level": 4
+        },
+        {
+            "id": 315,
+            "level": 4
+        },
+        {
+            "id": 318,
+            "level": 4
+        },
+        {
+            "id": 330,
+            "level": 2
+        },
+        {
+            "id": 331,
+            "level": 3
+        },
+        {
+            "id": 340,
+            "level": 4
+        },
+        {
+            "id": 344,
+            "level": 4
+        },
+        {
+            "id": 347,
+            "level": 4
+        },
+        {
+            "id": 351,
+            "level": 4
+        },
+        {
+            "id": 353,
+            "level": 4
+        },
+        {
+            "id": 366,
+            "level": 2
+        },
+        {
+            "id": 367,
+            "level": 3
+        },
+        {
+            "id": 370,
+            "level": 4
+        },
+        {
+            "id": 376,
+            "level": 4
+        },
+        {
+            "id": 380,
+            "level": 4
+        },
+        {
+            "id": 383,
+            "level": 4
+        },
+        {
+            "id": 387,
+            "level": 4
+        },
+        {
+            "id": 389,
+            "level": 4
+        },
+        {
+            "id": 401,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 34,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 167
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 241,
+            "tgt_id": 239
+        },
+        {
+            "src_id": 277,
+            "tgt_id": 275
+        },
+        {
+            "src_id": 278,
+            "tgt_id": 275
+        },
+        {
+            "src_id": 313,
+            "tgt_id": 311
+        },
+        {
+            "src_id": 349,
+            "tgt_id": 347
+        },
+        {
+            "src_id": 385,
+            "tgt_id": 383
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 34,
+            "table2_idx": 35,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "Nexford Properties, LLC",
+                    "Delaware",
+                    "LLC",
+                    "Certificate of Formation",
+                    "Delaware Secretary of State"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "6",
+                    "Nexford International Holdings, Inc.",
+                    "Delaware",
+                    "Corporation",
+                    "Certificate of Incorporation",
+                    "Delaware Secretary of State"
+                ]
+            ]
+        }
+    ]
+}

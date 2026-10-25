@@ -1,0 +1,84 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>598 140 614 383<|content|>Description of the Transaction\n<|id|>17<|page|>2<|box|>546 140 563 514<|content|>Confirmation of Continuity; No Other Changes\n<|id|>24<|page|>3<|box|>262 140 279 308<|content|>Request for Consent\n<|id|>31<|page|>3<|box|>659 142 676 281<|content|>Form of Consent\n<|id|>33<|page|>3<|box|>781 140 799 266<|content|>Confidentiality\n<|id|>35<|page|>4<|box|>148 140 167 377<|content|>Closing; Contact Information\n<|id|>56<|page|>4<|box|>842 421 859 576<|content|>ATTACHMENT A\n<|id|>57<|page|>4<|box|>868 200 883 794<|content|>CONSENT AND ACKNOWLEDGMENT OF REDLINE FREIGHT CORP\n<|id|>59<|page|>5<|box|>89 333 106 663<|content|>CONSENT AND ACKNOWLEDGMENT\n<|id|>61<|page|>5<|box|>160 142 176 241<|content|>RECITALS\n<|id|>68<|page|>5<|box|>616 143 633 401<|content|>1. Consent to Change of Control.\n<|id|>70<|page|>5<|box|>741 140 758 442<|content|>2. Acknowledgments and Agreements.\n<|id|>77<|page|>6<|box|>395 140 412 300<|content|>3. Limited Consent.\n<|id|>79<|page|>6<|box|>556 140 574 292<|content|>4. Governing Law.\n<|id|>81<|page|>6<|box|>645 140 662 274<|content|>5. Counterparts.\n<|id|>83<|page|>6<|box|>789 140 806 339<|content|>6. Entire Understanding.",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>17<|level|>1\n<|id|>24<|level|>1\n<|id|>31<|level|>1\n<|id|>33<|level|>1\n<|id|>35<|level|>1\n<|id|>56<|level|>1\n<|id|>57<|level|>1\n<|id|>59<|level|>1\n<|id|>61<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>2",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,144 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 797<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT PRIVILEG\n<|id|>1<|page|>1<|box|>113 403 133 593<|content|>MEMORANDUM\n<|id|>11<|page|>1<|box|>444 140 460 321<|content|>I. Executive Summary\n<|id|>21<|page|>2<|box|>539 142 556 267<|content|>II. Background\n<|id|>22<|page|>2<|box|>569 142 587 248<|content|>A. The Fund\n<|id|>30<|page|>3<|box|>343 142 359 331<|content|>B. The General Partner\n<|id|>37<|page|>3<|box|>715 140 733 504<|content|>C. Fund Financial Profile (as of May 31, 2024)\n<|id|>43<|page|>4<|box|>523 140 540 482<|content|>D. Marcus J. Whitmore — The Key Person\n<|id|>48<|page|>5<|box|>176 140 193 366<|content|>E. The Incapacitation Event\n<|id|>53<|page|>5<|box|>593 140 609 583<|content|>III. Section 8.04 Key-Person Clause — Detailed Ana\n<|id|>54<|page|>5<|box|>625 140 640 501<|content|>A. Definition of Key Person — Section 8.04(a)\n<|id|>61<|page|>6<|box|>411 140 429 513<|content|>B. Key Person Event Trigger — Section 8.04(b)\n<|id|>74<|page|>7<|box|>411 140 446 854<|content|>Conclusion: A Key Person Event under Section 8.04(\n<|id|>81<|page|>8<|box|>448 140 465 609<|content|>C. Consequences of the Key Person Event — Section\n<|id|>126<|page|>12<|box|>286 140 301 593<|content|>IV. LP Consent Solicitation — Procedural Considera\n<|id|>127<|page|>12<|box|>316 140 333 303<|content|>A. Form of Consent\n<|id|>135<|page|>13<|box|>138 140 157 321<|content|>B. Timing Constraints\n<|id|>143<|page|>14<|box|>194 140 210 331<|content|>C. Role of IAC Counsel\n<|id|>152<|page|>14<|box|>768 140 787 403<|content|>V. Delaware Law Considerations\n<|id|>153<|page|>14<|box|>800 142 818 292<|content|>A. Governing Law\n<|id|>156<|page|>15<|box|>330 140 347 478<|content|>B. Fiduciary Duties of the General Partner\n<|id|>167<|page|>16<|box|>393 140 409 522<|content|>C. LP Consent Solicitation Under Delaware Law\n<|id|>174<|page|>17<|box|>138 140 157 439<|content|>D. Carry Reallocation Considerations\n<|id|>178<|page|>17<|box|>585 140 602 452<|content|>VI. Risk Assessment — Failure to Cure\n<|id|>179<|page|>17<|box|>616 140 633 338<|content|>A. Wind-Down Scenario\n<|id|>187<|page|>18<|box|>518 142 535 315<|content|>B. Mitigating Factors\n<|id|>197<|page|>19<|box|>609 140 626 352<|content|>C. Probability Assessment\n<|id|>202<|page|>20<|box|>267 140 284 385<|content|>VII. Recommended Next Steps\n<|id|>217<|page|>21<|box|>703 140 720 279<|content|>VIII. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>11<|level|>2\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>30<|level|>3\n<|id|>37<|level|>3\n<|id|>43<|level|>3\n<|id|>48<|level|>3\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>61<|level|>3\n<|id|>74<|level|>3\n<|id|>81<|level|>3\n<|id|>126<|level|>2\n<|id|>127<|level|>3\n<|id|>135<|level|>3\n<|id|>143<|level|>3\n<|id|>152<|level|>2\n<|id|>153<|level|>3\n<|id|>156<|level|>3\n<|id|>167<|level|>3\n<|id|>174<|level|>3\n<|id|>178<|level|>2\n<|id|>179<|level|>3\n<|id|>187<|level|>3\n<|id|>197<|level|>3\n<|id|>202<|level|>2\n<|id|>217<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 2
+        }
+    ]
+}

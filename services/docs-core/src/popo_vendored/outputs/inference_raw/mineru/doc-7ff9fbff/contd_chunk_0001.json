@@ -1,0 +1,47 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        57,
+        105
+    ],
+    "pages": [
+        58,
+        59,
+        66,
+        82,
+        85,
+        96,
+        97,
+        98,
+        104
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>187<|page|>58<|box|>96 355 110 682<|content|>Issued to Residents of Foreign Countries\n<|id|>189<|page|>59<|box|>91 28 164 438<|content|>Series EE and HH Bonds, on sale since January 1, 1...of the Treasury for fiscal years 1966 through 1980\n<|id|>208<|page|>66<|box|>429 390 439 592<|content|>(Far values - in millions of dollars)\n<|id|>209<|page|>66<|box|>147 70 242 494<|content|>Monthly Treasury Survey of Ownership covers securi...nd local governments in the February 1962 Bulletin\n<|id|>273<|page|>82<|box|>645 211 664 496<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>274<|page|>82<|box|>670 211 697 484<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>276<|page|>82<|box|>426 582 438 783<|content|>(EQ2) E_{X} \\stackrel{―}{=} \\Sigma(\\Delta f c_{i}/\\\\$ * X_{i}/\\Sigma X)\n<|id|>277<|page|>82<|box|>441 605 469 929<|content|>Where: ... E_{x} is the weighted average of percentage changes in the foreign currency cost of dollars\n<|id|>278<|page|>82<|box|>475 659 495 924<|content|>\\Delta fc_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>279<|page|>82<|box|>499 659 526 917<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>281<|page|>82<|box|>545 580 557 884<|content|>(EQ3) E = [(E_m * m/m+x)*(-1)] + [E_X * x/m+x]\n<|id|>282<|page|>82<|box|>562 605 589 931<|content|>Where: ... and\n<|id|>283<|page|>82<|box|>594 657 620 936<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>317<|page|>85<|box|>443 481 453 859<|content|>4/ Includes \\$15 million increase in dollar value of foreign currency\n<|id|>318<|page|>85<|box|>468 483 478 576<|content|>\\overline{p} Preliminary. ... \\overline{p} Preliminary\n<|id|>350<|page|>96<|box|>70 177 116 840<|content|>Section III - Supplementary Liabilities and Claims...ntries and Areas Not Regularly Reported Separately\n<|id|>352<|page|>97<|box|>379 35 389 352<|content|>line are comparable to those shown for the followi...e comparable to those shown for the following date\n<|id|>353<|page|>97<|box|>371 35 381 411<|content|>coverage to those shown for the preceding date; ... figures on the second\n<|id|>354<|page|>97<|box|>363 15 372 401<|content|>- in reporting coverage. ... Figures on the first line are comparable in\n<|id|>356<|page|>98<|box|>65 119 80 929<|content|>Section IV - Liabilities to Foreigners Reported by Nonbanking Business Enterprises in the United States\n<|id|>368<|page|>104<|box|>107 177 121 852<|content|>Table CM-VI-1. ... - Foreign Purchases and Sales of Long-Term Domestic Securities by Type\n<|id|>371<|page|>104<|box|>457 506 475 617<|content|>p Preliminary. ... Not available\n<|id|>369<|page|>104<|box|>131 182 142 857<|content|>(In millions of dollars; ... negative figures indi...r a net outflow of capital from the United States)",
+    "raw_response": "<|src_id|>273<|tgt_id|>274\n<|src_id|>277<|tgt_id|>278\n<|src_id|>278<|tgt_id|>279\n<|src_id|>282<|tgt_id|>283\n<|src_id|>352<|tgt_id|>353\n<|src_id|>353<|tgt_id|>354",
+    "parsed": [
+        {
+            "src_id": 273,
+            "tgt_id": 274
+        },
+        {
+            "src_id": 277,
+            "tgt_id": 278
+        },
+        {
+            "src_id": 278,
+            "tgt_id": 279
+        },
+        {
+            "src_id": 282,
+            "tgt_id": 283
+        },
+        {
+            "src_id": 352,
+            "tgt_id": 353
+        },
+        {
+            "src_id": 353,
+            "tgt_id": 354
+        }
+    ]
+}

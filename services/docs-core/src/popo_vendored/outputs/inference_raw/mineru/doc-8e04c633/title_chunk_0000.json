@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 131 782<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>138 192 155 803<|content|>MEMORANDUM — CALL NOTES: TERM SHEET NEGOTIATION CA\n<|id|>4<|page|>1<|box|>429 143 446 258<|content|>1. Call Details\n<|id|>9<|page|>2<|box|>90 142 107 263<|content|>2. Participants\n<|id|>25<|page|>2<|box|>554 140 571 354<|content|>3. Agenda Items Discussed\n<|id|>34<|page|>2<|box|>801 140 818 447<|content|>4. Discussion and Resolutions by Topic\n<|id|>35<|page|>2<|box|>832 140 849 553<|content|>4.1 Adjusted EBITDA Definition and Add-Back Cap\n<|id|>47<|page|>4<|box|>544 140 560 454<|content|>4.2 Excess Cash Flow Sweep Mechanics\n<|id|>60<|page|>6<|box|>90 140 107 357<|content|>4.3 Market Flex Provisions\n<|id|>66<|page|>7<|box|>152 140 170 771<|content|>Resolution — AGREED. The parties agreed to the fol\n<|id|>72<|page|>7<|box|>551 140 569 535<|content|>4.4 Reporting Covenants — SaaS-Specific Metrics\n<|id|>83<|page|>9<|box|>252 142 268 254<|content|>Action Items:\n<|id|>86<|page|>9<|box|>401 140 419 679<|content|>4.5 Collateral Package — Intellectual Property and\n<|id|>107<|page|>11<|box|>419 143 435 254<|content|>Action Items:\n<|id|>110<|page|>11<|box|>532 142 549 344<|content|>4.6 Timeline to Execution\n<|id|>126<|page|>12<|box|>772 140 789 416<|content|>5. Summary of Agreed Resolutions\n<|id|>130<|page|>13<|box|>839 142 854 393<|content|>6. Open Items and Action Items\n<|id|>135<|page|>14<|box|>768 142 787 250<|content|>7. Next Steps\n<|id|>146<|page|>15<|box|>726 140 743 336<|content|>8. Confidentiality Notice\n<|id|>147<|page|>15<|box|>751 142 766 630<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>25<|level|>2\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>47<|level|>3\n<|id|>60<|level|>3\n<|id|>66<|level|>4\n<|id|>72<|level|>3\n<|id|>83<|level|>4\n<|id|>86<|level|>3\n<|id|>107<|level|>4\n<|id|>110<|level|>3\n<|id|>126<|level|>2\n<|id|>130<|level|>2\n<|id|>135<|level|>2\n<|id|>146<|level|>2\n<|id|>147<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 4
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 4
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        }
+    ]
+}

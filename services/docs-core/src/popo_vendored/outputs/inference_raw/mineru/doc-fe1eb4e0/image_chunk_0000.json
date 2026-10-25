@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 307 118 689<|content|>UNANIMOUS WRITTEN CONSENT\n<|id|>1<|type|>title<|page|>1<|box|>137 318 156 679<|content|>OF THE BOARD OF DIRECTORS\n<|id|>2<|type|>title<|page|>1<|box|>175 290 195 707<|content|>OF CLOUDIUM TECHNOLOGIES PLC\n<|id|>7<|type|>title<|page|>1<|box|>571 142 589 243<|content|>RECITALS\n<|id|>17<|type|>title<|page|>2<|box|>530 142 547 377<|content|>NOW, THEREFORE, BE IT:\n<|id|>18<|type|>title<|page|>2<|box|>571 143 589 279<|content|>RESOLUTIONS\n<|id|>19<|type|>title<|page|>2<|box|>603 142 619 669<|content|>Resolution 1: Appointment of Officers of the Survi\n<|id|>21<|type|>table<|page|>2<|box|>724 143 835 852<|content|>None\n<|id|>29<|type|>title<|page|>3<|box|>847 140 864 450<|content|>Resolution 2: Authorization of Officers\n<|id|>42<|type|>title<|page|>5<|box|>681 140 699 452<|content|>Resolution 3: Incumbency Certification\n<|id|>44<|type|>title<|page|>6<|box|>90 140 107 450<|content|>Resolution 4: Ratification of Prior Acts\n<|id|>46<|type|>title<|page|>6<|box|>364 142 381 439<|content|>Resolution 5: Omnibus Authorization\n<|id|>48<|type|>title<|page|>6<|box|>611 140 628 238<|content|>GENERAL",
+    "raw_response": "<|src_id|>21<|tgt_id|>19",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        }
+    ]
+}

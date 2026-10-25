@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 320 125 676<|content|>IN THE 134TH JUDICIAL DISTRICT COURT OF DALLAS COU\n<|id|>1<|type|>table<|page|>1<|box|>159 143 297 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>366 169 401 826<|content|>AFFIDAVIT OF PRIYA ANAND IN SUPPORT OF PLAINTIFF'S\n<|id|>3<|type|>title<|page|>1<|box|>444 142 460 344<|content|>THE STATE OF TEXAS\n<|id|>4<|type|>title<|page|>1<|box|>470 142 487 334<|content|>COUNTY OF DALLAS\n<|id|>6<|type|>title<|page|>1<|box|>556 140 573 509<|content|>I. IDENTITY AND BASIS OF KNOWLEDGE\n<|id|>11<|type|>title<|page|>2<|box|>89 140 106 589<|content|>II. PROFESSIONAL QUALIFICATIONS OF AFFIANT\n<|id|>16<|type|>title<|page|>2<|box|>453 140 470 785<|content|>III. DESCRIPTION OF THE ENGAGEMENT AND NATURE OF T\n<|id|>29<|type|>title<|page|>3<|box|>449 140 465 787<|content|>IV. IDENTIFICATION OF THE ENGAGEMENT TEAM AND BILL\n<|id|>36<|type|>title<|page|>4<|box|>339 140 357 674<|content|>V. NATURE AND COMPLEXITY OF THE WORK PERFORMED\n<|id|>38<|type|>title<|page|>4<|box|>434 140 450 444<|content|>A. Pre-Suit Investigation and Demand\n<|id|>43<|type|>title<|page|>5<|box|>90 140 108 418<|content|>B. Pleading Preparation and Filing\n<|id|>46<|type|>title<|page|>5<|box|>402 140 419 310<|content|>C. Service of Process\n<|id|>51<|type|>title<|page|>5<|box|>808 142 825 290<|content|>D. Legal Research\n<|id|>54<|type|>title<|page|>6<|box|>305 140 323 501<|content|>E. Default and Default Judgment Proceedings\n<|id|>59<|type|>title<|page|>6<|box|>729 142 747 424<|content|>F. Damages Quantification Support\n<|id|>63<|type|>title<|page|>7<|box|>268 142 286 326<|content|>G. Note on Complexity\n<|id|>69<|type|>title<|page|>7<|box|>657 142 674 568<|content|>VI. HOURS EXPENDED AND FEE CALCULATION\n<|id|>71<|type|>table<|page|>7<|box|>756 143 878 852<|content|>None\n<|id|>72<|type|>table<|page|>8<|box|>88 143 172 852<|content|>None\n<|id|>79<|type|>title<|page|>9<|box|>89 140 106 820<|content|>VII. REASONABLENESS OF FEES UNDER THE ARTHUR ANDER\n<|id|>89<|type|>title<|page|>10<|box|>90 176 107 565<|content|>(5) The amount involved and the results obtained.\n<|id|>92<|type|>title<|page|>10<|box|>328 176 345 740<|content|>(7) The nature and length of the professional rela\n<|id|>96<|type|>title<|page|>10<|box|>715 140 733 485<|content|>VIII. CONDITIONAL APPELLATE FEES\n<|id|>98<|type|>title<|page|>11<|box|>89 142 107 697<|content|>IX. CONCLUSION AND STATEMENT OF FEE AMOUNT SOUGHT\n<|id|>102<|type|>table<|page|>11<|box|>282 143 444 852<|content|>None\n<|id|>104<|type|>title<|page|>11<|box|>550 143 566 447<|content|>FURTHER AFFIANT SAYETH NOT.\n<|id|>110<|type|>title<|page|>12<|box|>114 364 132 633<|content|>ATTORNEY IDENTIFICATION",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>71<|tgt_id|>69\n<|src_id|>72<|tgt_id|>69\n<|src_id|>102<|tgt_id|>98",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 98
+        }
+    ]
+}

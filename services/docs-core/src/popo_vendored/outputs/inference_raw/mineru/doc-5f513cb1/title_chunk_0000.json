@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 233 118 764<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS\n<|id|>1<|page|>1<|box|>136 250 157 746<|content|>OF QUORUM INSURANCE HOLDINGS CORP.\n<|id|>5<|page|>1<|box|>265 142 282 251<|content|>PREAMBLE\n<|id|>22<|page|>2<|box|>89 140 107 241<|content|>RECITALS\n<|id|>23<|page|>2<|box|>121 140 138 331<|content|>A. Corporate Authority\n<|id|>29<|page|>2<|box|>590 140 607 426<|content|>B. Existing Governance Framework\n<|id|>35<|page|>3<|box|>282 140 300 493<|content|>C. Triggering Events and Need for Overhaul\n<|id|>40<|page|>3<|box|>667 140 681 176<|content|>and\n<|id|>47<|page|>4<|box|>402 140 419 176<|content|>and\n<|id|>49<|page|>4<|box|>569 140 587 419<|content|>D. Engagement of Outside Counsel\n<|id|>52<|page|>5<|box|>90 140 107 460<|content|>E. Review Process and Committee Input\n<|id|>60<|page|>5<|box|>354 142 369 176<|content|>and\n<|id|>64<|page|>5<|box|>664 140 681 468<|content|>F. Regulatory and Listing Considerations\n<|id|>68<|page|>6<|box|>275 140 292 336<|content|>G. Board Determination\n<|id|>72<|page|>6<|box|>555 142 571 344<|content|>RESOLVING CLAUSES\n<|id|>73<|page|>6<|box|>587 140 604 596<|content|>Section 1: Adoption of Restated Audit Committee Ch\n<|id|>83<|page|>7<|box|>500 140 517 807<|content|>Section 2: Adoption of Restated Compensation & Hum\n<|id|>92<|page|>8<|box|>345 140 363 844<|content|>Section 3: Adoption of Restated Nominating & Corpo\n<|id|>102<|page|>9<|box|>263 140 282 588<|content|>Section 4: Adoption of Restated Risk Committee Cha\n<|id|>111<|page|>10<|box|>90 140 107 638<|content|>Section 5: Adoption of Restated Investment Committ\n<|id|>120<|page|>10<|box|>765 140 782 821<|content|>Section 6: Adoption of New Technology & Cybersecur\n<|id|>136<|page|>12<|box|>400 140 417 630<|content|>Section 7: Approval of Revised Delegation of Autho\n<|id|>150<|page|>14<|box|>90 140 107 758<|content|>Section 8: Adoption of Amended & Restated Corporat\n<|id|>160<|page|>15<|box|>349 140 366 578<|content|>Section 9: Adoption of Conforming Bylaw Amendments\n<|id|>167<|page|>16<|box|>157 140 175 794<|content|>Section 10: Authorization of SEC Filings, NYSE Not\n<|id|>173<|page|>16<|box|>681 140 699 638<|content|>Section 11: Authorization of State Insurance Regul\n<|id|>179<|page|>17<|box|>436 140 454 457<|content|>Section 12: Ratification of Prior Actions\n<|id|>186<|page|>18<|box|>90 140 107 413<|content|>Section 13: General Authorization\n<|id|>190<|page|>19<|box|>89 143 106 271<|content|>EXHIBIT LIST\n<|id|>193<|page|>19<|box|>628 142 643 295<|content|>CERTIFICATION\n<|id|>194<|page|>19<|box|>654 367 670 629<|content|>SECRETARY'S CERTIFICATE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>29<|level|>3\n<|id|>35<|level|>3\n<|id|>40<|level|>-1\n<|id|>47<|level|>-1\n<|id|>49<|level|>3\n<|id|>52<|level|>3\n<|id|>60<|level|>-1\n<|id|>64<|level|>3\n<|id|>68<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>83<|level|>3\n<|id|>92<|level|>3\n<|id|>102<|level|>3\n<|id|>111<|level|>3\n<|id|>120<|level|>3\n<|id|>136<|level|>3\n<|id|>150<|level|>3\n<|id|>160<|level|>3\n<|id|>167<|level|>3\n<|id|>173<|level|>3\n<|id|>179<|level|>3\n<|id|>186<|level|>3\n<|id|>190<|level|>2\n<|id|>193<|level|>2\n<|id|>194<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 3
+        }
+    ]
+}

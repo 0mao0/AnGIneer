@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        25
+    ],
+    "pages": [
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        20,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>20<|page|>3<|box|>90 147 143 856<|content|>• Mesquite Wind (420 MW, Oldham County, Texas), wh...al operation in the third quarter of 2022; ... and\n<|id|>22<|page|>3<|box|>203 140 349 856<|content|>Upon completion, these two projects will expand ou...g capacity growth we have achieved in recent years\n<|id|>33<|page|>4<|box|>286 147 321 854<|content|>• Tomás Quintero, Senior Vice President, Project D... origination, development, and permitting; ... and\n<|id|>35<|page|>4<|box|>362 140 527 857<|content|>In addition to our experienced management team, we...ustry relationships that have supported our growth\n<|id|>40<|page|>4<|box|>866 145 901 856<|content|>• Tax-Equity Partnerships: ... Veltara Basin Financial\n<|id|>41<|page|>5<|box|>90 174 162 854<|content|>LLC has invested $280 million in a tax-equity part...uce the effective cost of capital for our projects\n<|id|>66<|page|>7<|box|>643 147 679 852<|content|>• Approximately $100 million toward the constructi...ect (350 MW, Doña Ana County, New Mexico); ... and\n<|id|>68<|page|>7<|box|>719 140 811 854<|content|>Following this offering, we intend to maintain an ...egy while preserving a conservative credit profile\n<|id|>88<|page|>9<|box|>866 145 902 856<|content|>• New Mexico: ... New Mexico has adopted increasin...utilities achieve 50% renewable energy by 2030 and\n<|id|>89<|page|>10<|box|>90 174 126 854<|content|>100% zero-carbon electricity by 2045. ... These ta... for new renewable energy procurement in the state\n<|id|>98<|page|>10<|box|>830 147 848 684<|content|>• Under Construction: ... and\n<|id|>100<|page|>11<|box|>90 140 200 854<|content|>Our projects are held through wholly-owned, projec...provide operational and administrative flexibility\n<|id|>166<|page|>20<|box|>199 140 217 676<|content|>Calloway-Briggs Renewables Inc. ... (Delaware corporation — the Issuer)\n<|id|>167<|page|>20<|box|>224 174 261 854<|content|>CBR Holdings LLC (Delaware LLC, 100% owned by CBR) — intermediate holding company\n<|id|>168<|page|>20<|box|>268 210 306 854<|content|>Calloway-Briggs Operating Company LLC (Texas LLC, ...rating entity and parent of all project-level SPVs\n<|id|>178<|page|>20<|box|>489 140 564 854<|content|>Each project is held through a wholly-owned, proje...rovides administrative and operational flexibility\n<|id|>169<|page|>20<|box|>314 218 330 473<|content|>• Solaris West Solar LLC (Texas)\n<|id|>170<|page|>20<|box|>333 218 349 544<|content|>• Red Mesa Wind Energy LLC (Oklahoma)\n<|id|>171<|page|>20<|box|>353 218 369 493<|content|>• Painted Rock Solar LLC (Arizona)\n<|id|>172<|page|>20<|box|>372 218 388 460<|content|>• Pronghorn Wind LLC (Texas)\n<|id|>173<|page|>20<|box|>392 218 409 504<|content|>• Brazos Energy Storage LLC (Texas)\n<|id|>174<|page|>20<|box|>411 218 428 521<|content|>• Mesquite Wind Holdings LLC (Texas)\n<|id|>175<|page|>20<|box|>431 218 448 602<|content|>• Cimarron Solar Development LLC (New Mexico)\n<|id|>176<|page|>20<|box|>450 218 468 733<|content|>• CBR Development Co. ... LLC (Texas) — pipeline development entity\n<|id|>177<|page|>20<|box|>470 218 487 468<|content|>• Other non-material subsidiaries\n<|id|>229<|page|>25<|box|>311 181 329 838<|content|>• Primary Layer: ... DNO-22-048871)\n<|id|>238<|page|>25<|box|>580 140 672 856<|content|>Our insurance program is managed in consultation w...overage for the risks associated with our business\n<|id|>232<|page|>25<|box|>371 183 388 447<|content|>• Annual Premium: ... 87 million",
+    "raw_response": "<|src_id|>40<|tgt_id|>41\n<|src_id|>88<|tgt_id|>89",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        }
+    ]
+}

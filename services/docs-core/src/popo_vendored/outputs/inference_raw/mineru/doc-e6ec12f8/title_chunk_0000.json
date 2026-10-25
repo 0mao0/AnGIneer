@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>402 140 419 364<|content|>I. Introduction and Purpose\n<|id|>15<|page|>2<|box|>90 140 107 457<|content|>II. Background and Procedural Context\n<|id|>16<|page|>2<|box|>121 140 138 343<|content|>A. The Chapter 11 Filing\n<|id|>20<|page|>2<|box|>612 142 628 403<|content|>B. Pre-Petition Capital Structure\n<|id|>29<|page|>3<|box|>484 140 503 300<|content|>C. The DIP Facility\n<|id|>43<|page|>4<|box|>383 140 400 400<|content|>D. The Ad Hoc Group Objection\n<|id|>49<|page|>5<|box|>148 140 167 565<|content|>III. Proposed Enhanced Adequate Protection Package\n<|id|>51<|page|>5<|box|>316 140 334 318<|content|>A. Replacement Liens\n<|id|>58<|page|>5<|box|>719 140 737 638<|content|>B. Section 507(b) Superpriority Administrative Exp\n<|id|>64<|page|>6<|box|>246 140 263 480<|content|>C. Monthly Adequate Protection Payments\n<|id|>68<|page|>6<|box|>814 140 830 395<|content|>D. Adequate Protection Reserve\n<|id|>72<|page|>7<|box|>338 140 354 537<|content|>E. Reimbursement of Ad Hoc Group Counsel Fees\n<|id|>75<|page|>7<|box|>628 140 647 442<|content|>IV. Budget and Reporting Protections\n<|id|>80<|page|>8<|box|>340 140 357 424<|content|>V. Basis for Adequacy of Protection\n<|id|>86<|page|>9<|box|>277 140 294 478<|content|>VI. Proposed Documentation and Timeline\n<|id|>98<|page|>10<|box|>339 140 356 379<|content|>VII. Withdrawal of Objection\n<|id|>101<|page|>10<|box|>633 140 650 359<|content|>VIII. Reservation of Rights\n<|id|>106<|page|>11<|box|>285 140 303 431<|content|>IX. Closing and Response Requested",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>20<|level|>2\n<|id|>29<|level|>2\n<|id|>43<|level|>2\n<|id|>49<|level|>1\n<|id|>51<|level|>2\n<|id|>58<|level|>2\n<|id|>64<|level|>2\n<|id|>68<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>1\n<|id|>80<|level|>1\n<|id|>86<|level|>1\n<|id|>98<|level|>1\n<|id|>101<|level|>1\n<|id|>106<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        }
+    ]
+}

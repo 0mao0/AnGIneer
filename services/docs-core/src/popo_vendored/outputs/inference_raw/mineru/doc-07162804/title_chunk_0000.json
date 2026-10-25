@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>657 140 674 464<|content|>I. Summary of Examination Background\n<|id|>24<|page|>2<|box|>773 142 790 437<|content|>II. Issue-by-Issue Outcome Summary\n<|id|>26<|page|>3<|box|>90 140 107 691<|content|>A. Issue 1: Management Fee Waiver / Conversion (IR\n<|id|>35<|page|>3<|box|>838 140 854 584<|content|>B. Issue 2: Carried Interest Holding Period (IRC §\n<|id|>41<|page|>4<|box|>590 140 608 748<|content|>C. Issue 3: Organizational and Syndication Cost De\n<|id|>47<|page|>5<|box|>366 140 383 594<|content|>III. Aggregate Amounts at Stake and Tax Impact Avo\n<|id|>50<|page|>5<|box|>704 140 720 514<|content|>IV. Recommended Next Steps and Notifications\n<|id|>57<|page|>6<|box|>539 140 555 513<|content|>V. Statute of Limitations and Record Retention\n<|id|>61<|page|>7<|box|>148 140 167 478<|content|>VI. Final Invoice and Engagement Closure",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>2\n<|id|>35<|level|>2\n<|id|>41<|level|>2\n<|id|>47<|level|>1\n<|id|>50<|level|>1\n<|id|>57<|level|>1\n<|id|>61<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        }
+    ]
+}

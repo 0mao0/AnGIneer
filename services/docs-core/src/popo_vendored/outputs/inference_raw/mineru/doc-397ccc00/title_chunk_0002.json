@@ -1,0 +1,34 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        96,
+        104
+    ],
+    "pages": [
+        97,
+        101,
+        103,
+        104
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>263<|page|>97<|box|>101 294 116 672<|content|>Table 3.- Net Movement in Brokerage Balances\n<|id|>278<|page|>101<|box|>90 167 118 813<|content|>Table 7.- Foreign Debit Balances (Balances Due Fro\n<|id|>284<|page|>103<|box|>56 156 120 825<|content|>Capital Movements Between the United States and Fo\n<|id|>286<|page|>104<|box|>49 189 64 846<|content|>Capital Movements Between the United States and Fo",
+    "raw_response": "<|id|>263<|level|>2\n<|id|>278<|level|>2\n<|id|>284<|level|>1\n<|id|>286<|level|>1",
+    "parsed": [
+        {
+            "id": 263,
+            "level": 2
+        },
+        {
+            "id": 278,
+            "level": 2
+        },
+        {
+            "id": 284,
+            "level": 1
+        },
+        {
+            "id": 286,
+            "level": 1
+        }
+    ]
+}

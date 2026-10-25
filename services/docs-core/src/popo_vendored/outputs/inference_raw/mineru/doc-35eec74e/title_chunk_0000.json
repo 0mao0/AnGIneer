@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 338 107 658<|content|>JS 44 (Rev. 11/15) CIVIL COVER SHEET\n<|id|>2<|page|>1<|box|>191 142 208 433<|content|>I. (a) PLAINTIFFS / DEFENDANTS\n<|id|>4<|page|>1<|box|>371 142 387 761<|content|>I. (b) County of Residence of First Listed Plainti\n<|id|>7<|page|>1<|box|>518 142 535 633<|content|>I. (c) Attorneys (Firm Name, Address, and Telephon\n<|id|>8<|page|>1<|box|>549 143 566 321<|content|>Attorneys for Plaintiff\n<|id|>11<|page|>1<|box|>648 143 664 419<|content|>Attorneys for Defendant (if known)\n<|id|>14<|page|>1<|box|>756 143 773 388<|content|>II. BASIS OF JURISDICTION\n<|id|>18<|page|>2<|box|>378 142 395 513<|content|>III. CITIZENSHIP OF PRINCIPAL PARTIES\n<|id|>22<|page|>2<|box|>835 142 852 331<|content|>IV. NATURE OF SUIT\n<|id|>27<|page|>3<|box|>353 142 369 238<|content|>V. ORIGIN\n<|id|>30<|page|>3<|box|>755 142 772 344<|content|>VI. CAUSE OF ACTION\n<|id|>32<|page|>3<|box|>825 142 844 349<|content|>Brief description of cause:\n<|id|>42<|page|>5<|box|>90 142 107 397<|content|>Signature of Attorney of Record\n<|id|>46<|page|>5<|box|>220 142 238 377<|content|>Case Assignment Information\n<|id|>49<|page|>5<|box|>434 142 450 483<|content|>JS 44 Reverse — Instructions for Attorneys\n<|id|>51<|page|>5<|box|>527 143 544 401<|content|>Purpose of the Civil Cover Sheet\n<|id|>54<|page|>5<|box|>699 142 715 312<|content|>General Instructions.\n<|id|>60<|page|>6<|box|>138 140 156 299<|content|>Section I — Parties\n<|id|>66<|page|>6<|box|>481 140 497 406<|content|>Section II — Basis of Jurisdiction\n<|id|>74<|page|>6<|box|>792 140 810 498<|content|>Section III — Citizenship of Principal Parties\n<|id|>77<|page|>7<|box|>135 142 152 243<|content|>Accordingly:\n<|id|>81<|page|>7<|box|>286 140 301 367<|content|>Section IV — Nature of Suit\n<|id|>85<|page|>7<|box|>501 140 518 300<|content|>Section V — Origin\n<|id|>89<|page|>7<|box|>643 140 660 379<|content|>Section VI — Cause of Action\n<|id|>93<|page|>8<|box|>90 140 107 450<|content|>Section VII — Requested in Complaint\n<|id|>97<|page|>8<|box|>268 140 286 379<|content|>Section VIII — Related Cases\n<|id|>100<|page|>8<|box|>405 142 421 387<|content|>Nature-of-Suit Code Reference\n<|id|>103<|page|>8<|box|>575 142 593 397<|content|>Diversity Jurisdiction Reminder\n<|id|>110<|page|>8<|box|>771 140 787 563<|content|>Local Practice Note — Southern District of New Yor",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>11<|level|>3\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>3\n<|id|>42<|level|>2\n<|id|>46<|level|>2\n<|id|>49<|level|>2\n<|id|>51<|level|>3\n<|id|>54<|level|>3\n<|id|>60<|level|>3\n<|id|>66<|level|>3\n<|id|>74<|level|>3\n<|id|>77<|level|>-1\n<|id|>81<|level|>3\n<|id|>85<|level|>3\n<|id|>89<|level|>3\n<|id|>93<|level|>3\n<|id|>97<|level|>3\n<|id|>100<|level|>4\n<|id|>103<|level|>4\n<|id|>110<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 4
+        },
+        {
+            "id": 103,
+            "level": 4
+        },
+        {
+            "id": 110,
+            "level": 4
+        }
+    ]
+}

@@ -1,0 +1,166 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        100,
+        147
+    ],
+    "pages": [
+        101,
+        102,
+        103,
+        106,
+        109,
+        111,
+        112,
+        116,
+        118,
+        124,
+        130,
+        131,
+        132,
+        134,
+        137,
+        143,
+        144,
+        145,
+        146,
+        147
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>380<|page|>101<|box|>44 295 59 673<|content|>INTERNATIONAL FINANCIAL STATISTICS\n<|id|>381<|page|>101<|box|>65 168 100 826<|content|>Table IFS-2. - U.S. Liquid and Other Liabilities t\n<|id|>387<|page|>102<|box|>36 324 51 706<|content|>INTERNATIONAL FINANCIAL STATISTICS\n<|id|>395<|page|>103<|box|>62 243 98 746<|content|>Table IFS-4. - Nonmarketable U.S. Treasury Bonds a\n<|id|>402<|page|>106<|box|>124 29 137 116<|content|>Background\n<|id|>406<|page|>106<|box|>454 27 467 170<|content|>Basic definitions\n<|id|>411<|page|>106<|box|>190 527 203 680<|content|>Reporting coverage\n<|id|>415<|page|>106<|box|>546 526 561 734<|content|>Description of statistics\n<|id|>425<|page|>109<|box|>43 368 57 585<|content|>CAPITAL MOVEMENTS\n<|id|>431<|page|>111<|box|>62 171 98 789<|content|>Section I - Liabilities to Foreigners Reported by\n<|id|>434<|page|>112<|box|>48 173 92 843<|content|>Section I - Liabilities to Foreigners Reported by\n<|id|>445<|page|>116<|box|>46 392 61 611<|content|>CAPITAL MOVEMENTS\n<|id|>446<|page|>116<|box|>66 215 100 815<|content|>Section II - Claims on Foreigners Reported by Bank\n<|id|>451<|page|>118<|box|>43 392 57 607<|content|>CAPITAL MOVEMENTS\n<|id|>452<|page|>118<|box|>62 190 92 847<|content|>Section II - Claims on Foreigners Reported by Bank\n<|id|>462<|page|>124<|box|>41 407 56 626<|content|>CAPITAL MOVEMENTS\n<|id|>472<|page|>130<|box|>51 402 65 621<|content|>CAPITAL MOVEMENTS.\n<|id|>476<|page|>131<|box|>67 125 102 852<|content|>Section IV - Claims on Foreigners Reported by Nonb\n<|id|>478<|page|>132<|box|>41 381 54 602<|content|>CAPITAL MOVEMENTS\n<|id|>479<|page|>132<|box|>56 237 86 753<|content|>Section V - Transactions in Long-Term Securities b\n<|id|>485<|page|>134<|box|>48 388 62 607<|content|>CAPITAL MOVEMENTS\n<|id|>498<|page|>137<|box|>48 376 62 592<|content|>CAPITAL MOVEMENTS\n<|id|>499<|page|>137<|box|>66 229 81 750<|content|>Section V - Transactions in Long-Term Securities b\n<|id|>511<|page|>143<|box|>46 185 62 800<|content|>_FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND F\n<|id|>512<|page|>143<|box|>96 241 110 746<|content|>Government Corporations and Other Business-Type Ac\n<|id|>518<|page|>144<|box|>46 192 61 817<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>519<|page|>144<|box|>67 201 100 805<|content|>Section I - Government Corporations and Other Busi\n<|id|>521<|page|>145<|box|>50 180 67 800<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>522<|page|>145<|box|>72 147 107 833<|content|>Section I - Government Corporations and Other Busi\n<|id|>524<|page|>146<|box|>41 197 57 822<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>525<|page|>146<|box|>62 164 97 854<|content|>Section I - Government Corporations and Other Busi\n<|id|>527<|page|>147<|box|>55 187 72 809<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>528<|page|>147<|box|>77 152 112 840<|content|>Section I - Government Corporations and Other Busi",
+    "raw_response": "<|id|>380<|level|>1\n<|id|>381<|level|>2\n<|id|>387<|level|>1\n<|id|>395<|level|>2\n<|id|>402<|level|>3\n<|id|>406<|level|>3\n<|id|>411<|level|>3\n<|id|>415<|level|>3\n<|id|>425<|level|>1\n<|id|>431<|level|>2\n<|id|>434<|level|>2\n<|id|>445<|level|>1\n<|id|>446<|level|>2\n<|id|>451<|level|>1\n<|id|>452<|level|>2\n<|id|>462<|level|>1\n<|id|>472<|level|>1\n<|id|>476<|level|>2\n<|id|>478<|level|>1\n<|id|>479<|level|>2\n<|id|>485<|level|>1\n<|id|>498<|level|>1\n<|id|>499<|level|>2\n<|id|>511<|level|>1\n<|id|>512<|level|>2\n<|id|>518<|level|>1\n<|id|>519<|level|>2\n<|id|>521<|level|>1\n<|id|>522<|level|>2\n<|id|>524<|level|>1\n<|id|>525<|level|>2\n<|id|>527<|level|>1\n<|id|>528<|level|>2",
+    "parsed": [
+        {
+            "id": 380,
+            "level": 1
+        },
+        {
+            "id": 381,
+            "level": 2
+        },
+        {
+            "id": 387,
+            "level": 1
+        },
+        {
+            "id": 395,
+            "level": 2
+        },
+        {
+            "id": 402,
+            "level": 3
+        },
+        {
+            "id": 406,
+            "level": 3
+        },
+        {
+            "id": 411,
+            "level": 3
+        },
+        {
+            "id": 415,
+            "level": 3
+        },
+        {
+            "id": 425,
+            "level": 1
+        },
+        {
+            "id": 431,
+            "level": 2
+        },
+        {
+            "id": 434,
+            "level": 2
+        },
+        {
+            "id": 445,
+            "level": 1
+        },
+        {
+            "id": 446,
+            "level": 2
+        },
+        {
+            "id": 451,
+            "level": 1
+        },
+        {
+            "id": 452,
+            "level": 2
+        },
+        {
+            "id": 462,
+            "level": 1
+        },
+        {
+            "id": 472,
+            "level": 1
+        },
+        {
+            "id": 476,
+            "level": 2
+        },
+        {
+            "id": 478,
+            "level": 1
+        },
+        {
+            "id": 479,
+            "level": 2
+        },
+        {
+            "id": 485,
+            "level": 1
+        },
+        {
+            "id": 498,
+            "level": 1
+        },
+        {
+            "id": 499,
+            "level": 2
+        },
+        {
+            "id": 511,
+            "level": 1
+        },
+        {
+            "id": 512,
+            "level": 2
+        },
+        {
+            "id": 518,
+            "level": 1
+        },
+        {
+            "id": 519,
+            "level": 2
+        },
+        {
+            "id": 521,
+            "level": 1
+        },
+        {
+            "id": 522,
+            "level": 2
+        },
+        {
+            "id": 524,
+            "level": 1
+        },
+        {
+            "id": 525,
+            "level": 2
+        },
+        {
+            "id": 527,
+            "level": 1
+        },
+        {
+            "id": 528,
+            "level": 2
+        }
+    ]
+}

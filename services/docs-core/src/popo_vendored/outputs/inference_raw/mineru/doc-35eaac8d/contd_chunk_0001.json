@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        49,
+        102
+    ],
+    "pages": [
+        50,
+        68,
+        69,
+        87,
+        94,
+        101
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>318<|page|>50<|box|>85 421 167 913<|content|>INTERNATIONAL\n<|id|>319<|page|>50<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>320<|page|>50<|box|>200 710 253 919<|content|>Foreign Currency Positions Exchange Stabilization Fund\n<|id|>384<|page|>68<|box|>199 723 268 913<|content|>Financial Report of the United States Government Excerpt\n<|id|>385<|page|>68<|box|>282 820 309 913<|content|>Trust Funds\n<|id|>388<|page|>69<|box|>300 83 359 491<|content|>The Department of the Treasury, in coordination wi...U. ... The United States Government Accountability\n<|id|>389<|page|>69<|box|>140 504 300 915<|content|>Office (GAO) is required to audit these statements...ederal Accounting Standards Advisory Board (FASAB)\n<|id|>391<|page|>69<|box|>329 504 344 870<|content|>https: ... gov/reports-statements/financial-\n<|id|>392<|page|>69<|box|>344 506 359 684<|content|>report/current-report. ... html\n<|id|>494<|page|>87<|box|>583 84 609 715<|content|>^{6} These amounts represent the present value of ... are included as income in both HHS' and the CMS's\n<|id|>495<|page|>87<|box|>609 94 625 774<|content|>Financial Reports but, by accounting convention, a...from the governmentwide perspective of this report\n<|id|>535<|page|>94<|box|>364 81 513 491<|content|>The Emergency Economic Stabilization Act of 2008 (...om the obligations issued by the Trust Fund to the\n<|id|>536<|page|>94<|box|>118 504 176 913<|content|>Secretary of the Treasury. ... The Act also extend... of the Trust Fund debt prior to the maturity date\n<|id|>567<|page|>101<|box|>474 91 564 495<|content|>The Highway Trust Fund's Mass Transit Account is f...itle 49 United States Code, the Intermodal Surface\n<|id|>568<|page|>101<|box|>140 504 273 915<|content|>Transportation Efficiency Act of 1991 (Public Law ...g to the provisions of various transportation acts",
+    "raw_response": "<|src_id|>388<|tgt_id|>389\n<|src_id|>391<|tgt_id|>392\n<|src_id|>494<|tgt_id|>495\n<|src_id|>535<|tgt_id|>536\n<|src_id|>567<|tgt_id|>568",
+    "parsed": [
+        {
+            "src_id": 388,
+            "tgt_id": 389
+        },
+        {
+            "src_id": 391,
+            "tgt_id": 392
+        },
+        {
+            "src_id": 494,
+            "tgt_id": 495
+        },
+        {
+            "src_id": 535,
+            "tgt_id": 536
+        },
+        {
+            "src_id": 567,
+            "tgt_id": 568
+        }
+    ]
+}

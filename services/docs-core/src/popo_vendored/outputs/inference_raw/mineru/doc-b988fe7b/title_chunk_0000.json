@@ -1,0 +1,110 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 315 118 683<|content|>ACTION BY WRITTEN CONSENT\n<|id|>1<|page|>1<|box|>137 354 156 643<|content|>OF THE STOCKHOLDERS\n<|id|>16<|page|>2<|box|>582 140 599 795<|content|>RESOLUTION 1: ADOPTION OF THE AGREEMENT AND PLAN O\n<|id|>19<|page|>3<|box|>89 140 106 550<|content|>RESOLUTION 2: APPROVAL OF THE MERGER\n<|id|>22<|page|>3<|box|>329 140 345 774<|content|>RESOLUTION 3: APPROVAL OF PER-SHARE MERGER CONSIDE\n<|id|>29<|page|>3<|box|>818 140 835 723<|content|>RESOLUTION 4: AUTHORIZATION OF ESCROW ARRANGEMENTS\n<|id|>34<|page|>4<|box|>474 140 493 772<|content|>RESOLUTION 5: APPOINTMENT OF STOCKHOLDER REPRESENT\n<|id|>42<|page|>5<|box|>152 142 169 266<|content|>and be it further\n<|id|>44<|page|>5<|box|>347 140 383 828<|content|>RESOLUTION 6: AUTHORIZATION OF OFFICERS TO EXECUTE\n<|id|>55<|page|>6<|box|>204 140 220 573<|content|>RESOLUTION 7: RATIFICATION OF PRIOR ACTS\n<|id|>57<|page|>6<|box|>472 140 489 544<|content|>RESOLUTION 8: GENERAL AUTHORIZATION\n<|id|>60<|page|>6<|box|>803 140 820 687<|content|>EFFECTIVENESS; COUNTERPARTS; ELECTRONIC DELIVERY\n<|id|>66<|page|>7<|box|>347 142 364 330<|content|>WAIVER OF NOTICE\n<|id|>68<|page|>7<|box|>523 142 541 310<|content|>GOVERNING LAW\n<|id|>71<|page|>7<|box|>638 218 674 777<|content|>SIGNATURE PAGE TO ACTION BY WRITTEN CONSENT OF THE\n<|id|>73<|page|>7<|box|>727 142 743 410<|content|>INDIVIDUAL STOCKHOLDER:\n<|id|>80<|page|>7<|box|>872 218 907 777<|content|>SIGNATURE PAGE TO ACTION BY WRITTEN CONSENT OF THE\n<|id|>83<|page|>8<|box|>133 143 150 410<|content|>INDIVIDUAL STOCKHOLDER:\n<|id|>90<|page|>8<|box|>277 218 314 777<|content|>SIGNATURE PAGE TO ACTION BY WRITTEN CONSENT OF THE\n<|id|>92<|page|>8<|box|>367 143 383 410<|content|>INDIVIDUAL STOCKHOLDER:\n<|id|>99<|page|>8<|box|>512 220 547 777<|content|>SIGNATURE PAGE TO ACTION BY WRITTEN CONSENT OF THE\n<|id|>101<|page|>8<|box|>601 143 618 369<|content|>ENTITY STOCKHOLDER:\n<|id|>109<|page|>8<|box|>763 292 780 705<|content|>SUMMARY OF CONSENTING STOCKHOLDERS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>16<|level|>2\n<|id|>19<|level|>2\n<|id|>22<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>2\n<|id|>42<|level|>-1\n<|id|>44<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>60<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>3\n<|id|>80<|level|>2\n<|id|>83<|level|>3\n<|id|>90<|level|>2\n<|id|>92<|level|>3\n<|id|>99<|level|>2\n<|id|>101<|level|>3\n<|id|>109<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        }
+    ]
+}

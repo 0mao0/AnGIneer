@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 17,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['7.1.8', \"Describe the vendor's audit trail and documentation capabilities. Does the platform maintain comprehensive audit logs of all system activity, including: (a) user actions (login, logout, data access, configuration changes); (b) alert lifecycle events (generation,\", '', '', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'assignment,investigation,disposition); (c) case management actions; (d) report generation and filing; and (e) system configuration changes? Are audit logs tamper-resistant and retained for a minimum of seven (7) years?', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 181,
+    "table2_idx": 182
+}

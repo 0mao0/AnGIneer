@@ -1,0 +1,46 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>128 142 143 315<|content|>DIVIDEND POLICY\n<|id|>4<|page|>1<|box|>500 140 516 323<|content|>Reinvestment Strategy\n<|id|>8<|page|>2<|box|>208 140 224 444<|content|>Contractual Restrictions on Dividends\n<|id|>17<|page|>3<|box|>607 140 625 354<|content|>Delaware Law Limitations\n<|id|>19<|page|>3<|box|>806 140 823 303<|content|>Impact on Investors\n<|id|>21<|page|>4<|box|>226 140 244 434<|content|>Sale of Shares by Selling Stockholder\n<|id|>23<|page|>4<|box|>441 140 459 465<|content|>Stockholders' Agreement Considerations",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>8<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        }
+    ]
+}

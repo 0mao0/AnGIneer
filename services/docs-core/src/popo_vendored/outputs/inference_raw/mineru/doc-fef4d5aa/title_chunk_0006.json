@@ -1,0 +1,65 @@
+{
+    "task": "title",
+    "chunk_index": 6,
+    "range": [
+        393,
+        452
+    ],
+    "pages": [
+        394,
+        418,
+        427,
+        434,
+        435,
+        437,
+        451
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1255<|page|>394<|box|>158 394 185 588<|content|>5-2 分离式立体交叉\n<|id|>1323<|page|>418<|box|>163 411 189 578<|content|>5-4 平面交叉\n<|id|>1347<|page|>427<|box|>152 411 181 606<|content|>5-6 人行天桥及渡槽\n<|id|>1370<|page|>434<|box|>231 359 273 620<|content|>第六章 交通工程\n<|id|>1371<|page|>434<|box|>331 443 364 536<|content|>说明\n<|id|>1373<|page|>434<|box|>463 92 490 189<|content|>1. 安全设施\n<|id|>1381<|page|>435<|box|>125 105 156 206<|content|>2. 监控系统\n<|id|>1384<|page|>435<|box|>233 105 264 206<|content|>3. 通信系统\n<|id|>1392<|page|>435<|box|>602 105 635 260<|content|>9. 工程量计算规则\n<|id|>1401<|page|>437<|box|>150 431 176 598<|content|>6-1 安全设施\n<|id|>1444<|page|>451<|box|>156 426 185 593<|content|>6-2 监控系统",
+    "raw_response": "<|id|>1255<|level|>3\n<|id|>1323<|level|>3\n<|id|>1347<|level|>3\n<|id|>1370<|level|>1\n<|id|>1371<|level|>2\n<|id|>1373<|level|>2\n<|id|>1381<|level|>2\n<|id|>1384<|level|>2\n<|id|>1392<|level|>2\n<|id|>1401<|level|>2\n<|id|>1444<|level|>2",
+    "parsed": [
+        {
+            "id": 1255,
+            "level": 3
+        },
+        {
+            "id": 1323,
+            "level": 3
+        },
+        {
+            "id": 1347,
+            "level": 3
+        },
+        {
+            "id": 1370,
+            "level": 1
+        },
+        {
+            "id": 1371,
+            "level": 2
+        },
+        {
+            "id": 1373,
+            "level": 2
+        },
+        {
+            "id": 1381,
+            "level": 2
+        },
+        {
+            "id": 1384,
+            "level": 2
+        },
+        {
+            "id": 1392,
+            "level": 2
+        },
+        {
+            "id": 1401,
+            "level": 2
+        },
+        {
+            "id": 1444,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,144 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 125 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>4<|page|>1<|box|>273 405 292 593<|content|>MEMORANDUM\n<|id|>10<|page|>1<|box|>492 142 508 313<|content|>I. Interview Logistics\n<|id|>19<|page|>2<|box|>167 140 185 421<|content|>II. Upjohn Warnings Administered\n<|id|>28<|page|>3<|box|>90 140 107 348<|content|>III. Background and Role\n<|id|>29<|page|>3<|box|>121 140 138 333<|content|>A. Employment History\n<|id|>33<|page|>3<|box|>410 142 428 328<|content|>B. Reporting Structure\n<|id|>37<|page|>3<|box|>753 140 772 433<|content|>C. Familiarity with Relevant Entities\n<|id|>41<|page|>4<|box|>231 140 247 607<|content|>IV. Crestfield Advisory Partners Ltd. — Invoice Pr\n<|id|>42<|page|>4<|box|>261 140 277 406<|content|>A. Initial Awareness of Crestfield\n<|id|>47<|page|>4<|box|>648 140 667 491<|content|>B. Invoice Receipt and Processing Workflow\n<|id|>55<|page|>5<|box|>306 140 323 401<|content|>C. Invoice Volume and Amounts\n<|id|>59<|page|>5<|box|>595 140 613 609<|content|>D. Approval Process and Delegation of Authority Vi\n<|id|>66<|page|>6<|box|>393 140 410 550<|content|>E. Contractual Terms and Overpayment Awareness\n<|id|>75<|page|>7<|box|>90 140 107 527<|content|>F. Timing of Invoices Relative to Permit Issuance\n<|id|>79<|page|>7<|box|>407 140 425 687<|content|>V. Cash Withdrawals — GL 7450 (\"Community Relation\n<|id|>80<|page|>7<|box|>439 140 455 513<|content|>A. Nature and Frequency of Cash Withdrawals\n<|id|>84<|page|>7<|box|>838 140 854 514<|content|>B. Instructions from Osei-Bonsu on GL Coding\n<|id|>90<|page|>8<|box|>627 140 643 611<|content|>C. Cash Withdrawal Process at Regency Internationa\n<|id|>97<|page|>9<|box|>220 140 238 454<|content|>D. Specific Withdrawals and Recipients\n<|id|>102<|page|>9<|box|>655 140 672 486<|content|>VI. In-Kind Benefits — Vehicles and Travel\n<|id|>106<|page|>10<|box|>138 140 157 334<|content|>B. Specific Transactions\n<|id|>110<|page|>10<|box|>439 140 455 454<|content|>VII. Interaction with External Auditors\n<|id|>115<|page|>11<|box|>90 140 107 666<|content|>VIII. Knowledge of the Whistleblower Complaint and\n<|id|>120<|page|>11<|box|>508 140 527 496<|content|>IX. Knowledge of Government Investigations\n<|id|>125<|page|>12<|box|>90 140 107 514<|content|>X. Communications with Delacroix and Renard\n<|id|>130<|page|>12<|box|>473 140 489 437<|content|>XI. Achebe's Assessment and Candor\n<|id|>138<|page|>13<|box|>204 140 222 462<|content|>XII. Documents Referenced or Produced\n<|id|>147<|page|>13<|box|>670 140 688 321<|content|>XIII. Follow-Up Items\n<|id|>155<|page|>14<|box|>612 142 628 289<|content|>XIV. Certification",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>1\n<|id|>10<|level|>2\n<|id|>19<|level|>2\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>37<|level|>3\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>47<|level|>3\n<|id|>55<|level|>3\n<|id|>59<|level|>3\n<|id|>66<|level|>3\n<|id|>75<|level|>3\n<|id|>79<|level|>2\n<|id|>80<|level|>3\n<|id|>84<|level|>3\n<|id|>90<|level|>3\n<|id|>97<|level|>3\n<|id|>102<|level|>2\n<|id|>106<|level|>3\n<|id|>110<|level|>2\n<|id|>115<|level|>2\n<|id|>120<|level|>2\n<|id|>125<|level|>2\n<|id|>130<|level|>2\n<|id|>138<|level|>2\n<|id|>147<|level|>2\n<|id|>155<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        }
+    ]
+}

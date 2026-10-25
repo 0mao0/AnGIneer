@@ -1,0 +1,39 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>563 140 580 483<|content|>I. Background and History of the Standstill\n<|id|>21<|page|>2<|box|>674 140 691 529<|content|>II. Proposal for Third Amendment — Key Terms\n<|id|>34<|page|>3<|box|>633 142 651 447<|content|>III. Rationale for Continued Extension\n<|id|>41<|page|>4<|box|>834 140 852 362<|content|>IV. Logistics and Execution\n<|id|>47<|page|>5<|box|>669 140 686 338<|content|>V. Reservation of Rights",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>21<|level|>1\n<|id|>34<|level|>1\n<|id|>41<|level|>1\n<|id|>47<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        }
+    ]
+}

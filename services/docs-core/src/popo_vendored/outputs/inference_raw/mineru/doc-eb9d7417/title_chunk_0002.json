@@ -1,0 +1,47 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        111,
+        120
+    ],
+    "pages": [
+        111,
+        112,
+        113,
+        114,
+        120
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>426<|page|>111<|box|>81 213 123 759<|content|>Section II - Summary by Countries Table 5.- Net Tr\n<|id|>428<|page|>112<|box|>76 351 93 659<|content|>Section II - Summary by Countries\n<|id|>429<|page|>112<|box|>94 241 108 787<|content|>Table 6.- Net Transactions in Domestic Stocks by F\n<|id|>431<|page|>113<|box|>57 423 72 576<|content|>CAPITAL MOVEMENTS\n<|id|>432<|page|>113<|box|>85 184 115 816<|content|>Section II - Summary by Countries Table 7.- Net Tr\n<|id|>437<|page|>114<|box|>76 226 107 773<|content|>Section II - Summary by Countries Table 8. - Net T\n<|id|>451<|page|>120<|box|>51 171 67 835<|content|>FOREIGN CURRENCIES ACQUIRED BY THE UNITED STATES W",
+    "raw_response": "<|id|>426<|level|>3\n<|id|>428<|level|>2\n<|id|>429<|level|>3\n<|id|>431<|level|>1\n<|id|>432<|level|>3\n<|id|>437<|level|>3\n<|id|>451<|level|>2",
+    "parsed": [
+        {
+            "id": 426,
+            "level": 3
+        },
+        {
+            "id": 428,
+            "level": 2
+        },
+        {
+            "id": 429,
+            "level": 3
+        },
+        {
+            "id": 431,
+            "level": 1
+        },
+        {
+            "id": 432,
+            "level": 3
+        },
+        {
+            "id": 437,
+            "level": 3
+        },
+        {
+            "id": 451,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        12
+    ],
+    "pages": [
+        2,
+        3,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>19<|page|>2<|box|>916 140 929 424<|content|>Lead Case No. ... 22STCV38214 — CONFIDENTIAL\n<|id|>20<|page|>3<|box|>90 140 181 857<|content|>All DOCUMENTS relating to the configuration, setup...ge logs, and administrative settings documentation\n<|id|>129<|page|>11<|box|>844 140 898 854<|content|>AMA specifically objects to this Request to the ex...parate individual action, Aldrich v. ... Catherine\n<|id|>130<|page|>12<|box|>90 140 181 854<|content|>Villanueva, Dept. ... The DLP audit and the underl...class wage-and-hour claims asserted in this action",
+    "raw_response": "<|src_id|>129<|tgt_id|>130",
+    "parsed": [
+        {
+            "src_id": 129,
+            "tgt_id": 130
+        }
+    ]
+}

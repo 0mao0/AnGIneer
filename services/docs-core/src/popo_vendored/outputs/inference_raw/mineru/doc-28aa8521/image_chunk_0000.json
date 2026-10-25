@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 143 125 852<|content|>UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF\n<|id|>1<|type|>table<|page|>1<|box|>157 143 306 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>375 197 410 799<|content|>[PROPOSED] ORDER GRANTING PLAINTIFF'S MOTION TO CO\n<|id|>7<|type|>title<|page|>2<|box|>167 142 184 238<|content|>FINDINGS\n<|id|>8<|type|>title<|page|>2<|box|>194 143 210 346<|content|>The Court finds as follows:\n<|id|>13<|type|>title<|page|>3<|box|>89 140 107 215<|content|>ORDER\n<|id|>22<|type|>title<|page|>4<|box|>89 423 106 573<|content|>SUBMITTED BY:",
+    "raw_response": "<|src_id|>1<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        }
+    ]
+}

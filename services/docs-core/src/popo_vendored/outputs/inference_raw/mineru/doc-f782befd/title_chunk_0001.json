@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        65,
+        68
+    ],
+    "pages": [
+        66,
+        67,
+        68
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>217<|page|>66<|box|>77 366 93 673<|content|>Section II - Summary by Countries\n<|id|>219<|page|>67<|box|>67 337 82 639<|content|>Section II - Summary by Countries\n<|id|>221<|page|>68<|box|>75 285 89 714<|content|>Section III - Preliminary Details by Countries",
+    "raw_response": "<|id|>217<|level|>1\n<|id|>219<|level|>1\n<|id|>221<|level|>1",
+    "parsed": [
+        {
+            "id": 217,
+            "level": 1
+        },
+        {
+            "id": 219,
+            "level": 1
+        },
+        {
+            "id": 221,
+            "level": 1
+        }
+    ]
+}

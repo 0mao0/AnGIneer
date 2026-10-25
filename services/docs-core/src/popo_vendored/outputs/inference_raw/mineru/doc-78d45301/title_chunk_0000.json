@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 153 157 844<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF AURELIUS\n<|id|>5<|page|>1<|box|>282 140 299 390<|content|>PREAMBLE AND RECITALS\n<|id|>7<|page|>1<|box|>449 140 467 318<|content|>A. Corporate Identity\n<|id|>12<|page|>1<|box|>800 140 819 472<|content|>B. CEO Vacancy and Interim Designation\n<|id|>16<|page|>2<|box|>311 140 329 506<|content|>C. Activist Context and Governance Backdrop\n<|id|>21<|page|>2<|box|>792 142 809 550<|content|>D. Nominating & Governance Committee Authority\n<|id|>24<|page|>3<|box|>311 142 329 403<|content|>E. Special Committee Formation\n<|id|>27<|page|>3<|box|>537 140 556 397<|content|>F. Hargrove Tate Partners LLC\n<|id|>31<|page|>3<|box|>845 140 863 434<|content|>G. Independent Governance Counsel\n<|id|>35<|page|>4<|box|>375 140 392 385<|content|>H. Proposed Fee Arrangement\n<|id|>38<|page|>4<|box|>674 142 691 362<|content|>I. Fiduciary Considerations\n<|id|>42<|page|>5<|box|>193 140 210 390<|content|>OPERATIVE RESOLUTIONS\n<|id|>43<|page|>5<|box|>219 140 236 379<|content|>NOW, THEREFORE, BE IT:\n<|id|>44<|page|>5<|box|>251 142 268 500<|content|>Resolution 1 — Authorization of Engagement\n<|id|>46<|page|>5<|box|>415 142 431 437<|content|>Resolution 2 — Scope of Engagement\n<|id|>54<|page|>6<|box|>338 142 354 504<|content|>Resolution 3 — Approval of Fee Arrangement\n<|id|>62<|page|>7<|box|>90 140 107 501<|content|>Resolution 4 — Engagement Letter Execution\n<|id|>64<|page|>7<|box|>345 140 364 464<|content|>Resolution 5 — Reporting and Oversight\n<|id|>68<|page|>7<|box|>781 140 799 563<|content|>Resolution 6 — Coordination with Special Committee\n<|id|>71<|page|>8<|box|>257 142 273 570<|content|>Resolution 7 — Confidentiality and Privilege Proto\n<|id|>75<|page|>8<|box|>674 140 691 473<|content|>Resolution 8 — Documentation Standards\n<|id|>78<|page|>9<|box|>157 140 175 519<|content|>Resolution 9 — Independence of Search Process\n<|id|>81<|page|>9<|box|>439 140 457 455<|content|>Resolution 10 — General Authorization\n<|id|>83<|page|>9<|box|>640 140 657 372<|content|>Resolution 11 — Ratification\n<|id|>85<|page|>9<|box|>777 140 794 297<|content|>CERTIFICATION\n<|id|>93<|page|>11<|box|>88 447 107 552<|content|>EXHIBIT A\n<|id|>94<|page|>11<|box|>114 215 133 781<|content|>Summary of Proposed Hargrove Tate Partners LLC Eng\n<|id|>97<|page|>12<|box|>89 143 103 320<|content|>DISTRIBUTION NOTICE\n<|id|>103<|page|>12<|box|>251 140 280 852<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>7<|level|>3\n<|id|>12<|level|>3\n<|id|>16<|level|>3\n<|id|>21<|level|>3\n<|id|>24<|level|>3\n<|id|>27<|level|>3\n<|id|>31<|level|>3\n<|id|>35<|level|>3\n<|id|>38<|level|>3\n<|id|>42<|level|>2\n<|id|>43<|level|>-1\n<|id|>44<|level|>3\n<|id|>46<|level|>3\n<|id|>54<|level|>3\n<|id|>62<|level|>3\n<|id|>64<|level|>3\n<|id|>68<|level|>3\n<|id|>71<|level|>3\n<|id|>75<|level|>3\n<|id|>78<|level|>3\n<|id|>81<|level|>3\n<|id|>83<|level|>3\n<|id|>85<|level|>2\n<|id|>93<|level|>2\n<|id|>94<|level|>3\n<|id|>97<|level|>2\n<|id|>103<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        }
+    ]
+}

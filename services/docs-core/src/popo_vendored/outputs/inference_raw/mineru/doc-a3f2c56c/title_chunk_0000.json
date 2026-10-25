@@ -1,0 +1,155 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 584<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>112 287 128 709<|content|>CALDERWOOD & HARKNESS LLP Memorandum\n<|id|>10<|page|>1<|box|>439 385 458 611<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>462 419 482 576<|content|>II. Background\n<|id|>17<|page|>2<|box|>507 140 523 272<|content|>A. The Offering\n<|id|>24<|page|>3<|box|>304 140 321 524<|content|>B. The Reporting Persons and Their Dispositions\n<|id|>33<|page|>4<|box|>263 140 281 305<|content|>C. Transaction Date\n<|id|>36<|page|>4<|box|>489 183 508 813<|content|>III. Section 16(a) Reporting Requirements — Legal\n<|id|>37<|page|>4<|box|>534 140 551 413<|content|>A. Statutory and Regulatory Basis\n<|id|>47<|page|>5<|box|>422 140 439 441<|content|>B. Identification of Reporting Persons\n<|id|>52<|page|>6<|box|>186 140 204 310<|content|>C. Transaction Code\n<|id|>56<|page|>6<|box|>584 341 604 653<|content|>IV. Filing Deadline Calculation\n<|id|>57<|page|>6<|box|>628 140 646 513<|content|>A. Computation of Two-Business-Day Deadline\n<|id|>65<|page|>7<|box|>250 140 266 390<|content|>B. Recommendation on Timing\n<|id|>72<|page|>8<|box|>90 189 111 807<|content|>V. Special Considerations — Castellano Family Hold\n<|id|>73<|page|>8<|box|>136 140 154 429<|content|>A. Beneficial Ownership Attribution\n<|id|>83<|page|>9<|box|>315 140 333 349<|content|>B. Reporting Implications\n<|id|>92<|page|>10<|box|>363 197 383 797<|content|>VI. Form 4 Content — Summary for Each Reporting Pe\n<|id|>94<|page|>10<|box|>478 142 494 415<|content|>A. Dr. Elena Castellano — Form 4\n<|id|>102<|page|>10<|box|>685 142 702 787<|content|>Table I — Non-Derivative Securities Acquired, Disp\n<|id|>127<|page|>11<|box|>494 143 508 230<|content|>Footnotes:\n<|id|>131<|page|>11<|box|>813 142 830 439<|content|>B. Dr. Riccardo Castellano — Form 4\n<|id|>139<|page|>12<|box|>167 176 185 663<|content|>If Amendment, Date of Original Filed (Month/Day/Ye\n<|id|>140<|page|>12<|box|>193 142 210 787<|content|>Table I — Non-Derivative Securities Acquired, Disp\n<|id|>164<|page|>12<|box|>805 142 821 230<|content|>Footnotes:\n<|id|>168<|page|>13<|box|>304 140 320 423<|content|>C. Dr. Marco Castellano — Form 4\n<|id|>175<|page|>13<|box|>510 140 527 787<|content|>Table I — Non-Derivative Securities Acquired, Disp\n<|id|>189<|page|>14<|box|>135 143 151 230<|content|>Footnotes:\n<|id|>194<|page|>14<|box|>448 194 468 803<|content|>VII. Over-Allotment Option — Contingent Additional\n<|id|>200<|page|>15<|box|>270 142 286 254<|content|>Action Items:\n<|id|>205<|page|>15<|box|>565 230 584 764<|content|>VIII. Section 16(b) Short-Swing Profit Considerati\n<|id|>212<|page|>16<|box|>554 338 573 658<|content|>IX. Action Items and Next Steps\n<|id|>225<|page|>20<|box|>90 140 108 480<|content|>Appendix B — Key Reference Information",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>24<|level|>3\n<|id|>33<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>47<|level|>3\n<|id|>52<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>65<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>83<|level|>3\n<|id|>92<|level|>2\n<|id|>94<|level|>3\n<|id|>102<|level|>4\n<|id|>127<|level|>5\n<|id|>131<|level|>3\n<|id|>139<|level|>-1\n<|id|>140<|level|>4\n<|id|>164<|level|>5\n<|id|>168<|level|>3\n<|id|>175<|level|>4\n<|id|>189<|level|>5\n<|id|>194<|level|>2\n<|id|>200<|level|>2\n<|id|>205<|level|>2\n<|id|>212<|level|>2\n<|id|>225<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 127,
+            "level": 5
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 4
+        },
+        {
+            "id": 164,
+            "level": 5
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 4
+        },
+        {
+            "id": 189,
+            "level": 5
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 2
+        }
+    ]
+}

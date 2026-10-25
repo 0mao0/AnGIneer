@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>13<|page|>1<|box|>622 367 641 629<|content|>I. Transaction Documents\n<|id|>21<|page|>2<|box|>377 375 397 622<|content|>II. Documents Reviewed\n<|id|>42<|page|>3<|box|>617 411 637 584<|content|>III. Assumptions\n<|id|>54<|page|>4<|box|>628 431 648 565<|content|>IV. Opinions\n<|id|>56<|page|>4<|box|>724 140 742 462<|content|>(i) Due Organization and Good Standing\n<|id|>58<|page|>5<|box|>148 140 167 424<|content|>(ii) Corporate Power and Authority\n<|id|>60<|page|>5<|box|>325 140 344 517<|content|>(iii) Due Authorization, Execution, and Delivery\n<|id|>63<|page|>5<|box|>584 140 601 535<|content|>(iv) Valid Issuance and Enforceability of the Note\n<|id|>70<|page|>6<|box|>273 140 292 511<|content|>(v) Exemption from Securities Act Registration\n<|id|>75<|page|>6<|box|>694 140 710 467<|content|>(vi) Exemption from Trust Indenture Act\n<|id|>77<|page|>7<|box|>90 142 107 281<|content|>(vii) No Conflicts\n<|id|>83<|page|>7<|box|>536 140 553 488<|content|>(viii) No Required Governmental Approvals\n<|id|>91<|page|>8<|box|>388 331 409 665<|content|>V. Qualifications and Limitations\n<|id|>93<|page|>8<|box|>484 140 503 372<|content|>Enforceability Qualifications\n<|id|>98<|page|>9<|box|>90 140 107 323<|content|>Scope of Law Covered\n<|id|>100<|page|>9<|box|>250 140 266 392<|content|>No Opinion on Certain Matters\n<|id|>106<|page|>9<|box|>657 140 674 308<|content|>Reliance and Benefit\n<|id|>109<|page|>10<|box|>90 140 107 269<|content|>Governing Law\n<|id|>113<|page|>10<|box|>414 433 431 563<|content|>Very truly yours,\n<|id|>114<|page|>10<|box|>439 140 455 433<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>13<|level|>1\n<|id|>21<|level|>1\n<|id|>42<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>2\n<|id|>83<|level|>2\n<|id|>91<|level|>1\n<|id|>93<|level|>2\n<|id|>98<|level|>2\n<|id|>100<|level|>2\n<|id|>106<|level|>2\n<|id|>109<|level|>2\n<|id|>113<|level|>-1\n<|id|>114<|level|>-1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        }
+    ]
+}

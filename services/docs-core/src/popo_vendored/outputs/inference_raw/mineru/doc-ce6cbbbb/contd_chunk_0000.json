@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        10,
+        21
+    ],
+    "pages": [
+        10,
+        11,
+        12,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>110<|page|>10<|box|>839 140 893 856<|content|>For purposes of the FTC's analysis, we anticipate ...nex and Vectis Solutions is most pronounced in the\n<|id|>111<|page|>11<|box|>90 140 126 854<|content|>United States, where both companies actively compe...pete for enterprise procurement software customers\n<|id|>123<|page|>12<|box|>340 176 357 622<|content|>ΔHHI = 2 × (Luminex market share) × (Vectis market share)\n<|id|>124<|page|>12<|box|>364 176 383 459<|content|>ΔHHI = 2 × 18 × 7 = 252 HHI points\n<|id|>125<|page|>12<|box|>392 140 428 854<|content|>An HHI increase of approximately 252 points is sig...2023 Merger Guidelines. ... Under those Guidelines\n<|id|>165<|page|>15<|box|>824 140 897 857<|content|>1. ... government and critical infrastructure customer base, as well as the involvement of Luminex\n<|id|>166<|page|>16<|box|>90 174 143 854<|content|>Systems AG (a Swiss entity) in the Transaction str... team's national security and CFIUS practice group\n<|id|>179<|page|>17<|box|>821 140 896 857<|content|>Pull-and-Refile Strategy. ... A pull-and- refile m...the FTC staff indicates a willingness to clear the\n<|id|>180<|page|>18<|box|>90 140 145 854<|content|>Transaction without a Second Request but requires ...waiting period and in consultation with the Client\n<|id|>184<|page|>18<|box|>261 174 297 854<|content|>Calderwood & Harkness LLP 7 Times Square, New York...r, Antitrust & Competition Tel: ... (212) 848-7200\n<|id|>185<|page|>18<|box|>305 140 378 856<|content|>Calderwood & Harkness LLP serves as lead antitrust.... ... filings, in coordination with local counsel)\n<|id|>187<|page|>18<|box|>412 174 446 854<|content|>Caldwell, Raines & Sheppard LLP 51 West 52nd Stree...ry Lam, Partner, Antitrust Tel: ... (212) 903-6100\n<|id|>188<|page|>18<|box|>455 140 493 854<|content|>Caldwell, Raines & Sheppard LLP serves as antitrus... with the HSR filing and regulatory review process\n<|id|>190<|page|>18<|box|>526 176 544 671<|content|>Whitfield Partners LLC Christopher Brennan, Managing Director\n<|id|>191<|page|>18<|box|>551 140 625 854<|content|>Whitfield Partners LLC is serving as financial adv...economic analysis relevant to the antitrust review\n<|id|>218<|page|>20<|box|>550 140 566 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>219<|page|>20<|box|>569 143 585 254<|content|>By: ... By\n<|id|>220<|page|>20<|box|>585 143 601 315<|content|>Name: ... Elaine Forsythe\n<|id|>221<|page|>20<|box|>603 143 619 429<|content|>Title: ... Partner, Antitrust & Competition\n<|id|>222<|page|>20<|box|>619 143 637 251<|content|>By: ... By\n<|id|>223<|page|>20<|box|>637 142 654 313<|content|>Name: ... Ryan Kowalski\n<|id|>224<|page|>20<|box|>654 143 670 354<|content|>Title: ... Lead Associate, M&A\n<|id|>225<|page|>20<|box|>672 143 689 253<|content|>By: ... By\n<|id|>226<|page|>20<|box|>689 143 705 287<|content|>Name: ... Megan Chu\n<|id|>227<|page|>20<|box|>705 143 723 382<|content|>Title: ... Working Associate, M&A\n<|id|>228<|page|>20<|box|>724 143 739 308<|content|>Date: ... March 28, 2025\n<|id|>229<|page|>20<|box|>741 143 756 250<|content|>Distribution: ... Distribution\n<|id|>230<|page|>20<|box|>766 176 782 581<|content|>File (Calderwood & Harkness Matter No. ... 1001-00004)\n<|id|>231<|page|>20<|box|>792 176 809 446<|content|>James Prentice, Responsible Partner\n<|id|>232<|page|>20<|box|>818 176 835 393<|content|>Sandra Tung, Billing Partner\n<|id|>233<|page|>20<|box|>844 176 861 678<|content|>Sylvia Hartwell, Tax (for cross-reference to parallel tax workstream)\n<|id|>234<|page|>21<|box|>89 148 133 848<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED / ATTORN...E WITHOUT AUTHORIZATION OF THE RESPONSIBLE PARTNER",
+    "raw_response": "<|src_id|>110<|tgt_id|>111\n<|src_id|>165<|tgt_id|>166\n<|src_id|>179<|tgt_id|>180",
+    "parsed": [
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 180
+        }
+    ]
+}

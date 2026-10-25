@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>1<|page|>1<|box|>114 176 178 821<|content|>to Settlement Agreement and Mutual Release dated J\n<|id|>4<|page|>1<|box|>420 156 455 839<|content|>CORRECTIVE STATEMENT REGARDING PREVIOUSLY PUBLISHE\n<|id|>6<|page|>1<|box|>506 140 523 364<|content|>I. Introduction and Purpose\n<|id|>15<|page|>2<|box|>383 140 402 482<|content|>II. Background on Redstone Gaming Corp.\n<|id|>21<|page|>3<|box|>186 140 204 428<|content|>III. GPR's Short Position Disclosure\n<|id|>24<|page|>3<|box|>462 140 479 673<|content|>IV. Correction Regarding Report 1: Revenue Fabrica\n<|id|>25<|page|>3<|box|>493 140 511 444<|content|>IV.A. Summary of Original Allegation\n<|id|>27<|page|>3<|box|>675 140 691 359<|content|>IV.B. Corrective Statement\n<|id|>33<|page|>4<|box|>348 140 364 655<|content|>V. Correction Regarding Report 2: RNG Manipulation\n<|id|>34<|page|>4<|box|>378 140 396 437<|content|>V.A. Summary of Original Allegation\n<|id|>36<|page|>4<|box|>561 140 578 354<|content|>V.B. Corrective Statement\n<|id|>41<|page|>5<|box|>212 140 229 787<|content|>VI. Correction Regarding Report 3: Related-Party /\n<|id|>42<|page|>5<|box|>243 142 261 444<|content|>VI.A. Summary of Original Allegation\n<|id|>44<|page|>5<|box|>444 140 460 359<|content|>VI.B. Corrective Statement\n<|id|>48<|page|>5<|box|>779 140 797 545<|content|>VII. Market Impact and Acknowledgment of Harm\n<|id|>55<|page|>6<|box|>484 140 501 496<|content|>VIII. Regulatory and Investigative Outcomes\n<|id|>61<|page|>7<|box|>90 140 107 483<|content|>IX. Permanent Injunction and Trading Bar\n<|id|>66<|page|>7<|box|>436 140 454 383<|content|>X. Statement of Responsibility\n<|id|>69<|page|>7<|box|>731 140 747 560<|content|>XI. No Admission of Liability Beyond This Statemen\n<|id|>71<|page|>8<|box|>148 140 167 383<|content|>XII. Duration and Availability",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>2\n<|id|>15<|level|>2\n<|id|>21<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>27<|level|>3\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>36<|level|>3\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>44<|level|>3\n<|id|>48<|level|>2\n<|id|>55<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        }
+    ]
+}

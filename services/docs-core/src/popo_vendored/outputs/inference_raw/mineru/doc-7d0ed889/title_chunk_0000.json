@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>12<|page|>2<|box|>90 217 109 777<|content|>I. DEFINED TERMS AND DOCUMENTS REVIEWED\n<|id|>13<|page|>2<|box|>136 142 152 292<|content|>1.1 Defined Terms\n<|id|>22<|page|>2<|box|>714 142 731 346<|content|>1.2 Documents Examined\n<|id|>41<|page|>4<|box|>260 395 280 601<|content|>II. ASSUMPTIONS\n<|id|>52<|page|>5<|box|>314 419 334 578<|content|>III. OPINIONS\n<|id|>54<|page|>5<|box|>412 140 429 656<|content|>3.1 Due Organization and Good Standing — Lumos Ana\n<|id|>56<|page|>5<|box|>662 140 679 727<|content|>3.2 Due Organization and Good Standing — Prismyx A\n<|id|>58<|page|>6<|box|>186 140 204 498<|content|>3.3 Corporate Power and Authority — Buyer\n<|id|>60<|page|>6<|box|>527 140 545 674<|content|>3.4 Limited Liability Company Power and Authority\n<|id|>62<|page|>6<|box|>758 140 777 393<|content|>3.5 Due Execution and Delivery\n<|id|>64<|page|>7<|box|>90 140 107 287<|content|>3.6 Enforceability\n<|id|>70<|page|>7<|box|>407 140 424 504<|content|>3.7 No Violation of Organizational Documents\n<|id|>76<|page|>8<|box|>90 140 107 341<|content|>3.8 Certificate of Merger\n<|id|>78<|page|>8<|box|>304 140 321 620<|content|>3.9 No Governmental Approvals Required (Limited Op\n<|id|>84<|page|>8<|box|>715 264 734 730<|content|>IV. QUALIFICATIONS AND LIMITATIONS\n<|id|>86<|page|>8<|box|>814 140 830 375<|content|>4.1 Enforceability Exceptions\n<|id|>91<|page|>9<|box|>273 140 292 281<|content|>4.2 Scope of Law\n<|id|>93<|page|>9<|box|>488 140 505 437<|content|>4.3 Limitations on Specific Provisions\n<|id|>101<|page|>10<|box|>212 140 229 367<|content|>4.4 Knowledge Qualification\n<|id|>103<|page|>10<|box|>481 140 497 321<|content|>4.5 No Duty to Update\n<|id|>105<|page|>10<|box|>657 140 674 308<|content|>4.6 Reliance and Use\n<|id|>110<|page|>11<|box|>231 140 250 433<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>22<|level|>2\n<|id|>41<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>2\n<|id|>70<|level|>2\n<|id|>76<|level|>2\n<|id|>78<|level|>2\n<|id|>84<|level|>1\n<|id|>86<|level|>2\n<|id|>91<|level|>2\n<|id|>93<|level|>2\n<|id|>101<|level|>2\n<|id|>103<|level|>2\n<|id|>105<|level|>2\n<|id|>110<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 331 133 666<|content|>WIRE TRANSFER INSTRUCTIONS PAYOFF OF EXISTING TERM\n<|id|>7<|page|>1<|box|>477 140 494 364<|content|>1. Purpose and Background\n<|id|>14<|page|>2<|box|>421 140 439 364<|content|>2. Payoff Amount Summary\n<|id|>21<|page|>3<|box|>421 140 439 792<|content|>3. Wire Transfer Instructions — Greystone Federal\n<|id|>24<|page|>3<|box|>859 143 877 508<|content|>Important Notes Regarding Wire Instructions:\n<|id|>29<|page|>4<|box|>411 140 428 638<|content|>4. Wire Originator Information — Crescent Harbor B\n<|id|>32<|page|>4<|box|>726 140 743 557<|content|>Authorized Contacts at Crescent Harbor Bank, N.A.:\n<|id|>37<|page|>5<|box|>186 140 204 442<|content|>5. Timing and Settlement Instructions\n<|id|>49<|page|>6<|box|>219 140 237 493<|content|>6. Confirmation and Notification Procedures\n<|id|>62<|page|>7<|box|>268 140 287 524<|content|>7. Cross-Reference to Funds Flow Memorandum\n<|id|>68<|page|>7<|box|>787 140 805 436<|content|>8. Disclaimers and Important Notices\n<|id|>74<|page|>9<|box|>89 142 107 372<|content|>Signature and Contact Block\n<|id|>76<|page|>9<|box|>141 142 157 437<|content|>PREPARED AND DELIVERED BY:\n<|id|>83<|page|>9<|box|>287 143 303 284<|content|>APPROVED BY:\n<|id|>109<|page|>11<|box|>89 142 107 261<|content|>APPENDIX A\n<|id|>110<|page|>11<|box|>114 339 133 656<|content|>Copy of Payoff Letter Wire Instructions\n<|id|>111<|page|>11<|box|>142 220 159 774<|content|>Payoff Letter dated July 19, 2022 Issued by Greyst\n<|id|>113<|page|>11<|box|>250 142 265 328<|content|>Issuer of Payoff Letter:\n<|id|>117<|page|>11<|box|>344 142 359 313<|content|>Payoff Letter Details:\n<|id|>122<|page|>11<|box|>448 142 465 447<|content|>Notation Regarding Wire Instructions.\n<|id|>125<|page|>11<|box|>617 336 635 660<|content|>[Payoff Letter attached on following pages]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>24<|level|>3\n<|id|>29<|level|>2\n<|id|>32<|level|>3\n<|id|>37<|level|>2\n<|id|>49<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>74<|level|>2\n<|id|>76<|level|>3\n<|id|>83<|level|>3\n<|id|>109<|level|>2\n<|id|>110<|level|>3\n<|id|>111<|level|>4\n<|id|>113<|level|>5\n<|id|>117<|level|>5\n<|id|>122<|level|>5\n<|id|>125<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 4
+        },
+        {
+            "id": 113,
+            "level": 5
+        },
+        {
+            "id": 117,
+            "level": 5
+        },
+        {
+            "id": 122,
+            "level": 5
+        }
+    ]
+}

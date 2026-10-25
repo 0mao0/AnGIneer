@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 327<|content|>【6574030#6】抗战主力之争\n<|id|>2<|page|>1<|box|>191 107 208 302<|content|>【242877#3】珊瑚海海战\n<|id|>4<|page|>1<|box|>310 105 326 363<|content|>【3394701#1】中华民族伟大复兴\n<|id|>6<|page|>1<|box|>514 105 530 284<|content|>【43267#53】甲午战争\n<|id|>8<|page|>1<|box|>615 105 631 337<|content|>【413631#6】第一次直奉戰爭\n<|id|>10<|page|>1<|box|>665 105 680 265<|content|>【1364902#30】清军\n<|id|>12<|page|>1<|box|>783 107 797 327<|content|>【6574030#0】抗战主力之争\n<|id|>14<|page|>1<|box|>884 107 898 337<|content|>【154904#8】第一次长沙战役\n<|id|>16<|page|>2<|box|>168 107 185 337<|content|>【6574030#14】抗战主力之争\n<|id|>18<|page|>2<|box|>269 105 286 317<|content|>【5283#155】中国抗日战争",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

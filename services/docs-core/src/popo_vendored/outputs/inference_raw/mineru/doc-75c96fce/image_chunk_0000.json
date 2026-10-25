@@ -1,0 +1,63 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        15,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 179 123 818<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>1<|type|>table<|page|>1<|box|>142 145 310 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>363 153 398 843<|content|>MEMORANDUM OF LAW IN SUPPORT OF DEFENDANTS' MOTION\n<|id|>7<|type|>table<|page|>1<|box|>609 145 896 852<|content|>None\n<|id|>8<|type|>table<|page|>2<|box|>89 143 501 852<|content|>None\n<|id|>9<|type|>title<|page|>2<|box|>534 385 551 612<|content|>TABLE OF AUTHORITIES\n<|id|>11<|type|>table<|page|>2<|box|>584 143 901 852<|content|>None\n<|id|>12<|type|>table<|page|>3<|box|>88 143 604 852<|content|>None\n<|id|>13<|type|>title<|page|>3<|box|>638 143 654 290<|content|>Statutes and Rules\n<|id|>14<|type|>table<|page|>3<|box|>662 145 729 852<|content|>None\n<|id|>15<|type|>table<|page|>3<|box|>787 143 904 852<|content|>None\n<|id|>16<|type|>table<|page|>4<|box|>88 143 194 852<|content|>None\n<|id|>17<|type|>title<|page|>4<|box|>243 142 260 397<|content|>PRELIMINARY STATEMENT\n<|id|>25<|type|>title<|page|>5<|box|>695 140 710 354<|content|>STATEMENT OF FACTS\n<|id|>26<|type|>title<|page|>5<|box|>726 140 743 261<|content|>A. The Parties\n<|id|>30<|type|>title<|page|>6<|box|>484 140 501 316<|content|>B. The Charter-Party\n<|id|>39<|type|>title<|page|>7<|box|>565 140 582 359<|content|>C. Northwind's Allegations\n<|id|>46<|type|>title<|page|>8<|box|>492 140 508 434<|content|>D. The Five Counts of the Complaint\n<|id|>54<|type|>title<|page|>9<|box|>455 140 472 403<|content|>E. Northwind's Legal Fees Claim\n<|id|>56<|type|>table<|page|>9<|box|>520 143 727 852<|content|>None\n<|id|>58<|type|>title<|page|>10<|box|>89 142 107 256<|content|>ARGUMENT\n<|id|>59<|type|>title<|page|>10<|box|>119 140 157 854<|content|>POINT I: COUNT III SHOULD BE DISMISSED BECAUSE THI\n<|id|>96<|type|>title<|page|>15<|box|>773 140 827 854<|content|>POINT II: COUNT V SHOULD BE DISMISSED BECAUSE AN U\n<|id|>121<|type|>title<|page|>19<|box|>770 140 787 272<|content|>CONCLUSION\n<|id|>130<|type|>title<|page|>20<|box|>250 374 268 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>7<|tgt_id|>2\n<|src_id|>8<|tgt_id|>2\n<|src_id|>11<|tgt_id|>9\n<|src_id|>12<|tgt_id|>9\n<|src_id|>14<|tgt_id|>13\n<|src_id|>15<|tgt_id|>13\n<|src_id|>16<|tgt_id|>13\n<|src_id|>56<|tgt_id|>54",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        }
+    ]
+}

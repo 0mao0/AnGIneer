@@ -1,0 +1,131 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-00glp169\\input\\pdfs\\doc-c58cb020.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-00glp169\\enriched\\doc-c58cb020.json",
+    "contd_output": "<|src_id|>23<|tgt_id|>24\n<|src_id|>41<|tgt_id|>42\n<|src_id|>155<|tgt_id|>156",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>2\n<|id|>25<|level|>1\n<|id|>37<|level|>1\n<|id|>49<|level|>1\n<|id|>67<|level|>1\n<|id|>80<|level|>1\n<|id|>91<|level|>1\n<|id|>101<|level|>1\n<|id|>139<|level|>1\n<|id|>145<|level|>1\n<|id|>152<|level|>1\n<|id|>160<|level|>1\n<|id|>168<|level|>1\n<|id|>179<|level|>1\n<|id|>181<|level|>2\n<|id|>182<|level|>3",
+    "image_output": "<|src_id|>27<|tgt_id|>25\n<|src_id|>28<|tgt_id|>25",
+    "contd_label": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 156
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 179,
+            "level": 1
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 27,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 25
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 27,
+            "table2_idx": 28,
+            "upper_row_ss": [
+                [
+                    "8",
+                    "Murfreesboro Distribution",
+                    "1600 Joe B. Jackson",
+                    "GMP Murfreesboro",
+                    "Tennessee",
+                    "CNTC-2024-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Center",
+                    "Parkway, Murfreesboro, TN 37127",
+                    "LLC",
+                    "",
+                    "PF-04187-008"
+                ]
+            ]
+        }
+    ]
+}

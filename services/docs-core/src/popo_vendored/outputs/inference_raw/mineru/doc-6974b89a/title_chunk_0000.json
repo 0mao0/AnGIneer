@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>226 140 244 292<|content|>MEMORANDUM\n<|id|>11<|page|>1<|box|>537 370 556 625<|content|>1. Purpose and Summary\n<|id|>15<|page|>2<|box|>136 305 156 691<|content|>2. Background — Transaction Closing\n<|id|>25<|page|>3<|box|>154 241 174 754<|content|>3. Form and Content of Tenant Notification Letters\n<|id|>26<|page|>3<|box|>199 140 215 380<|content|>3.1 Preparation and Approval\n<|id|>28<|page|>3<|box|>393 140 411 354<|content|>3.2 Content of Each Letter\n<|id|>40<|page|>4<|box|>542 315 561 681<|content|>4. Distribution Method and Logistics\n<|id|>41<|page|>4<|box|>588 140 604 413<|content|>4.1 Mailing (First-Class U.S. Mail)\n<|id|>45<|page|>5<|box|>229 140 248 321<|content|>4.2 Email Distribution\n<|id|>49<|page|>5<|box|>625 140 641 557<|content|>4.3 Coordination with Argyle Property Services LLC\n<|id|>52<|page|>6<|box|>90 264 111 732<|content|>5. Distribution by Property — Summary Table\n<|id|>62<|page|>8<|box|>551 284 570 712<|content|>6. Major Tenants — Specific Confirmation\n<|id|>64<|page|>8<|box|>686 178 704 490<|content|>1. Cascade Supply Chain Solutions Inc.\n<|id|>66<|page|>8<|box|>768 176 786 486<|content|>2. Zynvaro Distribution Holdings LLC\n<|id|>70<|page|>9<|box|>152 176 170 473<|content|>4. Birchwood Technology Group Inc.\n<|id|>72<|page|>9<|box|>234 176 252 429<|content|>5. Atlas Freight Logistics Corp.\n<|id|>76<|page|>9<|box|>590 303 609 692<|content|>7. Compliance with PSA Requirements\n<|id|>88<|page|>10<|box|>675 295 695 700<|content|>8. Security Deposit Transfer Notification\n<|id|>95<|page|>11<|box|>484 328 505 668<|content|>9. Document Retention and Filing\n<|id|>102<|page|>12<|box|>136 395 156 602<|content|>10. Follow-Up Items\n<|id|>119<|page|>13<|box|>398 433 417 565<|content|>Attachments",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>1\n<|id|>11<|level|>2\n<|id|>15<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>28<|level|>3\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>45<|level|>3\n<|id|>49<|level|>3\n<|id|>52<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>3\n<|id|>66<|level|>3\n<|id|>70<|level|>3\n<|id|>72<|level|>3\n<|id|>76<|level|>2\n<|id|>88<|level|>2\n<|id|>95<|level|>2\n<|id|>102<|level|>2\n<|id|>119<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>422 142 440 341<|content|>1. Purpose of This Letter\n<|id|>15<|type|>title<|page|>2<|box|>167 140 184 535<|content|>2. Annual Premium Amount and Payment Timing\n<|id|>23<|type|>table<|page|>2<|box|>674 143 830 852<|content|>None\n<|id|>29<|type|>title<|page|>3<|box|>344 140 362 527<|content|>3. Gift Tax Treatment of Premium Contributions\n<|id|>35<|type|>title<|page|>3<|box|>617 140 633 612<|content|>3.2 Annual Exclusion Gifts — Crummey Withdrawal Ri\n<|id|>48<|type|>title<|page|>4<|box|>561 142 579 380<|content|>3.3 Lifetime Exemption Usage\n<|id|>53<|type|>table<|page|>4<|box|>760 143 854 852<|content|>None\n<|id|>59<|type|>title<|page|>5<|box|>601 140 619 488<|content|>4. Crummey Withdrawal Notice Procedures\n<|id|>62<|type|>title<|page|>6<|box|>138 140 157 406<|content|>4.2 Notice Timing and Mechanics\n<|id|>75<|type|>title<|page|>6<|box|>825 140 843 313<|content|>4.3 Record Retention\n<|id|>87<|type|>title<|page|>7<|box|>571 140 589 493<|content|>5. Three-Year Lookback Rule — IRC § 2035\n<|id|>99<|type|>title<|page|>8<|box|>594 140 612 468<|content|>6. Annual Checklist — Summary of Steps\n<|id|>114<|type|>title<|page|>9<|box|>710 140 729 382<|content|>7. Coordination with Advisors\n<|id|>121<|type|>title<|page|>10<|box|>520 140 537 434<|content|>8. Important Reminders and Caveats\n<|id|>129<|type|>title<|page|>11<|box|>446 142 464 209<|content|>Closing\n<|id|>138<|type|>title<|page|>12<|box|>127 142 141 223<|content|>Enclosures:",
+    "raw_response": "<|src_id|>23<|tgt_id|>15\n<|src_id|>53<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 48
+        }
+    ]
+}

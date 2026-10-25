@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['1.0', '12 September 2022', 'AGMG Privacy Team', 'Original DPIA prepared']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '(Margaux Fontaine-Li, Group DPO)', \"internally covering programmatic advertising data flows across AGMG's European properties. Identified risks relating to cookie deployment, vendor relationships, and consent mechanisms but did not fully assess server-side tracking pixels or cross-device tracking activities.\"]]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 15,
+    "table2_idx": 16
+}

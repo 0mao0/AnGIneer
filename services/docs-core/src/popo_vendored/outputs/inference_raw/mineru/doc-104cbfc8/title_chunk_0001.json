@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        54,
+        70
+    ],
+    "pages": [
+        55,
+        56,
+        61,
+        63,
+        65,
+        66,
+        67,
+        69,
+        70
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>541<|page|>55<|box|>106 115 122 290<|content|>4、沥青路面典型结构\n<|id|>542<|page|>55<|box|>144 115 160 225<|content|>4.1 结构设计\n<|id|>543<|page|>55<|box|>178 114 194 336<|content|>4.1.4 沥青混合料分层厚度\n<|id|>545<|page|>55<|box|>340 114 358 265<|content|>4.2 典型路面结构\n<|id|>547<|page|>55<|box|>413 114 428 352<|content|>4.2.1 一般路段典型路面结构\n<|id|>548<|page|>55<|box|>432 149 447 468<|content|>a) 江西高速公路路面结构及其病害调查\n<|id|>552<|page|>56<|box|>457 149 472 433<|content|>b) 国内高速公路典型路面结构调查\n<|id|>566<|page|>61<|box|>603 149 618 361<|content|>c) 国外高速公路路面结构\n<|id|>577<|page|>63<|box|>197 149 212 742<|content|>e) 对《公路沥青路面设计规范》（JTG D50-2006）设计弯沉计算公式的思考\n<|id|>596<|page|>65<|box|>142 154 157 366<|content|>f) 长寿面路面结构的思考\n<|id|>605<|page|>66<|box|>604 115 619 317<|content|>4.2.3 隧道典型路面结构\n<|id|>608<|page|>66<|box|>716 115 731 354<|content|>4.2.4 互通匝道典型路面结构\n<|id|>610<|page|>66<|box|>809 115 824 336<|content|>4.2.6 收费站典型路面结构\n<|id|>612<|page|>67<|box|>85 115 102 236<|content|>5、路基与垫层\n<|id|>613<|page|>67<|box|>124 115 140 194<|content|>5.1 路基\n<|id|>615<|page|>67<|box|>233 115 250 255<|content|>6、底基层与基层\n<|id|>617<|page|>67<|box|>362 115 378 300<|content|>6.2 水泥稳定碎石基层\n<|id|>619<|page|>67<|box|>490 115 505 220<|content|>7、沥青面层\n<|id|>620<|page|>67<|box|>528 115 543 263<|content|>7.1 矿料技术要求\n<|id|>623<|page|>67<|box|>688 115 704 317<|content|>7.3 沥青混合料技术要求\n<|id|>625<|page|>67<|box|>796 114 812 547<|content|>7.4 沥青上面层抗滑性能、平整度和密水性能技术要求\n<|id|>630<|page|>69<|box|>680 114 695 206<|content|>8 排水设计\n<|id|>631<|page|>69<|box|>719 114 733 225<|content|>8.1一般规定\n<|id|>635<|page|>70<|box|>119 115 136 228<|content|>8.2 路表排水\n<|id|>636<|page|>70<|box|>154 115 169 247<|content|>8.2.5 路表纵坡\n<|id|>638<|page|>70<|box|>228 115 243 282<|content|>8.2.6 纵向排水边沟\n<|id|>640<|page|>70<|box|>299 115 315 280<|content|>8.3 中央分隔带排水\n<|id|>641<|page|>70<|box|>333 114 347 336<|content|>8.3.2 未设铺面中央分隔带\n<|id|>643<|page|>70<|box|>404 115 420 263<|content|>8.4 路面内部排水\n<|id|>645<|page|>70<|box|>511 115 527 230<|content|>8.4.4 排水层",
+    "raw_response": "<|id|>541<|level|>1\n<|id|>542<|level|>2\n<|id|>543<|level|>3\n<|id|>545<|level|>2\n<|id|>547<|level|>3\n<|id|>548<|level|>4\n<|id|>552<|level|>4\n<|id|>566<|level|>4\n<|id|>577<|level|>4\n<|id|>596<|level|>4\n<|id|>605<|level|>3\n<|id|>608<|level|>3\n<|id|>610<|level|>3\n<|id|>612<|level|>1\n<|id|>613<|level|>2\n<|id|>615<|level|>1\n<|id|>617<|level|>2\n<|id|>619<|level|>1\n<|id|>620<|level|>2\n<|id|>623<|level|>2\n<|id|>625<|level|>2\n<|id|>630<|level|>1\n<|id|>631<|level|>2\n<|id|>635<|level|>2\n<|id|>636<|level|>3\n<|id|>638<|level|>3\n<|id|>640<|level|>2\n<|id|>641<|level|>3\n<|id|>643<|level|>2\n<|id|>645<|level|>3",
+    "parsed": [
+        {
+            "id": 541,
+            "level": 1
+        },
+        {
+            "id": 542,
+            "level": 2
+        },
+        {
+            "id": 543,
+            "level": 3
+        },
+        {
+            "id": 545,
+            "level": 2
+        },
+        {
+            "id": 547,
+            "level": 3
+        },
+        {
+            "id": 548,
+            "level": 4
+        },
+        {
+            "id": 552,
+            "level": 4
+        },
+        {
+            "id": 566,
+            "level": 4
+        },
+        {
+            "id": 577,
+            "level": 4
+        },
+        {
+            "id": 596,
+            "level": 4
+        },
+        {
+            "id": 605,
+            "level": 3
+        },
+        {
+            "id": 608,
+            "level": 3
+        },
+        {
+            "id": 610,
+            "level": 3
+        },
+        {
+            "id": 612,
+            "level": 1
+        },
+        {
+            "id": 613,
+            "level": 2
+        },
+        {
+            "id": 615,
+            "level": 1
+        },
+        {
+            "id": 617,
+            "level": 2
+        },
+        {
+            "id": 619,
+            "level": 1
+        },
+        {
+            "id": 620,
+            "level": 2
+        },
+        {
+            "id": 623,
+            "level": 2
+        },
+        {
+            "id": 625,
+            "level": 2
+        },
+        {
+            "id": 630,
+            "level": 1
+        },
+        {
+            "id": 631,
+            "level": 2
+        },
+        {
+            "id": 635,
+            "level": 2
+        },
+        {
+            "id": 636,
+            "level": 3
+        },
+        {
+            "id": 638,
+            "level": 3
+        },
+        {
+            "id": 640,
+            "level": 2
+        },
+        {
+            "id": 641,
+            "level": 3
+        },
+        {
+            "id": 643,
+            "level": 2
+        },
+        {
+            "id": 645,
+            "level": 3
+        }
+    ]
+}

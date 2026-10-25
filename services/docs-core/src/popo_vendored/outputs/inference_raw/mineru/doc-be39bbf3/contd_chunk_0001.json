@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        45,
+        57
+    ],
+    "pages": [
+        45,
+        46,
+        48,
+        54,
+        55,
+        56,
+        57
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>566<|page|>45<|box|>763 140 780 697<|content|>FAIRWATER HP MANAGER, LLC, a Maryland limited liability company\n<|id|>567<|page|>45<|box|>781 142 797 467<|content|>By: ... Fairwater Real Estate Investment Trust,\n<|id|>568<|page|>45<|box|>799 142 815 557<|content|>a Maryland real estate investment trust, its Sole Member\n<|id|>569<|page|>45<|box|>816 143 833 251<|content|>By: ... By\n<|id|>570<|page|>45<|box|>833 143 849 339<|content|>Name: ... Brennan\n<|id|>571<|page|>45<|box|>849 142 866 460<|content|>Title: ... Chief Executive Officer & Chairman\n<|id|>572<|page|>45<|box|>868 142 883 316<|content|>Date: ... January 12, 2026\n<|id|>574<|page|>46<|box|>89 140 107 679<|content|>PRESCOTT HP INVESTOR, LLC, a Delaware limited liability company\n<|id|>575<|page|>46<|box|>107 140 125 393<|content|>By: ... Prescott Capital Partners, LP,\n<|id|>576<|page|>46<|box|>125 140 141 501<|content|>a Delaware limited partnership, its Sole Member\n<|id|>577<|page|>46<|box|>142 140 159 370<|content|>By: ... Prescott Capital GP, LLC,\n<|id|>578<|page|>46<|box|>159 140 176 562<|content|>a Delaware limited liability company, its General Partner\n<|id|>579<|page|>46<|box|>176 142 194 254<|content|>By: ... By\n<|id|>580<|page|>46<|box|>194 140 210 362<|content|>Name: ... Whitfield\n<|id|>581<|page|>46<|box|>210 140 228 352<|content|>Title: ... Co-Managing Partner\n<|id|>582<|page|>46<|box|>228 140 244 318<|content|>Date: ... January 12, 2026\n<|id|>590<|page|>48<|box|>141 140 159 418<|content|>Project Name: ... Harbor Point Towers\n<|id|>591<|page|>48<|box|>167 140 204 854<|content|>Location: ... 1500–1580 Wills Street, Baltimore, Maryland 21231 (Block 7419, Lots 1–6, Baltimore City)\n<|id|>592<|page|>48<|box|>212 140 248 854<|content|>Site: ... 2 acres, waterfront location in the Harbor Point district, Baltimore, Maryland\n<|id|>593<|page|>48<|box|>256 140 349 854<|content|>Description: ... The Project will contain approxim...ing, amenity spaces, and associated infrastructure\n<|id|>631<|page|>54<|box|>193 142 210 261<|content|>Date: ... [__], 20[]\n<|id|>632<|page|>54<|box|>210 140 228 560<|content|>To: ... All Members of Harbor Point Development JV, LLC\n<|id|>633<|page|>54<|box|>236 140 271 854<|content|>Re: ... [__] under the Amended and Restated Operating Agreement dated January 12, 2026\n<|id|>634<|page|>54<|box|>281 142 297 315<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>641<|page|>54<|box|>672 176 691 790<|content|>[Description of purpose, with reference to applicable Approved Budget line item(s)]\n<|id|>644<|page|>54<|box|>787 174 840 854<|content|>Bank: ... [__] — [Member Name]\n<|id|>648<|page|>55<|box|>228 140 300 854<|content|>IMPORTANT: ... 4 of the Agreement, including, with...tion of Percentage Interests, or a forced buy-sell\n<|id|>649<|page|>55<|box|>309 140 340 852<|content|>FAIRWATER HP MANAGER, LLC, as Managing Member of Harbor Point Development JV, LLC\n<|id|>650<|page|>55<|box|>343 143 359 251<|content|>By: ... By\n<|id|>651<|page|>55<|box|>359 143 376 250<|content|>Name: ... [____]\n<|id|>652<|page|>55<|box|>377 143 393 240<|content|>Title: ... [____]\n<|id|>653<|page|>55<|box|>393 143 411 240<|content|>Date: ... [____]\n<|id|>658<|page|>56<|box|>267 142 284 736<|content|>Development Manager: ... Fairwater Real Estate Investment Trust (or its designee)\n<|id|>659<|page|>56<|box|>292 140 458 856<|content|>Scope of Services: ... and (j) all other services ...y to achieve Substantial Completion of the Project\n<|id|>669<|page|>57<|box|>267 142 284 705<|content|>Property Manager: ... Fairwater Real Estate Investment Trust (or its designee)\n<|id|>670<|page|>57<|box|>292 140 458 854<|content|>Scope of Services: ... and (i) such other services...gement of Class A mixed-use residential properties",
+    "raw_response": "<|src_id|>567<|tgt_id|>568\n<|src_id|>575<|tgt_id|>576\n<|src_id|>577<|tgt_id|>578",
+    "parsed": [
+        {
+            "src_id": 567,
+            "tgt_id": 568
+        },
+        {
+            "src_id": 575,
+            "tgt_id": 576
+        },
+        {
+            "src_id": 577,
+            "tgt_id": 578
+        }
+    ]
+}

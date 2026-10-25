@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 168 142 828<|content|>BORROWER'S CLOSING CERTIFICATE AND SECRETARY'S CER\n<|id|>3<|page|>1<|box|>210 140 228 250<|content|>Delivered to:\n<|id|>8<|page|>1<|box|>512 140 529 243<|content|>RECITALS\n<|id|>16<|page|>2<|box|>329 176 345 820<|content|>PART I — OFFICER'S / AUTHORIZED REPRESENTATIVE'S C\n<|id|>18<|page|>2<|box|>422 140 439 478<|content|>Section 1. Representations and Warranties\n<|id|>21<|page|>2<|box|>796 140 813 313<|content|>Section 2. No Default\n<|id|>23<|page|>3<|box|>231 140 248 393<|content|>Section 3. Conditions Precedent\n<|id|>56<|page|>7<|box|>90 140 107 385<|content|>Section 4. Equity Contribution\n<|id|>62<|page|>7<|box|>412 140 430 444<|content|>Section 5. Project Budget Certification\n<|id|>66<|page|>8<|box|>90 140 107 426<|content|>Section 6. Material Adverse Change\n<|id|>74<|page|>8<|box|>378 140 395 303<|content|>Section 7. Litigation\n<|id|>77<|page|>8<|box|>659 140 676 423<|content|>Section 8. Ownership Confirmation\n<|id|>86<|page|>9<|box|>275 140 292 336<|content|>Section 9. Project Status\n<|id|>92<|page|>9<|box|>772 179 789 816<|content|>PART II — SECRETARY'S CERTIFICATE / ORGANIZATIONAL\n<|id|>93<|page|>9<|box|>804 140 821 547<|content|>Section 10. Incumbency and Authorized Signatories\n<|id|>97<|page|>10<|box|>446 140 463 669<|content|>Section 11. Organizational Documents — Certified C\n<|id|>106<|page|>11<|box|>419 140 436 452<|content|>Section 12. Resolutions of Sole Member\n<|id|>120<|page|>12<|box|>561 140 579 661<|content|>Section 13. Single-Purpose Entity / Bankruptcy-Rem\n<|id|>134<|page|>13<|box|>550 305 566 692<|content|>PART III — ADDITIONAL CERTIFICATIONS\n<|id|>135<|page|>13<|box|>580 140 598 480<|content|>Section 14. Fee Structure Acknowledgment\n<|id|>143<|page|>14<|box|>338 140 354 424<|content|>Section 15. Insurance Confirmation\n<|id|>149<|page|>15<|box|>90 140 107 519<|content|>Section 16. Construction Contract Confirmation\n<|id|>153<|page|>15<|box|>554 343 570 653<|content|>CERTIFICATION AND EXECUTION\n<|id|>163<|page|>16<|box|>89 400 106 596<|content|>ACKNOWLEDGMENT\n<|id|>164<|page|>16<|box|>114 140 132 635<|content|>COMMONWEALTH OF VIRGINIA COUNTY OF FAIRFAX",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>56<|level|>3\n<|id|>62<|level|>3\n<|id|>66<|level|>3\n<|id|>74<|level|>3\n<|id|>77<|level|>3\n<|id|>86<|level|>3\n<|id|>92<|level|>2\n<|id|>93<|level|>3\n<|id|>97<|level|>3\n<|id|>106<|level|>3\n<|id|>120<|level|>3\n<|id|>134<|level|>2\n<|id|>135<|level|>3\n<|id|>143<|level|>3\n<|id|>149<|level|>3\n<|id|>153<|level|>2\n<|id|>163<|level|>2\n<|id|>164<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 153 143 843<|content|>CLOSING CERTIFICATE OF PENTERRA PHARMACEUTICALS CO\n<|id|>6<|page|>1<|box|>375 140 393 243<|content|>RECITALS\n<|id|>12<|page|>2<|box|>89 140 107 736<|content|>SECTION 1: IDENTITY AND AUTHORITY OF CERTIFYING OF\n<|id|>16<|page|>2<|box|>501 140 537 750<|content|>SECTION 2: REPRESENTATIONS AND WARRANTIES — BRINGD\n<|id|>27<|page|>4<|box|>595 140 613 849<|content|>SECTION 3: PERFORMANCE OF PRE-CLOSING OBLIGATIONS\n<|id|>44<|page|>7<|box|>349 140 386 733<|content|>SECTION 4: CONDITIONS PRECEDENT — ACKNOWLEDGMENT O\n<|id|>55<|page|>8<|box|>337 140 354 558<|content|>SECTION 5: NO MATERIAL ADVERSE CHANGE\n<|id|>59<|page|>8<|box|>766 140 782 565<|content|>SECTION 6: NO LITIGATION OR PROCEEDINGS\n<|id|>62<|page|>9<|box|>285 140 301 415<|content|>SECTION 7: GOVERNING LAW\n<|id|>65<|page|>9<|box|>472 140 489 496<|content|>PENTERRA PHARMACEUTICALS CORP.\n<|id|>72<|page|>9<|box|>630 142 647 452<|content|>ACKNOWLEDGMENT OF RECEIPT\n<|id|>74<|page|>9<|box|>700 140 717 571<|content|>VERIDIAN HEALTH RESEARCH NETWORK, INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>27<|level|>2\n<|id|>44<|level|>2\n<|id|>55<|level|>2\n<|id|>59<|level|>2\n<|id|>62<|level|>2\n<|id|>65<|level|>3\n<|id|>72<|level|>2\n<|id|>74<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        }
+    ]
+}

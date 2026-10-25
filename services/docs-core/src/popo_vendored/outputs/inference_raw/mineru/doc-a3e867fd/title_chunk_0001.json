@@ -1,0 +1,151 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        55
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        54,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>408<|page|>46<|box|>90 282 111 714<|content|>Appendix B: Relevant Claim Text Excerpts\n<|id|>410<|page|>46<|box|>188 142 205 295<|content|>'237 Patent Claims\n<|id|>411<|page|>46<|box|>214 142 229 215<|content|>Claim 1:\n<|id|>416<|page|>46<|box|>398 142 414 215<|content|>Claim 3:\n<|id|>418<|page|>46<|box|>487 142 503 215<|content|>Claim 7:\n<|id|>420<|page|>46<|box|>575 142 590 223<|content|>Claim 12:\n<|id|>422<|page|>46<|box|>696 143 714 295<|content|>'884 Patent Claims\n<|id|>423<|page|>46<|box|>723 142 739 215<|content|>Claim 1:\n<|id|>429<|page|>47<|box|>179 142 195 215<|content|>Claim 2:\n<|id|>431<|page|>47<|box|>267 142 282 215<|content|>Claim 5:\n<|id|>433<|page|>47<|box|>356 142 372 215<|content|>Claim 9:\n<|id|>435<|page|>47<|box|>444 142 460 225<|content|>Claim 14:\n<|id|>437<|page|>47<|box|>565 142 582 295<|content|>'105 Patent Claims\n<|id|>438<|page|>47<|box|>590 142 608 215<|content|>Claim 1:\n<|id|>444<|page|>47<|box|>801 142 818 215<|content|>Claim 4:\n<|id|>446<|page|>48<|box|>89 142 106 215<|content|>Claim 8:\n<|id|>448<|page|>49<|box|>90 263 111 733<|content|>Appendix C: Key Prosecution History Excerpts\n<|id|>450<|page|>49<|box|>261 140 277 457<|content|>'237 Patent — U.S. Patent No. 9,814,237\n<|id|>459<|page|>50<|box|>148 140 167 467<|content|>'884 Patent — U.S. Patent No. 10,271,884\n<|id|>475<|page|>51<|box|>553 140 571 467<|content|>'105 Patent — U.S. Patent No. 10,932,105\n<|id|>486<|page|>53<|box|>90 334 111 663<|content|>Appendix D: Case Law Citations\n<|id|>488<|page|>53<|box|>188 140 204 464<|content|>General Claim Construction Framework\n<|id|>493<|page|>53<|box|>405 142 422 400<|content|>Term 1: \"locking seal assembly\"\n<|id|>500<|page|>53<|box|>715 142 733 553<|content|>Term 2: \"retractable blade deployment mechanism\"\n<|id|>505<|page|>54<|box|>167 140 184 452<|content|>Term 3: \"integrated insufflation valve\"\n<|id|>510<|page|>54<|box|>329 140 347 547<|content|>Term 4: \"cannula having a proximal seal interface\"\n<|id|>514<|page|>54<|box|>489 140 508 393<|content|>Term 5: \"blade shield housing\"\n<|id|>518<|page|>54<|box|>652 140 669 450<|content|>Term 6: \"elastomeric sealing member\"\n<|id|>522<|page|>54<|box|>776 142 792 486<|content|>Term 7: \"actuating force applied by a user\"\n<|id|>527<|page|>55<|box|>205 140 223 589<|content|>Term 8: \"gas-tight seal maintaining pneumoperitone\n<|id|>531<|page|>55<|box|>402 142 420 383<|content|>Term 9: \"removably coupled\"\n<|id|>536<|page|>55<|box|>561 143 575 323<|content|>END OF MEMORANDUM",
+    "raw_response": "<|id|>408<|level|>1\n<|id|>410<|level|>2\n<|id|>411<|level|>3\n<|id|>416<|level|>3\n<|id|>418<|level|>3\n<|id|>420<|level|>3\n<|id|>422<|level|>2\n<|id|>423<|level|>3\n<|id|>429<|level|>3\n<|id|>431<|level|>3\n<|id|>433<|level|>3\n<|id|>435<|level|>3\n<|id|>437<|level|>2\n<|id|>438<|level|>3\n<|id|>444<|level|>3\n<|id|>446<|level|>3\n<|id|>448<|level|>1\n<|id|>450<|level|>2\n<|id|>459<|level|>2\n<|id|>475<|level|>2\n<|id|>486<|level|>1\n<|id|>488<|level|>2\n<|id|>493<|level|>3\n<|id|>500<|level|>3\n<|id|>505<|level|>3\n<|id|>510<|level|>3\n<|id|>514<|level|>3\n<|id|>518<|level|>3\n<|id|>522<|level|>3\n<|id|>527<|level|>3\n<|id|>531<|level|>3\n<|id|>536<|level|>1",
+    "parsed": [
+        {
+            "id": 408,
+            "level": 1
+        },
+        {
+            "id": 410,
+            "level": 2
+        },
+        {
+            "id": 411,
+            "level": 3
+        },
+        {
+            "id": 416,
+            "level": 3
+        },
+        {
+            "id": 418,
+            "level": 3
+        },
+        {
+            "id": 420,
+            "level": 3
+        },
+        {
+            "id": 422,
+            "level": 2
+        },
+        {
+            "id": 423,
+            "level": 3
+        },
+        {
+            "id": 429,
+            "level": 3
+        },
+        {
+            "id": 431,
+            "level": 3
+        },
+        {
+            "id": 433,
+            "level": 3
+        },
+        {
+            "id": 435,
+            "level": 3
+        },
+        {
+            "id": 437,
+            "level": 2
+        },
+        {
+            "id": 438,
+            "level": 3
+        },
+        {
+            "id": 444,
+            "level": 3
+        },
+        {
+            "id": 446,
+            "level": 3
+        },
+        {
+            "id": 448,
+            "level": 1
+        },
+        {
+            "id": 450,
+            "level": 2
+        },
+        {
+            "id": 459,
+            "level": 2
+        },
+        {
+            "id": 475,
+            "level": 2
+        },
+        {
+            "id": 486,
+            "level": 1
+        },
+        {
+            "id": 488,
+            "level": 2
+        },
+        {
+            "id": 493,
+            "level": 3
+        },
+        {
+            "id": 500,
+            "level": 3
+        },
+        {
+            "id": 505,
+            "level": 3
+        },
+        {
+            "id": 510,
+            "level": 3
+        },
+        {
+            "id": 514,
+            "level": 3
+        },
+        {
+            "id": 518,
+            "level": 3
+        },
+        {
+            "id": 522,
+            "level": 3
+        },
+        {
+            "id": 527,
+            "level": 3
+        },
+        {
+            "id": 531,
+            "level": 3
+        },
+        {
+            "id": 536,
+            "level": 1
+        }
+    ]
+}

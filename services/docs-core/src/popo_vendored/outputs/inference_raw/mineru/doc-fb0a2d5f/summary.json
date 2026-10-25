@@ -1,0 +1,195 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-92kg9dvt\\input\\pdfs\\doc-fb0a2d5f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-92kg9dvt\\enriched\\doc-fb0a2d5f.json",
+    "contd_output": "<|src_id|>126<|tgt_id|>127\n<|src_id|>235<|tgt_id|>236",
+    "title_output": "<|id|>7<|level|>1\n<|id|>14<|level|>1\n<|id|>18<|level|>1\n<|id|>23<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>1\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>71<|level|>2\n<|id|>94<|level|>1\n<|id|>95<|level|>2\n<|id|>101<|level|>2\n<|id|>106<|level|>1\n<|id|>108<|level|>2\n<|id|>114<|level|>2\n<|id|>120<|level|>2\n<|id|>124<|level|>2\n<|id|>128<|level|>2\n<|id|>138<|level|>2\n<|id|>142<|level|>2\n<|id|>147<|level|>1\n<|id|>198<|level|>3\n<|id|>215<|level|>1\n<|id|>220<|level|>1\n<|id|>234<|level|>1\n<|id|>248<|level|>1",
+    "image_output": "<|src_id|>16<|tgt_id|>14\n<|src_id|>17<|tgt_id|>14\n<|src_id|>21<|tgt_id|>18\n<|src_id|>22<|tgt_id|>18\n<|src_id|>24<|tgt_id|>23\n<|src_id|>26<|tgt_id|>25",
+    "contd_label": [
+        {
+            "src_id": 126,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 235,
+            "tgt_id": 236
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 198,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 1
+        },
+        {
+            "id": 220,
+            "level": 1
+        },
+        {
+            "id": 234,
+            "level": 1
+        },
+        {
+            "id": 248,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 25
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 16,
+            "table2_idx": 17,
+            "upper_row_ss": [
+                [
+                    "A. Summary Judgment Under Florida Rule of Civil Procedure 1.510",
+                    "—"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "B. Contract Interpretation Under Florida Law",
+                    "—"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 21,
+            "table2_idx": 22,
+            "upper_row_ss": [
+                [
+                    "Quality Franchise Sys., Inc. v. Phelps, 780 So. 2d 973 (Fla. 5th DCA 2001)",
+                    "—"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Rosen v. Fla. Ins. Guar. Ass'n, 802 So. 2d 291 (Fla. 2001)",
+                    "—"
+                ]
+            ]
+        }
+    ]
+}

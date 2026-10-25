@@ -1,0 +1,142 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>2<|page|>1<|box|>174 161 210 834<|content|>Filed with the Delaware Secretary of State Divisio\n<|id|>7<|page|>1<|box|>378 295 396 700<|content|>UCC FINANCING STATEMENT — FORM UCC1\n<|id|>8<|page|>1<|box|>410 143 426 550<|content|>Box 1 — DEBTOR INFORMATION (Organization)\n<|id|>9<|page|>1<|box|>434 143 450 344<|content|>1a. Organization's Name:\n<|id|>16<|page|>1<|box|>744 143 762 281<|content|>1g. Tax ID / EIN:\n<|id|>18<|page|>1<|box|>833 143 849 346<|content|>1h. Type of Organization:\n<|id|>20<|page|>1<|box|>883 143 902 395<|content|>1i. Jurisdiction of Organization:\n<|id|>21<|page|>2<|box|>90 176 106 254<|content|>Delaware\n<|id|>22<|page|>2<|box|>116 143 133 470<|content|>1j. Organizational Identification Number:\n<|id|>24<|page|>2<|box|>246 142 263 416<|content|>Box 2 — ADDITIONAL DEBTOR\n<|id|>26<|page|>2<|box|>318 142 335 509<|content|>Box 3 — SECURED PARTY INFORMATION\n<|id|>27<|page|>2<|box|>342 140 359 344<|content|>3a. Organization's Name:\n<|id|>29<|page|>2<|box|>393 142 411 310<|content|>3b. Mailing Address:\n<|id|>36<|page|>2<|box|>652 142 670 264<|content|>Capacity Note:\n<|id|>38<|page|>3<|box|>89 140 106 475<|content|>Box 4 — COLLATERAL DESCRIPTION\n<|id|>59<|page|>5<|box|>89 140 106 638<|content|>Box 5 — CHECK BOXES / ALTERNATIVE DESIGNATIONS\n<|id|>68<|page|>5<|box|>410 142 426 545<|content|>Box 6 — OPTIONAL FILER REFERENCE DATA\n<|id|>72<|page|>5<|box|>571 142 588 614<|content|>Box 7 — FILING OFFICE COPY / ACKNOWLEDGMENT\n<|id|>78<|page|>5<|box|>767 277 784 718<|content|>FILING CONTEXT AND ADMINISTRATIVE NOTES\n<|id|>79<|page|>5<|box|>792 145 829 851<|content|>Internal Use Only — Not Part of the UCC-1 Financin\n<|id|>80<|page|>5<|box|>842 143 859 326<|content|>1. Transaction Context\n<|id|>83<|page|>6<|box|>294 140 310 333<|content|>2. Debtor Entity Details\n<|id|>86<|page|>6<|box|>520 140 537 305<|content|>3. Business Segment\n<|id|>88<|page|>6<|box|>703 140 720 514<|content|>4. Acquisition History and Mortgaged Property\n<|id|>92<|page|>7<|box|>157 140 175 388<|content|>5. Filing Jurisdiction Rationale\n<|id|>95<|page|>7<|box|>421 140 439 413<|content|>6. Companion Filings — Delaware\n<|id|>99<|page|>7<|box|>738 140 755 555<|content|>7. Companion Filings — Non-Delaware Jurisdictions\n<|id|>104<|page|>8<|box|>224 140 242 377<|content|>8. Termination of Prior Liens\n<|id|>109<|page|>8<|box|>577 140 594 339<|content|>9. Responsible Attorneys\n<|id|>116<|page|>9<|box|>273 156 289 836<|content|>— END OF UCC-1 FINANCING STATEMENT AND ADMINISTRAT",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>7<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>16<|level|>3\n<|id|>18<|level|>3\n<|id|>20<|level|>3\n<|id|>21<|level|>-1\n<|id|>22<|level|>3\n<|id|>24<|level|>2\n<|id|>26<|level|>2\n<|id|>27<|level|>3\n<|id|>29<|level|>3\n<|id|>36<|level|>3\n<|id|>38<|level|>2\n<|id|>59<|level|>2\n<|id|>68<|level|>2\n<|id|>72<|level|>2\n<|id|>78<|level|>1\n<|id|>79<|level|>2\n<|id|>80<|level|>3\n<|id|>83<|level|>3\n<|id|>86<|level|>3\n<|id|>88<|level|>3\n<|id|>92<|level|>3\n<|id|>95<|level|>3\n<|id|>99<|level|>3\n<|id|>104<|level|>3\n<|id|>109<|level|>3\n<|id|>116<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 1
+        }
+    ]
+}

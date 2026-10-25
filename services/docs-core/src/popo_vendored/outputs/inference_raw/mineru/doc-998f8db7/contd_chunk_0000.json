@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        10,
+        11,
+        16,
+        17,
+        24,
+        26,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>875 140 910 854<|content|>General Objection No. ... SLG objects to each Inte... permissible discovery as defined by Rule 26(b)(1)\n<|id|>8<|page|>2<|box|>90 140 200 856<|content|>of the Federal Rules of Civil Procedure. ... Speci...he proposed discovery outweighs its likely benefit\n<|id|>101<|page|>10<|box|>915 140 930 470<|content|>CONFIDENTIAL — SUBJECT TO PROTECTIVE ORDER\n<|id|>102<|page|>11<|box|>90 140 164 854<|content|>SLG objects to the extent the term \"required\" is v...directives imposed in an employer-employee context\n<|id|>172<|page|>16<|box|>762 140 891 856<|content|>However, SLG does maintain certain data that refle... that might be considered \"hours worked\" under the\n<|id|>173<|page|>17<|box|>90 140 126 854<|content|>FLSA (such as time spent loading vehicles, waiting...r assignments, or performing administrative tasks)\n<|id|>278<|page|>24<|box|>465 181 481 493<|content|>• Gerald Wynn, Chief Executive Officer\n<|id|>282<|page|>24<|box|>542 140 580 852<|content|>SLG will provide a complete list of all individual...ing the relevant period in a supplemental response\n<|id|>279<|page|>24<|box|>484 183 501 460<|content|>• Margaret Hollis, General Counsel\n<|id|>280<|page|>24<|box|>505 183 521 486<|content|>• Aaron Turcotte, Chief People Officer\n<|id|>281<|page|>24<|box|>523 183 540 553<|content|>• Trevor Sandoval, Vice President of Operations\n<|id|>307<|page|>26<|box|>450 140 503 852<|content|>Margaret Hollis General Counsel Stonefield Logistics Group Inc. ... July 21, 2025\n<|id|>308<|page|>26<|box|>503 676 521 854<|content|>Respectfully submitted,\n<|id|>309<|page|>26<|box|>527 140 545 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>310<|page|>26<|box|>561 140 611 854<|content|>Bernard Crawford Texas Bar No. ... (214) 555- 7201\n<|id|>311<|page|>26<|box|>612 142 628 477<|content|>Email: ... com\n<|id|>312<|page|>26<|box|>628 140 647 488<|content|>Email: ... com\n<|id|>313<|page|>26<|box|>647 140 664 544<|content|>Counsel for Defendant Stonefield Logistics Group I...unsel for Defendant Stonefield Logistics Group Inc\n<|id|>316<|page|>26<|box|>791 174 829 854<|content|>Claudia Hartwell HARTWELL & BRASHEAR PLLC 500 N. ... (214) 555-3900\n<|id|>317<|page|>26<|box|>835 176 854 477<|content|>Email: ... com\n<|id|>318<|page|>26<|box|>854 176 871 452<|content|>Counsel for Plaintiff Marcus Delano\n<|id|>319<|page|>27<|box|>89 140 107 282<|content|>Bernard Crawford",
+    "raw_response": "<|src_id|>7<|tgt_id|>8\n<|src_id|>172<|tgt_id|>173",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 173
+        }
+    ]
+}

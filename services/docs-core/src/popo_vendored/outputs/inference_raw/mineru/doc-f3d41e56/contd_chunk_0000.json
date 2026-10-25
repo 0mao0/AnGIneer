@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 425 Lex... Avenue New York, NY 10017 Tel: ... (212) 554-7800\n<|id|>1<|page|>1<|box|>133 140 169 375<|content|>Fax: ... com\n<|id|>2<|page|>1<|box|>176 753 195 854<|content|>April 4, 2024\n<|id|>3<|page|>1<|box|>203 142 220 377<|content|>Via Email and First Class Mail\n<|id|>4<|page|>1<|box|>229 140 265 852<|content|>Harrison K. ... Partner, Investment Funds Group As... LLP 1 Federal Street, Suite 3600 Boston, MA 02110\n<|id|>5<|page|>1<|box|>273 140 309 854<|content|>Gavin R. ... Lockhart Partner, Head of Investor Re... 200 Clarendon Street, 42nd Floor Boston, MA 02116\n<|id|>6<|page|>1<|box|>316 174 354 854<|content|>Re: ... P\n<|id|>52<|page|>5<|box|>838 140 854 272<|content|>Very truly yours,\n<|id|>53<|page|>5<|box|>854 140 869 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>54<|page|>5<|box|>872 142 888 253<|content|>By: ... By\n<|id|>55<|page|>6<|box|>89 140 141 852<|content|>Pamela Cross Partner, Funds & Asset Management Cal...5 Lexington Avenue New York, NY 10017 Tel: ... com\n<|id|>56<|page|>6<|box|>165 176 202 852<|content|>Sandra M. ... , General Counsel, Briarwood Family ...C, 780 Park Avenue, Suite 3200, New York, NY 10021\n<|id|>57<|page|>6<|box|>210 176 229 797<|content|>Derek T. ... Calloway, Director of External Investments, Briarwood Family Office LLC\n<|id|>58<|page|>6<|box|>236 174 272 854<|content|>Tamara Fujimoto, Esq. ... , General Counsel & Chie...liance Officer, Meridian Peak Capital Advisors LLC\n<|id|>59<|page|>6<|box|>280 176 299 730<|content|>Elaine C. ... , Senior Associate, Ashford Crane & Hewitt LLP\n<|id|>60<|page|>6<|box|>306 176 324 746<|content|>Theresa Kim, Esq. ... , Senior Associate, Calderwood & Harkness LLP (internal)",
+    "raw_response": "<|src_id|>54<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        }
+    ]
+}

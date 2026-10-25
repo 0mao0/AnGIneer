@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>196 142 214 292<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>363 145 398 851<|content|>ATTORNEY-CLIENT PRIVILEGED AND ATTORNEY WORK PRODU\n<|id|>9<|page|>1<|box|>409 385 429 611<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>363 236 383 759<|content|>II. Background — The Rate Adjustment Mechanism\n<|id|>15<|page|>2<|box|>407 140 424 545<|content|>A. TSA Section 5.3 — Rate Adjustment Mechanism\n<|id|>20<|page|>3<|box|>204 140 222 501<|content|>B. The Projected April 2022 Rate Adjustment\n<|id|>28<|page|>3<|box|>848 140 864 491<|content|>C. Context — Stonefield's Financial Position\n<|id|>33<|page|>4<|box|>598 197 617 799<|content|>III. Vantor's Allegations Regarding Rate Adjustmen\n<|id|>34<|page|>4<|box|>643 142 659 617<|content|>A. Amended Complaint Allegations (Filed December 2\n<|id|>38<|page|>5<|box|>223 140 239 462<|content|>B. Supporting Evidence Cited by Vantor\n<|id|>46<|page|>6<|box|>90 140 107 470<|content|>C. Vantor's Theory of the Case on Motive\n<|id|>50<|page|>6<|box|>431 176 449 679<|content|>75% × $43.2 million ACV × 2.074 remaining years ≈\n<|id|>53<|page|>6<|box|>675 228 695 769<|content|>IV. Analysis of the Rate Adjustment Motive Allegat\n<|id|>54<|page|>6<|box|>720 140 738 800<|content|>A. Timeline Analysis — Performance Failures Predat\n<|id|>72<|page|>8<|box|>681 140 698 751<|content|>B. New York Law on Subjective Motive in Contractua\n<|id|>80<|page|>10<|box|>148 140 167 490<|content|>C. The Kirkwood Email — Risk Assessment\n<|id|>96<|page|>11<|box|>821 140 838 684<|content|>D. Awareness of Rate Adjustment vs. Motivation by\n<|id|>101<|page|>12<|box|>622 140 638 751<|content|>E. Contemporaneous Justification — The Cure Notice\n<|id|>108<|page|>13<|box|>671 264 690 733<|content|>V. Rebuttal of Vantor's Supporting Arguments\n<|id|>109<|page|>13<|box|>715 140 733 459<|content|>A. Vantor's Volume Shortfall Argument\n<|id|>114<|page|>14<|box|>268 174 287 617<|content|>$43.2 million × (6/12) = $21.6 million (adjusted C\n<|id|>119<|page|>14<|box|>835 140 853 490<|content|>B. Vantor's Diversion/Exclusivity Argument\n<|id|>129<|page|>15<|box|>657 200 678 795<|content|>VI. Implications for Summary Judgment and Trial St\n<|id|>130<|page|>15<|box|>703 142 719 449<|content|>A. Summary Judgment Considerations\n<|id|>140<|page|>17<|box|>90 140 107 307<|content|>B. Trial Preparation\n<|id|>147<|page|>18<|box|>90 140 107 318<|content|>C. Rebuttal Narrative\n<|id|>153<|page|>18<|box|>723 339 742 658<|content|>VII. Risk Assessment Summary\n<|id|>156<|page|>19<|box|>619 377 638 619<|content|>VIII. Recommendations\n<|id|>163<|page|>21<|box|>90 421 109 575<|content|>IX. Conclusion",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>8<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>20<|level|>3\n<|id|>28<|level|>3\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>38<|level|>3\n<|id|>46<|level|>3\n<|id|>50<|level|>-1\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>72<|level|>3\n<|id|>80<|level|>3\n<|id|>96<|level|>3\n<|id|>101<|level|>3\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>114<|level|>-1\n<|id|>119<|level|>3\n<|id|>129<|level|>2\n<|id|>130<|level|>3\n<|id|>140<|level|>3\n<|id|>147<|level|>3\n<|id|>153<|level|>2\n<|id|>156<|level|>2\n<|id|>163<|level|>2",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        }
+    ]
+}

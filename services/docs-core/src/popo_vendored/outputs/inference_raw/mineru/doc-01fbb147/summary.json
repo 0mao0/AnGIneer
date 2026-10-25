@@ -1,0 +1,241 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8sxonoky\\input\\pdfs\\doc-01fbb147.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8sxonoky\\enriched\\doc-01fbb147.json",
+    "contd_output": "<|src_id|>45<|tgt_id|>46\n<|src_id|>73<|tgt_id|>74\n<|src_id|>94<|tgt_id|>95\n<|src_id|>132<|tgt_id|>133\n<|src_id|>139<|tgt_id|>140\n<|src_id|>152<|tgt_id|>153\n<|src_id|>214<|tgt_id|>215",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>20<|level|>1\n<|id|>28<|level|>1\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>2\n<|id|>64<|level|>2\n<|id|>71<|level|>2\n<|id|>82<|level|>2\n<|id|>90<|level|>1\n<|id|>91<|level|>2\n<|id|>97<|level|>2\n<|id|>100<|level|>1\n<|id|>138<|level|>2\n<|id|>149<|level|>2\n<|id|>163<|level|>2\n<|id|>173<|level|>2\n<|id|>182<|level|>2\n<|id|>191<|level|>1\n<|id|>213<|level|>1",
+    "image_output": "<|src_id|>9<|tgt_id|>7\n<|src_id|>10<|tgt_id|>7\n<|src_id|>13<|tgt_id|>11\n<|src_id|>14<|tgt_id|>11\n<|src_id|>16<|tgt_id|>15\n<|src_id|>18<|tgt_id|>17\n<|src_id|>19<|tgt_id|>17\n<|src_id|>185<|tgt_id|>182\n<|src_id|>186<|tgt_id|>182",
+    "contd_label": [
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 215
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 191,
+            "level": 1
+        },
+        {
+            "id": 213,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 9,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 182
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 9,
+            "table2_idx": 10,
+            "upper_row_ss": [
+                [
+                    "B. Under Florida Law, Ambiguities in Insurance Policies Are Construed Against the Insurer",
+                    "30"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1. The Contra Proferentem Doctrine",
+                    "30"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 13,
+            "table2_idx": 14,
+            "upper_row_ss": [
+                [
+                    "Geico Gen. Ins. Co. v. Virtual Imaging Servs., Inc., 141",
+                    "30"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "So. 3d 147 (Fla. 2013)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 18,
+            "table2_idx": 19,
+            "upper_row_ss": [
+                [
+                    "2 Lee R. Russ & Thomas F. Segalla, Couch on",
+                    "28, 32"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Insurance § 22:30 (3d ed. 2023)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 185,
+            "table2_idx": 186,
+            "upper_row_ss": [
+                [
+                    "Verimark Grand Key Resort",
+                    "Sept. 18, 2022 – Mar. 15, 2023 (178",
+                    "$31,400,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "days)",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

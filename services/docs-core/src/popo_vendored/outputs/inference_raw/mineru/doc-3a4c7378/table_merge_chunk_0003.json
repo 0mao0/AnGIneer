@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['\"wherein the adiabatically tapered waveguide sections comprise a linear taper having a taper length of at least 10 μm and a taper ratio of at least 2:1 between a wider end and a narrower end of the taper.\"', 'Accused Element:The Benchmark teardown of the LumiLink 800G-DR8 (Exhibit OWS-2001 at pp. 40–43; SEM images at Exhibits OWS-2021 and OWS-2022) identified substantially identical linear taper structures in each of the two AWG multiplexers on the 800G-DR8 PIC. The measured taper length is approximately 15.5 μm, and the taper ratio is approximately 2.7:1, both']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', \"satisfying Claim 3's requirements. Luminore design files (LC-HC-SC-00014610) confirm these dimensions.Dr.Ashford's Explanation:For the same reasons set forth in Section II.E above regarding the 400G-ZR+, the LumiLink 800G-DR8 satisfies the additional limitation of Claim 3. The taper dimensions in the 800G-DR8 are substantially identical to those in the 400G-ZR+ and exceed the claimed minimums.\"]]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 87,
+    "table2_idx": 88
+}

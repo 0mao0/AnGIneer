@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 285 125 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>159 143 354 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>422 256 440 740<|content|>JOINT STIPULATION OF DISMISSAL WITH PREJUDICE\n<|id|>4<|type|>title<|page|>1<|box|>708 449 724 547<|content|>RECITALS\n<|id|>10<|type|>title<|page|>3<|box|>88 431 107 566<|content|>STIPULATION\n<|id|>19<|type|>title<|page|>4<|box|>439 395 455 601<|content|>REQUEST FOR ORDER\n<|id|>25<|type|>title<|page|>4<|box|>739 406 756 589<|content|>DATED: June 23, 2023\n<|id|>26<|type|>title<|page|>4<|box|>799 143 815 537<|content|>FOR PLAINTIFF VANTOR HOLDINGS CORP.:\n<|id|>36<|type|>title<|page|>5<|box|>209 142 226 617<|content|>FOR DEFENDANT CASCADE RETAIL HOLDINGS INC.:\n<|id|>45<|type|>table<|page|>5<|box|>455 143 614 852<|content|>None\n<|id|>46<|type|>title<|page|>5<|box|>684 258 700 738<|content|>[PROPOSED] ORDER OF DISMISSAL WITH PREJUDICE\n<|id|>52<|type|>title<|page|>6<|box|>250 411 266 584<|content|>IT IS SO ORDERED.\n<|id|>54<|type|>title<|page|>6<|box|>359 142 393 611<|content|>HON. MARGARET T. ALVAREZ Judge of the Superior Cou",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>45<|tgt_id|>46",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        }
+    ]
+}

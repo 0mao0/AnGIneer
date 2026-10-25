@@ -1,0 +1,138 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zprofjft\\input\\pdfs\\doc-064a46ea.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zprofjft\\enriched\\doc-064a46ea.json",
+    "contd_output": "",
+    "title_output": "<|id|>9<|level|>1\n<|id|>17<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>2\n<|id|>49<|level|>2\n<|id|>71<|level|>2\n<|id|>92<|level|>2\n<|id|>107<|level|>2\n<|id|>109<|level|>3\n<|id|>116<|level|>3\n<|id|>122<|level|>3\n<|id|>134<|level|>3\n<|id|>142<|level|>3\n<|id|>158<|level|>2\n<|id|>171<|level|>2\n<|id|>179<|level|>2\n<|id|>197<|level|>2\n<|id|>211<|level|>2\n<|id|>220<|level|>2\n<|id|>228<|level|>2\n<|id|>237<|level|>1\n<|id|>245<|level|>1\n<|id|>255<|level|>1",
+    "image_output": "<|src_id|>85<|tgt_id|>71\n<|src_id|>86<|tgt_id|>71",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 237,
+            "level": 1
+        },
+        {
+            "id": 245,
+            "level": 1
+        },
+        {
+            "id": 255,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 85,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 71
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 85,
+            "table2_idx": 86,
+            "upper_row_ss": [
+                [
+                    "Layer",
+                    "Carrier",
+                    "Policy Number",
+                    "Limit",
+                    "Attachment",
+                    "Annual Premium"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Primary",
+                    "Ironclad Indemnity Corp.",
+                    "IIC-PRP-2022-07541",
+                    "$25,000,000",
+                    "$500,000 deductible",
+                    "$980,000"
+                ]
+            ]
+        }
+    ]
+}

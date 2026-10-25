@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        14
+    ],
+    "pages": [
+        4,
+        5,
+        9,
+        10,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>20<|page|>4<|box|>375 124 391 544<|content|>GB 50165 古建筑木结构维护与加固技术规范\n<|id|>21<|page|>4<|box|>394 124 410 532<|content|>JT/T 731—2008 海区航标维护 固定建(构)筑物\n<|id|>43<|page|>5<|box|>108 159 124 443<|content|>保护性设施建设 protective facility\n<|id|>44<|page|>5<|box|>125 161 143 547<|content|>为保护历史灯塔而采取附加安全防护设施的措施。 ... 为保护历史灯塔而采取附加安全防护设施的措施\n<|id|>173<|page|>9<|box|>874 117 891 902<|content|>9. ... 2 门扇采取移位维护时,应确保维修场所的安全和整洁,并将每个器件贴好标签,确保重装时均\n<|id|>174<|page|>10<|box|>86 105 102 243<|content|>能回到相应位置。 ... 能回到相应位置\n<|id|>243<|page|>14<|box|>156 406 172 589<|content|>历史灯塔年度检查内容\n<|id|>244<|page|>14<|box|>181 139 197 507<|content|>历史灯塔年度检查项目和检查内容参见表 B. ... 1",
+    "raw_response": "<|src_id|>173<|tgt_id|>174",
+    "parsed": [
+        {
+            "src_id": 173,
+            "tgt_id": 174
+        }
+    ]
+}

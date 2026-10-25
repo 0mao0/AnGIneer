@@ -1,0 +1,140 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        9,
+        10,
+        12,
+        13,
+        14,
+        17,
+        18,
+        19,
+        21,
+        22,
+        23,
+        25,
+        27
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 163 125 834<|content|>CALDERWOOD & HARKNESS LLP 600 Lexington Avenue, 30\n<|id|>1<|page|>1<|box|>133 205 170 790<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT SUBJECT TO LO\n<|id|>2<|page|>1<|box|>213 316 233 679<|content|>DUE DILIGENCE REQUEST LIST\n<|id|>3<|page|>1<|box|>251 150 286 846<|content|>Proposed Acquisition of Cascadia Fiber Networks, I\n<|id|>4<|page|>1<|box|>329 290 347 852<|content|>Date: March 3, 2025 C&H Matter No.: 1022-00006 Bil\n<|id|>8<|page|>2<|box|>128 140 146 694<|content|>INTRODUCTORY INSTRUCTIONS AND GENERAL GUIDELINES\n<|id|>26<|page|>3<|box|>694 140 710 758<|content|>CATEGORY I — CORPORATE ORGANIZATION AND GOOD STAND\n<|id|>39<|page|>5<|box|>364 140 383 576<|content|>CATEGORY II — CAPITALIZATION AND EQUITY\n<|id|>51<|page|>6<|box|>816 140 834 545<|content|>CATEGORY III — FINANCIAL INFORMATION\n<|id|>70<|page|>9<|box|>229 140 247 344<|content|>CATEGORY IV — TAX\n<|id|>83<|page|>10<|box|>428 140 445 544<|content|>CATEGORY V — INTELLECTUAL PROPERTY\n<|id|>96<|page|>12<|box|>186 140 203 852<|content|>CATEGORY VI — REGULATORY, FCC LICENSES, AND GOVERN\n<|id|>109<|page|>13<|box|>662 140 680 475<|content|>CATEGORY VII — ENVIRONMENTAL\n<|id|>119<|page|>14<|box|>608 140 625 589<|content|>CATEGORY VIII — EMPLOYMENT AND BENEFITS\n<|id|>142<|page|>17<|box|>148 140 166 552<|content|>CATEGORY IX — LITIGATION AND DISPUTES\n<|id|>151<|page|>18<|box|>148 140 166 774<|content|>CATEGORY X — REAL PROPERTY, EASEMENTS, AND RIGHTS-\n<|id|>165<|page|>19<|box|>498 140 515 831<|content|>CATEGORY XI — MATERIAL CONTRACTS AND COMMERCIAL AG\n<|id|>186<|page|>21<|box|>619 140 636 419<|content|>CATEGORY XII — INSURANCE\n<|id|>193<|page|>22<|box|>364 140 383 660<|content|>CATEGORY XIII — DATA PRIVACY AND CYBERSECURITY\n<|id|>202<|page|>23<|box|>303 140 320 475<|content|>CATEGORY XIV — MISCELLANEOUS\n<|id|>213<|page|>25<|box|>89 142 106 633<|content|>APPENDIX A — DOCUMENT DELIVERY INSTRUCTIONS\n<|id|>214<|page|>25<|box|>121 140 138 351<|content|>A.1 — Virtual Data Room\n<|id|>216<|page|>25<|box|>250 140 266 364<|content|>A.2 — Naming Conventions\n<|id|>221<|page|>25<|box|>454 140 470 346<|content|>A.3 — Index Spreadsheet\n<|id|>223<|page|>25<|box|>599 140 617 439<|content|>A.4 — Deadline for Initial Production\n<|id|>225<|page|>25<|box|>763 140 780 328<|content|>A.5 — Contact Persons\n<|id|>232<|page|>27<|box|>89 142 106 434<|content|>APPENDIX B — DEFINED TERMS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>2\n<|id|>8<|level|>1\n<|id|>26<|level|>1\n<|id|>39<|level|>1\n<|id|>51<|level|>1\n<|id|>70<|level|>1\n<|id|>83<|level|>1\n<|id|>96<|level|>1\n<|id|>109<|level|>1\n<|id|>119<|level|>1\n<|id|>142<|level|>1\n<|id|>151<|level|>1\n<|id|>165<|level|>1\n<|id|>186<|level|>1\n<|id|>193<|level|>1\n<|id|>202<|level|>1\n<|id|>213<|level|>1\n<|id|>214<|level|>2\n<|id|>216<|level|>2\n<|id|>221<|level|>2\n<|id|>223<|level|>2\n<|id|>225<|level|>2\n<|id|>232<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 186,
+            "level": 1
+        },
+        {
+            "id": 193,
+            "level": 1
+        },
+        {
+            "id": 202,
+            "level": 1
+        },
+        {
+            "id": 213,
+            "level": 1
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 2
+        },
+        {
+            "id": 232,
+            "level": 1
+        }
+    ]
+}

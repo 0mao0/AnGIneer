@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Guarantor Financial Covenants', 'The Replacement Guarantor shall maintain at all times during the term of the loan: (i) a minimum tangible net worth of not less than Five Hundred Million Dollars ($500,000,000.00); and (ii) minimum liquid assets of not']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'less than Fifty Million Dollars ($50,000,000.00), in each case as determined in accordance with GAAP and tested as of the end of each fiscal quarter']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 155,
+    "table2_idx": 156
+}

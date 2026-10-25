@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>13<|type|>title<|page|>2<|box|>90 140 107 405<|content|>Section 1: Identification of Client\n<|id|>18<|type|>title<|page|>2<|box|>656 140 674 395<|content|>Section 2: Scope of Engagement\n<|id|>20<|type|>title<|page|>2<|box|>804 140 821 503<|content|>2.1 Entity Selection and Acquisition Structure\n<|id|>28<|type|>title<|page|>3<|box|>661 140 678 344<|content|>2.2 Tax Election Analysis\n<|id|>33<|type|>title<|page|>4<|box|>330 140 347 421<|content|>2.3 Rollover Equity Tax Treatment\n<|id|>46<|type|>title<|page|>5<|box|>282 140 299 411<|content|>2.4 Earnout Tax Characterization\n<|id|>52<|type|>title<|page|>6<|box|>90 140 107 375<|content|>2.5 Purchase Price Allocation\n<|id|>55<|type|>title<|page|>6<|box|>390 140 407 383<|content|>2.6 Tax Receivable Agreement\n<|id|>63<|type|>title<|page|>6<|box|>838 140 854 437<|content|>2.7 State and Local Tax Optimization\n<|id|>71<|type|>title<|page|>7<|box|>744 140 762 544<|content|>2.8 Transaction Document Review (Tax Provisions)\n<|id|>78<|type|>title<|page|>8<|box|>382 140 398 483<|content|>2.9 Post-Closing Tax Compliance Guidance\n<|id|>91<|type|>title<|page|>9<|box|>238 140 255 403<|content|>Section 3: Exclusions from Scope\n<|id|>102<|type|>title<|page|>10<|box|>267 140 284 501<|content|>Section 4: Responsible Attorneys and Staffing\n<|id|>103<|type|>table<|page|>10<|box|>335 143 429 852<|content|>None\n<|id|>106<|type|>title<|page|>10<|box|>751 140 767 468<|content|>Section 5: Fees and Billing Arrangements\n<|id|>107<|type|>title<|page|>10<|box|>781 142 797 279<|content|>5.1 Hourly Rates\n<|id|>108<|type|>table<|page|>10<|box|>828 143 904 852<|content|>None\n<|id|>109<|type|>table<|page|>11<|box|>88 147 109 852<|content|>None\n<|id|>112<|type|>title<|page|>11<|box|>364 140 381 241<|content|>5.2 Fee Cap\n<|id|>116<|type|>title<|page|>11<|box|>689 140 707 334<|content|>5.3 Billing and Payment\n<|id|>122<|type|>title<|page|>12<|box|>369 140 386 383<|content|>Section 6: Conflicts of Interest\n<|id|>127<|type|>title<|page|>13<|box|>90 140 107 346<|content|>Section 7: Confidentiality\n<|id|>134<|type|>title<|page|>13<|box|>690 140 707 388<|content|>Section 8: Document Retention\n<|id|>138<|type|>title<|page|>14<|box|>241 140 258 401<|content|>Section 9: Limitation of Liability\n<|id|>142<|type|>title<|page|>14<|box|>708 140 724 416<|content|>Section 10: Term and Termination\n<|id|>149<|type|>title<|page|>15<|box|>267 140 284 542<|content|>Section 11: Governing Law and Dispute Resolution\n<|id|>153<|type|>title<|page|>15<|box|>625 140 641 346<|content|>Section 12: Miscellaneous\n<|id|>171<|type|>title<|page|>16<|box|>574 142 590 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>176<|type|>title<|page|>16<|box|>681 143 699 439<|content|>ACKNOWLEDGED AND AGREED:\n<|id|>177<|type|>title<|page|>16<|box|>708 142 724 464<|content|>ARDENT CAPITAL PARTNERS III LP",
+    "raw_response": "<|src_id|>103<|tgt_id|>102\n<|src_id|>108<|tgt_id|>107\n<|src_id|>109<|tgt_id|>107",
+    "parsed": [
+        {
+            "src_id": 103,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 107
+        }
+    ]
+}

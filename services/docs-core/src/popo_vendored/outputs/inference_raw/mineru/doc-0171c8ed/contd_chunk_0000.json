@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        63
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        13,
+        14,
+        18,
+        19,
+        26,
+        27,
+        42,
+        43,
+        63
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>175 284 219 714<|content|>Prepared for: ... and Bonanza Creek Mining, LLC\n<|id|>3<|page|>1<|box|>227 444 244 552<|content|>Prepared by: ... Prepared by\n<|id|>4<|page|>1<|box|>252 178 268 818<|content|>Calderwood & Harkness LLP in coordination with Pinnacle Creek Environmental, LLC\n<|id|>5<|page|>1<|box|>277 424 295 573<|content|>February 14, 2025\n<|id|>6<|page|>1<|box|>304 380 320 614<|content|>C&H Matter No. ... 1039-00003\n<|id|>7<|page|>1<|box|>330 151 383 844<|content|>Case Reference: ... 24-cv-00087-DWM United States ...urt for the District of Montana, Missoula Division\n<|id|>8<|page|>1<|box|>393 156 426 839<|content|>Consent Decree Reference: ... Execution Version dated February 19, 2025 (anticipated lodging date)\n<|id|>9<|page|>1<|box|>435 140 497 854<|content|>CONFIDENTIAL TREATMENT REQUESTED. ... Any unauthor...or copying of this document is strictly prohibited\n<|id|>29<|page|>3<|box|>835 140 891 857<|content|>Migratory Bird Treaty Act (16 U. ... The\n<|id|>30<|page|>4<|box|>90 140 127 854<|content|>Government alleges that the failure to implement a...BTA's prohibition on the taking of migratory birds\n<|id|>37<|page|>4<|box|>652 174 689 854<|content|>(b) Three Thousand Dollars ($3,000) per day per vi... (31) through sixty (60) of noncompliance; ... and\n<|id|>39<|page|>4<|box|>741 140 777 854<|content|>Any disputes arising under this SOW shall be resol...lution mechanism established in the Consent Decree\n<|id|>50<|page|>5<|box|>555 176 573 578<|content|>Nevada Secretary of State Entity No. ... E0518294731\n<|id|>51<|page|>5<|box|>580 174 654 856<|content|>Location: ... Access to the site is via County Roa...intained gravel road connecting to State Route 305\n<|id|>61<|page|>6<|box|>814 140 905 857<|content|>Cyanide concentrations in the active barren soluti...-solution volumes in circulation are approximately\n<|id|>63<|page|>7<|box|>152 140 316 854<|content|>Solution Management. ... and (vii) ancillary pumping stations, pipelines, and control systems\n<|id|>104<|page|>13<|box|>739 140 905 856<|content|>The root cause analysis for the third release iden...ore, the analysis concluded that the design of the\n<|id|>105<|page|>14<|box|>89 140 127 854<|content|>Cell 1A/1B liner system, which incorporated only a...ndetected releases once the liner began to degrade\n<|id|>149<|page|>18<|box|>833 140 906 856<|content|>Quality Assurance/Quality Control. ... (iii)\n<|id|>150<|page|>19<|box|>90 140 127 854<|content|>documentation of all repairs, including location (... (iv) independent verification by the CQA engineer\n<|id|>219<|page|>26<|box|>872 140 909 857<|content|>RCRA Closure/Post-Closure Plan Integration. ... Th... RCRA closure/post-closure plan, as required under\n<|id|>220<|page|>27<|box|>90 140 145 854<|content|>40 C. ... The RCRA closure/post-closure plan shall..., coordinated with the overall remediation program\n<|id|>362<|page|>42<|box|>445 174 482 854<|content|>(e) Actions or omissions of third parties (includi...t prevent or materially delay performance; ... and\n<|id|>364<|page|>42<|box|>534 140 643 856<|content|>Notice Requirement. ... and (v) any supporting documentation\n<|id|>372<|page|>43<|box|>285 174 321 854<|content|>(c) Failure of soil remediation activities to achi...s as demonstrated by confirmation sampling; ... or\n<|id|>374<|page|>43<|box|>375 140 520 854<|content|>Alternative Technologies. ... Additional soil exca... initial soil remediation efforts are insufficient\n<|id|>505<|page|>63<|box|>191 150 227 846<|content|>Bonanza Creek Liner Repair and Containment Plan — ... | C&H Matter No. ... 1039-00003 February 14, 2025\n<|id|>506<|page|>63<|box|>234 140 281 854<|content|>CONFIDENTIAL TREATMENT REQUESTED. ... Do not distr...lderwood & Harkness LLP and Torchlight Mining Corp",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>104<|tgt_id|>105\n<|src_id|>149<|tgt_id|>150\n<|src_id|>219<|tgt_id|>220",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 150
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 220
+        }
+    ]
+}

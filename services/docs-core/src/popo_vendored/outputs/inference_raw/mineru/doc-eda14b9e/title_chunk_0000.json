@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 349 118 647<|content|>SOLVENCY CERTIFICATE\n<|id|>4<|page|>1<|box|>319 140 335 424<|content|>Section 1. Recitals and Introduction\n<|id|>12<|page|>2<|box|>148 140 167 313<|content|>Section 2. Definitions\n<|id|>29<|page|>3<|box|>292 142 310 413<|content|>\"Transactions\" means, collectively:\n<|id|>39<|page|>4<|box|>167 140 184 390<|content|>Section 3. Basis of Certification\n<|id|>57<|page|>6<|box|>90 140 107 405<|content|>Section 4. Solvency Certifications\n<|id|>59<|page|>6<|box|>184 140 200 491<|content|>4.1 Fair Value Test (Balance Sheet Solvency)\n<|id|>62<|page|>6<|box|>446 140 464 665<|content|>4.2 Ability to Pay Debts as They Become Due (Cash\n<|id|>69<|page|>7<|box|>138 140 157 504<|content|>4.3 Capital Adequacy Test (Adequate Capital)\n<|id|>71<|page|>7<|box|>377 140 393 477<|content|>4.4 No Intent to Hinder, Delay, or Defraud\n<|id|>73<|page|>7<|box|>532 140 550 473<|content|>Section 5. Assumptions and Qualifications\n<|id|>81<|page|>8<|box|>648 140 665 431<|content|>Section 6. Reliance and Beneficiaries\n<|id|>87<|page|>9<|box|>90 176 107 707<|content|>(e) Calderwood & Harkness LLP, in its capacity as\n<|id|>89<|page|>9<|box|>267 140 284 349<|content|>Section 7. Governing Law\n<|id|>91<|page|>10<|box|>90 140 107 225<|content|>Signature\n<|id|>98<|page|>11<|box|>89 143 106 230<|content|>ANNEX A\n<|id|>103<|page|>12<|box|>90 143 106 230<|content|>ANNEX B\n<|id|>106<|page|>12<|box|>517 143 534 282<|content|>Leverage Metrics",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>12<|level|>2\n<|id|>29<|level|>-1\n<|id|>39<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>3\n<|id|>62<|level|>3\n<|id|>69<|level|>3\n<|id|>71<|level|>3\n<|id|>73<|level|>2\n<|id|>81<|level|>2\n<|id|>87<|level|>-1\n<|id|>89<|level|>2\n<|id|>91<|level|>2\n<|id|>98<|level|>2\n<|id|>103<|level|>2\n<|id|>106<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        }
+    ]
+}

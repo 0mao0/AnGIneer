@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        5,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>252 155 339 846<|content|>Net Sales of $3. ... 68 Per Diluted Share\n<|id|>2<|page|>1<|box|>351 91 426 897<|content|>BOLINGBROOK, Ill. ... ULTA) today announced financ...ompared to the same periods ended January 29, 2022\n<|id|>57<|page|>5<|box|>357 120 391 813<|content|>our ability to successfully execute our common sto...t future common stock repurchase programs; ... and\n<|id|>58<|page|>5<|box|>392 119 465 900<|content|>other risk factors detailed in the company’s publi... subsequently filed Quarterly Reports on Form 10-Q\n<|id|>73<|page|>9<|box|>655 91 694 661<|content|>View source version on businesswire. ... com/news/home/20230309005603/en/\n<|id|>74<|page|>9<|box|>705 91 779 395<|content|>Investor Contacts: ... com\n<|id|>75<|page|>9<|box|>792 93 811 235<|content|>Media Contact: ... Media Contact\n<|id|>76<|page|>9<|box|>811 93 830 243<|content|>Eileen Ziesemer\n<|id|>77<|page|>9<|box|>829 91 848 377<|content|>Vice President, Public Relations\n<|id|>78<|page|>9<|box|>849 93 866 290<|content|>eziesemer@ulta. ... com\n<|id|>80<|page|>9<|box|>898 91 917 316<|content|>Source: ... Ulta Beauty, Inc\n<|id|>79<|page|>9<|box|>866 93 885 236<|content|>(708) 305-4479",
+    "raw_response": "<|src_id|>57<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        }
+    ]
+}

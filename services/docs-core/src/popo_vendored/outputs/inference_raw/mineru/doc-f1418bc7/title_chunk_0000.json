@@ -1,0 +1,127 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 156 118 841<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION\n<|id|>3<|page|>1<|box|>209 344 224 653<|content|>Notice of Exempt Offering of Securities\n<|id|>8<|page|>1<|box|>380 143 396 331<|content|>Item 1. Issuer's Identity\n<|id|>9<|page|>1<|box|>410 143 426 364<|content|>A. CIK (Central Index Key)\n<|id|>11<|page|>1<|box|>520 143 536 285<|content|>B. Name of Issuer\n<|id|>15<|page|>1<|box|>628 143 645 447<|content|>D. Year of Incorporation/Organization\n<|id|>18<|page|>1<|box|>709 142 724 457<|content|>E. IRS Employer Identification Number\n<|id|>20<|page|>1<|box|>763 143 779 302<|content|>F. Address of Issuer\n<|id|>23<|page|>2<|box|>176 142 194 611<|content|>Item 2. Principal Place of Business and Contact In\n<|id|>24<|page|>2<|box|>207 140 224 465<|content|>A. Address of Principal Place of Business\n<|id|>28<|page|>2<|box|>578 143 594 331<|content|>Item 3. Related Persons\n<|id|>29<|page|>2<|box|>609 142 626 517<|content|>A. Executive Officers, Directors, and Promoters\n<|id|>51<|page|>6<|box|>862 142 878 367<|content|>Item 8. Duration of Offering\n<|id|>53<|page|>7<|box|>90 140 106 210<|content|>No Yes\n<|id|>56<|page|>7<|box|>556 140 574 611<|content|>Specific Type of Debt Security: Convertible Promis\n<|id|>63<|page|>8<|box|>212 140 229 486<|content|>Item 10. Business Combination Transaction\n<|id|>67<|page|>8<|box|>385 142 402 385<|content|>Item 11. Minimum Investment\n<|id|>70<|page|>8<|box|>551 142 569 370<|content|>Item 12. Sales Compensation\n<|id|>79<|page|>9<|box|>652 142 669 380<|content|>C. Total Remaining to be Sold\n<|id|>81<|page|>9<|box|>751 142 768 364<|content|>D. Clarification of Response\n<|id|>86<|page|>10<|box|>273 142 292 287<|content|>Item 14. Investors\n<|id|>91<|page|>10<|box|>613 140 631 594<|content|>C. Identification of Investors (Initial Closing Pa\n<|id|>101<|page|>12<|box|>128 140 146 366<|content|>C. Clarification of Response\n<|id|>103<|page|>12<|box|>273 142 290 292<|content|>D. Use of Proceeds\n<|id|>108<|page|>12<|box|>621 142 637 338<|content|>Item 16. Use of Proceeds\n<|id|>109<|page|>12<|box|>646 142 664 431<|content|>Brief Description of Use of Proceeds:\n<|id|>117<|page|>14<|box|>90 140 107 271<|content|>Signature block",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>11<|level|>3\n<|id|>15<|level|>3\n<|id|>18<|level|>3\n<|id|>20<|level|>3\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>51<|level|>2\n<|id|>53<|level|>-1\n<|id|>56<|level|>3\n<|id|>63<|level|>2\n<|id|>67<|level|>2\n<|id|>70<|level|>2\n<|id|>79<|level|>3\n<|id|>81<|level|>3\n<|id|>86<|level|>2\n<|id|>91<|level|>3\n<|id|>101<|level|>3\n<|id|>103<|level|>3\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>117<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        }
+    ]
+}

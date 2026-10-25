@@ -1,0 +1,124 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>128 272 148 725<|content|>AURELIUS GLOBAL MEDIA GROUP PLC\n<|id|>2<|page|>1<|box|>174 290 190 707<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS\n<|id|>3<|page|>1<|box|>200 408 217 589<|content|>Adopted May 12, 2024\n<|id|>4<|page|>1<|box|>224 140 253 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV\n<|id|>8<|page|>1<|box|>376 151 410 844<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF AURELIUS\n<|id|>9<|page|>1<|box|>420 444 438 553<|content|>May 12, 2024\n<|id|>10<|page|>1<|box|>460 140 478 258<|content|>I. RECITALS\n<|id|>41<|page|>4<|box|>446 142 463 176<|content|>and\n<|id|>56<|page|>6<|box|>215 140 231 176<|content|>and\n<|id|>59<|page|>6<|box|>398 142 416 303<|content|>II. RESOLUTIONS\n<|id|>61<|page|>6<|box|>474 142 492 535<|content|>Resolution 1: Rejection of the Settlement Proposal\n<|id|>64<|page|>6<|box|>700 142 719 539<|content|>Resolution 2: Findings and Rationale for Rejection\n<|id|>72<|page|>8<|box|>330 140 347 522<|content|>Resolution 3: Direction to Continue CEO Search\n<|id|>75<|page|>8<|box|>593 140 609 601<|content|>Resolution 4: Direction to Continue Proxy Contest\n<|id|>78<|page|>9<|box|>90 140 107 513<|content|>Resolution 5: Authorization of Public Response\n<|id|>81<|page|>9<|box|>390 140 407 421<|content|>Resolution 6: Reservation of Rights\n<|id|>85<|page|>9<|box|>734 142 751 468<|content|>Resolution 7: Notification to Corvus Peak\n<|id|>87<|page|>10<|box|>90 140 107 429<|content|>Resolution 8: General Authorization\n<|id|>90<|page|>10<|box|>398 142 416 334<|content|>III. VOTING RECORD\n<|id|>94<|page|>11<|box|>135 142 152 395<|content|>Also in attendance (non-voting):\n<|id|>100<|page|>12<|box|>114 169 185 828<|content|>TALKING POINTS FOR PUBLIC STATEMENT Aurelius Globa\n<|id|>104<|page|>12<|box|>419 142 436 683<|content|>Message 1: Commitment to a Rigorous and Independen\n<|id|>107<|page|>12<|box|>664 140 681 669<|content|>Message 2: Board Refreshment Through the Sharehold\n<|id|>110<|page|>13<|box|>90 140 107 568<|content|>Message 3: Confidence in AGMG's Strategic Directio\n<|id|>113<|page|>13<|box|>299 140 316 535<|content|>Message 4: Openness to Constructive Engagement\n<|id|>116<|page|>13<|box|>489 140 506 540<|content|>Message 5: Support for the Incumbent Board Slate\n<|id|>118<|page|>13<|box|>633 140 652 594<|content|>Cautionary Note Regarding Forward-Looking Statemen\n<|id|>123<|page|>14<|box|>89 140 106 426<|content|>V. SECRETARY'S CERTIFICATE\n<|id|>124<|page|>14<|box|>114 279 132 717<|content|>CERTIFICATE OF THE CORPORATE SECRETARY",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>4<|level|>-1\n<|id|>8<|level|>1\n<|id|>9<|level|>2\n<|id|>10<|level|>2\n<|id|>41<|level|>-1\n<|id|>56<|level|>-1\n<|id|>59<|level|>2\n<|id|>61<|level|>3\n<|id|>64<|level|>3\n<|id|>72<|level|>3\n<|id|>75<|level|>3\n<|id|>78<|level|>3\n<|id|>81<|level|>3\n<|id|>85<|level|>3\n<|id|>87<|level|>3\n<|id|>90<|level|>2\n<|id|>94<|level|>3\n<|id|>100<|level|>1\n<|id|>104<|level|>2\n<|id|>107<|level|>2\n<|id|>110<|level|>2\n<|id|>113<|level|>2\n<|id|>116<|level|>2\n<|id|>118<|level|>2\n<|id|>123<|level|>1\n<|id|>124<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 2
+        }
+    ]
+}

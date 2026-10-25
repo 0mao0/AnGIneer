@@ -157,6 +157,12 @@ class PoPoPipelineRunner:
                     src_root / "popo",
                     src_root / "docs_core" / "popo",
                 ]
+                # 已安装的 popo 包（pip 装的 popo-client，容器内无 .env 时的主路径）
+                try:
+                    import popo as _popo_pkg
+                    candidates.insert(0, Path(list(_popo_pkg.__path__)[0]))
+                except ImportError:
+                    pass
                 self.popo_repo_path = next(
                     (c for c in candidates if (c / "post_processing" / "label_normalization.py").exists()),
                     None,

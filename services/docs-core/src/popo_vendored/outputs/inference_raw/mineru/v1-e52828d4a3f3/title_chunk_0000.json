@@ -1,0 +1,44 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        6
+    ],
+    "pages": [
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>5<|box|>45 215 106 781<|content|>Tygard Implementation Results and Projections Talk\n<|id|>5<|page|>5<|box|>150 308 169 687<|content|>Slide 1: Weekly Results Overview (week 1)\n<|id|>13<|page|>5<|box|>364 308 382 687<|content|>Slide 2: Weekly Results Overview (week 2)\n<|id|>21<|page|>5<|box|>575 308 595 687<|content|>Slide 3: Weekly Results Overview (week 3)\n<|id|>29<|page|>5<|box|>789 308 808 687<|content|>Slide 4: Weekly Results Overview (week 4)\n<|id|>37<|page|>6<|box|>108 230 125 339<|content|>Slide 5: ROI\n<|id|>39<|page|>6<|box|>215 230 232 364<|content|>Slide 6: Safety",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>5<|level|>2\n<|id|>13<|level|>2\n<|id|>21<|level|>2\n<|id|>29<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        }
+    ]
+}

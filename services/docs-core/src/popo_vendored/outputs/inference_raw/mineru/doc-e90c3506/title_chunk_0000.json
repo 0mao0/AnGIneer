@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        4,
+        12
+    ],
+    "pages": [
+        4,
+        6,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>4<|box|>86 87 101 295<|content|>TechnologyTotal ComNotes\n<|id|>4<|page|>6<|box|>86 87 101 569<|content|>Change CaCommiteeDescriptioAfected DiRationale / R\n<|id|>10<|page|>12<|box|>87 87 101 534<|content|>Date Event Relevance to Commitee Composition",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>10<|level|>1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 7,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=4, 14△', 'rowspan=4, 以太网系统性能要求', '14.4 丢包率', '不大于70%流量负荷时:≤0.1%', 'rowspan=4, 以太网性能测试仪测量']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=4, 15△', 'rowspan=4, 以太网链路层健康状况', '15.1 链路利用率', '≤70%', 'rowspan=4, 以太网性能测试仪测量']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 217,
+    "table2_idx": 218
+}

@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>87 143 148 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>1<|type|>title<|page|>1<|box|>156 424 172 573<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>439 385 458 611<|content|>I. Executive Summary\n<|id|>19<|type|>title<|page|>2<|box|>378 282 398 714<|content|>II. Privileged Nature of This Memorandum\n<|id|>22<|type|>title<|page|>2<|box|>761 212 781 782<|content|>III. Background and Current Posture of the Investi\n<|id|>23<|type|>title<|page|>2<|box|>806 140 823 439<|content|>A. Investigation Origins and Timeline\n<|id|>42<|type|>title<|page|>4<|box|>148 140 167 300<|content|>B. Alleged Conduct\n<|id|>56<|type|>title<|page|>5<|box|>222 140 239 444<|content|>C. TMC's Cooperation Efforts to Date\n<|id|>67<|type|>title<|page|>6<|box|>523 140 540 393<|content|>D. Gavin Holt's Separate Status\n<|id|>72<|type|>title<|page|>7<|box|>190 202 210 792<|content|>IV. DOJ's Communication of Willingness to Negotiat\n<|id|>73<|type|>title<|page|>7<|box|>234 140 252 473<|content|>A. The November 1, 2023 Communication\n<|id|>81<|type|>title<|page|>8<|box|>90 140 107 482<|content|>B. Significance of NPA vs. Other Outcomes\n<|id|>88<|type|>title<|page|>8<|box|>729 362 750 635<|content|>V. Anticipated NPA Terms\n<|id|>90<|type|>title<|page|>9<|box|>90 142 107 321<|content|>A. Monetary Payment\n<|id|>96<|type|>table<|page|>9<|box|>414 143 508 852<|content|>None\n<|id|>100<|type|>title<|page|>10<|box|>167 140 185 361<|content|>B. Cooperation Obligations\n<|id|>109<|type|>title<|page|>10<|box|>714 140 731 380<|content|>C. Compliance Enhancements\n<|id|>121<|type|>title<|page|>11<|box|>671 140 689 333<|content|>D. Compliance Monitor\n<|id|>123<|type|>title<|page|>11<|box|>796 140 813 630<|content|>Calderwood & Harkness's recommended position is as\n<|id|>128<|type|>title<|page|>12<|box|>372 142 388 380<|content|>E. No-Prosecution Protections\n<|id|>135<|type|>title<|page|>12<|box|>787 140 804 372<|content|>F. Agreed Statement of Facts\n<|id|>146<|type|>title<|page|>13<|box|>672 140 689 305<|content|>G. Term of the NPA\n<|id|>150<|type|>title<|page|>14<|box|>172 334 191 663<|content|>VI. Financial Impact Assessment\n<|id|>151<|type|>title<|page|>14<|box|>218 140 234 380<|content|>A. Monetary Payment Impact\n<|id|>157<|type|>title<|page|>14<|box|>613 142 628 364<|content|>B. Professional Fees to Date\n<|id|>158<|type|>table<|page|>14<|box|>681 143 864 852<|content|>None\n<|id|>161<|type|>title<|page|>15<|box|>359 140 375 295<|content|>C. D&O Insurance\n<|id|>169<|type|>title<|page|>16<|box|>90 140 107 305<|content|>D. Public Disclosure\n<|id|>173<|type|>title<|page|>16<|box|>506 295 526 700<|content|>VII. Recommended Negotiation Strategy\n<|id|>174<|type|>title<|page|>16<|box|>551 140 568 346<|content|>A. Negotiation Objectives\n<|id|>182<|type|>title<|page|>17<|box|>465 140 482 248<|content|>B. Red Lines\n<|id|>188<|type|>title<|page|>17<|box|>818 140 835 313<|content|>C. Fallback Positions\n<|id|>193<|type|>title<|page|>18<|box|>482 142 500 240<|content|>D. Timeline\n<|id|>194<|type|>table<|page|>18<|box|>531 143 767 852<|content|>None\n<|id|>196<|type|>title<|page|>19<|box|>90 274 111 723<|content|>VIII. Status of Co-Subjects / Related Matters\n<|id|>202<|type|>title<|page|>19<|box|>662 233 681 763<|content|>IX. Board Action Items and Requested Authorization\n<|id|>203<|type|>title<|page|>19<|box|>707 142 724 450<|content|>A. Immediate Authorization Requested\n<|id|>206<|type|>title<|page|>20<|box|>148 140 167 411<|content|>B. Audit Committee Coordination\n<|id|>211<|type|>title<|page|>20<|box|>464 140 482 321<|content|>C. Next Board Update\n<|id|>214<|type|>title<|page|>20<|box|>708 426 728 571<|content|>X. Conclusion",
+    "raw_response": "<|src_id|>96<|tgt_id|>90\n<|src_id|>158<|tgt_id|>157\n<|src_id|>194<|tgt_id|>193",
+    "parsed": [
+        {
+            "src_id": 96,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 193
+        }
+    ]
+}

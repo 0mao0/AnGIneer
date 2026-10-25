@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>359 176 393 818<|content|>AFFIDAVIT OF STEVEN KAPOOR IN SUPPORT OF PLAINTIFF\n<|id|>4<|page|>1<|box|>558 143 575 433<|content|>Paragraph 1 — Identity and Position\n<|id|>6<|page|>1<|box|>824 142 840 462<|content|>Paragraph 2 — Scope of Responsibilities\n<|id|>8<|page|>2<|box|>292 140 310 694<|content|>Paragraph 3 — Familiarity with the Exclusive Distr\n<|id|>10<|page|>2<|box|>631 140 648 563<|content|>Paragraph 4 — The Territory as Defined in Exhibit\n<|id|>13<|page|>3<|box|>184 140 200 643<|content|>Paragraph 5 — Section 2.3 Limitation on Out-of-Ter\n<|id|>17<|page|>3<|box|>518 142 536 570<|content|>Paragraph 6 — Section 13.1 Amendment Requirement\n<|id|>21<|page|>3<|box|>816 142 834 513<|content|>Paragraph 7 — Section 14.8 Integration Clause\n<|id|>23<|page|>4<|box|>238 142 255 490<|content|>Paragraph 8 — The January 12, 2018 Email\n<|id|>27<|page|>4<|box|>628 140 646 660<|content|>Paragraph 9 — Meaning and Intent of the January 12\n<|id|>29<|page|>5<|box|>257 142 273 588<|content|>Paragraph 10 — No Follow-Up Agreement on Expansion\n<|id|>31<|page|>5<|box|>577 142 594 586<|content|>Paragraph 11 — Vantage's Performance in the Territ\n<|id|>38<|page|>6<|box|>208 140 224 606<|content|>Paragraph 12 — Discovery of Unauthorized Tri-State\n<|id|>40<|page|>6<|box|>619 142 636 671<|content|>Paragraph 13 — Penterra's Response and the Meridia\n<|id|>42<|page|>7<|box|>257 140 273 524<|content|>Paragraph 14 — Kapoor's Deposition Testimony\n<|id|>44<|page|>7<|box|>484 142 502 367<|content|>Paragraph 15 — Conclusion\n<|id|>46<|page|>8<|box|>89 140 106 441<|content|>NOTARIAL ACKNOWLEDGMENT\n<|id|>47<|page|>8<|box|>114 140 133 468<|content|>COMMONWEALTH OF NEW JERSEY\n<|id|>48<|page|>8<|box|>141 140 157 341<|content|>COUNTY OF MERCER\n<|id|>51<|page|>8<|box|>348 142 366 312<|content|>LIST OF EXHIBITS",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>13<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>1\n<|id|>47<|level|>2\n<|id|>48<|level|>2\n<|id|>51<|level|>1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        }
+    ]
+}

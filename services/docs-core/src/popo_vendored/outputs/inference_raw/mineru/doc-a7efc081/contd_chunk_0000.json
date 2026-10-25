@@ -1,0 +1,49 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        58
+    ],
+    "pages": [
+        3,
+        5,
+        7,
+        34,
+        35,
+        45,
+        57
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>3<|box|>497 313 537 558<|content|>APRIL - 1952\n<|id|>6<|page|>3<|box|>827 53 889 890<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>8<|page|>5<|box|>214 148 796 784<|content|>Treasury financing operations. ... 71\n<|id|>9<|page|>5<|box|>810 151 886 791<|content|>Note: ... Consequently the details may not check to the totals shown\n<|id|>11<|page|>7<|box|>219 178 234 460<|content|>91-Day Treasury Bills Refunded\n<|id|>12<|page|>7<|box|>254 221 268 773<|content|>Weekly maturities of 91-day Treasury bills in March totaled\n<|id|>13<|page|>7<|box|>288 178 303 771<|content|>\\$4. ... The maturity\n<|id|>14<|page|>7<|box|>323 178 337 773<|content|>and offering on March 6 were for \\$1. ... 1 billion each and the maturities\n<|id|>15<|page|>7<|box|>357 178 372 771<|content|>and offerings in the three remaining weeks were for \\$1. ... 2 billion\n<|id|>16<|page|>7<|box|>392 178 406 771<|content|>each. ... The average rates of discount on the new offerings were\n<|id|>18<|page|>7<|box|>460 175 475 595<|content|>for March 20, and 1. ... 593 percent for March 27\n<|id|>17<|page|>7<|box|>424 175 441 773<|content|>1. ... 601 percent\n<|id|>78<|page|>34<|box|>902 31 931 474<|content|>2/ Beginning with the November 1947 operation, arr...e System's holdings of certain maturing and called\n<|id|>80<|page|>35<|box|>76 21 241 479<|content|>United States savings bonds were first offered in ...in annual reports of the Secretary of the Treasury\n<|id|>116<|page|>45<|box|>627 33 678 506<|content|>1/ Issues which commercial banks may not acquire p...artially\" tax-exempt securities are those with the\n<|id|>119<|page|>45<|box|>658 522 669 669<|content|>* Lees than \\$500,000. ... * Lees than \\$500,000\n<|id|>147<|page|>57<|box|>403 26 414 489<|content|>Source: ... Daily Treasury Statement for\n<|id|>149<|page|>57<|box|>403 551 416 651<|content|>p Preliminary. ... p Preliminary",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>13<|tgt_id|>14\n<|src_id|>14<|tgt_id|>15\n<|src_id|>15<|tgt_id|>16\n<|src_id|>16<|tgt_id|>17\n<|src_id|>17<|tgt_id|>18\n<|src_id|>78<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 80
+        }
+    ]
+}

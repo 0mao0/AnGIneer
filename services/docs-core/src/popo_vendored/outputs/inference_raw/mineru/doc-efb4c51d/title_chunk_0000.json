@@ -1,0 +1,59 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        4,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 163 143 833<|content|>RESOLUTION OF THE BOARD OF DIRECTORS OF QUORUM INS\n<|id|>1<|page|>1<|box|>159 156 204 839<|content|>AUTHORIZING CONFORMING AMENDMENTS TO THE AMENDED A\n<|id|>10<|page|>1<|box|>459 140 479 243<|content|>RECITALS\n<|id|>21<|page|>4<|box|>89 140 107 336<|content|>RESOLVED CLAUSES\n<|id|>79<|page|>9<|box|>266 140 282 297<|content|>CERTIFICATION\n<|id|>87<|page|>10<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>88<|page|>10<|box|>128 207 148 790<|content|>MARKED TEXT OF AMENDED BYLAW PROVISIONS\n<|id|>90<|page|>10<|box|>244 140 262 566<|content|>Section 3.3 — Committees of the Board (As Amended)\n<|id|>101<|page|>10<|box|>746 140 763 756<|content|>Section 3.4 — Appointment and Tenure of Committee\n<|id|>109<|page|>11<|box|>755 140 772 535<|content|>Section 4.2 — Authority of Officers (As Amended)\n<|id|>110<|page|>11<|box|>780 176 797 470<|content|>\"Section 4.2 — Authority of Officers.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>21<|level|>2\n<|id|>79<|level|>2\n<|id|>87<|level|>1\n<|id|>88<|level|>2\n<|id|>90<|level|>3\n<|id|>101<|level|>3\n<|id|>109<|level|>3\n<|id|>110<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        }
+    ]
+}

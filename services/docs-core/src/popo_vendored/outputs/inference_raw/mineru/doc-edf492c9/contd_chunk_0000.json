@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        11,
+        12,
+        13,
+        17,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>151 140 186 854<|content|>TO: ... Douglas Fairchild, Responsible Partner, Real Estate Cynthia Ho, Lead Associate, Real Estate\n<|id|>3<|page|>1<|box|>195 140 213 575<|content|>FROM: ... Grace Nakamura, Working Associate, Real Estate\n<|id|>4<|page|>1<|box|>220 140 239 388<|content|>DATE: ... Draft — May/June 2025\n<|id|>5<|page|>1<|box|>247 140 282 854<|content|>RE: ... Insurance Program Overview — Builder's Ris...ational Coverages — Stonebridge Data Center Campus\n<|id|>6<|page|>1<|box|>290 140 309 439<|content|>CLIENT: ... Ironhaven Data Centers LLC\n<|id|>7<|page|>1<|box|>316 140 334 362<|content|>MATTER NO. ... 1043-00002\n<|id|>8<|page|>1<|box|>343 140 359 408<|content|>Right-click to update Table of Contents\n<|id|>22<|page|>2<|box|>381 176 398 794<|content|>(E) Post-Certificate of Occupancy Operational Property and Casualty Insurance; ... and\n<|id|>24<|page|>2<|box|>469 140 616 856<|content|>Key Cross-References. ... and (iii) the Insurance ...ainst the current or proposed insurance placements\n<|id|>61<|page|>6<|box|>782 140 875 857<|content|>An Owner-Controlled Insurance Program, commonly re...y the project owner, typically through a dedicated\n<|id|>62<|page|>7<|box|>90 140 126 854<|content|>OCIP administrator (here, Northgate), and replaces...its subcontractors for the duration of the project\n<|id|>65<|page|>7<|box|>180 181 215 854<|content|>• Workers' compensation insurance at statutory lim...gether with employer's liability coverage; ... and\n<|id|>67<|page|>7<|box|>256 140 366 856<|content|>For the Stonebridge Campus, the Project's EPC cont... would be covered under the owner's master program\n<|id|>116<|page|>11<|box|>842 140 898 856<|content|>Additional Insured Endorsement. ... , as\n<|id|>117<|page|>12<|box|>90 138 183 856<|content|>Administrative Agent for the construction lenders.... EPC Agreement and the Construction Loan Agreement\n<|id|>125<|page|>12<|box|>811 140 886 857<|content|>Bond Form Review. ... Performance and Payment Bond...nd limitations of the bond forms proposed by Great\n<|id|>126<|page|>13<|box|>89 140 126 854<|content|>Basin and identifies any modifications or riders n...ensure compliance with the transactional documents\n<|id|>160<|page|>17<|box|>744 181 780 854<|content|>• Fire Suppression: ... and\n<|id|>162<|page|>17<|box|>839 140 893 856<|content|>Equipment breakdown coverage may be included as an... voltage irregularity, or cascading system failure\n<|id|>186<|page|>21<|box|>801 176 875 857<|content|>2. ... Leonard Castellano, EVP, Development)\n<|id|>187<|page|>22<|box|>89 210 125 852<|content|>and to Ridgeline Capital Partners Fund IV, LP (Julian Hargrove, Managing Director). ... August 2025\n<|id|>194<|page|>22<|box|>849 174 905 857<|content|>9. ... The Insurance\n<|id|>195<|page|>23<|box|>89 210 162 856<|content|>Requirements Compliance Matrix is maintained as a ...rior to EPC Agreement execution (October 20, 2025)",
+    "raw_response": "<|src_id|>61<|tgt_id|>62\n<|src_id|>116<|tgt_id|>117\n<|src_id|>125<|tgt_id|>126\n<|src_id|>186<|tgt_id|>187\n<|src_id|>194<|tgt_id|>195",
+    "parsed": [
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 187
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 195
+        }
+    ]
+}

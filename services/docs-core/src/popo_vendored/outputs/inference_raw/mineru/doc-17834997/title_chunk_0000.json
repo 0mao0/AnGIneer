@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23,
+        25,
+        27
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 212 106 784<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>199 142 214 290<|content|>MEMORANDUM\n<|id|>10<|page|>1<|box|>424 385 443 611<|content|>I. Executive Summary\n<|id|>19<|page|>2<|box|>604 362 625 633<|content|>II. Scope and Methodology\n<|id|>40<|page|>4<|box|>90 196 111 799<|content|>III. Property #1: Marysville Manufacturing Facilit\n<|id|>41<|page|>4<|box|>136 142 154 334<|content|>A. Property Description\n<|id|>53<|page|>5<|box|>90 140 107 372<|content|>B. Lease Terms — Summary\n<|id|>72<|page|>7<|box|>90 140 107 462<|content|>C. Assignment and Subletting Provisions\n<|id|>85<|page|>9<|box|>90 140 107 480<|content|>D. Condition and Maintenance Obligations\n<|id|>91<|page|>10<|box|>223 140 239 408<|content|>E. Insurance and Indemnification\n<|id|>102<|page|>11<|box|>285 140 301 446<|content|>F. Default and Termination Provisions\n<|id|>118<|page|>12<|box|>414 140 431 375<|content|>G. Other Material Provisions\n<|id|>124<|page|>13<|box|>476 142 493 470<|content|>H. Risk Assessment — Marysville Facility\n<|id|>127<|page|>13<|box|>845 140 864 709<|content|>Recommendation. Calderwood & Harkness LLP recommen\n<|id|>134<|page|>14<|box|>604 192 625 802<|content|>IV. Property #2: West Jefferson Distribution Cente\n<|id|>135<|page|>14<|box|>650 142 667 334<|content|>A. Property Description\n<|id|>146<|page|>15<|box|>540 140 558 267<|content|>B. Title Review\n<|id|>155<|page|>16<|box|>579 142 595 851<|content|>Recommendation. Calderwood & Harkness LLP recommen\n<|id|>160<|page|>17<|box|>90 140 107 227<|content|>C. Survey\n<|id|>164<|page|>17<|box|>502 140 518 339<|content|>D. Zoning and Land Use\n<|id|>169<|page|>18<|box|>90 140 107 328<|content|>E. Real Property Taxes\n<|id|>174<|page|>18<|box|>508 140 527 457<|content|>F. Condition and Capital Improvements\n<|id|>187<|page|>19<|box|>429 140 446 290<|content|>G. Environmental\n<|id|>196<|page|>20<|box|>90 140 107 251<|content|>H. Insurance\n<|id|>201<|page|>20<|box|>674 140 691 496<|content|>I. Risk Assessment — West Jefferson Facility\n<|id|>211<|page|>21<|box|>588 281 608 715<|content|>V. Interaction with Transaction Documents\n<|id|>223<|page|>23<|box|>209 303 229 692<|content|>VI. Open Items and Recommendations\n<|id|>235<|page|>25<|box|>154 364 174 630<|content|>VII. Exhibits / Appendices\n<|id|>237<|page|>27<|box|>90 140 107 452<|content|>Exhibit B: List of Documents Reviewed\n<|id|>239<|page|>27<|box|>179 142 196 509<|content|>Marysville Manufacturing Facility (Folder 4.1)",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>10<|level|>2\n<|id|>19<|level|>2\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>53<|level|>3\n<|id|>72<|level|>3\n<|id|>85<|level|>3\n<|id|>91<|level|>3\n<|id|>102<|level|>3\n<|id|>118<|level|>3\n<|id|>124<|level|>3\n<|id|>127<|level|>-1\n<|id|>134<|level|>2\n<|id|>135<|level|>3\n<|id|>146<|level|>3\n<|id|>155<|level|>-1\n<|id|>160<|level|>3\n<|id|>164<|level|>3\n<|id|>169<|level|>3\n<|id|>174<|level|>3\n<|id|>187<|level|>3\n<|id|>196<|level|>3\n<|id|>201<|level|>3\n<|id|>211<|level|>2\n<|id|>223<|level|>2\n<|id|>235<|level|>2\n<|id|>237<|level|>3\n<|id|>239<|level|>4",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 2
+        },
+        {
+            "id": 235,
+            "level": 2
+        },
+        {
+            "id": 237,
+            "level": 3
+        },
+        {
+            "id": 239,
+            "level": 4
+        }
+    ]
+}

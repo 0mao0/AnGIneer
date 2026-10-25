@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        10,
+        16
+    ],
+    "pages": [
+        10,
+        11,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>57<|page|>10<|box|>842 174 897 856<|content|>(e) Proposed International Nonproprietary Name (IN...nted under the Agreement, it being understood that\n<|id|>58<|page|>11<|box|>90 174 127 854<|content|>INNs are nonproprietary names designated by the Wo...nization and may not be appropriated as trademarks\n<|id|>81<|page|>13<|box|>714 138 898 857<|content|>If, at any time during the term of the Agreement, ...gistrations or applications filed pursuant to this\n<|id|>82<|page|>14<|box|>89 140 126 854<|content|>Section 5. ... 4 shall be automatically added to t...to Licensee confirming the relevant filing details\n<|id|>88<|page|>15<|box|>275 174 329 854<|content|>(d) reflect changes in the owner of record resulti...consistent with the terms of the Agreement; ... or\n<|id|>90<|page|>15<|box|>362 140 546 856<|content|>Notwithstanding the foregoing, any trademark regis...e parties shall resolve the matter through the JPC\n<|id|>103<|page|>16<|box|>378 142 395 374<|content|>Name: ... Calloway\n<|id|>104<|page|>16<|box|>396 142 412 367<|content|>Title: ... Chief Executive Officer\n<|id|>105<|page|>16<|box|>414 143 430 264<|content|>Date: ... Date\n<|id|>107<|page|>16<|box|>455 142 472 490<|content|>MERIDIAN BIO THERAPEUTICS LIMITED\n<|id|>108<|page|>16<|box|>474 143 491 251<|content|>By: ... By\n<|id|>109<|page|>16<|box|>492 142 508 339<|content|>Name: ... Leung\n<|id|>110<|page|>16<|box|>508 143 525 331<|content|>Title: ... Managing Director\n<|id|>111<|page|>16<|box|>526 143 544 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>57<|tgt_id|>58\n<|src_id|>81<|tgt_id|>82",
+    "parsed": [
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        }
+    ]
+}

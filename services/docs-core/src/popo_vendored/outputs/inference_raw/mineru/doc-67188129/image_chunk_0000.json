@@ -1,0 +1,59 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 163 125 833<|content|>CALDERWOOD & HARKNESS LLP 777 South Flower Street,\n<|id|>2<|type|>title<|page|>1<|box|>156 424 172 573<|content|>MEMORANDUM\n<|id|>7<|type|>title<|page|>1<|box|>301 142 319 313<|content|>1. Purpose and Scope\n<|id|>16<|type|>title<|page|>2<|box|>204 140 222 509<|content|>2. Engagement Team — Attorney Assignments\n<|id|>18<|type|>title<|page|>2<|box|>279 140 297 570<|content|>2.1 Renata Vasquez — Partner (Responsible Attorney\n<|id|>21<|type|>title<|page|>2<|box|>429 142 446 310<|content|>Key Responsibilities:\n<|id|>30<|type|>title<|page|>3<|box|>590 140 609 550<|content|>2.2 Bernard Crawford — Partner (Billing Attorney)\n<|id|>33<|type|>title<|page|>3<|box|>720 142 739 310<|content|>Key Responsibilities:\n<|id|>43<|type|>title<|page|>5<|box|>257 140 273 570<|content|>2.3 Devon Archer — Senior Associate (Lead Associat\n<|id|>46<|type|>title<|page|>5<|box|>387 143 404 310<|content|>Key Responsibilities:\n<|id|>56<|type|>title<|page|>6<|box|>763 140 780 539<|content|>2.4 Nadia Petrov — Associate (Working Associate)\n<|id|>59<|type|>title<|page|>7<|box|>90 140 108 310<|content|>Key Responsibilities:\n<|id|>77<|type|>title<|page|>9<|box|>90 140 107 274<|content|>3. Support Staff\n<|id|>78<|type|>title<|page|>9<|box|>121 140 138 379<|content|>3.1 Sophia Meng — Paralegal\n<|id|>81<|type|>title<|page|>9<|box|>196 142 214 310<|content|>Key Responsibilities:\n<|id|>90<|type|>title<|page|>10<|box|>176 140 194 504<|content|>3.2 Litigation Support Specialist (E-discovery)\n<|id|>92<|type|>title<|page|>10<|box|>281 142 297 310<|content|>Key Responsibilities:\n<|id|>98<|type|>title<|page|>10<|box|>816 140 834 496<|content|>4. Division of Responsibility by Work Stream\n<|id|>100<|type|>title<|page|>11<|box|>138 140 156 643<|content|>4.1 Class Action — *Fuentes v. AMA* (Case No. 22ST\n<|id|>101<|type|>table<|page|>11<|box|>160 143 584 852<|content|>None\n<|id|>102<|type|>title<|page|>11<|box|>625 142 638 573<|content|>4.2 Aldrich Individual Action (Case No. 22STCV4108\n<|id|>103<|type|>table<|page|>11<|box|>645 143 902 852<|content|>None\n<|id|>104<|type|>table<|page|>12<|box|>89 143 194 852<|content|>None\n<|id|>105<|type|>title<|page|>12<|box|>234 142 250 514<|content|>4.3 Insurance Coordination and Administration\n<|id|>106<|type|>table<|page|>12<|box|>255 143 462 852<|content|>None\n<|id|>107<|type|>title<|page|>12<|box|>501 143 517 450<|content|>4.4 Budget, Billing, and Administration\n<|id|>108<|type|>table<|page|>12<|box|>522 143 655 852<|content|>None\n<|id|>109<|type|>title<|page|>12<|box|>705 142 722 370<|content|>5. Estimated Hours by Phase\n<|id|>111<|type|>table<|page|>12<|box|>810 143 897 852<|content|>None\n<|id|>112<|type|>table<|page|>13<|box|>89 143 590 852<|content|>None\n<|id|>113<|type|>title<|page|>13<|box|>625 142 641 197<|content|>Notes:\n<|id|>118<|type|>title<|page|>14<|box|>212 140 229 334<|content|>6. Diversity Compliance\n<|id|>122<|type|>title<|page|>14<|box|>550 140 568 531<|content|>7. Staffing Changes and Communication Protocol\n<|id|>127<|type|>title<|page|>15<|box|>250 140 265 326<|content|>8. Contact Information\n<|id|>129<|type|>table<|page|>15<|box|>299 143 407 852<|content|>None\n<|id|>130<|type|>title<|page|>15<|box|>443 142 459 261<|content|>Firm Address:\n<|id|>132<|type|>title<|page|>15<|box|>513 143 529 344<|content|>Primary Client Contacts:",
+    "raw_response": "<|src_id|>101<|tgt_id|>100\n<|src_id|>103<|tgt_id|>102\n<|src_id|>104<|tgt_id|>102\n<|src_id|>106<|tgt_id|>105\n<|src_id|>108<|tgt_id|>107\n<|src_id|>111<|tgt_id|>109\n<|src_id|>112<|tgt_id|>109\n<|src_id|>129<|tgt_id|>127",
+    "parsed": [
+        {
+            "src_id": 101,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 127
+        }
+    ]
+}

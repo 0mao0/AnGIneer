@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        8
+    ],
+    "pages": [
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>27<|page|>5<|box|>575 97 917 882<|content|>In the China of the Yuan, or Mongol era, various i...rtists and writers being famous today. ... Another\n<|id|>28<|page|>6<|box|>74 97 124 838<|content|>important consideration regarding Yuan dynasty art... preserved in places such as the Shōsōin, in Japan\n<|id|>36<|page|>7<|box|>657 97 916 873<|content|>Kublai's government faced financial difficulties a...nam after the Mongol invasion of the Song and they\n<|id|>37<|page|>8<|box|>74 97 142 838<|content|>helped the Tran fight against the Mongol invasion....ablished tributary relations with the Yuan dynasty",
+    "raw_response": "<|src_id|>27<|tgt_id|>28\n<|src_id|>36<|tgt_id|>37",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        }
+    ]
+}

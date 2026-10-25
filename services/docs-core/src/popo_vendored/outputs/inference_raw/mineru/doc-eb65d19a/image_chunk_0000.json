@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 145 141 852<|content|>IN THE CIRCUIT COURT OF THE ELEVENTH JUDICIAL CIRC\n<|id|>1<|type|>table<|page|>1<|box|>174 143 412 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>479 143 515 851<|content|>DECLARATION OF SANDRA PELLEGRINI IN SUPPORT OF PLA\n<|id|>4<|type|>title<|page|>1<|box|>602 140 619 437<|content|>I. DECLARANT IDENTIFICATION\n<|id|>6<|type|>title<|page|>1<|box|>758 142 773 656<|content|>II. BACKGROUND AND PROFESSIONAL QUALIFICATIONS\n<|id|>10<|type|>title<|page|>2<|box|>532 142 549 535<|content|>III. VHG'S INSURANCE TOWER STRUCTURE\n<|id|>17<|type|>table<|page|>3<|box|>287 143 411 852<|content|>None\n<|id|>20<|type|>title<|page|>3<|box|>636 140 652 712<|content|>IV. THE JULY 2022 RENEWAL AND THE WINDSTORM SUB-LI\n<|id|>33<|type|>title<|page|>5<|box|>680 142 696 676<|content|>V. HURRICANE CALLISTA AND VHG'S CLAIMS SUBMISSION\n<|id|>44<|type|>table<|page|>7<|box|>219 143 328 852<|content|>None\n<|id|>46<|type|>title<|page|>7<|box|>443 140 460 648<|content|>VI. IRONCLAD'S RESERVATION OF RIGHTS AND DENIAL\n<|id|>51<|type|>title<|page|>8<|box|>330 140 347 643<|content|>VII. VHG'S RELIANCE ON DELETION OF THE SUB-LIMIT\n<|id|>55<|type|>title<|page|>9<|box|>128 142 143 586<|content|>VIII. DOCUMENTS REVIEWED AND REFERENCED\n<|id|>63<|type|>title<|page|>9<|box|>511 142 527 483<|content|>IX. CONCLUSION AND VERIFICATION\n<|id|>67<|type|>title<|page|>10<|box|>184 374 202 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>17<|tgt_id|>10\n<|src_id|>44<|tgt_id|>33",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 33
+        }
+    ]
+}

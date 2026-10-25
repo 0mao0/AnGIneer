@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 140 119 852<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>1<|type|>title<|page|>1<|box|>127 282 145 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>2<|type|>title<|page|>1<|box|>152 148 189 848<|content|>600 Lexington Avenue New York, NY 10022 Telephone:\n<|id|>8<|type|>title<|page|>1<|box|>345 142 362 210<|content|>FROM:\n<|id|>17<|type|>title<|page|>1<|box|>763 385 782 612<|content|>1. Executive Summary\n<|id|>29<|type|>title<|page|>2<|box|>679 385 699 611<|content|>2. Matter Background\n<|id|>30<|type|>title<|page|>2<|box|>724 140 742 372<|content|>2.1 The Underlying Contract\n<|id|>41<|type|>title<|page|>3<|box|>824 140 843 271<|content|>2.2 The Dispute\n<|id|>46<|type|>title<|page|>4<|box|>446 140 464 303<|content|>2.3 Kestrel's Claims\n<|id|>48<|type|>table<|page|>4<|box|>650 143 779 852<|content|>None\n<|id|>51<|type|>title<|page|>5<|box|>172 254 191 741<|content|>3. Activities Completed During Reporting Period\n<|id|>52<|type|>title<|page|>5<|box|>217 140 234 540<|content|>3.1 Engagement Formalization (November 2, 2022)\n<|id|>54<|type|>table<|page|>5<|box|>366 143 460 852<|content|>None\n<|id|>57<|type|>title<|page|>5<|box|>652 140 670 447<|content|>3.2 Conflict Check (November 1, 2022)\n<|id|>67<|type|>title<|page|>6<|box|>148 140 167 450<|content|>3.3 Litigation Hold (November 8, 2022)\n<|id|>78<|type|>title<|page|>6<|box|>698 140 715 513<|content|>3.4 Insurance Notification (November 14, 2022)\n<|id|>82<|type|>title<|page|>7<|box|>223 140 239 741<|content|>3.5 Receipt and Initial Review of Request for Arbi\n<|id|>85<|type|>title<|page|>7<|box|>481 140 498 566<|content|>3.6 Preliminary Case Assessment (November 10, 2022\n<|id|>92<|type|>title<|page|>8<|box|>366 140 383 416<|content|>3.7 MSA and Amendments Review\n<|id|>101<|type|>title<|page|>9<|box|>148 140 167 449<|content|>3.8 Lender Notification Considerations\n<|id|>105<|type|>title<|page|>9<|box|>474 279 494 717<|content|>4. Preparation of Answer and Counterclaim\n<|id|>106<|type|>title<|page|>9<|box|>518 140 536 225<|content|>4.1 Status\n<|id|>110<|type|>title<|page|>9<|box|>839 140 854 393<|content|>4.2 Key Defenses to Be Asserted\n<|id|>118<|type|>title<|page|>10<|box|>792 140 809 282<|content|>4.3 Counterclaim\n<|id|>129<|type|>title<|page|>11<|box|>445 344 464 651<|content|>5. Arbitrator Selection Process\n<|id|>130<|type|>title<|page|>11<|box|>489 140 507 352<|content|>5.1 Respondent's Nominee\n<|id|>135<|type|>title<|page|>12<|box|>90 140 107 336<|content|>5.2 Presiding Arbitrator\n<|id|>138<|type|>title<|page|>12<|box|>329 140 347 419<|content|>5.3 Tribunal Constitution Timeline\n<|id|>140<|type|>title<|page|>12<|box|>492 339 512 656<|content|>6. Preliminary Budget Estimate\n<|id|>141<|type|>title<|page|>12<|box|>537 140 554 339<|content|>6.1 Estimated Fee Range\n<|id|>151<|type|>title<|page|>13<|box|>204 140 222 452<|content|>6.2 Estimated Costs and Disbursements\n<|id|>160<|type|>title<|page|>13<|box|>506 140 523 450<|content|>6.3 Estimated Total Engagement Value\n<|id|>163<|type|>title<|page|>13<|box|>672 140 689 287<|content|>6.4 Billing to Date\n<|id|>166<|type|>title<|page|>13<|box|>824 215 844 781<|content|>7. Anticipated Next Steps (December 2022 – March 2\n<|id|>168<|type|>table<|page|>13<|box|>885 143 906 852<|content|>None\n<|id|>169<|type|>table<|page|>14<|box|>89 143 419 852<|content|>None\n<|id|>171<|type|>title<|page|>14<|box|>498 277 518 718<|content|>8. Key Risk Factors and Early Observations\n<|id|>179<|type|>title<|page|>15<|box|>652 336 672 658<|content|>9. Conclusion and Confirmation",
+    "raw_response": "<|src_id|>48<|tgt_id|>46\n<|src_id|>54<|tgt_id|>52\n<|src_id|>168<|tgt_id|>166\n<|src_id|>169<|tgt_id|>166",
+    "parsed": [
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 166
+        }
+    ]
+}

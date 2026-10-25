@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>15<|page|>1<|box|>715 97 923 890<|content|>1970年，埃德加. ... 此外，在多模型数据库出现之前，有一种名为\"多类共存 (polygolt\n<|id|>16<|page|>2<|box|>73 99 158 887<|content|>persistence)\"的多模型管理技术，这种技术的主要思想是通过集成使用多个不同数据模型的数据库...使用一个综合的数据存储平台和统一的数据查询语言，不仅减少了业务操作复杂性，而 且还保证了数据的一致性",
+    "raw_response": "<|src_id|>15<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        }
+    ]
+}

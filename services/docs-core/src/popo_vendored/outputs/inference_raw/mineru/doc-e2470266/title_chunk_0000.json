@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>114 153 151 843<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT PRIVILEG\n<|id|>6<|page|>1<|box|>464 387 483 611<|content|>I. Executive Summary\n<|id|>11<|page|>2<|box|>289 419 309 576<|content|>II. Background\n<|id|>12<|page|>2<|box|>334 142 352 261<|content|>A. The Parties\n<|id|>13<|page|>2<|box|>364 142 383 424<|content|>1. Calloway-Briggs Renewables Inc.\n<|id|>22<|page|>2<|box|>806 140 824 470<|content|>2. Cascadia Growth Equity Fund III, L.P.\n<|id|>24<|page|>3<|box|>176 140 193 500<|content|>3. Lumen Ridge Infrastructure Partners LLC\n<|id|>32<|page|>3<|box|>535 140 553 374<|content|>B. The Proposed Transaction\n<|id|>49<|page|>5<|box|>90 142 107 305<|content|>C. Timeline Context\n<|id|>51<|page|>5<|box|>550 202 569 792<|content|>III. CBR's Stockholders' Agreement — Relevant Prov\n<|id|>52<|page|>5<|box|>595 142 612 491<|content|>A. Overview of the Stockholders' Agreement\n<|id|>56<|page|>6<|box|>167 140 184 486<|content|>B. Consent Rights — Material Transactions\n<|id|>64<|page|>6<|box|>792 140 809 375<|content|>C. Other Relevant Provisions\n<|id|>70<|page|>7<|box|>462 202 482 792<|content|>IV. Analysis — Applicability to the Proposed JV Fo\n<|id|>71<|page|>7<|box|>507 140 523 607<|content|>A. The JV Formation Constitutes a \"Material Transa\n<|id|>77<|page|>8<|box|>566 140 584 357<|content|>B. No Available Exemption\n<|id|>82<|page|>9<|box|>148 140 167 258<|content|>C. Conclusion\n<|id|>84<|page|>9<|box|>313 274 332 720<|content|>V. Process for Obtaining Cascadia's Consent\n<|id|>85<|page|>9<|box|>357 140 375 367<|content|>A. Recommended Approach\n<|id|>97<|page|>10<|box|>556 140 574 348<|content|>B. Timing Considerations\n<|id|>103<|page|>11<|box|>258 140 277 511<|content|>C. Potential Cascadia Concerns and Mitigation\n<|id|>109<|page|>12<|box|>244 300 265 696<|content|>VI. Status Update — Consent Obtained\n<|id|>120<|page|>13<|box|>136 305 155 692<|content|>VII. Recommendations and Next Steps\n<|id|>132<|page|>14<|box|>167 277 186 720<|content|>VIII. Enclosures / Attachments (Referenced)",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>6<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>13<|level|>4\n<|id|>22<|level|>4\n<|id|>24<|level|>4\n<|id|>32<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>56<|level|>3\n<|id|>64<|level|>3\n<|id|>70<|level|>2\n<|id|>71<|level|>3\n<|id|>77<|level|>3\n<|id|>82<|level|>3\n<|id|>84<|level|>2\n<|id|>85<|level|>3\n<|id|>97<|level|>3\n<|id|>103<|level|>3\n<|id|>109<|level|>2\n<|id|>120<|level|>2\n<|id|>132<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 4
+        },
+        {
+            "id": 22,
+            "level": 4
+        },
+        {
+            "id": 24,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        }
+    ]
+}

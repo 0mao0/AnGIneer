@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Hargrove National Bank, N.A.', \"Administrative agent under PPC's\", 'Address: 100 Federal Street, Boston,']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '$1.5 billion revolving credit facility', 'MA 02110. Relationship Manager: Christine Bellucci, SVP. The revolving credit facility is maintained at the PPC parent level and is not directly relevant to the intercompany transfer pricing arrangements, but is identified here for completeness.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 55,
+    "table2_idx": 56
+}

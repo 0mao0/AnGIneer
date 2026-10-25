@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>113 403 133 593<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>401 142 417 390<|content|>I. Purpose and Scope of Review\n<|id|>16<|type|>title<|page|>2<|box|>304 140 321 267<|content|>II. Background\n<|id|>17<|type|>title<|page|>2<|box|>334 140 352 527<|content|>A. Nexford Corporate Structure and Governance\n<|id|>28<|type|>title<|page|>3<|box|>625 140 641 640<|content|>B. Summary of D&O Insurance Tower (2021–2022 Polic\n<|id|>30<|type|>table<|page|>3<|box|>708 143 904 852<|content|>None\n<|id|>31<|type|>table<|page|>4<|box|>88 143 266 852<|content|>None\n<|id|>35<|type|>title<|page|>4<|box|>619 140 637 519<|content|>C. Role of the Form Indemnification Agreement\n<|id|>43<|type|>title<|page|>6<|box|>90 140 107 344<|content|>III. Documents Reviewed\n<|id|>56<|type|>title<|page|>6<|box|>690 140 707 380<|content|>IV. Summary of Key Findings\n<|id|>62<|type|>title<|page|>7<|box|>494 140 511 305<|content|>V. Detailed Analysis\n<|id|>63<|type|>title<|page|>7<|box|>525 140 561 854<|content|>A. Finding 1: Advancement of Expenses Clause Does\n<|id|>89<|type|>title<|page|>10<|box|>590 140 609 808<|content|>B. Finding 2: Definition of \"Proceeding\" Narrower\n<|id|>107<|type|>title<|page|>12<|box|>458 140 476 470<|content|>This gap creates two categories of problems:\n<|id|>123<|type|>title<|page|>14<|box|>311 140 328 367<|content|>VI. Additional Observations\n<|id|>125<|type|>title<|page|>14<|box|>422 140 440 612<|content|>A. Consistency Across All Nine Indemnification Agr\n<|id|>129<|type|>title<|page|>14<|box|>821 142 839 450<|content|>B. Officer Indemnification Agreements\n<|id|>139<|type|>title<|page|>15<|box|>575 140 593 493<|content|>C. Subsidiary Director and Officer Coverage\n<|id|>143<|type|>title<|page|>16<|box|>176 140 193 624<|content|>D. Coordination with Bylaws and Certificate of Inc\n<|id|>147<|type|>title<|page|>16<|box|>685 140 700 356<|content|>E. Pre-IPO Considerations\n<|id|>159<|type|>title<|page|>17<|box|>647 140 664 403<|content|>VII. Recommended Action Items\n<|id|>169<|type|>title<|page|>18<|box|>742 140 758 279<|content|>VIII. Conclusion",
+    "raw_response": "<|src_id|>30<|tgt_id|>28\n<|src_id|>31<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 28
+        }
+    ]
+}

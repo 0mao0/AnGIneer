@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 5,
+    "range": [
+        243,
+        293
+    ],
+    "pages": [
+        244,
+        254,
+        257,
+        266,
+        269,
+        271,
+        273,
+        274,
+        276,
+        279,
+        290,
+        292,
+        293
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1789<|page|>244<|box|>82 404 126 572<|content|>ARTICLE VI. Distribution Options\n<|id|>1833<|page|>254<|box|>92 131 108 464<|content|>6.4 Special Rules for Survivor Options:\n<|id|>1840<|page|>257<|box|>80 425 126 555<|content|>ARTICLE VII. Administration\n<|id|>1876<|page|>266<|box|>82 425 124 558<|content|>ARTICLE VIII. Miscellaneous\n<|id|>1885<|page|>269<|box|>82 367 124 609<|content|>ARTICLE IX. Amendment and Termination\n<|id|>1889<|page|>271<|box|>82 395 124 580<|content|>ARTICLE X. ERISA Plan Structure\n<|id|>1894<|page|>273<|box|>82 420 126 555<|content|>ARTICLE XI. Applicable Law\n<|id|>1898<|page|>274<|box|>82 439 99 555<|content|>ARTICLE XII.\n<|id|>1899<|page|>274<|box|>108 444 124 531<|content|>Signature\n<|id|>1916<|page|>276<|box|>82 372 124 604<|content|>ARTICLE A Accruals for 1993 and 1994\n<|id|>1929<|page|>279<|box|>82 277 124 698<|content|>ARTICLE B Plan Document Applicable to Pre-2005 Par\n<|id|>1934<|page|>279<|box|>469 129 485 287<|content|>“5.1 PEP Pension:\n<|id|>1991<|page|>290<|box|>82 331 124 643<|content|>ARTICLE PFS PFS Special Early Retirement Benefit\n<|id|>2004<|page|>292<|box|>80 432 99 563<|content|>ARTICLE PBG\n<|id|>2005<|page|>292<|box|>105 442 124 535<|content|>Pre-409A\n<|id|>2008<|page|>293<|box|>145 400 159 594<|content|>ARTICLE I – Foreword\n<|id|>2011<|page|>293<|box|>577 324 594 671<|content|>ARTICLE II – Definitions and Construction",
+    "raw_response": "<|id|>1789<|level|>1\n<|id|>1833<|level|>3\n<|id|>1840<|level|>1\n<|id|>1876<|level|>1\n<|id|>1885<|level|>1\n<|id|>1889<|level|>1\n<|id|>1894<|level|>1\n<|id|>1898<|level|>1\n<|id|>1899<|level|>2\n<|id|>1916<|level|>1\n<|id|>1929<|level|>1\n<|id|>1934<|level|>3\n<|id|>1991<|level|>1\n<|id|>2004<|level|>1\n<|id|>2005<|level|>2\n<|id|>2008<|level|>1\n<|id|>2011<|level|>1",
+    "parsed": [
+        {
+            "id": 1789,
+            "level": 1
+        },
+        {
+            "id": 1833,
+            "level": 3
+        },
+        {
+            "id": 1840,
+            "level": 1
+        },
+        {
+            "id": 1876,
+            "level": 1
+        },
+        {
+            "id": 1885,
+            "level": 1
+        },
+        {
+            "id": 1889,
+            "level": 1
+        },
+        {
+            "id": 1894,
+            "level": 1
+        },
+        {
+            "id": 1898,
+            "level": 1
+        },
+        {
+            "id": 1899,
+            "level": 2
+        },
+        {
+            "id": 1916,
+            "level": 1
+        },
+        {
+            "id": 1929,
+            "level": 1
+        },
+        {
+            "id": 1934,
+            "level": 3
+        },
+        {
+            "id": 1991,
+            "level": 1
+        },
+        {
+            "id": 2004,
+            "level": 1
+        },
+        {
+            "id": 2005,
+            "level": 2
+        },
+        {
+            "id": 2008,
+            "level": 1
+        },
+        {
+            "id": 2011,
+            "level": 1
+        }
+    ]
+}

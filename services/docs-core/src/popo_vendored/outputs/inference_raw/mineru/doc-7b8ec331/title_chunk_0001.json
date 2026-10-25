@@ -1,0 +1,34 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        51
+    ],
+    "pages": [
+        47,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>536<|page|>47<|box|>89 251 106 745<|content|>POST-CLOSING DOCUMENT DISTRIBUTION SCHEDULE\n<|id|>540<|page|>49<|box|>89 447 107 550<|content|>EXHIBIT F\n<|id|>541<|page|>50<|box|>89 349 106 647<|content|>ESCROW AGENT FEE SCHEDULE\n<|id|>547<|page|>51<|box|>220 142 238 277<|content|>Payment Terms:",
+    "raw_response": "<|id|>536<|level|>1\n<|id|>540<|level|>1\n<|id|>541<|level|>1\n<|id|>547<|level|>2",
+    "parsed": [
+        {
+            "id": 536,
+            "level": 1
+        },
+        {
+            "id": 540,
+            "level": 1
+        },
+        {
+            "id": 541,
+            "level": 1
+        },
+        {
+            "id": 547,
+            "level": 2
+        }
+    ]
+}

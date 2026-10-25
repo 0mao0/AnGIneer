@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 140 176 553<|content|>TO: ... 1021-00008\n<|id|>3<|page|>1<|box|>186 142 203 674<|content|>FROM: ... Liam Donahue, Senior Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>212 142 229 330<|content|>DATE: ... August 29, 2023\n<|id|>5<|page|>1<|box|>237 140 273 852<|content|>RE: ... Interview of Margaret \"Meg\" Calder, Chief Executive Officer, Verimark Hospitality Group Inc\n<|id|>24<|page|>3<|box|>766 138 893 857<|content|>Calder's Role vis-à-vis VCR. ... Day-to-day financ...to the division level — principally to Daskine and\n<|id|>25<|page|>4<|box|>90 140 164 854<|content|>Prescott — with corporate-level oversight exercise...sults against approved budgets and strategic plans\n<|id|>34<|page|>5<|box|>803 138 893 857<|content|>Awareness of Revenue Overstatement Figures. ... Sh...d CFO Griffith in general terms about the scope of\n<|id|>36<|page|>6<|box|>316 140 353 854<|content|>Calder acknowledged receipt of this information an...d not previously seen these figures in this format\n<|id|>81<|page|>13<|box|>553 140 584 854<|content|>Prepared by: ... Howard Quinn, Partner, Calderwood & Harkness LLP\n<|id|>82<|page|>13<|box|>590 142 609 645<|content|>Distribution: ... Audit Committee upon request\n<|id|>83<|page|>13<|box|>617 148 763 849<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV...r Calderwood & Harkness LLP is strictly prohibited",
+    "raw_response": "<|src_id|>24<|tgt_id|>25\n<|src_id|>34<|tgt_id|>36",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 36
+        }
+    ]
+}

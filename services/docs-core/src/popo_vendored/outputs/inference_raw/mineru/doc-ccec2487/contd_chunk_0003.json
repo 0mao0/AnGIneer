@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 3,
+    "range": [
+        169,
+        178
+    ],
+    "pages": [
+        170,
+        178
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>689<|page|>170<|box|>119 411 131 602<|content|>Footnotes to Table GA-I-1\n<|id|>690<|page|>170<|box|>190 101 216 490<|content|>Source: ... 966, Revised\n<|id|>703<|page|>170<|box|>559 101 585 464<|content|>2/ The Corporation's figures include a special fun...us in the Department of Agriculture and the Agency\n<|id|>704<|page|>170<|box|>190 551 199 713<|content|>for International Development. ... for International Development\n<|id|>769<|page|>178<|box|>805 123 822 455<|content|>Funds appropriated to the President: ... 56,992\n<|id|>771<|page|>178<|box|>410 522 462 911<|content|>52/ Excludes \\$14,504,920 thousand representing se...tion guaranteed mortgages held by the institutions",
+    "raw_response": "<|src_id|>703<|tgt_id|>704",
+    "parsed": [
+        {
+            "src_id": 703,
+            "tgt_id": 704
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        9,
+        13,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 140 159 450<|content|>TO: ... Claudia Merritt, Responsible Partner\n<|id|>3<|page|>1<|box|>167 140 185 684<|content|>FROM: ... Sara Hendricks, Working Associate\n<|id|>4<|page|>1<|box|>193 142 210 354<|content|>DATE: ... November 10, 2023\n<|id|>5<|page|>1<|box|>219 140 255 852<|content|>RE: ... 2\n<|id|>6<|page|>1<|box|>263 140 280 331<|content|>Matter No. ... 1019-00003\n<|id|>7<|page|>1<|box|>289 140 306 400<|content|>Client: ... Whitmore Aerospace LLC\n<|id|>8<|page|>1<|box|>315 142 332 408<|content|>Right-click to update Table of Contents\n<|id|>39<|page|>4<|box|>861 140 898 857<|content|>Critically, Amendment 0002 also revised Section M ...eral consideration addressed informally within the\n<|id|>40<|page|>5<|box|>42 156 71 838<|content|>MEMORANDUM — PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT — Matter No. ... 1019-00003\n<|id|>41<|page|>5<|box|>90 140 181 854<|content|>Management Approach factor to a distinct, separate...below, the SSA's tradeoff analysis failed to honor\n<|id|>47<|page|>5<|box|>393 176 412 370<|content|>(a) Program Management\n<|id|>50<|page|>5<|box|>472 140 507 854<|content|>Factor 4: ... 404\n<|id|>48<|page|>5<|box|>420 176 438 444<|content|>(b) Supply Chain Risk Management\n<|id|>49<|page|>5<|box|>446 176 464 397<|content|>(c) ITAR/Export Compliance\n<|id|>75<|page|>8<|box|>814 140 905 857<|content|>The combined effect of Whitmore's advantages in Fa... the overall Factor 3 ratings were \"Good\" for both\n<|id|>76<|page|>9<|box|>90 140 218 856<|content|>Whitmore and Halcyon. ... While the aggregation of...on in the SSDD — explanation that was not provided\n<|id|>102<|page|>13<|box|>42 156 71 838<|content|>MEMORANDUM — PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT — Matter No. ... 1019-00003\n<|id|>103<|page|>13<|box|>89 138 292 857<|content|>Licensing Risk. ... If Halcyon does not have an ac...ing deliveries and affecting operational readiness\n<|id|>152<|page|>19<|box|>854 174 909 857<|content|>Ground 1 (Unreasonable Tradeoff). ... The SSDD does not explain why Halcyon's\n<|id|>153<|page|>20<|box|>42 156 71 838<|content|>MEMORANDUM — PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT — Matter No. ... 1019-00003\n<|id|>154<|page|>20<|box|>90 174 145 854<|content|>Factor 1(b) advantage justified paying more and ac...riminal, civil, and national security consequences\n<|id|>160<|page|>20<|box|>434 183 446 421<|content|>• Claudia Merritt, Responsible Partner\n<|id|>164<|page|>20<|box|>500 140 589 854<|content|>This memorandum is not to be shared with client pe...he Protective Order and applicable GAO regulations\n<|id|>161<|page|>20<|box|>450 183 464 390<|content|>• Ian Blackwood, Senior Counsel\n<|id|>162<|page|>20<|box|>465 183 479 740<|content|>• Lt. ... ) Nathan Yardley, Of Counsel (ITAR/Export Control Subject Matter Advisor)\n<|id|>163<|page|>20<|box|>483 183 496 343<|content|>• Megan Zhao, Associate\n<|id|>165<|page|>20<|box|>595 142 611 333<|content|>Engagement No. ... 1019-00003\n<|id|>166<|page|>20<|box|>618 142 633 352<|content|>Client: ... Whitmore Aerospace LLC",
+    "raw_response": "<|src_id|>39<|tgt_id|>41\n<|src_id|>75<|tgt_id|>76\n<|src_id|>152<|tgt_id|>154",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 154
+        }
+    ]
+}

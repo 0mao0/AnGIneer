@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>411 140 429 486<|content|>1. Engagement and Scope of Representation\n<|id|>26<|page|>3<|box|>250 140 266 313<|content|>2. Engagement Team\n<|id|>33<|page|>3<|box|>756 140 773 338<|content|>3. Fees and Billing Rates\n<|id|>34<|page|>3<|box|>787 140 804 279<|content|>3.1 Hourly Rates\n<|id|>40<|page|>4<|box|>356 140 375 241<|content|>3.2 Fee Cap\n<|id|>44<|page|>4<|box|>792 140 810 276<|content|>3.3 Billing Cycle\n<|id|>47<|page|>5<|box|>223 140 239 236<|content|>4. Retainer\n<|id|>52<|page|>5<|box|>642 140 659 390<|content|>5. Disbursements and Expenses\n<|id|>64<|page|>6<|box|>470 140 487 307<|content|>6. Scope Limitations\n<|id|>71<|page|>7<|box|>186 140 204 478<|content|>7. Client Identity and Joint Representation\n<|id|>76<|page|>7<|box|>715 140 732 321<|content|>8. Conflicts of Interest\n<|id|>81<|page|>8<|box|>348 140 364 284<|content|>9. Confidentiality\n<|id|>88<|page|>8<|box|>801 142 816 334<|content|>10. Document Retention\n<|id|>92<|page|>9<|box|>311 140 329 274<|content|>11. Termination\n<|id|>98<|page|>9<|box|>719 142 737 297<|content|>12. Governing Law\n<|id|>100<|page|>10<|box|>90 142 107 428<|content|>13. Entire Agreement; Amendments\n<|id|>103<|page|>10<|box|>311 140 329 437<|content|>14. Acceptance and Countersignature",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>26<|level|>1\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>47<|level|>1\n<|id|>52<|level|>1\n<|id|>64<|level|>1\n<|id|>71<|level|>1\n<|id|>76<|level|>1\n<|id|>81<|level|>1\n<|id|>88<|level|>1\n<|id|>92<|level|>1\n<|id|>98<|level|>1\n<|id|>100<|level|>1\n<|id|>103<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        }
+    ]
+}

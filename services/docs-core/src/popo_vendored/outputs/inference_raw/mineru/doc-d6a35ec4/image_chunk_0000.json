@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 155 123 841<|content|>UNITED STATES BANKRUPTCY COURT NORTHERN DISTRICT O\n<|id|>1<|type|>table<|page|>1<|box|>157 143 214 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>383 166 419 828<|content|>CORPORATE OWNERSHIP STATEMENT PURSUANT TO FEDERAL\n<|id|>5<|type|>title<|page|>1<|box|>595 142 613 441<|content|>I. INTRODUCTION AND PURPOSE\n<|id|>11<|type|>title<|page|>2<|box|>297 140 314 488<|content|>II. IDENTIFICATION OF THE DEBTORS\n<|id|>12<|type|>title<|page|>2<|box|>328 140 345 442<|content|>A. Crestline Packaging Solutions LLC\n<|id|>23<|type|>title<|page|>2<|box|>810 142 828 310<|content|>B. CPS Holdings Inc.\n<|id|>31<|type|>title<|page|>3<|box|>443 140 460 483<|content|>III. EQUITY OWNERSHIP STRUCTURE\n<|id|>32<|type|>title<|page|>3<|box|>474 140 492 550<|content|>A. Ownership of Crestline Packaging Solutions LLC\n<|id|>35<|type|>title<|page|>3<|box|>694 140 712 419<|content|>B. Ownership of CPS Holdings Inc.\n<|id|>41<|type|>title<|page|>4<|box|>90 176 107 787<|content|>Approximate Assets Under Management: $4.8 billion\n<|id|>45<|type|>title<|page|>4<|box|>559 142 575 388<|content|>C. Summary Ownership Chain\n<|id|>53<|type|>title<|page|>4<|box|>825 143 843 416<|content|>IV. ORGANIZATIONAL CHART\n<|id|>61<|type|>title<|page|>5<|box|>472 140 489 581<|content|>V. IDENTIFICATION OF OPERATING LOCATIONS\n<|id|>69<|type|>title<|page|>6<|box|>229 140 247 674<|content|>VI. ENTITIES IN WHICH THE DEBTORS HOLD AN INTEREST\n<|id|>72<|type|>title<|page|>6<|box|>444 140 460 472<|content|>VII. PUBLICLY TRADED SECURITIES\n<|id|>75<|type|>title<|page|>6<|box|>787 142 804 490<|content|>VIII. MANAGEMENT OF THE DEBTORS\n<|id|>76<|type|>title<|page|>6<|box|>819 140 835 527<|content|>A. Officers of Crestline Packaging Solutions LLC\n<|id|>78<|type|>table<|page|>6<|box|>878 143 898 852<|content|>None\n<|id|>79<|type|>table<|page|>7<|box|>89 143 145 852<|content|>None\n<|id|>81<|type|>title<|page|>7<|box|>247 140 263 506<|content|>B. Officers and Directors of CPS Holdings Inc.\n<|id|>83<|type|>table<|page|>7<|box|>325 143 498 852<|content|>None\n<|id|>85<|type|>title<|page|>7<|box|>609 140 626 663<|content|>IX. TREATMENT OF EQUITY UNDER PREPACKAGED PLAN\n<|id|>90<|type|>title<|page|>8<|box|>241 140 258 406<|content|>X. RESERVATION OF RIGHTS\n<|id|>92<|type|>title<|page|>8<|box|>436 140 454 300<|content|>XI. CONCLUSION\n<|id|>97<|type|>title<|page|>8<|box|>748 140 763 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>107<|type|>title<|page|>9<|box|>286 375 330 620<|content|>EXHIBIT A ORGANIZATIONAL CHART\n<|id|>116<|type|>title<|page|>10<|box|>126 148 204 849<|content|>╗ ║ CRESTLINE PACKAGING SOLUTIONS LLC [DEBTOR] ║ ║\n<|id|>117<|type|>table<|page|>10<|box|>256 145 301 852<|content|>None\n<|id|>118<|type|>table<|page|>10<|box|>367 143 555 852<|content|>None",
+    "raw_response": "<|src_id|>1<|tgt_id|>3\n<|src_id|>78<|tgt_id|>76\n<|src_id|>79<|tgt_id|>76\n<|src_id|>83<|tgt_id|>81\n<|src_id|>117<|tgt_id|>116\n<|src_id|>118<|tgt_id|>116",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        }
+    ]
+}

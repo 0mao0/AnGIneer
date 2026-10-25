@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        47
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        11,
+        12,
+        37,
+        38,
+        39,
+        43,
+        46
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>696 140 733 276<|content|>Washington, D. ... January 2013\n<|id|>2<|page|>1<|box|>821 223 875 689<|content|>U. ... DEPARTMENT OF COMMERCE National Oceanic and...ronmental Satellite, Data, and Information Service\n<|id|>3<|page|>2<|box|>217 169 324 816<|content|>The National Environmental Satellite, Data, and In...supplies, and the development of natural resources\n<|id|>7<|page|>3<|box|>318 133 344 738<|content|>Part 9. ... Climate of the Contiguous United States\n<|id|>8<|page|>3<|box|>361 132 435 831<|content|>Kenneth E. ... Stevens, and Liqiang Sun Cooperativ...National Climatic Data Center (NCDC) Asheville, NC\n<|id|>9<|page|>3<|box|>450 133 508 483<|content|>Emily Janssen and Donald Wuebbles University of Illinois at Urbana-Champaign Champaign, IL\n<|id|>10<|page|>3<|box|>542 133 598 573<|content|>National Environmental Modeling and Analysis Cente...rsity of North Carolina at Asheville Asheville, NC\n<|id|>45<|page|>11<|box|>819 98 909 893<|content|>Statistical downscaling achieves higher-resolution...he simulations of the future to obtain local high-\n<|id|>46<|page|>12<|box|>80 99 205 888<|content|>resolution projections. ... 2011)\n<|id|>136<|page|>37<|box|>452 129 505 866<|content|>a) Simulations of the 20<sup>th</sup> century usin... output, volcanic aerosol concentrations); ... and\n<|id|>138<|page|>37<|box|>573 99 784 893<|content|>North American Regional Climate Change Assessment ...ere only 8 of the model combinations were analyzed\n<|id|>139<|page|>37<|box|>789 127 914 885<|content|>Each GCM-RCM combination performed simulations for...pendent state of the atmosphere using a model that\n<|id|>140<|page|>38<|box|>80 127 135 893<|content|>incorporates observations; ... From this 1979-2004...he interval of 1980-2000 was selected for analysis\n<|id|>144<|page|>38<|box|>549 98 830 895<|content|>As noted above, three different intervals are used...nce period for the historical climatology. ... For\n<|id|>145<|page|>39<|box|>80 99 118 874<|content|>consistency then, the differences between future a...2000 subset of the 1971-2000 GCM-driven simulation\n<|id|>163<|page|>43<|box|>638 98 799 892<|content|>The distribution of simulated changes in annual me... shown in Table 4. ... 0 ^ { \\circ } \\mathrm { F }\n<|id|>165<|page|>46<|box|>363 98 452 885<|content|>This table also illustrates the overall uncertaint...del differences and emission pathway uncertainties",
+    "raw_response": "<|src_id|>45<|tgt_id|>46\n<|src_id|>139<|tgt_id|>140\n<|src_id|>144<|tgt_id|>145",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 145
+        }
+    ]
+}

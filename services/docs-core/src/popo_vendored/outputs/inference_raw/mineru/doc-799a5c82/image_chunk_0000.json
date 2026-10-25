@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 151 125 844<|content|>STONEFIELD LOGISTICS GROUP INC. 4200 Commerce Park\n<|id|>7<|type|>title<|page|>1<|box|>359 140 377 364<|content|>I. Introduction and Purpose\n<|id|>12<|type|>title<|page|>1<|box|>779 142 796 374<|content|>II. Description of the Insured\n<|id|>22<|type|>title<|page|>2<|box|>337 140 354 271<|content|>Senior Officers:\n<|id|>36<|type|>title<|page|>2<|box|>681 142 699 367<|content|>III. Description of the Claim\n<|id|>37<|type|>title<|page|>2<|box|>713 142 729 372<|content|>A. The Underlying Litigation\n<|id|>42<|type|>title<|page|>3<|box|>228 140 244 480<|content|>B. The Transportation Services Agreement\n<|id|>54<|type|>title<|page|>4<|box|>90 140 107 447<|content|>C. Stonefield's Termination of the TSA\n<|id|>68<|type|>title<|page|>5<|box|>90 140 107 377<|content|>D. Vantor's Pre-Suit Demand\n<|id|>76<|type|>title<|page|>5<|box|>507 142 523 465<|content|>E. Vantor's Claims and Alleged Damages\n<|id|>79<|type|>table<|page|>5<|box|>671 143 904 852<|content|>None\n<|id|>80<|type|>table<|page|>6<|box|>89 143 152 852<|content|>None\n<|id|>82<|type|>title<|page|>6<|box|>364 140 380 442<|content|>F. Relevance to Directors and Officers\n<|id|>93<|type|>title<|page|>7<|box|>390 140 407 480<|content|>IV. Tender of Defense and Indemnification\n<|id|>104<|type|>title<|page|>8<|box|>366 140 383 526<|content|>V. Stonefield's Position and Anticipated Defenses\n<|id|>112<|type|>title<|page|>9<|box|>285 140 301 344<|content|>VI. Reservation of Rights\n<|id|>122<|type|>title<|page|>10<|box|>90 140 107 415<|content|>VII. Request for Prompt Response\n<|id|>131<|type|>title<|page|>10<|box|>510 142 527 339<|content|>VIII. Enclosed Materials\n<|id|>139<|type|>title<|page|>10<|box|>811 142 828 236<|content|>IX. Closing",
+    "raw_response": "<|src_id|>79<|tgt_id|>76\n<|src_id|>80<|tgt_id|>76",
+    "parsed": [
+        {
+            "src_id": 79,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 76
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        48
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        13,
+        16,
+        17,
+        24,
+        28,
+        29,
+        30,
+        31,
+        36,
+        41,
+        47,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>320 204 363 795<|content|>道路工程制图标准\n<|id|>3<|page|>1<|box|>375 196 407 803<|content|>Drawing standards of road engineering\n<|id|>9<|page|>2<|box|>164 267 192 656<|content|>中华人民共和国国家标准\n<|id|>11<|page|>2<|box|>294 239 317 686<|content|>Drawing standards of road engineering\n<|id|>19<|page|>3<|box|>151 393 179 575<|content|>编制说明\n<|id|>25<|page|>4<|box|>148 255 211 702<|content|>关于发布国家标准《道路工程制图标准》的通知\n<|id|>31<|page|>5<|box|>151 406 181 547<|content|>目录\n<|id|>35<|page|>7<|box|>169 333 197 623<|content|>第一章 总 则\n<|id|>39<|page|>8<|box|>149 353 179 641<|content|>第二章 一般规定\n<|id|>40<|page|>8<|box|>211 373 234 623<|content|>第一节 图幅及图框\n<|id|>47<|page|>9<|box|>509 333 530 606<|content|>第二节 图标及会签栏\n<|id|>58<|page|>11<|box|>388 328 410 628<|content|>第三节 字体及书写方法\n<|id|>75<|page|>13<|box|>271 376 294 598<|content|>第四节 图线\n<|id|>88<|page|>16<|box|>144 378 167 603<|content|>第五节 坐标\n<|id|>96<|page|>17<|box|>345 376 368 598<|content|>第六节 比例\n<|id|>102<|page|>17<|box|>844 376 865 598<|content|>第七节 尺寸标注\n<|id|>142<|page|>24<|box|>104 404 126 623<|content|>第八节 视图\n<|id|>167<|page|>28<|box|>502 381 525 654<|content|>第九节 工程计量单位\n<|id|>174<|page|>29<|box|>684 376 708 595<|content|>第十节 图纸编排\n<|id|>178<|page|>30<|box|>151 353 179 641<|content|>第三章 道路制图\n<|id|>179<|page|>30<|box|>239 388 262 608<|content|>第一节 路线平面\n<|id|>198<|page|>31<|box|>687 363 710 608<|content|>第二节 路线纵断面\n<|id|>228<|page|>36<|box|>744 381 767 628<|content|>第三节 路线横断面\n<|id|>251<|page|>41<|box|>128 300 149 623<|content|>第四节 道路的平交与立交\n<|id|>273<|page|>47<|box|>178 262 206 742<|content|>第四章 桥涵、隧道等结构制图\n<|id|>281<|page|>48<|box|>467 338 490 638<|content|>第二节 钢筋混凝土结构",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>9<|level|>1\n<|id|>11<|level|>1\n<|id|>19<|level|>1\n<|id|>25<|level|>1\n<|id|>31<|level|>1\n<|id|>35<|level|>1\n<|id|>39<|level|>1\n<|id|>40<|level|>2\n<|id|>47<|level|>2\n<|id|>58<|level|>2\n<|id|>75<|level|>2\n<|id|>88<|level|>2\n<|id|>96<|level|>2\n<|id|>102<|level|>2\n<|id|>142<|level|>2\n<|id|>167<|level|>2\n<|id|>174<|level|>2\n<|id|>178<|level|>1\n<|id|>179<|level|>2\n<|id|>198<|level|>2\n<|id|>228<|level|>2\n<|id|>251<|level|>2\n<|id|>273<|level|>1\n<|id|>281<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 251,
+            "level": 2
+        },
+        {
+            "id": 273,
+            "level": 1
+        },
+        {
+            "id": 281,
+            "level": 2
+        }
+    ]
+}

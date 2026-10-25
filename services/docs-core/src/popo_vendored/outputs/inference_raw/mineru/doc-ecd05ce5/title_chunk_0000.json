@@ -1,0 +1,151 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 148 123 848<|content|>UNITED STATES DISTRICT COURT EASTERN DISTRICT OF V\n<|id|>2<|page|>1<|box|>364 155 419 841<|content|>MEMORANDUM OF LAW IN SUPPORT OF DEFENDANTS' MOTION\n<|id|>7<|page|>1<|box|>619 398 636 598<|content|>TABLE OF CONTENTS\n<|id|>9<|page|>1<|box|>670 385 686 612<|content|>TABLE OF AUTHORITIES\n<|id|>13<|page|>2<|box|>549 143 566 339<|content|>Statutes and Regulations\n<|id|>15<|page|>2<|box|>702 143 718 321<|content|>Secondary Authorities\n<|id|>17<|page|>3<|box|>90 336 109 660<|content|>PRELIMINARY STATEMENT\n<|id|>26<|page|>4<|box|>296 362 316 633<|content|>STATEMENT OF FACTS\n<|id|>28<|page|>4<|box|>430 142 448 261<|content|>A. The Parties\n<|id|>29<|page|>4<|box|>460 140 479 838<|content|>1. Defendants Northgate Telecommunications PLC and\n<|id|>34<|page|>5<|box|>213 140 229 488<|content|>2. Plaintiff Ridgepoint Communications Inc.\n<|id|>39<|page|>5<|box|>684 140 700 450<|content|>B. Northgate's Wholesale Access Policy\n<|id|>44<|page|>6<|box|>366 140 383 668<|content|>C. The Prior Master Interconnection Agreement and\n<|id|>49<|page|>7<|box|>90 140 107 589<|content|>D. Ridgepoint's Interconnection and Colocation Req\n<|id|>66<|page|>7<|box|>603 140 621 354<|content|>E. Ridgepoint's Complaint\n<|id|>72<|page|>8<|box|>253 388 272 609<|content|>LEGAL STANDARD\n<|id|>78<|page|>9<|box|>89 426 111 571<|content|>ARGUMENT\n<|id|>79<|page|>9<|box|>135 140 172 848<|content|>I. RIDGEPOINT FAILS TO STATE A REFUSAL-TO-DEAL CLA\n<|id|>80<|page|>9<|box|>185 140 203 841<|content|>A. The Legal Framework for Refusal-to-Deal Claims\n<|id|>89<|page|>10<|box|>492 140 508 821<|content|>B. There Was No Prior Voluntary Course of Dealing\n<|id|>98<|page|>11<|box|>755 140 773 740<|content|>C. Northgate's Wholesale Access Policy Is a Legiti\n<|id|>111<|page|>14<|box|>89 140 125 830<|content|>II. THE COMPLAINT DEFINES THE RELEVANT MARKET IN A\n<|id|>112<|page|>14<|box|>138 140 157 661<|content|>A. The Legal Standard for Market Definition at the\n<|id|>115<|page|>14<|box|>476 140 493 637<|content|>B. The Proposed Product Market Excludes Obvious Su\n<|id|>124<|page|>15<|box|>773 140 791 566<|content|>C. The Proposed Geographic Market Is Also Deficien\n<|id|>129<|page|>16<|box|>556 140 574 736<|content|>D. Without a Plausible Relevant Market, the Monopo\n<|id|>135<|page|>17<|box|>210 140 248 803<|content|>III. REGULATORY ALTERNATIVES FURTHER UNDERMINE RID\n<|id|>142<|page|>18<|box|>239 140 277 838<|content|>IV. RIDGEPOINT'S DAMAGES ALLEGATIONS ARE SPECULATI\n<|id|>148<|page|>19<|box|>90 416 109 580<|content|>CONCLUSION\n<|id|>165<|page|>19<|box|>844 375 861 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>9<|level|>2\n<|id|>13<|level|>3\n<|id|>15<|level|>3\n<|id|>17<|level|>2\n<|id|>26<|level|>2\n<|id|>28<|level|>3\n<|id|>29<|level|>4\n<|id|>34<|level|>4\n<|id|>39<|level|>3\n<|id|>44<|level|>3\n<|id|>49<|level|>3\n<|id|>66<|level|>3\n<|id|>72<|level|>2\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>80<|level|>4\n<|id|>89<|level|>4\n<|id|>98<|level|>4\n<|id|>111<|level|>3\n<|id|>112<|level|>4\n<|id|>115<|level|>4\n<|id|>124<|level|>4\n<|id|>129<|level|>4\n<|id|>135<|level|>3\n<|id|>142<|level|>3\n<|id|>148<|level|>2\n<|id|>165<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 4
+        },
+        {
+            "id": 34,
+            "level": 4
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 4
+        },
+        {
+            "id": 98,
+            "level": 4
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 4
+        },
+        {
+            "id": 115,
+            "level": 4
+        },
+        {
+            "id": 124,
+            "level": 4
+        },
+        {
+            "id": 129,
+            "level": 4
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        }
+    ]
+}

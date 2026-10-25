@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3<|type|>title<|page|>1<|box|>241 176 258 500<|content|>Via Electronic Mail and First-Class Mail\n<|id|>6<|type|>title<|page|>1<|box|>353 142 369 321<|content|>Dear Captain Hargrove:\n<|id|>10<|type|>title<|page|>1<|box|>691 142 707 697<|content|>I. Summary of the GAO Decision and Recommended Cor\n<|id|>22<|type|>title<|page|>2<|box|>833 140 849 607<|content|>II. Scope of Reevaluation — Factor 1 (Technical Ap\n<|id|>31<|type|>title<|page|>3<|box|>708 140 724 640<|content|>III. Scope of Reevaluation — Factor 3 (Management\n<|id|>41<|type|>title<|page|>4<|box|>593 140 609 611<|content|>IV. Requirements for the New Best-Value Tradeoff D\n<|id|>44<|type|>table<|page|>4<|box|>779 143 854 852<|content|>None\n<|id|>54<|type|>title<|page|>5<|box|>654 140 672 584<|content|>V. Factor 2 (Past Performance) — No Changes Expect\n<|id|>58<|type|>title<|page|>6<|box|>167 140 185 683<|content|>VI. Process Expectations — Discussions and Final P\n<|id|>65<|type|>title<|page|>6<|box|>638 140 655 485<|content|>VII. Timeline and 60-Day Recommendation\n<|id|>70<|type|>title<|page|>7<|box|>229 140 247 339<|content|>VIII. Protest Cost Claim\n<|id|>72<|type|>table<|page|>7<|box|>316 143 407 852<|content|>None\n<|id|>75<|type|>title<|page|>7<|box|>601 142 617 344<|content|>IX. Reservation of Rights\n<|id|>83<|type|>title<|page|>8<|box|>256 140 273 258<|content|>X. Conclusion",
+    "raw_response": "<|src_id|>44<|tgt_id|>41\n<|src_id|>72<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 70
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        7,
+        118
+    ],
+    "pages": [
+        7,
+        8,
+        13,
+        21,
+        28,
+        29,
+        38,
+        44,
+        117
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>7<|box|>970 309 991 631<|content|>OFFICE OF THE SECRETARY\n<|id|>7<|page|>8<|box|>449 207 532 836<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents, U. ... Single copy price varies\n<|id|>38<|page|>13<|box|>865 28 928 508<|content|>Source: ... 1/ Includes investments in non-Federal securities\n<|id|>39<|page|>13<|box|>923 30 934 346<|content|>1/ Includes investments in non-Federal securities. ... 2/ For content see Table 3\n<|id|>41<|page|>13<|box|>941 52 952 345<|content|>For content beginning January 1968 see Table 3. ... For content beginning January 1968 see Table 3\n<|id|>44<|page|>13<|box|>968 51 980 472<|content|>Represents non-interest bearing public debt securities issued to the\n<|id|>45<|page|>13<|box|>871 549 938 991<|content|>International Monetary Fund and international lend...ents. ... Data for prior years are being developed\n<|id|>64<|page|>21<|box|>112 421 123 573<|content|>(In millions of dollars)\n<|id|>66<|page|>21<|box|>463 20 532 471<|content|>Source: ... (This data is on the basis of Reports on Obligations\n<|id|>67<|page|>21<|box|>499 544 530 897<|content|>Gross obligations incurred (as above). ... 154,861\n<|id|>68<|page|>21<|box|>530 517 542 658<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>87<|page|>28<|box|>106 412 117 565<|content|>(In millions of dollars)\n<|id|>90<|page|>29<|box|>493 13 536 483<|content|>1/ Includes \\$50 million of Panama Canal bonds for fiscal years 1959-60. ... dollars\n<|id|>119<|page|>38<|box|>187 8 198 436<|content|>2/ For 13-week and 26-week issues, tenders for \\$200,000 or less from\n<|id|>125<|page|>38<|box|>269 23 279 199<|content|>Except \\$850,000 at 97. ... 300\n<|id|>132<|page|>38<|box|>175 500 185 940<|content|>15/ Except \\$100,000 at 98. ... 810,\n<|id|>133<|page|>38<|box|>185 502 194 797<|content|>\\$100,000 at 98. ... 808\n<|id|>172<|page|>44<|box|>601 22 650 495<|content|>17/ Subscriptions from States, political subdivisi...serve banks, totaling \\$943 million for the 5-5/8%\n<|id|>187<|page|>44<|box|>735 514 746 618<|content|>p Preliminary. ... p Preliminary\n<|id|>381<|page|>117<|box|>99 364 113 609<|content|>(In millions of dollars - face amounts)",
+    "raw_response": "<|src_id|>44<|tgt_id|>45\n<|src_id|>132<|tgt_id|>133",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        }
+    ]
+}

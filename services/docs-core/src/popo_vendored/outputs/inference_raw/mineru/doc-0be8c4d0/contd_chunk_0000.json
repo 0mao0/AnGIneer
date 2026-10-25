@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>10<|page|>1<|box|>486 176 502 622<|content|>850 New Burton Road, Suite 201, Dover, Delaware 19904\n<|id|>11<|page|>1<|box|>512 142 529 751<|content|>The name of the registered agent of the limited li...f the limited liability company at such address is\n<|id|>15<|page|>1<|box|>648 176 665 367<|content|>Name: ... Marcus Aldridge\n<|id|>16<|page|>1<|box|>667 140 718 854<|content|>Address: ... 590 Madison Avenue, 28th Floor, New Y...ficate of Formation as of the date set forth below\n<|id|>17<|page|>1<|box|>728 691 744 854<|content|>Dated: ... March 1, 2024\n<|id|>18<|page|>1<|box|>753 143 770 251<|content|>By: ... By\n<|id|>19<|page|>1<|box|>771 142 787 323<|content|>Name: ... Marcus Aldridge\n<|id|>20<|page|>1<|box|>787 143 803 326<|content|>Title: ... Authorized Person\n<|id|>25<|page|>1<|box|>916 142 930 467<|content|>Filed with the Delaware Secretary of State — March 1, 2024\n<|id|>27<|page|>2<|box|>179 140 210 852<|content|>This document has been filed with and accepted by ...mited Liability Company Act, 6 Del. ... Chapter 18",
+    "raw_response": "<|src_id|>18<|tgt_id|>19\n<|src_id|>19<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 143 133 655<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>7<|type|>title<|page|>1<|box|>358 142 375 232<|content|>1. Purpose\n<|id|>11<|type|>title<|page|>1<|box|>733 140 750 334<|content|>2. Production Summary\n<|id|>13<|type|>table<|page|>1<|box|>782 143 904 852<|content|>None\n<|id|>14<|type|>table<|page|>2<|box|>88 143 287 852<|content|>None\n<|id|>16<|type|>title<|page|>2<|box|>454 142 472 421<|content|>3. Cumulative Production Statistics\n<|id|>18<|type|>table<|page|>2<|box|>523 143 737 852<|content|>None\n<|id|>26<|type|>title<|page|>3<|box|>391 140 409 490<|content|>4. Description of Documents in Production 2\n<|id|>27<|type|>title<|page|>3<|box|>422 140 439 441<|content|>4.1 Categories of Documents Included\n<|id|>39<|type|>title<|page|>5<|box|>311 140 329 377<|content|>4.2 Date Range of Documents\n<|id|>45<|type|>title<|page|>5<|box|>781 140 797 542<|content|>5. Privilege Withholdings in This Production Batch\n<|id|>52<|type|>title<|page|>6<|box|>734 140 752 290<|content|>6. Quality Control\n<|id|>57<|type|>title<|page|>7<|box|>366 140 383 264<|content|>7. Issues Noted\n<|id|>63<|type|>title<|page|>8<|box|>258 140 277 408<|content|>8. Remaining Work and Timeline\n<|id|>73<|type|>title<|page|>9<|box|>148 140 167 326<|content|>9. Document Retention\n<|id|>77<|type|>title<|page|>9<|box|>488 142 503 271<|content|>10. Distribution",
+    "raw_response": "<|src_id|>13<|tgt_id|>11\n<|src_id|>14<|tgt_id|>11\n<|src_id|>18<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 16
+        }
+    ]
+}

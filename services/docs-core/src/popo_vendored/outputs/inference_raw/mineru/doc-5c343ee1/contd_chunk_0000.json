@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        19,
+        20,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>628 140 666 852<|content|>CALDERWOOD & HARKNESS LLP 333 South Grand Avenue, ...es, California 90071 Telephone: ... (213) 555-7401\n<|id|>5<|page|>1<|box|>674 176 710 852<|content|>Francesca Morano, Responsible Partner Samuel Eklun... Lead Associate Hannah Brinkley, Working Associate\n<|id|>6<|page|>1<|box|>719 140 736 483<|content|>Attorneys for Plaintiff Redstone Gaming Corp. ... Attorneys for Plaintiff Redstone Gaming Corp\n<|id|>10<|page|>1<|box|>862 140 898 854<|content|>This Confidential Mediation Brief is submitted on ...ssion scheduled for December 3–4, 2024, before the\n<|id|>11<|page|>2<|box|>89 140 162 854<|content|>Honorable Gerald K. ... RGC respectfully submits t... settlement objectives at issue in this litigation\n<|id|>32<|page|>4<|box|>816 140 891 857<|content|>2. ... Thus, Fenchurch exercises complete control over both\n<|id|>33<|page|>5<|box|>90 140 127 854<|content|>GPR (the research entity that published the defama...d profited from the resulting stock-price decline)\n<|id|>44<|page|>5<|box|>811 140 902 856<|content|>February 5, 2024 — Original Complaint Filed. ... a...r Business Practices under California Business and\n<|id|>45<|page|>6<|box|>90 140 126 854<|content|>Professions Code Section 17200. ... The complaint ...damages, injunctive relief, and equitable remedies\n<|id|>182<|page|>19<|box|>796 174 833 854<|content|>(c) That the RNG-manipulation allegation was dispr...usively cleared RGC of any irregularities; ... and\n<|id|>184<|page|>20<|box|>90 140 143 854<|content|>The corrective publication must remain posted on g...ble from the website's homepage or main navigation\n<|id|>215<|page|>22<|box|>733 651 750 854<|content|>Dated: ... November 27, 2024\n<|id|>216<|page|>22<|box|>758 140 777 320<|content|>Respectfully submitted,\n<|id|>218<|page|>22<|box|>811 140 896 854<|content|>CALDERWOOD & HARKNESS LLP By: ... (213) 555-7401\n<|id|>219<|page|>23<|box|>90 140 108 486<|content|>Attorneys for Plaintiff Redstone Gaming Corp. ... Attorneys for Plaintiff Redstone Gaming Corp\n<|id|>225<|page|>23<|box|>313 176 349 852<|content|>Hon. ... ) Westside Mediation Center 11601 Wilshire Boulevard, Suite 1200 Los Angeles, California 90025\n<|id|>226<|page|>23<|box|>357 140 393 852<|content|>Method of Service: ... Electronic mail transmissio...ddresses of record for the above- named recipients",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>32<|tgt_id|>33\n<|src_id|>44<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        }
+    ]
+}

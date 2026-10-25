@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 143 119 854<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>1<|type|>title<|page|>1<|box|>128 403 148 593<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>398 142 415 424<|content|>I. PURPOSE OF MEMORANDUM\n<|id|>14<|type|>title<|page|>2<|box|>167 140 184 442<|content|>II. BACKGROUND AND CONTEXT\n<|id|>16<|type|>title<|page|>2<|box|>347 140 364 550<|content|>The investigation arises from the following compla\n<|id|>23<|type|>title<|page|>3<|box|>266 140 282 493<|content|>III. DESCRIPTION OF THE SUBMISSION\n<|id|>28<|type|>title<|page|>3<|box|>838 140 854 741<|content|>IV. SUMMARY OF KEY ASSERTIONS IN THE POSITION STAT\n<|id|>30<|type|>title<|page|>4<|box|>157 140 175 424<|content|>A. General Denial of All Allegations\n<|id|>33<|type|>title<|page|>4<|box|>458 140 474 419<|content|>B. Response to Morales Allegations\n<|id|>41<|type|>title<|page|>5<|box|>619 140 638 388<|content|>C. Response to Ngo Allegations\n<|id|>47<|type|>title<|page|>6<|box|>311 140 329 519<|content|>D. Response to Whitfield Retaliation Allegations\n<|id|>51<|type|>title<|page|>6<|box|>747 140 763 540<|content|>E. General Character and Management Assertions\n<|id|>57<|type|>title<|page|>7<|box|>474 140 491 439<|content|>F. Legal Arguments and Reservations\n<|id|>63<|type|>title<|page|>8<|box|>358 140 375 473<|content|>V. OBSERVATIONS AND NEXT STEPS\n<|id|>73<|type|>title<|page|>10<|box|>148 142 166 455<|content|>VI. DOCUMENT FILING NOTATION\n<|id|>74<|type|>table<|page|>10<|box|>172 143 402 852<|content|>None\n<|id|>75<|type|>title<|page|>10<|box|>435 173 465 823<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV",
+    "raw_response": "<|src_id|>74<|tgt_id|>73",
+    "parsed": [
+        {
+            "src_id": 74,
+            "tgt_id": 73
+        }
+    ]
+}

@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 171 118 825<|content|>CONSENT AND AGREEMENT OF GENERAL CONTRACTOR\n<|id|>1<|page|>1<|box|>135 323 152 671<|content|>COBALT CONSTRUCTION GROUP, INC.\n<|id|>10<|page|>1<|box|>603 142 619 241<|content|>RECITALS\n<|id|>17<|page|>2<|box|>821 140 837 330<|content|>Section 1 — Definitions\n<|id|>33<|page|>3<|box|>742 140 758 504<|content|>Section 2 — Consent to Collateral Assignment\n<|id|>38<|page|>4<|box|>556 140 574 606<|content|>Section 3 — Representations and Warranties of Cont\n<|id|>51<|page|>6<|box|>612 140 628 437<|content|>Section 4 — Covenants of Contractor\n<|id|>52<|page|>6<|box|>638 140 655 648<|content|>Contractor hereby covenants and agrees with each L\n<|id|>66<|page|>9<|box|>821 140 838 697<|content|>Section 5 — Lender Remedies and Attornment Upon Bo\n<|id|>74<|page|>11<|box|>604 140 621 540<|content|>Section 6 — GMP; Retainage; Construction Funds\n<|id|>79<|page|>12<|box|>487 140 503 303<|content|>Section 7 — Notices\n<|id|>81<|page|>12<|box|>648 142 664 277<|content|>If to Contractor:\n<|id|>89<|page|>13<|box|>90 142 107 238<|content|>If to Agent:\n<|id|>96<|page|>13<|box|>315 143 330 334<|content|>If to Mezzanine Lender:\n<|id|>103<|page|>13<|box|>575 143 593 604<|content|>If to Mortgage Borrower (for informational purpose\n<|id|>109<|page|>13<|box|>800 176 816 504<|content|>Email: dfairchild@calderwoodharkness.com\n<|id|>112<|page|>14<|box|>90 142 107 354<|content|>Section 8 — Miscellaneous\n<|id|>129<|page|>16<|box|>593 142 608 284<|content|>CONTRACTOR:\n<|id|>151<|page|>17<|box|>184 142 200 377<|content|>MORTGAGE BORROWER:\n<|id|>159<|page|>17<|box|>344 140 361 431<|content|>NOTARY ACKNOWLEDGMENTS\n<|id|>160<|page|>17<|box|>369 140 387 589<|content|>STATE OF NEW YORK COUNTY OF NEW YORK ss.:\n<|id|>166<|page|>17<|box|>744 140 762 589<|content|>STATE OF NEW YORK COUNTY OF NEW YORK ss.:\n<|id|>172<|page|>19<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>173<|page|>19<|box|>114 267 133 730<|content|>SCHEDULE OF CHANGE ORDERS (As of June 15, 2025)\n<|id|>176<|page|>19<|box|>329 140 345 535<|content|>None as of the date hereof. GMP: $412,000,000.00.\n<|id|>178<|page|>20<|box|>89 352 133 643<|content|>EXHIBIT B FORM OF ASSUMPTION NOTICE\n<|id|>180<|page|>20<|box|>167 143 185 197<|content|>[Date]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>51<|level|>2\n<|id|>52<|level|>-1\n<|id|>66<|level|>2\n<|id|>74<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>3\n<|id|>89<|level|>3\n<|id|>96<|level|>3\n<|id|>103<|level|>3\n<|id|>109<|level|>-1\n<|id|>112<|level|>2\n<|id|>129<|level|>-1\n<|id|>151<|level|>-1\n<|id|>159<|level|>2\n<|id|>160<|level|>3\n<|id|>166<|level|>3\n<|id|>172<|level|>2\n<|id|>173<|level|>3\n<|id|>176<|level|>-1\n<|id|>178<|level|>2\n<|id|>180<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 2
+        }
+    ]
+}

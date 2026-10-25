@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        51,
+        57
+    ],
+    "pages": [
+        52,
+        56,
+        57
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>750<|page|>52<|box|>724 147 742 651<|content|>• Reporting Institution: ... Belmont Ridge Bank National Association\n<|id|>757<|page|>52<|box|>902 140 930 831<|content|>Calderwood & Harkness LLP | C&H Matter No. ... 0 (Draft)\n<|id|>751<|page|>52<|box|>744 147 761 362<|content|>• OCC Charter No. ... 48271\n<|id|>752<|page|>52<|box|>763 147 782 535<|content|>• Reporting Period: ... July 1, [year] – June 30, [year]\n<|id|>753<|page|>52<|box|>784 147 800 687<|content|>• Contact Person: ... Thomas Ikeda, BSA Officer / AML Program Director\n<|id|>754<|page|>52<|box|>803 147 857 854<|content|>• Schedule of blocked Property: ... identity of bl...value of property, interest accrued, OFAC program]\n<|id|>755<|page|>52<|box|>859 147 877 611<|content|>• Total Value of blocked Property Held: ... [aggregate amount]\n<|id|>756<|page|>52<|box|>878 145 897 496<|content|>• Total Interest Accrued: ... [aggregate amount]\n<|id|>774<|page|>56<|box|>775 140 930 856<|content|>NovaPay transmits transaction data to BRB via a real-time API integration (current: ... 0 (Draft)\n<|id|>775<|page|>57<|box|>90 140 143 854<|content|>secure file transfer protocol (SFTP) on a daily ba...ission Street, Suite 1200, San Francisco, CA 94105",
+    "raw_response": "<|src_id|>774<|tgt_id|>775",
+    "parsed": [
+        {
+            "src_id": 774,
+            "tgt_id": 775
+        }
+    ]
+}

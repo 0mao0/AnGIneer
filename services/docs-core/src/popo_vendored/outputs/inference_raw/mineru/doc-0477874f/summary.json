@@ -1,0 +1,469 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2wwoi5jw\\input\\pdfs\\doc-0477874f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2wwoi5jw\\enriched\\doc-0477874f.json",
+    "contd_output": "<|src_id|>16<|tgt_id|>17\n<|src_id|>299<|tgt_id|>300",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>3\n<|id|>12<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>27<|level|>3\n<|id|>38<|level|>3\n<|id|>40<|level|>4\n<|id|>48<|level|>4\n<|id|>52<|level|>4\n<|id|>54<|level|>4\n<|id|>58<|level|>2\n<|id|>59<|level|>3\n<|id|>76<|level|>3\n<|id|>85<|level|>3\n<|id|>92<|level|>3\n<|id|>102<|level|>3\n<|id|>107<|level|>3\n<|id|>112<|level|>2\n<|id|>113<|level|>3\n<|id|>124<|level|>3\n<|id|>135<|level|>3\n<|id|>144<|level|>3\n<|id|>149<|level|>3\n<|id|>157<|level|>2\n<|id|>158<|level|>3\n<|id|>160<|level|>4\n<|id|>164<|level|>4\n<|id|>168<|level|>4\n<|id|>171<|level|>3\n<|id|>172<|level|>4\n<|id|>176<|level|>5\n<|id|>180<|level|>5\n<|id|>184<|level|>5\n<|id|>189<|level|>4\n<|id|>193<|level|>5\n<|id|>197<|level|>5\n<|id|>202<|level|>5\n<|id|>207<|level|>4\n<|id|>210<|level|>5\n<|id|>214<|level|>5\n<|id|>221<|level|>5\n<|id|>226<|level|>4\n<|id|>230<|level|>5\n<|id|>234<|level|>5\n<|id|>238<|level|>5\n<|id|>243<|level|>4\n<|id|>249<|level|>5\n<|id|>253<|level|>5\n<|id|>257<|level|>5\n<|id|>262<|level|>3\n<|id|>267<|level|>2\n<|id|>268<|level|>3\n<|id|>278<|level|>3\n<|id|>287<|level|>3\n<|id|>295<|level|>2\n<|id|>296<|level|>3\n<|id|>303<|level|>3\n<|id|>307<|level|>3\n<|id|>314<|level|>2\n<|id|>315<|level|>3\n<|id|>323<|level|>3\n<|id|>337<|level|>3\n<|id|>344<|level|>2\n<|id|>345<|level|>3\n<|id|>350<|level|>3\n<|id|>357<|level|>3\n<|id|>363<|level|>2\n<|id|>365<|level|>2\n<|id|>369<|level|>2\n<|id|>371<|level|>3\n<|id|>378<|level|>3\n<|id|>384<|level|>2\n<|id|>387<|level|>2\n<|id|>389<|level|>3\n<|id|>416<|level|>3\n<|id|>426<|level|>3\n<|id|>429<|level|>3",
+    "image_output": "<|src_id|>4<|tgt_id|>2\n<|src_id|>7<|tgt_id|>6\n<|src_id|>9<|tgt_id|>8\n<|src_id|>169<|tgt_id|>168\n<|src_id|>264<|tgt_id|>262\n<|src_id|>265<|tgt_id|>262\n<|src_id|>364<|tgt_id|>363\n<|src_id|>366<|tgt_id|>365\n<|src_id|>367<|tgt_id|>365\n<|src_id|>385<|tgt_id|>384\n<|src_id|>386<|tgt_id|>384",
+    "contd_label": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 299,
+            "tgt_id": 300
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 52,
+            "level": 4
+        },
+        {
+            "id": 54,
+            "level": 4
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 4
+        },
+        {
+            "id": 164,
+            "level": 4
+        },
+        {
+            "id": 168,
+            "level": 4
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 4
+        },
+        {
+            "id": 176,
+            "level": 5
+        },
+        {
+            "id": 180,
+            "level": 5
+        },
+        {
+            "id": 184,
+            "level": 5
+        },
+        {
+            "id": 189,
+            "level": 4
+        },
+        {
+            "id": 193,
+            "level": 5
+        },
+        {
+            "id": 197,
+            "level": 5
+        },
+        {
+            "id": 202,
+            "level": 5
+        },
+        {
+            "id": 207,
+            "level": 4
+        },
+        {
+            "id": 210,
+            "level": 5
+        },
+        {
+            "id": 214,
+            "level": 5
+        },
+        {
+            "id": 221,
+            "level": 5
+        },
+        {
+            "id": 226,
+            "level": 4
+        },
+        {
+            "id": 230,
+            "level": 5
+        },
+        {
+            "id": 234,
+            "level": 5
+        },
+        {
+            "id": 238,
+            "level": 5
+        },
+        {
+            "id": 243,
+            "level": 4
+        },
+        {
+            "id": 249,
+            "level": 5
+        },
+        {
+            "id": 253,
+            "level": 5
+        },
+        {
+            "id": 257,
+            "level": 5
+        },
+        {
+            "id": 262,
+            "level": 3
+        },
+        {
+            "id": 267,
+            "level": 2
+        },
+        {
+            "id": 268,
+            "level": 3
+        },
+        {
+            "id": 278,
+            "level": 3
+        },
+        {
+            "id": 287,
+            "level": 3
+        },
+        {
+            "id": 295,
+            "level": 2
+        },
+        {
+            "id": 296,
+            "level": 3
+        },
+        {
+            "id": 303,
+            "level": 3
+        },
+        {
+            "id": 307,
+            "level": 3
+        },
+        {
+            "id": 314,
+            "level": 2
+        },
+        {
+            "id": 315,
+            "level": 3
+        },
+        {
+            "id": 323,
+            "level": 3
+        },
+        {
+            "id": 337,
+            "level": 3
+        },
+        {
+            "id": 344,
+            "level": 2
+        },
+        {
+            "id": 345,
+            "level": 3
+        },
+        {
+            "id": 350,
+            "level": 3
+        },
+        {
+            "id": 357,
+            "level": 3
+        },
+        {
+            "id": 363,
+            "level": 2
+        },
+        {
+            "id": 365,
+            "level": 2
+        },
+        {
+            "id": 369,
+            "level": 2
+        },
+        {
+            "id": 371,
+            "level": 3
+        },
+        {
+            "id": 378,
+            "level": 3
+        },
+        {
+            "id": 384,
+            "level": 2
+        },
+        {
+            "id": 387,
+            "level": 2
+        },
+        {
+            "id": 389,
+            "level": 3
+        },
+        {
+            "id": 416,
+            "level": 3
+        },
+        {
+            "id": 426,
+            "level": 3
+        },
+        {
+            "id": 429,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 264,
+            "tgt_id": 262
+        },
+        {
+            "src_id": 265,
+            "tgt_id": 262
+        },
+        {
+            "src_id": 364,
+            "tgt_id": 363
+        },
+        {
+            "src_id": 366,
+            "tgt_id": 365
+        },
+        {
+            "src_id": 367,
+            "tgt_id": 365
+        },
+        {
+            "src_id": 385,
+            "tgt_id": 384
+        },
+        {
+            "src_id": 386,
+            "tgt_id": 384
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 264,
+            "table2_idx": 265,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "Algorithm",
+                    "Probable",
+                    "Significan",
+                    "High",
+                    "Vendor",
+                    "Probable",
+                    "Significan",
+                    "High"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "mic bias and discrimination",
+                    "",
+                    "t",
+                    "",
+                    "testing, diverse datasets, bias audits",
+                    "",
+                    "t",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 366,
+            "table2_idx": 367,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "Data security — centralised biometric database (immutable data; cyberattack)",
+                    "Possible",
+                    "Severe",
+                    "High",
+                    "AES-256 encryption; role-based access controls; on-premises storage; penetration",
+                    "Possible",
+                    "Severe",
+                    "High",
+                    "CISO"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "target;irreversible harm if breached)",
+                    "",
+                    "",
+                    "",
+                    "testing;network segmentation",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 385,
+            "table2_idx": 386,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "Philippa Crane",
+                    "Head of People & HR, NTP",
+                    "29 May 2023",
+                    "Video conference",
+                    "Reported staff representatives and Penrose"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Corporation had expressed significant discomfort with FRT. Noted risk to employee trust and morale. Recommended full consideration of employee relations impact. Advised that deployment could undermine post-enforcement rebuilding of trust."
+                ]
+            ]
+        }
+    ]
+}

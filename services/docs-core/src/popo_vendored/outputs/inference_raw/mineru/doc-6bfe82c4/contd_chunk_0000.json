@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 145 852<|content|>300 South Fourth Street, Suite 2800 Las Vegas, NV 89101 Telephone: ... com\n<|id|>2<|page|>1<|box|>154 723 170 854<|content|>October 31, 2022\n<|id|>4<|page|>1<|box|>205 140 241 854<|content|>Thomas Kierkegaard, Esq. ... 4250 South Decatur Boulevard, Suite 1100 Las Vegas, NV 89103\n<|id|>5<|page|>1<|box|>250 174 285 854<|content|>Re: ... 1033-00001\n<|id|>6<|page|>1<|box|>294 142 311 313<|content|>Dear Mr. ... Kierkegaard\n<|id|>42<|page|>5<|box|>90 174 108 625<|content|>(f) Long-distance telephone and conference call charges; ... and\n<|id|>44<|page|>5<|box|>160 140 215 854<|content|>Expenses in excess of Five Thousand Dollars ($5,000. ... Fong\n<|id|>61<|page|>6<|box|>575 174 612 854<|content|>(f) Harmon & Grayling CPAs, LLP — RGC's independen...c accounting firm and independent auditor; ... and\n<|id|>63<|page|>6<|box|>664 140 719 854<|content|>RGC is requested to promptly advise the Firm of an...rm may supplement its conflicts check as necessary\n<|id|>66<|page|>6<|box|>830 140 886 854<|content|>The Firm has conducted a conflicts check based on ...d any conflict of interest that would preclude the\n<|id|>67<|page|>7<|box|>90 140 127 854<|content|>Firm's representation of RGC in this matter under ... other applicable rules governing attorney conduct\n<|id|>76<|page|>7<|box|>851 174 888 857<|content|>(iii) As required by applicable law, regulation, c...otective order or other appropriate remedy; ... or\n<|id|>78<|page|>8<|box|>214 140 252 854<|content|>The Firm's obligations under this Section 8 shall ...s of the reason for such termination or conclusion\n<|id|>102<|page|>10<|box|>497 142 512 313<|content|>Name: ... Claudia Merritt\n<|id|>103<|page|>10<|box|>513 143 529 246<|content|>Title: ... Partner\n<|id|>104<|page|>10<|box|>531 142 547 318<|content|>Date: ... October 31, 2022\n<|id|>110<|page|>10<|box|>707 142 723 315<|content|>Title: ... General Counsel\n<|id|>111<|page|>10<|box|>724 143 739 267<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>66<|tgt_id|>67",
+    "parsed": [
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        }
+    ]
+}

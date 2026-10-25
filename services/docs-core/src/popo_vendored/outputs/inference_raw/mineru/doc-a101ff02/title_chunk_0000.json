@@ -1,0 +1,124 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 218 143 777<|content|>COMMONWEALTH OF MASSACHUSETTS SUPERIOR COURT DEPAR\n<|id|>2<|page|>1<|box|>378 143 433 852<|content|>PLAINTIFF PENTERRA PHARMACEUTICALS CORP.'S RESPONS\n<|id|>3<|page|>1<|box|>476 354 493 643<|content|>Served Pursuant to Mass. R. Civ. P. 34\n<|id|>7<|page|>2<|box|>89 140 106 655<|content|>PRELIMINARY STATEMENT AND GENERAL OBJECTIONS\n<|id|>16<|page|>3<|box|>839 140 854 452<|content|>DEFINITIONS AND INSTRUCTIONS\n<|id|>25<|page|>4<|box|>532 140 549 663<|content|>RESPONSES AND OBJECTIONS TO INDIVIDUAL REQUESTS\n<|id|>26<|page|>4<|box|>563 140 579 285<|content|>REQUEST NO. 1\n<|id|>32<|page|>5<|box|>183 140 200 285<|content|>REQUEST NO. 2\n<|id|>41<|page|>6<|box|>246 140 263 285<|content|>REQUEST NO. 3\n<|id|>50<|page|>7<|box|>157 140 174 287<|content|>REQUEST NO. 4\n<|id|>58<|page|>8<|box|>89 140 107 285<|content|>REQUEST NO. 5\n<|id|>66<|page|>9<|box|>89 142 107 285<|content|>REQUEST NO. 6\n<|id|>78<|page|>10<|box|>89 140 106 285<|content|>REQUEST NO. 7\n<|id|>87<|page|>11<|box|>138 140 156 285<|content|>REQUEST NO. 8\n<|id|>95<|page|>11<|box|>768 142 787 285<|content|>REQUEST NO. 9\n<|id|>103<|page|>12<|box|>608 140 626 295<|content|>REQUEST NO. 10\n<|id|>111<|page|>13<|box|>473 140 489 295<|content|>REQUEST NO. 11\n<|id|>122<|page|>14<|box|>500 142 516 295<|content|>REQUEST NO. 12\n<|id|>129<|page|>15<|box|>212 140 229 295<|content|>REQUEST NO. 13\n<|id|>136<|page|>15<|box|>780 140 797 295<|content|>REQUEST NO. 14\n<|id|>144<|page|>16<|box|>582 140 599 370<|content|>PRIVILEGE LOG NOTICE\n<|id|>152<|page|>17<|box|>454 140 470 485<|content|>DOCUMENT PRODUCTION SUMMARY\n<|id|>158<|page|>18<|box|>148 140 166 385<|content|>RESERVATION OF RIGHTS\n<|id|>170<|page|>18<|box|>729 140 747 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>-1\n<|id|>7<|level|>1\n<|id|>16<|level|>1\n<|id|>25<|level|>1\n<|id|>26<|level|>2\n<|id|>32<|level|>2\n<|id|>41<|level|>2\n<|id|>50<|level|>2\n<|id|>58<|level|>2\n<|id|>66<|level|>2\n<|id|>78<|level|>2\n<|id|>87<|level|>2\n<|id|>95<|level|>2\n<|id|>103<|level|>2\n<|id|>111<|level|>2\n<|id|>122<|level|>2\n<|id|>129<|level|>2\n<|id|>136<|level|>2\n<|id|>144<|level|>1\n<|id|>152<|level|>1\n<|id|>158<|level|>1\n<|id|>170<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 1
+        }
+    ]
+}

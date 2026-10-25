@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nmojpeow\\input\\pdfs\\doc-02e77993.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nmojpeow\\enriched\\doc-02e77993.json",
+    "contd_output": "<|src_id|>13<|tgt_id|>14",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>8<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>26<|level|>2\n<|id|>41<|level|>1\n<|id|>50<|level|>1\n<|id|>51<|level|>2\n<|id|>62<|level|>2\n<|id|>75<|level|>2\n<|id|>92<|level|>2\n<|id|>109<|level|>1\n<|id|>110<|level|>2\n<|id|>115<|level|>2\n<|id|>122<|level|>2\n<|id|>130<|level|>2\n<|id|>148<|level|>1\n<|id|>149<|level|>2\n<|id|>156<|level|>2\n<|id|>163<|level|>2\n<|id|>170<|level|>2\n<|id|>178<|level|>1\n<|id|>179<|level|>2\n<|id|>183<|level|>2\n<|id|>188<|level|>2\n<|id|>194<|level|>1\n<|id|>196<|level|>2\n<|id|>206<|level|>2\n<|id|>213<|level|>2\n<|id|>219<|level|>2\n<|id|>230<|level|>2\n<|id|>232<|level|>3\n<|id|>236<|level|>3\n<|id|>240<|level|>3\n<|id|>244<|level|>3\n<|id|>248<|level|>1",
+    "image_output": "<|src_id|>181<|tgt_id|>179\n<|src_id|>182<|tgt_id|>179\n<|src_id|>185<|tgt_id|>183",
+    "contd_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 1
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 236,
+            "level": 3
+        },
+        {
+            "id": 240,
+            "level": 3
+        },
+        {
+            "id": 244,
+            "level": 3
+        },
+        {
+            "id": 248,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 181,
+            "tgt_id": 179
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 179
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 183
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 181,
+            "table2_idx": 182,
+            "upper_row_ss": [
+                [
+                    "Issue 2",
+                    "Carried interest holding period reclassification",
+                    "$38,700,000",
+                    "§ 1061"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Issue 3",
+                    "Organizational/syndication cost reclassification",
+                    "$680,000",
+                    "§§ 709, 195"
+                ]
+            ]
+        }
+    ]
+}

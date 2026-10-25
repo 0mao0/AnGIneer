@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>186 424 204 573<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>444 140 460 321<|content|>I. Executive Summary\n<|id|>13<|page|>2<|box|>167 140 185 297<|content|>II. Scope of Review\n<|id|>26<|page|>3<|box|>186 140 204 274<|content|>III. Background\n<|id|>27<|page|>3<|box|>217 140 234 281<|content|>A. The Company\n<|id|>31<|page|>3<|box|>579 140 595 370<|content|>B. The Activist and Its Stake\n<|id|>39<|page|>4<|box|>436 140 453 282<|content|>C. The Nominees\n<|id|>44<|page|>5<|box|>138 140 156 325<|content|>D. Procedural Context\n<|id|>49<|page|>5<|box|>611 140 628 624<|content|>IV. Advance Notice Bylaw Requirements — Detailed A\n<|id|>51<|page|>5<|box|>704 140 722 326<|content|>A. Timeliness of Notice\n<|id|>64<|page|>7<|box|>157 140 175 418<|content|>B. Delivery Method and Addressee\n<|id|>69<|page|>7<|box|>625 140 642 573<|content|>C. Nominating Shareholder Information Requirements\n<|id|>85<|page|>9<|box|>342 140 359 450<|content|>D. Nominee Information Requirements\n<|id|>120<|page|>12<|box|>90 140 108 578<|content|>E. Supplemental Information and Updating Obligatio\n<|id|>125<|page|>12<|box|>622 140 638 513<|content|>V. Additional Substantive Bylaw Requirements\n<|id|>126<|page|>12<|box|>652 142 669 334<|content|>A. Number of Nominees\n<|id|>129<|page|>13<|box|>90 140 107 374<|content|>B. Forum Selection Provision\n<|id|>132<|page|>13<|box|>426 140 444 452<|content|>C. Majority Voting vs. Plurality Voting\n<|id|>138<|page|>14<|box|>90 140 107 545<|content|>VI. Independence and Qualification Considerations\n<|id|>140<|page|>14<|box|>220 140 238 674<|content|>A. Vanessa Loring — Independence Under NYSE Listin\n<|id|>147<|page|>14<|box|>696 140 713 468<|content|>B. Malcolm Trask and Dr. Raymond Chu\n<|id|>150<|page|>15<|box|>258 140 277 416<|content|>VII. Delaware Law Considerations\n<|id|>151<|page|>15<|box|>290 142 306 320<|content|>A. DGCL Framework\n<|id|>156<|page|>15<|box|>806 140 824 635<|content|>B. Risk Assessment — Challenging Corvus Peak's Nom\n<|id|>164<|page|>16<|box|>737 140 753 334<|content|>VIII. Recommendations\n<|id|>172<|page|>18<|box|>90 142 107 264<|content|>IX. Conclusion",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>26<|level|>2\n<|id|>27<|level|>3\n<|id|>31<|level|>3\n<|id|>39<|level|>3\n<|id|>44<|level|>3\n<|id|>49<|level|>2\n<|id|>51<|level|>3\n<|id|>64<|level|>3\n<|id|>69<|level|>3\n<|id|>85<|level|>3\n<|id|>120<|level|>3\n<|id|>125<|level|>2\n<|id|>126<|level|>3\n<|id|>129<|level|>3\n<|id|>132<|level|>3\n<|id|>138<|level|>2\n<|id|>140<|level|>3\n<|id|>147<|level|>3\n<|id|>150<|level|>2\n<|id|>151<|level|>3\n<|id|>156<|level|>3\n<|id|>164<|level|>2\n<|id|>172<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        }
+    ]
+}

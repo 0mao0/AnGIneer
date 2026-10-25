@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 318 143 676<|content|>CAUSE NO. 342-2021-04871-TX IN THE 342ND JUDICIAL\n<|id|>2<|page|>1<|box|>398 344 415 653<|content|>PLAINTIFF'S ORIGINAL PETITION\n<|id|>3<|page|>1<|box|>458 140 474 557<|content|>TO THE HONORABLE JUDGE OF SAID COURT:\n<|id|>5<|page|>1<|box|>561 140 579 423<|content|>I. DISCOVERY CONTROL PLAN\n<|id|>7<|page|>1<|box|>647 140 664 251<|content|>II. PARTIES\n<|id|>10<|page|>2<|box|>89 142 106 421<|content|>III. JURISDICTION AND VENUE\n<|id|>15<|page|>2<|box|>349 142 367 401<|content|>IV. FACTUAL BACKGROUND\n<|id|>33<|page|>4<|box|>655 140 672 348<|content|>V. CAUSES OF ACTION\n<|id|>34<|page|>4<|box|>685 140 702 467<|content|>COUNT I — BREACH OF CONTRACT\n<|id|>38<|page|>5<|box|>90 143 107 431<|content|>18. Ridgeway breached the MTSA by:\n<|id|>44<|page|>5<|box|>409 140 425 517<|content|>COUNT II — MONEY HAD AND RECEIVED\n<|id|>48<|page|>5<|box|>648 140 665 470<|content|>COUNT III — COMMON-LAW FRAUD\n<|id|>57<|page|>6<|box|>603 140 619 465<|content|>COUNT IV — UNJUST ENRICHMENT\n<|id|>61<|page|>7<|box|>89 142 106 271<|content|>VI. DAMAGES\n<|id|>68<|page|>7<|box|>426 142 443 416<|content|>VII. CONDITIONS PRECEDENT\n<|id|>70<|page|>7<|box|>530 140 547 326<|content|>VIII. JURY DEMAND\n<|id|>72<|page|>7<|box|>614 142 632 253<|content|>IX. PRAYER",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>-1\n<|id|>5<|level|>2\n<|id|>7<|level|>2\n<|id|>10<|level|>2\n<|id|>15<|level|>2\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>38<|level|>-1\n<|id|>44<|level|>3\n<|id|>48<|level|>3\n<|id|>57<|level|>3\n<|id|>61<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        }
+    ]
+}

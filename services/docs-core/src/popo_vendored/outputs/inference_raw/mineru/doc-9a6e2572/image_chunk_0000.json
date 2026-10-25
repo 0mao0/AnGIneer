@@ -1,0 +1,50 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>127 272 170 723<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law OFAC R\n<|id|>7<|type|>title<|page|>1<|box|>327 385 347 611<|content|>I. Executive Summary\n<|id|>19<|type|>title<|page|>2<|box|>648 299 669 697<|content|>II. Background and Regulatory Context\n<|id|>20<|type|>title<|page|>2<|box|>694 140 712 656<|content|>A. OCC Consent Order Findings — OFAC Screening Def\n<|id|>26<|type|>title<|page|>3<|box|>667 140 684 549<|content|>B. OFAC Screening Statistics (Baseline — CY 2024)\n<|id|>34<|type|>title<|page|>4<|box|>428 140 445 437<|content|>C. Remediation Technology Platform\n<|id|>44<|type|>title<|page|>5<|box|>277 140 294 429<|content|>D. Key Deadlines Governing Testing\n<|id|>45<|type|>table<|page|>5<|box|>325 143 518 852<|content|>None\n<|id|>47<|type|>title<|page|>5<|box|>648 142 666 321<|content|>E. Responsible Parties\n<|id|>49<|type|>title<|page|>5<|box|>719 142 736 385<|content|>Calderwood & Harkness LLP:\n<|id|>53<|type|>title<|page|>6<|box|>90 140 107 478<|content|>Belmont Ridge Bank National Association:\n<|id|>58<|type|>title<|page|>6<|box|>323 142 340 424<|content|>Thornfield Consulting Group LLC:\n<|id|>62<|type|>title<|page|>6<|box|>523 395 544 602<|content|>III. Scope of Testing\n<|id|>63<|type|>title<|page|>6<|box|>570 142 587 385<|content|>A. Transaction Types in Scope\n<|id|>73<|type|>title<|page|>7<|box|>492 140 508 352<|content|>B. BaaS Partners in Scope\n<|id|>83<|type|>title<|page|>8<|box|>89 140 107 339<|content|>2. FairLend Digital LLC\n<|id|>90<|type|>title<|page|>8<|box|>270 140 287 282<|content|>3. VaultEdge Inc.\n<|id|>97<|type|>title<|page|>8<|box|>450 140 467 459<|content|>4. Remaining Eleven (11) BaaS Partners\n<|id|>99<|type|>title<|page|>8<|box|>608 140 625 383<|content|>C. OFAC Lists to Be Screened\n<|id|>107<|type|>title<|page|>9<|box|>242 140 258 393<|content|>D. Screening Processes in Scope\n<|id|>115<|type|>title<|page|>9<|box|>694 372 713 624<|content|>IV. Testing Methodology\n<|id|>116<|type|>title<|page|>9<|box|>739 140 755 627<|content|>A. Pre-Deployment Testing (Veridian TMS v.10.0 UAT\n<|id|>117<|type|>title<|page|>9<|box|>768 142 787 401<|content|>1. Unit Testing of OFAC Module\n<|id|>129<|type|>title<|page|>10<|box|>547 140 565 709<|content|>2. User Acceptance Testing (UAT) — Target Completi\n<|id|>148<|type|>title<|page|>12<|box|>90 140 199 854<|content|>Scenario F — OFAC List Update Propagation. A simul\n<|id|>162<|type|>title<|page|>12<|box|>633 140 650 455<|content|>3. Integration Testing per BaaS Partner\n<|id|>167<|type|>title<|page|>13<|box|>321 140 339 712<|content|>B. Go-Live Validation Testing (Post-Deployment, Au\n<|id|>168<|type|>title<|page|>13<|box|>353 142 369 370<|content|>1. Parallel Processing Period\n<|id|>175<|type|>title<|page|>13<|box|>737 140 753 460<|content|>2. 100% Coverage Confirmation Testing\n<|id|>184<|type|>title<|page|>14<|box|>569 140 585 426<|content|>3. Hit Disposition Workflow Testing\n<|id|>194<|type|>title<|page|>15<|box|>252 140 268 383<|content|>4. False Positive Rate Analysis\n<|id|>198<|type|>title<|page|>15<|box|>569 140 587 825<|content|>C. Ongoing Post-Implementation Monitoring Testing\n<|id|>199<|type|>title<|page|>15<|box|>599 140 618 522<|content|>1. Monthly Transaction Coverage Reconciliation\n<|id|>206<|type|>title<|page|>16<|box|>90 140 108 583<|content|>2. Quarterly Statistical Sampling and Deep-Dive Te\n<|id|>216<|type|>title<|page|>16<|box|>717 140 734 462<|content|>3. OFAC List Update Timeliness Testing\n<|id|>220<|type|>title<|page|>17<|box|>138 140 157 545<|content|>4. Retroactive Screening Testing (Post-List-Update\n<|id|>223<|type|>title<|page|>17<|box|>381 276 401 720<|content|>V. Sample Design and Statistical Parameters\n<|id|>224<|type|>title<|page|>17<|box|>426 142 443 370<|content|>A. Sample Size Methodology\n<|id|>235<|type|>title<|page|>18<|box|>292 140 310 375<|content|>B. Partner-Specific Sampling\n<|id|>241<|type|>title<|page|>18<|box|>686 254 708 740<|content|>VI. Acceptance Criteria and Pass/Fail Standards\n<|id|>242<|type|>title<|page|>18<|box|>732 140 750 488<|content|>A. Absolute Requirements (Non-Negotiable)\n<|id|>249<|type|>title<|page|>19<|box|>502 140 518 372<|content|>B. Performance Benchmarks\n<|id|>255<|type|>title<|page|>20<|box|>90 140 107 359<|content|>C. Deficiency Classification\n<|id|>271<|type|>title<|page|>20<|box|>693 344 712 651<|content|>VII. Roles and Responsibilities\n<|id|>272<|type|>title<|page|>20<|box|>738 143 753 277<|content|>A. BRB Internal\n<|id|>278<|type|>title<|page|>21<|box|>574 140 592 401<|content|>B. Calderwood & Harkness LLP\n<|id|>282<|type|>title<|page|>22<|box|>89 140 107 439<|content|>C. Thornfield Consulting Group LLC\n<|id|>286<|type|>title<|page|>22<|box|>446 140 464 349<|content|>D. Veridian Analytics Inc.\n<|id|>294<|type|>title<|page|>22<|box|>729 142 746 282<|content|>E. BaaS Partners\n<|id|>301<|type|>title<|page|>24<|box|>90 308 111 687<|content|>VIII. Testing Schedule and Milestones\n<|id|>302<|type|>table<|page|>24<|box|>171 143 704 852<|content|>None\n<|id|>303<|type|>title<|page|>24<|box|>739 142 757 557<|content|>Alignment with Consent Order Quarterly Reporting:\n<|id|>309<|type|>title<|page|>25<|box|>325 287 345 709<|content|>IX. Reporting Format and Documentation\n<|id|>310<|type|>title<|page|>25<|box|>371 142 388 325<|content|>A. Test Result Reports\n<|id|>320<|type|>title<|page|>26<|box|>90 140 107 361<|content|>B. Deficiency Tracking Log\n<|id|>334<|type|>title<|page|>26<|box|>569 140 587 614<|content|>C. Executive Summary Reporting to Compliance Commi\n<|id|>344<|type|>title<|page|>27<|box|>90 140 107 367<|content|>D. OCC Submission Format\n<|id|>348<|type|>title<|page|>27<|box|>335 140 353 330<|content|>E. Document Retention\n<|id|>351<|type|>title<|page|>27<|box|>561 359 580 635<|content|>X. Contingency Procedures\n<|id|>352<|type|>title<|page|>27<|box|>606 140 625 390<|content|>A. Technology Failure or Delay\n<|id|>358<|type|>title<|page|>28<|box|>303 140 321 287<|content|>B. Testing Failure\n<|id|>365<|type|>title<|page|>28<|box|>786 140 803 413<|content|>C. BaaS Partner Non-Cooperation\n<|id|>371<|type|>title<|page|>29<|box|>396 274 416 722<|content|>XI. Coordination with Related Workstreams\n<|id|>379<|type|>title<|page|>30<|box|>388 359 409 638<|content|>XII. Approval and Sign-Off",
+    "raw_response": "<|src_id|>45<|tgt_id|>44\n<|src_id|>302<|tgt_id|>301",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 302,
+            "tgt_id": 301
+        }
+    ]
+}

@@ -1,0 +1,121 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7s4b74l3\\input\\pdfs\\doc-9f4745b0.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7s4b74l3\\enriched\\doc-9f4745b0.json",
+    "contd_output": "<|src_id|>83<|tgt_id|>84",
+    "title_output": "<|id|>7<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>2\n<|id|>21<|level|>2\n<|id|>32<|level|>2\n<|id|>38<|level|>2\n<|id|>45<|level|>1\n<|id|>50<|level|>1\n<|id|>58<|level|>1\n<|id|>62<|level|>1\n<|id|>75<|level|>1\n<|id|>82<|level|>1\n<|id|>87<|level|>1\n<|id|>103<|level|>1\n<|id|>109<|level|>1\n<|id|>112<|level|>1\n<|id|>115<|level|>1\n<|id|>124<|level|>2",
+    "image_output": "<|src_id|>47<|tgt_id|>45\n<|src_id|>48<|tgt_id|>45\n<|src_id|>60<|tgt_id|>58",
+    "contd_label": [
+        {
+            "src_id": 83,
+            "tgt_id": 84
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 58
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 47,
+            "table2_idx": 48,
+            "upper_row_ss": [
+                [
+                    "Sponsor's Counsel",
+                    "Kellner Brandt & Associates LLP",
+                    "Patricia Voss (Lead Partner); 900 Third Avenue, New York, NY 10022"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Illinois-Organized Loan Party",
+                    "Nexford Manufacturing Services, LLC",
+                    "Illinois LLC; 1400 Industrial Parkway, Schaumburg, IL 60173"
+                ]
+            ]
+        }
+    ]
+}

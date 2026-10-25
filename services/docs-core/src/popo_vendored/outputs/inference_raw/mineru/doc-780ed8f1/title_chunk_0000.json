@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 287 118 710<|content|>VOTING AND SUPPORT AGREEMENT\n<|id|>21<|page|>2<|box|>508 140 526 390<|content|>SECTION 1 — DEFINITIONS\n<|id|>29<|page|>3<|box|>801 140 819 663<|content|>SECTION 2 — AGREEMENT TO VOTE; WRITTEN CONSENT\n<|id|>38<|page|>5<|box|>258 140 276 473<|content|>SECTION 3 — IRREVOCABLE PROXY\n<|id|>43<|page|>6<|box|>89 140 125 733<|content|>SECTION 4 — NO SOLICITATION; RESTRICTIONS ON COMPE\n<|id|>51<|page|>7<|box|>186 140 203 508<|content|>SECTION 5 — TRANSFER RESTRICTIONS\n<|id|>57<|page|>7<|box|>758 140 794 816<|content|>SECTION 6 — REPRESENTATIONS AND WARRANTIES OF THE\n<|id|>59<|page|>7<|box|>848 140 864 395<|content|>6.1 Organization and Authority.\n<|id|>70<|page|>9<|box|>801 140 819 808<|content|>SECTION 7 — REPRESENTATIONS AND WARRANTIES OF THE\n<|id|>75<|page|>10<|box|>402 140 419 504<|content|>SECTION 8 — ADDITIONAL COVENANTS\n<|id|>82<|page|>11<|box|>732 140 750 403<|content|>SECTION 9 — TERMINATION\n<|id|>89<|page|>12<|box|>512 140 529 437<|content|>SECTION 10 — MISCELLANEOUS\n<|id|>91<|page|>12<|box|>674 142 690 300<|content|>If to the Purchaser:\n<|id|>99<|page|>12<|box|>883 142 898 261<|content|>If to Crestline:\n<|id|>132<|page|>16<|box|>362 236 378 758<|content|>[Remainder of Page Intentionally Left Blank; Signa\n<|id|>133<|page|>16<|box|>387 228 404 767<|content|>SIGNATURE PAGES TO VOTING AND SUPPORT AGREEMENT\n<|id|>135<|page|>16<|box|>458 143 474 267<|content|>PURCHASER:\n<|id|>163<|page|>17<|box|>279 437 296 560<|content|>SCHEDULE A\n<|id|>164<|page|>17<|box|>304 254 323 741<|content|>SUPPORTING STOCKHOLDERS AND SUBJECT SHARES\n<|id|>167<|page|>18<|box|>125 142 138 308<|content|>Notes to Schedule A:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>21<|level|>2\n<|id|>29<|level|>2\n<|id|>38<|level|>2\n<|id|>43<|level|>2\n<|id|>51<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>3\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>82<|level|>2\n<|id|>89<|level|>2\n<|id|>91<|level|>3\n<|id|>99<|level|>3\n<|id|>132<|level|>-1\n<|id|>133<|level|>1\n<|id|>135<|level|>2\n<|id|>163<|level|>1\n<|id|>164<|level|>2\n<|id|>167<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 3
+        }
+    ]
+}

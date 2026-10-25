@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['NMA 1975a — Nuclear', 'Standard exclusion of all', 'Minor clarification:', 'Ensure earthquake-']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Incident Exclusion', 'losses arising from nuclear reaction, nuclear radiation, or radioactive contamination, whether accidental or intentional. Broad \"arising from\" language.', 'conventional physical damage from a natural catastrophe (e.g., earthquake ground motion damage) is not excluded solely because nuclear contamination also results from the same event, provided the conventional damage is separately quantifiable. Priority-of-exclusion provision for nuclear/terrorism overlap.', 'damage recovery is not precluded by nuclear contamination resulting from the same seismic event (Fukushima-type scenario). Resolve dual-exclusion overlap with LMA 3030 for nuclear terrorism scenarios.']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 193,
+    "table2_idx": 194
+}

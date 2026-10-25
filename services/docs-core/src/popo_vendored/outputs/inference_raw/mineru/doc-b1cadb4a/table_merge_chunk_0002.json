@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Ohio', '0.26% CAT (gross', 'N/A (gross receipts)', 'N/A (gross receipts)', 'N/A', 'N/A', 'None', 'Confirm current filing', 'Continue CAT filing; no']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'receipts >$1M)', 'tax)', 'tax)', '', '', '', 'status', 'income-based benefit from § 338(h)(10)']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 371,
+    "table2_idx": 372
+}

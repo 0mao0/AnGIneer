@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        7,
+        18
+    ],
+    "pages": [
+        7,
+        12,
+        14,
+        16,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>30<|type|>table<|page|>7<|box|>85 87 280 873<|content|>None\n<|id|>53<|type|>title<|page|>12<|box|>406 87 422 327<|content|>TOTAL ESCROW DEPO28900000\n<|id|>55<|type|>title<|page|>12<|box|>495 85 511 462<|content|>INDEMNIFICATION PARAMETERS (for reference):\n<|id|>65<|type|>table<|page|>14<|box|>85 85 211 878<|content|>None\n<|id|>74<|type|>title<|page|>16<|box|>192 87 208 194<|content|>MILESTONE 1\n<|id|>76<|type|>title<|page|>16<|box|>299 87 315 196<|content|>MILESTONE 2\n<|id|>81<|type|>title<|page|>18<|box|>193 87 208 213<|content|>USES OF FUNDS\n<|id|>83<|type|>title<|page|>18<|box|>353 87 369 319<|content|>SOURCES0 Balanced",
+    "raw_response": "<|src_id|>30<|tgt_id|>53\n<|src_id|>65<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 55
+        }
+    ]
+}

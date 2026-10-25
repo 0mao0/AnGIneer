@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Availability for Class Certification Hearing Testimony', 'Week of July 28, 2023', 'The class certification hearing is currently set for July 28, 2023,']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'before the Honorable Raymond Escobedo, Department 34, Los Angeles Superior Court. Dr. Lindstrom should hold the entire week of July 24–28, 2023 available, as the hearing may extend beyond a single day.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 123,
+    "table2_idx": 124
+}

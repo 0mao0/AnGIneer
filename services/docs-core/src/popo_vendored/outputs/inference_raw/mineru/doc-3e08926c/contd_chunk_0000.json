@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        40
+    ],
+    "pages": [
+        5,
+        6,
+        10,
+        11,
+        27,
+        40
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>50<|page|>5<|box|>859 140 897 854<|content|>Request: ... All documents relating to AMA's decis...a, emails, meeting notes, and communications among\n<|id|>51<|page|>6<|box|>90 140 126 854<|content|>AMA officers, directors, managers, and/or human re...ources personnel regarding Plaintiff's termination\n<|id|>113<|page|>10<|box|>832 140 887 857<|content|>3. ... 2(b)(vi) of the\n<|id|>114<|page|>11<|box|>90 174 127 854<|content|>Employment Agreement, including the policies gover...flicts of interest, and employee conduct standards\n<|id|>336<|page|>27<|box|>426 140 459 854<|content|>Devon Archer (SBN 301462) 777 South Flower Street,...es, California 90017 Telephone: ... (213) 555-7200\n<|id|>337<|page|>27<|box|>459 140 494 720<|content|>Attorneys for Defendant and Cross-Complainant Aurelius Media Americas Inc. ... EXHIBIT A\n<|id|>364<|page|>40<|box|>689 174 726 854<|content|>Cameron Whitfield, Esq. ... (310) 555-4100\n<|id|>365<|page|>40<|box|>733 176 751 671<|content|>Email: ... com\n<|id|>366<|page|>40<|box|>751 176 768 450<|content|>Attorneys for Plaintiff Gavin Aldrich\n<|id|>367<|page|>40<|box|>777 174 813 854<|content|>BY ELECTRONIC SERVICE: ... I caused such document ... addresses listed above via email on March 3, 2023",
+    "raw_response": "<|src_id|>50<|tgt_id|>51\n<|src_id|>113<|tgt_id|>114",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        }
+    ]
+}

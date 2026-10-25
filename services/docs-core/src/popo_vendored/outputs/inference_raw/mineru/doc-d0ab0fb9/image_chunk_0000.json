@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>123 145 195 852<|content|>None\n<|id|>1<|type|>title<|page|>1<|box|>229 161 300 834<|content|>DECLARATION OF PINNACLE CLAIMS ADMINISTRATION LLC\n<|id|>3<|type|>title<|page|>1<|box|>349 142 368 629<|content|>I. INTRODUCTION AND DECLARANT IDENTIFICATION\n<|id|>9<|type|>title<|page|>2<|box|>148 142 166 305<|content|>II. BACKGROUND\n<|id|>10<|type|>title<|page|>2<|box|>180 142 196 341<|content|>A. The Chapter 11 Cases\n<|id|>13<|type|>title<|page|>2<|box|>419 140 436 718<|content|>B. Retention of Pinnacle as Claims and Noticing Ag\n<|id|>16<|type|>title<|page|>2<|box|>694 140 712 547<|content|>C. The Prepackaged Plan and Disclosure Statement\n<|id|>20<|type|>title<|page|>3<|box|>268 142 285 351<|content|>D. Solicitation Procedures\n<|id|>28<|type|>title<|page|>4<|box|>89 140 107 754<|content|>III. CLASSIFICATION OF CLAIMS AND INTERESTS UNDER\n<|id|>30<|type|>title<|page|>4<|box|>184 140 200 401<|content|>Class 1 — Other Priority Claims\n<|id|>32<|type|>title<|page|>4<|box|>366 140 383 433<|content|>Class 2 — First Lien Secured Claims\n<|id|>35<|type|>title<|page|>4<|box|>751 140 768 450<|content|>Class 3 — Second Lien Secured Claims\n<|id|>38<|type|>title<|page|>5<|box|>324 140 340 437<|content|>Class 4 — General Unsecured Claims\n<|id|>41<|type|>title<|page|>5<|box|>561 140 579 400<|content|>Class 5 — Intercompany Claims\n<|id|>43<|type|>title<|page|>5<|box|>690 140 707 423<|content|>Class 6 — Existing Equity Interests\n<|id|>45<|type|>title<|page|>6<|box|>89 140 107 624<|content|>IV. TABULATION PROCEDURES AND METHODOLOGY\n<|id|>46<|type|>title<|page|>6<|box|>121 140 138 426<|content|>A. Receipt and Processing of Ballots\n<|id|>54<|type|>title<|page|>6<|box|>758 142 776 341<|content|>B. Ballot Counting Rules\n<|id|>61<|type|>title<|page|>7<|box|>566 140 584 580<|content|>C. Temporary Allowance of Claims for Voting Purpos\n<|id|>63<|type|>title<|page|>7<|box|>777 140 794 504<|content|>V. VOTING RESULTS — CERTIFICATION\n<|id|>64<|type|>title<|page|>7<|box|>808 142 825 328<|content|>A. Statutory Threshold\n<|id|>66<|type|>title<|page|>8<|box|>138 140 156 454<|content|>B. Class 2 — First Lien Secured Claims\n<|id|>67<|type|>table<|page|>8<|box|>180 143 253 852<|content|>None\n<|id|>71<|type|>title<|page|>8<|box|>484 140 501 473<|content|>C. Class 3 — Second Lien Secured Claims\n<|id|>72<|type|>table<|page|>8<|box|>527 143 599 852<|content|>None\n<|id|>76<|type|>title<|page|>9<|box|>90 140 106 460<|content|>D. Class 4 — General Unsecured Claims\n<|id|>77<|type|>table<|page|>9<|box|>132 143 204 852<|content|>None\n<|id|>81<|type|>title<|page|>9<|box|>464 140 479 617<|content|>VI. CONSOLIDATED SUMMARY OF VOTING RESULTS\n<|id|>82<|type|>table<|page|>9<|box|>527 143 707 852<|content|>None\n<|id|>86<|type|>title<|page|>10<|box|>148 140 166 586<|content|>VII. IRREGULARITIES AND DEFECTIVE BALLOTS\n<|id|>93<|type|>title<|page|>10<|box|>669 140 686 279<|content|>VIII. EXHIBITS\n<|id|>100<|type|>title<|page|>11<|box|>373 140 390 496<|content|>IX. CONCLUSION AND CERTIFICATION\n<|id|>111<|type|>title<|page|>13<|box|>89 140 107 524<|content|>X. SIGNATURE BLOCK AND ATTESTATION",
+    "raw_response": "<|src_id|>0<|tgt_id|>1\n<|src_id|>67<|tgt_id|>66\n<|src_id|>72<|tgt_id|>71\n<|src_id|>77<|tgt_id|>76\n<|src_id|>82<|tgt_id|>81",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 81
+        }
+    ]
+}

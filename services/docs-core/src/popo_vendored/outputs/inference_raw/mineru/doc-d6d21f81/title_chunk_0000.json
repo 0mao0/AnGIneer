@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 352 118 645<|content|>OFFICER'S CERTIFICATE\n<|id|>1<|page|>1<|box|>136 277 154 720<|content|>Representations and Warranties Bring-Down Certific\n<|id|>11<|page|>1<|box|>537 140 555 243<|content|>RECITALS\n<|id|>16<|page|>2<|box|>222 140 239 307<|content|>CERTIFICATIONS\n<|id|>18<|page|>2<|box|>279 140 297 683<|content|>Section 1. Representations and Warranties Bring-Do\n<|id|>21<|page|>2<|box|>708 140 724 511<|content|>Section 2. Covenants Compliance Certification.\n<|id|>23<|page|>3<|box|>138 140 156 442<|content|>Section 3. No Material Adverse Effect.\n<|id|>32<|page|>3<|box|>594 140 612 424<|content|>Section 4. Corporate Authorization.\n<|id|>37<|page|>4<|box|>275 140 292 467<|content|>Section 5. No Default or Event of Default.\n<|id|>45<|page|>5<|box|>220 140 238 437<|content|>Section 6. Litigation and Proceedings.\n<|id|>50<|page|>5<|box|>571 140 589 348<|content|>Section 7. Good Standing.\n<|id|>53<|page|>6<|box|>90 142 107 339<|content|>Section 8. Capitalization.\n<|id|>59<|page|>6<|box|>559 140 575 352<|content|>Section 9. Use of Proceeds.\n<|id|>61<|page|>6<|box|>815 140 832 511<|content|>Section 10. Officers' Knowledge and Authority.\n<|id|>62<|page|>6<|box|>838 142 854 535<|content|>Each of the undersigned officers hereby certifies\n<|id|>67<|page|>7<|box|>338 140 354 305<|content|>Section 11. Reliance.\n<|id|>71<|page|>7<|box|>584 282 601 712<|content|>SIGNATURE PAGE TO OFFICER'S CERTIFICATE\n<|id|>72<|page|>7<|box|>611 277 628 720<|content|>Representations and Warranties Bring-Down Certific\n<|id|>73<|page|>7<|box|>637 405 654 591<|content|>Skybridge Fintech Ltd.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>32<|level|>3\n<|id|>37<|level|>3\n<|id|>45<|level|>3\n<|id|>50<|level|>3\n<|id|>53<|level|>3\n<|id|>59<|level|>3\n<|id|>61<|level|>3\n<|id|>62<|level|>-1\n<|id|>67<|level|>3\n<|id|>71<|level|>2\n<|id|>72<|level|>3\n<|id|>73<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        12,
+        13,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 148 718<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED / ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>156 424 172 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>181 140 200 802<|content|>TO: ... Gregory Tanaka, Vice President, Legal & Compliance, Aurelius Media Americas Inc\n<|id|>4<|page|>1<|box|>208 140 224 310<|content|>FROM: ... Nadia Petrov\n<|id|>5<|page|>1<|box|>234 140 252 334<|content|>DATE: ... January 12, 2024\n<|id|>6<|page|>1<|box|>260 140 277 782<|content|>RE: ... Non-Wage Allocation\n<|id|>7<|page|>1<|box|>285 140 303 333<|content|>Matter No. ... 1017-00004\n<|id|>45<|page|>5<|box|>872 140 909 857<|content|>California State Disability Insurance (\"SDI\"). ... Because\n<|id|>46<|page|>6<|box|>90 140 164 854<|content|>Aldrich was terminated on October 14, 2022, and ha...DI is required on wages above the $153,164 ceiling\n<|id|>50<|page|>6<|box|>354 181 372 588<|content|>• box 1 (Wages, tips, other compensation): ... $1,057,500\n<|id|>58<|page|>6<|box|>547 140 640 854<|content|>The W-2 should be issued by Aurelius Media America...e withholding rates are applied as described above\n<|id|>51<|page|>6<|box|>375 181 409 854<|content|>• box 2 (Federal income tax withheld): ... B above)\n<|id|>52<|page|>6<|box|>412 181 430 656<|content|>• box 3 (Social Security wages): ... $168,600 (the 2024 wage base)\n<|id|>53<|page|>6<|box|>431 183 449 558<|content|>• box 4 (Social Security tax withheld): ... 20\n<|id|>54<|page|>6<|box|>452 183 468 532<|content|>• box 5 (Medicare wages and tips): ... $1,057,500\n<|id|>55<|page|>6<|box|>470 181 488 846<|content|>• box 6 (Medicare tax withheld): ... 25\n<|id|>56<|page|>6<|box|>491 183 526 852<|content|>• boxes 15–17 (State/employer's state ID/state wages, tips, etc. ... California wages and withholding\n<|id|>57<|page|>6<|box|>529 181 546 676<|content|>• box 18 and 19 (Local wages and local income tax): ... As applicable\n<|id|>107<|page|>12<|box|>859 140 896 857<|content|>Arm's-length negotiation. ... The allocation was n...) and Aldrich (represented by Cameron Whitfield of\n<|id|>108<|page|>13<|box|>90 140 255 857<|content|>Whitfield & Associates). ... The 45/55 split repre...nd neither party obtained its preferred allocation\n<|id|>154<|page|>17<|box|>731 140 763 852<|content|>Nadia Petrov Associate, Tax & Employment Practice ...es, California 90067 Telephone: ... (310) 555-4200\n<|id|>155<|page|>17<|box|>765 142 780 457<|content|>Email: ... com\n<|id|>156<|page|>17<|box|>780 140 795 745<|content|>cc: ... 1017-00004",
+    "raw_response": "<|src_id|>45<|tgt_id|>46\n<|src_id|>107<|tgt_id|>108",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 108
+        }
+    ]
+}

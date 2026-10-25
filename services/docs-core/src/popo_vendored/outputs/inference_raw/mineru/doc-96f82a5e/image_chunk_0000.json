@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 169 140 826<|content|>IN THE CIRCUIT COURT OF THE EIGHTEENTH JUDICIAL CI\n<|id|>2<|type|>table<|page|>1<|box|>166 143 320 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>354 151 407 844<|content|>DEFENDANT FAIRWATER REAL ESTATE INVESTMENT TRUST'S\n<|id|>5<|type|>title<|page|>1<|box|>549 140 566 310<|content|>I. INTRODUCTION\n<|id|>11<|type|>title<|page|>2<|box|>420 140 438 483<|content|>II. STATEMENT OF RELEVANT FACTS\n<|id|>12<|type|>title<|page|>2<|box|>452 140 469 357<|content|>A. The Underlying Dispute\n<|id|>22<|type|>title<|page|>3<|box|>756 140 772 558<|content|>B. Pinnacle Shores' Role and the Motion to Interve\n<|id|>29<|type|>title<|page|>4<|box|>599 140 636 813<|content|>III. LEGAL STANDARD FOR INTERVENTION AS OF RIGHT U\n<|id|>30<|type|>title<|page|>4<|box|>643 142 662 513<|content|>Florida Rule of Civil Procedure 1.230(a) provides:\n<|id|>40<|type|>title<|page|>5<|box|>564 142 582 285<|content|>IV. ARGUMENT\n<|id|>49<|type|>title<|page|>7<|box|>157 140 194 854<|content|>B. Ridgemark Adequately Represents Pinnacle Shores\n<|id|>63<|type|>title<|page|>8<|box|>757 140 773 707<|content|>C. Intervention Would Unduly Complicate and Delay\n<|id|>72<|type|>title<|page|>10<|box|>213 140 229 767<|content|>D. Alternatively, Permissive Intervention Under Ru\n<|id|>79<|type|>title<|page|>11<|box|>89 140 106 294<|content|>V. CONCLUSION\n<|id|>86<|type|>title<|page|>11<|box|>505 140 523 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>2<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 0
+        }
+    ]
+}

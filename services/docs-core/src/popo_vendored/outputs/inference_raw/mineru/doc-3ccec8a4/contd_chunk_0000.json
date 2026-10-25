@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        14,
+        15,
+        25,
+        26,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 140 196 854<|content|>TO: ... Sylvia Hartwell, Billing Partner, Tax — Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>204 140 239 854<|content|>FROM: ... Garrett Simmons, Working Associate, Tax — Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>248 140 265 310<|content|>DATE: ... June 16, 2025\n<|id|>5<|page|>1<|box|>273 140 310 854<|content|>RE: ... IRC § 367 Inapplicability to Partnership-t...cture LP Cross-Border Fund-Platform Reorganization\n<|id|>6<|page|>1<|box|>318 140 354 854<|content|>ENGAGEMENT: ... 20250527-SDILP-PLR — Solara Digital Infrastructure LP Private Letter Ruling Request\n<|id|>7<|page|>1<|box|>362 140 380 457<|content|>CLIENT: ... Solara Digital Infrastructure LP\n<|id|>8<|page|>1<|box|>388 142 404 408<|content|>Right-click to update Table of Contents\n<|id|>15<|page|>2<|box|>133 174 171 854<|content|>(3) Solara Digital Partners Fund V-A (Cayman) LP, ...pted limited partnership (EIN 98-7891234); ... and\n<|id|>17<|page|>2<|box|>223 140 333 854<|content|>The receiving entity is Solara Consolidated Master...sified as a partnership for U. ... 7701-3(b)(1)(i)\n<|id|>29<|page|>3<|box|>845 140 901 856<|content|>Fund IV-B Luxembourg. ... Its EIN is 98-\n<|id|>31<|page|>4<|box|>299 140 463 857<|content|>Fund V-A Cayman. ... federal income tax purposes u...n, and it has not elected corporate classification\n<|id|>36<|page|>4<|box|>864 140 902 854<|content|>The Consolidated Master Fund will file a Form 8832...g classification as a partnership for U. ... 7701-\n<|id|>37<|page|>5<|box|>90 140 200 854<|content|>3, effective as of the date of formation. ... The ...purposes of the PLR request and ongoing compliance\n<|id|>131<|page|>14<|box|>808 181 843 854<|content|>• Special rules for § 355 distributions involving foreign corporations (Treas. ... and\n<|id|>133<|page|>15<|box|>90 140 183 854<|content|>Without exception, these regulations address corpo...ctions, either by direct application or by analogy\n<|id|>232<|page|>25<|box|>859 140 896 857<|content|>Tax Memorandum — Luxembourg Tax Implications of SCSp Dissolution. ... (Marc\n<|id|>233<|page|>26<|box|>90 140 162 854<|content|>Gérard, Partner, Luxembourg Tax), coordinated with the U. ... law\n<|id|>244<|page|>26<|box|>864 140 900 857<|content|>Authorized Representatives. ... Leonard Cross (Res...horized representatives under Forms 2848 (Power of\n<|id|>245<|page|>27<|box|>90 138 181 857<|content|>Attorney and Declaration of Representative) for th...conference memorandum and follow-up correspondence",
+    "raw_response": "<|src_id|>36<|tgt_id|>37\n<|src_id|>232<|tgt_id|>233\n<|src_id|>244<|tgt_id|>245",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 233
+        },
+        {
+            "src_id": 244,
+            "tgt_id": 245
+        }
+    ]
+}

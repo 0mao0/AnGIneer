@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 292<|content|>【22715#8】中国基督教\n<|id|>2<|page|>1<|box|>260 105 275 302<|content|>【219620#6】基督堂教會\n<|id|>4<|page|>1<|box|>326 105 343 337<|content|>【1455057#38】阿拉伯基督徒\n<|id|>6<|page|>1<|box|>462 105 478 337<|content|>【1455057#28】阿拉伯基督徒\n<|id|>8<|page|>1<|box|>546 105 562 310<|content|>【6400664#0】各國基督教\n<|id|>10<|page|>1<|box|>613 107 629 337<|content|>【1455057#56】阿拉伯基督徒\n<|id|>12<|page|>1<|box|>714 107 730 337<|content|>【1455057#23】阿拉伯基督徒\n<|id|>14<|page|>1<|box|>815 107 829 267<|content|>【46911#78】基督教\n<|id|>16<|page|>1<|box|>881 107 898 310<|content|>【326051#11】阿拉伯世界\n<|id|>18<|page|>2<|box|>152 107 168 329<|content|>【5504996#8】摩洛哥基督教",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>1\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        }
+    ]
+}

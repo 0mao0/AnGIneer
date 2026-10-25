@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>9<|type|>title<|page|>1<|box|>409 142 425 339<|content|>I. Purpose of This Letter\n<|id|>13<|type|>title<|page|>1<|box|>782 142 800 478<|content|>II. Background and Transaction Summary\n<|id|>19<|type|>table<|page|>2<|box|>436 143 704 852<|content|>None\n<|id|>21<|type|>title<|page|>2<|box|>797 142 814 475<|content|>III. Description of the Commitment Letter\n<|id|>25<|type|>title<|page|>3<|box|>257 142 273 411<|content|>B. Key Terms of the Commitment\n<|id|>33<|type|>title<|page|>4<|box|>90 142 106 292<|content|>C. Use of Proceeds\n<|id|>35<|type|>table<|page|>4<|box|>174 143 383 852<|content|>None\n<|id|>38<|type|>title<|page|>4<|box|>604 140 619 544<|content|>D. Conditions Precedent in the Commitment Letter\n<|id|>52<|type|>title<|page|>6<|box|>138 140 157 346<|content|>E. Syndication Provisions\n<|id|>71<|type|>title<|page|>7<|box|>290 142 306 349<|content|>F. Market Flex Provisions\n<|id|>77<|type|>title<|page|>7<|box|>656 140 672 392<|content|>G. Exclusivity and Termination\n<|id|>79<|type|>title<|page|>7<|box|>848 142 864 398<|content|>IV. Description of the Fee Letter\n<|id|>84<|type|>title<|page|>8<|box|>246 142 263 287<|content|>B. Key Fee Terms\n<|id|>90<|type|>table<|page|>8<|box|>617 143 710 852<|content|>None\n<|id|>92<|type|>title<|page|>9<|box|>90 140 107 390<|content|>C. Confidentiality of Fee Letter\n<|id|>95<|type|>title<|page|>9<|box|>354 140 369 326<|content|>D. Payment Mechanics\n<|id|>97<|type|>title<|page|>9<|box|>527 140 544 537<|content|>V. Execution Mechanics and Procedural Guidance\n<|id|>98<|type|>title<|page|>9<|box|>559 140 575 455<|content|>A. Authorization and Signing Authority\n<|id|>102<|type|>title<|page|>10<|box|>90 140 107 491<|content|>B. Execution Process — Commitment Letter\n<|id|>109<|type|>title<|page|>10<|box|>468 140 484 418<|content|>C. Execution Process — Fee Letter\n<|id|>116<|type|>title<|page|>10<|box|>719 142 734 321<|content|>D. Document Delivery\n<|id|>124<|type|>title<|page|>11<|box|>268 140 285 500<|content|>VI. Key Considerations and Counsel's Advice\n<|id|>126<|type|>title<|page|>11<|box|>344 140 359 446<|content|>A. Binding Nature of the Commitment\n<|id|>134<|type|>title<|page|>11<|box|>809 142 825 455<|content|>B. Expense Reimbursement Obligations\n<|id|>137<|type|>title<|page|>12<|box|>257 140 273 380<|content|>C. Confidentiality Obligations\n<|id|>142<|type|>title<|page|>12<|box|>541 140 558 460<|content|>D. Coordination with Sponsor's Counsel\n<|id|>144<|type|>title<|page|>12<|box|>760 140 777 501<|content|>E. Stonebridge Advisory Group Coordination\n<|id|>147<|type|>title<|page|>13<|box|>212 140 229 516<|content|>VII. Immediate Next Steps Following Execution\n<|id|>148<|type|>table<|page|>13<|box|>280 143 502 852<|content|>None\n<|id|>151<|type|>title<|page|>13<|box|>713 142 729 277<|content|>VIII. Enclosures\n<|id|>158<|type|>title<|page|>14<|box|>167 140 184 377<|content|>IX. Request for Confirmation",
+    "raw_response": "<|src_id|>19<|tgt_id|>13\n<|src_id|>35<|tgt_id|>33\n<|src_id|>90<|tgt_id|>84\n<|src_id|>148<|tgt_id|>147",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 147
+        }
+    ]
+}

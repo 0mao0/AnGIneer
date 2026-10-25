@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>484 140 502 367<|content|>1. Introduction and Purpose\n<|id|>12<|page|>1<|box|>797 140 814 333<|content|>2. Scope of Engagement\n<|id|>31<|page|>3<|box|>710 140 729 313<|content|>3. Engagement Team\n<|id|>33<|page|>3<|box|>786 140 803 482<|content|>3.1 Elaine Forsythe — Responsible Partner\n<|id|>37<|page|>4<|box|>165 140 183 450<|content|>3.2 Howard Bellamy — Billing Partner\n<|id|>41<|page|>4<|box|>363 140 378 452<|content|>3.3 Garrett Simmons — Lead Associate\n<|id|>45<|page|>4<|box|>542 140 559 444<|content|>3.4 Leila Nazari — Working Associate\n<|id|>50<|page|>4<|box|>811 140 829 287<|content|>4. Client Contacts\n<|id|>57<|page|>5<|box|>498 140 515 338<|content|>5. Fees and Billing Rates\n<|id|>63<|page|>6<|box|>167 140 184 390<|content|>6. Disbursements and Expenses\n<|id|>73<|page|>6<|box|>580 140 598 379<|content|>7. Billing and Payment Terms\n<|id|>82<|page|>7<|box|>90 140 107 330<|content|>8. Matter Identification\n<|id|>84<|page|>7<|box|>160 176 176 581<|content|>Matter Number: 1011-00008 Client Number: 71982\n<|id|>86<|page|>7<|box|>263 140 280 516<|content|>9. Confidentiality and Attorney-Client Privilege\n<|id|>90<|page|>7<|box|>638 142 655 330<|content|>10. Conflicts of Interest\n<|id|>94<|page|>8<|box|>186 140 204 297<|content|>11. Governing Law\n<|id|>96<|page|>8<|box|>344 142 362 540<|content|>12. Limitation of Scope; No Guarantee of Outcome\n<|id|>100<|page|>8<|box|>700 142 719 393<|content|>13. Termination of Engagement\n<|id|>105<|page|>9<|box|>212 142 229 334<|content|>14. Document Retention\n<|id|>109<|page|>9<|box|>459 142 476 380<|content|>15. Acceptance and Execution\n<|id|>113<|page|>9<|box|>709 400 726 594<|content|>[Signature Page Follows]\n<|id|>114<|page|>9<|box|>734 163 768 833<|content|>SIGNATURE PAGE TO ENGAGEMENT LETTER Calderwood & H\n<|id|>115<|page|>9<|box|>779 142 795 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>122<|page|>10<|box|>89 140 106 473<|content|>MERIDIAN CONSUMER BRANDS LLC\n<|id|>127<|page|>10<|box|>205 140 224 207<|content|>Closing\n<|id|>131<|page|>10<|box|>419 176 436 480<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>132<|page|>10<|box|>446 142 463 238<|content|>Enclosures:",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>12<|level|>1\n<|id|>31<|level|>1\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>1\n<|id|>57<|level|>1\n<|id|>63<|level|>1\n<|id|>73<|level|>1\n<|id|>82<|level|>1\n<|id|>84<|level|>-1\n<|id|>86<|level|>1\n<|id|>90<|level|>1\n<|id|>94<|level|>1\n<|id|>96<|level|>1\n<|id|>100<|level|>1\n<|id|>105<|level|>1\n<|id|>109<|level|>1\n<|id|>113<|level|>-1\n<|id|>114<|level|>1\n<|id|>115<|level|>-1\n<|id|>122<|level|>-1\n<|id|>127<|level|>1\n<|id|>131<|level|>-1\n<|id|>132<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 1
+        }
+    ]
+}

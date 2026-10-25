@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        7
+    ],
+    "pages": [
+        2,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>22<|page|>2<|box|>559 112 579 341<|content|>Farmers Insurance Exchange\n<|id|>23<|page|>2<|box|>593 112 645 419<|content|>Jon Grabowski Personal Lines Contracts Development 818-965-0577\n<|id|>51<|page|>5<|box|>325 66 401 918<|content|>a. ... and\n<|id|>54<|page|>5<|box|>467 89 483 913<|content|>This is not additional insurance. ... All payments...ect to the applicable Coverage A or B stated limit\n<|id|>52<|page|>5<|box|>402 68 433 911<|content|>b. ... and\n<|id|>74<|page|>6<|box|>301 68 316 524<|content|>b. ... or\n<|id|>76<|page|>6<|box|>338 66 369 910<|content|>We do insure loss or damage that consists of, or i...ent or flood caused directly or indirectly by fire\n<|id|>99<|page|>7<|box|>410 68 426 254<|content|>94-3192 2nd Edition 8-24\n<|id|>100<|page|>7<|box|>411 339 429 859<|content|>This endorsement is part of your policy. ... All other policy terms and conditions apply",
+    "raw_response": "<|src_id|>99<|tgt_id|>100",
+    "parsed": [
+        {
+            "src_id": 99,
+            "tgt_id": 100
+        }
+    ]
+}

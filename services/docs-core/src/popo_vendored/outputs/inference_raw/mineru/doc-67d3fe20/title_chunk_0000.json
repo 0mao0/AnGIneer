@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>13<|page|>2<|box|>148 142 167 282<|content|>1. Scope of Work\n<|id|>19<|page|>3<|box|>90 140 107 493<|content|>2. Property Schedule (Schedule A Reference)\n<|id|>24<|page|>4<|box|>176 142 193 287<|content|>State Breakdown:\n<|id|>30<|page|>4<|box|>321 142 339 517<|content|>3. Survey Standard and Table A Optional Items\n<|id|>54<|page|>6<|box|>714 140 733 418<|content|>4. Title Commitment Coordination\n<|id|>60<|page|>7<|box|>612 140 628 310<|content|>5. Legal Descriptions\n<|id|>64<|page|>8<|box|>148 140 167 379<|content|>6. Certification Requirements\n<|id|>81<|page|>9<|box|>250 140 265 496<|content|>7. Deliverable Format and Number of Copies\n<|id|>97<|page|>11<|box|>90 140 107 307<|content|>8. Delivery Schedule\n<|id|>104<|page|>11<|box|>633 140 652 359<|content|>9. Access and Coordination\n<|id|>113<|page|>12<|box|>476 142 493 491<|content|>10. Special Instructions — Property-Specific\n<|id|>115<|page|>12<|box|>551 140 569 620<|content|>A. Logistics/Industrial Properties (Properties 1–8\n<|id|>123<|page|>13<|box|>157 140 175 439<|content|>B. Office Properties (Properties 9–12)\n<|id|>129<|page|>13<|box|>462 140 479 480<|content|>C. Flood Zone Information (All Properties)\n<|id|>136<|page|>13<|box|>719 142 737 369<|content|>D. Wetlands (All Properties)\n<|id|>138<|page|>14<|box|>90 142 107 292<|content|>11. Fee and Billing\n<|id|>146<|page|>14<|box|>487 143 503 413<|content|>12. Insurance and Indemnification\n<|id|>158<|page|>15<|box|>324 142 342 294<|content|>13. Confidentiality\n<|id|>163<|page|>15<|box|>781 140 797 383<|content|>14. Engagement Confirmation\n<|id|>168<|page|>16<|box|>339 142 354 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>180<|page|>16<|box|>643 437 660 560<|content|>SCHEDULE A\n<|id|>181<|page|>16<|box|>669 199 686 797<|content|>PROPERTY LIST — SUN BELT LOGISTICS AND OFFICE PORT\n<|id|>182<|page|>16<|box|>696 251 713 746<|content|>14 Properties — Approximately 5,224,000 Rentable s\n<|id|>183<|page|>16<|box|>720 165 738 830<|content|>Fairwater Real Estate Investment Trust / Greystone\n<|id|>184<|page|>16<|box|>752 143 768 403<|content|>Georgia Properties (4 Properties)",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>13<|level|>1\n<|id|>19<|level|>1\n<|id|>24<|level|>2\n<|id|>30<|level|>1\n<|id|>54<|level|>1\n<|id|>60<|level|>1\n<|id|>64<|level|>1\n<|id|>81<|level|>1\n<|id|>97<|level|>1\n<|id|>104<|level|>1\n<|id|>113<|level|>1\n<|id|>115<|level|>2\n<|id|>123<|level|>2\n<|id|>129<|level|>2\n<|id|>136<|level|>2\n<|id|>138<|level|>1\n<|id|>146<|level|>1\n<|id|>158<|level|>1\n<|id|>163<|level|>1\n<|id|>168<|level|>-1\n<|id|>180<|level|>1\n<|id|>181<|level|>2\n<|id|>182<|level|>3\n<|id|>183<|level|>4\n<|id|>184<|level|>5",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 180,
+            "level": 1
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 4
+        },
+        {
+            "id": 184,
+            "level": 5
+        }
+    ]
+}

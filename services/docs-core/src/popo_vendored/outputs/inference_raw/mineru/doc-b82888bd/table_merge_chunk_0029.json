@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 29,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['9.1.3', \"What are the vendor's incident response SLAs, differentiated by severity level?\", '', '', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '(Minimum expectations: Severity 1 (system down / critical function impaired): response within 15 minutes, resolution within 4 hours; Severity 2 (significant degradation): response within 1 hour, resolution within 8 hours; Severity 3 (moderate impact): response within 4 hours, resolution within 24 hours; Severity 4 (minor / cosmetic): response within 8 hours, resolution within 5 business days.)', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 208,
+    "table2_idx": 209
+}

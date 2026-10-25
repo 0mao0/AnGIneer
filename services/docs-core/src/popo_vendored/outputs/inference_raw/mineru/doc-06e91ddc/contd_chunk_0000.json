@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        22
+    ],
+    "pages": [
+        3,
+        4,
+        16,
+        17,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>26<|page|>3<|box|>838 174 893 854<|content|>Ridgecrest Minerals Inc. ... Ridgecrest is led by ... of Marlowe Asset Management Peak Capital Partners\n<|id|>27<|page|>4<|box|>90 174 199 854<|content|>LP, a Denver-based private equity fund. ... Ridgec... potentially based on evidence provided by Cascade\n<|id|>131<|page|>16<|box|>851 174 906 857<|content|>At least 9 of Chu's 12 identified pricing adjustme...these 9 instances, the VaultChat exchange preceded\n<|id|>132<|page|>17<|box|>90 174 143 854<|content|>Holt's instruction to Chu, consistent with the inf...ed Chu to implement the agreed-upon pricing at TMC\n<|id|>140<|page|>17<|box|>744 183 760 792<|content|>• \"Your account\" — designating a customer as belonging to a particular competitor\n<|id|>145<|page|>17<|box|>859 140 896 854<|content|>The Holt-Edgerton bilateral exchanges (7 of the 11...company would not compete for the assigned account\n<|id|>141<|page|>17<|box|>763 183 780 712<|content|>• \"Mine\" — claiming a customer as belonging to the speaker's company\n<|id|>142<|page|>17<|box|>782 183 799 733<|content|>• \"Stay away\" — directing a competitor not to pursue a designated account\n<|id|>143<|page|>17<|box|>803 183 819 849<|content|>• \"You take [customer name]\" — explicitly assigning a customer to a particular competitor\n<|id|>144<|page|>17<|box|>821 183 857 854<|content|>• \"We'll leave that one alone\" — acknowledging tha... company will not compete for a designated account\n<|id|>183<|page|>21<|box|>859 140 893 854<|content|>Cross-referencing the VaultChat exchange dates wit...uncil (\"NASMC\"), a trade association to which TMC,\n<|id|>184<|page|>22<|box|>90 140 181 854<|content|>Ridgecrest, and Pinnacle all belong, reveals a not...tober 10, 2022), which is currently in preparation",
+    "raw_response": "<|src_id|>26<|tgt_id|>27\n<|src_id|>131<|tgt_id|>132\n<|src_id|>183<|tgt_id|>184",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 184
+        }
+    ]
+}

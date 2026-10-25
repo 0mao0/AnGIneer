@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        7,
+        15
+    ],
+    "pages": [
+        7,
+        8,
+        10,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>60<|page|>7<|box|>869 174 906 856<|content|>(b) The Bank Secrecy Act (\"BSA\") (31 U. ... §§ 531...ted thereunder by the Financial Crimes Enforcement\n<|id|>61<|page|>8<|box|>90 174 127 854<|content|>Network (\"FinCEN\"), including regulations regardin...dentification programs, and customer due diligence\n<|id|>81<|page|>10<|box|>90 174 145 854<|content|>(c) Payment card data subject to the Payment Card ...d as PCI DSS compliant for such processing; ... or\n<|id|>83<|page|>10<|box|>196 140 251 854<|content|>Licensee shall immediately notify Licensor if Lice...rties shall cooperate to remove such data promptly\n<|id|>131<|page|>15<|box|>90 174 126 854<|content|>Tara Bellingham Vice President, Enterprise Sales S...Concord Pike, Suite 320 Wilmington, Delaware 19803\n<|id|>132<|page|>15<|box|>133 140 170 854<|content|>Either party may update its designated contact for...rdance with the notice provisions of the Agreement\n<|id|>140<|page|>15<|box|>563 142 579 362<|content|>Name: ... Priya Chandrasekaran\n<|id|>141<|page|>15<|box|>580 143 595 364<|content|>Title: ... Chief Executive Officer\n<|id|>142<|page|>15<|box|>598 143 613 264<|content|>Date: ... Date\n<|id|>145<|page|>15<|box|>648 142 664 331<|content|>Name: ... Gerald Brannigan\n<|id|>146<|page|>15<|box|>665 142 681 380<|content|>Title: ... Chief Information Officer\n<|id|>147<|page|>15<|box|>684 143 699 266<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>60<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        }
+    ]
+}

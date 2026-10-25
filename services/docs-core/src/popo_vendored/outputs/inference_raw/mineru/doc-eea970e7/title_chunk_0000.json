@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law One Lib\n<|id|>8<|page|>1<|box|>340 140 357 264<|content|>I. Introduction\n<|id|>12<|page|>2<|box|>90 140 107 442<|content|>II. Reference to Initial Comfort Letter\n<|id|>20<|page|>2<|box|>770 140 787 491<|content|>III. Request for Bring-Down Comfort Letter\n<|id|>28<|page|>3<|box|>279 140 296 594<|content|>IV. Scope and Content of the Bring-Down Comfort Le\n<|id|>30<|page|>3<|box|>354 140 371 475<|content|>A. Reaffirmation of Initial Comfort Letter\n<|id|>32<|page|>3<|box|>555 140 571 444<|content|>B. No Material Changes Confirmation\n<|id|>37<|page|>4<|box|>257 140 273 702<|content|>C. Updated Procedures — Financial Data in the Pros\n<|id|>43<|page|>5<|box|>90 140 106 272<|content|>D. Cut-Off Date\n<|id|>45<|page|>5<|box|>228 140 244 334<|content|>V. Delivery Instructions\n<|id|>53<|page|>5<|box|>705 140 723 436<|content|>VI. Over-Allotment Option Provision\n<|id|>55<|page|>6<|box|>148 140 167 410<|content|>VII. Cooperation of the Company\n<|id|>57<|page|>6<|box|>381 140 398 251<|content|>VIII. Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>20<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>3\n<|id|>32<|level|>3\n<|id|>37<|level|>3\n<|id|>43<|level|>3\n<|id|>45<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        }
+    ]
+}

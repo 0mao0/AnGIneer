@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3<|type|>title<|page|>1<|box|>234 284 268 712<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>4<|type|>table<|page|>1<|box|>268 143 625 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>684 393 704 602<|content|>I. INTRODUCTION\n<|id|>11<|type|>title<|page|>2<|box|>616 344 635 653<|content|>II. PROCEDURAL HISTORY\n<|id|>12<|type|>title<|page|>2<|box|>661 142 678 282<|content|>A. The Litigation\n<|id|>26<|type|>title<|page|>3<|box|>756 140 773 246<|content|>B. Discovery\n<|id|>41<|type|>title<|page|>4<|box|>763 140 781 303<|content|>C. Expert discovery\n<|id|>46<|type|>title<|page|>5<|box|>494 142 511 315<|content|>D. Class Certification\n<|id|>55<|type|>title<|page|>6<|box|>184 178 200 303<|content|>Denied Claims:\n<|id|>63<|type|>title<|page|>6<|box|>484 140 502 370<|content|>E. Mediation and Settlement\n<|id|>69<|type|>title<|page|>7<|box|>148 140 167 428<|content|>F. Preliminary Approval and Notice\n<|id|>76<|type|>title<|page|>7<|box|>753 236 772 759<|content|>III. LEGAL STANDARD FOR FINAL APPROVAL\n<|id|>82<|type|>title<|page|>8<|box|>579 408 598 588<|content|>IV. ARGUMENT\n<|id|>83<|type|>title<|page|>8<|box|>625 140 641 557<|content|>A. The Settlement Is Fair, Adequate, and Reasonabl\n<|id|>84<|type|>title<|page|>8<|box|>655 140 672 767<|content|>1. The Settlement Was the Product of Arm's-Length,\n<|id|>89<|type|>title<|page|>9<|box|>393 140 410 655<|content|>2. The Settlement Amount Is Within the Range of Re\n<|id|>95<|type|>table<|page|>9<|box|>854 143 893 852<|content|>None\n<|id|>97<|type|>table<|page|>10<|box|>88 143 183 852<|content|>None\n<|id|>100<|type|>title<|page|>10<|box|>457 140 474 687<|content|>3. The Settlement Reflects a Reasonable Assessment\n<|id|>114<|type|>title<|page|>12<|box|>239 140 256 777<|content|>4. The Stage of Proceedings and Extent of discover\n<|id|>123<|type|>title<|page|>13<|box|>90 140 107 602<|content|>5. The Views and Experience of Counsel Support App\n<|id|>129<|type|>title<|page|>13<|box|>679 140 696 544<|content|>B. The Settlement Treats Class Members Equitably\n<|id|>130<|type|>title<|page|>13<|box|>710 142 727 462<|content|>1. The Allocation Formula Is Reasonable\n<|id|>135<|type|>title<|page|>14<|box|>349 140 366 379<|content|>2. The Release Is Appropriate\n<|id|>147<|type|>title<|page|>15<|box|>90 140 107 643<|content|>C. The Notice Program Was Adequate and Satisfies D\n<|id|>154<|type|>title<|page|>15<|box|>726 140 743 596<|content|>D. The Class Response Confirms the Settlement's Fa\n<|id|>155<|type|>title<|page|>15<|box|>757 143 773 263<|content|>1. Claims Rate\n<|id|>171<|type|>title<|page|>18<|box|>90 140 107 529<|content|>E. The Attorneys' Fees and Costs Are Reasonable\n<|id|>172<|type|>title<|page|>18<|box|>121 140 138 531<|content|>1. Attorneys' Fees — $4,916,175 (33.33% of GSA)\n<|id|>182<|type|>title<|page|>19<|box|>90 140 107 385<|content|>2. Litigation Costs — $412,300\n<|id|>185<|type|>title<|page|>19<|box|>316 140 333 419<|content|>3. Service Awards — $35,000 Total\n<|id|>193<|type|>title<|page|>19<|box|>719 140 736 607<|content|>F. The Settlement Administration Was Properly Cond\n<|id|>202<|type|>title<|page|>20<|box|>450 140 467 464<|content|>G. The PAGA Component Is Reasonable\n<|id|>209<|type|>title<|page|>21<|box|>90 403 109 594<|content|>V. CONCLUSION",
+    "raw_response": "<|src_id|>4<|tgt_id|>3\n<|src_id|>95<|tgt_id|>89\n<|src_id|>97<|tgt_id|>89",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 89
+        }
+    ]
+}

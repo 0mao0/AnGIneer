@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        10,
+        11,
+        12,
+        13,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>243 728 260 854<|content|>August 22, 2023\n<|id|>4<|page|>1<|box|>268 140 305 854<|content|>FROM: ... Catherine Bloom, Partner, and Wendy Schu...00 Louisiana Street, Suite 3400, Houston, TX 77002\n<|id|>5<|page|>1<|box|>313 140 367 854<|content|>TO: ... Marcus Vail, CTO, Brightfield Cloud Services Inc\n<|id|>6<|page|>1<|box|>375 140 411 854<|content|>CC: ... Omar Siddiqui, Associate, Calderwood & Harkness LLP (Houston)\n<|id|>7<|page|>1<|box|>419 140 455 854<|content|>RE: ... Legal and Commercial Analysis of Field-of-...Sync Platform License from Nexilis Innovations Ltd\n<|id|>8<|page|>1<|box|>464 142 479 331<|content|>Matter No. ... 1042-00003\n<|id|>9<|page|>1<|box|>489 140 507 441<|content|>Billing Code: ... BCS-NEXILIS-LIC-2023\n<|id|>82<|page|>10<|box|>664 147 700 854<|content|>• Quality assurance and testing for two separate f...urden for DeltaSync-related functionality; ... and\n<|id|>84<|page|>10<|box|>739 140 814 854<|content|>Marcus Vail's engineering team has estimated that ...would be in addition to the $8,000,000 license fee\n<|id|>85<|page|>10<|box|>821 140 895 854<|content|>Beyond the direct engineering costs, a FOU-restric...mpromise Stratos's value proposition. ... Offering\n<|id|>86<|page|>11<|box|>90 140 164 856<|content|>DeltaSync-powered real-time cache coherence to onl...the competitive enterprise cloud management market\n<|id|>103<|page|>12<|box|>819 140 893 856<|content|>Third, Brightfield's PE sponsor, Vantage Summit Ca...prise value ahead of a potential exit event in the\n<|id|>104<|page|>13<|box|>90 140 183 854<|content|>2025–2026 timeframe. ... Hollister has communicate...OU is limited to financial services and healthcare\n<|id|>250<|page|>28<|box|>270 140 286 320<|content|>Respectfully submitted,\n<|id|>251<|page|>28<|box|>287 140 303 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>252<|page|>28<|box|>305 143 321 253<|content|>By: ... By\n<|id|>253<|page|>28<|box|>321 140 354 852<|content|>Catherine Bloom Partner, intellectual Property Cal...ite 3400 Houston, TX 77002 Tel: ... (713) 555-4200\n<|id|>254<|page|>28<|box|>354 142 372 455<|content|>Email: ... com\n<|id|>255<|page|>28<|box|>373 143 388 251<|content|>By: ... By\n<|id|>256<|page|>28<|box|>388 140 422 854<|content|>Wendy Schultz Senior Associate, intellectual Prope...ite 3400 Houston, TX 77002 Tel: ... (713) 555-4217\n<|id|>257<|page|>28<|box|>422 142 439 465<|content|>Email: ... com\n<|id|>258<|page|>28<|box|>439 140 469 852<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION — ATTORNEY WORK PRODUCT\n<|id|>259<|page|>28<|box|>477 140 537 854<|content|>This memorandum is protected by the attorney-clien...rior written approval of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>85<|tgt_id|>86\n<|src_id|>103<|tgt_id|>104",
+    "parsed": [
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 104
+        }
+    ]
+}

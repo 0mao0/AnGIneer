@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        14,
+        15,
+        16,
+        17,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>142 140 176 854<|content|>CALDERWOOD & HARKNESS LLP 600 Lexington Avenue, 28th Floor New York, New York 10022\n<|id|>3<|page|>1<|box|>186 140 203 370<|content|>Matter Number: ... 1038-00010\n<|id|>4<|page|>1<|box|>212 140 229 549<|content|>To: ... Kevin Ostrowski, Partner, Privacy & Data Security\n<|id|>5<|page|>1<|box|>238 140 253 601<|content|>From: ... Alan Burke, Senior Associate, Privacy & Data Security\n<|id|>6<|page|>1<|box|>263 142 279 313<|content|>Date: ... October 8, 2025\n<|id|>7<|page|>1<|box|>289 140 325 854<|content|>Re: ... — Negotiation Issues List and Redline Comm...terproposal to Restructured Data-Sharing Agreement\n<|id|>8<|page|>1<|box|>333 140 424 854<|content|>PRIVILEGE LEGEND: ... This memorandum reflects the...nt privilege, and applicable state-law equivalents\n<|id|>13<|page|>1<|box|>840 140 896 854<|content|>Following a comprehensive review of the KP&A count...&H position as set forth in the initial draft, the\n<|id|>14<|page|>2<|box|>90 140 145 854<|content|>Thornbridge/KP&A position as reflected in the coun...le \"red lines. ... \" The four principal issues are\n<|id|>41<|page|>4<|box|>848 145 902 857<|content|>• October 3, 2025: ... Sandoval identifying Thornbridge's primary concerns and stating\n<|id|>42<|page|>5<|box|>90 174 143 854<|content|>Thornbridge's position that several of C&H's propo...memorandum as Attachment A (not reproduced herein)\n<|id|>55<|page|>6<|box|>199 147 233 854<|content|>• Third-party data obtained by Thornbridge from da...gators, and other commercial data sources; ... and\n<|id|>57<|page|>6<|box|>255 140 345 854<|content|>The only safeguard imposed under KP&A's counterpro...ss-client advertising products without restriction\n<|id|>72<|page|>7<|box|>814 174 851 854<|content|>(iii) Combined datasets must be subject to the sam...able to Cascade consumer PI under the DSA; ... and\n<|id|>74<|page|>8<|box|>90 140 162 856<|content|>This carve-out is designed to address Thornbridge'...es or for the benefit of other Thornbridge clients\n<|id|>78<|page|>8<|box|>359 174 395 854<|content|>(c) Annual certification from Thornbridge's privac...ination and pseudonymization requirements; ... and\n<|id|>80<|page|>8<|box|>465 140 594 854<|content|>Red line (non-negotiable): ... This position shoul...ssions on a formulation that Cascade cannot accept\n<|id|>115<|page|>11<|box|>750 147 763 547<|content|>• Review of data-retention and deletion practices; ... and\n<|id|>117<|page|>11<|box|>787 140 897 856<|content|>Audit rights are required contractual provisions u...A strengthens Cascade's overall compliance posture\n<|id|>147<|page|>14<|box|>787 176 805 596<|content|>(a) Thornbridge's breach of any provision of the DSA; ... or\n<|id|>149<|page|>15<|box|>90 140 181 854<|content|>The indemnification obligation expressly covers re...ory fines, and consent-decree monetary obligations\n<|id|>165<|page|>16<|box|>864 140 901 856<|content|>Risk rating: ... The total exclusion of regulatory...aring the full financial impact of fines caused by\n<|id|>166<|page|>17<|box|>89 140 127 854<|content|>Thornbridge's non-compliance. ... A reasonable cap... set at a level commensurate with the risk profile\n<|id|>174<|page|>17<|box|>720 183 738 781<|content|>• Cascade's failure to respond to consumer rights requests directed to Cascade; ... or\n<|id|>176<|page|>17<|box|>760 140 869 857<|content|>For scenarios involving mixed fault — i. ... The p... dispute-resolution mechanism set forth in the DSA\n<|id|>193<|page|>19<|box|>568 140 625 854<|content|>KP&A's redline proposes Nevada law as the governin...y, Delaware law (Cascade's state of incorporation)\n<|id|>194<|page|>19<|box|>631 140 760 856<|content|>C&H recommends insisting on Delaware law. ... Dela... obligations across multiple governing-law regimes",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>41<|tgt_id|>42\n<|src_id|>165<|tgt_id|>166",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 166
+        }
+    ]
+}

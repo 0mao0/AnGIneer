@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['3', '交通参数检测相对误差', '符合设计要求,无要求时:车流量\\\\leqslant 10\\\\%,车速\\\\leqslant 15\\\\%', '实操检验,不少于50辆车']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['4', '有效检测范围', '符合设计要求,无要求时:停止事件≥300m;逆行事件≥200m;行人事件≥100m;抛撒物事件≥100m;机动车驶离事件≥200m', '白天现场模拟事件进行检验或播放标准事件源视频检验']]\n",
+    "raw_response": "[0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 173,
+    "table2_idx": 174
+}

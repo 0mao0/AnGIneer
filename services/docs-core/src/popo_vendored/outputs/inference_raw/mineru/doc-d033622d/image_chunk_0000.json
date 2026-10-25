@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3<|type|>title<|page|>1<|box|>222 140 258 854<|content|>VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED AND V\n<|id|>8<|type|>title<|page|>1<|box|>459 142 476 339<|content|>I. Purpose of This Letter\n<|id|>11<|type|>title<|page|>1<|box|>771 140 789 390<|content|>II. Identification of the Insured\n<|id|>18<|type|>title<|page|>2<|box|>296 142 313 397<|content|>III. Description of the Litigation\n<|id|>19<|type|>title<|page|>2<|box|>325 142 343 316<|content|>A. Case Identification\n<|id|>27<|type|>title<|page|>2<|box|>609 142 626 344<|content|>B. Identity of Defendants\n<|id|>33<|type|>title<|page|>3<|box|>275 140 292 418<|content|>C. Defense Counsel for Defendants\n<|id|>35<|type|>title<|page|>3<|box|>421 142 438 303<|content|>D. Nature of Claims\n<|id|>47<|type|>title<|page|>4<|box|>388 142 407 328<|content|>E. Factual Background\n<|id|>57<|type|>title<|page|>5<|box|>436 143 454 299<|content|>F. Damages Sought\n<|id|>59<|type|>table<|page|>5<|box|>503 143 732 852<|content|>None\n<|id|>62<|type|>title<|page|>6<|box|>223 140 239 433<|content|>IV. Identification of Outside Counsel\n<|id|>65<|type|>table<|page|>6<|box|>416 143 510 852<|content|>None\n<|id|>67<|type|>title<|page|>6<|box|>622 140 638 496<|content|>V. Anticipated Litigation Costs and Expenses\n<|id|>81<|type|>title<|page|>7<|box|>469 140 487 344<|content|>VI. Reservation of Rights\n<|id|>93<|type|>title<|page|>8<|box|>231 140 248 524<|content|>VII. Request for Acknowledgment and Response\n<|id|>100<|type|>title<|page|>8<|box|>584 140 602 625<|content|>VIII. Contact Information and Directions for Commu\n<|id|>109<|type|>title<|page|>9<|box|>90 142 107 236<|content|>IX. Closing\n<|id|>114<|type|>title<|page|>9<|box|>292 212 309 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>118<|type|>title<|page|>9<|box|>371 143 386 240<|content|>Enclosures:",
+    "raw_response": "<|src_id|>59<|tgt_id|>57\n<|src_id|>65<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 59,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 62
+        }
+    ]
+}

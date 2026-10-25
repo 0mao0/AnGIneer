@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        14,
+        15,
+        16,
+        17,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>1<|box|>873 140 909 857<|content|>However, we have identified several gaps and areas...nal insured endorsements for both CBR (2300 Travis\n<|id|>7<|page|>2<|box|>90 140 218 857<|content|>Street, Suite 4200, Houston, TX 77006) and Lumen R...ior to the commencement of construction activities\n<|id|>19<|page|>3<|box|>782 140 892 857<|content|>All eight projects in the portfolio are fully perm...rized for construction. ... The BLM leases for the\n<|id|>20<|page|>4<|box|>90 140 125 854<|content|>Sangre del Sol projects contain specific insurance...nts, which are addressed in Section V. ... D below\n<|id|>34<|page|>4<|box|>804 140 858 854<|content|>9. ... and\n<|id|>36<|page|>5<|box|>146 140 330 856<|content|>Our review focused on the following areas of analy... contained in the applicable land lease agreements\n<|id|>47<|page|>6<|box|>178 174 196 511<|content|>(i) Red Mesa Solar I — Pecos County, Texas\n<|id|>55<|page|>6<|box|>385 140 440 854<|content|>Each location is identified by its project name, s...ns and insured values attached to the declarations\n<|id|>48<|page|>6<|box|>204 174 222 522<|content|>(ii) Red Mesa Solar II — Pecos County, Texas\n<|id|>49<|page|>6<|box|>229 174 248 524<|content|>(iii) Cimarron Flats — Crockett County, Texas\n<|id|>50<|page|>6<|box|>256 174 273 519<|content|>(iv) Lone Star Prairie — Webb County, Texas\n<|id|>51<|page|>6<|box|>282 174 299 504<|content|>(v) Brazos Point — Wharton County, Texas\n<|id|>52<|page|>6<|box|>308 174 325 591<|content|>(vi) Sangre del Sol I — Doña Ana County, New Mexico\n<|id|>53<|page|>6<|box|>334 174 351 602<|content|>(vii) Sangre del Sol II — Doña Ana County, New Mexico\n<|id|>54<|page|>6<|box|>359 176 378 522<|content|>(viii) Sonoran Ridge — Pinal County, Arizona\n<|id|>60<|page|>6<|box|>849 181 887 854<|content|>• Earthquake: ... While seismic risk is generally ... sites, the Sonoran Ridge project in Pinal County,\n<|id|>61<|page|>7<|box|>90 210 125 854<|content|>Arizona is located within a region of moderate sei...d this sub-limit should be periodically reassessed\n<|id|>145<|page|>14<|box|>767 176 785 532<|content|>(iii) Solstice Plateau Energy Holdings LLC; ... and\n<|id|>147<|page|>14<|box|>819 140 893 856<|content|>A waiver of subrogation prevents the Carrier from ...an endorsement should be obtained prior to closing\n<|id|>155<|page|>15<|box|>777 174 832 854<|content|>(iii) Construction activities will involve the tra...materials at and around the project sites; ... and\n<|id|>157<|page|>16<|box|>90 140 143 856<|content|>We recommend that Blackthorn evaluate the market f...ior to the commencement of construction activities\n<|id|>165<|page|>16<|box|>851 174 906 856<|content|>(ii) Evaluate whether supplemental difference-in-c...ularly for the West Texas project cluster; ... and\n<|id|>167<|page|>17<|box|>152 140 189 854<|content|>This review should be completed prior to the comme...construction activities at the Texas project sites\n<|id|>184<|page|>19<|box|>625 174 662 854<|content|>(b) the waiver of subrogation and 30-day notice of...ment and the Trident Bank credit facility; ... and\n<|id|>186<|page|>19<|box|>714 140 805 854<|content|>The medium-priority items — pollution liability co...e of the first project's commercial operation date",
+    "raw_response": "<|src_id|>6<|tgt_id|>7\n<|src_id|>19<|tgt_id|>20\n<|src_id|>60<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        }
+    ]
+}

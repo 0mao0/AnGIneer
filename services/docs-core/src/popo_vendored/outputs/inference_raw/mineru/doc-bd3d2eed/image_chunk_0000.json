@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 416 119 581<|content|>ORDER FORM\n<|id|>1<|type|>title<|page|>1<|box|>143 418 161 580<|content|>(Execution Version)\n<|id|>8<|type|>title<|page|>1<|box|>505 140 522 370<|content|>Section 1: Licensed Platform\n<|id|>13<|type|>title<|page|>2<|box|>204 140 222 344<|content|>Section 2: Licensed Users\n<|id|>19<|type|>title<|page|>3<|box|>90 140 107 272<|content|>Section 3: Term\n<|id|>20<|type|>title<|page|>3<|box|>121 140 138 354<|content|>3.1 Implementation Period\n<|id|>22<|type|>title<|page|>3<|box|>359 140 375 272<|content|>3.2 Initial Term\n<|id|>24<|type|>title<|page|>3<|box|>559 140 575 297<|content|>3.3 Renewal Terms\n<|id|>26<|type|>title<|page|>3<|box|>742 140 758 403<|content|>3.4 Termination for Convenience\n<|id|>34<|type|>title<|page|>4<|box|>429 140 446 423<|content|>Section 4: Fees and Payment Terms\n<|id|>35<|type|>title<|page|>4<|box|>459 140 477 284<|content|>4.1 Fee Summary\n<|id|>36<|type|>table<|page|>4<|box|>506 143 667 852<|content|>None\n<|id|>38<|type|>title<|page|>4<|box|>751 142 768 307<|content|>4.2 Volume discount\n<|id|>42<|type|>title<|page|>5<|box|>176 140 193 467<|content|>4.3 Adjusted Annual Fees (Post-discount)\n<|id|>44<|type|>table<|page|>5<|box|>241 143 373 852<|content|>None\n<|id|>47<|type|>title<|page|>5<|box|>501 142 518 310<|content|>4.4 Annual Escalator\n<|id|>54<|type|>title<|page|>6<|box|>90 142 107 300<|content|>4.5 Payment Terms\n<|id|>61<|type|>title<|page|>6<|box|>546 140 561 339<|content|>Section 5: Service Levels\n<|id|>63<|type|>title<|page|>6<|box|>722 140 739 504<|content|>Section 6: Exhibits Incorporated by Reference\n<|id|>70<|type|>title<|page|>7<|box|>256 140 273 388<|content|>Section 7: Source Code Escrow\n<|id|>72<|type|>title<|page|>7<|box|>469 140 487 308<|content|>Section 8: Insurance\n<|id|>75<|type|>title<|page|>7<|box|>744 140 763 413<|content|>Section 9: Pinnacle Ridge Consent\n<|id|>77<|type|>title<|page|>8<|box|>148 140 167 359<|content|>Section 10: Governing Law\n<|id|>79<|type|>title<|page|>8<|box|>309 140 325 397<|content|>Section 11: Order of Precedence\n<|id|>81<|type|>title<|page|>8<|box|>484 140 502 377<|content|>Section 12: Entire Agreement\n<|id|>83<|type|>title<|page|>8<|box|>661 140 679 343<|content|>Section 13: Counterparts\n<|id|>85<|type|>title<|page|>8<|box|>823 400 840 596<|content|>[Signature Page Follows]\n<|id|>86<|type|>title<|page|>8<|box|>849 310 864 686<|content|>SIGNATURE PAGE TO ORDER FORM NO. 1\n<|id|>98<|type|>title<|page|>10<|box|>89 333 106 663<|content|>SCHEDULE A TO ORDER FORM NO. 1\n<|id|>99<|type|>title<|page|>10<|box|>131 346 148 650<|content|>IMPLEMENTATION MILESTONES\n<|id|>101<|type|>table<|page|>10<|box|>237 143 907 852<|content|>None\n<|id|>102<|type|>table<|page|>11<|box|>89 143 247 851<|content|>None\n<|id|>103<|type|>title<|page|>11<|box|>281 142 299 261<|content|>Project Leads:\n<|id|>109<|type|>title<|page|>12<|box|>90 333 106 663<|content|>SCHEDULE B TO ORDER FORM NO. 1\n<|id|>110<|type|>title<|page|>13<|box|>89 377 106 617<|content|>FEE PAYMENT SCHEDULE\n<|id|>112<|type|>table<|page|>13<|box|>176 143 364 852<|content|>None\n<|id|>113<|type|>title<|page|>13<|box|>398 142 416 230<|content|>Summary:\n<|id|>115<|type|>title<|page|>13<|box|>469 143 486 277<|content|>Payment Terms:",
+    "raw_response": "<|src_id|>36<|tgt_id|>35\n<|src_id|>44<|tgt_id|>42\n<|src_id|>101<|tgt_id|>99\n<|src_id|>102<|tgt_id|>99\n<|src_id|>112<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 110
+        }
+    ]
+}

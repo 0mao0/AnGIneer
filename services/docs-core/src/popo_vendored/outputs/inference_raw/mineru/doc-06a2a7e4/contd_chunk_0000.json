@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        9,
+        11,
+        15,
+        16,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 140 159 673<|content|>TO: ... 1003-00005)\n<|id|>3<|page|>1<|box|>167 140 184 818<|content|>FROM: ... Garrett Simmons, Senior Associate, Tax Department, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>193 140 210 805<|content|>REVIEWED BY: ... Leonard Cross, Partner, Tax Department, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>219 142 236 310<|content|>DATE: ... June 15, 2022\n<|id|>6<|page|>1<|box|>244 140 281 854<|content|>RE: ... from Veldran Industries Holdings, Inc\n<|id|>17<|page|>1<|box|>883 183 898 581<|content|>• Business Purpose Memorandum (to be drafted); ... and\n<|id|>19<|page|>2<|box|>109 140 146 854<|content|>Each of the foregoing memoranda addresses discrete... of the D reorganization analysis set forth herein\n<|id|>71<|page|>6<|box|>827 174 900 856<|content|>(2) The Distribution Requirement. ... The stock or...ck and securities of a controlled corporation), or\n<|id|>72<|page|>7<|box|>89 174 126 852<|content|>IRC § 356 (relating to the receipt of additional c...boot,\" in connection with certain reorganizations)\n<|id|>95<|page|>9<|box|>314 174 387 856<|content|>(ii) the stock or assets of Kestrel Precision Controls, Inc. ... and\n<|id|>97<|page|>9<|box|>439 140 549 856<|content|>The Contributed Business represents a material por...ng a substantial and independently viable business\n<|id|>120<|page|>11<|box|>410 174 446 854<|content|>(iv) the § 355(e) plan analysis, given HPE Fund IV...2019 acquisition of its controlling stake; ... and\n<|id|>122<|page|>11<|box|>479 140 517 854<|content|>Subject to the satisfactory resolution of these § ...ibution requirement of § 368(a)(1)(D) is satisfied\n<|id|>166<|page|>15<|box|>790 174 825 854<|content|>(a) The total adjusted basis of the Contributed Bu..., estimated at approximately $800 million; ... and\n<|id|>168<|page|>15<|box|>859 140 896 854<|content|>As of the date of this memorandum, the amount of l...n has not been finalized. ... 1 billion First Lien\n<|id|>169<|page|>16<|box|>89 140 162 854<|content|>Term Loan B and the $450 million aggregate princip...paration Agreement and related financing documents\n<|id|>240<|page|>23<|box|>321 174 395 854<|content|>(v) There is no plan or intention by any sharehold...n or Meridian below a specified threshold; ... and\n<|id|>242<|page|>23<|box|>464 140 558 854<|content|>The finalization of the Representation Letter is a...significant shareholders to the extent practicable\n<|id|>246<|page|>23<|box|>804 140 877 856<|content|>Any cash received by a holder in lieu of a fractio...ould be confirmed with Veldran management and with\n<|id|>247<|page|>24<|box|>89 140 126 854<|content|>Whitfield & Gage LLP, which is responsible for the...he equity incentive plan aspects of the separation",
+    "raw_response": "<|src_id|>17<|tgt_id|>19\n<|src_id|>71<|tgt_id|>72\n<|src_id|>168<|tgt_id|>169\n<|src_id|>246<|tgt_id|>247",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 246,
+            "tgt_id": 247
+        }
+    ]
+}

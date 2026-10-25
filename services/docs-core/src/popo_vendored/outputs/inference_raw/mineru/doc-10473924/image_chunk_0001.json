@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        49
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>552<|type|>title<|page|>45<|box|>90 413 111 584<|content|>SCHEDULE 4.2\n<|id|>553<|type|>title<|page|>46<|box|>89 328 106 666<|content|>CAPITAL CONTRIBUTION SCHEDULE\n<|id|>554<|type|>table<|page|>46<|box|>195 143 285 852<|content|>None\n<|id|>555<|type|>table<|page|>46<|box|>398 143 489 852<|content|>None\n<|id|>556<|type|>table<|page|>46<|box|>585 143 705 852<|content|>None\n<|id|>559<|type|>title<|page|>47<|box|>90 413 111 584<|content|>SCHEDULE 6.3\n<|id|>560<|type|>title<|page|>48<|box|>89 308 106 689<|content|>MANAGEMENT FEE PAYMENT SCHEDULE\n<|id|>564<|type|>title<|page|>49<|box|>90 142 107 421<|content|>Milestone-Based Payment Schedule\n<|id|>566<|type|>table<|page|>49<|box|>210 143 511 852<|content|>None\n<|id|>567<|type|>title<|page|>49<|box|>579 142 595 197<|content|>Notes:",
+    "raw_response": "<|src_id|>554<|tgt_id|>553\n<|src_id|>555<|tgt_id|>553\n<|src_id|>556<|tgt_id|>553\n<|src_id|>566<|tgt_id|>564",
+    "parsed": [
+        {
+            "src_id": 554,
+            "tgt_id": 553
+        },
+        {
+            "src_id": 555,
+            "tgt_id": 553
+        },
+        {
+            "src_id": 556,
+            "tgt_id": 553
+        },
+        {
+            "src_id": 566,
+            "tgt_id": 564
+        }
+    ]
+}

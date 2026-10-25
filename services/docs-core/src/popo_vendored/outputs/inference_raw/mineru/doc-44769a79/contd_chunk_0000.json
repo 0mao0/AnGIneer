@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        35
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        10,
+        13,
+        14,
+        35
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 140 195 854<|content|>From: ... George Trujillo, Responsible Partner, Energy & Infrastructure, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>204 140 239 854<|content|>To: ... Winfield, CEO & President, Ridgeline Midstream Services LLC\n<|id|>4<|page|>1<|box|>248 140 284 854<|content|>CC: ... Brett Callahan, Lead Associate, Calderwood...nton, Working Associate, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>292 140 310 297<|content|>Date: ... May 12, 2022\n<|id|>6<|page|>1<|box|>318 140 354 854<|content|>Re: ... 1016-00005\n<|id|>7<|page|>1<|box|>362 140 378 408<|content|>Right-click to update Table of Contents\n<|id|>15<|page|>2<|box|>128 140 181 854<|content|>3. ... and\n<|id|>17<|page|>2<|box|>241 140 369 854<|content|>At the outset of this memorandum, we note the dual...te Conflict Waiver Memorandum dated April 28, 2022\n<|id|>35<|page|>3<|box|>833 140 888 854<|content|>Receipt Point. ... This receipt point is the locat... the proposed interconnection with ATPC's existing\n<|id|>36<|page|>4<|box|>89 140 126 854<|content|>30-inch mainline, which is the subject of the inte...n application filed in Docket No. ... RP22-847-001\n<|id|>85<|page|>10<|box|>128 181 162 854<|content|>• Interest rate risk and refinancing risk associat... the System's leveraged capital structure; ... and\n<|id|>87<|page|>10<|box|>185 140 220 854<|content|>Applying the WACC of 10. ... 62 million\n<|id|>119<|page|>13<|box|>828 140 902 854<|content|>The target in-service date for the interconnection...e proceeding could push the in-service date beyond\n<|id|>120<|page|>14<|box|>90 140 126 854<|content|>Q4 2023, with consequent impacts on throughput pro...hipper commitments, and lender covenant compliance\n<|id|>332<|page|>35<|box|>484 140 517 854<|content|>George Trujillo Responsible Partner, Energy & Infr...Washington, DC 20006 Telephone: ... (202) 555-4800\n<|id|>333<|page|>35<|box|>518 142 534 459<|content|>Email: ... com\n<|id|>334<|page|>35<|box|>535 142 551 294<|content|>Date: ... May 12, 2022\n<|id|>335<|page|>35<|box|>551 140 657 856<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV... Calderwood & Harkness LLP, is strictly prohibited",
+    "raw_response": "<|src_id|>35<|tgt_id|>36\n<|src_id|>119<|tgt_id|>120",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        }
+    ]
+}

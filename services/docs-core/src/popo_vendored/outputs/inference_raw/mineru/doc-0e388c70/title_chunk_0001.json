@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        50
+    ],
+    "pages": [
+        47,
+        48,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>429<|page|>47<|box|>90 267 111 728<|content|>Appendix C — NovaMart Data Flow Diagram\n<|id|>431<|page|>47<|box|>172 140 189 465<|content|>NovaMart Platform Data Flow Overview\n<|id|>455<|page|>47<|box|>618 143 635 336<|content|>Data Storage Summary:\n<|id|>460<|page|>48<|box|>90 256 111 741<|content|>Appendix D — Incident History Summary Table\n<|id|>463<|page|>50<|box|>90 263 111 733<|content|>Appendix E — Third-Party DPA Status Matrix",
+    "raw_response": "<|id|>429<|level|>1\n<|id|>431<|level|>2\n<|id|>455<|level|>2\n<|id|>460<|level|>1\n<|id|>463<|level|>1",
+    "parsed": [
+        {
+            "id": 429,
+            "level": 1
+        },
+        {
+            "id": 431,
+            "level": 2
+        },
+        {
+            "id": 455,
+            "level": 2
+        },
+        {
+            "id": 460,
+            "level": 1
+        },
+        {
+            "id": 463,
+            "level": 1
+        }
+    ]
+}

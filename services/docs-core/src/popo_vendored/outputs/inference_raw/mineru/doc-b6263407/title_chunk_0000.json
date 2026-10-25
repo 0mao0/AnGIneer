@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        6,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>565 140 583 243<|content|>RECITALS\n<|id|>36<|page|>6<|box|>148 140 166 620<|content|>DECRETAL PARAGRAPHS — ORDERING PROVISIONS\n<|id|>124<|page|>18<|box|>239 142 258 236<|content|>EXHIBITS\n<|id|>128<|page|>18<|box|>472 140 489 413<|content|>Exhibit B — DIP Credit Agreement\n<|id|>132<|page|>18<|box|>755 140 773 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>36<|level|>1\n<|id|>124<|level|>1\n<|id|>128<|level|>2\n<|id|>132<|level|>1",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 1
+        }
+    ]
+}

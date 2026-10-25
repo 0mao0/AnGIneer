@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 171 126 856<|content|>CALDERWOOD & HARKNESS LLP 400 Park Avenue, 28th Floor New York, NY 10022 Tel: ... (212) 555-0100\n<|id|>1<|page|>1<|box|>133 140 152 297<|content|>Fax: ... (212) 555-0199\n<|id|>2<|page|>1<|box|>152 620 169 854<|content|>www. ... com\n<|id|>3<|page|>1<|box|>176 140 194 266<|content|>October 6, 2023\n<|id|>4<|page|>1<|box|>203 140 220 790<|content|>VIA Severin Partners LLC AND ELECTRONIC SUBMISSION (OFAC PORTAL)\n<|id|>5<|page|>1<|box|>229 140 266 854<|content|>Office of Foreign Assets Control Compliance & Enfo... 1500 Pennsylvania Avenue, NW Washington, DC 20220\n<|id|>6<|page|>1<|box|>273 174 309 854<|content|>Re: ... / Dunmore Trading International Ltd\n<|id|>67<|page|>6<|box|>686 174 760 854<|content|>(i) The SDN List entry for Mr. ... and\n<|id|>69<|page|>7<|box|>90 138 236 856<|content|>The delayed re-screening — while a departure from ...es going forward, as described in Section IV below\n<|id|>111<|page|>11<|box|>847 140 902 856<|content|>Appendix I: ... DEH Compliance Enhancement Summary...gement, the hiring of Kira Petrossian, the updated\n<|id|>112<|page|>12<|box|>89 140 127 854<|content|>Compliance Policy (Version 4. ... 0), and the completion of mandatory sanctions compliance training\n<|id|>118<|page|>12<|box|>589 174 625 854<|content|>Priya Anand Calderwood & Harkness LLP 400 Park Ave...h Floor New York, NY 10022 Tel: ... (212) 555-0147\n<|id|>119<|page|>12<|box|>633 176 651 493<|content|>Email: ... com\n<|id|>120<|page|>12<|box|>652 140 688 854<|content|>We appreciate OFAC's consideration of this volunta...this matter to a prompt and appropriate resolution\n<|id|>121<|page|>12<|box|>696 140 713 321<|content|>Respectfully submitted,\n<|id|>122<|page|>12<|box|>720 140 738 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>123<|page|>12<|box|>739 142 756 253<|content|>By: ... By\n<|id|>124<|page|>12<|box|>757 142 773 294<|content|>Name: ... Priya Anand\n<|id|>125<|page|>12<|box|>773 143 790 246<|content|>Title: ... Partner\n<|id|>126<|page|>12<|box|>790 142 806 310<|content|>Date: ... October 6, 2023\n<|id|>127<|page|>12<|box|>808 140 825 411<|content|>Enclosures: ... Appendices A through I",
+    "raw_response": "<|src_id|>67<|tgt_id|>69\n<|src_id|>111<|tgt_id|>112",
+    "parsed": [
+        {
+            "src_id": 67,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        }
+    ]
+}

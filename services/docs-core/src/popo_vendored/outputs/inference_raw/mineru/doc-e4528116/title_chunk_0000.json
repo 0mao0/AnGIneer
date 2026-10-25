@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        14
+    ],
+    "pages": [
+        7,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>7<|box|>86 87 102 673<|content|>Jurisdicti Applicable AssessmenC&H MemoPrepared Co\n<|id|>17<|page|>14<|box|>86 87 102 425<|content|>Update DaUpdated BDescription of Changes",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>17<|level|>1",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        }
+    ]
+}

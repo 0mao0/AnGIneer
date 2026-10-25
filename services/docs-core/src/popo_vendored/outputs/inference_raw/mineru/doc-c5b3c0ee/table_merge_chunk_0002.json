@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Pinnacle Risk Analytics Corp.', 'July 2024', '~$215 million', 'Risk scoring and regulatory compliance analytics software (BSA/AML, credit risk, regulatory reporting) for banks and financial institutions', 'No meaningful overlap. Pinnacle provides bank-facing regulatory compliance tools; VeloPay Fraud intelligence provides merchant/processor-facing transaction fraud detection. Different functional markets, different customer segments, different technical methodologies. Surface-level thematic connection']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'addressed in white paper.']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 278,
+    "table2_idx": 279
+}

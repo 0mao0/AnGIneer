@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        9,
+        11,
+        14,
+        15,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>180 723 196 854<|content|>October 15, 2023\n<|id|>3<|page|>1<|box|>205 168 250 828<|content|>REVISED DRAFT — Reflects negotiations between the ...alderwood & Harkness LLP Matter No. ... 1025-00006\n<|id|>16<|page|>1<|box|>825 140 900 856<|content|>The Parties entered into a Master Services Agreeme...endment 1, dated March 3, 2021 (effective April 1,\n<|id|>18<|page|>2<|box|>135 140 263 854<|content|>Under the MSA, Palomar serves as a critical techno... belonging to Quorum's policyholders and claimants\n<|id|>94<|page|>9<|box|>275 147 291 462<|content|>• Thomas R. ... Whitfield, General Counsel\n<|id|>97<|page|>9<|box|>334 140 425 854<|content|>The initial notification shall include, at a minim...e incident has been fully contained and remediated\n<|id|>95<|page|>9<|box|>294 147 311 602<|content|>• David Naranjo, Chief Information Security Officer (CISO)\n<|id|>96<|page|>9<|box|>314 145 330 501<|content|>• Jennifer Liang, Chief Privacy Officer (CPO)\n<|id|>102<|page|>9<|box|>599 147 635 854<|content|>• The enhanced incident notification requirements set forth in Section 5. ... and\n<|id|>104<|page|>9<|box|>675 140 729 854<|content|>Amendment 3 shall be in form and substance reasona...spects with the terms set forth in this Term Sheet\n<|id|>122<|page|>11<|box|>409 147 425 596<|content|>• Halstead & Monroe LLP, Quorum's external auditor; ... and\n<|id|>124<|page|>11<|box|>467 140 521 854<|content|>Any third party to whom confidential settlement te... shall be directed to maintain its confidentiality\n<|id|>129<|page|>11<|box|>695 147 729 852<|content|>• The United States Department of Health and Human...ces, Office for Civil Rights (\"HHS- OCR\"); ... and\n<|id|>131<|page|>11<|box|>753 140 845 856<|content|>In the event that any such regulatory authority sp...ith the applicable legal or regulatory requirement\n<|id|>164<|page|>14<|box|>510 147 527 496<|content|>• Section 6. ... and\n<|id|>166<|page|>14<|box|>550 140 642 854<|content|>Except as expressly provided in the immediately pr...ation absent execution of the Definitive Agreement\n<|id|>174<|page|>15<|box|>125 140 141 354<|content|>Name: ... Whitfield\n<|id|>175<|page|>15<|box|>142 142 157 315<|content|>Title: ... General Counsel\n<|id|>176<|page|>15<|box|>159 142 176 266<|content|>Date: ... Date\n<|id|>179<|page|>15<|box|>210 142 228 320<|content|>Name: ... Derek Copeland\n<|id|>180<|page|>15<|box|>228 142 244 315<|content|>Title: ... General Counsel\n<|id|>181<|page|>15<|box|>246 143 262 266<|content|>Date: ... Date\n<|id|>185<|page|>15<|box|>323 142 339 325<|content|>Name: ... Kevin Ostrowski\n<|id|>186<|page|>15<|box|>340 143 356 248<|content|>Title: ... Partner\n<|id|>187<|page|>15<|box|>356 142 375 547<|content|>1700 K Street NW, Suite 900 Washington, D. ... 20006\n<|id|>188<|page|>15<|box|>375 140 392 748<|content|>MERCER, HAIGHT & DUNLOP LLP Counsel to Palomar Dat... DUNLOP LLP Counsel to Palomar Data Solutions, Inc\n<|id|>190<|page|>15<|box|>409 142 426 346<|content|>Name: ... Catherine Langford\n<|id|>191<|page|>15<|box|>426 142 443 248<|content|>Title: ... Partner\n<|id|>192<|page|>15<|box|>443 140 460 504<|content|>2100 Ross Avenue, Suite 3600 Dallas, TX 75201\n<|id|>215<|page|>20<|box|>151 140 167 462<|content|>END OF REVISED SETTLEMENT TERM SHEET\n<|id|>216<|page|>20<|box|>174 140 190 486<|content|>Calderwood & Harkness LLP — Matter No. ... 1025-00006\n<|id|>217<|page|>20<|box|>196 140 212 792<|content|>CONFIDENTIAL — Subject to Rule 408 of the Federal Rules of Evidence and Applicable State Equivalents",
+    "raw_response": "<|src_id|>16<|tgt_id|>18\n<|src_id|>102<|tgt_id|>104\n<|src_id|>122<|tgt_id|>124\n<|src_id|>129<|tgt_id|>131\n<|src_id|>164<|tgt_id|>166",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 166
+        }
+    ]
+}

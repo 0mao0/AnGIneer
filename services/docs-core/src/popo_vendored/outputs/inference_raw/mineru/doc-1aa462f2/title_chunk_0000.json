@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>430 140 446 264<|content|>I. Introduction\n<|id|>13<|page|>2<|box|>167 140 185 473<|content|>II. Documents Examined and Relied Upon\n<|id|>15<|page|>2<|box|>244 140 260 379<|content|>A. Organizational Documents\n<|id|>20<|page|>2<|box|>575 140 594 478<|content|>B. Registration Statement and SEC Filings\n<|id|>24<|page|>2<|box|>792 140 809 362<|content|>C. Transaction Agreements\n<|id|>32<|page|>3<|box|>708 142 724 372<|content|>D. Corporate Authorizations\n<|id|>35<|page|>4<|box|>138 142 156 308<|content|>E. Other Documents\n<|id|>40<|page|>4<|box|>464 140 482 279<|content|>III. Assumptions\n<|id|>51<|page|>5<|box|>718 142 734 250<|content|>IV. Opinions\n<|id|>69<|page|>8<|box|>167 140 184 370<|content|>V. 10b-5 Negative Assurance\n<|id|>79<|page|>9<|box|>238 140 253 377<|content|>VI. Enforceability Exceptions\n<|id|>81<|page|>9<|box|>450 140 469 419<|content|>VII. Qualifications and Limitations\n<|id|>82<|page|>9<|box|>483 140 500 274<|content|>A. Scope of Law\n<|id|>84<|page|>9<|box|>683 142 699 292<|content|>B. Date Limitation\n<|id|>86<|page|>9<|box|>847 140 864 517<|content|>C. Reliance on Certificates and Representations\n<|id|>88<|page|>10<|box|>176 140 193 393<|content|>D. Scope of Negative Assurance\n<|id|>90<|page|>10<|box|>414 140 431 331<|content|>E. No Implied Opinions\n<|id|>92<|page|>10<|box|>604 140 623 359<|content|>VIII. Reliance and Consent\n<|id|>94<|page|>10<|box|>814 140 832 303<|content|>B. Consent to Filing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>3\n<|id|>20<|level|>3\n<|id|>24<|level|>3\n<|id|>32<|level|>3\n<|id|>35<|level|>3\n<|id|>40<|level|>2\n<|id|>51<|level|>2\n<|id|>69<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>2\n<|id|>82<|level|>3\n<|id|>84<|level|>3\n<|id|>86<|level|>3\n<|id|>88<|level|>3\n<|id|>90<|level|>3\n<|id|>92<|level|>2\n<|id|>94<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>167 751 184 854<|content|>July 15, 2022\n<|id|>2<|page|>1<|box|>194 140 210 795<|content|>TO: ... Elaine Forsythe, Responsible Partner, Antitrust & Competition Practice Group\n<|id|>3<|page|>1<|box|>219 140 237 723<|content|>FROM: ... Monica Reyes, Associate, Antitrust & Competition Practice Group\n<|id|>4<|page|>1<|box|>244 140 281 854<|content|>RE: ... )\n<|id|>5<|page|>1<|box|>289 142 306 361<|content|>MATTER NO. ... 1039-00001\n<|id|>6<|page|>1<|box|>314 140 391 854<|content|>PRIVILEGE DESIGNATION: ... The unauthorized disclo...ribution of this memorandum is strictly prohibited\n<|id|>81<|page|>10<|box|>851 145 907 857<|content|>Internal Investigation Findings. ... TMC's interna...g-adjustment instructions that Holt gave to Sandra\n<|id|>82<|page|>11<|box|>90 174 199 854<|content|>Chu based on information obtained from competitor ...ticipates and counters TMC's cooperation testimony",
+    "raw_response": "<|src_id|>81<|tgt_id|>82",
+    "parsed": [
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        }
+    ]
+}

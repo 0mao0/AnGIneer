@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 8,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['How is the privacy notice provided?', '(e.g., \"Provided at the point of data collection via the online account registration form,\" \"Published on the NTP website at www.northgatetelecom.co.uk/privacy,\" \"Included in the employee onboarding pack and']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'employment contract,\" \"Displayed on signage at the entrance to CCTV-monitored premises,\" \"Provided in the terms and conditions of the enterprise service agreement\")']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 216,
+    "table2_idx": 217
+}

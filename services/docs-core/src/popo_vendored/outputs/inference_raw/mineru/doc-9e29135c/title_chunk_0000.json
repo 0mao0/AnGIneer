@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 284 125 712<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>2<|page|>1<|box|>444 210 460 785<|content|>STIPULATION AND ORDER RE: CASE MANAGEMENT SCHEDULE\n<|id|>4<|page|>1<|box|>638 142 656 241<|content|>RECITALS\n<|id|>13<|page|>2<|box|>406 142 424 465<|content|>1. WRITTEN DISCOVERY — PHASE I\n<|id|>21<|page|>3<|box|>148 140 166 473<|content|>2. WRITTEN DISCOVERY — PHASE II\n<|id|>27<|page|>3<|box|>558 140 574 406<|content|>3. THIRD-PARTY DISCOVERY\n<|id|>31<|page|>4<|box|>89 142 106 308<|content|>4. ESI DISCOVERY\n<|id|>36<|page|>4<|box|>564 140 580 290<|content|>5. DEPOSITIONS\n<|id|>51<|page|>5<|box|>633 140 652 558<|content|>6. EXPERT DISCOVERY (PRE-CERTIFICATION)\n<|id|>60<|page|>7<|box|>89 140 107 573<|content|>7. CLASS CERTIFICATION BRIEFING SCHEDULE\n<|id|>68<|page|>7<|box|>641 140 659 477<|content|>8. POST-CERTIFICATION DEADLINES\n<|id|>78<|page|>8<|box|>219 140 236 506<|content|>9. ALTERNATIVE DISPUTE RESOLUTION\n<|id|>83<|page|>8<|box|>619 142 637 333<|content|>10. TRIAL ESTIMATE\n<|id|>86<|page|>9<|box|>89 142 106 380<|content|>11. GENERAL PROVISIONS\n<|id|>92<|page|>9<|box|>483 328 500 668<|content|>[SIGNATURES ON FOLLOWING PAGE]\n<|id|>94<|page|>9<|box|>569 140 585 449<|content|>CASTELLANO BYRNE & SALAS LLP\n<|id|>97<|page|>9<|box|>688 140 704 511<|content|>VELTRANO EMPLOYMENT LAW GROUP PC\n<|id|>100<|page|>9<|box|>808 140 824 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>103<|page|>10<|box|>87 460 107 537<|content|>ORDER",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>13<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>31<|level|>2\n<|id|>36<|level|>2\n<|id|>51<|level|>2\n<|id|>60<|level|>2\n<|id|>68<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>86<|level|>2\n<|id|>92<|level|>-1\n<|id|>94<|level|>3\n<|id|>97<|level|>3\n<|id|>100<|level|>3\n<|id|>103<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 1
+        }
+    ]
+}

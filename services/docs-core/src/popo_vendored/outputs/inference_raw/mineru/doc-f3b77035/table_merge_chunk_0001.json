@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Cybersecurity', 'SBOM; threat modeling; vulnerability management; data integrity protections', 'STRIDE threat modeling completed. SBOM status to be confirmed with CTO. Documentation in FDA-acceptable format required.']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Data Output / Interoperability', 'Glucose data output in format compatible with secondary devices; specified data elements (glucose value, timestamp, trend, quality indicator)', 'BLE 5.2 protocol implemented. Data format compliance with iCGM requirements to be confirmed. IEEE 11073 compliance to be evaluated.']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 278,
+    "table2_idx": 279
+}

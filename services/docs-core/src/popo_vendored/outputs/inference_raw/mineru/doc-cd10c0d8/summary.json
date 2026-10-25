@@ -1,0 +1,225 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bb7jzp8w\\input\\pdfs\\doc-cd10c0d8.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bb7jzp8w\\enriched\\doc-cd10c0d8.json",
+    "contd_output": "<|src_id|>14<|tgt_id|>15\n<|src_id|>50<|tgt_id|>51\n<|src_id|>51<|tgt_id|>52\n<|src_id|>52<|tgt_id|>53\n<|src_id|>53<|tgt_id|>54",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>3\n<|id|>13<|level|>3\n<|id|>16<|level|>3\n<|id|>27<|level|>3\n<|id|>38<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>2",
+    "image_output": "<|src_id|>7<|tgt_id|>5\n<|src_id|>8<|tgt_id|>5\n<|src_id|>9<|tgt_id|>5\n<|src_id|>10<|tgt_id|>5\n<|src_id|>11<|tgt_id|>5\n<|src_id|>12<|tgt_id|>5",
+    "contd_label": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 7,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 5
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 7,
+            "table2_idx": 8,
+            "upper_row_ss": [
+                [
+                    "ESA-001",
+                    "Fairfield Logistics Center I",
+                    "4200 Fairfield Industrial Blvd, Fairburn, Georgia 30213",
+                    "GMP Fairfield I LLC",
+                    "November 15, 2023",
+                    "Phase I Environmental Site Assessment — Fairfield Logistics Center I, Fairburn, Georgia / TEG Ref. No. 2023-",
+                    "No Recognized Environmental Conditions (RECs) identified. No Controlled Recognized Environmental Conditions (CRECs) or"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "ATL-4401",
+                    "Historical Recognized Environmental Conditions (HRECs) identified. No further investigation recommended."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 8,
+            "table2_idx": 9,
+            "upper_row_ss": [
+                [
+                    "ESA-003",
+                    "Westlake Distribution Hub",
+                    "11500 Westlake Parkway, Houston, Texas 77082",
+                    "GMP Westlake LLC",
+                    "December 4, 2023",
+                    "Phase I Environmental Site Assessment — Westlake Distribution Hub, Houston, Texas / TEG Ref. No. 2023-HOU-4403",
+                    "De minimis Recognized Environmental Condition identified — historical use of adjacent parcel (APN 041-229-007) as a petroleum distribution facility (circa 1978–1996); minor soil staining observed at the southeast loading area of the subject property during site reconnaissance.Environmental Consultant assessed the condition as controlled under current"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "site operations and not requiring a Phase II Environmental Site Assessment. No further investigation recommended by Environmental Consultant."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 9,
+            "table2_idx": 10,
+            "upper_row_ss": [
+                [
+                    "ESA-006",
+                    "Lakeland Crossings Industrial",
+                    "7100 Drane Field Road, Lakeland, Florida 33811",
+                    "GMP Lakeland LLC",
+                    "November 29, 2023",
+                    "Phase I Environmental Site Assessment — Lakeland Crossings Industrial, Lakeland, Florida / TEG Ref. No. 2023-TPA-4406",
+                    "De minimis Recognized Environmental Condition identified — former agricultural use of the property (pre-development, prior to 2019 construction of the"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "existing improvements); low-level residual pesticide concentrations (organochlorines) detected in limited soil sampling conducted during original site development by the prior owner.Environmental Consultant assessed the condition as controlled under existing institutional controls recorded against the property and not requiring a Phase II Environmental Site Assessment.No further investigation recommended by Environmental Consultant."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 10,
+            "table2_idx": 11,
+            "upper_row_ss": [
+                [
+                    "ESA-007",
+                    "Southport Logistics Park",
+                    "3200 Southport Connector Road, Jacksonville, Florida 32218",
+                    "GMP Southport LLC",
+                    "November 29, 2023",
+                    "Phase I Environmental Site Assessment — Southport Logistics Park, Jacksonville, Florida / TEG Ref. No. 2023-JAX-4407",
+                    "No Recognized Environmental Conditions (RECs) identified. No CRECs or HRECs identified. No further investigation recommended."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "ESA-008",
+                    "Murfreesboro Distribution Center",
+                    "1600 Joe B. Jackson Parkway, Murfreesboro, Tennessee 37127",
+                    "GMP Murfreesboro LLC",
+                    "December 18, 2023",
+                    "Phase I Environmental Site Assessment — Murfreesboro Distribution Center, Murfreesboro, Tennessee / TEG Ref. No. 2023-NSH-4408",
+                    "No Recognized Environmental Conditions (RECs) identified. No CRECs or HRECs identified. No further investigation recommended."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 11,
+            "table2_idx": 12,
+            "upper_row_ss": [
+                [
+                    "ESA-012",
+                    "Brickell Bay",
+                    "1450 Brickell",
+                    "GMP Brickell",
+                    "November",
+                    "Phase I",
+                    "No"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Office Building",
+                    "Avenue, Miami, Florida 33131",
+                    "LLC",
+                    "29, 2023",
+                    "Environmental Site Assessment— Brickell Bay Office Building, Miami, Florida / TEG Ref. No. 2023-MIA-4412",
+                    "Recognized Environmental Conditions (RECs) identified. No CRECs or HRECs identified. No further investigation recommended."
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>738 140 904 856<|content|>After a careful review of Vantage's 32-page April ...ion for Summary Judgment (filed February 11, 2022)\n<|id|>8<|page|>2<|box|>90 140 126 854<|content|>and our combined Opposition to Vantage's Cross-Mot...upport of Penterra's Motion (filed March 18, 2022)",
+    "raw_response": "<|src_id|>7<|tgt_id|>8",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        }
+    ]
+}

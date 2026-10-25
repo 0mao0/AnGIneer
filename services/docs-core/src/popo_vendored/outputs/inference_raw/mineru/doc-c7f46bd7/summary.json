@@ -1,0 +1,185 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lo682s7k\\input\\pdfs\\doc-c7f46bd7.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lo682s7k\\enriched\\doc-c7f46bd7.json",
+    "contd_output": "<|src_id|>214<|tgt_id|>215",
+    "title_output": "<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>3\n<|id|>47<|level|>3\n<|id|>58<|level|>3\n<|id|>68<|level|>3\n<|id|>77<|level|>3\n<|id|>96<|level|>3\n<|id|>103<|level|>3\n<|id|>110<|level|>2\n<|id|>112<|level|>3\n<|id|>114<|level|>3\n<|id|>116<|level|>3\n<|id|>118<|level|>3\n<|id|>120<|level|>3\n<|id|>122<|level|>2\n<|id|>123<|level|>3\n<|id|>131<|level|>3\n<|id|>133<|level|>4\n<|id|>140<|level|>4\n<|id|>142<|level|>3\n<|id|>149<|level|>3\n<|id|>151<|level|>3\n<|id|>159<|level|>2\n<|id|>171<|level|>2\n<|id|>186<|level|>2\n<|id|>195<|level|>2\n<|id|>201<|level|>2\n<|id|>206<|level|>2\n<|id|>219<|level|>2\n<|id|>220<|level|>3\n<|id|>236<|level|>2\n<|id|>237<|level|>3",
+    "image_output": "<|src_id|>239<|tgt_id|>237\n<|src_id|>240<|tgt_id|>237",
+    "contd_label": [
+        {
+            "src_id": 214,
+            "tgt_id": 215
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 4
+        },
+        {
+            "id": 140,
+            "level": 4
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 3
+        },
+        {
+            "id": 236,
+            "level": 2
+        },
+        {
+            "id": 237,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 239,
+            "tgt_id": 237
+        },
+        {
+            "src_id": 240,
+            "tgt_id": 237
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 239,
+            "table2_idx": 240,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Nathan Tsao",
+                    "Senior Manager, eCommerce Merchandising"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "8",
+                    "Kira Johansson",
+                    "Senior Manager, Category Analytics"
+                ]
+            ]
+        }
+    ]
+}

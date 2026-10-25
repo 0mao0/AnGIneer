@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 143 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 600 Sou...0 Los Angeles, California 90071 Telephone: ... com\n<|id|>1<|page|>1<|box|>152 756 169 854<|content|>June 2, 2022\n<|id|>2<|page|>1<|box|>178 140 195 372<|content|>VIA EMAIL AND U. ... MAIL\n<|id|>3<|page|>1<|box|>204 140 239 854<|content|>Martin Kessler, Esq. ... , Partner Kessler, Brandt...he Stars, Suite 2800 Los Angeles, California 90067\n<|id|>4<|page|>1<|box|>248 174 301 854<|content|>Re: ... discovery Disputes — Meet-and-Confer Request\n<|id|>5<|page|>1<|box|>311 140 328 413<|content|>Dear Mr. ... Whitfield\n<|id|>16<|page|>2<|box|>193 147 210 637<|content|>• Margaret Prumvane, Chief Executive Officer & President; ... and\n<|id|>18<|page|>2<|box|>232 140 324 856<|content|>Of the 452,316 documents collected, 198,740 docume...e counsel and Cascade's in- house legal department\n<|id|>64<|page|>7<|box|>364 140 397 852<|content|>Yuki Nakamura Senior Associate Calderwood & Harkne...es, California 90071 Telephone: ... (213) 555-4100\n<|id|>65<|page|>7<|box|>398 140 414 486<|content|>Email: ... com\n<|id|>66<|page|>7<|box|>415 142 431 253<|content|>cc (via email): ... cc (via email)",
+    "raw_response": "<|src_id|>64<|tgt_id|>65\n<|src_id|>65<|tgt_id|>66",
+    "parsed": [
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        }
+    ]
+}

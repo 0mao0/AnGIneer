@@ -1,0 +1,137 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 163 107 833<|content|>CALDERWOOD & HARKNESS LLP 777 South Flower Street,\n<|id|>3<|page|>1<|box|>215 423 234 573<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>398 140 415 230<|content|>I. Purpose\n<|id|>12<|page|>2<|box|>90 140 107 294<|content|>II. Material Terms\n<|id|>14<|page|>2<|box|>166 142 181 370<|content|>A. Gross Settlement Amount\n<|id|>16<|page|>2<|box|>311 142 328 292<|content|>B. Class Definition\n<|id|>21<|page|>2<|box|>571 140 588 299<|content|>C. Released Claims\n<|id|>23<|page|>2<|box|>694 140 710 282<|content|>Certified Claims:\n<|id|>27<|page|>2<|box|>869 140 887 473<|content|>Non-Certified Claims Included in Release:\n<|id|>33<|page|>3<|box|>279 143 296 264<|content|>PAGA Claims:\n<|id|>35<|page|>3<|box|>368 142 385 294<|content|>Individual Claims:\n<|id|>38<|page|>3<|box|>505 142 522 295<|content|>D. PAGA Payment\n<|id|>42<|page|>3<|box|>763 140 781 413<|content|>E. Attorneys' Fees (Class Counsel)\n<|id|>49<|page|>4<|box|>247 140 263 419<|content|>F. Litigation Costs Reimbursement\n<|id|>51<|page|>4<|box|>375 140 392 475<|content|>G. Service Awards (Class Representatives)\n<|id|>55<|page|>4<|box|>674 140 690 377<|content|>H. Settlement Administration\n<|id|>59<|page|>5<|box|>90 140 107 325<|content|>I. Net Settlement Fund\n<|id|>63<|page|>5<|box|>407 140 424 333<|content|>J. Distribution Formula\n<|id|>71<|page|>6<|box|>90 142 106 290<|content|>K. Tax Treatment\n<|id|>75<|page|>6<|box|>574 142 590 321<|content|>L. Opt-Out Provisions\n<|id|>79<|page|>7<|box|>90 140 107 315<|content|>M. Objection Process\n<|id|>82<|page|>7<|box|>299 140 316 233<|content|>N. Cy Pres\n<|id|>84<|page|>7<|box|>463 140 479 370<|content|>O. No Admission of Liability\n<|id|>86<|page|>7<|box|>609 140 626 426<|content|>P. Injunctive and Prospective Relief\n<|id|>92<|page|>8<|box|>186 140 204 245<|content|>III. Funding\n<|id|>97<|page|>9<|box|>90 142 107 410<|content|>IV. Settlement Approval Timeline\n<|id|>101<|page|>9<|box|>601 140 618 611<|content|>V. Comparison to Claimed Exposure and Defense Valu\n<|id|>109<|page|>10<|box|>510 140 527 511<|content|>VI. Key Strategic Advantages of the Settlement\n<|id|>117<|page|>11<|box|>667 140 684 320<|content|>VII. Recommendation",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>3<|level|>1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>3\n<|id|>16<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>4\n<|id|>27<|level|>4\n<|id|>33<|level|>4\n<|id|>35<|level|>4\n<|id|>38<|level|>3\n<|id|>42<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>3\n<|id|>55<|level|>3\n<|id|>59<|level|>3\n<|id|>63<|level|>3\n<|id|>71<|level|>3\n<|id|>75<|level|>3\n<|id|>79<|level|>3\n<|id|>82<|level|>3\n<|id|>84<|level|>3\n<|id|>86<|level|>3\n<|id|>92<|level|>2\n<|id|>97<|level|>2\n<|id|>101<|level|>2\n<|id|>109<|level|>2\n<|id|>117<|level|>2",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 4
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 33,
+            "level": 4
+        },
+        {
+            "id": 35,
+            "level": 4
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        }
+    ]
+}

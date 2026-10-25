@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 151 125 846<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>186 356 205 640<|content|>MEMORANDUM TO FILE\n<|id|>5<|page|>1<|box|>506 142 523 362<|content|>I. Purpose of Memorandum\n<|id|>11<|page|>2<|box|>585 140 603 400<|content|>II. Participants and Background\n<|id|>23<|page|>3<|box|>666 140 681 725<|content|>III. Form ADV Amendment — Item 11 (Legal and Disci\n<|id|>24<|page|>3<|box|>696 140 714 555<|content|>A. Obligation to Disclose Material Legal Proceedin\n<|id|>32<|page|>4<|box|>734 140 751 429<|content|>B. Timing and Scope of Amendment\n<|id|>41<|page|>5<|box|>595 140 613 421<|content|>C. Part 2A (Brochure) Implications\n<|id|>44<|page|>6<|box|>90 140 107 348<|content|>IV. Form PF Amendment\n<|id|>45<|page|>6<|box|>121 140 138 387<|content|>A. Background and Obligation\n<|id|>49<|page|>6<|box|>575 140 592 524<|content|>B. Coordination with Meridian Investor Services\n<|id|>53<|page|>7<|box|>304 140 321 483<|content|>C. Scope of Calderwood & Harkness's Role\n<|id|>56<|page|>7<|box|>614 140 651 774<|content|>V. Coordination with Claremont & Strauss LLP (Inde\n<|id|>57<|page|>7<|box|>664 140 680 555<|content|>A. Potential Impact on Audited Financial Statement\n<|id|>62<|page|>8<|box|>465 140 483 480<|content|>B. Auditor Communication Considerations\n<|id|>66<|page|>9<|box|>157 140 174 410<|content|>C. SAS 99 / Fraud Considerations\n<|id|>74<|page|>10<|box|>90 140 107 820<|content|>VI. Excess Management Fees and Incentive Allocatio\n<|id|>80<|page|>11<|box|>223 140 239 535<|content|>VII. Investor Notification and LP Communication\n<|id|>86<|page|>12<|box|>148 140 185 813<|content|>VIII. Delineation of Responsibilities — Calderwood\n<|id|>88<|page|>12<|box|>316 140 334 584<|content|>A. Calderwood & Harkness's Scope (Litigation-Focus\n<|id|>96<|page|>13<|box|>268 140 287 669<|content|>B. Ironside In-House Counsel's Scope (Regulatory a\n<|id|>106<|page|>14<|box|>223 142 239 277<|content|>IX. Action Items\n<|id|>115<|page|>15<|box|>89 140 107 258<|content|>X. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>32<|level|>3\n<|id|>41<|level|>3\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>49<|level|>3\n<|id|>53<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>62<|level|>3\n<|id|>66<|level|>3\n<|id|>74<|level|>2\n<|id|>80<|level|>2\n<|id|>86<|level|>2\n<|id|>88<|level|>3\n<|id|>96<|level|>3\n<|id|>106<|level|>2\n<|id|>115<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 169 125 826<|content|>UNITED STATES DISTRICT COURT FOR THE EASTERN DISTR\n<|id|>2<|page|>1<|box|>419 161 455 834<|content|>DEFENDANTS' MOTION TO STAY PROCEEDINGS PENDING RES\n<|id|>4<|page|>1<|box|>539 142 556 310<|content|>I. INTRODUCTION\n<|id|>12<|page|>2<|box|>537 140 555 303<|content|>II. BACKGROUND\n<|id|>13<|page|>2<|box|>569 140 585 261<|content|>A. The Parties\n<|id|>17<|page|>3<|box|>385 140 401 369<|content|>B. The District Court Action\n<|id|>39<|page|>4<|box|>583 140 599 433<|content|>C. Procedural History of This Action\n<|id|>48<|page|>5<|box|>195 140 213 400<|content|>D. The Parallel FCC Proceeding\n<|id|>54<|page|>5<|box|>710 140 728 348<|content|>III. LEGAL STANDARD\n<|id|>62<|page|>7<|box|>222 140 239 285<|content|>IV. ARGUMENT\n<|id|>63<|page|>7<|box|>253 140 289 856<|content|>A. The FCC Has Specialized Expertise Over the Inte\n<|id|>77<|page|>8<|box|>789 140 806 777<|content|>B. A Stay Will Promote Judicial Economy and Avoid\n<|id|>82<|page|>9<|box|>601 140 619 514<|content|>C. Ridgepoint Will Not Be Prejudiced by a Stay\n<|id|>87<|page|>10<|box|>429 140 446 480<|content|>D. The Balance of Hardships Favors a Stay\n<|id|>93<|page|>11<|box|>138 140 157 700<|content|>E. The Pending Motion to Dismiss Should Be Denied\n<|id|>97<|page|>11<|box|>603 140 619 390<|content|>V. PROPOSED STAY TERMS\n<|id|>105<|page|>12<|box|>205 140 224 300<|content|>VI. CONCLUSION\n<|id|>115<|page|>12<|box|>696 140 714 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>17<|level|>3\n<|id|>39<|level|>3\n<|id|>48<|level|>3\n<|id|>54<|level|>2\n<|id|>62<|level|>2\n<|id|>63<|level|>3\n<|id|>77<|level|>3\n<|id|>82<|level|>3\n<|id|>87<|level|>3\n<|id|>93<|level|>3\n<|id|>97<|level|>2\n<|id|>105<|level|>2\n<|id|>115<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        }
+    ]
+}

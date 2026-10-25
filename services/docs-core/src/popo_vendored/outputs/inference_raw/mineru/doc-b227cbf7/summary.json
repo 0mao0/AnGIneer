@@ -1,0 +1,203 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-j6ud_t13\\input\\pdfs\\doc-b227cbf7.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-j6ud_t13\\enriched\\doc-b227cbf7.json",
+    "contd_output": "<|src_id|>85<|tgt_id|>86\n<|src_id|>209<|tgt_id|>210",
+    "title_output": "<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>18<|level|>3\n<|id|>26<|level|>3\n<|id|>32<|level|>3\n<|id|>34<|level|>3\n<|id|>55<|level|>2\n<|id|>57<|level|>3\n<|id|>71<|level|>3\n<|id|>81<|level|>3\n<|id|>90<|level|>3\n<|id|>96<|level|>2\n<|id|>98<|level|>3\n<|id|>108<|level|>3\n<|id|>113<|level|>3\n<|id|>118<|level|>3\n<|id|>128<|level|>3\n<|id|>134<|level|>3\n<|id|>141<|level|>3\n<|id|>157<|level|>2\n<|id|>159<|level|>3\n<|id|>167<|level|>3\n<|id|>176<|level|>3\n<|id|>180<|level|>3\n<|id|>190<|level|>3\n<|id|>197<|level|>3\n<|id|>206<|level|>2\n<|id|>208<|level|>3\n<|id|>215<|level|>3\n<|id|>222<|level|>2\n<|id|>223<|level|>3\n<|id|>227<|level|>3\n<|id|>235<|level|>2\n<|id|>236<|level|>3\n<|id|>238<|level|>3\n<|id|>240<|level|>3\n<|id|>248<|level|>3",
+    "image_output": "<|src_id|>199<|tgt_id|>197\n<|src_id|>200<|tgt_id|>197",
+    "contd_label": [
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 210
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 3
+        },
+        {
+            "id": 227,
+            "level": 3
+        },
+        {
+            "id": 235,
+            "level": 2
+        },
+        {
+            "id": 236,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 3
+        },
+        {
+            "id": 240,
+            "level": 3
+        },
+        {
+            "id": 248,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 199,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 200,
+            "tgt_id": 197
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 199,
+            "table2_idx": 200,
+            "upper_row_ss": [
+                [
+                    "Lost Profits",
+                    "$18,700,000",
+                    "$3,370,000",
+                    "Corrected margin (5.2% vs. 12%); adjusted volume projections"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Mitigation Credit",
+                    "—",
+                    "($1,670,000)",
+                    "Reasonable replacement revenue in robust 2022 freight market"
+                ]
+            ]
+        }
+    ]
+}

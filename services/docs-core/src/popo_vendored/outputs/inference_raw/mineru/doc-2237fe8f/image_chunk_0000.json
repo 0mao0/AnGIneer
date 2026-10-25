@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 168 123 826<|content|>UNITED STATES OF AMERICA BEFORE THE FEDERAL ENERGY\n<|id|>1<|type|>table<|page|>1<|box|>157 145 205 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>273 147 328 849<|content|>RIDGELINE MIDSTREAM SERVICES LLC'S THIRD MOTION FO\n<|id|>4<|type|>title<|page|>1<|box|>446 140 463 668<|content|>I. INTRODUCTION AND SUMMARY OF RELIEF REQUESTED\n<|id|>10<|type|>title<|page|>2<|box|>292 140 309 566<|content|>II. BACKGROUND AND PROCEDURAL HISTORY\n<|id|>11<|type|>title<|page|>2<|box|>324 140 340 383<|content|>A. Initiation of the Proceeding\n<|id|>15<|type|>title<|page|>2<|box|>686 140 703 374<|content|>B. Interventions and Protests\n<|id|>20<|type|>title<|page|>4<|box|>90 140 107 454<|content|>C. FERC Orders and Hearing Schedule\n<|id|>33<|type|>title<|page|>5<|box|>138 140 157 339<|content|>D. The Deficiency Letter\n<|id|>50<|type|>title<|page|>6<|box|>364 140 380 300<|content|>E. Prior Extensions\n<|id|>56<|type|>title<|page|>7<|box|>157 140 174 344<|content|>F. Settlement Discussions\n<|id|>67<|type|>title<|page|>8<|box|>89 140 106 611<|content|>III. GOOD CAUSE FOR THE REQUESTED EXTENSION\n<|id|>69<|type|>title<|page|>8<|box|>220 142 238 531<|content|>A. Material Scope Changes to the Tariff Redesign\n<|id|>84<|type|>title<|page|>10<|box|>202 142 219 433<|content|>B. Revised Cost-of-Service Summary\n<|id|>86<|type|>table<|page|>10<|box|>340 143 537 852<|content|>None\n<|id|>95<|type|>title<|page|>11<|box|>176 140 193 591<|content|>C. Remaining Deficiency Items Require Additional W\n<|id|>104<|type|>title<|page|>12<|box|>465 140 484 460<|content|>D. Supplemental Testimony Preparation\n<|id|>109<|type|>title<|page|>13<|box|>138 140 157 609<|content|>E. Ongoing Coordination with Interconnection Negot\n<|id|>114<|type|>title<|page|>13<|box|>628 140 646 473<|content|>IV. NO PARTY WILL BE PREJUDICED\n<|id|>120<|type|>title<|page|>14<|box|>339 140 357 390<|content|>V. PROPOSED CONDITIONS\n<|id|>130<|type|>title<|page|>15<|box|>212 140 229 361<|content|>VI. REQUESTED RELIEF\n<|id|>136<|type|>title<|page|>15<|box|>508 140 526 488<|content|>VII. SERVICE AND COMMUNICATIONS\n<|id|>152<|type|>title<|page|>17<|box|>116 410 133 586<|content|>Respectfully submitted,\n<|id|>162<|type|>title<|page|>17<|box|>410 140 428 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>86<|tgt_id|>84",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 84
+        }
+    ]
+}

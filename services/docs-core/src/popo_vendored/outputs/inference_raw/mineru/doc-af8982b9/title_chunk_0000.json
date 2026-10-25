@@ -1,0 +1,86 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>142 367 159 627<|content|>BRING-DOWN CERTIFICATE\n<|id|>7<|page|>1<|box|>330 142 348 395<|content|>INTRODUCTORY RECITALS\n<|id|>19<|page|>2<|box|>273 140 291 307<|content|>CERTIFICATIONS\n<|id|>21<|page|>2<|box|>330 140 349 581<|content|>Section 1. Representations and Warranties Bring-Do\n<|id|>34<|page|>4<|box|>619 140 637 408<|content|>Section 2. Covenants Compliance.\n<|id|>44<|page|>5<|box|>737 140 753 455<|content|>Section 3. No Material Adverse Change.\n<|id|>53<|page|>6<|box|>507 140 523 352<|content|>Section 4. No Proceedings.\n<|id|>58<|page|>7<|box|>138 140 157 465<|content|>Section 5. Lender Consent Confirmation.\n<|id|>62<|page|>7<|box|>502 140 518 411<|content|>Section 6. Insurance Certification.\n<|id|>67<|page|>8<|box|>138 140 157 441<|content|>Section 7. Incumbency and Authority.\n<|id|>70<|page|>8<|box|>385 140 401 297<|content|>Section 8. Reliance.\n<|id|>73<|page|>8<|box|>628 140 647 352<|content|>Section 9. Governing Law.\n<|id|>76<|page|>8<|box|>760 334 777 661<|content|>[Signature Page to Bring-Down Certificate]\n<|id|>78<|page|>8<|box|>829 142 845 504<|content|>QUORUM INSURANCE HOLDINGS CORP.\n<|id|>83<|page|>9<|box|>128 143 145 310<|content|>LIST OF EXHIBITS\n<|id|>87<|page|>9<|box|>268 447 285 550<|content|>EXHIBIT A\n<|id|>88<|page|>9<|box|>294 367 311 629<|content|>[LENDER CONSENT LETTER]\n<|id|>89<|page|>9<|box|>320 433 339 565<|content|>[To Be Attached]\n<|id|>90<|page|>9<|box|>347 352 390 643<|content|>EXHIBIT B [CERTIFICATES OF INSURANCE]\n<|id|>91<|page|>9<|box|>398 433 416 563<|content|>[To Be Attached]",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>3\n<|id|>34<|level|>3\n<|id|>44<|level|>3\n<|id|>53<|level|>3\n<|id|>58<|level|>3\n<|id|>62<|level|>3\n<|id|>67<|level|>3\n<|id|>70<|level|>3\n<|id|>73<|level|>3\n<|id|>76<|level|>-1\n<|id|>78<|level|>-1\n<|id|>83<|level|>2\n<|id|>87<|level|>3\n<|id|>88<|level|>4\n<|id|>89<|level|>-1\n<|id|>90<|level|>3\n<|id|>91<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,108 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 104 630<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|page|>1<|box|>111 423 128 573<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>390 140 407 321<|content|>I. Executive Summary\n<|id|>28<|page|>2<|box|>738 140 753 454<|content|>II. Background and Procedural Posture\n<|id|>39<|page|>4<|box|>286 140 301 622<|content|>III. Open Issue No. 1: Escrow Mechanics and Releas\n<|id|>40<|page|>4<|box|>316 140 333 352<|content|>A. Description of the Issue\n<|id|>47<|page|>5<|box|>90 140 106 408<|content|>B. MCB's Recommended Position\n<|id|>53<|page|>5<|box|>633 140 650 460<|content|>C. Recommended Fallback Compromise\n<|id|>59<|page|>6<|box|>311 142 329 361<|content|>D. Practical Considerations\n<|id|>65<|page|>6<|box|>741 140 758 352<|content|>A. Description of the Issue\n<|id|>72<|page|>7<|box|>681 140 699 410<|content|>B. MCB's Recommended Position\n<|id|>81<|page|>8<|box|>800 140 816 460<|content|>C. Recommended Fallback Compromise\n<|id|>88<|page|>9<|box|>646 140 662 361<|content|>D. Practical Considerations\n<|id|>93<|page|>10<|box|>359 140 376 741<|content|>V. Open Issue No. 3: Commencement Date for 120-Day\n<|id|>94<|page|>10<|box|>388 140 407 352<|content|>A. Description of the Issue\n<|id|>99<|page|>11<|box|>157 140 174 410<|content|>B. MCB's Recommended Position\n<|id|>108<|page|>12<|box|>138 140 157 460<|content|>C. Recommended Fallback Compromise\n<|id|>114<|page|>12<|box|>773 142 790 361<|content|>D. Practical Considerations\n<|id|>119<|page|>13<|box|>566 140 584 681<|content|>VI. Summary of Recommended Positions and Fallback\n<|id|>122<|page|>14<|box|>720 142 738 385<|content|>VII. Recommended Next Steps\n<|id|>137<|page|>16<|box|>89 140 107 468<|content|>VIII. Privilege and Confidentiality Notice",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>28<|level|>2\n<|id|>39<|level|>2\n<|id|>40<|level|>3\n<|id|>47<|level|>3\n<|id|>53<|level|>3\n<|id|>59<|level|>3\n<|id|>65<|level|>3\n<|id|>72<|level|>3\n<|id|>81<|level|>3\n<|id|>88<|level|>3\n<|id|>93<|level|>2\n<|id|>94<|level|>3\n<|id|>99<|level|>3\n<|id|>108<|level|>3\n<|id|>114<|level|>3\n<|id|>119<|level|>2\n<|id|>122<|level|>2\n<|id|>137<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        }
+    ]
+}

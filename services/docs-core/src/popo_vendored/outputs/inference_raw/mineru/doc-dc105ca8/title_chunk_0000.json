@@ -1,0 +1,152 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>135 110 169 914<|content|>河北省地方标准\n<|id|>3<|page|>1<|box|>382 166 418 830<|content|>重力式沉箱码头棱体强夯处理规范\n<|id|>6<|page|>2<|box|>157 438 180 524<|content|>前言\n<|id|>11<|page|>3<|box|>154 277 176 685<|content|>重力式沉箱码头棱体强夯处理规范\n<|id|>12<|page|>3<|box|>212 90 228 159<|content|>1 范围\n<|id|>15<|page|>3<|box|>323 89 340 247<|content|>2 规范性引用文件\n<|id|>28<|page|>3<|box|>619 90 636 211<|content|>3 术语和定义\n<|id|>40<|page|>4<|box|>142 114 157 149<|content|>3.4\n<|id|>43<|page|>4<|box|>216 112 231 149<|content|>3.5\n<|id|>47<|page|>4<|box|>309 112 324 149<|content|>3.6\n<|id|>50<|page|>4<|box|>401 112 416 149<|content|>3.7\n<|id|>53<|page|>4<|box|>484 112 501 184<|content|>4 总则\n<|id|>56<|page|>4<|box|>623 112 640 218<|content|>5 基本规定\n<|id|>72<|page|>5<|box|>326 89 343 159<|content|>6 设计\n<|id|>73<|page|>5<|box|>364 89 380 213<|content|>6.1 一般规定\n<|id|>84<|page|>5<|box|>763 90 777 211<|content|>6.2 强夯设计\n<|id|>85<|page|>5<|box|>790 89 807 300<|content|>6.2.1 夯击能及分层厚度\n<|id|>97<|page|>6<|box|>573 112 589 473<|content|>6.2.3 试夯检测及试验成果应包括下列参数：\n<|id|>104<|page|>6<|box|>739 112 756 255<|content|>6.2.4 夯点布置\n<|id|>108<|page|>7<|box|>438 89 454 319<|content|>6.2.5 夯击击数及夯实遍数\n<|id|>113<|page|>7<|box|>738 89 754 284<|content|>6.3 强夯施工安全距离\n<|id|>124<|page|>8<|box|>375 112 391 184<|content|>7 施工\n<|id|>125<|page|>8<|box|>412 112 428 236<|content|>7.1 一般规定\n<|id|>130<|page|>8<|box|>533 112 548 366<|content|>7.1.2 施工前应完成下列工作：\n<|id|>135<|page|>8<|box|>671 112 688 307<|content|>7.2 施工强夯区域准备\n<|id|>138<|page|>8<|box|>792 112 808 238<|content|>7.3 施工机具\n<|id|>142<|page|>9<|box|>176 87 195 216<|content|>7.4 施工程序\n<|id|>155<|page|>9<|box|>446 87 465 381<|content|>7.4.2 满夯施工宜按以下步骤进行：\n<|id|>166<|page|>9<|box|>668 87 687 305<|content|>7.5 施工质量控制与检测\n<|id|>175<|page|>9<|box|>881 87 900 398<|content|>7.5.3 试验段的观测应满足下列要求：\n<|id|>181<|page|>10<|box|>536 114 553 236<|content|>7.6 环境保护\n<|id|>183<|page|>10<|box|>610 114 627 542<|content|>7.6.2 在被保护的工程周围可采取以下隔振防振措施：",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>6<|level|>1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>28<|level|>2\n<|id|>40<|level|>3\n<|id|>43<|level|>3\n<|id|>47<|level|>3\n<|id|>50<|level|>3\n<|id|>53<|level|>2\n<|id|>56<|level|>2\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>84<|level|>3\n<|id|>85<|level|>4\n<|id|>97<|level|>4\n<|id|>104<|level|>4\n<|id|>108<|level|>4\n<|id|>113<|level|>3\n<|id|>124<|level|>2\n<|id|>125<|level|>3\n<|id|>130<|level|>4\n<|id|>135<|level|>3\n<|id|>138<|level|>3\n<|id|>142<|level|>3\n<|id|>155<|level|>4\n<|id|>166<|level|>3\n<|id|>175<|level|>4\n<|id|>181<|level|>3\n<|id|>183<|level|>4",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 104,
+            "level": 4
+        },
+        {
+            "id": 108,
+            "level": 4
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 4
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 4
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 4
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 4
+        }
+    ]
+}

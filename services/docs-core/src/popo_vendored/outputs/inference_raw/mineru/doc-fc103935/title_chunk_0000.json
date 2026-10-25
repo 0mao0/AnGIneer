@@ -1,0 +1,70 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 160 125 838<|content|>VANTAGE MOBILITY SYSTEMS CORP. 4100 Industrial Par\n<|id|>8<|page|>1<|box|>604 140 623 464<|content|>1. Background and Agreement Overview\n<|id|>13<|page|>2<|box|>250 140 266 405<|content|>2. Rescoping of Project Argonaut\n<|id|>18<|page|>3<|box|>90 140 107 480<|content|>3. Integration Status at Time of Suspension\n<|id|>29<|page|>3<|box|>843 140 859 526<|content|>4. Invocation of Section 9.4 Dormancy Provisions\n<|id|>35<|page|>4<|box|>546 140 563 573<|content|>5. Effect of Dormancy Status: Support Level Reduct\n<|id|>38<|page|>5<|box|>90 140 107 535<|content|>6. VMS Position on Tolling of Milestone Deadlines\n<|id|>43<|page|>5<|box|>656 140 672 566<|content|>7. VMS Position on Fee Obligations During Dormancy\n<|id|>48<|page|>6<|box|>439 140 457 560<|content|>8. Reservation of Rights Regarding Derivative Work\n<|id|>52<|page|>7<|box|>90 140 107 400<|content|>9. General Reservation of Rights\n<|id|>61<|page|>7<|box|>686 142 704 405<|content|>10. Request for Acknowledgment\n<|id|>70<|page|>8<|box|>215 142 232 398<|content|>11. Notice Provision Compliance",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>29<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>2\n<|id|>43<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>61<|level|>2\n<|id|>70<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        }
+    ]
+}

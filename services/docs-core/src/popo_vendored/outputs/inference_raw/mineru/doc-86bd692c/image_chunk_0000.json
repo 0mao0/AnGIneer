@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>89 197 106 797<|content|>MEMORANDUM — CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>4<|type|>table<|page|>1<|box|>210 143 349 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>398 142 416 230<|content|>1. Purpose\n<|id|>9<|type|>title<|page|>1<|box|>847 140 864 540<|content|>2. Proposed Client and Affiliated Entities Searche\n<|id|>26<|type|>title<|page|>3<|box|>359 140 377 707<|content|>3. Counterparties, Adverse Parties, and Material T\n<|id|>28<|type|>title<|page|>3<|box|>489 140 507 517<|content|>3.1 Key Counterparties / Data-Sharing Partners\n<|id|>31<|type|>title<|page|>4<|box|>90 140 106 415<|content|>3.2 Vendors and Service Providers\n<|id|>34<|type|>title<|page|>4<|box|>518 140 536 437<|content|>3.3 Opposing / Counterparty Counsel\n<|id|>36<|type|>title<|page|>4<|box|>700 140 718 431<|content|>3.4 Co-Counsel and Related Counsel\n<|id|>38<|type|>title<|page|>5<|box|>176 140 193 403<|content|>3.5 Other Material Third Parties\n<|id|>42<|type|>title<|page|>5<|box|>640 140 657 475<|content|>4. Conflicts Database Search Methodology\n<|id|>59<|type|>title<|page|>6<|box|>782 140 799 370<|content|>5. Results of Conflicts Check\n<|id|>60<|type|>title<|page|>6<|box|>813 140 830 459<|content|>5.1 No Disqualifying Conflicts Identified\n<|id|>64<|type|>title<|page|>7<|box|>202 140 219 687<|content|>5.2 Current and Recent Client Representations — No\n<|id|>77<|type|>title<|page|>7<|box|>625 140 641 674<|content|>5.3 Whitfield Greaves LLP — No Conflict; Co-Counse\n<|id|>80<|type|>title<|page|>8<|box|>157 140 175 718<|content|>5.4 Kellner Park & Associates LLP — Counterparty C\n<|id|>83<|type|>title<|page|>8<|box|>402 140 420 611<|content|>5.5 Thornbridge Media Corp. — Counterparty; No Con\n<|id|>86<|type|>title<|page|>8<|box|>648 140 664 485<|content|>5.6 Other Searched Entities — No Conflicts\n<|id|>94<|type|>title<|page|>9<|box|>300 140 316 421<|content|>6. Engagement Team Confirmation\n<|id|>96<|type|>table<|page|>9<|box|>422 143 577 852<|content|>None\n<|id|>98<|type|>title<|page|>9<|box|>762 140 779 501<|content|>7. Scope of Engagement and Nature of Matter\n<|id|>114<|type|>title<|page|>11<|box|>148 140 167 447<|content|>8. Conditions and Ongoing Monitoring\n<|id|>121<|type|>title<|page|>11<|box|>821 140 839 413<|content|>9. Recommendation and Approval\n<|id|>122<|type|>title<|page|>11<|box|>848 142 864 251<|content|>Prepared by:\n<|id|>125<|type|>title<|page|>12<|box|>263 140 280 256<|content|>Approved by:",
+    "raw_response": "<|src_id|>4<|tgt_id|>5\n<|src_id|>96<|tgt_id|>94",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        }
+    ]
+}

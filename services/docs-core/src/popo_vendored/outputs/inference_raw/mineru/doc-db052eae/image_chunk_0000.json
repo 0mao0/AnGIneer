@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        13,
+        16,
+        17,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 202 133 794<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>7<|type|>title<|page|>1<|box|>388 140 404 341<|content|>I. Purpose and Summary\n<|id|>14<|type|>title<|page|>2<|box|>286 140 303 388<|content|>II. Current Procedural Posture\n<|id|>15<|type|>title<|page|>2<|box|>316 140 334 299<|content|>A. Pleadings Status\n<|id|>26<|type|>title<|page|>3<|box|>398 140 417 504<|content|>B. Motion to Strike Ruling — August 22, 2022\n<|id|>32<|type|>title<|page|>4<|box|>273 140 292 584<|content|>C. Case Management Conference — September 12, 2022\n<|id|>34<|type|>table<|page|>4<|box|>340 143 491 852<|content|>None\n<|id|>36<|type|>title<|page|>4<|box|>676 140 693 341<|content|>III. Discovery Objectives\n<|id|>37<|type|>title<|page|>4<|box|>707 140 724 683<|content|>A. Objective 1: Establish the Debt and Eliminate R\n<|id|>41<|type|>table<|page|>5<|box|>214 143 386 852<|content|>None\n<|id|>45<|type|>title<|page|>5<|box|>813 142 830 563<|content|>B. Objective 2: Defeat the Failure-to-Mitigate Def\n<|id|>60<|type|>title<|page|>7<|box|>726 140 744 779<|content|>C. Objective 3: Assess PBGC's Financial Condition\n<|id|>69<|type|>title<|page|>8<|box|>747 140 765 763<|content|>Document Requests Regarding Financial Condition. O\n<|id|>78<|type|>title<|page|>9<|box|>708 140 726 547<|content|>D. Objective 4: Foundation for Summary Judgment\n<|id|>100<|type|>title<|page|>11<|box|>223 140 239 449<|content|>IV. Discovery Plan — Specific Vehicles\n<|id|>101<|type|>title<|page|>11<|box|>253 140 271 434<|content|>A. Written discovery Already Served\n<|id|>129<|type|>title<|page|>13<|box|>787 140 805 424<|content|>B. Anticipated Additional discovery\n<|id|>146<|type|>title<|page|>16<|box|>494 140 511 485<|content|>V. Defense Counsel Status and Implications\n<|id|>154<|type|>title<|page|>17<|box|>329 140 347 506<|content|>VI. Summary Judgment Preparation Timeline\n<|id|>172<|type|>title<|page|>19<|box|>212 140 229 460<|content|>VII. Budget and Staffing Considerations\n<|id|>174<|type|>title<|page|>19<|box|>282 142 299 214<|content|>Staffing.\n<|id|>175<|type|>table<|page|>19<|box|>306 143 554 852<|content|>None\n<|id|>183<|type|>title<|page|>20<|box|>316 140 334 393<|content|>VIII. Recommended Next Steps\n<|id|>194<|type|>title<|page|>21<|box|>464 140 482 264<|content|>IX. Conclusion",
+    "raw_response": "<|src_id|>34<|tgt_id|>32\n<|src_id|>41<|tgt_id|>37\n<|src_id|>175<|tgt_id|>174",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 174
+        }
+    ]
+}

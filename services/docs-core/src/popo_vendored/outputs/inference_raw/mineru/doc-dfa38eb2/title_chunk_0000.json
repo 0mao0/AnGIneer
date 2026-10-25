@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>247 140 263 393<|content|>PRIVATE & CONFIDENTIAL\n<|id|>9<|page|>1<|box|>421 142 438 334<|content|>1. Purpose of this Letter\n<|id|>13<|page|>1<|box|>814 140 832 470<|content|>2. Identification of Translated Documents\n<|id|>15<|page|>2<|box|>89 142 107 424<|content|>2.1 LCIA Final Award (No. 224718)\n<|id|>18<|page|>2<|box|>184 176 200 403<|content|>Date of Award: 28 June 2024\n<|id|>19<|page|>2<|box|>209 178 226 326<|content|>Arbitral Tribunal:\n<|id|>24<|page|>2<|box|>314 178 329 243<|content|>Parties:\n<|id|>33<|page|>2<|box|>648 140 666 642<|content|>2.2 Charter-Party Agreements (Containing Arbitrati\n<|id|>63<|page|>3<|box|>654 140 671 362<|content|>2.3 LCIA Arbitration Rules\n<|id|>67<|page|>3<|box|>773 140 789 455<|content|>2.4 Certificate from the LCIA Registrar\n<|id|>75<|page|>4<|box|>215 140 233 359<|content|>2.5 Request for Arbitration\n<|id|>81<|page|>4<|box|>375 140 390 460<|content|>2.6 Power of Attorney / Authority to Act\n<|id|>83<|page|>4<|box|>478 176 494 629<|content|>(a) Board Resolution of Thalassa Shipping & Logist\n<|id|>89<|page|>4<|box|>750 178 765 354<|content|>(b) Power of Attorney\n<|id|>94<|page|>5<|box|>90 140 107 387<|content|>3. Certification of Translations\n<|id|>102<|page|>5<|box|>587 140 604 415<|content|>4. Legalization and Authentication\n<|id|>114<|page|>6<|box|>613 140 630 501<|content|>5. Conformity with UAE Court Requirements\n<|id|>121<|page|>7<|box|>267 140 284 568<|content|>6. Reference to Precautionary Attachment Applicati\n<|id|>127<|page|>7<|box|>676 140 691 411<|content|>7. Delivery of Physical Documents\n<|id|>134<|page|>9<|box|>90 140 107 434<|content|>8. Inventory / Schedule of Enclosures\n<|id|>137<|page|>9<|box|>256 140 273 586<|content|>9. Key Parties and Entities Referenced in Document\n<|id|>141<|page|>10<|box|>90 142 107 553<|content|>10. Coordination with Calderwood & Harkness LLP\n<|id|>151<|page|>10<|box|>465 140 484 375<|content|>11. Request for Confirmation\n<|id|>170<|page|>11<|box|>457 444 474 550<|content|>SCHEDULE\n<|id|>171<|page|>11<|box|>483 370 500 627<|content|>Schedule of Enclosed Documents\n<|id|>175<|page|>12<|box|>532 143 546 189<|content|>Notes:\n<|id|>180<|page|>12<|box|>724 143 738 352<|content|>CONFIDENTIALITY NOTICE",
+    "raw_response": "<|id|>5<|level|>-1\n<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>2\n<|id|>18<|level|>3\n<|id|>19<|level|>3\n<|id|>24<|level|>3\n<|id|>33<|level|>2\n<|id|>63<|level|>2\n<|id|>67<|level|>2\n<|id|>75<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>3\n<|id|>89<|level|>3\n<|id|>94<|level|>1\n<|id|>102<|level|>1\n<|id|>114<|level|>1\n<|id|>121<|level|>1\n<|id|>127<|level|>1\n<|id|>134<|level|>1\n<|id|>137<|level|>1\n<|id|>141<|level|>1\n<|id|>151<|level|>1\n<|id|>170<|level|>1\n<|id|>171<|level|>2\n<|id|>175<|level|>2\n<|id|>180<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 1
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 1
+        }
+    ]
+}

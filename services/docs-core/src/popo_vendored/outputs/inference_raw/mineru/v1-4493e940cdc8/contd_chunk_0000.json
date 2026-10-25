@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        20,
+        22,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>169 183 185 800<|content|>Shikun Feng <sup>1∗</sup>, Yuyan Ni<sup>2,3∗</sup>...sup>1</sup>, Yanyan Lan<sup>1,5</sup> <sup>‡</sup>\n<|id|>2<|page|>1<|box|>185 181 200 599<|content|><sup>1</sup>Institute for AI Industry Research (AIR), Tsinghua University\n<|id|>3<|page|>1<|box|>200 181 214 710<|content|><sup>2</sup>Academy of Mathematics and Systems Science, Chinese Academy of Sciences\n<|id|>4<|page|>1<|box|>214 181 229 483<|content|><sup>3</sup>University of Chinese Academy of Sciences\n<|id|>5<|page|>1<|box|>229 181 244 661<|content|><sup>4</sup>Department of Computer Science and Technology, Tsinghua University\n<|id|>6<|page|>1<|box|>244 181 258 470<|content|><sup>5</sup>Beijing Academy of Artificial Intelligence\n<|id|>44<|page|>5<|box|>189 169 223 823<|content|>Here\\alpha _ { t | t - 1 } = \\alpha _ { t } / \\alp...al { N } _ { x } ( x _ { N } | \\mathbf { 0 } , I )\n<|id|>45<|page|>5<|box|>229 169 321 825<|content|>For the molecular generation task, the atom types ...efficiently without increasing the overall runtime\n<|id|>52<|page|>5<|box|>594 169 657 823<|content|>whereq ( x _ { 0 } , x _ { t } )are data distribut...} _ { t } , t ) } { \\alpha _ { t } } } \\end{array}\n<|id|>53<|page|>5<|box|>667 169 739 825<|content|>As we show in appendix\\mathrm { F } . ... This sug...plicitly learned throughout the diffusion training\n<|id|>61<|page|>6<|box|>474 169 525 823<|content|>Here fory \\in \\{ x , z \\} , m _ { y } ^ { 2 }is th...{ T } / T \\lesssim 1 / L _ { y }andL _ { y } \\ge 1\n<|id|>62<|page|>6<|box|>535 169 635 826<|content|>Our theoretical analysis identifies four factors c...able 1, showing both of them are smaller in UniGEM\n<|id|>63<|page|>6<|box|>638 169 698 826<|content|>The reduced coordinate and atom type errors in Uni...the predicted atom type (determined by the highest\n<|id|>64<|page|>6<|box|>700 169 811 532<|content|>probability) oscillates between two categories, in...to more accurate and stable coordinate predictions\n<|id|>212<|page|>20<|box|>154 171 198 823<|content|>where\\begin{array} { r } { \\tilde { \\mu } \\left( i..._ { t | t - 1 } ^ { 2 } \\sigma _ { t - 1 } ^ { 2 }\n<|id|>213<|page|>20<|box|>203 169 233 823<|content|>The prior distribution is approximated byp ( z _ {... } _ { t \\sim U ( 0 , T ] } \\mathcal { L } _ { t }\n<|id|>239<|page|>22<|box|>425 169 469 825<|content|>The distributionq ( \\pmb { x } _ { 0 } | \\pmb { x ...ce asq ( \\pmb { x } _ { 0 } | \\pmb { x } _ { t } )\n<|id|>240<|page|>22<|box|>474 169 503 825<|content|>Thus, minimizing the denoising loss corresponds to...ower bound of the InfoMax objective in equation 13\n<|id|>261<|page|>23<|box|>640 169 685 823<|content|>whereq ( z _ { T } ) = \\mathcal { N } _ { x h } ( ...Vert ^ { 2 }is the second moment ofq ( z _ { 0 } )\n<|id|>262<|page|>23<|box|>698 169 801 825<|content|>Proof. ... (2023)\n<|id|>276<|page|>24<|box|>895 169 924 826<|content|>Then by using Theorem G. ... 1 to provide the uppe...he diffusion error ofx ,we can obtain equation 25□\n<|id|>277<|page|>25<|box|>104 169 188 825<|content|>Remark of the deterministic mapping f. ... Consequ...izing predictive methods to deter- mine atom types",
+    "raw_response": "<|src_id|>63<|tgt_id|>64",
+    "parsed": [
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        }
+    ]
+}

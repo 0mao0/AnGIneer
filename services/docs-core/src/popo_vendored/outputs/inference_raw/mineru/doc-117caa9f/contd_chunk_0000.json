@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        12,
+        14,
+        15,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>151 140 169 782<|content|>TO: ... Douglas Fairchild, Responsible Partner, Real Estate, Calderwood & Harkness LLP\n<|id|>2<|page|>1<|box|>176 140 194 725<|content|>FROM: ... Sylvia Hartwell, Specialist Partner, Tax, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>203 142 220 325<|content|>DATE: ... March 20, 2025\n<|id|>4<|page|>1<|box|>229 140 265 854<|content|>RE: ... Recommended Entity Structure and Tax Elect...s LLC — Stonebridge Data Center Campus Development\n<|id|>5<|page|>1<|box|>272 140 290 362<|content|>MATTER NO. ... 1043-00002\n<|id|>6<|page|>1<|box|>297 140 316 437<|content|>CLIENT: ... Ironhaven Data Centers LLC\n<|id|>7<|page|>1<|box|>324 140 340 410<|content|>Right-click to update Table of Contents\n<|id|>12<|page|>1<|box|>816 140 907 857<|content|>This memorandum addresses the following interrelated subjects: ... (d)\n<|id|>13<|page|>2<|box|>90 140 199 854<|content|>single-purpose entity (\"SPE\") constraints imposed ...the project's financing and construction documents\n<|id|>21<|page|>3<|box|>89 174 127 854<|content|>↓ (92% of IHDC membership interests held by RCP Di...% held by Ironhaven Management Incentive Pool LLC)\n<|id|>22<|page|>3<|box|>133 138 373 857<|content|>Ironhaven Data Centers LLC (\"IHDC\") is a Delaware ...gs LLC and Ironhaven Management Incentive Pool LLC\n<|id|>23<|page|>3<|box|>378 178 397 349<|content|>↓ (100% sole member)\n<|id|>24<|page|>3<|box|>406 138 515 857<|content|>Stonebridge Campus Holdings LLC is the to-be-forme...idge Data Center Campus, consisting of two parcels\n<|id|>31<|page|>3<|box|>772 138 900 857<|content|>Ridgeline Fund IV is expected to fund approximatel...to a partnership under Section 721 of the Internal\n<|id|>32<|page|>4<|box|>90 140 127 854<|content|>Revenue Code at the IHDC level, and as a non-event... level (both RCP Digital and Stonebridge Holdings)\n<|id|>58<|page|>6<|box|>838 140 893 856<|content|>Flexibility in Transfers. ... Because the disregar...o or out of Stonebridge Holdings (between IHDC and\n<|id|>59<|page|>7<|box|>90 140 145 854<|content|>Stonebridge Holdings) generally do not trigger gai...ldings, which will be a non-event for tax purposes\n<|id|>74<|page|>8<|box|>474 176 493 831<|content|>(d) Vendor and contractor reporting (issuance of Forms 1099 and W-9 certifications); ... and\n<|id|>76<|page|>8<|box|>527 140 636 856<|content|>As a disregarded entity, Stonebridge Holdings' act...regarded entities for the purposes described above\n<|id|>108<|page|>12<|box|>152 174 207 854<|content|>(vii) Stonebridge Holdings shall not guarantee, be...tity, including its member and affiliates; ... and\n<|id|>110<|page|>12<|box|>314 140 369 854<|content|>These covenants will be incorporated into both the... prior written consent of the Administrative Agent\n<|id|>133<|page|>14<|box|>861 140 898 856<|content|>A detailed cross-referencing analysis of the chang... the Landlord Load Serving Agreement (\"LLSA\") with\n<|id|>134<|page|>15<|box|>89 138 164 856<|content|>Northgate Partners LLC is provided in the companio...tion scenarios and their potential trigger effects\n<|id|>196<|page|>22<|box|>90 174 107 813<|content|>(c) Loudoun County Equipment Tax — Assessment Methodology and Projections; ... and\n<|id|>198<|page|>22<|box|>160 140 196 854<|content|>We are available to discuss any aspect of this mem... Operating Agreement drafting, and related matters\n<|id|>201<|page|>22<|box|>290 181 306 578<|content|>• Douglas Fairchild, Responsible Partner, Real Estate\n<|id|>204<|page|>22<|box|>348 140 402 854<|content|>Client distribution to Marcus Thorne (CEO) and Pri...tocols and any applicable privilege considerations\n<|id|>202<|page|>22<|box|>309 183 325 501<|content|>• Cynthia Ho, Lead Associate, Real Estate\n<|id|>203<|page|>22<|box|>329 183 345 513<|content|>• Grace Nakamura, Working Associate, Tax\n<|id|>209<|page|>22<|box|>630 140 662 854<|content|>Sylvia Hartwell Specialist Partner, Tax Calderwood...e 800 Washington, DC 20006 Tel: ... (202) 555-4800\n<|id|>210<|page|>22<|box|>664 142 679 467<|content|>Email: ... com\n<|id|>211<|page|>22<|box|>679 140 710 852<|content|>Calderwood & Harkness LLP — 425 Lexington Avenue, ... 1900 K Street NW, Suite 800, Washington, DC 20006\n<|id|>212<|page|>22<|box|>718 140 777 854<|content|>This memorandum is a privileged and confidential a..., or distribution of this memorandum is prohibited",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>31<|tgt_id|>32\n<|src_id|>58<|tgt_id|>59\n<|src_id|>133<|tgt_id|>134",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        }
+    ]
+}

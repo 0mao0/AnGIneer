@@ -1,0 +1,217 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ofkbsrwd\\input\\pdfs\\doc-07277813.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ofkbsrwd\\enriched\\doc-07277813.json",
+    "contd_output": "<|src_id|>15<|tgt_id|>16\n<|src_id|>95<|tgt_id|>96",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>28<|level|>3\n<|id|>29<|level|>4\n<|id|>38<|level|>4\n<|id|>47<|level|>3\n<|id|>51<|level|>2\n<|id|>53<|level|>3\n<|id|>59<|level|>3\n<|id|>69<|level|>3\n<|id|>75<|level|>3\n<|id|>84<|level|>3\n<|id|>92<|level|>2\n<|id|>94<|level|>3\n<|id|>100<|level|>3\n<|id|>110<|level|>3\n<|id|>114<|level|>3\n<|id|>118<|level|>3\n<|id|>122<|level|>2\n<|id|>129<|level|>2\n<|id|>137<|level|>2\n<|id|>147<|level|>2\n<|id|>148<|level|>3\n<|id|>163<|level|>3\n<|id|>168<|level|>2\n<|id|>174<|level|>2\n<|id|>183<|level|>2\n<|id|>189<|level|>2\n<|id|>192<|level|>2\n<|id|>194<|level|>2",
+    "image_output": "<|src_id|>49<|tgt_id|>47\n<|src_id|>50<|tgt_id|>47\n<|src_id|>190<|tgt_id|>189\n<|src_id|>191<|tgt_id|>189\n<|src_id|>193<|tgt_id|>192\n<|src_id|>195<|tgt_id|>194",
+    "contd_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 96
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 4
+        },
+        {
+            "id": 38,
+            "level": 4
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 49,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 189
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 189
+        },
+        {
+            "src_id": 193,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 194
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 49,
+            "table2_idx": 50,
+            "upper_row_ss": [
+                [
+                    "Sentinel Capital Markets LLC",
+                    "N/A",
+                    "New York",
+                    "Co-Lender and Administrative Agent —"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "Fund V"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 190,
+            "table2_idx": 191,
+            "upper_row_ss": [
+                [
+                    "Events of Default",
+                    "Risk of default if consent not obtained",
+                    "Risk of default if consent not obtained",
+                    "N/A (consent eliminates risk)",
+                    "N/A (amendment eliminates ongoing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "before Steps 2, 3, and 5",
+                    "before Steps 4 and 5; cross-default risk from Fund IV",
+                    "",
+                    "risk)"
+                ]
+            ]
+        }
+    ]
+}

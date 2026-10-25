@@ -1,0 +1,122 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>12<|page|>1<|box|>818 140 835 524<|content|>I. IDENTIFICATION OF THE GUARANTORS\n<|id|>21<|page|>2<|box|>393 140 411 393<|content|>II. DOCUMENTS REVIEWED\n<|id|>34<|page|>3<|box|>261 142 277 328<|content|>III. DEFINED TERMS\n<|id|>50<|page|>3<|box|>773 142 790 308<|content|>IV. ASSUMPTIONS\n<|id|>52<|page|>3<|box|>849 142 866 336<|content|>A. General Assumptions\n<|id|>60<|page|>4<|box|>492 140 508 637<|content|>B. Factual Assumptions Relevant to Securities Law\n<|id|>70<|page|>5<|box|>575 140 593 261<|content|>V. OPINIONS\n<|id|>72<|page|>5<|box|>669 140 686 627<|content|>Opinion 1: No Registration Required Under the Secu\n<|id|>74<|page|>6<|box|>90 142 107 405<|content|>Opinion 2: Rule 144A Exemption\n<|id|>80<|page|>6<|box|>523 140 540 423<|content|>Opinion 3: Regulation S Exemption\n<|id|>89<|page|>7<|box|>436 142 454 436<|content|>Opinion 4: Section 4(a)(2) Exemption\n<|id|>96<|page|>8<|box|>213 140 229 604<|content|>Opinion 5: No Investment Company Registration Requ\n<|id|>98<|page|>8<|box|>513 140 531 509<|content|>VI. QUALIFICATIONS AND LIMITATIONS\n<|id|>100<|page|>8<|box|>590 140 607 364<|content|>A. Jurisdictional Limitation\n<|id|>102<|page|>8<|box|>828 140 844 431<|content|>B. Limitation on Subsequent Resales\n<|id|>104<|page|>9<|box|>194 140 212 300<|content|>C. Integration Risk\n<|id|>106<|page|>9<|box|>395 140 412 349<|content|>D. No Ongoing Obligation\n<|id|>108<|page|>9<|box|>541 140 558 416<|content|>E. Blue Sky / State Securities Laws\n<|id|>110<|page|>9<|box|>669 140 686 388<|content|>F. Reliance on Representations\n<|id|>119<|page|>10<|box|>344 140 361 423<|content|>VII. TRANSFER RESTRICTIONS\n<|id|>125<|page|>11<|box|>89 140 106 558<|content|>VIII. OFFERING MEMORANDUM REFERENCES\n<|id|>132<|page|>11<|box|>614 140 633 400<|content|>IX. RELIANCE AND BENEFIT\n<|id|>137<|page|>12<|box|>178 236 195 759<|content|>SIGNATURE PAGE TO SECURITIES LAW OPINION LETTER",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>1\n<|id|>21<|level|>1\n<|id|>34<|level|>1\n<|id|>50<|level|>1\n<|id|>52<|level|>2\n<|id|>60<|level|>2\n<|id|>70<|level|>1\n<|id|>72<|level|>2\n<|id|>74<|level|>2\n<|id|>80<|level|>2\n<|id|>89<|level|>2\n<|id|>96<|level|>2\n<|id|>98<|level|>1\n<|id|>100<|level|>2\n<|id|>102<|level|>2\n<|id|>104<|level|>2\n<|id|>106<|level|>2\n<|id|>108<|level|>2\n<|id|>110<|level|>2\n<|id|>119<|level|>1\n<|id|>125<|level|>1\n<|id|>132<|level|>1\n<|id|>137<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        }
+    ]
+}

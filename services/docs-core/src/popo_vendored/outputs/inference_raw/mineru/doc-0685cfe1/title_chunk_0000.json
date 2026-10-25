@@ -1,0 +1,42 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 210 118 787<|content|>WRITTEN CONSENT OF THE SOLE STOCKHOLDER\n<|id|>2<|page|>1<|box|>175 326 195 669<|content|>PINNACLE MERGER SUB, INC.\n<|id|>10<|page|>1<|box|>811 142 829 241<|content|>RECITALS\n<|id|>26<|page|>4<|box|>364 140 383 279<|content|>RESOLUTIONS\n<|id|>38<|page|>6<|box|>412 140 430 354<|content|>GENERAL PROVISIONS\n<|id|>44<|page|>7<|box|>178 156 214 838<|content|>SIGNATURE PAGE TO WRITTEN CONSENT OF THE SOLE STOC",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>10<|level|>2\n<|id|>26<|level|>2\n<|id|>38<|level|>2\n<|id|>44<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        }
+    ]
+}

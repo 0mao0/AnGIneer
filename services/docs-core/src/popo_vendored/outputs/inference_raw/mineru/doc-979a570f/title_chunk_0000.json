@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        10,
+        11,
+        13,
+        14,
+        18,
+        21,
+        22,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 145 141 852<|content|>UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF\n<|id|>3<|page|>1<|box|>200 380 219 614<|content|>LUMOS PHOTONICS, INC.,\n<|id|>7<|page|>1<|box|>305 207 340 790<|content|>PLAINTIFF OPTIWAVE SEMICONDUCTOR CORP.'S REPLY CLA\n<|id|>12<|page|>1<|box|>489 398 506 598<|content|>TABLE OF CONTENTS\n<|id|>15<|page|>2<|box|>657 385 672 612<|content|>TABLE OF AUTHORITIES\n<|id|>19<|page|>3<|box|>287 143 303 215<|content|>Statutes:\n<|id|>21<|page|>3<|box|>393 143 410 290<|content|>Other Authorities:\n<|id|>23<|page|>3<|box|>654 142 670 308<|content|>I. INTRODUCTION\n<|id|>32<|page|>5<|box|>204 140 220 599<|content|>II. LEGAL STANDARD FOR CLAIM CONSTRUCTION\n<|id|>41<|page|>6<|box|>364 142 383 743<|content|>III. REPLY ARGUMENTS ON DISPUTED TERMS OF THE '567\n<|id|>42<|page|>6<|box|>396 140 414 710<|content|>A. \"Adiabatically Coupled\" (Claim 1, and Dependent\n<|id|>72<|page|>10<|box|>829 140 845 483<|content|>B. Other Disputed Terms of the '567 Patent\n<|id|>76<|page|>11<|box|>486 140 503 741<|content|>IV. REPLY ARGUMENTS ON DISPUTED TERMS OF THE '234\n<|id|>77<|page|>11<|box|>517 140 553 852<|content|>A. \"Graded Buffer Layer Having a Continuously Vary\n<|id|>93<|page|>13<|box|>311 140 328 354<|content|>'234 Patent, col. 6, ll. 22–41.\n<|id|>101<|page|>14<|box|>465 140 483 483<|content|>B. Other Disputed Terms of the '234 Patent\n<|id|>103<|page|>14<|box|>694 140 712 735<|content|>V. REPLY ARGUMENTS ON DISPUTED TERMS OF THE '678 P\n<|id|>104<|page|>14<|box|>724 140 762 854<|content|>A. \"Integrated Wavelength-Division Multiplexing El\n<|id|>128<|page|>18<|box|>220 142 237 483<|content|>B. Other Disputed Terms of the '678 Patent\n<|id|>132<|page|>18<|box|>609 140 628 741<|content|>VI. REPLY ARGUMENTS ON DISPUTED TERMS OF THE '890\n<|id|>133<|page|>18<|box|>642 140 678 854<|content|>A. \"Pre-Emphasis Equalization Stage Electrically C\n<|id|>155<|page|>21<|box|>609 140 626 483<|content|>B. Other Disputed Terms of the '890 Patent\n<|id|>159<|page|>22<|box|>167 140 204 841<|content|>VII. LUMOS'S SYSTEMATIC OVER-RELIANCE ON EXTRINSIC\n<|id|>175<|page|>23<|box|>737 140 753 313<|content|>VIII. CONCLUSION\n<|id|>184<|page|>24<|box|>508 364 526 632<|content|>RESPECTFULLY SUBMITTED,\n<|id|>185<|page|>24<|box|>535 140 551 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>194<|page|>24<|box|>705 375 722 620<|content|>CERTIFICATE OF SERVICE\n<|id|>202<|page|>25<|box|>157 181 175 816<|content|>APPENDIX: SUMMARY CHART OF PROPOSED CLAIM CONSTRUC",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>15<|level|>1\n<|id|>19<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>1\n<|id|>32<|level|>1\n<|id|>41<|level|>1\n<|id|>42<|level|>2\n<|id|>72<|level|>2\n<|id|>76<|level|>1\n<|id|>77<|level|>2\n<|id|>93<|level|>-1\n<|id|>101<|level|>2\n<|id|>103<|level|>1\n<|id|>104<|level|>2\n<|id|>128<|level|>2\n<|id|>132<|level|>1\n<|id|>133<|level|>2\n<|id|>155<|level|>2\n<|id|>159<|level|>1\n<|id|>175<|level|>1\n<|id|>184<|level|>-1\n<|id|>185<|level|>-1\n<|id|>194<|level|>1\n<|id|>202<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 194,
+            "level": 1
+        },
+        {
+            "id": 202,
+            "level": 1
+        }
+    ]
+}

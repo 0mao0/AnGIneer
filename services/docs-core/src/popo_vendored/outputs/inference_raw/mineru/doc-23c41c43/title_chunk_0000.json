@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 148 142 849<|content|>RESOLUTIONS OF THE PRICING COMMITTEE OF THE BOARD\n<|id|>4<|page|>1<|box|>343 140 361 243<|content|>RECITALS\n<|id|>12<|page|>2<|box|>428 142 445 336<|content|>RESOLVED CLAUSES\n<|id|>13<|page|>2<|box|>459 140 477 602<|content|>Resolution 1: Approval of Final Pricing Terms of t\n<|id|>27<|page|>3<|box|>715 140 734 573<|content|>Resolution 2: Approval of Optional Redemption Term\n<|id|>32<|page|>4<|box|>311 142 329 723<|content|>Resolution 3: Approval of Initial Purchasers' disc\n<|id|>45<|page|>5<|box|>157 140 175 601<|content|>Resolution 4: Approval of Capped Call Transaction\n<|id|>62<|page|>6<|box|>481 142 498 473<|content|>Resolution 5: Approval of Use of Proceeds\n<|id|>70<|page|>7<|box|>465 140 483 679<|content|>Resolution 6: Authorization to Execute Final Trans\n<|id|>87<|page|>8<|box|>823 140 839 346<|content|>Resolution 7: Ratification\n<|id|>89<|page|>9<|box|>194 142 210 364<|content|>Resolution 8: Effective Date\n<|id|>92<|page|>9<|box|>361 400 378 596<|content|>[Signature Page Follows]\n<|id|>93<|page|>9<|box|>386 156 422 838<|content|>SIGNATURE PAGE TO RESOLUTIONS OF THE PRICING COMMI\n<|id|>99<|page|>10<|box|>89 336 210 660<|content|>EXHIBIT A Summary Pricing Term Sheet 2.75% Convert",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>27<|level|>3\n<|id|>32<|level|>3\n<|id|>45<|level|>3\n<|id|>62<|level|>3\n<|id|>70<|level|>3\n<|id|>87<|level|>3\n<|id|>89<|level|>3\n<|id|>92<|level|>-1\n<|id|>93<|level|>2\n<|id|>99<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        }
+    ]
+}

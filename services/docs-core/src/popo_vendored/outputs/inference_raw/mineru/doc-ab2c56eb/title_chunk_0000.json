@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        15
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>89 434 111 563<|content|>EXHIBIT B\n<|id|>1<|page|>2<|box|>128 161 164 834<|content|>Summary of Cost-Sharing Arrangement Between Penter\n<|id|>5<|page|>2<|box|>320 142 338 364<|content|>I. Introduction and Purpose\n<|id|>10<|page|>3<|box|>204 140 222 490<|content|>II. Parties to the Cost-Sharing Arrangement\n<|id|>11<|page|>3<|box|>234 140 253 473<|content|>A. Penterra Pharmaceuticals Corp. (PPC)\n<|id|>21<|page|>4<|box|>90 140 107 526<|content|>B. Penterra Biopharma International DAC (PBI)\n<|id|>28<|page|>4<|box|>797 140 814 403<|content|>III. Effective Date and Execution\n<|id|>31<|page|>5<|box|>304 140 320 588<|content|>IV. Scope of the CSA — Intangible Development Acti\n<|id|>32<|page|>5<|box|>334 140 352 328<|content|>A. Intangibles Covered\n<|id|>44<|page|>6<|box|>275 140 292 411<|content|>B. Territorial Allocation of Rights\n<|id|>50<|page|>6<|box|>768 140 786 423<|content|>C. Intangible Development Activity\n<|id|>56<|page|>7<|box|>464 140 482 495<|content|>V. Platform Contribution Transaction (PCT)\n<|id|>57<|page|>7<|box|>496 140 513 326<|content|>A. Nature and Purpose\n<|id|>60<|page|>7<|box|>814 140 832 348<|content|>B. PCT Payment Amount\n<|id|>63<|page|>8<|box|>250 140 266 367<|content|>C. Arm's-Length Validation\n<|id|>68<|page|>9<|box|>90 140 107 635<|content|>VI. Cost-Sharing Payments — Reasonably Anticipated\n<|id|>69<|page|>9<|box|>121 140 138 604<|content|>A. Methodology for Determining Cost-Sharing Percen\n<|id|>73<|page|>9<|box|>502 142 518 764<|content|>B. PBI's Cost-Sharing Percentages and Payments (PP\n<|id|>77<|page|>10<|box|>90 140 108 480<|content|>C. IRS Proposed Cost-Sharing Percentages\n<|id|>83<|page|>10<|box|>714 140 731 566<|content|>VII. Distinction from Legacy IP Royalty Arrangemen\n<|id|>89<|page|>11<|box|>680 140 698 375<|content|>VIII. Regulatory Compliance\n<|id|>90<|page|>11<|box|>710 140 729 444<|content|>A. Treas. Reg. § 1.482-7 Requirements\n<|id|>97<|page|>12<|box|>546 140 563 434<|content|>B. Contemporaneous Documentation\n<|id|>107<|page|>13<|box|>338 140 354 689<|content|>IX. PBI's Economic Substance and DEMPE Functions U\n<|id|>119<|page|>14<|box|>669 140 686 638<|content|>X. Summary of IRS Proposed Adjustments Relating to\n<|id|>128<|page|>15<|box|>446 140 464 264<|content|>XI. Conclusion",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>21<|level|>3\n<|id|>28<|level|>2\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>44<|level|>3\n<|id|>50<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>3\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>73<|level|>3\n<|id|>77<|level|>3\n<|id|>83<|level|>2\n<|id|>89<|level|>2\n<|id|>90<|level|>3\n<|id|>97<|level|>3\n<|id|>107<|level|>2\n<|id|>119<|level|>2\n<|id|>128<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        }
+    ]
+}

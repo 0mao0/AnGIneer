@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|page|>1<|box|>598 142 614 367<|content|>1. Introduction and Purpose\n<|id|>21<|page|>2<|box|>513 140 529 442<|content|>2. Financial Statements to Be Covered\n<|id|>23<|page|>2<|box|>606 140 623 405<|content|>2.1 Audited Financial Statements\n<|id|>25<|page|>2<|box|>747 181 763 459<|content|>• FY 2022 Revenue: $387.4 million\n<|id|>26<|page|>2<|box|>766 183 782 470<|content|>• FY 2022 Net Income: $42.1 million\n<|id|>31<|page|>3<|box|>257 140 273 486<|content|>2.2 Unaudited Interim Financial Statements\n<|id|>34<|page|>3<|box|>417 183 434 470<|content|>• H1 2023 Net Income: $67.8 million\n<|id|>39<|page|>3<|box|>811 140 829 697<|content|>3. Financial Data and Other Information in the Pro\n<|id|>50<|page|>5<|box|>359 140 375 544<|content|>4. Circle-Up Procedures / Agreed-Upon Procedures\n<|id|>52<|page|>5<|box|>470 140 488 328<|content|>4.1 Reading of Minutes\n<|id|>54<|page|>5<|box|>689 140 707 413<|content|>4.2 Subsequent Financial Changes\n<|id|>61<|page|>6<|box|>492 140 508 450<|content|>4.3 Reading of Subsequent SEC Filings\n<|id|>68<|page|>6<|box|>813 140 830 269<|content|>5. Cut-Off Date\n<|id|>72<|page|>7<|box|>321 140 339 254<|content|>6. Addressees\n<|id|>74<|page|>7<|box|>375 142 390 241<|content|>Addressees:\n<|id|>79<|page|>7<|box|>521 142 539 227<|content|>Copies to:\n<|id|>86<|page|>7<|box|>768 142 786 403<|content|>7. Coordination and Deliverables\n<|id|>93<|page|>8<|box|>575 140 592 385<|content|>8. Bring-Down Comfort Letter\n<|id|>96<|page|>9<|box|>90 140 107 284<|content|>9. Confidentiality",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>11<|level|>1\n<|id|>21<|level|>1\n<|id|>23<|level|>2\n<|id|>25<|level|>-1\n<|id|>26<|level|>-1\n<|id|>31<|level|>2\n<|id|>34<|level|>-1\n<|id|>39<|level|>1\n<|id|>50<|level|>1\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>61<|level|>2\n<|id|>68<|level|>1\n<|id|>72<|level|>1\n<|id|>74<|level|>2\n<|id|>79<|level|>2\n<|id|>86<|level|>1\n<|id|>93<|level|>1\n<|id|>96<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        }
+    ]
+}

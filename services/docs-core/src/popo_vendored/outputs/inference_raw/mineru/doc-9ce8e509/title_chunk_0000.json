@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 194 142 803<|content|>SECRETARY'S CERTIFICATE OF CALLOWAY-BRIGGS RENEWAB\n<|id|>3<|page|>1<|box|>238 140 253 663<|content|>I. CERTIFYING OFFICER IDENTIFICATION AND RECITALS\n<|id|>9<|page|>1<|box|>773 140 791 643<|content|>II. CERTIFICATION OF ORGANIZATIONAL DOCUMENTS\n<|id|>10<|page|>1<|box|>806 140 823 390<|content|>2.1 Certificate of Incorporation\n<|id|>13<|page|>2<|box|>308 140 325 560<|content|>III. CERTIFICATION OF BOARD RESOLUTIONS\n<|id|>15<|page|>2<|box|>489 142 506 421<|content|>The undersigned further certifies that:\n<|id|>19<|page|>2<|box|>753 142 770 455<|content|>IV. INCUMBENCY CERTIFICATION\n<|id|>23<|page|>3<|box|>434 140 450 450<|content|>V. ADDITIONAL CERTIFICATIONS\n<|id|>29<|page|>4<|box|>295 140 313 416<|content|>VI. RELIANCE AND DELIVERY\n<|id|>38<|page|>4<|box|>818 140 835 259<|content|>EXECUTION\n<|id|>41<|page|>5<|box|>196 140 214 679<|content|>COUNTER-CERTIFICATION BY CHIEF EXECUTIVE OFFICER\n<|id|>48<|page|>6<|box|>89 434 112 563<|content|>EXHIBIT A\n<|id|>49<|page|>6<|box|>136 246 154 750<|content|>Certificate of Incorporation of Calloway-Briggs Re\n<|id|>55<|page|>7<|box|>90 434 109 563<|content|>EXHIBIT B\n<|id|>56<|page|>7<|box|>136 326 154 671<|content|>Bylaws of Calloway-Briggs Renewables Inc.\n<|id|>58<|page|>8<|box|>89 434 112 563<|content|>EXHIBIT C\n<|id|>59<|page|>8<|box|>135 191 199 805<|content|>Resolutions of the Board of Directors of Calloway-\n<|id|>61<|page|>8<|box|>236 140 253 392<|content|>PREAMBLE AND RECITALS\n<|id|>74<|page|>9<|box|>426 140 443 573<|content|>Resolution 1: Approval of the Joint Venture Format\n<|id|>76<|page|>9<|box|>664 140 681 681<|content|>Resolution 2: Approval and Authorization of Transa\n<|id|>84<|page|>10<|box|>664 142 681 557<|content|>Resolution 3: Authorization of Capital Contributio\n<|id|>90<|page|>11<|box|>213 140 229 486<|content|>Resolution 4: Designation of Officers for JV\n<|id|>93<|page|>11<|box|>439 140 457 691<|content|>Resolution 5: Designation of Tax Matters / Partner\n<|id|>95<|page|>11<|box|>604 140 621 473<|content|>Resolution 6: Authorization of HSR Filing\n<|id|>97<|page|>11<|box|>823 140 840 565<|content|>Resolution 7: Authorization of Authorized Signator\n<|id|>105<|page|>12<|box|>386 140 402 346<|content|>Resolution 8: Ratification\n<|id|>107<|page|>12<|box|>532 140 549 397<|content|>Resolution 9: General Authority",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>9<|level|>2\n<|id|>10<|level|>3\n<|id|>13<|level|>2\n<|id|>15<|level|>-1\n<|id|>19<|level|>2\n<|id|>23<|level|>2\n<|id|>29<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>58<|level|>2\n<|id|>59<|level|>3\n<|id|>61<|level|>4\n<|id|>74<|level|>4\n<|id|>76<|level|>4\n<|id|>84<|level|>4\n<|id|>90<|level|>4\n<|id|>93<|level|>4\n<|id|>95<|level|>4\n<|id|>97<|level|>4\n<|id|>105<|level|>4\n<|id|>107<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 74,
+            "level": 4
+        },
+        {
+            "id": 76,
+            "level": 4
+        },
+        {
+            "id": 84,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 4
+        },
+        {
+            "id": 93,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 105,
+            "level": 4
+        },
+        {
+            "id": 107,
+            "level": 4
+        }
+    ]
+}

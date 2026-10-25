@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 50,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['9.1.1', \"Builder's Risk Insurance Policy. Builder's risk all-risk insurance policy issued by Great Basin Surety & Insurance Corp. for the Stonebridge Data Center Campus development.Coverage amount:$412,000,000 (equal to the EPC Guaranteed Maximum Price).Deductible:$250,000 per occurrence.Named insured: Stonebridge Campus Holdings LLC (Owner).Additional insureds: Ironhaven Data Centers LLC,\", '[To be effective on or before NTP: November 1, 2025]', 'Great Basin Surety & Insurance Corp. / Stonebridge Campus Holdings LLC', 'Pending', 'Coordinate placement with Northgate Insurance Brokerage (William Keane). Confirm coverage adequacy with lender (per Construction Loan Agreement requirements) and contractor (per EPC Exhibit D requirements).']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Titan-McAllister Construction Group, LLC, and Summit National Bank, N.A. as Administrative Agent (as their interests may appear). Coverage to include: fire, windstorm, hail, flood (if not separately covered), earthquake, theft, vandalism, collapse, water damage, testing and commissioning perils, transit, temporary structures, and such other perils as are customary for data center construction projects. Policy period to extend from commencement of construction through final completion and acceptance of the work.', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 168,
+    "table2_idx": 169
+}

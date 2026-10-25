@@ -1,0 +1,122 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 415 119 581<|content|>BILL OF SALE\n<|id|>1<|page|>1<|box|>136 230 154 764<|content|>Pinnacle Metal Fabricators LLC to Nexford Industri\n<|id|>2<|page|>1<|box|>162 429 179 566<|content|>October 24, 2023\n<|id|>5<|page|>1<|box|>364 140 382 243<|content|>RECITALS\n<|id|>12<|page|>1<|box|>835 140 853 645<|content|>SECTION 1 — TRANSFER AND CONVEYANCE OF ASSETS\n<|id|>15<|page|>2<|box|>202 143 219 385<|content|>1.1 Machinery and Equipment\n<|id|>19<|page|>2<|box|>473 143 489 383<|content|>1.2 Rolling Stock and Vehicles\n<|id|>23<|page|>2<|box|>707 143 724 256<|content|>1.3 Inventory.\n<|id|>25<|page|>3<|box|>90 142 107 504<|content|>1.4 Furniture, Fixtures, and Office Equipment\n<|id|>27<|page|>3<|box|>236 143 253 439<|content|>1.5 Other Tangible Personal Property\n<|id|>29<|page|>3<|box|>373 140 390 444<|content|>SECTION 2 — EXCLUDED ASSETS\n<|id|>38<|page|>3<|box|>823 140 839 733<|content|>SECTION 3 — \"AS-IS\" CONDITION; NO ADDITIONAL WARRA\n<|id|>42<|page|>4<|box|>329 140 345 483<|content|>SECTION 4 — FURTHER ASSURANCES\n<|id|>45<|page|>4<|box|>660 140 676 678<|content|>SECTION 5 — BINDING EFFECT; SUCCESSORS AND ASSIGNS\n<|id|>47<|page|>4<|box|>800 140 816 431<|content|>SECTION 6 — GOVERNING LAW\n<|id|>50<|page|>5<|box|>186 140 203 419<|content|>SECTION 7 — COUNTERPARTS\n<|id|>53<|page|>5<|box|>391 334 407 661<|content|>SIGNATURE PAGE TO BILL OF SALE\n<|id|>55<|page|>5<|box|>462 142 478 225<|content|>SELLER:\n<|id|>67<|page|>6<|box|>89 436 107 563<|content|>SCHEDULE A\n<|id|>68<|page|>6<|box|>114 357 133 638<|content|>MACHINERY AND EQUIPMENT\n<|id|>70<|page|>6<|box|>228 142 244 611<|content|>A. CNC Plasma and Laser Cutting Machines (14 units\n<|id|>78<|page|>10<|box|>89 437 107 560<|content|>SCHEDULE B\n<|id|>79<|page|>10<|box|>114 348 132 648<|content|>ROLLING STOCK AND VEHICLES\n<|id|>81<|page|>10<|box|>210 142 226 357<|content|>A. Flatbed Trucks (8 units)\n<|id|>84<|page|>11<|box|>162 143 179 305<|content|>B. Forklifts (3 units)",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>5<|level|>2\n<|id|>12<|level|>2\n<|id|>15<|level|>3\n<|id|>19<|level|>3\n<|id|>23<|level|>3\n<|id|>25<|level|>3\n<|id|>27<|level|>3\n<|id|>29<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>3\n<|id|>67<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>3\n<|id|>78<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>3\n<|id|>84<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        }
+    ]
+}

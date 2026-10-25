@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 331 133 666<|content|>EXHIBIT F AGREED JOINT PUBLIC STATEMENT\n<|id|>3<|page|>1<|box|>244 142 262 223<|content|>Preamble\n<|id|>10<|page|>1<|box|>844 142 862 491<|content|>1. Text of the Agreed Joint Public Statement\n<|id|>14<|page|>2<|box|>421 140 438 454<|content|>2. Restrictions on Additional Disclosure\n<|id|>29<|page|>3<|box|>811 140 829 372<|content|>3. Authorized Spokespersons\n<|id|>44<|page|>4<|box|>771 140 789 383<|content|>4. Effective Date and Duration\n<|id|>50<|page|>5<|box|>319 140 335 287<|content|>5. Governing Law\n<|id|>52<|page|>5<|box|>477 140 494 313<|content|>6. General Provisions\n<|id|>56<|page|>5<|box|>743 142 758 406<|content|>Acknowledgment and Agreement\n<|id|>58<|page|>5<|box|>811 142 828 493<|content|>SOLSTICE BIOMEDICAL DEVICES LTD.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>29<|level|>2\n<|id|>44<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        }
+    ]
+}

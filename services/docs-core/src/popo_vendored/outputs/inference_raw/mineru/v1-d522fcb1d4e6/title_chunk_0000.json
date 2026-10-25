@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 400<|content|>【7368809#1】澳大利亚－以色列关系\n<|id|>2<|page|>1<|box|>209 107 224 267<|content|>【6114214#21】欧赖\n<|id|>4<|page|>1<|box|>275 107 291 300<|content|>【3092835#15】奥尔贝克\n<|id|>6<|page|>1<|box|>341 107 357 354<|content|>【3568751#15】奥拉夫·朔尔茨\n<|id|>9<|page|>1<|box|>476 107 493 302<|content|>【3117266#19】奥尔泰兹\n<|id|>11<|page|>1<|box|>544 107 558 408<|content|>【4774495#21】中華民國與奧地利關係\n<|id|>13<|page|>1<|box|>662 107 677 284<|content|>【2799454#13】奧利韋\n<|id|>15<|page|>1<|box|>728 107 744 285<|content|>【7528529#19】欧马勒\n<|id|>17<|page|>1<|box|>795 107 810 275<|content|>【5427#25】阿塞拜疆\n<|id|>20<|page|>2<|box|>83 107 98 292<|content|>【796484#15】法國經濟",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>9<|level|>1\n<|id|>11<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>1\n<|id|>17<|level|>1\n<|id|>20<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        }
+    ]
+}

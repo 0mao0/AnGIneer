@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        114,
+        128
+    ],
+    "pages": [
+        115,
+        116,
+        122,
+        128
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>374<|page|>115<|box|>161 7 220 469<|content|>2/ Includes foreign currency assets, representing ...principally the Agricultural Trade Development and\n<|id|>375<|page|>115<|box|>95 533 220 962<|content|>Assistance Act of 1954, as amended, and the Mutual...reasury sells such currency to Government agencies\n<|id|>432<|page|>116<|box|>584 34 631 500<|content|>12/ Figure for June 30, 1950, consists of Alaska h...ce Corporation), and urban renewal loans authoriz-\n<|id|>433<|page|>116<|box|>104 559 272 992<|content|>ed by the Housing Act of 1949, as amended (42 U. ... 10657 of February 14, 1956\n<|id|>444<|page|>122<|box|>364 492 582 630<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>446<|page|>128<|box|>35 809 51 909<|content|>1 0032006",
+    "raw_response": "<|src_id|>374<|tgt_id|>375\n<|src_id|>432<|tgt_id|>433",
+    "parsed": [
+        {
+            "src_id": 374,
+            "tgt_id": 375
+        },
+        {
+            "src_id": 432,
+            "tgt_id": 433
+        }
+    ]
+}

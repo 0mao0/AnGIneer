@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 202 132 794<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>12<|type|>title<|page|>1<|box|>523 140 539 321<|content|>I. Executive Summary\n<|id|>19<|type|>title<|page|>2<|box|>458 142 474 496<|content|>II. Entity Identification and Key Information\n<|id|>21<|type|>table<|page|>2<|box|>525 143 839 852<|content|>None\n<|id|>28<|type|>title<|page|>3<|box|>362 140 378 367<|content|>III. Delaware Franchise Tax\n<|id|>32<|type|>title<|page|>3<|box|>767 142 782 349<|content|>B. Due Date and Payment\n<|id|>37<|type|>title<|page|>4<|box|>356 140 373 403<|content|>C. Penalties for Non-Compliance\n<|id|>43<|type|>title<|page|>4<|box|>724 140 743 372<|content|>IV. Delaware Annual Report\n<|id|>47<|type|>title<|page|>5<|box|>239 140 256 424<|content|>B. Federal Tax Return (Form 1065)\n<|id|>55<|type|>title<|page|>6<|box|>333 140 349 408<|content|>V. Registered Agent Maintenance\n<|id|>56<|type|>title<|page|>6<|box|>364 140 381 372<|content|>A. Current Registered Agent\n<|id|>60<|type|>title<|page|>6<|box|>561 142 578 320<|content|>B. Annual Service Fee\n<|id|>63<|type|>title<|page|>6<|box|>787 140 805 388<|content|>C. Change of Registered Agent\n<|id|>65<|type|>title<|page|>7<|box|>157 140 175 387<|content|>D. Maintaining Good Standing\n<|id|>68<|type|>title<|page|>7<|box|>468 140 484 656<|content|>VI. Certificate of Limited Partnership — Status an\n<|id|>78<|type|>title<|page|>8<|box|>212 140 229 351<|content|>VII. Foreign Qualification\n<|id|>86<|type|>title<|page|>9<|box|>90 140 106 380<|content|>B. Reactivation Consideration\n<|id|>92<|type|>title<|page|>9<|box|>422 140 439 517<|content|>VIII. Dormancy Considerations for Compliance\n<|id|>95<|type|>table<|page|>9<|box|>744 143 906 852<|content|>None\n<|id|>96<|type|>table<|page|>10<|box|>88 143 119 852<|content|>None\n<|id|>99<|type|>title<|page|>10<|box|>383 140 402 568<|content|>IX. Compliance Calendar — Key Upcoming Deadlines\n<|id|>101<|type|>table<|page|>10<|box|>489 143 876 852<|content|>None\n<|id|>103<|type|>title<|page|>11<|box|>186 140 204 313<|content|>X. Recommendations\n<|id|>112<|type|>title<|page|>12<|box|>261 140 277 264<|content|>XI. Conclusion\n<|id|>117<|type|>title<|page|>12<|box|>643 140 660 485<|content|>XII. Enclosures / Attachments (Referenced)\n<|id|>136<|type|>title<|page|>13<|box|>306 142 321 604<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC",
+    "raw_response": "<|src_id|>21<|tgt_id|>19\n<|src_id|>95<|tgt_id|>92\n<|src_id|>96<|tgt_id|>92\n<|src_id|>101<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 99
+        }
+    ]
+}

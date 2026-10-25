@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 600 Lex\n<|id|>5<|page|>1<|box|>292 140 309 316<|content|>Dear Justice Marchetti:\n<|id|>10<|page|>1<|box|>712 140 729 364<|content|>I. Background of the Action\n<|id|>18<|page|>3<|box|>468 140 484 321<|content|>II. The Counterclaims\n<|id|>23<|page|>5<|box|>90 140 107 455<|content|>III. BRB's Proposed discovery Schedule\n<|id|>25<|page|>5<|box|>202 140 218 341<|content|>A. Document Production\n<|id|>31<|page|>5<|box|>744 142 761 297<|content|>B. Fact Depositions\n<|id|>41<|page|>6<|box|>450 140 467 349<|content|>C. Close of Fact discovery\n<|id|>43<|page|>6<|box|>578 140 595 303<|content|>D. Expert discovery\n<|id|>49<|page|>6<|box|>833 142 849 323<|content|>E. Dispositive Motions\n<|id|>51<|page|>7<|box|>241 140 258 416<|content|>IV. Anticipated discovery Disputes\n<|id|>53<|page|>7<|box|>353 140 369 681<|content|>A. Privilege Issues — The Aaronson Memorandum (Aug\n<|id|>59<|page|>8<|box|>231 140 250 660<|content|>B. Scope of discovery Concerning BRB's Internal Cr\n<|id|>63<|page|>8<|box|>685 140 702 380<|content|>C. Confidentiality Protections\n<|id|>66<|page|>9<|box|>194 140 212 424<|content|>D. ESI Protocol and De-Duplication\n<|id|>68<|page|>9<|box|>369 140 386 532<|content|>V. BRB's Position on Anticipated Motion Practice\n<|id|>72<|page|>9<|box|>689 140 705 424<|content|>VI. Status of Settlement Discussions\n<|id|>74<|page|>10<|box|>90 140 107 500<|content|>VII. Proposed Preliminary Conference Order",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>-1\n<|id|>10<|level|>2\n<|id|>18<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>3\n<|id|>31<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>2\n<|id|>53<|level|>3\n<|id|>59<|level|>3\n<|id|>63<|level|>3\n<|id|>66<|level|>3\n<|id|>68<|level|>2\n<|id|>72<|level|>2\n<|id|>74<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        }
+    ]
+}

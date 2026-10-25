@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>160 287 176 707<|content|>Pursuant to Section 7. ... 2 of the Stock Purchase Agreement\n<|id|>3<|page|>1<|box|>210 140 321 856<|content|>This Closing Certificate (this \"Certificate\") is d... Representative (the \"Stockholder Representative\")\n<|id|>10<|page|>1<|box|>752 174 898 854<|content|>(a) The representations and warranties of the Comp...ected to have, individually or in the aggregate, a\n<|id|>11<|page|>2<|box|>90 174 145 854<|content|>Material Adverse Effect. ... 2(a)(i) of the Agreement\n<|id|>21<|page|>3<|box|>256 174 292 854<|content|>(a) the business, results of operations, financial...or assets of the Company, taken as a whole; ... or\n<|id|>23<|page|>3<|box|>344 140 417 856<|content|>The foregoing certification is made with reference... set forth in Section 1. ... 2(b) of the Agreement\n<|id|>27<|page|>3<|box|>609 174 646 854<|content|>(b) seeks damages or other relief in connection wi...expected to have a Material Adverse Effect; ... or\n<|id|>29<|page|>3<|box|>698 140 753 854<|content|>The foregoing certification is made with reference...aking illegal the consummation of the Transactions\n<|id|>39<|page|>4<|box|>839 174 893 856<|content|>(h) Payoff letters, in form and substance reasonab... be paid to satisfy in full all obligations of the\n<|id|>40<|page|>5<|box|>90 174 164 854<|content|>Company in respect of such Indebtedness (including... Liens upon receipt of such payoff amount; ... and\n<|id|>55<|page|>6<|box|>497 142 512 323<|content|>Name: ... Julian Marek\n<|id|>56<|page|>6<|box|>513 142 529 367<|content|>Title: ... Chief Executive Officer\n<|id|>57<|page|>6<|box|>531 140 566 854<|content|>Delivered on behalf of the Company and the Sellers in accordance with Section 7. ... 2 of the Agreement",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>39<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ]
+}

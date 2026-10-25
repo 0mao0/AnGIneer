@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=8, 主要材料', 'rowspan=3,colspan=2, 钢管', 'rowspan=3, t', 'rowspan=3,colspan=2, 2.00', 'rowspan=7, 其他工程', 'colspan=2, 主体建筑工程', 'm^{2}', 'colspan=2, 1200']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=2, 指标编号', '指标(万元)', 'colspan=3, 其中', 'rowspan=17, 主要设备配置', 'colspan=2, 设备名称及规格', '单位', '数量', '单价(元)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 765,
+    "table2_idx": 766
+}

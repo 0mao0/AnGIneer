@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        3,
+        9
+    ],
+    "pages": [
+        3,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>14<|page|>3<|box|>86 87 101 453<|content|>ItemDescriptioAmount Treaty ArtiNotes\n<|id|>18<|page|>9<|box|>86 87 102 452<|content|>Line Item Best Case Likely CaseWorst Cas Notes",
+    "raw_response": "<|id|>14<|level|>1\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,507 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-sheskqqd\\input\\pdfs\\doc-c0811334.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-sheskqqd\\enriched\\doc-c0811334.json",
+    "contd_output": "<|src_id|>9<|tgt_id|>11\n<|src_id|>27<|tgt_id|>28\n<|src_id|>223<|tgt_id|>224\n<|src_id|>329<|tgt_id|>330",
+    "title_output": "<|id|>3<|level|>1\n<|id|>12<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>22<|level|>2\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>46<|level|>1\n<|id|>47<|level|>2\n<|id|>51<|level|>2\n<|id|>57<|level|>2\n<|id|>64<|level|>3\n<|id|>66<|level|>3\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>79<|level|>1\n<|id|>80<|level|>2\n<|id|>84<|level|>2\n<|id|>88<|level|>2\n<|id|>95<|level|>2\n<|id|>96<|level|>3\n<|id|>101<|level|>3\n<|id|>105<|level|>3\n<|id|>109<|level|>2\n<|id|>115<|level|>1\n<|id|>116<|level|>2\n<|id|>123<|level|>2\n<|id|>133<|level|>2\n<|id|>148<|level|>2\n<|id|>161<|level|>2\n<|id|>170<|level|>2\n<|id|>176<|level|>2\n<|id|>190<|level|>1\n<|id|>197<|level|>1\n<|id|>198<|level|>2\n<|id|>200<|level|>3\n<|id|>207<|level|>3\n<|id|>215<|level|>3\n<|id|>221<|level|>3\n<|id|>228<|level|>3\n<|id|>234<|level|>2\n<|id|>235<|level|>3\n<|id|>241<|level|>3\n<|id|>248<|level|>2\n<|id|>249<|level|>3\n<|id|>253<|level|>3\n<|id|>260<|level|>3\n<|id|>266<|level|>2\n<|id|>274<|level|>1\n<|id|>275<|level|>2\n<|id|>284<|level|>2\n<|id|>289<|level|>2\n<|id|>294<|level|>2\n<|id|>299<|level|>2\n<|id|>311<|level|>2\n<|id|>315<|level|>2\n<|id|>320<|level|>1\n<|id|>321<|level|>2\n<|id|>327<|level|>2\n<|id|>328<|level|>3\n<|id|>332<|level|>3\n<|id|>336<|level|>2\n<|id|>340<|level|>2\n<|id|>346<|level|>2\n<|id|>356<|level|>2\n<|id|>362<|level|>1\n<|id|>364<|level|>2\n<|id|>368<|level|>2\n<|id|>373<|level|>2\n<|id|>378<|level|>2\n<|id|>384<|level|>1\n<|id|>386<|level|>2\n<|id|>394<|level|>2\n<|id|>400<|level|>2\n<|id|>407<|level|>1\n<|id|>409<|level|>2\n<|id|>416<|level|>2\n<|id|>424<|level|>2\n<|id|>431<|level|>2\n<|id|>439<|level|>2\n<|id|>447<|level|>2\n<|id|>453<|level|>2\n<|id|>455<|level|>1\n<|id|>458<|level|>2\n<|id|>464<|level|>1\n<|id|>473<|level|>1",
+    "image_output": "<|src_id|>14<|tgt_id|>12\n<|src_id|>150<|tgt_id|>148\n<|src_id|>192<|tgt_id|>190\n<|src_id|>193<|tgt_id|>190\n<|src_id|>194<|tgt_id|>190\n<|src_id|>195<|tgt_id|>190\n<|src_id|>196<|tgt_id|>190\n<|src_id|>457<|tgt_id|>455\n<|src_id|>459<|tgt_id|>458\n<|src_id|>460<|tgt_id|>458\n<|src_id|>461<|tgt_id|>458\n<|src_id|>475<|tgt_id|>473\n<|src_id|>476<|tgt_id|>473",
+    "contd_label": [
+        {
+            "src_id": 9,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 224
+        },
+        {
+            "src_id": 329,
+            "tgt_id": 330
+        }
+    ],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 1
+        },
+        {
+            "id": 197,
+            "level": 1
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 207,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 228,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 2
+        },
+        {
+            "id": 235,
+            "level": 3
+        },
+        {
+            "id": 241,
+            "level": 3
+        },
+        {
+            "id": 248,
+            "level": 2
+        },
+        {
+            "id": 249,
+            "level": 3
+        },
+        {
+            "id": 253,
+            "level": 3
+        },
+        {
+            "id": 260,
+            "level": 3
+        },
+        {
+            "id": 266,
+            "level": 2
+        },
+        {
+            "id": 274,
+            "level": 1
+        },
+        {
+            "id": 275,
+            "level": 2
+        },
+        {
+            "id": 284,
+            "level": 2
+        },
+        {
+            "id": 289,
+            "level": 2
+        },
+        {
+            "id": 294,
+            "level": 2
+        },
+        {
+            "id": 299,
+            "level": 2
+        },
+        {
+            "id": 311,
+            "level": 2
+        },
+        {
+            "id": 315,
+            "level": 2
+        },
+        {
+            "id": 320,
+            "level": 1
+        },
+        {
+            "id": 321,
+            "level": 2
+        },
+        {
+            "id": 327,
+            "level": 2
+        },
+        {
+            "id": 328,
+            "level": 3
+        },
+        {
+            "id": 332,
+            "level": 3
+        },
+        {
+            "id": 336,
+            "level": 2
+        },
+        {
+            "id": 340,
+            "level": 2
+        },
+        {
+            "id": 346,
+            "level": 2
+        },
+        {
+            "id": 356,
+            "level": 2
+        },
+        {
+            "id": 362,
+            "level": 1
+        },
+        {
+            "id": 364,
+            "level": 2
+        },
+        {
+            "id": 368,
+            "level": 2
+        },
+        {
+            "id": 373,
+            "level": 2
+        },
+        {
+            "id": 378,
+            "level": 2
+        },
+        {
+            "id": 384,
+            "level": 1
+        },
+        {
+            "id": 386,
+            "level": 2
+        },
+        {
+            "id": 394,
+            "level": 2
+        },
+        {
+            "id": 400,
+            "level": 2
+        },
+        {
+            "id": 407,
+            "level": 1
+        },
+        {
+            "id": 409,
+            "level": 2
+        },
+        {
+            "id": 416,
+            "level": 2
+        },
+        {
+            "id": 424,
+            "level": 2
+        },
+        {
+            "id": 431,
+            "level": 2
+        },
+        {
+            "id": 439,
+            "level": 2
+        },
+        {
+            "id": 447,
+            "level": 2
+        },
+        {
+            "id": 453,
+            "level": 2
+        },
+        {
+            "id": 455,
+            "level": 1
+        },
+        {
+            "id": 458,
+            "level": 2
+        },
+        {
+            "id": 464,
+            "level": 1
+        },
+        {
+            "id": 473,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 193,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 457,
+            "tgt_id": 455
+        },
+        {
+            "src_id": 459,
+            "tgt_id": 458
+        },
+        {
+            "src_id": 460,
+            "tgt_id": 458
+        },
+        {
+            "src_id": 461,
+            "tgt_id": 458
+        },
+        {
+            "src_id": 475,
+            "tgt_id": 473
+        },
+        {
+            "src_id": 476,
+            "tgt_id": 473
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 192,
+            "table2_idx": 193,
+            "upper_row_ss": [
+                [
+                    "November 29, 2022",
+                    "Second alleged sexually suggestive text message from Hale to Morales. Forensically recovered."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "December 8, 2022",
+                    "Third alleged sexually suggestive text message from Hale to Morales. Forensically recovered."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 194,
+            "table2_idx": 195,
+            "upper_row_ss": [
+                [
+                    "April 28, 2023",
+                    "People & Culture Committee and Audit & Risk Committee adopted Joint Resolution to retain independent outside counsel. CEO Elliot Vane formally recused from oversight."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "May 2, 2023",
+                    "Calderwood & Harkness LLP formally engaged. Investigation opened. Litigation hold notice issued."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 195,
+            "table2_idx": 196,
+            "upper_row_ss": [
+                [
+                    "August 25, 2023",
+                    "(Post-investigation note, added per committee request): AGMG Board authorized Aurelius Pacific Studios Inc. to terminate Marcus Hale's employment for cause under"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Section 9.2(b) of his employment agreement."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 459,
+            "table2_idx": 460,
+            "upper_row_ss": [
+                [
+                    "Forensic collection, processing, hosting, and related",
+                    "$189,400"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "services",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 475,
+            "table2_idx": 476,
+            "upper_row_ss": [
+                [
+                    "Appendix K",
+                    "California FEHA Legal Standards Memorandum (May 18, 2023)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Appendix L",
+                    "Credibility Assessment Memorandum (July 25, 2023)"
+                ]
+            ]
+        }
+    ]
+}

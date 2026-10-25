@@ -1,0 +1,121 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 165 159 831<|content|>AMENDED AND RESTATED INTERCOMPANY PROMISSORY NOTE\n<|id|>5<|page|>1<|box|>340 140 358 243<|content|>RECITALS\n<|id|>17<|page|>2<|box|>454 140 470 410<|content|>SECTION 1: PROMISE TO PAY\n<|id|>20<|page|>2<|box|>803 140 820 346<|content|>SECTION 2: INTEREST\n<|id|>24<|page|>3<|box|>566 140 584 408<|content|>SECTION 3: MATURITY DATE\n<|id|>27<|page|>3<|box|>787 140 805 354<|content|>SECTION 4: PAYMENTS\n<|id|>33<|page|>4<|box|>655 140 672 408<|content|>SECTION 5: SUBORDINATION\n<|id|>55<|page|>8<|box|>148 140 166 604<|content|>SECTION 6: REPRESENTATIONS AND WARRANTIES\n<|id|>66<|page|>9<|box|>303 140 320 447<|content|>SECTION 7: EVENTS OF DEFAULT\n<|id|>77<|page|>10<|box|>483 140 500 367<|content|>SECTION 8: COVENANTS\n<|id|>88<|page|>11<|box|>608 140 625 488<|content|>SECTION 9: UNSECURED OBLIGATION\n<|id|>92<|page|>12<|box|>89 140 106 509<|content|>SECTION 10: AMENDMENT AND WAIVER\n<|id|>96<|page|>12<|box|>446 140 463 359<|content|>SECTION 11: TRANSFER\n<|id|>100<|page|>12<|box|>839 140 856 424<|content|>SECTION 12: GOVERNING LAW\n<|id|>102<|page|>13<|box|>239 140 258 697<|content|>SECTION 13: JURISDICTION; VENUE; WAIVER OF JURY TR\n<|id|>106<|page|>14<|box|>89 142 106 344<|content|>SECTION 14: NOTICES\n<|id|>108<|page|>14<|box|>289 142 305 243<|content|>If to Maker:\n<|id|>114<|page|>14<|box|>522 143 537 245<|content|>If to Holder:\n<|id|>122<|page|>15<|box|>89 140 106 537<|content|>SECTION 15: MISCELLANEOUS PROVISIONS\n<|id|>130<|page|>15<|box|>883 143 898 274<|content|>15.8 Tax Matters.\n<|id|>136<|page|>16<|box|>733 400 750 596<|content|>[Signature Pages Follow]\n<|id|>138<|page|>16<|box|>801 142 818 223<|content|>MAKER:\n<|id|>150<|page|>17<|box|>239 140 257 527<|content|>ACKNOWLEDGMENT OF SUBORDINATION\n<|id|>163<|page|>18<|box|>87 452 109 545<|content|>ANNEX A\n<|id|>164<|page|>18<|box|>127 433 148 566<|content|>DEFINITIONS",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>33<|level|>2\n<|id|>55<|level|>2\n<|id|>66<|level|>2\n<|id|>77<|level|>2\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>2\n<|id|>102<|level|>2\n<|id|>106<|level|>2\n<|id|>108<|level|>3\n<|id|>114<|level|>3\n<|id|>122<|level|>2\n<|id|>130<|level|>3\n<|id|>136<|level|>-1\n<|id|>138<|level|>-1\n<|id|>150<|level|>2\n<|id|>163<|level|>2\n<|id|>164<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 3
+        }
+    ]
+}

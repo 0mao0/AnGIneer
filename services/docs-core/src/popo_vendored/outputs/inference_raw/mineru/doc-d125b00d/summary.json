@@ -1,0 +1,180 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6k0_acna\\input\\pdfs\\doc-d125b00d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6k0_acna\\enriched\\doc-d125b00d.json",
+    "contd_output": "",
+    "title_output": "<|id|>7<|level|>1\n<|id|>13<|level|>1\n<|id|>17<|level|>2\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>1\n<|id|>41<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>1\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>62<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>1\n<|id|>71<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>91<|level|>2\n<|id|>94<|level|>2\n<|id|>100<|level|>2\n<|id|>109<|level|>2\n<|id|>113<|level|>1\n<|id|>117<|level|>1\n<|id|>126<|level|>1\n<|id|>130<|level|>1",
+    "image_output": "<|src_id|>43<|tgt_id|>41\n<|src_id|>44<|tgt_id|>41\n<|src_id|>120<|tgt_id|>117\n<|src_id|>122<|tgt_id|>121\n<|src_id|>123<|tgt_id|>121",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 43,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 121
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 43,
+            "table2_idx": 44,
+            "upper_row_ss": [
+                [
+                    "Montclair Assurance Company",
+                    "2nd Excess ($10M xs $40M)",
+                    "$10,000,000",
+                    "$6,800,000",
+                    "68.00%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Sovereign Re Ltd.",
+                    "3rd Excess ($10M xs $50M)",
+                    "$10,000,000",
+                    "$3,800,000",
+                    "38.00%"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 122,
+            "table2_idx": 123,
+            "upper_row_ss": [
+                [
+                    "Expenses advanced (expert fees, court costs,",
+                    "$412,000 (approx.)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "depositions, mediation)",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

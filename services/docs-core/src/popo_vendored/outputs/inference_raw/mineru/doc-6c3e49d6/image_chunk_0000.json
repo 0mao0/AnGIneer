@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 104 591<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|type|>title<|page|>1<|box|>112 423 128 573<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>345 140 363 446<|content|>I. Purpose and Scope of Memorandum\n<|id|>16<|type|>title<|page|>2<|box|>648 142 665 328<|content|>II. Executive Summary\n<|id|>24<|type|>title<|page|>4<|box|>90 140 126 826<|content|>III. Legal Framework: Enforceability of Non-Compet\n<|id|>25<|type|>title<|page|>4<|box|>138 140 157 754<|content|>A. General Principle: Restrictive Covenants as Dis\n<|id|>30<|type|>title<|page|>5<|box|>90 140 107 465<|content|>B. The Three-Prong Reasonableness Test\n<|id|>49<|type|>title<|page|>8<|box|>547 140 564 419<|content|>C. Specific Reasonableness Factors\n<|id|>70<|type|>title<|page|>11<|box|>766 140 782 366<|content|>D. The Blue-Pencil Doctrine\n<|id|>77<|type|>title<|page|>12<|box|>839 140 856 663<|content|>IV. Interaction of Garden Leave with Non-Compete E\n<|id|>84<|type|>title<|page|>13<|box|>829 140 845 498<|content|>V. Consideration in the Employment Context\n<|id|>89<|type|>title<|page|>14<|box|>575 140 592 763<|content|>VI. Pending New York Legislation: Proposed Ban on\n<|id|>90<|type|>title<|page|>14<|box|>606 140 623 470<|content|>A. Legislative History and Current Status\n<|id|>100<|type|>title<|page|>15<|box|>580 140 598 607<|content|>B. Potential Impact on the Proposed Harding Non-Co\n<|id|>108<|type|>title<|page|>16<|box|>638 140 656 372<|content|>C. Risk Mitigation Strategies\n<|id|>115<|type|>title<|page|>17<|box|>593 140 609 562<|content|>VII. Application to the Specific Negotiation Dynam\n<|id|>116<|type|>title<|page|>17<|box|>625 140 642 689<|content|>A. Comparative Analysis: Northgate's Proposal vs.\n<|id|>118<|type|>table<|page|>17<|box|>708 143 898 852<|content|>None\n<|id|>119<|type|>table<|page|>18<|box|>88 143 558 852<|content|>None\n<|id|>120<|type|>title<|page|>18<|box|>597 140 614 777<|content|>B. Harding's Existing Marlowe Asset Management Non\n<|id|>128<|type|>title<|page|>19<|box|>664 140 680 465<|content|>VIII. Conclusions and Recommendations",
+    "raw_response": "<|src_id|>118<|tgt_id|>116\n<|src_id|>119<|tgt_id|>116",
+    "parsed": [
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 116
+        }
+    ]
+}

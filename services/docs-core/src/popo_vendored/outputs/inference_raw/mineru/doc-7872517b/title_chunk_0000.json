@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 143 118 854<|content|>PROPRIETARY INFORMATION AND INVENTIONS AGREEMENT\n<|id|>1<|page|>1<|box|>136 331 154 666<|content|>Mid-Level and Entry-Level Employee Tier\n<|id|>6<|page|>1<|box|>305 142 323 251<|content|>PREAMBLE\n<|id|>18<|page|>2<|box|>248 140 265 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>44<|page|>4<|box|>329 140 345 576<|content|>ARTICLE 2 — CONFIDENTIALITY OBLIGATIONS\n<|id|>47<|page|>4<|box|>664 140 681 483<|content|>2.3 Duration of Confidentiality Obligations.\n<|id|>64<|page|>6<|box|>318 140 335 501<|content|>ARTICLE 3 — INVENTION ASSIGNMENT\n<|id|>72<|page|>8<|box|>258 140 276 620<|content|>ARTICLE 4 — RESTRICTIVE COVENANT PROVISIONS\n<|id|>77<|page|>9<|box|>89 140 126 839<|content|>ARTICLE 5 — DEFEND TRADE SECRETS ACT — WHISTLEBLOW\n<|id|>82<|page|>9<|box|>508 140 527 547<|content|>ARTICLE 6 — EMPLOYMENT RELATIONSHIP\n<|id|>87<|page|>10<|box|>148 140 166 367<|content|>ARTICLE 7 — REMEDIES\n<|id|>90<|page|>10<|box|>535 140 551 478<|content|>ARTICLE 8 — GENERAL PROVISIONS\n<|id|>100<|page|>13<|box|>89 142 107 310<|content|>SIGNATURE PAGE\n<|id|>113<|page|>14<|box|>89 140 107 671<|content|>EXHIBIT A — PRIOR INVENTIONS DISCLOSURE SCHEDULE\n<|id|>114<|page|>14<|box|>114 243 132 751<|content|>EXHIBIT A PRIOR INVENTIONS DISCLOSURE SCHEDULE\n<|id|>120<|page|>15<|box|>89 140 107 772<|content|>EXHIBIT B — NOTICE PURSUANT TO CALIFORNIA LABOR CO\n<|id|>121<|page|>15<|box|>114 194 133 803<|content|>EXHIBIT B NOTICE PURSUANT TO CALIFORNIA LABOR CODE\n<|id|>123<|page|>15<|box|>227 140 263 854<|content|>California Labor Code § 2870 — Application of Prov\n<|id|>128<|page|>15<|box|>523 140 542 790<|content|>California Labor Code § 2872 — Notification Condit",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>6<|level|>2\n<|id|>18<|level|>2\n<|id|>44<|level|>2\n<|id|>47<|level|>3\n<|id|>64<|level|>2\n<|id|>72<|level|>2\n<|id|>77<|level|>2\n<|id|>82<|level|>2\n<|id|>87<|level|>2\n<|id|>90<|level|>2\n<|id|>100<|level|>2\n<|id|>113<|level|>2\n<|id|>114<|level|>3\n<|id|>120<|level|>2\n<|id|>121<|level|>3\n<|id|>123<|level|>4\n<|id|>128<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 4
+        },
+        {
+            "id": 128,
+            "level": 4
+        }
+    ]
+}

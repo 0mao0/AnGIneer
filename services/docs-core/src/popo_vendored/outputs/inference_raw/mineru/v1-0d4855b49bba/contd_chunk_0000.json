@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        31
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        9,
+        10,
+        11,
+        18,
+        25,
+        26,
+        27,
+        29,
+        30,
+        31
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>237 138 337 483<|content|>Carlo Zaccardi Department of Economics University G. ... it\n<|id|>2<|page|>1<|box|>237 514 318 859<|content|>Pasquale Valentini Department of Economics Univers...G. ... d’Annunzio of Chieti-Pescara Pescara, Italy\n<|id|>3<|page|>1<|box|>358 326 438 671<|content|>Luigi Ippoliti Department of Economics University G. ... d’Annunzio of Chieti-Pescara Pescara, Italy\n<|id|>4<|page|>1<|box|>458 230 537 767<|content|>Alexandra M. ... Schmidt Department of Epidemiolog...ational Health McGill University Montr´eal, Canada\n<|id|>26<|page|>4<|box|>779 153 819 883<|content|>{ \\bf W } | { \\bf X } = { \\bf x } \\sim N ( \\pmb { ... 1 } \\pmb { \\Sigma } _ { x w } . ... } \\end{array}\n<|id|>27<|page|>4<|box|>875 153 912 882<|content|>\\mathbf { Y } | \\mathbf { X } = \\mathbf { x } \\ \\s...\\mathbf I } _ { n }is then \\times nidentity matrix\n<|id|>30<|page|>5<|box|>190 111 299 883<|content|>where\\mathbf { H } _ { G L S } = \\left( \\tilde { \\...} ^ { \\prime }in place of\\mathbf { H } _ { G L S }\n<|id|>31<|page|>5<|box|>306 111 578 885<|content|>There exist various model parametrizations to repr...value of the GLS estimator is specified as follows\n<|id|>68<|page|>9<|box|>181 111 220 883<|content|>Bias reduction is achieved when| \\Delta _ { a d j ... and that| d _ { x } | \\leq | \\Delta _ { O L S } |\n<|id|>69<|page|>9<|box|>229 111 455 885<|content|>To understand the relationship between the diferen...as can not be alleviated asd _ { x } = 0 for any k\n<|id|>78<|page|>10<|box|>875 109 914 883<|content|>In this paper, we do not truncate the basis matrix...duct moment( p M O M )priors (Johnson and Rossell,\n<|id|>79<|page|>11<|box|>90 111 316 885<|content|>2012, Rossell and Telesca, 2017). ... Additionally, a Beta-Binomial(1, 1) prior is assumed onM _ { t }\n<|id|>80<|page|>11<|box|>325 111 448 883<|content|>We assign independent priors on the remaining para...whereV _ { \\beta }, a and b are known. ... , 2024)\n<|id|>105<|page|>18<|box|>529 111 628 885<|content|>We conducted an extensive simulation study, in whi...orms competing approaches (see Section 6). ... 1 5\n<|id|>106<|page|>18<|box|>640 111 719 885<|content|>A common characteristic in Figure 2 is that the th...parameters are known, but in practice they are not\n<|id|>202<|page|>25<|box|>710 111 775 883<|content|>Let C denote the matrix collecting easting and nor... \\right], and\\mathbf { B } = \\mathbf { V } ^ { * }\n<|id|>203<|page|>25<|box|>780 111 797 609<|content|>The components of the block inverse in Equation (1...nents of the block inverse in Equation (15) become\n<|id|>216<|page|>26<|box|>875 111 914 883<|content|>For the fixed efects( \\beta _ { 0 }and\\beta _ { x ...} , \\{ \\gamma _ { j } \\} _ { j = 1 } ^ { p - 1 } )\n<|id|>217<|page|>27<|box|>148 111 252 883<|content|>Spike-and-slab with normal mixture of inverse gamm... \\psi _ { j } ^ { 2 } \\} _ { j = 1 } ^ { p - 1 } )\n<|id|>232<|page|>29<|box|>813 111 914 885<|content|>The foregoing analysis has not taken into consider... t } - \\widehat { \\beta } _ { O L S }, is equal to\n<|id|>233<|page|>30<|box|>90 112 108 452<|content|>the second element of the following vector: ... the second element of the following vector\n<|id|>254<|page|>31<|box|>719 111 739 504<|content|>which implies that\\beta _ { p o s t } = ( \\tilde {...e } \\mathbf { Y } = \\widehat { \\beta } _ { O L S }\n<|id|>255<|page|>31<|box|>770 109 914 885<|content|>The bottom panels of Figure 5 show boxplots of\\ove... } }is almost always smaller than or equal to zero",
+    "raw_response": "<|src_id|>78<|tgt_id|>79\n<|src_id|>232<|tgt_id|>233",
+    "parsed": [
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 233
+        }
+    ]
+}

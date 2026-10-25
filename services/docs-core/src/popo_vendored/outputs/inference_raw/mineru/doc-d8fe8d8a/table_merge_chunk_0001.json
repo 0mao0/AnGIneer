@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['New Jersey', 'N.J. Stat. Ann. § 56:8-163', '14,388', 'NJ Division of Law, Office of the', 'Portal (AG); Mail (State Police)', 'Aug. 17, 2023', 'N', 'Y — NJ State Police', 'Must notify both AG and State Police;']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'Attorney General; NJ State Police, Cyber Crimes Unit', '', '', '', '', 'notification must occur before consumer notice']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 133,
+    "table2_idx": 134
+}

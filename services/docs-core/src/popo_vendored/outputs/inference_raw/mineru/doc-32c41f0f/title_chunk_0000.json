@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>165 214 181 782<|content|>SECRETARY'S CERTIFICATE OF MERIDIAN DIAGNOSTICS, I\n<|id|>5<|page|>1<|box|>330 140 349 400<|content|>I. Certifying Party Identification\n<|id|>8<|page|>1<|box|>534 140 551 475<|content|>II. Certification of Incumbency of Officers\n<|id|>12<|page|>2<|box|>90 140 107 491<|content|>III. Certification of Incumbency of Directors\n<|id|>19<|page|>2<|box|>506 140 523 697<|content|>IV. Certification of Amended and Restated Certific\n<|id|>21<|page|>2<|box|>667 142 685 575<|content|>The A&R Certificate of Incorporation, among other\n<|id|>28<|page|>3<|box|>311 140 329 532<|content|>V. Certification of Amended and Restated Bylaws\n<|id|>32<|page|>3<|box|>613 142 628 442<|content|>VI. Certification of Board Resolutions\n<|id|>60<|page|>6<|box|>90 142 107 475<|content|>VII. Certification of Stockholder Consents\n<|id|>69<|page|>6<|box|>845 140 863 635<|content|>VIII. Certification of Good Standing and Organizat\n<|id|>74<|page|>7<|box|>292 140 309 349<|content|>IX. General Certifications\n<|id|>75<|page|>7<|box|>319 140 335 397<|content|>I hereby further certify as follows:\n<|id|>81<|page|>8<|box|>89 142 107 236<|content|>X. Exhibits\n<|id|>87<|page|>9<|box|>90 142 107 254<|content|>XI. Signature",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>-1\n<|id|>28<|level|>2\n<|id|>32<|level|>2\n<|id|>60<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>2\n<|id|>75<|level|>-1\n<|id|>81<|level|>2\n<|id|>87<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        }
+    ]
+}

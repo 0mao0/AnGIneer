@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        51
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        50,
+        51
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>405<|type|>table<|page|>46<|box|>113 143 213 852<|content|>None\n<|id|>406<|type|>title<|page|>46<|box|>248 140 263 285<|content|>Key notes by state:\n<|id|>413<|type|>table<|page|>47<|box|>114 143 268 852<|content|>None\n<|id|>414<|type|>table<|page|>47<|box|>325 143 507 852<|content|>None\n<|id|>415<|type|>title<|page|>47<|box|>541 140 556 194<|content|>Notes:\n<|id|>420<|type|>table<|page|>48<|box|>143 143 304 852<|content|>None\n<|id|>421<|type|>table<|page|>48<|box|>364 143 741 852<|content|>None\n<|id|>427<|type|>title<|page|>50<|box|>90 140 107 570<|content|>Exhibit H — Summary of Tax-Related SPA Provisions\n<|id|>428<|type|>table<|page|>50<|box|>176 143 897 852<|content|>None\n<|id|>429<|type|>table<|page|>51<|box|>89 143 683 852<|content|>None",
+    "raw_response": "<|src_id|>405<|tgt_id|>406\n<|src_id|>413<|tgt_id|>406\n<|src_id|>414<|tgt_id|>406\n<|src_id|>420<|tgt_id|>415\n<|src_id|>421<|tgt_id|>415\n<|src_id|>428<|tgt_id|>427\n<|src_id|>429<|tgt_id|>427",
+    "parsed": [
+        {
+            "src_id": 405,
+            "tgt_id": 406
+        },
+        {
+            "src_id": 413,
+            "tgt_id": 406
+        },
+        {
+            "src_id": 414,
+            "tgt_id": 406
+        },
+        {
+            "src_id": 420,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 421,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 428,
+            "tgt_id": 427
+        },
+        {
+            "src_id": 429,
+            "tgt_id": 427
+        }
+    ]
+}

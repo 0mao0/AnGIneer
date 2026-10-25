@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        8
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>90 436 109 562<|content|>EXHIBIT B\n<|id|>1<|type|>title<|page|>2<|box|>128 305 148 691<|content|>FORM OF BORROWING REQUEST\n<|id|>2<|type|>title<|page|>2<|box|>167 282 184 714<|content|>(also referred to as \"Loan Notice\" or \"Drawdown No\n<|id|>5<|type|>title<|page|>2<|box|>388 140 405 415<|content|>Section 1. Introductory Paragraph\n<|id|>11<|type|>title<|page|>2<|box|>696 140 714 369<|content|>Section 2. Borrowing Details\n<|id|>13<|type|>title<|page|>2<|box|>772 142 789 589<|content|>2.1 Aggregate Principal Amount of Requested Borrow\n<|id|>16<|type|>title<|page|>3<|box|>157 140 175 397<|content|>2.2 Date of Proposed Borrowing\n<|id|>19<|type|>title<|page|>3<|box|>383 142 402 323<|content|>2.3 Type of Borrowing\n<|id|>20<|type|>title<|page|>3<|box|>407 176 425 441<|content|>Please check one of the following:\n<|id|>24<|type|>title<|page|>3<|box|>753 142 772 557<|content|>2.4 Interest Period (Applicable to SOFR Loans Only\n<|id|>25<|type|>title<|page|>3<|box|>777 176 795 795<|content|>If SOFR Loan is selected in Section 2.3 above, ple\n<|id|>26<|type|>title<|page|>3<|box|>804 176 820 408<|content|>One (1) month Interest Period\n<|id|>27<|type|>title<|page|>3<|box|>829 176 845 428<|content|>Three (3) months Interest Period\n<|id|>30<|type|>title<|page|>4<|box|>323 142 339 380<|content|>2.5 Disbursement Instructions\n<|id|>32<|type|>table<|page|>4<|box|>387 143 518 852<|content|>None\n<|id|>34<|type|>title<|page|>4<|box|>741 140 758 495<|content|>Section 3. Certifications and Representations\n<|id|>36<|type|>title<|page|>5<|box|>90 140 106 413<|content|>3.1 Conditions Precedent Satisfied\n<|id|>38<|type|>title<|page|>5<|box|>291 140 308 411<|content|>3.2 No Default or Event of Default\n<|id|>40<|type|>title<|page|>5<|box|>529 140 545 426<|content|>3.3 Representations and Warranties\n<|id|>42<|type|>title<|page|>6<|box|>90 140 107 379<|content|>3.4 Permitted Use of Proceeds\n<|id|>44<|type|>title<|page|>6<|box|>328 140 345 454<|content|>3.5 Revolving Commitment Availability\n<|id|>46<|type|>title<|page|>6<|box|>593 140 609 576<|content|>Section 4. Delivery Requirements and Notice Provis\n<|id|>60<|type|>title<|page|>7<|box|>549 140 566 336<|content|>Section 5. Miscellaneous\n<|id|>64<|type|>title<|page|>7<|box|>835 292 852 704<|content|>SIGNATURE PAGE TO BORROWING REQUEST\n<|id|>66<|type|>title<|page|>8<|box|>89 140 104 367<|content|>LUMOS ANALYTICS INC.",
+    "raw_response": "<|src_id|>32<|tgt_id|>30",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        }
+    ]
+}

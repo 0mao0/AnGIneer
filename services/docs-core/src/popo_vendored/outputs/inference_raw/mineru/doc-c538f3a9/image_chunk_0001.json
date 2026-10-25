@@ -1,0 +1,51 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        48,
+        53
+    ],
+    "pages": [
+        49,
+        50,
+        51,
+        52,
+        53
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>509<|type|>title<|page|>49<|box|>90 142 106 339<|content|>ANNEX REFERENCES\n<|id|>511<|type|>title<|page|>49<|box|>179 140 195 328<|content|>Annex A — Definitions\n<|id|>513<|type|>title<|page|>49<|box|>250 140 266 436<|content|>Annex B — Technology Control Plan\n<|id|>515<|type|>title<|page|>49<|box|>356 142 373 643<|content|>Annex C — Governance Provisions and Security Board\n<|id|>517<|type|>title<|page|>49<|box|>463 140 479 465<|content|>Annex D — Cybersecurity Requirements\n<|id|>519<|type|>title<|page|>49<|box|>569 140 585 532<|content|>Annex E — Annual Compliance Report Template\n<|id|>521<|type|>title<|page|>49<|box|>657 140 674 447<|content|>Annex F — Facility Access Procedures\n<|id|>524<|type|>title<|page|>50<|box|>239 140 277 848<|content|>SUMMARY OF KEY ANNOTATIONS AND RECOMMENDED COUNTER\n<|id|>526<|type|>title<|page|>50<|box|>353 142 371 406<|content|>Category 1: Accept (7 Provisions)\n<|id|>527<|type|>table<|page|>50<|box|>419 143 704 852<|content|>None\n<|id|>528<|type|>title<|page|>50<|box|>743 142 760 509<|content|>Category 2: Negotiate / Narrow (14 Provisions)\n<|id|>530<|type|>table<|page|>50<|box|>809 143 907 852<|content|>None\n<|id|>531<|type|>table<|page|>51<|box|>90 143 902 852<|content|>None\n<|id|>532<|type|>table<|page|>52<|box|>89 143 167 851<|content|>None\n<|id|>533<|type|>title<|page|>52<|box|>208 142 226 599<|content|>Category 3: Strongly Oppose / Must Change (5 Provi\n<|id|>535<|type|>table<|page|>52<|box|>273 143 642 852<|content|>None\n<|id|>536<|type|>title<|page|>52<|box|>681 143 699 535<|content|>Category 4: Flag for Client Decision (2 Provisions\n<|id|>538<|type|>table<|page|>52<|box|>746 143 906 852<|content|>None\n<|id|>539<|type|>table<|page|>53<|box|>89 145 138 851<|content|>None\n<|id|>540<|type|>table<|page|>53<|box|>199 143 544 852<|content|>None\n<|id|>541<|type|>title<|page|>53<|box|>584 140 601 810<|content|>Priority Negotiation Issues — Cross-Reference to I",
+    "raw_response": "<|src_id|>527<|tgt_id|>526\n<|src_id|>530<|tgt_id|>528\n<|src_id|>531<|tgt_id|>528\n<|src_id|>532<|tgt_id|>528\n<|src_id|>535<|tgt_id|>533\n<|src_id|>538<|tgt_id|>536\n<|src_id|>539<|tgt_id|>536\n<|src_id|>540<|tgt_id|>536",
+    "parsed": [
+        {
+            "src_id": 527,
+            "tgt_id": 526
+        },
+        {
+            "src_id": 530,
+            "tgt_id": 528
+        },
+        {
+            "src_id": 531,
+            "tgt_id": 528
+        },
+        {
+            "src_id": 532,
+            "tgt_id": 528
+        },
+        {
+            "src_id": 535,
+            "tgt_id": 533
+        },
+        {
+            "src_id": 538,
+            "tgt_id": 536
+        },
+        {
+            "src_id": 539,
+            "tgt_id": 536
+        },
+        {
+            "src_id": 540,
+            "tgt_id": 536
+        }
+    ]
+}

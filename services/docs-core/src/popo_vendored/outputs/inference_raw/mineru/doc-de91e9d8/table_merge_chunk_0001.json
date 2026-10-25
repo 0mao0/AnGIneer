@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['1. Insurance', '§14.1; Exhibit G', 'Open — gap on', '$25M per occ. /', '$50M per occ.', 'Hold at $25M;']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Coverage Levels', '', 'per-occurrence limits', '$75M agg. (existing Briarcliff policy)', 'or increased subject-injury sublimit', 'offer maintenance covenant and notice provisions as fallback']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 28,
+    "table2_idx": 29
+}

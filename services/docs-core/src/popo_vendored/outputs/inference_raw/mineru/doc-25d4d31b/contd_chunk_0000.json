@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>204 140 239 854<|content|>FROM: ... Aaron Liu, Lead Associate, Antitrust & C... Associate, Antitrust & Competition Practice Group\n<|id|>4<|page|>1<|box|>248 142 266 751<|content|>TO: ... Elaine Forsythe, Responsible Partner, Antitrust & Competition Practice Group\n<|id|>5<|page|>1<|box|>273 142 292 334<|content|>DATE: ... January 18, 2024\n<|id|>6<|page|>1<|box|>300 140 335 854<|content|>RE: ... Analysis of DOJ Initial Draft Non-Prosecut...ement (ATR-SF-2024-00312) — Torchlight Mining Corp\n<|id|>7<|page|>1<|box|>344 142 361 361<|content|>MATTER NO. ... 1039-00001\n<|id|>8<|page|>1<|box|>369 140 431 854<|content|>FOR INTERNAL USE ONLY — DO NOT DISTRIBUTE OUTSIDE ...LP may result in a waiver of applicable privileges\n<|id|>22<|page|>2<|box|>806 140 898 856<|content|>The DOJ Antitrust Division opened a grand jury inv...from DOJ headquarters by Deputy Assistant Attorney\n<|id|>23<|page|>3<|box|>89 140 126 854<|content|>General Julia Stafford-Hayes (Washington, D. ... )...e Kowalski and Senior Trial Attorney Marcus Reeves\n<|id|>53<|page|>5<|box|>839 147 876 854<|content|>• TMC's share of affected commerce is estimated at...ting approximately 35. ... This figure is based on\n<|id|>54<|page|>6<|box|>90 174 125 854<|content|>TMC's revenues from the three product categories i.... ... domestic market during the conspiracy period\n<|id|>67<|page|>6<|box|>821 140 876 854<|content|>The DOJ Draft references TMC's registered office a...its U. ... The Draft NPA contemplates execution by\n<|id|>68<|page|>7<|box|>90 140 127 854<|content|>Søren Dalmqvist in his capacity as Chief Executive...Assistant Attorney General, DOJ Antitrust Division\n<|id|>229<|page|>24<|box|>589 174 643 854<|content|>(f) Made to TMC's insurers, including Northland Mutual Insurance Co. ... and\n<|id|>231<|page|>24<|box|>678 140 734 854<|content|>In all cases, TMC should undertake to provide DOJ ...red to comply with the applicable legal obligation",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>53<|tgt_id|>54\n<|src_id|>67<|tgt_id|>68",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        }
+    ]
+}

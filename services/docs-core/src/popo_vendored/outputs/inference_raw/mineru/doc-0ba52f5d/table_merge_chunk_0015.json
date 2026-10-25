@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 15,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=38, 通信设备及装置', 'rowspan=3, 矩阵', 'rowspan=3, 几何信息', '高度', '○', '◎', '●', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=21, 通信设备及装置', 'rowspan=14, 矩阵', 'rowspan=14, 非几何信息', '编码', '●', '●', '●', '']]\n",
+    "raw_response": "[1, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 605,
+    "table2_idx": 606
+}

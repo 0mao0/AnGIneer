@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>99 307 117 689<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>136 375 152 622<|content|>INTERNAL MEMORANDUM\n<|id|>2<|type|>title<|page|>1<|box|>162 202 178 794<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>4<|type|>table<|page|>1<|box|>239 143 404 851<|content|>None\n<|id|>6<|type|>title<|page|>1<|box|>537 142 554 401<|content|>I. Purpose of This Memorandum\n<|id|>14<|type|>title<|page|>2<|box|>224 140 241 267<|content|>II. Background\n<|id|>15<|type|>title<|page|>2<|box|>253 140 272 596<|content|>A. Proposed MTDC Engagement (Matter No. 1031-00001\n<|id|>24<|type|>table<|page|>3<|box|>547 143 642 852<|content|>None\n<|id|>26<|type|>title<|page|>3<|box|>762 140 779 596<|content|>B. Existing Pinnacle Engagement (Matter No. 1031-0\n<|id|>33<|type|>title<|page|>4<|box|>744 140 761 269<|content|>C. The Conflict\n<|id|>37<|type|>table<|page|>5<|box|>393 143 537 852<|content|>None\n<|id|>49<|type|>title<|page|>7<|box|>90 140 107 475<|content|>III. Declination and Notification to MTDC\n<|id|>58<|type|>title<|page|>8<|box|>148 140 167 500<|content|>IV. Formal Closure of Matter No. 1031-00001\n<|id|>61<|type|>table<|page|>8<|box|>280 143 482 852<|content|>None\n<|id|>67<|type|>title<|page|>9<|box|>186 140 204 681<|content|>V. Confirmation: No Disclosure of Pinnacle Confide\n<|id|>91<|type|>title<|page|>10<|box|>616 140 633 539<|content|>VI. Preservation of Ethical Obligations to Pinnacl\n<|id|>99<|type|>title<|page|>11<|box|>710 140 728 390<|content|>VII. Conflicts Database Update\n<|id|>106<|type|>title<|page|>12<|box|>489 140 506 524<|content|>VIII. Action Items / No Further Action Required\n<|id|>116<|type|>title<|page|>13<|box|>250 142 267 272<|content|>IX. Distribution\n<|id|>118<|type|>table<|page|>13<|box|>300 143 421 852<|content|>None",
+    "raw_response": "<|src_id|>4<|tgt_id|>1\n<|src_id|>24<|tgt_id|>15\n<|src_id|>37<|tgt_id|>33\n<|src_id|>61<|tgt_id|>58\n<|src_id|>118<|tgt_id|>116",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        }
+    ]
+}

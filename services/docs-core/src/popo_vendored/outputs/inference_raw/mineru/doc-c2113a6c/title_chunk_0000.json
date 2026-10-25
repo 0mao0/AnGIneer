@@ -1,0 +1,58 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>5<|page|>1<|box|>256 140 273 732<|content|>VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED AND E\n<|id|>9<|page|>1<|box|>411 142 428 439<|content|>I. Identification of Counsel and Client\n<|id|>13<|page|>2<|box|>90 140 107 663<|content|>II. Background — Your Employment and Contractual O\n<|id|>22<|page|>3<|box|>321 140 339 583<|content|>III. Lumos's Trade Secrets and Proprietary Informa\n<|id|>31<|page|>4<|box|>630 140 647 410<|content|>IV. Evidence of Misappropriation\n<|id|>39<|page|>5<|box|>845 140 863 354<|content|>V. Legal Claims and Bases\n<|id|>47<|page|>6<|box|>809 140 827 251<|content|>VI. Demands\n<|id|>54<|page|>8<|box|>340 140 357 558<|content|>VII. Reservation of Rights and Warning of Litigati\n<|id|>60<|page|>9<|box|>148 140 167 599<|content|>VIII. Instruction to Preserve Evidence and Retain\n<|id|>65<|page|>9<|box|>715 140 732 344<|content|>IX. Request for Response",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>5<|level|>-1\n<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>22<|level|>1\n<|id|>31<|level|>1\n<|id|>39<|level|>1\n<|id|>47<|level|>1\n<|id|>54<|level|>1\n<|id|>60<|level|>1\n<|id|>65<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        }
+    ]
+}

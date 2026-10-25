@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['6', 'Albany, NY', '1440 Western Avenue, Suite 205, Albany,', 'Empire State Professional Plaza', 'March 15, 2020; First Amendment dated', 'March 14, 2031', '$375,000', '$46,875', 'One (1) five-year renewal option']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'NY 12203', 'LLC', 'July 1, 2022', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 141,
+    "table2_idx": 142
+}

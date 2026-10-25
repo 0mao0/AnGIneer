@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 140 106 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|type|>title<|page|>1<|box|>316 142 332 493<|content|>1. Purpose and Confirmation of Engagement\n<|id|>10<|type|>title<|page|>1<|box|>801 142 818 333<|content|>2. Scope of Engagement\n<|id|>11<|type|>title<|page|>1<|box|>830 140 848 370<|content|>2.1 Description of the Matter\n<|id|>14<|type|>title<|page|>2<|box|>231 140 248 356<|content|>2.2 Estimated Claim Value\n<|id|>16<|type|>table<|page|>2<|box|>352 143 483 852<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>584 142 602 290<|content|>2.3 Scope Includes\n<|id|>28<|type|>title<|page|>3<|box|>246 140 263 295<|content|>2.4 Scope Excludes\n<|id|>34<|type|>title<|page|>3<|box|>625 140 640 297<|content|>2.5 Adverse Parties\n<|id|>43<|type|>title<|page|>3<|box|>821 140 839 318<|content|>2.6 Opposing Counsel\n<|id|>45<|type|>title<|page|>4<|box|>148 140 167 230<|content|>3. Staffing\n<|id|>53<|type|>title<|page|>5<|box|>250 140 266 433<|content|>4. Fee Arrangement — Hourly Rates\n<|id|>55<|type|>table<|page|>5<|box|>335 143 463 852<|content|>None\n<|id|>59<|type|>title<|page|>5<|box|>773 140 790 318<|content|>5. Expenses and Costs\n<|id|>70<|type|>title<|page|>6<|box|>796 140 813 379<|content|>6. Billing and Payment Terms\n<|id|>75<|type|>title<|page|>7<|box|>458 140 474 393<|content|>7. Preliminary Budget Estimate\n<|id|>79<|type|>title<|page|>8<|box|>148 140 167 284<|content|>8. Conflict Check\n<|id|>93<|type|>title<|page|>8<|box|>647 140 664 339<|content|>9. Client Responsibilities\n<|id|>99<|type|>title<|page|>9<|box|>421 142 438 357<|content|>10. Document Preservation\n<|id|>110<|type|>title<|page|>10<|box|>311 140 329 400<|content|>11. Confidentiality and Privilege\n<|id|>115<|type|>title<|page|>10<|box|>712 140 729 393<|content|>12. Termination of Engagement\n<|id|>120<|type|>title<|page|>11<|box|>267 140 284 457<|content|>13. Limitation of Scope / No Guarantees\n<|id|>124<|type|>title<|page|>11<|box|>661 140 676 297<|content|>14. Governing Law\n<|id|>126<|type|>title<|page|>11<|box|>782 140 799 437<|content|>15. Acceptance and Countersignature\n<|id|>130<|type|>title<|page|>12<|box|>239 140 256 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>137<|type|>title<|page|>12<|box|>361 349 378 647<|content|>ACCEPTANCE AND AGREEMENT\n<|id|>139<|type|>title<|page|>12<|box|>449 142 465 491<|content|>VERIMARK HOSPITALITY GROUP INC.",
+    "raw_response": "<|src_id|>16<|tgt_id|>14\n<|src_id|>55<|tgt_id|>53",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        }
+    ]
+}

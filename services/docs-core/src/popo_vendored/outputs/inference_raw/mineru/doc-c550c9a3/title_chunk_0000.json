@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 184 118 812<|content|>PRELIMINARY CLOSING FUNDS FLOW MEMORANDUM\n<|id|>1<|page|>1<|box|>135 212 152 785<|content|>DRAFT — FOR DISCUSSION PURPOSES ONLY — NOT FINALIZ\n<|id|>8<|page|>1<|box|>407 140 424 364<|content|>I. Introduction and Purpose\n<|id|>14<|page|>2<|box|>231 140 248 346<|content|>II. Transaction Summary\n<|id|>24<|page|>3<|box|>340 140 357 310<|content|>III. Sources of Funds\n<|id|>25<|page|>3<|box|>371 140 388 488<|content|>A. Initial Borrowing Under the New Facility\n<|id|>29<|page|>3<|box|>843 142 859 352<|content|>B. Borrower's Own Funds\n<|id|>31<|page|>4<|box|>213 140 229 277<|content|>C. Total Sources\n<|id|>34<|page|>4<|box|>385 140 402 285<|content|>IV. Uses of Funds\n<|id|>35<|page|>4<|box|>416 140 433 452<|content|>A. Payoff of Existing Harborstone RCF\n<|id|>43<|page|>5<|box|>574 142 590 303<|content|>B. Transaction Fees\n<|id|>57<|page|>6<|box|>667 142 683 253<|content|>C. Total Uses\n<|id|>60<|page|>7<|box|>90 140 107 622<|content|>V. Reconciliation of Sources and Uses / Net Procee\n<|id|>72<|page|>8<|box|>148 140 167 599<|content|>VI. Flow of Funds — Step-by-Step Closing Day Mecha\n<|id|>74<|page|>8<|box|>261 140 279 531<|content|>Step 1: Lender Fundings to Administrative Agent\n<|id|>77<|page|>8<|box|>776 140 794 493<|content|>Step 2: Borrower's Own Funds Contribution\n<|id|>79<|page|>9<|box|>90 140 107 419<|content|>Step 3: Payoff of Harborstone RCF\n<|id|>82<|page|>9<|box|>372 140 388 431<|content|>Step 4: Payment of Transaction Fees\n<|id|>86<|page|>9<|box|>527 142 544 429<|content|>Total retained by MAB: $825,000.00\n<|id|>88<|page|>9<|box|>657 140 675 313<|content|>Step 5: Confirmation\n<|id|>90<|page|>10<|box|>90 142 106 321<|content|>VII. Wire Instructions\n<|id|>116<|page|>11<|box|>90 140 107 372<|content|>D. Lender Funding Accounts\n<|id|>118<|page|>11<|box|>231 176 248 437<|content|>Nordkapp Maritime Finance AG\n<|id|>122<|page|>11<|box|>316 178 332 482<|content|>Clearwater Commercial Lending LLC\n<|id|>131<|page|>11<|box|>544 140 561 413<|content|>VIII. Conditions and Assumptions\n<|id|>141<|page|>12<|box|>594 142 611 380<|content|>IX. Open Items / Action Items\n<|id|>146<|page|>13<|box|>493 142 510 508<|content|>X. Summary Funds Flow Table (Consolidated)\n<|id|>149<|page|>14<|box|>215 140 233 429<|content|>XI. Document Status and Disclaimer",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>29<|level|>3\n<|id|>31<|level|>3\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>43<|level|>3\n<|id|>57<|level|>3\n<|id|>60<|level|>2\n<|id|>72<|level|>2\n<|id|>74<|level|>3\n<|id|>77<|level|>3\n<|id|>79<|level|>3\n<|id|>82<|level|>3\n<|id|>86<|level|>-1\n<|id|>88<|level|>3\n<|id|>90<|level|>2\n<|id|>116<|level|>3\n<|id|>118<|level|>4\n<|id|>122<|level|>4\n<|id|>131<|level|>2\n<|id|>141<|level|>2\n<|id|>146<|level|>2\n<|id|>149<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 4
+        },
+        {
+            "id": 122,
+            "level": 4
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        }
+    ]
+}

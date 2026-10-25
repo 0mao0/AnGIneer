@@ -1,0 +1,203 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-grfwrk7j\\input\\pdfs\\doc-9f522565.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-grfwrk7j\\enriched\\doc-9f522565.json",
+    "contd_output": "<|src_id|>216<|tgt_id|>217\n<|src_id|>343<|tgt_id|>344",
+    "title_output": "<|id|>8<|level|>1\n<|id|>20<|level|>1\n<|id|>41<|level|>1\n<|id|>42<|level|>2\n<|id|>52<|level|>2\n<|id|>62<|level|>2\n<|id|>69<|level|>1\n<|id|>71<|level|>2\n<|id|>130<|level|>2\n<|id|>133<|level|>3\n<|id|>148<|level|>3\n<|id|>176<|level|>2\n<|id|>179<|level|>3\n<|id|>195<|level|>3\n<|id|>210<|level|>3\n<|id|>227<|level|>2\n<|id|>230<|level|>3\n<|id|>258<|level|>3\n<|id|>272<|level|>2\n<|id|>275<|level|>3\n<|id|>289<|level|>1\n<|id|>293<|level|>1\n<|id|>294<|level|>2\n<|id|>305<|level|>2\n<|id|>309<|level|>2\n<|id|>318<|level|>2\n<|id|>322<|level|>2\n<|id|>329<|level|>2\n<|id|>335<|level|>1\n<|id|>342<|level|>1\n<|id|>352<|level|>1\n<|id|>361<|level|>1\n<|id|>363<|level|>2\n<|id|>365<|level|>2\n<|id|>369<|level|>2\n<|id|>377<|level|>2",
+    "image_output": "<|src_id|>290<|tgt_id|>289\n<|src_id|>291<|tgt_id|>289",
+    "contd_label": [
+        {
+            "src_id": 216,
+            "tgt_id": 217
+        },
+        {
+            "src_id": 343,
+            "tgt_id": 344
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 3
+        },
+        {
+            "id": 210,
+            "level": 3
+        },
+        {
+            "id": 227,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 258,
+            "level": 3
+        },
+        {
+            "id": 272,
+            "level": 2
+        },
+        {
+            "id": 275,
+            "level": 3
+        },
+        {
+            "id": 289,
+            "level": 1
+        },
+        {
+            "id": 293,
+            "level": 1
+        },
+        {
+            "id": 294,
+            "level": 2
+        },
+        {
+            "id": 305,
+            "level": 2
+        },
+        {
+            "id": 309,
+            "level": 2
+        },
+        {
+            "id": 318,
+            "level": 2
+        },
+        {
+            "id": 322,
+            "level": 2
+        },
+        {
+            "id": 329,
+            "level": 2
+        },
+        {
+            "id": 335,
+            "level": 1
+        },
+        {
+            "id": 342,
+            "level": 1
+        },
+        {
+            "id": 352,
+            "level": 1
+        },
+        {
+            "id": 361,
+            "level": 1
+        },
+        {
+            "id": 363,
+            "level": 2
+        },
+        {
+            "id": 365,
+            "level": 2
+        },
+        {
+            "id": 369,
+            "level": 2
+        },
+        {
+            "id": 377,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 290,
+            "tgt_id": 289
+        },
+        {
+            "src_id": 291,
+            "tgt_id": 289
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 290,
+            "table2_idx": 291,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Peachtree",
+                    "Peachtree",
+                    "M-1 (Light",
+                    "Logistics",
+                    "Yes",
+                    "Yes",
+                    "City of"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Corners Logistics Center",
+                    "Corners, GA",
+                    "Industrial)",
+                    "",
+                    "",
+                    "",
+                    "Peachtree Corners"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 176 118 818<|content|>OFFICER'S CERTIFICATE OF SKYBRIDGE FINTECH LTD.\n<|id|>1<|page|>1<|box|>143 411 160 586<|content|>USE OF PROCEEDS\n<|id|>4<|page|>1<|box|>273 142 289 243<|content|>RECITALS\n<|id|>9<|page|>1<|box|>747 140 763 524<|content|>Section 1. Certification of Identity and Authority\n<|id|>14<|page|>2<|box|>304 140 321 447<|content|>Section 2. Description of the Financing\n<|id|>21<|page|>3<|box|>212 140 229 380<|content|>Section 3. Aggregate Proceeds\n<|id|>23<|page|>3<|box|>305 142 323 287<|content|>3.1 Initial Closing\n<|id|>26<|page|>3<|box|>523 142 540 279<|content|>3.2 Final Closing\n<|id|>29<|page|>3<|box|>739 142 757 349<|content|>3.3 Escrow Arrangements\n<|id|>31<|page|>4<|box|>138 140 156 359<|content|>3.4 Estimated Net Proceeds\n<|id|>35<|page|>4<|box|>560 140 577 423<|content|>Section 4. Intended Use of Proceeds\n<|id|>37<|page|>4<|box|>708 140 726 566<|content|>4.1 General Corporate Purposes and Working Capital\n<|id|>41<|page|>5<|box|>422 140 439 477<|content|>4.2 Product Development and Engineering\n<|id|>44<|page|>6<|box|>90 140 107 517<|content|>4.3 Sales, Marketing, and Customer Acquisition\n<|id|>46<|page|>6<|box|>345 140 364 522<|content|>4.4 Bridge to Planned Series D Equity Financing\n<|id|>50<|page|>6<|box|>708 140 724 568<|content|>4.5 Negative Covenants — Restricted Uses of Procee\n<|id|>57<|page|>7<|box|>411 140 426 434<|content|>Section 5. Current Financial Position\n<|id|>61<|page|>8<|box|>186 140 204 352<|content|>Section 6. Representations\n<|id|>67<|page|>8<|box|>648 140 667 348<|content|>Section 7. Governing Law\n<|id|>69<|page|>8<|box|>756 400 773 596<|content|>[Signature Page Follows]\n<|id|>71<|page|>8<|box|>825 140 842 388<|content|>SKYBRIDGE FINTECH LTD.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>26<|level|>3\n<|id|>29<|level|>3\n<|id|>31<|level|>3\n<|id|>35<|level|>2\n<|id|>37<|level|>3\n<|id|>41<|level|>3\n<|id|>44<|level|>3\n<|id|>46<|level|>3\n<|id|>50<|level|>3\n<|id|>57<|level|>2\n<|id|>61<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>-1\n<|id|>71<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        }
+    ]
+}

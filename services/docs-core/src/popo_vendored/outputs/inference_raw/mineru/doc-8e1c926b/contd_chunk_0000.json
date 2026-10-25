@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        52
+    ],
+    "pages": [
+        2,
+        4,
+        11,
+        12,
+        13,
+        14,
+        17,
+        28,
+        37,
+        51
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>2<|box|>303 171 338 782<|content|>Sold on a subscription basis only (exceptions noted) by the Superintendent of Documents, U. ... †\n<|id|>4<|page|>2<|box|>383 171 458 794<|content|>Combined Statement of Receipts, Outlays, and Balances of the United States Government. ... 80 (foreign)\n<|id|>10<|page|>4<|box|>507 343 529 653<|content|>treasury. ... gov\n<|id|>11<|page|>4<|box|>544 122 582 875<|content|>Internet service subscribers can access the Treasu...rough the Financial Management Service's home page\n<|id|>45<|page|>11<|box|>733 504 909 916<|content|>The unemployment rate peaked at 10. ... 1 percent ...n thousands from end of quarter to end of quarter)\n<|id|>46<|page|>12<|box|>90 88 109 282<|content|>Payroll Employment\n<|id|>57<|page|>13<|box|>859 81 904 491<|content|>Late in 2009, the first-time home buyer tax credit...rs (it expired on April 30, 2010), and a new Small\n<|id|>58<|page|>13<|box|>89 504 220 915<|content|>Business Jobs and Wages Tax Credit was announced t...its, and a two-year extension of the 2001 tax cuts\n<|id|>62<|page|>13<|box|>877 504 909 916<|content|>After plunging 38. ... 5 percent in 2008, the shar... (when an earlier version of the index, containing\n<|id|>63<|page|>14<|box|>104 99 136 397<|content|>Long-Term Interest Rate Spreads (Percent)\n<|id|>64<|page|>14<|box|>424 81 613 491<|content|>only 90 stocks, dropped 47 percent), the S&P 500 i...oved higher, and in mid-August stood at 32 percent\n<|id|>65<|page|>14<|box|>612 81 905 491<|content|>A variety of factors have buffeted long-term Treas...t fell to zero—a record low—by the end of December\n<|id|>66<|page|>14<|box|>438 504 643 915<|content|>2008, then fluctuated in a range of 0. ... After t... again to 233 basis points as of early August 2011\n<|id|>91<|page|>17<|box|>515 380 527 617<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>92<|page|>17<|box|>535 83 551 269<|content|>Third-Quarter Receipts\n<|id|>93<|page|>17<|box|>554 81 657 491<|content|>The following capsule analysis of budget receipts,... to adequately analyze collections for the quarter\n<|id|>138<|page|>28<|box|>685 81 717 491<|content|>• Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>140<|page|>28<|box|>250 504 397 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>168<|page|>37<|box|>439 374 450 622<|content|>[Source: ... Bureau of the Public Debt, Office of Financing]\n<|id|>169<|page|>37<|box|>458 83 474 171<|content|>APRIL\n<|id|>316<|page|>51<|box|>167 604 189 915<|content|>STATISTICS\n<|id|>317<|page|>51<|box|>199 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund",
+    "raw_response": "<|src_id|>57<|tgt_id|>58\n<|src_id|>62<|tgt_id|>64\n<|src_id|>65<|tgt_id|>66",
+    "parsed": [
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        }
+    ]
+}

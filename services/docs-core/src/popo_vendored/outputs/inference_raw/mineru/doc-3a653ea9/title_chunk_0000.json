@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 158 138 836<|content|>UNITED STATES BANKRUPTCY COURT FOR THE NORTHERN DI\n<|id|>1<|page|>1<|box|>150 227 193 769<|content|>CRESTLINE PACKAGING SOLUTIONS LLC, EIN 31-1782094,\n<|id|>5<|page|>1<|box|>279 171 314 823<|content|>DEBTORS' MOTION FOR JOINT ADMINISTRATION OF CHAPTE\n<|id|>7<|page|>1<|box|>419 140 436 413<|content|>I. PRELIMINARY STATEMENT\n<|id|>11<|page|>1<|box|>819 142 835 413<|content|>II. JURISDICTION AND VENUE\n<|id|>16<|page|>2<|box|>373 142 390 310<|content|>III. BACKGROUND\n<|id|>17<|page|>2<|box|>404 140 421 539<|content|>A. The Debtors' Business and Corporate Structure\n<|id|>27<|page|>3<|box|>412 140 430 473<|content|>B. Corporate Organizational Relationship\n<|id|>33<|page|>4<|box|>138 140 157 480<|content|>C. Events Leading to the Chapter 11 Filing\n<|id|>44<|page|>5<|box|>375 140 392 361<|content|>IV. RELIEF REQUESTED\n<|id|>49<|page|>5<|box|>671 140 688 338<|content|>V. BASIS FOR RELIEF\n<|id|>50<|page|>5<|box|>703 140 720 513<|content|>A. Legal Standard — Bankruptcy Rule 1015(b)\n<|id|>57<|page|>6<|box|>435 140 452 441<|content|>B. Joint Administration Is Warranted\n<|id|>70<|page|>7<|box|>767 140 784 419<|content|>C. Benefits of Joint Administration\n<|id|>78<|page|>8<|box|>652 140 670 437<|content|>D. Preservation of Substantive Rights\n<|id|>82<|page|>9<|box|>223 140 239 250<|content|>VI. NOTICE\n<|id|>92<|page|>9<|box|>638 142 654 364<|content|>VII. NO PRIOR REQUEST\n<|id|>94<|page|>9<|box|>704 140 720 550<|content|>VIII. CONCLUSION AND PRAYER FOR RELIEF\n<|id|>102<|page|>10<|box|>273 142 290 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>112<|page|>10<|box|>511 447 527 550<|content|>EXHIBIT A\n<|id|>113<|page|>10<|box|>535 411 553 586<|content|>PROPOSED ORDER\n<|id|>114<|page|>10<|box|>561 158 612 838<|content|>UNITED STATES BANKRUPTCY COURT FOR THE NORTHERN DI\n<|id|>115<|page|>10<|box|>621 227 638 771<|content|>CRESTLINE PACKAGING SOLUTIONS LLC, EIN 31-1782094,\n<|id|>116<|page|>10<|box|>647 339 664 658<|content|>CPS HOLDINGS INC., EIN 82-3491657,\n<|id|>120<|page|>10<|box|>750 145 767 851<|content|>ORDER DIRECTING JOINT ADMINISTRATION OF RELATED CH\n<|id|>123<|page|>11<|box|>262 140 279 674<|content|>IT IS HEREBY ORDERED, ADJUDGED, AND DECREED THAT:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>1\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>27<|level|>3\n<|id|>33<|level|>3\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>57<|level|>3\n<|id|>70<|level|>3\n<|id|>78<|level|>3\n<|id|>82<|level|>2\n<|id|>92<|level|>2\n<|id|>94<|level|>2\n<|id|>102<|level|>1\n<|id|>112<|level|>1\n<|id|>113<|level|>2\n<|id|>114<|level|>1\n<|id|>115<|level|>2\n<|id|>116<|level|>2\n<|id|>120<|level|>1\n<|id|>123<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Audrey Zhou', 'Working Associate', 'Capital Markets', '$875/hr', 'Support drafting of']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'deposit agreement and related depositary documentation, Form F-6 registration statement, depositary receipts fee schedule, Nasdaq Global Select Market listing application and related submissions, corporate governance exemption notice (Rule 5615(a)(3)), code of conduct, audit committee charter, whistleblower policy, and other corporate governance documentation; EDGAR filing coordination (CIK application, XBRL tagging, filing agent liaison); preparation of research memoranda on substantive issues; due diligence document review; maintenance of the master closing checklist and working group list; and coordination of document production and signing logistics. Ms. Zhou is a 2022 law school graduate who joined the Capital Markets group in the fall of 2022 and has worked on three IPO transactions.']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 27,
+    "table2_idx": 28
+}

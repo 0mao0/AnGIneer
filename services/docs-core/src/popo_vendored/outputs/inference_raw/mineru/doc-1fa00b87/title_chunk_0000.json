@@ -1,0 +1,140 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 160 125 836<|content|>CALDERWOOD & HARKNESS LLP 1900 Avenue of the Stars\n<|id|>8<|page|>1<|box|>314 359 333 637<|content|>I. Purpose and Background\n<|id|>14<|page|>2<|box|>234 390 253 604<|content|>II. Agreed Allocation\n<|id|>15<|page|>2<|box|>280 142 297 297<|content|>A. Summary Table\n<|id|>18<|page|>2<|box|>599 142 616 352<|content|>B. Basis for the 45/55 Split\n<|id|>23<|page|>3<|box|>227 250 247 746<|content|>III. Analysis of the Wage Component ($1,057,500)\n<|id|>24<|page|>3<|box|>272 142 289 303<|content|>A. Characterization\n<|id|>30<|page|>4<|box|>148 140 167 352<|content|>B. Federal Tax Treatment\n<|id|>41<|page|>5<|box|>458 140 474 416<|content|>C. California State Tax Treatment\n<|id|>48<|page|>6<|box|>285 142 303 251<|content|>D. Reporting\n<|id|>60<|page|>6<|box|>710 227 731 769<|content|>IV. Analysis of the Non-Wage Component ($1,292,500\n<|id|>61<|page|>6<|box|>756 142 773 303<|content|>A. Characterization\n<|id|>67<|page|>8<|box|>223 140 239 584<|content|>B. IRC § 104(a)(2) Analysis — Excludability of Dam\n<|id|>73<|page|>9<|box|>90 140 107 385<|content|>C. Withholding and Reporting\n<|id|>80<|page|>9<|box|>767 303 787 692<|content|>V. Tax Treatment of RSU Acceleration\n<|id|>81<|page|>9<|box|>811 142 829 267<|content|>A. Background\n<|id|>86<|page|>10<|box|>383 140 402 287<|content|>B. Tax Treatment\n<|id|>97<|page|>12<|box|>90 277 111 718<|content|>VI. Allocation Reasonableness and IRS Risk\n<|id|>98<|page|>12<|box|>136 140 154 446<|content|>A. Standards for Reviewing Allocation\n<|id|>105<|page|>12<|box|>790 142 806 434<|content|>B. Assessment of the 45/55 Allocation\n<|id|>114<|page|>14<|box|>167 140 184 300<|content|>C. Risk Assessment\n<|id|>120<|page|>14<|box|>544 382 563 614<|content|>VII. Recommendations\n<|id|>122<|page|>14<|box|>622 142 638 424<|content|>A. Settlement Agreement Language\n<|id|>127<|page|>15<|box|>445 142 462 313<|content|>B. RSU Coordination\n<|id|>131<|page|>16<|box|>90 140 107 315<|content|>C. Payroll Processing\n<|id|>135<|page|>16<|box|>561 142 579 307<|content|>D. Record Retention\n<|id|>146<|page|>17<|box|>215 411 236 584<|content|>VIII. Conclusion\n<|id|>152<|page|>17<|box|>696 140 712 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>18<|level|>3\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>30<|level|>3\n<|id|>41<|level|>3\n<|id|>48<|level|>3\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>67<|level|>3\n<|id|>73<|level|>3\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>86<|level|>3\n<|id|>97<|level|>2\n<|id|>98<|level|>3\n<|id|>105<|level|>3\n<|id|>114<|level|>3\n<|id|>120<|level|>2\n<|id|>122<|level|>3\n<|id|>127<|level|>3\n<|id|>131<|level|>3\n<|id|>135<|level|>3\n<|id|>146<|level|>2\n<|id|>152<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 1
+        }
+    ]
+}

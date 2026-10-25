@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        10,
+        11,
+        21,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>204 140 239 854<|content|>FROM: ... Harrison Caldwell, Of Counsel, Environme...Land Use Practice Group, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>248 140 321 854<|content|>TO: ... Beatrice Holloway, Responsible Partner, Ca...Health & Safety, Crestline Packaging Solutions LLC\n<|id|>4<|page|>1<|box|>328 140 345 336<|content|>DATE: ... October 16, 2022\n<|id|>5<|page|>1<|box|>354 140 391 854<|content|>RE: ... Parcel ID 0383-M-00125-0000-00)\n<|id|>6<|page|>1<|box|>398 140 416 362<|content|>MATTER NO. ... 1006-00003\n<|id|>7<|page|>1<|box|>424 140 462 854<|content|>TRANSACTION: ... (\"ACC\") by Crestline Packaging Solutions LLC (\"Crestline\")\n<|id|>29<|page|>3<|box|>840 140 897 857<|content|>UST Removal (1993). ... The tanks are understood t...ored petroleum products (fuel oil and/or solvents)\n<|id|>30<|page|>4<|box|>90 140 145 854<|content|>during the Keystone Metalworks era and potentially... the soils surrounding the former tank excavations\n<|id|>62<|page|>7<|box|>862 140 898 856<|content|>PA DEP's specific guidance on vapor intrusion is s...ycling Program Technical Guidance Manual — Section\n<|id|>68<|page|>8<|box|>396 140 523 854<|content|>Under the Act 2 framework, vapor intrusion is trea...e McKeesport property did not address this pathway\n<|id|>92<|page|>10<|box|>854 140 909 857<|content|>It bears noting that the OSHA PEL for TCE (100 ppm... (\"ACGIH\") Threshold Limit Value of 10 ppm and the\n<|id|>93<|page|>11<|box|>89 140 162 856<|content|>National Institute for Occupational Safety and Hea...ng workplace exposure to the lowest feasible level\n<|id|>98<|page|>11<|box|>424 181 440 514<|content|>• Integrity and thickness of the concrete slab\n<|id|>103<|page|>11<|box|>521 140 595 854<|content|>Without indoor air sampling data (which has not ye...r end, indoor air concentrations may be negligible\n<|id|>99<|page|>11<|box|>444 183 460 643<|content|>• Presence and extent of cracks, joints, and utility penetrations\n<|id|>100<|page|>11<|box|>463 183 479 617<|content|>• HVAC system operation and building pressure dynamics\n<|id|>101<|page|>11<|box|>483 183 500 702<|content|>• Temperature differentials between indoor and sub-slab environments\n<|id|>102<|page|>11<|box|>502 183 518 630<|content|>• Season and weather conditions at the time of measurement\n<|id|>193<|page|>21<|box|>739 174 776 854<|content|>(c) PLL insurance — a policy from a creditworthy i...onditions exclusion issue discussed above); ... or\n<|id|>195<|page|>21<|box|>809 140 883 857<|content|>Crestline should coordinate with Commonwealth Nati...e lender's final credit approval committee meeting\n<|id|>218<|page|>24<|box|>604 142 619 320<|content|>Respectfully submitted,\n<|id|>219<|page|>24<|box|>621 142 637 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>220<|page|>24<|box|>638 143 656 251<|content|>By: ... By\n<|id|>221<|page|>24<|box|>655 140 688 854<|content|>Harrison Caldwell Of Counsel, Environmental & Land...1900 Euclid Avenue, Suite 3200 Cleveland, OH 44115\n<|id|>222<|page|>24<|box|>689 143 705 318<|content|>Date: ... October 16, 2022\n<|id|>227<|page|>25<|box|>226 143 261 854<|content|>1. ... TerraVerde Phase II ESA Report — McKeesport...ant (analytical results received October 10, 2022)\n<|id|>233<|page|>25<|box|>489 140 521 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...ed Acquisition of Allegheny Chemical Coatings, Inc\n<|id|>228<|page|>25<|box|>263 142 316 854<|content|>2. ... laboratory QA/QC summary)\n<|id|>229<|page|>25<|box|>320 142 356 854<|content|>3. ... 4, Vapor Intrusion\" — relevant excerpts\n<|id|>230<|page|>25<|box|>359 142 393 854<|content|>4. ... TerraVerde Preliminary Remediation Cost Est...e — McKeesport Main Plant (dated October 18, 2022)\n<|id|>231<|page|>25<|box|>396 142 431 854<|content|>5. ... Phase I Environmental Site Assessment — McK...vironmental Consulting LLC, dated August 15, 2022)\n<|id|>232<|page|>25<|box|>434 142 487 854<|content|>6. ... for soils at the former UST field under the Statewide Health Standard)",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>92<|tgt_id|>93",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 93
+        }
+    ]
+}

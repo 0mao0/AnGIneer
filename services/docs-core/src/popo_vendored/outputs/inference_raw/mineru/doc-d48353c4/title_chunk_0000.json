@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        56
+    ],
+    "pages": [
+        5,
+        7,
+        8,
+        9,
+        17,
+        20,
+        23,
+        24,
+        35,
+        36,
+        39,
+        40,
+        47,
+        48,
+        55,
+        56
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>5<|box|>240 421 266 555<|content|>OF THE\n<|id|>8<|page|>5<|box|>300 185 334 797<|content|>TREASURY DEPARTMENT\n<|id|>20<|page|>7<|box|>72 365 86 618<|content|>Cumulative Table of Contents\n<|id|>22<|page|>8<|box|>74 286 90 659<|content|>Cumulative Table of Contents - (Continued)\n<|id|>24<|page|>9<|box|>68 304 82 678<|content|>Cumulative Table of Contents - (Continued)\n<|id|>33<|page|>17<|box|>49 342 64 632<|content|>Budget Receipts and Expenditures\n<|id|>42<|page|>20<|box|>62 229 85 743<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>47<|page|>23<|box|>80 288 94 681<|content|>Section I.- Budget Receipts and Expenditures\n<|id|>48<|page|>23<|box|>108 354 122 615<|content|>Table 1.- Social Security Act\n<|id|>53<|page|>24<|box|>82 236 96 750<|content|>Section I.- Budget Receipts and Expenditures - (Co\n<|id|>76<|page|>35<|box|>53 178 102 760<|content|>Maturity Schedule of Interest-Bearing Public Marke\n<|id|>78<|page|>36<|box|>34 218 86 802<|content|>Maturity Schedule of Interest-Bearing Public Marke\n<|id|>82<|page|>39<|box|>76 337 89 589<|content|>Table 1.- Summary, by Series\n<|id|>84<|page|>40<|box|>50 295 65 739<|content|>Sales of United States Savings Bonds - (Continued)\n<|id|>105<|page|>47<|box|>60 323 73 629<|content|>Sales of Tax Series Treasury Notes\n<|id|>106<|page|>47<|box|>85 349 101 601<|content|>Table 1.- Summary, by Series\n<|id|>108<|page|>48<|box|>60 298 76 723<|content|>Sales of Tax Series Treasury Notes - (Continued)\n<|id|>122<|page|>55<|box|>40 97 80 851<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>126<|page|>56<|box|>57 124 100 879<|content|>Summary Data from Treasury Survey of Ownership of",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>8<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>33<|level|>1\n<|id|>42<|level|>1\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>53<|level|>2\n<|id|>76<|level|>1\n<|id|>78<|level|>1\n<|id|>82<|level|>2\n<|id|>84<|level|>2\n<|id|>105<|level|>2\n<|id|>106<|level|>3\n<|id|>108<|level|>2\n<|id|>122<|level|>1\n<|id|>126<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        }
+    ]
+}

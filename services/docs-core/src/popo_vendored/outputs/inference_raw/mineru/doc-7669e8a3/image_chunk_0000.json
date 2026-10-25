@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>8<|type|>title<|page|>1<|box|>422 140 439 457<|content|>1. Purpose and Identification of Counsel\n<|id|>14<|type|>title<|page|>2<|box|>90 140 107 370<|content|>2. Description of the Lawsuit\n<|id|>15<|type|>title<|page|>2<|box|>121 140 138 316<|content|>2.1 Filing and Service\n<|id|>21<|type|>title<|page|>2<|box|>758 140 775 362<|content|>2.3 Summary of Allegations\n<|id|>28<|type|>title<|page|>3<|box|>835 140 853 305<|content|>2.4 Causes of Action\n<|id|>33<|type|>title<|page|>4<|box|>484 142 501 316<|content|>2.5 Damages Claimed\n<|id|>35<|type|>table<|page|>4<|box|>550 143 700 852<|content|>None\n<|id|>37<|type|>title<|page|>5<|box|>90 140 107 413<|content|>3. Cascade's Preliminary Defenses\n<|id|>45<|type|>title<|page|>6<|box|>90 140 107 307<|content|>4. Coverage Request\n<|id|>46<|type|>title<|page|>6<|box|>121 140 138 284<|content|>4.1 Defense Costs\n<|id|>48<|type|>table<|page|>6<|box|>250 143 344 852<|content|>None\n<|id|>53<|type|>title<|page|>6<|box|>743 142 760 454<|content|>4.2 Indemnity and Settlement Coverage\n<|id|>57<|type|>title<|page|>7<|box|>294 140 311 343<|content|>4.3 Reservation of Rights\n<|id|>60<|type|>title<|page|>7<|box|>604 140 621 397<|content|>5. Request for Prompt Response\n<|id|>67<|type|>title<|page|>8<|box|>250 140 265 253<|content|>6. Enclosures",
+    "raw_response": "<|src_id|>35<|tgt_id|>33\n<|src_id|>48<|tgt_id|>46",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        }
+    ]
+}

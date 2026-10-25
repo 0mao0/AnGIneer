@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, 受风浪影响小的河段', '小型驳船船首抛锚多驳并排停泊', '(1.6~2.0)L', \"[n'+(2~3)]B\", '考虑拖轮通行,船大时取大值,反之取小值']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 受风浪、潮汐影响的河段', '大型驳船船首抛锚单驳停泊', '(2.5~3.0)L', '(6.0~8.5)B', '受风浪、潮汐影响较大时取大值,反之取小值']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 1179,
+    "table2_idx": 1180
+}

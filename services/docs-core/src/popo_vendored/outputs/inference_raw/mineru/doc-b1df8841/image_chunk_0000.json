@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>136 140 152 299<|content|>Counsellors at Law\n<|id|>7<|type|>title<|page|>1<|box|>310 176 328 251<|content|>Copy to:\n<|id|>15<|type|>title<|page|>1<|box|>696 142 714 367<|content|>1. Introduction and Purpose\n<|id|>20<|type|>title<|page|>2<|box|>549 140 566 424<|content|>2. Identification of Non-US Lenders\n<|id|>23<|type|>title<|page|>2<|box|>723 140 739 305<|content|>2.1 NordBrücke AG\n<|id|>31<|type|>title<|page|>3<|box|>400 142 417 416<|content|>2.2 Osprey Insurance Capital, Ltd.\n<|id|>39<|type|>title<|page|>3<|box|>748 140 765 483<|content|>3. Summary of Enclosed W-8BEN-E Forms\n<|id|>41<|type|>title<|page|>3<|box|>859 142 877 498<|content|>3.1 NordBrücke AG — W-8BEN-E Summary\n<|id|>55<|type|>title<|page|>4<|box|>679 142 696 455<|content|>Part III (Claim of Tax Treaty Benefits):\n<|id|>62<|type|>title<|page|>5<|box|>589 142 607 346<|content|>Part XXV (Certification):\n<|id|>64<|type|>title<|page|>5<|box|>696 140 713 455<|content|>Calderwood & Harkness Confirmation:\n<|id|>66<|type|>title<|page|>6<|box|>90 140 108 611<|content|>3.2 Osprey Insurance Capital, Ltd. — W-8BEN-E Summ\n<|id|>67<|type|>title<|page|>6<|box|>114 140 131 478<|content|>Part I (Identification of Beneficial Owner):\n<|id|>80<|type|>title<|page|>6<|box|>691 142 709 454<|content|>Part III (Claim of Tax Treaty Benefits):\n<|id|>89<|type|>title<|page|>7<|box|>628 142 647 346<|content|>Part XXV (Certification):\n<|id|>91<|type|>title<|page|>7<|box|>718 140 734 455<|content|>Calderwood & Harkness Confirmation:\n<|id|>93<|type|>title<|page|>8<|box|>90 140 107 542<|content|>4. Cross-Reference to Credit Agreement Provisions\n<|id|>99<|type|>title<|page|>9<|box|>90 140 107 598<|content|>5. Administrative Instructions and Renewal Require\n<|id|>106<|type|>title<|page|>9<|box|>835 140 853 367<|content|>6. US Lender Confirmations\n<|id|>115<|type|>title<|page|>10<|box|>464 140 481 253<|content|>7. Enclosures\n<|id|>120<|type|>table<|page|>10<|box|>656 143 901 852<|content|>None\n<|id|>121<|type|>table<|page|>11<|box|>88 143 344 852<|content|>None\n<|id|>122<|type|>title<|page|>11<|box|>392 140 409 354<|content|>8. Disclaimer and Reliance\n<|id|>130<|type|>title<|page|>12<|box|>285 212 301 517<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>120<|tgt_id|>115\n<|src_id|>121<|tgt_id|>115",
+    "parsed": [
+        {
+            "src_id": 120,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 115
+        }
+    ]
+}

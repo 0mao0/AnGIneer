@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>344 140 417 854<|content|>WHEREAS, Section 1445 of the Internal Revenue Code...defined in Section 1445(f)(3) of the Code; ... and\n<|id|>6<|page|>1<|box|>425 140 479 854<|content|>WHEREAS, to inform Buyer that withholding of tax i...hereby certifies the following on behalf of Seller\n<|id|>48<|page|>5<|box|>141 140 159 813<|content|>GREYSTONE MERIDIAN PARTNERS FUND III, L. ... , a Delaware limited partnership\n<|id|>49<|page|>5<|box|>167 176 184 477<|content|>By: ... Greystone Meridian Capital LLC,\n<|id|>50<|page|>5<|box|>185 176 202 630<|content|>a Delaware limited liability company, its sole General Partner\n<|id|>51<|page|>5<|box|>210 212 228 323<|content|>By: ... By\n<|id|>52<|page|>5<|box|>229 212 244 385<|content|>Name: ... Victor Lansdell\n<|id|>53<|page|>5<|box|>244 212 262 503<|content|>Title: ... Co-Founder & Managing Partner\n<|id|>54<|page|>5<|box|>263 212 280 354<|content|>Date: ... _____, 2024",
+    "raw_response": "<|src_id|>49<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        }
+    ]
+}

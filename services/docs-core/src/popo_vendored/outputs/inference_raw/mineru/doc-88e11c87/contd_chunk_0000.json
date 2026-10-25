@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 166 107 854<|content|>DUNMORE ENERGY HOLDINGS LTD. ... 4100 Westchase Boulevard, Suite 1200 Houston,\n<|id|>1<|page|>1<|box|>108 754 125 854<|content|>Texas 77042\n<|id|>2<|page|>1<|box|>133 702 152 854<|content|>September 15, 2025\n<|id|>3<|page|>1<|box|>160 517 176 854<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>4<|page|>1<|box|>186 140 220 854<|content|>Mr. ... 101 Congress Avenue Austin, Texas 78701\n<|id|>5<|page|>1<|box|>229 140 265 854<|content|>Re: ... 01(h) of the Senior Secured Revolving Credit Agreement Dated March 15, 2023\n<|id|>6<|page|>1<|box|>273 142 291 294<|content|>Dear Mr. ... Underhill\n<|id|>14<|page|>2<|box|>414 142 431 272<|content|>Very truly yours,\n<|id|>15<|page|>2<|box|>439 140 455 457<|content|>DUNMORE ENERGY HOLDINGS LTD. ... DUNMORE ENERGY HOLDINGS LTD\n<|id|>17<|page|>2<|box|>474 142 489 315<|content|>Name: ... Deepa Narayan\n<|id|>18<|page|>2<|box|>489 142 508 361<|content|>Title: ... Chief Financial Officer\n<|id|>19<|page|>2<|box|>508 142 525 266<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>0<|tgt_id|>1",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        }
+    ]
+}

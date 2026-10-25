@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>220 140 255 854<|content|>TO: ... Leonard Cross, Responsible Partner Sylvia ...l, Billing Partner Garrett Simmons, Lead Associate\n<|id|>5<|page|>1<|box|>263 140 282 450<|content|>FROM: ... Leila Nazari, Working Associate\n<|id|>6<|page|>1<|box|>290 142 308 321<|content|>DATE: ... August 8, 2022\n<|id|>7<|page|>1<|box|>316 140 353 854<|content|>RE: ... IRS Information Document Request (IDR) Enf...rategies for Managing Overbroad or Burdensome IDRs\n<|id|>8<|page|>1<|box|>359 140 396 854<|content|>MATTER: ... 1018-00009)\n<|id|>9<|page|>1<|box|>404 140 422 521<|content|>TAX YEARS AT ISSUE: ... 2017, 2018, 2019, 2020\n<|id|>10<|page|>1<|box|>430 140 448 500<|content|>IRS EXAM TEAM: ... LB&I-NE-TP-2022-00641\n<|id|>11<|page|>1<|box|>455 140 473 383<|content|>TAXPAYER EIN: ... 22-3741856\n<|id|>12<|page|>1<|box|>482 140 518 854<|content|>CLASSIFICATION: ... Privileged and Confidential — Attorney-Client Privilege / Work Product Doctrine\n<|id|>13<|page|>1<|box|>526 142 542 408<|content|>Right-click to update Table of Contents\n<|id|>43<|page|>4<|box|>832 140 906 856<|content|>The first step in the enforcement process is the i...tice. ... The Notice informs the taxpayer that the\n<|id|>44<|page|>5<|box|>90 140 126 854<|content|>IDR response is overdue and sets a new response de...endar days from the date of the Delinquency Notice\n<|id|>64<|page|>6<|box|>762 176 779 717<|content|>3. ... and\n<|id|>66<|page|>6<|box|>799 140 893 856<|content|>If the IRS establishes a prima facie case under Po...the requested materials are protected by privilege\n<|id|>273<|page|>25<|box|>335 140 353 320<|content|>Respectfully submitted,\n<|id|>274<|page|>25<|box|>353 140 369 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>275<|page|>25<|box|>372 143 388 253<|content|>By: ... By\n<|id|>276<|page|>25<|box|>388 140 405 383<|content|>Leila Nazari Working Associate\n<|id|>277<|page|>25<|box|>406 142 422 305<|content|>Date: ... August 8, 2022",
+    "raw_response": "<|src_id|>43<|tgt_id|>44",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        }
+    ]
+}

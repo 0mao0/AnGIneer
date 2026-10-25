@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=15, 1.所用原材料、半成品和成品质量检验结果', 'rowspan=4, 1-11', 'rowspan=4, 金属制品(各类锚夹具、钢绞线、金属波纹管、灌浆连接套筒、数模式和梳型钢板伸缩装置等)', '产品性能复试报告:按设计要求', '缺一份扣0.5分']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=13, 1.所用原材料、半成品和成品质量检验结果', 'rowspan=3, 1-12', 'rowspan=3, 橡胶、塑料制成品(橡胶支座、橡胶伸缩缝)', '产品出厂合格证:每批次、每品种一份', '缺一份扣0.2分']]\n",
+    "raw_response": "[1, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 502,
+    "table2_idx": 503
+}

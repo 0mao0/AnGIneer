@@ -1,0 +1,168 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        51
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        19,
+        21,
+        22,
+        25,
+        27,
+        29,
+        31,
+        35,
+        36,
+        37,
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>5<|box|>34 0 129 996<|content|>Treasury Bulletin\n<|id|>9<|page|>7<|box|>16 0 97 1000<|content|>Treasury Bulletin\n<|id|>12<|page|>9<|box|>109 381 130 524<|content|>CONTENTS\n<|id|>14<|page|>10<|box|>96 439 116 583<|content|>CONTENTS\n<|id|>16<|page|>11<|box|>91 369 112 515<|content|>CONTENTS\n<|id|>18<|page|>12<|box|>102 430 123 574<|content|>CONTENTS\n<|id|>20<|page|>13<|box|>100 376 120 524<|content|>CONTENTS\n<|id|>21<|page|>13<|box|>158 397 174 553<|content|>TRUST FUNDS\n<|id|>23<|page|>14<|box|>131 345 149 666<|content|>Treasury Financing Operations\n<|id|>24<|page|>14<|box|>245 19 258 128<|content|>May Refunding\n<|id|>36<|page|>14<|box|>784 526 798 697<|content|>Regular Monthly Bills\n<|id|>39<|page|>15<|box|>116 262 136 710<|content|>Treasury Financing Operations - (Continued)\n<|id|>40<|page|>15<|box|>243 6 256 206<|content|>13-Week and 26-Week Bills\n<|id|>43<|page|>15<|box|>608 5 621 197<|content|>Treasury Bills - General\n<|id|>48<|page|>15<|box|>506 508 519 843<|content|>Foreign Series and Foreign Currency Series\n<|id|>55<|page|>19<|box|>43 345 57 638<|content|>FEDERAL FISCAL OPERATIONS\n<|id|>56<|page|>19<|box|>73 223 89 765<|content|>Table FFO-2. - Budget Receipts by Principal Source\n<|id|>61<|page|>21<|box|>84 319 100 678<|content|>Table FFO-3. - Budget Outlays by Agencies\n<|id|>63<|page|>22<|box|>44 380 57 651<|content|>FEDERAL FISCAL OPERATIONS.\n<|id|>71<|page|>25<|box|>46 359 60 633<|content|>FEDERAL FISCAL OPERATIONS.\n<|id|>72<|page|>25<|box|>78 109 97 869<|content|>Table FFO-6. - Investment Transactions of Governme\n<|id|>77<|page|>27<|box|>48 331 62 625<|content|>FEDERAL FISCAL OPERATIONS\n<|id|>82<|page|>29<|box|>40 342 54 633<|content|>FEDERAL FISCAL OPERATIONS\n<|id|>83<|page|>29<|box|>60 201 77 774<|content|>Table FFO-10. - Summary of Internal Revenue Collec\n<|id|>94<|page|>31<|box|>70 130 104 852<|content|>Table FO-1. - Gross Obligations Incurred Within an\n<|id|>102<|page|>35<|box|>52 213 71 762<|content|>ACCOUNT OF THE TREASURER OF THE UNITED STATES.\n<|id|>103<|page|>35<|box|>88 201 105 800<|content|>Source and Availability of the Balance in the Trea\n<|id|>112<|page|>36<|box|>50 234 65 782<|content|>ACCOUNT OF THE TREASURER OF THE UNITED STATES.\n<|id|>114<|page|>37<|box|>46 211 62 758<|content|>ACCOUNT OF THE TREASURER OF THE UNITED STATES.\n<|id|>144<|page|>48<|box|>68 322 83 680<|content|>Table PDO-2. - Offerings of Treasury Bills\n<|id|>146<|page|>49<|box|>46 347 60 612<|content|>PUBLIC DEBT OPERATIONS.\n<|id|>148<|page|>50<|box|>44 359 59 626<|content|>PUBLIC DEBT OPERATIONS.\n<|id|>149<|page|>50<|box|>84 399 97 616<|content|>Footnotes to Table PDO-2",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>9<|level|>1\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>36<|level|>3\n<|id|>39<|level|>2\n<|id|>40<|level|>3\n<|id|>43<|level|>3\n<|id|>48<|level|>3\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>61<|level|>3\n<|id|>63<|level|>2\n<|id|>71<|level|>2\n<|id|>72<|level|>3\n<|id|>77<|level|>2\n<|id|>82<|level|>2\n<|id|>83<|level|>3\n<|id|>94<|level|>3\n<|id|>102<|level|>2\n<|id|>103<|level|>3\n<|id|>112<|level|>2\n<|id|>114<|level|>2\n<|id|>144<|level|>3\n<|id|>146<|level|>2\n<|id|>148<|level|>2\n<|id|>149<|level|>3",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 3
+        }
+    ]
+}

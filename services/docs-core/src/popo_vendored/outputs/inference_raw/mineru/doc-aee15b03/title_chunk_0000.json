@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 197 142 799<|content|>SETTLEMENT AGREEMENT AND MUTUAL GENERAL RELEASE\n<|id|>1<|page|>1<|box|>159 424 176 573<|content|>Execution Version\n<|id|>2<|page|>1<|box|>185 421 202 575<|content|>November 20, 2024\n<|id|>3<|page|>1<|box|>210 215 228 779<|content|>SETTLEMENT AGREEMENT AND MUTUAL GENERAL RELEASE\n<|id|>9<|page|>1<|box|>546 142 563 241<|content|>RECITALS\n<|id|>10<|page|>1<|box|>571 142 589 246<|content|>WHEREAS:\n<|id|>19<|page|>2<|box|>809 142 827 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>38<|page|>5<|box|>89 140 107 723<|content|>ARTICLE 2 — SETTLEMENT AMOUNT AND PAYMENT SCHEDULE\n<|id|>47<|page|>6<|box|>204 140 220 534<|content|>ARTICLE 3 — WAIVER OF COUNTERCLAIM\n<|id|>50<|page|>6<|box|>554 140 570 534<|content|>ARTICLE 4 — MUTUAL GENERAL RELEASE\n<|id|>66<|page|>8<|box|>681 142 698 442<|content|>ARTICLE 5 — CONFIDENTIALITY\n<|id|>79<|page|>10<|box|>89 142 106 738<|content|>ARTICLE 6 — DISCONTINUANCE AND WITHDRAWAL OF MOTIO\n<|id|>84<|page|>10<|box|>691 140 709 599<|content|>ARTICLE 7 — DEFAULT AND CONSENT JUDGMENT\n<|id|>91<|page|>11<|box|>648 142 664 620<|content|>ARTICLE 8 — REPRESENTATIONS AND WARRANTIES\n<|id|>105<|page|>12<|box|>821 140 839 625<|content|>ARTICLE 9 — LENDER AND INSURER NOTIFICATIONS\n<|id|>114<|page|>13<|box|>652 142 669 545<|content|>ARTICLE 10 — NO ADMISSION OF LIABILITY\n<|id|>117<|page|>14<|box|>167 140 184 792<|content|>ARTICLE 11 — RETURN AND DESTRUCTION OF DISCOVERY M\n<|id|>125<|page|>15<|box|>90 142 106 555<|content|>ARTICLE 12 — MISCELLANEOUS PROVISIONS\n<|id|>134<|page|>16<|box|>344 176 359 382<|content|>If to the Thalassa Parties:\n<|id|>142<|page|>16<|box|>516 178 532 310<|content|>If to Northwind:\n<|id|>157<|page|>17<|box|>364 142 382 367<|content|>ARTICLE 13 — EXHIBITS\n<|id|>163<|page|>17<|box|>686 361 703 635<|content|>[SIGNATURE PAGES FOLLOW]\n<|id|>165<|page|>17<|box|>756 142 772 486<|content|>THALASSA SHIPPING & LOGISTICS SA\n<|id|>181<|page|>18<|box|>210 351 227 645<|content|>ACKNOWLEDGED AND AGREED",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>3<|level|>1\n<|id|>9<|level|>2\n<|id|>10<|level|>3\n<|id|>19<|level|>2\n<|id|>38<|level|>2\n<|id|>47<|level|>2\n<|id|>50<|level|>2\n<|id|>66<|level|>2\n<|id|>79<|level|>2\n<|id|>84<|level|>2\n<|id|>91<|level|>2\n<|id|>105<|level|>2\n<|id|>114<|level|>2\n<|id|>117<|level|>2\n<|id|>125<|level|>2\n<|id|>134<|level|>3\n<|id|>142<|level|>3\n<|id|>157<|level|>2\n<|id|>163<|level|>-1\n<|id|>165<|level|>2\n<|id|>181<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 2
+        }
+    ]
+}

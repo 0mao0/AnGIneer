@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>378 140 396 341<|content|>1. Purpose of This Letter\n<|id|>9<|page|>1<|box|>710 142 727 437<|content|>2. Background — The Credit Facility\n<|id|>17<|page|>2<|box|>627 140 643 529<|content|>3. Description of OWS's Current Patent Portfolio\n<|id|>25<|page|>3<|box|>638 140 655 609<|content|>4. Current Budget Constraints Affecting Patent Pro\n<|id|>31<|page|>4<|box|>421 140 439 622<|content|>5. Upcoming Statutory Deadlines and Potential Cons\n<|id|>40<|page|>5<|box|>685 140 703 491<|content|>6. Impact on intellectual Property Collateral\n<|id|>44<|page|>6<|box|>431 140 449 442<|content|>7. OWS's Remedial Actions and Plans\n<|id|>50<|page|>7<|box|>321 140 339 526<|content|>8. Request for Dialogue and Proposed Next Steps\n<|id|>57<|page|>8<|box|>167 140 184 460<|content|>9. Reservation of Rights and Disclaimers\n<|id|>61<|page|>8<|box|>598 142 614 292<|content|>10. Confidentiality\n<|id|>75<|page|>9<|box|>488 142 503 238<|content|>Enclosures:",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>9<|level|>1\n<|id|>17<|level|>1\n<|id|>25<|level|>1\n<|id|>31<|level|>1\n<|id|>40<|level|>1\n<|id|>44<|level|>1\n<|id|>50<|level|>1\n<|id|>57<|level|>1\n<|id|>61<|level|>1\n<|id|>75<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        }
+    ]
+}

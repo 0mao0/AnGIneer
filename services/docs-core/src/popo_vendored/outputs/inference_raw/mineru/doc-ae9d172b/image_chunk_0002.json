@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        92,
+        97
+    ],
+    "pages": [
+        92,
+        93,
+        94,
+        95,
+        96,
+        97
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1348<|type|>title<|page|>92<|box|>441 112 457 544<|content|>9.3.5 地基深层水平位移观测应符合下列规定：\n<|id|>1355<|type|>title<|page|>92<|box|>750 112 766 482<|content|>9.3.7 孔隙水压力观测应符合下列规定：\n<|id|>1361<|type|>title<|page|>93<|box|>232 139 249 470<|content|>9.3.9 土压力观测应符合下列规定：\n<|id|>1370<|type|>title<|page|>93<|box|>789 139 805 500<|content|>9.3.15 出水量观测应按下列步骤进行：\n<|id|>1375<|type|>title<|page|>94<|box|>171 104 210 875<|content|>9.3.16 应绘制日出水量—时间—荷载关系曲线,评价竖向排水体的排水性能,分析地基排水固结效果。\n<|id|>1376<|type|>title<|page|>94<|box|>234 121 251 692<|content|>9.3.17 试验工程应分阶段提交成果报告,报告应包括下列内容:\n<|id|>1387<|type|>title<|page|>95<|box|>197 121 220 789<|content|>附录 A 软土地基常用处理方法及适用范围一览表\n<|id|>1388<|type|>table<|page|>95<|box|>300 124 884 892<|content|>None\n<|id|>1389<|type|>table<|page|>96<|box|>151 110 298 877<|content|>None\n<|id|>1390<|type|>title<|page|>97<|box|>195 121 219 400<|content|>本细则用词用语说明",
+    "raw_response": "<|src_id|>1388<|tgt_id|>1387\n<|src_id|>1389<|tgt_id|>1387",
+    "parsed": [
+        {
+            "src_id": 1388,
+            "tgt_id": 1387
+        },
+        {
+            "src_id": 1389,
+            "tgt_id": 1387
+        }
+    ]
+}

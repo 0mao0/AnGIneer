@@ -1,0 +1,167 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kakibfwc\\input\\pdfs\\doc-7cebcc12.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kakibfwc\\enriched\\doc-7cebcc12.json",
+    "contd_output": "<|src_id|>14<|tgt_id|>15\n<|src_id|>61<|tgt_id|>62\n<|src_id|>69<|tgt_id|>70\n<|src_id|>83<|tgt_id|>84\n<|src_id|>105<|tgt_id|>106\n<|src_id|>128<|tgt_id|>129\n<|src_id|>137<|tgt_id|>138",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>11<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>23<|level|>4\n<|id|>27<|level|>4\n<|id|>31<|level|>4\n<|id|>35<|level|>3\n<|id|>38<|level|>3\n<|id|>42<|level|>3\n<|id|>45<|level|>4\n<|id|>47<|level|>4\n<|id|>49<|level|>4\n<|id|>51<|level|>4\n<|id|>55<|level|>3\n<|id|>66<|level|>3\n<|id|>73<|level|>2\n<|id|>74<|level|>3\n<|id|>104<|level|>3\n<|id|>133<|level|>3\n<|id|>161<|level|>3\n<|id|>169<|level|>2\n<|id|>181<|level|>2",
+    "image_output": "<|src_id|>9<|tgt_id|>7\n<|src_id|>10<|tgt_id|>7\n<|src_id|>37<|tgt_id|>35",
+    "contd_label": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 138
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 4
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 31,
+            "level": 4
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 47,
+            "level": 4
+        },
+        {
+            "id": 49,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 9,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 35
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 9,
+            "table2_idx": 10,
+            "upper_row_ss": [
+                [
+                    "B. Count II — Declaratory Judgment Is Properly",
+                    "27"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Brought",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

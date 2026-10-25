@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, 保障措施(Q_7)', 'rowspan=2, 100', 'rowspan=2, 制度保障', 'rowspan=2, 35', '施工组织', '13', 'a)建立绿色服务区施工管理体系,并制定相应的管理制度与目标,得2分;b)施工组织设计、设计交底单、现场会议纪要、施工日志等资料齐全,得3分;c)施工项目部制定施工人员职业健康安全管理计划,得2分;']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=8, 保障措施(Q_7)', 'rowspan=8, 100', 'rowspan=3, 制度保障', 'rowspan=3, 35', '施工组织', '13', 'd)严格按照设计文件施工,总变更量不超过总造价的10%,并且变更没有降低服务区绿色设计水平,得3分;e)制定并实施施工废弃物减量化、资源化计划,得3分']]\n",
+    "raw_response": "[1, 1, 1, 1, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 154,
+    "table2_idx": 156
+}

@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 140 119 854<|content|>DRAFT — NOT FOR FILING — PRIVILEGED AND CONFIDENTI\n<|id|>8<|type|>title<|page|>1<|box|>460 140 477 364<|content|>I. Introduction and Purpose\n<|id|>12<|type|>title<|page|>2<|box|>148 140 167 454<|content|>II. Background and Procedural History\n<|id|>13<|type|>title<|page|>2<|box|>180 142 198 450<|content|>A. The Application and Related Filings\n<|id|>16<|type|>table<|page|>2<|box|>400 143 741 852<|content|>None\n<|id|>19<|type|>title<|page|>3<|box|>157 140 175 545<|content|>B. Acceptance, Public Notice, and Comment Period\n<|id|>23<|type|>title<|page|>3<|box|>612 140 628 488<|content|>C. WTB Information Request and Response\n<|id|>30<|type|>table<|page|>4<|box|>202 143 297 852<|content|>None\n<|id|>32<|type|>title<|page|>4<|box|>398 140 416 366<|content|>D. National Security Review\n<|id|>35<|type|>title<|page|>4<|box|>643 140 660 287<|content|>E. Current Status\n<|id|>38<|type|>title<|page|>5<|box|>90 140 107 464<|content|>III. Status of the Underlying Transaction\n<|id|>39<|type|>title<|page|>5<|box|>122 140 138 379<|content|>A. Asset Purchase Agreement\n<|id|>44<|type|>title<|page|>5<|box|>508 140 527 441<|content|>B. Commercial Dispute and Standstill\n<|id|>49<|type|>title<|page|>6<|box|>194 140 212 450<|content|>C. Good Faith and Continuing Interest\n<|id|>54<|type|>title<|page|>6<|box|>628 140 647 580<|content|>IV. Request to Maintain Application on Pending Doc\n<|id|>55<|type|>title<|page|>6<|box|>660 142 678 292<|content|>A. Legal Standard\n<|id|>58<|type|>title<|page|>7<|box|>231 140 248 346<|content|>B. Grounds for Extension\n<|id|>66<|type|>title<|page|>8<|box|>89 140 107 316<|content|>C. Proposed Timeline\n<|id|>72<|type|>title<|page|>8<|box|>496 140 513 455<|content|>V. Buildout Compliance Considerations\n<|id|>76<|type|>title<|page|>9<|box|>90 140 107 397<|content|>VI. Commitment to Supplement\n<|id|>83<|type|>title<|page|>9<|box|>469 140 487 272<|content|>VII. Conclusion\n<|id|>92<|type|>title<|page|>10<|box|>133 143 148 400<|content|>BROADFIELD WHITAKER LLP\n<|id|>101<|type|>title<|page|>10<|box|>304 196 321 800<|content|>CERTIFICATE OF SERVICE [DRAFT — TO BE FINALIZED UP\n<|id|>107<|type|>title<|page|>10<|box|>544 178 579 816<|content|>INTERNAL ANNOTATIONS — DRAFT NOTES TO BE REMOVED I\n<|id|>115<|type|>title<|page|>11<|box|>157 143 171 269<|content|>BILLING NOTES:\n<|id|>116<|type|>table<|page|>11<|box|>179 143 280 852<|content|>None",
+    "raw_response": "<|src_id|>16<|tgt_id|>13\n<|src_id|>30<|tgt_id|>23\n<|src_id|>116<|tgt_id|>115",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 115
+        }
+    ]
+}

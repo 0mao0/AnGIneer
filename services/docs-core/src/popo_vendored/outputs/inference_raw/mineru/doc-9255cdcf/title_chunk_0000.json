@@ -1,0 +1,151 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 207 133 789<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY WORK PRODUCT CA\n<|id|>7<|page|>1<|box|>390 385 409 611<|content|>I. Executive Summary\n<|id|>15<|page|>2<|box|>561 310 580 687<|content|>II. Investors and Jurisdictional Nexus\n<|id|>17<|page|>2<|box|>713 142 729 419<|content|>A. Primary Investors (New Money)\n<|id|>22<|page|>3<|box|>565 140 582 398<|content|>C. Jurisdictional Nexus Analysis\n<|id|>30<|page|>4<|box|>513 181 534 816<|content|>III. Federal Preemption Framework — NSMIA and Rule\n<|id|>32<|page|>4<|box|>609 142 627 434<|content|>A. NSMIA and \"Covered Securities\"\n<|id|>35<|page|>5<|box|>90 140 107 535<|content|>B. Preemption of State Registration Requirements\n<|id|>38<|page|>5<|box|>329 140 347 516<|content|>C. Preservation of State Notice Filing Authority\n<|id|>44<|page|>5<|box|>628 142 645 333<|content|>D. Issuer Responsibility\n<|id|>47<|page|>6<|box|>90 303 111 692<|content|>IV. State-by-State Filing Requirements\n<|id|>49<|page|>6<|box|>205 140 224 251<|content|>A. California\n<|id|>62<|page|>7<|box|>359 142 375 282<|content|>B. Massachusetts\n<|id|>76<|page|>8<|box|>512 140 530 251<|content|>C. New York\n<|id|>94<|page|>9<|box|>840 140 859 218<|content|>D. Texas\n<|id|>109<|page|>11<|box|>90 267 111 730<|content|>V. Summary Filing Schedule and Fee Estimate\n<|id|>112<|page|>12<|box|>90 287 111 709<|content|>VI. Coordination with SEC Form D Filing\n<|id|>113<|page|>12<|box|>136 140 152 408<|content|>A. Federal Form D Requirements\n<|id|>121<|page|>12<|box|>571 140 588 277<|content|>B. Form D Draft\n<|id|>123<|page|>12<|box|>675 140 691 491<|content|>C. Coordination of Federal and State Filings\n<|id|>129<|page|>13<|box|>229 341 248 653<|content|>VII. Additional Considerations\n<|id|>130<|page|>13<|box|>273 142 290 330<|content|>A. Late Filing Penalties\n<|id|>133<|page|>13<|box|>531 142 549 344<|content|>B. Ongoing Amendments\n<|id|>135<|page|>13<|box|>708 140 724 245<|content|>C. Delaware\n<|id|>137<|page|>13<|box|>848 140 864 267<|content|>D. Other States\n<|id|>139<|page|>14<|box|>204 140 222 395<|content|>E. Convertible Note Conversion\n<|id|>145<|page|>14<|box|>637 140 654 328<|content|>F. Filing Responsibility\n<|id|>148<|page|>15<|box|>90 328 111 668<|content|>VIII. Recommended Action Items\n<|id|>163<|page|>16<|box|>135 421 155 575<|content|>IX. Conclusion\n<|id|>168<|page|>17<|box|>90 235 111 763<|content|>Appendix A — Filing Authority Contact Information\n<|id|>184<|page|>18<|box|>90 284 111 712<|content|>Appendix B — Investor Address Reference",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>15<|level|>1\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>30<|level|>1\n<|id|>32<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>2\n<|id|>44<|level|>2\n<|id|>47<|level|>1\n<|id|>49<|level|>2\n<|id|>62<|level|>2\n<|id|>76<|level|>2\n<|id|>94<|level|>2\n<|id|>109<|level|>1\n<|id|>112<|level|>1\n<|id|>113<|level|>2\n<|id|>121<|level|>2\n<|id|>123<|level|>2\n<|id|>129<|level|>1\n<|id|>130<|level|>2\n<|id|>133<|level|>2\n<|id|>135<|level|>2\n<|id|>137<|level|>2\n<|id|>139<|level|>2\n<|id|>145<|level|>2\n<|id|>148<|level|>1\n<|id|>163<|level|>1\n<|id|>168<|level|>1\n<|id|>184<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 184,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,151 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1900 Eu\n<|id|>7<|page|>1<|box|>359 140 377 364<|content|>I. Introduction and Purpose\n<|id|>12<|page|>2<|box|>148 140 167 468<|content|>II. Scope of Environmental Due Diligence\n<|id|>23<|page|>3<|box|>304 140 321 653<|content|>III. Summary of Phase I Environmental Site Assessm\n<|id|>24<|page|>3<|box|>334 140 351 359<|content|>A. McKeesport Main Plant\n<|id|>30<|page|>4<|box|>367 140 383 439<|content|>B. Charleroi Specialty Coatings Plant\n<|id|>32<|page|>4<|box|>531 140 549 444<|content|>C. Clarksburg Resin Blending Facility\n<|id|>37<|page|>5<|box|>330 140 347 503<|content|>D. Weirton Warehouse & Distribution Center\n<|id|>42<|page|>5<|box|>782 140 800 772<|content|>IV. Phase II Environmental Site Assessment Finding\n<|id|>43<|page|>5<|box|>814 140 832 321<|content|>A. Investigation Scope\n<|id|>49<|page|>6<|box|>455 140 472 397<|content|>B. Groundwater Contamination\n<|id|>56<|page|>7<|box|>176 140 193 321<|content|>C. Soil Contamination\n<|id|>61<|page|>7<|box|>691 140 709 297<|content|>D. Vapor Intrusion\n<|id|>66<|page|>8<|box|>414 140 431 588<|content|>V. Phase II Investigation — Clarksburg (Status Pen\n<|id|>71<|page|>9<|box|>90 140 107 584<|content|>VI. Additional Environmental Conditions and Liabil\n<|id|>73<|page|>9<|box|>202 140 219 521<|content|>A. Asbestos-Containing Materials (McKeesport)\n<|id|>75<|page|>9<|box|>439 140 457 419<|content|>B. Lead-Based Paint (McKeesport)\n<|id|>77<|page|>9<|box|>585 140 603 419<|content|>C. Regulatory Compliance Matters\n<|id|>83<|page|>10<|box|>476 142 493 527<|content|>VII. Aggregate Environmental Liability Estimate\n<|id|>87<|page|>11<|box|>377 140 393 607<|content|>VIII. Crestline's Position on Environmental Risk A\n<|id|>89<|page|>11<|box|>525 140 542 349<|content|>A. Environmental Escrow\n<|id|>93<|page|>12<|box|>138 140 157 431<|content|>B. Special Environmental Indemnity\n<|id|>97<|page|>12<|box|>667 140 684 292<|content|>C. Survival Period\n<|id|>101<|page|>13<|box|>311 140 329 542<|content|>D. Environmental Representations and Warranties\n<|id|>114<|page|>14<|box|>314 140 332 428<|content|>IX. Impact on Financing Conditions\n<|id|>119<|page|>14<|box|>806 140 824 441<|content|>X. Pollution Legal Liability Insurance\n<|id|>128<|page|>15<|box|>554 140 571 344<|content|>XI. Request for Response\n<|id|>136<|page|>16<|box|>303 140 321 352<|content|>XII. Reservation of Rights\n<|id|>141<|page|>16<|box|>833 140 849 251<|content|>XIII. Closing\n<|id|>148<|page|>17<|box|>232 143 244 171<|content|>cc:\n<|id|>150<|page|>17<|box|>335 142 353 424<|content|>Enclosures / Referenced Documents",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>3\n<|id|>37<|level|>3\n<|id|>42<|level|>2\n<|id|>43<|level|>3\n<|id|>49<|level|>3\n<|id|>56<|level|>3\n<|id|>61<|level|>3\n<|id|>66<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>3\n<|id|>75<|level|>3\n<|id|>77<|level|>3\n<|id|>83<|level|>2\n<|id|>87<|level|>2\n<|id|>89<|level|>3\n<|id|>93<|level|>3\n<|id|>97<|level|>3\n<|id|>101<|level|>3\n<|id|>114<|level|>2\n<|id|>119<|level|>2\n<|id|>128<|level|>2\n<|id|>136<|level|>2\n<|id|>141<|level|>2\n<|id|>148<|level|>-1\n<|id|>150<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        }
+    ]
+}

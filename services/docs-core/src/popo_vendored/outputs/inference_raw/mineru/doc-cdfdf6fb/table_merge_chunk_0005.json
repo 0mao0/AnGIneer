@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Total assets', '21,590.0', '7,374.7', '17.1', '12.3', '6.6', '19.6', '102.7', '181.3']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Account', 'rowspan=2, Total', 'Commodity Credit Corporation', 'Federal Crop Insurance Corporation', 'Inland Waterways Corporation', 'Virgin Islands Corporation', 'Federal Prison Industries, Inc.', 'Federal Facilities Corporation 1/', 'Reconstruction Finance Corporation (in liquidation) 2/']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 274,
+    "table2_idx": 275
+}

@@ -1,0 +1,49 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        19
+    ],
+    "pages": [
+        2,
+        5,
+        6,
+        7,
+        9,
+        10,
+        13,
+        14,
+        16,
+        17,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>2<|box|>213 151 250 844<|content|>SKYBRIDGE FINTECH LTD. ... (\"Provider\" or \"Licenso... 1400 Concord Pike, Suite 320 Wilmington, DE 19803\n<|id|>5<|page|>2<|box|>258 483 273 514<|content|>and\n<|id|>6<|page|>2<|box|>282 143 319 854<|content|>MERIDIAN NATIONAL BANK, NATIONAL ASSOCIATION (\"Cus...00 Lexington Avenue, 40th Floor New York, NY 10022\n<|id|>7<|page|>2<|box|>329 444 345 553<|content|>relating to the\n<|id|>8<|page|>2<|box|>354 227 371 769<|content|>SkyComply™ AI-Driven AML and Transaction-Monitoring Platform\n<|id|>9<|page|>2<|box|>378 143 397 852<|content|>INITIAL DRAFT — CONFIDENTIAL Prepared by Calderwood & Harkness LLP June 12, 2025\n<|id|>10<|page|>2<|box|>405 140 571 854<|content|>This Exhibit A (this \"SLA\" or \"Exhibit A\") is inco...latform (the \"Platform\") to Customer under the MSA\n<|id|>51<|page|>5<|box|>696 176 714 571<|content|>(e) Upcoming Scheduled Maintenance Windows; ... and\n<|id|>53<|page|>5<|box|>748 140 804 854<|content|>The monitoring dashboard shall be accessible to Cu...rate from the Platform's production infrastructure\n<|id|>59<|page|>6<|box|>241 176 258 728<|content|>(e) The calculated Availability percentage for the Measurement Period; ... and\n<|id|>61<|page|>6<|box|>311 140 421 856<|content|>The Availability Report shall be delivered to Cust...ords available to Customer upon reasonable request\n<|id|>68<|page|>7<|box|>351 174 387 854<|content|>(b) Provider uses commercially reasonable efforts ...e and its impact on Customer's operations; ... and\n<|id|>70<|page|>7<|box|>421 140 550 854<|content|>Emergency maintenance shall be treated as Excused ...ntime for purposes of the Availability calculation\n<|id|>100<|page|>9<|box|>848 174 885 854<|content|>(c) The basis for the credit claim, including the ...nd the calculated Availability percentage; ... and\n<|id|>102<|page|>10<|box|>133 140 224 857<|content|>Provider shall respond to the credit request withi...15) business days of receipt. ... 5 and Section 10\n<|id|>129<|page|>13<|box|>414 174 449 854<|content|>(b) Email to Provider's designated support address at support@skybridgefintech. ... or\n<|id|>131<|page|>13<|box|>520 140 628 854<|content|>Each incident report should include, to the extent...d to the incident within the applicable timeframes\n<|id|>141<|page|>14<|box|>366 174 383 728<|content|>(d) A description of the corrective actions taken to resolve the incident; ... and\n<|id|>143<|page|>14<|box|>454 140 547 856<|content|>Customer shall have the right to request a follow-...n in the next quarterly Steering Committee meeting\n<|id|>170<|page|>16<|box|>160 174 196 854<|content|>(e) Planned infrastructure improvements, Platform ...ty or performance in the upcoming quarter; ... and\n<|id|>172<|page|>16<|box|>250 140 304 854<|content|>Customer's designated representatives shall have t...ce during the quarterly Steering Committee meeting\n<|id|>177<|page|>16<|box|>506 174 542 854<|content|>(d) Whether changes to the underlying infrastructu...t) warrant modifications to the SLA terms; ... and\n<|id|>179<|page|>16<|box|>594 140 631 854<|content|>Any modifications to this Exhibit A resulting from...uted by authorized representatives of both parties\n<|id|>182<|page|>16<|box|>797 140 907 857<|content|>12. ... For the avoidance of doubt, the occurrence...s obligations under this Exhibit A with respect to\n<|id|>183<|page|>17<|box|>90 140 162 856<|content|>Availability, incident response, SLA Credits, or a...uld receive duplicative recovery for the same harm\n<|id|>228<|page|>19<|box|>204 140 220 483<|content|>SKYBRIDGE FINTECH LTD. ... (\"Provider\")\n<|id|>229<|page|>19<|box|>223 143 239 253<|content|>By: ... By\n<|id|>230<|page|>19<|box|>239 142 255 361<|content|>Name: ... Priya Chandrasekaran\n<|id|>231<|page|>19<|box|>256 142 272 367<|content|>Title: ... Chief Executive Officer\n<|id|>232<|page|>19<|box|>273 143 289 264<|content|>Date: ... Date\n<|id|>235<|page|>19<|box|>325 142 342 331<|content|>Name: ... Gerald Brannigan\n<|id|>236<|page|>19<|box|>342 142 359 380<|content|>Title: ... Chief Information Officer\n<|id|>237<|page|>19<|box|>359 143 376 266<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>4<|tgt_id|>5\n<|src_id|>5<|tgt_id|>6\n<|src_id|>6<|tgt_id|>7\n<|src_id|>7<|tgt_id|>8\n<|src_id|>100<|tgt_id|>102\n<|src_id|>182<|tgt_id|>183",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 183
+        }
+    ]
+}

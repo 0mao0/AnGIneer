@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 292<|content|>【3990149#1】蘇維埃區\n<|id|>2<|page|>1<|box|>140 105 156 443<|content|>【90349#42】乌克兰苏维埃社会主义共和国\n<|id|>4<|page|>1<|box|>224 107 239 258<|content|>【5438#52】乌克兰\n<|id|>6<|page|>1<|box|>290 107 306 258<|content|>【5438#53】乌克兰\n<|id|>8<|page|>1<|box|>460 105 476 302<|content|>【1184617#11】乌克兰化\n<|id|>10<|page|>1<|box|>561 105 577 309<|content|>【4452114#0】烏克蘭人口\n<|id|>12<|page|>1<|box|>662 105 677 443<|content|>【90349#41】乌克兰苏维埃社会主义共和国\n<|id|>14<|page|>1<|box|>746 105 760 364<|content|>【88592#8】克里米亚自治共和国\n<|id|>16<|page|>1<|box|>829 107 845 443<|content|>【90349#40】乌克兰苏维埃社会主义共和国\n<|id|>20<|page|>2<|box|>99 105 116 258<|content|>【5438#54】乌克兰",
+    "raw_response": "<|id|>0<|level|>2\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>16<|level|>1\n<|id|>20<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        }
+    ]
+}

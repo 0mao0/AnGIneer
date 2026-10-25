@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 145 125 851<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>10<|page|>1<|box|>546 140 563 321<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>476 142 493 267<|content|>II. Background\n<|id|>17<|page|>2<|box|>507 140 523 689<|content|>A. The Prospective Client — Metropolitan Transit D\n<|id|>28<|page|>3<|box|>502 140 518 580<|content|>B. The Proposed Engagement — Matter No. 1031-00001\n<|id|>43<|page|>5<|box|>385 140 402 616<|content|>C. The Existing Client — Pinnacle Workforce Analyt\n<|id|>47<|page|>5<|box|>651 145 667 486<|content|>• Chief Executive Officer: Gregory Harmon\n<|id|>48<|page|>5<|box|>671 145 686 393<|content|>• General Counsel: Sandra Yee\n<|id|>50<|page|>5<|box|>811 140 829 767<|content|>D. The Existing Calderwood & Harkness Engagement —\n<|id|>56<|page|>6<|box|>565 140 582 500<|content|>E. Procedural History of the Conflicts Review\n<|id|>67<|page|>7<|box|>681 140 699 318<|content|>III. Conflicts Analysis\n<|id|>68<|page|>7<|box|>713 140 729 410<|content|>A. Applicable Ethical Framework\n<|id|>77<|page|>8<|box|>771 140 789 500<|content|>B. Rule 1.7(a)(1) — Direct Adversity Analysis\n<|id|>84<|page|>10<|box|>257 140 273 527<|content|>C. Rule 1.7(a)(2) — Material Limitation Analysis\n<|id|>97<|page|>11<|box|>656 140 674 467<|content|>D. Rule 1.7(b) — Waivability Assessment\n<|id|>104<|page|>13<|box|>194 140 212 676<|content|>E. Rule 1.9 — Former-Client Analysis (Addressed fo\n<|id|>107<|page|>13<|box|>585 140 604 470<|content|>F. Rule 1.10 — Imputation and Screening\n<|id|>112<|page|>14<|box|>340 140 357 370<|content|>IV. Financial Considerations\n<|id|>116<|page|>15<|box|>90 140 107 307<|content|>V. Recommendation\n<|id|>127<|page|>16<|box|>388 140 405 264<|content|>VI. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>28<|level|>2\n<|id|>43<|level|>2\n<|id|>47<|level|>-1\n<|id|>48<|level|>-1\n<|id|>50<|level|>2\n<|id|>56<|level|>2\n<|id|>67<|level|>1\n<|id|>68<|level|>2\n<|id|>77<|level|>2\n<|id|>84<|level|>2\n<|id|>97<|level|>2\n<|id|>104<|level|>2\n<|id|>107<|level|>2\n<|id|>112<|level|>1\n<|id|>116<|level|>1\n<|id|>127<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        }
+    ]
+}

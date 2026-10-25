@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        49
+    ],
+    "pages": [
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        14,
+        19,
+        34,
+        38,
+        39,
+        40,
+        41,
+        43,
+        44,
+        48
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>3<|box|>501 472 575 605<|content|>LIBRARY ROOM 5025 SEP 8 1965\n<|id|>2<|page|>3<|box|>593 428 617 641<|content|>TREASURY DEPARTMENT\n<|id|>3<|page|>3<|box|>801 761 847 891<|content|>LIBRARY ROOM 5030\n<|id|>4<|page|>3<|box|>852 754 880 887<|content|>JUN 2. ... 3 1972\n<|id|>5<|page|>3<|box|>884 695 918 937<|content|>TREASURY DEPARTMENT\n<|id|>7<|page|>6<|box|>383 544 585 672<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>9<|page|>7<|box|>153 369 178 530<|content|>APRIL 1964\n<|id|>11<|page|>7<|box|>965 286 986 597<|content|>OFFICE OF THE SECRETARY\n<|id|>12<|page|>8<|box|>452 347 482 762<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents,\n<|id|>15<|page|>9<|box|>242 125 919 858<|content|>Page Treasury financing operations. ... 132\n<|id|>16<|page|>10<|box|>134 26 318 496<|content|>Data on receipts, expenditures, and debt which app... is given in connection with the tables themselves\n<|id|>49<|page|>14<|box|>615 21 667 489<|content|>March issues of regular weekly Treasury bills totaled \\$8. ... 4 billion of the strip bills issued on\n<|id|>50<|page|>14<|box|>121 511 209 984<|content|>October 28, 1963). ... Average rates of discount on the new bills are shown in the table following\n<|id|>72<|page|>19<|box|>106 407 119 558<|content|>(In millions of dollars)\n<|id|>75<|page|>19<|box|>780 530 866 966<|content|>Aeronautics Administration from \"Commerce Departme...tional Aeronautics and Space Administration; ... \"\n<|id|>129<|page|>34<|box|>120 417 134 570<|content|>(In millions of dollars)\n<|id|>131<|page|>34<|box|>494 21 553 500<|content|>Source: ... Figures in the first four columns of t...ubsequent reclassification of certain transactions\n<|id|>140<|page|>38<|box|>111 404 122 557<|content|>(In millions of dollars)\n<|id|>142<|page|>38<|box|>518 491 567 956<|content|>5/ Consists of liabilities taken over by the Assoc...ferred from the Reconstruction Finance Corporation\n<|id|>143<|page|>39<|box|>136 414 150 565<|content|>(In millions of dollars)\n<|id|>145<|page|>40<|box|>72 1 240 463<|content|>The Second Liberty Bond Act (31 U. ... \\$5 billion from February 26, 1958, through\n<|id|>146<|page|>40<|box|>73 489 230 954<|content|>June 30, 1959 (act of February 26, 1958); ... \\$23... through June 29, 1964 (act of November 26, 1963))\n<|id|>150<|page|>41<|box|>131 401 144 553<|content|>(In millions of dollars)\n<|id|>153<|page|>43<|box|>102 397 115 598<|content|>(Amounts in millions of dollars)\n<|id|>155<|page|>44<|box|>49 390 63 587<|content|>PUBLIC DEBT OPERATIONS\n<|id|>157<|page|>44<|box|>817 21 828 355<|content|>8/ Except \\$100,000 at 98. ... 160\n<|id|>177<|page|>48<|box|>103 397 116 573<|content|>(Dollar amounts in millions)\n<|id|>179<|page|>48<|box|>354 10 395 484<|content|>1/ Excludes issues of strips of additional amounts...01 million), and October 28, 1963. ... See Table 4",
+    "raw_response": "<|src_id|>49<|tgt_id|>50\n<|src_id|>145<|tgt_id|>146",
+    "parsed": [
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 146
+        }
+    ]
+}

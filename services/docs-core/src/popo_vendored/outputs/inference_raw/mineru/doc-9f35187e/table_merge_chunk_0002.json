@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Total partially exempt from Federal income taxes', '27,326', '19,054', '15,421', '14,562', '859', '3,633', '2,582', '1,051', '2,770', '5,501']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=4, Issue, classified by tax-exemption provision', 'rowspan=3, Total amount outstanding', 'rowspan=2, Total 7,486 institutions', 'colspan=3, 6,730 banks', 'colspan=3, 756 insurance companies', 'rowspan=3, Held by U.S. Government agencies and trust funds, and Federal Reserve Banks 3/', 'rowspan=3, Held by all other investors']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 152,
+    "table2_idx": 155
+}

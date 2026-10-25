@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>154 246 172 750<|content|>Pit Henrich<sup>1</sup>, Franziska Mathis-Ullrich<sup>1</sup>, and Paul Maria Scheikl<sup>1,2</sup>\n<|id|>2<|page|>1<|box|>220 73 449 493<|content|>Abstract—Accurately determining the shape of objec...thout the need for deformable registration methods\n<|id|>16<|page|>2<|box|>636 125 681 491<|content|>a) integrate a method for explainability to highli... the input were used to determine the deformation,\n<|id|>21<|page|>2<|box|>869 73 945 493<|content|>By addressing the challenge of reconstructing stru... rely on accurate localization of internal anatomy\n<|id|>17<|page|>2<|box|>681 127 710 490<|content|>b) integrate methods to compute uncertainty for de- formable object understanding,\n<|id|>18<|page|>2<|box|>712 127 757 491<|content|>c) explore the use of probabilities and different ...selecting an optimal puncture target position, and\n<|id|>59<|page|>4<|box|>867 73 897 491<|content|>For readability, we assume that\\mathcal { L } ^ { ...gned distance output of\\mathcal { M } _ { \\theta }\n<|id|>60<|page|>4<|box|>898 91 912 444<|content|>We combine\\mathcal { L } ^ { c }and\\mathcal { L } ^ { \\pm }into the final loss function\n<|id|>64<|page|>4<|box|>150 503 227 923<|content|>Using a point cloudP ~ = ~ \\{ p _ { 0 } , p _ { 1 ...\\neq ( p _ { 1 } , p _ { 0 } , \\cdot \\cdot \\cdot )\n<|id|>65<|page|>4<|box|>228 503 319 923<|content|>Point cloud encoders address the issue by distilli...sentation as conditioning o for the point cloud ON\n<|id|>67<|page|>4<|box|>368 503 429 921<|content|>where\\operatorname { E } _ { \\theta _ { 2 } }encod...a = \\left( \\theta _ { 1 } , \\theta _ { 2 } \\right)\n<|id|>68<|page|>4<|box|>429 503 506 923<|content|>In previous work [6], we have shown the suitabilit... points to segment labels and distances [16], [17]\n<|id|>82<|page|>5<|box|>869 503 945 923<|content|>We use the FEM physics engine Simulation Open Fram...e training samples ( Q ^ { \\mathrm { g t } } , P )\n<|id|>85<|page|>6<|box|>854 73 946 493<|content|>Example deformations for our three evaluation obje... an example training progress for the Organ object\n<|id|>160<|page|>10<|box|>929 504 945 921<|content|>whereT _ { i } \\in \\mathbb { R } ^ { 4 \\times 4 }is the homogeneous transformation matrix\n<|id|>161<|page|>11<|box|>69 73 84 442<|content|>of the i-th joint for DH parameters\\omega _ { i } ,, constructed as\n<|id|>192<|page|>12<|box|>914 73 945 493<|content|>The number of query points used for inference line...nference time, but reduces the centroid error, see\n<|id|>193<|page|>12<|box|>496 503 693 924<|content|>Figure 14. ... An average input point cloud for Or...0 points, due to the large flat surface the object\n<|id|>213<|page|>14<|box|>625 99 638 401<|content|>• (∆θ-Only Calibration): ... 677 mm,\n<|id|>217<|page|>14<|box|>696 73 864 493<|content|>The largest increase in positioning error is a res...g data has only minor impact on the total accuracy\n<|id|>214<|page|>14<|box|>641 101 657 401<|content|>( \\mathbf { F i x e d } \\ T _ { \\mathbf { b a s e } } ) \\colon+0. ... 035 mm,\n<|id|>215<|page|>14<|box|>659 99 675 431<|content|>• (Dynamic Data): ... 161 mm, and",
+    "raw_response": "",
+    "parsed": []
+}

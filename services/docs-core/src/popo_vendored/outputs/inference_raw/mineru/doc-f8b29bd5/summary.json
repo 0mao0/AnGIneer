@@ -1,0 +1,141 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0wwjs6lo\\input\\pdfs\\doc-f8b29bd5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0wwjs6lo\\enriched\\doc-f8b29bd5.json",
+    "contd_output": "<|src_id|>49<|tgt_id|>50",
+    "title_output": "<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>26<|level|>1\n<|id|>44<|level|>1\n<|id|>51<|level|>1\n<|id|>59<|level|>1\n<|id|>71<|level|>1\n<|id|>72<|level|>2",
+    "image_output": "<|src_id|>74<|tgt_id|>72\n<|src_id|>75<|tgt_id|>72\n<|src_id|>76<|tgt_id|>72\n<|src_id|>77<|tgt_id|>72\n<|src_id|>78<|tgt_id|>72",
+    "contd_label": [
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 74,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 72
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 74,
+            "table2_idx": 75,
+            "upper_row_ss": [
+                [
+                    "12",
+                    "Alas de Papel",
+                    "PA 1-912-039",
+                    "February 19, 2002",
+                    "Flor de Luna"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Publishing, LLC"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 75,
+            "table2_idx": 76,
+            "upper_row_ss": [
+                [
+                    "36",
+                    "Destello",
+                    "PA 2-211-908",
+                    "November 2, 2015",
+                    "Flor de Luna"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "37",
+                    "Sendero de Plata",
+                    "PA 2-234-662",
+                    "June 17, 2016",
+                    "Flor de Luna Publishing, LLC"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 77,
+            "table2_idx": 78,
+            "upper_row_ss": [
+                [
+                    "8",
+                    "Despertar",
+                    "SR 0-961-412",
+                    "August 7, 2001",
+                    "Mariposa Sound Recordings, LLC"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "9",
+                    "Mar de Coral",
+                    "SR 0-978-630",
+                    "February 19, 2002",
+                    "Mariposa Sound Recordings, LLC"
+                ]
+            ]
+        }
+    ]
+}

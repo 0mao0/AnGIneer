@@ -1,0 +1,23 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Washington', 'Wash. Rev. Code § 19.230.090', 'Prior Approval', '30 days before closing', '$2,500', 'NMLS', 'NMLS MU1/MU2; Fingerprint cards; Pro forma', 'DFI — Dept. of Financial Institutions', 'Approved', '04/07/2025', '07/03/2025']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', 'financials', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 110,
+    "table2_idx": 111
+}

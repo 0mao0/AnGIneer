@@ -1,0 +1,33 @@
+{
+    "task": "title",
+    "chunk_index": 6,
+    "range": [
+        298,
+        301
+    ],
+    "pages": [
+        298,
+        299,
+        301
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5137<|page|>298<|box|>125 426 143 546<|content|>二、三水平表\n<|id|>5140<|page|>298<|box|>527 430 543 547<|content|>三、四水平表\n<|id|>5142<|page|>299<|box|>209 369 237 623<|content|>标准正态分布表\n<|id|>5147<|page|>301<|box|>207 410 233 579<|content|>F 分布表",
+    "raw_response": "<|id|>5137<|level|>1\n<|id|>5140<|level|>1\n<|id|>5142<|level|>1\n<|id|>5147<|level|>1",
+    "parsed": [
+        {
+            "id": 5137,
+            "level": 1
+        },
+        {
+            "id": 5140,
+            "level": 1
+        },
+        {
+            "id": 5142,
+            "level": 1
+        },
+        {
+            "id": 5147,
+            "level": 1
+        }
+    ]
+}

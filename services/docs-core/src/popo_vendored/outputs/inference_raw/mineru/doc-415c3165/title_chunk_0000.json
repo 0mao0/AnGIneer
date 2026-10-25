@@ -1,0 +1,162 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 174 155 821<|content|>CALDERWOOD & HARKNESS LLP 425 Park Avenue New York\n<|id|>7<|page|>1<|box|>327 140 344 230<|content|>I. Purpose\n<|id|>11<|page|>1<|box|>648 142 665 316<|content|>II. Client Information\n<|id|>12<|page|>1<|box|>678 142 696 284<|content|>A. Client Identity\n<|id|>17<|page|>2<|box|>527 142 546 339<|content|>B. Client Billing Contact\n<|id|>20<|page|>3<|box|>90 140 107 413<|content|>C. Additional Key Client Contacts\n<|id|>28<|page|>3<|box|>699 142 717 383<|content|>III. Counterparty Information\n<|id|>29<|page|>3<|box|>731 143 748 352<|content|>A. Principal Counterparty\n<|id|>34<|page|>4<|box|>628 142 643 419<|content|>B. Counterparty's Outside Counsel\n<|id|>37<|page|>5<|box|>138 140 156 398<|content|>C. Other Relevant Third Parties\n<|id|>45<|page|>6<|box|>204 140 222 344<|content|>IV. Scope of Engagement\n<|id|>67<|page|>8<|box|>167 140 185 233<|content|>V. Staffing\n<|id|>69<|page|>8<|box|>261 140 279 328<|content|>A. Responsible Partner\n<|id|>72<|page|>8<|box|>433 142 450 287<|content|>B. Billing Partner\n<|id|>75<|page|>8<|box|>623 140 640 287<|content|>C. Lead Associate\n<|id|>78<|page|>8<|box|>813 140 830 318<|content|>D. Working Associate\n<|id|>81<|page|>9<|box|>213 140 229 380<|content|>E. Additional Team Members\n<|id|>87<|page|>10<|box|>90 140 106 300<|content|>F. Office Allocation\n<|id|>90<|page|>10<|box|>291 140 306 403<|content|>VI. Fee Arrangement and Billing\n<|id|>91<|page|>10<|box|>321 142 338 277<|content|>A. Fee Structure\n<|id|>93<|page|>11<|box|>90 142 106 339<|content|>B. Hourly Rate Schedule\n<|id|>96<|page|>11<|box|>470 140 489 403<|content|>C. Invoicing and Payment Terms\n<|id|>101<|page|>11<|box|>723 142 739 336<|content|>VII. Conflicts Clearance\n<|id|>110<|page|>12<|box|>304 140 321 346<|content|>VIII. Mutual NDA Status\n<|id|>115<|page|>12<|box|>669 142 686 496<|content|>IX. Key Milestones and Anticipated Timeline\n<|id|>120<|page|>13<|box|>409 140 426 437<|content|>X. Coordination with Other Advisors\n<|id|>124<|page|>14<|box|>148 140 167 473<|content|>XI. Special Considerations and Risk Flags\n<|id|>126<|page|>14<|box|>243 140 260 434<|content|>A. Standish National Bank Covenant\n<|id|>130<|page|>14<|box|>696 142 715 351<|content|>B. Regulatory Complexity\n<|id|>138<|page|>15<|box|>622 140 638 442<|content|>C. Breckenridge / IPO Considerations\n<|id|>145<|page|>16<|box|>398 140 416 383<|content|>D. QuorumScore™ Protection\n<|id|>150<|page|>17<|box|>167 142 184 362<|content|>XII. Matter Administration\n<|id|>155<|page|>17<|box|>763 140 782 287<|content|>XIII. Distribution",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>17<|level|>3\n<|id|>20<|level|>3\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>34<|level|>3\n<|id|>37<|level|>3\n<|id|>45<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>3\n<|id|>72<|level|>3\n<|id|>75<|level|>3\n<|id|>78<|level|>3\n<|id|>81<|level|>3\n<|id|>87<|level|>3\n<|id|>90<|level|>2\n<|id|>91<|level|>3\n<|id|>93<|level|>3\n<|id|>96<|level|>3\n<|id|>101<|level|>2\n<|id|>110<|level|>2\n<|id|>115<|level|>2\n<|id|>120<|level|>2\n<|id|>124<|level|>2\n<|id|>126<|level|>3\n<|id|>130<|level|>3\n<|id|>138<|level|>3\n<|id|>145<|level|>3\n<|id|>150<|level|>2\n<|id|>155<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        }
+    ]
+}

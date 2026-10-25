@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Thomas Okoye', 'CISO', '9 March 2023', '2.5 hours', 'Security measures; ISO', 'Mature cybersecurity']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '27001; incident response; breach history; encryption; pseudonymisation; network architecture', 'programme; ISO 27001 London and Dublin; 3 breaches in 2022 (2 reported late to ICO); no GDPR-specific breach overlay; incident response is technical, not privacy-focused; pseudonymisation not applied to Caldwell data; Pinnacle India engineers have prod access']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 630,
+    "table2_idx": 631
+}

@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        14
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>2<|box|>90 434 109 562<|content|>EXHIBIT C\n<|id|>2<|page|>2<|box|>128 316 146 681<|content|>List of Top 50 CRH Vendors by Annual Spend\n<|id|>12<|page|>2<|box|>455 140 473 375<|content|>Section 1: Purpose and Scope\n<|id|>18<|page|>3<|box|>359 140 376 614<|content|>Section 2: Confidentiality Designation and Filing\n<|id|>27<|page|>4<|box|>383 140 402 313<|content|>Section 3: Definitions\n<|id|>33<|page|>5<|box|>321 140 339 491<|content|>Section 4: Methodology for Vendor Ranking\n<|id|>39<|page|>6<|box|>204 140 222 604<|content|>Section 5: List of Top 50 CRH Vendors (Redacted Ve\n<|id|>45<|page|>9<|box|>570 142 587 473<|content|>Distribution of Vendors Across Categories\n<|id|>48<|page|>10<|box|>90 140 107 627<|content|>Distribution of Vendor Relationships by Individual\n<|id|>59<|page|>11<|box|>186 140 204 529<|content|>Section 6: Aggregate Spend Summary (Redacted)\n<|id|>63<|page|>11<|box|>641 140 659 509<|content|>Section 7: Update and Amendment Procedures\n<|id|>76<|page|>12<|box|>547 140 565 457<|content|>Section 8: Access to Unredacted Version\n<|id|>87<|page|>13<|box|>508 140 527 571<|content|>Section 9: Relationship to Other Agreement Provisi\n<|id|>93<|page|>14<|box|>439 140 457 359<|content|>Section 10: Governing Law\n<|id|>95<|page|>14<|box|>616 383 633 612<|content|>Certification and Attestation",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>12<|level|>3\n<|id|>18<|level|>3\n<|id|>27<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>3\n<|id|>45<|level|>4\n<|id|>48<|level|>4\n<|id|>59<|level|>3\n<|id|>63<|level|>3\n<|id|>76<|level|>3\n<|id|>87<|level|>3\n<|id|>93<|level|>3\n<|id|>95<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        }
+    ]
+}

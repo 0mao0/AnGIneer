@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        100,
+        155
+    ],
+    "pages": [
+        100,
+        101,
+        102,
+        113,
+        118,
+        119,
+        120,
+        128,
+        154
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1286<|page|>100<|box|>888 157 906 897<|content|>1）桩侧面不受土侧压力时，承台的竖向位移 c 、水平位移 a 、转角 \\beta 由下列方程式\n<|id|>1287<|page|>101<|box|>93 95 111 191<|content|>联解求得： ... 联解求得\n<|id|>1289<|page|>101<|box|>248 119 292 284<|content|>a) 当 H=1 作用在桩顶时，桩顶产生的水平位移 \\delta_{HH} 和转角 \\delta_{MH}\n<|id|>1297<|page|>101<|box|>559 374 574 589<|content|>图 L. ... 6 荷载作用下桩的变形\n<|id|>1290<|page|>101<|box|>247 307 294 475<|content|>b) 当 M=1 作用在桩顶时，桩顶产生的水平位移 \\delta_{HM} 和转角 \\delta_{MM}\n<|id|>1293<|page|>101<|box|>245 489 290 658<|content|>c) 当 H=1 作用在桩顶时，桩顶产生的水平位移 \\delta_{HH} 和转角 \\delta_{MH}\n<|id|>1294<|page|>101<|box|>245 684 293 858<|content|>d) 当 M=1 作用在桩顶时，桩顶产生的水平位移 \\delta_{HM} 和转角 \\delta_{MM}\n<|id|>1303<|page|>101<|box|>866 131 885 868<|content|>3）当地面或局部冲刷线在承台底以上时，承台周围土视作弹性介质，此时，形常\n<|id|>1304<|page|>102<|box|>116 122 135 519<|content|>数 \\gamma_{cc} 、 \\gamma_{aa} 、 \\gamma_{a\\beta} 、 \\g...a} 、 \\gamma_{c\\beta} 和 \\gamma_{\\beta\\beta} 按下列公式计算\n<|id|>1366<|page|>113<|box|>338 223 356 860<|content|>\\gamma ——承台底面至桩端平面包括桩的重力在内的土的平均重度（ \\mathrm{kN / m^3} ）\n<|id|>1367<|page|>113<|box|>359 226 376 423<|content|>l——桩的深度（m）; ... l——桩的深度（m）\n<|id|>1437<|page|>118<|box|>888 156 904 895<|content|>2 沿刃脚周边水平方向取单位宽度，并按本规范附录 P 的规定计算作用在刃脚上\n<|id|>1438<|page|>119<|box|>93 97 111 522<|content|>的侧土压力 E_{1}^{\\prime} 、 E_{2}^{\\prime} 、 E^{\\prime}... 和水压力 W_{1}^{\\prime} 、 W_{2}^{\\prime} 、 W^{\\prime}\n<|id|>1455<|page|>119<|box|>866 129 885 870<|content|>2）作用在刃脚斜面上的土反力的垂直分力 V_{2} 按式（Q. ... 2-4）计算，作用点距刃\n<|id|>1456<|page|>120<|box|>116 119 147 332<|content|>脚外壁的距离为 a + \\frac{b}{3} 。 ... 脚外壁的距离为 a + \\frac{b}{3}\n<|id|>1556<|page|>128<|box|>390 379 410 593<|content|>(JTG 3363—2019)\n<|id|>1557<|page|>128<|box|>444 411 464 563<|content|>条文说明\n<|id|>1829<|page|>154<|box|>802 253 818 761<|content|>b-基底宽； ... s-基底重心至偏心方向边缘距离\n<|id|>1830<|page|>154<|box|>840 161 857 218<|content|>土基： ... 土基",
+    "raw_response": "<|src_id|>1286<|tgt_id|>1287\n<|src_id|>1303<|tgt_id|>1304\n<|src_id|>1437<|tgt_id|>1438\n<|src_id|>1455<|tgt_id|>1456",
+    "parsed": [
+        {
+            "src_id": 1286,
+            "tgt_id": 1287
+        },
+        {
+            "src_id": 1303,
+            "tgt_id": 1304
+        },
+        {
+            "src_id": 1437,
+            "tgt_id": 1438
+        },
+        {
+            "src_id": 1455,
+            "tgt_id": 1456
+        }
+    ]
+}

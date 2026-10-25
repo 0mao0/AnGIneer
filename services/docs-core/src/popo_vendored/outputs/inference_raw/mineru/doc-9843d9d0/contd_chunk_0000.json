@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        12,
+        13,
+        16,
+        17,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>166 140 184 795<|content|>TO: ... Linda Osei, Responsible Partner, Litigation (General), Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>191 140 228 854<|content|>FROM: ... Patrick Gallagher, Lead Associate, Litig...e, Litigation (General), Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>234 140 253 336<|content|>DATE: ... October 28, 2025\n<|id|>5<|page|>1<|box|>262 140 316 854<|content|>RE: ... 01-24-0003917\n<|id|>6<|page|>1<|box|>324 140 342 362<|content|>MATTER NO. ... 1032-00002\n<|id|>7<|page|>1<|box|>349 140 368 434<|content|>CLIENT: ... Halcyon Semiconductor AG\n<|id|>8<|page|>1<|box|>376 142 393 408<|content|>Right-click to update Table of Contents\n<|id|>103<|page|>12<|box|>832 140 888 854<|content|>Calloway is the founder, Chief Executive Officer, ... outstanding equity interests in Meridian. ... The\n<|id|>104<|page|>13<|box|>90 140 127 854<|content|>Award was entered against Calloway jointly and sev...ct to the $10,000,000 cap provided in the guaranty\n<|id|>141<|page|>16<|box|>842 174 859 816<|content|>(3) The attachment is not sought for a purpose other than the recovery on the claim; ... and\n<|id|>143<|page|>17<|box|>90 138 181 854<|content|>Each of these elements is comfortably satisfied he...o be secured is $47,300,000 plus accruing interest\n<|id|>231<|page|>25<|box|>601 140 617 320<|content|>Respectfully submitted,\n<|id|>232<|page|>25<|box|>618 140 633 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>233<|page|>25<|box|>636 143 652 253<|content|>By: ... By\n<|id|>234<|page|>25<|box|>652 142 670 542<|content|>Patrick Gallagher Lead Associate, Litigation (General)\n<|id|>235<|page|>25<|box|>671 143 686 251<|content|>By: ... By\n<|id|>236<|page|>25<|box|>686 140 703 563<|content|>Simone Laroche Working Associate, Litigation (General)\n<|id|>237<|page|>25<|box|>703 140 795 856<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV...e express authorization of the Responsible Partner",
+    "raw_response": "<|src_id|>103<|tgt_id|>104\n<|src_id|>141<|tgt_id|>143",
+    "parsed": [
+        {
+            "src_id": 103,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 143
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>253 751 271 854<|content|>January 2025\n<|id|>5<|page|>1<|box|>279 140 297 663<|content|>Prepared by: ... Omar Siddiqui, Associate, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>305 140 340 854<|content|>Reviewed by: ... Alan Ngo, Partner, Calderwood & Harkness LLP\n<|id|>7<|page|>1<|box|>349 140 385 854<|content|>Matter: ... )\n<|id|>8<|page|>1<|box|>393 140 430 854<|content|>Privileged: ... Attorney Work Product / Attorney-C...unication — Prepared in Anticipation of Litigation\n<|id|>9<|page|>1<|box|>436 140 529 854<|content|>Confidentiality: ... This document may not be disc...n consent of counsel or further order of the Court\n<|id|>136<|page|>14<|box|>823 140 878 854<|content|>It is important to note that this methodology capt...ore's infringement — is captured separately in the\n<|id|>137<|page|>15<|box|>90 140 127 854<|content|>Panduit lost-profits analysis. ... The price erosi...d not duplicative of, the lost-unit-volume damages\n<|id|>150<|page|>15<|box|>871 140 907 854<|content|>This forward-looking estimate is necessarily more ...lume dynamics. ... The estimate will be refined as\n<|id|>151<|page|>16<|box|>89 140 127 854<|content|>FY 2024 actual revenue data is obtained from Lumic...mages Update Memorandum targeted for February 2025",
+    "raw_response": "<|src_id|>136<|tgt_id|>137\n<|src_id|>150<|tgt_id|>151",
+    "parsed": [
+        {
+            "src_id": 136,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        }
+    ]
+}

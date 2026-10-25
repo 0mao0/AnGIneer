@@ -1,0 +1,603 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8nl4tkp2\\input\\pdfs\\doc-33b462ab.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8nl4tkp2\\enriched\\doc-33b462ab.json",
+    "contd_output": "<|src_id|>193<|tgt_id|>194\n<|src_id|>209<|tgt_id|>210\n<|src_id|>226<|tgt_id|>227\n<|src_id|>243<|tgt_id|>244",
+    "title_output": "<|id|>9<|level|>1\n<|id|>26<|level|>1\n<|id|>27<|level|>2\n<|id|>37<|level|>2\n<|id|>45<|level|>2\n<|id|>59<|level|>1\n<|id|>60<|level|>2\n<|id|>89<|level|>2\n<|id|>94<|level|>2\n<|id|>100<|level|>2\n<|id|>106<|level|>2\n<|id|>109<|level|>1\n<|id|>110<|level|>2\n<|id|>121<|level|>2\n<|id|>127<|level|>1\n<|id|>128<|level|>2\n<|id|>148<|level|>2\n<|id|>156<|level|>2\n<|id|>163<|level|>2\n<|id|>171<|level|>2\n<|id|>175<|level|>2\n<|id|>179<|level|>2\n<|id|>182<|level|>1\n<|id|>183<|level|>2\n<|id|>191<|level|>2\n<|id|>206<|level|>2\n<|id|>215<|level|>2\n<|id|>223<|level|>2\n<|id|>230<|level|>2\n<|id|>235<|level|>1\n<|id|>245<|level|>1\n<|id|>258<|level|>1\n<|id|>259<|level|>2\n<|id|>262<|level|>3\n<|id|>277<|level|>3\n<|id|>282<|level|>3\n<|id|>288<|level|>2\n<|id|>304<|level|>2\n<|id|>308<|level|>1\n<|id|>309<|level|>2\n<|id|>318<|level|>2\n<|id|>329<|level|>2\n<|id|>336<|level|>1\n<|id|>338<|level|>2\n<|id|>342<|level|>2\n<|id|>345<|level|>2\n<|id|>349<|level|>2\n<|id|>355<|level|>2\n<|id|>357<|level|>2\n<|id|>362<|level|>1\n<|id|>376<|level|>2",
+    "image_output": "<|src_id|>12<|tgt_id|>9\n<|src_id|>247<|tgt_id|>245\n<|src_id|>356<|tgt_id|>355\n<|src_id|>363<|tgt_id|>362\n<|src_id|>364<|tgt_id|>362\n<|src_id|>365<|tgt_id|>362\n<|src_id|>366<|tgt_id|>362\n<|src_id|>367<|tgt_id|>362\n<|src_id|>368<|tgt_id|>362\n<|src_id|>369<|tgt_id|>362\n<|src_id|>370<|tgt_id|>362\n<|src_id|>371<|tgt_id|>362\n<|src_id|>372<|tgt_id|>362\n<|src_id|>373<|tgt_id|>362\n<|src_id|>374<|tgt_id|>362\n<|src_id|>375<|tgt_id|>362\n<|src_id|>377<|tgt_id|>376\n<|src_id|>378<|tgt_id|>376",
+    "contd_label": [
+        {
+            "src_id": 193,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 210
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 227
+        },
+        {
+            "src_id": 243,
+            "tgt_id": 244
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 1
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 235,
+            "level": 1
+        },
+        {
+            "id": 245,
+            "level": 1
+        },
+        {
+            "id": 258,
+            "level": 1
+        },
+        {
+            "id": 259,
+            "level": 2
+        },
+        {
+            "id": 262,
+            "level": 3
+        },
+        {
+            "id": 277,
+            "level": 3
+        },
+        {
+            "id": 282,
+            "level": 3
+        },
+        {
+            "id": 288,
+            "level": 2
+        },
+        {
+            "id": 304,
+            "level": 2
+        },
+        {
+            "id": 308,
+            "level": 1
+        },
+        {
+            "id": 309,
+            "level": 2
+        },
+        {
+            "id": 318,
+            "level": 2
+        },
+        {
+            "id": 329,
+            "level": 2
+        },
+        {
+            "id": 336,
+            "level": 1
+        },
+        {
+            "id": 338,
+            "level": 2
+        },
+        {
+            "id": 342,
+            "level": 2
+        },
+        {
+            "id": 345,
+            "level": 2
+        },
+        {
+            "id": 349,
+            "level": 2
+        },
+        {
+            "id": 355,
+            "level": 2
+        },
+        {
+            "id": 357,
+            "level": 2
+        },
+        {
+            "id": 362,
+            "level": 1
+        },
+        {
+            "id": 376,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 247,
+            "tgt_id": 245
+        },
+        {
+            "src_id": 356,
+            "tgt_id": 355
+        },
+        {
+            "src_id": 363,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 364,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 365,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 366,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 367,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 368,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 369,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 370,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 371,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 372,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 373,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 374,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 375,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 377,
+            "tgt_id": 376
+        },
+        {
+            "src_id": 378,
+            "tgt_id": 376
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 363,
+            "table2_idx": 364,
+            "upper_row_ss": [
+                [
+                    "Lumine x v. Tidewater",
+                    "Lumine x Systems Inc. v. Tidewater Analytics Corp.",
+                    "Fairfax County Circuit Court, VA",
+                    "CL-2024-001478 2",
+                    "Oct. 22, 2024",
+                    "Breach of data services agreement; declaratory judgment (Lumin ex claim); breach of contract; conversion (Tidew",
+                    "$2.1M (Lumin ex claim); $1.4M (counterclaim)",
+                    "Lumine x US",
+                    "Discovery in progress",
+                    "$0 (recommend $500,000)",
+                    "Low"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "ater counter claim)",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 364,
+            "table2_idx": 365,
+            "upper_row_ss": [
+                [
+                    "RMI v. Veltron ix GmbH",
+                    "Rhein-Main Industrie beratung GmbH v. Lumine x Systems GmbH",
+                    "Sundial Assurance Court (LG München I)",
+                    "10 HK O 21487/24",
+                    "Dec. 11, 2024",
+                    "Breach of consulting agreement; unpaid fees",
+                    "€285,000 (~$311 K)",
+                    "Veltron ix GmbH",
+                    "Defense filed Mar. 14, 2025",
+                    "€150,000 (~$164 K)",
+                    "Low"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Whitfield v. Luminex UK",
+                    "Whitfield v. Luminex Systems UK Ltd.",
+                    "London Central Employment Tribunal",
+                    "220014 5/2025",
+                    "Jan. 8, 2025",
+                    "Unfair dismissal; disability discrimination (Equality Act 2010)",
+                    "Est. £80K–£200K (~$101 K–$252K)",
+                    "Lumin ex UK",
+                    "Preliminary hearing Mar. 27, 2025; full hearing Sep. 15, 2025",
+                    "£120,000 (~$151 K)",
+                    "Low"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 366,
+            "table2_idx": 367,
+            "upper_row_ss": [
+                [
+                    "Nexus Workforce Solutions Inc. (tolling agreement)",
+                    "Nov. 15, 2024",
+                    "Luminex US",
+                    "Potential claim for alleged over-billing under staffing services agreement;",
+                    "Tolling agreement extended once; parties reviewing",
+                    "Low-Moderate; tolling agreement preserves status quo; recommend"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "tolling agreement in place through Jun. 30, 2025",
+                    "billing records; disputed amount approx. $420K",
+                    "disclosure on Schedule 3.9"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 368,
+            "table2_idx": 369,
+            "upper_row_ss": [
+                [
+                    "California Franchise Tax Board",
+                    "United States (California)",
+                    "Luminex US",
+                    "Notice of Proposed Assessment —",
+                    "Jan. 22, 2025",
+                    "Protest filed Mar. 20, 2025 via Pendleton &",
+                    "Moderate — routine state tax dispute; reserve"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "$1,340,000 (incl. interest/penalties) for TY 2022 (market-based sourcing methodology)",
+                    "",
+                    "Associates; administrative protest phase",
+                    "included in ASC 740 uncertain tax positions ($1.4M)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 369,
+            "table2_idx": 370,
+            "upper_row_ss": [
+                [
+                    "Bundeskartell amt (acquisition notification)",
+                    "Germany",
+                    "Veltronix GmbH",
+                    "Merger control notification (File No. B6-34/25)",
+                    "Apr. 7, 2025",
+                    "Under review — Phase I (one-month)",
+                    "Transaction-related — not enforcement action"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "European Commission — FSR (acquisition notification)",
+                    "European Union",
+                    "Luminex Group",
+                    "Foreign Subsidies Regulation notification (Case No. FSR.M.2025-0412)",
+                    "Apr. 11, 2025",
+                    "Under review — 25-working-day preliminary review",
+                    "Transaction-related — not enforcement action"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 370,
+            "table2_idx": 371,
+            "upper_row_ss": [
+                [
+                    "FTC — HSR (acquisition notification)",
+                    "United States (Federal)",
+                    "Luminex Holdings",
+                    "HSR pre-merger notification (Transaction No. HSR-202503 28-4192)",
+                    "Mar. 28, 2025",
+                    "Initial 30-day waiting period expires Apr. 28, 2025; FTC designated reviewing agency; Second Request anticipated",
+                    "Transaction-related — potential Second Request due to ~25% combined market share"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Compliance Area",
+                    "Applicable Law / Regulation",
+                    "Policy in Place (Y/N)",
+                    "Training Program (Y/N)",
+                    "Designated Compliance Officer (Y/N)",
+                    "Last Audit / Review Date",
+                    "Key Findings / Gaps"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 371,
+            "table2_idx": 372,
+            "upper_row_ss": [
+                [
+                    "Data Privacy — Switzerland (FADP)",
+                    "Swiss Federal Act on Data Protection (FADP, effective Sep.",
+                    "Y — Updated privacy policies and DPAs for FADP",
+                    "Y — Included in EU/global privacy training",
+                    "Y — Anna Thornton (dual role)",
+                    "FADP gap analysis: Q3 2023",
+                    "No material gaps identified; policies updated for"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "1, 2023)",
+                    "compliance",
+                    "",
+                    "",
+                    "",
+                    "new FADP requirements"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 372,
+            "table2_idx": 373,
+            "upper_row_ss": [
+                [
+                    "Tax Compliance",
+                    "IRC; Treasury Regulations; state tax codes (VA, CA, DE,",
+                    "Y — Global Tax Policy; transfer pricing documentation and policies",
+                    "N/A — handled by finance team and external advisors",
+                    "Y — Annelise Gruber (CFO) oversees tax function;",
+                    "IRS LB&I examination initiated Sep. 2024 (TY 2021-2022); VA sales tax",
+                    "IRS transfer pricing examination ongoing; CA FTB proposed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "others); Swiss tax law; German tax law; UK tax law; Singapore tax law",
+                    "",
+                    "",
+                    "Pendleton & Associates (external advisor)",
+                    "audit (Jul. 2024); CA FTB proposed assessment (Jan. 2025)",
+                    "assessment ($1.34M) under protest; ASC 740 reserves of $3.8M; Pendleton recommends post-closing royalty rate restructuring (4.5% → 6.0%)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 373,
+            "table2_idx": 374,
+            "upper_row_ss": [
+                [
+                    "Antitrust / Competition Law",
+                    "Sherman Act; Clayton Act; FTC Act; EU TFEU Art. 101-102; German GWB; Swiss KartG",
+                    "Y — Global Competition Law Policy (rev. Jun. 2023)",
+                    "Y — Annual training for sales, marketing, and business development employees",
+                    "Y — Priya Ramanathan (General Counsel)",
+                    "Policy review: Jun. 2023; no dedicated antitrust audit conducted",
+                    "Program adequate for current market position; recommend enhancement post-closing to address increased market concentration (~25% combined share with Vectis Solutions)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Policy Type",
+                    "Carrier",
+                    "Policy Number",
+                    "Policy Limit",
+                    "Deductible / Retention",
+                    "Expiration Date",
+                    "Key Exclusions / Notes"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 374,
+            "table2_idx": 375,
+            "upper_row_ss": [
+                [
+                    "Commercial General Liability",
+                    "Continental American Insurance Group",
+                    "CAIG-GL-2024-22847",
+                    "$5,000,000 (per occurrence); $10,000,000 (general aggregate)",
+                    "$25,000 (per occurrence)",
+                    "Jan. 1, 2026",
+                    "Standard CGL exclusions (professional services, cyber, employment practices); products-completed operations sublimit $5M"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Cyber Liability",
+                    "Sentinel Specialty Insurance Co.",
+                    "SSI-CL-2024-04872",
+                    "$25,000,000 (aggregate)",
+                    "$500,000",
+                    "Oct. 1, 2025",
+                    "First-party and third-party coverage; regulatory defense costs; business interruption; $25M limit at lower end of range for company of this size — recommend evaluation post-closing"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 377,
+            "table2_idx": 378,
+            "upper_row_ss": [
+                [
+                    "Category 12 — Tax",
+                    "12.1–12.15 (litigation-related items)",
+                    "Tax audits, examinations, and disputes; IRS and state correspondence;",
+                    "VDR Folder 12.0",
+                    "Substantially complete; coordinated with Sylvia Hartwell (Tax); IRS"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "transfer pricing documentation; ASC 740 reserves; auditor communications re: tax contingencies",
+                    "",
+                    "examination correspondence produced (Items 12.3–12.5); CA FTB correspondence produced (Item 12.7)"
+                ]
+            ]
+        }
+    ]
+}

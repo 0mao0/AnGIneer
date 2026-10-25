@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>210 140 228 635<|content|>FROM: ... Carlos Espinoza, Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>237 140 273 854<|content|>TO: ... )\n<|id|>4<|page|>1<|box|>281 140 299 334<|content|>DATE: ... January 15, 2025\n<|id|>5<|page|>1<|box|>306 140 343 854<|content|>RE: ... KF-2025-0110- ICM), dated January 10, 2025\n<|id|>6<|page|>1<|box|>351 140 369 666<|content|>MATTER: ... Vantor Holdings Corp\n<|id|>12<|page|>1<|box|>851 140 907 854<|content|>The Kessler Report builds upon and corroborates th...et forth in the report of Dr. ... The Harmon-Bryce\n<|id|>13<|page|>2<|box|>90 140 181 854<|content|>Report, which was the subject of a prior Memo to F...nd derivative losses not addressed by Harmon-Bryce\n<|id|>33<|page|>3<|box|>429 176 464 854<|content|>9. ... and\n<|id|>35<|page|>3<|box|>503 140 541 854<|content|>Kessler noted in the Report that he was provided w...re placed upon his ability to conduct the analysis\n<|id|>107<|page|>11<|box|>559 181 612 856<|content|>• Consequential damages in the amount of $50,000,0...e Kessler Report (Categories 2 through 6); ... and\n<|id|>109<|page|>11<|box|>633 140 652 818<|content|>The total demand in the Complaint, exclusive of pu...ive of punitive damages, is therefore $337 million",
+    "raw_response": "<|src_id|>12<|tgt_id|>13",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        }
+    ]
+}

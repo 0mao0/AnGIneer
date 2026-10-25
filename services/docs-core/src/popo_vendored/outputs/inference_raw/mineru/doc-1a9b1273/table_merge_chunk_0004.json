@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 黏性土、细亚砂土', '水泥粉煤灰或石灰粉煤灰稳定类、沥青结合料类', '300~350', '350~400', '400~500', '500~550', '350~450', '450~500', '500~550', '550~700']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 粉性土', '粒料类', '450~500', '500~600', '600~700', '700~750', '500~600', '600~700', '700~800', '800~1000']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 565,
+    "table2_idx": 566
+}

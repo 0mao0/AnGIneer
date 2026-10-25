@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 104 486<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>112 140 128 826<|content|>CALDERWOOD & HARKNESS LLP 299 Park Avenue, 42nd Floor New York, NY 10171\n<|id|>2<|page|>1<|box|>138 142 156 774<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>165 756 181 854<|content|>June 5, 2024\n<|id|>4<|page|>1<|box|>190 143 207 486<|content|>Via Email and Original via Overnight Courier\n<|id|>5<|page|>1<|box|>215 140 252 854<|content|>Elaine Whitford Senior Vice President & Group Gene...00 Lexington Avenue, 38th Floor New York, NY 10022\n<|id|>6<|page|>1<|box|>261 176 277 790<|content|>Re: ... 1022-00004\n<|id|>7<|page|>1<|box|>286 140 303 292<|content|>Dear Ms. ... Whitford\n<|id|>10<|page|>1<|box|>729 140 896 857<|content|>As set forth in Section 5(c) of the Engagement Let...r amount, the remaining balance will be payable by\n<|id|>11<|page|>2<|box|>90 140 125 854<|content|>Northgate Telecommunications PLC in accordance wit...ce with the payment terms of the Engagement Letter\n<|id|>17<|page|>2<|box|>785 174 839 854<|content|>Renata Vasquez Partner, Labor & Employment Calderw...ork, NY 10171 Direct Telephone: ... (212) 558-4128\n<|id|>18<|page|>2<|box|>849 140 902 854<|content|>Email: ... We look forward to working with you, yo...ervice throughout the course of the representation\n<|id|>19<|page|>3<|box|>135 142 152 220<|content|>Sincerely,\n<|id|>20<|page|>3<|box|>160 140 176 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>21<|page|>3<|box|>179 143 195 253<|content|>By: ... By\n<|id|>22<|page|>3<|box|>195 142 212 491<|content|>Renata Vasquez Partner, Labor & Employment\n<|id|>23<|page|>3<|box|>212 142 229 490<|content|>Enclosure: ... Copy of wire transfer confirmation\n<|id|>24<|page|>3<|box|>237 140 267 852<|content|>cc: ... Bernard Crawford, Partner, Calderwood & Ha...lderwood & Harkness LLP (lead associate, for file)",
+    "raw_response": "<|src_id|>10<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        }
+    ]
+}

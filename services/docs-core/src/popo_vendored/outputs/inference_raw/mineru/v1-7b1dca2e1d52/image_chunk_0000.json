@@ -1,0 +1,52 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>297 109 313 191<|content|>Abstract\n<|id|>3<|type|>title<|page|>1<|box|>616 107 632 226<|content|>Introduction\n<|id|>6<|type|>image<|page|>1<|box|>711 882 797 961<|content|>None\n<|id|>10<|type|>title<|page|>2<|box|>647 216 664 721<|content|>Essential elements of yesterday’s strategic HRM mo\n<|id|>12<|type|>title<|page|>2<|box|>761 218 777 395<|content|>Competitive strategies\n<|id|>15<|type|>title<|page|>3<|box|>436 107 452 280<|content|>HRM practice menus\n<|id|>17<|type|>title<|page|>3<|box|>642 109 658 214<|content|>The linkages\n<|id|>20<|type|>table<|page|>4<|box|>114 30 645 886<|content|>None\n<|id|>25<|type|>title<|page|>5<|box|>348 107 364 399<|content|>Today’s model of HRM with OE\n<|id|>29<|type|>title<|page|>5<|box|>795 109 813 268<|content|>Global environment\n<|id|>33<|type|>image<|page|>6<|box|>105 30 608 880<|content|>None\n<|id|>54<|type|>title<|page|>8<|box|>551 218 567 527<|content|>OE indicators for multiple stakeholders\n<|id|>58<|type|>title<|page|>9<|box|>326 107 342 500<|content|>Today’s HRM challenges and opportunities\n<|id|>60<|type|>title<|page|>9<|box|>455 107 470 268<|content|>Employees: fairness\n<|id|>64<|type|>title<|page|>10<|box|>310 218 327 391<|content|>Employees: well-being\n<|id|>67<|type|>title<|page|>10<|box|>777 216 794 637<|content|>Line managers: developing organizational capabilit\n<|id|>71<|type|>title<|page|>11<|box|>422 107 439 408<|content|>Customers: going beyond expectations\n<|id|>81<|type|>table<|page|>13<|box|>113 190 908 658<|content|>None\n<|id|>85<|type|>title<|page|>14<|box|>777 218 794 629<|content|>Society: social responsibility and brand managemen\n<|id|>87<|type|>table<|page|>15<|box|>113 178 908 675<|content|>None\n<|id|>92<|type|>title<|page|>16<|box|>632 218 650 506<|content|>Society: environmental sustainability\n<|id|>96<|type|>title<|page|>17<|box|>533 107 552 289<|content|>New roles for HRM\n<|id|>98<|type|>title<|page|>17<|box|>679 109 697 410<|content|>Understanding behavioral imperatives\n<|id|>101<|type|>title<|page|>18<|box|>342 218 358 527<|content|>Gathering, interpreting and using data\n<|id|>104<|type|>title<|page|>18<|box|>616 218 633 562<|content|>Balancing concerns of multiple stakeholders\n<|id|>106<|type|>title<|page|>18<|box|>808 218 825 324<|content|>Conclusion\n<|id|>109<|type|>title<|page|>19<|box|>230 107 245 205<|content|>References\n<|id|>159<|type|>title<|page|>21<|box|>651 107 667 245<|content|>Further reading\n<|id|>163<|type|>title<|page|>21<|box|>769 109 786 291<|content|>Corresponding author",
+    "raw_response": "<|src_id|>6<|tgt_id|>3\n<|src_id|>20<|tgt_id|>17\n<|src_id|>33<|tgt_id|>29\n<|src_id|>81<|tgt_id|>71\n<|src_id|>87<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 85
+        }
+    ]
+}

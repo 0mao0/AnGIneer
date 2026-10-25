@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 145 125 851<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>162 284 181 714<|content|>Call Notes: Term Sheet Negotiation Call #3\n<|id|>10<|page|>1<|box|>470 142 487 243<|content|>1. Attendees\n<|id|>19<|page|>1<|box|>760 142 777 330<|content|>2. Purpose and Context\n<|id|>24<|page|>2<|box|>464 140 482 377<|content|>3. Summary of Agreed Terms\n<|id|>26<|page|>2<|box|>577 140 594 267<|content|>3.1 Base Salary\n<|id|>32<|page|>3<|box|>275 140 292 374<|content|>3.2 Annual Incentive (Bonus)\n<|id|>40<|page|>4<|box|>275 140 292 547<|content|>3.3 Sign-On Cash Bonus (Make-Whole Component)\n<|id|>46<|page|>5<|box|>138 140 157 848<|content|>3.4 Sign-On Equity Grant (Make-Whole for Forfeited\n<|id|>53<|page|>6<|box|>157 140 175 503<|content|>3.5 Annual Long-Term Incentive (LTI) Grant\n<|id|>62<|page|>6<|box|>747 140 763 450<|content|>3.6 Total Target Annual Compensation\n<|id|>67<|page|>7<|box|>345 140 362 331<|content|>3.7 Retirement Benefits\n<|id|>68<|page|>7<|box|>368 140 386 349<|content|>401(k) Plan Participation:\n<|id|>70<|page|>7<|box|>566 140 584 534<|content|>Supplemental Executive Retirement Plan (SERP):\n<|id|>73<|page|>7<|box|>777 140 794 362<|content|>3.8 Perquisites and Benefits\n<|id|>82<|page|>8<|box|>763 140 780 441<|content|>3.9 Employment Term and Start Date\n<|id|>89<|page|>9<|box|>821 140 837 393<|content|>4. Deferred / Unresolved Terms\n<|id|>91<|page|>10<|box|>90 140 107 403<|content|>4.1 Change in Control Provisions\n<|id|>93<|page|>10<|box|>157 140 175 601<|content|>Northgate Position (as set forth in Revised Term S\n<|id|>100<|page|>10<|box|>631 142 648 616<|content|>Harding Position (as communicated by Hargrove & Li\n<|id|>107<|page|>11<|box|>184 142 202 230<|content|>Key Gaps:\n<|id|>113<|page|>12<|box|>90 140 107 423<|content|>4.2 Restrictive Covenant Provisions\n<|id|>115<|page|>12<|box|>157 142 175 263<|content|>Non-Compete:\n<|id|>118<|page|>12<|box|>443 142 459 264<|content|>Garden Leave:\n<|id|>121<|page|>12<|box|>618 140 633 279<|content|>Non-Solicitation:\n<|id|>126<|page|>13<|box|>220 140 237 415<|content|>4.3 Non-CIC Severance Provisions\n<|id|>133<|page|>13<|box|>724 140 743 395<|content|>5. Path Forward and Next Steps\n<|id|>147<|page|>17<|box|>340 142 359 303<|content|>7. Concluding Notes",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>10<|level|>2\n<|id|>19<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>3\n<|id|>32<|level|>3\n<|id|>40<|level|>3\n<|id|>46<|level|>3\n<|id|>53<|level|>3\n<|id|>62<|level|>3\n<|id|>67<|level|>3\n<|id|>68<|level|>4\n<|id|>70<|level|>4\n<|id|>73<|level|>3\n<|id|>82<|level|>3\n<|id|>89<|level|>2\n<|id|>91<|level|>3\n<|id|>93<|level|>4\n<|id|>100<|level|>4\n<|id|>107<|level|>5\n<|id|>113<|level|>3\n<|id|>115<|level|>4\n<|id|>118<|level|>4\n<|id|>121<|level|>4\n<|id|>126<|level|>3\n<|id|>133<|level|>2\n<|id|>147<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 4
+        },
+        {
+            "id": 70,
+            "level": 4
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 4
+        },
+        {
+            "id": 100,
+            "level": 4
+        },
+        {
+            "id": 107,
+            "level": 5
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 4
+        },
+        {
+            "id": 118,
+            "level": 4
+        },
+        {
+            "id": 121,
+            "level": 4
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        }
+    ]
+}

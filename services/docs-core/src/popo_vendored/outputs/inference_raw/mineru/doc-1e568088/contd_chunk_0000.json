@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        49
+    ],
+    "pages": [
+        3,
+        6,
+        9,
+        17,
+        27,
+        28,
+        30,
+        44,
+        48
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>3<|box|>148 81 502 913<|content|>SWISS FRANC POSITIONS FCP-IV-1. ... Inside back cover\n<|id|>5<|page|>3<|box|>515 81 549 888<|content|>NOTES: ... r= Revised\n<|id|>38<|page|>6<|box|>883 83 912 460<|content|>Nonfarm productivity, or output per hour worked, i... a 1 percent annual rate through the first half of\n<|id|>39<|page|>6<|box|>90 506 143 908<|content|>1996, about in line with its trend rate of growth since the early 1970's. ... 2 percent a year\n<|id|>90<|page|>9<|box|>847 367 863 506<|content|>(In billions of dollars)\n<|id|>91<|page|>9<|box|>869 274 911 506<|content|>Source: ... \"Monthly Treasury Statement of Receipts and Outlays of the United States Government\"\n<|id|>131<|page|>17<|box|>275 81 393 488<|content|>Under authority of Public Law 95-147, Treasury imp...interest-bearing obligations participate under the\n<|id|>132<|page|>17<|box|>140 506 271 916<|content|>Note Option. ... Likewise, those institutions wish... account at FRBs do so under the Remittance Option\n<|id|>163<|page|>27<|box|>152 189 202 810<|content|>CHARTS FD-A. ... --Average Length of Privately Held Marketable Debt\n<|id|>165<|page|>28<|box|>334 323 362 694<|content|>Page Intentionally Left Blank\n<|id|>192<|page|>30<|box|>881 81 912 488<|content|>March 28, 1996, Treasury announced the revised sch...f the 52-week bill auction originally announced on\n<|id|>193<|page|>30<|box|>128 506 287 916<|content|>March 22, 1996. ... 17 percent\n<|id|>286<|page|>44<|box|>377 84 388 431<|content|>^{18} Accepted yields ranged up to 7. ... 908) in this single-price auction\n<|id|>287<|page|>44<|box|>387 84 398 431<|content|>^{19} Accepted yields ranged up to 7. ... 756) in this single-price auction\n<|id|>346<|page|>48<|box|>126 81 251 488<|content|>Series EE bonds, on sale since January 1, 1980, ar... currently sold. ... Series J and K were sold from\n<|id|>347<|page|>48<|box|>126 508 179 913<|content|>May 1, 1952, through April 30, 1957. ... The notes...he simultaneous purchase of series E savings bonds",
+    "raw_response": "<|src_id|>38<|tgt_id|>39\n<|src_id|>131<|tgt_id|>132\n<|src_id|>192<|tgt_id|>193\n<|src_id|>346<|tgt_id|>347",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 346,
+            "tgt_id": 347
+        }
+    ]
+}

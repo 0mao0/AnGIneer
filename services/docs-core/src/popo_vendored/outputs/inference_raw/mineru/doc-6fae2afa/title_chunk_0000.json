@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 166 123 830<|content|>UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF\n<|id|>2<|page|>1<|box|>412 158 448 838<|content|>PLAINTIFF'S NOTICE OF RULE 30(b)(6) DEPOSITION OF\n<|id|>3<|page|>1<|box|>455 142 474 638<|content|>TO ALL PARTIES AND THEIR ATTORNEYS OF RECORD:\n<|id|>5<|page|>1<|box|>689 142 705 380<|content|>I. DEPOSITION LOGISTICS\n<|id|>6<|page|>1<|box|>720 143 736 285<|content|>A. Date and Time\n<|id|>9<|page|>2<|box|>212 140 229 316<|content|>C. Recording Method\n<|id|>23<|page|>2<|box|>763 140 781 640<|content|>II. DESIGNATION OF CORPORATE REPRESENTATIVE(S)\n<|id|>27<|page|>3<|box|>457 140 474 504<|content|>III. DOCUMENT PRODUCTION REQUEST\n<|id|>31<|page|>4<|box|>89 142 107 483<|content|>IV. DEFINITIONS AND INSTRUCTIONS\n<|id|>45<|page|>5<|box|>140 142 156 267<|content|>B. Instructions.\n<|id|>51<|page|>5<|box|>590 447 606 550<|content|>EXHIBIT A\n<|id|>52<|page|>5<|box|>614 245 633 751<|content|>TOPICS FOR EXAMINATION PURSUANT TO RULE 30(b)(6)\n<|id|>54<|page|>5<|box|>686 142 704 514<|content|>Topic 1: Corporate Organization and Structure\n<|id|>56<|page|>6<|box|>189 140 207 800<|content|>Topic 2: Conception, Design, and Development of Pr\n<|id|>58<|page|>6<|box|>479 140 497 584<|content|>Topic 3: Gene Selection Methodology for ProstaSign\n<|id|>60<|page|>6<|box|>732 140 750 748<|content|>Topic 4: Algorithm Design, Machine-Learning Classi\n<|id|>62<|page|>7<|box|>281 140 299 504<|content|>Topic 5: Clinical Validation of ProstaSignal™\n<|id|>64<|page|>7<|box|>551 140 569 660<|content|>Topic 6: Awareness of GenomeDx Patents and the Dec\n<|id|>66<|page|>7<|box|>805 140 823 617<|content|>Topic 7: Freedom-to-Operate Analysis and Patent Cl\n<|id|>69<|page|>8<|box|>299 140 316 594<|content|>Topic 8: Commercial Launch Strategy for ProstaSign\n<|id|>71<|page|>8<|box|>570 140 588 707<|content|>Topic 9: Revenue, Pricing, and Financial Performan\n<|id|>73<|page|>8<|box|>842 140 859 599<|content|>Topic 10: Competitive intelligence and Market Posi\n<|id|>75<|page|>9<|box|>335 140 371 854<|content|>Topic 11: Communications with Investors Regarding\n<|id|>77<|page|>9<|box|>662 140 679 576<|content|>Topic 12: Invalidity and Non-Infringement Contenti\n<|id|>79<|page|>10<|box|>171 140 188 521<|content|>Topic 13: Document Retention and Preservation\n<|id|>81<|page|>10<|box|>479 140 497 581<|content|>Topic 14: Third-Party Relationships and Collaborat\n<|id|>83<|page|>10<|box|>765 140 782 385<|content|>RESERVATION OF RIGHTS\n<|id|>94<|page|>11<|box|>455 375 473 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>-1\n<|id|>5<|level|>2\n<|id|>6<|level|>3\n<|id|>9<|level|>3\n<|id|>23<|level|>2\n<|id|>27<|level|>2\n<|id|>31<|level|>2\n<|id|>45<|level|>3\n<|id|>51<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>2\n<|id|>94<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        }
+    ]
+}

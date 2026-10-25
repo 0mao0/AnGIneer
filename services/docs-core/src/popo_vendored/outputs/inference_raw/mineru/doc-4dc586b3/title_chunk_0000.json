@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>9<|page|>1<|box|>430 140 446 436<|content|>I. Introduction and Purpose of Letter\n<|id|>13<|page|>2<|box|>90 140 107 452<|content|>II. Confirmation of Intent to Cooperate\n<|id|>19<|page|>2<|box|>686 140 704 521<|content|>III. Overview of Dunmore Energy Holdings Ltd.\n<|id|>21<|page|>2<|box|>781 140 797 459<|content|>A. Corporate Structure and Jurisdiction\n<|id|>24<|page|>3<|box|>250 142 266 326<|content|>B. Business Operations\n<|id|>28<|page|>3<|box|>672 142 689 334<|content|>C. Ownership Structure\n<|id|>31<|page|>4<|box|>263 140 281 491<|content|>D. Affiliated Entities Relevant to the Inquiry\n<|id|>34<|page|>4<|box|>518 140 536 511<|content|>IV. Overview of Dunmore Power Trading LLC\n<|id|>35<|page|>4<|box|>550 142 566 318<|content|>A. Entity Information\n<|id|>38<|page|>4<|box|>758 140 775 486<|content|>B. FERC Market-Based Rate Authorization\n<|id|>41<|page|>5<|box|>250 140 267 326<|content|>C. Trading Operations\n<|id|>50<|page|>6<|box|>90 140 108 501<|content|>D. Trading Strategy — Preliminary Overview\n<|id|>56<|page|>6<|box|>771 140 787 370<|content|>V. Prior Regulatory Counsel\n<|id|>60<|page|>7<|box|>304 140 320 426<|content|>VI. Proactive Compliance Measures\n<|id|>71<|page|>8<|box|>241 140 258 385<|content|>VII. Requests for Clarification\n<|id|>73<|page|>8<|box|>353 142 369 328<|content|>A. Scope of the Inquiry\n<|id|>79<|page|>9<|box|>194 142 212 446<|content|>B. Document Preservation Obligations\n<|id|>87<|page|>9<|box|>800 140 816 553<|content|>C. Confidentiality and Non-Public Nature of Inquir\n<|id|>95<|page|>10<|box|>561 140 577 444<|content|>VIII. Dunmore's Independent Auditor\n<|id|>98<|page|>10<|box|>800 140 816 424<|content|>IX. Point of Contact and Next Steps\n<|id|>114<|page|>11<|box|>664 410 681 586<|content|>Respectfully submitted,",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>19<|level|>1\n<|id|>21<|level|>2\n<|id|>24<|level|>2\n<|id|>28<|level|>2\n<|id|>31<|level|>2\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>50<|level|>2\n<|id|>56<|level|>1\n<|id|>60<|level|>1\n<|id|>71<|level|>1\n<|id|>73<|level|>2\n<|id|>79<|level|>2\n<|id|>87<|level|>2\n<|id|>95<|level|>1\n<|id|>98<|level|>1\n<|id|>114<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        }
+    ]
+}

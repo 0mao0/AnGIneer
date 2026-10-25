@@ -1,0 +1,47 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>301 140 318 362<|content|>I. Introduction and Context\n<|id|>10<|page|>1<|box|>830 140 848 637<|content|>II. Identification of the Purchasers and Initial C\n<|id|>14<|page|>2<|box|>484 140 502 397<|content|>III. Escrow Deposit Instructions\n<|id|>21<|page|>3<|box|>186 140 204 434<|content|>IV. Escrow Release — Initial Closing\n<|id|>25<|page|>3<|box|>689 140 707 426<|content|>V. Contact Information and Notices\n<|id|>40<|page|>4<|box|>441 140 457 339<|content|>VI. Enclosed Documents\n<|id|>45<|page|>4<|box|>811 140 828 558<|content|>VII. Request for Confirmation and Countersignature\n<|id|>51<|page|>5<|box|>431 140 448 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>21<|level|>1\n<|id|>25<|level|>1\n<|id|>40<|level|>1\n<|id|>45<|level|>1\n<|id|>51<|level|>-1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        }
+    ]
+}

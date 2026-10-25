@@ -1,0 +1,203 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fljqay4j\\input\\pdfs\\doc-44470155.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fljqay4j\\enriched\\doc-44470155.json",
+    "contd_output": "<|src_id|>87<|tgt_id|>88",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>30<|level|>3\n<|id|>36<|level|>3\n<|id|>46<|level|>3\n<|id|>54<|level|>2\n<|id|>56<|level|>3\n<|id|>61<|level|>3\n<|id|>68<|level|>3\n<|id|>72<|level|>3\n<|id|>81<|level|>2\n<|id|>82<|level|>3\n<|id|>92<|level|>3\n<|id|>96<|level|>3\n<|id|>101<|level|>3\n<|id|>111<|level|>2\n<|id|>112<|level|>3\n<|id|>128<|level|>3\n<|id|>138<|level|>3\n<|id|>141<|level|>2\n<|id|>142<|level|>3\n<|id|>148<|level|>3\n<|id|>160<|level|>2\n<|id|>161<|level|>3\n<|id|>169<|level|>3\n<|id|>176<|level|>3\n<|id|>179<|level|>2\n<|id|>180<|level|>3\n<|id|>189<|level|>3\n<|id|>195<|level|>3\n<|id|>202<|level|>2\n<|id|>210<|level|>2\n<|id|>221<|level|>2",
+    "image_output": "<|src_id|>20<|tgt_id|>14\n<|src_id|>21<|tgt_id|>14\n<|src_id|>22<|tgt_id|>14\n<|src_id|>51<|tgt_id|>46\n<|src_id|>219<|tgt_id|>210\n<|src_id|>220<|tgt_id|>210",
+    "contd_label": [
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 3
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 20,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 210
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 210
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 219,
+            "table2_idx": 220,
+            "upper_row_ss": [
+                [
+                    "March 31, 2023",
+                    "Proposed new EPA outside date (per First Amendment)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Item",
+                    "Amount"
+                ]
+            ]
+        }
+    ]
+}

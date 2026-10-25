@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>133 424 151 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>160 140 196 854<|content|>TO: ... Carolyn Whitford, General Counsel & Executive Vice President, Quorum Insurance Holdings Corp\n<|id|>5<|page|>1<|box|>229 140 248 833<|content|>FROM: ... Wendy Schultz, Associate, and Leonard Cross, Partner, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>255 140 273 344<|content|>DATE: ... September 5, 2023\n<|id|>7<|page|>1<|box|>282 140 318 854<|content|>RE: ... Board Resolution Dated August 22, 2023 — Implications for MDLA Negotiations\n<|id|>8<|page|>1<|box|>325 140 343 488<|content|>MATTER NO. ... 1025-00008\n<|id|>15<|page|>2<|box|>152 174 226 856<|content|>(ii) a tiered derived-data framework that protects...nly to insufficiently transformed outputs; ... and\n<|id|>17<|page|>2<|box|>314 140 386 854<|content|>We believe this recalibrated approach offers a rea...mitting any formal proposals to Meridian's counsel\n<|id|>35<|page|>3<|box|>862 181 898 856<|content|>• Draft Agreement Exchange: ... Meridian's outside...serving as lead partner, delivered Meridian's form\n<|id|>36<|page|>4<|box|>89 209 143 854<|content|>MDLA on November 4, 2022. ... Calderwood & Harknes...omments and proposed revisions across all articles\n<|id|>60<|page|>7<|box|>229 210 282 854<|content|>(b) No third-party commercialization of Derived Da...ithhold such consent in its sole judgment; ... and\n<|id|>63<|page|>7<|box|>483 140 594 854<|content|>We note that we have not obtained a copy of the Re...aluate the advisability and mechanism for doing so\n<|id|>163<|page|>19<|box|>862 174 898 856<|content|>(c) Strategic Reassessment. ... If both escalation...eam should conduct a strategic reassessment of the\n<|id|>164<|page|>20<|box|>90 174 143 856<|content|>QuorumScore™ development timeline and data-sourcin...ridian-centric architecture currently contemplated\n<|id|>172<|page|>20<|box|>722 140 753 854<|content|>Wendy Schultz Associate, intellectual Property Pra... & Harkness LLP 425 Park Avenue New York, NY 10022\n<|id|>173<|page|>20<|box|>755 140 787 854<|content|>Leonard Cross Partner, Tax Practice Group Calderwood & Harkness LLP 425 Park Avenue New York, NY 10022\n<|id|>174<|page|>20<|box|>787 140 818 854<|content|>Calderwood & Harkness LLP — Privileged & Confident...ttorney Work Product C&H Matter No. ... 1025-00008",
+    "raw_response": "<|src_id|>35<|tgt_id|>36\n<|src_id|>163<|tgt_id|>164",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        }
+    ]
+}

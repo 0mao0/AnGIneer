@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>10<|type|>title<|page|>1<|box|>652 140 670 501<|content|>1. Filing Fee Amount and Applicable Fee Tier\n<|id|>13<|type|>table<|page|>2<|box|>159 143 290 852<|content|>None\n<|id|>16<|type|>title<|page|>2<|box|>556 140 573 478<|content|>2. Contractual Obligation for Fee Payment\n<|id|>21<|type|>title<|page|>3<|box|>90 140 107 377<|content|>3. Wire Transfer Instructions\n<|id|>35<|type|>title<|page|>3<|box|>742 140 758 336<|content|>4. Timing Requirements\n<|id|>41<|type|>title<|page|>4<|box|>612 140 628 393<|content|>5. Confirmation and Follow-Up\n<|id|>47<|type|>title<|page|>5<|box|>450 140 467 326<|content|>6. Contact Information\n<|id|>60<|type|>title<|page|>6<|box|>90 140 106 233<|content|>Enclosure:",
+    "raw_response": "<|src_id|>13<|tgt_id|>10",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 10
+        }
+    ]
+}

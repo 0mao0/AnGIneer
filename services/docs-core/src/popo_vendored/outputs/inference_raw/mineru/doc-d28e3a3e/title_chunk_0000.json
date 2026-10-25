@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        19,
+        21,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 184 157 810<|content|>IN THE CIRCUIT COURT OF THE STATE OF OREGON FOR TH\n<|id|>2<|page|>1<|box|>409 155 463 841<|content|>DEFENDANT HALCYON SEMICONDUCTOR AMERICAS INC.'S ME\n<|id|>4<|page|>1<|box|>532 400 549 598<|content|>TABLE OF CONTENTS\n<|id|>7<|page|>2<|box|>579 385 594 612<|content|>TABLE OF AUTHORITIES\n<|id|>12<|page|>3<|box|>866 143 882 285<|content|>Other Authorities\n<|id|>14<|page|>4<|box|>402 142 419 397<|content|>PRELIMINARY STATEMENT\n<|id|>21<|page|>5<|box|>457 140 474 354<|content|>STATEMENT OF FACTS\n<|id|>22<|page|>5<|box|>489 142 505 259<|content|>A. The Parties\n<|id|>34<|page|>7<|box|>213 140 229 540<|content|>B. The Acquisition and Federal Regulatory Review\n<|id|>40<|page|>8<|box|>90 140 108 439<|content|>C. The State's Post-Closing Challenge\n<|id|>46<|page|>8<|box|>779 140 796 578<|content|>D. The Competitive Landscape of the U.S. CPO Marke\n<|id|>53<|page|>10<|box|>167 140 184 614<|content|>LEGAL STANDARD FOR PRELIMINARY INJUNCTION\n<|id|>65<|page|>11<|box|>439 142 455 256<|content|>ARGUMENT\n<|id|>66<|page|>11<|box|>470 140 487 658<|content|>I. THE STATE IS UNLIKELY TO SUCCEED ON THE MERITS\n<|id|>112<|page|>19<|box|>348 140 364 789<|content|>II. THE BALANCE OF EQUITIES TIPS DECISIVELY IN HAL\n<|id|>126<|page|>21<|box|>410 140 428 676<|content|>III. THE PUBLIC INTEREST FAVORS DENYING THE MOTION\n<|id|>142<|page|>23<|box|>619 140 636 272<|content|>CONCLUSION\n<|id|>149<|page|>24<|box|>445 140 460 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>156<|page|>24<|box|>696 142 714 326<|content|>Date: September 8, 2023\n<|id|>157<|page|>24<|box|>714 375 729 620<|content|>CERTIFICATE OF SERVICE\n<|id|>162<|page|>25<|box|>212 140 229 468<|content|>GRANTHAM DAVIS & KOWALSKI LLP\n<|id|>166<|page|>25<|box|>297 434 314 563<|content|>EXHIBIT LIST",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>7<|level|>1\n<|id|>12<|level|>2\n<|id|>14<|level|>1\n<|id|>21<|level|>1\n<|id|>22<|level|>2\n<|id|>34<|level|>2\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>53<|level|>1\n<|id|>65<|level|>1\n<|id|>66<|level|>2\n<|id|>112<|level|>2\n<|id|>126<|level|>2\n<|id|>142<|level|>1\n<|id|>149<|level|>-1\n<|id|>156<|level|>-1\n<|id|>157<|level|>1\n<|id|>162<|level|>-1\n<|id|>166<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 166,
+            "level": 1
+        }
+    ]
+}

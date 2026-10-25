@@ -1,0 +1,124 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 730<|content|>DRAFT — PREPARED BY CALDERWOOD & HARKNESS LLP — NO\n<|id|>8<|page|>1<|box|>364 323 385 673<|content|>I. PURPOSE OF THIS REQUEST\n<|id|>14<|page|>2<|box|>135 143 155 852<|content|>II. COMPANY OVERVIEW — GENOME DX THERAPEUTICS INC.\n<|id|>25<|page|>3<|box|>90 220 109 777<|content|>III. TEST DESCRIPTION — ONCOPRECISE GXP-47\n<|id|>26<|page|>3<|box|>136 140 152 450<|content|>A. Overview and Intended Clinical Use\n<|id|>33<|page|>3<|box|>825 140 844 308<|content|>B. Test Methodology\n<|id|>37<|page|>4<|box|>383 140 402 315<|content|>C. Patient Population\n<|id|>41<|page|>4<|box|>763 261 782 735<|content|>IV. CODING AND BILLING INFORMATION\n<|id|>50<|page|>5<|box|>473 326 493 669<|content|>V. ANALYTICAL VALIDATION\n<|id|>60<|page|>6<|box|>321 341 340 655<|content|>VI. CLINICAL VALIDATION\n<|id|>61<|page|>6<|box|>364 140 383 390<|content|>A. The CLARITY-LUNG Trial\n<|id|>74<|page|>7<|box|>595 140 613 415<|content|>B. Supplemental Clinical Evidence\n<|id|>77<|page|>8<|box|>90 362 109 633<|content|>VII. CLINICAL UTILITY\n<|id|>85<|page|>9<|box|>90 290 109 707<|content|>VIII. HEALTH ECONOMIC ANALYSIS\n<|id|>92<|page|>9<|box|>742 230 761 764<|content|>IX. REIMBURSEMENT RATE CONSIDERATIONS\n<|id|>103<|page|>10<|box|>689 184 734 810<|content|>X. ACCOMPANYING MOLDX TECHNICAL ASSESSMENT DOSSIER\n<|id|>113<|page|>11<|box|>599 179 643 816<|content|>XI. REGULATORY AND LABORATORY ACCREDITATION INFORM\n<|id|>118<|page|>12<|box|>234 187 253 808<|content|>XII. GDT'S EXISTING MEDICARE COVERAGE HISTORY\n<|id|>122<|page|>12<|box|>607 207 626 790<|content|>XIII. CONTACT INFORMATION AND AVAILABILITY\n<|id|>124<|page|>12<|box|>671 143 686 584<|content|>Primary Contact — LCD and Reimbursement Inquiries:\n<|id|>127<|page|>12<|box|>777 143 792 385<|content|>Regulatory and Legal Contact:\n<|id|>130<|page|>12<|box|>883 143 897 279<|content|>Outside Counsel:\n<|id|>134<|page|>13<|box|>233 305 252 691<|content|>XIV. CONCLUSION AND REQUEST\n<|id|>148<|page|>14<|box|>128 142 145 272<|content|>ENCLOSURES\n<|id|>156<|page|>14<|box|>387 140 404 183<|content|>CC:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>25<|level|>1\n<|id|>26<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>1\n<|id|>50<|level|>1\n<|id|>60<|level|>1\n<|id|>61<|level|>2\n<|id|>74<|level|>2\n<|id|>77<|level|>1\n<|id|>85<|level|>1\n<|id|>92<|level|>1\n<|id|>103<|level|>1\n<|id|>113<|level|>1\n<|id|>118<|level|>1\n<|id|>122<|level|>1\n<|id|>124<|level|>2\n<|id|>127<|level|>2\n<|id|>130<|level|>2\n<|id|>134<|level|>1\n<|id|>148<|level|>1\n<|id|>156<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 1
+        }
+    ]
+}

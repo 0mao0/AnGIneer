@@ -1,0 +1,38 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        53,
+        66
+    ],
+    "pages": [
+        54,
+        58,
+        59,
+        66
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>107<|page|>54<|box|>637 189 665 776<|content|>Net Position in Foreign Currencies of Reporting Ba\n<|id|>112<|page|>58<|box|>95 252 123 770<|content|>MONETARY STOCKS OF GOLD AND SILVER IN U.S.\n<|id|>117<|page|>59<|box|>59 577 87 893<|content|>Silver of Specified Classifications Acquired by Mi\n<|id|>132<|page|>66<|box|>58 46 85 463<|content|>Summary of Criminal Cases in the United States Dis\n<|id|>137<|page|>66<|box|>61 548 76 859<|content|>Treasury Criminal Cases, by Months",
+    "raw_response": "<|id|>107<|level|>1\n<|id|>112<|level|>1\n<|id|>117<|level|>2\n<|id|>132<|level|>1\n<|id|>137<|level|>2",
+    "parsed": [
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 2
+        }
+    ]
+}

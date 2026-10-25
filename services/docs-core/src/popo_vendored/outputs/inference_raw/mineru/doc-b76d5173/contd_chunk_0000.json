@@ -1,0 +1,42 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>1<|box|>794 140 887 856<|content|>4. ... K&H will complement\n<|id|>9<|page|>2<|box|>90 174 125 854<|content|>C&H's services by providing the local expertise an...efficient administration of these Chapter 11 Cases\n<|id|>26<|page|>3<|box|>430 174 467 854<|content|>(b) a first lien term loan (the \"First Lien Term L...g principal balance of approximately $158. ... and\n<|id|>30<|page|>3<|box|>869 143 905 854<|content|>18. ... 11 of the First Lien\n<|id|>31<|page|>4<|box|>90 174 143 854<|content|>Credit Agreement. ... This breach constituted an event of default under the First Lien Credit Agreement\n<|id|>101<|page|>9<|box|>805 140 897 856<|content|>47. ... ,\n<|id|>102<|page|>10<|box|>90 174 218 854<|content|>Case No. ... The retention of K&H as local co-coun...e Office of the United States Trustee for Region 9\n<|id|>112<|page|>10<|box|>873 176 907 851<|content|>(d) Pemberton & Locke LLP (counsel to the Ad Hoc G...rty Plaza, New York, New York 10006 (Attn: ... and\n<|id|>113<|page|>10<|box|>915 142 929 700<|content|>DEBTORS' APPLICATION TO RETAIN KELLNER & HARTWICK LLP AS LOCAL CO-COUNSEL\n<|id|>119<|page|>11<|box|>319 174 409 854<|content|>2. ... and\n<|id|>121<|page|>11<|box|>467 697 484 854<|content|>Dated: ... July 12, 2022\n<|id|>122<|page|>11<|box|>492 210 510 390<|content|>Respectfully submitted,\n<|id|>123<|page|>11<|box|>518 210 553 854<|content|>CALDERWOOD & HARKNESS LLP Counsel to the Debtors and Debtors in Possession\n<|id|>124<|page|>11<|box|>563 142 580 251<|content|>By: ... By\n<|id|>125<|page|>11<|box|>579 140 628 854<|content|>Colette Whitman (Responsible Partner) CALDERWOOD &... Plaza New York, New York 10112 Telephone: ... com\n<|id|>126<|page|>11<|box|>630 140 643 222<|content|>— and —\n<|id|>127<|page|>11<|box|>645 140 679 854<|content|>127 Public Square, Suite 4100 Cleveland, Ohio 44114 Telephone: ... (216) 479-8780\n<|id|>128<|page|>11<|box|>714 210 729 292<|content|>— and —\n<|id|>151<|page|>13<|box|>686 593 704 854<|content|>Dated: ... ____, 2022 Cleveland, Ohio\n<|id|>152<|page|>13<|box|>773 143 808 550<|content|>UNITED STATES BANKRUPTCY JUDGE EXHIBIT B\n<|id|>161<|page|>14<|box|>842 140 897 856<|content|>4. ... I am admitted to practice before the United States Bankruptcy Court for the Northern District of\n<|id|>162<|page|>15<|box|>90 174 160 854<|content|>Ohio, the United States District Court for the Nor... co-counsel to the Debtors in the Chapter 11 Cases\n<|id|>209<|page|>18<|box|>454 576 470 854<|content|>Dated: ... July 12, 2022 Cleveland, Ohio\n<|id|>210<|page|>18<|box|>540 140 590 854<|content|>Bruce Tatelman Partner KELLNER & HARTWICK LLP 600 ...uite 1800 Cleveland, Ohio 44114 Telephone: ... com\n<|id|>215<|page|>19<|box|>109 174 143 854<|content|>(Counsel to the Ad Hoc Group of First Lien Lenders) 51 West 52nd Street New York, New York 10019\n<|id|>216<|page|>19<|box|>154 176 171 370<|content|>Attn: ... Victoria Kline, Esq\n<|id|>218<|page|>19<|box|>189 176 204 403<|content|>4. ... Pemberton & Locke LLP\n<|id|>220<|page|>19<|box|>252 176 268 421<|content|>Attn: ... Raymond Delvecchio, Esq\n<|id|>219<|page|>19<|box|>208 174 243 854<|content|>(Counsel to the Ad Hoc Group of Second Lien Noteholders) 1 Liberty Plaza New York, New York 10006",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>30<|tgt_id|>31\n<|src_id|>101<|tgt_id|>102\n<|src_id|>161<|tgt_id|>162",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 162
+        }
+    ]
+}

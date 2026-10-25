@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 312 118 684<|content|>SWINGLINE PROMISSORY NOTE\n<|id|>4<|page|>1<|box|>503 140 521 437<|content|>1. Identification of Makers and Payee\n<|id|>13<|page|>2<|box|>148 140 167 540<|content|>2. Credit Agreement Reference and Defined Terms\n<|id|>17<|page|>2<|box|>689 140 707 382<|content|>3. Promise to Pay — Principal\n<|id|>24<|page|>3<|box|>375 140 391 370<|content|>4. Promise to Pay — Interest\n<|id|>32<|page|>4<|box|>622 140 638 243<|content|>5. Payments\n<|id|>37<|page|>5<|box|>250 140 266 460<|content|>6. Mandatory and Optional Prepayment\n<|id|>41<|page|>5<|box|>768 140 787 233<|content|>7. Security\n<|id|>65<|page|>7<|box|>344 140 362 434<|content|>8. Events of Default and Acceleration\n<|id|>70<|page|>8<|box|>90 140 107 380<|content|>9. Records of Swingline Loans\n<|id|>74<|page|>8<|box|>483 142 500 241<|content|>10. Waivers\n<|id|>85<|page|>9<|box|>204 140 222 408<|content|>11. Expenses and Indemnification\n<|id|>88<|page|>9<|box|>479 142 498 423<|content|>12. Amendments and Modifications\n<|id|>91<|page|>9<|box|>700 142 719 354<|content|>13. Successors and Assigns\n<|id|>95<|page|>10<|box|>167 140 184 382<|content|>14. Joint and Several Liability\n<|id|>98<|page|>10<|box|>425 140 443 297<|content|>15. Governing Law\n<|id|>100<|page|>10<|box|>547 142 564 439<|content|>16. Submission to Jurisdiction; Venue\n<|id|>107<|page|>11<|box|>212 140 229 339<|content|>17. Waiver of Jury Trial\n<|id|>109<|page|>11<|box|>609 140 625 269<|content|>18. Severability\n<|id|>111<|page|>11<|box|>804 140 821 421<|content|>19. Conflict with Credit Agreement\n<|id|>114<|page|>12<|box|>178 434 194 562<|content|>BORROWERS\n<|id|>128<|page|>13<|box|>89 437 107 560<|content|>SCHEDULE A\n<|id|>129<|page|>13<|box|>131 267 148 728<|content|>SWINGLINE LOANS AND PAYMENTS OF PRINCIPAL",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>13<|level|>2\n<|id|>17<|level|>2\n<|id|>24<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>65<|level|>2\n<|id|>70<|level|>2\n<|id|>74<|level|>2\n<|id|>85<|level|>2\n<|id|>88<|level|>2\n<|id|>91<|level|>2\n<|id|>95<|level|>2\n<|id|>98<|level|>2\n<|id|>100<|level|>2\n<|id|>107<|level|>2\n<|id|>109<|level|>2\n<|id|>111<|level|>2\n<|id|>114<|level|>2\n<|id|>128<|level|>2\n<|id|>129<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        }
+    ]
+}

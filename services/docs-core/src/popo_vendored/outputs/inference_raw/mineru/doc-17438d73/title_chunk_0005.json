@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 5,
+    "range": [
+        235,
+        289
+    ],
+    "pages": [
+        236,
+        239,
+        247,
+        252,
+        263,
+        265,
+        266,
+        269,
+        276,
+        277,
+        279,
+        280,
+        284,
+        285,
+        287,
+        288
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>931<|page|>236<|box|>156 153 180 187<|content|>续表\n<|id|>942<|page|>239<|box|>168 187 191 290<|content|>3. 桩径 \\phi100cm\n<|id|>970<|page|>247<|box|>168 163 190 197<|content|>续表\n<|id|>988<|page|>252<|box|>156 178 182 281<|content|>4. 桩径 \\phi120cm\n<|id|>1027<|page|>263<|box|>172 167 195 201<|content|>续表\n<|id|>1034<|page|>265<|box|>168 168 193 203<|content|>续表\n<|id|>1038<|page|>266<|box|>162 171 187 274<|content|>5. 桩径 \\phi140cm\n<|id|>1049<|page|>269<|box|>166 168 190 203<|content|>续表\n<|id|>1074<|page|>276<|box|>164 385 191 589<|content|>三、水上打钢筋混凝土板桩\n<|id|>1075<|page|>276<|box|>207 172 230 260<|content|>1. 宽度 40cm\n<|id|>1079<|page|>277<|box|>164 168 189 201<|content|>续表\n<|id|>1086<|page|>279<|box|>166 168 189 201<|content|>续表\n<|id|>1090<|page|>280<|box|>164 170 187 260<|content|>2. 宽度70cm\n<|id|>1105<|page|>284<|box|>156 172 180 268<|content|>3. 宽度100cm\n<|id|>1109<|page|>285<|box|>164 171 189 205<|content|>续表\n<|id|>1116<|page|>287<|box|>158 170 184 204<|content|>续表\n<|id|>1120<|page|>288<|box|>151 414 178 551<|content|>四、水上打钢管桩\n<|id|>1121<|page|>288<|box|>193 168 217 264<|content|>1. 桩径 \\phi60cm",
+    "raw_response": "<|id|>931<|level|>3\n<|id|>942<|level|>2\n<|id|>970<|level|>3\n<|id|>988<|level|>2\n<|id|>1027<|level|>3\n<|id|>1034<|level|>3\n<|id|>1038<|level|>2\n<|id|>1049<|level|>3\n<|id|>1074<|level|>1\n<|id|>1075<|level|>2\n<|id|>1079<|level|>3\n<|id|>1086<|level|>3\n<|id|>1090<|level|>2\n<|id|>1105<|level|>2\n<|id|>1109<|level|>3\n<|id|>1116<|level|>3\n<|id|>1120<|level|>1\n<|id|>1121<|level|>2",
+    "parsed": [
+        {
+            "id": 931,
+            "level": 3
+        },
+        {
+            "id": 942,
+            "level": 2
+        },
+        {
+            "id": 970,
+            "level": 3
+        },
+        {
+            "id": 988,
+            "level": 2
+        },
+        {
+            "id": 1027,
+            "level": 3
+        },
+        {
+            "id": 1034,
+            "level": 3
+        },
+        {
+            "id": 1038,
+            "level": 2
+        },
+        {
+            "id": 1049,
+            "level": 3
+        },
+        {
+            "id": 1074,
+            "level": 1
+        },
+        {
+            "id": 1075,
+            "level": 2
+        },
+        {
+            "id": 1079,
+            "level": 3
+        },
+        {
+            "id": 1086,
+            "level": 3
+        },
+        {
+            "id": 1090,
+            "level": 2
+        },
+        {
+            "id": 1105,
+            "level": 2
+        },
+        {
+            "id": 1109,
+            "level": 3
+        },
+        {
+            "id": 1116,
+            "level": 3
+        },
+        {
+            "id": 1120,
+            "level": 1
+        },
+        {
+            "id": 1121,
+            "level": 2
+        }
+    ]
+}

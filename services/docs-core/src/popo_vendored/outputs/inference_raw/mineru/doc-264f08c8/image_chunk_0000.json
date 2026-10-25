@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20,
+        22,
+        23
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 168 107 828<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>2<|type|>title<|page|>1<|box|>199 403 219 593<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>436 140 454 421<|content|>I. Purpose and Executive Summary\n<|id|>24<|type|>title<|page|>2<|box|>744 140 760 410<|content|>II. Summary of Material Changes\n<|id|>26<|type|>title<|page|>4<|box|>90 140 126 854<|content|>A. Customer Data Ownership (Section 7.1 of Agreeme\n<|id|>38<|type|>title<|page|>6<|box|>90 140 126 854<|content|>B. Aggregated Data Use Restrictions (Section 7.3 o\n<|id|>46<|type|>title<|page|>7<|box|>138 140 157 653<|content|>C. Indemnification Structure and Caps (Section 10\n<|id|>65<|type|>title<|page|>9<|box|>89 140 108 557<|content|>D. General Liability Cap (Section 11.2 of Agreemen\n<|id|>74<|type|>title<|page|>10<|box|>90 140 107 658<|content|>E. SLA Uptime Threshold (Exhibit B — Service Level\n<|id|>82<|type|>title<|page|>11<|box|>90 140 107 750<|content|>F. Chronic Failure Termination Right (Exhibit B —\n<|id|>86<|type|>title<|page|>12<|box|>89 140 126 854<|content|>G. Data Portability Timeline (Section 7.5 of Agree\n<|id|>95<|type|>title<|page|>14<|box|>90 140 108 813<|content|>H. Subprocessor Objection Right (Exhibit C — Data\n<|id|>106<|type|>title<|page|>15<|box|>231 140 250 712<|content|>I. Change-of-Control Assignment Restriction (Secti\n<|id|>116<|type|>title<|page|>16<|box|>422 140 439 674<|content|>J. Governing Law and Dispute Resolution (Section 1\n<|id|>125<|type|>title<|page|>18<|box|>90 140 107 450<|content|>III. Additional Negotiated Refinements\n<|id|>129<|type|>table<|page|>18<|box|>541 143 652 852<|content|>None\n<|id|>140<|type|>title<|page|>19<|box|>704 140 722 547<|content|>IV. Dravello Data Compliance Advisors Assessment\n<|id|>150<|type|>title<|page|>20<|box|>343 140 359 426<|content|>V. Recommendation and Next Steps\n<|id|>166<|type|>title<|page|>22<|box|>90 140 107 534<|content|>VI. Appendix — Comparison Table of Key Terms\n<|id|>168<|type|>table<|page|>22<|box|>196 143 901 852<|content|>None\n<|id|>169<|type|>table<|page|>23<|box|>89 143 554 851<|content|>None",
+    "raw_response": "<|src_id|>129<|tgt_id|>125\n<|src_id|>168<|tgt_id|>166\n<|src_id|>169<|tgt_id|>166",
+    "parsed": [
+        {
+            "src_id": 129,
+            "tgt_id": 125
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 166
+        }
+    ]
+}

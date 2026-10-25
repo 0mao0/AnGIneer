@@ -1,0 +1,45 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        56
+    ],
+    "pages": [
+        45,
+        46,
+        56
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>414<|page|>45<|box|>116 140 133 400<|content|>6. Tralvendo Rating Verification\n<|id|>416<|page|>45<|box|>204 143 222 318<|content|>Target: August 5, 2025.\n<|id|>417<|page|>45<|box|>229 142 248 343<|content|>7. Negotiation Issues List\n<|id|>429<|page|>45<|box|>508 140 525 413<|content|>8. Counter-Redline (Second Draft)\n<|id|>433<|page|>45<|box|>704 140 720 441<|content|>9. Negotiation Call with Counterparty\n<|id|>436<|page|>46<|box|>90 303 111 692<|content|>9. Appendix — Full Comparison Table\n<|id|>469<|page|>56<|box|>417 142 434 274<|content|>PREPARED BY:",
+    "raw_response": "<|id|>414<|level|>1\n<|id|>416<|level|>2\n<|id|>417<|level|>1\n<|id|>429<|level|>1\n<|id|>433<|level|>1\n<|id|>436<|level|>1\n<|id|>469<|level|>1",
+    "parsed": [
+        {
+            "id": 414,
+            "level": 1
+        },
+        {
+            "id": 416,
+            "level": 2
+        },
+        {
+            "id": 417,
+            "level": 1
+        },
+        {
+            "id": 429,
+            "level": 1
+        },
+        {
+            "id": 433,
+            "level": 1
+        },
+        {
+            "id": 436,
+            "level": 1
+        },
+        {
+            "id": 469,
+            "level": 1
+        }
+    ]
+}

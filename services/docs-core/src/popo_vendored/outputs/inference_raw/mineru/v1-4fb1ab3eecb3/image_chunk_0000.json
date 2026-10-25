@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        12,
+        13,
+        14,
+        16,
+        17,
+        21,
+        25,
+        28,
+        29
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>24 333 64 663<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION W\n<|id|>24<|type|>title<|page|>2<|box|>33 26 61 882<|content|>Item 5.02.Departure of Directors or Certain Office\n<|id|>30<|type|>table<|page|>3<|box|>309 23 441 971<|content|>None\n<|id|>34<|type|>title<|page|>4<|box|>27 449 40 545<|content|>SIGNATURE\n<|id|>41<|type|>title<|page|>5<|box|>33 324 64 671<|content|>FOOT LOCKER, INC.\n<|id|>56<|type|>title<|page|>6<|box|>271 132 285 297<|content|>Service as Senior Advisor.\n<|id|>63<|type|>title<|page|>7<|box|>259 21 273 427<|content|>2.Post-Termination Obligations and Restrictive Cov\n<|id|>77<|type|>title<|page|>12<|box|>70 387 84 607<|content|>EMPLOYMENT AGREEMENT\n<|id|>89<|type|>title<|page|>13<|box|>271 21 285 208<|content|>4.Cash Compensation\n<|id|>93<|type|>title<|page|>14<|box|>171 23 185 277<|content|>5.Inducement and Equity Awards\n<|id|>105<|type|>title<|page|>16<|box|>322 77 336 203<|content|>Additional Benefits\n<|id|>112<|type|>title<|page|>17<|box|>246 23 260 161<|content|>7.Termination.\n<|id|>129<|type|>title<|page|>21<|box|>246 21 260 375<|content|>9.Confidential Information and Non-Competition.\n<|id|>147<|type|>title<|page|>25<|box|>322 23 336 173<|content|>16.Miscellaneous.\n<|id|>158<|type|>title<|page|>28<|box|>7 452 20 543<|content|>Attachment A\n<|id|>159<|type|>title<|page|>28<|box|>32 439 46 557<|content|>Change in Control\n<|id|>165<|type|>title<|page|>29<|box|>33 323 63 668<|content|>FOOT LOCKER, INC.\n<|id|>169<|type|>title<|page|>29<|box|>206 232 235 762<|content|>RICHARD A. JOHNSON TO RETIRE AS CHAIRMAN AND CEO;",
+    "raw_response": "<|src_id|>30<|tgt_id|>24",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 24
+        }
+    ]
+}

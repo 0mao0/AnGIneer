@@ -1,0 +1,149 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>388 140 404 321<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>223 140 239 398<|content|>II. Applicable Legal Framework\n<|id|>15<|page|>2<|box|>253 140 271 614<|content|>A. California Family Code § 4055 — The Guideline F\n<|id|>30<|page|>3<|box|>349 140 366 653<|content|>B. Family Code § 4058 — Determination of Annual Gr\n<|id|>44<|page|>4<|box|>176 140 193 648<|content|>C. Family Code § 4057 — Presumption of Correctness\n<|id|>52<|page|>4<|box|>561 142 578 341<|content|>D. DissoMaster Software\n<|id|>55<|page|>4<|box|>799 140 816 292<|content|>III. Income Inputs\n<|id|>57<|page|>5<|box|>90 140 107 513<|content|>A. Marguerite D. Fonseca — Petitioner / Client\n<|id|>68<|page|>6<|box|>231 140 250 433<|content|>B. Rafael J. Medrano — Respondent\n<|id|>81<|page|>7<|box|>595 140 614 433<|content|>C. Combined Gross Monthly Income\n<|id|>85<|page|>8<|box|>90 140 107 426<|content|>IV. Timeshare Inputs and Scenarios\n<|id|>87<|page|>8<|box|>239 140 256 522<|content|>A. Current Status — Temporary Custody Order\n<|id|>90<|page|>8<|box|>520 140 537 617<|content|>B. Anticipated Timeshare — Client's Proposed Arran\n<|id|>95<|page|>8<|box|>763 140 779 483<|content|>Calculation of Effective Annual Timeshare:\n<|id|>101<|page|>9<|box|>176 140 194 388<|content|>C. DissoMaster Scenario Table\n<|id|>105<|page|>9<|box|>575 142 592 491<|content|>Key observations from the scenario analysis:\n<|id|>110<|page|>10<|box|>279 140 296 612<|content|>V. Analysis of the Guideline Amount at Proposed Ti\n<|id|>111<|page|>10<|box|>309 140 327 465<|content|>A. DissoMaster Output at 63.6% / 36.4%\n<|id|>113<|page|>10<|box|>378 142 393 339<|content|>Gross Monthly Incomes:\n<|id|>117<|page|>10<|box|>463 142 479 501<|content|>Tax Adjustments and Net Disposable Income:\n<|id|>139<|page|>11<|box|>470 140 489 596<|content|>B. Why the Higher Earner Pays Despite Majority Cus\n<|id|>144<|page|>12<|box|>157 140 175 478<|content|>C. Add-On Expenses (Family Code § 4062)\n<|id|>155<|page|>13<|box|>186 140 204 498<|content|>VI. Preliminary Considerations for Deviation\n<|id|>164<|page|>13<|box|>672 140 689 398<|content|>VII. Open Issues and Next Steps\n<|id|>166<|page|>13<|box|>747 140 763 369<|content|>A. Forensic Income Analysis\n<|id|>176<|page|>14<|box|>349 140 366 383<|content|>B. Custody Evaluation Impact\n<|id|>180<|page|>14<|box|>656 140 672 413<|content|>C. Tax Filing Status Confirmation\n<|id|>183<|page|>15<|box|>90 140 107 468<|content|>D. Employer Health Insurance Deduction\n<|id|>186<|page|>15<|box|>309 140 325 279<|content|>VIII. Conclusion",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>30<|level|>3\n<|id|>44<|level|>3\n<|id|>52<|level|>3\n<|id|>55<|level|>2\n<|id|>57<|level|>3\n<|id|>68<|level|>3\n<|id|>81<|level|>3\n<|id|>85<|level|>2\n<|id|>87<|level|>3\n<|id|>90<|level|>3\n<|id|>95<|level|>4\n<|id|>101<|level|>3\n<|id|>105<|level|>4\n<|id|>110<|level|>2\n<|id|>111<|level|>3\n<|id|>113<|level|>4\n<|id|>117<|level|>4\n<|id|>139<|level|>3\n<|id|>144<|level|>3\n<|id|>155<|level|>2\n<|id|>164<|level|>2\n<|id|>166<|level|>3\n<|id|>176<|level|>3\n<|id|>180<|level|>3\n<|id|>183<|level|>3\n<|id|>186<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 4
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 4
+        },
+        {
+            "id": 117,
+            "level": 4
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 2
+        }
+    ]
+}

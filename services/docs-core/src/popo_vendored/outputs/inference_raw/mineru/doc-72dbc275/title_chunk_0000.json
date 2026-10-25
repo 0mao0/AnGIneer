@@ -1,0 +1,38 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        3,
+        8
+    ],
+    "pages": [
+        3,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>35<|page|>3<|box|>676 140 695 635<|content|>**II. SUMMARY OF KEY RECOMMENDATIONS AND FINDINGS*\n<|id|>45<|page|>5<|box|>483 140 501 651<|content|>**III. PRIORITY ACTION ITEMS FOR OCTOBER 1, 2024 L\n<|id|>56<|page|>7<|box|>89 142 106 580<|content|>**V. AVAILABILITY FOR IMPLEMENTATION SUPPORT**\n<|id|>64<|page|>7<|box|>621 142 638 375<|content|>**VI. ACKNOWLEDGMENTS**\n<|id|>76<|page|>8<|box|>647 140 664 282<|content|>**Attachments:**",
+    "raw_response": "<|id|>35<|level|>1\n<|id|>45<|level|>1\n<|id|>56<|level|>1\n<|id|>64<|level|>1\n<|id|>76<|level|>1",
+    "parsed": [
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        }
+    ]
+}

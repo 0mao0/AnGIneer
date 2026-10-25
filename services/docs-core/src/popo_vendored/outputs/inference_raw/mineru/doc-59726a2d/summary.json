@@ -1,0 +1,76 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-yrrcwiqq\\input\\pdfs\\doc-59726a2d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-yrrcwiqq\\enriched\\doc-59726a2d.json",
+    "contd_output": "",
+    "title_output": "<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>1\n<|id|>46<|level|>1\n<|id|>50<|level|>1\n<|id|>60<|level|>1",
+    "image_output": "<|src_id|>44<|tgt_id|>42\n<|src_id|>45<|tgt_id|>42",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 42
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 44,
+            "table2_idx": 45,
+            "upper_row_ss": [
+                [
+                    "1",
+                    "Deposit Account Control Agreements — three fully executed DACAs covering the operating account, payroll account, and reserve account at Pacific Horizon",
+                    "April 8, 2023 (30 days post-closing)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Bank",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

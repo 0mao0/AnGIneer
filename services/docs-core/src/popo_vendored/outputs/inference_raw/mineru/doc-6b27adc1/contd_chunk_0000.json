@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 133 625<|content|>One International Place, Suite 3400 Boston, Massachusetts 02110\n<|id|>2<|page|>1<|box|>142 140 159 774<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 140 185 756<|content|>Devon Archer, Esq. ... com\n<|id|>4<|page|>1<|box|>194 736 210 854<|content|>August 5, 2022\n<|id|>5<|page|>1<|box|>219 140 236 375<|content|>Via Email and First-Class Mail\n<|id|>6<|page|>1<|box|>244 140 280 854<|content|>Catherine A. ... Fielding & Rowe LLP 101 Federal Street, Suite 2600 Boston, MA 02110\n<|id|>7<|page|>1<|box|>289 174 325 854<|content|>Re: ... 1010-00004\n<|id|>8<|page|>1<|box|>334 140 351 285<|content|>Dear Ms. ... Fielding\n<|id|>22<|page|>2<|box|>710 174 876 857<|content|>Severance — Qualifying Termination (Non-Change in Control). ... and (d)\n<|id|>23<|page|>3<|box|>90 174 126 854<|content|>acceleration of vesting of twenty-five percent (25...then-unvested portion of outstanding equity awards\n<|id|>49<|page|>5<|box|>784 140 893 857<|content|>The enclosed Exhibit A to the Employment Agreement...AHT Board of Directors, including the Board Chair,\n<|id|>50<|page|>6<|box|>90 140 143 854<|content|>Thomas R. ... Glenwood, and other Ridgeline Capita...directed by the CEO or the Board from time to time\n<|id|>64<|page|>7<|box|>693 142 709 272<|content|>Very truly yours,\n<|id|>65<|page|>7<|box|>709 140 724 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>66<|page|>7<|box|>728 143 744 253<|content|>By: ... By\n<|id|>67<|page|>7<|box|>744 140 776 852<|content|>Devon Archer Associate, Labor & Employment Calderw...uite 3400 Boston, MA 02110 Tel: ... (617) 542-8834\n<|id|>68<|page|>7<|box|>777 142 794 455<|content|>Email: ... com\n<|id|>69<|page|>7<|box|>794 140 848 854<|content|>cc: ... Lisa Murakami, Chief Human Resources Officer, Arbor Health Technologies Inc\n<|id|>71<|page|>7<|box|>883 178 900 563<|content|>1. ... Executive Employment Agreement — First Draft\n<|id|>78<|page|>8<|box|>205 140 282 854<|content|>This letter and any documents accompanying it may ...iginal materials by mail without making any copies\n<|id|>72<|page|>8<|box|>90 176 107 723<|content|>2. ... Employee Non-Competition Agreement (MA Compliant) — First Draft\n<|id|>73<|page|>8<|box|>109 176 126 506<|content|>3. ... Stock Option Award Agreement — Draft\n<|id|>74<|page|>8<|box|>130 176 145 566<|content|>4. ... Restricted Stock Unit Award Agreement — Draft\n<|id|>75<|page|>8<|box|>148 176 165 759<|content|>5. ... Schedule A to Employment Agreement — Prior Inventions Disclosure Form\n<|id|>76<|page|>8<|box|>169 176 185 781<|content|>6. ... Schedule B to Employment Agreement — Form of General Release Agreement\n<|id|>77<|page|>8<|box|>189 176 205 828<|content|>7. ... Exhibit A to Employment Agreement — Position Description and Reporting Structure",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>49<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        }
+    ]
+}

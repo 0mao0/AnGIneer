@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>138 230 155 767<|content|>IN THE UNITED STATES PATENT AND TRADEMARK OFFICE\n<|id|>1<|type|>title<|page|>1<|box|>164 223 181 774<|content|>REQUEST FOR EXTENSION OF TIME UNDER 37 C.F.R. § 1.\n<|id|>3<|type|>table<|page|>1<|box|>258 143 539 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>614 142 631 437<|content|>I. PRIORITY CLAIM REFERENCE\n<|id|>7<|type|>title<|page|>1<|box|>809 142 825 506<|content|>II. STATEMENT OF EXTENSION SOUGHT\n<|id|>11<|type|>title<|page|>2<|box|>303 140 320 457<|content|>III. AUTHORITY AND LEGAL BASIS\n<|id|>17<|type|>title<|page|>2<|box|>638 142 655 351<|content|>IV. FEE TRANSMITTAL\n<|id|>19<|type|>table<|page|>2<|box|>688 143 772 852<|content|>None\n<|id|>23<|type|>title<|page|>3<|box|>204 140 220 535<|content|>V. SMALL ENTITY STATUS CONFIRMATION\n<|id|>26<|type|>title<|page|>3<|box|>425 140 441 300<|content|>VI. CONCLUSION\n<|id|>36<|type|>title<|page|>3<|box|>731 321 747 676<|content|>CERTIFICATE OF ELECTRONIC FILING\n<|id|>40<|type|>title<|page|>3<|box|>890 362 907 633<|content|>CORRESPONDENCE ADDRESS\n<|id|>42<|type|>table<|page|>4<|box|>205 143 337 852<|content|>None\n<|id|>43<|type|>title<|page|>4<|box|>371 143 385 256<|content|>Docketing Notes:\n<|id|>45<|type|>title<|page|>4<|box|>476 143 491 330<|content|>Extension of Time Tracking:",
+    "raw_response": "<|src_id|>3<|tgt_id|>1\n<|src_id|>19<|tgt_id|>17\n<|src_id|>42<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "task": "image",
+    "chunk_index": 5,
+    "range": [
+        249,
+        265
+    ],
+    "pages": [
+        250,
+        251,
+        252,
+        253,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        262,
+        263,
+        264,
+        265
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3067<|type|>title<|page|>250<|box|>204 347 231 637<|content|>16 劳动安全卫生\n<|id|>3068<|type|>title<|page|>250<|box|>262 405 280 580<|content|>16.1 一般规定\n<|id|>3071<|type|>title<|page|>250<|box|>370 352 387 630<|content|>16.2 工程设计中的安全措施\n<|id|>3076<|type|>title<|page|>250<|box|>500 372 517 609<|content|>16.3 各类码头安全措施\n<|id|>3078<|type|>title<|page|>251<|box|>163 408 191 630<|content|>17 节能\n<|id|>3079<|type|>title<|page|>251<|box|>222 432 239 606<|content|>17.1 一般规定\n<|id|>3085<|type|>title<|page|>252<|box|>157 400 176 573<|content|>17.2 节能要求\n<|id|>3087<|type|>title<|page|>253<|box|>166 372 193 627<|content|>18 港口保安\n<|id|>3088<|type|>title<|page|>253<|box|>224 412 242 587<|content|>18.1 一般规定\n<|id|>3093<|type|>title<|page|>253<|box|>611 412 629 587<|content|>18.2 保安要求\n<|id|>3104<|type|>title<|page|>255<|box|>163 223 191 764<|content|>附录 A 设计船型尺度及其他参数\n<|id|>3113<|type|>table<|page|>256<|box|>128 109 912 855<|content|>None\n<|id|>3114<|type|>table<|page|>257<|box|>85 121 872 888<|content|>None\n<|id|>3116<|type|>table<|page|>258<|box|>129 127 916 893<|content|>None\n<|id|>3117<|type|>table<|page|>259<|box|>83 130 872 908<|content|>None\n<|id|>3118<|type|>table<|page|>260<|box|>123 99 910 874<|content|>None\n<|id|>3126<|type|>title<|page|>262<|box|>205 238 233 745<|content|>附录 D 码头陆域用地参考指标\n<|id|>3129<|type|>table<|page|>262<|box|>442 97 915 884<|content|>None\n<|id|>3130<|type|>table<|page|>263<|box|>100 113 228 896<|content|>None\n<|id|>3131<|type|>title<|page|>263<|box|>233 111 252 652<|content|>D.0.3 我国主要干散货码头堆场用地面积统计参考表 D-2。\n<|id|>3132<|type|>table<|page|>263<|box|>275 113 515 898<|content|>None\n<|id|>3133<|type|>title<|page|>264<|box|>207 247 237 714<|content|>附录 G 船舶所需拖轮总拖力\n<|id|>3138<|type|>title<|page|>265<|box|>156 140 217 888<|content|>附录 H 一般港口杂货船、集装箱船、油船和散货船所需的平均拖轮数量和平均拖力",
+    "raw_response": "<|src_id|>3113<|tgt_id|>3104\n<|src_id|>3114<|tgt_id|>3104\n<|src_id|>3116<|tgt_id|>3104\n<|src_id|>3117<|tgt_id|>3104\n<|src_id|>3118<|tgt_id|>3104\n<|src_id|>3129<|tgt_id|>3126\n<|src_id|>3130<|tgt_id|>3126\n<|src_id|>3132<|tgt_id|>3131",
+    "parsed": [
+        {
+            "src_id": 3113,
+            "tgt_id": 3104
+        },
+        {
+            "src_id": 3114,
+            "tgt_id": 3104
+        },
+        {
+            "src_id": 3116,
+            "tgt_id": 3104
+        },
+        {
+            "src_id": 3117,
+            "tgt_id": 3104
+        },
+        {
+            "src_id": 3118,
+            "tgt_id": 3104
+        },
+        {
+            "src_id": 3129,
+            "tgt_id": 3126
+        },
+        {
+            "src_id": 3130,
+            "tgt_id": 3126
+        },
+        {
+            "src_id": 3132,
+            "tgt_id": 3131
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>241 176 258 500<|content|>Via Electronic Mail and First-Class Mail\n<|id|>6<|page|>1<|box|>353 142 369 321<|content|>Dear Captain Hargrove:\n<|id|>10<|page|>1<|box|>691 142 707 697<|content|>I. Summary of the GAO Decision and Recommended Cor\n<|id|>22<|page|>2<|box|>833 140 849 607<|content|>II. Scope of Reevaluation — Factor 1 (Technical Ap\n<|id|>31<|page|>3<|box|>708 140 724 640<|content|>III. Scope of Reevaluation — Factor 3 (Management\n<|id|>41<|page|>4<|box|>593 140 609 611<|content|>IV. Requirements for the New Best-Value Tradeoff D\n<|id|>54<|page|>5<|box|>654 140 672 584<|content|>V. Factor 2 (Past Performance) — No Changes Expect\n<|id|>58<|page|>6<|box|>167 140 185 683<|content|>VI. Process Expectations — Discussions and Final P\n<|id|>65<|page|>6<|box|>638 140 655 485<|content|>VII. Timeline and 60-Day Recommendation\n<|id|>70<|page|>7<|box|>229 140 247 339<|content|>VIII. Protest Cost Claim\n<|id|>75<|page|>7<|box|>601 142 617 344<|content|>IX. Reservation of Rights\n<|id|>83<|page|>8<|box|>256 140 273 258<|content|>X. Conclusion",
+    "raw_response": "<|id|>3<|level|>-1\n<|id|>6<|level|>-1\n<|id|>10<|level|>1\n<|id|>22<|level|>1\n<|id|>31<|level|>1\n<|id|>41<|level|>1\n<|id|>54<|level|>1\n<|id|>58<|level|>1\n<|id|>65<|level|>1\n<|id|>70<|level|>1\n<|id|>75<|level|>1\n<|id|>83<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        }
+    ]
+}

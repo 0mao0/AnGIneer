@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>446 423 467 573<|content|>I. Introduction\n<|id|>12<|page|>2<|box|>90 372 111 624<|content|>II. Documents Examined\n<|id|>29<|page|>3<|box|>477 413 496 584<|content|>III. Assumptions\n<|id|>41<|page|>5<|box|>136 431 155 565<|content|>IV. Opinions\n<|id|>43<|page|>5<|box|>232 140 250 553<|content|>Opinion 1 — Organization and Existence of Halcyon\n<|id|>46<|page|>5<|box|>599 140 617 630<|content|>Opinion 2 — Incorporation and Good Standing of Mer\n<|id|>49<|page|>6<|box|>90 140 107 500<|content|>Opinion 3 — Corporate Power and Authority\n<|id|>56<|page|>6<|box|>816 140 834 468<|content|>Opinion 4 — Due Execution and Delivery\n<|id|>59<|page|>7<|box|>167 140 185 362<|content|>Opinion 5 — Enforceability\n<|id|>61<|page|>7<|box|>289 140 306 426<|content|>Opinion 6 — No Conflicts (Limited)\n<|id|>66<|page|>8<|box|>136 197 156 800<|content|>V. Qualifications and Exceptions (Enforceability E\n<|id|>75<|page|>9<|box|>319 419 340 576<|content|>VI. Limitations\n<|id|>82<|page|>10<|box|>486 246 505 750<|content|>VII. Consent to Delivery; No Third-Party Reliance\n<|id|>88<|page|>10<|box|>890 142 907 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>12<|level|>1\n<|id|>29<|level|>1\n<|id|>41<|level|>1\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>49<|level|>2\n<|id|>56<|level|>2\n<|id|>59<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>1\n<|id|>75<|level|>1\n<|id|>82<|level|>1\n<|id|>88<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        }
+    ]
+}

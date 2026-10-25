@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-83hwdpec\\input\\pdfs\\doc-3b1fbe93.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-83hwdpec\\enriched\\doc-3b1fbe93.json",
+    "contd_output": "<|src_id|>50<|tgt_id|>51",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>23<|level|>3\n<|id|>28<|level|>3\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>77<|level|>2\n<|id|>78<|level|>3\n<|id|>104<|level|>2\n<|id|>105<|level|>3\n<|id|>130<|level|>2\n<|id|>131<|level|>3\n<|id|>176<|level|>2\n<|id|>177<|level|>3\n<|id|>213<|level|>2\n<|id|>214<|level|>3\n<|id|>260<|level|>2\n<|id|>261<|level|>3\n<|id|>266<|level|>3\n<|id|>270<|level|>3\n<|id|>274<|level|>3\n<|id|>278<|level|>3\n<|id|>282<|level|>3\n<|id|>286<|level|>3\n<|id|>289<|level|>2\n<|id|>290<|level|>3",
+    "image_output": "<|src_id|>25<|tgt_id|>23\n<|src_id|>26<|tgt_id|>23\n<|src_id|>287<|tgt_id|>286\n<|src_id|>288<|tgt_id|>286",
+    "contd_label": [
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 214,
+            "level": 3
+        },
+        {
+            "id": 260,
+            "level": 2
+        },
+        {
+            "id": 261,
+            "level": 3
+        },
+        {
+            "id": 266,
+            "level": 3
+        },
+        {
+            "id": 270,
+            "level": 3
+        },
+        {
+            "id": 274,
+            "level": 3
+        },
+        {
+            "id": 278,
+            "level": 3
+        },
+        {
+            "id": 282,
+            "level": 3
+        },
+        {
+            "id": 286,
+            "level": 3
+        },
+        {
+            "id": 289,
+            "level": 2
+        },
+        {
+            "id": 290,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 25,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 287,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 288,
+            "tgt_id": 286
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 25,
+            "table2_idx": 26,
+            "upper_row_ss": [
+                [
+                    "2.",
+                    "Dunmore Gulf Operations LLC",
+                    "State of Delaware, United States",
+                    "Limited liability company",
+                    "Wholly-owned subsidiary of DEH",
+                    "Holder of deepwater leases in the Green"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Canyon and Garden Banks areas of the Gulf of Mexico"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 287,
+            "table2_idx": 288,
+            "upper_row_ss": [
+                [
+                    "Dunmore Trading Ltd.",
+                    "Deepa Rajaram",
+                    "CFO, DEH (Director)",
+                    "——"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Dunmore Trading Ltd.",
+                    "Alistair Forde",
+                    "General Counsel, DEH (Director)",
+                    "——"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        8
+    ],
+    "pages": [
+        5,
+        6,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>38<|page|>5<|box|>916 142 930 619<|content|>Wire Transfer Instructions — Granite Peak NIH Holdings, LLC — Dividend Distribution\n<|id|>43<|page|>6<|box|>622 140 733 854<|content|>Each of the foregoing individuals has been designa... the internal policies of the Administrative Agent\n<|id|>54<|page|>8<|box|>239 140 257 455<|content|>GRANITE PEAK NIH HOLDINGS, LLC\n<|id|>55<|page|>8<|box|>258 142 275 428<|content|>By: ... Granite Peak Capital Partners, LP,\n<|id|>56<|page|>8<|box|>276 143 292 310<|content|>its Managing Member\n<|id|>57<|page|>8<|box|>292 143 310 428<|content|>By: ... Granite Peak Capital GP IV, LLC,\n<|id|>58<|page|>8<|box|>310 143 325 285<|content|>its General Partner\n<|id|>59<|page|>8<|box|>328 143 344 253<|content|>By: ... By\n<|id|>60<|page|>8<|box|>344 143 361 318<|content|>Name: ... Ryan Ostrowski\n<|id|>61<|page|>8<|box|>362 143 378 421<|content|>Title: ... Principal, Authorized Signatory\n<|id|>62<|page|>8<|box|>378 143 396 264<|content|>Date: ... Date\n<|id|>66<|page|>8<|box|>455 143 473 323<|content|>Name: ... Michelle Kaplan\n<|id|>67<|page|>8<|box|>473 143 489 361<|content|>Title: ... Chief Financial Officer\n<|id|>68<|page|>8<|box|>491 143 508 264<|content|>Date: ... Date\n<|id|>72<|page|>8<|box|>569 143 585 290<|content|>Name: ... Priya Mehta\n<|id|>73<|page|>8<|box|>585 142 603 526<|content|>Title: ... Vice President, Treasury & Corporate Finance\n<|id|>74<|page|>8<|box|>604 143 621 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>55<|tgt_id|>56\n<|src_id|>57<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        }
+    ]
+}

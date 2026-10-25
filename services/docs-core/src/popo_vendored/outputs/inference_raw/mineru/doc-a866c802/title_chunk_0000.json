@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        3,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 104 584<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>112 151 147 844<|content|>CALDERWOOD & HARKNESS LLP 1285 Avenue of the Ameri\n<|id|>11<|page|>1<|box|>425 316 445 679<|content|>I. PURPOSE AND BACKGROUND\n<|id|>21<|page|>3<|box|>227 166 246 828<|content|>II. ENGAGEMENT STRUCTURE — TWO-PHASE APPROACH\n<|id|>23<|page|>3<|box|>378 142 396 490<|content|>A. Phase 1: Assessment & Remediation Plan\n<|id|>51<|page|>6<|box|>483 140 500 475<|content|>B. Phase 2: Implementation & Monitoring\n<|id|>71<|page|>8<|box|>334 140 351 334<|content|>C. Total Estimated Fees\n<|id|>75<|page|>8<|box|>741 246 760 750<|content|>III. BILLING RATES — ENGAGEMENT TEAM\n<|id|>76<|page|>8<|box|>786 142 803 315<|content|>A. 2025 Hourly Rates\n<|id|>80<|page|>9<|box|>195 142 210 254<|content|>B. Rate Notes\n<|id|>85<|page|>9<|box|>705 140 722 483<|content|>C. Projected Hours Allocation (Illustrative)\n<|id|>93<|page|>10<|box|>612 325 631 671<|content|>IV. FEE COLLAR MECHANISM\n<|id|>104<|page|>11<|box|>683 419 702 576<|content|>V. RETAINER\n<|id|>110<|page|>12<|box|>388 263 407 733<|content|>VI. EXPENSE REIMBURSEMENT AND CAP\n<|id|>128<|page|>13<|box|>484 230 503 764<|content|>VII. BILLING CADENCE AND PAYMENT TERMS\n<|id|>129<|page|>13<|box|>531 142 547 341<|content|>A. Monthly Billing Cycle\n<|id|>133<|page|>14<|box|>90 142 107 294<|content|>B. Payment Terms\n<|id|>139<|page|>14<|box|>407 140 424 277<|content|>C. Invoice Detail\n<|id|>150<|page|>15<|box|>90 179 135 816<|content|>VIII. BUDGET CONTEXT — BRB'S TOTAL REMEDIATION EXP\n<|id|>156<|page|>16<|box|>135 241 179 754<|content|>IX. BUDGET MONITORING AND QUARTERLY RECONCILIATION\n<|id|>157<|page|>16<|box|>204 140 220 310<|content|>A. Internal Tracking\n<|id|>160<|page|>16<|box|>500 142 515 421<|content|>B. Quarterly Budget Reconciliation\n<|id|>168<|page|>17<|box|>204 140 222 349<|content|>C. Scope Change Protocol\n<|id|>175<|page|>17<|box|>661 250 681 748<|content|>X. RELATIONSHIP TO THIRD-PARTY COSTS\n<|id|>183<|page|>18<|box|>667 258 686 738<|content|>XI. BILLING PARTNER RESPONSIBILITIES\n<|id|>193<|page|>19<|box|>599 191 619 805<|content|>XII. KEY FINANCIAL CONTROLS — SUMMARY TABLE\n<|id|>196<|page|>20<|box|>402 274 422 720<|content|>XIII. CONCLUSION AND DISTRIBUTION\n<|id|>206<|page|>21<|box|>90 142 107 251<|content|>Prepared by:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>11<|level|>1\n<|id|>21<|level|>1\n<|id|>23<|level|>2\n<|id|>51<|level|>2\n<|id|>71<|level|>2\n<|id|>75<|level|>1\n<|id|>76<|level|>2\n<|id|>80<|level|>2\n<|id|>85<|level|>2\n<|id|>93<|level|>1\n<|id|>104<|level|>1\n<|id|>110<|level|>1\n<|id|>128<|level|>1\n<|id|>129<|level|>2\n<|id|>133<|level|>2\n<|id|>139<|level|>2\n<|id|>150<|level|>1\n<|id|>156<|level|>1\n<|id|>157<|level|>2\n<|id|>160<|level|>2\n<|id|>168<|level|>2\n<|id|>175<|level|>1\n<|id|>183<|level|>1\n<|id|>193<|level|>1\n<|id|>196<|level|>1\n<|id|>206<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 183,
+            "level": 1
+        },
+        {
+            "id": 193,
+            "level": 1
+        },
+        {
+            "id": 196,
+            "level": 1
+        }
+    ]
+}

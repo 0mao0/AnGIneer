@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 181 123 815<|content|>UNITED STATES DISTRICT COURT FOR THE EASTERN DISTR\n<|id|>1<|type|>table<|page|>1<|box|>157 143 282 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>315 263 332 733<|content|>PROOF OF SERVICE OF SUMMONS AND COMPLAINT\n<|id|>3<|type|>title<|page|>1<|box|>357 142 375 416<|content|>I. Caption and Docket Information\n<|id|>10<|type|>title<|page|>1<|box|>755 142 772 482<|content|>II. Affidavit / Declaration of Process Server\n<|id|>11<|type|>title<|page|>1<|box|>780 145 815 849<|content|>DECLARATION OF DEREK M. HOLLOWAY IN SUPPORT OF PRO\n<|id|>12<|type|>title<|page|>1<|box|>830 142 845 501<|content|>A. Identification of Process Server / Declarant\n<|id|>17<|type|>title<|page|>2<|box|>306 142 324 289<|content|>B. Statutory Basis\n<|id|>21<|type|>title<|page|>2<|box|>648 142 665 436<|content|>III. Description of Documents Served\n<|id|>38<|type|>title<|page|>3<|box|>544 142 561 313<|content|>IV. Details of Service\n<|id|>39<|type|>title<|page|>3<|box|>574 140 592 279<|content|>A. Entity Served\n<|id|>45<|type|>title<|page|>3<|box|>744 140 762 343<|content|>B. Person / Agent Served\n<|id|>50<|type|>title<|page|>4<|box|>194 140 210 287<|content|>C. Date of Service\n<|id|>52<|type|>title<|page|>4<|box|>267 142 282 313<|content|>D. Manner of Service\n<|id|>56<|type|>title<|page|>4<|box|>579 140 597 370<|content|>E. Identification Verification\n<|id|>58<|type|>title<|page|>4<|box|>773 140 790 462<|content|>V. Declaration Under Penalty of Perjury\n<|id|>61<|type|>title<|page|>5<|box|>90 140 107 439<|content|>VI. Signature block — Process Server\n<|id|>64<|type|>title<|page|>5<|box|>229 140 250 336<|content|>VII. Certificate of Filing\n<|id|>65<|type|>title<|page|>5<|box|>262 140 279 446<|content|>A. Attorney Filing the Proof of Service\n<|id|>74<|type|>title<|page|>5<|box|>571 142 588 307<|content|>B. Filing Particulars\n<|id|>77<|type|>title<|page|>6<|box|>89 140 107 490<|content|>VIII. Signature block — Attorney of Record\n<|id|>89<|type|>title<|page|>6<|box|>402 142 417 339<|content|>IX. Certificate of Service\n<|id|>90<|type|>title<|page|>6<|box|>426 375 444 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

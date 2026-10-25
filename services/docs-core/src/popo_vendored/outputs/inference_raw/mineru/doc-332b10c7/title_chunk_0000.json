@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>126 171 164 825<|content|>CALDERWOOD & HARKNESS LLP 555 California Street, 4\n<|id|>3<|page|>1<|box|>196 142 214 290<|content|>MEMORANDUM\n<|id|>10<|page|>1<|box|>467 140 484 230<|content|>I. Purpose\n<|id|>13<|page|>1<|box|>797 142 815 267<|content|>II. Background\n<|id|>14<|page|>1<|box|>829 142 845 305<|content|>A. The Investigation\n<|id|>20<|page|>2<|box|>583 140 599 508<|content|>B. TMC's D&O Insurance Tower — Structure\n<|id|>22<|page|>2<|box|>669 142 686 390<|content|>Primary Layer (Lead Carrier):\n<|id|>25<|page|>2<|box|>838 142 854 269<|content|>Excess Layer 2:\n<|id|>27<|page|>3<|box|>171 142 188 271<|content|>Excess Layer 3:\n<|id|>30<|page|>3<|box|>436 140 454 343<|content|>C. Primary-Layer Notice\n<|id|>33<|page|>3<|box|>566 176 582 519<|content|>Attn: Senior Claims Examiner, D&O Division\n<|id|>36<|page|>4<|box|>90 140 107 434<|content|>III. Excess-Layer Notification Details\n<|id|>37<|page|>4<|box|>121 140 138 591<|content|>A. Notice to Greystone Specialty Insurance Ltd. (L\n<|id|>55<|page|>5<|box|>292 140 311 444<|content|>B. Notice to Sentinel Re Ltd. (Layer 3)\n<|id|>66<|page|>6<|box|>250 140 266 571<|content|>IV. Rationale for Prompt Notification of Excess La\n<|id|>72<|page|>7<|box|>304 140 320 357<|content|>V. Copies of Notice Letters\n<|id|>78<|page|>7<|box|>607 140 625 261<|content|>VI. Next Steps\n<|id|>84<|page|>8<|box|>390 140 407 272<|content|>VII. Conclusion\n<|id|>89<|page|>8<|box|>665 143 680 248<|content|>Distribution:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>3<|level|>1\n<|id|>10<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>20<|level|>3\n<|id|>22<|level|>4\n<|id|>25<|level|>4\n<|id|>27<|level|>4\n<|id|>30<|level|>3\n<|id|>33<|level|>-1\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>55<|level|>3\n<|id|>66<|level|>2\n<|id|>72<|level|>2\n<|id|>78<|level|>2\n<|id|>84<|level|>2\n<|id|>89<|level|>2",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 4
+        },
+        {
+            "id": 25,
+            "level": 4
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        }
+    ]
+}

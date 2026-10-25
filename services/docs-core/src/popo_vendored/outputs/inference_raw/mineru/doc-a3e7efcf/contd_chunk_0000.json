@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        27
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        6,
+        14,
+        15,
+        16,
+        21,
+        22,
+        23,
+        24,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>2<|box|>219 423 234 573<|content|>dated June 21, 2022\n<|id|>5<|page|>2<|box|>246 465 261 531<|content|>between\n<|id|>21<|page|>3<|box|>232 176 250 612<|content|>Licensor Product Identifier: ... MCT-ATLAS-RT-4200-GA\n<|id|>22<|page|>3<|box|>258 176 275 568<|content|>Licensor Part Number: ... MCT-SW-42000-ENT-LIC\n<|id|>23<|page|>3<|box|>284 176 301 619<|content|>Product Family: ... ATLAS-RT™ Embedded RTOS Platform\n<|id|>24<|page|>3<|box|>310 176 328 552<|content|>Release Classification: ... General Availability (GA)\n<|id|>25<|page|>3<|box|>335 176 353 446<|content|>Initial Release Date: ... May 15, 2022\n<|id|>26<|page|>3<|box|>362 140 491 854<|content|>The Licensed Software includes, without limitation...icensed Software for all purposes under the MESLSA\n<|id|>52<|page|>5<|box|>821 174 858 854<|content|>(iv) Argonaut-D (heavy-duty commercial fleet vehicle platform with adaptive modifications); ... and\n<|id|>54<|page|>6<|box|>133 140 189 854<|content|>The territory for deployment of the Licensed Softw...ol laws and regulations as set forth in the MESLSA\n<|id|>146<|page|>14<|box|>89 174 127 854<|content|>(e) Calderon Holdings MULTI IDE and optimizing com...alification under ISO 26262 and IEC 61508; ... and\n<|id|>148<|page|>14<|box|>179 140 233 854<|content|>Licensor shall notify Licensee promptly of any kno...compatibilities in subsequent maintenance releases\n<|id|>165<|page|>15<|box|>864 140 900 856<|content|>The benchmark results presented in this Section 4 ...mance guarantees for production deployments of the\n<|id|>166<|page|>16<|box|>90 140 145 854<|content|>Licensed Software under the Project Argonaut platf...figurations (Argonaut-A through Argonaut-E). ... 1\n<|id|>175<|page|>16<|box|>675 174 712 854<|content|>(a) any software vulnerability assigned a Common V...lity Scoring System (CVSS) base score of 7. ... or\n<|id|>177<|page|>16<|box|>800 140 892 856<|content|>Licensor shall deliver Critical Security Patches t...impact analysis, and recommended remediation steps\n<|id|>219<|page|>21<|box|>856 140 893 854<|content|>All documentation listed in Section 6. ... 1 shall... Format (PDF) and Hypertext Markup Language (HTML)\n<|id|>220<|page|>22<|box|>90 140 126 854<|content|>format suitable for integration with Licensee's in...ocumentation systems and developer knowledge bases\n<|id|>230<|page|>22<|box|>845 140 898 856<|content|>Licensor represents and warrants that no open-sour...nse (GPL) v2. ... 0, the GNU Lesser General Public\n<|id|>231<|page|>23<|box|>89 140 127 854<|content|>License (LGPL), the Mozilla Public License (MPL), ... — that would impose any obligation on Licensee to\n<|id|>234<|page|>23<|box|>223 174 241 816<|content|>(c) grant any rights to any third party with respect to Licensee's proprietary software; ... or\n<|id|>236<|page|>23<|box|>292 140 348 854<|content|>including, without limitation, any Derivative Work...odification, or extension of the Licensed Software\n<|id|>235<|page|>23<|box|>250 174 284 854<|content|>(d) restrict Licensee's ability to charge license ...mercially exploit Licensee's proprietary software,\n<|id|>243<|page|>23<|box|>656 174 710 854<|content|>(c) All documentation listed in Section 6. ... and\n<|id|>245<|page|>23<|box|>800 140 891 856<|content|>Licensee shall have a period of thirty (30) calend...iod, the initial delivery shall be deemed accepted\n<|id|>252<|page|>24<|box|>371 176 388 535<|content|>(d) steps to reproduce the non-conformance; ... and\n<|id|>254<|page|>24<|box|>422 140 551 857<|content|>Upon receipt of a properly documented non-conforma...platform using a supported toolchain configuration\n<|id|>270<|page|>27<|box|>209 423 224 575<|content|>dated June 21, 2022\n<|id|>271<|page|>27<|box|>234 140 270 854<|content|>IN WITNESS WHEREOF, the Parties have caused this E...presentatives as of the date first set forth above\n<|id|>274<|page|>27<|box|>314 140 330 344<|content|>Name: ... Whitfield\n<|id|>275<|page|>27<|box|>330 140 348 601<|content|>Title: ... Chief Technology Officer and Project Argonaut Sponsor\n<|id|>276<|page|>27<|box|>348 142 364 295<|content|>Date: ... June 21, 2022\n<|id|>277<|page|>27<|box|>364 140 382 500<|content|>MERIDIAN CODE TECHNOLOGIES, INC. ... MERIDIAN CODE TECHNOLOGIES, INC\n<|id|>279<|page|>27<|box|>400 142 417 320<|content|>Name: ... Fisk\n<|id|>280<|page|>27<|box|>417 140 434 604<|content|>Title: ... Senior Vice President, Automotive & Mobility Licensing\n<|id|>281<|page|>27<|box|>434 142 450 295<|content|>Date: ... June 21, 2022",
+    "raw_response": "<|src_id|>165<|tgt_id|>166\n<|src_id|>219<|tgt_id|>220\n<|src_id|>230<|tgt_id|>231",
+    "parsed": [
+        {
+            "src_id": 165,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 220
+        },
+        {
+            "src_id": 230,
+            "tgt_id": 231
+        }
+    ]
+}

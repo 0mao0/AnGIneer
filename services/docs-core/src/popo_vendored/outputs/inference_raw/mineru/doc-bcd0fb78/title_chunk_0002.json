@@ -1,0 +1,28 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        113,
+        117
+    ],
+    "pages": [
+        114,
+        117
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>374<|page|>114<|box|>34 390 50 604<|content|>_CAPITAL MOVEMENTS.\n<|id|>375<|page|>114<|box|>58 219 91 787<|content|>Section IV - Supplementary Data by Countries Table\n<|id|>380<|page|>117<|box|>38 166 54 804<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV",
+    "raw_response": "<|id|>374<|level|>1\n<|id|>375<|level|>2\n<|id|>380<|level|>1",
+    "parsed": [
+        {
+            "id": 374,
+            "level": 1
+        },
+        {
+            "id": 375,
+            "level": 2
+        },
+        {
+            "id": 380,
+            "level": 1
+        }
+    ]
+}

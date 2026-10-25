@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 106 777<|content|>VELTHORN NATIONAL BANK, N.A. 383 Madison Avenue Ne\n<|id|>14<|type|>title<|page|>1<|box|>602 142 619 486<|content|>1. Confirmation of Receipt of Escrow Funds\n<|id|>21<|type|>title<|page|>2<|box|>429 140 445 351<|content|>2. Escrow Account Details\n<|id|>25<|type|>table<|page|>2<|box|>768 143 862 852<|content|>None\n<|id|>27<|type|>title<|page|>3<|box|>167 140 184 341<|content|>3. Conditions for Release\n<|id|>32<|type|>title<|page|>3<|box|>806 140 824 313<|content|>4. Escrow Agent Fees\n<|id|>37<|type|>title<|page|>4<|box|>439 140 457 426<|content|>5. Governing Terms and Definitions\n<|id|>41<|type|>title<|page|>4<|box|>777 140 794 421<|content|>6. Notices and Contact Information\n<|id|>47<|type|>title<|page|>5<|box|>402 140 419 514<|content|>7. No Other Obligations; Limitation of Liability",
+    "raw_response": "<|src_id|>25<|tgt_id|>21",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 21
+        }
+    ]
+}

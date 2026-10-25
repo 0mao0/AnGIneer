@@ -1,0 +1,86 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 165 143 831<|content|>OFFICER'S CERTIFICATE OF MERIDIAN DATA SOLUTIONS G\n<|id|>4<|page|>1<|box|>325 140 343 243<|content|>RECITALS\n<|id|>8<|page|>1<|box|>646 140 664 411<|content|>Section 1. Authority and Capacity\n<|id|>15<|page|>2<|box|>383 140 402 508<|content|>Section 2. Satisfaction of Conditions Precedent\n<|id|>29<|page|>3<|box|>816 140 834 478<|content|>Section 3. Representations and Warranties\n<|id|>39<|page|>5<|box|>813 140 830 452<|content|>Section 4. No Material Adverse Change\n<|id|>43<|page|>6<|box|>340 140 357 477<|content|>Section 5. Evidence of Insurance Coverage\n<|id|>51<|page|>7<|box|>204 140 222 357<|content|>Section 6. Sub-Distributors\n<|id|>56<|page|>7<|box|>770 140 787 450<|content|>Section 7. No Litigation or Proceedings\n<|id|>62<|page|>8<|box|>344 140 362 540<|content|>Section 8. Compliance with Agreement Obligations\n<|id|>67<|page|>9<|box|>90 142 107 292<|content|>Section 9. Reliance\n<|id|>71<|page|>9<|box|>414 230 431 766<|content|>[Remainder of this page intentionally left blank.\n<|id|>72<|page|>9<|box|>439 192 474 803<|content|>SIGNATURE PAGE TO OFFICER'S CERTIFICATE OF MERIDIA\n<|id|>74<|page|>9<|box|>545 143 561 470<|content|>MERIDIAN DATA SOLUTIONS GMBH\n<|id|>80<|page|>9<|box|>671 421 688 575<|content|>ATTACHMENT A\n<|id|>81<|page|>9<|box|>696 357 713 638<|content|>CERTIFICATES OF INSURANCE\n<|id|>85<|page|>9<|box|>819 143 835 318<|content|>Coverages Evidenced:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>8<|level|>2\n<|id|>15<|level|>2\n<|id|>29<|level|>2\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>-1\n<|id|>72<|level|>2\n<|id|>74<|level|>3\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>85<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 4
+        }
+    ]
+}

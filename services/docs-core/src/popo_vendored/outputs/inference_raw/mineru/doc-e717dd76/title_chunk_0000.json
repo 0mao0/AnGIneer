@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 202 133 794<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|page|>1<|box|>142 294 157 702<|content|>CALL NOTES / CONFERENCE MEMORANDUM\n<|id|>13<|page|>1<|box|>584 416 604 580<|content|>1. Call Logistics\n<|id|>28<|page|>2<|box|>556 393 575 602<|content|>2. Opening Remarks\n<|id|>29<|page|>2<|box|>601 140 618 566<|content|>2.1 Supervisory Revenue Agent Meskill's Introducti\n<|id|>33<|page|>3<|box|>90 140 107 385<|content|>2.2 Cross's Opening Statement\n<|id|>39<|page|>3<|box|>631 176 651 820<|content|>3. IRS Legal Position: CSA Compliance and Cost-Sha\n<|id|>40<|page|>3<|box|>676 140 693 593<|content|>3.1 Rosario's Position on Reasonably Anticipated B\n<|id|>49<|page|>5<|box|>90 140 107 504<|content|>3.2 Rosario's Position on PCT Undervaluation\n<|id|>55<|page|>6<|box|>90 140 107 442<|content|>3.3 Cross's Rebuttal on CSA Positions\n<|id|>61<|page|>6<|box|>777 267 797 728<|content|>4. IRS Legal Position: Legacy IP Royalty Rate\n<|id|>62<|page|>6<|box|>823 140 839 452<|content|>4.1 Rosario's Position on the 4.5% Rate\n<|id|>68<|page|>7<|box|>592 140 609 433<|content|>4.2 Cross's Rebuttal on Royalty Rate\n<|id|>75<|page|>8<|box|>523 250 544 746<|content|>5. IRS Legal Position: Economic Substance of PBI\n<|id|>76<|page|>8<|box|>569 140 587 684<|content|>5.1 Rosario's Position on Economic Substance and D\n<|id|>86<|page|>9<|box|>645 140 662 444<|content|>5.2 Cross's Rebuttal on PBI Substance\n<|id|>101<|page|>11<|box|>285 140 303 326<|content|>5.3 Rosario's Response\n<|id|>104<|page|>11<|box|>565 186 585 810<|content|>6. Discussion of Correlative Adjustments and Doubl\n<|id|>108<|page|>12<|box|>190 336 210 660<|content|>7. Discussion of Penalty Position\n<|id|>109<|page|>12<|box|>234 140 253 513<|content|>7.1 Rosario's Position on IRC § 6662(e) Penalty\n<|id|>113<|page|>12<|box|>501 140 518 478<|content|>7.2 Cross's Response on Penalty Protection\n<|id|>121<|page|>13<|box|>388 303 409 694<|content|>8. Anticipated Timeline and Next Steps\n<|id|>129<|page|>14<|box|>242 267 262 728<|content|>9. Privileged Observations and Strategic Notes\n<|id|>130<|page|>14<|box|>279 171 314 825<|content|>CALDERWOOD & HARKNESS LLP — INTERNAL ONLY ATTORNEY\n<|id|>132<|page|>14<|box|>422 140 439 379<|content|>Cross's Post-Call Assessment:\n<|id|>139<|page|>15<|box|>406 142 422 323<|content|>Immediate Next Steps:\n<|id|>148<|page|>17<|box|>253 418 272 578<|content|>11. Distribution\n<|id|>149<|page|>17<|box|>290 140 306 787<|content|>Internal Distribution Only — Privileged and Confid",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>13<|level|>2\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>2\n<|id|>40<|level|>3\n<|id|>49<|level|>3\n<|id|>55<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>68<|level|>3\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>86<|level|>3\n<|id|>101<|level|>3\n<|id|>104<|level|>2\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>113<|level|>3\n<|id|>121<|level|>2\n<|id|>129<|level|>2\n<|id|>130<|level|>-1\n<|id|>132<|level|>3\n<|id|>139<|level|>3\n<|id|>148<|level|>2\n<|id|>149<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 3
+        }
+    ]
+}

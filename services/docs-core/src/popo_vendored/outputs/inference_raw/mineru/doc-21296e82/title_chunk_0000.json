@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>12<|page|>1<|box|>755 140 772 437<|content|>1. Documents and Records Examined\n<|id|>30<|page|>3<|box|>223 140 239 267<|content|>2. Assumptions\n<|id|>43<|page|>4<|box|>375 140 391 238<|content|>3. Opinions\n<|id|>45<|page|>4<|box|>467 140 484 468<|content|>3.1 Due Organization and Good Standing\n<|id|>47<|page|>4<|box|>667 140 685 514<|content|>3.2 Due Authorization, Execution, and Delivery\n<|id|>50<|page|>5<|box|>250 140 265 274<|content|>3.4 No Conflicts\n<|id|>56<|page|>5<|box|>700 140 717 372<|content|>3.5 Governmental Approvals\n<|id|>60<|page|>6<|box|>212 140 229 403<|content|>4. Qualifications and Limitations\n<|id|>62<|page|>6<|box|>287 140 304 493<|content|>4.1 Bankruptcy and Insolvency Qualification\n<|id|>64<|page|>6<|box|>523 140 542 434<|content|>4.2 Equitable Remedies Qualification\n<|id|>66<|page|>6<|box|>689 140 705 437<|content|>4.3 Limitations on Certain Provisions\n<|id|>74<|page|>7<|box|>419 140 435 393<|content|>4.4 Choice of Law Qualification\n<|id|>76<|page|>7<|box|>638 140 654 398<|content|>4.5 Limitation to Specified Laws\n<|id|>78<|page|>8<|box|>90 140 107 390<|content|>4.6 No Opinion on Tax Matters\n<|id|>80<|page|>8<|box|>291 140 309 477<|content|>4.7 No Opinion on Regulatory Compliance\n<|id|>82<|page|>8<|box|>484 140 500 300<|content|>5. Reliance and Use\n<|id|>87<|page|>9<|box|>152 210 171 712<|content|>[Remainder of page intentionally left blank; signa\n<|id|>88<|page|>9<|box|>176 179 213 815<|content|>SIGNATURE PAGE TO BRING-DOWN LEGAL OPINION CALDERW",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>2\n<|id|>30<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>3\n<|id|>47<|level|>3\n<|id|>50<|level|>3\n<|id|>56<|level|>3\n<|id|>60<|level|>2\n<|id|>62<|level|>3\n<|id|>64<|level|>3\n<|id|>66<|level|>3\n<|id|>74<|level|>3\n<|id|>76<|level|>3\n<|id|>78<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>2\n<|id|>87<|level|>-1\n<|id|>88<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        }
+    ]
+}

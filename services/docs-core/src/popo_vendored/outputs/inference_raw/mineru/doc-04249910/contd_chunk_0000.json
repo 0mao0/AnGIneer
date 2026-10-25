@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>154 746 172 854<|content|>May 18, 2023\n<|id|>2<|page|>1<|box|>180 140 196 416<|content|>TO: ... Wendy Schultz, Lead Associate\n<|id|>3<|page|>1<|box|>205 140 223 468<|content|>FROM: ... Omar Siddiqui, Working Associate\n<|id|>4<|page|>1<|box|>232 140 250 573<|content|>RE: ... Deposition Summary — Rajiv Anand (May 15, 2023)\n<|id|>5<|page|>1<|box|>258 140 294 854<|content|>MATTER: ... 23- CV-004871, Superior Court of the State of California, County of Santa Clara\n<|id|>6<|page|>1<|box|>301 140 319 457<|content|>C&H MATTER NUMBER: ... 1008-00005\n<|id|>7<|page|>1<|box|>328 140 345 748<|content|>COPIES: ... Catherine Bloom, Billing Partner\n<|id|>8<|page|>1<|box|>353 140 414 854<|content|>This memorandum is protected by the attorney-clien...thorization of Marcus Delgado, Responsible Partner\n<|id|>26<|page|>3<|box|>383 176 438 854<|content|>4. ... and\n<|id|>28<|page|>3<|box|>513 140 625 856<|content|>Anand acknowledged that he reported directly to Ra...Yun to be among his closest collaborators at Lumos\n<|id|>34<|page|>4<|box|>133 174 189 854<|content|>(c) Non-Solicitation of Employees Clause — prohibi...umos employee to leave Lumos's employment; ... and\n<|id|>36<|page|>4<|box|>260 140 424 856<|content|>Anand further acknowledged that the PIIAA containe...ss of whether a formal certification was requested\n<|id|>61<|page|>6<|box|>832 140 904 857<|content|>Anand acknowledged that NovaSpark Technologies Inc...ther confirmed that he serves as NovaSpark's Chief\n<|id|>62<|page|>7<|box|>90 140 126 852<|content|>Executive Officer and co-founder, and that the com... Yun, both of whom are also former Lumos employees\n<|id|>79<|page|>8<|box|>833 140 906 857<|content|>It should also be noted that this recruitment occu...A. ... Anand's admission that he discussed joining\n<|id|>80<|page|>9<|box|>90 140 127 854<|content|>NovaSpark with Mallick while she was still at Lumo...y constitutes a direct violation of this provision",
+    "raw_response": "<|src_id|>61<|tgt_id|>62\n<|src_id|>79<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        }
+    ]
+}

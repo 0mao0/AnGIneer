@@ -1,0 +1,46 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 600 Lex\n<|id|>7<|page|>1<|box|>488 142 505 403<|content|>Acknowledgment of Termination\n<|id|>12<|page|>2<|box|>204 140 222 665<|content|>Surviving Obligations — Expense Reimbursement Unde\n<|id|>18<|page|>3<|box|>148 140 167 357<|content|>Indemnification Provisions\n<|id|>21<|page|>3<|box|>481 142 498 411<|content|>Invoice Submission Requirements\n<|id|>31<|page|>4<|box|>359 140 375 331<|content|>No Further Obligations\n<|id|>34<|page|>4<|box|>633 140 652 316<|content|>Reservation of Rights",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>18<|level|>2\n<|id|>21<|level|>2\n<|id|>31<|level|>2\n<|id|>34<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        }
+    ]
+}

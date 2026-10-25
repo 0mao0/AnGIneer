@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 161 148 856<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law 125 Br\n<|id|>8<|page|>1<|box|>356 142 372 367<|content|>1. Purpose and Introduction\n<|id|>12<|page|>1<|box|>767 140 784 333<|content|>2. Scope of Engagement\n<|id|>14<|page|>1<|box|>843 140 859 730<|content|>(a) Property Quota-Share Reinsurance Treaty — Rene\n<|id|>24<|page|>2<|box|>695 140 712 684<|content|>(b) Catastrophe Excess-of-Loss Reinsurance Layer —\n<|id|>37<|page|>3<|box|>686 140 704 312<|content|>(c) Ancillary Matters\n<|id|>43<|page|>4<|box|>282 140 300 339<|content|>(d) Limitations on Scope\n<|id|>51<|page|>4<|box|>741 142 758 230<|content|>3. Staffing\n<|id|>58<|page|>5<|box|>473 140 489 433<|content|>4. Counterparties and Their Counsel\n<|id|>61<|page|>5<|box|>767 140 784 310<|content|>5. Fee Arrangements\n<|id|>62<|page|>5<|box|>797 142 814 274<|content|>(a) Basis of Fees\n<|id|>75<|page|>6<|box|>696 140 713 331<|content|>(c) Billing and Payment\n<|id|>80<|page|>7<|box|>426 140 443 398<|content|>6. Conflict of Interest Disclosure\n<|id|>86<|page|>8<|box|>148 140 167 284<|content|>7. Confidentiality\n<|id|>89<|page|>8<|box|>462 140 479 450<|content|>8. Communication and Client Contacts\n<|id|>97<|page|>9<|box|>90 140 107 326<|content|>9. Document Retention\n<|id|>100<|page|>9<|box|>383 142 402 274<|content|>10. Termination\n<|id|>103<|page|>9<|box|>642 142 659 297<|content|>11. Governing Law\n<|id|>105<|page|>9<|box|>763 142 780 339<|content|>12. Anticipated Timeline\n<|id|>110<|page|>10<|box|>388 143 404 264<|content|>13. Acceptance\n<|id|>115<|page|>10<|box|>662 212 679 516<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>116<|page|>10<|box|>689 142 705 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>3\n<|id|>24<|level|>3\n<|id|>37<|level|>3\n<|id|>43<|level|>3\n<|id|>51<|level|>2\n<|id|>58<|level|>2\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>75<|level|>3\n<|id|>80<|level|>2\n<|id|>86<|level|>2\n<|id|>89<|level|>2\n<|id|>97<|level|>2\n<|id|>100<|level|>2\n<|id|>103<|level|>2\n<|id|>105<|level|>2\n<|id|>110<|level|>2\n<|id|>115<|level|>-1\n<|id|>116<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        }
+    ]
+}

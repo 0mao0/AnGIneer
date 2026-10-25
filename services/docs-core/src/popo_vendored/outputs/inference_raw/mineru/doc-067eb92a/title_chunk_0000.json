@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>646 140 664 354<|content|>1. Scope of Representation\n<|id|>19<|page|>4<|box|>267 140 284 450<|content|>2. Exclusions and Limitations on Scope\n<|id|>27<|page|>4<|box|>782 140 799 313<|content|>3. Engagement Team\n<|id|>34<|page|>5<|box|>710 140 728 287<|content|>4. Client Contacts\n<|id|>38<|page|>6<|box|>167 140 184 406<|content|>5. Fees and Billing Arrangements\n<|id|>46<|page|>7<|box|>667 140 684 454<|content|>6. Engagement of Third-Party Advisors\n<|id|>51<|page|>8<|box|>267 140 284 321<|content|>7. Conflicts of Interest\n<|id|>57<|page|>8<|box|>804 140 820 284<|content|>8. Confidentiality\n<|id|>60<|page|>9<|box|>321 140 339 326<|content|>9. Document Retention\n<|id|>66<|page|>9<|box|>750 142 766 393<|content|>10. Termination of Engagement\n<|id|>70<|page|>10<|box|>303 140 320 349<|content|>11. Limitation of Liability\n<|id|>74<|page|>10<|box|>604 140 623 480<|content|>12. Governing Law and Dispute Resolution\n<|id|>77<|page|>11<|box|>167 142 184 379<|content|>13. No Guarantee of Outcome\n<|id|>79<|page|>11<|box|>436 140 454 455<|content|>14. Entire Agreement and Amendments\n<|id|>82<|page|>11<|box|>694 142 710 437<|content|>15. Acceptance and Countersignature\n<|id|>89<|page|>12<|box|>239 212 257 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>96<|page|>12<|box|>369 380 386 616<|content|>AGREED AND ACCEPTED:\n<|id|>97<|page|>12<|box|>396 140 412 408<|content|>TORCHLIGHT MINING CORP.",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>19<|level|>1\n<|id|>27<|level|>1\n<|id|>34<|level|>1\n<|id|>38<|level|>1\n<|id|>46<|level|>1\n<|id|>51<|level|>1\n<|id|>57<|level|>1\n<|id|>60<|level|>1\n<|id|>66<|level|>1\n<|id|>70<|level|>1\n<|id|>74<|level|>1\n<|id|>77<|level|>1\n<|id|>79<|level|>1\n<|id|>82<|level|>1\n<|id|>89<|level|>-1\n<|id|>96<|level|>2\n<|id|>97<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 2
+        }
+    ]
+}

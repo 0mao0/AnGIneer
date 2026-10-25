@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['20', 'GasLog Singapore', '97818', '155000', '285', '43.4', '26.0', '12.1', 'GTT 薄膜舱', '', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 序号', 'rowspan=2, 船名', 'rowspan=2, 总吨(GT)', 'rowspan=2, 总舱容量(m^3)', 'colspan=4, 船舶主要尺度(m)', 'rowspan=2, 围护系统', 'rowspan=2, 同类船型总吨范围(GT)', 'rowspan=2, 同类船型舱容范围(m^3)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 13,
+    "table2_idx": 14
+}

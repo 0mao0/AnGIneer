@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        50
+    ],
+    "pages": [
+        47,
+        48,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>497<|page|>47<|box|>89 140 107 834<|content|>EXHIBIT E — TECHNOLOGY ESCROW AGREEMENT (SUMMARY R\n<|id|>499<|page|>47<|box|>184 140 200 462<|content|>E-1 — Reference to Separate Agreement\n<|id|>505<|page|>47<|box|>450 140 468 339<|content|>E-2 — Deposit Materials\n<|id|>513<|page|>47<|box|>843 142 859 349<|content|>E-3 — Release Conditions\n<|id|>520<|page|>48<|box|>407 140 425 367<|content|>E-4 — License upon Release\n<|id|>522<|page|>48<|box|>571 142 589 295<|content|>E-5 — Verification\n<|id|>526<|page|>48<|box|>824 142 840 300<|content|>E-6 — Escrow Fees\n<|id|>529<|page|>50<|box|>89 143 106 653<|content|>EXHIBIT F — FORM OF ADDITIONAL SEAT ORDER FORM\n<|id|>530<|page|>50<|box|>114 346 132 651<|content|>ADDITIONAL SEAT ORDER FORM\n<|id|>536<|page|>50<|box|>627 142 643 475<|content|>OPTIWAVE SEMICONDUCTOR CORP.",
+    "raw_response": "<|id|>497<|level|>1\n<|id|>499<|level|>2\n<|id|>505<|level|>2\n<|id|>513<|level|>2\n<|id|>520<|level|>2\n<|id|>522<|level|>2\n<|id|>526<|level|>2\n<|id|>529<|level|>1\n<|id|>530<|level|>2\n<|id|>536<|level|>-1",
+    "parsed": [
+        {
+            "id": 497,
+            "level": 1
+        },
+        {
+            "id": 499,
+            "level": 2
+        },
+        {
+            "id": 505,
+            "level": 2
+        },
+        {
+            "id": 513,
+            "level": 2
+        },
+        {
+            "id": 520,
+            "level": 2
+        },
+        {
+            "id": 522,
+            "level": 2
+        },
+        {
+            "id": 526,
+            "level": 2
+        },
+        {
+            "id": 529,
+            "level": 1
+        },
+        {
+            "id": 530,
+            "level": 2
+        }
+    ]
+}

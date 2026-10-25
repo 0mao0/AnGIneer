@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>222 140 258 854<|content|>VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED AND V\n<|id|>8<|page|>1<|box|>459 142 476 339<|content|>I. Purpose of This Letter\n<|id|>11<|page|>1<|box|>771 140 789 390<|content|>II. Identification of the Insured\n<|id|>18<|page|>2<|box|>296 142 313 397<|content|>III. Description of the Litigation\n<|id|>19<|page|>2<|box|>325 142 343 316<|content|>A. Case Identification\n<|id|>27<|page|>2<|box|>609 142 626 344<|content|>B. Identity of Defendants\n<|id|>33<|page|>3<|box|>275 140 292 418<|content|>C. Defense Counsel for Defendants\n<|id|>35<|page|>3<|box|>421 142 438 303<|content|>D. Nature of Claims\n<|id|>47<|page|>4<|box|>388 142 407 328<|content|>E. Factual Background\n<|id|>57<|page|>5<|box|>436 143 454 299<|content|>F. Damages Sought\n<|id|>62<|page|>6<|box|>223 140 239 433<|content|>IV. Identification of Outside Counsel\n<|id|>67<|page|>6<|box|>622 140 638 496<|content|>V. Anticipated Litigation Costs and Expenses\n<|id|>81<|page|>7<|box|>469 140 487 344<|content|>VI. Reservation of Rights\n<|id|>93<|page|>8<|box|>231 140 248 524<|content|>VII. Request for Acknowledgment and Response\n<|id|>100<|page|>8<|box|>584 140 602 625<|content|>VIII. Contact Information and Directions for Commu\n<|id|>109<|page|>9<|box|>90 142 107 236<|content|>IX. Closing\n<|id|>114<|page|>9<|box|>292 212 309 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>118<|page|>9<|box|>371 143 386 240<|content|>Enclosures:",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>8<|level|>2\n<|id|>11<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>27<|level|>3\n<|id|>33<|level|>3\n<|id|>35<|level|>3\n<|id|>47<|level|>3\n<|id|>57<|level|>3\n<|id|>62<|level|>2\n<|id|>67<|level|>2\n<|id|>81<|level|>2\n<|id|>93<|level|>2\n<|id|>100<|level|>2\n<|id|>109<|level|>2\n<|id|>114<|level|>-1\n<|id|>118<|level|>2",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        }
+    ]
+}

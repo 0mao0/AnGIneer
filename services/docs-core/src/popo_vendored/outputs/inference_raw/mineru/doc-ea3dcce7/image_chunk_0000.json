@@ -1,0 +1,75 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 405 119 591<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>135 212 152 784<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>8<|type|>title<|page|>1<|box|>386 142 402 321<|content|>I. Executive Summary\n<|id|>18<|type|>table<|page|>2<|box|>214 143 327 852<|content|>None\n<|id|>23<|type|>title<|page|>2<|box|>643 142 661 356<|content|>II. Scope and Methodology\n<|id|>46<|type|>title<|page|>3<|box|>679 140 696 519<|content|>III. Key-Person Analysis Under LPA Section 5.2\n<|id|>47<|type|>title<|page|>3<|box|>709 142 728 357<|content|>A. Designated Key Persons\n<|id|>56<|type|>title<|page|>4<|box|>536 140 554 527<|content|>B. Impact of Restructuring on Key Person Status\n<|id|>61<|type|>title<|page|>5<|box|>204 140 222 434<|content|>IV. Side-Letter Analysis by Category\n<|id|>62<|type|>title<|page|>5<|box|>234 140 252 661<|content|>A. Most Favored Nation (MFN) Provisions — 11 of 14\n<|id|>72<|type|>title<|page|>6<|box|>239 140 256 794<|content|>B. Expanded Key-Person / \"Contributing Person\" Pro\n<|id|>85<|type|>title<|page|>7<|box|>726 140 743 607<|content|>C. Fee discount or Rebate Provisions — 8 of 14 Sid\n<|id|>94<|type|>title<|page|>8<|box|>715 140 733 823<|content|>D. Management Structure Change / Transfer Consent\n<|id|>117<|type|>title<|page|>11<|box|>744 140 762 580<|content|>E. Co-Investment Priority Rights — 9 of 14 Side Le\n<|id|>131<|type|>title<|page|>12<|box|>622 140 638 413<|content|>V. Side-Letter Compliance Matrix\n<|id|>133<|type|>table<|page|>12<|box|>727 143 898 851<|content|>None\n<|id|>134<|type|>table<|page|>13<|box|>89 143 905 852<|content|>None\n<|id|>135<|type|>table<|page|>14<|box|>88 143 453 852<|content|>None\n<|id|>137<|type|>title<|page|>14<|box|>601 142 617 428<|content|>VI. Interaction with LPA Provisions\n<|id|>138<|type|>title<|page|>14<|box|>631 142 648 398<|content|>A. Section 9.4 — LPAC Consent\n<|id|>153<|type|>title<|page|>15<|box|>508 140 525 462<|content|>B. Section 8.3 — Transfer of GP Interest\n<|id|>158<|type|>title<|page|>16<|box|>90 140 107 398<|content|>C. Section 9.7 — Removal of GP\n<|id|>162<|type|>title<|page|>16<|box|>388 140 407 464<|content|>VII. Action Items and Recommendations\n<|id|>164<|type|>title<|page|>16<|box|>459 140 477 287<|content|>Completed Items:\n<|id|>168<|type|>title<|page|>16<|box|>728 140 744 282<|content|>Action Required:\n<|id|>172<|type|>title<|page|>17<|box|>276 142 292 316<|content|>Recommended Items:\n<|id|>175<|type|>title<|page|>17<|box|>545 140 561 279<|content|>VIII. Conclusion\n<|id|>184<|type|>title<|page|>19<|box|>90 142 107 545<|content|>Appendix A: Side-Letter Provision Summary Table\n<|id|>186<|type|>table<|page|>19<|box|>196 143 898 852<|content|>None\n<|id|>187<|type|>table<|page|>20<|box|>89 143 902 852<|content|>None\n<|id|>188<|type|>table<|page|>21<|box|>89 143 909 854<|content|>None\n<|id|>189<|type|>table<|page|>22<|box|>88 143 321 852<|content|>None\n<|id|>190<|type|>title<|page|>23<|box|>90 142 107 498<|content|>Appendix B: Timeline of Compliance Actions\n<|id|>191<|type|>table<|page|>23<|box|>176 143 895 852<|content|>None\n<|id|>192<|type|>table<|page|>24<|box|>89 143 760 852<|content|>None",
+    "raw_response": "<|src_id|>18<|tgt_id|>8\n<|src_id|>133<|tgt_id|>131\n<|src_id|>134<|tgt_id|>131\n<|src_id|>135<|tgt_id|>131\n<|src_id|>186<|tgt_id|>184\n<|src_id|>187<|tgt_id|>184\n<|src_id|>188<|tgt_id|>184\n<|src_id|>189<|tgt_id|>184\n<|src_id|>191<|tgt_id|>190\n<|src_id|>192<|tgt_id|>190",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 190
+        }
+    ]
+}

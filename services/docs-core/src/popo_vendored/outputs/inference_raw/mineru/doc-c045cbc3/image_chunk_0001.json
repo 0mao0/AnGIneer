@@ -1,0 +1,66 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        53,
+        72
+    ],
+    "pages": [
+        53,
+        54,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        65,
+        66,
+        71,
+        72
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>105<|type|>table<|page|>53<|box|>114 65 826 922<|content|>None\n<|id|>106<|type|>table<|page|>54<|box|>114 43 550 925<|content|>None\n<|id|>107<|type|>title<|page|>54<|box|>637 189 665 776<|content|>Net Position in Foreign Currencies of Reporting Ba\n<|id|>108<|type|>table<|page|>54<|box|>690 45 790 925<|content|>None\n<|id|>109<|type|>table<|page|>57<|box|>89 61 329 924<|content|>None\n<|id|>110<|type|>table<|page|>57<|box|>401 63 653 929<|content|>None\n<|id|>111<|type|>table<|page|>57<|box|>702 67 940 932<|content|>None\n<|id|>112<|type|>title<|page|>58<|box|>95 252 123 770<|content|>MONETARY STOCKS OF GOLD AND SILVER IN U.S.\n<|id|>116<|type|>table<|page|>59<|box|>96 70 406 532<|content|>None\n<|id|>117<|type|>title<|page|>59<|box|>59 577 87 893<|content|>Silver of Specified Classifications Acquired by Mi\n<|id|>118<|type|>table<|page|>59<|box|>113 542 387 927<|content|>None\n<|id|>119<|type|>table<|page|>59<|box|>538 70 797 927<|content|>None\n<|id|>120<|type|>table<|page|>60<|box|>98 57 340 901<|content|>None\n<|id|>121<|type|>table<|page|>60<|box|>349 57 587 902<|content|>None\n<|id|>122<|type|>table<|page|>60<|box|>683 57 883 901<|content|>None\n<|id|>123<|type|>table<|page|>61<|box|>95 70 365 919<|content|>None\n<|id|>124<|type|>table<|page|>61<|box|>480 70 759 436<|content|>None\n<|id|>125<|type|>table<|page|>61<|box|>481 450 759 922<|content|>None\n<|id|>127<|type|>table<|page|>62<|box|>123 43 401 406<|content|>None\n<|id|>129<|type|>table<|page|>62<|box|>123 421 403 909<|content|>None\n<|id|>130<|type|>table<|page|>65<|box|>107 80 385 927<|content|>None\n<|id|>131<|type|>table<|page|>65<|box|>505 77 745 927<|content|>None\n<|id|>132<|type|>title<|page|>66<|box|>58 46 85 463<|content|>Summary of Criminal Cases in the United States Dis\n<|id|>134<|type|>table<|page|>66<|box|>143 31 265 475<|content|>None\n<|id|>135<|type|>table<|page|>66<|box|>296 29 442 477<|content|>None\n<|id|>136<|type|>table<|page|>66<|box|>476 29 610 475<|content|>None\n<|id|>137<|type|>title<|page|>66<|box|>61 548 76 859<|content|>Treasury Criminal Cases, by Months\n<|id|>139<|type|>table<|page|>66<|box|>123 486 247 923<|content|>None\n<|id|>140<|type|>table<|page|>66<|box|>280 486 424 923<|content|>None\n<|id|>141<|type|>table<|page|>66<|box|>454 484 587 923<|content|>None\n<|id|>142<|type|>table<|page|>71<|box|>220 326 555 692<|content|>None\n<|id|>144<|type|>image<|page|>72<|box|>5 813 42 939<|content|>None",
+    "raw_response": "<|src_id|>108<|tgt_id|>107\n<|src_id|>116<|tgt_id|>112\n<|src_id|>118<|tgt_id|>117\n<|src_id|>134<|tgt_id|>132\n<|src_id|>135<|tgt_id|>132\n<|src_id|>136<|tgt_id|>132\n<|src_id|>139<|tgt_id|>137\n<|src_id|>140<|tgt_id|>137\n<|src_id|>141<|tgt_id|>137\n<|src_id|>142<|tgt_id|>132",
+    "parsed": [
+        {
+            "src_id": 108,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 132
+        }
+    ]
+}

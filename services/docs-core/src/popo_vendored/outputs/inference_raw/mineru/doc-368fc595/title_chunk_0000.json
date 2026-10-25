@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 199 142 797<|content|>UNANIMOUS WRITTEN CONSENT OF THE BOARD OF DIRECTOR\n<|id|>7<|page|>1<|box|>648 142 666 243<|content|>RECITALS\n<|id|>35<|page|>4<|box|>175 142 191 279<|content|>RESOLUTIONS\n<|id|>36<|page|>4<|box|>205 140 224 560<|content|>Resolution 1: Approval of the Transactions General\n<|id|>39<|page|>4<|box|>507 140 523 588<|content|>Resolution 2: Authorization of the Guarantee Agree\n<|id|>42<|page|>5<|box|>90 140 107 676<|content|>Resolution 3: Authorization of the Equity Interest\n<|id|>45<|page|>5<|box|>445 140 462 686<|content|>Resolution 4: Authorization of the US Pledge and S\n<|id|>56<|page|>6<|box|>157 142 174 633<|content|>Resolution 5: Authorization of Related Transaction\n<|id|>67<|page|>6<|box|>792 142 809 524<|content|>Resolution 6: Designation of Authorized Officers\n<|id|>73<|page|>7<|box|>325 140 344 566<|content|>Resolution 7: Authority to Take All Necessary Acti\n<|id|>83<|page|>8<|box|>327 142 344 450<|content|>Resolution 8: Ratification of Prior Acts\n<|id|>91<|page|>8<|box|>738 142 753 462<|content|>Resolution 9: Effectiveness and Duration\n<|id|>96<|page|>9<|box|>222 163 258 833<|content|>SIGNATURE PAGE TO UNANIMOUS WRITTEN CONSENT OF THE\n<|id|>104<|page|>10<|box|>90 403 107 593<|content|>a Delaware corporation\n<|id|>105<|page|>10<|box|>116 140 133 504<|content|>I, Jonathan Pryce-Williams, hereby certify that:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>39<|level|>3\n<|id|>42<|level|>3\n<|id|>45<|level|>3\n<|id|>56<|level|>3\n<|id|>67<|level|>3\n<|id|>73<|level|>3\n<|id|>83<|level|>3\n<|id|>91<|level|>3\n<|id|>96<|level|>2\n<|id|>104<|level|>-1\n<|id|>105<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        }
+    ]
+}

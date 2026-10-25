@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>171 424 188 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>196 140 215 669<|content|>TO: ... Conrad Ashby, Responsible Partner, White Collar & Investigations\n<|id|>4<|page|>1<|box|>224 140 239 684<|content|>FROM: ... Steven Hollander, Lead Associate, White Collar & Investigations\n<|id|>5<|page|>1<|box|>250 142 267 316<|content|>DATE: ... April 18, 2025\n<|id|>6<|page|>1<|box|>275 140 311 854<|content|>RE: ... FCPA Books and Records and Internal Contro...ns — Potential Violations — Torchlight Mining Corp\n<|id|>7<|page|>1<|box|>319 142 335 361<|content|>MATTER NO. ... 1039-00005\n<|id|>8<|page|>1<|box|>344 140 406 854<|content|>CONFIDENTIALITY LEGEND: ... It is not to be disclo...lderwood & Harkness LLP and Torchlight Mining Corp\n<|id|>19<|page|>2<|box|>848 140 902 857<|content|>3. ... This systemic character\n<|id|>20<|page|>3<|box|>109 140 220 854<|content|>is likely to be viewed as an aggravating factor by...SD\") decision, which is targeted for June 30, 2025\n<|id|>34<|page|>4<|box|>583 174 619 854<|content|>\"devise and maintain a system of internal accounti... sufficient to provide reasonable assurances that—\n<|id|>39<|page|>4<|box|>821 140 839 517<|content|>Several aspects of this provision warrant emphasis...Several aspects of this provision warrant emphasis\n<|id|>37<|page|>4<|box|>734 174 768 854<|content|>(iii) access to assets is permitted only in accord...ement's general or specific authorization; ... and",
+    "raw_response": "<|src_id|>19<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        }
+    ]
+}

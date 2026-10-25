@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        91,
+        114
+    ],
+    "pages": [
+        91,
+        92,
+        94,
+        95,
+        96,
+        97,
+        99,
+        100,
+        101,
+        103,
+        104,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1228<|type|>title<|page|>91<|box|>109 434 130 583<|content|>3.3 变形\n<|id|>1231<|type|>title<|page|>92<|box|>169 381 197 625<|content|>4 构件计算\n<|id|>1234<|type|>title<|page|>92<|box|>395 368 415 639<|content|>4.2 计算长度和容许长细比\n<|id|>1238<|type|>title<|page|>92<|box|>676 410 694 599<|content|>4.3 强度和稳定性\n<|id|>1239<|type|>title<|page|>92<|box|>710 101 728 529<|content|>4.3.1 本条为轴心受力构件的强度计算要求。\n<|id|>1268<|type|>title<|page|>94<|box|>583 423 601 569<|content|>4.4 变形\n<|id|>1270<|type|>title<|page|>95<|box|>165 378 193 623<|content|>5 连接计算\n<|id|>1271<|type|>title<|page|>95<|box|>228 418 246 586<|content|>5.2 焊缝连接\n<|id|>1277<|type|>title<|page|>95<|box|>576 396 595 607<|content|>5.3 螺栓与铆钉连接\n<|id|>1281<|type|>image<|page|>95<|box|>750 678 897 895<|content|>None\n<|id|>1287<|type|>title<|page|>96<|box|>611 423 632 590<|content|>5.4 节点板\n<|id|>1290<|type|>image<|page|>96<|box|>767 195 913 814<|content|>None\n<|id|>1297<|type|>table<|page|>97<|box|>537 116 681 906<|content|>None\n<|id|>1303<|type|>title<|page|>97<|box|>862 436 880 582<|content|>5.5 支座\n<|id|>1307<|type|>title<|page|>99<|box|>182 379 211 622<|content|>6 疲劳计算\n<|id|>1313<|type|>title<|page|>100<|box|>168 379 197 624<|content|>7 构造要求\n<|id|>1314<|type|>title<|page|>100<|box|>232 419 250 587<|content|>7.1 一般规定\n<|id|>1318<|type|>title<|page|>100<|box|>417 417 437 587<|content|>7.2 焊缝连接\n<|id|>1326<|type|>title<|page|>101<|box|>186 381 207 632<|content|>7.3 螺栓连接与铆钉连接\n<|id|>1343<|type|>title<|page|>101<|box|>720 422 738 587<|content|>7.4 结构构件\n<|id|>1348<|type|>title<|page|>103<|box|>162 384 193 629<|content|>8 钢 引 桥\n<|id|>1357<|type|>title<|page|>104<|box|>138 421 158 592<|content|>8.2 桥面系\n<|id|>1366<|type|>title<|page|>104<|box|>628 421 647 590<|content|>8.3 联结系\n<|id|>1381<|type|>title<|page|>106<|box|>214 401 233 610<|content|>8.4 实腹板梁式主梁\n<|id|>1387<|type|>title<|page|>106<|box|>679 422 698 589<|content|>8.5 桁架式主梁\n<|id|>1390<|type|>title<|page|>106<|box|>842 401 861 610<|content|>8.6 空腹拱桁式主梁\n<|id|>1392<|type|>title<|page|>107<|box|>172 393 202 639<|content|>9 箱形轨道梁\n<|id|>1395<|type|>title<|page|>108<|box|>169 385 196 645<|content|>10 钢 管 桩\n<|id|>1399<|type|>title<|page|>109<|box|>177 379 206 637<|content|>11 钢 板 桩\n<|id|>1403<|type|>title<|page|>110<|box|>174 369 202 628<|content|>12 钢 撑 杆\n<|id|>1407<|type|>title<|page|>111<|box|>163 325 193 691<|content|>13 钢与混凝土组合梁\n<|id|>1408<|type|>title<|page|>111<|box|>227 419 245 596<|content|>13.1 一般规定\n<|id|>1413<|type|>title<|page|>111<|box|>806 429 825 585<|content|>13.2 计算\n<|id|>1417<|type|>title<|page|>112<|box|>212 410 231 589<|content|>13.3 构造要求\n<|id|>1419<|type|>title<|page|>113<|box|>188 328 217 660<|content|>14 船闸闸门和阀门\n<|id|>1421<|type|>title<|page|>114<|box|>177 386 207 644<|content|>15 船坞坞门",
+    "raw_response": "<|src_id|>1281<|tgt_id|>1277\n<|src_id|>1290<|tgt_id|>1287\n<|src_id|>1297<|tgt_id|>1287",
+    "parsed": [
+        {
+            "src_id": 1281,
+            "tgt_id": 1277
+        },
+        {
+            "src_id": 1290,
+            "tgt_id": 1287
+        },
+        {
+            "src_id": 1297,
+            "tgt_id": 1287
+        }
+    ]
+}

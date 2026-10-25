@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 751 133 852<|content|>July 30, 2021\n<|id|>2<|page|>1<|box|>141 140 178 852<|content|>Mr. ... 200 Constitution Plaza, Suite 3100 Hartford, CT 06103\n<|id|>12<|page|>2<|box|>196 174 233 854<|content|>Payee: ... 021-307-884\n<|id|>13<|page|>2<|box|>241 140 277 854<|content|>Please reference C&H Matter No. ... 1025-00001 in ...mittance correspondence to ensure proper crediting\n<|id|>23<|page|>2<|box|>871 181 907 854<|content|>• Preparation and delivery of a comprehensive due ...n in the management due diligence call held on May\n<|id|>24<|page|>3<|box|>90 210 125 854<|content|>19, 2021 with representatives of the Company, Grey... & Pressler LLP, and Carver, Bain & Associates LLP\n<|id|>25<|page|>3<|box|>128 183 181 854<|content|>• Drafting of the Company's 10b-5 representation l... by the Company and underwriter's counsel; ... and\n<|id|>27<|page|>3<|box|>258 140 332 854<|content|>We note for the record that the preliminary prospe...for retrieval in the event the offering is resumed\n<|id|>32<|page|>3<|box|>715 142 732 272<|content|>Very truly yours,\n<|id|>33<|page|>3<|box|>739 140 756 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>34<|page|>3<|box|>758 143 775 254<|content|>By: ... By\n<|id|>35<|page|>3<|box|>775 142 791 313<|content|>Jennifer Kwon Partner\n<|id|>36<|page|>3<|box|>792 142 809 537<|content|>Enclosure: ... Detailed Time Entries (Billing Statement)\n<|id|>37<|page|>3<|box|>818 140 835 519<|content|>cc: ... Robert Adeyemi, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>23<|tgt_id|>24",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        }
+    ]
+}

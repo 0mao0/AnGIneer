@@ -1,0 +1,647 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fbxd1qse\\input\\pdfs\\doc-b617e879.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fbxd1qse\\enriched\\doc-b617e879.json",
+    "contd_output": "<|src_id|>11<|tgt_id|>12\n<|src_id|>25<|tgt_id|>26\n<|src_id|>296<|tgt_id|>297\n<|src_id|>378<|tgt_id|>379\n<|src_id|>379<|tgt_id|>380\n<|src_id|>415<|tgt_id|>416\n<|src_id|>416<|tgt_id|>417\n<|src_id|>425<|tgt_id|>426\n<|src_id|>441<|tgt_id|>442",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>19<|level|>3\n<|id|>23<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>3\n<|id|>45<|level|>3\n<|id|>51<|level|>3\n<|id|>67<|level|>4\n<|id|>72<|level|>4\n<|id|>74<|level|>3\n<|id|>87<|level|>3\n<|id|>94<|level|>3\n<|id|>96<|level|>2\n<|id|>98<|level|>3\n<|id|>103<|level|>2\n<|id|>105<|level|>3\n<|id|>106<|level|>4\n<|id|>109<|level|>4\n<|id|>119<|level|>4\n<|id|>133<|level|>4\n<|id|>143<|level|>4\n<|id|>148<|level|>4\n<|id|>150<|level|>4\n<|id|>161<|level|>4\n<|id|>163<|level|>4\n<|id|>165<|level|>3\n<|id|>166<|level|>4\n<|id|>169<|level|>4\n<|id|>171<|level|>4\n<|id|>174<|level|>4\n<|id|>176<|level|>4\n<|id|>178<|level|>3\n<|id|>179<|level|>4\n<|id|>182<|level|>4\n<|id|>184<|level|>4\n<|id|>186<|level|>4\n<|id|>188<|level|>4\n<|id|>190<|level|>3\n<|id|>191<|level|>4\n<|id|>193<|level|>4\n<|id|>195<|level|>4\n<|id|>198<|level|>4\n<|id|>201<|level|>4\n<|id|>203<|level|>4\n<|id|>206<|level|>4\n<|id|>208<|level|>4\n<|id|>210<|level|>3\n<|id|>211<|level|>4\n<|id|>213<|level|>4\n<|id|>215<|level|>4\n<|id|>217<|level|>2\n<|id|>225<|level|>2\n<|id|>234<|level|>2\n<|id|>239<|level|>2\n<|id|>240<|level|>3\n<|id|>246<|level|>3\n<|id|>254<|level|>3\n<|id|>261<|level|>3\n<|id|>263<|level|>2\n<|id|>264<|level|>3\n<|id|>268<|level|>3\n<|id|>280<|level|>3\n<|id|>285<|level|>3\n<|id|>295<|level|>3\n<|id|>307<|level|>3\n<|id|>310<|level|>2\n<|id|>311<|level|>3\n<|id|>316<|level|>3\n<|id|>318<|level|>2\n<|id|>319<|level|>3\n<|id|>329<|level|>3\n<|id|>331<|level|>3\n<|id|>333<|level|>2\n<|id|>335<|level|>3\n<|id|>346<|level|>3\n<|id|>354<|level|>3\n<|id|>366<|level|>3\n<|id|>383<|level|>3\n<|id|>394<|level|>3\n<|id|>398<|level|>3\n<|id|>400<|level|>3\n<|id|>420<|level|>3\n<|id|>429<|level|>3\n<|id|>439<|level|>3\n<|id|>446<|level|>3\n<|id|>451<|level|>3\n<|id|>457<|level|>3\n<|id|>469<|level|>3\n<|id|>472<|level|>3\n<|id|>475<|level|>3\n<|id|>477<|level|>3\n<|id|>497<|level|>2\n<|id|>499<|level|>3\n<|id|>503<|level|>3\n<|id|>517<|level|>3\n<|id|>527<|level|>2\n<|id|>546<|level|>2\n<|id|>549<|level|>3\n<|id|>560<|level|>3\n<|id|>571<|level|>2\n<|id|>574<|level|>3\n<|id|>578<|level|>3\n<|id|>582<|level|>3\n<|id|>587<|level|>3\n<|id|>589<|level|>3\n<|id|>591<|level|>3\n<|id|>593<|level|>2\n<|id|>607<|level|>3\n<|id|>612<|level|>3\n<|id|>616<|level|>3\n<|id|>620<|level|>3\n<|id|>631<|level|>3\n<|id|>641<|level|>3\n<|id|>644<|level|>3\n<|id|>650<|level|>3\n<|id|>658<|level|>3\n<|id|>659<|level|>4\n<|id|>661<|level|>3",
+    "image_output": "<|src_id|>53<|tgt_id|>51\n<|src_id|>54<|tgt_id|>51\n<|src_id|>71<|tgt_id|>67\n<|src_id|>219<|tgt_id|>217\n<|src_id|>228<|tgt_id|>225\n<|src_id|>236<|tgt_id|>234\n<|src_id|>271<|tgt_id|>268\n<|src_id|>312<|tgt_id|>311\n<|src_id|>313<|tgt_id|>311\n<|src_id|>314<|tgt_id|>311\n<|src_id|>345<|tgt_id|>333\n<|src_id|>393<|tgt_id|>383\n<|src_id|>573<|tgt_id|>571",
+    "contd_label": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 296,
+            "tgt_id": 297
+        },
+        {
+            "src_id": 378,
+            "tgt_id": 379
+        },
+        {
+            "src_id": 379,
+            "tgt_id": 380
+        },
+        {
+            "src_id": 415,
+            "tgt_id": 416
+        },
+        {
+            "src_id": 416,
+            "tgt_id": 417
+        },
+        {
+            "src_id": 425,
+            "tgt_id": 426
+        },
+        {
+            "src_id": 441,
+            "tgt_id": 442
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 4
+        },
+        {
+            "id": 109,
+            "level": 4
+        },
+        {
+            "id": 119,
+            "level": 4
+        },
+        {
+            "id": 133,
+            "level": 4
+        },
+        {
+            "id": 143,
+            "level": 4
+        },
+        {
+            "id": 148,
+            "level": 4
+        },
+        {
+            "id": 150,
+            "level": 4
+        },
+        {
+            "id": 161,
+            "level": 4
+        },
+        {
+            "id": 163,
+            "level": 4
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 4
+        },
+        {
+            "id": 169,
+            "level": 4
+        },
+        {
+            "id": 171,
+            "level": 4
+        },
+        {
+            "id": 174,
+            "level": 4
+        },
+        {
+            "id": 176,
+            "level": 4
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 4
+        },
+        {
+            "id": 182,
+            "level": 4
+        },
+        {
+            "id": 184,
+            "level": 4
+        },
+        {
+            "id": 186,
+            "level": 4
+        },
+        {
+            "id": 188,
+            "level": 4
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 191,
+            "level": 4
+        },
+        {
+            "id": 193,
+            "level": 4
+        },
+        {
+            "id": 195,
+            "level": 4
+        },
+        {
+            "id": 198,
+            "level": 4
+        },
+        {
+            "id": 201,
+            "level": 4
+        },
+        {
+            "id": 203,
+            "level": 4
+        },
+        {
+            "id": 206,
+            "level": 4
+        },
+        {
+            "id": 208,
+            "level": 4
+        },
+        {
+            "id": 210,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 4
+        },
+        {
+            "id": 213,
+            "level": 4
+        },
+        {
+            "id": 215,
+            "level": 4
+        },
+        {
+            "id": 217,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 2
+        },
+        {
+            "id": 234,
+            "level": 2
+        },
+        {
+            "id": 239,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 3
+        },
+        {
+            "id": 246,
+            "level": 3
+        },
+        {
+            "id": 254,
+            "level": 3
+        },
+        {
+            "id": 261,
+            "level": 3
+        },
+        {
+            "id": 263,
+            "level": 2
+        },
+        {
+            "id": 264,
+            "level": 3
+        },
+        {
+            "id": 268,
+            "level": 3
+        },
+        {
+            "id": 280,
+            "level": 3
+        },
+        {
+            "id": 285,
+            "level": 3
+        },
+        {
+            "id": 295,
+            "level": 3
+        },
+        {
+            "id": 307,
+            "level": 3
+        },
+        {
+            "id": 310,
+            "level": 2
+        },
+        {
+            "id": 311,
+            "level": 3
+        },
+        {
+            "id": 316,
+            "level": 3
+        },
+        {
+            "id": 318,
+            "level": 2
+        },
+        {
+            "id": 319,
+            "level": 3
+        },
+        {
+            "id": 329,
+            "level": 3
+        },
+        {
+            "id": 331,
+            "level": 3
+        },
+        {
+            "id": 333,
+            "level": 2
+        },
+        {
+            "id": 335,
+            "level": 3
+        },
+        {
+            "id": 346,
+            "level": 3
+        },
+        {
+            "id": 354,
+            "level": 3
+        },
+        {
+            "id": 366,
+            "level": 3
+        },
+        {
+            "id": 383,
+            "level": 3
+        },
+        {
+            "id": 394,
+            "level": 3
+        },
+        {
+            "id": 398,
+            "level": 3
+        },
+        {
+            "id": 400,
+            "level": 3
+        },
+        {
+            "id": 420,
+            "level": 3
+        },
+        {
+            "id": 429,
+            "level": 3
+        },
+        {
+            "id": 439,
+            "level": 3
+        },
+        {
+            "id": 446,
+            "level": 3
+        },
+        {
+            "id": 451,
+            "level": 3
+        },
+        {
+            "id": 457,
+            "level": 3
+        },
+        {
+            "id": 469,
+            "level": 3
+        },
+        {
+            "id": 472,
+            "level": 3
+        },
+        {
+            "id": 475,
+            "level": 3
+        },
+        {
+            "id": 477,
+            "level": 3
+        },
+        {
+            "id": 497,
+            "level": 2
+        },
+        {
+            "id": 499,
+            "level": 3
+        },
+        {
+            "id": 503,
+            "level": 3
+        },
+        {
+            "id": 517,
+            "level": 3
+        },
+        {
+            "id": 527,
+            "level": 2
+        },
+        {
+            "id": 546,
+            "level": 2
+        },
+        {
+            "id": 549,
+            "level": 3
+        },
+        {
+            "id": 560,
+            "level": 3
+        },
+        {
+            "id": 571,
+            "level": 2
+        },
+        {
+            "id": 574,
+            "level": 3
+        },
+        {
+            "id": 578,
+            "level": 3
+        },
+        {
+            "id": 582,
+            "level": 3
+        },
+        {
+            "id": 587,
+            "level": 3
+        },
+        {
+            "id": 589,
+            "level": 3
+        },
+        {
+            "id": 591,
+            "level": 3
+        },
+        {
+            "id": 593,
+            "level": 2
+        },
+        {
+            "id": 607,
+            "level": 3
+        },
+        {
+            "id": 612,
+            "level": 3
+        },
+        {
+            "id": 616,
+            "level": 3
+        },
+        {
+            "id": 620,
+            "level": 3
+        },
+        {
+            "id": 631,
+            "level": 3
+        },
+        {
+            "id": 641,
+            "level": 3
+        },
+        {
+            "id": 644,
+            "level": 3
+        },
+        {
+            "id": 650,
+            "level": 3
+        },
+        {
+            "id": 658,
+            "level": 3
+        },
+        {
+            "id": 659,
+            "level": 4
+        },
+        {
+            "id": 661,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 53,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 217
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 236,
+            "tgt_id": 234
+        },
+        {
+            "src_id": 271,
+            "tgt_id": 268
+        },
+        {
+            "src_id": 312,
+            "tgt_id": 311
+        },
+        {
+            "src_id": 313,
+            "tgt_id": 311
+        },
+        {
+            "src_id": 314,
+            "tgt_id": 311
+        },
+        {
+            "src_id": 345,
+            "tgt_id": 333
+        },
+        {
+            "src_id": 393,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 573,
+            "tgt_id": 571
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 53,
+            "table2_idx": 54,
+            "upper_row_ss": [
+                [
+                    "Issue Price",
+                    "[_]% of par (to be determined at pricing)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Coupon",
+                    "8.750% per annum, payable semi-annually in arrears"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 312,
+            "table2_idx": 313,
+            "upper_row_ss": [
+                [
+                    "Deepak Rathore",
+                    "General Counsel and Corporate Secretary",
+                    "52",
+                    "Called to the Ontario Bar in 1998. Mr. Rathore has over 20 years of experience in mining law, securities law, and corporate governance. Prior to joining Torchlight, he was a partner at a leading"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "Canadian business law firm where he advised mining and resource companies on a wide range of transactional and regulatory matters. He holds a Bachelor of Laws (LL.B.) from Osgoode Hall Law School, York University, and a Bachelor of Arts from the University of Toronto."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 313,
+            "table2_idx": 314,
+            "upper_row_ss": [
+                [
+                    "Stavros Katsaros",
+                    "General Manager, Mine Operations (Wolverine Lake Mining Ltd.)",
+                    "50",
+                    "Mr. Katsaros has over 25 years of experience in underground base metals mining. He has served as General Manager, Mine Operations at the Wolverine Lake Mine for approximately 12 years. Prior to joining Wolverine Lake Mining Ltd., Mr. Katsaros held various"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "mine management positions at underground nickel and copper operations in Ontario and Manitoba. He holds a Bachelor of Engineering (Mining) from Laurentian University."
+                ]
+            ]
+        }
+    ]
+}

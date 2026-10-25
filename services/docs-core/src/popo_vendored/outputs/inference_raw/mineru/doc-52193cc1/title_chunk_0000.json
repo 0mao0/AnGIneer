@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        7,
+        10,
+        12,
+        13,
+        14,
+        22,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 153 140 844<|content|>UNITED STATES BANKRUPTCY COURT FOR THE SOUTHERN DI\n<|id|>8<|page|>1<|box|>696 449 714 549<|content|>RECITALS\n<|id|>49<|page|>7<|box|>402 197 419 797<|content|>IT IS HEREBY ORDERED, ADJUDGED, AND DECREED AS FOL\n<|id|>67<|page|>10<|box|>585 140 604 591<|content|>A. Adequate Protection for Prepetition First Lien\n<|id|>76<|page|>12<|box|>208 140 224 596<|content|>B. Adequate Protection for Prepetition Second Lien\n<|id|>91<|page|>13<|box|>598 142 614 351<|content|>A. Affirmative Covenants.\n<|id|>101<|page|>14<|box|>556 143 574 326<|content|>B. Negative Covenants.\n<|id|>177<|page|>22<|box|>684 450 700 547<|content|>EXHIBITS\n<|id|>178<|page|>22<|box|>710 447 728 550<|content|>EXHIBIT A\n<|id|>179<|page|>22<|box|>736 439 753 558<|content|>DIP BUDGET\n<|id|>184<|page|>23<|box|>378 447 396 550<|content|>EXHIBIT B\n<|id|>185<|page|>23<|box|>405 336 422 660<|content|>FORM OF DIP CREDIT AGREEMENT\n<|id|>193<|page|>24<|box|>114 447 132 550<|content|>EXHIBIT C\n<|id|>194<|page|>24<|box|>141 253 157 743<|content|>IDENTIFICATION OF PREPETITION SECURED PARTIES\n<|id|>195<|page|>24<|box|>167 142 185 638<|content|>I. Prepetition First Lien Parties (Senior Secured\n<|id|>197<|page|>24<|box|>446 143 464 550<|content|>II. Prepetition Second Lien Party (Mezzanine Notes\n<|id|>199<|page|>24<|box|>561 143 579 455<|content|>III. Aggregate Prepetition Secured Debt\n<|id|>201<|page|>24<|box|>695 447 712 549<|content|>EXHIBIT D\n<|id|>202<|page|>24<|box|>720 282 738 715<|content|>ADEQUATE PROTECTION PAYMENT SCHEDULE\n<|id|>203<|page|>24<|box|>748 140 765 790<|content|>I. Monthly Adequate Protection Interest Payments —\n<|id|>208<|page|>25<|box|>299 142 315 426<|content|>II. Professional Fee Reimbursement\n<|id|>214<|page|>25<|box|>489 361 506 635<|content|>SIGNATURE AND SUBMISSION\n<|id|>217<|page|>25<|box|>594 142 609 259<|content|>Submitted by:\n<|id|>221<|page|>25<|box|>715 142 732 245<|content|>Service List:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>49<|level|>2\n<|id|>67<|level|>3\n<|id|>76<|level|>3\n<|id|>91<|level|>3\n<|id|>101<|level|>3\n<|id|>177<|level|>2\n<|id|>178<|level|>3\n<|id|>179<|level|>4\n<|id|>184<|level|>3\n<|id|>185<|level|>4\n<|id|>193<|level|>3\n<|id|>194<|level|>4\n<|id|>195<|level|>5\n<|id|>197<|level|>5\n<|id|>199<|level|>5\n<|id|>201<|level|>3\n<|id|>202<|level|>4\n<|id|>203<|level|>5\n<|id|>208<|level|>5\n<|id|>214<|level|>2\n<|id|>217<|level|>3\n<|id|>221<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 4
+        },
+        {
+            "id": 184,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 4
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 4
+        },
+        {
+            "id": 195,
+            "level": 5
+        },
+        {
+            "id": 197,
+            "level": 5
+        },
+        {
+            "id": 199,
+            "level": 5
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 202,
+            "level": 4
+        },
+        {
+            "id": 203,
+            "level": 5
+        },
+        {
+            "id": 208,
+            "level": 5
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 3
+        }
+    ]
+}

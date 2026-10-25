@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        8,
+        10,
+        11,
+        13,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>157 424 174 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>183 140 219 854<|content|>TO: ... Andrew Fitzpatrick, Lead Associate, Calder...ce, Responsible Partner, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>228 140 244 700<|content|>FROM: ... Naomi Petersen, Working Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>253 140 270 344<|content|>DATE: ... February 27, 2026\n<|id|>5<|page|>1<|box|>279 140 297 823<|content|>RE: ... (Project Trident)\n<|id|>6<|page|>1<|box|>305 142 321 333<|content|>Matter No. ... 1041-00004\n<|id|>7<|page|>1<|box|>330 140 349 434<|content|>Client: ... Solara Digital Infrastructure LP\n<|id|>8<|page|>1<|box|>357 140 375 403<|content|>Target: ... Meridian FleetWorks, Inc\n<|id|>70<|page|>8<|box|>90 183 106 620<|content|>• Common stock proceeds: ... 00 = $5,250,000\n<|id|>73<|page|>8<|box|>148 140 220 854<|content|>Change-of-Control Severance. ... Trahan does not a...pon termination in connection with the Transaction\n<|id|>71<|page|>8<|box|>109 183 127 787<|content|>• Option net proceeds: ... 50 × 80,000 = $2,120,000\n<|id|>72<|page|>8<|box|>128 183 146 477<|content|>• Total estimated proceeds: ... $7,370,000\n<|id|>105<|page|>10<|box|>780 140 907 857<|content|>MFW maintains standard paid time off (\"PTO\") polic... to pay out accrued PTO, and the aggregate accrued\n<|id|>106<|page|>11<|box|>89 140 127 854<|content|>PTO liability as of the most recent payroll date i...g capital (\"NWC\") adjustment provisions of the SPA\n<|id|>132<|page|>13<|box|>523 176 542 433<|content|>$35. ... 50 per share\n<|id|>133<|page|>13<|box|>550 140 585 854<|content|>The aggregate net proceeds payable to all option h...and cash-out of all 650,000 outstanding options is\n<|id|>134<|page|>13<|box|>594 176 611 421<|content|>$26. ... 50 × 650,000 = $17,225,000\n<|id|>135<|page|>13<|box|>619 140 712 854<|content|>Treatment of Unvested Options. ... Solara's stated...ions and to provide a clean cap table post-closing\n<|id|>246<|page|>23<|box|>862 140 898 854<|content|>Employment and benefits due diligence for Project ...roduction from MFW and HKA, as detailed in Section\n<|id|>247<|page|>24<|box|>90 140 162 854<|content|>IX above. ... The key risk areas identified in thi... indemnification provisions, and closing mechanics\n<|id|>252<|page|>24<|box|>452 174 505 854<|content|>Appendix A: ... Capitalization Table — Fully Dilut... Memorandum prepared by Calderwood & Harkness LLP)\n<|id|>253<|page|>24<|box|>513 176 532 733<|content|>Appendix B: ... Summary of Holliday Employment Agreement — Key Terms\n<|id|>254<|page|>24<|box|>540 176 558 771<|content|>Appendix C: ... Summary of Vasquez-Park Employment Agreement — Key Terms\n<|id|>255<|page|>24<|box|>566 176 584 658<|content|>Appendix D: ... 2016 Stock Incentive Plan — Key Terms Summary\n<|id|>256<|page|>24<|box|>592 176 609 797<|content|>Appendix E: ... as received to date from VDR)\n<|id|>257<|page|>24<|box|>618 176 636 792<|content|>Appendix F: ... Open Diligence Request Items — Employment and Benefits Category\n<|id|>258<|page|>24<|box|>643 140 719 854<|content|>This memorandum is prepared for the internal use o...n and should not be relied upon by any third party",
+    "raw_response": "<|src_id|>105<|tgt_id|>106\n<|src_id|>133<|tgt_id|>134\n<|src_id|>246<|tgt_id|>247",
+    "parsed": [
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 246,
+            "tgt_id": 247
+        }
+    ]
+}

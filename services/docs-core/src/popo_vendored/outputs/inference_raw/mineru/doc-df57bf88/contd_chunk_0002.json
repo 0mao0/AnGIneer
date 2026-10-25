@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        107,
+        118
+    ],
+    "pages": [
+        108,
+        117,
+        118
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1657<|page|>108<|box|>385 405 407 603<|content|>(JTG F90—2015)\n<|id|>1658<|page|>108<|box|>441 428 462 581<|content|>条文说明\n<|id|>1740<|page|>117<|box|>885 147 905 885<|content|>4 斜拉桥的索塔、横梁大多属于 30m 以上高处作业，防止高处坠落，做好临边防\n<|id|>1741<|page|>118<|box|>131 102 148 663<|content|>护尤为重要。 ... 考虑索塔、横梁施工高空消防和减少风载的需要",
+    "raw_response": "<|src_id|>1740<|tgt_id|>1741",
+    "parsed": [
+        {
+            "src_id": 1740,
+            "tgt_id": 1741
+        }
+    ]
+}

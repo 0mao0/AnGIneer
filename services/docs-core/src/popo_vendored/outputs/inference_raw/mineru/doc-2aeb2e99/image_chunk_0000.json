@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 308 118 689<|content|>FORM OF LOCK-UP AGREEMENT\n<|id|>1<|type|>title<|page|>1<|box|>136 223 154 772<|content|>Redstone Gaming Corp. Follow-On Equity Offering of\n<|id|>10<|type|>title<|page|>2<|box|>90 140 107 397<|content|>Section 1. Lock-Up Restrictions.\n<|id|>11<|type|>title<|page|>2<|box|>121 140 138 334<|content|>(a) Restricted Activities.\n<|id|>20<|type|>title<|page|>2<|box|>741 140 758 395<|content|>(b) Scope of Lock-Up Securities.\n<|id|>26<|type|>title<|page|>3<|box|>375 140 391 356<|content|>Section 2. Lock-Up Period.\n<|id|>30<|type|>title<|page|>3<|box|>804 140 821 509<|content|>Section 3. Permitted Transfers and Exceptions.\n<|id|>43<|type|>title<|page|>6<|box|>285 140 303 405<|content|>Section 4. Release from Lock-Up.\n<|id|>46<|type|>title<|page|>6<|box|>633 140 652 633<|content|>Section 5. Representations and Warranties of the U\n<|id|>52<|type|>title<|page|>7<|box|>402 140 420 437<|content|>Section 6. Stop Transfer Instructions.\n<|id|>57<|type|>title<|page|>7<|box|>804 140 821 535<|content|>Section 7. No Obligation to Proceed with Offering.\n<|id|>60<|type|>title<|page|>8<|box|>285 140 303 480<|content|>Section 8. Specific Performance; Remedies.\n<|id|>63<|type|>title<|page|>8<|box|>633 140 652 532<|content|>Section 9. Binding Effect; Successors and Assigns.\n<|id|>66<|type|>title<|page|>9<|box|>90 140 107 313<|content|>Section 10. Headings.\n<|id|>68<|type|>title<|page|>9<|box|>194 140 210 464<|content|>Section 11. Governing Law; Jurisdiction.\n<|id|>72<|type|>title<|page|>9<|box|>550 140 568 334<|content|>Section 12. Severability.\n<|id|>75<|type|>title<|page|>9<|box|>789 140 806 493<|content|>Section 13. Entire Agreement; Amendments.\n<|id|>78<|type|>title<|page|>10<|box|>223 140 239 516<|content|>Section 14. Counterparts; Electronic Execution.\n<|id|>81<|type|>title<|page|>10<|box|>444 140 460 297<|content|>Section 15. Notices.\n<|id|>83<|type|>title<|page|>10<|box|>587 140 604 377<|content|>If to Pinnacle Zanthor & Co.:\n<|id|>91<|type|>title<|page|>10<|box|>760 143 776 295<|content|>If to the Company:\n<|id|>103<|type|>title<|page|>11<|box|>319 294 335 702<|content|>SIGNATURE PAGE TO LOCK-UP AGREEMENT\n<|id|>104<|type|>title<|page|>11<|box|>345 140 388 782<|content|>Redstone Gaming Corp. — Follow-On Equity Offering\n<|id|>121<|type|>table<|page|>12<|box|>161 143 472 852<|content|>None\n<|id|>122<|type|>title<|page|>12<|box|>511 143 527 357<|content|>II. Significant Stockholders\n<|id|>123<|type|>table<|page|>12<|box|>532 143 662 852<|content|>None\n<|id|>124<|type|>title<|page|>12<|box|>700 142 718 491<|content|>III. Note Regarding Additional Stockholders",
+    "raw_response": "<|src_id|>121<|tgt_id|>103\n<|src_id|>123<|tgt_id|>122",
+    "parsed": [
+        {
+            "src_id": 121,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 122
+        }
+    ]
+}

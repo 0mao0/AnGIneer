@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        20
+    ],
+    "pages": [
+        2,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>2<|box|>219 140 273 854<|content|>Penterra Pharmaceuticals Corp. ... , a corporation...mington, Delaware 19801 (\"Licensor\" or \"Penterra\")\n<|id|>5<|page|>2<|box|>282 142 297 176<|content|>and\n<|id|>6<|page|>2<|box|>306 140 362 854<|content|>Meridian Bio Therapeutics Limited, a limited compa...eet, Central, Hong Kong (\"Licensee\" or \"Meridian\")\n<|id|>7<|page|>2<|box|>369 140 387 393<|content|>Effective Date: ... October 20, 2023\n<|id|>8<|page|>2<|box|>396 140 488 854<|content|>This Schedule F is attached to and forms an integr... pricing obligations contemplated by the Agreement\n<|id|>40<|page|>4<|box|>362 174 378 455<|content|>(a) the United States of America; ... and\n<|id|>47<|page|>4<|box|>542 140 689 856<|content|>For the avoidance of doubt, if the Licensed Produc...ference Market for all purposes of this Schedule F\n<|id|>45<|page|>4<|box|>489 210 508 446<|content|>(iv) the Kingdom of Spain; ... and\n<|id|>53<|page|>5<|box|>277 174 333 854<|content|>(e) customs duties, sales taxes, value-added taxes...tent included in the gross invoiced price; ... and\n<|id|>55<|page|>5<|box|>402 140 549 857<|content|>Net Price shall be calculated on a country-by-coun... further specified in Section 7 of this Schedule F\n<|id|>58<|page|>5<|box|>718 176 734 555<|content|>MFN Floor Price = MFN Reference Price × 0. ... 85\n<|id|>59<|page|>5<|box|>744 140 799 854<|content|>The MFN Floor Price represents the minimum permiss...e dosage strength and Comparable Pack Size. ... 1)\n<|id|>71<|page|>7<|box|>241 174 314 856<|content|>(d) a summary of the Net Price calculation for the...of the deductions applied under Section 2. ... and\n<|id|>73<|page|>7<|box|>383 140 494 854<|content|>All information provided in the Reference Price St...ule F and Article 12 of the Agreement. ... 2 below\n<|id|>93<|page|>9<|box|>375 176 392 491<|content|>(e) managed care and formulary sales; ... and\n<|id|>95<|page|>9<|box|>444 140 554 854<|content|>Licensee acknowledges that the MFN pricing obligat... MFN Floor Price in all countries of the Territory\n<|id|>101<|page|>10<|box|>215 174 306 854<|content|>(d) a statement confirming MFN compliance for the quarter (i. ... and\n<|id|>103<|page|>10<|box|>359 140 449 854<|content|>Each Territory Pricing Report shall be certified a...n the following form or substantially similar form\n<|id|>111<|page|>11<|box|>286 181 340 854<|content|>• \"Territory Net Price\" is the actual Territory Ne... reported in the Territory Pricing Report; ... and\n<|id|>113<|page|>11<|box|>380 140 472 854<|content|>The total MFN Adjustment Payment for a given calen...ntly and the resulting amounts shall be aggregated\n<|id|>165<|page|>17<|box|>700 174 755 854<|content|>(a) the date of expiration of the last-to-expire V...facturing process patents) in such country; ... or\n<|id|>169<|page|>18<|box|>375 140 486 854<|content|>The foregoing table is provided for informational ...ry, as determined in accordance with the Agreement\n<|id|>186<|page|>19<|box|>829 176 845 535<|content|>MFN Floor Price = MFN Reference Price × 0. ... 85\n<|id|>187<|page|>19<|box|>854 176 873 575<|content|>MFN Floor Price = $15. ... 75 per tablet\n<|id|>188<|page|>19<|box|>882 142 898 470<|content|>Step 2: ... Determine the Territory Net Price\n<|id|>189<|page|>20<|box|>89 174 181 854<|content|>Licensee (through Meridian Japan K. ... exchange rate for Q1 2026)\n<|id|>191<|page|>20<|box|>214 176 232 596<|content|>Territory Net Price ($11. ... 75)\n<|id|>192<|page|>20<|box|>239 174 277 854<|content|>Result: ... 25 per tablet\n<|id|>194<|page|>20<|box|>311 174 345 854<|content|>Total units (tablets) of 50 mg Licensed Product sold by Meridian Japan K. ... 200,000 tablets\n<|id|>195<|page|>20<|box|>354 174 373 787<|content|>MFN Adjustment Payment = (MFN Floor Price − Territory Net Price) × Units Sold\n<|id|>196<|page|>20<|box|>380 174 398 607<|content|>MFN Adjustment Payment = ($12. ... 50) × 200,000\n<|id|>197<|page|>20<|box|>406 176 424 517<|content|>MFN Adjustment Payment = $1. ... 25 × 200,000\n<|id|>198<|page|>20<|box|>433 176 450 504<|content|>MFN Adjustment Payment = $250,000. ... 00",
+    "raw_response": "<|src_id|>4<|tgt_id|>5\n<|src_id|>5<|tgt_id|>6",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        }
+    ]
+}

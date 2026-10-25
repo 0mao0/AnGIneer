@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>142 140 159 602<|content|>TO: ... Douglas Carmichael, Francesca Morano, Carlos Espinoza\n<|id|>3<|page|>1<|box|>167 142 184 339<|content|>FROM: ... Hannah Brinkley\n<|id|>4<|page|>1<|box|>193 140 210 352<|content|>DATE: ... November 20, 2023\n<|id|>5<|page|>1<|box|>219 140 292 856<|content|>RE: ... 655421/2023, Supreme Court of the State of New York, New York County, Commercial Division\n<|id|>6<|page|>1<|box|>300 140 316 377<|content|>C&H Matter No. ... 1044-00006\n<|id|>7<|page|>1<|box|>325 142 342 408<|content|>Right-click to update Table of Contents\n<|id|>40<|page|>4<|box|>664 174 902 857<|content|>\"28. ... The parties agree that the liquidated dam... pre-estimate of the loss likely to be suffered by\n<|id|>41<|page|>5<|box|>90 174 126 854<|content|>Charterer as a result of Owner's breach of its mai...ligations and are not intended as a penalty. ... \"",
+    "raw_response": "<|src_id|>40<|tgt_id|>41",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        }
+    ]
+}

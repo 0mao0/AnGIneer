@@ -1,0 +1,151 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wvm8ppgt\\input\\pdfs\\doc-61863c8c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wvm8ppgt\\enriched\\doc-61863c8c.json",
+    "contd_output": "<|src_id|>29<|tgt_id|>30\n<|src_id|>57<|tgt_id|>58\n<|src_id|>82<|tgt_id|>83\n<|src_id|>110<|tgt_id|>111\n<|src_id|>134<|tgt_id|>135\n<|src_id|>149<|tgt_id|>150\n<|src_id|>159<|tgt_id|>160\n<|src_id|>168<|tgt_id|>169\n<|src_id|>169<|tgt_id|>170",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>9<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>41<|level|>1\n<|id|>42<|level|>2\n<|id|>69<|level|>1\n<|id|>70<|level|>2\n<|id|>94<|level|>1\n<|id|>95<|level|>2\n<|id|>122<|level|>1\n<|id|>123<|level|>2\n<|id|>147<|level|>1\n<|id|>148<|level|>2\n<|id|>171<|level|>1\n<|id|>172<|level|>2",
+    "image_output": "<|src_id|>14<|tgt_id|>9\n<|src_id|>15<|tgt_id|>9\n<|src_id|>176<|tgt_id|>172",
+    "contd_label": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 150
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 170
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 14,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 172
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 14,
+            "table2_idx": 15,
+            "upper_row_ss": [
+                [
+                    "1",
+                    "Keymark Trust Company,",
+                    "Owner Trustee",
+                    "3"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "National Association",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

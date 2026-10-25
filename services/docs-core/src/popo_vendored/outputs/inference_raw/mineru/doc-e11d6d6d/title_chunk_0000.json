@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>126 253 143 743<|content|>OCEANUS MUTUAL PROTECTION & INDEMNITY CLUB\n<|id|>6<|page|>1<|box|>257 140 273 531<|content|>BY EMAIL AND INTERNATIONAL COURIER\n<|id|>20<|page|>2<|box|>285 140 303 401<|content|>Scope of Approved Contribution\n<|id|>27<|page|>2<|box|>756 140 773 303<|content|>Payment Mechanics\n<|id|>38<|page|>3<|box|>661 140 676 357<|content|>Conditions of Contribution\n<|id|>50<|page|>4<|box|>746 140 763 315<|content|>Reservation of Rights\n<|id|>55<|page|>5<|box|>556 140 574 500<|content|>Coordination with Hull & Machinery Insurer\n<|id|>61<|page|>6<|box|>90 142 107 300<|content|>Lender Notification\n<|id|>64<|page|>6<|box|>311 142 329 341<|content|>Documentation Requests\n<|id|>72<|page|>6<|box|>630 140 647 308<|content|>Contact Information\n<|id|>81<|page|>7<|box|>90 142 107 207<|content|>Closing\n<|id|>86<|page|>7<|box|>383 143 400 250<|content|>David Okafor\n<|id|>95<|page|>7<|box|>622 143 637 284<|content|>Action Items Arising:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>6<|level|>2\n<|id|>20<|level|>2\n<|id|>27<|level|>2\n<|id|>38<|level|>2\n<|id|>50<|level|>2\n<|id|>55<|level|>2\n<|id|>61<|level|>2\n<|id|>64<|level|>2\n<|id|>72<|level|>2\n<|id|>81<|level|>2\n<|id|>86<|level|>-1\n<|id|>95<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        }
+    ]
+}

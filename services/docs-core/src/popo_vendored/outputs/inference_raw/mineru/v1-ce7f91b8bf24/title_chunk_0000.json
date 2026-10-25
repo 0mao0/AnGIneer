@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 531<|content|>【412453#5】中华人民共和国政府认定的邪教组织列表\n<|id|>2<|page|>1<|box|>363 105 380 532<|content|>【412453#1】中华人民共和国政府认定的邪教组织列表\n<|id|>4<|page|>1<|box|>464 105 481 531<|content|>【412453#4】中华人民共和国政府认定的邪教组织列表\n<|id|>6<|page|>1<|box|>531 107 546 284<|content|>【1106263#77】法轮功\n<|id|>8<|page|>1<|box|>650 107 665 275<|content|>【478719#67】呼喊派\n<|id|>10<|page|>1<|box|>750 107 766 443<|content|>【563951#6】被政府認定為邪教的團體列表\n<|id|>12<|page|>1<|box|>869 107 884 531<|content|>【412453#3】中华人民共和国政府认定的邪教组织列表\n<|id|>14<|page|>2<|box|>134 105 149 275<|content|>【478719#65】呼喊派\n<|id|>16<|page|>2<|box|>356 105 372 275<|content|>【478719#68】呼喊派\n<|id|>18<|page|>2<|box|>612 105 627 354<|content|>【4521873#66】对法轮功的镇压",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        }
+    ]
+}

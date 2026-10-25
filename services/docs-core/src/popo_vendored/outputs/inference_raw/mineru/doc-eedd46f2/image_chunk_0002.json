@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        95,
+        104
+    ],
+    "pages": [
+        96,
+        97,
+        103,
+        104
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>215<|type|>title<|page|>96<|box|>55 340 71 661<|content|>Bulletin of the Treasury Department\n<|id|>216<|type|>title<|page|>96<|box|>79 313 94 688<|content|>Cumulative Index for July - December 1941\n<|id|>218<|type|>table<|page|>96<|box|>132 64 933 931<|content|>None\n<|id|>219<|type|>table<|page|>97<|box|>91 94 962 958<|content|>None\n<|id|>220<|type|>title<|page|>103<|box|>216 397 245 569<|content|>- LURAI\n<|id|>225<|type|>image<|page|>104<|box|>2 0 998 914<|content|>None",
+    "raw_response": "<|src_id|>218<|tgt_id|>216\n<|src_id|>219<|tgt_id|>216\n<|src_id|>225<|tgt_id|>220",
+    "parsed": [
+        {
+            "src_id": 218,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 220
+        }
+    ]
+}

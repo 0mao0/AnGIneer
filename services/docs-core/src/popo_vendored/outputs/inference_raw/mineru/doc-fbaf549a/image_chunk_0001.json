@@ -1,0 +1,117 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        54,
+        82
+    ],
+    "pages": [
+        54,
+        55,
+        56,
+        57,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        66,
+        68,
+        70,
+        72,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>522<|type|>image<|page|>54<|box|>105 275 816 726<|content|>None\n<|id|>524<|type|>title<|page|>55<|box|>124 107 140 369<|content|>C3 双车道公路作业区布置示例\n<|id|>529<|type|>image<|page|>55<|box|>273 315 832 682<|content|>None\n<|id|>530<|type|>title<|page|>56<|box|>105 104 122 658<|content|>C32 双车道公路封闭一车道作业时,作业区布置示例如图 所示:\n<|id|>545<|type|>title<|page|>56<|box|>423 139 439 336<|content|>d) 对向车道标志设置:\n<|id|>558<|type|>image<|page|>57<|box|>109 231 816 769<|content|>None\n<|id|>573<|type|>image<|page|>59<|box|>107 228 816 766<|content|>None\n<|id|>591<|type|>title<|page|>60<|box|>441 139 458 337<|content|>) 对向车道标志设置:\n<|id|>604<|type|>image<|page|>61<|box|>107 144 816 853<|content|>None\n<|id|>606<|type|>title<|page|>62<|box|>124 107 140 352<|content|>C4 城市道路作业区布置示例\n<|id|>613<|type|>image<|page|>62<|box|>311 307 835 690<|content|>None\n<|id|>614<|type|>image<|page|>63<|box|>105 312 614 685<|content|>None\n<|id|>625<|type|>image<|page|>64<|box|>104 211 816 786<|content|>None\n<|id|>635<|type|>image<|page|>66<|box|>105 205 816 794<|content|>None\n<|id|>647<|type|>image<|page|>68<|box|>105 152 813 850<|content|>None\n<|id|>662<|type|>image<|page|>70<|box|>105 211 815 786<|content|>None\n<|id|>676<|type|>image<|page|>72<|box|>114 278 807 722<|content|>None\n<|id|>699<|type|>image<|page|>74<|box|>134 238 822 759<|content|>None\n<|id|>700<|type|>image<|page|>75<|box|>115 278 812 719<|content|>None\n<|id|>701<|type|>image<|page|>76<|box|>118 270 841 727<|content|>None\n<|id|>710<|type|>image<|page|>77<|box|>317 238 683 763<|content|>None\n<|id|>711<|type|>title<|page|>77<|box|>737 107 753 317<|content|>C5 临时作业区布置示例\n<|id|>720<|type|>image<|page|>78<|box|>162 186 854 806<|content|>None\n<|id|>726<|type|>image<|page|>79<|box|>293 258 833 737<|content|>None\n<|id|>727<|type|>image<|page|>80<|box|>124 295 550 702<|content|>None\n<|id|>729<|type|>title<|page|>80<|box|>638 107 653 315<|content|>C6 移动作业区布置示例\n<|id|>733<|type|>image<|page|>81<|box|>105 381 405 618<|content|>None\n<|id|>734<|type|>image<|page|>81<|box|>466 357 753 640<|content|>None\n<|id|>735<|type|>title<|page|>82<|box|>134 433 149 564<|content|>参 考 文 献",
+    "raw_response": "<|src_id|>529<|tgt_id|>524\n<|src_id|>558<|tgt_id|>545\n<|src_id|>573<|tgt_id|>545\n<|src_id|>604<|tgt_id|>591\n<|src_id|>613<|tgt_id|>606\n<|src_id|>614<|tgt_id|>606\n<|src_id|>625<|tgt_id|>606\n<|src_id|>635<|tgt_id|>606\n<|src_id|>647<|tgt_id|>606\n<|src_id|>662<|tgt_id|>606\n<|src_id|>676<|tgt_id|>606\n<|src_id|>699<|tgt_id|>606\n<|src_id|>700<|tgt_id|>606\n<|src_id|>701<|tgt_id|>606\n<|src_id|>710<|tgt_id|>606\n<|src_id|>720<|tgt_id|>711\n<|src_id|>726<|tgt_id|>711\n<|src_id|>727<|tgt_id|>711\n<|src_id|>733<|tgt_id|>729\n<|src_id|>734<|tgt_id|>729",
+    "parsed": [
+        {
+            "src_id": 529,
+            "tgt_id": 524
+        },
+        {
+            "src_id": 558,
+            "tgt_id": 545
+        },
+        {
+            "src_id": 573,
+            "tgt_id": 545
+        },
+        {
+            "src_id": 604,
+            "tgt_id": 591
+        },
+        {
+            "src_id": 613,
+            "tgt_id": 606
+        },
+        {
+            "src_id": 614,
+            "tgt_id": 606
+        },
+        {
+            "src_id": 625,
+            "tgt_id": 606
+        },
+        {
+            "src_id": 635,
+            "tgt_id": 606
+        },
+        {
+            "src_id": 647,
+            "tgt_id": 606
+        },
+        {
+            "src_id": 662,
+            "tgt_id": 606
+        },
+        {
+            "src_id": 676,
+            "tgt_id": 606
+        },
+        {
+            "src_id": 699,
+            "tgt_id": 606
+        },
+        {
+            "src_id": 700,
+            "tgt_id": 606
+        },
+        {
+            "src_id": 701,
+            "tgt_id": 606
+        },
+        {
+            "src_id": 710,
+            "tgt_id": 606
+        },
+        {
+            "src_id": 720,
+            "tgt_id": 711
+        },
+        {
+            "src_id": 726,
+            "tgt_id": 711
+        },
+        {
+            "src_id": 727,
+            "tgt_id": 711
+        },
+        {
+            "src_id": 733,
+            "tgt_id": 729
+        },
+        {
+            "src_id": 734,
+            "tgt_id": 729
+        }
+    ]
+}

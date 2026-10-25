@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 375 106 620<|content|>MANAGER'S CERTIFICATE\n<|id|>2<|type|>title<|page|>1<|box|>141 318 157 679<|content|>HUDSON YARDS WEST MORTGAGE LLC\n<|id|>8<|type|>title<|page|>1<|box|>550 142 566 241<|content|>RECITALS\n<|id|>14<|type|>title<|page|>2<|box|>212 140 229 617<|content|>SECTION 1 — ORGANIZATION AND GOOD STANDING\n<|id|>20<|type|>title<|page|>2<|box|>821 140 838 584<|content|>SECTION 2 — AUTHORIZATION AND EXECUTION\n<|id|>24<|type|>title<|page|>3<|box|>530 140 547 563<|content|>SECTION 3 — ORGANIZATIONAL DOCUMENTS\n<|id|>31<|type|>title<|page|>4<|box|>383 140 401 397<|content|>SECTION 4 — INCUMBENCY\n<|id|>33<|type|>table<|page|>4<|box|>489 143 652 852<|content|>None\n<|id|>37<|type|>title<|page|>5<|box|>148 140 166 620<|content|>SECTION 5 — REPRESENTATIONS AND WARRANTIES\n<|id|>55<|type|>title<|page|>8<|box|>585 140 603 702<|content|>SECTION 6 — NO DEFAULT; NO MATERIAL ADVERSE CHANGE\n<|id|>58<|type|>title<|page|>8<|box|>787 140 805 501<|content|>SECTION 7 — CONDITIONS PRECEDENT\n<|id|>60<|type|>title<|page|>9<|box|>239 140 258 377<|content|>SECTION 8 — INSURANCE\n<|id|>62<|type|>title<|page|>9<|box|>489 140 508 413<|content|>SECTION 9 — GROUND LEASE\n<|id|>67<|type|>title<|page|>10<|box|>148 140 166 521<|content|>SECTION 10 — CONSTRUCTION MATTERS\n<|id|>75<|type|>title<|page|>10<|box|>756 140 773 480<|content|>SECTION 11 — RELIANCE; SURVIVAL\n<|id|>78<|type|>title<|page|>11<|box|>239 140 257 439<|content|>SECTION 12 — GOVERNING LAW\n<|id|>81<|type|>title<|page|>11<|box|>373 271 390 725<|content|>[SIGNATURE PAGE TO MANAGER'S CERTIFICATE]\n<|id|>83<|type|>title<|page|>11<|box|>443 140 460 779<|content|>HUDSON YARDS WEST MORTGAGE LLC, a Delaware limited\n<|id|>88<|type|>title<|page|>11<|box|>530 447 546 550<|content|>EXHIBIT A\n<|id|>89<|type|>title<|page|>11<|box|>556 251 573 745<|content|>Certificate of Formation of Hudson Yards West Mort\n<|id|>93<|type|>title<|page|>11<|box|>710 447 727 550<|content|>EXHIBIT B\n<|id|>94<|type|>title<|page|>11<|box|>737 163 772 834<|content|>Limited Liability Company Agreement (Operating Agr\n<|id|>98<|type|>title<|page|>12<|box|>212 447 227 550<|content|>EXHIBIT C\n<|id|>99<|type|>title<|page|>12<|box|>238 202 253 794<|content|>Written Consent of the Sole Member of Hudson Yards\n<|id|>108<|type|>title<|page|>12<|box|>796 447 811 550<|content|>EXHIBIT D\n<|id|>112<|type|>title<|page|>13<|box|>193 447 209 550<|content|>EXHIBIT E\n<|id|>113<|type|>title<|page|>13<|box|>219 189 237 807<|content|>Certificate of Authority / Good Standing of Hudson",
+    "raw_response": "<|src_id|>33<|tgt_id|>31",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        }
+    ]
+}

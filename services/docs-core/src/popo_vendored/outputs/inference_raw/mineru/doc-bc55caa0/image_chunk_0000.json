@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>85 87 101 216<|content|>FieldValue\n<|id|>31<|type|>table<|page|>2<|box|>85 82 727 878<|content|>None",
+    "raw_response": "<|src_id|>31<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 0
+        }
+    ]
+}

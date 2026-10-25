@@ -1,0 +1,65 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>388 142 404 439<|content|>1. Introduction and Purpose of Notice\n<|id|>11<|page|>1<|box|>726 140 744 450<|content|>2. Repayment in Full of All Obligations\n<|id|>18<|page|>2<|box|>614 140 632 424<|content|>3. Termination of All Commitments\n<|id|>23<|page|>3<|box|>204 140 222 625<|content|>4. Termination of the Credit Agreement and Loan Do\n<|id|>31<|page|>3<|box|>683 140 700 465<|content|>5. Release of Security Interests and Liens\n<|id|>39<|page|>4<|box|>700 140 717 310<|content|>6. Syndicate Lenders\n<|id|>46<|page|>5<|box|>167 140 184 385<|content|>7. Source of Repayment Funds\n<|id|>48<|page|>5<|box|>454 140 472 418<|content|>8. Representations and Warranties\n<|id|>54<|page|>6<|box|>90 142 107 359<|content|>9. Miscellaneous Provisions\n<|id|>60<|page|>6<|box|>465 334 482 661<|content|>[Signature Page to Notice of Termination]\n<|id|>62<|page|>6<|box|>517 142 532 490<|content|>VERIMARK HOSPITALITY GROUP INC.\n<|id|>80<|page|>7<|box|>90 142 106 238<|content|>Enclosures:",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>18<|level|>1\n<|id|>23<|level|>1\n<|id|>31<|level|>1\n<|id|>39<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>1\n<|id|>54<|level|>1\n<|id|>60<|level|>1\n<|id|>62<|level|>-1\n<|id|>80<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        }
+    ]
+}

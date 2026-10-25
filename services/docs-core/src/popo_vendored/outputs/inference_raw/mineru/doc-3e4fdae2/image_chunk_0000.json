@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 276 107 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>393 140 410 343<|content|>I. Purpose and Authority\n<|id|>13<|type|>title<|page|>1<|box|>840 140 858 375<|content|>II. Identification of the Policy\n<|id|>15<|type|>table<|page|>2<|box|>88 143 268 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>472 140 489 473<|content|>III. Description of the Underlying Matters\n<|id|>18<|type|>title<|page|>2<|box|>503 142 520 310<|content|>A. SEC Investigation\n<|id|>22<|type|>title<|page|>3<|box|>90 140 108 269<|content|>B. DOJ Inquiry\n<|id|>25<|type|>title<|page|>3<|box|>390 140 407 455<|content|>C. Nature of the Underlying Allegations\n<|id|>35<|type|>table<|page|>4<|box|>415 143 573 852<|content|>None\n<|id|>37<|type|>title<|page|>4<|box|>693 142 710 486<|content|>D. Individuals Potentially Subject to Claims\n<|id|>50<|type|>title<|page|>5<|box|>782 140 800 537<|content|>IV. Whistleblower Complaint and Internal Review\n<|id|>57<|type|>title<|page|>6<|box|>810 140 827 511<|content|>V. Financial Impact and Market Consequences\n<|id|>66<|type|>title<|page|>8<|box|>90 140 107 508<|content|>VI. Estimated Potential Government Exposure\n<|id|>68<|type|>table<|page|>8<|box|>214 143 386 852<|content|>None\n<|id|>76<|type|>title<|page|>8<|box|>842 142 859 393<|content|>VII. Defense Costs and Counsel\n<|id|>98<|type|>title<|page|>10<|box|>186 140 204 372<|content|>VIII. Requests to the Insurer\n<|id|>109<|type|>title<|page|>11<|box|>148 140 167 421<|content|>IX. Reservation of Insured's Rights\n<|id|>113<|type|>title<|page|>11<|box|>487 140 505 287<|content|>X. Confidentiality\n<|id|>116<|type|>title<|page|>11<|box|>819 140 835 434<|content|>XI. Contact Information and Closing\n<|id|>130<|type|>title<|page|>12<|box|>666 142 681 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>15<|tgt_id|>13\n<|src_id|>35<|tgt_id|>25\n<|src_id|>68<|tgt_id|>66",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 66
+        }
+    ]
+}

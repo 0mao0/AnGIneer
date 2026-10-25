@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=5, 直接加铺补强', 'rowspan=2, 加铺下面层', '2. 厂拌冷再生', '8~12', 'rowspan=5, ']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=5, 直接加铺补强', 'rowspan=2, 加铺下面层', '3.大粒径沥青碎石(开级配)', '8~10', 'rowspan=28, 结构性修复养护分为处治原路面面层及处治基层两类:处治面层的措施主要针对原路面沥青面层进行处治,处治或加铺的层位一般为两层或两层以上,原路面基层结构不进行彻底翻修处治']]\n",
+    "raw_response": "[1, 1, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 299,
+    "table2_idx": 300
+}

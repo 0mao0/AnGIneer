@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 150 176 846<|content|>Delivered Pursuant to Section 6. ... 01(e) of the Note Purchase Agreement dated April 9, 2024\n<|id|>2<|page|>1<|box|>185 441 203 557<|content|>April 22, 2024\n<|id|>3<|page|>1<|box|>210 140 303 854<|content|>The undersigned, Priya Raghunathan, J. ... , a cor... deliver this certificate on behalf of the Company\n<|id|>25<|page|>3<|box|>838 140 893 854<|content|>Each of Dr. ... , MBA, in his capacity as Chief Ex...he Company, the Purchase Agreement, the Notes, the\n<|id|>26<|page|>4<|box|>90 140 181 854<|content|>Officers' Certificate delivered pursuant to Sectio... be necessary or desirable in connection therewith\n<|id|>39<|page|>4<|box|>779 142 796 480<|content|>Title: ... General Counsel & Corporate Secretary\n<|id|>40<|page|>4<|box|>796 142 813 300<|content|>Date: ... April 22, 2024\n<|id|>41<|page|>4<|box|>824 140 898 857<|content|>Counter-Certification. ... Raghunathan has been co...s Secretary's Certificate on behalf of the Company\n<|id|>44<|page|>5<|box|>166 140 183 454<|content|>Name: ... , MBA\n<|id|>45<|page|>5<|box|>183 140 200 477<|content|>Title: ... Chief Executive Officer & Co-Founder\n<|id|>46<|page|>5<|box|>200 140 218 300<|content|>Date: ... April 22, 2024\n<|id|>48<|page|>6<|box|>114 140 152 854<|content|>Exhibit A — Restated Certificate of Incorporation ...herapeutics Inc. ... Delaware file number 6347821)\n<|id|>49<|page|>6<|box|>160 140 178 710<|content|>Exhibit B — Bylaws of Genome Dx Therapeutics Inc. ... (as currently in effect)\n<|id|>50<|page|>6<|box|>185 140 258 856<|content|>Exhibit C — Written Consent of the Board of Direct...Agreement and all ancillary Transaction Documents)",
+    "raw_response": "<|src_id|>25<|tgt_id|>26",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        }
+    ]
+}

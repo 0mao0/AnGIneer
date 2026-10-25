@@ -1,0 +1,51 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        47
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        9,
+        10,
+        11,
+        12,
+        19,
+        28,
+        38,
+        39,
+        41,
+        43,
+        44,
+        45,
+        46
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>694 573 809 746<|content|>Profile of the Economy Financial Operations International Statistics Special Reports\n<|id|>4<|page|>1<|box|>840 612 863 743<|content|>Produced and Published by\n<|id|>5<|page|>1<|box|>872 517 907 743<|content|>Department of the Treasury Bureau of the Fiscal Service\n<|id|>7<|page|>2<|box|>366 130 457 864<|content|>The Treasury Bulletin is issued quarterly in March...nd Reporting Division. ... Suggestions are welcome\n<|id|>8<|page|>2<|box|>472 320 493 676<|content|>treasury. ... gov\n<|id|>9<|page|>2<|box|>508 151 545 844<|content|>Internet service subscribers can access the Treasu...rough the Bureau of the Fiscal Service’s home page\n<|id|>17<|page|>4<|box|>148 81 741 890<|content|>SECTION I—Canadian Dollar Positions FCP-I-1—Weekly Report of Major Market Participants. ... 72\n<|id|>18<|page|>4<|box|>789 78 854 908<|content|>GLOSSARY 73 ORDER FORM FOR TREASURY PUBLICATIONS Inside back cover NOTES: ... = Not available\n<|id|>22<|page|>6<|box|>223 750 250 916<|content|>Profile of the Economy\n<|id|>23<|page|>6<|box|>250 732 276 916<|content|>Federal Fiscal Operations\n<|id|>24<|page|>6<|box|>277 818 304 916<|content|>Federal Debt\n<|id|>25<|page|>6<|box|>306 733 334 918<|content|>Fiscal Service Operations\n<|id|>26<|page|>6<|box|>337 687 364 919<|content|>Ownership of Federal Securities\n<|id|>28<|page|>6<|box|>390 785 416 919<|content|>and in Circulation\n<|id|>27<|page|>6<|box|>363 665 390 919<|content|>U. ... Currency and Coin Outstanding\n<|id|>44<|page|>9<|box|>700 109 897 880<|content|>The unemployment rate has been remarkably stable f...e past several months: ... These readings are only\n<|id|>45<|page|>10<|box|>90 111 126 877<|content|>marginally above those in February 2020, just befo...tart of the COVID-19 pandemic in the United States\n<|id|>50<|page|>11<|box|>755 109 881 880<|content|>After peaking in June 2022 at 9. ... 5 percent through January 2025, but by\n<|id|>51<|page|>12<|box|>90 111 127 864<|content|>March, had slowed to a decline of 0. ... 2 percent\n<|id|>98<|page|>19<|box|>516 380 529 616<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>99<|page|>19<|box|>536 81 551 267<|content|>Second-Quarter Receipts\n<|id|>100<|page|>19<|box|>554 81 643 488<|content|>The following capsule analysis of budget receipts,... to analyze adequately collections for the quarter\n<|id|>134<|page|>28<|box|>686 81 717 491<|content|> Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>135<|page|>28<|box|>203 504 248 915<|content|> Table FD-5 illustrates the average length of mar...vestors and the maturity distribution of that debt\n<|id|>183<|page|>38<|box|>856 111 909 883<|content|>Treasury received tenders for the bonds before 12:...ompetitive bidders were allotted securities at the\n<|id|>184<|page|>39<|box|>90 109 178 875<|content|>high yield of 4. ... 58287 per $1,000 must be paid for the period from November 15 to January 15\n<|id|>215<|page|>41<|box|>556 109 680 885<|content|>Treasury received tenders for the notes before 12:...ted from private investors totaled $69,614 million\n<|id|>216<|page|>41<|box|>688 111 739 861<|content|>In addition to the $70,000 million of tenders acce...uired for STRIPS of notes of Series U-2030 is $100\n<|id|>241<|page|>43<|box|>784 109 888 883<|content|>Treasury received tenders for the bonds before 12: ... Noncompetitive\n<|id|>242<|page|>44<|box|>90 111 126 874<|content|>tenders totaled $44 million. ... 38329 per $1,000 ...aid for the period from February 15 to February 18\n<|id|>265<|page|>45<|box|>829 109 898 877<|content|>Treasury received tenders for the notes before 12: ... Treasury accepted in full all\n<|id|>266<|page|>46<|box|>90 109 143 883<|content|>competitive tenders at yields lower than 4. ... Co...ted from private investors totaled $69,798 million",
+    "raw_response": "<|src_id|>44<|tgt_id|>45\n<|src_id|>50<|tgt_id|>51\n<|src_id|>183<|tgt_id|>184\n<|src_id|>241<|tgt_id|>242\n<|src_id|>265<|tgt_id|>266",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 241,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 265,
+            "tgt_id": 266
+        }
+    ]
+}

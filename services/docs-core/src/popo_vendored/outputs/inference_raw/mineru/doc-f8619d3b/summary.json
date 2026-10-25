@@ -1,0 +1,198 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fn5ph0x8\\input\\pdfs\\doc-f8619d3b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fn5ph0x8\\enriched\\doc-f8619d3b.json",
+    "contd_output": "",
+    "title_output": "<|id|>10<|level|>1\n<|id|>23<|level|>1\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>68<|level|>2\n<|id|>73<|level|>1\n<|id|>74<|level|>2\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>103<|level|>3\n<|id|>121<|level|>3\n<|id|>131<|level|>3\n<|id|>139<|level|>3\n<|id|>154<|level|>3\n<|id|>162<|level|>3\n<|id|>192<|level|>3\n<|id|>200<|level|>1\n<|id|>215<|level|>1\n<|id|>222<|level|>1\n<|id|>227<|level|>1\n<|id|>237<|level|>1",
+    "image_output": "<|src_id|>57<|tgt_id|>55\n<|src_id|>58<|tgt_id|>55\n<|src_id|>76<|tgt_id|>74\n<|src_id|>224<|tgt_id|>222\n<|src_id|>225<|tgt_id|>222",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 1
+        },
+        {
+            "id": 215,
+            "level": 1
+        },
+        {
+            "id": 222,
+            "level": 1
+        },
+        {
+            "id": 227,
+            "level": 1
+        },
+        {
+            "id": 237,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 57,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 222
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 222
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 57,
+            "table2_idx": 58,
+            "upper_row_ss": [
+                [
+                    "Andrew Fitzpatrick",
+                    "Lead Associate (7th year)",
+                    "$1,050/hr",
+                    "350–420",
+                    "Diligence management, SPA first draft, financing review, R&W insurance"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "coordination,ancillary agreements"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 224,
+            "table2_idx": 225,
+            "upper_row_ss": [
+                [
+                    "February 18, 2026",
+                    "LOI execution; exclusivity period",
+                    "Moderate — Matter opening"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "begins",
+                    "activities; initial diligence ramp-up; assignment of paralegals; commencement of VDR review"
+                ]
+            ]
+        }
+    ]
+}

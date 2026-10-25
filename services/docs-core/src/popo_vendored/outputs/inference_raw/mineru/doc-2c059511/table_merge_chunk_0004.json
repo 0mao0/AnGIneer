@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['', 'colspan=2, 单位单价', '元', '', '', '', '', ''], ['colspan=9, 1.工程内容:'], ['colspan=9, 2.依据说明:']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 序号', 'colspan=2, 项目', 'rowspan=2, 单位', 'rowspan=2, 数量', 'colspan=2, 单价(元)', 'colspan=2, 合价(元)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 447,
+    "table2_idx": 448
+}

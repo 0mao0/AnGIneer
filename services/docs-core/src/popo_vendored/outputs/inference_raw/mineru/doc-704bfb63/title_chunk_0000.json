@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 104 674<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>1<|page|>1<|box|>112 274 128 722<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>9<|page|>1<|box|>372 142 388 400<|content|>1. Introduction and Engagement\n<|id|>13<|page|>1<|box|>820 140 837 354<|content|>2. Scope of Representation\n<|id|>17<|page|>2<|box|>238 140 256 401<|content|>2.1 Registration and SEC Filings\n<|id|>24<|page|>2<|box|>806 140 824 575<|content|>2.2 Underwriting Agreement and Syndicate Documents\n<|id|>30<|page|>3<|box|>419 140 436 377<|content|>2.3 Corporate Authorizations\n<|id|>35<|page|>3<|box|>806 140 824 421<|content|>2.4 Legal Opinions and Certificates\n<|id|>40<|page|>4<|box|>411 140 428 532<|content|>2.5 Officers' Certificates and Closing Deliverable\n<|id|>46<|page|>5<|box|>90 140 108 341<|content|>2.6 Lock-Up Agreements\n<|id|>50<|page|>5<|box|>324 140 342 284<|content|>2.7 Due Diligence\n<|id|>56<|page|>6<|box|>90 140 107 351<|content|>2.8 Exclusions from Scope\n<|id|>64<|page|>6<|box|>621 142 638 230<|content|>3. Staffing\n<|id|>72<|page|>7<|box|>484 140 501 310<|content|>4. Fee Arrangements\n<|id|>73<|page|>7<|box|>513 140 532 274<|content|>4.1 Billing Rates\n<|id|>77<|page|>7<|box|>794 140 810 294<|content|>4.2 Estimated Fees\n<|id|>83<|page|>8<|box|>659 140 676 320<|content|>4.4 Billing Procedures\n<|id|>86<|page|>9<|box|>90 140 107 369<|content|>5. Key Transaction Timeline\n<|id|>90<|page|>9<|box|>606 140 625 284<|content|>6. Confidentiality\n<|id|>94<|page|>10<|box|>250 140 266 321<|content|>7. Conflicts of Interest\n<|id|>98<|page|>10<|box|>587 140 604 326<|content|>8. Document Retention\n<|id|>101<|page|>10<|box|>789 140 806 339<|content|>9. Limitation of Liability\n<|id|>104<|page|>11<|box|>186 140 204 274<|content|>10. Termination\n<|id|>107<|page|>11<|box|>444 140 460 480<|content|>11. Governing Law and Dispute Resolution\n<|id|>110<|page|>11<|box|>719 142 737 370<|content|>12. Miscellaneous Provisions\n<|id|>117<|page|>12<|box|>358 140 375 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>125<|page|>12<|box|>513 142 529 390<|content|>REDSTONE GAMING CORP.\n<|id|>132<|page|>12<|box|>662 142 676 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>17<|level|>2\n<|id|>24<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>2\n<|id|>56<|level|>2\n<|id|>64<|level|>1\n<|id|>72<|level|>1\n<|id|>73<|level|>2\n<|id|>77<|level|>2\n<|id|>83<|level|>2\n<|id|>86<|level|>1\n<|id|>90<|level|>1\n<|id|>94<|level|>1\n<|id|>98<|level|>1\n<|id|>101<|level|>1\n<|id|>104<|level|>1\n<|id|>107<|level|>1\n<|id|>110<|level|>1\n<|id|>117<|level|>-1\n<|id|>125<|level|>-1\n<|id|>132<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        }
+    ]
+}

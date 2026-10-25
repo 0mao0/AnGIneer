@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        3,
+        9,
+        10,
+        12,
+        13,
+        14,
+        16,
+        17,
+        19,
+        20,
+        21,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>143 375 160 622<|content|>INTERNAL MEMORANDUM\n<|id|>2<|page|>1<|box|>184 356 200 640<|content|>CONFIDENTIAL & PRIVILEGED\n<|id|>10<|page|>1<|box|>667 142 684 428<|content|>I. PURPOSE AND BACKGROUND\n<|id|>20<|page|>3<|box|>90 140 107 346<|content|>C. Engagement Structure\n<|id|>26<|page|>3<|box|>679 140 695 500<|content|>II. ENGAGEMENT TEAM COMPOSITION\n<|id|>60<|page|>9<|box|>89 140 107 433<|content|>III. RATE SCHEDULE SUMMARY\n<|id|>65<|page|>9<|box|>635 140 672 851<|content|>IV. PROJECTED HOURS ALLOCATION — PHASE 1 (FEBRUARY\n<|id|>66<|page|>9<|box|>685 142 702 308<|content|>A. Phase 1 Overview\n<|id|>76<|page|>10<|box|>306 140 323 408<|content|>B. Phase 1 Hours by Workstream\n<|id|>88<|page|>12<|box|>534 143 551 281<|content|>Projected Hours:\n<|id|>92<|page|>13<|box|>297 143 314 281<|content|>Projected Hours:\n<|id|>113<|page|>14<|box|>358 143 375 281<|content|>Projected Hours:\n<|id|>122<|page|>16<|box|>213 140 229 411<|content|>C. Phase 1 Hours Summary Table\n<|id|>125<|page|>17<|box|>89 140 126 844<|content|>V. PROJECTED HOURS ALLOCATION — PHASE 2 (MAY 16, 2\n<|id|>126<|page|>17<|box|>138 140 156 308<|content|>A. Phase 2 Overview\n<|id|>140<|page|>17<|box|>704 142 720 393<|content|>B. Phase 2 Expected Role Focus\n<|id|>148<|page|>19<|box|>204 140 220 728<|content|>VI. TOTAL ENGAGEMENT HOURS & FEE PROJECTION SUMMAR\n<|id|>156<|page|>20<|box|>167 140 184 684<|content|>VII. STAFFING FLEXIBILITY & SUPPLEMENTAL RESOURCES\n<|id|>162<|page|>21<|box|>167 140 203 725<|content|>VIII. KEY CLIENT AND THIRD-PARTY CONTACTS FOR STAF\n<|id|>164<|page|>21<|box|>261 143 277 349<|content|>A. Primary BRB Contacts\n<|id|>169<|page|>23<|box|>89 140 107 406<|content|>IX. ADMINISTRATIVE NOTES\n<|id|>179<|page|>24<|box|>89 142 106 271<|content|>X. APPROVAL\n<|id|>181<|page|>24<|box|>160 143 176 254<|content|>APPROVED:\n<|id|>188<|page|>24<|box|>280 140 297 696<|content|>ACKNOWLEDGED — BILLING ARRANGEMENTS CONFIRMED:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>10<|level|>2\n<|id|>20<|level|>3\n<|id|>26<|level|>2\n<|id|>60<|level|>2\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>76<|level|>3\n<|id|>88<|level|>-1\n<|id|>92<|level|>-1\n<|id|>113<|level|>-1\n<|id|>122<|level|>3\n<|id|>125<|level|>2\n<|id|>126<|level|>3\n<|id|>140<|level|>3\n<|id|>148<|level|>2\n<|id|>156<|level|>2\n<|id|>162<|level|>2\n<|id|>164<|level|>3\n<|id|>169<|level|>2\n<|id|>179<|level|>2\n<|id|>181<|level|>3\n<|id|>188<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 188,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,137 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 145 125 849<|content|>UNITED STATES DISTRICT COURT WESTERN DISTRICT OF W\n<|id|>2<|page|>1<|box|>433 390 449 606<|content|>JOINT STATUS REPORT\n<|id|>3<|page|>1<|box|>508 142 523 308<|content|>I. INTRODUCTION\n<|id|>9<|page|>2<|box|>303 140 320 514<|content|>II. BACKGROUND OF THE TRANSACTION\n<|id|>17<|page|>3<|box|>148 140 166 388<|content|>III. STATUS OF PLEADINGS\n<|id|>22<|page|>3<|box|>550 140 566 527<|content|>IV. PENDING AND ANTICIPATED MOTIONS\n<|id|>23<|page|>3<|box|>580 140 598 490<|content|>A. FTC's Motion for Preliminary Injunction\n<|id|>25<|page|>3<|box|>763 140 781 413<|content|>B. Defendants' Anticipated Filings\n<|id|>29<|page|>4<|box|>294 140 310 374<|content|>C. IOSA Motion to Intervene\n<|id|>33<|page|>5<|box|>89 140 106 803<|content|>V. PROPOSED SCHEDULE FOR PRELIMINARY INJUNCTION PR\n<|id|>38<|page|>5<|box|>659 142 675 390<|content|>VI. STATUS OF DISCOVERY\n<|id|>39<|page|>5<|box|>690 142 707 310<|content|>A. Initial Disclosures\n<|id|>42<|page|>6<|box|>138 140 157 310<|content|>B. Written discovery\n<|id|>46<|page|>6<|box|>429 140 446 343<|content|>C. Third-Party discovery\n<|id|>56<|page|>7<|box|>176 140 193 496<|content|>E. Document Production and Privilege Issues\n<|id|>60<|page|>7<|box|>547 140 565 367<|content|>VII. EXPERT WITNESSES\n<|id|>66<|page|>8<|box|>248 140 265 550<|content|>VIII. SUMMARY OF THE PARTIES' POSITIONS\n<|id|>68<|page|>8<|box|>324 140 340 321<|content|>A. The FTC's Position\n<|id|>73<|page|>9<|box|>90 140 107 328<|content|>B. Defendants' Position\n<|id|>80<|page|>9<|box|>814 140 832 336<|content|>IX. OTHER MATTERS\n<|id|>81<|page|>9<|box|>845 140 863 377<|content|>A. Proposed Protective Order\n<|id|>83<|page|>10<|box|>231 140 248 524<|content|>B. Coordination with Administrative Proceeding\n<|id|>85<|page|>10<|box|>431 140 449 524<|content|>C. Courtroom Technology and Hearing Logistics\n<|id|>88<|page|>10<|box|>667 140 685 294<|content|>X. CONCLUSION\n<|id|>91<|page|>10<|box|>824 142 842 464<|content|>For Plaintiff Federal Trade Commission:\n<|id|>93<|page|>11<|box|>214 140 232 493<|content|>For Defendant Cascade Retail Holdings Inc.:\n<|id|>95<|page|>11<|box|>443 140 460 490<|content|>For Defendant Pinnacle Market Group Inc.:\n<|id|>97<|page|>11<|box|>601 140 619 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>9<|level|>2\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>25<|level|>3\n<|id|>29<|level|>3\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>39<|level|>3\n<|id|>42<|level|>3\n<|id|>46<|level|>3\n<|id|>56<|level|>3\n<|id|>60<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>3\n<|id|>73<|level|>3\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>83<|level|>3\n<|id|>85<|level|>3\n<|id|>88<|level|>2\n<|id|>91<|level|>3\n<|id|>93<|level|>3\n<|id|>95<|level|>3\n<|id|>97<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        }
+    ]
+}

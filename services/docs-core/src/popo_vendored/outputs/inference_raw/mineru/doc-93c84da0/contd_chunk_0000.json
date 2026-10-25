@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        28
+    ],
+    "pages": [
+        5,
+        6,
+        13,
+        15,
+        17,
+        18,
+        22,
+        23,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>48<|page|>5<|box|>700 138 902 857<|content|>Before any meeting of stockholders, the Board of D...meeting or at any adjournment thereof. ... and (e)\n<|id|>49<|page|>6<|box|>90 140 126 854<|content|>certifying their determination of the number of sh...e meeting and their count of all votes and ballots\n<|id|>117<|page|>13<|box|>369 174 406 854<|content|>(b) by or at the direction of the Board of Directo...mittee appointed by the Board of Directors; ... or\n<|id|>120<|page|>13<|box|>575 140 669 854<|content|>For nominations or other business to be properly b... constitute a proper matter for stockholder action\n<|id|>118<|page|>13<|box|>414 174 523 854<|content|>(c) by a stockholder of the Corporation who (i) wa... the notice provided for in this Section 5. ... or\n<|id|>128<|page|>15<|box|>90 174 127 854<|content|>(ii) any material interest in such business of the...any, on whose behalf the proposal is made; ... and\n<|id|>137<|page|>15<|box|>818 140 910 857<|content|>A stockholder providing notice of any nomination o...eeting or any adjournment or postponement thereof)\n<|id|>135<|page|>15<|box|>619 174 674 854<|content|>(v) a representation that the stockholder is a hol...ng to propose such business or nomination; ... and\n<|id|>149<|page|>17<|box|>699 174 773 854<|content|>(vi) a written agreement of each Stockholder Nomin...f the Corporation applicable to directors; ... and\n<|id|>157<|page|>18<|box|>439 140 494 854<|content|>The Corporation may require each Stockholder Nomin...erve as an independent director of the Corporation\n<|id|>155<|page|>18<|box|>333 174 369 854<|content|>(iv) the Stockholder Nominee is or becomes a nomin...or the same annual meeting of stockholders; ... or\n<|id|>194<|page|>22<|box|>809 140 901 856<|content|>Notwithstanding anything contained in this Article...ity insurance policy or policies maintained by the\n<|id|>195<|page|>23<|box|>90 140 164 854<|content|>Corporation, or a Proceeding authorized by the Boa...ion provisions of the Certificate of Incorporation\n<|id|>256<|page|>28<|box|>287 142 304 320<|content|>Name: ... Naomi Feinberg\n<|id|>257<|page|>28<|box|>304 143 320 263<|content|>Title: ... Secretary\n<|id|>258<|page|>28<|box|>321 142 337 274<|content|>Date: ... ____, 2022\n<|id|>259<|page|>28<|box|>337 140 383 854<|content|>These Amended and Restated Bylaws are subject to, ...on, the Certificate of Incorporation shall control",
+    "raw_response": "<|src_id|>48<|tgt_id|>49\n<|src_id|>194<|tgt_id|>195",
+    "parsed": [
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 195
+        }
+    ]
+}

@@ -1,0 +1,166 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wbs9frir\\input\\pdfs\\doc-74e2f345.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wbs9frir\\enriched\\doc-74e2f345.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>3\n<|id|>7<|level|>4\n<|id|>11<|level|>4\n<|id|>14<|level|>4\n<|id|>17<|level|>3\n<|id|>19<|level|>4\n<|id|>22<|level|>4\n<|id|>25<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>4\n<|id|>40<|level|>3\n<|id|>41<|level|>4\n<|id|>47<|level|>4\n<|id|>51<|level|>4\n<|id|>53<|level|>5\n<|id|>65<|level|>4\n<|id|>69<|level|>5\n<|id|>76<|level|>4",
+    "image_output": "<|src_id|>3<|tgt_id|>1\n<|src_id|>8<|tgt_id|>7\n<|src_id|>9<|tgt_id|>7\n<|src_id|>12<|tgt_id|>11\n<|src_id|>15<|tgt_id|>14\n<|src_id|>20<|tgt_id|>19\n<|src_id|>23<|tgt_id|>22\n<|src_id|>27<|tgt_id|>25\n<|src_id|>37<|tgt_id|>36\n<|src_id|>49<|tgt_id|>47\n<|src_id|>52<|tgt_id|>51\n<|src_id|>67<|tgt_id|>65\n<|src_id|>68<|tgt_id|>65\n<|src_id|>74<|tgt_id|>69",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 3
+        },
+        {
+            "id": 7,
+            "level": 4
+        },
+        {
+            "id": 11,
+            "level": 4
+        },
+        {
+            "id": 14,
+            "level": 4
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 4
+        },
+        {
+            "id": 22,
+            "level": 4
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 4
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 4
+        },
+        {
+            "id": 47,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 53,
+            "level": 5
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 5
+        },
+        {
+            "id": 76,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 3,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 69
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 8,
+            "table2_idx": 9,
+            "upper_row_ss": [
+                [
+                    "Bar Admissions:",
+                    "New York (2001); New Jersey (2002); District of Columbia (2004)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Authorization:",
+                    "IRS Form 2848 filed June 8, 2022 (CAF No. 4827-19558-R)"
+                ]
+            ]
+        }
+    ]
+}

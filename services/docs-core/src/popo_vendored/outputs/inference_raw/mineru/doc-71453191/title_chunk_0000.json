@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 207 185 787<|content|>CALDERWOOD & HARKNESS LLP INTERNAL ROUTING SLIP —\n<|id|>5<|page|>1<|box|>718 346 734 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>6<|page|>1<|box|>744 411 761 586<|content|>600 Lexington Avenue\n<|id|>15<|page|>2<|box|>271 140 289 338<|content|>I. Introduction and Role\n<|id|>24<|page|>2<|box|>720 140 738 336<|content|>II. Documents Reviewed\n<|id|>44<|page|>3<|box|>698 142 715 279<|content|>III. Assumptions\n<|id|>54<|page|>4<|box|>463 142 479 250<|content|>IV. Opinions\n<|id|>56<|page|>4<|box|>537 142 556 594<|content|>1. Due Organization, Valid Existence, and Good Sta\n<|id|>58<|page|>4<|box|>666 140 683 418<|content|>2. Corporate Power and Authority.\n<|id|>60<|page|>4<|box|>849 140 864 508<|content|>3. Due Authorization, Execution, and Delivery.\n<|id|>63<|page|>5<|box|>176 140 193 379<|content|>5. Valid Issuance of the Notes.\n<|id|>66<|page|>5<|box|>449 140 465 429<|content|>6. Shares Issuable Upon Conversion.\n<|id|>69<|page|>5<|box|>757 143 773 266<|content|>7. No Conflicts.\n<|id|>75<|page|>6<|box|>220 140 237 357<|content|>8. Governmental Consents.\n<|id|>80<|page|>6<|box|>500 140 516 372<|content|>9. Securities Law Exemption.\n<|id|>82<|page|>6<|box|>691 140 709 406<|content|>V. Qualifications and Limitations\n<|id|>88<|page|>7<|box|>406 140 424 779<|content|>E. Specific Contractual Provisions. We express no\n<|id|>94<|page|>7<|box|>741 140 758 403<|content|>VI. Reliance and Use Limitations\n<|id|>99<|page|>8<|box|>194 364 210 633<|content|>INTERNAL DRAFTING NOTES\n<|id|>100<|page|>8<|box|>220 383 238 614<|content|>To be removed prior to closing\n<|id|>105<|page|>8<|box|>588 142 604 238<|content|>Reminders:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>-1\n<|id|>6<|level|>-1\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>44<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>3\n<|id|>58<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>3\n<|id|>66<|level|>3\n<|id|>69<|level|>3\n<|id|>75<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>2\n<|id|>88<|level|>3\n<|id|>94<|level|>2\n<|id|>99<|level|>2\n<|id|>100<|level|>-1\n<|id|>105<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        }
+    ]
+}

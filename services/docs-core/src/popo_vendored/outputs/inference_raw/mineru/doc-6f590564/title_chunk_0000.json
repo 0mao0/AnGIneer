@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 274 133 723<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law 125 Br\n<|id|>1<|page|>1<|box|>142 158 204 839<|content|>Telephone: (212) 558-4000 Facsimile: (212) 558-358\n<|id|>4<|page|>1<|box|>554 142 571 320<|content|>I. Executive Summary\n<|id|>9<|page|>2<|box|>494 140 511 607<|content|>II. Background and Structure of the Co-Investment\n<|id|>10<|page|>2<|box|>525 140 542 354<|content|>A. Formation and Purpose\n<|id|>24<|page|>4<|box|>90 140 107 594<|content|>C. LP Agreement Key Terms Relevant to ERISA Analys\n<|id|>30<|page|>4<|box|>779 142 796 465<|content|>D. Distinguishing Features from Fund IV\n<|id|>35<|page|>5<|box|>439 140 457 406<|content|>III. Applicable Legal Framework\n<|id|>36<|page|>5<|box|>470 142 488 599<|content|>A. ERISA Plan Asset Regulation — 29 C.F.R. § 2510.\n<|id|>45<|page|>6<|box|>565 140 582 475<|content|>B. Exemptions from Plan Asset Treatment\n<|id|>53<|page|>8<|box|>90 140 107 591<|content|>C. \"Look-Through\" Analysis for Ironside's Investor\n<|id|>58<|page|>8<|box|>617 142 633 514<|content|>IV. Analysis of Ironside's Investor Composition\n<|id|>59<|page|>8<|box|>648 140 664 470<|content|>A. Overview of Ironside's Fund Structure\n<|id|>66<|page|>9<|box|>338 142 354 423<|content|>B. Benefit Plan Investor Percentage\n<|id|>84<|page|>11<|box|>257 140 273 383<|content|>C. Measurement Methodology\n<|id|>92<|page|>12<|box|>90 140 108 486<|content|>D. Subscription Agreement Representations\n<|id|>99<|page|>12<|box|>724 140 741 506<|content|>V. Structural Safeguards in the LP Agreement\n<|id|>100<|page|>12<|box|>753 140 771 377<|content|>A. ERISA-Related Provisions\n<|id|>106<|page|>13<|box|>619 140 638 472<|content|>B. Single-Investor Structure as a Mitigant\n<|id|>110<|page|>14<|box|>304 140 321 707<|content|>VI. Consequences if Plan Asset Treatment Were to A\n<|id|>125<|page|>16<|box|>204 140 222 602<|content|>VII. Interaction with Co-Investment Allocation Agr\n<|id|>131<|page|>17<|box|>186 140 204 565<|content|>VIII. State Law and Other Regulatory Consideration\n<|id|>135<|page|>18<|box|>90 140 107 483<|content|>IX. Ongoing Monitoring Recommendations\n<|id|>144<|page|>19<|box|>407 140 424 258<|content|>X. Conclusion\n<|id|>153<|page|>20<|box|>321 140 339 403<|content|>XI. Appendices and Attachments\n<|id|>173<|page|>21<|box|>282 281 297 715<|content|>DISTRIBUTION AND CONFIDENTIALITY NOTICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>10<|level|>3\n<|id|>24<|level|>3\n<|id|>30<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>45<|level|>3\n<|id|>53<|level|>3\n<|id|>58<|level|>2\n<|id|>59<|level|>3\n<|id|>66<|level|>3\n<|id|>84<|level|>3\n<|id|>92<|level|>3\n<|id|>99<|level|>2\n<|id|>100<|level|>3\n<|id|>106<|level|>3\n<|id|>110<|level|>2\n<|id|>125<|level|>2\n<|id|>131<|level|>2\n<|id|>135<|level|>2\n<|id|>144<|level|>2\n<|id|>153<|level|>2\n<|id|>173<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,184 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3glr8cl2\\input\\pdfs\\doc-32d6ab8b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3glr8cl2\\enriched\\doc-32d6ab8b.json",
+    "contd_output": "",
+    "title_output": "<|id|>11<|level|>1\n<|id|>18<|level|>1\n<|id|>19<|level|>2\n<|id|>25<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>3\n<|id|>52<|level|>3\n<|id|>56<|level|>3\n<|id|>61<|level|>2\n<|id|>66<|level|>1\n<|id|>67<|level|>2\n<|id|>77<|level|>2\n<|id|>89<|level|>2\n<|id|>93<|level|>1\n<|id|>95<|level|>2\n<|id|>104<|level|>2\n<|id|>112<|level|>2\n<|id|>121<|level|>2\n<|id|>130<|level|>1\n<|id|>131<|level|>2\n<|id|>141<|level|>2\n<|id|>146<|level|>3\n<|id|>155<|level|>3\n<|id|>160<|level|>1\n<|id|>169<|level|>1\n<|id|>170<|level|>2\n<|id|>174<|level|>2\n<|id|>181<|level|>2\n<|id|>189<|level|>2\n<|id|>195<|level|>1\n<|id|>200<|level|>1\n<|id|>209<|level|>1",
+    "image_output": "<|src_id|>36<|tgt_id|>25\n<|src_id|>38<|tgt_id|>25\n<|src_id|>196<|tgt_id|>195\n<|src_id|>197<|tgt_id|>195\n<|src_id|>217<|tgt_id|>209\n<|src_id|>218<|tgt_id|>209",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 169,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 1
+        },
+        {
+            "id": 200,
+            "level": 1
+        },
+        {
+            "id": 209,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 36,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 195
+        },
+        {
+            "src_id": 197,
+            "tgt_id": 195
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 209
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 217,
+            "table2_idx": 218,
+            "upper_row_ss": [
+                [
+                    "Hussman (Europe) Ltd v. Al Ameen",
+                    "[2000] 2 Lloyd's Rep 83",
+                    "Section 68(2)(d) — not every"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Development & Trade Co.",
+                    "",
+                    "argument"
+                ]
+            ]
+        }
+    ]
+}

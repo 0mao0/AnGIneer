@@ -1,0 +1,33 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        3,
+        10
+    ],
+    "pages": [
+        3,
+        6,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>21<|page|>3<|box|>210 87 225 368<|content|>USES OF FUNDS — PURCHASE PRICE\n<|id|>23<|page|>3<|box|>317 87 332 482<|content|>USES OF FUNDS — BUYER TRANSACTION EXPENSES\n<|id|>33<|page|>6<|box|>227 87 244 435<|content|>SELLER TRANSACTION EXPENSE DEDUCTIONS\n<|id|>45<|page|>10<|box|>388 87 403 339<|content|>SELLER TRANSACTION EXPENSES",
+    "raw_response": "<|id|>21<|level|>1\n<|id|>23<|level|>1\n<|id|>33<|level|>1\n<|id|>45<|level|>1",
+    "parsed": [
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        }
+    ]
+}

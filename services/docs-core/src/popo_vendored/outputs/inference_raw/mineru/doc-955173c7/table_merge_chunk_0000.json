@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Oklahoma', '66,107', '2,848', '770,828', '96,995', '29,651', '3,449,688']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, State', 'colspan=3, Individual income and employment taxes-continued', 'rowspan=2, Estate taxes (9)', 'rowspan=2, Gift taxes (10)', 'rowspan=2, Excise taxes (11)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 137,
+    "table2_idx": 138
+}

@@ -1,0 +1,94 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6mjv_8gq\\input\\pdfs\\doc-c5b50e8e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6mjv_8gq\\enriched\\doc-c5b50e8e.json",
+    "contd_output": "",
+    "title_output": "<|id|>13<|level|>1\n<|id|>18<|level|>1\n<|id|>34<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>1\n<|id|>76<|level|>1",
+    "image_output": "<|src_id|>15<|tgt_id|>13\n<|src_id|>16<|tgt_id|>13",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 13
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 15,
+            "table2_idx": 16,
+            "upper_row_ss": [
+                [
+                    "Dr. Riccardo Castellano",
+                    "2,500,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Dr. Marco Castellano",
+                    "500,000"
+                ]
+            ]
+        }
+    ]
+}

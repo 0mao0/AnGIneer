@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>15<|page|>1<|box|>837 97 923 882<|content|>共青团中央在微信、微博、Bilibili、知乎、QQ空间、今日头条、网易云音乐、抖音、快手等网络平台...其传播内容受到年轻群体的欢迎。 ... 共青团中央、人民日报等中央机关或者中央媒体在Twitter、\n<|id|>16<|page|>2<|box|>74 100 89 299<|content|>Facebook上亦开立有账号。 ... Facebook上亦开立有账号",
+    "raw_response": "<|src_id|>15<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        }
+    ]
+}

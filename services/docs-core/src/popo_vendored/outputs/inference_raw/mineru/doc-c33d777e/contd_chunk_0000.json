@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        10,
+        14
+    ],
+    "pages": [
+        10,
+        11,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>109<|page|>10<|box|>873 140 909 854<|content|>53. ... Among respondents who were aware of \"The\n<|id|>110<|page|>11<|box|>90 174 181 854<|content|>PuraClear Truth\" campaign, purchase intent for Der...lined materially relative to baseline. ... 0 0 1 )\n<|id|>140<|page|>13<|box|>915 140 929 830<|content|>DECLARATION OF DR. ... ELEANOR FISK IN SUPPORT OF PLAINTIFF'S MOTION FOR A PRELIMINARY INJUNCTION\n<|id|>141<|page|>14<|box|>109 140 142 852<|content|>Dr. ... Eleanor Fisk Principal, Fisk Analytics Gro...ral Street, Suite 2600 Boston, Massachusetts 02110",
+    "raw_response": "<|src_id|>109<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        }
+    ]
+}

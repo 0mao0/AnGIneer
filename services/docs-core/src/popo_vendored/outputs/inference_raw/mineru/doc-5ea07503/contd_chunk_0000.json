@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 127 767<|content|># Caldwell v. ... Litigation Options\n<|id|>5<|page|>1<|box|>296 142 313 292<|content|>MIME-Version: ... 0\n<|id|>1<|page|>1<|box|>171 140 189 692<|content|>- From: ... com>\n<|id|>2<|page|>1<|box|>203 140 220 637<|content|>- To: ... com>\n<|id|>3<|page|>1<|box|>234 140 252 629<|content|>- Cc: ... com>\n<|id|>4<|page|>1<|box|>265 140 282 460<|content|>- Date: ... 00 -0000\n<|id|>6<|page|>1<|box|>327 140 345 477<|content|>Content-Type: ... charset=\"UTF-8\"\n<|id|>7<|page|>1<|box|>359 140 377 673<|content|>Message-ID: ... com>\n<|id|>18<|page|>2<|box|>839 140 896 844<|content|>The merits of your claims remain strong. ... The d...ying an estimated remediation cost of $620,000, an\n<|id|>19<|page|>3<|box|>90 140 165 849<|content|>inflated rent roll overstating income by approxima...edible basis for pursuing punitive damages as well\n<|id|>25<|page|>3<|box|>839 140 896 844<|content|>The principal advantages of this approach are prac...ip and the possibility of negotiating an exit from\n<|id|>26<|page|>4<|box|>90 140 146 828<|content|>Atlantic Yards Development Partners LLC outside of... not be reached in the shadow of active litigation\n<|id|>36<|page|>5<|box|>359 142 377 277<|content|>Very truly yours,\n<|id|>37<|page|>5<|box|>422 142 439 300<|content|>Douglas Carmichael\n<|id|>38<|page|>5<|box|>454 142 469 209<|content|>Partner\n<|id|>39<|page|>5<|box|>484 142 501 367<|content|>Calderwood & Harkness LLP\n<|id|>40<|page|>5<|box|>515 142 532 411<|content|>599 Lexington Avenue, 34th Floor\n<|id|>41<|page|>5<|box|>546 142 564 308<|content|>New York, NY 10022\n<|id|>42<|page|>5<|box|>578 142 595 307<|content|>Tel: ... (212) 401-7600\n<|id|>43<|page|>5<|box|>609 140 627 508<|content|>Email: ... com\n<|id|>44<|page|>5<|box|>734 140 866 854<|content|>CONFIDENTIALITY NOTICE: ... Thank you",
+    "raw_response": "<|src_id|>18<|tgt_id|>19\n<|src_id|>25<|tgt_id|>26",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        }
+    ]
+}

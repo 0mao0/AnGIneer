@@ -1,0 +1,147 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 173 125 823<|content|>IN THE UNITED STATES DISTRICT COURT FOR THE NORTHE\n<|id|>2<|page|>1<|box|>422 150 457 846<|content|>DEFENDANT STONEFIELD LOGISTICS GROUP INC.'S PROPOS\n<|id|>5<|page|>2<|box|>89 140 106 478<|content|>SECTION 1: NATURE OF THE ACTION\n<|id|>11<|page|>2<|box|>736 140 753 467<|content|>SECTION 2: PARTIES AND COUNSEL\n<|id|>13<|page|>2<|box|>789 142 805 218<|content|>Plaintiff:\n<|id|>21<|page|>3<|box|>176 143 193 235<|content|>Defendant:\n<|id|>33<|page|>4<|box|>89 140 106 645<|content|>SECTION 3: PROPOSED PHASED DISCOVERY SCHEDULE\n<|id|>35<|page|>4<|box|>257 140 273 633<|content|>3.1 Phase 1 — Conditional Certification discovery\n<|id|>37<|page|>4<|box|>397 140 415 488<|content|>Conditional Certification Briefing Schedule:\n<|id|>43<|page|>4<|box|>565 142 582 290<|content|>Phase 1 discovery:\n<|id|>45<|page|>4<|box|>744 140 762 527<|content|>Defendant's Position on Stay of Merits discovery:\n<|id|>48<|page|>5<|box|>252 140 268 666<|content|>Defendant's Reservation Regarding Motion to Compel\n<|id|>50<|page|>5<|box|>474 140 491 390<|content|>3.2 Phase 2 — Merits discovery\n<|id|>51<|page|>5<|box|>497 140 513 264<|content|>Opt-In Period:\n<|id|>53<|page|>5<|box|>676 142 694 413<|content|>Merits discovery Commencement:\n<|id|>55<|page|>5<|box|>857 142 875 336<|content|>Merits discovery Cutoff:\n<|id|>59<|page|>6<|box|>347 140 364 767<|content|>SECTION 4: AMENDMENTS TO PLEADINGS AND JOINDER OF\n<|id|>65<|page|>6<|box|>670 140 686 457<|content|>SECTION 5: EXPERT DISCLOSURES\n<|id|>74<|page|>7<|box|>439 140 455 462<|content|>SECTION 6: DISPOSITIVE MOTIONS\n<|id|>83<|page|>8<|box|>89 142 106 450<|content|>SECTION 7: PRETRIAL AND TRIAL\n<|id|>92<|page|>8<|box|>508 140 523 730<|content|>SECTION 8: ALTERNATIVE DISPUTE RESOLUTION / SETTLE\n<|id|>96<|page|>8<|box|>828 140 844 557<|content|>SECTION 9: ESI AND DISCOVERY PROTOCOLS\n<|id|>107<|page|>9<|box|>821 140 839 637<|content|>SECTION 10: CONFIDENTIALITY / PROTECTIVE ORDER\n<|id|>118<|page|>10<|box|>550 140 566 421<|content|>SECTION 11: OTHER MATTERS\n<|id|>119<|page|>10<|box|>575 140 594 285<|content|>Pending Motions:\n<|id|>121<|page|>10<|box|>646 140 664 313<|content|>Anticipated Motions:\n<|id|>123<|page|>11<|box|>90 140 107 290<|content|>Deposition Limits:\n<|id|>125<|page|>11<|box|>252 142 268 308<|content|>Interrogatory Limit:\n<|id|>127<|page|>11<|box|>359 142 376 383<|content|>Request for Production Limit:\n<|id|>132<|page|>12<|box|>212 140 228 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>139<|page|>12<|box|>619 411 636 584<|content|>PROPOSED ORDER\n<|id|>142<|page|>13<|box|>159 142 175 316<|content|>IT IS SO ORDERED.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>13<|level|>3\n<|id|>21<|level|>3\n<|id|>33<|level|>2\n<|id|>35<|level|>3\n<|id|>37<|level|>4\n<|id|>43<|level|>4\n<|id|>45<|level|>4\n<|id|>48<|level|>4\n<|id|>50<|level|>3\n<|id|>51<|level|>4\n<|id|>53<|level|>4\n<|id|>55<|level|>4\n<|id|>59<|level|>2\n<|id|>65<|level|>2\n<|id|>74<|level|>2\n<|id|>83<|level|>2\n<|id|>92<|level|>2\n<|id|>96<|level|>2\n<|id|>107<|level|>2\n<|id|>118<|level|>2\n<|id|>119<|level|>3\n<|id|>121<|level|>3\n<|id|>123<|level|>3\n<|id|>125<|level|>3\n<|id|>127<|level|>3\n<|id|>132<|level|>-1\n<|id|>139<|level|>1\n<|id|>142<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 4
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 53,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 4
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 1
+        }
+    ]
+}

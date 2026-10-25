@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 181 125 815<|content|>IN THE UNITED STATES DISTRICT COURT FOR THE EASTER\n<|id|>2<|page|>1<|box|>419 145 455 849<|content|>DECLARATION OF PATRICK SALAZAR IN SUPPORT OF DEFEN\n<|id|>5<|page|>1<|box|>599 140 616 591<|content|>I. INTRODUCTION AND PERSONAL BACKGROUND\n<|id|>11<|page|>2<|box|>665 140 681 674<|content|>II. OVERVIEW OF NORTHGATE'S BUSINESS AND NETWORK\n<|id|>18<|page|>3<|box|>628 142 646 444<|content|>III. THE 14 DISPUTED FACILITIES\n<|id|>37<|page|>4<|box|>580 142 598 581<|content|>IV. NORTHGATE'S WHOLESALE ACCESS POLICY\n<|id|>44<|page|>5<|box|>702 140 719 602<|content|>V. PRIOR COURSE OF DEALING WITH RIDGEPOINT\n<|id|>51<|page|>6<|box|>775 140 792 578<|content|>VI. THE FCC PROCEEDING (DOCKET WC-23-0042)\n<|id|>52<|page|>6<|box|>806 142 824 485<|content|>A. Filing and Nature of the FCC Complaint\n<|id|>57<|page|>7<|box|>508 140 527 689<|content|>B. Overlap Between the FCC Complaint and the Distr\n<|id|>64<|page|>8<|box|>453 140 470 424<|content|>C. The FCC's Specialized Expertise\n<|id|>74<|page|>9<|box|>800 140 816 625<|content|>D. Potential Impact of FCC Resolution on the Antit\n<|id|>80<|page|>10<|box|>840 140 857 398<|content|>E. Status of the FCC Proceeding\n<|id|>84<|page|>11<|box|>426 142 443 508<|content|>VII. RISK OF INCONSISTENT OUTCOMES\n<|id|>89<|page|>12<|box|>258 140 276 464<|content|>VIII. PREJUDICE CONSIDERATIONS\n<|id|>94<|page|>13<|box|>222 142 239 300<|content|>IX. CONCLUSION\n<|id|>100<|page|>13<|box|>660 142 676 279<|content|>ATTESTATION\n<|id|>103<|page|>14<|box|>89 142 106 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>18<|level|>2\n<|id|>37<|level|>2\n<|id|>44<|level|>2\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>57<|level|>3\n<|id|>64<|level|>3\n<|id|>74<|level|>3\n<|id|>80<|level|>3\n<|id|>84<|level|>2\n<|id|>89<|level|>2\n<|id|>94<|level|>2\n<|id|>100<|level|>2\n<|id|>103<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        }
+    ]
+}

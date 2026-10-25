@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 133 743<|content|>51 West 52nd Street, 40th Floor New York, New York 10019 Tel: ... (212) 554-7000\n<|id|>2<|page|>1<|box|>142 140 176 375<|content|>Fax: ... com\n<|id|>3<|page|>1<|box|>185 725 202 854<|content|>January 22, 2025\n<|id|>7<|page|>1<|box|>325 140 362 854<|content|>Re: ... New York Supreme Court, Commercial Division, New York County — Filing of Verified Complaint\n<|id|>8<|page|>1<|box|>369 174 404 854<|content|>Reference: ... VHC- ICM-2017-0615), as amended\n<|id|>9<|page|>1<|box|>414 142 430 383<|content|>Dear Mr. ... Lim\n<|id|>39<|page|>4<|box|>816 140 909 857<|content|>The third cause of action alleges negligent misrep...ifiably relied upon Vantor's representations given\n<|id|>40<|page|>5<|box|>90 140 183 856<|content|>Vantor's role as an independent third-party pricin...minations in reporting to investors and regulators\n<|id|>93<|page|>11<|box|>321 142 339 274<|content|>Very truly yours,\n<|id|>94<|page|>11<|box|>345 140 364 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>95<|page|>11<|box|>381 142 414 852<|content|>Samuel Eklund Partner Calderwood & Harkness LLP 51...r New York, New York 10019 Tel: ... (212) 554-7064\n<|id|>96<|page|>11<|box|>415 143 431 457<|content|>Email: ... com\n<|id|>97<|page|>11<|box|>431 140 488 854<|content|>Encl. ... 650312/2025, Supreme Court of the State ...unty (filed January 21, 2025) (court-stamped copy)\n<|id|>98<|page|>11<|box|>494 140 549 854<|content|>cc: ... , Calderwood & Harkness LLP Marguerite Dao...v Subramanian, CFO, Ironside Capital Management LP",
+    "raw_response": "<|src_id|>39<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ]
+}

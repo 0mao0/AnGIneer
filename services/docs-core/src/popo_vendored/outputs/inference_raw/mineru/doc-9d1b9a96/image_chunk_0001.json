@@ -1,0 +1,55 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        48,
+        76
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        70,
+        71,
+        72,
+        76
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>486<|type|>title<|page|>48<|box|>90 140 107 586<|content|>Section 10.14. Jurisdiction; Consent to Service of\n<|id|>488<|type|>title<|page|>48<|box|>340 140 357 421<|content|>Section 10.15. Waiver of Jury Trial\n<|id|>490<|type|>title<|page|>48<|box|>609 140 625 570<|content|>Section 10.16. No Advisory or Fiduciary Responsibi\n<|id|>492<|type|>title<|page|>48<|box|>840 140 857 467<|content|>Section 10.17. USA PATRIOT Act Notice\n<|id|>495<|type|>title<|page|>49<|box|>186 140 204 830<|content|>Section 10.18. Acknowledgment and Consent to Bail-\n<|id|>497<|type|>title<|page|>49<|box|>363 140 378 650<|content|>Section 10.19. Acknowledgment Regarding Any Suppor\n<|id|>499<|type|>title<|page|>49<|box|>559 140 575 571<|content|>Section 10.20. Counterparts; Integration; Effectiv\n<|id|>501<|type|>title<|page|>49<|box|>683 367 699 630<|content|>[SIGNATURE PAGES FOLLOW]\n<|id|>502<|type|>title<|page|>49<|box|>709 300 724 697<|content|>SIGNATURE PAGE TO CREDIT AGREEMENT\n<|id|>504<|type|>title<|page|>49<|box|>779 143 795 263<|content|>BORROWER:\n<|id|>505<|type|>title<|page|>49<|box|>804 143 820 442<|content|>CLOUDIUM TECHNOLOGIES PLC\n<|id|>511<|type|>title<|page|>50<|box|>89 300 106 696<|content|>SIGNATURE PAGE TO CREDIT AGREEMENT\n<|id|>519<|type|>title<|page|>50<|box|>305 142 321 290<|content|>CO-ARRANGER:\n<|id|>525<|type|>title<|page|>50<|box|>460 143 477 238<|content|>LENDERS:\n<|id|>539<|type|>title<|page|>50<|box|>715 426 736 571<|content|>SCHEDULES\n<|id|>540<|type|>table<|page|>51<|box|>114 143 224 852<|content|>None\n<|id|>542<|type|>title<|page|>52<|box|>90 140 107 478<|content|>Schedule 2.01 — Existing Letters of Credit\n<|id|>544<|type|>title<|page|>53<|box|>90 140 107 357<|content|>Schedule 5.06 — Litigation\n<|id|>546<|type|>table<|page|>54<|box|>113 143 272 852<|content|>None\n<|id|>547<|type|>title<|page|>55<|box|>90 140 107 377<|content|>Schedule 5.11 — Tax Matters\n<|id|>553<|type|>table<|page|>56<|box|>113 143 250 852<|content|>None\n<|id|>554<|type|>title<|page|>57<|box|>90 140 107 442<|content|>Schedule 5.15 — Intellectual Property\n<|id|>556<|type|>title<|page|>58<|box|>90 142 106 429<|content|>Schedule 5.18 — Material Contracts\n<|id|>561<|type|>table<|page|>59<|box|>114 143 354 852<|content|>None\n<|id|>562<|type|>title<|page|>60<|box|>90 140 107 390<|content|>Schedule 7.01 — Existing Liens\n<|id|>564<|type|>title<|page|>61<|box|>90 140 107 450<|content|>Schedule 7.02 — Existing Indebtedness\n<|id|>566<|type|>title<|page|>62<|box|>90 140 107 498<|content|>Schedule 10.06(d) — Disqualified Institutions\n<|id|>568<|type|>title<|page|>62<|box|>161 439 181 558<|content|>EXHIBITS\n<|id|>569<|type|>title<|page|>63<|box|>90 140 107 411<|content|>Exhibit A — Form of Loan Notice\n<|id|>571<|type|>title<|page|>64<|box|>90 140 107 495<|content|>Exhibit B — Form of Compliance Certificate\n<|id|>582<|type|>title<|page|>70<|box|>90 140 107 468<|content|>Exhibit H — Form of Joinder Agreement\n<|id|>584<|type|>title<|page|>71<|box|>90 140 107 460<|content|>Exhibit I — Form of Intercompany Note\n<|id|>586<|type|>title<|page|>72<|box|>90 140 107 468<|content|>Exhibit J — Form of Solvency Certificate\n<|id|>592<|type|>title<|page|>76<|box|>90 279 109 718<|content|>ANNEX A — TRANSACTION SUMMARY\n<|id|>593<|type|>table<|page|>76<|box|>164 143 625 852<|content|>None\n<|id|>594<|type|>title<|page|>76<|box|>657 366 675 630<|content|>[END OF CREDIT AGREEMENT]",
+    "raw_response": "<|src_id|>540<|tgt_id|>539\n<|src_id|>546<|tgt_id|>544\n<|src_id|>553<|tgt_id|>547\n<|src_id|>561<|tgt_id|>556\n<|src_id|>593<|tgt_id|>592",
+    "parsed": [
+        {
+            "src_id": 540,
+            "tgt_id": 539
+        },
+        {
+            "src_id": 546,
+            "tgt_id": 544
+        },
+        {
+            "src_id": 553,
+            "tgt_id": 547
+        },
+        {
+            "src_id": 561,
+            "tgt_id": 556
+        },
+        {
+            "src_id": 593,
+            "tgt_id": 592
+        }
+    ]
+}

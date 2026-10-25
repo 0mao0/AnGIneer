@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        53,
+        77
+    ],
+    "pages": [
+        54,
+        57,
+        64,
+        65,
+        66,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>285<|page|>54<|box|>195 147 209 856<|content|>Section I.- Securities Issued or Guaranteed by the\n<|id|>293<|page|>57<|box|>68 150 86 811<|content|>Section II - Interest-Bearing Securities Issued by\n<|id|>306<|page|>64<|box|>79 205 98 792<|content|>INTERNAL REVENUE COLLECTIONS BY PRINCIPAL SOURCES\n<|id|>307<|page|>65<|box|>75 346 92 629<|content|>Table 1.- Money in Circulation\n<|id|>309<|page|>66<|box|>49 414 62 583<|content|>MONETARY STATISTICS\n<|id|>323<|page|>71<|box|>78 338 92 625<|content|>Section I - Summary by Periods\n<|id|>325<|page|>72<|box|>77 346 92 662<|content|>Section II - Summary by Countries\n<|id|>327<|page|>73<|box|>74 325 90 638<|content|>Section II - Summary by Countries\n<|id|>328<|page|>73<|box|>92 251 107 712<|content|>Table 2.- Short-Term Banking Claims on Foreigners\n<|id|>330<|page|>74<|box|>81 344 95 661<|content|>Section II - Summary by Countries\n<|id|>332<|page|>75<|box|>81 327 96 644<|content|>Section II - Summary by Countries\n<|id|>336<|page|>76<|box|>76 283 91 720<|content|>Section III - Preliminary Details by Countries\n<|id|>339<|page|>77<|box|>72 274 89 709<|content|>Section III - Preliminary Details by Countries",
+    "raw_response": "<|id|>285<|level|>1\n<|id|>293<|level|>1\n<|id|>306<|level|>1\n<|id|>307<|level|>2\n<|id|>309<|level|>1\n<|id|>323<|level|>2\n<|id|>325<|level|>2\n<|id|>327<|level|>2\n<|id|>328<|level|>3\n<|id|>330<|level|>2\n<|id|>332<|level|>2\n<|id|>336<|level|>2\n<|id|>339<|level|>2",
+    "parsed": [
+        {
+            "id": 285,
+            "level": 1
+        },
+        {
+            "id": 293,
+            "level": 1
+        },
+        {
+            "id": 306,
+            "level": 1
+        },
+        {
+            "id": 307,
+            "level": 2
+        },
+        {
+            "id": 309,
+            "level": 1
+        },
+        {
+            "id": 323,
+            "level": 2
+        },
+        {
+            "id": 325,
+            "level": 2
+        },
+        {
+            "id": 327,
+            "level": 2
+        },
+        {
+            "id": 328,
+            "level": 3
+        },
+        {
+            "id": 330,
+            "level": 2
+        },
+        {
+            "id": 332,
+            "level": 2
+        },
+        {
+            "id": 336,
+            "level": 2
+        },
+        {
+            "id": 339,
+            "level": 2
+        }
+    ]
+}

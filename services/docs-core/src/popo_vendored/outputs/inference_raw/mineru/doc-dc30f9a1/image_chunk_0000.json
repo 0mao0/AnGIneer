@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 189 107 805<|content|>OFFICER'S CERTIFICATE OF PENTERRA PHARMACEUTICALS\n<|id|>20<|type|>title<|page|>2<|box|>348 140 364 599<|content|>Section 1. Certification of Representations and Wa\n<|id|>25<|type|>title<|page|>2<|box|>859 142 876 565<|content|>Section 2. Certification of Compliance with Covena\n<|id|>35<|type|>title<|page|>3<|box|>715 140 732 810<|content|>Section 3. Certification Regarding Registration St\n<|id|>36<|type|>title<|page|>3<|box|>741 142 758 522<|content|>Each of the undersigned hereby certifies as follow\n<|id|>41<|type|>title<|page|>4<|box|>604 140 621 514<|content|>Section 4. Absence of Material Adverse Change\n<|id|>42<|type|>title<|page|>4<|box|>628 140 647 522<|content|>Each of the undersigned hereby certifies as follow\n<|id|>48<|type|>title<|page|>5<|box|>429 140 445 431<|content|>Section 5. Absence of Certain Events\n<|id|>56<|type|>title<|page|>6<|box|>329 142 347 480<|content|>Section 6. Absence of Certain Distributions\n<|id|>63<|type|>title<|page|>6<|box|>746 140 763 488<|content|>Section 7. Company Organizational Matters\n<|id|>71<|type|>title<|page|>7<|box|>473 142 489 602<|content|>Section 8. Additional Certifications Regarding the\n<|id|>74<|type|>table<|page|>7<|box|>703 143 859 852<|content|>None\n<|id|>77<|type|>title<|page|>8<|box|>321 142 339 568<|content|>Section 9. Awareness Statement / Knowledge Qualifi\n<|id|>82<|type|>title<|page|>8<|box|>762 284 779 712<|content|>SIGNATURE PAGE TO OFFICER'S CERTIFICATE\n<|id|>83<|type|>title<|page|>8<|box|>787 320 804 676<|content|>PENTERRA PHARMACEUTICALS CORP.\n<|id|>85<|type|>title<|page|>8<|box|>858 140 875 477<|content|>PENTERRA PHARMACEUTICALS CORP.",
+    "raw_response": "<|src_id|>74<|tgt_id|>71",
+    "parsed": [
+        {
+            "src_id": 74,
+            "tgt_id": 71
+        }
+    ]
+}

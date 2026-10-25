@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 269 238 727<|content|>PRICING AGREEMENT Calloway-Briggs Renewables Inc.\n<|id|>1<|type|>title<|page|>1<|box|>261 143 277 223<|content|>Preamble\n<|id|>8<|type|>title<|page|>1<|box|>676 140 694 571<|content|>Section 1 — Offering Price and Underwriting Discou\n<|id|>13<|type|>title<|page|>2<|box|>148 140 167 387<|content|>Section 2 — Number of Shares\n<|id|>18<|type|>title<|page|>2<|box|>569 140 585 470<|content|>Section 3 — Aggregate Offering Amounts\n<|id|>25<|type|>title<|page|>3<|box|>90 140 107 493<|content|>Section 4 — Allocation Among Underwriters\n<|id|>28<|type|>title<|page|>3<|box|>273 140 292 398<|content|>Section 5 — Shares Outstanding\n<|id|>32<|type|>title<|page|>3<|box|>613 140 630 424<|content|>Section 6 — Settlement and Closing\n<|id|>36<|type|>title<|page|>4<|box|>204 140 222 300<|content|>Section 7 — Listing\n<|id|>38<|type|>title<|page|>4<|box|>325 140 344 457<|content|>Section 8 — CUSIP and Transfer Agent\n<|id|>41<|type|>title<|page|>4<|box|>455 140 474 573<|content|>Section 9 — Incorporation of Underwriting Agreemen\n<|id|>45<|type|>title<|page|>4<|box|>758 140 773 375<|content|>Section 10 — Governing Law\n<|id|>47<|type|>title<|page|>5<|box|>90 142 107 359<|content|>Section 11 — Counterparts\n<|id|>50<|type|>title<|page|>5<|box|>239 367 257 629<|content|>[SIGNATURE PAGES FOLLOW]\n<|id|>52<|type|>title<|page|>5<|box|>310 142 327 290<|content|>THE COMPANY:\n<|id|>72<|type|>table<|page|>6<|box|>114 143 261 852<|content|>None\n<|id|>77<|type|>table<|page|>7<|box|>114 143 239 852<|content|>None\n<|id|>78<|type|>title<|page|>7<|box|>273 142 290 266<|content|>[Drafting notes:\n<|id|>81<|type|>title<|page|>8<|box|>90 142 107 596<|content|>Schedule III — Use of Proceeds Summary (Informatio\n<|id|>83<|type|>table<|page|>8<|box|>176 143 270 852<|content|>None\n<|id|>84<|type|>title<|page|>8<|box|>305 140 321 264<|content|>[Drafting notes:\n<|id|>88<|type|>title<|page|>9<|box|>90 143 107 625<|content|>Annex A — Pricing Term Sheet (for Distribution to\n<|id|>90<|type|>title<|page|>9<|box|>196 395 212 602<|content|>PRICING TERM SHEET\n<|id|>91<|type|>title<|page|>9<|box|>222 303 266 694<|content|>Free Writing Prospectus Filed pursuant to Rule 433\n<|id|>92<|type|>table<|page|>9<|box|>299 143 630 852<|content|>None\n<|id|>94<|type|>title<|page|>9<|box|>776 142 791 287<|content|>STATUS NOTATION",
+    "raw_response": "<|src_id|>72<|tgt_id|>52\n<|src_id|>77<|tgt_id|>52\n<|src_id|>83<|tgt_id|>81\n<|src_id|>92<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 72,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 90
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        47
+    ],
+    "pages": [
+        1,
+        3,
+        7,
+        8,
+        10,
+        19,
+        22,
+        24,
+        30,
+        46
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 436 179 572<|content|>March 1980\n<|id|>3<|page|>1<|box|>851 148 891 614<|content|>DEPARTMENT OF THE TREASURY WASHINGTON, D. ... C\n<|id|>8<|page|>3<|box|>131 141 569 848<|content|>UNITED STATES SAVINGS BONDS Page SB-1. ... 81\n<|id|>9<|page|>3<|box|>625 147 741 848<|content|>IFS-1. ... 87\n<|id|>18<|page|>7<|box|>203 117 214 256<|content|>Auction of 2-Year Notes\n<|id|>19<|page|>7<|box|>219 116 392 459<|content|>On February 13 the Treasury announced that it woul...1980, and to raise \\$579 million new cash. ... 000\n<|id|>36<|page|>8<|box|>589 152 599 475<|content|>Treasury Bills (Other than Cash management bills) - General\n<|id|>37<|page|>8<|box|>600 152 684 481<|content|>Treasury bills are sold on a discount basis under ...and Branches, or of the Department of the Treasury\n<|id|>41<|page|>8<|box|>554 519 565 844<|content|>Nonmarketable Foreign Series Securities - Foreign Governments\n<|id|>42<|page|>8<|box|>571 519 684 848<|content|>Dollar denominated foreign series securities issue... 2 bills and 2 certificates of indebtedness. ... )\n<|id|>55<|page|>10<|box|>263 87 274 477<|content|>6/ Represents holdings of special drawing rights, less certificates issued\n<|id|>56<|page|>10<|box|>153 522 163 656<|content|>to Federal Reserve banks. ... to Federal Reserve banks\n<|id|>82<|page|>19<|box|>679 125 737 403<|content|>Notes: ... The intragovernmental transactions are ...from Federal funds to trust funds, and vice versa,\n<|id|>83<|page|>19<|box|>681 506 692 651<|content|>2/ For content see columns (10)-(13). ... 2/ For content see columns (10)-(13)\n<|id|>84<|page|>19<|box|>689 506 701 776<|content|>3/ Includes net taxes and other receipts, mainly deposits by states and\n<|id|>85<|page|>19<|box|>700 508 710 681<|content|>Federal employee retirement contributions. ... Federal employee retirement contributions\n<|id|>86<|page|>19<|box|>708 506 720 761<|content|>4/ Excludes trust fund payments to Federal funds such as charge for\n<|id|>87<|page|>19<|box|>727 506 739 597<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>119<|page|>22<|box|>276 519 284 861<|content|>23/ Tax of 5 percent of prohibited transaction. ... If not corrected within\n<|id|>132<|page|>22<|box|>400 524 408 634<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>140<|page|>24<|box|>114 254 128 752<|content|>Source and Availability of the Balance in the Account of the U. ... Treasury\n<|id|>141<|page|>24<|box|>168 164 228 475<|content|>The operating cash of the Treasury is maintained i...untry authorized to maintain tax and loan accounts\n<|id|>168<|page|>30<|box|>773 106 884 484<|content|>1/ Consists of Government National Mortgage Associ... Overseas Private Investment Corporation beginning\n<|id|>169<|page|>30<|box|>750 519 869 899<|content|>February 1975. ... Less than \\$500,000\n<|id|>317<|page|>46<|box|>457 104 473 483<|content|>108/ Yields accepted ranged from 9. ... 947)\n<|id|>347<|page|>46<|box|>561 526 572 724<|content|>* Less than \\$500,000. ... p Preliminary",
+    "raw_response": "<|src_id|>55<|tgt_id|>56\n<|src_id|>84<|tgt_id|>85\n<|src_id|>168<|tgt_id|>169",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 169
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        49,
+        114
+    ],
+    "pages": [
+        50,
+        56,
+        68,
+        113
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>290<|page|>50<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>291<|page|>50<|box|>198 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund\n<|id|>338<|page|>56<|box|>744 81 877 491<|content|>The geographical allocation of the transactions da... reporting purposes would be recorded opposite the\n<|id|>339<|page|>56<|box|>89 504 164 915<|content|>United Kingdom and not opposite Japan. ... In that...ported opposite Switzerland and not opposite Italy\n<|id|>366<|page|>68<|box|>77 109 126 888<|content|>CHART CM-B. ... Banks, Brokers, and Dealers with Respect to Selected Countries\n<|id|>368<|page|>68<|box|>751 114 810 859<|content|>In December 2012, U. ... However, they decreased \\$267 billion in 2011\n<|id|>528<|page|>113<|box|>184 81 446 491<|content|>Amounts in the Harbor Maintenance Trust Fund are a...elopment Act of 1986. ... Section 201 of the Water\n<|id|>529<|page|>113<|box|>125 504 199 915<|content|>Resources Development Act of 1996 (Public Law 104-...eral navigation projects for commercial navigation",
+    "raw_response": "<|src_id|>338<|tgt_id|>339\n<|src_id|>528<|tgt_id|>529",
+    "parsed": [
+        {
+            "src_id": 338,
+            "tgt_id": 339
+        },
+        {
+            "src_id": 528,
+            "tgt_id": 529
+        }
+    ]
+}

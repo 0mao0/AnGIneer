@@ -1,0 +1,154 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-z49bim4h\\input\\pdfs\\doc-0235faa5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-z49bim4h\\enriched\\doc-0235faa5.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>18<|level|>3\n<|id|>20<|level|>2\n<|id|>22<|level|>3\n<|id|>27<|level|>3\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>3\n<|id|>54<|level|>2\n<|id|>56<|level|>3\n<|id|>60<|level|>3\n<|id|>65<|level|>2\n<|id|>72<|level|>2\n<|id|>74<|level|>3\n<|id|>80<|level|>3\n<|id|>85<|level|>3\n<|id|>92<|level|>3\n<|id|>99<|level|>2\n<|id|>106<|level|>2\n<|id|>115<|level|>2",
+    "image_output": "<|src_id|>57<|tgt_id|>56\n<|src_id|>58<|tgt_id|>56\n<|src_id|>59<|tgt_id|>56\n<|src_id|>62<|tgt_id|>60\n<|src_id|>63<|tgt_id|>60",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 57,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 60
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 62,
+            "table2_idx": 63,
+            "upper_row_ss": [
+                [
+                    "#",
+                    "Individual",
+                    "Prior/Current",
+                    "Adverse",
+                    "Result",
+                    "Notes"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "C&H Representation",
+                    "Representation s",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

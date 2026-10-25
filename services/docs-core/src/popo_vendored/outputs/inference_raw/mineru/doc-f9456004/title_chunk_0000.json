@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 163 143 833<|content|>OFFICER'S CERTIFICATE OF AURELIUS MEDIA HOLDINGS I\n<|id|>2<|page|>1<|box|>258 408 276 588<|content|>Dated: August 1, 2023\n<|id|>5<|page|>1<|box|>553 142 570 383<|content|>1. Authority and Organization\n<|id|>11<|page|>2<|box|>304 140 320 344<|content|>2. Authorized Signatories\n<|id|>17<|page|>2<|box|>777 140 794 411<|content|>3. Lease and Ancillary Documents\n<|id|>30<|page|>3<|box|>664 140 681 243<|content|>4. Guaranty\n<|id|>33<|page|>4<|box|>167 140 184 416<|content|>5. Good Standing and No Conflicts\n<|id|>37<|page|>4<|box|>708 140 724 418<|content|>6. Representations and Warranties\n<|id|>42<|page|>5<|box|>250 140 265 251<|content|>7. No Default\n<|id|>45<|page|>5<|box|>433 140 450 295<|content|>8. Security Deposit\n<|id|>48<|page|>5<|box|>691 140 708 246<|content|>9. Insurance\n<|id|>56<|page|>6<|box|>473 142 489 279<|content|>10. No Litigation\n<|id|>58<|page|>6<|box|>686 140 704 243<|content|>11. Reliance\n<|id|>64<|page|>7<|box|>295 140 311 450<|content|>AURELIUS MEDIA HOLDINGS INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>-1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>17<|level|>2\n<|id|>30<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>64<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        }
+    ]
+}

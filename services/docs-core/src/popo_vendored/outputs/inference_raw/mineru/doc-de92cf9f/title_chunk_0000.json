@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 233 157 764<|content|>SECRETARY'S CERTIFICATE OF HELIOGRAPH THERAPEUTICS\n<|id|>2<|page|>1<|box|>174 153 210 844<|content|>Delivered Pursuant to Section 6.2(d) of the Series\n<|id|>9<|page|>1<|box|>662 140 699 736<|content|>CERTIFICATION 1 — AMENDED AND RESTATED CERTIFICATE\n<|id|>14<|page|>2<|box|>266 140 282 415<|content|>CERTIFICATION 2 — BYLAWS\n<|id|>18<|page|>2<|box|>513 140 530 537<|content|>CERTIFICATION 3 — BOARD RESOLUTIONS\n<|id|>29<|page|>3<|box|>589 140 607 727<|content|>CERTIFICATION 4 — INCUMBENCY AND SPECIMEN SIGNATUR\n<|id|>34<|page|>4<|box|>167 140 184 620<|content|>CERTIFICATION 5 — GOOD STANDING CERTIFICATE\n<|id|>38<|page|>4<|box|>506 142 523 428<|content|>ADDITIONAL CERTIFICATIONS\n<|id|>45<|page|>5<|box|>89 140 106 684<|content|>COUNTER-CERTIFICATION — INCUMBENCY VERIFICATION\n<|id|>51<|page|>6<|box|>89 447 107 552<|content|>EXHIBIT A\n<|id|>52<|page|>6<|box|>114 168 133 826<|content|>Amended and Restated Certificate of Incorporation\n<|id|>56<|page|>7<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>57<|page|>7<|box|>114 339 133 656<|content|>Bylaws of Heliograph Therapeutics, Inc.\n<|id|>58<|page|>7<|box|>142 418 159 580<|content|>As currently in effect\n<|id|>60<|page|>8<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>61<|page|>8<|box|>114 225 133 771<|content|>Resolutions of the Board of Directors of Heliograp\n<|id|>65<|page|>9<|box|>89 447 107 550<|content|>EXHIBIT D\n<|id|>66<|page|>9<|box|>114 256 133 740<|content|>Certificate of Good Standing of Heliograph Therape",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>45<|level|>2\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>58<|level|>4\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>65<|level|>2\n<|id|>66<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 179 126 856<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1700 Pa\n<|id|>4<|type|>title<|page|>1<|box|>203 140 220 465<|content|>VIA EMAIL AND FIRST-CLASS MAIL\n<|id|>8<|type|>title<|page|>1<|box|>359 140 376 442<|content|>1. Purpose and Engagement Overview\n<|id|>11<|type|>title<|page|>1<|box|>726 140 744 354<|content|>2. Scope of Representation\n<|id|>29<|type|>title<|page|>3<|box|>444 140 460 377<|content|>3. Staffing and Key Personnel\n<|id|>36<|type|>title<|page|>4<|box|>231 140 247 377<|content|>4. Client Contact Information\n<|id|>44<|type|>title<|page|>4<|box|>579 142 595 310<|content|>5. Fee Arrangements\n<|id|>45<|type|>title<|page|>4<|box|>609 142 627 279<|content|>5.1 Hourly Rates\n<|id|>47<|type|>table<|page|>4<|box|>712 143 787 852<|content|>None\n<|id|>49<|type|>title<|page|>5<|box|>90 140 107 400<|content|>5.2 Expenses and Disbursements\n<|id|>59<|type|>title<|page|>5<|box|>435 140 453 388<|content|>5.3 Billing and Payment Terms\n<|id|>67<|type|>title<|page|>5<|box|>828 140 845 390<|content|>5.4 Fee Estimate (Non-Binding)\n<|id|>72<|type|>title<|page|>6<|box|>434 140 450 321<|content|>6. Conflicts of Interest\n<|id|>77<|type|>title<|page|>7<|box|>90 140 107 390<|content|>7. Confidentiality and Privilege\n<|id|>86<|type|>title<|page|>7<|box|>648 140 667 326<|content|>8. Document Retention\n<|id|>90<|type|>title<|page|>8<|box|>167 140 184 385<|content|>9. Termination of Engagement\n<|id|>97<|type|>title<|page|>8<|box|>621 142 637 379<|content|>10. No Guarantee of Outcome\n<|id|>100<|type|>title<|page|>9<|box|>90 142 107 297<|content|>11. Governing Law\n<|id|>103<|type|>title<|page|>9<|box|>330 142 347 455<|content|>12. Entire Agreement and Amendments\n<|id|>106<|type|>title<|page|>9<|box|>532 142 549 264<|content|>13. Acceptance\n<|id|>125<|type|>title<|page|>10<|box|>301 142 314 171<|content|>cc:",
+    "raw_response": "<|src_id|>47<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        }
+    ]
+}

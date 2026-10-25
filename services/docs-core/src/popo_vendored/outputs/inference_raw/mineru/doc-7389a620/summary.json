@@ -1,0 +1,677 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-760wtdl6\\input\\pdfs\\doc-7389a620.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-760wtdl6\\enriched\\doc-7389a620.json",
+    "contd_output": "<|src_id|>49<|tgt_id|>50\n<|src_id|>216<|tgt_id|>217",
+    "title_output": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>25<|level|>3\n<|id|>36<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>45<|level|>4\n<|id|>48<|level|>4\n<|id|>51<|level|>4\n<|id|>54<|level|>4\n<|id|>56<|level|>5\n<|id|>63<|level|>5\n<|id|>68<|level|>4\n<|id|>71<|level|>4\n<|id|>74<|level|>3\n<|id|>75<|level|>4\n<|id|>78<|level|>4\n<|id|>80<|level|>4\n<|id|>82<|level|>4\n<|id|>84<|level|>5\n<|id|>89<|level|>4\n<|id|>91<|level|>4\n<|id|>95<|level|>3\n<|id|>96<|level|>4\n<|id|>99<|level|>4\n<|id|>101<|level|>4\n<|id|>103<|level|>4\n<|id|>105<|level|>5\n<|id|>109<|level|>4\n<|id|>111<|level|>4\n<|id|>113<|level|>3\n<|id|>114<|level|>4\n<|id|>118<|level|>4\n<|id|>120<|level|>4\n<|id|>123<|level|>4\n<|id|>125<|level|>5\n<|id|>129<|level|>4\n<|id|>131<|level|>4\n<|id|>134<|level|>3\n<|id|>135<|level|>4\n<|id|>138<|level|>4\n<|id|>140<|level|>4\n<|id|>143<|level|>4\n<|id|>145<|level|>5\n<|id|>150<|level|>4\n<|id|>152<|level|>4\n<|id|>156<|level|>3\n<|id|>157<|level|>4\n<|id|>160<|level|>4\n<|id|>162<|level|>4\n<|id|>164<|level|>4\n<|id|>165<|level|>5\n<|id|>169<|level|>5\n<|id|>172<|level|>4\n<|id|>174<|level|>4\n<|id|>178<|level|>3\n<|id|>181<|level|>4\n<|id|>183<|level|>4\n<|id|>185<|level|>4\n<|id|>187<|level|>5\n<|id|>191<|level|>4\n<|id|>193<|level|>4\n<|id|>196<|level|>3\n<|id|>197<|level|>4\n<|id|>201<|level|>4\n<|id|>203<|level|>4\n<|id|>205<|level|>4\n<|id|>207<|level|>5\n<|id|>212<|level|>4\n<|id|>214<|level|>4\n<|id|>219<|level|>2\n<|id|>223<|level|>2\n<|id|>225<|level|>3\n<|id|>229<|level|>3\n<|id|>232<|level|>3\n<|id|>236<|level|>3\n<|id|>240<|level|>3\n<|id|>244<|level|>3\n<|id|>250<|level|>2\n<|id|>252<|level|>3\n<|id|>254<|level|>3\n<|id|>270<|level|>2\n<|id|>277<|level|>2\n<|id|>291<|level|>2\n<|id|>294<|level|>2\n<|id|>298<|level|>2\n<|id|>301<|level|>2",
+    "image_output": "<|src_id|>46<|tgt_id|>45\n<|src_id|>76<|tgt_id|>75\n<|src_id|>97<|tgt_id|>96\n<|src_id|>115<|tgt_id|>114\n<|src_id|>116<|tgt_id|>114\n<|src_id|>136<|tgt_id|>135\n<|src_id|>158<|tgt_id|>157\n<|src_id|>179<|tgt_id|>178\n<|src_id|>198<|tgt_id|>197\n<|src_id|>199<|tgt_id|>197\n<|src_id|>220<|tgt_id|>219\n<|src_id|>221<|tgt_id|>219\n<|src_id|>222<|tgt_id|>219\n<|src_id|>272<|tgt_id|>270\n<|src_id|>273<|tgt_id|>270\n<|src_id|>274<|tgt_id|>270\n<|src_id|>275<|tgt_id|>270\n<|src_id|>292<|tgt_id|>291\n<|src_id|>295<|tgt_id|>294\n<|src_id|>296<|tgt_id|>294\n<|src_id|>299<|tgt_id|>298\n<|src_id|>302<|tgt_id|>301\n<|src_id|>303<|tgt_id|>301\n<|src_id|>304<|tgt_id|>301",
+    "contd_label": [
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 217
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 54,
+            "level": 4
+        },
+        {
+            "id": 56,
+            "level": 5
+        },
+        {
+            "id": 63,
+            "level": 5
+        },
+        {
+            "id": 68,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 78,
+            "level": 4
+        },
+        {
+            "id": 80,
+            "level": 4
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 84,
+            "level": 5
+        },
+        {
+            "id": 89,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 4
+        },
+        {
+            "id": 99,
+            "level": 4
+        },
+        {
+            "id": 101,
+            "level": 4
+        },
+        {
+            "id": 103,
+            "level": 4
+        },
+        {
+            "id": 105,
+            "level": 5
+        },
+        {
+            "id": 109,
+            "level": 4
+        },
+        {
+            "id": 111,
+            "level": 4
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 4
+        },
+        {
+            "id": 118,
+            "level": 4
+        },
+        {
+            "id": 120,
+            "level": 4
+        },
+        {
+            "id": 123,
+            "level": 4
+        },
+        {
+            "id": 125,
+            "level": 5
+        },
+        {
+            "id": 129,
+            "level": 4
+        },
+        {
+            "id": 131,
+            "level": 4
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 4
+        },
+        {
+            "id": 138,
+            "level": 4
+        },
+        {
+            "id": 140,
+            "level": 4
+        },
+        {
+            "id": 143,
+            "level": 4
+        },
+        {
+            "id": 145,
+            "level": 5
+        },
+        {
+            "id": 150,
+            "level": 4
+        },
+        {
+            "id": 152,
+            "level": 4
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 4
+        },
+        {
+            "id": 160,
+            "level": 4
+        },
+        {
+            "id": 162,
+            "level": 4
+        },
+        {
+            "id": 164,
+            "level": 4
+        },
+        {
+            "id": 165,
+            "level": 5
+        },
+        {
+            "id": 169,
+            "level": 5
+        },
+        {
+            "id": 172,
+            "level": 4
+        },
+        {
+            "id": 174,
+            "level": 4
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 4
+        },
+        {
+            "id": 183,
+            "level": 4
+        },
+        {
+            "id": 185,
+            "level": 4
+        },
+        {
+            "id": 187,
+            "level": 5
+        },
+        {
+            "id": 191,
+            "level": 4
+        },
+        {
+            "id": 193,
+            "level": 4
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 4
+        },
+        {
+            "id": 201,
+            "level": 4
+        },
+        {
+            "id": 203,
+            "level": 4
+        },
+        {
+            "id": 205,
+            "level": 4
+        },
+        {
+            "id": 207,
+            "level": 5
+        },
+        {
+            "id": 212,
+            "level": 4
+        },
+        {
+            "id": 214,
+            "level": 4
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 236,
+            "level": 3
+        },
+        {
+            "id": 240,
+            "level": 3
+        },
+        {
+            "id": 244,
+            "level": 3
+        },
+        {
+            "id": 250,
+            "level": 2
+        },
+        {
+            "id": 252,
+            "level": 3
+        },
+        {
+            "id": 254,
+            "level": 3
+        },
+        {
+            "id": 270,
+            "level": 2
+        },
+        {
+            "id": 277,
+            "level": 2
+        },
+        {
+            "id": 291,
+            "level": 2
+        },
+        {
+            "id": 294,
+            "level": 2
+        },
+        {
+            "id": 298,
+            "level": 2
+        },
+        {
+            "id": 301,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 46,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 219
+        },
+        {
+            "src_id": 221,
+            "tgt_id": 219
+        },
+        {
+            "src_id": 222,
+            "tgt_id": 219
+        },
+        {
+            "src_id": 272,
+            "tgt_id": 270
+        },
+        {
+            "src_id": 273,
+            "tgt_id": 270
+        },
+        {
+            "src_id": 274,
+            "tgt_id": 270
+        },
+        {
+            "src_id": 275,
+            "tgt_id": 270
+        },
+        {
+            "src_id": 292,
+            "tgt_id": 291
+        },
+        {
+            "src_id": 295,
+            "tgt_id": 294
+        },
+        {
+            "src_id": 296,
+            "tgt_id": 294
+        },
+        {
+            "src_id": 299,
+            "tgt_id": 298
+        },
+        {
+            "src_id": 302,
+            "tgt_id": 301
+        },
+        {
+            "src_id": 303,
+            "tgt_id": 301
+        },
+        {
+            "src_id": 304,
+            "tgt_id": 301
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 115,
+            "table2_idx": 116,
+            "upper_row_ss": [
+                [
+                    "Nameplate Capacity",
+                    "130 MW DC"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Acreage",
+                    "Approximately 1,560 acres"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 198,
+            "table2_idx": 199,
+            "upper_row_ss": [
+                [
+                    "Nameplate Capacity",
+                    "160 MW DC"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Acreage",
+                    "Approximately 1,920 acres"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 220,
+            "table2_idx": 221,
+            "upper_row_ss": [
+                [
+                    "Cimarron Flats",
+                    "Crockett Co., TX",
+                    "150",
+                    "1,800",
+                    "Private Lease",
+                    "Issued (9/28/23)",
+                    "Severed mineral estate (surface",
+                    "None material; standard endorsem",
+                    "Clear with standard exception"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "waiver obtained); ranch road easement (E boundary — no impact)",
+                    "ents recommended",
+                    "s"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 221,
+            "table2_idx": 222,
+            "upper_row_ss": [
+                [
+                    "Sangre del Sol I",
+                    "Doña Ana Co., NM",
+                    "150",
+                    "1,800",
+                    "BLM Lease",
+                    "Issued (10/3/23)",
+                    "Federal mineral reservation; BLM grazing",
+                    "BLM assignment consent; confirm",
+                    "Curative needed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "permit (subordinate); cultural resource avoidance zone (~15 acres)",
+                    "grazing permit termination timeline",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 272,
+            "table2_idx": 273,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "Initiate and",
+                    "Sangre del Sol I;",
+                    "CBR / C&H Federal",
+                    "Application filed by"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "complete BLM assignment consent applications for Right-of-Way Grants Serial Nos. NM-148762 and NM-148889; obtain written BLM approval",
+                    "Sangre del Sol II",
+                    "Lands Counsel (A. Morales)",
+                    "Nov. 15, 2023; BLM approval by closing"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 273,
+            "table2_idx": 274,
+            "upper_row_ss": [
+                [
+                    "8",
+                    "Obtain written",
+                    "Sangre del Sol II",
+                    "CBR / C&H",
+                    "Dec. 15, 2023"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "acknowledgment from Southwest Transmission Partners, Inc. regarding no objection to solar development in proximity to existing transmission line ROW",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 274,
+            "table2_idx": 275,
+            "upper_row_ss": [
+                [
+                    "13",
+                    "Confirm lease assignability provisions at Sonoran Ridge permit contribution to Solstice Plateau; deliver assignment notice to Sonoran Desert Holdings,",
+                    "Sonoran Ridge",
+                    "CBR / C&H",
+                    "Nov. 10, 2023"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "LLC",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 302,
+            "table2_idx": 303,
+            "upper_row_ss": [
+                [
+                    "Lone Star Prairie",
+                    "Mineral reservation",
+                    "Webb Co., TX —",
+                    "Surface waiver in",
+                    "N — Standard"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "with surface waiver",
+                    "Doc. No. 2021-012903 (surface waiver)",
+                    "place; no surface interference",
+                    "endorsement recommended"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 303,
+            "table2_idx": 304,
+            "upper_row_ss": [
+                [
+                    "Sangre del Sol II",
+                    "Transmission line ROW — Southwest Transmission Partners, Inc. (S portion)",
+                    "Separate BLM ROW grant (pre-existing)",
+                    "Compatible with project design; potential interconnection point",
+                    "Y — Obtain no-objection confirmation"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Sonoran Ridge",
+                    "Mineral reservation by fee owner (Sonoran Desert Holdings, LLC)",
+                    "Pinal Co., AZ — Doc. No. 2021-087453 (surface waiver)",
+                    "Surface waiver in place; no surface interference",
+                    "N — Standard endorsement recommended"
+                ]
+            ]
+        }
+    ]
+}

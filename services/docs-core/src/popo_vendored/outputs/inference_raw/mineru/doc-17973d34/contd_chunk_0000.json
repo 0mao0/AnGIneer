@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        50
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        9,
+        10,
+        13,
+        14,
+        20,
+        22,
+        23,
+        40,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>705 570 849 743<|content|>FEATURES Profile of the Economy Financial Operations International Statistics Special Reports\n<|id|>2<|page|>1<|box|>864 614 887 746<|content|>Produced and Published by\n<|id|>3<|page|>1<|box|>891 522 921 748<|content|>Department of the Treasury Bureau of the Fiscal Service\n<|id|>4<|page|>2<|box|>366 133 439 864<|content|>The Treasury Bulletin is issued quarterly in March... as well as various other Federal program agencies\n<|id|>6<|page|>2<|box|>489 318 512 676<|content|>treasury. ... gov\n<|id|>7<|page|>2<|box|>526 148 564 846<|content|>Internet service subscribers can access the Treasu...rough the Bureau of the Fiscal Service's home page\n<|id|>20<|page|>5<|box|>402 104 780 692<|content|>Financial Report of the United States Government excerpt. ... ✓\n<|id|>21<|page|>6<|box|>199 661 409 918<|content|>Profile of the Economy Federal Fiscal Operations A.... Currency and Coin Outstanding and in Circulation\n<|id|>23<|page|>7<|box|>119 349 138 647<|content|>(Office of Macroeconomic Analysis)\n<|id|>24<|page|>7<|box|>148 416 165 578<|content|>November 18, 2021\n<|id|>38<|page|>9<|box|>805 109 895 880<|content|>Total government spending rose 0. ... The decline ...umption of private services – particularly fees to\n<|id|>39<|page|>10<|box|>89 109 180 854<|content|>Paycheck Protection Program lenders – and nondurab...ods. ... 4 percentage points in the second quarter\n<|id|>49<|page|>13<|box|>174 109 314 877<|content|>For the 13 quarters immediately preceding the pand...e in productivity since the fourth quarter of 1961\n<|id|>50<|page|>13<|box|>330 109 472 880<|content|>Although quarterly productivity declined by 3. ......oductivity growth since the second quarter of 2016\n<|id|>54<|page|>13<|box|>833 109 905 883<|content|>Manufacturing production, which accounts for about... from month to month since the summer of 2020 when\n<|id|>55<|page|>14<|box|>90 109 301 880<|content|>factories were reopened after lockdown orders were...in February 2020, before the onset of the pandemic\n<|id|>100<|page|>20<|box|>516 380 529 617<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>101<|page|>20<|box|>536 83 551 267<|content|>Fourth-Quarter Receipts\n<|id|>102<|page|>20<|box|>554 81 643 486<|content|>The following capsule analysis of budget receipts,... to analyze adequately collections for the quarter\n<|id|>115<|page|>22<|box|>183 236 196 761<|content|>[In millions of dollars. ... “Monthly Treasury Sta...ipts and Outlays of the United States Government”]\n<|id|>117<|page|>22<|box|>482 194 502 802<|content|>Fourth-Quarter Net Budget Receipts by Source, Fiscal Year 2021\n<|id|>119<|page|>23<|box|>133 122 186 545<|content|>CHART FFO-A. ... — Monthly Receipts and Outlays, 2020-2021 (In billions of dollars)\n<|id|>165<|page|>40<|box|>686 81 717 491<|content|>- Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>167<|page|>40<|box|>250 504 397 916<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>196<|page|>49<|box|>511 339 523 658<|content|>[Source: ... Bureau of the Fiscal Service, Division of Financing Operations]\n<|id|>197<|page|>49<|box|>531 112 547 166<|content|>JULY\n<|id|>203<|page|>49<|box|>833 111 886 875<|content|>On July 1, 2021, Treasury announced it would aucti...on of 42-day bills. ... Treasury accepted \\$40,002\n<|id|>204<|page|>50<|box|>90 111 125 854<|content|>million, including \\$16 million of noncompetitive tenders from the public. ... 045 percent",
+    "raw_response": "<|src_id|>38<|tgt_id|>39\n<|src_id|>54<|tgt_id|>55\n<|src_id|>203<|tgt_id|>204",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 204
+        }
+    ]
+}

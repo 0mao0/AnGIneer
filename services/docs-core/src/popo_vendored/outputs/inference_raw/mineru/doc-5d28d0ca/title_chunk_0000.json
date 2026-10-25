@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>500 142 516 362<|content|>1. Recitals and Background\n<|id|>22<|page|>2<|box|>705 140 723 328<|content|>2. Board Authorization\n<|id|>26<|page|>3<|box|>377 140 393 419<|content|>3. Irrevocable Equity Commitment\n<|id|>30<|page|>4<|box|>90 140 107 522<|content|>4. Capital Call Mechanics and Funding Schedule\n<|id|>31<|page|>4<|box|>121 140 138 323<|content|>4.1 Initial Capital Call\n<|id|>35<|page|>4<|box|>507 140 523 370<|content|>4.2 Subsequent Capital Calls\n<|id|>39<|page|>5<|box|>90 140 107 447<|content|>4.3 Pre-Formation Expenditure Credit\n<|id|>41<|page|>5<|box|>338 140 354 294<|content|>5. Source of Funds\n<|id|>45<|page|>5<|box|>786 140 803 441<|content|>6. Default Remedies Acknowledgment\n<|id|>54<|page|>6<|box|>598 140 614 457<|content|>7. Construction Loan Equity Conditions\n<|id|>59<|page|>7<|box|>409 140 426 308<|content|>8. REIT Compliance\n<|id|>62<|page|>7<|box|>758 140 776 517<|content|>9. Representations and Warranties of Fairwater\n<|id|>73<|page|>9<|box|>186 140 204 418<|content|>10. Third-Party Beneficiary Rights\n<|id|>77<|page|>9<|box|>561 140 579 400<|content|>11. No Modification; Integration\n<|id|>80<|page|>10<|box|>90 142 107 400<|content|>12. Governing Law; Jurisdiction\n<|id|>83<|page|>10<|box|>348 142 364 233<|content|>13. Notices\n<|id|>85<|page|>10<|box|>455 142 470 267<|content|>If to Fairwater:\n<|id|>100<|page|>11<|box|>90 142 107 455<|content|>14. Counterparts; Electronic Signatures\n<|id|>102<|page|>11<|box|>215 228 233 767<|content|>[Remainder of this page intentionally left blank.\n<|id|>103<|page|>11<|box|>239 178 276 816<|content|>SIGNATURE PAGE TO IRREVOCABLE EQUITY FUNDING COMMI\n<|id|>105<|page|>11<|box|>329 142 345 581<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST\n<|id|>114<|page|>11<|box|>484 313 501 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>116<|page|>11<|box|>590 142 607 419<|content|>PRESCOTT HP INVESTOR, LLC",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>22<|level|>1\n<|id|>26<|level|>1\n<|id|>30<|level|>1\n<|id|>31<|level|>2\n<|id|>35<|level|>2\n<|id|>39<|level|>2\n<|id|>41<|level|>1\n<|id|>45<|level|>1\n<|id|>54<|level|>1\n<|id|>59<|level|>1\n<|id|>62<|level|>1\n<|id|>73<|level|>1\n<|id|>77<|level|>1\n<|id|>80<|level|>1\n<|id|>83<|level|>1\n<|id|>85<|level|>2\n<|id|>100<|level|>1\n<|id|>102<|level|>-1\n<|id|>103<|level|>1\n<|id|>105<|level|>2\n<|id|>114<|level|>2\n<|id|>116<|level|>2",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        }
+    ]
+}

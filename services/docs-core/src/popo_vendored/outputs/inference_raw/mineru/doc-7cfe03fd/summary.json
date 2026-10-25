@@ -1,0 +1,110 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2cudf2b9\\input\\pdfs\\doc-7cfe03fd.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2cudf2b9\\enriched\\doc-7cfe03fd.json",
+    "contd_output": "",
+    "title_output": "<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>2\n<|id|>28<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>2\n<|id|>52<|level|>2\n<|id|>61<|level|>2\n<|id|>70<|level|>1\n<|id|>80<|level|>1\n<|id|>86<|level|>1\n<|id|>94<|level|>1\n<|id|>102<|level|>1\n<|id|>119<|level|>1",
+    "image_output": "<|src_id|>96<|tgt_id|>94\n<|src_id|>97<|tgt_id|>94\n<|src_id|>98<|tgt_id|>94\n<|src_id|>99<|tgt_id|>94",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 94
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 98,
+            "table2_idx": 99,
+            "upper_row_ss": [
+                [
+                    "28",
+                    "PPC-IDR44-002697 to PPC-IDR44-002738",
+                    "Consolidated Capital Expenditure Summary",
+                    "March 18, 2020",
+                    "PBI Finance Dept.",
+                    "42"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Schedule — FY 2019",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

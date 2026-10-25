@@ -1,0 +1,147 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        51
+    ],
+    "pages": [
+        5,
+        7,
+        8,
+        9,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        24,
+        25,
+        26,
+        31,
+        32,
+        33,
+        35,
+        45,
+        46,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>5<|box|>154 333 198 657<|content|>BULLETIN\n<|id|>5<|page|>5<|box|>290 184 328 797<|content|>TREASURY DEPARTMENT\n<|id|>19<|page|>7<|box|>54 277 67 705<|content|>Bulletin of the Treasury Department, January 1943\n<|id|>20<|page|>7<|box|>74 371 89 619<|content|>Cumulative Table of Contents\n<|id|>22<|page|>8<|box|>51 273 86 702<|content|>Bulletin of the Treasury Department, January 1943\n<|id|>24<|page|>9<|box|>59 273 95 698<|content|>Bulletin of the Treasury Department, January 1943\n<|id|>26<|page|>12<|box|>45 222 79 753<|content|>Sales of United States Government Securities in De\n<|id|>29<|page|>13<|box|>57 335 71 635<|content|>Sources of Dividend Receipts, 1936\n<|id|>42<|page|>13<|box|>487 563 517 878<|content|>Dividend Distribution by Total Assets Classes of D\n<|id|>44<|page|>13<|box|>631 376 643 590<|content|>METHODS USED IN DIVIDEND STUDY\n<|id|>49<|page|>14<|box|>43 85 106 907<|content|>Table I.- Dividends Received by Corporations, Indi\n<|id|>51<|page|>15<|box|>51 203 91 770<|content|>Table II.- Percentage Distribution of Dividends Re\n<|id|>54<|page|>16<|box|>49 140 91 830<|content|>Table III.- Percentage Distribution of Dividends P\n<|id|>57<|page|>17<|box|>50 229 66 746<|content|>Estate Tax in the United States, United Kingdom, a\n<|id|>73<|page|>24<|box|>66 171 102 828<|content|>Appropriations and Net Contract Authorizations for\n<|id|>75<|page|>25<|box|>37 354 51 640<|content|>Budget Receipts and Expenditures\n<|id|>78<|page|>26<|box|>47 289 63 691<|content|>Budget Receipts and Expenditures - (Continued)\n<|id|>90<|page|>31<|box|>78 301 91 686<|content|>Section I.- Budget Receipts and Expenditures\n<|id|>91<|page|>31<|box|>106 366 119 623<|content|>Table 1.- Social Security Act\n<|id|>99<|page|>32<|box|>90 234 105 738<|content|>Section I.- Budget Receipts and Expenditures - (Co\n<|id|>102<|page|>33<|box|>43 337 57 660<|content|>Social Security Program - (Continued)\n<|id|>103<|page|>33<|box|>65 320 79 679<|content|>Section II.- Statements of Trust Accounts\n<|id|>109<|page|>35<|box|>51 138 75 857<|content|>CASH INCOME AND OUTGO OF THE TREASURY\n<|id|>126<|page|>45<|box|>58 207 106 780<|content|>Maturity Schedule of Interest-Bearing Public Marke\n<|id|>128<|page|>46<|box|>45 208 94 782<|content|>Maturity Schedule of Interest-Bearing Public Marke\n<|id|>137<|page|>49<|box|>73 373 87 619<|content|>Table 1.- Summary, by Series\n<|id|>139<|page|>50<|box|>51 277 67 715<|content|>Sales of United States Savings Bonds - (Continued)\n<|id|>140<|page|>50<|box|>79 311 94 679<|content|>Table 1.- Summary, by Series - (Continued)",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>5<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>2\n<|id|>29<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>3\n<|id|>49<|level|>2\n<|id|>51<|level|>2\n<|id|>54<|level|>2\n<|id|>57<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>90<|level|>2\n<|id|>91<|level|>3\n<|id|>99<|level|>2\n<|id|>102<|level|>2\n<|id|>103<|level|>2\n<|id|>109<|level|>2\n<|id|>126<|level|>2\n<|id|>128<|level|>2\n<|id|>137<|level|>3\n<|id|>139<|level|>2\n<|id|>140<|level|>3",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 3
+        }
+    ]
+}

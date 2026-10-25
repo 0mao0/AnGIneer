@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        28
+    ],
+    "pages": [
+        2,
+        5,
+        6,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>10<|page|>2<|box|>391 176 407 581<|content|>Optiwave Semiconductor Corp. ... (\"OWS\" or \"Plaintiff\")\n<|id|>11<|page|>2<|box|>417 142 434 723<|content|>Date: ... Draft for finalization by June 15, 2025 (Plaintiff Expert Report Deadline)\n<|id|>12<|page|>2<|box|>441 140 503 854<|content|>This document contains information designated \"Hig...Civil Procedure and the Court's inherent authority\n<|id|>41<|page|>5<|box|>829 142 901 856<|content|>13. ... The '015 Patent issued on August 2, 2022, ... the close of Q2 2022 but before the launch of the\n<|id|>42<|page|>6<|box|>89 174 200 856<|content|>LumiLink 400G-ZR+ in Q3 2022. ... For purposes of ...licensed portfolio in the hypothetical negotiation\n<|id|>260<|page|>28<|box|>813 140 845 852<|content|>Managing Director Meridian Economic Consulting Gro...h Wacker Drive, Suite 4400 Chicago, Illinois 60606\n<|id|>261<|page|>28<|box|>847 143 864 251<|content|>By: ... By\n<|id|>262<|page|>28<|box|>864 143 880 310<|content|>Dr. ... Lawrence Keating\n<|id|>263<|page|>28<|box|>882 143 898 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>41<|tgt_id|>42",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        }
+    ]
+}

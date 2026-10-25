@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 236 176 759<|content|>Approval and Adoption of the 2022 Employee Stock Purchase Plan\n<|id|>2<|page|>1<|box|>185 349 202 647<|content|>IN LIEU OF A SPECIAL MEETING\n<|id|>3<|page|>1<|box|>210 379 228 619<|content|>Effective as of March 28, 2022\n<|id|>4<|page|>1<|box|>237 140 402 856<|content|>The undersigned, constituting all of the members o...es, at which all directors were present and voting\n<|id|>8<|page|>1<|box|>777 140 905 857<|content|>WHEREAS, the Board has received and carefully cons...ons of Rachel Whitmore, the Company's Chief People\n<|id|>9<|page|>2<|box|>90 140 145 854<|content|>Officer, regarding employee recruitment and retent...ompany's total rewards program in light of the IPO\n<|id|>11<|page|>2<|box|>343 140 508 856<|content|>WHEREAS, adoption of the 2022 Employee Stock Purch...ove and adopt the Plan by written consent; ... and\n<|id|>12<|page|>2<|box|>516 140 643 857<|content|>WHEREAS, the Board has reviewed the form of the 20...ral, state, and local laws, rules, and regulations\n<|id|>16<|page|>2<|box|>747 140 893 857<|content|>RESOLVED, that the 2022 Employee Stock Purchase Pl...loway-Briggs Renewables Inc. ... and it is further\n<|id|>17<|page|>3<|box|>90 140 143 854<|content|>RESOLVED, that the Plan shall become effective upo...ny reason, the Plan shall be of no force or effect\n<|id|>19<|page|>3<|box|>181 140 273 854<|content|>RESOLVED, that a total of 2,545,455 shares of the ...Common Stock, par value \\$0. ... and it is further\n<|id|>20<|page|>3<|box|>280 140 388 854<|content|>RESOLVED, that shares of Common Stock subject to t...ring periods under the Plan; ... and it is further\n<|id|>21<|page|>3<|box|>397 140 470 854<|content|>RESOLVED, that the appropriate officers of the Com...sufficient to satisfy the requirements of the ESPP\n<|id|>31<|page|>4<|box|>354 140 407 854<|content|>RESOLVED, that the Board hereby recommends that th...cribed in these resolutions; ... and it is further\n<|id|>32<|page|>4<|box|>416 140 544 856<|content|>RESOLVED, that the officers of the Company are her...DGCL and the Company's Amended and Restated Bylaws\n<|id|>34<|page|>4<|box|>580 140 727 854<|content|>RESOLVED, that the ESPP and the material terms the...tement on Form S-1 (File No. ... and it is further\n<|id|>35<|page|>4<|box|>734 140 825 857<|content|>RESOLVED, that the officers of the Company, in con... registration statement on Form S-1, as applicable\n<|id|>37<|page|>4<|box|>862 140 898 856<|content|>RESOLVED, that the officers of the Company are her... SEC promulgated thereunder; ... and it is further\n<|id|>38<|page|>5<|box|>208 140 281 857<|content|>RESOLVED, that such officers are authorized to tak... or registrations with state securities regulators\n<|id|>54<|page|>6<|box|>517 140 773 856<|content|>RESOLVED, that Garrett Calloway (Co-Founder, Chair...proval of the terms thereof; ... and it is further\n<|id|>55<|page|>6<|box|>781 140 873 856<|content|>RESOLVED, that the authority granted to the Author... of the Compensation Consultant and other advisors\n<|id|>62<|page|>7<|box|>580 142 598 715<|content|>Garrett Calloway Co-Founder, Chairman and Chief Executive Officer Director\n<|id|>63<|page|>7<|box|>599 143 616 264<|content|>Date: ... ____\n<|id|>64<|page|>7<|box|>648 142 665 611<|content|>Elaine Briggs Co-Founder and President, Development Director\n<|id|>65<|page|>7<|box|>667 143 684 264<|content|>Date: ... ____\n<|id|>66<|page|>7<|box|>715 143 734 699<|content|>Hugh Pemberton Director (Pinnacle Vista Capital Partners III, LP Designee)\n<|id|>67<|page|>7<|box|>734 143 751 264<|content|>Date: ... ____\n<|id|>68<|page|>7<|box|>784 142 801 671<|content|>Diane Kovac Director (Pinnacle Vista Capital Partners III, LP Designee)\n<|id|>69<|page|>7<|box|>803 143 819 264<|content|>Date: ... ____\n<|id|>70<|page|>7<|box|>852 143 869 411<|content|>Warren Okoro Independent Director\n<|id|>71<|page|>7<|box|>869 143 887 264<|content|>Date: ... ____\n<|id|>72<|page|>8<|box|>109 142 128 424<|content|>Catherine Liang Independent Director\n<|id|>73<|page|>8<|box|>128 143 146 267<|content|>Date: ... ____\n<|id|>74<|page|>8<|box|>176 142 195 424<|content|>Richard Estavez Independent Director\n<|id|>75<|page|>8<|box|>196 142 214 267<|content|>Date: ... ____",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>16<|tgt_id|>17\n<|src_id|>37<|tgt_id|>38",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        }
+    ]
+}

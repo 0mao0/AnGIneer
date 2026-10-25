@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        7,
+        9,
+        10,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 140 155 354<|content|>DATE: ... November 18, 2022\n<|id|>3<|page|>1<|box|>164 140 200 854<|content|>TO: ... Francesca Morano, Partner (Billing Partner... Sylvia Hartwell, Partner (Tax Specialist Partner)\n<|id|>4<|page|>1<|box|>208 140 226 584<|content|>FROM: ... Douglas Carmichael, Partner (Responsible Partner)\n<|id|>5<|page|>1<|box|>234 140 289 854<|content|>RE: ... — $500,000,000 Insurance Premium Finance ABS Issuance by Quorum Receivables Funding 2022- 1 LLC\n<|id|>6<|page|>1<|box|>296 142 314 361<|content|>MATTER NO. ... 1025-00007\n<|id|>29<|page|>3<|box|>867 145 902 856<|content|>• Rating Agencies: ... Monica\n<|id|>30<|page|>4<|box|>90 174 126 854<|content|>Sung (Managing Director, ABS Ratings). ... Both ag...ratings on the Class A, Class B, and Class C Notes\n<|id|>45<|page|>7<|box|>304 174 321 563<|content|>Class A contribution: ... 00 bps\n<|id|>46<|page|>7<|box|>330 174 349 553<|content|>Class B contribution: ... 75 bps\n<|id|>47<|page|>7<|box|>356 174 375 545<|content|>Class C contribution: ... 50 bps\n<|id|>48<|page|>7<|box|>382 176 401 612<|content|>Total implied WAC: ... 25 bps\n<|id|>49<|page|>7<|box|>407 140 518 854<|content|>Hurdle Rate Comparison. ... 4% above the maximum permissible cost of funds\n<|id|>75<|page|>9<|box|>508 174 545 854<|content|>Brindoval Ratings Inc. ... AAA(cr) (Class A), A(cr) (Class B), BBB(cr) (Class C)\n<|id|>76<|page|>9<|box|>553 174 589 852<|content|>Pinnacle Rating Services LLC (Engagement No. ... Aaa(p) (Class A), A1(p) (Class B), Baa2(p) (Class C)\n<|id|>77<|page|>9<|box|>597 140 689 854<|content|>The accrued fees represent engagement fees, analyt... reviewed at the time of any reactivation decision\n<|id|>81<|page|>9<|box|>813 174 868 854<|content|>(b) Ridgeline Capital Markets LLC — structuring ad...ion materials, and marketing coordination; ... and\n<|id|>83<|page|>10<|box|>133 140 208 854<|content|>The $185,000 figure does not include internal QIH ...the responsibility of QIH or Calderwood & Harkness\n<|id|>196<|page|>19<|box|>861 140 898 856<|content|>All work product has been preserved in the firm's ...cial purpose vehicles (QRF 2022-1 LLC and QRH LLC)\n<|id|>197<|page|>20<|box|>89 140 162 854<|content|>remain validly formed and in good standing in the ...st incremental effort if market conditions improve",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>196<|tgt_id|>197",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 197
+        }
+    ]
+}

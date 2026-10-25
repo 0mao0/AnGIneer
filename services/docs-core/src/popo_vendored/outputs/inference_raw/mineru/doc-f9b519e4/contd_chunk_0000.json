@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        10,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>277 398 295 598<|content|>(a Delaware corporation)\n<|id|>4<|page|>1<|box|>304 140 339 854<|content|>Quillen Technologies, Inc. ... , a corporation org...Delaware (the \"DGCL\"), hereby certifies as follows\n<|id|>26<|page|>2<|box|>787 140 897 857<|content|>(a) Voting Rights. ... Except as otherwise express... to a vote of the stockholders, with each share of\n<|id|>27<|page|>3<|box|>90 140 162 854<|content|>Preferred Stock entitled to a number of votes equa...written consent of stockholders is first solicited\n<|id|>72<|page|>8<|box|>760 174 814 854<|content|>(B) a sale, lease, transfer, exclusive license, or...action or a series of related transactions; ... or\n<|id|>77<|page|>9<|box|>277 140 498 857<|content|>1x Non-Participating. ... For the avoidance of dou... Stock immediately prior to such Liquidation Event\n<|id|>75<|page|>9<|box|>152 174 208 856<|content|>(x) the Series A Original Issue Price ($5. ... or\n<|id|>79<|page|>9<|box|>549 174 659 856<|content|>First: ... and\n<|id|>80<|page|>9<|box|>667 174 776 857<|content|>Second: ... 4, in their capacity as deemed holders...erted into Common Stock as shares of Common Stock)\n<|id|>85<|page|>10<|box|>398 174 563 856<|content|>(i) the closing of a Qualified IPO, defined as a f... (3x) the Series A Original Issue Price (i. ... or\n<|id|>87<|page|>10<|box|>614 140 705 854<|content|>Upon any automatic conversion pursuant to this Sec... consent, as of the date specified in such consent\n<|id|>179<|page|>19<|box|>821 143 835 316<|content|>Name: ... Amara Osei\n<|id|>180<|page|>19<|box|>838 143 853 366<|content|>Title: ... Chief Executive Officer",
+    "raw_response": "<|src_id|>26<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        }
+    ]
+}

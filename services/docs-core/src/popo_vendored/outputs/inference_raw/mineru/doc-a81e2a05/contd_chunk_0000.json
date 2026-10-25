@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 143 854<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law 425 Le...Avenue New York, New York 10017 Telephone: ... com\n<|id|>1<|page|>1<|box|>152 743 171 854<|content|>April 28, 2024\n<|id|>3<|page|>1<|box|>204 140 239 854<|content|>Rebecca Thornton, Managing Director Jonathan Krame... Vesey Street, 42nd Floor New York, New York 10281\n<|id|>4<|page|>1<|box|>248 174 266 854<|content|>Re: ... SkyLend Receivables Trust 2024-1 — Response to Material-Change Notice dated April\n<|id|>5<|page|>1<|box|>266 174 284 834<|content|>26, 2024 Halcyon Deal Reference: ... 1009-00005\n<|id|>6<|page|>1<|box|>292 140 310 413<|content|>Dear Ms. ... Kramer\n<|id|>31<|page|>4<|box|>755 138 902 857<|content|>Clearview has acknowledged that the ClearCore migr...n June 2023 and persisted through the present, but\n<|id|>32<|page|>5<|box|>90 140 127 854<|content|>Clearview has not yet confirmed the exact date on ...vided a definitive account-level impact assessment\n<|id|>37<|page|>5<|box|>421 174 476 854<|content|>(c) a remediation plan setting forth the steps Cle...going accuracy of servicer- reported data; ... and\n<|id|>39<|page|>5<|box|>527 140 729 857<|content|>SBF notes that Clearview's obligations under the M...th Clearview are without prejudice to these rights\n<|id|>48<|page|>6<|box|>593 174 684 856<|content|>(c) refreshed rating-agency analysis by Meridian Credit Ratings, Inc. ... and\n<|id|>50<|page|>6<|box|>753 140 847 857<|content|>SBF recognizes that the timeline for completing th...relevant data and personnel as the process unfolds\n<|id|>70<|page|>9<|box|>89 174 127 854<|content|>(d) the allocation of responsibility for costs and...keting, and due diligence of the offering; ... and\n<|id|>72<|page|>9<|box|>160 140 252 856<|content|>SBF remains committed to its securitization progra...ands ready to engage in that process without delay\n<|id|>74<|page|>9<|box|>340 140 358 272<|content|>Very truly yours,\n<|id|>75<|page|>9<|box|>364 140 382 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>76<|page|>9<|box|>383 142 400 254<|content|>By: ... By\n<|id|>77<|page|>9<|box|>401 142 416 348<|content|>Theodore Langston Partner\n<|id|>78<|page|>9<|box|>417 140 434 410<|content|>On behalf of Skybridge Fintech Ltd. ... On behalf of Skybridge Fintech Ltd\n<|id|>80<|page|>9<|box|>457 174 493 852<|content|>Tomás Reyes, General Counsel, Skybridge Fintech Lt...00 Market Street, Suite 1210, Wilmington, DE 19801\n<|id|>81<|page|>9<|box|>501 176 518 658<|content|>Danielle Prescott, Chief Financial Officer, Skybri...tt, Chief Financial Officer, Skybridge Fintech Ltd\n<|id|>83<|page|>9<|box|>553 174 588 852<|content|>Harrison Whitfield III, Whitfield, Drummond & Paige LLP, 51 West 52nd Street, New York, NY 10019\n<|id|>84<|page|>9<|box|>597 176 614 488<|content|>Linda Osei, Calderwood & Harkness LLP\n<|id|>85<|page|>9<|box|>623 176 640 535<|content|>Patrick Gallagher, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>4<|tgt_id|>5\n<|src_id|>31<|tgt_id|>32",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        }
+    ]
+}

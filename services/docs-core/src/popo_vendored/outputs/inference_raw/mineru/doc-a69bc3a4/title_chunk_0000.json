@@ -1,0 +1,153 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>344 142 362 343<|content|>1. Purpose and Overview\n<|id|>9<|page|>1<|box|>773 140 792 383<|content|>2. Summary of Closing Events\n<|id|>10<|page|>1<|box|>805 140 821 393<|content|>2.1 Court Dismissal — S.D.N.Y.\n<|id|>14<|page|>2<|box|>411 140 428 413<|content|>2.2 TTAB Opposition Withdrawal\n<|id|>17<|page|>2<|box|>656 140 672 477<|content|>2.3 Settlement Payment — Escrow Release\n<|id|>20<|page|>3<|box|>167 140 184 320<|content|>3. Financial Summary\n<|id|>22<|page|>3<|box|>244 140 260 336<|content|>3.1 Settlement Recovery\n<|id|>24<|page|>3<|box|>388 140 405 323<|content|>3.2 Total Matter Costs\n<|id|>28<|page|>3<|box|>773 140 791 764<|content|>Expert Fees — Lakeshore Brand Consulting LLC (Dr.\n<|id|>30<|page|>3<|box|>862 140 878 580<|content|>Mediation Fees — Novotny ADR Services LLC: $12,500\n<|id|>32<|page|>4<|box|>152 142 170 434<|content|>Filing Fees and Service Costs: $2,840\n<|id|>35<|page|>4<|box|>431 142 449 279<|content|>3.3 Net Recovery\n<|id|>39<|page|>4<|box|>758 140 775 537<|content|>4. Summary of Key Coexistence Agreement Terms\n<|id|>41<|page|>5<|box|>90 140 106 323<|content|>4.1 Mark Modification\n<|id|>43<|page|>5<|box|>291 140 308 339<|content|>4.2 Channel Restrictions\n<|id|>45<|page|>5<|box|>474 140 491 413<|content|>4.3 Product-Category Restrictions\n<|id|>47<|page|>5<|box|>619 140 635 272<|content|>4.4 Trade Dress\n<|id|>49<|page|>5<|box|>801 140 819 328<|content|>4.5 Quality Monitoring\n<|id|>51<|page|>6<|box|>157 140 175 370<|content|>4.6 Non-Challenge Covenant\n<|id|>53<|page|>6<|box|>321 140 339 478<|content|>4.7 Amendment to Brindoval's Application\n<|id|>55<|page|>6<|box|>486 140 503 336<|content|>4.8 Liquidated Damages\n<|id|>57<|page|>6<|box|>669 140 686 379<|content|>4.9 Governing Law and Term\n<|id|>59<|page|>6<|box|>806 140 823 599<|content|>5. MCB's Ongoing Obligations and Recommended Actio\n<|id|>61<|page|>7<|box|>90 140 107 678<|content|>5.1 Monitor Rebranding Compliance (Deadline: Septe\n<|id|>64<|page|>7<|box|>426 140 443 393<|content|>5.2 Trade Dress Review Process\n<|id|>67<|page|>7<|box|>744 140 763 388<|content|>5.3 Annual Quality Monitoring\n<|id|>70<|page|>8<|box|>194 140 212 519<|content|>5.4 Channel and Product-Category Surveillance\n<|id|>74<|page|>8<|box|>612 140 628 475<|content|>5.5 Application Amendment Confirmation\n<|id|>77<|page|>9<|box|>90 140 107 370<|content|>5.6 Internal Record-Keeping\n<|id|>80<|page|>9<|box|>327 140 344 316<|content|>6. Procedural History\n<|id|>97<|page|>10<|box|>468 142 484 382<|content|>7. Conclusion and Availability\n<|id|>108<|page|>11<|box|>300 140 316 240<|content|>Enclosures:",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>9<|level|>1\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>20<|level|>1\n<|id|>22<|level|>2\n<|id|>24<|level|>2\n<|id|>28<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>3\n<|id|>35<|level|>2\n<|id|>39<|level|>1\n<|id|>41<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>1\n<|id|>61<|level|>2\n<|id|>64<|level|>2\n<|id|>67<|level|>2\n<|id|>70<|level|>2\n<|id|>74<|level|>2\n<|id|>77<|level|>2\n<|id|>80<|level|>1\n<|id|>97<|level|>1\n<|id|>108<|level|>1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        }
+    ]
+}

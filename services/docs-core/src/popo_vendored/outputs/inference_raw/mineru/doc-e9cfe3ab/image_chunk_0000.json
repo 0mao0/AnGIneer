@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>338 142 354 232<|content|>1. Purpose\n<|id|>10<|type|>title<|page|>1<|box|>742 140 758 362<|content|>2. Engagement Background\n<|id|>20<|type|>title<|page|>2<|box|>489 140 506 413<|content|>3. Engagement Status — Dormant\n<|id|>23<|type|>title<|page|>2<|box|>782 140 799 400<|content|>4. Summary of Work Performed\n<|id|>41<|type|>title<|page|>5<|box|>340 140 357 717<|content|>5. Status of Draft Tax Opinion and Work Product —\n<|id|>49<|type|>title<|page|>6<|box|>648 140 665 401<|content|>6. Preservation of Work Product\n<|id|>53<|type|>title<|page|>7<|box|>223 142 239 299<|content|>7. Billing Summary\n<|id|>62<|type|>table<|page|>7<|box|>501 143 626 852<|content|>None\n<|id|>64<|type|>title<|page|>7<|box|>712 143 728 294<|content|>Invoices Rendered.\n<|id|>65<|type|>table<|page|>7<|box|>734 143 821 852<|content|>None\n<|id|>71<|type|>title<|page|>8<|box|>167 176 184 393<|content|>Unbilled WIP: $177,350.00\n<|id|>74<|type|>title<|page|>8<|box|>426 140 443 385<|content|>8. Reactivation of Engagement\n<|id|>82<|type|>title<|page|>9<|box|>241 140 258 326<|content|>9. Contact Information\n<|id|>89<|type|>title<|page|>9<|box|>500 143 517 235<|content|>10. Closing",
+    "raw_response": "<|src_id|>62<|tgt_id|>53\n<|src_id|>65<|tgt_id|>64",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 64
+        }
+    ]
+}

@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 104 761<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL ATTORN\n<|id|>11<|page|>1<|box|>789 140 806 415<|content|>I. Identification of Pending Claims\n<|id|>13<|page|>2<|box|>90 140 108 547<|content|>A. Higgins v. Nexford Conveyor Systems, LLC et al.\n<|id|>16<|page|>2<|box|>407 140 426 622<|content|>B. Consolidated Builders Supply Co. v. Triton Fast\n<|id|>19<|page|>2<|box|>672 140 689 470<|content|>C. Claims Context and Reserve Summary\n<|id|>28<|page|>3<|box|>226 140 243 521<|content|>II. Product-Liability Insurance Tower Structure\n<|id|>33<|page|>4<|box|>90 140 107 699<|content|>III. Obligation to Cooperate with Midland Casualty\n<|id|>34<|page|>4<|box|>121 140 138 315<|content|>A. Duty to Cooperate\n<|id|>41<|page|>5<|box|>90 140 107 455<|content|>B. Voluntary Payments and Admissions\n<|id|>48<|page|>5<|box|>577 140 594 439<|content|>IV. Settlement Consent Requirements\n<|id|>55<|page|>6<|box|>482 140 500 429<|content|>V. Defense Cost Reporting Protocols\n<|id|>56<|page|>6<|box|>513 140 530 498<|content|>A. Reporting Obligation to Midland Casualty\n<|id|>60<|page|>7<|box|>90 140 107 483<|content|>B. Internal Reporting to C&H and Nexford\n<|id|>68<|page|>7<|box|>647 140 665 369<|content|>C. Impact on Tower Erosion\n<|id|>72<|page|>8<|box|>204 140 222 732<|content|>VI. Duty to Notify C&H of Material Developments Af\n<|id|>73<|page|>8<|box|>234 142 253 529<|content|>A. Material Developments Requiring Notification\n<|id|>86<|page|>9<|box|>246 140 263 343<|content|>B. Timing of Notification\n<|id|>89<|page|>9<|box|>464 140 482 503<|content|>VII. Coordination During the Renewal Period\n<|id|>96<|page|>10<|box|>260 140 277 415<|content|>VIII. Confidentiality and Privilege\n<|id|>103<|page|>10<|box|>804 140 821 444<|content|>IX. Contact Information and Logistics\n<|id|>105<|page|>11<|box|>89 140 107 385<|content|>Calderwood & Harkness LLP:\n<|id|>120<|page|>11<|box|>705 140 724 230<|content|>X. Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>1\n<|id|>13<|level|>2\n<|id|>16<|level|>2\n<|id|>19<|level|>2\n<|id|>28<|level|>1\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>1\n<|id|>55<|level|>1\n<|id|>56<|level|>2\n<|id|>60<|level|>2\n<|id|>68<|level|>2\n<|id|>72<|level|>1\n<|id|>73<|level|>2\n<|id|>86<|level|>2\n<|id|>89<|level|>1\n<|id|>96<|level|>1\n<|id|>103<|level|>1\n<|id|>105<|level|>-1\n<|id|>120<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>2<|page|>1<|box|>138 325 155 671<|content|>425 Park Avenue New York, New York 10022\n<|id|>10<|page|>1<|box|>431 140 448 282<|content|>Dear Mr. Yardley:\n<|id|>12<|page|>1<|box|>684 142 702 583<|content|>Background and Summary of Original Consent Request\n<|id|>22<|page|>2<|box|>521 142 537 470<|content|>Business Purpose of the Proposed License\n<|id|>29<|page|>3<|box|>343 142 359 455<|content|>Update on MDLA Negotiation Timeline\n<|id|>36<|page|>4<|box|>226 140 243 511<|content|>Confirmation That Consent Remains Required\n<|id|>38<|page|>4<|box|>443 140 459 352<|content|>Request for Status Update\n<|id|>48<|page|>5<|box|>209 142 226 370<|content|>Quorum's Financial Position\n<|id|>51<|page|>5<|box|>561 140 579 210<|content|>Closing",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>10<|level|>-1\n<|id|>12<|level|>1\n<|id|>22<|level|>1\n<|id|>29<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1\n<|id|>48<|level|>1\n<|id|>51<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        }
+    ]
+}

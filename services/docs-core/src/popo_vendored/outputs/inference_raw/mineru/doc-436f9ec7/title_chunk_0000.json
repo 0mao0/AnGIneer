@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>417 142 434 367<|content|>1. Reference and Definitions\n<|id|>22<|page|>2<|box|>598 140 614 303<|content|>2. Arrangement Fee\n<|id|>30<|page|>3<|box|>329 140 347 503<|content|>3. Upfront Fee / Original Issue discount (OID)\n<|id|>44<|page|>4<|box|>496 140 512 364<|content|>4. Administrative Agent Fee\n<|id|>49<|page|>5<|box|>148 140 167 328<|content|>5. Collateral Agent Fee\n<|id|>56<|page|>5<|box|>767 140 784 259<|content|>6. Ticking Fee\n<|id|>67<|page|>7<|box|>90 140 107 264<|content|>7. Market Flex\n<|id|>74<|page|>7<|box|>744 140 761 359<|content|>8. Expense Reimbursement\n<|id|>85<|page|>8<|box|>696 140 714 284<|content|>9. Confidentiality\n<|id|>92<|page|>9<|box|>484 140 501 630<|content|>10. Relationship to Commitment Letter and Credit A\n<|id|>96<|page|>10<|box|>90 142 107 400<|content|>11. Governing Law; Jurisdiction\n<|id|>99<|page|>10<|box|>368 140 460 854<|content|>EACH PARTY HERETO HEREBY IRREVOCABLY AND UNCONDITI\n<|id|>100<|page|>10<|box|>484 142 501 285<|content|>12. Miscellaneous\n<|id|>116<|page|>11<|box|>537 143 554 284<|content|>13. Fee Summary\n<|id|>122<|page|>12<|box|>290 433 308 563<|content|>Very truly yours,\n<|id|>123<|page|>12<|box|>315 140 333 854<|content|>CRESCENT HARBOR BANK, N.A. in its capacity as Sole\n<|id|>134<|page|>12<|box|>512 142 529 447<|content|>IRONHAVEN DATA CENTERS LLC\n<|id|>143<|page|>12<|box|>667 449 684 550<|content|>EXHIBIT A\n<|id|>144<|page|>12<|box|>693 400 710 598<|content|>WIRE INSTRUCTIONS\n<|id|>145<|page|>12<|box|>719 140 755 854<|content|>1. Crescent Harbor Bank, N.A. — Wire Transfer Inst\n<|id|>150<|page|>13<|box|>107 140 143 854<|content|>2. Pinnacle Trust Company, N.A. — Wire Transfer In\n<|id|>155<|page|>13<|box|>338 140 354 501<|content|>3. Upfront Fee / Original Issue discount (OID)\n<|id|>158<|page|>13<|box|>507 447 523 549<|content|>EXHIBIT B\n<|id|>159<|page|>13<|box|>532 295 549 700<|content|>LENDER COMMITMENT AND OID SCHEDULE",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>22<|level|>1\n<|id|>30<|level|>1\n<|id|>44<|level|>1\n<|id|>49<|level|>1\n<|id|>56<|level|>1\n<|id|>67<|level|>1\n<|id|>74<|level|>1\n<|id|>85<|level|>1\n<|id|>92<|level|>1\n<|id|>96<|level|>1\n<|id|>99<|level|>-1\n<|id|>100<|level|>1\n<|id|>116<|level|>1\n<|id|>122<|level|>-1\n<|id|>123<|level|>-1\n<|id|>134<|level|>-1\n<|id|>143<|level|>1\n<|id|>144<|level|>1\n<|id|>145<|level|>2\n<|id|>150<|level|>2\n<|id|>155<|level|>2\n<|id|>158<|level|>1\n<|id|>159<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 1
+        }
+    ]
+}

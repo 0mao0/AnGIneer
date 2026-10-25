@@ -1,0 +1,110 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>188 338 208 658<|content|>SPECIAL WARRANTY DEED\n<|id|>5<|page|>1<|box|>285 142 301 251<|content|>PREAMBLE\n<|id|>8<|page|>1<|box|>380 142 398 246<|content|>GRANTOR:\n<|id|>10<|page|>1<|box|>523 142 541 189<|content|>AND\n<|id|>11<|page|>1<|box|>549 140 566 243<|content|>GRANTEE:\n<|id|>13<|page|>1<|box|>708 140 724 243<|content|>RECITALS\n<|id|>19<|page|>2<|box|>329 140 345 326<|content|>GRANTING CLAUSE\n<|id|>21<|page|>2<|box|>436 272 453 725<|content|>1480 Conneaut Lake Road Meadville, Pennsylvania 16\n<|id|>27<|page|>3<|box|>89 140 106 334<|content|>HABENDUM CLAUSE\n<|id|>29<|page|>3<|box|>212 140 229 457<|content|>SPECIAL WARRANTY COVENANTS\n<|id|>42<|page|>4<|box|>364 140 383 501<|content|>ENVIRONMENTAL PERMITS NOTATION\n<|id|>44<|page|>4<|box|>579 142 595 406<|content|>TRANSFER TAX STATEMENT\n<|id|>49<|page|>5<|box|>248 140 265 517<|content|>CERTIFICATION OF RESIDENCY / FIRPTA\n<|id|>51<|page|>5<|box|>443 140 460 297<|content|>CHAIN OF TITLE\n<|id|>53<|page|>5<|box|>547 142 564 537<|content|>PENNSYLVANIA STATUTORY COMPLIANCE\n<|id|>55<|page|>5<|box|>654 142 671 511<|content|>Grantee's Address for Tax Duplicate Purposes:\n<|id|>58<|page|>5<|box|>782 142 799 258<|content|>EXECUTION\n<|id|>60<|page|>5<|box|>854 142 869 246<|content|>GRANTOR:\n<|id|>71<|page|>6<|box|>335 140 352 421<|content|>NOTARY ACKNOWLEDGMENT\n<|id|>79<|page|>7<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>80<|page|>7<|box|>131 253 148 743<|content|>LEGAL DESCRIPTION OF THE MEADVILLE PROPERTY\n<|id|>93<|page|>8<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>94<|page|>8<|box|>130 379 148 617<|content|>PERMITTED EXCEPTIONS",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>5<|level|>2\n<|id|>8<|level|>3\n<|id|>10<|level|>3\n<|id|>11<|level|>3\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>-1\n<|id|>27<|level|>2\n<|id|>29<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>3\n<|id|>58<|level|>2\n<|id|>60<|level|>3\n<|id|>71<|level|>2\n<|id|>79<|level|>2\n<|id|>80<|level|>3\n<|id|>93<|level|>2\n<|id|>94<|level|>3",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        }
+    ]
+}

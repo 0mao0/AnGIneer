@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        3,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 173 107 854<|content|>CALDERWOOD & HARKNESS LLP 375 Park Avenue, 40th Fl\n<|id|>10<|page|>1<|box|>493 140 510 246<|content|>Background\n<|id|>16<|page|>3<|box|>90 140 107 287<|content|>Terms of Consent\n<|id|>33<|page|>6<|box|>133 140 150 517<|content|>PINNACLE GROWTH CAPITAL FUND II LP\n<|id|>43<|page|>6<|box|>315 140 330 493<|content|>RIDGELINE WIRELESS HOLDINGS LLC",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>33<|level|>3\n<|id|>43<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        }
+    ]
+}

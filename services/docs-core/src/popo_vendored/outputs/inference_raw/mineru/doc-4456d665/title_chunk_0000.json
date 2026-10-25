@@ -1,0 +1,142 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 119 852<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>1<|page|>1<|box|>127 171 162 825<|content|>CALDERWOOD & HARKNESS LLP 555 California Street, 4\n<|id|>9<|page|>1<|box|>484 321 503 674<|content|>I. Purpose and Executive Summary\n<|id|>21<|page|>2<|box|>622 254 642 740<|content|>II. Legal Framework for Document Preservation\n<|id|>22<|page|>2<|box|>667 140 684 455<|content|>A. Duty to Preserve Under Federal Law\n<|id|>32<|page|>4<|box|>204 140 222 558<|content|>B. Duty to Preserve Under the Grand Jury Subpoena\n<|id|>37<|page|>4<|box|>679 140 696 410<|content|>C. Scope of the Preservation Duty\n<|id|>49<|page|>6<|box|>228 303 247 694<|content|>III. Spoliation Risks and Consequences\n<|id|>51<|page|>6<|box|>342 140 359 320<|content|>A. Criminal Sanctions\n<|id|>55<|page|>6<|box|>753 140 770 558<|content|>B. Adverse Inferences and Evidentiary Consequences\n<|id|>58<|page|>7<|box|>267 140 284 413<|content|>C. Impact on Cooperation Posture\n<|id|>62<|page|>7<|box|>665 251 684 745<|content|>IV. Identification of Custodians and Data Sources\n<|id|>63<|page|>7<|box|>710 142 727 258<|content|>A. Custodians\n<|id|>73<|page|>9<|box|>204 140 222 272<|content|>B. Data Sources\n<|id|>89<|page|>10<|box|>648 279 669 715<|content|>V. Best Practices for Custodian Compliance\n<|id|>90<|page|>10<|box|>695 140 712 467<|content|>A. Communication and Acknowledgment\n<|id|>94<|page|>11<|box|>414 140 431 408<|content|>B. Ongoing Custodian Reminders\n<|id|>99<|page|>12<|box|>90 140 107 336<|content|>C. Custodian Interviews\n<|id|>103<|page|>12<|box|>429 140 446 460<|content|>D. Prohibition on Document Destruction\n<|id|>113<|page|>12<|box|>834 285 854 710<|content|>VI. Recommendations for IT Coordination\n<|id|>115<|page|>13<|box|>148 140 167 341<|content|>A. Immediate IT Actions\n<|id|>120<|page|>13<|box|>679 140 695 361<|content|>B. Forensic Data Collection\n<|id|>128<|page|>14<|box|>525 140 542 433<|content|>C. Preservation of Gavin Holt's Data\n<|id|>136<|page|>15<|box|>348 140 364 393<|content|>D. Cloud and Third-Party Data\n<|id|>139<|page|>15<|box|>625 140 641 459<|content|>E. Ongoing Monitoring and Compliance\n<|id|>144<|page|>16<|box|>253 183 297 813<|content|>VII. Coordination with Calvert & Associates LLP (I\n<|id|>148<|page|>16<|box|>758 253 779 743<|content|>VIII. Coordination with D&O Insurance Counsel\n<|id|>152<|page|>17<|box|>325 243 345 753<|content|>IX. Summary of Recommended Immediate Actions\n<|id|>163<|page|>18<|box|>396 240 415 756<|content|>X. Continuing Obligations and Contact Information\n<|id|>173<|page|>19<|box|>42 174 71 823<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>174<|page|>19<|box|>89 457 112 540<|content|>Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>9<|level|>1\n<|id|>21<|level|>1\n<|id|>22<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>49<|level|>1\n<|id|>51<|level|>2\n<|id|>55<|level|>2\n<|id|>58<|level|>2\n<|id|>62<|level|>1\n<|id|>63<|level|>2\n<|id|>73<|level|>2\n<|id|>89<|level|>1\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>99<|level|>2\n<|id|>103<|level|>2\n<|id|>113<|level|>1\n<|id|>115<|level|>2\n<|id|>120<|level|>2\n<|id|>128<|level|>2\n<|id|>136<|level|>2\n<|id|>139<|level|>2\n<|id|>144<|level|>1\n<|id|>148<|level|>1\n<|id|>152<|level|>1\n<|id|>163<|level|>1\n<|id|>173<|level|>-1\n<|id|>174<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 1
+        }
+    ]
+}

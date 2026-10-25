@@ -1,0 +1,161 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-886mb0ud\\input\\pdfs\\doc-284fa636.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-886mb0ud\\enriched\\doc-284fa636.json",
+    "contd_output": "<|src_id|>34<|tgt_id|>35",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>10<|level|>2\n<|id|>19<|level|>2\n<|id|>24<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>38<|level|>2\n<|id|>52<|level|>1\n<|id|>53<|level|>2\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>57<|level|>3\n<|id|>66<|level|>3\n<|id|>70<|level|>3\n<|id|>73<|level|>3\n<|id|>76<|level|>3\n<|id|>85<|level|>3\n<|id|>87<|level|>3\n<|id|>89<|level|>3\n<|id|>93<|level|>1\n<|id|>94<|level|>2\n<|id|>95<|level|>2\n<|id|>99<|level|>1\n<|id|>100<|level|>2\n<|id|>101<|level|>2\n<|id|>104<|level|>1\n<|id|>105<|level|>2\n<|id|>106<|level|>2",
+    "image_output": "<|src_id|>21<|tgt_id|>19\n<|src_id|>22<|tgt_id|>19",
+    "contd_label": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 21,
+            "table2_idx": 22,
+            "upper_row_ss": [
+                [
+                    "Raymond Chiu",
+                    "General Counsel & Secretary",
+                    "____"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "David Altschuler",
+                    "Treasurer",
+                    "____"
+                ]
+            ]
+        }
+    ]
+}

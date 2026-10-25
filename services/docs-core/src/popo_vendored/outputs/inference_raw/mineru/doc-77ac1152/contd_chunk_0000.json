@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        10,
+        11,
+        14,
+        17,
+        18,
+        22,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>151 140 188 854<|content|>To: ... Marcus Pellegrino, Partner, Healthcare, Ar...& Managing Partner, Ardent Capital Partners III LP\n<|id|>2<|page|>1<|box|>195 140 231 854<|content|>From: ... Leonard Cross, Partner, Tax, Calderwood ...en, Lead Associate, Tax, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>239 140 257 330<|content|>Date: ... February 20, 2024\n<|id|>4<|page|>1<|box|>265 140 282 797<|content|>Re: ... State and Local Tax Analysis — Acquisition of Pinnacle Health Services Group LLC\n<|id|>5<|page|>1<|box|>290 140 309 560<|content|>Engagement No. ... 1001-00006\n<|id|>6<|page|>1<|box|>316 142 334 408<|content|>Right-click to update Table of Contents\n<|id|>21<|page|>2<|box|>834 140 888 856<|content|>The proposed acquisition employs a three-tier stru... Section 754 election and resulting Section 743(b)\n<|id|>22<|page|>3<|box|>90 140 127 852<|content|>step-up in the inside basis of Pinnacle's assets, ...ers. ... The three tiers are structured as follows\n<|id|>96<|page|>10<|box|>852 140 907 856<|content|>This effectively weights the factors as follows: ....r formula means that the relative concentration of\n<|id|>97<|page|>11<|box|>90 140 164 854<|content|>Pinnacle's property and payroll in Maryland will a...t would result from a single-sales-factor analysis\n<|id|>128<|page|>14<|box|>133 174 170 854<|content|>(ii) Fifty-five percent (55%) of the appraised val...ersonal property located in North Carolina; ... or\n<|id|>130<|page|>14<|box|>204 140 296 854<|content|>The franchise tax rate is $1. ... 's capital and surplus apportioned to North Carolina\n<|id|>165<|page|>17<|box|>864 140 901 857<|content|>Even with the implementation of the mitigation ste...and Finance could assert that Holdings LLC has New\n<|id|>166<|page|>18<|box|>90 140 181 854<|content|>York nexus under economic nexus theories, substanc...anding the formal passive holding characterization\n<|id|>217<|page|>22<|box|>585 183 638 854<|content|>• A mechanism for adjusting the TRA payment to ref... and changes in apportionment percentages; ... and\n<|id|>219<|page|>22<|box|>698 140 752 854<|content|>We recommend that these provisions be incorporated...he relevant state tax benefit provisions as needed\n<|id|>273<|page|>27<|box|>676 140 693 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>274<|page|>27<|box|>695 143 712 253<|content|>By: ... By\n<|id|>275<|page|>27<|box|>712 143 728 349<|content|>Leonard Cross Partner, Tax\n<|id|>276<|page|>27<|box|>729 143 746 251<|content|>By: ... By\n<|id|>277<|page|>27<|box|>747 143 763 356<|content|>Sylvia Hartwell Partner, Tax\n<|id|>278<|page|>27<|box|>763 143 780 251<|content|>By: ... By",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>96<|tgt_id|>97\n<|src_id|>165<|tgt_id|>166",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 166
+        }
+    ]
+}

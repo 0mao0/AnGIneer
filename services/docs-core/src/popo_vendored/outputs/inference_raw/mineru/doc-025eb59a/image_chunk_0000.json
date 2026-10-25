@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 310 118 684<|content|>OPINION BACKUP CERTIFICATE\n<|id|>4<|type|>title<|page|>1<|box|>314 142 330 233<|content|>Addressee:\n<|id|>8<|type|>title<|page|>1<|box|>569 140 587 558<|content|>Section 1. Defined Terms and Interpretive Provisio\n<|id|>20<|type|>title<|page|>2<|box|>642 140 659 594<|content|>Section 2. Identity and Authority of the Certifyin\n<|id|>24<|type|>title<|page|>3<|box|>267 140 284 596<|content|>Section 3. Organization, Good Standing, and Qualif\n<|id|>29<|type|>table<|page|>3<|box|>797 143 898 852<|content|>None\n<|id|>30<|type|>table<|page|>4<|box|>89 143 191 852<|content|>None\n<|id|>33<|type|>title<|page|>4<|box|>455 140 474 390<|content|>Section 4. Power and Authority\n<|id|>37<|type|>title<|page|>5<|box|>148 140 167 447<|content|>Section 5. Authorization and Approval\n<|id|>48<|type|>title<|page|>6<|box|>267 140 284 408<|content|>Section 6. Execution and Delivery\n<|id|>50<|type|>table<|page|>6<|box|>434 143 604 852<|content|>None\n<|id|>54<|type|>title<|page|>7<|box|>90 140 107 323<|content|>Section 7. No Conflicts\n<|id|>63<|type|>title<|page|>7<|box|>814 140 832 555<|content|>Section 8. Governmental and Third-Party Approvals\n<|id|>72<|type|>title<|page|>8<|box|>671 140 689 305<|content|>Section 9. Litigation\n<|id|>81<|type|>title<|page|>9<|box|>407 140 424 460<|content|>Section 10. No Material Adverse Change\n<|id|>88<|type|>title<|page|>10<|box|>186 140 204 413<|content|>Section 11. Compliance with Laws\n<|id|>91<|type|>title<|page|>10<|box|>517 140 534 544<|content|>Section 12. Representations in the Loan Documents\n<|id|>93<|type|>title<|page|>10<|box|>785 140 801 305<|content|>Section 13. Solvency\n<|id|>100<|type|>title<|page|>11<|box|>517 140 534 478<|content|>Section 14. Capitalization and Subsidiaries\n<|id|>109<|type|>title<|page|>12<|box|>414 140 431 380<|content|>Section 15. Collateral Matters\n<|id|>113<|type|>title<|page|>13<|box|>90 140 107 313<|content|>Section 16. Insurance\n<|id|>115<|type|>title<|page|>13<|box|>395 140 412 598<|content|>Section 17. Investment Company Act; Margin Regulat\n<|id|>118<|type|>title<|page|>13<|box|>724 140 743 292<|content|>Section 18. ERISA\n<|id|>124<|type|>title<|page|>14<|box|>311 140 329 333<|content|>Section 19. Tax Matters\n<|id|>127<|type|>title<|page|>14<|box|>625 140 641 678<|content|>Section 20. Anti-Corruption, Sanctions, and Anti-M\n<|id|>131<|type|>title<|page|>15<|box|>393 140 412 357<|content|>Section 21. Use of Proceeds\n<|id|>132<|type|>title<|page|>15<|box|>420 140 439 771<|content|>21.1 The proceeds of the $700,000,000 Term Loan B\n<|id|>137<|type|>title<|page|>15<|box|>821 140 839 413<|content|>Section 22. Accuracy and Reliance\n<|id|>142<|type|>title<|page|>16<|box|>505 230 523 766<|content|>[Remainder of this page intentionally left blank;\n<|id|>143<|type|>title<|page|>16<|box|>531 251 547 745<|content|>SIGNATURE PAGE TO OPINION BACKUP CERTIFICATE\n<|id|>145<|type|>title<|page|>16<|box|>599 142 617 491<|content|>VERIMARK HOSPITALITY GROUP INC.",
+    "raw_response": "<|src_id|>29<|tgt_id|>24\n<|src_id|>30<|tgt_id|>24\n<|src_id|>50<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        }
+    ]
+}

@@ -1,0 +1,135 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>146 87 184 907<|content|>中华人民共和国国家标准\n<|id|>2<|page|>1<|box|>395 152 431 845<|content|>中国海区可航行水域桥梁助航标志\n<|id|>3<|page|>1<|box|>458 260 502 737<|content|>Aids to navigation on the bridge over maritime nav\n<|id|>6<|page|>2<|box|>134 445 156 554<|content|>目次\n<|id|>8<|page|>3<|box|>135 443 156 554<|content|>前言\n<|id|>16<|page|>4<|box|>135 297 156 699<|content|>中国海区可航行水域桥梁助航标志\n<|id|>17<|page|>4<|box|>193 107 206 176<|content|>1 范围\n<|id|>20<|page|>4<|box|>285 107 300 265<|content|>2 规范性引用文件\n<|id|>23<|page|>4<|box|>398 107 413 228<|content|>3 术语和定义\n<|id|>25<|page|>4<|box|>445 107 458 139<|content|>3.1\n<|id|>26<|page|>4<|box|>464 142 478 485<|content|>桥梁助航标志 aids to navigation on bridges\n<|id|>28<|page|>4<|box|>529 107 544 211<|content|>4 视觉航标\n<|id|>29<|page|>4<|box|>557 107 571 230<|content|>4.1 标志分类\n<|id|>31<|page|>4<|box|>613 107 627 299<|content|>4.2 双向通航桥孔标志\n<|id|>35<|page|>4<|box|>891 105 906 519<|content|>4.2.3 双向通航桥孔标志的特征应符合表1的规定。\n<|id|>55<|page|>6<|box|>853 107 866 265<|content|>4.6 桥墩警示标志\n<|id|>59<|page|>7<|box|>300 105 315 484<|content|>4.6.3 桥墩警示标志的特征应符合表 5 的规定。\n<|id|>61<|page|>7<|box|>453 107 468 230<|content|>4.7 视觉航标\n<|id|>63<|page|>7<|box|>501 107 516 211<|content|>5 音响航标\n<|id|>66<|page|>7<|box|>577 107 592 230<|content|>6 无线电航标\n<|id|>69<|page|>7<|box|>653 107 668 211<|content|>7 设置规则\n<|id|>78<|page|>8<|box|>135 107 149 421<|content|>8 海区可航行水域桥梁助航标志的编号\n<|id|>80<|page|>9<|box|>135 453 149 546<|content|>附录 A\n<|id|>82<|page|>9<|box|>211 107 225 337<|content|>A.1 双向通航桥孔中央标志\n<|id|>87<|page|>9<|box|>517 107 533 329<|content|>A.2 通航桥孔左、右侧标志\n<|id|>93<|page|>9<|box|>787 107 802 302<|content|>A.3 单向通航桥孔标志\n<|id|>97<|page|>10<|box|>329 107 344 268<|content|>A. 4 桥孔禁航标志\n<|id|>101<|page|>10<|box|>619 107 634 268<|content|>A.5 桥墩警示标志",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>3\n<|id|>26<|level|>3\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>31<|level|>3\n<|id|>35<|level|>4\n<|id|>55<|level|>3\n<|id|>59<|level|>4\n<|id|>61<|level|>3\n<|id|>63<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>2\n<|id|>78<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>3\n<|id|>87<|level|>3\n<|id|>93<|level|>3\n<|id|>97<|level|>3\n<|id|>101<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        }
+    ]
+}

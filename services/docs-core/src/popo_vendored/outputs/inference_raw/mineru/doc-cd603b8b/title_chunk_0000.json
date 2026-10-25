@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 596<|content|>CONFIDENTIAL — SUBJECT TO WITHOUT PREJUDICE PRIVIL\n<|id|>1<|page|>1<|box|>112 189 130 805<|content|>VOURNAS & THEODORAKIS ΔΙΚΗΓΟΡΙΚΟ ΓΡΑΦΕΙΟ (Dikigiri\n<|id|>2<|page|>1<|box|>138 334 155 661<|content|>22 Academias Street 106 71 Athens, Greece\n<|id|>10<|page|>1<|box|>407 140 424 501<|content|>I. Identification of Parties and Representation\n<|id|>14<|page|>2<|box|>90 140 107 468<|content|>II. Background of the Assessment Notices\n<|id|>16<|page|>2<|box|>311 140 329 426<|content|>A. ADAN/2022/0073 (Classification)\n<|id|>24<|page|>2<|box|>758 142 775 397<|content|>B. ADAN/2022/0074 (Valuation)\n<|id|>31<|page|>3<|box|>407 140 424 398<|content|>C. Combined Assessed Amounts\n<|id|>34<|page|>3<|box|>809 140 827 426<|content|>III. Administrative Objections Filed\n<|id|>39<|page|>4<|box|>446 140 464 506<|content|>IV. BTI Application and DG TAXUD Referral\n<|id|>46<|page|>5<|box|>414 140 431 351<|content|>V. Rationale for Standstill\n<|id|>52<|page|>6<|box|>90 140 107 383<|content|>VI. Proposed Standstill Terms\n<|id|>54<|page|>6<|box|>147 140 164 395<|content|>Term 1: Enforcement Standstill\n<|id|>57<|page|>6<|box|>429 142 446 604<|content|>Term 2: Standstill Period — Commencement and Durat\n<|id|>64<|page|>7<|box|>138 140 157 434<|content|>Term 3: Security — Bank Guarantee\n<|id|>73<|page|>7<|box|>796 142 813 449<|content|>Term 4: Preservation of Rights — TSL\n<|id|>82<|page|>8<|box|>551 140 568 467<|content|>Term 5: Preservation of Rights — AADE\n<|id|>88<|page|>9<|box|>157 140 174 343<|content|>Term 6: Interest Accrual\n<|id|>92<|page|>9<|box|>446 140 464 612<|content|>Term 7: Administrative Objection Proceedings — Abe\n<|id|>96<|page|>9<|box|>809 140 825 450<|content|>Term 8: Cooperation with DG TAXUD\n<|id|>100<|page|>10<|box|>330 140 347 483<|content|>Term 9: Notifications and Communications\n<|id|>102<|page|>10<|box|>434 142 450 220<|content|>For TSL:\n<|id|>108<|page|>10<|box|>609 143 625 238<|content|>For AADE:\n<|id|>115<|page|>11<|box|>90 142 107 434<|content|>Term 10: No Prejudice / Non-Waiver\n<|id|>119<|page|>11<|box|>452 140 470 346<|content|>Term 11: Governing Law\n<|id|>121<|page|>11<|box|>643 140 662 245<|content|>VII. Closing\n<|id|>128<|page|>12<|box|>342 140 378 854<|content|>AGREED AND ACCEPTED ON BEHALF OF THE INDEPENDENT A\n<|id|>132<|page|>12<|box|>561 310 578 684<|content|>COUNTERSIGNATURE — AADE OFFICIAL",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>2<|level|>-1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>34<|level|>1\n<|id|>39<|level|>1\n<|id|>46<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>2\n<|id|>57<|level|>2\n<|id|>64<|level|>2\n<|id|>73<|level|>2\n<|id|>82<|level|>2\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>2\n<|id|>102<|level|>3\n<|id|>108<|level|>3\n<|id|>115<|level|>2\n<|id|>119<|level|>2\n<|id|>121<|level|>1\n<|id|>128<|level|>1\n<|id|>132<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 1
+        }
+    ]
+}

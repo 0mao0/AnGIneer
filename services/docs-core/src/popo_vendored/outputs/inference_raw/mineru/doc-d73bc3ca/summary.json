@@ -1,0 +1,140 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-db7xeauj\\input\\pdfs\\doc-d73bc3ca.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-db7xeauj\\enriched\\doc-d73bc3ca.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>41<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>4\n<|id|>65<|level|>4\n<|id|>72<|level|>4\n<|id|>79<|level|>4\n<|id|>86<|level|>2\n<|id|>94<|level|>2\n<|id|>101<|level|>2\n<|id|>108<|level|>2\n<|id|>114<|level|>2\n<|id|>118<|level|>2\n<|id|>124<|level|>2\n<|id|>134<|level|>2\n<|id|>136<|level|>3\n<|id|>141<|level|>2",
+    "image_output": "<|src_id|>51<|tgt_id|>49\n<|src_id|>127<|tgt_id|>124\n<|src_id|>129<|tgt_id|>124\n<|src_id|>131<|tgt_id|>124\n<|src_id|>132<|tgt_id|>124",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 79,
+            "level": 4
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 124
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 131,
+            "table2_idx": 132,
+            "upper_row_ss": [
+                [
+                    "(6)",
+                    "Compliance",
+                    "Yes"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "(1)",
+                    "Unrestricted Cash and Cash Equivalents (as of the Closing Date, pro forma)",
+                    "$8,600,000"
+                ]
+            ]
+        }
+    ]
+}

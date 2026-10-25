@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 140 174 854<|content|>FROM: ... Francesca Morano, Partner Calderwood & H...t Wacker Drive, Suite 4000 Chicago, Illinois 60606\n<|id|>3<|page|>1<|box|>183 140 237 854<|content|>TO: ... Greenfield-Wu, President and Chief Operati...rairie Boulevard, Suite 800 Des Moines, Iowa 50309\n<|id|>4<|page|>1<|box|>244 140 281 854<|content|>CC: ... Caleb Jennings, Director of Grain Operatio...nah Brinkley, Associate, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>289 142 306 334<|content|>DATE: ... January 25, 2023\n<|id|>6<|page|>1<|box|>315 140 369 857<|content|>RE: ... 2022-L-004831, Circuit Court of Cook County, Illinois\n<|id|>7<|page|>1<|box|>378 140 393 408<|content|>C&H MATTER NO. ... 1020-00005\n<|id|>25<|page|>2<|box|>859 140 895 854<|content|>Service of Process. ... PBGC was served through its registered agent, Ridgeline Corporate Services\n<|id|>26<|page|>3<|box|>89 140 126 854<|content|>LLC, in accordance with 735 ILCS 5/2-204. ... Musg...llinois 61822, in accordance with 735 ILCS 5/2-203\n<|id|>127<|page|>13<|box|>388 142 406 318<|content|>Respectfully submitted,\n<|id|>128<|page|>13<|box|>407 142 422 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>129<|page|>13<|box|>425 143 441 253<|content|>By: ... By\n<|id|>130<|page|>13<|box|>441 140 474 854<|content|>Francesca Morano Partner 225 West Wacker Drive, Su...cago, Illinois 60606 Telephone: ... (312) 555-8201\n<|id|>131<|page|>13<|box|>474 142 489 462<|content|>Email: ... com\n<|id|>132<|page|>13<|box|>489 142 505 702<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>133<|page|>13<|box|>513 140 604 854<|content|>This memorandum is a privileged and confidential a...tify the sender immediately and destroy all copies",
+    "raw_response": "<|src_id|>25<|tgt_id|>26",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        }
+    ]
+}

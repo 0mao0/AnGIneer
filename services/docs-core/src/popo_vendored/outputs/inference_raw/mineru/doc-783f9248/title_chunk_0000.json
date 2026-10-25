@@ -1,0 +1,148 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 233 118 763<|content|>LITIGATION HOLD NOTICE — CONFIDENTIAL\n<|id|>1<|page|>1<|box|>143 315 160 683<|content|>DOCUMENT PRESERVATION DIRECTIVE\n<|id|>9<|page|>1<|box|>532 142 549 416<|content|>Section 1: Custodian Identification\n<|id|>12<|page|>2<|box|>90 140 107 405<|content|>Section 2: Purpose of This Notice\n<|id|>19<|page|>2<|box|>816 140 834 429<|content|>Section 3: Scope of the Legal Matter\n<|id|>32<|page|>3<|box|>821 140 839 397<|content|>Section 4: Relevant Time Period\n<|id|>37<|page|>4<|box|>348 140 364 678<|content|>Section 5: Categories of Documents and Information\n<|id|>39<|page|>4<|box|>478 140 494 437<|content|>5.1 Counterparty-Related Documents\n<|id|>41<|page|>4<|box|>564 176 580 397<|content|>(a) Petronova Trading FZE\n<|id|>43<|page|>4<|box|>633 176 651 450<|content|>(b) Volkhov Industrial Group JSC\n<|id|>45<|page|>4<|box|>685 176 702 405<|content|>(c) Zenith Petroleum DMCC\n<|id|>47<|page|>4<|box|>756 176 773 398<|content|>(d) Caspian Logistik GmbH\n<|id|>51<|page|>5<|box|>195 140 210 424<|content|>5.2 Transaction-Related Documents\n<|id|>59<|page|>5<|box|>720 142 738 504<|content|>5.3 Compliance and Due Diligence Documents\n<|id|>83<|page|>7<|box|>157 140 175 442<|content|>5.5 Financial and Accounting Records\n<|id|>90<|page|>7<|box|>525 140 542 325<|content|>5.6 Corporate Records\n<|id|>95<|page|>7<|box|>821 140 838 415<|content|>5.7 Personal Devices and Accounts\n<|id|>99<|page|>8<|box|>402 140 419 522<|content|>Section 6: Definition of \"Documents\" and \"ESI\"\n<|id|>121<|page|>9<|box|>566 140 584 465<|content|>Section 7: Your Preservation Obligations\n<|id|>122<|page|>9<|box|>597 142 614 398<|content|>7.1 Immediate Actions Required\n<|id|>129<|page|>10<|box|>319 142 337 331<|content|>7.2 Physical Documents\n<|id|>134<|page|>10<|box|>561 142 578 413<|content|>7.3 Electronic Documents and ESI\n<|id|>140<|page|>11<|box|>176 142 194 330<|content|>7.4 Ongoing Obligation\n<|id|>144<|page|>11<|box|>421 140 436 495<|content|>Section 8: Entities and Jurisdictions Covered\n<|id|>154<|page|>12<|box|>258 140 277 635<|content|>Section 9: Coordination with E-discovery Counsel a\n<|id|>165<|page|>13<|box|>167 140 185 354<|content|>Section 10: Confidentiality\n<|id|>179<|page|>14<|box|>148 140 167 511<|content|>Section 11: Questions and Contact Information\n<|id|>186<|page|>14<|box|>731 142 750 455<|content|>Section 12: Acknowledgment of Receipt\n<|id|>188<|page|>14<|box|>838 287 854 710<|content|>CUSTODIAN ACKNOWLEDGMENT OF RECEIPT\n<|id|>189<|page|>14<|box|>864 256 880 740<|content|>LITIGATION HOLD NOTICE — MATTER NO. 1016-00009\n<|id|>205<|page|>16<|box|>167 140 184 500<|content|>Section 13: Consequences of Non-Compliance\n<|id|>213<|page|>16<|box|>722 313 739 683<|content|>— END OF LITIGATION HOLD NOTICE —\n<|id|>214<|page|>16<|box|>748 140 777 852<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>9<|level|>3\n<|id|>12<|level|>3\n<|id|>19<|level|>3\n<|id|>32<|level|>3\n<|id|>37<|level|>3\n<|id|>39<|level|>4\n<|id|>41<|level|>5\n<|id|>43<|level|>5\n<|id|>45<|level|>5\n<|id|>47<|level|>5\n<|id|>51<|level|>4\n<|id|>59<|level|>4\n<|id|>83<|level|>4\n<|id|>90<|level|>4\n<|id|>95<|level|>4\n<|id|>99<|level|>3\n<|id|>121<|level|>3\n<|id|>122<|level|>4\n<|id|>129<|level|>4\n<|id|>134<|level|>4\n<|id|>140<|level|>4\n<|id|>144<|level|>3\n<|id|>154<|level|>3\n<|id|>165<|level|>3\n<|id|>179<|level|>3\n<|id|>186<|level|>3\n<|id|>188<|level|>4\n<|id|>189<|level|>-1\n<|id|>205<|level|>3\n<|id|>213<|level|>-1\n<|id|>214<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 4
+        },
+        {
+            "id": 41,
+            "level": 5
+        },
+        {
+            "id": 43,
+            "level": 5
+        },
+        {
+            "id": 45,
+            "level": 5
+        },
+        {
+            "id": 47,
+            "level": 5
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 4
+        },
+        {
+            "id": 129,
+            "level": 4
+        },
+        {
+            "id": 134,
+            "level": 4
+        },
+        {
+            "id": 140,
+            "level": 4
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 188,
+            "level": 4
+        },
+        {
+            "id": 205,
+            "level": 3
+        }
+    ]
+}

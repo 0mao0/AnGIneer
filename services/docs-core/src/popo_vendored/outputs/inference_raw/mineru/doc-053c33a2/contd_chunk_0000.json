@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 133 854<|content|>DOUGLAS CARMICHAEL (SBN 198462) FRANCESCA MORANO (...co, California 94105 Telephone: ... (415) 773-5001\n<|id|>1<|page|>1<|box|>142 143 156 426<|content|>Email: ... com\n<|id|>2<|page|>1<|box|>157 142 172 741<|content|>Attorneys for Plaintiff ESTUARY FOUNDATION, a California nonprofit public benefit corporation\n<|id|>12<|page|>2<|box|>709 140 910 857<|content|>5. ... WGFT is represented in this matter by\n<|id|>13<|page|>3<|box|>89 174 125 854<|content|>Pratchett, Huang & Solano LLP, 555 California Stre...treet, 28th Floor, San Francisco, California 94104\n<|id|>20<|page|>3<|box|>859 140 895 854<|content|>9. ... EF was incorporated on April 11, 2009, as a...c Benefit Corporation Law (California Corporations\n<|id|>21<|page|>4<|box|>90 174 272 856<|content|>Code §§ 5110 et seq. ... EF has developed deep exp...ganizations for the quality and impact of its work\n<|id|>31<|page|>5<|box|>441 176 460 501<|content|>(c) Tranche 3 (July 2020): ... and\n<|id|>33<|page|>5<|box|>494 140 604 856<|content|>Tranches 1 through 3, totaling $4,000,000, were du... March 2021 and the program's subsequent wind-down\n<|id|>101<|page|>13<|box|>845 140 882 854<|content|>1. ... For a declaratory judgment that EF may lawf...d for the Bay Area Teacher Residency Initiative to\n<|id|>102<|page|>14<|box|>90 174 125 852<|content|>EF's broader educational mission, consistent with ...r California Probate Code Sections 15409 and 15403\n<|id|>112<|page|>14<|box|>566 140 584 583<|content|>Margot Ellison-Yee Executive Director, Estuary Foundation\n<|id|>113<|page|>14<|box|>584 691 601 854<|content|>Dated: ... April 25, 2022\n<|id|>114<|page|>14<|box|>609 140 626 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>115<|page|>14<|box|>628 142 645 251<|content|>By: ... By\n<|id|>116<|page|>14<|box|>643 140 662 557<|content|>Douglas Carmichael (SBN 198462) Responsible Partner\n<|id|>117<|page|>14<|box|>661 140 694 852<|content|>One Market Plaza, Suite 3600 San Francisco, California 94105 Telephone: ... (415) 773-5001\n<|id|>118<|page|>14<|box|>695 142 712 488<|content|>Email: ... com\n<|id|>119<|page|>14<|box|>713 142 729 457<|content|>Attorneys for Plaintiff Estuary Foundation",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>20<|tgt_id|>21\n<|src_id|>101<|tgt_id|>102",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 102
+        }
+    ]
+}

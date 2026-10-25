@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        13
+    ],
+    "pages": [
+        3,
+        4,
+        8,
+        9,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>25<|page|>3<|box|>767 140 877 856<|content|>On or about January 10, 2020, Vantor and Tridale Manufacturing Inc. ... Tridale, whose\n<|id|>26<|page|>4<|box|>89 140 127 854<|content|>President is Gregory Fontaine, is a supplier of co...rgers, and protective cases for electronic devices\n<|id|>71<|page|>8<|box|>816 174 909 856<|content|>Supporting Evidence: ... Orion–\n<|id|>72<|page|>9<|box|>90 174 143 854<|content|>Vantor Supply Agreement (Nakamura Decl. ... 12)\n<|id|>103<|page|>12<|box|>527 663 545 854<|content|>Dated: ... February 28, 2023\n<|id|>104<|page|>12<|box|>553 676 571 854<|content|>Respectfully submitted,\n<|id|>113<|page|>13<|box|>285 174 339 854<|content|>Martin Kessler (SBN 165203) Natalie Whitfield (SBN...es, California 90067 Telephone: ... (310) 555-3200\n<|id|>114<|page|>13<|box|>348 176 364 411<|content|>Email: ... com\n<|id|>115<|page|>13<|box|>364 176 381 419<|content|>Email: ... com\n<|id|>116<|page|>13<|box|>383 176 398 400<|content|>Email: ... com\n<|id|>117<|page|>13<|box|>400 176 417 511<|content|>Attorneys for Plaintiff Vantor Holdings Corp. ... Attorneys for Plaintiff Vantor Holdings Corp\n<|id|>118<|page|>13<|box|>425 174 460 854<|content|>Diana Prescott (SBN 192644) Wortham & Adair LLP 61...es, California 90017 Telephone: ... (213) 555-6100\n<|id|>119<|page|>13<|box|>469 176 486 455<|content|>Email: ... com\n<|id|>120<|page|>13<|box|>487 176 503 607<|content|>Local Counsel for Defendant Cascade Retail Holding... Counsel for Defendant Cascade Retail Holdings Inc",
+    "raw_response": "<|src_id|>25<|tgt_id|>26\n<|src_id|>71<|tgt_id|>72",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        }
+    ]
+}

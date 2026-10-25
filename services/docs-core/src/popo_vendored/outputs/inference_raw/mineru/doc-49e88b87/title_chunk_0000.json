@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        19,
+        20,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 334 118 663<|content|>PRELIMINARY TERM SHEET\n<|id|>1<|page|>1<|box|>143 174 179 821<|content|>PROPOSED CONSENSUAL RESTRUCTURING OF STONEFIELD LO\n<|id|>4<|page|>1<|box|>239 148 311 848<|content|>THIS TERM SHEET DOES NOT CONSTITUTE A BINDING AGRE\n<|id|>7<|page|>1<|box|>441 142 459 267<|content|>I. OVERVIEW\n<|id|>17<|page|>2<|box|>545 140 563 310<|content|>II. THE COMPANY\n<|id|>39<|page|>4<|box|>89 140 107 679<|content|>III. EXISTING CAPITAL STRUCTURE (AS OF MARCH 31, 2\n<|id|>41<|page|>4<|box|>165 142 183 446<|content|>A. First Lien Revolving Credit Facility\n<|id|>53<|page|>4<|box|>843 142 859 356<|content|>B. First Lien Term Loan B\n<|id|>64<|page|>5<|box|>627 140 645 413<|content|>C. Mezzanine Notes (Second Lien)\n<|id|>73<|page|>6<|box|>196 142 214 372<|content|>Maturity Date. June 15, 2025.\n<|id|>80<|page|>6<|box|>777 143 795 290<|content|>D. Sponsor Equity\n<|id|>83<|page|>7<|box|>213 142 229 473<|content|>E. Summary of Existing Capital Structure\n<|id|>90<|page|>7<|box|>689 142 705 372<|content|>F. Financial Distress Context\n<|id|>97<|page|>8<|box|>611 140 628 508<|content|>IV. PROPOSED RESTRUCTURING TERMS\n<|id|>99<|page|>8<|box|>705 140 722 434<|content|>A. Amended First Lien Term Loan B\n<|id|>117<|page|>10<|box|>263 142 282 442<|content|>B. Amended Revolving Credit Facility\n<|id|>129<|page|>11<|box|>165 140 183 473<|content|>C. New-Money Super-Priority Term Loan\n<|id|>155<|page|>12<|box|>804 142 820 421<|content|>D. Equitization of Mezzanine Notes\n<|id|>168<|page|>14<|box|>356 142 375 542<|content|>E. Sponsor Contribution and Equity Restructuring\n<|id|>183<|page|>15<|box|>635 140 652 583<|content|>V. POST-RESTRUCTURING CAPITAL STRUCTURE\n<|id|>195<|page|>16<|box|>786 140 803 411<|content|>VI. CONDITIONS TO CLOSING\n<|id|>230<|page|>19<|box|>397 142 414 493<|content|>VII. ESTIMATED TRANSACTION COSTS\n<|id|>235<|page|>20<|box|>185 140 203 398<|content|>VIII. INDICATIVE TIMELINE\n<|id|>240<|page|>21<|box|>237 142 253 406<|content|>IX. ADVISORS AND COUNSEL\n<|id|>243<|page|>21<|box|>848 142 864 488<|content|>X. RESERVATIONS AND DISCLAIMERS\n<|id|>251<|page|>22<|box|>674 341 691 653<|content|>Remainder of page intentionally left blank.\n<|id|>252<|page|>22<|box|>699 401 715 596<|content|>ACKNOWLEDGMENT\n<|id|>254<|page|>22<|box|>806 142 823 478<|content|>STONEFIELD LOGISTICS GROUP INC.\n<|id|>259<|page|>23<|box|>89 140 106 560<|content|>RIDGELINE CAPITAL PARTNERS FUND III, L.P.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>-1\n<|id|>7<|level|>2\n<|id|>17<|level|>2\n<|id|>39<|level|>2\n<|id|>41<|level|>3\n<|id|>53<|level|>3\n<|id|>64<|level|>3\n<|id|>73<|level|>-1\n<|id|>80<|level|>3\n<|id|>83<|level|>3\n<|id|>90<|level|>3\n<|id|>97<|level|>2\n<|id|>99<|level|>3\n<|id|>117<|level|>3\n<|id|>129<|level|>3\n<|id|>155<|level|>3\n<|id|>168<|level|>3\n<|id|>183<|level|>2\n<|id|>195<|level|>2\n<|id|>230<|level|>2\n<|id|>235<|level|>2\n<|id|>240<|level|>2\n<|id|>243<|level|>2\n<|id|>251<|level|>-1\n<|id|>252<|level|>2\n<|id|>254<|level|>-1\n<|id|>259<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 235,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 2
+        },
+        {
+            "id": 243,
+            "level": 2
+        },
+        {
+            "id": 252,
+            "level": 2
+        }
+    ]
+}

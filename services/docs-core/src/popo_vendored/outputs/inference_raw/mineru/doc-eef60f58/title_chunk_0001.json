@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        52,
+        54
+    ],
+    "pages": [
+        52,
+        53,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>651<|page|>52<|box|>551 282 569 714<|content|>FORM OF ANNUAL COMPLIANCE CERTIFICATE\n<|id|>652<|page|>52<|box|>579 142 595 485<|content|>ANNUAL COMPLIANCE CERTIFICATE\n<|id|>659<|page|>52<|box|>815 142 832 387<|content|>1. Compliance with Covenants.\n<|id|>665<|page|>53<|box|>273 142 291 491<|content|>2. Existence of Defaults or Events of Default.\n<|id|>667<|page|>53<|box|>381 140 398 490<|content|>3. Limitation on Indebtedness (Section 5.05).\n<|id|>670<|page|>53<|box|>633 140 651 547<|content|>4. Limitation on Restricted Payments (Section 5.07\n<|id|>672<|page|>53<|box|>704 140 720 473<|content|>5. Limitation on Asset Sales (Section 5.08).\n<|id|>674<|page|>53<|box|>792 140 809 602<|content|>6. Limitation on Transactions with Affiliates (Sec\n<|id|>676<|page|>53<|box|>881 142 897 356<|content|>7. Insurance (Section 5.12).\n<|id|>678<|page|>54<|box|>152 140 170 411<|content|>8. Vessel Disposition Undertaking.\n<|id|>681<|page|>54<|box|>266 140 282 643<|content|>THALASSA SHIPPING & LOGISTICS SOCIÉTÉ ANONYME",
+    "raw_response": "<|id|>651<|level|>1\n<|id|>652<|level|>1\n<|id|>659<|level|>2\n<|id|>665<|level|>2\n<|id|>667<|level|>2\n<|id|>670<|level|>2\n<|id|>672<|level|>2\n<|id|>674<|level|>2\n<|id|>676<|level|>2\n<|id|>678<|level|>2\n<|id|>681<|level|>-1",
+    "parsed": [
+        {
+            "id": 651,
+            "level": 1
+        },
+        {
+            "id": 652,
+            "level": 1
+        },
+        {
+            "id": 659,
+            "level": 2
+        },
+        {
+            "id": 665,
+            "level": 2
+        },
+        {
+            "id": 667,
+            "level": 2
+        },
+        {
+            "id": 670,
+            "level": 2
+        },
+        {
+            "id": 672,
+            "level": 2
+        },
+        {
+            "id": 674,
+            "level": 2
+        },
+        {
+            "id": 676,
+            "level": 2
+        },
+        {
+            "id": 678,
+            "level": 2
+        }
+    ]
+}

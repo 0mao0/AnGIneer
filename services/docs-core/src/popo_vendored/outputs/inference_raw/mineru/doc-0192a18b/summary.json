@@ -1,0 +1,127 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-b51wdlks\\input\\pdfs\\doc-0192a18b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-b51wdlks\\enriched\\doc-0192a18b.json",
+    "contd_output": "<|src_id|>86<|tgt_id|>87",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>18<|level|>2\n<|id|>22<|level|>3\n<|id|>24<|level|>3\n<|id|>26<|level|>2\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>41<|level|>3\n<|id|>46<|level|>3\n<|id|>56<|level|>3\n<|id|>61<|level|>2\n<|id|>101<|level|>3\n<|id|>117<|level|>3\n<|id|>128<|level|>2\n<|id|>144<|level|>2\n<|id|>157<|level|>1",
+    "image_output": "<|src_id|>15<|tgt_id|>7\n<|src_id|>17<|tgt_id|>7\n<|src_id|>20<|tgt_id|>18\n<|src_id|>21<|tgt_id|>18\n<|src_id|>23<|tgt_id|>22\n<|src_id|>25<|tgt_id|>24",
+    "contd_label": [
+        {
+            "src_id": 86,
+            "tgt_id": 87
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 24
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 20,
+            "table2_idx": 21,
+            "upper_row_ss": [
+                [
+                    "FTC v. Staples, Inc., 190 F. Supp. 3d 100 (D.D.C. 2016)",
+                    "24, 34"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "FTC v. Sysco Corp., 113 F. Supp. 3d 1 (D.D.C. 2015)",
+                    "27, 34"
+                ]
+            ]
+        }
+    ]
+}

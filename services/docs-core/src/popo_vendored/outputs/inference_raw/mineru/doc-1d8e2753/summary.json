@@ -1,0 +1,137 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-80t4bogo\\input\\pdfs\\doc-1d8e2753.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-80t4bogo\\enriched\\doc-1d8e2753.json",
+    "contd_output": "<|src_id|>19<|tgt_id|>20\n<|src_id|>25<|tgt_id|>26\n<|src_id|>84<|tgt_id|>85",
+    "title_output": "<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>27<|level|>2\n<|id|>36<|level|>2\n<|id|>40<|level|>1\n<|id|>41<|level|>2\n<|id|>45<|level|>2\n<|id|>53<|level|>2\n<|id|>62<|level|>1\n<|id|>63<|level|>2\n<|id|>74<|level|>2\n<|id|>79<|level|>1\n<|id|>80<|level|>2\n<|id|>90<|level|>2\n<|id|>97<|level|>2\n<|id|>107<|level|>1\n<|id|>111<|level|>1\n<|id|>112<|level|>2\n<|id|>115<|level|>2\n<|id|>121<|level|>2",
+    "image_output": "<|src_id|>108<|tgt_id|>107\n<|src_id|>109<|tgt_id|>107",
+    "contd_label": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 108,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 107
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 108,
+            "table2_idx": 109,
+            "upper_row_ss": [
+                [
+                    "February 15, 2025",
+                    "Consent Order deadline for",
+                    "Met (5 days early)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "independent consultant engagement",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

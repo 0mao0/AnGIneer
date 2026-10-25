@@ -1,0 +1,169 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8je1x4b8\\input\\pdfs\\doc-e38d7e2a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8je1x4b8\\enriched\\doc-e38d7e2a.json",
+    "contd_output": "<|src_id|>63<|tgt_id|>64\n<|src_id|>140<|tgt_id|>141",
+    "title_output": "<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>55<|level|>2\n<|id|>66<|level|>2\n<|id|>74<|level|>1\n<|id|>80<|level|>1\n<|id|>81<|level|>2\n<|id|>84<|level|>2\n<|id|>92<|level|>2\n<|id|>96<|level|>1\n<|id|>107<|level|>2\n<|id|>112<|level|>2\n<|id|>116<|level|>2\n<|id|>119<|level|>2\n<|id|>122<|level|>1\n<|id|>127<|level|>1\n<|id|>135<|level|>1\n<|id|>139<|level|>1\n<|id|>144<|level|>1\n<|id|>148<|level|>1\n<|id|>152<|level|>1\n<|id|>156<|level|>1\n<|id|>160<|level|>2\n<|id|>166<|level|>2\n<|id|>171<|level|>1\n<|id|>175<|level|>1",
+    "image_output": "<|src_id|>76<|tgt_id|>74\n<|src_id|>77<|tgt_id|>74\n<|src_id|>104<|tgt_id|>96\n<|src_id|>124<|tgt_id|>122\n<|src_id|>125<|tgt_id|>122",
+    "contd_label": [
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 141
+        }
+    ],
+    "title_label": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 76,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 122
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 76,
+            "table2_idx": 77,
+            "upper_row_ss": [
+                [
+                    "Sylvia Hartwell",
+                    "Responsible Partner, Tax Department. Ms. Hartwell has twenty-three (23) years of experience in fund formation and tax structuring, with particular expertise",
+                    "$1,650/hour"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "in continuation vehicles, GP-led secondary transactions, and partnership taxation.",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

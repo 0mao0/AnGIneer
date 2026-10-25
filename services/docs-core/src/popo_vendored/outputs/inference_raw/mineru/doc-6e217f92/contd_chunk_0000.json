@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        11,
+        12,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>359 140 395 854<|content|>Issuer: ... 1400 Market Street, Suite 2200, Wilmington, DE 19801\n<|id|>4<|page|>1<|box|>402 140 494 857<|content|>Skybridge Fintech Ltd. ... , a Delaware corporatio... of this Convertible Promissory Note (this \"Note\")\n<|id|>19<|page|>3<|box|>89 174 146 854<|content|>(i) eighty percent (80%) of the price per share pa... for the Qualified Financing Securities (i. ... or\n<|id|>21<|page|>3<|box|>215 140 308 854<|content|>For purposes of illustration only, based on a pre-...ncing and may differ from this illustrative amount\n<|id|>33<|page|>4<|box|>324 174 361 854<|content|>(ii) the sale, lease, exclusive license, or other ...action or a series of related transactions; ... or\n<|id|>38<|page|>4<|box|>674 140 747 854<|content|>For purposes of illustration only, the maximum Cha...0), if such amount exceeds the As-Converted Amount\n<|id|>36<|page|>4<|box|>512 174 566 854<|content|>(i) two times (2. ... or\n<|id|>69<|page|>7<|box|>758 174 905 857<|content|>(c) Bankruptcy or Insolvency. ... or (ii) an invol...or other proceeding shall be commenced against the\n<|id|>70<|page|>8<|box|>90 174 200 856<|content|>Company seeking liquidation, reorganization, or ot...stayed for a period of sixty (60) consecutive days\n<|id|>107<|page|>11<|box|>844 140 898 856<|content|>EACH OF THE COMPANY AND THE HOLDER HEREBY IRREVOCA...TRIAL BY JURY IN ANY ACTION, PROCEEDING, CLAIM, OR\n<|id|>108<|page|>12<|box|>89 140 218 854<|content|>COUNTERCLAIM ARISING OUT OF OR RELATING TO THIS NO...CH PARTY HAS REVIEWED THIS WAIVER WITH ITS COUNSEL\n<|id|>112<|page|>12<|box|>410 176 428 751<|content|>Skybridge Fintech Ltd. ... 1400 Market Street, Suite 2200 Wilmington, DE 19801\n<|id|>113<|page|>12<|box|>436 176 453 524<|content|>Attention: ... Priya Ramanathan, General Counsel\n<|id|>114<|page|>12<|box|>454 176 470 504<|content|>Email: ... com\n<|id|>115<|page|>12<|box|>470 176 487 540<|content|>with a copy (which shall not constitute notice) to...with a copy (which shall not constitute notice) to\n<|id|>116<|page|>12<|box|>496 174 513 733<|content|>Calderwood & Harkness LLP 600 Lexington Avenue New York, NY 10022\n<|id|>117<|page|>12<|box|>522 176 537 387<|content|>Attention: ... Leonard Ashford\n<|id|>118<|page|>12<|box|>539 176 556 495<|content|>Email: ... com\n<|id|>119<|page|>12<|box|>556 142 573 266<|content|>If to the Holder: ... If to the Holder\n<|id|>148<|page|>14<|box|>494 143 508 295<|content|>Name: ... Arjun Mehta\n<|id|>149<|page|>14<|box|>510 143 526 366<|content|>Title: ... Chief Executive Officer\n<|id|>150<|page|>14<|box|>527 143 544 426<|content|>ACKNOWLEDGED AND AGREED: ... ACKNOWLEDGED AND AGREED\n<|id|>152<|page|>14<|box|>604 143 622 277<|content|>[Name of Holder]\n<|id|>153<|page|>14<|box|>623 143 638 254<|content|>By: ... By\n<|id|>161<|page|>14<|box|>852 140 898 854<|content|>The following illustrative examples are provided f...on and the actual price per share in any Qualified\n<|id|>162<|page|>15<|box|>89 140 119 852<|content|>Financing. ... 00% per annum ($600,000), for a total conversion amount of $10,600,000\n<|id|>164<|page|>15<|box|>154 147 170 674<|content|>• Pre-bridge fully diluted share count: ... approximately 48,500,000 shares\n<|id|>172<|page|>15<|box|>431 140 467 854<|content|>In this scenario, the discount Price ($14. ... 46), so the discount Price applies\n<|id|>165<|page|>15<|box|>172 147 189 383<|content|>• Valuation Cap: ... $750,000,000\n<|id|>166<|page|>15<|box|>193 147 210 697<|content|>• Cap Price: ... 46 per share\n<|id|>167<|page|>15<|box|>212 147 229 777<|content|>• Conversion discount: ... , conversion at 80% of the Qualified Financing price)\n<|id|>168<|page|>15<|box|>232 147 250 581<|content|>• Illustrative principal amount of single Note: ... $10,000,000\n<|id|>169<|page|>15<|box|>251 147 268 527<|content|>• Accrued interest (12 months at 6. ... $600,000\n<|id|>170<|page|>15<|box|>271 147 287 450<|content|>• Total conversion amount: ... $10,600,000",
+    "raw_response": "<|src_id|>69<|tgt_id|>70\n<|src_id|>107<|tgt_id|>108\n<|src_id|>161<|tgt_id|>162",
+    "parsed": [
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 162
+        }
+    ]
+}

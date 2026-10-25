@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        15,
+        16,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>154 140 171 841<|content|>CALDERWOOD & HARKNESS LLP 1001 Fannin Street, Suite 4200 Houston, Texas 77002\n<|id|>2<|page|>1<|box|>180 715 196 854<|content|>February 12, 2024\n<|id|>3<|page|>1<|box|>205 140 222 215<|content|>TO: ... File\n<|id|>4<|page|>1<|box|>232 140 250 491<|content|>FROM: ... Catherine Bloom, Responsible Partner\n<|id|>5<|page|>1<|box|>258 140 273 457<|content|>C&H MATTER NUMBER: ... 1016-00004\n<|id|>6<|page|>1<|box|>284 142 300 433<|content|>C&H BILLING CODE: ... 00001\n<|id|>7<|page|>1<|box|>310 140 345 852<|content|>RE: ... and Dunmore Power Trading LLC\n<|id|>8<|page|>1<|box|>354 140 429 854<|content|>This memorandum is protected by the attorney-clien...e may constitute a waiver of applicable privileges\n<|id|>70<|page|>6<|box|>859 140 895 854<|content|>2. ... FERC Staff alleged that DPT took Real-Time ...s\") and Decrement Bids (\"DECs\") — at the Minnesota\n<|id|>71<|page|>7<|box|>90 140 199 854<|content|>Hub that were designed to amplify the congestion d...ng the Relevant Period was approximately 1,620 GWh\n<|id|>82<|page|>8<|box|>90 147 107 578<|content|>• Catherine Bloom (Responsible Partner): ... $1,250 per hour\n<|id|>86<|page|>8<|box|>167 140 223 854<|content|>The engagement letter provided an estimated fee ra...which was received from the Client on May 30, 2023\n<|id|>83<|page|>8<|box|>109 147 127 491<|content|>• Alan Ngo (Billing Partner): ... $1,150 per hour\n<|id|>84<|page|>8<|box|>128 147 146 532<|content|>• Hannah Brinkley (Lead Associate): ... $725 per hour\n<|id|>85<|page|>8<|box|>148 145 166 563<|content|>• Patrick Gallagher (Working Associate): ... $575 per hour\n<|id|>152<|page|>15<|box|>808 140 901 857<|content|>December 18, 2023: ... 2 million, suggesting that FERC\n<|id|>153<|page|>16<|box|>90 140 126 854<|content|>Staff's confidence in the full disgorgement amount had been undermined by Dr. ... Whitfield's analysis\n<|id|>289<|page|>25<|box|>628 142 645 326<|content|>Name: ... Catherine Bloom\n<|id|>290<|page|>25<|box|>646 142 662 398<|content|>Title: ... Partner, Responsible Partner\n<|id|>291<|page|>25<|box|>664 142 679 328<|content|>Date: ... February 12, 2024\n<|id|>292<|page|>25<|box|>680 140 772 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...e may constitute a waiver of applicable privileges",
+    "raw_response": "<|src_id|>70<|tgt_id|>71\n<|src_id|>152<|tgt_id|>153",
+    "parsed": [
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        }
+    ]
+}

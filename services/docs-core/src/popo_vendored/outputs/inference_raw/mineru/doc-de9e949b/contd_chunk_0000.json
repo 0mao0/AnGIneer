@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        22,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 104 694<|content|>DRAFT — FOR DISCUSSION PURPOSES ONLY — PRIVILEGED & CONFIDENTIAL\n<|id|>1<|page|>1<|box|>112 140 155 854<|content|>Prepared by: ... May 3, 2023\n<|id|>2<|page|>1<|box|>156 671 172 854<|content|>Matter No. ... 1022-00003\n<|id|>3<|page|>1<|box|>181 163 218 854<|content|>Circulated to: ... Whitaker, Drummond & Chase LLP ...Y 10019 (Counsel to Greystone Capital Partners LP)\n<|id|>4<|page|>1<|box|>226 140 258 633<|content|>Attention: ... Jonathan Whitaker / Maya Krishnamurthy COOPERATION AGREEMENT\n<|id|>5<|page|>1<|box|>268 140 304 854<|content|>This Cooperation Agreement (this \"Agreement\"), dat... \"Effective Date\"), is entered into by and between\n<|id|>6<|page|>1<|box|>313 140 368 854<|content|>NORTHGATE TELECOMMUNICATIONS PLC, a public limited... W1F 0DB, United Kingdom (the \"Company\" or \"NTP\"),\n<|id|>7<|page|>1<|box|>376 140 392 176<|content|>and\n<|id|>18<|page|>2<|box|>234 140 325 854<|content|>WHEREAS, as a result of such discussions, the Comp...isions, all as more fully set forth below; ... and\n<|id|>19<|page|>2<|box|>332 140 387 854<|content|>WHEREAS, the Board, acting upon the recommendation...best interests of the Company and its stockholders\n<|id|>205<|page|>22<|box|>631 174 667 854<|content|>Northgate Telecommunications PLC 45 Broadwick Street London W1F 0DB, United Kingdom\n<|id|>206<|page|>22<|box|>676 140 710 694<|content|>Attention: ... Priya Nandakumar, General Counsel &...with a copy to (which shall not constitute notice)\n<|id|>207<|page|>22<|box|>719 176 734 733<|content|>Calderwood & Harkness LLP 450 Lexington Avenue New York, NY 10017\n<|id|>208<|page|>22<|box|>744 176 761 382<|content|>Attention: ... Angela Fontaine\n<|id|>210<|page|>22<|box|>787 176 804 810<|content|>Greystone Capital Partners LP 590 Madison Avenue, 34th Floor New York, NY 10022\n<|id|>211<|page|>22<|box|>814 140 848 521<|content|>Attention: ... Dominic Ferraro, Managing Partner with a copy to (which shall not constitute notice)\n<|id|>212<|page|>22<|box|>856 176 873 764<|content|>Whitaker, Drummond & Chase LLP 787 Seventh Avenue New York, NY 10019\n<|id|>213<|page|>22<|box|>883 176 898 398<|content|>Attention: ... Jonathan Whitaker\n<|id|>214<|page|>23<|box|>90 140 200 856<|content|>Any notice delivered by personal delivery shall be... a reply acknowledging receipt from the recipient)\n<|id|>228<|page|>24<|box|>518 142 534 339<|content|>Name: ... Priya Nandakumar\n<|id|>229<|page|>24<|box|>535 142 553 480<|content|>Title: ... General Counsel & Corporate Secretary\n<|id|>230<|page|>24<|box|>551 143 569 261<|content|>Date: ... [●], 2023\n<|id|>231<|page|>24<|box|>569 142 585 477<|content|>GREYSTONE CAPITAL PARTNERS LP\n<|id|>232<|page|>24<|box|>585 142 604 589<|content|>By: ... Greystone Capital Management LLC, its General Partner\n<|id|>233<|page|>24<|box|>604 143 621 253<|content|>By: ... By\n<|id|>234<|page|>24<|box|>621 142 638 323<|content|>Name: ... Dominic Ferraro\n<|id|>235<|page|>24<|box|>638 143 655 323<|content|>Title: ... Managing Partner\n<|id|>236<|page|>24<|box|>656 142 672 261<|content|>Date: ... [●], 2023\n<|id|>245<|page|>25<|box|>366 174 402 854<|content|>Priya Nandakumar General Counsel & Corporate Secre...45 Broadwick Street London W1F 0DB, United Kingdom\n<|id|>246<|page|>25<|box|>411 140 428 486<|content|>with a copy to the Company's registered agent: ... with a copy to the Company's registered agent",
+    "raw_response": "<|src_id|>231<|tgt_id|>232\n<|src_id|>232<|tgt_id|>233\n<|src_id|>233<|tgt_id|>234\n<|src_id|>234<|tgt_id|>235",
+    "parsed": [
+        {
+            "src_id": 231,
+            "tgt_id": 232
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 233
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 234
+        },
+        {
+            "src_id": 234,
+            "tgt_id": 235
+        }
+    ]
+}

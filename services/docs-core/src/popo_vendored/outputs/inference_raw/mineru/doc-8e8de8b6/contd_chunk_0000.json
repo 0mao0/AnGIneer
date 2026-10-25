@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 143 176 297<|content|>Fax: ... (212) 558-3588\n<|id|>3<|page|>1<|box|>176 679 194 854<|content|>Matter No. ... 1043-00002\n<|id|>25<|page|>3<|box|>843 174 898 856<|content|>Aurelius Global Media Group PLC (\"Aurelius\") is th...headquarters at 14 Clarges Street, London W1J 8AQ,\n<|id|>26<|page|>4<|box|>90 174 181 854<|content|>United Kingdom. ... Aurelius will file the Notification and Report Form as the acquired person UPE\n<|id|>81<|page|>8<|box|>834 181 869 854<|content|>• Foxglove Media LLC, a New York limited liability...ital content and media licensing business; ... and\n<|id|>83<|page|>9<|box|>146 174 181 854<|content|>MPH's consolidated FY2023 revenue was approximatel...2023 Adjusted EBITDA was approximately $96,000,000",
+    "raw_response": "<|src_id|>25<|tgt_id|>26",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        }
+    ]
+}

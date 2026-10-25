@@ -1,0 +1,46 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        145,
+        149
+    ],
+    "pages": [
+        146,
+        147,
+        148,
+        149
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1306<|page|>146<|box|>425 24 439 187<|content|>Violations of Gaming Laws\n<|id|>1308<|page|>146<|box|>542 24 556 285<|content|>Reporting and Recordkeeping Requirements\n<|id|>1310<|page|>146<|box|>714 24 728 246<|content|>Review and Approval of Transactions\n<|id|>1324<|page|>147<|box|>674 24 688 183<|content|>Operational Requirements\n<|id|>1329<|page|>148<|box|>193 24 205 94<|content|>Racetracks\n<|id|>1331<|page|>148<|box|>338 24 352 230<|content|>Online Gaming and Sports Betting\n<|id|>1338<|page|>149<|box|>116 24 130 240<|content|>Macau S.A.R. Laws and Regulations",
+    "raw_response": "<|id|>1306<|level|>1\n<|id|>1308<|level|>2\n<|id|>1310<|level|>2\n<|id|>1324<|level|>2\n<|id|>1329<|level|>3\n<|id|>1331<|level|>3\n<|id|>1338<|level|>3",
+    "parsed": [
+        {
+            "id": 1306,
+            "level": 1
+        },
+        {
+            "id": 1308,
+            "level": 2
+        },
+        {
+            "id": 1310,
+            "level": 2
+        },
+        {
+            "id": 1324,
+            "level": 2
+        },
+        {
+            "id": 1329,
+            "level": 3
+        },
+        {
+            "id": 1331,
+            "level": 3
+        },
+        {
+            "id": 1338,
+            "level": 3
+        }
+    ]
+}

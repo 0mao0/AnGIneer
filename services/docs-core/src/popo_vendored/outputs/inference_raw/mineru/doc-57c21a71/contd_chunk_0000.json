@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        19,
+        20,
+        23,
+        27,
+        28,
+        29
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>150 464 167 534<|content|>Plaintiff,\n<|id|>2<|page|>1<|box|>176 452 193 545<|content|>—against—\n<|id|>3<|page|>1<|box|>202 333 219 663<|content|>NORTHGATE FIBER AMERICAS INC. ... ,\n<|id|>4<|page|>1<|box|>228 455 244 540<|content|>Defendant. ... Defendant\n<|id|>19<|page|>2<|box|>789 138 881 857<|content|>General Objection No. ... Any production of such d...October 1, 2024 (the \"Confidentiality Stipulation\"\n<|id|>20<|page|>3<|box|>90 140 127 854<|content|>or \"Protective Order\"), and Defendant reserves the...ys' Eyes Only\" in accordance with that Stipulation\n<|id|>198<|page|>19<|box|>849 140 905 854<|content|>Response: ... Subject to those objections and subj...the scope of work, pricing, and schedule under the\n<|id|>199<|page|>20<|box|>90 140 181 854<|content|>Crestline replacement contract. ... Certain commer...' Eyes Only\" under the Confidentiality Stipulation\n<|id|>241<|page|>23<|box|>686 174 742 854<|content|>(b) For Counterclaim II (excess completion costs, $81,700,000): ... and\n<|id|>243<|page|>23<|box|>794 140 830 854<|content|>Privileged analyses, legal memoranda, and expert m...y are withheld and identified on the privilege log\n<|id|>282<|page|>27<|box|>654 174 691 854<|content|>(g) Communications with outside counsel (Calderwoo...mulation, and counterclaim quantification; ... and\n<|id|>284<|page|>27<|box|>743 140 797 854<|content|>Defendant reserves the right to supplement the pri... ... 4 million documents collected for this matter\n<|id|>295<|page|>28<|box|>603 174 638 854<|content|>(d) The right to object to the relevance, authenti...tified in connection with these responses; ... and\n<|id|>297<|page|>28<|box|>691 140 763 854<|content|>Nothing contained in these responses constitutes a...e facts contained in Plaintiff's Document Requests\n<|id|>300<|page|>29<|box|>128 504 145 854<|content|>Dated: ... New York, New York October 22, 2024\n<|id|>301<|page|>29<|box|>154 142 170 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>302<|page|>29<|box|>172 143 189 251<|content|>By: ... By\n<|id|>303<|page|>29<|box|>189 143 205 429<|content|>Linda Osei, Esq. ... (Responsible Partner)\n<|id|>304<|page|>29<|box|>205 140 239 852<|content|>Priya Anand, Esq. ... (Working Associate)\n<|id|>305<|page|>29<|box|>239 140 271 852<|content|>425 Park Avenue, 33rd Floor New York, New York 10022 Telephone: ... (212) 558-3588\n<|id|>306<|page|>29<|box|>272 142 289 547<|content|>Attorneys for Defendant Northgate Fiber Americas I...torneys for Defendant Northgate Fiber Americas Inc\n<|id|>310<|page|>29<|box|>450 176 487 854<|content|>Thomas Deluca, Esq. ... Hargrove, Deluca & Stein L...t 52nd Street, 40th Floor New York, New York 10019\n<|id|>311<|page|>29<|box|>494 176 513 624<|content|>Attorneys for Plaintiff Meridian Infrastructure Partners LLC\n<|id|>312<|page|>29<|box|>547 142 565 238<|content|>Jeffrey Park",
+    "raw_response": "<|src_id|>19<|tgt_id|>20\n<|src_id|>198<|tgt_id|>199",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 199
+        }
+    ]
+}

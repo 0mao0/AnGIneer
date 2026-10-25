@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 151 125 844<|content|>GREYSTONE FEDERAL CREDIT CORP. 200 Park Avenue Sou\n<|id|>13<|page|>1<|box|>585 142 602 333<|content|>1. Introductory Recitals\n<|id|>17<|page|>2<|box|>321 140 339 480<|content|>2. Confirmation of Receipt of Payoff Funds\n<|id|>22<|page|>3<|box|>223 140 239 357<|content|>3. Discharge of Obligations\n<|id|>28<|page|>4<|box|>90 140 107 465<|content|>4. Release of Security Interests and Liens\n<|id|>37<|page|>5<|box|>148 140 167 477<|content|>5. Authorization to File Lien Terminations\n<|id|>45<|page|>6<|box|>377 140 393 348<|content|>6. No Further Obligations\n<|id|>48<|page|>6<|box|>671 140 688 517<|content|>7. Return and Cancellation of Promissory Notes\n<|id|>50<|page|>7<|box|>90 140 107 276<|content|>8. Miscellaneous\n<|id|>55<|page|>7<|box|>531 400 549 596<|content|>[Signature Page Follows]\n<|id|>56<|page|>7<|box|>556 267 574 728<|content|>[Signature Page to Confirmation of Payoff and Rele",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>13<|level|>2\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>28<|level|>2\n<|id|>37<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>55<|level|>-1\n<|id|>56<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        }
+    ]
+}

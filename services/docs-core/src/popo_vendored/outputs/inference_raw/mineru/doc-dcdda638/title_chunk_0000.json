@@ -1,0 +1,84 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 133 714<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1900 K\n<|id|>8<|page|>1<|box|>667 142 684 400<|content|>I. DOCUMENT PRODUCTION\n<|id|>15<|page|>2<|box|>599 140 614 383<|content|>II. GENERAL OBJECTIONS\n<|id|>22<|page|>3<|box|>794 140 811 614<|content|>III. SPECIFIC RESPONSES TO DOCUMENT REQUESTS\n<|id|>24<|page|>4<|box|>90 140 107 604<|content|>A. Document Requests 1–6 (Bid Submissions and Anal\n<|id|>34<|page|>4<|box|>648 140 667 650<|content|>B. Document Requests 7–12 (Communications with Com\n<|id|>43<|page|>5<|box|>569 140 587 741<|content|>C. Document Requests 13–18 (Pricing Analyses and C\n<|id|>52<|page|>6<|box|>306 140 324 658<|content|>D. Document Requests 19–22 (Competitor Meetings an\n<|id|>60<|page|>6<|box|>717 142 734 602<|content|>E. Document Requests 23–24 (Organizational Informa\n<|id|>67<|page|>7<|box|>299 140 316 450<|content|>IV. INTERROGATORY RESPONSES\n<|id|>75<|page|>8<|box|>193 140 210 316<|content|>V. PRIVILEGE LOG\n<|id|>88<|page|>8<|box|>763 140 779 601<|content|>VI. CORPORATE REPRESENTATIVE EXAMINATION\n<|id|>92<|page|>9<|box|>358 140 375 421<|content|>VII. RESERVATION OF RIGHTS\n<|id|>102<|page|>10<|box|>222 140 239 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>106<|page|>10<|box|>316 143 332 240<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>15<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>3\n<|id|>34<|level|>3\n<|id|>43<|level|>3\n<|id|>52<|level|>3\n<|id|>60<|level|>3\n<|id|>67<|level|>2\n<|id|>75<|level|>2\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>102<|level|>1\n<|id|>106<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,147 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        18,
+        21,
+        23,
+        24,
+        26,
+        27,
+        28
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 254 108 741<|content|>UNITED STATES DISTRICT COURT DISTRICT OF NEVADA\n<|id|>2<|page|>1<|box|>440 143 457 852<|content|>DEFENDANT REDSTONE GAMING CORP.'S MOTION FOR SUMMA\n<|id|>6<|page|>2<|box|>366 385 382 612<|content|>TABLE OF AUTHORITIES\n<|id|>10<|page|>3<|box|>315 143 329 210<|content|>Statutes\n<|id|>13<|page|>3<|box|>584 143 599 285<|content|>Other Authorities\n<|id|>15<|page|>3<|box|>720 143 737 308<|content|>I. INTRODUCTION\n<|id|>23<|page|>5<|box|>222 140 239 483<|content|>II. STATEMENT OF RELEVANT FACTS\n<|id|>24<|page|>5<|box|>253 140 270 259<|content|>A. The Parties\n<|id|>30<|page|>6<|box|>250 140 266 460<|content|>B. Development of *Ironclad Dominion*\n<|id|>36<|page|>7<|box|>220 140 238 550<|content|>C. *Shardfall Chronicles* and Luminos's Copyright\n<|id|>39<|page|>7<|box|>520 140 537 462<|content|>D. Luminos's Complaint and Allegations\n<|id|>42<|page|>7<|box|>801 142 819 514<|content|>E. Expert Analysis — Visual Asset Comparison\n<|id|>48<|page|>8<|box|>719 140 736 339<|content|>F. Metadata Verification\n<|id|>52<|page|>9<|box|>458 140 474 359<|content|>G. Market Impact Analysis\n<|id|>56<|page|>10<|box|>157 140 174 321<|content|>H. Procedural History\n<|id|>71<|page|>10<|box|>811 140 829 346<|content|>III. LEGAL STANDARD\n<|id|>78<|page|>12<|box|>186 140 203 285<|content|>IV. ARGUMENT\n<|id|>79<|page|>12<|box|>217 140 234 849<|content|>A. Redstone Is Entitled to Summary Judgment on Fai\n<|id|>127<|page|>18<|box|>815 140 851 854<|content|>B. Alternatively, Redstone Is Entitled to Summary\n<|id|>145<|page|>21<|box|>90 140 125 854<|content|>C. Alternatively, the Challenged Elements Are Unpr\n<|id|>155<|page|>23<|box|>204 140 220 294<|content|>V. CONCLUSION\n<|id|>173<|page|>24<|box|>268 375 285 620<|content|>CERTIFICATE OF SERVICE\n<|id|>181<|page|>24<|box|>566 419 584 576<|content|>ATTACHMENT A\n<|id|>182<|page|>24<|box|>593 277 609 718<|content|>STATEMENT OF UNDISPUTED MATERIAL FACTS\n<|id|>201<|page|>26<|box|>412 421 430 576<|content|>ATTACHMENT B\n<|id|>202<|page|>26<|box|>439 230 455 764<|content|>LIST OF DECLARATIONS AND EXHIBITS FILED IN SUPPORT\n<|id|>204<|page|>26<|box|>513 142 531 537<|content|>DECLARATIONS. Declaration of Jordan Kessler\n<|id|>206<|page|>26<|box|>656 142 672 379<|content|>Declaration of Seo-Yeon Park\n<|id|>208<|page|>26<|box|>799 142 816 410<|content|>Declaration of Dr. Ingrid Lautner\n<|id|>210<|page|>27<|box|>208 140 224 383<|content|>Declaration of Nathan Rourke\n<|id|>225<|page|>28<|box|>319 254 335 741<|content|>UNITED STATES DISTRICT COURT DISTRICT OF NEVADA",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>6<|level|>1\n<|id|>10<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>1\n<|id|>23<|level|>1\n<|id|>24<|level|>2\n<|id|>30<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>42<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>71<|level|>1\n<|id|>78<|level|>1\n<|id|>79<|level|>2\n<|id|>127<|level|>2\n<|id|>145<|level|>2\n<|id|>155<|level|>1\n<|id|>173<|level|>1\n<|id|>181<|level|>1\n<|id|>182<|level|>2\n<|id|>201<|level|>1\n<|id|>202<|level|>2\n<|id|>204<|level|>3\n<|id|>206<|level|>3\n<|id|>208<|level|>3\n<|id|>210<|level|>3\n<|id|>225<|level|>-1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 1
+        },
+        {
+            "id": 173,
+            "level": 1
+        },
+        {
+            "id": 181,
+            "level": 1
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 1
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 210,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,124 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 169 155 828<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL ATTORN\n<|id|>7<|page|>1<|box|>469 140 486 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>17<|page|>2<|box|>502 140 518 305<|content|>II. BACKGROUND\n<|id|>18<|page|>2<|box|>534 140 550 514<|content|>A. Lumos Analytics Inc. — Company Overview\n<|id|>24<|page|>3<|box|>138 140 157 756<|content|>B. Engagement of Calderwood & Harkness LLP and Pal\n<|id|>30<|page|>3<|box|>691 142 709 532<|content|>III. FACTUAL SUMMARY OF THE INCIDENT\n<|id|>31<|page|>3<|box|>723 140 739 758<|content|>A. Origin of Compromised Credentials — VaultSync T\n<|id|>36<|page|>4<|box|>330 140 347 429<|content|>B. Attack Window and Methodology\n<|id|>46<|page|>5<|box|>289 140 305 385<|content|>C. Detection and Containment\n<|id|>55<|page|>6<|box|>362 142 378 346<|content|>D. Scope of Data Exposed\n<|id|>78<|page|>7<|box|>648 142 665 612<|content|>E. Exfiltration Assessment — Palisade Preliminary\n<|id|>84<|page|>8<|box|>565 140 582 477<|content|>F. Key Forensic Conclusions (Preliminary)\n<|id|>91<|page|>9<|box|>280 140 315 754<|content|>IV. PRELIMINARY LEGAL ANALYSIS — U.S. BREACH NOTIF\n<|id|>92<|page|>9<|box|>329 140 345 330<|content|>A. General Framework\n<|id|>99<|page|>10<|box|>89 140 107 607<|content|>B. California — Cal. Civ. Code § 1798.82 and CCPA/\n<|id|>109<|page|>11<|box|>737 140 753 614<|content|>C. New York — SHIELD Act (N.Y. Gen. Bus. Law § 899\n<|id|>116<|page|>13<|box|>90 140 107 607<|content|>D. Other Jurisdictions — Need for Comprehensive An\n<|id|>128<|page|>14<|box|>273 140 291 620<|content|>V. UK AND EU DATA PROTECTION CONSIDERATIONS\n<|id|>129<|page|>14<|box|>305 142 321 300<|content|>A. ICO Notification\n<|id|>134<|page|>15<|box|>90 140 106 421<|content|>B. EU GDPR — Non-UK Residents\n<|id|>139<|page|>15<|box|>625 140 643 468<|content|>VI. INSURANCE COVERAGE STATUS\n<|id|>150<|page|>16<|box|>474 140 493 687<|content|>VII. IMMEDIATE REMEDIATION ACTIONS TAKEN BY LUMOS\n<|id|>161<|page|>17<|box|>766 140 782 542<|content|>VIII. RECOMMENDATIONS AND NEXT STEPS\n<|id|>175<|page|>19<|box|>670 142 688 300<|content|>IX. CONCLUSION\n<|id|>181<|page|>20<|box|>270 411 287 584<|content|>Respectfully submitted,",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>24<|level|>2\n<|id|>30<|level|>1\n<|id|>31<|level|>2\n<|id|>36<|level|>2\n<|id|>46<|level|>2\n<|id|>55<|level|>2\n<|id|>78<|level|>2\n<|id|>84<|level|>2\n<|id|>91<|level|>1\n<|id|>92<|level|>2\n<|id|>99<|level|>2\n<|id|>109<|level|>2\n<|id|>116<|level|>2\n<|id|>128<|level|>1\n<|id|>129<|level|>2\n<|id|>134<|level|>2\n<|id|>139<|level|>1\n<|id|>150<|level|>1\n<|id|>161<|level|>1\n<|id|>175<|level|>1\n<|id|>181<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 161,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        }
+    ]
+}

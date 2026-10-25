@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 32,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['52', 'Wendt Falkenberg Legal Opinion — German Law', 'Wendt Falkenberg Rechtsanwälte PartG mbB (Dr. Lukas Wendt and Julia Falkenberg, signing partners)', 'Administrative Agent, Collateral Agent, and each Lender', 'C', 'Opinions covering: (i) due organization and valid existence of IHDC Frankfurt under German law; (ii) corporate capacity and authority of IHDC Frankfurt to enter into the Credit Agreement as Co-Borrower and all German security documents; (iii) enforceability of the German security documents (Sicherheitentre uhandvertrag, Grundschuldbest ellungsurkunde, Globalzession, Kontoverpfändung, Sicherungsübere']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', \"ignungsvertrag, Anteilsverpfändungsvertrag, and Sicherungszweckerklärung) under German law; (iv) upon registration with the Grundbuchamt, the Grundschuld will create a valid first-ranking land charge; and (v) upon annotation in the shareholders' list filed with the commercial register, the share pledge will be effective against third parties.Customary qualifications under German law to apply, including limitations relating to Insolvenzanfechtung (insolvency avoidance) and Kapitalerhaltung (capital maintenance) under the GmbHG.\"]]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 142,
+    "table2_idx": 143
+}

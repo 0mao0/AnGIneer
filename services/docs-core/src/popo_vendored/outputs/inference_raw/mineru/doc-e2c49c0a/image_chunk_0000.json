@@ -1,0 +1,59 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 161 141 834<|content|>CERTIFICATION REGARDING BENEFICIAL OWNERSHIP OF LE\n<|id|>1<|type|>title<|page|>1<|box|>159 158 194 839<|content|>Pursuant to 31 C.F.R. § 1010.230 — FinCEN Customer\n<|id|>3<|type|>table<|page|>1<|box|>228 143 315 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>364 140 381 779<|content|>PART I — GENERAL INSTRUCTIONS AND REGULATORY BACKG\n<|id|>11<|type|>title<|page|>2<|box|>321 142 338 627<|content|>PART II — LEGAL ENTITY CUSTOMER INFORMATION\n<|id|>12<|type|>table<|page|>2<|box|>371 143 656 852<|content|>None\n<|id|>14<|type|>title<|page|>2<|box|>786 140 803 578<|content|>PART III — OWNERSHIP STRUCTURE SUMMARY\n<|id|>32<|type|>title<|page|>4<|box|>89 140 126 803<|content|>PART IV — BENEFICIAL OWNER(S) UNDER THE OWNERSHIP\n<|id|>34<|type|>title<|page|>4<|box|>224 142 243 354<|content|>B. Explanation of Analysis\n<|id|>42<|type|>title<|page|>5<|box|>148 140 185 785<|content|>PART V — BENEFICIAL OWNER UNDER THE CONTROL PRONG\n<|id|>44<|type|>table<|page|>5<|box|>287 143 535 852<|content|>None\n<|id|>47<|type|>title<|page|>6<|box|>89 140 106 599<|content|>PART VI — REPRESENTATIONS AND WARRANTIES\n<|id|>55<|type|>title<|page|>7<|box|>277 140 294 483<|content|>PART VII — OBLIGATION TO UPDATE\n<|id|>56<|type|>title<|page|>7<|box|>309 140 325 403<|content|>A. Ongoing Update Requirement\n<|id|>62<|type|>title<|page|>7<|box|>796 140 813 669<|content|>B. Interaction with Credit Agreement Change of Con\n<|id|>64<|type|>title<|page|>8<|box|>213 140 229 334<|content|>C. Delivery Instructions\n<|id|>72<|type|>title<|page|>9<|box|>89 140 106 635<|content|>PART VIII — CERTIFICATION AND SIGNATURE BLOCK\n<|id|>75<|type|>title<|page|>9<|box|>314 142 330 447<|content|>IRONHAVEN DATA CENTERS LLC\n<|id|>81<|type|>title<|page|>10<|box|>89 142 106 593<|content|>EXHIBIT A — OWNERSHIP STRUCTURE DIAGRAM\n<|id|>83<|type|>title<|page|>10<|box|>176 143 212 852<|content|>IRONHAVEN DATA CENTERS LLC OWNERSHIP STRUCTURE CHA\n<|id|>96<|type|>title<|page|>11<|box|>89 140 125 813<|content|>EXHIBIT B — IDENTIFICATION OF CONTROL-PRONG BENEFI\n<|id|>98<|type|>title<|page|>11<|box|>202 143 218 346<|content|>Documentation Checklist.\n<|id|>99<|type|>table<|page|>11<|box|>224 143 674 852<|content|>None\n<|id|>100<|type|>title<|page|>11<|box|>714 142 729 434<|content|>Document Retention and Availability\n<|id|>104<|type|>title<|page|>13<|box|>89 143 106 767<|content|>EXHIBIT C — FORM OF UPDATED CERTIFICATION (FOR FUT\n<|id|>106<|type|>title<|page|>13<|box|>184 196 228 800<|content|>UPDATED CERTIFICATION REGARDING BENEFICIAL OWNERSH\n<|id|>107<|type|>title<|page|>13<|box|>244 158 280 839<|content|>Pursuant to 31 C.F.R. § 1010.230 — FinCEN Customer\n<|id|>108<|type|>table<|page|>13<|box|>313 143 419 852<|content|>None\n<|id|>109<|type|>title<|page|>13<|box|>459 143 476 393<|content|>Part I — Description of Change\n<|id|>112<|type|>table<|page|>13<|box|>719 143 888 852<|content|>None\n<|id|>113<|type|>title<|page|>14<|box|>128 142 146 580<|content|>Part III — Updated Ownership Structure (if applica\n<|id|>115<|type|>title<|page|>14<|box|>279 142 297 790<|content|>Part IV — Updated Beneficial Owner(s) Under the Ow\n<|id|>118<|type|>table<|page|>14<|box|>371 143 541 852<|content|>None\n<|id|>120<|type|>title<|page|>14<|box|>604 142 623 738<|content|>Part V — Updated Beneficial Owner Under the Contro\n<|id|>122<|type|>table<|page|>14<|box|>670 143 839 852<|content|>None\n<|id|>123<|type|>title<|page|>15<|box|>90 140 107 446<|content|>Part VI — Certification and Signature\n<|id|>125<|type|>title<|page|>15<|box|>175 140 191 447<|content|>IRONHAVEN DATA CENTERS LLC",
+    "raw_response": "<|src_id|>3<|tgt_id|>0\n<|src_id|>12<|tgt_id|>11\n<|src_id|>44<|tgt_id|>42\n<|src_id|>99<|tgt_id|>98\n<|src_id|>108<|tgt_id|>106\n<|src_id|>112<|tgt_id|>109\n<|src_id|>118<|tgt_id|>115\n<|src_id|>122<|tgt_id|>120",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 120
+        }
+    ]
+}

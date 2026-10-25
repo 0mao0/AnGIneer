@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 269 133 727<|content|>CALDERWOOD & HARKNESS LLP NEW BUSINESS INTAKE / MA\n<|id|>6<|page|>1<|box|>526 142 544 406<|content|>Brief Description of Engagement:\n<|id|>11<|page|>2<|box|>665 143 681 334<|content|>Additional Client Notes:\n<|id|>15<|page|>3<|box|>412 140 429 264<|content|>Staffing Notes:\n<|id|>19<|page|>3<|box|>842 140 859 566<|content|>Section 4 — Adverse / Other Parties (Conflicts Che\n<|id|>22<|page|>4<|box|>776 140 794 410<|content|>Notes Regarding Conflicts Check:\n<|id|>27<|page|>5<|box|>621 143 637 271<|content|>Estimated Fees:\n<|id|>40<|page|>6<|box|>505 140 522 362<|content|>Special Billing Instructions:\n<|id|>42<|page|>6<|box|>684 142 700 364<|content|>Anticipated Disbursements:\n<|id|>44<|page|>7<|box|>90 140 107 374<|content|>Section 6 — Risk Assessment\n<|id|>45<|page|>7<|box|>116 142 133 387<|content|>Transaction Size / Complexity:\n<|id|>47<|page|>7<|box|>314 142 332 364<|content|>Client Type Considerations:\n<|id|>53<|page|>7<|box|>799 143 816 361<|content|>Regulatory Considerations:\n<|id|>59<|page|>8<|box|>468 140 484 274<|content|>SPE Formation:\n<|id|>64<|page|>8<|box|>799 142 815 264<|content|>Ground Lease:\n<|id|>69<|page|>9<|box|>369 142 386 326<|content|>Insurance / Indemnity:\n<|id|>72<|page|>9<|box|>667 143 684 401<|content|>Malpractice Exposure Category:\n<|id|>77<|page|>10<|box|>324 143 340 346<|content|>Anticipated Sub-Matters:\n<|id|>79<|page|>10<|box|>517 142 534 388<|content|>Outside Counsel Coordination:\n<|id|>81<|page|>10<|box|>676 140 691 326<|content|>Section 8 — Approvals",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>11<|level|>2\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>22<|level|>2\n<|id|>27<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>47<|level|>3\n<|id|>53<|level|>3\n<|id|>59<|level|>4\n<|id|>64<|level|>4\n<|id|>69<|level|>4\n<|id|>72<|level|>4\n<|id|>77<|level|>3\n<|id|>79<|level|>3\n<|id|>81<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        }
+    ]
+}

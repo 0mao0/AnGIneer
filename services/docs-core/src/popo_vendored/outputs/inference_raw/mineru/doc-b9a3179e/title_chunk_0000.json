@@ -1,0 +1,124 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 145 152 852<|content|>125 Broad Street, 44th Floor New York, New York 10\n<|id|>12<|page|>1<|box|>517 140 534 364<|content|>I. Introduction and Purpose\n<|id|>18<|page|>2<|box|>513 140 529 689<|content|>II. Overview of Co-Investment Structure and Ration\n<|id|>25<|page|>3<|box|>566 140 584 588<|content|>III. Specific Comments on Credit Agreement Term Sh\n<|id|>27<|page|>3<|box|>679 142 696 321<|content|>A. Equity Cure Rights\n<|id|>36<|page|>4<|box|>695 140 712 465<|content|>B. Information Covenants and Reporting\n<|id|>47<|page|>5<|box|>705 140 722 602<|content|>C. Consent Provisions Affecting the Co-Investment\n<|id|>56<|page|>6<|box|>661 140 678 395<|content|>D. Change of Control Definition\n<|id|>64<|page|>7<|box|>547 142 564 468<|content|>E. Restricted Payments and Distributions\n<|id|>70<|page|>8<|box|>311 142 329 421<|content|>F. Guarantor and Security Matters\n<|id|>76<|page|>8<|box|>816 140 834 426<|content|>G. Conditions Precedent to Funding\n<|id|>86<|page|>10<|box|>90 176 106 565<|content|>H. Events of Default — Carve-Outs for Co-Invest\n<|id|>91<|page|>10<|box|>589 176 604 480<|content|>I. Assignment and Transfer Provisions\n<|id|>95<|page|>11<|box|>140 176 156 383<|content|>J. Market Flex Provisions\n<|id|>100<|page|>11<|box|>593 176 609 544<|content|>IV. Coordination with Transaction Documents\n<|id|>106<|page|>12<|box|>377 176 393 385<|content|>V. Process and Next Steps\n<|id|>111<|page|>12<|box|>814 176 832 380<|content|>VI. Reservation of Rights\n<|id|>117<|page|>13<|box|>410 176 428 279<|content|>VII. Closing\n<|id|>120<|page|>13<|box|>542 176 559 480<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>132<|page|>14<|box|>90 179 106 295<|content|>APPENDIX A\n<|id|>134<|page|>15<|box|>89 178 106 295<|content|>APPENDIX B\n<|id|>135<|page|>15<|box|>116 228 133 803<|content|>Summary of Key LP Agreement Provisions Relevant to\n<|id|>137<|page|>15<|box|>246 176 263 405<|content|>Section 4.01 — Capital Calls\n<|id|>144<|page|>15<|box|>569 176 587 714<|content|>Section 7.04 — Material Impediment Event; Dormancy",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>12<|level|>1\n<|id|>18<|level|>1\n<|id|>25<|level|>1\n<|id|>27<|level|>2\n<|id|>36<|level|>2\n<|id|>47<|level|>2\n<|id|>56<|level|>2\n<|id|>64<|level|>2\n<|id|>70<|level|>2\n<|id|>76<|level|>2\n<|id|>86<|level|>2\n<|id|>91<|level|>2\n<|id|>95<|level|>2\n<|id|>100<|level|>1\n<|id|>106<|level|>1\n<|id|>111<|level|>1\n<|id|>117<|level|>1\n<|id|>120<|level|>-1\n<|id|>132<|level|>1\n<|id|>134<|level|>1\n<|id|>135<|level|>2\n<|id|>137<|level|>3\n<|id|>144<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        }
+    ]
+}

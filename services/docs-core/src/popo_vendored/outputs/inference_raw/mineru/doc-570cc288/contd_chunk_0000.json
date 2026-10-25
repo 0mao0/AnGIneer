@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 155 133 839<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>2<|page|>1<|box|>141 140 178 854<|content|>FROM: ... Nadia Petrov, Associate, Calderwood & Ha...Monroe Street, Suite 3600, Chicago, Illinois 60606\n<|id|>3<|page|>1<|box|>186 140 222 854<|content|>TO: ... , 500 Commerce Drive, Suite 400, Schaumburg, Illinois 60173\n<|id|>4<|page|>1<|box|>229 140 266 854<|content|>Catherine \"Cat\" Donnelly, Vice President, Human Re...merce Drive, Suite 400, Schaumburg, Illinois 60173\n<|id|>5<|page|>1<|box|>273 140 292 694<|content|>CC: ... Bernard Crawford, Responsible Partner, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>300 140 318 334<|content|>DATE: ... February 6, 2023\n<|id|>7<|page|>1<|box|>325 140 363 854<|content|>RE: ... 2022-L-002847, Circuit Court of Cook County, Illinois, County Department, Law Division\n<|id|>34<|page|>3<|box|>859 176 895 854<|content|>1. ... Nexford's termination of Maciejewski was mo...itimate, non-retaliatory business reason — namely,\n<|id|>35<|page|>4<|box|>90 210 126 854<|content|>Maciejewski's repeated violations of the Company's..., or causally connected to, any protected activity\n<|id|>40<|page|>5<|box|>157 181 174 517<|content|>• Fact discovery Close: ... December 15, 2022\n<|id|>43<|page|>5<|box|>215 140 271 854<|content|>As discussed in detail below, all of these deadlin...lly complied with all of its discovery obligations\n<|id|>41<|page|>5<|box|>178 183 194 485<|content|>• Expert Disclosures: ... January 15, 2023\n<|id|>42<|page|>5<|box|>196 183 214 500<|content|>• Expert discovery Close: ... March 1, 2023\n<|id|>64<|page|>6<|box|>872 140 909 854<|content|>As of the date of this memorandum, no responses of...n for extension of time, and no communication from\n<|id|>65<|page|>7<|box|>90 140 126 854<|content|>Plaintiff's counsel regarding these outstanding di...The responses are now more than six months overdue\n<|id|>85<|page|>8<|box|>657 181 693 854<|content|>• The expert disclosure deadline of January 15, 20...closures had been received from Plaintiff; ... and\n<|id|>87<|page|>8<|box|>734 142 751 705<|content|>The Court acknowledged each of these issues and to...ach of these issues and took the following actions\n<|id|>114<|page|>11<|box|>366 183 383 454<|content|>• Per-Occurrence Limit: ... $2,000,000\n<|id|>117<|page|>11<|box|>425 140 534 854<|content|>Coverage was acknowledged by Verdant Mutual subjec...e policy, as discussed further in Section VI below\n<|id|>115<|page|>11<|box|>385 183 402 418<|content|>• Aggregate Limit: ... $5,000,000\n<|id|>116<|page|>11<|box|>404 184 421 437<|content|>• Self-Insured Retention: ... $50,000\n<|id|>126<|page|>12<|box|>194 183 210 725<|content|>• Coordination with Verdant Mutual on insurer reporting obligations; ... and\n<|id|>128<|page|>12<|box|>250 140 305 854<|content|>We estimate that fees through the resolution of th...d leave a substantial portion of the budget unused\n<|id|>138<|page|>13<|box|>559 174 595 854<|content|>Nadia Petrov, Lead Associate Calderwood & Harkness...Chicago, Illinois 60606 Direct: ... (312) 555-1847\n<|id|>139<|page|>13<|box|>604 176 619 491<|content|>Email: ... com\n<|id|>140<|page|>13<|box|>621 176 657 854<|content|>Bernard Crawford, Responsible Partner Calderwood &...Chicago, Illinois 60606 Direct: ... (312) 555-1290\n<|id|>141<|page|>13<|box|>665 176 681 509<|content|>Email: ... com\n<|id|>146<|page|>14<|box|>196 140 213 321<|content|>Respectfully submitted,\n<|id|>147<|page|>14<|box|>214 140 229 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>148<|page|>14<|box|>232 142 250 253<|content|>By: ... By\n<|id|>149<|page|>14<|box|>248 140 265 529<|content|>Nadia Petrov Lead Associate Direct: ... (312) 555-1847\n<|id|>150<|page|>14<|box|>266 140 282 457<|content|>Email: ... com\n<|id|>151<|page|>14<|box|>282 140 299 586<|content|>227 West Monroe Street, Suite 3600 Chicago, Illinois 60606\n<|id|>152<|page|>14<|box|>300 140 361 857<|content|>This memorandum is a privileged and confidential a...tify the sender immediately and destroy all copies",
+    "raw_response": "<|src_id|>34<|tgt_id|>35\n<|src_id|>64<|tgt_id|>65",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        }
+    ]
+}

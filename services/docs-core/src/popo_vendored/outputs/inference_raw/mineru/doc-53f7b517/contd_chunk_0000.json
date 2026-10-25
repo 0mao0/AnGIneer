@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        61
+    ],
+    "pages": [
+        5,
+        6,
+        7,
+        11,
+        13,
+        29,
+        40,
+        60
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>20<|page|>5<|box|>265 524 281 823<|content|>(Percent change, fourth quarter to fourth quarter)\n<|id|>21<|page|>5<|box|>630 511 676 916<|content|>during the 10 months available for 2001, up from 2. ... 6 percent increase during 2000\n<|id|>23<|page|>6<|box|>90 80 212 488<|content|>Evidence suggests that wage pressures have eased o...owdown in productivity during the past year caused\n<|id|>24<|page|>6<|box|>231 94 262 318<|content|>Consumer Prices (Percent change from a year earlier)\n<|id|>36<|page|>7<|box|>825 84 912 493<|content|>Real consumer spending increased 1. ... 3\n<|id|>37<|page|>7<|box|>101 522 135 785<|content|>Establishment Employment (Average monthly change in thousands)\n<|id|>38<|page|>7<|box|>452 511 523 918<|content|>percent in September, with spending on durable goo... decline may be offset by growth later in the year\n<|id|>78<|page|>11<|box|>116 81 174 488<|content|>Net national saving has declined in 2001, reflecti...luses. ... 9 percent of net national product (NNP)\n<|id|>79<|page|>11<|box|>172 81 297 326<|content|>from 6. ... )\n<|id|>80<|page|>11<|box|>297 81 507 326<|content|>The decline in saving in 2001 is primarily the res...ment since 1992, when public dissaving drained the\n<|id|>81<|page|>11<|box|>506 81 535 488<|content|>July through September and by reducing consumption... in September in the wake of the terrorist attacks\n<|id|>82<|page|>11<|box|>535 81 579 490<|content|>Government saving eased from 2. ... The decline wa...rrowing of the Federal surplus, although State and\n<|id|>83<|page|>11<|box|>500 508 558 916<|content|>1988 through 1996. ... 7 percent in the first half of 2001\n<|id|>107<|page|>13<|box|>414 315 429 683<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>108<|page|>13<|box|>429 83 446 316<|content|>Fourth-Quarter Receipts\n<|id|>109<|page|>13<|box|>453 81 540 500<|content|>The following capsule analysis of budget receipts,... to analyze adequately collections for the quarter\n<|id|>180<|page|>29<|box|>213 506 316 915<|content|>- Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>182<|page|>29<|box|>364 506 512 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>221<|page|>40<|box|>449 310 465 689<|content|>[Source: ... Bureau of the Public Debt, Office of Financing]\n<|id|>222<|page|>40<|box|>479 81 569 488<|content|>On July 23, 2001, Treasury announced plans to begi...ced July 30, auctioned July 31 and issued August 2\n<|id|>323<|page|>60<|box|>140 326 157 687<|content|>Based on closing bid quotations (in percentages)",
+    "raw_response": "<|src_id|>23<|tgt_id|>21\n<|src_id|>36<|tgt_id|>38\n<|src_id|>78<|tgt_id|>79\n<|src_id|>82<|tgt_id|>83",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        }
+    ]
+}

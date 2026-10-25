@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>558 140 575 313<|content|>User Fee Transmittal\n<|id|>17<|page|>2<|box|>148 140 167 410<|content|>Description of the Ruling Request\n<|id|>24<|page|>3<|box|>90 142 107 308<|content|>Enclosed Documents\n<|id|>35<|page|>3<|box|>779 142 796 281<|content|>Shipment Details\n<|id|>41<|page|>4<|box|>220 142 237 560<|content|>Authorized Representatives and Contact Information\n<|id|>51<|page|>4<|box|>651 140 667 606<|content|>Request for Acknowledgment and Expedited Considera\n<|id|>54<|page|>5<|box|>186 140 204 207<|content|>Closing\n<|id|>58<|page|>5<|box|>417 140 433 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>72<|page|>5<|box|>726 143 739 171<|content|>cc:",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>17<|level|>1\n<|id|>24<|level|>1\n<|id|>35<|level|>1\n<|id|>41<|level|>1\n<|id|>51<|level|>1\n<|id|>54<|level|>1\n<|id|>58<|level|>1\n<|id|>72<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        }
+    ]
+}

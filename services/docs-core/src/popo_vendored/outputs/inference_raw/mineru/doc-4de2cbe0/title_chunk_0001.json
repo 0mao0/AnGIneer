@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        51,
+        79
+    ],
+    "pages": [
+        52,
+        60,
+        67,
+        68,
+        69,
+        71,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>120<|page|>52<|box|>75 79 107 920<|content|>Section I - Interest-Bearing Securities Issued or\n<|id|>140<|page|>60<|box|>88 304 104 660<|content|>Table 1.- Summary by Principal Sources^{1/}\n<|id|>161<|page|>67<|box|>71 326 86 612<|content|>Table 6.- Seigniorage on Silver\n<|id|>167<|page|>68<|box|>478 369 492 652<|content|>Section I - Summary by Periods\n<|id|>168<|page|>68<|box|>494 147 509 863<|content|>Table 1.- Net Capital Movement between the United\n<|id|>170<|page|>69<|box|>75 354 91 632<|content|>Section 1 - Summary by Periods\n<|id|>175<|page|>71<|box|>71 345 87 648<|content|>Section II - Summary by Countries\n<|id|>176<|page|>71<|box|>90 200 109 792<|content|>Table 1.- Net Movement of Capital and of Short-Ter\n<|id|>180<|page|>73<|box|>72 342 87 646<|content|>Section II - Summary by Countries\n<|id|>181<|page|>73<|box|>91 216 106 763<|content|>Table 3.- Short-Term Claims on and Liabilities to\n<|id|>183<|page|>74<|box|>69 365 83 670<|content|>Section II - Summary by Countries\n<|id|>184<|page|>74<|box|>90 221 103 816<|content|>Table 4.- Foreign Debit and Credit Balances in Bro\n<|id|>186<|page|>75<|box|>64 275 79 708<|content|>Section III - Details for Month of October 1952\n<|id|>190<|page|>76<|box|>95 295 111 718<|content|>Table 2.- Short-Term Liabilities to Foreigners\n<|id|>193<|page|>77<|box|>59 273 74 704<|content|>Section III - Details for Month of October 1952\n<|id|>196<|page|>78<|box|>59 223 75 794<|content|>Section III A - Preliminary Details for Month of D\n<|id|>197<|page|>78<|box|>79 317 94 697<|content|>Table 1.- Short-Term Claims on Foreigners\n<|id|>199<|page|>79<|box|>67 207 83 774<|content|>Section III A - Preliminary Details for Month of D\n<|id|>200<|page|>79<|box|>86 279 102 700<|content|>Table 2.- Short-Term Liabilities to Foreigners",
+    "raw_response": "<|id|>120<|level|>1\n<|id|>140<|level|>2\n<|id|>161<|level|>2\n<|id|>167<|level|>1\n<|id|>168<|level|>2\n<|id|>170<|level|>1\n<|id|>175<|level|>1\n<|id|>176<|level|>2\n<|id|>180<|level|>1\n<|id|>181<|level|>2\n<|id|>183<|level|>1\n<|id|>184<|level|>2\n<|id|>186<|level|>1\n<|id|>190<|level|>2\n<|id|>193<|level|>1\n<|id|>196<|level|>2\n<|id|>197<|level|>3\n<|id|>199<|level|>2\n<|id|>200<|level|>3",
+    "parsed": [
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 1
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 1
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 1
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 1
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        10,
+        11,
+        13,
+        14,
+        17,
+        19,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 140 104 843<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED / ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>112 424 128 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>138 140 156 627<|content|>FROM: ... Miriam Calloway, Partner, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>164 140 220 854<|content|>TO: ... Jennifer Holt, Vice President, Clinical Operations, Penterra Pharmaceuticals Corp\n<|id|>4<|page|>1<|box|>227 140 263 854<|content|>CC: ... Joel Strauss, Partner, Calderwood & Harkne...topher Aiken, Associate, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>270 140 289 302<|content|>DATE: ... May 3, 2023\n<|id|>6<|page|>1<|box|>296 140 333 854<|content|>RE: ... Initial Markup of Master Clinical Trial Agreement for Protocol PPC-4871-III (CLARION)\n<|id|>7<|page|>1<|box|>340 140 358 362<|content|>MATTER NO. ... 1018-00004\n<|id|>20<|page|>2<|box|>829 140 885 856<|content|>The Global Principal Investigator for the CLARION trial is Dr. ... , Chief of Medical Oncology at\n<|id|>21<|page|>3<|box|>89 140 127 854<|content|>Lakemont Medical Center. ... Both investigators ar...s lead investigators in multi-site clinical trials\n<|id|>90<|page|>10<|box|>606 174 661 854<|content|>(ii) unauthorized protocol deviations — that is, d...mpromise framework proposed in Section IV. ... and\n<|id|>92<|page|>10<|box|>713 138 859 857<|content|>These carve-outs are standard in virtually all mul...nce of clinical trial activities by site personnel\n<|id|>101<|page|>11<|box|>686 174 704 645<|content|>(ii) unauthorized protocol deviations attributable to the site; ... and\n<|id|>103<|page|>11<|box|>757 140 792 854<|content|>Proposed Caps: ... $20,000,000 in the aggregate across all Veridian Network sites\n<|id|>123<|page|>13<|box|>862 140 898 854<|content|>Recommendation: ... Accept a contractual requireme...cal trial liability insurer during the term of the\n<|id|>124<|page|>14<|box|>89 140 218 856<|content|>MCTA. ... Veridian's interest is in ensuring that ...rolling Penterra's insurance procurement decisions\n<|id|>154<|page|>17<|box|>220 174 257 854<|content|>(b) identifying patentable subject matter that may...re protection through patent applications; ... and\n<|id|>156<|page|>17<|box|>309 140 400 854<|content|>For the avoidance of doubt, Penterra's review righ... to WJC and to Veridian's institutional leadership\n<|id|>177<|page|>19<|box|>449 174 505 854<|content|>(b) The deviation is fully documented in the case ...afety and the integrity of the trial data; ... and\n<|id|>179<|page|>19<|box|>574 140 685 857<|content|>This framework protects investigators who make goo...communications) to protect subjects at other sites\n<|id|>238<|page|>25<|box|>253 147 308 854<|content|>• The protocol deviation compromise framework proposed in Section IV. ... and\n<|id|>240<|page|>25<|box|>329 140 367 852<|content|>Dr. ... Sundaram's team should review the Second D...ll regulatory provisions are accurate and complete\n<|id|>244<|page|>25<|box|>534 147 588 854<|content|>• Confirmation that the Briarcliff policy terms (Policy No. ... and\n<|id|>246<|page|>25<|box|>628 140 700 854<|content|>Calderwood & Harkness will also prepare a separate...Nathaniel Briggs and Rebecca Liang upon completion",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>123<|tgt_id|>124",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 124
+        }
+    ]
+}

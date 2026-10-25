@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        52
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        13,
+        14,
+        26,
+        31,
+        42,
+        43,
+        51
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>5<|box|>288 163 323 777<|content|>TREASURY DEPARTMENT\n<|id|>15<|page|>7<|box|>281 174 314 778<|content|>TREASURY DEPARTMENT\n<|id|>20<|page|>9<|box|>141 383 159 581<|content|>Table of Contents\n<|id|>25<|page|>13<|box|>251 590 266 820<|content|>Fiscal Year 1938, 1939 and 1940\n<|id|>36<|page|>14<|box|>440 326 454 651<|content|>Summary of Receipts and Expenditures\n<|id|>54<|page|>26<|box|>48 324 62 656<|content|>Cash Income and Outgo of the Treasury\n<|id|>59<|page|>31<|box|>388 154 403 822<|content|>Statement of the Outstanding Public Debt on June 3\n<|id|>78<|page|>42<|box|>48 184 76 773<|content|>Sources of Funds of Certain Governmental Corporati\n<|id|>81<|page|>43<|box|>54 211 83 771<|content|>Uses of Funds of Certain Governmental Corporations\n<|id|>95<|page|>51<|box|>49 189 78 790<|content|>Net Capital Movement between the United States and",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>15<|level|>1\n<|id|>20<|level|>1\n<|id|>25<|level|>2\n<|id|>36<|level|>2\n<|id|>54<|level|>2\n<|id|>59<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>2\n<|id|>95<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        }
+    ]
+}

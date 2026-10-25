@@ -1,0 +1,28 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 267 118 730<|content|>NON-FOREIGN PERSON CERTIFICATION\n<|id|>1<|page|>1<|box|>136 163 172 834<|content|>Pursuant to Section 1445(b)(2) of the Internal Rev\n<|id|>13<|page|>2<|box|>364 142 382 258<|content|>EXECUTION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>13<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        }
+    ]
+}

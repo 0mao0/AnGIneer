@@ -1,0 +1,23 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['California', 'Cal. Fin.Code § 2060 et seq.', 'Prior Approval', '30 days before closing (minimum)', '$5,000', 'NMLS + Paper Supplement', 'NMLS MU1/ MU2; Biographical affidavits;', 'DFPI —Dept. of Financial Protecti', 'Approved', '04/07/2025', '06/30/2025']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', 'Fingerprint cards via approved vendor', 'on & Innovation', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 108,
+    "table2_idx": 109
+}

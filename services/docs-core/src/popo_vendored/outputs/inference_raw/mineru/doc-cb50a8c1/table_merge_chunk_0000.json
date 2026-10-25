@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Premises:', 'Approximately 297,500 [297,500][273,500] rentable square feet, consisting of approximately 285,000']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '[285,000][261,000] square feet of warehouse/distribution space and approximately 12,500 square feet of finished office/mezzanine space, located in Building 4, Cranbury Commerce Center, 200 Prospect Plains Road, Cranbury, New Jersey 08512 (Block 24, Lot 17.04 on the Tax Map of the Township of Cranbury, Middlesex County, New Jersey), as more particularly described on Exhibit A and depicted on Exhibit A-1 attached hereto and incorporated herein by reference. [NTD: Rentable area subject to confirmation upon receipt of revised civil engineering drawings. If revised site plan is adopted, warehouse space reduces from 285,000 SF to approximately 261,000 SF (loss of 24,000 SF), total from 297,500 SF to 273,500 SF. All per-SF calculations throughout must be adjusted accordingly. Awaiting client instruction.]']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 26,
+    "table2_idx": 27
+}

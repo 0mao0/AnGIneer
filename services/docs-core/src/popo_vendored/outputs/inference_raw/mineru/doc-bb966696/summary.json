@@ -1,0 +1,193 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pu6o0wu0\\input\\pdfs\\doc-bb966696.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pu6o0wu0\\enriched\\doc-bb966696.json",
+    "contd_output": "<|src_id|>152<|tgt_id|>153\n<|src_id|>192<|tgt_id|>193",
+    "title_output": "<|id|>3<|level|>1\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>28<|level|>3\n<|id|>35<|level|>3\n<|id|>42<|level|>3\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>60<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>85<|level|>3\n<|id|>101<|level|>3\n<|id|>111<|level|>2\n<|id|>112<|level|>3\n<|id|>120<|level|>3\n<|id|>131<|level|>3\n<|id|>154<|level|>3\n<|id|>168<|level|>3\n<|id|>186<|level|>2\n<|id|>187<|level|>3\n<|id|>191<|level|>3\n<|id|>201<|level|>3\n<|id|>205<|level|>2\n<|id|>206<|level|>3\n<|id|>212<|level|>3\n<|id|>218<|level|>2\n<|id|>221<|level|>2",
+    "image_output": "<|src_id|>104<|tgt_id|>101\n<|src_id|>146<|tgt_id|>131\n<|src_id|>147<|tgt_id|>131\n<|src_id|>219<|tgt_id|>218\n<|src_id|>220<|tgt_id|>218",
+    "contd_label": [
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 193
+        }
+    ],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 191,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 205,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 3
+        },
+        {
+            "id": 212,
+            "level": 3
+        },
+        {
+            "id": 218,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 104,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 218
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 218
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 146,
+            "table2_idx": 147,
+            "upper_row_ss": [
+                [
+                    "Ridgeline Consulting Group, LLC fees",
+                    "$340,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Internal FTE reallocation costs (dedicated compliance personnel)",
+                    "$485,000"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 219,
+            "table2_idx": 220,
+            "upper_row_ss": [
+                [
+                    "October 6–10, 2025",
+                    "Accelerate drafting of advertising-specific portions of Phase 2 (Advertising Review & Filing SOP)",
+                    "Carlos Espinoza, Lena Fujimoto, C&H Phase 2 team"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "to produce substantially complete draft by October 10",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

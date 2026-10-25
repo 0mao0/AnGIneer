@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>189 367 208 630<|content|>PRICING TERM SHEET\n<|id|>2<|page|>1<|box|>226 357 244 640<|content|>Offering Memorandum Supplement\n<|id|>7<|page|>1<|box|>356 377 372 617<|content|>8.250% Senior Notes due 2031\n<|id|>9<|page|>1<|box|>569 143 585 367<|content|>I. ISSUER INFORMATION\n<|id|>12<|page|>1<|box|>832 143 849 393<|content|>II. SECURITY DESCRIPTION\n<|id|>15<|page|>2<|box|>529 143 545 325<|content|>III. PRICING TERMS\n<|id|>22<|page|>3<|box|>671 142 688 370<|content|>V. CUSIP / ISIN NUMBERS\n<|id|>23<|page|>3<|box|>698 143 714 241<|content|>144A Notes:\n<|id|>27<|page|>4<|box|>186 140 203 403<|content|>VI. OPTIONAL REDEMPTION\n<|id|>32<|page|>5<|box|>90 142 107 483<|content|>Fixed-Price Optional Redemption Schedule\n<|id|>36<|page|>5<|box|>434 140 450 388<|content|>VII. CHANGE OF CONTROL\n<|id|>38<|page|>5<|box|>628 140 647 359<|content|>VIII. USE OF PROCEEDS\n<|id|>42<|page|>6<|box|>314 143 330 261<|content|>IX. RATINGS\n<|id|>45<|page|>6<|box|>643 142 659 369<|content|>X. INITIAL PURCHASERS\n<|id|>50<|page|>7<|box|>257 142 273 344<|content|>XII. GOVERNING LAW\n<|id|>53<|page|>7<|box|>454 140 472 687<|content|>XIV. KEY INDENTURE PROVISIONS (SUMMARY REFERENCE)\n<|id|>57<|page|>8<|box|>89 142 106 625<|content|>XV. REGISTRATION RIGHTS (SUMMARY REFERENCE)\n<|id|>61<|page|>8<|box|>577 140 594 620<|content|>XVI. DISCLAIMERS AND ADDITIONAL INFORMATION",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>7<|level|>1\n<|id|>9<|level|>2\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>27<|level|>2\n<|id|>32<|level|>3\n<|id|>36<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>57<|level|>2\n<|id|>61<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        }
+    ]
+}

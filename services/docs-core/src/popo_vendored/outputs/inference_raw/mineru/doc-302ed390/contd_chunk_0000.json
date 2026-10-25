@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 174 151 823<|content|>200 South Wacker Drive, Suite 3100 Chicago, Illinois 60606 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 715 176 854<|content|>February 14, 2022\n<|id|>3<|page|>1<|box|>186 140 222 854<|content|>Priya Nandakumar, Esq. ... 4280 Mound Road Sterling Heights, MI 48310\n<|id|>4<|page|>1<|box|>229 140 284 854<|content|>Re: ... 1007-00005\n<|id|>5<|page|>1<|box|>292 140 309 318<|content|>Dear Ms. ... Nandakumar\n<|id|>14<|page|>2<|box|>133 174 171 854<|content|>(b) Second Warranty Chargeback Notice (WCN-2022-01...ts, in the aggregate amount of $1,756,398. ... and\n<|id|>16<|page|>2<|box|>223 140 258 856<|content|>In total, the three WCNs cover 11,814 units and as...te chargebacks in the amount of $4,870,550. ... 20\n<|id|>69<|page|>6<|box|>614 174 633 821<|content|>(c) Any officer, director, employee, or agent of Vantage in their individual capacities; ... or\n<|id|>71<|page|>6<|box|>685 140 741 854<|content|>Any communications by the Firm with representative...attorney-client relationships or duties of loyalty\n<|id|>81<|page|>7<|box|>824 140 898 856<|content|>In light of the pending warranty-chargeback disput...ll custodians, departments, and systems within the\n<|id|>82<|page|>8<|box|>90 140 127 854<|content|>Company that may contain responsive information. ....ories of materials subject to preservation include\n<|id|>88<|page|>8<|box|>429 174 482 854<|content|>(f) Any returned parts or samples currently in Van...hat maintains their evidentiary integrity; ... and\n<|id|>90<|page|>8<|box|>554 140 645 856<|content|>The Firm strongly recommends that Vantage issue a ...ormal litigation hold notice and related protocols\n<|id|>105<|page|>9<|box|>916 142 929 405<|content|>Calderwood & Harkness Matter No. ... 1007-00005\n<|id|>106<|page|>10<|box|>89 140 106 313<|content|>Name: ... Samuel Eklund\n<|id|>107<|page|>10<|box|>107 142 125 248<|content|>Title: ... Partner\n<|id|>108<|page|>10<|box|>125 143 142 253<|content|>By: ... By\n<|id|>109<|page|>10<|box|>142 143 157 282<|content|>Name: ... Linda Osei\n<|id|>110<|page|>10<|box|>159 142 175 246<|content|>Title: ... Partner\n<|id|>115<|page|>10<|box|>299 142 315 338<|content|>Name: ... Priya Nandakumar\n<|id|>116<|page|>10<|box|>316 142 333 315<|content|>Title: ... General Counsel\n<|id|>117<|page|>10<|box|>334 142 349 266<|content|>Date: ... Date\n<|id|>118<|page|>10<|box|>351 142 368 284<|content|>Enclosures: ... None\n<|id|>119<|page|>10<|box|>375 140 407 854<|content|>cc: ... Douglas Brenton, Managing Partner, Ironcla...s, LLC (by separate cover, at Vantage's direction)",
+    "raw_response": "<|src_id|>81<|tgt_id|>82",
+    "parsed": [
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        }
+    ]
+}

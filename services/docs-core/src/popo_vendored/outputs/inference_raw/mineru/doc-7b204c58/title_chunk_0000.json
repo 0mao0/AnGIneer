@@ -1,0 +1,119 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 238 108 759<|content|>IN THE COURT OF CHANCERY OF THE STATE OF DELAWARE\n<|id|>2<|page|>1<|box|>393 181 429 815<|content|>DECLARATION OF DR. FRANKLIN OBERG IN SUPPORT OF PL\n<|id|>4<|page|>1<|box|>642 142 659 504<|content|>I. QUALIFICATIONS AND BACKGROUND\n<|id|>12<|page|>2<|box|>464 142 481 553<|content|>II. RETENTION AND SCOPE OF ENGAGEMENT\n<|id|>16<|page|>3<|box|>90 142 106 393<|content|>III. MATERIALS REVIEWED\n<|id|>37<|page|>4<|box|>747 140 784 777<|content|>IV. OVERVIEW OF CRH'S MERCHANDISING BUSINESS AND E\n<|id|>39<|page|>4<|box|>915 142 929 245<|content|>CONFIDENTIAL\n<|id|>43<|page|>5<|box|>609 140 626 580<|content|>V. NATURE AND SCOPE OF COMPETITIVE HARM\n<|id|>44<|page|>5<|box|>641 142 657 385<|content|>A. Direct Competitive Overlap\n<|id|>48<|page|>6<|box|>324 142 340 470<|content|>B. Significance of Exfiltrated Information\n<|id|>55<|page|>7<|box|>398 140 415 570<|content|>C. Magnitude of Verdana's Investment in Recruitmen\n<|id|>59<|page|>8<|box|>90 142 106 535<|content|>VI. PRELIMINARY DAMAGES FRAMEWORK\n<|id|>60<|page|>8<|box|>121 142 138 403<|content|>A. Categories of Economic Harm\n<|id|>65<|page|>8<|box|>656 142 672 483<|content|>B. Preliminary Quantification Methodology\n<|id|>66<|page|>8<|box|>684 143 700 315<|content|>1. Lost Profits Model.\n<|id|>71<|page|>9<|box|>339 140 356 465<|content|>2. Diminished Trade Secret Value Model.\n<|id|>75<|page|>9<|box|>742 142 758 398<|content|>3. Operational Disruption Costs.\n<|id|>82<|page|>10<|box|>382 140 398 392<|content|>C. Preliminary Damages Range\n<|id|>85<|page|>10<|box|>685 140 702 638<|content|>VII. IRREPARABLE HARM — ECONOMIC PERSPECTIVE\n<|id|>92<|page|>12<|box|>89 142 106 738<|content|>VIII. CONSIDERATION OF DEFENDANTS' POTENTIAL ARGUM\n<|id|>97<|page|>12<|box|>636 143 652 344<|content|>IX. OPINIONS STATED\n<|id|>104<|page|>13<|box|>391 142 407 408<|content|>X. RESERVATION OF RIGHTS\n<|id|>112<|page|>13<|box|>809 142 825 284<|content|>VERIFICATION\n<|id|>117<|page|>14<|box|>164 140 181 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>-1\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>48<|level|>3\n<|id|>55<|level|>3\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>65<|level|>3\n<|id|>66<|level|>4\n<|id|>71<|level|>4\n<|id|>75<|level|>4\n<|id|>82<|level|>3\n<|id|>85<|level|>2\n<|id|>92<|level|>2\n<|id|>97<|level|>2\n<|id|>104<|level|>2\n<|id|>112<|level|>2\n<|id|>117<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        }
+    ]
+}

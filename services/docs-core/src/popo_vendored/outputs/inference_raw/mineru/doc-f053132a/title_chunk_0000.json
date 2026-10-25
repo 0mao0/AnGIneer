@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>114 200 133 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|page|>1<|box|>367 140 383 421<|content|>I. Purpose and Executive Summary\n<|id|>17<|page|>2<|box|>455 140 474 627<|content|>II. Technical Expert — Requirements and Evaluation\n<|id|>18<|page|>2<|box|>487 140 503 553<|content|>A. Scope of Technical Expert's Anticipated Opinion\n<|id|>37<|page|>4<|box|>304 142 320 343<|content|>B. Desired Qualifications\n<|id|>46<|page|>5<|box|>138 140 157 604<|content|>C. Candidate 1 (Recommended): Dr. Franklin Ogawa,\n<|id|>68<|page|>7<|box|>638 140 657 580<|content|>D. Alternative Technical Expert Candidates Conside\n<|id|>80<|page|>8<|box|>815 140 832 630<|content|>III. Damages Expert — Requirements and Evaluation\n<|id|>81<|page|>8<|box|>845 142 863 547<|content|>A. Scope of Damages Expert's Anticipated Opinions\n<|id|>108<|page|>10<|box|>854 142 872 341<|content|>B. Desired Qualifications\n<|id|>116<|page|>11<|box|>439 140 455 609<|content|>C. Candidate 1 (Recommended): Dr. Louise Tremaine,\n<|id|>136<|page|>13<|box|>316 140 334 575<|content|>D. Alternative Damages Expert Candidates Considere\n<|id|>147<|page|>14<|box|>407 140 424 457<|content|>IV. Engagement Structure and Logistics\n<|id|>148<|page|>14<|box|>439 140 455 300<|content|>A. Retention Terms\n<|id|>152<|page|>14<|box|>782 140 799 372<|content|>B. Timeline and Deliverables\n<|id|>157<|page|>15<|box|>426 140 443 446<|content|>C. Document Access and Coordination\n<|id|>159<|page|>15<|box|>549 142 566 555<|content|>Key documents for the technical expert (Dr. Ogawa)\n<|id|>175<|page|>16<|box|>440 142 457 346<|content|>D. Budget Considerations\n<|id|>180<|page|>17<|box|>90 140 107 426<|content|>V. Recommendation and Next Steps",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>8<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>37<|level|>3\n<|id|>46<|level|>3\n<|id|>68<|level|>3\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>108<|level|>3\n<|id|>116<|level|>3\n<|id|>136<|level|>3\n<|id|>147<|level|>2\n<|id|>148<|level|>3\n<|id|>152<|level|>3\n<|id|>157<|level|>3\n<|id|>159<|level|>4\n<|id|>175<|level|>3\n<|id|>180<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 4
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 2
+        }
+    ]
+}

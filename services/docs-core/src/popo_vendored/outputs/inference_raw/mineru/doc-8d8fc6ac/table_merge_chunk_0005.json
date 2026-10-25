@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Total....', '155,138', '59,856', '10,772', '14,625', '3,910', '24,212', '41,764']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Issue(Tax status 2/ is shown in parentheses)', 'rowspan=3, Total amount outstanding', 'colspan=5, Held by investors covered in Treasury Survey', 'rowspan=3, Held by all other investor3/']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 129,
+    "table2_idx": 130
+}

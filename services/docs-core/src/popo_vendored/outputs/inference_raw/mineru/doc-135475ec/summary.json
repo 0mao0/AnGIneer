@@ -1,0 +1,309 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-79qzz0hn\\input\\pdfs\\doc-135475ec.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-79qzz0hn\\enriched\\doc-135475ec.json",
+    "contd_output": "<|src_id|>41<|tgt_id|>42\n<|src_id|>55<|tgt_id|>56\n<|src_id|>109<|tgt_id|>110\n<|src_id|>153<|tgt_id|>154",
+    "title_output": "<|id|>10<|level|>1\n<|id|>22<|level|>1\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>36<|level|>2\n<|id|>40<|level|>1\n<|id|>45<|level|>2\n<|id|>52<|level|>2\n<|id|>61<|level|>2\n<|id|>67<|level|>2\n<|id|>75<|level|>1\n<|id|>79<|level|>2\n<|id|>87<|level|>2\n<|id|>93<|level|>2\n<|id|>97<|level|>1\n<|id|>100<|level|>2\n<|id|>113<|level|>2\n<|id|>118<|level|>1\n<|id|>120<|level|>2\n<|id|>142<|level|>2\n<|id|>148<|level|>2\n<|id|>152<|level|>1\n<|id|>155<|level|>2\n<|id|>174<|level|>2\n<|id|>178<|level|>1\n<|id|>179<|level|>2\n<|id|>184<|level|>2\n<|id|>188<|level|>1\n<|id|>198<|level|>1\n<|id|>216<|level|>1",
+    "image_output": "<|src_id|>210<|tgt_id|>198\n<|src_id|>211<|tgt_id|>198\n<|src_id|>212<|tgt_id|>198\n<|src_id|>213<|tgt_id|>198\n<|src_id|>214<|tgt_id|>198\n<|src_id|>215<|tgt_id|>198\n<|src_id|>217<|tgt_id|>216",
+    "contd_label": [
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 154
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 1
+        },
+        {
+            "id": 198,
+            "level": 1
+        },
+        {
+            "id": 216,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 210,
+            "tgt_id": 198
+        },
+        {
+            "src_id": 211,
+            "tgt_id": 198
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 198
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 198
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 198
+        },
+        {
+            "src_id": 215,
+            "tgt_id": 198
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 216
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 210,
+            "table2_idx": 211,
+            "upper_row_ss": [
+                [
+                    "APEX-007891 - APEX-007934",
+                    "2018–2019",
+                    "Dr. Priya Chandrasekaran",
+                    "Prosecution correspondence",
+                    "Correspondence showing Apex overcame § 103 rejection of '884 Patent",
+                    "Cat. 1 — Prosecution",
+                    "High"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "by adding \"spring-biased retraction\" limitation",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 211,
+            "table2_idx": 212,
+            "upper_row_ss": [
+                [
+                    "APEX-011345",
+                    "2020",
+                    "Apex prosecution",
+                    "Draft claims",
+                    "Abandoned draft claims",
+                    "Cat. 1 — Prosecution",
+                    "High"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "counsel",
+                    "",
+                    "for '105 Patent covering broader single-valve configuration — supports narrow construction of issued claims",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 212,
+            "table2_idx": 213,
+            "upper_row_ss": [
+                [
+                    "APEX-014201 - APEX-014218",
+                    "2015–2016",
+                    "Dr. Raymond Szabo",
+                    "Notebook entries",
+                    "Design iteration records showing spring-biased retraction was not part of original",
+                    "Cat. 2 — Inventor Records",
+                    "High"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "conception but was added later",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 213,
+            "table2_idx": 214,
+            "upper_row_ss": [
+                [
+                    "APEX-01685 0",
+                    "2022",
+                    "Apex IP Department",
+                    "Internal memorandum",
+                    "Post-issuance validity assessment of",
+                    "Cat. 3 — Prior Art",
+                    "High"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "'884 Patent acknowledging vulnerability to certain prior art combinations",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 214,
+            "table2_idx": 215,
+            "upper_row_ss": [
+                [
+                    "APEX-022250 - APEX-022278",
+                    "2022–2024",
+                    "Apex Commercial Team",
+                    "Marketing / competitive analysis",
+                    "Documents identifying PrecisionEdgeTM PE-5000, PE-12000,",
+                    "Cat. 5 — Commercial",
+                    "Medium"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "PE-15000 as direct competitors; market share and pricing data",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

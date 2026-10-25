@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 750<|content|>CONFIDENTIAL — FEDERAL RULE OF EVIDENCE 408 / SETT\n<|id|>1<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>18<|page|>2<|box|>223 140 239 454<|content|>Section 1: Ridgecrest Remediation Cost\n<|id|>24<|page|>3<|box|>167 140 184 560<|content|>Section 2: Aggregate Remediation Cost Confirmation\n<|id|>27<|page|>3<|box|>597 140 614 419<|content|>Section 3: Stipulated Penalty Rates\n<|id|>35<|page|>5<|box|>90 140 107 584<|content|>Section 4: Civil Penalty Payment Schedule Confirma\n<|id|>43<|page|>5<|box|>652 140 669 478<|content|>Section 5: EPA Past-Costs Reimbursement\n<|id|>48<|page|>6<|box|>90 140 107 531<|content|>Section 6: Independent Monitor Selection Process\n<|id|>59<|page|>7<|box|>90 140 107 465<|content|>Section 7: Financial Assurance Structure\n<|id|>64<|page|>7<|box|>473 140 489 580<|content|>Section 8: Supplemental Environmental Projects (SE\n<|id|>71<|page|>8<|box|>261 140 277 421<|content|>Section 9: Force Majeure Provision\n<|id|>74<|page|>8<|box|>574 140 590 478<|content|>Section 10: Dispute Resolution Mechanism\n<|id|>81<|page|>9<|box|>383 140 402 419<|content|>Section 11: Termination Provisions\n<|id|>85<|page|>9<|box|>648 142 667 426<|content|>Section 12: Next Steps and Timeline\n<|id|>89<|page|>10<|box|>316 140 333 428<|content|>Section 13: Reservation / No Waiver\n<|id|>95<|page|>10<|box|>636 413 652 583<|content|>SIGNATURE PAGE\n<|id|>96<|page|>10<|box|>661 140 679 700<|content|>FOR TORCHLIGHT MINING CORP. AND ITS U.S. SUBSIDIAR\n<|id|>109<|page|>11<|box|>133 140 151 504<|content|>FOR THE UNITED STATES OF AMERICA:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>18<|level|>1\n<|id|>24<|level|>1\n<|id|>27<|level|>1\n<|id|>35<|level|>1\n<|id|>43<|level|>1\n<|id|>48<|level|>1\n<|id|>59<|level|>1\n<|id|>64<|level|>1\n<|id|>71<|level|>1\n<|id|>74<|level|>1\n<|id|>81<|level|>1\n<|id|>85<|level|>1\n<|id|>89<|level|>1\n<|id|>95<|level|>1\n<|id|>96<|level|>2\n<|id|>109<|level|>2",
+    "parsed": [
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        }
+    ]
+}

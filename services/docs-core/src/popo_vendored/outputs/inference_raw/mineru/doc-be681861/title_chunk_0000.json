@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>42 197 71 799<|content|>CALDERWOOD & HARKNESS LLP — ATTORNEY WORK PRODUCT\n<|id|>4<|page|>1<|box|>205 143 220 290<|content|>MEMORANDUM\n<|id|>6<|page|>1<|box|>433 142 449 217<|content|>Theresa:\n<|id|>17<|page|>2<|box|>489 166 508 830<|content|>SECTION 1: FORM 8-K HEADER / COVER PAGE LANGUAGE\n<|id|>18<|page|>2<|box|>527 158 561 839<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION W\n<|id|>34<|page|>3<|box|>439 142 457 346<|content|>Emerging growth company\n<|id|>36<|page|>3<|box|>527 267 547 730<|content|>SECTION 2: ITEM 8.01 — OTHER EVENTS\n<|id|>37<|page|>3<|box|>573 142 590 336<|content|>Item 8.01. Other Events.\n<|id|>38<|page|>3<|box|>604 140 621 514<|content|>Settlement of Covenant-Enforcement Litigation\n<|id|>40<|page|>3<|box|>805 140 821 372<|content|>Background of the Litigation\n<|id|>45<|page|>4<|box|>510 140 527 387<|content|>Summary of Settlement Terms\n<|id|>62<|page|>6<|box|>458 184 502 812<|content|>SECTION 3: ITEM 9.01 — FINANCIAL STATEMENTS AND EX\n<|id|>66<|page|>7<|box|>90 200 133 795<|content|>SECTION 4: CAUTIONARY STATEMENT REGARDING FORWARD-\n<|id|>67<|page|>7<|box|>160 140 176 637<|content|>Cautionary Statement Regarding Forward-Looking Sta\n<|id|>79<|page|>8<|box|>172 354 191 643<|content|>SECTION 5: SIGNATURES\n<|id|>80<|page|>8<|box|>217 140 234 267<|content|>SIGNATURES\n<|id|>82<|page|>8<|box|>287 140 303 452<|content|>CASCADE RETAIL HOLDINGS INC.\n<|id|>88<|page|>9<|box|>90 160 136 836<|content|>APPENDIX: CALDERWOOD & HARKNESS INTERNAL NOTES TO\n<|id|>89<|page|>9<|box|>151 169 186 826<|content|>NOT FOR FILING — PRIVILEGED AND CONFIDENTIAL ATTOR\n<|id|>91<|page|>9<|box|>295 142 313 707<|content|>1. Coordination with Outside Auditors (Hargrove &\n<|id|>96<|page|>9<|box|>809 140 825 684<|content|>2. Notification to Keypoint National Bank, N.A. un\n<|id|>98<|page|>10<|box|>226 140 243 424<|content|>3. Board Approval and Ratification.\n<|id|>100<|page|>10<|box|>406 140 422 408<|content|>4. Filing Timeline and Mechanics.\n<|id|>102<|page|>10<|box|>549 140 566 395<|content|>5. Press Release Considerations.\n<|id|>104<|page|>10<|box|>674 140 691 331<|content|>6. Contact Information.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>-1\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>34<|level|>-1\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>38<|level|>4\n<|id|>40<|level|>5\n<|id|>45<|level|>5\n<|id|>62<|level|>2\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>79<|level|>2\n<|id|>80<|level|>3\n<|id|>82<|level|>4\n<|id|>88<|level|>1\n<|id|>89<|level|>-1\n<|id|>91<|level|>2\n<|id|>96<|level|>2\n<|id|>98<|level|>2\n<|id|>100<|level|>2\n<|id|>102<|level|>2\n<|id|>104<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 4
+        },
+        {
+            "id": 40,
+            "level": 5
+        },
+        {
+            "id": 45,
+            "level": 5
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        }
+    ]
+}

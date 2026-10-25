@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        8,
+        12,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>141 197 159 800<|content|>CALDERWOOD & HARKNESS LLP intellectual Property Litigation Group\n<|id|>2<|page|>1<|box|>167 140 184 813<|content|>FROM: ... Christy Bauer, Lead Associate, intellectual Property, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>193 142 210 836<|content|>TO: ... Marcus Delgado, Responsible Partner, intellectual Property, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>219 140 237 689<|content|>CC: ... Peter Vassiliev, Working Associate\n<|id|>5<|page|>1<|box|>244 140 262 325<|content|>DATE: ... March 15, 2025\n<|id|>6<|page|>1<|box|>271 140 306 854<|content|>RE: ... 9,814,237 and 10,271,884 as to PrecisionEdge™ PE-5000 Series\n<|id|>7<|page|>1<|box|>315 140 349 854<|content|>MATTER: ... 0017\n<|id|>8<|page|>1<|box|>359 140 395 854<|content|>CASE: ... )\n<|id|>77<|page|>8<|box|>439 174 511 854<|content|>a locking seal assembly disposed within the trocar...position independent of external pressure; ... and\n<|id|>78<|page|>8<|box|>520 174 556 854<|content|>a cannula extending distally from the trocar housi...rtion through an incision in a patient's body wall\n<|id|>114<|page|>12<|box|>250 174 268 666<|content|>a blade housing surrounding the blade in the shielded position; ... and\n<|id|>115<|page|>12<|box|>276 174 310 854<|content|>an actuator operably connected to the retractable ...blade deployment mechanism for deploying the blade\n<|id|>226<|page|>23<|box|>823 142 839 320<|content|>Respectfully submitted,\n<|id|>227<|page|>23<|box|>839 142 856 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>228<|page|>23<|box|>858 143 875 253<|content|>By: ... By\n<|id|>231<|page|>24<|box|>108 140 123 320<|content|>Matter No. ... 0017\n<|id|>232<|page|>24<|box|>123 140 185 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...prior written consent of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>77<|tgt_id|>78\n<|src_id|>114<|tgt_id|>115",
+    "parsed": [
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 115
+        }
+    ]
+}

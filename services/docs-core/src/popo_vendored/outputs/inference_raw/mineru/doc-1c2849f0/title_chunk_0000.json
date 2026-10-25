@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        16
+    ],
+    "pages": [
+        5,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>5<|box|>104 245 118 393<|content|>STATUS SUMMARY\n<|id|>17<|page|>16<|box|>351 87 369 352<|content|>MINIMUM CASH CONDITION TEST",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>17<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        }
+    ]
+}

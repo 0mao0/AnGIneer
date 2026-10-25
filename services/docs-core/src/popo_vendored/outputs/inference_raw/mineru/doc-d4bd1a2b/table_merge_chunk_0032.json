@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 32,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['U. S. investment excl. interagency items.', '92', '18,210', '439,410', '2,258', '33,692', '14,906', '158,601']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Account', 'State Department', 'Treasury Department', 'colspan=3, General Services Administration', 'rowspan=2, National Aeronautics and Space Administration', 'rowspan=2, Civil Service Commission 13/']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 486,
+    "table2_idx": 487
+}

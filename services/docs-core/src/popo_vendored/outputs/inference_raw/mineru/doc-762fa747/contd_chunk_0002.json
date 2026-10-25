@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        98,
+        214
+    ],
+    "pages": [
+        99,
+        105,
+        106,
+        116,
+        119,
+        123,
+        124,
+        126,
+        130,
+        132,
+        133,
+        213
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>397<|page|>99<|box|>375 57 385 399<|content|>in reporting coverage. ... Figures on the first line are comparable in\n<|id|>399<|page|>99<|box|>368 40 377 399<|content|>2/ Data on the two lines shown for this date differ because of changes\n<|id|>400<|page|>99<|box|>361 460 371 544<|content|>p Preliminary. ... p Preliminary\n<|id|>401<|page|>99<|box|>382 60 392 409<|content|>coverage to those shown for the preceding date; ... figures on the second\n<|id|>402<|page|>99<|box|>391 60 400 355<|content|>line are comparable to those shown for the followi...e comparable to those shown for the following date\n<|id|>410<|page|>105<|box|>99 416 110 583<|content|>(Position in millions of dollars)\n<|id|>412<|page|>106<|box|>386 527 396 609<|content|>p Preliminary. ... p Preliminary\n<|id|>446<|page|>116<|box|>50 418 65 670<|content|>Section I - Summary Positions\n<|id|>447<|page|>116<|box|>66 361 81 755<|content|>Table FCP-I-1. ... - Nonbanking Firms' Positions 1/\n<|id|>459<|page|>119<|box|>66 303 81 598<|content|>Section III - French Franc Positions\n<|id|>460<|page|>119<|box|>83 259 97 657<|content|>Table FCP-III-1. ... - Nonbanking Firms' Positions 1/\n<|id|>473<|page|>123<|box|>63 325 78 593<|content|>Section V - Italian Lira Positione\n<|id|>474<|page|>123<|box|>80 278 94 659<|content|>Table FCP-V-1. ... - Nonbanking Firms' Positions 1/\n<|id|>478<|page|>124<|box|>61 368 76 663<|content|>Section VI - Japanese Yen Positions\n<|id|>479<|page|>124<|box|>78 324 92 722<|content|>Table FCP-VI-1. ... - Nonbanking Firms' Positions 1/\n<|id|>486<|page|>126<|box|>66 383 80 672<|content|>Section VII - Swiss Franc Positions\n<|id|>487<|page|>126<|box|>83 334 96 738<|content|>Table FCP-VII-1. ... - Nonbanking Firms' Positions 1/\n<|id|>497<|page|>130<|box|>57 353 71 761<|content|>Section IX - United States Dollar Positions Abroad\n<|id|>498<|page|>130<|box|>73 283 87 849<|content|>Table FCP-IX-1. ... - Nonbanking Firms' Foreign Subsidiaries' Positions 1/\n<|id|>508<|page|>132<|box|>447 106 459 229<|content|>SECTION II THROUGH IX\n<|id|>509<|page|>132<|box|>472 114 520 508<|content|>1/ Positions of nonbanking business concerns in th... majority-owned partnerships and subsidiaries only\n<|id|>532<|page|>133<|box|>57 271 69 634<|content|>Government Corporations and Other Activities\n<|id|>533<|page|>133<|box|>97 21 218 438<|content|>Treasury Department Circular No. ... Government\n<|id|>535<|page|>133<|box|>375 48 386 438<|content|>Two basic kinds of financial statements are called for by Department\n<|id|>536<|page|>133<|box|>97 467 146 885<|content|>Circular No. ... Statements of income and retained...ngs are required for business-type activities only\n<|id|>788<|page|>213<|box|>807 30 819 456<|content|>17/ Excludea property such as land, structures, and equipment for Air\n<|id|>789<|page|>213<|box|>112 546 132 900<|content|>Force, \\$7,598 million. ... Amounts excluded for other Defense Department agencies were not identified\n<|id|>790<|page|>213<|box|>131 517 141 812<|content|>18/ Represents inventory in use and in storage,\n<|id|>810<|page|>213<|box|>780 519 807 952<|content|>Source: ... 966, Revised",
+    "raw_response": "<|src_id|>399<|tgt_id|>401\n<|src_id|>401<|tgt_id|>402\n<|src_id|>788<|tgt_id|>789",
+    "parsed": [
+        {
+            "src_id": 399,
+            "tgt_id": 401
+        },
+        {
+            "src_id": 401,
+            "tgt_id": 402
+        },
+        {
+            "src_id": 788,
+            "tgt_id": 789
+        }
+    ]
+}

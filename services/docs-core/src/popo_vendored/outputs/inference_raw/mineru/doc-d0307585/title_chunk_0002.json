@@ -1,0 +1,40 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        107,
+        109
+    ],
+    "pages": [
+        108,
+        109
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1311<|page|>108<|box|>145 102 169 299<|content|>11 抗震措施\n<|id|>1312<|page|>108<|box|>233 98 250 257<|content|>11.1 一般规定\n<|id|>1316<|page|>108<|box|>520 95 538 227<|content|>11.2 6度区\n<|id|>1319<|page|>108<|box|>695 93 712 225<|content|>11.3 7度区\n<|id|>1322<|page|>108<|box|>828 91 845 223<|content|>11.4 8度区\n<|id|>1328<|page|>109<|box|>525 44 543 176<|content|>11.5 9度区",
+    "raw_response": "<|id|>1311<|level|>1\n<|id|>1312<|level|>2\n<|id|>1316<|level|>2\n<|id|>1319<|level|>2\n<|id|>1322<|level|>2\n<|id|>1328<|level|>2",
+    "parsed": [
+        {
+            "id": 1311,
+            "level": 1
+        },
+        {
+            "id": 1312,
+            "level": 2
+        },
+        {
+            "id": 1316,
+            "level": 2
+        },
+        {
+            "id": 1319,
+            "level": 2
+        },
+        {
+            "id": 1322,
+            "level": 2
+        },
+        {
+            "id": 1328,
+            "level": 2
+        }
+    ]
+}

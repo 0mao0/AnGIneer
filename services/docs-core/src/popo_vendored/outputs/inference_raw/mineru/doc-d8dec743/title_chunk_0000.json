@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 383 106 614<|content|>OFFICER'S CERTIFICATE\n<|id|>6<|page|>1<|box|>275 140 292 740<|content|>OFFICER'S CERTIFICATE OF BRIGHTFIELD CLOUD SERVICE\n<|id|>19<|page|>2<|box|>359 140 376 643<|content|>Section 1. Certification of Due Organization and G\n<|id|>25<|page|>3<|box|>90 140 107 545<|content|>Section 2. Certification of Corporate Authorizatio\n<|id|>31<|page|>4<|box|>133 140 151 449<|content|>Section 3. Certification of No Conflicts.\n<|id|>39<|page|>4<|box|>763 140 779 531<|content|>Section 4. Certification of Authorized Signatories\n<|id|>45<|page|>5<|box|>340 140 359 625<|content|>Section 5. Certification Regarding Litigation and\n<|id|>50<|page|>5<|box|>800 140 816 496<|content|>Section 6. Certification Regarding Insurance.\n<|id|>56<|page|>6<|box|>487 140 503 297<|content|>Section 7. Reliance.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>19<|level|>2\n<|id|>25<|level|>2\n<|id|>31<|level|>2\n<|id|>39<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>56<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        }
+    ]
+}

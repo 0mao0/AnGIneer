@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 11,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['[Preamble] \"A method for thermal management of a photonic integrated circuit...\"', 'Bergmann describes a cooling method for \"semiconductor devices.\" See Bergmann at col. 1, ll. 15-25.', 'Bergmann addresses thermal management of electronic semiconductor devices (microprocessors, power amplifiers), not photonic integrated circuits. While both types of devices are semiconductor-based, the thermal management challenges are fundamentally different. Electronic ICs generate heat uniformly across large active areas and can tolerate temperature variations of several degrees without functional impact. PICs, by contrast, require sub-degree temperature uniformity because even small thermal gradients (0.1°C) can shift the']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', \"effective refractive index of optical waveguides by enough to cause wavelength drift exceeding channel spacing tolerances. A POSITA would recognize that Bergmann's approach — macro-scale air-cooled channels — is inadequate for the precision thermal management required by PICs.\"]]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 302,
+    "table2_idx": 303
+}

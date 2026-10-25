@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>1<|box|>816 140 907 856<|content|>A full prepayment of the Existing TLB on or about ...protection (soft call) provision has expired as of\n<|id|>9<|page|>2<|box|>89 140 125 854<|content|>February 14, 2022, the 0. ... 50% general prepayment premium remains in effect until February 14, 2023\n<|id|>25<|page|>3<|box|>391 176 409 483<|content|>(d) Palmetto Beachfront Hotels LLC; ... and\n<|id|>27<|page|>3<|box|>443 140 479 854<|content|>These entities collectively represent substantiall...substantially all of the Company's material assets\n<|id|>57<|page|>7<|box|>314 174 349 854<|content|>(b) 25% of Excess Cash Flow if the Total Net Leverage Ratio is less than 3. ... and\n<|id|>59<|page|>7<|box|>383 140 566 857<|content|>For fiscal year 2021, VHG's Total Net Leverage Rat...021 ECF sweep obligation with VHG's financial team\n<|id|>97<|page|>11<|box|>848 140 902 856<|content|>Section 2. ... 14 of the Existing Credit\n<|id|>98<|page|>12<|box|>90 140 143 854<|content|>Agreement. ... The MFN provision is designed to pr...igher effective yield than the existing term loans\n<|id|>110<|page|>13<|box|>304 174 358 854<|content|>(c) any interest rate floor differential (i. ... and\n<|id|>111<|page|>13<|box|>366 140 383 470<|content|>The definition should exclude the following: ... The definition should exclude the following\n<|id|>114<|page|>13<|box|>462 176 479 424<|content|>(f) administrative agent fees; ... and\n<|id|>116<|page|>13<|box|>513 140 551 854<|content|>This formulation ensures that the MFN protection c...t represent the ongoing economic return to lenders\n<|id|>126<|page|>14<|box|>742 174 758 617<|content|>Existing TLB: ... 00% LIBOR floor)\n<|id|>127<|page|>14<|box|>768 176 804 854<|content|>Proposed New TLB: ... 50% SOFR floor), where Adjusted Term SOFR = Term SOFR + applicable CSA\n<|id|>128<|page|>14<|box|>813 140 905 856<|content|>The stated spread reduction is 50 basis points (fr...ral Reserve continues its rate normalization cycle\n<|id|>148<|page|>16<|box|>641 174 659 725<|content|>(g) amendments to material agreements and organizational documents; ... and\n<|id|>150<|page|>16<|box|>694 138 877 856<|content|>Each of these negative covenants is subject to var...may involve dispositions of non-core hotel assets)",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>97<|tgt_id|>98",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 98
+        }
+    ]
+}

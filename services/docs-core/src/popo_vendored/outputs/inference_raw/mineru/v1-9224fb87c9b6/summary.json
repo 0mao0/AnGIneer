@@ -1,0 +1,33 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-j1tqosek\\input\\pdfs\\v1-9224fb87c9b6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-j1tqosek\\enriched\\v1-9224fb87c9b6.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>16<|level|>2\n<|id|>19<|level|>2",
+    "image_output": "<|src_id|>17<|tgt_id|>16\n<|src_id|>20<|tgt_id|>19",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 17,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 19
+        }
+    ],
+    "table_merge_candidates": []
+}

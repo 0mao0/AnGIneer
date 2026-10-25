@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        9
+    ],
+    "pages": [
+        2,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>16<|page|>2<|box|>744 174 799 856<|content|>(c) Schedule delays causing idle-labor charges — approximately $2. ... and\n<|id|>18<|page|>2<|box|>869 140 904 854<|content|>On September 9, 2022, HDDS transmitted to WAL a fo...as attributed to work packages outside WAL's scope\n<|id|>68<|page|>8<|box|>784 138 893 857<|content|>WAL's $75 million senior secured revolving credit facility with Ridgeline National Bank, N. ... 07(b)\n<|id|>69<|page|>9<|box|>90 140 127 854<|content|>notices have been required, and Ridgeline National...oncerns or inquiries regarding the pending dispute",
+    "raw_response": "<|src_id|>68<|tgt_id|>69",
+    "parsed": [
+        {
+            "src_id": 68,
+            "tgt_id": 69
+        }
+    ]
+}

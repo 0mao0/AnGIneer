@@ -1,0 +1,86 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 163 119 831<|content|>OFFICER'S CERTIFICATE OF TORCHLIGHT MINING CORP.\n<|id|>1<|page|>1<|box|>136 166 154 830<|content|>Pursuant to Section 4.02 of the Indenture and Sect\n<|id|>4<|page|>1<|box|>244 140 263 243<|content|>RECITALS\n<|id|>10<|page|>2<|box|>89 142 106 738<|content|>SECTION 1: COMPLIANCE WITH SECTION 4.02 OF THE IND\n<|id|>14<|page|>2<|box|>428 140 445 759<|content|>SECTION 2: BRING-DOWN OF REPRESENTATIONS AND WARRA\n<|id|>17<|page|>3<|box|>89 140 107 718<|content|>SECTION 3: PERFORMANCE OF COVENANTS AND AGREEMENTS\n<|id|>30<|page|>4<|box|>89 142 106 421<|content|>SECTION 4: USE OF PROCEEDS\n<|id|>35<|page|>4<|box|>676 140 693 625<|content|>SECTION 5: COLLATERAL AND SECURITY INTERESTS\n<|id|>42<|page|>5<|box|>439 140 455 766<|content|>SECTION 6: NO PROCEEDING OR LITIGATION PREVENTING\n<|id|>44<|page|>5<|box|>689 142 705 486<|content|>SECTION 7: RATINGS CONFIRMATION\n<|id|>47<|page|>6<|box|>204 140 220 542<|content|>SECTION 8: CLOSING DATE CONFIRMATION\n<|id|>51<|page|>6<|box|>523 140 541 504<|content|>SECTION 9: GUARANTOR SUBSIDIARIES\n<|id|>58<|page|>7<|box|>285 140 301 542<|content|>SECTION 10: ADDITIONAL CERTIFICATIONS\n<|id|>65<|page|>8<|box|>186 140 203 357<|content|>SECTION 11: RELIANCE\n<|id|>69<|page|>8<|box|>472 150 489 844<|content|>SIGNATURE PAGE TO OFFICER'S CERTIFICATE TORCHLIGHT\n<|id|>80<|page|>8<|box|>714 410 729 586<|content|>DELIVERY NOTICE\n<|id|>82<|page|>8<|box|>766 178 782 452<|content|>1. Kelvantis Capital Markets LLC",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>47<|level|>2\n<|id|>51<|level|>2\n<|id|>58<|level|>2\n<|id|>65<|level|>2\n<|id|>69<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        }
+    ]
+}

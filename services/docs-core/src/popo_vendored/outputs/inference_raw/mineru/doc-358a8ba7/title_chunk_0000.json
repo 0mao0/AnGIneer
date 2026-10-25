@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 183 148 856<|content|>CALDERWOOD & HARKNESS LLP 150 North Michigan Avenu\n<|id|>8<|page|>1<|box|>393 142 409 245<|content|>Dear Lauren:\n<|id|>12<|page|>1<|box|>768 140 785 478<|content|>I. Borrowing Base — Availability Reserves\n<|id|>13<|page|>1<|box|>799 142 816 488<|content|>1.1 Quantum of Initial Availability Reserves\n<|id|>22<|page|>2<|box|>607 142 625 490<|content|>1.2 Agent's Discretionary Reserve Authority\n<|id|>30<|page|>3<|box|>656 140 674 635<|content|>II. Borrowing Base — Advance Rates on Crop-Input I\n<|id|>31<|page|>3<|box|>686 140 704 638<|content|>2.1 Crop-Input Inventory Advance Rate and Eligibil\n<|id|>40<|page|>5<|box|>257 140 273 560<|content|>2.2 Valuation Methodology for Crop-Input Inventory\n<|id|>43<|page|>5<|box|>604 140 621 560<|content|>III. Borrowing Base — Warehouse Receipt Valuation\n<|id|>44<|page|>5<|box|>633 140 651 633<|content|>3.1 CBOT Settlement Price Reference and Basis Dete\n<|id|>50<|page|>6<|box|>476 140 493 566<|content|>IV. Field Examination Scheduling and Cost Allocati\n<|id|>51<|page|>6<|box|>507 140 523 367<|content|>4.1 Frequency and Cost Cap\n<|id|>58<|page|>7<|box|>250 140 266 602<|content|>4.2 Coordination with Borrowing Base Certificate D\n<|id|>62<|page|>7<|box|>630 140 647 390<|content|>4.3 Selection of Field Examiner\n<|id|>65<|page|>8<|box|>148 140 167 459<|content|>V. Commodity Hedging Negative Pledge\n<|id|>66<|page|>8<|box|>180 140 198 331<|content|>5.1 Scope of Restriction\n<|id|>72<|page|>9<|box|>250 140 266 383<|content|>5.2 Interaction with Collateral\n<|id|>75<|page|>9<|box|>595 140 613 423<|content|>VI. Anti-Cash-Hoarding Provisions\n<|id|>76<|page|>9<|box|>627 140 643 483<|content|>6.1 Minimum Excess Availability Covenant\n<|id|>83<|page|>10<|box|>375 140 392 529<|content|>6.2 Cash Dominion / Springing Dominion Trigger\n<|id|>90<|page|>11<|box|>268 140 285 416<|content|>6.3 Deposit Account Requirements\n<|id|>95<|page|>11<|box|>720 140 738 555<|content|>VII. Reporting Requirements During Trigger Period\n<|id|>101<|page|>12<|box|>458 140 474 333<|content|>VIII. Other Open Items\n<|id|>102<|page|>12<|box|>489 140 506 506<|content|>8.1 Material Adverse Change/Effect Definition\n<|id|>113<|page|>13<|box|>444 140 462 421<|content|>8.2 Insurance Endorsement Timing\n<|id|>120<|page|>14<|box|>157 140 175 509<|content|>8.3 Representations — Bring-Down Mechanics\n<|id|>124<|page|>14<|box|>659 142 675 464<|content|>IX. Summary of Key Requested Changes\n<|id|>129<|page|>16<|box|>265 140 281 200<|content|>\\* \\* \\*\n<|id|>142<|page|>16<|box|>887 143 902 232<|content|>Enclosure:",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>8<|level|>-1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>22<|level|>2\n<|id|>30<|level|>1\n<|id|>31<|level|>2\n<|id|>40<|level|>2\n<|id|>43<|level|>1\n<|id|>44<|level|>2\n<|id|>50<|level|>1\n<|id|>51<|level|>2\n<|id|>58<|level|>2\n<|id|>62<|level|>2\n<|id|>65<|level|>1\n<|id|>66<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>1\n<|id|>76<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>2\n<|id|>95<|level|>1\n<|id|>101<|level|>1\n<|id|>102<|level|>2\n<|id|>113<|level|>2\n<|id|>120<|level|>2\n<|id|>124<|level|>1\n<|id|>129<|level|>-1\n<|id|>142<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        }
+    ]
+}

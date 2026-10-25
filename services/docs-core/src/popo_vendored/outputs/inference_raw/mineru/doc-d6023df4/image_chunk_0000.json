@@ -1,0 +1,62 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        28
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        12,
+        13,
+        14,
+        17,
+        18,
+        19,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>90 196 135 802<|content|>APPENDIX B TO EXPERT REPORT OF DR. LAWRENCE KEATIN\n<|id|>1<|type|>title<|page|>2<|box|>152 277 172 720<|content|>GEORGIA-PACIFIC FACTOR ANALYSIS\n<|id|>2<|type|>title<|page|>2<|box|>189 295 207 700<|content|>OPTIWAVE SEMICONDUCTOR CORP., Plaintiff,\n<|id|>16<|type|>title<|page|>3<|box|>89 140 106 614<|content|>I. INTRODUCTION AND PURPOSE OF THIS APPENDIX\n<|id|>32<|type|>title<|page|>4<|box|>285 140 301 583<|content|>II. HYPOTHETICAL NEGOTIATION FRAMEWORK\n<|id|>33<|type|>title<|page|>4<|box|>316 140 334 403<|content|>A. Hypothetical Negotiation Date\n<|id|>41<|type|>title<|page|>5<|box|>90 140 108 503<|content|>B. The Parties to the Hypothetical Negotiation\n<|id|>59<|type|>title<|page|>6<|box|>647 140 664 405<|content|>C. Reasonable Royalty as a Floor\n<|id|>62<|type|>title<|page|>7<|box|>167 140 184 787<|content|>III. DETAILED ANALYSIS OF THE FIFTEEN GEORGIA-PACI\n<|id|>64<|type|>title<|page|>7<|box|>243 140 279 852<|content|>Factor 1: The Royalties Received by the Patentee f\n<|id|>72<|type|>title<|page|>8<|box|>685 140 720 854<|content|>Factor 2: The Rates Paid by the Licensee for the U\n<|id|>77<|type|>title<|page|>9<|box|>429 140 483 854<|content|>Factor 3: The Nature and Scope of the License, as\n<|id|>100<|type|>title<|page|>12<|box|>90 140 143 854<|content|>Factor 6: The Effect of Selling the Patented Speci\n<|id|>106<|type|>title<|page|>12<|box|>686 140 704 651<|content|>Factor 7: The Duration of the Patent and the Term\n<|id|>109<|type|>table<|page|>12<|box|>816 143 906 852<|content|>None\n<|id|>110<|type|>table<|page|>13<|box|>88 143 109 852<|content|>None\n<|id|>114<|type|>title<|page|>13<|box|>372 140 407 854<|content|>Factor 8: The Established Profitability of the Pro\n<|id|>117<|type|>table<|page|>13<|box|>672 143 777 852<|content|>None\n<|id|>122<|type|>title<|page|>14<|box|>308 140 344 854<|content|>Factor 9: The Utility and Advantages of the Patent\n<|id|>149<|type|>title<|page|>17<|box|>565 140 619 854<|content|>Factor 12: The Portion of the Profit or of the Sel\n<|id|>164<|type|>title<|page|>18<|box|>796 140 849 854<|content|>Factor 13: The Portion of the Realizable Profit Th\n<|id|>177<|type|>title<|page|>19<|box|>811 140 829 576<|content|>Factor 14: The Opinion Testimony of Qualified Expe\n<|id|>210<|type|>table<|page|>23<|box|>132 143 261 852<|content|>None\n<|id|>212<|type|>title<|page|>23<|box|>372 142 388 620<|content|>IV. SUMMARY OF COMPARABLE LICENSE EVIDENCE\n<|id|>213<|type|>title<|page|>23<|box|>402 142 420 405<|content|>A. Table of Comparable Licenses\n<|id|>214<|type|>table<|page|>23<|box|>469 143 905 852<|content|>None\n<|id|>215<|type|>table<|page|>24<|box|>88 143 446 852<|content|>None\n<|id|>216<|type|>title<|page|>24<|box|>486 142 503 475<|content|>B. Analysis of Comparability Adjustments\n<|id|>224<|type|>title<|page|>25<|box|>648 140 665 383<|content|>V. SENSITIVITY ANALYSIS\n<|id|>226<|type|>table<|page|>25<|box|>753 143 902 852<|content|>None\n<|id|>229<|type|>title<|page|>26<|box|>354 140 372 651<|content|>VI. QUALIFICATIONS AND METHODOLOGY STATEMENT\n<|id|>230<|type|>title<|page|>26<|box|>386 140 402 475<|content|>A. Qualifications of Dr. Lawrence Keating\n<|id|>242<|type|>title<|page|>27<|box|>347 140 364 338<|content|>C. Materials Considered\n<|id|>259<|type|>title<|page|>28<|box|>89 140 106 552<|content|>VII. EXHIBITS AND SUPPORTING MATERIALS\n<|id|>273<|type|>title<|page|>28<|box|>825 142 843 428<|content|>VIII. RESERVATION OF RIGHTS",
+    "raw_response": "<|src_id|>109<|tgt_id|>106\n<|src_id|>110<|tgt_id|>106\n<|src_id|>117<|tgt_id|>114\n<|src_id|>210<|tgt_id|>177\n<|src_id|>214<|tgt_id|>213\n<|src_id|>215<|tgt_id|>213\n<|src_id|>226<|tgt_id|>224",
+    "parsed": [
+        {
+            "src_id": 109,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 215,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 224
+        }
+    ]
+}

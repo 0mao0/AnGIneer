@@ -1,0 +1,793 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4fqgeb8l\\input\\pdfs\\doc-0bba2aa5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4fqgeb8l\\enriched\\doc-0bba2aa5.json",
+    "contd_output": "<|src_id|>215<|tgt_id|>216",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>33<|level|>3\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>47<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>59<|level|>3\n<|id|>80<|level|>3\n<|id|>100<|level|>3\n<|id|>107<|level|>3\n<|id|>109<|level|>3\n<|id|>113<|level|>2\n<|id|>114<|level|>3\n<|id|>116<|level|>3\n<|id|>121<|level|>3\n<|id|>123<|level|>3\n<|id|>127<|level|>3\n<|id|>129<|level|>3\n<|id|>135<|level|>3\n<|id|>137<|level|>2\n<|id|>138<|level|>3\n<|id|>140<|level|>3\n<|id|>142<|level|>3\n<|id|>144<|level|>3\n<|id|>146<|level|>3\n<|id|>148<|level|>3\n<|id|>152<|level|>3\n<|id|>157<|level|>2\n<|id|>158<|level|>3\n<|id|>160<|level|>3\n<|id|>162<|level|>3\n<|id|>170<|level|>3\n<|id|>172<|level|>2\n<|id|>173<|level|>3\n<|id|>177<|level|>3\n<|id|>179<|level|>3\n<|id|>183<|level|>2\n<|id|>184<|level|>3\n<|id|>186<|level|>3\n<|id|>188<|level|>3\n<|id|>193<|level|>3\n<|id|>195<|level|>3\n<|id|>197<|level|>3\n<|id|>200<|level|>2\n<|id|>201<|level|>3\n<|id|>207<|level|>3\n<|id|>213<|level|>3\n<|id|>219<|level|>3\n<|id|>221<|level|>3\n<|id|>223<|level|>2\n<|id|>224<|level|>3\n<|id|>230<|level|>3\n<|id|>232<|level|>2\n<|id|>233<|level|>3\n<|id|>239<|level|>3\n<|id|>241<|level|>2\n<|id|>242<|level|>3\n<|id|>247<|level|>3\n<|id|>249<|level|>3\n<|id|>253<|level|>2\n<|id|>254<|level|>3\n<|id|>273<|level|>3\n<|id|>278<|level|>3\n<|id|>280<|level|>3\n<|id|>282<|level|>3\n<|id|>284<|level|>3\n<|id|>286<|level|>3\n<|id|>288<|level|>3\n<|id|>290<|level|>3\n<|id|>292<|level|>3\n<|id|>303<|level|>1\n<|id|>305<|level|>2\n<|id|>306<|level|>3\n<|id|>321<|level|>1\n<|id|>322<|level|>2\n<|id|>330<|level|>3\n<|id|>331<|level|>3\n<|id|>342<|level|>1\n<|id|>343<|level|>2\n<|id|>344<|level|>3\n<|id|>350<|level|>3\n<|id|>354<|level|>3\n<|id|>356<|level|>3\n<|id|>358<|level|>3\n<|id|>362<|level|>3\n<|id|>365<|level|>3\n<|id|>377<|level|>1\n<|id|>378<|level|>2\n<|id|>385<|level|>3\n<|id|>390<|level|>1\n<|id|>391<|level|>2\n<|id|>395<|level|>1\n<|id|>396<|level|>2\n<|id|>409<|level|>3\n<|id|>414<|level|>3\n<|id|>425<|level|>3\n<|id|>429<|level|>3\n<|id|>433<|level|>3",
+    "image_output": "<|src_id|>324<|tgt_id|>322\n<|src_id|>325<|tgt_id|>322\n<|src_id|>326<|tgt_id|>322\n<|src_id|>327<|tgt_id|>322\n<|src_id|>328<|tgt_id|>322\n<|src_id|>329<|tgt_id|>322\n<|src_id|>332<|tgt_id|>331\n<|src_id|>334<|tgt_id|>331\n<|src_id|>335<|tgt_id|>331\n<|src_id|>336<|tgt_id|>331\n<|src_id|>337<|tgt_id|>331\n<|src_id|>338<|tgt_id|>331\n<|src_id|>339<|tgt_id|>331\n<|src_id|>348<|tgt_id|>344\n<|src_id|>360<|tgt_id|>358\n<|src_id|>380<|tgt_id|>378\n<|src_id|>381<|tgt_id|>378\n<|src_id|>382<|tgt_id|>378\n<|src_id|>383<|tgt_id|>378\n<|src_id|>384<|tgt_id|>378\n<|src_id|>387<|tgt_id|>385\n<|src_id|>388<|tgt_id|>385\n<|src_id|>392<|tgt_id|>391\n<|src_id|>393<|tgt_id|>391",
+    "contd_label": [
+        {
+            "src_id": 215,
+            "tgt_id": 216
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 188,
+            "level": 3
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 207,
+            "level": 3
+        },
+        {
+            "id": 213,
+            "level": 3
+        },
+        {
+            "id": 219,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 223,
+            "level": 2
+        },
+        {
+            "id": 224,
+            "level": 3
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 2
+        },
+        {
+            "id": 233,
+            "level": 3
+        },
+        {
+            "id": 239,
+            "level": 3
+        },
+        {
+            "id": 241,
+            "level": 2
+        },
+        {
+            "id": 242,
+            "level": 3
+        },
+        {
+            "id": 247,
+            "level": 3
+        },
+        {
+            "id": 249,
+            "level": 3
+        },
+        {
+            "id": 253,
+            "level": 2
+        },
+        {
+            "id": 254,
+            "level": 3
+        },
+        {
+            "id": 273,
+            "level": 3
+        },
+        {
+            "id": 278,
+            "level": 3
+        },
+        {
+            "id": 280,
+            "level": 3
+        },
+        {
+            "id": 282,
+            "level": 3
+        },
+        {
+            "id": 284,
+            "level": 3
+        },
+        {
+            "id": 286,
+            "level": 3
+        },
+        {
+            "id": 288,
+            "level": 3
+        },
+        {
+            "id": 290,
+            "level": 3
+        },
+        {
+            "id": 292,
+            "level": 3
+        },
+        {
+            "id": 303,
+            "level": 1
+        },
+        {
+            "id": 305,
+            "level": 2
+        },
+        {
+            "id": 306,
+            "level": 3
+        },
+        {
+            "id": 321,
+            "level": 1
+        },
+        {
+            "id": 322,
+            "level": 2
+        },
+        {
+            "id": 330,
+            "level": 3
+        },
+        {
+            "id": 331,
+            "level": 3
+        },
+        {
+            "id": 342,
+            "level": 1
+        },
+        {
+            "id": 343,
+            "level": 2
+        },
+        {
+            "id": 344,
+            "level": 3
+        },
+        {
+            "id": 350,
+            "level": 3
+        },
+        {
+            "id": 354,
+            "level": 3
+        },
+        {
+            "id": 356,
+            "level": 3
+        },
+        {
+            "id": 358,
+            "level": 3
+        },
+        {
+            "id": 362,
+            "level": 3
+        },
+        {
+            "id": 365,
+            "level": 3
+        },
+        {
+            "id": 377,
+            "level": 1
+        },
+        {
+            "id": 378,
+            "level": 2
+        },
+        {
+            "id": 385,
+            "level": 3
+        },
+        {
+            "id": 390,
+            "level": 1
+        },
+        {
+            "id": 391,
+            "level": 2
+        },
+        {
+            "id": 395,
+            "level": 1
+        },
+        {
+            "id": 396,
+            "level": 2
+        },
+        {
+            "id": 409,
+            "level": 3
+        },
+        {
+            "id": 414,
+            "level": 3
+        },
+        {
+            "id": 425,
+            "level": 3
+        },
+        {
+            "id": 429,
+            "level": 3
+        },
+        {
+            "id": 433,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 324,
+            "tgt_id": 322
+        },
+        {
+            "src_id": 325,
+            "tgt_id": 322
+        },
+        {
+            "src_id": 326,
+            "tgt_id": 322
+        },
+        {
+            "src_id": 327,
+            "tgt_id": 322
+        },
+        {
+            "src_id": 328,
+            "tgt_id": 322
+        },
+        {
+            "src_id": 329,
+            "tgt_id": 322
+        },
+        {
+            "src_id": 332,
+            "tgt_id": 331
+        },
+        {
+            "src_id": 334,
+            "tgt_id": 331
+        },
+        {
+            "src_id": 335,
+            "tgt_id": 331
+        },
+        {
+            "src_id": 336,
+            "tgt_id": 331
+        },
+        {
+            "src_id": 337,
+            "tgt_id": 331
+        },
+        {
+            "src_id": 338,
+            "tgt_id": 331
+        },
+        {
+            "src_id": 339,
+            "tgt_id": 331
+        },
+        {
+            "src_id": 348,
+            "tgt_id": 344
+        },
+        {
+            "src_id": 360,
+            "tgt_id": 358
+        },
+        {
+            "src_id": 380,
+            "tgt_id": 378
+        },
+        {
+            "src_id": 381,
+            "tgt_id": 378
+        },
+        {
+            "src_id": 382,
+            "tgt_id": 378
+        },
+        {
+            "src_id": 383,
+            "tgt_id": 378
+        },
+        {
+            "src_id": 384,
+            "tgt_id": 378
+        },
+        {
+            "src_id": 387,
+            "tgt_id": 385
+        },
+        {
+            "src_id": 388,
+            "tgt_id": 385
+        },
+        {
+            "src_id": 392,
+            "tgt_id": 391
+        },
+        {
+            "src_id": 393,
+            "tgt_id": 391
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 324,
+            "table2_idx": 325,
+            "upper_row_ss": [
+                [
+                    "1.3",
+                    "Charge Capture Review",
+                    "Daily charge capture reconciliation to ensure completeness of charges for services rendered; exception",
+                    "Clearpath EHR charge capture module",
+                    "Billing Manager; Charge Capture Analyst",
+                    "180 days post-Closing",
+                    "1.5 FTEs"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "reporting and resolution",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 325,
+            "table2_idx": 326,
+            "upper_row_ss": [
+                [
+                    "1.7",
+                    "Payor Correspondence",
+                    "Communication with Meridian Shield Health Plans, Inc., Keystone MAC Services, LLC, and all other contracted payors regarding claims processing, enrollment,",
+                    "Email; payor portals; telephone",
+                    "Billing Manager; Payor Relations Coordinator",
+                    "180 days post-Closing",
+                    "1.5 FTEs"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "and contract transition",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 327,
+            "table2_idx": 328,
+            "upper_row_ss": [
+                [
+                    "2.1",
+                    "EHR Data Extraction and Migration Support",
+                    "Extraction, mapping, conversion, and validation of patient records, billing data, clinical documentation, and scheduling data from Clearpath EHR (License Agreement No. CP-",
+                    "Clearpath EHR; data migration tools; Service Recipient's target EHR",
+                    "IT Director; EHR Specialists (2); Data Analyst",
+                    "180 days post-Closing",
+                    "4.0 FTEs"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "ENT-2022-0487) to Service Recipient's designated EHR system",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 328,
+            "table2_idx": 329,
+            "upper_row_ss": [
+                [
+                    "2.5",
+                    "Hardware/ Equipment Inventory and Handoff",
+                    "Physical inventory, asset tagging, and documentation of all IT hardware and",
+                    "Asset management database",
+                    "System Administrator; IT Helpdesk Staff",
+                    "180 days post-Closing",
+                    "0.5 FTE"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "equipment;coordination of handoff to Service Recipient",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 334,
+            "table2_idx": 335,
+            "upper_row_ss": [
+                [
+                    "3.2",
+                    "Payor Enrollment Updates (Medicare)",
+                    "CMS provider enrollment applications (Form CMS-855B, CMS-855I, CMS-855R) for updated ownership and reassignment of benefits; updates to PECOS;",
+                    "Credentialing Coordinator; Enrollment Specialist",
+                    "180 days post-Closing",
+                    "1.5 FTEs"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "updates to CMS Certification Numbers 33-7021 through 33-7028 (NY) and 39-6011 through 39-6013 (PA)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 335,
+            "table2_idx": 336,
+            "upper_row_ss": [
+                [
+                    "3.7",
+                    "Credentialing File Management",
+                    "Maintenance of provider credentialing",
+                    "Credentialing Coordinator",
+                    "180 days post-Closing",
+                    "0.75 FTE"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "files; tracking of all expirable documents (licenses, certifications, DEA certificates, malpractice insurance); automated and manual expiration notifications",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 337,
+            "table2_idx": 338,
+            "upper_row_ss": [
+                [
+                    "4.3",
+                    "Facilities Management Coordination",
+                    "Support for owned properties (Rochester)",
+                    "Facilities Coordinator",
+                    "120 days post-Closing",
+                    "1.0 FTE"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Main: $6.9M appraised; Syracuse: $4.9M appraised) and 9 leased locations ($2.74M annual base rent); routine maintenance coordination; vendor management",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 338,
+            "table2_idx": 339,
+            "upper_row_ss": [
+                [
+                    "4.6",
+                    "General Administrative Assistance",
+                    "Miscellaneous administrative support as mutually agreed",
+                    "Administrative Staff",
+                    "120 days post-Closing",
+                    "1.0 FTE"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "by Service Coordinators;records management;mail handling;general coordination",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 381,
+            "table2_idx": 382,
+            "upper_row_ss": [
+                [
+                    "Data Migration Milestone",
+                    "Within ±5 business days",
+                    "Per milestone",
+                    "Actual completion date vs."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Adherence",
+                    "of milestone dates set forth on Schedule A",
+                    "",
+                    "target completion date per project plan"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 387,
+            "table2_idx": 388,
+            "upper_row_ss": [
+                [
+                    "Milestone delay of > 10 business days",
+                    "10% credit"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Complete failure to deliver a required report or deliverable",
+                    "15% credit"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 392,
+            "table2_idx": 393,
+            "upper_row_ss": [
+                [
+                    "Sharon Whitfield",
+                    "HR Manager",
+                    "Administrative and General Support (Part IV)",
+                    "75%",
+                    "swhitfield@lakewoodrhp.com; (585) 555-0256"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Robert Callahan",
+                    "Senior Accountant",
+                    "Administrative and General Support (Part IV)",
+                    "70%",
+                    "rcallahan@lakewooddrhp.com; (585)555-0262"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=12, 1.所用原材料、半成品和成品质量检验结果', 'rowspan=3, 1-6', 'rowspan=3, 钢材', '复试报告:同一厂家、每一规格、每一炉批号、不大于60t一次', '缺一份扣0.5分']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=15, 1.所用原材料、半成品和成品质量检验结果', 'rowspan=3, 1-7', 'rowspan=3, 焊接材料', '产品出厂合格证:每批次、每品种一份', '缺一份扣0.2分']]\n",
+    "raw_response": "[1, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 501,
+    "table2_idx": 502
+}

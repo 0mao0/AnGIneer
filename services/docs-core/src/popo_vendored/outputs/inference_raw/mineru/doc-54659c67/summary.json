@@ -1,0 +1,88 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ah0m5269\\input\\pdfs\\doc-54659c67.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ah0m5269\\enriched\\doc-54659c67.json",
+    "contd_output": "",
+    "title_output": "<|id|>5<|level|>1\n<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>1\n<|id|>34<|level|>2\n<|id|>44<|level|>2\n<|id|>55<|level|>1\n<|id|>59<|level|>1",
+    "image_output": "<|src_id|>19<|tgt_id|>16\n<|src_id|>20<|tgt_id|>16\n<|src_id|>49<|tgt_id|>44\n<|src_id|>50<|tgt_id|>44",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 19,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 44
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 49,
+            "table2_idx": 50,
+            "upper_row_ss": [
+                [
+                    "NH_3-N(November – March)",
+                    "8.0 mg/L",
+                    "—"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Total Phosphorus",
+                    "1.0 mg/L",
+                    "—"
+                ]
+            ]
+        }
+    ]
+}

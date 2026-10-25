@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        154,
+        167
+    ],
+    "pages": [
+        155,
+        158,
+        161,
+        166,
+        167
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1013<|type|>title<|page|>155<|box|>128 50 170 924<|content|>Item 9: Changes in and Disagreements with Accounta\n<|id|>1015<|type|>title<|page|>155<|box|>203 50 223 403<|content|>Item 9A: Controls and Procedures\n<|id|>1016<|type|>title<|page|>155<|box|>229 50 247 519<|content|>Conclusions regarding disclosure controls and proc\n<|id|>1018<|type|>title<|page|>155<|box|>321 50 338 614<|content|>Management’s annual report on internal control ove\n<|id|>1020<|type|>title<|page|>155<|box|>366 50 383 509<|content|>Attestation report of the registered public accoun\n<|id|>1022<|type|>title<|page|>155<|box|>412 50 429 457<|content|>Changes in internal control over financial reporti\n<|id|>1024<|type|>title<|page|>155<|box|>496 50 516 326<|content|>Item 9B: Other Information\n<|id|>1025<|type|>title<|page|>155<|box|>523 50 541 292<|content|>Appointment of Gordon Smith\n<|id|>1029<|type|>title<|page|>155<|box|>767 50 782 442<|content|>Elimination of Class A Equivalent Preferred Stock\n<|id|>1031<|type|>title<|page|>158<|box|>114 50 133 129<|content|>Part III\n<|id|>1032<|type|>title<|page|>158<|box|>151 50 171 718<|content|>Item 10: Directors, Executive Officers and Corpora\n<|id|>1035<|type|>table<|page|>158<|box|>294 52 393 937<|content|>None\n<|id|>1041<|type|>title<|page|>158<|box|>833 50 853 398<|content|>Item 11: Executive Compensation\n<|id|>1043<|type|>title<|page|>158<|box|>892 50 933 870<|content|>Item 12: Security Ownership of Certain Beneficial\n<|id|>1045<|type|>title<|page|>161<|box|>114 50 133 132<|content|>Part IV\n<|id|>1046<|type|>title<|page|>161<|box|>151 50 170 594<|content|>Item 15: Exhibits and Financial Statement Schedule\n<|id|>1101<|type|>table<|page|>166<|box|>121 50 571 944<|content|>None\n<|id|>1102<|type|>title<|page|>166<|box|>612 50 633 359<|content|>Item 16: Form 10-K Summary\n<|id|>1104<|type|>title<|page|>167<|box|>114 50 136 168<|content|>Signatures\n<|id|>1106<|type|>table<|page|>167<|box|>190 352 316 944<|content|>None\n<|id|>1108<|type|>table<|page|>167<|box|>359 50 890 942<|content|>None",
+    "raw_response": "<|src_id|>1035<|tgt_id|>1032\n<|src_id|>1101<|tgt_id|>1046\n<|src_id|>1106<|tgt_id|>1102\n<|src_id|>1108<|tgt_id|>1102",
+    "parsed": [
+        {
+            "src_id": 1035,
+            "tgt_id": 1032
+        },
+        {
+            "src_id": 1101,
+            "tgt_id": 1046
+        },
+        {
+            "src_id": 1106,
+            "tgt_id": 1102
+        },
+        {
+            "src_id": 1108,
+            "tgt_id": 1102
+        }
+    ]
+}

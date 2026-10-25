@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 104 584<|content|>ATTORNEY WORK PRODUCT — PRIVILEGED & CONFIDENTIAL\n<|id|>2<|page|>1<|box|>429 142 445 364<|content|>1. Purpose of Memorandum\n<|id|>6<|page|>2<|box|>90 140 107 486<|content|>2. Summary of Federal Register Publication\n<|id|>16<|page|>2<|box|>551 140 569 287<|content|>3. Timeline Recap\n<|id|>26<|page|>3<|box|>577 140 594 483<|content|>4. Consistency with Standard FTC Practice\n<|id|>30<|page|>4<|box|>277 140 294 527<|content|>5. Significance for Closing Condition Satisfaction\n<|id|>39<|page|>5<|box|>90 140 107 341<|content|>6. Interagency Clearance\n<|id|>43<|page|>5<|box|>465 140 482 408<|content|>7. Document Retention and Filing\n<|id|>47<|page|>5<|box|>804 140 821 259<|content|>8. Attachment\n<|id|>51<|page|>6<|box|>89 421 107 575<|content|>[ATTACHMENT A]\n<|id|>53<|page|>6<|box|>142 439 159 558<|content|>[See attached.]",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>6<|level|>1\n<|id|>16<|level|>1\n<|id|>26<|level|>1\n<|id|>30<|level|>1\n<|id|>39<|level|>1\n<|id|>43<|level|>1\n<|id|>47<|level|>1\n<|id|>51<|level|>2\n<|id|>53<|level|>-1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        }
+    ]
+}

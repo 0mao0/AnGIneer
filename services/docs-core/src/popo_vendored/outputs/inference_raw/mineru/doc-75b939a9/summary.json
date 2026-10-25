@@ -1,0 +1,34 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0alys2vd\\input\\pdfs\\doc-75b939a9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0alys2vd\\enriched\\doc-75b939a9.json",
+    "contd_output": "<|src_id|>22<|tgt_id|>23",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>67<|level|>3",
+    "image_output": "<|src_id|>1<|tgt_id|>2",
+    "contd_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ],
+    "table_merge_candidates": []
+}

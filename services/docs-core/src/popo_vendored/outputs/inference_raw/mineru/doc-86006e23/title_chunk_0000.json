@@ -1,0 +1,70 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>229 140 244 774<|content|>VIA CERTIFIED MAIL / RETURN RECEIPT REQUESTED AND\n<|id|>13<|page|>1<|box|>797 142 814 653<|content|>I. AURELIUS'S COPYRIGHTS AND PROPRIETARY RIGHTS\n<|id|>21<|page|>2<|box|>834 140 852 854<|content|>II. VELVET STREAM'S UNAUTHORIZED DISTRIBUTION OF A\n<|id|>26<|page|>3<|box|>530 140 547 740<|content|>III. STREAMNOW'S LACK OF AUTHORIZATION — THE MDD C\n<|id|>33<|page|>4<|box|>518 140 537 563<|content|>IV. LEGAL CLAIMS AND LIABILITY EXPOSURE\n<|id|>41<|page|>5<|box|>464 140 482 263<|content|>V. DEMANDS\n<|id|>43<|page|>5<|box|>522 142 539 619<|content|>1. Immediate Cessation and Removal of All Aurelius\n<|id|>47<|page|>6<|box|>90 142 107 352<|content|>2. Preservation of Records\n<|id|>61<|page|>7<|box|>362 142 378 413<|content|>VI. RESERVATION OF RIGHTS\n<|id|>67<|page|>7<|box|>753 140 768 655<|content|>VII. RESPONSE DEADLINE AND CONTACT INFORMATION\n<|id|>73<|page|>8<|box|>191 142 209 274<|content|>VIII. CLOSING\n<|id|>82<|page|>8<|box|>546 143 561 233<|content|>Enclosure:\n<|id|>84<|page|>8<|box|>618 143 630 169<|content|>cc:",
+    "raw_response": "<|id|>5<|level|>-1\n<|id|>13<|level|>1\n<|id|>21<|level|>1\n<|id|>26<|level|>1\n<|id|>33<|level|>1\n<|id|>41<|level|>1\n<|id|>43<|level|>2\n<|id|>47<|level|>2\n<|id|>61<|level|>1\n<|id|>67<|level|>1\n<|id|>73<|level|>1\n<|id|>82<|level|>1\n<|id|>84<|level|>1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        }
+    ]
+}

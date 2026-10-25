@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 403 133 593<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>401 142 417 390<|content|>I. Purpose and Scope of Review\n<|id|>16<|page|>2<|box|>304 140 321 267<|content|>II. Background\n<|id|>17<|page|>2<|box|>334 140 352 527<|content|>A. Nexford Corporate Structure and Governance\n<|id|>28<|page|>3<|box|>625 140 641 640<|content|>B. Summary of D&O Insurance Tower (2021–2022 Polic\n<|id|>35<|page|>4<|box|>619 140 637 519<|content|>C. Role of the Form Indemnification Agreement\n<|id|>43<|page|>6<|box|>90 140 107 344<|content|>III. Documents Reviewed\n<|id|>56<|page|>6<|box|>690 140 707 380<|content|>IV. Summary of Key Findings\n<|id|>62<|page|>7<|box|>494 140 511 305<|content|>V. Detailed Analysis\n<|id|>63<|page|>7<|box|>525 140 561 854<|content|>A. Finding 1: Advancement of Expenses Clause Does\n<|id|>89<|page|>10<|box|>590 140 609 808<|content|>B. Finding 2: Definition of \"Proceeding\" Narrower\n<|id|>107<|page|>12<|box|>458 140 476 470<|content|>This gap creates two categories of problems:\n<|id|>123<|page|>14<|box|>311 140 328 367<|content|>VI. Additional Observations\n<|id|>125<|page|>14<|box|>422 140 440 612<|content|>A. Consistency Across All Nine Indemnification Agr\n<|id|>129<|page|>14<|box|>821 142 839 450<|content|>B. Officer Indemnification Agreements\n<|id|>139<|page|>15<|box|>575 140 593 493<|content|>C. Subsidiary Director and Officer Coverage\n<|id|>143<|page|>16<|box|>176 140 193 624<|content|>D. Coordination with Bylaws and Certificate of Inc\n<|id|>147<|page|>16<|box|>685 140 700 356<|content|>E. Pre-IPO Considerations\n<|id|>159<|page|>17<|box|>647 140 664 403<|content|>VII. Recommended Action Items\n<|id|>169<|page|>18<|box|>742 140 758 279<|content|>VIII. Conclusion",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>28<|level|>3\n<|id|>35<|level|>3\n<|id|>43<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>63<|level|>3\n<|id|>89<|level|>3\n<|id|>107<|level|>-1\n<|id|>123<|level|>2\n<|id|>125<|level|>3\n<|id|>129<|level|>3\n<|id|>139<|level|>3\n<|id|>143<|level|>3\n<|id|>147<|level|>3\n<|id|>159<|level|>2\n<|id|>169<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        }
+    ]
+}

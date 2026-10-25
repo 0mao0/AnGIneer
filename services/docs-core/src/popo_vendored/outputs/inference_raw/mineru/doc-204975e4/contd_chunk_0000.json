@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        52
+    ],
+    "pages": [
+        1,
+        3,
+        7,
+        8,
+        10,
+        21,
+        25,
+        29,
+        31,
+        50,
+        51
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>164 441 185 564<|content|>April 1980\n<|id|>3<|page|>1<|box|>853 149 894 615<|content|>DEPARTMENT OF THE TREASURY WASHINGTON, D. ... C\n<|id|>8<|page|>3<|box|>137 141 630 835<|content|>UNITED STATES SAVINGS BONDS Page SB-1. ... 88\n<|id|>9<|page|>3<|box|>700 144 818 836<|content|>IFS-1. ... 94\n<|id|>24<|page|>7<|box|>194 531 333 847<|content|>Tenders were received in both auctions at Federal ...ashington, D. ... Auction of 15-Year 1-Month Bonds\n<|id|>25<|page|>7<|box|>337 532 465 848<|content|>On March 20 the Treasury announced that it would a...f 15-year 1-month bonds to raise new cash. ... 000\n<|id|>28<|page|>7<|box|>679 534 690 609<|content|>52-Week Bills\n<|id|>29<|page|>7<|box|>695 534 871 848<|content|>On March 20 tenders were invited for approximately...il 1, 1980, and to mature March 26, 1981. ... 459%\n<|id|>30<|page|>7<|box|>892 535 903 650<|content|>Cash Management Bills\n<|id|>31<|page|>7<|box|>908 560 920 844<|content|>On March 18 tenders were invited for approximately \\$6,000\n<|id|>35<|page|>8<|box|>481 145 651 459<|content|>On March 27 tenders were invited for approximately...uring June 26, 1980. ... 13-Week and 26-Week Bills\n<|id|>36<|page|>8<|box|>656 145 781 459<|content|>Issues of regular weekly Treasury bills in March t...or the new issues are shown in the following table\n<|id|>38<|page|>8<|box|>174 526 187 820<|content|>Treasury Bills (Other than Short-dated bills) - General\n<|id|>39<|page|>8<|box|>190 526 300 841<|content|>Treasury bills are sold on a discount basis under ...and Branches, or of the Department of the Treasury\n<|id|>43<|page|>8<|box|>762 526 775 851<|content|>Nonmarketable Foreign Series Securities - Foreign Governments\n<|id|>44<|page|>8<|box|>778 526 890 845<|content|>Dollar denominated foreign series securities issue...of 1 bill and 1 certificate of indebtedness. ... )\n<|id|>58<|page|>10<|box|>265 96 275 484<|content|>6/ Represents holdings of special drawing rights, less certificates issued\n<|id|>59<|page|>10<|box|>157 531 166 663<|content|>to Federal Reserve banks. ... to Federal Reserve banks\n<|id|>94<|page|>21<|box|>831 138 893 478<|content|>Source: ... (This data is on the basis of Reports ...the agencies prior to reports submitted for Budget\n<|id|>95<|page|>21<|box|>831 525 898 858<|content|>presentation and therefore may differ somewhat from the Budget document. ... 47,468\n<|id|>101<|page|>25<|box|>127 251 141 749<|content|>Source and Availability of the Balance in the Account of the U. ... Treasury\n<|id|>102<|page|>25<|box|>180 163 239 474<|content|>The operating cash of the Treasury is maintained i...untry authorized to maintain tax and loan accounts\n<|id|>124<|page|>29<|box|>820 104 918 496<|content|>Note: ... Beginning with data for December 31, 1958, the computation is based on\n<|id|>125<|page|>29<|box|>835 519 844 708<|content|>2/ Excludes Federal Financing Bank. ... 2/ Excludes Federal Financing Bank\n<|id|>132<|page|>31<|box|>803 101 916 489<|content|>1/ Consists of Government National Mortgage Associ... Overseas Private Investment Corporation beginning\n<|id|>133<|page|>31<|box|>778 525 901 912<|content|>February 1975. ... Less than \\$500,000\n<|id|>209<|page|>50<|box|>496 104 508 445<|content|>22/ Yields accepted ranged from 7. ... 64%\n<|id|>317<|page|>51<|box|>562 519 572 724<|content|>* Less than \\$500,000. ... p Preliminary\n<|id|>283<|page|>51<|box|>456 98 472 475<|content|>108/ Yields accepted ranged from 9. ... 947)",
+    "raw_response": "<|src_id|>58<|tgt_id|>59\n<|src_id|>94<|tgt_id|>95\n<|src_id|>132<|tgt_id|>133",
+    "parsed": [
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        }
+    ]
+}

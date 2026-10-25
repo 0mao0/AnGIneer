@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>357 142 373 264<|content|>1. Introduction\n<|id|>12<|page|>1<|box|>705 140 723 282<|content|>2. Defined Terms\n<|id|>24<|page|>2<|box|>660 140 676 336<|content|>3. Documents Examined\n<|id|>49<|page|>4<|box|>583 140 599 267<|content|>4. Assumptions\n<|id|>59<|page|>5<|box|>645 140 662 238<|content|>5. Opinions\n<|id|>61<|page|>5<|box|>720 140 737 488<|content|>5.1 Due Authorization — DUFC (Co-Issuer)\n<|id|>63<|page|>6<|box|>90 140 107 473<|content|>5.2 Due Authorization — U.S. Guarantors\n<|id|>65<|page|>6<|box|>364 140 381 393<|content|>5.3 Due Execution and Delivery\n<|id|>67<|page|>6<|box|>492 140 508 416<|content|>5.4 Enforceability of the Indenture\n<|id|>69<|page|>6<|box|>656 140 672 383<|content|>5.5 Enforceability of the Notes\n<|id|>71<|page|>6<|box|>820 140 837 500<|content|>5.6 Enforceability of the Purchase Agreement\n<|id|>73<|page|>7<|box|>138 140 157 578<|content|>5.7 Enforceability of the Registration Rights Agre\n<|id|>75<|page|>7<|box|>250 140 266 542<|content|>5.8 Enforceability of the U.S. Collateral Agreemen\n<|id|>78<|page|>7<|box|>750 140 767 506<|content|>5.9 No Conflict — DUFC and U.S. Guarantors\n<|id|>83<|page|>8<|box|>311 140 329 517<|content|>5.10 No Consent — DUFC and U.S. Guarantors\n<|id|>88<|page|>8<|box|>619 140 636 367<|content|>6. Enforceability Exceptions\n<|id|>97<|page|>10<|box|>186 140 204 258<|content|>7. Limitations\n<|id|>99<|page|>10<|box|>348 140 366 498<|content|>Without limiting the generality of the foregoing:\n<|id|>106<|page|>11<|box|>359 140 375 326<|content|>8. Reliance and Benefit\n<|id|>109<|page|>11<|box|>652 140 669 372<|content|>9. No Undertaking to Update\n<|id|>112<|page|>11<|box|>858 140 875 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>12<|level|>1\n<|id|>24<|level|>1\n<|id|>49<|level|>1\n<|id|>59<|level|>1\n<|id|>61<|level|>2\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>88<|level|>1\n<|id|>97<|level|>1\n<|id|>99<|level|>-1\n<|id|>106<|level|>1\n<|id|>109<|level|>1\n<|id|>112<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        }
+    ]
+}

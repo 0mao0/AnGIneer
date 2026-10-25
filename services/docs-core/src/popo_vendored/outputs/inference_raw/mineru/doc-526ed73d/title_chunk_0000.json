@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 147 143 854<|content|>CONTINENTAL SHARE SERVICES, INC. 1 Ashbury Asset A\n<|id|>15<|page|>1<|box|>840 140 858 524<|content|>1. Appointment as Transfer Agent and Registrar\n<|id|>18<|page|>2<|box|>340 142 357 383<|content|>2. Description of the Securities\n<|id|>22<|page|>3<|box|>90 140 107 395<|content|>3. DTC Eligibility Confirmation\n<|id|>31<|page|>3<|box|>758 140 777 316<|content|>4. FAST Agent Status\n<|id|>40<|page|>4<|box|>433 140 450 415<|content|>5. Closing Mechanics and Delivery\n<|id|>45<|page|>5<|box|>223 140 239 441<|content|>6. Representations and Confirmations\n<|id|>53<|page|>6<|box|>90 140 107 326<|content|>7. Contact Information\n<|id|>61<|page|>6<|box|>422 140 439 233<|content|>8. Reliance",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>15<|level|>2\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>31<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>53<|level|>2\n<|id|>61<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        }
+    ]
+}

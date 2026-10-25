@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>377 140 393 493<|content|>1. Purpose and Confirmation of Engagement\n<|id|>13<|page|>2<|box|>90 142 107 354<|content|>2. Scope of Representation\n<|id|>30<|page|>4<|box|>90 140 107 387<|content|>3. Engagement Team / Staffing\n<|id|>38<|page|>4<|box|>752 140 768 406<|content|>4. Fees and Billing Arrangements\n<|id|>48<|page|>5<|box|>617 140 633 390<|content|>5. Expenses and Disbursements\n<|id|>60<|page|>6<|box|>238 140 253 454<|content|>6. Client Identity and Affiliated Entities\n<|id|>63<|page|>6<|box|>604 140 622 321<|content|>7. Conflicts of Interest\n<|id|>67<|page|>7<|box|>186 140 204 390<|content|>8. Confidentiality and Privilege\n<|id|>70<|page|>7<|box|>554 140 570 326<|content|>9. Document Retention\n<|id|>74<|page|>8<|box|>90 142 107 540<|content|>10. Limitation of Scope; No Guarantee of Outcome\n<|id|>77<|page|>8<|box|>383 142 402 393<|content|>11. Termination of Engagement\n<|id|>82<|page|>8<|box|>786 142 803 480<|content|>12. Governing Law and Dispute Resolution\n<|id|>87<|page|>9<|box|>260 142 277 428<|content|>13. Entire Agreement; Amendments\n<|id|>90<|page|>9<|box|>481 142 498 406<|content|>14. Acceptance and Counterparts\n<|id|>95<|page|>9<|box|>821 142 837 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>101<|page|>10<|box|>193 313 210 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>103<|page|>10<|box|>281 142 297 439<|content|>ACKNOWLEDGED AND AGREED:\n<|id|>104<|page|>10<|box|>306 142 324 473<|content|>MERIDIAN CONSUMER BRANDS LLC\n<|id|>111<|page|>10<|box|>484 143 497 171<|content|>cc:",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>30<|level|>1\n<|id|>38<|level|>1\n<|id|>48<|level|>1\n<|id|>60<|level|>1\n<|id|>63<|level|>1\n<|id|>67<|level|>1\n<|id|>70<|level|>1\n<|id|>74<|level|>1\n<|id|>77<|level|>1\n<|id|>82<|level|>1\n<|id|>87<|level|>1\n<|id|>90<|level|>1\n<|id|>95<|level|>-1\n<|id|>101<|level|>1\n<|id|>103<|level|>2\n<|id|>104<|level|>2\n<|id|>111<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        }
+    ]
+}

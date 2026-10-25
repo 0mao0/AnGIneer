@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 181 143 854<|content|>CALDERWOOD & HARKNESS LLP 200 South Biscayne Boule\n<|id|>8<|type|>title<|page|>1<|box|>382 140 398 343<|content|>I. Purpose and Authority\n<|id|>11<|type|>title<|page|>1<|box|>768 142 785 460<|content|>II. Background — Investigation Context\n<|id|>16<|type|>title<|page|>2<|box|>484 140 500 483<|content|>III. Grounds for Termination — For Cause\n<|id|>18<|type|>title<|page|>2<|box|>650 140 667 442<|content|>A. Revenue-Recognition Irregularities\n<|id|>21<|type|>table<|page|>3<|box|>186 143 301 852<|content|>None\n<|id|>23<|type|>title<|page|>3<|box|>494 140 510 694<|content|>B. Expense-Reimbursement Irregularities — Fictitio\n<|id|>28<|type|>title<|page|>4<|box|>176 140 194 555<|content|>C. Breach of Fiduciary and Employment Obligations\n<|id|>30<|type|>title<|page|>4<|box|>424 140 440 514<|content|>IV. Effective Date and Logistics of Termination\n<|id|>34<|type|>title<|page|>4<|box|>799 140 815 401<|content|>V. Post-Termination Obligations\n<|id|>35<|type|>title<|page|>4<|box|>829 140 847 473<|content|>A. Continuing Confidentiality Obligations\n<|id|>39<|type|>title<|page|>5<|box|>311 140 328 352<|content|>B. Document Preservation\n<|id|>44<|type|>title<|page|>6<|box|>90 140 107 408<|content|>D. Clawback and Indemnification\n<|id|>48<|type|>title<|page|>6<|box|>554 140 571 447<|content|>VI. Regulatory and Disclosure Context\n<|id|>52<|type|>title<|page|>7<|box|>148 140 167 352<|content|>VII. Reservation of Rights\n<|id|>55<|type|>title<|page|>7<|box|>407 140 424 419<|content|>VIII. Request for Acknowledgment",
+    "raw_response": "<|src_id|>21<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 18
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>23<|page|>2<|box|>417 140 434 553<|content|>I. Identification of the Covered Opinions and Lett\n<|id|>37<|page|>4<|box|>148 140 167 310<|content|>II. Grant of Reliance\n<|id|>40<|page|>4<|box|>481 140 497 483<|content|>III. Limitations and Conditions on Reliance\n<|id|>42<|page|>4<|box|>574 140 590 411<|content|>A. Incorporation of Qualifications\n<|id|>44<|page|>4<|box|>848 140 864 348<|content|>B. No Expansion of Scope\n<|id|>46<|page|>5<|box|>213 140 229 294<|content|>C. Date Limitation\n<|id|>48<|page|>5<|box|>431 142 449 397<|content|>D. No Reliance by Other Parties\n<|id|>50<|page|>5<|box|>779 142 796 290<|content|>E. Governing Law",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>23<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>3\n<|id|>44<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        }
+    ]
+}

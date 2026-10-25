@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 248<|content|>【427#49】河南省\n<|id|>2<|page|>1<|box|>260 105 275 381<|content|>【4271750#7】中國－阿塞拜疆關係\n<|id|>4<|page|>1<|box|>361 105 376 240<|content|>【4285#63】波兰\n<|id|>6<|page|>1<|box|>445 105 461 285<|content|>【428536#2】中信银行\n<|id|>8<|page|>1<|box|>563 107 579 285<|content|>【42871#24】悉尼大學\n<|id|>10<|page|>1<|box|>646 105 663 294<|content|>【42928#1】電腦記憶體\n<|id|>12<|page|>1<|box|>799 105 816 435<|content|>【4308303#2】1960年中國珠穆朗瑪峰遠征\n<|id|>14<|page|>2<|box|>168 107 185 284<|content|>【43267#53】甲午战争\n<|id|>16<|page|>2<|box|>269 107 286 329<|content|>【4329790#6】拉斯梅德拉斯\n<|id|>18<|page|>2<|box|>337 107 353 265<|content|>【433089#4】石碣镇\n<|id|>20<|page|>2<|box|>454 105 470 514<|content|>【433091#0】国际滑冰联盟花样滑冰大奖赛俄罗斯站\n<|id|>22<|page|>3<|box|>73 107 89 364<|content|>【4338709#4】莱昂内尔·彭罗斯\n<|id|>24<|page|>3<|box|>140 105 156 294<|content|>【43463#0】统计语言学\n<|id|>26<|page|>3<|box|>189 105 205 381<|content|>【4358719#0】野鸭湖国家湿地公园\n<|id|>28<|page|>3<|box|>273 107 288 294<|content|>【4370565#0】章丘大葱\n<|id|>30<|page|>3<|box|>340 105 355 292<|content|>【44058#0】刚果共和国\n<|id|>32<|page|>3<|box|>424 105 439 292<|content|>【4425965#7】青岛人口\n<|id|>34<|page|>3<|box|>558 105 574 364<|content|>【4426163#0】格莱美奖最佳新人\n<|id|>36<|page|>3<|box|>677 105 693 364<|content|>【4426163#1】格莱美奖最佳新人\n<|id|>38<|page|>3<|box|>846 105 863 364<|content|>【4426163#5】格莱美奖最佳新人\n<|id|>40<|page|>4<|box|>186 105 202 248<|content|>【443#44】山东省\n<|id|>42<|page|>4<|box|>321 105 338 248<|content|>【443#45】山东省\n<|id|>44<|page|>4<|box|>474 107 489 381<|content|>【4434127#0】英国最畅销专辑列表\n<|id|>46<|page|>5<|box|>73 107 89 386<|content|>【4434584#0】工人党 (阿尔及利亚)\n<|id|>48<|page|>5<|box|>156 105 173 292<|content|>【4435031#1】敢不敢爱\n<|id|>50<|page|>5<|box|>224 107 240 292<|content|>【4435918#1】法美關係\n<|id|>52<|page|>5<|box|>341 107 357 309<|content|>【4452114#0】烏克蘭人口\n<|id|>54<|page|>5<|box|>442 107 458 431<|content|>【446676#4】斯普林菲尔德 (马萨诸塞州)\n<|id|>56<|page|>5<|box|>526 105 543 351<|content|>【44686#4】寧夏省 (中華民國)\n<|id|>58<|page|>5<|box|>609 107 626 231<|content|>【4471#0】太阳",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>1\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>1\n<|id|>12<|level|>2\n<|id|>14<|level|>1\n<|id|>16<|level|>2\n<|id|>18<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>2\n<|id|>34<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>1\n<|id|>56<|level|>1\n<|id|>58<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ]
+}

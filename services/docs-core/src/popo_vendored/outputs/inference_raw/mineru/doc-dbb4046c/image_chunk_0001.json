@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        48,
+        52
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        51,
+        52
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1122<|type|>table<|page|>48<|box|>332 218 432 801<|content|>None\n<|id|>1124<|type|>title<|page|>48<|box|>489 114 507 280<|content|>13.3 节段拼装验收\n<|id|>1130<|type|>table<|page|>48<|box|>701 142 902 878<|content|>None\n<|id|>1131<|type|>table<|page|>49<|box|>110 141 254 878<|content|>None\n<|id|>1132<|type|>title<|page|>49<|box|>284 114 300 280<|content|>13.4 下沉就位验收\n<|id|>1134<|type|>table<|page|>49<|box|>365 174 563 845<|content|>None\n<|id|>1135<|type|>title<|page|>49<|box|>575 112 590 507<|content|>13.4.2 内支撑安装质量标准应符合表14 的规定。\n<|id|>1136<|type|>table<|page|>49<|box|>627 189 787 831<|content|>None\n<|id|>1137<|type|>title<|page|>50<|box|>154 410 208 610<|content|>附 录 A （资料性附录） 双壁钢围堰施工工艺流程\n<|id|>1138<|type|>title<|page|>50<|box|>263 112 279 413<|content|>A.1 双壁钢围堰浮运法施工工艺流程\n<|id|>1140<|type|>title<|page|>50<|box|>338 112 353 448<|content|>A.2 双壁钢围堰原位拼装法施工工艺流程\n<|id|>1142<|type|>image<|page|>51<|box|>118 152 740 798<|content|>None\n<|id|>1143<|type|>image<|page|>52<|box|>118 154 627 710<|content|>None",
+    "raw_response": "<|src_id|>1130<|tgt_id|>1124\n<|src_id|>1131<|tgt_id|>1124\n<|src_id|>1134<|tgt_id|>1132\n<|src_id|>1136<|tgt_id|>1135\n<|src_id|>1142<|tgt_id|>1140\n<|src_id|>1143<|tgt_id|>1140",
+    "parsed": [
+        {
+            "src_id": 1130,
+            "tgt_id": 1124
+        },
+        {
+            "src_id": 1131,
+            "tgt_id": 1124
+        },
+        {
+            "src_id": 1134,
+            "tgt_id": 1132
+        },
+        {
+            "src_id": 1136,
+            "tgt_id": 1135
+        },
+        {
+            "src_id": 1142,
+            "tgt_id": 1140
+        },
+        {
+            "src_id": 1143,
+            "tgt_id": 1140
+        }
+    ]
+}

@@ -1,0 +1,119 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        18,
+        19,
+        20,
+        21,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>128 370 148 627<|content|>VOTING AGREEMENT\n<|id|>4<|page|>1<|box|>217 397 234 601<|content|>VOTING AGREEMENT\n<|id|>10<|page|>1<|box|>443 140 460 243<|content|>RECITALS\n<|id|>19<|page|>2<|box|>335 142 352 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>53<|page|>4<|box|>662 140 680 673<|content|>ARTICLE 2 — BOARD COMPOSITION; VOTING PROVISIONS\n<|id|>77<|page|>7<|box|>643 140 662 539<|content|>ARTICLE 3 — VOTING ON OTHER MATTERS\n<|id|>91<|page|>9<|box|>167 140 184 750<|content|>ARTICLE 4 — TRANSFER RESTRICTIONS ON VOTING OBLIGA\n<|id|>95<|page|>9<|box|>762 140 779 397<|content|>ARTICLE 5 — DRAG-ALONG\n<|id|>108<|page|>11<|box|>578 140 595 779<|content|>5.3 Exceptions. Notwithstanding anything to the co\n<|id|>112<|page|>12<|box|>167 140 184 555<|content|>ARTICLE 6 — COVENANTS OF THE COMPANY\n<|id|>118<|page|>13<|box|>229 140 247 620<|content|>ARTICLE 7 — REPRESENTATIONS AND WARRANTIES\n<|id|>124<|page|>14<|box|>90 142 106 506<|content|>ARTICLE 8 — TERM AND TERMINATION\n<|id|>131<|page|>14<|box|>597 142 614 429<|content|>ARTICLE 9 — MISCELLANEOUS\n<|id|>144<|page|>16<|box|>244 176 261 331<|content|>If to the Company:\n<|id|>174<|page|>18<|box|>614 400 632 596<|content|>[Signature Pages Follow]\n<|id|>176<|page|>18<|box|>684 444 700 550<|content|>COMPANY:\n<|id|>211<|page|>19<|box|>468 426 486 571<|content|>KEY HOLDERS:\n<|id|>218<|page|>20<|box|>89 447 107 552<|content|>EXHIBIT A\n<|id|>219<|page|>21<|box|>90 377 106 620<|content|>SCHEDULE OF INVESTORS\n<|id|>222<|page|>23<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>223<|page|>24<|box|>90 362 106 633<|content|>SCHEDULE OF KEY HOLDERS\n<|id|>226<|page|>25<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>227<|page|>25<|box|>131 348 148 648<|content|>FORM OF JOINDER AGREEMENT\n<|id|>229<|page|>25<|box|>292 140 309 243<|content|>RECITALS",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>4<|level|>1\n<|id|>10<|level|>2\n<|id|>19<|level|>2\n<|id|>53<|level|>2\n<|id|>77<|level|>2\n<|id|>91<|level|>2\n<|id|>95<|level|>2\n<|id|>108<|level|>3\n<|id|>112<|level|>2\n<|id|>118<|level|>2\n<|id|>124<|level|>2\n<|id|>131<|level|>2\n<|id|>144<|level|>-1\n<|id|>174<|level|>-1\n<|id|>176<|level|>2\n<|id|>211<|level|>2\n<|id|>218<|level|>1\n<|id|>219<|level|>1\n<|id|>222<|level|>1\n<|id|>223<|level|>1\n<|id|>226<|level|>1\n<|id|>227<|level|>1\n<|id|>229<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 1
+        },
+        {
+            "id": 219,
+            "level": 1
+        },
+        {
+            "id": 222,
+            "level": 1
+        },
+        {
+            "id": 223,
+            "level": 1
+        },
+        {
+            "id": 226,
+            "level": 1
+        },
+        {
+            "id": 227,
+            "level": 1
+        },
+        {
+            "id": 229,
+            "level": 2
+        }
+    ]
+}

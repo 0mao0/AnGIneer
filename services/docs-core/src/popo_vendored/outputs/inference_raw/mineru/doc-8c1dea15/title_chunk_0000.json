@@ -1,0 +1,113 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>840 140 859 566<|content|>Section 1: Overview of the Cost-Sharing Arrangemen\n<|id|>13<|page|>2<|box|>138 142 156 320<|content|>1.1 Parties to the CSA\n<|id|>17<|page|>2<|box|>539 142 555 401<|content|>1.2 Effective Date and Execution\n<|id|>20<|page|>2<|box|>782 142 800 310<|content|>1.3 Scope of the CSA\n<|id|>29<|page|>3<|box|>648 142 667 501<|content|>1.4 Platform Contribution Transaction (PCT)\n<|id|>32<|page|>4<|box|>231 142 250 375<|content|>1.5 Cost-Sharing Percentages\n<|id|>37<|page|>4<|box|>816 142 833 447<|content|>1.6 Distinction from Legacy IP License\n<|id|>41<|page|>5<|box|>421 140 438 393<|content|>Section 2: Documents Produced\n<|id|>42<|page|>5<|box|>452 142 469 419<|content|>2.1 Listing of Produced Documents\n<|id|>44<|page|>5<|box|>518 140 537 816<|content|>Document 1: Qualified Cost-Sharing Arrangement Agr\n<|id|>47<|page|>5<|box|>707 140 724 785<|content|>Document 2: First Amendment to the CSA Agreement,\n<|id|>50<|page|>6<|box|>179 140 196 771<|content|>Document 3: Second Amendment to the CSA Agreement,\n<|id|>53<|page|>6<|box|>421 140 438 792<|content|>Document 4: Third Amendment to the CSA Agreement,\n<|id|>56<|page|>6<|box|>664 140 680 642<|content|>Document 5: Schedule of Annual RAB Calculations (2\n<|id|>62<|page|>7<|box|>330 142 347 488<|content|>2.2 Summary Table of Produced Documents\n<|id|>64<|page|>7<|box|>738 143 756 352<|content|>Total pages produced: 202\n<|id|>65<|page|>7<|box|>780 140 797 604<|content|>Section 3: Explanatory Notes Regarding the CSA Str\n<|id|>66<|page|>7<|box|>811 142 828 357<|content|>3.1 Regulatory Framework\n<|id|>70<|page|>8<|box|>411 140 428 411<|content|>3.2 PBI's Role as CSA Participant\n<|id|>77<|page|>9<|box|>411 140 428 403<|content|>3.3 Key Products Under the CSA\n<|id|>81<|page|>9<|box|>724 140 741 596<|content|>3.4 Coordination with Other Intercompany Arrangeme\n<|id|>89<|page|>10<|box|>337 140 354 395<|content|>Section 4: Reservation of Rights\n<|id|>99<|page|>11<|box|>267 140 284 388<|content|>Section 5: Contact Information",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>13<|level|>2\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>1\n<|id|>42<|level|>2\n<|id|>44<|level|>3\n<|id|>47<|level|>3\n<|id|>50<|level|>3\n<|id|>53<|level|>3\n<|id|>56<|level|>3\n<|id|>62<|level|>2\n<|id|>64<|level|>-1\n<|id|>65<|level|>1\n<|id|>66<|level|>2\n<|id|>70<|level|>2\n<|id|>77<|level|>2\n<|id|>81<|level|>2\n<|id|>89<|level|>1\n<|id|>99<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        }
+    ]
+}

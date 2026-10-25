@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 7,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['LumiEdge 1600G-LR', \"The Benchmark teardown (Exhibit OWS-3001 at pp. 55-56) identifies a TIA array in the 1600G-LR. Notably, Benchmark's analysis suggests the 1600G-LR may employ a 3D-stacked die architecture in which the TIA die is bonded directly atop the photonic die using micro-bump interconnects, which Dr. Ashford opines constitutes monolithic integration under OWS's\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', \"construction and may also satisfy even Luminore's narrow construction. Luminore design files (LC-HC-SC-00016340 through LC-HC-SC-00016360). Literal infringement asserted; DOE also asserted in Appendix B.\"]]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 149,
+    "table2_idx": 150
+}

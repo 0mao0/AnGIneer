@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 104 393<|content|>Subject to Completion, Dated [●], 2026\n<|id|>2<|page|>1<|box|>181 305 200 691<|content|>CAPITALIZATION AND DILUTION\n<|id|>6<|page|>1<|box|>381 140 398 308<|content|>CAPITALIZATION\n<|id|>16<|page|>2<|box|>702 142 719 434<|content|>Footnotes to the Capitalization Table\n<|id|>25<|page|>4<|box|>89 140 106 241<|content|>DILUTION\n<|id|>28<|page|>4<|box|>354 140 375 519<|content|>Net Tangible Book Value — Before the Offering\n<|id|>35<|page|>4<|box|>773 140 792 620<|content|>Net Tangible Book Value — As Adjusted (After the O\n<|id|>42<|page|>5<|box|>441 143 458 416<|content|>Dilution per ADS to New Investors\n<|id|>50<|page|>6<|box|>284 140 300 480<|content|>Effect of Overallotment Option on Dilution\n<|id|>52<|page|>6<|box|>494 140 511 715<|content|>PRINCIPAL SHAREHOLDERS AND POST-OFFERING OWNERSHIP\n<|id|>59<|page|>7<|box|>564 142 580 411<|content|>Footnotes to the Ownership Table\n<|id|>69<|page|>9<|box|>204 140 220 614<|content|>SHARES OUTSTANDING — RECONCILIATION TABLE\n<|id|>72<|page|>9<|box|>785 142 803 413<|content|>ADS / Ordinary Share Conversion\n<|id|>76<|page|>10<|box|>248 140 265 566<|content|>ADDITIONAL NOTES AND CROSS-REFERENCES",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>6<|level|>2\n<|id|>16<|level|>3\n<|id|>25<|level|>2\n<|id|>28<|level|>3\n<|id|>35<|level|>3\n<|id|>42<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>2\n<|id|>59<|level|>3\n<|id|>69<|level|>2\n<|id|>72<|level|>3\n<|id|>76<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        }
+    ]
+}

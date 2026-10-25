@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        54,
+        85
+    ],
+    "pages": [
+        55,
+        57,
+        76,
+        82,
+        83,
+        85
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>461<|page|>55<|box|>213 495 234 900<|content|><sup>4</sup> Includes securities issued to the Fed...n exchange for maturing securities or for new cash\n<|id|>462<|page|>55<|box|>244 93 253 333<|content|><sup>2</sup> From date of additional issue in case of a reopening. ... date or\n<|id|>463<|page|>55<|box|>251 93 263 470<|content|><sup>3</sup> In reopenings, the amount accepted is...is in addition to the amount of original offerings\n<|id|>472<|page|>57<|box|>90 109 126 880<|content|>TABLE OFS-1—Distribution of Federal Securities by ...ions of dollars. ... Bureau of the Fiscal Service]\n<|id|>475<|page|>57<|box|>833 91 872 460<|content|>Note—Public issues held by the Federal Reserve ban...Corporation, and the Federal Home Loan Bank System\n<|id|>545<|page|>76<|box|>532 81 593 491<|content|>Resources of the fund include (a) Fund Balance, wh...ures for administrative expenses in support of the\n<|id|>546<|page|>76<|box|>126 504 214 915<|content|>CARES Act, (b) U. ... S Government and foreign securities, SDRs, and other non-CARES Act facilities\n<|id|>563<|page|>82<|box|>148 388 164 609<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>564<|page|>82<|box|>184 81 258 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>572<|page|>82<|box|>839 81 901 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>573<|page|>82<|box|>184 504 229 915<|content|>Second Liberty Loan Act of 1917, the nature of the...o an overall limit on the outstanding Federal debt\n<|id|>582<|page|>82<|box|>840 504 902 916<|content|>Government account series (FD-2)—Certain trust fun...urities. ... These securities are sold directly by\n<|id|>583<|page|>83<|box|>90 81 209 491<|content|>Treasury to a specific Government agency, trust fund, or account. ... and the Unemployment Trust Fund\n<|id|>607<|page|>85<|box|>60 84 104 367<|content|>DEPARTMENT OF THE TREASURY BUREAU OF THE FISCAL SERVICE WASHINGTON, D. ... 20227\n<|id|>608<|page|>85<|box|>118 93 148 361<|content|>OFFICIAL BUSINESS PENALTY FOR PRIVATE USE, $300",
+    "raw_response": "<|src_id|>545<|tgt_id|>546\n<|src_id|>572<|tgt_id|>573\n<|src_id|>582<|tgt_id|>583",
+    "parsed": [
+        {
+            "src_id": 545,
+            "tgt_id": 546
+        },
+        {
+            "src_id": 572,
+            "tgt_id": 573
+        },
+        {
+            "src_id": 582,
+            "tgt_id": 583
+        }
+    ]
+}

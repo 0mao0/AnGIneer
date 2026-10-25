@@ -1,0 +1,151 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7qmtumch\\input\\pdfs\\doc-01842631.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7qmtumch\\enriched\\doc-01842631.json",
+    "contd_output": "<|src_id|>75<|tgt_id|>76",
+    "title_output": "<|id|>10<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>23<|level|>2\n<|id|>30<|level|>2\n<|id|>40<|level|>1\n<|id|>41<|level|>2\n<|id|>46<|level|>2\n<|id|>51<|level|>2\n<|id|>55<|level|>1\n<|id|>57<|level|>2\n<|id|>70<|level|>2\n<|id|>79<|level|>2\n<|id|>83<|level|>1\n<|id|>84<|level|>2\n<|id|>87<|level|>2\n<|id|>97<|level|>2\n<|id|>102<|level|>1\n<|id|>103<|level|>2\n<|id|>108<|level|>2\n<|id|>113<|level|>1\n<|id|>119<|level|>1\n<|id|>127<|level|>1\n<|id|>131<|level|>1\n<|id|>141<|level|>1\n<|id|>150<|level|>1\n<|id|>152<|level|>2",
+    "image_output": "<|src_id|>128<|tgt_id|>127\n<|src_id|>129<|tgt_id|>127",
+    "contd_label": [
+        {
+            "src_id": 75,
+            "tgt_id": 76
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 128,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 127
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 128,
+            "table2_idx": 129,
+            "upper_row_ss": [
+                [
+                    "Exhibit 14",
+                    "Executed Proprietary Information and Inventions Assignment Agreement (PIIAA) of Derek Yun, dated"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "January 2021"
+                ]
+            ]
+        }
+    ]
+}

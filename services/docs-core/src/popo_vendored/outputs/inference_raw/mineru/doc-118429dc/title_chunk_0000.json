@@ -1,0 +1,113 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 171 142 825<|content|>SECRETARY'S CERTIFICATE OF CRESTLINE PACKAGING SOL\n<|id|>3<|page|>1<|box|>289 140 305 818<|content|>I. INTRODUCTORY RECITALS AND CERTIFYING OFFICER ID\n<|id|>10<|page|>2<|box|>89 140 106 643<|content|>II. CERTIFICATION OF ORGANIZATIONAL DOCUMENTS\n<|id|>11<|page|>2<|box|>121 140 138 359<|content|>A. Certificate of Formation\n<|id|>15<|page|>2<|box|>465 140 483 339<|content|>B. Operating Agreement\n<|id|>19<|page|>2<|box|>845 140 863 393<|content|>C. Certificate of Good Standing\n<|id|>22<|page|>3<|box|>266 140 284 625<|content|>III. CERTIFICATION OF AUTHORIZING RESOLUTIONS\n<|id|>23<|page|>3<|box|>297 142 315 406<|content|>A. Member/Manager Resolutions\n<|id|>55<|page|>7<|box|>684 140 700 455<|content|>IV. INCUMBENCY CERTIFICATION\n<|id|>60<|page|>8<|box|>358 140 375 450<|content|>V. ADDITIONAL CERTIFICATIONS\n<|id|>66<|page|>9<|box|>89 142 106 390<|content|>VI. RELIANCE STATEMENT\n<|id|>77<|page|>9<|box|>628 142 643 294<|content|>VII. EXECUTION\n<|id|>84<|page|>9<|box|>805 140 821 620<|content|>VIII. CONFIRMATION OF IDENTITY AND AUTHORITY\n<|id|>90<|page|>10<|box|>258 140 277 236<|content|>EXHIBITS\n<|id|>92<|page|>11<|box|>89 140 106 248<|content|>EXHIBIT A.\n<|id|>93<|page|>11<|box|>113 251 131 743<|content|>Certificate of Formation of Crestline Packaging So\n<|id|>97<|page|>12<|box|>89 140 106 246<|content|>EXHIBIT B.\n<|id|>98<|page|>12<|box|>114 171 131 825<|content|>Amended and Restated Operating Agreement of Crestl\n<|id|>101<|page|>13<|box|>89 140 106 248<|content|>EXHIBIT C.\n<|id|>102<|page|>13<|box|>114 383 131 614<|content|>Certificate of Good Standing\n<|id|>106<|page|>14<|box|>90 140 106 248<|content|>EXHIBIT D.\n<|id|>107<|page|>14<|box|>113 183 131 813<|content|>Resolutions of the Members and Managers of Crestli",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>15<|level|>3\n<|id|>19<|level|>3\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>66<|level|>2\n<|id|>77<|level|>2\n<|id|>84<|level|>2\n<|id|>90<|level|>2\n<|id|>92<|level|>3\n<|id|>93<|level|>4\n<|id|>97<|level|>3\n<|id|>98<|level|>4\n<|id|>101<|level|>3\n<|id|>102<|level|>4\n<|id|>106<|level|>3\n<|id|>107<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 4
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 4
+        }
+    ]
+}

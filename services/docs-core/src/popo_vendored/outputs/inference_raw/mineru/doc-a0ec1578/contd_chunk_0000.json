@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>116 426 133 570<|content|>Attorneys at Law\n<|id|>2<|page|>1<|box|>141 153 176 844<|content|>125 Broad Street New York, NY 10004 Telephone: ... com\n<|id|>3<|page|>1<|box|>186 715 203 854<|content|>February 13, 2024\n<|id|>4<|page|>1<|box|>212 140 229 790<|content|>Arbor Health Technologies Inc. ... 275 Kendall Avenue, Suite 1400 Cambridge, MA 02142\n<|id|>5<|page|>1<|box|>237 174 273 854<|content|>Re: ... Holders\n<|id|>6<|page|>1<|box|>282 140 299 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>19<|page|>2<|box|>459 174 494 854<|content|>(iii) an estate the income of which is subject to U. ... or\n<|id|>21<|page|>2<|box|>602 140 638 854<|content|>\"Prospectus\" means the final prospectus of the Com...ursuant to Rule 424(b)(4) under the Securities Act\n<|id|>36<|page|>3<|box|>849 178 885 854<|content|>10. ... An analysis of whether the Company is or h...C\") within the meaning of Section 897(c)(2) of the\n<|id|>37<|page|>4<|box|>90 210 126 854<|content|>Code, based upon our review of the Company's asset...ny's business, as further described below; ... and\n<|id|>45<|page|>4<|box|>617 174 654 854<|content|>(d) that the Company has been and will continue to...g under the laws of the State of Delaware; ... and\n<|id|>47<|page|>4<|box|>705 140 852 857<|content|>This opinion is limited to U. ... jurisdiction\n<|id|>61<|page|>6<|box|>588 174 699 854<|content|>(ii) in the case of a Non-U. ... or\n<|id|>63<|page|>6<|box|>786 140 897 857<|content|>With respect to clause (iii) above, a corporation ...the Company will not become a USRPHC in the future\n<|id|>87<|page|>10<|box|>234 210 251 344<|content|>Very truly yours,\n<|id|>88<|page|>10<|box|>258 140 276 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>89<|page|>10<|box|>277 142 295 254<|content|>By: ... By\n<|id|>90<|page|>10<|box|>294 142 311 316<|content|>Name: ... Sylvia Hartwell\n<|id|>91<|page|>10<|box|>311 142 327 248<|content|>Title: ... Partner\n<|id|>92<|page|>10<|box|>328 140 345 653<|content|>Calderwood & Harkness LLP 125 Broad Street New York, NY 10004",
+    "raw_response": "<|src_id|>36<|tgt_id|>37",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        }
+    ]
+}

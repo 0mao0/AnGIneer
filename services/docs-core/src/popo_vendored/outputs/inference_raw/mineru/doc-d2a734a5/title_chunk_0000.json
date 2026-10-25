@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 238 118 759<|content|>WRITTEN CONSENT OF THE SOLE DIRECTOR\n<|id|>2<|page|>1<|box|>175 238 195 756<|content|>HARROWGATE VELOCITY MERGER SUB INC.\n<|id|>6<|page|>1<|box|>446 142 464 241<|content|>RECITALS\n<|id|>19<|page|>3<|box|>292 142 309 279<|content|>RESOLUTIONS\n<|id|>20<|page|>3<|box|>324 140 340 527<|content|>Resolution 1: Approval of the Merger Agreement\n<|id|>23<|page|>3<|box|>494 142 513 439<|content|>Resolution 2: Approval of the Merger\n<|id|>27<|page|>3<|box|>784 142 801 544<|content|>Resolution 3: Approval of the Certificate of Merge\n<|id|>31<|page|>4<|box|>294 140 311 612<|content|>Resolution 4: Approval of Ancillary Transaction Do\n<|id|>38<|page|>4<|box|>715 140 732 718<|content|>Resolution 5: Authorization of Officers to Execute\n<|id|>45<|page|>5<|box|>419 142 435 544<|content|>Resolution 6: Recommendation to Sole Stockholder\n<|id|>49<|page|>5<|box|>671 140 689 529<|content|>Resolution 7: Authorization of Regulatory Filings\n<|id|>53<|page|>6<|box|>311 140 329 851<|content|>Resolution 8: Amended and Restated Certificate of\n<|id|>55<|page|>6<|box|>458 142 474 692<|content|>Resolution 9: Amended and Restated Bylaws of Survi\n<|id|>57<|page|>6<|box|>585 140 602 459<|content|>Resolution 10: Ratification of Prior Acts\n<|id|>60<|page|>7<|box|>90 140 107 447<|content|>Resolution 11: Omnibus Authorization\n<|id|>63<|page|>7<|box|>390 140 407 653<|content|>Resolution 12: Power and Authority to Modify Immat\n<|id|>66<|page|>7<|box|>643 140 661 354<|content|>GENERAL PROVISIONS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>6<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>23<|level|>3\n<|id|>27<|level|>3\n<|id|>31<|level|>3\n<|id|>38<|level|>3\n<|id|>45<|level|>3\n<|id|>49<|level|>3\n<|id|>53<|level|>3\n<|id|>55<|level|>3\n<|id|>57<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>3\n<|id|>66<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        }
+    ]
+}

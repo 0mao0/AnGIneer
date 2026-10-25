@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        6,
+        11,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>123 143 209 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>565 140 583 243<|content|>RECITALS\n<|id|>36<|type|>title<|page|>6<|box|>148 140 166 620<|content|>DECRETAL PARAGRAPHS — ORDERING PROVISIONS\n<|id|>67<|type|>table<|page|>11<|box|>231 143 430 852<|content|>None\n<|id|>68<|type|>table<|page|>11<|box|>462 143 555 852<|content|>None\n<|id|>124<|type|>title<|page|>18<|box|>239 142 258 236<|content|>EXHIBITS\n<|id|>128<|type|>title<|page|>18<|box|>472 140 489 413<|content|>Exhibit B — DIP Credit Agreement\n<|id|>132<|type|>title<|page|>18<|box|>755 140 773 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>0<|tgt_id|>3\n<|src_id|>67<|tgt_id|>36\n<|src_id|>68<|tgt_id|>36",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 36
+        }
+    ]
+}

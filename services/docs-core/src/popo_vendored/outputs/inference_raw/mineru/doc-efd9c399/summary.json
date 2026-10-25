@@ -1,0 +1,477 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4ud9fosl\\input\\pdfs\\doc-efd9c399.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4ud9fosl\\enriched\\doc-efd9c399.json",
+    "contd_output": "<|src_id|>13<|tgt_id|>14\n<|src_id|>94<|tgt_id|>95\n<|src_id|>115<|tgt_id|>116\n<|src_id|>225<|tgt_id|>226",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>11<|level|>2\n<|id|>16<|level|>3\n<|id|>27<|level|>3\n<|id|>38<|level|>3\n<|id|>43<|level|>2\n<|id|>58<|level|>2\n<|id|>59<|level|>3\n<|id|>62<|level|>3\n<|id|>70<|level|>3\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>92<|level|>3\n<|id|>99<|level|>3\n<|id|>102<|level|>2\n<|id|>103<|level|>3\n<|id|>125<|level|>3\n<|id|>140<|level|>3\n<|id|>146<|level|>2\n<|id|>147<|level|>3\n<|id|>157<|level|>3\n<|id|>176<|level|>3\n<|id|>184<|level|>2\n<|id|>185<|level|>3\n<|id|>189<|level|>3\n<|id|>192<|level|>3\n<|id|>196<|level|>3\n<|id|>203<|level|>3\n<|id|>210<|level|>2\n<|id|>211<|level|>3\n<|id|>214<|level|>3\n<|id|>222<|level|>3\n<|id|>229<|level|>3\n<|id|>234<|level|>3\n<|id|>239<|level|>2\n<|id|>240<|level|>3\n<|id|>247<|level|>3\n<|id|>252<|level|>3\n<|id|>271<|level|>3\n<|id|>277<|level|>2\n<|id|>278<|level|>3\n<|id|>288<|level|>3\n<|id|>295<|level|>2\n<|id|>296<|level|>3\n<|id|>306<|level|>3\n<|id|>312<|level|>3\n<|id|>317<|level|>3\n<|id|>320<|level|>2\n<|id|>321<|level|>3\n<|id|>327<|level|>3\n<|id|>335<|level|>3\n<|id|>341<|level|>2\n<|id|>342<|level|>3\n<|id|>348<|level|>3\n<|id|>353<|level|>2\n<|id|>354<|level|>3\n<|id|>358<|level|>3\n<|id|>362<|level|>2\n<|id|>366<|level|>2\n<|id|>370<|level|>2\n<|id|>380<|level|>2\n<|id|>381<|level|>3",
+    "image_output": "<|src_id|>61<|tgt_id|>59\n<|src_id|>81<|tgt_id|>79\n<|src_id|>82<|tgt_id|>79\n<|src_id|>83<|tgt_id|>79\n<|src_id|>84<|tgt_id|>79\n<|src_id|>139<|tgt_id|>125\n<|src_id|>191<|tgt_id|>189\n<|src_id|>194<|tgt_id|>192\n<|src_id|>195<|tgt_id|>192\n<|src_id|>236<|tgt_id|>234\n<|src_id|>237<|tgt_id|>234\n<|src_id|>249<|tgt_id|>247\n<|src_id|>250<|tgt_id|>247\n<|src_id|>318<|tgt_id|>317\n<|src_id|>344<|tgt_id|>342\n<|src_id|>350<|tgt_id|>348\n<|src_id|>351<|tgt_id|>348\n<|src_id|>363<|tgt_id|>362\n<|src_id|>364<|tgt_id|>362",
+    "contd_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 226
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 3
+        },
+        {
+            "id": 239,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 3
+        },
+        {
+            "id": 247,
+            "level": 3
+        },
+        {
+            "id": 252,
+            "level": 3
+        },
+        {
+            "id": 271,
+            "level": 3
+        },
+        {
+            "id": 277,
+            "level": 2
+        },
+        {
+            "id": 278,
+            "level": 3
+        },
+        {
+            "id": 288,
+            "level": 3
+        },
+        {
+            "id": 295,
+            "level": 2
+        },
+        {
+            "id": 296,
+            "level": 3
+        },
+        {
+            "id": 306,
+            "level": 3
+        },
+        {
+            "id": 312,
+            "level": 3
+        },
+        {
+            "id": 317,
+            "level": 3
+        },
+        {
+            "id": 320,
+            "level": 2
+        },
+        {
+            "id": 321,
+            "level": 3
+        },
+        {
+            "id": 327,
+            "level": 3
+        },
+        {
+            "id": 335,
+            "level": 3
+        },
+        {
+            "id": 341,
+            "level": 2
+        },
+        {
+            "id": 342,
+            "level": 3
+        },
+        {
+            "id": 348,
+            "level": 3
+        },
+        {
+            "id": 353,
+            "level": 2
+        },
+        {
+            "id": 354,
+            "level": 3
+        },
+        {
+            "id": 358,
+            "level": 3
+        },
+        {
+            "id": 362,
+            "level": 2
+        },
+        {
+            "id": 366,
+            "level": 2
+        },
+        {
+            "id": 370,
+            "level": 2
+        },
+        {
+            "id": 380,
+            "level": 2
+        },
+        {
+            "id": 381,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 61,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 125
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 189
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 236,
+            "tgt_id": 234
+        },
+        {
+            "src_id": 237,
+            "tgt_id": 234
+        },
+        {
+            "src_id": 249,
+            "tgt_id": 247
+        },
+        {
+            "src_id": 250,
+            "tgt_id": 247
+        },
+        {
+            "src_id": 318,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 344,
+            "tgt_id": 342
+        },
+        {
+            "src_id": 350,
+            "tgt_id": 348
+        },
+        {
+            "src_id": 351,
+            "tgt_id": 348
+        },
+        {
+            "src_id": 363,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 364,
+            "tgt_id": 362
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 81,
+            "table2_idx": 82,
+            "upper_row_ss": [
+                [
+                    "Omar Al-Rashidi",
+                    "Head of Middle East Operations",
+                    "Dunmore Trading International Ltd.",
+                    "Dubai, UAE",
+                    "Comprehensive knowledge of DTI trading desk operations, counterparty relationships, and logistics"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "coordination; identified as cooperating witness; expedited collection and review of his files is required to support proffer preparation; litigation hold issued April 20, 2022."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 82,
+            "table2_idx": 83,
+            "upper_row_ss": [
+                [
+                    "Marcus Wellbourne",
+                    "General Counsel",
+                    "Dunmore Energy Holdings Ltd.",
+                    "Houston, TX",
+                    "Received initial notification of Volkhov exposure from Gerald Fisk on April 11, 2022; engaged Calderwood & Harkness LLP on April 14, 2022; oversaw initial preservation efforts; central to privilege determinations; litigation hold issued April 20, 2022."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Custodian",
+                    "Title / Role",
+                    "Entity",
+                    "Location",
+                    "Rationale"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 83,
+            "table2_idx": 84,
+            "upper_row_ss": [
+                [
+                    "Sandra Whitfield",
+                    "Chief Financial Officer",
+                    "Dunmore Energy Holdings Ltd.",
+                    "Houston, TX",
+                    "Financial reporting oversight for all Dunmore Entities; awareness of DTI trading desk activity; reviewed and approved consolidated financial statements"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "incorporating DTI trading revenues."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 194,
+            "table2_idx": 195,
+            "upper_row_ss": [
+                [
+                    "Sanctions",
+                    "\"OFAC\" OR \"sanctions\" OR \"SDN\" OR \"Blocked\" OR \"Directive 2\" OR \"E.O. 14024\" OR \"Executive Order"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "14024\" OR \"E.O. 13662\" OR \"Executive Order 13662\" OR \"IEEPA\" OR \"sectoral sanctions\""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 236,
+            "table2_idx": 237,
+            "upper_row_ss": [
+                [
+                    "Estimated First Production volume",
+                    "~287,412 documents"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Estimated Second Production volume",
+                    "~151,504 documents"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 363,
+            "table2_idx": 364,
+            "upper_row_ss": [
+                [
+                    "Houston Coordinator",
+                    "Nicholas Ferreira",
+                    "Calderwood & Harkness",
+                    "nferreira@calderwoodhar"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "LLP (Houston)",
+                    "kness.com; (713) 628-4190"
+                ]
+            ]
+        }
+    ]
+}

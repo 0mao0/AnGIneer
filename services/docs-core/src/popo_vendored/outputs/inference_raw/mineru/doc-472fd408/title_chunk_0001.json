@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        72
+    ],
+    "pages": [
+        51,
+        67,
+        72
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>95<|page|>51<|box|>49 189 78 790<|content|>Net Capital Movement between the United States and\n<|id|>120<|page|>67<|box|>425 127 454 404<|content|>Indexes of Prices of 40 Foreign Currencies in New\n<|id|>129<|page|>72<|box|>53 540 67 844<|content|>Treasury Criminal Cases, by Months",
+    "raw_response": "<|id|>95<|level|>1\n<|id|>120<|level|>1\n<|id|>129<|level|>1",
+    "parsed": [
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 1
+        }
+    ]
+}

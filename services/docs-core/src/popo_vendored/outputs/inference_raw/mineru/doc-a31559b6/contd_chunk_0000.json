@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 163 174 834<|content|>1700 K Street NW, Suite 900 Washington, DC 20006 Telephone: ... (202) 555-7199\n<|id|>4<|page|>1<|box|>228 383 244 614<|content|>www. ... com\n<|id|>3<|page|>1<|box|>181 147 215 849<|content|>450 Park Avenue, 28th Floor New York, NY 10022 Telephone: ... (212) 555-4899\n<|id|>5<|page|>1<|box|>253 640 268 854<|content|>Matter Number: ... 1036-00004\n<|id|>27<|page|>3<|box|>397 176 414 676<|content|>Rate on Policy Limit: ... 00\n<|id|>28<|page|>3<|box|>424 140 532 854<|content|>The premium represents a one-time, fully earned pa...lines taxes, stamping fees, and broker commissions\n<|id|>30<|page|>3<|box|>584 174 621 852<|content|>Hartwick Gunderson & Associates, Inc. ... Peter Langford\n<|id|>31<|page|>3<|box|>628 176 646 498<|content|>Email: ... com\n<|id|>32<|page|>3<|box|>646 140 683 852<|content|>Policy Bound: ... Eastern Time on June 6, 2024\n<|id|>41<|page|>4<|box|>852 140 907 856<|content|>Carrier Confirmation. ... ) that the wire transfer...One Million Four Hundred Two Thousand Five Hundred\n<|id|>42<|page|>5<|box|>89 140 181 854<|content|>Dollars ($1,402,500. ... Eastern Time on the same date\n<|id|>77<|page|>9<|box|>267 143 303 852<|content|>Copy of Wire Transfer Confirmation from Aldgate National Bank, N. ... FRN 20240606ANBA0094782351)\n<|id|>78<|page|>9<|box|>311 140 387 857<|content|>The wire transfer confirmation receipt from Aldgate National Bank, N. ... 1036-00004\n<|id|>81<|page|>9<|box|>446 147 481 849<|content|>Acknowledgment of Premium Receipt from Sentinel Sp...surance Company (Policy No. ... SSI-RW-2024-06178)\n<|id|>82<|page|>9<|box|>489 140 595 857<|content|>The written acknowledgment of premium receipt from...d through JPFirst Trust Company, N. ... 1036-00004",
+    "raw_response": "<|src_id|>41<|tgt_id|>42",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        }
+    ]
+}

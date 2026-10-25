@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>848 140 902 854<|content|>On May 9, 2024, Apex filed its Complaint in this a...assemblies — specifically, the PE-5000 Series, the\n<|id|>8<|page|>2<|box|>90 140 143 854<|content|>PE-12000 Series, and the PE-15000 Series (collecti...(collectively, the \"Asserted Patents\"), as follows\n<|id|>40<|page|>4<|box|>743 142 758 480<|content|>HARGROVE, TATE & BENNINGTON LLP\n<|id|>41<|page|>4<|box|>762 143 777 251<|content|>By: ... By\n<|id|>42<|page|>4<|box|>777 142 809 852<|content|>Victoria Stanton (DE Bar No. ... (302) 555-0121\n<|id|>43<|page|>4<|box|>811 143 827 529<|content|>Counsel for Plaintiff Apex Surgical Innovations, I...unsel for Plaintiff Apex Surgical Innovations, Inc\n<|id|>46<|page|>4<|box|>871 142 886 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>47<|page|>4<|box|>890 143 906 251<|content|>By: ... By\n<|id|>48<|page|>4<|box|>916 142 929 643<|content|>Apex Surgical Innovations, Inc. ... 24-cv-00587-RGA\n<|id|>49<|page|>5<|box|>89 140 140 854<|content|>Marcus Delgado (DE Bar No. ... (302) 555-0251 Counsel for Defendant Solstice Biomedical, Inc\n<|id|>56<|page|>5<|box|>406 140 439 854<|content|>Marcus Delgado (DE Bar No. ... 6218) CALDERWOOD & ...rket Street, Suite 2500 Wilmington, Delaware 19801\n<|id|>57<|page|>5<|box|>441 142 458 266<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>7<|tgt_id|>8",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        }
+    ]
+}

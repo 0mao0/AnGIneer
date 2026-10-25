@@ -1,0 +1,28 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        48,
+        50
+    ],
+    "pages": [
+        49,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>491<|page|>49<|box|>90 339 111 658<|content|>Appendix D: Document Control\n<|id|>493<|page|>49<|box|>450 143 467 277<|content|>Distribution List\n<|id|>495<|page|>49<|box|>760 143 776 328<|content|>Next Scheduled Update\n<|id|>498<|page|>50<|box|>89 142 104 454<|content|>CONFIDENTIAL — LEGALLY PRIVILEGED",
+    "raw_response": "<|id|>491<|level|>1\n<|id|>493<|level|>2\n<|id|>495<|level|>2\n<|id|>498<|level|>-1",
+    "parsed": [
+        {
+            "id": 491,
+            "level": 1
+        },
+        {
+            "id": 493,
+            "level": 2
+        },
+        {
+            "id": 495,
+            "level": 2
+        }
+    ]
+}

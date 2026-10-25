@@ -1,0 +1,84 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 447 106 550<|content|>EXHIBIT C\n<|id|>1<|page|>1<|box|>114 163 152 834<|content|>Filed in connection with Complaint, Case No. 2022-\n<|id|>2<|page|>1<|box|>159 148 195 848<|content|>IRONCLAD INDEMNITY CORPORATION 55 Constitution Bou\n<|id|>13<|page|>1<|box|>588 142 604 364<|content|>I. Introduction and Purpose\n<|id|>20<|page|>2<|box|>383 140 402 444<|content|>II. Background and Factual Summary\n<|id|>21<|page|>2<|box|>415 142 433 254<|content|>A. The Policy\n<|id|>25<|page|>2<|box|>704 140 720 485<|content|>B. Hurricane Callista and the Claimed Loss\n<|id|>33<|page|>3<|box|>544 140 561 354<|content|>C. Ironclad's Investigation\n<|id|>37<|page|>4<|box|>223 140 239 305<|content|>III. Bases for Denial\n<|id|>39<|page|>4<|box|>353 140 369 403<|content|>A. Named Windstorm Sub-Limit\n<|id|>52<|page|>5<|box|>690 140 707 406<|content|>B. Period of Restoration Disputes\n<|id|>62<|page|>7<|box|>194 140 210 504<|content|>C. Concurrent Causation and Flood Exclusion\n<|id|>73<|page|>8<|box|>429 142 446 316<|content|>D. Failure to Mitigate\n<|id|>84<|page|>9<|box|>575 140 592 447<|content|>IV. Reservation of Additional Defenses\n<|id|>87<|page|>9<|box|>833 140 849 362<|content|>V. Impact on Excess Layers\n<|id|>93<|page|>10<|box|>318 140 335 362<|content|>VI. VHG's Right to Dispute\n<|id|>99<|page|>10<|box|>818 140 835 272<|content|>VII. Conclusion\n<|id|>105<|page|>11<|box|>339 140 356 480<|content|>IRONCLAD INDEMNITY CORPORATION\n<|id|>109<|page|>11<|box|>428 142 440 171<|content|>cc:\n<|id|>118<|page|>11<|box|>713 143 729 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>2<|level|>-1\n<|id|>13<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>25<|level|>3\n<|id|>33<|level|>3\n<|id|>37<|level|>2\n<|id|>39<|level|>3\n<|id|>52<|level|>3\n<|id|>62<|level|>3\n<|id|>73<|level|>3\n<|id|>84<|level|>2\n<|id|>87<|level|>2\n<|id|>93<|level|>2\n<|id|>99<|level|>2\n<|id|>105<|level|>-1\n<|id|>109<|level|>-1\n<|id|>118<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        }
+    ]
+}

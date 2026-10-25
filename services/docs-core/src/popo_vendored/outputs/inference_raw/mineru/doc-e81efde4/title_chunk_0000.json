@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 148 142 848<|content|>NOTICE OF DATA BREACH INVOLVING PROTECTED HEALTH I\n<|id|>1<|page|>1<|box|>159 223 176 772<|content|>FOR IMMEDIATE RELEASE / DISTRIBUTION: AUGUST 15, 2\n<|id|>3<|page|>1<|box|>244 140 262 450<|content|>Introduction and Summary of Incident\n<|id|>10<|page|>2<|box|>167 140 185 390<|content|>Description of What Happened\n<|id|>20<|page|>3<|box|>383 140 402 385<|content|>Types of Information Involved\n<|id|>40<|page|>4<|box|>321 140 339 442<|content|>Scope of Affected Individuals by State\n<|id|>44<|page|>4<|box|>833 140 849 428<|content|>What Quorum Is Doing in Response\n<|id|>54<|page|>6<|box|>304 140 320 519<|content|>What Individuals Can Do to Protect Themselves\n<|id|>66<|page|>7<|box|>494 140 512 498<|content|>Contact Information for Affected Individuals\n<|id|>68<|page|>7<|box|>602 142 619 321<|content|>Toll-Free Call Center:\n<|id|>70<|page|>7<|box|>709 143 726 282<|content|>Mailing Address:\n<|id|>74<|page|>7<|box|>804 142 820 442<|content|>Dedicated Incident Response Website:\n<|id|>78<|page|>8<|box|>267 140 284 470<|content|>About Quorum Insurance Holdings Corp.\n<|id|>83<|page|>8<|box|>686 140 703 362<|content|>Media Contact Information\n<|id|>90<|page|>9<|box|>152 477 167 521<|content|># # #",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>3<|level|>2\n<|id|>10<|level|>2\n<|id|>20<|level|>2\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>54<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>3\n<|id|>70<|level|>3\n<|id|>74<|level|>3\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        }
+    ]
+}

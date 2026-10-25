@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 143 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 599 Lex..., 34th Floor New York, NY 10022 Telephone: ... com\n<|id|>1<|page|>1<|box|>152 723 170 854<|content|>January 31, 2024\n<|id|>2<|page|>1<|box|>178 140 195 450<|content|>VIA FIRST CLASS MAIL AND EMAIL\n<|id|>3<|page|>1<|box|>204 140 220 697<|content|>Jonathan R. ... 18D New York, NY 10021\n<|id|>4<|page|>1<|box|>229 174 266 854<|content|>Re: ... 519847/2023 — Matter Closure and Preservation of Rights\n<|id|>5<|page|>1<|box|>273 142 291 290<|content|>Dear Mr. ... Caldwell\n<|id|>22<|page|>3<|box|>824 140 897 857<|content|>Your Present Election. ... Whitfield and to explore a potential negotiated exit from\n<|id|>23<|page|>4<|box|>89 140 145 854<|content|>Atlantic Yards Development Partners LLC through me..., exclusive of any potential appellate proceedings\n<|id|>61<|page|>6<|box|>861 140 898 854<|content|>We wish to confirm clearly and for the record that...relationship between Calderwood & Harkness LLP and\n<|id|>62<|page|>7<|box|>90 140 143 856<|content|>Jonathan R. ... 519847/2023, is hereby terminated effective January 31, 2024\n<|id|>67<|page|>7<|box|>527 174 563 854<|content|>Douglas Carmichael, Esq. ... (212) 984-7614\n<|id|>68<|page|>7<|box|>571 176 588 524<|content|>Email: ... com\n<|id|>69<|page|>7<|box|>589 142 606 616<|content|>We thank you for your confidence in the firm and w... for your confidence in the firm and wish you well\n<|id|>70<|page|>7<|box|>614 140 632 272<|content|>Very truly yours,\n<|id|>71<|page|>7<|box|>640 140 656 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>72<|page|>7<|box|>659 143 675 253<|content|>By: ... By\n<|id|>73<|page|>7<|box|>676 143 691 354<|content|>Douglas Carmichael Partner\n<|id|>74<|page|>7<|box|>694 143 709 238<|content|>Enclosures: ... Enclosures\n<|id|>75<|page|>7<|box|>719 176 736 514<|content|>Final Billing Summary (under separate cover)\n<|id|>76<|page|>7<|box|>744 140 761 254<|content|>cc: ... (via email)\n<|id|>77<|page|>7<|box|>770 174 805 852<|content|>Francesca Morano, Esq. ... (Calderwood & Harkness LLP)\n<|id|>78<|page|>7<|box|>814 140 845 854<|content|>This letter and any accompanying documents constit...tify the sender immediately and destroy all copies",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>61<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        }
+    ]
+}

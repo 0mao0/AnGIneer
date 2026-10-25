@@ -1,0 +1,195 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-sqia14tu\\input\\pdfs\\doc-16df3fcc.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-sqia14tu\\enriched\\doc-16df3fcc.json",
+    "contd_output": "<|src_id|>43<|tgt_id|>44\n<|src_id|>73<|tgt_id|>74",
+    "title_output": "<|id|>7<|level|>1\n<|id|>17<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>2\n<|id|>40<|level|>3\n<|id|>61<|level|>2\n<|id|>63<|level|>3\n<|id|>70<|level|>3\n<|id|>83<|level|>2\n<|id|>92<|level|>3\n<|id|>119<|level|>3\n<|id|>132<|level|>2\n<|id|>169<|level|>2\n<|id|>189<|level|>3\n<|id|>195<|level|>2\n<|id|>203<|level|>3\n<|id|>209<|level|>3\n<|id|>215<|level|>2\n<|id|>231<|level|>3\n<|id|>245<|level|>2\n<|id|>254<|level|>3\n<|id|>275<|level|>1\n<|id|>279<|level|>1\n<|id|>288<|level|>1\n<|id|>304<|level|>1\n<|id|>305<|level|>2\n<|id|>308<|level|>2\n<|id|>311<|level|>2\n<|id|>319<|level|>2\n<|id|>322<|level|>2\n<|id|>324<|level|>1",
+    "image_output": "<|src_id|>19<|tgt_id|>17\n<|src_id|>20<|tgt_id|>17\n<|src_id|>21<|tgt_id|>17\n<|src_id|>276<|tgt_id|>275\n<|src_id|>277<|tgt_id|>275\n<|src_id|>302<|tgt_id|>288",
+    "contd_label": [
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 74
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 2
+        },
+        {
+            "id": 231,
+            "level": 3
+        },
+        {
+            "id": 245,
+            "level": 2
+        },
+        {
+            "id": 254,
+            "level": 3
+        },
+        {
+            "id": 275,
+            "level": 1
+        },
+        {
+            "id": 279,
+            "level": 1
+        },
+        {
+            "id": 288,
+            "level": 1
+        },
+        {
+            "id": 304,
+            "level": 1
+        },
+        {
+            "id": 305,
+            "level": 2
+        },
+        {
+            "id": 308,
+            "level": 2
+        },
+        {
+            "id": 311,
+            "level": 2
+        },
+        {
+            "id": 319,
+            "level": 2
+        },
+        {
+            "id": 322,
+            "level": 2
+        },
+        {
+            "id": 324,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 276,
+            "tgt_id": 275
+        },
+        {
+            "src_id": 277,
+            "tgt_id": 275
+        },
+        {
+            "src_id": 302,
+            "tgt_id": 288
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 276,
+            "table2_idx": 277,
+            "upper_row_ss": [
+                [
+                    "Closing Preparation",
+                    "3",
+                    "0",
+                    "3 (closing checklist, funds flow memo, borrowing request — all",
+                    "0",
+                    "0"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "never finalized)",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

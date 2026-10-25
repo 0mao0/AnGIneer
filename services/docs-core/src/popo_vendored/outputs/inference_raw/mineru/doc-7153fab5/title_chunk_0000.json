@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>709 140 724 352<|content|>I. Procedural Background\n<|id|>18<|page|>2<|box|>671 142 686 406<|content|>II. Request for Extension of Time\n<|id|>20<|page|>2<|box|>773 140 791 602<|content|>III. Grounds for Extension — Complexity and Good C\n<|id|>21<|page|>2<|box|>805 140 821 604<|content|>A. Extraordinary Complexity of the Proposed Adjust\n<|id|>28<|page|>3<|box|>737 140 753 442<|content|>B. Volume of the Examination Record\n<|id|>38<|page|>4<|box|>494 140 512 576<|content|>C. Multiple Tax Years and Distinct Issues Across Y\n<|id|>44<|page|>5<|box|>232 140 250 513<|content|>D. Need for Coordination with Multiple Parties\n<|id|>51<|page|>5<|box|>750 140 765 478<|content|>IV. Assurance of Good Faith and Diligence\n<|id|>56<|page|>6<|box|>329 140 345 393<|content|>V. Proposed Extended Deadline\n<|id|>58<|page|>6<|box|>434 142 450 338<|content|>VI. Contact Information",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>1\n<|id|>21<|level|>2\n<|id|>28<|level|>2\n<|id|>38<|level|>2\n<|id|>44<|level|>2\n<|id|>51<|level|>1\n<|id|>56<|level|>1\n<|id|>58<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ]
+}

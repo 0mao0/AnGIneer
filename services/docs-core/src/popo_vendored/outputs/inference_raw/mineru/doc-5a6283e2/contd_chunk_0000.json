@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        7,
+        8,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 142 174 854<|content|>601 Lexington Avenue New York, New York 10022 Telephone: ... com\n<|id|>3<|page|>1<|box|>183 702 200 854<|content|>September 29, 2023\n<|id|>4<|page|>1<|box|>208 140 244 852<|content|>Ridgeline Mezzanine Capital Fund III, LP 767 Lexington Avenue, 22nd Floor New York, New York 10065\n<|id|>5<|page|>1<|box|>253 140 270 522<|content|>Attention: ... Stroud, Managing Director\n<|id|>6<|page|>1<|box|>268 174 324 854<|content|>Re: ... as Borrower, Ridgeline Mezzanine Capital F...Mezzanine Lender, and the Guarantors Party Thereto\n<|id|>7<|page|>1<|box|>333 140 349 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>29<|page|>3<|box|>167 174 186 722<|content|>(d) Delaware Secretary of State — Stonefield Freight Brokerage, Inc. ... and\n<|id|>34<|page|>3<|box|>369 138 424 854<|content|>The Security Agreement and the Parent Pledge Agree...n collectively as the \"Collateral Documents. ... \"\n<|id|>32<|page|>3<|box|>257 142 329 854<|content|>16. ... and\n<|id|>85<|page|>7<|box|>869 142 906 854<|content|>11. ... held by the Parent Pledgor may constitute ... within the meaning of Section 8-102(a)(15) of the\n<|id|>86<|page|>8<|box|>90 174 292 856<|content|>UCC, (b) \"security entitlements\" within the meanin...\" under Section 9-106 and Section 8-106 of the UCC\n<|id|>117<|page|>11<|box|>777 142 795 272<|content|>Very truly yours,\n<|id|>118<|page|>11<|box|>803 140 819 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>119<|page|>11<|box|>821 143 838 253<|content|>By: ... By\n<|id|>120<|page|>11<|box|>839 142 854 328<|content|>Name: ... Stephanie Okafor\n<|id|>121<|page|>11<|box|>856 143 871 246<|content|>Title: ... Partner\n<|id|>122<|page|>11<|box|>873 140 888 746<|content|>Calderwood & Harkness LLP 601 Lexington Avenue New York, New York 10022",
+    "raw_response": "<|src_id|>85<|tgt_id|>86",
+    "parsed": [
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        }
+    ]
+}

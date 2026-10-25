@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 205 130 792<|content|>HAVENWOOD BANK, N.A. 227 West Monroe Street Chicag\n<|id|>13<|page|>1<|box|>547 142 565 361<|content|>1. Recitals and Background\n<|id|>19<|page|>2<|box|>458 140 474 287<|content|>2. Payoff Amount\n<|id|>21<|page|>2<|box|>569 140 587 413<|content|>2.1 Outstanding Principal Balance\n<|id|>25<|page|>2<|box|>775 140 792 401<|content|>2.2 Accrued and Unpaid Interest\n<|id|>29<|page|>3<|box|>393 142 410 320<|content|>2.3 Fees and Expenses\n<|id|>33<|page|>3<|box|>830 143 847 339<|content|>2.4 Total Payoff Amount\n<|id|>39<|page|>4<|box|>449 140 465 303<|content|>3. Wire Instructions\n<|id|>43<|page|>5<|box|>90 140 107 465<|content|>4. Release of Liens and Security Interests\n<|id|>49<|page|>6<|box|>167 140 184 437<|content|>5. Termination of Warehouse Facility\n<|id|>54<|page|>6<|box|>679 140 696 580<|content|>6. Representations and Acknowledgments of the Lend\n<|id|>61<|page|>7<|box|>691 142 709 372<|content|>7. Conditions and Expiration\n<|id|>66<|page|>8<|box|>304 140 320 326<|content|>8. Contact Information\n<|id|>71<|page|>8<|box|>531 140 547 287<|content|>9. Governing Law\n<|id|>76<|page|>9<|box|>114 163 151 831<|content|>SIGNATURE PAGE TO PAYOFF LETTER WAREHOUSE CREDIT F\n<|id|>83<|page|>9<|box|>290 316 306 679<|content|>ACKNOWLEDGMENT AND AGREEMENT\n<|id|>95<|page|>9<|box|>551 429 566 568<|content|>DISTRIBUTION",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>3\n<|id|>25<|level|>3\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>71<|level|>2\n<|id|>76<|level|>1\n<|id|>83<|level|>2\n<|id|>95<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        105
+    ],
+    "pages": [
+        51,
+        66,
+        86,
+        87,
+        89,
+        92,
+        93,
+        104
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>219<|page|>51<|box|>273 250 288 720<|content|>Table 1.- Status under Limitation January 31, 1963\n<|id|>320<|page|>66<|box|>75 355 89 668<|content|>Footnotes to Table 4.- (Continued)\n<|id|>392<|page|>86<|box|>218 175 232 865<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>395<|page|>87<|box|>62 132 99 827<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>399<|page|>89<|box|>62 166 91 822<|content|>Section II - Interest-Bearing Securities Issued by\n<|id|>407<|page|>92<|box|>78 81 111 925<|content|>Section I - Interest-Bearing Securities Issued or\n<|id|>410<|page|>93<|box|>76 154 108 810<|content|>Section II - Interest-Bearing Securities Issued by\n<|id|>441<|page|>104<|box|>492 370 507 655<|content|>Section I - Summary by Periods",
+    "raw_response": "<|id|>219<|level|>1\n<|id|>320<|level|>1\n<|id|>392<|level|>1\n<|id|>395<|level|>1\n<|id|>399<|level|>1\n<|id|>407<|level|>1\n<|id|>410<|level|>1\n<|id|>441<|level|>1",
+    "parsed": [
+        {
+            "id": 219,
+            "level": 1
+        },
+        {
+            "id": 320,
+            "level": 1
+        },
+        {
+            "id": 392,
+            "level": 1
+        },
+        {
+            "id": 395,
+            "level": 1
+        },
+        {
+            "id": 399,
+            "level": 1
+        },
+        {
+            "id": 407,
+            "level": 1
+        },
+        {
+            "id": 410,
+            "level": 1
+        },
+        {
+            "id": 441,
+            "level": 1
+        }
+    ]
+}

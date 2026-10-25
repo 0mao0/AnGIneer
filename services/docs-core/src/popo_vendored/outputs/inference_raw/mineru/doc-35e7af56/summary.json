@@ -1,0 +1,215 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_erco1lb\\input\\pdfs\\doc-35e7af56.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_erco1lb\\enriched\\doc-35e7af56.json",
+    "contd_output": "<|src_id|>28<|tgt_id|>29\n<|src_id|>60<|tgt_id|>61\n<|src_id|>115<|tgt_id|>116\n<|src_id|>148<|tgt_id|>149",
+    "title_output": "<|id|>0<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>44<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>3\n<|id|>63<|level|>3\n<|id|>69<|level|>3\n<|id|>71<|level|>3\n<|id|>76<|level|>3\n<|id|>88<|level|>3\n<|id|>95<|level|>3\n<|id|>101<|level|>3\n<|id|>117<|level|>3\n<|id|>124<|level|>3\n<|id|>134<|level|>3\n<|id|>136<|level|>2\n<|id|>150<|level|>2\n<|id|>164<|level|>2\n<|id|>172<|level|>2\n<|id|>183<|level|>2\n<|id|>186<|level|>2\n<|id|>188<|level|>3\n<|id|>193<|level|>3",
+    "image_output": "<|src_id|>184<|tgt_id|>183\n<|src_id|>185<|tgt_id|>183\n<|src_id|>189<|tgt_id|>188\n<|src_id|>190<|tgt_id|>188\n<|src_id|>191<|tgt_id|>188\n<|src_id|>192<|tgt_id|>188\n<|src_id|>194<|tgt_id|>193\n<|src_id|>195<|tgt_id|>193",
+    "contd_label": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 149
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 3
+        },
+        {
+            "id": 193,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 184,
+            "tgt_id": 183
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 183
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 193
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 184,
+            "table2_idx": 185,
+            "upper_row_ss": [
+                [
+                    "\"JOAs\"",
+                    "The Joint Operating Agreements for OML 47 and OML"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "63, as described in Section 2(k)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 190,
+            "table2_idx": 191,
+            "upper_row_ss": [
+                [
+                    "Conducted By",
+                    "Abayomi Chambers (by Mr. Chukwuemeka Obi, Senior"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Associate)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 194,
+            "table2_idx": 195,
+            "upper_row_ss": [
+                [
+                    "Search Results — OML 47",
+                    "The NUPRC records confirm that OML 47 is a valid and subsisting Oil Mining Lease. The current holder and operator of record is Dunmore Nigeria E&P Ltd. (40% participating interest), with NNPC holding a 60% participating interest (back-in). The lease was last renewed for a term of twenty (20) years with effect from March 14, 2023, expiring on March 13, 2043. No"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "revocation, suspension, or forfeiture proceedings are pending or have been initiated in respect of OML 47. The Company's environmental compliance status is listed as \"satisfactory.\" All required royalty payments have been made current as of the most recent assessment period (Q4 2024)."
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,142 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 630<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|page|>1<|box|>112 424 128 573<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>332 305 351 689<|content|>I. Purpose and Scope of Memorandum\n<|id|>19<|page|>2<|box|>477 393 497 602<|content|>II. Entities Searched\n<|id|>24<|page|>3<|box|>444 339 463 656<|content|>III. Summary of Search Results\n<|id|>25<|page|>3<|box|>489 140 505 246<|content|>A. Overview\n<|id|>31<|page|>4<|box|>175 140 191 377<|content|>B. Detailed Results by Debtor\n<|id|>33<|page|>4<|box|>268 142 287 637<|content|>1. Stonefield Logistics Group Inc. (Delaware Secre\n<|id|>35<|page|>4<|box|>373 142 391 214<|content|>Filing 1:\n<|id|>45<|page|>5<|box|>90 140 107 671<|content|>2. Cascade Ridge SLG Holdings, LLC (Delaware Secre\n<|id|>49<|page|>5<|box|>416 140 433 643<|content|>3. Stonefield Intermodal Services, Inc. (Texas Sec\n<|id|>51<|page|>5<|box|>502 143 518 214<|content|>Filing 1:\n<|id|>60<|page|>5<|box|>830 140 848 640<|content|>4. Stonefield Fleet Management, LLC (Texas Secreta\n<|id|>62<|page|>6<|box|>90 142 107 214<|content|>Filing 1:\n<|id|>71<|page|>6<|box|>438 140 455 660<|content|>5. Stonefield Freight Brokerage, Inc. (Delaware Se\n<|id|>73<|page|>6<|box|>523 143 541 214<|content|>Filing 1:\n<|id|>82<|page|>7<|box|>90 330 111 666<|content|>IV. Consolidated Summary Table\n<|id|>85<|page|>7<|box|>734 349 753 647<|content|>V. Analysis and Observations\n<|id|>86<|page|>7<|box|>779 142 795 473<|content|>A. Consistency with Senior Credit Facility\n<|id|>94<|page|>8<|box|>382 140 398 390<|content|>B. Absence of Competing Liens\n<|id|>98<|page|>8<|box|>794 140 811 326<|content|>C. Collateral Coverage\n<|id|>102<|page|>9<|box|>439 140 457 423<|content|>D. Continuation Filing Observation\n<|id|>106<|page|>10<|box|>90 385 111 611<|content|>VI. Recommendations\n<|id|>108<|page|>10<|box|>188 140 205 473<|content|>A. Proceed with Mezzanine UCC-1 Filings\n<|id|>115<|page|>10<|box|>781 140 797 352<|content|>B. Confirm Debtor Names\n<|id|>118<|page|>11<|box|>222 140 239 401<|content|>C. UCC/Lien Perfection Opinion\n<|id|>121<|page|>11<|box|>554 140 570 468<|content|>D. Intercreditor Agreement Coordination\n<|id|>124<|page|>11<|box|>834 410 853 588<|content|>VII. Attachments\n<|id|>130<|page|>12<|box|>349 142 366 251<|content|>Prepared by:\n<|id|>132<|page|>12<|box|>393 143 407 250<|content|>Distribution:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>19<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>31<|level|>3\n<|id|>33<|level|>4\n<|id|>35<|level|>5\n<|id|>45<|level|>4\n<|id|>49<|level|>4\n<|id|>51<|level|>5\n<|id|>60<|level|>4\n<|id|>62<|level|>5\n<|id|>71<|level|>4\n<|id|>73<|level|>5\n<|id|>82<|level|>2\n<|id|>85<|level|>2\n<|id|>86<|level|>3\n<|id|>94<|level|>3\n<|id|>98<|level|>3\n<|id|>102<|level|>3\n<|id|>106<|level|>2\n<|id|>108<|level|>3\n<|id|>115<|level|>3\n<|id|>118<|level|>3\n<|id|>121<|level|>3\n<|id|>124<|level|>2\n<|id|>130<|level|>2\n<|id|>132<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 4
+        },
+        {
+            "id": 35,
+            "level": 5
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 49,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 5
+        },
+        {
+            "id": 60,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 5
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 73,
+            "level": 5
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        }
+    ]
+}

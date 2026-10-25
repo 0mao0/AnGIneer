@@ -1,0 +1,140 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 176 125 821<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>9<|page|>1<|box|>438 140 455 321<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>176 140 191 455<|content|>II. Background and Procedural Posture\n<|id|>15<|page|>2<|box|>205 140 224 282<|content|>A. The Litigation\n<|id|>22<|page|>2<|box|>829 140 845 437<|content|>B. Discovery and Claim Construction\n<|id|>34<|page|>4<|box|>325 140 340 251<|content|>C. Trial Date\n<|id|>36<|page|>4<|box|>426 140 443 339<|content|>III. Mediation Summary\n<|id|>37<|page|>4<|box|>457 140 474 361<|content|>A. Format and Participants\n<|id|>51<|page|>5<|box|>90 140 108 297<|content|>B. Opening Session\n<|id|>56<|page|>5<|box|>625 140 642 439<|content|>C. Apex's Positions During Mediation\n<|id|>63<|page|>6<|box|>411 140 428 457<|content|>D. Solstice's Positions During Mediation\n<|id|>71<|page|>7<|box|>176 140 193 361<|content|>E. Mediator's Observations\n<|id|>78<|page|>7<|box|>508 140 527 524<|content|>IV. Assessment of Litigation Strengths and Risks\n<|id|>80<|page|>7<|box|>603 140 619 403<|content|>A. Favorable Factors for Solstice\n<|id|>87<|page|>8<|box|>803 142 819 357<|content|>B. Risk Factors for Solstice\n<|id|>95<|page|>10<|box|>213 140 229 352<|content|>C. Probability Assessment\n<|id|>101<|page|>10<|box|>599 140 617 486<|content|>V. Analysis of Settlement Structure Options\n<|id|>103<|page|>10<|box|>675 140 693 302<|content|>A. Lump-Sum Only\n<|id|>108<|page|>11<|box|>239 140 256 496<|content|>B. Hybrid: Lump Sum Plus Running Royalty\n<|id|>113<|page|>11<|box|>718 140 736 405<|content|>C. Running Royalty Benchmarks\n<|id|>121<|page|>12<|box|>719 140 737 408<|content|>D. Additional Deal Terms to Seek\n<|id|>131<|page|>13<|box|>633 140 652 517<|content|>VI. Revised Settlement Range Recommendation\n<|id|>133<|page|>13<|box|>710 142 727 431<|content|>A. Recommended Lump-Sum Range\n<|id|>138<|page|>14<|box|>138 140 157 473<|content|>B. Recommended Running Royalty Range\n<|id|>145<|page|>14<|box|>536 140 553 431<|content|>C. Total Economic Package Analysis\n<|id|>147<|page|>14<|box|>604 178 619 289<|content|>Assumptions:\n<|id|>162<|page|>15<|box|>426 140 443 498<|content|>D. Comparison to Prior Settlement Authority\n<|id|>166<|page|>15<|box|>779 140 797 385<|content|>VII. Recommended Next Steps\n<|id|>175<|page|>17<|box|>186 140 203 279<|content|>VIII. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>22<|level|>2\n<|id|>34<|level|>2\n<|id|>36<|level|>1\n<|id|>37<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>2\n<|id|>63<|level|>2\n<|id|>71<|level|>2\n<|id|>78<|level|>1\n<|id|>80<|level|>2\n<|id|>87<|level|>2\n<|id|>95<|level|>2\n<|id|>101<|level|>1\n<|id|>103<|level|>2\n<|id|>108<|level|>2\n<|id|>113<|level|>2\n<|id|>121<|level|>2\n<|id|>131<|level|>1\n<|id|>133<|level|>2\n<|id|>138<|level|>2\n<|id|>145<|level|>2\n<|id|>147<|level|>3\n<|id|>162<|level|>2\n<|id|>166<|level|>1\n<|id|>175<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        }
+    ]
+}

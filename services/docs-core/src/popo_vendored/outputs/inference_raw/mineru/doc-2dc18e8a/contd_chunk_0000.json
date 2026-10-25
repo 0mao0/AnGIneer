@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 127 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 350 Sou...es, California 90071 Telephone: ... (213) 555-9201\n<|id|>1<|page|>1<|box|>133 723 152 854<|content|>January 20, 2023\n<|id|>2<|page|>1<|box|>160 140 176 374<|content|>VIA EMAIL AND U. ... MAIL\n<|id|>3<|page|>1<|box|>186 140 222 854<|content|>Damian R. ... Brennan, Ortega & Saldívar LLP 1900 ...he Stars, Suite 2100 Los Angeles, California 90067\n<|id|>4<|page|>1<|box|>229 174 284 854<|content|>Re: ... 22STPB09714 — Deficiencies in Contestants' Amended Objection Filed January 9, 2023\n<|id|>5<|page|>1<|box|>292 140 310 383<|content|>Dear Mr. ... Kwan\n<|id|>54<|page|>6<|box|>821 140 896 856<|content|>We note that the Amended Objection incorporates by...la C. ... Fonseca to Amber Light Documentary Films\n<|id|>55<|page|>7<|box|>89 140 143 854<|content|>LLC, and of Nicolás R. ... Fonseca, who asserts a ...hundred dollars ($387,500) in educational expenses\n<|id|>65<|page|>8<|box|>135 140 152 272<|content|>Very truly yours,\n<|id|>66<|page|>8<|box|>160 140 176 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>67<|page|>8<|box|>179 142 195 254<|content|>By: ... By",
+    "raw_response": "<|src_id|>54<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        }
+    ]
+}

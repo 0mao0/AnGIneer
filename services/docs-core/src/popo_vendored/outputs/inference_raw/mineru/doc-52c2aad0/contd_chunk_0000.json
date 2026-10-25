@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        13
+    ],
+    "pages": [
+        4,
+        5,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>38<|page|>4<|box|>872 140 930 856<|content|>IDENTIFY each COMMUNICATION between VANTOR and CAS... representatives and any of CASCADE's CONFIDENTIAL\n<|id|>39<|page|>5<|box|>90 140 253 856<|content|>officers, directors, employees, agents, or represe...lize, record, or relate to each such COMMUNICATION\n<|id|>106<|page|>13<|box|>356 142 375 387<|content|>Title: ... Legal Secretary / Paralegal\n<|id|>107<|page|>13<|box|>375 676 391 854<|content|>Respectfully submitted,\n<|id|>108<|page|>13<|box|>398 565 416 854<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>109<|page|>13<|box|>425 140 441 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>110<|page|>13<|box|>443 142 460 254<|content|>By: ... By\n<|id|>111<|page|>13<|box|>460 142 477 359<|content|>Douglas Carmichael, Partner\n<|id|>112<|page|>13<|box|>476 140 508 854<|content|>600 South Grand Avenue, Suite 3200 Los Angeles, California 90071 Telephone: ... (213) 555-9401\n<|id|>113<|page|>13<|box|>510 142 527 539<|content|>Attorneys for Defendant Cascade Retail Holdings In...ttorneys for Defendant Cascade Retail Holdings Inc",
+    "raw_response": "<|src_id|>38<|tgt_id|>39",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['4.1', 'Engineering Batch — API', 'At least one (1) engineering batch of API has been manufactured at the Receiving Facility and meets all pre-defined quality specifications']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '(identity, assay ≥ 98.0% and ≤ 102.0%, total impurities within specification, individual specified impurities within specification, residual solvents within ICH limits, water content within specification, particle size distribution within specification).']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 278,
+    "table2_idx": 279
+}

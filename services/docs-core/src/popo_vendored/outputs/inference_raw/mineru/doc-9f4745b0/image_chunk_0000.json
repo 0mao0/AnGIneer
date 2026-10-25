@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>356 140 373 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>13<|type|>title<|page|>2<|box|>304 140 321 333<|content|>2. Scope of Engagement\n<|id|>15<|type|>title<|page|>2<|box|>378 140 396 294<|content|>2.1 Legal Opinions\n<|id|>21<|type|>title<|page|>3<|box|>458 142 474 351<|content|>2.2 Real Property Matters\n<|id|>32<|type|>title<|page|>4<|box|>463 140 479 349<|content|>2.3 UCC Filing Assistance\n<|id|>38<|type|>title<|page|>5<|box|>157 140 174 393<|content|>2.4 General Illinois Law Advice\n<|id|>45<|type|>title<|page|>5<|box|>554 140 570 482<|content|>3. Identification of Key Parties and Entities\n<|id|>47<|type|>table<|page|>5<|box|>621 143 902 852<|content|>None\n<|id|>48<|type|>table<|page|>6<|box|>89 143 258 852<|content|>None\n<|id|>50<|type|>title<|page|>6<|box|>424 140 441 529<|content|>4. C&H Engagement Team and Points of Contact\n<|id|>58<|type|>title<|page|>7<|box|>229 140 248 450<|content|>5. Transaction Timeline and Key Dates\n<|id|>60<|type|>table<|page|>7<|box|>335 143 748 852<|content|>None\n<|id|>62<|type|>title<|page|>8<|box|>90 140 107 516<|content|>6. Transaction Summary — Additional Context\n<|id|>75<|type|>title<|page|>9<|box|>90 140 107 406<|content|>7. Fees and Billing Arrangements\n<|id|>82<|type|>title<|page|>9<|box|>763 140 780 284<|content|>8. Confidentiality\n<|id|>87<|type|>title<|page|>10<|box|>383 140 402 357<|content|>9. Conflicts / Independence\n<|id|>103<|type|>title<|page|>11<|box|>90 142 107 379<|content|>10. Limitation of Engagement\n<|id|>109<|type|>title<|page|>11<|box|>481 142 497 465<|content|>11. Document Delivery and Coordination\n<|id|>112<|type|>title<|page|>12<|box|>90 142 107 354<|content|>12. Term and Termination\n<|id|>115<|type|>title<|page|>12<|box|>402 142 419 406<|content|>13. Acceptance and Confirmation\n<|id|>124<|type|>title<|page|>12<|box|>801 334 818 661<|content|>ACCEPTANCE AND CONFIRMATION",
+    "raw_response": "<|src_id|>47<|tgt_id|>45\n<|src_id|>48<|tgt_id|>45\n<|src_id|>60<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 58
+        }
+    ]
+}

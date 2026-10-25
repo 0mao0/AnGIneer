@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 104 459<|content|>DRAFT — FOR DISCUSSION PURPOSES ONLY\n<|id|>2<|page|>1<|box|>180 393 196 604<|content|>JOINT PRESS RELEASE\n<|id|>3<|page|>1<|box|>205 142 222 390<|content|>FOR IMMEDIATE RELEASE\n<|id|>6<|page|>1<|box|>281 151 334 844<|content|>Redstone Gaming Corp. and Pinnacle Harbor Capital\n<|id|>8<|page|>1<|box|>604 140 621 424<|content|>Summary of Key Agreement Terms\n<|id|>9<|page|>1<|box|>635 142 652 436<|content|>Board Appointment — Franklin Chu\n<|id|>13<|page|>2<|box|>220 140 238 383<|content|>Standstill and Ownership Cap\n<|id|>15<|page|>2<|box|>439 140 457 560<|content|>Withdrawal of Nominations and Voting Commitment\n<|id|>18<|page|>2<|box|>739 140 756 519<|content|>Strategic Review of Interactive Gaming Division\n<|id|>25<|page|>3<|box|>676 140 694 614<|content|>Statements from Company and Pinnacle Harbor Leader\n<|id|>30<|page|>4<|box|>366 140 383 388<|content|>About Redstone Gaming Corp.\n<|id|>35<|page|>4<|box|>709 142 726 495<|content|>About Pinnacle Harbor Capital Partners, LP\n<|id|>37<|page|>5<|box|>89 140 108 218<|content|>Advisors\n<|id|>40<|page|>5<|box|>366 140 383 218<|content|>Contacts\n<|id|>53<|page|>5<|box|>777 142 794 377<|content|>Forward-Looking Statements\n<|id|>57<|page|>6<|box|>585 140 603 496<|content|>Additional Information and Where to Find It",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>-1\n<|id|>3<|level|>-1\n<|id|>6<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>13<|level|>3\n<|id|>15<|level|>3\n<|id|>18<|level|>3\n<|id|>25<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>2\n<|id|>53<|level|>2\n<|id|>57<|level|>2",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        }
+    ]
+}

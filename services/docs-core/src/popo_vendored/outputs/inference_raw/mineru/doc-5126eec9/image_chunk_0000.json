@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>9<|type|>title<|page|>1<|box|>635 142 652 447<|content|>I. POST-CLOSING DELIVERABLES\n<|id|>12<|type|>table<|page|>1<|box|>857 143 896 852<|content|>None\n<|id|>13<|type|>table<|page|>2<|box|>89 143 569 852<|content|>None\n<|id|>14<|type|>title<|page|>2<|box|>633 140 669 854<|content|>Item 1 — Deposit Account Control Agreement: Ridgef\n<|id|>15<|type|>title<|page|>2<|box|>676 140 693 290<|content|>Status: In Progress\n<|id|>18<|type|>title<|page|>3<|box|>194 140 229 854<|content|>Item 2 — Deposit Account Control Agreement: Ridgef\n<|id|>19<|type|>title<|page|>3<|box|>236 140 253 290<|content|>Status: In Progress\n<|id|>23<|type|>title<|page|>3<|box|>655 140 691 854<|content|>Item 3 — Landlord Waiver: Beacon Ridge Realty Part\n<|id|>24<|type|>title<|page|>3<|box|>696 140 715 269<|content|>Status: Pending\n<|id|>27<|type|>title<|page|>4<|box|>175 140 212 854<|content|>Item 4 — Landlord Waiver: Keystone Corporate Prope\n<|id|>28<|type|>title<|page|>4<|box|>217 140 236 267<|content|>Status: Pending\n<|id|>31<|type|>title<|page|>4<|box|>428 140 464 854<|content|>Item 5 — Landlord Waiver: Cumberland Office Holdin\n<|id|>32<|type|>title<|page|>4<|box|>470 140 489 267<|content|>Status: Pending\n<|id|>35<|type|>title<|page|>4<|box|>736 140 753 777<|content|>Item 6 — IP Security Agreement: USPTO Recordation\n<|id|>36<|type|>title<|page|>4<|box|>758 142 777 290<|content|>Status: In Progress\n<|id|>38<|type|>title<|page|>5<|box|>90 176 106 287<|content|>Trademarks:\n<|id|>42<|type|>title<|page|>5<|box|>229 178 246 248<|content|>Patents:\n<|id|>46<|type|>title<|page|>5<|box|>472 140 489 656<|content|>Item 7 — IP Security Agreement: USCO Recordation (\n<|id|>47<|type|>title<|page|>5<|box|>494 140 513 290<|content|>Status: In Progress\n<|id|>51<|type|>title<|page|>5<|box|>744 140 761 568<|content|>Item 8 — Pledged Stock Certificates and Stock Powe\n<|id|>52<|type|>title<|page|>5<|box|>768 140 785 290<|content|>Status: In Progress\n<|id|>61<|type|>title<|page|>6<|box|>652 140 669 573<|content|>II. KEY REMINDERS — ONGOING OBLIGATIONS\n<|id|>63<|type|>title<|page|>6<|box|>782 140 799 441<|content|>Reminder 1 — First Interest Payment\n<|id|>71<|type|>title<|page|>7<|box|>390 140 407 444<|content|>Reminder 2 — Compliance Certificate\n<|id|>82<|type|>title<|page|>8<|box|>215 140 233 491<|content|>Reminder 3 — Monthly Liquidity Reporting\n<|id|>85<|type|>title<|page|>8<|box|>532 140 550 450<|content|>Reminder 4 — Notification Obligations\n<|id|>96<|type|>title<|page|>9<|box|>234 140 270 854<|content|>Reminder 5 — Restrictions on Indebtedness, Acquisi\n<|id|>103<|type|>title<|page|>10<|box|>138 140 157 692<|content|>Reminder 6 — Permanent Credit Facility and Mandato\n<|id|>107<|type|>title<|page|>10<|box|>474 142 492 300<|content|>III. CONCLUSION",
+    "raw_response": "<|src_id|>12<|tgt_id|>9\n<|src_id|>13<|tgt_id|>9",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 9
+        }
+    ]
+}

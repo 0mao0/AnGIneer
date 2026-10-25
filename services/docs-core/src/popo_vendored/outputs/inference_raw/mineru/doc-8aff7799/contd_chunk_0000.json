@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        14
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        9,
+        10,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>2<|box|>181 723 196 854<|content|>October 13, 2023\n<|id|>4<|page|>2<|box|>205 140 220 611<|content|>CONFIDENTIAL — PREPARED AT THE DIRECTION OF COUNSEL\n<|id|>5<|page|>2<|box|>229 140 319 854<|content|>Submitted in connection with the Response of Quoru...f Calderwood & Harkness LLP is strictly prohibited\n<|id|>19<|page|>3<|box|>750 140 878 857<|content|>Amendment 2 was executed on September 15, 2022. .....ments applicable to Palomar under Exhibit E of the\n<|id|>20<|page|>4<|box|>90 140 127 854<|content|>MSA, increasing the required coverage limits to re...f services and the evolving cyber threat landscape\n<|id|>67<|page|>9<|box|>835 174 891 856<|content|>(iv) The forensic evidence developed by Graystone ...ich the threat actor gained unauthorized access to\n<|id|>68<|page|>10<|box|>90 174 126 854<|content|>Palomar's network. ... The causal chain from Palom...e data exfiltration was direct and well-documented\n<|id|>105<|page|>13<|box|>916 140 930 514<|content|>Prepared by Calderwood & Harkness LLP — Attorney Work Product\n<|id|>106<|page|>14<|box|>90 176 126 854<|content|>Amendment 3 to the MSA substantially strengthened ...ngthened Palomar's security obligations, including",
+    "raw_response": "<|src_id|>19<|tgt_id|>20\n<|src_id|>67<|tgt_id|>68",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        }
+    ]
+}

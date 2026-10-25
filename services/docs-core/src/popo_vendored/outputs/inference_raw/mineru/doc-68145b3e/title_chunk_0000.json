@@ -1,0 +1,145 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 184 125 813<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV\n<|id|>7<|page|>1<|box|>359 140 377 392<|content|>I. Purpose and Scope of Review\n<|id|>16<|page|>2<|box|>383 140 402 496<|content|>II. Background — TGH Corporate Structure\n<|id|>17<|page|>2<|box|>416 142 433 400<|content|>A. Formation and Incorporation\n<|id|>21<|page|>2<|box|>741 140 758 364<|content|>B. Purpose and Subsidiaries\n<|id|>28<|page|>3<|box|>481 140 498 387<|content|>C. Fiscal and Revenue Context\n<|id|>30<|page|>3<|box|>691 140 709 416<|content|>III. Directors and Officers of TGH\n<|id|>31<|page|>3<|box|>723 140 739 424<|content|>A. Current and Historical Directors\n<|id|>41<|page|>4<|box|>820 140 837 398<|content|>IV. Board Resolutions Reviewed\n<|id|>43<|page|>5<|box|>90 140 107 624<|content|>A. Resolution Authorizing the Crestfield Advisory\n<|id|>53<|page|>6<|box|>90 140 107 640<|content|>B. Resolution Authorizing Meridian Commercial Bank\n<|id|>59<|page|>6<|box|>577 140 595 589<|content|>C. Supplemental Signatory Resolution — December 20\n<|id|>66<|page|>7<|box|>138 140 157 588<|content|>D. Annual Resolutions and Other Corporate Governan\n<|id|>69<|page|>7<|box|>378 176 396 460<|content|>Contractual Maximum Calculation:\n<|id|>79<|page|>8<|box|>90 140 107 607<|content|>E. Resolution re: Removal of Delacroix Signatory A\n<|id|>85<|page|>8<|box|>441 140 459 671<|content|>V. Meridian Commercial Bank — Account Opening Docu\n<|id|>86<|page|>8<|box|>472 142 489 292<|content|>A. Account Details\n<|id|>89<|page|>8<|box|>771 142 787 473<|content|>B. Account Opening Documents Reviewed\n<|id|>103<|page|>9<|box|>457 140 473 472<|content|>C. Wire Transfer Authorization Protocols\n<|id|>108<|page|>10<|box|>148 140 167 785<|content|>VI. Crestfield Advisory Partners Ltd. — Corporate\n<|id|>109<|page|>10<|box|>180 140 196 313<|content|>A. Due Diligence File\n<|id|>113<|page|>10<|box|>579 140 597 529<|content|>B. Observations on Crestfield's Corporate Profile\n<|id|>119<|page|>11<|box|>304 140 320 692<|content|>VII. TGH Memorandum and Articles of Association —\n<|id|>121<|page|>11<|box|>397 142 414 287<|content|>A. Objects Clause\n<|id|>123<|page|>11<|box|>561 140 578 308<|content|>B. Directors' Powers\n<|id|>125<|page|>11<|box|>744 140 760 401<|content|>C. Conflict of Interest Provisions\n<|id|>129<|page|>12<|box|>311 142 328 380<|content|>D. Indemnification Provisions\n<|id|>132<|page|>12<|box|>604 140 621 594<|content|>VIII. Regency International Bank — TGM Local Accou\n<|id|>138<|page|>13<|box|>377 140 393 521<|content|>IX. Summary of Key Findings and Observations\n<|id|>148<|page|>14<|box|>518 140 537 372<|content|>X. Recommended Next Steps\n<|id|>156<|page|>15<|box|>460 184 496 813<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>1\n<|id|>31<|level|>2\n<|id|>41<|level|>1\n<|id|>43<|level|>2\n<|id|>53<|level|>2\n<|id|>59<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>3\n<|id|>79<|level|>2\n<|id|>85<|level|>1\n<|id|>86<|level|>2\n<|id|>89<|level|>2\n<|id|>103<|level|>2\n<|id|>108<|level|>1\n<|id|>109<|level|>2\n<|id|>113<|level|>2\n<|id|>119<|level|>1\n<|id|>121<|level|>2\n<|id|>123<|level|>2\n<|id|>125<|level|>2\n<|id|>129<|level|>2\n<|id|>132<|level|>1\n<|id|>138<|level|>1\n<|id|>148<|level|>1\n<|id|>156<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 1
+        }
+    ]
+}

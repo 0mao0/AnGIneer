@@ -1,0 +1,73 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        47,
+        66
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        62,
+        63,
+        64,
+        65,
+        66
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>458<|type|>title<|page|>47<|box|>172 122 195 295<|content|>3 基本规定\n<|id|>459<|type|>title<|page|>47<|box|>264 119 282 342<|content|>3.1 公路等级类型选用\n<|id|>472<|type|>table<|page|>48<|box|>248 95 336 865<|content|>None\n<|id|>474<|type|>title<|page|>48<|box|>410 92 428 233<|content|>3.2 设计车辆\n<|id|>478<|type|>title<|page|>48<|box|>736 90 752 211<|content|>3.3 交通量\n<|id|>480<|type|>title<|page|>49<|box|>186 122 203 263<|content|>3.5 建筑限界\n<|id|>482<|type|>title<|page|>49<|box|>293 122 311 263<|content|>3.6 防灾减灾\n<|id|>484<|type|>title<|page|>49<|box|>444 122 461 305<|content|>3.7 公路用地范围\n<|id|>486<|type|>title<|page|>50<|box|>165 85 188 200<|content|>4 路线\n<|id|>489<|type|>table<|page|>50<|box|>336 92 396 862<|content|>None\n<|id|>500<|type|>table<|page|>50<|box|>758 95 855 868<|content|>None\n<|id|>503<|type|>title<|page|>51<|box|>203 144 220 527<|content|>4.0.6 圆曲线最小半径按式（4-2）计算：\n<|id|>513<|type|>table<|page|>51<|box|>475 129 627 900<|content|>None\n<|id|>523<|type|>image<|page|>52<|box|>99 299 285 658<|content|>None\n<|id|>524<|type|>table<|page|>52<|box|>328 94 775 865<|content|>None\n<|id|>537<|type|>table<|page|>53<|box|>456 129 587 900<|content|>None\n<|id|>553<|type|>table<|page|>54<|box|>257 92 439 863<|content|>None\n<|id|>557<|type|>table<|page|>54<|box|>640 92 707 865<|content|>None\n<|id|>568<|type|>table<|page|>55<|box|>565 134 653 904<|content|>None\n<|id|>570<|type|>title<|page|>56<|box|>161 92 185 206<|content|>5 路基\n<|id|>579<|type|>title<|page|>57<|box|>168 126 192 240<|content|>6 路面\n<|id|>585<|type|>title<|page|>58<|box|>165 92 187 203<|content|>7 排水\n<|id|>593<|type|>title<|page|>59<|box|>171 124 194 238<|content|>8 桥涵\n<|id|>601<|type|>title<|page|>60<|box|>161 90 184 203<|content|>9 隧道\n<|id|>612<|type|>title<|page|>62<|box|>163 97 186 280<|content|>10 路线交叉\n<|id|>616<|type|>title<|page|>63<|box|>166 119 190 366<|content|>11 交通安全设施\n<|id|>617<|type|>title<|page|>63<|box|>252 119 269 268<|content|>11.1 一般规定\n<|id|>620<|type|>title<|page|>63<|box|>465 119 483 270<|content|>11.2 交通标志\n<|id|>626<|type|>title<|page|>64<|box|>138 92 155 243<|content|>11.3 交通标线\n<|id|>629<|type|>title<|page|>64<|box|>480 94 498 203<|content|>11.4 护栏\n<|id|>639<|type|>title<|page|>65<|box|>485 122 503 312<|content|>11.5 视线诱导设施\n<|id|>643<|type|>title<|page|>66<|box|>163 95 187 371<|content|>12 沿线设施及其他\n<|id|>644<|type|>title<|page|>66<|box|>251 92 268 243<|content|>12.1 一般规定\n<|id|>646<|type|>title<|page|>66<|box|>378 92 397 243<|content|>12.2 服务设施\n<|id|>648<|type|>title<|page|>66<|box|>508 92 524 201<|content|>12.4 其他",
+    "raw_response": "<|src_id|>472<|tgt_id|>459\n<|src_id|>489<|tgt_id|>486\n<|src_id|>500<|tgt_id|>486\n<|src_id|>513<|tgt_id|>486\n<|src_id|>523<|tgt_id|>486\n<|src_id|>524<|tgt_id|>486\n<|src_id|>537<|tgt_id|>486\n<|src_id|>553<|tgt_id|>486\n<|src_id|>557<|tgt_id|>486\n<|src_id|>568<|tgt_id|>486",
+    "parsed": [
+        {
+            "src_id": 472,
+            "tgt_id": 459
+        },
+        {
+            "src_id": 489,
+            "tgt_id": 486
+        },
+        {
+            "src_id": 500,
+            "tgt_id": 486
+        },
+        {
+            "src_id": 513,
+            "tgt_id": 486
+        },
+        {
+            "src_id": 523,
+            "tgt_id": 486
+        },
+        {
+            "src_id": 524,
+            "tgt_id": 486
+        },
+        {
+            "src_id": 537,
+            "tgt_id": 486
+        },
+        {
+            "src_id": 553,
+            "tgt_id": 486
+        },
+        {
+            "src_id": 557,
+            "tgt_id": 486
+        },
+        {
+            "src_id": 568,
+            "tgt_id": 486
+        }
+    ]
+}

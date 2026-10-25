@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        12,
+        13,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 160 151 836<|content|>599 Lexington Avenue, 42nd Floor New York, New York 10022 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 746 176 854<|content|>May 19, 2023\n<|id|>3<|page|>1<|box|>186 140 220 854<|content|>Crescent Harbor Bank, National Association, as Adm...0 Park Avenue, 30th Floor New York, New York 10021\n<|id|>6<|page|>1<|box|>282 174 299 810<|content|>Crescent Harbor Bank, N. ... Northgate Capital Bank Bridgevale Financial Corporation\n<|id|>7<|page|>1<|box|>309 140 325 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>81<|page|>6<|box|>862 174 898 854<|content|>(b) Each of CDC, COS, and CFS, in its capacity as ... authority to (i) execute and deliver the Guaranty\n<|id|>82<|page|>7<|box|>90 174 183 854<|content|>Agreement, the Security Agreement, and the other L...ns under the Loan Documents to which it is a party\n<|id|>135<|page|>12<|box|>832 140 906 856<|content|>We express no opinion as to the enforceability of ...e terms of the Credit Agreement and applicable New\n<|id|>136<|page|>13<|box|>90 138 292 857<|content|>York law (including Section 5-501 of the New York ...xceed the maximum rate permitted by applicable law\n<|id|>165<|page|>16<|box|>296 142 311 274<|content|>Very truly yours,\n<|id|>166<|page|>16<|box|>313 140 329 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>167<|page|>16<|box|>330 143 348 253<|content|>By: ... By\n<|id|>168<|page|>16<|box|>348 142 364 323<|content|>Claudia Merritt, Partner\n<|id|>169<|page|>16<|box|>364 140 400 852<|content|>cc: ... 2200 Elliott Avenue, Suite 1400 Seattle, Washington 98121\n<|id|>170<|page|>16<|box|>409 140 444 852<|content|>cc: ... 2200 Elliott Avenue, Suite 1400 Seattle, Washington 98121\n<|id|>171<|page|>16<|box|>453 140 506 854<|content|>cc: ... 1038-00002)",
+    "raw_response": "<|src_id|>81<|tgt_id|>82\n<|src_id|>135<|tgt_id|>136",
+    "parsed": [
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 136
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>141 142 155 230<|content|>Rev. ... 01-2025\n<|id|>2<|page|>1<|box|>164 576 181 854<|content|>Submission Date: ... February 12, 2025\n<|id|>3<|page|>1<|box|>190 140 208 498<|content|>Status: ... Pending Conflicts Clearance Approved\n<|id|>65<|page|>8<|box|>824 174 898 856<|content|>The Project is situated on land subject to a groun...ity Register, Office of the City Register, at City\n<|id|>66<|page|>9<|box|>89 174 127 854<|content|>Register File Number (\"CRFN\") 2020000198762, as re...tomated City Register Information System (\"ACRIS\")\n<|id|>86<|page|>11<|box|>239 140 268 854<|content|>Form Filed With: ... New Business / Conflicts Depa...Liberty Plaza, 55th Floor New York, New York 10006\n<|id|>87<|page|>11<|box|>277 140 353 854<|content|>CONFIDENTIAL — FOR INTERNAL USE ONLY This form and...form or any of its contents is strictly prohibited",
+    "raw_response": "<|src_id|>65<|tgt_id|>66",
+    "parsed": [
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>7<|type|>title<|page|>1<|box|>347 140 364 343<|content|>I. Purpose and Summary\n<|id|>11<|type|>title<|page|>1<|box|>830 140 849 393<|content|>II. Existing Loan — Key Terms\n<|id|>13<|type|>title<|page|>2<|box|>194 140 212 364<|content|>A. Loan Origination Details\n<|id|>23<|type|>title<|page|>2<|box|>686 142 703 271<|content|>B. Interest Rate\n<|id|>29<|type|>title<|page|>3<|box|>344 140 359 354<|content|>C. Amortization Structure\n<|id|>34<|type|>title<|page|>3<|box|>755 142 773 408<|content|>D. Outstanding Principal Balance\n<|id|>38<|type|>title<|page|>4<|box|>176 140 193 349<|content|>E. Prepayment Provisions\n<|id|>44<|type|>title<|page|>4<|box|>746 140 763 486<|content|>III. Payoff Calculation — Scenario Analysis\n<|id|>46<|type|>title<|page|>4<|box|>821 140 839 764<|content|>A. Scenario 1: Closing Before March 1, 2023 (Prepa\n<|id|>67<|type|>table<|page|>6<|box|>416 143 529 852<|content|>None\n<|id|>69<|type|>title<|page|>6<|box|>667 140 684 743<|content|>B. Scenario 2: Closing On or After March 1, 2023 (\n<|id|>75<|type|>table<|page|>7<|box|>255 143 368 852<|content|>None\n<|id|>77<|type|>title<|page|>7<|box|>488 140 505 493<|content|>C. Recommendation on Closing Date Timing\n<|id|>84<|type|>title<|page|>8<|box|>223 140 239 366<|content|>IV. Per Diem Interest Detail\n<|id|>86<|type|>title<|page|>8<|box|>330 142 345 223<|content|>Formula:\n<|id|>89<|type|>table<|page|>8<|box|>467 143 622 852<|content|>None\n<|id|>91<|type|>title<|page|>8<|box|>700 143 718 282<|content|>Important Notes:\n<|id|>95<|type|>title<|page|>9<|box|>167 140 184 553<|content|>V. Cross-Reference to Refinancing Sources and Uses\n<|id|>97<|type|>title<|page|>9<|box|>261 142 277 303<|content|>A. Sources of Funds\n<|id|>99<|type|>table<|page|>9<|box|>308 143 364 852<|content|>None\n<|id|>100<|type|>title<|page|>9<|box|>405 142 421 277<|content|>B. Uses of Funds\n<|id|>102<|type|>table<|page|>9<|box|>470 143 703 852<|content|>None\n<|id|>106<|type|>title<|page|>10<|box|>157 140 175 439<|content|>C. Adequacy of Refinancing Proceeds\n<|id|>113<|type|>title<|page|>10<|box|>534 140 551 557<|content|>VI. Documents Required from Tidewater for Closing\n<|id|>127<|type|>title<|page|>11<|box|>539 140 556 455<|content|>VII. Open Items and Recommendations\n<|id|>129<|type|>title<|page|>11<|box|>595 140 613 459<|content|>A. Confirm Actual Outstanding Balance\n<|id|>131<|type|>title<|page|>11<|box|>760 140 777 470<|content|>B. Prepayment Premium Timing Strategy\n<|id|>136<|type|>title<|page|>12<|box|>338 140 354 424<|content|>C. Confirm SOFR Rate Convention\n<|id|>142<|type|>title<|page|>12<|box|>604 142 622 359<|content|>D. Reserve Balance Credits\n<|id|>149<|type|>title<|page|>13<|box|>138 140 157 354<|content|>E. Wire Transfer Logistics\n<|id|>154<|type|>title<|page|>13<|box|>391 140 409 279<|content|>VIII. Conclusion\n<|id|>163<|type|>table<|page|>14<|box|>131 143 189 852<|content|>None",
+    "raw_response": "<|src_id|>67<|tgt_id|>46\n<|src_id|>75<|tgt_id|>69\n<|src_id|>89<|tgt_id|>84\n<|src_id|>99<|tgt_id|>97\n<|src_id|>102<|tgt_id|>100\n<|src_id|>163<|tgt_id|>154",
+    "parsed": [
+        {
+            "src_id": 67,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 154
+        }
+    ]
+}

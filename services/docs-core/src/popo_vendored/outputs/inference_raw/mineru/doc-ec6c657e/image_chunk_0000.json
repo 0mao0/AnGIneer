@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        13,
+        16,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 367 118 630<|content|>ESCROW AGREEMENT\n<|id|>3<|type|>title<|page|>1<|box|>186 160 232 836<|content|>MERIDIAN CONSUMER BRANDS LLC a Delaware limited li\n<|id|>8<|type|>title<|page|>1<|box|>518 142 534 351<|content|>ESCROW AGREEMENT\n<|id|>14<|type|>title<|page|>1<|box|>816 142 833 243<|content|>RECITALS\n<|id|>21<|type|>title<|page|>2<|box|>498 142 515 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>38<|type|>title<|page|>3<|box|>494 142 512 635<|content|>ARTICLE II — ESTABLISHMENT OF ESCROW; DEPOSIT\n<|id|>44<|type|>title<|page|>4<|box|>393 140 412 553<|content|>ARTICLE III — DISBURSEMENTS — GENERAL\n<|id|>48<|type|>title<|page|>5<|box|>89 140 107 473<|content|>ARTICLE IV — CLAIM PROCEDURES\n<|id|>65<|type|>title<|page|>7<|box|>186 140 203 565<|content|>ARTICLE V — INVESTMENT OF ESCROW FUND\n<|id|>75<|type|>title<|page|>8<|box|>431 140 448 607<|content|>ARTICLE VI — TERMINATION AND FINAL RELEASE\n<|id|>83<|type|>title<|page|>9<|box|>494 140 511 555<|content|>ARTICLE VII — ESCROW AGENT PROVISIONS\n<|id|>93<|type|>title<|page|>11<|box|>776 140 792 645<|content|>ARTICLE VIII — REPRESENTATIONS AND WARRANTIES\n<|id|>107<|type|>title<|page|>13<|box|>266 140 282 488<|content|>ARTICLE IX — GENERAL PROVISIONS\n<|id|>139<|type|>title<|page|>16<|box|>171 140 354 854<|content|>Section 9.12 Waiver of Jury Trial. EACH PARTY HERE\n<|id|>140<|type|>title<|page|>16<|box|>362 400 378 596<|content|>[Signature Pages Follow]\n<|id|>142<|type|>title<|page|>16<|box|>465 142 481 217<|content|>BUYER:\n<|id|>160<|type|>title<|page|>18<|box|>114 349 132 648<|content|>WIRE TRANSFER INSTRUCTIONS\n<|id|>161<|type|>title<|page|>18<|box|>181 142 198 397<|content|>Escrow Agent Wire Instructions\n<|id|>163<|type|>table<|page|>18<|box|>247 143 378 852<|content|>None\n<|id|>164<|type|>title<|page|>18<|box|>452 143 469 336<|content|>Buyer Wire Instructions\n<|id|>166<|type|>table<|page|>18<|box|>536 143 648 852<|content|>None\n<|id|>167<|type|>title<|page|>18<|box|>722 142 739 334<|content|>Seller Wire Instructions\n<|id|>169<|type|>table<|page|>18<|box|>806 143 900 852<|content|>None\n<|id|>170<|type|>table<|page|>19<|box|>88 145 109 852<|content|>None\n<|id|>172<|type|>title<|page|>20<|box|>89 143 106 243<|content|>EXHIBIT B\n<|id|>173<|type|>title<|page|>20<|box|>114 349 132 647<|content|>ESCROW AGENT FEE SCHEDULE\n<|id|>175<|type|>table<|page|>20<|box|>289 143 494 852<|content|>None\n<|id|>176<|type|>title<|page|>20<|box|>564 140 580 197<|content|>Notes:",
+    "raw_response": "<|src_id|>163<|tgt_id|>161\n<|src_id|>166<|tgt_id|>164\n<|src_id|>169<|tgt_id|>167\n<|src_id|>170<|tgt_id|>167\n<|src_id|>175<|tgt_id|>173",
+    "parsed": [
+        {
+            "src_id": 163,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 167
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 167
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 173
+        }
+    ]
+}

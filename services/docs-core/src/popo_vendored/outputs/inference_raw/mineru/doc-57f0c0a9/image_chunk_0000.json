@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        6
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>90 419 111 576<|content|>SCHEDULE A\n<|id|>1<|type|>title<|page|>2<|box|>135 148 152 846<|content|>PRIOR INVENTIONS, PATENTS, AND INTELLECTUAL PROPER\n<|id|>3<|type|>title<|page|>2<|box|>294 142 311 361<|content|>1. Purpose and Instructions\n<|id|>14<|type|>title<|page|>3<|box|>411 142 428 292<|content|>2. Representations\n<|id|>16<|type|>title<|page|>3<|box|>517 150 534 496<|content|>Option A — No Prior Inventions to Disclose\n<|id|>18<|type|>title<|page|>3<|box|>715 151 732 468<|content|>Option B — Prior Inventions to Disclose\n<|id|>20<|type|>title<|page|>4<|box|>90 140 107 426<|content|>3. Prior Inventions Disclosure Table\n<|id|>22<|type|>table<|page|>4<|box|>195 143 564 852<|content|>None\n<|id|>24<|type|>title<|page|>4<|box|>680 140 696 406<|content|>4. Disclosure of Prior Obligations\n<|id|>27<|type|>table<|page|>5<|box|>151 143 186 852<|content|>None\n<|id|>30<|type|>title<|page|>5<|box|>470 140 487 308<|content|>5. Acknowledgments\n<|id|>37<|type|>title<|page|>6<|box|>494 140 511 282<|content|>6. Defined Terms\n<|id|>39<|type|>title<|page|>6<|box|>744 142 761 245<|content|>7. Execution\n<|id|>41<|type|>title<|page|>6<|box|>814 142 830 261<|content|>EXECUTIVE:",
+    "raw_response": "<|src_id|>22<|tgt_id|>20\n<|src_id|>27<|tgt_id|>24",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 24
+        }
+    ]
+}

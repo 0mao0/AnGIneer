@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        11,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>142 140 157 433<|content|>TO: ... Yuki Nakamura, Senior Associate\n<|id|>2<|page|>1<|box|>167 140 184 413<|content|>FROM: ... Carlos Espinoza, Associate\n<|id|>3<|page|>1<|box|>193 140 210 326<|content|>DATE: ... October 8, 2021\n<|id|>4<|page|>1<|box|>219 140 236 645<|content|>RE: ... California Tortious Interference Law — Elements and Defenses\n<|id|>5<|page|>1<|box|>244 140 281 854<|content|>MATTER: ... 21STCV-34872 (Superior Court of California, County of Los Angeles)\n<|id|>6<|page|>1<|box|>289 140 306 362<|content|>MATTER NO. ... 1038-00007\n<|id|>7<|page|>1<|box|>315 140 332 437<|content|>CLIENT: ... Cascade Retail Holdings Inc\n<|id|>41<|page|>4<|box|>703 176 720 681<|content|>4. ... and\n<|id|>43<|page|>4<|box|>742 140 832 856<|content|>See Harborview Industries (1990) 50 Cal. ... 4th 376, 392–93\n<|id|>44<|page|>4<|box|>840 140 897 854<|content|>It is important to note at the outset that Califor...relations as an intentional tort. ... Litton Saudi\n<|id|>45<|page|>5<|box|>90 140 200 856<|content|>Arabia Ltd. ... This requirement of specific inten...wledge and inducement elements in significant ways\n<|id|>95<|page|>11<|box|>167 174 184 696<|content|>4. ... and\n<|id|>97<|page|>11<|box|>205 138 372 857<|content|>See Glenrock Corporation (2003) 29 Cal. ... 4th at...casting a chill on ordinary competitive behavior\")\n<|id|>118<|page|>13<|box|>839 140 893 856<|content|>The \"unlawful\" prong of the UCL \"borrows\" violatio...ess practices under Section 17200. ... Los Angeles\n<|id|>119<|page|>14<|box|>89 140 127 854<|content|>Cellular Telephone Co. ... The unlawful prong esse...t independently violates some other legal standard",
+    "raw_response": "<|src_id|>44<|tgt_id|>45\n<|src_id|>118<|tgt_id|>119",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 119
+        }
+    ]
+}

@@ -1,0 +1,129 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zi71bw5l\\input\\pdfs\\doc-327b3f6c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zi71bw5l\\enriched\\doc-327b3f6c.json",
+    "contd_output": "<|src_id|>29<|tgt_id|>31\n<|src_id|>44<|tgt_id|>45\n<|src_id|>77<|tgt_id|>78",
+    "title_output": "<|id|>7<|level|>1\n<|id|>18<|level|>1\n<|id|>43<|level|>1\n<|id|>46<|level|>2\n<|id|>53<|level|>2\n<|id|>65<|level|>2\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>85<|level|>2\n<|id|>95<|level|>2\n<|id|>103<|level|>1\n<|id|>106<|level|>1\n<|id|>111<|level|>1\n<|id|>114<|level|>1\n<|id|>126<|level|>1",
+    "image_output": "<|src_id|>75<|tgt_id|>72\n<|src_id|>104<|tgt_id|>103\n<|src_id|>105<|tgt_id|>103\n<|src_id|>108<|tgt_id|>106\n<|src_id|>109<|tgt_id|>106\n<|src_id|>112<|tgt_id|>111",
+    "contd_label": [
+        {
+            "src_id": 29,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 75,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 111
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 108,
+            "table2_idx": 109,
+            "upper_row_ss": [
+                [
+                    "Zynvaro Thornton Advisory Group, LLC",
+                    "Financial Advisory Fee (0.75% × $120,000,000)",
+                    "$900,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Calderwood & Harkness LLP",
+                    "Legal Fees (fee cap, plus disbursements)",
+                    "$675,000"
+                ]
+            ]
+        }
+    ]
+}

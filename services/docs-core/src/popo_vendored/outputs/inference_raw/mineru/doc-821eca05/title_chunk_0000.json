@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        52
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        11,
+        13,
+        17,
+        35,
+        41,
+        43,
+        45,
+        47,
+        51
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>5<|box|>290 157 322 776<|content|>TREASURY DEPARTMENT\n<|id|>14<|page|>7<|box|>300 148 332 769<|content|>TREASURY DEPARTMENT\n<|id|>19<|page|>9<|box|>141 385 158 576<|content|>Table of Contents\n<|id|>22<|page|>11<|box|>354 186 368 404<|content|>Total 1938 Transactions\n<|id|>25<|page|>11<|box|>354 574 368 780<|content|>Sources of Tax Revenue\n<|id|>30<|page|>13<|box|>604 179 620 411<|content|>Purposes of Expenditures\n<|id|>39<|page|>17<|box|>68 115 97 830<|content|>Federal and Estimated State and Local General Gove\n<|id|>65<|page|>35<|box|>67 284 96 734<|content|>COLLECTIONS OF INTERNAL REVENUE\n<|id|>70<|page|>41<|box|>54 235 68 698<|content|>Receipts and Expenditures under Social Security Ac\n<|id|>72<|page|>41<|box|>488 359 503 570<|content|>Old-Age Reserve Account\n<|id|>74<|page|>41<|box|>702 358 717 570<|content|>Unemployment Trust Fund\n<|id|>76<|page|>43<|box|>59 245 86 702<|content|>Receipts and Expenditures Under Railroad Retiremen\n<|id|>78<|page|>43<|box|>455 354 469 600<|content|>Railroad Retirement Account\n<|id|>80<|page|>45<|box|>63 295 77 629<|content|>Cash Income and Outgo of the Treasury\n<|id|>84<|page|>47<|box|>70 84 110 849<|content|>CASH INCOME AND OUTGO AND NET CASH OUTGO January 1\n<|id|>87<|page|>51<|box|>392 136 407 807<|content|>Statement of the Outstanding Public Debt on June 3",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>14<|level|>1\n<|id|>19<|level|>2\n<|id|>22<|level|>2\n<|id|>25<|level|>2\n<|id|>30<|level|>2\n<|id|>39<|level|>2\n<|id|>65<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>3\n<|id|>74<|level|>3\n<|id|>76<|level|>2\n<|id|>78<|level|>3\n<|id|>80<|level|>2\n<|id|>84<|level|>2\n<|id|>87<|level|>2",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 272 176 723<|content|>Certificate Regarding Absence of Material Adverse Effect\n<|id|>2<|page|>1<|box|>185 748 200 854<|content|>June 30, 2024\n<|id|>3<|page|>1<|box|>210 140 266 854<|content|>Delivered pursuant to Section 7. ... , a Delaware corporation (the \"Seller\")\n<|id|>10<|page|>1<|box|>844 140 898 857<|content|>The undersigned is familiar with the business, ope...ral health facilities located across the states of\n<|id|>11<|page|>2<|box|>90 140 181 856<|content|>Tennessee, Georgia, North Carolina, South Carolina...garding, the matters addressed in this Certificate\n<|id|>15<|page|>2<|box|>484 174 518 854<|content|>(a) the business, assets, liabilities, financial c...of the Acquired Business, taken as a whole; ... or\n<|id|>17<|page|>2<|box|>571 140 662 856<|content|>The undersigned further acknowledges that, as set ...nably be expected to be, a Material Adverse Effect\n<|id|>24<|page|>3<|box|>315 174 369 854<|content|>(vii) any action taken by the Seller at the expres...ed from taking under the terms of the APA; ... and\n<|id|>26<|page|>3<|box|>494 138 604 856<|content|>provided, however, that with respect to the Exclud...ic markets in which the Acquired Business operates\n<|id|>64<|page|>8<|box|>282 142 300 377<|content|>Name: ... Whitfield\n<|id|>65<|page|>8<|box|>300 140 316 470<|content|>Title: ... Chairman and Chief Executive Officer\n<|id|>66<|page|>8<|box|>318 140 334 295<|content|>Date: ... June 30, 2024",
+    "raw_response": "<|src_id|>10<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        }
+    ]
+}

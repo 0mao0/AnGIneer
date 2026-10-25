@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>422 140 439 457<|content|>1. Purpose and Identification of Counsel\n<|id|>14<|page|>2<|box|>90 140 107 370<|content|>2. Description of the Lawsuit\n<|id|>15<|page|>2<|box|>121 140 138 316<|content|>2.1 Filing and Service\n<|id|>21<|page|>2<|box|>758 140 775 362<|content|>2.3 Summary of Allegations\n<|id|>28<|page|>3<|box|>835 140 853 305<|content|>2.4 Causes of Action\n<|id|>33<|page|>4<|box|>484 142 501 316<|content|>2.5 Damages Claimed\n<|id|>37<|page|>5<|box|>90 140 107 413<|content|>3. Cascade's Preliminary Defenses\n<|id|>45<|page|>6<|box|>90 140 107 307<|content|>4. Coverage Request\n<|id|>46<|page|>6<|box|>121 140 138 284<|content|>4.1 Defense Costs\n<|id|>53<|page|>6<|box|>743 142 760 454<|content|>4.2 Indemnity and Settlement Coverage\n<|id|>57<|page|>7<|box|>294 140 311 343<|content|>4.3 Reservation of Rights\n<|id|>60<|page|>7<|box|>604 140 621 397<|content|>5. Request for Prompt Response\n<|id|>67<|page|>8<|box|>250 140 265 253<|content|>6. Enclosures",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>21<|level|>2\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>1\n<|id|>45<|level|>1\n<|id|>46<|level|>2\n<|id|>53<|level|>2\n<|id|>57<|level|>2\n<|id|>60<|level|>1\n<|id|>67<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        }
+    ]
+}

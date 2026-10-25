@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 200 176 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>184 140 246 854<|content|>This memorandum is protected by the attorney-clien... memorandum or its contents is strictly prohibited\n<|id|>3<|page|>1<|box|>253 140 287 854<|content|>FIRM: ... Calderwood & Harkness LLP 225 West Wacker Drive, Suite 4000 Chicago, Illinois 60606\n<|id|>4<|page|>1<|box|>297 673 314 854<|content|>DATE: ... March 21, 2022\n<|id|>5<|page|>1<|box|>323 140 340 557<|content|>TO: ... Francesca Morano, Partner Samuel Eklund, Partner\n<|id|>6<|page|>1<|box|>349 140 367 767<|content|>FROM: ... Marbury, Paralegal\n<|id|>7<|page|>1<|box|>375 140 410 854<|content|>RE: ... et al\n<|id|>8<|page|>1<|box|>417 140 435 513<|content|>PROPOSED MATTER NUMBER: ... 1020-00005\n<|id|>9<|page|>1<|box|>444 140 462 620<|content|>CLASSIFICATION: ... New Matter Intake — Litigation (General)\n<|id|>57<|page|>4<|box|>797 176 890 857<|content|>1. ... The database search was performed by\n<|id|>58<|page|>5<|box|>90 210 126 854<|content|>Diane K. ... Central Time\n<|id|>114<|page|>9<|box|>89 140 122 854<|content|>FRANCESCA MORANO Partner — Commercial Litigation Group Calderwood & Harkness LLP\n<|id|>115<|page|>9<|box|>125 143 141 300<|content|>Signature: ... Signature\n<|id|>118<|page|>9<|box|>183 140 200 818<|content|>SAMUEL EKLUND Partner — Commercial Litigation Group Calderwood & Harkness LLP\n<|id|>119<|page|>9<|box|>200 143 218 300<|content|>Signature: ... Signature",
+    "raw_response": "<|src_id|>57<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        }
+    ]
+}

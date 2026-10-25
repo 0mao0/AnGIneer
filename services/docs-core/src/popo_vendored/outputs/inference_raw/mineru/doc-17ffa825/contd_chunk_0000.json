@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        14
+    ],
+    "pages": [
+        3,
+        4,
+        9,
+        10,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>28<|page|>3<|box|>794 174 904 857<|content|>(c) Data-privacy and employment-law concerns under...an and Nigerian law. ... Additionally, Ivorian and\n<|id|>29<|page|>4<|box|>90 174 181 854<|content|>Nigerian employment law may impose procedural requ...Ivorian local counsel in our recommendations below\n<|id|>77<|page|>9<|box|>797 140 907 857<|content|>This representation is a \"bring-down\" representati...pon the request of the Required Lenders shall, (i)\n<|id|>78<|page|>10<|box|>90 140 164 854<|content|>terminate the revolving commitments and (ii) decla...ult provisions in other TSL financing arrangements\n<|id|>120<|page|>13<|box|>853 174 907 854<|content|>Sandra Bellingham, CPA, CFE Managing Director, For...Washington, DC 20006 Telephone: ... (202) 555-4300\n<|id|>121<|page|>14<|box|>89 176 107 509<|content|>Email: ... com\n<|id|>122<|page|>14<|box|>107 174 218 856<|content|>Ms. ... Securities and Exchange Commission, where ...rting several significant FCPA enforcement actions",
+    "raw_response": "<|src_id|>28<|tgt_id|>29\n<|src_id|>77<|tgt_id|>78",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        }
+    ]
+}

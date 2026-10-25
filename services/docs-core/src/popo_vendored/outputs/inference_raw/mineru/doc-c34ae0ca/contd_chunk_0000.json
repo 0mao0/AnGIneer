@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        8,
+        10,
+        11,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>430 661 446 854<|content|>Filed: ... December 12, 2022\n<|id|>3<|page|>1<|box|>455 140 510 854<|content|>Howard Quinn (State Bar No. ... (213) 629-8801\n<|id|>4<|page|>1<|box|>518 142 536 452<|content|>Email: ... com\n<|id|>5<|page|>1<|box|>536 143 553 462<|content|>Email: ... com\n<|id|>6<|page|>1<|box|>554 142 570 490<|content|>Attorneys for Petitioner Marguerite D. ... Fonseca\n<|id|>31<|page|>3<|box|>866 140 902 854<|content|>On October 5, 2022, Ms. ... Fonseca filed the Peti...e Decedent's estate pursuant to California Probate\n<|id|>32<|page|>4<|box|>90 140 143 854<|content|>Code section 8461. ... Fonseca's commitment to the orderly and responsible administration of the estate\n<|id|>43<|page|>5<|box|>89 174 127 852<|content|>(a) A $3,000,000 term life insurance policy issued by Meridian Mutual Life Insurance Co. ... and\n<|id|>45<|page|>5<|box|>179 140 252 856<|content|>The combined value of these non-probate life insur... the Petition in the interest of full transparency\n<|id|>81<|page|>8<|box|>450 174 503 857<|content|>(c) Appointment of a neutral fiduciary or co-admin...e resolution of characterization disputes; ... and\n<|id|>83<|page|>8<|box|>556 140 685 856<|content|>In this regard, Petitioner notes that the parties ...serve in such a capacity, should the parties agree\n<|id|>98<|page|>10<|box|>862 140 898 857<|content|>3. ... The Contestants assert that the Malibu Beach House at 27100 Pacific Coast Highway, Malibu,\n<|id|>99<|page|>11<|box|>90 140 164 854<|content|>California 90265, is entirely the Decedent's separ...ributions made to the property during the marriage\n<|id|>141<|page|>15<|box|>751 176 768 803<|content|>4. ... and\n<|id|>143<|page|>15<|box|>849 140 886 431<|content|>CALDERWOOD & HARKNESS LLP By: ... CALDERWOOD & HARKNESS LLP By\n<|id|>152<|page|>16<|box|>526 140 544 661<|content|>PROOF OF SERVICE BY MAIL AND ELECTRONIC SERVICE\n<|id|>153<|page|>16<|box|>553 140 570 457<|content|>I, Christina M. ... Valerio, declare as follows\n<|id|>158<|page|>16<|box|>829 176 864 854<|content|>Damian R. ... Brennan, Ortega & Saldívar LLP 1900 ...he Stars, Suite 2100 Los Angeles, California 90067\n<|id|>159<|page|>16<|box|>873 176 907 424<|content|>Email: ... com\n<|id|>160<|page|>17<|box|>89 176 125 852<|content|>Attorneys for Contestants Rafael T. ... Fonseca\n<|id|>161<|page|>17<|box|>133 140 208 854<|content|>I am readily familiar with Calderwood & Harkness L...e that same day in the ordinary course of business",
+    "raw_response": "<|src_id|>31<|tgt_id|>32\n<|src_id|>98<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        }
+    ]
+}

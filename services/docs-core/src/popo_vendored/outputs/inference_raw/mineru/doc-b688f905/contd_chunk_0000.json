@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 279 133 718<|content|>One Liberty Plaza, 55th Floor New York, New York 10006\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 746 184 854<|content|>June 15, 2025\n<|id|>4<|page|>1<|box|>193 140 210 831<|content|>Granite Peak Capital Partners, LP 9 West 57th Street, Suite 4200 New York, New York 10019\n<|id|>5<|page|>1<|box|>220 176 253 550<|content|>Attention: ... Diane Castellano, Managing Partner Victor Salinas, Senior Vice President, Originations\n<|id|>6<|page|>1<|box|>262 174 334 854<|content|>Re: ... Mezzanine Loan in the principal amount of ...ct, 450 West 34th Street, New York, New York 10001\n<|id|>7<|page|>1<|box|>344 140 359 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>15<|page|>1<|box|>837 174 910 854<|content|>(c) The Pledge and Security Agreement, dated as of...West Mortgage LLC (the \"Pledged Interests\") to the\n<|id|>16<|page|>2<|box|>90 174 127 854<|content|>Mezzanine Lender as collateral for the Mezzanine L...zzanine Loan (the \"Pledge and Security Agreement\")\n<|id|>20<|page|>2<|box|>304 174 395 854<|content|>(g) The Intercreditor Agreement, dated as of June ...5, by and among Ironclad National Bank, N. ... and\n<|id|>22<|page|>2<|box|>465 140 501 854<|content|>Capitalized terms used but not otherwise defined i...ibed to such terms in the Mezzanine Loan Agreement\n<|id|>34<|page|>3<|box|>523 174 614 854<|content|>(j) The results of searches of Uniform Commercial ...lectively, the \"UCC Lien Search Results\"); ... and\n<|id|>36<|page|>3<|box|>667 140 758 854<|content|>We have not independently investigated or verified...from the rendering of the opinions set forth below\n<|id|>100<|page|>11<|box|>810 210 827 344<|content|>Very truly yours,\n<|id|>101<|page|>11<|box|>835 140 852 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>102<|page|>11<|box|>854 143 869 253<|content|>By: ... By\n<|id|>103<|page|>11<|box|>871 143 887 331<|content|>Name: ... Douglas Fairchild\n<|id|>104<|page|>11<|box|>888 143 904 246<|content|>Title: ... Partner\n<|id|>105<|page|>12<|box|>89 140 121 578<|content|>One Liberty Plaza, 55th Floor New York, New York 10006 C&H Matter No. ... 1031-00004",
+    "raw_response": "<|src_id|>15<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        }
+    ]
+}

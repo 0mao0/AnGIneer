@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 292 118 705<|content|>ESCROW FUNDING CONFIRMATION\n<|id|>7<|page|>1<|box|>358 140 375 441<|content|>I. INTRODUCTION AND PURPOSE\n<|id|>12<|page|>2<|box|>222 140 239 406<|content|>II. WIRE TRANSFER DETAILS\n<|id|>13<|page|>2<|box|>253 140 271 380<|content|>A. Sending Party Information\n<|id|>17<|page|>2<|box|>662 142 680 514<|content|>B. Receiving Party Information (Escrow Agent)\n<|id|>21<|page|>3<|box|>244 140 260 442<|content|>C. Wire Transfer Amount and Details\n<|id|>25<|page|>3<|box|>622 140 638 627<|content|>III. CONFIRMATION FROM COBALT TRUST COMPANY\n<|id|>26<|page|>3<|box|>654 140 671 388<|content|>A. Acknowledgment of Receipt\n<|id|>31<|page|>4<|box|>194 140 210 464<|content|>B. Escrow Account Confirmation Details\n<|id|>36<|page|>4<|box|>734 140 752 473<|content|>C. Reference to Escrow Agreement Terms\n<|id|>45<|page|>6<|box|>257 142 273 540<|content|>D. Authorized Signatory of Cobalt Trust Company\n<|id|>52<|page|>6<|box|>431 142 449 495<|content|>IV. RECONCILIATION TO FUNDS FLOW\n<|id|>59<|page|>7<|box|>439 140 474 746<|content|>V. INTERPLAY WITH INDEMNIFICATION AND REPRESENTATI\n<|id|>70<|page|>8<|box|>638 140 654 668<|content|>VI. RELATED CLOSING DOCUMENTS CROSS-REFERENCED\n<|id|>80<|page|>9<|box|>448 140 465 542<|content|>VII. NOTICES AND CONTACT INFORMATION\n<|id|>82<|page|>9<|box|>561 142 577 344<|content|>For Fund VI (Depositor):\n<|id|>91<|page|>9<|box|>828 143 844 294<|content|>For Escrow Agent:\n<|id|>96<|page|>10<|box|>143 142 162 398<|content|>For Stockholder Representative:\n<|id|>98<|page|>10<|box|>212 176 228 287<|content|>Email: On file\n<|id|>100<|page|>11<|box|>89 140 107 509<|content|>VIII. SIGNATURE / CONFIRMATION Block\n<|id|>102<|page|>11<|box|>200 140 219 630<|content|>Acknowledgment by Solara Digital Infrastructure Fu\n<|id|>109<|page|>11<|box|>340 140 358 488<|content|>Acknowledgment by Cobalt Trust Company\n<|id|>122<|page|>12<|box|>89 439 107 558<|content|>APPENDIX A\n<|id|>123<|page|>12<|box|>114 290 133 705<|content|>Wire Transfer Confirmation Receipt (Sending Bank)\n<|id|>125<|page|>12<|box|>222 143 258 852<|content|>MERIDIAN ATLANTIC BANK, N.A. WIRE TRANSFER CONFIRM\n<|id|>128<|page|>13<|box|>88 439 108 558<|content|>APPENDIX B\n<|id|>129<|page|>13<|box|>114 292 133 705<|content|>Cobalt Trust Company Receipt Confirmation Letter",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>17<|level|>3\n<|id|>21<|level|>3\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>31<|level|>3\n<|id|>36<|level|>3\n<|id|>45<|level|>3\n<|id|>52<|level|>2\n<|id|>59<|level|>2\n<|id|>70<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>3\n<|id|>91<|level|>3\n<|id|>96<|level|>3\n<|id|>98<|level|>-1\n<|id|>100<|level|>2\n<|id|>102<|level|>3\n<|id|>109<|level|>3\n<|id|>122<|level|>2\n<|id|>123<|level|>3\n<|id|>125<|level|>4\n<|id|>128<|level|>2\n<|id|>129<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 4
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        }
+    ]
+}

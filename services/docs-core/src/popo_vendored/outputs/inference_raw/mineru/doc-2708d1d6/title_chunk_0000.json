@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 200 126 797<|content|>COMMONWEALTH OF MASSACHUSETTS SUPERIOR COURT BUSIN\n<|id|>2<|page|>1<|box|>361 153 415 843<|content|>PLAINTIFF PENTERRA PHARMACEUTICALS CORP.'S STATEME\n<|id|>4<|page|>1<|box|>627 140 643 578<|content|>STATEMENT OF UNDISPUTED MATERIAL FACTS\n<|id|>5<|page|>1<|box|>657 140 675 254<|content|>I. The Parties\n<|id|>12<|page|>2<|box|>363 140 380 468<|content|>II. The Exclusive Distribution Agreement\n<|id|>23<|page|>3<|box|>232 142 250 483<|content|>III. Vantage's Performance Under the EDA\n<|id|>28<|page|>3<|box|>527 142 545 459<|content|>IV. The January 12, 2018 Kapoor Email\n<|id|>34<|page|>4<|box|>176 140 193 620<|content|>V. Vantage's Unauthorized Distribution in the Tri-\n<|id|>41<|page|>4<|box|>731 140 748 637<|content|>VI. Penterra's Cease-and-Desist Letter and Vantage\n<|id|>46<|page|>5<|box|>380 140 397 681<|content|>VII. Penterra's Term Sheet with Meridian National\n<|id|>50<|page|>5<|box|>656 140 672 555<|content|>VIII. No Written Amendment or Modification Exists\n<|id|>54<|page|>6<|box|>89 176 126 854<|content|>located in the Commonwealth of Massachusetts, and\n<|id|>63<|page|>6<|box|>323 375 340 620<|content|>CERTIFICATE OF SERVICE\n<|id|>67<|page|>6<|box|>554 434 571 563<|content|>EXHIBIT LIST",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>5<|level|>2\n<|id|>12<|level|>2\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>34<|level|>2\n<|id|>41<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>2\n<|id|>54<|level|>-1\n<|id|>63<|level|>1\n<|id|>67<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>186 156 224 839<|content|>CALDERWOOD & HARKNESS LLP 600 Lexington Avenue, 30\n<|id|>2<|type|>title<|page|>1<|box|>233 405 253 593<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>532 140 550 447<|content|>I. Purpose and Scope of Memorandum\n<|id|>16<|type|>title<|page|>2<|box|>566 140 584 348<|content|>II. Background Summary\n<|id|>17<|type|>title<|page|>2<|box|>599 140 616 372<|content|>A. The Underlying Litigation\n<|id|>20<|type|>table<|page|>2<|box|>835 145 875 852<|content|>None\n<|id|>21<|type|>table<|page|>3<|box|>88 143 179 852<|content|>None\n<|id|>26<|type|>title<|page|>3<|box|>688 140 705 571<|content|>B. The Counterclaim Allegations Relevant to Covera\n<|id|>37<|type|>title<|page|>5<|box|>402 140 420 444<|content|>C. BRB Officers Named or Implicated\n<|id|>43<|type|>title<|page|>6<|box|>90 140 107 532<|content|>III. Overview of the Pinnacle Fidelity D&O Policy\n<|id|>44<|type|>title<|page|>6<|box|>121 142 138 326<|content|>A. Policy Identification\n<|id|>45<|type|>table<|page|>6<|box|>167 143 300 852<|content|>None\n<|id|>47<|type|>title<|page|>6<|box|>511 140 529 604<|content|>B. Insuring Agreements — Three Standard Coverage P\n<|id|>53<|type|>title<|page|>7<|box|>337 140 354 431<|content|>C. Definition of \"Claim\" and \"Loss\"\n<|id|>57<|type|>title<|page|>7<|box|>810 140 828 390<|content|>D. Policy Period and Reporting\n<|id|>60<|type|>title<|page|>8<|box|>303 140 321 338<|content|>IV. Key Coverage Issues\n<|id|>61<|type|>title<|page|>8<|box|>334 140 352 468<|content|>A. Fraud / Intentional Conduct Exclusion\n<|id|>69<|type|>title<|page|>9<|box|>638 140 655 403<|content|>B. Insured-vs.-Insured Exclusion\n<|id|>74<|type|>title<|page|>10<|box|>422 140 439 457<|content|>C. Side C (Entity Coverage) Limitations\n<|id|>80<|type|>title<|page|>11<|box|>90 140 107 589<|content|>D. Allocation Between Covered and Non-Covered Clai\n<|id|>88<|type|>title<|page|>12<|box|>250 140 267 415<|content|>E. Coverage for Punitive Damages\n<|id|>95<|type|>title<|page|>13<|box|>239 140 256 380<|content|>F. Defense Cost Advancement\n<|id|>100<|type|>title<|page|>14<|box|>90 140 107 393<|content|>V. Reservation-of-Rights Status\n<|id|>106<|type|>title<|page|>14<|box|>664 140 681 464<|content|>VI. Coordination with Coverage Counsel\n<|id|>107<|type|>title<|page|>14<|box|>694 140 712 379<|content|>A. Division of Responsibilities\n<|id|>114<|type|>title<|page|>15<|box|>222 140 239 483<|content|>Crane, Alcott & Shire LLP (Robert Alcott):\n<|id|>121<|type|>title<|page|>15<|box|>420 142 438 656<|content|>Margaret Linden and Thomas Hargreaves (BRB In-Hous\n<|id|>126<|type|>title<|page|>15<|box|>554 142 571 385<|content|>B. Key Coordination Protocols\n<|id|>133<|type|>title<|page|>16<|box|>321 140 339 509<|content|>VII. Potential Coverage for Individual Officers\n<|id|>141<|type|>title<|page|>17<|box|>352 140 369 334<|content|>VIII. Recommendations\n<|id|>151<|type|>title<|page|>18<|box|>648 142 666 264<|content|>IX. Conclusion\n<|id|>161<|type|>title<|page|>19<|box|>501 142 517 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>20<|tgt_id|>17\n<|src_id|>21<|tgt_id|>17\n<|src_id|>45<|tgt_id|>44",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 44
+        }
+    ]
+}

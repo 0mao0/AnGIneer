@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        54
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        10,
+        11,
+        13,
+        17,
+        23,
+        44,
+        53
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>5<|box|>305 155 337 800<|content|>TREASURY DEPARTMENT\n<|id|>17<|page|>7<|box|>276 183 310 818<|content|>TREASURY DEPARTMENT\n<|id|>22<|page|>9<|box|>116 383 134 574<|content|>Table of Contents\n<|id|>24<|page|>9<|box|>225 323 241 616<|content|>FEDERAL RECEIPTS AND EXPENDITURES\n<|id|>26<|page|>9<|box|>318 351 335 600<|content|>GENERAL FUND OF THE TREASURY\n<|id|>28<|page|>9<|box|>379 332 395 616<|content|>PUBLIC DEBT OF THE UNITED STATES\n<|id|>30<|page|>9<|box|>636 282 667 678<|content|>GOVERNMENTAL CORPORATIONS AND CREDIT AGENCIES OF T\n<|id|>32<|page|>9<|box|>791 358 807 600<|content|>INTERNAL REVENUE STATISTICS\n<|id|>35<|page|>10<|box|>172 420 187 583<|content|>CUSTOMS STATISTICS\n<|id|>37<|page|>10<|box|>249 316 281 696<|content|>CAPITAL MOVEMENTS BETWEEN THE UNITED STATES AND FO\n<|id|>39<|page|>10<|box|>407 386 424 618<|content|>GOLD AND SILVER STATISTICS\n<|id|>41<|page|>10<|box|>549 395 567 621<|content|>OTHER TREASURY STATISTICS\n<|id|>43<|page|>11<|box|>53 166 112 800<|content|>Treasury Survey of the Ownership of Securities Iss\n<|id|>47<|page|>13<|box|>55 234 87 750<|content|>Table II.- Detail of Ownership for Each Issue Outs\n<|id|>54<|page|>17<|box|>108 250 131 740<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>66<|page|>23<|box|>98 134 120 837<|content|>CASH INCOME AND OUTGO OF THE TREASURY\n<|id|>94<|page|>44<|box|>53 220 84 800<|content|>Maturity Schedule of Securities Guaranteed by the\n<|id|>105<|page|>53<|box|>66 229 96 738<|content|>Imports of Cotton and Cotton Waste under Quota Pro",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>17<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>1\n<|id|>47<|level|>2\n<|id|>54<|level|>1\n<|id|>66<|level|>1\n<|id|>94<|level|>1\n<|id|>105<|level|>1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        }
+    ]
+}

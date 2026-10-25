@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        50
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>504<|type|>title<|page|>46<|box|>267 140 284 501<|content|>Section 11.10 — No Third-Party Beneficiaries\n<|id|>506<|type|>title<|page|>46<|box|>426 140 441 442<|content|>Section 11.11 — Specific Performance\n<|id|>508<|type|>title<|page|>46<|box|>621 140 637 437<|content|>Section 11.12 — Waiver of Jury Trial\n<|id|>511<|type|>title<|page|>47<|box|>114 254 132 741<|content|>SIGNATURE PAGE TO ASSET PURCHASE AGREEMENT\n<|id|>513<|type|>title<|page|>47<|box|>186 143 200 218<|content|>BUYER:\n<|id|>519<|type|>title<|page|>47<|box|>289 254 306 741<|content|>SIGNATURE PAGE TO ASSET PURCHASE AGREEMENT\n<|id|>525<|type|>title<|page|>47<|box|>419 403 434 594<|content|>LIST OF SCHEDULES\n<|id|>527<|type|>table<|page|>47<|box|>523 143 904 852<|content|>None\n<|id|>528<|type|>table<|page|>48<|box|>89 143 422 852<|content|>None\n<|id|>530<|type|>title<|page|>48<|box|>494 413 510 583<|content|>LIST OF EXHIBITS\n<|id|>532<|type|>table<|page|>48<|box|>542 143 750 852<|content|>None\n<|id|>535<|type|>title<|page|>49<|box|>89 187 125 808<|content|>DRAFTING / REVISION NOTES Second Revised Draft — S\n<|id|>546<|type|>title<|page|>50<|box|>805 142 821 439<|content|>10. Additional Matters for Discussion.",
+    "raw_response": "<|src_id|>527<|tgt_id|>525\n<|src_id|>528<|tgt_id|>525\n<|src_id|>532<|tgt_id|>530",
+    "parsed": [
+        {
+            "src_id": 527,
+            "tgt_id": 525
+        },
+        {
+            "src_id": 528,
+            "tgt_id": 525
+        },
+        {
+            "src_id": 532,
+            "tgt_id": 530
+        }
+    ]
+}

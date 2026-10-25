@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|type|>title<|page|>1<|box|>587 140 604 333<|content|>1. Scope of Engagement\n<|id|>10<|type|>title<|page|>1<|box|>680 142 698 364<|content|>1.1 Offering Documentation\n<|id|>15<|type|>title<|page|>2<|box|>330 142 347 367<|content|>1.2 Transaction Agreements\n<|id|>22<|type|>title<|page|>3<|box|>90 140 107 488<|content|>1.3 Subsidiary Guarantees and Entity Work\n<|id|>31<|type|>title<|page|>3<|box|>489 142 508 545<|content|>1.4 Payoff and Discharge of Existing Credit Facili\n<|id|>37<|type|>title<|page|>4<|box|>138 142 157 334<|content|>1.5 Closing Deliverables\n<|id|>49<|type|>title<|page|>5<|box|>202 143 219 339<|content|>1.6 Post-Closing Matters\n<|id|>54<|type|>title<|page|>5<|box|>444 142 460 281<|content|>1.7 Tax Advisory\n<|id|>60<|type|>title<|page|>5<|box|>748 143 765 299<|content|>1.8 Excluded Scope\n<|id|>66<|type|>title<|page|>6<|box|>464 142 483 230<|content|>2. Staffing\n<|id|>74<|type|>title<|page|>7<|box|>286 140 303 310<|content|>3. Fee Arrangements\n<|id|>75<|type|>title<|page|>7<|box|>316 140 334 272<|content|>3.1 Billing Basis\n<|id|>77<|type|>table<|page|>7<|box|>400 143 537 852<|content|>None\n<|id|>79<|type|>title<|page|>7<|box|>676 140 693 318<|content|>3.2 Billing Procedures\n<|id|>82<|type|>title<|page|>8<|box|>90 140 107 400<|content|>3.3 Expenses and Disbursements\n<|id|>91<|type|>title<|page|>8<|box|>491 142 508 315<|content|>3.4 Estimated Budget\n<|id|>94<|type|>title<|page|>8<|box|>819 140 835 357<|content|>4. Terms of Representation\n<|id|>95<|type|>title<|page|>8<|box|>849 142 866 331<|content|>4.1 Client Identification\n<|id|>99<|type|>title<|page|>9<|box|>505 140 522 330<|content|>4.3 Conflicts of Interest\n<|id|>103<|type|>title<|page|>9<|box|>849 140 866 380<|content|>4.4 No Guarantee of Outcome\n<|id|>105<|type|>title<|page|>10<|box|>231 140 248 334<|content|>4.5 Document Retention\n<|id|>107<|type|>title<|page|>10<|box|>468 140 484 349<|content|>4.6 Limitation of Liability\n<|id|>109<|type|>title<|page|>10<|box|>661 140 678 330<|content|>5. Anticipated Timeline\n<|id|>111<|type|>table<|page|>10<|box|>765 143 906 852<|content|>None\n<|id|>112<|type|>table<|page|>11<|box|>88 143 224 852<|content|>None\n<|id|>114<|type|>title<|page|>11<|box|>371 140 388 287<|content|>6. Governing Law\n<|id|>116<|type|>title<|page|>11<|box|>584 140 602 264<|content|>7. Termination\n<|id|>118<|type|>title<|page|>11<|box|>799 140 815 398<|content|>8. Acceptance and Counterparts\n<|id|>123<|type|>title<|page|>12<|box|>258 140 276 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>130<|type|>title<|page|>12<|box|>420 349 436 647<|content|>ACKNOWLEDGED AND AGREED:",
+    "raw_response": "<|src_id|>77<|tgt_id|>75\n<|src_id|>111<|tgt_id|>109\n<|src_id|>112<|tgt_id|>109",
+    "parsed": [
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 109
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Describe the access controls in place for this processing activity', '(e.g., \"Role-based access control (RBAC) implemented in the CRM system, with access limited to authorised']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'personnel within the Customer Services team based on least-privilege principles,\" \"Multi-factor authentication (MFA) required for all access to the HR platform,\" \"Access granted only upon approval by line manager and Data Steward via IT ticketing system\")']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 178,
+    "table2_idx": 179
+}

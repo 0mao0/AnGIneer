@@ -1,0 +1,59 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        144,
+        192
+    ],
+    "pages": [
+        145,
+        148,
+        152,
+        156,
+        158,
+        164,
+        166,
+        184,
+        191
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1868<|page|>145<|box|>92 95 111 231<|content|>(50)障碍物类\n<|id|>1918<|page|>148<|box|>428 111 446 227<|content|>(57) 桥塔类\n<|id|>1961<|page|>152<|box|>507 109 525 245<|content|>(63) 救助站类\n<|id|>2011<|page|>156<|box|>878 116 896 293<|content|>(71)交通信号站类\n<|id|>2027<|page|>158<|box|>304 107 322 285<|content|>(73)岸线建筑物类\n<|id|>2092<|page|>164<|box|>472 113 490 269<|content|>(81)水利设施类\n<|id|>2122<|page|>166<|box|>828 102 845 259<|content|>(85) 物标类定义\n<|id|>2441<|page|>184<|box|>503 111 522 278<|content|>(137) 出版物参考\n<|id|>2563<|page|>191<|box|>469 93 487 238<|content|>(159) 测量机构",
+    "raw_response": "<|id|>1868<|level|>1\n<|id|>1918<|level|>1\n<|id|>1961<|level|>1\n<|id|>2011<|level|>1\n<|id|>2027<|level|>1\n<|id|>2092<|level|>1\n<|id|>2122<|level|>1\n<|id|>2441<|level|>1\n<|id|>2563<|level|>1",
+    "parsed": [
+        {
+            "id": 1868,
+            "level": 1
+        },
+        {
+            "id": 1918,
+            "level": 1
+        },
+        {
+            "id": 1961,
+            "level": 1
+        },
+        {
+            "id": 2011,
+            "level": 1
+        },
+        {
+            "id": 2027,
+            "level": 1
+        },
+        {
+            "id": 2092,
+            "level": 1
+        },
+        {
+            "id": 2122,
+            "level": 1
+        },
+        {
+            "id": 2441,
+            "level": 1
+        },
+        {
+            "id": 2563,
+            "level": 1
+        }
+    ]
+}

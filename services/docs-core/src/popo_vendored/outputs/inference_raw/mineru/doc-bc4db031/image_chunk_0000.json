@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 184 125 813<|content|>CALDERWOOD & HARKNESS LLP 1700 Pennsylvania Avenue\n<|id|>1<|type|>title<|page|>1<|box|>133 171 169 826<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>2<|type|>table<|page|>1<|box|>203 143 428 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>463 431 481 565<|content|>I. PURPOSE\n<|id|>8<|type|>title<|page|>2<|box|>152 207 172 790<|content|>II. CURRENT STATUS OF THE CLINICAL PROGRAM\n<|id|>9<|type|>title<|page|>2<|box|>199 140 215 408<|content|>A. CLARION-3 Top-Line Results\n<|id|>13<|type|>title<|page|>2<|box|>577 140 594 529<|content|>Co-Primary Endpoint #1 — PASI-90 at Week 16:\n<|id|>19<|type|>title<|page|>2<|box|>773 142 790 537<|content|>Co-Primary Endpoint #2 — sPGA 0/1 at Week 16:\n<|id|>30<|type|>title<|page|>3<|box|>419 140 436 444<|content|>B. FDA's Stated Evidentiary Standard\n<|id|>37<|type|>title<|page|>4<|box|>204 140 222 395<|content|>C. CLARION-2 Standing Alone\n<|id|>45<|type|>title<|page|>5<|box|>90 339 109 658<|content|>III. REGULATORY OPTIONS\n<|id|>47<|type|>title<|page|>5<|box|>205 140 224 602<|content|>Option A: Redesigned Confirmatory Trial (CLARION-3\n<|id|>61<|type|>title<|page|>6<|box|>720 140 739 356<|content|>Active Comparator Design\n<|id|>77<|type|>title<|page|>8<|box|>513 140 530 369<|content|>Regulatory Risk Assessment\n<|id|>86<|type|>title<|page|>9<|box|>549 140 566 671<|content|>Option B: Type A Meeting / Supplemental Analysis o\n<|id|>94<|type|>title<|page|>10<|box|>681 140 700 367<|content|>Regulatory Risk Assessment\n<|id|>100<|type|>title<|page|>11<|box|>497 140 513 380<|content|>Option C: Pause and Reassess\n<|id|>102<|type|>title<|page|>11<|box|>650 140 667 333<|content|>Analysis — Advantages\n<|id|>112<|type|>title<|page|>12<|box|>690 140 708 285<|content|>Analysis — Risks\n<|id|>126<|type|>title<|page|>14<|box|>198 264 217 733<|content|>IV. RECOMMENDED COURSE OF ACTION\n<|id|>136<|type|>title<|page|>14<|box|>779 140 797 627<|content|>3. Redesign CLARION-3R with the following key para\n<|id|>150<|type|>title<|page|>15<|box|>537 243 558 751<|content|>V. LABELING AND WORK-PRODUCT STATUS\n<|id|>151<|type|>title<|page|>15<|box|>584 142 601 370<|content|>A. Draft Documents on Hold\n<|id|>153<|type|>table<|page|>15<|box|>689 143 805 852<|content|>None\n<|id|>162<|type|>title<|page|>16<|box|>719 142 736 385<|content|>B. Coordination with Advisors\n<|id|>167<|type|>title<|page|>17<|box|>535 294 554 702<|content|>VI. ADDITIONAL CONSIDERATIONS\n<|id|>168<|type|>title<|page|>17<|box|>580 140 597 361<|content|>A. Pediatric Study Deferral\n<|id|>172<|type|>title<|page|>18<|box|>167 140 184 316<|content|>B. REMS Assessment\n<|id|>180<|type|>title<|page|>18<|box|>628 140 645 331<|content|>C. Securities Disclosure\n<|id|>186<|type|>title<|page|>19<|box|>228 393 247 602<|content|>VII. CONCLUSION",
+    "raw_response": "<|src_id|>2<|tgt_id|>3\n<|src_id|>153<|tgt_id|>151",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 151
+        }
+    ]
+}

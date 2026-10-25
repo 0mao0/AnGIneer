@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        6,
+        10
+    ],
+    "pages": [
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>14<|page|>6<|box|>762 140 890 856<|content|>No Phase II Environmental Site Assessments were re... Distribution Hub (ESA-003) and Lakeland Crossings\n<|id|>15<|page|>7<|box|>90 140 181 856<|content|>Industrial (ESA-006) — the Environmental Consultan...hase II ESA reports are included in this Exhibit N\n<|id|>22<|page|>7<|box|>505 171 560 854<|content|>Westlake Distribution Hub (ESA-003) — de minimis R...subject property's southeast loading area; ... and\n<|id|>23<|page|>7<|box|>568 173 640 854<|content|>Lakeland Crossings Industrial (ESA-006) — de minim...mpling conducted during original site construction\n<|id|>44<|page|>9<|box|>414 174 488 854<|content|>(e) Veltrano Capital Lending Corp. ... and\n<|id|>46<|page|>9<|box|>575 140 723 854<|content|>Reliance letters from Trident Environmental Group ...he Environmental Consultant's engagement agreement\n<|id|>50<|page|>9<|box|>808 153 842 844<|content|>Attached to and forming part of that certain Purchase and Sale Agreement dated as of February 28, 2024\n<|id|>51<|page|>9<|box|>853 437 869 558<|content|>by and between\n<|id|>52<|page|>9<|box|>878 310 895 687<|content|>Greystone Meridian Partners Fund III, L. ... (Seller)\n<|id|>53<|page|>9<|box|>902 140 929 851<|content|>Purchase and Sale Agreement — Greystone Meridian P...r Real Estate Investment Trust — February 28, 2024\n<|id|>54<|page|>10<|box|>90 482 106 517<|content|>and",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>50<|tgt_id|>51\n<|src_id|>51<|tgt_id|>52\n<|src_id|>52<|tgt_id|>53\n<|src_id|>53<|tgt_id|>54",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        }
+    ]
+}

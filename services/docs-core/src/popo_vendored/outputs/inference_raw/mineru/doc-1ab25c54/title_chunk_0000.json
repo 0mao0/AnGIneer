@@ -1,0 +1,146 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        10,
+        11,
+        14,
+        16,
+        17,
+        18,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 290 118 707<|content|>RECOURSE CARVE-OUT GUARANTY\n<|id|>4<|page|>1<|box|>210 140 227 274<|content|>GUARANTOR:\n<|id|>6<|page|>1<|box|>316 142 334 230<|content|>LENDER:\n<|id|>8<|page|>1<|box|>422 142 440 264<|content|>BORROWER:\n<|id|>10<|page|>1<|box|>511 447 529 549<|content|>RECITALS\n<|id|>11<|page|>1<|box|>536 142 555 248<|content|>WHEREAS:\n<|id|>21<|page|>2<|box|>886 447 902 550<|content|>ARTICLE I\n<|id|>22<|page|>3<|box|>89 434 106 563<|content|>DEFINITIONS\n<|id|>39<|page|>4<|box|>676 444 694 553<|content|>ARTICLE II\n<|id|>40<|page|>4<|box|>703 259 719 736<|content|>GUARANTY; SCOPE OF GUARANTEED OBLIGATIONS\n<|id|>60<|page|>8<|box|>695 441 710 557<|content|>ARTICLE III\n<|id|>61<|page|>8<|box|>720 387 737 609<|content|>NATURE OF GUARANTY\n<|id|>76<|page|>10<|box|>446 442 463 555<|content|>ARTICLE IV\n<|id|>77<|page|>10<|box|>472 375 489 620<|content|>WAIVERS BY GUARANTOR\n<|id|>90<|page|>11<|box|>805 446 821 550<|content|>ARTICLE V\n<|id|>91<|page|>11<|box|>830 243 848 753<|content|>REPRESENTATIONS AND WARRANTIES OF GUARANTOR\n<|id|>103<|page|>14<|box|>89 362 133 635<|content|>ARTICLE VI COVENANTS OF GUARANTOR\n<|id|>105<|page|>14<|box|>167 140 185 807<|content|>Section 6.1. Financial Reporting. Guarantor shall\n<|id|>124<|page|>16<|box|>544 437 560 558<|content|>ARTICLE VII\n<|id|>125<|page|>16<|box|>570 310 585 686<|content|>EVENTS OF DEFAULT UNDER GUARANTY\n<|id|>133<|page|>17<|box|>724 434 741 563<|content|>ARTICLE VIII\n<|id|>134<|page|>17<|box|>750 447 766 550<|content|>REMEDIES\n<|id|>138<|page|>18<|box|>497 441 513 557<|content|>ARTICLE IX\n<|id|>139<|page|>18<|box|>523 357 539 638<|content|>MISCELLANEOUS PROVISIONS\n<|id|>141<|page|>18<|box|>685 140 702 594<|content|>Section 9.2. Jurisdiction and Venue; Waiver of Jur\n<|id|>169<|page|>22<|box|>233 142 250 272<|content|>GUARANTOR:\n<|id|>180<|page|>22<|box|>457 447 474 549<|content|>EXHIBIT A\n<|id|>181<|page|>22<|box|>483 310 500 686<|content|>LEGAL DESCRIPTION OF THE PROPERTY\n<|id|>186<|page|>22<|box|>777 449 794 549<|content|>EXHIBIT B\n<|id|>187<|page|>22<|box|>803 315 819 683<|content|>IDENTIFICATION OF LOAN DOCUMENTS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>21<|level|>2\n<|id|>22<|level|>2\n<|id|>39<|level|>2\n<|id|>40<|level|>2\n<|id|>60<|level|>2\n<|id|>61<|level|>2\n<|id|>76<|level|>2\n<|id|>77<|level|>2\n<|id|>90<|level|>2\n<|id|>91<|level|>2\n<|id|>103<|level|>2\n<|id|>105<|level|>3\n<|id|>124<|level|>2\n<|id|>125<|level|>2\n<|id|>133<|level|>2\n<|id|>134<|level|>2\n<|id|>138<|level|>2\n<|id|>139<|level|>2\n<|id|>141<|level|>3\n<|id|>169<|level|>2\n<|id|>180<|level|>2\n<|id|>181<|level|>2\n<|id|>186<|level|>2\n<|id|>187<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        9
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>2<|box|>90 140 107 477<|content|>I. Items Where Compromise Was Reached\n<|id|>12<|page|>2<|box|>184 140 200 397<|content|>A. Definition of Acquired Assets\n<|id|>15<|page|>2<|box|>484 140 501 338<|content|>B. Knowledge Qualifiers\n<|id|>18<|page|>2<|box|>765 140 782 473<|content|>C. Definition Scope — Assigned Contracts\n<|id|>21<|page|>3<|box|>239 140 255 410<|content|>D. Transition Services Agreement\n<|id|>24<|page|>3<|box|>502 142 518 560<|content|>E. Non-Competition Agreement — Geographic Scope\n<|id|>26<|page|>3<|box|>750 140 766 614<|content|>II. Items Remaining Open — Requiring Further Negot\n<|id|>28<|page|>3<|box|>843 142 859 331<|content|>A. Indemnification Cap\n<|id|>31<|page|>4<|box|>422 140 439 638<|content|>B. Survival Period for General Representations and\n<|id|>34<|page|>4<|box|>685 140 702 450<|content|>C. Indemnification Basket (Deductible)\n<|id|>37<|page|>5<|box|>138 142 156 308<|content|>D. Escrow Holdback\n<|id|>40<|page|>5<|box|>439 140 455 501<|content|>E. Earnout Structure and Revenue Threshold\n<|id|>45<|page|>6<|box|>138 140 157 434<|content|>F. Inventory Adjustment Mechanism\n<|id|>50<|page|>6<|box|>619 140 635 334<|content|>G. Disclosure Schedules\n<|id|>53<|page|>7<|box|>90 140 107 480<|content|>H. Lease Assignment — Marysville Facility\n<|id|>56<|page|>7<|box|>390 140 407 390<|content|>I. Customer Contract Consents\n<|id|>59<|page|>7<|box|>672 140 689 658<|content|>J. Transition Services Agreement — Termination for\n<|id|>62<|page|>8<|box|>148 142 166 416<|content|>III. Ancillary Documents Enclosed\n<|id|>78<|page|>9<|box|>148 140 166 357<|content|>IV. Process and Next Steps\n<|id|>87<|page|>9<|box|>734 143 748 238<|content|>Enclosures:",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>18<|level|>2\n<|id|>21<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>1\n<|id|>28<|level|>2\n<|id|>31<|level|>2\n<|id|>34<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>56<|level|>2\n<|id|>59<|level|>2\n<|id|>62<|level|>1\n<|id|>78<|level|>1\n<|id|>87<|level|>2",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 2
+        }
+    ]
+}

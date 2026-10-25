@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        35
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        10,
+        11,
+        12,
+        19,
+        20,
+        21,
+        30,
+        31,
+        34,
+        35
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>1<|box|>840 140 897 856<|content|>Company Overview. ... The Company was founded in 2014 by Garrett Calloway and Elaine\n<|id|>9<|page|>2<|box|>90 140 162 854<|content|>Briggs, who continue to serve as Chairman and Chie... offices throughout the southwestern United States\n<|id|>43<|page|>4<|box|>691 176 709 550<|content|>(f) Catherine Liang — Director (independent); ... and\n<|id|>45<|page|>4<|box|>743 138 888 856<|content|>The three independent directors — Mr. ... We recom...his exemption and disclose its decision in the S-1\n<|id|>114<|page|>10<|box|>424 174 441 550<|content|>(f) Mesquite Wind — Oldham County, Texas; ... and\n<|id|>116<|page|>10<|box|>476 140 569 854<|content|>The lease terms generally range from 25 to 35 year...ss rights, restoration obligations, and assignment\n<|id|>122<|page|>10<|box|>821 140 896 857<|content|>3. ... , and Veltrano\n<|id|>123<|page|>11<|box|>90 140 145 854<|content|>National Bank) were noted on the title reports for... utility-scale renewable energy project portfolios\n<|id|>152<|page|>12<|box|>704 174 723 707<|content|>(g) Tomás Quintero — Senior Vice President, Project Development; ... and\n<|id|>154<|page|>12<|box|>757 140 848 857<|content|>All employment agreements contain standard restric... that we have analyzed and concluded are satisfied\n<|id|>229<|page|>19<|box|>869 174 905 854<|content|>(c) General Commercial Liability Coverage providin...m commercial general liability protection; ... and\n<|id|>231<|page|>20<|box|>135 140 189 854<|content|>All policies were reviewed, and no material covera...vered by the Company's general liability insurance\n<|id|>244<|page|>20<|box|>859 140 897 857<|content|>Change-of-Control Provision. ... The credit agreem... (i) no single stockholder or group holds at least\n<|id|>245<|page|>21<|box|>90 140 253 856<|content|>35% of the voting power of the Company and (ii) a ...matter document index) and transmitted to Veltrano\n<|id|>353<|page|>30<|box|>854 174 892 854<|content|>Post-money equity value: ... ~$4,246,700,000\n<|id|>354<|page|>31<|box|>89 140 164 856<|content|>The implied EV/Adjusted EBITDA multiple (on a fisc... energy developers and independent power producers\n<|id|>363<|page|>31<|box|>691 174 729 852<|content|>Lead-Left Book-Runner: ... \") — Oliver Marchetti, ...nia Tran, Director — Daniel Furman, Vice President\n<|id|>364<|page|>31<|box|>736 174 773 854<|content|>Joint Book-Runners: ... (Kenneth Sato, Managing Director)\n<|id|>365<|page|>31<|box|>780 176 799 705<|content|>Co-Managers: ... — Crane Whitley Capital LLC\n<|id|>397<|page|>34<|box|>626 174 681 856<|content|>(c) The PPA change-of-control analysis for the Pai...ined prior to the pricing of the offering; ... and\n<|id|>399<|page|>34<|box|>734 140 806 854<|content|>The S-1 registration statement should incorporate ...and to minimize the risk and scope of SEC comments\n<|id|>403<|page|>35<|box|>196 140 212 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>404<|page|>35<|box|>214 143 231 251<|content|>By: ... By\n<|id|>405<|page|>35<|box|>231 142 248 671<|content|>Brendan Walsh Lead Associate, Capital Markets Direct: ... (212) 555-4718\n<|id|>406<|page|>35<|box|>250 142 265 452<|content|>Email: ... com\n<|id|>407<|page|>35<|box|>266 143 282 272<|content|>With input from: ... With input from\n<|id|>408<|page|>35<|box|>282 140 300 527<|content|>Natasha Forbes Working Associate, Capital Markets\n<|id|>409<|page|>35<|box|>301 140 316 424<|content|>Leonard Cross Specialist Partner, Tax\n<|id|>414<|page|>35<|box|>550 142 568 648<|content|>Appendix B: ... Workstream Memoranda Index (Documents 19–29)\n<|id|>415<|page|>35<|box|>575 140 611 854<|content|>Appendix B provides an index of the individual wor...nnection with the due diligence review, as follows",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>122<|tgt_id|>123\n<|src_id|>244<|tgt_id|>245",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 244,
+            "tgt_id": 245
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        31
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        16,
+        17,
+        18,
+        24,
+        25,
+        26,
+        31
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>143 434 161 563<|content|>(\"SOW No. ... 1\")\n<|id|>2<|page|>1<|box|>175 140 193 470<|content|>Integration Services for Project Argonaut\n<|id|>16<|page|>1<|box|>804 140 878 856<|content|>1. ... The\n<|id|>17<|page|>2<|box|>90 140 127 854<|content|>MESLSA establishes the overarching framework gover...essional services relationship between the Parties\n<|id|>38<|page|>3<|box|>844 140 881 854<|content|>3. ... The MESLSA has an initial term commencing o...rminated in accordance with its terms (the \"MESLSA\n<|id|>39<|page|>4<|box|>89 140 126 854<|content|>Term\"). ... This SOW is operative only during the ...e upon the expiration or termination of the MESLSA\n<|id|>74<|page|>7<|box|>750 174 878 857<|content|>(d) MESLSA Section 4. ... Failure by\n<|id|>75<|page|>8<|box|>89 174 127 854<|content|>Licensee to satisfy the Section 4. ... 3 requireme...l forfeiture of unused platform integration rights\n<|id|>173<|page|>16<|box|>849 140 902 856<|content|>If Licensee does not provide written acceptance or...ted as of the expiration of the Review Period, and\n<|id|>174<|page|>17<|box|>90 140 125 854<|content|>Licensor shall be entitled to invoice for the corr...ponding Milestone fee in accordance with Section 8\n<|id|>179<|page|>17<|box|>386 174 422 854<|content|>Rachel A. ... 4100 Industrial Parkway Sterling Heights, MI 48312\n<|id|>180<|page|>17<|box|>431 176 446 455<|content|>Email: ... com\n<|id|>181<|page|>17<|box|>446 140 484 854<|content|>Licensor shall provide invoices in electronic form...e, with a copy to VMS's designated Project Manager\n<|id|>189<|page|>18<|box|>133 174 189 854<|content|>(c) Per-Unit Runtime Royalties: ... and\n<|id|>191<|page|>18<|box|>241 140 333 856<|content|>The Integration Services Fees under this SOW are s...onents, except as expressly provided in the MESLSA\n<|id|>255<|page|>24<|box|>787 140 898 856<|content|>15. ... 3 IN NO EVENT SHALL EITHER PARTY BE LIABLE...ORESEEABLE AND WHETHER SUCH PARTY HAS BEEN ADVISED\n<|id|>256<|page|>25<|box|>89 140 125 854<|content|>OF THE POSSIBILITY OF SUCH DAMAGES, EXCEPT TO THE ...EPT TO THE EXTENT OTHERWISE PROVIDED IN THE MESLSA\n<|id|>277<|page|>26<|box|>753 142 768 354<|content|>Name: ... Castellano\n<|id|>278<|page|>26<|box|>770 142 786 366<|content|>Title: ... Chief Executive Officer\n<|id|>279<|page|>26<|box|>787 142 803 294<|content|>Date: ... June 21, 2022\n<|id|>280<|page|>26<|box|>804 142 820 485<|content|>VANTAGE MOBILITY SYSTEMS CORP. ... VANTAGE MOBILITY SYSTEMS CORP\n<|id|>282<|page|>26<|box|>839 143 854 344<|content|>Name: ... Keating\n<|id|>283<|page|>26<|box|>856 143 872 364<|content|>Title: ... Chief Executive Officer\n<|id|>284<|page|>26<|box|>875 142 890 294<|content|>Date: ... June 21, 2022\n<|id|>294<|page|>31<|box|>479 142 497 851<|content|>``` 202220232024 Jun Jul Aug Sep Oct Nov Dec Jan Feb\n<|id|>295<|page|>31<|box|>500 140 517 531<|content|>Mar Apr May Jun Jul Aug Sep Oct Nov Dec Jan Feb\n<|id|>297<|page|>31<|box|>570 140 660 854<|content|>Note: ... 3 (Use-It-or-Lose-It) deadline for comme...on at least two (2) platforms is December 21, 2023",
+    "raw_response": "<|src_id|>16<|tgt_id|>17\n<|src_id|>38<|tgt_id|>39\n<|src_id|>74<|tgt_id|>75\n<|src_id|>173<|tgt_id|>174\n<|src_id|>255<|tgt_id|>256",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 255,
+            "tgt_id": 256
+        }
+    ]
+}

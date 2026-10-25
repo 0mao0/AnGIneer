@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>349 142 366 483<|content|>1. Purpose and Background of Engagement\n<|id|>13<|page|>2<|box|>304 140 321 344<|content|>2. Assets to Be Appraised\n<|id|>15<|page|>2<|box|>397 140 414 640<|content|>2.1 Lumiére Canyon Studios LLC — 50% Membership In\n<|id|>21<|page|>3<|box|>213 140 229 689<|content|>2.2 Pacific Rim Narrative Partners LLC — 35% Membe\n<|id|>27<|page|>3<|box|>845 140 864 408<|content|>2.3 intellectual Property Portfolio\n<|id|>33<|page|>4<|box|>527 140 546 563<|content|>2.4 Real Property (Supplemental Scope, If Requeste\n<|id|>39<|page|>5<|box|>90 140 107 300<|content|>3. Scope of Services\n<|id|>41<|page|>5<|box|>165 140 181 323<|content|>3.1 Business Valuation\n<|id|>46<|page|>5<|box|>627 140 643 415<|content|>3.2 intellectual Property Valuation\n<|id|>54<|page|>6<|box|>282 140 300 362<|content|>3.3 Expert Witness Services\n<|id|>60<|page|>6<|box|>614 140 633 264<|content|>4. Deliverables\n<|id|>67<|page|>7<|box|>383 140 402 361<|content|>5. Materials to Be Provided\n<|id|>78<|page|>8<|box|>267 140 284 236<|content|>6. Timeline\n<|id|>86<|page|>8<|box|>727 140 744 303<|content|>7. Fee Arrangement\n<|id|>95<|page|>9<|box|>527 140 545 390<|content|>8. Confidentiality and Privilege\n<|id|>100<|page|>10<|box|>186 140 204 382<|content|>9. Independence and Conflicts\n<|id|>114<|page|>10<|box|>696 142 712 245<|content|>10. Contacts\n<|id|>123<|page|>11<|box|>265 140 282 437<|content|>11. Acceptance and Countersignature\n<|id|>132<|page|>11<|box|>564 383 580 614<|content|>ACCEPTED AND AGREED",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>33<|level|>2\n<|id|>39<|level|>1\n<|id|>41<|level|>2\n<|id|>46<|level|>2\n<|id|>54<|level|>2\n<|id|>60<|level|>1\n<|id|>67<|level|>1\n<|id|>78<|level|>1\n<|id|>86<|level|>1\n<|id|>95<|level|>1\n<|id|>100<|level|>1\n<|id|>114<|level|>1\n<|id|>123<|level|>1\n<|id|>132<|level|>-1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        }
+    ]
+}

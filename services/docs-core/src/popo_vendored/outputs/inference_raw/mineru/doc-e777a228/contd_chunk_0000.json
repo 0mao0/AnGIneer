@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        12,
+        13,
+        19,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>154 140 171 560<|content|>TO: ... Priya Anand, Partner, Calderwood & Harkness LLP\n<|id|>2<|page|>1<|box|>180 140 196 632<|content|>FROM: ... Yuki Nakamura, Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>205 140 223 352<|content|>DATE: ... November 15, 2021\n<|id|>4<|page|>1<|box|>232 140 267 854<|content|>RE: ... / Coastal Palms Franchise Holdings LLC\n<|id|>5<|page|>1<|box|>276 140 367 854<|content|>This memorandum is protected by the attorney-clien...a waiver of any applicable privilege or protection\n<|id|>42<|page|>5<|box|>864 140 901 854<|content|>On November 8, 2021, Ms. ... She spoke with person... department, which is led by Senior Vice President\n<|id|>43<|page|>6<|box|>90 140 219 856<|content|>Deidre Langston. ... Solis-Vega recognized the ser...l advice to Verimark on franchise-related disputes\n<|id|>104<|page|>12<|box|>785 183 820 854<|content|>• The application of the scheme across all 22 fran...rtfolio, rather than at a single location; ... and\n<|id|>106<|page|>12<|box|>859 140 897 854<|content|>Taken together, these facts — if proven — would co... ... The incurable-breach designation would permit\n<|id|>107<|page|>13<|box|>90 140 181 856<|content|>Verimark to terminate without first providing a 30-day cure notice under § 14. ... E below\n<|id|>168<|page|>19<|box|>554 181 588 854<|content|>• Financial reconciliation and payment records ref...-fee payments received from Coastal Palms; ... and\n<|id|>170<|page|>19<|box|>647 140 757 856<|content|>SVP & General Counsel Renata Solis-Vega and SVP, F...rotocols that might affect the preserved materials\n<|id|>189<|page|>21<|box|>188 183 204 475<|content|>• Whitfield, Barrow & Crane LLP; ... and\n<|id|>191<|page|>21<|box|>228 140 282 854<|content|>If any conflicts are identified, they should be di...arranged before the investigation proceeds further",
+    "raw_response": "<|src_id|>42<|tgt_id|>43\n<|src_id|>106<|tgt_id|>107",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 107
+        }
+    ]
+}

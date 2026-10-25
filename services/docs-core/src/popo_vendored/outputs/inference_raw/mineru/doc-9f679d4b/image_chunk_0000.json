@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 104 591<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|type|>title<|page|>1<|box|>113 405 133 591<|content|>MEMORANDUM\n<|id|>7<|type|>title<|page|>1<|box|>333 140 349 362<|content|>I. Purpose and Background\n<|id|>13<|type|>title<|page|>2<|box|>90 142 107 684<|content|>II. Summary of Agreed Terms (No Material Changes B\n<|id|>15<|type|>table<|page|>2<|box|>195 143 715 852<|content|>None\n<|id|>17<|type|>table<|page|>2<|box|>792 143 904 852<|content|>None\n<|id|>19<|type|>title<|page|>3<|box|>273 140 291 565<|content|>III. Material Differences and Open Negotiation Poi\n<|id|>21<|type|>title<|page|>3<|box|>386 140 402 393<|content|>A. Change of Control Provision\n<|id|>26<|type|>title<|page|>4<|box|>220 140 238 426<|content|>B. Optional Conversion at Maturity\n<|id|>31<|type|>title<|page|>5<|box|>229 140 248 542<|content|>C. Most Favored Nation (MFN) Provision — Scope\n<|id|>36<|type|>title<|page|>6<|box|>138 140 157 321<|content|>D. Information Rights\n<|id|>41<|type|>title<|page|>7<|box|>285 140 304 588<|content|>E. Qualified Financing Definition — Participation\n<|id|>46<|type|>title<|page|>8<|box|>138 140 157 553<|content|>F. Closing Mechanics — Single vs. Multiple Closing\n<|id|>50<|type|>title<|page|>8<|box|>612 140 628 367<|content|>G. Anti-Dilution Interaction\n<|id|>54<|type|>title<|page|>9<|box|>329 140 348 318<|content|>H. Dispute Resolution\n<|id|>58<|type|>title<|page|>9<|box|>729 142 746 277<|content|>I. Fee Provisions\n<|id|>62<|type|>title<|page|>10<|box|>222 140 239 426<|content|>IV. Minor / Conforming Differences\n<|id|>69<|type|>title<|page|>10<|box|>815 140 832 477<|content|>V. Negotiation Strategy Recommendations\n<|id|>83<|type|>title<|page|>12<|box|>472 140 489 261<|content|>VI. Next Steps\n<|id|>90<|type|>title<|page|>14<|box|>90 142 107 516<|content|>VII. Appendix: Side-by-Side Comparison Table\n<|id|>91<|type|>table<|page|>14<|box|>160 143 905 852<|content|>None\n<|id|>92<|type|>table<|page|>15<|box|>89 143 896 852<|content|>None\n<|id|>93<|type|>table<|page|>16<|box|>88 143 425 852<|content|>None\n<|id|>95<|type|>title<|page|>16<|box|>527 143 544 241<|content|>Prepared by:",
+    "raw_response": "<|src_id|>15<|tgt_id|>13\n<|src_id|>17<|tgt_id|>13\n<|src_id|>91<|tgt_id|>90\n<|src_id|>92<|tgt_id|>90\n<|src_id|>93<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 90
+        }
+    ]
+}

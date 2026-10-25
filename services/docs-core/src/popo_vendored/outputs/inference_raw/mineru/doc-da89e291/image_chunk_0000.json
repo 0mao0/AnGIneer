@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>132 143 277 852<|content|>None\n<|id|>1<|type|>title<|page|>1<|box|>311 169 347 828<|content|>PETITIONER METROPOLITAN TRANSIT DEVELOPMENT CORPOR\n<|id|>3<|type|>title<|page|>1<|box|>397 142 414 308<|content|>I. INTRODUCTION\n<|id|>7<|type|>title<|page|>2<|box|>89 140 107 566<|content|>II. BACKGROUND AND PROCEDURAL HISTORY\n<|id|>8<|type|>title<|page|>2<|box|>121 140 138 560<|content|>A. The FTA Grant Award and Electrification Project\n<|id|>15<|type|>table<|page|>2<|box|>683 143 832 852<|content|>None\n<|id|>19<|type|>title<|page|>3<|box|>484 140 501 330<|content|>B. The ICC Proceeding\n<|id|>33<|type|>title<|page|>5<|box|>89 140 107 449<|content|>III. GROUNDS FOR WITHDRAWAL\n<|id|>34<|type|>title<|page|>5<|box|>121 140 138 343<|content|>A. FTA Grant Rescission\n<|id|>39<|type|>title<|page|>5<|box|>583 140 599 653<|content|>B. Economic Infeasibility of the Project Without F\n<|id|>45<|type|>title<|page|>6<|box|>448 140 464 390<|content|>C. MTDC Board Authorization\n<|id|>50<|type|>title<|page|>6<|box|>845 140 863 645<|content|>IV. REQUEST FOR WITHDRAWAL WITHOUT PREJUDICE\n<|id|>62<|type|>title<|page|>8<|box|>212 140 229 339<|content|>V. LEGAL STANDARD\n<|id|>67<|type|>title<|page|>9<|box|>89 140 106 537<|content|>VI. CONCLUSION AND PRAYER FOR RELIEF\n<|id|>75<|type|>title<|page|>9<|box|>430 410 448 586<|content|>Respectfully submitted,\n<|id|>76<|type|>title<|page|>9<|box|>455 233 473 761<|content|>METROPOLITAN TRANSIT DEVELOPMENT CORPORATION\n<|id|>77<|type|>title<|page|>9<|box|>483 436 500 558<|content|>By its attorneys,\n<|id|>86<|type|>title<|page|>9<|box|>683 142 700 390<|content|>ATTORNEY DECLARATION\n<|id|>95<|type|>title<|page|>10<|box|>345 140 363 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>0<|tgt_id|>1\n<|src_id|>15<|tgt_id|>8",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 8
+        }
+    ]
+}

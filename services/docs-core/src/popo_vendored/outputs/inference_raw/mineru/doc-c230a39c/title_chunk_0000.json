@@ -1,0 +1,152 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        16,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 403 133 593<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>412 140 429 321<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>487 140 503 318<|content|>II. Scope and Purpose\n<|id|>23<|page|>3<|box|>315 140 332 423<|content|>III. Background on the Transaction\n<|id|>24<|page|>3<|box|>345 142 363 259<|content|>A. The Parties\n<|id|>25<|page|>3<|box|>369 142 387 578<|content|>1. Acquiror: Halcyon Semiconductor Aktiengesellsch\n<|id|>28<|page|>3<|box|>720 140 739 524<|content|>2. Acquisition Vehicle: Halcyon US Holdings Inc.\n<|id|>30<|page|>3<|box|>864 140 882 431<|content|>3. Existing U.S. Operations of HSAG\n<|id|>32<|page|>4<|box|>299 140 316 563<|content|>4. Target: Marlowe Asset Management Photonics Inc.\n<|id|>35<|page|>4<|box|>614 140 632 482<|content|>5. VPI's National-Security-Relevant Profile\n<|id|>51<|page|>6<|box|>157 140 174 343<|content|>B. Transaction Structure\n<|id|>62<|page|>7<|box|>487 140 503 531<|content|>IV. Legal Framework: CFIUS Filing Mechanisms\n<|id|>63<|page|>7<|box|>517 142 535 380<|content|>A. Overview of Filing Options\n<|id|>68<|page|>8<|box|>157 140 175 586<|content|>B. Mandatory Declaration Requirement Under § 800.4\n<|id|>77<|page|>9<|box|>359 140 377 527<|content|>C. Short-Form Declaration: Content and Process\n<|id|>93<|page|>10<|box|>566 140 583 516<|content|>D. Voluntary Joint Notice: Content and Process\n<|id|>109<|page|>12<|box|>390 140 407 498<|content|>V. Application to the HSAG/VPI Transaction\n<|id|>110<|page|>12<|box|>421 140 439 627<|content|>A. Why the Mandatory Declaration Requirement Is Tr\n<|id|>114<|page|>12<|box|>838 140 854 573<|content|>B. Factors Weighing Against a Short-Form Declarati\n<|id|>135<|page|>16<|box|>175 140 194 627<|content|>C. Factors Weighing in Favor of a Full Voluntary J\n<|id|>162<|page|>18<|box|>439 140 457 346<|content|>VI. Timeline Comparison\n<|id|>164<|page|>18<|box|>513 140 532 522<|content|>A. Short-Form Declaration Pathway (Estimated)\n<|id|>167<|page|>19<|box|>250 140 266 629<|content|>B. Full Voluntary Notice Pathway (Recommended; Est\n<|id|>171<|page|>20<|box|>90 140 107 454<|content|>VII. Coordination with Seller's Counsel\n<|id|>193<|page|>21<|box|>222 140 239 374<|content|>VIII. Pre-Filing Consultation\n<|id|>196<|page|>21<|box|>465 140 483 431<|content|>At the pre-filing meeting, we intend to:\n<|id|>206<|page|>22<|box|>250 140 266 313<|content|>IX. Recommendation\n<|id|>216<|page|>23<|box|>444 140 463 254<|content|>X. Next Steps\n<|id|>224<|page|>25<|box|>90 140 107 419<|content|>XI. Appendix: Reference Materials\n<|id|>225<|page|>25<|box|>122 140 138 486<|content|>A. Cross-References to Related Memoranda\n<|id|>231<|page|>25<|box|>479 142 497 367<|content|>B. Key Regulatory Citations",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>25<|level|>4\n<|id|>28<|level|>4\n<|id|>30<|level|>4\n<|id|>32<|level|>4\n<|id|>35<|level|>4\n<|id|>51<|level|>3\n<|id|>62<|level|>2\n<|id|>63<|level|>3\n<|id|>68<|level|>3\n<|id|>77<|level|>3\n<|id|>93<|level|>3\n<|id|>109<|level|>2\n<|id|>110<|level|>3\n<|id|>114<|level|>3\n<|id|>135<|level|>3\n<|id|>162<|level|>2\n<|id|>164<|level|>3\n<|id|>167<|level|>3\n<|id|>171<|level|>2\n<|id|>193<|level|>2\n<|id|>196<|level|>-1\n<|id|>206<|level|>2\n<|id|>216<|level|>2\n<|id|>224<|level|>2\n<|id|>225<|level|>3\n<|id|>231<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 4
+        },
+        {
+            "id": 28,
+            "level": 4
+        },
+        {
+            "id": 30,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 4
+        },
+        {
+            "id": 35,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 224,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 231,
+            "level": 3
+        }
+    ]
+}

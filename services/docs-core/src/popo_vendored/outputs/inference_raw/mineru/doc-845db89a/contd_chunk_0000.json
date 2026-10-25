@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        9,
+        10,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 140 159 779<|content|>FROM: ... Nadia Petrov, Associate, Labor & Employment, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>167 140 204 854<|content|>TO: ... Devon Archer, Lead Associate, Labor & Employment\n<|id|>4<|page|>1<|box|>212 140 229 321<|content|>DATE: ... August 8, 2022\n<|id|>5<|page|>1<|box|>237 140 273 854<|content|>RE: ... Elliston / Arbor Health Technologies Inc\n<|id|>6<|page|>1<|box|>282 140 299 622<|content|>CLIENT: ... 81-30294)\n<|id|>7<|page|>1<|box|>306 142 324 326<|content|>MATTER: ... 1010-00004\n<|id|>8<|page|>1<|box|>334 140 351 834<|content|>FIRM: ... Calderwood & Harkness LLP, One International Place, Suite 3400, Boston, MA 02110\n<|id|>9<|page|>1<|box|>359 140 405 854<|content|>This memorandum is a privileged and confidential a...r distribution to, or reliance by, any third party\n<|id|>76<|page|>9<|box|>824 140 897 856<|content|>Recommendation: ... or (b) hiring an AHT employee ...and without solicitation or encouragement from the\n<|id|>77<|page|>10<|box|>90 140 162 854<|content|>Executive applies for employment. ... This type of...her than sweeping in ordinary, non-harmful conduct\n<|id|>149<|page|>18<|box|>275 174 311 854<|content|>(ii) Participating in any investigation or proceed...including providing testimony or documents; ... or\n<|id|>151<|page|>18<|box|>364 140 511 856<|content|>Such carve-outs are increasingly expected by regul...th appropriate respect for regulatory requirements",
+    "raw_response": "<|src_id|>76<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        }
+    ]
+}

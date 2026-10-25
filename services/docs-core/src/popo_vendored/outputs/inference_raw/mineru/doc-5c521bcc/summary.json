@@ -1,0 +1,175 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-w32a6b6h\\input\\pdfs\\doc-5c521bcc.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-w32a6b6h\\enriched\\doc-5c521bcc.json",
+    "contd_output": "<|src_id|>25<|tgt_id|>26\n<|src_id|>113<|tgt_id|>114\n<|src_id|>120<|tgt_id|>121\n<|src_id|>191<|tgt_id|>192",
+    "title_output": "<|id|>1<|level|>1\n<|id|>7<|level|>1\n<|id|>14<|level|>2\n<|id|>31<|level|>2\n<|id|>32<|level|>2\n<|id|>65<|level|>2\n<|id|>66<|level|>2\n<|id|>74<|level|>2\n<|id|>75<|level|>2\n<|id|>98<|level|>2\n<|id|>99<|level|>2\n<|id|>107<|level|>2\n<|id|>108<|level|>2\n<|id|>118<|level|>2\n<|id|>119<|level|>2\n<|id|>126<|level|>2\n<|id|>127<|level|>2\n<|id|>137<|level|>2\n<|id|>138<|level|>2\n<|id|>152<|level|>2\n<|id|>153<|level|>2\n<|id|>166<|level|>2\n<|id|>167<|level|>2\n<|id|>184<|level|>2\n<|id|>185<|level|>2\n<|id|>197<|level|>2\n<|id|>198<|level|>2\n<|id|>208<|level|>2\n<|id|>209<|level|>2\n<|id|>264<|level|>2",
+    "image_output": "<|src_id|>266<|tgt_id|>264\n<|src_id|>267<|tgt_id|>264",
+    "contd_label": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 192
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 2
+        },
+        {
+            "id": 264,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 266,
+            "tgt_id": 264
+        },
+        {
+            "src_id": 267,
+            "tgt_id": 264
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 266,
+            "table2_idx": 267,
+            "upper_row_ss": [
+                [
+                    "Exhibit D",
+                    "Form of Royalty Report — Template quarterly royalty reporting form, including the Net Sales calculation methodology (gross invoiced sales less returns, rebates, chargebacks, freight, and sales taxes) and computation"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "of the Running Royalty at 3.75% of Net Sales."
+                ]
+            ]
+        }
+    ]
+}

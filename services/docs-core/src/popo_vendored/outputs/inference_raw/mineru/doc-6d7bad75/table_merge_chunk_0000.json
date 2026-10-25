@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['colspan=10, 材料费:'], ['colspan=10, 船机费:'], ['colspan=10, 施工取费合计:'], ['colspan=10, 专项费用:'], ['colspan=10, 单项(单位)工程费合计:']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=12, 工程名称: 工程代号: 概(预)表四'], ['rowspan=2, 序号', 'rowspan=2, 定额号', 'rowspan=2, 分部分项工程名称', 'rowspan=2, 单位', 'rowspan=2, 工程数量', 'colspan=2, 基价(元)', 'colspan=5, 市场价(元)']]\n",
+    "raw_response": "",
+    "parsed": [],
+    "table1_idx": 444,
+    "table2_idx": 445
+}

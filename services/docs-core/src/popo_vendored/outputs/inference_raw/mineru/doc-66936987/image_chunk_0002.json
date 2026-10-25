@@ -1,0 +1,21 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        101,
+        103
+    ],
+    "pages": [
+        101,
+        102,
+        103
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>867<|type|>title<|page|>101<|box|>89 142 106 607<|content|>EXHIBIT I — FORM OF SECRETARY'S CERTIFICATE\n<|id|>868<|type|>title<|page|>101<|box|>114 367 132 630<|content|>SECRETARY'S CERTIFICATE\n<|id|>873<|type|>table<|page|>101<|box|>463 143 539 852<|content|>None\n<|id|>883<|type|>title<|page|>102<|box|>89 142 106 581<|content|>EXHIBIT J — FORM OF OFFICER'S CERTIFICATE\n<|id|>884<|type|>title<|page|>102<|box|>114 383 132 614<|content|>OFFICER'S CERTIFICATE\n<|id|>897<|type|>title<|page|>102<|box|>604 408 622 588<|content|>SIGNATURE PAGES\n<|id|>898<|type|>title<|page|>102<|box|>631 400 648 598<|content|>CREDIT AGREEMENT\n<|id|>899<|type|>title<|page|>102<|box|>657 287 674 709<|content|>GREENFIELD AGRICULTURAL PARTNERS LLC\n<|id|>911<|type|>title<|page|>103<|box|>89 140 107 700<|content|>GREENFIELD GRAIN STORAGE LLC, an Iowa limited liab",
+    "raw_response": "<|src_id|>873<|tgt_id|>868",
+    "parsed": [
+        {
+            "src_id": 873,
+            "tgt_id": 868
+        }
+    ]
+}

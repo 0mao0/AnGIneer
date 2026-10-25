@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        7,
+        24
+    ],
+    "pages": [
+        7,
+        8,
+        14,
+        21,
+        22,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>73<|page|>7<|box|>872 181 907 854<|content|>• PE-15000 Series: ... Solstice also faces meaning...onstruction of \"spring-loaded retraction assembly\"\n<|id|>74<|page|>8<|box|>90 210 126 854<|content|>and the '105 Patent. ... The PE-15000's blade retr... distinguish from the asserted claims as construed\n<|id|>136<|page|>14<|box|>460 183 477 475<|content|>• Policy Number: ... HSI-IP-2023-04891\n<|id|>141<|page|>14<|box|>558 140 669 856<|content|>As of the March 2025 billing cycle, the insurance ...cover the estimated cost-to-complete through trial\n<|id|>137<|page|>14<|box|>479 183 497 532<|content|>• Coverage: ... Patent infringement defense costs\n<|id|>138<|page|>14<|box|>500 183 517 637<|content|>• Limits: ... $5,000,000 per occurrence / $10,000,000 aggregate\n<|id|>139<|page|>14<|box|>518 183 537 818<|content|>• Self-Insured Retention (SIR): ... $250,000 (fully satisfied as of early in the Litigation)\n<|id|>212<|page|>21<|box|>849 140 904 854<|content|>Escrow Arrangement. ... , a Wilmington,\n<|id|>213<|page|>22<|box|>90 140 145 854<|content|>Delaware-based escrow agent with experience in int...tions are satisfied in a timely and orderly manner\n<|id|>234<|page|>23<|box|>864 142 881 320<|content|>Respectfully submitted,\n<|id|>235<|page|>23<|box|>888 140 906 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>236<|page|>24<|box|>107 140 156 851<|content|>Marcus Delgado Partner, intellectual Property Prac...ilmington, Delaware 19801 Date: ... March 20, 2025\n<|id|>237<|page|>24<|box|>157 140 231 854<|content|>Enclosures: ... Marchetti's damages rebuttal repor...rney-client privilege and work-product protections",
+    "raw_response": "<|src_id|>73<|tgt_id|>74\n<|src_id|>212<|tgt_id|>213",
+    "parsed": [
+        {
+            "src_id": 73,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 213
+        }
+    ]
+}

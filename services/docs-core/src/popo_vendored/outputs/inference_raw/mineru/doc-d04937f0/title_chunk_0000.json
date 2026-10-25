@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 163 118 833<|content|>SECRETARY'S CERTIFICATE OF NOVAMART GLOBAL INC.\n<|id|>1<|page|>1<|box|>136 156 171 839<|content|>Delivered Pursuant to Section 7.2(a)(iv) of the St\n<|id|>2<|page|>1<|box|>181 313 196 684<|content|>Form — To be completed and executed at Closing\n<|id|>8<|page|>1<|box|>654 140 672 442<|content|>Section 1: Certificate of Incorporation\n<|id|>12<|page|>2<|box|>131 142 148 285<|content|>Section 2: Bylaws\n<|id|>16<|page|>2<|box|>359 140 377 455<|content|>Section 3: Stockholder Written Consent\n<|id|>27<|page|>3<|box|>601 140 618 370<|content|>Section 4: Board Resolutions\n<|id|>36<|page|>4<|box|>375 142 390 410<|content|>Section 5: Incumbency of Officers\n<|id|>47<|page|>5<|box|>429 140 446 344<|content|>Section 6: Good Standing\n<|id|>51<|page|>5<|box|>804 140 820 490<|content|>Section 7: No Amendments or Modifications\n<|id|>54<|page|>6<|box|>148 140 167 426<|content|>Section 8: Authorized Capital Stock\n<|id|>60<|page|>6<|box|>488 233 505 764<|content|>[Remainder of this page intentionally left blank;\n<|id|>67<|page|>6<|box|>665 140 681 390<|content|>COUNTER-CERTIFICATION\n<|id|>74<|page|>7<|box|>89 433 107 565<|content|>EXHIBIT LIST",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>27<|level|>2\n<|id|>36<|level|>2\n<|id|>47<|level|>2\n<|id|>51<|level|>2\n<|id|>54<|level|>2\n<|id|>60<|level|>-1\n<|id|>67<|level|>2\n<|id|>74<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        }
+    ]
+}

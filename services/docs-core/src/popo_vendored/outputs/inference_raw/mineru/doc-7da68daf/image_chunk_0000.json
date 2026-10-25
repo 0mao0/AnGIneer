@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        33
+    ],
+    "pages": [
+        2,
+        4,
+        7,
+        10,
+        11,
+        14,
+        17,
+        18,
+        21,
+        22,
+        25,
+        26,
+        27,
+        29,
+        30,
+        31,
+        33
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>90 220 109 774<|content|>ANNEX F TO NATIONAL SECURITY AGREEMENT\n<|id|>1<|type|>title<|page|>2<|box|>135 348 152 648<|content|>FACILITY ACCESS PROCEDURES\n<|id|>3<|type|>title<|page|>2<|box|>205 142 223 209<|content|>Parties:\n<|id|>12<|type|>title<|page|>2<|box|>744 140 762 462<|content|>SECTION 1 — PURPOSE AND SCOPE\n<|id|>24<|type|>title<|page|>4<|box|>655 140 672 702<|content|>SECTION 2 — FACILITY CLASSIFICATION AND ACCESS ZON\n<|id|>54<|type|>title<|page|>7<|box|>89 140 107 678<|content|>SECTION 3 — ACCESS CATEGORIES FOR HSAG PERSONNEL\n<|id|>91<|type|>title<|page|>10<|box|>89 140 107 694<|content|>SECTION 4 — GENERAL PRINCIPLES GOVERNING ALL VISIT\n<|id|>101<|type|>title<|page|>11<|box|>358 140 375 735<|content|>SECTION 5 — PROCEDURES FOR VISITS TO UNCLASSIFIED\n<|id|>140<|type|>title<|page|>14<|box|>589 140 607 709<|content|>SECTION 6 — PROCEDURES FOR VISITS TO CLASSIFIED AR\n<|id|>165<|type|>title<|page|>17<|box|>193 140 229 852<|content|>SECTION 7 — PROCEDURES FOR VISITS TO RESTRICTED TE\n<|id|>181<|type|>title<|page|>18<|box|>768 140 787 544<|content|>SECTION 8 — VISITOR LOG REQUIREMENTS\n<|id|>217<|type|>title<|page|>21<|box|>89 140 106 447<|content|>SECTION 9 — PROHIBITED ITEMS\n<|id|>225<|type|>title<|page|>22<|box|>90 140 108 732<|content|>9.3 Data Storage Media. The following restrictions\n<|id|>230<|type|>title<|page|>22<|box|>674 140 691 656<|content|>SECTION 10 — INCIDENT REPORTING AND COMPLIANCE\n<|id|>260<|type|>title<|page|>25<|box|>167 140 184 614<|content|>SECTION 11 — THIRD-PARTY MONITOR OVERSIGHT\n<|id|>272<|type|>title<|page|>26<|box|>222 140 239 611<|content|>SECTION 12 — AMENDMENTS AND MODIFICATIONS\n<|id|>281<|type|>title<|page|>27<|box|>148 140 166 511<|content|>SECTION 13 — PERSONNEL CONTINUITY\n<|id|>299<|type|>title<|page|>29<|box|>89 142 106 633<|content|>SECTION 14 — DEFINITIONS SPECIFIC TO THIS ANNEX\n<|id|>305<|type|>title<|page|>29<|box|>718 415 734 581<|content|>ATTACHMENT F-1\n<|id|>306<|type|>title<|page|>29<|box|>758 330 775 666<|content|>VISITOR ACKNOWLEDGMENT FORM\n<|id|>308<|type|>title<|page|>29<|box|>823 143 839 367<|content|>VISITOR INFORMATION:\n<|id|>309<|type|>table<|page|>29<|box|>845 143 904 852<|content|>None\n<|id|>310<|type|>table<|page|>30<|box|>88 143 257 852<|content|>None\n<|id|>311<|type|>title<|page|>30<|box|>291 142 306 509<|content|>ACKNOWLEDGMENT AND AGREEMENT:\n<|id|>330<|type|>title<|page|>31<|box|>410 415 426 583<|content|>ATTACHMENT F-2\n<|id|>331<|type|>title<|page|>31<|box|>450 382 468 614<|content|>VISITOR LOG TEMPLATE\n<|id|>336<|type|>table<|page|>31<|box|>575 143 792 852<|content|>None\n<|id|>337<|type|>title<|page|>31<|box|>825 143 842 313<|content|>Instructions for FSO:\n<|id|>349<|type|>title<|page|>33<|box|>89 413 107 583<|content|>SIGNATURE PAGE\n<|id|>351<|type|>title<|page|>33<|box|>160 142 176 629<|content|>HALCYON SEMICONDUCTOR AKTIENGESELLSCHAFT\n<|id|>366<|type|>title<|page|>33<|box|>417 142 434 457<|content|>THE UNITED STATES OF AMERICA",
+    "raw_response": "<|src_id|>309<|tgt_id|>308\n<|src_id|>310<|tgt_id|>308\n<|src_id|>336<|tgt_id|>331",
+    "parsed": [
+        {
+            "src_id": 309,
+            "tgt_id": 308
+        },
+        {
+            "src_id": 310,
+            "tgt_id": 308
+        },
+        {
+            "src_id": 336,
+            "tgt_id": 331
+        }
+    ]
+}

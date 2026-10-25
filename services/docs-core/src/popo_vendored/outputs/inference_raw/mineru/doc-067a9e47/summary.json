@@ -1,0 +1,484 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-obvt16jh\\input\\pdfs\\doc-067a9e47.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-obvt16jh\\enriched\\doc-067a9e47.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>10<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>34<|level|>3\n<|id|>46<|level|>3\n<|id|>52<|level|>2\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>74<|level|>4\n<|id|>88<|level|>4\n<|id|>95<|level|>3\n<|id|>105<|level|>4\n<|id|>110<|level|>3\n<|id|>120<|level|>4\n<|id|>125<|level|>3\n<|id|>136<|level|>4\n<|id|>141<|level|>3\n<|id|>151<|level|>4\n<|id|>160<|level|>4\n<|id|>166<|level|>3\n<|id|>179<|level|>4\n<|id|>184<|level|>3\n<|id|>196<|level|>2\n<|id|>207<|level|>2\n<|id|>208<|level|>3\n<|id|>215<|level|>3\n<|id|>221<|level|>3\n<|id|>233<|level|>2\n<|id|>234<|level|>3\n<|id|>241<|level|>3\n<|id|>246<|level|>3\n<|id|>250<|level|>3\n<|id|>266<|level|>2\n<|id|>268<|level|>3\n<|id|>273<|level|>3\n<|id|>293<|level|>3\n<|id|>307<|level|>2\n<|id|>308<|level|>3\n<|id|>315<|level|>3\n<|id|>318<|level|>4\n<|id|>323<|level|>3\n<|id|>325<|level|>4\n<|id|>331<|level|>3",
+    "image_output": "<|src_id|>20<|tgt_id|>10\n<|src_id|>54<|tgt_id|>52\n<|src_id|>56<|tgt_id|>52\n<|src_id|>58<|tgt_id|>52\n<|src_id|>59<|tgt_id|>52\n<|src_id|>156<|tgt_id|>141\n<|src_id|>186<|tgt_id|>184\n<|src_id|>187<|tgt_id|>184\n<|src_id|>188<|tgt_id|>184\n<|src_id|>189<|tgt_id|>184\n<|src_id|>190<|tgt_id|>184\n<|src_id|>191<|tgt_id|>184\n<|src_id|>192<|tgt_id|>184\n<|src_id|>194<|tgt_id|>184\n<|src_id|>310<|tgt_id|>308\n<|src_id|>311<|tgt_id|>308\n<|src_id|>312<|tgt_id|>308\n<|src_id|>313<|tgt_id|>308\n<|src_id|>316<|tgt_id|>315\n<|src_id|>317<|tgt_id|>315\n<|src_id|>324<|tgt_id|>323\n<|src_id|>332<|tgt_id|>331\n<|src_id|>333<|tgt_id|>331",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 4
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 4
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 4
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 4
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 4
+        },
+        {
+            "id": 160,
+            "level": 4
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 4
+        },
+        {
+            "id": 184,
+            "level": 3
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 233,
+            "level": 2
+        },
+        {
+            "id": 234,
+            "level": 3
+        },
+        {
+            "id": 241,
+            "level": 3
+        },
+        {
+            "id": 246,
+            "level": 3
+        },
+        {
+            "id": 250,
+            "level": 3
+        },
+        {
+            "id": 266,
+            "level": 2
+        },
+        {
+            "id": 268,
+            "level": 3
+        },
+        {
+            "id": 273,
+            "level": 3
+        },
+        {
+            "id": 293,
+            "level": 3
+        },
+        {
+            "id": 307,
+            "level": 2
+        },
+        {
+            "id": 308,
+            "level": 3
+        },
+        {
+            "id": 315,
+            "level": 3
+        },
+        {
+            "id": 318,
+            "level": 4
+        },
+        {
+            "id": 323,
+            "level": 3
+        },
+        {
+            "id": 325,
+            "level": 4
+        },
+        {
+            "id": 331,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 20,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 141
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 310,
+            "tgt_id": 308
+        },
+        {
+            "src_id": 311,
+            "tgt_id": 308
+        },
+        {
+            "src_id": 312,
+            "tgt_id": 308
+        },
+        {
+            "src_id": 313,
+            "tgt_id": 308
+        },
+        {
+            "src_id": 316,
+            "tgt_id": 315
+        },
+        {
+            "src_id": 317,
+            "tgt_id": 315
+        },
+        {
+            "src_id": 324,
+            "tgt_id": 323
+        },
+        {
+            "src_id": 332,
+            "tgt_id": 331
+        },
+        {
+            "src_id": 333,
+            "tgt_id": 331
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 187,
+            "table2_idx": 188,
+            "upper_row_ss": [
+                [
+                    "No.",
+                    "Counterparty",
+                    "Contract Type",
+                    "Annual Value",
+                    "CoC Provision",
+                    "Risk"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "7",
+                    "PackRight Industries Inc.",
+                    "Packaging and materials supply",
+                    "$7.3M",
+                    "Consent (NUBW)",
+                    "Low"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 190,
+            "table2_idx": 191,
+            "upper_row_ss": [
+                [
+                    "19",
+                    "Affiliate360 Networks LLC",
+                    "Affiliate marketing",
+                    "$6.5M revenue",
+                    "Consent",
+                    "Low"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "program management",
+                    "share",
+                    "(NUBW)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 310,
+            "table2_idx": 311,
+            "upper_row_ss": [
+                [
+                    "7–20",
+                    "Various",
+                    "Fulfillment",
+                    "Various",
+                    "Various",
+                    "$52M aggrega",
+                    "Controlling",
+                    "Consent (11) /",
+                    "Lease default",
+                    "2/3",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Landlords (14 facilities)",
+                    "Ctr Leases",
+                    "",
+                    "",
+                    "te",
+                    "interest",
+                    "Notice (3)",
+                    "(varies)",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 311,
+            "table2_idx": 312,
+            "upper_row_ss": [
+                [
+                    "31",
+                    "Greenfi",
+                    "Facility",
+                    "6/1/202",
+                    "5/31/20",
+                    "$3.8M",
+                    "Control",
+                    "Notice",
+                    "None",
+                    "3",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "eld Janitorial Services LLC",
+                    "Maintenance",
+                    "3",
+                    "26",
+                    "",
+                    "ling interest",
+                    "(30 days)",
+                    "specified",
+                    "",
+                    "g"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 312,
+            "table2_idx": 313,
+            "upper_row_ss": [
+                [
+                    "41",
+                    "Optima",
+                    "SEO/",
+                    "2/1/202",
+                    "1/31/20",
+                    "$3.7M",
+                    "50%",
+                    "Notice",
+                    "None",
+                    "3",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Search Marketing Inc.",
+                    "SEM",
+                    "4",
+                    "26",
+                    "",
+                    "equity",
+                    "(30 days)",
+                    "specified",
+                    "",
+                    "g"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 316,
+            "table2_idx": 317,
+            "upper_row_ss": [
+                [
+                    "FC-10",
+                    "PA, Allentow",
+                    "Liberty Industrial",
+                    "~280,000",
+                    "$2.5M",
+                    "5 yrs / 1/2028",
+                    "Yes",
+                    "Sole Discretio",
+                    "Sole discretion"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "n",
+                    "Partners LLC",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "n",
+                    "risk"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 332,
+            "table2_idx": 333,
+            "upper_row_ss": [
+                [
+                    "Week 14",
+                    "August 20–26, 2025",
+                    "Arcwave Assessment Checkpoint.Formal assessment of Arcwave consent status and contingency"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "planning."
+                ]
+            ]
+        }
+    ]
+}

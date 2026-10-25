@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        6
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>10<|page|>2<|box|>797 138 931 857<|content|>F. ... Subsequent to the execution of the Term She...Escrow Agreement and a Mutual Release CONFIDENTIAL\n<|id|>11<|page|>3<|box|>90 140 292 856<|content|>Agreement (collectively with the Wind-Down Agreeme...e of Delaware upon the completion of the wind-down\n<|id|>17<|page|>3<|box|>815 140 888 857<|content|>4. ... Nothing in this Stipulation shall be deemed...erformance of the Wind-Down Agreement or any other\n<|id|>18<|page|>4<|box|>90 140 125 852<|content|>Settlement Document, which shall be governed by th...he dispute-resolution provisions set forth therein\n<|id|>25<|page|>4<|box|>512 140 529 429<|content|>Name: ... 6412)\n<|id|>26<|page|>4<|box|>529 142 545 246<|content|>Title: ... Partner\n<|id|>27<|page|>4<|box|>546 140 563 410<|content|>Firm: ... Calderwood & Harkness LLP\n<|id|>28<|page|>4<|box|>564 140 580 387<|content|>Address: ... 599 Lexington Avenue\n<|id|>29<|page|>4<|box|>580 140 598 560<|content|>New York, New York 10022 Telephone: ... (212) 558-4000\n<|id|>30<|page|>4<|box|>598 140 614 436<|content|>Email: ... com\n<|id|>31<|page|>4<|box|>614 142 633 274<|content|>Dated: ... ___, 2025\n<|id|>35<|page|>4<|box|>789 140 806 504<|content|>Name: ... 4587)\n<|id|>36<|page|>4<|box|>806 142 823 248<|content|>Title: ... Partner\n<|id|>37<|page|>4<|box|>823 142 839 357<|content|>Firm: ... Ashford & Crane LLP\n<|id|>38<|page|>4<|box|>840 142 857 491<|content|>Address: ... 1201 North Market Street, Suite 1400\n<|id|>39<|page|>4<|box|>857 142 875 566<|content|>Wilmington, Delaware 19801 Telephone: ... (302) 654-1800\n<|id|>40<|page|>4<|box|>875 142 892 408<|content|>Email: ... com\n<|id|>41<|page|>4<|box|>892 142 909 276<|content|>Dated: ... ___, 2025\n<|id|>42<|page|>4<|box|>915 140 930 245<|content|>CONFIDENTIAL\n<|id|>46<|page|>5<|box|>428 140 518 854<|content|>WHEREAS, the Court has reviewed the Joint Stipulat...roup LLC and Greystone Realty Partners, L. ... and\n<|id|>47<|page|>5<|box|>527 140 544 473<|content|>WHEREAS, good cause appearing therefor; ... WHEREAS, good cause appearing therefor\n<|id|>53<|page|>5<|box|>916 142 929 243<|content|>CONFIDENTIAL\n<|id|>54<|page|>6<|box|>151 143 167 781<|content|>Vice Chancellor Marguerite T. ... Zimmerman Court of Chancery of the State of Delaware",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>17<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        }
+    ]
+}

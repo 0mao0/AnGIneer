@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 212 118 782<|content|>TERMINATION NOTICES TO SERVICE PROVIDERS\n<|id|>1<|page|>1<|box|>136 279 156 717<|content|>SKYLEND RECEIVABLES TRUST 2024-1\n<|id|>9<|page|>1<|box|>347 434 363 562<|content|>COVER NOTE\n<|id|>16<|page|>2<|box|>344 452 359 544<|content|>NOTICE 1\n<|id|>17<|page|>2<|box|>369 191 405 805<|content|>TERMINATION NOTICE TO KEYMARK TRUST COMPANY, NATIO\n<|id|>18<|page|>2<|box|>412 179 449 816<|content|>CALDERWOOD & HARKNESS LLP 425 Lexington Avenue New\n<|id|>41<|page|>4<|box|>328 452 344 545<|content|>NOTICE 2\n<|id|>42<|page|>4<|box|>353 158 390 838<|content|>TERMINATION NOTICE TO ATLANTIC FIDUCIARY SERVICES,\n<|id|>43<|page|>4<|box|>398 178 434 818<|content|>CALDERWOOD & HARKNESS LLP 425 Lexington Avenue New\n<|id|>47<|page|>4<|box|>537 174 574 854<|content|>Re: Termination of Proposed Securitization — SkyLe\n<|id|>69<|page|>6<|box|>383 452 398 545<|content|>NOTICE 3\n<|id|>70<|page|>6<|box|>407 156 445 841<|content|>TERMINATION NOTICE TO MERIDIAN CREDIT RATINGS, INC\n<|id|>94<|page|>8<|box|>265 452 282 545<|content|>NOTICE 4\n<|id|>95<|page|>8<|box|>291 165 328 831<|content|>TERMINATION NOTICE TO CARROLLTON RATINGS GROUP LLC\n<|id|>96<|page|>8<|box|>335 178 371 818<|content|>CALDERWOOD & HARKNESS LLP 425 Lexington Avenue New\n<|id|>122<|page|>10<|box|>282 452 300 545<|content|>NOTICE 5\n<|id|>123<|page|>10<|box|>309 151 345 844<|content|>TERMINATION NOTICE TO ROWLAND & CROSS LLP (Indepen\n<|id|>124<|page|>10<|box|>353 178 390 818<|content|>CALDERWOOD & HARKNESS LLP 425 Lexington Avenue New\n<|id|>147<|page|>12<|box|>284 452 300 545<|content|>NOTICE 6\n<|id|>148<|page|>12<|box|>309 143 372 852<|content|>TERMINATION NOTICE TO DONNOVAN PRESS LLC (Printer\n<|id|>152<|page|>12<|box|>457 174 493 852<|content|>Re: Termination of Printing and EDGAR Preparation\n<|id|>171<|page|>14<|box|>133 439 150 558<|content|>ENCLOSURE\n<|id|>172<|page|>14<|box|>160 344 176 651<|content|>SUMMARY DISTRIBUTION TABLE\n<|id|>173<|page|>14<|box|>186 189 203 805<|content|>SkyLend Receivables Trust 2024-1 — Termination Not\n<|id|>174<|page|>14<|box|>212 447 229 549<|content|>May 8, 2024\n<|id|>177<|page|>14<|box|>814 143 829 689<|content|>Total Estimated Final Fees (Service Providers List\n<|id|>181<|page|>15<|box|>209 431 227 566<|content|>CONFIDENTIAL",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>9<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>18<|level|>-1\n<|id|>41<|level|>1\n<|id|>42<|level|>2\n<|id|>43<|level|>-1\n<|id|>47<|level|>-1\n<|id|>69<|level|>1\n<|id|>70<|level|>2\n<|id|>94<|level|>1\n<|id|>95<|level|>2\n<|id|>96<|level|>-1\n<|id|>122<|level|>1\n<|id|>123<|level|>2\n<|id|>124<|level|>-1\n<|id|>147<|level|>1\n<|id|>148<|level|>2\n<|id|>152<|level|>-1\n<|id|>171<|level|>1\n<|id|>172<|level|>2\n<|id|>173<|level|>-1\n<|id|>174<|level|>-1\n<|id|>177<|level|>-1\n<|id|>181<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 2
+        }
+    ]
+}

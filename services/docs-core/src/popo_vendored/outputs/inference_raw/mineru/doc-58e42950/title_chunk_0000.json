@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        49
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        12,
+        14,
+        17,
+        21,
+        22,
+        24,
+        28,
+        39,
+        41,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>325 130 376 920<|content|>水运工程混凝土结构设计规范\n<|id|>1<|page|>1<|box|>421 211 488 843<|content|>Design Code for Concrete Structures of Port and Wa\n<|id|>4<|page|>2<|box|>130 306 154 638<|content|>中华人民共和国行业标准\n<|id|>5<|page|>2<|box|>197 173 231 769<|content|>水运工程混凝土结构设计规范\n<|id|>11<|page|>3<|box|>131 115 198 837<|content|>关于发布《水运工程混凝土结构设计规范》(JTS 151—2011)的公告\n<|id|>19<|page|>4<|box|>143 374 173 578<|content|>修订说明\n<|id|>37<|page|>6<|box|>142 413 173 572<|content|>目次\n<|id|>40<|page|>8<|box|>164 379 194 601<|content|>1 总 则\n<|id|>44<|page|>9<|box|>144 383 173 614<|content|>2 术语\n<|id|>67<|page|>10<|box|>173 351 202 618<|content|>3 基本规定\n<|id|>68<|page|>10<|box|>235 393 255 578<|content|>3.1 一般规定\n<|id|>83<|page|>10<|box|>909 313 928 655<|content|>3.2 承载能力极限状态计算规定\n<|id|>120<|page|>12<|box|>616 313 636 655<|content|>3.3 正常使用极限状态验算规定\n<|id|>156<|page|>14<|box|>453 391 472 572<|content|>3.4 耐久性规定\n<|id|>177<|page|>17<|box|>147 385 177 614<|content|>4 材料\n<|id|>178<|page|>17<|box|>212 410 231 593<|content|>4.1 混凝土\n<|id|>183<|page|>17<|box|>446 60 466 722<|content|>4.1.4 混凝土轴心抗压、轴心抗拉强度设计值应按表 4.1.4 采用。\n<|id|>190<|page|>17<|box|>881 423 899 582<|content|>4.2 钢筋\n<|id|>207<|page|>21<|box|>59 62 77 480<|content|>4.2.4 钢筋弹性模量应按表4.2.4采用。\n<|id|>210<|page|>22<|box|>167 253 197 718<|content|>5 承载能力极限状态计算\n<|id|>211<|page|>22<|box|>231 304 251 669<|content|>5.1 正截面承载力计算的一般规定\n<|id|>262<|page|>24<|box|>216 77 235 586<|content|>5.1.5.2 纵向钢筋应力也可按下列近似公式计算：\n<|id|>282<|page|>24<|box|>901 344 920 640<|content|>5.2 正截面受弯承载力计算\n<|id|>347<|page|>28<|box|>449 342 469 638<|content|>5.3 正截面受压承载力计算\n<|id|>600<|page|>39<|box|>69 355 88 650<|content|>5.4 正截面受拉承载力计算\n<|id|>647<|page|>41<|box|>403 376 422 627<|content|>5.5 斜截面承载力计算\n<|id|>808<|page|>48<|box|>693 347 712 620<|content|>5.6 扭曲截面承载力计算",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>-1\n<|id|>5<|level|>1\n<|id|>11<|level|>1\n<|id|>19<|level|>1\n<|id|>37<|level|>1\n<|id|>40<|level|>1\n<|id|>44<|level|>1\n<|id|>67<|level|>1\n<|id|>68<|level|>2\n<|id|>83<|level|>2\n<|id|>120<|level|>2\n<|id|>156<|level|>2\n<|id|>177<|level|>1\n<|id|>178<|level|>2\n<|id|>183<|level|>3\n<|id|>190<|level|>2\n<|id|>207<|level|>3\n<|id|>210<|level|>1\n<|id|>211<|level|>2\n<|id|>262<|level|>4\n<|id|>282<|level|>2\n<|id|>347<|level|>2\n<|id|>600<|level|>2\n<|id|>647<|level|>2\n<|id|>808<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 3
+        },
+        {
+            "id": 210,
+            "level": 1
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 262,
+            "level": 4
+        },
+        {
+            "id": 282,
+            "level": 2
+        },
+        {
+            "id": 347,
+            "level": 2
+        },
+        {
+            "id": 600,
+            "level": 2
+        },
+        {
+            "id": 647,
+            "level": 2
+        },
+        {
+            "id": 808,
+            "level": 2
+        }
+    ]
+}

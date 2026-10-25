@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        52,
+        54
+    ],
+    "pages": [
+        53,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>450<|page|>53<|box|>90 267 111 728<|content|>Appendix E — Rollover Participant Summary\n<|id|>452<|page|>53<|box|>523 142 539 197<|content|>Notes:\n<|id|>458<|page|>54<|box|>90 246 111 750<|content|>Appendix F — Local Counsel Contact Information\n<|id|>460<|page|>54<|box|>191 140 208 258<|content|>Swiss Matters",
+    "raw_response": "<|id|>450<|level|>1\n<|id|>452<|level|>2\n<|id|>458<|level|>1\n<|id|>460<|level|>2",
+    "parsed": [
+        {
+            "id": 450,
+            "level": 1
+        },
+        {
+            "id": 452,
+            "level": 2
+        },
+        {
+            "id": 458,
+            "level": 1
+        },
+        {
+            "id": 460,
+            "level": 2
+        }
+    ]
+}

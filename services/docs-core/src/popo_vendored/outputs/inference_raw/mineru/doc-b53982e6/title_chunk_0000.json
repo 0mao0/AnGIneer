@@ -1,0 +1,46 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        16
+    ],
+    "pages": [
+        2,
+        3,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 351 109 645<|content|>ANNEX A — DEFINITIONS\n<|id|>5<|page|>2<|box|>236 254 328 741<|content|>among HALCYON SEMICONDUCTOR AKTIENGESELLSCHAFT HAL\n<|id|>8<|page|>2<|box|>446 143 463 415<|content|>INTRODUCTORY PROVISIONS\n<|id|>14<|page|>3<|box|>148 140 166 300<|content|>DEFINED TERMS\n<|id|>99<|page|>15<|box|>512 142 529 390<|content|>RULES OF CONSTRUCTION\n<|id|>111<|page|>16<|box|>318 142 334 462<|content|>EXECUTION AND INCORPORATION\n<|id|>121<|page|>16<|box|>704 323 720 673<|content|>SIGNATURE PAGE CROSS-REFERENCE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>99<|level|>2\n<|id|>111<|level|>2\n<|id|>121<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        }
+    ]
+}

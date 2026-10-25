@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 163 156 834<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>9<|page|>1<|box|>505 140 522 321<|content|>I. Executive Summary\n<|id|>15<|page|>2<|box|>383 140 402 648<|content|>II. FCC Evidentiary Hearing — Summary (January 22–\n<|id|>16<|page|>2<|box|>415 142 433 357<|content|>A. Procedural Background\n<|id|>21<|page|>3<|box|>90 140 108 493<|content|>B. Northgate's Witnesses and Key Testimony\n<|id|>38<|page|>5<|box|>690 140 708 503<|content|>C. Ridgepoint's Witnesses and Key Testimony\n<|id|>49<|page|>7<|box|>604 140 622 513<|content|>D. Overall Assessment of Hearing Performance\n<|id|>61<|page|>9<|box|>90 140 107 423<|content|>III. Post-Hearing Briefing Schedule\n<|id|>72<|page|>10<|box|>90 140 107 699<|content|>IV. Status of District Court Litigation — Case No.\n<|id|>73<|page|>10<|box|>121 140 138 290<|content|>A. Continued Stay\n<|id|>77<|page|>10<|box|>539 140 555 362<|content|>B. Anticipated Reactivation\n<|id|>83<|page|>11<|box|>285 140 303 330<|content|>C. Discovery Readiness\n<|id|>90<|page|>12<|box|>90 140 107 452<|content|>V. Litigation Budget and Fee Summary\n<|id|>91<|page|>12<|box|>121 140 138 439<|content|>A. Calderwood & Harkness LLP Fees\n<|id|>109<|page|>12<|box|>782 142 799 357<|content|>B. Expert and Vendor Fees\n<|id|>114<|page|>13<|box|>327 140 345 383<|content|>C. Aggregate Litigation Spend\n<|id|>118<|page|>13<|box|>525 140 542 297<|content|>D. Budget Forecast\n<|id|>122<|page|>14<|box|>90 140 107 385<|content|>VI. Insurance Coverage Status\n<|id|>137<|page|>15<|box|>204 140 222 754<|content|>VII. Impact of FCC Outcome on Antitrust Defense —\n<|id|>138<|page|>15<|box|>236 142 252 437<|content|>A. Favorable FCC Outcome Scenario\n<|id|>144<|page|>15<|box|>612 140 628 421<|content|>B. Adverse FCC Outcome Scenario\n<|id|>150<|page|>16<|box|>306 140 323 473<|content|>C. Coordination with Regulatory Strategy\n<|id|>153<|page|>16<|box|>597 140 614 454<|content|>VIII. Recommendations and Next Steps\n<|id|>161<|page|>17<|box|>482 140 500 264<|content|>IX. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>21<|level|>2\n<|id|>38<|level|>2\n<|id|>49<|level|>2\n<|id|>61<|level|>1\n<|id|>72<|level|>1\n<|id|>73<|level|>2\n<|id|>77<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>1\n<|id|>91<|level|>2\n<|id|>109<|level|>2\n<|id|>114<|level|>2\n<|id|>118<|level|>2\n<|id|>122<|level|>1\n<|id|>137<|level|>1\n<|id|>138<|level|>2\n<|id|>144<|level|>2\n<|id|>150<|level|>2\n<|id|>153<|level|>1\n<|id|>161<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 161,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        11
+    ],
+    "pages": [
+        2,
+        3,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>16<|page|>2<|box|>859 140 897 854<|content|>9. ... Rennick, as\n<|id|>17<|page|>3<|box|>90 174 218 856<|content|>Managing Partner, had day-to-day operational contr...ersonal liability in the event of a default by CMP\n<|id|>115<|page|>11<|box|>352 655 369 854<|content|>DATED: ... January 24, 2023\n<|id|>116<|page|>11<|box|>378 140 393 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>117<|page|>11<|box|>397 143 412 251<|content|>By: ... By\n<|id|>121<|page|>11<|box|>521 142 537 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>122<|page|>11<|box|>540 143 556 251<|content|>By: ... By",
+    "raw_response": "<|src_id|>16<|tgt_id|>17",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        }
+    ]
+}

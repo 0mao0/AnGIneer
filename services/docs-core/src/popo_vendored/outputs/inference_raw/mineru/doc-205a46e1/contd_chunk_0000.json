@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        12
+    ],
+    "pages": [
+        2,
+        3,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>22<|page|>2<|box|>839 174 893 854<|content|>(b) Re-procurement damages of $1,056,250. ... and\n<|id|>24<|page|>3<|box|>133 140 152 663<|content|>for total damages of $2,525,291. ... 10, plus attorneys' fees and court costs\n<|id|>105<|page|>11<|box|>638 143 654 246<|content|>Priya Anand\n<|id|>106<|page|>11<|box|>689 140 705 303<|content|>STATE OF TEXAS\n<|id|>107<|page|>11<|box|>714 142 732 334<|content|>COUNTY OF DALLAS\n<|id|>108<|page|>11<|box|>739 140 777 854<|content|>SUBSCRIBED AND SWORN TO BEFORE ME by Priya Anand o...o certify which witness my hand and seal of office\n<|id|>111<|page|>12<|box|>141 140 191 854<|content|>Priya Anand Texas Bar No. ... com\n<|id|>112<|page|>12<|box|>191 140 209 715<|content|>COUNSEL FOR PLAINTIFF STONEFIELD LOGISTICS GROUP I...UNSEL FOR PLAINTIFF STONEFIELD LOGISTICS GROUP INC",
+    "raw_response": "<|src_id|>22<|tgt_id|>24",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 24
+        }
+    ]
+}

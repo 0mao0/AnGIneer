@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|page|>1<|box|>446 140 463 362<|content|>I. Introduction and Context\n<|id|>18<|page|>2<|box|>250 140 265 341<|content|>II. Documents Examined\n<|id|>36<|page|>4<|box|>90 140 107 279<|content|>III. Assumptions\n<|id|>49<|page|>5<|box|>316 142 334 250<|content|>IV. Opinions\n<|id|>80<|page|>8<|box|>583 140 599 406<|content|>V. Qualifications and Limitations\n<|id|>90<|page|>10<|box|>90 140 107 338<|content|>VI. Reliance and Benefit\n<|id|>98<|page|>10<|box|>609 447 626 549<|content|>EXHIBIT A\n<|id|>99<|page|>10<|box|>635 333 652 663<|content|>CERTIFICATES OF GOOD STANDING",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>18<|level|>2\n<|id|>36<|level|>2\n<|id|>49<|level|>2\n<|id|>80<|level|>2\n<|id|>90<|level|>2\n<|id|>98<|level|>1\n<|id|>99<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 2
+        }
+    ]
+}

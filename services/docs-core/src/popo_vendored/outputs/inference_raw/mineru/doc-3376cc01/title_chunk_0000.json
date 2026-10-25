@@ -1,0 +1,36 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>152 143 169 537<|content|>Attorneys for Plaintiff MARGUERITE D. FONSECA\n<|id|>3<|page|>1<|box|>248 271 265 725<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA\n<|id|>5<|page|>1<|box|>492 142 508 725<|content|>TO THE COURT, ALL PARTIES, AND THEIR ATTORNEYS OF\n<|id|>11<|page|>2<|box|>146 328 162 668<|content|>[SIGNATURES ON FOLLOWING PAGE]\n<|id|>20<|page|>2<|box|>343 462 359 535<|content|>ORDER\n<|id|>22<|page|>2<|box|>412 140 430 447<|content|>IT IS HEREBY ORDERED as follows:",
+    "raw_response": "<|id|>1<|level|>2\n<|id|>3<|level|>1\n<|id|>5<|level|>1\n<|id|>11<|level|>-1\n<|id|>20<|level|>1\n<|id|>22<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        52
+    ],
+    "pages": [
+        3,
+        4,
+        6,
+        7,
+        8,
+        11,
+        12,
+        16,
+        27,
+        31,
+        35,
+        37,
+        43,
+        51
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>3<|box|>0 1 130 501<|content|>Treas. ... I\n<|id|>1<|page|>4<|box|>0 26 996 996<|content|>The quick brown fox jumps over the lazy dog. ... The quick brown fox jumps over the lazy dog\n<|id|>3<|page|>6<|box|>43 26 142 385<|content|>DEPARTMENT OF THE TREASURY FISCAL SERVICE, BUREAU ...6 OFFICIAL BUSINESS PENALTY FOR PRIVATE USE, \\$300\n<|id|>4<|page|>6<|box|>140 848 151 952<|content|>FIRST CLASS\n<|id|>6<|page|>6<|box|>715 342 740 678<|content|>Buy U. ... Savings Bonds\n<|id|>8<|page|>7<|box|>160 322 185 556<|content|>November 1981\n<|id|>10<|page|>7<|box|>926 98 975 878<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>11<|page|>8<|box|>0 0 1000 998<|content|>The quick brown fox jumps over the lazy dog. ... The quick brown fox jumps over the lazy dog\n<|id|>18<|page|>11<|box|>97 65 910 431<|content|>Article - Treasury Financing Operations. ... 47\n<|id|>19<|page|>11<|box|>135 542 216 906<|content|>SB-1. ... 52\n<|id|>20<|page|>11<|box|>249 542 260 906<|content|>SN-1. ... 53\n<|id|>21<|page|>11<|box|>298 542 330 906<|content|>OFS-1. ... 55\n<|id|>22<|page|>11<|box|>367 542 453 908<|content|>TSO-1. ... 60\n<|id|>23<|page|>11<|box|>511 542 559 906<|content|>MO-1. ... 64\n<|id|>34<|page|>12<|box|>731 140 775 487<|content|>SUMMARY POSITIONS FCP-I-1. ... 104\n<|id|>35<|page|>12<|box|>108 594 512 945<|content|>CANADIAN DOLLAR POSITIONS FCP-II-1. ... 119\n<|id|>75<|page|>16<|box|>66 402 78 612<|content|>Footnotes to Table FFO-1\n<|id|>76<|page|>16<|box|>148 79 167 461<|content|>Source: ... Monthly Treasury Statement of Receipts and Outlays of the United States Government\n<|id|>77<|page|>16<|box|>166 79 176 413<|content|>Note: ... Budget estimates are based on the Fall Budget Program\n<|id|>78<|page|>16<|box|>183 79 191 253<|content|>1/ For detail see Table FFO-2. ... 1/ For detail see Table FFO-2\n<|id|>85<|page|>16<|box|>305 79 316 504<|content|>8/ Includes the fiscal year 1981 transactions totaling \\$15,056 and the prior\n<|id|>86<|page|>16<|box|>141 544 167 950<|content|>balance of \\$29,401 in the contra asset accounts e...the U. ... reserve position as reported by the IMF\n<|id|>123<|page|>27<|box|>691 55 760 468<|content|>Source: ... (This data is on the basis of Reports ...the agencies prior to reports submitted for Budget\n<|id|>124<|page|>27<|box|>689 493 769 894<|content|>presentation and therefore may differ somewhat from the Budget document. ... 493,633\n<|id|>131<|page|>31<|box|>104 205 117 768<|content|>Source and Availability of the Balance in the Account of the U. ... Treasury\n<|id|>132<|page|>31<|box|>158 105 220 456<|content|>The operating cash of the Treasury is maintained i...untry authorized to maintain tax and loan accounts\n<|id|>150<|page|>35<|box|>839 64 875 513<|content|>The aggregate charge for all interest-bearing issu...l interest charge. ... The computation is based on\n<|id|>151<|page|>35<|box|>848 536 867 920<|content|>4/ On United States savings bonds, the rate of mat...maturity is applied against the amount outstanding\n<|id|>158<|page|>37<|box|>671 36 797 480<|content|>Source: ... Emergency Loan Guarantee fund Comptroller\n<|id|>159<|page|>37<|box|>669 494 813 925<|content|>of the Currency assessment fund; ... * Less than \\$500,000\n<|id|>183<|page|>43<|box|>297 55 315 453<|content|>6/ Consists of liabilities taken over by the Assoc...cordance with the act approved August 2, 1954, and\n<|id|>184<|page|>43<|box|>91 520 117 911<|content|>notes issued by the Association under authority of...ferred from the Reconstruction Finance Corporation\n<|id|>210<|page|>51<|box|>65 401 78 603<|content|>Footnotes to Table PDO-4\n<|id|>211<|page|>51<|box|>129 48 150 416<|content|>Note: ... All securities except EA & EO notes were...ion through competitive and noncompetitive bidding",
+    "raw_response": "<|src_id|>85<|tgt_id|>86\n<|src_id|>123<|tgt_id|>124\n<|src_id|>158<|tgt_id|>159\n<|src_id|>183<|tgt_id|>184",
+    "parsed": [
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 184
+        }
+    ]
+}

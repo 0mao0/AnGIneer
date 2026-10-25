@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>12<|page|>1<|box|>750 142 765 305<|content|>Enclosed Certificate\n<|id|>19<|page|>2<|box|>285 140 303 403<|content|>Satisfaction of Closing Condition\n<|id|>23<|page|>2<|box|>755 140 772 320<|content|>Distribution of Copies\n<|id|>31<|page|>3<|box|>184 140 200 455<|content|>Confirmation of Receipt and Next Steps\n<|id|>44<|page|>4<|box|>152 140 170 493<|content|>cc: (via electronic mail, with copy of enclosure)\n<|id|>46<|page|>4<|box|>332 429 349 568<|content|>ATTACHMENT\n<|id|>47<|page|>4<|box|>358 171 393 825<|content|>Certificate of Existence Calloway-Briggs Renewable\n<|id|>48<|page|>4<|box|>402 277 421 720<|content|>(Reproduction / Summary Description of Enclosed Or\n<|id|>49<|page|>4<|box|>428 243 445 754<|content|>OFFICE OF THE SECRETARY OF STATE STATE OF TEXAS\n<|id|>50<|page|>4<|box|>454 364 470 633<|content|>CERTIFICATE OF EXISTENCE\n<|id|>52<|page|>4<|box|>523 140 541 504<|content|>CALLOWAY-BRIGGS RENEWABLES INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>1\n<|id|>19<|level|>1\n<|id|>23<|level|>1\n<|id|>31<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>1\n<|id|>47<|level|>1\n<|id|>48<|level|>2\n<|id|>49<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        }
+    ]
+}

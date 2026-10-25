@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>148 155 186 841<|content|>CRESTLINE PACKAGING SOLUTIONS LLC (EIN 31-1782094) and CPS HOLDINGS INC. ... (EIN 82-3491657),\n<|id|>2<|page|>1<|box|>196 341 238 655<|content|>Debtors. ... 22-51247 (Jointly Administered)\n<|id|>3<|page|>1<|box|>246 455 263 540<|content|>Chapter 11\n<|id|>21<|page|>2<|box|>801 140 838 854<|content|>B. ... 2(b))\n<|id|>22<|page|>2<|box|>843 140 898 854<|content|>Pursuant to Article IV, Section 4. ... (200 Public Square,\n<|id|>23<|page|>3<|box|>89 140 143 854<|content|>Cleveland, OH 44114), as administrative agent, and...material terms of the Exit Facility are as follows\n<|id|>35<|page|>3<|box|>859 174 898 857<|content|>(ii) Reorganized CPS Holdings Inc. ... (as reorganized)\n<|id|>36<|page|>4<|box|>90 174 145 854<|content|>were filed with the Delaware Secretary of State on... all provisions required by the Confirmation Order\n<|id|>83<|page|>8<|box|>556 174 592 854<|content|>(i) Insurer: ... Apex Indemnity Insurance Company ...South Wacker Drive, Suite 4800, Chicago, IL 60606)\n<|id|>88<|page|>8<|box|>741 140 777 854<|content|>The D&O Tail Policy is in full force and effect as...equirements of the Plan and the Confirmation Order\n<|id|>113<|page|>10<|box|>613 143 628 349<|content|>Name: ... Reinholdt\n<|id|>114<|page|>10<|box|>628 143 646 366<|content|>Title: ... Chief Executive Officer\n<|id|>115<|page|>10<|box|>647 142 664 439<|content|>Address: ... 4710 Industrial Corridor Drive\n<|id|>116<|page|>10<|box|>664 143 680 281<|content|>Akron, OH 44308\n<|id|>117<|page|>10<|box|>681 143 698 338<|content|>Date: ... September 30, 2022\n<|id|>118<|page|>10<|box|>699 143 715 506<|content|>CPS HOLDINGS INC. ... (as Reorganized Debtor)\n<|id|>119<|page|>10<|box|>717 143 733 253<|content|>By: ... By\n<|id|>120<|page|>10<|box|>733 143 750 349<|content|>Name: ... Reinholdt\n<|id|>121<|page|>10<|box|>750 143 766 366<|content|>Title: ... Chief Executive Officer\n<|id|>122<|page|>10<|box|>768 142 784 338<|content|>Date: ... September 30, 2022\n<|id|>123<|page|>10<|box|>785 142 801 370<|content|>Prepared by and submitted by: ... Prepared by and submitted by\n<|id|>124<|page|>10<|box|>810 140 827 712<|content|>CALDERWOOD & HARKNESS LLP Counsel to the Reorganized Debtors\n<|id|>125<|page|>10<|box|>829 143 845 251<|content|>By: ... By\n<|id|>126<|page|>10<|box|>845 142 877 852<|content|>Colette Whitman (Responsible Partner) Nathaniel Bower (Billing Partner) Gabrielle Moss (Lead Associate)\n<|id|>127<|page|>10<|box|>878 142 895 666<|content|>30 Rockefeller Plaza New York, NY 10112 Telephone: ... (216) 479-8500 Local Co-Counsel\n<|id|>128<|page|>11<|box|>148 140 167 406<|content|>KELLNER & HARTWICK LLP\n<|id|>129<|page|>11<|box|>185 140 202 375<|content|>Bruce Tatelman (Lead Partner)\n<|id|>130<|page|>11<|box|>202 140 220 790<|content|>600 Superior Avenue East, Suite 1800 Cleveland, OH 44114 Telephone: ... (216) 861-7000",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>35<|tgt_id|>36\n<|src_id|>127<|tgt_id|>128",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 128
+        }
+    ]
+}

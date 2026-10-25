@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 110 SE ...rdale, Florida 33301 Telephone: ... (954) 523-7801\n<|id|>1<|page|>1<|box|>133 712 152 854<|content|>September 8, 2022\n<|id|>2<|page|>1<|box|>160 142 178 511<|content|>Via Email (gmontes@wbclaw. ... Mail\n<|id|>3<|page|>1<|box|>186 140 220 854<|content|>Gabriela Montes, Esq. ... Whitfield, Barrow & Cran...1 Brickell Avenue, Suite 3000 Miami, Florida 33131\n<|id|>4<|page|>1<|box|>229 174 303 856<|content|>Re: ... Financial Records\n<|id|>5<|page|>1<|box|>311 140 328 279<|content|>Dear Ms. ... Montes\n<|id|>30<|page|>3<|box|>861 140 898 854<|content|>You further stated that Coastal Palms maintains th...ark's General Counsel, Sandra Hoffmeister, denying\n<|id|>31<|page|>4<|box|>90 140 181 854<|content|>Verimark's Notice of Material Breach. ... Specific...ms-length charges for management services rendered\n<|id|>71<|page|>8<|box|>862 140 898 857<|content|>In connection with the motion, Verimark will seek ...aration and prosecution of the motion, pursuant to\n<|id|>72<|page|>9<|box|>89 140 164 854<|content|>Florida Rule of Civil Procedure 1. ... 380(a)(4), ...her circumstances make an award of expenses unjust\n<|id|>79<|page|>9<|box|>723 142 739 272<|content|>Very truly yours,\n<|id|>80<|page|>9<|box|>739 140 756 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>81<|page|>9<|box|>758 143 773 253<|content|>By: ... By\n<|id|>82<|page|>9<|box|>773 140 806 852<|content|>Yuki Nakamura Florida Bar No. ... (954) 523-7818\n<|id|>83<|page|>9<|box|>808 142 824 480<|content|>Email: ... com\n<|id|>84<|page|>9<|box|>825 142 842 535<|content|>Counsel for Plaintiff Verimark Hospitality Group I...unsel for Plaintiff Verimark Hospitality Group Inc\n<|id|>85<|page|>9<|box|>851 142 868 254<|content|>cc: ... (via email)\n<|id|>86<|page|>10<|box|>89 176 125 852<|content|>Priya Anand, Esq. ... 0087451)\n<|id|>87<|page|>10<|box|>133 176 169 852<|content|>Douglas Carmichael, Esq. ... 0093217)\n<|id|>88<|page|>10<|box|>176 176 196 617<|content|>Nathan Whitfield III, Esq. ... , Whitfield, Barrow & Crane LLP\n<|id|>89<|page|>10<|box|>203 176 222 560<|content|>Ethan Doyle, Esq. ... , Whitfield, Barrow & Crane LLP",
+    "raw_response": "<|src_id|>30<|tgt_id|>31\n<|src_id|>71<|tgt_id|>72",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        }
+    ]
+}

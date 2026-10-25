@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>128 338 148 658<|content|>PROSPECTUS SUPPLEMENT\n<|id|>2<|page|>1<|box|>166 341 184 653<|content|>(To Prospectus dated February 9, 2024)\n<|id|>3<|page|>1<|box|>191 325 209 671<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>4<|page|>1<|box|>218 250 234 746<|content|>3,000,000 Shares of Common Stock Par Value $0.001\n<|id|>5<|page|>1<|box|>244 236 261 759<|content|>New York Stock Exchange Ticker Symbol: ARHT CUSIP:\n<|id|>11<|page|>1<|box|>799 140 816 578<|content|>THE OFFERING — OVERALLOTMENT EXERCISE\n<|id|>12<|page|>1<|box|>830 142 847 401<|content|>Summary of the Option Exercise\n<|id|>26<|page|>2<|box|>625 142 642 532<|content|>Underwriter Allocations — Overallotment Shares\n<|id|>30<|page|>3<|box|>185 140 203 248<|content|>PROCEEDS\n<|id|>31<|page|>3<|box|>217 140 234 560<|content|>Gross and Net Proceeds from Overallotment Exercise\n<|id|>35<|page|>3<|box|>541 142 558 442<|content|>Updated Aggregate Offering Proceeds\n<|id|>39<|page|>4<|box|>90 140 107 271<|content|>Use of Proceeds\n<|id|>47<|page|>5<|box|>89 142 106 400<|content|>UPDATED CAPITALIZATION\n<|id|>48<|page|>5<|box|>121 140 138 671<|content|>Post-Offering Capitalization Table (As Adjusted fo\n<|id|>63<|page|>6<|box|>148 140 166 470<|content|>UPDATED DILUTION INFORMATION\n<|id|>66<|page|>6<|box|>553 140 570 534<|content|>UPDATED BENEFICIAL OWNERSHIP TABLE\n<|id|>67<|page|>6<|box|>584 142 602 503<|content|>Principal Stockholders — Post-Overallotment\n<|id|>82<|page|>8<|box|>204 140 220 233<|content|>LOCK-UP\n<|id|>99<|page|>9<|box|>472 140 489 669<|content|>EQUITY INCENTIVE PLANS — UPDATED SHARE RESERVES\n<|id|>104<|page|>10<|box|>412 140 430 611<|content|>UNDERWRITING — SUPPLEMENTAL INFORMATION\n<|id|>109<|page|>11<|box|>89 140 106 470<|content|>TRANSFER AGENT AND REGISTRAR\n<|id|>112<|page|>11<|box|>255 140 273 400<|content|>STOCK EXCHANGE LISTING\n<|id|>114<|page|>11<|box|>359 140 377 307<|content|>LEGAL MATTERS\n<|id|>116<|page|>11<|box|>481 142 500 233<|content|>EXPERTS\n<|id|>118<|page|>11<|box|>657 140 674 553<|content|>WHERE YOU CAN FIND MORE INFORMATION\n<|id|>121<|page|>12<|box|>314 142 330 450<|content|>INCORPORATION BY REFERENCE\n<|id|>123<|page|>12<|box|>513 374 529 622<|content|>Arbor Health Technologies Inc.",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>2\n<|id|>4<|level|>2\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>26<|level|>3\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>35<|level|>3\n<|id|>39<|level|>2\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>63<|level|>2\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>82<|level|>2\n<|id|>99<|level|>2\n<|id|>104<|level|>2\n<|id|>109<|level|>2\n<|id|>112<|level|>2\n<|id|>114<|level|>2\n<|id|>116<|level|>2\n<|id|>118<|level|>2\n<|id|>121<|level|>2\n<|id|>123<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        }
+    ]
+}

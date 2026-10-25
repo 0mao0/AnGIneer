@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        50
+    ],
+    "pages": [
+        2,
+        8,
+        9,
+        26,
+        27,
+        32,
+        35,
+        43,
+        49
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>2<|box|>297 171 314 826<|content|>Calderwood & Harkness LLP 599 Lexington Avenue, 38th Floor New York, NY 10022\n<|id|>6<|page|>2<|box|>324 424 340 573<|content|>in conjunction with\n<|id|>7<|page|>2<|box|>349 225 366 772<|content|>Meridian Economics GmbH Leopoldstraße 145 80804 Munich, Germany\n<|id|>8<|page|>2<|box|>375 370 391 627<|content|>C&H Matter Number: ... 1032-00006\n<|id|>9<|page|>2<|box|>436 354 453 642<|content|>July 7, 2025 (Target APA Filing Date)\n<|id|>10<|page|>2<|box|>494 140 585 854<|content|>CONFIDENTIAL — This document has been prepared in ...ic of Germany for the Avoidance of Double Taxation\n<|id|>56<|page|>8<|box|>809 140 902 857<|content|>Gresham Whitfield LLP serves as the statutory audi... in Gresham Whitfield's Houston office at 811 Main\n<|id|>57<|page|>9<|box|>90 140 255 856<|content|>Street, Suite 3400, Houston, Texas 77002. ... The ...referenced in Appendix C (Financial Data Appendix)\n<|id|>66<|page|>9<|box|>727 174 763 854<|content|>(e) Analysis of financial data for HSAG and HSI fo...s, and intercompany transaction schedules; ... and\n<|id|>68<|page|>9<|box|>816 140 890 856<|content|>The functional analysis is consistent with the req...ary prerequisite for any transfer pricing analysis\n<|id|>235<|page|>26<|box|>868 140 904 854<|content|>Year-End Compensating Adjustment Mechanism. ... Th...nt mechanism (commonly referred to as a \"true-up\")\n<|id|>236<|page|>27<|box|>89 140 311 854<|content|>that permits HSAG and HSI to make a year-end price...r in accordance with applicable law and regulation\n<|id|>242<|page|>27<|box|>613 174 667 854<|content|>(b) HSAG's design libraries, including standard ce...ts (PDKs) for each supported process node; ... and\n<|id|>244<|page|>27<|box|>720 140 830 856<|content|>The royalty is computed at a rate of 6. ... The IP...SI's own distribution and design-support functions\n<|id|>296<|page|>32<|box|>795 174 833 854<|content|>(b) HSAG receives the lion's share of the residual...ritical value-driving intangible property; ... and\n<|id|>298<|page|>32<|box|>883 140 902 823<|content|>Detailed computations supporting the residual prof...l profit split analysis are presented in Exhibit D\n<|id|>327<|page|>35<|box|>636 174 672 854<|content|>HSI RAB Share = HSI Projected Benefits / (HSI Projected Benefits + HSAG Projected Benefits)\n<|id|>328<|page|>35<|box|>686 140 704 849<|content|>Key Assumptions. ... The income method projections are based on the following key assumptions\n<|id|>403<|page|>43<|box|>369 183 422 854<|content|>§§ 90(3) and 162(3)–(4) AO (Abgabenordnung), which...in the event of non-arm's- length pricing; ... and\n<|id|>405<|page|>43<|box|>463 140 628 856<|content|>The German component of the bilateral APA applicat...nsistent with German transfer pricing requirements\n<|id|>443<|page|>49<|box|>267 176 284 785<|content|>WC Ratio = (Accounts Receivable + Inventory − Accounts Payable) / Net Revenue\n<|id|>444<|page|>49<|box|>292 176 310 821<|content|>Step 2: ... Compute the difference in WC Ratio between the comparable company and HSI\n<|id|>445<|page|>49<|box|>318 176 335 558<|content|>ΔWC = WC Ratio (Comparable) − WC Ratio (HSI)\n<|id|>446<|page|>49<|box|>344 176 380 852<|content|>Step 3: ... Treasury rate) for each fiscal year\n<|id|>447<|page|>49<|box|>388 176 406 560<|content|>WC Adjustment = ΔWC × Short-Term Interest Rate\n<|id|>448<|page|>49<|box|>414 176 450 852<|content|>Step 4: ... Add the WC Adjustment to the comparabl...ing margin to obtain the adjusted operating margin",
+    "raw_response": "<|src_id|>56<|tgt_id|>57\n<|src_id|>235<|tgt_id|>236",
+    "parsed": [
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 235,
+            "tgt_id": 236
+        }
+    ]
+}

@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 447 106 549<|content|>EXHIBIT T\n<|id|>1<|page|>1<|box|>114 326 132 669<|content|>FORM OF TITLE AFFIDAVIT (SELLER)\n<|id|>3<|page|>1<|box|>209 400 224 596<|content|>OWNER'S AFFIDAVIT\n<|id|>7<|page|>1<|box|>424 140 440 524<|content|>Section 1 — Affiant Identification and Authority\n<|id|>13<|page|>2<|box|>152 140 169 504<|content|>Section 2 — Identity of Owner / Chain of Title\n<|id|>18<|page|>2<|box|>539 140 555 522<|content|>Section 3 — Possession and Parties in Possession\n<|id|>23<|page|>3<|box|>152 140 169 441<|content|>Section 4 — Liens and Encumbrances\n<|id|>31<|page|>3<|box|>854 140 871 583<|content|>Section 5 — Mechanic's Liens and Construction Acti\n<|id|>36<|page|>4<|box|>487 140 503 550<|content|>Section 6 — Judgments, Litigation, and Bankruptcy\n<|id|>41<|page|>5<|box|>152 140 170 540<|content|>Section 7 — Unrecorded Interests and Agreements\n<|id|>46<|page|>5<|box|>556 140 574 366<|content|>Section 8 — Survey Matters\n<|id|>51<|page|>6<|box|>133 140 151 410<|content|>Section 9 — FIRPTA / Tax Status\n<|id|>54<|page|>6<|box|>359 140 375 437<|content|>Section 10 — Environmental Matters\n<|id|>58<|page|>6<|box|>792 140 809 504<|content|>Section 11 — Status of Entity / Good Standing\n<|id|>63<|page|>7<|box|>388 140 404 506<|content|>Section 12 — Knowledge Limitation / Reliance\n<|id|>67<|page|>7<|box|>839 140 854 377<|content|>Section 13 — Indemnification\n<|id|>74<|page|>8<|box|>537 143 555 416<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>75<|page|>8<|box|>564 300 580 694<|content|>SIGNATURE PAGE TO OWNER'S AFFIDAVIT\n<|id|>81<|page|>8<|box|>752 349 768 647<|content|>NOTARIAL ACKNOWLEDGMENT\n<|id|>82<|page|>8<|box|>779 140 795 267<|content|>STATE OF ___\n<|id|>92<|page|>9<|box|>328 437 344 560<|content|>SCHEDULE A\n<|id|>93<|page|>9<|box|>354 310 371 684<|content|>LEGAL DESCRIPTION OF THE PROPERTY",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>23<|level|>2\n<|id|>31<|level|>2\n<|id|>36<|level|>2\n<|id|>41<|level|>2\n<|id|>46<|level|>2\n<|id|>51<|level|>2\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>63<|level|>2\n<|id|>67<|level|>2\n<|id|>74<|level|>2\n<|id|>75<|level|>2\n<|id|>81<|level|>2\n<|id|>82<|level|>3\n<|id|>92<|level|>1\n<|id|>93<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        }
+    ]
+}

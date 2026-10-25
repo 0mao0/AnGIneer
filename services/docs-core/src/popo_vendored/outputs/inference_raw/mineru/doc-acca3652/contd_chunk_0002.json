@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        111,
+        136
+    ],
+    "pages": [
+        112,
+        113,
+        115,
+        128,
+        134,
+        135,
+        136
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>415<|page|>112<|box|>125 440 137 595<|content|>(In thousands of dollars)\n<|id|>417<|page|>113<|box|>126 406 141 557<|content|>(In thousands of dollars)\n<|id|>420<|page|>115<|box|>51 247 72 715<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV...RATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIVITIES\n<|id|>439<|page|>128<|box|>914 44 939 485<|content|>1/ See Table 1, footnote 1. ... 2/ The surplus is not available by law for dividend distribution and is\n<|id|>440<|page|>128<|box|>48 278 63 751<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV...RATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIVITIES\n<|id|>451<|page|>134<|box|>137 336 151 676<|content|>Part A. ... - Classified by Types of Loans\n<|id|>452<|page|>134<|box|>152 428 164 577<|content|>(In millions of dollars)\n<|id|>454<|page|>135<|box|>49 237 68 702<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV...RATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIVITIES\n<|id|>455<|page|>135<|box|>72 262 91 669<|content|>Section I - Statements of Financial Condition\n<|id|>456<|page|>135<|box|>87 111 121 810<|content|>Table 8. ... - Loans Outstanding by Periods for Al...but Including Foreign Currency Loans - (Continued)\n<|id|>457<|page|>135<|box|>117 330 134 613<|content|>Part B. ... - Classified by Agencies\n<|id|>463<|page|>136<|box|>177 46 233 485<|content|>Includes foreign currency assets, representing loa...nment programs, principally the Agricultural Trade\n<|id|>464<|page|>136<|box|>110 564 224 982<|content|>Development and Assistance Act of 1954, as amended...e, are stated at rates specified in the agreements",
+    "raw_response": "<|src_id|>463<|tgt_id|>464",
+    "parsed": [
+        {
+            "src_id": 463,
+            "tgt_id": 464
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Florida', '3 (Lakeland, Southport, Brickell)', 'GMP Lakeland LLC, GMP Southport LLC, GMP Brickell', 'Per PSA Exhibit K', '$0.70 / $100 + Miami-Dade surtax', '~$1,680,000', 'Florida Department of Revenue / County Clerks', 'June 6, 2024', 'Palmetto Strauss PA']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'LLC', '', '', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 46,
+    "table2_idx": 47
+}

@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        48,
+        57
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>661<|page|>48<|box|>189 335 219 597<|content|>2 基本规定\n<|id|>663<|page|>49<|box|>169 389 197 651<|content|>3 施工管理\n<|id|>664<|page|>49<|box|>231 430 250 610<|content|>3.2 现场调查\n<|id|>667<|page|>49<|box|>439 385 458 653<|content|>3.3 图纸会审与设计交底\n<|id|>669<|page|>49<|box|>601 361 620 675<|content|>3.4 施工组织设计及施工方案\n<|id|>678<|page|>50<|box|>231 341 250 608<|content|>3.5 施工准备和开工条件\n<|id|>680<|page|>50<|box|>394 317 412 630<|content|>3.6 施工技术交底与安全交底\n<|id|>683<|page|>50<|box|>556 380 575 569<|content|>3.11 施工报表\n<|id|>685<|page|>50<|box|>671 378 690 569<|content|>3.12 交工验收\n<|id|>687<|page|>51<|box|>173 384 200 645<|content|>4 临时工程\n<|id|>692<|page|>52<|box|>194 348 222 610<|content|>5 通用工程\n<|id|>693<|page|>52<|box|>256 391 275 571<|content|>5.1 土石方工程\n<|id|>696<|page|>52<|box|>394 378 412 580<|content|>5.2 地基处理工程\n<|id|>710<|page|>53<|box|>673 424 692 601<|content|>5.5 钢结构工程\n<|id|>712<|page|>54<|box|>189 205 217 736<|content|>6 港口水工建筑物及道路堆场\n<|id|>713<|page|>54<|box|>252 393 270 551<|content|>6.2 码头\n<|id|>715<|page|>54<|box|>343 315 363 628<|content|>6.5 翻车机房地下结构和廊道\n<|id|>717<|page|>55<|box|>169 385 198 645<|content|>7 疏浚与吹填\n<|id|>718<|page|>55<|box|>231 424 250 604<|content|>7.1 一般规定\n<|id|>724<|page|>55<|box|>600 424 620 602<|content|>7.2 疏浚施工\n<|id|>726<|page|>56<|box|>189 270 217 686<|content|>9 船厂水工建筑物工程\n<|id|>727<|page|>56<|box|>252 369 271 593<|content|>9.2 船台与滑道工程\n<|id|>731<|page|>57<|box|>166 382 197 658<|content|>10 设备安装\n<|id|>732<|page|>57<|box|>230 426 249 617<|content|>10.1 一般规定",
+    "raw_response": "<|id|>661<|level|>1\n<|id|>663<|level|>1\n<|id|>664<|level|>2\n<|id|>667<|level|>2\n<|id|>669<|level|>2\n<|id|>678<|level|>2\n<|id|>680<|level|>2\n<|id|>683<|level|>2\n<|id|>685<|level|>2\n<|id|>687<|level|>1\n<|id|>692<|level|>1\n<|id|>693<|level|>2\n<|id|>696<|level|>2\n<|id|>710<|level|>2\n<|id|>712<|level|>1\n<|id|>713<|level|>2\n<|id|>715<|level|>2\n<|id|>717<|level|>1\n<|id|>718<|level|>2\n<|id|>724<|level|>2\n<|id|>726<|level|>1\n<|id|>727<|level|>2\n<|id|>731<|level|>1\n<|id|>732<|level|>2",
+    "parsed": [
+        {
+            "id": 661,
+            "level": 1
+        },
+        {
+            "id": 663,
+            "level": 1
+        },
+        {
+            "id": 664,
+            "level": 2
+        },
+        {
+            "id": 667,
+            "level": 2
+        },
+        {
+            "id": 669,
+            "level": 2
+        },
+        {
+            "id": 678,
+            "level": 2
+        },
+        {
+            "id": 680,
+            "level": 2
+        },
+        {
+            "id": 683,
+            "level": 2
+        },
+        {
+            "id": 685,
+            "level": 2
+        },
+        {
+            "id": 687,
+            "level": 1
+        },
+        {
+            "id": 692,
+            "level": 1
+        },
+        {
+            "id": 693,
+            "level": 2
+        },
+        {
+            "id": 696,
+            "level": 2
+        },
+        {
+            "id": 710,
+            "level": 2
+        },
+        {
+            "id": 712,
+            "level": 1
+        },
+        {
+            "id": 713,
+            "level": 2
+        },
+        {
+            "id": 715,
+            "level": 2
+        },
+        {
+            "id": 717,
+            "level": 1
+        },
+        {
+            "id": 718,
+            "level": 2
+        },
+        {
+            "id": 724,
+            "level": 2
+        },
+        {
+            "id": 726,
+            "level": 1
+        },
+        {
+            "id": 727,
+            "level": 2
+        },
+        {
+            "id": 731,
+            "level": 1
+        },
+        {
+            "id": 732,
+            "level": 2
+        }
+    ]
+}

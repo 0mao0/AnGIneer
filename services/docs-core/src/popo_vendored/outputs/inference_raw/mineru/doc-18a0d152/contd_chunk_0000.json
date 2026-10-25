@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>194 140 212 738<|content|>FROM: ... Wendy Schultz, Lead Associate, and Omar Siddiqui, Working Associate\n<|id|>4<|page|>1<|box|>220 140 238 736<|content|>TO: ... Marcus Delgado, Responsible Partner, and Catherine Bloom, Billing Partner\n<|id|>5<|page|>1<|box|>246 142 263 330<|content|>DATE: ... August 15, 2023\n<|id|>6<|page|>1<|box|>272 140 325 854<|content|>RE: ... 23-CV-004871 (Superior Court of California, County of Santa Clara)\n<|id|>7<|page|>1<|box|>334 142 352 408<|content|>MATTER NUMBER: ... 1008-00005\n<|id|>16<|page|>2<|box|>184 174 219 854<|content|>4. ... and\n<|id|>18<|page|>2<|box|>241 140 352 857<|content|>This memorandum proceeds in seven parts. ... Part VII sets forth our recommendation for next steps\n<|id|>142<|page|>17<|box|>348 181 364 604<|content|>• Marcus Delgado, Responsible Partner: ... $1,150 per hour\n<|id|>146<|page|>17<|box|>426 140 571 854<|content|>Estimated Additional C&H Fees Through Trial (If No Settlement). ... 6 million\n<|id|>143<|page|>17<|box|>368 183 383 570<|content|>• Catherine Bloom, Billing Partner: ... $1,050 per hour\n<|id|>144<|page|>17<|box|>387 183 404 547<|content|>• Wendy Schultz, Lead Associate: ... $725 per hour\n<|id|>145<|page|>17<|box|>406 183 422 571<|content|>• Omar Siddiqui, Working Associate: ... $575 per hour\n<|id|>158<|page|>18<|box|>768 142 784 320<|content|>Respectfully submitted,\n<|id|>159<|page|>18<|box|>785 142 801 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>160<|page|>18<|box|>804 143 819 251<|content|>By: ... By\n<|id|>161<|page|>18<|box|>820 143 835 374<|content|>Wendy Schultz Lead Associate\n<|id|>162<|page|>18<|box|>838 143 854 253<|content|>By: ... By\n<|id|>163<|page|>18<|box|>854 143 871 398<|content|>Omar Siddiqui Working Associate\n<|id|>164<|page|>18<|box|>873 143 887 238<|content|>Enclosures: ... Enclosures\n<|id|>165<|page|>19<|box|>89 179 125 852<|content|>1. ... Brindoval Digital Forensics LLC — Preliminary Forensic Report Summary (May 1, 2023)\n<|id|>168<|page|>19<|box|>203 142 233 852<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...... Unauthorized disclosure is strictly prohibited\n<|id|>166<|page|>19<|box|>128 176 162 852<|content|>2. ... — Technical Assessment of Development Time Savings (July 12, 2023)\n<|id|>167<|page|>19<|box|>165 176 200 852<|content|>3. ... Deposition Transcript Excerpts — Rajiv Anan...lick (June 7, 2023), and Derek Yun (June 22, 2023)",
+    "raw_response": "<|src_id|>160<|tgt_id|>161\n<|src_id|>162<|tgt_id|>163\n<|src_id|>164<|tgt_id|>165",
+    "parsed": [
+        {
+            "src_id": 160,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 165
+        }
+    ]
+}

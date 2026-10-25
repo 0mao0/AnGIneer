@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        55
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        21,
+        31,
+        32,
+        33,
+        36,
+        37,
+        39,
+        41,
+        42,
+        43,
+        45,
+        47,
+        51,
+        53,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>375 297 434 710<|content|>沿海港口水工建筑工程定额\n<|id|>2<|page|>1<|box|>468 320 507 688<|content|>Quota for Maritime Works in Seaport\n<|id|>8<|page|>2<|box|>304 331 350 696<|content|>沿海港口水工建筑工程定额\n<|id|>16<|page|>3<|box|>211 216 325 814<|content|>交通运输部关于发布《水运建设工程概算预算编制规定》及其配套定额的公告\n<|id|>23<|page|>5<|box|>220 423 273 609<|content|>修订说明\n<|id|>29<|page|>6<|box|>232 452 282 587<|content|>目 次\n<|id|>45<|page|>21<|box|>182 463 218 559<|content|>说明\n<|id|>86<|page|>31<|box|>240 277 284 737<|content|>第一节 桩梁板构件预制安装工程\n<|id|>87<|page|>32<|box|>139 419 170 567<|content|>I 构件预制工程\n<|id|>88<|page|>32<|box|>184 397 213 584<|content|>一、实心方桩、空心方桩\n<|id|>92<|page|>33<|box|>170 167 195 201<|content|>续表\n<|id|>101<|page|>36<|box|>145 411 174 548<|content|>二、板桩、锚碇桩\n<|id|>105<|page|>37<|box|>178 460 205 582<|content|>三、大管桩预制\n<|id|>106<|page|>37<|box|>217 205 240 260<|content|>1. 预制\n<|id|>118<|page|>39<|box|>180 201 205 257<|content|>2. 拼接\n<|id|>127<|page|>41<|box|>176 204 201 301<|content|>3. 钢筋笼加工\n<|id|>130<|page|>42<|box|>145 164 170 277<|content|>4. 桩靴法兰连接\n<|id|>134<|page|>43<|box|>180 449 207 585<|content|>四、矩（梯）形梁\n<|id|>141<|page|>45<|box|>182 451 209 589<|content|>五、单、双出沿梁\n<|id|>149<|page|>47<|box|>174 371 203 668<|content|>七、 \\pi 形梁、 \\Pi 形梁、引桥套梁、箱形梁\n<|id|>164<|page|>51<|box|>180 422 207 622<|content|>十、带靠船构件梁、T形梁\n<|id|>171<|page|>53<|box|>180 447 207 600<|content|>十一、预应力T型梁\n<|id|>175<|page|>54<|box|>145 401 174 547<|content|>十二、实心平板\n<|id|>176<|page|>54<|box|>189 159 213 271<|content|>1. 侧面无外露筋",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>8<|level|>1\n<|id|>16<|level|>1\n<|id|>23<|level|>1\n<|id|>29<|level|>1\n<|id|>45<|level|>1\n<|id|>86<|level|>1\n<|id|>87<|level|>2\n<|id|>88<|level|>3\n<|id|>92<|level|>-1\n<|id|>101<|level|>3\n<|id|>105<|level|>3\n<|id|>106<|level|>4\n<|id|>118<|level|>4\n<|id|>127<|level|>4\n<|id|>130<|level|>4\n<|id|>134<|level|>3\n<|id|>141<|level|>3\n<|id|>149<|level|>3\n<|id|>164<|level|>3\n<|id|>171<|level|>3\n<|id|>175<|level|>3\n<|id|>176<|level|>4",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 4
+        },
+        {
+            "id": 118,
+            "level": 4
+        },
+        {
+            "id": 127,
+            "level": 4
+        },
+        {
+            "id": 130,
+            "level": 4
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 4
+        }
+    ]
+}

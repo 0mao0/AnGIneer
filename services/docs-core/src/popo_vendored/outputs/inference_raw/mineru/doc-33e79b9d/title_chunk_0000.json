@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|page|>1<|box|>738 142 753 580<|content|>Reservation of Rights and Without-Prejudice Statem\n<|id|>16<|page|>2<|box|>513 140 529 334<|content|>Rationale for Mediation\n<|id|>21<|page|>3<|box|>440 142 457 400<|content|>Proposed Mediation Framework\n<|id|>22<|page|>3<|box|>470 142 487 310<|content|>I. Mediator Selection\n<|id|>25<|page|>4<|box|>90 140 107 375<|content|>II. Mediation Session Format\n<|id|>28<|page|>4<|box|>316 140 334 390<|content|>III. Pre-Mediation Submissions\n<|id|>35<|page|>5<|box|>327 140 344 599<|content|>Relationship to Arbitration Demand and Treaty Arti\n<|id|>40<|page|>6<|box|>90 142 107 305<|content|>Requested Response\n<|id|>43<|page|>6<|box|>329 140 347 236<|content|>Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>21<|level|>1\n<|id|>22<|level|>2\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>35<|level|>1\n<|id|>40<|level|>1\n<|id|>43<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        }
+    ]
+}

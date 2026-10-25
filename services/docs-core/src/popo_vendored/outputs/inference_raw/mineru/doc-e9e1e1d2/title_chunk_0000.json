@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        15,
+        18
+    ],
+    "pages": [
+        15,
+        16,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>145<|page|>15<|box|>263 140 282 318<|content|>**2. Industry Scope:**\n<|id|>147<|page|>15<|box|>527 142 545 506<|content|>**3. Employee Non-Solicitation (18 months):**\n<|id|>149<|page|>15<|box|>789 140 806 380<|content|>**4. Garden-Leave Payment:**\n<|id|>152<|page|>16<|box|>308 140 325 338<|content|>**5. Recommendation:**\n<|id|>176<|page|>18<|box|>277 140 296 446<|content|>**2. Industry Scope (Section 2(a)(i)):**",
+    "raw_response": "<|id|>145<|level|>1\n<|id|>147<|level|>1\n<|id|>149<|level|>1\n<|id|>152<|level|>1\n<|id|>176<|level|>1",
+    "parsed": [
+        {
+            "id": 145,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 176,
+            "level": 1
+        }
+    ]
+}

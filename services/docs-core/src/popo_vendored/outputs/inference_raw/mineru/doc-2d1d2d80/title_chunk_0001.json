@@ -1,0 +1,148 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        66
+    ],
+    "pages": [
+        46,
+        47,
+        50,
+        53,
+        55,
+        56,
+        58,
+        59,
+        60,
+        61,
+        62,
+        64,
+        65,
+        66
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>210<|page|>46<|box|>174 371 201 656<|content|>5 测量质量评分\n<|id|>233<|page|>47<|box|>183 191 213 782<|content|>附录 A 测量工程质量检查报告样式\n<|id|>237<|page|>47<|box|>351 333 381 638<|content|>水运工程测量质量\n<|id|>238<|page|>47<|box|>454 305 501 664<|content|>检查报告\n<|id|>244<|page|>50<|box|>178 212 208 808<|content|>附录 B 测量工程质量验收报告样式\n<|id|>246<|page|>50<|box|>335 356 365 664<|content|>水运工程测量质量\n<|id|>247<|page|>50<|box|>459 330 508 691<|content|>验收报告\n<|id|>255<|page|>53<|box|>201 176 229 810<|content|>附录 C 测量工程质量检验专用表样式\n<|id|>256<|page|>53<|box|>250 348 268 638<|content|>水运工程测量质量检验记录表样式\n<|id|>261<|page|>55<|box|>189 250 217 734<|content|>附录 D 本标准用词用语说明\n<|id|>273<|page|>56<|box|>181 280 234 787<|content|>本标准主编单位、参加单位、主要起草人、总校人员和管理组人员名单\n<|id|>283<|page|>58<|box|>247 335 268 641<|content|>中华人民共和国行业标准\n<|id|>284<|page|>58<|box|>325 267 353 709<|content|>水运工程测量质量检验标准\n<|id|>287<|page|>59<|box|>192 411 222 560<|content|>目次\n<|id|>289<|page|>60<|box|>189 388 217 595<|content|>1 总 则\n<|id|>292<|page|>61<|box|>190 411 219 616<|content|>2 术语\n<|id|>295<|page|>62<|box|>206 373 233 613<|content|>3 基本规定\n<|id|>296<|page|>62<|box|>263 411 282 575<|content|>3.1 一般规定\n<|id|>298<|page|>62<|box|>372 292 390 694<|content|>3.2 单位工程、分部工程和分项工程的划分\n<|id|>300<|page|>62<|box|>501 330 519 659<|content|>3.3 测量质量合格标准和检验程序\n<|id|>303<|page|>64<|box|>178 356 206 646<|content|>4 测量质量检验\n<|id|>304<|page|>64<|box|>240 414 257 588<|content|>4.1 一般规定\n<|id|>308<|page|>64<|box|>533 406 551 601<|content|>4.2 平面控制测量\n<|id|>318<|page|>65<|box|>185 424 204 595<|content|>4.4 地形测量\n<|id|>321<|page|>65<|box|>383 416 402 606<|content|>4.5 水位控制测量\n<|id|>323<|page|>65<|box|>558 426 577 595<|content|>4.6 水深测量\n<|id|>325<|page|>65<|box|>646 429 666 598<|content|>4.7 变形观测\n<|id|>327<|page|>65<|box|>736 429 754 598<|content|>4.9 水文观测\n<|id|>329<|page|>65<|box|>823 434 842 593<|content|>4.10 制图\n<|id|>331<|page|>66<|box|>181 348 212 656<|content|>5 测量质量评分",
+    "raw_response": "<|id|>210<|level|>1\n<|id|>233<|level|>1\n<|id|>237<|level|>2\n<|id|>238<|level|>2\n<|id|>244<|level|>1\n<|id|>246<|level|>2\n<|id|>247<|level|>2\n<|id|>255<|level|>1\n<|id|>256<|level|>2\n<|id|>261<|level|>1\n<|id|>273<|level|>1\n<|id|>283<|level|>1\n<|id|>284<|level|>1\n<|id|>287<|level|>1\n<|id|>289<|level|>1\n<|id|>292<|level|>1\n<|id|>295<|level|>1\n<|id|>296<|level|>2\n<|id|>298<|level|>2\n<|id|>300<|level|>2\n<|id|>303<|level|>1\n<|id|>304<|level|>2\n<|id|>308<|level|>2\n<|id|>318<|level|>2\n<|id|>321<|level|>2\n<|id|>323<|level|>2\n<|id|>325<|level|>2\n<|id|>327<|level|>2\n<|id|>329<|level|>2\n<|id|>331<|level|>1",
+    "parsed": [
+        {
+            "id": 210,
+            "level": 1
+        },
+        {
+            "id": 233,
+            "level": 1
+        },
+        {
+            "id": 237,
+            "level": 2
+        },
+        {
+            "id": 238,
+            "level": 2
+        },
+        {
+            "id": 244,
+            "level": 1
+        },
+        {
+            "id": 246,
+            "level": 2
+        },
+        {
+            "id": 247,
+            "level": 2
+        },
+        {
+            "id": 255,
+            "level": 1
+        },
+        {
+            "id": 256,
+            "level": 2
+        },
+        {
+            "id": 261,
+            "level": 1
+        },
+        {
+            "id": 273,
+            "level": 1
+        },
+        {
+            "id": 283,
+            "level": 1
+        },
+        {
+            "id": 284,
+            "level": 1
+        },
+        {
+            "id": 287,
+            "level": 1
+        },
+        {
+            "id": 289,
+            "level": 1
+        },
+        {
+            "id": 292,
+            "level": 1
+        },
+        {
+            "id": 295,
+            "level": 1
+        },
+        {
+            "id": 296,
+            "level": 2
+        },
+        {
+            "id": 298,
+            "level": 2
+        },
+        {
+            "id": 300,
+            "level": 2
+        },
+        {
+            "id": 303,
+            "level": 1
+        },
+        {
+            "id": 304,
+            "level": 2
+        },
+        {
+            "id": 308,
+            "level": 2
+        },
+        {
+            "id": 318,
+            "level": 2
+        },
+        {
+            "id": 321,
+            "level": 2
+        },
+        {
+            "id": 323,
+            "level": 2
+        },
+        {
+            "id": 325,
+            "level": 2
+        },
+        {
+            "id": 327,
+            "level": 2
+        },
+        {
+            "id": 329,
+            "level": 2
+        },
+        {
+            "id": 331,
+            "level": 1
+        }
+    ]
+}

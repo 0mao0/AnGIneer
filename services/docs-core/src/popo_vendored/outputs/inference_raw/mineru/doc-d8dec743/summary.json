@@ -1,0 +1,76 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ycqgbw9z\\input\\pdfs\\doc-d8dec743.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ycqgbw9z\\enriched\\doc-d8dec743.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>19<|level|>2\n<|id|>25<|level|>2\n<|id|>31<|level|>2\n<|id|>39<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>56<|level|>2",
+    "image_output": "<|src_id|>41<|tgt_id|>39\n<|src_id|>42<|tgt_id|>39",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 41,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 39
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 41,
+            "table2_idx": 42,
+            "upper_row_ss": [
+                [
+                    "Name",
+                    "Title",
+                    "Specimen Signature"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Martin Lacroix",
+                    "Chief Executive Officer",
+                    "____"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        50
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>548<|type|>title<|page|>45<|box|>200 143 218 338<|content|>B. Trial Team and Roles\n<|id|>549<|type|>table<|page|>45<|box|>224 143 446 852<|content|>None\n<|id|>550<|type|>title<|page|>45<|box|>496 142 513 383<|content|>C. Billing Rate Considerations\n<|id|>551<|type|>table<|page|>45<|box|>518 143 542 852<|content|>None\n<|id|>553<|type|>table<|page|>45<|box|>597 143 674 852<|content|>None\n<|id|>556<|type|>title<|page|>45<|box|>869 142 887 540<|content|>Local Counsel Rates (Whitmore & Callahan LLP):\n<|id|>557<|type|>table<|page|>46<|box|>88 143 164 852<|content|>None\n<|id|>559<|type|>title<|page|>46<|box|>243 236 263 759<|content|>XII. RISK ASSESSMENT AND CONTINGENCIES\n<|id|>560<|type|>title<|page|>46<|box|>289 142 306 246<|content|>A. Strengths\n<|id|>567<|type|>title<|page|>47<|box|>90 140 107 380<|content|>B. Weaknesses and Mitigation\n<|id|>576<|type|>title<|page|>48<|box|>285 140 301 316<|content|>C. Settlement Posture\n<|id|>592<|type|>title<|page|>49<|box|>90 218 109 777<|content|>XIII. PRE-TRIAL DEADLINES AND ACTION ITEMS\n<|id|>593<|type|>table<|page|>49<|box|>172 143 904 852<|content|>None\n<|id|>594<|type|>table<|page|>50<|box|>88 143 643 852<|content|>None\n<|id|>596<|type|>title<|page|>50<|box|>741 163 761 833<|content|>XIV. APPENDICES (CROSS-REFERENCES TO MATTER FILE)",
+    "raw_response": "<|src_id|>549<|tgt_id|>548\n<|src_id|>551<|tgt_id|>550\n<|src_id|>553<|tgt_id|>550\n<|src_id|>557<|tgt_id|>556\n<|src_id|>593<|tgt_id|>592\n<|src_id|>594<|tgt_id|>592",
+    "parsed": [
+        {
+            "src_id": 549,
+            "tgt_id": 548
+        },
+        {
+            "src_id": 551,
+            "tgt_id": 550
+        },
+        {
+            "src_id": 553,
+            "tgt_id": 550
+        },
+        {
+            "src_id": 557,
+            "tgt_id": 556
+        },
+        {
+            "src_id": 593,
+            "tgt_id": 592
+        },
+        {
+            "src_id": 594,
+            "tgt_id": 592
+        }
+    ]
+}

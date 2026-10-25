@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['3rd Excess', 'Allegheny Pacific Underwriters,', 'APU-XS-2021-7712', '7/1/2021', '7/1/2022', '$15,000,000', '$15,000,000', 'N/A', '$218,400', 'Follow-form; Financial Interest Clause;']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Inc.', '', '', '', '', '', '', '', 'Asbestos/Lead Exclusio n']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 442,
+    "table2_idx": 443
+}

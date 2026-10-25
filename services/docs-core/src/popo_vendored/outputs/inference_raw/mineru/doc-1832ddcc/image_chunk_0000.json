@@ -1,0 +1,53 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 197 106 797<|content|>MEMORANDUM — CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>7<|type|>title<|page|>1<|box|>304 142 321 251<|content|>1. PURPOSE\n<|id|>11<|type|>title<|page|>1<|box|>753 140 768 485<|content|>2. PROPOSED ENGAGEMENT DETAILS\n<|id|>12<|type|>title<|page|>1<|box|>784 142 801 300<|content|>2.1 Proposed Client\n<|id|>14<|type|>table<|page|>1<|box|>849 143 907 852<|content|>None\n<|id|>15<|type|>table<|page|>2<|box|>89 143 299 852<|content|>None\n<|id|>23<|type|>title<|page|>2<|box|>676 142 694 362<|content|>2.2 Proposed Adverse Party\n<|id|>25<|type|>table<|page|>2<|box|>760 143 907 852<|content|>None\n<|id|>26<|type|>table<|page|>3<|box|>88 143 145 852<|content|>None\n<|id|>28<|type|>title<|page|>3<|box|>297 142 314 419<|content|>Key Personnel Identified at HDDS:\n<|id|>34<|type|>title<|page|>3<|box|>487 140 505 455<|content|>2.3 Nature of the Proposed Engagement\n<|id|>41<|type|>title<|page|>4<|box|>404 142 422 397<|content|>2.4 Proposed Engagement Team\n<|id|>43<|type|>table<|page|>4<|box|>452 143 546 852<|content|>None\n<|id|>45<|type|>title<|page|>4<|box|>758 140 775 377<|content|>2.5 Known Opposing Counsel\n<|id|>47<|type|>table<|page|>4<|box|>824 143 895 852<|content|>None\n<|id|>48<|type|>table<|page|>5<|box|>88 143 127 852<|content|>None\n<|id|>50<|type|>title<|page|>5<|box|>257 140 273 598<|content|>3. RELATED AND AFFILIATED ENTITIES CHECKED\n<|id|>52<|type|>title<|page|>5<|box|>387 140 404 640<|content|>3.1 Whitmore Aerospace LLC — Affiliates and Relate\n<|id|>59<|type|>title<|page|>5<|box|>637 140 654 735<|content|>3.2 Hargrove-Dalton Defense Systems, Inc. — Affili\n<|id|>65<|type|>title<|page|>6<|box|>138 140 156 485<|content|>3.3 Additional Parties and Entities Checked\n<|id|>67<|type|>title<|page|>6<|box|>207 142 224 295<|content|>Opposing Counsel:\n<|id|>82<|type|>title<|page|>6<|box|>575 143 590 315<|content|>Government Entities:\n<|id|>86<|type|>title<|page|>6<|box|>717 140 734 607<|content|>4. CONFLICTS DATABASE SEARCH METHODOLOGY\n<|id|>103<|type|>title<|page|>8<|box|>242 140 258 250<|content|>5. RESULTS\n<|id|>104<|type|>title<|page|>8<|box|>273 140 290 490<|content|>5.1 Whitmore Aerospace LLC and Affiliates\n<|id|>105<|type|>title<|page|>8<|box|>297 142 314 557<|content|>Result: No current or prior representation identif\n<|id|>109<|type|>title<|page|>8<|box|>570 140 587 584<|content|>5.2 Hargrove-Dalton Defense Systems, Inc. and Affi\n<|id|>110<|type|>title<|page|>8<|box|>594 140 609 557<|content|>Result: No current or prior representation identif\n<|id|>113<|type|>title<|page|>9<|box|>90 140 107 514<|content|>5.3 Voss, Trager & Kendall LLP and Personnel\n<|id|>114<|type|>title<|page|>9<|box|>114 142 130 380<|content|>Result: No conflicts identified.\n<|id|>117<|type|>title<|page|>9<|box|>324 140 359 854<|content|>5.4 Third Parties — Ashford & Reeves LLP, Ridgelin\n<|id|>123<|type|>title<|page|>10<|box|>257 140 273 338<|content|>5.5 Government Entities\n<|id|>125<|type|>title<|page|>10<|box|>467 140 484 557<|content|>6. ETHICAL RULES AND STANDARDS APPLIED\n<|id|>132<|type|>title<|page|>11<|box|>329 140 345 450<|content|>7. CONCLUSION AND CLEARANCE\n<|id|>141<|type|>title<|page|>12<|box|>89 140 107 364<|content|>8. FOLLOW-UP ACTIONS\n<|id|>148<|type|>title<|page|>12<|box|>662 140 681 254<|content|>9. SIGN-OFF",
+    "raw_response": "<|src_id|>14<|tgt_id|>12\n<|src_id|>15<|tgt_id|>12\n<|src_id|>25<|tgt_id|>23\n<|src_id|>26<|tgt_id|>23\n<|src_id|>43<|tgt_id|>41\n<|src_id|>47<|tgt_id|>45\n<|src_id|>48<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        }
+    ]
+}

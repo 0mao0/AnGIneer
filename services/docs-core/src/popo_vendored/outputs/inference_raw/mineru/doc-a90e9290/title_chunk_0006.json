@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 6,
+    "range": [
+        281,
+        284
+    ],
+    "pages": [
+        282,
+        284
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3262<|page|>282<|box|>173 110 197 478<|content|>18 洞内预留预埋及构造物\n<|id|>3263<|page|>282<|box|>258 107 277 258<|content|>18.1 一般规定\n<|id|>3266<|page|>282<|box|>494 110 511 260<|content|>18.2 预留预埋\n<|id|>3284<|page|>284<|box|>428 110 445 240<|content|>18.3 电缆沟",
+    "raw_response": "<|id|>3262<|level|>1\n<|id|>3263<|level|>2\n<|id|>3266<|level|>2\n<|id|>3284<|level|>2",
+    "parsed": [
+        {
+            "id": 3262,
+            "level": 1
+        },
+        {
+            "id": 3263,
+            "level": 2
+        },
+        {
+            "id": 3266,
+            "level": 2
+        },
+        {
+            "id": 3284,
+            "level": 2
+        }
+    ]
+}

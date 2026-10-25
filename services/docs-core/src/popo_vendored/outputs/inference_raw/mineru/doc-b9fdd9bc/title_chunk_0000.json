@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 143 123 852<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>2<|page|>1<|box|>349 200 385 797<|content|>ANSWER AND AFFIRMATIVE DEFENSES OF DEFENDANT NEXFO\n<|id|>4<|page|>1<|box|>601 455 617 540<|content|>ANSWER\n<|id|>5<|page|>1<|box|>641 140 678 785<|content|>RESPONSES TO GENERAL AND INTRODUCTORY ALLEGATIONS\n<|id|>18<|page|>2<|box|>795 140 813 756<|content|>RESPONSES TO FACTUAL ALLEGATIONS COMMON TO ALL COU\n<|id|>38<|page|>5<|box|>402 140 439 826<|content|>RESPONSES TO COUNT I — RETALIATORY DISCHARGE (ILLI\n<|id|>45<|page|>6<|box|>89 140 125 799<|content|>RESPONSES TO COUNT II — RETALIATION UNDER SECTION\n<|id|>52<|page|>6<|box|>670 140 707 843<|content|>RESPONSES TO COUNT III — VIOLATION OF THE ILLINOIS\n<|id|>60<|page|>7<|box|>439 140 455 313<|content|>GENERAL DENIAL\n<|id|>62<|page|>7<|box|>564 382 580 616<|content|>AFFIRMATIVE DEFENSES\n<|id|>64<|page|>7<|box|>667 142 684 423<|content|>FIRST AFFIRMATIVE DEFENSE\n<|id|>65<|page|>7<|box|>699 140 715 496<|content|>Legitimate, Non-Retaliatory Business Reason\n<|id|>72<|page|>8<|box|>483 140 500 444<|content|>SECOND AFFIRMATIVE DEFENSE\n<|id|>73<|page|>8<|box|>513 142 532 614<|content|>Failure to Exhaust Administrative Remedies (as to\n<|id|>78<|page|>9<|box|>89 142 106 428<|content|>THIRD AFFIRMATIVE DEFENSE\n<|id|>81<|page|>9<|box|>386 143 402 447<|content|>FOURTH AFFIRMATIVE DEFENSE\n<|id|>82<|page|>9<|box|>417 142 435 367<|content|>Failure to Mitigate Damages\n<|id|>85<|page|>9<|box|>672 142 689 424<|content|>FIFTH AFFIRMATIVE DEFENSE\n<|id|>86<|page|>9<|box|>704 140 720 313<|content|>No Punitive Damages\n<|id|>91<|page|>10<|box|>266 140 282 424<|content|>SIXTH AFFIRMATIVE DEFENSE\n<|id|>92<|page|>10<|box|>297 140 314 357<|content|>OSHA Found No Violation\n<|id|>95<|page|>10<|box|>571 140 588 455<|content|>SEVENTH AFFIRMATIVE DEFENSE\n<|id|>96<|page|>10<|box|>602 142 619 419<|content|>Reservation of Additional Defenses\n<|id|>109<|page|>11<|box|>237 400 253 596<|content|>PRAYER FOR RELIEF\n<|id|>119<|page|>11<|box|>588 140 604 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>125<|page|>11<|box|>723 375 739 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>5<|level|>3\n<|id|>18<|level|>3\n<|id|>38<|level|>3\n<|id|>45<|level|>3\n<|id|>52<|level|>3\n<|id|>60<|level|>3\n<|id|>62<|level|>3\n<|id|>64<|level|>4\n<|id|>65<|level|>5\n<|id|>72<|level|>4\n<|id|>73<|level|>5\n<|id|>78<|level|>4\n<|id|>81<|level|>4\n<|id|>82<|level|>5\n<|id|>85<|level|>4\n<|id|>86<|level|>5\n<|id|>91<|level|>4\n<|id|>92<|level|>5\n<|id|>95<|level|>4\n<|id|>96<|level|>5\n<|id|>109<|level|>3\n<|id|>119<|level|>-1\n<|id|>125<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 5
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 73,
+            "level": 5
+        },
+        {
+            "id": 78,
+            "level": 4
+        },
+        {
+            "id": 81,
+            "level": 4
+        },
+        {
+            "id": 82,
+            "level": 5
+        },
+        {
+            "id": 85,
+            "level": 4
+        },
+        {
+            "id": 86,
+            "level": 5
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 92,
+            "level": 5
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 96,
+            "level": 5
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        }
+    ]
+}

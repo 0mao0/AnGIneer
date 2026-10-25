@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Brent', 'Dir.,', '12', 'United', '18', '18', 'Perpetual', 'No (sev.', 'No', 'Delaware']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Halvors en', 'Seasonal Planning & Analytics', 'months', 'States', 'months', 'months', '1', 'only)', '', 'e']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 198,
+    "table2_idx": 199
+}

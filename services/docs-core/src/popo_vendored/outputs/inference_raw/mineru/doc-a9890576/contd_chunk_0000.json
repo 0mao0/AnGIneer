@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        11,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>199 140 215 370<|content|>Matter Number: ... 1008-00005\n<|id|>3<|page|>1<|box|>224 142 241 331<|content|>Date: ... November 1, 2023\n<|id|>4<|page|>1<|box|>250 140 287 854<|content|>To: ... Wendy Schultz, Lead Associate, intellectua...ible Partner, intellectual Property Practice Group\n<|id|>5<|page|>1<|box|>294 140 311 725<|content|>From: ... Omar Siddiqui, Working Associate, intellectual Property Practice Group\n<|id|>6<|page|>1<|box|>320 140 375 854<|content|>Re: ... 23-CV-004871 (Superior Court of the State of California, County of Santa Clara)\n<|id|>12<|page|>1<|box|>747 174 784 852<|content|>(b) all personal devices of the three individual D...ptops, phones, and external storage media; ... and\n<|id|>14<|page|>1<|box|>835 140 909 857<|content|>Independent verification of Brindoval's findings w...otocol transmitted to Brindoval on October 3, 2023\n<|id|>22<|page|>2<|box|>753 174 827 854<|content|>(c) upon completion of the forensic remediation, B..., and accounts subject to the remediation; ... and\n<|id|>24<|page|>3<|box|>90 140 255 856<|content|>In addition to the remediation obligations, the Se...n reasonable notice, with costs borne by NovaSpark\n<|id|>46<|page|>5<|box|>109 181 145 854<|content|>• Two external USB storage drives (one belonging t...-4837291, and one belonging to Derek Yun); ... and\n<|id|>48<|page|>5<|box|>204 140 296 854<|content|>On May 1, 2023, Brindoval issued its Preliminary F...ce of the scope and extent of the misappropriation\n<|id|>55<|page|>5<|box|>859 174 897 856<|content|>Category 3 — DataStream ETL Pipeline Codebase and ...te source code and data-schema definitions for the\n<|id|>56<|page|>6<|box|>90 174 164 856<|content|>DataStream ETL (Extract, Transform, Load) pipeline...rmalization, quality assurance, and transformation\n<|id|>63<|page|>6<|box|>732 140 878 857<|content|>Rajiv Anand's Personal Devices and Accounts. ... 0...ich was forwarded to the personal email address on\n<|id|>64<|page|>7<|box|>90 140 125 854<|content|>September 28, 2022 — just four days before Mr. ... Anand's separation from Lumos on October 2, 2022\n<|id|>104<|page|>11<|box|>204 183 239 854<|content|>• Verification that Brindoval's sector-level overw...ted in accordance with NIST SP 800-88 Rev. ... and\n<|id|>106<|page|>11<|box|>279 140 388 854<|content|>On October 31, 2023, Naveen Kapoor issued a writte...irmation Letter is attached hereto as Attachment B\n<|id|>141<|page|>14<|box|>851 140 887 857<|content|>Attachment E: ... 23-CV-004871 (Superior Court of\n<|id|>142<|page|>15<|box|>90 140 126 854<|content|>the State of California, County of Santa Clara). ....phs 3 through 7) highlighted for ease of reference",
+    "raw_response": "<|src_id|>55<|tgt_id|>56\n<|src_id|>63<|tgt_id|>64\n<|src_id|>141<|tgt_id|>142",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 142
+        }
+    ]
+}

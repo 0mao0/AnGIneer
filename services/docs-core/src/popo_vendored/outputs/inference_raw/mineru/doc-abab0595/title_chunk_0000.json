@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>186 140 203 496<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>6<|page|>1<|box|>364 316 383 679<|content|>KOVEL ENGAGEMENT LETTER\n<|id|>7<|page|>1<|box|>410 142 426 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>15<|page|>2<|box|>366 140 383 473<|content|>2. Kovel Doctrine — Privilege Framework\n<|id|>21<|page|>2<|box|>832 210 885 854<|content|>\"PRIVILEGED AND CONFIDENTIAL — PREPARED AT THE DIR\n<|id|>31<|page|>3<|box|>814 140 832 323<|content|>3. Client Identification\n<|id|>38<|page|>4<|box|>424 140 441 300<|content|>4. Scope of Services\n<|id|>40<|page|>4<|box|>573 140 590 410<|content|>4.1 Revenue-Recognition Analysis\n<|id|>50<|page|>5<|box|>635 140 652 439<|content|>4.2 Expense-Reimbursement Analysis\n<|id|>56<|page|>6<|box|>375 140 392 377<|content|>4.3 General Forensic Support\n<|id|>62<|page|>7<|box|>90 140 107 387<|content|>5. Crestline Engagement Team\n<|id|>69<|page|>7<|box|>585 140 602 504<|content|>6. C&H Engagement Team / Points of Contact\n<|id|>77<|page|>8<|box|>90 140 107 406<|content|>7. Fees and Billing Arrangements\n<|id|>78<|page|>8<|box|>121 140 138 240<|content|>7.1 Flat Fee\n<|id|>80<|page|>8<|box|>304 142 321 326<|content|>7.2 Overage Provisions\n<|id|>90<|page|>9<|box|>157 140 175 356<|content|>7.4 Invoicing and Payment\n<|id|>97<|page|>9<|box|>553 140 570 467<|content|>8. Document Handling and Data Security\n<|id|>104<|page|>10<|box|>476 140 493 377<|content|>9. Confidentiality Obligations\n<|id|>110<|page|>11<|box|>258 143 277 390<|content|>10. Independence and Conflicts\n<|id|>116<|page|>11<|box|>704 142 722 545<|content|>11. Limitations on Testimony and Expert Retention\n<|id|>122<|page|>12<|box|>304 142 320 354<|content|>12. Term and Termination\n<|id|>129<|page|>12<|box|>792 142 809 400<|content|>13. No Third-Party Beneficiaries\n<|id|>131<|page|>13<|box|>150 142 167 297<|content|>14. Governing Law\n<|id|>133<|page|>13<|box|>309 142 325 431<|content|>15. Entire Agreement / Amendments\n<|id|>136<|page|>13<|box|>547 142 564 483<|content|>16. Counterparts and Electronic Signatures\n<|id|>140<|page|>13<|box|>742 140 758 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>146<|page|>13<|box|>863 140 878 491<|content|>CRESTLINE FORENSIC ADVISORY LLC\n<|id|>152<|page|>15<|box|>89 434 112 563<|content|>EXHIBIT A\n<|id|>153<|page|>15<|box|>135 294 152 704<|content|>FORM OF CONFIDENTIALITY UNDERTAKING\n<|id|>154<|page|>15<|box|>162 145 215 849<|content|>Individual Confidentiality Undertaking In Connecti",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>6<|level|>1\n<|id|>7<|level|>2\n<|id|>15<|level|>2\n<|id|>21<|level|>-1\n<|id|>31<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>3\n<|id|>50<|level|>3\n<|id|>56<|level|>3\n<|id|>62<|level|>2\n<|id|>69<|level|>2\n<|id|>77<|level|>2\n<|id|>78<|level|>3\n<|id|>80<|level|>3\n<|id|>90<|level|>3\n<|id|>97<|level|>2\n<|id|>104<|level|>2\n<|id|>110<|level|>2\n<|id|>116<|level|>2\n<|id|>122<|level|>2\n<|id|>129<|level|>2\n<|id|>131<|level|>2\n<|id|>133<|level|>2\n<|id|>136<|level|>2\n<|id|>140<|level|>-1\n<|id|>146<|level|>-1\n<|id|>152<|level|>1\n<|id|>153<|level|>2\n<|id|>154<|level|>3",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 3
+        }
+    ]
+}

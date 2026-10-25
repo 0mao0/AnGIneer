@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 148 123 848<|content|>UNITED STATES DISTRICT COURT FOR THE NORTHERN DIST\n<|id|>2<|page|>1<|box|>364 174 400 821<|content|>JOINT STIPULATION AND [PROPOSED] ORDER RE: STAY OF\n<|id|>4<|page|>1<|box|>484 142 501 486<|content|>JOINT STIPULATION OF THE PARTIES\n<|id|>6<|page|>1<|box|>688 143 704 303<|content|>1. BACKGROUND.\n<|id|>15<|page|>3<|box|>89 140 106 475<|content|>2. TERMS OF THE STIPULATED STAY\n<|id|>32<|page|>4<|box|>603 140 619 493<|content|>3. GOOD CAUSE EXISTS FOR THE STAY\n<|id|>39<|page|>5<|box|>508 140 526 357<|content|>4. PRAYER FOR RELIEF\n<|id|>52<|page|>6<|box|>551 183 587 813<|content|>[PROPOSED] ORDER RE: STAY OF DISCOVERY PENDING SET",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>15<|level|>2\n<|id|>32<|level|>2\n<|id|>39<|level|>2\n<|id|>52<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        }
+    ]
+}

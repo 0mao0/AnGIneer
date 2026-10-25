@@ -1,0 +1,171 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-n6zdajbn\\input\\pdfs\\doc-bd996ac4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-n6zdajbn\\enriched\\doc-bd996ac4.json",
+    "contd_output": "<|src_id|>90<|tgt_id|>91",
+    "title_output": "<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>20<|level|>2\n<|id|>28<|level|>2\n<|id|>37<|level|>2\n<|id|>43<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>1\n<|id|>65<|level|>1\n<|id|>66<|level|>2\n<|id|>72<|level|>2\n<|id|>74<|level|>2\n<|id|>76<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>2\n<|id|>88<|level|>1\n<|id|>99<|level|>1\n<|id|>112<|level|>1\n<|id|>120<|level|>1\n<|id|>121<|level|>2\n<|id|>128<|level|>2\n<|id|>137<|level|>2\n<|id|>140<|level|>2\n<|id|>146<|level|>1\n<|id|>158<|level|>1\n<|id|>175<|level|>1\n<|id|>183<|level|>1\n<|id|>195<|level|>1",
+    "image_output": "<|src_id|>11<|tgt_id|>1\n<|src_id|>51<|tgt_id|>49\n<|src_id|>52<|tgt_id|>49\n<|src_id|>67<|tgt_id|>66\n<|src_id|>101<|tgt_id|>99",
+    "contd_label": [
+        {
+            "src_id": 90,
+            "tgt_id": 91
+        }
+    ],
+    "title_label": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 183,
+            "level": 1
+        },
+        {
+            "id": 195,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 11,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 99
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 51,
+            "table2_idx": 52,
+            "upper_row_ss": [
+                [
+                    "Effective Availability",
+                    "",
+                    "",
+                    "$80,000,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Accounts Receivable",
+                    "$19,700,000",
+                    "85%",
+                    "$16,745,000"
+                ]
+            ]
+        }
+    ]
+}

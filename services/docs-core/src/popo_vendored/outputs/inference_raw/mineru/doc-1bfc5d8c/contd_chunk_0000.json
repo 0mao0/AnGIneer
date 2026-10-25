@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 140 133 547<|content|>1725 K Street NW, Suite 1100 Washington, DC 20006\n<|id|>2<|page|>1<|box|>141 140 178 854<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>186 746 204 854<|content|>May 14, 2021\n<|id|>4<|page|>1<|box|>212 140 229 632<|content|>Via Certified Mail, Return Receipt Requested, and Electronic Mail\n<|id|>5<|page|>1<|box|>237 140 273 854<|content|>Marco D. ... Castellon Foley & Ruiz LLP 228 South Orange Avenue, Suite 1400 Orlando, FL 32801\n<|id|>6<|page|>1<|box|>282 174 335 854<|content|>Re: ... Response to Demand Letter Dated April 2, 2...ark Boulevard, Sanford, FL 32771 (Seminole County)\n<|id|>7<|page|>1<|box|>344 176 362 562<|content|>Our Client: ... Fairwater Real Estate Investment Trust\n<|id|>8<|page|>1<|box|>369 140 387 294<|content|>Dear Mr. ... Castellon\n<|id|>13<|page|>1<|box|>844 140 881 856<|content|>Fairwater acquired the Fairwater Property on Octob...t Distribution Centers, Inc. ... 00, pursuant to a\n<|id|>14<|page|>2<|box|>90 140 126 854<|content|>Purchase and Sale Agreement dated August 12, 2016....n the Official Records of Seminole County, Florida\n<|id|>48<|page|>6<|box|>220 181 294 854<|content|>• Fairwater entered into a long-term triple-net lease with Condor Supply Chain Solutions, Inc. ... and\n<|id|>50<|page|>6<|box|>351 140 517 856<|content|>The unreasonable and prolonged delay by both Ridge...claims where detrimental reliance was established)\n<|id|>54<|page|>6<|box|>800 140 930 856<|content|>The mere recital of a previously vacated easement ... two full years before PRIVILEGED AND CONFIDENTIAL\n<|id|>55<|page|>7<|box|>90 140 181 854<|content|>Ridgemark's acquisition of the southern parcel on ...the Fairwater Property or impair Fairwater's title\n<|id|>77<|page|>9<|box|>579 174 633 854<|content|>(d) any communications between or among Ridgemark, Roland P. ... and\n<|id|>79<|page|>9<|box|>705 140 814 856<|content|>Fairwater respectfully but firmly requests that Ri...tation injunctive relief and an action for damages\n<|id|>81<|page|>10<|box|>133 142 151 274<|content|>Very truly yours,\n<|id|>82<|page|>10<|box|>151 140 167 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>83<|page|>10<|box|>170 143 186 253<|content|>By: ... By\n<|id|>84<|page|>10<|box|>186 142 203 343<|content|>Francesca Morano Partner\n<|id|>85<|page|>10<|box|>203 142 220 348<|content|>Telephone: ... (202) 454-7836\n<|id|>86<|page|>10<|box|>220 140 238 462<|content|>Email: ... com\n<|id|>87<|page|>10<|box|>239 142 253 171<|content|>cc: ... cc\n<|id|>88<|page|>10<|box|>263 174 299 854<|content|>Denise M. ... , General Counsel, Fairwater Real Es... Waverly Park Drive, Suite 600, Bethesda, MD 20814\n<|id|>89<|page|>10<|box|>306 174 325 777<|content|>Gerald K. ... Sung, SVP, Asset Management, Fairwater Real Estate Investment Trust\n<|id|>90<|page|>10<|box|>333 174 351 537<|content|>Jeffrey Park, Esq. ... , Calderwood & Harkness LLP\n<|id|>91<|page|>10<|box|>358 174 395 854<|content|>Brenda Hargrove, Esq. ... , 501 East Church Street, Suite 300, Orlando, FL 32801\n<|id|>92<|page|>10<|box|>404 140 420 285<|content|>Enclosures: ... None",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>54<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        }
+    ]
+}

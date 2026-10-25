@@ -1,0 +1,48 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>547 142 564 333<|content|>1. Scope of Engagement\n<|id|>17<|page|>2<|box|>575 142 592 313<|content|>2. Engagement Team\n<|id|>22<|page|>3<|box|>351 142 368 290<|content|>3. Fees and Billing\n<|id|>29<|page|>4<|box|>494 140 511 326<|content|>4. Dual Representation\n<|id|>34<|page|>5<|box|>150 140 167 349<|content|>5. Document Preservation\n<|id|>45<|page|>5<|box|>825 140 844 380<|content|>6. Privileged Communications\n<|id|>49<|page|>6<|box|>439 140 457 287<|content|>7. Governing Law\n<|id|>54<|page|>6<|box|>696 140 713 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>58<|page|>6<|box|>773 349 790 647<|content|>ACKNOWLEDGED AND AGREED:\n<|id|>60<|page|>6<|box|>862 140 878 441<|content|>HALCYON SEMICONDUCTOR AG",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>17<|level|>1\n<|id|>22<|level|>1\n<|id|>29<|level|>1\n<|id|>34<|level|>1\n<|id|>45<|level|>1\n<|id|>49<|level|>1\n<|id|>54<|level|>-1\n<|id|>58<|level|>-1\n<|id|>60<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        }
+    ]
+}

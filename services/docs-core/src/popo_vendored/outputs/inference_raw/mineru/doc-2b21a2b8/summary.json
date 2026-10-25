@@ -1,0 +1,90 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-dsftfffj\\input\\pdfs\\doc-2b21a2b8.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-dsftfffj\\enriched\\doc-2b21a2b8.json",
+    "contd_output": "",
+    "title_output": "<|id|>3<|level|>1\n<|id|>7<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>26<|level|>1\n<|id|>27<|level|>2\n<|id|>35<|level|>1\n<|id|>36<|level|>2\n<|id|>41<|level|>2\n<|id|>46<|level|>1\n<|id|>51<|level|>1\n<|id|>58<|level|>1",
+    "image_output": "<|src_id|>1<|tgt_id|>3\n<|src_id|>48<|tgt_id|>46\n<|src_id|>49<|tgt_id|>46",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 46
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 48,
+            "table2_idx": 49,
+            "upper_row_ss": [
+                [
+                    "Promptly following SPA execution",
+                    "Solicitation of written consent of Veridian stockholders in accordance with the applicable provisions of the Delaware General Corporation Law and Veridian's certificate of incorporation and bylaws. Crestline"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Ventures, LP (holding approximately 28.3% of Veridian's outstanding capital stock), Boreal Health Partners Fund III, LP (holding approximately 19.7%), and Apex Growth Equity Fund II, LP (holding approximately 14.1%) collectively hold in excess of 62% of the outstanding capital stock of Veridian and are expected to deliver their written consents promptly following signing, which, when combined with any additional consents obtained, would satisfy the stockholder approval threshold required under the SPA and applicable law"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        11,
+        18,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>410 161 446 834<|content|>Harrowgate Private Equity Fund IV LP a Delaware limited partnership (\"Buyer\" or \"HPE Fund IV\")\n<|id|>8<|page|>1<|box|>454 204 473 792<|content|>Harrowgate Velocity Merger Sub Inc. ... a Delaware corporation (\"Merger Sub\")\n<|id|>9<|page|>1<|box|>482 483 497 514<|content|>and\n<|id|>10<|page|>1<|box|>507 259 523 736<|content|>VeloPay Systems, Inc. ... a Delaware corporation (the \"Company\")\n<|id|>11<|page|>1<|box|>566 437 583 560<|content|>March 18, 2025\n<|id|>12<|page|>1<|box|>592 143 609 408<|content|>Right-click to update Table of Contents\n<|id|>74<|page|>11<|box|>89 174 126 852<|content|>(ii) Helios Treasury Solutions LLC (acquired March 2024; ... and\n<|id|>76<|page|>11<|box|>179 140 233 854<|content|>These prior investments are disclosed solely for i... transactions contemplated by the Merger Agreement\n<|id|>115<|page|>18<|box|>436 174 473 854<|content|>(ii) the Surviving Corporation and its subsidiarie...me due in the ordinary course of business; ... and\n<|id|>117<|page|>18<|box|>542 140 635 854<|content|>Buyer further notes that, in accordance with Secti...lvency standards set forth in the Merger Agreement\n<|id|>162<|page|>27<|box|>344 140 362 486<|content|>By: ... Harrowgate Capital Management IV LLC,\n<|id|>163<|page|>27<|box|>362 142 378 285<|content|>its General Partner\n<|id|>164<|page|>27<|box|>378 142 396 254<|content|>By: ... By\n<|id|>165<|page|>27<|box|>396 142 412 323<|content|>Name: ... Priya Deshmukh\n<|id|>166<|page|>27<|box|>414 142 430 323<|content|>Title: ... Managing Partner\n<|id|>167<|page|>27<|box|>431 142 446 308<|content|>Date: ... March 18, 2025\n<|id|>168<|page|>27<|box|>515 140 532 550<|content|>HARROWGATE VELOCITY MERGER SUB INC. ... HARROWGATE VELOCITY MERGER SUB INC\n<|id|>170<|page|>27<|box|>551 140 566 323<|content|>Name: ... Priya Deshmukh\n<|id|>171<|page|>27<|box|>566 140 584 393<|content|>Title: ... Sole Director and President\n<|id|>172<|page|>27<|box|>585 140 602 310<|content|>Date: ... March 18, 2025",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>9<|tgt_id|>10\n<|src_id|>162<|tgt_id|>163\n<|src_id|>164<|tgt_id|>165\n<|src_id|>165<|tgt_id|>166\n<|src_id|>166<|tgt_id|>167\n<|src_id|>168<|tgt_id|>170\n<|src_id|>170<|tgt_id|>171\n<|src_id|>171<|tgt_id|>172",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 165
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 167
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 171
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 172
+        }
+    ]
+}

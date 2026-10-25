@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>8<|page|>1<|box|>425 176 441 555<|content|>Calderwood & Harkness Matter No. 1001-00004\n<|id|>9<|page|>1<|box|>450 142 468 250<|content|>Dear Patricia:\n<|id|>11<|page|>1<|box|>700 140 718 426<|content|>Transmittal of Executed Documents\n<|id|>18<|page|>2<|box|>378 140 395 437<|content|>Confirmation of Execution Authority\n<|id|>24<|page|>2<|box|>786 140 804 607<|content|>Request for Company Counterparts and Seller Delive\n<|id|>31<|page|>3<|box|>741 142 757 313<|content|>Post-Signing Matters\n<|id|>39<|page|>4<|box|>632 142 648 318<|content|>Ancillary Agreements\n<|id|>45<|page|>5<|box|>407 140 425 267<|content|>Confidentiality\n<|id|>47<|page|>5<|box|>622 140 638 308<|content|>Contact Information\n<|id|>56<|page|>6<|box|>114 210 132 517<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>-1\n<|id|>11<|level|>1\n<|id|>18<|level|>1\n<|id|>24<|level|>1\n<|id|>31<|level|>1\n<|id|>39<|level|>1\n<|id|>45<|level|>1\n<|id|>47<|level|>1\n<|id|>56<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        }
+    ]
+}

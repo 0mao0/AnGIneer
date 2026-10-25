@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        98,
+        100
+    ],
+    "pages": [
+        98,
+        99,
+        100
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>612<|page|>98<|box|>880 159 902 851<|content|>第 4. ... 3 条 为便于型钢代号规格的书写, 将常用型钢、钢管\n<|id|>613<|page|>99<|box|>107 133 130 416<|content|>各部分名称进行了统一。 ... 各部分名称进行了统一\n<|id|>624<|page|>99<|box|>885 184 908 878<|content|>第 4. ... 5 条 从工程施工的需要出发,本条规定了在各支座\n<|id|>625<|page|>100<|box|>89 118 112 575<|content|>中心线处的墩台顶、桥面上应注以标高。 ... 中心线处的墩台顶、桥面上应注以标高",
+    "raw_response": "<|src_id|>612<|tgt_id|>613\n<|src_id|>624<|tgt_id|>625",
+    "parsed": [
+        {
+            "src_id": 612,
+            "tgt_id": 613
+        },
+        {
+            "src_id": 624,
+            "tgt_id": 625
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        13,
+        14,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>215 223 234 774<|content|>CALDERWOOD & HARKNESS LLP INTERNAL MEMORANDUM\n<|id|>3<|page|>1<|box|>243 704 260 854<|content|>September 28, 2023\n<|id|>4<|page|>1<|box|>268 140 304 854<|content|>TO: ... Alison Trang, Partner / SLG Board Member, Ridgeline Capital Partners, LP\n<|id|>5<|page|>1<|box|>313 140 330 854<|content|>FROM: ... Samuel Eklund, Responsible Partner, Litigation (General), Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>339 142 357 810<|content|>RE: ... Settlement Overture — Recommendation to Defer\n<|id|>7<|page|>1<|box|>364 140 400 852<|content|>MATTER: ... )\n<|id|>17<|page|>2<|box|>287 174 377 854<|content|>Sam — I wanted to reach out informally to see whet...xploring resolution of this matter. ... — Harrison\n<|id|>18<|page|>2<|box|>386 140 589 856<|content|>Several aspects of this communication merit attent...purportedly seeking nearly $100 million in damages\n<|id|>22<|page|>2<|box|>829 181 901 857<|content|>• May 16, 2022 — First Executive Negotiation Sessi...s represented by Tobias Wren (General Counsel) and\n<|id|>23<|page|>3<|box|>90 210 143 854<|content|>Catherine Kirkwood (SVP, Supply Chain Operations)....n was valid for Cause and that no payment was owed\n<|id|>108<|page|>13<|box|>875 140 909 854<|content|>1. ... Accepting a mediation invitation — particul... interpreted by Vantor and its counsel as a signal\n<|id|>109<|page|>13<|box|>916 142 929 272<|content|>Matter No. ... 1012-00005\n<|id|>110<|page|>14<|box|>90 140 200 854<|content|>that Stonefield is concerned about the outcome of ...'s prior confidence in its position was overstated\n<|id|>144<|page|>17<|box|>852 142 869 320<|content|>Respectfully submitted,\n<|id|>145<|page|>17<|box|>869 142 886 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>146<|page|>17<|box|>888 143 905 254<|content|>By: ... By\n<|id|>147<|page|>18<|box|>89 140 123 852<|content|>Samuel Eklund Responsible Partner, Litigation (Gen...York, New York 10166 Telephone: ... (212) 555-0184\n<|id|>148<|page|>18<|box|>125 142 138 457<|content|>Email: ... com\n<|id|>149<|page|>18<|box|>138 140 169 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM... / ATTORNEY WORK PRODUCT Matter No. ... 1012-00005",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>108<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 110
+        }
+    ]
+}

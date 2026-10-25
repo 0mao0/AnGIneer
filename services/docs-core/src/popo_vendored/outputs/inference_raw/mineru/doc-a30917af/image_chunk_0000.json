@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3<|type|>title<|page|>1<|box|>172 323 191 674<|content|>ARTICLES OF ORGANIZATION\n<|id|>5<|type|>title<|page|>1<|box|>250 313 268 684<|content|>FAIRWATER HP MANAGER, LLC\n<|id|>13<|type|>title<|page|>1<|box|>594 143 609 325<|content|>ARTICLE I — NAME\n<|id|>15<|type|>title<|page|>1<|box|>645 382 662 614<|content|>Fairwater HP Manager, LLC\n<|id|>18<|type|>title<|page|>2<|box|>89 142 107 361<|content|>ARTICLE II — PURPOSE\n<|id|>25<|type|>title<|page|>2<|box|>724 140 743 457<|content|>ARTICLE III — PRINCIPAL OFFICE\n<|id|>27<|type|>title<|page|>2<|box|>777 176 794 573<|content|>7200 Pratt Street, Suite 1400 Baltimore, MD 21202\n<|id|>29<|type|>title<|page|>3<|box|>90 142 106 442<|content|>ARTICLE IV — RESIDENT AGENT\n<|id|>34<|type|>title<|page|>3<|box|>417 142 434 552<|content|>ARTICLE V — MEMBERS AND MANAGEMENT\n<|id|>36<|type|>table<|page|>3<|box|>549 143 662 852<|content|>None\n<|id|>39<|type|>title<|page|>4<|box|>186 140 203 393<|content|>ARTICLE VI — ORGANIZER\n<|id|>43<|type|>title<|page|>4<|box|>414 140 431 388<|content|>ARTICLE VII — DURATION\n<|id|>45<|type|>title<|page|>4<|box|>554 140 571 584<|content|>ARTICLE VIII — FEDERAL TAX IDENTIFICATION\n<|id|>47<|type|>title<|page|>4<|box|>625 176 641 272<|content|>52-2201889\n<|id|>49<|type|>title<|page|>4<|box|>819 140 835 514<|content|>ARTICLE IX — OPERATING AGREEMENT\n<|id|>52<|type|>title<|page|>5<|box|>303 140 320 433<|content|>ARTICLE X — EFFECTIVE DATE\n<|id|>54<|type|>title<|page|>5<|box|>462 140 479 516<|content|>ARTICLE XI — ADDITIONAL PROVISIONS\n<|id|>65<|type|>title<|page|>6<|box|>409 354 426 643<|content|>CONSENT OF RESIDENT AGENT\n<|id|>69<|type|>title<|page|>6<|box|>660 176 676 547<|content|>311 West Saratoga Street Baltimore, MD 21201\n<|id|>78<|type|>title<|page|>7<|box|>90 258 106 738<|content|>FILING INSTRUCTIONS — INTERNAL MEMORANDUM\n<|id|>79<|type|>title<|page|>7<|box|>114 258 132 738<|content|>CALDERWOOD & HARKNESS LLP — NOT FOR FILING\n<|id|>81<|type|>title<|page|>7<|box|>195 143 210 357<|content|>Client/Matter Information:\n<|id|>82<|type|>table<|page|>7<|box|>219 143 328 852<|content|>None\n<|id|>83<|type|>title<|page|>7<|box|>363 143 378 297<|content|>Filing Instructions:\n<|id|>95<|type|>table<|page|>7<|box|>888 145 907 852<|content|>None\n<|id|>96<|type|>table<|page|>8<|box|>88 145 268 852<|content|>None",
+    "raw_response": "<|src_id|>36<|tgt_id|>34\n<|src_id|>82<|tgt_id|>81\n<|src_id|>95<|tgt_id|>83\n<|src_id|>96<|tgt_id|>83",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 83
+        }
+    ]
+}

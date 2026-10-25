@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['colspan=2, 合计', 'colspan=6, 应得分:____实得分:____得分率:____%']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2,colspan=2, 序号', 'rowspan=2, 检查项目名称', 'rowspan=2, 标准分', '一级(95%)', '二级(85%)', '三级(70%)', 'rowspan=2, 实得分']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 1574,
+    "table2_idx": 1575
+}

@@ -1,0 +1,28 @@
+{
+    "task": "title",
+    "chunk_index": 6,
+    "range": [
+        406,
+        465
+    ],
+    "pages": [
+        407,
+        464
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3163<|page|>407<|box|>94 100 112 676<|content|>D.1.2 符号显示指令应符合表 D.1.2-1 ~ 表 D.1.2-5 的规定。\n<|id|>3244<|page|>464<|box|>640 436 657 606<|content|>D.2 显示规定\n<|id|>3245<|page|>464<|box|>671 120 690 636<|content|>D.2.1 物标与显示类别对应关系应符合表 D.2.1 规定。",
+    "raw_response": "<|id|>3163<|level|>3\n<|id|>3244<|level|>1\n<|id|>3245<|level|>2",
+    "parsed": [
+        {
+            "id": 3163,
+            "level": 3
+        },
+        {
+            "id": 3244,
+            "level": 1
+        },
+        {
+            "id": 3245,
+            "level": 2
+        }
+    ]
+}

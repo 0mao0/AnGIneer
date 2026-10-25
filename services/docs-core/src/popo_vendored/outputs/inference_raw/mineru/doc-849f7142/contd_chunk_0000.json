@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 148 151 846<|content|>425 Lexington Avenue New York, NY 10017 Telephone: ... (212) 558- 3588\n<|id|>3<|page|>1<|box|>204 676 220 854<|content|>Matter No. ... 1043-00002\n<|id|>2<|page|>1<|box|>159 161 195 836<|content|>1900 K Street NW, Suite 800 Washington, DC 20006 Telephone: ... (202) 282-5100\n<|id|>4<|page|>1<|box|>229 722 247 854<|content|>October 10, 2025\n<|id|>5<|page|>1<|box|>255 140 271 400<|content|>VIA E-MAIL AND Sundial Data Systems\n<|id|>6<|page|>1<|box|>277 140 314 852<|content|>Mr. ... Raymond Okafor, President Titan-McAllister... LLC 7900 Harkins Road, Suite 100 Lanham, MD 20706\n<|id|>7<|page|>1<|box|>323 174 340 647<|content|>cc: ... Michelle Tran, Senior Vice President, Data Center Programs\n<|id|>8<|page|>1<|box|>349 140 385 854<|content|>Re: ... Request for Certificates of Insurance\n<|id|>9<|page|>1<|box|>393 174 522 856<|content|>Reference is made to (i) the Engineering, Procurem...it D to the EPC Agreement — Insurance Requirements\n<|id|>60<|page|>6<|box|>773 183 790 514<|content|>• $1,000,000 disease — each employee; ... and\n<|id|>62<|page|>6<|box|>811 140 904 857<|content|>The Workers' Compensation and Employers' Liability...to the United States Longshore and Harbor Workers'\n<|id|>63<|page|>7<|box|>90 140 125 854<|content|>Compensation Act or any other federal workers' com...statute, appropriate endorsements must be included\n<|id|>113<|page|>11<|box|>814 140 888 857<|content|>Please be advised that failure to deliver complian...edule, the Owner's financing arrangements, and the\n<|id|>114<|page|>12<|box|>90 140 126 854<|content|>Owner's commitments to its data center tenants. .....CG to treat this request with the highest priority\n<|id|>135<|page|>13<|box|>599 140 632 852<|content|>Douglas Fairchild, Partner Calderwood & Harkness L...e New York, NY 10017 Telephone: ... (212) 558-4122\n<|id|>136<|page|>13<|box|>633 140 650 470<|content|>Email: ... com\n<|id|>137<|page|>13<|box|>651 142 667 259<|content|>cc (via e-mail): ... cc (via e-mail)",
+    "raw_response": "<|src_id|>62<|tgt_id|>63\n<|src_id|>113<|tgt_id|>114",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        }
+    ]
+}

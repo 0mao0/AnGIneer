@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 12,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Description', 'Letter from Calderwood & Harkness LLP to Gregory Callahan, Esq., Vice President, Legal and Compliance at Veridian Health Research Network, Inc., requesting that']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Veridian provide certificates of insurance from each of the 38 participating Veridian Network sites demonstrating that each site maintains general liability and professional liability insurance with limits of at least $5,000,000 per occurrence and $10,000,000 in the aggregate, as required by Exhibit E to the MCTA. The letter notes that such certificates are due within 15 business days of execution of the MCTA (i.e., by July 21, 2023), and requests that certificates be transmitted to Calderwood & Harkness LLP as they are received.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 136,
+    "table2_idx": 137
+}

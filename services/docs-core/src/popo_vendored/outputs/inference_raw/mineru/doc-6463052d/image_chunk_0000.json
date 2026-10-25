@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        18
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>90 434 111 563<|content|>EXHIBIT D\n<|id|>1<|type|>title<|page|>2<|box|>128 151 146 843<|content|>Evidence of Economic Substance of Penterra Biophar\n<|id|>4<|type|>title<|page|>2<|box|>260 140 277 364<|content|>I. Introduction and Purpose\n<|id|>11<|type|>title<|page|>3<|box|>377 140 393 524<|content|>II. PBI Corporate Organization and Governance\n<|id|>12<|type|>title<|page|>3<|box|>407 140 425 277<|content|>A. Entity Details\n<|id|>18<|type|>title<|page|>4<|box|>138 140 157 446<|content|>B. Board of Directors and Governance\n<|id|>32<|type|>title<|page|>5<|box|>176 140 194 498<|content|>C. Corporate Decision-Making Independence\n<|id|>41<|type|>title<|page|>6<|box|>148 140 167 413<|content|>III. PBI Personnel and Headcount\n<|id|>42<|type|>title<|page|>6<|box|>180 140 198 408<|content|>A. Headcount Growth Trajectory\n<|id|>46<|type|>title<|page|>6<|box|>561 140 579 508<|content|>B. Functional Departments and Key Personnel\n<|id|>57<|type|>title<|page|>7<|box|>648 140 664 334<|content|>C. Personnel Interviews\n<|id|>68<|type|>title<|page|>8<|box|>436 142 454 395<|content|>IV. Physical Presence in Ireland\n<|id|>69<|type|>title<|page|>8<|box|>468 142 484 269<|content|>A. Office Space\n<|id|>73<|type|>title<|page|>8<|box|>830 140 847 477<|content|>B. Capital Expenditure and Infrastructure\n<|id|>76<|type|>title<|page|>9<|box|>239 140 256 439<|content|>C. Affiliated Manufacturing Presence\n<|id|>81<|type|>title<|page|>9<|box|>672 140 690 462<|content|>V. DEMPE Functions Performed by PBI\n<|id|>82<|type|>title<|page|>9<|box|>704 140 720 457<|content|>A. Overview of the DEMPE Framework\n<|id|>88<|type|>table<|page|>10<|box|>488 143 622 852<|content|>None\n<|id|>107<|type|>title<|page|>12<|box|>771 140 787 377<|content|>G. DEMPE Functions Matrix\n<|id|>110<|type|>title<|page|>13<|box|>212 140 229 468<|content|>VI. Commercial Operations and Revenue\n<|id|>111<|type|>title<|page|>13<|box|>243 140 260 591<|content|>A. Key Products Commercialized by PBI (Non-America\n<|id|>117<|type|>title<|page|>13<|box|>767 142 784 338<|content|>B. PBI Financial Results\n<|id|>120<|type|>title<|page|>14<|box|>176 140 194 423<|content|>C. Legacy IP Royalty Arrangement\n<|id|>122<|type|>table<|page|>14<|box|>378 143 512 852<|content|>None\n<|id|>124<|type|>title<|page|>14<|box|>641 140 659 455<|content|>VII. Risk Assumption and Management\n<|id|>135<|type|>title<|page|>15<|box|>669 140 686 589<|content|>VIII. Irish Tax Compliance and Substance Requireme\n<|id|>142<|type|>title<|page|>16<|box|>428 140 446 759<|content|>IX. Summary Table — Key Indicators of PBI Economic\n<|id|>143<|type|>table<|page|>16<|box|>497 143 892 852<|content|>None\n<|id|>144<|type|>table<|page|>17<|box|>89 143 142 852<|content|>None\n<|id|>145<|type|>title<|page|>17<|box|>191 140 209 258<|content|>X. Conclusion\n<|id|>156<|type|>title<|page|>18<|box|>90 183 106 553<|content|>• Exhibit E — Penalty Protection Documentation",
+    "raw_response": "<|src_id|>88<|tgt_id|>82\n<|src_id|>122<|tgt_id|>120\n<|src_id|>143<|tgt_id|>142\n<|src_id|>144<|tgt_id|>142",
+    "parsed": [
+        {
+            "src_id": 88,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 142
+        }
+    ]
+}

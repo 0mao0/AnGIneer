@@ -1,0 +1,50 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|page|>1<|box|>638 140 654 390<|content|>Description of Enclosed Report\n<|id|>14<|page|>2<|box|>90 140 107 460<|content|>Summary of Report Scope and Opinions\n<|id|>21<|page|>2<|box|>738 142 753 370<|content|>Enclosures and Attachments\n<|id|>28<|page|>3<|box|>348 142 364 290<|content|>Method of Service\n<|id|>30<|page|>3<|box|>523 140 542 316<|content|>Reservation of Rights\n<|id|>33<|page|>3<|box|>819 142 835 411<|content|>Availability for Expert Deposition\n<|id|>35<|page|>4<|box|>167 140 185 209<|content|>Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        }
+    ]
+}

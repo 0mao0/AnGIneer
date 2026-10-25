@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        57
+    ],
+    "pages": [
+        3,
+        5,
+        6,
+        9,
+        17,
+        27,
+        28,
+        56
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>3<|box|>765 762 845 905<|content|>LIBRARY ROOM 5030 MAR 16 1993\n<|id|>3<|page|>5<|box|>21 626 81 906<|content|>WINTER ISSUE March 1991\n<|id|>4<|page|>5<|box|>214 470 338 915<|content|>TREASURY BULLETIN\n<|id|>7<|page|>6<|box|>288 56 329 919<|content|>Sold on a subscription basis only (exceptions noted) by the Superintendent of Documents, U. ... †\n<|id|>13<|page|>9<|box|>179 55 917 944<|content|>TREASURY ISSUES Page ECONOMIC POLICY The Need for Reform in the Financial Markets. ... 43\n<|id|>28<|page|>17<|box|>109 432 128 599<|content|>Nicholas F. ... Brady\n<|id|>29<|page|>17<|box|>191 55 285 504<|content|>I'd like to talk to you about the need for fundame...competitive standing of our financial institutions\n<|id|>37<|page|>17<|box|>902 87 920 500<|content|>Perhaps most important, the banks of 1990 are not the\n<|id|>38<|page|>17<|box|>185 524 247 971<|content|>S&Ls of the 1980s. ... By a wide margin, the banks...e less risky kinds of assets than the S&L industry\n<|id|>42<|page|>17<|box|>564 524 580 766<|content|>Cyclical and Structural Problems\n<|id|>43<|page|>17<|box|>595 522 657 971<|content|>So the current situation needs to be analyzed with...a mixture of both cyclical and structural problems\n<|id|>129<|page|>27<|box|>739 46 935 495<|content|>Outlays. ... Total outlays include both budget and off-budget outlays and are stated net of offsetting\n<|id|>130<|page|>27<|box|>126 524 138 601<|content|>collections. ... collections\n<|id|>147<|page|>28<|box|>244 500 271 943<|content|>Table FFO-4. ... --Summary of Internal Revenue Collections by States and Other Areas\n<|id|>148<|page|>28<|box|>280 500 332 943<|content|>This annual table provides data on internal revenu...ning in October and ending the following September\n<|id|>330<|page|>56<|box|>337 42 377 485<|content|>Table PDO-1. ... --Maturity Schedule of Interest-B...her than Regular Weekly and 52-Week Treasury Bills\n<|id|>331<|page|>56<|box|>385 44 449 487<|content|>All unmatured Treasury notes and bonds are listed ... investors\" category includes all private holdings\n<|id|>333<|page|>56<|box|>493 42 556 487<|content|>The results of weekly auctions of 13- and 26-week ...week to mature on the same Thursday as an existing\n<|id|>334<|page|>56<|box|>134 510 246 953<|content|>52-week bill is a reopening of the existing 52-wee... at the average yield on accepted competitive bids\n<|id|>335<|page|>56<|box|>265 510 293 951<|content|>Table PDO-3. ... --Public Offerings of Marketable Securities Other than Regular Weekly Treasury Bills\n<|id|>336<|page|>56<|box|>301 508 412 953<|content|>The results of auctions of marketable Treasury sec...the maturities of regular issues of Treasury bills\n<|id|>337<|page|>56<|box|>431 510 460 951<|content|>Table PDO-4. ... --Allotments by Investor Classes for Public Marketable Securities, Parts A and B\n<|id|>338<|page|>56<|box|>468 508 556 953<|content|>Data on allotments of marketable Treasury securiti...or classes described in the footnotes to the table",
+    "raw_response": "<|src_id|>37<|tgt_id|>38\n<|src_id|>129<|tgt_id|>130\n<|src_id|>333<|tgt_id|>334",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 333,
+            "tgt_id": 334
+        }
+    ]
+}

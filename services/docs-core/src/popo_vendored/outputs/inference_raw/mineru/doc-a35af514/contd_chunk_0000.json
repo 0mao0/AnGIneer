@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        48
+    ],
+    "pages": [
+        4,
+        5,
+        13,
+        14,
+        15,
+        16,
+        31,
+        32,
+        48
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>34<|page|>4<|box|>839 174 876 857<|content|>Sentinel Background Verification Corp. ... Sentine...ports OWS's restricted party screening process and\n<|id|>35<|page|>5<|box|>89 174 127 854<|content|>E-Verify compliance (E-Verify Company ID 1487623)....t checks into its background verification workflow\n<|id|>110<|page|>13<|box|>843 140 898 857<|content|>The FRE is primarily relevant to universities and .... Accordingly, the FRE generally does not apply to\n<|id|>111<|page|>14<|box|>90 140 145 854<|content|>OWS's proprietary technology. ... OWS's research a...and shared broadly within the scientific community\n<|id|>129<|page|>15<|box|>871 174 907 854<|content|>The technology identified in Step 2 is cross-refer...t Control Classification Number(s) and against the\n<|id|>130<|page|>16<|box|>89 174 146 854<|content|>USML to determine whether any ITAR-controlled item...lemented by item-specific analysis where necessary\n<|id|>286<|page|>31<|box|>864 140 900 856<|content|>If OWS pursues defense contracts or sells PIC comp... applications of photonic technology identified in\n<|id|>287<|page|>32<|box|>90 140 127 852<|content|>Section II. ... B — ITAR obligations may attach to...underlying commercial technology is EAR-controlled\n<|id|>404<|page|>48<|box|>431 142 448 330<|content|>Name: ... Patricia Langford\n<|id|>405<|page|>48<|box|>449 143 465 315<|content|>Title: ... General Counsel\n<|id|>406<|page|>48<|box|>467 143 482 264<|content|>Date: ... Date\n<|id|>409<|page|>48<|box|>518 142 534 354<|content|>Name: ... Yun-Sheng Chen\n<|id|>410<|page|>48<|box|>535 142 551 411<|content|>Title: ... Vice President of Engineering\n<|id|>411<|page|>48<|box|>553 143 569 264<|content|>Date: ... Date\n<|id|>414<|page|>48<|box|>604 142 619 346<|content|>Name: ... Samantha Kowalski\n<|id|>415<|page|>48<|box|>621 142 637 408<|content|>Title: ... Director of Human Resources\n<|id|>416<|page|>48<|box|>638 143 655 264<|content|>Date: ... Date\n<|id|>419<|page|>48<|box|>690 142 705 303<|content|>Name: ... Rajesh Anand\n<|id|>420<|page|>48<|box|>707 142 724 418<|content|>Title: ... Immigration Program Manager\n<|id|>421<|page|>48<|box|>724 143 741 266<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>34<|tgt_id|>35\n<|src_id|>110<|tgt_id|>111\n<|src_id|>129<|tgt_id|>130\n<|src_id|>286<|tgt_id|>287",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 286,
+            "tgt_id": 287
+        }
+    ]
+}

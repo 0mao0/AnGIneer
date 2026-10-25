@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 437 107 558<|content|>FEE LETTER\n<|id|>1<|type|>title<|page|>1<|box|>114 439 133 557<|content|>(Confidential)\n<|id|>10<|type|>title<|page|>1<|box|>737 142 753 303<|content|>1. Arrangement Fee\n<|id|>15<|type|>title<|page|>2<|box|>402 140 419 477<|content|>2. Original Issue discount — Term Loan B\n<|id|>22<|type|>title<|page|>3<|box|>90 140 107 364<|content|>3. Upfront / Structuring Fee\n<|id|>27<|type|>title<|page|>3<|box|>491 140 508 521<|content|>4. Commitment Fee — Revolving Credit Facility\n<|id|>30<|type|>table<|page|>3<|box|>640 143 696 852<|content|>None\n<|id|>34<|type|>title<|page|>4<|box|>241 140 258 366<|content|>5. Administrative Agent Fee\n<|id|>39<|type|>title<|page|>4<|box|>642 140 659 259<|content|>6. Syndication\n<|id|>52<|type|>title<|page|>5<|box|>789 140 805 348<|content|>7. Market Flex Provisions\n<|id|>67<|type|>title<|page|>7<|box|>359 140 375 397<|content|>8. Conditions to Fee Obligations\n<|id|>74<|type|>title<|page|>8<|box|>90 140 107 359<|content|>9. Expense Reimbursement\n<|id|>84<|type|>title<|page|>9<|box|>90 142 107 292<|content|>10. Confidentiality\n<|id|>98<|type|>title<|page|>10<|box|>388 142 406 629<|content|>11. Relationship to Commitment Letter and Credit A\n<|id|>109<|type|>title<|page|>11<|box|>392 142 409 344<|content|>12. Intercreditor Matters\n<|id|>113<|type|>title<|page|>12<|box|>90 142 107 400<|content|>13. Governing Law; Jurisdiction\n<|id|>118<|type|>title<|page|>12<|box|>729 142 746 285<|content|>14. Miscellaneous\n<|id|>130<|type|>title<|page|>13<|box|>878 140 896 498<|content|>STONEBRIDGE CREDIT PARTNERS LLC\n<|id|>142<|type|>title<|page|>14<|box|>309 142 325 228<|content|>Copies to:",
+    "raw_response": "<|src_id|>30<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 27
+        }
+    ]
+}

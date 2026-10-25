@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>556<|type|>title<|page|>45<|box|>152 447 169 549<|content|>EXHIBIT C\n<|id|>557<|type|>title<|page|>45<|box|>178 364 195 632<|content|>FORM OF BUYER GUARANTY\n<|id|>560<|type|>table<|page|>45<|box|>327 143 518 852<|content|>None\n<|id|>562<|type|>title<|page|>45<|box|>595 447 613 550<|content|>EXHIBIT D\n<|id|>563<|type|>title<|page|>45<|box|>623 235 640 761<|content|>FORM OF LETTER OF CREDIT (SELLER AVAILABILITY LC)\n<|id|>565<|type|>table<|page|>45<|box|>773 143 900 852<|content|>None\n<|id|>566<|type|>table<|page|>46<|box|>89 143 160 852<|content|>None\n<|id|>568<|type|>title<|page|>46<|box|>239 449 253 549<|content|>EXHIBIT E\n<|id|>569<|type|>title<|page|>46<|box|>263 366 281 630<|content|>INSURANCE REQUIREMENTS\n<|id|>571<|type|>table<|page|>46<|box|>395 143 602 852<|content|>None\n<|id|>572<|type|>title<|page|>46<|box|>636 142 652 517<|content|>Insurance Broker: Fieldstone Risk Advisors LLC\n<|id|>577<|type|>title<|page|>46<|box|>820 450 835 549<|content|>EXHIBIT F\n<|id|>578<|type|>title<|page|>46<|box|>845 307 863 689<|content|>FORM OF LENDER CONSENT AGREEMENT\n<|id|>580<|type|>table<|page|>47<|box|>159 143 250 852<|content|>None\n<|id|>589<|type|>title<|page|>48<|box|>89 143 106 738<|content|>## APPENDIX: CONSOLIDATED TABLE OF ALL NUMERICAL C\n<|id|>591<|type|>title<|page|>48<|box|>342 140 359 303<|content|>## CLOSING NOTE\n<|id|>593<|type|>title<|page|>48<|box|>449 138 468 519<|content|>For questions regarding this redline, please conta",
+    "raw_response": "<|src_id|>560<|tgt_id|>557\n<|src_id|>565<|tgt_id|>563\n<|src_id|>566<|tgt_id|>563\n<|src_id|>571<|tgt_id|>569\n<|src_id|>580<|tgt_id|>578",
+    "parsed": [
+        {
+            "src_id": 560,
+            "tgt_id": 557
+        },
+        {
+            "src_id": 565,
+            "tgt_id": 563
+        },
+        {
+            "src_id": 566,
+            "tgt_id": 563
+        },
+        {
+            "src_id": 571,
+            "tgt_id": 569
+        },
+        {
+            "src_id": 580,
+            "tgt_id": 578
+        }
+    ]
+}

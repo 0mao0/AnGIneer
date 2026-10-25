@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3<|type|>title<|page|>1<|box|>167 140 184 496<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>8<|type|>title<|page|>1<|box|>349 142 366 486<|content|>1. Reference to Original Engagement Letter\n<|id|>13<|type|>title<|page|>2<|box|>90 142 107 263<|content|>2. Background\n<|id|>24<|type|>title<|page|>3<|box|>204 140 222 408<|content|>3. Scope of Tax Advisory Services\n<|id|>26<|type|>title<|page|>3<|box|>334 140 369 854<|content|>3.1 Cancellation-of-Debt Income (\"CODI\") Analysis\n<|id|>34<|type|>title<|page|>4<|box|>710 140 729 411<|content|>3.2 Cross-Border Tax Structuring\n<|id|>41<|type|>title<|page|>5<|box|>755 140 773 694<|content|>3.3 PIK Capitalization and Original Issue discount\n<|id|>48<|type|>title<|page|>6<|box|>627 140 643 705<|content|>3.4 Greek/U.S. Treaty Considerations and Greek Tax\n<|id|>56<|type|>title<|page|>7<|box|>510 140 527 486<|content|>3.5 Intercompany Transaction Tax Analysis\n<|id|>62<|type|>title<|page|>8<|box|>330 140 348 477<|content|>3.6 Equity Restructuring Tax Implications\n<|id|>67<|type|>title<|page|>8<|box|>828 140 845 359<|content|>3.7 Additional Tax Matters\n<|id|>70<|type|>title<|page|>9<|box|>285 140 301 321<|content|>4. Tax Advisory Team\n<|id|>74<|type|>title<|page|>9<|box|>734 140 751 334<|content|>5. Billing Arrangements\n<|id|>76<|type|>table<|page|>9<|box|>820 143 895 852<|content|>None\n<|id|>77<|type|>table<|page|>10<|box|>88 145 109 852<|content|>None\n<|id|>82<|type|>title<|page|>10<|box|>518 140 534 433<|content|>6. Coordination with Other Advisors\n<|id|>88<|type|>title<|page|>11<|box|>250 140 266 390<|content|>7. Confidentiality and Privilege\n<|id|>94<|type|>title<|page|>11<|box|>657 140 674 542<|content|>8. Limitation of Scope; No Tax Return Preparation\n<|id|>100<|type|>title<|page|>12<|box|>231 140 247 519<|content|>9. Incorporation of Original Engagement Terms\n<|id|>102<|type|>title<|page|>12<|box|>444 142 460 433<|content|>10. Acknowledgment and Agreement\n<|id|>106<|type|>title<|page|>12<|box|>657 212 672 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>115<|type|>title<|page|>12<|box|>821 316 837 679<|content|>ACKNOWLEDGMENT AND AGREEMENT\n<|id|>117<|type|>title<|page|>13<|box|>133 140 151 643<|content|>THALASSA SHIPPING & LOGISTICS SOCIÉTÉ ANONYME",
+    "raw_response": "<|src_id|>76<|tgt_id|>74\n<|src_id|>77<|tgt_id|>74",
+    "parsed": [
+        {
+            "src_id": 76,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 74
+        }
+    ]
+}

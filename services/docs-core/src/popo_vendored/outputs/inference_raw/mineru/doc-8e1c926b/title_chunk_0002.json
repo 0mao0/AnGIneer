@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        100,
+        111
+    ],
+    "pages": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        108,
+        109,
+        111
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>480<|page|>100<|box|>90 302 111 694<|content|>SECTION IV.—Sterling Positions, con.\n<|id|>481<|page|>100<|box|>118 210 136 787<|content|>TABLE FCP-IV-2.—Monthly Report of Major Market Par\n<|id|>484<|page|>101<|box|>90 316 109 679<|content|>SECTION V.—U.S. Dollar Positions\n<|id|>485<|page|>101<|box|>118 218 136 777<|content|>TABLE FCP-V-1.—Weekly Report of Major Market Parti\n<|id|>486<|page|>101<|box|>140 336 154 660<|content|>[In millions of U.S. dollars. Source: Treasury For\n<|id|>488<|page|>102<|box|>90 297 109 712<|content|>SECTION V.—U.S. Dollar Positions, con.\n<|id|>489<|page|>102<|box|>118 222 136 790<|content|>TABLE FCP-V-2.—Monthly Report of Major Market Part\n<|id|>491<|page|>102<|box|>513 218 532 794<|content|>TABLE FCP-V-3.—Quarterly Report of Large Market Pa\n<|id|>493<|page|>103<|box|>90 341 109 655<|content|>SECTION VI.—Euro Positions\n<|id|>494<|page|>103<|box|>118 215 136 782<|content|>TABLE FCP-VI-1.—Weekly Report of Major Market Part\n<|id|>496<|page|>104<|box|>90 313 109 676<|content|>SECTION VI.—Euro Positions, con.\n<|id|>497<|page|>104<|box|>118 209 136 784<|content|>TABLE FCP-VI-2.—Monthly Report of Major Market Par\n<|id|>500<|page|>105<|box|>98 243 118 753<|content|>INTRODUCTION: Exchange Stabilization Fund\n<|id|>506<|page|>105<|box|>393 223 411 774<|content|>TABLE ESF-1.—Balances as of Dec. 31, 2010, and Mar\n<|id|>508<|page|>106<|box|>90 334 108 663<|content|>TABLE ESF-2.—Income and Expense\n<|id|>511<|page|>108<|box|>90 331 108 666<|content|>TABLE TF-6A.—Highway Trust Fund\n<|id|>516<|page|>109<|box|>89 388 109 609<|content|>Research Paper Series\n<|id|>517<|page|>109<|box|>128 143 148 854<|content|>Available through the Office of the Assistant Secr\n<|id|>542<|page|>111<|box|>98 446 119 552<|content|>Glossary\n<|id|>543<|page|>111<|box|>125 258 143 743<|content|>With References to Applicable Sections and Tables",
+    "raw_response": "<|id|>480<|level|>1\n<|id|>481<|level|>2\n<|id|>484<|level|>1\n<|id|>485<|level|>2\n<|id|>486<|level|>-1\n<|id|>488<|level|>1\n<|id|>489<|level|>2\n<|id|>491<|level|>2\n<|id|>493<|level|>1\n<|id|>494<|level|>2\n<|id|>496<|level|>1\n<|id|>497<|level|>2\n<|id|>500<|level|>1\n<|id|>506<|level|>2\n<|id|>508<|level|>2\n<|id|>511<|level|>1\n<|id|>516<|level|>-1\n<|id|>517<|level|>-1\n<|id|>542<|level|>1\n<|id|>543<|level|>2",
+    "parsed": [
+        {
+            "id": 480,
+            "level": 1
+        },
+        {
+            "id": 481,
+            "level": 2
+        },
+        {
+            "id": 484,
+            "level": 1
+        },
+        {
+            "id": 485,
+            "level": 2
+        },
+        {
+            "id": 488,
+            "level": 1
+        },
+        {
+            "id": 489,
+            "level": 2
+        },
+        {
+            "id": 491,
+            "level": 2
+        },
+        {
+            "id": 493,
+            "level": 1
+        },
+        {
+            "id": 494,
+            "level": 2
+        },
+        {
+            "id": 496,
+            "level": 1
+        },
+        {
+            "id": 497,
+            "level": 2
+        },
+        {
+            "id": 500,
+            "level": 1
+        },
+        {
+            "id": 506,
+            "level": 2
+        },
+        {
+            "id": 508,
+            "level": 2
+        },
+        {
+            "id": 511,
+            "level": 1
+        },
+        {
+            "id": 542,
+            "level": 1
+        },
+        {
+            "id": 543,
+            "level": 2
+        }
+    ]
+}

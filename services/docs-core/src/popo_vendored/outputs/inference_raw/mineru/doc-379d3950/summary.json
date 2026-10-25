@@ -1,0 +1,195 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0n9slfee\\input\\pdfs\\doc-379d3950.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0n9slfee\\enriched\\doc-379d3950.json",
+    "contd_output": "<|src_id|>34<|tgt_id|>35",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>12<|level|>3\n<|id|>19<|level|>2\n<|id|>27<|level|>3\n<|id|>31<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>45<|level|>3\n<|id|>51<|level|>3\n<|id|>54<|level|>3\n<|id|>58<|level|>2\n<|id|>59<|level|>3\n<|id|>62<|level|>3\n<|id|>65<|level|>3\n<|id|>73<|level|>3\n<|id|>76<|level|>2\n<|id|>77<|level|>3\n<|id|>91<|level|>3\n<|id|>97<|level|>2\n<|id|>98<|level|>3\n<|id|>101<|level|>3\n<|id|>103<|level|>3\n<|id|>109<|level|>2\n<|id|>110<|level|>3\n<|id|>118<|level|>3\n<|id|>120<|level|>3\n<|id|>126<|level|>2\n<|id|>129<|level|>2\n<|id|>133<|level|>1\n<|id|>136<|level|>2",
+    "image_output": "<|src_id|>6<|tgt_id|>4\n<|src_id|>29<|tgt_id|>27\n<|src_id|>42<|tgt_id|>40\n<|src_id|>43<|tgt_id|>40\n<|src_id|>128<|tgt_id|>126",
+    "contd_label": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 6,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 126
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 42,
+            "table2_idx": 43,
+            "upper_row_ss": [
+                [
+                    "Milestone 4",
+                    "Beta Integration and Validation — Successful completion of beta-level integration and functional",
+                    "$640,000",
+                    "Within thirty (30) days after Licensee's written acceptance of Milestone 4 deliverables"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "validation testing across all five (5) designated platform configurations (Argonaut-A through Argonaut-E), with documented pass rates meeting the acceptance criteria specified in SOW-1 and no unresolved Severity 1 or Severity 2 defects",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

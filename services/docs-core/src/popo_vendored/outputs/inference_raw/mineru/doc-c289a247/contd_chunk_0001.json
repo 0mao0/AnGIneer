@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        50,
+        80
+    ],
+    "pages": [
+        51,
+        52,
+        79,
+        80
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>345<|page|>51<|box|>231 112 244 341<|content|>(4 week, 8 week, 13 week, 17-week and 26 week)\n<|id|>347<|page|>52<|box|>320 532 332 676<|content|>^{4} Equivalent coupon-issue yield. ... ^{4} Equivalent coupon-issue yield\n<|id|>447<|page|>79<|box|>148 388 164 609<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>448<|page|>79<|box|>184 81 258 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>456<|page|>79<|box|>839 81 901 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>457<|page|>79<|box|>184 504 229 915<|content|>Second Liberty Loan Act of 1917, the nature of the...o an overall limit on the outstanding Federal debt\n<|id|>466<|page|>79<|box|>840 504 902 916<|content|>Government account series (FD-2)—Certain trust fun...urities. ... These securities are sold directly by\n<|id|>467<|page|>80<|box|>90 81 209 493<|content|>Treasury to a specific Government agency, trust fund, or account. ... and the Unemployment Trust Fund",
+    "raw_response": "<|src_id|>456<|tgt_id|>457\n<|src_id|>466<|tgt_id|>467",
+    "parsed": [
+        {
+            "src_id": 456,
+            "tgt_id": 457
+        },
+        {
+            "src_id": 466,
+            "tgt_id": 467
+        }
+    ]
+}

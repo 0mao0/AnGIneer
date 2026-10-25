@@ -1,0 +1,176 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        17,
+        18,
+        19,
+        20,
+        22,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 173 146 825<|content|>SYNFLOWNET: DESIGN OF DIVERSE AND NOVEL MOLECULES\n<|id|>3<|page|>1<|box|>277 452 292 547<|content|>ABSTRACT\n<|id|>5<|page|>1<|box|>577 174 592 336<|content|>1 INTRODUCTION\n<|id|>16<|page|>3<|box|>270 171 286 513<|content|>2 BACKGROUND AND RELATED WORK\n<|id|>17<|page|>3<|box|>301 171 316 308<|content|>2.1 GFLOWNETS\n<|id|>22<|page|>3<|box|>633 171 647 625<|content|>2.2 GFLOWNETS WITH A PARAMETERIZED BACKWARD POLICY\n<|id|>24<|page|>3<|box|>856 171 871 540<|content|>2.3 GENERATIVE MODELS FOR MOLECULE DESIGN\n<|id|>26<|page|>4<|box|>169 171 184 527<|content|>2.4 SYNTHESIS-AWARE MOLECULE GENERATION\n<|id|>29<|page|>4<|box|>523 173 539 294<|content|>3 METHODS\n<|id|>31<|page|>4<|box|>651 171 666 509<|content|>3.1 MDP OF CHEMICALLY ACCESSIBLE SPACE\n<|id|>36<|page|>5<|box|>310 171 325 584<|content|>3.2 CHALLENGES WITH GENERATING BACKWARD PATHS\n<|id|>46<|page|>6<|box|>104 171 119 754<|content|>3.3 SCALING OF THE REACTANT SPACE TO LARGE NUMBER\n<|id|>49<|page|>6<|box|>486 171 503 284<|content|>4 RESULTS\n<|id|>51<|page|>6<|box|>674 171 690 442<|content|>4.1 REACTION-BASED MDP DESIGN\n<|id|>55<|page|>7<|box|>364 171 380 558<|content|>4.2 GFLOWNETS AS SAMPLERS OF CHEMICAL SPACE\n<|id|>58<|page|>7<|box|>814 171 829 483<|content|>4.3 FURTHER COMPARISON TO BASELINES\n<|id|>61<|page|>8<|box|>573 171 587 380<|content|>4.3.1 REDISCOVERY TASKS\n<|id|>64<|page|>8<|box|>758 171 773 715<|content|>4.4 IMPROVED MDP CONSISTENCY THROUGH TRAINED BACKW\n<|id|>67<|page|>9<|box|>433 171 448 493<|content|>4.5 SCALING TO THE ENTIRE ENAMINE SET\n<|id|>70<|page|>10<|box|>309 171 324 687<|content|>4.6 GUIDING SYNFLOWNET WITH EXPERIMENTAL FRAGMENT\n<|id|>74<|page|>10<|box|>727 171 744 321<|content|>5 CONCLUSION\n<|id|>76<|page|>11<|box|>103 171 118 367<|content|>ACKNOWLEDGEMENTS\n<|id|>78<|page|>11<|box|>224 171 239 287<|content|>REFERENCES\n<|id|>160<|page|>17<|box|>103 171 118 393<|content|>A EXTENDED METHODS\n<|id|>161<|page|>17<|box|>133 171 148 367<|content|>A.1 REWARD FUNCTIONS\n<|id|>168<|page|>17<|box|>729 171 744 259<|content|>A.2 DATA\n<|id|>170<|page|>17<|box|>857 171 872 395<|content|>A.2.1 CHEMICAL REACTIONS\n<|id|>175<|page|>18<|box|>448 171 463 383<|content|>A.3 MODEL AND TRAINING\n<|id|>185<|page|>19<|box|>775 171 789 535<|content|>A.4 BACKWARD POLICY TRAINING ALGORITHMS\n<|id|>188<|page|>20<|box|>484 171 500 388<|content|>A.5 SYNFLOWNET SCALING\n<|id|>192<|page|>20<|box|>824 171 840 385<|content|>B EXTENDED RESULTS\n<|id|>193<|page|>20<|box|>854 171 869 418<|content|>B.1 COMPARISON TO BASELINES\n<|id|>201<|page|>22<|box|>871 171 886 377<|content|>B.1.1 SAMPLE EFFICIENCY\n<|id|>205<|page|>23<|box|>703 171 718 290<|content|>B.2 OUTLOOK\n<|id|>207<|page|>24<|box|>148 171 164 400<|content|>B.3 EXAMPLE TRAJECTORIES\n<|id|>211<|page|>25<|box|>104 171 119 599<|content|>B.4 CURATED BUILDING BLOCK SETS GIVEN TARGET DATA",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>5<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>22<|level|>3\n<|id|>24<|level|>3\n<|id|>26<|level|>3\n<|id|>29<|level|>2\n<|id|>31<|level|>3\n<|id|>36<|level|>3\n<|id|>46<|level|>3\n<|id|>49<|level|>2\n<|id|>51<|level|>3\n<|id|>55<|level|>3\n<|id|>58<|level|>3\n<|id|>61<|level|>4\n<|id|>64<|level|>3\n<|id|>67<|level|>3\n<|id|>70<|level|>3\n<|id|>74<|level|>2\n<|id|>76<|level|>2\n<|id|>78<|level|>2\n<|id|>160<|level|>2\n<|id|>161<|level|>3\n<|id|>168<|level|>3\n<|id|>170<|level|>4\n<|id|>175<|level|>3\n<|id|>185<|level|>3\n<|id|>188<|level|>3\n<|id|>192<|level|>2\n<|id|>193<|level|>3\n<|id|>201<|level|>4\n<|id|>205<|level|>3\n<|id|>207<|level|>3\n<|id|>211<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 4
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 188,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 4
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 207,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 3
+        }
+    ]
+}

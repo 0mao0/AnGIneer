@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1 Chase\n<|id|>7<|page|>1<|box|>359 142 375 477<|content|>1. Purpose and Acceptance of Engagement\n<|id|>11<|page|>1<|box|>752 142 768 334<|content|>2. Scope of Engagement\n<|id|>13<|page|>1<|box|>827 140 844 323<|content|>2.1 Trustee Succession\n<|id|>19<|page|>2<|box|>609 140 626 437<|content|>2.2 In-Kind Real-Estate Distributions\n<|id|>36<|page|>4<|box|>138 140 156 282<|content|>2.3 Tax Advisory\n<|id|>39<|page|>4<|box|>458 140 474 321<|content|>2.4 Trust Termination\n<|id|>44<|page|>4<|box|>809 140 825 316<|content|>2.5 Scope Limitations\n<|id|>52<|page|>5<|box|>554 140 571 313<|content|>3. Engagement Team\n<|id|>61<|page|>6<|box|>446 140 464 303<|content|>4. Fee Arrangement\n<|id|>72<|page|>7<|box|>425 140 443 321<|content|>5. Conflicts of Interest\n<|id|>77<|page|>8<|box|>314 140 332 390<|content|>6. Confidentiality and Privilege\n<|id|>86<|page|>9<|box|>90 140 107 339<|content|>7. Client Responsibilities\n<|id|>94<|page|>9<|box|>734 140 750 287<|content|>8. Governing Law\n<|id|>96<|page|>10<|box|>90 140 107 385<|content|>9. Termination of Engagement\n<|id|>100<|page|>10<|box|>520 140 537 334<|content|>10. Document Retention\n<|id|>104<|page|>10<|box|>821 142 839 406<|content|>11. Acceptance and Counterparts\n<|id|>109<|page|>11<|box|>358 140 375 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>114<|page|>11<|box|>453 349 469 648<|content|>ACCEPTANCE AND AGREEMENT\n<|id|>116<|page|>11<|box|>541 142 558 377<|content|>ACCEPTED AND AGREED:\n<|id|>117<|page|>11<|box|>566 142 584 457<|content|>BRIARWOOD FAMILY OFFICE LLC",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>44<|level|>2\n<|id|>52<|level|>1\n<|id|>61<|level|>1\n<|id|>72<|level|>1\n<|id|>77<|level|>1\n<|id|>86<|level|>1\n<|id|>94<|level|>1\n<|id|>96<|level|>1\n<|id|>100<|level|>1\n<|id|>104<|level|>1\n<|id|>109<|level|>1\n<|id|>114<|level|>2\n<|id|>116<|level|>2\n<|id|>117<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        }
+    ]
+}

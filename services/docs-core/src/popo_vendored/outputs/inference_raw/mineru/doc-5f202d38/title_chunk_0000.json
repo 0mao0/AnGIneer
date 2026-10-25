@@ -1,0 +1,50 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 344 159 651<|content|>SECRETARY'S CERTIFICATE OF GENOME DX THERAPEUTICS\n<|id|>5<|page|>1<|box|>546 142 563 385<|content|>1. Certificate of Incorporation.\n<|id|>8<|page|>1<|box|>825 142 842 225<|content|>2. Bylaws.\n<|id|>10<|page|>2<|box|>152 140 169 352<|content|>3. Board Written Consent.\n<|id|>25<|page|>3<|box|>215 140 232 480<|content|>4. Incumbency and Authorized Signatories.\n<|id|>29<|page|>3<|box|>544 140 561 287<|content|>5. Good Standing.\n<|id|>32<|page|>3<|box|>804 140 821 397<|content|>6. No Conflicts; No Proceedings.\n<|id|>38<|page|>4<|box|>414 142 431 393<|content|>7. Required Consents Obtained.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>38<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        }
+    ]
+}

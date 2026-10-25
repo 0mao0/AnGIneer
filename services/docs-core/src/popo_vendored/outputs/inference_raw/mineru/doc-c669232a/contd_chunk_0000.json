@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>305 158 342 836<|content|>Filed pursuant to Chapter 12 of Title 13. ... 1 of... Virginia (Virginia Limited Liability Company Act)\n<|id|>5<|page|>1<|box|>351 465 366 531<|content|>with the\n<|id|>18<|page|>2<|box|>241 210 295 854<|content|>(i) the \"Stonebridge Parcel,\" consisting of approximately sixty-two and zero-tenths (62. ... and\n<|id|>20<|page|>2<|box|>348 174 402 854<|content|>together with all improvements, structures, fixtur... appurtenant thereto (collectively, the \"Project\")\n<|id|>28<|page|>2<|box|>720 210 756 854<|content|>(vii) property management agreements, facility man...reements, and asset management agreements; ... and\n<|id|>31<|page|>3<|box|>133 140 354 856<|content|>Section 2. ... The limited liability company shall...n of the Project and activities incidental thereto\n<|id|>40<|page|>3<|box|>712 174 750 854<|content|>(b) a domestic corporation, a domestic limited lia...r the laws of the Commonwealth of Virginia; ... or\n<|id|>42<|page|>3<|box|>800 140 854 854<|content|>The registered agent has consented to serve in suc... as Exhibit A and incorporated herein by reference\n<|id|>51<|page|>4<|box|>455 174 510 854<|content|>Ironhaven Data Centers LLC A Delaware limited liab...e Corporation Commission Entity ID: ... 84-3291057\n<|id|>52<|page|>4<|box|>518 176 535 674<|content|>Address: ... 44680 Prentice Drive, Suite 200, Ashburn, Virginia 20147\n<|id|>53<|page|>4<|box|>535 140 664 854<|content|>Section 5. ... The organizer is signing these Arti...ability company as set forth in Article VII hereof\n<|id|>106<|page|>9<|box|>239 140 257 718<|content|>IRONHAVEN DATA CENTERS LLC a Delaware limited liability company\n<|id|>107<|page|>9<|box|>258 143 273 253<|content|>By: ... By\n<|id|>108<|page|>9<|box|>275 143 290 313<|content|>Name: ... Marcus Thorne\n<|id|>109<|page|>9<|box|>292 143 306 366<|content|>Title: ... Chief Executive Officer\n<|id|>110<|page|>9<|box|>309 143 325 264<|content|>Date: ... Date\n<|id|>113<|page|>9<|box|>369 143 386 313<|content|>Name: ... Priya Dasgupta\n<|id|>114<|page|>9<|box|>386 143 402 361<|content|>Title: ... Chief Financial Officer\n<|id|>115<|page|>9<|box|>404 143 419 264<|content|>Date: ... Date\n<|id|>120<|page|>9<|box|>720 176 736 398<|content|>Calderwood & Harkness LLP\n<|id|>121<|page|>9<|box|>746 176 763 349<|content|>Attn: ... Cynthia Ho, Esq\n<|id|>122<|page|>9<|box|>763 178 780 772<|content|>1900 K Street NW, Suite 800 Washington, DC 20006 Telephone: ... (202) 555-4100\n<|id|>123<|page|>9<|box|>789 176 806 462<|content|>Email: ... com\n<|id|>124<|page|>9<|box|>806 176 824 813<|content|>Reference: ... 1043-00002 (Stonebridge Campus Holdings LLC — Formation)\n<|id|>133<|page|>10<|box|>373 176 391 694<|content|>[Registered Agent Business Office Address] [City, Virginia ZIP Code]\n<|id|>134<|page|>10<|box|>398 140 473 854<|content|>I understand that, as registered agent, I am requi...cations on behalf of the limited liability company",
+    "raw_response": "<|src_id|>4<|tgt_id|>5\n<|src_id|>18<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 20
+        }
+    ]
+}

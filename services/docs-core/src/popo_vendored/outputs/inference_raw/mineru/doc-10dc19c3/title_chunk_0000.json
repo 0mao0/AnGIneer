@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>114 200 133 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|page|>1<|box|>316 385 335 611<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>210 328 229 668<|content|>II. Overview of the Credit Facility\n<|id|>17<|page|>2<|box|>255 142 272 357<|content|>A. Key Commercial Terms\n<|id|>22<|page|>3<|box|>90 142 107 380<|content|>B. Background on the Facility\n<|id|>30<|page|>3<|box|>536 331 555 666<|content|>III. Financial Covenants Analysis\n<|id|>32<|page|>3<|box|>651 142 669 403<|content|>A. Minimum Liquidity Covenant\n<|id|>40<|page|>4<|box|>747 140 763 385<|content|>B. ARR-Based Coverage Ratio\n<|id|>52<|page|>5<|box|>742 197 761 797<|content|>IV. Negative Covenants Relevant to the Series D Tr\n<|id|>54<|page|>6<|box|>90 140 107 633<|content|>A. Restriction on Equity Issuances / Capital Struc\n<|id|>64<|page|>6<|box|>797 142 814 398<|content|>B. Change of Control Provisions\n<|id|>68<|page|>7<|box|>234 140 251 816<|content|>Under Pinnacle's Proposed Terms ($260,000,000 Pre-\n<|id|>70<|page|>7<|box|>340 140 358 818<|content|>Under Verdana's Proposed Terms ($320,000,000 Pre-M\n<|id|>80<|page|>8<|box|>286 140 303 588<|content|>C. Restrictions on Incurrence of Additional Indebt\n<|id|>86<|page|>9<|box|>90 140 107 506<|content|>D. Restrictions on Liens and Security Interests\n<|id|>91<|page|>9<|box|>619 140 636 498<|content|>E. Restrictions on Fundamental Transactions\n<|id|>98<|page|>10<|box|>412 279 431 717<|content|>V. Structural Subordination Considerations\n<|id|>109<|page|>12<|box|>90 258 111 738<|content|>VI. Consent / Waiver Requirements and Process\n<|id|>110<|page|>12<|box|>136 142 154 377<|content|>A. Form of Consent Required\n<|id|>118<|page|>12<|box|>743 142 760 334<|content|>B. Process and Timeline\n<|id|>135<|page|>13<|box|>815 140 832 416<|content|>C. Risk if Consent Is Not Obtained\n<|id|>144<|page|>14<|box|>608 258 627 738<|content|>VII. Impact on Series D Transaction Documents\n<|id|>146<|page|>14<|box|>723 140 739 380<|content|>A. Stock Purchase Agreement\n<|id|>151<|page|>15<|box|>476 140 493 573<|content|>B. Amended and Restated Investors' Rights Agreemen\n<|id|>155<|page|>16<|box|>148 140 167 333<|content|>C. Disclosure Schedules\n<|id|>163<|page|>16<|box|>564 334 584 663<|content|>VIII. Open Items and Next Steps\n<|id|>175<|page|>17<|box|>833 421 852 575<|content|>IX. Conclusion\n<|id|>178<|page|>18<|box|>325 140 342 380<|content|>We recommend the following:\n<|id|>187<|page|>18<|box|>763 142 777 606<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>22<|level|>3\n<|id|>30<|level|>2\n<|id|>32<|level|>3\n<|id|>40<|level|>3\n<|id|>52<|level|>2\n<|id|>54<|level|>3\n<|id|>64<|level|>3\n<|id|>68<|level|>4\n<|id|>70<|level|>4\n<|id|>80<|level|>3\n<|id|>86<|level|>3\n<|id|>91<|level|>3\n<|id|>98<|level|>2\n<|id|>109<|level|>2\n<|id|>110<|level|>3\n<|id|>118<|level|>3\n<|id|>135<|level|>3\n<|id|>144<|level|>2\n<|id|>146<|level|>3\n<|id|>151<|level|>3\n<|id|>155<|level|>3\n<|id|>163<|level|>2\n<|id|>175<|level|>2\n<|id|>178<|level|>3\n<|id|>187<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 4
+        },
+        {
+            "id": 70,
+            "level": 4
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 3
+        }
+    ]
+}

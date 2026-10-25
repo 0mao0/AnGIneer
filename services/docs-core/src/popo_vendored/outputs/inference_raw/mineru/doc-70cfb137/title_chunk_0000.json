@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 336 157 660<|content|>STATE OF DELAWARE CERTIFICATE OF INCORPORATION A S\n<|id|>6<|page|>1<|box|>323 294 339 702<|content|>HARROWGATE VELOCITY MERGER SUB INC.\n<|id|>8<|page|>1<|box|>444 142 460 354<|content|>ARTICLE FIRST: NAME\n<|id|>10<|page|>1<|box|>511 142 527 745<|content|>ARTICLE SECOND: REGISTERED OFFICE AND REGISTERED A\n<|id|>12<|page|>1<|box|>652 142 669 388<|content|>ARTICLE THIRD: PURPOSE\n<|id|>14<|page|>2<|box|>89 142 106 599<|content|>ARTICLE FOURTH: AUTHORIZED CAPITAL STOCK\n<|id|>17<|page|>2<|box|>420 140 438 450<|content|>ARTICLE FIFTH: INCORPORATOR\n<|id|>22<|page|>2<|box|>619 142 637 508<|content|>ARTICLE SIXTH: BOARD OF DIRECTORS\n<|id|>27<|page|>3<|box|>89 142 106 818<|content|>ARTICLE SEVENTH: LIMITATION OF PERSONAL LIABILITY\n<|id|>31<|page|>3<|box|>518 142 536 491<|content|>ARTICLE EIGHTH: INDEMNIFICATION\n<|id|>37<|page|>4<|box|>703 140 719 777<|content|>ARTICLE NINTH: AMENDMENT OF CERTIFICATE OF INCORPO\n<|id|>39<|page|>5<|box|>89 142 106 542<|content|>ARTICLE TENTH: AMENDMENT OF BYLAWS\n<|id|>41<|page|>5<|box|>285 142 301 539<|content|>ARTICLE ELEVENTH: SOLE STOCKHOLDER\n<|id|>43<|page|>5<|box|>464 361 482 635<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>51<|page|>5<|box|>700 393 717 604<|content|>SECRETARY OF STATE\n<|id|>52<|page|>5<|box|>726 362 744 633<|content|>DIVISION OF CORPORATIONS\n<|id|>53<|page|>5<|box|>753 390 768 607<|content|>FILING ENDORSEMENT\n<|id|>58<|page|>6<|box|>179 147 215 849<|content|>IN TESTIMONY WHEREOF, I have hereunto set my hand",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>27<|level|>2\n<|id|>31<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>-1\n<|id|>51<|level|>-1\n<|id|>52<|level|>-1\n<|id|>53<|level|>-1\n<|id|>58<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,115 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-weubxw4x\\input\\pdfs\\doc-8ad0f649.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-weubxw4x\\enriched\\doc-8ad0f649.json",
+    "contd_output": "<|src_id|>10<|tgt_id|>11",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>34<|level|>2\n<|id|>41<|level|>2\n<|id|>47<|level|>2\n<|id|>56<|level|>2\n<|id|>68<|level|>2\n<|id|>88<|level|>1\n<|id|>90<|level|>1\n<|id|>93<|level|>1\n<|id|>96<|level|>1\n<|id|>98<|level|>1",
+    "image_output": "<|src_id|>32<|tgt_id|>24\n<|src_id|>36<|tgt_id|>34\n<|src_id|>37<|tgt_id|>34\n<|src_id|>38<|tgt_id|>34",
+    "contd_label": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 32,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 34
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 37,
+            "table2_idx": 38,
+            "upper_row_ss": [
+                [
+                    "Sandra E. Nakamura",
+                    "Independent Director; Chair, Compensation Committee; Member, Audit Committee"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "David L. Fontaine",
+                    "Independent Director; Chair, Nominating and Governance Committee; Member, Finance Committee"
+                ]
+            ]
+        }
+    ]
+}

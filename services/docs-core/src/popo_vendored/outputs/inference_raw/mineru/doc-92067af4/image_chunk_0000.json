@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        15,
+        16,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>128 403 148 593<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>491 140 508 357<|content|>I. PURPOSE AND SCOPE\n<|id|>19<|type|>title<|page|>2<|box|>580 140 598 380<|content|>II. EXECUTIVE SUMMARY\n<|id|>30<|type|>title<|page|>3<|box|>739 140 755 379<|content|>III. DEVICE DESCRIPTION\n<|id|>32<|type|>title<|page|>4<|box|>90 140 107 447<|content|>III.A. Lumina C14 Implantable Sensor\n<|id|>46<|type|>title<|page|>4<|box|>746 140 763 522<|content|>III.B. Lumina R7 Wearable Reader/Transmitter\n<|id|>60<|type|>title<|page|>5<|box|>676 140 694 486<|content|>III.C. System-Level Classification Rationale\n<|id|>64<|type|>title<|page|>6<|box|>393 140 412 488<|content|>IV. PRODUCT CODE ANALYSIS — QKQ\n<|id|>65<|type|>title<|page|>6<|box|>425 140 443 429<|content|>IV.A. Product Code QKQ Definition\n<|id|>73<|type|>title<|page|>7<|box|>196 140 213 671<|content|>IV.B. Comparison with Other Potentially Applicable\n<|id|>80<|type|>title<|page|>8<|box|>138 140 157 521<|content|>IV.C. Predicate Device Product Code Alignment\n<|id|>82<|type|>table<|page|>8<|box|>321 143 425 852<|content|>None\n<|id|>85<|type|>title<|page|>8<|box|>690 140 707 660<|content|>V. REGULATION NUMBER ANALYSIS — 21 C.F.R. § 862.13\n<|id|>86<|type|>title<|page|>8<|box|>722 140 739 398<|content|>V.A. Regulatory Text and Scope\n<|id|>91<|type|>title<|page|>9<|box|>411 140 428 532<|content|>V.B. Classification: Class II with Special Control\n<|id|>97<|type|>title<|page|>10<|box|>250 142 266 410<|content|>V.C. General Controls Applicable\n<|id|>104<|type|>title<|page|>11<|box|>212 140 229 707<|content|>VI. SPECIAL CONTROLS APPLICABLE TO PRODUCT CODE QK\n<|id|>105<|type|>title<|page|>11<|box|>243 140 260 516<|content|>VI.A. Overview of Special Controls Framework\n<|id|>114<|type|>title<|page|>11<|box|>720 140 739 439<|content|>VI.B. Analytical Performance Testing\n<|id|>133<|type|>title<|page|>13<|box|>465 140 483 421<|content|>VI.C. Clinical Performance Testing\n<|id|>136<|type|>table<|page|>13<|box|>630 143 900 852<|content|>None\n<|id|>157<|type|>title<|page|>15<|box|>450 140 469 655<|content|>VI.E. Electromagnetic Compatibility (EMC) and Elec\n<|id|>163<|type|>title<|page|>16<|box|>220 140 237 478<|content|>VI.F. Software Validation and Verification\n<|id|>186<|type|>title<|page|>19<|box|>89 140 107 697<|content|>VII. FDA RECLASSIFICATION ORDER EFFECTIVE MARCH 20\n<|id|>187<|type|>title<|page|>19<|box|>121 140 138 624<|content|>VII.A. Background and Purpose of the Reclassificat\n<|id|>191<|type|>title<|page|>19<|box|>502 142 518 622<|content|>VII.B. Key Changes Introduced by the Reclassificat\n<|id|>197<|type|>title<|page|>20<|box|>349 140 366 584<|content|>VII.C. Impact on the Lumina CGM Submission Strateg\n<|id|>204<|type|>title<|page|>21<|box|>468 140 484 772<|content|>VIII. IMPLICATIONS FOR THE PRE-SUBMISSION AND 510(\n<|id|>205<|type|>title<|page|>21<|box|>500 142 516 408<|content|>VIII.A. Pre-Sub Meeting Package\n<|id|>211<|type|>title<|page|>22<|box|>138 140 156 351<|content|>VIII.B. 510(k) Submission\n<|id|>220<|type|>title<|page|>22<|box|>698 140 715 454<|content|>VIII.C. Regulatory Timeline Alignment\n<|id|>228<|type|>title<|page|>23<|box|>564 140 580 635<|content|>IX. EU REGULATORY STATUS AND CROSS-REFERENCE\n<|id|>238<|type|>title<|page|>24<|box|>700 140 718 534<|content|>X. CONCLUSION AND RECOMMENDATIONS\n<|id|>240<|type|>title<|page|>24<|box|>776 142 792 246<|content|>Conclusions.\n<|id|>244<|type|>title<|page|>25<|box|>268 142 285 295<|content|>Recommendations.\n<|id|>251<|type|>title<|page|>26<|box|>204 140 220 467<|content|>XI. LIMITATIONS AND DISCLAIMER",
+    "raw_response": "<|src_id|>82<|tgt_id|>80\n<|src_id|>136<|tgt_id|>133",
+    "parsed": [
+        {
+            "src_id": 82,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 133
+        }
+    ]
+}

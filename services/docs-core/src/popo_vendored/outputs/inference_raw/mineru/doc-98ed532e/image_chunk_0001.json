@@ -1,0 +1,59 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        60
+    ],
+    "pages": [
+        46,
+        47,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        58,
+        59,
+        60
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>542<|type|>title<|page|>46<|box|>90 423 109 575<|content|>ARTICLE XII\n<|id|>543<|type|>title<|page|>46<|box|>128 321 148 674<|content|>RETENTION OF JURISDICTION\n<|id|>544<|type|>title<|page|>46<|box|>175 140 191 493<|content|>Section 12.01 Bankruptcy Court Jurisdiction\n<|id|>546<|type|>title<|page|>47<|box|>90 397 111 601<|content|>SCHEDULE 1.01(a)\n<|id|>547<|type|>title<|page|>47<|box|>128 354 148 643<|content|>LENDER COMMITMENTS\n<|id|>549<|type|>table<|page|>47<|box|>246 143 728 852<|content|>None\n<|id|>550<|type|>table<|page|>47<|box|>758 143 790 852<|content|>None\n<|id|>552<|type|>title<|page|>49<|box|>90 410 109 588<|content|>SCHEDULE 4.05\n<|id|>553<|type|>title<|page|>49<|box|>128 398 148 599<|content|>REAL PROPERTY\n<|id|>554<|type|>table<|page|>49<|box|>165 143 443 852<|content|>None\n<|id|>555<|type|>title<|page|>50<|box|>90 411 109 586<|content|>SCHEDULE 4.11\n<|id|>556<|type|>title<|page|>50<|box|>130 316 148 681<|content|>SUBSIDIARIES AND AFFILIATES\n<|id|>557<|type|>table<|page|>50<|box|>165 143 343 852<|content|>None\n<|id|>558<|type|>title<|page|>51<|box|>90 411 109 588<|content|>SCHEDULE 4.16\n<|id|>559<|type|>title<|page|>51<|box|>130 357 148 638<|content|>MATERIAL CONTRACTS\n<|id|>560<|type|>table<|page|>51<|box|>165 143 407 852<|content|>None\n<|id|>561<|type|>title<|page|>52<|box|>90 410 109 586<|content|>SCHEDULE 6.01\n<|id|>562<|type|>title<|page|>52<|box|>128 349 148 648<|content|>EXISTING INDEBTEDNESS\n<|id|>564<|type|>table<|page|>52<|box|>209 143 297 852<|content|>None\n<|id|>566<|type|>title<|page|>53<|box|>90 411 109 586<|content|>SCHEDULE 6.02\n<|id|>567<|type|>title<|page|>53<|box|>128 403 148 594<|content|>EXISTING LIENS\n<|id|>568<|type|>table<|page|>53<|box|>165 143 282 852<|content|>None\n<|id|>569<|type|>title<|page|>54<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>570<|type|>title<|page|>54<|box|>128 277 148 720<|content|>FORM OF COMPLIANCE CERTIFICATE\n<|id|>589<|type|>title<|page|>55<|box|>89 142 107 215<|content|>Annex I.\n<|id|>601<|type|>title<|page|>56<|box|>90 437 109 560<|content|>EXHIBIT B\n<|id|>602<|type|>title<|page|>56<|box|>128 176 148 820<|content|>FORM OF ASSIGNMENT AND ASSUMPTION AGREEMENT\n<|id|>606<|type|>table<|page|>56<|box|>402 143 474 852<|content|>None\n<|id|>630<|type|>title<|page|>58<|box|>90 436 111 562<|content|>EXHIBIT C\n<|id|>631<|type|>title<|page|>58<|box|>128 307 148 689<|content|>FORM OF BORROWING REQUEST\n<|id|>647<|type|>title<|page|>59<|box|>90 434 111 563<|content|>EXHIBIT D\n<|id|>648<|type|>title<|page|>59<|box|>128 405 148 591<|content|>FORM OF NOTE\n<|id|>660<|type|>title<|page|>60<|box|>90 385 109 611<|content|>SIGNATURE PAGES",
+    "raw_response": "<|src_id|>549<|tgt_id|>547\n<|src_id|>550<|tgt_id|>547\n<|src_id|>554<|tgt_id|>553\n<|src_id|>557<|tgt_id|>556\n<|src_id|>560<|tgt_id|>559\n<|src_id|>564<|tgt_id|>562\n<|src_id|>568<|tgt_id|>567\n<|src_id|>606<|tgt_id|>602",
+    "parsed": [
+        {
+            "src_id": 549,
+            "tgt_id": 547
+        },
+        {
+            "src_id": 550,
+            "tgt_id": 547
+        },
+        {
+            "src_id": 554,
+            "tgt_id": 553
+        },
+        {
+            "src_id": 557,
+            "tgt_id": 556
+        },
+        {
+            "src_id": 560,
+            "tgt_id": 559
+        },
+        {
+            "src_id": 564,
+            "tgt_id": 562
+        },
+        {
+            "src_id": 568,
+            "tgt_id": 567
+        },
+        {
+            "src_id": 606,
+            "tgt_id": 602
+        }
+    ]
+}

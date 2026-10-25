@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 147 143 849<|content|>SECRETARY'S CERTIFICATE OF GENOME DX THERAPEUTICS\n<|id|>10<|type|>title<|page|>1<|box|>652 140 669 519<|content|>CERTIFICATION 1: BOARD RESOLUTIONS\n<|id|>21<|type|>title<|page|>2<|box|>641 140 659 635<|content|>CERTIFICATION 2: CERTIFICATE OF INCORPORATION\n<|id|>25<|type|>title<|page|>3<|box|>89 142 106 398<|content|>CERTIFICATION 3: BYLAWS\n<|id|>28<|type|>title<|page|>3<|box|>219 140 236 746<|content|>CERTIFICATION 4: INCUMBENCY AND AUTHORIZED SIGNATO\n<|id|>31<|type|>table<|page|>3<|box|>386 143 459 852<|content|>None\n<|id|>33<|type|>title<|page|>3<|box|>625 140 643 669<|content|>CERTIFICATION 5: GOOD STANDING AND QUALIFICATION\n<|id|>37<|type|>title<|page|>3<|box|>835 140 852 612<|content|>CERTIFICATION 6: NO CONFLICT AND NO DEFAULT\n<|id|>43<|type|>title<|page|>4<|box|>428 140 445 669<|content|>CERTIFICATION 7: REPRESENTATIONS AND WARRANTIES\n<|id|>51<|type|>title<|page|>4<|box|>777 140 795 643<|content|>CONFIRMATION OF INCUMBENCY OF THE SECRETARY\n<|id|>59<|type|>title<|page|>6<|box|>90 434 109 563<|content|>EXHIBIT A\n<|id|>60<|type|>title<|page|>6<|box|>135 289 152 707<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS\n<|id|>61<|type|>title<|page|>6<|box|>176 330 194 666<|content|>OF GENOME DX THERAPEUTICS INC.\n<|id|>62<|type|>title<|page|>6<|box|>219 264 234 733<|content|>Adopted by Unanimous Written Consent in Lieu of Me\n<|id|>65<|type|>title<|page|>6<|box|>402 142 420 331<|content|>Participating Directors:\n<|id|>82<|type|>title<|page|>7<|box|>585 140 603 379<|content|>NOW, THEREFORE, BE IT:\n<|id|>121<|type|>title<|page|>11<|box|>90 436 111 562<|content|>EXHIBIT B\n<|id|>122<|type|>title<|page|>11<|box|>135 215 152 781<|content|>AMENDED AND RESTATED CERTIFICATE OF INCORPORATION\n<|id|>123<|type|>title<|page|>11<|box|>176 328 194 666<|content|>OF GENOME DX THERAPEUTICS INC.\n<|id|>128<|type|>title<|page|>12<|box|>90 434 109 563<|content|>EXHIBIT C\n<|id|>129<|type|>title<|page|>12<|box|>136 287 152 707<|content|>BYLAWS OF GENOME DX THERAPEUTICS INC.\n<|id|>133<|type|>title<|page|>13<|box|>90 434 109 562<|content|>EXHIBIT D\n<|id|>134<|type|>title<|page|>13<|box|>135 367 152 629<|content|>INCUMBENCY CERTIFICATE\n<|id|>135<|type|>title<|page|>13<|box|>176 330 194 665<|content|>OF GENOME DX THERAPEUTICS INC.\n<|id|>137<|type|>table<|page|>13<|box|>354 143 428 852<|content|>None",
+    "raw_response": "<|src_id|>31<|tgt_id|>28\n<|src_id|>137<|tgt_id|>134",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 134
+        }
+    ]
+}

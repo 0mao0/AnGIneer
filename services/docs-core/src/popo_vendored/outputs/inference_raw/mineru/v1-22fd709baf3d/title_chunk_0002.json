@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        94,
+        103
+    ],
+    "pages": [
+        94,
+        95,
+        96,
+        97,
+        98,
+        101,
+        102,
+        103
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>797<|page|>94<|box|>89 24 114 238<|content|>SIGNATURES\n<|id|>799<|page|>94<|box|>162 24 175 91<|content|>NIKE, INC.\n<|id|>803<|page|>95<|box|>51 295 68 699<|content|>DESCRIPTION OF NIKE, INC. CAPITAL STOCK\n<|id|>805<|page|>95<|box|>165 22 181 94<|content|>General\n<|id|>807<|page|>95<|box|>294 22 311 218<|content|>Voting and Other Rights\n<|id|>808<|page|>95<|box|>327 22 343 91<|content|>General\n<|id|>812<|page|>95<|box|>632 24 648 282<|content|>Voting for the Election of Directors\n<|id|>817<|page|>96<|box|>234 22 252 279<|content|>Dividend and Liquidation Rights\n<|id|>821<|page|>96<|box|>478 22 494 722<|content|>Anti-takeover Effects of Certain Provisions of the\n<|id|>823<|page|>96<|box|>559 24 575 161<|content|>Voting Thresholds\n<|id|>827<|page|>97<|box|>119 22 135 316<|content|>Authorized but Unissued Common Stock\n<|id|>829<|page|>97<|box|>250 22 265 189<|content|>No Cumulative Voting\n<|id|>831<|page|>97<|box|>314 22 330 509<|content|>Notice Provisions Relating to Stockholder Proposal\n<|id|>833<|page|>97<|box|>411 24 428 145<|content|>Market Listing\n<|id|>835<|page|>97<|box|>476 24 492 263<|content|>Transfer Agents and Registrar\n<|id|>837<|page|>98<|box|>29 364 45 630<|content|>SUBSIDIARIES OF THE REGISTRANT\n<|id|>842<|page|>101<|box|>44 316 71 679<|content|>Certification of Chief Executive Officer Pursuant\n<|id|>856<|page|>102<|box|>70 316 98 679<|content|>Certification of Chief Financial Officer Pursuant\n<|id|>871<|page|>103<|box|>106 22 119 261<|content|>Certification of Chief Executive Officer",
+    "raw_response": "<|id|>797<|level|>1\n<|id|>799<|level|>2\n<|id|>803<|level|>1\n<|id|>805<|level|>2\n<|id|>807<|level|>2\n<|id|>808<|level|>3\n<|id|>812<|level|>3\n<|id|>817<|level|>3\n<|id|>821<|level|>2\n<|id|>823<|level|>3\n<|id|>827<|level|>3\n<|id|>829<|level|>3\n<|id|>831<|level|>3\n<|id|>833<|level|>3\n<|id|>835<|level|>3\n<|id|>837<|level|>1\n<|id|>842<|level|>1\n<|id|>856<|level|>1\n<|id|>871<|level|>1",
+    "parsed": [
+        {
+            "id": 797,
+            "level": 1
+        },
+        {
+            "id": 799,
+            "level": 2
+        },
+        {
+            "id": 803,
+            "level": 1
+        },
+        {
+            "id": 805,
+            "level": 2
+        },
+        {
+            "id": 807,
+            "level": 2
+        },
+        {
+            "id": 808,
+            "level": 3
+        },
+        {
+            "id": 812,
+            "level": 3
+        },
+        {
+            "id": 817,
+            "level": 3
+        },
+        {
+            "id": 821,
+            "level": 2
+        },
+        {
+            "id": 823,
+            "level": 3
+        },
+        {
+            "id": 827,
+            "level": 3
+        },
+        {
+            "id": 829,
+            "level": 3
+        },
+        {
+            "id": 831,
+            "level": 3
+        },
+        {
+            "id": 833,
+            "level": 3
+        },
+        {
+            "id": 835,
+            "level": 3
+        },
+        {
+            "id": 837,
+            "level": 1
+        },
+        {
+            "id": 842,
+            "level": 1
+        },
+        {
+            "id": 856,
+            "level": 1
+        },
+        {
+            "id": 871,
+            "level": 1
+        }
+    ]
+}

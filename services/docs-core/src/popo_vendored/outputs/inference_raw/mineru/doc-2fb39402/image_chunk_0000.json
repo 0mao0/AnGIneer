@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        16
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>18<|type|>title<|page|>2<|box|>90 140 107 272<|content|>1. The Property\n<|id|>27<|type|>title<|page|>2<|box|>814 140 832 284<|content|>2. Purchase Price\n<|id|>33<|type|>title<|page|>3<|box|>354 140 373 348<|content|>3. Earnest Money Deposit\n<|id|>34<|type|>title<|page|>3<|box|>386 140 404 287<|content|>3.1 Initial Deposit\n<|id|>36<|type|>title<|page|>3<|box|>550 140 568 323<|content|>3.2 Additional Deposit\n<|id|>38<|type|>title<|page|>3<|box|>714 140 732 356<|content|>3.3 Application of Deposits\n<|id|>40<|type|>title<|page|>4<|box|>90 140 107 299<|content|>4. Buyer's Designee\n<|id|>42<|type|>title<|page|>4<|box|>321 140 339 330<|content|>5. Due Diligence Period\n<|id|>60<|type|>title<|page|>5<|box|>796 140 813 352<|content|>6. Access and Cooperation\n<|id|>65<|type|>title<|page|>6<|box|>648 140 665 295<|content|>7. Title and Survey\n<|id|>77<|type|>title<|page|>7<|box|>575 140 594 390<|content|>8. Tenant Leases and Estoppels\n<|id|>79<|type|>table<|page|>7<|box|>699 143 902 852<|content|>None\n<|id|>80<|type|>table<|page|>8<|box|>88 143 142 852<|content|>None\n<|id|>84<|type|>title<|page|>8<|box|>544 140 561 416<|content|>9. Representations and Warranties\n<|id|>97<|type|>title<|page|>10<|box|>90 142 107 395<|content|>10. Prorations and Adjustments\n<|id|>107<|type|>title<|page|>10<|box|>675 142 691 437<|content|>11. Transfer Taxes and Closing Costs\n<|id|>109<|type|>title<|page|>10<|box|>727 140 744 305<|content|>Seller's Obligations:\n<|id|>116<|type|>title<|page|>11<|box|>229 143 248 308<|content|>Buyer's Obligations:\n<|id|>123<|type|>title<|page|>11<|box|>539 142 556 312<|content|>CEMA Opportunity:\n<|id|>127<|type|>title<|page|>12<|box|>167 142 185 344<|content|>12. Conditions to Closing\n<|id|>139<|type|>title<|page|>13<|box|>89 140 107 236<|content|>13. Closing\n<|id|>144<|type|>title<|page|>13<|box|>601 140 619 323<|content|>14. Binding Provisions\n<|id|>153<|type|>title<|page|>14<|box|>715 142 733 436<|content|>14.3 Governing Law and Jurisdiction\n<|id|>156<|type|>title<|page|>15<|box|>157 140 175 338<|content|>14.4 Costs and Expenses\n<|id|>158<|type|>title<|page|>15<|box|>314 140 330 424<|content|>15. PSA Negotiation and Next Steps\n<|id|>167<|type|>title<|page|>16<|box|>90 143 107 259<|content|>16. Expiration\n<|id|>169<|type|>title<|page|>16<|box|>213 142 229 281<|content|>17. Counterparts\n<|id|>173<|type|>title<|page|>16<|box|>508 400 526 596<|content|>[Signature Pages Follow]\n<|id|>176<|type|>title<|page|>16<|box|>622 140 638 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>184<|type|>title<|page|>16<|box|>786 140 803 767<|content|>MERIDIAN GATEWAY HOLDINGS LLC, a New York limited",
+    "raw_response": "<|src_id|>79<|tgt_id|>77\n<|src_id|>80<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 77
+        }
+    ]
+}

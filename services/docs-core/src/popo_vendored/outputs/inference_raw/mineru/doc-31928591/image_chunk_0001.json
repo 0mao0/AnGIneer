@@ -1,0 +1,84 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        58
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>438<|type|>table<|page|>45<|box|>88 143 243 852<|content|>None\n<|id|>440<|type|>title<|page|>46<|box|>90 142 108 403<|content|>Appendix B: Sample Test Report\n<|id|>442<|type|>title<|page|>46<|box|>212 344 229 651<|content|>GENOME DX THERAPEUTICS INC.\n<|id|>443<|type|>table<|page|>46<|box|>305 143 527 852<|content|>None\n<|id|>444<|type|>title<|page|>46<|box|>561 313 578 683<|content|>THERAPY RESPONSE INDEX (TRI) SCORE\n<|id|>445<|type|>title<|page|>46<|box|>587 442 604 555<|content|>TRI Score: 78\n<|id|>446<|type|>table<|page|>46<|box|>637 143 724 852<|content|>None\n<|id|>450<|type|>table<|page|>47<|box|>176 143 378 852<|content|>None\n<|id|>454<|type|>title<|page|>48<|box|>89 140 108 586<|content|>Appendix C: CLARITY-LUNG Trial Protocol Summary\n<|id|>469<|type|>title<|page|>48<|box|>641 142 657 328<|content|>Key Inclusion Criteria:\n<|id|>476<|type|>title<|page|>49<|box|>215 140 232 457<|content|>Data Safety Monitoring Board (DSMB):\n<|id|>482<|type|>table<|page|>49<|box|>398 143 484 852<|content|>None\n<|id|>486<|type|>title<|page|>50<|box|>90 140 108 655<|content|>Appendix D: Larkfield Health Economics Analysis —\n<|id|>498<|type|>title<|page|>51<|box|>90 140 107 573<|content|>Appendix E: Analytical Validation Publication Repr\n<|id|>502<|type|>title<|page|>52<|box|>90 140 107 714<|content|>Appendix F: Laboratory Certifications and Accredit\n<|id|>509<|type|>title<|page|>53<|box|>90 140 108 455<|content|>Appendix G: Patent Portfolio Summary\n<|id|>511<|type|>table<|page|>53<|box|>200 143 898 852<|content|>None\n<|id|>512<|type|>table<|page|>54<|box|>88 143 407 852<|content|>None\n<|id|>513<|type|>table<|page|>54<|box|>465 143 895 852<|content|>None\n<|id|>514<|type|>table<|page|>55<|box|>88 143 202 852<|content|>None\n<|id|>517<|type|>title<|page|>56<|box|>90 142 108 637<|content|>Appendix H: Crosswalk Comparator Analysis Supporti\n<|id|>519<|type|>table<|page|>56<|box|>181 143 463 852<|content|>None\n<|id|>520<|type|>table<|page|>56<|box|>520 143 828 852<|content|>None\n<|id|>521<|type|>title<|page|>56<|box|>862 140 898 854<|content|>Comparator 3: PLA Code 0239U — TumorMap Pro (Marlo\n<|id|>522<|type|>table<|page|>57<|box|>89 143 398 852<|content|>None\n<|id|>523<|type|>title<|page|>57<|box|>434 143 450 390<|content|>Weighted Average Calculation:\n<|id|>524<|type|>table<|page|>57<|box|>457 143 570 852<|content|>None\n<|id|>525<|type|>title<|page|>57<|box|>604 143 621 318<|content|>Premium Calculation:\n<|id|>526<|type|>table<|page|>57<|box|>628 143 704 852<|content|>None\n<|id|>528<|type|>title<|page|>58<|box|>89 142 106 406<|content|>DOCUMENT STATUS NOTICE\n<|id|>529<|type|>title<|page|>58<|box|>114 367 132 630<|content|>DOCUMENT STATUS NOTICE\n<|id|>537<|type|>title<|page|>58<|box|>512 444 529 553<|content|>Prepared by:\n<|id|>540<|type|>title<|page|>58<|box|>607 416 625 580<|content|>Date: April 30, 2024\n<|id|>541<|type|>title<|page|>58<|box|>633 143 650 285<|content|>Primary Contact:",
+    "raw_response": "<|src_id|>438<|tgt_id|>400\n<|src_id|>443<|tgt_id|>400\n<|src_id|>446<|tgt_id|>400\n<|src_id|>450<|tgt_id|>400\n<|src_id|>482<|tgt_id|>476\n<|src_id|>511<|tgt_id|>509\n<|src_id|>512<|tgt_id|>509\n<|src_id|>513<|tgt_id|>509\n<|src_id|>514<|tgt_id|>509\n<|src_id|>519<|tgt_id|>517\n<|src_id|>520<|tgt_id|>517\n<|src_id|>522<|tgt_id|>517\n<|src_id|>524<|tgt_id|>523\n<|src_id|>526<|tgt_id|>525",
+    "parsed": [
+        {
+            "src_id": 438,
+            "tgt_id": 400
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 400
+        },
+        {
+            "src_id": 446,
+            "tgt_id": 400
+        },
+        {
+            "src_id": 450,
+            "tgt_id": 400
+        },
+        {
+            "src_id": 482,
+            "tgt_id": 476
+        },
+        {
+            "src_id": 511,
+            "tgt_id": 509
+        },
+        {
+            "src_id": 512,
+            "tgt_id": 509
+        },
+        {
+            "src_id": 513,
+            "tgt_id": 509
+        },
+        {
+            "src_id": 514,
+            "tgt_id": 509
+        },
+        {
+            "src_id": 519,
+            "tgt_id": 517
+        },
+        {
+            "src_id": 520,
+            "tgt_id": 517
+        },
+        {
+            "src_id": 522,
+            "tgt_id": 517
+        },
+        {
+            "src_id": 524,
+            "tgt_id": 523
+        },
+        {
+            "src_id": 526,
+            "tgt_id": 525
+        }
+    ]
+}

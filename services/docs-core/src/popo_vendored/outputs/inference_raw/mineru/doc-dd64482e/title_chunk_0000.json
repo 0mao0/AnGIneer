@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>213 272 256 725<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>4<|page|>1<|box|>577 181 613 813<|content|>DEFENDANT AURELIUS MEDIA AMERICAS INC.'S RESPONSE\n<|id|>5<|page|>1<|box|>637 143 654 308<|content|>I. INTRODUCTION\n<|id|>12<|page|>2<|box|>564 140 580 305<|content|>II. BACKGROUND\n<|id|>13<|page|>2<|box|>595 142 613 282<|content|>A. The Litigation\n<|id|>19<|page|>3<|box|>402 140 420 555<|content|>B. Extensive Pre-Settlement Litigation and discove\n<|id|>27<|page|>4<|box|>675 140 691 289<|content|>C. The Settlement\n<|id|>42<|page|>5<|box|>787 142 804 434<|content|>D. Notice and Claims Administration\n<|id|>52<|page|>6<|box|>531 140 547 635<|content|>III. LEGAL STANDARD FOR EVALUATING OBJECTIONS\n<|id|>67<|page|>7<|box|>508 142 526 540<|content|>IV. RESPONSE TO INDIVIDUAL OBJECTIONS\n<|id|>68<|page|>7<|box|>540 142 558 513<|content|>A. Objection of Carlos Vega — Attorneys' Fees\n<|id|>71<|page|>7<|box|>671 142 688 228<|content|>Response:\n<|id|>79<|page|>9<|box|>121 140 138 566<|content|>B. Objection of Rachel Kimura — Allocation Formula\n<|id|>82<|page|>9<|box|>287 142 305 228<|content|>Response:\n<|id|>89<|page|>10<|box|>448 140 465 563<|content|>C. Objection of Samuel Torres — Settlement Amount\n<|id|>92<|page|>10<|box|>578 142 595 228<|content|>Response:\n<|id|>96<|page|>11<|box|>263 140 279 852<|content|>3. The Court's partial certification order signifi\n<|id|>102<|page|>12<|box|>294 140 310 710<|content|>D. Objection of Dawn Prescott — Broad Release of N\n<|id|>105<|page|>12<|box|>460 140 478 228<|content|>Response:\n<|id|>114<|page|>14<|box|>175 140 210 813<|content|>V. THE SETTLEMENT MERITS FINAL APPROVAL NOTWITHSTA\n<|id|>120<|page|>14<|box|>839 140 856 300<|content|>VI. CONCLUSION",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>4<|level|>1\n<|id|>5<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>19<|level|>3\n<|id|>27<|level|>3\n<|id|>42<|level|>3\n<|id|>52<|level|>2\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>71<|level|>4\n<|id|>79<|level|>3\n<|id|>82<|level|>4\n<|id|>89<|level|>3\n<|id|>92<|level|>4\n<|id|>96<|level|>5\n<|id|>102<|level|>3\n<|id|>105<|level|>4\n<|id|>114<|level|>2\n<|id|>120<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 4
+        },
+        {
+            "id": 96,
+            "level": 5
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 4
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        }
+    ]
+}

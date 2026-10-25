@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>316 142 332 464<|content|>Request for Acceleration of Effectiveness\n<|id|>11<|page|>2<|box|>204 140 222 380<|content|>Resolution of Staff Comments\n<|id|>14<|page|>2<|box|>462 140 479 449<|content|>Distribution of Preliminary Prospectus\n<|id|>18<|page|>3<|box|>90 142 107 328<|content|>Tandy Representations\n<|id|>23<|page|>3<|box|>515 140 532 529<|content|>Confirmation Regarding Stop Order Proceedings\n<|id|>25<|page|>3<|box|>674 140 691 480<|content|>Compliance with Applicable Requirements\n<|id|>27<|page|>4<|box|>90 142 107 320<|content|>FINRA Review Status\n<|id|>29<|page|>4<|box|>267 142 284 403<|content|>NYSE Listing Application Status\n<|id|>31<|page|>4<|box|>444 140 460 375<|content|>Counsel Contact Information\n<|id|>50<|page|>5<|box|>202 142 214 171<|content|>cc:",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>2\n<|id|>50<|level|>-1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        }
+    ]
+}

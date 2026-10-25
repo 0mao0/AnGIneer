@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 153 143 844<|content|>MANAGER'S CERTIFICATE OF QUORUM PREMIUM FINANCE LL\n<|id|>1<|type|>title<|page|>1<|box|>157 168 195 828<|content|>Authorizing Resolutions in Connection with Insuran\n<|id|>6<|type|>title<|page|>1<|box|>339 140 358 243<|content|>RECITALS\n<|id|>11<|type|>table<|page|>1<|box|>732 143 859 852<|content|>None\n<|id|>15<|type|>title<|page|>2<|box|>292 140 309 781<|content|>SECTION 1: CERTIFICATION OF ORGANIZATION AND GOOD\n<|id|>21<|type|>title<|page|>2<|box|>829 140 845 645<|content|>SECTION 2: CERTIFICATION OF MANAGER AUTHORITY\n<|id|>26<|type|>title<|page|>3<|box|>512 140 529 521<|content|>SECTION 3: AUTHORIZING RESOLUTIONS\n<|id|>28<|type|>title<|page|>3<|box|>606 140 623 509<|content|>Resolution 1: Authorization of the Transaction\n<|id|>32<|type|>title<|page|>4<|box|>194 140 212 571<|content|>Resolution 2: Authorization of Transaction Documen\n<|id|>43<|type|>title<|page|>5<|box|>419 142 436 475<|content|>Resolution 3: Eligible Receivables Criteria\n<|id|>52<|type|>title<|page|>6<|box|>194 142 210 437<|content|>Resolution 4: Initial Receivables Pool\n<|id|>54<|type|>table<|page|>6<|box|>279 143 539 852<|content|>None\n<|id|>56<|type|>title<|page|>6<|box|>751 140 768 648<|content|>Resolution 5: Designation of Authorized Officers a\n<|id|>63<|type|>title<|page|>7<|box|>309 140 325 586<|content|>Resolution 6: Retention of Outside Counsel and Adv\n<|id|>68<|type|>title<|page|>7<|box|>734 140 751 468<|content|>Resolution 7: UCC Filings and Perfection\n<|id|>74<|type|>title<|page|>8<|box|>400 142 417 429<|content|>Resolution 8: General Authorization\n<|id|>77<|type|>title<|page|>8<|box|>728 140 744 560<|content|>SECTION 4: CERTIFICATION OF INCUMBENCY\n<|id|>79<|type|>table<|page|>8<|box|>833 143 905 852<|content|>None\n<|id|>80<|type|>table<|page|>9<|box|>89 143 157 852<|content|>None\n<|id|>82<|type|>title<|page|>9<|box|>268 140 285 504<|content|>SECTION 5: FURTHER CERTIFICATIONS\n<|id|>89<|type|>title<|page|>11<|box|>89 142 107 256<|content|>SIGNATURE\n<|id|>97<|type|>title<|page|>11<|box|>284 142 301 339<|content|>ACKNOWLEDGMENT",
+    "raw_response": "<|src_id|>11<|tgt_id|>6\n<|src_id|>54<|tgt_id|>52\n<|src_id|>79<|tgt_id|>77\n<|src_id|>80<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 77
+        }
+    ]
+}

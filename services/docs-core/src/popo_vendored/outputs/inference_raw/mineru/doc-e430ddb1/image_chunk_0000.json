@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>8<|type|>title<|page|>1<|box|>363 140 380 462<|content|>I. Introduction and Engagement Context\n<|id|>14<|type|>title<|page|>2<|box|>329 142 347 491<|content|>II. Summary of the Proposed Notes Offering\n<|id|>16<|type|>table<|page|>2<|box|>416 143 715 852<|content|>None\n<|id|>18<|type|>table<|page|>2<|box|>773 143 893 852<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>311 142 327 269<|content|>III. Guarantors\n<|id|>33<|type|>title<|page|>4<|box|>167 142 184 622<|content|>IV. Use of Proceeds and Impact on Existing Capital\n<|id|>35<|type|>table<|page|>4<|box|>236 143 393 852<|content|>None\n<|id|>38<|type|>table<|page|>4<|box|>541 143 739 852<|content|>None\n<|id|>45<|type|>title<|page|>5<|box|>242 140 258 428<|content|>V. Collateral and Security Structure\n<|id|>62<|type|>title<|page|>6<|box|>256 140 273 437<|content|>VI. Request for ABL Lender Consent\n<|id|>75<|type|>title<|page|>7<|box|>527 140 544 537<|content|>VII. Transmittal of Draft Intercreditor Agreement\n<|id|>91<|type|>title<|page|>9<|box|>539 140 555 352<|content|>VIII. Enclosed Documents\n<|id|>97<|type|>title<|page|>10<|box|>90 142 107 480<|content|>IX. Timeline and Requested Response Date\n<|id|>99<|type|>table<|page|>10<|box|>159 143 253 852<|content|>None\n<|id|>104<|type|>title<|page|>10<|box|>626 142 643 331<|content|>X. Contact Information\n<|id|>114<|type|>title<|page|>11<|box|>89 140 107 348<|content|>XI. Confidentiality Notice",
+    "raw_response": "<|src_id|>16<|tgt_id|>14\n<|src_id|>18<|tgt_id|>14\n<|src_id|>35<|tgt_id|>33\n<|src_id|>38<|tgt_id|>33\n<|src_id|>99<|tgt_id|>97",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 97
+        }
+    ]
+}

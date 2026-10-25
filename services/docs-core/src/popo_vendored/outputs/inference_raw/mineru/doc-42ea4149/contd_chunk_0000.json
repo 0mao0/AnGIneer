@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>157 223 174 856<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>181 746 200 854<|content|>May 16, 2023\n<|id|>4<|page|>1<|box|>208 140 226 759<|content|>Aldgate & Finch LLP 350 South Grand Avenue, Suite 3000 Los Angeles, CA 90071\n<|id|>29<|page|>3<|box|>840 174 895 856<|content|>(b) If no review has been conducted with respect t...ance with the standards of the PCAOB or the AICPA)\n<|id|>30<|page|>4<|box|>90 174 127 856<|content|>to the unaudited interim financial data as describ... resulting from the application of such procedures\n<|id|>44<|page|>6<|box|>299 174 444 856<|content|>(a) There was any change in the issued and outstan...reases that the comfort letter sets forth; ... and\n<|id|>46<|page|>6<|box|>588 140 662 854<|content|>We acknowledge that the specific metrics and finan... the precise scope of the change period procedures\n<|id|>71<|page|>9<|box|>516 174 551 854<|content|>Jennifer Kwon, Partner (Responsible Partner) Calde...r New York, NY 10022 Telephone: ... (212) 848-4312\n<|id|>72<|page|>9<|box|>560 176 577 537<|content|>Email: ... com\n<|id|>73<|page|>9<|box|>578 176 594 622<|content|>Claire Dempsey, Lead Associate Telephone: ... (212) 848-4587\n<|id|>74<|page|>9<|box|>604 176 619 545<|content|>Email: ... com\n<|id|>75<|page|>9<|box|>621 176 638 630<|content|>Audrey Zhou, Working Associate Telephone: ... (212) 848-4623\n<|id|>76<|page|>9<|box|>647 176 662 524<|content|>Email: ... com\n<|id|>77<|page|>9<|box|>664 143 681 517<|content|>Optiwave Semiconductor Corp. ... (the Company)\n<|id|>78<|page|>9<|box|>689 176 724 854<|content|>Priya Nandakumar, Chief Financial Officer Optiwave Semiconductor Corp. ... (408) 555-7100\n<|id|>79<|page|>9<|box|>734 176 750 486<|content|>Email: ... com\n<|id|>80<|page|>9<|box|>751 176 768 581<|content|>Rachel Fontaine, Treasurer Telephone: ... (408) 555-7115\n<|id|>81<|page|>9<|box|>777 176 794 455<|content|>Email: ... com\n<|id|>82<|page|>9<|box|>794 176 811 764<|content|>David Shih, General Counsel & Corporate Secretary Telephone: ... (408) 555-7200\n<|id|>83<|page|>9<|box|>820 176 835 428<|content|>Email: ... com\n<|id|>85<|page|>9<|box|>863 176 898 852<|content|>Diana Castellano, Lead Partner Prescott Whitfield ...t New York, NY 10019 Telephone: ... (212) 506-3400\n<|id|>86<|page|>10<|box|>90 176 106 493<|content|>Email: ... com\n<|id|>87<|page|>10<|box|>107 176 125 614<|content|>Ryan Fujimoto, Lead Associate Telephone: ... (212) 506-3428\n<|id|>88<|page|>10<|box|>133 176 148 480<|content|>Email: ... com\n<|id|>89<|page|>10<|box|>151 140 242 854<|content|>We respectfully request that A&F direct any questi...ong the relevant parties to facilitate the process\n<|id|>93<|page|>10<|box|>511 142 527 272<|content|>Very truly yours,\n<|id|>94<|page|>10<|box|>527 140 544 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>95<|page|>10<|box|>545 143 561 253<|content|>By: ... By\n<|id|>96<|page|>10<|box|>561 140 579 498<|content|>Jennifer Kwon, Partner Capital Markets Practice\n<|id|>97<|page|>10<|box|>604 176 623 797<|content|>David Shih, General Counsel & Corporate Secretary,...& Corporate Secretary, Optiwave Semiconductor Corp\n<|id|>99<|page|>10<|box|>656 176 674 810<|content|>Cameron Walsh, Head of Equity-Linked Origination, Ridgepoint Capital Markets LLC\n<|id|>100<|page|>10<|box|>681 176 699 547<|content|>Diana Castellano, Partner, Prescott Whitfield LLP\n<|id|>101<|page|>10<|box|>708 176 724 609<|content|>Theodore Langston, Partner, Calderwood & Harkness LLP\n<|id|>102<|page|>10<|box|>734 176 751 604<|content|>Claire Dempsey, Associate, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>85<|tgt_id|>86",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        }
+    ]
+}

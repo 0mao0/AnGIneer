@@ -1,0 +1,146 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>434 142 450 308<|content|>I. INTRODUCTION\n<|id|>14<|page|>1<|box|>864 142 880 290<|content|>II. DEFINITIONS\n<|id|>26<|page|>2<|box|>657 140 674 506<|content|>III. DOCUMENTS AND ITEMS EXAMINED\n<|id|>28<|page|>2<|box|>751 140 767 457<|content|>A. Organizational Documents — Parent\n<|id|>36<|page|>3<|box|>364 142 381 496<|content|>B. Organizational Documents — Merger Sub\n<|id|>42<|page|>3<|box|>680 140 696 356<|content|>C. Transaction Documents\n<|id|>47<|page|>4<|box|>90 140 106 308<|content|>D. Other Documents\n<|id|>52<|page|>4<|box|>450 140 468 308<|content|>IV. ASSUMPTIONS\n<|id|>64<|page|>5<|box|>705 140 723 261<|content|>V. OPINIONS\n<|id|>66<|page|>5<|box|>781 140 799 589<|content|>Opinion 1: Valid Existence and Good Standing — Par\n<|id|>68<|page|>6<|box|>138 140 157 630<|content|>Opinion 2: Valid Existence and Good Standing — Mer\n<|id|>71<|page|>6<|box|>439 140 457 480<|content|>Opinion 3: Power and Authority — Parent\n<|id|>73<|page|>6<|box|>657 140 676 519<|content|>Opinion 4: Power and Authority — Merger Sub\n<|id|>75<|page|>6<|box|>804 140 821 460<|content|>Opinion 5: Due Authorization — Parent\n<|id|>78<|page|>7<|box|>250 140 267 500<|content|>Opinion 6: Due Authorization — Merger Sub\n<|id|>83<|page|>7<|box|>601 140 618 450<|content|>Opinion 7: Due Execution and Delivery\n<|id|>85<|page|>7<|box|>765 140 782 346<|content|>Opinion 8: Enforceability\n<|id|>88<|page|>8<|box|>138 140 157 568<|content|>Opinion 9: No Violation — Organizational Documents\n<|id|>95<|page|>8<|box|>450 140 469 480<|content|>Opinion 10: No Violation — Delaware Law\n<|id|>97<|page|>8<|box|>597 140 614 586<|content|>Opinion 11: No Consents Required Under Delaware La\n<|id|>99<|page|>8<|box|>761 140 779 410<|content|>Opinion 12: Certificate of Merger\n<|id|>101<|page|>9<|box|>148 140 166 640<|content|>VI. QUALIFICATIONS, EXCEPTIONS, AND LIMITATIONS\n<|id|>103<|page|>9<|box|>224 140 242 370<|content|>A. Enforceability Exceptions\n<|id|>108<|page|>9<|box|>508 142 525 310<|content|>B. Scope Limitations\n<|id|>119<|page|>10<|box|>661 140 678 300<|content|>C. Factual Reliance\n<|id|>123<|page|>11<|box|>241 140 258 589<|content|>VII. RELIANCE AND DISTRIBUTION LIMITATIONS\n<|id|>134<|page|>11<|box|>694 437 710 560<|content|>SCHEDULE A\n<|id|>135<|page|>11<|box|>720 331 737 666<|content|>LIST OF TRANSACTION DOCUMENTS\n<|id|>139<|page|>12<|box|>284 437 301 560<|content|>SCHEDULE B\n<|id|>140<|page|>12<|box|>310 259 327 736<|content|>LIST OF ORGANIZATIONAL DOCUMENTS REVIEWED\n<|id|>141<|page|>12<|box|>337 142 372 852<|content|>The following organizational documents, certificat",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>2\n<|id|>36<|level|>2\n<|id|>42<|level|>2\n<|id|>47<|level|>2\n<|id|>52<|level|>1\n<|id|>64<|level|>1\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>85<|level|>2\n<|id|>88<|level|>2\n<|id|>95<|level|>2\n<|id|>97<|level|>2\n<|id|>99<|level|>2\n<|id|>101<|level|>1\n<|id|>103<|level|>2\n<|id|>108<|level|>2\n<|id|>119<|level|>2\n<|id|>123<|level|>1\n<|id|>134<|level|>1\n<|id|>135<|level|>2\n<|id|>139<|level|>1\n<|id|>140<|level|>2\n<|id|>141<|level|>-1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 2
+        }
+    ]
+}

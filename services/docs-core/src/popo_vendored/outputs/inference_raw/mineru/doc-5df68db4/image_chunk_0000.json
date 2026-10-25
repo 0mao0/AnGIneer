@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>1<|type|>title<|page|>1<|box|>143 442 161 555<|content|>(Form UCC1)\n<|id|>5<|type|>title<|page|>1<|box|>334 142 351 519<|content|>FIELD 1 — FILING OFFICE INFORMATION\n<|id|>6<|type|>title<|page|>1<|box|>361 142 378 547<|content|>Send Acknowledgment Copy of Filing Statement to:\n<|id|>12<|type|>title<|page|>1<|box|>568 143 584 681<|content|>FIELD 1a — INITIAL FINANCING STATEMENT FILE NUMBER\n<|id|>13<|type|>title<|page|>1<|box|>594 176 612 660<|content|>[To be assigned by the Michigan Department of Stat\n<|id|>15<|type|>title<|page|>1<|box|>734 142 751 486<|content|>FIELD 1b — FILING OFFICE USE ONLY\n<|id|>18<|type|>title<|page|>1<|box|>845 143 862 457<|content|>FIELD 2 — DEBTOR INFORMATION\n<|id|>20<|type|>table<|page|>2<|box|>88 143 257 852<|content|>None\n<|id|>21<|type|>title<|page|>2<|box|>291 142 308 393<|content|>Additional Debtor Information:\n<|id|>28<|type|>title<|page|>2<|box|>688 142 705 535<|content|>FIELD 3 — SECURED PARTY INFORMATION\n<|id|>29<|type|>table<|page|>2<|box|>738 143 869 852<|content|>None\n<|id|>30<|type|>title<|page|>3<|box|>90 142 107 449<|content|>Additional Secured Party Information:\n<|id|>42<|type|>title<|page|>3<|box|>551 142 569 500<|content|>FIELD 4 — COLLATERAL DESCRIPTION\n<|id|>76<|type|>title<|page|>6<|box|>417 140 434 645<|content|>FIELD 5 — CHECK BOXES / ADDITIONAL INFORMATION\n<|id|>77<|type|>title<|page|>6<|box|>444 140 460 651<|content|>5a. This Financing Statement covers the following\n<|id|>84<|type|>title<|page|>6<|box|>734 142 752 344<|content|>Note Regarding Fixtures:\n<|id|>86<|type|>table<|page|>7<|box|>191 143 320 852<|content|>None\n<|id|>88<|type|>title<|page|>7<|box|>449 140 467 509<|content|>FIELD 7 — ALTERNATIVE DESIGNATION\n<|id|>90<|type|>title<|page|>8<|box|>89 140 107 630<|content|>EXHIBIT A — EXTENDED COLLATERAL DESCRIPTION\n<|id|>91<|type|>title<|page|>8<|box|>114 140 133 558<|content|>EXHIBIT A TO UCC-1 FINANCING STATEMENT\n<|id|>103<|type|>title<|page|>9<|box|>215 142 234 630<|content|>FILING INSTRUCTIONS AND ADMINISTRATIVE NOTES\n<|id|>104<|type|>title<|page|>9<|box|>248 142 265 370<|content|>Filing Jurisdiction Rationale\n<|id|>107<|type|>title<|page|>9<|box|>534 142 551 290<|content|>Number of Copies\n<|id|>113<|type|>table<|page|>9<|box|>795 143 898 852<|content|>None\n<|id|>114<|type|>table<|page|>10<|box|>88 143 253 852<|content|>None\n<|id|>115<|type|>title<|page|>10<|box|>292 140 309 506<|content|>Corresponding UCC-3 Termination Statement\n<|id|>123<|type|>title<|page|>11<|box|>89 140 106 426<|content|>SIGNATURE / AUTHORIZATION\n<|id|>126<|type|>title<|page|>11<|box|>421 142 438 250<|content|>Prepared By.\n<|id|>130<|type|>title<|page|>11<|box|>542 143 560 405<|content|>Filing Party Contact Information\n<|id|>134<|type|>title<|page|>11<|box|>672 419 691 576<|content|>CERTIFICATION",
+    "raw_response": "<|src_id|>20<|tgt_id|>18\n<|src_id|>29<|tgt_id|>28\n<|src_id|>86<|tgt_id|>84\n<|src_id|>113<|tgt_id|>107\n<|src_id|>114<|tgt_id|>107",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 107
+        }
+    ]
+}

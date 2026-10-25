@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        103,
+        108
+    ],
+    "pages": [
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>966<|page|>103<|box|>89 142 106 495<|content|>SCHEDULE 5.20 — DEPOSIT ACCOUNTS\n<|id|>969<|page|>104<|box|>89 140 107 720<|content|>SCHEDULE 5.22 — LOCATIONS OF INVENTORY AND EQUIPME\n<|id|>971<|page|>104<|box|>157 142 174 446<|content|>Corporate and Administrative Offices:\n<|id|>973<|page|>104<|box|>334 143 349 313<|content|>Distribution Centers:\n<|id|>975<|page|>104<|box|>602 142 619 527<|content|>Outlet Retail Store Locations (operated by COS):\n<|id|>978<|page|>105<|box|>89 140 106 457<|content|>SCHEDULE 7.01 — EXISTING LIENS\n<|id|>983<|page|>106<|box|>89 142 106 542<|content|>SCHEDULE 7.02 — EXISTING INDEBTEDNESS\n<|id|>987<|page|>107<|box|>89 142 106 534<|content|>SCHEDULE 7.03 — EXISTING INVESTMENTS\n<|id|>990<|page|>108<|box|>89 142 106 625<|content|>SCHEDULE 7.06 — EXISTING RESTRICTED PAYMENTS",
+    "raw_response": "<|id|>966<|level|>1\n<|id|>969<|level|>1\n<|id|>971<|level|>2\n<|id|>973<|level|>2\n<|id|>975<|level|>2\n<|id|>978<|level|>1\n<|id|>983<|level|>1\n<|id|>987<|level|>1\n<|id|>990<|level|>1",
+    "parsed": [
+        {
+            "id": 966,
+            "level": 1
+        },
+        {
+            "id": 969,
+            "level": 1
+        },
+        {
+            "id": 971,
+            "level": 2
+        },
+        {
+            "id": 973,
+            "level": 2
+        },
+        {
+            "id": 975,
+            "level": 2
+        },
+        {
+            "id": 978,
+            "level": 1
+        },
+        {
+            "id": 983,
+            "level": 1
+        },
+        {
+            "id": 987,
+            "level": 1
+        },
+        {
+            "id": 990,
+            "level": 1
+        }
+    ]
+}

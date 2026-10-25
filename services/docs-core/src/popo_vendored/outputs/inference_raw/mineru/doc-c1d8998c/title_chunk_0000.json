@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 807<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT PRIVIL\n<|id|>1<|page|>1<|box|>113 405 133 593<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>398 140 416 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>13<|page|>2<|box|>258 140 276 395<|content|>II. FACTUAL BACKGROUND\n<|id|>14<|page|>2<|box|>290 142 306 261<|content|>A. The Parties\n<|id|>18<|page|>2<|box|>744 142 761 408<|content|>B. The Master Supply Agreement\n<|id|>29<|page|>4<|box|>220 140 238 349<|content|>C. The Surcharge Dispute\n<|id|>33<|page|>4<|box|>527 140 544 318<|content|>D. Nexford's Defenses\n<|id|>41<|page|>5<|box|>473 140 491 581<|content|>E. Cardinal Peak's Unjust Enrichment Claim (Count\n<|id|>47<|page|>6<|box|>90 142 106 338<|content|>III. LEGAL ANALYSIS\n<|id|>48<|page|>6<|box|>121 140 138 563<|content|>A. Elements of Unjust Enrichment Under Illinois La\n<|id|>55<|page|>6<|box|>579 140 614 854<|content|>B. The Express Contract Bar — Illinois Law Prohibi\n<|id|>75<|page|>10<|box|>89 140 125 854<|content|>C. Cardinal Peak's Unjust Enrichment Claim Is Dupl\n<|id|>81<|page|>11<|box|>90 140 107 684<|content|>D. The Account Stated Claim (Count III) — Brief No\n<|id|>84<|page|>11<|box|>417 140 435 777<|content|>IV. PROCEDURAL CONSIDERATIONS AND RECOMMENDED APPR\n<|id|>85<|page|>11<|box|>449 142 467 395<|content|>A. Timing of Dispositive Motion\n<|id|>96<|page|>12<|box|>349 140 366 354<|content|>B. Recommended Strategy\n<|id|>101<|page|>13<|box|>90 140 106 300<|content|>C. Risk Assessment\n<|id|>106<|page|>13<|box|>652 140 669 294<|content|>V. CONCLUSION",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>18<|level|>3\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>41<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>55<|level|>3\n<|id|>75<|level|>3\n<|id|>81<|level|>3\n<|id|>84<|level|>2\n<|id|>85<|level|>3\n<|id|>96<|level|>3\n<|id|>101<|level|>3\n<|id|>106<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        }
+    ]
+}

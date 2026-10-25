@@ -1,0 +1,179 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mvo5tbg1\\input\\pdfs\\doc-160e95bd.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mvo5tbg1\\enriched\\doc-160e95bd.json",
+    "contd_output": "<|src_id|>78<|tgt_id|>79\n<|src_id|>161<|tgt_id|>162",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>17<|level|>3\n<|id|>20<|level|>3\n<|id|>27<|level|>3\n<|id|>29<|level|>3\n<|id|>32<|level|>2\n<|id|>43<|level|>2\n<|id|>48<|level|>2\n<|id|>59<|level|>2\n<|id|>72<|level|>2\n<|id|>81<|level|>2\n<|id|>89<|level|>2\n<|id|>96<|level|>2\n<|id|>113<|level|>3\n<|id|>117<|level|>2\n<|id|>129<|level|>2\n<|id|>144<|level|>2\n<|id|>154<|level|>2\n<|id|>158<|level|>2\n<|id|>163<|level|>2\n<|id|>169<|level|>2\n<|id|>170<|level|>2\n<|id|>171<|level|>3\n<|id|>176<|level|>3\n<|id|>190<|level|>3",
+    "image_output": "<|src_id|>83<|tgt_id|>81\n<|src_id|>84<|tgt_id|>81\n<|src_id|>91<|tgt_id|>89\n<|src_id|>109<|tgt_id|>96\n<|src_id|>110<|tgt_id|>96\n<|src_id|>122<|tgt_id|>117\n<|src_id|>160<|tgt_id|>158",
+    "contd_label": [
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 162
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 83,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 158
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 109,
+            "table2_idx": 110,
+            "upper_row_ss": [
+                [
+                    "Item",
+                    "Amount"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

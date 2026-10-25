@@ -1,0 +1,185 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pcp52k2k\\input\\pdfs\\doc-b70964ae.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pcp52k2k\\enriched\\doc-b70964ae.json",
+    "contd_output": "<|src_id|>23<|tgt_id|>24\n<|src_id|>45<|tgt_id|>46",
+    "title_output": "<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>21<|level|>1\n<|id|>22<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>52<|level|>2\n<|id|>59<|level|>1\n<|id|>60<|level|>2\n<|id|>65<|level|>2\n<|id|>70<|level|>2\n<|id|>74<|level|>1\n<|id|>75<|level|>2\n<|id|>83<|level|>2\n<|id|>88<|level|>2\n<|id|>94<|level|>1\n<|id|>96<|level|>2\n<|id|>98<|level|>3\n<|id|>102<|level|>3\n<|id|>108<|level|>2\n<|id|>110<|level|>3\n<|id|>117<|level|>3\n<|id|>125<|level|>2\n<|id|>134<|level|>3\n<|id|>139<|level|>3\n<|id|>144<|level|>1\n<|id|>155<|level|>1\n<|id|>166<|level|>1",
+    "image_output": "<|src_id|>25<|tgt_id|>22\n<|src_id|>32<|tgt_id|>22\n<|src_id|>54<|tgt_id|>52\n<|src_id|>55<|tgt_id|>52\n<|src_id|>62<|tgt_id|>60\n<|src_id|>67<|tgt_id|>65\n<|src_id|>123<|tgt_id|>108",
+    "contd_label": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 1
+        },
+        {
+            "id": 166,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 25,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 108
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 54,
+            "table2_idx": 55,
+            "upper_row_ss": [
+                [
+                    "Fourth",
+                    "September 15, 2023",
+                    "Requested continuation; no substantive developments"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Fifth",
+                    "December 15, 2023",
+                    "Requested continuation; no substantive developments"
+                ]
+            ]
+        }
+    ]
+}

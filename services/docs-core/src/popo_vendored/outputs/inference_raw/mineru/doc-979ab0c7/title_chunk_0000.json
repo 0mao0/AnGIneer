@@ -1,0 +1,144 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>114 200 133 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|page|>1<|box|>377 372 396 625<|content|>I. Purpose and Summary\n<|id|>17<|page|>2<|box|>284 346 304 651<|content|>II. Key Litigation Background\n<|id|>25<|page|>3<|box|>425 217 445 779<|content|>III. Written discovery — Penterra's Requests to Va\n<|id|>26<|page|>3<|box|>470 142 487 550<|content|>A. Penterra's First Set of Interrogatories to Vant\n<|id|>40<|page|>4<|box|>742 140 758 674<|content|>B. Penterra's First Request for Production of Docu\n<|id|>57<|page|>6<|box|>474 217 494 779<|content|>IV. Written discovery — Vantage's Requests to Pent\n<|id|>58<|page|>6<|box|>520 140 537 550<|content|>A. Vantage's First Set of Interrogatories to Pente\n<|id|>72<|page|>7<|box|>696 140 714 674<|content|>B. Vantage's First Request for Production of Docum\n<|id|>88<|page|>9<|box|>325 424 345 573<|content|>V. Depositions\n<|id|>89<|page|>9<|box|>371 142 388 349<|content|>A. Depositions Completed\n<|id|>96<|page|>9<|box|>590 142 609 356<|content|>Key Testimony Highlights:\n<|id|>104<|page|>10<|box|>455 140 472 553<|content|>2. Deposition of Steven Kapoor — November 2, 2021\n<|id|>110<|page|>10<|box|>643 142 662 356<|content|>Key Testimony Highlights:\n<|id|>119<|page|>11<|box|>664 140 681 348<|content|>B. Depositions Remaining\n<|id|>120<|page|>11<|box|>694 142 710 648<|content|>1. Deposition of Rachel Mendez — Scheduled Novembe\n<|id|>133<|page|>12<|box|>587 140 604 617<|content|>2. Deposition of Brian Kopec — Scheduled December\n<|id|>152<|page|>13<|box|>800 140 816 359<|content|>C. Third-Party Depositions\n<|id|>157<|page|>14<|box|>290 320 310 676<|content|>VI. Outstanding discovery Disputes\n<|id|>158<|page|>14<|box|>334 142 352 338<|content|>A. Privilege Log Dispute\n<|id|>166<|page|>15<|box|>539 140 555 531<|content|>B. Vantage's Incomplete Interrogatory Responses\n<|id|>171<|page|>16<|box|>345 240 364 756<|content|>VII. Document Review and Key Evidence Summary\n<|id|>172<|page|>16<|box|>390 142 407 377<|content|>A. Key Favorable Documents\n<|id|>181<|page|>17<|box|>390 140 407 475<|content|>B. Key Adverse or Concerning Documents\n<|id|>186<|page|>18<|box|>448 383 468 612<|content|>VIII. Expert discovery\n<|id|>194<|page|>19<|box|>172 330 191 666<|content|>IX. Discovery Budget and Timing\n<|id|>204<|page|>19<|box|>791 292 809 704<|content|>X. Action Items and Upcoming Deadlines\n<|id|>209<|page|>20<|box|>628 305 648 689<|content|>XI. Conclusion and Recommendations",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>8<|level|>2\n<|id|>17<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>40<|level|>3\n<|id|>57<|level|>2\n<|id|>58<|level|>3\n<|id|>72<|level|>3\n<|id|>88<|level|>2\n<|id|>89<|level|>3\n<|id|>96<|level|>4\n<|id|>104<|level|>4\n<|id|>110<|level|>5\n<|id|>119<|level|>3\n<|id|>120<|level|>4\n<|id|>133<|level|>4\n<|id|>152<|level|>3\n<|id|>157<|level|>2\n<|id|>158<|level|>3\n<|id|>166<|level|>3\n<|id|>171<|level|>2\n<|id|>172<|level|>3\n<|id|>181<|level|>3\n<|id|>186<|level|>2\n<|id|>194<|level|>2\n<|id|>204<|level|>2\n<|id|>209<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 4
+        },
+        {
+            "id": 104,
+            "level": 4
+        },
+        {
+            "id": 110,
+            "level": 5
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 4
+        },
+        {
+            "id": 133,
+            "level": 4
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 2
+        }
+    ]
+}

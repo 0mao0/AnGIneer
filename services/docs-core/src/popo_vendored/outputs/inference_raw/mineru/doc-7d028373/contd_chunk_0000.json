@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 263 133 733<|content|>600 Lexington Avenue, 30th Floor New York, New York 10022\n<|id|>2<|page|>1<|box|>141 297 159 700<|content|>Telephone: ... (212) 558-3588\n<|id|>3<|page|>1<|box|>167 380 184 616<|content|>www. ... com\n<|id|>4<|page|>1<|box|>193 746 210 854<|content|>May 30, 2023\n<|id|>5<|page|>1<|box|>219 140 253 854<|content|>Broadmere Trust Company, National Association, as ...00 Wall Street, 6th Floor New York, New York 10005\n<|id|>6<|page|>1<|box|>263 176 280 676<|content|>Attention: ... Karen Llewellyn, Relationship Manager, Corporate Trust\n<|id|>7<|page|>1<|box|>281 174 353 854<|content|>Re: ... $287,500,000\n<|id|>8<|page|>1<|box|>362 140 378 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>24<|page|>2<|box|>686 178 739 857<|content|>11. ... and\n<|id|>26<|page|>2<|box|>780 140 834 854<|content|>We have also made such inquiries of officers and r...ry or appropriate for the purposes of this Opinion\n<|id|>27<|page|>2<|box|>842 140 878 857<|content|>The documents listed in items (1) through (12) abo...re collectively referred to herein as the \"Opinion\n<|id|>28<|page|>3<|box|>89 140 127 854<|content|>Documents. ... \"\n<|id|>50<|page|>5<|box|>669 174 761 856<|content|>(b) violate, conflict with, or result in a breach ... contemplated by the Transaction Documents; ... or\n<|id|>52<|page|>6<|box|>90 138 292 857<|content|>With respect to the opinion set forth in clause (c... rendered in reliance upon such consent and waiver\n<|id|>57<|page|>6<|box|>784 174 893 857<|content|>(a) Jurisdictional Limitation. ... We express no o...express no opinion as to the effect of any non-New\n<|id|>58<|page|>7<|box|>90 174 143 854<|content|>York, non-Delaware, or non-federal laws on the mat...accordance with, the laws of the State of New York\n<|id|>69<|page|>8<|box|>542 142 558 272<|content|>Very truly yours,\n<|id|>70<|page|>8<|box|>558 142 574 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>71<|page|>8<|box|>577 143 593 251<|content|>By: ... By\n<|id|>72<|page|>8<|box|>594 142 609 316<|content|>Jennifer Kwon, Partner\n<|id|>73<|page|>8<|box|>612 143 625 166<|content|>cc: ... cc\n<|id|>74<|page|>8<|box|>632 140 662 852<|content|>David Shih General Counsel & Corporate Secretary O...ica Parkway, Suite 1200 San Jose, California 95054\n<|id|>75<|page|>8<|box|>670 140 700 852<|content|>Claire Dempsey, Lead Associate Calderwood & Harkne...nternal File Copy — C&H Matter No. ... 1014-00001)",
+    "raw_response": "<|src_id|>27<|tgt_id|>28\n<|src_id|>57<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        }
+    ]
+}

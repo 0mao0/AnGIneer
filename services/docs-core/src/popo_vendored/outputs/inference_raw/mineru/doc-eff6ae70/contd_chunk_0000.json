@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        7,
+        55
+    ],
+    "pages": [
+        7,
+        14,
+        25,
+        35,
+        47,
+        54
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>25<|page|>7<|box|>231 81 364 491<|content|>Nonfarm payroll employment increased by just 32,00...nt slowed to just 4,000 in July following stronger\n<|id|>26<|page|>7<|box|>148 504 250 915<|content|>The unemployment rate edged down from 5. ... Thoug...ly increase was the largest in more than two years\n<|id|>91<|page|>14<|box|>518 380 532 617<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>92<|page|>14<|box|>539 84 555 267<|content|>Third-Quarter Receipts\n<|id|>93<|page|>14<|box|>556 81 648 491<|content|>The following capsule analysis of budget receipts,... to analyze adequately collections for the quarter\n<|id|>144<|page|>25<|box|>189 504 291 915<|content|>- Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>146<|page|>25<|box|>342 504 489 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>173<|page|>35<|box|>383 81 414 491<|content|>- Table PDO-2 presents the results of weekly aucti... and 26-week bills. ... Treasury bills mature each\n<|id|>174<|page|>35<|box|>125 504 199 915<|content|>Thursday. ... High yields on accepted tenders and ... made on both competitive and noncompetitive bases\n<|id|>179<|page|>35<|box|>464 374 476 622<|content|>[Source: ... Bureau of the Public Debt, Office of Financing]\n<|id|>180<|page|>35<|box|>484 83 501 169<|content|>APRIL\n<|id|>187<|page|>35<|box|>872 83 904 491<|content|>The notes of Series G-2009 were dated and issued A...y are due April 15, 2009, with interest payable on\n<|id|>188<|page|>35<|box|>483 504 529 913<|content|>October 15 and April 15 until maturity. ... Treasu...ich tenders were accepted on a yield auction basis\n<|id|>252<|page|>47<|box|>125 81 287 493<|content|>Series EE bonds, on sale since July 1, 1980, and s...for cash from January 1, 1980, through October 31,\n<|id|>254<|page|>47<|box|>200 504 277 916<|content|>The principal terms and conditions for purchase an...the Secretary of the Treasury for fiscal year 1974\n<|id|>276<|page|>54<|box|>378 81 411 491<|content|>The quotations used by Treasury to calculate the b...nd fit the yield curve are obtained by the Federal\n<|id|>277<|page|>54<|box|>125 504 170 915<|content|>Reserve Bank of New York. ... 15",
+    "raw_response": "<|src_id|>173<|tgt_id|>174\n<|src_id|>187<|tgt_id|>188\n<|src_id|>276<|tgt_id|>277",
+    "parsed": [
+        {
+            "src_id": 173,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 276,
+            "tgt_id": 277
+        }
+    ]
+}

@@ -1,0 +1,145 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-jm68kaoy\\input\\pdfs\\doc-1e48738d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-jm68kaoy\\enriched\\doc-1e48738d.json",
+    "contd_output": "<|src_id|>109<|tgt_id|>110\n<|src_id|>118<|tgt_id|>119",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>41<|level|>1\n<|id|>42<|level|>2\n<|id|>50<|level|>2\n<|id|>57<|level|>2\n<|id|>66<|level|>2\n<|id|>76<|level|>1\n<|id|>77<|level|>2\n<|id|>81<|level|>2\n<|id|>90<|level|>2\n<|id|>97<|level|>1\n<|id|>98<|level|>2\n<|id|>102<|level|>2\n<|id|>106<|level|>2\n<|id|>111<|level|>2\n<|id|>115<|level|>1\n<|id|>121<|level|>1",
+    "image_output": "<|src_id|>123<|tgt_id|>121\n<|src_id|>124<|tgt_id|>121",
+    "contd_label": [
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 119
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 123,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 121
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 123,
+            "table2_idx": 124,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "OCC examiners' analysis of BRB's re-aging and loan modification practices for BridgeFin portfolio, including independent calculations and sensitivity analyses",
+                    "Q2–Q3 2023",
+                    "Bank-examination privilege, 12 U.S.C. § 1820(k); 12 C.F.R. Part 4, Subpart C",
+                    "PL-0952 through PL-0978"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "6",
+                    "OCC examiners' independent analysis of BridgeFin credit-quality metrics and comparative benchmarking",
+                    "Q2–Q3 2023",
+                    "Bank-examination privilege, 12 U.S.C. § 1820(k); 12 C.F.R. Part 4, Subpart C",
+                    "PL-0979 through PL-0997"
+                ]
+            ]
+        }
+    ]
+}

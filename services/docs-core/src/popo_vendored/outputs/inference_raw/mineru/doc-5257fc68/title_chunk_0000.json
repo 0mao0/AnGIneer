@@ -1,0 +1,65 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>1<|box|>208 140 224 478<|content|>VIA OVERNIGHT COURIER AND EMAIL\n<|id|>9<|page|>1<|box|>410 142 428 339<|content|>I. Purpose of This Notice\n<|id|>13<|page|>1<|box|>715 142 733 367<|content|>II. Background and Recitals\n<|id|>28<|page|>3<|box|>263 140 280 442<|content|>III. Appraisal and Valuation Shortfall\n<|id|>35<|page|>4<|box|>90 140 107 500<|content|>IV. Material Modification — Repriced Terms\n<|id|>47<|page|>5<|box|>325 140 342 584<|content|>V. Borrower's Counter-Proposal and Lender's Reject\n<|id|>50<|page|>5<|box|>696 140 712 545<|content|>VI. Board Authorization and Election to Terminate\n<|id|>54<|page|>6<|box|>289 140 306 375<|content|>VII. Deposit Refund Demand\n<|id|>61<|page|>6<|box|>854 142 871 357<|content|>VIII. Reservation of Rights\n<|id|>65<|page|>7<|box|>388 140 405 723<|content|>IX. Return and Disposition of Loan Documents and C\n<|id|>68<|page|>7<|box|>685 140 702 397<|content|>X. Notices and Communications\n<|id|>71<|page|>7<|box|>818 176 834 506<|content|>Email: dfairchild@calderwoodharkness.com\n<|id|>73<|page|>8<|box|>90 140 107 297<|content|>XI. Governing Law\n<|id|>77<|page|>8<|box|>321 140 338 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>4<|level|>-1\n<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>28<|level|>1\n<|id|>35<|level|>1\n<|id|>47<|level|>1\n<|id|>50<|level|>1\n<|id|>54<|level|>1\n<|id|>61<|level|>1\n<|id|>65<|level|>1\n<|id|>68<|level|>1\n<|id|>71<|level|>-1\n<|id|>73<|level|>1\n<|id|>77<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        }
+    ]
+}

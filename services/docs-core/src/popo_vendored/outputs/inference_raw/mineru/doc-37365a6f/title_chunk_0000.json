@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        6
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>2<|box|>90 140 107 475<|content|>Enclosure of Counterpart Signature Pages\n<|id|>9<|page|>3<|box|>90 140 107 643<|content|>Confirmation of Financial Commitments and Payment\n<|id|>11<|page|>3<|box|>165 140 183 323<|content|>Civil Penalty Payment\n<|id|>13<|page|>3<|box|>311 140 329 423<|content|>Investigative Costs Reimbursement\n<|id|>15<|page|>3<|box|>494 140 510 364<|content|>Consumer Restitution Fund\n<|id|>17<|page|>3<|box|>750 142 766 375<|content|>Total Financial Commitment\n<|id|>22<|page|>4<|box|>212 140 229 540<|content|>Commencement of Compliance-Monitoring Period\n<|id|>25<|page|>4<|box|>598 140 614 419<|content|>Independent Compliance Reviewer\n<|id|>29<|page|>5<|box|>167 140 184 348<|content|>No Admission of Liability\n<|id|>31<|page|>5<|box|>325 140 344 380<|content|>Acknowledgment and Thanks\n<|id|>33<|page|>5<|box|>613 140 628 437<|content|>Contact Information and Availability\n<|id|>45<|page|>6<|box|>310 142 325 233<|content|>Enclosure:",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>9<|level|>1\n<|id|>11<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>2\n<|id|>45<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        }
+    ]
+}

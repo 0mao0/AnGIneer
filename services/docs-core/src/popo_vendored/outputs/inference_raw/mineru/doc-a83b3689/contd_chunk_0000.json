@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>10<|page|>1<|box|>839 174 893 854<|content|>(a) to the extent such representation or warranty ... of such specified date or period of time; ... and\n<|id|>12<|page|>2<|box|>306 140 454 856<|content|>Without limiting the generality of the foregoing, ...where applicable, as of the date specified therein\n<|id|>17<|page|>2<|box|>833 140 906 856<|content|>I hereby certify, on behalf of the Seller, that si...) the Seller, (ii) the Purchased Assets, (iii) the\n<|id|>18<|page|>3<|box|>90 140 143 854<|content|>Assumed Liabilities, or (iv) the ability of the Se...ts and documents delivered in connection therewith\n<|id|>27<|page|>3<|box|>829 140 864 854<|content|>LAKEWOOD REGIONAL HEALTH PARTNERS, LLC a New York limited liability company\n<|id|>28<|page|>3<|box|>864 143 878 251<|content|>By: ... By\n<|id|>29<|page|>3<|box|>880 142 897 318<|content|>Name: ... Gretchen Unger\n<|id|>30<|page|>4<|box|>89 142 107 367<|content|>Title: ... Chief Operating Officer\n<|id|>31<|page|>4<|box|>108 142 125 315<|content|>Date: ... August 15, 2025\n<|id|>32<|page|>4<|box|>125 142 141 374<|content|>Address of Seller for Notices: ... Address of Seller for Notices\n<|id|>33<|page|>4<|box|>150 174 185 854<|content|>Lakewood Regional Health Partners, LLC 450 East Ridge Road Rochester, New York 14621\n<|id|>34<|page|>4<|box|>194 176 213 560<|content|>Attention: ... Gretchen Unger, Chief Operating Officer",
+    "raw_response": "<|src_id|>17<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        }
+    ]
+}

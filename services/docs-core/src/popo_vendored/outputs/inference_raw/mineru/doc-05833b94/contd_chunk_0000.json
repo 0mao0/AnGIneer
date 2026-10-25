@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>239 406 257 591<|content|>Dated: ... August 15, 2025\n<|id|>6<|page|>1<|box|>265 140 357 854<|content|>THIS BILL OF SALE (this \"Bill of Sale\") is execute...Scioto Darby Road, Suite 300, Columbus, Ohio 43228\n<|id|>9<|page|>1<|box|>508 140 563 854<|content|>WHEREAS, this Bill of Sale is being executed and d...emplated by, the Asset Purchase Agreement; ... and\n<|id|>10<|page|>1<|box|>570 140 607 854<|content|>WHEREAS, capitalized terms used but not otherwise ...ibed to such terms in the Asset Purchase Agreement\n<|id|>14<|page|>1<|box|>816 140 909 854<|content|>The Purchased Assets transferred, conveyed, and de...hout limiting the generality of the foregoing, the\n<|id|>15<|page|>2<|box|>90 140 145 854<|content|>Purchased Assets encompass all items of personal p...d to such assets as they exist on the Closing Date\n<|id|>23<|page|>2<|box|>875 140 910 854<|content|>Seller hereby covenants and agrees that, from and ...ense (including reasonable out-of-pocket costs and\n<|id|>24<|page|>2<|box|>916 143 929 246<|content|>Execution Version\n<|id|>25<|page|>3<|box|>90 140 255 854<|content|>expenses, including attorneys' fees, incurred by S...nce with the terms of the Asset Purchase Agreement\n<|id|>38<|page|>4<|box|>160 140 194 854<|content|>LAKEWOOD REGIONAL HEALTH PARTNERS, LLC a New York limited liability company\n<|id|>39<|page|>4<|box|>195 143 210 251<|content|>By: ... By\n<|id|>40<|page|>4<|box|>210 142 228 351<|content|>Name: ... Raymond Alcott\n<|id|>41<|page|>4<|box|>228 142 244 359<|content|>Title: ... Co-Managing Member\n<|id|>42<|page|>4<|box|>246 143 262 251<|content|>By: ... By\n<|id|>43<|page|>4<|box|>262 142 279 346<|content|>Name: ... Nadia Petrosian\n<|id|>44<|page|>4<|box|>280 142 296 359<|content|>Title: ... Co-Managing Member\n<|id|>45<|page|>4<|box|>297 143 313 313<|content|>Date: ... August 15, 2025\n<|id|>46<|page|>4<|box|>314 142 330 560<|content|>ACKNOWLEDGED AND ACCEPTED BY BUYER: ... ACKNOWLEDGED AND ACCEPTED BY BUYER\n<|id|>47<|page|>4<|box|>339 140 357 790<|content|>CRESTLINE PACKAGING SOLUTIONS LLC a Delaware limited liability company\n<|id|>48<|page|>4<|box|>358 143 375 254<|content|>By: ... By\n<|id|>49<|page|>4<|box|>375 142 391 323<|content|>Name: ... Marcus Waverly\n<|id|>50<|page|>4<|box|>392 142 407 367<|content|>Title: ... Chief Executive Officer\n<|id|>51<|page|>4<|box|>409 142 426 313<|content|>Date: ... August 15, 2025",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>23<|tgt_id|>25",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 25
+        }
+    ]
+}

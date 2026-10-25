@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>114 295 132 702<|content|>CERTIFICATE OF INCORPORATION\n<|id|>1<|type|>title<|page|>1<|box|>152 480 172 517<|content|>OF\n<|id|>2<|type|>title<|page|>1<|box|>190 267 210 730<|content|>NORTHGATE WIRELESS AMERICAS INC.\n<|id|>3<|type|>title<|page|>1<|box|>228 403 244 593<|content|>A Delaware Corporation\n<|id|>6<|type|>title<|page|>1<|box|>358 143 375 243<|content|>ARTICLE I\n<|id|>8<|type|>title<|page|>1<|box|>448 143 465 250<|content|>ARTICLE II\n<|id|>16<|type|>title<|page|>1<|box|>782 142 799 256<|content|>ARTICLE III\n<|id|>22<|type|>title<|page|>2<|box|>358 142 375 256<|content|>ARTICLE IV\n<|id|>23<|type|>title<|page|>2<|box|>388 140 406 424<|content|>AUTHORIZED CAPITAL STOCK\n<|id|>28<|type|>title<|page|>2<|box|>732 142 750 250<|content|>ARTICLE V\n<|id|>32<|type|>title<|page|>3<|box|>167 142 184 256<|content|>ARTICLE VI\n<|id|>33<|type|>title<|page|>3<|box|>198 140 215 431<|content|>INITIAL BOARD OF DIRECTORS\n<|id|>36<|type|>table<|page|>3<|box|>364 143 450 852<|content|>None\n<|id|>38<|type|>title<|page|>3<|box|>580 142 598 263<|content|>ARTICLE VII\n<|id|>39<|type|>title<|page|>3<|box|>611 140 628 493<|content|>LIMITATION OF DIRECTOR LIABILITY\n<|id|>46<|type|>title<|page|>4<|box|>222 140 239 271<|content|>ARTICLE VIII\n<|id|>52<|type|>title<|page|>5<|box|>285 142 301 256<|content|>ARTICLE IX\n<|id|>53<|type|>title<|page|>5<|box|>315 140 333 620<|content|>AMENDMENT OF CERTIFICATE OF INCORPORATION\n<|id|>56<|type|>title<|page|>5<|box|>534 142 551 250<|content|>ARTICLE X\n<|id|>59<|type|>title<|page|>5<|box|>776 142 792 256<|content|>ARTICLE XI\n<|id|>65<|type|>title<|page|>6<|box|>402 140 419 264<|content|>ARTICLE XII\n<|id|>74<|type|>title<|page|>7<|box|>295 142 311 292<|content|>INCORPORATOR:\n<|id|>80<|type|>table<|page|>7<|box|>459 143 646 852<|content|>None",
+    "raw_response": "<|src_id|>36<|tgt_id|>33\n<|src_id|>80<|tgt_id|>74",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 74
+        }
+    ]
+}

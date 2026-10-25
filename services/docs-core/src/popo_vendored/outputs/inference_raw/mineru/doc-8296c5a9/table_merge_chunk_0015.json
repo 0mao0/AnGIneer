@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 15,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['[Preamble] \"A polarization-diverse grating coupler for silicon photonic', 'The documents reference a \"grating coupler\" concept for \"optical', 'The documents use the general term \"grating coupler\" and reference']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['transceivers...\"', 'interconnect applications.\" See LTC-00045672 (meeting notes, March 2016), LTC-00045790 (Northgate Services Inc. slide, October 2016).', '\"optical interconnect applications,\" but do not specifically describe a \"polarization-diverse\" grating coupler for \"silicon photonic transceivers.\" The described concept is a conventional grating coupler for single-mode fiber coupling, not a polarization-diverse device.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 392,
+    "table2_idx": 393
+}

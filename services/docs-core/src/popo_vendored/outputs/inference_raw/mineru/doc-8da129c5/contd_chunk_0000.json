@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        10,
+        11
+    ],
+    "pages": [
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>82<|page|>10<|box|>848 140 902 856<|content|>45. ... \" To the contrary, the undisputed facts sh...thgate engaged a replacement contractor, Crestline\n<|id|>83<|page|>11<|box|>90 174 291 856<|content|>Construction Group Inc. ... The termination was dr...reaches and the legal requirements for termination",
+    "raw_response": "<|src_id|>82<|tgt_id|>83",
+    "parsed": [
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        }
+    ]
+}

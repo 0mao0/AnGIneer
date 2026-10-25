@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 8,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Parking Lot Drainage Repair', '$95,000', 'The primary surface parking lot serving Buildings 1 and 2 experiences chronic ponding and flooding during heavy rain events due to inadequate drainage']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'infrastructure. Recommended installation of two additional catch basins, regrading of a 0.4-acre area, and replacement of approximately 180 linear feet of corroded storm drain piping.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 577,
+    "table2_idx": 578
+}

@@ -1,0 +1,39 @@
+{
+    "task": "title",
+    "chunk_index": 5,
+    "range": [
+        342,
+        395
+    ],
+    "pages": [
+        343,
+        369,
+        370,
+        371,
+        394
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1082<|page|>343<|box|>152 374 178 633<|content|>4-16 技术复杂大桥上部构造\n<|id|>1165<|page|>369<|box|>231 373 271 633<|content|>第五章 交叉工程\n<|id|>1181<|page|>370<|box|>306 90 337 166<|content|>5. 通道：\n<|id|>1194<|page|>371<|box|>150 408 178 601<|content|>5-1 互通式立体交叉\n<|id|>1255<|page|>394<|box|>158 394 185 588<|content|>5-2 分离式立体交叉",
+    "raw_response": "<|id|>1082<|level|>2\n<|id|>1165<|level|>1\n<|id|>1181<|level|>2\n<|id|>1194<|level|>3\n<|id|>1255<|level|>3",
+    "parsed": [
+        {
+            "id": 1082,
+            "level": 2
+        },
+        {
+            "id": 1165,
+            "level": 1
+        },
+        {
+            "id": 1181,
+            "level": 2
+        },
+        {
+            "id": 1194,
+            "level": 3
+        },
+        {
+            "id": 1255,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        56
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        13,
+        32,
+        33,
+        34,
+        37,
+        38,
+        39,
+        55
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>5<|box|>405 354 428 607<|content|>OCTOBER 1940\n<|id|>8<|page|>5<|box|>472 409 503 531<|content|>B R 64\n<|id|>10<|page|>5<|box|>602 278 621 688<|content|>Analysis of Receipts and Disbursements\n<|id|>11<|page|>5<|box|>619 318 638 648<|content|>Composition of the Public Debt\n<|id|>12<|page|>5<|box|>636 294 656 674<|content|>Capital Movements and Monetary Data\n<|id|>13<|page|>5<|box|>655 347 673 623<|content|>Other Treasury Statistics\n<|id|>14<|page|>5<|box|>761 717 782 855<|content|>LIBRARY\n<|id|>16<|page|>5<|box|>813 302 835 660<|content|>TREASURY DEPARTMENT\n<|id|>17<|page|>5<|box|>814 714 838 853<|content|>JUN ? ... 1 1972\n<|id|>18<|page|>5<|box|>838 335 855 626<|content|>OFFICE OF THE SECRETARY\n<|id|>19<|page|>5<|box|>850 655 873 910<|content|>TREASURY DEPARTMENT\n<|id|>20<|page|>7<|box|>160 335 198 643<|content|>BULLETIN\n<|id|>23<|page|>7<|box|>402 359 425 611<|content|>OCTOBER 1940\n<|id|>24<|page|>7<|box|>600 282 619 691<|content|>Analysis of Receipts and Disbursements\n<|id|>25<|page|>7<|box|>618 321 636 652<|content|>Composition of the Public Debt\n<|id|>26<|page|>7<|box|>636 297 653 679<|content|>Capital Movements and Monetary Data\n<|id|>27<|page|>7<|box|>653 349 671 626<|content|>Other Treasury Statistics\n<|id|>28<|page|>7<|box|>811 306 832 660<|content|>TREASURY DEPARTMENT\n<|id|>29<|page|>7<|box|>836 339 853 628<|content|>OFFICE OF THE SECRETARY\n<|id|>31<|page|>9<|box|>178 173 876 795<|content|>Receipts and Expenditures Page Budget Receipts and...orted Under Quota 62 Law Enforcement Statistics 63\n<|id|>32<|page|>13<|box|>52 250 67 729<|content|>Summary Table on Receipts, Expenditures and Public Debt\n<|id|>34<|page|>13<|box|>243 378 257 600<|content|>Receipts and Expenditures\n<|id|>38<|page|>13<|box|>727 494 832 923<|content|>1/ In the fiscal year 1941 amounts reprasecting ap...to facilitate comparison with the fiscal year 1941\n<|id|>71<|page|>32<|box|>56 189 84 811<|content|>Statement Showing Details of Major Financing Opera...reasury for Fiscal Years 1938, 1939, 1940 and 1941\n<|id|>73<|page|>33<|box|>57 130 85 838<|content|>Maturity Schedule of United States Government Inte...ng Debt Outstanding ^{1} /As of September 30, 1940\n<|id|>75<|page|>34<|box|>50 148 77 856<|content|>Maturity Schedule of United States Government Inte...utstanding/ As of September 30, 1940 - (Continued)\n<|id|>81<|page|>37<|box|>595 38 606 198<|content|>3/ Miscellaneous accounts: ... 3/ Miscellaneous accounts\n<|id|>84<|page|>38<|box|>52 145 95 844<|content|>Statement of the Debt Position of the United State...erty Bond Act, as Amended As of September 30, 1940\n<|id|>86<|page|>38<|box|>460 63 484 601<|content|>1/ Approximate maturity value; ... 2/ These securi..., certificates of indebtedness, and Treasury bills\n<|id|>87<|page|>38<|box|>526 134 567 867<|content|>Reconciliation of the Debt Position under Section ... Daily Treasury Statement as of September 30, 1940\n<|id|>89<|page|>39<|box|>366 71 395 810<|content|>for 1936, p. ... 1/ Treasury bills are included in...puted rate of interest, the discount value is used\n<|id|>104<|page|>55<|box|>56 166 83 764<|content|>Net Capital Movement between the United States and Foreign Countries 1935 through July 1940^{1/}",
+    "raw_response": "<|src_id|>16<|tgt_id|>17\n<|src_id|>18<|tgt_id|>19\n<|src_id|>28<|tgt_id|>29",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        }
+    ]
+}

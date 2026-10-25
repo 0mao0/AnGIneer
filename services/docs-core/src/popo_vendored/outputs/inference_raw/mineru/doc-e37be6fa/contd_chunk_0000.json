@@ -1,0 +1,46 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        52
+    ],
+    "pages": [
+        5,
+        6,
+        7,
+        8,
+        12,
+        20,
+        24,
+        30,
+        34,
+        38,
+        44,
+        51
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>5<|box|>85 284 126 644<|content|>Eq1, or the T co w ,\n<|id|>5<|page|>5<|box|>138 229 176 701<|content|>TREA ON EETA,\n<|id|>6<|page|>6<|box|>58 16 158 388<|content|>DEPARTMENT OF THE TREASURY FISCAL SERVICE, BUREAU ...6 OFFICIAL BUSINESS PENALTY FOR PRIVATE USE, \\$300\n<|id|>7<|page|>6<|box|>153 864 165 967<|content|>FIRST CLASS\n<|id|>13<|page|>7<|box|>920 108 970 872<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>14<|page|>8<|box|>358 157 491 867<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents, U. ... )\n<|id|>22<|page|>12<|box|>124 97 626 921<|content|>UNITED STATES SAVINGS BONDS Page SB-1. ... 88\n<|id|>23<|page|>12<|box|>685 101 814 919<|content|>IFS-1. ... 94\n<|id|>68<|page|>20<|box|>152 39 162 472<|content|>Note: ... Budget estimates are based on the Current Budget Estimates, March\n<|id|>69<|page|>20<|box|>161 41 179 500<|content|>1980, released on March 31, 1980, by the Office of...ment and Budget. ... 1/ For detail see Table FFO-2\n<|id|>70<|page|>20<|box|>187 42 222 500<|content|>3/ The joint Treasury-Office of Management and Bud... of the Exchange Stabilization Fund. ... 6 billion\n<|id|>72<|page|>20<|box|>213 42 228 500<|content|>Stabilization Fund. ... 7 billion for the deficit\n<|id|>75<|page|>20<|box|>254 42 264 498<|content|>b/ Represents holdings of special drawing rights, less certificates issued\n<|id|>76<|page|>20<|box|>138 554 148 708<|content|>to Federal Reserve banks. ... to Federal Reserve banks\n<|id|>92<|page|>24<|box|>886 35 915 477<|content|>1/ Pursuant to Public Law 95-91, as of October 1, ...nd Federal Power Commission, and certain functions\n<|id|>97<|page|>24<|box|>910 517 920 595<|content|>τ Revised. ... τ Revised\n<|id|>116<|page|>30<|box|>879 58 945 465<|content|>Source: ... The data is in the basis of Report on ...the agencies prior to reports submitted for Budget\n<|id|>117<|page|>30<|box|>879 523 898 878<|content|>presentation and therefore may differ somewhat from the Budget document. ... )\n<|id|>134<|page|>34<|box|>875 49 942 458<|content|>Source: ... (This data is on the basis of Reports ...the agencies prior to reports submitted for Budget\n<|id|>135<|page|>34<|box|>875 518 949 922<|content|>presentation and therefore may differ somewhat from the Budget document. ... 133,436\n<|id|>143<|page|>38<|box|>100 220 116 809<|content|>Source and Availability of the Balance in the Account of the U. ... Treasury\n<|id|>144<|page|>38<|box|>157 114 221 482<|content|>The operating cash of the Treasury is maintained i...untry authorized to maintain tax and loan accounts\n<|id|>165<|page|>44<|box|>840 53 963 508<|content|>1/ Consists of Government National Mortgage Associ... Overseas Private Investment Corporation beginning\n<|id|>166<|page|>44<|box|>817 549 947 1000<|content|>February 1975. ... Less than \\$500,000\n<|id|>194<|page|>51<|box|>91 343 104 635<|content|>than Regular Weekly and 52-Week Treasury Bills\n<|id|>195<|page|>51<|box|>104 410 117 573<|content|>Outstanding, April 30, 1980",
+    "raw_response": "<|src_id|>68<|tgt_id|>69\n<|src_id|>75<|tgt_id|>76\n<|src_id|>116<|tgt_id|>117\n<|src_id|>134<|tgt_id|>135\n<|src_id|>165<|tgt_id|>166",
+    "parsed": [
+        {
+            "src_id": 68,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 166
+        }
+    ]
+}

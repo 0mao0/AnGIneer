@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 272 107 723<|content|>CALDERWOOD & HARKNESS LLP Counsellors at Law\n<|id|>10<|page|>1<|box|>529 142 546 442<|content|>1. Purpose and Engagement Overview\n<|id|>17<|page|>2<|box|>273 140 292 354<|content|>2. Scope of Representation\n<|id|>19<|page|>2<|box|>368 140 385 290<|content|>2.1 FDA Response\n<|id|>30<|page|>3<|box|>90 140 107 493<|content|>2.2 Internal Review of Promotional Practices\n<|id|>37<|page|>3<|box|>585 142 602 377<|content|>2.3 Related Advisory Services\n<|id|>42<|page|>4<|box|>138 140 157 339<|content|>2.4 Limitations on Scope\n<|id|>47<|page|>4<|box|>574 140 592 313<|content|>3. Engagement Team\n<|id|>54<|page|>5<|box|>383 140 402 434<|content|>4. Billing Arrangements and Fee Cap\n<|id|>55<|page|>5<|box|>415 140 433 287<|content|>4.1 Hourly Billing\n<|id|>58<|page|>5<|box|>642 140 659 241<|content|>4.2 Fee Cap\n<|id|>60<|page|>5<|box|>763 140 782 454<|content|>The following terms apply to the Fee Cap:\n<|id|>64<|page|>6<|box|>311 140 329 400<|content|>4.3 Expenses and Disbursements\n<|id|>67<|page|>6<|box|>539 140 556 475<|content|>4.4 Billing Frequency and Payment Terms\n<|id|>72<|page|>7<|box|>90 140 107 284<|content|>5. Conflict Check\n<|id|>76<|page|>7<|box|>484 140 501 647<|content|>6. Authority to Engage Co-Counsel and Third-Party\n<|id|>85<|page|>8<|box|>484 140 501 514<|content|>7. Attorney-Client Privilege and Confidentiality\n<|id|>91<|page|>9<|box|>204 140 222 455<|content|>8. Communications and Client Contacts\n<|id|>101<|page|>9<|box|>684 140 702 504<|content|>9. Document Preservation and Litigation Hold\n<|id|>110<|page|>10<|box|>481 140 498 395<|content|>10. Termination of Engagement\n<|id|>115<|page|>11<|box|>148 142 167 380<|content|>11. No Guarantee of Outcome\n<|id|>118<|page|>11<|box|>425 140 443 297<|content|>12. Governing Law\n<|id|>120<|page|>11<|box|>547 140 564 455<|content|>13. Entire Agreement and Amendments\n<|id|>125<|page|>12<|box|>90 433 108 563<|content|>Very truly yours,\n<|id|>126<|page|>12<|box|>114 346 132 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>131<|page|>12<|box|>210 313 227 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>17<|level|>1\n<|id|>19<|level|>2\n<|id|>30<|level|>2\n<|id|>37<|level|>2\n<|id|>42<|level|>2\n<|id|>47<|level|>1\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>-1\n<|id|>64<|level|>2\n<|id|>67<|level|>2\n<|id|>72<|level|>1\n<|id|>76<|level|>1\n<|id|>85<|level|>1\n<|id|>91<|level|>1\n<|id|>101<|level|>1\n<|id|>110<|level|>1\n<|id|>115<|level|>1\n<|id|>118<|level|>1\n<|id|>120<|level|>1\n<|id|>125<|level|>-1\n<|id|>126<|level|>-1\n<|id|>131<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        }
+    ]
+}

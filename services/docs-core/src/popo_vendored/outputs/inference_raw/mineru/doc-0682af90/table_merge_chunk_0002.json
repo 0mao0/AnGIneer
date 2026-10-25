@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Category 5 —Classified Information', 'All national security information classified at', 'Classified program technical data; classified test', 'Absolute prohibition — never transferable to', 'NISPOM (32 C.F.R. Part 117); NSA Annex C; EO 13526']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'CONFIDENTIAL, SECRET, or TOP SECRET levels', 'results; classified contract deliverables; SCI-level program information', 'HSAG personnel; governed exclusively by NSA Annex C (GSC Provisions) and NISPOM', '(Classified National Security Information);DFARS 252.204-7012']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 304,
+    "table2_idx": 305
+}

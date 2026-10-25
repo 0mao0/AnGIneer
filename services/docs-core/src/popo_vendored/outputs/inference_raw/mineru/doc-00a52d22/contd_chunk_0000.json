@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        56
+    ],
+    "pages": [
+        4,
+        5,
+        6,
+        7,
+        27,
+        28,
+        29,
+        52,
+        55
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>4<|box|>6 12 56 158<|content|>United States Government Printing Office\n<|id|>2<|page|>4<|box|>59 12 100 185<|content|>SUPERINTENDENT OF DOCUMENTS Washington, D. ... 20402\n<|id|>3<|page|>4<|box|>25 783 77 996<|content|>FIRST-CLASS MAIL POSTAGE AND FEES PAID GPO PERMIT NO. ... G-26\n<|id|>4<|page|>4<|box|>118 12 147 217<|content|>OFFICIAL BUSINESS Penalty for private use, \\$300\n<|id|>6<|page|>4<|box|>333 289 352 710<|content|>- Issues in the Securities and Futures Markets: ... page 3\n<|id|>7<|page|>4<|box|>369 291 387 635<|content|>• Trends in Corporate Tax Receipts: ... page 7\n<|id|>8<|page|>4<|box|>403 291 423 655<|content|>- Abstracts of Recent Taxation Studies: ... page 9\n<|id|>9<|page|>4<|box|>440 291 457 655<|content|>• Treasury Issues Index (new feature): ... page 11\n<|id|>12<|page|>5<|box|>213 473 338 917<|content|>TREASURY BULLETIN\n<|id|>14<|page|>6<|box|>307 89 348 937<|content|>Sold on a subscription basis only (exceptions noted) by the Superintendent of Documents, U. ... †\n<|id|>20<|page|>7<|box|>833 96 856 846<|content|>Office of the Secretary · Department of the Treasury · Washington, D. ... C\n<|id|>114<|page|>27<|box|>718 46 911 494<|content|>Outlays. ... Total outlays include both budget and off-budget outlays and are stated net of offsetting\n<|id|>115<|page|>27<|box|>118 521 133 600<|content|>collections. ... collections\n<|id|>132<|page|>28<|box|>237 503 265 948<|content|>Table FFO-4. ... --Summary of Internal Revenue Collections by States and Other Areas\n<|id|>133<|page|>28<|box|>273 503 325 950<|content|>This annual table provides data on internal revenu...ning in October and ending the following September\n<|id|>140<|page|>29<|box|>304 50 362 494<|content|>Receipts in the third quarter of fiscal 1990 total...16 percent from a year earlier, boosted by sharply\n<|id|>141<|page|>29<|box|>143 516 160 728<|content|>higher spending by the RTC. ... higher spending by the RTC\n<|id|>247<|page|>52<|box|>906 38 937 475<|content|>On March 30 tenders were invited for approximately...on of 364-day Treasury bills to be dated April 12,\n<|id|>248<|page|>52<|box|>96 494 220 935<|content|>1990, and to mature April 11, 1991. ... 72 percent\n<|id|>295<|page|>55<|box|>331 39 370 483<|content|>Table PDO-1. ... --Maturity Schedule of Interest-B...her than Regular Weekly and 52-Week Treasury Bills\n<|id|>296<|page|>55<|box|>379 39 441 483<|content|>All unmatured Treasury notes and bonds are listed ... investors\" category includes all private holdings\n<|id|>298<|page|>55<|box|>486 37 548 483<|content|>The results of weekly auctions of 13- and 26-week ...week to mature on the same Thursday as an existing\n<|id|>299<|page|>55<|box|>133 508 242 951<|content|>52-week bill is a reopening of the existing 52-wee... at the average yield on accepted competitive bids\n<|id|>300<|page|>55<|box|>261 508 288 951<|content|>Table PDO-3. ... --Public Offerings of Marketable Securities Other than Regular Weekly Treasury Bills\n<|id|>301<|page|>55<|box|>298 507 407 951<|content|>The results of auctions of marketable Treasury sec...the maturities of regular issues of Treasury bills\n<|id|>302<|page|>55<|box|>426 505 453 950<|content|>Table PDO-4. ... --Allotments by Investor Classes for Public Marketable Securities, Parts A and B\n<|id|>303<|page|>55<|box|>463 505 548 951<|content|>Data on allotments of marketable Treasury securiti...or classes described in the footnotes to the table",
+    "raw_response": "<|src_id|>114<|tgt_id|>115\n<|src_id|>140<|tgt_id|>141\n<|src_id|>247<|tgt_id|>248\n<|src_id|>298<|tgt_id|>299",
+    "parsed": [
+        {
+            "src_id": 114,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 141
+        },
+        {
+            "src_id": 247,
+            "tgt_id": 248
+        },
+        {
+            "src_id": 298,
+            "tgt_id": 299
+        }
+    ]
+}

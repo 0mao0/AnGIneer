@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        102
+    ],
+    "pages": [
+        3,
+        7,
+        8,
+        10,
+        13,
+        14,
+        18,
+        23,
+        41,
+        46,
+        101
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>3<|box|>412 527 519 737<|content|>(1) \\mathrm{C} = 0. ... 5\n<|id|>2<|page|>3<|box|>696 675 717 810<|content|>LIBRARY\n<|id|>3<|page|>3<|box|>716 679 734 807<|content|>POO! ... 5030\n<|id|>4<|page|>3<|box|>744 673 771 810<|content|>JUN 26 1972\n<|id|>5<|page|>3<|box|>779 618 804 865<|content|>TREASURY DEPARTMENT\n<|id|>7<|page|>7<|box|>181 381 208 591<|content|>January 1969\n<|id|>8<|page|>7<|box|>297 686 370 827<|content|>LIBRARY 70110 JW 92107\n<|id|>9<|page|>7<|box|>380 637 407 883<|content|>TREASURY DEFENDMENT\n<|id|>11<|page|>7<|box|>911 94 944 860<|content|>UNITED STATES TREASURY DEPARTMENT\n<|id|>12<|page|>7<|box|>951 317 971 633<|content|>OFFICE OF THE SECRETARY\n<|id|>13<|page|>8<|box|>459 327 516 730<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents, U. ... Single copy price varies\n<|id|>27<|page|>10<|box|>925 37 978 505<|content|>Issues of regular weekly Treasury bills in December totaled \\$10. ... 6 billion each and four\n<|id|>28<|page|>10<|box|>180 520 214 991<|content|>182-day issues of \\$1. ... Average rates for the new issues are shown in the following table\n<|id|>45<|page|>13<|box|>951 13 981 492<|content|>4/ Fiscal year amounts include transactions in tra...rder to report these transactions on an accounting\n<|id|>48<|page|>13<|box|>968 518 978 601<|content|>r Revised. ... r Revised\n<|id|>49<|page|>14<|box|>99 434 111 590<|content|>(In millions of dollars)\n<|id|>58<|page|>18<|box|>961 739 971 819<|content|>r Revised. ... r Revised\n<|id|>70<|page|>23<|box|>122 429 135 585<|content|>(In millions of dollars)\n<|id|>72<|page|>23<|box|>505 552 538 915<|content|>Gross obligations incurred (as above). ... 67,076\n<|id|>73<|page|>23<|box|>540 516 553 665<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>129<|page|>41<|box|>99 403 112 576<|content|>Footnotes to Table 2\n<|id|>130<|page|>41<|box|>164 17 175 400<|content|>Source: ... Bureau of the Public Debt\n<|id|>155<|page|>41<|box|>285 521 296 928<|content|>25/ Except \\$1,000,000 at 95. ... 890, and \\$600,000\n<|id|>156<|page|>41<|box|>295 521 305 612<|content|>at 95,888. ... at 95,888\n<|id|>166<|page|>46<|box|>78 391 91 570<|content|>Footnotes to Table 4\n<|id|>167<|page|>46<|box|>129 6 139 227<|content|>Source: ... Bureau of the Public Debt\n<|id|>180<|page|>46<|box|>570 0 675 472<|content|>15/ Subscriptions from States, political subdivisi...otted in full, all others were allotted 10 percent\n<|id|>181<|page|>46<|box|>126 523 164 951<|content|>but in no case less that \\$100,000, and \\$21,887 m...lotted 7 percent but in no case less than \\$50,000\n<|id|>339<|page|>101<|box|>81 234 98 769<|content|>Table 5. ... - Net Transactions in Long-Term Domestic Bonds,\n<|id|>340<|page|>101<|box|>98 223 112 778<|content|>Other Than U. ... Government Bonds and Notes by Foreigners",
+    "raw_response": "<|src_id|>27<|tgt_id|>28\n<|src_id|>155<|tgt_id|>156\n<|src_id|>180<|tgt_id|>181\n<|src_id|>339<|tgt_id|>340",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 156
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 181
+        },
+        {
+            "src_id": 339,
+            "tgt_id": 340
+        }
+    ]
+}

@@ -1,0 +1,70 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        208,
+        246
+    ],
+    "pages": [
+        208,
+        209,
+        210,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        224,
+        225,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        238,
+        246
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>605<|type|>table<|page|>208<|box|>88 63 581 996<|content|>None\n<|id|>606<|type|>table<|page|>209<|box|>85 0 192 912<|content|>None\n<|id|>607<|type|>table<|page|>209<|box|>201 0 567 909<|content|>None\n<|id|>608<|type|>table<|page|>210<|box|>85 57 585 987<|content|>None\n<|id|>619<|type|>table<|page|>214<|box|>386 105 825 981<|content|>None\n<|id|>620<|type|>table<|page|>215<|box|>88 0 852 867<|content|>None\n<|id|>621<|type|>table<|page|>216<|box|>67 96 628 975<|content|>None\n<|id|>622<|type|>table<|page|>217<|box|>67 0 319 879<|content|>None\n<|id|>623<|type|>table<|page|>217<|box|>400 0 671 894<|content|>None\n<|id|>624<|type|>table<|page|>217<|box|>742 0 891 915<|content|>None\n<|id|>626<|type|>table<|page|>218<|box|>65 99 352 984<|content|>None\n<|id|>627<|type|>table<|page|>218<|box|>429 99 703 987<|content|>None\n<|id|>629<|type|>table<|page|>219<|box|>101 0 468 900<|content|>None\n<|id|>630<|type|>table<|page|>220<|box|>81 102 864 984<|content|>None\n<|id|>631<|type|>table<|page|>221<|box|>67 0 488 897<|content|>None\n<|id|>633<|type|>table<|page|>222<|box|>63 102 712 981<|content|>None\n<|id|>644<|type|>table<|page|>224<|box|>65 105 635 981<|content|>None\n<|id|>645<|type|>table<|page|>225<|box|>56 0 212 900<|content|>None\n<|id|>646<|type|>table<|page|>225<|box|>271 0 791 900<|content|>None\n<|id|>651<|type|>table<|page|>228<|box|>237 75 635 984<|content|>None\n<|id|>652<|type|>table<|page|>228<|box|>708 75 857 981<|content|>None\n<|id|>657<|type|>table<|page|>229<|box|>242 0 542 894<|content|>None\n<|id|>658<|type|>table<|page|>229<|box|>579 0 796 891<|content|>None\n<|id|>663<|type|>table<|page|>230<|box|>230 81 373 990<|content|>None\n<|id|>665<|type|>table<|page|>230<|box|>434 81 608 984<|content|>None\n<|id|>670<|type|>table<|page|>231<|box|>294 0 843 894<|content|>None\n<|id|>671<|type|>title<|page|>232<|box|>56 435 70 648<|content|>Highway Trust Fund—Continued\n<|id|>674<|type|>table<|page|>232<|box|>124 87 244 972<|content|>None\n<|id|>675<|type|>table<|page|>232<|box|>282 87 404 972<|content|>None\n<|id|>676<|type|>table<|page|>232<|box|>443 87 588 969<|content|>None\n<|id|>683<|type|>table<|page|>233<|box|>223 0 341 897<|content|>None\n<|id|>684<|type|>table<|page|>233<|box|>391 0 536 900<|content|>None\n<|id|>689<|type|>table<|page|>234<|box|>214 111 395 972<|content|>None\n<|id|>694<|type|>table<|page|>235<|box|>280 0 407 897<|content|>None\n<|id|>695<|type|>table<|page|>235<|box|>463 0 585 900<|content|>None\n<|id|>696<|type|>table<|page|>238<|box|>76 114 506 993<|content|>None\n<|id|>712<|type|>image<|page|>246<|box|>2 787 41 923<|content|>None",
+    "raw_response": "<|src_id|>674<|tgt_id|>671\n<|src_id|>675<|tgt_id|>671\n<|src_id|>676<|tgt_id|>671\n<|src_id|>683<|tgt_id|>671\n<|src_id|>684<|tgt_id|>671\n<|src_id|>689<|tgt_id|>671\n<|src_id|>694<|tgt_id|>671\n<|src_id|>695<|tgt_id|>671",
+    "parsed": [
+        {
+            "src_id": 674,
+            "tgt_id": 671
+        },
+        {
+            "src_id": 675,
+            "tgt_id": 671
+        },
+        {
+            "src_id": 676,
+            "tgt_id": 671
+        },
+        {
+            "src_id": 683,
+            "tgt_id": 671
+        },
+        {
+            "src_id": 684,
+            "tgt_id": 671
+        },
+        {
+            "src_id": 689,
+            "tgt_id": 671
+        },
+        {
+            "src_id": 694,
+            "tgt_id": 671
+        },
+        {
+            "src_id": 695,
+            "tgt_id": 671
+        }
+    ]
+}

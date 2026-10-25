@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>171 140 189 684<|content|>- From: ... com>\n<|id|>5<|page|>1<|box|>296 143 314 204<|content|>Rachel,\n<|id|>2<|page|>1<|box|>203 140 220 635<|content|>- To: ... com>\n<|id|>3<|page|>1<|box|>234 140 252 622<|content|>- Cc: ... com>\n<|id|>4<|page|>1<|box|>265 140 282 465<|content|>- Date: ... 00 -0000\n<|id|>7<|page|>1<|box|>515 142 534 839<|content|>**Overarching Concern: ... Protecting the Confidentiality of the Existing Client Relationship**\n<|id|>8<|page|>1<|box|>578 140 728 852<|content|>The central issue is that the letter as currently ...f our engagement for that client. ... Nothing more\n<|id|>10<|page|>1<|box|>852 140 909 852<|content|>**1. ... Whitfield knows\n<|id|>11<|page|>2<|box|>89 140 165 851<|content|>MTDC's vendors. ... Replace with generic language ...ng professional commitment\" — and leave it at that\n<|id|>18<|page|>3<|box|>327 140 345 331<|content|>**Process and Timing**\n<|id|>19<|page|>3<|box|>390 140 559 849<|content|>Once you've incorporated these edits, please circu...e sure a copy goes into the conflicts file as well\n<|id|>22<|page|>3<|box|>784 143 801 248<|content|>Best regards,\n<|id|>23<|page|>3<|box|>845 142 863 289<|content|>Helen Drazkowski\n<|id|>24<|page|>3<|box|>877 143 893 274<|content|>General Counsel\n<|id|>25<|page|>4<|box|>90 142 107 369<|content|>Calderwood & Harkness LLP\n<|id|>26<|page|>4<|box|>121 142 138 428<|content|>One North Wacker Drive, Suite 4200\n<|id|>27<|page|>4<|box|>152 142 171 287<|content|>Chicago, IL 60606\n<|id|>28<|page|>4<|box|>184 140 200 460<|content|>hdrazkowski@calderwoodharkness. ... com",
+    "raw_response": "<|src_id|>10<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        11,
+        12,
+        17,
+        18,
+        20,
+        21,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>253 635 270 854<|content|>Case No. ... 22-cv-03417-EJD\n<|id|>6<|page|>1<|box|>279 671 297 854<|content|>Hon. ... Torvelis\n<|id|>7<|page|>1<|box|>305 633 321 854<|content|>Date Served: ... October 3, 2022\n<|id|>17<|page|>2<|box|>89 147 143 854<|content|>• U. ... and\n<|id|>23<|page|>2<|box|>289 140 416 856<|content|>OWS reserves its right to supplement or amend thes...ion hearing and in its claim construction briefing\n<|id|>21<|page|>2<|box|>250 147 265 496<|content|>• '678 Patent — Claims 1, 2, 6, 9, and 14; ... and\n<|id|>121<|page|>11<|box|>834 140 907 857<|content|>Categorical Exclusion. ... Dunmore\n<|id|>122<|page|>12<|box|>89 140 145 854<|content|>Corporation, 358 F. ... \")\n<|id|>187<|page|>17<|box|>866 140 902 854<|content|>Lumos's construction improperly imports the specif...s the stabilization mechanism to \"a local heater,\"\n<|id|>188<|page|>18<|box|>90 140 143 854<|content|>excluding other thermal management approaches (e. ...lerance or any specific thermal actuator mechanism\n<|id|>218<|page|>20<|box|>820 145 893 857<|content|>• Technical Literature on Co-Integration in Silico...yer & Patel, \"Co-Design of Electronic and Photonic\n<|id|>219<|page|>21<|box|>90 174 234 856<|content|>Components for Next-Generation Silicon Photonic Tr...ut imposing requirements of shared doping profiles\n<|id|>260<|page|>25<|box|>215 174 252 852<|content|>(c) expert discovery, including OWS's own expert a... or testimony provided by Lumos's experts; ... and\n<|id|>262<|page|>25<|box|>285 140 358 856<|content|>OWS further reserves the right to present addition...ument, defense, or legal position available to OWS\n<|id|>265<|page|>26<|box|>128 679 145 854<|content|>Dated: ... October 3, 2022\n<|id|>266<|page|>26<|box|>154 142 172 320<|content|>Respectfully submitted,\n<|id|>267<|page|>26<|box|>179 140 196 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>268<|page|>26<|box|>223 140 256 854<|content|>Alan Ngo (SBN 287415; ... 52,871) Marcus Delgado (...r Siddiqui (SBN 312889) Christy Bauer (SBN 319502)\n<|id|>269<|page|>26<|box|>256 140 289 854<|content|>One Embarcadero Center, 34th Floor San Francisco, CA 94111 Telephone: ... (415) 773-5801\n<|id|>270<|page|>26<|box|>290 142 306 437<|content|>Email: ... com\n<|id|>271<|page|>26<|box|>306 142 324 472<|content|>Email: ... com\n<|id|>272<|page|>26<|box|>324 143 340 470<|content|>Email: ... com\n<|id|>273<|page|>26<|box|>342 143 358 450<|content|>Email: ... com\n<|id|>274<|page|>26<|box|>359 143 376 540<|content|>Attorneys for Plaintiff Optiwave Semiconductor Cor...ttorneys for Plaintiff Optiwave Semiconductor Corp\n<|id|>277<|page|>26<|box|>501 174 556 854<|content|>Victoria \"Tori\" Ashworth Daniel Kowalski BRANNICK ... Francisco, CA 94104 Telephone: ... (415) 955-1201\n<|id|>278<|page|>26<|box|>564 176 580 411<|content|>Email: ... com\n<|id|>279<|page|>26<|box|>580 176 599 413<|content|>Email: ... com",
+    "raw_response": "<|src_id|>121<|tgt_id|>122\n<|src_id|>187<|tgt_id|>188\n<|src_id|>218<|tgt_id|>219",
+    "parsed": [
+        {
+            "src_id": 121,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 219
+        }
+    ]
+}

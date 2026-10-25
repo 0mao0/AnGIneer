@@ -1,0 +1,183 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        44
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        14,
+        17,
+        21,
+        22,
+        23,
+        24,
+        26,
+        27,
+        29,
+        31,
+        32,
+        34,
+        36,
+        37,
+        38,
+        44
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>93 65 162 931<|content|>Dependence-based fuzzy clustering of functional ti\n<|id|>4<|page|>1<|box|>460 460 476 537<|content|>Abstract\n<|id|>7<|page|>2<|box|>30 55 52 273<|content|>1 Introduction\n<|id|>19<|page|>4<|box|>30 53 53 838<|content|>2 Measuring dissimilarity between functional time\n<|id|>21<|page|>4<|box|>219 53 240 749<|content|>2.1 A measure of serial dependence for functional\n<|id|>44<|page|>5<|box|>852 55 870 613<|content|>2.2 A distance measure for functional time series\n<|id|>52<|page|>6<|box|>565 53 589 791<|content|>3 Soft clustering procedures for functional time s\n<|id|>54<|page|>6<|box|>706 55 728 778<|content|>3.1 Using\\widehat { d } _ { \\mathbf { F Q A } }in\n<|id|>65<|page|>7<|box|>801 53 822 438<|content|>3.2 Selection of hyperparameters\n<|id|>67<|page|>8<|box|>34 55 51 315<|content|>3.2.1 Selection of the set L\n<|id|>69<|page|>8<|box|>258 53 275 388<|content|>3.2.2 Selection of the sets T and B\n<|id|>71<|page|>8<|box|>410 55 426 312<|content|>3.2.3 Selection of C and m\n<|id|>73<|page|>8<|box|>571 55 593 527<|content|>4 Monte-Carlo simulation studies\n<|id|>75<|page|>8<|box|>713 55 733 341<|content|>4.1 Competing methods\n<|id|>95<|page|>10<|box|>755 55 775 458<|content|>4.2 Simulation settings and results\n<|id|>97<|page|>11<|box|>34 55 51 453<|content|>4.2.1 Scenarios with well-defined clusters\n<|id|>127<|page|>14<|box|>787 55 804 510<|content|>4.2.2 Scenarios with some degree of uncertainty\n<|id|>139<|page|>17<|box|>401 55 425 635<|content|>5 Financial and demographic applications\n<|id|>141<|page|>17<|box|>543 55 564 455<|content|>5.1 Clustering S&P 500 companies\n<|id|>165<|page|>21<|box|>752 55 772 268<|content|>6 Conclusions\n<|id|>170<|page|>22<|box|>489 426 511 571<|content|>Supplement\n<|id|>173<|page|>22<|box|>810 55 833 312<|content|>Acknowledgments\n<|id|>175<|page|>23<|box|>89 55 114 697<|content|>S1 Algorithm for the fuzzy C-medoids method\n<|id|>177<|page|>24<|box|>33 55 60 887<|content|>S2 Using\\widehat { d } _ { \\mathbf { F Q A } }in c\n<|id|>187<|page|>26<|box|>29 55 91 939<|content|>S3 Selection of hyperparameters in the fuzzy clust\n<|id|>189<|page|>26<|box|>184 55 203 364<|content|>S3.1 Selection of the set\\mathcal { L }\n<|id|>197<|page|>27<|box|>32 55 52 448<|content|>S3.2 Selection of the sets T and B\n<|id|>201<|page|>27<|box|>554 55 573 357<|content|>S3.3 Selection of C and m\n<|id|>206<|page|>29<|box|>30 55 91 942<|content|>S4 Two-dimensional scaling representations for the\n<|id|>212<|page|>31<|box|>29 55 91 939<|content|>S5 Results for the fuzzy C-means models in the sce\n<|id|>215<|page|>32<|box|>30 55 53 917<|content|>S6 Additional results in the scenarios with well-d\n<|id|>222<|page|>34<|box|>29 53 92 941<|content|>S7 Results for the fuzzy C-means models in the sce\n<|id|>227<|page|>36<|box|>30 55 52 546<|content|>S8 Computational time assessment\n<|id|>232<|page|>37<|box|>29 53 89 944<|content|>S9 Two-dimensional scaling representation for the\n<|id|>235<|page|>38<|box|>30 55 54 821<|content|>S10 Clustering age-specific mortality improvement\n<|id|>253<|page|>44<|box|>30 55 52 208<|content|>References",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>7<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>3\n<|id|>44<|level|>3\n<|id|>52<|level|>2\n<|id|>54<|level|>3\n<|id|>65<|level|>3\n<|id|>67<|level|>4\n<|id|>69<|level|>4\n<|id|>71<|level|>4\n<|id|>73<|level|>2\n<|id|>75<|level|>3\n<|id|>95<|level|>3\n<|id|>97<|level|>4\n<|id|>127<|level|>4\n<|id|>139<|level|>2\n<|id|>141<|level|>3\n<|id|>165<|level|>2\n<|id|>170<|level|>2\n<|id|>173<|level|>2\n<|id|>175<|level|>3\n<|id|>177<|level|>3\n<|id|>187<|level|>3\n<|id|>189<|level|>4\n<|id|>197<|level|>4\n<|id|>201<|level|>4\n<|id|>206<|level|>3\n<|id|>212<|level|>3\n<|id|>215<|level|>3\n<|id|>222<|level|>3\n<|id|>227<|level|>3\n<|id|>232<|level|>3\n<|id|>235<|level|>3\n<|id|>253<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 127,
+            "level": 4
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 4
+        },
+        {
+            "id": 197,
+            "level": 4
+        },
+        {
+            "id": 201,
+            "level": 4
+        },
+        {
+            "id": 206,
+            "level": 3
+        },
+        {
+            "id": 212,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 227,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 235,
+            "level": 3
+        },
+        {
+            "id": 253,
+            "level": 2
+        }
+    ]
+}

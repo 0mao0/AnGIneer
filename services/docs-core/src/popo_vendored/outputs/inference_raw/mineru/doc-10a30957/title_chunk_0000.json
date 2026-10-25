@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>434 142 450 339<|content|>I. Purpose of This Letter\n<|id|>14<|page|>2<|box|>223 140 239 367<|content|>II. Background and Context\n<|id|>20<|page|>3<|box|>90 140 107 333<|content|>III. Document Requests\n<|id|>23<|page|>3<|box|>375 140 391 601<|content|>A. Documents Relating to Gulf Standard Contracting\n<|id|>31<|page|>4<|box|>268 140 286 601<|content|>B. Documents Relating to Suncoast Property Service\n<|id|>39<|page|>4<|box|>849 140 867 589<|content|>C. Documents Relating to Revenue-Recognition Pract\n<|id|>45<|page|>5<|box|>536 142 553 821<|content|>D. Documents Relating to Expense Reimbursements an\n<|id|>51<|page|>6<|box|>157 140 174 383<|content|>E. Personal Financial Records\n<|id|>57<|page|>6<|box|>571 140 588 534<|content|>Procedural Instructions for Document Production\n<|id|>61<|page|>7<|box|>90 140 107 431<|content|>IV. Request for Follow-Up Interview\n<|id|>71<|page|>8<|box|>186 140 203 351<|content|>V. Preservation Reminder\n<|id|>75<|page|>8<|box|>616 140 633 370<|content|>VI. Cooperation Expectation\n<|id|>79<|page|>9<|box|>167 140 185 243<|content|>VII. Closing\n<|id|>84<|page|>9<|box|>406 140 422 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>20<|level|>1\n<|id|>23<|level|>2\n<|id|>31<|level|>2\n<|id|>39<|level|>2\n<|id|>45<|level|>2\n<|id|>51<|level|>2\n<|id|>57<|level|>1\n<|id|>61<|level|>1\n<|id|>71<|level|>1\n<|id|>75<|level|>1\n<|id|>79<|level|>1\n<|id|>84<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        }
+    ]
+}

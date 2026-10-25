@@ -1,0 +1,50 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>114 212 133 784<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>9<|type|>title<|page|>1<|box|>340 385 361 611<|content|>I. Executive Summary\n<|id|>18<|type|>title<|page|>2<|box|>309 325 328 671<|content|>II. Background on the Transaction\n<|id|>19<|type|>title<|page|>2<|box|>353 142 369 344<|content|>A. Transaction Structure\n<|id|>28<|type|>title<|page|>3<|box|>464 140 482 299<|content|>B. Receivables Pool\n<|id|>40<|type|>title<|page|>4<|box|>90 140 107 300<|content|>C. Offering Format\n<|id|>48<|type|>title<|page|>4<|box|>468 328 488 668<|content|>III. Overview of Regulation AB II\n<|id|>49<|type|>title<|page|>4<|box|>513 142 530 321<|content|>A. Regulatory History\n<|id|>53<|type|>title<|page|>5<|box|>223 140 239 673<|content|>B. Key Requirements of Regulation AB II (for Regis\n<|id|>64<|type|>title<|page|>6<|box|>700 140 718 331<|content|>C. Scope of Application\n<|id|>68<|type|>title<|page|>7<|box|>308 153 328 843<|content|>IV. Analysis: Inapplicability of Reg AB II to the\n<|id|>69<|type|>title<|page|>7<|box|>353 142 369 496<|content|>A. The Offering Is Exempt from Registration\n<|id|>75<|type|>title<|page|>8<|box|>285 140 303 514<|content|>B. Reg AB II Requirements That Do Not Apply\n<|id|>83<|type|>title<|page|>9<|box|>186 140 204 405<|content|>C. Statutory Basis for Exemption\n<|id|>89<|type|>title<|page|>9<|box|>672 147 717 849<|content|>V. Limited Regulatory Requirements That May Apply\n<|id|>91<|type|>title<|page|>9<|box|>829 140 845 558<|content|>A. Form ABS-15G — Repurchase Request Reporting\n<|id|>97<|type|>title<|page|>10<|box|>638 140 655 426<|content|>B. Regulation RR — Risk Retention\n<|id|>102<|type|>title<|page|>11<|box|>402 140 419 344<|content|>C. Anti-Fraud Provisions\n<|id|>108<|type|>title<|page|>12<|box|>172 156 191 838<|content|>VI. Best-Practice Disclosure Standards for Rule 14\n<|id|>109<|type|>title<|page|>12<|box|>217 140 234 334<|content|>A. Market Expectations\n<|id|>113<|type|>title<|page|>12<|box|>665 140 683 527<|content|>B. Recommended Voluntary Disclosure Practices\n<|id|>148<|type|>title<|page|>15<|box|>643 140 662 524<|content|>C. Comfort Letter and Agreed-Upon Procedures\n<|id|>152<|type|>title<|page|>16<|box|>136 236 155 759<|content|>VII. Interaction with Other Regulatory Frameworks\n<|id|>153<|type|>title<|page|>16<|box|>181 140 196 429<|content|>A. Investment Company Act of 1940\n<|id|>158<|type|>title<|page|>16<|box|>801 140 818 272<|content|>B. Volcker Rule\n<|id|>161<|type|>title<|page|>17<|box|>340 140 357 387<|content|>C. Dodd-Frank Risk Retention\n<|id|>163<|type|>title<|page|>17<|box|>559 377 577 620<|content|>VIII. Recommendations\n<|id|>172<|type|>title<|page|>18<|box|>709 421 728 575<|content|>IX. Conclusion\n<|id|>184<|type|>title<|page|>20<|box|>90 191 135 805<|content|>Appendix A — Summary Table: Reg AB II Requirements\n<|id|>185<|type|>table<|page|>20<|box|>214 143 897 852<|content|>None\n<|id|>186<|type|>table<|page|>21<|box|>89 143 664 851<|content|>None\n<|id|>187<|type|>title<|page|>22<|box|>90 250 111 748<|content|>Appendix B — Transaction Parties Reference List\n<|id|>188<|type|>table<|page|>22<|box|>189 143 895 852<|content|>None\n<|id|>189<|type|>table<|page|>23<|box|>88 143 253 852<|content|>None",
+    "raw_response": "<|src_id|>185<|tgt_id|>184\n<|src_id|>186<|tgt_id|>184\n<|src_id|>188<|tgt_id|>187\n<|src_id|>189<|tgt_id|>187",
+    "parsed": [
+        {
+            "src_id": 185,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 187
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 187
+        }
+    ]
+}

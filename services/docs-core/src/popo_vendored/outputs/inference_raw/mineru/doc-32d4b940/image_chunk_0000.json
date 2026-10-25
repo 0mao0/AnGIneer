@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>160 140 176 643<|content|>VIA Severin Partners LLC AND ELECTRONIC SUBMISSION\n<|id|>4<|type|>title<|page|>1<|box|>273 140 292 294<|content|>Dear Sir or Madam:\n<|id|>7<|type|>title<|page|>1<|box|>641 140 659 261<|content|>I. SUMMARY\n<|id|>12<|type|>title<|page|>2<|box|>339 140 356 516<|content|>II. DESCRIPTION OF THE TRANSACTIONS\n<|id|>13<|type|>title<|page|>2<|box|>371 142 388 303<|content|>A. Shipment Details\n<|id|>14<|type|>table<|page|>2<|box|>419 143 719 851<|content|>None\n<|id|>16<|type|>title<|page|>2<|box|>839 142 857 290<|content|>B. Routing Details\n<|id|>21<|type|>title<|page|>3<|box|>565 140 582 383<|content|>C. Context of Prior Shipments\n<|id|>25<|type|>title<|page|>4<|box|>89 140 107 529<|content|>III. CIRCUMSTANCES OF THE VIOLATIONS\n<|id|>26<|type|>title<|page|>4<|box|>121 140 138 622<|content|>A. Entity List Addition of Zhonghe Microelectronic\n<|id|>29<|type|>title<|page|>4<|box|>366 140 383 330<|content|>B. Root Cause Analysis\n<|id|>50<|type|>title<|page|>6<|box|>621 140 638 382<|content|>C. HSI's Own Screening Gaps\n<|id|>56<|type|>title<|page|>7<|box|>329 140 345 519<|content|>IV. DISCOVERY AND REMEDIAL ACTIONS\n<|id|>57<|type|>title<|page|>7<|box|>359 142 377 450<|content|>A. Discovery of the Potential Violations\n<|id|>60<|type|>title<|page|>7<|box|>661 142 676 377<|content|>B. Immediate Remedial Steps\n<|id|>70<|type|>title<|page|>9<|box|>248 140 265 480<|content|>V. RELATED GOVERNMENT INQUIRY\n<|id|>79<|type|>title<|page|>9<|box|>844 140 859 705<|content|>VI. PRELIMINARY ASSESSMENT OF KNOWLEDGE AND INTENT\n<|id|>88<|type|>title<|page|>10<|box|>660 140 676 455<|content|>VII. SUPPLEMENTAL DISCLOSURE\n<|id|>97<|type|>title<|page|>11<|box|>506 140 523 421<|content|>VIII. CONTACT INFORMATION",
+    "raw_response": "<|src_id|>14<|tgt_id|>13",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 13
+        }
+    ]
+}

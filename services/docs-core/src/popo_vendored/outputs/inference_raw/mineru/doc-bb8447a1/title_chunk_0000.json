@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>804 142 821 398<|content|>1. Enclosed Closing Deliverables\n<|id|>14<|page|>2<|box|>140 140 157 457<|content|>(a) Executed Asset Purchase Agreement\n<|id|>24<|page|>3<|box|>138 140 157 625<|content|>(b) Officer's Certificate of Crestline Packaging S\n<|id|>30<|page|>3<|box|>773 140 790 810<|content|>(c) Secretary's / Authorized Person's Certificate\n<|id|>36<|page|>4<|box|>729 140 747 482<|content|>(d) Calderwood & Harkness Legal Opinion\n<|id|>45<|page|>6<|box|>311 140 329 383<|content|>(e) Good Standing Certificates\n<|id|>53<|page|>6<|box|>814 140 832 598<|content|>(f) Evidence of Representations and Warranties Ins\n<|id|>64<|page|>7<|box|>551 140 568 720<|content|>2. Additional Deliverables Previously Transmitted\n<|id|>75<|page|>9<|box|>148 140 167 517<|content|>3. Incremental Term Loan Terms Confirmation\n<|id|>79<|page|>9<|box|>622 140 638 330<|content|>4. Funding Instructions\n<|id|>85<|page|>10<|box|>250 140 265 509<|content|>5. Contact Information and Closing Courtesies\n<|id|>89<|page|>10<|box|>516 140 532 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>14<|level|>2\n<|id|>24<|level|>2\n<|id|>30<|level|>2\n<|id|>36<|level|>2\n<|id|>45<|level|>2\n<|id|>53<|level|>2\n<|id|>64<|level|>1\n<|id|>75<|level|>1\n<|id|>79<|level|>1\n<|id|>85<|level|>1\n<|id|>89<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>214 364 233 633<|content|>IN LIEU OF A MEETING\n<|id|>4<|page|>1<|box|>252 377 268 619<|content|>Effective as of August 30, 2023\n<|id|>5<|page|>1<|box|>277 140 460 857<|content|>The undersigned, constituting all of the members o...ether shall constitute one and the same instrument\n<|id|>10<|page|>1<|box|>806 176 824 635<|content|>(ii) Elliot Marsh, Co-Founder, Chief Technology Officer; ... and\n<|id|>18<|page|>2<|box|>419 140 510 857<|content|>In addition, the Company has reserved one million ...emain available for future issuance under the Plan\n<|id|>14<|page|>2<|box|>141 176 159 540<|content|>(ii) Elliot Marsh, Chief Technology Officer; ... and\n<|id|>22<|page|>2<|box|>787 140 898 856<|content|>E. ... The total target amount of the SAFE Financing is up to six million eight\n<|id|>24<|page|>3<|box|>325 140 546 856<|content|>Each SAFE to be issued in the SAFE Financing shall...are, without regard to conflicts of law principles\n<|id|>27<|page|>3<|box|>825 140 898 856<|content|>H. ... The Board has reviewed and carefully consid...estor, and the impact of the SAFE Financing on the\n<|id|>28<|page|>4<|box|>90 140 181 854<|content|>Company's existing capitalization and the rights o...h the SAFE Financing on the terms set forth herein\n<|id|>42<|page|>5<|box|>250 174 304 854<|content|>(c) any and all ancillary documents, certificates,...ble in connection with the SAFE Financing; ... and\n<|id|>44<|page|>5<|box|>375 140 520 856<|content|>FURTHER RESOLVED, that such authority shall includ...ch case without further authorization of the Board\n<|id|>48<|page|>5<|box|>734 140 898 857<|content|>RESOLVED, that the officers of the Company are her...nection with the issuance of SAFEs pursuant to the\n<|id|>49<|page|>6<|box|>90 140 127 854<|content|>SAFE Financing and the other transactions contempl...fees, taxes, or other charges associated therewith\n<|id|>58<|page|>7<|box|>89 142 107 310<|content|>Date: ... August 30, 2023\n<|id|>59<|page|>7<|box|>140 142 176 602<|content|>Elliot Marsh Director, Co-Founder, Chief Technology Officer Date: ... August 30, 2023\n<|id|>60<|page|>7<|box|>208 140 244 434<|content|>Kenji Watanabe Independent Director Date: ... August 30, 2023",
+    "raw_response": "<|src_id|>27<|tgt_id|>28\n<|src_id|>48<|tgt_id|>49",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        }
+    ]
+}

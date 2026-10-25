@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>218 140 234 674<|content|>Registration Statement on Form F-1 Filed by Halcyon Semiconductor Aktiengesellschaft\n<|id|>4<|page|>1<|box|>242 140 314 857<|content|>You should read this section together with our aud...nancial Condition and Results of Operations. ... \"\n<|id|>8<|page|>1<|box|>452 183 468 352<|content|>• an actual basis; ... and\n<|id|>10<|page|>1<|box|>601 140 729 856<|content|>The as adjusted information set forth in the table...receive any of the proceeds from such sales. ... \"\n<|id|>12<|page|>1<|box|>854 140 890 854<|content|>You should read this table in conjunction with our...\"Management's Discussion and Analysis of Financial\n<|id|>13<|page|>2<|box|>89 140 126 854<|content|>Condition and Results of Operations\" and \"Use of P...of Proceeds\" included elsewhere in this prospectus\n<|id|>31<|page|>4<|box|>594 183 611 568<|content|>• Ordinary shares outstanding (actual): ... 215,000,000\n<|id|>34<|page|>4<|box|>671 140 762 854<|content|>Our total assets as of December 31, 2025 were €7,4...l statements included elsewhere in this prospectus\n<|id|>32<|page|>4<|box|>614 183 631 642<|content|>• Net tangible book value per ordinary share (actual): ... €[●]\n<|id|>33<|page|>4<|box|>633 181 667 854<|content|>• Net tangible book value per ADS (actual): ... 078)\n<|id|>81<|page|>10<|box|>531 181 565 854<|content|>• approximately $100,000,000 for the repayment of ...wings under our revolving credit facility; ... and\n<|id|>83<|page|>10<|box|>606 140 678 856<|content|>Description of American Depositary Shares. ... \"",
+    "raw_response": "<|src_id|>12<|tgt_id|>13",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        }
+    ]
+}

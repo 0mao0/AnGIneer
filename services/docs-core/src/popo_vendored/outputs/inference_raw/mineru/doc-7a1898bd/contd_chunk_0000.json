@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>167 689 184 854<|content|>Dated: ... April 18, 2025\n<|id|>2<|page|>1<|box|>194 140 248 854<|content|>I, the undersigned, hereby certify that I am the d... the laws of the State of Delaware (the \"Company\")\n<|id|>9<|page|>1<|box|>851 140 906 856<|content|>2. ... Such Bylaws were duly adopted by the Board ...tors of the Company in accordance with the General\n<|id|>10<|page|>2<|box|>90 140 143 854<|content|>Corporation Law of the State of Delaware (the \"DGC...ain in full force and effect as of the date hereof\n<|id|>15<|page|>2<|box|>420 176 438 544<|content|>(d) Dr. ... and\n<|id|>17<|page|>2<|box|>473 140 508 854<|content|>Each specimen signature set forth on Exhibit C is ...re of the respective individual identified therein\n<|id|>22<|page|>2<|box|>858 174 895 854<|content|>(d) authorize each of Daniel Burch, in his capacit...al Officer, and Karen Tolliver, in her capacity as\n<|id|>23<|page|>3<|box|>90 174 236 854<|content|>Chief Operating Officer, acting individually or to...ases, consents, and all other Closing deliverables\n<|id|>34<|page|>3<|box|>834 142 849 303<|content|>Name: ... Patricia Kwan\n<|id|>35<|page|>3<|box|>851 143 867 261<|content|>Title: ... Secretary\n<|id|>36<|page|>3<|box|>869 143 883 297<|content|>Date: ... April 18, 2025\n<|id|>37<|page|>4<|box|>90 140 181 854<|content|>I, Daniel Burch, the duly elected, qualified, and ...s Secretary's Certificate on behalf of the Company\n<|id|>39<|page|>4<|box|>207 143 222 297<|content|>Name: ... Daniel Burch\n<|id|>40<|page|>4<|box|>224 143 239 364<|content|>Title: ... Chief Executive Officer\n<|id|>41<|page|>4<|box|>241 143 257 297<|content|>Date: ... April 18, 2025\n<|id|>58<|page|>4<|box|>835 140 909 854<|content|>The undersigned, Patricia Kwan, the duly elected, ...ontinues to serve in such capacity as of April 18,\n<|id|>60<|page|>5<|box|>335 140 426 854<|content|>Each of the foregoing individuals was duly elected...ividual from the office or offices indicated above\n<|id|>63<|page|>5<|box|>469 143 484 303<|content|>Name: ... Patricia Kwan\n<|id|>64<|page|>5<|box|>486 143 501 261<|content|>Title: ... Secretary\n<|id|>65<|page|>5<|box|>503 143 518 297<|content|>Date: ... April 18, 2025\n<|id|>77<|page|>5<|box|>840 140 896 856<|content|>The undersigned, being all of the members of the B...State of Delaware (the \"DGCL\") and the Amended and\n<|id|>78<|page|>6<|box|>90 140 143 854<|content|>Restated Bylaws of the Company, do hereby adopt th... meeting, effective as of the date set forth above\n<|id|>93<|page|>7<|box|>729 174 784 854<|content|>(v) releases, termination statements (including UC...on repayment of the Existing Indebtedness; ... and\n<|id|>95<|page|>7<|box|>835 140 909 856<|content|>RESOLVED FURTHER, that the Company is hereby autho...ccordance with Section 2. ... 3(b) of the Purchase\n<|id|>96<|page|>8<|box|>90 140 127 852<|content|>Agreement, such Escrow Amount to be deposited into... accordance with the terms of the Escrow Agreement",
+    "raw_response": "<|src_id|>9<|tgt_id|>10\n<|src_id|>22<|tgt_id|>23\n<|src_id|>77<|tgt_id|>78\n<|src_id|>95<|tgt_id|>96",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 96
+        }
+    ]
+}

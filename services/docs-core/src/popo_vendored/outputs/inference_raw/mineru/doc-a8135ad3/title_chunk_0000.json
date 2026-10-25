@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>369 140 387 264<|content|>I. Introduction\n<|id|>11<|page|>2<|box|>148 142 167 267<|content|>II. Background\n<|id|>12<|page|>2<|box|>180 142 196 375<|content|>A. The TSA and Termination\n<|id|>17<|page|>2<|box|>825 140 842 493<|content|>B. Vantor's Claims and Stonefield's Defenses\n<|id|>21<|page|>3<|box|>484 140 501 506<|content|>C. Defendant's Second Request for Production\n<|id|>29<|page|>4<|box|>90 140 107 326<|content|>D. Vantor's Objections\n<|id|>32<|page|>4<|box|>354 140 369 364<|content|>E. Meet-and-Confer Efforts\n<|id|>35<|page|>4<|box|>664 140 680 299<|content|>III. Legal Standard\n<|id|>39<|page|>5<|box|>340 140 358 259<|content|>IV. Argument\n<|id|>40<|page|>5<|box|>371 140 407 854<|content|>A. The Fleet Redeployment Records Are Directly Rel\n<|id|>48<|page|>6<|box|>521 140 539 805<|content|>B. The Disputed Documents Are Directly Relevant to\n<|id|>54<|page|>7<|box|>440 140 458 830<|content|>C. The Fleet Redeployment Records Are Relevant to\n<|id|>57<|page|>7<|box|>794 140 811 434<|content|>D. Vantor's Objections Are Meritless\n<|id|>67<|page|>9<|box|>223 140 239 300<|content|>V. Relief Requested\n<|id|>73<|page|>9<|box|>575 140 593 264<|content|>VI. Conclusion\n<|id|>84<|page|>10<|box|>356 140 373 310<|content|>Certificate of Service",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>1\n<|id|>39<|level|>1\n<|id|>40<|level|>2\n<|id|>48<|level|>2\n<|id|>54<|level|>2\n<|id|>57<|level|>2\n<|id|>67<|level|>1\n<|id|>73<|level|>1\n<|id|>84<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        }
+    ]
+}

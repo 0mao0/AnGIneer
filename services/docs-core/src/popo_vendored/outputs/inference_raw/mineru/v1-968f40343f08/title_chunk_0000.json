@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        9,
+        13,
+        14,
+        18,
+        21,
+        25,
+        26,
+        28,
+        29
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>143 142 168 853<|content|>Inconsistency of parsimony under the multispecies\n<|id|>11<|page|>1<|box|>472 462 486 536<|content|>Abstract\n<|id|>14<|page|>2<|box|>82 117 99 312<|content|>1 Introduction\n<|id|>21<|page|>4<|box|>538 115 555 290<|content|>2 Definitions\n<|id|>59<|page|>9<|box|>409 115 428 650<|content|>3 Expected branch lengths under the MSC\n<|id|>61<|page|>9<|box|>846 115 863 677<|content|>3.1 Gene tree lengths, subtending lengths, and hei\n<|id|>92<|page|>13<|box|>199 115 215 655<|content|>3.2 Decomposition into species and coalescent term\n<|id|>105<|page|>14<|box|>463 115 478 552<|content|>3.3 A detailed analysis for the 4-taxa case\n<|id|>156<|page|>18<|box|>677 115 695 800<|content|>4 Where parsimony succeeds and fails across tree s\n<|id|>157<|page|>18<|box|>718 115 734 566<|content|>4.1 Parsimony for the unrooted 5-taxa case\n<|id|>175<|page|>21<|box|>288 115 306 726<|content|>4.2 The parsimony anomaly zone for the rooted 5-ta\n<|id|>195<|page|>25<|box|>84 115 101 752<|content|>4.3 The parsimony anomaly zone for the unrooted 6-\n<|id|>205<|page|>26<|box|>755 115 772 285<|content|>5 Discussion\n<|id|>211<|page|>28<|box|>609 115 627 633<|content|>CRediT authorship contribution statement\n<|id|>213<|page|>28<|box|>769 117 787 347<|content|>Acknowledgements\n<|id|>215<|page|>29<|box|>82 115 99 356<|content|>Conflicts of interest\n<|id|>217<|page|>29<|box|>170 115 189 315<|content|>Data availability\n<|id|>219<|page|>29<|box|>282 115 300 250<|content|>References",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>59<|level|>2\n<|id|>61<|level|>3\n<|id|>92<|level|>3\n<|id|>105<|level|>3\n<|id|>156<|level|>2\n<|id|>157<|level|>3\n<|id|>175<|level|>3\n<|id|>195<|level|>3\n<|id|>205<|level|>2\n<|id|>211<|level|>2\n<|id|>213<|level|>2\n<|id|>215<|level|>2\n<|id|>217<|level|>2\n<|id|>219<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 3
+        },
+        {
+            "id": 205,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 2
+        }
+    ]
+}

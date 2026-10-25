@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 145 123 852<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>1<|type|>table<|page|>1<|box|>157 143 301 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>369 174 386 821<|content|>PLAINTIFF'S NOTICE OF VOLUNTARY DISMISSAL WITHOUT\n<|id|>4<|type|>title<|page|>1<|box|>547 142 564 406<|content|>I. COUNTS BEING DISMISSED\n<|id|>11<|type|>title<|page|>1<|box|>857 140 875 663<|content|>II. NATURE OF DISMISSAL AND RESERVATION OF RIGHTS\n<|id|>14<|type|>title<|page|>2<|box|>306 142 323 346<|content|>III. PROPOSED ORDER\n<|id|>16<|type|>title<|page|>2<|box|>393 140 411 367<|content|>IV. PRAYER FOR RELIEF",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

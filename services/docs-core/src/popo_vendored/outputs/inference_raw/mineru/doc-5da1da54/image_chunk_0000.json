@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 238 118 758<|content|>BRING-DOWN DUE DILIGENCE CERTIFICATE\n<|id|>4<|type|>title<|page|>1<|box|>465 140 484 243<|content|>RECITALS\n<|id|>14<|type|>title<|page|>2<|box|>398 140 416 571<|content|>SECTION 1: IDENTIFICATION OF GUARANTORS\n<|id|>23<|type|>title<|page|>3<|box|>260 140 277 710<|content|>SECTION 2: NO MATERIAL ADVERSE CHANGE CERTIFICATIO\n<|id|>28<|type|>title<|page|>3<|box|>789 140 806 741<|content|>SECTION 3: ACCURACY OF REPRESENTATIONS AND WARRANT\n<|id|>43<|type|>title<|page|>6<|box|>794 140 811 671<|content|>SECTION 4: COMPLIANCE WITH CONDITIONS PRECEDENT\n<|id|>71<|type|>title<|page|>10<|box|>89 142 106 589<|content|>SECTION 5: NO DEFAULT OR EVENT OF DEFAULT\n<|id|>75<|type|>title<|page|>10<|box|>537 142 555 573<|content|>SECTION 6: USE OF PROCEEDS CONFIRMATION\n<|id|>77<|type|>table<|page|>10<|box|>625 143 828 852<|content|>None\n<|id|>79<|type|>title<|page|>11<|box|>204 140 220 629<|content|>SECTION 7: OFFERING MEMORANDA — NO OMISSION\n<|id|>103<|type|>title<|page|>12<|box|>618 140 633 517<|content|>SECTION 8: OWNERSHIP CONFIRMATION\n<|id|>105<|type|>table<|page|>12<|box|>704 143 832 852<|content|>None\n<|id|>107<|type|>title<|page|>13<|box|>148 140 166 418<|content|>SECTION 9: NO PROCEEDINGS\n<|id|>109<|type|>title<|page|>13<|box|>398 140 416 359<|content|>SECTION 10: RELIANCE\n<|id|>116<|type|>title<|page|>14<|box|>89 142 106 472<|content|>DUNMORE ENERGY HOLDINGS LTD.\n<|id|>132<|type|>title<|page|>14<|box|>386 174 404 821<|content|>ACKNOWLEDGED AND CONFIRMED ON BEHALF OF EACH GUARA\n<|id|>134<|type|>title<|page|>14<|box|>494 143 508 415<|content|>DUNMORE NIGERIA E&P LTD.",
+    "raw_response": "<|src_id|>77<|tgt_id|>75\n<|src_id|>105<|tgt_id|>103",
+    "parsed": [
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 103
+        }
+    ]
+}

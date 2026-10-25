@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>193 140 210 560<|content|>VIA HAND DELIVERY AND ELECTRONIC MAIL\n<|id|>8<|page|>1<|box|>367 140 383 501<|content|>I. Introduction and Representation Statement\n<|id|>13<|page|>2<|box|>241 140 258 436<|content|>II. Background and Treaty Overview\n<|id|>27<|page|>3<|box|>314 140 332 614<|content|>III. Rejection of Ground One — Late Notice Under A\n<|id|>36<|page|>4<|box|>684 140 720 800<|content|>IV. Rejection of Ground Two — Misallocation of IBN\n<|id|>46<|page|>5<|box|>799 140 816 800<|content|>V. Rejection of Ground Three — Follow-the-Fortunes\n<|id|>60<|page|>7<|box|>212 140 229 834<|content|>VI. Rejection of Ground Four — Alleged Inaccurate\n<|id|>66<|page|>7<|box|>821 140 839 431<|content|>VII. Voluntary Payment and Waiver\n<|id|>71<|page|>8<|box|>458 140 474 323<|content|>VIII. Interest Demand\n<|id|>75<|page|>8<|box|>723 140 739 607<|content|>IX. Applicability of Arbitration Clause — Treaty A\n<|id|>82<|page|>9<|box|>684 140 702 338<|content|>X. Reservation of Rights\n<|id|>90<|page|>10<|box|>337 140 354 429<|content|>XI. Document Preservation Demand\n<|id|>101<|page|>11<|box|>402 140 420 470<|content|>XII. Request for Response and Next Steps\n<|id|>107<|page|>12<|box|>90 140 107 362<|content|>XIII. Confidentiality Notice",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>-1\n<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>27<|level|>1\n<|id|>36<|level|>1\n<|id|>46<|level|>1\n<|id|>60<|level|>1\n<|id|>66<|level|>1\n<|id|>71<|level|>1\n<|id|>75<|level|>1\n<|id|>82<|level|>1\n<|id|>90<|level|>1\n<|id|>101<|level|>1\n<|id|>107<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        }
+    ]
+}

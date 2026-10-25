@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 197 142 797<|content|>MUTUAL CONFIDENTIALITY AND NON-DISCLOSURE AGREEMEN\n<|id|>6<|page|>1<|box|>450 140 468 243<|content|>RECITALS\n<|id|>15<|page|>2<|box|>256 140 273 374<|content|>SECTION 1: DEFINITIONS\n<|id|>42<|page|>4<|box|>483 140 500 766<|content|>SECTION 2: USE AND DISCLOSURE OF CONFIDENTIAL INFO\n<|id|>53<|page|>6<|box|>89 140 106 581<|content|>SECTION 3: NON-SOLICITATION OF EMPLOYEES\n<|id|>59<|page|>6<|box|>589 140 607 367<|content|>SECTION 4: STANDSTILL\n<|id|>68<|page|>7<|box|>655 140 691 816<|content|>SECTION 5: NO REPRESENTATIONS OR WARRANTIES; NO OB\n<|id|>71<|page|>8<|box|>449 140 467 823<|content|>SECTION 6: RETURN AND DESTRUCTION OF CONFIDENTIAL\n<|id|>76<|page|>8<|box|>854 140 872 852<|content|>6.2 Exceptions to Return/Destruction. Notwithstand\n<|id|>81<|page|>9<|box|>556 140 573 351<|content|>SECTION 7: REMEDIES\n<|id|>85<|page|>10<|box|>148 140 166 493<|content|>SECTION 8: NO WAIVER; AMENDMENT\n<|id|>88<|page|>10<|box|>407 140 424 488<|content|>SECTION 9: TERM AND TERMINATION\n<|id|>92<|page|>10<|box|>709 140 726 795<|content|>SECTION 10: GOVERNING LAW; JURISDICTION; WAIVER OF\n<|id|>96<|page|>11<|box|>523 140 539 421<|content|>SECTION 11: MISCELLANEOUS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>15<|level|>2\n<|id|>42<|level|>2\n<|id|>53<|level|>2\n<|id|>59<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>76<|level|>3\n<|id|>81<|level|>2\n<|id|>85<|level|>2\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>96<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        }
+    ]
+}

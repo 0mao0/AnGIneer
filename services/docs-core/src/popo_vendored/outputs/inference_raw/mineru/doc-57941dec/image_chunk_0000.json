@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 173 125 823<|content|>IN THE UNITED STATES DISTRICT COURT FOR THE NORTHE\n<|id|>1<|type|>table<|page|>1<|box|>157 143 316 852<|content|>None\n<|id|>2<|type|>table<|page|>1<|box|>383 143 459 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>508 143 523 397<|content|>PRELIMINARY STATEMENT\n<|id|>7<|type|>title<|page|>2<|box|>89 142 106 267<|content|>DEFINITIONS\n<|id|>29<|type|>title<|page|>3<|box|>664 140 681 287<|content|>INSTRUCTIONS\n<|id|>37<|type|>title<|page|>4<|box|>564 140 580 328<|content|>INTERROGATORIES\n<|id|>38<|type|>title<|page|>4<|box|>595 140 612 361<|content|>INTERROGATORY NO. 1\n<|id|>44<|type|>title<|page|>5<|box|>89 140 106 362<|content|>INTERROGATORY NO. 2\n<|id|>50<|type|>title<|page|>5<|box|>484 140 502 362<|content|>INTERROGATORY NO. 3\n<|id|>56<|type|>title<|page|>5<|box|>845 142 862 362<|content|>INTERROGATORY NO. 4\n<|id|>63<|type|>title<|page|>6<|box|>388 140 406 364<|content|>INTERROGATORY NO. 5\n<|id|>69<|type|>title<|page|>6<|box|>748 140 765 362<|content|>INTERROGATORY NO. 6\n<|id|>76<|type|>title<|page|>7<|box|>454 140 470 362<|content|>INTERROGATORY NO. 7\n<|id|>83<|type|>title<|page|>8<|box|>138 140 156 362<|content|>INTERROGATORY NO. 8\n<|id|>89<|type|>title<|page|>8<|box|>516 142 532 362<|content|>INTERROGATORY NO. 9\n<|id|>99<|type|>title<|page|>9<|box|>500 140 515 372<|content|>INTERROGATORY NO. 10\n<|id|>106<|type|>title<|page|>10<|box|>157 140 174 370<|content|>INTERROGATORY NO. 11\n<|id|>116<|type|>title<|page|>10<|box|>748 140 765 372<|content|>INTERROGATORY NO. 12\n<|id|>123<|type|>title<|page|>11<|box|>454 140 470 370<|content|>INTERROGATORY NO. 13\n<|id|>130<|type|>title<|page|>11<|box|>821 142 838 370<|content|>INTERROGATORY NO. 14\n<|id|>136<|type|>title<|page|>12<|box|>425 140 441 372<|content|>INTERROGATORY NO. 15\n<|id|>146<|type|>title<|page|>13<|box|>358 212 375 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>154<|type|>title<|page|>13<|box|>541 140 559 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>2<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 2,
+            "tgt_id": 0
+        }
+    ]
+}

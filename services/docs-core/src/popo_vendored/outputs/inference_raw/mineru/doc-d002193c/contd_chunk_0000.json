@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        6
+    ],
+    "pages": [
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>57<|page|>5<|box|>870 191 893 850<|content|>第十五条 设计变更文件的审批应当在20 日内完成。 ... 无正当理\n<|id|>58<|page|>6<|box|>92 144 115 850<|content|>由，超过审批时间未对设计变更文件的审查予以答复的，视为同意。 ... 由，超过审批时间未对设计变更文件的审查予以答复的，视为同意",
+    "raw_response": "<|src_id|>57<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        }
+    ]
+}

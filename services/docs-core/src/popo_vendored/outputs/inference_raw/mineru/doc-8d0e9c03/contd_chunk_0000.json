@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        14,
+        15,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 140 104 586<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>112 143 155 846<|content|>CALDERWOOD & HARKNESS LLP 1900 K Street NW, Suite 800 Washington, DC 20006 MEMORANDUM\n<|id|>2<|page|>1<|box|>164 140 181 331<|content|>Matter No. ... 1043-00002\n<|id|>3<|page|>1<|box|>190 748 208 854<|content|>May 19, 2025\n<|id|>4<|page|>1<|box|>215 140 234 558<|content|>TO: ... Douglas Fairchild, Responsible Partner, Real Estate\n<|id|>5<|page|>1<|box|>242 140 258 509<|content|>FROM: ... Cynthia Ho, Lead Associate, Real Estate\n<|id|>6<|page|>1<|box|>268 140 304 854<|content|>RE: ... Impact on Land Closing and Construction Financing Timeline\n<|id|>7<|page|>1<|box|>311 140 329 437<|content|>CLIENT: ... Ironhaven Data Centers LLC\n<|id|>8<|page|>1<|box|>338 140 375 854<|content|>CC: ... Priya Dasgupta (CFO, IHDC)\n<|id|>9<|page|>1<|box|>382 142 398 408<|content|>Right-click to update Table of Contents\n<|id|>13<|page|>1<|box|>551 174 588 854<|content|>(2) the land closings for the Stonebridge Parcel (62. ... and\n<|id|>15<|page|>1<|box|>676 140 824 857<|content|>The core issue presented by the current project se...rtainty regarding the project's entitlement status\n<|id|>38<|page|>4<|box|>819 140 893 856<|content|>The ZMOD is the single most critical entitlement required for the Project. ... if approved, the\n<|id|>39<|page|>5<|box|>90 140 145 854<|content|>Project proceeds; ... if denied, the Project canno...rent zoning approach) or abandon the site entirely\n<|id|>56<|page|>6<|box|>839 181 893 854<|content|>• Noise mitigation: ... and\n<|id|>58<|page|>7<|box|>146 140 330 857<|content|>Proffer negotiations are an iterative process that...ons to the proffer statement should be anticipated\n<|id|>126<|page|>14<|box|>857 174 893 856<|content|>(i) Insurance. ... Satisfactory insurance coverage...he EPC GMP) through Great Basin Surety & Insurance\n<|id|>127<|page|>15<|box|>89 174 127 854<|content|>Corp. ... , with a $250,000 deductible, and commer...r coverage lines as required by the loan agreement\n<|id|>132<|page|>15<|box|>314 181 349 854<|content|>• The appraiser cannot value the property on an \"a...ation premise supporting the LTC covenant; ... and\n<|id|>134<|page|>15<|box|>388 140 463 854<|content|>We expect that the ZMOD approval condition will ap..., and we would not recommend making such a request\n<|id|>193<|page|>21<|box|>872 174 909 856<|content|>8. ... , a site with\n<|id|>194<|page|>22<|box|>90 174 181 854<|content|>ZMOD approval in place) or an as-is PD-IP valuatio...ally from the assumptions underlying the appraisal\n<|id|>206<|page|>23<|box|>277 174 349 854<|content|>(c) building flexible closing mechanics into the C...side date of no later than March 31, 2026; ... and\n<|id|>208<|page|>23<|box|>420 140 494 854<|content|>We will schedule a call with IHDC management (Leon...ain client direction on the preferred path forward\n<|id|>210<|page|>23<|box|>527 142 544 320<|content|>Respectfully submitted,\n<|id|>211<|page|>23<|box|>544 140 561 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>212<|page|>23<|box|>563 142 579 253<|content|>By: ... By\n<|id|>213<|page|>23<|box|>579 140 597 609<|content|>Cynthia Ho Lead Associate, Real Estate Direct: ... (202) 555-4218\n<|id|>214<|page|>23<|box|>597 142 614 429<|content|>Email: ... com",
+    "raw_response": "<|src_id|>38<|tgt_id|>39\n<|src_id|>126<|tgt_id|>127\n<|src_id|>193<|tgt_id|>194",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 193,
+            "tgt_id": 194
+        }
+    ]
+}

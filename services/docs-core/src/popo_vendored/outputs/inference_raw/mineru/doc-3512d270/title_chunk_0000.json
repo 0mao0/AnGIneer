@@ -1,0 +1,121 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 145 143 852<|content|>SECRETARY'S CERTIFICATE OF CASCADE RETAIL HOLDINGS\n<|id|>1<|page|>1<|box|>159 143 202 852<|content|>Delivered Pursuant to Section 7.03(d) of the Stock\n<|id|>4<|page|>1<|box|>534 140 551 441<|content|>Section 1. Certificate of Incorporation\n<|id|>8<|page|>2<|box|>90 142 107 282<|content|>Section 2. Bylaws\n<|id|>12<|page|>2<|box|>375 140 390 593<|content|>Section 3. Board Resolutions Authorizing the Trans\n<|id|>13<|page|>2<|box|>405 142 422 326<|content|>(a) Signing Resolutions\n<|id|>23<|page|>3<|box|>573 140 590 328<|content|>(b) Closing Resolutions\n<|id|>30<|page|>4<|box|>301 140 318 406<|content|>(c) No Other Required Approvals\n<|id|>32<|page|>4<|box|>566 140 584 408<|content|>Section 4. Incumbency of Officers\n<|id|>37<|page|>5<|box|>321 140 337 545<|content|>Section 5. No Dissolution, Merger, or Consolidatio\n<|id|>39<|page|>5<|box|>534 140 551 344<|content|>Section 6. Good Standing\n<|id|>43<|page|>5<|box|>835 142 852 419<|content|>Section 7. Additional Certifications\n<|id|>49<|page|>6<|box|>446 140 464 294<|content|>Section 8. Reliance\n<|id|>54<|page|>6<|box|>868 166 904 830<|content|>[SIGNATURE PAGE TO SECRETARY'S CERTIFICATE OF CASC\n<|id|>55<|page|>7<|box|>89 140 107 818<|content|>IN WITNESS WHEREOF, I have executed this Secretary\n<|id|>60<|page|>7<|box|>193 142 210 392<|content|>COUNTER-CERTIFICATION\n<|id|>67<|page|>8<|box|>89 434 111 563<|content|>EXHIBIT A\n<|id|>68<|page|>8<|box|>128 160 164 836<|content|>Amended and Restated Certificate of Incorporation\n<|id|>71<|page|>9<|box|>90 436 109 562<|content|>EXHIBIT B\n<|id|>72<|page|>9<|box|>128 253 146 743<|content|>Amended and Restated Bylaws of Cascade Retail Hold\n<|id|>75<|page|>10<|box|>90 424 109 571<|content|>EXHIBIT C-1\n<|id|>76<|page|>10<|box|>128 161 162 834<|content|>Resolutions of the Board of Directors of Cascade R\n<|id|>80<|page|>11<|box|>90 424 109 571<|content|>EXHIBIT C-2\n<|id|>81<|page|>11<|box|>128 194 165 803<|content|>Resolutions of the Board of Directors of Cascade R",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>23<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>60<|level|>2\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>71<|level|>2\n<|id|>72<|level|>3\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>80<|level|>2\n<|id|>81<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        }
+    ]
+}

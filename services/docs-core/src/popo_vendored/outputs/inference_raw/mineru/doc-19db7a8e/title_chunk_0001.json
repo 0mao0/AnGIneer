@@ -1,0 +1,59 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        51
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        51
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>294<|page|>45<|box|>337 140 356 390<|content|>C. Monitoring Items (Ongoing)\n<|id|>300<|page|>46<|box|>89 140 107 423<|content|>XVI. NEXT UPDATE SCHEDULE\n<|id|>302<|page|>46<|box|>179 140 196 457<|content|>Next Scheduled Update: August 1, 2025.\n<|id|>303<|page|>46<|box|>204 143 220 282<|content|>Distribution List:\n<|id|>306<|page|>47<|box|>90 143 106 465<|content|>APPENDIX A — KEY CONTACT LIST\n<|id|>309<|page|>47<|box|>396 143 411 318<|content|>NovaMart Global Inc.\n<|id|>312<|page|>47<|box|>834 143 849 519<|content|>Calderwood & Harkness LLP (Buyer's Counsel)\n<|id|>317<|page|>48<|box|>494 143 510 576<|content|>Whitfield & Crane LLP (Antitrust Counsel — Cascade\n<|id|>319<|page|>48<|box|>602 143 619 718<|content|>Address: 1200 New Hampshire Avenue NW, Suite 500,\n<|id|>321<|page|>48<|box|>758 142 775 593<|content|>Address: 900 G Street NW, Suite 700, Washington, D\n<|id|>332<|page|>51<|box|>89 142 107 795<|content|>APPENDIX B — CROSS-REFERENCE TO KEY TRANSACTION DO\n<|id|>333<|page|>51<|box|>116 140 152 854<|content|>The following table maps each closing condition an",
+    "raw_response": "<|id|>294<|level|>3\n<|id|>300<|level|>1\n<|id|>302<|level|>2\n<|id|>303<|level|>2\n<|id|>306<|level|>1\n<|id|>309<|level|>2\n<|id|>312<|level|>2\n<|id|>317<|level|>2\n<|id|>319<|level|>-1\n<|id|>321<|level|>-1\n<|id|>332<|level|>1\n<|id|>333<|level|>2",
+    "parsed": [
+        {
+            "id": 294,
+            "level": 3
+        },
+        {
+            "id": 300,
+            "level": 1
+        },
+        {
+            "id": 302,
+            "level": 2
+        },
+        {
+            "id": 303,
+            "level": 2
+        },
+        {
+            "id": 306,
+            "level": 1
+        },
+        {
+            "id": 309,
+            "level": 2
+        },
+        {
+            "id": 312,
+            "level": 2
+        },
+        {
+            "id": 317,
+            "level": 2
+        },
+        {
+            "id": 332,
+            "level": 1
+        },
+        {
+            "id": 333,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 151 143 846<|content|>SECRETARY'S CERTIFICATE OF CLOUDIUM TECHNOLOGIES P\n<|id|>7<|page|>1<|box|>659 140 676 434<|content|>Section 1. Organizational Documents\n<|id|>10<|page|>2<|box|>223 140 239 370<|content|>Section 2. Board Resolutions\n<|id|>20<|page|>3<|box|>329 140 347 400<|content|>Section 3. Stockholder Approval\n<|id|>24<|page|>3<|box|>777 140 794 323<|content|>Section 4. Incumbency\n<|id|>28<|page|>4<|box|>376 140 393 509<|content|>Section 5. Good Standing and Company Status\n<|id|>32<|page|>4<|box|>714 140 729 488<|content|>Section 6. No Amendments or Modifications\n<|id|>36<|page|>5<|box|>148 140 167 442<|content|>Section 7. Qualification and Authority\n<|id|>48<|page|>5<|box|>650 140 667 316<|content|>Counter-Certification\n<|id|>55<|page|>6<|box|>89 434 112 563<|content|>EXHIBIT A\n<|id|>56<|page|>6<|box|>128 277 172 718<|content|>Certificate of Incorporation Cloudium Technologies\n<|id|>60<|page|>7<|box|>90 434 111 563<|content|>EXHIBIT B\n<|id|>61<|page|>7<|box|>128 408 146 589<|content|>Articles of Association\n<|id|>62<|page|>7<|box|>154 390 172 607<|content|>Cloudium Technologies plc\n<|id|>66<|page|>8<|box|>89 434 111 563<|content|>EXHIBIT C\n<|id|>67<|page|>8<|box|>128 287 172 710<|content|>Resolutions of the Board of Directors Cloudium Tec\n<|id|>81<|page|>11<|box|>90 434 111 562<|content|>EXHIBIT D\n<|id|>82<|page|>11<|box|>128 403 146 593<|content|>Incumbency Certificate\n<|id|>83<|page|>11<|box|>154 315 172 683<|content|>Cloudium Technologies plc Dated: July 9, 2024",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>10<|level|>2\n<|id|>20<|level|>2\n<|id|>24<|level|>2\n<|id|>28<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>48<|level|>2\n<|id|>55<|level|>1\n<|id|>56<|level|>2\n<|id|>60<|level|>1\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>66<|level|>1\n<|id|>67<|level|>2\n<|id|>81<|level|>1\n<|id|>82<|level|>2\n<|id|>83<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        }
+    ]
+}

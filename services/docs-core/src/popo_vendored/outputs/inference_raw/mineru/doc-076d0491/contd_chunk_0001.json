@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        53,
+        84
+    ],
+    "pages": [
+        54,
+        57,
+        69,
+        84
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>282<|page|>54<|box|>229 387 240 627<|content|>(Par values - in millions of dollars)\n<|id|>283<|page|>54<|box|>73 11 181 477<|content|>The Treasury Survey of Ownership covers securities...d States Government and by Federal agencies. ... \"\n<|id|>291<|page|>57<|box|>104 368 116 605<|content|>(Par value - in millions of dollars)\n<|id|>292<|page|>57<|box|>35 291 50 671<|content|>TREASURY SURVEY OF OWNERSHIP, JULY 31, 1958\n<|id|>315<|page|>69<|box|>312 5 464 470<|content|>The term \"foreigner\" as used in these reports cove...in the June 1954 issue of the \"Treasury Bulletin,\"\n<|id|>316<|page|>69<|box|>75 520 121 983<|content|>pages 45-47. ... As a result of changes in present... will be exactly comparable to those now presented\n<|id|>346<|page|>84<|box|>102 59 119 257<|content|>OFFICIAL BUSINESS\n<|id|>347<|page|>84<|box|>359 477 579 614<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS",
+    "raw_response": "<|src_id|>315<|tgt_id|>316",
+    "parsed": [
+        {
+            "src_id": 315,
+            "tgt_id": 316
+        }
+    ]
+}

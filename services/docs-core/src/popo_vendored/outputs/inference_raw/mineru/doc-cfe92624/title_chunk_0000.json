@@ -1,0 +1,42 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 181 125 815<|content|>UNITED STATES DISTRICT COURT FOR THE EASTERN DISTR\n<|id|>2<|page|>1<|box|>409 256 426 740<|content|>JOINT STIPULATION OF DISMISSAL WITH PREJUDICE\n<|id|>12<|page|>2<|box|>544 140 561 658<|content|>COUNSEL FOR PLAINTIFF PINNACLE INNOVATIONS LLC:\n<|id|>14<|page|>3<|box|>89 181 123 815<|content|>UNITED STATES DISTRICT COURT FOR THE EASTERN DISTR\n<|id|>16<|page|>3<|box|>407 406 426 591<|content|>[PROPOSED] ORDER\n<|id|>25<|page|>4<|box|>89 140 125 643<|content|>Hon. J. Rodney Gilstrap United States District Jud\n<|id|>28<|page|>4<|box|>412 375 431 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>12<|level|>3\n<|id|>14<|level|>1\n<|id|>16<|level|>2\n<|id|>25<|level|>-1\n<|id|>28<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        }
+    ]
+}

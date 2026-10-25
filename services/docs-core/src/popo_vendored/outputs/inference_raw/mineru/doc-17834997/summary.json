@@ -1,0 +1,183 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xqqcwavg\\input\\pdfs\\doc-17834997.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xqqcwavg\\enriched\\doc-17834997.json",
+    "contd_output": "<|src_id|>128<|tgt_id|>129\n<|src_id|>150<|tgt_id|>151",
+    "title_output": "<|id|>2<|level|>1\n<|id|>10<|level|>2\n<|id|>19<|level|>2\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>53<|level|>3\n<|id|>72<|level|>3\n<|id|>85<|level|>3\n<|id|>91<|level|>3\n<|id|>102<|level|>3\n<|id|>118<|level|>3\n<|id|>124<|level|>3\n<|id|>134<|level|>2\n<|id|>135<|level|>3\n<|id|>146<|level|>3\n<|id|>160<|level|>3\n<|id|>164<|level|>3\n<|id|>169<|level|>3\n<|id|>174<|level|>3\n<|id|>187<|level|>3\n<|id|>196<|level|>3\n<|id|>201<|level|>3\n<|id|>211<|level|>2\n<|id|>223<|level|>2\n<|id|>235<|level|>2\n<|id|>237<|level|>3\n<|id|>239<|level|>4",
+    "image_output": "<|src_id|>236<|tgt_id|>235\n<|src_id|>240<|tgt_id|>239\n<|src_id|>241<|tgt_id|>239\n<|src_id|>242<|tgt_id|>239",
+    "contd_label": [
+        {
+            "src_id": 128,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 2
+        },
+        {
+            "id": 235,
+            "level": 2
+        },
+        {
+            "id": 237,
+            "level": 3
+        },
+        {
+            "id": 239,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 236,
+            "tgt_id": 235
+        },
+        {
+            "src_id": 240,
+            "tgt_id": 239
+        },
+        {
+            "src_id": 241,
+            "tgt_id": 239
+        },
+        {
+            "src_id": 242,
+            "tgt_id": 239
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 240,
+            "table2_idx": 241,
+            "upper_row_ss": [
+                [
+                    "4.1.016",
+                    "Landlord-Tenant Correspondence File (miscellaneous)",
+                    "Various (2010-2022)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "4.2.001",
+                    "General Warranty Deed — JPR Development Co., LLC to Briarwood Home Essentials, Inc. (Instrument No. 201403002874)",
+                    "March 18, 2014"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 241,
+            "table2_idx": 242,
+            "upper_row_ss": [
+                [
+                    "4.2.014",
+                    "FEMA Flood Map / Flood Hazard Determination (Zone X)",
+                    "Undated"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Source",
+                    "Document Description",
+                    "Date"
+                ]
+            ]
+        }
+    ]
+}

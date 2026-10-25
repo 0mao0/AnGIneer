@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>11<|type|>title<|page|>1<|box|>523 140 541 454<|content|>I. PURPOSE AND BASIS OF NOTICE\n<|id|>16<|type|>title<|page|>2<|box|>167 140 184 483<|content|>II. IDENTIFICATION OF THE INSURED\n<|id|>29<|type|>title<|page|>2<|box|>665 140 681 388<|content|>III. POLICY INFORMATION\n<|id|>38<|type|>title<|page|>3<|box|>204 140 220 648<|content|>IV. DESCRIPTION OF THE CLAIM — PARTIES INVOLVED\n<|id|>39<|type|>title<|page|>3<|box|>234 142 253 557<|content|>A. Prospective Defendant: StreamNow Holdings, Inc.\n<|id|>47<|type|>title<|page|>3<|box|>531 176 549 614<|content|>Estimated FY2025 Revenue: Approximately $312 milli\n<|id|>55<|type|>title<|page|>3<|box|>828 142 845 712<|content|>B. Additional Prospective Defendant: Meridian Digi\n<|id|>62<|type|>title<|page|>4<|box|>463 140 479 663<|content|>C. Additional Prospective Defendants: FAST Channel\n<|id|>69<|type|>title<|page|>4<|box|>739 140 758 635<|content|>V. NATURE OF THE CLAIM — FACTUAL BACKGROUND\n<|id|>80<|type|>title<|page|>6<|box|>186 140 203 578<|content|>VI. DISCOVERY AND INVESTIGATION TIMELINE\n<|id|>92<|type|>title<|page|>7<|box|>237 140 253 627<|content|>VII. LEGAL CLAIMS ASSERTED AND TO BE ASSERTED\n<|id|>102<|type|>title<|page|>8<|box|>303 140 320 522<|content|>VIII. COPYRIGHT REGISTRATION STATUS\n<|id|>107<|type|>title<|page|>8<|box|>672 140 690 383<|content|>IX. ESTIMATED DAMAGES\n<|id|>114<|type|>table<|page|>9<|box|>284 143 422 852<|content|>None\n<|id|>119<|type|>title<|page|>10<|box|>89 140 107 390<|content|>X. COVERAGE REQUESTED\n<|id|>121<|type|>table<|page|>10<|box|>239 143 334 852<|content|>None\n<|id|>123<|type|>table<|page|>10<|box|>454 143 604 852<|content|>None\n<|id|>130<|type|>title<|page|>11<|box|>205 140 223 674<|content|>XI. ANTICIPATED TIMELINE AND UPCOMING MILESTONES\n<|id|>136<|type|>title<|page|>11<|box|>540 140 558 537<|content|>XII. OUTSIDE COUNSEL AND EXPERT TEAM\n<|id|>147<|type|>title<|page|>12<|box|>89 140 107 772<|content|>XIII. BROKER INFORMATION AND CORRESPONDENCE INSTRU\n<|id|>156<|type|>title<|page|>12<|box|>419 140 435 728<|content|>XIV. RESERVATION OF RIGHTS AND REQUEST FOR ADDITIO\n<|id|>157<|type|>title<|page|>12<|box|>436 143 454 284<|content|>INFORMATION\n<|id|>160<|type|>title<|page|>12<|box|>676 140 693 437<|content|>XV. DOCUMENT PRESERVATION\n<|id|>166<|type|>title<|page|>13<|box|>204 140 220 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>172<|type|>title<|page|>13<|box|>396 142 412 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>114<|tgt_id|>107\n<|src_id|>121<|tgt_id|>119\n<|src_id|>123<|tgt_id|>119",
+    "parsed": [
+        {
+            "src_id": 114,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 119
+        }
+    ]
+}

@@ -1,0 +1,483 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-c0bz_c6m\\input\\pdfs\\doc-1244a311.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-c0bz_c6m\\enriched\\doc-1244a311.json",
+    "contd_output": "<|src_id|>249<|tgt_id|>250",
+    "title_output": "<|id|>14<|level|>1\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>39<|level|>3\n<|id|>44<|level|>3\n<|id|>56<|level|>3\n<|id|>58<|level|>2\n<|id|>61<|level|>3\n<|id|>64<|level|>3\n<|id|>75<|level|>3\n<|id|>78<|level|>3\n<|id|>81<|level|>3\n<|id|>88<|level|>3\n<|id|>90<|level|>2\n<|id|>92<|level|>3\n<|id|>95<|level|>3\n<|id|>106<|level|>3\n<|id|>108<|level|>2\n<|id|>110<|level|>3\n<|id|>113<|level|>3\n<|id|>122<|level|>3\n<|id|>124<|level|>1\n<|id|>125<|level|>2\n<|id|>127<|level|>3\n<|id|>129<|level|>3\n<|id|>134<|level|>3\n<|id|>138<|level|>3\n<|id|>140<|level|>3\n<|id|>144<|level|>3\n<|id|>147<|level|>3\n<|id|>149<|level|>3\n<|id|>155<|level|>3\n<|id|>158<|level|>3\n<|id|>160<|level|>3\n<|id|>168<|level|>3\n<|id|>171<|level|>3\n<|id|>173<|level|>3\n<|id|>177<|level|>3\n<|id|>179<|level|>2\n<|id|>181<|level|>3\n<|id|>183<|level|>3\n<|id|>188<|level|>3\n<|id|>191<|level|>3\n<|id|>193<|level|>3\n<|id|>197<|level|>3\n<|id|>201<|level|>3\n<|id|>203<|level|>3\n<|id|>213<|level|>3\n<|id|>215<|level|>1\n<|id|>223<|level|>3\n<|id|>232<|level|>3\n<|id|>246<|level|>3\n<|id|>258<|level|>3\n<|id|>263<|level|>1\n<|id|>264<|level|>2\n<|id|>266<|level|>3\n<|id|>271<|level|>2\n<|id|>273<|level|>3\n<|id|>282<|level|>2\n<|id|>284<|level|>3\n<|id|>291<|level|>1\n<|id|>292<|level|>2\n<|id|>295<|level|>3\n<|id|>302<|level|>2\n<|id|>317<|level|>2\n<|id|>322<|level|>2",
+    "image_output": "<|src_id|>37<|tgt_id|>35\n<|src_id|>38<|tgt_id|>35\n<|src_id|>59<|tgt_id|>58\n<|src_id|>60<|tgt_id|>58\n<|src_id|>77<|tgt_id|>75\n<|src_id|>91<|tgt_id|>90\n<|src_id|>109<|tgt_id|>108\n<|src_id|>126<|tgt_id|>125\n<|src_id|>136<|tgt_id|>134\n<|src_id|>137<|tgt_id|>134\n<|src_id|>146<|tgt_id|>144\n<|src_id|>157<|tgt_id|>155\n<|src_id|>170<|tgt_id|>168\n<|src_id|>180<|tgt_id|>179\n<|src_id|>190<|tgt_id|>188\n<|src_id|>199<|tgt_id|>197\n<|src_id|>200<|tgt_id|>197\n<|src_id|>216<|tgt_id|>215\n<|src_id|>265<|tgt_id|>264\n<|src_id|>272<|tgt_id|>271\n<|src_id|>283<|tgt_id|>282\n<|src_id|>293<|tgt_id|>292\n<|src_id|>294<|tgt_id|>292\n<|src_id|>319<|tgt_id|>317\n<|src_id|>320<|tgt_id|>317",
+    "contd_label": [
+        {
+            "src_id": 249,
+            "tgt_id": 250
+        }
+    ],
+    "title_label": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 188,
+            "level": 3
+        },
+        {
+            "id": 191,
+            "level": 3
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 213,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 1
+        },
+        {
+            "id": 223,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 246,
+            "level": 3
+        },
+        {
+            "id": 258,
+            "level": 3
+        },
+        {
+            "id": 263,
+            "level": 1
+        },
+        {
+            "id": 264,
+            "level": 2
+        },
+        {
+            "id": 266,
+            "level": 3
+        },
+        {
+            "id": 271,
+            "level": 2
+        },
+        {
+            "id": 273,
+            "level": 3
+        },
+        {
+            "id": 282,
+            "level": 2
+        },
+        {
+            "id": 284,
+            "level": 3
+        },
+        {
+            "id": 291,
+            "level": 1
+        },
+        {
+            "id": 292,
+            "level": 2
+        },
+        {
+            "id": 295,
+            "level": 3
+        },
+        {
+            "id": 302,
+            "level": 2
+        },
+        {
+            "id": 317,
+            "level": 2
+        },
+        {
+            "id": 322,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 37,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 125
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 157,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 179
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 200,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 215
+        },
+        {
+            "src_id": 265,
+            "tgt_id": 264
+        },
+        {
+            "src_id": 272,
+            "tgt_id": 271
+        },
+        {
+            "src_id": 283,
+            "tgt_id": 282
+        },
+        {
+            "src_id": 293,
+            "tgt_id": 292
+        },
+        {
+            "src_id": 294,
+            "tgt_id": 292
+        },
+        {
+            "src_id": 319,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 320,
+            "tgt_id": 317
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 37,
+            "table2_idx": 38,
+            "upper_row_ss": [
+                [
+                    "Field",
+                    "Detail"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Date:",
+                    "September 23, 2024"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 136,
+            "table2_idx": 137,
+            "upper_row_ss": [
+                [
+                    "Location:",
+                    "TMRI, 480 Kendall Avenue, Cambridge, MA 02142"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "(Conference Room B)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 199,
+            "table2_idx": 200,
+            "upper_row_ss": [
+                [
+                    "Upjohn Warning:",
+                    "Administered by Nadia Petrov at the outset of the interview; Chu confirmed his understanding of each"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "element and agreed to proceed"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 293,
+            "table2_idx": 294,
+            "upper_row_ss": [
+                [
+                    "12",
+                    "10/17/2024",
+                    "Dr. Leah",
+                    "Postdocto",
+                    "TMRI",
+                    "N. Petrov",
+                    "J.",
+                    "1.25 hrs",
+                    "Yes"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "4",
+                    "Brennan-Oates",
+                    "ral Fellow, Lab B-3",
+                    "Cambridge",
+                    "",
+                    "Underwood",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 319,
+            "table2_idx": 320,
+            "upper_row_ss": [
+                [
+                    "Maintenance logs for Lab B-3 centrifuge and spectrophotometer",
+                    "DCR-0590 through DCR-0595",
+                    "Sessions 2, 14b"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Forensic comparison of Sandra Nix's original entries vs. altered lab-notebook pages",
+                    "WP-0023 (attorney work product)",
+                    "Sessions 14b, 16"
+                ]
+            ]
+        }
+    ]
+}

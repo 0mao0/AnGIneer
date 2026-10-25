@@ -1,0 +1,171 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV\n<|id|>1<|page|>1<|box|>128 403 148 593<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>391 140 407 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>18<|page|>2<|box|>729 140 744 305<|content|>II. BACKGROUND\n<|id|>19<|page|>2<|box|>760 140 777 418<|content|>A. The Master Services Agreement\n<|id|>24<|page|>3<|box|>474 140 491 328<|content|>B. Amendment History\n<|id|>28<|page|>4<|box|>194 140 212 339<|content|>C. The Security Incident\n<|id|>37<|page|>7<|box|>90 140 107 457<|content|>A. Overview of Exhibit D Requirements\n<|id|>49<|page|>8<|box|>294 140 311 620<|content|>B. Vulnerability Patching Obligation — 30-Day Requ\n<|id|>58<|page|>9<|box|>502 140 518 490<|content|>C. Annual Penetration Testing Requirement\n<|id|>63<|page|>10<|box|>176 140 193 437<|content|>D. SOC 2 Type II Audit Requirement\n<|id|>68<|page|>10<|box|>702 140 719 653<|content|>IV. BREACH NOTIFICATION OBLIGATION — SECTION 9.4\n<|id|>69<|page|>10<|box|>734 140 750 370<|content|>A. Contractual Requirement\n<|id|>76<|page|>11<|box|>375 142 391 416<|content|>B. Palomar's Notification Timeline\n<|id|>80<|page|>11<|box|>825 140 843 447<|content|>C. Significance of the Late Notification\n<|id|>87<|page|>13<|box|>89 140 106 602<|content|>V. INDEMNIFICATION PROVISIONS — SECTION 12.2\n<|id|>88<|page|>13<|box|>121 142 138 364<|content|>A. Scope of Indemnification\n<|id|>104<|page|>14<|box|>422 140 440 509<|content|>B. Indemnification Cap — Liability Limitation\n<|id|>119<|page|>16<|box|>138 140 156 380<|content|>C. Indemnification Procedure\n<|id|>125<|page|>17<|box|>89 140 106 558<|content|>VI. INSURANCE REQUIREMENTS — EXHIBIT E\n<|id|>126<|page|>17<|box|>121 140 138 424<|content|>A. Palomar's Insurance Obligations\n<|id|>131<|page|>17<|box|>555 140 571 395<|content|>B. Relevance to Indemnification\n<|id|>141<|page|>18<|box|>561 140 578 570<|content|>VII. TERMINATION FOR CAUSE — SECTION 14.2\n<|id|>142<|page|>18<|box|>592 140 609 354<|content|>A. Termination Provisions\n<|id|>148<|page|>19<|box|>349 140 366 547<|content|>B. Strategic Considerations Regarding Termination\n<|id|>157<|page|>20<|box|>402 140 419 645<|content|>VIII. SUMMARY OF PALOMAR'S IDENTIFIED BREACHES\n<|id|>159<|page|>21<|box|>90 140 107 790<|content|>A. Breach 1: Failure to Timely Patch Critical Vuln\n<|id|>163<|page|>21<|box|>508 140 523 539<|content|>B. Breach 2: Late Breach Notification (Section 9.4\n<|id|>166<|page|>21<|box|>752 140 768 571<|content|>C. Potential Additional Breaches (Under Investigat\n<|id|>172<|page|>22<|box|>464 140 482 767<|content|>IX. PRELIMINARY ESTIMATE OF QUORUM'S INDEMNIFIABLE\n<|id|>182<|page|>23<|box|>748 140 765 434<|content|>X. RECOMMENDED NEXT STEPS\n<|id|>191<|page|>25<|box|>431 140 449 300<|content|>XI. CONCLUSION\n<|id|>197<|page|>26<|box|>214 143 229 232<|content|>Prepared by:\n<|id|>199<|page|>26<|box|>275 142 289 230<|content|>Distribution:\n<|id|>201<|page|>26<|box|>334 142 349 383<|content|>Copies to File: Matter No. 1025-00006",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>24<|level|>3\n<|id|>28<|level|>3\n<|id|>37<|level|>3\n<|id|>49<|level|>3\n<|id|>58<|level|>3\n<|id|>63<|level|>3\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>76<|level|>3\n<|id|>80<|level|>3\n<|id|>87<|level|>2\n<|id|>88<|level|>3\n<|id|>104<|level|>3\n<|id|>119<|level|>3\n<|id|>125<|level|>2\n<|id|>126<|level|>3\n<|id|>131<|level|>3\n<|id|>141<|level|>2\n<|id|>142<|level|>3\n<|id|>148<|level|>3\n<|id|>157<|level|>2\n<|id|>159<|level|>3\n<|id|>163<|level|>3\n<|id|>166<|level|>3\n<|id|>172<|level|>2\n<|id|>182<|level|>2\n<|id|>191<|level|>2\n<|id|>197<|level|>2\n<|id|>199<|level|>2\n<|id|>201<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 2
+        }
+    ]
+}

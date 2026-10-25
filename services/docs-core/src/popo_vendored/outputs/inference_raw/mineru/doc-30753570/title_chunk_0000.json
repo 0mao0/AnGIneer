@@ -1,0 +1,86 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>584 370 601 627<|content|>Governing Law: State of New York\n<|id|>12<|page|>1<|box|>763 385 779 611<|content|>SIGNATURE PAGE 1 OF 3\n<|id|>13<|page|>1<|box|>789 151 824 844<|content|>INTERCREDITOR AGREEMENT (FIRST LIEN/UNSECURED) Dat\n<|id|>14<|page|>1<|box|>834 346 849 651<|content|>FIRST LIEN COLLATERAL AGENT\n<|id|>15<|page|>1<|box|>859 143 877 653<|content|>CRESCENT HARBOR BANK, N.A., as First Lien Collater\n<|id|>20<|page|>2<|box|>349 142 368 653<|content|>CRESCENT HARBOR BANK, N.A., as First Lien Collater\n<|id|>30<|page|>2<|box|>604 385 621 611<|content|>SIGNATURE PAGE 2 OF 3\n<|id|>31<|page|>2<|box|>630 151 665 844<|content|>INTERCREDITOR AGREEMENT (FIRST LIEN/UNSECURED) Dat\n<|id|>32<|page|>2<|box|>675 362 691 633<|content|>UNSECURED NOTES TRUSTEE\n<|id|>33<|page|>2<|box|>700 142 718 488<|content|>PINNACLE TRUST COMPANY, as Trustee\n<|id|>38<|page|>3<|box|>207 142 224 488<|content|>PINNACLE TRUST COMPANY, as Trustee\n<|id|>47<|page|>3<|box|>462 385 479 611<|content|>SIGNATURE PAGE 3 OF 3\n<|id|>48<|page|>3<|box|>488 153 522 843<|content|>INTERCREDITOR AGREEMENT (FIRST LIEN/UNSECURED) Dat\n<|id|>49<|page|>3<|box|>532 441 549 555<|content|>BORROWER\n<|id|>50<|page|>3<|box|>558 140 575 596<|content|>NEXFORD INDUSTRIAL HOLDINGS INC., as Borrower\n<|id|>75<|page|>4<|box|>464 142 482 560<|content|>Compilation and Counterpart Verification Statement\n<|id|>79<|page|>4<|box|>878 142 896 308<|content|>Compilation Details:",
+    "raw_response": "<|id|>10<|level|>2\n<|id|>12<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>20<|level|>3\n<|id|>30<|level|>1\n<|id|>31<|level|>1\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>38<|level|>3\n<|id|>47<|level|>1\n<|id|>48<|level|>1\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>75<|level|>1\n<|id|>79<|level|>2",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 334 118 663<|content|>COMPLIANCE CERTIFICATE\n<|id|>1<|type|>title<|page|>1<|box|>136 212 154 785<|content|>Delivered Pursuant to Section 7.02(a) of the Mezza\n<|id|>7<|type|>title<|page|>1<|box|>398 140 415 475<|content|>Section 1: Certifying Officer Identification\n<|id|>12<|type|>title<|page|>1<|box|>854 142 871 362<|content|>Section 2: Reporting Period\n<|id|>14<|type|>title<|page|>2<|box|>90 142 107 405<|content|>Closing Date: September 29, 2023.\n<|id|>23<|type|>title<|page|>2<|box|>686 140 704 480<|content|>Section 3: Financial Covenant Calculations\n<|id|>24<|type|>title<|page|>2<|box|>717 140 734 423<|content|>3.1 Maximum Total Leverage Ratio\n<|id|>26<|type|>title<|page|>2<|box|>785 143 801 243<|content|>Calculation:\n<|id|>28<|type|>table<|page|>2<|box|>853 143 906 852<|content|>None\n<|id|>29<|type|>table<|page|>3<|box|>89 143 179 852<|content|>None\n<|id|>38<|type|>table<|page|>3<|box|>510 143 630 852<|content|>None\n<|id|>40<|type|>title<|page|>3<|box|>714 140 732 486<|content|>3.2 Minimum Fixed Charge Coverage Ratio\n<|id|>45<|type|>table<|page|>4<|box|>150 143 409 852<|content|>None\n<|id|>53<|type|>title<|page|>4<|box|>825 142 844 330<|content|>3.3 Minimum Liquidity\n<|id|>55<|type|>title<|page|>5<|box|>90 143 106 243<|content|>Calculation:\n<|id|>57<|type|>table<|page|>5<|box|>176 143 449 852<|content|>None\n<|id|>58<|type|>table<|page|>5<|box|>481 143 606 852<|content|>None\n<|id|>60<|type|>table<|page|>5<|box|>715 143 811 852<|content|>None\n<|id|>61<|type|>title<|page|>5<|box|>845 178 862 331<|content|>(c) Total Liquidity:\n<|id|>66<|type|>title<|page|>6<|box|>209 140 227 424<|content|>3.4 Maximum Capital Expenditures\n<|id|>72<|type|>table<|page|>6<|box|>450 143 542 852<|content|>None\n<|id|>80<|type|>table<|page|>7<|box|>111 143 251 852<|content|>None\n<|id|>81<|type|>title<|page|>7<|box|>301 142 316 486<|content|>Section 4: Adjusted EBITDA Reconciliation\n<|id|>83<|type|>table<|page|>7<|box|>386 143 723 852<|content|>None\n<|id|>86<|type|>table<|page|>8<|box|>88 143 179 852<|content|>None\n<|id|>88<|type|>table<|page|>8<|box|>377 143 618 852<|content|>None\n<|id|>89<|type|>table<|page|>8<|box|>675 143 751 852<|content|>None\n<|id|>92<|type|>title<|page|>9<|box|>150 140 167 496<|content|>Section 6: Representations and Certifications\n<|id|>99<|type|>title<|page|>11<|box|>90 140 107 406<|content|>Section 7: Schedule of Definitions\n<|id|>109<|type|>title<|page|>12<|box|>366 140 383 521<|content|>Section 8: Supporting Documentation Reference\n<|id|>116<|type|>title<|page|>14<|box|>90 142 107 225<|content|>Signature\n<|id|>128<|type|>title<|page|>14<|box|>398 143 415 313<|content|>Delivery Information\n<|id|>130<|type|>title<|page|>14<|box|>450 142 467 297<|content|>Mezzanine Lender:",
+    "raw_response": "<|src_id|>28<|tgt_id|>26\n<|src_id|>29<|tgt_id|>26\n<|src_id|>38<|tgt_id|>26\n<|src_id|>45<|tgt_id|>40\n<|src_id|>57<|tgt_id|>55\n<|src_id|>58<|tgt_id|>55\n<|src_id|>60<|tgt_id|>55\n<|src_id|>72<|tgt_id|>66\n<|src_id|>80<|tgt_id|>66\n<|src_id|>83<|tgt_id|>81\n<|src_id|>86<|tgt_id|>81\n<|src_id|>88<|tgt_id|>81\n<|src_id|>89<|tgt_id|>81",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 81
+        }
+    ]
+}

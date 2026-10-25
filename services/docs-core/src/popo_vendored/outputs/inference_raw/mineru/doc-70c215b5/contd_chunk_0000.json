@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        41
+    ],
+    "pages": [
+        3,
+        14,
+        15,
+        27,
+        28,
+        29,
+        41
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>13<|page|>3<|box|>146 181 181 854<|content|>• Workstream 1: ... and\n<|id|>15<|page|>3<|box|>222 138 387 856<|content|>Finally, we note that Thornfield Consulting Group ...ntify additional deficiencies not addressed herein\n<|id|>104<|page|>14<|box|>845 140 901 856<|content|>Retail channel wire volume is substantially lower ...... Nonetheless, the gap warrants remediation, and\n<|id|>105<|page|>15<|box|>89 140 164 856<|content|>C&H recommends that BRB implement real-time screen...egardless of the time of initiation. ... 0 upgrade\n<|id|>191<|page|>27<|box|>849 140 902 856<|content|>Deficiency — No OFAC-Specific Metrics. ... The qua...regate compliance statistics but did not break out\n<|id|>192<|page|>28<|box|>90 140 183 854<|content|>OFAC-specific data such as screening hit volumes, ...pecific Board reporting as a governance deficiency\n<|id|>197<|page|>28<|box|>747 138 893 857<|content|>Deficiency — BaaS Division Compliance Accountabili...er satisfaction, without adequate consideration of\n<|id|>198<|page|>29<|box|>90 138 183 854<|content|>OFAC screening requirements, because the BaaS divi... new BaaS partner onboarding or integration change\n<|id|>265<|page|>41<|box|>585 181 604 725<|content|>• Gregory Nardone, General Counsel & Corporate Secretary, BRB/BRFG\n<|id|>271<|page|>41<|box|>703 140 765 854<|content|>This memorandum is not for distribution to Thornfi...rk-product protection that applies to its contents\n<|id|>266<|page|>41<|box|>606 181 623 575<|content|>• Patricia Langston, Chief Compliance Officer, BRB\n<|id|>267<|page|>41<|box|>625 181 643 815<|content|>• Philip Hartmann, Responsible Partner, Calderwood & Harkness LLP (retained copy)\n<|id|>268<|page|>41<|box|>643 181 662 777<|content|>• Yuki Nakamura, Lead Associate, Calderwood & Harkness LLP (retained copy)\n<|id|>269<|page|>41<|box|>664 183 681 753<|content|>• Carlos Espinoza, Of Counsel, Calderwood & Harkness LLP (retained copy)\n<|id|>270<|page|>41<|box|>684 181 700 792<|content|>• Marcus Delgado, Senior Associate, Calderwood & Harkness LLP (retained copy)",
+    "raw_response": "<|src_id|>104<|tgt_id|>105\n<|src_id|>191<|tgt_id|>192\n<|src_id|>197<|tgt_id|>198",
+    "parsed": [
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 197,
+            "tgt_id": 198
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-aop_yrah\\input\\pdfs\\doc-4c1592be.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-aop_yrah\\enriched\\doc-4c1592be.json",
+    "contd_output": "<|src_id|>35<|tgt_id|>36",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>3\n<|id|>19<|level|>2\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>54<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>2",
+    "image_output": "<|src_id|>50<|tgt_id|>48\n<|src_id|>51<|tgt_id|>48",
+    "contd_label": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 48
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 50,
+            "table2_idx": 51,
+            "upper_row_ss": [
+                [
+                    "Payment of accrued and unpaid interest on the Existing Credit Facility (estimated through June 25, 2024)",
+                    "$4,207,180.84"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Prepayment premium on the Existing Credit Facility",
+                    "$2,336,714.10"
+                ]
+            ]
+        }
+    ]
+}

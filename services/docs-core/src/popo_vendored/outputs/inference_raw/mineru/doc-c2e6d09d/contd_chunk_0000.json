@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        13,
+        14,
+        27,
+        28,
+        29,
+        32
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>253 424 271 573<|content|>MEMORANDUM\n<|id|>4<|page|>1<|box|>280 140 316 854<|content|>TO: ... Samuel Eklund, Responsible Partner Linda O...lling Partner Patrick Gallagher, Working Associate\n<|id|>5<|page|>1<|box|>325 140 343 609<|content|>FROM: ... Hannah Brinkley, Lead Associate, Litigation (General)\n<|id|>6<|page|>1<|box|>351 142 368 328<|content|>DATE: ... 17 January 2025\n<|id|>7<|page|>1<|box|>377 140 412 854<|content|>RE: ... 224718\n<|id|>8<|page|>1<|box|>421 142 438 496<|content|>MATTER REFERENCE: ... TSL-ENF-MJ-2024\n<|id|>9<|page|>1<|box|>446 140 484 854<|content|>CLASSIFICATION: ... Privileged and Confidential — Attorney-Client Privilege / Litigation Privilege\n<|id|>10<|page|>1<|box|>491 142 508 408<|content|>Right-click to update Table of Contents\n<|id|>15<|page|>1<|box|>854 140 909 857<|content|>1. ... TSL has obtained a Worldwide Freezing Order...urt in Cyprus, a precautionary attachment from the\n<|id|>16<|page|>2<|box|>90 174 181 854<|content|>Dubai Court of First Instance, and has pursued gar...ges and significant compliance obligations for TSL\n<|id|>27<|page|>3<|box|>494 147 510 540<|content|>• Presiding Arbitrator: ... Sir Malcolm Fenton-Clarke\n<|id|>31<|page|>3<|box|>571 140 627 854<|content|>The arbitration was seated in London, conducted un...ch and April 2024, followed by post-hearing briefs\n<|id|>28<|page|>3<|box|>513 147 530 651<|content|>• Co-Arbitrator (TSL-nominated): ... Professor Athena Drakopoulos\n<|id|>29<|page|>3<|box|>532 147 550 599<|content|>• Co-Arbitrator (KMH-nominated): ... Henrik Dalmqvist\n<|id|>30<|page|>3<|box|>553 147 569 429<|content|>• Tribunal Secretary: ... Fiona Beckett\n<|id|>51<|page|>5<|box|>875 145 910 856<|content|>• Garnishee order proceedings: ... (6 Battery Road, #20-01, Singapore\n<|id|>53<|page|>6<|box|>128 140 164 854<|content|>Local counsel for TSL in Singapore are Straits Mer...ng through David Teo Wei Lin and Priya Subramaniam\n<|id|>133<|page|>13<|box|>830 140 905 857<|content|>Conflicting Characterisation of Assets. ... The Cy...ng injunction describes specific assets (shares in\n<|id|>134<|page|>14<|box|>90 140 181 856<|content|>Oceangate, bank accounts). ... If there is an over...he purposes of the aggregate restraint calculation\n<|id|>249<|page|>27<|box|>90 145 126 854<|content|>• A template notification to the Singapore High Co...ngapore Supreme Court Practice Directions; ... and\n<|id|>251<|page|>27<|box|>166 140 203 854<|content|>These templates are designed to be completed by in...nabling rapid filing following each recovery event\n<|id|>265<|page|>28<|box|>209 147 244 854<|content|>• Accounting implications (the treatment of the va... the Award in TSL's financial statements); ... and\n<|id|>267<|page|>28<|box|>284 140 340 854<|content|>If TSL's preferences differ from the recommended m...ld be confusing and potentially exploitable by KMH\n<|id|>290<|page|>29<|box|>709 147 724 602<|content|>• Any upcoming hearings, deadlines, or procedural steps; ... and\n<|id|>292<|page|>29<|box|>747 140 820 854<|content|>The monthly reconciliation memorandum will be circ...ou at TSL) in a form suitable for client reporting\n<|id|>317<|page|>32<|box|>465 140 498 854<|content|>Prepared by: ... +44 (0)20 7849 6147\n<|id|>318<|page|>32<|box|>500 142 516 475<|content|>Email: ... com\n<|id|>319<|page|>32<|box|>517 142 532 313<|content|>Date: ... 17 January 2025",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>133<|tgt_id|>134",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        }
+    ]
+}

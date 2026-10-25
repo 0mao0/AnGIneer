@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 169 125 826<|content|>MEMORANDUM — PRIVILEGED AND CONFIDENTIAL ATTORNEY-\n<|id|>1<|type|>title<|page|>1<|box|>133 143 176 854<|content|>CALDERWOOD & HARKNESS LLP 787 Seventh Avenue, 42nd\n<|id|>2<|type|>table<|page|>1<|box|>183 143 405 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>441 387 460 611<|content|>I. Executive Summary\n<|id|>12<|type|>title<|page|>2<|box|>465 223 486 772<|content|>II. Background and Current Status of the Tender Of\n<|id|>13<|type|>title<|page|>2<|box|>511 142 529 343<|content|>A. Summary of the Offer\n<|id|>24<|type|>title<|page|>3<|box|>643 140 662 351<|content|>B. Timeline of Key Events\n<|id|>39<|type|>title<|page|>5<|box|>348 140 364 299<|content|>C. Current Posture\n<|id|>45<|type|>title<|page|>7<|box|>90 166 111 828<|content|>III. Continuing Obligations Under Regulation 14D —\n<|id|>46<|type|>title<|page|>7<|box|>136 140 172 823<|content|>A. Legal Framework: Sections 14(d) and 14(e) of th\n<|id|>52<|type|>title<|page|>8<|box|>90 140 107 723<|content|>B. Obligation to File Amendments to Schedule TO Up\n<|id|>62<|type|>title<|page|>9<|box|>148 140 167 733<|content|>C. Specific Near-Term Trigger: Lapse of Brindoval\n<|id|>69<|type|>title<|page|>10<|box|>90 140 107 807<|content|>D. When Routine Target Company Filings Do Not Trig\n<|id|>78<|type|>title<|page|>11<|box|>167 140 184 521<|content|>E. Formal Withdrawal vs. Continued Dormancy\n<|id|>83<|type|>title<|page|>12<|box|>90 176 111 820<|content|>IV. Continuing Obligations Under Section 13(d) — S\n<|id|>84<|type|>title<|page|>12<|box|>136 140 154 542<|content|>A. Legal Framework: Section 13(d) and Rule 13d-2\n<|id|>88<|type|>title<|page|>12<|box|>547 140 564 473<|content|>B. Current Beneficial Ownership Analysis\n<|id|>94<|type|>title<|page|>14<|box|>90 140 107 553<|content|>C. Triggering Events for Schedule 13D Amendments\n<|id|>101<|type|>title<|page|>15<|box|>90 140 107 573<|content|>D. Interaction Between Schedule TO and Schedule 13\n<|id|>105<|type|>title<|page|>15<|box|>470 343 489 653<|content|>V. Potential Liability Exposure\n<|id|>106<|type|>title<|page|>15<|box|>513 140 532 491<|content|>A. Section 14(e) — Tender Offer Anti-Fraud\n<|id|>111<|type|>title<|page|>16<|box|>304 140 321 545<|content|>B. Section 13(d) — Beneficial Ownership Reporting\n<|id|>115<|type|>title<|page|>16<|box|>679 140 696 411<|content|>C. Practical Exposure Assessment\n<|id|>121<|type|>title<|page|>17<|box|>369 339 388 656<|content|>VI. Practical Recommendations\n<|id|>122<|type|>title<|page|>17<|box|>416 142 431 433<|content|>A. Periodic Internal Review Protocol\n<|id|>138<|type|>title<|page|>18<|box|>337 140 354 450<|content|>B. Monitoring Pinnacle's Public Filings\n<|id|>146<|type|>title<|page|>19<|box|>90 140 107 415<|content|>C. Brindoval Financing Disclosure\n<|id|>152<|type|>title<|page|>19<|box|>535 140 551 390<|content|>D. UK Disclosure Coordination\n<|id|>159<|type|>title<|page|>20<|box|>205 140 223 372<|content|>E. Communication Protocols\n<|id|>164<|type|>title<|page|>21<|box|>90 140 107 588<|content|>F. Schedule 13D — Potential Step-Down to Schedule\n<|id|>169<|type|>title<|page|>21<|box|>660 344 679 651<|content|>VII. Summary of Action Items\n<|id|>170<|type|>table<|page|>21<|box|>739 143 902 852<|content|>None\n<|id|>171<|type|>table<|page|>22<|box|>88 143 333 852<|content|>None\n<|id|>172<|type|>title<|page|>22<|box|>368 413 388 584<|content|>VIII. Conclusion\n<|id|>178<|type|>title<|page|>23<|box|>152 142 170 243<|content|>Prepared by:\n<|id|>181<|type|>title<|page|>23<|box|>239 143 256 250<|content|>Distribution:",
+    "raw_response": "<|src_id|>2<|tgt_id|>3\n<|src_id|>170<|tgt_id|>169\n<|src_id|>171<|tgt_id|>169",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 169
+        }
+    ]
+}

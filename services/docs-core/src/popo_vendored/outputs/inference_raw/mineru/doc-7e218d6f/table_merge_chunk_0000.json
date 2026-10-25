@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['10', 'SouthPark Corporate', '6200 Fairview', 'Charlotte', 'NC', 'GMP SouthPar', 'CNT-2024-CLT-001', '$63,800,000', 'June 6, 2024']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Center', 'Road', '', '', 'k LLC', '340', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 94,
+    "table2_idx": 95
+}

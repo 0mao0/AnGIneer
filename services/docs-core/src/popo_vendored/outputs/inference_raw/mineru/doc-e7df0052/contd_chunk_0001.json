@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        134,
+        231
+    ],
+    "pages": [
+        135,
+        137,
+        144,
+        150,
+        164,
+        165,
+        170,
+        171,
+        177,
+        178,
+        230
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>506<|page|>135<|box|>693 142 711 707<|content|>TYPE IfcPortFrontBoundaryBeamTypeEnum = ENUMERATION OF\n<|id|>508<|page|>135<|box|>736 142 754 542<|content|>NOTCHEDRECTANGULARBOUNDARYBEAM,\n<|id|>507<|page|>135<|box|>714 142 733 467<|content|>(RECTANGULARBOUNDARYBEAM,\n<|id|>509<|page|>135<|box|>758 142 774 287<|content|>USERDEFINED,\n<|id|>510<|page|>135<|box|>777 142 796 290<|content|>NOTDEFINED); ... NOTDEFINED)\n<|id|>537<|page|>137<|box|>283 139 302 675<|content|>TYPE IfcPortBerthingMemberTypeEnum = ENUMERATION OF\n<|id|>539<|page|>137<|box|>326 141 344 484<|content|>CIRCULARSTEELBERTHINGMEMBER,\n<|id|>538<|page|>137<|box|>304 142 323 510<|content|>(RCRECTANGULARBERTHINGMEMBER,\n<|id|>540<|page|>137<|box|>347 142 365 287<|content|>USERDEFINED,\n<|id|>541<|page|>137<|box|>369 142 387 289<|content|>NOTDEFINED); ... NOTDEFINED)\n<|id|>658<|page|>144<|box|>657 159 676 315<|content|>( USERDEFINED,\n<|id|>659<|page|>144<|box|>679 142 697 307<|content|>NOTDEFINED); ... NOTDEFINED)\n<|id|>748<|page|>150<|box|>769 163 787 677<|content|>TYPE IfcPortBulkUnloaderTypeEnum = ENUMERATION OF\n<|id|>750<|page|>150<|box|>812 164 830 527<|content|>RAILMOUNTEDSCREWSHIPUNLOADER,\n<|id|>749<|page|>150<|box|>790 164 809 571<|content|>( RAILMOUNTEDGRABBINGSHIPUNLOADER,\n<|id|>751<|page|>150<|box|>834 164 851 608<|content|>RAILMOUNTEDCHANINBUCKETSHIPUNLOADER,\n<|id|>752<|page|>150<|box|>855 164 872 694<|content|>RAILMOUNTEDHANGINGCHANINBUCKETSHIPUNLOADER,\n<|id|>753<|page|>150<|box|>876 164 893 569<|content|>RAILMOUNTEDPNEUMATICSHIPUNLOADER,\n<|id|>949<|page|>164<|box|>726 164 744 334<|content|>(2) EXPRESS 表达\n<|id|>950<|page|>165<|box|>137 139 154 253<|content|>END_TYPE; ... END_TYPE\n<|id|>1044<|page|>170<|box|>874 161 896 900<|content|>PreDefinedType: ... 预定义类型, 包括矩形前边梁、带缺口矩形前边梁、用户自定义、未\n<|id|>1045<|page|>171<|box|>135 102 154 159<|content|>定义。 ... 定义\n<|id|>1153<|page|>177<|box|>904 124 925 860<|content|>PreDefinedType: ... 预定义类型, 包括暗基床、明基床、混合基床、用户自定义、未\n<|id|>1154<|page|>178<|box|>97 109 116 168<|content|>定义。 ... 定义\n<|id|>1965<|page|>230<|box|>809 174 830 751<|content|>TYPE IfcChannelInterceptingDrainTypeEnum = ENUMERATION OF\n<|id|>1967<|page|>230<|box|>853 176 872 552<|content|>FILLINGMASONRYINTERCEPTINGDRAIN,\n<|id|>1966<|page|>230<|box|>833 176 852 536<|content|>( WETMASONRYINTERCEPTINGDRAIN,\n<|id|>1968<|page|>230<|box|>877 178 895 324<|content|>USERDEFINED,",
+    "raw_response": "<|src_id|>1044<|tgt_id|>1045\n<|src_id|>1153<|tgt_id|>1154",
+    "parsed": [
+        {
+            "src_id": 1044,
+            "tgt_id": 1045
+        },
+        {
+            "src_id": 1153,
+            "tgt_id": 1154
+        }
+    ]
+}

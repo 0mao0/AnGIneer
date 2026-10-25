@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        12,
+        14,
+        16,
+        18,
+        19,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 151 125 844<|content|>MULTISTATE ATTORNEY GENERAL JOINT DEMAND LETTER C&\n<|id|>8<|type|>title<|page|>1<|box|>422 236 439 759<|content|>CALDERWOOD & HARKNESS LLP COVER MEMORANDUM\n<|id|>25<|type|>title<|page|>2<|box|>715 264 733 730<|content|>ORIGINAL JOINT DEMAND LETTER — ANNOTATED\n<|id|>26<|type|>title<|page|>2<|box|>741 209 784 785<|content|>OFFICE OF THE ATTORNEY GENERAL STATE OF CONNECTICU\n<|id|>30<|type|>title<|page|>3<|box|>90 140 143 854<|content|>Re: Multistate Investigation — Data Security Incid\n<|id|>38<|type|>title<|page|>4<|box|>332 140 349 524<|content|>SECTION I: BACKGROUND INFORMATION\n<|id|>39<|type|>title<|page|>4<|box|>364 140 380 570<|content|>Demand 1: Corporate and Organizational Information\n<|id|>55<|type|>title<|page|>5<|box|>463 140 479 625<|content|>Demand 2: Vendor Relationship and Contractual Fram\n<|id|>72<|type|>title<|page|>7<|box|>404 140 420 465<|content|>Demand 3: Detailed Incident Description\n<|id|>97<|type|>title<|page|>9<|box|>393 140 410 457<|content|>Demand 4: Scope of Compromised Data\n<|id|>106<|type|>table<|page|>10<|box|>114 143 357 852<|content|>None\n<|id|>108<|type|>title<|page|>10<|box|>551 142 566 413<|content|>Demand 5: Consumer Notification\n<|id|>124<|type|>title<|page|>12<|box|>90 140 107 426<|content|>Demand 6: Regulatory Notifications\n<|id|>134<|type|>title<|page|>12<|box|>837 140 854 589<|content|>SECTION II: INFORMATION SECURITY PROGRAM\n<|id|>135<|type|>title<|page|>12<|box|>868 142 885 557<|content|>Demand 7: Quorum's Information Security Program\n<|id|>155<|type|>title<|page|>14<|box|>661 142 678 514<|content|>Demand 8: Vendor Risk Management Program\n<|id|>172<|type|>title<|page|>16<|box|>349 140 368 740<|content|>SECTION III: REMEDIATION AND FORWARD-LOOKING MEASU\n<|id|>173<|type|>title<|page|>16<|box|>382 142 398 442<|content|>Demand 9: Remedial Measures Taken\n<|id|>196<|type|>title<|page|>18<|box|>268 140 284 485<|content|>Demand 10: Vendor Accountability Actions\n<|id|>212<|type|>title<|page|>19<|box|>589 140 607 633<|content|>SECTION IV: CLOSING AND RESPONSE INSTRUCTIONS\n<|id|>233<|type|>title<|page|>21<|box|>431 142 449 245<|content|>Respectfully,\n<|id|>239<|type|>title<|page|>21<|box|>689 169 724 826<|content|>C&H MASTER ANNOTATION SUMMARY Appended to Demand L\n<|id|>241<|type|>title<|page|>21<|box|>776 140 792 330<|content|>I. Key Risk Assessment\n<|id|>242<|type|>title<|page|>21<|box|>800 140 816 408<|content|>Overall Risk Level: MODERATE\n<|id|>245<|type|>title<|page|>22<|box|>171 140 188 359<|content|>Primary Areas of Concern:\n<|id|>249<|type|>title<|page|>22<|box|>622 142 638 300<|content|>Mitigating Factors:\n<|id|>255<|type|>title<|page|>23<|box|>214 140 232 411<|content|>II. Preliminary Response Strategy\n<|id|>266<|type|>table<|page|>24<|box|>493 143 902 852<|content|>None\n<|id|>267<|type|>table<|page|>25<|box|>89 143 896 852<|content|>None\n<|id|>269<|type|>table<|page|>26<|box|>88 145 169 852<|content|>None",
+    "raw_response": "<|src_id|>106<|tgt_id|>97\n<|src_id|>266<|tgt_id|>255\n<|src_id|>267<|tgt_id|>255\n<|src_id|>269<|tgt_id|>255",
+    "parsed": [
+        {
+            "src_id": 106,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 266,
+            "tgt_id": 255
+        },
+        {
+            "src_id": 267,
+            "tgt_id": 255
+        },
+        {
+            "src_id": 269,
+            "tgt_id": 255
+        }
+    ]
+}

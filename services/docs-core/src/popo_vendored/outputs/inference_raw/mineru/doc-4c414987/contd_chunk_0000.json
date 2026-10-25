@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>239 153 294 844<|content|>Delivered in connection with the initial public of...ompany\"), and the closing thereof on June 25, 2021\n<|id|>5<|page|>1<|box|>301 151 356 844<|content|>Delivered pursuant to Section 5(e) of the Underwri...LLC, as representative of the several underwriters\n<|id|>6<|page|>1<|box|>364 140 438 854<|content|>I, the undersigned, Audrey M. ... I, a Delaware co... on June 25, 2021 (the \"Closing Date\"), as follows\n<|id|>16<|page|>2<|box|>820 140 893 856<|content|>Attached hereto as Exhibit B is a true, complete, ...amended and restated in their entirety on June 25,\n<|id|>17<|page|>3<|box|>89 140 127 852<|content|>2021, in connection with the IPO, and such Amended...pany's then-effective Certificate of Incorporation\n<|id|>21<|page|>3<|box|>318 174 410 854<|content|>(i) the Unanimous Written Consent of the Board of ...of the DGCL and the Bylaws of the Company; ... and\n<|id|>23<|page|>3<|box|>517 140 554 854<|content|>The Resolutions collectively authorize, among othe...gs, the following actions on behalf of the Company\n<|id|>63<|page|>7<|box|>782 174 893 857<|content|>(b) Issued and Outstanding Shares. ... No shares of\n<|id|>64<|page|>8<|box|>90 174 125 854<|content|>Preferred Stock are issued and outstanding immedia...g immediately prior to the consummation of the IPO\n<|id|>88<|page|>9<|box|>465 140 483 426<|content|>PINNACLE ACQUISITION CORP. ... I\n<|id|>89<|page|>9<|box|>484 143 501 253<|content|>By: ... By\n<|id|>90<|page|>9<|box|>501 142 518 330<|content|>Name: ... Cabot\n<|id|>91<|page|>9<|box|>518 143 535 264<|content|>Title: ... Secretary\n<|id|>93<|page|>9<|box|>561 140 671 854<|content|>I, Marcus Yuen, Chairman of the Board and Chief Ex...ect in all material respects as of the date hereof\n<|id|>92<|page|>9<|box|>534 147 553 846<|content|>[COUNTER-CERTIFICATION BY CHAIRMAN AND CHIEF EXECUTIVE OFFICER]\n<|id|>94<|page|>9<|box|>678 140 695 426<|content|>PINNACLE ACQUISITION CORP. ... I\n<|id|>95<|page|>9<|box|>696 143 714 254<|content|>By: ... By\n<|id|>96<|page|>9<|box|>714 142 729 300<|content|>Name: ... Marcus Yuen\n<|id|>97<|page|>9<|box|>729 140 747 566<|content|>Title: ... Chairman of the Board and Chief Executive Officer\n<|id|>98<|page|>9<|box|>748 140 763 294<|content|>Date: ... June 25, 2021",
+    "raw_response": "<|src_id|>16<|tgt_id|>17\n<|src_id|>63<|tgt_id|>64",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        }
+    ]
+}

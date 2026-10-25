@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 308 106 687<|content|>CERTIFICATE OF LIMITED PARTNERSHIP\n<|id|>1<|type|>title<|page|>1<|box|>142 300 157 696<|content|>SOLARA CONSOLIDATED MASTER FUND LP\n<|id|>5<|type|>title<|page|>1<|box|>327 142 344 468<|content|>FIRST: Name of the Limited Partnership\n<|id|>9<|type|>title<|page|>1<|box|>483 140 500 539<|content|>SECOND: Registered Office and Registered Agent\n<|id|>14<|type|>title<|page|>1<|box|>681 142 699 344<|content|>THIRD: General Partner\n<|id|>18<|type|>title<|page|>2<|box|>90 142 107 344<|content|>FOURTH: Effective Date\n<|id|>20<|type|>title<|page|>2<|box|>212 142 229 277<|content|>FIFTH: Purpose\n<|id|>22<|type|>title<|page|>2<|box|>352 142 369 285<|content|>SIXTH: Duration\n<|id|>25<|type|>title<|page|>2<|box|>503 140 535 854<|content|>SOLARA CONSOLIDATED MASTER FUND GP LLC, as sole Ge\n<|id|>31<|type|>title<|page|>2<|box|>657 395 674 601<|content|>STATE OF DELAWARE\n<|id|>32<|type|>title<|page|>2<|box|>683 362 699 633<|content|>DIVISION OF CORPORATIONS\n<|id|>33<|type|>title<|page|>2<|box|>709 356 724 640<|content|>FILING COVER MEMORANDUM\n<|id|>34<|type|>table<|page|>2<|box|>734 143 895 852<|content|>None\n<|id|>35<|type|>table<|page|>3<|box|>89 143 319 852<|content|>None\n<|id|>37<|type|>title<|page|>3<|box|>434 364 450 633<|content|>INTERNAL DRAFTING NOTES\n<|id|>38<|type|>title<|page|>3<|box|>459 315 476 681<|content|>— TO BE REMOVED PRIOR TO FILING —\n<|id|>52<|type|>title<|page|>4<|box|>815 142 833 352<|content|>Final Pre-Filing Checklist.",
+    "raw_response": "<|src_id|>34<|tgt_id|>33\n<|src_id|>35<|tgt_id|>33",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        }
+    ]
+}

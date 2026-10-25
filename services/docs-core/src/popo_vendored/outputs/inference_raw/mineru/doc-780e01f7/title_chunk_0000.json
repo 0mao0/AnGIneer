@@ -1,0 +1,134 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>99 434 118 563<|content|>FORM 8832\n<|id|>1<|page|>1<|box|>137 354 157 643<|content|>Entity Classification Election\n<|id|>2<|page|>1<|box|>175 277 191 720<|content|>Department of the Treasury — Internal Revenue Serv\n<|id|>6<|page|>1<|box|>380 334 396 661<|content|>PART I — ELECTION INFORMATION\n<|id|>7<|page|>1<|box|>411 140 429 351<|content|>Line 1 — Type of Election\n<|id|>13<|page|>1<|box|>678 140 695 537<|content|>Line 2 — Form of Entity Eligible to Make Election\n<|id|>21<|page|>2<|box|>250 140 266 470<|content|>Line 3 — Disregarded Entity Information\n<|id|>23<|page|>2<|box|>377 140 411 854<|content|>Line 4 — Name and Employer Identification Number (\n<|id|>26<|page|>2<|box|>470 142 488 455<|content|>Employer Identification Number (EIN):\n<|id|>31<|page|>3<|box|>90 140 108 336<|content|>Line 6 — Type of Entity\n<|id|>32<|page|>3<|box|>114 140 131 359<|content|>Check the box that applies:\n<|id|>36<|page|>3<|box|>300 140 319 803<|content|>Line 7 — Date Entity First Had More Than One Owner\n<|id|>40<|page|>3<|box|>498 140 515 390<|content|>Line 8 — Elected Classification\n<|id|>46<|page|>3<|box|>747 140 763 419<|content|>Line 9 — Effective Date of Election\n<|id|>47<|page|>3<|box|>771 142 787 344<|content|>Effective date of election:\n<|id|>57<|page|>4<|box|>724 140 742 630<|content|>Line 11 — Contact Person's Address (If Different f\n<|id|>59<|page|>4<|box|>792 176 810 583<|content|>1200 Market Street, Suite 3400 Wilmington, DE 1980\n<|id|>64<|page|>5<|box|>311 336 328 658<|content|>PART II — LATE ELECTION RELIEF\n<|id|>65<|page|>5<|box|>337 140 354 374<|content|>This section is not completed.\n<|id|>67<|page|>5<|box|>513 310 530 687<|content|>CONSENT STATEMENT AND SIGNATURES\n<|id|>68<|page|>5<|box|>544 140 561 346<|content|>Consent of Each Member\n<|id|>70<|page|>5<|box|>667 142 684 281<|content|>General Partner:\n<|id|>72<|page|>5<|box|>847 140 864 339<|content|>Initial Limited Partners:\n<|id|>89<|page|>7<|box|>473 212 489 785<|content|>ATTACHMENT / ADDENDUM — SUPPLEMENTAL INFORMATION\n<|id|>91<|page|>7<|box|>542 143 559 305<|content|>I. Entity Description\n<|id|>93<|page|>8<|box|>128 140 146 307<|content|>II. Business Purpose\n<|id|>109<|page|>9<|box|>474 140 493 441<|content|>III. Reorganization Transaction Steps\n<|id|>116<|page|>10<|box|>257 140 273 557<|content|>IV. Coordination with Private Letter Ruling Reques\n<|id|>122<|page|>10<|box|>657 140 675 393<|content|>V. Related Form 8832 Elections\n<|id|>126<|page|>11<|box|>286 140 303 354<|content|>VI. Regulatory References\n<|id|>133<|page|>12<|box|>89 303 106 694<|content|>FILING INSTRUCTIONS AND COVER NOTES\n<|id|>138<|page|>12<|box|>330 140 348 334<|content|>Copies and Distribution\n<|id|>146<|page|>13<|box|>138 142 156 303<|content|>Coordination Notes.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>-1\n<|id|>6<|level|>2\n<|id|>7<|level|>3\n<|id|>13<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>26<|level|>-1\n<|id|>31<|level|>3\n<|id|>32<|level|>-1\n<|id|>36<|level|>3\n<|id|>40<|level|>3\n<|id|>46<|level|>3\n<|id|>47<|level|>-1\n<|id|>57<|level|>3\n<|id|>59<|level|>-1\n<|id|>64<|level|>2\n<|id|>65<|level|>-1\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>70<|level|>4\n<|id|>72<|level|>4\n<|id|>89<|level|>2\n<|id|>91<|level|>3\n<|id|>93<|level|>3\n<|id|>109<|level|>3\n<|id|>116<|level|>3\n<|id|>122<|level|>3\n<|id|>126<|level|>3\n<|id|>133<|level|>2\n<|id|>138<|level|>3\n<|id|>146<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        }
+    ]
+}

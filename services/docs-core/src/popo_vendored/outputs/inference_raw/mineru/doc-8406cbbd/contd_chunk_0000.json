@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        18,
+        19,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>142 197 159 800<|content|>Privileged & Confidential Attorney-Client Privilege / Attorney Work Product\n<|id|>2<|page|>1<|box|>167 140 185 676<|content|>TO: ... George Trujillo, Responsible Partner Christy Bauer, Lead Associate\n<|id|>3<|page|>1<|box|>194 140 210 635<|content|>FROM: ... Garrett Simmons, Working Associate, Tax Practice Group\n<|id|>4<|page|>1<|box|>219 142 236 326<|content|>DATE: ... March 18, 2022\n<|id|>5<|page|>1<|box|>244 140 280 854<|content|>RE: ... Federal Income Tax Characterization of Post-Money SAFEs — Brightfield Cloud Services Inc\n<|id|>6<|page|>1<|box|>289 140 306 362<|content|>MATTER NO. ... 1042-00002\n<|id|>7<|page|>1<|box|>315 140 333 653<|content|>CLIENT: ... (\"BCS\" or the \"Company\")\n<|id|>38<|page|>4<|box|>854 140 909 856<|content|>Pro Rata Rights. ... Nneka Adeyemi-\n<|id|>39<|page|>5<|box|>90 140 127 854<|content|>Foster / Ariel Crest Capital LLC ($350,000). ... T... financings to maintain their percentage ownership\n<|id|>162<|page|>18<|box|>843 140 898 856<|content|>BCS's annualized run-rate revenue as of February 2...nly the period from incorporation on September 14,\n<|id|>163<|page|>19<|box|>90 140 126 854<|content|>2021, through December 31, 2021, approximately thr...00, well below the $1,230,000 no-tax-due threshold\n<|id|>195<|page|>22<|box|>513 140 531 321<|content|>Respectfully submitted,\n<|id|>196<|page|>22<|box|>531 140 547 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>197<|page|>22<|box|>550 142 566 253<|content|>By: ... By\n<|id|>198<|page|>22<|box|>566 140 584 565<|content|>Garrett Simmons Working Associate, Tax Practice Group\n<|id|>199<|page|>22<|box|>584 140 599 308<|content|>Date: ... March 18, 2022\n<|id|>200<|page|>22<|box|>599 140 617 364<|content|>C&H Matter No. ... 1042-00002\n<|id|>201<|page|>22<|box|>617 140 693 854<|content|>This memorandum is a privileged and confidential a...munication and attorney work product. ... B hereof",
+    "raw_response": "<|src_id|>38<|tgt_id|>39\n<|src_id|>162<|tgt_id|>163",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        }
+    ]
+}

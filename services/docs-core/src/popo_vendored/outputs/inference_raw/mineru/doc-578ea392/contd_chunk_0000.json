@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 156 152 839<|content|>333 SE 2nd Avenue, Suite 4400 Miami, Florida 33131 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 730 178 854<|content|>August 30, 2022\n<|id|>3<|page|>1<|box|>186 140 222 854<|content|>Nathaniel Driscoll, Esq. ... 1900 Brickell Avenue, Suite 3200 Miami, Florida 33129\n<|id|>4<|page|>1<|box|>229 174 284 854<|content|>Re: ... 1021-00003\n<|id|>5<|page|>1<|box|>292 142 309 282<|content|>Dear Mr. ... Driscoll\n<|id|>22<|page|>2<|box|>780 174 816 854<|content|>(ii) Verimark Harborview Hotel & Conference Center...oulevard, Fort Myers Beach, Florida 33931; ... and\n<|id|>24<|page|>2<|box|>869 140 906 856<|content|>VHG's insurance program for the above-referenced p...Million Dollars ($60,000,000) above a Five Hundred\n<|id|>25<|page|>3<|box|>89 140 145 854<|content|>Thousand Dollar ($500,000) per-occurrence deductib...ance tower as necessary to maximize VHG's recovery\n<|id|>36<|page|>3<|box|>916 140 930 475<|content|>Privileged & Confidential — Attorney-Client Communication\n<|id|>41<|page|>4<|box|>487 140 614 854<|content|>VHG should be aware that Ms. ... Each member of th...de VHG with effective and efficient representation\n<|id|>64<|page|>6<|box|>422 174 459 854<|content|>Nathaniel Driscoll, Esq. ... 1900 Brickell Avenue, Suite 3200 Miami, Florida 33129\n<|id|>65<|page|>6<|box|>467 140 523 854<|content|>VHG is requested to reference Engagement Number 10...roper allocation and tracking of fees and expenses\n<|id|>76<|page|>7<|box|>241 176 258 616<|content|>(h) Messenger, courier, and overnight delivery charges; ... and\n<|id|>78<|page|>7<|box|>292 140 348 854<|content|>Any individual expense item expected to exceed Ten...icant anticipated expenses as early as practicable\n<|id|>111<|page|>10<|box|>625 142 641 272<|content|>Very truly yours,\n<|id|>112<|page|>10<|box|>648 140 665 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>113<|page|>10<|box|>667 143 684 251<|content|>By: ... By\n<|id|>114<|page|>10<|box|>684 143 700 315<|content|>Name: ... Elaine Forsythe\n<|id|>115<|page|>10<|box|>702 143 717 246<|content|>Title: ... Partner\n<|id|>116<|page|>10<|box|>719 142 734 540<|content|>333 SE 2nd Avenue, Suite 4400 Miami, Florida 33131\n<|id|>117<|page|>10<|box|>736 143 752 313<|content|>Date: ... August 30, 2022\n<|id|>118<|page|>10<|box|>753 143 768 377<|content|>AGREED AND ACCEPTED: ... AGREED AND ACCEPTED\n<|id|>121<|page|>10<|box|>814 143 829 334<|content|>Name: ... Nathaniel Driscoll\n<|id|>122<|page|>10<|box|>830 143 845 313<|content|>Title: ... General Counsel\n<|id|>123<|page|>10<|box|>847 143 864 555<|content|>1900 Brickell Avenue, Suite 3200 Miami, Florida 33129\n<|id|>124<|page|>10<|box|>866 143 883 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>24<|tgt_id|>25",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        }
+    ]
+}

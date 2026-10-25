@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        48
+    ],
+    "pages": [
+        1,
+        2,
+        9,
+        13,
+        17,
+        35,
+        36,
+        46,
+        47
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 423 133 575<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>141 140 159 614<|content|>TO: ... Marcus Delgado, Responsible Partner, intellectual Property\n<|id|>3<|page|>1<|box|>167 140 204 854<|content|>FROM: ... Christy Bauer, Lead Associate, intellect...assiliev, Working Associate, intellectual Property\n<|id|>4<|page|>1<|box|>210 140 229 336<|content|>DATE: ... October 15, 2024\n<|id|>5<|page|>1<|box|>237 140 273 854<|content|>RE: ... )\n<|id|>6<|page|>1<|box|>281 140 299 361<|content|>MATTER NO. ... 0017\n<|id|>7<|page|>1<|box|>306 140 325 663<|content|>CLIENT: ... / Solstice Biomedical, Inc\n<|id|>14<|page|>1<|box|>848 145 885 857<|content|>• Strong positions (Terms 1, 4, 5, 7, 9): ... We have high confidence that Chief\n<|id|>15<|page|>2<|box|>90 174 126 854<|content|>Judge Andrews will adopt constructions favorable t...o Solstice's proposed constructions than to Apex's\n<|id|>58<|page|>9<|box|>286 174 342 854<|content|>a locking seal assembly disposed at the proximal e...ula while maintaining gas-tight integrity; ... and\n<|id|>59<|page|>9<|box|>349 174 385 854<|content|>a housing coupled to the cannula, the housing encl...port in fluid communication with the cannula lumen\n<|id|>64<|page|>9<|box|>609 174 627 854<|content|>A seal assembly having a dedicated mechanical locking mechanism that physically engages\n<|id|>65<|page|>9<|box|>628 174 664 854<|content|>a separate retaining structure to fix the seal in ...ding friction-fit or elastomeric compression seals\n<|id|>102<|page|>13<|box|>380 174 417 854<|content|>a blade shield housing enclosing the retractable b...providing guide surfaces for blade travel; ... and\n<|id|>103<|page|>13<|box|>425 174 460 854<|content|>an actuating element configured to receive an actu...rce applied by a user to initiate blade deployment\n<|id|>141<|page|>17<|box|>152 174 188 854<|content|>a gas-tight seal maintaining pneumoperitoneum during laparoscopic instrument exchange; ... and\n<|id|>142<|page|>17<|box|>196 176 214 563<|content|>a cannula extending distally from the trocar housi...cannula extending distally from the trocar housing\n<|id|>363<|page|>35<|box|>787 140 898 857<|content|>We have coordinated with Dr. ... However, we note that Kendrick &\n<|id|>364<|page|>36<|box|>90 140 181 854<|content|>Lau's involvement as both Apex's prosecution couns...not representing Solstice in the litigation itself\n<|id|>414<|page|>46<|box|>292 174 345 854<|content|>a locking seal assembly disposed at the proximal e...ula while maintaining gas-tight integrity; ... and\n<|id|>415<|page|>46<|box|>354 174 390 854<|content|>a housing coupled to the cannula, the housing encl...port in fluid communication with the cannula lumen\n<|id|>427<|page|>47<|box|>90 174 127 854<|content|>a blade shield housing enclosing the retractable b...providing guide surfaces for blade travel; ... and\n<|id|>428<|page|>47<|box|>135 174 170 854<|content|>an actuating element configured to receive an actu...rce applied by a user to initiate blade deployment\n<|id|>442<|page|>47<|box|>732 174 768 854<|content|>a gas-tight seal maintaining pneumoperitoneum during laparoscopic instrument exchange; ... and\n<|id|>443<|page|>47<|box|>776 176 794 563<|content|>a cannula extending distally from the trocar housi...cannula extending distally from the trocar housing",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>363<|tgt_id|>364",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 363,
+            "tgt_id": 364
+        }
+    ]
+}

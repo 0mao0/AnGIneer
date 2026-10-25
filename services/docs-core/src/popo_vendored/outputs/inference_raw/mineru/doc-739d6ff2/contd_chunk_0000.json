@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>180 256 196 741<|content|>Pursuant to Section 253 of the Delaware General Corporation Law\n<|id|>3<|page|>1<|box|>205 289 223 707<|content|>Filed with the Secretary of State of the State of Delaware\n<|id|>4<|page|>1<|box|>232 446 250 550<|content|>July 16, 2024\n<|id|>5<|page|>1<|box|>257 375 273 620<|content|>CERTIFICATE OF MERGER\n<|id|>6<|page|>1<|box|>284 483 299 514<|content|>OF\n<|id|>8<|page|>1<|box|>335 398 354 598<|content|>(a Delaware corporation)\n<|id|>9<|page|>1<|box|>361 423 378 573<|content|>WITH AND INTO\n<|id|>10<|page|>1<|box|>387 367 404 630<|content|>TORCHLIGHT MINING CORP. ... TORCHLIGHT MINING CORP\n<|id|>11<|page|>1<|box|>414 367 431 629<|content|>(a British Columbia corporation)\n<|id|>12<|page|>1<|box|>439 184 455 813<|content|>Pursuant to Section 253 of the General Corporation Law of the State of Delaware\n<|id|>13<|page|>1<|box|>465 140 594 854<|content|>The undersigned corporation, Torchlight Mining Cor... the Delaware Code, Chapter 1, § 253) (the \"DGCL\")\n<|id|>34<|page|>2<|box|>875 140 910 854<|content|>2. ... 0% of the outstanding Shares)\n<|id|>35<|page|>3<|box|>90 140 164 854<|content|>satisfies the requirement set forth in Section 253...ock — and Torchlight owns in excess of 90% thereof\n<|id|>46<|page|>3<|box|>844 174 881 857<|content|>(b) Torchlight Mining Corp. ... shall be the survi...porate existence under the laws of the Province of\n<|id|>47<|page|>4<|box|>90 174 127 854<|content|>British Columbia, Canada, and as a foreign corpora..., unaffected and unimpaired by the Merger; ... and\n<|id|>83<|page|>7<|box|>195 142 210 339<|content|>Name: ... Henrik Aldermann\n<|id|>84<|page|>7<|box|>212 142 228 367<|content|>Title: ... Chief Executive Officer\n<|id|>85<|page|>7<|box|>229 142 244 292<|content|>Date: ... July 16, 2024\n<|id|>86<|page|>7<|box|>246 142 261 282<|content|>Prepared and filed by: ... Prepared and filed by\n<|id|>87<|page|>7<|box|>268 140 282 692<|content|>Calderwood & Harkness LLP 900 Third Avenue, 28th Floor New York, New York 10022\n<|id|>88<|page|>7<|box|>291 140 306 375<|content|>Attention: ... Beatrice Holloway, Partner\n<|id|>89<|page|>7<|box|>306 140 320 531<|content|>Contact: ... (212) 555-0147",
+    "raw_response": "<|src_id|>34<|tgt_id|>35\n<|src_id|>46<|tgt_id|>47",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        }
+    ]
+}

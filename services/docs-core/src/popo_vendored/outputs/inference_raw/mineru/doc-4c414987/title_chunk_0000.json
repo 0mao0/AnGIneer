@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 333 118 663<|content|>SECRETARY'S CERTIFICATE\n<|id|>2<|page|>1<|box|>175 310 195 687<|content|>PINNACLE ACQUISITION CORP. I\n<|id|>3<|page|>1<|box|>214 406 229 589<|content|>a Delaware corporation\n<|id|>8<|page|>1<|box|>669 142 685 483<|content|>1. CERTIFICATE OF INCORPORATION\n<|id|>15<|page|>2<|box|>794 142 811 246<|content|>2. BYLAWS\n<|id|>19<|page|>3<|box|>229 140 247 580<|content|>3. RESOLUTIONS OF THE BOARD OF DIRECTORS\n<|id|>42<|page|>6<|box|>266 140 282 457<|content|>4. INCUMBENCY AND SIGNATURES\n<|id|>44<|page|>6<|box|>375 143 388 217<|content|>Officers:\n<|id|>47<|page|>6<|box|>623 143 638 225<|content|>Directors:\n<|id|>51<|page|>7<|box|>167 140 184 321<|content|>5. GOOD STANDING\n<|id|>54<|page|>7<|box|>388 140 405 331<|content|>6. NO PROCEEDINGS\n<|id|>59<|page|>7<|box|>625 140 642 326<|content|>7. CAPITALIZATION\n<|id|>72<|page|>8<|box|>641 140 659 303<|content|>8. NO CONFLICTS\n<|id|>77<|page|>9<|box|>89 142 107 236<|content|>EXHIBITS\n<|id|>86<|page|>9<|box|>414 263 431 733<|content|>[SIGNATURE PAGE TO SECRETARY'S CERTIFICATE]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>3\n<|id|>8<|level|>2\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>3\n<|id|>47<|level|>3\n<|id|>51<|level|>2\n<|id|>54<|level|>2\n<|id|>59<|level|>2\n<|id|>72<|level|>2\n<|id|>77<|level|>2\n<|id|>86<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 3
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        }
+    ]
+}

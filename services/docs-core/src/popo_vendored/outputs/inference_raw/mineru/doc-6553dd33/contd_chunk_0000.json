@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 158 152 839<|content|>333 SE 2nd Avenue, Suite 4400 Miami, Florida 33131 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 704 176 854<|content|>November 21, 2022\n<|id|>4<|page|>1<|box|>229 140 248 736<|content|>Montclair Assurance Company 1 Liberty Plaza, 38th Floor New York, NY 10006\n<|id|>5<|page|>1<|box|>256 142 273 573<|content|>Attention: ... Claims Department / Authorized Representative\n<|id|>6<|page|>1<|box|>273 140 328 854<|content|>Re: ... September 18, 2022\n<|id|>7<|page|>1<|box|>335 140 353 292<|content|>Dear Sir or Madam: ... Dear Sir or Madam\n<|id|>13<|page|>1<|box|>872 176 909 856<|content|>1. ... The resort consists of\n<|id|>17<|page|>2<|box|>459 140 497 854<|content|>Each of these properties represents a significant ...sonal demand levels when Hurricane Callista struck\n<|id|>21<|page|>2<|box|>849 140 904 854<|content|>As reflected in the table above, Montclair's Polic...y policy and the $15,000,000 limit of the Pinnacle\n<|id|>22<|page|>3<|box|>89 140 145 854<|content|>Surplus Lines Inc. ... All four policies share a c...ram designed to provide seamless, layered coverage\n<|id|>55<|page|>7<|box|>784 140 893 857<|content|>VHG demands that payment be made promptly and in a...frames set forth in Florida Statutes § 627. ... As\n<|id|>56<|page|>8<|box|>90 140 164 854<|content|>Montclair is aware, a finding of bad faith under F...ntclair fails to honor its contractual obligations\n<|id|>64<|page|>8<|box|>476 183 512 854<|content|>• Recovery of attorneys' fees and costs pursuant to Florida Statutes § 627. ... and\n<|id|>66<|page|>8<|box|>551 140 643 854<|content|>Nothing in this letter, and no action taken or omi...recludes the exercise of any other right or remedy\n<|id|>70<|page|>8<|box|>835 174 871 854<|content|>Elaine Forsythe, Partner Calderwood & Harkness LLP...Miami, Florida 33131 Telephone: ... (305) 814-7200\n<|id|>71<|page|>8<|box|>880 176 897 503<|content|>Email: ... com\n<|id|>72<|page|>9<|box|>90 176 107 397<|content|>Engagement No. ... 1021-00003\n<|id|>73<|page|>9<|box|>116 140 152 854<|content|>Please do not contact VHG or any of its officers, ...aim without first coordinating through this office\n<|id|>78<|page|>9<|box|>253 140 287 852<|content|>Elaine Forsythe Partner Calderwood & Harkness LLP 333 SE 2nd Avenue, Suite 4400 Miami, Florida 33131\n<|id|>79<|page|>9<|box|>287 140 342 854<|content|>cc: ... Franklin Orde, Account Executive, Tidewater Risk Advisors LLC",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>55<|tgt_id|>56",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        }
+    ]
+}

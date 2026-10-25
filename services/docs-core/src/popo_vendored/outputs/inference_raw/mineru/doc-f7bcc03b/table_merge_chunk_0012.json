@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 12,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['DX-075', 'Summary of the FTC Commission', 'Public']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'vote (3–2) authorizing the filing of the Complaint in this action — demonstrating the existence of internal division within the Commission on the merits of the challenge to the proposed transaction', '']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 119,
+    "table2_idx": 120
+}

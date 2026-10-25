@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|page|>1<|box|>359 140 377 465<|content|>1. Introduction and Purpose of Retention\n<|id|>11<|page|>2<|box|>90 142 107 390<|content|>2. Background of the Litigation\n<|id|>27<|page|>3<|box|>229 140 248 395<|content|>3. The Defamatory Publications\n<|id|>37<|page|>4<|box|>421 140 438 563<|content|>4. Stock-Price Impact and Financial Data for Analy\n<|id|>42<|page|>5<|box|>222 140 239 403<|content|>GPR/GPCP Short-Position Data:\n<|id|>46<|page|>5<|box|>488 140 505 334<|content|>5. Scope of Engagement\n<|id|>48<|page|>5<|box|>563 140 580 576<|content|>5.1 Event-Study Analysis of RDGM Stock-Price Impac\n<|id|>55<|page|>6<|box|>157 140 175 480<|content|>5.2 Quantification of Trade-Libel Damages\n<|id|>60<|page|>6<|box|>546 140 563 457<|content|>5.3 Analysis of GPR's Short-Sale Profits\n<|id|>66<|page|>7<|box|>138 140 156 501<|content|>5.4 Assessment of RGC's Out-of-Pocket Costs\n<|id|>71<|page|>7<|box|>578 176 595 522<|content|>(d) Total out-of-pocket costs: $4.627 million.\n<|id|>73<|page|>7<|box|>689 140 707 406<|content|>5.5 Expert Report and Testimony\n<|id|>77<|page|>8<|box|>167 140 184 361<|content|>6. Materials to Be Provided\n<|id|>91<|page|>8<|box|>787 140 804 369<|content|>7. Timeline and Deliverables\n<|id|>98<|page|>9<|box|>508 140 527 339<|content|>8. Fee Terms and Billing\n<|id|>107<|page|>10<|box|>148 140 167 377<|content|>9. Confidentiality Obligations\n<|id|>111<|page|>10<|box|>542 142 560 390<|content|>10. Conflicts and Independence\n<|id|>117<|page|>11<|box|>90 142 107 449<|content|>11. Engagement Terms and Conditions\n<|id|>123<|page|>11<|box|>481 142 498 437<|content|>12. Acceptance and Countersignature\n<|id|>128<|page|>11<|box|>700 176 717 480<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>129<|page|>11<|box|>727 140 743 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>134<|page|>11<|box|>813 383 829 614<|content|>ACCEPTED AND AGREED\n<|id|>136<|page|>12<|box|>89 140 106 480<|content|>MERIDIAN FORENSIC ECONOMICS LLC\n<|id|>141<|page|>12<|box|>176 143 193 240<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>27<|level|>1\n<|id|>37<|level|>1\n<|id|>42<|level|>2\n<|id|>46<|level|>1\n<|id|>48<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>66<|level|>2\n<|id|>71<|level|>-1\n<|id|>73<|level|>2\n<|id|>77<|level|>1\n<|id|>91<|level|>1\n<|id|>98<|level|>1\n<|id|>107<|level|>1\n<|id|>111<|level|>1\n<|id|>117<|level|>1\n<|id|>123<|level|>1\n<|id|>128<|level|>-1\n<|id|>129<|level|>-1\n<|id|>134<|level|>-1\n<|id|>136<|level|>-1\n<|id|>141<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        }
+    ]
+}

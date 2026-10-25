@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 210 118 785<|content|>WRITTEN CONSENT OF THE MANAGING MEMBER\n<|id|>1<|type|>title<|page|>1<|box|>137 480 157 517<|content|>OF\n<|id|>6<|type|>title<|page|>1<|box|>483 142 500 243<|content|>RECITALS\n<|id|>7<|type|>title<|page|>1<|box|>508 140 526 246<|content|>WHEREAS:\n<|id|>11<|type|>title<|page|>2<|box|>391 140 407 609<|content|>D. The proceeds of the Term Loan B will be applied\n<|id|>30<|type|>title<|page|>4<|box|>643 140 662 279<|content|>RESOLUTIONS\n<|id|>31<|type|>title<|page|>4<|box|>676 140 693 598<|content|>Resolution 1 — Approval of the Term Loan B Transac\n<|id|>34<|type|>title<|page|>5<|box|>157 140 174 514<|content|>Resolution 2 — Authorization of the Guarantee\n<|id|>36<|type|>title<|page|>5<|box|>414 140 431 647<|content|>Resolution 3 — Authorization of the Holdings Pledg\n<|id|>38<|type|>title<|page|>5<|box|>761 140 777 586<|content|>Resolution 4 — Authorization of the Security Agree\n<|id|>40<|type|>title<|page|>6<|box|>268 140 285 624<|content|>Resolution 5 — Authorization of the Intercreditor\n<|id|>42<|type|>title<|page|>6<|box|>542 140 559 743<|content|>Resolution 6 — Authorization of UCC Financing Stat\n<|id|>44<|type|>title<|page|>6<|box|>797 140 814 668<|content|>Resolution 7 — Authorization of Dividend Receipt a\n<|id|>46<|type|>title<|page|>7<|box|>250 140 266 687<|content|>Resolution 8 — Authorization of Closing Certificat\n<|id|>54<|type|>title<|page|>7<|box|>789 140 805 537<|content|>Resolution 9 — Designation of Authorized Persons\n<|id|>56<|type|>table<|page|>7<|box|>890 143 909 852<|content|>None\n<|id|>57<|type|>table<|page|>8<|box|>88 143 309 852<|content|>None\n<|id|>59<|type|>title<|page|>8<|box|>448 140 464 475<|content|>Resolution 10 — Ratification of Prior Acts\n<|id|>61<|type|>title<|page|>8<|box|>722 140 739 650<|content|>Resolution 11 — General Authorization and Omnibus\n<|id|>64<|type|>title<|page|>9<|box|>210 421 229 576<|content|>CERTIFICATION\n<|id|>75<|type|>title<|page|>10<|box|>89 308 107 689<|content|>SIGNATURE PAGE TO WRITTEN CONSENT\n<|id|>76<|type|>title<|page|>10<|box|>131 348 148 648<|content|>OF THE MANAGING MEMBER OF\n<|id|>77<|type|>title<|page|>10<|box|>171 333 189 665<|content|>GRANITE PEAK NIH HOLDINGS, LLC",
+    "raw_response": "<|src_id|>56<|tgt_id|>54\n<|src_id|>57<|tgt_id|>54",
+    "parsed": [
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 54
+        }
+    ]
+}

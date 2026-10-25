@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 158 118 838<|content|>NON-COMPETITION AND NON-SOLICITATION AGREEMENT\n<|id|>7<|page|>1<|box|>397 142 415 243<|content|>RECITALS\n<|id|>17<|page|>2<|box|>593 142 609 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>37<|page|>5<|box|>90 142 106 455<|content|>ARTICLE II — NON-COMPETITION\n<|id|>54<|page|>7<|box|>89 142 106 611<|content|>ARTICLE III — NON-SOLICITATION OF EMPLOYEES\n<|id|>63<|page|>8<|box|>89 140 125 723<|content|>ARTICLE IV — NON-SOLICITATION OF PATIENTS AND BUSI\n<|id|>73<|page|>9<|box|>248 140 265 447<|content|>ARTICLE V — CONFIDENTIALITY\n<|id|>92<|page|>11<|box|>148 140 166 529<|content|>ARTICLE VI — INTELLECTUAL PROPERTY\n<|id|>105<|page|>12<|box|>204 140 220 838<|content|>ARTICLE VII — REASONABLENESS OF RESTRICTIONS; ACKN\n<|id|>106<|page|>12<|box|>229 140 248 794<|content|>Section 7.1 — Reasonableness. Dr. Whitfield acknow\n<|id|>115<|page|>13<|box|>457 142 474 393<|content|>ARTICLE VIII — REMEDIES\n<|id|>125<|page|>14<|box|>648 142 664 805<|content|>ARTICLE IX — REPRESENTATIONS AND WARRANTIES OF DR.\n<|id|>132<|page|>15<|box|>383 140 401 480<|content|>ARTICLE X — GENERAL PROVISIONS\n<|id|>160<|page|>19<|box|>89 142 107 266<|content|>SCHEDULE A\n<|id|>161<|page|>19<|box|>114 437 132 560<|content|>KEY PAYORS\n<|id|>165<|page|>19<|box|>685 361 703 635<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>167<|page|>19<|box|>755 142 772 542<|content|>ARDENT HEALTHCARE ACQUISITION CORP.\n<|id|>175<|page|>20<|box|>125 179 141 815<|content|>ACKNOWLEDGMENT OF RECEIPT OF INDEPENDENT LEGAL COU",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>17<|level|>2\n<|id|>37<|level|>2\n<|id|>54<|level|>2\n<|id|>63<|level|>2\n<|id|>73<|level|>2\n<|id|>92<|level|>2\n<|id|>105<|level|>2\n<|id|>106<|level|>3\n<|id|>115<|level|>2\n<|id|>125<|level|>2\n<|id|>132<|level|>2\n<|id|>160<|level|>2\n<|id|>161<|level|>3\n<|id|>165<|level|>-1\n<|id|>167<|level|>-1\n<|id|>175<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 2
+        }
+    ]
+}

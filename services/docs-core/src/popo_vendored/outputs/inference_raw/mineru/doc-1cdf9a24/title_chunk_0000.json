@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>366 140 383 400<|content|>1. Introduction and Engagement\n<|id|>13<|page|>1<|box|>821 140 839 352<|content|>2. Scope of Representation\n<|id|>30<|page|>3<|box|>564 140 582 423<|content|>3. Limitations on Scope; Exclusions\n<|id|>40<|page|>4<|box|>627 140 643 377<|content|>4. Staffing and Key Personnel\n<|id|>47<|page|>5<|box|>494 140 511 310<|content|>5. Fees and Expenses\n<|id|>48<|page|>5<|box|>523 140 541 240<|content|>5.1 Flat Fee\n<|id|>57<|page|>6<|box|>165 140 181 478<|content|>5.3 Investors' Counsel Fee Reimbursement\n<|id|>59<|page|>6<|box|>329 140 347 300<|content|>5.4 Payment Terms\n<|id|>64<|page|>6<|box|>553 140 570 413<|content|>5.5 Wire Instructions for Payment\n<|id|>66<|page|>6<|box|>672 140 689 406<|content|>6. Conflict of Interest Disclosures\n<|id|>68<|page|>6<|box|>760 140 777 545<|content|>Based on that review, the Firm confirms the follow\n<|id|>74<|page|>7<|box|>464 140 482 284<|content|>7. Confidentiality\n<|id|>81<|page|>8<|box|>90 140 107 326<|content|>8. Document Retention\n<|id|>85<|page|>8<|box|>375 140 391 264<|content|>9. Termination\n<|id|>89<|page|>8<|box|>750 142 766 349<|content|>10. Limitation of Liability\n<|id|>92<|page|>9<|box|>148 140 167 480<|content|>11. Governing Law and Dispute Resolution\n<|id|>95<|page|>9<|box|>444 140 460 462<|content|>12. Client Identification and Compliance\n<|id|>101<|page|>9<|box|>834 142 851 406<|content|>13. Acceptance and Counterparts\n<|id|>107<|page|>10<|box|>364 140 382 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>111<|page|>10<|box|>479 142 497 379<|content|>ACCEPTED AND AGREED:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>30<|level|>2\n<|id|>40<|level|>2\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>57<|level|>3\n<|id|>59<|level|>3\n<|id|>64<|level|>3\n<|id|>66<|level|>2\n<|id|>68<|level|>-1\n<|id|>74<|level|>2\n<|id|>81<|level|>2\n<|id|>85<|level|>2\n<|id|>89<|level|>2\n<|id|>92<|level|>2\n<|id|>95<|level|>2\n<|id|>101<|level|>2\n<|id|>107<|level|>1\n<|id|>111<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 2
+        }
+    ]
+}

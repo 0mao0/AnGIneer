@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>10<|type|>title<|page|>1<|box|>625 140 641 415<|content|>I. Board Action and Authorization\n<|id|>17<|type|>title<|page|>2<|box|>280 142 297 408<|content|>II. Scope of Authorized Litigation\n<|id|>30<|type|>title<|page|>3<|box|>204 140 222 405<|content|>III. Budget Authorization Details\n<|id|>32<|type|>table<|page|>3<|box|>354 143 601 852<|content|>None\n<|id|>40<|type|>title<|page|>4<|box|>299 140 315 552<|content|>IV. Billing Rate and Fee Structure Acknowledgment\n<|id|>42<|type|>table<|page|>4<|box|>376 143 472 852<|content|>None\n<|id|>45<|type|>title<|page|>4<|box|>744 140 762 545<|content|>Whitmore & Callahan LLP — Local Counsel Rates\n<|id|>46<|type|>table<|page|>4<|box|>792 143 868 852<|content|>None\n<|id|>48<|type|>title<|page|>5<|box|>167 140 185 477<|content|>V. Reporting and Oversight Requirements\n<|id|>55<|type|>title<|page|>6<|box|>90 140 107 477<|content|>VI. Funding Source and Financial Context\n<|id|>64<|type|>title<|page|>7<|box|>395 140 412 367<|content|>VII. Delegation of Authority\n<|id|>74<|type|>title<|page|>8<|box|>237 142 253 251<|content|>VIII. Closing\n<|id|>80<|type|>title<|page|>8<|box|>594 142 609 450<|content|>RIDGELINE CAPITAL PARTNERS, LP\n<|id|>90<|type|>title<|page|>8<|box|>827 143 842 238<|content|>Enclosures:\n<|id|>93<|type|>title<|page|>9<|box|>90 176 106 736<|content|>3. Calderwood & Harkness LLP Engagement Letter (da",
+    "raw_response": "<|src_id|>32<|tgt_id|>30\n<|src_id|>42<|tgt_id|>40\n<|src_id|>46<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 45
+        }
+    ]
+}

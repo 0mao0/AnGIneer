@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        22
+    ],
+    "pages": [
+        2,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>2<|box|>199 236 215 759<|content|>Penterra Pharmaceuticals Corp. ... a Delaware corporation (\"Licensor\")\n<|id|>4<|page|>2<|box|>224 483 241 514<|content|>and\n<|id|>5<|page|>2<|box|>250 197 268 799<|content|>Meridian Bio Therapeutics Limited a Hong Kong limited company (\"Licensee\")\n<|id|>6<|page|>2<|box|>276 349 294 648<|content|>Compound: ... PPC-4187 (Penteracitinib)\n<|id|>7<|page|>2<|box|>301 140 393 854<|content|>This Schedule A is attached to and incorporated by...ave the meanings ascribed to them in the Agreement\n<|id|>119<|page|>22<|box|>648 183 664 473<|content|>• Schedule B — Licensed Know-How\n<|id|>122<|page|>22<|box|>707 140 761 854<|content|>Each of the foregoing Schedules is attached to and...nterra Pharmaceuticals Corp. ... October 20, 2023)\n<|id|>120<|page|>22<|box|>667 183 684 475<|content|>• Schedule C — Licensed Trademarks\n<|id|>121<|page|>22<|box|>688 184 703 383<|content|>• Schedule D — Territory",
+    "raw_response": "<|src_id|>3<|tgt_id|>4\n<|src_id|>4<|tgt_id|>5",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>161 140 191 852<|content|>600 Renaissance Center, Suite 3200 | Detroit, Michigan 48243 Telephone: ... com\n<|id|>3<|page|>1<|box|>200 723 215 854<|content|>October 17, 2023\n<|id|>5<|page|>1<|box|>251 140 287 854<|content|>Alan M. ... Lead Partner, Technology Transactions ...Street, Suite 2800 San Francisco, California 94105\n<|id|>6<|page|>1<|box|>296 174 349 854<|content|>Re: ... and Meridian Code Technologies, Inc\n<|id|>7<|page|>1<|box|>358 176 375 408<|content|>C&H Matter No. ... 1007-00008\n<|id|>8<|page|>1<|box|>383 140 400 279<|content|>Dear Mr. ... Briscoe\n<|id|>70<|page|>8<|box|>739 140 904 857<|content|>VMS recognizes that the parties have a number of o...icense as a reasonable accommodation that balances\n<|id|>71<|page|>9<|box|>89 140 127 854<|content|>VMS's proprietary rights in the Modules with any l...etitive applications outside the automotive sector\n<|id|>85<|page|>10<|box|>133 140 148 854<|content|>Bernard Crawford Partner Calderwood & Harkness LLP 600 Renaissance Center, Suite 3200\n<|id|>86<|page|>10<|box|>148 140 166 532<|content|>Detroit, Michigan 48243 Telephone: ... (313) 555-7400\n<|id|>87<|page|>10<|box|>166 140 183 477<|content|>Email: ... com\n<|id|>88<|page|>10<|box|>184 140 200 750<|content|>cc: ... (via email)\n<|id|>89<|page|>10<|box|>209 140 227 588<|content|>cc: ... Conrad Ashby, Calderwood & Harkness LLP (via email)\n<|id|>90<|page|>10<|box|>234 140 252 593<|content|>cc: ... Gabrielle Moss, Calderwood & Harkness LLP (via email)",
+    "raw_response": "<|src_id|>70<|tgt_id|>71",
+    "parsed": [
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        }
+    ]
+}

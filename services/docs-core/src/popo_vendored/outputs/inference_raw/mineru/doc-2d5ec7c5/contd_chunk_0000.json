@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 277 133 720<|content|>One Liberty Plaza, 42nd Floor New York, New York 10006\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>194 140 229 854<|content|>To the several underwriters named in Schedule I to...I to the Underwriting Agreement (as defined below)\n<|id|>3<|page|>1<|box|>167 774 185 854<|content|>[__], 2026\n<|id|>5<|page|>1<|box|>237 140 253 720<|content|>Westbridge Securities LLC 383 Madison Avenue New York, New York 10179\n<|id|>6<|page|>1<|box|>263 140 280 702<|content|>Pinnacle Morgan & Co. ... 200 Park Avenue New York, New York 10166\n<|id|>7<|page|>1<|box|>289 140 306 797<|content|>Andover Barcliffe Group Inc. ... 1251 Avenue of the Americas New York, New York 10020\n<|id|>8<|page|>1<|box|>315 140 333 656<|content|>Northpointe Capital LLC 140 Broadway New York, New York 10005\n<|id|>9<|page|>1<|box|>340 140 359 712<|content|>c/o Westbridge Securities LLC, as Representative of the Several Underwriters\n<|id|>10<|page|>1<|box|>367 140 401 733<|content|>Attention: ... Jonathan Hartwell, Managing Director, Global Equity Capital Markets Ladies and Gentlemen\n<|id|>16<|page|>1<|box|>811 174 847 854<|content|>(i) 15,000,000 ADSs representing 30,000,000 newly issued Ordinary Shares (the \"Primary ADSs\"); ... and\n<|id|>18<|page|>1<|box|>916 142 929 276<|content|>Matter No. ... 1032-00003\n<|id|>17<|page|>1<|box|>854 174 910 854<|content|>(ii) 6,400,000 ADSs representing 12,800,000 existi...tal Industrieholding Gesellschaft mit beschränkter\n<|id|>19<|page|>2<|box|>90 174 143 854<|content|>Haftung (\"Rheintal\"), and (b) 2,150,000 ADSs (repr...ogether with Rheintal, the \"Selling Shareholders\")\n<|id|>29<|page|>2<|box|>869 174 905 856<|content|>5. ... The Underwriting Agreement, dated [__], 202...rwriters named therein, with Westbridge Securities\n<|id|>30<|page|>3<|box|>90 210 126 854<|content|>LLC acting as Representative of the several Underw...t is governed by the laws of the State of New York\n<|id|>97<|page|>9<|box|>844 140 898 854<|content|>For all matters of German law, including, without ...toph Maurelban), Bockenheimer Landstraße 20, 60323\n<|id|>98<|page|>10<|box|>90 140 125 854<|content|>Frankfurt am Main, Germany, dated the date hereof ...d delivered to the Underwriters on the date hereof\n<|id|>103<|page|>10<|box|>385 174 439 856<|content|>(e) the registration of the capital increase (Kapi...ndelsregister) of the Amtsgericht München; ... and\n<|id|>105<|page|>10<|box|>473 140 529 854<|content|>We express no independent opinion on any of the fo...uch opinion for purposes of rendering this Opinion\n<|id|>125<|page|>12<|box|>315 210 333 344<|content|>Very truly yours,\n<|id|>126<|page|>12<|box|>339 140 356 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>127<|page|>12<|box|>358 142 375 253<|content|>By: ... By\n<|id|>128<|page|>12<|box|>375 140 391 343<|content|>Name: ... Claire\n<|id|>129<|page|>12<|box|>392 140 409 421<|content|>Title: ... Partner, Capital Markets Group\n<|id|>130<|page|>12<|box|>409 140 425 583<|content|>One Liberty Plaza, 42nd Floor New York, New York 10006\n<|id|>131<|page|>12<|box|>426 140 443 326<|content|>Matter No. ... 1032-00003\n<|id|>135<|page|>12<|box|>614 174 689 854<|content|>(a) The German Counsel Opinion of Bähr Stein Rechtsanwälte Partnerschaftsgesellschaft mbB (Dr. ... and\n<|id|>137<|page|>12<|box|>758 140 805 854<|content|>CONFIDENTIAL — This opinion letter is furnished so...prior written consent of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>17<|tgt_id|>19\n<|src_id|>29<|tgt_id|>30\n<|src_id|>97<|tgt_id|>98",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 98
+        }
+    ]
+}

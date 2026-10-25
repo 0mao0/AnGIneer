@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>172 374 189 622<|content|>INTERNAL MEMORANDUM\n<|id|>2<|type|>title<|page|>1<|box|>198 346 214 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>9<|type|>title<|page|>1<|box|>436 352 455 643<|content|>I. EXECUTIVE SUMMARY\n<|id|>14<|type|>title<|page|>2<|box|>354 397 375 599<|content|>II. BACKGROUND\n<|id|>15<|type|>title<|page|>2<|box|>400 140 417 357<|content|>A. The Proposed Litigation\n<|id|>23<|type|>title<|page|>3<|box|>630 140 647 321<|content|>B. The Patents-in-Suit\n<|id|>31<|type|>title<|page|>4<|box|>612 140 628 521<|content|>C. Projected Damages and Litigation Economics\n<|id|>34<|type|>table<|page|>5<|box|>214 143 323 852<|content|>None\n<|id|>36<|type|>title<|page|>5<|box|>526 140 542 475<|content|>D. OWS Ownership and Capital Structure\n<|id|>41<|type|>title<|page|>6<|box|>234 181 253 813<|content|>III. RESOLUTE LITIGATION FINANCE, LP — OVERVIEW\n<|id|>46<|type|>title<|page|>6<|box|>816 166 835 830<|content|>IV. SUMMARY OF RESOLUTE TERM SHEET — KEY TERMS\n<|id|>48<|type|>title<|page|>7<|box|>150 140 167 416<|content|>A. Funding Amount and Structure\n<|id|>56<|type|>title<|page|>7<|box|>646 140 664 408<|content|>B. Return Multiple and Waterfall\n<|id|>66<|type|>title<|page|>8<|box|>433 140 450 397<|content|>C. Control and Approval Rights\n<|id|>74<|type|>title<|page|>9<|box|>267 140 284 473<|content|>D. Information Rights and Confidentiality\n<|id|>78<|type|>title<|page|>9<|box|>679 140 696 349<|content|>E. Term and Termination\n<|id|>84<|type|>title<|page|>10<|box|>396 187 415 808<|content|>V. ANALYSIS: SELF-FUNDING VS. RESOLUTE FUNDING\n<|id|>85<|type|>title<|page|>10<|box|>441 142 459 343<|content|>A. Financial Comparison\n<|id|>87<|type|>title<|page|>10<|box|>553 142 570 602<|content|>1. Scenario 1: Successful Outcome — $75 Million Re\n<|id|>97<|type|>title<|page|>11<|box|>157 140 174 611<|content|>2. Scenario 2: Moderate Settlement — $25 Million R\n<|id|>107<|type|>title<|page|>11<|box|>534 140 551 580<|content|>3. Scenario 3: Small Settlement — $10 Million Reco\n<|id|>118<|type|>title<|page|>12<|box|>257 140 273 650<|content|>4. Scenario 4: Zero Recovery (Walk-Away or Adverse\n<|id|>123<|type|>table<|page|>12<|box|>535 143 720 852<|content|>None\n<|id|>125<|type|>title<|page|>13<|box|>90 140 107 501<|content|>B. OWS/Vantage Point Capacity to Self-Fund\n<|id|>131<|type|>title<|page|>13<|box|>700 140 717 352<|content|>C. Control Considerations\n<|id|>137<|type|>title<|page|>14<|box|>667 140 684 439<|content|>D. Privilege and Confidentiality Risks\n<|id|>145<|type|>title<|page|>15<|box|>674 140 691 527<|content|>E. Reputational and Relationship Considerations\n<|id|>150<|type|>title<|page|>16<|box|>363 285 382 712<|content|>VI. ALTERNATIVE CONSIDERATIONS\n<|id|>152<|type|>title<|page|>16<|box|>460 140 477 723<|content|>A. Contingency or Hybrid Fee Arrangement with Cald\n<|id|>156<|type|>title<|page|>16<|box|>816 140 833 426<|content|>B. Partial Funding at a Lower Level\n<|id|>159<|type|>title<|page|>17<|box|>289 354 309 642<|content|>VII. RECOMMENDATION\n<|id|>172<|type|>title<|page|>18<|box|>498 269 517 727<|content|>VIII. ENCLOSURES AND ATTACHMENTS",
+    "raw_response": "<|src_id|>34<|tgt_id|>31\n<|src_id|>123<|tgt_id|>118",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 118
+        }
+    ]
+}

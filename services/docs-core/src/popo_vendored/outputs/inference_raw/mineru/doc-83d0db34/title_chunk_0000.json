@@ -1,0 +1,138 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        18,
+        19,
+        21,
+        22,
+        23,
+        24,
+        25,
+        29
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>133 174 171 823<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>8<|page|>1<|box|>386 142 402 321<|content|>I. Executive Summary\n<|id|>18<|page|>2<|box|>486 142 503 429<|content|>II. Background and Factual Context\n<|id|>19<|page|>2<|box|>517 140 534 455<|content|>A. The Parties and Corporate Structure\n<|id|>27<|page|>3<|box|>590 140 608 354<|content|>B. The Intercompany Note\n<|id|>32<|page|>4<|box|>138 140 157 341<|content|>C. The Capital Structure\n<|id|>48<|page|>5<|box|>590 140 608 429<|content|>D. Liquidity Crisis and Forbearance\n<|id|>54<|page|>6<|box|>421 140 439 617<|content|>III. Analysis of the Intercompany Claim in a TAI C\n<|id|>55<|page|>6<|box|>452 140 469 570<|content|>A. Nature and Allowability of the Intercompany Cla\n<|id|>59<|page|>7<|box|>90 140 108 477<|content|>B. Equitable Subordination Risk (§ 510(c))\n<|id|>69<|page|>8<|box|>539 140 556 359<|content|>C. Recharacterization Risk\n<|id|>85<|page|>10<|box|>756 142 773 338<|content|>D. Impact on Recoveries\n<|id|>95<|page|>11<|box|>726 140 743 488<|content|>IV. Substantive Consolidation Risk Analysis\n<|id|>96<|page|>11<|box|>758 142 773 310<|content|>A. Legal Framework\n<|id|>104<|page|>12<|box|>763 140 780 581<|content|>B. Who Might Seek Substantive Consolidation and Wh\n<|id|>112<|page|>14<|box|>311 140 329 375<|content|>C. Factor-by-Factor Analysis\n<|id|>146<|page|>18<|box|>554 140 571 537<|content|>D. Jurisdictional and Cross-Border Complications\n<|id|>153<|page|>19<|box|>601 140 619 622<|content|>E. Impact of Substantive Consolidation on Lender R\n<|id|>166<|page|>21<|box|>204 140 222 472<|content|>V. Recommendations and Risk Mitigation\n<|id|>168<|page|>21<|box|>297 140 316 447<|content|>A. Pre-Filing Corporate Housekeeping\n<|id|>176<|page|>22<|box|>484 140 502 401<|content|>B. Intercompany Claim Strategy\n<|id|>183<|page|>23<|box|>338 140 354 535<|content|>C. Substantive Consolidation Defense Preparation\n<|id|>188<|page|>24<|box|>90 140 107 493<|content|>D. Coordination with Ongoing Workstreams\n<|id|>195<|page|>24<|box|>742 140 758 264<|content|>VI. Conclusion\n<|id|>203<|page|>25<|box|>777 142 794 238<|content|>Appendices\n<|id|>208<|page|>29<|box|>90 142 107 395<|content|>Appendix D — Key Cases Cited",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>8<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>27<|level|>3\n<|id|>32<|level|>3\n<|id|>48<|level|>3\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>59<|level|>3\n<|id|>69<|level|>3\n<|id|>85<|level|>3\n<|id|>95<|level|>2\n<|id|>96<|level|>3\n<|id|>104<|level|>3\n<|id|>112<|level|>3\n<|id|>146<|level|>3\n<|id|>153<|level|>3\n<|id|>166<|level|>2\n<|id|>168<|level|>3\n<|id|>176<|level|>3\n<|id|>183<|level|>3\n<|id|>188<|level|>3\n<|id|>195<|level|>2\n<|id|>203<|level|>2\n<|id|>208<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 188,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 3
+        }
+    ]
+}

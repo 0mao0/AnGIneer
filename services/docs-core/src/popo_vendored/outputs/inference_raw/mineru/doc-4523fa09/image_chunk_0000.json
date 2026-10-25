@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        7,
+        13
+    ],
+    "pages": [
+        7,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>46<|type|>table<|page|>7<|box|>85 85 191 873<|content|>None\n<|id|>66<|type|>table<|page|>10<|box|>208 85 265 878<|content|>None\n<|id|>68<|type|>table<|page|>10<|box|>319 85 425 878<|content|>None\n<|id|>69<|type|>title<|page|>10<|box|>439 85 458 505<|content|>SERIES SEED PREFERRED STOCK — NOTE CONVERSION\n<|id|>70<|type|>table<|page|>10<|box|>445 85 514 878<|content|>None\n<|id|>73<|type|>table<|page|>12<|box|>85 85 315 697<|content|>None\n<|id|>74<|type|>table<|page|>13<|box|>85 87 156 875<|content|>None",
+    "raw_response": "<|src_id|>70<|tgt_id|>69",
+    "parsed": [
+        {
+            "src_id": 70,
+            "tgt_id": 69
+        }
+    ]
+}

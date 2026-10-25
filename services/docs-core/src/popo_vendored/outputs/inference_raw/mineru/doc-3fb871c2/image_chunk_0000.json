@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>251 142 268 454<|content|>BY EMAIL AND FIRST CLASS POST\n<|id|>11<|type|>title<|page|>1<|box|>434 142 450 334<|content|>1. Purpose of this Letter\n<|id|>19<|type|>title<|page|>2<|box|>90 142 107 305<|content|>2. The LCIA Award\n<|id|>21<|type|>table<|page|>2<|box|>276 143 452 852<|content|>None\n<|id|>29<|type|>title<|page|>2<|box|>829 140 845 586<|content|>3. Application Notice — Section 66, Arbitration Ac\n<|id|>35<|type|>title<|page|>3<|box|>491 140 508 377<|content|>4. Worldwide Freezing Order\n<|id|>51<|type|>title<|page|>4<|box|>646 140 664 380<|content|>5. Asset Disclosure Obligation\n<|id|>63<|type|>title<|page|>5<|box|>627 140 643 264<|content|>6. Return Date\n<|id|>68<|type|>title<|page|>6<|box|>167 140 185 503<|content|>7. Penal Notice — Formal Contempt Warning\n<|id|>78<|type|>title<|page|>6<|box|>588 140 604 357<|content|>8. Third-Party Notification\n<|id|>85<|type|>title<|page|>7<|box|>148 140 167 253<|content|>9. Enclosures\n<|id|>91<|type|>title<|page|>7<|box|>412 142 429 545<|content|>10. Reservation of Rights and Demand for Payment\n<|id|>93<|type|>table<|page|>7<|box|>505 143 648 852<|content|>None\n<|id|>98<|type|>title<|page|>8<|box|>194 142 210 372<|content|>11. Confirmations Requested\n<|id|>105<|type|>title<|page|>8<|box|>502 142 518 444<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>21<|tgt_id|>19\n<|src_id|>93<|tgt_id|>91",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 91
+        }
+    ]
+}

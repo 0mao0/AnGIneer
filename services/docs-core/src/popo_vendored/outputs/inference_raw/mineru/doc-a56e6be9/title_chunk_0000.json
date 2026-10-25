@@ -1,0 +1,110 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 256 118 740<|content|>ASSIGNMENT OF MEMBERSHIP INTEREST\n<|id|>1<|page|>1<|box|>136 259 154 738<|content|>Palmetto Grand Ventures LLC — 35% Membership Inter\n<|id|>4<|page|>1<|box|>232 142 250 250<|content|>ASSIGNOR:\n<|id|>6<|page|>1<|box|>320 143 337 246<|content|>ASSIGNEE:\n<|id|>9<|page|>1<|box|>434 142 450 248<|content|>COMPANY:\n<|id|>12<|page|>1<|box|>599 142 618 243<|content|>RECITALS\n<|id|>24<|page|>2<|box|>843 142 859 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>37<|page|>3<|box|>839 140 857 537<|content|>ARTICLE 2 — ASSIGNMENT AND TRANSFER\n<|id|>49<|page|>5<|box|>420 140 438 748<|content|>ARTICLE 3 — REPRESENTATIONS AND WARRANTIES OF ASSI\n<|id|>58<|page|>6<|box|>839 140 854 745<|content|>ARTICLE 4 — REPRESENTATIONS AND WARRANTIES OF ASSI\n<|id|>63<|page|>7<|box|>676 140 694 496<|content|>ARTICLE 5 — EFFECT OF ASSIGNMENT\n<|id|>68<|page|>8<|box|>768 140 785 483<|content|>ARTICLE 6 — FURTHER ASSURANCES\n<|id|>79<|page|>9<|box|>612 142 628 444<|content|>ARTICLE 7 — INDEMNIFICATION\n<|id|>83<|page|>10<|box|>393 140 412 429<|content|>ARTICLE 8 — MISCELLANEOUS\n<|id|>92<|page|>11<|box|>739 142 757 225<|content|>If to MSH:\n<|id|>112<|page|>12<|box|>565 207 580 787<|content|>SIGNATURE PAGE TO ASSIGNMENT OF MEMBERSHIP INTERES\n<|id|>114<|page|>12<|box|>635 143 651 246<|content|>ASSIGNOR:\n<|id|>121<|page|>12<|box|>773 143 789 243<|content|>ASSIGNEE:\n<|id|>143<|page|>14<|box|>220 143 238 398<|content|>Principal Asset of the Company:\n<|id|>147<|page|>14<|box|>565 449 582 547<|content|>EXHIBIT B\n<|id|>148<|page|>14<|box|>590 305 608 692<|content|>FORM OF WIRE TRANSFER INSTRUCTIONS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>9<|level|>2\n<|id|>12<|level|>2\n<|id|>24<|level|>2\n<|id|>37<|level|>2\n<|id|>49<|level|>2\n<|id|>58<|level|>2\n<|id|>63<|level|>2\n<|id|>68<|level|>2\n<|id|>79<|level|>2\n<|id|>83<|level|>2\n<|id|>92<|level|>3\n<|id|>112<|level|>1\n<|id|>114<|level|>2\n<|id|>121<|level|>2\n<|id|>143<|level|>3\n<|id|>147<|level|>1\n<|id|>148<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 2
+        }
+    ]
+}

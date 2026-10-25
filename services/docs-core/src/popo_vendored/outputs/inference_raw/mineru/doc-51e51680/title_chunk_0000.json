@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 147 162 849<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>3<|page|>1<|box|>220 156 257 839<|content|>AURELIUS MEDIA AMERICAS INC., a Delaware corporati\n<|id|>9<|page|>1<|box|>766 143 782 380<|content|>I. DEPOSITION LOGISTICS\n<|id|>17<|page|>2<|box|>285 140 301 509<|content|>II. SUBJECT MATTERS TO BE EXAMINED\n<|id|>19<|page|>2<|box|>397 142 414 413<|content|>1. Employment History with AMA\n<|id|>29<|page|>2<|box|>840 140 858 437<|content|>2. Work Schedules and Shift Patterns\n<|id|>38<|page|>3<|box|>404 140 422 359<|content|>3. Meal Period Experiences\n<|id|>48<|page|>4<|box|>90 140 107 354<|content|>4. Rest Period Experiences\n<|id|>55<|page|>4<|box|>420 140 438 586<|content|>5. Timekeeping Practices and the TimeTrack Pro Sys\n<|id|>67<|page|>5<|box|>309 140 325 413<|content|>6. Off-the-Clock Work Allegations\n<|id|>76<|page|>5<|box|>782 142 799 380<|content|>7. Complaints and Grievances\n<|id|>82<|page|>6<|box|>228 140 244 513<|content|>8. Knowledge of Other Employees' Experiences\n<|id|>87<|page|>6<|box|>488 140 505 580<|content|>9. Relationship with Counsel and Initiation of Lit\n<|id|>95<|page|>6<|box|>844 143 861 555<|content|>10. Adequacy and Typicality as Class Representativ\n<|id|>109<|page|>7<|box|>756 143 773 388<|content|>12. AMA Policies and Training\n<|id|>120<|page|>8<|box|>516 140 532 656<|content|>III. REQUEST TO PRODUCE DOCUMENTS AT DEPOSITION\n<|id|>125<|page|>8<|box|>758 143 773 372<|content|>IV. LEGAL AUTHORITIES\n<|id|>128<|page|>9<|box|>148 140 166 483<|content|>V. MEET AND CONFER / SCHEDULING\n<|id|>131<|page|>9<|box|>318 212 334 517<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>9<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>3\n<|id|>29<|level|>3\n<|id|>38<|level|>3\n<|id|>48<|level|>3\n<|id|>55<|level|>3\n<|id|>67<|level|>3\n<|id|>76<|level|>3\n<|id|>82<|level|>3\n<|id|>87<|level|>3\n<|id|>95<|level|>3\n<|id|>109<|level|>3\n<|id|>120<|level|>2\n<|id|>125<|level|>2\n<|id|>128<|level|>2\n<|id|>131<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        }
+    ]
+}

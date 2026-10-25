@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['21', '11,XXX, 212', 'mmWave Matching Network', '2020', '2023', 'Chen, Patel, Liu', '70RSAT1 9C00000 071', 'DHSS&T', 'Yes']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['22', '11,XXX, 215', 'mmWave Matching Network', '2021', '2023', 'Trevorrow, Chen', 'FA8650-18-C-3314', 'AFRL', 'Yes']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 111,
+    "table2_idx": 112
+}

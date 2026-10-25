@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 8,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['FL7-8', '7.0', '8', 'rowspan=4, ', '2100', '3250', '4500', '50', '100', '70', '65', '0.30×0.19', '0.30×0.37', '0.30×0.26', '0.30×0.24']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 荷载代号', 'rowspan=3, 载重量(t)', 'rowspan=3, 荷载图式', 'colspan=2, 轮距(mm)', 'colspan=3, 轴距(mm)', 'colspan=3, 重载轮压力(kN/轮)', 'colspan=3, 重载单轮接地面积(m^2)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 472,
+    "table2_idx": 473
+}

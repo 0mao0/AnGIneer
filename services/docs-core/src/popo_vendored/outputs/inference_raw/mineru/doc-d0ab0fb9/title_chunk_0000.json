@@ -1,0 +1,138 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>229 161 300 834<|content|>DECLARATION OF PINNACLE CLAIMS ADMINISTRATION LLC\n<|id|>3<|page|>1<|box|>349 142 368 629<|content|>I. INTRODUCTION AND DECLARANT IDENTIFICATION\n<|id|>9<|page|>2<|box|>148 142 166 305<|content|>II. BACKGROUND\n<|id|>10<|page|>2<|box|>180 142 196 341<|content|>A. The Chapter 11 Cases\n<|id|>13<|page|>2<|box|>419 140 436 718<|content|>B. Retention of Pinnacle as Claims and Noticing Ag\n<|id|>16<|page|>2<|box|>694 140 712 547<|content|>C. The Prepackaged Plan and Disclosure Statement\n<|id|>20<|page|>3<|box|>268 142 285 351<|content|>D. Solicitation Procedures\n<|id|>28<|page|>4<|box|>89 140 107 754<|content|>III. CLASSIFICATION OF CLAIMS AND INTERESTS UNDER\n<|id|>30<|page|>4<|box|>184 140 200 401<|content|>Class 1 — Other Priority Claims\n<|id|>32<|page|>4<|box|>366 140 383 433<|content|>Class 2 — First Lien Secured Claims\n<|id|>35<|page|>4<|box|>751 140 768 450<|content|>Class 3 — Second Lien Secured Claims\n<|id|>38<|page|>5<|box|>324 140 340 437<|content|>Class 4 — General Unsecured Claims\n<|id|>41<|page|>5<|box|>561 140 579 400<|content|>Class 5 — Intercompany Claims\n<|id|>43<|page|>5<|box|>690 140 707 423<|content|>Class 6 — Existing Equity Interests\n<|id|>45<|page|>6<|box|>89 140 107 624<|content|>IV. TABULATION PROCEDURES AND METHODOLOGY\n<|id|>46<|page|>6<|box|>121 140 138 426<|content|>A. Receipt and Processing of Ballots\n<|id|>54<|page|>6<|box|>758 142 776 341<|content|>B. Ballot Counting Rules\n<|id|>61<|page|>7<|box|>566 140 584 580<|content|>C. Temporary Allowance of Claims for Voting Purpos\n<|id|>63<|page|>7<|box|>777 140 794 504<|content|>V. VOTING RESULTS — CERTIFICATION\n<|id|>64<|page|>7<|box|>808 142 825 328<|content|>A. Statutory Threshold\n<|id|>66<|page|>8<|box|>138 140 156 454<|content|>B. Class 2 — First Lien Secured Claims\n<|id|>71<|page|>8<|box|>484 140 501 473<|content|>C. Class 3 — Second Lien Secured Claims\n<|id|>76<|page|>9<|box|>90 140 106 460<|content|>D. Class 4 — General Unsecured Claims\n<|id|>81<|page|>9<|box|>464 140 479 617<|content|>VI. CONSOLIDATED SUMMARY OF VOTING RESULTS\n<|id|>86<|page|>10<|box|>148 140 166 586<|content|>VII. IRREGULARITIES AND DEFECTIVE BALLOTS\n<|id|>93<|page|>10<|box|>669 140 686 279<|content|>VIII. EXHIBITS\n<|id|>100<|page|>11<|box|>373 140 390 496<|content|>IX. CONCLUSION AND CERTIFICATION\n<|id|>111<|page|>13<|box|>89 140 107 524<|content|>X. SIGNATURE BLOCK AND ATTESTATION",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>9<|level|>2\n<|id|>10<|level|>3\n<|id|>13<|level|>3\n<|id|>16<|level|>3\n<|id|>20<|level|>3\n<|id|>28<|level|>2\n<|id|>30<|level|>3\n<|id|>32<|level|>3\n<|id|>35<|level|>3\n<|id|>38<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>54<|level|>3\n<|id|>61<|level|>3\n<|id|>63<|level|>2\n<|id|>64<|level|>3\n<|id|>66<|level|>3\n<|id|>71<|level|>3\n<|id|>76<|level|>3\n<|id|>81<|level|>2\n<|id|>86<|level|>2\n<|id|>93<|level|>2\n<|id|>100<|level|>2\n<|id|>111<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        }
+    ]
+}

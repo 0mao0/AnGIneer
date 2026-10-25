@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        45,
+        46,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>556<|page|>45<|box|>152 447 169 549<|content|>EXHIBIT C\n<|id|>557<|page|>45<|box|>178 364 195 632<|content|>FORM OF BUYER GUARANTY\n<|id|>562<|page|>45<|box|>595 447 613 550<|content|>EXHIBIT D\n<|id|>563<|page|>45<|box|>623 235 640 761<|content|>FORM OF LETTER OF CREDIT (SELLER AVAILABILITY LC)\n<|id|>568<|page|>46<|box|>239 449 253 549<|content|>EXHIBIT E\n<|id|>569<|page|>46<|box|>263 366 281 630<|content|>INSURANCE REQUIREMENTS\n<|id|>572<|page|>46<|box|>636 142 652 517<|content|>Insurance Broker: Fieldstone Risk Advisors LLC\n<|id|>577<|page|>46<|box|>820 450 835 549<|content|>EXHIBIT F\n<|id|>578<|page|>46<|box|>845 307 863 689<|content|>FORM OF LENDER CONSENT AGREEMENT\n<|id|>589<|page|>48<|box|>89 143 106 738<|content|>## APPENDIX: CONSOLIDATED TABLE OF ALL NUMERICAL C\n<|id|>591<|page|>48<|box|>342 140 359 303<|content|>## CLOSING NOTE\n<|id|>593<|page|>48<|box|>449 138 468 519<|content|>For questions regarding this redline, please conta",
+    "raw_response": "<|id|>556<|level|>1\n<|id|>557<|level|>2\n<|id|>562<|level|>1\n<|id|>563<|level|>2\n<|id|>568<|level|>1\n<|id|>569<|level|>2\n<|id|>572<|level|>3\n<|id|>577<|level|>1\n<|id|>578<|level|>2\n<|id|>589<|level|>1\n<|id|>591<|level|>1\n<|id|>593<|level|>-1",
+    "parsed": [
+        {
+            "id": 556,
+            "level": 1
+        },
+        {
+            "id": 557,
+            "level": 2
+        },
+        {
+            "id": 562,
+            "level": 1
+        },
+        {
+            "id": 563,
+            "level": 2
+        },
+        {
+            "id": 568,
+            "level": 1
+        },
+        {
+            "id": 569,
+            "level": 2
+        },
+        {
+            "id": 572,
+            "level": 3
+        },
+        {
+            "id": 577,
+            "level": 1
+        },
+        {
+            "id": 578,
+            "level": 2
+        },
+        {
+            "id": 589,
+            "level": 1
+        },
+        {
+            "id": 591,
+            "level": 1
+        }
+    ]
+}

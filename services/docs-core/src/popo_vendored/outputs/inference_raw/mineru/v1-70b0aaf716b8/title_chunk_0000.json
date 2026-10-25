@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 87 258<|content|>【6106#24】北海道\n<|id|>2<|page|>1<|box|>294 105 311 386<|content|>【6093207#2】星光廣場 (JR北海道)\n<|id|>4<|page|>1<|box|>395 105 412 300<|content|>【578031#0】北海道放送\n<|id|>6<|page|>1<|box|>497 107 513 258<|content|>【6106#38】北海道\n<|id|>8<|page|>1<|box|>633 105 648 337<|content|>【675232#3】北海道空中系統\n<|id|>10<|page|>1<|box|>715 105 731 258<|content|>【6106#23】北海道\n<|id|>12<|page|>2<|box|>152 107 167 258<|content|>【6106#36】北海道\n<|id|>14<|page|>2<|box|>374 107 388 284<|content|>【579354#2】TV北海道\n<|id|>17<|page|>2<|box|>526 105 542 337<|content|>【400252#9】北海道旅客鐵道\n<|id|>19<|page|>2<|box|>627 107 642 327<|content|>【5743932#4】三縣一局時代",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>6<|level|>1\n<|id|>8<|level|>2\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>150 140 169 584<|content|>TO: ... Sylvia Hartwell, Partner, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>176 140 194 619<|content|>FROM: ... Robert Jansen, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>203 140 220 326<|content|>DATE: ... March 20, 2026\n<|id|>5<|page|>1<|box|>228 140 265 856<|content|>RE: ... — Proposed IRC § 6418 Transfer of Production Tax Credits\n<|id|>6<|page|>1<|box|>272 142 290 333<|content|>Matter No. ... 1016-00008\n<|id|>7<|page|>1<|box|>297 142 316 349<|content|>Billing Code: ... 00001\n<|id|>14<|page|>2<|box|>260 174 333 854<|content|>(b) negotiate a consent letter, side letter, or fo...g PTC eligibility period (through TY2034); ... and\n<|id|>16<|page|>2<|box|>421 140 457 854<|content|>The balance of this memorandum sets forth the fact...d legal analysis, and recommended course of action\n<|id|>34<|page|>4<|box|>473 181 491 789<|content|>• Base PTC rate: ... 0055 per kWh (as adjusted for inflation under IRC § 45(b)(2))\n<|id|>38<|page|>4<|box|>588 140 643 854<|content|>Proposed Transfer Price. ... 00 of eligible credit...igibility support and recapture insurance coverage\n<|id|>35<|page|>4<|box|>493 181 529 854<|content|>• Bonus credit multiplier: ... 5x (applicable beca...renticeship requirements under IRC § 45(b)(6)–(7))\n<|id|>36<|page|>4<|box|>531 181 566 854<|content|>• Energy community adder: ... 10% (applicable unde...45(b)(11)(B) based on Custer County qualification)\n<|id|>37<|page|>4<|box|>569 183 585 617<|content|>• Effective rate: ... 03025 per kWh\n<|id|>72<|page|>8<|box|>823 174 897 857<|content|>(i) Mandatory Prepayment or Restricted Account Dep...likely to generate significant negotiation, as the\n<|id|>73<|page|>9<|box|>90 174 126 854<|content|>Borrower and its equity sponsors will want to maxi...nt of transfer proceeds available for distribution\n<|id|>86<|page|>10<|box|>250 181 282 854<|content|>• Major Maintenance Reserve Account — a reserve ac...nscheduled major maintenance expenditures; ... and\n<|id|>88<|page|>10<|box|>342 140 414 854<|content|>The Depositary Agreement establishes a defined pri...ll higher-priority obligations have been satisfied\n<|id|>109<|page|>12<|box|>819 140 910 857<|content|>An additional complication arises from the propose...dback. ... The holdback serves as security for the\n<|id|>110<|page|>13<|box|>90 140 126 854<|content|>Borrower's indemnification obligations to Pinnacle...s is recaptured, disallowed, or reduced by the IRS\n<|id|>119<|page|>13<|box|>835 181 907 857<|content|>• The Project satisfies, and has at all times sinc...equirements would reduce the effective PTC rate by\n<|id|>120<|page|>14<|box|>90 210 125 854<|content|>80% (from $0. ... 00605/kWh) and correspondingly reduce the economic value of the transfer\n<|id|>137<|page|>15<|box|>578 174 614 854<|content|>(c) all reserve accounts (including the Debt Servi... funded to their required target balances; ... and\n<|id|>139<|page|>15<|box|>666 140 776 856<|content|>If the PTC transfer proceeds flow through the wate...obtain consent before proceeding with the transfer",
+    "raw_response": "<|src_id|>72<|tgt_id|>73\n<|src_id|>109<|tgt_id|>110\n<|src_id|>119<|tgt_id|>120",
+    "parsed": [
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        }
+    ]
+}

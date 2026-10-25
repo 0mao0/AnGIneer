@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>410 140 426 279<|content|>Dear Mr. Briscoe:\n<|id|>11<|page|>2<|box|>90 140 107 447<|content|>I. Background and Procedural History\n<|id|>26<|page|>3<|box|>593 140 611 839<|content|>II. VMS's Position — The Year 2 Maintenance Fee Is\n<|id|>27<|page|>3<|box|>625 140 660 854<|content|>A. Section 9.4 Reduces Support Obligations During\n<|id|>34<|page|>4<|box|>565 140 599 854<|content|>B. The Implied Covenant of Good Faith and Fair Dea\n<|id|>38<|page|>5<|box|>213 140 250 854<|content|>C. The Absence of Express Fee Provisions During Do\n<|id|>42<|page|>5<|box|>612 140 628 361<|content|>D. Failure of Consideration\n<|id|>46<|page|>6<|box|>267 140 284 581<|content|>III. VMS's Proposal — Prorated Payment or Fee Cred\n<|id|>48<|page|>6<|box|>359 142 378 553<|content|>A. Option 1 — Prorated Payment During Dormancy\n<|id|>52<|page|>6<|box|>777 140 795 560<|content|>B. Option 2 — Fee Credit Against Future Obligation\n<|id|>57<|page|>7<|box|>392 140 409 580<|content|>IV. Rebuttal of MeridianCode's Anticipated Argumen\n<|id|>58<|page|>7<|box|>422 140 440 676<|content|>A. The Invoice Was Issued Before Dormancy Was Form\n<|id|>64<|page|>9<|box|>90 140 107 669<|content|>B. The Fee Schedule Does Not Condition Payment on\n<|id|>68<|page|>9<|box|>536 140 553 338<|content|>V. Reservation of Rights\n<|id|>77<|page|>10<|box|>348 140 364 540<|content|>VI. Request for Response and Proposed Next Steps",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>-1\n<|id|>11<|level|>1\n<|id|>26<|level|>1\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>46<|level|>1\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>57<|level|>1\n<|id|>58<|level|>2\n<|id|>64<|level|>2\n<|id|>68<|level|>1\n<|id|>77<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        }
+    ]
+}

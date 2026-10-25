@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        10,
+        11,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>141 140 159 700<|content|>TO: ... Patricia Dunmore, Billing Partner\n<|id|>2<|page|>1<|box|>167 140 185 437<|content|>FROM: ... Elliot Nguyen, Lead Associate\n<|id|>3<|page|>1<|box|>193 140 210 334<|content|>DATE: ... January 30, 2023\n<|id|>4<|page|>1<|box|>219 140 256 856<|content|>RE: ... 22STPB09714\n<|id|>5<|page|>1<|box|>263 140 280 362<|content|>MATTER NO. ... 1035-00005\n<|id|>6<|page|>1<|box|>289 140 306 393<|content|>CLIENT: ... Fonseca\n<|id|>11<|page|>1<|box|>854 140 892 856<|content|>If the promissory note claim is sustained, however...stribution to our client as surviving spouse under\n<|id|>12<|page|>2<|box|>90 140 126 854<|content|>California's intestate succession framework. ... A...osition to this claim is warranted and recommended\n<|id|>78<|page|>10<|box|>851 140 906 857<|content|>If the Decedent reported interest income from Ambe...sue discount or imputed interest under IRC Section\n<|id|>79<|page|>11<|box|>90 140 145 854<|content|>7872, which applies to below-market loans between ...the arrangement as a loan for federal tax purposes\n<|id|>104<|page|>14<|box|>619 140 636 444<|content|>cc: ... Grace Nakamura, Working Associate (for file)\n<|id|>105<|page|>14<|box|>643 142 657 295<|content|>Matter File: ... 1035-00005",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>78<|tgt_id|>79",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        }
+    ]
+}

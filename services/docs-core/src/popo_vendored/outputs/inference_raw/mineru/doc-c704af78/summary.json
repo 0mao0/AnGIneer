@@ -1,0 +1,193 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wwp5d96o\\input\\pdfs\\doc-c704af78.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wwp5d96o\\enriched\\doc-c704af78.json",
+    "contd_output": "<|src_id|>73<|tgt_id|>74",
+    "title_output": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>29<|level|>3\n<|id|>37<|level|>3\n<|id|>43<|level|>3\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>63<|level|>3\n<|id|>68<|level|>3\n<|id|>72<|level|>2\n<|id|>75<|level|>3\n<|id|>76<|level|>4\n<|id|>85<|level|>4\n<|id|>91<|level|>3\n<|id|>92<|level|>4\n<|id|>101<|level|>4\n<|id|>109<|level|>4\n<|id|>113<|level|>3\n<|id|>123<|level|>2\n<|id|>124<|level|>3\n<|id|>133<|level|>3\n<|id|>137<|level|>3\n<|id|>145<|level|>3\n<|id|>152<|level|>3\n<|id|>161<|level|>3\n<|id|>166<|level|>2\n<|id|>170<|level|>2\n<|id|>185<|level|>2\n<|id|>204<|level|>2\n<|id|>213<|level|>2\n<|id|>219<|level|>2\n<|id|>225<|level|>2",
+    "image_output": "<|src_id|>65<|tgt_id|>63\n<|src_id|>66<|tgt_id|>63\n<|src_id|>167<|tgt_id|>166",
+    "contd_label": [
+        {
+            "src_id": 73,
+            "tgt_id": 74
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 4
+        },
+        {
+            "id": 85,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 4
+        },
+        {
+            "id": 101,
+            "level": 4
+        },
+        {
+            "id": 109,
+            "level": 4
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 65,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 166
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 65,
+            "table2_idx": 66,
+            "upper_row_ss": [
+                [
+                    "Tetrachloroethylene",
+                    "Soil",
+                    "14 mg/kg",
+                    "2.4 mg/kg",
+                    "25 Pa. Code Ch."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "(PCE)",
+                    "",
+                    "",
+                    "",
+                    "250, App. A, Table 3B"
+                ]
+            ]
+        }
+    ]
+}

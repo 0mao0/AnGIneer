@@ -1,0 +1,39 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        129,
+        156
+    ],
+    "pages": [
+        129,
+        130,
+        131,
+        155,
+        156
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>725<|page|>129<|box|>109 117 124 314<|content|>F.3 评审专家工作用表\n<|id|>729<|page|>130<|box|>232 416 254 549<|content|>现场评审报告\n<|id|>738<|page|>131<|box|>269 448 288 569<|content|>填表须知\n<|id|>799<|page|>155<|box|>178 110 195 549<|content|>G.1 试验检测机构基础信息数据元定义示例见表 G.1。\n<|id|>802<|page|>156<|box|>145 440 160 546<|content|>参考文献",
+    "raw_response": "<|id|>725<|level|>2\n<|id|>729<|level|>1\n<|id|>738<|level|>2\n<|id|>799<|level|>2\n<|id|>802<|level|>2",
+    "parsed": [
+        {
+            "id": 725,
+            "level": 2
+        },
+        {
+            "id": 729,
+            "level": 1
+        },
+        {
+            "id": 738,
+            "level": 2
+        },
+        {
+            "id": 799,
+            "level": 2
+        },
+        {
+            "id": 802,
+            "level": 2
+        }
+    ]
+}

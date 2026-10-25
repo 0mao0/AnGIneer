@@ -1,0 +1,48 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        10,
+        17,
+        18,
+        19,
+        22,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 142 104 586<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>112 143 155 843<|content|>CALDERWOOD & HARKNESS LLP 425 Lexington Avenue New York, New York 10017 MEMORANDUM\n<|id|>2<|page|>1<|box|>164 715 181 854<|content|>February 12, 2025\n<|id|>3<|page|>1<|box|>190 140 207 509<|content|>TO: ... Claudia Merritt, Partner, Banking & Finance\n<|id|>4<|page|>1<|box|>215 140 234 549<|content|>FROM: ... Marcus Leung, Associate, Banking & Finance\n<|id|>5<|page|>1<|box|>242 140 260 849<|content|>RE: ... Review of Existing Credit Agreement and Amendments — Nexford Industrial Holdings Inc\n<|id|>6<|page|>1<|box|>267 142 285 362<|content|>MATTER NO. ... 1005-00001\n<|id|>7<|page|>1<|box|>292 140 311 509<|content|>CLIENT/MATTER CODE: ... IBL-NIH-2025-031\n<|id|>8<|page|>1<|box|>319 140 335 410<|content|>Right-click to update Table of Contents\n<|id|>15<|page|>1<|box|>676 174 713 854<|content|>(d) Third Amendment to Credit Agreement, dated as of April 15, 2023 (the \"Third Amendment\"); ... and\n<|id|>17<|page|>1<|box|>784 140 893 857<|content|>By way of context, the proposed transaction contem...end recapitalization to Granite Peak NIH Holdings,\n<|id|>18<|page|>2<|box|>90 140 126 854<|content|>LLC (\"Holdings\") and its equity holders. ... The a...ate for the proposed transaction is March 28, 2025\n<|id|>33<|page|>3<|box|>854 140 909 854<|content|>The Existing Credit Agreement, including all amend...Section 5-1402 of the New York General Obligations\n<|id|>34<|page|>4<|box|>90 140 143 854<|content|>Law). ... This is consistent with the governing law provisions of the proposed new credit agreement\n<|id|>43<|page|>4<|box|>837 140 892 854<|content|>Based on this context and consistent with market p...to the financial covenant testing levels under the\n<|id|>44<|page|>5<|box|>90 140 237 856<|content|>Existing Credit Agreement, including potential cov...ed from Nexford's in-house counsel, David Engstrom\n<|id|>86<|page|>9<|box|>789 174 844 854<|content|>(f) a confirmation that, upon receipt of the full ...d satisfied, paid, and discharged in full; ... and\n<|id|>87<|page|>9<|box|>852 174 907 856<|content|>(g) a confirmation that, upon such satisfaction an...nated, and the Administrative Agent and Collateral\n<|id|>88<|page|>10<|box|>90 174 125 854<|content|>Agent will execute and deliver any documents reaso...requested to evidence such release and termination\n<|id|>164<|page|>17<|box|>535 174 571 854<|content|>(j) Ridgepoint Specialty Coatings, LLC (added via ...ction with acquisition completed in 2023); ... and\n<|id|>166<|page|>17<|box|>625 138 790 857<|content|>The guarantor group under the Existing Credit Agre...e closing certificate and the new credit agreement\n<|id|>177<|page|>18<|box|>559 218 575 789<|content|>• Greenville, South Carolina (manufacturing facility; ... and\n<|id|>179<|page|>18<|box|>599 140 671 854<|content|>All existing liens in favor of Atlas Meridian Bank...Agent must be granted and perfected simultaneously\n<|id|>187<|page|>19<|box|>328 218 345 684<|content|>• Greenville County, South Carolina (Greenville property); ... and\n<|id|>191<|page|>19<|box|>492 140 619 854<|content|>Calderwood & Harkness will prepare all UCC-3 Termi...ted and delivered at or promptly following closing\n<|id|>219<|page|>22<|box|>513 181 566 854<|content|>• A written confirmation from Nexford management t...pected to occur prior to the closing date; ... and\n<|id|>221<|page|>22<|box|>607 140 681 854<|content|>This confirmation is required not only for the Bor...xisting default under the outgoing credit facility\n<|id|>230<|page|>23<|box|>849 140 902 857<|content|>7. ... David Engstrom, General Counsel) and review...ault or Event of Default exists under the Existing\n<|id|>231<|page|>24<|box|>90 174 126 854<|content|>Credit Agreement and that all financial covenants ...a closing condition under the new credit agreement\n<|id|>237<|page|>25<|box|>455 140 488 852<|content|>Marcus Leung Associate, Banking & Finance Calderwood & Harkness LLP Direct: ... com\n<|id|>238<|page|>25<|box|>488 140 518 854<|content|>CALDERWOOD & HARKNESS LLP — CONFIDENTIAL AND PRIVI...ORNEY WORK PRODUCT Matter No. ... IBL-NIH-2025-031",
+    "raw_response": "<|src_id|>17<|tgt_id|>18\n<|src_id|>33<|tgt_id|>34\n<|src_id|>43<|tgt_id|>44\n<|src_id|>87<|tgt_id|>88\n<|src_id|>230<|tgt_id|>231",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 230,
+            "tgt_id": 231
+        }
+    ]
+}

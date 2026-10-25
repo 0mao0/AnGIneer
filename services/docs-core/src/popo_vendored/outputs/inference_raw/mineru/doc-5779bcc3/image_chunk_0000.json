@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>5<|type|>title<|page|>1<|box|>275 142 291 251<|content|>Dear Graham:\n<|id|>9<|type|>title<|page|>1<|box|>648 142 667 437<|content|>I. Description of Enclosed Documents\n<|id|>10<|type|>title<|page|>1<|box|>680 142 698 576<|content|>Enclosure 1 — Note Purchase Agreement (Initial Dra\n<|id|>27<|type|>title<|page|>3<|box|>448 140 465 666<|content|>Enclosure 2 — Form of Convertible Promissory Note\n<|id|>29<|type|>title<|page|>4<|box|>90 142 107 491<|content|>Enclosure 3 — Draft Schedule of Purchasers\n<|id|>31<|type|>table<|page|>4<|box|>174 143 287 852<|content|>None\n<|id|>33<|type|>title<|page|>4<|box|>381 142 397 622<|content|>II. Summary of Key Drafting Points and Areas for D\n<|id|>42<|type|>title<|page|>5<|box|>766 142 782 426<|content|>III. Additional Documents to Follow\n<|id|>51<|type|>title<|page|>6<|box|>263 140 281 537<|content|>IV. Request for Comments and Proposed Timeline\n<|id|>74<|type|>title<|page|>7<|box|>393 143 407 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>31<|tgt_id|>29",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        }
+    ]
+}

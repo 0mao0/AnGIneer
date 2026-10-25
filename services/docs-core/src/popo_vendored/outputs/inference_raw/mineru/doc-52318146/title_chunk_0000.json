@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 248 142 748<|content|>SECRETARY'S CERTIFICATE OF PENTERRA PHARMACEUTICAL\n<|id|>3<|page|>1<|box|>279 142 296 331<|content|>I. Introductory Recitals\n<|id|>9<|page|>1<|box|>834 140 851 428<|content|>II. Good Standing and Organization\n<|id|>14<|page|>2<|box|>484 140 501 514<|content|>III. Certification of Certificate of Incorporation\n<|id|>17<|page|>2<|box|>777 140 794 356<|content|>IV. Certification of Bylaws\n<|id|>20<|page|>3<|box|>223 140 239 434<|content|>V. Certification of Board Resolutions\n<|id|>30<|page|>4<|box|>476 142 493 473<|content|>VI. Incumbency and Authority of Officers\n<|id|>35<|page|>5<|box|>204 140 222 614<|content|>VII. Certification Regarding Chair of the Board of\n<|id|>38<|page|>5<|box|>425 140 441 411<|content|>VIII. No Conflict; No Proceedings\n<|id|>41<|page|>5<|box|>756 140 773 349<|content|>IX. Further Certifications\n<|id|>44<|page|>6<|box|>239 140 258 238<|content|>X. Reliance\n<|id|>49<|page|>6<|box|>590 140 609 526<|content|>Counter-Certification of Secretary's Incumbency\n<|id|>55<|page|>7<|box|>233 447 250 550<|content|>EXHIBIT B\n<|id|>56<|page|>7<|box|>260 331 277 665<|content|>Bylaws of Penterra Pharmaceuticals Corp.\n<|id|>57<|page|>7<|box|>286 336 303 658<|content|>(as amended to date and currently in effect)\n<|id|>60<|page|>7<|box|>398 447 415 550<|content|>EXHIBIT C\n<|id|>61<|page|>7<|box|>426 215 443 779<|content|>Resolutions of the Board of Directors of Penterra",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>57<|level|>4\n<|id|>60<|level|>2\n<|id|>61<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        }
+    ]
+}

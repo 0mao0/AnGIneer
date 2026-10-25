@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 6,
+    "range": [
+        314,
+        351
+    ],
+    "pages": [
+        314,
+        315,
+        316,
+        319,
+        334,
+        335,
+        337,
+        340,
+        346,
+        349,
+        351
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>983<|page|>314<|box|>137 444 163 517<|content|>说明\n<|id|>987<|page|>315<|box|>122 439 148 570<|content|>一、污水处理工程\n<|id|>989<|page|>315<|box|>456 93 476 162<|content|>平面布置简图\n<|id|>995<|page|>316<|box|>130 76 150 108<|content|>续表\n<|id|>1002<|page|>319<|box|>112 115 135 296<|content|>(三)煤污水处理厂:400m³/h\n<|id|>1021<|page|>334<|box|>117 410 144 574<|content|>二、固体废物处理工程\n<|id|>1024<|page|>335<|box|>122 395 148 592<|content|>三、海港码头溢油应急设备\n<|id|>1027<|page|>337<|box|>117 425 145 539<|content|>四、除尘指标\n<|id|>1028<|page|>337<|box|>153 93 176 214<|content|>(一)干船坞空压站\n<|id|>1033<|page|>340<|box|>124 116 148 250<|content|>(二)干船坞动力管道\n<|id|>1048<|page|>346<|box|>109 67 130 99<|content|>续表\n<|id|>1053<|page|>349<|box|>114 70 134 100<|content|>续表\n<|id|>1056<|page|>351<|box|>166 244 276 799<|content|>本估算指标主编单位、参编单位、 主要起草人、参加人员、总校人员和管理组人员名单",
+    "raw_response": "<|id|>983<|level|>1\n<|id|>987<|level|>2\n<|id|>989<|level|>3\n<|id|>995<|level|>4\n<|id|>1002<|level|>3\n<|id|>1021<|level|>2\n<|id|>1024<|level|>2\n<|id|>1027<|level|>2\n<|id|>1028<|level|>3\n<|id|>1033<|level|>3\n<|id|>1048<|level|>4\n<|id|>1053<|level|>4\n<|id|>1056<|level|>1",
+    "parsed": [
+        {
+            "id": 983,
+            "level": 1
+        },
+        {
+            "id": 987,
+            "level": 2
+        },
+        {
+            "id": 989,
+            "level": 3
+        },
+        {
+            "id": 995,
+            "level": 4
+        },
+        {
+            "id": 1002,
+            "level": 3
+        },
+        {
+            "id": 1021,
+            "level": 2
+        },
+        {
+            "id": 1024,
+            "level": 2
+        },
+        {
+            "id": 1027,
+            "level": 2
+        },
+        {
+            "id": 1028,
+            "level": 3
+        },
+        {
+            "id": 1033,
+            "level": 3
+        },
+        {
+            "id": 1048,
+            "level": 4
+        },
+        {
+            "id": 1053,
+            "level": 4
+        },
+        {
+            "id": 1056,
+            "level": 1
+        }
+    ]
+}

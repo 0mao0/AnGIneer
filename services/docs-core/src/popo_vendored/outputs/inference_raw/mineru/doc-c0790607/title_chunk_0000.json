@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        3,
+        7
+    ],
+    "pages": [
+        3,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>3<|box|>85 87 102 610<|content|>Line Item Payee / ReAmount ($% of Total Descriptio\n<|id|>4<|page|>7<|box|>85 85 102 532<|content|>CapitalizatPre-Closin AdjustmentPost-Closi Holder",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>4<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        }
+    ]
+}

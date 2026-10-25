@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>272 112 287 885<|content|>Shannon M. ... Alana Vivolo-Kantor, PhD\n<|id|>2<|page|>1<|box|>310 53 787 483<|content|>The number of nonfatal opioid-involved overdoses t...has risen in the United States; ... <sup>†,§</sup>\n<|id|>3<|page|>1<|box|>486 514 515 944<|content|><sup>†</sup> https: ... pdf\n<|id|>5<|page|>1<|box|>561 532 609 926<|content|>1081 Review of CDC’s Suspension of and Advance Wri... United States from Egypt — May 2019–December 2020\n<|id|>6<|page|>1<|box|>609 532 686 928<|content|>1085 Laboratory-Confirmed COVID-19–Associated Hosp...nce Network, 14 States, June 20, 2021–May 31, 2022\n<|id|>7<|page|>1<|box|>686 534 733 913<|content|>1092 High-Contact Object and Surface Contamination...s with Monkeypox Virus Infection — Utah, June 2022\n<|id|>8<|page|>1<|box|>734 534 780 864<|content|>1095 Notes From the Field: ... Coccidioidomycosis ...eak Among Wildland Firefighters — California, 2021\n<|id|>9<|page|>1<|box|>781 534 797 655<|content|>1097 QuickStats\n<|id|>10<|page|>2<|box|>87 52 319 483<|content|>EMS data collected by biospatial, Inc. ... <sup>§§</sup>\n<|id|>11<|page|>2<|box|>119 511 286 946<|content|>Trends were analyzed overall, by patient character...d to account for fluctuations in EMS use over time\n<|id|>12<|page|>3<|box|>137 52 268 483<|content|>Joinpoint regression (version 4. ... <sup>§§§</sup>\n<|id|>13<|page|>3<|box|>268 52 433 483<|content|>The rate of nonfatal opioid-involved overdose EMS ...tabilized after the onset of the COVID-19 pandemic\n<|id|>22<|page|>4<|box|>170 53 204 482<|content|>This report highlights community characteristics t... previous study found that drug overdose mortality\n<|id|>23<|page|>5<|box|>87 50 303 483<|content|>was elevated in U. ... This divergent finding migh...differences between ED discharge and EMS data (10)",
+    "raw_response": "<|src_id|>22<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ]
+}

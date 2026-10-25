@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 166 118 831<|content|>TERM SHEET — CONVERTIBLE NOTE BRIDGE FINANCING\n<|id|>1<|type|>title<|page|>1<|box|>136 364 152 633<|content|>EXECUTED — December 4, 2023\n<|id|>5<|type|>title<|page|>1<|box|>444 142 460 454<|content|>Section 1: Summary of Principal Terms\n<|id|>6<|type|>title<|page|>1<|box|>474 143 493 310<|content|>1.1 Issuer / Company\n<|id|>11<|type|>table<|page|>1<|box|>739 143 866 852<|content|>None\n<|id|>15<|type|>title<|page|>2<|box|>356 143 375 400<|content|>1.3 Aggregate Principal Amount\n<|id|>17<|type|>title<|page|>2<|box|>446 142 464 303<|content|>1.4 Type of Security\n<|id|>19<|type|>title<|page|>2<|box|>574 143 590 277<|content|>1.5 Interest Rate\n<|id|>23<|type|>title<|page|>2<|box|>827 143 844 287<|content|>1.6 Maturity Date\n<|id|>26<|type|>title<|page|>3<|box|>176 142 193 297<|content|>1.7 Use of Proceeds\n<|id|>28<|type|>title<|page|>3<|box|>349 140 368 372<|content|>Section 2: Conversion Terms\n<|id|>29<|type|>title<|page|>3<|box|>381 140 398 519<|content|>2.1 Qualified Financing (Automatic Conversion)\n<|id|>32<|type|>title<|page|>3<|box|>662 142 679 310<|content|>2.2 Conversion Price\n<|id|>38<|type|>title<|page|>4<|box|>231 140 248 290<|content|>2.3 Valuation Cap\n<|id|>40<|type|>title<|page|>4<|box|>359 140 375 334<|content|>2.4 Conversion discount\n<|id|>42<|type|>title<|page|>4<|box|>468 140 484 431<|content|>2.5 Optional Conversion at Maturity\n<|id|>47<|type|>title<|page|>5<|box|>90 140 107 321<|content|>2.6 Change of Control\n<|id|>53<|type|>title<|page|>5<|box|>606 140 623 374<|content|>Section 3: Closing Mechanics\n<|id|>56<|type|>table<|page|>5<|box|>813 143 906 852<|content|>None\n<|id|>57<|type|>table<|page|>6<|box|>203 143 277 852<|content|>None\n<|id|>61<|type|>title<|page|>6<|box|>599 140 616 349<|content|>3.3 Definitive Agreements\n<|id|>72<|type|>title<|page|>7<|box|>417 140 434 366<|content|>Section 4: Additional Terms\n<|id|>74<|type|>title<|page|>7<|box|>699 140 715 300<|content|>4.2 Lender Consent\n<|id|>76<|type|>title<|page|>8<|box|>90 140 107 398<|content|>4.3 Most Favored Nation (MFN)\n<|id|>78<|type|>title<|page|>8<|box|>328 140 345 326<|content|>4.4 Information Rights\n<|id|>84<|type|>title<|page|>8<|box|>797 140 814 356<|content|>4.5 Board Observer Rights\n<|id|>86<|type|>title<|page|>9<|box|>231 140 250 403<|content|>4.6 Preemptive / Pro Rata Rights\n<|id|>88<|type|>title<|page|>9<|box|>377 140 393 426<|content|>4.7 Representations and Warranties\n<|id|>94<|type|>title<|page|>10<|box|>90 142 107 343<|content|>4.8 Conditions to Closing\n<|id|>106<|type|>title<|page|>10<|box|>779 140 797 359<|content|>Section 5: Other Provisions\n<|id|>107<|type|>title<|page|>10<|box|>810 140 828 297<|content|>5.1 Governing Law\n<|id|>109<|type|>title<|page|>11<|box|>90 140 107 321<|content|>5.2 Dispute Resolution\n<|id|>111<|type|>title<|page|>11<|box|>291 140 308 287<|content|>5.3 Legal Counsel\n<|id|>114<|type|>title<|page|>11<|box|>407 140 425 367<|content|>5.4 Legal Fees and Expenses\n<|id|>119<|type|>title<|page|>12<|box|>148 140 167 375<|content|>Section 6: Binding Provisions\n<|id|>128<|type|>title<|page|>12<|box|>859 192 896 803<|content|>SIGNATURE PAGE TO TERM SHEET — CONVERTIBLE NOTE BR\n<|id|>130<|type|>title<|page|>13<|box|>152 142 169 248<|content|>COMPANY:\n<|id|>143<|type|>title<|page|>13<|box|>393 271 410 727<|content|>ACKNOWLEDGED AND AGREED — CO-INVESTORS",
+    "raw_response": "<|src_id|>11<|tgt_id|>6\n<|src_id|>56<|tgt_id|>53\n<|src_id|>57<|tgt_id|>53",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 53
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        12,
+        13,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>150 140 186 854<|content|>TO: ... Helen Ng\n<|id|>3<|page|>1<|box|>195 140 213 563<|content|>FROM: ... Sophie Tremblay, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>220 140 239 331<|content|>DATE: ... August 15, 2023\n<|id|>5<|page|>1<|box|>246 140 284 854<|content|>RE: ... (Project Coriander)\n<|id|>6<|page|>1<|box|>290 140 309 380<|content|>C&H Matter No. ... 1025-00006\n<|id|>7<|page|>1<|box|>316 140 334 408<|content|>Right-click to update Table of Contents\n<|id|>16<|page|>2<|box|>438 147 473 854<|content|>• State income tax consequences for material Calis...state tax nexus implications for Penterra; ... and\n<|id|>18<|page|>2<|box|>513 140 530 607<|content|>Our analysis and recommendations are set forth in ... and recommendations are set forth in detail below\n<|id|>23<|page|>2<|box|>862 140 898 854<|content|>Penterra Pharmaceuticals Corp. ... Penterra is a c...t 400 Innovation Drive, Suite 1200, Princeton, New\n<|id|>24<|page|>3<|box|>90 140 200 856<|content|>Jersey 08540. ... \" Penterra's current market capi... NYSE listing rules, subject to final confirmation\n<|id|>47<|page|>5<|box|>561 174 579 816<|content|>Stock Consideration / Aggregate Equity Value = $231,250,000 / $925,000,000 = 25. ... 0%\n<|id|>48<|page|>5<|box|>588 140 662 854<|content|>This ratio falls substantially below the forty per...nd a corresponding reduction in the cash component\n<|id|>50<|page|>5<|box|>731 174 765 854<|content|>Stock Consideration / Maximum Total Consideration = $231,250,000 / $1,050,000,000 ≈ 22. ... 0%\n<|id|>51<|page|>5<|box|>776 140 830 854<|content|>Under this calculation, the stock component would ...se of approximately $188,750,000 in stock issuance\n<|id|>57<|page|>6<|box|>434 174 489 854<|content|>(a) the \"amount realized\" by such stockholder, whi...if any, as discussed in Section IV below); ... and\n<|id|>59<|page|>6<|box|>523 140 614 854<|content|>For the vast majority of Caliston stockholders, th..... The applicable federal tax rates are as follows\n<|id|>71<|page|>7<|box|>859 140 896 854<|content|>Given that Caliston is a clinical-stage biopharmac...ties, if any) is expected to be allocable to Class\n<|id|>72<|page|>8<|box|>90 140 219 856<|content|>VI intangible assets — specifically, in-process re...lly offsetting the premium paid in the transaction\n<|id|>115<|page|>12<|box|>425 147 460 854<|content|>• The value of any non-competition consideration (...tition agreement to be entered into by Dr. ... and\n<|id|>117<|page|>12<|box|>500 140 609 856<|content|>All such payments must be aggregated for each disq...se tax and the Section 280G deduction disallowance\n<|id|>122<|page|>13<|box|>176 174 250 854<|content|>(i) The payment is approved by a vote of the perso...ll material facts concerning the payments; ... and\n<|id|>124<|page|>13<|box|>319 140 375 856<|content|>Because Caliston is a privately held corporation, ...d stockholder approval must be carefully evaluated\n<|id|>191<|page|>20<|box|>517 142 532 320<|content|>Respectfully submitted,\n<|id|>192<|page|>20<|box|>534 142 550 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>193<|page|>20<|box|>551 143 569 251<|content|>By: ... By",
+    "raw_response": "<|src_id|>23<|tgt_id|>24\n<|src_id|>71<|tgt_id|>72",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        92,
+        123
+    ],
+    "pages": [
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        115,
+        123
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1218<|type|>title<|page|>92<|box|>73 246 89 750<|content|>APPENDIX M: ADVANTAGES AND DISADVANTAGES OF PPE\n<|id|>1219<|type|>table<|page|>92<|box|>143 116 770 883<|content|>None\n<|id|>1221<|type|>title<|page|>93<|box|>73 114 89 348<|content|>MASKS AND N95 RESPIRATORS\n<|id|>1222<|type|>table<|page|>93<|box|>94 117 479 883<|content|>None\n<|id|>1223<|type|>title<|page|>93<|box|>500 114 517 258<|content|>EYE PROTECTION\n<|id|>1224<|type|>table<|page|>93<|box|>523 116 886 883<|content|>None\n<|id|>1229<|type|>table<|page|>94<|box|>335 96 920 897<|content|>None\n<|id|>1230<|type|>table<|page|>95<|box|>70 94 916 897<|content|>None\n<|id|>1231<|type|>table<|page|>96<|box|>70 94 907 897<|content|>None\n<|id|>1232<|type|>table<|page|>97<|box|>70 94 907 898<|content|>None\n<|id|>1233<|type|>table<|page|>98<|box|>70 94 926 898<|content|>None\n<|id|>1234<|type|>table<|page|>99<|box|>70 94 924 897<|content|>None\n<|id|>1235<|type|>table<|page|>100<|box|>70 94 910 897<|content|>None\n<|id|>1236<|type|>table<|page|>101<|box|>70 94 922 897<|content|>None\n<|id|>1237<|type|>table<|page|>102<|box|>70 94 902 897<|content|>None\n<|id|>1238<|type|>table<|page|>103<|box|>70 94 925 897<|content|>None\n<|id|>1239<|type|>table<|page|>104<|box|>70 94 926 898<|content|>None\n<|id|>1240<|type|>table<|page|>105<|box|>70 94 916 897<|content|>None\n<|id|>1241<|type|>table<|page|>106<|box|>70 94 904 897<|content|>None\n<|id|>1242<|type|>table<|page|>107<|box|>70 94 905 897<|content|>None\n<|id|>1243<|type|>table<|page|>108<|box|>70 94 917 898<|content|>None\n<|id|>1244<|type|>table<|page|>109<|box|>70 94 912 897<|content|>None\n<|id|>1245<|type|>table<|page|>110<|box|>70 94 917 897<|content|>None\n<|id|>1246<|type|>table<|page|>111<|box|>69 94 917 897<|content|>None\n<|id|>1247<|type|>table<|page|>112<|box|>69 96 402 897<|content|>None\n<|id|>1248<|type|>title<|page|>112<|box|>428 88 444 312<|content|>References for Appendix N\n<|id|>1275<|type|>title<|page|>115<|box|>80 114 111 325<|content|>References\n<|id|>1430<|type|>image<|page|>123<|box|>26 40 554 954<|content|>None",
+    "raw_response": "<|src_id|>1219<|tgt_id|>1218\n<|src_id|>1222<|tgt_id|>1221\n<|src_id|>1224<|tgt_id|>1223",
+    "parsed": [
+        {
+            "src_id": 1219,
+            "tgt_id": 1218
+        },
+        {
+            "src_id": 1222,
+            "tgt_id": 1221
+        },
+        {
+            "src_id": 1224,
+            "tgt_id": 1223
+        }
+    ]
+}

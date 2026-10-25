@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        8,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>212 153 247 843<|content|>THALASSA FINANCE PTE. ... a private company limite...orated under the laws of the Republic of Singapore\n<|id|>4<|page|>1<|box|>257 447 272 550<|content|>as Co-Issuers\n<|id|>28<|page|>4<|box|>178 174 232 854<|content|>(c) Thalassa Port Services FZCO, a free zone compa...Arab Emirates, license number DMCC-847921; ... and\n<|id|>30<|page|>4<|box|>285 140 412 857<|content|>In addition, the obligations of the Co-Issuers und...otation of Guarantee attached hereto as Schedule B\n<|id|>44<|page|>5<|box|>758 174 777 558<|content|>(i) 1. ... and\n<|id|>47<|page|>6<|box|>364 140 547 854<|content|>Equity Clawback. ... provided that\n<|id|>48<|page|>6<|box|>554 174 609 854<|content|>(a) at least 60% of the original aggregate princip...ly after giving effect to such redemption; ... and\n<|id|>50<|page|>6<|box|>643 140 734 854<|content|>Partial Redemption. ... Selection of Notes for par... the Depositary), unless otherwise required by law\n<|id|>65<|page|>8<|box|>590 174 645 854<|content|>(c) effectively senior, to the extent of the value... unsecured Indebtedness of the Co-Issuers; ... and\n<|id|>67<|page|>8<|box|>715 140 768 856<|content|>Each Guarantee ranks, with respect to the applicab...debtedness and other obligations of such Guarantor\n<|id|>94<|page|>11<|box|>664 171 902 857<|content|>\"BY ITS ACQUISITION HEREOF OR OF A BENEFICIAL INTE... HOLDING HEREOF OR OF A BENEFICIAL INTEREST HEREIN\n<|id|>95<|page|>12<|box|>89 174 181 854<|content|>DOES NOT AND WILL NOT CONSTITUTE OR RESULT IN A NO...RWISE THAN IN COMPLIANCE WITH THE FOREGOING. ... \"\n<|id|>103<|page|>13<|box|>273 174 310 852<|content|>Marlowe Asset Management Trust Company of Singapor...nson Road, #02- 00 Singapore 068898 UEN 199804782D\n<|id|>104<|page|>13<|box|>319 140 429 856<|content|>The Co-Issuers may from time to time appoint one o...ovisions of the Indenture; ... 02 of the Indenture\n<|id|>109<|page|>13<|box|>541 142 556 318<|content|>Name: ... Spyros Andreou\n<|id|>110<|page|>13<|box|>558 142 574 367<|content|>Title: ... Chief Executive Officer\n<|id|>111<|page|>13<|box|>574 142 590 486<|content|>THALASSA SHIPPING & LOGISTICS SA\n<|id|>112<|page|>13<|box|>593 143 609 251<|content|>By: ... By\n<|id|>113<|page|>13<|box|>609 143 625 334<|content|>Name: ... Marina Demetriou\n<|id|>114<|page|>13<|box|>627 143 642 361<|content|>Title: ... Chief Financial Officer\n<|id|>115<|page|>13<|box|>643 142 659 421<|content|>THALASSA FINANCE PTE. ... LTD\n<|id|>117<|page|>13<|box|>679 142 694 334<|content|>Name: ... Marina Demetriou\n<|id|>118<|page|>13<|box|>696 143 712 290<|content|>Title: ... Sole Director\n<|id|>124<|page|>13<|box|>816 143 834 348<|content|>Title: ... Authorized Signatory\n<|id|>125<|page|>13<|box|>834 142 849 395<|content|>Date of Authentication: ... Date of Authentication\n<|id|>127<|page|>13<|box|>876 218 893 777<|content|>SCHEDULE OF INCREASES AND DECREASES IN GLOBAL NOTE\n<|id|>128<|page|>14<|box|>90 140 181 856<|content|>The initial aggregate principal amount of this Glo...in accordance with the provisions of the Indenture\n<|id|>142<|page|>15<|box|>373 140 406 856<|content|>THALASSA DRY BULK OPERATIONS LTD. ... (Malta, company registration number C 98421)\n<|id|>143<|page|>15<|box|>407 143 424 253<|content|>By: ... By\n<|id|>146<|page|>15<|box|>458 142 474 833<|content|>THALASSA CONTAINER FEEDER LTD. ... (Marshall Islands, registration number 107429)\n<|id|>147<|page|>15<|box|>477 143 494 253<|content|>By: ... By\n<|id|>150<|page|>15<|box|>527 142 544 844<|content|>THALASSA PORT SERVICES FZCO (Dubai, UAE, DMCC license number DMCC-847921)\n<|id|>151<|page|>15<|box|>545 143 561 253<|content|>By: ... By\n<|id|>154<|page|>15<|box|>595 140 613 764<|content|>THALASSA FREIGHT SOLUTIONS PTE. ... (Singapore, UEN 201814567G)\n<|id|>155<|page|>15<|box|>614 143 631 253<|content|>By: ... By\n<|id|>159<|page|>15<|box|>691 142 723 854<|content|>KALLISTRATOS MARITIME HOLDINGS LTD. ... (British Virgin Islands, company number 2051433)\n<|id|>160<|page|>15<|box|>724 142 758 852<|content|>The Guarantee of this Parent Guarantor is limited ...ited States Dollars) as described in the Indenture",
+    "raw_response": "<|src_id|>3<|tgt_id|>4\n<|src_id|>94<|tgt_id|>95",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        }
+    ]
+}

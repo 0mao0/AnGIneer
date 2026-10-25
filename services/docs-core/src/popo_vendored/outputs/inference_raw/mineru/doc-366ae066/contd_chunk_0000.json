@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>309 227 325 769<|content|>Incorporated Under the General Corporation Law of the State of Delaware\n<|id|>5<|page|>1<|box|>335 140 390 854<|content|>The undersigned, acting as incorporator for the pu... Code (the \"DGCL\"), does hereby certify as follows\n<|id|>13<|page|>1<|box|>781 140 931 856<|content|>Without limiting the generality of the foregoing, ..., and other agreements in connection with the Page\n<|id|>14<|page|>2<|box|>90 140 219 854<|content|>acquisition, holding, or disposition of such limit...he accomplishment of any of the foregoing purposes\n<|id|>23<|page|>2<|box|>797 176 814 344<|content|>Name: ... Stephen Adler\n<|id|>24<|page|>2<|box|>823 176 840 607<|content|>Title/Affiliation: ... Associate, Calderwood & Harkness LLP\n<|id|>25<|page|>2<|box|>849 176 867 818<|content|>Address: ... 400 South Ashbury Asset Advisors, Suite 3000, Wilmington, Delaware 19801\n<|id|>26<|page|>3<|box|>90 140 181 854<|content|>The incorporator is signing this Certificate of In... written consent, as provided in Article VI hereof\n<|id|>38<|page|>4<|box|>89 174 126 854<|content|>(iii) liability under Section 174 of the DGCL, rel...or unlawful stock purchases or redemptions; ... or\n<|id|>40<|page|>4<|box|>160 140 287 856<|content|>Section 7. ... If the DGCL is hereafter amended to...ther action by the stockholders of the Corporation",
+    "raw_response": "<|src_id|>13<|tgt_id|>14",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        }
+    ]
+}

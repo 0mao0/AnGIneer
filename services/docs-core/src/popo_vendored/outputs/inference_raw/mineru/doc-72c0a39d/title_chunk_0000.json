@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>180 315 196 683<|content|>PRELIMINARY PROSPECTUS SUPPLEMENT\n<|id|>7<|page|>1<|box|>311 336 330 660<|content|>Penterra Pharmaceuticals Corp.\n<|id|>8<|page|>1<|box|>356 142 373 419<|content|>6,250,000 Shares of Common Stock\n<|id|>26<|page|>2<|box|>382 143 398 531<|content|>PRELIMINARY PROSPECTUS SUPPLEMENT",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>26<|level|>1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 1
+        }
+    ]
+}

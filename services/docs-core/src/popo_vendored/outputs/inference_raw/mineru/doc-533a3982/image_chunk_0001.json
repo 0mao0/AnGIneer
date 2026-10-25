@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        48,
+        59
+    ],
+    "pages": [
+        48,
+        49,
+        51,
+        52,
+        53,
+        54,
+        56,
+        58,
+        59
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>510<|type|>title<|page|>48<|box|>90 142 108 697<|content|>Appendix B: Template Speaker Program Agreement (Cr\n<|id|>518<|type|>title<|page|>49<|box|>90 140 108 674<|content|>Appendix C: Promotional Materials Review SOP (MLR\n<|id|>519<|type|>title<|page|>49<|box|>113 140 148 854<|content|>STANDARD OPERATING PROCEDURE: MEDICAL-LEGAL-REGULA\n<|id|>522<|type|>title<|page|>49<|box|>319 142 337 387<|content|>MLR Committee Composition.\n<|id|>527<|type|>title<|page|>49<|box|>424 143 440 210<|content|>Process.\n<|id|>537<|type|>title<|page|>51<|box|>90 140 125 854<|content|>Appendix D: Proposed Redline Amendments to ADS Dis\n<|id|>545<|type|>title<|page|>52<|box|>90 142 108 588<|content|>Appendix E: State-by-State Compliance Action Check\n<|id|>547<|type|>table<|page|>52<|box|>194 143 906 852<|content|>None\n<|id|>548<|type|>table<|page|>53<|box|>88 143 172 852<|content|>None\n<|id|>549<|type|>title<|page|>54<|box|>90 142 108 573<|content|>Appendix F: Compliance Training Curriculum Outline\n<|id|>550<|type|>table<|page|>54<|box|>174 143 583 852<|content|>None\n<|id|>551<|type|>table<|page|>54<|box|>641 143 869 852<|content|>None\n<|id|>554<|type|>title<|page|>56<|box|>90 142 150 841<|content|>Appendix G: Compliance Committee Charter (Proposed\n<|id|>577<|type|>title<|page|>58<|box|>90 140 108 575<|content|>Appendix H: Key Regulatory and Guidance References\n<|id|>579<|type|>title<|page|>58<|box|>157 142 174 281<|content|>Federal Statutes:\n<|id|>588<|type|>title<|page|>58<|box|>340 142 357 308<|content|>Federal Regulations:\n<|id|>598<|type|>title<|page|>58<|box|>542 142 559 267<|content|>OIG Guidance:\n<|id|>604<|type|>title<|page|>58<|box|>703 142 719 307<|content|>Judicial Authorities:\n<|id|>606<|type|>title<|page|>58<|box|>750 142 765 305<|content|>Industry Standards:\n<|id|>609<|type|>title<|page|>58<|box|>832 140 848 390<|content|>State Statutes and Regulations:\n<|id|>618<|type|>title<|page|>59<|box|>244 142 260 361<|content|>FDA Guidance Documents:",
+    "raw_response": "<|src_id|>547<|tgt_id|>545\n<|src_id|>548<|tgt_id|>545\n<|src_id|>550<|tgt_id|>549\n<|src_id|>551<|tgt_id|>549",
+    "parsed": [
+        {
+            "src_id": 547,
+            "tgt_id": 545
+        },
+        {
+            "src_id": 548,
+            "tgt_id": 545
+        },
+        {
+            "src_id": 550,
+            "tgt_id": 549
+        },
+        {
+            "src_id": 551,
+            "tgt_id": 549
+        }
+    ]
+}

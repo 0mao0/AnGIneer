@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        12
+    ],
+    "pages": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 406 109 589<|content|>FEE SCHEDULE\n<|id|>1<|page|>2<|box|>128 352 146 643<|content|>Exhibit [●] to the Deposit Agreement\n<|id|>13<|page|>2<|box|>766 140 782 467<|content|>Section 1: Annual Depositary Service Fee\n<|id|>24<|page|>4<|box|>90 140 107 709<|content|>Section 2: Issuance Fees (Deposit of Ordinary Shar\n<|id|>32<|page|>4<|box|>660 140 678 787<|content|>Section 3: Cancellation Fees (Surrender of ADSs /\n<|id|>39<|page|>5<|box|>329 140 347 400<|content|>Section 4: Cash Distribution Fee\n<|id|>48<|page|>5<|box|>797 140 814 565<|content|>Section 5: Stock Distribution / Rights Distributio\n<|id|>52<|page|>6<|box|>267 140 284 754<|content|>Section 6: Depositary Services Fee for Distributio\n<|id|>56<|page|>6<|box|>587 140 604 468<|content|>Section 7: Transfer and Registration Fees\n<|id|>61<|page|>7<|box|>150 140 167 535<|content|>Section 8: Expenses and Charges of the Custodian\n<|id|>67<|page|>7<|box|>575 140 594 604<|content|>Section 9: Taxes, Duties, and Other Governmental C\n<|id|>76<|page|>8<|box|>494 140 511 480<|content|>Section 10: Currency Conversion Expenses\n<|id|>80<|page|>9<|box|>148 140 167 715<|content|>Section 11: Cable, Telex, Facsimile, and Electroni\n<|id|>88<|page|>9<|box|>500 140 518 676<|content|>Section 12: Reimbursement of Company Payments to t\n<|id|>97<|page|>10<|box|>348 140 364 676<|content|>Section 13: Summary of Permitted Direct Charges by\n<|id|>100<|page|>11<|box|>90 140 107 467<|content|>Section 14: Right to Amend Fee Schedule\n<|id|>104<|page|>11<|box|>429 140 446 393<|content|>Section 15: Manner of Payment\n<|id|>109<|page|>12<|box|>90 140 107 398<|content|>Section 16: Contact Information\n<|id|>120<|page|>12<|box|>412 359 430 637<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>122<|page|>12<|box|>483 140 500 756<|content|>MERIDIAN TRUST COMPANY, NATIONAL ASSOCIATION, as D",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>13<|level|>2\n<|id|>24<|level|>2\n<|id|>32<|level|>2\n<|id|>39<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>61<|level|>2\n<|id|>67<|level|>2\n<|id|>76<|level|>2\n<|id|>80<|level|>2\n<|id|>88<|level|>2\n<|id|>97<|level|>2\n<|id|>100<|level|>2\n<|id|>104<|level|>2\n<|id|>109<|level|>2\n<|id|>120<|level|>-1\n<|id|>122<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        }
+    ]
+}

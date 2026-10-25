@@ -1,0 +1,140 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>267 140 285 771<|content|>VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED AND V\n<|id|>10<|page|>1<|box|>424 140 441 421<|content|>I. Purpose and Policy Identification\n<|id|>14<|page|>1<|box|>799 140 816 388<|content|>II. Identification of the Insured\n<|id|>29<|page|>2<|box|>537 142 555 570<|content|>III. Description of the Underlying Enforcement Mat\n<|id|>30<|page|>2<|box|>569 140 585 450<|content|>A. Overview of the Government Action\n<|id|>33<|page|>2<|box|>715 352 734 645<|content|>Civil Action No. 9:24-cv-00087-DWM\n<|id|>41<|page|>3<|box|>215 142 233 334<|content|>B. Government Counsel\n<|id|>49<|page|>3<|box|>503 140 521 285<|content|>C. The Four Sites\n<|id|>74<|page|>5<|box|>449 140 465 473<|content|>D. Procedural History and Current Status\n<|id|>86<|page|>6<|box|>90 140 107 550<|content|>IV. Financial Magnitude of the Enforcement Matter\n<|id|>88<|page|>6<|box|>202 142 219 364<|content|>A. Remediation Obligations\n<|id|>91<|page|>6<|box|>489 142 505 281<|content|>B. Civil Penalties\n<|id|>97<|page|>6<|box|>664 140 681 557<|content|>C. EPA Past-Costs Reimbursement (CERCLA § 107)\n<|id|>99<|page|>6<|box|>773 140 791 521<|content|>D. Supplemental Environmental Projects (SEPs)\n<|id|>101<|page|>7<|box|>90 140 107 383<|content|>E. Independent Monitor Costs\n<|id|>103<|page|>7<|box|>199 140 215 326<|content|>F. Financial Assurance\n<|id|>107<|page|>7<|box|>354 140 371 437<|content|>G. Grand Total Estimated Obligation\n<|id|>109<|page|>7<|box|>463 140 479 480<|content|>H. TMC's Current Environmental Reserve\n<|id|>111<|page|>7<|box|>571 140 589 349<|content|>I. TMC Financial Context\n<|id|>117<|page|>7<|box|>739 140 757 710<|content|>V. Circumstances Giving Rise to Potential Claims U\n<|id|>118<|page|>7<|box|>771 140 787 710<|content|>A. Potential Director and Officer Exposure from th\n<|id|>125<|page|>8<|box|>469 140 486 560<|content|>B. Potential Securities and Disclosure-Related Cla\n<|id|>128<|page|>8<|box|>787 140 804 508<|content|>C. Potential Derivative or Shareholder Actions\n<|id|>131<|page|>9<|box|>138 140 157 480<|content|>D. Regulatory Investigation or Proceedings\n<|id|>133<|page|>9<|box|>296 140 313 614<|content|>VI. Insurance Coverage Considerations and Related\n<|id|>134<|page|>9<|box|>325 140 344 475<|content|>A. Meridian PLL Policy Coverage Dispute\n<|id|>138<|page|>9<|box|>652 140 669 383<|content|>B. Credit Facility Implications\n<|id|>143<|page|>10<|box|>212 140 229 352<|content|>VII. Reservation of Rights\n<|id|>151<|page|>10<|box|>599 140 616 588<|content|>VIII. Request for Confirmation and Contact Informa\n<|id|>159<|page|>11<|box|>89 140 107 348<|content|>IX. Confidentiality Notice",
+    "raw_response": "<|id|>6<|level|>-1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>29<|level|>1\n<|id|>30<|level|>2\n<|id|>33<|level|>3\n<|id|>41<|level|>2\n<|id|>49<|level|>2\n<|id|>74<|level|>2\n<|id|>86<|level|>1\n<|id|>88<|level|>2\n<|id|>91<|level|>2\n<|id|>97<|level|>2\n<|id|>99<|level|>2\n<|id|>101<|level|>2\n<|id|>103<|level|>2\n<|id|>107<|level|>2\n<|id|>109<|level|>2\n<|id|>111<|level|>2\n<|id|>117<|level|>1\n<|id|>118<|level|>2\n<|id|>125<|level|>2\n<|id|>128<|level|>2\n<|id|>131<|level|>2\n<|id|>133<|level|>1\n<|id|>134<|level|>2\n<|id|>138<|level|>2\n<|id|>143<|level|>1\n<|id|>151<|level|>1\n<|id|>159<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 1
+        }
+    ]
+}

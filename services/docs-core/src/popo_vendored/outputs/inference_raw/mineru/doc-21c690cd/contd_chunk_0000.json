@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>309 140 339 852<|content|>Prepared in advance of January 22, 2024 public S-1...Harkness LLP, 125 Broad Street, New York, NY 10004\n<|id|>4<|page|>1<|box|>347 142 364 408<|content|>Right-click to update Table of Contents\n<|id|>21<|page|>3<|box|>715 138 898 857<|content|>Analysis. ... Based on our experience with IPOs of...gnitude (exceeding $400 million in gross proceeds)\n<|id|>22<|page|>4<|box|>90 140 181 856<|content|>typically results in distribution to well in exces...t mandates, further supporting a wide distribution\n<|id|>48<|page|>6<|box|>313 174 349 854<|content|>80,000,000 pre-IPO shares + 20,000,000 base offeri...,000,000 overallotment shares = 103,000,000 shares\n<|id|>49<|page|>6<|box|>357 142 375 790<|content|>At the IPO price of $20. ... 00 per share, the Company's global market capitalization will be\n<|id|>50<|page|>6<|box|>383 178 401 594<|content|>103,000,000 shares × $20. ... 00 per share = $2,060,000,000\n<|id|>51<|page|>6<|box|>409 140 446 854<|content|>This exceeds the $200,000,000 threshold by a facto... share), the global market capitalization would be\n<|id|>52<|page|>6<|box|>453 178 470 594<|content|>103,000,000 shares × $17. ... 00 per share = $1,751,000,000\n<|id|>53<|page|>6<|box|>479 140 534 854<|content|>This would still exceed the $200,000,000 threshold...ould result in a failure to satisfy this criterion",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>49<|tgt_id|>50\n<|src_id|>51<|tgt_id|>52",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        }
+    ]
+}

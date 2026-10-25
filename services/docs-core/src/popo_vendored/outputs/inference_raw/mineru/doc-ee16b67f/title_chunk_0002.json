@@ -1,0 +1,33 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        99,
+        109
+    ],
+    "pages": [
+        100,
+        101,
+        109
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>216<|page|>100<|box|>71 340 85 677<|content|>As of June 30, 1940 and June 30, 1941\n<|id|>219<|page|>100<|box|>779 465 794 564<|content|>Schedule 1\n<|id|>223<|page|>101<|box|>346 433 359 532<|content|>Schedule 3\n<|id|>225<|page|>101<|box|>702 435 715 535<|content|>Schedule 4\n<|id|>233<|page|>109<|box|>208 397 242 596<|content|>L. BARY",
+    "raw_response": "<|id|>216<|level|>1\n<|id|>219<|level|>2\n<|id|>223<|level|>2\n<|id|>225<|level|>2\n<|id|>233<|level|>-1",
+    "parsed": [
+        {
+            "id": 216,
+            "level": 1
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 2
+        }
+    ]
+}

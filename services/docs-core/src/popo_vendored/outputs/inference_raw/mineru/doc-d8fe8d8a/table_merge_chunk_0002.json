@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Florida', 'Fla. Stat. § 501.171', '22,913', 'FL Office of the', 'Portal (AG);', 'Aug. 18,', 'Y', 'Y — FL', 'FL requires']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'Attorney General, Department of Legal Affairs; FL Department of Agriculture & Consumer Services', 'Portal (DACS)', '2023', '', 'DACS', 'notification within 30 days; must include specific information per § 501.171(3); notification to DACS also required']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 134,
+    "table2_idx": 135
+}

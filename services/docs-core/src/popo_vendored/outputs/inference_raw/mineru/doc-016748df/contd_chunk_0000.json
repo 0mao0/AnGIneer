@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        14,
+        15,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>154 140 172 656<|content|>FROM: ... Jeffrey Park, Senior Associate, Calderwood & Harkness LLP\n<|id|>2<|page|>1<|box|>179 140 198 710<|content|>TO: ... Douglas Carmichael, Responsible Partner, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>205 140 223 325<|content|>DATE: ... March 15, 2026\n<|id|>4<|page|>1<|box|>232 140 267 854<|content|>RE: ... 1025-00005)\n<|id|>5<|page|>1<|box|>276 140 311 854<|content|>CLIENT: ... (\"QIH\") / Quorum Casualty & Surety Company (\"QC&S\")\n<|id|>6<|page|>1<|box|>319 140 426 854<|content|>PRIVILEGE NOTICE: ... Any inadvertent disclosure d...a waiver of any applicable privilege or protection\n<|id|>12<|page|>2<|box|>90 174 143 854<|content|>2. ... and\n<|id|>14<|page|>2<|box|>220 140 311 854<|content|>These experts would serve in either arbitration pr...ry who are credible and qualified in both settings\n<|id|>20<|page|>2<|box|>851 140 906 857<|content|>1. ... CGL-2020-09844 — in violation of\n<|id|>21<|page|>3<|box|>90 140 347 857<|content|>Article 7 of the Treaty. ... 3, and that the fourt...g claims are developing below reporting thresholds\n<|id|>122<|page|>14<|box|>757 138 885 856<|content|>Dr. ... in finance from New York University's Stern School of Business in addition to his\n<|id|>123<|page|>15<|box|>90 140 127 854<|content|>CPA and CFA credentials. ... Bellows is our top-ra...r experience and his strong testimony track record\n<|id|>181<|page|>24<|box|>209 140 228 437<|content|>[Expert Name] [Expert Firm] [Address]\n<|id|>182<|page|>24<|box|>234 174 271 854<|content|>Re: ... 1025-00005)\n<|id|>183<|page|>24<|box|>279 142 297 300<|content|>Dear [Expert Name]: ... Dear [Expert Name]\n<|id|>193<|page|>25<|box|>358 140 375 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>194<|page|>25<|box|>377 143 393 253<|content|>By: ... By\n<|id|>195<|page|>25<|box|>393 142 409 349<|content|>Name: ... Douglas Carmichael\n<|id|>196<|page|>25<|box|>411 143 426 246<|content|>Title: ... Partner\n<|id|>197<|page|>25<|box|>428 143 444 264<|content|>Date: ... Date\n<|id|>199<|page|>25<|box|>470 142 487 287<|content|>[EXPERT NAME]\n<|id|>200<|page|>25<|box|>488 143 505 258<|content|>By: ... By\n<|id|>201<|page|>25<|box|>505 142 522 308<|content|>Name: ... [Expert Name]\n<|id|>202<|page|>25<|box|>522 143 539 240<|content|>Title: ... [Title]\n<|id|>203<|page|>25<|box|>540 143 556 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>122<|tgt_id|>123",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        }
+    ]
+}

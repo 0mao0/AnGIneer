@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        98,
+        137
+    ],
+    "pages": [
+        99,
+        129,
+        130,
+        137
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>511<|page|>99<|box|>157 509 214 915<|content|>A quarterly report must be filed throughout the ca... business day of any quarter the previous year end\n<|id|>512<|page|>99<|box|>214 509 270 913<|content|>arch, une, September or e cember . ... emptions fr...rts and ban ing institutions that file 035 reports\n<|id|>657<|page|>129<|box|>181 81 318 488<|content|>The act provides that the Secretary of the Treasur...re invested in interest-bearing obligations of the\n<|id|>658<|page|>129<|box|>114 508 169 913<|content|>United States or in obligations guaranteed as to b...of, any obligations are credited to the trust fund\n<|id|>662<|page|>129<|box|>656 250 691 750<|content|>TABLE TF-19. ... —Reforestation Trust Fund Expected Condition and Results of Operations, Fiscal 1999\n<|id|>664<|page|>130<|box|>464 700 515 874<|content|>1998 1999 (In millions of dollars)\n<|id|>665<|page|>130<|box|>643 109 737 284<|content|>□ Receipts ■ Expenses (In billions of dollars)\n<|id|>706<|page|>137<|box|>154 364 169 629<|content|>Source: ... Financial Management Service\n<|id|>707<|page|>137<|box|>186 81 291 488<|content|>Accrued discount (SBN-1, -2, -3)—Interest that acc... their holders is not included in accrued discount",
+    "raw_response": "<|src_id|>511<|tgt_id|>512\n<|src_id|>657<|tgt_id|>658",
+    "parsed": [
+        {
+            "src_id": 511,
+            "tgt_id": 512
+        },
+        {
+            "src_id": 657,
+            "tgt_id": 658
+        }
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|page|>1<|box|>409 140 426 316<|content|>Ladies and Gentlemen:\n<|id|>10<|page|>1<|box|>648 140 665 387<|content|>I. DOCUMENTS EXAMINED\n<|id|>12<|page|>1<|box|>724 140 739 356<|content|>A. Transaction Documents\n<|id|>18<|page|>2<|box|>214 140 231 377<|content|>B. Organizational Documents\n<|id|>24<|page|>2<|box|>547 140 564 434<|content|>C. Other Documents and Certificates\n<|id|>29<|page|>3<|box|>89 142 106 303<|content|>II. ASSUMPTIONS\n<|id|>31<|page|>3<|box|>166 140 183 338<|content|>A. General Assumptions\n<|id|>39<|page|>3<|box|>758 140 777 333<|content|>B. Factual Assumptions\n<|id|>42<|page|>4<|box|>148 140 166 269<|content|>III. OPINIONS\n<|id|>58<|page|>6<|box|>186 140 203 509<|content|>IV. QUALIFICATIONS AND LIMITATIONS\n<|id|>60<|page|>6<|box|>262 140 279 370<|content|>A. Enforceability Exceptions\n<|id|>66<|page|>6<|box|>621 142 637 370<|content|>B. Jurisdictional Limitations\n<|id|>69<|page|>7<|box|>176 140 193 344<|content|>C. Specific Qualifications\n<|id|>78<|page|>8<|box|>231 140 248 364<|content|>D. Knowledge Qualification\n<|id|>80<|page|>8<|box|>478 140 494 575<|content|>V. RELIANCE AND DISTRIBUTION LIMITATIONS\n<|id|>85<|page|>9<|box|>244 398 262 596<|content|>[Signature Page Follows]",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>-1\n<|id|>10<|level|>1\n<|id|>12<|level|>2\n<|id|>18<|level|>2\n<|id|>24<|level|>2\n<|id|>29<|level|>1\n<|id|>31<|level|>2\n<|id|>39<|level|>2\n<|id|>42<|level|>1\n<|id|>58<|level|>1\n<|id|>60<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>2\n<|id|>78<|level|>2\n<|id|>80<|level|>1\n<|id|>85<|level|>-1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        }
+    ]
+}

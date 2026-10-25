@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 279 133 715<|content|>299 Park Avenue, 42nd Floor New York, New York 10171\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 730 184 854<|content|>October 7, 2024\n<|id|>5<|page|>1<|box|>219 140 255 854<|content|>Elaine Whitford Senior Vice President & Group Gene...ington Avenue, 38th Floor New York, New York 10022\n<|id|>6<|page|>1<|box|>263 140 325 854<|content|>Re: ... Whitford\n<|id|>110<|page|>8<|box|>839 140 895 856<|content|>2. ... C&H Internal Annotations on Hargrove & Lidd...l redlines of Draft 1 and Draft 2 of the Executive\n<|id|>111<|page|>9<|box|>90 174 126 854<|content|>Employment Agreement. ... These annotations were n...ssions and strategic assessments of Firm attorneys\n<|id|>136<|page|>11<|box|>575 174 612 854<|content|>Renata Vasquez, Partner Calderwood & Harkness LLP ...York, New York 10171 Telephone: ... (212) 506-7214\n<|id|>137<|page|>11<|box|>619 176 637 500<|content|>Email: ... com\n<|id|>138<|page|>11<|box|>638 140 674 852<|content|>We appreciate the opportunity to have served North... to assist the Company with any future legal needs\n<|id|>139<|page|>11<|box|>681 142 699 272<|content|>Very truly yours,\n<|id|>140<|page|>11<|box|>707 140 723 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>141<|page|>11<|box|>724 143 742 253<|content|>By: ... By\n<|id|>142<|page|>11<|box|>743 142 758 323<|content|>Renata Vasquez Partner\n<|id|>143<|page|>11<|box|>758 140 776 589<|content|>cc: ... Bernard Crawford, Partner, Calderwood & Harkness LLP\n<|id|>144<|page|>11<|box|>785 176 801 620<|content|>James Underwood, Associate, Calderwood & Harkness LLP\n<|id|>145<|page|>11<|box|>811 140 847 854<|content|>Enclosures: ... electronic file transfer via secure encrypted platform)",
+    "raw_response": "<|src_id|>110<|tgt_id|>111",
+    "parsed": [
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        }
+    ]
+}

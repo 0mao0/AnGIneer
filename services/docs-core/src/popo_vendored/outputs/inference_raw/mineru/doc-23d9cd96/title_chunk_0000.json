@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 171 126 825<|content|>PRYOR CRESTFIELD LLP 999 Third Avenue, Suite 4800\n<|id|>12<|page|>2<|box|>194 140 210 339<|content|>Description of the Bonds\n<|id|>16<|page|>2<|box|>551 140 566 318<|content|>Documents Examined\n<|id|>35<|page|>3<|box|>563 140 579 352<|content|>Assumptions and Reliance\n<|id|>43<|page|>4<|box|>484 140 501 220<|content|>Opinions\n<|id|>55<|page|>6<|box|>729 140 746 385<|content|>Qualifications and Limitations\n<|id|>63<|page|>7<|box|>638 140 654 217<|content|>Reliance\n<|id|>66<|page|>7<|box|>843 142 859 372<|content|>PRYOR CRESTFIELD LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>35<|level|>2\n<|id|>43<|level|>2\n<|id|>55<|level|>2\n<|id|>63<|level|>2\n<|id|>66<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        48,
+        50
+    ],
+    "pages": [
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>562<|type|>title<|page|>48<|box|>90 142 107 653<|content|>Appendix 5 — Applicable NSA Provisions Cross-Refer\n<|id|>563<|type|>table<|page|>48<|box|>178 143 829 852<|content|>None\n<|id|>564<|type|>title<|page|>49<|box|>90 143 107 393<|content|>Appendix 6 — Distribution List\n<|id|>566<|type|>table<|page|>49<|box|>195 143 648 852<|content|>None\n<|id|>567<|type|>title<|page|>49<|box|>683 395 699 601<|content|>DOCUMENT CONTROL\n<|id|>571<|type|>table<|page|>49<|box|>810 143 898 852<|content|>None\n<|id|>572<|type|>table<|page|>50<|box|>88 143 128 852<|content|>None",
+    "raw_response": "<|src_id|>563<|tgt_id|>562\n<|src_id|>566<|tgt_id|>564\n<|src_id|>571<|tgt_id|>564\n<|src_id|>572<|tgt_id|>564",
+    "parsed": [
+        {
+            "src_id": 563,
+            "tgt_id": 562
+        },
+        {
+            "src_id": 566,
+            "tgt_id": 564
+        },
+        {
+            "src_id": 571,
+            "tgt_id": 564
+        },
+        {
+            "src_id": 572,
+            "tgt_id": 564
+        }
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>348 148 401 848<|content|>DECLARATION OF CATHERINE SOO-HYUN PARK IN SUPPORT\n<|id|>5<|page|>1<|box|>613 140 630 651<|content|>I. BACKGROUND AND QUALIFICATIONS OF DECLARANT\n<|id|>13<|page|>2<|box|>739 140 757 718<|content|>II. OVERVIEW OF THE UNDERLYING GOVERNMENT CONTRACT\n<|id|>25<|page|>3<|box|>734 140 750 594<|content|>III. THE TEAMING AGREEMENT AND WAL'S ROLE\n<|id|>32<|page|>4<|box|>593 140 630 818<|content|>IV. THE DCMA CONTRACTING OFFICER'S PRELIMINARY DET\n<|id|>44<|page|>5<|box|>795 140 811 609<|content|>V. HDDS'S FORMAL RESPONSE AND COFD REQUEST\n<|id|>50<|page|>6<|box|>537 140 554 609<|content|>VI. THE DCMA ADMINISTRATIVE REVIEW PROCESS\n<|id|>64<|page|>8<|box|>273 140 291 547<|content|>VII. ANTICIPATED TIMELINE FOR THE COFD\n<|id|>69<|page|>8<|box|>803 140 819 741<|content|>VIII. THE RELEVANCE OF THE COFD TO THE INDEMNITY D\n<|id|>79<|page|>10<|box|>186 140 203 787<|content|>IX. WAL'S POSITION ON THE MERITS (BRIEF SUMMARY FO\n<|id|>88<|page|>11<|box|>433 142 449 294<|content|>X. CONCLUSION",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>13<|level|>2\n<|id|>25<|level|>2\n<|id|>32<|level|>2\n<|id|>44<|level|>2\n<|id|>50<|level|>2\n<|id|>64<|level|>2\n<|id|>69<|level|>2\n<|id|>79<|level|>2\n<|id|>88<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        }
+    ]
+}

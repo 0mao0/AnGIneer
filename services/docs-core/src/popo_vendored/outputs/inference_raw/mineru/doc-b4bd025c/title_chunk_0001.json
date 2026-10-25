@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        53,
+        100
+    ],
+    "pages": [
+        54,
+        64,
+        74,
+        75,
+        86,
+        99,
+        100
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>203<|page|>54<|box|>27 319 42 758<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>204<|page|>54<|box|>49 337 65 740<|content|>Government Corporations and Other Business-Type Ac\n<|id|>212<|page|>54<|box|>377 417 391 653<|content|>Accompanying Charts and Graphs\n<|id|>241<|page|>64<|box|>13 176 47 829<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>255<|page|>74<|box|>9 164 56 820<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>257<|page|>75<|box|>18 170 65 823<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>271<|page|>86<|box|>4 176 49 835<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>286<|page|>99<|box|>22 146 67 800<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>288<|page|>100<|box|>13 185 47 841<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU",
+    "raw_response": "<|id|>203<|level|>1\n<|id|>204<|level|>2\n<|id|>212<|level|>2\n<|id|>241<|level|>1\n<|id|>255<|level|>1\n<|id|>257<|level|>1\n<|id|>271<|level|>1\n<|id|>286<|level|>1\n<|id|>288<|level|>1",
+    "parsed": [
+        {
+            "id": 203,
+            "level": 1
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 2
+        },
+        {
+            "id": 241,
+            "level": 1
+        },
+        {
+            "id": 255,
+            "level": 1
+        },
+        {
+            "id": 257,
+            "level": 1
+        },
+        {
+            "id": 271,
+            "level": 1
+        },
+        {
+            "id": 286,
+            "level": 1
+        },
+        {
+            "id": 288,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        47,
+        54
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>575<|type|>table<|page|>47<|box|>89 143 566 852<|content|>None\n<|id|>576<|type|>title<|page|>48<|box|>90 142 107 495<|content|>Appendix D: Software Architecture Diagram\n<|id|>578<|type|>title<|page|>48<|box|>176 178 193 818<|content|>Figure D-1: Solstice Lumina™ CGM System — High-Lev\n<|id|>579<|type|>title<|page|>48<|box|>202 387 219 609<|content|>[Block Diagram Description]\n<|id|>581<|type|>title<|page|>48<|box|>253 142 270 676<|content|>Block 1 — Lumina C14 Implantable Sensor (Hardware\n<|id|>586<|type|>title<|page|>48<|box|>468 140 503 852<|content|>Block 2 — Lumina R7 Wearable Reader/Transmitter (H\n<|id|>592<|type|>title<|page|>48<|box|>866 142 883 565<|content|>Block 3 — Lumina Mobile App v1.0.3 (iOS / Android)\n<|id|>598<|type|>title<|page|>49<|box|>297 143 314 583<|content|>Block 4 — Solstice Lumina™ Cloud Platform (Backend\n<|id|>601<|type|>title<|page|>49<|box|>472 142 488 315<|content|>Data Flow Summary:\n<|id|>607<|type|>title<|page|>50<|box|>90 140 108 635<|content|>Appendix E: Cybersecurity Threat Model Summary (ST\n<|id|>609<|type|>table<|page|>50<|box|>219 143 896 852<|content|>None\n<|id|>610<|type|>table<|page|>51<|box|>89 143 900 852<|content|>None\n<|id|>611<|type|>table<|page|>52<|box|>89 143 901 852<|content|>None\n<|id|>612<|type|>table<|page|>53<|box|>89 143 751 852<|content|>None\n<|id|>613<|type|>title<|page|>53<|box|>784 142 801 413<|content|>Threat Model Methodology Notes:\n<|id|>619<|type|>title<|page|>54<|box|>313 215 330 782<|content|>END OF SECTION 4: PROPOSED PERFORMANCE TESTING PLA\n<|id|>621<|type|>title<|page|>54<|box|>407 140 422 390<|content|>SOLSTICE BIOMEDICAL INC.",
+    "raw_response": "<|src_id|>575<|tgt_id|>576\n<|src_id|>609<|tgt_id|>607\n<|src_id|>610<|tgt_id|>607\n<|src_id|>611<|tgt_id|>607\n<|src_id|>612<|tgt_id|>607",
+    "parsed": [
+        {
+            "src_id": 575,
+            "tgt_id": 576
+        },
+        {
+            "src_id": 609,
+            "tgt_id": 607
+        },
+        {
+            "src_id": 610,
+            "tgt_id": 607
+        },
+        {
+            "src_id": 611,
+            "tgt_id": 607
+        },
+        {
+            "src_id": 612,
+            "tgt_id": 607
+        }
+    ]
+}

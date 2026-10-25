@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        92,
+        94
+    ],
+    "pages": [
+        92,
+        93,
+        94
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1151<|page|>92<|box|>89 140 107 243<|content|>EXHIBIT A\n<|id|>1152<|page|>92<|box|>114 380 133 617<|content|>PROPERTY DESCRIPTION\n<|id|>1153<|page|>92<|box|>141 401 159 596<|content|>GMP Mount Juliet LLC\n<|id|>1160<|page|>92<|box|>323 142 340 292<|content|>Legal Description:\n<|id|>1163<|page|>93<|box|>89 142 106 243<|content|>EXHIBIT B\n<|id|>1164<|page|>93<|box|>114 362 132 635<|content|>ASSUMED LOAN DOCUMENTS\n<|id|>1165<|page|>93<|box|>141 401 157 596<|content|>GMP Mount Juliet LLC\n<|id|>1166<|page|>93<|box|>167 143 184 228<|content|>1. Lender:\n<|id|>1187<|page|>94<|box|>90 165 152 831<|content|>Amended and Restated Operating Agreements 14 Targe",
+    "raw_response": "<|id|>1151<|level|>1\n<|id|>1152<|level|>2\n<|id|>1153<|level|>3\n<|id|>1160<|level|>3\n<|id|>1163<|level|>1\n<|id|>1164<|level|>2\n<|id|>1165<|level|>3\n<|id|>1166<|level|>3\n<|id|>1187<|level|>3",
+    "parsed": [
+        {
+            "id": 1151,
+            "level": 1
+        },
+        {
+            "id": 1152,
+            "level": 2
+        },
+        {
+            "id": 1153,
+            "level": 3
+        },
+        {
+            "id": 1160,
+            "level": 3
+        },
+        {
+            "id": 1163,
+            "level": 1
+        },
+        {
+            "id": 1164,
+            "level": 2
+        },
+        {
+            "id": 1165,
+            "level": 3
+        },
+        {
+            "id": 1166,
+            "level": 3
+        },
+        {
+            "id": 1187,
+            "level": 3
+        }
+    ]
+}

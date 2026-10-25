@@ -1,0 +1,111 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6yjgs0k0\\input\\pdfs\\doc-a189d4e2.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6yjgs0k0\\enriched\\doc-a189d4e2.json",
+    "contd_output": "<|src_id|>55<|tgt_id|>56",
+    "title_output": "<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>26<|level|>2\n<|id|>31<|level|>2\n<|id|>34<|level|>2\n<|id|>43<|level|>2\n<|id|>51<|level|>2\n<|id|>58<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>89<|level|>2\n<|id|>94<|level|>2\n<|id|>99<|level|>2\n<|id|>160<|level|>2\n<|id|>161<|level|>3",
+    "image_output": "<|src_id|>163<|tgt_id|>161\n<|src_id|>164<|tgt_id|>161",
+    "contd_label": [
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 163,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 161
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 163,
+            "table2_idx": 164,
+            "upper_row_ss": [
+                [
+                    "Base Offering Size",
+                    "$521,700,000 (approx. 23,713,636 shares at"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "$22.00/share)"
+                ]
+            ]
+        }
+    ]
+}

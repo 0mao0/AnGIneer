@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        6,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 261 133 735<|content|>150 North Michigan Avenue, Suite 3600 Chicago, Illinois 60601\n<|id|>2<|page|>1<|box|>141 181 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 728 185 854<|content|>August 29, 2022\n<|id|>5<|page|>1<|box|>219 140 255 854<|content|>Patricia \"Trish\" Calloway Chief Financial Officer ...rairie Boulevard, Suite 300 Des Moines, Iowa 50309\n<|id|>6<|page|>1<|box|>263 174 316 854<|content|>Copy to: ... General Counsel and Corporate Secreta...rairie Boulevard, Suite 300 Des Moines, Iowa 50309\n<|id|>7<|page|>1<|box|>325 140 380 854<|content|>Re: ... GAPABF-2022\n<|id|>8<|page|>1<|box|>388 140 406 295<|content|>Dear Ms. ... Calloway\n<|id|>55<|page|>6<|box|>508 176 527 764<|content|>(g) Photocopying and printing charges, assessed at the Firm's standard rates; ... and\n<|id|>57<|page|>6<|box|>560 140 652 854<|content|>Third-party vendor expenses, including fees charge...individual third-party expense in excess of $5,000\n<|id|>92<|page|>10<|box|>204 140 220 313<|content|>Name: ... Ian Blackwood\n<|id|>93<|page|>10<|box|>220 142 237 508<|content|>Title: ... Partner, Banking & Finance Practice Group\n<|id|>94<|page|>10<|box|>237 142 272 833<|content|>Calderwood & Harkness LLP 150 North Michigan Avenu...cago, Illinois 60601 ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>95<|page|>10<|box|>281 140 335 854<|content|>The undersigned, on behalf of Greenfield Agricultu...grees to be bound thereby on behalf of the Company\n<|id|>99<|page|>10<|box|>412 143 429 331<|content|>Name: ... Patricia Calloway\n<|id|>100<|page|>10<|box|>429 142 446 361<|content|>Title: ... Chief Financial Officer\n<|id|>101<|page|>10<|box|>446 143 465 264<|content|>Date: ... Date\n<|id|>103<|page|>10<|box|>489 174 544 854<|content|>Nina Vasquez, Esq. ... , General Counsel and Corpo...mblay, Senior Associate, Calderwood & Harkness LLP\n<|id|>104<|page|>10<|box|>551 140 570 524<|content|>Enclosure: ... Duplicate original for Company records",
+    "raw_response": "<|src_id|>55<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 57
+        }
+    ]
+}

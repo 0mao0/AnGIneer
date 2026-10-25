@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        51,
+        66
+    ],
+    "pages": [
+        52,
+        53,
+        54,
+        56,
+        57,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>627<|page|>52<|box|>178 380 206 612<|content|>3 基本规定\n<|id|>628<|page|>52<|box|>238 418 256 578<|content|>3.1 船闸分级\n<|id|>630<|page|>52<|box|>324 426 344 568<|content|>3.3 资料\n<|id|>632<|page|>53<|box|>178 380 206 612<|content|>4 船闸规模\n<|id|>635<|page|>53<|box|>456 419 475 576<|content|>4.2 船闸尺度\n<|id|>649<|page|>54<|box|>785 388 803 606<|content|>4.3 船闸的线数和级数\n<|id|>652<|page|>56<|box|>178 313 206 679<|content|>5 船闸设计水位和高程\n<|id|>653<|page|>56<|box|>238 419 256 576<|content|>5.1 设计水位\n<|id|>657<|page|>56<|box|>523 419 540 576<|content|>5.3 通航净空\n<|id|>659<|page|>57<|box|>178 380 206 612<|content|>6 总体布置\n<|id|>664<|page|>57<|box|>587 398 606 596<|content|>6.4 引航道平面布置\n<|id|>686<|page|>60<|box|>452 419 470 576<|content|>6.5 口门区布置\n<|id|>688<|page|>60<|box|>562 418 581 576<|content|>6.6 连接段布置\n<|id|>690<|page|>60<|box|>673 339 692 655<|content|>6.7 通航水流条件和泥沙减淤措施\n<|id|>697<|page|>61<|box|>566 419 585 576<|content|>6.8 待闸锚地\n<|id|>699<|page|>62<|box|>178 261 206 730<|content|>7 船闸通过能力和用水量计算\n<|id|>700<|page|>62<|box|>238 408 256 584<|content|>7.1 船闸通过能力\n<|id|>715<|page|>63<|box|>720 419 738 576<|content|>7.2 船闸用水量\n<|id|>717<|page|>64<|box|>178 295 206 697<|content|>8 船闸附属设施及其布置\n<|id|>718<|page|>64<|box|>238 418 256 576<|content|>8.1 系船设备\n<|id|>723<|page|>64<|box|>587 379 606 617<|content|>8.2 安全防护和检修设施\n<|id|>727<|page|>64<|box|>785 379 803 616<|content|>8.3 助航设施和信号标志\n<|id|>729<|page|>65<|box|>106 339 126 655<|content|>8.4 供电照明、控制和通信、智慧化\n<|id|>732<|page|>65<|box|>238 419 256 576<|content|>8.6 环境保护\n<|id|>735<|page|>65<|box|>413 418 431 576<|content|>8.7 消防和救护\n<|id|>738<|page|>66<|box|>179 380 204 612<|content|>9 施工期通航",
+    "raw_response": "<|id|>627<|level|>1\n<|id|>628<|level|>2\n<|id|>630<|level|>2\n<|id|>632<|level|>1\n<|id|>635<|level|>2\n<|id|>649<|level|>2\n<|id|>652<|level|>1\n<|id|>653<|level|>2\n<|id|>657<|level|>2\n<|id|>659<|level|>1\n<|id|>664<|level|>2\n<|id|>686<|level|>2\n<|id|>688<|level|>2\n<|id|>690<|level|>2\n<|id|>697<|level|>2\n<|id|>699<|level|>1\n<|id|>700<|level|>2\n<|id|>715<|level|>2\n<|id|>717<|level|>1\n<|id|>718<|level|>2\n<|id|>723<|level|>2\n<|id|>727<|level|>2\n<|id|>729<|level|>2\n<|id|>732<|level|>2\n<|id|>735<|level|>2\n<|id|>738<|level|>1",
+    "parsed": [
+        {
+            "id": 627,
+            "level": 1
+        },
+        {
+            "id": 628,
+            "level": 2
+        },
+        {
+            "id": 630,
+            "level": 2
+        },
+        {
+            "id": 632,
+            "level": 1
+        },
+        {
+            "id": 635,
+            "level": 2
+        },
+        {
+            "id": 649,
+            "level": 2
+        },
+        {
+            "id": 652,
+            "level": 1
+        },
+        {
+            "id": 653,
+            "level": 2
+        },
+        {
+            "id": 657,
+            "level": 2
+        },
+        {
+            "id": 659,
+            "level": 1
+        },
+        {
+            "id": 664,
+            "level": 2
+        },
+        {
+            "id": 686,
+            "level": 2
+        },
+        {
+            "id": 688,
+            "level": 2
+        },
+        {
+            "id": 690,
+            "level": 2
+        },
+        {
+            "id": 697,
+            "level": 2
+        },
+        {
+            "id": 699,
+            "level": 1
+        },
+        {
+            "id": 700,
+            "level": 2
+        },
+        {
+            "id": 715,
+            "level": 2
+        },
+        {
+            "id": 717,
+            "level": 1
+        },
+        {
+            "id": 718,
+            "level": 2
+        },
+        {
+            "id": 723,
+            "level": 2
+        },
+        {
+            "id": 727,
+            "level": 2
+        },
+        {
+            "id": 729,
+            "level": 2
+        },
+        {
+            "id": 732,
+            "level": 2
+        },
+        {
+            "id": 735,
+            "level": 2
+        },
+        {
+            "id": 738,
+            "level": 1
+        }
+    ]
+}

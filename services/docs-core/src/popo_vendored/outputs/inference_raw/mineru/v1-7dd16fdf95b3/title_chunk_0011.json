@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 11,
+    "range": [
+        540,
+        549
+    ],
+    "pages": [
+        541,
+        543,
+        545,
+        547,
+        548,
+        549
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3174<|page|>541<|box|>52 262 70 732<|content|>Consent of Independent Registered Public Accountin\n<|id|>3175<|page|>541<|box|>83 21 98 215<|content|>To the Board of Directors\n<|id|>3178<|page|>541<|box|>229 21 244 378<|content|>Description, Registration Statement Number\n<|id|>3179<|page|>541<|box|>253 23 268 99<|content|>Form S-3\n<|id|>3188<|page|>541<|box|>444 23 458 99<|content|>Form S-8\n<|id|>3209<|page|>543<|box|>83 392 98 602<|content|>POWER OF ATTORNEY\n<|id|>3230<|page|>545<|box|>324 476 335 520<|content|>***\n<|id|>3233<|page|>545<|box|>551 250 565 744<|content|>[REMAINDER OF PAGE INTENTIONALLY LEFT BLANK]\n<|id|>3238<|page|>547<|box|>67 429 82 567<|content|>CERTIFICATION\n<|id|>3239<|page|>547<|box|>80 21 96 271<|content|>I, Ramon L. Laguarta, certify that:\n<|id|>3252<|page|>548<|box|>52 429 67 567<|content|>CERTIFICATION\n<|id|>3253<|page|>548<|box|>66 21 82 254<|content|>I, Hugh F. Johnston, certify that:\n<|id|>3266<|page|>549<|box|>87 267 118 728<|content|>CERTIFICATION PURSUANT TO SECTION 906 OF THE SARBA\n<|id|>3274<|page|>549<|box|>370 267 401 728<|content|>CERTIFICATION PURSUANT TO SECTION 906 OF THE SARBA",
+    "raw_response": "<|id|>3174<|level|>1\n<|id|>3175<|level|>-1\n<|id|>3178<|level|>2\n<|id|>3179<|level|>3\n<|id|>3188<|level|>3\n<|id|>3209<|level|>1\n<|id|>3230<|level|>-1\n<|id|>3233<|level|>-1\n<|id|>3238<|level|>1\n<|id|>3239<|level|>2\n<|id|>3252<|level|>1\n<|id|>3253<|level|>2\n<|id|>3266<|level|>1\n<|id|>3274<|level|>1",
+    "parsed": [
+        {
+            "id": 3174,
+            "level": 1
+        },
+        {
+            "id": 3178,
+            "level": 2
+        },
+        {
+            "id": 3179,
+            "level": 3
+        },
+        {
+            "id": 3188,
+            "level": 3
+        },
+        {
+            "id": 3209,
+            "level": 1
+        },
+        {
+            "id": 3238,
+            "level": 1
+        },
+        {
+            "id": 3239,
+            "level": 2
+        },
+        {
+            "id": 3252,
+            "level": 1
+        },
+        {
+            "id": 3253,
+            "level": 2
+        },
+        {
+            "id": 3266,
+            "level": 1
+        },
+        {
+            "id": 3274,
+            "level": 1
+        }
+    ]
+}

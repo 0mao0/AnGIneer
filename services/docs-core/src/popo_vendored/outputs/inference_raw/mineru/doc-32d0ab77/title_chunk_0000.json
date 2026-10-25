@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        11,
+        12,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 238 108 759<|content|>IN THE COURT OF CHANCERY OF THE STATE OF DELAWARE\n<|id|>2<|page|>1<|box|>393 161 430 834<|content|>DECLARATION OF DR. RAJIV ANAND IN SUPPORT OF PLAIN\n<|id|>5<|page|>1<|box|>648 140 666 651<|content|>I. QUALIFICATIONS AND BACKGROUND OF DECLARANT\n<|id|>10<|page|>2<|box|>829 142 845 496<|content|>II. SCOPE OF FORENSIC EXAMINATION\n<|id|>29<|page|>4<|box|>756 140 773 661<|content|>III. SUMMARY OF KEY FINDINGS — DATA EXFILTRATION\n<|id|>41<|page|>6<|box|>739 142 757 676<|content|>IV. NATURE AND CLASSIFICATION OF EXFILTRATED FILES\n<|id|>56<|page|>8<|box|>773 140 789 436<|content|>V. METHODS OF EXFILTRATION\n<|id|>71<|page|>11<|box|>222 140 239 684<|content|>VI. ANALYSIS OF CLOUD ACCESS LOGS POST-RESIGNATION\n<|id|>77<|page|>12<|box|>89 140 106 647<|content|>VII. CHAIN OF CUSTODY AND INTEGRITY OF EVIDENCE\n<|id|>81<|page|>12<|box|>806 140 823 460<|content|>VIII. OPINIONS AND CONCLUSIONS\n<|id|>97<|page|>14<|box|>757 140 773 557<|content|>IX. DOCUMENTS AND MATERIALS REVIEWED\n<|id|>108<|page|>15<|box|>506 140 523 387<|content|>X. EXHIBITS REFERENCED\n<|id|>115<|page|>16<|box|>248 140 265 285<|content|>VERIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>29<|level|>2\n<|id|>41<|level|>2\n<|id|>56<|level|>2\n<|id|>71<|level|>2\n<|id|>77<|level|>2\n<|id|>81<|level|>2\n<|id|>97<|level|>2\n<|id|>108<|level|>2\n<|id|>115<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>364 142 380 241<|content|>Dear Arthur:\n<|id|>11<|page|>1<|box|>731 140 748 434<|content|>I. BACKGROUND AND CONTEXT\n<|id|>12<|page|>1<|box|>762 140 779 372<|content|>A. The Client and the Matter\n<|id|>21<|page|>2<|box|>643 142 661 305<|content|>B. The DOJ Inquiry\n<|id|>34<|page|>4<|box|>90 140 107 328<|content|>C. Greystone's Interest\n<|id|>39<|page|>4<|box|>652 140 670 715<|content|>II. PROPOSED COMMON INTEREST AGREEMENT — KEY TERMS\n<|id|>41<|page|>4<|box|>765 140 782 359<|content|>A. Purpose and Legal Basis\n<|id|>45<|page|>5<|box|>448 140 465 303<|content|>B. Proposed Parties\n<|id|>51<|page|>5<|box|>770 140 787 395<|content|>C. Scope of Shared Information\n<|id|>65<|page|>7<|box|>252 142 268 331<|content|>D. Privilege Protections\n<|id|>72<|page|>8<|box|>90 140 107 380<|content|>E. Confidentiality Obligations\n<|id|>81<|page|>8<|box|>691 142 709 397<|content|>F. Withdrawal and Termination\n<|id|>87<|page|>9<|box|>301 140 319 442<|content|>G. No Agency or Joint Representation\n<|id|>93<|page|>9<|box|>715 140 732 374<|content|>H. Conflict Acknowledgment\n<|id|>100<|page|>10<|box|>335 140 353 751<|content|>III. INFORMATION SHARING PROTOCOL — PROPOSED MECHA\n<|id|>102<|page|>10<|box|>430 140 448 302<|content|>A. Regular Updates\n<|id|>104<|page|>10<|box|>648 140 666 364<|content|>B. Ad Hoc Communications\n<|id|>112<|page|>11<|box|>214 140 231 318<|content|>C. Document Sharing\n<|id|>115<|page|>11<|box|>513 140 530 305<|content|>D. Points of Contact\n<|id|>122<|page|>12<|box|>89 140 106 390<|content|>IV. PROPOSED NEXT STEPS\n<|id|>129<|page|>12<|box|>755 140 772 254<|content|>V. CLOSING\n<|id|>139<|page|>13<|box|>391 142 404 171<|content|>cc:",
+    "raw_response": "<|id|>8<|level|>-1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>21<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>1\n<|id|>41<|level|>2\n<|id|>45<|level|>2\n<|id|>51<|level|>2\n<|id|>65<|level|>2\n<|id|>72<|level|>2\n<|id|>81<|level|>2\n<|id|>87<|level|>2\n<|id|>93<|level|>2\n<|id|>100<|level|>1\n<|id|>102<|level|>2\n<|id|>104<|level|>2\n<|id|>112<|level|>2\n<|id|>115<|level|>2\n<|id|>122<|level|>1\n<|id|>129<|level|>1\n<|id|>139<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 1
+        }
+    ]
+}

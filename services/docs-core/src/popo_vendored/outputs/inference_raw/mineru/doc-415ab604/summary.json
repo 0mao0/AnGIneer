@@ -1,0 +1,813 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lcakphbp\\input\\pdfs\\doc-415ab604.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lcakphbp\\enriched\\doc-415ab604.json",
+    "contd_output": "<|src_id|>453<|tgt_id|>454",
+    "title_output": "<|id|>5<|level|>1\n<|id|>6<|level|>1\n<|id|>9<|level|>1\n<|id|>12<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>1\n<|id|>21<|level|>1\n<|id|>37<|level|>1\n<|id|>46<|level|>2\n<|id|>49<|level|>2\n<|id|>52<|level|>2\n<|id|>55<|level|>2\n<|id|>58<|level|>2\n<|id|>61<|level|>2\n<|id|>64<|level|>2\n<|id|>67<|level|>2\n<|id|>70<|level|>1\n<|id|>87<|level|>1\n<|id|>88<|level|>2\n<|id|>95<|level|>2\n<|id|>100<|level|>2\n<|id|>103<|level|>2\n<|id|>106<|level|>2\n<|id|>115<|level|>2\n<|id|>118<|level|>2\n<|id|>120<|level|>2\n<|id|>122<|level|>2\n<|id|>125<|level|>1\n<|id|>126<|level|>2\n<|id|>129<|level|>2\n<|id|>130<|level|>3\n<|id|>132<|level|>3\n<|id|>135<|level|>3\n<|id|>154<|level|>3\n<|id|>165<|level|>1\n<|id|>166<|level|>2\n<|id|>176<|level|>2\n<|id|>184<|level|>2\n<|id|>189<|level|>1\n<|id|>190<|level|>2\n<|id|>192<|level|>2\n<|id|>194<|level|>3\n<|id|>202<|level|>3\n<|id|>203<|level|>4\n<|id|>208<|level|>4\n<|id|>211<|level|>4\n<|id|>214<|level|>2\n<|id|>231<|level|>1\n<|id|>232<|level|>2\n<|id|>236<|level|>2\n<|id|>240<|level|>2\n<|id|>243<|level|>3\n<|id|>251<|level|>3\n<|id|>257<|level|>2\n<|id|>265<|level|>1\n<|id|>266<|level|>2\n<|id|>269<|level|>2\n<|id|>276<|level|>2\n<|id|>280<|level|>3\n<|id|>283<|level|>3\n<|id|>286<|level|>3\n<|id|>288<|level|>3\n<|id|>290<|level|>2\n<|id|>295<|level|>3\n<|id|>299<|level|>2\n<|id|>306<|level|>2\n<|id|>320<|level|>1\n<|id|>321<|level|>1\n<|id|>322<|level|>1\n<|id|>323<|level|>2\n<|id|>324<|level|>3\n<|id|>326<|level|>3\n<|id|>330<|level|>3\n<|id|>332<|level|>3\n<|id|>343<|level|>3\n<|id|>346<|level|>3\n<|id|>350<|level|>2\n<|id|>351<|level|>3\n<|id|>354<|level|>3\n<|id|>361<|level|>3\n<|id|>364<|level|>2\n<|id|>365<|level|>3\n<|id|>368<|level|>3\n<|id|>372<|level|>3\n<|id|>373<|level|>4\n<|id|>378<|level|>4\n<|id|>381<|level|>4\n<|id|>385<|level|>1\n<|id|>386<|level|>1\n<|id|>387<|level|>1\n<|id|>401<|level|>1\n<|id|>415<|level|>1\n<|id|>433<|level|>1",
+    "image_output": "<|src_id|>99<|tgt_id|>95\n<|src_id|>102<|tgt_id|>100\n<|src_id|>117<|tgt_id|>115\n<|src_id|>128<|tgt_id|>126\n<|src_id|>159<|tgt_id|>154\n<|src_id|>160<|tgt_id|>154\n<|src_id|>161<|tgt_id|>154\n<|src_id|>162<|tgt_id|>154\n<|src_id|>163<|tgt_id|>154\n<|src_id|>164<|tgt_id|>154\n<|src_id|>171<|tgt_id|>166\n<|src_id|>173<|tgt_id|>166\n<|src_id|>175<|tgt_id|>166\n<|src_id|>181<|tgt_id|>176\n<|src_id|>183<|tgt_id|>176\n<|src_id|>198<|tgt_id|>194\n<|src_id|>199<|tgt_id|>194\n<|src_id|>200<|tgt_id|>194\n<|src_id|>201<|tgt_id|>194\n<|src_id|>206<|tgt_id|>203\n<|src_id|>207<|tgt_id|>203\n<|src_id|>210<|tgt_id|>208\n<|src_id|>213<|tgt_id|>211\n<|src_id|>219<|tgt_id|>214\n<|src_id|>220<|tgt_id|>214\n<|src_id|>222<|tgt_id|>214\n<|src_id|>223<|tgt_id|>214\n<|src_id|>225<|tgt_id|>214\n<|src_id|>227<|tgt_id|>214\n<|src_id|>229<|tgt_id|>214\n<|src_id|>246<|tgt_id|>243\n<|src_id|>256<|tgt_id|>251\n<|src_id|>260<|tgt_id|>257\n<|src_id|>263<|tgt_id|>257\n<|src_id|>282<|tgt_id|>280\n<|src_id|>285<|tgt_id|>283\n<|src_id|>294<|tgt_id|>290\n<|src_id|>298<|tgt_id|>295\n<|src_id|>301<|tgt_id|>299\n<|src_id|>305<|tgt_id|>299\n<|src_id|>309<|tgt_id|>306\n<|src_id|>314<|tgt_id|>306\n<|src_id|>319<|tgt_id|>306\n<|src_id|>328<|tgt_id|>326\n<|src_id|>329<|tgt_id|>326\n<|src_id|>334<|tgt_id|>332\n<|src_id|>335<|tgt_id|>332\n<|src_id|>336<|tgt_id|>332\n<|src_id|>337<|tgt_id|>332\n<|src_id|>340<|tgt_id|>332\n<|src_id|>341<|tgt_id|>332\n<|src_id|>342<|tgt_id|>332\n<|src_id|>345<|tgt_id|>343\n<|src_id|>349<|tgt_id|>346\n<|src_id|>353<|tgt_id|>351\n<|src_id|>356<|tgt_id|>354\n<|src_id|>358<|tgt_id|>354\n<|src_id|>359<|tgt_id|>354\n<|src_id|>360<|tgt_id|>354\n<|src_id|>363<|tgt_id|>361\n<|src_id|>367<|tgt_id|>365\n<|src_id|>371<|tgt_id|>368\n<|src_id|>375<|tgt_id|>373\n<|src_id|>376<|tgt_id|>373\n<|src_id|>377<|tgt_id|>373\n<|src_id|>380<|tgt_id|>378\n<|src_id|>383<|tgt_id|>381\n<|src_id|>384<|tgt_id|>381\n<|src_id|>392<|tgt_id|>387\n<|src_id|>394<|tgt_id|>387\n<|src_id|>397<|tgt_id|>387\n<|src_id|>398<|tgt_id|>387\n<|src_id|>400<|tgt_id|>387\n<|src_id|>410<|tgt_id|>401\n<|src_id|>412<|tgt_id|>401\n<|src_id|>424<|tgt_id|>415\n<|src_id|>426<|tgt_id|>415\n<|src_id|>428<|tgt_id|>415\n<|src_id|>429<|tgt_id|>415\n<|src_id|>430<|tgt_id|>415\n<|src_id|>431<|tgt_id|>415\n<|src_id|>432<|tgt_id|>415",
+    "contd_label": [
+        {
+            "src_id": 453,
+            "tgt_id": 454
+        }
+    ],
+    "title_label": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 1
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 202,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 4
+        },
+        {
+            "id": 208,
+            "level": 4
+        },
+        {
+            "id": 211,
+            "level": 4
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 231,
+            "level": 1
+        },
+        {
+            "id": 232,
+            "level": 2
+        },
+        {
+            "id": 236,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 2
+        },
+        {
+            "id": 243,
+            "level": 3
+        },
+        {
+            "id": 251,
+            "level": 3
+        },
+        {
+            "id": 257,
+            "level": 2
+        },
+        {
+            "id": 265,
+            "level": 1
+        },
+        {
+            "id": 266,
+            "level": 2
+        },
+        {
+            "id": 269,
+            "level": 2
+        },
+        {
+            "id": 276,
+            "level": 2
+        },
+        {
+            "id": 280,
+            "level": 3
+        },
+        {
+            "id": 283,
+            "level": 3
+        },
+        {
+            "id": 286,
+            "level": 3
+        },
+        {
+            "id": 288,
+            "level": 3
+        },
+        {
+            "id": 290,
+            "level": 2
+        },
+        {
+            "id": 295,
+            "level": 3
+        },
+        {
+            "id": 299,
+            "level": 2
+        },
+        {
+            "id": 306,
+            "level": 2
+        },
+        {
+            "id": 320,
+            "level": 1
+        },
+        {
+            "id": 321,
+            "level": 1
+        },
+        {
+            "id": 322,
+            "level": 1
+        },
+        {
+            "id": 323,
+            "level": 2
+        },
+        {
+            "id": 324,
+            "level": 3
+        },
+        {
+            "id": 326,
+            "level": 3
+        },
+        {
+            "id": 330,
+            "level": 3
+        },
+        {
+            "id": 332,
+            "level": 3
+        },
+        {
+            "id": 343,
+            "level": 3
+        },
+        {
+            "id": 346,
+            "level": 3
+        },
+        {
+            "id": 350,
+            "level": 2
+        },
+        {
+            "id": 351,
+            "level": 3
+        },
+        {
+            "id": 354,
+            "level": 3
+        },
+        {
+            "id": 361,
+            "level": 3
+        },
+        {
+            "id": 364,
+            "level": 2
+        },
+        {
+            "id": 365,
+            "level": 3
+        },
+        {
+            "id": 368,
+            "level": 3
+        },
+        {
+            "id": 372,
+            "level": 3
+        },
+        {
+            "id": 373,
+            "level": 4
+        },
+        {
+            "id": 378,
+            "level": 4
+        },
+        {
+            "id": 381,
+            "level": 4
+        },
+        {
+            "id": 385,
+            "level": 1
+        },
+        {
+            "id": 386,
+            "level": 1
+        },
+        {
+            "id": 387,
+            "level": 1
+        },
+        {
+            "id": 401,
+            "level": 1
+        },
+        {
+            "id": 415,
+            "level": 1
+        },
+        {
+            "id": 433,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 99,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 200,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 203
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 203
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 211
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 214
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 214
+        },
+        {
+            "src_id": 222,
+            "tgt_id": 214
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 214
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 214
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 214
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 214
+        },
+        {
+            "src_id": 246,
+            "tgt_id": 243
+        },
+        {
+            "src_id": 256,
+            "tgt_id": 251
+        },
+        {
+            "src_id": 260,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 263,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 282,
+            "tgt_id": 280
+        },
+        {
+            "src_id": 285,
+            "tgt_id": 283
+        },
+        {
+            "src_id": 294,
+            "tgt_id": 290
+        },
+        {
+            "src_id": 298,
+            "tgt_id": 295
+        },
+        {
+            "src_id": 301,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 305,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 309,
+            "tgt_id": 306
+        },
+        {
+            "src_id": 314,
+            "tgt_id": 306
+        },
+        {
+            "src_id": 319,
+            "tgt_id": 306
+        },
+        {
+            "src_id": 328,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 329,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 334,
+            "tgt_id": 332
+        },
+        {
+            "src_id": 335,
+            "tgt_id": 332
+        },
+        {
+            "src_id": 336,
+            "tgt_id": 332
+        },
+        {
+            "src_id": 337,
+            "tgt_id": 332
+        },
+        {
+            "src_id": 340,
+            "tgt_id": 332
+        },
+        {
+            "src_id": 341,
+            "tgt_id": 332
+        },
+        {
+            "src_id": 342,
+            "tgt_id": 332
+        },
+        {
+            "src_id": 345,
+            "tgt_id": 343
+        },
+        {
+            "src_id": 349,
+            "tgt_id": 346
+        },
+        {
+            "src_id": 353,
+            "tgt_id": 351
+        },
+        {
+            "src_id": 356,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 358,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 359,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 360,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 363,
+            "tgt_id": 361
+        },
+        {
+            "src_id": 367,
+            "tgt_id": 365
+        },
+        {
+            "src_id": 371,
+            "tgt_id": 368
+        },
+        {
+            "src_id": 375,
+            "tgt_id": 373
+        },
+        {
+            "src_id": 376,
+            "tgt_id": 373
+        },
+        {
+            "src_id": 377,
+            "tgt_id": 373
+        },
+        {
+            "src_id": 380,
+            "tgt_id": 378
+        },
+        {
+            "src_id": 383,
+            "tgt_id": 381
+        },
+        {
+            "src_id": 384,
+            "tgt_id": 381
+        },
+        {
+            "src_id": 392,
+            "tgt_id": 387
+        },
+        {
+            "src_id": 394,
+            "tgt_id": 387
+        },
+        {
+            "src_id": 397,
+            "tgt_id": 387
+        },
+        {
+            "src_id": 398,
+            "tgt_id": 387
+        },
+        {
+            "src_id": 400,
+            "tgt_id": 387
+        },
+        {
+            "src_id": 410,
+            "tgt_id": 401
+        },
+        {
+            "src_id": 412,
+            "tgt_id": 401
+        },
+        {
+            "src_id": 424,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 426,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 428,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 429,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 430,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 431,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 432,
+            "tgt_id": 415
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 161,
+            "table2_idx": 162,
+            "upper_row_ss": [
+                [
+                    "路基回弹模量(MPa)",
+                    "≥35",
+                    "≥35"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "交通等级",
+                    "重",
+                    "重"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 198,
+            "table2_idx": 199,
+            "upper_row_ss": [
+                [
+                    "colspan=2, SHRP性能等级",
+                    "-",
+                    "PG64-22"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "colspan=2, 针入度(25°C,100g,5S)",
+                    "0.1mm",
+                    "50~70"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 206,
+            "table2_idx": 207,
+            "upper_row_ss": [
+                [
+                    "colspan=2, 方解石含量",
+                    "%",
+                    "colspan=2, ≤10"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "colspan=2, 试验项目",
+                    "单位",
+                    "技术要求"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 328,
+            "table2_idx": 329,
+            "upper_row_ss": [
+                [
+                    "colspan=2, 胶料黏度",
+                    "Pa.s",
+                    "1~2",
+                    "实测项目"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "试验项目",
+                    "单位",
+                    "允许值",
+                    "试验方法"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 335,
+            "table2_idx": 336,
+            "upper_row_ss": [
+                [
+                    "亚甲蓝值",
+                    "g/kg",
+                    "≤5",
+                    "T 0349"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "colspan=2, 试验项目",
+                    "单位",
+                    "技术要求",
+                    "试验方法"
+                ]
+            ]
+        }
+    ]
+}

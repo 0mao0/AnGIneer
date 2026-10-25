@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Missouri', 'Mo. Rev. Stat. § 407.1500', '2,188', 'MO Office of the Attorney General, Consumer Protection', 'Email & Mail', 'Aug. 24, 2023', 'N', 'N', 'Must notify AG; no specific form but must include']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'Division', '', '', '', '', 'required statutory content']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 139,
+    "table2_idx": 140
+}

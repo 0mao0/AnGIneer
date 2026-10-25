@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 12,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['\"further comprising monitoring a temperature of the photonic integrated circuit using at least one on-chip temperature sensor and adjusting a flow rate of the coolant based on the monitored temperature.\"', 'Accused Element: The Benchmark teardown (Exhibit OWS-1001 at pp. 73–74) identified on-chip temperature sensors (silicon diode-based thermal sensors) on the LumiLink 400G-ZR+ PIC. Luminore engineering specifications (LC-00008130 at pp. 24–25) describe a thermal management control loop in which the on-chip temperature sensors provide real-time temperature readings to the module\\'s microcontroller, which adjusts the coolant pump speed (and thus the coolant flow rate) based on the monitored temperature to maintain the target junction temperature. Dr. Michaud testified (November 19, 2024, at 103:9–104:12) that the LumiLink 400G-ZR+ has \"thermal feedback control\" using \"on-die temperature sensors.\" Dr. Ashford\\'s']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', \"Explanation: The accused method includes monitoring PIC temperature with on-chip sensors and adjusting coolant flow rate based on the readings. This dynamic thermal management approach is confirmed by Luminore's specifications and Dr. Michaud's testimony. Met literally.\"]]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 210,
+    "table2_idx": 211
+}

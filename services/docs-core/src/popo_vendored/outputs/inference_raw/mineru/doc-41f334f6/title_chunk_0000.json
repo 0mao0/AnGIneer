@@ -1,0 +1,108 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 338 107 658<|content|>OFFICER'S CLOSING CERTIFICATE\n<|id|>11<|page|>1<|box|>425 142 443 243<|content|>RECITALS\n<|id|>16<|page|>2<|box|>167 140 184 604<|content|>SECTION 1: REPRESENTATIONS AND WARRANTIES\n<|id|>28<|page|>4<|box|>358 140 375 372<|content|>SECTION 2: NO DEFAULT\n<|id|>39<|page|>5<|box|>402 140 419 558<|content|>SECTION 3: NO MATERIAL ADVERSE CHANGE\n<|id|>45<|page|>5<|box|>847 140 864 593<|content|>SECTION 4: FINANCIAL COVENANT COMPLIANCE\n<|id|>51<|page|>6<|box|>699 140 717 354<|content|>SECTION 5: SOLVENCY\n<|id|>53<|page|>7<|box|>277 140 294 361<|content|>SECTION 6: INSURANCE\n<|id|>55<|page|>7<|box|>582 140 599 823<|content|>SECTION 7: ORGANIZATIONAL DOCUMENTS AND CORPORATE\n<|id|>56<|page|>7<|box|>608 140 626 745<|content|>Each of the undersigned hereby certifies, on behal\n<|id|>60<|page|>8<|box|>285 140 301 797<|content|>SECTION 8: CONDITIONS PRECEDENT — SATISFACTION CON\n<|id|>76<|page|>10<|box|>277 140 294 506<|content|>SECTION 9: AUTHORIZED SIGNATORIES\n<|id|>80<|page|>10<|box|>643 140 660 424<|content|>SECTION 10: GOVERNING LAW\n<|id|>83<|page|>10<|box|>811 142 829 491<|content|>VERIMARK HOSPITALITY GROUP INC.\n<|id|>87<|page|>11<|box|>89 142 106 491<|content|>VERIMARK HOSPITALITY GROUP INC.\n<|id|>89<|page|>11<|box|>196 143 214 537<|content|>ADDRESSEE AND DELIVERY INFORMATION\n<|id|>91<|page|>11<|box|>250 142 267 673<|content|>Crescent Harbor Bank, National Association as Admi\n<|id|>97<|page|>11<|box|>430 437 446 560<|content|>SCHEDULE A\n<|id|>98<|page|>11<|box|>455 143 492 852<|content|>PRO FORMA TOTAL NET LEVERAGE RATIO CALCULATION As\n<|id|>100<|page|>11<|box|>582 143 598 310<|content|>I. Total Funded Debt\n<|id|>102<|page|>11<|box|>816 143 832 240<|content|>II. Net Debt\n<|id|>105<|page|>12<|box|>161 143 178 578<|content|>III. Adjusted EBITDA (LTM ended December 31, 2021)\n<|id|>107<|page|>12<|box|>421 143 438 460<|content|>IV. Pro Forma Total Net Leverage Ratio\n<|id|>109<|page|>12<|box|>574 437 590 560<|content|>SCHEDULE B\n<|id|>110<|page|>12<|box|>599 393 614 602<|content|>LIST OF GUARANTORS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>28<|level|>2\n<|id|>39<|level|>2\n<|id|>45<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>56<|level|>-1\n<|id|>60<|level|>2\n<|id|>76<|level|>2\n<|id|>80<|level|>2\n<|id|>83<|level|>-1\n<|id|>87<|level|>-1\n<|id|>89<|level|>2\n<|id|>91<|level|>-1\n<|id|>97<|level|>2\n<|id|>98<|level|>3\n<|id|>100<|level|>4\n<|id|>102<|level|>4\n<|id|>105<|level|>4\n<|id|>107<|level|>4\n<|id|>109<|level|>2\n<|id|>110<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 4
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 105,
+            "level": 4
+        },
+        {
+            "id": 107,
+            "level": 4
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        }
+    ]
+}

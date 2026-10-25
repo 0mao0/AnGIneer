@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 240 118 758<|content|>BRING-DOWN DUE DILIGENCE CERTIFICATE\n<|id|>1<|page|>1<|box|>136 145 171 849<|content|>Internal Work Product — Privileged and Confidentia\n<|id|>4<|page|>1<|box|>628 140 647 516<|content|>I. PURPOSE AND SCOPE OF CERTIFICATE\n<|id|>11<|page|>2<|box|>648 140 664 720<|content|>II. METHODOLOGY AND DILIGENCE PROCEDURES CONDUCTED\n<|id|>12<|page|>2<|box|>679 140 696 503<|content|>A. Overview of Bring-Down Diligence Process\n<|id|>18<|page|>3<|box|>393 142 410 383<|content|>B. Specific Diligence Activities\n<|id|>45<|page|>6<|box|>739 140 757 640<|content|>III. BRING-DOWN FINDINGS BY DILIGENCE CATEGORY\n<|id|>47<|page|>6<|box|>815 140 832 406<|content|>A. Corporate and Organizational\n<|id|>52<|page|>7<|box|>585 142 604 457<|content|>Finding: No material changes identified.\n<|id|>53<|page|>7<|box|>617 142 633 323<|content|>B. Financial Condition\n<|id|>60<|page|>8<|box|>345 140 363 573<|content|>C. Material Contracts and Change of Control Consen\n<|id|>64<|page|>8<|box|>666 140 684 457<|content|>Finding: No material changes identified.\n<|id|>65<|page|>8<|box|>696 142 714 452<|content|>D. Litigation and Contingent Liabilities\n<|id|>69<|page|>9<|box|>171 140 189 457<|content|>Finding: No material changes identified.\n<|id|>70<|page|>9<|box|>202 142 219 370<|content|>E. Regulatory and Licensing\n<|id|>77<|page|>9<|box|>843 142 861 330<|content|>F. Intellectual Property\n<|id|>81<|page|>10<|box|>333 140 349 457<|content|>Finding: No material changes identified.\n<|id|>82<|page|>10<|box|>364 140 381 372<|content|>G. Employment and Benefits\n<|id|>91<|page|>11<|box|>289 140 306 457<|content|>Finding: No material changes identified.\n<|id|>98<|page|>11<|box|>655 142 674 457<|content|>Finding: No material changes identified.\n<|id|>105<|page|>12<|box|>246 140 263 285<|content|>J. Debt and Liens\n<|id|>110<|page|>12<|box|>699 142 715 513<|content|>IV. STATUS OF DISCLOSURE SCHEDULES\n<|id|>117<|page|>13<|box|>420 140 438 802<|content|>V. ANTITRUST AND REGULATORY CLOSING CONDITION CONF\n<|id|>124<|page|>14<|box|>89 140 107 434<|content|>VI. FINANCING CONFIRMATION\n<|id|>132<|page|>15<|box|>89 140 107 529<|content|>VII. PRE-CLOSING DELIVERABLES STATUS\n<|id|>149<|page|>16<|box|>398 140 416 339<|content|>VIII. CERTIFICATION\n<|id|>159<|page|>18<|box|>89 140 107 354<|content|>IX. SIGNATURE BLOCK\n<|id|>172<|page|>19<|box|>88 142 107 261<|content|>APPENDIX A\n<|id|>173<|page|>19<|box|>119 140 138 660<|content|>List of Documents and Sources Reviewed in Bring-Do\n<|id|>201<|page|>21<|box|>89 142 107 259<|content|>APPENDIX B\n<|id|>202<|page|>21<|box|>121 140 138 527<|content|>Persons Contacted During Bring-Down Diligence\n<|id|>205<|page|>22<|box|>89 142 107 259<|content|>APPENDIX C\n<|id|>206<|page|>22<|box|>121 140 138 575<|content|>Cross-Reference to Original Due Diligence Memorand",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>4<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>18<|level|>3\n<|id|>45<|level|>2\n<|id|>47<|level|>3\n<|id|>52<|level|>-1\n<|id|>53<|level|>3\n<|id|>60<|level|>3\n<|id|>64<|level|>-1\n<|id|>65<|level|>3\n<|id|>69<|level|>-1\n<|id|>70<|level|>3\n<|id|>77<|level|>3\n<|id|>81<|level|>-1\n<|id|>82<|level|>3\n<|id|>91<|level|>-1\n<|id|>98<|level|>-1\n<|id|>105<|level|>3\n<|id|>110<|level|>2\n<|id|>117<|level|>2\n<|id|>124<|level|>2\n<|id|>132<|level|>2\n<|id|>149<|level|>2\n<|id|>159<|level|>2\n<|id|>172<|level|>2\n<|id|>173<|level|>3\n<|id|>201<|level|>2\n<|id|>202<|level|>3\n<|id|>205<|level|>2\n<|id|>206<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 3
+        },
+        {
+            "id": 205,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 3
+        }
+    ]
+}

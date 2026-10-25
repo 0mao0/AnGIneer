@@ -1,0 +1,185 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ovxnk4_4\\input\\pdfs\\doc-67188129.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ovxnk4_4\\enriched\\doc-67188129.json",
+    "contd_output": "<|src_id|>69<|tgt_id|>70",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>3\n<|id|>21<|level|>4\n<|id|>30<|level|>3\n<|id|>33<|level|>4\n<|id|>43<|level|>3\n<|id|>46<|level|>4\n<|id|>56<|level|>3\n<|id|>59<|level|>4\n<|id|>77<|level|>2\n<|id|>78<|level|>3\n<|id|>81<|level|>4\n<|id|>90<|level|>3\n<|id|>92<|level|>4\n<|id|>98<|level|>2\n<|id|>100<|level|>3\n<|id|>102<|level|>3\n<|id|>105<|level|>3\n<|id|>107<|level|>3\n<|id|>109<|level|>2\n<|id|>113<|level|>3\n<|id|>118<|level|>2\n<|id|>122<|level|>2\n<|id|>127<|level|>2\n<|id|>130<|level|>3\n<|id|>132<|level|>3",
+    "image_output": "<|src_id|>101<|tgt_id|>100\n<|src_id|>103<|tgt_id|>102\n<|src_id|>104<|tgt_id|>102\n<|src_id|>106<|tgt_id|>105\n<|src_id|>108<|tgt_id|>107\n<|src_id|>111<|tgt_id|>109\n<|src_id|>112<|tgt_id|>109\n<|src_id|>129<|tgt_id|>127",
+    "contd_label": [
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 4
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 4
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 4
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 4
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 101,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 127
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 103,
+            "table2_idx": 104,
+            "upper_row_ss": [
+                [
+                    "Depositions — Gavin Aldrich",
+                    "Devon Archer",
+                    "Renata Vasquez (attend)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Depositions — AMA Witnesses (Mercer, Prescott)",
+                    "Devon Archer",
+                    "Renata Vasquez (attend Mercer deposition)"
+                ]
+            ]
+        }
+    ]
+}

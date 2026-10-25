@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 155 133 843<|content|>CALDERWOOD & HARKNESS LLP One Liberty Plaza, 50th\n<|id|>1<|page|>1<|box|>167 169 203 826<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>4<|page|>1<|box|>532 142 550 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>12<|page|>2<|box|>542 140 559 566<|content|>II. BACKGROUND AND PROCEDURAL HISTORY\n<|id|>13<|page|>2<|box|>573 140 590 282<|content|>A. The Litigation\n<|id|>18<|page|>3<|box|>329 140 347 344<|content|>B. The Motion to Dismiss\n<|id|>26<|page|>4<|box|>89 140 107 550<|content|>III. SUMMARY OF JUSTICE CHEN'S DECISION\n<|id|>27<|page|>4<|box|>121 140 138 522<|content|>A. Count V — Unjust Enrichment: DISMISSED\n<|id|>34<|page|>5<|box|>89 140 107 607<|content|>B. Count III — Third-Party Shipper Claims: NARROWE\n<|id|>42<|page|>6<|box|>239 142 258 669<|content|>IV. IMPACT ON OVERALL CASE AND DAMAGES EXPOSURE\n<|id|>43<|page|>6<|box|>272 142 289 413<|content|>A. Reduction in Claimed Damages\n<|id|>46<|page|>6<|box|>672 142 690 447<|content|>B. Remaining Claims Against Thalassa\n<|id|>50<|page|>7<|box|>359 140 377 411<|content|>C. Thalassa's Remaining Defenses\n<|id|>60<|page|>8<|box|>741 140 758 565<|content|>V. IMPLICATIONS FOR DISCOVERY STRATEGY\n<|id|>61<|page|>8<|box|>773 140 789 303<|content|>A. Discovery Period\n<|id|>64<|page|>9<|box|>138 140 157 395<|content|>B. Adjusted discovery Priorities\n<|id|>72<|page|>10<|box|>434 140 452 326<|content|>C. Expert Engagement\n<|id|>77<|page|>11<|box|>89 140 107 754<|content|>VI. SUMMARY JUDGMENT CONSIDERATIONS (FORWARD-LOOKI\n<|id|>82<|page|>11<|box|>582 140 599 772<|content|>VII. COORDINATION WITH LOCAL COUNSEL, INSURERS, AN\n<|id|>83<|page|>11<|box|>613 140 630 334<|content|>A. Greek Local Counsel\n<|id|>88<|page|>12<|box|>422 140 440 483<|content|>VIII. NEXT STEPS AND ACTION ITEMS\n<|id|>98<|page|>13<|box|>353 140 369 300<|content|>IX. CONCLUSION",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>4<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>26<|level|>1\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>2\n<|id|>60<|level|>1\n<|id|>61<|level|>2\n<|id|>64<|level|>2\n<|id|>72<|level|>2\n<|id|>77<|level|>1\n<|id|>82<|level|>1\n<|id|>83<|level|>2\n<|id|>88<|level|>1\n<|id|>98<|level|>1",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        }
+    ]
+}

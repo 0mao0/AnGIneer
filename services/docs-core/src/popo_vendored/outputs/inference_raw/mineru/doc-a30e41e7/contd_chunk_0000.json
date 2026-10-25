@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 166 126 857<|content|>CALDERWOOD & HARKNESS LLP One Liberty Plaza, 45th Floor New York, NY 10006 Telephone: ... com\n<|id|>1<|page|>1<|box|>133 746 151 854<|content|>June 25, 2024\n<|id|>2<|page|>1<|box|>160 140 196 854<|content|>Kensington Barrow & Co. ... as Representative of t...ers 399 Park Avenue, 22nd Floor New York, NY 10022\n<|id|>3<|page|>1<|box|>204 140 222 753<|content|>Ridgeline Capital Markets LLC 200 Vesey Street, 35th Floor New York, NY 10281\n<|id|>4<|page|>1<|box|>229 140 248 828<|content|>Stonebridge Marvelo Securities Inc. ... 600 Lexington Avenue, 18th Floor New York, NY 10022\n<|id|>5<|page|>1<|box|>255 140 273 823<|content|>Fidelitas Trust Company, N. ... , as Trustee 100 Wall Street, Suite 1500 New York, NY 10005\n<|id|>6<|page|>1<|box|>282 140 318 852<|content|>Re: ... 250% Senior Notes due 2031 issued by Verimark Hospitality Group Inc\n<|id|>14<|page|>1<|box|>779 174 815 854<|content|>(iv) Verimark Capital Holdings LLC, a limited liab...d under the laws of the State of Delaware; ... and\n<|id|>16<|page|>1<|box|>867 140 902 854<|content|>The Issuer and the Guarantors are hereinafter coll...ely referred to as the \"Transaction Parties. ... \"\n<|id|>24<|page|>2<|box|>454 174 508 854<|content|>(6) The Escrow Agreement dated June 18, 2024 among the Issuer, Kensington Barrow & Co. ... and\n<|id|>26<|page|>2<|box|>561 140 597 854<|content|>Items (1) through (6) above are hereinafter collec...y referred to as the \"Transaction Documents. ... \"\n<|id|>58<|page|>4<|box|>784 174 821 854<|content|>(iv) Verimark Capital Holdings LLC is a limited li...g under the laws of the State of Delaware; ... and\n<|id|>60<|page|>4<|box|>873 140 909 854<|content|>Our opinions with respect to the good standing of ...nt) issued by the applicable Secretary of State or\n<|id|>61<|page|>5<|box|>89 140 125 854<|content|>Department of State dated June 20, 2024, and such ...ns speak only as of the dates of such certificates\n<|id|>70<|page|>5<|box|>845 174 900 854<|content|>(a) applicable bankruptcy, insolvency, reorganizat... generally as from time to time in effect; ... and\n<|id|>72<|page|>6<|box|>171 140 226 854<|content|>We further note that the enforceability of certain...by applicable law and public policy considerations\n<|id|>77<|page|>6<|box|>541 174 614 854<|content|>(b) violate any federal or New York statute, rule,... of any specific law, rule, or regulation); ... or\n<|id|>79<|page|>6<|box|>684 140 794 857<|content|>Our opinion in this Section 4. ... 6 does not addr...ments and VHG's charter documents referenced above\n<|id|>81<|page|>6<|box|>830 140 904 856<|content|>Assuming (i) the accuracy of the representations a... compliance by the Issuer, the Guarantors, and the\n<|id|>82<|page|>7<|box|>90 140 145 854<|content|>Initial Purchasers with the offering restrictions ...tial resale of the Notes by the Initial Purchasers\n<|id|>83<|page|>7<|box|>152 174 208 854<|content|>(a) in the United States to persons who are \"quali...ded by Rule 144A under the Securities Act; ... and\n<|id|>85<|page|>7<|box|>296 140 369 856<|content|>are exempt from the registration requirements of S...dum to register the Notes under the Securities Act\n<|id|>84<|page|>7<|box|>215 174 287 856<|content|>(b) outside the United States to persons who are n...provided by Regulation S under the Securities Act,\n<|id|>126<|page|>11<|box|>179 174 196 848<|content|>(b) Fidelitas Trust Company, N. ... and\n<|id|>128<|page|>11<|box|>267 140 321 854<|content|>No other person or entity may rely on this opinion...horized person shall be at such person's sole risk\n<|id|>136<|page|>12<|box|>267 140 282 565<|content|>Theodore Langston Responsible Partner, Capital Markets\n<|id|>137<|page|>12<|box|>284 140 300 750<|content|>Calderwood & Harkness LLP One Liberty Plaza, 45th Floor New York, NY 10006\n<|id|>138<|page|>12<|box|>301 140 356 854<|content|>Enclosures: ... Reference is made to the documents...ransactions contemplated by the Purchase Agreement",
+    "raw_response": "<|src_id|>60<|tgt_id|>61\n<|src_id|>81<|tgt_id|>82",
+    "parsed": [
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        }
+    ]
+}

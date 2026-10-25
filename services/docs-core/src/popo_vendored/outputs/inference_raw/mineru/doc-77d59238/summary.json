@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-a8woc22l\\input\\pdfs\\doc-77d59238.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-a8woc22l\\enriched\\doc-77d59238.json",
+    "contd_output": "<|src_id|>68<|tgt_id|>69",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>22<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>64<|level|>3\n<|id|>82<|level|>3\n<|id|>101<|level|>3\n<|id|>121<|level|>2\n<|id|>126<|level|>2\n<|id|>131<|level|>2\n<|id|>132<|level|>3\n<|id|>138<|level|>3\n<|id|>145<|level|>3\n<|id|>152<|level|>2\n<|id|>165<|level|>2",
+    "image_output": "<|src_id|>20<|tgt_id|>18\n<|src_id|>21<|tgt_id|>18\n<|src_id|>123<|tgt_id|>121\n<|src_id|>124<|tgt_id|>121\n<|src_id|>128<|tgt_id|>126\n<|src_id|>129<|tgt_id|>126",
+    "contd_label": [
+        {
+            "src_id": 68,
+            "tgt_id": 69
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 126
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 20,
+            "table2_idx": 21,
+            "upper_row_ss": [
+                [
+                    "Greenfield Grain Storage LLC",
+                    "GGS",
+                    "Iowa limited liability company",
+                    "Iowa",
+                    "84-2093417",
+                    "Iowa SOS Filing No. — to be confirmed",
+                    "Capitol Registered Agents, Inc., 221 East Walnut Street,",
+                    "4100 Grand Prairie Boulevard, Suite 310, Des Moines,",
+                    "Subsidiary Guarantor"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Des Moines, Iowa 50309",
+                    "Iowa 50309",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 123,
+            "table2_idx": 124,
+            "upper_row_ss": [
+                [
+                    "GCI",
+                    "Indiana (foreign, if applicable)",
+                    "Certificate of Good Standing / Certificate of Authority",
+                    "To be confirmed whether required",
+                    "Pending confirmation of whether GCI conducts business in Indiana requiring"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "foreign qualification"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 128,
+            "table2_idx": 129,
+            "upper_row_ss": [
+                [
+                    "Member/Stockholder consent or resolutions authorizing transaction",
+                    "GAP: written consent of Holdings as sole member; Holdings: board resolution (and stockholder consent, if required); GGS: written consent of GAP as sole member; GCI: board resolution (with GAP as sole stockholder acting by",
+                    "To be prepared by C&H or Nina Vasquez",
+                    "Must specifically authorize execution and delivery of Credit Agreement, Guaranty Agreement, Security Agreement, Pledge Agreement, Mortgages, UCC financing statements, and all"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "written consent)",
+                    "",
+                    "ancillary Loan Documents; must authorize specific officers to execute on behalf of each Loan Party"
+                ]
+            ]
+        }
+    ]
+}

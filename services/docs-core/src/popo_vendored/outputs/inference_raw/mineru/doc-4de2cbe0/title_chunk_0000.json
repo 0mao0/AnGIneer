@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        53
+    ],
+    "pages": [
+        5,
+        7,
+        11,
+        32,
+        46,
+        47,
+        48,
+        49,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>5<|box|>0 75 284 871<|content|>TREASURY BULLETIN\n<|id|>10<|page|>7<|box|>127 357 151 611<|content|>Table of Contents\n<|id|>13<|page|>11<|box|>49 340 67 657<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>72<|page|>32<|box|>81 153 138 859<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>102<|page|>46<|box|>194 151 209 850<|content|>Section I.- Securities Issued or Guaranteed by the\n<|id|>103<|page|>46<|box|>213 335 229 669<|content|>Table 1.- Summary of All Securities\n<|id|>106<|page|>47<|box|>71 143 88 839<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>108<|page|>48<|box|>75 136 90 832<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>109<|page|>48<|box|>95 118 110 857<|content|>Table 3.- Interest-Bearing Public Marketable Secur\n<|id|>112<|page|>49<|box|>80 171 96 841<|content|>Section II - Interest-Bearing Securities Issued by\n<|id|>120<|page|>52<|box|>75 79 107 920<|content|>Section I - Interest-Bearing Securities Issued or",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>10<|level|>1\n<|id|>13<|level|>1\n<|id|>72<|level|>2\n<|id|>102<|level|>2\n<|id|>103<|level|>3\n<|id|>106<|level|>2\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>112<|level|>2\n<|id|>120<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        8
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>13<|page|>2<|box|>90 140 107 496<|content|>1. Scope and Voluntary Nature of the Proffer\n<|id|>25<|page|>3<|box|>250 140 266 531<|content|>2. Queen-for-a-Day Protections (Use Restrictions)\n<|id|>37<|page|>4<|box|>604 140 621 321<|content|>3. Presence of Counsel\n<|id|>42<|page|>5<|box|>304 140 320 596<|content|>4. Attorney-Client Privilege and Work-Product Prot\n<|id|>47<|page|>5<|box|>814 140 832 413<|content|>5. Recording and Memorialization\n<|id|>52<|page|>6<|box|>484 140 501 620<|content|>6. No Immunity; No Obligation to Enter Further Agr\n<|id|>58<|page|>7<|box|>340 140 357 392<|content|>7. Modification and Integration\n<|id|>67<|page|>8<|box|>239 140 256 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>13<|level|>1\n<|id|>25<|level|>1\n<|id|>37<|level|>1\n<|id|>42<|level|>1\n<|id|>47<|level|>1\n<|id|>52<|level|>1\n<|id|>58<|level|>1\n<|id|>67<|level|>-1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ]
+}

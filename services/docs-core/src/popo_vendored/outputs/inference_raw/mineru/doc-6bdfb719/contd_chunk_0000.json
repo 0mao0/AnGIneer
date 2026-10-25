@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        14,
+        23,
+        29,
+        30
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>496 169 532 828<|content|>Applegategate Offshore Services Ltd. ... Windward ... George Town, Grand Cayman KY1-1306 Cayman Islands\n<|id|>3<|page|>1<|box|>540 416 559 580<|content|>In coordination with: ... In coordination with\n<|id|>4<|page|>1<|box|>566 232 584 764<|content|>Calderwood & Harkness LLP 450 Park Avenue New York, NY 10022\n<|id|>5<|page|>1<|box|>592 233 611 764<|content|>Adopted on or about the date of incorporation (prior to August 20, 2023)\n<|id|>6<|page|>1<|box|>618 142 633 410<|content|>Right-click to update Table of Contents\n<|id|>7<|page|>1<|box|>643 455 664 542<|content|>PART I\n<|id|>8<|page|>1<|box|>681 303 702 694<|content|>MEMORANDUM OF ASSOCIATION\n<|id|>9<|page|>1<|box|>720 478 743 519<|content|>OF\n<|id|>11<|page|>1<|box|>796 310 815 686<|content|>(Adopted on or about the date of incorporation)\n<|id|>12<|page|>1<|box|>916 142 931 514<|content|>Applegategate Offshore Services Ltd. ... / Calderwood & Harkness LLP\n<|id|>13<|page|>1<|box|>938 473 953 526<|content|>1 of 30\n<|id|>37<|page|>3<|box|>821 174 895 856<|content|>(a) Issue up to US$400,000,000 (four hundred milli... 144A and Regulation S under the U. ... Securities\n<|id|>38<|page|>4<|box|>90 174 127 854<|content|>Act of 1933, as amended (the \"Securities Act\"), to...... persons in offshore transactions, respectively\n<|id|>64<|page|>5<|box|>758 174 794 854<|content|>(d) references to statutory provisions shall be co...re-enacted, or replaced from time to time; ... and\n<|id|>66<|page|>6<|box|>90 452 111 545<|content|>PART II\n<|id|>93<|page|>7<|box|>839 140 895 856<|content|>\"Parent\" means Driftwood Absolute Return Fund Ltd....927, Windward House, 3rd Floor, George Town, Grand\n<|id|>94<|page|>8<|box|>89 140 126 854<|content|>Cayman KY1-1306, Cayman Islands, and its principal...00, Miami, Florida 33131, United States of America\n<|id|>188<|page|>14<|box|>349 174 368 792<|content|>(b) be counted in the quorum at any meeting at which such matter is considered; ... and\n<|id|>190<|page|>14<|box|>402 140 420 678<|content|>unless the Board, by resolution, determines otherw...olution, determines otherwise in a particular case\n<|id|>189<|page|>14<|box|>376 174 393 594<|content|>(c) retain any benefit received by reason of such interest,\n<|id|>307<|page|>23<|box|>393 174 429 852<|content|>Ironclad Trust Company, N. ... 100 Wall Street, Su... New York, New York 10005 United States of America\n<|id|>308<|page|>23<|box|>439 176 455 627<|content|>Attention: ... Catherine Nowak, Vice President, Corporate Trust\n<|id|>377<|page|>29<|box|>357 140 375 339<|content|>Certificate Number: ... [__]\n<|id|>378<|page|>29<|box|>383 142 401 290<|content|>Date of Issue: ... [__]\n<|id|>379<|page|>29<|box|>444 142 460 303<|content|>This is to certify that: ... This is to certify that\n<|id|>389<|page|>29<|box|>766 143 782 254<|content|>Title: ... Director\n<|id|>390<|page|>29<|box|>784 143 801 264<|content|>Date: ... Date\n<|id|>399<|page|>30<|box|>503 143 522 348<|content|>Title: ... Authorized Signatory\n<|id|>400<|page|>30<|box|>522 143 540 266<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>3<|tgt_id|>4\n<|src_id|>37<|tgt_id|>38\n<|src_id|>93<|tgt_id|>94",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 94
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>11<|type|>title<|page|>1<|box|>652 142 669 328<|content|>1. Description of Client\n<|id|>14<|type|>title<|page|>2<|box|>167 140 184 352<|content|>2. Scope of Representation\n<|id|>16<|type|>title<|page|>2<|box|>297 140 315 493<|content|>(a) Joint Venture Formation and Negotiation\n<|id|>33<|type|>title<|page|>3<|box|>424 140 441 522<|content|>(b) Acquisition of The Linden at Gramercy Park\n<|id|>41<|type|>title<|page|>4<|box|>375 140 392 398<|content|>(c) Senior Acquisition Financing\n<|id|>49<|type|>title<|page|>5<|box|>157 140 175 315<|content|>(d) Scope Limitations\n<|id|>59<|type|>title<|page|>5<|box|>686 142 703 313<|content|>3. Engagement Team\n<|id|>61<|type|>table<|page|>5<|box|>753 143 893 851<|content|>None\n<|id|>62<|type|>table<|page|>6<|box|>88 143 494 852<|content|>None\n<|id|>64<|type|>title<|page|>6<|box|>661 140 679 444<|content|>4. Billing Rates and Fee Arrangements\n<|id|>65<|type|>title<|page|>6<|box|>691 142 709 277<|content|>(a) Hourly Rates\n<|id|>66<|type|>table<|page|>6<|box|>758 143 852 852<|content|>None\n<|id|>69<|type|>title<|page|>7<|box|>294 140 311 398<|content|>(b) Disbursements and Expenses\n<|id|>81<|type|>title<|page|>7<|box|>770 140 787 352<|content|>(c) Invoicing and Payment\n<|id|>85<|type|>title<|page|>8<|box|>304 140 321 236<|content|>5. Retainer\n<|id|>90<|type|>title<|page|>8<|box|>741 140 758 321<|content|>6. Conflicts of Interest\n<|id|>96<|type|>title<|page|>9<|box|>439 140 457 284<|content|>7. Confidentiality\n<|id|>99<|type|>title<|page|>9<|box|>789 140 805 326<|content|>8. Document Retention\n<|id|>102<|type|>title<|page|>10<|box|>250 140 266 385<|content|>9. Termination of Engagement\n<|id|>106<|type|>title<|page|>10<|box|>625 142 640 473<|content|>10. Limitation of Liability; No Guarantees\n<|id|>109<|type|>title<|page|>11<|box|>90 140 107 480<|content|>11. Governing Law and Dispute Resolution\n<|id|>111<|type|>title<|page|>11<|box|>304 140 320 436<|content|>12. Acceptance and Acknowledgment\n<|id|>115<|type|>title<|page|>11<|box|>590 142 606 272<|content|>Very truly yours,\n<|id|>120<|type|>title<|page|>11<|box|>676 142 691 439<|content|>ACKNOWLEDGED AND AGREED:\n<|id|>122<|type|>title<|page|>11<|box|>746 142 762 457<|content|>BRIARWOOD FAMILY OFFICE LLC",
+    "raw_response": "<|src_id|>61<|tgt_id|>59\n<|src_id|>62<|tgt_id|>59\n<|src_id|>66<|tgt_id|>65",
+    "parsed": [
+        {
+            "src_id": 61,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 65
+        }
+    ]
+}

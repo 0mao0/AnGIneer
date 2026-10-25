@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        61
+    ],
+    "pages": [
+        3,
+        5,
+        6,
+        7,
+        9,
+        17,
+        29,
+        47,
+        60,
+        61
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>3<|box|>148 81 824 916<|content|>FOREIGN CURRENCY POSITIONS Introduction. ... Inside back cover\n<|id|>5<|page|>3<|box|>835 81 869 877<|content|>NOTES: ... r= Revised\n<|id|>16<|page|>5<|box|>547 81 604 480<|content|>The consumer price index (CPI) rose by 1. ... The core CPI advanced at a\n<|id|>18<|page|>5<|box|>421 506 508 908<|content|>Declines in food and energy prices at the producer...een largely absent at earlier stages of processing\n<|id|>44<|page|>6<|box|>875 506 912 906<|content|>Most of the dollar deterioration in 1994 was again...these currencies. ... Between April 1995 and April\n<|id|>45<|page|>7<|box|>89 78 113 464<|content|>1997, the dollar rose by 50 percent against the ye... and by almost 24 percent against the deutschemark\n<|id|>82<|page|>9<|box|>446 315 464 676<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>83<|page|>9<|box|>476 81 493 300<|content|>First-Quarter Receipts\n<|id|>84<|page|>9<|box|>506 80 607 472<|content|>The following capsule analysis of budget receipts,... to analyze adequately collections for the quarter\n<|id|>115<|page|>17<|box|>275 80 392 488<|content|>Under authority of Public Law 95-147, Treasury imp...interest-bearing obligations participate under the\n<|id|>116<|page|>17<|box|>140 506 271 915<|content|>Note Option. ... Likewise, those institutions wish... account at FRBs do so under the Remittance Option\n<|id|>179<|page|>29<|box|>843 80 912 486<|content|>January 24 tenders were invited for approximately ... February 5, 1998. ... The bills were auctioned on\n<|id|>180<|page|>29<|box|>128 506 224 915<|content|>January 30. ... 34 percent\n<|id|>339<|page|>47<|box|>125 81 250 488<|content|>Series EE bonds, on sale since January 1, 1980, ar... currently sold. ... Series J and K were sold from\n<|id|>340<|page|>47<|box|>126 506 178 913<|content|>May 1, 1952, through April 30, 1957. ... The notes...he simultaneous purchase of series E savings bonds\n<|id|>385<|page|>60<|box|>334 323 362 694<|content|>Page Intentionally Left Blank\n<|id|>386<|page|>61<|box|>334 323 362 694<|content|>Page Intentionally Left Blank",
+    "raw_response": "<|src_id|>44<|tgt_id|>45\n<|src_id|>115<|tgt_id|>116\n<|src_id|>179<|tgt_id|>180\n<|src_id|>339<|tgt_id|>340",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 180
+        },
+        {
+            "src_id": 339,
+            "tgt_id": 340
+        }
+    ]
+}

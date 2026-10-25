@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>192 243 208 569<|content|>SECTION A — TRANSACTION DOCUMENTS\n<|id|>3<|type|>title<|page|>1<|box|>335 243 350 561<|content|>SECTION B — CORPORATE DELIVERABLES\n<|id|>4<|type|>table<|page|>1<|box|>351 85 406 878<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>424 243 439 561<|content|>SECTION C — PERFECTION DELIVERABLES\n<|id|>6<|type|>table<|page|>1<|box|>441 85 530 877<|content|>None\n<|id|>7<|type|>title<|page|>1<|box|>548 243 564 484<|content|>SECTION D — LEGAL OPINIONS\n<|id|>9<|type|>title<|page|>1<|box|>620 243 634 443<|content|>SECTION E — INSURANCE\n<|id|>11<|type|>title<|page|>1<|box|>690 243 707 539<|content|>SECTION F — FINANCIAL STATEMENTS\n<|id|>13<|type|>title<|page|>1<|box|>745 243 760 393<|content|>SECTION G — FEESSECTION G — FEES\n<|id|>15<|type|>title<|page|>1<|box|>833 243 848 485<|content|>SECTION H — MISCELLANEOUS\n<|id|>18<|type|>title<|page|>2<|box|>121 243 136 396<|content|>STATUS SUMMARY",
+    "raw_response": "<|src_id|>4<|tgt_id|>3\n<|src_id|>6<|tgt_id|>5",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 5
+        }
+    ]
+}

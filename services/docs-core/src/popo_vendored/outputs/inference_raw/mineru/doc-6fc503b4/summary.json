@@ -1,0 +1,151 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l852ea92\\input\\pdfs\\doc-6fc503b4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l852ea92\\enriched\\doc-6fc503b4.json",
+    "contd_output": "<|src_id|>37<|tgt_id|>38",
+    "title_output": "<|id|>5<|level|>1\n<|id|>16<|level|>1\n<|id|>19<|level|>1\n<|id|>24<|level|>1\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>44<|level|>2\n<|id|>61<|level|>1\n<|id|>66<|level|>1\n<|id|>67<|level|>2\n<|id|>73<|level|>2\n<|id|>80<|level|>2\n<|id|>87<|level|>2\n<|id|>97<|level|>2\n<|id|>104<|level|>1\n<|id|>109<|level|>1\n<|id|>123<|level|>1\n<|id|>134<|level|>1",
+    "image_output": "<|src_id|>17<|tgt_id|>16\n<|src_id|>39<|tgt_id|>35\n<|src_id|>42<|tgt_id|>35\n<|src_id|>63<|tgt_id|>61\n<|src_id|>64<|tgt_id|>61\n<|src_id|>65<|tgt_id|>61\n<|src_id|>106<|tgt_id|>104",
+    "contd_label": [
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        }
+    ],
+    "title_label": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 17,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 104
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 63,
+            "table2_idx": 64,
+            "upper_row_ss": [
+                [
+                    "August 15, 2022",
+                    "Ms. Fonseca engages Tillerman Forensic Advisory LLC (Principal: Greta Sørensen, CPA, CFF) to conduct a preliminary forensic review of CMP's financial records,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "following the discovery of an approximately $1.18 million shortfall in her expected distributions."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 64,
+            "table2_idx": 65,
+            "upper_row_ss": [
+                [
+                    "March 6, 2023",
+                    "Rennick, through Hargrove, Pettit & Sun LLP, files his answer and counterclaim. The answer denied the material allegations of the complaint and asserted"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "affirmative defenses including waiver, estoppel, laches, and course of dealing. The counterclaim alleged that Fonseca had breached her partnership duties of good faith and fair dealing by retaining Tillerman Forensic Advisory without Rennick's knowledge or consent, and sought unspecified damages."
+                ]
+            ]
+        }
+    ]
+}

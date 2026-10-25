@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>193 140 210 447<|content|>VIA HAND DELIVERY AND EMAIL\n<|id|>8<|page|>1<|box|>367 140 383 491<|content|>I. Introduction and Identification of Counsel\n<|id|>12<|page|>1<|box|>834 142 851 506<|content|>II. Identification of the Treaty and the Dispute\n<|id|>31<|page|>3<|box|>402 140 419 624<|content|>III. Invocation of Treaty Article 22 — Mandatory A\n<|id|>35<|page|>3<|box|>833 140 849 735<|content|>IV. Response to HFC's Assertion that the Arbitrati\n<|id|>42<|page|>4<|box|>792 140 809 521<|content|>V. Appointment of Party-Appointed Arbitrators\n<|id|>48<|page|>5<|box|>520 140 537 336<|content|>VI. Scope of Arbitration\n<|id|>59<|page|>6<|box|>583 140 599 483<|content|>VII. Notice Regarding Judicial Proceedings\n<|id|>64<|page|>7<|box|>321 140 339 359<|content|>VIII. Reservation of Rights\n<|id|>68<|page|>7<|box|>606 140 622 359<|content|>IX. Document Preservation\n<|id|>79<|page|>8<|box|>547 140 564 338<|content|>X. Request for Response\n<|id|>85<|page|>9<|box|>148 140 167 295<|content|>XI. Confidentiality\n<|id|>88<|page|>9<|box|>444 140 460 514<|content|>XII. Contact Information and Communications",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>-1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>31<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>48<|level|>2\n<|id|>59<|level|>2\n<|id|>64<|level|>2\n<|id|>68<|level|>2\n<|id|>79<|level|>2\n<|id|>85<|level|>2\n<|id|>88<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        }
+    ]
+}

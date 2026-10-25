@@ -1,0 +1,34 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>460<|page|>45<|box|>266 371 284 653<|content|>9.4 枢纽上下游河段通航水位\n<|id|>469<|page|>46<|box|>175 270 202 694<|content|>附录 A 长江干线代表船型\n<|id|>476<|page|>47<|box|>183 216 211 780<|content|>附录 B 长江干线航道尺度计算方法\n<|id|>478<|page|>48<|box|>164 222 228 751<|content|>附录 C 长江干线水上过河建筑物通航净宽计算方法",
+    "raw_response": "<|id|>460<|level|>2\n<|id|>469<|level|>1\n<|id|>476<|level|>1\n<|id|>478<|level|>1",
+    "parsed": [
+        {
+            "id": 460,
+            "level": 2
+        },
+        {
+            "id": 469,
+            "level": 1
+        },
+        {
+            "id": 476,
+            "level": 1
+        },
+        {
+            "id": 478,
+            "level": 1
+        }
+    ]
+}

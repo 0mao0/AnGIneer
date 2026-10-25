@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>172 158 207 836<|content|>CALDERWOOD & HARKNESS LLP 1750 K Street NW, Suite\n<|id|>2<|type|>title<|page|>1<|box|>217 374 234 622<|content|>INTERNAL MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>473 359 492 635<|content|>I. Purpose and Background\n<|id|>16<|type|>title<|page|>2<|box|>444 272 463 723<|content|>II. Admitted Counsel and Technical Advisors\n<|id|>17<|type|>title<|page|>2<|box|>489 142 505 527<|content|>A. Admitted Counsel Under the Protective Order\n<|id|>19<|type|>table<|page|>2<|box|>575 143 651 852<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>90 142 107 406<|content|>B. Non-Admitted Team Members\n<|id|>23<|type|>table<|page|>3<|box|>176 143 252 852<|content|>None\n<|id|>26<|type|>title<|page|>3<|box|>628 140 645 312<|content|>C. Technical Advisor\n<|id|>31<|type|>title<|page|>4<|box|>308 318 327 678<|content|>III. Definition of Protected Material\n<|id|>32<|type|>title<|page|>4<|box|>353 142 369 423<|content|>A. Categories of Protected Material\n<|id|>44<|type|>title<|page|>5<|box|>595 142 612 380<|content|>B. Identification and Marking\n<|id|>48<|type|>title<|page|>5<|box|>825 176 862 854<|content|>\"CONTAINS PROTECTED INFORMATION — B-422187; B-4221\n<|id|>50<|type|>title<|page|>6<|box|>154 254 174 741<|content|>IV. Prohibition on Disclosure to Client Personnel\n<|id|>51<|type|>title<|page|>6<|box|>199 140 215 403<|content|>A. Absolute Bar on Client Access\n<|id|>61<|type|>title<|page|>7<|box|>90 140 107 514<|content|>B. Permissible Communications with the Client\n<|id|>68<|type|>title<|page|>7<|box|>669 264 688 733<|content|>V. Physical and Electronic Security Procedures\n<|id|>69<|type|>title<|page|>7<|box|>714 142 729 383<|content|>A. Physical Document Storage\n<|id|>79<|type|>title<|page|>8<|box|>513 142 530 397<|content|>B. Electronic Document Storage\n<|id|>87<|type|>title<|page|>9<|box|>398 140 415 380<|content|>C. Printing and Reproduction\n<|id|>91<|type|>title<|page|>9<|box|>727 241 747 754<|content|>VI. Work Product Derived from Protected Material\n<|id|>92<|type|>title<|page|>9<|box|>773 142 790 308<|content|>A. Briefs and Filings\n<|id|>97<|type|>title<|page|>10<|box|>482 140 500 436<|content|>B. Internal Memoranda and Analysis\n<|id|>101<|type|>title<|page|>11<|box|>90 230 111 764<|content|>VII. Communication with Opposing Parties and GAO\n<|id|>102<|type|>title<|page|>11<|box|>136 140 154 442<|content|>A. Coordination with Agency Counsel\n<|id|>105<|type|>title<|page|>11<|box|>393 140 411 478<|content|>B. Coordination with Intervenor's Counsel\n<|id|>108<|type|>title<|page|>11<|box|>669 140 686 359<|content|>C. Coordination with GAO\n<|id|>110<|type|>title<|page|>11<|box|>814 174 834 821<|content|>VIII. Procedures for Return or Destruction of Prot\n<|id|>118<|type|>title<|page|>12<|box|>669 308 689 687<|content|>IX. Consequences of Non-Compliance\n<|id|>125<|type|>title<|page|>13<|box|>506 364 525 633<|content|>X. Questions and Contacts\n<|id|>133<|type|>title<|page|>14<|box|>90 390 111 606<|content|>XI. Acknowledgment\n<|id|>144<|type|>title<|page|>14<|box|>529 421 546 576<|content|>ATTACHMENT A\n<|id|>145<|type|>title<|page|>14<|box|>554 320 571 676<|content|>INTERNAL ACKNOWLEDGMENT FORM\n<|id|>146<|type|>title<|page|>14<|box|>580 150 616 844<|content|>Protective Order Handling Procedures Matter No. 10",
+    "raw_response": "<|src_id|>19<|tgt_id|>17\n<|src_id|>23<|tgt_id|>21",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        }
+    ]
+}

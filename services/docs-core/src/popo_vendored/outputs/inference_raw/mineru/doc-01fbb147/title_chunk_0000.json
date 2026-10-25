@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        17,
+        19,
+        21,
+        22,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 138 852<|content|>IN THE CIRCUIT COURT OF THE ELEVENTH JUDICIAL CIRC\n<|id|>7<|page|>1<|box|>358 151 414 844<|content|>PLAINTIFF'S MEMORANDUM OF LAW IN SUPPORT OF ITS MO\n<|id|>11<|page|>2<|box|>452 385 468 612<|content|>TABLE OF AUTHORITIES\n<|id|>15<|page|>3<|box|>657 142 672 290<|content|>Statutes and Rules\n<|id|>17<|page|>3<|box|>845 143 863 294<|content|>Secondary Sources\n<|id|>20<|page|>4<|box|>301 140 319 413<|content|>I. PRELIMINARY STATEMENT\n<|id|>28<|page|>5<|box|>758 142 773 377<|content|>II. STATEMENT OF FACTS\n<|id|>29<|page|>5<|box|>789 142 805 261<|content|>A. The Parties\n<|id|>36<|page|>7<|box|>138 140 157 573<|content|>B. VHG's Insurance Program and the Tower Structure\n<|id|>44<|page|>7<|box|>843 140 859 656<|content|>C. The July 2022 Renewal and the Windstorm Sub-Lim\n<|id|>60<|page|>9<|box|>90 140 107 344<|content|>(Orde Dep. at 39:16–41:8.)\n<|id|>64<|page|>9<|box|>583 140 599 460<|content|>D. Hurricane Callista and VHG's Losses\n<|id|>71<|page|>10<|box|>748 140 765 411<|content|>E. The Claims Process and Denial\n<|id|>82<|page|>11<|box|>705 140 722 316<|content|>F. Procedural History\n<|id|>90<|page|>12<|box|>545 140 563 346<|content|>III. LEGAL STANDARD\n<|id|>91<|page|>12<|box|>577 140 594 467<|content|>A. Florida Summary Judgment Standard\n<|id|>97<|page|>13<|box|>311 140 329 558<|content|>B. Florida Standards for Partial Summary Judgment\n<|id|>100<|page|>13<|box|>603 140 619 285<|content|>IV. ARGUMENT\n<|id|>138<|page|>17<|box|>773 140 809 854<|content|>B. Under Florida Law, Ambiguities in Insurance Pol\n<|id|>149<|page|>19<|box|>521 140 537 800<|content|>C. Extrinsic Evidence Is Admissible to Resolve the\n<|id|>163<|page|>21<|box|>393 140 429 854<|content|>D. Ironclad Bears the Burden of Proving the Applic\n<|id|>173<|page|>22<|box|>734 140 752 692<|content|>E. Deletion of the Sub-Limit Affects All Layers of\n<|id|>182<|page|>23<|box|>669 140 686 751<|content|>F. VHG's Expert Evidence Confirms Losses Exceeding\n<|id|>187<|page|>24<|box|>250 140 266 348<|content|>(Vasquez Report at 24–45.)\n<|id|>191<|page|>24<|box|>678 140 695 294<|content|>V. CONCLUSION\n<|id|>213<|page|>25<|box|>824 375 840 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>20<|level|>1\n<|id|>28<|level|>1\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>2\n<|id|>60<|level|>-1\n<|id|>64<|level|>2\n<|id|>71<|level|>2\n<|id|>82<|level|>2\n<|id|>90<|level|>1\n<|id|>91<|level|>2\n<|id|>97<|level|>2\n<|id|>100<|level|>1\n<|id|>138<|level|>2\n<|id|>149<|level|>2\n<|id|>163<|level|>2\n<|id|>173<|level|>2\n<|id|>182<|level|>2\n<|id|>187<|level|>-1\n<|id|>191<|level|>1\n<|id|>213<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 191,
+            "level": 1
+        },
+        {
+            "id": 213,
+            "level": 1
+        }
+    ]
+}

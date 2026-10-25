@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 143 104 640<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT WORK P\n<|id|>1<|type|>table<|page|>1<|box|>218 143 553 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>603 142 619 321<|content|>I. Executive Summary\n<|id|>8<|type|>title<|page|>2<|box|>556 142 574 468<|content|>II. Background — Transaction Summary\n<|id|>9<|type|>title<|page|>2<|box|>588 142 604 338<|content|>A. Parties and Structure\n<|id|>15<|type|>title<|page|>3<|box|>556 142 574 294<|content|>B. Deal Economics\n<|id|>29<|type|>title<|page|>4<|box|>343 140 359 313<|content|>C. Financing Sources\n<|id|>45<|type|>table<|page|>5<|box|>301 143 498 852<|content|>None\n<|id|>47<|type|>title<|page|>5<|box|>617 140 633 534<|content|>D. Key Deal Protections Relevant to This Analysis\n<|id|>53<|type|>title<|page|>6<|box|>275 140 291 372<|content|>E. Timeline Reference Points\n<|id|>61<|type|>title<|page|>6<|box|>554 140 571 558<|content|>III. Legal Framework — Section 338(h)(10) Election\n<|id|>62<|type|>title<|page|>6<|box|>585 140 603 447<|content|>A. Statutory and Regulatory Overview\n<|id|>71<|type|>title<|page|>7<|box|>763 140 780 470<|content|>B. Qualified Stock Purchase Requirement\n<|id|>77<|type|>title<|page|>8<|box|>729 140 747 348<|content|>C. Consent Requirements\n<|id|>83<|type|>title<|page|>9<|box|>340 140 358 754<|content|>IV. Analysis — Availability of Section 338(h)(10)\n<|id|>84<|type|>title<|page|>9<|box|>371 140 388 781<|content|>A. Threshold Issue: Reverse Triangular Merger Is N\n<|id|>90<|type|>title<|page|>10<|box|>176 140 193 650<|content|>B. Alternative Analysis: Could the Transaction Be\n<|id|>99<|type|>title<|page|>11<|box|>411 140 428 464<|content|>C. Management Rollover Considerations\n<|id|>104<|type|>title<|page|>12<|box|>90 140 107 700<|content|>V. Hypothetical Advisability Analysis — Step-Up Be\n<|id|>106<|type|>title<|page|>12<|box|>239 140 256 594<|content|>A. Potential Step-Up Benefits (If Election Were Av\n<|id|>118<|type|>title<|page|>14<|box|>90 140 107 519<|content|>B. Incremental Tax Cost to Selling Stockholders\n<|id|>133<|type|>title<|page|>15<|box|>550 140 566 588<|content|>C. Interaction with R&W Insurance and Indemnificat\n<|id|>145<|type|>title<|page|>16<|box|>672 140 690 491<|content|>VI. Comparison with Section 338(g) Election\n<|id|>154<|type|>title<|page|>17<|box|>546 140 563 480<|content|>VII. Coordination with Other Tax Analysis\n<|id|>168<|type|>title<|page|>18<|box|>474 140 493 450<|content|>VIII. Conclusion and Recommendation\n<|id|>184<|type|>title<|page|>20<|box|>248 140 266 388<|content|>IX. Limitations and Disclaimer",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>45<|tgt_id|>29",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 29
+        }
+    ]
+}

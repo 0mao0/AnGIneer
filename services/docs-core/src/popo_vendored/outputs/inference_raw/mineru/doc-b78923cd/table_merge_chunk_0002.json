@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['1948-January..', '567', '219', '133', '66', '20', '4/', '-', '348', '307', '119', '89', '76', '-46', '189']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Fiscal year or mouth', 'rowspan=2,colspan=3, Increase or decrease (-), in Federal securities outstanding', 'colspan=9, Less: Noncash debt transactions', 'rowspan=3, Plus: Cash issuance of non-guaranteed securities of Federal agencies', 'rowspan=3, Equals: Cash borrowing, or repayment of borrowing (-)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 44,
+    "table2_idx": 45
+}

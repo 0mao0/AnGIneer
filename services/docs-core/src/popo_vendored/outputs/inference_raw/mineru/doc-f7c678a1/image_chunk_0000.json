@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 143 104 653<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>1<|type|>title<|page|>1<|box|>112 272 128 725<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>10<|type|>title<|page|>1<|box|>489 142 506 486<|content|>1. Engagement and Scope of Representation\n<|id|>12<|type|>title<|page|>1<|box|>656 142 672 486<|content|>1.1 Formation of the Co-Investment Vehicle\n<|id|>22<|type|>title<|page|>2<|box|>797 142 814 501<|content|>1.2 Transaction Diligence and Documentation\n<|id|>29<|type|>title<|page|>3<|box|>681 142 699 328<|content|>1.3 Regulatory Matters\n<|id|>36<|type|>title<|page|>4<|box|>419 142 436 439<|content|>1.4 Governance and Ongoing Matters\n<|id|>44<|type|>title<|page|>5<|box|>263 143 282 339<|content|>1.5 Limitations on Scope\n<|id|>52<|type|>title<|page|>5<|box|>832 140 849 341<|content|>2. Responsible Attorneys\n<|id|>60<|type|>title<|page|>6<|box|>755 140 772 406<|content|>3. Fees and Billing Arrangements\n<|id|>61<|type|>title<|page|>6<|box|>785 140 803 279<|content|>3.1 Hourly Rates\n<|id|>63<|type|>table<|page|>7<|box|>133 143 227 852<|content|>None\n<|id|>64<|type|>table<|page|>7<|box|>304 143 417 852<|content|>None\n<|id|>66<|type|>title<|page|>7<|box|>536 140 554 400<|content|>3.2 Disbursements and Expenses\n<|id|>75<|type|>title<|page|>8<|box|>202 140 219 436<|content|>3.3 Billing Cycle and Payment Terms\n<|id|>78<|type|>title<|page|>8<|box|>465 140 482 284<|content|>3.4 Fee Estimates\n<|id|>81<|type|>title<|page|>8<|box|>757 140 773 429<|content|>4. Client Identification and Conflicts\n<|id|>85<|type|>title<|page|>9<|box|>487 140 503 284<|content|>5. Confidentiality\n<|id|>95<|type|>title<|page|>10<|box|>282 140 299 326<|content|>6. Document Retention\n<|id|>99<|type|>title<|page|>10<|box|>638 140 656 264<|content|>7. Termination\n<|id|>104<|type|>title<|page|>11<|box|>267 140 284 287<|content|>8. Governing Law\n<|id|>106<|type|>title<|page|>11<|box|>444 140 460 426<|content|>9. Acknowledgment and Acceptance\n<|id|>110<|type|>title<|page|>11<|box|>712 140 728 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>115<|type|>title<|page|>11<|box|>840 349 857 647<|content|>ACKNOWLEDGED AND AGREED:\n<|id|>116<|type|>title<|page|>11<|box|>867 142 883 491<|content|>IRONSIDE CAPITAL MANAGEMENT LP",
+    "raw_response": "<|src_id|>63<|tgt_id|>61\n<|src_id|>64<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 63,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 61
+        }
+    ]
+}

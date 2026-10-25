@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 743 152 854<|content|>April 19, 2022\n<|id|>2<|page|>1<|box|>160 140 196 852<|content|>Northern Dominion Trust Company (as Registrar, Tra...) 101 Barclay Street, 7th Floor New York, NY 10286\n<|id|>3<|page|>1<|box|>204 140 239 658<|content|>Attention: ... Sandra Leung, Vice President, Corpo...y Trust Company 55 Water Street New York, NY 10041\n<|id|>21<|page|>2<|box|>477 174 550 854<|content|>(a) one or more global notes in fully registered f...ed with the Trustee, as custodian for DTC; ... and\n<|id|>23<|page|>2<|box|>657 140 693 854<|content|>Governing Law: ... The Notes and the Indenture are...accordance with, the laws of the State of New York\n<|id|>44<|page|>4<|box|>857 140 895 854<|content|>The Issuer and Northern Dominion Trust Company eac... the New York Banking Law, a member of the Federal\n<|id|>45<|page|>5<|box|>90 140 200 854<|content|>Reserve System, a \"clearing corporation\" within th...ing the need for physical movement of certificates\n<|id|>52<|page|>5<|box|>835 174 891 856<|content|>(a) DTC notifies the Issuer or the Trustee that it...cessor depositary acceptable to the Issuer and the\n<|id|>53<|page|>6<|box|>90 174 126 854<|content|>Trustee is not appointed within ninety (90) days a... or becomes aware of such cessation, as applicable\n<|id|>54<|page|>6<|box|>133 174 208 856<|content|>(b) the Issuer, in its sole discretion, delivers t...or interests in the applicable Global Note; ... or\n<|id|>56<|page|>6<|box|>296 140 406 856<|content|>In any such case, definitive certificated Notes sh...t forth in the applicable exhibit to the Indenture\n<|id|>80<|page|>8<|box|>364 143 380 344<|content|>Name: ... Lianne Prokopchuk\n<|id|>81<|page|>8<|box|>381 143 397 361<|content|>Title: ... Chief Financial Officer\n<|id|>82<|page|>8<|box|>398 140 430 852<|content|>Torchlight Mining Corp. ... 2200 – 400 Burrard Street Vancouver, British Columbia V6C 3A6, Canada\n<|id|>84<|page|>8<|box|>457 140 489 854<|content|>NORTHERN DOMINION TRUST COMPANY (as Registrar, Transfer Agent, Paying Agent, and Custodian)\n<|id|>85<|page|>8<|box|>491 143 508 254<|content|>By: ... By\n<|id|>86<|page|>8<|box|>508 142 523 303<|content|>Name: ... Sandra Leung\n<|id|>87<|page|>8<|box|>525 142 541 423<|content|>Title: ... Vice President, Corporate Trust\n<|id|>88<|page|>8<|box|>542 140 575 785<|content|>Northern Dominion Trust Company 101 Barclay Street... Street, 7th Floor New York, NY 10286 ACKNOWLEDGED\n<|id|>92<|page|>8<|box|>637 140 654 385<|content|>Title: ... Authorized Representative\n<|id|>93<|page|>8<|box|>654 140 672 658<|content|>The Depository Trust Company 55 Water Street New York, NY 10041",
+    "raw_response": "<|src_id|>44<|tgt_id|>45\n<|src_id|>52<|tgt_id|>53",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 21,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['A)分道通航分隔线的几何类型为线;B)分道通航分隔线用以分隔两个通航分道或是一条通航分道与一个沿岸通航带', 'TSELNE(分道通航分隔线)(O)CATTSS(分道通航制类) = [1(认可),2(未认可)]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '(O)INFORM(英文信息) = [分道通航分隔线英文信息](O)NINFOM(中文信息) = [分道通航分隔线中文信息]']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 2753,
+    "table2_idx": 2754
+}

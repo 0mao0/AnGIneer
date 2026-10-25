@@ -1,0 +1,43 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        51,
+        103
+    ],
+    "pages": [
+        52,
+        58,
+        81,
+        82,
+        85,
+        88,
+        101,
+        102,
+        103
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>187<|page|>52<|box|>114 551 126 979<|content|>10/ Except \\$15,000 at 97. ... 113\n<|id|>188<|page|>52<|box|>123 553 133 732<|content|>and \\$100,000 at 97. ... 099\n<|id|>231<|page|>58<|box|>601 38 613 510<|content|>23/ Sold at auction through competitive and noncompetitive bidding. ... Prices\n<|id|>232<|page|>58<|box|>112 549 133 981<|content|>accepted ranged from 100. ... 54%)\n<|id|>305<|page|>81<|box|>82 3 181 461<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>306<|page|>81<|box|>85 490 182 950<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1971\n<|id|>309<|page|>82<|box|>96 428 109 583<|content|>'In millions of dollars)\n<|id|>314<|page|>85<|box|>87 0 150 434<|content|>United States savings notes were on sale May 1, 19...he simultaneous purchase of Series E savings bonds\n<|id|>313<|page|>85<|box|>234 399 247 553<|content|>(In millions of dollars)\n<|id|>322<|page|>88<|box|>115 42 306 500<|content|>The monthly Treasury Survey of Ownership covers se...ished for banks and insurance companies in the May\n<|id|>323<|page|>88<|box|>110 568 169 1000<|content|>1941 Treasury Bulletin, for corporations and savin...te local governments in the February 1962 Bulletin\n<|id|>378<|page|>101<|box|>698 0 971 461<|content|>Table is based on Treasury Department data and on ...g-term liabilities reported by banks in the United\n<|id|>379<|page|>101<|box|>705 512 723 937<|content|>States and debt securities of U. ... corporations\n<|id|>383<|page|>102<|box|>542 35 639 504<|content|>Note: ... 1/ Includes Bank for International Settlements and European Fund\n<|id|>384<|page|>102<|box|>631 38 642 453<|content|>1/ Includes Bank for International Settlements and...nk for International Settlements and European Fund\n<|id|>386<|page|>102<|box|>660 37 671 504<|content|>3/ Data on the two lines shown for this date differ because of changes in\n<|id|>388<|page|>102<|box|>650 527 662 736<|content|>p Preliminary. ... r Revised\n<|id|>395<|page|>103<|box|>939 6 952 453<|content|>3/ In addition, nonmarketable Treasury notes amounting to \\$125 million\n<|id|>396<|page|>103<|box|>922 500 942 961<|content|>€/ Dollar equivalents not revalued to reflect end-...eflect end-February 1973 de facto conversion rates",
+    "raw_response": "<|src_id|>187<|tgt_id|>188\n<|src_id|>231<|tgt_id|>232\n<|src_id|>305<|tgt_id|>306\n<|src_id|>322<|tgt_id|>323\n<|src_id|>378<|tgt_id|>379",
+    "parsed": [
+        {
+            "src_id": 187,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 231,
+            "tgt_id": 232
+        },
+        {
+            "src_id": 305,
+            "tgt_id": 306
+        },
+        {
+            "src_id": 322,
+            "tgt_id": 323
+        },
+        {
+            "src_id": 378,
+            "tgt_id": 379
+        }
+    ]
+}

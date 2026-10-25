@@ -1,0 +1,58 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>93 78 176 857<|content|>Transposases are responsible for the target specif\n<|id|>4<|type|>title<|page|>1<|box|>333 80 348 176<|content|>ABSTRACT\n<|id|>6<|type|>title<|page|>1<|box|>668 78 683 212<|content|>INTRODUCTION\n<|id|>13<|type|>title<|page|>2<|box|>455 78 471 310<|content|>MATERIALS AND METHODS\n<|id|>14<|type|>title<|page|>2<|box|>477 78 493 284<|content|>Media and bacterial strains\n<|id|>17<|type|>title<|page|>2<|box|>824 78 840 206<|content|>Oligonucleotides\n<|id|>19<|type|>title<|page|>2<|box|>879 78 893 204<|content|>DNA techniques\n<|id|>21<|type|>title<|page|>2<|box|>171 513 188 641<|content|>DNA sequencing\n<|id|>23<|type|>title<|page|>2<|box|>241 513 257 587<|content|>Plasmids\n<|id|>28<|type|>table<|page|>3<|box|>116 91 439 916<|content|>None\n<|id|>29<|type|>title<|page|>3<|box|>601 78 616 415<|content|>Selection of chromosomal transposition events\n<|id|>31<|type|>title<|page|>3<|box|>726 513 742 842<|content|>Selection of transposition events on plasmids\n<|id|>33<|type|>table<|page|>4<|box|>118 94 194 407<|content|>None\n<|id|>34<|type|>table<|page|>4<|box|>211 94 388 747<|content|>None\n<|id|>35<|type|>table<|page|>4<|box|>405 94 597 911<|content|>None\n<|id|>37<|type|>title<|page|>4<|box|>815 513 831 600<|content|>RESULTS\n<|id|>38<|type|>title<|page|>4<|box|>836 513 867 921<|content|>Transposition of IS1397 and ISKpn1 into K.pneumoni\n<|id|>41<|type|>title<|page|>5<|box|>407 78 436 402<|content|>ISKpn1 and IS1397 targets in K.pneumoniae chromoso\n<|id|>44<|type|>title<|page|>5<|box|>893 78 908 440<|content|>ISKpn1 and IS1397 targets in E.coli chromosome\n<|id|>47<|type|>title<|page|>5<|box|>366 513 396 921<|content|>Target specificity of the two ISs with the two tra\n<|id|>49<|type|>title<|page|>5<|box|>836 513 868 916<|content|>Impact of BIME and PU arrangement on transposition\n<|id|>51<|type|>table<|page|>6<|box|>115 93 469 911<|content|>None\n<|id|>52<|type|>table<|page|>6<|box|>647 93 881 911<|content|>None\n<|id|>53<|type|>table<|page|>7<|box|>108 145 328 852<|content|>None\n<|id|>54<|type|>table<|page|>7<|box|>418 219 565 777<|content|>None\n<|id|>56<|type|>title<|page|>7<|box|>863 513 879 626<|content|>DISCUSSION\n<|id|>61<|type|>image<|page|>8<|box|>94 523 163 919<|content|>None\n<|id|>65<|type|>title<|page|>8<|box|>744 513 761 711<|content|>ACKNOWLEDGEMENTS\n<|id|>67<|type|>title<|page|>8<|box|>884 515 900 633<|content|>REFERENCES",
+    "raw_response": "<|src_id|>28<|tgt_id|>29\n<|src_id|>33<|tgt_id|>31\n<|src_id|>34<|tgt_id|>31\n<|src_id|>35<|tgt_id|>31\n<|src_id|>51<|tgt_id|>49\n<|src_id|>52<|tgt_id|>49\n<|src_id|>53<|tgt_id|>49\n<|src_id|>54<|tgt_id|>49\n<|src_id|>61<|tgt_id|>56",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 56
+        }
+    ]
+}

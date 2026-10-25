@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 285 125 712<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>125 143 431 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>465 161 500 834<|content|>STIPULATION AND [PROPOSED] ORDER RE: CONSOLIDATION\n<|id|>3<|type|>title<|page|>1<|box|>511 372 530 625<|content|>PART I: STIPULATION\n<|id|>5<|type|>title<|page|>1<|box|>608 142 625 565<|content|>I. IDENTIFICATION OF PARTIES AND COUNSEL\n<|id|>11<|type|>title<|page|>2<|box|>285 140 301 264<|content|>II. RECITALS\n<|id|>21<|type|>title<|page|>4<|box|>222 140 239 364<|content|>III. STIPULATED TERMS\n<|id|>32<|type|>title<|page|>5<|box|>518 142 536 295<|content|>IV. SIGNATURES\n<|id|>42<|type|>title<|page|>5<|box|>816 331 835 663<|content|>PART II: [PROPOSED] ORDER\n<|id|>43<|type|>title<|page|>5<|box|>854 274 869 722<|content|>[PROPOSED] ORDER GRANTING CONSOLIDATION\n<|id|>46<|type|>title<|page|>6<|box|>207 140 224 447<|content|>IT IS HEREBY ORDERED as follows:",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

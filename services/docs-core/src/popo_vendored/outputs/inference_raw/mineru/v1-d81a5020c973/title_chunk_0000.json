@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 231<|content|>【4641#9】黄道\n<|id|>2<|page|>1<|box|>260 105 275 248<|content|>【2315#1】太阳系\n<|id|>4<|page|>1<|box|>395 105 412 240<|content|>【51583#1】衛星\n<|id|>6<|page|>1<|box|>514 105 530 310<|content|>【7562344#5】太阳系模型\n<|id|>8<|page|>1<|box|>665 107 683 258<|content|>【2315#28】太阳系\n<|id|>10<|page|>1<|box|>766 107 784 364<|content|>【59030#1】太阳系天体大小列表\n<|id|>12<|page|>1<|box|>834 107 850 300<|content|>【57118#10】伽利略衛星\n<|id|>14<|page|>2<|box|>73 107 89 248<|content|>【2315#0】太阳系\n<|id|>16<|page|>2<|box|>156 107 173 231<|content|>【4471#0】太阳\n<|id|>18<|page|>2<|box|>258 107 274 364<|content|>【59030#2】太阳系天体大小列表",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,195 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ppfye8v_\\input\\pdfs\\doc-6974b89a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ppfye8v_\\enriched\\doc-6974b89a.json",
+    "contd_output": "<|src_id|>23<|tgt_id|>24\n<|src_id|>35<|tgt_id|>36",
+    "title_output": "<|id|>0<|level|>1\n<|id|>4<|level|>1\n<|id|>11<|level|>2\n<|id|>15<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>28<|level|>3\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>45<|level|>3\n<|id|>49<|level|>3\n<|id|>52<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>3\n<|id|>66<|level|>3\n<|id|>70<|level|>3\n<|id|>72<|level|>3\n<|id|>76<|level|>2\n<|id|>88<|level|>2\n<|id|>95<|level|>2\n<|id|>102<|level|>2\n<|id|>119<|level|>2",
+    "image_output": "<|src_id|>54<|tgt_id|>52\n<|src_id|>55<|tgt_id|>52\n<|src_id|>56<|tgt_id|>52\n<|src_id|>57<|tgt_id|>52\n<|src_id|>58<|tgt_id|>52\n<|src_id|>59<|tgt_id|>52\n<|src_id|>60<|tgt_id|>52",
+    "contd_label": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 52
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 55,
+            "table2_idx": 56,
+            "upper_row_ss": [
+                [
+                    "Katy Freeway Logistics",
+                    "22600 Katy Freeway, Katy, TX",
+                    "Logistics",
+                    "GMP Katy LLC",
+                    "5",
+                    "5",
+                    "5",
+                    "Confirmed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Park",
+                    "77450",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 58,
+            "table2_idx": 59,
+            "upper_row_ss": [
+                [
+                    "Cool Springs Office Park",
+                    "5000 Virginia Way, Brentwood,",
+                    "Office",
+                    "GMP Cool Springs LLC",
+                    "9",
+                    "9",
+                    "9",
+                    "Confirmed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "TN 37027",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

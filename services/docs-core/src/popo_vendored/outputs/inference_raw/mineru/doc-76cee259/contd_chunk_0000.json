@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        12,
+        20,
+        21,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>233 176 250 720<|content|>James K. ... Winfield, CEO & President, Ridgeline Midstream Services LLC\n<|id|>5<|page|>1<|box|>258 176 276 816<|content|>Dr. ... Natasha Orlov, Director of Rates & Regulatory, Ridgeline Midstream Services LLC\n<|id|>6<|page|>1<|box|>284 140 301 210<|content|>FROM: ... FROM\n<|id|>7<|page|>1<|box|>310 176 329 674<|content|>George Trujillo, Responsible Partner, Calderwood & Harkness LLP\n<|id|>8<|page|>1<|box|>335 176 353 633<|content|>Brett Callahan, Lead Associate, Calderwood & Harkness LLP\n<|id|>9<|page|>1<|box|>362 140 380 308<|content|>DATE: ... July 14, 2023\n<|id|>10<|page|>1<|box|>388 140 424 854<|content|>RE: ... RP22-847-000 and RP22-847-001\n<|id|>11<|page|>1<|box|>431 140 449 377<|content|>C&H Matter No. ... 1016-00005\n<|id|>12<|page|>1<|box|>458 140 474 408<|content|>Right-click to update Table of Contents\n<|id|>23<|page|>2<|box|>838 140 893 856<|content|>The Ridgeline Pipeline System (the \"System\" or the...he Waynesburg Compressor Station in Greene County,\n<|id|>24<|page|>3<|box|>89 138 237 857<|content|>Pennsylvania. ... D below, because compressor fuel...head associated with compressor station operations\n<|id|>28<|page|>3<|box|>797 138 907 857<|content|>At its southern terminus, Ridgeline has proposed a... interconnection metering facilities at the Wetzel\n<|id|>29<|page|>4<|box|>90 138 217 854<|content|>County Interconnect — which include three runs of ...easurement data for FL&U calculations. ... C below\n<|id|>34<|page|>4<|box|>753 138 881 857<|content|>On January 19, 2023, FERC's Office of Energy Marke... The Deficiency Letter described the absence of an\n<|id|>35<|page|>5<|box|>89 140 126 854<|content|>FL&U tracker as a material deficiency that must be...red before the tariff could be accepted for filing\n<|id|>84<|page|>12<|box|>89 174 126 852<|content|>Fuel Use % = (Total Fuel Gas Consumed at All Compr... Received at Receipt Point(s) during Period) × 100\n<|id|>85<|page|>12<|box|>135 140 263 856<|content|>However, the calculation must account for several ...) that may have affected fuel consumption patterns\n<|id|>87<|page|>12<|box|>388 181 422 852<|content|>• Measurement uncertainty at receipt and delivery ...all measurement errors across all metering points)\n<|id|>92<|page|>12<|box|>522 140 742 854<|content|>Throughput Sensitivity. ... 67% utilization may be...ntage that would apply at higher throughput levels\n<|id|>88<|page|>12<|box|>426 183 460 854<|content|>• Blowdowns for maintenance and emergency operatio...ring planned and unplanned maintenance activities)\n<|id|>89<|page|>12<|box|>464 183 479 710<|content|>• Fugitive emissions from valves, fittings, flanges, and other equipment\n<|id|>90<|page|>12<|box|>483 183 500 522<|content|>• Venting from compressor station operations\n<|id|>91<|page|>12<|box|>503 183 518 444<|content|>• Other unaccounted system losses\n<|id|>152<|page|>20<|box|>852 140 907 857<|content|>We note that MGPC, through Dr. ... While MGPC's pr...quent shipper protections, the practical effect of\n<|id|>153<|page|>21<|box|>90 140 143 854<|content|>MGPC's position aligns with our recommendation for...L&U tracker design issue in settlement discussions\n<|id|>161<|page|>21<|box|>666 181 700 854<|content|>• Venting from compressor station operations, incl...up, shutdown, and operational transitions; ... and\n<|id|>163<|page|>21<|box|>723 140 834 854<|content|>Because the L&U component is a residual and encomp...stry norms may warrant investigation and reporting\n<|id|>179<|page|>24<|box|>152 174 226 856<|content|>(c) Supporting workpapers for the supplemental pre-filed testimony of Dr. ... and\n<|id|>181<|page|>24<|box|>277 140 388 856<|content|>Timeline. ... The FL&U tracker provisions, includi...ed tariff filing by the February 21, 2025 deadline",
+    "raw_response": "<|src_id|>23<|tgt_id|>24\n<|src_id|>28<|tgt_id|>29\n<|src_id|>34<|tgt_id|>35\n<|src_id|>152<|tgt_id|>153",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        }
+    ]
+}

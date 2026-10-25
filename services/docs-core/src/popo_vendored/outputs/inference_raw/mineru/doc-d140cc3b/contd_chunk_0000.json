@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        4
+    ],
+    "pages": [
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>10<|page|>2<|box|>851 140 931 854<|content|>7. ... The recipients CONFIDENTIAL\n<|id|>11<|page|>3<|box|>90 140 273 854<|content|>of this forwarded email chain included three show-...bordinates against a legitimate corporate decision\n<|id|>15<|page|>3<|box|>834 174 890 856<|content|>(b) Additionally, Aldrich transmitted materials to...ed from the California Secretary of State, Halcyon\n<|id|>16<|page|>4<|box|>90 174 126 854<|content|>Creek Productions LLC was formed in California on ...lopment executive who departed AMA in January 2022",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>15<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        }
+    ]
+}

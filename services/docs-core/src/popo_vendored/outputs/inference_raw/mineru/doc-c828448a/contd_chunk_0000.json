@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        8,
+        9,
+        10,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>125 142 155 854<|content|>CALDERWOOD & HARKNESS LLP Renata Vasquez (SBN 2245...es, California 90017 Telephone: ... (213) 555-7201\n<|id|>2<|page|>1<|box|>162 143 178 676<|content|>Attorneys for Defendant and Cross-Complainant AURE... and Cross-Complainant AURELIUS MEDIA AMERICAS INC\n<|id|>33<|page|>5<|box|>742 138 888 857<|content|>Further forensic analysis of Aldrich's AMA-issued ...hese transmissions occurred between March 2022 and\n<|id|>34<|page|>6<|box|>90 140 127 854<|content|>September 2022, while Aldrich was still employed b...uties of loyalty and confidentiality to AMA. ... )\n<|id|>61<|page|>8<|box|>779 140 815 854<|content|>A. ... AMA's Cross-Complaint Does Not Seek to Enfo...mpetition Clause as an Independent Cause of Action\n<|id|>62<|page|>8<|box|>821 140 875 856<|content|>Aldrich's motion rests on a fundamental conflation...to distinguish between them is fatal to his motion\n<|id|>69<|page|>9<|box|>834 140 888 854<|content|>Even if the Court concludes that AMA's Cross-Compl...re are not \"irrelevant, false, or improper matter\"\n<|id|>70<|page|>10<|box|>90 140 126 854<|content|>subject to a motion to strike under Code of Civil .... ... 1 operates on at least three distinct levels\n<|id|>114<|page|>16<|box|>564 689 580 854<|content|>Dated: ... March 1, 2023\n<|id|>115<|page|>16<|box|>589 140 606 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>116<|page|>16<|box|>608 142 625 253<|content|>By: ... By\n<|id|>117<|page|>16<|box|>625 142 641 375<|content|>Renata Vasquez (SBN 224578)\n<|id|>118<|page|>16<|box|>641 140 691 854<|content|>Renata Vasquez (SBN 224578) Devon Archer (SBN 3014... and Cross-Complainant Aurelius Media Americas Inc\n<|id|>123<|page|>17<|box|>89 176 143 854<|content|>Cameron Whitfield (SBN 187623) Julia Nazarian (SBN...ls, California 90212 Telephone: ... (310) 555-4101\n<|id|>124<|page|>17<|box|>152 176 170 450<|content|>Attorneys for Plaintiff Gavin Aldrich\n<|id|>125<|page|>17<|box|>179 140 270 854<|content|>BY ELECTRONIC SERVICE: ... I did not receive, with... indication that the transmission was unsuccessful",
+    "raw_response": "<|src_id|>33<|tgt_id|>34\n<|src_id|>69<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        }
+    ]
+}

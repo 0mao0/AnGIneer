@@ -1,0 +1,193 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mckpf2g9\\input\\pdfs\\doc-ae9df0de.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mckpf2g9\\enriched\\doc-ae9df0de.json",
+    "contd_output": "<|src_id|>25<|tgt_id|>26",
+    "title_output": "<|id|>8<|level|>1\n<|id|>22<|level|>1\n<|id|>23<|level|>2\n<|id|>29<|level|>2\n<|id|>37<|level|>2\n<|id|>44<|level|>1\n<|id|>45<|level|>2\n<|id|>49<|level|>2\n<|id|>55<|level|>2\n<|id|>76<|level|>1\n<|id|>77<|level|>2\n<|id|>81<|level|>2\n<|id|>87<|level|>2\n<|id|>99<|level|>1\n<|id|>100<|level|>2\n<|id|>104<|level|>2\n<|id|>114<|level|>2\n<|id|>121<|level|>1\n<|id|>122<|level|>2\n<|id|>135<|level|>2\n<|id|>148<|level|>2\n<|id|>161<|level|>2\n<|id|>169<|level|>1\n<|id|>170<|level|>2\n<|id|>176<|level|>2\n<|id|>190<|level|>2\n<|id|>195<|level|>1\n<|id|>200<|level|>1\n<|id|>212<|level|>1\n<|id|>237<|level|>1",
+    "image_output": "<|src_id|>152<|tgt_id|>148\n<|src_id|>153<|tgt_id|>148\n<|src_id|>192<|tgt_id|>190\n<|src_id|>197<|tgt_id|>195\n<|src_id|>198<|tgt_id|>195\n<|src_id|>238<|tgt_id|>237\n<|src_id|>239<|tgt_id|>237",
+    "contd_label": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 1
+        },
+        {
+            "id": 200,
+            "level": 1
+        },
+        {
+            "id": 212,
+            "level": 1
+        },
+        {
+            "id": 237,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 152,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 197,
+            "tgt_id": 195
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 195
+        },
+        {
+            "src_id": 238,
+            "tgt_id": 237
+        },
+        {
+            "src_id": 239,
+            "tgt_id": 237
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 238,
+            "table2_idx": 239,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "Garrett",
+                    "MFW-",
+                    "Effective",
+                    "Garrett",
+                    "$425,000",
+                    "CoC triggers"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Holliday — Employment Agreement",
+                    "VDR-011.01",
+                    "January 1, 2023",
+                    "Holliday (Co-Founder, CEO & Director)",
+                    "base salary; 75% bonus target ($318,750); 3,200,000 shares (~32.0% FD); 24-month CoC severance ($850,000)",
+                    "contingent severance; rollover ~$25M; negotiate new employment terms and 3-year RCA; conduct 280G analysis"
+                ]
+            ]
+        }
+    ]
+}

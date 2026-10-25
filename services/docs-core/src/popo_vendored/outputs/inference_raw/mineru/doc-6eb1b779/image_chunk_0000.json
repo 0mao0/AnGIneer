@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 189 122 807<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>2<|type|>table<|page|>1<|box|>148 145 294 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>328 156 363 839<|content|>SUBPOENA DUCES TECUM TO NON-PARTY BROADREACH INTER\n<|id|>5<|type|>title<|page|>1<|box|>441 346 459 651<|content|>SUBPOENA DUCES TECUM\n<|id|>6<|type|>title<|page|>1<|box|>484 142 502 267<|content|>I. PREAMBLE\n<|id|>7<|type|>title<|page|>1<|box|>511 142 527 532<|content|>THE PEOPLE OF THE STATE OF NEW YORK\n<|id|>9<|type|>title<|page|>1<|box|>599 142 616 261<|content|>GREETINGS:\n<|id|>15<|type|>title<|page|>2<|box|>148 140 166 439<|content|>II. COMPLIANCE INSTRUCTIONS\n<|id|>16<|type|>title<|page|>2<|box|>180 140 196 457<|content|>A. Date, Time, and Place for Production\n<|id|>23<|type|>title<|page|>2<|box|>602 140 619 330<|content|>B. General Instructions\n<|id|>53<|type|>title<|page|>6<|box|>89 140 107 545<|content|>III. SCHEDULE OF DOCUMENTS REQUESTED\n<|id|>54<|type|>title<|page|>6<|box|>121 142 138 447<|content|>Category 1: Treaty Placement Records\n<|id|>67<|type|>title<|page|>6<|box|>825 142 844 475<|content|>Category 2: Premium Accounting Records\n<|id|>79<|type|>title<|page|>7<|box|>794 140 811 553<|content|>Category 3: Loss Reporting and Billing Transmittal\n<|id|>93<|type|>title<|page|>9<|box|>90 140 107 509<|content|>Category 4: Notice of Claims and Loss Advices\n<|id|>101<|type|>title<|page|>9<|box|>720 140 756 854<|content|>Category 5: Correspondence Between QC&S and Pinnac\n<|id|>110<|type|>title<|page|>10<|box|>561 140 579 612<|content|>Category 6: Broadreach Internal Files and Communic\n<|id|>118<|type|>title<|page|>11<|box|>356 140 375 586<|content|>Category 7: Actuarial and Loss Development Documen\n<|id|>124<|type|>title<|page|>11<|box|>806 140 824 648<|content|>Category 8: Settlement Documentation — Veridian E&\n<|id|>133<|type|>title<|page|>12<|box|>532 140 550 607<|content|>Category 9: Treaty Termination and Non-Renewal Rec\n<|id|>139<|type|>title<|page|>13<|box|>89 140 107 586<|content|>IV. STATEMENT OF RELEVANCE (CPLR 3101(a)(4))\n<|id|>150<|type|>title<|page|>14<|box|>222 140 239 354<|content|>V. DUTY TO PRESERVE\n<|id|>158<|type|>title<|page|>14<|box|>664 140 681 689<|content|>VI. REIMBURSEMENT OF REASONABLE PRODUCTION COSTS\n<|id|>160<|type|>title<|page|>15<|box|>89 140 106 504<|content|>VII. PENALTIES FOR NON-COMPLIANCE\n<|id|>164<|type|>title<|page|>16<|box|>89 142 106 545<|content|>VIII. SIGNATURE BLOCK AND ATTESTATION\n<|id|>173<|type|>table<|page|>16<|box|>441 145 577 852<|content|>None\n<|id|>174<|type|>title<|page|>16<|box|>609 388 627 607<|content|>AFFIDAVIT OF SERVICE\n<|id|>190<|type|>title<|page|>17<|box|>404 318 421 678<|content|>EXHIBIT B WITNESS FEE AND MILEAGE\n<|id|>192<|type|>table<|page|>17<|box|>535 143 612 852<|content|>None",
+    "raw_response": "<|src_id|>2<|tgt_id|>3\n<|src_id|>173<|tgt_id|>164\n<|src_id|>192<|tgt_id|>190",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 190
+        }
+    ]
+}

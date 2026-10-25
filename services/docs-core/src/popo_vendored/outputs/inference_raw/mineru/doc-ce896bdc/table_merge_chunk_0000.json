@@ -1,0 +1,24 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['MD-006', 'Primary Care', 'Worcester,', '$45,000', 'None', '6', '$625.00', '$175', '$300', '$315', '1', 'Lakeview']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'MA*', '0', 'stated', '', '0', '', '', '', '', 'legacy — obtain FMV opinion; restructure']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 305,
+    "table2_idx": 306
+}

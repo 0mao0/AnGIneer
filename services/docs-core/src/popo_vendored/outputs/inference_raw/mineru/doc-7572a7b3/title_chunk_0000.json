@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 153 159 843<|content|>CALDERWOOD & HARKNESS LLP 425 Lexington Avenue New\n<|id|>3<|page|>1<|box|>218 424 236 571<|content|>CONFIDENTIAL\n<|id|>6<|page|>1<|box|>349 140 366 364<|content|>I. Introduction and Purpose\n<|id|>14<|page|>2<|box|>176 142 191 346<|content|>II. Borrower Information\n<|id|>19<|page|>2<|box|>636 140 652 643<|content|>III. Wire Transfer Instructions — Designated Nexfo\n<|id|>30<|page|>5<|box|>90 142 107 620<|content|>IV. Summary of Anticipated Closing Proceeds and Al\n<|id|>35<|page|>5<|box|>787 140 804 439<|content|>V. Important Notices and Disclaimers\n<|id|>43<|page|>6<|box|>645 140 662 473<|content|>VI. Contact Information for Confirmation\n<|id|>52<|page|>7<|box|>758 142 773 428<|content|>VII. Certification and Authorization\n<|id|>54<|page|>8<|box|>133 140 150 498<|content|>NEXFORD INDUSTRIAL HOLDINGS INC.\n<|id|>60<|page|>8<|box|>246 140 262 498<|content|>NEXFORD INDUSTRIAL HOLDINGS INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>-1\n<|id|>6<|level|>2\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>43<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>3\n<|id|>60<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        }
+    ]
+}

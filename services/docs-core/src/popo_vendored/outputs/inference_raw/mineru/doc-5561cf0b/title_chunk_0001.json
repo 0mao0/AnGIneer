@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        60
+    ],
+    "pages": [
+        51,
+        52,
+        53,
+        54,
+        56,
+        57,
+        58,
+        59,
+        60
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>510<|page|>51<|box|>90 142 107 519<|content|>Appendix B — Corporate Organizational Chart\n<|id|>514<|page|>51<|box|>229 176 247 450<|content|>Management ESOP Trust — 9.5%\n<|id|>530<|page|>52<|box|>90 142 107 501<|content|>Appendix C — Fleet Schedule (All 50 Vessels)\n<|id|>534<|page|>53<|box|>90 142 107 565<|content|>Appendix D — Collateral Vessel Schedule (28 Vessel\n<|id|>538<|page|>54<|box|>90 142 107 570<|content|>Appendix E — Material Contracts Summary Schedule\n<|id|>544<|page|>56<|box|>90 142 107 501<|content|>Appendix G — Insurance Summary Schedule\n<|id|>547<|page|>57<|box|>90 142 107 419<|content|>Appendix H — Litigation Schedule\n<|id|>549<|page|>57<|box|>161 143 176 282<|content|>Pending Matters:\n<|id|>553<|page|>58<|box|>90 142 107 539<|content|>Appendix I — Regulatory Compliance Certificates\n<|id|>556<|page|>59<|box|>90 142 107 446<|content|>Appendix J — Tax Structure Diagram\n<|id|>558<|page|>59<|box|>160 176 176 511<|content|>Kallistratos Maritime Holdings Ltd. (BVI)\n<|id|>563<|page|>59<|box|>263 179 282 250<|content|>↓ Equity\n<|id|>564<|page|>59<|box|>290 178 308 516<|content|>Thalassa Shipping & Logistics SA (Greece)\n<|id|>570<|page|>59<|box|>420 178 436 581<|content|>Thalassa Finance Pte. Ltd. (Singapore) — Co-Issuer\n<|id|>576<|page|>59<|box|>569 178 585 517<|content|>Thalassa Dry Bulk Operations Ltd. (Malta)\n<|id|>583<|page|>59<|box|>718 178 734 522<|content|>Thalassa Port Services FZCO (Dubai, UAE)\n<|id|>587<|page|>59<|box|>821 178 839 553<|content|>Thalassa Freight Solutions Pte. Ltd. (Singapore)\n<|id|>590<|page|>59<|box|>887 143 902 267<|content|>Key Tax Risks:\n<|id|>597<|page|>60<|box|>285 388 301 607<|content|>END OF MEMORANDUM",
+    "raw_response": "<|id|>510<|level|>1\n<|id|>514<|level|>2\n<|id|>530<|level|>1\n<|id|>534<|level|>1\n<|id|>538<|level|>1\n<|id|>544<|level|>1\n<|id|>547<|level|>1\n<|id|>549<|level|>2\n<|id|>553<|level|>1\n<|id|>556<|level|>1\n<|id|>558<|level|>2\n<|id|>563<|level|>-1\n<|id|>564<|level|>2\n<|id|>570<|level|>2\n<|id|>576<|level|>2\n<|id|>583<|level|>2\n<|id|>587<|level|>2\n<|id|>590<|level|>2\n<|id|>597<|level|>-1",
+    "parsed": [
+        {
+            "id": 510,
+            "level": 1
+        },
+        {
+            "id": 514,
+            "level": 2
+        },
+        {
+            "id": 530,
+            "level": 1
+        },
+        {
+            "id": 534,
+            "level": 1
+        },
+        {
+            "id": 538,
+            "level": 1
+        },
+        {
+            "id": 544,
+            "level": 1
+        },
+        {
+            "id": 547,
+            "level": 1
+        },
+        {
+            "id": 549,
+            "level": 2
+        },
+        {
+            "id": 553,
+            "level": 1
+        },
+        {
+            "id": 556,
+            "level": 1
+        },
+        {
+            "id": 558,
+            "level": 2
+        },
+        {
+            "id": 564,
+            "level": 2
+        },
+        {
+            "id": 570,
+            "level": 2
+        },
+        {
+            "id": 576,
+            "level": 2
+        },
+        {
+            "id": 583,
+            "level": 2
+        },
+        {
+            "id": 587,
+            "level": 2
+        },
+        {
+            "id": 590,
+            "level": 2
+        }
+    ]
+}

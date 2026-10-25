@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Banking & Finance', 'New York, Chicago', 'May 10, 2025', 'Sarah Westbrook, Practice Group Leader', 'No disqualifying conflicts identified.Confirmed existing representations involving Ashford National Bank, N.A. as counterparty in unrelated matters (as discussed in Sections V.F and VI.A). Confirmed no representation of Ashford and no subject matter']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'overlap with current engagement. No conflicts with any other entity on the search list.']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 214,
+    "table2_idx": 215
+}

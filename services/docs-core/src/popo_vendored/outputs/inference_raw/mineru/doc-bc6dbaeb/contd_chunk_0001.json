@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        61,
+        74
+    ],
+    "pages": [
+        62,
+        63,
+        70,
+        71,
+        72,
+        74
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>358<|page|>62<|box|>32 299 48 695<|content|>TREASURY SURVEY OF OWNERSHIP, OCTOBER 31, 1958\n<|id|>360<|page|>63<|box|>75 14 156 460<|content|>Current market quotations shown here are over-the-...ecause they are not regularly quoted in the market\n<|id|>382<|page|>70<|box|>752 531 763 956<|content|>4/ Federal Reserve Bank notes and national bank notes are covered by\n<|id|>383<|page|>70<|box|>761 533 772 911<|content|>deposite of lawful money and are in process of ret...e of lawful money and are in process of retirement\n<|id|>386<|page|>71<|box|>725 10 756 474<|content|>Source: ... (2) gold certificate credits in (s) the gold certificate\n<|id|>388<|page|>71<|box|>389 12 411 441<|content|>Source: ... For detail of silver monetary stock see Table 4\n<|id|>391<|page|>72<|box|>408 536 419 926<|content|>4/ Valued at \\$1. ... 29+ per fine ounce\n<|id|>393<|page|>74<|box|>73 37 294 486<|content|>Data relating to capital movements between the Uni...e United States are included in the published data\n<|id|>394<|page|>74<|box|>307 37 456 486<|content|>The term \"foreigner\" as used in these reports cove...in the June 1954 issue of the \"Treasury Bulletin,\"\n<|id|>395<|page|>74<|box|>71 536 116 985<|content|>pages 45-47. ... As a result of changes in present... will be exactly comparable to those now presented",
+    "raw_response": "<|src_id|>382<|tgt_id|>383\n<|src_id|>394<|tgt_id|>395",
+    "parsed": [
+        {
+            "src_id": 382,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 394,
+            "tgt_id": 395
+        }
+    ]
+}

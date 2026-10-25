@@ -1,0 +1,161 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>364 140 382 421<|content|>I. Purpose and Executive Summary\n<|id|>13<|page|>2<|box|>377 140 393 710<|content|>II. Background — Insurance Requirements Under the\n<|id|>14<|page|>2<|box|>407 140 424 444<|content|>A. Affirmative Covenant — Insurance\n<|id|>28<|page|>3<|box|>606 140 625 663<|content|>B. Mortgage Requirements — Insurance for Mortgaged\n<|id|>32<|page|>4<|box|>213 140 229 514<|content|>C. Collateral Agent / Secured Party Protections\n<|id|>35<|page|>4<|box|>486 140 503 428<|content|>III. Insurance Certificates Reviewed\n<|id|>36<|page|>4<|box|>517 140 534 339<|content|>A. Listing of Certificates\n<|id|>46<|page|>5<|box|>308 142 324 297<|content|>B. Named Insureds\n<|id|>55<|page|>5<|box|>689 140 705 447<|content|>C. Certificate Dates and Policy Periods\n<|id|>60<|page|>6<|box|>368 140 383 733<|content|>IV. Coverage Analysis — Compliance with Credit Agr\n<|id|>61<|page|>6<|box|>398 142 416 483<|content|>A. Property / Casualty (All-Risk) Insurance\n<|id|>68<|page|>7<|box|>345 140 362 297<|content|>B. Flood Insurance\n<|id|>74<|page|>8<|box|>194 140 212 344<|content|>C. Earthquake Insurance\n<|id|>79<|page|>8<|box|>688 142 705 403<|content|>D. General Commercial Liability\n<|id|>83<|page|>9<|box|>345 140 362 377<|content|>E. Umbrella / Excess Liability\n<|id|>88<|page|>9<|box|>724 140 739 454<|content|>F. Business Interruption / Loss of Rents\n<|id|>92<|page|>10<|box|>294 140 310 361<|content|>G. Workers' Compensation\n<|id|>99<|page|>10<|box|>840 140 859 297<|content|>H. Liquor Liability\n<|id|>104<|page|>11<|box|>329 140 347 519<|content|>V. Additional Insured / Loss Payee Designations\n<|id|>105<|page|>11<|box|>359 142 378 517<|content|>A. Loss Payee Endorsements (Property Policies)\n<|id|>116<|page|>12<|box|>272 142 289 576<|content|>B. Additional Insured Endorsements (Liability Poli\n<|id|>120<|page|>12<|box|>561 140 579 486<|content|>C. Notice of Cancellation / Material Change\n<|id|>127<|page|>13<|box|>167 140 185 633<|content|>VI. Observations, Exceptions, and Recommended Acti\n<|id|>128<|page|>13<|box|>199 140 215 328<|content|>A. Minor Observations\n<|id|>134<|page|>14<|box|>90 140 107 397<|content|>B. Post-Closing Insurance Items\n<|id|>139<|page|>14<|box|>556 140 574 348<|content|>C. Recommended Actions\n<|id|>152<|page|>15<|box|>482 140 500 406<|content|>VII. Intercreditor Considerations\n<|id|>158<|page|>16<|box|>267 140 284 279<|content|>VIII. Conclusion\n<|id|>169<|page|>17<|box|>90 143 107 580<|content|>Appendix A — Schedule of Insurance Policies Review\n<|id|>172<|page|>19<|box|>90 142 107 661<|content|>Appendix B — Additional Insured / Loss Payee Desig\n<|id|>175<|page|>21<|box|>90 142 107 588<|content|>Appendix C — Properties in Special Flood Hazard Ar",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>28<|level|>3\n<|id|>32<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>46<|level|>3\n<|id|>55<|level|>3\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>68<|level|>3\n<|id|>74<|level|>3\n<|id|>79<|level|>3\n<|id|>83<|level|>3\n<|id|>88<|level|>3\n<|id|>92<|level|>3\n<|id|>99<|level|>3\n<|id|>104<|level|>2\n<|id|>105<|level|>3\n<|id|>116<|level|>3\n<|id|>120<|level|>3\n<|id|>127<|level|>2\n<|id|>128<|level|>3\n<|id|>134<|level|>3\n<|id|>139<|level|>3\n<|id|>152<|level|>2\n<|id|>158<|level|>2\n<|id|>169<|level|>2\n<|id|>172<|level|>2\n<|id|>175<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        }
+    ]
+}

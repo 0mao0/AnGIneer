@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 575<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>385 142 402 455<|content|>1. Purpose and Confirmation of Closing\n<|id|>17<|page|>1<|box|>828 142 845 526<|content|>2. Summary of Executed Transaction Documents\n<|id|>19<|page|>2<|box|>90 140 108 493<|content|>2.1 Enterprise SaaS Subscription Agreement\n<|id|>32<|page|>4<|box|>90 140 107 588<|content|>2.2 Exhibit A — Statement of Work / Service Descri\n<|id|>34<|page|>5<|box|>90 140 107 468<|content|>2.3 Exhibit B — Service Level Agreement\n<|id|>39<|page|>6<|box|>90 140 107 491<|content|>2.4 Exhibit C — Data Processing Addendum\n<|id|>49<|page|>7<|box|>90 140 107 455<|content|>2.5 Exhibit D — Security Requirements\n<|id|>59<|page|>7<|box|>736 140 753 416<|content|>2.6 Technology Escrow Agreement\n<|id|>72<|page|>8<|box|>496 140 513 522<|content|>3. Confirmation of Year 1 Subscription Payment\n<|id|>74<|page|>8<|box|>654 140 671 485<|content|>4. Additional Closing Deliverables Received\n<|id|>83<|page|>9<|box|>473 140 489 475<|content|>5. Post-Closing Obligations and Key Dates\n<|id|>95<|page|>10<|box|>508 140 525 341<|content|>6. Counterparty Counsel\n<|id|>97<|page|>10<|box|>685 140 702 553<|content|>7. Retention of Records and Engagement Conclusion\n<|id|>101<|page|>11<|box|>186 140 204 310<|content|>8. Acknowledgments\n<|id|>111<|page|>11<|box|>664 142 681 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>17<|level|>1\n<|id|>19<|level|>2\n<|id|>32<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>2\n<|id|>49<|level|>2\n<|id|>59<|level|>2\n<|id|>72<|level|>1\n<|id|>74<|level|>1\n<|id|>83<|level|>1\n<|id|>95<|level|>1\n<|id|>97<|level|>1\n<|id|>101<|level|>1\n<|id|>111<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        }
+    ]
+}

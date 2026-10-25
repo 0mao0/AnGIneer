@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 163 143 833<|content|>OFFICER'S CERTIFICATE OF CASCADE RETAIL HOLDINGS I\n<|id|>1<|page|>1<|box|>159 207 176 787<|content|>Delivered Pursuant to the Asset Purchase Agreement\n<|id|>6<|page|>1<|box|>633 140 651 614<|content|>Section 1. Certification of Authority and Basis of\n<|id|>15<|page|>2<|box|>571 140 589 681<|content|>Section 2. Representations and Warranties — Truth\n<|id|>20<|page|>3<|box|>223 140 239 434<|content|>Section 3. Performance of Covenants\n<|id|>31<|page|>4<|box|>829 140 845 501<|content|>Section 4. Absence of Material Adverse Effect\n<|id|>34<|page|>5<|box|>321 140 339 588<|content|>Section 5. Attached Resolutions of the Board of Di\n<|id|>42<|page|>6<|box|>90 140 107 483<|content|>Section 6. Good Standing and Organization\n<|id|>47<|page|>6<|box|>601 140 618 330<|content|>Section 7. No Litigation\n<|id|>53<|page|>7<|box|>90 140 107 473<|content|>Section 8. Delivery of Closing Deliverables\n<|id|>66<|page|>8<|box|>527 140 545 473<|content|>Section 9. Acknowledgments and Reliance\n<|id|>69<|page|>8<|box|>821 140 839 357<|content|>Section 10. Governing Law\n<|id|>78<|page|>10<|box|>89 434 112 563<|content|>EXHIBIT A\n<|id|>79<|page|>10<|box|>135 191 172 805<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF CASCADE R\n<|id|>80<|page|>10<|box|>179 145 215 851<|content|>UNANIMOUS WRITTEN CONSENT OF THE BOARD OF DIRECTOR",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>6<|level|>2\n<|id|>15<|level|>2\n<|id|>20<|level|>2\n<|id|>31<|level|>2\n<|id|>34<|level|>2\n<|id|>42<|level|>2\n<|id|>47<|level|>2\n<|id|>53<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>2\n<|id|>78<|level|>1\n<|id|>79<|level|>2\n<|id|>80<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        }
+    ]
+}

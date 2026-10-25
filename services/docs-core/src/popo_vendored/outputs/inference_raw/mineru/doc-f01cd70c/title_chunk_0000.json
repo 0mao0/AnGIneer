@@ -1,0 +1,137 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 197 142 800<|content|>MEMORANDUM — PRIVILEGED & CONFIDENTIAL — ATTORNEY\n<|id|>6<|page|>1<|box|>323 140 340 232<|content|>1. Purpose\n<|id|>9<|page|>1<|box|>744 140 762 343<|content|>2. Engagement Overview\n<|id|>21<|page|>2<|box|>477 140 494 457<|content|>3. Parties and Related Entities Searched\n<|id|>23<|page|>2<|box|>589 140 606 383<|content|>3.1 Client and Client Affiliates\n<|id|>33<|page|>3<|box|>255 140 273 501<|content|>3.2 Counterparty and Counterparty Affiliates\n<|id|>35<|page|>3<|box|>433 142 450 547<|content|>Key Individuals at Meridian Data Solutions GmbH:\n<|id|>42<|page|>3<|box|>758 140 776 426<|content|>3.3 Counterparty's Outside Counsel\n<|id|>44<|page|>3<|box|>882 140 898 444<|content|>Key Individuals at Kessler Hartmann:\n<|id|>47<|page|>4<|box|>141 140 157 560<|content|>3.4 Other Transaction Parties and Advisors Searche\n<|id|>59<|page|>5<|box|>348 140 364 326<|content|>4. Search Methodology\n<|id|>67<|page|>6<|box|>267 140 284 282<|content|>5. Search Results\n<|id|>69<|page|>6<|box|>361 140 377 339<|content|>5.1 Lumos Analytics Inc.\n<|id|>72<|page|>6<|box|>532 140 549 411<|content|>5.2 Crestline Capital Partners, LP\n<|id|>75<|page|>6<|box|>722 140 739 531<|content|>5.3 Meridian Data Solutions GmbH and Affiliates\n<|id|>79<|page|>7<|box|>157 140 174 529<|content|>5.4 Kessler Hartmann Rechtsanwälte PartG mbB\n<|id|>82<|page|>7<|box|>311 140 328 379<|content|>5.5 Other Transaction Parties\n<|id|>94<|page|>8<|box|>138 140 156 379<|content|>5.6 Individual Name Searches\n<|id|>96<|page|>8<|box|>296 140 311 377<|content|>6. Analysis of Potential Issues\n<|id|>98<|page|>8<|box|>371 140 388 470<|content|>6.1 Prior Evergreen Trust Representation\n<|id|>104<|page|>9<|box|>257 140 273 506<|content|>6.2 New Client Intake — Lumos Analytics Inc.\n<|id|>110<|page|>9<|box|>699 140 715 254<|content|>7. Conclusion\n<|id|>115<|page|>10<|box|>348 142 364 246<|content|>8. Clearance\n<|id|>119<|page|>11<|box|>90 142 107 547<|content|>Appendix: List of Entities and Individuals Searche\n<|id|>121<|page|>11<|box|>184 142 200 377<|content|>A. Client and Client Affiliates\n<|id|>123<|page|>11<|box|>377 143 393 493<|content|>B. Counterparty and Counterparty Affiliates\n<|id|>125<|page|>11<|box|>633 143 650 343<|content|>C. Counterparty Counsel\n<|id|>127<|page|>11<|box|>777 143 794 478<|content|>D. Other Transaction Parties and Advisors",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>9<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>33<|level|>3\n<|id|>35<|level|>4\n<|id|>42<|level|>3\n<|id|>44<|level|>4\n<|id|>47<|level|>3\n<|id|>59<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>3\n<|id|>72<|level|>3\n<|id|>75<|level|>3\n<|id|>79<|level|>3\n<|id|>82<|level|>3\n<|id|>94<|level|>3\n<|id|>96<|level|>2\n<|id|>98<|level|>3\n<|id|>104<|level|>3\n<|id|>110<|level|>2\n<|id|>115<|level|>2\n<|id|>119<|level|>2\n<|id|>121<|level|>3\n<|id|>123<|level|>3\n<|id|>125<|level|>3\n<|id|>127<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 4
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 4
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        }
+    ]
+}

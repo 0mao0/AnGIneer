@@ -1,0 +1,86 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|page|>1<|box|>323 142 340 465<|content|>1. Closing Confirmation and Transmittal\n<|id|>18<|page|>2<|box|>148 140 167 457<|content|>2. Summary of Closing Binder Contents\n<|id|>43<|page|>3<|box|>837 140 854 493<|content|>3. Summary of Key Post-Closing Obligations\n<|id|>46<|page|>4<|box|>194 140 212 504<|content|>3.1 Quarterly Compliance Certificate Delivery\n<|id|>53<|page|>5<|box|>90 140 107 460<|content|>3.2 Annual Financial Statement Delivery\n<|id|>58<|page|>5<|box|>419 181 435 531<|content|>• Ridgeline Mezzanine Capital Fund III, LP\n<|id|>65<|page|>5<|box|>611 142 628 390<|content|>3.3 First Interest Payment Date\n<|id|>72<|page|>6<|box|>375 140 391 483<|content|>3.4 UCC Continuation Filing Requirements\n<|id|>79<|page|>7<|box|>231 140 250 473<|content|>3.5 Insurance and Regulatory Compliance\n<|id|>85<|page|>7<|box|>695 140 712 338<|content|>3.6 Notice Requirements\n<|id|>95<|page|>8<|box|>606 140 623 532<|content|>3.7 Restricted Payment and Covenant Monitoring\n<|id|>103<|page|>9<|box|>279 140 296 496<|content|>4. Capital Structure Summary (Post-Closing)\n<|id|>106<|page|>9<|box|>750 142 765 352<|content|>5. Transaction Cost Recap\n<|id|>111<|page|>10<|box|>369 142 387 406<|content|>6. Key Upcoming Dates Calendar\n<|id|>114<|page|>11<|box|>204 140 222 522<|content|>7. Document Retention and Contact Information\n<|id|>126<|page|>11<|box|>660 140 676 300<|content|>8. Closing Remarks\n<|id|>130<|page|>12<|box|>89 212 106 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>134<|page|>12<|box|>195 142 208 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>18<|level|>1\n<|id|>43<|level|>1\n<|id|>46<|level|>2\n<|id|>53<|level|>2\n<|id|>58<|level|>-1\n<|id|>65<|level|>2\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>85<|level|>2\n<|id|>95<|level|>2\n<|id|>103<|level|>1\n<|id|>106<|level|>1\n<|id|>111<|level|>1\n<|id|>114<|level|>1\n<|id|>126<|level|>1\n<|id|>130<|level|>-1\n<|id|>134<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        }
+    ]
+}

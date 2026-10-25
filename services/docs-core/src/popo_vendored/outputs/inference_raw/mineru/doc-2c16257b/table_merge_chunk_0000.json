@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['2', 'Natasha Sorokin', 'Senior Trader', 'Dunmore Trading International Ltd.', 'Dubai, UAE', 'Primary point of contact with Sergei Volkov of Petronova Trading FZE; executed the 14 suspect crude oil swap', 'Email (@dunmore-trading.ae), Westmark Services Inc. IB chat, Meridian Services Inc., encrypted messaging']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', 'transactions; Russian-American dual national; placed on administrative leave effective May 16, 2022', '(Signal, Kestrel Data Systems — suspected), Allegro Horizon CTRM, personal devices (company-issued and personal mobile), physical office files, internal trade blotter']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 180,
+    "table2_idx": 181
+}

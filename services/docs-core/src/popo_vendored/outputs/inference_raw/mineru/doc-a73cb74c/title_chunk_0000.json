@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 200 126 797<|content|>COMMONWEALTH OF MASSACHUSETTS SUPERIOR COURT BUSIN\n<|id|>2<|page|>1<|box|>410 169 464 826<|content|>ANSWER OF PLAINTIFF/COUNTERCLAIM DEFENDANT PENTERR\n<|id|>5<|page|>1<|box|>777 158 813 838<|content|>RESPONSE TO PRELIMINARY AND JURISDICTIONAL ALLEGAT\n<|id|>6<|page|>2<|box|>89 140 107 473<|content|>I. IDENTIFICATION OF THE PARTIES\n<|id|>11<|page|>2<|box|>398 142 416 413<|content|>II. JURISDICTION AND VENUE\n<|id|>14<|page|>2<|box|>638 140 655 586<|content|>III. THE EXCLUSIVE DISTRIBUTION AGREEMENT\n<|id|>23<|page|>3<|box|>699 140 736 779<|content|>IV. VANTAGE'S MINIMUM PURCHASE COMMITMENTS AND PUR\n<|id|>27<|page|>4<|box|>251 200 268 795<|content|>RESPONSE TO COUNTERCLAIM COUNT I: BREACH OF CONTRA\n<|id|>40<|page|>6<|box|>452 155 488 841<|content|>RESPONSE TO COUNTERCLAIM COUNT II: BREACH OF IMPLI\n<|id|>45<|page|>7<|box|>287 189 305 805<|content|>RESPONSE TO COUNTERCLAIM COUNT III: PROMISSORY EST\n<|id|>52<|page|>8<|box|>306 380 323 616<|content|>AFFIRMATIVE DEFENSES\n<|id|>54<|page|>8<|box|>381 140 398 617<|content|>FIRST AFFIRMATIVE DEFENSE: Failure to State a Clai\n<|id|>64<|page|>9<|box|>220 140 237 596<|content|>THIRD AFFIRMATIVE DEFENSE: Parol Evidence Rule\n<|id|>66<|page|>9<|box|>383 140 420 854<|content|>FOURTH AFFIRMATIVE DEFENSE: Written-Modification C\n<|id|>68<|page|>9<|box|>622 140 638 570<|content|>FIFTH AFFIRMATIVE DEFENSE: Statute of Frauds\n<|id|>70<|page|>9<|box|>767 140 803 854<|content|>SIXTH AFFIRMATIVE DEFENSE: No Reasonable Reliance\n<|id|>72<|page|>10<|box|>175 140 193 584<|content|>SEVENTH AFFIRMATIVE DEFENSE: Unclean Hands\n<|id|>74<|page|>10<|box|>395 140 412 730<|content|>EIGHTH AFFIRMATIVE DEFENSE: Waiver and/or Estoppel\n<|id|>76<|page|>10<|box|>614 140 631 614<|content|>NINTH AFFIRMATIVE DEFENSE: Mitigation of Damages\n<|id|>78<|page|>10<|box|>758 140 777 609<|content|>TENTH AFFIRMATIVE DEFENSE: Reservation of Rights\n<|id|>80<|page|>11<|box|>89 400 106 596<|content|>PRAYER FOR RELIEF\n<|id|>86<|page|>11<|box|>327 428 344 570<|content|>JURY DEMAND\n<|id|>89<|page|>11<|box|>441 264 459 854<|content|>PENTERRA PHARMACEUTICALS CORP., Plaintiff/Counterc\n<|id|>101<|page|>11<|box|>681 375 698 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>1\n<|id|>6<|level|>2\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>23<|level|>2\n<|id|>27<|level|>1\n<|id|>40<|level|>1\n<|id|>45<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>2\n<|id|>64<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>2\n<|id|>74<|level|>2\n<|id|>76<|level|>2\n<|id|>78<|level|>2\n<|id|>80<|level|>1\n<|id|>86<|level|>1\n<|id|>89<|level|>-1\n<|id|>101<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        }
+    ]
+}

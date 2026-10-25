@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        10,
+        11,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 462 151 534<|content|>Plaintiff,\n<|id|>3<|page|>1<|box|>186 238 203 756<|content|>PENTERRA PHARMACEUTICALS CORP. ... , a Delaware corporation,\n<|id|>4<|page|>1<|box|>212 455 229 540<|content|>Defendant. ... Defendant\n<|id|>7<|page|>1<|box|>308 442 324 854<|content|>Date: ... 1018-00008\n<|id|>8<|page|>1<|box|>334 143 352 250<|content|>Prepared by: ... Prepared by\n<|id|>9<|page|>1<|box|>359 140 395 854<|content|>Calderwood & Harkness LLP 200 Park Avenue, 42nd Floor New York, NY 10166 Telephone: ... (212) 558-3588\n<|id|>10<|page|>1<|box|>404 174 458 854<|content|>Oliver Mackenzie (Partner, M&A) — Responsible Part...Derek Okonkwo (Associate, M&A) — Working Associate\n<|id|>11<|page|>1<|box|>467 140 484 560<|content|>Attorneys for Defendant Penterra Pharmaceuticals C...orneys for Defendant Penterra Pharmaceuticals Corp\n<|id|>12<|page|>1<|box|>492 398 508 599<|content|>TABLE OF CONTENTS\n<|id|>13<|page|>1<|box|>518 142 534 408<|content|>Right-click to update Table of Contents\n<|id|>24<|page|>2<|box|>747 138 893 857<|content|>Penterra acted in good faith and in strict complia...ce to Veridian and to David Ng, in his capacity as\n<|id|>25<|page|>3<|box|>90 140 126 856<|content|>Stockholder Representative, terminating the SPA pu...n advance of the Outside Date of December 10, 2024\n<|id|>33<|page|>3<|box|>864 140 900 857<|content|>6. ... 1(d), delivering a formal Termination Notice to Veridian and to the Stockholder\n<|id|>34<|page|>4<|box|>90 174 125 854<|content|>Representative. ... The termination was effected w...n advance of the Outside Date of December 10, 2024\n<|id|>50<|page|>4<|box|>873 143 907 854<|content|>19. ... Its Senior\n<|id|>51<|page|>5<|box|>89 174 125 854<|content|>Vice President, Corporate Development is Natalie R...rra's Board of Directors is Margaret Liu Whitfield\n<|id|>120<|page|>10<|box|>818 140 892 856<|content|>57. ... The Deficiency Notice was delivered in writing to\n<|id|>121<|page|>11<|box|>90 174 126 854<|content|>Veridian's General Counsel, Rachel Stein-Goldberg,...mail and overnight courier, as required by the SPA\n<|id|>245<|page|>22<|box|>162 140 180 524<|content|>Oliver Mackenzie (Partner) Delaware Bar No. ... 5892\n<|id|>246<|page|>22<|box|>180 140 196 524<|content|>Harrison Wexford (Partner) Delaware Bar No. ... 6147\n<|id|>247<|page|>22<|box|>196 140 214 498<|content|>Megan Chu (Associate) Delaware Bar No. ... 7403\n<|id|>248<|page|>22<|box|>214 140 231 531<|content|>Derek Okonkwo (Associate) Delaware Bar No. ... 7618\n<|id|>249<|page|>22<|box|>231 140 263 854<|content|>200 Park Avenue, 42nd Floor New York, New York 10166 Telephone: ... (212) 558-3588\n<|id|>250<|page|>22<|box|>265 140 282 486<|content|>Email: ... com\n<|id|>251<|page|>22<|box|>282 140 299 473<|content|>Email: ... com\n<|id|>252<|page|>22<|box|>300 140 316 444<|content|>Email: ... com\n<|id|>253<|page|>22<|box|>316 140 334 478<|content|>Email: ... com\n<|id|>254<|page|>22<|box|>334 140 351 563<|content|>Attorneys for Defendant Penterra Pharmaceuticals C...orneys for Defendant Penterra Pharmaceuticals Corp\n<|id|>263<|page|>22<|box|>715 140 750 854<|content|>Thomas F. ... 1100 Meridian Boulevard, Suite 400 Princeton, New Jersey 08540\n<|id|>264<|page|>22<|box|>750 140 767 328<|content|>Date: ... November 1, 2024\n<|id|>267<|page|>23<|box|>89 174 126 854<|content|>Rebecca Whitmore, Esq. ... (617) 948-6000\n<|id|>268<|page|>23<|box|>133 176 169 566<|content|>Email: ... com Lead Counsel for Plaintiff Veridian Biosciences, Inc\n<|id|>269<|page|>23<|box|>176 174 214 854<|content|>Jonathan Pratt, Esq. ... (617) 948-6000\n<|id|>270<|page|>23<|box|>220 174 257 599<|content|>Email: ... com Associate Counsel for Plaintiff Veridian Biosciences, Inc\n<|id|>272<|page|>23<|box|>309 140 325 411<|content|>Date of Service: ... November 1, 2024\n<|id|>273<|page|>23<|box|>361 140 431 854<|content|>Megan Chu Calderwood & Harkness LLP 200 Park Avenu...torney for Defendant Penterra Pharmaceuticals Corp",
+    "raw_response": "<|src_id|>24<|tgt_id|>25\n<|src_id|>33<|tgt_id|>34\n<|src_id|>50<|tgt_id|>51\n<|src_id|>120<|tgt_id|>121",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 121
+        }
+    ]
+}

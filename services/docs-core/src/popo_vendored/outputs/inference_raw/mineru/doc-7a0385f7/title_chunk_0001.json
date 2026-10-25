@@ -1,0 +1,155 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        55,
+        102
+    ],
+    "pages": [
+        56,
+        58,
+        60,
+        62,
+        64,
+        68,
+        70,
+        73,
+        77,
+        79,
+        81,
+        84,
+        86,
+        88,
+        90,
+        91,
+        93,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>154<|page|>56<|box|>205 278 234 704<|content|>四、 \\pi 形梁、带靠船构件梁、靠船构件及箱形梁\n<|id|>155<|page|>56<|box|>246 105 270 189<|content|>(一)预制\n<|id|>160<|page|>58<|box|>209 105 234 225<|content|>(二)水上安装\n<|id|>167<|page|>60<|box|>214 105 240 226<|content|>(三)陆上安装\n<|id|>174<|page|>62<|box|>218 418 246 578<|content|>五、实心平板\n<|id|>175<|page|>62<|box|>260 110 284 194<|content|>(一)预制\n<|id|>180<|page|>64<|box|>209 107 232 228<|content|>(二)水上安装\n<|id|>193<|page|>68<|box|>203 105 228 225<|content|>(三)陆上安装\n<|id|>198<|page|>70<|box|>201 421 230 581<|content|>六、空心大板\n<|id|>209<|page|>73<|box|>71 105 94 225<|content|>(二)水上安装\n<|id|>220<|page|>77<|box|>65 112 90 231<|content|>(三)陆上安装\n<|id|>227<|page|>79<|box|>67 329 96 660<|content|>七、剪刀撑、十字撑、水平撑及框架\n<|id|>235<|page|>81<|box|>59 105 84 226<|content|>(二)水上安装\n<|id|>243<|page|>84<|box|>201 110 226 231<|content|>(三)陆上安装\n<|id|>250<|page|>86<|box|>203 379 230 610<|content|>八、实心方块、空心方块\n<|id|>251<|page|>86<|box|>244 107 268 191<|content|>(一)预制\n<|id|>258<|page|>88<|box|>205 110 230 231<|content|>(二)水上安装\n<|id|>263<|page|>90<|box|>214 423 244 571<|content|>九、沉箱、空箱\n<|id|>268<|page|>91<|box|>71 107 94 226<|content|>(二)水上安装\n<|id|>275<|page|>93<|box|>71 426 100 554<|content|>十、扶 壁\n<|id|>276<|page|>93<|box|>114 104 138 188<|content|>(一)预制\n<|id|>283<|page|>95<|box|>65 99 90 218<|content|>(二)水上安装\n<|id|>287<|page|>96<|box|>213 428 240 576<|content|>十一、沉井\n<|id|>291<|page|>97<|box|>61 307 90 658<|content|>十二、柱、门架、管沟、踏步及锚碇板\n<|id|>296<|page|>98<|box|>207 119 230 203<|content|>(二) 安装\n<|id|>300<|page|>99<|box|>67 255 98 707<|content|>十三、系船环块体、盖板、人行道板、栏杆及其他\n<|id|>305<|page|>100<|box|>209 117 236 203<|content|>(二)安装\n<|id|>309<|page|>101<|box|>65 396 92 584<|content|>十四、预制软体排块\n<|id|>310<|page|>101<|box|>108 104 132 258<|content|>(一) 混凝土压排块\n<|id|>314<|page|>102<|box|>211 77 236 119<|content|>续表",
+    "raw_response": "<|id|>154<|level|>1\n<|id|>155<|level|>2\n<|id|>160<|level|>2\n<|id|>167<|level|>2\n<|id|>174<|level|>1\n<|id|>175<|level|>2\n<|id|>180<|level|>2\n<|id|>193<|level|>2\n<|id|>198<|level|>1\n<|id|>209<|level|>2\n<|id|>220<|level|>2\n<|id|>227<|level|>1\n<|id|>235<|level|>2\n<|id|>243<|level|>2\n<|id|>250<|level|>1\n<|id|>251<|level|>2\n<|id|>258<|level|>2\n<|id|>263<|level|>1\n<|id|>268<|level|>2\n<|id|>275<|level|>1\n<|id|>276<|level|>2\n<|id|>283<|level|>2\n<|id|>287<|level|>1\n<|id|>291<|level|>1\n<|id|>296<|level|>2\n<|id|>300<|level|>1\n<|id|>305<|level|>2\n<|id|>309<|level|>1\n<|id|>310<|level|>2\n<|id|>314<|level|>-1",
+    "parsed": [
+        {
+            "id": 154,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 1
+        },
+        {
+            "id": 209,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 227,
+            "level": 1
+        },
+        {
+            "id": 235,
+            "level": 2
+        },
+        {
+            "id": 243,
+            "level": 2
+        },
+        {
+            "id": 250,
+            "level": 1
+        },
+        {
+            "id": 251,
+            "level": 2
+        },
+        {
+            "id": 258,
+            "level": 2
+        },
+        {
+            "id": 263,
+            "level": 1
+        },
+        {
+            "id": 268,
+            "level": 2
+        },
+        {
+            "id": 275,
+            "level": 1
+        },
+        {
+            "id": 276,
+            "level": 2
+        },
+        {
+            "id": 283,
+            "level": 2
+        },
+        {
+            "id": 287,
+            "level": 1
+        },
+        {
+            "id": 291,
+            "level": 1
+        },
+        {
+            "id": 296,
+            "level": 2
+        },
+        {
+            "id": 300,
+            "level": 1
+        },
+        {
+            "id": 305,
+            "level": 2
+        },
+        {
+            "id": 309,
+            "level": 1
+        },
+        {
+            "id": 310,
+            "level": 2
+        }
+    ]
+}

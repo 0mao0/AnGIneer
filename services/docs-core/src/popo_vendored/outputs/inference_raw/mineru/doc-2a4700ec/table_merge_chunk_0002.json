@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['5', '相对倾斜度', '2.5H/1000', 'rowspan=5, 每个箱体逐个检查', '1', '用吊锤和钢尺量'], ['colspan=6, 注:H为构件高度。']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['1', '圆筒中心到前沿线水平距离偏差', '±15', 'rowspan=4, 每个圆筒逐件检查', '1', '用经纬仪和钢尺量']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 677,
+    "table2_idx": 678
+}

@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>114 400 133 596<|content|>ATTORNEYS AT LAW\n<|id|>16<|type|>title<|page|>1<|box|>613 142 630 264<|content|>1. Introduction\n<|id|>20<|type|>title<|page|>2<|box|>359 140 375 336<|content|>2. Documents Examined\n<|id|>41<|type|>title<|page|>3<|box|>731 140 748 267<|content|>3. Assumptions\n<|id|>54<|type|>title<|page|>5<|box|>90 140 107 238<|content|>4. Opinions\n<|id|>56<|type|>title<|page|>5<|box|>166 140 183 831<|content|>4.1 Due Organization, Valid Existence, and Good St\n<|id|>58<|type|>title<|page|>5<|box|>366 140 401 854<|content|>4.2 Due Organization, Valid Existence, and Good St\n<|id|>60<|type|>title<|page|>5<|box|>695 140 712 423<|content|>4.3 Corporate Power and Authority\n<|id|>62<|type|>title<|page|>6<|box|>90 142 106 320<|content|>4.4 Due Authorization\n<|id|>68<|type|>title<|page|>6<|box|>578 140 594 392<|content|>4.5 Due Execution and Delivery\n<|id|>71<|type|>title<|page|>6<|box|>791 140 808 504<|content|>4.7 No Violation of Organizational Documents\n<|id|>75<|type|>title<|page|>7<|box|>257 140 273 496<|content|>4.8 No Violation of Applicable Delaware Law\n<|id|>78<|type|>title<|page|>7<|box|>556 140 574 464<|content|>4.9 No Violation of Specified Agreements\n<|id|>81<|type|>title<|page|>8<|box|>90 140 107 380<|content|>4.10 Governmental Approvals\n<|id|>86<|type|>title<|page|>8<|box|>470 140 488 403<|content|>5. Qualifications and Limitations\n<|id|>88<|type|>title<|page|>8<|box|>546 140 563 375<|content|>5.1 Enforceability Exceptions\n<|id|>95<|type|>title<|page|>9<|box|>239 140 256 462<|content|>5.2 Scope Limitations — Governing Law\n<|id|>108<|type|>title<|page|>10<|box|>239 140 256 457<|content|>5.3 Scope Limitations — Subject Matter\n<|id|>119<|type|>title<|page|>11<|box|>157 140 174 521<|content|>5.4 Reliance on Certificates and Representations\n<|id|>121<|type|>title<|page|>11<|box|>414 140 431 321<|content|>5.5 No Duty to Update\n<|id|>123<|type|>title<|page|>11<|box|>588 140 604 326<|content|>6. Reliance and Benefit\n<|id|>127<|type|>title<|page|>12<|box|>167 142 184 254<|content|>7. Conclusion\n<|id|>134<|type|>title<|page|>12<|box|>387 437 404 560<|content|>SCHEDULE A\n<|id|>135<|type|>title<|page|>12<|box|>414 385 431 612<|content|>List of Specified Agreements\n<|id|>136<|type|>title<|page|>12<|box|>439 393 457 602<|content|>(Referenced in Opinion 4.9)\n<|id|>138<|type|>table<|page|>12<|box|>507 143 907 852<|content|>None\n<|id|>139<|type|>table<|page|>13<|box|>89 143 542 851<|content|>None",
+    "raw_response": "<|src_id|>138<|tgt_id|>135\n<|src_id|>139<|tgt_id|>135",
+    "parsed": [
+        {
+            "src_id": 138,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 135
+        }
+    ]
+}

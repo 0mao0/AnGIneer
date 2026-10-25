@@ -1,0 +1,58 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>87 112 137 883<|content|>Learning Maximal Safe Sets Using Hypernetworks for\n<|id|>3<|type|>title<|page|>1<|box|>441 207 455 364<|content|>I. INTRODUCTION\n<|id|>7<|type|>image<|page|>1<|box|>196 547 339 867<|content|>None\n<|id|>13<|type|>title<|page|>2<|box|>204 204 219 370<|content|>II. RELATED WORK\n<|id|>18<|type|>title<|page|>2<|box|>267 624 281 795<|content|>III. PRELIMINARIES\n<|id|>19<|type|>title<|page|>2<|box|>286 504 300 678<|content|>A. Problem Formulation\n<|id|>35<|type|>title<|page|>3<|box|>66 83 80 370<|content|>B. Hamilton-Jacobi Reachability Analysis\n<|id|>50<|type|>title<|page|>3<|box|>66 624 79 795<|content|>IV. METHODOLOGY\n<|id|>53<|type|>title<|page|>3<|box|>458 504 473 663<|content|>A. Model Architecture\n<|id|>56<|type|>image<|page|>4<|box|>66 91 270 486<|content|>None\n<|id|>58<|type|>title<|page|>4<|box|>696 83 710 243<|content|>B. Training Procedure\n<|id|>61<|type|>image<|page|>4<|box|>66 521 271 888<|content|>None\n<|id|>65<|type|>title<|page|>4<|box|>858 588 872 831<|content|>V. EXPERIMENTAL RESULTS\n<|id|>66<|type|>title<|page|>4<|box|>877 504 893 647<|content|>A. Robot Dynamics\n<|id|>73<|type|>title<|page|>5<|box|>439 83 454 215<|content|>B. Model Training\n<|id|>77<|type|>image<|page|>5<|box|>60 508 176 910<|content|>None\n<|id|>81<|type|>image<|page|>5<|box|>761 514 859 906<|content|>None\n<|id|>82<|type|>title<|page|>6<|box|>327 83 340 281<|content|>C. Monte Carlo Simulations\n<|id|>93<|type|>title<|page|>6<|box|>771 506 786 700<|content|>D. Real-World Experiments\n<|id|>96<|type|>table<|page|>7<|box|>575 88 642 483<|content|>None\n<|id|>97<|type|>title<|page|>7<|box|>666 84 681 359<|content|>E. Single-Network Architecture Analysis\n<|id|>101<|type|>title<|page|>7<|box|>261 568 276 852<|content|>VI. DISCUSSION ON LIMITATIONS\n<|id|>104<|type|>title<|page|>7<|box|>616 627 630 792<|content|>VII. CONCLUSIONS\n<|id|>107<|type|>image<|page|>8<|box|>61 86 271 359<|content|>None\n<|id|>108<|type|>image<|page|>8<|box|>61 361 271 633<|content|>None\n<|id|>109<|type|>image<|page|>8<|box|>61 637 271 910<|content|>None\n<|id|>110<|type|>title<|page|>8<|box|>340 238 354 334<|content|>REFERENCES",
+    "raw_response": "<|src_id|>7<|tgt_id|>3\n<|src_id|>56<|tgt_id|>53\n<|src_id|>61<|tgt_id|>53\n<|src_id|>77<|tgt_id|>73\n<|src_id|>81<|tgt_id|>73\n<|src_id|>96<|tgt_id|>93\n<|src_id|>107<|tgt_id|>110\n<|src_id|>108<|tgt_id|>110\n<|src_id|>109<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        }
+    ]
+}

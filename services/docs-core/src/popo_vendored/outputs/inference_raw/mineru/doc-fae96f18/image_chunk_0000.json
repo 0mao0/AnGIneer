@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 333 118 663<|content|>SECRETARY'S CERTIFICATE\n<|id|>2<|type|>title<|page|>1<|box|>175 279 195 717<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>6<|type|>title<|page|>1<|box|>452 140 469 243<|content|>RECITALS\n<|id|>13<|type|>title<|page|>2<|box|>148 140 167 307<|content|>CERTIFICATIONS\n<|id|>14<|type|>title<|page|>2<|box|>180 140 198 668<|content|>Certification 1: Amended and Restated Certificate\n<|id|>23<|type|>title<|page|>3<|box|>282 140 299 511<|content|>Certification 2: Amended and Restated Bylaws\n<|id|>31<|type|>title<|page|>4<|box|>202 140 219 584<|content|>Certification 3: Board Resolutions — IPO Authoriza\n<|id|>46<|type|>title<|page|>5<|box|>844 140 861 509<|content|>Certification 4: Pricing Committee Resolutions\n<|id|>56<|type|>title<|page|>6<|box|>669 140 685 496<|content|>Certification 5: Stockholder Written Consent\n<|id|>58<|type|>table<|page|>6<|box|>797 143 898 852<|content|>None\n<|id|>59<|type|>table<|page|>7<|box|>89 143 164 852<|content|>None\n<|id|>67<|type|>title<|page|>7<|box|>650 142 667 428<|content|>ADDITIONAL CERTIFICATIONS\n<|id|>68<|type|>title<|page|>7<|box|>681 140 699 366<|content|>Certification 6: Incumbency\n<|id|>70<|type|>table<|page|>7<|box|>820 143 893 852<|content|>None\n<|id|>71<|type|>table<|page|>8<|box|>88 143 179 852<|content|>None\n<|id|>73<|type|>title<|page|>8<|box|>263 140 279 421<|content|>Certification 7: Board Composition\n<|id|>75<|type|>table<|page|>8<|box|>364 143 560 852<|content|>None\n<|id|>77<|type|>title<|page|>8<|box|>638 143 654 287<|content|>Audit Committee:\n<|id|>82<|type|>title<|page|>8<|box|>804 142 820 354<|content|>Compensation Committee:\n<|id|>90<|type|>title<|page|>9<|box|>160 142 176 380<|content|>Certification 8: Capitalization\n<|id|>98<|type|>title<|page|>9<|box|>589 140 607 526<|content|>Certification 9: Good Standing and Qualification\n<|id|>102<|type|>title<|page|>9<|box|>859 140 878 500<|content|>Certification 10: No Conflict; No Proceedings\n<|id|>106<|type|>title<|page|>10<|box|>467 142 484 336<|content|>REGISTERED AGENT\n<|id|>108<|type|>title<|page|>10<|box|>589 140 607 245<|content|>RELIANCE\n<|id|>111<|type|>title<|page|>10<|box|>832 140 851 338<|content|>[Signature Page Follows]\n<|id|>119<|type|>title<|page|>11<|box|>214 142 231 310<|content|>LIST OF EXHIBITS\n<|id|>121<|type|>table<|page|>11<|box|>282 143 547 852<|content|>None",
+    "raw_response": "<|src_id|>58<|tgt_id|>56\n<|src_id|>59<|tgt_id|>56\n<|src_id|>70<|tgt_id|>68\n<|src_id|>71<|tgt_id|>68\n<|src_id|>75<|tgt_id|>73\n<|src_id|>121<|tgt_id|>119",
+    "parsed": [
+        {
+            "src_id": 58,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 119
+        }
+    ]
+}

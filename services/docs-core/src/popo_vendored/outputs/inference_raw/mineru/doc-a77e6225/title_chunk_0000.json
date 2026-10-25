@@ -1,0 +1,134 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 150 125 846<|content|>CALDERWOOD & HARKNESS LLP 1120 Avenue of the Ameri\n<|id|>3<|page|>1<|box|>433 142 449 217<|content|>I. ISSUE\n<|id|>6<|page|>1<|box|>819 142 835 303<|content|>II. BACKGROUND\n<|id|>7<|page|>1<|box|>849 142 867 437<|content|>A. The Drug and Proposed Indication\n<|id|>12<|page|>2<|box|>411 140 428 383<|content|>B. Clinical Program Overview\n<|id|>18<|page|>3<|box|>275 140 292 379<|content|>C. Type B Pre-sNDA Meeting\n<|id|>21<|page|>3<|box|>566 140 584 722<|content|>III. LEGAL FRAMEWORK — PEDIATRIC RESEARCH EQUITY A\n<|id|>22<|page|>3<|box|>597 142 614 400<|content|>A. General PREA Requirements\n<|id|>40<|page|>5<|box|>239 140 256 434<|content|>D. Consequences of Non-Compliance\n<|id|>47<|page|>5<|box|>608 140 625 398<|content|>IV. THE WRITTEN REQUEST\n<|id|>49<|page|>5<|box|>762 142 779 563<|content|>B. Study Parameters Specified in the Written Reque\n<|id|>58<|page|>6<|box|>635 140 652 406<|content|>C. Pediatric Exclusivity Incentive\n<|id|>64<|page|>7<|box|>222 140 239 313<|content|>V. THE DEFERRAL\n<|id|>65<|page|>7<|box|>253 140 271 388<|content|>A. Penterra's Deferral Request\n<|id|>70<|page|>7<|box|>604 142 622 341<|content|>B. FDA's Deferral Grant\n<|id|>75<|page|>8<|box|>213 140 229 526<|content|>C. Interaction with Postmarketing Requirements\n<|id|>79<|page|>8<|box|>584 140 602 400<|content|>VI. ONGOING OBLIGATIONS\n<|id|>80<|page|>8<|box|>616 140 633 366<|content|>A. Annual Progress Reports\n<|id|>90<|page|>9<|box|>409 140 426 426<|content|>B. Written Request Expiration Risk\n<|id|>94<|page|>9<|box|>772 140 789 475<|content|>C. IND Amendment for Pediatric Protocol\n<|id|>104<|page|>10<|box|>530 140 547 599<|content|>VII. IMPLICATIONS OF ENGAGEMENT DORMANCY\n<|id|>110<|page|>11<|box|>431 140 449 560<|content|>VIII. COORDINATION WITH OTHER ADVISORS\n<|id|>112<|page|>11<|box|>507 140 523 401<|content|>A. Callendar Baines Group LLC\n<|id|>115<|page|>11<|box|>787 140 806 364<|content|>B. Whitfield & Grange LLP\n<|id|>119<|page|>12<|box|>383 140 402 344<|content|>C. Thornfield Lewis LLP\n<|id|>122<|page|>12<|box|>657 142 674 372<|content|>IX. RECOMMENDATIONS\n<|id|>135<|page|>14<|box|>277 140 294 294<|content|>X. CONCLUSION\n<|id|>141<|page|>14<|box|>750 142 767 566<|content|>Please do not hesitate to contact us with any ques",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>2\n<|id|>7<|level|>3\n<|id|>12<|level|>3\n<|id|>18<|level|>3\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>40<|level|>3\n<|id|>47<|level|>2\n<|id|>49<|level|>3\n<|id|>58<|level|>3\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>70<|level|>3\n<|id|>75<|level|>3\n<|id|>79<|level|>2\n<|id|>80<|level|>3\n<|id|>90<|level|>3\n<|id|>94<|level|>3\n<|id|>104<|level|>2\n<|id|>110<|level|>2\n<|id|>112<|level|>3\n<|id|>115<|level|>3\n<|id|>119<|level|>3\n<|id|>122<|level|>2\n<|id|>135<|level|>2\n<|id|>141<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        }
+    ]
+}

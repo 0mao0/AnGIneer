@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 320 106 676<|content|>PENTERRA PHARMACEUTICALS CORP.\n<|id|>4<|page|>1<|box|>194 140 210 354<|content|>Dear Healthcare Provider:\n<|id|>6<|page|>1<|box|>334 140 351 341<|content|>1. Purpose of This Letter\n<|id|>14<|page|>2<|box|>90 140 107 570<|content|>2. Correction of Misleading Efficacy Data Presenta\n<|id|>15<|page|>2<|box|>121 140 138 434<|content|>2.1 The Truncated Y-Axis Bar Chart\n<|id|>25<|page|>2<|box|>724 140 739 437<|content|>2.2 Corrected Graphical Presentation\n<|id|>31<|page|>3<|box|>325 140 344 557<|content|>3. Retraction of Unsubstantiated Comparative Claim\n<|id|>33<|page|>3<|box|>431 176 449 397<|content|>\"Fastest Onset in Its Class\"\n<|id|>38<|page|>4<|box|>90 140 107 553<|content|>4. Correction Regarding Cited Real-World Evidence\n<|id|>46<|page|>4<|box|>625 140 641 633<|content|>5. Important Risk Information — Zelvara® (trepivan\n<|id|>50<|page|>5<|box|>176 140 193 352<|content|>5.2 Cardiovascular Events\n<|id|>53<|page|>5<|box|>439 140 457 413<|content|>5.3 Medication-Overuse Headache\n<|id|>56<|page|>5<|box|>648 140 665 336<|content|>5.4 Serotonin Syndrome\n<|id|>59<|page|>6<|box|>138 140 157 500<|content|>5.5 Reference to Full Prescribing Information\n<|id|>66<|page|>6<|box|>400 140 417 397<|content|>6. Penterra's Corrective Actions\n<|id|>76<|page|>7<|box|>261 140 277 370<|content|>7. Reporting Adverse Events\n<|id|>81<|page|>7<|box|>539 140 556 326<|content|>8. Contact Information",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>25<|level|>3\n<|id|>31<|level|>2\n<|id|>33<|level|>3\n<|id|>38<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>3\n<|id|>53<|level|>3\n<|id|>56<|level|>3\n<|id|>59<|level|>3\n<|id|>66<|level|>2\n<|id|>76<|level|>2\n<|id|>81<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        }
+    ]
+}

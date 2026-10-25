@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 153 125 844<|content|>GREYSTONE FEDERAL CREDIT CORP. 200 Park Avenue Sou\n<|id|>13<|type|>title<|page|>1<|box|>588 143 604 361<|content|>1. Recitals and Background\n<|id|>19<|type|>title<|page|>2<|box|>612 140 628 258<|content|>2. Payoff Date\n<|id|>23<|type|>title<|page|>3<|box|>223 140 239 292<|content|>3. Payoff Amounts\n<|id|>25<|type|>title<|page|>3<|box|>334 140 352 349<|content|>3.1 Outstanding Principal\n<|id|>30<|type|>title<|page|>3<|box|>643 176 662 717<|content|>Outstanding Principal Balance as of the Payoff Dat\n<|id|>32<|type|>title<|page|>3<|box|>756 140 773 401<|content|>3.2 Accrued and Unpaid Interest\n<|id|>36<|type|>title<|page|>4<|box|>311 140 329 346<|content|>3.3 Prepayment Premium\n<|id|>41<|type|>title<|page|>4<|box|>627 140 643 297<|content|>3.4 Other Amounts\n<|id|>46<|type|>title<|page|>5<|box|>250 140 266 341<|content|>3.5 Total Payoff Amount\n<|id|>48<|type|>table<|page|>5<|box|>351 143 464 852<|content|>None\n<|id|>51<|type|>title<|page|>5<|box|>785 140 801 377<|content|>4. Wire Transfer Instructions\n<|id|>63<|type|>title<|page|>6<|box|>476 140 493 465<|content|>5. Release of Liens and Security Interests\n<|id|>75<|type|>title<|page|>8<|box|>90 140 107 563<|content|>6. Confirmation of Discharge; No Further Obligatio\n<|id|>81<|type|>title<|page|>8<|box|>554 142 570 393<|content|>7. Direction to Existing Lenders\n<|id|>88<|type|>title<|page|>9<|box|>90 140 107 428<|content|>8. Representations and Reservations\n<|id|>92<|type|>title<|page|>9<|box|>612 140 628 287<|content|>9. Governing Law\n<|id|>94<|type|>title<|page|>9<|box|>770 142 787 383<|content|>10. Counterparts and Delivery\n<|id|>96<|type|>title<|page|>10<|box|>190 400 207 596<|content|>[Signature Pages Follow]\n<|id|>97<|type|>title<|page|>10<|box|>214 321 231 674<|content|>SIGNATURE PAGE TO PAYOFF LETTER\n<|id|>106<|type|>title<|page|>10<|box|>421 316 438 679<|content|>ACKNOWLEDGMENT AND AGREEMENT\n<|id|>115<|type|>title<|page|>11<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>116<|type|>title<|page|>11<|box|>114 364 132 633<|content|>PAYOFF AMOUNT SCHEDULE\n<|id|>118<|type|>table<|page|>11<|box|>220 143 371 852<|content|>None\n<|id|>119<|type|>title<|page|>11<|box|>405 142 422 383<|content|>Per Diem Interest Calculation:\n<|id|>127<|type|>title<|page|>12<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>128<|type|>title<|page|>12<|box|>114 349 132 648<|content|>WIRE TRANSFER INSTRUCTIONS\n<|id|>130<|type|>table<|page|>12<|box|>246 143 407 852<|content|>None\n<|id|>131<|type|>title<|page|>12<|box|>441 142 459 449<|content|>Pre-Advice and Confirmation Contact:\n<|id|>135<|type|>title<|page|>12<|box|>556 143 571 398<|content|>Instructions to Wire Originator:",
+    "raw_response": "<|src_id|>48<|tgt_id|>46\n<|src_id|>118<|tgt_id|>116\n<|src_id|>130<|tgt_id|>128",
+    "parsed": [
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 128
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        50
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1081<|page|>46<|box|>645 114 662 369<|content|>11.5 监测信息反馈与安全预警\n<|id|>1097<|page|>47<|box|>374 114 391 228<|content|>12 应急措施\n<|id|>1107<|page|>47<|box|>701 114 717 193<|content|>13 验收\n<|id|>1108<|page|>47<|box|>738 114 753 245<|content|>13.1 一般规定\n<|id|>1111<|page|>47<|box|>813 114 829 299<|content|>13.2 单元件组焊验收\n<|id|>1124<|page|>48<|box|>489 114 507 280<|content|>13.3 节段拼装验收\n<|id|>1132<|page|>49<|box|>284 114 300 280<|content|>13.4 下沉就位验收\n<|id|>1135<|page|>49<|box|>575 112 590 507<|content|>13.4.2 内支撑安装质量标准应符合表14 的规定。\n<|id|>1137<|page|>50<|box|>154 410 208 610<|content|>附 录 A （资料性附录） 双壁钢围堰施工工艺流程\n<|id|>1138<|page|>50<|box|>263 112 279 413<|content|>A.1 双壁钢围堰浮运法施工工艺流程\n<|id|>1140<|page|>50<|box|>338 112 353 448<|content|>A.2 双壁钢围堰原位拼装法施工工艺流程",
+    "raw_response": "<|id|>1081<|level|>2\n<|id|>1097<|level|>1\n<|id|>1107<|level|>1\n<|id|>1108<|level|>2\n<|id|>1111<|level|>2\n<|id|>1124<|level|>2\n<|id|>1132<|level|>2\n<|id|>1135<|level|>3\n<|id|>1137<|level|>1\n<|id|>1138<|level|>2\n<|id|>1140<|level|>2",
+    "parsed": [
+        {
+            "id": 1081,
+            "level": 2
+        },
+        {
+            "id": 1097,
+            "level": 1
+        },
+        {
+            "id": 1107,
+            "level": 1
+        },
+        {
+            "id": 1108,
+            "level": 2
+        },
+        {
+            "id": 1111,
+            "level": 2
+        },
+        {
+            "id": 1124,
+            "level": 2
+        },
+        {
+            "id": 1132,
+            "level": 2
+        },
+        {
+            "id": 1135,
+            "level": 3
+        },
+        {
+            "id": 1137,
+            "level": 1
+        },
+        {
+            "id": 1138,
+            "level": 2
+        },
+        {
+            "id": 1140,
+            "level": 2
+        }
+    ]
+}

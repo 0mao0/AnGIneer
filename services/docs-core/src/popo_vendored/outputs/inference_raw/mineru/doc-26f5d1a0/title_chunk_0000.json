@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>12<|page|>1<|box|>579 142 597 264<|content|>1. Introduction\n<|id|>16<|page|>2<|box|>223 140 239 336<|content|>2. Documents Examined\n<|id|>34<|page|>3<|box|>741 140 758 267<|content|>3. Assumptions\n<|id|>47<|page|>5<|box|>231 140 248 238<|content|>4. Opinions\n<|id|>49<|page|>5<|box|>324 140 340 320<|content|>4.1 Due Authorization\n<|id|>51<|page|>5<|box|>523 140 542 403<|content|>4.2 Valid Execution and Delivery\n<|id|>53<|page|>5<|box|>652 140 670 509<|content|>4.3 Valid, Binding, and Enforceable Obligation\n<|id|>55<|page|>5<|box|>797 140 815 442<|content|>4.4 Validity of Pledge of Net Revenues\n<|id|>61<|page|>6<|box|>419 140 436 429<|content|>4.5 Perfection of the Revenue Pledge\n<|id|>64<|page|>6<|box|>737 140 753 297<|content|>4.6 Priority of Lien\n<|id|>66<|page|>7<|box|>138 140 156 266<|content|>4.7 No Conflict\n<|id|>71<|page|>7<|box|>417 140 435 475<|content|>4.8 No Governmental Approvals Required\n<|id|>73<|page|>7<|box|>619 140 636 405<|content|>4.9 Rate Covenant Enforceability\n<|id|>76<|page|>8<|box|>90 140 106 357<|content|>4.10 Additional Bonds Test\n<|id|>78<|page|>8<|box|>375 140 391 500<|content|>5. Qualifications, Exceptions, and Limitations\n<|id|>87<|page|>10<|box|>90 140 107 359<|content|>6. Reliance and Limitations",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>1\n<|id|>16<|level|>1\n<|id|>34<|level|>1\n<|id|>47<|level|>1\n<|id|>49<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>61<|level|>2\n<|id|>64<|level|>2\n<|id|>66<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>76<|level|>2\n<|id|>78<|level|>1\n<|id|>87<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        }
+    ]
+}

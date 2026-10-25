@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 263 155 733<|content|>599 Lexington Avenue, 38th Floor New York, New York 10022\n<|id|>3<|page|>1<|box|>164 183 181 813<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>190 705 205 854<|content|>November 15, 2023\n<|id|>54<|page|>6<|box|>862 140 898 854<|content|>A detailed analysis of the DOJ's complaint, includ...s available to Halcyon in defense, was prepared by\n<|id|>55<|page|>7<|box|>89 140 127 854<|content|>Howard Bellamy and distributed to the Board on Nov... cross-referenced as Appendix D to this memorandum\n<|id|>64<|page|>7<|box|>834 140 907 857<|content|>While the DOJ's civil complaint and the EC Phase I...antitrust condition precedent set forth in Article\n<|id|>65<|page|>8<|box|>90 138 219 856<|content|>VII of the Merger Agreement. ... With the DOJ havi... complaint in connection with an acceptable remedy\n<|id|>189<|page|>21<|box|>857 140 893 854<|content|>We are available to discuss this memorandum at you...November 20, 2023. ... Oliver Mackenzie and Howard\n<|id|>190<|page|>22<|box|>90 140 164 854<|content|>Bellamy will attend the meeting to present the Fir...me the opportunity to arrange individual briefings\n<|id|>192<|page|>22<|box|>252 212 268 390<|content|>Respectfully submitted,\n<|id|>193<|page|>22<|box|>277 140 294 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>194<|page|>22<|box|>295 142 311 253<|content|>By: ... By\n<|id|>195<|page|>22<|box|>311 142 329 333<|content|>Name: ... Oliver Mackenzie\n<|id|>196<|page|>22<|box|>329 142 345 246<|content|>Title: ... Partner\n<|id|>197<|page|>22<|box|>347 142 363 336<|content|>Date: ... November 15, 2023\n<|id|>198<|page|>22<|box|>366 142 378 171<|content|>cc: ... cc\n<|id|>199<|page|>22<|box|>388 174 407 779<|content|>Dr. ... Luisa Hartmann, General Counsel, Halcyon Semiconductor Aktiengesellschaft\n<|id|>200<|page|>22<|box|>415 176 431 656<|content|>Harrison Wexford, Billing Partner, Calderwood & Harkness LLP\n<|id|>201<|page|>22<|box|>441 176 459 851<|content|>Howard Bellamy, Specialist Partner, Antitrust & Competition, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>54<|tgt_id|>55\n<|src_id|>64<|tgt_id|>65\n<|src_id|>189<|tgt_id|>190",
+    "parsed": [
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 190
+        }
+    ]
+}

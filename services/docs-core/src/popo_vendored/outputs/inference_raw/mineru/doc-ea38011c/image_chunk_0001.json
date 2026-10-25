@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        47,
+        49
+    ],
+    "pages": [
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>582<|type|>title<|page|>47<|box|>90 192 135 805<|content|>APPENDIX D: BREACH SEVERITY CLASSIFICATION — DETAI\n<|id|>584<|type|>table<|page|>47<|box|>289 143 763 852<|content|>None\n<|id|>585<|type|>table<|page|>47<|box|>835 143 904 852<|content|>None\n<|id|>586<|type|>table<|page|>48<|box|>88 143 265 852<|content|>None\n<|id|>587<|type|>table<|page|>48<|box|>338 143 455 852<|content|>None\n<|id|>588<|type|>table<|page|>48<|box|>529 143 755 852<|content|>None\n<|id|>589<|type|>title<|page|>48<|box|>805 142 821 383<|content|>Risk Factor Assessment Guide\n<|id|>591<|type|>table<|page|>49<|box|>88 143 436 852<|content|>None\n<|id|>592<|type|>title<|page|>49<|box|>470 383 487 614<|content|>— END OF DOCUMENT —",
+    "raw_response": "<|src_id|>584<|tgt_id|>582\n<|src_id|>585<|tgt_id|>582\n<|src_id|>586<|tgt_id|>582\n<|src_id|>587<|tgt_id|>582\n<|src_id|>588<|tgt_id|>582\n<|src_id|>591<|tgt_id|>589",
+    "parsed": [
+        {
+            "src_id": 584,
+            "tgt_id": 582
+        },
+        {
+            "src_id": 585,
+            "tgt_id": 582
+        },
+        {
+            "src_id": 586,
+            "tgt_id": 582
+        },
+        {
+            "src_id": 587,
+            "tgt_id": 582
+        },
+        {
+            "src_id": 588,
+            "tgt_id": 582
+        },
+        {
+            "src_id": 591,
+            "tgt_id": 589
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 156 133 839<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>6<|type|>title<|page|>1<|box|>378 140 395 401<|content|>I. Purpose of This Memorandum\n<|id|>12<|type|>title<|page|>2<|box|>267 140 284 377<|content|>II. Summary of the Litigation\n<|id|>13<|type|>title<|page|>2<|box|>297 140 314 300<|content|>A. The Transaction\n<|id|>19<|type|>title<|page|>3<|box|>89 140 107 312<|content|>B. The FTC's Claims\n<|id|>21<|type|>table<|page|>3<|box|>291 143 422 852<|content|>None\n<|id|>27<|type|>title<|page|>4<|box|>90 140 107 465<|content|>C. Relevance to Preservation Obligations\n<|id|>29<|type|>title<|page|>4<|box|>338 140 354 400<|content|>III. Legal Obligation to Preserve\n<|id|>34<|type|>title<|page|>5<|box|>167 140 184 395<|content|>IV. Scope of the Litigation Hold\n<|id|>35<|type|>title<|page|>5<|box|>198 140 215 464<|content|>A. Definition of \"Documents\" and \"ESI\"\n<|id|>54<|type|>title<|page|>6<|box|>311 142 329 374<|content|>B. Subject Matter Categories\n<|id|>123<|type|>title<|page|>10<|box|>633 140 648 421<|content|>V. Identification of Key Custodians\n<|id|>124<|type|>title<|page|>10<|box|>664 140 680 326<|content|>A. Primary Custodians\n<|id|>135<|type|>title<|page|>11<|box|>289 140 306 344<|content|>B. Additional Custodians\n<|id|>144<|type|>title<|page|>11<|box|>643 140 661 374<|content|>VI. Preservation Instructions\n<|id|>145<|type|>title<|page|>11<|box|>675 140 691 500<|content|>A. Suspension of Routine Destruction Policies\n<|id|>151<|type|>title<|page|>12<|box|>252 142 268 383<|content|>B. Affirmative Steps Required\n<|id|>159<|type|>title<|page|>13<|box|>349 140 366 480<|content|>C. Handling of Privileged Communications\n<|id|>162<|type|>title<|page|>13<|box|>603 140 621 661<|content|>VII. Coordination with Co-Defendant Pinnacle Marke\n<|id|>166<|type|>title<|page|>14<|box|>167 140 185 455<|content|>VIII. Consequences of Non-Compliance\n<|id|>172<|type|>title<|page|>14<|box|>667 140 685 339<|content|>IX. Duration of the Hold\n<|id|>176<|type|>title<|page|>15<|box|>223 140 239 297<|content|>X. Point of Contact\n<|id|>190<|type|>title<|page|>15<|box|>761 421 777 576<|content|>ATTACHMENT A\n<|id|>191<|type|>title<|page|>15<|box|>786 313 804 683<|content|>CUSTODIAN ACKNOWLEDGMENT FORM\n<|id|>202<|type|>title<|page|>16<|box|>630 143 645 184<|content|>Date",
+    "raw_response": "<|src_id|>21<|tgt_id|>19",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        }
+    ]
+}

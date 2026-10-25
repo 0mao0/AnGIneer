@@ -1,0 +1,33 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        100,
+        111
+    ],
+    "pages": [
+        101,
+        107,
+        111
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>160<|page|>101<|box|>442 99 471 388<|content|>Indexes of Prices of 40 Foreign Currencies in New\n<|id|>170<|page|>107<|box|>463 382 482 632<|content|>MISCELLANEOUS\n<|id|>172<|page|>111<|box|>58 53 86 476<|content|>Summary of Criminal Cases in the United States Dis\n<|id|>177<|page|>111<|box|>58 556 74 868<|content|>Treasury Criminal Cases, by Months",
+    "raw_response": "<|id|>160<|level|>2\n<|id|>170<|level|>1\n<|id|>172<|level|>2\n<|id|>177<|level|>3",
+    "parsed": [
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 3
+        }
+    ]
+}

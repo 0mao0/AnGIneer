@@ -1,0 +1,48 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        19,
+        23,
+        24,
+        29
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>141 142 159 308<|content|>Case No. ... 1021-00006\n<|id|>2<|page|>1<|box|>167 142 184 241<|content|>Division: ... 07\n<|id|>3<|page|>1<|box|>193 140 210 470<|content|>Hon. ... Calloway, Circuit Judge\n<|id|>4<|page|>1<|box|>218 142 262 673<|content|>VERIMARK HOSPITALITY GROUP INC. ... , a Delaware corporation, Plaintiff,\n<|id|>9<|page|>1<|box|>516 656 534 854<|content|>Filed: ... September 29, 2023\n<|id|>10<|page|>1<|box|>542 140 633 854<|content|>Priya Anand (FL Bar No. ... com\n<|id|>11<|page|>1<|box|>641 142 659 535<|content|>Counsel for Plaintiff Verimark Hospitality Group I...unsel for Plaintiff Verimark Hospitality Group Inc\n<|id|>15<|page|>2<|box|>915 140 930 825<|content|>PLAINTIFF'S MEMORANDUM IN SUPPORT OF MOTION FOR PARTIAL SUMMARY JUDGMENT — CONFIDENTIAL\n<|id|>16<|page|>3<|box|>90 143 106 194<|content|>Cases\n<|id|>42<|page|>7<|box|>787 140 878 857<|content|>Each of the twenty-two FLAs has an initial term of...ial terms, including the definitions of Gross Room\n<|id|>43<|page|>8<|box|>90 140 127 852<|content|>Revenue, royalty rates, marketing-fund contributio...nt interest, and material-breach provisions. ... )\n<|id|>70<|page|>9<|box|>875 140 930 854<|content|>Liquidated Damages. ... Upon termination of this A...MOTION FOR PARTIAL SUMMARY JUDGMENT — CONFIDENTIAL\n<|id|>71<|page|>10<|box|>90 174 143 856<|content|>an amount equal to three (3) times the aggregate R...iately preceding the effective date of termination\n<|id|>82<|page|>10<|box|>799 140 909 857<|content|>The operational mechanics of the revenue diversion...ard, corporate invoice, or cash — was collected by\n<|id|>83<|page|>11<|box|>90 138 218 856<|content|>Suncoast and deposited into Suncoast's own bank ac... from the property-level operating accounts. ... )\n<|id|>134<|page|>13<|box|>820 140 892 854<|content|>The revenue diversion scheme came to Verimark's at...) Kerrigan had been employed by Coastal Palms as a\n<|id|>135<|page|>14<|box|>89 140 181 854<|content|>Regional Controller from March 2016 until her termination on October 15, 2021. ... )\n<|id|>180<|page|>19<|box|>652 140 689 854<|content|>A. ... 1 by Systematically Excluding Suncoast-Collected Revenues from GRR\n<|id|>181<|page|>19<|box|>694 138 823 856<|content|>The evidence in the record establishes, without ge..., compel summary judgment on liability for Count I\n<|id|>205<|page|>23<|box|>842 140 897 856<|content|>The materiality of the breach is further confirmed...ion — the underreporting substantially exceeds the\n<|id|>206<|page|>24<|box|>89 140 164 854<|content|>2% audit threshold specified in FLA § 8. ... An un... decade, plainly satisfies any test of materiality\n<|id|>246<|page|>29<|box|>309 174 380 854<|content|>3. ... and\n<|id|>248<|page|>29<|box|>402 676 420 854<|content|>Respectfully submitted,\n<|id|>249<|page|>29<|box|>428 565 445 854<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>250<|page|>29<|box|>454 460 472 854<|content|>Counsel for Plaintiff Verimark Hospitality Group I...unsel for Plaintiff Verimark Hospitality Group Inc\n<|id|>252<|page|>29<|box|>498 140 515 663<|content|>Priya Anand (FL Bar No. ... com\n<|id|>253<|page|>29<|box|>515 140 532 714<|content|>Yuki Nakamura (FL Bar No. ... com\n<|id|>254<|page|>29<|box|>532 140 549 707<|content|>Carlos Espinoza (FL Bar No. ... com\n<|id|>255<|page|>29<|box|>549 140 584 852<|content|>CALDERWOOD & HARKNESS LLP 110 SE 6th Street, Suite...Lauderdale, FL 33301 Telephone: ... (954) 555-7201\n<|id|>258<|page|>29<|box|>710 174 766 854<|content|>Nathan Whitfield III, Esq. ... com\n<|id|>259<|page|>29<|box|>773 174 809 854<|content|>Counsel for Defendants Coastal Palms Franchise Hol... Randall Brecker, and Suncoast Room Management Inc",
+    "raw_response": "<|src_id|>42<|tgt_id|>43\n<|src_id|>70<|tgt_id|>71\n<|src_id|>82<|tgt_id|>83\n<|src_id|>134<|tgt_id|>135\n<|src_id|>205<|tgt_id|>206",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 206
+        }
+    ]
+}

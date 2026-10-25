@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Grand total..', '685,232', '156,351', '141,776', '-2,703', '52,822', '41,449', '62,813', '278,707', '110,012', '120,710', '126,783']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Country', 'colspan=4, Celender year', 'colspan=7, 1959']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 327,
+    "table2_idx": 328
+}

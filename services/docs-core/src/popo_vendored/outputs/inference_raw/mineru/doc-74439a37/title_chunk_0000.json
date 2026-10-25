@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 158 176 838<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION W\n<|id|>14<|page|>2<|box|>89 140 106 401<|content|>ITEM 8.01 — OTHER EVENTS\n<|id|>16<|page|>2<|box|>257 140 273 357<|content|>Description of the Offering\n<|id|>19<|page|>2<|box|>574 140 592 462<|content|>Identification of the Selling Stockholders\n<|id|>27<|page|>3<|box|>213 140 229 465<|content|>Underwriting discount and Commissions\n<|id|>31<|page|>3<|box|>669 140 686 540<|content|>Lock-Up Waiver and New Lock-Up Arrangements\n<|id|>35<|page|>4<|box|>585 140 604 328<|content|>Closing and Settlement\n<|id|>37<|page|>4<|box|>696 140 713 444<|content|>Summary of Underwriting Agreement\n<|id|>41<|page|>5<|box|>275 140 292 594<|content|>Cautionary Note Regarding Forward-Looking Statemen\n<|id|>44<|page|>5<|box|>750 140 766 624<|content|>ITEM 9.01 — FINANCIAL STATEMENTS AND EXHIBITS\n<|id|>47<|page|>6<|box|>284 142 301 266<|content|>SIGNATURES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>14<|level|>2\n<|id|>16<|level|>3\n<|id|>19<|level|>3\n<|id|>27<|level|>3\n<|id|>31<|level|>3\n<|id|>35<|level|>3\n<|id|>37<|level|>3\n<|id|>41<|level|>3\n<|id|>44<|level|>2\n<|id|>47<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        }
+    ]
+}

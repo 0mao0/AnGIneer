@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        76,
+        78
+    ],
+    "pages": [
+        77,
+        78
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>467<|page|>77<|box|>148 388 164 609<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>468<|page|>77<|box|>184 81 258 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>476<|page|>77<|box|>839 81 901 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>477<|page|>77<|box|>184 504 229 915<|content|>Second Liberty Loan Act of 1917, the nature of the...o an overall limit on the outstanding Federal debt\n<|id|>486<|page|>77<|box|>840 504 902 916<|content|>Government account series (FD-2)—Certain trust fun...urities. ... These securities are sold directly by\n<|id|>487<|page|>78<|box|>90 81 209 491<|content|>Treasury to a specific Government agency, trust fund, or account. ... and the Unemployment Trust Fund",
+    "raw_response": "<|src_id|>476<|tgt_id|>477\n<|src_id|>486<|tgt_id|>487",
+    "parsed": [
+        {
+            "src_id": 476,
+            "tgt_id": 477
+        },
+        {
+            "src_id": 486,
+            "tgt_id": 487
+        }
+    ]
+}

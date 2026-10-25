@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>5<|type|>title<|page|>1<|box|>234 140 251 601<|content|>VIA CERTIFIED MAIL AND ELECTRONIC SUBMISSION\n<|id|>9<|type|>title<|page|>1<|box|>426 140 443 437<|content|>I. Introduction and Purpose of Notice\n<|id|>14<|type|>table<|page|>1<|box|>864 143 904 852<|content|>None\n<|id|>15<|type|>table<|page|>2<|box|>89 143 185 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>297 140 314 377<|content|>II. Description of the Incident\n<|id|>24<|type|>title<|page|>3<|box|>167 140 185 393<|content|>III. Detection and Containment\n<|id|>32<|type|>title<|page|>4<|box|>90 140 107 351<|content|>IV. Investigation Findings\n<|id|>41<|type|>title<|page|>5<|box|>267 140 284 517<|content|>V. Categories of Personal Information Accessed\n<|id|>58<|type|>title<|page|>6<|box|>208 140 224 485<|content|>VI. Number of Affected Residents of [State]\n<|id|>62<|type|>title<|page|>6<|box|>400 140 417 496<|content|>VII. Remediation Measures Taken by Lumos\n<|id|>72<|type|>title<|page|>7<|box|>502 140 518 464<|content|>VIII. Notification to Affected Individuals\n<|id|>76<|type|>title<|page|>7<|box|>804 140 821 617<|content|>IX. Credit Monitoring and Identity Theft Protectio\n<|id|>80<|type|>title<|page|>8<|box|>347 140 364 343<|content|>X. Timing of Notification\n<|id|>86<|type|>title<|page|>8<|box|>738 142 753 338<|content|>XI. Contact Information\n<|id|>88<|type|>title<|page|>8<|box|>809 140 825 460<|content|>Legal Counsel for Lumos Analytics Inc.:\n<|id|>91<|type|>title<|page|>9<|box|>90 142 107 318<|content|>Lumos Analytics Inc.:\n<|id|>94<|type|>title<|page|>9<|box|>199 142 215 243<|content|>XII. Closing\n<|id|>104<|type|>title<|page|>9<|box|>595 181 630 815<|content|>STATE-SPECIFIC APPENDIX / DRAFTING NOTES INTERNAL\n<|id|>105<|type|>title<|page|>9<|box|>638 140 654 717<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>106<|type|>title<|page|>9<|box|>667 140 684 462<|content|>A. Instructions for Template Completion\n<|id|>124<|type|>table<|page|>10<|box|>724 143 906 852<|content|>None\n<|id|>125<|type|>table<|page|>11<|box|>88 143 253 852<|content|>None\n<|id|>126<|type|>title<|page|>11<|box|>294 140 310 566<|content|>C. States Not Requiring Attorney General Notificat\n<|id|>128<|type|>title<|page|>11<|box|>476 142 493 397<|content|>D. Individual Notification Scope\n<|id|>130<|type|>title<|page|>12<|box|>90 142 107 289<|content|>E. Filing Schedule\n<|id|>132<|type|>title<|page|>12<|box|>218 142 234 326<|content|>F. Filing Method Notes",
+    "raw_response": "<|src_id|>14<|tgt_id|>9\n<|src_id|>15<|tgt_id|>9\n<|src_id|>124<|tgt_id|>106\n<|src_id|>125<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 106
+        }
+    ]
+}

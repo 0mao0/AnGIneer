@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        4
+    ],
+    "pages": [
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>39<|page|>3<|box|>820 97 923 889<|content|>初步核算，2011年全市实现地区生产总值1899. ... 汨罗、华容、岳阳县进入全省县域经济前20强，\n<|id|>40<|page|>4<|box|>73 99 89 401<|content|>君山获评全省经济发展先进县（市）区。 ... 君山获评全省经济发展先进县（市）区",
+    "raw_response": "<|src_id|>39<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ]
+}

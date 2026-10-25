@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kpaz02dc\\input\\pdfs\\doc-2c769789.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kpaz02dc\\enriched\\doc-2c769789.json",
+    "contd_output": "<|src_id|>2<|tgt_id|>3\n<|src_id|>3<|tgt_id|>4\n<|src_id|>4<|tgt_id|>5\n<|src_id|>84<|tgt_id|>86\n<|src_id|>102<|tgt_id|>103",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>3\n<|id|>38<|level|>3\n<|id|>41<|level|>3\n<|id|>50<|level|>3\n<|id|>53<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>3\n<|id|>71<|level|>3\n<|id|>73<|level|>3\n<|id|>75<|level|>3\n<|id|>94<|level|>3\n<|id|>99<|level|>3\n<|id|>107<|level|>2\n<|id|>111<|level|>2\n<|id|>117<|level|>3\n<|id|>122<|level|>2\n<|id|>124<|level|>2\n<|id|>130<|level|>2\n<|id|>137<|level|>2\n<|id|>143<|level|>2\n<|id|>146<|level|>2\n<|id|>149<|level|>3\n<|id|>152<|level|>2\n<|id|>153<|level|>3\n<|id|>155<|level|>3",
+    "image_output": "<|src_id|>147<|tgt_id|>146\n<|src_id|>148<|tgt_id|>146\n<|src_id|>150<|tgt_id|>149\n<|src_id|>151<|tgt_id|>149\n<|src_id|>154<|tgt_id|>153",
+    "contd_label": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 103
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 147,
+            "tgt_id": 146
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 146
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 153
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 147,
+            "table2_idx": 148,
+            "upper_row_ss": [
+                [
+                    "10",
+                    "GMP SouthPa",
+                    "Delaware",
+                    "84-2639918",
+                    "SouthPark",
+                    "6200 Fairview",
+                    "Charlott e",
+                    "NC",
+                    "Office",
+                    "218,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "rk LLC",
+                    "",
+                    "",
+                    "Corporate Center",
+                    "Road",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 5,
+    "range": [
+        232,
+        235
+    ],
+    "pages": [
+        233,
+        234,
+        235
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1020<|type|>title<|page|>233<|box|>59 263 72 727<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>1021<|type|>title<|page|>233<|box|>81 375 94 592<|content|>Section II - Federal Credit Programs\n<|id|>1022<|type|>title<|page|>233<|box|>103 321 116 647<|content|>Table GA-II-1. - Direct Sales and Repurchases of L\n<|id|>1023<|type|>table<|page|>233<|box|>138 139 446 864<|content|>None\n<|id|>1024<|type|>table<|page|>234<|box|>113 117 800 841<|content|>None\n<|id|>1025<|type|>table<|page|>235<|box|>115 136 744 855<|content|>None",
+    "raw_response": "<|src_id|>1023<|tgt_id|>1022\n<|src_id|>1024<|tgt_id|>1022\n<|src_id|>1025<|tgt_id|>1022",
+    "parsed": [
+        {
+            "src_id": 1023,
+            "tgt_id": 1022
+        },
+        {
+            "src_id": 1024,
+            "tgt_id": 1022
+        },
+        {
+            "src_id": 1025,
+            "tgt_id": 1022
+        }
+    ]
+}

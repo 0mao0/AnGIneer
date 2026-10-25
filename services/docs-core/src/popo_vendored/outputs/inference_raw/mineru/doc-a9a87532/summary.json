@@ -1,0 +1,711 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ga8kn8r7\\input\\pdfs\\doc-a9a87532.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ga8kn8r7\\enriched\\doc-a9a87532.json",
+    "contd_output": "<|src_id|>67<|tgt_id|>68",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>10<|level|>3\n<|id|>11<|level|>4\n<|id|>17<|level|>4\n<|id|>26<|level|>4\n<|id|>46<|level|>4\n<|id|>58<|level|>4\n<|id|>74<|level|>3\n<|id|>75<|level|>4\n<|id|>77<|level|>4\n<|id|>81<|level|>4\n<|id|>89<|level|>4\n<|id|>95<|level|>3\n<|id|>96<|level|>4\n<|id|>106<|level|>3\n<|id|>107<|level|>4\n<|id|>119<|level|>4\n<|id|>121<|level|>3\n<|id|>122<|level|>4\n<|id|>133<|level|>3\n<|id|>134<|level|>4\n<|id|>137<|level|>4\n<|id|>142<|level|>4\n<|id|>145<|level|>4\n<|id|>147<|level|>4\n<|id|>149<|level|>3\n<|id|>163<|level|>3\n<|id|>187<|level|>4\n<|id|>195<|level|>4\n<|id|>200<|level|>3\n<|id|>201<|level|>4\n<|id|>204<|level|>4\n<|id|>206<|level|>4\n<|id|>208<|level|>3\n<|id|>209<|level|>4\n<|id|>220<|level|>3\n<|id|>221<|level|>4\n<|id|>225<|level|>4\n<|id|>228<|level|>3\n<|id|>229<|level|>4\n<|id|>235<|level|>4\n<|id|>241<|level|>4\n<|id|>243<|level|>3\n<|id|>245<|level|>4\n<|id|>249<|level|>4\n<|id|>253<|level|>4\n<|id|>257<|level|>4\n<|id|>261<|level|>4\n<|id|>265<|level|>4\n<|id|>269<|level|>4\n<|id|>276<|level|>3\n<|id|>278<|level|>4\n<|id|>286<|level|>4\n<|id|>294<|level|>4\n<|id|>302<|level|>4\n<|id|>304<|level|>3\n<|id|>306<|level|>3\n<|id|>308<|level|>4\n<|id|>311<|level|>4\n<|id|>314<|level|>4\n<|id|>317<|level|>4\n<|id|>320<|level|>3",
+    "image_output": "<|src_id|>76<|tgt_id|>75\n<|src_id|>80<|tgt_id|>77\n<|src_id|>83<|tgt_id|>81\n<|src_id|>85<|tgt_id|>81\n<|src_id|>87<|tgt_id|>81\n<|src_id|>92<|tgt_id|>89\n<|src_id|>93<|tgt_id|>89\n<|src_id|>98<|tgt_id|>96\n<|src_id|>101<|tgt_id|>99\n<|src_id|>103<|tgt_id|>99\n<|src_id|>104<|tgt_id|>99\n<|src_id|>109<|tgt_id|>107\n<|src_id|>112<|tgt_id|>107\n<|src_id|>113<|tgt_id|>107\n<|src_id|>114<|tgt_id|>107\n<|src_id|>116<|tgt_id|>107\n<|src_id|>117<|tgt_id|>107\n<|src_id|>120<|tgt_id|>119\n<|src_id|>131<|tgt_id|>122\n<|src_id|>135<|tgt_id|>134\n<|src_id|>139<|tgt_id|>137\n<|src_id|>140<|tgt_id|>137\n<|src_id|>143<|tgt_id|>142\n<|src_id|>146<|tgt_id|>145\n<|src_id|>148<|tgt_id|>147\n<|src_id|>150<|tgt_id|>149\n<|src_id|>151<|tgt_id|>149\n<|src_id|>152<|tgt_id|>149\n<|src_id|>154<|tgt_id|>149\n<|src_id|>156<|tgt_id|>149\n<|src_id|>158<|tgt_id|>149\n<|src_id|>159<|tgt_id|>149\n<|src_id|>161<|tgt_id|>149\n<|src_id|>162<|tgt_id|>149\n<|src_id|>164<|tgt_id|>163\n<|src_id|>165<|tgt_id|>163\n<|src_id|>167<|tgt_id|>163\n<|src_id|>168<|tgt_id|>163\n<|src_id|>169<|tgt_id|>163\n<|src_id|>171<|tgt_id|>163\n<|src_id|>173<|tgt_id|>163\n<|src_id|>174<|tgt_id|>163\n<|src_id|>176<|tgt_id|>163\n<|src_id|>177<|tgt_id|>163\n<|src_id|>178<|tgt_id|>163\n<|src_id|>179<|tgt_id|>163\n<|src_id|>180<|tgt_id|>163\n<|src_id|>181<|tgt_id|>163\n<|src_id|>182<|tgt_id|>163\n<|src_id|>183<|tgt_id|>163\n<|src_id|>184<|tgt_id|>163\n<|src_id|>185<|tgt_id|>163\n<|src_id|>186<|tgt_id|>163\n<|src_id|>190<|tgt_id|>187\n<|src_id|>191<|tgt_id|>187\n<|src_id|>193<|tgt_id|>187\n<|src_id|>196<|tgt_id|>195\n<|src_id|>197<|tgt_id|>195\n<|src_id|>198<|tgt_id|>195\n<|src_id|>202<|tgt_id|>201\n<|src_id|>205<|tgt_id|>204\n<|src_id|>207<|tgt_id|>206\n<|src_id|>211<|tgt_id|>209\n<|src_id|>212<|tgt_id|>209\n<|src_id|>214<|tgt_id|>209\n<|src_id|>215<|tgt_id|>209\n<|src_id|>216<|tgt_id|>209\n<|src_id|>217<|tgt_id|>209\n<|src_id|>218<|tgt_id|>209\n<|src_id|>224<|tgt_id|>221\n<|src_id|>242<|tgt_id|>241\n<|src_id|>305<|tgt_id|>304",
+    "contd_label": [
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 4
+        },
+        {
+            "id": 17,
+            "level": 4
+        },
+        {
+            "id": 26,
+            "level": 4
+        },
+        {
+            "id": 46,
+            "level": 4
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 81,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 4
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 4
+        },
+        {
+            "id": 119,
+            "level": 4
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 4
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 4
+        },
+        {
+            "id": 137,
+            "level": 4
+        },
+        {
+            "id": 142,
+            "level": 4
+        },
+        {
+            "id": 145,
+            "level": 4
+        },
+        {
+            "id": 147,
+            "level": 4
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 4
+        },
+        {
+            "id": 195,
+            "level": 4
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 4
+        },
+        {
+            "id": 204,
+            "level": 4
+        },
+        {
+            "id": 206,
+            "level": 4
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 4
+        },
+        {
+            "id": 220,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 4
+        },
+        {
+            "id": 225,
+            "level": 4
+        },
+        {
+            "id": 228,
+            "level": 3
+        },
+        {
+            "id": 229,
+            "level": 4
+        },
+        {
+            "id": 235,
+            "level": 4
+        },
+        {
+            "id": 241,
+            "level": 4
+        },
+        {
+            "id": 243,
+            "level": 3
+        },
+        {
+            "id": 245,
+            "level": 4
+        },
+        {
+            "id": 249,
+            "level": 4
+        },
+        {
+            "id": 253,
+            "level": 4
+        },
+        {
+            "id": 257,
+            "level": 4
+        },
+        {
+            "id": 261,
+            "level": 4
+        },
+        {
+            "id": 265,
+            "level": 4
+        },
+        {
+            "id": 269,
+            "level": 4
+        },
+        {
+            "id": 276,
+            "level": 3
+        },
+        {
+            "id": 278,
+            "level": 4
+        },
+        {
+            "id": 286,
+            "level": 4
+        },
+        {
+            "id": 294,
+            "level": 4
+        },
+        {
+            "id": 302,
+            "level": 4
+        },
+        {
+            "id": 304,
+            "level": 3
+        },
+        {
+            "id": 306,
+            "level": 3
+        },
+        {
+            "id": 308,
+            "level": 4
+        },
+        {
+            "id": 311,
+            "level": 4
+        },
+        {
+            "id": 314,
+            "level": 4
+        },
+        {
+            "id": 317,
+            "level": 4
+        },
+        {
+            "id": 320,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 76,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 147
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 187
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 187
+        },
+        {
+            "src_id": 193,
+            "tgt_id": 187
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 195
+        },
+        {
+            "src_id": 197,
+            "tgt_id": 195
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 195
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 206
+        },
+        {
+            "src_id": 211,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 215,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 242,
+            "tgt_id": 241
+        },
+        {
+            "src_id": 305,
+            "tgt_id": 304
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 139,
+            "table2_idx": 140,
+            "upper_row_ss": [
+                [
+                    "What is the legitimate interest pursued?",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Has a Legitimate Interest Assessment (LIA) / balancing test been conducted?",
+                    "(Yes / No / In Progress)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 161,
+            "table2_idx": 162,
+            "upper_row_ss": [
+                [
+                    "If Yes, identify the authority and the legal basis for disclosure",
+                    "(e.g., \"Ofcom — pursuant to General Conditions of Entitlement and specific information requests,\" \"HMRC"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "— statutory reporting obligations under tax legislation,\" \"ICO — in response to regulatory inquiry,\" \"Law enforcement agencies — pursuant to lawful interception obligations under the Investigatory Powers Act 2016\")"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 168,
+            "table2_idx": 169,
+            "upper_row_ss": [
+                [
+                    "DestinationCountry",
+                    "RecipientName andAddress",
+                    "Purpose of Transfer",
+                    "TransferMechanismRelied Upon",
+                    "TransferImpactAssessment(TIA)",
+                    "TIA ReferenceNumber"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Conducted?",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 173,
+            "table2_idx": 174,
+            "upper_row_ss": [
+                [
+                    "What is the legal, regulatory, or business justification",
+                    "(Insert, e.g., \"Limitation Act 1980 — 6-year statutory"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "for this retention period?",
+                    "limitation period for contract claims,\" \"HMRC record-keeping requirements — 6 years plus current year,\" \"Ofcom regulatory retention obligations,\" \"Business operational necessity for ongoing service provision,\" etc.)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 178,
+            "table2_idx": 179,
+            "upper_row_ss": [
+                [
+                    "Describe the access controls in place for this processing activity",
+                    "(e.g., \"Role-based access control (RBAC) implemented in the CRM system, with access limited to authorised"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "personnel within the Customer Services team based on least-privilege principles,\" \"Multi-factor authentication (MFA) required for all access to the HR platform,\" \"Access granted only upon approval by line manager and Data Steward via IT ticketing system\")"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 183,
+            "table2_idx": 184,
+            "upper_row_ss": [
+                [
+                    "What systems, applications, or platforms are used for this processing activity?",
+                    "(List all, e.g., \"Quillon Data Systems,\" \"Adriatic Data Systems HR platform,\" \"Meridian Technologies S3 storage,\" \"Crestline Systems SQL Database,\" \"Contact centre platform,\" \"In-house developed network"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "management system (NetOps v3.2)\")"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 197,
+            "table2_idx": 198,
+            "upper_row_ss": [
+                [
+                    "Describe the nature and purpose of the profiling",
+                    "(e.g., \"Customer segmentation based on service usage patterns and demographic data to inform targeted marketing campaigns,\" \"Network usage profiling to"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "identify potential churn risk among consumer subscribers,\" \"Employee performance scoring based on aggregated productivity metrics\")"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 211,
+            "table2_idx": 212,
+            "upper_row_ss": [
+                [
+                    "Right to restriction of processing (Article 18) — Right to restrict the processing of personal data in certain circumstances",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Right to data portability (Article 20) — Right to receive personal data in a structured, commonly used, and machine-readable format",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 216,
+            "table2_idx": 217,
+            "upper_row_ss": [
+                [
+                    "How is the privacy notice provided?",
+                    "(e.g., \"Provided at the point of data collection via the online account registration form,\" \"Published on the NTP website at www.northgatetelecom.co.uk/privacy,\" \"Included in the employee onboarding pack and"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "employment contract,\" \"Displayed on signage at the entrance to CCTV-monitored premises,\" \"Provided in the terms and conditions of the enterprise service agreement\")"
+                ]
+            ]
+        }
+    ]
+}

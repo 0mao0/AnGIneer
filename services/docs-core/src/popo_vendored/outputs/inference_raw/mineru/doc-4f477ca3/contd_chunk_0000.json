@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        9,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>556 143 574 348<|content|>(Estimated time: ... 2 minutes)\n<|id|>8<|page|>1<|box|>583 140 619 854<|content|>\"Good morning, Your Honor. ... \"\n<|id|>58<|page|>6<|box|>782 140 875 854<|content|>Response: ... Courts throughout\n<|id|>59<|page|>7<|box|>89 140 127 854<|content|>California regularly approve fee awards in the ran...of the case and the quality of the result achieved\n<|id|>87<|page|>9<|box|>705 183 723 416<|content|>• Total Funding: ... $14,750,000\n<|id|>88<|page|>9<|box|>724 140 854 856<|content|>Upon entry of the Final Approval Order, the full $...tlement Agreement, subject to the Court's approval\n<|id|>99<|page|>10<|box|>469 176 503 854<|content|>4. ... and\n<|id|>101<|page|>10<|box|>526 140 561 854<|content|>AMA is prepared to fund the settlement promptly upon entry of the order. ... Thank you, Your Honor\n<|id|>131<|page|>12<|box|>780 143 795 413<|content|>END OF ORAL ARGUMENT OUTLINE\n<|id|>132<|page|>12<|box|>803 140 863 854<|content|>This document is CONFIDENTIAL ATTORNEY WORK PRODUC...ould be directed to Renata Vasquez or Devon Archer",
+    "raw_response": "<|src_id|>58<|tgt_id|>59",
+    "parsed": [
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        }
+    ]
+}

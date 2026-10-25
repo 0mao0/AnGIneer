@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 272 118 723<|content|>NOTICE OF APPEARANCE OF COUNSEL\n<|id|>1<|type|>title<|page|>1<|box|>135 171 170 826<|content|>BEFORE THE FEDERAL ENERGY REGULATORY COMMISSION OF\n<|id|>3<|type|>table<|page|>1<|box|>239 143 310 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>359 142 376 439<|content|>I. INTRODUCTION AND PURPOSE\n<|id|>9<|type|>title<|page|>1<|box|>834 142 851 447<|content|>II. IDENTIFICATION OF COUNSEL\n<|id|>11<|type|>title<|page|>2<|box|>90 140 107 447<|content|>A. Lead Counsel / Responsible Partner\n<|id|>17<|type|>title<|page|>2<|box|>330 142 348 320<|content|>B. Additional Counsel\n<|id|>31<|type|>title<|page|>2<|box|>830 142 847 308<|content|>C. Firm Information\n<|id|>33<|type|>title<|page|>3<|box|>148 140 166 594<|content|>III. IDENTIFICATION OF CLIENTS / RESPONDENTS\n<|id|>35<|type|>title<|page|>3<|box|>205 140 224 415<|content|>A. Dunmore Energy Holdings Ltd.\n<|id|>42<|type|>title<|page|>3<|box|>555 140 571 406<|content|>B. Dunmore Power Trading LLC\n<|id|>50<|type|>title<|page|>4<|box|>167 140 184 334<|content|>IV. AUTHORIZATION\n<|id|>60<|type|>title<|page|>4<|box|>808 140 824 594<|content|>V. REQUEST FOR SERVICE OF COMMUNICATIONS\n<|id|>68<|type|>title<|page|>5<|box|>371 140 388 431<|content|>VI. COOPERATION STATEMENT\n<|id|>72<|type|>title<|page|>5<|box|>728 140 744 357<|content|>VII. CONFIDENTIALITY\n<|id|>76<|type|>title<|page|>7<|box|>114 410 133 586<|content|>Respectfully submitted,\n<|id|>79<|type|>title<|page|>7<|box|>366 140 383 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>3<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 0
+        }
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        50
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>577<|page|>46<|box|>219 369 247 638<|content|>2 基本规定\n<|id|>579<|page|>47<|box|>184 342 214 608<|content|>3 安全检查\n<|id|>582<|page|>47<|box|>321 324 340 628<|content|>3.2 非溢流坝段和厂房坝段检查\n<|id|>584<|page|>47<|box|>404 391 421 563<|content|>3.3 船闸检查\n<|id|>586<|page|>48<|box|>219 223 248 803<|content|>4 非溢流坝段和厂房坝段安全检测\n<|id|>587<|page|>48<|box|>275 426 293 601<|content|>4.1 一般规定\n<|id|>589<|page|>49<|box|>182 337 213 623<|content|>5 船闸安全检测\n<|id|>590<|page|>49<|box|>239 379 257 583<|content|>5.2 水工建筑物检测\n<|id|>592<|page|>50<|box|>216 299 245 731<|content|>7 航运枢纽运行安全评估\n<|id|>593<|page|>50<|box|>273 423 290 605<|content|>7.3 防洪安全评价",
+    "raw_response": "<|id|>577<|level|>1\n<|id|>579<|level|>1\n<|id|>582<|level|>2\n<|id|>584<|level|>2\n<|id|>586<|level|>1\n<|id|>587<|level|>2\n<|id|>589<|level|>1\n<|id|>590<|level|>2\n<|id|>592<|level|>1\n<|id|>593<|level|>2",
+    "parsed": [
+        {
+            "id": 577,
+            "level": 1
+        },
+        {
+            "id": 579,
+            "level": 1
+        },
+        {
+            "id": 582,
+            "level": 2
+        },
+        {
+            "id": 584,
+            "level": 2
+        },
+        {
+            "id": 586,
+            "level": 1
+        },
+        {
+            "id": 587,
+            "level": 2
+        },
+        {
+            "id": 589,
+            "level": 1
+        },
+        {
+            "id": 590,
+            "level": 2
+        },
+        {
+            "id": 592,
+            "level": 1
+        },
+        {
+            "id": 593,
+            "level": 2
+        }
+    ]
+}

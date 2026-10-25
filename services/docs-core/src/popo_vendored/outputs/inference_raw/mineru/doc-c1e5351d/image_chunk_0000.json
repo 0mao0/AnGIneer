@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>12<|type|>title<|page|>1<|box|>801 140 816 486<|content|>I. Background and Contractual Framework\n<|id|>33<|type|>title<|page|>3<|box|>454 140 472 589<|content|>II. Summary of Pinnacle's Demand and Lumos's Posit\n<|id|>41<|type|>title<|page|>4<|box|>258 140 295 787<|content|>III. Defense 1 — Pinnacle's Uptime Measurements Ar\n<|id|>49<|type|>table<|page|>5<|box|>286 143 501 852<|content|>None\n<|id|>52<|type|>title<|page|>6<|box|>89 140 126 833<|content|>IV. Defense 2 — Pinnacle's Credit Request for INC-\n<|id|>65<|type|>title<|page|>6<|box|>758 140 775 774<|content|>V. Defense 3 — The SLA Credit Cap Under §3.4 Limit\n<|id|>72<|type|>title<|page|>7<|box|>439 140 457 781<|content|>VI. Defense 4 — §11.3 Bars All Consequential, Indi\n<|id|>74<|type|>title<|page|>7<|box|>527 140 545 400<|content|>Section 11.3 of the MSA provides:\n<|id|>83<|type|>title<|page|>9<|box|>89 140 126 823<|content|>VII. Defense 5 — INC-5033 Was Caused by Pinnacle's\n<|id|>90<|type|>title<|page|>9<|box|>744 140 780 813<|content|>VIII. Defense 6 — Pinnacle Failed to Mitigate Dama\n<|id|>95<|type|>title<|page|>10<|box|>531 140 547 506<|content|>IX. Summary of Lumos's Maximum Exposure\n<|id|>96<|type|>table<|page|>10<|box|>599 143 872 852<|content|>None\n<|id|>97<|type|>title<|page|>11<|box|>90 140 107 594<|content|>Maximum SLA credits properly owed by Lumos: $30,00\n<|id|>106<|type|>title<|page|>11<|box|>459 140 477 338<|content|>X. Reservation of Rights\n<|id|>113<|type|>title<|page|>12<|box|>89 140 107 504<|content|>XI. Proposal for Resolution Under MSA §14.3\n<|id|>118<|type|>title<|page|>12<|box|>491 140 508 209<|content|>Closing",
+    "raw_response": "<|src_id|>49<|tgt_id|>41\n<|src_id|>96<|tgt_id|>95",
+    "parsed": [
+        {
+            "src_id": 49,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 95
+        }
+    ]
+}

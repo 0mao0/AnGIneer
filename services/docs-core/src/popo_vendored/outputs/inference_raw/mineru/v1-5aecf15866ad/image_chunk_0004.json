@@ -1,0 +1,54 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        181,
+        200
+    ],
+    "pages": [
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>509<|type|>table<|page|>181<|box|>82 67 896 769<|content|>None\n<|id|>510<|type|>table<|page|>182<|box|>82 67 896 769<|content|>None\n<|id|>511<|type|>table<|page|>183<|box|>82 67 908 769<|content|>None\n<|id|>512<|type|>table<|page|>184<|box|>82 67 873 769<|content|>None\n<|id|>513<|type|>table<|page|>185<|box|>82 67 908 769<|content|>None\n<|id|>514<|type|>table<|page|>186<|box|>82 67 908 769<|content|>None\n<|id|>515<|type|>table<|page|>187<|box|>82 67 851 769<|content|>None\n<|id|>516<|type|>table<|page|>188<|box|>82 67 908 769<|content|>None\n<|id|>517<|type|>table<|page|>189<|box|>82 67 898 769<|content|>None\n<|id|>518<|type|>table<|page|>190<|box|>82 67 888 769<|content|>None\n<|id|>519<|type|>table<|page|>191<|box|>82 67 898 769<|content|>None\n<|id|>520<|type|>table<|page|>192<|box|>82 67 896 769<|content|>None\n<|id|>521<|type|>table<|page|>193<|box|>82 67 908 769<|content|>None\n<|id|>522<|type|>table<|page|>194<|box|>82 67 908 769<|content|>None\n<|id|>523<|type|>table<|page|>195<|box|>82 67 888 769<|content|>None\n<|id|>524<|type|>table<|page|>196<|box|>82 67 908 769<|content|>None\n<|id|>525<|type|>table<|page|>197<|box|>82 67 745 769<|content|>None\n<|id|>526<|type|>title<|page|>197<|box|>764 144 787 452<|content|>3.2 设备质量与兼容性保障\n<|id|>535<|type|>title<|page|>198<|box|>703 144 725 341<|content|>3.3 主要设备证书\n<|id|>536<|type|>title<|page|>198<|box|>763 144 784 445<|content|>3.3.1 水运视频分析仪（5 项）\n<|id|>538<|type|>image<|page|>199<|box|>661 263 705 312<|content|>None\n<|id|>539<|type|>title<|page|>199<|box|>229 295 282 737<|content|>检验检测报告\n<|id|>540<|type|>title<|page|>199<|box|>303 332 325 717<|content|>Inspection and Testing Report\n<|id|>542<|type|>image<|page|>199<|box|>357 384 385 618<|content|>None\n<|id|>543<|type|>image<|page|>199<|box|>335 636 388 710<|content|>None\n<|id|>552<|type|>image<|page|>199<|box|>392 826 458 848<|content|>None\n<|id|>553<|type|>title<|page|>200<|box|>110 357 146 658<|content|>南京市产品质量监督检验院 Nanjing Institute Of Product Qualityi\n<|id|>557<|type|>table<|page|>200<|box|>191 179 766 810<|content|>None",
+    "raw_response": "<|src_id|>538<|tgt_id|>536\n<|src_id|>542<|tgt_id|>536\n<|src_id|>543<|tgt_id|>536\n<|src_id|>552<|tgt_id|>536\n<|src_id|>557<|tgt_id|>536",
+    "parsed": [
+        {
+            "src_id": 538,
+            "tgt_id": 536
+        },
+        {
+            "src_id": 542,
+            "tgt_id": 536
+        },
+        {
+            "src_id": 543,
+            "tgt_id": 536
+        },
+        {
+            "src_id": 552,
+            "tgt_id": 536
+        },
+        {
+            "src_id": 557,
+            "tgt_id": 536
+        }
+    ]
+}

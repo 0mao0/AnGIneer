@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        50
+    ],
+    "pages": [
+        1,
+        8,
+        13,
+        14,
+        15,
+        16,
+        33,
+        50
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>287 140 340 854<|content|>FROM: ... Miriam Calloway, Partner, Calderwood & H...my Whitfield, Associate, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>349 142 366 310<|content|>DATE: ... June 15, 2023\n<|id|>6<|page|>1<|box|>375 140 411 854<|content|>RE: ... Comprehensive Stark Law (Physician Self-Re...pliance Assessment — Arbor Health Technologies Inc\n<|id|>7<|page|>1<|box|>419 142 436 361<|content|>MATTER NO. ... 1010-00003\n<|id|>8<|page|>1<|box|>445 142 462 408<|content|>Right-click to update Table of Contents\n<|id|>68<|page|>8<|box|>569 143 585 428<|content|>10. ... and\n<|id|>70<|page|>8<|box|>607 138 772 854<|content|>AHT directly provides several categories of DHS th...s to be properly submitted to Medicare or Medicaid\n<|id|>112<|page|>13<|box|>717 138 883 857<|content|>Requirement 1: ... We have identified no instances in which a physician classified as a\n<|id|>113<|page|>14<|box|>90 140 126 854<|content|>W-2 employee would more properly be characterized ...s element is satisfied for the reviewed population\n<|id|>123<|page|>15<|box|>845 140 902 856<|content|>Holdover Issues. ... Prior to the 2021 Stark\n<|id|>124<|page|>16<|box|>90 140 292 856<|content|>Modernization Rule, the Stark Law regulations cont...y — it merely extends the period of non-compliance\n<|id|>256<|page|>33<|box|>186 174 239 854<|content|>Managed Practice Physician → (employment compensat...p/operation) → AHT Ancillary Services (DHS Entity)\n<|id|>257<|page|>33<|box|>250 140 321 854<|content|>Each link in this chain constitutes a financial relationship. ... The chain is unbroken\n<|id|>416<|page|>50<|box|>419 140 435 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>417<|page|>50<|box|>436 142 454 254<|content|>By: ... By\n<|id|>418<|page|>50<|box|>453 140 470 774<|content|>Miriam Calloway Partner One Federal Street, 30th Floor Boston, Massachusetts 02110\n<|id|>419<|page|>50<|box|>470 142 487 295<|content|>Date: ... June 15, 2023\n<|id|>420<|page|>50<|box|>489 143 505 253<|content|>By: ... By\n<|id|>421<|page|>50<|box|>505 140 539 849<|content|>Christopher Aiken Senior Associate One Federal Str...oston, Massachusetts 02110 Date: ... June 15, 2023\n<|id|>422<|page|>50<|box|>540 143 556 251<|content|>By: ... By\n<|id|>423<|page|>50<|box|>556 142 574 774<|content|>Amy Whitfield Associate One Federal Street, 30th Floor Boston, Massachusetts 02110\n<|id|>424<|page|>50<|box|>574 142 590 294<|content|>Date: ... June 15, 2023\n<|id|>425<|page|>50<|box|>590 285 609 709<|content|>APPENDICES (Referenced herein; ... attached separately)",
+    "raw_response": "<|src_id|>112<|tgt_id|>113\n<|src_id|>123<|tgt_id|>124",
+    "parsed": [
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 124
+        }
+    ]
+}

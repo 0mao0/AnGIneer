@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>816 142 834 313<|content|>I. Proposed Mediator\n<|id|>13<|page|>2<|box|>362 142 378 292<|content|>II. Proposed Dates\n<|id|>16<|page|>2<|box|>714 142 731 316<|content|>III. Fee Arrangement\n<|id|>18<|page|>3<|box|>90 142 107 294<|content|>IV. Confidentiality\n<|id|>21<|page|>3<|box|>369 142 386 374<|content|>V. Attendance and Authority\n<|id|>25<|page|>3<|box|>801 142 819 310<|content|>VI. Logistical Details\n<|id|>28<|page|>4<|box|>244 142 261 460<|content|>VII. Case Posture Supporting Mediation\n<|id|>37<|page|>5<|box|>152 142 170 357<|content|>VIII. Request for Response\n<|id|>40<|page|>5<|box|>431 142 449 344<|content|>IX. Reservation of Rights",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>21<|level|>1\n<|id|>25<|level|>1\n<|id|>28<|level|>1\n<|id|>37<|level|>1\n<|id|>40<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        }
+    ]
+}

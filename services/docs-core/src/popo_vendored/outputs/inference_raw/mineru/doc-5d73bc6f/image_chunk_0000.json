@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>128 403 148 593<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>415 140 431 429<|content|>I. PURPOSE AND BACKGROUND\n<|id|>15<|type|>title<|page|>2<|box|>439 140 455 388<|content|>II. SCOPE OF COLLECTION\n<|id|>16<|type|>title<|page|>2<|box|>470 143 487 284<|content|>A. General Scope\n<|id|>21<|type|>title<|page|>3<|box|>138 140 157 395<|content|>B. Governing Legal Framework\n<|id|>24<|type|>title<|page|>3<|box|>522 140 539 333<|content|>III. CUSTODIAN LIST\n<|id|>25<|type|>title<|page|>3<|box|>554 140 570 406<|content|>A. Identified Custodians (9 Total)\n<|id|>27<|type|>table<|page|>3<|box|>693 143 901 852<|content|>None\n<|id|>28<|type|>table<|page|>4<|box|>89 143 611 852<|content|>None\n<|id|>38<|type|>title<|page|>6<|box|>138 140 157 457<|content|>B. Custodian Contact and Coordination\n<|id|>42<|type|>title<|page|>6<|box|>657 142 674 318<|content|>IV. DATA SOURCES\n<|id|>53<|type|>title<|page|>7<|box|>378 140 396 485<|content|>B. Instant Messaging — Meridian Solutions\n<|id|>60<|type|>title<|page|>7<|box|>763 140 781 504<|content|>C. Text Messages (SMS / Westmark Software)\n<|id|>65<|type|>title<|page|>8<|box|>484 140 501 519<|content|>D. Shared Network Drives and File Repositories\n<|id|>79<|type|>title<|page|>9<|box|>364 140 380 303<|content|>E. Calendar Entries\n<|id|>81<|type|>title<|page|>9<|box|>527 140 545 348<|content|>F. Excluded Data Sources\n<|id|>86<|type|>title<|page|>10<|box|>89 140 107 290<|content|>V. DATE RANGE\n<|id|>87<|type|>title<|page|>10<|box|>121 142 138 308<|content|>Primary Date Range\n<|id|>98<|type|>title<|page|>10<|box|>547 142 564 462<|content|>Extended Date Range — Victor Gallegos\n<|id|>103<|type|>title<|page|>11<|box|>138 140 156 457<|content|>Custodians Hired After January 1, 2019\n<|id|>108<|type|>title<|page|>11<|box|>323 140 340 444<|content|>VI. SEARCH-TERM PARAMETERS\n<|id|>110<|type|>title<|page|>11<|box|>436 143 452 357<|content|>A. Name and Entity Terms\n<|id|>120<|type|>title<|page|>11<|box|>689 142 705 364<|content|>B. Project and Event Terms\n<|id|>127<|type|>title<|page|>12<|box|>90 142 107 344<|content|>C. Subject-Matter Terms\n<|id|>138<|type|>title<|page|>12<|box|>327 142 343 408<|content|>D. Contextual / Behavioral Terms\n<|id|>145<|type|>title<|page|>12<|box|>540 142 556 395<|content|>E. Policy and Procedural Terms\n<|id|>151<|type|>title<|page|>12<|box|>734 142 751 390<|content|>F. Application of Search Terms\n<|id|>158<|type|>title<|page|>13<|box|>428 140 445 769<|content|>VII. COLLECTION METHODOLOGY AND TECHNICAL REQUIREM\n<|id|>159<|type|>title<|page|>13<|box|>460 142 477 307<|content|>A. Forensic Imaging\n<|id|>165<|type|>title<|page|>14<|box|>90 140 107 406<|content|>B. Processing and De-Duplication\n<|id|>172<|type|>title<|page|>14<|box|>622 140 638 279<|content|>C. Data Delivery\n<|id|>178<|type|>title<|page|>15<|box|>257 142 273 307<|content|>D. Chain of Custody\n<|id|>190<|type|>title<|page|>16<|box|>89 142 106 416<|content|>VIII. COLLECTION SCHEDULE\n<|id|>214<|type|>title<|page|>17<|box|>89 140 106 633<|content|>IX. CONFIDENTIALITY AND PRIVILEGE PROTECTIONS\n<|id|>220<|type|>title<|page|>17<|box|>736 140 753 495<|content|>X. COORDINATION WITH UK COUNSEL\n<|id|>223<|type|>title<|page|>18<|box|>295 140 311 370<|content|>XI. POINTS OF CONTACT\n<|id|>224<|type|>table<|page|>18<|box|>383 143 720 852<|content|>None\n<|id|>226<|type|>title<|page|>19<|box|>89 142 106 421<|content|>XII. RESERVATION OF RIGHTS\n<|id|>236<|type|>title<|page|>20<|box|>88 140 108 246<|content|>EXHIBIT A",
+    "raw_response": "<|src_id|>27<|tgt_id|>25\n<|src_id|>28<|tgt_id|>25\n<|src_id|>224<|tgt_id|>223",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 223
+        }
+    ]
+}

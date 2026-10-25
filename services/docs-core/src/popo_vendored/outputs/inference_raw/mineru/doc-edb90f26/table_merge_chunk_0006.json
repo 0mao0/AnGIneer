@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=21, 路基工程', 'rowspan=5, 大型挡土墙、组合挡土墙', 'rowspan=3, 悬臂式挡土墙、扶壁式挡土墙', 'rowspan=3, 悬臂式挡土墙、扶壁式挡土墙', '安全信息', '', '', '', '详见附录B通用施工信息属性组']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=22, 路基工程', 'rowspan=22, 大型挡土墙、组合挡土墙', 'rowspan=7, 悬臂式挡土墙、扶壁式挡土墙', 'rowspan=7, 悬臂式挡土墙、扶壁式挡土墙', '成本信息', '', '', '', '详见附录B通用施工信息属性组']]\n",
+    "raw_response": "[1, 1, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 240,
+    "table2_idx": 241
+}

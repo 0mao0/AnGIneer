@@ -1,0 +1,69 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-eyl7bdd5\\input\\pdfs\\doc-dbf1aae2.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-eyl7bdd5\\enriched\\doc-dbf1aae2.json",
+    "contd_output": "",
+    "title_output": "<|id|>10<|level|>1\n<|id|>17<|level|>1\n<|id|>30<|level|>1\n<|id|>40<|level|>1\n<|id|>45<|level|>2\n<|id|>48<|level|>1\n<|id|>55<|level|>1\n<|id|>64<|level|>1\n<|id|>74<|level|>1\n<|id|>90<|level|>1\n<|id|>93<|level|>2",
+    "image_output": "<|src_id|>32<|tgt_id|>30\n<|src_id|>42<|tgt_id|>40\n<|src_id|>46<|tgt_id|>45",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 45
+        }
+    ],
+    "table_merge_candidates": []
+}

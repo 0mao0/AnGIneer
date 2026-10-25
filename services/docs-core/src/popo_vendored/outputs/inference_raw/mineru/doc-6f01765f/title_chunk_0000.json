@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 171 108 826<|content|>KELLERMAN & ASSOCIATES LLP Independent Registered\n<|id|>10<|page|>1<|box|>419 142 436 354<|content|>1. Introductory Paragraph\n<|id|>15<|page|>2<|box|>90 140 107 383<|content|>2. Independence Confirmation\n<|id|>17<|page|>2<|box|>304 140 321 401<|content|>3. Scope and Basis of Procedures\n<|id|>20<|page|>2<|box|>708 140 724 531<|content|>4. Bring-Down of Specified Financial Information\n<|id|>29<|page|>3<|box|>348 140 364 504<|content|>5. Subsequent Changes — Negative Assurance\n<|id|>41<|page|>4<|box|>484 140 501 460<|content|>6. Specific Items — Capitalization Table\n<|id|>47<|page|>4<|box|>801 140 818 364<|content|>7. Specific Items — Dilution\n<|id|>49<|page|>5<|box|>148 140 167 687<|content|>8. Specific Items — Selected Financial Data and No\n<|id|>52<|page|>5<|box|>425 140 443 403<|content|>9. Limitations and Qualifications\n<|id|>56<|page|>6<|box|>90 142 107 465<|content|>10. Reference to Original Comfort Letter\n<|id|>59<|page|>6<|box|>296 245 314 751<|content|>[Remainder of page intentionally left blank; signa\n<|id|>62<|page|>6<|box|>410 142 426 444<|content|>KELLERMAN & ASSOCIATES LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>29<|level|>2\n<|id|>41<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>2\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>59<|level|>-1\n<|id|>62<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        }
+    ]
+}

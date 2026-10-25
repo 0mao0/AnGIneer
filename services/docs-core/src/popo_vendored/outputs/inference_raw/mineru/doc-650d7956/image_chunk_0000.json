@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 153 126 843<|content|>PENTERRA PHARMACEUTICALS CORP. 400 Meridian Parkwa\n<|id|>7<|type|>title<|page|>1<|box|>579 140 595 584<|content|>I. Background — The IPO and the Lock-Up Agreements\n<|id|>12<|type|>title<|page|>2<|box|>395 140 412 542<|content|>II. Description of the Proposed Secondary Offering\n<|id|>22<|type|>title<|page|>3<|box|>315 140 332 769<|content|>III. Identification of Selling Stockholders and Sh\n<|id|>24<|type|>table<|page|>3<|box|>426 143 641 852<|content|>None\n<|id|>27<|type|>title<|page|>4<|box|>148 140 167 418<|content|>IV. Scope of the Requested Waiver\n<|id|>34<|type|>title<|page|>4<|box|>767 140 784 370<|content|>V. Advance Notice Provision\n<|id|>38<|type|>title<|page|>5<|box|>377 140 393 715<|content|>VI. New Lock-Up Agreements in Connection with the\n<|id|>41<|type|>title<|page|>5<|box|>671 140 688 464<|content|>VII. Consent of Other IPO Underwriters\n<|id|>43<|type|>title<|page|>5<|box|>758 176 777 403<|content|>(a) Ridgeline Securities LLC\n<|id|>46<|type|>title<|page|>5<|box|>829 176 845 426<|content|>(b) Morningstar Zanthor & Co.\n<|id|>49<|type|>title<|page|>6<|box|>186 140 204 558<|content|>VIII. Form of Consent and Requested Response Date\n<|id|>52<|type|>title<|page|>6<|box|>425 142 441 338<|content|>IX. Contact Information",
+    "raw_response": "<|src_id|>24<|tgt_id|>22",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 22
+        }
+    ]
+}

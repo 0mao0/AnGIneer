@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>356 142 375 336<|content|>1. Expression of Interest\n<|id|>14<|page|>2<|box|>359 140 376 416<|content|>2. Proposed Transaction Structure\n<|id|>21<|page|>3<|box|>321 140 339 274<|content|>3. Due Diligence\n<|id|>50<|page|>5<|box|>366 140 383 444<|content|>4. Key Transaction Terms (Indicative)\n<|id|>60<|page|>7<|box|>90 140 107 245<|content|>5. Financing\n<|id|>65<|page|>7<|box|>473 140 489 338<|content|>6. Regulatory Approvals\n<|id|>70<|page|>8<|box|>148 142 167 331<|content|>7. Anticipated Timeline\n<|id|>74<|page|>8<|box|>575 140 593 318<|content|>8. Exclusivity Request\n<|id|>78<|page|>9<|box|>204 140 222 284<|content|>9. Confidentiality\n<|id|>82<|page|>9<|box|>598 142 614 334<|content|>10. Non-Binding Nature\n<|id|>87<|page|>10<|box|>321 142 339 235<|content|>11. Closing",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>14<|level|>1\n<|id|>21<|level|>1\n<|id|>50<|level|>1\n<|id|>60<|level|>1\n<|id|>65<|level|>1\n<|id|>70<|level|>1\n<|id|>74<|level|>1\n<|id|>78<|level|>1\n<|id|>82<|level|>1\n<|id|>87<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,195 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-s1gsp2jr\\input\\pdfs\\doc-f097ea9e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-s1gsp2jr\\enriched\\doc-f097ea9e.json",
+    "contd_output": "<|src_id|>138<|tgt_id|>139",
+    "title_output": "<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>19<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>1\n<|id|>29<|level|>1\n<|id|>30<|level|>2\n<|id|>33<|level|>2\n<|id|>40<|level|>2\n<|id|>48<|level|>2\n<|id|>57<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>1\n<|id|>71<|level|>2\n<|id|>74<|level|>2\n<|id|>80<|level|>2\n<|id|>83<|level|>1\n<|id|>84<|level|>2\n<|id|>95<|level|>2\n<|id|>130<|level|>2\n<|id|>145<|level|>2\n<|id|>152<|level|>1\n<|id|>156<|level|>1\n<|id|>177<|level|>1\n<|id|>184<|level|>1\n<|id|>185<|level|>2\n<|id|>187<|level|>2\n<|id|>189<|level|>2\n<|id|>191<|level|>2\n<|id|>193<|level|>2\n<|id|>195<|level|>2\n<|id|>198<|level|>2\n<|id|>200<|level|>2\n<|id|>202<|level|>2\n<|id|>211<|level|>1",
+    "image_output": "<|src_id|>17<|tgt_id|>16\n<|src_id|>18<|tgt_id|>16\n<|src_id|>20<|tgt_id|>19\n<|src_id|>22<|tgt_id|>21",
+    "contd_label": [
+        {
+            "src_id": 138,
+            "tgt_id": 139
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 177,
+            "level": 1
+        },
+        {
+            "id": 184,
+            "level": 1
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 17,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 21
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 17,
+            "table2_idx": 18,
+            "upper_row_ss": [
+                [
+                    "Ericsson, Inc. v. D-Link Sys., Inc., 773 F.3d 1201 (Fed. Cir. 2014)",
+                    "14, 15, 22"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Finjan, Inc. v. Blue Coat Sys., Inc., 879 F.3d 1299 (Fed. Cir. 2018)",
+                    "15, 22, 27"
+                ]
+            ]
+        }
+    ]
+}

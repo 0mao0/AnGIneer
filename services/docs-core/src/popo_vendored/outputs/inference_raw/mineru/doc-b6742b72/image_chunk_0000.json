@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>123 145 195 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>281 151 391 844<|content|>INTERIM ORDER (I) AUTHORIZING THE DEBTORS TO OBTAI\n<|id|>5<|type|>title<|page|>1<|box|>758 142 775 241<|content|>RECITALS\n<|id|>20<|type|>title<|page|>5<|box|>314 140 330 578<|content|>FINDINGS OF FACT AND CONCLUSIONS OF LAW\n<|id|>30<|type|>title<|page|>6<|box|>801 140 819 215<|content|>ORDER\n<|id|>36<|type|>title<|page|>7<|box|>435 140 453 431<|content|>3. DIP Budget and Variance Testing.\n<|id|>109<|type|>title<|page|>18<|box|>441 480 458 516<|content|>###\n<|id|>110<|type|>title<|page|>18<|box|>494 140 544 854<|content|>HONORABLE PATRICIA A. WALSH UNITED STATES BANKRUPT\n<|id|>112<|type|>title<|page|>18<|box|>561 447 578 550<|content|>EXHIBIT A\n<|id|>113<|type|>title<|page|>18<|box|>585 437 604 558<|content|>DIP BUDGET\n<|id|>114<|type|>title<|page|>18<|box|>613 359 631 640<|content|>13-Week Rolling Cash Flow Budget\n<|id|>116<|type|>title<|page|>18<|box|>792 447 810 550<|content|>EXHIBIT B\n<|id|>117<|type|>title<|page|>18<|box|>819 380 835 617<|content|>DIP CREDIT AGREEMENT\n<|id|>119<|type|>title<|page|>19<|box|>152 375 169 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>0<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 2
+        }
+    ]
+}

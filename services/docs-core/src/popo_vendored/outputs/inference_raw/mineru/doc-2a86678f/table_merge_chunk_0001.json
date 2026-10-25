@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['7', 'Crestline Services Inc. (Newtown Square, PA)', 'Enterprise Resource Planning (ERP) Software License and Support Agreement', 'January 1, 2018', 'Perpetual license with annual maintenance and support fees; covers production planning,', '$28,500 per month (maintenance and support)', '$0.00 (current on all obligations)']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'inventory management, financials, and HR modules across all CPS operations', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 81,
+    "table2_idx": 82
+}

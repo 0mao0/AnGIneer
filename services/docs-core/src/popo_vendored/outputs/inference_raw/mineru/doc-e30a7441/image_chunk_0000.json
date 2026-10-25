@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        19
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        6,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>89 145 157 852<|content|>EXHIBIT LIST AND SUPPORTING DOCUMENTS IN SUPPORT O\n<|id|>8<|type|>title<|page|>2<|box|>405 142 422 416<|content|>INTRODUCTORY STATEMENT\n<|id|>12<|type|>title<|page|>3<|box|>89 143 106 287<|content|>EXHIBIT INDEX\n<|id|>13<|type|>table<|page|>3<|box|>176 143 787 852<|content|>None\n<|id|>14<|type|>title<|page|>3<|box|>835 143 852 393<|content|>DESCRIPTION OF EXHIBITS\n<|id|>15<|type|>title<|page|>4<|box|>89 140 107 630<|content|>Exhibit A — Master Grain Purchase and Off-Take Agr\n<|id|>29<|type|>title<|page|>6<|box|>89 140 108 645<|content|>Exhibit B — Limited Personal Guaranty of Darren K.\n<|id|>86<|type|>title<|page|>12<|box|>89 140 108 689<|content|>Exhibit H — Written Demand from GAP to PBGC (Janua\n<|id|>93<|type|>title<|page|>13<|box|>89 140 108 810<|content|>Exhibit I — Email from Darren K. Musgrave Acknowle\n<|id|>97<|type|>title<|page|>14<|box|>89 140 108 790<|content|>Exhibit J — Forbearance Correspondence from GAP to\n<|id|>101<|type|>title<|page|>15<|box|>89 140 107 637<|content|>Exhibit K — Notice of Suspension of Deliveries (Ma\n<|id|>109<|type|>title<|page|>16<|box|>89 140 107 836<|content|>Exhibit L — Pre-Suit Demand Letter from Calderwood\n<|id|>116<|type|>title<|page|>17<|box|>90 140 107 576<|content|>Exhibit M — Accrued Interest Calculation Spreadshe\n<|id|>119<|type|>table<|page|>17<|box|>262 143 479 852<|content|>None\n<|id|>122<|type|>title<|page|>18<|box|>89 140 107 784<|content|>Exhibit N — Summary of Calderwood & Harkness LLP A\n<|id|>129<|type|>title<|page|>18<|box|>416 143 433 326<|content|>Timekeeper Summary:\n<|id|>130<|type|>table<|page|>18<|box|>439 143 571 852<|content|>None\n<|id|>132<|type|>title<|page|>18<|box|>719 140 736 643<|content|>SUMMARY OF TOTAL CLAIM SUPPORTED BY EXHIBITS\n<|id|>133<|type|>table<|page|>18<|box|>787 143 893 852<|content|>None\n<|id|>134<|type|>table<|page|>19<|box|>88 143 119 852<|content|>None\n<|id|>136<|type|>title<|page|>19<|box|>266 140 282 478<|content|>CERTIFICATION AND VERIFICATION\n<|id|>139<|type|>title<|page|>19<|box|>491 142 508 250<|content|>Prepared by:\n<|id|>147<|type|>title<|page|>19<|box|>672 142 691 535<|content|>Reviewed and Approved by Supervising Attorney:\n<|id|>153<|type|>title<|page|>19<|box|>806 140 823 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>13<|tgt_id|>12\n<|src_id|>119<|tgt_id|>116\n<|src_id|>130<|tgt_id|>129\n<|src_id|>133<|tgt_id|>132\n<|src_id|>134<|tgt_id|>132",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 132
+        }
+    ]
+}

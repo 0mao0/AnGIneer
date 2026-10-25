@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>356 140 375 367<|content|>1. Introduction and Purpose\n<|id|>11<|page|>1<|box|>840 140 859 341<|content|>2. Transaction Summary\n<|id|>17<|page|>2<|box|>676 140 694 318<|content|>3. Surety Bond Terms\n<|id|>26<|page|>3<|box|>417 140 435 594<|content|>4. Required Closing Deliverables from Olympia Guar\n<|id|>46<|page|>5<|box|>747 140 763 540<|content|>5. Wire Instructions for Annual Premium Payment\n<|id|>55<|page|>6<|box|>362 140 378 473<|content|>6. Coordination of Execution and Delivery\n<|id|>67<|page|>7<|box|>314 140 332 362<|content|>7. Key Contact Information\n<|id|>83<|page|>8<|box|>152 140 167 290<|content|>Co-Bond Counsel:\n<|id|>86<|page|>8<|box|>260 140 277 253<|content|>8. Enclosures\n<|id|>94<|page|>8<|box|>523 140 541 367<|content|>9. Request for Confirmation\n<|id|>103<|page|>9<|box|>178 140 194 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>26<|level|>1\n<|id|>46<|level|>1\n<|id|>55<|level|>1\n<|id|>67<|level|>1\n<|id|>83<|level|>2\n<|id|>86<|level|>1\n<|id|>94<|level|>1\n<|id|>103<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "task": "table_merge",
+    "chunk_index": 9,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['16', 'Pacific Rim Trading Co., Inc.', '2/1/2023', '3 yr(exp. 2/1/2026)', 'Auto 1-yr; 90-day notice', '$6.5M', 'Processing (interchange-plus/intl.', 'Notification (30 days)', 'No assignment w/o consent', 'None', 'Cause (30-day cure); Convenience', 'California', 'LOW']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', 'wire/ ACH), Gate way', '', '', '', '(90-day notice after initial)', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 719,
+    "table2_idx": 720
+}

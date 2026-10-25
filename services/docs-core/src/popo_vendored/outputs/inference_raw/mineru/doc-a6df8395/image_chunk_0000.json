@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        19
+    ],
+    "pages": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>89 437 111 560<|content|>EXHIBIT F\n<|id|>1<|type|>title<|page|>2<|box|>135 192 172 805<|content|>FORM OF SUBORDINATION, NON-DISTURBANCE AND ATTORNM\n<|id|>35<|type|>title<|page|>4<|box|>321 140 339 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>43<|type|>title<|page|>5<|box|>89 142 106 424<|content|>ARTICLE 2 — SUBORDINATION\n<|id|>47<|type|>title<|page|>5<|box|>684 140 702 447<|content|>ARTICLE 3 — NON-DISTURBANCE\n<|id|>54<|type|>title<|page|>6<|box|>619 142 635 403<|content|>ARTICLE 4 — ATTORNMENT\n<|id|>59<|type|>title<|page|>7<|box|>474 140 493 759<|content|>ARTICLE 5 — SUCCESSOR LANDLORD PROTECTIONS / LIMIT\n<|id|>72<|type|>title<|page|>9<|box|>239 140 258 640<|content|>ARTICLE 6 — TENANT COVENANTS AND AGREEMENTS\n<|id|>91<|type|>title<|page|>11<|box|>311 142 328 454<|content|>ARTICLE 7 — NOTICE ADDRESSES\n<|id|>127<|type|>title<|page|>12<|box|>470 142 488 584<|content|>ARTICLE 8 — NOTICES — GENERAL PROVISIONS\n<|id|>130<|type|>title<|page|>13<|box|>89 140 107 429<|content|>ARTICLE 9 — MISCELLANEOUS\n<|id|>146<|type|>title<|page|>14<|box|>839 143 854 230<|content|>LENDER:\n<|id|>156<|type|>title<|page|>15<|box|>237 142 253 501<|content|>LANDLORD (consenting and joining herein):\n<|id|>164<|type|>title<|page|>15<|box|>414 140 431 501<|content|>NOTARY ACKNOWLEDGMENT BLOCKS\n<|id|>166<|type|>title<|page|>15<|box|>513 142 530 367<|content|>Acknowledgment — Lender\n<|id|>174<|type|>title<|page|>15<|box|>814 142 832 364<|content|>Acknowledgment — Tenant\n<|id|>181<|type|>title<|page|>16<|box|>316 142 334 383<|content|>Acknowledgment — Landlord\n<|id|>188<|type|>title<|page|>17<|box|>89 406 107 591<|content|>EXHIBIT A TO SNDA\n<|id|>189<|type|>title<|page|>17<|box|>131 310 148 686<|content|>LEGAL DESCRIPTION OF THE PROPERTY\n<|id|>190<|type|>title<|page|>17<|box|>157 142 174 243<|content|>EXHIBIT A\n<|id|>191<|type|>title<|page|>17<|box|>183 142 199 341<|content|>LEGAL DESCRIPTION\n<|id|>198<|type|>title<|page|>18<|box|>89 406 107 589<|content|>EXHIBIT B TO SNDA\n<|id|>199<|type|>title<|page|>18<|box|>131 387 148 609<|content|>LEASE IDENTIFICATION\n<|id|>200<|type|>title<|page|>18<|box|>157 143 172 243<|content|>EXHIBIT B\n<|id|>201<|type|>title<|page|>18<|box|>183 142 199 437<|content|>IDENTIFICATION OF THE LEASE\n<|id|>203<|type|>table<|page|>18<|box|>268 143 512 852<|content|>None\n<|id|>204<|type|>table<|page|>18<|box|>569 143 758 852<|content|>None\n<|id|>205<|type|>title<|page|>19<|box|>89 351 106 645<|content|>SCHEDULE OF MAJOR TENANTS\n<|id|>206<|type|>title<|page|>19<|box|>132 313 148 683<|content|>(Informational — Not Part of Executed SNDA)\n<|id|>210<|type|>table<|page|>19<|box|>378 143 523 852<|content|>None\n<|id|>212<|type|>title<|page|>19<|box|>606 140 623 390<|content|>Status of Major Tenant SNDAs",
+    "raw_response": "<|src_id|>203<|tgt_id|>201\n<|src_id|>204<|tgt_id|>201\n<|src_id|>210<|tgt_id|>205",
+    "parsed": [
+        {
+            "src_id": 203,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 204,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 205
+        }
+    ]
+}

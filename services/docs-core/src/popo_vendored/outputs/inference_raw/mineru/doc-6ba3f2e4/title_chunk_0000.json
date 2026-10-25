@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|page|>1<|box|>378 142 395 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>12<|page|>2<|box|>148 140 167 375<|content|>2. Background of the Dispute\n<|id|>24<|page|>3<|box|>715 140 734 300<|content|>3. Scope of Services\n<|id|>25<|page|>3<|box|>747 140 763 480<|content|>3.1 Protest-Phase Services (Primary Scope)\n<|id|>36<|page|>5<|box|>375 140 392 522<|content|>3.2 Litigation-Phase Services (Contingent Scope)\n<|id|>44<|page|>6<|box|>150 140 167 362<|content|>4. Fees and Payment Terms\n<|id|>45<|page|>6<|box|>180 140 196 313<|content|>4.1 Protest-Phase Fee\n<|id|>51<|page|>6<|box|>570 140 587 334<|content|>4.2 Litigation-Phase Fee\n<|id|>55<|page|>6<|box|>859 142 876 354<|content|>4.3 Invoicing and Payment\n<|id|>61<|page|>7<|box|>329 140 345 491<|content|>5. Confidentiality and Privilege Preservation\n<|id|>62<|page|>7<|box|>359 140 376 370<|content|>5.1 Confidential Information\n<|id|>71<|page|>8<|box|>138 140 157 547<|content|>5.2 Attorney Work Product and Litigation Privilege\n<|id|>79<|page|>8<|box|>734 140 750 457<|content|>5.3 Return and Destruction of Materials\n<|id|>82<|page|>9<|box|>204 140 222 424<|content|>6. Document Handling and Security\n<|id|>86<|page|>9<|box|>542 140 559 380<|content|>7. Independence and Conflicts\n<|id|>96<|page|>10<|box|>186 140 204 346<|content|>8. Term and Termination\n<|id|>100<|page|>10<|box|>523 140 542 370<|content|>9. Relationship of the Parties\n<|id|>103<|page|>10<|box|>801 142 816 480<|content|>10. Governing Law and Dispute Resolution\n<|id|>106<|page|>11<|box|>277 142 294 348<|content|>11. Limitation of Liability\n<|id|>109<|page|>11<|box|>500 142 515 455<|content|>12. Entire Agreement and Amendments\n<|id|>121<|page|>12<|box|>175 383 193 614<|content|>ACCEPTED AND AGREED",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>24<|level|>1\n<|id|>25<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>1\n<|id|>45<|level|>2\n<|id|>51<|level|>2\n<|id|>55<|level|>2\n<|id|>61<|level|>1\n<|id|>62<|level|>2\n<|id|>71<|level|>2\n<|id|>79<|level|>2\n<|id|>82<|level|>1\n<|id|>86<|level|>1\n<|id|>96<|level|>1\n<|id|>100<|level|>1\n<|id|>103<|level|>1\n<|id|>106<|level|>1\n<|id|>109<|level|>1\n<|id|>121<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        }
+    ]
+}

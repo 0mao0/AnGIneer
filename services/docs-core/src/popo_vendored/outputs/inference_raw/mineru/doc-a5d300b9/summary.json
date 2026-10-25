@@ -1,0 +1,147 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-m92is0cx\\input\\pdfs\\doc-a5d300b9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-m92is0cx\\enriched\\doc-a5d300b9.json",
+    "contd_output": "<|src_id|>14<|tgt_id|>15",
+    "title_output": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>29<|level|>3\n<|id|>35<|level|>3\n<|id|>39<|level|>2\n<|id|>41<|level|>1\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>65<|level|>2\n<|id|>83<|level|>2\n<|id|>95<|level|>2\n<|id|>108<|level|>2\n<|id|>131<|level|>2\n<|id|>138<|level|>2\n<|id|>146<|level|>2\n<|id|>155<|level|>2\n<|id|>164<|level|>2\n<|id|>166<|level|>3\n<|id|>171<|level|>3\n<|id|>176<|level|>3\n<|id|>182<|level|>3\n<|id|>189<|level|>3\n<|id|>199<|level|>3\n<|id|>205<|level|>2",
+    "image_output": "<|src_id|>206<|tgt_id|>205\n<|src_id|>207<|tgt_id|>205",
+    "contd_label": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 205,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 206,
+            "tgt_id": 205
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 205
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 206,
+            "table2_idx": 207,
+            "upper_row_ss": [
+                [
+                    "QuorumScoreTM Treatment",
+                    "No specific provision (covered by general unrestricted commercialization).",
+                    "No specific provision; subject to general sole-discretion transformation standard and revenue share.",
+                    "Pre-certified as Sufficiently Transformed Output (§ 7.4(c)); exempt from case-by-case Transformation Certificate process; Meridian acknowledges trade secret status and waives IP claims (§ 7.6(a))."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Model Inference Outputs",
+                    "No specific provision (covered by general ownership).",
+                    "Not specifically addressed; Meridian's position (per Fontaine letter of March 15) is that all outputs of models trained on Meridian data are \"derived\" and subject to Meridian's restrictions.",
+                    "Defined separately (§ 7.1(e)); owned exclusively by Quorum; not subject to any Article VII restrictions (§ 7.2(d)); Quorum may use and commercialize without notice, consent, or payment."
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,84 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 181 125 815<|content|>REQUEST FOR EXTENSION OF TIME UNDER 37 C.F.R. § 1.\n<|id|>3<|page|>1<|box|>204 142 222 496<|content|>Via Electronic Filing (USPTO Patent Center)\n<|id|>5<|page|>1<|box|>554 143 570 308<|content|>Dear Commissioner:\n<|id|>6<|page|>1<|box|>595 142 612 401<|content|>1. Request for Extension of Time\n<|id|>11<|page|>2<|box|>267 140 284 362<|content|>2. Entity Status Declaration\n<|id|>16<|page|>2<|box|>723 140 739 395<|content|>3. Fee Calculation and Payment\n<|id|>23<|page|>4<|box|>90 140 107 388<|content|>4. Authorization and Signature\n<|id|>26<|page|>4<|box|>258 140 276 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>28<|page|>4<|box|>392 140 409 401<|content|>5. Certificate of Electronic Filing\n<|id|>31<|page|>4<|box|>532 303 549 694<|content|>FEE TRANSMITTAL (Equivalent to PTO/SB/17)\n<|id|>35<|page|>5<|box|>191 142 208 303<|content|>Method of Payment\n<|id|>42<|page|>5<|box|>398 142 415 346<|content|>Correspondence Address.\n<|id|>53<|page|>5<|box|>715 143 733 431<|content|>Authorization and Budget Exception\n<|id|>56<|page|>6<|box|>138 140 157 272<|content|>Billing and Fees\n<|id|>58<|page|>6<|box|>267 142 284 398<|content|>Deadline and Prosecution Status\n<|id|>60<|page|>6<|box|>431 140 449 395<|content|>Divisional Application Planning\n<|id|>63<|page|>6<|box|>750 142 768 383<|content|>Docketing Service Notification\n<|id|>72<|page|>7<|box|>161 142 176 413<|content|>Attachments to Internal File Copy",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>5<|level|>-1\n<|id|>6<|level|>2\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>26<|level|>-1\n<|id|>28<|level|>2\n<|id|>31<|level|>2\n<|id|>35<|level|>3\n<|id|>42<|level|>3\n<|id|>53<|level|>3\n<|id|>56<|level|>3\n<|id|>58<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>3\n<|id|>72<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        }
+    ]
+}

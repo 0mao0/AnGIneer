@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        8
+    ],
+    "pages": [
+        2,
+        3,
+        6,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>2<|box|>334 140 351 797<|content|>Calderwood & Harkness LLP One Liberty Plaza, 38th Floor New York, New York 10006\n<|id|>7<|page|>2<|box|>359 140 393 633<|content|>Attention: ... Space Above This Line Reserved for County Clerk's Use / ACRIS Filing Reference\n<|id|>16<|page|>2<|box|>777 140 869 856<|content|>WHEREAS, the Grantor is the owner of certain real ...o and made a part hereof (the \"Premises\"); ... and\n<|id|>17<|page|>3<|box|>90 140 219 856<|content|>WHEREAS, the Grantor and the Grantee have entered ... Million and 00/100 Dollars ($120,000,000. ... and\n<|id|>18<|page|>3<|box|>226 140 299 854<|content|>WHEREAS, the Grantor desires to convey to the Gran... of the transactions contemplated by the Agreement\n<|id|>20<|page|>3<|box|>347 140 439 854<|content|>NOW, THEREFORE, in consideration of the sum of One...tee, the Grantee's successors and assigns forever,\n<|id|>21<|page|>3<|box|>446 140 520 856<|content|>ALL that certain plot, piece or parcel of land, wi...nnexed hereto and made a part hereof (the \"Land\"),\n<|id|>22<|page|>3<|box|>527 140 563 856<|content|>being designated as Block 754, Lot 42 on the Tax Map of the City of New York, Borough of Manhattan,\n<|id|>23<|page|>3<|box|>571 140 589 825<|content|>and known as and by the street address: ... 450 West 34th Street, New York, New York 10001\n<|id|>56<|page|>6<|box|>531 140 550 769<|content|>MERIDIAN GATEWAY HOLDINGS LLC, a New York limited liability company\n<|id|>57<|page|>6<|box|>550 143 566 253<|content|>By: ... By\n<|id|>58<|page|>6<|box|>566 143 584 372<|content|>Name: ... Papadopoulos\n<|id|>59<|page|>6<|box|>584 143 601 333<|content|>Title: ... Managing Member\n<|id|>61<|page|>6<|box|>648 140 665 620<|content|>STATE OF NEW YORK ) ) ss. ... COUNTY OF NEW YORK )\n<|id|>62<|page|>6<|box|>674 140 801 856<|content|>On the _ day of _____, 2026, before me, the unders...hich the individual acted, executed the instrument\n<|id|>70<|page|>8<|box|>186 174 204 854<|content|>[To be inserted — metes and bounds description to conform to the title report issued by\n<|id|>71<|page|>8<|box|>205 176 220 854<|content|>Granite State Title Insurance Company (Title No. ... _) and the updated ALTA/NSPS\n<|id|>72<|page|>8<|box|>223 176 239 852<|content|>Land Title Survey prepared by Clearview Land Surveyors Inc. ... , dated\n<|id|>73<|page|>8<|box|>241 176 258 718<|content|>2026, last revised, 2026, Project No. ... ]",
+    "raw_response": "<|src_id|>70<|tgt_id|>71\n<|src_id|>71<|tgt_id|>72\n<|src_id|>72<|tgt_id|>73",
+    "parsed": [
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>324 140 415 854<|content|>This Certificate is delivered by the undersigned i...dings Inc. ... , a Delaware corporation (\"Buyer\"),\n<|id|>5<|page|>1<|box|>416 140 525 856<|content|>NovaMart Global Inc. ... (the \"Company\"), and the ...ject to the adjustments set forth in the Agreement\n<|id|>32<|page|>4<|box|>90 174 143 854<|content|>(c) The solicitation and acceptance of the Stockho...ransactions contemplated by the Agreement; ... and\n<|id|>34<|page|>4<|box|>289 140 324 854<|content|>The Board Resolutions have not been amended, modif...orce and effect as of the date of this Certificate\n<|id|>52<|page|>5<|box|>829 140 902 856<|content|>The undersigned hereby certifies that since the da... Certificate of Incorporation or the Bylaws of the\n<|id|>53<|page|>6<|box|>90 140 125 854<|content|>Company are pending or, to the knowledge of the un...he undersigned, contemplated as of the date hereof\n<|id|>56<|page|>6<|box|>219 174 253 854<|content|>(a) ____ (___) shares of Common Stock, par value $0. ... and\n<|id|>59<|page|>6<|box|>334 140 479 854<|content|>As of the date hereof and immediately prior to the...h all applicable federal and state securities laws\n<|id|>64<|page|>6<|box|>593 143 609 323<|content|>Name: ... Amanda Trevino\n<|id|>65<|page|>6<|box|>609 143 626 261<|content|>Title: ... Secretary\n<|id|>66<|page|>6<|box|>628 143 645 264<|content|>Date: ... Date\n<|id|>71<|page|>6<|box|>825 142 840 300<|content|>Name: ... Julian Reeves\n<|id|>72<|page|>6<|box|>842 142 859 447<|content|>Title: ... Founder & Chief Executive Officer\n<|id|>73<|page|>6<|box|>859 143 877 266<|content|>Date: ... Date\n<|id|>75<|page|>7<|box|>114 140 160 823<|content|>Exhibit A — Certificate of Incorporation of NovaMa...nc. ... (as amended and restated) [To be attached]\n<|id|>76<|page|>7<|box|>166 140 213 588<|content|>Exhibit B — Bylaws of NovaMart Global Inc. ... (as amended) [To be attached]\n<|id|>77<|page|>7<|box|>219 140 263 462<|content|>Exhibit C — Stockholder Written Consent [To be attached]\n<|id|>78<|page|>7<|box|>270 140 290 490<|content|>Exhibit D — Board Resolutions (if applicable)",
+    "raw_response": "<|src_id|>4<|tgt_id|>5\n<|src_id|>52<|tgt_id|>53",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        }
+    ]
+}

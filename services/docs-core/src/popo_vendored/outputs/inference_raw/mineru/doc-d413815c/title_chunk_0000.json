@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>1<|box|>425 385 444 611<|content|>I. Executive Summary\n<|id|>11<|page|>2<|box|>627 419 646 578<|content|>II. Background\n<|id|>12<|page|>2<|box|>672 140 689 527<|content|>A. Redstone Gaming Corp. — Regulatory Profile\n<|id|>23<|page|>3<|box|>708 140 724 558<|content|>B. The Proposed Mezzanine Financing — Key Terms\n<|id|>38<|page|>5<|box|>648 140 665 303<|content|>C. Placement Agent\n<|id|>40<|page|>6<|box|>90 277 111 718<|content|>III. Nevada Gaming Regulatory Framework\n<|id|>41<|page|>6<|box|>136 140 154 589<|content|>A. Overview of NRS Chapter 463 and NGCB Regulation\n<|id|>46<|page|>6<|box|>775 140 792 578<|content|>B. Beneficial Ownership Thresholds — The 5% Trigge\n<|id|>54<|page|>8<|box|>90 140 107 431<|content|>C. Institutional Investor Exemptions\n<|id|>66<|page|>9<|box|>223 140 239 516<|content|>D. Key Employee and Lender Disclosure Forms\n<|id|>73<|page|>10<|box|>90 284 111 712<|content|>IV. Analysis of Current Warrant Coverage\n<|id|>74<|page|>10<|box|>136 140 154 532<|content|>A. Calculation of Warrant Ownership Percentage\n<|id|>84<|page|>11<|box|>303 140 320 470<|content|>B. No Current Suitability Filing Required\n<|id|>90<|page|>12<|box|>90 285 111 710<|content|>V. PIK Accrual and Threshold Creep Risk\n<|id|>91<|page|>12<|box|>136 140 154 488<|content|>A. Mechanics of PIK Interest Compounding\n<|id|>99<|page|>13<|box|>90 140 107 604<|content|>B. Scenario Analysis — Risk of Crossing the 5% Thr\n<|id|>101<|page|>13<|box|>179 140 196 625<|content|>Scenario 1: Fixed Warrant Share Count with Share B\n<|id|>106<|page|>13<|box|>765 140 782 736<|content|>Scenario 2: Anti-Dilution Adjustments Under the Dr\n<|id|>113<|page|>14<|box|>469 140 486 588<|content|>Scenario 3: Renegotiation of Warrant Coverage Form\n<|id|>118<|page|>15<|box|>204 140 222 346<|content|>C. Monitoring Obligation\n<|id|>125<|page|>15<|box|>790 300 810 697<|content|>VI. Multi-Jurisdictional Considerations\n<|id|>126<|page|>15<|box|>834 140 852 416<|content|>A. Arizona Department of Gaming\n<|id|>132<|page|>16<|box|>729 140 746 449<|content|>B. New Mexico Gaming Control Board\n<|id|>138<|page|>17<|box|>352 243 372 754<|content|>VII. Collateral and Real Property Lien Restriction\n<|id|>143<|page|>18<|box|>90 235 111 761<|content|>VIII. Interaction with Existing Senior Credit Faci\n<|id|>148<|page|>18<|box|>710 302 729 694<|content|>IX. Conclusions and Recommendations\n<|id|>161<|page|>20<|box|>234 346 255 650<|content|>X. Limitations and Disclaimer",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>23<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>1\n<|id|>41<|level|>2\n<|id|>46<|level|>2\n<|id|>54<|level|>2\n<|id|>66<|level|>2\n<|id|>73<|level|>1\n<|id|>74<|level|>2\n<|id|>84<|level|>2\n<|id|>90<|level|>1\n<|id|>91<|level|>2\n<|id|>99<|level|>2\n<|id|>101<|level|>3\n<|id|>106<|level|>3\n<|id|>113<|level|>3\n<|id|>118<|level|>2\n<|id|>125<|level|>1\n<|id|>126<|level|>2\n<|id|>132<|level|>2\n<|id|>138<|level|>1\n<|id|>143<|level|>1\n<|id|>148<|level|>1\n<|id|>161<|level|>1",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 161,
+            "level": 1
+        }
+    ]
+}

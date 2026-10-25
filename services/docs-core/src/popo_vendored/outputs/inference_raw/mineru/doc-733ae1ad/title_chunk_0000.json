@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 338 118 658<|content|>PERFECTION CERTIFICATE\n<|id|>6<|page|>1<|box|>482 140 500 390<|content|>Section 1: Grantor Information\n<|id|>8<|page|>1<|box|>594 143 611 418<|content|>1.1 Arbor Health Technologies Inc.\n<|id|>13<|page|>3<|box|>90 140 107 424<|content|>Section 2: Organizational Structure\n<|id|>24<|page|>4<|box|>148 140 167 406<|content|>Section 3: Locations of Collateral\n<|id|>31<|page|>5<|box|>90 143 107 362<|content|>Section 4: Deposit Accounts\n<|id|>36<|page|>6<|box|>267 140 284 544<|content|>Section 5: Existing Liens and Financing Statements\n<|id|>38<|page|>6<|box|>378 140 396 540<|content|>5.1 UCC-1 Financing Statements Currently on File\n<|id|>42<|page|>6<|box|>829 140 845 493<|content|>5.2 UCC Filing to Be Made by Secured Party\n<|id|>45<|page|>7<|box|>202 140 219 524<|content|>5.3 Tax Lien, Judgment, and Litigation Searches\n<|id|>52<|page|>7<|box|>523 140 541 390<|content|>Section 6: Intellectual Property\n<|id|>61<|page|>9<|box|>90 140 107 457<|content|>6.4 IP Security Agreement Recordations\n<|id|>67<|page|>9<|box|>412 140 429 313<|content|>6.5 Material Licenses\n<|id|>69<|page|>9<|box|>569 140 585 423<|content|>Section 7: Commercial Tort Claims\n<|id|>72<|page|>9<|box|>789 140 806 408<|content|>Section 8: Letter-of-Credit Rights\n<|id|>75<|page|>10<|box|>186 140 204 578<|content|>Section 9: Investment Property and Securities Acco\n<|id|>76<|page|>10<|box|>217 140 234 348<|content|>9.1 Certificated Securities\n<|id|>80<|page|>10<|box|>720 140 737 328<|content|>9.2 Securities Accounts\n<|id|>82<|page|>11<|box|>90 140 107 334<|content|>9.3 Foreign Subsidiaries\n<|id|>84<|page|>11<|box|>282 140 299 478<|content|>Section 10: Instruments and Chattel Paper\n<|id|>87<|page|>11<|box|>595 140 612 418<|content|>Section 11: Additional Information\n<|id|>88<|page|>11<|box|>626 143 643 274<|content|>11.1 Fiscal Year\n<|id|>90<|page|>11<|box|>699 142 715 367<|content|>11.2 Taxpayer Identification\n<|id|>92<|page|>11<|box|>861 143 878 715<|content|>11.3 Organizational Identification Numbers (Delawa\n<|id|>95<|page|>12<|box|>214 142 229 246<|content|>Certification\n<|id|>100<|page|>12<|box|>544 343 561 653<|content|>[Signature Page to Perfection Certificate]\n<|id|>101<|page|>12<|box|>569 143 585 486<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>108<|page|>12<|box|>708 143 724 437<|content|>ARBOR HEALTH HOLDINGS LLC\n<|id|>115<|page|>12<|box|>845 142 862 537<|content|>ARBOR HEALTH PLATFORM SERVICES INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>8<|level|>3\n<|id|>13<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>3\n<|id|>42<|level|>3\n<|id|>45<|level|>3\n<|id|>52<|level|>2\n<|id|>61<|level|>3\n<|id|>67<|level|>3\n<|id|>69<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>3\n<|id|>84<|level|>2\n<|id|>87<|level|>2\n<|id|>88<|level|>3\n<|id|>90<|level|>3\n<|id|>92<|level|>3\n<|id|>95<|level|>2\n<|id|>100<|level|>-1\n<|id|>101<|level|>3\n<|id|>108<|level|>3\n<|id|>115<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 405 118 593<|content|>UNITED STATES\n<|id|>1<|type|>title<|page|>1<|box|>136 250 157 746<|content|>SECURITIES AND EXCHANGE COMMISSION\n<|id|>2<|type|>title<|page|>1<|box|>175 377 196 620<|content|>Washington, D.C. 20549\n<|id|>3<|type|>title<|page|>1<|box|>214 447 234 552<|content|>FORM 25\n<|id|>4<|type|>title<|page|>1<|box|>258 151 294 846<|content|>NOTIFICATION OF REMOVAL FROM LISTING AND/OR REGIST\n<|id|>16<|type|>table<|page|>1<|box|>741 143 795 852<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>90 140 107 442<|content|>Item 3 — Rule 12d2-2(b) Certification\n<|id|>28<|type|>title<|page|>3<|box|>223 140 239 527<|content|>Item 4 — Effective Date of Removal from Listing\n<|id|>31<|type|>title<|page|>3<|box|>571 140 589 483<|content|>Item 5 — Reason for Removal from Listing\n<|id|>39<|type|>title<|page|>4<|box|>383 140 402 617<|content|>Item 6 — Additional Information Regarding the Tran\n<|id|>47<|type|>table<|page|>5<|box|>459 143 534 852<|content|>None\n<|id|>50<|type|>title<|page|>6<|box|>89 439 107 557<|content|>SIGNATURE\n<|id|>57<|type|>title<|page|>7<|box|>89 142 106 289<|content|>EXHIBIT INDEX\n<|id|>59<|type|>table<|page|>7<|box|>195 143 511 852<|content|>None\n<|id|>61<|type|>title<|page|>7<|box|>588 153 619 843<|content|>INTERNAL MEMORANDUM — NOT PART OF FILED FORM 25 CA\n<|id|>62<|type|>title<|page|>7<|box|>632 142 648 601<|content|>Calderwood & Harkness LLP — Internal Review Notati\n<|id|>71<|type|>title<|page|>8<|box|>90 140 107 426<|content|>Coordination with Issuer's Counsel:\n<|id|>75<|type|>title<|page|>8<|box|>280 142 297 310<|content|>Filing Confirmation:\n<|id|>77<|type|>title<|page|>8<|box|>387 142 404 238<|content|>Next Steps:",
+    "raw_response": "<|src_id|>16<|tgt_id|>4\n<|src_id|>47<|tgt_id|>39\n<|src_id|>59<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 57
+        }
+    ]
+}

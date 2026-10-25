@@ -1,0 +1,155 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-f6bjwhb7\\input\\pdfs\\doc-b1cc8a8e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-f6bjwhb7\\enriched\\doc-b1cc8a8e.json",
+    "contd_output": "<|src_id|>44<|tgt_id|>45\n<|src_id|>60<|tgt_id|>61",
+    "title_output": "<|id|>1<|level|>1\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>2\n<|id|>32<|level|>2\n<|id|>34<|level|>3\n<|id|>39<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>3\n<|id|>46<|level|>3\n<|id|>51<|level|>2\n<|id|>56<|level|>2\n<|id|>72<|level|>2\n<|id|>77<|level|>2\n<|id|>83<|level|>2\n<|id|>87<|level|>2\n<|id|>97<|level|>2\n<|id|>99<|level|>3\n<|id|>105<|level|>3\n<|id|>111<|level|>3\n<|id|>117<|level|>2",
+    "image_output": "<|src_id|>29<|tgt_id|>21\n<|src_id|>36<|tgt_id|>34\n<|src_id|>37<|tgt_id|>34\n<|src_id|>48<|tgt_id|>46\n<|src_id|>53<|tgt_id|>51\n<|src_id|>54<|tgt_id|>51\n<|src_id|>70<|tgt_id|>56\n<|src_id|>74<|tgt_id|>72",
+    "contd_label": [
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 29,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 72
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 53,
+            "table2_idx": 54,
+            "upper_row_ss": [
+                [
+                    "Bank Name:",
+                    "Greaves Bancorp"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "ABA Routing Number:",
+                    "021000021"
+                ]
+            ]
+        }
+    ]
+}

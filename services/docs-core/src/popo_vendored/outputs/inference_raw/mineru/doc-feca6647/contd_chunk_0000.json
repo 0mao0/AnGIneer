@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 152 774<|content|>Telephone: ... com\n<|id|>2<|page|>1<|box|>160 140 178 519<|content|>Sandra Tung Partner Direct Dial: ... (515) 244-7834\n<|id|>3<|page|>1<|box|>186 140 204 441<|content|>Email: ... com\n<|id|>4<|page|>1<|box|>204 743 220 854<|content|>March 3, 2023\n<|id|>5<|page|>1<|box|>229 140 244 375<|content|>Via Email and First-Class Mail\n<|id|>6<|page|>1<|box|>253 140 291 854<|content|>Jonathan Everett Carey, Esq. ... Wacker Drive, Suite 5600 Chicago, Illinois 60606\n<|id|>7<|page|>1<|box|>299 174 354 856<|content|>Re: ... 2022-M&A-00437 Termination of Negotiations\n<|id|>8<|page|>1<|box|>362 142 378 267<|content|>Dear Mr. ... Carey\n<|id|>10<|page|>1<|box|>541 138 909 857<|content|>Background. ... Over the intervening months, the p...ns regarding the definitive terms of the Operating\n<|id|>11<|page|>2<|box|>90 140 181 854<|content|>Agreement and related transaction documents, inclu...ertain fundamental differences, as described below\n<|id|>19<|page|>3<|box|>871 140 907 854<|content|>Reservation of Rights. ... Greenfield expressly re...g provisions of the Term Sheet dated September 26,\n<|id|>20<|page|>4<|box|>89 140 219 856<|content|>2022 (including, without limitation, the confident... of its representatives with respect to any matter\n<|id|>22<|page|>4<|box|>362 140 378 222<|content|>Sincerely,\n<|id|>23<|page|>4<|box|>378 140 395 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>19<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        }
+    ]
+}

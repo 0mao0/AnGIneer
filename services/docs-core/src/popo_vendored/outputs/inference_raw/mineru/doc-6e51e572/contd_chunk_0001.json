@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        49,
+        100
+    ],
+    "pages": [
+        49,
+        50,
+        78,
+        81,
+        99
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>162<|page|>49<|box|>104 421 116 593<|content|>(Dollar amounts in millions)\n<|id|>164<|page|>50<|box|>83 39 929 476<|content|>Source: ... 99 (yield ^{ \\circ }/^{ \\circ }) down ...{ \\circ }/^{ \\circ }/^{ \\circ }/^{ \\circ }/( )<nl>\n<|id|>254<|page|>78<|box|>652 146 671 402<|content|>\\Delta \\$/fc_{1} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>255<|page|>78<|box|>678 148 707 393<|content|>M_{1}/\\Sigma M ia U. ... imports from all countries in the set\n<|id|>259<|page|>78<|box|>474 625 495 861<|content|>\\Delta f c_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>260<|page|>78<|box|>501 625 530 856<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>263<|page|>78<|box|>581 575 610 868<|content|>Where: ... and\n<|id|>264<|page|>78<|box|>616 625 644 873<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>294<|page|>81<|box|>388 30 422 431<|content|>Note: ... The maturity distinction was discontinue... of April 30, 1978, and historical series adjusted\n<|id|>295<|page|>81<|box|>420 34 439 431<|content|>accordingly. ... See introductory text to Capital ...ents tables for discussion of changes in reporting\n<|id|>299<|page|>81<|box|>412 481 422 877<|content|>4/ Establishment of I8F's (International Banking Facilities) permitted\n<|id|>300<|page|>81<|box|>419 481 430 814<|content|>beginning December 1981. ... r Revised\n<|id|>350<|page|>99<|box|>55 357 71 625<|content|>Section I - Summary Positions\n<|id|>351<|page|>99<|box|>71 295 90 717<|content|>Table FCP-I-1. ... - Nonbanking Firms' Positions 1/\n<|id|>354<|page|>99<|box|>683 42 714 397<|content|>** These data are aggregated over the group of rep...e month of February at the January exemption level",
+    "raw_response": "<|src_id|>294<|tgt_id|>295\n<|src_id|>299<|tgt_id|>300",
+    "parsed": [
+        {
+            "src_id": 294,
+            "tgt_id": 295
+        },
+        {
+            "src_id": 299,
+            "tgt_id": 300
+        }
+    ]
+}

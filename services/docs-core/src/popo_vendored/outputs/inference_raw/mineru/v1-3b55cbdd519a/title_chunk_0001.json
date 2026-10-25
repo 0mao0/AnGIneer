@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        73
+    ],
+    "pages": [
+        51,
+        54,
+        55,
+        57,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        72,
+        73
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>270<|page|>51<|box|>54 66 69 272<|content|>Information to identify the case:\n<|id|>272<|page|>51<|box|>268 53 289 810<|content|>Official Form 309E2 (For Individuals or Joint Debt\n<|id|>273<|page|>51<|box|>296 53 316 558<|content|>Notice of Chapter 11 Bankruptcy Case\n<|id|>285<|page|>54<|box|>406 290 424 707<|content|>THIS PAGE INTENTIONALLY BLANK\n<|id|>287<|page|>55<|box|>244 53 267 617<|content|>Official Form 309F1 (For Corporations or Partnersh\n<|id|>288<|page|>55<|box|>273 53 294 558<|content|>Notice of Chapter 11 Bankruptcy Case\n<|id|>299<|page|>57<|box|>244 53 287 777<|content|>Official Form 309F2 (For Corporations or Partnersh\n<|id|>300<|page|>57<|box|>292 53 315 557<|content|>Notice of Chapter 11 Bankruptcy Case\n<|id|>310<|page|>59<|box|>181 437 199 617<|content|>COMMITTEE NOTE\n<|id|>314<|page|>60<|box|>406 290 424 707<|content|>THIS PAGE INTENTIONALLY BLANK\n<|id|>315<|page|>61<|box|>253 53 276 906<|content|>Class [ ] Ballot for Accepting or Rejecting Plan o\n<|id|>321<|page|>61<|box|>566 53 582 383<|content|>Acceptance or Rejection of the Plan\n<|id|>338<|page|>62<|box|>564 58 579 225<|content|>Return this ballot to:\n<|id|>340<|page|>63<|box|>181 455 199 599<|content|>Committee Note\n<|id|>342<|page|>64<|box|>406 290 424 707<|content|>THIS PAGE INTENTIONALLY BLANK\n<|id|>345<|page|>65<|box|>306 53 327 344<|content|>Order Confirming Plan\n<|id|>350<|page|>65<|box|>545 58 561 220<|content|>IT IS ORDERED that:\n<|id|>357<|page|>66<|box|>181 455 199 599<|content|>Committee Note\n<|id|>359<|page|>67<|box|>36 55 51 323<|content|>Fill in this information to identify the case:\n<|id|>365<|page|>67<|box|>189 53 210 251<|content|>Official Form 425A\n<|id|>366<|page|>67<|box|>241 53 263 782<|content|>Plan of Reorganization for Small Business Under Ch\n<|id|>371<|page|>67<|box|>426 112 443 480<|content|>A. Description and History of the Debtor's Busines\n<|id|>373<|page|>67<|box|>494 112 511 282<|content|>B. Liquidation Analysis\n<|id|>375<|page|>67<|box|>578 112 594 696<|content|>C. Ability to make future plan payments and operat\n<|id|>382<|page|>68<|box|>94 122 109 264<|content|>Article 1: Summary\n<|id|>436<|page|>72<|box|>767 143 782 165<|content|>x\n<|id|>439<|page|>72<|box|>830 143 847 165<|content|>x\n<|id|>442<|page|>73<|box|>199 455 215 599<|content|>Committee Note",
+    "raw_response": "<|id|>270<|level|>1\n<|id|>272<|level|>1\n<|id|>273<|level|>1\n<|id|>285<|level|>-1\n<|id|>287<|level|>1\n<|id|>288<|level|>1\n<|id|>299<|level|>1\n<|id|>300<|level|>1\n<|id|>310<|level|>1\n<|id|>314<|level|>-1\n<|id|>315<|level|>1\n<|id|>321<|level|>2\n<|id|>338<|level|>-1\n<|id|>340<|level|>1\n<|id|>342<|level|>-1\n<|id|>345<|level|>1\n<|id|>350<|level|>-1\n<|id|>357<|level|>1\n<|id|>359<|level|>1\n<|id|>365<|level|>1\n<|id|>366<|level|>1\n<|id|>371<|level|>2\n<|id|>373<|level|>2\n<|id|>375<|level|>2\n<|id|>382<|level|>2\n<|id|>436<|level|>-1\n<|id|>439<|level|>-1\n<|id|>442<|level|>1",
+    "parsed": [
+        {
+            "id": 270,
+            "level": 1
+        },
+        {
+            "id": 272,
+            "level": 1
+        },
+        {
+            "id": 273,
+            "level": 1
+        },
+        {
+            "id": 287,
+            "level": 1
+        },
+        {
+            "id": 288,
+            "level": 1
+        },
+        {
+            "id": 299,
+            "level": 1
+        },
+        {
+            "id": 300,
+            "level": 1
+        },
+        {
+            "id": 310,
+            "level": 1
+        },
+        {
+            "id": 315,
+            "level": 1
+        },
+        {
+            "id": 321,
+            "level": 2
+        },
+        {
+            "id": 340,
+            "level": 1
+        },
+        {
+            "id": 345,
+            "level": 1
+        },
+        {
+            "id": 357,
+            "level": 1
+        },
+        {
+            "id": 359,
+            "level": 1
+        },
+        {
+            "id": 365,
+            "level": 1
+        },
+        {
+            "id": 366,
+            "level": 1
+        },
+        {
+            "id": 371,
+            "level": 2
+        },
+        {
+            "id": 373,
+            "level": 2
+        },
+        {
+            "id": 375,
+            "level": 2
+        },
+        {
+            "id": 382,
+            "level": 2
+        },
+        {
+            "id": 442,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 197 143 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1750 K\n<|id|>5<|type|>title<|page|>1<|box|>330 259 349 736<|content|>I. INTRODUCTION AND BASIS FOR CLAIM\n<|id|>12<|type|>title<|page|>2<|box|>333 284 353 712<|content|>II. SUMMARY OF GAO PROCEEDINGS\n<|id|>14<|type|>title<|page|>2<|box|>449 140 465 336<|content|>A. Filing and Timeliness\n<|id|>17<|type|>title<|page|>2<|box|>743 140 760 254<|content|>B. Intervenor\n<|id|>19<|type|>title<|page|>3<|box|>90 140 107 408<|content|>C. Protest Grounds and Outcome\n<|id|>25<|type|>title<|page|>4<|box|>223 140 239 359<|content|>D. GAO Recommendations\n<|id|>32<|type|>title<|page|>4<|box|>540 140 556 560<|content|>E. Key Procedural Milestones Relevant to Cost Clai\n<|id|>45<|type|>title<|page|>5<|box|>674 179 694 816<|content|>III. PROTESTER'S COUNSEL AND ENGAGEMENT TERMS\n<|id|>49<|type|>title<|page|>6<|box|>135 176 151 258<|content|>Partners:\n<|id|>53<|type|>title<|page|>6<|box|>311 178 327 277<|content|>Of Counsel:\n<|id|>56<|type|>title<|page|>6<|box|>486 176 502 316<|content|>Senior Associate:\n<|id|>59<|type|>title<|page|>6<|box|>625 178 640 269<|content|>Associates:\n<|id|>65<|type|>title<|page|>7<|box|>281 339 301 658<|content|>IV. TOTAL CLAIM AMOUNT\n<|id|>66<|type|>table<|page|>7<|box|>343 143 419 852<|content|>None\n<|id|>68<|type|>title<|page|>7<|box|>498 217 518 779<|content|>V. ATTORNEYS' FEES — DETAILED BREAKDOWN\n<|id|>69<|type|>title<|page|>7<|box|>544 142 561 442<|content|>A. Summary by Timekeeper Category\n<|id|>70<|type|>table<|page|>7<|box|>611 143 801 852<|content|>None\n<|id|>72<|type|>title<|page|>8<|box|>90 142 107 269<|content|>B. Adjustments\n<|id|>85<|type|>title<|page|>8<|box|>617 140 633 364<|content|>C. Reasonableness of Hours\n<|id|>97<|type|>title<|page|>10<|box|>321 140 339 359<|content|>D. Reasonableness of Rates\n<|id|>103<|type|>title<|page|>10<|box|>703 166 723 830<|content|>VI. PROTEST-RELATED COSTS — DETAILED BREAKDOWN\n<|id|>105<|type|>table<|page|>10<|box|>784 143 893 852<|content|>None\n<|id|>106<|type|>table<|page|>11<|box|>89 143 556 852<|content|>None\n<|id|>114<|type|>title<|page|>12<|box|>90 248 109 748<|content|>VII. SUPPORTING DOCUMENTATION INDEX\n<|id|>115<|type|>table<|page|>12<|box|>152 143 537 852<|content|>None\n<|id|>117<|type|>title<|page|>12<|box|>636 374 655 622<|content|>VIII. CERTIFICATION\n<|id|>131<|type|>title<|page|>13<|box|>404 344 424 650<|content|>IX. REQUEST FOR ACTION\n<|id|>136<|type|>title<|page|>14<|box|>89 426 111 570<|content|>X. CLOSING",
+    "raw_response": "<|src_id|>66<|tgt_id|>65\n<|src_id|>70<|tgt_id|>69\n<|src_id|>105<|tgt_id|>103\n<|src_id|>106<|tgt_id|>103\n<|src_id|>115<|tgt_id|>114",
+    "parsed": [
+        {
+            "src_id": 66,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 114
+        }
+    ]
+}

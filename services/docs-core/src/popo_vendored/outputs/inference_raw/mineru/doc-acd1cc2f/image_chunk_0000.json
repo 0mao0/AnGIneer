@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>297 142 314 232<|content|>Dear Priya:\n<|id|>8<|type|>title<|page|>1<|box|>455 142 473 354<|content|>1. Confirmation of Closing\n<|id|>11<|type|>table<|page|>1<|box|>768 143 893 852<|content|>None\n<|id|>14<|type|>title<|page|>2<|box|>428 140 445 424<|content|>2. Summary of Closing Deliverables\n<|id|>16<|type|>title<|page|>2<|box|>522 140 539 361<|content|>2.1 Transaction Documents\n<|id|>23<|type|>title<|page|>3<|box|>90 140 107 534<|content|>2.2 Company Closing Certificates and Resolutions\n<|id|>27<|type|>title<|page|>3<|box|>617 140 633 385<|content|>2.3 Good Standing Certificates\n<|id|>30<|type|>title<|page|>3<|box|>789 142 806 287<|content|>2.4 Legal Opinion\n<|id|>32<|type|>title<|page|>4<|box|>323 142 339 323<|content|>2.5 Other Deliverables\n<|id|>37<|type|>title<|page|>4<|box|>593 140 609 450<|content|>3. Summary of Key Transaction Terms\n<|id|>47<|type|>title<|page|>5<|box|>681 140 699 370<|content|>4. Use of Proceeds Reminder\n<|id|>53<|type|>title<|page|>6<|box|>410 140 428 359<|content|>5. Post-Closing Obligations\n<|id|>55<|type|>title<|page|>6<|box|>522 140 539 308<|content|>5.1 Securities Filings\n<|id|>63<|type|>title<|page|>7<|box|>290 140 309 418<|content|>5.2 Ongoing Covenant Compliance\n<|id|>79<|type|>title<|page|>8<|box|>747 140 763 292<|content|>5.3 Closing Binder\n<|id|>82<|type|>title<|page|>9<|box|>204 140 222 310<|content|>6. Investors' Counsel\n<|id|>84<|type|>title<|page|>9<|box|>363 140 378 385<|content|>7. Our Continuing Availability\n<|id|>92<|type|>title<|page|>9<|box|>678 140 694 415<|content|>8. Acknowledgment and Gratitude\n<|id|>96<|type|>title<|page|>10<|box|>160 140 176 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>11<|tgt_id|>8",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 8
+        }
+    ]
+}

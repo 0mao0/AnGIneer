@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>234 140 251 601<|content|>VIA CERTIFIED MAIL AND ELECTRONIC SUBMISSION\n<|id|>9<|page|>1<|box|>426 140 443 437<|content|>I. Introduction and Purpose of Notice\n<|id|>17<|page|>2<|box|>297 140 314 377<|content|>II. Description of the Incident\n<|id|>24<|page|>3<|box|>167 140 185 393<|content|>III. Detection and Containment\n<|id|>32<|page|>4<|box|>90 140 107 351<|content|>IV. Investigation Findings\n<|id|>41<|page|>5<|box|>267 140 284 517<|content|>V. Categories of Personal Information Accessed\n<|id|>58<|page|>6<|box|>208 140 224 485<|content|>VI. Number of Affected Residents of [State]\n<|id|>62<|page|>6<|box|>400 140 417 496<|content|>VII. Remediation Measures Taken by Lumos\n<|id|>72<|page|>7<|box|>502 140 518 464<|content|>VIII. Notification to Affected Individuals\n<|id|>76<|page|>7<|box|>804 140 821 617<|content|>IX. Credit Monitoring and Identity Theft Protectio\n<|id|>80<|page|>8<|box|>347 140 364 343<|content|>X. Timing of Notification\n<|id|>86<|page|>8<|box|>738 142 753 338<|content|>XI. Contact Information\n<|id|>88<|page|>8<|box|>809 140 825 460<|content|>Legal Counsel for Lumos Analytics Inc.:\n<|id|>91<|page|>9<|box|>90 142 107 318<|content|>Lumos Analytics Inc.:\n<|id|>94<|page|>9<|box|>199 142 215 243<|content|>XII. Closing\n<|id|>104<|page|>9<|box|>595 181 630 815<|content|>STATE-SPECIFIC APPENDIX / DRAFTING NOTES INTERNAL\n<|id|>105<|page|>9<|box|>638 140 654 717<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>106<|page|>9<|box|>667 140 684 462<|content|>A. Instructions for Template Completion\n<|id|>126<|page|>11<|box|>294 140 310 566<|content|>C. States Not Requiring Attorney General Notificat\n<|id|>128<|page|>11<|box|>476 142 493 397<|content|>D. Individual Notification Scope\n<|id|>130<|page|>12<|box|>90 142 107 289<|content|>E. Filing Schedule\n<|id|>132<|page|>12<|box|>218 142 234 326<|content|>F. Filing Method Notes",
+    "raw_response": "<|id|>5<|level|>-1\n<|id|>9<|level|>1\n<|id|>17<|level|>1\n<|id|>24<|level|>1\n<|id|>32<|level|>1\n<|id|>41<|level|>1\n<|id|>58<|level|>1\n<|id|>62<|level|>1\n<|id|>72<|level|>1\n<|id|>76<|level|>1\n<|id|>80<|level|>1\n<|id|>86<|level|>1\n<|id|>88<|level|>2\n<|id|>91<|level|>2\n<|id|>94<|level|>1\n<|id|>104<|level|>1\n<|id|>105<|level|>-1\n<|id|>106<|level|>2\n<|id|>126<|level|>2\n<|id|>128<|level|>2\n<|id|>130<|level|>2\n<|id|>132<|level|>2",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        }
+    ]
+}

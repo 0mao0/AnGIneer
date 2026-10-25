@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 152 854<|content|>TO: ... Ian Blackwood, Responsible Partner, Bankin...Sophie Tremblay, Lead Associate, Banking & Finance\n<|id|>2<|page|>1<|box|>160 140 178 591<|content|>FROM: ... Daniel Obi, Working Associate, Banking & Finance\n<|id|>3<|page|>1<|box|>185 140 204 308<|content|>DATE: ... July 19, 2022\n<|id|>4<|page|>1<|box|>212 140 248 854<|content|>RE: ... $700,000,000 Senior Secured Term Loan B Refinancing\n<|id|>5<|page|>1<|box|>256 140 273 650<|content|>CLIENT/MATTER: ... / 1016-00009\n<|id|>6<|page|>1<|box|>281 140 343 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...thout the prior written consent of the undersigned\n<|id|>20<|page|>2<|box|>816 174 890 856<|content|>(iv) Flood Insurance. ... Flood insurance for all ...erage available under the National Flood Insurance\n<|id|>21<|page|>3<|box|>89 174 127 854<|content|>Program (\"NFIP\"), as required by the Flood Disaste...mended, and applicable federal banking regulations\n<|id|>30<|page|>3<|box|>820 140 893 856<|content|>With respect to flood insurance, the Mortgage cros...lood Insurance Reform Act of 1994 and the Biggert-\n<|id|>31<|page|>4<|box|>90 140 200 856<|content|>Waters Flood Insurance Reform Act of 2012. ... Pro...th the Credit Agreement and applicable federal law\n<|id|>100<|page|>10<|box|>864 140 902 854<|content|>VHG maintains liquor liability coverage as an endo...ty Corporation (Policy No. ... SIC-CGL-2021-55920,\n<|id|>101<|page|>11<|box|>90 140 145 854<|content|>Endorsement No. ... The liquor liability endorseme...age operations conducted at VHG's hotel properties\n<|id|>109<|page|>11<|box|>753 174 790 854<|content|>Crescent Harbor Bank, N. ... as Collateral Agent u...ington Avenue, 34th Floor New York, New York 10022\n<|id|>110<|page|>11<|box|>799 176 815 645<|content|>Attention: ... Agency Services — Verimark Hospitality Group Inc\n<|id|>113<|page|>12<|box|>133 174 171 854<|content|>(b) the insurer shall give at least thirty (30) da...n-renewal, or material change in coverage; ... and\n<|id|>115<|page|>12<|box|>223 140 258 854<|content|>The status of the loss payee designation for each ...he table included as Appendix B to this memorandum\n<|id|>118<|page|>12<|box|>412 174 449 854<|content|>Crescent Harbor Bank, N. ... as Collateral Agent u...ington Avenue, 34th Floor New York, New York 10022\n<|id|>119<|page|>12<|box|>457 140 549 856<|content|>The additional insured endorsement should be on IS...ibutory basis, as required by the Credit Agreement\n<|id|>124<|page|>12<|box|>808 174 843 852<|content|>Crescent Harbor Bank, N. ... , as Collateral Agent...ington Avenue, 34th Floor New York, New York 10022\n<|id|>125<|page|>12<|box|>853 176 869 578<|content|>Attention: ... Agency Services — Insurance Notifications\n<|id|>126<|page|>13<|box|>90 140 143 854<|content|>As noted, certain certificates currently direct th... endorsement process described in Section VI below\n<|id|>155<|page|>15<|box|>760 140 888 857<|content|>We have reviewed the insurance requirements under ...Loan B Credit Agreement. ... \"as Collateral Agent\"\n<|id|>156<|page|>16<|box|>90 140 126 854<|content|>generally, which will ensure coverage of the Agent...ilities without the need for separate endorsements\n<|id|>164<|page|>16<|box|>628 181 646 785<|content|>• Survey and Flood Certification Summary Memorandum (Daniel Obi, July 2022)\n<|id|>168<|page|>16<|box|>744 140 816 854<|content|>We will update this memorandum upon receipt of the... this review or if additional analysis is required\n<|id|>165<|page|>16<|box|>648 181 666 687<|content|>• Mortgage and Title Deliverables Checklist (revised June 20, 2022)\n<|id|>166<|page|>16<|box|>667 181 704 854<|content|>• Master Closing Checklist for the $700,000,000 Senior Secured Term Loan B Credit Agreement\n<|id|>167<|page|>16<|box|>705 183 739 852<|content|>• Agent's Insurance Requirements Letter (Crescent Harbor Bank, N. ... , dated June 28, 2022)",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>30<|tgt_id|>31\n<|src_id|>100<|tgt_id|>101\n<|src_id|>155<|tgt_id|>156",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 156
+        }
+    ]
+}

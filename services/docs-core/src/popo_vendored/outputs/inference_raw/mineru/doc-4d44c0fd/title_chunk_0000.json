@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 285 142 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>2<|page|>1<|box|>316 241 333 754<|content|>STIPULATION AND [PROPOSED] ORDER FOR MEDIATION\n<|id|>4<|page|>1<|box|>530 142 546 241<|content|>RECITALS\n<|id|>13<|page|>2<|box|>300 140 316 437<|content|>1. APPOINTMENT OF MEDIATOR\n<|id|>18<|page|>2<|box|>646 140 662 370<|content|>2. SCOPE OF MEDIATION\n<|id|>36<|page|>5<|box|>89 140 107 379<|content|>3. MEDIATION SCHEDULE\n<|id|>44<|page|>5<|box|>641 140 659 344<|content|>4. MEDIATION BRIEFS\n<|id|>50<|page|>6<|box|>212 140 229 339<|content|>5. CONFIDENTIALITY\n<|id|>57<|page|>6<|box|>756 140 773 434<|content|>6. GOOD FAITH PARTICIPATION\n<|id|>61<|page|>7<|box|>285 140 301 307<|content|>7. COST-SHARING\n<|id|>66<|page|>7<|box|>612 140 628 495<|content|>8. EFFECT ON LITIGATION DEADLINES\n<|id|>71<|page|>8<|box|>222 140 239 442<|content|>9. TERMINATION OF MEDIATION\n<|id|>75<|page|>8<|box|>506 142 523 284<|content|>10. NO WAIVER\n<|id|>78<|page|>8<|box|>709 142 726 383<|content|>11. BINDING SETTLEMENT\n<|id|>82<|page|>9<|box|>167 143 184 450<|content|>12. MISCELLANEOUS PROVISIONS\n<|id|>97<|page|>9<|box|>756 379 773 617<|content|>[Signatures on Following Page]\n<|id|>98<|page|>9<|box|>782 437 797 560<|content|>SIGNATURES\n<|id|>99<|page|>9<|box|>842 143 858 308<|content|>FOR PETITIONER:\n<|id|>104<|page|>10<|box|>209 142 224 331<|content|>FOR CONTESTANTS:\n<|id|>109<|page|>10<|box|>335 406 353 593<|content|>[PROPOSED] ORDER",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>2\n<|id|>50<|level|>2\n<|id|>57<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>71<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>82<|level|>2\n<|id|>97<|level|>-1\n<|id|>98<|level|>2\n<|id|>99<|level|>3\n<|id|>104<|level|>3\n<|id|>109<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 1
+        }
+    ]
+}

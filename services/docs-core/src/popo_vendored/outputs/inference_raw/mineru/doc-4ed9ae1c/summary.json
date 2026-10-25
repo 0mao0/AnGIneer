@@ -1,0 +1,252 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-frkql42b\\input\\pdfs\\doc-4ed9ae1c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-frkql42b\\enriched\\doc-4ed9ae1c.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>16<|level|>2\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>38<|level|>3\n<|id|>44<|level|>3\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>60<|level|>3\n<|id|>62<|level|>4\n<|id|>66<|level|>4\n<|id|>81<|level|>3\n<|id|>88<|level|>2\n<|id|>98<|level|>2\n<|id|>103<|level|>3\n<|id|>105<|level|>2\n<|id|>107<|level|>3\n<|id|>111<|level|>3\n<|id|>115<|level|>3\n<|id|>119<|level|>3\n<|id|>123<|level|>3\n<|id|>130<|level|>2\n<|id|>131<|level|>3",
+    "image_output": "<|src_id|>31<|tgt_id|>29\n<|src_id|>35<|tgt_id|>33\n<|src_id|>36<|tgt_id|>33\n<|src_id|>40<|tgt_id|>38\n<|src_id|>41<|tgt_id|>38\n<|src_id|>100<|tgt_id|>98\n<|src_id|>101<|tgt_id|>98\n<|src_id|>102<|tgt_id|>98\n<|src_id|>134<|tgt_id|>131",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 131
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 35,
+            "table2_idx": 36,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "Texas",
+                    "Secretary of State,",
+                    "Certificate of",
+                    "NovaMart Global"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Austin, TX",
+                    "Existence",
+                    "Inc. (foreign qualification)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 40,
+            "table2_idx": 41,
+            "upper_row_ss": [
+                [
+                    "8",
+                    "Pennsylvania",
+                    "1",
+                    "Department of",
+                    "Certificate of",
+                    "NovaMart"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "State, Corporation Bureau, Harrisburg, PA",
+                    "Good Standing",
+                    "Global Inc."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 100,
+            "table2_idx": 101,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "NovaMart Global Inc.",
+                    "Texas (HQ /",
+                    "TX Secretary",
+                    "Certificate of",
+                    "2–3 business",
+                    "~Oct 6, 2025",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "foreign qual.)",
+                    "of State",
+                    "Existence",
+                    "days",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 101,
+            "table2_idx": 102,
+            "upper_row_ss": [
+                [
+                    "12+",
+                    "NovaMart Subsidiaries — to be confirmed and appended as Exhibit",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "Pending confirmation of subsidiary list"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "A",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

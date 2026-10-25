@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>169 321 185 674<|content|>Pursuant to the Master Data License Agreement\n<|id|>3<|page|>1<|box|>194 150 229 846<|content|>Delivered in connection with that certain Master D...he \"MDLA\"), dated as of [●], 20[●], by and between\n<|id|>4<|page|>1<|box|>239 163 256 833<|content|>Quorum Insurance Holdings Corp. ... a Delaware corporation (\"Quorum\" or the \"Licensee\")\n<|id|>5<|page|>1<|box|>265 482 281 514<|content|>and\n<|id|>15<|page|>1<|box|>868 176 902 854<|content|>(d) Technical Schedule A (Data Delivery Specificat...ed to the MDLA (the \"Technical Schedule\"); ... and\n<|id|>17<|page|>2<|box|>133 140 171 854<|content|>Capitalized terms used but not otherwise defined i...in the MDLA, unless the context otherwise requires\n<|id|>46<|page|>5<|box|>840 140 897 857<|content|>For purposes of this Certificate, \"Material Advers..., financial condition, or results of operations of\n<|id|>47<|page|>6<|box|>90 140 162 854<|content|>Quorum and its subsidiaries, taken as a whole; ...... or the rights and remedies of Meridian thereunder\n<|id|>81<|page|>8<|box|>881 143 898 214<|content|>Title: ... [●]\n<|id|>82<|page|>9<|box|>89 142 107 264<|content|>Date: ... [●], 20[●]\n<|id|>85<|page|>9<|box|>181 140 217 854<|content|>Exhibit A — Copy of Standish National Bank, N. ......tated Credit Agreement, dated as of June 15, 2021)\n<|id|>86<|page|>9<|box|>224 140 262 854<|content|>Exhibit B — Certificates of Insurance evidencing r...l general liability and cyber liability insurance)",
+    "raw_response": "<|src_id|>46<|tgt_id|>47",
+    "parsed": [
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        }
+    ]
+}

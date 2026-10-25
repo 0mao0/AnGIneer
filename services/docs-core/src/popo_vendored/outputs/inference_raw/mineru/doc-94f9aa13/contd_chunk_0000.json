@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        37
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        11,
+        12,
+        16,
+        17,
+        36,
+        37
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 140 196 854<|content|>TO: ... Douglas Fairchild, Responsible Partner, Real Estate Practice Group, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>205 140 224 844<|content|>FROM: ... Cynthia Ho, Lead Associate, Real Estate Practice Group, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>231 140 250 354<|content|>DATE: ... November 22, 2025\n<|id|>5<|page|>1<|box|>258 140 294 852<|content|>RE: ... — Harbor Point Development JV, LLC\n<|id|>6<|page|>1<|box|>301 140 319 511<|content|>CLIENT: ... Fairwater Real Estate Investment Trust\n<|id|>7<|page|>1<|box|>327 140 345 630<|content|>MATTER: ... Harbor Point Towers — Institutional JV Development\n<|id|>8<|page|>1<|box|>354 142 371 408<|content|>Right-click to update Table of Contents\n<|id|>21<|page|>2<|box|>781 140 892 854<|content|>Fairwater HP Manager, LLC is a Maryland limited li...perating Agreement of Harbor Point Development JV,\n<|id|>22<|page|>3<|box|>89 140 126 854<|content|>LLC (the \"Operating Agreement\"), which has been th... of a separate memorandum circulated to this group\n<|id|>66<|page|>6<|box|>854 140 890 854<|content|>A title commitment dated December 9, 2025 has been... Insurance Group, Inc. ... A detailed Title Review\n<|id|>67<|page|>7<|box|>89 140 127 854<|content|>Memorandum will be circulated separately addressin...s, and any title matters requiring curative action\n<|id|>108<|page|>11<|box|>377 174 412 854<|content|>(c) Satisfaction of any lien-free completion requi...s modified per the recommendations above); ... and\n<|id|>110<|page|>11<|box|>446 140 502 854<|content|>We should resist any requirement that the guaranty...hould not be backstopped by a completion guarantor\n<|id|>116<|page|>11<|box|>843 174 878 854<|content|>(b) A co-guaranty from Prescott running to the Len..., covering 70% of any guaranty obligations; ... or\n<|id|>118<|page|>12<|box|>152 140 208 854<|content|>This is a matter to be negotiated primarily betwee...impede these inter-party risk-sharing arrangements\n<|id|>182<|page|>16<|box|>443 176 460 604<|content|>(g) Maintain arm's-length relationships with affiliates; ... and\n<|id|>184<|page|>16<|box|>494 140 659 856<|content|>We should confirm that the SPE covenants in the de...t the director has no fiduciary duty to the Lender\n<|id|>189<|page|>16<|box|>825 174 898 857<|content|>(i) Financial Reporting. ... Given that Fairwater ...m 10-Q, and Form 8-K, as applicable) satisfies the\n<|id|>190<|page|>17<|box|>90 174 127 852<|content|>Guarantor financial reporting requirements. ... Th...separate, non- public financial reporting packages\n<|id|>428<|page|>36<|box|>494 140 527 852<|content|>Cynthia Ho Lead Associate, Real Estate Practice Gr...more, Maryland 21202 Telephone: ... (410) 555-7200\n<|id|>429<|page|>36<|box|>529 143 544 426<|content|>Email: ... com\n<|id|>430<|page|>36<|box|>545 143 561 336<|content|>Date: ... November 22, 2025\n<|id|>431<|page|>36<|box|>563 143 579 251<|content|>Reviewed by: ... Reviewed by\n<|id|>433<|page|>36<|box|>863 140 909 854<|content|>CONFIDENTIALITY NOTICE: ... This memorandum and it...y third party without the prior written consent of\n<|id|>434<|page|>37<|box|>89 140 119 852<|content|>Calderwood & Harkness LLP and Fairwater Real Estat...ribution of this memorandum is strictly prohibited",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>66<|tgt_id|>67\n<|src_id|>189<|tgt_id|>190\n<|src_id|>433<|tgt_id|>434",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 433,
+            "tgt_id": 434
+        }
+    ]
+}

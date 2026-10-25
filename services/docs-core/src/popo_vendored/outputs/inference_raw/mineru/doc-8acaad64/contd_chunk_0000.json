@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 290 133 707<|content|>1750 K Street, N. ... 20006\n<|id|>2<|page|>1<|box|>141 181 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 750 185 854<|content|>July 18, 2025\n<|id|>4<|page|>1<|box|>193 140 229 854<|content|>Board of Trustees Fairwater Real Estate Investment... Centre Drive, Suite 400 Annapolis, Maryland 21401\n<|id|>5<|page|>1<|box|>237 174 273 852<|content|>Re: ... 333-284519)\n<|id|>20<|page|>2<|box|>571 176 608 854<|content|>8. ... and\n<|id|>22<|page|>2<|box|>720 140 813 856<|content|>In addition, we have made such investigations of l...rvice (the \"IRS\"), and relevant judicial decisions\n<|id|>44<|page|>4<|box|>454 174 508 854<|content|>(vi) The entity must have at least 100 beneficial ...required by Section 856(a)(5) of the Code; ... and\n<|id|>46<|page|>4<|box|>633 140 799 857<|content|>The Company has been organized as a Maryland real ...irements described in clauses (vi) and (vii) above\n<|id|>56<|page|>5<|box|>417 174 491 854<|content|>(vii) amounts (other than amounts the determinatio...rty or to purchase or lease real property; ... and\n<|id|>58<|page|>5<|box|>579 140 652 854<|content|>The 95% Gross Income Test. ... Under Section 856(c...ibed above), plus the following additional sources\n<|id|>60<|page|>5<|box|>686 176 704 300<|content|>(ii) interest; ... and\n<|id|>62<|page|>5<|box|>756 138 904 856<|content|>The Company's portfolio, as of the date hereof, co...taxable years since the initial REIT election year\n<|id|>98<|page|>10<|box|>811 174 902 857<|content|>7. ... The opinions set forth herein are limited t...on net investment income under Section 1411 of the\n<|id|>99<|page|>11<|box|>90 210 162 854<|content|>Code, or any other tax matters not specifically ad...cally described in paragraph 4 of Section IV above\n<|id|>103<|page|>11<|box|>429 210 446 344<|content|>Very truly yours,\n<|id|>104<|page|>11<|box|>454 140 470 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>105<|page|>11<|box|>473 143 489 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>98<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        }
+    ]
+}

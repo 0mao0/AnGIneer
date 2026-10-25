@@ -1,0 +1,142 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>181 161 224 834<|content|>PepsiCo Reports First-Quarter 2023 Results; Raises\n<|id|>6<|page|>2<|box|>53 76 70 472<|content|>Summary First-Quarter 2023 Performance\n<|id|>9<|page|>2<|box|>369 547 387 785<|content|>Operating Profit and EPS\n<|id|>15<|page|>3<|box|>53 76 70 292<|content|>Guidance and Outlook\n<|id|>23<|page|>3<|box|>484 75 502 704<|content|>Prepared Management Remarks and Live Question and\n<|id|>28<|page|>4<|box|>49 323 97 674<|content|>PepsiCo, Inc. and Subsidiaries Condensed Consolida\n<|id|>30<|page|>5<|box|>53 367 99 627<|content|>PepsiCo, Inc. and Subsidiaries Supplemental Financ\n<|id|>33<|page|>7<|box|>51 279 99 718<|content|>PepsiCo, Inc. and Subsidiaries Condensed Consolida\n<|id|>36<|page|>9<|box|>50 75 64 236<|content|>Non-GAAP Measures\n<|id|>40<|page|>9<|box|>409 75 422 145<|content|>Glossary\n<|id|>47<|page|>9<|box|>728 89 743 274<|content|>Mark-to-market net impact\n<|id|>49<|page|>9<|box|>806 89 823 351<|content|>Restructuring and impairment charges\n<|id|>51<|page|>9<|box|>872 89 887 380<|content|>Acquisition and divestiture-related charges\n<|id|>53<|page|>10<|box|>50 91 65 382<|content|>Gain associated with the Juice Transaction\n<|id|>55<|page|>10<|box|>99 89 114 346<|content|>Impairment and other charges/credits\n<|id|>57<|page|>10<|box|>167 112 183 331<|content|>Russia-Ukraine conflict charges\n<|id|>59<|page|>10<|box|>234 112 251 357<|content|>Brand portfolio impairment charges\n<|id|>61<|page|>10<|box|>315 112 330 294<|content|>Other impairment charges\n<|id|>63<|page|>10<|box|>393 89 410 383<|content|>Pension and retiree medical-related impact\n<|id|>65<|page|>10<|box|>459 89 474 328<|content|>Tax benefit related to the IRS audit\n<|id|>67<|page|>10<|box|>523 91 537 326<|content|>Tax expense related to the TCJ Act\n<|id|>71<|page|>10<|box|>715 75 732 179<|content|>2023 guidance\n<|id|>73<|page|>11<|box|>65 352 163 645<|content|>PepsiCo, Inc. and Subsidiaries Reconciliation of G\n<|id|>78<|page|>14<|box|>464 587 480 717<|content|>12 Weeks Ended 3/19/2022\n<|id|>80<|page|>15<|box|>49 290 92 707<|content|>PepsiCo, Inc. and Subsidiaries Reconciliation of G\n<|id|>81<|page|>15<|box|>106 76 119 316<|content|>Gross Margin Growth Reconciliation\n<|id|>83<|page|>15<|box|>282 76 297 377<|content|>Operating Margin Performance Reconciliation\n<|id|>86<|page|>15<|box|>489 76 503 326<|content|>Fiscal 2022 Diluted EPS Reconciliation\n<|id|>89<|page|>16<|box|>50 75 66 238<|content|>Cautionary Statement",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>2\n<|id|>33<|level|>2\n<|id|>36<|level|>2\n<|id|>40<|level|>2\n<|id|>47<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>3\n<|id|>53<|level|>3\n<|id|>55<|level|>3\n<|id|>57<|level|>4\n<|id|>59<|level|>4\n<|id|>61<|level|>4\n<|id|>63<|level|>3\n<|id|>65<|level|>3\n<|id|>67<|level|>3\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>78<|level|>2\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>83<|level|>3\n<|id|>86<|level|>3\n<|id|>89<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 4
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        }
+    ]
+}

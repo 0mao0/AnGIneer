@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        11,
+        12,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 133 854<|content|>CALDERWOOD & HARKNESS LLP Francesca Morano (State Bar No. ... (213) 688-7201\n<|id|>1<|page|>1<|box|>142 142 156 405<|content|>Email: ... com\n<|id|>2<|page|>1<|box|>157 140 174 483<|content|>Attorneys for Plaintiff Redstone Gaming Corp. ... Attorneys for Plaintiff Redstone Gaming Corp\n<|id|>51<|page|>8<|box|>714 140 898 857<|content|>34. ... and the evaluation of\n<|id|>52<|page|>9<|box|>90 174 162 854<|content|>RGC's internal controls over financial reporting. ...lion was accurate and in full compliance with GAAP\n<|id|>69<|page|>11<|box|>646 174 738 857<|content|>(d) Out-of-pocket costs for crisis communications,...ement of an outside public relations firm; ... and\n<|id|>71<|page|>11<|box|>806 140 898 857<|content|>45. ... On information and belief, GPR and\n<|id|>72<|page|>12<|box|>90 174 181 854<|content|>GPCP may have increased their short position in th...en profits should be disgorged and returned to RGC\n<|id|>115<|page|>16<|box|>542 673 559 854<|content|>Dated: ... February 5, 2024\n<|id|>116<|page|>16<|box|>569 140 585 318<|content|>Respectfully submitted,\n<|id|>119<|page|>16<|box|>638 140 654 455<|content|>Francesca Morano (State Bar No. ... 247891)\n<|id|>120<|page|>16<|box|>655 140 688 852<|content|>CALDERWOOD & HARKNESS LLP 333 South Grand Avenue, ...es, California 90071 Telephone: ... (213) 688-7201\n<|id|>121<|page|>16<|box|>689 142 704 462<|content|>Email: ... com\n<|id|>122<|page|>16<|box|>705 140 737 852<|content|>Samuel Eklund (State Bar No. ... 328916)\n<|id|>123<|page|>16<|box|>738 140 755 540<|content|>Attorneys for Plaintiff REDSTONE GAMING CORP. ... Attorneys for Plaintiff REDSTONE GAMING CORP",
+    "raw_response": "<|src_id|>51<|tgt_id|>52\n<|src_id|>71<|tgt_id|>72",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        }
+    ]
+}

@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>656 142 672 370<|content|>1. Identification of the Policy\n<|id|>15<|page|>2<|box|>222 140 239 354<|content|>2. Identity of the Claimant\n<|id|>19<|page|>2<|box|>542 140 560 321<|content|>3. Nature of the Claim\n<|id|>20<|page|>2<|box|>573 140 590 367<|content|>3.1 The Supply Relationship\n<|id|>25<|page|>3<|box|>138 140 157 323<|content|>3.2 The Alleged Defect\n<|id|>30<|page|>3<|box|>583 140 599 447<|content|>3.3 The Warranty Chargeback Notices\n<|id|>32<|page|>3<|box|>669 140 684 400<|content|>First Notice — WCN-2021-1247:\n<|id|>53<|page|>4<|box|>465 140 481 433<|content|>3.4 Meridian's Unilateral Deductions\n<|id|>56<|page|>4<|box|>683 140 700 513<|content|>4. Vantage's Position and Preliminary Defenses\n<|id|>65<|page|>6<|box|>148 140 167 447<|content|>5. Potential Coverage Under the Policy\n<|id|>70<|page|>6<|box|>625 140 641 305<|content|>6. Financial Context\n<|id|>75<|page|>7<|box|>241 140 258 334<|content|>7. Reservation of Rights\n<|id|>84<|page|>7<|box|>819 140 835 236<|content|>8. Requests\n<|id|>96<|page|>8<|box|>584 140 601 328<|content|>9. Enclosed Documents\n<|id|>104<|page|>8<|box|>849 140 864 209<|content|>Closing",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>15<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>25<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>3\n<|id|>53<|level|>2\n<|id|>56<|level|>1\n<|id|>65<|level|>1\n<|id|>70<|level|>1\n<|id|>75<|level|>1\n<|id|>84<|level|>1\n<|id|>96<|level|>1\n<|id|>104<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        }
+    ]
+}

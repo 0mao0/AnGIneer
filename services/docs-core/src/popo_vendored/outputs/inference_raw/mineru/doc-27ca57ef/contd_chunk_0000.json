@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 152 550<|content|>TO: ... Lisa Morrow, Lead Associate, Banking & Finance\n<|id|>2<|page|>1<|box|>160 140 178 617<|content|>FROM: ... Marcus Leung, Working Associate, Banking & Finance\n<|id|>3<|page|>1<|box|>185 140 203 326<|content|>DATE: ... March 26, 2026\n<|id|>4<|page|>1<|box|>212 140 248 854<|content|>RE: ... Governing Law and Forum Selection Analysis...Facility — Solara Digital Acquisition Holdings LLC\n<|id|>5<|page|>1<|box|>255 140 273 362<|content|>MATTER NO. ... 1041-00002\n<|id|>6<|page|>1<|box|>281 140 299 348<|content|>CLIENT NO. ... CL-081273\n<|id|>7<|page|>1<|box|>306 140 324 383<|content|>REVIEWED BY: ... Lisa Morrow\n<|id|>21<|page|>2<|box|>854 140 909 857<|content|>Governing Law and Forum. ... The term sheet specif...federal and state courts located in the Borough of\n<|id|>22<|page|>3<|box|>89 140 127 854<|content|>Manhattan, New York, New York. ... The analysis be...rceability and appropriateness of these provisions\n<|id|>35<|page|>4<|box|>258 174 295 854<|content|>(d) Harborstone Capital Partners LLC, an anticipat...nue, Suite 3100, New York, New York 10022; ... and\n<|id|>37<|page|>4<|box|>383 140 439 854<|content|>These connections, while not required under GOL § ...law analysis if such an analysis were ever applied\n<|id|>49<|page|>6<|box|>207 174 261 854<|content|>(a) Federal Courts: ... and\n<|id|>51<|page|>6<|box|>314 140 460 856<|content|>This forum selection is market standard for levera...sputes arising under commercial lending agreements\n<|id|>65<|page|>7<|box|>845 140 901 856<|content|>We further recommend that the credit agreement inc...ed office or place of business in the State of New\n<|id|>66<|page|>8<|box|>90 138 200 854<|content|>York. ... The designation of an agent for service ...ould be addressed during the documentation process\n<|id|>94<|page|>10<|box|>623 142 638 442<|content|>Matter No. ... CL-081273\n<|id|>95<|page|>10<|box|>647 143 664 240<|content|>Prepared by: ... Prepared by\n<|id|>96<|page|>10<|box|>696 140 750 854<|content|>Marcus Leung Working Associate, Banking & Finance ...4th Floor New York, New York 10006 Direct: ... com\n<|id|>97<|page|>10<|box|>747 143 763 250<|content|>Reviewed by: ... Reviewed by",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>65<|tgt_id|>66",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        }
+    ]
+}

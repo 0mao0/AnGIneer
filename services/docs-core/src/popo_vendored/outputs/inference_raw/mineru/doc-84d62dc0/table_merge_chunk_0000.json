@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['\"waveguide multiplexer\"', \"'847\", '\"an optical device that combines multiple optical signals of different wavelengths onto a single waveguide\"', '\"an arrayed waveguide grating that combines optical signals using a slab coupler and phase-shifted waveguide array\"', \"Lumicore seeks to limit the term to a single type of multiplexer (AWG), excluding other multiplexer architectures such as Mach-Zehnder interferometers and ring resonator-based MUX designs. OWS's broader\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', \"construction, which is consistent with the specification's disclosure of multiple multiplexer types, covers the structures used in all accused products.\"]]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 185,
+    "table2_idx": 186
+}

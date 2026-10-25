@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|type|>title<|page|>1<|box|>127 250 143 746<|content|>CALDERWOOD & HARKNESS LLP ATTORNEYS AT LAW\n<|id|>9<|type|>title<|page|>1<|box|>354 387 375 611<|content|>I. Executive Summary\n<|id|>13<|type|>title<|page|>2<|box|>90 419 111 576<|content|>II. Background\n<|id|>14<|type|>title<|page|>2<|box|>136 140 152 403<|content|>A. The TSA and ACV Obligation\n<|id|>20<|type|>title<|page|>2<|box|>837 140 854 593<|content|>B. Contract Year 2 (CY2): April 1, 2020 – March 31\n<|id|>27<|type|>title<|page|>3<|box|>784 140 801 465<|content|>C. Stonefield's Force Majeure Invocation\n<|id|>31<|type|>title<|page|>4<|box|>289 269 309 727<|content|>III. The Force Majeure Clause — Section 12.1\n<|id|>32<|type|>title<|page|>4<|box|>334 142 352 323<|content|>A. Text of Section 12.1\n<|id|>41<|type|>title<|page|>5<|box|>583 140 599 408<|content|>B. Scope of Excused Performance\n<|id|>45<|type|>title<|page|>6<|box|>209 236 229 759<|content|>IV. Analysis: Timeliness and Propriety of Invocati\n<|id|>46<|type|>title<|page|>6<|box|>253 140 270 457<|content|>A. COVID-19 as a Force Majeure Event\n<|id|>57<|type|>title<|page|>7<|box|>396 140 412 326<|content|>B. Timeliness of Notice\n<|id|>62<|type|>title<|page|>8<|box|>258 140 277 436<|content|>C. Propriety of the Six-Month Period\n<|id|>69<|type|>title<|page|>9<|box|>209 305 229 691<|content|>V. Adjusted ACV Calculation for CY2\n<|id|>70<|type|>title<|page|>9<|box|>253 142 270 272<|content|>A. Methodology\n<|id|>78<|type|>title<|page|>9<|box|>670 142 686 431<|content|>B. Actual Tenders vs. Adjusted ACV\n<|id|>79<|type|>table<|page|>9<|box|>720 143 833 852<|content|>None\n<|id|>82<|type|>title<|page|>10<|box|>321 140 339 524<|content|>C. Alternative Calculations (Sensitivity Analysis)\n<|id|>84<|type|>table<|page|>10<|box|>426 143 597 852<|content|>None\n<|id|>88<|type|>title<|page|>11<|box|>244 269 265 727<|content|>VI. Anticipated Counterarguments by Vantor\n<|id|>90<|type|>title<|page|>11<|box|>342 140 359 547<|content|>A. Force Majeure Notice Was Untimely or Deficient\n<|id|>95<|type|>title<|page|>12<|box|>90 140 107 661<|content|>B. COVID-19 Did Not Actually Prevent Stonefield fr\n<|id|>99<|type|>title<|page|>12<|box|>556 140 574 678<|content|>C. Force Majeure Should Not Apply to Payment/Volum\n<|id|>103<|type|>title<|page|>13<|box|>223 140 239 553<|content|>D. Stonefield's Force Majeure Period Was Arbitrary\n<|id|>108<|type|>title<|page|>13<|box|>719 233 739 761<|content|>VII. Implications for CY3 (April 2021 – March 2022\n<|id|>114<|type|>table<|page|>14<|box|>465 143 561 852<|content|>None\n<|id|>120<|type|>title<|page|>15<|box|>369 377 388 620<|content|>VIII. Recommendations\n<|id|>127<|type|>title<|page|>16<|box|>724 421 743 575<|content|>IX. Conclusion\n<|id|>134<|type|>title<|page|>17<|box|>465 140 497 852<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC",
+    "raw_response": "<|src_id|>79<|tgt_id|>78\n<|src_id|>84<|tgt_id|>82\n<|src_id|>114<|tgt_id|>108",
+    "parsed": [
+        {
+            "src_id": 79,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 108
+        }
+    ]
+}

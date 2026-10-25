@@ -1,0 +1,159 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rhlfuuag\\input\\pdfs\\doc-96469a7b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rhlfuuag\\enriched\\doc-96469a7b.json",
+    "contd_output": "<|src_id|>64<|tgt_id|>65",
+    "title_output": "<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>18<|level|>1\n<|id|>19<|level|>2\n<|id|>21<|level|>3\n<|id|>25<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>1\n<|id|>37<|level|>2\n<|id|>39<|level|>2\n<|id|>47<|level|>2\n<|id|>53<|level|>2\n<|id|>57<|level|>1\n<|id|>59<|level|>2\n<|id|>61<|level|>2\n<|id|>63<|level|>2\n<|id|>66<|level|>1\n<|id|>68<|level|>2\n<|id|>72<|level|>2\n<|id|>76<|level|>2\n<|id|>79<|level|>1\n<|id|>97<|level|>1\n<|id|>104<|level|>2",
+    "image_output": "<|src_id|>100<|tgt_id|>97\n<|src_id|>101<|tgt_id|>97\n<|src_id|>102<|tgt_id|>97\n<|src_id|>103<|tgt_id|>97",
+    "contd_label": [
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 100,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 97
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 100,
+            "table2_idx": 101,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Birchwood Technology Group Inc.",
+                    "SouthPark Corporate Center, 6100 Fairview Road, Charlotte, NC 28210",
+                    "GMP SouthPark LLC",
+                    "Veltrano Capital Lending Corp. / Loan 2-B",
+                    "November 1, 2020",
+                    "$5,668,000",
+                    "4400 Bohannon Drive, Menlo Park, CA 94025",
+                    "[Date]",
+                    "[Status]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "5",
+                    "Atlas Freight Logistics Corp.",
+                    "Southport Logistics Park, 11500 New Berlin Road, Jacksonville, FL 32226",
+                    "GMP Southport LLC",
+                    "Pinnacle Federal Bank, N.A. / Loan 1-G",
+                    "April 10, 2019",
+                    "$5,330,000",
+                    "1200 NW 78th Avenue, Suite 400, Doral, FL 33126",
+                    "[Date]",
+                    "[Status]"
+                ]
+            ]
+        }
+    ]
+}

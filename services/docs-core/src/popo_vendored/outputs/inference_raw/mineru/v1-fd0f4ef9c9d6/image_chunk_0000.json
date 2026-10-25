@@ -1,0 +1,57 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        45
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        8,
+        9,
+        10,
+        12,
+        14,
+        18,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        32,
+        33,
+        35,
+        38,
+        40,
+        41,
+        44,
+        45
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>150 112 172 892<|content|>Bounds on the Distribution of a Sum of Two Random\n<|id|>7<|type|>title<|page|>1<|box|>429 457 446 550<|content|>Abst<sub>r</sub>act\n<|id|>10<|type|>title<|page|>2<|box|>80 112 99 303<|content|>1 Introduction\n<|id|>27<|type|>title<|page|>4<|box|>670 112 690 669<|content|>2 Bounds on the sum of two random variables\n<|id|>72<|type|>title<|page|>8<|box|>191 112 212 441<|content|>3 Sharpness of the bounds\n<|id|>79<|type|>title<|page|>9<|box|>82 112 99 547<|content|>3.1 Prior results on achievability of bounds\n<|id|>92<|type|>title<|page|>10<|box|>640 112 655 491<|content|>3.2 When are the bounds achievable?\n<|id|>109<|type|>title<|page|>12<|box|>80 112 99 573<|content|>3.3 Special case: at least one discrete variable\n<|id|>135<|type|>title<|page|>14<|box|>689 112 707 859<|content|>3.4C _ { t }not achieving the bound implies no oth\n<|id|>147<|type|>title<|page|>18<|box|>156 112 174 785<|content|>3.5 Suficient conditions for achievability of the\n<|id|>165<|type|>title<|page|>20<|box|>82 112 99 743<|content|>3.6 Characterization of achievability of the lower\n<|id|>176<|type|>title<|page|>21<|box|>603 112 619 671<|content|>3.7 Summary Theorems on Achievability and Sharpnes\n<|id|>179<|type|>table<|page|>22<|box|>79 161 260 844<|content|>None\n<|id|>209<|type|>title<|page|>24<|box|>285 112 301 357<|content|>3.8 Examples Revisited\n<|id|>216<|type|>image<|page|>25<|box|>430 120 544 750<|content|>None\n<|id|>219<|type|>title<|page|>26<|box|>165 112 184 519<|content|>4 Sharp bounds on the diference\n<|id|>228<|type|>title<|page|>27<|box|>82 112 99 370<|content|>4.1 Proof of Theorem 25\n<|id|>236<|type|>title<|page|>27<|box|>811 112 829 473<|content|>4.2 Implications of the new bounds\n<|id|>241<|type|>title<|page|>28<|box|>638 112 659 395<|content|>5 A causal perspective\n<|id|>249<|type|>title<|page|>29<|box|>635 112 652 640<|content|>5.1 Application of Theorem 29 on cdf bounds of ITE\n<|id|>252<|type|>table<|page|>30<|box|>123 117 200 756<|content|>None\n<|id|>266<|type|>title<|page|>32<|box|>193 112 212 364<|content|>6 Acknowledgments\n<|id|>268<|type|>title<|page|>33<|box|>79 112 99 243<|content|>References\n<|id|>299<|type|>title<|page|>35<|box|>79 112 99 700<|content|>A Table on prior work and relation to this paper\n<|id|>300<|type|>table<|page|>35<|box|>125 114 299 833<|content|>None\n<|id|>302<|type|>title<|page|>35<|box|>465 111 523 892<|content|>B Relationship between bounds defined using left o\n<|id|>350<|type|>title<|page|>38<|box|>661 111 681 792<|content|>C R¨uschendorf ’s approach to achievability of the\n<|id|>375<|type|>title<|page|>40<|box|>704 111 724 764<|content|>D Revisit Theorem 2 in Williamson and Downs (1990)\n<|id|>382<|type|>title<|page|>41<|box|>699 111 719 668<|content|>E Relating R¨uschendorf and Makarov Bounds\n<|id|>414<|type|>title<|page|>44<|box|>79 111 99 403<|content|>F Proof of Theorem 27\n<|id|>428<|type|>title<|page|>45<|box|>136 111 157 580<|content|>G Simulation under the special copula",
+    "raw_response": "<|src_id|>179<|tgt_id|>176\n<|src_id|>216<|tgt_id|>209\n<|src_id|>252<|tgt_id|>249\n<|src_id|>300<|tgt_id|>299",
+    "parsed": [
+        {
+            "src_id": 179,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 252,
+            "tgt_id": 249
+        },
+        {
+            "src_id": 300,
+            "tgt_id": 299
+        }
+    ]
+}

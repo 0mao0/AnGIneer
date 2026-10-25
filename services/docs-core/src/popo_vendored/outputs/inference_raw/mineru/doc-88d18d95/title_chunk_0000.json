@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        4,
+        53
+    ],
+    "pages": [
+        4,
+        5,
+        7,
+        9,
+        11,
+        29,
+        30,
+        40,
+        41,
+        43,
+        46,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>4<|box|>375 523 456 648<|content|>BUY AND HOLD\n<|id|>9<|page|>4<|box|>527 523 580 648<|content|>SAVINGS BONDS\n<|id|>10<|page|>5<|box|>107 98 255 847<|content|>TREASURY BULLETIN\n<|id|>15<|page|>7<|box|>157 385 174 588<|content|>Table of Contents\n<|id|>18<|page|>9<|box|>115 307 134 664<|content|>Treasury Financing Operations\n<|id|>19<|page|>9<|box|>178 47 193 339<|content|>March Certificates Refunded\n<|id|>24<|page|>9<|box|>276 501 309 847<|content|>Call of 2 Percent Treasury Bonds of 1949-51\n<|id|>26<|page|>9<|box|>479 503 496 879<|content|>Treasury Bills Retired and Refunded\n<|id|>28<|page|>11<|box|>43 288 58 676<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>99<|page|>29<|box|>82 150 132 825<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>101<|page|>30<|box|>77 168 122 846<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>124<|page|>40<|box|>33 363 48 676<|content|>OWNERSHIP OF FEDERAL SECURITIES\n<|id|>128<|page|>41<|box|>195 150 209 816<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>133<|page|>43<|box|>74 125 108 830<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>141<|page|>46<|box|>41 203 58 827<|content|>TREASURY SURVEY - COMMERCIAL BANK OWNERSHIP, DECEM\n<|id|>156<|page|>52<|box|>37 323 53 709<|content|>YIELDS ON TREASURY AND CORPORATE BONDS",
+    "raw_response": "<|id|>7<|level|>2\n<|id|>9<|level|>2\n<|id|>10<|level|>1\n<|id|>15<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>24<|level|>3\n<|id|>26<|level|>3\n<|id|>28<|level|>2\n<|id|>99<|level|>3\n<|id|>101<|level|>3\n<|id|>124<|level|>2\n<|id|>128<|level|>3\n<|id|>133<|level|>3\n<|id|>141<|level|>2\n<|id|>156<|level|>2",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        }
+    ]
+}

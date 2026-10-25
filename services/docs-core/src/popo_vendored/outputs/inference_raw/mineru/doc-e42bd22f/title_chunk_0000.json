@@ -1,0 +1,86 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 447 106 549<|content|>EXHIBIT F\n<|id|>1<|page|>1<|box|>114 354 132 643<|content|>RIGHT OF FIRST OFFER TERMS\n<|id|>3<|page|>1<|box|>296 140 313 413<|content|>Section 1. ROFO Space Definition.\n<|id|>7<|page|>1<|box|>747 140 765 483<|content|>Section 2. Subordination to Existing Rights.\n<|id|>12<|page|>2<|box|>505 140 522 573<|content|>Section 3. Landlord's Obligation to Offer ROFO Spa\n<|id|>27<|page|>3<|box|>583 140 599 446<|content|>Section 4. Tenant's Acceptance Period.\n<|id|>33<|page|>4<|box|>289 140 306 540<|content|>Section 5. Lease of ROFO Space Upon Acceptance.\n<|id|>50<|page|>5<|box|>441 140 459 560<|content|>Section 6. Landlord's Right to Lease to Third Part\n<|id|>55<|page|>6<|box|>226 140 244 493<|content|>Section 7. Recurring Nature of ROFO Right.\n<|id|>59<|page|>6<|box|>531 140 547 405<|content|>Section 8. Conditions to Exercise.\n<|id|>66<|page|>7<|box|>306 140 324 480<|content|>Section 9. ROFO Right Personal to Tenant.\n<|id|>69<|page|>7<|box|>549 140 566 509<|content|>Section 10. Interaction with Expansion Option.\n<|id|>73<|page|>7<|box|>799 140 815 297<|content|>Section 11. Notices.\n<|id|>75<|page|>8<|box|>135 140 152 517<|content|>Section 12. Governing Law; Dispute Resolution.\n<|id|>78<|page|>8<|box|>359 334 376 661<|content|>[Remainder of page intentionally left blank]\n<|id|>79<|page|>8<|box|>383 352 400 645<|content|>ACKNOWLEDGED AND AGREED\n<|id|>81<|page|>8<|box|>454 142 470 256<|content|>LANDLORD:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>27<|level|>2\n<|id|>33<|level|>2\n<|id|>50<|level|>2\n<|id|>55<|level|>2\n<|id|>59<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>-1\n<|id|>79<|level|>2\n<|id|>81<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        }
+    ]
+}

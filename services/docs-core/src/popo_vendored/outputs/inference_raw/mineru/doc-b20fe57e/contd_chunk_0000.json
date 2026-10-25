@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>202 166 237 830<|content|>PRAIRIE BASIN GRAIN CO. ... MUSGRAVE, individually,\n<|id|>3<|page|>1<|box|>246 452 262 544<|content|>Defendants. ... Defendants\n<|id|>4<|page|>1<|box|>272 665 287 854<|content|>Case No. ... 2022-L-004831\n<|id|>5<|page|>1<|box|>299 678 314 854<|content|>Hon. ... Patricia Delacroix\n<|id|>6<|page|>1<|box|>324 143 358 854<|content|>PLAINTIFF'S REQUEST FOR ADMISSION TO DEFENDANT PRA... FOR ADMISSION TO DEFENDANT PRAIRIE BASIN GRAIN CO\n<|id|>125<|page|>9<|box|>492 142 510 318<|content|>Respectfully submitted,\n<|id|>126<|page|>9<|box|>518 140 536 663<|content|>GREENFIELD AGRICULTURAL PARTNERS LLC, By its attorneys,\n<|id|>129<|page|>9<|box|>587 140 636 854<|content|>Hannah Brinkley (ARDC No. ... (312) 555-4201\n<|id|>130<|page|>9<|box|>637 143 654 470<|content|>Email: ... com\n<|id|>131<|page|>9<|box|>654 143 671 477<|content|>Email: ... com\n<|id|>132<|page|>9<|box|>671 143 688 328<|content|>Dated: ... October 14, 2022\n<|id|>135<|page|>9<|box|>813 174 868 854<|content|>Douglas M. ... com\n<|id|>136<|page|>9<|box|>875 142 893 818<|content|>The foregoing service was made in compliance with ...liance with Illinois Supreme Court Rules 11 and 12",
+    "raw_response": "<|src_id|>2<|tgt_id|>3",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        }
+    ]
+}

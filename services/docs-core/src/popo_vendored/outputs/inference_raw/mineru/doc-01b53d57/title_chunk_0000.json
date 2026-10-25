@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>186 346 204 651<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>2<|page|>1<|box|>213 424 229 573<|content|>MEMORANDUM\n<|id|>10<|page|>1<|box|>474 359 494 637<|content|>I. Purpose of Memorandum\n<|id|>15<|page|>2<|box|>289 398 309 598<|content|>II. Session Logistics\n<|id|>16<|page|>2<|box|>334 142 352 285<|content|>A. Date and Time\n<|id|>18<|page|>2<|box|>419 143 436 228<|content|>B. Format\n<|id|>20<|page|>2<|box|>542 142 559 264<|content|>C. Participants\n<|id|>23<|page|>2<|box|>727 143 744 602<|content|>Meridian Zanthor & Co. (Sole Bookrunner / Underwri\n<|id|>25<|page|>2<|box|>824 143 840 522<|content|>Hargreaves Finch LLP (Underwriter's Counsel):\n<|id|>30<|page|>3<|box|>334 140 352 418<|content|>D. Baseline Documents Referenced\n<|id|>38<|page|>3<|box|>713 166 733 828<|content|>III. Summary of Due Diligence Topics and Managemen\n<|id|>39<|page|>3<|box|>758 142 773 568<|content|>A. Material Adverse Change / Material Adverse Effe\n<|id|>45<|page|>4<|box|>564 142 582 437<|content|>B. Accuracy of Financial Information\n<|id|>53<|page|>5<|box|>421 140 439 281<|content|>C. Capitalization\n<|id|>63<|page|>6<|box|>226 140 243 379<|content|>D. Litigation and Proceedings\n<|id|>71<|page|>6<|box|>776 140 792 568<|content|>E. Material Contracts and Related-Party Transactio\n<|id|>79<|page|>7<|box|>502 140 518 485<|content|>F. Registration Statement and SEC Matters\n<|id|>90<|page|>8<|box|>411 140 428 419<|content|>G. Nasdaq Listing and Compliance\n<|id|>98<|page|>8<|box|>828 140 844 447<|content|>H. MNPI and Insider Trading Matters\n<|id|>105<|page|>9<|box|>664 140 681 442<|content|>I. Regulatory and Government Filings\n<|id|>113<|page|>10<|box|>373 140 390 264<|content|>J. Tax Matters\n<|id|>120<|page|>10<|box|>734 140 750 475<|content|>K. Transfer Agent and Settlement Matters\n<|id|>127<|page|>11<|box|>343 140 359 290<|content|>L. Lock-Up Status\n<|id|>135<|page|>11<|box|>763 303 784 692<|content|>IV. Open Items and Follow-Up Actions\n<|id|>143<|page|>12<|box|>672 421 693 576<|content|>V. Conclusions\n<|id|>151<|page|>13<|box|>599 315 619 681<|content|>VI. Distribution and Privilege Notice",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>10<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>18<|level|>3\n<|id|>20<|level|>3\n<|id|>23<|level|>4\n<|id|>25<|level|>4\n<|id|>30<|level|>3\n<|id|>38<|level|>2\n<|id|>39<|level|>3\n<|id|>45<|level|>3\n<|id|>53<|level|>3\n<|id|>63<|level|>3\n<|id|>71<|level|>3\n<|id|>79<|level|>3\n<|id|>90<|level|>3\n<|id|>98<|level|>3\n<|id|>105<|level|>3\n<|id|>113<|level|>3\n<|id|>120<|level|>3\n<|id|>127<|level|>3\n<|id|>135<|level|>2\n<|id|>143<|level|>2\n<|id|>151<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 4
+        },
+        {
+            "id": 25,
+            "level": 4
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        }
+    ]
+}

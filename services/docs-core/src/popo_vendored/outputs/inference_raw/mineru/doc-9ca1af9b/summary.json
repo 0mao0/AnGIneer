@@ -1,0 +1,149 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8et0_ksx\\input\\pdfs\\doc-9ca1af9b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8et0_ksx\\enriched\\doc-9ca1af9b.json",
+    "contd_output": "<|src_id|>46<|tgt_id|>47",
+    "title_output": "<|id|>8<|level|>1\n<|id|>21<|level|>1\n<|id|>22<|level|>2\n<|id|>40<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>1\n<|id|>54<|level|>2\n<|id|>64<|level|>2\n<|id|>69<|level|>2\n<|id|>73<|level|>1\n<|id|>75<|level|>2\n<|id|>85<|level|>2\n<|id|>94<|level|>1\n<|id|>96<|level|>2\n<|id|>101<|level|>2\n<|id|>105<|level|>1\n<|id|>112<|level|>1\n<|id|>119<|level|>1\n<|id|>132<|level|>1\n<|id|>133<|level|>2\n<|id|>141<|level|>2\n<|id|>153<|level|>2\n<|id|>160<|level|>2\n<|id|>163<|level|>1\n<|id|>173<|level|>1",
+    "image_output": "<|src_id|>113<|tgt_id|>112\n<|src_id|>114<|tgt_id|>112",
+    "contd_label": [
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 173,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 113,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 112
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 113,
+            "table2_idx": 114,
+            "upper_row_ss": [
+                [
+                    "(4) Training Dataset (~14.6 TB",
+                    "Partial references and sample subsets",
+                    "No",
+                    "Partial references embedded in",
+                    "Partial subsets found"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "curated dataset)",
+                    "only",
+                    "",
+                    "notebooks",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

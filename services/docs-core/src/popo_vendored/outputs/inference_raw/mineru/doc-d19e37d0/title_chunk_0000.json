@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>143 370 162 627<|content|>LEGAL HOLD NOTICE\n<|id|>2<|page|>1<|box|>189 241 205 754<|content|>Preservation of Documents and Electronically Store\n<|id|>10<|page|>1<|box|>503 140 520 460<|content|>Section 1: Purpose and Legal Obligation\n<|id|>17<|page|>2<|box|>630 140 647 545<|content|>Section 2: Background — Summary of the Incident\n<|id|>26<|page|>4<|box|>148 140 167 764<|content|>Section 3: Scope of the Legal Hold — Categories of\n<|id|>28<|page|>4<|box|>261 140 279 344<|content|>3.1 Subject Matter Scope\n<|id|>57<|page|>7<|box|>90 140 107 321<|content|>3.3 Types of Materials\n<|id|>73<|page|>7<|box|>753 142 771 272<|content|>3.4 Time Period\n<|id|>76<|page|>8<|box|>150 140 167 490<|content|>Section 4: Specific Preservation Instructions\n<|id|>78<|page|>8<|box|>224 140 242 442<|content|>4.1 Suspension of Routine Destruction\n<|id|>87<|page|>8<|box|>715 140 733 462<|content|>4.2 ESI and Technical Data Preservation\n<|id|>93<|page|>9<|box|>419 140 436 423<|content|>4.3 Cloud and Third-Party Systems\n<|id|>98<|page|>9<|box|>752 140 768 331<|content|>4.4 Physical Documents\n<|id|>103<|page|>10<|box|>231 140 248 423<|content|>Section 5: Obligations of Recipients\n<|id|>112<|page|>11<|box|>204 140 222 346<|content|>Section 6: Confidentiality\n<|id|>118<|page|>11<|box|>686 140 704 460<|content|>Section 7: Compliance Acknowledgment\n<|id|>126<|page|>12<|box|>250 140 265 300<|content|>Section 8: Duration\n<|id|>130<|page|>12<|box|>551 140 568 388<|content|>Section 9: Contact Information\n<|id|>139<|page|>13<|box|>145 401 166 596<|content|>ATTACHMENT A\n<|id|>140<|page|>13<|box|>191 238 208 759<|content|>ACKNOWLEDGMENT AND COMPLIANCE CERTIFICATION\n<|id|>141<|page|>13<|box|>222 140 275 854<|content|>Legal Hold — Palomar Data Solutions Data Security\n<|id|>144<|page|>13<|box|>335 142 351 253<|content|>Certification:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>26<|level|>2\n<|id|>28<|level|>3\n<|id|>57<|level|>3\n<|id|>73<|level|>3\n<|id|>76<|level|>2\n<|id|>78<|level|>3\n<|id|>87<|level|>3\n<|id|>93<|level|>3\n<|id|>98<|level|>3\n<|id|>103<|level|>2\n<|id|>112<|level|>2\n<|id|>118<|level|>2\n<|id|>126<|level|>2\n<|id|>130<|level|>2\n<|id|>139<|level|>1\n<|id|>140<|level|>2\n<|id|>141<|level|>3\n<|id|>144<|level|>4",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 4
+        }
+    ]
+}

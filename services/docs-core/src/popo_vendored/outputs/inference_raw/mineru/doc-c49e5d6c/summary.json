@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xlnu338r\\input\\pdfs\\doc-c49e5d6c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xlnu338r\\enriched\\doc-c49e5d6c.json",
+    "contd_output": "<|src_id|>19<|tgt_id|>20\n<|src_id|>43<|tgt_id|>44\n<|src_id|>51<|tgt_id|>52\n<|src_id|>164<|tgt_id|>165",
+    "title_output": "<|id|>1<|level|>1\n<|id|>5<|level|>1\n<|id|>8<|level|>1\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>1\n<|id|>27<|level|>1\n<|id|>28<|level|>2\n<|id|>42<|level|>2\n<|id|>50<|level|>2\n<|id|>57<|level|>1\n<|id|>58<|level|>2\n<|id|>65<|level|>2\n<|id|>84<|level|>3\n<|id|>94<|level|>3\n<|id|>102<|level|>3\n<|id|>107<|level|>3\n<|id|>111<|level|>3\n<|id|>133<|level|>3\n<|id|>137<|level|>3\n<|id|>152<|level|>2\n<|id|>162<|level|>2\n<|id|>172<|level|>2\n<|id|>177<|level|>2\n<|id|>185<|level|>1\n<|id|>194<|level|>1",
+    "image_output": "<|src_id|>0<|tgt_id|>1\n<|src_id|>6<|tgt_id|>5\n<|src_id|>7<|tgt_id|>5\n<|src_id|>10<|tgt_id|>8\n<|src_id|>11<|tgt_id|>8\n<|src_id|>13<|tgt_id|>12\n<|src_id|>15<|tgt_id|>14\n<|src_id|>17<|tgt_id|>16",
+    "contd_label": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 165
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 1
+        },
+        {
+            "id": 194,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 16
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 10,
+            "table2_idx": 11,
+            "upper_row_ss": [
+                [
+                    "Polaroid Corp. v. Polaroid Elecs. Corp., 287 F.2d 492 (2d Cir. 1961)",
+                    "16, 17, 30"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Salinger v. Colting, 607 F.3d 68 (2d Cir. 2010)",
+                    "12, 13, 32"
+                ]
+            ]
+        }
+    ]
+}

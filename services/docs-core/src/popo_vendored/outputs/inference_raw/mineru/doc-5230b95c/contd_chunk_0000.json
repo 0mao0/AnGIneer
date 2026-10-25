@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        13,
+        14,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>9<|page|>1<|box|>400 174 436 854<|content|>Miriam Calloway, Partner, Healthcare & Life Sciences Practice Group, Calderwood & Harkness LLP\n<|id|>10<|page|>1<|box|>445 174 481 854<|content|>Sean Morrissey, Senior Associate, Healthcare & Life Sciences Practice Group, Calderwood & Harkness LLP\n<|id|>11<|page|>1<|box|>489 140 526 854<|content|>Re: ... Clinical Evidence Gap Analysis — Impact of...s on OncoPrecise GXP-47 Medicare Coverage Strategy\n<|id|>12<|page|>1<|box|>534 142 550 331<|content|>Matter No. ... 1043-00002\n<|id|>24<|page|>2<|box|>837 140 910 856<|content|>OncoPrecise GXP-47 is a laboratory-developed test ...o, California 92130. ... The laboratory's National\n<|id|>25<|page|>3<|box|>89 140 143 854<|content|>Provider Identifier is NPI 1902847365. ... no test...te locations or through subcontracted laboratories\n<|id|>28<|page|>3<|box|>333 147 349 468<|content|>• High Likelihood of Response: ... \\mathrm { T R I } \\geq 7 0\n<|id|>31<|page|>3<|box|>391 140 501 856<|content|>The intended clinical use of OncoPrecise GXP-47 is...arker to inform the first-line treatment selection\n<|id|>29<|page|>3<|box|>352 147 369 361<|content|>• Intermediate: ... TRI 40–69\n<|id|>30<|page|>3<|box|>372 145 388 465<|content|>• Low Likelihood of Response: ... TRI < 40\n<|id|>48<|page|>5<|box|>525 147 542 256<|content|>• PPV ≥ 0. ... 75\n<|id|>50<|page|>5<|box|>564 140 638 854<|content|>These thresholds were determined through statistic... Clinical Advisory Board prior to trial initiation\n<|id|>49<|page|>5<|box|>545 147 561 259<|content|>• NPV ≥ 0. ... 80\n<|id|>113<|page|>13<|box|>337 140 465 856<|content|>The draft MolDx Technical Assessment Dossier curre...blished evidence in the MolDx assessment framework\n<|id|>114<|page|>13<|box|>473 140 582 856<|content|>MolDx assessors give greatest weight to test-speci...validity or clinical utility argument on their own\n<|id|>118<|page|>13<|box|>858 140 893 854<|content|>Drawing on the five evidence gaps analyzed in Sect...r knowledge of the evidentiary expectations of the\n<|id|>119<|page|>14<|box|>90 140 126 854<|content|>MolDx program and CFI, we have assessed the probab...rmination under three alternative filing scenarios\n<|id|>240<|page|>27<|box|>502 140 532 854<|content|>Miriam Calloway, Partner Healthcare & Life Science...Washington, DC 20006 Telephone: ... (202) 555-4100\n<|id|>241<|page|>27<|box|>539 142 554 424<|content|>Email: ... com\n<|id|>242<|page|>27<|box|>553 140 584 852<|content|>Sean Morrissey, Senior Associate Healthcare & Life...Washington, DC 20006 Telephone: ... (202) 555-4127\n<|id|>243<|page|>27<|box|>590 140 619 423<|content|>Email: ... 1043-00002",
+    "raw_response": "<|src_id|>24<|tgt_id|>25\n<|src_id|>118<|tgt_id|>119",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 119
+        }
+    ]
+}

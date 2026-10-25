@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        54,
+        73
+    ],
+    "pages": [
+        54,
+        55,
+        58,
+        59,
+        60,
+        61,
+        72,
+        73
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>509<|page|>54<|box|>51 22 66 810<|content|>Company and its subsidiaries, taken as a whole. .....mpany was in compliance with all related covenants\n<|id|>528<|page|>55<|box|>590 22 643 967<|content|>The Company’s obligations under these agreements m...n payments. ... The terms of such obligations vary\n<|id|>529<|page|>55<|box|>652 22 693 965<|content|>It is not possible to make a reasonable estimate o...s with respect to these indemnification guarantees\n<|id|>560<|page|>58<|box|>705 21 785 968<|content|>On December 22, 2017, Staff Accounting Bulletin No...etailed analysis of historical foreign earnings as\n<|id|>561<|page|>59<|box|>61 22 89 937<|content|>well as potential correlative adjustments. ... Any... the quarter of 2018 when the analysis is complete\n<|id|>572<|page|>60<|box|>181 22 250 970<|content|>The unrecognized tax benefits that are not expecte... benefits are summarized as follows (in thousands)\n<|id|>574<|page|>60<|box|>467 22 496 967<|content|>The Company includes interest and penalties relate...xes were not material in all the periods presented\n<|id|>580<|page|>60<|box|>731 22 772 962<|content|>The Company has three reportable segments: ... The Company’s CODM reviews revenue and contribution\n<|id|>581<|page|>61<|box|>56 22 95 942<|content|>profit (loss) for each of the reportable segments....erm economic and other qualitative characteristics\n<|id|>630<|page|>72<|box|>369 102 398 913<|content|>c) evaluated the effectiveness of the registrant’s...d by this report based on such evaluation; ... and\n<|id|>635<|page|>72<|box|>585 674 599 813<|content|>/ S / D AVID W ELLS\n<|id|>631<|page|>72<|box|>406 102 446 950<|content|>d) disclosed in this report any change in the regi...internal control over financial reporting; ... and\n<|id|>633<|page|>72<|box|>489 101 518 954<|content|>a) all significant deficiencies and material weakn...ummarize and report financial information; ... and\n<|id|>638<|page|>73<|box|>229 26 244 173<|content|>Dated: ... January 29, 2018\n<|id|>639<|page|>73<|box|>229 478 244 504<|content|>By: ... By\n<|id|>640<|page|>73<|box|>229 544 246 821<|content|>/ S / R EED H ASTINGS\n<|id|>641<|page|>73<|box|>248 684 279 828<|content|>Reed Hastings Chief Executive Officer\n<|id|>642<|page|>73<|box|>376 24 391 173<|content|>Dated: ... January 29, 2018\n<|id|>643<|page|>73<|box|>303 22 344 968<|content|>I, David Wells, certify, pursuant to 18 U. ... for...ondition and results of operations of Netflix, Inc\n<|id|>645<|page|>73<|box|>376 674 391 815<|content|>/ S / D AVID W ELLS\n<|id|>646<|page|>73<|box|>393 684 426 828<|content|>David Wells Chief Financial Officer",
+    "raw_response": "<|src_id|>560<|tgt_id|>561\n<|src_id|>580<|tgt_id|>581",
+    "parsed": [
+        {
+            "src_id": 560,
+            "tgt_id": 561
+        },
+        {
+            "src_id": 580,
+            "tgt_id": 581
+        }
+    ]
+}

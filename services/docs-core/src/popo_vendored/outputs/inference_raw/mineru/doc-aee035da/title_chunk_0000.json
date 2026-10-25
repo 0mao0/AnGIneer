@@ -1,0 +1,40 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        3,
+        4
+    ],
+    "pages": [
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>32<|page|>3<|box|>334 142 352 321<|content|>2. **Escrow Funding**\n<|id|>37<|page|>3<|box|>540 142 558 344<|content|>3. **Closing Certificates**\n<|id|>42<|page|>3<|box|>821 140 840 393<|content|>4. **Good Standing Certificate**\n<|id|>44<|page|>4<|box|>121 143 138 312<|content|>5. **Legal Opinions**\n<|id|>47<|page|>4<|box|>284 140 301 367<|content|>6. **IP Recordation Filings**\n<|id|>51<|page|>4<|box|>478 142 496 326<|content|>7. **Closing Checklist**",
+    "raw_response": "<|id|>32<|level|>1\n<|id|>37<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>47<|level|>1\n<|id|>51<|level|>1",
+    "parsed": [
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        11
+    ],
+    "pages": [
+        2,
+        4,
+        8,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>2<|box|>121 319 137 584<|content|>TOTALS — 47 IDRs IssExtensions: ... 1\n<|id|>3<|page|>4<|box|>122 87 137 875<|content|>Total Documents ProPrivilege OScope ObjeCompleted: ... 1018-00009 — Penterra Pharmaceutical\n<|id|>4<|page|>8<|box|>86 85 120 877<|content|>Sub-IDR ReOriginal S Objection Objection Narrowed ...wed t2023-03-22023-03-1Garret S Leonard Cr18 docum\n<|id|>5<|page|>9<|box|>87 87 101 295<|content|>Bates Ran StatusNotes\n<|id|>6<|page|>9<|box|>104 87 120 875<|content|>PPC-IDR02CompletedOriginal scope objected; ... Kovel-protected anal\n<|id|>7<|page|>11<|box|>85 85 550 878<|content|>MetricValue ClientPenterra Pharmaceuticals Corp. ... 51% of proposed)",
+    "raw_response": "<|src_id|>4<|tgt_id|>5",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        }
+    ]
+}

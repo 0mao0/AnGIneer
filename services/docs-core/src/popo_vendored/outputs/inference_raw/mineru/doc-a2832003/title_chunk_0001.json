@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        50
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>302<|page|>45<|box|>44 87 220 906<|content|>Appendix — Corporate Structure Diagram\n<|id|>303<|page|>45<|box|>250 55 453 859<|content|>• Kallistratos Maritime Holdings Ltd. (BVI) — 72.5\n<|id|>311<|page|>46<|box|>44 91 214 902<|content|>Appendix — Covenant Summary Table\n<|id|>312<|page|>46<|box|>253 55 383 847<|content|>• Incurrence leverage test: Max Total Net Leverage\n<|id|>320<|page|>47<|box|>42 136 214 858<|content|>Appendix — Use of Proceeds Reconciliation\n<|id|>329<|page|>48<|box|>92 109 172 884<|content|>Appendix — Key Financial Data\n<|id|>330<|page|>48<|box|>250 54 377 886<|content|>• LTM Revenue (Q1 2022 Annualized): $687.4 million\n<|id|>340<|page|>49<|box|>44 129 212 865<|content|>Appendix — Security Package Detail\n<|id|>341<|page|>49<|box|>251 54 383 912<|content|>• 28 Collateral Vessels — first-priority ship mort\n<|id|>351<|page|>50<|box|>94 84 170 908<|content|>Appendix — Contact Information\n<|id|>352<|page|>50<|box|>251 54 450 893<|content|>• Lead Bookrunner: Anchor Bay Securities LLC — 599",
+    "raw_response": "<|id|>302<|level|>1\n<|id|>303<|level|>2\n<|id|>311<|level|>1\n<|id|>312<|level|>2\n<|id|>320<|level|>1\n<|id|>329<|level|>1\n<|id|>330<|level|>2\n<|id|>340<|level|>1\n<|id|>341<|level|>2\n<|id|>351<|level|>1\n<|id|>352<|level|>2",
+    "parsed": [
+        {
+            "id": 302,
+            "level": 1
+        },
+        {
+            "id": 303,
+            "level": 2
+        },
+        {
+            "id": 311,
+            "level": 1
+        },
+        {
+            "id": 312,
+            "level": 2
+        },
+        {
+            "id": 320,
+            "level": 1
+        },
+        {
+            "id": 329,
+            "level": 1
+        },
+        {
+            "id": 330,
+            "level": 2
+        },
+        {
+            "id": 340,
+            "level": 1
+        },
+        {
+            "id": 341,
+            "level": 2
+        },
+        {
+            "id": 351,
+            "level": 1
+        },
+        {
+            "id": 352,
+            "level": 2
+        }
+    ]
+}

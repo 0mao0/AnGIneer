@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>111 158 167 836<|content|>CERTIFICATE OF NON-FOREIGN STATUS AND CERTIFICATIO\n<|id|>5<|page|>1<|box|>487 140 503 243<|content|>RECITALS\n<|id|>12<|page|>2<|box|>364 140 383 681<|content|>SECTION 1: IDENTIFICATION OF THE TRANSFEROR ENTITY\n<|id|>22<|page|>3<|box|>89 140 126 826<|content|>SECTION 2: CERTIFICATION REGARDING UNITED STATES R\n<|id|>23<|page|>3<|box|>138 140 156 444<|content|>2.1 Statement of Non-USRPHC Status\n<|id|>27<|page|>3<|box|>410 140 426 346<|content|>2.2 Basis for Certification\n<|id|>51<|page|>5<|box|>367 140 383 439<|content|>2.3 Treasury Regulations Compliance\n<|id|>55<|page|>6<|box|>89 140 107 854<|content|>SECTION 3: CERTIFICATION REGARDING WITHHOLDING UND\n<|id|>64<|page|>7<|box|>89 140 125 841<|content|>SECTION 4: DOMESTICALLY CONTROLLED QUALIFIED INVES\n<|id|>67<|page|>7<|box|>347 140 364 553<|content|>SECTION 5: ADDITIONAL REPRESENTATIONS\n<|id|>74<|page|>8<|box|>89 142 106 529<|content|>SECTION 6: RELIANCE AND DISTRIBUTION\n<|id|>83<|page|>8<|box|>758 140 776 415<|content|>SECTION 7: GOVERNING LAW\n<|id|>86<|page|>9<|box|>133 142 150 442<|content|>CLOUDIUM TECHNOLOGIES PLC\n<|id|>93<|page|>9<|box|>310 142 327 467<|content|>ACKNOWLEDGMENT AND RECEIPT\n<|id|>95<|page|>9<|box|>417 140 434 584<|content|>SOLARA DIGITAL INFRASTRUCTURE FUND VI LP",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>12<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>27<|level|>3\n<|id|>51<|level|>3\n<|id|>55<|level|>2\n<|id|>64<|level|>2\n<|id|>67<|level|>2\n<|id|>74<|level|>2\n<|id|>83<|level|>2\n<|id|>86<|level|>-1\n<|id|>93<|level|>2\n<|id|>95<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        }
+    ]
+}

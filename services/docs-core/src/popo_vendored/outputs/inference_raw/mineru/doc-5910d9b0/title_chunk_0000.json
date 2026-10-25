@@ -1,0 +1,43 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>650 140 667 666<|content|>I. Background on the Engagement and the Chapter 11\n<|id|>15<|page|>2<|box|>685 140 702 848<|content|>II. Resolution of the Restructuring — The Out-of-C\n<|id|>24<|page|>3<|box|>755 140 772 555<|content|>III. Formal Termination of the Standby Engagement\n<|id|>31<|page|>4<|box|>363 142 378 509<|content|>IV. Confirmation That No Amounts Are Owed\n<|id|>34<|page|>4<|box|>713 140 729 560<|content|>V. Return or Destruction of Confidential Informati\n<|id|>38<|page|>5<|box|>267 140 284 516<|content|>VI. Acknowledgments and Contact Information\n<|id|>43<|page|>5<|box|>614 140 631 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>15<|level|>1\n<|id|>24<|level|>1\n<|id|>31<|level|>1\n<|id|>34<|level|>1\n<|id|>38<|level|>1\n<|id|>43<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        }
+    ]
+}

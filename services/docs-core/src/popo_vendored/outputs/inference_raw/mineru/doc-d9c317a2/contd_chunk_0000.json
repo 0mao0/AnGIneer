@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        17,
+        18,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>224 140 242 787<|content|>FROM: ... Daniel Obi, Lead Associate, Banking & Finance, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>250 142 268 330<|content|>DATE: ... August 25, 2023\n<|id|>5<|page|>1<|box|>276 140 313 854<|content|>RE: ... Interaction with Warrant Put Rights and Sponsor Consent Rights\n<|id|>6<|page|>1<|box|>320 143 337 331<|content|>Matter No. ... 1012-00001\n<|id|>7<|page|>1<|box|>345 142 364 348<|content|>Billing Code: ... SLG\n<|id|>8<|page|>1<|box|>372 142 388 408<|content|>Right-click to update Table of Contents\n<|id|>24<|page|>3<|box|>297 174 353 854<|content|>(a) a $275,000,000 Senior Secured Term Loan B faci...75 basis points per annum, subject to a 0. ... and\n<|id|>27<|page|>3<|box|>648 140 723 854<|content|>As of August 15, 2023, the outstanding principal b...mately $3,200,000 in outstanding letters of credit\n<|id|>29<|page|>3<|box|>758 140 905 857<|content|>The proposed mezzanine financing consists of a $12...econd-priority lien on substantially all assets of\n<|id|>30<|page|>4<|box|>89 140 125 854<|content|>Stonefield and its subsidiary guarantors, subordin...irst-priority liens securing the Senior Facilities\n<|id|>58<|page|>6<|box|>838 174 875 854<|content|>(v) A new Section 6. ... and\n<|id|>60<|page|>7<|box|>90 140 219 856<|content|>The consent of the Senior Agent to the transaction... does not intend to propose any such modifications\n<|id|>137<|page|>17<|box|>873 181 909 854<|content|>• Mezzanine Prepayment: ... As illustrated in the table in\n<|id|>138<|page|>18<|box|>89 210 126 854<|content|>Section IV. ... B above, this amount will range fr...$140,074,000 by Year 5, plus accrued cash interest\n<|id|>201<|page|>26<|box|>464 174 500 852<|content|>Daniel Obi Lead Associate, Banking & Finance Calde...e New York, NY 10022 Telephone: ... (212) 554-7300\n<|id|>202<|page|>26<|box|>510 176 526 468<|content|>Email: ... com\n<|id|>203<|page|>26<|box|>530 142 542 171<|content|>cc: ... cc\n<|id|>204<|page|>26<|box|>553 176 569 648<|content|>Lisa Morrow, Working Associate, Calderwood & Harkness LLP\n<|id|>205<|page|>26<|box|>579 176 595 643<|content|>Philip Hartmann, Billing Partner, Calderwood & Harkness LLP\n<|id|>206<|page|>26<|box|>604 140 680 854<|content|>This memorandum is a privileged and confidential a... change as the transaction documents are finalized",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>137<|tgt_id|>138",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 138
+        }
+    ]
+}

@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>127 424 143 573<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>371 385 391 611<|content|>I. Executive Summary\n<|id|>15<|page|>2<|box|>319 310 339 687<|content|>II. Background and Scope of Analysis\n<|id|>16<|page|>2<|box|>364 140 381 452<|content|>A. The MESLSA and Project Argonaut\n<|id|>32<|page|>3<|box|>714 140 732 514<|content|>B. Specific Provisions Under Antitrust Scrutiny\n<|id|>40<|page|>4<|box|>820 140 838 390<|content|>C. Scope of This Memorandum\n<|id|>45<|page|>5<|box|>376 339 396 656<|content|>III. Relevant Market Definition\n<|id|>47<|page|>5<|box|>546 140 563 297<|content|>A. Product Market\n<|id|>61<|page|>7<|box|>684 140 702 323<|content|>B. Geographic Market\n<|id|>66<|page|>8<|box|>238 140 253 506<|content|>C. MeridianCode's Market Share and Position\n<|id|>81<|page|>10<|box|>90 346 111 650<|content|>IV. Federal Antitrust Analysis\n<|id|>82<|page|>10<|box|>136 140 152 470<|content|>A. Sherman Act § 1 — Restraint of Trade\n<|id|>85<|page|>10<|box|>474 142 492 511<|content|>1. Derivative Works License-Back (Section 7.2)\n<|id|>95<|page|>11<|box|>829 140 845 454<|content|>2. Use-It-or-Lose-It Clause (Section 4.3)\n<|id|>103<|page|>12<|box|>781 140 799 550<|content|>3. Fee Forfeiture on Early Termination (Section 9.\n<|id|>109<|page|>13<|box|>664 140 681 486<|content|>4. Change of Control Consent (Section 12.6)\n<|id|>114<|page|>14<|box|>448 140 465 500<|content|>5. Cumulative Effect / Overall § 1 Assessment\n<|id|>127<|page|>15<|box|>637 140 654 666<|content|>B. Sherman Act § 2 — Monopolization / Attempted Mo\n<|id|>134<|page|>16<|box|>801 140 819 537<|content|>C. Clayton Act § 3 — Tying and Exclusive Dealing\n<|id|>142<|page|>18<|box|>90 281 111 715<|content|>V. Michigan Antitrust Reform Act Analysis\n<|id|>151<|page|>19<|box|>136 245 156 751<|content|>VI. Antitrust Implications for Arbitration Strateg\n<|id|>163<|page|>20<|box|>561 295 580 700<|content|>VII. Assessment of Negotiation Leverage\n<|id|>164<|page|>20<|box|>606 140 623 403<|content|>A. MeridianCode's Vulnerability\n<|id|>172<|page|>21<|box|>667 142 684 351<|content|>B. VMS's Leverage Points\n<|id|>178<|page|>22<|box|>458 140 474 341<|content|>C. Limitations and Risks\n<|id|>185<|page|>23<|box|>388 377 409 620<|content|>VIII. Recommendations\n<|id|>200<|page|>25<|box|>429 421 450 576<|content|>IX. Conclusion",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>32<|level|>3\n<|id|>40<|level|>3\n<|id|>45<|level|>2\n<|id|>47<|level|>3\n<|id|>61<|level|>3\n<|id|>66<|level|>3\n<|id|>81<|level|>2\n<|id|>82<|level|>3\n<|id|>85<|level|>4\n<|id|>95<|level|>4\n<|id|>103<|level|>4\n<|id|>109<|level|>4\n<|id|>114<|level|>4\n<|id|>127<|level|>3\n<|id|>134<|level|>3\n<|id|>142<|level|>2\n<|id|>151<|level|>2\n<|id|>163<|level|>2\n<|id|>164<|level|>3\n<|id|>172<|level|>3\n<|id|>178<|level|>3\n<|id|>185<|level|>2\n<|id|>200<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 103,
+            "level": 4
+        },
+        {
+            "id": 109,
+            "level": 4
+        },
+        {
+            "id": 114,
+            "level": 4
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>239 140 257 486<|content|>To: ... 1021-00008\n<|id|>4<|page|>1<|box|>266 140 301 854<|content|>From: ... Liam Donahue, Calderwood & Harkness LLP Steven Hollander, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>310 142 327 462<|content|>Date of Memorandum: ... December 5, 2023\n<|id|>7<|page|>1<|box|>616 140 689 854<|content|>The following is a summary of the substance of the...nce of his responses and are not direct quotations\n<|id|>11<|page|>1<|box|>829 142 883 856<|content|>1. ... The firm's engagement is with and on behalf of the Audit\n<|id|>12<|page|>2<|box|>90 174 125 854<|content|>Committee, and no attorney-client relationship exists between Calderwood & Harkness and Mr. ... Serrano\n<|id|>49<|page|>4<|box|>869 140 906 854<|content|>Serrano stated that he did not raise the proposal ...o VHG General Counsel Patricia Navarro, CFO Thomas\n<|id|>50<|page|>5<|box|>90 140 126 854<|content|>Griffith, or any member of VHG's Board of Director...s ethics hotline but stated that he did not use it\n<|id|>75<|page|>7<|box|>391 145 425 854<|content|>• Coral Dune Resort & Residences, located at 14200...rald Coast Parkway, Destin, Florida 32541; ... and\n<|id|>77<|page|>7<|box|>449 140 539 854<|content|>Serrano stated that he selected these two properti...ies provided cover for the fictitious expenditures\n<|id|>79<|page|>7<|box|>592 147 609 383<|content|>• \"Lobby renovation materials\"\n<|id|>87<|page|>7<|box|>750 140 804 854<|content|>Serrano stated that he selected these descriptions...ices to avoid repetition that might draw attention\n<|id|>80<|page|>7<|box|>612 147 628 343<|content|>• \"Pool deck resurfacing\"\n<|id|>81<|page|>7<|box|>631 148 648 359<|content|>• \"HVAC system upgrades\"\n<|id|>82<|page|>7<|box|>651 148 667 339<|content|>• \"Landscaping services\"\n<|id|>83<|page|>7<|box|>671 148 686 370<|content|>• \"Interior design consulting\"\n<|id|>84<|page|>7<|box|>690 147 705 439<|content|>• \"Exterior painting — common areas\"\n<|id|>85<|page|>7<|box|>710 147 726 450<|content|>• \"Flooring replacement — guest suites\"\n<|id|>86<|page|>7<|box|>729 147 746 513<|content|>• \"Fire suppression system inspection and repair\"\n<|id|>200<|page|>19<|box|>368 140 383 521<|content|>Prepared by: ... Steven Hollander, Calderwood & Harkness LLP\n<|id|>201<|page|>19<|box|>391 140 406 509<|content|>Reviewed by: ... Liam Donahue, Calderwood & Harkness LLP\n<|id|>202<|page|>19<|box|>414 140 429 511<|content|>Approved by: ... Howard Quinn, Calderwood & Harkness LLP\n<|id|>203<|page|>19<|box|>436 140 467 852<|content|>Distribution: ... Audit Committee members — Diane ...ed at next scheduled report to the Audit Committee",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>49<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        }
+    ]
+}

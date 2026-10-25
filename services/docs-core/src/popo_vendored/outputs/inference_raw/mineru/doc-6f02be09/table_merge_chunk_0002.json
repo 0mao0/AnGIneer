@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, 汽车式起重机', '40', 'P_1', '—', '26.5d', '—', '0.7', '0.308', '1.069', '4']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3,colspan=2, 额定起重量(t)或机械代号', 'colspan=2, P(kN)', 'colspan=2, 荷载等级', 'rowspan=2, q(MPa)', 'rowspan=2, A_{z}', 'rowspan=2, B_{z}', 'rowspan=3, k']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 807,
+    "table2_idx": 808
+}

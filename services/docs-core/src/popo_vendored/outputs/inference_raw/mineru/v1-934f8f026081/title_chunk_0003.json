@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        184,
+        198
+    ],
+    "pages": [
+        185,
+        186,
+        198
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>682<|page|>185<|box|>820 115 840 379<|content|>5.3航道通信网工程量表\n<|id|>685<|page|>186<|box|>469 115 489 401<|content|>5.4 内场软件系统工程量表\n<|id|>699<|page|>198<|box|>697 115 718 425<|content|>5.5中心（含机房）工程量表",
+    "raw_response": "<|id|>682<|level|>2\n<|id|>685<|level|>2\n<|id|>699<|level|>2",
+    "parsed": [
+        {
+            "id": 682,
+            "level": 2
+        },
+        {
+            "id": 685,
+            "level": 2
+        },
+        {
+            "id": 699,
+            "level": 2
+        }
+    ]
+}

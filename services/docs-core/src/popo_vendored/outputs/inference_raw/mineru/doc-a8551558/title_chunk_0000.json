@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 235 118 761<|content|>SELECTED CONSOLIDATED FINANCIAL DATA\n<|id|>5<|page|>1<|box|>786 140 803 558<|content|>Selected Consolidated Statements of Operations Dat\n<|id|>10<|page|>3<|box|>424 142 440 470<|content|>Selected Consolidated Balance Sheet Data\n<|id|>14<|page|>4<|box|>464 142 482 336<|content|>Selected Operating Data\n<|id|>18<|page|>5<|box|>277 140 294 225<|content|>Footnotes\n<|id|>19<|page|>5<|box|>303 140 320 433<|content|>(1) Adjusted EBITDA Reconciliation\n<|id|>25<|page|>6<|box|>534 140 551 439<|content|>(2) Pro Forma Per Share Information\n<|id|>29<|page|>7<|box|>189 140 207 413<|content|>(3) Pro Forma Balance Sheet Data\n<|id|>37<|page|>7<|box|>816 142 834 264<|content|>(4) Debt Detail\n<|id|>42<|page|>8<|box|>417 142 434 308<|content|>Project-Finance Debt\n<|id|>45<|page|>8<|box|>824 143 840 310<|content|>Tax-Equity Financing\n<|id|>48<|page|>9<|box|>321 142 339 326<|content|>Key Valuation Context\n<|id|>56<|page|>10<|box|>487 140 503 284<|content|>Cross-References",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>25<|level|>3\n<|id|>29<|level|>3\n<|id|>37<|level|>3\n<|id|>42<|level|>4\n<|id|>45<|level|>4\n<|id|>48<|level|>2\n<|id|>56<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 4
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        }
+    ]
+}

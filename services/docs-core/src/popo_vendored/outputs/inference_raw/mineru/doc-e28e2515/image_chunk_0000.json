@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|type|>title<|page|>1<|box|>212 140 229 611<|content|>VIA ELECTRONIC MAIL AND OVERNIGHT COURIER\n<|id|>8<|type|>title<|page|>1<|box|>361 142 378 367<|content|>1. Introduction and Purpose\n<|id|>13<|type|>title<|page|>1<|box|>780 142 797 334<|content|>2. Identity of the Clients\n<|id|>26<|type|>title<|page|>2<|box|>607 140 625 333<|content|>3. Scope of Engagement\n<|id|>46<|type|>title<|page|>4<|box|>148 140 167 230<|content|>4. Staffing\n<|id|>53<|type|>title<|page|>4<|box|>785 140 801 338<|content|>5. Fees and Billing Rates\n<|id|>55<|type|>table<|page|>4<|box|>854 143 907 852<|content|>None\n<|id|>56<|type|>table<|page|>5<|box|>88 143 155 852<|content|>None\n<|id|>68<|type|>title<|page|>6<|box|>231 140 248 235<|content|>6. Retainer\n<|id|>72<|type|>title<|page|>6<|box|>606 140 623 390<|content|>7. Expenses and Disbursements\n<|id|>84<|type|>title<|page|>7<|box|>560 140 577 380<|content|>8. Billing and Payment Terms\n<|id|>94<|type|>title<|page|>8<|box|>292 140 310 321<|content|>9. Conflicts of Interest\n<|id|>100<|type|>title<|page|>9<|box|>148 142 167 400<|content|>10. Confidentiality and Privilege\n<|id|>105<|type|>title<|page|>9<|box|>734 140 751 357<|content|>11. Document Preservation\n<|id|>111<|type|>title<|page|>10<|box|>439 142 457 416<|content|>12. Communication and Reporting\n<|id|>124<|type|>title<|page|>11<|box|>301 142 318 393<|content|>13. Termination of Engagement\n<|id|>128<|type|>title<|page|>11<|box|>768 140 784 560<|content|>14. Limitation of Liability; No Guarantee of Outco\n<|id|>132<|type|>title<|page|>12<|box|>377 142 393 480<|content|>15. Governing Law and Dispute Resolution\n<|id|>136<|type|>title<|page|>12<|box|>770 140 787 380<|content|>16. Acceptance and Execution\n<|id|>142<|type|>title<|page|>13<|box|>321 142 337 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>149<|type|>title<|page|>13<|box|>441 349 459 647<|content|>ACCEPTANCE AND AGREEMENT\n<|id|>151<|type|>title<|page|>13<|box|>585 142 601 377<|content|>ACCEPTED AND AGREED:\n<|id|>157<|type|>title<|page|>13<|box|>689 434 704 563<|content|>ENCLOSURES\n<|id|>159<|type|>title<|page|>13<|box|>758 142 777 733<|content|>Enclosure B: C&H Standard Supplemental Terms of En",
+    "raw_response": "<|src_id|>55<|tgt_id|>53\n<|src_id|>56<|tgt_id|>53",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 53
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 12,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Total assets', '10.6', '19,354.3', '88.4', '556.1', '*', '19.2', '31.2', '20.1', '2,469.7']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=10, LIABILITIES'], ['Accounts payable:', '', '', '', '', '', '', '', '', '']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 207,
+    "table2_idx": 208
+}

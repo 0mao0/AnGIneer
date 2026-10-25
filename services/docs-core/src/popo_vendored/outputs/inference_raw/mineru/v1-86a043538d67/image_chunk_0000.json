@@ -1,0 +1,70 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>66 88 151 841<|content|>Visualization of Coronary Wall Atherosclerosis in\n<|id|>3<|type|>title<|page|>1<|box|>316 116 332 189<|content|>Abstract\n<|id|>17<|type|>title<|page|>1<|box|>821 89 835 194<|content|>Introduction\n<|id|>22<|type|>title<|page|>2<|box|>368 89 382 279<|content|>Materials and Methods\n<|id|>23<|type|>title<|page|>2<|box|>391 89 405 156<|content|>Subjects\n<|id|>26<|type|>title<|page|>2<|box|>646 89 661 245<|content|>MR Imaging protocol\n<|id|>28<|type|>title<|page|>2<|box|>128 509 143 908<|content|>Evaluation of coronary artery stenosis and plaque\n<|id|>33<|type|>image<|page|>3<|box|>75 94 545 903<|content|>None\n<|id|>34<|type|>title<|page|>3<|box|>753 89 767 220<|content|>Statistical analysis\n<|id|>37<|type|>title<|page|>3<|box|>646 511 660 573<|content|>Results\n<|id|>38<|type|>title<|page|>3<|box|>669 509 684 671<|content|>Subject characteristics\n<|id|>41<|type|>table<|page|>4<|box|>95 99 390 486<|content|>None\n<|id|>42<|type|>title<|page|>4<|box|>457 89 470 310<|content|>Coronary artery atherosclerosis\n<|id|>45<|type|>table<|page|>4<|box|>787 99 916 486<|content|>None\n<|id|>46<|type|>table<|page|>4<|box|>119 519 272 906<|content|>None\n<|id|>52<|type|>table<|page|>5<|box|>113 99 478 486<|content|>None\n<|id|>54<|type|>title<|page|>5<|box|>757 89 772 181<|content|>Discussion\n<|id|>59<|type|>image<|page|>6<|box|>77 96 273 349<|content|>None\n<|id|>60<|type|>image<|page|>6<|box|>77 362 273 617<|content|>None\n<|id|>61<|type|>image<|page|>6<|box|>284 96 479 349<|content|>None\n<|id|>62<|type|>image<|page|>6<|box|>284 362 479 617<|content|>None\n<|id|>66<|type|>image<|page|>7<|box|>75 96 489 903<|content|>None\n<|id|>68<|type|>table<|page|>7<|box|>809 99 898 486<|content|>None\n<|id|>69<|type|>table<|page|>7<|box|>722 521 907 906<|content|>None\n<|id|>72<|type|>title<|page|>8<|box|>458 91 473 183<|content|>References\n<|id|>89<|type|>title<|page|>8<|box|>330 509 345 687<|content|>Author Contributions",
+    "raw_response": "<|src_id|>33<|tgt_id|>28\n<|src_id|>41<|tgt_id|>38\n<|src_id|>45<|tgt_id|>42\n<|src_id|>46<|tgt_id|>42\n<|src_id|>52<|tgt_id|>42\n<|src_id|>59<|tgt_id|>42\n<|src_id|>60<|tgt_id|>42\n<|src_id|>61<|tgt_id|>42\n<|src_id|>62<|tgt_id|>42\n<|src_id|>66<|tgt_id|>42\n<|src_id|>68<|tgt_id|>42\n<|src_id|>69<|tgt_id|>42",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 42
+        }
+    ]
+}

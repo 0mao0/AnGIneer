@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>361 678 378 854<|content|>Filed: ... January 30, 2023\n<|id|>8<|page|>1<|box|>387 140 422 854<|content|>Elaine Forsythe (VSB No. ... 78342) Howard Bellamy...pro hac vice) Monica Reyes (admitted pro hac vice)\n<|id|>9<|page|>1<|box|>430 140 465 852<|content|>CALDERWOOD & HARKNESS LLP 1200 K Street NW, Suite 900 Washington, D. ... (202) 555-7101\n<|id|>10<|page|>1<|box|>476 143 491 176<|content|>and\n<|id|>26<|page|>4<|box|>761 140 930 857<|content|>As to the second argument, the WAP is a facially n... The Complaint identifies no internal CONFIDENTIAL\n<|id|>27<|page|>5<|box|>90 140 127 854<|content|>communications, no admissions by Northgate personn...designed as an instrument of competitive exclusion\n<|id|>40<|page|>6<|box|>724 140 907 857<|content|>Properly understood, Aspen Skiing requires a plain...hree critical elements. ... The defendant in Aspen\n<|id|>41<|page|>7<|box|>90 140 145 854<|content|>Skiing refused to accept the plaintiff's offer to ...he plaintiff's competitive position. ... at 608–10\n<|id|>50<|page|>8<|box|>89 176 107 602<|content|>2. ... 1500 Spring Garden Street, Philadelphia, Pennsylvania\n<|id|>63<|page|>8<|box|>344 140 491 856<|content|>None of these fourteen addresses corresponds to an...ing its requests in March 2021 through August 2022\n<|id|>51<|page|>8<|box|>109 176 127 534<|content|>3. ... 100 Delancey Place, Cherry Hill, New Jersey\n<|id|>52<|page|>8<|box|>128 176 146 517<|content|>4. ... Warren Street, Trenton, New Jersey\n<|id|>53<|page|>8<|box|>148 176 165 501<|content|>5. ... Pratt Street, Baltimore, Maryland\n<|id|>54<|page|>8<|box|>167 176 185 506<|content|>6. ... Fayette Street, Baltimore, Maryland\n<|id|>55<|page|>8<|box|>188 176 204 486<|content|>7. ... Gay Street, Baltimore, Maryland\n<|id|>56<|page|>8<|box|>207 176 224 558<|content|>8. ... 9221 Corporate Boulevard, Rockville, Maryland\n<|id|>59<|page|>8<|box|>266 178 282 511<|content|>11. ... 44755 Prentice Drive, Ashburn, Virginia\n<|id|>60<|page|>8<|box|>285 178 303 537<|content|>12. ... 21571 Beaumeade Circle, Ashburn, Virginia\n<|id|>61<|page|>8<|box|>305 178 321 553<|content|>13. ... 1807 Michael Faraday Court, Reston, Virginia\n<|id|>62<|page|>8<|box|>324 178 342 568<|content|>14. ... 8100 Boone Boulevard, Tysons Corner, Virginia",
+    "raw_response": "<|src_id|>26<|tgt_id|>27\n<|src_id|>40<|tgt_id|>41",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        }
+    ]
+}

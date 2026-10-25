@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['September 18, 2020', \"The SEC declares effective QIH's shelf registration statement on Form S-3 (File No. 333-248710), permitting the Company to offer and sell, from time to time, an indeterminate amount of securities, including common stock, preferred stock, debt securities, warrants, and units, at prices and on terms to be\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'determined at the time of offering.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 88,
+    "table2_idx": 89
+}

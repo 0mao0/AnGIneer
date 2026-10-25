@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        16,
+        25,
+        26,
+        27,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>155 303 196 692<|content|>By and Between MERIDIAN CONSUMER BRANDS LLC (Buyer)\n<|id|>2<|page|>1<|box|>207 480 222 517<|content|>and\n<|id|>3<|page|>1<|box|>232 297 250 700<|content|>BRIARWOOD HOME ESSENTIALS, INC. ... (Seller)\n<|id|>4<|page|>1<|box|>258 423 275 573<|content|>September 15, 2022\n<|id|>5<|page|>1<|box|>284 444 301 553<|content|>Prepared by: ... Prepared by\n<|id|>6<|page|>1<|box|>310 171 325 825<|content|>Calderwood & Harkness LLP 599 Lexington Avenue, 36th Floor New York, NY 10022\n<|id|>7<|page|>1<|box|>335 406 352 589<|content|>Matter No. ... 1011-00005\n<|id|>8<|page|>1<|box|>362 207 378 790<|content|>Drafted by: ... Sandra Tung\n<|id|>9<|page|>1<|box|>388 140 496 854<|content|>These Schedules are delivered by Buyer as Buyer's ...nties, covenants, and agreements set forth therein\n<|id|>21<|page|>2<|box|>654 174 709 854<|content|>(c) Any third-party warehouse, distribution center...ventory held by retailers or distributors; ... and\n<|id|>23<|page|>2<|box|>761 140 871 856<|content|>For the avoidance of doubt, the Inventory includes...nd retained samples related to either product line\n<|id|>56<|page|>5<|box|>366 174 420 854<|content|>(f) All customer lists, supplier lists, pricing in...the CleanLeaf and PureHaven product lines; ... and\n<|id|>58<|page|>5<|box|>455 140 564 854<|content|>A detailed listing of all registered intellectual ...ions related to the CleanLeaf and PureHaven brands\n<|id|>127<|page|>16<|box|>296 140 351 854<|content|>Contracts marked with an asterisk () contain chang...he assignment of Seller's interest to Buyer. ... *\n<|id|>128<|page|>16<|box|>359 140 414 854<|content|>Note: ... 1(d) Annex A for the form of consent req...y Calderwood & Harkness LLP as of October 12, 2022\n<|id|>181<|page|>25<|box|>614 174 651 854<|content|>(f) All permits, licenses, and governmental author...lusively related to the Retained Business; ... and\n<|id|>183<|page|>25<|box|>720 138 849 857<|content|>For the avoidance of doubt, the Retained Business ...s. ... 12 (or equivalent section) of the Agreement\n<|id|>195<|page|>26<|box|>458 174 513 854<|content|>Document Index Reference: ... 1011-00005-CRL-001\n<|id|>196<|page|>26<|box|>521 140 648 854<|content|>The form of consent request letter is designed to ...e counterparty's written consent to the assignment\n<|id|>210<|page|>27<|box|>891 336 907 658<|content|>Buyer's Initial Draft — September 15, 2022\n<|id|>211<|page|>28<|box|>89 251 107 745<|content|>Prepared by Calderwood & Harkness LLP Matter No. ... 1011-00005",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>2<|tgt_id|>3",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        }
+    ]
+}

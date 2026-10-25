@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|page|>1<|box|>426 142 443 367<|content|>1. Introduction and Purpose\n<|id|>16<|page|>2<|box|>241 140 258 321<|content|>2. Tax Advisory Team\n<|id|>21<|page|>2<|box|>825 140 842 408<|content|>3. Scope of Tax Advisory Services\n<|id|>23<|page|>3<|box|>157 140 175 596<|content|>3.1 Passive Foreign Investment Company (PFIC) Anal\n<|id|>37<|page|>4<|box|>540 140 558 542<|content|>3.2 US Federal Income Tax Opinion for Prospectus\n<|id|>49<|page|>6<|box|>90 140 107 429<|content|>3.3 US/German Tax Treaty Analysis\n<|id|>56<|page|>7<|box|>138 140 157 736<|content|>3.4 Qualified Intermediary (QI) Analysis for Merid\n<|id|>64<|page|>8<|box|>138 140 157 643<|content|>3.5 Treaty Benefit Certification Procedures for US\n<|id|>71<|page|>9<|box|>90 140 107 434<|content|>3.6 Additional Tax Advisory Matters\n<|id|>79<|page|>9<|box|>768 140 784 263<|content|>4. Deliverables\n<|id|>89<|page|>10<|box|>752 140 768 377<|content|>5. Limitations and Exclusions\n<|id|>97<|page|>11<|box|>719 140 734 310<|content|>6. Fee Arrangements\n<|id|>103<|page|>12<|box|>383 140 402 433<|content|>7. Coordination with Other Advisors\n<|id|>109<|page|>13<|box|>148 142 167 305<|content|>8. Governing Terms\n<|id|>119<|page|>13<|box|>534 140 550 444<|content|>9. Counterparts and Acknowledgment\n<|id|>124<|page|>13<|box|>845 140 862 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>133<|page|>14<|box|>193 352 209 643<|content|>ACKNOWLEDGED AND AGREED\n<|id|>135<|page|>14<|box|>263 142 280 629<|content|>HALCYON SEMICONDUCTOR AKTIENGESELLSCHAFT\n<|id|>140<|page|>14<|box|>358 447 375 550<|content|>EXHIBIT A\n<|id|>141<|page|>14<|box|>383 220 402 774<|content|>Summary of Tax Advisory Workstreams and Target Del",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>21<|level|>1\n<|id|>23<|level|>2\n<|id|>37<|level|>2\n<|id|>49<|level|>2\n<|id|>56<|level|>2\n<|id|>64<|level|>2\n<|id|>71<|level|>2\n<|id|>79<|level|>1\n<|id|>89<|level|>1\n<|id|>97<|level|>1\n<|id|>103<|level|>1\n<|id|>109<|level|>1\n<|id|>119<|level|>1\n<|id|>124<|level|>-1\n<|id|>133<|level|>-1\n<|id|>135<|level|>-1\n<|id|>140<|level|>1\n<|id|>141<|level|>2",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 2
+        }
+    ]
+}

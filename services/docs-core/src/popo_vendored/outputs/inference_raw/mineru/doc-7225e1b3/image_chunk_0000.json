@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 143 125 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>1<|type|>title<|page|>1<|box|>133 354 151 643<|content|>MEMORANDUM OF INTERVIEW\n<|id|>6<|type|>table<|page|>1<|box|>280 143 554 852<|content|>None\n<|id|>8<|type|>title<|page|>1<|box|>739 142 756 503<|content|>1. Upjohn Warnings and Preliminary Matters\n<|id|>16<|type|>title<|page|>2<|box|>700 140 717 336<|content|>2. Background and Role\n<|id|>23<|type|>title<|page|>3<|box|>739 140 757 653<|content|>3. Oversight of VCR and Relationship with Division\n<|id|>30<|type|>title<|page|>5<|box|>148 140 167 560<|content|>4. Knowledge of VCR Revenue-Recognition Practices\n<|id|>35<|type|>table<|page|>6<|box|>169 143 282 852<|content|>None\n<|id|>38<|type|>title<|page|>6<|box|>566 140 584 736<|content|>5. Knowledge of Capital-Improvement Expenditures a\n<|id|>44<|type|>table<|page|>7<|box|>741 143 881 852<|content|>None\n<|id|>46<|type|>title<|page|>8<|box|>241 140 258 513<|content|>6. HSA Communication and Calder's Response\n<|id|>57<|type|>title<|page|>9<|box|>573 140 590 486<|content|>7. SOX Certifications and Internal Controls\n<|id|>61<|type|>title<|page|>10<|box|>560 140 577 493<|content|>8. Awareness of SEC and Disclosure Matters\n<|id|>66<|type|>title<|page|>11<|box|>304 140 320 524<|content|>9. Institutional Shareholders and Market Impact\n<|id|>69<|type|>title<|page|>11<|box|>671 142 688 486<|content|>10. Communications with Daskine — Detail\n<|id|>74<|type|>title<|page|>12<|box|>696 142 712 388<|content|>11. D&O Insurance Awareness\n<|id|>76<|type|>title<|page|>13<|box|>167 142 185 354<|content|>12. Closing and Follow-Up",
+    "raw_response": "<|src_id|>6<|tgt_id|>1\n<|src_id|>35<|tgt_id|>30\n<|src_id|>44<|tgt_id|>38",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 38
+        }
+    ]
+}

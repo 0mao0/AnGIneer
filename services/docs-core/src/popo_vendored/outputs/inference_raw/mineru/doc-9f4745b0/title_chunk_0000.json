@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>356 140 373 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>13<|page|>2<|box|>304 140 321 333<|content|>2. Scope of Engagement\n<|id|>15<|page|>2<|box|>378 140 396 294<|content|>2.1 Legal Opinions\n<|id|>21<|page|>3<|box|>458 142 474 351<|content|>2.2 Real Property Matters\n<|id|>32<|page|>4<|box|>463 140 479 349<|content|>2.3 UCC Filing Assistance\n<|id|>38<|page|>5<|box|>157 140 174 393<|content|>2.4 General Illinois Law Advice\n<|id|>45<|page|>5<|box|>554 140 570 482<|content|>3. Identification of Key Parties and Entities\n<|id|>50<|page|>6<|box|>424 140 441 529<|content|>4. C&H Engagement Team and Points of Contact\n<|id|>58<|page|>7<|box|>229 140 248 450<|content|>5. Transaction Timeline and Key Dates\n<|id|>62<|page|>8<|box|>90 140 107 516<|content|>6. Transaction Summary — Additional Context\n<|id|>75<|page|>9<|box|>90 140 107 406<|content|>7. Fees and Billing Arrangements\n<|id|>82<|page|>9<|box|>763 140 780 284<|content|>8. Confidentiality\n<|id|>87<|page|>10<|box|>383 140 402 357<|content|>9. Conflicts / Independence\n<|id|>103<|page|>11<|box|>90 142 107 379<|content|>10. Limitation of Engagement\n<|id|>109<|page|>11<|box|>481 142 497 465<|content|>11. Document Delivery and Coordination\n<|id|>112<|page|>12<|box|>90 142 107 354<|content|>12. Term and Termination\n<|id|>115<|page|>12<|box|>402 142 419 406<|content|>13. Acceptance and Confirmation\n<|id|>124<|page|>12<|box|>801 334 818 661<|content|>ACCEPTANCE AND CONFIRMATION",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>2\n<|id|>21<|level|>2\n<|id|>32<|level|>2\n<|id|>38<|level|>2\n<|id|>45<|level|>1\n<|id|>50<|level|>1\n<|id|>58<|level|>1\n<|id|>62<|level|>1\n<|id|>75<|level|>1\n<|id|>82<|level|>1\n<|id|>87<|level|>1\n<|id|>103<|level|>1\n<|id|>109<|level|>1\n<|id|>112<|level|>1\n<|id|>115<|level|>1\n<|id|>124<|level|>2",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 2
+        }
+    ]
+}

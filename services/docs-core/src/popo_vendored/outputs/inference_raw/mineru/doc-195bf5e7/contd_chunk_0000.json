@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 264 133 733<|content|>425 Lexington Avenue, 31st Floor New York, New York 10017\n<|id|>2<|page|>1<|box|>141 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 728 185 854<|content|>August 15, 2025\n<|id|>4<|page|>1<|box|>193 140 229 854<|content|>Ironclad National Bank, as Administrative Agent 301 South Tryon Street Charlotte, North Carolina 28202\n<|id|>5<|page|>1<|box|>237 140 255 761<|content|>Attention: ... Kenneth Boateng, Senior Vice President, Healthcare & Specialty Lending\n<|id|>6<|page|>1<|box|>255 140 329 854<|content|>Re: ... , the Lenders party thereto, and Ironclad ...n in the aggregate principal amount of $84,000,000\n<|id|>7<|page|>1<|box|>335 140 353 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>29<|page|>3<|box|>294 178 402 857<|content|>17. ... and\n<|id|>31<|page|>3<|box|>462 140 571 856<|content|>In addition, we have reviewed such questions of la...priate as a basis for the opinions set forth below\n<|id|>47<|page|>4<|box|>814 140 888 857<|content|>Opinion 2 — Due Organization and Good Standing of ...f the State of Delaware dated August 12, 2025, the\n<|id|>48<|page|>5<|box|>89 140 126 856<|content|>Certificate of Incorporation of CPS Holdings (as c...icate of CPS Holdings delivered on the date hereof\n<|id|>63<|page|>7<|box|>849 140 905 856<|content|>As used in this opinion letter, the phrases \"to ou... Prentice, Sandra Tung, Derek Okonkwo, and Tiffany\n<|id|>64<|page|>8<|box|>90 140 200 856<|content|>Rosenthal, each of whom is an attorney at this fir...ualification in any other opinion expressed herein\n<|id|>72<|page|>8<|box|>662 174 736 856<|content|>(iv) Limitations that may be imposed by law on the...tation, federal and state securities laws; ... and\n<|id|>74<|page|>8<|box|>787 140 824 854<|content|>The qualifications set forth in clauses (i) throug...erein as the \"Enforceability Qualifications. ... \"\n<|id|>76<|page|>8<|box|>859 140 897 854<|content|>The opinions expressed herein are limited in all r..., except as set forth in Section VI(D) below), the\n<|id|>77<|page|>9<|box|>90 140 328 856<|content|>General Corporation Law of the State of Delaware (...pect to any state or local tax laws or regulations\n<|id|>88<|page|>9<|box|>872 176 907 854<|content|>(ix) Federal or state healthcare fraud and abuse l...w\"), 42 U. ... § 1395nn, the Federal Anti-Kickback\n<|id|>89<|page|>10<|box|>89 174 164 854<|content|>Statute, 42 U. ... and\n<|id|>111<|page|>11<|box|>805 397 821 599<|content|>(Referenced in Opinion 12)\n<|id|>112<|page|>11<|box|>830 140 885 854<|content|>The following is the list of material agreements, ...n letter (collectively, the \"Reviewed Agreements\")",
+    "raw_response": "<|src_id|>47<|tgt_id|>48\n<|src_id|>63<|tgt_id|>64\n<|src_id|>76<|tgt_id|>77\n<|src_id|>88<|tgt_id|>89",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        }
+    ]
+}

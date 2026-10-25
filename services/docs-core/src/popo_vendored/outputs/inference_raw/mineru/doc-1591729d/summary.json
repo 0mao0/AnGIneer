@@ -1,0 +1,239 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-d3fe_g4w\\input\\pdfs\\doc-1591729d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-d3fe_g4w\\enriched\\doc-1591729d.json",
+    "contd_output": "<|src_id|>10<|tgt_id|>11",
+    "title_output": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>26<|level|>3\n<|id|>34<|level|>3\n<|id|>37<|level|>2\n<|id|>38<|level|>3\n<|id|>43<|level|>3\n<|id|>51<|level|>3\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>70<|level|>3\n<|id|>73<|level|>4\n<|id|>77<|level|>4\n<|id|>85<|level|>3\n<|id|>94<|level|>2\n<|id|>100<|level|>2\n<|id|>106<|level|>2\n<|id|>116<|level|>2\n<|id|>124<|level|>2\n<|id|>134<|level|>2\n<|id|>137<|level|>2\n<|id|>141<|level|>3\n<|id|>148<|level|>3\n<|id|>151<|level|>3",
+    "image_output": "<|src_id|>6<|tgt_id|>1\n<|src_id|>22<|tgt_id|>20\n<|src_id|>23<|tgt_id|>20\n<|src_id|>28<|tgt_id|>26\n<|src_id|>35<|tgt_id|>34\n<|src_id|>45<|tgt_id|>43\n<|src_id|>46<|tgt_id|>43\n<|src_id|>48<|tgt_id|>43\n<|src_id|>92<|tgt_id|>85\n<|src_id|>102<|tgt_id|>100\n<|src_id|>135<|tgt_id|>134\n<|src_id|>147<|tgt_id|>141\n<|src_id|>149<|tgt_id|>148\n<|src_id|>150<|tgt_id|>148",
+    "contd_label": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 6,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 141
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 148
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 22,
+            "table2_idx": 23,
+            "upper_row_ss": [
+                [
+                    "Date of Formation",
+                    "July 22, 2022"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Formation Document",
+                    "Certificate of Limited Partnership filed with the Delaware Secretary of State"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 45,
+            "table2_idx": 46,
+            "upper_row_ss": [
+                [
+                    "Residential Address",
+                    "On file with C&H"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Identification Document",
+                    "On file with C&H (U.S. passport or state-issued driver's license)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 149,
+            "table2_idx": 150,
+            "upper_row_ss": [
+                [
+                    "Lillian Fong",
+                    "Partner, Portfolio, Meridian GP IV",
+                    "No match",
+                    "No match",
+                    "No match",
+                    "No match",
+                    "No match",
+                    "Clear"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Graham Whitfield",
+                    "Partner, Operations, Meridian GP IV",
+                    "No match",
+                    "No match",
+                    "No match",
+                    "No match",
+                    "No match",
+                    "Clear"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,195 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6odk7em8\\input\\pdfs\\doc-2c12c3e2.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6odk7em8\\enriched\\doc-2c12c3e2.json",
+    "contd_output": "<|src_id|>58<|tgt_id|>59\n<|src_id|>80<|tgt_id|>81\n<|src_id|>210<|tgt_id|>211",
+    "title_output": "<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>11<|level|>3\n<|id|>19<|level|>3\n<|id|>29<|level|>3\n<|id|>36<|level|>3\n<|id|>40<|level|>3\n<|id|>43<|level|>3\n<|id|>60<|level|>3\n<|id|>67<|level|>3\n<|id|>71<|level|>3\n<|id|>79<|level|>3\n<|id|>94<|level|>2\n<|id|>96<|level|>3\n<|id|>99<|level|>3\n<|id|>114<|level|>3\n<|id|>118<|level|>2\n<|id|>128<|level|>2\n<|id|>149<|level|>2\n<|id|>159<|level|>2\n<|id|>161<|level|>3\n<|id|>174<|level|>3\n<|id|>187<|level|>3\n<|id|>204<|level|>3\n<|id|>212<|level|>2\n<|id|>225<|level|>2\n<|id|>234<|level|>2",
+    "image_output": "<|src_id|>3<|tgt_id|>2\n<|src_id|>16<|tgt_id|>11\n<|src_id|>41<|tgt_id|>40\n<|src_id|>121<|tgt_id|>118\n<|src_id|>131<|tgt_id|>128\n<|src_id|>146<|tgt_id|>128\n<|src_id|>147<|tgt_id|>128\n<|src_id|>227<|tgt_id|>225\n<|src_id|>228<|tgt_id|>225",
+    "contd_label": [
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 211
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 212,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 2
+        },
+        {
+            "id": 234,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 118
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 225
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 146,
+            "table2_idx": 147,
+            "upper_row_ss": [
+                [
+                    "Without CEMA (full new",
+                    "$78,000,000",
+                    "2.80%",
+                    "$2,184,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "mortgage)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

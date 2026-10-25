@@ -1,0 +1,135 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>6<|type|>table<|page|>1<|box|>319 143 502 852<|content|>None\n<|id|>7<|type|>title<|page|>1<|box|>551 142 569 207<|content|>Bill To:\n<|id|>9<|type|>title<|page|>1<|box|>637 140 654 411<|content|>Summary of Professional Services\n<|id|>11<|type|>title<|page|>2<|box|>369 142 386 506<|content|>Detailed Time Entries — Professional Services\n<|id|>12<|type|>title<|page|>2<|box|>398 142 417 354<|content|>Miriam Calloway, Partner\n<|id|>13<|type|>table<|page|>2<|box|>446 143 896 852<|content|>None\n<|id|>14<|type|>table<|page|>3<|box|>90 143 905 851<|content|>None\n<|id|>15<|type|>table<|page|>4<|box|>90 143 904 851<|content|>None\n<|id|>16<|type|>table<|page|>5<|box|>89 143 415 851<|content|>None\n<|id|>17<|type|>title<|page|>5<|box|>449 143 467 573<|content|>Calloway Subtotal: 18.0 hours × $1,350.00 = $24,30\n<|id|>19<|type|>table<|page|>5<|box|>527 143 898 851<|content|>None\n<|id|>20<|type|>table<|page|>6<|box|>89 143 337 851<|content|>None\n<|id|>21<|type|>title<|page|>6<|box|>371 142 388 540<|content|>Strauss Subtotal: 5.5 hours × $1,275.00 = $7,012.5\n<|id|>22<|type|>title<|page|>6<|box|>402 142 419 403<|content|>Sean Morrissey, Senior Associate\n<|id|>23<|type|>table<|page|>6<|box|>449 143 901 852<|content|>None\n<|id|>24<|type|>table<|page|>7<|box|>90 143 907 851<|content|>None\n<|id|>25<|type|>table<|page|>8<|box|>90 143 909 852<|content|>None\n<|id|>26<|type|>table<|page|>9<|box|>90 143 905 851<|content|>None\n<|id|>27<|type|>table<|page|>10<|box|>90 143 909 851<|content|>None\n<|id|>28<|type|>table<|page|>11<|box|>89 143 277 851<|content|>None\n<|id|>29<|type|>title<|page|>11<|box|>311 142 328 565<|content|>Morrissey Subtotal: 35.2 hours × $875.00 = $30,800\n<|id|>32<|type|>table<|page|>11<|box|>388 143 902 851<|content|>None\n<|id|>33<|type|>table<|page|>12<|box|>90 143 896 851<|content|>None\n<|id|>34<|type|>table<|page|>13<|box|>90 143 909 852<|content|>None\n<|id|>35<|type|>table<|page|>14<|box|>89 143 790 852<|content|>None\n<|id|>36<|type|>title<|page|>14<|box|>825 143 842 532<|content|>Aiken Subtotal: 23.7 hours × $650.00 = $15,405.00\n<|id|>37<|type|>title<|page|>14<|box|>856 143 873 467<|content|>Paralegal Support. Hourly Rate: $375.00\n<|id|>38<|type|>table<|page|>14<|box|>877 143 898 852<|content|>None\n<|id|>40<|type|>table<|page|>15<|box|>89 143 715 852<|content|>None\n<|id|>41<|type|>table<|page|>15<|box|>814 143 907 852<|content|>None\n<|id|>42<|type|>table<|page|>16<|box|>88 143 176 852<|content|>None\n<|id|>43<|type|>table<|page|>16<|box|>250 143 340 852<|content|>None\n<|id|>44<|type|>table<|page|>16<|box|>412 143 489 852<|content|>None\n<|id|>45<|type|>table<|page|>16<|box|>563 143 742 852<|content|>None\n<|id|>46<|type|>title<|page|>16<|box|>791 143 808 313<|content|>Payment Instructions\n<|id|>48<|type|>title<|page|>16<|box|>842 143 859 264<|content|>Wire Transfer:\n<|id|>49<|type|>table<|page|>16<|box|>866 143 905 852<|content|>None\n<|id|>50<|type|>table<|page|>17<|box|>89 143 198 852<|content|>None\n<|id|>52<|type|>title<|page|>17<|box|>276 143 292 300<|content|>Payment by Check:\n<|id|>58<|type|>title<|page|>17<|box|>439 143 455 336<|content|>TERMS AND CONDITIONS",
+    "raw_response": "<|src_id|>6<|tgt_id|>9\n<|src_id|>13<|tgt_id|>12\n<|src_id|>14<|tgt_id|>12\n<|src_id|>15<|tgt_id|>12\n<|src_id|>16<|tgt_id|>12\n<|src_id|>19<|tgt_id|>17\n<|src_id|>20<|tgt_id|>17\n<|src_id|>23<|tgt_id|>22\n<|src_id|>24<|tgt_id|>22\n<|src_id|>25<|tgt_id|>22\n<|src_id|>26<|tgt_id|>22\n<|src_id|>27<|tgt_id|>22\n<|src_id|>28<|tgt_id|>22\n<|src_id|>32<|tgt_id|>29\n<|src_id|>33<|tgt_id|>29\n<|src_id|>34<|tgt_id|>29\n<|src_id|>35<|tgt_id|>29\n<|src_id|>38<|tgt_id|>37\n<|src_id|>40<|tgt_id|>37\n<|src_id|>41<|tgt_id|>37\n<|src_id|>42<|tgt_id|>37\n<|src_id|>43<|tgt_id|>37\n<|src_id|>44<|tgt_id|>37\n<|src_id|>45<|tgt_id|>37\n<|src_id|>49<|tgt_id|>48\n<|src_id|>50<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        }
+    ]
+}

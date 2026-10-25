@@ -1,0 +1,61 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>146 87 183 907<|content|>中 华 人 民 共 和 国 国 家 标 准\n<|id|>2<|type|>title<|page|>1<|box|>395 218 430 774<|content|>海区浮动助航标志配布导则\n<|id|>3<|type|>title<|page|>1<|box|>458 228 480 768<|content|>Directivesonthelayoutoffloatingaidstonavigation\n<|id|>6<|type|>title<|page|>2<|box|>134 445 156 552<|content|>目次\n<|id|>8<|type|>title<|page|>3<|box|>135 443 156 554<|content|>前言\n<|id|>14<|type|>title<|page|>4<|box|>135 336 156 658<|content|>海区浮动助航标志配布导则\n<|id|>15<|type|>title<|page|>4<|box|>196 109 211 176<|content|>1 范围\n<|id|>18<|type|>title<|page|>4<|box|>291 107 306 263<|content|>2 规范性引用文件\n<|id|>23<|type|>title<|page|>4<|box|>444 107 458 228<|content|>3 术语和定义\n<|id|>25<|type|>title<|page|>4<|box|>501 107 514 141<|content|>3.1w\n<|id|>26<|type|>title<|page|>4<|box|>521 142 536 465<|content|>浮动助航标志 floatingaidstonavigation\n<|id|>28<|type|>title<|page|>4<|box|>596 107 612 211<|content|>4 配布原则\n<|id|>35<|type|>title<|page|>4<|box|>808 107 822 211<|content|>5 一般要求\n<|id|>36<|type|>title<|page|>4<|box|>843 107 857 334<|content|>51 港口或航道(水道)入口\n<|id|>39<|type|>title<|page|>5<|box|>155 107 170 228<|content|>52 疏浚航道\n<|id|>41<|type|>image<|page|>5<|box|>286 216 556 783<|content|>None\n<|id|>44<|type|>title<|page|>5<|box|>744 107 759 228<|content|>53 自然航道\n<|id|>47<|type|>image<|page|>6<|box|>112 216 397 783<|content|>None\n<|id|>49<|type|>title<|page|>6<|box|>475 107 489 282<|content|>54 船舶定线制水域\n<|id|>52<|type|>image<|page|>6<|box|>577 216 863 783<|content|>None\n<|id|>57<|type|>title<|page|>7<|box|>254 107 269 230<|content|>55 桥区航道\n<|id|>63<|type|>image<|page|>7<|box|>483 253 762 739<|content|>None\n<|id|>65<|type|>image<|page|>8<|box|>107 235 365 759<|content|>None\n<|id|>67<|type|>image<|page|>8<|box|>475 236 733 759<|content|>None\n<|id|>69<|type|>title<|page|>8<|box|>816 107 831 231<|content|>56 其他水域\n<|id|>70<|type|>title<|page|>8<|box|>844 107 859 213<|content|>561 锚地\n<|id|>72<|type|>image<|page|>9<|box|>111 238 370 761<|content|>None\n<|id|>73<|type|>title<|page|>9<|box|>422 107 438 265<|content|>562 海上作业区\n<|id|>75<|type|>title<|page|>9<|box|>497 107 512 230<|content|>563 娱乐区ww.\n<|id|>77<|type|>title<|page|>9<|box|>552 107 568 211<|content|>564 港池\n<|id|>79<|type|>image<|page|>9<|box|>615 243 872 754<|content|>None\n<|id|>80<|type|>title<|page|>10<|box|>115 107 130 300<|content|>565 水中建(构)筑物\n<|id|>84<|type|>title<|page|>10<|box|>282 107 299 211<|content|>5.7 危险物\n<|id|>86<|type|>image<|page|>10<|box|>334 236 596 761<|content|>None\n<|id|>91<|type|>title<|page|>10<|box|>809 107 824 211<|content|>6 技术要求\n<|id|>92<|type|>title<|page|>10<|box|>843 107 858 228<|content|>61 基本要求\n<|id|>101<|type|>title<|page|>11<|box|>340 107 354 228<|content|>62 位置要求\n<|id|>106<|type|>title<|page|>11<|box|>517 107 532 211<|content|>7 其他要求",
+    "raw_response": "<|src_id|>41<|tgt_id|>39\n<|src_id|>47<|tgt_id|>44\n<|src_id|>52<|tgt_id|>49\n<|src_id|>63<|tgt_id|>57\n<|src_id|>65<|tgt_id|>57\n<|src_id|>67<|tgt_id|>57\n<|src_id|>72<|tgt_id|>70\n<|src_id|>79<|tgt_id|>77\n<|src_id|>86<|tgt_id|>84",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 84
+        }
+    ]
+}

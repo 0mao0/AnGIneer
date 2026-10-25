@@ -1,0 +1,167 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-sru39mjh\\input\\pdfs\\doc-eb932fab.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-sru39mjh\\enriched\\doc-eb932fab.json",
+    "contd_output": "<|src_id|>49<|tgt_id|>50\n<|src_id|>152<|tgt_id|>153",
+    "title_output": "<|id|>3<|level|>1\n<|id|>10<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>3\n<|id|>41<|level|>3\n<|id|>53<|level|>3\n<|id|>83<|level|>3\n<|id|>99<|level|>3\n<|id|>109<|level|>2\n<|id|>115<|level|>2\n<|id|>133<|level|>2\n<|id|>135<|level|>3\n<|id|>146<|level|>3\n<|id|>154<|level|>3\n<|id|>160<|level|>3\n<|id|>201<|level|>3\n<|id|>214<|level|>3\n<|id|>222<|level|>3\n<|id|>230<|level|>3\n<|id|>242<|level|>2\n<|id|>254<|level|>2\n<|id|>270<|level|>2",
+    "image_output": "<|src_id|>101<|tgt_id|>99\n<|src_id|>111<|tgt_id|>109\n<|src_id|>112<|tgt_id|>109\n<|src_id|>113<|tgt_id|>109\n<|src_id|>114<|tgt_id|>109",
+    "contd_label": [
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        }
+    ],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 242,
+            "level": 2
+        },
+        {
+            "id": 254,
+            "level": 2
+        },
+        {
+            "id": 270,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 101,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 109
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 111,
+            "table2_idx": 112,
+            "upper_row_ss": [
+                [
+                    "Personal email forwarding (340 emails to galdrich.private@Northgate Software.com, July 2021 – September 2022)",
+                    "\"Convenience — I worked from home frequently and needed access to AMA materials on my personal devices. This was a common practice among AMA executives.\"",
+                    "Did AMA provide VPN and remote access capabilities? (Yes.) Was personal email necessary to perform your job functions? (No.) Who else at AMA, specifically, used personal email to forward proprietary show concepts, revenue models, or talent deal terms? (Expected: unable to identify anyone.) Did you inform AMA's IT department that you were using personal email for business"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "purposes? Did you inform your supervisor, Jonathan Mercer? Did you inform HR or Legal?"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 112,
+            "table2_idx": 113,
+            "upper_row_ss": [
+                [
+                    "\"For cause\" termination — policy",
+                    "\"It wasn't a violation — this was",
+                    "Show the specific policy language"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "violation (Ground 1)",
+                    "routine practice. Everyone at AMA forwards emails to personal accounts. AMA never enforced this policy.\"",
+                    "prohibiting forwarding to personal accounts and to non-approved third parties. Show the signed acknowledgment. Ask whether he is aware of AMA ever authorizing the transmission of format bibles and revenue models to competitors. Ask whether any AMA executive, to his knowledge, transmitted proprietary materials to a competing production company's general email address."
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        52
+    ],
+    "pages": [
+        5,
+        9,
+        15,
+        17,
+        18,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        38,
+        39,
+        40,
+        45,
+        47,
+        48,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>5<|box|>289 84 327 794<|content|>U.S. TREASURY DEPARTMENT\n<|id|>23<|page|>9<|box|>50 270 82 706<|content|>Bulletin of the Treasury Department, January 1944\n<|id|>30<|page|>15<|box|>52 169 85 865<|content|>Appropriations and Net Contract Authorizations for\n<|id|>38<|page|>17<|box|>51 340 64 652<|content|>Budgetary Receipts and Expenditures\n<|id|>39<|page|>17<|box|>75 308 89 682<|content|>Table 1.- Summary by Major Classifications\n<|id|>47<|page|>18<|box|>50 270 63 707<|content|>Budgetary Receipts and Expenditures - (Continued)\n<|id|>52<|page|>20<|box|>55 261 69 698<|content|>Budgetary Receipts and Expenditures - (Continued)\n<|id|>54<|page|>21<|box|>48 198 71 783<|content|>BUDGETARY RECEIPTS AND EXPENDITURES\n<|id|>55<|page|>22<|box|>43 292 57 695<|content|>Trust Account, Etc. Receipts and Expenditures\n<|id|>59<|page|>24<|box|>73 283 87 707<|content|>Section I.- Budgetary Receipts and Expenditures\n<|id|>60<|page|>24<|box|>99 365 112 630<|content|>Table 1.- Social Security Act\n<|id|>66<|page|>25<|box|>80 214 96 755<|content|>Section I.- Budgetary Receipts and Expenditures -\n<|id|>67<|page|>25<|box|>107 336 121 633<|content|>Table 2.- Railroad Retirement Act\n<|id|>70<|page|>26<|box|>79 313 92 684<|content|>Section II.- Statements of Trust Accounts\n<|id|>95<|page|>38<|box|>45 198 94 783<|content|>Maturity Schedule of Interest-Bearing Public Marke\n<|id|>97<|page|>39<|box|>56 216 105 799<|content|>Maturity Schedule of Interest-Bearing Public Marke\n<|id|>101<|page|>40<|box|>47 195 95 783<|content|>Maturity Schedule of Interest-Bearing Public Marke\n<|id|>108<|page|>45<|box|>55 273 68 713<|content|>Sales of United States Savings Bonds - (Continued)\n<|id|>112<|page|>47<|box|>78 261 92 759<|content|>Table 3.- Sales Reported by Series, Classified by\n<|id|>116<|page|>48<|box|>79 176 95 799<|content|>Table 3.- Sales Reported by Series, Classified by\n<|id|>119<|page|>49<|box|>47 235 62 783<|content|>Participation in Payroll Savings Plans For War Sav\n<|id|>122<|page|>50<|box|>59 266 92 737<|content|>Sales of Treasury Savings Notes ^{1} Table 1.- Sum\n<|id|>124<|page|>51<|box|>44 301 59 708<|content|>Sales of Treasury Savings Notes ^{1/} - (Continued\n<|id|>125<|page|>51<|box|>66 209 80 799<|content|>Table 1.- Summary of Sales and Redemptions, by Ser",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>23<|level|>1\n<|id|>30<|level|>1\n<|id|>38<|level|>1\n<|id|>39<|level|>2\n<|id|>47<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>70<|level|>2\n<|id|>95<|level|>1\n<|id|>97<|level|>1\n<|id|>101<|level|>1\n<|id|>108<|level|>1\n<|id|>112<|level|>2\n<|id|>116<|level|>2\n<|id|>119<|level|>1\n<|id|>122<|level|>1\n<|id|>124<|level|>1\n<|id|>125<|level|>2",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>500 140 516 434<|content|>1. Purpose and Scope of Engagement\n<|id|>30<|page|>3<|box|>814 140 832 433<|content|>2. Responsible Attorney and Staffing\n<|id|>40<|page|>4<|box|>654 140 672 338<|content|>3. Fees and Billing Rates\n<|id|>47<|page|>5<|box|>630 140 647 390<|content|>4. Expenses and Disbursements\n<|id|>57<|page|>6<|box|>443 140 460 379<|content|>5. Billing and Payment Terms\n<|id|>66<|page|>7<|box|>150 140 167 307<|content|>6. Advance Retainer\n<|id|>68<|page|>7<|box|>325 140 344 398<|content|>7. Conflict of Interest Disclosure\n<|id|>74<|page|>8<|box|>90 140 107 284<|content|>8. Confidentiality\n<|id|>77<|page|>8<|box|>366 140 383 326<|content|>9. Document Retention\n<|id|>80<|page|>8<|box|>642 142 659 457<|content|>10. Client Identity and Communications\n<|id|>91<|page|>9<|box|>426 140 444 349<|content|>11. Limitation of Liability\n<|id|>95<|page|>9<|box|>765 140 782 274<|content|>12. Termination\n<|id|>101<|page|>10<|box|>402 142 419 379<|content|>13. No Guarantee of Outcome\n<|id|>103<|page|>10<|box|>598 142 614 480<|content|>14. Governing Law and Dispute Resolution\n<|id|>106<|page|>10<|box|>858 140 893 854<|content|>EACH PARTY HEREBY KNOWINGLY, VOLUNTARILY, AND IRRE\n<|id|>107<|page|>11<|box|>89 140 126 854<|content|>PROCEEDING, OR COUNTERCLAIM ARISING OUT OF OR RELA\n<|id|>109<|page|>11<|box|>213 140 229 428<|content|>15. Entire Agreement; Amendments\n<|id|>112<|page|>11<|box|>452 140 469 439<|content|>16. Acceptance and Countersignature\n<|id|>117<|page|>11<|box|>726 140 744 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>118<|page|>12<|box|>89 140 125 553<|content|>Email: jprentice@calderwoodharkness.com ACKNOWLEDG",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>30<|level|>1\n<|id|>40<|level|>1\n<|id|>47<|level|>1\n<|id|>57<|level|>1\n<|id|>66<|level|>1\n<|id|>68<|level|>1\n<|id|>74<|level|>1\n<|id|>77<|level|>1\n<|id|>80<|level|>1\n<|id|>91<|level|>1\n<|id|>95<|level|>1\n<|id|>101<|level|>1\n<|id|>103<|level|>1\n<|id|>106<|level|>-1\n<|id|>107<|level|>-1\n<|id|>109<|level|>1\n<|id|>112<|level|>1\n<|id|>117<|level|>-1\n<|id|>118<|level|>-1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        6,
+        52
+    ],
+    "pages": [
+        6,
+        10,
+        23,
+        34,
+        51
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>22<|page|>6<|box|>518 84 621 490<|content|>Employment on nonfarm payrolls plunged by 223,000 ...dy declines in factory employment since the middle\n<|id|>23<|page|>6<|box|>463 86 520 488<|content|>Payroll employment has declined in recent months, ...ditions, wage growth has shown no signs of slowing\n<|id|>66<|page|>10<|box|>439 80 482 488<|content|>Net national saving slowed to 6. ... 7 per-\n<|id|>67<|page|>10<|box|>482 80 662 282<|content|>cent in the first three quarters of the year. ... 9 percent in 1993\n<|id|>70<|page|>10<|box|>814 78 902 488<|content|>year. ... ) Corporate saving also declined in the fourth quarter but was still positive at\n<|id|>72<|page|>10<|box|>94 509 152 919<|content|>support, among others. ... Net interest expenses d...cutive year as debt owed to the public was reduced\n<|id|>71<|page|>10<|box|>523 297 537 477<|content|>(Saving as a percent of NNP)\n<|id|>75<|page|>10<|box|>460 519 477 915<|content|>The swing in the Federal budget from large deficits into sur-\n<|id|>76<|page|>10<|box|>258 509 373 919<|content|>The surplus is projected to rise to \\$281 billion ...deral debt and provide a reserve for contingencies\n<|id|>152<|page|>23<|box|>213 506 316 915<|content|>- Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>154<|page|>23<|box|>364 508 512 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>185<|page|>34<|box|>381 111 397 488<|content|>• Table PDO-2 presents the results of weekly auctions of\n<|id|>186<|page|>34<|box|>136 508 222 913<|content|>13- and 26-week bills. ... High yields on accepted... made on both competitive and noncompetitive bases\n<|id|>297<|page|>51<|box|>328 81 402 488<|content|>Treasury's Financial Management Service (FMS) comp...to agree with the Bureau of the Public Debt’s pub-\n<|id|>298<|page|>51<|box|>131 509 147 627<|content|>lication changes. ... lication changes",
+    "raw_response": "<|src_id|>66<|tgt_id|>67\n<|src_id|>185<|tgt_id|>186\n<|src_id|>297<|tgt_id|>298",
+    "parsed": [
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 297,
+            "tgt_id": 298
+        }
+    ]
+}

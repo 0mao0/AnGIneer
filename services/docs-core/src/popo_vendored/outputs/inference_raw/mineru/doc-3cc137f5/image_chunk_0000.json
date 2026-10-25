@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>15<|type|>title<|page|>1<|box|>739 140 757 535<|content|>I. Description of the Second Document Production\n<|id|>16<|type|>title<|page|>1<|box|>771 140 789 364<|content|>A. Volume and Bates Range\n<|id|>18<|type|>title<|page|>2<|box|>90 140 107 424<|content|>B. Cumulative Production Statistics\n<|id|>19<|type|>table<|page|>2<|box|>155 143 321 852<|content|>None\n<|id|>21<|type|>title<|page|>2<|box|>424 140 440 475<|content|>C. Custodians Covered in This Production\n<|id|>32<|type|>title<|page|>3<|box|>138 140 157 462<|content|>D. Date Range of Responsive Documents\n<|id|>34<|type|>title<|page|>3<|box|>258 140 276 441<|content|>II. Production Format and Processing\n<|id|>38<|type|>title<|page|>3<|box|>597 140 614 478<|content|>III. Privilege Withholdings and Redactions\n<|id|>48<|type|>title<|page|>4<|box|>284 140 301 398<|content|>IV. Confidentiality Designations\n<|id|>50<|type|>title<|page|>4<|box|>551 140 569 421<|content|>V. Ongoing Production Obligations\n<|id|>53<|type|>title<|page|>4<|box|>773 140 790 344<|content|>VI. Reservation of Rights\n<|id|>64<|type|>title<|page|>5<|box|>724 142 739 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>19<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 18
+        }
+    ]
+}

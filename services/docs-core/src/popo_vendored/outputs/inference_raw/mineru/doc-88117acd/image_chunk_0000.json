@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>table<|page|>1<|box|>109 143 378 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>412 143 426 553<|content|>ATTORNEY OR PARTY WITHOUT ATTORNEY:\n<|id|>3<|type|>table<|page|>1<|box|>436 143 601 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>635 143 651 707<|content|>SUPERIOR COURT OF CALIFORNIA, COUNTY OF LOS ANGELE\n<|id|>5<|type|>table<|page|>1<|box|>659 143 715 852<|content|>None\n<|id|>6<|type|>table<|page|>1<|box|>750 143 786 852<|content|>None\n<|id|>7<|type|>title<|page|>1<|box|>821 380 837 617<|content|>REQUEST FOR DISMISSAL\n<|id|>8<|type|>table<|page|>1<|box|>845 145 883 852<|content|>None\n<|id|>9<|type|>title<|page|>2<|box|>89 379 107 617<|content|>REQUEST FOR DISMISSAL\n<|id|>11<|type|>title<|page|>2<|box|>147 140 162 591<|content|>1. TO THE CLERK: Please dismiss this action as fol\n<|id|>12<|type|>title<|page|>2<|box|>171 142 188 354<|content|>a. Party filing this request:\n<|id|>15<|type|>title<|page|>2<|box|>398 142 417 310<|content|>2. Scope of Dismissal\n<|id|>31<|type|>title<|page|>3<|box|>253 140 271 305<|content|>3. Type of Dismissal\n<|id|>32<|type|>title<|page|>3<|box|>277 176 295 303<|content|>With prejudice\n<|id|>35<|type|>title<|page|>3<|box|>414 140 431 316<|content|>4. Terms of Dismissal\n<|id|>40<|type|>title<|page|>3<|box|>766 140 784 511<|content|>5. Identification of All Actions Being Dismissed\n<|id|>42<|type|>table<|page|>3<|box|>814 143 904 852<|content|>None\n<|id|>46<|type|>table<|page|>4<|box|>426 143 465 852<|content|>None\n<|id|>50<|type|>title<|page|>4<|box|>691 140 709 560<|content|>6. Reference to Governing Stipulation and Settleme\n<|id|>54<|type|>title<|page|>5<|box|>330 142 347 323<|content|>7. Date and Signatures\n<|id|>56<|type|>title<|page|>5<|box|>416 176 431 382<|content|>DATED: January 29, 2024\n<|id|>70<|type|>title<|page|>5<|box|>699 305 715 691<|content|>CLERK'S CERTIFICATE (For Court Use Only)\n<|id|>72<|type|>table<|page|>5<|box|>767 143 880 852<|content|>None",
+    "raw_response": "<|src_id|>3<|tgt_id|>2\n<|src_id|>5<|tgt_id|>4\n<|src_id|>6<|tgt_id|>4\n<|src_id|>8<|tgt_id|>7\n<|src_id|>42<|tgt_id|>40\n<|src_id|>46<|tgt_id|>40\n<|src_id|>72<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 70
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        6,
+        56
+    ],
+    "pages": [
+        6,
+        9,
+        12,
+        14,
+        16,
+        27,
+        37,
+        55
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>19<|page|>6<|box|>196 746 224 913<|content|>ProfileoftheEconomy\n<|id|>20<|page|>6<|box|>224 727 251 913<|content|>FederalFiscalOperations\n<|id|>21<|page|>6<|box|>250 705 276 911<|content|>AccountoftheU. ... Treasury\n<|id|>22<|page|>6<|box|>276 813 301 913<|content|>FederalDebt\n<|id|>23<|page|>6<|box|>303 745 329 913<|content|>PublicDebtOperations\n<|id|>25<|page|>6<|box|>354 681 381 913<|content|>Ownership of Federal Securities\n<|id|>24<|page|>6<|box|>329 704 354 913<|content|>U. ... SavingsBondsandNotes\n<|id|>26<|page|>6<|box|>380 807 407 913<|content|>MarketYields\n<|id|>28<|page|>6<|box|>433 779 460 913<|content|>andinCirculation\n<|id|>27<|page|>6<|box|>406 658 434 913<|content|>U. ... CurrencyandCoinOutstanding\n<|id|>47<|page|>9<|box|>332 81 378 490<|content|>The unemployment rate remained unchanged at 5. ......kdown of the data also shows that the unemployment\n<|id|>48<|page|>9<|box|>402 93 434 292<|content|>Unemployment Rate (Percent)\n<|id|>49<|page|>9<|box|>90 504 234 913<|content|>rate among blacks declined to 9. ... 8 percent in July, the highest share since late 2002\n<|id|>75<|page|>12<|box|>260 81 407 491<|content|>In the Treasury market, the 3-month Treasury bill ...etary tightening cycle. ... 35 percent as of early\n<|id|>76<|page|>12<|box|>89 504 119 913<|content|>August, is still about 50 basis points lower than ...ll about 50 basis points lower than in spring 2004\n<|id|>91<|page|>14<|box|>507 81 655 491<|content|>Private saving dipped to 5. ... 5 percent of NNP during\n<|id|>92<|page|>14<|box|>89 504 119 913<|content|>2001—the lowest in 50 years—bounced back in 2002 a...opping again to the 1. ... 5 percent level in 2004\n<|id|>116<|page|>16<|box|>515 380 527 616<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>117<|page|>16<|box|>535 84 551 267<|content|>Third-Quarter Receipts\n<|id|>118<|page|>16<|box|>553 81 643 491<|content|>The following capsule analysis of budget receipts,... to analyze adequately collections for the quarter\n<|id|>167<|page|>27<|box|>189 504 291 915<|content|>- Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>169<|page|>27<|box|>342 504 489 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>196<|page|>37<|box|>383 81 429 493<|content|>- Table PDO-2 presents the results of weekly aucti.... Issues of 4- and 13-week bills are reopenings of\n<|id|>197<|page|>37<|box|>125 504 184 915<|content|>26-week bills. ... High yields on accepted tenders... made on both competitive and noncompetitive bases\n<|id|>202<|page|>37<|box|>493 374 505 622<|content|>[Source: ... Bureau of the Public Debt, Office of Financing]\n<|id|>203<|page|>37<|box|>513 83 530 171<|content|>APRIL\n<|id|>309<|page|>55<|box|>378 81 411 491<|content|>The quotations used by Treasury to calculate the b...nd fit the yield curve are obtained by the Federal\n<|id|>310<|page|>55<|box|>125 504 170 915<|content|>Reserve Bank of New York. ... 15",
+    "raw_response": "<|src_id|>47<|tgt_id|>49\n<|src_id|>75<|tgt_id|>76\n<|src_id|>91<|tgt_id|>92\n<|src_id|>196<|tgt_id|>197\n<|src_id|>309<|tgt_id|>310",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 309,
+            "tgt_id": 310
+        }
+    ]
+}

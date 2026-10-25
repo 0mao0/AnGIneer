@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>235 697 255 890<|content|>JT/T 331. ... 7—2006\n<|id|>2<|page|>1<|box|>257 708 275 891<|content|>代替 JT/T 331. ... 7—1996\n<|id|>5<|page|>1<|box|>849 98 870 270<|content|>2006-12-19 发布\n<|id|>7<|page|>1<|box|>900 217 930 778<|content|>中华人民共和国交通部 发布\n<|id|>6<|page|>1<|box|>849 724 870 900<|content|>2007-03-01 实施\n<|id|>40<|page|>4<|box|>624 113 639 267<|content|>3. ... 2 装卸机械司机\n<|id|>45<|page|>4<|box|>894 147 909 250<|content|>每公司 1 人。 ... 每公司 1 人\n<|id|>43<|page|>4<|box|>856 112 871 302<|content|>3. ... 3 客运(滚装)调度员\n<|id|>44<|page|>4<|box|>874 112 890 338<|content|>3. ... 1 客运(滚装)调度主任\n<|id|>58<|page|>5<|box|>346 130 361 296<|content|>3. ... 1 客运安检员\n<|id|>59<|page|>5<|box|>365 164 380 296<|content|>每班2人~3人。 ... 每班2人~3人\n<|id|>75<|page|>5<|box|>842 129 856 273<|content|>3. ... 11 港口系缆工\n<|id|>85<|page|>6<|box|>246 163 262 677<|content|>队(车间)生产管理人员定员按 JT/T 331. ... 15 的要求配备\n<|id|>84<|page|>6<|box|>227 131 242 360<|content|>3. ... 12 队(车间)生产管理人员",
+    "raw_response": "<|src_id|>58<|tgt_id|>59",
+    "parsed": [
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        }
+    ]
+}

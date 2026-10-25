@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        47,
+        78
+    ],
+    "pages": [
+        47,
+        48,
+        61,
+        63,
+        78
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>135<|page|>47<|box|>62 299 77 672<|content|>TREASURY SURVEY OF OWNERSHIP, OCTOBER 31, 1949\n<|id|>144<|page|>48<|box|>53 344 67 643<|content|>MARKET QUOTATIONS, NOVEMBER 30, 1949\n<|id|>145<|page|>48<|box|>92 38 225 462<|content|>Market quotatione shown here are over-the-counter ... United States Government and by Federal Agencise\"\n<|id|>186<|page|>61<|box|>552 149 566 829<|content|>Table 1. ... - Net Capital Movement between the United States and Foreign Countries\n<|id|>187<|page|>61<|box|>569 197 582 781<|content|>(In thousands of dollars; ... negative figures ind...e a net outflow of capital from the United States)\n<|id|>191<|page|>63<|box|>434 49 455 492<|content|>1/ January 4, 1940, through December 31, 1941; ......tocks and bonds is not available for earlier years\n<|id|>228<|page|>78<|box|>367 514 447 638<|content|>BUY AND HOLD\n<|id|>229<|page|>78<|box|>459 514 501 640<|content|>UNITED STATES\n<|id|>230<|page|>78<|box|>517 514 571 640<|content|>SAVINGS BONDS",
+    "raw_response": "<|src_id|>228<|tgt_id|>229\n<|src_id|>229<|tgt_id|>230",
+    "parsed": [
+        {
+            "src_id": 228,
+            "tgt_id": 229
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 230
+        }
+    ]
+}

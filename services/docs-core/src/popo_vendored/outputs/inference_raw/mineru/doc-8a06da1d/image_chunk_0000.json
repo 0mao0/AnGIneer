@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 145 125 849<|content|>CALDERWOOD & HARKNESS LLP 3960 Howard Hughes Parkw\n<|id|>8<|type|>title<|page|>1<|box|>422 140 439 230<|content|>I. Purpose\n<|id|>13<|type|>title<|page|>2<|box|>148 140 167 473<|content|>II. Background — The Activist Campaign\n<|id|>14<|type|>title<|page|>2<|box|>180 140 196 472<|content|>A. Pinnacle Harbor's Stake Accumulation\n<|id|>18<|type|>title<|page|>2<|box|>598 140 614 398<|content|>B. Key Events Leading to Notice\n<|id|>25<|type|>title<|page|>3<|box|>656 140 674 426<|content|>C. Pinnacle Harbor's Legal Counsel\n<|id|>27<|type|>title<|page|>4<|box|>90 140 107 531<|content|>III. D&O Insurance Program — Policy Summary\n<|id|>29<|type|>table<|page|>4<|box|>241 143 455 852<|content|>None\n<|id|>31<|type|>table<|page|>4<|box|>651 143 832 852<|content|>None\n<|id|>33<|type|>title<|page|>5<|box|>176 140 193 308<|content|>C. Insurance Broker\n<|id|>35<|type|>title<|page|>5<|box|>332 140 349 557<|content|>IV. Notice of Circumstances — Content and Delivery\n<|id|>36<|type|>title<|page|>5<|box|>363 140 378 287<|content|>A. Form of Notice\n<|id|>41<|type|>title<|page|>5<|box|>843 142 859 361<|content|>B. Circumstances Reported\n<|id|>48<|type|>title<|page|>6<|box|>621 140 637 434<|content|>C. Identified Insured Persons at Risk\n<|id|>50<|type|>title<|page|>6<|box|>689 140 704 491<|content|>Current Members of the Board of Directors:\n<|id|>60<|type|>title<|page|>6<|box|>891 143 905 217<|content|>Officers:\n<|id|>64<|type|>title<|page|>7<|box|>234 140 250 320<|content|>D. Method of Delivery\n<|id|>70<|type|>title<|page|>7<|box|>602 140 619 364<|content|>V. Coverage Considerations\n<|id|>71<|type|>title<|page|>7<|box|>633 140 648 421<|content|>A. Potential Covered Defense Costs\n<|id|>74<|type|>table<|page|>7<|box|>834 143 907 852<|content|>None\n<|id|>75<|type|>table<|page|>8<|box|>88 143 119 852<|content|>None\n<|id|>81<|type|>title<|page|>8<|box|>781 140 797 290<|content|>B. SIR / Retention\n<|id|>85<|type|>title<|page|>9<|box|>311 140 329 410<|content|>C. Policy Renewal Considerations\n<|id|>91<|type|>title<|page|>9<|box|>726 140 742 429<|content|>D. Potential Exclusions / Limitations\n<|id|>96<|type|>title<|page|>10<|box|>476 140 493 401<|content|>VI. Coordination and Next Steps\n<|id|>97<|type|>title<|page|>10<|box|>507 140 523 354<|content|>A. Broker Communication\n<|id|>100<|type|>title<|page|>10<|box|>825 140 842 307<|content|>B. Carrier Response\n<|id|>103<|type|>title<|page|>11<|box|>239 140 256 413<|content|>C. Ongoing Reporting Obligations\n<|id|>112<|type|>title<|page|>11<|box|>786 142 801 330<|content|>D. Document Retention\n<|id|>122<|type|>title<|page|>12<|box|>266 142 282 284<|content|>VII. Attachments",
+    "raw_response": "<|src_id|>29<|tgt_id|>27\n<|src_id|>31<|tgt_id|>27\n<|src_id|>74<|tgt_id|>71\n<|src_id|>75<|tgt_id|>71",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 71
+        }
+    ]
+}

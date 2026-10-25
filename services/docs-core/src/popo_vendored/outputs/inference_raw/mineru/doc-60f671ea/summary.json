@@ -1,0 +1,203 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l33h7uf0\\input\\pdfs\\doc-60f671ea.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l33h7uf0\\enriched\\doc-60f671ea.json",
+    "contd_output": "<|src_id|>99<|tgt_id|>100\n<|src_id|>149<|tgt_id|>150\n<|src_id|>250<|tgt_id|>252",
+    "title_output": "<|id|>4<|level|>1\n<|id|>11<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>31<|level|>3\n<|id|>42<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>56<|level|>3\n<|id|>62<|level|>3\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>87<|level|>3\n<|id|>101<|level|>3\n<|id|>117<|level|>3\n<|id|>125<|level|>3\n<|id|>131<|level|>2\n<|id|>132<|level|>3\n<|id|>138<|level|>3\n<|id|>147<|level|>2\n<|id|>163<|level|>2\n<|id|>171<|level|>2\n<|id|>182<|level|>2\n<|id|>195<|level|>1\n<|id|>197<|level|>2\n<|id|>199<|level|>2\n<|id|>201<|level|>2\n<|id|>208<|level|>2\n<|id|>216<|level|>1\n<|id|>225<|level|>1\n<|id|>228<|level|>2\n<|id|>232<|level|>3\n<|id|>254<|level|>3\n<|id|>265<|level|>3",
+    "image_output": "<|src_id|>198<|tgt_id|>197\n<|src_id|>220<|tgt_id|>216\n<|src_id|>221<|tgt_id|>216\n<|src_id|>222<|tgt_id|>216\n<|src_id|>223<|tgt_id|>216",
+    "contd_label": [
+        {
+            "src_id": 99,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 150
+        },
+        {
+            "src_id": 250,
+            "tgt_id": 252
+        }
+    ],
+    "title_label": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 1
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 1
+        },
+        {
+            "id": 225,
+            "level": 1
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 254,
+            "level": 3
+        },
+        {
+            "id": 265,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 198,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 221,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 222,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 216
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 221,
+            "table2_idx": 222,
+            "upper_row_ss": [
+                [
+                    "Mariana Delgado-Ríos",
+                    "Independent Director",
+                    "AGMG Board",
+                    "April 22, 2024"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Kwame Osei",
+                    "Independent Director",
+                    "AGMG Board",
+                    "April 22, 2024"
+                ]
+            ]
+        }
+    ]
+}

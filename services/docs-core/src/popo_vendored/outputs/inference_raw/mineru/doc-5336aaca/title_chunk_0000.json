@@ -1,0 +1,163 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>382 213 457 784<|content|>公路大厚度水泥稳定碎石基层 施工技术规程\n<|id|>4<|page|>1<|box|>484 102 530 892<|content|>Technical standards for construction of large thic\n<|id|>6<|page|>2<|box|>157 465 181 554<|content|>前言\n<|id|>11<|page|>3<|box|>154 252 176 769<|content|>公路大厚度水泥稳定碎石基层施工技术规程\n<|id|>12<|page|>3<|box|>213 114 228 183<|content|>1 范围\n<|id|>15<|page|>3<|box|>323 112 339 272<|content|>2 规范性引用文件\n<|id|>19<|page|>3<|box|>453 112 467 235<|content|>3 术语和定义\n<|id|>21<|page|>3<|box|>517 112 533 147<|content|>3.1\n<|id|>24<|page|>3<|box|>602 114 616 149<|content|>3.2\n<|id|>27<|page|>3<|box|>694 112 710 201<|content|>4 原材料\n<|id|>28<|page|>3<|box|>731 112 745 236<|content|>4.1 一般规定\n<|id|>33<|page|>3<|box|>843 112 857 201<|content|>4.2 水泥\n<|id|>36<|page|>4<|box|>142 87 157 178<|content|>4.3 集料\n<|id|>40<|page|>4<|box|>262 87 277 282<|content|>5 水泥稳定碎石混合料\n<|id|>41<|page|>4<|box|>299 89 315 231<|content|>5.1 混合料级配\n<|id|>44<|page|>4<|box|>731 89 747 231<|content|>5.2 混合料强度\n<|id|>47<|page|>5<|box|>114 114 130 218<|content|>6 施工准备\n<|id|>48<|page|>5<|box|>150 112 166 236<|content|>6.1 一般规定\n<|id|>53<|page|>5<|box|>280 114 296 218<|content|>6.2 试验段\n<|id|>62<|page|>5<|box|>503 112 517 255<|content|>6.3 挂线、支模\n<|id|>66<|page|>5<|box|>605 112 621 270<|content|>7 机械及检测设备\n<|id|>67<|page|>5<|box|>642 112 657 218<|content|>7.1 摊铺机\n<|id|>71<|page|>5<|box|>752 114 769 218<|content|>7.2 压路机\n<|id|>80<|page|>6<|box|>161 90 176 211<|content|>7.3 拌和设备\n<|id|>84<|page|>6<|box|>290 90 305 213<|content|>7.4 运输车辆\n<|id|>87<|page|>6<|box|>364 90 378 211<|content|>7.5 检测设备\n<|id|>91<|page|>6<|box|>484 90 500 194<|content|>8 施工工艺\n<|id|>92<|page|>6<|box|>521 90 536 230<|content|>8.1 混合料拌和\n<|id|>98<|page|>6<|box|>669 90 685 230<|content|>8.2 混合料运输\n<|id|>104<|page|>6<|box|>800 90 814 176<|content|>8.3 摊铺\n<|id|>110<|page|>7<|box|>141 112 157 201<|content|>8.4 碾压\n<|id|>125<|page|>8<|box|>160 89 176 178<|content|>8.5 横缝\n<|id|>128<|page|>8<|box|>318 89 333 247<|content|>9 质量检验与验收\n<|id|>129<|page|>8<|box|>355 87 371 284<|content|>9.1 施工过程质量检验\n<|id|>159<|page|>10<|box|>456 89 473 213<|content|>9.2 质量验收",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>3\n<|id|>24<|level|>3\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>33<|level|>3\n<|id|>36<|level|>3\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>44<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>53<|level|>3\n<|id|>62<|level|>3\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>71<|level|>3\n<|id|>80<|level|>3\n<|id|>84<|level|>3\n<|id|>87<|level|>3\n<|id|>91<|level|>2\n<|id|>92<|level|>3\n<|id|>98<|level|>3\n<|id|>104<|level|>3\n<|id|>110<|level|>3\n<|id|>125<|level|>3\n<|id|>128<|level|>2\n<|id|>129<|level|>3\n<|id|>159<|level|>3",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        }
+    ]
+}

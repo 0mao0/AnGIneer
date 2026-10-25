@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        14,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>141 140 178 854<|content|>FROM: ... (215) 864-7200\n<|id|>2<|page|>1<|box|>186 142 204 442<|content|>Email: ... com\n<|id|>3<|page|>1<|box|>203 696 220 854<|content|>DATE: ... June 6, 2022\n<|id|>4<|page|>1<|box|>229 142 244 181<|content|>TO: ... TO\n<|id|>6<|page|>1<|box|>280 176 334 854<|content|>Attention: ... Marcus Whitfield, Vice President, G...ndependence Boulevard Princeton Junction, NJ 08550\n<|id|>7<|page|>1<|box|>342 176 359 493<|content|>Penterra Biopharma International DAC\n<|id|>8<|page|>1<|box|>368 176 402 767<|content|>Attention: ... Aidan Naughton, Managing Director 4...e Sandyford Business Park Dublin D18 K7T4, Ireland\n<|id|>9<|page|>1<|box|>411 176 429 483<|content|>Penterra Holdings Luxembourg S. ... l\n<|id|>10<|page|>1<|box|>436 176 473 467<|content|>Attention: ... Registered Office 14, rue Aldringen L-1118 Luxembourg\n<|id|>11<|page|>1<|box|>479 178 497 470<|content|>Penterra Manufacturing Ireland Ltd. ... Penterra Manufacturing Ireland Ltd\n<|id|>12<|page|>1<|box|>506 176 541 661<|content|>Attention: ... Cork T12 PX29, Ireland\n<|id|>13<|page|>1<|box|>549 140 603 854<|content|>RE: ... LB&I-NE-TP-2022-00641)\n<|id|>14<|page|>1<|box|>611 140 628 604<|content|>Calderwood & Harkness LLP Matter Number: ... 1018-00009\n<|id|>17<|page|>1<|box|>833 140 888 854<|content|>The IRS examination covers PPC's federal income ta... Large Business & International Division (\"LB&I\"),\n<|id|>18<|page|>2<|box|>90 140 127 854<|content|>Northeast Transfer Pricing Practice. ... The IRS e... Manager) and Lead Revenue Agent Patricia Dunleavy\n<|id|>26<|page|>2<|box|>789 173 898 857<|content|>PPC is a corporation organized under the laws of t...nt, Research & Development, Commercial Operations,\n<|id|>27<|page|>3<|box|>90 174 125 856<|content|>Regulatory Affairs, and Information Technology, as...y, as well as to all officers and directors of PPC\n<|id|>38<|page|>3<|box|>796 148 810 277<|content|>• Tax Year 2017\n<|id|>42<|page|>3<|box|>875 140 909 852<|content|>PPC uses a calendar fiscal year ending December 31...inancial reporting and federal income tax purposes\n<|id|>39<|page|>3<|box|>815 148 830 277<|content|>• Tax Year 2018\n<|id|>40<|page|>3<|box|>835 148 849 277<|content|>• Tax Year 2019\n<|id|>41<|page|>3<|box|>854 147 869 279<|content|>• Tax Year 2020\n<|id|>173<|page|>14<|box|>114 181 130 428<|content|>• The managing director of PMI\n<|id|>175<|page|>14<|box|>189 140 281 856<|content|>Each entity is requested to compile and provide to...ents in his or her possession, custody, or control\n<|id|>174<|page|>14<|box|>133 181 186 854<|content|>• All finance, operations, and manufacturing manag...unting, invoicing, and transfer pricing compliance\n<|id|>198<|page|>16<|box|>89 174 126 854<|content|>Leonard Cross, Responsible Partner Calderwood & Ha...iladelphia, PA 19103 Telephone: ... (215) 864-7200\n<|id|>199<|page|>16<|box|>133 176 151 478<|content|>Email: ... com\n<|id|>200<|page|>16<|box|>152 174 188 854<|content|>Garrett Simmons, Lead Associate Calderwood & Harkn...iladelphia, PA 19103 Telephone: ... (215) 864-7218\n<|id|>201<|page|>16<|box|>196 176 213 511<|content|>Email: ... com\n<|id|>202<|page|>16<|box|>213 176 250 854<|content|>Leila Nazari, Working Associate (Irish Entity Coor...iladelphia, PA 19103 Telephone: ... (215) 864-7234\n<|id|>203<|page|>16<|box|>257 176 273 486<|content|>Email: ... com\n<|id|>204<|page|>16<|box|>273 140 311 852<|content|>When in doubt as to whether a document falls withi...far better to over-preserve than to under-preserve\n<|id|>217<|page|>17<|box|>321 140 338 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>218<|page|>17<|box|>339 142 357 254<|content|>By: ... By\n<|id|>219<|page|>17<|box|>356 142 373 310<|content|>Name: ... Leonard Cross\n<|id|>220<|page|>17<|box|>375 142 390 372<|content|>Title: ... Partner, Tax Department\n<|id|>221<|page|>17<|box|>391 142 407 285<|content|>Date: ... June 6, 2022\n<|id|>222<|page|>17<|box|>407 140 440 854<|content|>Calderwood & Harkness LLP 1735 Market Street, Suit...iladelphia, PA 19103 Telephone: ... (215) 864-7200\n<|id|>223<|page|>17<|box|>441 142 458 442<|content|>Email: ... com\n<|id|>224<|page|>17<|box|>459 140 474 321<|content|>Matter No. ... 1018-00009",
+    "raw_response": "<|src_id|>17<|tgt_id|>18\n<|src_id|>26<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        }
+    ]
+}

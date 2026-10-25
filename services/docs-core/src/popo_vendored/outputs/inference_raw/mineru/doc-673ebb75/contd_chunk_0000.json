@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 161 174 834<|content|>1900 K Street NW, Suite 800 Washington, DC 20006 Telephone: ... com\n<|id|>3<|page|>1<|box|>183 704 199 854<|content|>November 17, 2023\n<|id|>5<|page|>1<|box|>234 140 271 854<|content|>Lead Staff Attorney Bureau of Competition Mergers ...on 600 Pennsylvania Avenue NW Washington, DC 20580\n<|id|>6<|page|>1<|box|>277 174 330 854<|content|>Re: ... 231-0487 — Supplemental Production on Beha...plemental Document Requests Dated October 27, 2023\n<|id|>7<|page|>1<|box|>340 142 359 297<|content|>Dear Staff Attorney: ... Dear Staff Attorney\n<|id|>34<|page|>4<|box|>845 140 901 856<|content|>The key custodians from whom supplemental collecti...ner and Chief Investment Officer of Solara Digital\n<|id|>35<|page|>5<|box|>90 140 237 856<|content|>Infrastructure GP LLC; ... Calderwood & Harkness i...ss the custodian selection with Staff if requested\n<|id|>77<|page|>10<|box|>707 140 723 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>78<|page|>10<|box|>724 142 742 253<|content|>By: ... By\n<|id|>79<|page|>10<|box|>742 140 775 854<|content|>Howard Bellamy Partner, Antitrust & Competition Group Direct: ... com\n<|id|>80<|page|>10<|box|>776 143 792 251<|content|>By: ... By\n<|id|>81<|page|>10<|box|>792 140 824 854<|content|>Elliot Nguyen Associate, Antitrust & Competition Group Direct: ... com\n<|id|>82<|page|>10<|box|>825 140 859 754<|content|>Calderwood & Harkness LLP 1900 K Street NW, Suite ... NW, Suite 800 Washington, DC 20006 cc (via email)\n<|id|>83<|page|>10<|box|>869 174 904 854<|content|>Graham A. ... Levinson, Co-Managing Partner & CIO, Solara Digital Infrastructure GP LLC\n<|id|>84<|page|>11<|box|>89 174 143 854<|content|>Marcus E. ... Westbrook, Of Counsel, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>34<|tgt_id|>35",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        }
+    ]
+}

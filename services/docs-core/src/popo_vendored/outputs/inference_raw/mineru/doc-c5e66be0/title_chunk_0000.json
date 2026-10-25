@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 107 573<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>421 142 438 321<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>304 142 321 267<|content|>II. Background\n<|id|>15<|page|>2<|box|>334 140 352 282<|content|>A. The Subpoena\n<|id|>22<|page|>3<|box|>90 140 107 398<|content|>B. Relevance to Vantor's Claims\n<|id|>27<|page|>3<|box|>698 140 715 426<|content|>C. The TSA Exclusivity Framework\n<|id|>35<|page|>4<|box|>648 140 665 462<|content|>III. Overview of Briarwood's Production\n<|id|>36<|page|>4<|box|>679 142 696 424<|content|>A. Volume and Scope of Production\n<|id|>44<|page|>5<|box|>500 140 516 372<|content|>B. Key Documents Identified\n<|id|>50<|page|>6<|box|>377 140 393 357<|content|>IV. Lane-by-Lane Analysis\n<|id|>67<|page|>8<|box|>380 140 397 416<|content|>C. Revenue and Volume Summary\n<|id|>73<|page|>8<|box|>731 140 748 658<|content|>V. Comparison with Cascade Freight Systems Subpoen\n<|id|>81<|page|>9<|box|>564 140 580 460<|content|>VI. Implications for Stonefield's Defense\n<|id|>82<|page|>9<|box|>594 140 612 321<|content|>A. Exclusivity Defense\n<|id|>90<|page|>10<|box|>419 140 436 557<|content|>B. Relevance to \"Pretextual Termination\" Allegatio\n<|id|>96<|page|>11<|box|>268 140 284 509<|content|>C. Corroboration of \"For Cause\" Termination\n<|id|>100<|page|>11<|box|>685 140 702 464<|content|>D. Relevance to First-to-Breach Doctrine\n<|id|>104<|page|>12<|box|>395 140 412 398<|content|>VII. Evidentiary Considerations\n<|id|>111<|page|>13<|box|>395 140 412 334<|content|>VIII. Recommendations\n<|id|>118<|page|>15<|box|>90 140 107 446<|content|>IX. Appendix — Referenced Materials",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>22<|level|>3\n<|id|>27<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>44<|level|>3\n<|id|>50<|level|>2\n<|id|>67<|level|>3\n<|id|>73<|level|>2\n<|id|>81<|level|>2\n<|id|>82<|level|>3\n<|id|>90<|level|>3\n<|id|>96<|level|>3\n<|id|>100<|level|>3\n<|id|>104<|level|>2\n<|id|>111<|level|>2\n<|id|>118<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        }
+    ]
+}

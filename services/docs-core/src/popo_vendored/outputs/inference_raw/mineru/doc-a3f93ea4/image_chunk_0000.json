@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 169 126 826<|content|>VELTRANO CAPITAL LENDING CORP. 200 South Biscayne\n<|id|>14<|type|>title<|page|>1<|box|>715 140 733 400<|content|>1. Reference to Loan Documents\n<|id|>21<|type|>title<|page|>2<|box|>691 140 709 388<|content|>2. Change of Control Provision\n<|id|>23<|type|>title<|page|>3<|box|>90 140 107 372<|content|>3. The Proposed Transaction\n<|id|>26<|type|>title<|page|>3<|box|>458 140 474 297<|content|>4. Consent Request\n<|id|>35<|type|>title<|page|>4<|box|>167 140 184 303<|content|>5. Grant of Consent\n<|id|>38<|type|>title<|page|>4<|box|>462 140 479 437<|content|>6. Effective Date; Consent Conditions\n<|id|>48<|type|>title<|page|>5<|box|>502 140 518 354<|content|>7. Payment of Consent Fee\n<|id|>52<|type|>title<|page|>5<|box|>821 140 839 346<|content|>8. Replacement Guaranty\n<|id|>59<|type|>title<|page|>6<|box|>718 140 734 372<|content|>9. Assumption of Obligations\n<|id|>69<|type|>title<|page|>7<|box|>407 142 424 498<|content|>10. Representations and Warranties of Buyer\n<|id|>77<|type|>title<|page|>8<|box|>311 140 329 437<|content|>11. No Waiver; Reservation of Rights\n<|id|>84<|type|>title<|page|>8<|box|>782 142 799 362<|content|>12. Loan Terms Unchanged\n<|id|>86<|type|>table<|page|>8<|box|>849 143 905 852<|content|>None\n<|id|>87<|type|>table<|page|>9<|box|>88 143 189 852<|content|>None\n<|id|>89<|type|>title<|page|>9<|box|>338 142 354 390<|content|>13. Lender's Counsel and Costs\n<|id|>91<|type|>title<|page|>9<|box|>588 142 604 297<|content|>14. Governing Law\n<|id|>93<|type|>title<|page|>9<|box|>746 140 763 450<|content|>15. Counterparts; Electronic Execution\n<|id|>95<|type|>title<|page|>10<|box|>90 143 107 315<|content|>16. Entire Agreement\n<|id|>97<|type|>title<|page|>10<|box|>252 230 268 766<|content|>[Remainder of this page intentionally left blank.\n<|id|>98<|type|>title<|page|>10<|box|>277 274 294 722<|content|>SIGNATURE PAGE TO LENDER CONSENT LETTER\n<|id|>100<|type|>title<|page|>10<|box|>348 142 363 230<|content|>LENDER:\n<|id|>106<|type|>title<|page|>10<|box|>459 243 476 753<|content|>ACKNOWLEDGMENT AND AGREEMENT — BORROWERS\n<|id|>140<|type|>title<|page|>11<|box|>492 194 527 800<|content|>ACKNOWLEDGMENT AND AGREEMENT — BUYER / REPLACEMENT",
+    "raw_response": "<|src_id|>86<|tgt_id|>84\n<|src_id|>87<|tgt_id|>84",
+    "parsed": [
+        {
+            "src_id": 86,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 84
+        }
+    ]
+}

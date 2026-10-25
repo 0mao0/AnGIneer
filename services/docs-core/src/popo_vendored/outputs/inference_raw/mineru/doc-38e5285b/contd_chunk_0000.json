@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        19,
+        20,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>166 140 184 694<|content|>TO: ... Bernard Crawford, Responsible Partner, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>191 140 209 669<|content|>FROM: ... Gabrielle Moss, Lead Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>217 140 236 321<|content|>DATE: ... August 7, 2023\n<|id|>5<|page|>1<|box|>244 140 280 854<|content|>RE: ... Compliance Options and Tolling Arguments\n<|id|>6<|page|>1<|box|>287 140 305 488<|content|>MATTER NO. ... 1007-00008\n<|id|>7<|page|>1<|box|>313 140 330 408<|content|>Right-click to update Table of Contents\n<|id|>191<|page|>19<|box|>820 140 893 854<|content|>If the Section 4. ... This convergence would significantly weaken\n<|id|>192<|page|>20<|box|>90 140 145 854<|content|>VMS's negotiating position, as MeridianCode could ... to termination on terms favorable to MeridianCode\n<|id|>217<|page|>23<|box|>450 140 468 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>218<|page|>23<|box|>469 142 486 254<|content|>By: ... By",
+    "raw_response": "<|src_id|>191<|tgt_id|>192",
+    "parsed": [
+        {
+            "src_id": 191,
+            "tgt_id": 192
+        }
+    ]
+}

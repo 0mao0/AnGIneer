@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        51,
+        56
+    ],
+    "pages": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>743<|page|>51<|box|>81 384 97 611<|content|>残疾人福利性单位声明函\n<|id|>755<|page|>52<|box|>80 401 99 594<|content|>投标人基本情况简介\n<|id|>763<|page|>52<|box|>301 115 318 495<|content|>（二）基本经济指标（到上年度12月31日止）：\n<|id|>779<|page|>53<|box|>81 403 98 593<|content|>对分支机构的委托书\n<|id|>796<|page|>54<|box|>80 107 96 364<|content|>二、技术响应文件有关表格格式\n<|id|>797<|page|>54<|box|>129 233 146 764<|content|>主要管理、技术人员配备及相关工作经历、职业资格汇总表\n<|id|>803<|page|>55<|box|>80 364 98 633<|content|>项目负责人及主要人员情况表\n<|id|>807<|page|>56<|box|>80 342 98 653<|content|>投标人近三年以来类似项目一览表",
+    "raw_response": "<|id|>743<|level|>1\n<|id|>755<|level|>1\n<|id|>763<|level|>2\n<|id|>779<|level|>1\n<|id|>796<|level|>1\n<|id|>797<|level|>2\n<|id|>803<|level|>2\n<|id|>807<|level|>2",
+    "parsed": [
+        {
+            "id": 743,
+            "level": 1
+        },
+        {
+            "id": 755,
+            "level": 1
+        },
+        {
+            "id": 763,
+            "level": 2
+        },
+        {
+            "id": 779,
+            "level": 1
+        },
+        {
+            "id": 796,
+            "level": 1
+        },
+        {
+            "id": 797,
+            "level": 2
+        },
+        {
+            "id": 803,
+            "level": 2
+        },
+        {
+            "id": 807,
+            "level": 2
+        }
+    ]
+}

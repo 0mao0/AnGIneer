@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>128 370 148 625<|content|>NOTICE TO PROCEED\n<|id|>2<|page|>1<|box|>165 287 184 709<|content|>Stonebridge Data Center Campus — EPC Agreement\n<|id|>4<|page|>1<|box|>234 397 253 599<|content|>NOTICE TO PROCEED\n<|id|>6<|page|>1<|box|>287 142 304 199<|content|>From:\n<|id|>11<|page|>1<|box|>419 143 434 176<|content|>To:\n<|id|>18<|page|>1<|box|>744 140 761 455<|content|>Section 1. Reference to EPC Agreement\n<|id|>28<|page|>2<|box|>789 140 805 452<|content|>Section 2. Issuance of Notice to Proceed\n<|id|>36<|page|>3<|box|>454 140 472 580<|content|>Section 3. Construction Period and Key Milestone D\n<|id|>44<|page|>4<|box|>366 140 383 558<|content|>Section 4. Guaranteed Maximum Price Confirmation\n<|id|>52<|page|>5<|box|>204 140 222 470<|content|>Section 5. Liquidated Damages Reminder\n<|id|>57<|page|>5<|box|>551 140 568 493<|content|>Section 6. Insurance and Bond Confirmation\n<|id|>69<|page|>6<|box|>770 140 787 374<|content|>Section 7. Project Site Access\n<|id|>81<|page|>7<|box|>522 140 539 578<|content|>Section 8. Owner's Representative and Project Cont\n<|id|>101<|page|>8<|box|>377 140 393 406<|content|>Section 9. Permits and Approvals\n<|id|>113<|page|>9<|box|>167 140 185 459<|content|>Section 10. Conditions and Reservations\n<|id|>126<|page|>10<|box|>90 140 107 627<|content|>Section 11. Acknowledgment and Confirmation by Con\n<|id|>135<|page|>11<|box|>90 142 107 266<|content|>Signature Page\n<|id|>137<|page|>11<|box|>160 142 176 223<|content|>OWNER:\n<|id|>145<|page|>11<|box|>367 140 383 374<|content|>Contractor Acknowledgment\n<|id|>147<|page|>11<|box|>436 142 454 284<|content|>CONTRACTOR:\n<|id|>153<|page|>11<|box|>587 143 603 243<|content|>Distribution\n<|id|>155<|page|>12<|box|>90 142 108 241<|content|>Attachment\n<|id|>156<|page|>12<|box|>114 140 133 584<|content|>Exhibit C — Construction Schedule and Milestone Da\n<|id|>158<|page|>12<|box|>241 140 258 339<|content|>[Exhibit C to be attached]",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>1\n<|id|>6<|level|>2\n<|id|>11<|level|>2\n<|id|>18<|level|>2\n<|id|>28<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>2\n<|id|>52<|level|>2\n<|id|>57<|level|>2\n<|id|>69<|level|>2\n<|id|>81<|level|>2\n<|id|>101<|level|>2\n<|id|>113<|level|>2\n<|id|>126<|level|>2\n<|id|>135<|level|>2\n<|id|>137<|level|>3\n<|id|>145<|level|>2\n<|id|>147<|level|>3\n<|id|>153<|level|>2\n<|id|>155<|level|>2\n<|id|>156<|level|>2\n<|id|>158<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        }
+    ]
+}

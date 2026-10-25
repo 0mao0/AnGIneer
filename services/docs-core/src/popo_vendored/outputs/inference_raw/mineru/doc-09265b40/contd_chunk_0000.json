@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        6,
+        11,
+        12,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 148 718<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED / ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>156 424 172 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>181 140 199 506<|content|>TO: ... 1017-00004\n<|id|>4<|page|>1<|box|>208 142 224 308<|content|>FROM: ... Nadia Petrov\n<|id|>5<|page|>1<|box|>234 142 251 354<|content|>DATE: ... November 18, 2022\n<|id|>6<|page|>1<|box|>260 142 277 728<|content|>RE: ... Applicable Wage Orders — IWC Wage Order 12 (Motion Picture Industry)\n<|id|>52<|page|>6<|box|>378 174 398 787<|content|>(b) The employee and the employer agree in writing to an on-duty meal period; ... and\n<|id|>54<|page|>6<|box|>449 140 560 856<|content|>This exception is construed narrowly. ... Furtherm...uty meal period arrangement in writing at any time\n<|id|>106<|page|>11<|box|>833 140 907 856<|content|>The standard workday under Wage Order 12 is eight ...is forty (40) hours. ... Unlike certain other Wage\n<|id|>107<|page|>12<|box|>90 140 181 854<|content|>Orders that provide modified hours-of-work standar...-hour day and forty-hour week without modification\n<|id|>158<|page|>17<|box|>851 140 906 856<|content|>1. ... AMA does not dispute that Wage Order 12 is the applicable Wage Order, and\n<|id|>159<|page|>18<|box|>90 140 255 856<|content|>AMA does not dispute the substantive requirements ...argument related to the class certification motion\n<|id|>167<|page|>19<|box|>915 140 930 540<|content|>ATTORNEY-CLIENT PRIVILEGED / ATTORNEY WORK PRODUCT\n<|id|>168<|page|>20<|box|>90 140 310 856<|content|>The uniform applicability of Wage Order 12 is a do...e compliance question is inherently individualized\n<|id|>171<|page|>20<|box|>398 183 433 852<|content|>• PAGA Standing and Procedural Requirements memorandum (dated November 15, 2022); ... and\n<|id|>173<|page|>20<|box|>457 140 530 856<|content|>Together, these memoranda provide the analytical f...tegy will be prepared as the litigation progresses",
+    "raw_response": "<|src_id|>106<|tgt_id|>107\n<|src_id|>158<|tgt_id|>159",
+    "parsed": [
+        {
+            "src_id": 106,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 159
+        }
+    ]
+}

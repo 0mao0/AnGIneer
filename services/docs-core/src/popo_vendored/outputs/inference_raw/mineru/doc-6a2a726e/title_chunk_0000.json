@@ -1,0 +1,110 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 351 106 645<|content|>MANAGEMENT RIGHTS LETTER\n<|id|>16<|page|>2<|box|>285 140 303 393<|content|>1. Grant of Management Rights\n<|id|>19<|page|>2<|box|>598 140 614 321<|content|>2. Consultation Rights\n<|id|>20<|page|>2<|box|>628 140 646 447<|content|>2.1 Right to Consult with Management\n<|id|>22<|page|>3<|box|>176 140 194 550<|content|>2.2 Right to Consult on Significant Business Matte\n<|id|>35<|page|>4<|box|>366 140 383 336<|content|>3. Board Representation\n<|id|>47<|page|>5<|box|>186 140 203 473<|content|>4. Access to Facilities, Books, and Records\n<|id|>48<|page|>5<|box|>217 140 234 290<|content|>4.1 Facility Access\n<|id|>50<|page|>5<|box|>527 142 544 380<|content|>4.2 Books and Records Access\n<|id|>60<|page|>6<|box|>263 140 281 310<|content|>4.3 Personnel Access\n<|id|>62<|page|>6<|box|>585 140 602 316<|content|>5. Information Rights\n<|id|>68<|page|>7<|box|>304 140 320 643<|content|>6. Scope and Purpose; Venture Capital Investment Q\n<|id|>69<|page|>7<|box|>334 140 351 366<|content|>6.1 Investment Advisers Act\n<|id|>71<|page|>7<|box|>609 140 625 426<|content|>6.2 ERISA — Plan Asset Regulation\n<|id|>74<|page|>8<|box|>314 140 332 285<|content|>7. Confidentiality\n<|id|>79<|page|>9<|box|>231 140 248 624<|content|>8. No Management Obligation; No Fiduciary Duty of\n<|id|>83<|page|>9<|box|>642 140 659 372<|content|>9. Duration and Termination\n<|id|>87<|page|>10<|box|>241 142 258 251<|content|>10. Remedies\n<|id|>89<|page|>10<|box|>508 142 527 285<|content|>11. Miscellaneous\n<|id|>90<|page|>10<|box|>540 142 558 307<|content|>11.1 Governing Law\n<|id|>115<|page|>11<|box|>808 143 824 323<|content|>11.5 Entire Agreement\n<|id|>120<|page|>12<|box|>469 400 486 596<|content|>[Signature Pages Follow]\n<|id|>123<|page|>12<|box|>582 142 598 390<|content|>VERDANA SOFTWARE, INC.\n<|id|>129<|page|>12<|box|>694 143 709 434<|content|>PINNACLE VENTURE FUND II LP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>16<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>22<|level|>3\n<|id|>35<|level|>2\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>60<|level|>3\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>71<|level|>3\n<|id|>74<|level|>2\n<|id|>79<|level|>2\n<|id|>83<|level|>2\n<|id|>87<|level|>2\n<|id|>89<|level|>2\n<|id|>90<|level|>3\n<|id|>115<|level|>3\n<|id|>120<|level|>-1\n<|id|>123<|level|>-1\n<|id|>129<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,135 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        53,
+        66
+    ],
+    "pages": [
+        54,
+        56,
+        57,
+        58,
+        59,
+        60,
+        62,
+        64,
+        66
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>630<|page|>54<|box|>89 316 184 681<|content|>EXHIBIT F FORM OF CAPITAL CALL NOTICE HARBOR POINT\n<|id|>636<|page|>54<|box|>388 143 404 352<|content|>1. Amount of Capital Call:\n<|id|>638<|page|>54<|box|>494 143 511 328<|content|>2. Member Allocations:\n<|id|>654<|page|>56<|box|>89 447 107 550<|content|>EXHIBIT G\n<|id|>655<|page|>56<|box|>114 248 133 748<|content|>FORM OF DEVELOPMENT MANAGEMENT AGREEMENT\n<|id|>665<|page|>57<|box|>89 447 107 550<|content|>EXHIBIT H\n<|id|>666<|page|>57<|box|>114 269 133 727<|content|>FORM OF PROPERTY MANAGEMENT AGREEMENT\n<|id|>675<|page|>58<|box|>89 450 107 547<|content|>EXHIBIT I\n<|id|>676<|page|>58<|box|>114 364 132 632<|content|>INSURANCE REQUIREMENTS\n<|id|>678<|page|>58<|box|>204 142 222 535<|content|>1. Builder's Risk Insurance (During Construction)\n<|id|>684<|page|>58<|box|>474 140 492 480<|content|>2. Commercial General Liability Insurance\n<|id|>688<|page|>58<|box|>595 140 613 447<|content|>3. Umbrella/Excess Liability Insurance\n<|id|>692<|page|>58<|box|>718 142 734 354<|content|>4. Owner's Title Insurance\n<|id|>697<|page|>58<|box|>858 140 875 633<|content|>5. Workers' Compensation and Employer's Liability\n<|id|>700<|page|>59<|box|>166 140 183 509<|content|>6. Commercial Automobile Liability Insurance\n<|id|>703<|page|>59<|box|>250 142 266 334<|content|>7. Additional Coverages\n<|id|>708<|page|>59<|box|>426 140 444 343<|content|>8. General Requirements\n<|id|>713<|page|>60<|box|>89 449 107 550<|content|>EXHIBIT J\n<|id|>714<|page|>60<|box|>114 431 133 566<|content|>KEY PERSONS\n<|id|>716<|page|>60<|box|>186 142 203 316<|content|>1. Harold K. Brennan\n<|id|>722<|page|>60<|box|>419 142 436 328<|content|>2. Marcus D. Okonkwo\n<|id|>728<|page|>60<|box|>654 142 670 372<|content|>Key-Person Event and Cure:\n<|id|>732<|page|>62<|box|>89 447 107 550<|content|>EXHIBIT K\n<|id|>733<|page|>62<|box|>114 367 132 630<|content|>APPROVED INITIAL BUDGET\n<|id|>741<|page|>64<|box|>89 447 107 549<|content|>EXHIBIT L\n<|id|>742<|page|>64<|box|>114 313 132 681<|content|>CONSTRUCTION LOAN TERM SUMMARY\n<|id|>747<|page|>66<|box|>89 446 107 552<|content|>EXHIBIT M\n<|id|>748<|page|>66<|box|>114 426 132 570<|content|>KEY TIMELINE",
+    "raw_response": "<|id|>630<|level|>1\n<|id|>636<|level|>2\n<|id|>638<|level|>2\n<|id|>654<|level|>1\n<|id|>655<|level|>1\n<|id|>665<|level|>1\n<|id|>666<|level|>1\n<|id|>675<|level|>1\n<|id|>676<|level|>1\n<|id|>678<|level|>2\n<|id|>684<|level|>2\n<|id|>688<|level|>2\n<|id|>692<|level|>2\n<|id|>697<|level|>2\n<|id|>700<|level|>2\n<|id|>703<|level|>2\n<|id|>708<|level|>2\n<|id|>713<|level|>1\n<|id|>714<|level|>1\n<|id|>716<|level|>2\n<|id|>722<|level|>2\n<|id|>728<|level|>2\n<|id|>732<|level|>1\n<|id|>733<|level|>1\n<|id|>741<|level|>1\n<|id|>742<|level|>1\n<|id|>747<|level|>1\n<|id|>748<|level|>1",
+    "parsed": [
+        {
+            "id": 630,
+            "level": 1
+        },
+        {
+            "id": 636,
+            "level": 2
+        },
+        {
+            "id": 638,
+            "level": 2
+        },
+        {
+            "id": 654,
+            "level": 1
+        },
+        {
+            "id": 655,
+            "level": 1
+        },
+        {
+            "id": 665,
+            "level": 1
+        },
+        {
+            "id": 666,
+            "level": 1
+        },
+        {
+            "id": 675,
+            "level": 1
+        },
+        {
+            "id": 676,
+            "level": 1
+        },
+        {
+            "id": 678,
+            "level": 2
+        },
+        {
+            "id": 684,
+            "level": 2
+        },
+        {
+            "id": 688,
+            "level": 2
+        },
+        {
+            "id": 692,
+            "level": 2
+        },
+        {
+            "id": 697,
+            "level": 2
+        },
+        {
+            "id": 700,
+            "level": 2
+        },
+        {
+            "id": 703,
+            "level": 2
+        },
+        {
+            "id": 708,
+            "level": 2
+        },
+        {
+            "id": 713,
+            "level": 1
+        },
+        {
+            "id": 714,
+            "level": 1
+        },
+        {
+            "id": 716,
+            "level": 2
+        },
+        {
+            "id": 722,
+            "level": 2
+        },
+        {
+            "id": 728,
+            "level": 2
+        },
+        {
+            "id": 732,
+            "level": 1
+        },
+        {
+            "id": 733,
+            "level": 1
+        },
+        {
+            "id": 741,
+            "level": 1
+        },
+        {
+            "id": 742,
+            "level": 1
+        },
+        {
+            "id": 747,
+            "level": 1
+        },
+        {
+            "id": 748,
+            "level": 1
+        }
+    ]
+}

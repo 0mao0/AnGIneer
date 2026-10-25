@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>330 142 348 352<|content|>I. Confirmation of Closing\n<|id|>10<|type|>title<|page|>2<|box|>90 140 107 455<|content|>II. Summary of Key Transaction Terms\n<|id|>46<|type|>table<|page|>3<|box|>849 143 905 852<|content|>None\n<|id|>47<|type|>table<|page|>4<|box|>88 143 137 852<|content|>None\n<|id|>61<|type|>title<|page|>5<|box|>434 140 450 480<|content|>III. Escrow Payment Release Confirmation\n<|id|>66<|type|>title<|page|>5<|box|>799 140 815 555<|content|>IV. Enclosed Fully Executed Transaction Documents\n<|id|>96<|type|>title<|page|>7<|box|>561 140 579 449<|content|>V. Antitrust and Regulatory Clearance\n<|id|>103<|type|>title<|page|>8<|box|>304 140 320 482<|content|>VI. Post-Closing Obligations and Deadlines\n<|id|>105<|type|>title<|page|>8<|box|>416 142 433 400<|content|>A. Quality Agreement Execution\n<|id|>107<|type|>title<|page|>8<|box|>616 140 633 333<|content|>B. Technology Transfer\n<|id|>113<|type|>title<|page|>9<|box|>157 140 175 503<|content|>C. Joint Steering Committee (JSC) Formation\n<|id|>115<|type|>title<|page|>9<|box|>321 140 339 490<|content|>D. Joint Patent Committee (JPC) Formation\n<|id|>117<|type|>title<|page|>9<|box|>503 140 521 287<|content|>E. IP Recordation\n<|id|>119<|type|>title<|page|>9<|box|>704 140 722 385<|content|>F. MFN Pricing Reconciliation\n<|id|>121<|type|>title<|page|>9<|box|>832 140 849 263<|content|>G. API Supply\n<|id|>124<|type|>title<|page|>10<|box|>335 140 352 464<|content|>I. Withholding Tax and Transfer Pricing\n<|id|>131<|type|>title<|page|>11<|box|>90 140 107 464<|content|>VII. Counterparty Counsel and Advisors\n<|id|>151<|type|>title<|page|>11<|box|>590 140 607 571<|content|>VIII. Calderwood & Harkness LLP Engagement Team\n<|id|>159<|type|>title<|page|>12<|box|>89 140 107 359<|content|>IX. Fee and Billing Matters\n<|id|>161<|type|>title<|page|>12<|box|>267 140 284 305<|content|>X. Closing Remarks",
+    "raw_response": "<|src_id|>46<|tgt_id|>10\n<|src_id|>47<|tgt_id|>10",
+    "parsed": [
+        {
+            "src_id": 46,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 10
+        }
+    ]
+}

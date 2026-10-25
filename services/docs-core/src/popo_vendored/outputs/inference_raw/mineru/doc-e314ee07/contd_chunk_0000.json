@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>832 140 904 856<|content|>2. ... The\n<|id|>8<|page|>2<|box|>89 174 162 854<|content|>Award followed a fully contested 10-day evidentiar...witnesses, and filed extensive written submissions\n<|id|>21<|page|>2<|box|>742 140 888 857<|content|>8. ... Elena\n<|id|>22<|page|>3<|box|>89 174 126 854<|content|>Stavridis (Chief Financial Officer), Captain Dimit...and Ms. ... Ioanna Christodoulou (General Counsel)\n<|id|>77<|page|>7<|box|>417 174 473 854<|content|>(c) On the basis of the findings of fact in the aw...ribunal is at least open to serious doubt; ... and\n<|id|>82<|page|>7<|box|>767 174 840 856<|content|>\"The more the question of law relates to the const...on will be one of general public importance. ... \"\n<|id|>93<|page|>8<|box|>643 174 700 854<|content|>(c) Mr. ... and\n<|id|>97<|page|>9<|box|>146 174 200 854<|content|>\"A failure to deal with an issue is not the same as reaching a wrong conclusion on an issue. ... \"\n<|id|>242<|page|>20<|box|>361 143 378 547<|content|>17. ... Arbitration Act 1996, sections 1, 33, 66, 68, 69, 73\n<|id|>243<|page|>20<|box|>382 143 398 292<|content|>Arbitration Rules: ... Arbitration Rules\n<|id|>244<|page|>20<|box|>407 142 424 560<|content|>18. ... 8\n<|id|>245<|page|>20<|box|>426 140 443 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>246<|page|>20<|box|>444 140 460 390<|content|>45 Moorgate London EC2R 6AR\n<|id|>247<|page|>20<|box|>462 140 479 596<|content|>Solicitors for the Claimant, Thalassa Shipping & Logistics SA\n<|id|>248<|page|>20<|box|>479 142 496 500<|content|>Responsible Partner: ... Samuel Eklund\n<|id|>249<|page|>20<|box|>496 142 513 480<|content|>Lead Associate: ... Hannah Brinkley\n<|id|>250<|page|>20<|box|>513 142 530 315<|content|>Dated: ... 4 October 2024",
+    "raw_response": "<|src_id|>7<|tgt_id|>8\n<|src_id|>21<|tgt_id|>22\n<|src_id|>93<|tgt_id|>97",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 97
+        }
+    ]
+}

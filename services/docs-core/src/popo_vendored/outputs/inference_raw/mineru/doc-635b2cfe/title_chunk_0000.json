@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        4,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 166 142 831<|content|>CERTIFIED COPY OF RESOLUTIONS OF THE BOARD OF DIRE\n<|id|>3<|page|>1<|box|>226 140 243 297<|content|>CERTIFICATION\n<|id|>9<|page|>1<|box|>689 140 724 754<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF BELMONT R\n<|id|>37<|page|>4<|box|>732 140 750 379<|content|>NOW, THEREFORE, BE IT:\n<|id|>50<|page|>7<|box|>89 140 106 383<|content|>CERTIFICATION CLOSING\n<|id|>60<|page|>7<|box|>340 140 357 426<|content|>INCUMBENCY CONFIRMATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>9<|level|>2\n<|id|>37<|level|>-1\n<|id|>50<|level|>2\n<|id|>60<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        }
+    ]
+}

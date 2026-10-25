@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 3,
+    "range": [
+        182,
+        194
+    ],
+    "pages": [
+        183,
+        188,
+        190,
+        194
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>825<|page|>183<|box|>100 401 112 590<|content|>Footnotes to Table GA-I-2\n<|id|>826<|page|>183<|box|>143 133 151 224<|content|>* Less than \\$500. ... * Less than \\$500\n<|id|>865<|page|>188<|box|>87 417 100 579<|content|>Section III - Trust Funds\n<|id|>866<|page|>188<|box|>107 464 119 526<|content|>Footnotes\n<|id|>879<|page|>188<|box|>501 116 518 468<|content|>3/ Includes unappropriated receipts from January 1... of States and their political subdivisions, under\n<|id|>880<|page|>188<|box|>342 510 362 868<|content|>the Social Security Act Amendments of 1950 (42 U. ...e Trust Fund and Social and Rehabilitation Service\n<|id|>881<|page|>188<|box|>361 509 403 880<|content|>6/ Payments are made between the Railroad Retireme...d in social security coverage (45 U. ... 228c (k))\n<|id|>895<|page|>190<|box|>753 123 789 455<|content|>Source: ... 1/ Includes \\$2 million FY 1973, \\$1 million FY 1974, and \\$1 million\n<|id|>896<|page|>190<|box|>754 528 787 873<|content|>FY 1975 for interest on reimbursement of administr...d \\$151 million FY 1975, and \\$168 million FY 1976\n<|id|>913<|page|>194<|box|>430 119 464 468<|content|>Source: ... This fund was established by the National Service Life Insurance\n<|id|>914<|page|>194<|box|>446 506 454 622<|content|>* Less than \\$500,000. ... * Less than \\$500,000",
+    "raw_response": "<|src_id|>879<|tgt_id|>880\n<|src_id|>895<|tgt_id|>896",
+    "parsed": [
+        {
+            "src_id": 879,
+            "tgt_id": 880
+        },
+        {
+            "src_id": 895,
+            "tgt_id": 896
+        }
+    ]
+}

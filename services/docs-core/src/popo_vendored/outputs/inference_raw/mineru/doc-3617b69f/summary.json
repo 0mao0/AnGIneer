@@ -1,0 +1,150 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-smijrz9t\\input\\pdfs\\doc-3617b69f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-smijrz9t\\enriched\\doc-3617b69f.json",
+    "contd_output": "",
+    "title_output": "<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>13<|level|>2\n<|id|>25<|level|>3\n<|id|>29<|level|>2\n<|id|>31<|level|>3\n<|id|>36<|level|>3\n<|id|>40<|level|>3\n<|id|>43<|level|>3\n<|id|>51<|level|>3\n<|id|>54<|level|>2\n<|id|>77<|level|>2\n<|id|>82<|level|>3\n<|id|>87<|level|>3\n<|id|>90<|level|>3\n<|id|>92<|level|>2\n<|id|>94<|level|>3\n<|id|>102<|level|>3\n<|id|>110<|level|>3\n<|id|>117<|level|>2\n<|id|>122<|level|>2\n<|id|>129<|level|>2\n<|id|>137<|level|>2",
+    "image_output": "<|src_id|>3<|tgt_id|>2\n<|src_id|>33<|tgt_id|>31\n<|src_id|>34<|tgt_id|>31\n<|src_id|>38<|tgt_id|>36\n<|src_id|>42<|tgt_id|>40\n<|src_id|>53<|tgt_id|>51",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 51
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 33,
+            "table2_idx": 34,
+            "upper_row_ss": [
+                [
+                    "Solstice Medical",
+                    "Delaware C-corporation",
+                    "Delaware, USA; File No.",
+                    "Wholly owned US"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Technologies Inc. (\"SMT Inc.\")",
+                    "",
+                    "7482916; EIN 84-3291507",
+                    "subsidiary of SBD; current holder of IP portfolio (transferor)"
+                ]
+            ]
+        }
+    ]
+}

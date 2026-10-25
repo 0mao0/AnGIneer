@@ -1,0 +1,86 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>356 140 375 359<|content|>I. Purpose and Transmittal\n<|id|>13<|page|>2<|box|>186 140 204 374<|content|>II. Summary of Key Changes\n<|id|>14<|page|>2<|box|>217 142 234 333<|content|>1. Definitions (Article I)\n<|id|>21<|page|>3<|box|>630 140 648 439<|content|>2. Interest Rate Provisions (Article II)\n<|id|>29<|page|>4<|box|>583 140 599 666<|content|>3. Amortization and Prepayment Provisions (Article\n<|id|>36<|page|>5<|box|>719 140 736 426<|content|>4. Financial Covenants (Article VII)\n<|id|>42<|page|>7<|box|>138 140 157 511<|content|>5. Representations and Warranties (Article IV)\n<|id|>48<|page|>8<|box|>212 140 229 413<|content|>6. Negative Covenants (Article VI)\n<|id|>55<|page|>9<|box|>484 140 501 501<|content|>7. Conditions Precedent to Closing (Article V)\n<|id|>68<|page|>11<|box|>638 140 656 653<|content|>8. Agency and Collateral Agent Provisions (Article\n<|id|>72<|page|>12<|box|>323 140 339 354<|content|>9. Intercreditor Provisions\n<|id|>75<|page|>12<|box|>641 142 657 477<|content|>10. Miscellaneous / Boilerplate (Article XI)\n<|id|>89<|page|>13<|box|>656 142 672 450<|content|>III. Lender Commitment Confirmation\n<|id|>94<|page|>14<|box|>220 140 237 366<|content|>IV. Timeline and Next Steps\n<|id|>102<|page|>14<|box|>808 142 825 256<|content|>V. Enclosures",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>42<|level|>2\n<|id|>48<|level|>2\n<|id|>55<|level|>2\n<|id|>68<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>2\n<|id|>89<|level|>1\n<|id|>94<|level|>1\n<|id|>102<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        }
+    ]
+}

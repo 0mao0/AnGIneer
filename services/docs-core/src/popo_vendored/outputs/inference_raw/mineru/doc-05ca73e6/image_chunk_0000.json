@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>330 140 347 292<|content|>Dear Mr. Whitaker:\n<|id|>9<|type|>title<|page|>1<|box|>661 140 679 506<|content|>1. Transmittal of Executed Escrow Agreement\n<|id|>16<|type|>title<|page|>2<|box|>250 140 266 485<|content|>2. Escrow Amount and Deposit Instructions\n<|id|>20<|type|>table<|page|>2<|box|>632 143 761 852<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>359 140 375 442<|content|>3. Summary of Escrow Release Terms\n<|id|>31<|type|>title<|page|>4<|box|>476 140 493 380<|content|>4. Authorized Representatives\n<|id|>33<|type|>title<|page|>4<|box|>625 142 641 712<|content|>Buyer's Authorized Representatives (Crestline Pack\n<|id|>34<|type|>title<|page|>4<|box|>648 142 664 285<|content|>Primary Contact:\n<|id|>37<|type|>title<|page|>4<|box|>736 142 751 300<|content|>Secondary Contact:\n<|id|>43<|type|>title<|page|>5<|box|>90 140 108 692<|content|>Seller's Authorized Representatives (Allegheny Val\n<|id|>54<|type|>title<|page|>5<|box|>453 140 470 356<|content|>5. Notices to Escrow Agent\n<|id|>59<|type|>title<|page|>5<|box|>717 140 734 379<|content|>6. Tax Matters and Reporting\n<|id|>62<|type|>table<|page|>6<|box|>159 143 215 852<|content|>None\n<|id|>64<|type|>table<|page|>6<|box|>299 143 357 852<|content|>None\n<|id|>66<|type|>title<|page|>6<|box|>505 140 522 287<|content|>7. Governing Law\n<|id|>68<|type|>title<|page|>6<|box|>646 140 662 369<|content|>8. Acknowledgment Request\n<|id|>87<|type|>title<|page|>7<|box|>619 400 637 596<|content|>ACKNOWLEDGMENT",
+    "raw_response": "<|src_id|>20<|tgt_id|>16\n<|src_id|>62<|tgt_id|>59\n<|src_id|>64<|tgt_id|>59",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 59
+        }
+    ]
+}

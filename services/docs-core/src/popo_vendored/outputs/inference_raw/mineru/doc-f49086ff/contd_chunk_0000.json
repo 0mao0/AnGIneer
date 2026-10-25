@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        51
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        9,
+        13,
+        14,
+        21,
+        22,
+        27,
+        28,
+        50
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>310 207 328 790<|content|>NORTHGATE TRUST COMPANY, N. ... , as Trustee and Collateral Agent\n<|id|>8<|page|>1<|box|>388 418 405 580<|content|>Dated as of [●], 2025\n<|id|>6<|page|>1<|box|>337 444 353 552<|content|>$850,000,000\n<|id|>7<|page|>1<|box|>362 344 378 651<|content|>9. ... 375% Senior Secured Notes due 2032\n<|id|>9<|page|>1<|box|>414 398 431 599<|content|>TABLE OF CONTENTS\n<|id|>10<|page|>1<|box|>440 143 455 408<|content|>Right-click to update Table of Contents\n<|id|>48<|page|>7<|box|>704 140 741 854<|content|>WHEREAS, the Issuers, the Guarantors, and the Trus...939, as amended, to the extent applicable; ... and\n<|id|>49<|page|>7<|box|>750 140 840 857<|content|>WHEREAS, all acts, conditions, and things necessar...he Notes have in all respects been duly authorized\n<|id|>61<|page|>8<|box|>779 140 888 857<|content|>\"Applicable Premium\" means, with respect to any No...iscount rate equal to the Treasury Rate as of such\n<|id|>62<|page|>9<|box|>90 140 125 854<|content|>Redemption Date plus 50 basis points, over (ii) th...the then outstanding principal amount of such Note\n<|id|>101<|page|>13<|box|>801 140 893 857<|content|>\"Fixed Charges\" means, with respect to any specifi...vidends on Capital Stock payable solely in Capital\n<|id|>102<|page|>14<|box|>89 140 162 856<|content|>Stock of such Person (other than Disqualified Stoc...ry tax rate of such Person, expressed as a decimal\n<|id|>176<|page|>21<|box|>256 174 273 718<|content|>(d) \"indenture trustee\" or \"institutional trustee\" means the Trustee; ... and\n<|id|>178<|page|>21<|box|>308 140 363 854<|content|>All other terms used in this Indenture that are de...fined herein have the meanings so assigned to them\n<|id|>191<|page|>21<|box|>787 174 805 810<|content|>(k) all references to currency are to lawful money of the United States of America; ... and\n<|id|>193<|page|>22<|box|>89 140 126 854<|content|>This Indenture and the Notes shall be governed by ... accordance with the laws of the State of New York\n<|id|>244<|page|>27<|box|>792 140 902 856<|content|>The Issuers in issuing the Notes may use CUSIP and...t be affected by any defect in or omission of such\n<|id|>246<|page|>28<|box|>234 140 270 852<|content|>The Issuers shall promptly notify the Trustee in w... the CUSIP or ISIN numbers applicable to the Notes\n<|id|>433<|page|>50<|box|>351 174 479 856<|content|>(j) any Security Document shall cease to be in ful...any such Lien is invalid or unenforceable; ... and\n<|id|>435<|page|>50<|box|>695 140 751 854<|content|>The term \"Bankruptcy Law\" means Title 11 of the Un...or other similar official under any Bankruptcy Law",
+    "raw_response": "<|src_id|>61<|tgt_id|>62\n<|src_id|>101<|tgt_id|>102",
+    "parsed": [
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 102
+        }
+    ]
+}

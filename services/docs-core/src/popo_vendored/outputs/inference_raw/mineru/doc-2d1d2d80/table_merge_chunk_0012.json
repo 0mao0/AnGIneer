@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 12,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 外业测量', 'rowspan=3, 0.6', '测线布设', '1.外业图板准备2.测线方向、间距3.测深检查线']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 外业测量', 'rowspan=2, 0.6', '定位', '1.定位点间距、定位精度2.定位中心与测深中心的一致性及偏距改正3.定位与测深、记录的同步性4.测图比例尺与定位精度的关系5.现场定位比对6.卫星定位的坐标系统、转换参数、测定方法7.实测水域内助航标志、跨航道高架桥、跨航道电缆和水下电缆定位']]\n",
+    "raw_response": "[1, 1, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0
+    ],
+    "table1_idx": 157,
+    "table2_idx": 158
+}

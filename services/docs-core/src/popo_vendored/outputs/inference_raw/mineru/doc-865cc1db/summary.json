@@ -1,0 +1,175 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8s61ov5v\\input\\pdfs\\doc-865cc1db.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8s61ov5v\\enriched\\doc-865cc1db.json",
+    "contd_output": "<|src_id|>64<|tgt_id|>65",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>26<|level|>3\n<|id|>31<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>41<|level|>3\n<|id|>50<|level|>3\n<|id|>57<|level|>2\n<|id|>58<|level|>3\n<|id|>62<|level|>3\n<|id|>66<|level|>2\n<|id|>70<|level|>3\n<|id|>79<|level|>3\n<|id|>90<|level|>3\n<|id|>98<|level|>3\n<|id|>111<|level|>3\n<|id|>117<|level|>3\n<|id|>125<|level|>2\n<|id|>133<|level|>2\n<|id|>135<|level|>3\n<|id|>143<|level|>2\n<|id|>145<|level|>3\n<|id|>154<|level|>3\n<|id|>162<|level|>3\n<|id|>165<|level|>3\n<|id|>169<|level|>2",
+    "image_output": "<|src_id|>22<|tgt_id|>17\n<|src_id|>23<|tgt_id|>17\n<|src_id|>68<|tgt_id|>66\n<|src_id|>136<|tgt_id|>135\n<|src_id|>137<|tgt_id|>135",
+    "contd_label": [
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 135
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 136,
+            "table2_idx": 137,
+            "upper_row_ss": [
+                [
+                    "Number of Loans",
+                    "~82,400"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Average Loan Balance",
+                    "~$7,427"
+                ]
+            ]
+        }
+    ]
+}

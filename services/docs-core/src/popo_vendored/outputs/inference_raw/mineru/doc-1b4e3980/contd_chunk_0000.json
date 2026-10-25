@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        20,
+        21,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>1<|box|>323 140 340 709<|content|>Prepared by: ... Simone Laroche, Senior Associate, and Jeffrey Park, Associate\n<|id|>7<|page|>1<|box|>349 140 364 504<|content|>Prepared for: ... Priya Anand, Responsible Partner\n<|id|>8<|page|>1<|box|>375 142 391 454<|content|>Date of Memorandum: ... January 12, 2023\n<|id|>9<|page|>1<|box|>400 142 417 424<|content|>Date of Deposition: ... January 18, 2023\n<|id|>10<|page|>1<|box|>426 140 462 854<|content|>Matter: ... 2022-L-008471, Circuit Court of Cook County, Illinois, County Department, Law Division\n<|id|>11<|page|>1<|box|>470 140 487 527<|content|>Calderwood & Harkness Matter No. ... 1005-00005\n<|id|>12<|page|>1<|box|>496 140 532 852<|content|>Location of Deposition: ... Calderwood & Harkness ... South Wacker Drive, Suite 4400, Chicago, IL 60606\n<|id|>13<|page|>1<|box|>540 140 558 388<|content|>Court Reporter: ... To be arranged\n<|id|>14<|page|>1<|box|>566 140 602 854<|content|>Opposing Counsel Present (anticipated): ... Garret...7 Seventeenth Street, Suite 2200, Denver, CO 80202\n<|id|>367<|page|>20<|box|>840 140 877 854<|content|>Admission 3: ... This admission supports\n<|id|>368<|page|>21<|box|>90 140 126 854<|content|>Nexford's defense that approximately $1. ... 08 mi...four months — was invoiced in violation of the MSA\n<|id|>381<|page|>23<|box|>747 140 875 856<|content|>Attorney-Client Privilege. ... \", ask \"Putting asi...ed, what was your factual understanding of whether\n<|id|>382<|page|>24<|box|>90 140 127 854<|content|>CPI's surcharge calculations complied with Exhibit... knowledge while respecting the privilege boundary",
+    "raw_response": "<|src_id|>367<|tgt_id|>368\n<|src_id|>381<|tgt_id|>382",
+    "parsed": [
+        {
+            "src_id": 367,
+            "tgt_id": 368
+        },
+        {
+            "src_id": 381,
+            "tgt_id": 382
+        }
+    ]
+}

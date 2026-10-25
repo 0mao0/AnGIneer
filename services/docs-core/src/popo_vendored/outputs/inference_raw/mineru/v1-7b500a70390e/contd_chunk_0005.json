@@ -1,0 +1,43 @@
+{
+    "task": "contd",
+    "chunk_index": 5,
+    "range": [
+        234,
+        251
+    ],
+    "pages": [
+        234,
+        235,
+        236,
+        237,
+        238,
+        240,
+        241,
+        242,
+        243,
+        248,
+        249,
+        250,
+        251
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2339<|page|>234<|box|>549 34 599 934<|content|>Acknowledgment of the Agreement. ... (i)\n<|id|>2340<|page|>235<|box|>88 34 126 944<|content|>Participant’s participation in the Plan does not c...any decrease in the value of the underlying Shares\n<|id|>2348<|page|>235<|box|>570 34 608 937<|content|>Finalmente, usted declara que no se reserva acción...da responsabilidad a la Compañía, a sus Afiliadas,\n<|id|>2349<|page|>236<|box|>88 34 114 880<|content|>sucursales, oficinas de representación, sus accion...especto a cualquier reclamación que pudiera surgir\n<|id|>2381<|page|>237<|box|>652 32 680 919<|content|>Exchange Control Information. ... If Participant d...receipt of dividends in a bank account in Romania,\n<|id|>2382<|page|>238<|box|>88 34 125 918<|content|>Participant may be required to provide the Romania... to submit such documentation to the Romanian bank\n<|id|>2419<|page|>240<|box|>445 34 540 944<|content|>Exchange Control Information. ... Participant shou...rding these exchange control reporting obligations\n<|id|>2420<|page|>240<|box|>546 32 607 937<|content|>Foreign Asset/Account Reporting Information. ... I...tal balances, nor the total transactions with non-\n<|id|>2421<|page|>241<|box|>87 34 103 777<|content|>residents during the relevant period exceed a sepa...hold, a summarized form of declaration may be used\n<|id|>2450<|page|>242<|box|>589 32 650 937<|content|>Securities Law Information. ... The Emirates Secur...ties Authority has no responsibility for reviewing\n<|id|>2451<|page|>243<|box|>88 34 125 942<|content|>or verifying any documents in connection with the ...rein, and has no responsibility for such documents\n<|id|>2478<|page|>248<|box|>358 104 383 928<|content|>(c) Evaluated the effectiveness of the Registrant’...d by this report based on such evaluation; ... and\n<|id|>2483<|page|>248<|box|>546 37 558 153<|content|>/s/ Michael F. ... Roman\n<|id|>2479<|page|>248<|box|>393 104 429 906<|content|>(d) Disclosed in this report any change in the Reg...internal control over financial reporting; ... and\n<|id|>2481<|page|>248<|box|>474 104 500 910<|content|>(a) All significant deficiencies and material weak...ummarize and report financial information; ... and\n<|id|>2484<|page|>248<|box|>573 35 599 165<|content|>Michael F. ... Roman Chief Executive Officer\n<|id|>2485<|page|>248<|box|>612 35 625 130<|content|>February 8, 2023\n<|id|>2500<|page|>249<|box|>585 35 613 266<|content|>Monish Patolawala Chief Financial and Transformation Officer\n<|id|>2501<|page|>249<|box|>625 35 638 130<|content|>February 8, 2023\n<|id|>2507<|page|>250<|box|>250 35 276 165<|content|>Michael F. ... Roman Chief Executive Officer\n<|id|>2508<|page|>250<|box|>289 35 301 130<|content|>February 8, 2023\n<|id|>2511<|page|>251<|box|>174 58 186 696<|content|>1. ... and\n<|id|>2513<|page|>251<|box|>224 37 234 155<|content|>/s/ Monish Patolawala\n<|id|>2514<|page|>251<|box|>250 35 276 266<|content|>Monish Patolawala Chief Financial and Transformation Officer\n<|id|>2515<|page|>251<|box|>289 35 301 129<|content|>February 8, 2023",
+    "raw_response": "<|src_id|>2348<|tgt_id|>2349\n<|src_id|>2381<|tgt_id|>2382\n<|src_id|>2420<|tgt_id|>2421\n<|src_id|>2450<|tgt_id|>2451",
+    "parsed": [
+        {
+            "src_id": 2348,
+            "tgt_id": 2349
+        },
+        {
+            "src_id": 2381,
+            "tgt_id": 2382
+        },
+        {
+            "src_id": 2420,
+            "tgt_id": 2421
+        },
+        {
+            "src_id": 2450,
+            "tgt_id": 2451
+        }
+    ]
+}

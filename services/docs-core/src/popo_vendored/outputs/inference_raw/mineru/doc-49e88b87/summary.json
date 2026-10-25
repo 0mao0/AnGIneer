@@ -1,0 +1,185 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9qhk48yf\\input\\pdfs\\doc-49e88b87.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9qhk48yf\\enriched\\doc-49e88b87.json",
+    "contd_output": "<|src_id|>164<|tgt_id|>165\n<|src_id|>233<|tgt_id|>234",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>17<|level|>2\n<|id|>39<|level|>2\n<|id|>41<|level|>3\n<|id|>53<|level|>3\n<|id|>64<|level|>3\n<|id|>80<|level|>3\n<|id|>83<|level|>3\n<|id|>90<|level|>3\n<|id|>97<|level|>2\n<|id|>99<|level|>3\n<|id|>117<|level|>3\n<|id|>129<|level|>3\n<|id|>155<|level|>3\n<|id|>168<|level|>3\n<|id|>183<|level|>2\n<|id|>195<|level|>2\n<|id|>230<|level|>2\n<|id|>235<|level|>2\n<|id|>240<|level|>2\n<|id|>243<|level|>2\n<|id|>252<|level|>2",
+    "image_output": "<|src_id|>51<|tgt_id|>41\n<|src_id|>62<|tgt_id|>53\n<|src_id|>76<|tgt_id|>64\n<|src_id|>84<|tgt_id|>83\n<|src_id|>170<|tgt_id|>168\n<|src_id|>184<|tgt_id|>183\n<|src_id|>185<|tgt_id|>183\n<|src_id|>232<|tgt_id|>230\n<|src_id|>237<|tgt_id|>235\n<|src_id|>238<|tgt_id|>235\n<|src_id|>241<|tgt_id|>240",
+    "contd_label": [
+        {
+            "src_id": 164,
+            "tgt_id": 165
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 234
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 235,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 2
+        },
+        {
+            "id": 243,
+            "level": 2
+        },
+        {
+            "id": 252,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 51,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 183
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 183
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 230
+        },
+        {
+            "src_id": 237,
+            "tgt_id": 235
+        },
+        {
+            "src_id": 238,
+            "tgt_id": 235
+        },
+        {
+            "src_id": 241,
+            "tgt_id": 240
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 184,
+            "table2_idx": 185,
+            "upper_row_ss": [
+                [
+                    "Series A Preferred Equity",
+                    "$35.0M liquidation preference",
+                    "10.00% PIK",
+                    "—",
+                    "Senior to common"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Common Equity",
+                    "47.5% Ridgeline / 47.5% Mezz holders / 5.0% MIP",
+                    "—",
+                    "—",
+                    "Equity"
+                ]
+            ]
+        }
+    ]
+}

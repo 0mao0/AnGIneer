@@ -1,0 +1,193 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2_gwnhfm\\input\\pdfs\\doc-95ac3a7b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2_gwnhfm\\enriched\\doc-95ac3a7b.json",
+    "contd_output": "<|src_id|>123<|tgt_id|>124\n<|src_id|>243<|tgt_id|>244",
+    "title_output": "<|id|>0<|level|>1\n<|id|>22<|level|>1\n<|id|>27<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>3\n<|id|>43<|level|>3\n<|id|>61<|level|>2\n<|id|>63<|level|>3\n<|id|>68<|level|>3\n<|id|>72<|level|>3\n<|id|>77<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>2\n<|id|>102<|level|>2\n<|id|>122<|level|>2\n<|id|>127<|level|>2\n<|id|>137<|level|>2\n<|id|>143<|level|>2\n<|id|>193<|level|>2\n<|id|>194<|level|>3\n<|id|>217<|level|>2\n<|id|>218<|level|>3\n<|id|>228<|level|>2\n<|id|>229<|level|>3\n<|id|>231<|level|>4\n<|id|>233<|level|>5\n<|id|>236<|level|>5\n<|id|>242<|level|>4\n<|id|>245<|level|>5\n<|id|>250<|level|>4\n<|id|>252<|level|>5\n<|id|>262<|level|>4\n<|id|>265<|level|>4",
+    "image_output": "<|src_id|>220<|tgt_id|>218\n<|src_id|>222<|tgt_id|>218\n<|src_id|>224<|tgt_id|>218\n<|src_id|>225<|tgt_id|>218",
+    "contd_label": [
+        {
+            "src_id": 123,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 243,
+            "tgt_id": 244
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 217,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 3
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 231,
+            "level": 4
+        },
+        {
+            "id": 233,
+            "level": 5
+        },
+        {
+            "id": 236,
+            "level": 5
+        },
+        {
+            "id": 242,
+            "level": 4
+        },
+        {
+            "id": 245,
+            "level": 5
+        },
+        {
+            "id": 250,
+            "level": 4
+        },
+        {
+            "id": 252,
+            "level": 5
+        },
+        {
+            "id": 262,
+            "level": 4
+        },
+        {
+            "id": 265,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 220,
+            "tgt_id": 218
+        },
+        {
+            "src_id": 222,
+            "tgt_id": 218
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 218
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 218
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 224,
+            "table2_idx": 225,
+            "upper_row_ss": [
+                [
+                    "1",
+                    "Fiona Abernathy",
+                    "Head of Credit Investments",
+                    "British / United Kingdom",
+                    "UK National"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "2",
+                    "[Name of UK Person 2, if applicable]",
+                    "[Role/Title]",
+                    "[Nationality / Domicile]",
+                    "[UK National / UK Domiciliary]"
+                ]
+            ]
+        }
+    ]
+}

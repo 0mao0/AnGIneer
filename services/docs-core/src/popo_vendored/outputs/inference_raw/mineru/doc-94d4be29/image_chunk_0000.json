@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 191 118 805<|content|>VERIFIED PETITIONS FOR ADMISSION PRO HAC VICE\n<|id|>1<|type|>title<|page|>1<|box|>135 168 167 826<|content|>UNITED STATES DISTRICT COURT EASTERN DISTRICT OF T\n<|id|>2<|type|>table<|page|>1<|box|>167 143 381 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>414 196 431 800<|content|>VERIFIED PETITION FOR ADMISSION PRO HAC VICE OF AL\n<|id|>4<|type|>title<|page|>1<|box|>454 140 470 442<|content|>I. INTRODUCTION AND REQUEST\n<|id|>12<|type|>title<|page|>2<|box|>292 140 309 571<|content|>II. IDENTIFICATION OF APPLICANT ATTORNEY\n<|id|>18<|type|>title<|page|>2<|box|>589 140 607 537<|content|>III. BAR ADMISSIONS AND GOOD STANDING\n<|id|>26<|type|>title<|page|>3<|box|>224 142 239 491<|content|>IV. FAMILIARITY WITH LOCAL RULES\n<|id|>30<|type|>title<|page|>3<|box|>421 140 438 488<|content|>V. DESIGNATION OF LOCAL COUNSEL\n<|id|>37<|type|>title<|page|>3<|box|>773 140 791 772<|content|>VI. VERIFICATION AND DECLARATION UNDER PENALTY OF\n<|id|>40<|type|>title<|page|>4<|box|>214 140 232 462<|content|>VII. CONSENT OF LOCAL COUNSEL\n<|id|>48<|type|>title<|page|>4<|box|>664 439 681 557<|content|>EXHIBIT A-1\n<|id|>49<|type|>title<|page|>4<|box|>689 241 760 754<|content|>CERTIFICATE OF GOOD STANDING — ALAN NGO STATE BAR\n<|id|>54<|type|>table<|page|>5<|box|>229 143 441 852<|content|>None\n<|id|>55<|type|>title<|page|>5<|box|>474 163 493 833<|content|>VERIFIED PETITION FOR ADMISSION PRO HAC VICE OF WE\n<|id|>56<|type|>title<|page|>5<|box|>516 142 532 442<|content|>I. INTRODUCTION AND REQUEST\n<|id|>63<|type|>title<|page|>6<|box|>364 140 382 571<|content|>II. IDENTIFICATION OF APPLICANT ATTORNEY\n<|id|>68<|type|>title<|page|>6<|box|>606 142 623 537<|content|>III. BAR ADMISSIONS AND GOOD STANDING\n<|id|>76<|type|>title<|page|>7<|box|>224 142 239 491<|content|>IV. FAMILIARITY WITH LOCAL RULES\n<|id|>80<|type|>title<|page|>7<|box|>439 140 455 488<|content|>V. DESIGNATION OF LOCAL COUNSEL\n<|id|>87<|type|>title<|page|>7<|box|>792 140 809 772<|content|>VI. VERIFICATION AND DECLARATION UNDER PENALTY OF\n<|id|>90<|type|>title<|page|>8<|box|>214 140 232 462<|content|>VII. CONSENT OF LOCAL COUNSEL\n<|id|>98<|type|>title<|page|>8<|box|>664 439 681 555<|content|>EXHIBIT B-1\n<|id|>99<|type|>title<|page|>8<|box|>689 243 760 754<|content|>CERTIFICATE OF GOOD STANDING — WENDY SCHULTZ STATE\n<|id|>103<|type|>table<|page|>9<|box|>229 143 441 852<|content|>None\n<|id|>104<|type|>title<|page|>9<|box|>474 171 493 825<|content|>VERIFIED PETITION FOR ADMISSION PRO HAC VICE OF OM\n<|id|>105<|type|>title<|page|>9<|box|>516 142 532 442<|content|>I. INTRODUCTION AND REQUEST\n<|id|>112<|type|>title<|page|>10<|box|>364 140 382 571<|content|>II. IDENTIFICATION OF APPLICANT ATTORNEY\n<|id|>117<|type|>title<|page|>10<|box|>588 140 604 537<|content|>III. BAR ADMISSIONS AND GOOD STANDING\n<|id|>125<|type|>title<|page|>11<|box|>167 142 184 491<|content|>IV. FAMILIARITY WITH LOCAL RULES\n<|id|>129<|type|>title<|page|>11<|box|>383 140 400 488<|content|>V. DESIGNATION OF LOCAL COUNSEL\n<|id|>136<|type|>title<|page|>11<|box|>736 140 753 772<|content|>VI. VERIFICATION AND DECLARATION UNDER PENALTY OF\n<|id|>140<|type|>title<|page|>12<|box|>181 140 199 462<|content|>VII. CONSENT OF LOCAL COUNSEL\n<|id|>148<|type|>title<|page|>12<|box|>633 243 727 753<|content|>EXHIBIT C-1 CERTIFICATE OF GOOD STANDING — OMAR SI\n<|id|>153<|type|>table<|page|>13<|box|>196 143 407 852<|content|>None\n<|id|>154<|type|>title<|page|>13<|box|>441 232 459 764<|content|>[PROPOSED] ORDER GRANTING ADMISSION PRO HAC VICE\n<|id|>167<|type|>title<|page|>14<|box|>431 140 448 272<|content|>SO ORDERED.\n<|id|>169<|type|>title<|page|>14<|box|>508 140 544 720<|content|>HONORABLE JAMES R. GILSTRAP UNITED STATES DISTRICT",
+    "raw_response": "<|src_id|>2<|tgt_id|>0\n<|src_id|>54<|tgt_id|>49\n<|src_id|>103<|tgt_id|>99\n<|src_id|>153<|tgt_id|>148",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 148
+        }
+    ]
+}

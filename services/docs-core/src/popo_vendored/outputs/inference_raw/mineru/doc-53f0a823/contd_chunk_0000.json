@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        13,
+        14,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>154 140 171 419<|content|>TO: ... Linda Osei, Responsible Partner\n<|id|>2<|page|>1<|box|>180 140 196 410<|content|>FROM: ... Yuki Nakamura, Associate\n<|id|>3<|page|>1<|box|>205 140 223 354<|content|>DATE: ... November 20, 2024\n<|id|>4<|page|>1<|box|>232 140 250 740<|content|>RE: ... Deposition Summary and Analysis — Renata Voss (November 12–13, 2024)\n<|id|>5<|page|>1<|box|>258 140 311 854<|content|>MATTER: ... Ricci)\n<|id|>6<|page|>1<|box|>320 140 337 408<|content|>C&H MATTER NO. ... 1022-00005\n<|id|>7<|page|>1<|box|>345 140 529 856<|content|>PURPOSE: ... It is protected by the attorney-clien...de the litigation team without prior authorization\n<|id|>34<|page|>3<|box|>809 140 901 857<|content|>Ms. ... Voss recalled that\n<|id|>35<|page|>4<|box|>90 140 145 856<|content|>Meridian's bid was not the lowest but was consider...regarding crew availability and equipment capacity\n<|id|>117<|page|>13<|box|>824 140 897 856<|content|>Mr. ... Voss on Meridian's \"pretext theory\" — the ...able shifts in construction market pricing in late\n<|id|>118<|page|>14<|box|>89 140 145 854<|content|>2023 and early 2024. ... This theory underlies Mer...entially entitling Meridian to substantial damages\n<|id|>181<|page|>19<|box|>851 140 906 856<|content|>Bridget Yeung (February 4, 2025). ... Voss testified that critical\n<|id|>182<|page|>20<|box|>90 140 127 854<|content|>NCRs were communicated to Ms. ... Yeung's testimon...t regarding the quality failures will be important",
+    "raw_response": "<|src_id|>34<|tgt_id|>35\n<|src_id|>117<|tgt_id|>118\n<|src_id|>181<|tgt_id|>182",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 118
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 182
+        }
+    ]
+}

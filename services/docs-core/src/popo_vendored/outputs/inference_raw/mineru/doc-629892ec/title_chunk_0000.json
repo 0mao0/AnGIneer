@@ -1,0 +1,54 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>594 140 612 380<|content|>Settlement Payment Amounts\n<|id|>14<|page|>2<|box|>90 140 107 290<|content|>Payment Deadline\n<|id|>17<|page|>2<|box|>348 140 364 359<|content|>Wire Transfer Instructions\n<|id|>32<|page|>3<|box|>148 140 167 398<|content|>Confirmation of Wire Transfers\n<|id|>43<|page|>3<|box|>563 140 580 433<|content|>Wire Verification / Security Protocol\n<|id|>46<|page|>4<|box|>90 140 107 524<|content|>Remaining Settlement Payments (Informational)\n<|id|>51<|page|>4<|box|>398 140 417 331<|content|>Stipulation of Dismissal\n<|id|>54<|page|>4<|box|>619 140 638 209<|content|>Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>32<|level|>2\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>51<|level|>2\n<|id|>54<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        }
+    ]
+}

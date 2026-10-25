@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 181 126 857<|content|>MERIDIAN INFRASTRUCTURE GP IV LLC 200 Clarendon St\n<|id|>10<|type|>title<|page|>1<|box|>428 142 444 380<|content|>1. Introduction and Authority\n<|id|>14<|type|>title<|page|>1<|box|>839 140 857 375<|content|>2. Purpose of the Partnership\n<|id|>17<|type|>table<|page|>2<|box|>323 143 414 852<|content|>None\n<|id|>19<|type|>title<|page|>2<|box|>580 142 598 323<|content|>3. Capital Call History\n<|id|>22<|type|>table<|page|>2<|box|>773 145 907 852<|content|>None\n<|id|>23<|type|>table<|page|>3<|box|>88 143 194 852<|content|>None\n<|id|>25<|type|>title<|page|>3<|box|>378 140 396 496<|content|>4. Declaration of Material Impediment Event\n<|id|>26<|type|>title<|page|>3<|box|>410 140 426 295<|content|>4.1 Statutory Basis\n<|id|>31<|type|>title<|page|>3<|box|>724 140 742 401<|content|>4.2 Factual Basis for Declaration\n<|id|>45<|type|>title<|page|>6<|box|>90 140 107 328<|content|>4.3 Formal Declaration\n<|id|>49<|type|>title<|page|>6<|box|>426 140 443 377<|content|>5. Suspension of Capital Calls\n<|id|>53<|type|>title<|page|>6<|box|>819 140 837 534<|content|>6. Status of Called Capital and Partnership Assets\n<|id|>59<|type|>table<|page|>7<|box|>474 143 621 852<|content|>None\n<|id|>61<|type|>title<|page|>7<|box|>768 140 786 460<|content|>7. Governance During Dormancy Period\n<|id|>62<|type|>title<|page|>7<|box|>799 142 818 377<|content|>7.1 GP Reporting Obligations\n<|id|>71<|type|>title<|page|>8<|box|>559 140 575 514<|content|>7.2 Limited Partner Wind-Down Election Right\n<|id|>78<|type|>title<|page|>9<|box|>257 140 273 336<|content|>7.3 Ongoing Obligations\n<|id|>86<|type|>title<|page|>9<|box|>585 140 603 395<|content|>8. Status of Related Agreements\n<|id|>92<|type|>title<|page|>10<|box|>421 140 438 334<|content|>9. Reservation of Rights\n<|id|>101<|type|>title<|page|>11<|box|>250 142 266 336<|content|>10. Contact Information\n<|id|>112<|type|>title<|page|>11<|box|>648 142 665 297<|content|>11. Governing Law\n<|id|>115<|type|>title<|page|>11<|box|>835 400 854 596<|content|>[Signature Page Follows]\n<|id|>123<|type|>title<|page|>12<|box|>191 341 209 653<|content|>ACKNOWLEDGMENT OF RECEIPT",
+    "raw_response": "<|src_id|>17<|tgt_id|>14\n<|src_id|>22<|tgt_id|>19\n<|src_id|>23<|tgt_id|>19\n<|src_id|>59<|tgt_id|>53",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 53
+        }
+    ]
+}

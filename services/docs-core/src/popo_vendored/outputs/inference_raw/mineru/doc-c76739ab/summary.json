@@ -1,0 +1,663 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vogolw3w\\input\\pdfs\\doc-c76739ab.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vogolw3w\\enriched\\doc-c76739ab.json",
+    "contd_output": "<|src_id|>71<|tgt_id|>72\n<|src_id|>85<|tgt_id|>86\n<|src_id|>165<|tgt_id|>166\n<|src_id|>206<|tgt_id|>207\n<|src_id|>247<|tgt_id|>248",
+    "title_output": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>18<|level|>2\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>51<|level|>3\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>92<|level|>3\n<|id|>103<|level|>2\n<|id|>104<|level|>3\n<|id|>122<|level|>3\n<|id|>128<|level|>3\n<|id|>136<|level|>3\n<|id|>143<|level|>3\n<|id|>152<|level|>3\n<|id|>159<|level|>2\n<|id|>160<|level|>3\n<|id|>169<|level|>3\n<|id|>176<|level|>2\n<|id|>177<|level|>3\n<|id|>186<|level|>3\n<|id|>196<|level|>3\n<|id|>202<|level|>2\n<|id|>210<|level|>2\n<|id|>219<|level|>2\n<|id|>228<|level|>2\n<|id|>229<|level|>3\n<|id|>235<|level|>3\n<|id|>242<|level|>3\n<|id|>245<|level|>3\n<|id|>246<|level|>4\n<|id|>252<|level|>4\n<|id|>255<|level|>2\n<|id|>267<|level|>2\n<|id|>268<|level|>3\n<|id|>279<|level|>3\n<|id|>284<|level|>2\n<|id|>285<|level|>3\n<|id|>299<|level|>4\n<|id|>310<|level|>4\n<|id|>316<|level|>3\n<|id|>327<|level|>3\n<|id|>335<|level|>3\n<|id|>352<|level|>2\n<|id|>357<|level|>3\n<|id|>367<|level|>2\n<|id|>377<|level|>3\n<|id|>387<|level|>2\n<|id|>396<|level|>3\n<|id|>388<|level|>3\n<|id|>404<|level|>3\n<|id|>408<|level|>3\n<|id|>420<|level|>3",
+    "image_output": "<|src_id|>44<|tgt_id|>42\n<|src_id|>45<|tgt_id|>42\n<|src_id|>46<|tgt_id|>42\n<|src_id|>57<|tgt_id|>51\n<|src_id|>69<|tgt_id|>67\n<|src_id|>94<|tgt_id|>92\n<|src_id|>95<|tgt_id|>92\n<|src_id|>106<|tgt_id|>104\n<|src_id|>108<|tgt_id|>104\n<|src_id|>109<|tgt_id|>104\n<|src_id|>111<|tgt_id|>104\n<|src_id|>124<|tgt_id|>122\n<|src_id|>130<|tgt_id|>128\n<|src_id|>137<|tgt_id|>136\n<|src_id|>179<|tgt_id|>177\n<|src_id|>180<|tgt_id|>177\n<|src_id|>188<|tgt_id|>186\n<|src_id|>211<|tgt_id|>210\n<|src_id|>214<|tgt_id|>210\n<|src_id|>222<|tgt_id|>219\n<|src_id|>263<|tgt_id|>255\n<|src_id|>264<|tgt_id|>255\n<|src_id|>281<|tgt_id|>279\n<|src_id|>282<|tgt_id|>279\n<|src_id|>353<|tgt_id|>352\n<|src_id|>354<|tgt_id|>352\n<|src_id|>355<|tgt_id|>352\n<|src_id|>356<|tgt_id|>352\n<|src_id|>369<|tgt_id|>367\n<|src_id|>370<|tgt_id|>367\n<|src_id|>395<|tgt_id|>387\n<|src_id|>401<|tgt_id|>387\n<|src_id|>402<|tgt_id|>387\n<|src_id|>416<|tgt_id|>408\n<|src_id|>417<|tgt_id|>408\n<|src_id|>418<|tgt_id|>408\n<|src_id|>419<|tgt_id|>408",
+    "contd_label": [
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 207
+        },
+        {
+            "src_id": 247,
+            "tgt_id": 248
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 235,
+            "level": 3
+        },
+        {
+            "id": 242,
+            "level": 3
+        },
+        {
+            "id": 245,
+            "level": 3
+        },
+        {
+            "id": 246,
+            "level": 4
+        },
+        {
+            "id": 252,
+            "level": 4
+        },
+        {
+            "id": 255,
+            "level": 2
+        },
+        {
+            "id": 267,
+            "level": 2
+        },
+        {
+            "id": 268,
+            "level": 3
+        },
+        {
+            "id": 279,
+            "level": 3
+        },
+        {
+            "id": 284,
+            "level": 2
+        },
+        {
+            "id": 285,
+            "level": 3
+        },
+        {
+            "id": 299,
+            "level": 4
+        },
+        {
+            "id": 310,
+            "level": 4
+        },
+        {
+            "id": 316,
+            "level": 3
+        },
+        {
+            "id": 327,
+            "level": 3
+        },
+        {
+            "id": 335,
+            "level": 3
+        },
+        {
+            "id": 352,
+            "level": 2
+        },
+        {
+            "id": 357,
+            "level": 3
+        },
+        {
+            "id": 367,
+            "level": 2
+        },
+        {
+            "id": 377,
+            "level": 3
+        },
+        {
+            "id": 387,
+            "level": 2
+        },
+        {
+            "id": 396,
+            "level": 3
+        },
+        {
+            "id": 388,
+            "level": 3
+        },
+        {
+            "id": 404,
+            "level": 3
+        },
+        {
+            "id": 408,
+            "level": 3
+        },
+        {
+            "id": 420,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 136
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 211,
+            "tgt_id": 210
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 210
+        },
+        {
+            "src_id": 222,
+            "tgt_id": 219
+        },
+        {
+            "src_id": 263,
+            "tgt_id": 255
+        },
+        {
+            "src_id": 264,
+            "tgt_id": 255
+        },
+        {
+            "src_id": 281,
+            "tgt_id": 279
+        },
+        {
+            "src_id": 282,
+            "tgt_id": 279
+        },
+        {
+            "src_id": 353,
+            "tgt_id": 352
+        },
+        {
+            "src_id": 354,
+            "tgt_id": 352
+        },
+        {
+            "src_id": 355,
+            "tgt_id": 352
+        },
+        {
+            "src_id": 356,
+            "tgt_id": 352
+        },
+        {
+            "src_id": 369,
+            "tgt_id": 367
+        },
+        {
+            "src_id": 370,
+            "tgt_id": 367
+        },
+        {
+            "src_id": 395,
+            "tgt_id": 387
+        },
+        {
+            "src_id": 401,
+            "tgt_id": 387
+        },
+        {
+            "src_id": 402,
+            "tgt_id": 387
+        },
+        {
+            "src_id": 416,
+            "tgt_id": 408
+        },
+        {
+            "src_id": 417,
+            "tgt_id": 408
+        },
+        {
+            "src_id": 418,
+            "tgt_id": 408
+        },
+        {
+            "src_id": 419,
+            "tgt_id": 408
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 45,
+            "table2_idx": 46,
+            "upper_row_ss": [
+                [
+                    "Binghamtonhamton",
+                    "NY",
+                    "601 Riverside Drive, Binghamtonhamton, NY 13905",
+                    "24"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Ithaca",
+                    "NY",
+                    "120 East Green Street, Ithaca, NY 14850",
+                    "18"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 94,
+            "table2_idx": 95,
+            "upper_row_ss": [
+                [
+                    "Eligibility",
+                    "First day of month following 60",
+                    "First day of calendar quarter"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "days of service",
+                    "following 3 months of service"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 179,
+            "table2_idx": 180,
+            "upper_row_ss": [
+                [
+                    "Clinical Support Staff",
+                    "10+ years",
+                    "200",
+                    "25"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Administrative Staff",
+                    "0–2 years",
+                    "120",
+                    "15"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 263,
+            "table2_idx": 264,
+            "upper_row_ss": [
+                [
+                    "401(k) Employer Match",
+                    "$850,000 – $950,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "HSA Employer Contributions",
+                    "$185,000 – $210,000"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 281,
+            "table2_idx": 282,
+            "upper_row_ss": [
+                [
+                    "Malpractice Tail Premium",
+                    "$475,000",
+                    "$475,000",
+                    "High (certain)",
+                    "Sellers (Transaction Expense)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "D&O Tail Premium",
+                    "$120,000",
+                    "$120,000",
+                    "High (certain)",
+                    "Sellers (Transaction Expense)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 353,
+            "table2_idx": 354,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Long-Term Disabilit",
+                    "Welfare — LTD",
+                    "Strathmore Mutual",
+                    "LTD-62 90184",
+                    "Calendar Year",
+                    "Fully Insured",
+                    "410",
+                    "$110,000",
+                    "Not Assumed;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "y",
+                    "",
+                    "Insurance",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Terminated"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 354,
+            "table2_idx": 355,
+            "upper_row_ss": [
+                [
+                    "15",
+                    "PTO Policy",
+                    "Other — Paid Time Off",
+                    "Internal (payroll accrual)",
+                    "N/A",
+                    "Calendar Year",
+                    "Accrued Liability: $1,340,000",
+                    "410",
+                    "Accrued Liability",
+                    "Assumed at Closing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "16",
+                    "COBRA Administration",
+                    "Compliance — COBRA",
+                    "Benefit Bridge Administration Services, LLC",
+                    "N/A",
+                    "N/A",
+                    "N/A",
+                    "14 (current QBs)",
+                    "$8,500 (admin fees)",
+                    "Split per APA"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 401,
+            "table2_idx": 402,
+            "upper_row_ss": [
+                [
+                    "Total Year-One Incremental Benefits Cost",
+                    "$4,980,000",
+                    "$5,640,000",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Benefit Category",
+                    "Lakewood",
+                    "Crestline",
+                    "Assessment"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 416,
+            "table2_idx": 417,
+            "upper_row_ss": [
+                [
+                    "EB-004",
+                    "Executed copies of all side letter agreements, retention bonus",
+                    "C&H (T. Rosenthal)",
+                    "May 2, 2025",
+                    "May 15, 2025 (to C. Greer, WAG)",
+                    "Lakewood Management / WAG",
+                    "Outstanding",
+                    "May 30, 2025"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "arrangements, and supplemental compensation arrangements with physicians or executive-level employees",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 417,
+            "table2_idx": 418,
+            "upper_row_ss": [
+                [
+                    "EB-008",
+                    "Written",
+                    "C&H (T.",
+                    "April 22,",
+                    "May 9,",
+                    "Lakewood",
+                    "Outstanding",
+                    "May 23,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "confirmation of no IRS Letter 226-J received or pending (all open tax years)",
+                    "Rosenthal)",
+                    "2025",
+                    "2025 (to C. Greer, WAG)",
+                    "Management / WAG",
+                    "g — oral representation received; awaiting written confirmation",
+                    "2025"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 418,
+            "table2_idx": 419,
+            "upper_row_ss": [
+                [
+                    "EB-011",
+                    "Participant-level 401(k) account balance and vesting status report as of most recent quarter-end (March 31,",
+                    "C&H (T. Rosenthal)",
+                    "May 2, 2025",
+                    "—",
+                    "Lakewood Management / Fidelity",
+                    "Outstanding",
+                    "May 30, 2025"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "2025)",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

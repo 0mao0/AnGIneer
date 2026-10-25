@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        65,
+        113
+    ],
+    "pages": [
+        66,
+        68,
+        91,
+        92,
+        95,
+        96,
+        97,
+        98,
+        103,
+        104,
+        106,
+        107,
+        109,
+        110,
+        112
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>287<|page|>66<|box|>80 405 94 601<|content|>Footnotes to Table 6\n<|id|>317<|page|>68<|box|>76 228 104 789<|content|>Table 8.- Foreign Currency Series Securities (Nonm\n<|id|>372<|page|>91<|box|>525 336 540 620<|content|>Section I - Summary by Periods\n<|id|>375<|page|>92<|box|>79 360 94 644<|content|>Section I - Summary by Perioda\n<|id|>376<|page|>92<|box|>95 193 110 829<|content|>Table 2.- Short-Term Banking Liabilities to and Cl\n<|id|>390<|page|>95<|box|>89 235 121 691<|content|>Section II - Summary by Countries Table 2.- Short-\n<|id|>393<|page|>96<|box|>105 161 120 849<|content|>Table 3.- Net Transactions in Long-Term Domestic S\n<|id|>395<|page|>97<|box|>83 318 99 623<|content|>Section II - Summary by Countries\n<|id|>396<|page|>97<|box|>98 125 116 788<|content|>Table 4.- Net Transactions in Long-Term Foreign Se\n<|id|>399<|page|>98<|box|>77 280 94 714<|content|>Section III - Preliminary Details by Countries\n<|id|>410<|page|>103<|box|>47 237 63 709<|content|>.CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTI\n<|id|>411<|page|>103<|box|>76 130 107 813<|content|>Section II - Income and Expense for the Six Months\n<|id|>413<|page|>104<|box|>47 265 62 744<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>414<|page|>104<|box|>80 155 111 844<|content|>Section II - Income and Expense for the Six Months\n<|id|>418<|page|>106<|box|>47 258 61 742<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>419<|page|>106<|box|>79 155 109 846<|content|>Section II - Income and Expense for the Six Months\n<|id|>422<|page|>107<|box|>49 245 64 719<|content|>.CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTI\n<|id|>425<|page|>109<|box|>49 247 65 722<|content|>.CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTI\n<|id|>427<|page|>110<|box|>42 260 56 742<|content|>.CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTI\n<|id|>428<|page|>110<|box|>74 156 105 848<|content|>Section II - Income and Expense for the Six Months\n<|id|>431<|page|>112<|box|>76 158 106 849<|content|>Section II - Income and Expense for the Six Months",
+    "raw_response": "<|id|>287<|level|>2\n<|id|>317<|level|>1\n<|id|>372<|level|>2\n<|id|>375<|level|>2\n<|id|>376<|level|>3\n<|id|>390<|level|>2\n<|id|>393<|level|>2\n<|id|>395<|level|>2\n<|id|>396<|level|>3\n<|id|>399<|level|>2\n<|id|>410<|level|>-1\n<|id|>411<|level|>2\n<|id|>413<|level|>-1\n<|id|>414<|level|>2\n<|id|>418<|level|>-1\n<|id|>419<|level|>2\n<|id|>422<|level|>-1\n<|id|>425<|level|>-1\n<|id|>427<|level|>-1\n<|id|>428<|level|>2\n<|id|>431<|level|>2",
+    "parsed": [
+        {
+            "id": 287,
+            "level": 2
+        },
+        {
+            "id": 317,
+            "level": 1
+        },
+        {
+            "id": 372,
+            "level": 2
+        },
+        {
+            "id": 375,
+            "level": 2
+        },
+        {
+            "id": 376,
+            "level": 3
+        },
+        {
+            "id": 390,
+            "level": 2
+        },
+        {
+            "id": 393,
+            "level": 2
+        },
+        {
+            "id": 395,
+            "level": 2
+        },
+        {
+            "id": 396,
+            "level": 3
+        },
+        {
+            "id": 399,
+            "level": 2
+        },
+        {
+            "id": 411,
+            "level": 2
+        },
+        {
+            "id": 414,
+            "level": 2
+        },
+        {
+            "id": 419,
+            "level": 2
+        },
+        {
+            "id": 428,
+            "level": 2
+        },
+        {
+            "id": 431,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Categories of Personal Data Processed', 'All categories of Personal Data described in Schedule A to the DPA and SCC Annex I, including but not limited to: names, Social Security numbers (SSNs), dates of']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'birth, postal addresses, email addresses, telephone numbers, bank account numbers, debit and credit card numbers, transaction data (amounts, dates, merchant identifiers, payment types), IP addresses, device identifiers, mobile device information, geolocation data, behavioral biometric data (keystroke dynamics, navigation patterns), and authentication credentials.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 80,
+    "table2_idx": 81
+}

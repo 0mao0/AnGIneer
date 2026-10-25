@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        17
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        10,
+        11,
+        14,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>2<|box|>90 318 109 678<|content|>SIGNATURE PAGE TEMPLATES\n<|id|>2<|page|>2<|box|>128 151 146 844<|content|>Master Data License Agreement, Data Security Adden\n<|id|>7<|page|>3<|box|>90 223 106 772<|content|>I. SIGNATURE PAGE — MASTER DATA LICENSE AGREEMENT\n<|id|>8<|page|>3<|box|>121 143 138 418<|content|>1.1 Agreement Identification Block\n<|id|>9<|page|>3<|box|>143 325 160 671<|content|>MASTER DATA LICENSE AGREEMENT\n<|id|>10<|page|>3<|box|>170 343 186 655<|content|>COUNTERPART SIGNATURE PAGE\n<|id|>13<|page|>4<|box|>90 140 108 594<|content|>1.2 Signature block — Quorum Insurance Holdings Co\n<|id|>33<|page|>6<|box|>90 142 107 553<|content|>1.4 Counterpart and Electronic Signature Provision\n<|id|>36<|page|>7<|box|>89 259 106 736<|content|>II. SIGNATURE PAGE — DATA SECURITY ADDENDUM\n<|id|>37<|page|>7<|box|>121 140 138 418<|content|>2.1 Agreement Identification Block\n<|id|>38<|page|>7<|box|>143 364 160 632<|content|>DATA SECURITY ADDENDUM\n<|id|>39<|page|>7<|box|>171 346 186 651<|content|>to the Master Data License Agreement\n<|id|>40<|page|>7<|box|>196 343 212 653<|content|>COUNTERPART SIGNATURE PAGE\n<|id|>56<|page|>10<|box|>90 140 107 553<|content|>2.4 Counterpart and Electronic Signature Provision\n<|id|>59<|page|>11<|box|>89 251 106 743<|content|>III. SIGNATURE PAGE — SERVICE LEVEL AGREEMENT\n<|id|>60<|page|>11<|box|>121 140 138 418<|content|>3.1 Agreement Identification Block\n<|id|>61<|page|>11<|box|>143 359 160 635<|content|>SERVICE LEVEL AGREEMENT\n<|id|>62<|page|>11<|box|>171 346 186 651<|content|>to the Master Data License Agreement\n<|id|>63<|page|>11<|box|>196 343 212 653<|content|>COUNTERPART SIGNATURE PAGE\n<|id|>79<|page|>14<|box|>90 140 107 553<|content|>3.4 Counterpart and Electronic Signature Provision\n<|id|>82<|page|>14<|box|>325 370 343 627<|content|>IV. INSTRUCTIONS FOR USE\n<|id|>83<|page|>14<|box|>353 284 369 712<|content|>(Internal Notes — Calderwood & Harkness LLP Only)\n<|id|>85<|page|>14<|box|>450 140 468 336<|content|>4.1 General Instructions\n<|id|>101<|page|>16<|box|>294 140 311 421<|content|>4.2 Authorized Signatory Guidance\n<|id|>108<|page|>16<|box|>734 140 751 367<|content|>4.3 Governing Law Notation\n<|id|>114<|page|>17<|box|>455 140 472 457<|content|>4.4 Coordination with Closing Checklist\n<|id|>119<|page|>17<|box|>838 380 854 617<|content|>CONTACT INFORMATION",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>9<|level|>4\n<|id|>10<|level|>4\n<|id|>13<|level|>3\n<|id|>33<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>38<|level|>4\n<|id|>39<|level|>4\n<|id|>40<|level|>4\n<|id|>56<|level|>3\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>61<|level|>4\n<|id|>62<|level|>4\n<|id|>63<|level|>4\n<|id|>79<|level|>3\n<|id|>82<|level|>2\n<|id|>83<|level|>3\n<|id|>85<|level|>3\n<|id|>101<|level|>3\n<|id|>108<|level|>3\n<|id|>114<|level|>3\n<|id|>119<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 9,
+            "level": 4
+        },
+        {
+            "id": 10,
+            "level": 4
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 4
+        },
+        {
+            "id": 39,
+            "level": 4
+        },
+        {
+            "id": 40,
+            "level": 4
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 63,
+            "level": 4
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>9<|page|>1<|box|>851 140 888 854<|content|>Defendant asserts the following General Objections...hough fully stated therein. ... The assertion of a\n<|id|>10<|page|>2<|box|>90 140 127 852<|content|>General Objection does not imply that the objectio...preserves the objection to the extent it may apply\n<|id|>55<|page|>5<|box|>837 140 892 854<|content|>Response: ... This rate was materially below the 95% on-time pickup Service Level\n<|id|>56<|page|>6<|box|>89 140 127 854<|content|>Obligation established in Schedule B, Section 1(a)...senting a shortfall of 16. ... 8 percentage points\n<|id|>76<|page|>7<|box|>815 140 907 856<|content|>The adjusted ACV for Contract Year 2, properly acc...re was no volume shortfall in Contract Year 2, and\n<|id|>77<|page|>8<|box|>89 140 126 854<|content|>Stonefield fully satisfied — indeed, substantially...eded — its adjusted ACV obligation for that period\n<|id|>104<|page|>10<|box|>397 174 434 854<|content|>(d) equipment availability of approximately 62% (2...as 23 percentage points below the 85% SLO; ... and\n<|id|>106<|page|>10<|box|>484 140 559 854<|content|>In addition, VTS failed to cure any of these mater...te that any cure had been or was being implemented\n<|id|>122<|page|>11<|box|>736 174 791 854<|content|>(d) Plaintiff has failed to demonstrate reasonable...hat was allegedly dedicated to Stonefield; ... and\n<|id|>124<|page|>11<|box|>843 140 898 854<|content|>Defendant's rebuttal damages expert, Dr. ... Rosse...dressed in her rebuttal report and trial testimony\n<|id|>128<|page|>12<|box|>268 142 285 318<|content|>Samuel Eklund Partner\n<|id|>129<|page|>12<|box|>285 142 301 403<|content|>Patrick Gallagher Senior Associate\n<|id|>130<|page|>12<|box|>301 140 334 852<|content|>200 Park Avenue, 38th Floor New York, New York 10166 Telephone: ... (212) 841-7201\n<|id|>131<|page|>12<|box|>335 142 352 457<|content|>Email: ... com\n<|id|>132<|page|>12<|box|>353 140 369 477<|content|>Email: ... com\n<|id|>133<|page|>12<|box|>369 140 388 550<|content|>Attorneys for Defendant Stonefield Logistics Group...rneys for Defendant Stonefield Logistics Group Inc\n<|id|>137<|page|>12<|box|>553 174 589 854<|content|>Jason Whitford, Esq. ... (212) 603-4500\n<|id|>138<|page|>12<|box|>597 176 614 457<|content|>Email: ... com\n<|id|>139<|page|>12<|box|>614 176 633 501<|content|>Counsel for Plaintiff Vantor Holdings Corp. ... Counsel for Plaintiff Vantor Holdings Corp",
+    "raw_response": "<|src_id|>9<|tgt_id|>10\n<|src_id|>55<|tgt_id|>56\n<|src_id|>76<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        }
+    ]
+}

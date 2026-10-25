@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        4,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 166 143 831<|content|>COMPLIANCE CERTIFICATE OF MERIDIAN DIAGNOSTICS, IN\n<|id|>4<|page|>1<|box|>344 142 359 243<|content|>RECITALS\n<|id|>8<|page|>1<|box|>681 140 699 602<|content|>SECTION 1: REPRESENTATIONS AND WARRANTIES\n<|id|>23<|page|>4<|box|>376 140 393 367<|content|>SECTION 2: COVENANTS\n<|id|>50<|page|>7<|box|>89 142 106 486<|content|>SECTION 3: CONDITIONS TO CLOSING\n<|id|>58<|page|>8<|box|>167 140 184 568<|content|>SECTION 4: CONVERTIBLE NOTE CONVERSION\n<|id|>67<|page|>9<|box|>89 142 106 550<|content|>SECTION 5: NO MATERIAL ADVERSE EFFECT\n<|id|>71<|page|>9<|box|>483 140 500 617<|content|>SECTION 6: POST-CLOSING REGULATORY MATTERS\n<|id|>81<|page|>10<|box|>258 140 276 524<|content|>SECTION 7: LEGAL FEE REIMBURSEMENT\n<|id|>83<|page|>10<|box|>508 140 526 295<|content|>CERTIFICATION\n<|id|>86<|page|>10<|box|>660 142 676 419<|content|>MERIDIAN DIAGNOSTICS, INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>8<|level|>2\n<|id|>23<|level|>2\n<|id|>50<|level|>2\n<|id|>58<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>2\n<|id|>86<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        }
+    ]
+}

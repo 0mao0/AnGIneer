@@ -1,0 +1,593 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3b6f103f\\input\\pdfs\\doc-31928591.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3b6f103f\\enriched\\doc-31928591.json",
+    "contd_output": "<|src_id|>249<|tgt_id|>250\n<|src_id|>266<|tgt_id|>267\n<|src_id|>273<|tgt_id|>274\n<|src_id|>448<|tgt_id|>449",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>18<|level|>1\n<|id|>30<|level|>1\n<|id|>31<|level|>2\n<|id|>40<|level|>2\n<|id|>52<|level|>2\n<|id|>62<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>2\n<|id|>85<|level|>1\n<|id|>86<|level|>2\n<|id|>92<|level|>2\n<|id|>101<|level|>2\n<|id|>109<|level|>2\n<|id|>113<|level|>2\n<|id|>120<|level|>2\n<|id|>125<|level|>2\n<|id|>135<|level|>1\n<|id|>136<|level|>2\n<|id|>139<|level|>2\n<|id|>151<|level|>2\n<|id|>154<|level|>3\n<|id|>164<|level|>3\n<|id|>173<|level|>3\n<|id|>214<|level|>2\n<|id|>219<|level|>2\n<|id|>226<|level|>1\n<|id|>227<|level|>2\n<|id|>235<|level|>2\n<|id|>241<|level|>2\n<|id|>248<|level|>2\n<|id|>253<|level|>2\n<|id|>256<|level|>1\n<|id|>257<|level|>2\n<|id|>260<|level|>2\n<|id|>271<|level|>2\n<|id|>284<|level|>2\n<|id|>292<|level|>2\n<|id|>295<|level|>1\n<|id|>296<|level|>2\n<|id|>305<|level|>2\n<|id|>317<|level|>2\n<|id|>323<|level|>2\n<|id|>325<|level|>1\n<|id|>326<|level|>2\n<|id|>333<|level|>2\n<|id|>340<|level|>2\n<|id|>346<|level|>2\n<|id|>353<|level|>1\n<|id|>354<|level|>2\n<|id|>362<|level|>2\n<|id|>370<|level|>2\n<|id|>380<|level|>1\n<|id|>381<|level|>2\n<|id|>383<|level|>2\n<|id|>390<|level|>2\n<|id|>398<|level|>2\n<|id|>405<|level|>2\n<|id|>413<|level|>2\n<|id|>431<|level|>2\n<|id|>433<|level|>1\n<|id|>434<|level|>2\n<|id|>440<|level|>2\n<|id|>442<|level|>3\n<|id|>444<|level|>3\n<|id|>445<|level|>4\n<|id|>454<|level|>2\n<|id|>469<|level|>3\n<|id|>476<|level|>3\n<|id|>486<|level|>2\n<|id|>498<|level|>2\n<|id|>502<|level|>2\n<|id|>509<|level|>2\n<|id|>517<|level|>2\n<|id|>521<|level|>3\n<|id|>523<|level|>4\n<|id|>525<|level|>4\n<|id|>528<|level|>2\n<|id|>529<|level|>3",
+    "image_output": "<|src_id|>38<|tgt_id|>31\n<|src_id|>58<|tgt_id|>52\n<|src_id|>59<|tgt_id|>52\n<|src_id|>71<|tgt_id|>69\n<|src_id|>111<|tgt_id|>109\n<|src_id|>143<|tgt_id|>139\n<|src_id|>193<|tgt_id|>151\n<|src_id|>265<|tgt_id|>260\n<|src_id|>269<|tgt_id|>260\n<|src_id|>275<|tgt_id|>271\n<|src_id|>277<|tgt_id|>271\n<|src_id|>310<|tgt_id|>305\n<|src_id|>320<|tgt_id|>317\n<|src_id|>328<|tgt_id|>326\n<|src_id|>436<|tgt_id|>434\n<|src_id|>437<|tgt_id|>434\n<|src_id|>438<|tgt_id|>434\n<|src_id|>443<|tgt_id|>440\n<|src_id|>446<|tgt_id|>440\n<|src_id|>450<|tgt_id|>440\n<|src_id|>438<|tgt_id|>400\n<|src_id|>443<|tgt_id|>400\n<|src_id|>446<|tgt_id|>400\n<|src_id|>450<|tgt_id|>400\n<|src_id|>482<|tgt_id|>476\n<|src_id|>511<|tgt_id|>509\n<|src_id|>512<|tgt_id|>509\n<|src_id|>513<|tgt_id|>509\n<|src_id|>514<|tgt_id|>509\n<|src_id|>519<|tgt_id|>517\n<|src_id|>520<|tgt_id|>517\n<|src_id|>522<|tgt_id|>517\n<|src_id|>524<|tgt_id|>523\n<|src_id|>526<|tgt_id|>525",
+    "contd_label": [
+        {
+            "src_id": 249,
+            "tgt_id": 250
+        },
+        {
+            "src_id": 266,
+            "tgt_id": 267
+        },
+        {
+            "src_id": 273,
+            "tgt_id": 274
+        },
+        {
+            "src_id": 448,
+            "tgt_id": 449
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 226,
+            "level": 1
+        },
+        {
+            "id": 227,
+            "level": 2
+        },
+        {
+            "id": 235,
+            "level": 2
+        },
+        {
+            "id": 241,
+            "level": 2
+        },
+        {
+            "id": 248,
+            "level": 2
+        },
+        {
+            "id": 253,
+            "level": 2
+        },
+        {
+            "id": 256,
+            "level": 1
+        },
+        {
+            "id": 257,
+            "level": 2
+        },
+        {
+            "id": 260,
+            "level": 2
+        },
+        {
+            "id": 271,
+            "level": 2
+        },
+        {
+            "id": 284,
+            "level": 2
+        },
+        {
+            "id": 292,
+            "level": 2
+        },
+        {
+            "id": 295,
+            "level": 1
+        },
+        {
+            "id": 296,
+            "level": 2
+        },
+        {
+            "id": 305,
+            "level": 2
+        },
+        {
+            "id": 317,
+            "level": 2
+        },
+        {
+            "id": 323,
+            "level": 2
+        },
+        {
+            "id": 325,
+            "level": 1
+        },
+        {
+            "id": 326,
+            "level": 2
+        },
+        {
+            "id": 333,
+            "level": 2
+        },
+        {
+            "id": 340,
+            "level": 2
+        },
+        {
+            "id": 346,
+            "level": 2
+        },
+        {
+            "id": 353,
+            "level": 1
+        },
+        {
+            "id": 354,
+            "level": 2
+        },
+        {
+            "id": 362,
+            "level": 2
+        },
+        {
+            "id": 370,
+            "level": 2
+        },
+        {
+            "id": 380,
+            "level": 1
+        },
+        {
+            "id": 381,
+            "level": 2
+        },
+        {
+            "id": 383,
+            "level": 2
+        },
+        {
+            "id": 390,
+            "level": 2
+        },
+        {
+            "id": 398,
+            "level": 2
+        },
+        {
+            "id": 405,
+            "level": 2
+        },
+        {
+            "id": 413,
+            "level": 2
+        },
+        {
+            "id": 431,
+            "level": 2
+        },
+        {
+            "id": 433,
+            "level": 1
+        },
+        {
+            "id": 434,
+            "level": 2
+        },
+        {
+            "id": 440,
+            "level": 2
+        },
+        {
+            "id": 442,
+            "level": 3
+        },
+        {
+            "id": 444,
+            "level": 3
+        },
+        {
+            "id": 445,
+            "level": 4
+        },
+        {
+            "id": 454,
+            "level": 2
+        },
+        {
+            "id": 469,
+            "level": 3
+        },
+        {
+            "id": 476,
+            "level": 3
+        },
+        {
+            "id": 486,
+            "level": 2
+        },
+        {
+            "id": 498,
+            "level": 2
+        },
+        {
+            "id": 502,
+            "level": 2
+        },
+        {
+            "id": 509,
+            "level": 2
+        },
+        {
+            "id": 517,
+            "level": 2
+        },
+        {
+            "id": 521,
+            "level": 3
+        },
+        {
+            "id": 523,
+            "level": 4
+        },
+        {
+            "id": 525,
+            "level": 4
+        },
+        {
+            "id": 528,
+            "level": 2
+        },
+        {
+            "id": 529,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 38,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 193,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 265,
+            "tgt_id": 260
+        },
+        {
+            "src_id": 269,
+            "tgt_id": 260
+        },
+        {
+            "src_id": 275,
+            "tgt_id": 271
+        },
+        {
+            "src_id": 277,
+            "tgt_id": 271
+        },
+        {
+            "src_id": 310,
+            "tgt_id": 305
+        },
+        {
+            "src_id": 320,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 328,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 436,
+            "tgt_id": 434
+        },
+        {
+            "src_id": 437,
+            "tgt_id": 434
+        },
+        {
+            "src_id": 438,
+            "tgt_id": 434
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 440
+        },
+        {
+            "src_id": 446,
+            "tgt_id": 440
+        },
+        {
+            "src_id": 450,
+            "tgt_id": 440
+        },
+        {
+            "src_id": 438,
+            "tgt_id": 400
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 400
+        },
+        {
+            "src_id": 446,
+            "tgt_id": 400
+        },
+        {
+            "src_id": 450,
+            "tgt_id": 400
+        },
+        {
+            "src_id": 482,
+            "tgt_id": 476
+        },
+        {
+            "src_id": 511,
+            "tgt_id": 509
+        },
+        {
+            "src_id": 512,
+            "tgt_id": 509
+        },
+        {
+            "src_id": 513,
+            "tgt_id": 509
+        },
+        {
+            "src_id": 514,
+            "tgt_id": 509
+        },
+        {
+            "src_id": 519,
+            "tgt_id": 517
+        },
+        {
+            "src_id": 520,
+            "tgt_id": 517
+        },
+        {
+            "src_id": 522,
+            "tgt_id": 517
+        },
+        {
+            "src_id": 524,
+            "tgt_id": 523
+        },
+        {
+            "src_id": 526,
+            "tgt_id": 525
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 58,
+            "table2_idx": 59,
+            "upper_row_ss": [
+                [
+                    "40 – 69",
+                    "Intermediate",
+                    "Prediction is indeterminate; clinical decision should integrate TRI score with other biomarkers and clinical factors. Combination ICI/chemotherapy regimens or"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "shared decision-making may be appropriate."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 436,
+            "table2_idx": 437,
+            "upper_row_ss": [
+                [
+                    "21",
+                    "IDO1",
+                    "Indoleamine 2,3-",
+                    "IFN-γ Pathway Activation"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Dioxygenase 1",
+                    "/ Immune Resistance"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 437,
+            "table2_idx": 438,
+            "upper_row_ss": [
+                [
+                    "43",
+                    "PTEN",
+                    "Phosphatase and Tensin",
+                    "Immune Resistance /"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Homolog",
+                    "TMB Correlation"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 511,
+            "table2_idx": 512,
+            "upper_row_ss": [
+                [
+                    "10",
+                    "US 11,573,XXX",
+                    "Housekeeping Gene Normalization",
+                    "03/30/2021",
+                    "02/07/2023"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Method for Tumor Expression Profiling",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 513,
+            "table2_idx": 514,
+            "upper_row_ss": [
+                [
+                    "6",
+                    "US 18/XXX,XXX",
+                    "Real-Time Quality Monitoring for",
+                    "08/10/2023",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "NGS-Based Clinical Assays",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

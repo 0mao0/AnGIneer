@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 285 107 710<|content|>MEMORANDUM OF TELEPHONE CONFERENCE\n<|id|>1<|page|>1<|box|>114 151 151 844<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>8<|page|>1<|box|>404 140 421 364<|content|>1. Purpose of Memorandum\n<|id|>12<|page|>2<|box|>90 140 107 263<|content|>2. Participants\n<|id|>20<|page|>2<|box|>411 140 429 486<|content|>3. Mr. Caldwell's Status in the Investigation\n<|id|>27<|page|>3<|box|>549 140 566 651<|content|>4. Summary of the Government's Description of the\n<|id|>29<|page|>3<|box|>698 140 715 380<|content|>4.1 Target of the Investigation\n<|id|>33<|page|>4<|box|>385 140 402 398<|content|>4.2 Suspected Criminal Offenses\n<|id|>40<|page|>4<|box|>763 140 780 405<|content|>4.3 Nature of the Alleged Scheme\n<|id|>51<|page|>6<|box|>157 140 175 514<|content|>4.4 Forensic Accounting and Additional Parties\n<|id|>54<|page|>6<|box|>449 140 467 570<|content|>5. Government's Interest in Mr. Caldwell's Documen\n<|id|>65<|page|>8<|box|>90 140 107 250<|content|>6. Testimony\n<|id|>70<|page|>8<|box|>564 140 582 606<|content|>7. Discussion Regarding Other Witnesses and Coordi\n<|id|>75<|page|>9<|box|>167 140 185 416<|content|>8. Next Steps and Follow-Up Items\n<|id|>87<|page|>10<|box|>204 140 222 442<|content|>9. Confidentiality and Privilege Notice",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>20<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>40<|level|>3\n<|id|>51<|level|>3\n<|id|>54<|level|>2\n<|id|>65<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>87<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        }
+    ]
+}

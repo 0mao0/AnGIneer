@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        13,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>table<|page|>1<|box|>196 145 398 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>431 151 469 844<|content|>DEFENDANT STONEFIELD LOGISTICS GROUP INC.'S MEMORA\n<|id|>10<|type|>title<|page|>1<|box|>665 142 681 370<|content|>TABLE OF AUTHORITIES\n<|id|>11<|type|>title<|page|>1<|box|>691 142 707 194<|content|>Cases\n<|id|>29<|type|>title<|page|>2<|box|>321 143 337 292<|content|>Statutes and Rules\n<|id|>34<|type|>title<|page|>2<|box|>439 142 455 398<|content|>PRELIMINARY STATEMENT\n<|id|>41<|type|>title<|page|>3<|box|>794 140 811 356<|content|>STATEMENT OF FACTS\n<|id|>43<|type|>title<|page|>4<|box|>90 140 106 261<|content|>A. The Parties\n<|id|>47<|type|>title<|page|>4<|box|>580 140 598 480<|content|>B. The Transportation Services Agreement\n<|id|>53<|type|>title<|page|>5<|box|>354 140 373 529<|content|>C. The Liquidated Damages Clause (Section 14.2)\n<|id|>60<|type|>title<|page|>5<|box|>729 140 744 540<|content|>D. Termination for Cause Provisions (Section 13.1)\n<|id|>63<|type|>title<|page|>6<|box|>176 140 193 447<|content|>E. Stonefield's Termination of the TSA\n<|id|>74<|type|>title<|page|>6<|box|>810 140 827 380<|content|>F. Vantor's Claimed Damages\n<|id|>76<|type|>table<|page|>6<|box|>875 145 896 852<|content|>None\n<|id|>77<|type|>table<|page|>7<|box|>89 143 219 852<|content|>None\n<|id|>80<|type|>title<|page|>7<|box|>383 142 401 321<|content|>G. Procedural History\n<|id|>82<|type|>title<|page|>7<|box|>575 142 593 316<|content|>LEGAL STANDARD\n<|id|>83<|type|>title<|page|>7<|box|>607 140 625 349<|content|>A. Rule 12(b)(6) Standard\n<|id|>88<|type|>title<|page|>8<|box|>329 140 347 357<|content|>B. New York Law Governs\n<|id|>91<|type|>title<|page|>8<|box|>638 142 657 256<|content|>ARGUMENT\n<|id|>92<|type|>title<|page|>8<|box|>670 140 707 854<|content|>I. VANTOR'S CLAIM FOR LIQUIDATED DAMAGES UNDER SEC\n<|id|>121<|type|>title<|page|>13<|box|>705 140 760 854<|content|>II. VANTOR'S LOST PROFITS CLAIM SHOULD BE DISMISSE\n<|id|>146<|type|>title<|page|>16<|box|>652 140 669 272<|content|>CONCLUSION\n<|id|>153<|type|>title<|page|>17<|box|>142 140 157 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>162<|type|>title<|page|>17<|box|>430 142 448 320<|content|>Principal Open Items:\n<|id|>168<|type|>title<|page|>18<|box|>470 142 489 627<|content|>Relationship to Defense Strategy Outline (Septembe\n<|id|>175<|type|>table<|page|>18<|box|>858 143 898 852<|content|>None\n<|id|>176<|type|>table<|page|>19<|box|>89 138 537 849<|content|>None\n<|id|>178<|type|>title<|page|>19<|box|>693 142 710 426<|content|>Appendices to Be Attached at Filing\n<|id|>182<|type|>title<|page|>19<|box|>829 143 845 246<|content|>Distribution.",
+    "raw_response": "<|src_id|>2<|tgt_id|>3\n<|src_id|>76<|tgt_id|>74\n<|src_id|>77<|tgt_id|>74\n<|src_id|>175<|tgt_id|>168\n<|src_id|>176<|tgt_id|>168",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 168
+        }
+    ]
+}

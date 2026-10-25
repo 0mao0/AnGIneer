@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>142 140 157 382<|content|>TO: ... Francesca Morano, Partner\n<|id|>2<|page|>1<|box|>167 140 184 416<|content|>FROM: ... Hannah Brinkley, Associate\n<|id|>3<|page|>1<|box|>193 140 210 354<|content|>DATE: ... September 20, 2022\n<|id|>4<|page|>1<|box|>219 140 255 854<|content|>RE: ... 2022-L-004831\n<|id|>5<|page|>1<|box|>263 140 280 488<|content|>MATTER NO. ... 1020-00005\n<|id|>6<|page|>1<|box|>289 140 364 854<|content|>PRIVILEGE DESIGNATION: ... Do not distribute outsi... without prior authorization from Francesca Morano\n<|id|>39<|page|>4<|box|>811 140 902 857<|content|>Authentication of the Off-Take Agreement and Relat...al Guaranty of Payment, which is the foundation of\n<|id|>40<|page|>5<|box|>90 140 145 854<|content|>Count II). ... While Defendants' Answer did not de...r authenticated copies to support summary judgment",
+    "raw_response": "<|src_id|>39<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ]
+}

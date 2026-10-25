@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        46
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        8,
+        9,
+        10,
+        11,
+        13,
+        23,
+        30,
+        34,
+        38,
+        44,
+        46
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 243 118 754<|content|>APPEALS CONFERENCE DOCUMENT BINDER\n<|id|>1<|page|>1<|box|>143 423 160 575<|content|>ATTENDEE LIST\n<|id|>2<|page|>1<|box|>169 416 186 581<|content|>(Inside Front Cover)\n<|id|>8<|page|>1<|box|>585 143 603 431<|content|>Internal Revenue Service — Appeals\n<|id|>11<|page|>1<|box|>750 357 766 638<|content|>MASTER TABLE OF CONTENTS\n<|id|>13<|page|>1<|box|>801 176 820 818<|content|>VOLUME I — PROTEST AND PROCEDURAL DOCUMENTS\n<|id|>16<|page|>2<|box|>167 140 185 542<|content|>Tab 1 — Formal Protest (Filed December 22, 2023)\n<|id|>21<|page|>4<|box|>720 142 738 344<|content|>Tab 2 — Protest Exhibits\n<|id|>33<|page|>8<|box|>90 142 107 583<|content|>Tab 4 — 30-Day Letter and Procedural Correspondenc\n<|id|>36<|page|>8<|box|>823 142 840 535<|content|>Tab 5 — Consent to Extend Statute of Limitations\n<|id|>41<|page|>9<|box|>662 151 681 844<|content|>VOLUME II — ECONOMIC ANALYSES AND EXPERT REPORTS\n<|id|>43<|page|>10<|box|>90 142 107 537<|content|>Tab 6 — CUT Analysis — Legacy IP Royalty Rate\n<|id|>46<|page|>11<|box|>784 140 801 614<|content|>Tab 7 — CPM / TNMM Analysis — PBI Operating Margin\n<|id|>53<|page|>13<|box|>477 142 494 604<|content|>Tab 8 — PCT Valuation Analysis — Income Method / D\n<|id|>88<|page|>23<|box|>470 143 513 852<|content|>VOLUME III — PBI ECONOMIC SUBSTANCE AND FUNCTIONAL\n<|id|>103<|page|>30<|box|>386 287 407 710<|content|>VOLUME IV — LEGAL AUTHORITIES\n<|id|>114<|page|>34<|box|>585 179 606 816<|content|>VOLUME V — SETTLEMENT AND FINANCIAL ANALYSIS\n<|id|>126<|page|>38<|box|>523 250 542 746<|content|>VOLUME VI — BACKGROUND DOCUMENTS\n<|id|>151<|page|>44<|box|>787 210 808 787<|content|>INDEX OF EXHIBITS — CROSS-REFERENCE TABLE\n<|id|>156<|page|>46<|box|>799 254 819 741<|content|>BACK COVER — CONTACT INFORMATION\n<|id|>157<|page|>46<|box|>837 142 854 380<|content|>Calderwood & Harkness LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>8<|level|>-1\n<|id|>11<|level|>2\n<|id|>13<|level|>2\n<|id|>16<|level|>3\n<|id|>21<|level|>3\n<|id|>33<|level|>3\n<|id|>36<|level|>3\n<|id|>41<|level|>2\n<|id|>43<|level|>3\n<|id|>46<|level|>3\n<|id|>53<|level|>3\n<|id|>88<|level|>2\n<|id|>103<|level|>2\n<|id|>114<|level|>2\n<|id|>126<|level|>2\n<|id|>151<|level|>2\n<|id|>156<|level|>2\n<|id|>157<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        50
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>836<|page|>45<|box|>92 117 110 349<|content|>GateTest-A page 45/50\n<|id|>855<|page|>46<|box|>92 117 110 349<|content|>GateTest-A page 46/50\n<|id|>874<|page|>47<|box|>92 117 110 349<|content|>GateTest-A page 47/50\n<|id|>893<|page|>48<|box|>92 117 110 349<|content|>GateTest-A page 48/50\n<|id|>912<|page|>49<|box|>92 117 110 349<|content|>GateTest-A page 49/50\n<|id|>931<|page|>50<|box|>92 117 110 349<|content|>GateTest-A page 50/50",
+    "raw_response": "<|id|>836<|level|>1\n<|id|>855<|level|>1\n<|id|>874<|level|>1\n<|id|>893<|level|>1\n<|id|>912<|level|>1\n<|id|>931<|level|>1",
+    "parsed": [
+        {
+            "id": 836,
+            "level": 1
+        },
+        {
+            "id": 855,
+            "level": 1
+        },
+        {
+            "id": 874,
+            "level": 1
+        },
+        {
+            "id": 893,
+            "level": 1
+        },
+        {
+            "id": 912,
+            "level": 1
+        },
+        {
+            "id": 931,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>570 142 587 364<|content|>1. Purpose and Background\n<|id|>7<|page|>2<|box|>439 140 457 330<|content|>2. Enclosed Certificates\n<|id|>9<|page|>2<|box|>532 140 549 560<|content|>2.1 Certificate of Good Standing — State of Delawa\n<|id|>24<|page|>3<|box|>633 140 650 333<|content|>3. SPA Cross-Reference\n<|id|>29<|page|>4<|box|>395 140 412 339<|content|>4. Scope and Limitations\n<|id|>34<|page|>5<|box|>314 140 332 473<|content|>5. Filing and Record-Keeping Instructions\n<|id|>41<|page|>5<|box|>729 140 744 326<|content|>6. Contact Information\n<|id|>53<|page|>6<|box|>396 383 412 614<|content|>ENCLOSURES / EXHIBITS",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>7<|level|>1\n<|id|>9<|level|>2\n<|id|>24<|level|>1\n<|id|>29<|level|>1\n<|id|>34<|level|>1\n<|id|>41<|level|>1\n<|id|>53<|level|>1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        }
+    ]
+}

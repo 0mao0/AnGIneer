@@ -1,0 +1,141 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        8,
+        10,
+        11,
+        12,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 277 132 720<|content|>UNITED STATES BANKRUPTCY COURT\n<|id|>2<|page|>1<|box|>151 313 171 684<|content|>SOUTHERN DISTRICT OF TEXAS\n<|id|>3<|page|>1<|box|>190 380 210 616<|content|>HOUSTON DIVISION\n<|id|>14<|page|>1<|box|>815 142 832 243<|content|>RECITALS\n<|id|>63<|page|>8<|box|>256 140 273 665<|content|>SECTION 1. AUTHORIZATION OF DIP FACILITY (INTERIM)\n<|id|>82<|page|>10<|box|>89 140 107 732<|content|>SECTION 2. SUPERPRIORITY ADMINISTRATIVE EXPENSE CL\n<|id|>92<|page|>11<|box|>229 140 247 343<|content|>SECTION 3. DIP LIENS\n<|id|>104<|page|>12<|box|>579 140 595 480<|content|>SECTION 4. ADEQUATE PROTECTION\n<|id|>123<|page|>15<|box|>547 140 564 663<|content|>SECTION 5. AUTHORIZATION TO USE CASH COLLATERAL\n<|id|>125<|page|>15<|box|>797 140 814 372<|content|>SECTION 6. MILESTONES\n<|id|>134<|page|>16<|box|>523 140 541 444<|content|>SECTION 7. EVENTS OF DEFAULT\n<|id|>146<|page|>17<|box|>479 140 497 591<|content|>SECTION 8. REMEDIES UPON EVENT OF DEFAULT\n<|id|>156<|page|>18<|box|>508 140 526 549<|content|>SECTION 9. STIPULATIONS AND ADMISSIONS\n<|id|>163<|page|>19<|box|>474 140 493 735<|content|>SECTION 10. CHALLENGE PERIOD AND RESERVATION OF RI\n<|id|>169<|page|>20<|box|>266 140 284 602<|content|>SECTION 11. MODIFICATION OF AUTOMATIC STAY\n<|id|>176<|page|>20<|box|>664 140 681 702<|content|>SECTION 12. PROVISIONS REGARDING OFFICIAL COMMITTE\n<|id|>182<|page|>21<|box|>248 140 265 495<|content|>SECTION 13. NO THIRD-PARTY RIGHTS\n<|id|>184<|page|>21<|box|>443 140 460 545<|content|>SECTION 14. BINDING EFFECT; SUCCESSORS\n<|id|>186<|page|>21<|box|>785 140 801 354<|content|>SECTION 15. SURVIVAL\n<|id|>193<|page|>22<|box|>344 140 361 408<|content|>SECTION 16. FINAL HEARING\n<|id|>210<|page|>23<|box|>503 140 518 535<|content|>SECTION 17. MISCELLANEOUS PROVISIONS\n<|id|>216<|page|>24<|box|>287 140 305 316<|content|>IT IS SO ORDERED.\n<|id|>218<|page|>25<|box|>89 140 107 245<|content|>EXHIBIT A\n<|id|>219<|page|>25<|box|>114 380 132 617<|content|>DIP CREDIT AGREEMENT\n<|id|>222<|page|>26<|box|>89 142 106 243<|content|>EXHIBIT B\n<|id|>223<|page|>26<|box|>114 439 132 558<|content|>DIP BUDGET\n<|id|>231<|page|>27<|box|>89 143 106 243<|content|>EXHIBIT C\n<|id|>232<|page|>27<|box|>114 395 132 601<|content|>NOTICE PARTIES LIST\n<|id|>236<|page|>28<|box|>191 349 207 645<|content|>PREPARED AND SUBMITTED BY:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>14<|level|>2\n<|id|>63<|level|>2\n<|id|>82<|level|>2\n<|id|>92<|level|>2\n<|id|>104<|level|>2\n<|id|>123<|level|>2\n<|id|>125<|level|>2\n<|id|>134<|level|>2\n<|id|>146<|level|>2\n<|id|>156<|level|>2\n<|id|>163<|level|>2\n<|id|>169<|level|>2\n<|id|>176<|level|>2\n<|id|>182<|level|>2\n<|id|>184<|level|>2\n<|id|>186<|level|>2\n<|id|>193<|level|>2\n<|id|>210<|level|>2\n<|id|>216<|level|>-1\n<|id|>218<|level|>2\n<|id|>219<|level|>3\n<|id|>222<|level|>2\n<|id|>223<|level|>3\n<|id|>231<|level|>2\n<|id|>232<|level|>3\n<|id|>236<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 3
+        },
+        {
+            "id": 231,
+            "level": 2
+        },
+        {
+            "id": 232,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>150 464 167 534<|content|>Plaintiff,\n<|id|>2<|page|>1<|box|>176 447 194 550<|content|>— against —\n<|id|>3<|page|>1<|box|>200 155 237 841<|content|>THALASSA SHIPPING & LOGISTICS SA and AEGEAN FORTUNA SHIPHOLDING LTD. ... ,\n<|id|>4<|page|>1<|box|>246 452 263 544<|content|>Defendants. ... Defendants\n<|id|>5<|page|>1<|box|>272 676 289 854<|content|>Index No. ... 655421/2023\n<|id|>6<|page|>1<|box|>297 630 315 854<|content|>Hon. ... C\n<|id|>29<|page|>2<|box|>840 140 878 854<|content|>7. ... \"Sub-Charter\" means any charter-party, sub-...ent entered into by Northwind with Eastbourne Bulk\n<|id|>30<|page|>3<|box|>90 174 125 854<|content|>Carriers Ltd. ... (\"Eastbourne\") or any other thir...or any substitute vessel during the charter period\n<|id|>41<|page|>3<|box|>834 140 888 856<|content|>3. ... If any interrogatory cannot be answered in ...information or knowledge is presently available to\n<|id|>42<|page|>4<|box|>90 174 126 854<|content|>Northwind. ... If the information is in the posses...thwind shall so state and identify the third party\n<|id|>71<|page|>6<|box|>277 174 332 854<|content|>(e) whether any partial days were claimed as off-h... the half-day, or by some other increment; ... and\n<|id|>73<|page|>6<|box|>402 140 438 854<|content|>INTERROGATORY NO. ... 5 — Incident 1 — Turbocharger Failure (March 12 – April 2, 2022)\n<|id|>74<|page|>6<|box|>446 140 500 854<|content|>With respect to Incident 1, the main engine turboc...ndia to Mombasa, Kenya, on or about March 12, 2022\n<|id|>176<|page|>14<|box|>575 174 612 854<|content|>(d) the expert's compensation arrangement with Nor...t, and total fees paid or accrued to date; ... and\n<|id|>178<|page|>14<|box|>665 140 737 854<|content|>This interrogatory is without prejudice to Defenda... in accordance with applicable law and court rules\n<|id|>185<|page|>15<|box|>141 174 179 854<|content|>(e) the Charter-Party provision or provisions, or ...tory, or legal basis supporting the claim; ... and\n<|id|>187<|page|>15<|box|>229 140 266 854<|content|>The categories of damages to be addressed in this ...shall include, at a minimum, each of the following\n<|id|>195<|page|>15<|box|>455 174 474 544<|content|>(viii) Third-party shipper claims: ... and\n<|id|>197<|page|>15<|box|>507 140 544 854<|content|>To the extent that Northwind claims any additional...same information for each such additional category\n<|id|>202<|page|>15<|box|>672 140 691 578<|content|>One Liberty Plaza, 50th Floor New York, New York 10006\n<|id|>203<|page|>15<|box|>699 142 717 253<|content|>By: ... By\n<|id|>204<|page|>15<|box|>715 140 750 854<|content|>Douglas Carmichael, Partner Calderwood & Harkness ...York, New York 10006 Telephone: ... (212) 506-7401\n<|id|>205<|page|>15<|box|>750 140 767 490<|content|>Email: ... com\n<|id|>206<|page|>15<|box|>766 140 800 854<|content|>Carlos Espinoza, Lead Associate Calderwood & Harkn...York, New York 10006 Telephone: ... (212) 506-7401\n<|id|>207<|page|>15<|box|>801 142 816 472<|content|>Email: ... com\n<|id|>208<|page|>15<|box|>818 142 834 318<|content|>Date: ... January 22, 2024\n<|id|>210<|page|>15<|box|>859 140 898 856<|content|>I, Carlos Espinoza, an attorney duly admitted to t... true and correct copy of the foregoing Defendants\n<|id|>211<|page|>16<|box|>89 140 145 854<|content|>First Set of Interrogatories to Plaintiff Northwin...Filing System (NYSCEF) and by electronic mail upon\n<|id|>212<|page|>16<|box|>152 176 186 854<|content|>Hargrove, Delacroix & Stern LLP 600 Lexington Avenue, 28th Floor New York, New York 10022\n<|id|>213<|page|>16<|box|>196 176 213 258<|content|>Attention: ... Attention\n<|id|>215<|page|>16<|box|>239 176 257 421<|content|>Email: ... com\n<|id|>216<|page|>16<|box|>258 176 273 336<|content|>Jason Trumbull, Esq. ... Jason Trumbull, Esq\n<|id|>217<|page|>16<|box|>282 176 300 406<|content|>Email: ... com\n<|id|>218<|page|>16<|box|>301 176 318 313<|content|>Priya Mehta, Esq. ... Priya Mehta, Esq\n<|id|>219<|page|>16<|box|>325 176 343 393<|content|>Email: ... com\n<|id|>220<|page|>16<|box|>344 176 361 580<|content|>Counsel for Plaintiff Northwind Maritime Corporation\n<|id|>221<|page|>16<|box|>396 142 414 267<|content|>Carlos Espinoza",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>41<|tgt_id|>42\n<|src_id|>210<|tgt_id|>211",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 211
+        }
+    ]
+}

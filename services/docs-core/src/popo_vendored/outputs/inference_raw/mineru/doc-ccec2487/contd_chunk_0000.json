@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        52
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        25,
+        27,
+        31,
+        34,
+        44,
+        45,
+        46,
+        48,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>167 439 189 567<|content|>April 1975\n<|id|>3<|page|>1<|box|>854 148 895 612<|content|>DEPARTMENT OF THE TREASURY WASHINGTON, D. ... C\n<|id|>15<|page|>5<|box|>159 133 556 858<|content|>CM-V-3. ... 171\n<|id|>16<|page|>5<|box|>832 125 849 599<|content|>Note: ... Details of figures may not add to totals because of rounding\n<|id|>25<|page|>6<|box|>241 516 253 786<|content|>Auctions of 2-year Notes and 15-year Bonds\n<|id|>26<|page|>6<|box|>255 516 373 893<|content|>On March 12 the Treasury announced that it would s... noncompetitive bidding, up to \\$2. ... 00 or less\n<|id|>109<|page|>25<|box|>243 81 351 480<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>110<|page|>25<|box|>149 505 209 905<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>115<|page|>27<|box|>65 347 81 641<|content|>ACCOUNT OF THE U. ... TREASURY\n<|id|>116<|page|>27<|box|>101 278 133 713<|content|>Table UST-3. ... Treasury\n<|id|>117<|page|>27<|box|>269 347 315 649<|content|>As stated in the November Bulletin, no additional ...sion of the Daily Statement of the U. ... Treasury\n<|id|>130<|page|>31<|box|>826 87 937 505<|content|>Source: ... Indian tribal funds and indi-\n<|id|>131<|page|>31<|box|>824 526 925 917<|content|>vidual Indian money for August 1974; ... Less than \\$500,000\n<|id|>141<|page|>34<|box|>660 91 771 483<|content|>Source: ... Beginning with data for December\n<|id|>142<|page|>34<|box|>660 535 688 906<|content|>31, 1958, the computation is based on the rate of ...ate it was based on the coupon rate for all issues\n<|id|>164<|page|>44<|box|>82 312 97 673<|content|>Table PDO-2. ... - Offerings of Bills—Continued\n<|id|>166<|page|>45<|box|>125 401 137 606<|content|>Footnotes to Table PDO-2\n<|id|>167<|page|>45<|box|>177 98 194 491<|content|>Source: ... Monthly Statement of the Public Debt of the United States and Allotments\n<|id|>208<|page|>46<|box|>114 427 126 577<|content|>(Dollar amounts in millions)\n<|id|>211<|page|>48<|box|>364 87 375 449<|content|>1/ Excludes issues of strips of additional amounts of outstanding\n<|id|>214<|page|>49<|box|>83 263 98 740<|content|>Table PDO-4. ... - Offerings of Public Marketable Securities Other than\n<|id|>215<|page|>49<|box|>103 379 118 625<|content|>Regular Weekly Treasury Bills\n<|id|>220<|page|>50<|box|>122 420 133 572<|content|>(Dollar amounts in millions)\n<|id|>222<|page|>51<|box|>151 87 160 292<|content|>Source: ... Bureau of the Public Debt\n<|id|>232<|page|>51<|box|>403 81 420 470<|content|>13/ Sold at auction through competitive and noncompetitive bidding. ... 79%)\n<|id|>285<|page|>51<|box|>862 524 872 650<|content|>* Less than \\$500,000. ... * Less than \\$500,000",
+    "raw_response": "<|src_id|>109<|tgt_id|>110\n<|src_id|>130<|tgt_id|>131\n<|src_id|>141<|tgt_id|>142\n<|src_id|>214<|tgt_id|>215",
+    "parsed": [
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 215
+        }
+    ]
+}

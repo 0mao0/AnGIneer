@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Apr. 1, 2023', 'Ancillary documents executed:', 'Monica Reyes, Elliot Nguyen']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'durable general power of attorney (agent: Eleanor V. Caldwell; successor agent: Thomas R. Caldwell), health care proxy (agent: Eleanor V. Caldwell; successor agent: Katherine C. Hartfield), living will/advance directive, and HIPAA authorization (authorized individuals: Eleanor V. Caldwell, Thomas R. Caldwell, Katherine C. Hartfield, and Olivia G. Caldwell)', '']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 155,
+    "table2_idx": 156
+}

@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        47,
+        57
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>435<|type|>title<|page|>48<|box|>167 102 191 490<|content|>6 公路技术状况检测与调查\n<|id|>436<|type|>title<|page|>48<|box|>255 102 273 243<|content|>6.1 一般规定\n<|id|>442<|type|>title<|page|>48<|box|>638 100 656 384<|content|>6.2 路基技术状况检测与调查\n<|id|>444<|type|>title<|page|>48<|box|>742 100 758 383<|content|>6.3 路面技术状况自动化检测\n<|id|>446<|type|>table<|page|>48<|box|>826 104 887 875<|content|>None\n<|id|>447<|type|>table<|page|>49<|box|>115 115 231 887<|content|>None\n<|id|>461<|type|>title<|page|>50<|box|>119 102 137 366<|content|>6.4 路面技术状况人工调查\n<|id|>464<|type|>title<|page|>50<|box|>270 104 287 447<|content|>6.5 桥隧构造物技术状况检测与调查\n<|id|>467<|type|>title<|page|>50<|box|>463 104 480 426<|content|>6.6 沿线设施技术状况检测与调查\n<|id|>469<|type|>title<|page|>51<|box|>173 110 197 406<|content|>7 公路技术状况评定\n<|id|>470<|type|>title<|page|>51<|box|>267 110 285 252<|content|>7.1 一般规定\n<|id|>473<|type|>title<|page|>51<|box|>505 110 523 415<|content|>7.2 公路技术状况（MQI）评定\n<|id|>478<|type|>table<|page|>52<|box|>117 104 371 878<|content|>None\n<|id|>481<|type|>title<|page|>52<|box|>527 100 545 396<|content|>7.3 路基技术状况（SCI）评定\n<|id|>484<|type|>title<|page|>52<|box|>783 99 802 396<|content|>7.4 路面技术状况（PQI）评定\n<|id|>489<|type|>table<|page|>53<|box|>274 117 340 890<|content|>None\n<|id|>501<|type|>title<|page|>54<|box|>286 104 304 462<|content|>7.5 桥隧构造物技术状况（BCI）评定\n<|id|>503<|type|>title<|page|>55<|box|>163 110 187 600<|content|>附录 A 公路技术状况调查及评定表\n<|id|>508<|type|>title<|page|>56<|box|>160 107 182 473<|content|>附录 B 路面跳车计算方法\n<|id|>510<|type|>title<|page|>57<|box|>163 109 187 566<|content|>附录 C 路面弯沉标准值计算方法",
+    "raw_response": "<|src_id|>446<|tgt_id|>444\n<|src_id|>447<|tgt_id|>444\n<|src_id|>478<|tgt_id|>473\n<|src_id|>489<|tgt_id|>484",
+    "parsed": [
+        {
+            "src_id": 446,
+            "tgt_id": 444
+        },
+        {
+            "src_id": 447,
+            "tgt_id": 444
+        },
+        {
+            "src_id": 478,
+            "tgt_id": 473
+        },
+        {
+            "src_id": 489,
+            "tgt_id": 484
+        }
+    ]
+}

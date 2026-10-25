@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 210 106 785<|content|>SECRETARY'S CERTIFICATE OF QUILLEN TECHNOLOGIES, I\n<|id|>9<|type|>title<|page|>1<|box|>636 142 652 383<|content|>1. Certificate of Incorporation.\n<|id|>12<|type|>title<|page|>2<|box|>143 142 160 225<|content|>2. Bylaws.\n<|id|>15<|type|>title<|page|>2<|box|>376 140 392 313<|content|>3. Board Resolutions.\n<|id|>31<|type|>title<|page|>3<|box|>570 140 585 339<|content|>4. Stockholder Consents.\n<|id|>40<|type|>title<|page|>4<|box|>455 140 472 460<|content|>5. Incumbency of Officers and Directors.\n<|id|>42<|type|>table<|page|>4<|box|>597 143 784 852<|content|>None\n<|id|>44<|type|>title<|page|>5<|box|>133 140 152 287<|content|>6. Good Standing.\n<|id|>46<|type|>title<|page|>5<|box|>277 140 296 496<|content|>[If applicable, include the following paragraph:]\n<|id|>49<|type|>title<|page|>5<|box|>503 140 520 431<|content|>7. No Amendments or Modifications.\n<|id|>51<|type|>title<|page|>5<|box|>702 140 719 367<|content|>8. Authorized Capital Stock.\n<|id|>62<|type|>title<|page|>6<|box|>536 433 553 565<|content|>EXHIBIT LIST",
+    "raw_response": "<|src_id|>42<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        }
+    ]
+}

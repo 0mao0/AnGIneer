@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Higher-order diffraction suppression / single-mode', \"Sub-wavelength periods suppress higher orders ('015\", 'Sub-wavelength central region suppresses higher', 'Same mechanism with enhanced suppression from', 'Suppress higher-order diffraction —Same', 'Sub-wavelength period control —Same', 'Single-mode coupling confirmed —Same', 'Yes']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['coupling', 'Patent, col. 6, ll. 1–18)', 'orders; edge region contributes minimally to coupling and does not generate significant higher-order modes due to low mode-field intensity (Benchmark far-field: OWS-BENCH-00 305–00308)', 'refined apodization (Benchmark far-field: OWS-BENCH-00 558–00562)', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 288,
+    "table2_idx": 289
+}

@@ -1,0 +1,138 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 87 292<|content|>【360639#20】韓國電影\n<|id|>2<|page|>1<|box|>191 107 208 240<|content|>【36161#5】东海\n<|id|>4<|page|>1<|box|>310 105 325 319<|content|>【361680#1】T-90主戰坦克\n<|id|>6<|page|>1<|box|>497 105 513 386<|content|>【3631230#1】佩德罗三世 (葡萄牙)\n<|id|>8<|page|>1<|box|>596 107 614 285<|content|>【363977#0】深遂幻想\n<|id|>10<|page|>1<|box|>664 107 680 284<|content|>【363977#1】深遂幻想\n<|id|>12<|page|>1<|box|>765 107 781 292<|content|>【363977#30】深遂幻想\n<|id|>14<|page|>1<|box|>848 105 865 310<|content|>【3667455#1】盲女与狐狸\n<|id|>16<|page|>2<|box|>99 105 116 258<|content|>【36781#0】宝鸡市\n<|id|>18<|page|>2<|box|>218 105 234 292<|content|>【3680378#3】金鹰之星\n<|id|>20<|page|>2<|box|>285 105 300 292<|content|>【3680378#8】金鹰之星\n<|id|>22<|page|>2<|box|>470 105 488 329<|content|>【3683109#5】美国癌症协会\n<|id|>24<|page|>3<|box|>73 107 89 231<|content|>【37075#31】人\n<|id|>26<|page|>3<|box|>191 105 208 312<|content|>【3714177#1】聖多默大學\n<|id|>28<|page|>3<|box|>292 107 309 400<|content|>【3714316#7】中华人民共和国银行业\n<|id|>30<|page|>3<|box|>376 107 392 302<|content|>【372404#0】安道尔国旗\n<|id|>32<|page|>3<|box|>460 105 476 329<|content|>【3724990#1】布鲁斯·邓恩\n<|id|>34<|page|>3<|box|>508 107 525 258<|content|>【37329#9】波塞冬\n<|id|>36<|page|>3<|box|>593 107 609 275<|content|>【3754124#0】六安站\n<|id|>38<|page|>3<|box|>694 107 709 258<|content|>【37616#2】姆大陆\n<|id|>40<|page|>3<|box|>795 105 810 312<|content|>【3767000#0】美式中国菜\n<|id|>42<|page|>3<|box|>860 105 878 391<|content|>【376838#0】美熹德加利福尼亞大學\n<|id|>45<|page|>4<|box|>134 105 149 329<|content|>【3802891#1】日本人口问题\n<|id|>47<|page|>4<|box|>218 107 234 329<|content|>【3802891#3】日本人口问题\n<|id|>49<|page|>4<|box|>285 107 300 285<|content|>【38205#47】加尔各答\n<|id|>51<|page|>4<|box|>403 107 419 275<|content|>【3820963#1】秦家浩\n<|id|>53<|page|>4<|box|>470 107 485 302<|content|>【38275#49】斯德哥尔摩\n<|id|>55<|page|>4<|box|>536 107 552 267<|content|>【383684#0】大奴湖\n<|id|>57<|page|>4<|box|>637 107 653 302<|content|>【386028#0】中国海岸线\n<|id|>59<|page|>4<|box|>721 105 737 302<|content|>【386028#7】中国海岸线",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>2\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>45<|level|>1\n<|id|>47<|level|>2\n<|id|>49<|level|>1\n<|id|>51<|level|>1\n<|id|>53<|level|>1\n<|id|>55<|level|>1\n<|id|>57<|level|>1\n<|id|>59<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 2
+        }
+    ]
+}

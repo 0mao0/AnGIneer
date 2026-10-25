@@ -1,0 +1,113 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>111 276 128 720<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>2<|page|>1<|box|>138 323 156 673<|content|>425 Park Avenue New York, New York 10022\n<|id|>11<|page|>1<|box|>497 142 513 258<|content|>I. Transmittal\n<|id|>18<|page|>2<|box|>258 140 277 457<|content|>II. Overview of Transaction Parameters\n<|id|>31<|page|>3<|box|>267 140 284 609<|content|>III. Summary of Principal Revisions in the Quorum\n<|id|>33<|page|>3<|box|>452 140 469 527<|content|>(a) Most Favored Nation Pricing (New Provision)\n<|id|>39<|page|>4<|box|>213 140 229 733<|content|>(b) intellectual Property Ownership — Derived Data\n<|id|>51<|page|>5<|box|>527 140 546 395<|content|>(c) Dispute Resolution (Revised)\n<|id|>54<|page|>6<|box|>90 140 108 297<|content|>(d) Governing Law\n<|id|>56<|page|>6<|box|>199 140 217 545<|content|>(e) Data Security and Breach Notification (Revised\n<|id|>63<|page|>7<|box|>90 140 108 818<|content|>(f) Regulatory Compliance (FCRA, GLBA, CCPA/CPRA,\n<|id|>70<|page|>7<|box|>780 140 797 439<|content|>(g) Insurance Requirements (Revised)\n<|id|>75<|page|>8<|box|>280 140 297 517<|content|>(h) Post-Termination Data Treatment (Revised)\n<|id|>78<|page|>8<|box|>561 140 579 581<|content|>(i) Limitation of Liability and Indemnification (R\n<|id|>80<|page|>8<|box|>726 140 744 665<|content|>(j) Service Level Agreement and Technical Schedule\n<|id|>82<|page|>9<|box|>138 140 157 434<|content|>(k) Data-Volume Overage Provisions\n<|id|>84<|page|>9<|box|>295 140 311 428<|content|>IV. Additional Ancillary Documents\n<|id|>92<|page|>9<|box|>742 140 758 328<|content|>V. Required Approvals\n<|id|>94<|page|>10<|box|>90 140 107 460<|content|>VI. Proposed Next Steps and Scheduling\n<|id|>99<|page|>10<|box|>508 140 527 352<|content|>VII. Reservation of Rights\n<|id|>101<|page|>10<|box|>704 140 722 251<|content|>VIII. Closing\n<|id|>111<|page|>11<|box|>290 212 306 517<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>11<|level|>1\n<|id|>18<|level|>1\n<|id|>31<|level|>1\n<|id|>33<|level|>2\n<|id|>39<|level|>2\n<|id|>51<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>2\n<|id|>84<|level|>1\n<|id|>92<|level|>1\n<|id|>94<|level|>1\n<|id|>99<|level|>1\n<|id|>101<|level|>1\n<|id|>111<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        }
+    ]
+}

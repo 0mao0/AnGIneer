@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        47,
+        101
+    ],
+    "pages": [
+        48,
+        60,
+        65,
+        66,
+        100
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>218<|page|>48<|box|>467 374 479 622<|content|>[Source: ... Bureau of the Public Debt, Office of Financing]\n<|id|>219<|page|>48<|box|>486 83 503 156<|content|>JULY\n<|id|>318<|page|>60<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>319<|page|>60<|box|>198 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund\n<|id|>357<|page|>65<|box|>739 503 902 916<|content|>- Section II presents claims on foreigners reporte..... Effective with reports filed as of February 28,\n<|id|>358<|page|>66<|box|>89 81 208 491<|content|>2003, reporting coverage was expanded as outlined ...ency with the liabilities reporting on this sector\n<|id|>456<|page|>100<|box|>835 93 845 468<|content|>Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia,\n<|id|>457<|page|>100<|box|>825 93 838 506<|content|>^{2} As of May 2004, the European Union includes Austria, Belgium, Cyprus, the Czech Republic,",
+    "raw_response": "<|src_id|>357<|tgt_id|>358",
+    "parsed": [
+        {
+            "src_id": 357,
+            "tgt_id": 358
+        }
+    ]
+}

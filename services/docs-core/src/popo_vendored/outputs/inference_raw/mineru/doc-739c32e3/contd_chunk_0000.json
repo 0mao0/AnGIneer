@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        7,
+        8,
+        17,
+        18,
+        19,
+        21,
+        22,
+        29,
+        30
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>151 140 186 854<|content|>FROM: ... Harrison Wexford, Responsible Partner, a...Okonkwo, Lead Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>195 140 250 854<|content|>TO: ... Theodore (\"Ted\") Langford, Senior Vice Pre...Corporate Development, Cascade Retail Holdings Inc\n<|id|>4<|page|>1<|box|>258 140 294 854<|content|>CC: ... Beatrice Holloway, Billing Partner, Calder...Specialist Partner, Tax, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>301 140 319 310<|content|>DATE: ... May 18, 2025\n<|id|>6<|page|>1<|box|>328 140 400 857<|content|>RE: ... — $750,000,000 Senior Secured Term Loan B ...ection with the Acquisition of NovaMart Global Inc\n<|id|>34<|page|>4<|box|>819 140 893 856<|content|>The Existing Revolver contains negative covenants ...ed, the Acquisition and the incurrence of the Term\n<|id|>35<|page|>5<|box|>90 140 127 854<|content|>Loan B would violate several of these negative cov...er of the acquisition-related borrowing limitation\n<|id|>64<|page|>7<|box|>858 140 893 857<|content|>The Commitment Letter sets forth a series of condi...or to the funding date in order for the Commitment\n<|id|>65<|page|>8<|box|>90 138 236 856<|content|>Parties to be obligated to fund the Term Loan B. ....ed, or (ii) is within Cascade's control to satisfy\n<|id|>155<|page|>17<|box|>781 174 816 854<|content|>(c) Reputational damage to Cascade in the capital ...financing or complete future transactions; ... and\n<|id|>157<|page|>18<|box|>90 140 145 854<|content|>Recommendation: ... Our recommended approach, in order of preference, is as follows\n<|id|>174<|page|>19<|box|>553 174 607 854<|content|>(iii) providing the Commitment Parties with financ...ions, and pro forma financial information; ... and\n<|id|>176<|page|>19<|box|>679 140 768 854<|content|>Analysis: ... Cascade's management team, led by Ra...equipped to participate in the syndication process\n<|id|>192<|page|>21<|box|>523 174 561 854<|content|>(d) Known distressed debt funds and \"loan-to-own\" ...ied by the Commitment Parties and Cascade; ... and\n<|id|>194<|page|>21<|box|>614 140 631 709<|content|>A preliminary draft of the disqualified lender lis...squalified lender list is included as Attachment E\n<|id|>200<|page|>21<|box|>823 176 840 651<|content|>(iii) the termination of the SPA in accordance with its terms; ... and\n<|id|>202<|page|>22<|box|>90 140 255 856<|content|>Analysis: ... We note that the Commitment Letter a...tensions, and we recommend adding such a provision\n<|id|>267<|page|>29<|box|>800 140 816 787<|content|>Attachment B: ... Summary Term Sheet (attached as Exhibit A to the Commitment Letter)\n<|id|>268<|page|>29<|box|>825 140 878 854<|content|>Attachment C: ... to Cascade Retail Holdings Inc\n<|id|>270<|page|>30<|box|>143 140 196 854<|content|>Attachment D: ... Proposed Markup of Commitment Le...) [DRAFT — Subject to Cascade Review and Approval]\n<|id|>271<|page|>30<|box|>205 140 241 854<|content|>Attachment E: ... Preliminary Disqualified Lender ...T — Subject to Cascade Review and Supplementation]\n<|id|>272<|page|>30<|box|>277 140 349 854<|content|>We are available to discuss this memorandum and th...arkup before transmittal to the Commitment Parties\n<|id|>274<|page|>30<|box|>420 142 436 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>275<|page|>30<|box|>439 143 455 254<|content|>By: ... By\n<|id|>276<|page|>30<|box|>455 143 472 429<|content|>Harrison Wexford Responsible Partner\n<|id|>277<|page|>30<|box|>474 143 489 253<|content|>By: ... By\n<|id|>278<|page|>30<|box|>489 142 505 383<|content|>Derek Okonkwo Lead Associate\n<|id|>279<|page|>30<|box|>505 140 566 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV...prior written consent of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>34<|tgt_id|>35\n<|src_id|>64<|tgt_id|>65",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        }
+    ]
+}

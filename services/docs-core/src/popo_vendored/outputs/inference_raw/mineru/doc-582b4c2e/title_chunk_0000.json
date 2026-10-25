@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 230 107 764<|content|>NON-COMPETITION AND NON-SOLICITATION AGREEMENT\n<|id|>3<|page|>1<|box|>179 228 196 767<|content|>NON-COMPETITION AND NON-SOLICITATION AGREEMENT\n<|id|>8<|page|>1<|box|>406 447 425 550<|content|>RECITALS\n<|id|>14<|page|>2<|box|>474 140 493 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>26<|page|>4<|box|>457 140 474 455<|content|>ARTICLE II — NON-COMPETITION\n<|id|>38<|page|>5<|box|>564 140 582 611<|content|>ARTICLE III — NON-SOLICITATION OF EMPLOYEES\n<|id|>49<|page|>6<|box|>582 140 599 611<|content|>ARTICLE IV — NON-SOLICITATION OF CUSTOMERS\n<|id|>60<|page|>7<|box|>508 142 527 447<|content|>ARTICLE V — CONFIDENTIALITY\n<|id|>69<|page|>9<|box|>89 140 107 614<|content|>ARTICLE VI — INTELLECTUAL PROPERTY NON-USE\n<|id|>76<|page|>9<|box|>542 140 559 575<|content|>ARTICLE VII — ENFORCEMENT AND REMEDIES\n<|id|>81<|page|>10<|box|>494 140 511 663<|content|>ARTICLE VIII — JUDICIAL MODIFICATION / BLUE PENCIL\n<|id|>84<|page|>11<|box|>186 140 204 849<|content|>ARTICLE IX — REPRESENTATIONS AND WARRANTIES OF RES\n<|id|>90<|page|>12<|box|>90 140 106 480<|content|>ARTICLE X — GENERAL PROVISIONS\n<|id|>118<|page|>14<|box|>878 359 897 637<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>120<|page|>15<|box|>133 400 151 596<|content|>RESTRICTED PARTY:\n<|id|>123<|page|>15<|box|>220 460 238 535<|content|>BUYER:\n<|id|>129<|page|>15<|box|>333 436 349 560<|content|>SCHEDULE A\n<|id|>130<|page|>15<|box|>359 349 377 647<|content|>DESCRIPTION OF THE BUSINESS\n<|id|>139<|page|>16<|box|>214 437 231 560<|content|>SCHEDULE B\n<|id|>140<|page|>16<|box|>239 367 257 627<|content|>TRANSFERRED EMPLOYEES\n<|id|>156<|page|>16<|box|>744 436 760 560<|content|>SCHEDULE C\n<|id|>157<|page|>16<|box|>768 437 786 560<|content|>CUSTOMERS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>26<|level|>2\n<|id|>38<|level|>2\n<|id|>49<|level|>2\n<|id|>60<|level|>2\n<|id|>69<|level|>2\n<|id|>76<|level|>2\n<|id|>81<|level|>2\n<|id|>84<|level|>2\n<|id|>90<|level|>2\n<|id|>118<|level|>-1\n<|id|>120<|level|>3\n<|id|>123<|level|>3\n<|id|>129<|level|>2\n<|id|>130<|level|>3\n<|id|>139<|level|>2\n<|id|>140<|level|>3\n<|id|>156<|level|>2\n<|id|>157<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 3
+        }
+    ]
+}

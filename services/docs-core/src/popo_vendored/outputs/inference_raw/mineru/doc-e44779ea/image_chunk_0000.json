@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        11
+    ],
+    "pages": [
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>89 434 111 563<|content|>EXHIBIT A\n<|id|>1<|type|>title<|page|>2<|box|>127 140 162 854<|content|>RESTATED DISTRIBUTION WATERFALL — COASTAL MERIDIAN\n<|id|>5<|type|>title<|page|>2<|box|>448 140 465 374<|content|>SECTION 1: DEFINITIONS\n<|id|>45<|type|>title<|page|>5<|box|>474 140 493 465<|content|>SECTION 2: WATERFALL PRIORITY\n<|id|>57<|type|>title<|page|>6<|box|>532 140 549 473<|content|>SECTION 3: MANAGEMENT-FEE CAP\n<|id|>61<|type|>title<|page|>7<|box|>277 140 294 455<|content|>SECTION 4: RESTORED REVENUES\n<|id|>63<|type|>table<|page|>7<|box|>419 143 536 852<|content|>None\n<|id|>71<|type|>title<|page|>8<|box|>545 140 563 668<|content|>SECTION 5: RECLASSIFICATION CONSENT REQUIREMENT\n<|id|>79<|type|>title<|page|>9<|box|>204 140 220 687<|content|>SECTION 6: INDEPENDENT ACCOUNTANT ADMINISTRATION\n<|id|>83<|type|>title<|page|>10<|box|>186 140 203 516<|content|>SECTION 7: REPORTING REQUIREMENTS\n<|id|>91<|type|>title<|page|>11<|box|>148 140 166 728<|content|>SECTION 8: DISPUTES REGARDING WATERFALL CALCULATIO\n<|id|>93<|type|>title<|page|>11<|box|>454 142 470 375<|content|>SECTION 9: AMENDMENT\n<|id|>96<|type|>title<|page|>11<|box|>678 352 694 643<|content|>EXHIBIT A — SIGNATURE PAGE\n<|id|>97<|type|>title<|page|>11<|box|>704 143 739 852<|content|>RESTATED DISTRIBUTION WATERFALL — COASTAL MERIDIAN",
+    "raw_response": "<|src_id|>63<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 63,
+            "tgt_id": 61
+        }
+    ]
+}

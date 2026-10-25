@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 403 119 593<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>351 140 369 343<|content|>I. Purpose and Summary\n<|id|>15<|page|>2<|box|>303 140 321 434<|content|>II. Identification of Applicable States\n<|id|>16<|page|>2<|box|>334 140 351 400<|content|>A. Basis for State Determination\n<|id|>26<|page|>3<|box|>157 140 175 470<|content|>B. Transaction Details Relevant to Filings\n<|id|>42<|page|>4<|box|>186 140 204 537<|content|>III. State-by-State Filing Requirements and Status\n<|id|>101<|page|>9<|box|>308 142 325 442<|content|>IV. Filing Tracker — Summary Table\n<|id|>105<|page|>10<|box|>148 140 167 398<|content|>V. Federal Form D Filing Status\n<|id|>122<|page|>11<|box|>90 140 107 460<|content|>VI. Observations and Recommendations\n<|id|>123<|page|>11<|box|>121 140 138 349<|content|>A. Timing Considerations\n<|id|>126<|page|>11<|box|>421 140 438 323<|content|>B. Amendment Filings\n<|id|>129<|page|>11<|box|>739 140 757 447<|content|>C. Consequences of Late or Non-Filing\n<|id|>136<|page|>12<|box|>646 140 664 331<|content|>D. Ongoing Monitoring\n<|id|>139<|page|>13<|box|>148 140 167 285<|content|>VII. Action Items\n<|id|>147<|page|>14<|box|>89 140 107 282<|content|>VIII. Appendices\n<|id|>149<|page|>15<|box|>89 140 108 537<|content|>Appendix A — Form D (as filed January 16, 2024)\n<|id|>152<|page|>16<|box|>89 140 108 635<|content|>Appendix B — Form D Amendment (as filed January 29\n<|id|>155<|page|>17<|box|>90 140 108 553<|content|>Appendix C — State Notice Filing Forms (Prepared)\n<|id|>163<|page|>18<|box|>90 143 108 424<|content|>Appendix D — Filing Fee Summary",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>26<|level|>3\n<|id|>42<|level|>2\n<|id|>101<|level|>2\n<|id|>105<|level|>2\n<|id|>122<|level|>2\n<|id|>123<|level|>3\n<|id|>126<|level|>3\n<|id|>129<|level|>3\n<|id|>136<|level|>3\n<|id|>139<|level|>2\n<|id|>147<|level|>2\n<|id|>149<|level|>3\n<|id|>152<|level|>3\n<|id|>155<|level|>3\n<|id|>163<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        }
+    ]
+}

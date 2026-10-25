@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 333 118 663<|content|>TAX CLOSING CERTIFICATE\n<|id|>1<|page|>1<|box|>135 145 172 851<|content|>Delivered Pursuant to Section 7.2(f) of the Agreem\n<|id|>6<|page|>1<|box|>333 142 351 243<|content|>RECITALS\n<|id|>14<|page|>2<|box|>89 140 106 372<|content|>SECTION 1: DEFINITIONS\n<|id|>26<|page|>3<|box|>222 140 239 730<|content|>SECTION 2: CERTIFICATIONS REGARDING TAX CLASSIFICA\n<|id|>31<|page|>4<|box|>89 140 126 831<|content|>SECTION 3: CERTIFICATIONS REGARDING TAX RETURNS AN\n<|id|>44<|page|>5<|box|>393 140 412 627<|content|>SECTION 4: CERTIFICATIONS REGARDING TAX LIENS\n<|id|>48<|page|>5<|box|>768 140 787 803<|content|>SECTION 5: CERTIFICATIONS REGARDING WITHHOLDING OB\n<|id|>57<|page|>6<|box|>843 140 859 854<|content|>SECTION 6: CERTIFICATIONS REGARDING TAX ELECTIONS\n<|id|>63<|page|>7<|box|>684 140 702 839<|content|>SECTION 7: CERTIFICATIONS REGARDING STATE AND LOCA\n<|id|>72<|page|>8<|box|>674 140 691 763<|content|>SECTION 8: CERTIFICATIONS REGARDING MEMBERSHIP INT\n<|id|>78<|page|>9<|box|>545 140 563 710<|content|>SECTION 9: CERTIFICATIONS REGARDING ROLLOVER EQUIT\n<|id|>83<|page|>10<|box|>449 140 467 691<|content|>SECTION 10: TAX INDEMNITY ESCROW ACKNOWLEDGMENT\n<|id|>87<|page|>11<|box|>167 140 184 537<|content|>SECTION 11: BRING-DOWN CERTIFICATION\n<|id|>90<|page|>11<|box|>626 140 643 537<|content|>SECTION 12: MISCELLANEOUS PROVISIONS\n<|id|>98<|page|>12<|box|>641 361 657 635<|content|>[SIGNATURE PAGES FOLLOW]\n<|id|>99<|page|>12<|box|>666 269 683 727<|content|>SIGNATURE PAGE TO TAX CLOSING CERTIFICATE\n<|id|>119<|page|>14<|box|>89 433 107 565<|content|>SCHEDULE 3.3\n<|id|>120<|page|>14<|box|>131 364 148 633<|content|>DISCLOSED TAX LIABILITIES\n<|id|>125<|page|>16<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>126<|page|>16<|box|>131 212 148 784<|content|>LIST OF SELLERS AND MEMBERSHIP INTEREST PERCENTAGE\n<|id|>127<|page|>16<|box|>157 140 210 854<|content|>The following table sets forth each Seller's name,",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>6<|level|>2\n<|id|>14<|level|>2\n<|id|>26<|level|>2\n<|id|>31<|level|>2\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>72<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>87<|level|>2\n<|id|>90<|level|>2\n<|id|>98<|level|>-1\n<|id|>99<|level|>2\n<|id|>119<|level|>2\n<|id|>120<|level|>3\n<|id|>125<|level|>2\n<|id|>126<|level|>3\n<|id|>127<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        }
+    ]
+}

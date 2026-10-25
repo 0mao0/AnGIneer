@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 147 143 849<|content|>SECRETARY'S CERTIFICATE OF GENOME DX THERAPEUTICS\n<|id|>10<|page|>1<|box|>652 140 669 519<|content|>CERTIFICATION 1: BOARD RESOLUTIONS\n<|id|>21<|page|>2<|box|>641 140 659 635<|content|>CERTIFICATION 2: CERTIFICATE OF INCORPORATION\n<|id|>25<|page|>3<|box|>89 142 106 398<|content|>CERTIFICATION 3: BYLAWS\n<|id|>28<|page|>3<|box|>219 140 236 746<|content|>CERTIFICATION 4: INCUMBENCY AND AUTHORIZED SIGNATO\n<|id|>33<|page|>3<|box|>625 140 643 669<|content|>CERTIFICATION 5: GOOD STANDING AND QUALIFICATION\n<|id|>37<|page|>3<|box|>835 140 852 612<|content|>CERTIFICATION 6: NO CONFLICT AND NO DEFAULT\n<|id|>43<|page|>4<|box|>428 140 445 669<|content|>CERTIFICATION 7: REPRESENTATIONS AND WARRANTIES\n<|id|>51<|page|>4<|box|>777 140 795 643<|content|>CONFIRMATION OF INCUMBENCY OF THE SECRETARY\n<|id|>59<|page|>6<|box|>90 434 109 563<|content|>EXHIBIT A\n<|id|>60<|page|>6<|box|>135 289 152 707<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS\n<|id|>61<|page|>6<|box|>176 330 194 666<|content|>OF GENOME DX THERAPEUTICS INC.\n<|id|>62<|page|>6<|box|>219 264 234 733<|content|>Adopted by Unanimous Written Consent in Lieu of Me\n<|id|>65<|page|>6<|box|>402 142 420 331<|content|>Participating Directors:\n<|id|>82<|page|>7<|box|>585 140 603 379<|content|>NOW, THEREFORE, BE IT:\n<|id|>121<|page|>11<|box|>90 436 111 562<|content|>EXHIBIT B\n<|id|>122<|page|>11<|box|>135 215 152 781<|content|>AMENDED AND RESTATED CERTIFICATE OF INCORPORATION\n<|id|>123<|page|>11<|box|>176 328 194 666<|content|>OF GENOME DX THERAPEUTICS INC.\n<|id|>128<|page|>12<|box|>90 434 109 563<|content|>EXHIBIT C\n<|id|>129<|page|>12<|box|>136 287 152 707<|content|>BYLAWS OF GENOME DX THERAPEUTICS INC.\n<|id|>133<|page|>13<|box|>90 434 109 562<|content|>EXHIBIT D\n<|id|>134<|page|>13<|box|>135 367 152 629<|content|>INCUMBENCY CERTIFICATE\n<|id|>135<|page|>13<|box|>176 330 194 665<|content|>OF GENOME DX THERAPEUTICS INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>21<|level|>2\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>43<|level|>2\n<|id|>51<|level|>2\n<|id|>59<|level|>1\n<|id|>60<|level|>2\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>65<|level|>3\n<|id|>82<|level|>-1\n<|id|>121<|level|>1\n<|id|>122<|level|>2\n<|id|>123<|level|>2\n<|id|>128<|level|>1\n<|id|>129<|level|>2\n<|id|>133<|level|>1\n<|id|>134<|level|>2\n<|id|>135<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        }
+    ]
+}

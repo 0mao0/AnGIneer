@@ -1,0 +1,162 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        52
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        10,
+        16,
+        17,
+        19,
+        22,
+        24,
+        25,
+        32,
+        34,
+        35,
+        43,
+        44,
+        45,
+        46,
+        48,
+        51,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>5<|box|>276 176 313 796<|content|>TREASURY DEPARTMENT\n<|id|>17<|page|>7<|box|>286 173 322 811<|content|>TREASURY DEPARTMENT\n<|id|>25<|page|>9<|box|>119 238 162 777<|content|>Bulletin of the Treasury Department, December 1941\n<|id|>26<|page|>9<|box|>197 381 212 627<|content|>SUMMARY OF FISCAL STATISTICS\n<|id|>28<|page|>9<|box|>268 363 282 652<|content|>FEDERAL RECEIPTS AND EXPENDITURES\n<|id|>30<|page|>9<|box|>397 379 411 625<|content|>GENERAL FUND OF THE TREASURY\n<|id|>32<|page|>9<|box|>468 360 498 643<|content|>PUBLIC DEBT OF THE UNITED STATES (Excluding owners\n<|id|>34<|page|>9<|box|>671 353 686 652<|content|>OWNERSHIP OF GOVERNMENT SECURITIES\n<|id|>37<|page|>10<|box|>104 272 136 670<|content|>GOVERNMENTAL CORPORATIONS AND CREDIT AGENCIES OF T\n<|id|>39<|page|>10<|box|>266 358 282 600<|content|>INTERNAL REVENUE STATISTICS\n<|id|>41<|page|>10<|box|>322 392 338 555<|content|>CUSTOMS STATISTICS\n<|id|>45<|page|>10<|box|>539 358 553 591<|content|>GOLD AND SILVER STATISTICS\n<|id|>47<|page|>10<|box|>714 365 730 591<|content|>OTHER TREASURY STATISTICS\n<|id|>49<|page|>10<|box|>816 358 833 598<|content|>SEMIANNUAL CUMULATIVE INDEX\n<|id|>57<|page|>16<|box|>53 353 67 648<|content|>Budget Receipts and Expenditures\n<|id|>69<|page|>17<|box|>50 293 63 716<|content|>Budget Receipts and Expenditures - (Continued)\n<|id|>74<|page|>19<|box|>66 250 88 761<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>81<|page|>22<|box|>625 116 640 827<|content|>Receipts and Expenditures, Federal Old-Age and Sur\n<|id|>87<|page|>24<|box|>674 293 687 646<|content|>Total Cash Income and Outgo, by Months\n<|id|>89<|page|>25<|box|>86 139 108 838<|content|>CASH INCOME AND OUTGO OF THE TREASURY\n<|id|>94<|page|>32<|box|>55 125 70 842<|content|>Statement of the Outstanding Public Debt on June 3\n<|id|>96<|page|>32<|box|>486 351 499 625<|content|>Composition of the Public Debt\n<|id|>98<|page|>34<|box|>58 130 92 854<|content|>of United States Government Interest-Bearing Marke\n<|id|>100<|page|>35<|box|>75 145 107 862<|content|>of United States Government Interest-Bearing Marke\n<|id|>114<|page|>43<|box|>325 198 354 810<|content|>Table I.- Analysis of Ownership by Type of Securit\n<|id|>116<|page|>44<|box|>51 89 92 894<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>122<|page|>45<|box|>112 213 128 784<|content|>Table II.- Distribution of Ownership for Each Issu\n<|id|>124<|page|>46<|box|>54 75 94 878<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>131<|page|>48<|box|>55 66 95 870<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>133<|page|>48<|box|>130 227 143 720<|content|>PART B - PERCENTAGE DISTRIBUTION BY GROUPS OF INVE\n<|id|>138<|page|>51<|box|>57 182 88 827<|content|>Assets and Liabilities of Governmental Corporation\n<|id|>140<|page|>52<|box|>49 154 82 824<|content|>Sources of Funds of Certain Governmental Corporati",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>17<|level|>1\n<|id|>25<|level|>1\n<|id|>26<|level|>2\n<|id|>28<|level|>3\n<|id|>30<|level|>4\n<|id|>32<|level|>4\n<|id|>34<|level|>4\n<|id|>37<|level|>3\n<|id|>39<|level|>4\n<|id|>41<|level|>5\n<|id|>45<|level|>5\n<|id|>47<|level|>4\n<|id|>49<|level|>3\n<|id|>57<|level|>3\n<|id|>69<|level|>3\n<|id|>74<|level|>2\n<|id|>81<|level|>3\n<|id|>87<|level|>4\n<|id|>89<|level|>2\n<|id|>94<|level|>3\n<|id|>96<|level|>4\n<|id|>98<|level|>5\n<|id|>100<|level|>5\n<|id|>114<|level|>4\n<|id|>116<|level|>5\n<|id|>122<|level|>4\n<|id|>124<|level|>5\n<|id|>131<|level|>5\n<|id|>133<|level|>3\n<|id|>138<|level|>2\n<|id|>140<|level|>3",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 4
+        },
+        {
+            "id": 34,
+            "level": 4
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 4
+        },
+        {
+            "id": 41,
+            "level": 5
+        },
+        {
+            "id": 45,
+            "level": 5
+        },
+        {
+            "id": 47,
+            "level": 4
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 4
+        },
+        {
+            "id": 98,
+            "level": 5
+        },
+        {
+            "id": 100,
+            "level": 5
+        },
+        {
+            "id": 114,
+            "level": 4
+        },
+        {
+            "id": 116,
+            "level": 5
+        },
+        {
+            "id": 122,
+            "level": 4
+        },
+        {
+            "id": 124,
+            "level": 5
+        },
+        {
+            "id": 131,
+            "level": 5
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 3
+        }
+    ]
+}

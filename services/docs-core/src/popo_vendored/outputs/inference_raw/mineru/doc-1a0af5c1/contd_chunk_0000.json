@@ -1,0 +1,49 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        50
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        10,
+        14,
+        25,
+        26,
+        33,
+        36,
+        37,
+        41,
+        42,
+        45,
+        49
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>297 398 340 599<|content|>Dated as of [●], 2024 TABLE OF CONTENTS\n<|id|>6<|page|>1<|box|>349 142 364 408<|content|>Right-click to update Table of Contents\n<|id|>10<|page|>1<|box|>525 174 580 854<|content|>(2) Stratos Merger Sub Inc. ... and\n<|id|>12<|page|>1<|box|>648 140 686 854<|content|>Each of the Company, Merger Sub, and Parent is som... a \"Party\" and collectively as the \"Parties. ... \"\n<|id|>16<|page|>1<|box|>859 140 897 856<|content|>WHEREAS, the Company is a public limited company i...n stock (the \"Company Common Stock\") listed on the\n<|id|>17<|page|>2<|box|>90 140 127 854<|content|>Nasdaq Global Select Market under the ticker symbo...res of Company Common Stock issued and outstanding\n<|id|>23<|page|>2<|box|>720 140 777 856<|content|>WHEREAS, Parent intends to obtain, prior to the Cl... to the conditions described in Section 6. ... and\n<|id|>24<|page|>2<|box|>784 140 820 854<|content|>WHEREAS, the Parties intend that the Merger shall ...es as described in Article IX and Article X hereof\n<|id|>53<|page|>4<|box|>768 140 878 856<|content|>\"Environmental Law\" means any Law relating to poll...ponse, Compensation and Liability Act (42 U. ... §\n<|id|>54<|page|>5<|box|>89 140 126 854<|content|>7401 et seq. ... ), and all analogous state, local, and foreign Laws\n<|id|>131<|page|>10<|box|>296 174 424 856<|content|>(I) any failure by the Company or any of its Subsi...or would reasonably be expected to occur); ... and\n<|id|>133<|page|>10<|box|>531 140 641 856<|content|>provided, further, that, with respect to clauses (... in which the Company and its Subsidiaries operate\n<|id|>176<|page|>14<|box|>582 210 654 857<|content|>(i) Jonathan Hargrove shall contribute fifty perce...736,400 shares of Company Common Stock (i. ... and\n<|id|>178<|page|>14<|box|>743 174 799 856<|content|>The aggregate Rollover Equity is approximately $616,055,952. ... 1(a)\n<|id|>271<|page|>25<|box|>819 140 892 856<|content|>(c) There are no Actions pending or, to the Knowle...idiaries of the intellectual Property of any other\n<|id|>272<|page|>26<|box|>90 140 127 854<|content|>Person, except, in each case, as would not, indivi...expected to have a Company Material Adverse Effect\n<|id|>347<|page|>33<|box|>306 174 378 856<|content|>(i) a senior secured first-lien term loan B facili...asis points, subject to a SOFR floor of 0. ... and\n<|id|>349<|page|>33<|box|>468 140 578 856<|content|>The Debt Commitment Letter provides for a ticking ... have not been withdrawn, rescinded, or terminated\n<|id|>376<|page|>36<|box|>872 174 909 854<|content|>(xiii) make, change, or revoke any material Tax el...d of Tax accounting, file any amended material Tax\n<|id|>377<|page|>37<|box|>90 174 162 854<|content|>Return, enter into any closing agreement with resp...y course of business consistent with past practice\n<|id|>414<|page|>41<|box|>845 140 902 857<|content|>(d) Other Regulatory Approvals. ... The Parties sh...gs with or approvals from the Committee on Foreign\n<|id|>415<|page|>42<|box|>90 138 219 857<|content|>Investment in the United States (\"CFIUS\"), the Eur...ng the transactions contemplated by this Agreement\n<|id|>442<|page|>45<|box|>602 174 657 854<|content|>(d) any Action commenced or, to the Knowledge of s...t or the transactions contemplated hereby; ... and\n<|id|>444<|page|>45<|box|>727 140 782 854<|content|>provided, however, that no notification pursuant t...covenant, or agreement contained in this Agreement\n<|id|>489<|page|>49<|box|>796 174 851 854<|content|>(ii) the consent (or waiver of termination rights)...of the Company contemplated by the Merger; ... and\n<|id|>491<|page|>49<|box|>883 140 902 645<|content|>in each case, in form and substance reasonably sat...rm and substance reasonably satisfactory to Parent",
+    "raw_response": "<|src_id|>16<|tgt_id|>17\n<|src_id|>53<|tgt_id|>54\n<|src_id|>271<|tgt_id|>272\n<|src_id|>376<|tgt_id|>377\n<|src_id|>414<|tgt_id|>415",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 271,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 376,
+            "tgt_id": 377
+        },
+        {
+            "src_id": 414,
+            "tgt_id": 415
+        }
+    ]
+}

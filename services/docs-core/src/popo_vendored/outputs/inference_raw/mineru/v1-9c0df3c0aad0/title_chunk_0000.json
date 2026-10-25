@@ -1,0 +1,63 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        46
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        7,
+        16,
+        23,
+        35,
+        43,
+        46
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>143 193 160 803<|content|>HOMOTOPY COHERENT COMPANIONSHIPS AND CONJUNCTIONS\n<|id|>1<|page|>1<|box|>181 455 195 539<|content|>JACO RUIT\n<|id|>3<|page|>1<|box|>370 457 385 541<|content|>Contents\n<|id|>5<|page|>1<|box|>545 428 558 569<|content|>1. Introduction\n<|id|>34<|page|>3<|box|>545 475 558 522<|content|>comp\n<|id|>41<|page|>3<|box|>840 477 854 517<|content|>conj.\n<|id|>68<|page|>5<|box|>411 339 425 657<|content|>2. Preliminaries on exponentiability\n<|id|>113<|page|>7<|box|>399 324 414 670<|content|>3. Preliminaries on double Segal spaces\n<|id|>321<|page|>16<|box|>801 137 818 800<|content|>3.5. Exponentiability of double Segal spaces. We w\n<|id|>449<|page|>23<|box|>330 226 344 769<|content|>4. Companionships and conjunctions, and homotopy c\n<|id|>680<|page|>35<|box|>669 238 684 759<|content|>5. Companions and conjoints in functor double Sega\n<|id|>813<|page|>43<|box|>498 260 512 734<|content|>6. Application: double ∞-categories of( \\infty , 2\n<|id|>873<|page|>46<|box|>794 448 808 549<|content|>References",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>3<|level|>2\n<|id|>5<|level|>2\n<|id|>34<|level|>-1\n<|id|>41<|level|>-1\n<|id|>68<|level|>2\n<|id|>113<|level|>2\n<|id|>321<|level|>3\n<|id|>449<|level|>2\n<|id|>680<|level|>2\n<|id|>813<|level|>2\n<|id|>873<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 321,
+            "level": 3
+        },
+        {
+            "id": 449,
+            "level": 2
+        },
+        {
+            "id": 680,
+            "level": 2
+        },
+        {
+            "id": 813,
+            "level": 2
+        },
+        {
+            "id": 873,
+            "level": 2
+        }
+    ]
+}

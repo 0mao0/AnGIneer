@@ -1,0 +1,601 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-t79h9826\\input\\pdfs\\doc-0171c8ed.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-t79h9826\\enriched\\doc-0171c8ed.json",
+    "contd_output": "<|src_id|>29<|tgt_id|>30\n<|src_id|>104<|tgt_id|>105\n<|src_id|>149<|tgt_id|>150\n<|src_id|>219<|tgt_id|>220",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>17<|level|>3\n<|id|>25<|level|>3\n<|id|>33<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>55<|level|>3\n<|id|>64<|level|>3\n<|id|>72<|level|>3\n<|id|>79<|level|>3\n<|id|>85<|level|>2\n<|id|>86<|level|>3\n<|id|>92<|level|>3\n<|id|>98<|level|>3\n<|id|>106<|level|>3\n<|id|>114<|level|>2\n<|id|>115<|level|>3\n<|id|>122<|level|>3\n<|id|>128<|level|>3\n<|id|>136<|level|>2\n<|id|>137<|level|>3\n<|id|>143<|level|>3\n<|id|>153<|level|>3\n<|id|>163<|level|>3\n<|id|>168<|level|>2\n<|id|>169<|level|>3\n<|id|>175<|level|>3\n<|id|>181<|level|>3\n<|id|>187<|level|>2\n<|id|>188<|level|>3\n<|id|>194<|level|>3\n<|id|>204<|level|>3\n<|id|>209<|level|>2\n<|id|>210<|level|>3\n<|id|>214<|level|>3\n<|id|>221<|level|>2\n<|id|>222<|level|>3\n<|id|>227<|level|>3\n<|id|>234<|level|>3\n<|id|>241<|level|>2\n<|id|>242<|level|>3\n<|id|>245<|level|>3\n<|id|>252<|level|>3\n<|id|>259<|level|>2\n<|id|>260<|level|>3\n<|id|>264<|level|>3\n<|id|>271<|level|>3\n<|id|>280<|level|>2\n<|id|>281<|level|>3\n<|id|>288<|level|>3\n<|id|>292<|level|>3\n<|id|>299<|level|>3\n<|id|>302<|level|>3\n<|id|>306<|level|>3\n<|id|>310<|level|>3\n<|id|>313<|level|>2\n<|id|>314<|level|>3\n<|id|>319<|level|>3\n<|id|>326<|level|>3\n<|id|>329<|level|>2\n<|id|>330<|level|>3\n<|id|>340<|level|>3\n<|id|>346<|level|>2\n<|id|>355<|level|>2\n<|id|>356<|level|>3\n<|id|>367<|level|>3\n<|id|>376<|level|>2\n<|id|>384<|level|>2\n<|id|>391<|level|>2\n<|id|>395<|level|>2\n<|id|>417<|level|>2\n<|id|>425<|level|>2\n<|id|>441<|level|>2\n<|id|>450<|level|>2\n<|id|>457<|level|>2\n<|id|>458<|level|>3\n<|id|>461<|level|>3\n<|id|>464<|level|>3\n<|id|>466<|level|>3\n<|id|>469<|level|>4\n<|id|>473<|level|>3\n<|id|>480<|level|>2\n<|id|>482<|level|>3\n<|id|>484<|level|>3\n<|id|>486<|level|>3\n<|id|>488<|level|>3\n<|id|>490<|level|>3\n<|id|>492<|level|>3\n<|id|>494<|level|>3\n<|id|>496<|level|>3",
+    "image_output": "<|src_id|>69<|tgt_id|>64\n<|src_id|>70<|tgt_id|>64\n<|src_id|>243<|tgt_id|>242\n<|src_id|>262<|tgt_id|>260\n<|src_id|>273<|tgt_id|>271\n<|src_id|>308<|tgt_id|>306\n<|src_id|>393<|tgt_id|>391\n<|src_id|>394<|tgt_id|>391\n<|src_id|>427<|tgt_id|>425\n<|src_id|>428<|tgt_id|>425\n<|src_id|>429<|tgt_id|>425\n<|src_id|>430<|tgt_id|>425\n<|src_id|>431<|tgt_id|>425\n<|src_id|>432<|tgt_id|>425\n<|src_id|>433<|tgt_id|>425\n<|src_id|>434<|tgt_id|>425\n<|src_id|>435<|tgt_id|>425\n<|src_id|>436<|tgt_id|>425\n<|src_id|>437<|tgt_id|>425\n<|src_id|>438<|tgt_id|>425\n<|src_id|>443<|tgt_id|>441\n<|src_id|>444<|tgt_id|>441\n<|src_id|>445<|tgt_id|>441\n<|src_id|>446<|tgt_id|>441\n<|src_id|>447<|tgt_id|>441\n<|src_id|>448<|tgt_id|>441\n<|src_id|>452<|tgt_id|>450\n<|src_id|>453<|tgt_id|>450\n<|src_id|>454<|tgt_id|>450\n<|src_id|>455<|tgt_id|>450\n<|src_id|>456<|tgt_id|>450\n<|src_id|>460<|tgt_id|>458\n<|src_id|>463<|tgt_id|>461\n<|src_id|>465<|tgt_id|>464",
+    "contd_label": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 150
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 220
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 227,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 3
+        },
+        {
+            "id": 241,
+            "level": 2
+        },
+        {
+            "id": 242,
+            "level": 3
+        },
+        {
+            "id": 245,
+            "level": 3
+        },
+        {
+            "id": 252,
+            "level": 3
+        },
+        {
+            "id": 259,
+            "level": 2
+        },
+        {
+            "id": 260,
+            "level": 3
+        },
+        {
+            "id": 264,
+            "level": 3
+        },
+        {
+            "id": 271,
+            "level": 3
+        },
+        {
+            "id": 280,
+            "level": 2
+        },
+        {
+            "id": 281,
+            "level": 3
+        },
+        {
+            "id": 288,
+            "level": 3
+        },
+        {
+            "id": 292,
+            "level": 3
+        },
+        {
+            "id": 299,
+            "level": 3
+        },
+        {
+            "id": 302,
+            "level": 3
+        },
+        {
+            "id": 306,
+            "level": 3
+        },
+        {
+            "id": 310,
+            "level": 3
+        },
+        {
+            "id": 313,
+            "level": 2
+        },
+        {
+            "id": 314,
+            "level": 3
+        },
+        {
+            "id": 319,
+            "level": 3
+        },
+        {
+            "id": 326,
+            "level": 3
+        },
+        {
+            "id": 329,
+            "level": 2
+        },
+        {
+            "id": 330,
+            "level": 3
+        },
+        {
+            "id": 340,
+            "level": 3
+        },
+        {
+            "id": 346,
+            "level": 2
+        },
+        {
+            "id": 355,
+            "level": 2
+        },
+        {
+            "id": 356,
+            "level": 3
+        },
+        {
+            "id": 367,
+            "level": 3
+        },
+        {
+            "id": 376,
+            "level": 2
+        },
+        {
+            "id": 384,
+            "level": 2
+        },
+        {
+            "id": 391,
+            "level": 2
+        },
+        {
+            "id": 395,
+            "level": 2
+        },
+        {
+            "id": 417,
+            "level": 2
+        },
+        {
+            "id": 425,
+            "level": 2
+        },
+        {
+            "id": 441,
+            "level": 2
+        },
+        {
+            "id": 450,
+            "level": 2
+        },
+        {
+            "id": 457,
+            "level": 2
+        },
+        {
+            "id": 458,
+            "level": 3
+        },
+        {
+            "id": 461,
+            "level": 3
+        },
+        {
+            "id": 464,
+            "level": 3
+        },
+        {
+            "id": 466,
+            "level": 3
+        },
+        {
+            "id": 469,
+            "level": 4
+        },
+        {
+            "id": 473,
+            "level": 3
+        },
+        {
+            "id": 480,
+            "level": 2
+        },
+        {
+            "id": 482,
+            "level": 3
+        },
+        {
+            "id": 484,
+            "level": 3
+        },
+        {
+            "id": 486,
+            "level": 3
+        },
+        {
+            "id": 488,
+            "level": 3
+        },
+        {
+            "id": 490,
+            "level": 3
+        },
+        {
+            "id": 492,
+            "level": 3
+        },
+        {
+            "id": 494,
+            "level": 3
+        },
+        {
+            "id": 496,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 69,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 243,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 262,
+            "tgt_id": 260
+        },
+        {
+            "src_id": 273,
+            "tgt_id": 271
+        },
+        {
+            "src_id": 308,
+            "tgt_id": 306
+        },
+        {
+            "src_id": 393,
+            "tgt_id": 391
+        },
+        {
+            "src_id": 394,
+            "tgt_id": 391
+        },
+        {
+            "src_id": 427,
+            "tgt_id": 425
+        },
+        {
+            "src_id": 428,
+            "tgt_id": 425
+        },
+        {
+            "src_id": 429,
+            "tgt_id": 425
+        },
+        {
+            "src_id": 430,
+            "tgt_id": 425
+        },
+        {
+            "src_id": 431,
+            "tgt_id": 425
+        },
+        {
+            "src_id": 432,
+            "tgt_id": 425
+        },
+        {
+            "src_id": 433,
+            "tgt_id": 425
+        },
+        {
+            "src_id": 434,
+            "tgt_id": 425
+        },
+        {
+            "src_id": 435,
+            "tgt_id": 425
+        },
+        {
+            "src_id": 436,
+            "tgt_id": 425
+        },
+        {
+            "src_id": 437,
+            "tgt_id": 425
+        },
+        {
+            "src_id": 438,
+            "tgt_id": 425
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 441
+        },
+        {
+            "src_id": 444,
+            "tgt_id": 441
+        },
+        {
+            "src_id": 445,
+            "tgt_id": 441
+        },
+        {
+            "src_id": 446,
+            "tgt_id": 441
+        },
+        {
+            "src_id": 447,
+            "tgt_id": 441
+        },
+        {
+            "src_id": 448,
+            "tgt_id": 441
+        },
+        {
+            "src_id": 452,
+            "tgt_id": 450
+        },
+        {
+            "src_id": 453,
+            "tgt_id": 450
+        },
+        {
+            "src_id": 454,
+            "tgt_id": 450
+        },
+        {
+            "src_id": 455,
+            "tgt_id": 450
+        },
+        {
+            "src_id": 456,
+            "tgt_id": 450
+        },
+        {
+            "src_id": 460,
+            "tgt_id": 458
+        },
+        {
+            "src_id": 463,
+            "tgt_id": 461
+        },
+        {
+            "src_id": 465,
+            "tgt_id": 464
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 428,
+            "table2_idx": 429,
+            "upper_row_ss": [
+                [
+                    "GCL installation (secondary liner)",
+                    "1,400,000 square feet",
+                    "$1.10/SF",
+                    "$1,540,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "LDRS geocomposite drainage layer",
+                    "1,400,000 square feet",
+                    "$0.85/SF",
+                    "$1,190,000"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 447,
+            "table2_idx": 448,
+            "upper_row_ss": [
+                [
+                    "Long-term environmental",
+                    "June 15, 2025",
+                    "June 14, 2045",
+                    "20 years",
+                    "Effective Date"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "monitoring",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 454,
+            "table2_idx": 455,
+            "upper_row_ss": [
+                [
+                    "Total Selenium",
+                    "50 μg/L",
+                    "EPA MCL (drinking water)",
+                    "Groundwater"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Parameter",
+                    "Residential Screening Level",
+                    "Industrial/Commercial Screening Level",
+                    "Basis"
+                ]
+            ]
+        }
+    ]
+}

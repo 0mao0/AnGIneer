@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Financial Covenants', '(i) Minimum Liquidity: $15,000,000 in unrestricted cash']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'and cash equivalents, tested monthly; (ii) Maximum Net Leverage Ratio: 3.50x, tested quarterly; (iii) Minimum Fixed Charge Coverage Ratio: 1.25x, tested quarterly.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 19,
+    "table2_idx": 20
+}

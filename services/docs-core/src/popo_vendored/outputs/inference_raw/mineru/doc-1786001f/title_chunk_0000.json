@@ -1,0 +1,125 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 338 118 658<|content|>SETTLEMENT TERM SHEET\n<|id|>1<|page|>1<|box|>136 266 180 730<|content|>Confidential — For Settlement Purposes Only Lumos\n<|id|>5<|page|>1<|box|>310 142 327 395<|content|>INTRODUCTORY RECITALS\n<|id|>16<|page|>2<|box|>462 140 479 419<|content|>SECTION 1: SERVICE CREDITS\n<|id|>27<|page|>3<|box|>347 140 364 390<|content|>SECTION 2: MSA RENEWAL\n<|id|>28<|page|>3<|box|>378 140 395 290<|content|>2.1 Renewal Term\n<|id|>30<|page|>3<|box|>542 142 560 303<|content|>2.2 Renewal Pricing\n<|id|>34<|page|>3<|box|>758 140 775 379<|content|>2.3 Renewal Term Conditions\n<|id|>36<|page|>4<|box|>167 140 184 465<|content|>SECTION 3: ENHANCED SLA TERMS\n<|id|>38<|page|>4<|box|>279 140 297 421<|content|>3.1 Increased Uptime Commitment\n<|id|>41<|page|>4<|box|>542 140 559 408<|content|>3.2 Real-Time Uptime Dashboard\n<|id|>44<|page|>4<|box|>787 140 805 428<|content|>3.3 Quarterly SLA Review Meetings\n<|id|>50<|page|>5<|box|>337 140 354 423<|content|>SECTION 4: MUTUAL RELEASE\n<|id|>65<|page|>6<|box|>383 140 401 517<|content|>SECTION 5: NO ADMISSION OF LIABILITY\n<|id|>68<|page|>6<|box|>678 140 695 426<|content|>SECTION 6: CONFIDENTIALITY\n<|id|>79<|page|>7<|box|>614 140 633 532<|content|>SECTION 7: DEFINITIVE DOCUMENTATION\n<|id|>86<|page|>8<|box|>311 140 328 594<|content|>SECTION 8: NON-BINDING NATURE; EXCLUSIVITY\n<|id|>90<|page|>8<|box|>704 140 720 506<|content|>SECTION 9: AUTHORIZED SIGNATORIES\n<|id|>92<|page|>8<|box|>811 142 827 366<|content|>LUMOS ANALYTICS INC.\n<|id|>96<|page|>9<|box|>89 140 106 491<|content|>PINNACLE FINANCIAL HOLDINGS LLC\n<|id|>102<|page|>9<|box|>202 140 219 351<|content|>For Lumos Analytics Inc.:\n<|id|>106<|page|>10<|box|>89 142 107 245<|content|>EXHIBIT A\n<|id|>107<|page|>10<|box|>114 374 133 622<|content|>Summary of Covered Incidents\n<|id|>111<|page|>11<|box|>89 142 106 243<|content|>EXHIBIT B\n<|id|>112<|page|>11<|box|>116 343 133 653<|content|>Settlement Credit Application Schedule\n<|id|>115<|page|>11<|box|>564 140 580 423<|content|>Summary of Total Credits Applied:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>5<|level|>2\n<|id|>16<|level|>2\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>30<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>2\n<|id|>38<|level|>3\n<|id|>41<|level|>3\n<|id|>44<|level|>3\n<|id|>50<|level|>2\n<|id|>65<|level|>2\n<|id|>68<|level|>2\n<|id|>79<|level|>2\n<|id|>86<|level|>2\n<|id|>90<|level|>2\n<|id|>92<|level|>3\n<|id|>96<|level|>3\n<|id|>102<|level|>3\n<|id|>106<|level|>2\n<|id|>107<|level|>3\n<|id|>111<|level|>2\n<|id|>112<|level|>3\n<|id|>115<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 4
+        }
+    ]
+}

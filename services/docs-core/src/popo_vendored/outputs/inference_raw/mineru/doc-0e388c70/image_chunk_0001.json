@@ -1,0 +1,62 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        53
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>428<|type|>table<|page|>46<|box|>88 143 415 852<|content|>None\n<|id|>429<|type|>title<|page|>47<|box|>90 267 111 728<|content|>Appendix C — NovaMart Data Flow Diagram\n<|id|>431<|type|>title<|page|>47<|box|>172 140 189 465<|content|>NovaMart Platform Data Flow Overview\n<|id|>443<|type|>image<|page|>47<|box|>318 143 396 852<|content|>None\n<|id|>455<|type|>title<|page|>47<|box|>618 143 635 336<|content|>Data Storage Summary:\n<|id|>460<|type|>title<|page|>48<|box|>90 256 111 741<|content|>Appendix D — Incident History Summary Table\n<|id|>461<|type|>table<|page|>48<|box|>172 143 893 852<|content|>None\n<|id|>462<|type|>table<|page|>49<|box|>88 143 494 852<|content|>None\n<|id|>463<|type|>title<|page|>50<|box|>90 263 111 733<|content|>Appendix E — Third-Party DPA Status Matrix\n<|id|>464<|type|>table<|page|>50<|box|>172 143 890 852<|content|>None\n<|id|>465<|type|>table<|page|>51<|box|>88 143 308 852<|content|>None\n<|id|>466<|type|>table<|page|>51<|box|>364 143 506 852<|content|>None\n<|id|>467<|type|>table<|page|>51<|box|>563 143 898 852<|content|>None\n<|id|>468<|type|>table<|page|>52<|box|>89 143 895 852<|content|>None\n<|id|>469<|type|>table<|page|>53<|box|>147 143 335 852<|content|>None",
+    "raw_response": "<|src_id|>428<|tgt_id|>429\n<|src_id|>443<|tgt_id|>431\n<|src_id|>461<|tgt_id|>460\n<|src_id|>462<|tgt_id|>460\n<|src_id|>464<|tgt_id|>463\n<|src_id|>465<|tgt_id|>463\n<|src_id|>466<|tgt_id|>463\n<|src_id|>467<|tgt_id|>463\n<|src_id|>468<|tgt_id|>463\n<|src_id|>469<|tgt_id|>463",
+    "parsed": [
+        {
+            "src_id": 428,
+            "tgt_id": 429
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 431
+        },
+        {
+            "src_id": 461,
+            "tgt_id": 460
+        },
+        {
+            "src_id": 462,
+            "tgt_id": 460
+        },
+        {
+            "src_id": 464,
+            "tgt_id": 463
+        },
+        {
+            "src_id": 465,
+            "tgt_id": 463
+        },
+        {
+            "src_id": 466,
+            "tgt_id": 463
+        },
+        {
+            "src_id": 467,
+            "tgt_id": 463
+        },
+        {
+            "src_id": 468,
+            "tgt_id": 463
+        },
+        {
+            "src_id": 469,
+            "tgt_id": 463
+        }
+    ]
+}

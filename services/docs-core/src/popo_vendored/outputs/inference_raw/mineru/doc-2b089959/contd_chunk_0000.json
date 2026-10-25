@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>310 140 328 750<|content|>TO: ... Elaine Forsythe, Responsible Partner, Antitrust & Competition Practice Group\n<|id|>6<|page|>1<|box|>335 140 354 707<|content|>FROM: ... Aaron Liu, Lead Associate, Antitrust & Competition Practice Group\n<|id|>7<|page|>1<|box|>362 140 398 854<|content|>CC: ... Howard Bellamy, Billing Partner, Antitrust & Competition Practice Group\n<|id|>8<|page|>1<|box|>406 142 422 323<|content|>DATE: ... March 12, 2023\n<|id|>9<|page|>1<|box|>431 140 487 854<|content|>RE: ... Department of Justice, Antitrust Division, San Francisco Field Office — March 10, 2023\n<|id|>10<|page|>1<|box|>494 140 530 854<|content|>MATTER: ... District Court, Northern District of California, San Francisco Division\n<|id|>19<|page|>2<|box|>292 176 310 771<|content|>(e) the documents discussed, referenced, or shown to Chu during the session; ... and\n<|id|>21<|page|>2<|box|>381 140 529 856<|content|>This memorandum constitutes attorney work product ...e may constitute a waiver of applicable privileges\n<|id|>26<|page|>2<|box|>705 183 739 852<|content|>• A lunch break at approximately 12: ... and\n<|id|>28<|page|>2<|box|>763 140 872 854<|content|>The session was held at the DOJ Antitrust Division...throughout the session, as described further below\n<|id|>42<|page|>3<|box|>859 174 896 854<|content|>(ii) Permitted Uses. ... (a) for impeachment, should\n<|id|>43<|page|>4<|box|>90 174 164 854<|content|>Chu testify inconsistently at any subsequent proce...e proffer session itself or any related proceeding\n<|id|>128<|page|>15<|box|>146 181 200 854<|content|>• Holt was the sole TMC contact point with competi... Carl Edgerton at Ridgecrest Minerals Inc. ... and\n<|id|>129<|page|>15<|box|>203 183 273 856<|content|>Holt's communications with competitors were conduc...y concealed the communications from his colleagues",
+    "raw_response": "<|src_id|>42<|tgt_id|>43\n<|src_id|>128<|tgt_id|>129",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 129
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>356 140 373 364<|content|>I. Introduction and Purpose\n<|id|>11<|type|>title<|page|>1<|box|>823 140 840 673<|content|>II. Background — Current Capital Structure and Fin\n<|id|>13<|type|>title<|page|>2<|box|>90 142 107 403<|content|>A. The Existing Mezzanine Notes\n<|id|>21<|type|>title<|page|>2<|box|>506 142 523 563<|content|>B. Senior Secured Credit Facility (First-Lien Cont\n<|id|>31<|type|>title<|page|>2<|box|>834 142 849 359<|content|>C. Additional Indebtedness\n<|id|>37<|type|>title<|page|>3<|box|>454 140 472 480<|content|>D. Financial Overview and Liquidity Crisis\n<|id|>47<|type|>title<|page|>4<|box|>436 143 453 289<|content|>E. Fleet Valuation\n<|id|>51<|type|>table<|page|>4<|box|>633 143 747 852<|content|>None\n<|id|>53<|type|>title<|page|>4<|box|>849 142 866 398<|content|>F. Enterprise Valuation Context\n<|id|>61<|type|>title<|page|>5<|box|>469 140 487 452<|content|>III. The Proposed Mezzanine Exchange\n<|id|>62<|type|>title<|page|>5<|box|>501 142 518 398<|content|>A. Summary of Proposed Terms\n<|id|>69<|type|>title<|page|>5<|box|>830 142 848 465<|content|>B. New Second-Lien Notes — Key Terms\n<|id|>77<|type|>title<|page|>6<|box|>529 142 547 318<|content|>C. Equity Component\n<|id|>81<|type|>table<|page|>6<|box|>726 143 849 852<|content|>None\n<|id|>84<|type|>title<|page|>7<|box|>324 140 340 496<|content|>D. Rationale and Value Proposition for BMC\n<|id|>91<|type|>title<|page|>8<|box|>340 140 357 665<|content|>IV. Context Within the Broader Restructuring — RSA\n<|id|>93<|type|>title<|page|>8<|box|>452 142 469 450<|content|>A. Senior Secured Facility Amendment\n<|id|>103<|type|>title<|page|>9<|box|>258 142 273 300<|content|>B. Unsecured Notes\n<|id|>105<|type|>title<|page|>9<|box|>385 140 402 297<|content|>C. Trade Creditors\n<|id|>107<|type|>title<|page|>9<|box|>513 140 530 330<|content|>D. Equity Contribution\n<|id|>109<|type|>title<|page|>9<|box|>695 140 713 320<|content|>E. Intercompany Note\n<|id|>111<|type|>title<|page|>9<|box|>823 140 840 315<|content|>F. Vessel Dispositions\n<|id|>113<|type|>title<|page|>10<|box|>194 140 212 547<|content|>G. Amended and Restated Intercreditor Agreement\n<|id|>115<|type|>title<|page|>10<|box|>387 140 404 511<|content|>V. Chapter 11 Alternative — Context for BMC\n<|id|>124<|type|>title<|page|>11<|box|>500 140 517 343<|content|>VI. Timeline and Process\n<|id|>135<|type|>title<|page|>12<|box|>459 140 477 300<|content|>VII. Confidentiality\n<|id|>138<|type|>title<|page|>12<|box|>736 140 753 468<|content|>VIII. Invitation to Discuss and Next Steps",
+    "raw_response": "<|src_id|>51<|tgt_id|>47\n<|src_id|>81<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 77
+        }
+    ]
+}

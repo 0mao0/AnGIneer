@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>111 155 147 839<|content|>CALDERWOOD & HARKNESS LLP 600 Lexington Avenue, 22\n<|id|>12<|type|>title<|page|>1<|box|>449 142 465 341<|content|>1. Purpose of This Letter\n<|id|>15<|type|>title<|page|>1<|box|>762 140 779 480<|content|>2. Maintenance Fee Details — 3.5-Year Fee\n<|id|>23<|type|>title<|page|>2<|box|>462 140 479 398<|content|>3. Consequence of Non-Payment\n<|id|>27<|type|>title<|page|>3<|box|>90 140 107 426<|content|>4. Small-Entity Status Confirmation\n<|id|>40<|type|>title<|page|>4<|box|>90 140 107 429<|content|>5. Future Maintenance Fee Schedule\n<|id|>42<|type|>table<|page|>4<|box|>159 143 234 852<|content|>None\n<|id|>45<|type|>title<|page|>4<|box|>482 140 500 486<|content|>6. Relationship to Portfolio Strategy Review\n<|id|>52<|type|>title<|page|>5<|box|>421 140 438 434<|content|>7. Request for Written Authorization\n<|id|>59<|type|>title<|page|>6<|box|>186 140 204 450<|content|>8. Disclaimer / Scope of Representation\n<|id|>68<|type|>title<|page|>6<|box|>772 140 787 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>42<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        }
+    ]
+}

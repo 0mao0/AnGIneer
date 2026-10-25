@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['al 1972 date....', '40,528', '-*', '40,528', '886', '39,210', '30', '39,240', '1,872', '409', '2,281', '693', '8', '701', '633']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Fiscal year or month', 'rowspan=3, Labor Department', 'rowspan=3, State Department', 'colspan=2, Transportation Department 2/', 'colspan=4, Treasury Department', 'rowspan=3, Atomic Energy Commission', 'rowspan=3, Environmental Protection Agency', 'colspan=3, General Services Admin.', 'rowspan=3, National Aeronautics and Space Admin.']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 45,
+    "table2_idx": 46
+}

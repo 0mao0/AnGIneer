@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>9<|type|>title<|page|>1<|box|>390 140 407 300<|content|>I. Purpose of Letter\n<|id|>12<|type|>title<|page|>1<|box|>666 140 683 348<|content|>II. Background Summary\n<|id|>22<|type|>title<|page|>2<|box|>715 140 732 380<|content|>III. Current Status of the Stay\n<|id|>38<|type|>title<|page|>3<|box|>577 140 595 508<|content|>IV. Ongoing Financial Exposure from the Stay\n<|id|>44<|type|>title<|page|>4<|box|>366 140 383 444<|content|>V. Assessment of Settlement Prospects\n<|id|>50<|type|>title<|page|>5<|box|>167 140 184 753<|content|>VI. Recommended Strategy: Reactivation and Motion\n<|id|>52<|type|>title<|page|>5<|box|>297 142 314 370<|content|>A. Strengths of EF's Position\n<|id|>60<|type|>title<|page|>6<|box|>294 142 310 307<|content|>B. Risks to Consider\n<|id|>65<|type|>title<|page|>7<|box|>90 140 107 408<|content|>C. Evidentiary Support Available\n<|id|>74<|type|>title<|page|>7<|box|>590 140 608 431<|content|>VII. Estimated Costs of Reactivation\n<|id|>84<|type|>table<|page|>8<|box|>430 143 525 852<|content|>None\n<|id|>88<|type|>title<|page|>8<|box|>816 140 834 349<|content|>VIII. Proposed Next Steps\n<|id|>95<|type|>title<|page|>9<|box|>575 142 593 334<|content|>IX. Confidentiality Note",
+    "raw_response": "<|src_id|>84<|tgt_id|>74",
+    "parsed": [
+        {
+            "src_id": 84,
+            "tgt_id": 74
+        }
+    ]
+}

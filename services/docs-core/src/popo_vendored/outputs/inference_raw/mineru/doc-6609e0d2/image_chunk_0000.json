@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>298 164 315 547<|content|>SECTION I — PURCHASE PRICE & CONSIDERATION\n<|id|>6<|type|>title<|page|>1<|box|>388 164 403 509<|content|>SECTION II — PRORATIONS & ADJUSTMENTS\n<|id|>16<|type|>title<|page|>1<|box|>583 164 600 561<|content|>SECTION III — TRANSFER TAXES & RECORDING FEES\n<|id|>27<|type|>title<|page|>1<|box|>726 164 741 484<|content|>SECTION IV — TITLE & ESCROW CHARGES\n<|id|>36<|type|>table<|page|>2<|box|>80 82 460 878<|content|>None\n<|id|>38<|type|>table<|page|>6<|box|>82 80 904 882<|content|>None\n<|id|>40<|type|>table<|page|>10<|box|>85 85 263 873<|content|>None\n<|id|>43<|type|>title<|page|>11<|box|>86 87 101 139<|content|>Notes\n<|id|>59<|type|>title<|page|>13<|box|>246 164 261 408<|content|>CLOSING COSTS — PURCHASER",
+    "raw_response": "<|src_id|>36<|tgt_id|>27\n<|src_id|>38<|tgt_id|>27\n<|src_id|>40<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 27
+        }
+    ]
+}

@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 200 142 797<|content|>SECRETARY'S CERTIFICATE OF LUMINEX SYSTEMS HOLDING\n<|id|>1<|page|>1<|box|>159 207 176 790<|content|>Delivered Pursuant to Section 7.02(c) of the Agree\n<|id|>7<|page|>1<|box|>625 140 640 485<|content|>Section 1: Organization and Good Standing\n<|id|>12<|page|>2<|box|>285 140 303 442<|content|>Section 2: Certificate of Incorporation\n<|id|>17<|page|>2<|box|>723 140 739 285<|content|>Section 3: Bylaws\n<|id|>22<|page|>3<|box|>311 140 329 503<|content|>Section 4: Board and Stockholder Resolutions\n<|id|>23<|page|>3<|box|>342 140 359 586<|content|>(a) Resolutions of the Board of Directors of the C\n<|id|>36<|page|>4<|box|>536 140 554 348<|content|>(b) Stockholder Approval\n<|id|>45<|page|>5<|box|>267 140 284 325<|content|>Section 5: Incumbency\n<|id|>50<|page|>5<|box|>768 140 785 462<|content|>Section 6: No Dissolution or Winding Up\n<|id|>53<|page|>6<|box|>267 140 284 426<|content|>Section 7: No Amendments Pending\n<|id|>55<|page|>6<|box|>462 140 479 513<|content|>Section 8: Further Certification as to Authority\n<|id|>59<|page|>7<|box|>89 142 106 392<|content|>COUNTER-CERTIFICATION\n<|id|>64<|page|>7<|box|>314 142 332 312<|content|>LIST OF EXHIBITS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>36<|level|>3\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>59<|level|>2\n<|id|>64<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        }
+    ]
+}

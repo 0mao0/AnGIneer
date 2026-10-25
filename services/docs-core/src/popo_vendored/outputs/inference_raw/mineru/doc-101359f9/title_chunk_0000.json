@@ -1,0 +1,165 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>321 176 339 820<|content|>\"Multi-Channel Silicon Photonic Waveguide Multiple\n<|id|>15<|page|>1<|box|>784 142 819 852<|content|>(54) MULTI-CHANNEL SILICON PHOTONIC WAVEGUIDE MULT\n<|id|>23<|page|>2<|box|>263 142 281 380<|content|>Related U.S. Application Data\n<|id|>31<|page|>2<|box|>569 142 587 313<|content|>(56) References Cited\n<|id|>32<|page|>2<|box|>595 143 612 380<|content|>U.S. PATENT DOCUMENTS\n<|id|>34<|page|>3<|box|>89 143 106 431<|content|>FOREIGN PATENT DOCUMENTS\n<|id|>36<|page|>3<|box|>261 140 277 354<|content|>OTHER PUBLICATIONS\n<|id|>44<|page|>3<|box|>525 140 544 282<|content|>(57) ABSTRACT\n<|id|>47<|page|>3<|box|>805 444 821 552<|content|>DRAWINGS\n<|id|>48<|page|>3<|box|>830 142 848 511<|content|>BRIEF DESCRIPTION OF THE DRAWINGS\n<|id|>59<|page|>4<|box|>744 423 761 573<|content|>SPECIFICATION\n<|id|>60<|page|>4<|box|>770 143 806 851<|content|>MULTI-CHANNEL SILICON PHOTONIC WAVEGUIDE MULTIPLEX\n<|id|>61<|page|>4<|box|>830 143 845 383<|content|>FIELD OF THE INVENTION\n<|id|>63<|page|>5<|box|>222 140 239 462<|content|>BACKGROUND OF THE INVENTION\n<|id|>71<|page|>6<|box|>556 140 573 424<|content|>SUMMARY OF THE INVENTION\n<|id|>78<|page|>7<|box|>518 140 537 660<|content|>DETAILED DESCRIPTION OF PREFERRED EMBODIMENTS\n<|id|>80<|page|>7<|box|>650 142 667 333<|content|>1. Waveguide Structure\n<|id|>86<|page|>8<|box|>565 140 582 361<|content|>2. Multiplexer Architecture\n<|id|>92<|page|>9<|box|>484 140 501 372<|content|>3. Low Insertion Loss Design\n<|id|>100<|page|>10<|box|>719 140 736 457<|content|>4. Integration into Transceiver Modules\n<|id|>107<|page|>11<|box|>627 140 643 367<|content|>5. Alternative Embodiments\n<|id|>112<|page|>12<|box|>503 140 518 460<|content|>6. Relationship to Thermal Management\n<|id|>116<|page|>13<|box|>89 142 107 410<|content|>INDUSTRIAL APPLICABILITY\n<|id|>118<|page|>13<|box|>268 457 286 539<|content|>CLAIMS\n<|id|>119<|page|>13<|box|>296 142 313 287<|content|>What is claimed is:\n<|id|>120<|page|>13<|box|>321 140 340 669<|content|>1. A multi-channel silicon photonic waveguide mult\n<|id|>146<|page|>15<|box|>223 143 239 531<|content|>14. A silicon photonic integrated circuit, compris\n<|id|>151<|page|>15<|box|>425 223 441 772<|content|>CERTIFICATE OF CORRECTION / REEXAMINATION HISTORY\n<|id|>155<|page|>15<|box|>657 308 674 687<|content|>ASSIGNMENT HISTORY / CHAIN OF TITLE\n<|id|>161<|page|>16<|box|>378 421 396 576<|content|>CERTIFICATION\n<|id|>162<|page|>16<|box|>405 276 422 720<|content|>UNITED STATES PATENT AND TRADEMARK OFFICE\n<|id|>163<|page|>16<|box|>431 300 448 694<|content|>OFFICE OF PATENT LEGAL ADMINISTRATION\n<|id|>167<|page|>16<|box|>643 142 661 588<|content|>UNITED STATES PATENT AND TRADEMARK OFFICE\n<|id|>172<|page|>16<|box|>731 236 748 759<|content|>RELEVANCE OF EXHIBIT A TO THE PRESENT LITIGATION",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>15<|level|>1\n<|id|>23<|level|>1\n<|id|>31<|level|>1\n<|id|>32<|level|>2\n<|id|>34<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>1\n<|id|>47<|level|>1\n<|id|>48<|level|>2\n<|id|>59<|level|>1\n<|id|>60<|level|>1\n<|id|>61<|level|>2\n<|id|>63<|level|>2\n<|id|>71<|level|>2\n<|id|>78<|level|>2\n<|id|>80<|level|>3\n<|id|>86<|level|>3\n<|id|>92<|level|>3\n<|id|>100<|level|>3\n<|id|>107<|level|>3\n<|id|>112<|level|>3\n<|id|>116<|level|>2\n<|id|>118<|level|>1\n<|id|>119<|level|>2\n<|id|>120<|level|>3\n<|id|>146<|level|>3\n<|id|>151<|level|>1\n<|id|>155<|level|>1\n<|id|>161<|level|>1\n<|id|>162<|level|>2\n<|id|>163<|level|>2\n<|id|>167<|level|>2\n<|id|>172<|level|>1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 1
+        },
+        {
+            "id": 161,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 1
+        }
+    ]
+}

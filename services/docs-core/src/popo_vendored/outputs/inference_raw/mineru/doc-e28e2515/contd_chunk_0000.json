@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        9,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 330 133 668<|content|>600 Lexington Avenue New York, NY 10022\n<|id|>2<|page|>1<|box|>141 151 176 846<|content|>Houston Office 1001 Fannin Street, Suite 4200 Houston, TX 77002 Telephone: ... (713) 554-8001\n<|id|>3<|page|>1<|box|>186 746 203 854<|content|>May 24, 2023\n<|id|>5<|page|>1<|box|>237 140 273 854<|content|>Martin Llewellyn, Esq. ... 2200 Post Oak Boulevard, Suite 3100 Houston, TX 77056\n<|id|>6<|page|>1<|box|>281 140 311 852<|content|>Re: ... IN23-7-000\n<|id|>7<|page|>1<|box|>319 142 335 243<|content|>Dear Martin: ... Dear Martin\n<|id|>15<|page|>1<|box|>832 174 887 854<|content|>(a) Dunmore Energy Holdings Ltd. ... — an exempted...ayman, KY1-1002, Cayman Islands, and its principal\n<|id|>16<|page|>2<|box|>89 174 126 854<|content|>United States office at 2200 Post Oak Boulevard, Suite 3100, Houston, TX 77056. ... 98-1347562\n<|id|>22<|page|>2<|box|>354 184 371 393<|content|>• Harcourt Family Trust; ... or\n<|id|>24<|page|>2<|box|>412 140 503 854<|content|>If circumstances arise during the course of this e...flicts and a separate written engagement agreement\n<|id|>34<|page|>3<|box|>196 174 268 854<|content|>(g) If necessary, representing DEH and DPT in any ...y proceeding before the Commission itself; ... and\n<|id|>36<|page|>3<|box|>304 140 487 856<|content|>The scope of this engagement relates specifically ...encompass advice and advocacy with respect thereto\n<|id|>42<|page|>3<|box|>672 183 705 854<|content|>• Any civil litigation initiated by market participants, counterparties, or other third parties; ... or\n<|id|>44<|page|>3<|box|>729 140 801 854<|content|>Should any such collateral matters arise, we would...ng qualified counsel in the relevant practice area\n<|id|>64<|page|>5<|box|>753 181 790 854<|content|>• Settlement discussions with FERC Staff will occu...ay involve multiple rounds of negotiation; ... and\n<|id|>66<|page|>5<|box|>830 140 904 856<|content|>This estimate is provided solely for the Clients' ...f the estimated range, we will promptly advise you\n<|id|>81<|page|>7<|box|>369 183 422 854<|content|>Long-distance telecommunications charges: ... and\n<|id|>83<|page|>7<|box|>464 140 537 854<|content|>Where significant expenses are anticipated — parti... monthly invoices, as described in Section 8 below\n<|id|>87<|page|>7<|box|>729 183 744 473<|content|>• C&H Matter Number: ... 1016-00004\n<|id|>89<|page|>7<|box|>768 140 786 718<|content|>Please reference these numbers in all corresponden...rs in all correspondence regarding billing matters\n<|id|>88<|page|>7<|box|>750 183 765 452<|content|>• C&H Billing Code: ... 00001\n<|id|>107<|page|>9<|box|>858 140 895 856<|content|>The preservation obligation is broad and includes, without limitation: ... , Northgate Data\n<|id|>108<|page|>10<|box|>90 140 181 854<|content|>Systems, Westmark Services Inc. ... messages), tra...ients' compliance with applicable FERC regulations\n<|id|>121<|page|>11<|box|>148 183 165 834<|content|>• Making any filing or submission to FERC that admits or concedes liability or fault; ... and\n<|id|>123<|page|>11<|box|>186 140 279 856<|content|>We recommend that the Clients establish an interna...on-making with the Clients governance requirements\n<|id|>144<|page|>13<|box|>357 142 372 325<|content|>Name: ... Catherine Bloom\n<|id|>145<|page|>13<|box|>375 143 390 405<|content|>Title: ... Partner (Responsible Partner)\n<|id|>146<|page|>13<|box|>392 143 407 251<|content|>By: ... By\n<|id|>147<|page|>13<|box|>409 143 424 272<|content|>Name: ... Alan Ngo\n<|id|>148<|page|>13<|box|>425 142 441 367<|content|>Title: ... Partner (Billing Partner)\n<|id|>152<|page|>13<|box|>603 142 619 805<|content|>DUNMORE ENERGY HOLDINGS LTD. ... and DUNMORE POWER TRADING LLC\n<|id|>153<|page|>13<|box|>621 143 638 253<|content|>By: ... By\n<|id|>154<|page|>13<|box|>638 142 654 328<|content|>Name: ... Martin Llewellyn\n<|id|>155<|page|>13<|box|>655 143 671 313<|content|>Title: ... General Counsel\n<|id|>156<|page|>13<|box|>672 143 689 266<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>107<|tgt_id|>108",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 108
+        }
+    ]
+}

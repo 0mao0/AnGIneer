@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>9<|page|>1<|box|>666 143 681 274<|content|>OMB No. ... 1545-0099\n<|id|>10<|page|>1<|box|>690 143 707 397<|content|>Taxpayer Name(s) and Address: ... Taxpayer Name(s) and Address\n<|id|>11<|page|>1<|box|>715 176 733 852<|content|>Penterra Pharmaceuticals Corp. ... 2200 Independence Boulevard Princeton Junction, NJ 08550\n<|id|>12<|page|>1<|box|>742 143 758 405<|content|>Taxpayer Identification Number: ... Taxpayer Identification Number\n<|id|>13<|page|>1<|box|>767 176 784 563<|content|>Employer Identification Number (EIN): ... 22-3741856\n<|id|>14<|page|>1<|box|>794 143 810 245<|content|>Entity Type: ... Entity Type\n<|id|>16<|page|>1<|box|>864 143 881 544<|content|>Type of Tax: ... Income (Federal Corporate Income Tax)\n<|id|>17<|page|>1<|box|>888 143 906 720<|content|>Tax Return Form Number: ... Corporation Income Tax Return\n<|id|>18<|page|>1<|box|>915 142 930 629<|content|>Prepared by Calderwood & Harkness LLP — Matter No. ... 1018-00009 — CONFIDENTIAL\n<|id|>39<|page|>4<|box|>184 142 200 387<|content|>Printed Name: ... Marcus Whitfield\n<|id|>40<|page|>4<|box|>202 142 218 390<|content|>Title: ... Vice President, Global Tax\n<|id|>41<|page|>4<|box|>220 142 236 267<|content|>Date: ... Date\n<|id|>45<|page|>5<|box|>138 140 155 498<|content|>COMMISSIONER OF INTERNAL REVENUE\n<|id|>46<|page|>5<|box|>157 143 174 253<|content|>By: ... By\n<|id|>47<|page|>5<|box|>174 142 190 367<|content|>Printed Name: ... Gerald Meskill\n<|id|>48<|page|>5<|box|>191 140 208 514<|content|>Title: ... Supervisory Revenue Agent, Team Manager\n<|id|>49<|page|>5<|box|>208 140 226 700<|content|>Large Business & International Division Northeast Transfer Pricing Practice\n<|id|>50<|page|>5<|box|>226 143 242 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>46<|tgt_id|>47\n<|src_id|>48<|tgt_id|>49",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        }
+    ]
+}

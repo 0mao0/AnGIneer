@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        43
+    ],
+    "pages": [
+        1,
+        2,
+        8,
+        10,
+        15,
+        16,
+        18,
+        19,
+        22,
+        26,
+        27,
+        29,
+        34,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>281 228 340 841<|content|>Matthias Dold <sup>1,2,3</sup>, Joana Pereira <sup...r A. ... Janssen <sup>2</sup>, Michael Tangermann1\n<|id|>2<|page|>1<|box|>344 228 377 813<|content|><sup>1</sup> Data-Driven Neurotechnology Lab, Dond...and Behaviour, Radboud University, The Netherlands\n<|id|>3<|page|>1<|box|>377 228 426 818<|content|><sup>2</sup> Department of Clinical Neurophysiolog... Institute, Maastricht University, The Netherlands\n<|id|>4<|page|>1<|box|>426 230 459 785<|content|><sup>3</sup> Department of Stereotactic and Functi...culty of Medicine, University of Freiburg, Germany\n<|id|>5<|page|>1<|box|>459 230 476 710<|content|><sup>4</sup> BrainLinks–BrainTools Center, University of Freiburg, Germany\n<|id|>6<|page|>1<|box|>482 230 497 527<|content|>E-mail: ... nl\n<|id|>14<|page|>2<|box|>109 112 152 846<|content|>Keywords: ... Deep brain stimulation, closed-loop,... electrophysiology, brain-machine interface, c-VEP\n<|id|>15<|page|>2<|box|>185 111 203 348<|content|>Submitted to: ... Neural Eng\n<|id|>42<|page|>8<|box|>407 50 790 447<|content|>For the communication itself, a simple structure i... potentially an additional json payload. ... xdf\"}\n<|id|>43<|page|>8<|box|>791 50 911 447<|content|>Requiring modules to expose functionality via TCP ...eaming, this makes the platform mainly technology-\n<|id|>44<|page|>8<|box|>66 460 84 542<|content|>agnostic. ... agnostic\n<|id|>58<|page|>10<|box|>830 462 869 854<|content|>The command is triggered by the dp- control-room sending\n<|id|>59<|page|>10<|box|>869 462 910 857<|content|>LOAD|{\"modelfile\": ... The payload in this\n<|id|>88<|page|>15<|box|>790 460 911 857<|content|>∆TS: ... The trigger time point is calculated as a...ying a threshold value specific to the stimulation\n<|id|>89<|page|>16<|box|>66 53 83 140<|content|>hardware\n<|id|>99<|page|>18<|box|>709 460 911 857<|content|>To prove the technical feasibility of aDBS with th...s a reference for additional DBS recordings. ... ,\n<|id|>101<|page|>19<|box|>746 50 907 447<|content|>a ridge regression model with regularization param...ltering the signal, we estimated the band power by\n<|id|>117<|page|>22<|box|>848 50 909 447<|content|>Individual modules are referenced therein. ... To ...rovide example modules including a hello_world for\n<|id|>118<|page|>22<|box|>65 460 147 857<|content|>Python and an example in C using SDL2 for paradigm presentation. ... com/thijor/dp-cvep\n<|id|>120<|page|>22<|box|>196 459 419 857<|content|>Arduino test: ... 5 7 8 \\mathrm { m s } )\n<|id|>121<|page|>22<|box|>439 460 741 857<|content|>BIC-EvalKit test: ... The artifact was visible in ...rther as it did not impact the timing measurements\n<|id|>131<|page|>26<|box|>852 52 893 857<|content|>Figure 11 (B) summarizes the stimulation- sessions...or the two mean ROC AUC for a 6-fold chronological\n<|id|>132<|page|>27<|box|>479 52 638 447<|content|>cross-validation of the LDA model, 82 % for day 2 ...A model with the same cross- validation procedures\n<|id|>136<|page|>27<|box|>619 460 902 857<|content|>Including the two open-loop sessions and the singl...During the 19 sessions, the Neuro Omega system was\n<|id|>137<|page|>29<|box|>632 50 893 447<|content|>integrated into Dareplane to record data and provi...bility for the closed-loop processing capabilities\n<|id|>156<|page|>34<|box|>549 50 912 447<|content|>Timing uncertainty - It is informative to also com...verhead introduced by the modular structure of the\n<|id|>157<|page|>34<|box|>65 460 84 730<|content|>Dareplane platform acceptable. ... Dareplane platform acceptable\n<|id|>189<|page|>38<|box|>835 55 901 444<|content|>[14] Harmsen IE, Wolf Fernandes F, Krauss JK, Lozano AM. ... Stereotactic and\n<|id|>190<|page|>38<|box|>68 511 114 854<|content|>Functional Neurosurgery. ... 1159/000521372\n<|id|>198<|page|>38<|box|>852 464 901 854<|content|>[22] Little S, Pogosyan A, Neal S, Zavala B, Zrinzo L, Hariz M, et al. ... Annals of\n<|id|>199<|page|>39<|box|>68 102 99 444<|content|>Neurology. ... 23951\n<|id|>214<|page|>39<|box|>835 465 901 854<|content|>[36] Tinkhauser G, Moraud EM. ... Frontiers\n<|id|>215<|page|>40<|box|>68 102 132 444<|content|>in Neuroscience. ... 734186\n<|id|>238<|page|>41<|box|>835 55 901 444<|content|>[58] Kothe C, Shirazi SY, Stenner T, Medine D, Boulay C, Grivich MI, et al. ... Available\n<|id|>239<|page|>41<|box|>68 511 99 854<|content|>from: ... 580071\n<|id|>249<|page|>41<|box|>885 464 902 852<|content|>[68] Dold M, Pereira J, Sajonz B, Coenen VA,\n<|id|>250<|page|>42<|box|>66 102 164 446<|content|>Thielen J, Janssen MLF, et al. ... 34973/ d214-m342\n<|id|>258<|page|>42<|box|>853 55 901 444<|content|>[76] Gilron R, Little S, Perrone R, Wilt R, de Hem...Long- term wireless streaming of neural recordings\n<|id|>259<|page|>42<|box|>68 511 148 854<|content|>for circuit discovery and adaptive stimula- tion i... Parkinson’s disease. ... 1038/ s41587-021-00897-5\n<|id|>267<|page|>42<|box|>885 464 902 854<|content|>[84] Iwama S, Takemi M, Eguchi R, Hirose R,\n<|id|>268<|page|>43<|box|>68 102 164 444<|content|>Morishige M, Ushiba J. ... com/science/article/pii/ S0168010223002201",
+    "raw_response": "",
+    "parsed": []
+}

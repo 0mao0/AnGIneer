@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>99 302 118 694<|content|>UNITED STATES DISTRICT COURT\n<|id|>1<|type|>title<|page|>1<|box|>143 359 160 637<|content|>EASTERN DISTRICT OF TEXAS\n<|id|>2<|type|>title<|page|>1<|box|>174 143 191 344<|content|>MARSHALL DIVISION.\n<|id|>3<|type|>title<|page|>1<|box|>196 143 213 447<|content|>AO 440 (Rev. 06/12) Summons in a Civil Action\n<|id|>4<|type|>table<|page|>1<|box|>219 143 500 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>547 361 564 637<|content|>SUMMONS IN A CIVIL ACTION\n<|id|>6<|type|>title<|page|>1<|box|>573 143 590 393<|content|>TO: Luminore Technologies, Inc.\n<|id|>14<|type|>title<|page|>2<|box|>204 142 220 300<|content|>CLERK OF COURT\n<|id|>19<|type|>title<|page|>2<|box|>334 143 352 741<|content|>PLAINTIFF'S ATTORNEY INFORMATION (FOR SERVICE PURP\n<|id|>20<|type|>title<|page|>2<|box|>358 143 375 259<|content|>Lead Counsel:\n<|id|>23<|type|>title<|page|>2<|box|>465 143 481 264<|content|>Local Counsel:\n<|id|>29<|type|>title<|page|>2<|box|>650 302 670 694<|content|>UNITED STATES DISTRICT COURT\n<|id|>30<|type|>title<|page|>2<|box|>696 361 712 637<|content|>EASTERN DISTRICT OF TEXAS\n<|id|>31<|type|>title<|page|>2<|box|>726 142 743 344<|content|>MARSHALL DIVISION.\n<|id|>32<|type|>title<|page|>2<|box|>750 143 763 568<|content|>AO 440 (Rev. 06/12) Summons in a Civil Action — Pr\n<|id|>33<|type|>table<|page|>2<|box|>771 143 898 852<|content|>None\n<|id|>34<|type|>table<|page|>3<|box|>88 145 119 852<|content|>None\n<|id|>35<|type|>title<|page|>3<|box|>167 406 184 591<|content|>PROOF OF SERVICE",
+    "raw_response": "<|src_id|>4<|tgt_id|>3\n<|src_id|>33<|tgt_id|>32\n<|src_id|>34<|tgt_id|>32",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 32
+        }
+    ]
+}

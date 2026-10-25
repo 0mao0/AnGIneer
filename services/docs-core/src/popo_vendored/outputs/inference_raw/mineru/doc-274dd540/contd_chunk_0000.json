@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>136 437 152 560<|content|>$90,000,000. ... 00\n<|id|>2<|page|>1<|box|>162 447 179 550<|content|>May 4, 2023\n<|id|>3<|page|>1<|box|>188 411 205 586<|content|>New York, New York\n<|id|>4<|page|>1<|box|>214 140 452 857<|content|>FOR VALUE RECEIVED, the undersigned, Cascade Retai...nder to the Borrowers from time to time thereunder\n<|id|>51<|page|>7<|box|>869 140 907 857<|content|>(a) Each Borrower hereby irrevocably and unconditi...States District Court for the Southern District of\n<|id|>52<|page|>8<|box|>90 140 219 856<|content|>New York sitting in the Borough of Manhattan and (...ed by applicable law, in such New York state court\n<|id|>70<|page|>9<|box|>724 142 742 803<|content|>Northgate Capital Bank 400 Lexington Avenue, 18th Floor New York, New York 10170\n<|id|>71<|page|>9<|box|>751 142 768 844<|content|>Contact: ... (212) 555-7800\n<|id|>72<|page|>9<|box|>777 140 829 854<|content|>Email: ... 00 under the Credit Agreement)\n<|id|>73<|page|>9<|box|>838 143 854 303<|content|>CUSIP: ... 14762MAA3\n<|id|>76<|page|>9<|box|>916 142 929 434<|content|>CONFIDENTIAL — Draft Subject to Final Execution\n<|id|>78<|page|>10<|box|>330 140 392 854<|content|>This grid is provided for convenience only. ... In...strative Agent shall control absent manifest error",
+    "raw_response": "<|src_id|>51<|tgt_id|>52",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        }
+    ]
+}

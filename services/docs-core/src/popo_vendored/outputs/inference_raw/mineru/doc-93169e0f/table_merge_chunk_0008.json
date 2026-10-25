@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 8,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['colspan=2, ', '', 'colspan=2, ', 'colspan=2, ', ''], ['colspan=8, 备注:']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['含水率(%)', 'colspan=3, ', 'colspan=2, 密度(g/cm3)', 'colspan=2, ']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 4858,
+    "table2_idx": 4859
+}

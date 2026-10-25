@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        12,
+        13,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>204 140 239 854<|content|>Staff of the Division of Corporation Finance Office of Technology U. ... 20549\n<|id|>4<|page|>1<|box|>248 174 301 857<|content|>Re: ... 0001923847\n<|id|>29<|page|>3<|box|>849 140 904 856<|content|>The Company acknowledges the Staff's comment and h...n of MD&A to provide enhanced detail regarding the\n<|id|>30<|page|>4<|box|>90 140 127 854<|content|>Company's approach to identifying performance obli...alone selling prices in multi-element arrangements\n<|id|>46<|page|>6<|box|>89 140 126 854<|content|>Comment 5: ... Concentration Risk Disclosure — Revenue by Geographic Region and Industry Vertical\n<|id|>47<|page|>6<|box|>132 138 242 856<|content|>Given that the Company primarily serves financial ...evelopments in any concentrated region or vertical\n<|id|>95<|page|>12<|box|>840 140 897 854<|content|>We note the Company's response to our prior commen...Venture Partners Fund IV, L. ... , Arclight Equity\n<|id|>96<|page|>13<|box|>89 138 200 856<|content|>Group Fund VII, L. ... Please revise your disclosu...ompletion of the Company's initial public offering\n<|id|>132<|page|>17<|box|>734 174 844 856<|content|>(ii) The transfer of any shares of Class B common ...the holder) (the \"Transfer-Based Sunset\"); ... and\n<|id|>134<|page|>18<|box|>90 140 108 753<|content|>The Company has added the following practical disc...wing practical discussion of the sunset provisions\n<|id|>143<|page|>18<|box|>869 140 906 857<|content|>Representatives of the Company who are available t...nsel and Corporate Secretary, and David Lau, Chief\n<|id|>144<|page|>19<|box|>89 140 126 854<|content|>Financial Officer, each of Lumos Analytics Inc. ... (415) 555-8200)\n<|id|>145<|page|>19<|box|>133 140 151 274<|content|>Very truly yours,\n<|id|>146<|page|>19<|box|>151 140 167 434<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>147<|page|>19<|box|>169 142 186 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>95<|tgt_id|>96\n<|src_id|>143<|tgt_id|>144",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 144
+        }
+    ]
+}

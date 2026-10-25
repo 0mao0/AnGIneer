@@ -1,0 +1,181 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fnvmiped\\input\\pdfs\\doc-e30e3b9b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fnvmiped\\enriched\\doc-e30e3b9b.json",
+    "contd_output": "<|src_id|>13<|tgt_id|>14\n<|src_id|>30<|tgt_id|>31\n<|src_id|>46<|tgt_id|>47\n<|src_id|>71<|tgt_id|>72",
+    "title_output": "<|id|>2<|level|>1\n<|id|>7<|level|>1\n<|id|>9<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>26<|level|>3\n<|id|>33<|level|>3\n<|id|>42<|level|>2\n<|id|>44<|level|>3\n<|id|>52<|level|>3\n<|id|>59<|level|>3\n<|id|>65<|level|>3\n<|id|>70<|level|>3\n<|id|>80<|level|>3\n<|id|>86<|level|>3\n<|id|>92<|level|>3\n<|id|>98<|level|>3\n<|id|>104<|level|>2\n<|id|>110<|level|>2\n<|id|>125<|level|>2\n<|id|>126<|level|>3\n<|id|>132<|level|>3\n<|id|>142<|level|>2\n<|id|>154<|level|>2\n<|id|>163<|level|>2\n<|id|>167<|level|>2\n<|id|>181<|level|>1\n<|id|>182<|level|>2\n<|id|>183<|level|>2\n<|id|>190<|level|>3\n<|id|>192<|level|>3",
+    "image_output": "<|src_id|>106<|tgt_id|>104\n<|src_id|>107<|tgt_id|>104",
+    "contd_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 1
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 106,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 104
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 106,
+            "table2_idx": 107,
+            "upper_row_ss": [
+                [
+                    "Janelle Hu",
+                    "Vice President, Investor Relations, RGC",
+                    "Primary point of contact for analyst and investor inquiries; managed stock-price-related communications"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "and stakeholder outreach; coordinated with Crestline Equity Partners Group Inc. regarding crisis communications and media strategy"
+                ]
+            ]
+        }
+    ]
+}

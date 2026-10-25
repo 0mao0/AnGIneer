@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 349 118 648<|content|>SOLVENCY CERTIFICATE\n<|id|>1<|type|>title<|page|>1<|box|>136 158 154 838<|content|>Delivered pursuant to Section 4.01(h) of the Credi\n<|id|>4<|type|>title<|page|>1<|box|>410 140 426 593<|content|>Section 1. Recitals and Identification of Certifyi\n<|id|>11<|type|>title<|page|>2<|box|>90 140 107 470<|content|>Section 2. Description of the Transactions\n<|id|>24<|type|>title<|page|>3<|box|>340 140 357 480<|content|>Section 3. Definitions of Solvency Concepts\n<|id|>26<|type|>title<|page|>3<|box|>397 140 412 259<|content|>3.1 Fair Value\n<|id|>28<|type|>title<|page|>3<|box|>561 140 578 383<|content|>3.2 Present Fair Salable Value\n<|id|>30<|type|>title<|page|>3<|box|>744 140 760 307<|content|>3.3 Stated Liabilities\n<|id|>32<|type|>title<|page|>4<|box|>138 140 157 424<|content|>3.4 Identified Contingent Liabilities\n<|id|>39<|type|>title<|page|>4<|box|>628 140 645 568<|content|>Section 4. Basis of Certification and Financial An\n<|id|>47<|type|>table<|page|>5<|box|>400 143 604 852<|content|>None\n<|id|>48<|type|>table<|page|>5<|box|>680 143 827 852<|content|>None\n<|id|>51<|type|>title<|page|>6<|box|>231 140 248 405<|content|>Section 5. Solvency Certifications\n<|id|>53<|type|>title<|page|>6<|box|>359 140 378 570<|content|>5.1 Fair Value Exceeds Debts (Balance Sheet Solven\n<|id|>55<|type|>title<|page|>6<|box|>523 140 541 496<|content|>5.2 Present Fair Salable Value Exceeds Debts\n<|id|>57<|type|>title<|page|>6<|box|>744 140 761 665<|content|>5.3 Ability to Pay Debts as They Become Due (Cash\n<|id|>59<|type|>title<|page|>7<|box|>213 140 229 575<|content|>5.4 Adequate Capital / Not Unreasonably Small Capi\n<|id|>61<|type|>title<|page|>7<|box|>468 140 484 537<|content|>5.5 No Intent to Incur Debts Beyond Ability to Pay\n<|id|>63<|type|>title<|page|>7<|box|>679 140 696 473<|content|>Section 6. Assumptions and Qualifications\n<|id|>70<|type|>title<|page|>8<|box|>612 140 628 295<|content|>Section 7. Reliance\n<|id|>73<|type|>title<|page|>9<|box|>90 142 107 305<|content|>Section 8. Execution",
+    "raw_response": "<|src_id|>47<|tgt_id|>39\n<|src_id|>48<|tgt_id|>39",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 39
+        }
+    ]
+}

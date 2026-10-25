@@ -1,0 +1,177 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-dkazfgf9\\input\\pdfs\\doc-22a4e8d5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-dkazfgf9\\enriched\\doc-22a4e8d5.json",
+    "contd_output": "<|src_id|>140<|tgt_id|>141",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>32<|level|>1\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>1\n<|id|>50<|level|>2\n<|id|>53<|level|>3\n<|id|>69<|level|>2\n<|id|>73<|level|>3\n<|id|>84<|level|>2\n<|id|>88<|level|>3\n<|id|>112<|level|>2\n<|id|>116<|level|>3\n<|id|>143<|level|>2\n<|id|>148<|level|>3\n<|id|>178<|level|>1\n<|id|>184<|level|>1\n<|id|>185<|level|>2\n<|id|>189<|level|>2\n<|id|>201<|level|>2\n<|id|>206<|level|>2\n<|id|>213<|level|>1\n<|id|>218<|level|>1",
+    "image_output": "<|src_id|>35<|tgt_id|>33\n<|src_id|>36<|tgt_id|>33\n<|src_id|>187<|tgt_id|>185\n<|src_id|>203<|tgt_id|>201\n<|src_id|>204<|tgt_id|>201\n<|src_id|>215<|tgt_id|>213\n<|src_id|>216<|tgt_id|>213",
+    "contd_label": [
+        {
+            "src_id": 140,
+            "tgt_id": 141
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 184,
+            "level": 1
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 213,
+            "level": 1
+        },
+        {
+            "id": 218,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 204,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 215,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 213
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 35,
+            "table2_idx": 36,
+            "upper_row_ss": [
+                [
+                    "Audrey Zhou",
+                    "Working Associate — supporting drafting on the Offering Memorandum (particularly the Description of Notes, risk factors, and business",
+                    "Mid-Level Associate (5th Year), Capital Markets Group",
+                    "~20–25% of total hours (~255–319 hours)",
+                    "$1,050/hr"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "description sections), ancillary documents, due diligence coordination, regulatory exemption analysis, and research memoranda",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

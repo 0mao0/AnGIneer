@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        11,
+        12,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 330 155 668<|content|>600 Lexington Avenue New York, NY 10022\n<|id|>3<|page|>1<|box|>164 183 181 813<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>190 743 208 854<|content|>April 30, 2023\n<|id|>5<|page|>1<|box|>215 140 252 854<|content|>Dana Prescott, Esq. ... Vice President & General C...0 Wilson Boulevard, Suite 1100 Arlington, VA 22203\n<|id|>6<|page|>1<|box|>260 140 314 854<|content|>Re: ... 2\n<|id|>7<|page|>1<|box|>324 142 339 230<|content|>Dear Dana: ... Dear Dana\n<|id|>33<|page|>4<|box|>809 140 902 857<|content|>Third, we identified a particularly notable commun.... The high-temperature variant is governed by WAL-\n<|id|>34<|page|>5<|box|>89 138 219 854<|content|>SPEC-TH-410, which imposes additional performance ...enuine and well-documented, rather than pretextual\n<|id|>40<|page|>5<|box|>810 138 902 857<|content|>With respect to the reputational damages claim, Ke...ss opportunities that are causally attributable to\n<|id|>41<|page|>6<|box|>90 140 237 856<|content|>WAL's termination. ... Ostrovsky's expert report w...ficiencies in Kestrel's reputational damages claim\n<|id|>90<|page|>11<|box|>835 181 890 857<|content|>• Dr. ... She will prepare an expert report addressing the quantum of\n<|id|>91<|page|>12<|box|>90 210 125 854<|content|>Kestrel's damages claim, including a critique of Prof. ... Langfeld's methodology and assumptions\n<|id|>102<|page|>12<|box|>637 210 672 854<|content|>(c) address the likely causes of the elevated poro... failures in Kestrel's casting operations; ... and\n<|id|>104<|page|>12<|box|>726 140 799 854<|content|>Under the procedural calendar established by PO No.... Chow are well positioned to meet these deadlines\n<|id|>123<|page|>14<|box|>797 140 907 856<|content|>Lender Notification. ... However, as discussed throughout this letter, we believe that\n<|id|>124<|page|>15<|box|>90 140 181 854<|content|>WAL's defense position is strong and that the like...ications to Veltrano as the arbitration progresses\n<|id|>131<|page|>15<|box|>742 142 758 272<|content|>Very truly yours,\n<|id|>132<|page|>15<|box|>767 140 782 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>133<|page|>15<|box|>786 142 801 254<|content|>By: ... By\n<|id|>134<|page|>15<|box|>803 142 819 348<|content|>Theodore Langston Partner\n<|id|>135<|page|>15<|box|>819 142 835 681<|content|>600 Lexington Avenue New York, NY 10022 Telephone: ... (212) 486-7244\n<|id|>136<|page|>15<|box|>837 142 853 473<|content|>Email: ... com\n<|id|>137<|page|>15<|box|>854 140 907 854<|content|>cc: ... Jeffrey Park, Associate, Calderwood & Harkness LLP\n<|id|>138<|page|>16<|box|>89 140 108 679<|content|>Encl. ... 1 and 2)",
+    "raw_response": "<|src_id|>33<|tgt_id|>34\n<|src_id|>40<|tgt_id|>41\n<|src_id|>90<|tgt_id|>91\n<|src_id|>123<|tgt_id|>124",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 124
+        }
+    ]
+}

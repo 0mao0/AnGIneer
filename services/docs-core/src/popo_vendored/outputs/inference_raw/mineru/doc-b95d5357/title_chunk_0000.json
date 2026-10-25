@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>113 272 132 725<|content|>AURELIUS GLOBAL MEDIA GROUP PLC\n<|id|>1<|page|>1<|box|>159 289 175 707<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS\n<|id|>2<|page|>1<|box|>184 197 202 797<|content|>Dissolution of the Special Committee and Tabling o\n<|id|>5<|page|>1<|box|>289 142 306 390<|content|>PREAMBLE AND RECITALS\n<|id|>7<|page|>1<|box|>377 142 393 246<|content|>WHEREAS:\n<|id|>8<|page|>1<|box|>409 140 426 354<|content|>A. Company Identification\n<|id|>10<|page|>1<|box|>737 140 755 787<|content|>B. Resignation of Marcus Vane and Designation of I\n<|id|>12<|page|>2<|box|>213 140 229 450<|content|>C. Formation of the Special Committee\n<|id|>14<|page|>2<|box|>614 140 632 462<|content|>D. Activist Campaign and Proxy Contest\n<|id|>16<|page|>3<|box|>194 140 212 663<|content|>E. 2024 Annual General Meeting Results and Board R\n<|id|>27<|page|>3<|box|>773 142 790 429<|content|>F. Reconstituted Board Composition\n<|id|>32<|page|>4<|box|>590 140 608 586<|content|>G. Impracticability of Continuing the Special Comm\n<|id|>35<|page|>5<|box|>138 140 157 684<|content|>H. Engagement of Hargrove Tate Partners and Status\n<|id|>37<|page|>5<|box|>450 140 467 434<|content|>I. Calderwood & Harkness Guidance\n<|id|>39<|page|>5<|box|>733 140 751 336<|content|>RESOLVED CLAUSES\n<|id|>41<|page|>6<|box|>90 140 107 553<|content|>Resolution 1 — Dissolution of the Special Committe\n<|id|>46<|page|>6<|box|>570 140 587 544<|content|>Resolution 2 — Tabling of CEO Succession Process\n<|id|>51<|page|>7<|box|>257 142 273 558<|content|>Resolution 3 — Hargrove Tate Partners Engagement\n<|id|>55<|page|>7<|box|>691 140 709 604<|content|>Resolution 4 — Preservation of Special Committee R\n<|id|>69<|page|>9<|box|>294 140 311 565<|content|>Resolution 5 — Continuing D&O Insurance Coverage\n<|id|>73<|page|>9<|box|>729 140 747 513<|content|>Resolution 6 — Departing Director Obligations\n<|id|>78<|page|>10<|box|>448 140 465 571<|content|>Resolution 7 — Status of Strategic Alternatives Re\n<|id|>81<|page|>10<|box|>747 140 763 604<|content|>Resolution 8 — Engagement of Board Governance Coun\n<|id|>84<|page|>11<|box|>176 140 193 500<|content|>Resolution 9 — Authorization and Delegation\n<|id|>87<|page|>11<|box|>476 142 493 423<|content|>Resolution 10 — General Authority\n<|id|>91<|page|>11<|box|>720 142 737 441<|content|>ADOPTION AND CERTIFICATION\n<|id|>106<|page|>12<|box|>321 153 351 843<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>7<|level|>3\n<|id|>8<|level|>4\n<|id|>10<|level|>4\n<|id|>12<|level|>4\n<|id|>14<|level|>4\n<|id|>16<|level|>4\n<|id|>27<|level|>4\n<|id|>32<|level|>4\n<|id|>35<|level|>4\n<|id|>37<|level|>4\n<|id|>39<|level|>2\n<|id|>41<|level|>3\n<|id|>46<|level|>3\n<|id|>51<|level|>3\n<|id|>55<|level|>3\n<|id|>69<|level|>3\n<|id|>73<|level|>3\n<|id|>78<|level|>3\n<|id|>81<|level|>3\n<|id|>84<|level|>3\n<|id|>87<|level|>3\n<|id|>91<|level|>2\n<|id|>106<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 8,
+            "level": 4
+        },
+        {
+            "id": 10,
+            "level": 4
+        },
+        {
+            "id": 12,
+            "level": 4
+        },
+        {
+            "id": 14,
+            "level": 4
+        },
+        {
+            "id": 16,
+            "level": 4
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 4
+        },
+        {
+            "id": 35,
+            "level": 4
+        },
+        {
+            "id": 37,
+            "level": 4
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        }
+    ]
+}

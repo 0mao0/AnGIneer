@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>638 174 750 854<|content|>(a) the Marlowe Asset Management-2 Phase II interi...d on August 14, 2024, which revealed a 23. ... and\n<|id|>7<|page|>1<|box|>820 140 893 856<|content|>Bottom-line conclusion: ... The Marlowe Asset Mana...ogical characteristics and clinical performance of\n<|id|>8<|page|>2<|box|>89 140 127 852<|content|>Veridian's lead drug candidate, VRD-4187, in its o...dition that the carveouts were designed to exclude\n<|id|>43<|page|>6<|box|>329 174 366 854<|content|>(vi) any changes in financial, banking, or securit...price of any security or any market index); ... or\n<|id|>45<|page|>6<|box|>454 140 508 854<|content|>As set forth in the SPA, carveouts (i) through (vi...t subject to the disproportionate impact qualifier\n<|id|>66<|page|>8<|box|>744 140 910 857<|content|>Veridian's potential argument. ... or (c) that the...roximately 28% to 35% in recent industry analyses)\n<|id|>67<|page|>9<|box|>90 140 126 854<|content|>makes the Marlowe Asset Management-2 results a for... trial risk rather than a company-specific failure\n<|id|>72<|page|>9<|box|>768 138 898 857<|content|>Even an industry-wide regulatory focus on CRS does..... The fact that the FDA is generally attentive to\n<|id|>73<|page|>10<|box|>90 140 181 854<|content|>CRS risk does not mean that every product-specific...idian's product, not of the biotechnology industry\n<|id|>80<|page|>10<|box|>835 140 909 854<|content|>An FDA partial clinical hold is an enforcement or ...tory authority. ... No new statute, regulation, or\n<|id|>81<|page|>11<|box|>89 140 164 854<|content|>FDA guidance of general applicability was promulga...work governing clinical trials or drug development",
+    "raw_response": "<|src_id|>7<|tgt_id|>8\n<|src_id|>66<|tgt_id|>67\n<|src_id|>72<|tgt_id|>73\n<|src_id|>80<|tgt_id|>81",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        }
+    ]
+}

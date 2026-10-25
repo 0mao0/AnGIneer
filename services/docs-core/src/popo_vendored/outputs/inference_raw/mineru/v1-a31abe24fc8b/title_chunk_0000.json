@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>229 25 239 72<|content|>NOTE:\n<|id|>13<|page|>1<|box|>855 136 885 324<|content|>CMP\n<|id|>26<|page|>2<|box|>101 758 119 827<|content|>WALL BRACING\n<|id|>39<|page|>2<|box|>470 756 488 833<|content|>HEADER SCHEDULE",
+    "raw_response": "<|id|>2<|level|>2\n<|id|>13<|level|>1\n<|id|>26<|level|>1\n<|id|>39<|level|>1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        }
+    ]
+}

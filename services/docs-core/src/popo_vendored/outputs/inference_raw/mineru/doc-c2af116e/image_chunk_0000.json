@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 411 106 586<|content|>USE OF PROCEEDS\n<|id|>8<|type|>title<|page|>2<|box|>186 140 204 385<|content|>Principal Uses of Net Proceeds\n<|id|>10<|type|>title<|page|>2<|box|>261 140 297 854<|content|>Expansion of SiC Fabrication Facility (Fab 3), Dre\n<|id|>22<|type|>title<|page|>3<|box|>375 140 410 854<|content|>Research and Development — Next-Generation GaN Pow\n<|id|>33<|type|>title<|page|>4<|box|>404 140 440 854<|content|>Repayment of Revolving Credit Facility Tranche — A\n<|id|>40<|type|>title<|page|>5<|box|>184 140 219 854<|content|>General Corporate Purposes and Working Capital — A\n<|id|>44<|type|>title<|page|>5<|box|>574 142 592 400<|content|>Use of Proceeds Summary Table\n<|id|>45<|type|>table<|page|>5<|box|>643 143 830 852<|content|>None\n<|id|>47<|type|>title<|page|>6<|box|>167 140 185 424<|content|>Proceeds from Selling Shareholders\n<|id|>53<|type|>title<|page|>6<|box|>667 140 685 321<|content|>Overallotment Option\n<|id|>58<|type|>title<|page|>7<|box|>292 140 309 450<|content|>Flexibility and Management Discretion\n<|id|>69<|type|>title<|page|>8<|box|>90 140 107 418<|content|>Currency and Exchange Rate Note\n<|id|>74<|type|>title<|page|>8<|box|>527 140 544 405<|content|>Underwriting discount Reference\n<|id|>77<|type|>title<|page|>8<|box|>785 140 803 660<|content|>Estimated Offering Expenses (Other Than Underwriti\n<|id|>79<|type|>table<|page|>8<|box|>872 143 907 852<|content|>None\n<|id|>80<|type|>table<|page|>9<|box|>88 143 544 852<|content|>None\n<|id|>90<|type|>title<|page|>10<|box|>325 140 343 284<|content|>Cross-References",
+    "raw_response": "<|src_id|>45<|tgt_id|>44\n<|src_id|>79<|tgt_id|>77\n<|src_id|>80<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 77
+        }
+    ]
+}

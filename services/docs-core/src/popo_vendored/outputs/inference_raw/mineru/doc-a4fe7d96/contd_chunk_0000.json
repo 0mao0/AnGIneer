@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        11,
+        12,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>243 140 260 782<|content|>FROM: ... Wendy Schultz, Associate, intellectual Property, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>268 140 305 854<|content|>CC: ... Leonard Cross, Responsible Partner, Calder...Technology Transactions, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>313 142 330 323<|content|>DATE: ... January 9, 2023\n<|id|>7<|page|>1<|box|>339 140 392 854<|content|>RE: ... Data License Transaction\n<|id|>8<|page|>1<|box|>401 140 417 457<|content|>Matter No. ... 1025-00008\n<|id|>9<|page|>1<|box|>426 142 443 408<|content|>Right-click to update Table of Contents\n<|id|>79<|page|>11<|box|>864 140 901 854<|content|>Despite this structural difference, the analytical...lators in these cases examined whether the MFN (1)\n<|id|>80<|page|>12<|box|>90 140 200 856<|content|>dampened price competition by reducing the incenti...n concentrated markets — are applicable by analogy\n<|id|>133<|page|>17<|box|>42 163 71 833<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>134<|page|>17<|box|>90 140 200 856<|content|>110% threshold provides pricing flexibility. ... M... trigger a downward adjustment to Quorum's pricing",
+    "raw_response": "<|src_id|>79<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        }
+    ]
+}

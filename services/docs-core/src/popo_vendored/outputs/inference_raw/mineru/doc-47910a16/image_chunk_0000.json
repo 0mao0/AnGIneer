@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 351 118 645<|content|>OFFICER'S CERTIFICATE\n<|id|>1<|type|>title<|page|>1<|box|>136 323 154 673<|content|>Incumbency, Resolutions, and Authorization\n<|id|>7<|type|>title<|page|>1<|box|>361 142 378 243<|content|>RECITALS\n<|id|>25<|type|>title<|page|>2<|box|>811 140 828 547<|content|>SECTION 1 — INCUMBENCY CERTIFICATION\n<|id|>36<|type|>title<|page|>3<|box|>529 140 546 470<|content|>SECTION 2 — BOARD RESOLUTIONS\n<|id|>49<|type|>title<|page|>4<|box|>714 140 732 498<|content|>SECTION 3 — AUTHORITY AND POWER\n<|id|>51<|type|>title<|page|>4<|box|>804 140 821 495<|content|>MTDC has the requisite power and authority to:\n<|id|>59<|type|>title<|page|>5<|box|>608 140 625 524<|content|>SECTION 4 — NO CONFLICT; NO DEFAULT\n<|id|>65<|type|>title<|page|>6<|box|>285 140 301 576<|content|>SECTION 5 — GOOD STANDING AND EXISTENCE\n<|id|>68<|type|>title<|page|>6<|box|>523 140 541 563<|content|>SECTION 6 — ORGANIZATIONAL DOCUMENTS\n<|id|>74<|type|>title<|page|>6<|box|>823 140 839 549<|content|>SECTION 7 — ADDITIONAL CERTIFICATIONS\n<|id|>81<|type|>title<|page|>7<|box|>820 140 837 366<|content|>SECTION 8 — RELIANCE\n<|id|>90<|type|>title<|page|>8<|box|>443 140 460 534<|content|>CERTIFICATION AND ACKNOWLEDGMENT\n<|id|>92<|type|>title<|page|>8<|box|>638 142 655 258<|content|>EXECUTION\n<|id|>93<|type|>title<|page|>8<|box|>664 274 681 720<|content|>METROPOLITAN TRANSIT DEVELOPMENT CORP.\n<|id|>95<|type|>title<|page|>8<|box|>839 140 878 637<|content|>NOTARY ACKNOWLEDGMENT — DAVID HARRINGTON STATE OF\n<|id|>101<|type|>title<|page|>10<|box|>90 436 109 563<|content|>EXHIBIT A\n<|id|>102<|type|>title<|page|>10<|box|>127 274 172 720<|content|>INCUMBENCY SCHEDULE METROPOLITAN TRANSIT DEVELOPME\n<|id|>103<|type|>title<|page|>10<|box|>180 423 196 573<|content|>As of June 15, 2025\n<|id|>105<|type|>table<|page|>10<|box|>285 143 446 852<|content|>None\n<|id|>109<|type|>title<|page|>11<|box|>90 434 111 563<|content|>EXHIBIT B\n<|id|>110<|type|>title<|page|>11<|box|>128 153 190 841<|content|>CERTIFIED COPY OF BOARD RESOLUTIONS RESOLUTIONS OF\n<|id|>124<|type|>title<|page|>12<|box|>295 140 313 379<|content|>NOW, THEREFORE, BE IT:\n<|id|>145<|type|>title<|page|>13<|box|>809 140 825 267<|content|>and be it further\n<|id|>151<|type|>title<|page|>14<|box|>564 140 580 519<|content|>SECRETARY'S / CLERK'S CERTIFICATION\n<|id|>159<|type|>title<|page|>16<|box|>90 434 111 563<|content|>EXHIBIT C\n<|id|>160<|type|>title<|page|>16<|box|>128 349 145 647<|content|>ORGANIZATIONAL DOCUMENTS\n<|id|>161<|type|>title<|page|>16<|box|>154 483 170 514<|content|>OF\n<|id|>162<|type|>title<|page|>16<|box|>180 277 196 720<|content|>METROPOLITAN TRANSIT DEVELOPMENT CORP.",
+    "raw_response": "<|src_id|>105<|tgt_id|>102",
+    "parsed": [
+        {
+            "src_id": 105,
+            "tgt_id": 102
+        }
+    ]
+}

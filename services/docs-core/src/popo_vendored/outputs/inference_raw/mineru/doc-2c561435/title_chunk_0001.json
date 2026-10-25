@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        62
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        53,
+        55,
+        56,
+        57,
+        61,
+        62
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>488<|page|>46<|box|>333 421 353 575<|content|>APPENDICES\n<|id|>489<|page|>47<|box|>89 142 108 684<|content|>Appendix A: Organizational Chart — Halcyon Semicon\n<|id|>490<|page|>47<|box|>114 140 152 852<|content|>The following organizational chart illustrates the\n<|id|>491<|page|>47<|box|>159 155 195 841<|content|>HALCYON SEMICONDUCTOR AG (\"HSAG\") Aktiengesellscha\n<|id|>498<|page|>48<|box|>90 142 107 457<|content|>Appendix B: Intercompany Agreements\n<|id|>502<|page|>49<|box|>90 140 108 612<|content|>Appendix C: Comparable Company Profiles (CPM/TNMM)\n<|id|>524<|page|>53<|box|>90 140 107 647<|content|>Appendix D: Comparable License Agreement Summaries\n<|id|>535<|page|>55<|box|>90 140 107 625<|content|>Appendix E: HSI Financial Statements (FY 2022) — E\n<|id|>541<|page|>56<|box|>166 140 184 529<|content|>Selected Notes to Financial Statements (Excerpts)\n<|id|>544<|page|>57<|box|>90 140 107 700<|content|>Appendix F: HSAG Consolidated Financial Data (FY 2\n<|id|>549<|page|>57<|box|>833 140 849 457<|content|>Intercompany Revenue and Receivables\n<|id|>553<|page|>61<|box|>90 140 108 460<|content|>Appendix H: Professional Qualifications\n<|id|>554<|page|>61<|box|>121 140 138 602<|content|>Calderwood & Harkness LLP — Transfer Pricing Pract\n<|id|>561<|page|>61<|box|>726 140 743 609<|content|>Meridian Economics GmbH — Transfer Pricing Economi\n<|id|>567<|page|>62<|box|>323 140 339 586<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT",
+    "raw_response": "<|id|>488<|level|>1\n<|id|>489<|level|>2\n<|id|>490<|level|>3\n<|id|>491<|level|>3\n<|id|>498<|level|>2\n<|id|>502<|level|>2\n<|id|>524<|level|>2\n<|id|>535<|level|>2\n<|id|>541<|level|>3\n<|id|>544<|level|>2\n<|id|>549<|level|>3\n<|id|>553<|level|>2\n<|id|>554<|level|>3\n<|id|>561<|level|>3\n<|id|>567<|level|>-1",
+    "parsed": [
+        {
+            "id": 488,
+            "level": 1
+        },
+        {
+            "id": 489,
+            "level": 2
+        },
+        {
+            "id": 490,
+            "level": 3
+        },
+        {
+            "id": 491,
+            "level": 3
+        },
+        {
+            "id": 498,
+            "level": 2
+        },
+        {
+            "id": 502,
+            "level": 2
+        },
+        {
+            "id": 524,
+            "level": 2
+        },
+        {
+            "id": 535,
+            "level": 2
+        },
+        {
+            "id": 541,
+            "level": 3
+        },
+        {
+            "id": 544,
+            "level": 2
+        },
+        {
+            "id": 549,
+            "level": 3
+        },
+        {
+            "id": 553,
+            "level": 2
+        },
+        {
+            "id": 554,
+            "level": 3
+        },
+        {
+            "id": 561,
+            "level": 3
+        }
+    ]
+}

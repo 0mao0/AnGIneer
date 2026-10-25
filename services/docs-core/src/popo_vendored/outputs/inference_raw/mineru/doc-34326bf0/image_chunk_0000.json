@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 156 118 839<|content|>SECOND AMENDMENT TO EQUITY PURCHASE AGREEMENT\n<|id|>1<|type|>title<|page|>1<|box|>136 390 152 607<|content|>Dated as of March 15, 2023\n<|id|>6<|type|>title<|page|>1<|box|>398 228 414 767<|content|>SECOND AMENDMENT TO EQUITY PURCHASE AGREEMENT\n<|id|>8<|type|>title<|page|>1<|box|>611 142 628 241<|content|>RECITALS\n<|id|>16<|type|>title<|page|>2<|box|>436 140 453 390<|content|>SECTION 1 — DEFINITIONS\n<|id|>19<|type|>title<|page|>2<|box|>803 140 820 563<|content|>SECTION 2 — AMENDMENT TO OUTSIDE DATE\n<|id|>24<|type|>title<|page|>3<|box|>402 140 419 774<|content|>SECTION 3 — REPRESENTATIONS AND WARRANTIES OF THE\n<|id|>35<|type|>title<|page|>5<|box|>185 140 203 385<|content|>SECTION 4 — COVENANTS\n<|id|>47<|type|>title<|page|>6<|box|>835 140 853 478<|content|>SECTION 5 — TERMINATION RIGHTS\n<|id|>51<|type|>title<|page|>7<|box|>585 140 603 697<|content|>SECTION 6 — EFFECT OF AMENDMENT; NO OTHER CHANGES\n<|id|>56<|type|>title<|page|>8<|box|>321 140 338 429<|content|>SECTION 7 — MISCELLANEOUS\n<|id|>65<|type|>title<|page|>9<|box|>523 230 541 767<|content|>[Remainder of this page intentionally left blank;\n<|id|>66<|type|>title<|page|>9<|box|>549 186 583 810<|content|>SIGNATURE PAGES TO SECOND AMENDMENT TO EQUITY PURC\n<|id|>68<|type|>title<|page|>9<|box|>638 143 652 217<|content|>BUYER:\n<|id|>75<|type|>title<|page|>9<|box|>779 142 794 246<|content|>COMPANY:\n<|id|>105<|type|>title<|page|>11<|box|>88 436 108 562<|content|>SCHEDULE A\n<|id|>106<|type|>title<|page|>11<|box|>130 383 148 614<|content|>MANAGEMENT SELLERS\n<|id|>108<|type|>table<|page|>11<|box|>255 143 898 854<|content|>None\n<|id|>109<|type|>table<|page|>12<|box|>88 143 209 852<|content|>None\n<|id|>112<|type|>title<|page|>12<|box|>529 290 546 707<|content|>ACKNOWLEDGMENT OF FINANCING PARTIES",
+    "raw_response": "<|src_id|>108<|tgt_id|>106\n<|src_id|>109<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 108,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 106
+        }
+    ]
+}

@@ -1,0 +1,412 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ncm7kxlh\\input\\pdfs\\v1-c7957dd144ac.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ncm7kxlh\\enriched\\v1-c7957dd144ac.json",
+    "contd_output": "<|src_id|>17<|tgt_id|>18\n<|src_id|>51<|tgt_id|>52",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>32<|level|>3\n<|id|>50<|level|>3\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>3\n<|id|>64<|level|>4\n<|id|>72<|level|>4\n<|id|>78<|level|>4\n<|id|>92<|level|>4",
+    "image_output": "<|src_id|>26<|tgt_id|>23\n<|src_id|>38<|tgt_id|>32\n<|src_id|>39<|tgt_id|>32\n<|src_id|>40<|tgt_id|>32\n<|src_id|>42<|tgt_id|>32\n<|src_id|>43<|tgt_id|>32\n<|src_id|>80<|tgt_id|>78\n<|src_id|>81<|tgt_id|>78\n<|src_id|>82<|tgt_id|>78\n<|src_id|>83<|tgt_id|>78\n<|src_id|>84<|tgt_id|>78\n<|src_id|>85<|tgt_id|>78\n<|src_id|>86<|tgt_id|>78\n<|src_id|>87<|tgt_id|>78\n<|src_id|>88<|tgt_id|>78\n<|src_id|>89<|tgt_id|>78\n<|src_id|>90<|tgt_id|>78\n<|src_id|>91<|tgt_id|>78\n<|src_id|>96<|tgt_id|>92\n<|src_id|>97<|tgt_id|>92\n<|src_id|>98<|tgt_id|>92\n<|src_id|>99<|tgt_id|>92\n<|src_id|>100<|tgt_id|>92",
+    "contd_label": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 78,
+            "level": 4
+        },
+        {
+            "id": 92,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 26,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 92
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 38,
+            "table2_idx": 39,
+            "upper_row_ss": [
+                [
+                    "rowspan=2, 7",
+                    "Gimli-v2",
+                    "rowspan=2, Customized FSM based on 3x32-bit register, RAM-based state-memory, 32-bit datapath Customized FSM based on 3x32-bit register, RAM-based state-memory, 16-bit datapath",
+                    "gimli24v1",
+                    "Y",
+                    "3",
+                    "N/A"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Gimli-v3",
+                    "Customized FSM based on 3x32-bit register, RAM-based state-memory, 8-bit datapath",
+                    "gimli24v1",
+                    "Y",
+                    "3",
+                    "N/A"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 39,
+            "table2_idx": 40,
+            "upper_row_ss": [
+                [
+                    "15",
+                    "SCHWAEMM-v1",
+                    "Schwaemm-256128, AEAD only, Basic iterative architecture",
+                    "schwaemm-256128v1",
+                    "Y",
+                    "8",
+                    "N/A"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "SCHWAEMM-v2",
+                    "Schwaemm-256128 and Esch256 AEAD+HASH",
+                    "schwaemm-256128v1, esch256v1",
+                    "Y",
+                    "8",
+                    "N/A"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 42,
+            "table2_idx": 43,
+            "upper_row_ss": [
+                [
+                    "14",
+                    "Romulus-v1",
+                    "128",
+                    "32",
+                    "128",
+                    "60",
+                    "",
+                    "",
+                    "1.88",
+                    "1.00",
+                    "1.30",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "colspan=2, No. Variant Name",
+                    "AD Block Size [bits]",
+                    "Cycles per AD Block",
+                    "PT-CT Block Size [bits]",
+                    "Cycles per PT-CT Block",
+                    "Hash Msg. Block Size [bits]",
+                    "Cycles per Hash Msg Block",
+                    "AD Enc Thr PT Enc Thr",
+                    "PT Dec Thr PT Enc Thr",
+                    "AD+PT Enc Thr PT Enc Thr",
+                    "Hash Thr PT Enc Thr"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 80,
+            "table2_idx": 81,
+            "upper_row_ss": [
+                [
+                    "TinyJAMBU-v3",
+                    "8.7",
+                    "",
+                    "537",
+                    "278",
+                    "1,026.0",
+                    "32"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Variant",
+                    "Through-put[Mbits/s]",
+                    "Candi-dateRanking byThroughput",
+                    "LUTs",
+                    "Freq.[MHz]",
+                    "Cycles per AD Block",
+                    "AD Block Size[bits]"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 83,
+            "table2_idx": 84,
+            "upper_row_ss": [
+                [
+                    "Gimli-v3",
+                    "4.5",
+                    "",
+                    "2,115",
+                    "100.5",
+                    "2,865.0",
+                    "128"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Variant",
+                    "Through-put AE AD Long [Mbits/s]",
+                    "Candidate Ranking by Throughput",
+                    "LEs",
+                    "Freq. [MHz]",
+                    "Cycles per AD Block",
+                    "AD Block Size [bits]"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 86,
+            "table2_idx": 87,
+            "upper_row_ss": [
+                [
+                    "TinyJAMBU-v3",
+                    "3.0",
+                    "",
+                    "881",
+                    "97.7",
+                    "1,026.0",
+                    "32"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Variant",
+                    "Through-put [Mbits/s]",
+                    "Candidate Ranking by Throughput",
+                    "LUTs",
+                    "Freq. [MHz]",
+                    "Cycles per AD Block",
+                    "AD Block Size [bits]"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 90,
+            "table2_idx": 91,
+            "upper_row_ss": [
+                [
+                    "Gimli-v3",
+                    "4.5",
+                    "",
+                    "2,115",
+                    "100.5",
+                    "2,850",
+                    "128"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Variant",
+                    "Through-put [Mbits/s]",
+                    "Candi-date Ranking by Throughput",
+                    "LUTs",
+                    "Freq. [MHz]",
+                    "Cycles per HM block",
+                    "Hash Msg Block Size [bits]"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 96,
+            "table2_idx": 97,
+            "upper_row_ss": [
+                [
+                    "Xoodyak_XT-v8",
+                    "4337",
+                    "2.13",
+                    "602",
+                    "1.25",
+                    "91.4",
+                    "2.05"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Variant",
+                    "LUTs",
+                    "\\frac{LUTs}{Artix-7 LUTs}",
+                    "FFs",
+                    "\\frac{FFs}{Artix-7 FFs}",
+                    "Frequency [MHz]",
+                    "\\frac{Artix-7 Freq}{Freq}"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 99,
+            "table2_idx": 100,
+            "upper_row_ss": [
+                [
+                    "21",
+                    "Gimli-v1",
+                    "",
+                    "Gimli-v1"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "2",
+                    "Xoodyak_XT-v8",
+                    "Xoodyak_XT-v1",
+                    "Xoodyak_XT-v1"
+                ]
+            ]
+        }
+    ]
+}

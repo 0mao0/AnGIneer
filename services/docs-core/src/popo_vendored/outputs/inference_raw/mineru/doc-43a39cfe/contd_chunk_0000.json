@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        14,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>186 437 202 560<|content|>March 19, 2025\n<|id|>2<|page|>1<|box|>210 140 257 854<|content|>Calderwood & Harkness LLP Matter No. ... ) Prepare...DC 20005, on behalf of Cascade Retail Holdings Inc\n<|id|>22<|page|>2<|box|>859 174 895 856<|content|>(a) Count I — Breach of Restrictive Covenant Agree...dividual Defendants' acceptance of employment with\n<|id|>23<|page|>3<|box|>90 174 127 854<|content|>Verdana in violation of their respective post-empl...petition and non- solicitation agreements with CRH\n<|id|>44<|page|>4<|box|>857 174 893 856<|content|>(d) Scope of Restriction. ... CRH proposes narrowi...retail merchandising\" (as set forth in the Rathore\n<|id|>45<|page|>5<|box|>90 174 143 854<|content|>Employment Agreement) to four specific product cat...to CRH's confidential strategies and trade secrets\n<|id|>58<|page|>5<|box|>871 174 907 856<|content|>(a) Original Contractual Non-Competes. ... Tsao, and\n<|id|>59<|page|>6<|box|>90 174 143 854<|content|>Ms. ... Johansson agreed to post-employment non-co...ny reason, applicable throughout the United States\n<|id|>151<|page|>14<|box|>193 174 212 674<|content|>(f) the information barrier requirements set forth in Section 5. ... and\n<|id|>153<|page|>14<|box|>244 140 301 856<|content|>The Consent Order shall have the full force and ef...h other remedies as the Court may deem appropriate\n<|id|>215<|page|>19<|box|>314 174 349 854<|content|>If to CRH: ... Bernard Crawford Calderwood & Harkn... 1301 K Street NW, Suite 1200 Washington, DC 20005\n<|id|>216<|page|>19<|box|>358 174 393 854<|content|>If to the Rathore Group (Individual Defendants): ....rth Market Street, Suite 1500 Wilmington, DE 19801\n<|id|>217<|page|>19<|box|>402 174 438 854<|content|>If to Verdana: ... Gavin Blackhall Blackhall & Sor...00 Delaware Avenue, Suite 900 Wilmington, DE 19801\n<|id|>230<|page|>20<|box|>345 142 362 334<|content|>Name: ... Bernard Crawford\n<|id|>231<|page|>20<|box|>363 142 378 248<|content|>Title: ... Partner\n<|id|>232<|page|>20<|box|>378 140 412 852<|content|>Calderwood & Harkness LLP 1301 K Street NW, Suite ...Washington, DC 20005 Telephone: ... (202) 555-4100\n<|id|>233<|page|>20<|box|>412 142 429 475<|content|>Email: ... com\n<|id|>234<|page|>20<|box|>431 142 446 308<|content|>Date: ... March 19, 2025\n<|id|>235<|page|>20<|box|>446 140 508 854<|content|>CONFIDENTIAL — SETTLEMENT DISCUSSION PURPOSES ONLY...r without the prior written consent of all parties",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>44<|tgt_id|>45\n<|src_id|>58<|tgt_id|>59",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        }
+    ]
+}

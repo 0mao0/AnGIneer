@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>111 187 179 807<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>10<|page|>1<|box|>440 140 458 258<|content|>I. RECITALS\n<|id|>20<|page|>2<|box|>337 140 354 604<|content|>II. DEFINITIONS AND IDENTIFICATION OF PARTIES\n<|id|>21<|page|>2<|box|>368 142 385 380<|content|>A. Participant (Plan Member)\n<|id|>27<|page|>2<|box|>674 142 691 292<|content|>B. Alternate Payee\n<|id|>34<|page|>3<|box|>220 140 237 305<|content|>C. Plan Information\n<|id|>41<|page|>3<|box|>681 140 699 571<|content|>III. AMOUNT ASSIGNED TO ALTERNATE PAYEE\n<|id|>46<|page|>4<|box|>500 140 517 566<|content|>IV. SEGREGATION OF THE ASSIGNED AMOUNT\n<|id|>50<|page|>5<|box|>148 140 166 421<|content|>V. DISTRIBUTION PROVISIONS\n<|id|>51<|page|>5<|box|>180 143 196 344<|content|>A. Timing of Distribution\n<|id|>54<|page|>5<|box|>492 142 508 331<|content|>B. Form of Distribution\n<|id|>61<|page|>6<|box|>138 142 156 289<|content|>C. Tax Treatment\n<|id|>65<|page|>6<|box|>609 140 625 359<|content|>VI. DEATH PROVISIONS\n<|id|>66<|page|>6<|box|>640 140 657 517<|content|>A. Death of Alternate Payee Before Distribution\n<|id|>68<|page|>7<|box|>90 140 107 480<|content|>B. Death of Participant Before Distribution\n<|id|>71<|page|>7<|box|>412 140 429 493<|content|>VII. RESTRICTIONS AND LIMITATIONS\n<|id|>78<|page|>8<|box|>260 140 277 697<|content|>VIII. STATUS OF ORDER AND PLAN ADMINISTRATOR REVIE\n<|id|>83<|page|>9<|box|>89 142 106 424<|content|>IX. CONTINUED JURISDICTION\n<|id|>86<|page|>9<|box|>378 142 393 333<|content|>X. GOVERNING LAW\n<|id|>90<|page|>9<|box|>648 142 665 259<|content|>XI. NOTICES\n<|id|>92<|page|>9<|box|>750 143 765 295<|content|>To the Participant:\n<|id|>98<|page|>10<|box|>90 142 107 331<|content|>To the Alternate Payee:\n<|id|>104<|page|>10<|box|>237 142 253 359<|content|>To the Plan Administrator:\n<|id|>107<|page|>10<|box|>364 140 383 733<|content|>XII. REFERENCE TO UNDERLYING SETTLEMENT AND JUDGME\n<|id|>112<|page|>10<|box|>820 140 838 467<|content|>XIII. MISCELLANEOUS PROVISIONS\n<|id|>117<|page|>11<|box|>277 362 294 633<|content|>SIGNATURES AND APPROVAL\n<|id|>118<|page|>11<|box|>304 142 320 316<|content|>IT IS SO ORDERED.\n<|id|>121<|page|>11<|box|>407 346 424 648<|content|>APPROVED AND CONSENTED TO:\n<|id|>122<|page|>11<|box|>433 142 450 279<|content|>PARTICIPANT:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>27<|level|>3\n<|id|>34<|level|>3\n<|id|>41<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>54<|level|>3\n<|id|>61<|level|>3\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>68<|level|>3\n<|id|>71<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>86<|level|>2\n<|id|>90<|level|>2\n<|id|>92<|level|>-1\n<|id|>98<|level|>-1\n<|id|>104<|level|>-1\n<|id|>107<|level|>2\n<|id|>112<|level|>2\n<|id|>117<|level|>2\n<|id|>118<|level|>-1\n<|id|>121<|level|>-1\n<|id|>122<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        }
+    ]
+}

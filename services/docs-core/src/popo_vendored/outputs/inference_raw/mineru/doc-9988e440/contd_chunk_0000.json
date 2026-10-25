@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>164 183 181 813<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>190 140 207 526<|content|>Francesca Morano Partner Direct: ... (312) 555-7244\n<|id|>5<|page|>1<|box|>215 140 233 462<|content|>Email: ... com\n<|id|>6<|page|>1<|box|>233 715 251 854<|content|>February 17, 2023\n<|id|>7<|page|>1<|box|>258 140 295 854<|content|>Mr. ... Greenfield Chairman and Chief Executive Of...rairie Boulevard, Suite 800 Des Moines, Iowa 50309\n<|id|>8<|page|>1<|box|>304 140 358 854<|content|>Re: ... 1020-00005 Matter Closing Notification\n<|id|>9<|page|>1<|box|>366 142 383 300<|content|>Dear Mr. ... Greenfield\n<|id|>24<|page|>2<|box|>868 140 904 856<|content|>Following the expiration of the pre-suit demand pe...Court of Cook County, Illinois, County Department,\n<|id|>25<|page|>3<|box|>89 140 126 854<|content|>Law Division. ... 2022-L-004831 and was assigned to the calendar of the Honorable Patricia Delacroix\n<|id|>79<|page|>8<|box|>840 140 877 854<|content|>Although Matter No. ... 1020-00005 is being formal... the Sangamon County receivership proceeding, Case\n<|id|>80<|page|>9<|box|>90 140 125 854<|content|>No. ... Key events to monitor include, but are not limited to\n<|id|>85<|page|>9<|box|>286 181 339 854<|content|>• Any modification or lifting of the automatic sta...or to pursue a separate action against Mr. ... and\n<|id|>87<|page|>9<|box|>398 140 508 856<|content|>If GAP wishes Calderwood & Harkness to continue re...d costs of any such engagement at your convenience\n<|id|>91<|page|>9<|box|>737 142 753 274<|content|>Very truly yours,\n<|id|>92<|page|>9<|box|>753 140 770 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>93<|page|>9<|box|>772 143 787 253<|content|>By: ... By\n<|id|>94<|page|>9<|box|>787 140 804 509<|content|>Francesca Morano Partner Direct: ... (312) 555-7244\n<|id|>95<|page|>9<|box|>806 142 821 462<|content|>Email: ... com\n<|id|>96<|page|>9<|box|>825 142 838 171<|content|>cc: ... cc\n<|id|>97<|page|>9<|box|>849 174 885 854<|content|>Margaret A. ... Greenfield-Wu, President and Chief...or of Grain Operations, GAP Grain Trading Division\n<|id|>98<|page|>10<|box|>89 176 125 854<|content|>Samuel Eklund, Partner, Calderwood & Harkness LLP Hannah Brinkley, Associate, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>24<|tgt_id|>25\n<|src_id|>79<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        }
+    ]
+}

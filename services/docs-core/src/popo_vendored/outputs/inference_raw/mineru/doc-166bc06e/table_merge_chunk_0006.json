@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=4, Aug.....', 'Notes', 'Austrian schillings', '8/23/67', '2/24/69', '5.03', '25', '-', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=6, 1967-Sept......', 'rowspan=6, Certificates of indebtednessNotes', 'German marks', '9/1/66', '9/1/67', '5.75', '-', '50', 'rowspan=5, 1,015']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 232,
+    "table2_idx": 235
+}

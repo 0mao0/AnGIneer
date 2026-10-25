@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        59
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        51,
+        54,
+        55,
+        57,
+        58,
+        59
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>387<|page|>45<|box|>169 442 183 563<|content|>ARTICLE XVII\n<|id|>388<|page|>45<|box|>191 450 205 555<|content|>AMENDMENTS\n<|id|>395<|page|>45<|box|>638 426 652 558<|content|>ARTICLE XVIII\n<|id|>396<|page|>45<|box|>662 442 676 544<|content|>COMPLIANCE\n<|id|>398<|page|>45<|box|>804 434 818 547<|content|>ARTICLE XIX\n<|id|>399<|page|>45<|box|>827 434 840 545<|content|>DEFINITIONS\n<|id|>401<|page|>46<|box|>61 460 75 560<|content|>ARTICLE XX\n<|id|>402<|page|>46<|box|>85 377 99 642<|content|>RIGHTS RESERVED TO DEVELOPER\n<|id|>404<|page|>46<|box|>439 447 452 555<|content|>ARTICLE XXI\n<|id|>405<|page|>46<|box|>462 442 474 560<|content|>SEVERABILITY\n<|id|>407<|page|>47<|box|>119 691 537 787<|content|>OAKLAND COUNTY CONDOMINIUM SUBDIVISION PLAN NO. 75\n<|id|>432<|page|>51<|box|>580 769 672 867<|content|>[Signature]\n<|id|>438<|page|>54<|box|>407 336 422 630<|content|>ARTICLES OF INCORPORATION\n<|id|>442<|page|>54<|box|>494 135 507 209<|content|>ARTICLE I\n<|id|>445<|page|>54<|box|>554 137 568 215<|content|>ARTICLE II\n<|id|>459<|page|>55<|box|>248 150 262 230<|content|>ARTICLE IV\n<|id|>463<|page|>55<|box|>444 147 458 225<|content|>ARTICLE V\n<|id|>475<|page|>57<|box|>255 331 273 645<|content|>INFORMATION AND INSTRUCTIONS\n<|id|>487<|page|>58<|box|>68 336 95 658<|content|>RIDER TO ARTICLES OF INCORPORATION OF MILFORD HEIG\n<|id|>488<|page|>58<|box|>117 447 132 550<|content|>ARTICLE II\n<|id|>498<|page|>59<|box|>122 444 137 563<|content|>ARTICLE VIII",
+    "raw_response": "<|id|>387<|level|>1\n<|id|>388<|level|>2\n<|id|>395<|level|>1\n<|id|>396<|level|>2\n<|id|>398<|level|>1\n<|id|>399<|level|>2\n<|id|>401<|level|>1\n<|id|>402<|level|>2\n<|id|>404<|level|>1\n<|id|>405<|level|>2\n<|id|>407<|level|>1\n<|id|>432<|level|>-1\n<|id|>438<|level|>1\n<|id|>442<|level|>2\n<|id|>445<|level|>2\n<|id|>459<|level|>2\n<|id|>463<|level|>2\n<|id|>475<|level|>1\n<|id|>487<|level|>1\n<|id|>488<|level|>2\n<|id|>498<|level|>2",
+    "parsed": [
+        {
+            "id": 387,
+            "level": 1
+        },
+        {
+            "id": 388,
+            "level": 2
+        },
+        {
+            "id": 395,
+            "level": 1
+        },
+        {
+            "id": 396,
+            "level": 2
+        },
+        {
+            "id": 398,
+            "level": 1
+        },
+        {
+            "id": 399,
+            "level": 2
+        },
+        {
+            "id": 401,
+            "level": 1
+        },
+        {
+            "id": 402,
+            "level": 2
+        },
+        {
+            "id": 404,
+            "level": 1
+        },
+        {
+            "id": 405,
+            "level": 2
+        },
+        {
+            "id": 407,
+            "level": 1
+        },
+        {
+            "id": 438,
+            "level": 1
+        },
+        {
+            "id": 442,
+            "level": 2
+        },
+        {
+            "id": 445,
+            "level": 2
+        },
+        {
+            "id": 459,
+            "level": 2
+        },
+        {
+            "id": 463,
+            "level": 2
+        },
+        {
+            "id": 475,
+            "level": 1
+        },
+        {
+            "id": 487,
+            "level": 1
+        },
+        {
+            "id": 488,
+            "level": 2
+        },
+        {
+            "id": 498,
+            "level": 2
+        }
+    ]
+}

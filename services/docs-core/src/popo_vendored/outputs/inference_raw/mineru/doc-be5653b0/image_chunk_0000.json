@@ -1,0 +1,57 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>128 405 148 591<|content|>MEMORANDUM\n<|id|>2<|type|>table<|page|>1<|box|>190 143 344 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>486 142 503 320<|content|>I. Executive Summary\n<|id|>12<|type|>title<|page|>2<|box|>402 140 419 454<|content|>II. Procedural and Factual Background\n<|id|>13<|type|>title<|page|>2<|box|>434 140 450 282<|content|>A. The Litigation\n<|id|>27<|type|>title<|page|>3<|box|>388 140 406 429<|content|>B. Current Injunctive Relief Posture\n<|id|>31<|type|>title<|page|>4<|box|>90 142 107 370<|content|>C. Parties' Financial Profiles\n<|id|>36<|type|>table<|page|>4<|box|>728 143 837 852<|content|>None\n<|id|>38<|type|>title<|page|>5<|box|>223 140 239 692<|content|>III. Legal Framework: Bond Requirements Under Fed.\n<|id|>39<|type|>title<|page|>5<|box|>253 140 270 308<|content|>A. Text of Rule 65(c)\n<|id|>45<|type|>title<|page|>5<|box|>814 140 832 462<|content|>B. Application to Permanent Injunctions\n<|id|>51<|type|>title<|page|>6<|box|>729 140 747 470<|content|>C. Application to Preliminary Injunctions\n<|id|>57<|type|>title<|page|>7<|box|>667 140 684 638<|content|>IV. Bond Amount Analysis for Preliminary Injunctio\n<|id|>58<|type|>title<|page|>7<|box|>698 140 715 787<|content|>A. Estimating Lumicore's Potential Harm from a Wro\n<|id|>62<|type|>table<|page|>8<|box|>378 143 494 852<|content|>None\n<|id|>72<|type|>title<|page|>9<|box|>571 142 589 506<|content|>B. Arguments for a Reduced or Nominal Bond\n<|id|>83<|type|>title<|page|>10<|box|>814 140 832 678<|content|>C. Arguments Against a Nominal Bond (Anticipated f\n<|id|>90<|type|>title<|page|>11<|box|>756 142 772 464<|content|>D. Recommended Bond Amount Position\n<|id|>96<|type|>title<|page|>12<|box|>520 140 537 514<|content|>V. Surety Identification and Bond Procurement\n<|id|>97<|type|>title<|page|>12<|box|>551 140 568 395<|content|>A. Heritage National Surety Co.\n<|id|>103<|type|>table<|page|>13<|box|>378 143 469 852<|content|>None\n<|id|>105<|type|>table<|page|>13<|box|>655 143 731 852<|content|>None\n<|id|>107<|type|>title<|page|>14<|box|>138 140 157 380<|content|>B. Alternative Surety Options\n<|id|>112<|type|>title<|page|>14<|box|>674 140 691 446<|content|>C. Insurance Coverage for Bond Costs\n<|id|>119<|type|>title<|page|>15<|box|>319 142 335 372<|content|>VI. Bond Waiver Arguments\n<|id|>120<|type|>title<|page|>15<|box|>349 142 366 424<|content|>A. Legal Standard for Bond Waiver\n<|id|>126<|type|>title<|page|>16<|box|>138 142 157 359<|content|>B. Application to This Case\n<|id|>131<|type|>title<|page|>16<|box|>648 140 665 506<|content|>VII. Impact on Litigation Strategy and Budget\n<|id|>132<|type|>title<|page|>16<|box|>679 140 696 326<|content|>A. Budget Implications\n<|id|>140<|type|>title<|page|>17<|box|>554 142 571 361<|content|>B. Strategic Considerations\n<|id|>150<|type|>title<|page|>18<|box|>652 140 669 454<|content|>VIII. Recommendations and Next Steps\n<|id|>174<|type|>title<|page|>21<|box|>90 140 108 720<|content|>IX. Appendix: Summary of Key Financial Data Releva\n<|id|>175<|type|>table<|page|>21<|box|>159 143 669 852<|content|>None\n<|id|>177<|type|>title<|page|>21<|box|>755 142 772 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>2<|tgt_id|>1\n<|src_id|>36<|tgt_id|>31\n<|src_id|>62<|tgt_id|>58\n<|src_id|>103<|tgt_id|>97\n<|src_id|>105<|tgt_id|>97\n<|src_id|>175<|tgt_id|>174",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 174
+        }
+    ]
+}

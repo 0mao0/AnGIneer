@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 200 107 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|page|>1<|box|>114 424 132 573<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>349 142 366 321<|content|>I. Executive Summary\n<|id|>13<|page|>2<|box|>223 140 239 267<|content|>II. Background\n<|id|>14<|page|>2<|box|>253 140 270 446<|content|>A. The Cook County Collection Action\n<|id|>24<|page|>3<|box|>340 140 358 529<|content|>B. Procedural History of the Cook County Action\n<|id|>31<|page|>4<|box|>446 140 464 377<|content|>C. PBGC's Financial Distress\n<|id|>38<|page|>5<|box|>377 142 393 364<|content|>III. The Receivership Order\n<|id|>39<|page|>5<|box|>407 140 424 472<|content|>A. Procedural Posture of the Receivership\n<|id|>44<|page|>6<|box|>157 140 175 490<|content|>B. Key Provisions of the Receivership Order\n<|id|>52<|page|>7<|box|>138 140 156 284<|content|>C. Notice to GAP\n<|id|>55<|page|>7<|box|>395 140 412 416<|content|>IV. Analysis of the Automatic Stay\n<|id|>56<|page|>7<|box|>426 142 441 514<|content|>A. Scope and Effect on the Cook County Action\n<|id|>60<|page|>8<|box|>176 140 193 581<|content|>B. Distinction from Federal Bankruptcy Automatic S\n<|id|>69<|page|>9<|box|>465 140 483 517<|content|>C. Whether GAP Can Seek Relief from the Stay\n<|id|>76<|page|>10<|box|>175 140 193 601<|content|>V. GAP's Options for Asserting Claims in the Recei\n<|id|>77<|page|>10<|box|>205 140 224 349<|content|>A. Filing a Proof of Claim\n<|id|>93<|page|>11<|box|>388 140 407 500<|content|>B. Classification and Priority of GAP's Claim\n<|id|>107<|page|>12<|box|>527 140 546 393<|content|>C. Monitoring the Receivership\n<|id|>113<|page|>13<|box|>223 140 239 570<|content|>VI. Status of the Musgrave Guaranty Claim (Count I\n<|id|>114<|page|>13<|box|>253 140 271 527<|content|>A. Scope of the Receivership Stay as to Musgrave\n<|id|>120<|page|>14<|box|>157 140 175 607<|content|>B. Practical Considerations Regarding the Musgrave\n<|id|>128<|page|>15<|box|>277 140 294 328<|content|>VII. Recommendations\n<|id|>130<|page|>15<|box|>334 140 352 300<|content|>A. Immediate Steps\n<|id|>135<|page|>16<|box|>138 140 157 537<|content|>B. Voluntary Dismissal of the Cook County Action\n<|id|>140<|page|>16<|box|>601 140 619 328<|content|>C. Musgrave Guaranty\n<|id|>146<|page|>17<|box|>213 140 231 331<|content|>D. Ongoing Monitoring\n<|id|>150<|page|>17<|box|>590 140 608 279<|content|>VIII. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>24<|level|>3\n<|id|>31<|level|>3\n<|id|>38<|level|>2\n<|id|>39<|level|>3\n<|id|>44<|level|>3\n<|id|>52<|level|>3\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>60<|level|>3\n<|id|>69<|level|>3\n<|id|>76<|level|>2\n<|id|>77<|level|>3\n<|id|>93<|level|>3\n<|id|>107<|level|>3\n<|id|>113<|level|>2\n<|id|>114<|level|>3\n<|id|>120<|level|>3\n<|id|>128<|level|>2\n<|id|>130<|level|>3\n<|id|>135<|level|>3\n<|id|>140<|level|>3\n<|id|>146<|level|>3\n<|id|>150<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 2
+        }
+    ]
+}

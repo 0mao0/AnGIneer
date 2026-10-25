@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>744 140 890 856<|content|>This memorandum summarizes the substance of the in...f Derek Hargrave conducted on May 25, 2022. ... 's\n<|id|>6<|page|>2<|box|>90 140 127 854<|content|>General Counsel, Marcus Wellbourne, and is intende...ney-client privilege and the work product doctrine\n<|id|>157<|page|>20<|box|>196 142 214 372<|content|>Date Finalized: ... May 27, 2022\n<|id|>158<|page|>20<|box|>222 140 277 854<|content|>Distribution: ... This memorandum is classified as...rs of the Calderwood & Harkness investigation team\n<|id|>159<|page|>20<|box|>285 183 301 496<|content|>• Victoria Chambers, Responsible Partner\n<|id|>164<|page|>20<|box|>383 140 436 854<|content|>Storage: ... Access is restricted to the authorized distribution list identified above\n<|id|>160<|page|>20<|box|>305 183 321 375<|content|>• Howard Quinn, Partner\n<|id|>161<|page|>20<|box|>325 183 340 455<|content|>• Jasmine Thornton, Lead Associate\n<|id|>162<|page|>20<|box|>344 184 359 393<|content|>• Liam Donahue, Associate\n<|id|>163<|page|>20<|box|>364 184 380 395<|content|>• Conrad Reeves, Associate\n<|id|>166<|page|>20<|box|>494 140 529 854<|content|>Nicholas Ferreira Associate, White Collar & Investigations Calderwood & Harkness LLP — Houston\n<|id|>167<|page|>20<|box|>529 142 547 354<|content|>Reviewed and Approved by: ... Reviewed and Approved by",
+    "raw_response": "<|src_id|>5<|tgt_id|>6",
+    "parsed": [
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        }
+    ]
+}

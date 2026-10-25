@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=11, 客船(邮轮)', '70000', '45300', '278', '243', '35.2', '16.6', '8.0', '8350', '8230', '1140', '1170']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 船舶类型', 'rowspan=3, 总吨(t)', 'rowspan=3, 排水量(t)', 'rowspan=3, 总长(m)', 'rowspan=3, 柱间距(m)', 'rowspan=3, 型宽(m)', 'rowspan=3, 满载干舷高(m)', 'rowspan=3, 满载吃水(m)', 'colspan=4, 受风面积(m^2)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 2058,
+    "table2_idx": 2059
+}

@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['CY2', 'April 1, 2020 – March 31, 2021', 'Approximately $31,800,000', '$43,200,000 (unadjusted) / $21,600,000 (adjusted for force majeure)', \"ACV satisfied on an adjusted basis. Stonefield properly invoked force majeure under TSA Section 12.1 for COVID-19 pandemic impacts on freight demand for the period April 2020 through September 2020 (six months). The adjusted ACV for CY2 was $43,200,000 × (6/12) = $21,600,000. Stonefield's actual tenders of\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'approximately $31,800,000 during CY2 exceeded the adjusted ACV minimum by approximately $10,200,000.']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 93,
+    "table2_idx": 94
+}

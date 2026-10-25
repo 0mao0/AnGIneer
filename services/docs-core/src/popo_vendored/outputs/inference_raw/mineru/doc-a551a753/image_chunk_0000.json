@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 178 125 818<|content|>CALDERWOOD & HARKNESS LLP CONFIDENTIAL — ATTORNEY\n<|id|>5<|type|>table<|page|>1<|box|>305 145 464 852<|content|>None\n<|id|>7<|type|>title<|page|>1<|box|>628 413 645 584<|content|>GENERAL DENIAL\n<|id|>9<|type|>title<|page|>2<|box|>89 382 106 614<|content|>AFFIRMATIVE DEFENSES\n<|id|>11<|type|>title<|page|>2<|box|>238 140 255 423<|content|>FIRST AFFIRMATIVE DEFENSE\n<|id|>13<|type|>title<|page|>2<|box|>500 140 515 444<|content|>SECOND AFFIRMATIVE DEFENSE\n<|id|>21<|type|>title<|page|>3<|box|>267 140 284 429<|content|>THIRD AFFIRMATIVE DEFENSE\n<|id|>23<|type|>title<|page|>3<|box|>429 142 446 408<|content|>Specifically, and without limitation:\n<|id|>28<|type|>title<|page|>4<|box|>89 140 106 446<|content|>FOURTH AFFIRMATIVE DEFENSE\n<|id|>33<|type|>title<|page|>4<|box|>462 140 479 424<|content|>FIFTH AFFIRMATIVE DEFENSE\n<|id|>38<|type|>title<|page|>5<|box|>89 140 106 424<|content|>SIXTH AFFIRMATIVE DEFENSE\n<|id|>41<|type|>title<|page|>5<|box|>354 140 372 455<|content|>SEVENTH AFFIRMATIVE DEFENSE\n<|id|>45<|type|>title<|page|>5<|box|>794 140 810 442<|content|>EIGHTH AFFIRMATIVE DEFENSE\n<|id|>49<|type|>title<|page|>6<|box|>327 140 344 429<|content|>NINTH AFFIRMATIVE DEFENSE\n<|id|>56<|type|>title<|page|>7<|box|>138 140 156 433<|content|>TENTH AFFIRMATIVE DEFENSE\n<|id|>66<|type|>title<|page|>7<|box|>597 140 614 470<|content|>ELEVENTH AFFIRMATIVE DEFENSE\n<|id|>72<|type|>title<|page|>8<|box|>273 140 291 460<|content|>TWELFTH AFFIRMATIVE DEFENSE\n<|id|>75<|type|>title<|page|>8<|box|>577 140 594 490<|content|>THIRTEENTH AFFIRMATIVE DEFENSE\n<|id|>77<|type|>title<|page|>8<|box|>738 400 755 596<|content|>PRAYER FOR RELIEF",
+    "raw_response": "<|src_id|>5<|tgt_id|>7",
+    "parsed": [
+        {
+            "src_id": 5,
+            "tgt_id": 7
+        }
+    ]
+}

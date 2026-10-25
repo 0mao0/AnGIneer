@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>339 142 354 357<|content|>1. Purpose and Acceptance\n<|id|>10<|type|>title<|page|>1<|box|>669 140 686 323<|content|>2. Client Identification\n<|id|>15<|type|>title<|page|>2<|box|>340 140 357 354<|content|>3. Scope of Representation\n<|id|>32<|type|>title<|page|>4<|box|>715 140 732 313<|content|>4. Engagement Team\n<|id|>39<|type|>title<|page|>5<|box|>502 142 518 303<|content|>5. Fee Arrangement\n<|id|>40<|type|>title<|page|>5<|box|>532 142 549 279<|content|>5.1 Hourly Rates\n<|id|>42<|type|>table<|page|>5<|box|>599 143 693 852<|content|>None\n<|id|>44<|type|>title<|page|>5<|box|>830 142 848 323<|content|>5.2 Voluntary Fee Cap\n<|id|>50<|type|>title<|page|>6<|box|>648 140 665 400<|content|>5.4 Expenses and Disbursements\n<|id|>62<|type|>title<|page|>7<|box|>281 140 297 325<|content|>6. Billing and Payment\n<|id|>67<|type|>title<|page|>7<|box|>737 140 753 321<|content|>7. Conflicts of Interest\n<|id|>71<|type|>title<|page|>8<|box|>359 140 375 284<|content|>8. Confidentiality\n<|id|>74<|type|>title<|page|>8<|box|>708 140 724 326<|content|>9. Document Retention\n<|id|>77<|type|>title<|page|>9<|box|>223 142 239 274<|content|>10. Termination\n<|id|>81<|type|>title<|page|>9<|box|>579 142 597 349<|content|>11. Limitation of Liability\n<|id|>84<|type|>title<|page|>9<|box|>801 142 816 297<|content|>12. Governing Law\n<|id|>86<|type|>title<|page|>10<|box|>150 143 166 316<|content|>13. Entire Agreement\n<|id|>95<|type|>title<|page|>10<|box|>633 142 648 511<|content|>ACKNOWLEDGMENT AND ACCEPTANCE",
+    "raw_response": "<|src_id|>42<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        }
+    ]
+}

@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>12<|page|>1<|box|>763 142 780 336<|content|>1. Documents Examined\n<|id|>14<|page|>1<|box|>839 142 854 303<|content|>A. Loan Documents\n<|id|>25<|page|>2<|box|>804 143 821 377<|content|>B. Organizational Documents\n<|id|>34<|page|>3<|box|>378 140 395 410<|content|>C. Other Documents and Records\n<|id|>45<|page|>4<|box|>213 140 229 267<|content|>2. Assumptions\n<|id|>57<|page|>5<|box|>229 140 248 238<|content|>3. Opinions\n<|id|>59<|page|>5<|box|>305 140 323 825<|content|>3.1 Due Organization and Good Standing — Borrower\n<|id|>62<|page|>5<|box|>625 140 641 790<|content|>3.2 Due Organization and Good Standing — Parent (I\n<|id|>66<|page|>6<|box|>138 140 157 513<|content|>3.3 Due Authorization, Execution, and Delivery\n<|id|>79<|page|>7<|box|>554 140 570 274<|content|>3.5 No Conflicts\n<|id|>84<|page|>8<|box|>157 140 174 465<|content|>3.6 No Governmental Consents Required\n<|id|>89<|page|>8<|box|>508 140 527 563<|content|>3.7 Security Interest — Deed of Trust (Real Proper\n<|id|>92<|page|>9<|box|>90 140 107 578<|content|>3.8 Security Interest — Assignment of Leases and R\n<|id|>95<|page|>9<|box|>426 140 444 527<|content|>3.9 Security Interest — Personal Property (UCC)\n<|id|>100<|page|>10<|box|>148 140 167 403<|content|>4. Limitations and Qualifications\n<|id|>115<|page|>11<|box|>681 140 699 235<|content|>5. Reliance\n<|id|>121<|page|>12<|box|>252 230 268 764<|content|>[Remainder of Page Intentionally Left Blank — Sign\n<|id|>123<|page|>12<|box|>303 142 319 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>25<|level|>2\n<|id|>34<|level|>2\n<|id|>45<|level|>1\n<|id|>57<|level|>1\n<|id|>59<|level|>2\n<|id|>62<|level|>2\n<|id|>66<|level|>2\n<|id|>79<|level|>2\n<|id|>84<|level|>2\n<|id|>89<|level|>2\n<|id|>92<|level|>2\n<|id|>95<|level|>2\n<|id|>100<|level|>1\n<|id|>115<|level|>1\n<|id|>121<|level|>-1\n<|id|>123<|level|>-1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 465 119 531<|content|>SAFE\n<|id|>1<|page|>1<|box|>143 346 162 650<|content|>(Simple Agreement for Future Equity)\n<|id|>2<|page|>1<|box|>169 380 186 617<|content|>DRAFT — September 5, 2023\n<|id|>7<|page|>1<|box|>515 321 532 674<|content|>SAFE (Simple Agreement for Future Equity)\n<|id|>12<|page|>1<|box|>718 142 734 241<|content|>RECITALS\n<|id|>17<|page|>2<|box|>231 140 248 282<|content|>Section 1: Events\n<|id|>18<|page|>2<|box|>261 140 279 388<|content|>Section 1(a): Equity Financing.\n<|id|>26<|page|>3<|box|>90 140 107 377<|content|>Section 1(b): Liquidity Event.\n<|id|>34<|page|>3<|box|>684 140 700 388<|content|>Section 1(c): Dissolution Event.\n<|id|>38<|page|>4<|box|>277 140 294 313<|content|>Section 2: Definitions\n<|id|>67<|page|>6<|box|>532 140 549 433<|content|>Section 3: Company Representations\n<|id|>79<|page|>8<|box|>638 140 654 423<|content|>Section 4: Investor Representations\n<|id|>86<|page|>9<|box|>648 140 665 527<|content|>Section 5: Most Favored Nation (MFN) Provision\n<|id|>94<|page|>10<|box|>502 140 518 377<|content|>Section 6: Information Rights\n<|id|>101<|page|>11<|box|>513 140 530 338<|content|>Section 7: Miscellaneous\n<|id|>137<|page|>14<|box|>633 223 652 772<|content|>SIGNATURE PAGE TO SAFE (Simple Agreement for Futur\n<|id|>139<|page|>14<|box|>704 142 720 248<|content|>COMPANY:\n<|id|>152<|page|>15<|box|>141 437 157 560<|content|>SCHEDULE A\n<|id|>153<|page|>15<|box|>166 375 184 620<|content|>SUMMARY OF KEY TERMS",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>2<|level|>-1\n<|id|>7<|level|>1\n<|id|>12<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>26<|level|>3\n<|id|>34<|level|>3\n<|id|>38<|level|>2\n<|id|>67<|level|>2\n<|id|>79<|level|>2\n<|id|>86<|level|>2\n<|id|>94<|level|>2\n<|id|>101<|level|>2\n<|id|>137<|level|>1\n<|id|>139<|level|>2\n<|id|>152<|level|>1\n<|id|>153<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 2
+        }
+    ]
+}

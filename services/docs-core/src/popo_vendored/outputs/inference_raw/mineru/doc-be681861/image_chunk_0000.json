@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>42 197 71 799<|content|>CALDERWOOD & HARKNESS LLP — ATTORNEY WORK PRODUCT\n<|id|>4<|type|>title<|page|>1<|box|>205 143 220 290<|content|>MEMORANDUM\n<|id|>5<|type|>table<|page|>1<|box|>229 143 398 852<|content|>None\n<|id|>6<|type|>title<|page|>1<|box|>433 142 449 217<|content|>Theresa:\n<|id|>17<|type|>title<|page|>2<|box|>489 166 508 830<|content|>SECTION 1: FORM 8-K HEADER / COVER PAGE LANGUAGE\n<|id|>18<|type|>title<|page|>2<|box|>527 158 561 839<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION W\n<|id|>22<|type|>table<|page|>2<|box|>699 145 753 852<|content|>None\n<|id|>32<|type|>table<|page|>3<|box|>273 143 342 852<|content|>None\n<|id|>34<|type|>title<|page|>3<|box|>439 142 457 346<|content|>Emerging growth company\n<|id|>36<|type|>title<|page|>3<|box|>527 267 547 730<|content|>SECTION 2: ITEM 8.01 — OTHER EVENTS\n<|id|>37<|type|>title<|page|>3<|box|>573 142 590 336<|content|>Item 8.01. Other Events.\n<|id|>38<|type|>title<|page|>3<|box|>604 140 621 514<|content|>Settlement of Covenant-Enforcement Litigation\n<|id|>40<|type|>title<|page|>3<|box|>805 140 821 372<|content|>Background of the Litigation\n<|id|>45<|type|>title<|page|>4<|box|>510 140 527 387<|content|>Summary of Settlement Terms\n<|id|>62<|type|>title<|page|>6<|box|>458 184 502 812<|content|>SECTION 3: ITEM 9.01 — FINANCIAL STATEMENTS AND EX\n<|id|>63<|type|>table<|page|>6<|box|>575 143 664 852<|content|>None\n<|id|>66<|type|>title<|page|>7<|box|>90 200 133 795<|content|>SECTION 4: CAUTIONARY STATEMENT REGARDING FORWARD-\n<|id|>67<|type|>title<|page|>7<|box|>160 140 176 637<|content|>Cautionary Statement Regarding Forward-Looking Sta\n<|id|>79<|type|>title<|page|>8<|box|>172 354 191 643<|content|>SECTION 5: SIGNATURES\n<|id|>80<|type|>title<|page|>8<|box|>217 140 234 267<|content|>SIGNATURES\n<|id|>82<|type|>title<|page|>8<|box|>287 140 303 452<|content|>CASCADE RETAIL HOLDINGS INC.\n<|id|>88<|type|>title<|page|>9<|box|>90 160 136 836<|content|>APPENDIX: CALDERWOOD & HARKNESS INTERNAL NOTES TO\n<|id|>89<|type|>title<|page|>9<|box|>151 169 186 826<|content|>NOT FOR FILING — PRIVILEGED AND CONFIDENTIAL ATTOR\n<|id|>91<|type|>title<|page|>9<|box|>295 142 313 707<|content|>1. Coordination with Outside Auditors (Hargrove &\n<|id|>96<|type|>title<|page|>9<|box|>809 140 825 684<|content|>2. Notification to Keypoint National Bank, N.A. un\n<|id|>98<|type|>title<|page|>10<|box|>226 140 243 424<|content|>3. Board Approval and Ratification.\n<|id|>100<|type|>title<|page|>10<|box|>406 140 422 408<|content|>4. Filing Timeline and Mechanics.\n<|id|>102<|type|>title<|page|>10<|box|>549 140 566 395<|content|>5. Press Release Considerations.\n<|id|>104<|type|>title<|page|>10<|box|>674 140 691 331<|content|>6. Contact Information.",
+    "raw_response": "<|src_id|>5<|tgt_id|>4\n<|src_id|>22<|tgt_id|>17\n<|src_id|>32<|tgt_id|>17\n<|src_id|>63<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 5,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 62
+        }
+    ]
+}

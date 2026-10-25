@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>12<|type|>title<|page|>1<|box|>679 142 696 323<|content|>1. Executive Summary\n<|id|>17<|type|>title<|page|>2<|box|>395 140 412 465<|content|>2. Transaction Overview (For Reference)\n<|id|>22<|type|>title<|page|>2<|box|>652 140 670 495<|content|>The Target — Pinnacle Health Systems, Inc.:\n<|id|>30<|type|>title<|page|>3<|box|>311 140 329 419<|content|>3. HSR Filing — Status and Details\n<|id|>31<|type|>title<|page|>3<|box|>342 140 359 316<|content|>3.1 Filing Completion\n<|id|>36<|type|>title<|page|>3<|box|>821 140 839 254<|content|>3.2 Filing Fee\n<|id|>39<|type|>title<|page|>4<|box|>220 140 238 405<|content|>3.3 FTC Confirmation of Receipt\n<|id|>41<|type|>title<|page|>4<|box|>348 140 364 388<|content|>3.4 Waiting Period Calculation\n<|id|>46<|type|>title<|page|>4<|box|>728 140 744 379<|content|>4. Early Termination Request\n<|id|>58<|type|>title<|page|>6<|box|>395 140 412 455<|content|>5. Item 4(c) / 4(d) Document Production\n<|id|>59<|type|>title<|page|>6<|box|>426 140 444 375<|content|>Acquiring Person Documents\n<|id|>66<|type|>title<|page|>7<|box|>90 142 107 370<|content|>Acquired Person Documents\n<|id|>74<|type|>title<|page|>7<|box|>468 140 484 480<|content|>6. FTC Staff Contact and Communications\n<|id|>79<|type|>title<|page|>8<|box|>148 140 167 486<|content|>7. Coordination with Counterparty Counsel\n<|id|>86<|type|>title<|page|>8<|box|>571 140 589 473<|content|>8. Coordination with Transaction Counsel\n<|id|>90<|type|>title<|page|>9<|box|>90 140 107 537<|content|>9. Substantive Antitrust Work Product Completed\n<|id|>92<|type|>table<|page|>9<|box|>195 143 513 852<|content|>None\n<|id|>94<|type|>title<|page|>9<|box|>680 142 696 599<|content|>10. Key EPA Provisions — Regulatory Workstream Sta\n<|id|>95<|type|>table<|page|>9<|box|>748 143 897 852<|content|>None\n<|id|>96<|type|>table<|page|>10<|box|>89 143 314 852<|content|>None\n<|id|>98<|type|>title<|page|>10<|box|>407 142 425 359<|content|>11. Outlook and Next Steps\n<|id|>110<|type|>title<|page|>11<|box|>337 142 354 517<|content|>12. Engagement Team and Contact Information\n<|id|>112<|type|>table<|page|>11<|box|>404 143 571 852<|content|>None",
+    "raw_response": "<|src_id|>92<|tgt_id|>90\n<|src_id|>95<|tgt_id|>94\n<|src_id|>96<|tgt_id|>94\n<|src_id|>112<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 92,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 110
+        }
+    ]
+}

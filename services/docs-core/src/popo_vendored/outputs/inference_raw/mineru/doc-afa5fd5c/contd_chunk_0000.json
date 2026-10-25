@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        19,
+        20,
+        21,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>184 140 200 683<|content|>TO: ... Sylvia Hartwell, Billing Partner\n<|id|>3<|page|>1<|box|>209 140 227 702<|content|>FROM: ... Leila Nazari, Working Associate\n<|id|>4<|page|>1<|box|>234 142 253 354<|content|>DATE: ... September 15, 2022\n<|id|>5<|page|>1<|box|>261 140 315 854<|content|>RE: ... IRS Transfer Pricing Examination Defense\n<|id|>6<|page|>1<|box|>323 140 359 854<|content|>MATTER: ... — IRS Examination Defense, TY 2017 –2020)\n<|id|>7<|page|>1<|box|>367 142 385 488<|content|>EXAM TEAM ID: ... LB&I-NE-TP-2022-00641\n<|id|>8<|page|>1<|box|>393 142 410 408<|content|>Right-click to update Table of Contents\n<|id|>13<|page|>1<|box|>772 174 809 854<|content|>(2) The legacy intellectual property royalty rate of 4. ... and\n<|id|>15<|page|>1<|box|>861 140 898 854<|content|>Both Altera and Harborview Corporation address cor...sury Regulations promulgated thereunder, including\n<|id|>16<|page|>2<|box|>90 140 164 854<|content|>Treasury Regulation Sections 1. ... These regulato... — guidance for structuring PPC's defense strategy\n<|id|>23<|page|>2<|box|>762 174 816 854<|content|>(a) A one-time platform contribution transaction (...y PPC to the CSA as of the effective date; ... and\n<|id|>26<|page|>3<|box|>261 140 316 854<|content|>The gradual increase in PBI's cost-sharing percent...the CSA's RAB methodology documented by Crestfield\n<|id|>168<|page|>19<|box|>834 140 907 857<|content|>Additionally, PPC should be aware that if the case...e property royalty disputes in this depth. ... The\n<|id|>169<|page|>20<|box|>89 140 127 854<|content|>Third Circuit, if called upon to address these iss...e Eighth Circuit's analysis as persuasive guidance\n<|id|>181<|page|>21<|box|>233 174 270 854<|content|>(3) Establish that PPC's 4. ... and\n<|id|>183<|page|>21<|box|>340 140 468 856<|content|>The Protest should also highlight that PPC's posit...uld be affirmed where 14 comparables are available\n<|id|>234<|page|>25<|box|>232 147 248 429<|content|>• Leonard Cross, Responsible Partner\n<|id|>237<|page|>25<|box|>289 140 381 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV...nformation contained herein is strictly prohibited\n<|id|>235<|page|>25<|box|>252 147 268 401<|content|>• Sylvia Hartwell, Billing Partner\n<|id|>236<|page|>25<|box|>271 147 287 346<|content|>• Matter File: ... 1018-00009",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>168<|tgt_id|>169",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 169
+        }
+    ]
+}

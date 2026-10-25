@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>397 140 414 364<|content|>I. Introduction and Purpose\n<|id|>13<|page|>2<|box|>167 140 184 421<|content|>II. Case Overview and Background\n<|id|>24<|page|>3<|box|>589 142 606 426<|content|>III. Engagement of Defense Counsel\n<|id|>27<|page|>3<|box|>829 142 845 385<|content|>IV. Insurance Coverage Status\n<|id|>32<|page|>4<|box|>446 140 464 486<|content|>V. Litigation Developments During Q4 2022\n<|id|>34<|page|>4<|box|>522 140 539 500<|content|>A. Motion to Dismiss (Filed October 14, 2022)\n<|id|>41<|page|>5<|box|>375 140 391 527<|content|>B. Amended Complaint (Filed December 2, 2022)\n<|id|>49<|page|>6<|box|>330 140 347 457<|content|>C. Motion to Dismiss — Denied as Moot\n<|id|>52<|page|>6<|box|>585 140 602 442<|content|>VI. Stonefield's Defenses — Summary\n<|id|>61<|page|>8<|box|>205 140 223 470<|content|>VII. Upcoming Anticipated Developments\n<|id|>63<|page|>8<|box|>263 140 279 375<|content|>A. Answer and Counterclaim\n<|id|>65<|page|>8<|box|>463 140 479 375<|content|>B. Initial Pretrial Conference\n<|id|>70<|page|>9<|box|>90 140 107 434<|content|>VIII. Financial Exposure Assessment\n<|id|>78<|page|>10<|box|>90 140 107 374<|content|>IX. Impact on Credit Facility\n<|id|>82<|page|>10<|box|>356 140 373 349<|content|>X. Next Quarterly Update\n<|id|>85<|page|>10<|box|>613 140 630 236<|content|>XI. Closing\n<|id|>91<|page|>11<|box|>89 140 123 852<|content|>Tobias Wren General Counsel Stonefield Logistics G",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>24<|level|>1\n<|id|>27<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>2\n<|id|>41<|level|>2\n<|id|>49<|level|>2\n<|id|>52<|level|>1\n<|id|>61<|level|>1\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>70<|level|>1\n<|id|>78<|level|>1\n<|id|>82<|level|>1\n<|id|>85<|level|>1\n<|id|>91<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        }
+    ]
+}

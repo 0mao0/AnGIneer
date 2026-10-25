@@ -1,0 +1,42 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        55,
+        95
+    ],
+    "pages": [
+        56,
+        66,
+        75,
+        83,
+        84,
+        85,
+        86,
+        88,
+        90,
+        92,
+        94,
+        95
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>619<|page|>56<|box|>545 22 614 970<|content|>In October 2016, the FASB issued ASU No. ... Upon ... income taxes and other liabilities by $40 million\n<|id|>620<|page|>56<|box|>618 22 699 970<|content|>In February 2016, the FASB issued ASU No. ... Refe... information about the Company’s lease obligations\n<|id|>710<|page|>66<|box|>309 715 320 834<|content|>Year Ended May 31,\n<|id|>711<|page|>66<|box|>64 22 111 970<|content|>In addition to the Stock Incentive Plan, the Compa... ended May 31, 2018 , 2017 and 2016 , respectively\n<|id|>781<|page|>75<|box|>246 21 304 970<|content|>We maintain disclosure controls and procedures des...t relationship of possible controls and procedures\n<|id|>782<|page|>75<|box|>309 22 344 970<|content|>We carry out a variety of ongoing procedures, unde... the reasonable assurance level as of May 31, 2018\n<|id|>812<|page|>83<|box|>51 584 66 702<|content|>EXHIBIT 10. ... 17\n<|id|>813<|page|>83<|box|>102 437 119 710<|content|>Employee ID: ... Employee ID\n<|id|>818<|page|>83<|box|>258 127 276 401<|content|>(“EMPLOYEE”)\n<|id|>819<|page|>83<|box|>287 32 303 68<|content|>and\n<|id|>829<|page|>83<|box|>734 53 797 970<|content|>(a)Competition Restriction. ... During EMPLOYEE’s ...oyed by, consult for or be connected in any manner\n<|id|>830<|page|>84<|box|>51 101 108 947<|content|>with, any business engaged anywhere in the world i...riction Period as more specifically provided below\n<|id|>835<|page|>84<|box|>670 53 734 965<|content|>(e)Withholding and Offset. ... NIKE reserves the r... limited to any payments due to NIKE in accordance\n<|id|>836<|page|>85<|box|>51 101 119 954<|content|>with the NIKE Tax Equalization Policy if EMPLOYEE ...ains obligated for the balance of the amounts owed\n<|id|>842<|page|>85<|box|>714 27 746 875<|content|>4. ... At the request of NIKE at any time, and in ...YEE shall immediately return to NIKE all Protected\n<|id|>843<|page|>86<|box|>51 73 82 924<|content|>Information in whatever form, including tapes, not... EMPLOYEE's possession or under EMPLOYEE's control\n<|id|>861<|page|>88<|box|>176 24 194 130<|content|>Dear [NAME],\n<|id|>862<|page|>88<|box|>205 22 253 960<|content|>This letter (the “ Letter ”) sets forth the amount... of the date hereof, the Company agrees as follows\n<|id|>868<|page|>88<|box|>571 447 588 519<|content|>Sincerely,\n<|id|>869<|page|>88<|box|>609 570 625 648<|content|>NIKE, Inc. ... NIKE, Inc\n<|id|>877<|page|>90<|box|>68 607 904 777<|content|>Jurisdiction of Formation Delaware Vietnam Netherl...s United Kingdom Netherlands Hong Kong Netherlands\n<|id|>879<|page|>92<|box|>51 24 919 285<|content|>Entity Name NIKE NZ Holding B. ... V\n<|id|>889<|page|>94<|box|>343 22 371 923<|content|>c) evaluated the effectiveness of the registrant’s...d by this report based on such evaluation; ... and\n<|id|>894<|page|>94<|box|>556 58 571 187<|content|>Dated: ... July 24, 2018\n<|id|>890<|page|>94<|box|>378 22 420 964<|content|>d)disclosed in this report any change in the regis...internal control over financial reporting; ... and\n<|id|>892<|page|>94<|box|>463 22 492 967<|content|>a) all significant deficiencies and material weakn...ummarize and report financial information; ... and\n<|id|>893<|page|>94<|box|>500 22 527 929<|content|>b) any fraud, whether or not material, that involv...strant’s internal control over financial reporting\n<|id|>903<|page|>95<|box|>369 22 398 923<|content|>c) evaluated the effectiveness of the registrant’s...d by this report based on such evaluation; ... and\n<|id|>908<|page|>95<|box|>579 58 593 187<|content|>Dated: ... July 24, 2018\n<|id|>904<|page|>95<|box|>405 22 446 964<|content|>d)disclosed in this report any change in the regis...internal control over financial reporting; ... and\n<|id|>906<|page|>95<|box|>489 22 518 968<|content|>a) all significant deficiencies and material weakn...ummarize and report financial information; ... and\n<|id|>907<|page|>95<|box|>525 22 553 929<|content|>b) any fraud, whether or not material, that involv...strant’s internal control over financial reporting",
+    "raw_response": "<|src_id|>818<|tgt_id|>819\n<|src_id|>829<|tgt_id|>830\n<|src_id|>835<|tgt_id|>836\n<|src_id|>842<|tgt_id|>843",
+    "parsed": [
+        {
+            "src_id": 818,
+            "tgt_id": 819
+        },
+        {
+            "src_id": 829,
+            "tgt_id": 830
+        },
+        {
+            "src_id": 835,
+            "tgt_id": 836
+        },
+        {
+            "src_id": 842,
+            "tgt_id": 843
+        }
+    ]
+}

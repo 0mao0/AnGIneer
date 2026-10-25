@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        13,
+        14,
+        16,
+        17,
+        32
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>138 423 155 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>164 140 181 759<|content|>From: ... Garrett Simmons, Lead Associate, Tax Leila Nazari, Working Associate, Tax\n<|id|>3<|page|>1<|box|>190 140 208 746<|content|>To: ... Sylvia Hartwell, Responsible Partner, Tax Leonard Cross, Billing Partner, Tax\n<|id|>4<|page|>1<|box|>215 142 234 307<|content|>Date: ... August 6, 2025\n<|id|>5<|page|>1<|box|>242 140 277 854<|content|>Re: ... Section 1202 QSBS Preservation Analysis — ...ure Fund II LP to Pinnacle Continuation Vehicle LP\n<|id|>6<|page|>1<|box|>286 142 304 455<|content|>Engagement Reference No. ... 1002-00005\n<|id|>7<|page|>1<|box|>311 142 329 346<|content|>Matter No. ... 00001\n<|id|>8<|page|>1<|box|>338 142 354 408<|content|>Right-click to update Table of Contents\n<|id|>13<|page|>1<|box|>808 140 900 856<|content|>Key Conclusion. ... If the transaction is properly...der Section 1202(h)(4) in conjunction with Section\n<|id|>14<|page|>2<|box|>89 140 164 854<|content|>1223(1), with the five-year period completing appr...he per- taxpayer and per-issuer exclusion ceilings\n<|id|>25<|page|>3<|box|>316 147 349 854<|content|>• Diana Tsao, Co-Managing Partner, who holds appro...tely 28% of the general partner economics; ... and\n<|id|>27<|page|>3<|box|>373 140 409 854<|content|>Mr. ... Tsao are the principal decision-makers wit... Calderwood & Harkness LLP in connection therewith\n<|id|>45<|page|>5<|box|>664 181 680 789<|content|>• Meridian Public Employees' Retirement System — $125 million commitment\n<|id|>48<|page|>5<|box|>722 140 776 854<|content|>The Domestic blocker structure is designed to prev...BTI analysis is addressed in a separate memorandum\n<|id|>46<|page|>5<|box|>684 183 700 658<|content|>• Ashford University Endowment — $50 million commitment\n<|id|>47<|page|>5<|box|>703 181 719 617<|content|>• Total capital through the Domestic blocker: ... $175 million\n<|id|>50<|page|>5<|box|>829 181 845 740<|content|>• Sovereign Capital Partners (Cayman) Ltd. ... — $75 million commitment\n<|id|>51<|page|>5<|box|>849 183 866 632<|content|>• Total capital through the International blocker: ... $75 million\n<|id|>52<|page|>6<|box|>90 140 145 854<|content|>The International blocker structure is designed to...ECI analysis is addressed in a separate memorandum\n<|id|>74<|page|>8<|box|>358 174 395 854<|content|>(i) $10 million, reduced by the aggregate amount o...he same corporation in prior taxable years; ... or\n<|id|>76<|page|>8<|box|>446 140 502 854<|content|>This ceiling is applied on a per-issuer, per-taxpa..., and the ceiling is not aggregated across issuers\n<|id|>131<|page|>13<|box|>871 140 906 857<|content|>The $50 Million Gross Asset Test — Active Diligenc... March 2021 were near the $50 million threshold of\n<|id|>132<|page|>14<|box|>89 140 127 854<|content|>Section 1202(d)(1). ... This is the most significa... requires immediate and thorough factual diligence\n<|id|>140<|page|>14<|box|>718 174 755 854<|content|>(c) Coordination with Andover & Strauss LLP (Patri...ncial statements from the relevant period; ... and\n<|id|>142<|page|>14<|box|>806 140 880 856<|content|>Active Business Requirement. ... There is no indic...fessional services, or any other excluded activity\n<|id|>162<|page|>16<|box|>837 140 875 854<|content|>The threshold question is whether this general hol...s of Section 1202(h)(4), is sufficient to preserve\n<|id|>163<|page|>17<|box|>89 140 126 854<|content|>QSBS status when the contribution is made from one...tnership (Fund II) to another partnership (the CV)\n<|id|>315<|page|>32<|box|>602 142 618 320<|content|>Respectfully submitted,\n<|id|>316<|page|>32<|box|>619 142 635 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>317<|page|>32<|box|>637 143 654 253<|content|>By: ... By\n<|id|>318<|page|>32<|box|>654 142 670 424<|content|>Garrett Simmons Lead Associate, Tax\n<|id|>319<|page|>32<|box|>672 143 688 251<|content|>By: ... By\n<|id|>320<|page|>32<|box|>689 142 704 419<|content|>Leila Nazari Working Associate, Tax\n<|id|>321<|page|>32<|box|>704 140 719 519<|content|>cc: ... 00001)",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>131<|tgt_id|>132\n<|src_id|>162<|tgt_id|>163",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        }
+    ]
+}

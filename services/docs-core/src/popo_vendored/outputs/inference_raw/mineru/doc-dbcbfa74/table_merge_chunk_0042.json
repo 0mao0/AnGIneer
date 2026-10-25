@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 42,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['52', 'Final Compromise Proposal — Revised Term Sheet (v5-Final)', 'Sept 3, 2024', 'C&H on behalf of NTP', 'Not Privileged (shared with counterparty)', 'Board-authorized best-and-final term sheet. Key terms: base salary $1,750,000; target annual bonus 175% of base ($3,062,500); maximum annual bonus 300% of base ($5,250,000); sign-on cash bonus $5,000,000 (24-month clawback); sign-on equity']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '$18,400,000 (RSUs, 4-year ratable vesting); annual LTI $9,000,000 (60% PSUs / 40% RSUs); SERP $250,000/year; non-CIC severance 2x base plus target bonus ($9,625,000) with pro-rata bonus and 18-month COBRA continuation; CIC severance 2.5x base plus target bonus ($12,031,250), double trigger, best-net cutback, full equity vesting acceleration; non-compete 18 months, North America plus Western Europe; 6-month garden leave at base salary concurrent with first 6 months of non-compete; non-solicitation 24 months (employees and customers); perpetual confidentiality.']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 98,
+    "table2_idx": 99
+}

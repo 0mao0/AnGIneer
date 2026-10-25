@@ -1,0 +1,989 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-o7dwbmpb\\input\\pdfs\\doc-2c059511.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-o7dwbmpb\\enriched\\doc-2c059511.json",
+    "contd_output": "<|src_id|>85<|tgt_id|>86\n<|src_id|>604<|tgt_id|>607\n<|src_id|>740<|tgt_id|>741",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>5<|level|>1\n<|id|>14<|level|>1\n<|id|>21<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>3\n<|id|>54<|level|>3\n<|id|>56<|level|>3\n<|id|>58<|level|>3\n<|id|>60<|level|>2\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>74<|level|>4\n<|id|>92<|level|>4\n<|id|>96<|level|>3\n<|id|>104<|level|>4\n<|id|>121<|level|>4\n<|id|>124<|level|>3\n<|id|>129<|level|>4\n<|id|>178<|level|>4\n<|id|>181<|level|>2\n<|id|>182<|level|>3\n<|id|>185<|level|>3\n<|id|>225<|level|>3\n<|id|>232<|level|>4\n<|id|>313<|level|>3\n<|id|>327<|level|>3\n<|id|>339<|level|>3\n<|id|>343<|level|>2\n<|id|>344<|level|>3\n<|id|>351<|level|>3\n<|id|>358<|level|>3\n<|id|>359<|level|>4\n<|id|>369<|level|>5\n<|id|>371<|level|>5\n<|id|>375<|level|>5\n<|id|>377<|level|>5\n<|id|>392<|level|>3\n<|id|>397<|level|>2\n<|id|>398<|level|>3\n<|id|>411<|level|>3\n<|id|>412<|level|>3\n<|id|>413<|level|>4\n<|id|>420<|level|>4\n<|id|>421<|level|>4\n<|id|>428<|level|>4\n<|id|>430<|level|>4\n<|id|>445<|level|>3\n<|id|>453<|level|>2\n<|id|>461<|level|>3\n<|id|>462<|level|>3\n<|id|>463<|level|>4\n<|id|>474<|level|>4\n<|id|>476<|level|>4\n<|id|>479<|level|>4\n<|id|>488<|level|>3\n<|id|>494<|level|>2\n<|id|>501<|level|>4\n<|id|>542<|level|>5\n<|id|>564<|level|>5\n<|id|>595<|level|>4\n<|id|>599<|level|>5\n<|id|>622<|level|>5\n<|id|>625<|level|>5\n<|id|>631<|level|>5\n<|id|>636<|level|>5\n<|id|>640<|level|>3\n<|id|>656<|level|>3\n<|id|>663<|level|>3\n<|id|>676<|level|>2\n<|id|>677<|level|>3\n<|id|>721<|level|>3\n<|id|>724<|level|>2\n<|id|>729<|level|>2\n<|id|>735<|level|>3",
+    "image_output": "<|src_id|>184<|tgt_id|>182\n<|src_id|>196<|tgt_id|>185\n<|src_id|>198<|tgt_id|>185\n<|src_id|>200<|tgt_id|>185\n<|src_id|>202<|tgt_id|>185\n<|src_id|>203<|tgt_id|>185\n<|src_id|>205<|tgt_id|>185\n<|src_id|>207<|tgt_id|>185\n<|src_id|>209<|tgt_id|>185\n<|src_id|>211<|tgt_id|>185\n<|src_id|>213<|tgt_id|>185\n<|src_id|>215<|tgt_id|>185\n<|src_id|>217<|tgt_id|>185\n<|src_id|>219<|tgt_id|>185\n<|src_id|>221<|tgt_id|>185\n<|src_id|>223<|tgt_id|>185\n<|src_id|>224<|tgt_id|>185\n<|src_id|>247<|tgt_id|>232\n<|src_id|>251<|tgt_id|>232\n<|src_id|>253<|tgt_id|>232\n<|src_id|>267<|tgt_id|>232\n<|src_id|>276<|tgt_id|>232\n<|src_id|>280<|tgt_id|>232\n<|src_id|>292<|tgt_id|>232\n<|src_id|>302<|tgt_id|>232\n<|src_id|>357<|tgt_id|>351\n<|src_id|>387<|tgt_id|>358\n<|src_id|>388<|tgt_id|>358\n<|src_id|>389<|tgt_id|>358\n<|src_id|>390<|tgt_id|>358\n<|src_id|>391<|tgt_id|>358\n<|src_id|>394<|tgt_id|>392\n<|src_id|>395<|tgt_id|>392\n<|src_id|>396<|tgt_id|>392\n<|src_id|>410<|tgt_id|>398\n<|src_id|>440<|tgt_id|>411\n<|src_id|>441<|tgt_id|>411\n<|src_id|>442<|tgt_id|>411\n<|src_id|>443<|tgt_id|>411\n<|src_id|>444<|tgt_id|>411\n<|src_id|>447<|tgt_id|>445\n<|src_id|>448<|tgt_id|>445\n<|src_id|>449<|tgt_id|>445\n<|src_id|>450<|tgt_id|>445\n<|src_id|>451<|tgt_id|>445\n<|src_id|>452<|tgt_id|>453\n<|src_id|>460<|tgt_id|>453\n<|src_id|>473<|tgt_id|>461\n<|src_id|>482<|tgt_id|>461\n<|src_id|>483<|tgt_id|>461\n<|src_id|>484<|tgt_id|>461\n<|src_id|>485<|tgt_id|>461\n<|src_id|>486<|tgt_id|>461\n<|src_id|>487<|tgt_id|>461\n<|src_id|>489<|tgt_id|>488\n<|src_id|>491<|tgt_id|>488\n<|src_id|>493<|tgt_id|>488\n<|src_id|>500<|tgt_id|>494\n<|src_id|>506<|tgt_id|>501\n<|src_id|>509<|tgt_id|>501\n<|src_id|>510<|tgt_id|>501\n<|src_id|>512<|tgt_id|>501\n<|src_id|>513<|tgt_id|>501\n<|src_id|>555<|tgt_id|>542\n<|src_id|>557<|tgt_id|>542\n<|src_id|>559<|tgt_id|>542\n<|src_id|>563<|tgt_id|>542\n<|src_id|>572<|tgt_id|>564\n<|src_id|>574<|tgt_id|>564\n<|src_id|>575<|tgt_id|>564\n<|src_id|>578<|tgt_id|>564\n<|src_id|>587<|tgt_id|>564\n<|src_id|>589<|tgt_id|>564\n<|src_id|>590<|tgt_id|>564\n<|src_id|>592<|tgt_id|>564\n<|src_id|>598<|tgt_id|>595\n<|src_id|>620<|tgt_id|>599\n<|src_id|>621<|tgt_id|>622\n<|src_id|>624<|tgt_id|>622\n<|src_id|>627<|tgt_id|>625\n<|src_id|>629<|tgt_id|>625\n<|src_id|>646<|tgt_id|>640\n<|src_id|>648<|tgt_id|>640\n<|src_id|>652<|tgt_id|>640\n<|src_id|>653<|tgt_id|>640\n<|src_id|>655<|tgt_id|>640\n<|src_id|>659<|tgt_id|>656\n<|src_id|>661<|tgt_id|>656\n<|src_id|>671<|tgt_id|>663\n<|src_id|>673<|tgt_id|>663\n<|src_id|>675<|tgt_id|>663\n<|src_id|>681<|tgt_id|>677\n<|src_id|>684<|tgt_id|>677\n<|src_id|>693<|tgt_id|>677\n<|src_id|>712<|tgt_id|>677\n<|src_id|>725<|tgt_id|>724\n<|src_id|>726<|tgt_id|>724\n<|src_id|>727<|tgt_id|>724\n<|src_id|>728<|tgt_id|>724",
+    "contd_label": [
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 604,
+            "tgt_id": 607
+        },
+        {
+            "src_id": 740,
+            "tgt_id": 741
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 4
+        },
+        {
+            "id": 92,
+            "level": 4
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 4
+        },
+        {
+            "id": 121,
+            "level": 4
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 4
+        },
+        {
+            "id": 178,
+            "level": 4
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 4
+        },
+        {
+            "id": 313,
+            "level": 3
+        },
+        {
+            "id": 327,
+            "level": 3
+        },
+        {
+            "id": 339,
+            "level": 3
+        },
+        {
+            "id": 343,
+            "level": 2
+        },
+        {
+            "id": 344,
+            "level": 3
+        },
+        {
+            "id": 351,
+            "level": 3
+        },
+        {
+            "id": 358,
+            "level": 3
+        },
+        {
+            "id": 359,
+            "level": 4
+        },
+        {
+            "id": 369,
+            "level": 5
+        },
+        {
+            "id": 371,
+            "level": 5
+        },
+        {
+            "id": 375,
+            "level": 5
+        },
+        {
+            "id": 377,
+            "level": 5
+        },
+        {
+            "id": 392,
+            "level": 3
+        },
+        {
+            "id": 397,
+            "level": 2
+        },
+        {
+            "id": 398,
+            "level": 3
+        },
+        {
+            "id": 411,
+            "level": 3
+        },
+        {
+            "id": 412,
+            "level": 3
+        },
+        {
+            "id": 413,
+            "level": 4
+        },
+        {
+            "id": 420,
+            "level": 4
+        },
+        {
+            "id": 421,
+            "level": 4
+        },
+        {
+            "id": 428,
+            "level": 4
+        },
+        {
+            "id": 430,
+            "level": 4
+        },
+        {
+            "id": 445,
+            "level": 3
+        },
+        {
+            "id": 453,
+            "level": 2
+        },
+        {
+            "id": 461,
+            "level": 3
+        },
+        {
+            "id": 462,
+            "level": 3
+        },
+        {
+            "id": 463,
+            "level": 4
+        },
+        {
+            "id": 474,
+            "level": 4
+        },
+        {
+            "id": 476,
+            "level": 4
+        },
+        {
+            "id": 479,
+            "level": 4
+        },
+        {
+            "id": 488,
+            "level": 3
+        },
+        {
+            "id": 494,
+            "level": 2
+        },
+        {
+            "id": 501,
+            "level": 4
+        },
+        {
+            "id": 542,
+            "level": 5
+        },
+        {
+            "id": 564,
+            "level": 5
+        },
+        {
+            "id": 595,
+            "level": 4
+        },
+        {
+            "id": 599,
+            "level": 5
+        },
+        {
+            "id": 622,
+            "level": 5
+        },
+        {
+            "id": 625,
+            "level": 5
+        },
+        {
+            "id": 631,
+            "level": 5
+        },
+        {
+            "id": 636,
+            "level": 5
+        },
+        {
+            "id": 640,
+            "level": 3
+        },
+        {
+            "id": 656,
+            "level": 3
+        },
+        {
+            "id": 663,
+            "level": 3
+        },
+        {
+            "id": 676,
+            "level": 2
+        },
+        {
+            "id": 677,
+            "level": 3
+        },
+        {
+            "id": 721,
+            "level": 3
+        },
+        {
+            "id": 724,
+            "level": 2
+        },
+        {
+            "id": 729,
+            "level": 2
+        },
+        {
+            "id": 735,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 184,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 200,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 211,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 215,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 221,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 247,
+            "tgt_id": 232
+        },
+        {
+            "src_id": 251,
+            "tgt_id": 232
+        },
+        {
+            "src_id": 253,
+            "tgt_id": 232
+        },
+        {
+            "src_id": 267,
+            "tgt_id": 232
+        },
+        {
+            "src_id": 276,
+            "tgt_id": 232
+        },
+        {
+            "src_id": 280,
+            "tgt_id": 232
+        },
+        {
+            "src_id": 292,
+            "tgt_id": 232
+        },
+        {
+            "src_id": 302,
+            "tgt_id": 232
+        },
+        {
+            "src_id": 357,
+            "tgt_id": 351
+        },
+        {
+            "src_id": 387,
+            "tgt_id": 358
+        },
+        {
+            "src_id": 388,
+            "tgt_id": 358
+        },
+        {
+            "src_id": 389,
+            "tgt_id": 358
+        },
+        {
+            "src_id": 390,
+            "tgt_id": 358
+        },
+        {
+            "src_id": 391,
+            "tgt_id": 358
+        },
+        {
+            "src_id": 394,
+            "tgt_id": 392
+        },
+        {
+            "src_id": 395,
+            "tgt_id": 392
+        },
+        {
+            "src_id": 396,
+            "tgt_id": 392
+        },
+        {
+            "src_id": 410,
+            "tgt_id": 398
+        },
+        {
+            "src_id": 440,
+            "tgt_id": 411
+        },
+        {
+            "src_id": 441,
+            "tgt_id": 411
+        },
+        {
+            "src_id": 442,
+            "tgt_id": 411
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 411
+        },
+        {
+            "src_id": 444,
+            "tgt_id": 411
+        },
+        {
+            "src_id": 447,
+            "tgt_id": 445
+        },
+        {
+            "src_id": 448,
+            "tgt_id": 445
+        },
+        {
+            "src_id": 449,
+            "tgt_id": 445
+        },
+        {
+            "src_id": 450,
+            "tgt_id": 445
+        },
+        {
+            "src_id": 451,
+            "tgt_id": 445
+        },
+        {
+            "src_id": 452,
+            "tgt_id": 453
+        },
+        {
+            "src_id": 460,
+            "tgt_id": 453
+        },
+        {
+            "src_id": 473,
+            "tgt_id": 461
+        },
+        {
+            "src_id": 482,
+            "tgt_id": 461
+        },
+        {
+            "src_id": 483,
+            "tgt_id": 461
+        },
+        {
+            "src_id": 484,
+            "tgt_id": 461
+        },
+        {
+            "src_id": 485,
+            "tgt_id": 461
+        },
+        {
+            "src_id": 486,
+            "tgt_id": 461
+        },
+        {
+            "src_id": 487,
+            "tgt_id": 461
+        },
+        {
+            "src_id": 489,
+            "tgt_id": 488
+        },
+        {
+            "src_id": 491,
+            "tgt_id": 488
+        },
+        {
+            "src_id": 493,
+            "tgt_id": 488
+        },
+        {
+            "src_id": 500,
+            "tgt_id": 494
+        },
+        {
+            "src_id": 506,
+            "tgt_id": 501
+        },
+        {
+            "src_id": 509,
+            "tgt_id": 501
+        },
+        {
+            "src_id": 510,
+            "tgt_id": 501
+        },
+        {
+            "src_id": 512,
+            "tgt_id": 501
+        },
+        {
+            "src_id": 513,
+            "tgt_id": 501
+        },
+        {
+            "src_id": 555,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 557,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 559,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 563,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 572,
+            "tgt_id": 564
+        },
+        {
+            "src_id": 574,
+            "tgt_id": 564
+        },
+        {
+            "src_id": 575,
+            "tgt_id": 564
+        },
+        {
+            "src_id": 578,
+            "tgt_id": 564
+        },
+        {
+            "src_id": 587,
+            "tgt_id": 564
+        },
+        {
+            "src_id": 589,
+            "tgt_id": 564
+        },
+        {
+            "src_id": 590,
+            "tgt_id": 564
+        },
+        {
+            "src_id": 592,
+            "tgt_id": 564
+        },
+        {
+            "src_id": 598,
+            "tgt_id": 595
+        },
+        {
+            "src_id": 620,
+            "tgt_id": 599
+        },
+        {
+            "src_id": 621,
+            "tgt_id": 622
+        },
+        {
+            "src_id": 624,
+            "tgt_id": 622
+        },
+        {
+            "src_id": 627,
+            "tgt_id": 625
+        },
+        {
+            "src_id": 629,
+            "tgt_id": 625
+        },
+        {
+            "src_id": 646,
+            "tgt_id": 640
+        },
+        {
+            "src_id": 648,
+            "tgt_id": 640
+        },
+        {
+            "src_id": 652,
+            "tgt_id": 640
+        },
+        {
+            "src_id": 653,
+            "tgt_id": 640
+        },
+        {
+            "src_id": 655,
+            "tgt_id": 640
+        },
+        {
+            "src_id": 659,
+            "tgt_id": 656
+        },
+        {
+            "src_id": 661,
+            "tgt_id": 656
+        },
+        {
+            "src_id": 671,
+            "tgt_id": 663
+        },
+        {
+            "src_id": 673,
+            "tgt_id": 663
+        },
+        {
+            "src_id": 675,
+            "tgt_id": 663
+        },
+        {
+            "src_id": 681,
+            "tgt_id": 677
+        },
+        {
+            "src_id": 684,
+            "tgt_id": 677
+        },
+        {
+            "src_id": 693,
+            "tgt_id": 677
+        },
+        {
+            "src_id": 712,
+            "tgt_id": 677
+        },
+        {
+            "src_id": 725,
+            "tgt_id": 724
+        },
+        {
+            "src_id": 726,
+            "tgt_id": 724
+        },
+        {
+            "src_id": 727,
+            "tgt_id": 724
+        },
+        {
+            "src_id": 728,
+            "tgt_id": 724
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 223,
+            "table2_idx": 224,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "临时工程",
+                    "施工临时围堰、导流工程,降排水工程;临时施工场地、仓库工程等;临时交通(航道、码头、道路、桥涵、铁路等)工程;砂石料及混凝土系统工程,机械修配与综合加工系统工程;临时场外供电工程;临时房建工程;防护工程;防汛、防冰设施;施工给排水、暖通空调、供电、供风、通信等工程;施工期通航安全措施;水上安全监控设施;施工期测量定位设施;施工期环保及水土保持措施;其他临时工程和施工保障措施",
+                    "建(构)筑物基础、主体及配套工程;设备材料的购置、制作、安装和附属工程;设备基础及配套构筑物工程等;拆除、恢复工程;各类施工措施等"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1",
+                    "疏浚工程",
+                    "船舶作业及回旋水域、进厂航道疏浚工程",
+                    "挖泥及泥土处理工程;炸礁、挖岩、清渣工程;抛(纳)泥区围堰工程等"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 388,
+            "table2_idx": 389,
+            "upper_row_ss": [
+                [
+                    "十",
+                    "疏浚(吹填)工程费(概算扩大系数:......)",
+                    "",
+                    "",
+                    "-",
+                    "-",
+                    "-",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "colspan=11, 审核: 复核: 编制:"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "colspan=8, 设备购置单位工程概算表工程名称: 工程代号: 工程类别: 编号:"
+                ],
+                [
+                    "序号",
+                    "设备或费用名称",
+                    "规格",
+                    "单位",
+                    "数量",
+                    "单价(万元)",
+                    "合计(万元)",
+                    "备注"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 394,
+            "table2_idx": 395,
+            "upper_row_ss": [
+                [
+                    "colspan=3, 合计",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "colspan=8, 审核: 复核: 编制:"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "colspan=9, 补充单位估价表分部分项工程名称: 单位: 编号:"
+                ],
+                [
+                    "rowspan=2, 序号",
+                    "rowspan=2,colspan=2, 项目名称",
+                    "rowspan=2, 单位",
+                    "rowspan=2, 数量",
+                    "colspan=2, 单价(元)",
+                    "colspan=2, 合价(元)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 395,
+            "table2_idx": 396,
+            "upper_row_ss": [
+                [
+                    "",
+                    "colspan=2, 单位单价",
+                    "元",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "colspan=9, 1.工程内容:"
+                ],
+                [
+                    "colspan=9, 2.依据说明:"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "colspan=9, 单位估价表(或补充单位估价表)分部分项工程名称: 单位: 编号:"
+                ],
+                [
+                    "rowspan=2, 序号",
+                    "colspan=2, 项目",
+                    "rowspan=2, 单位",
+                    "rowspan=2, 数量",
+                    "colspan=2, 单价(元)",
+                    "colspan=2, 合价(元)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 447,
+            "table2_idx": 448,
+            "upper_row_ss": [
+                [
+                    "",
+                    "colspan=2, 单位单价",
+                    "元",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "colspan=9, 1.工程内容:"
+                ],
+                [
+                    "colspan=9, 2.依据说明:"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, 序号",
+                    "colspan=2, 项目",
+                    "rowspan=2, 单位",
+                    "rowspan=2, 数量",
+                    "colspan=2, 单价(元)",
+                    "colspan=2, 合价(元)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 448,
+            "table2_idx": 449,
+            "upper_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "colspan=9, "
+                ],
+                [
+                    "colspan=9, 1.工程内容:"
+                ],
+                [
+                    "colspan=9, 2.依据说明:"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "colspan=4, 工程船舶机械艘(台)班用量汇总表"
+                ],
+                [
+                    "colspan=4, 工程名称: 工程代号:"
+                ],
+                [
+                    "序 号",
+                    "名称及规格",
+                    "单 位",
+                    "数 量"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 574,
+            "table2_idx": 575,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "rowspan=2, 内河航运设备及大型金属结构设备制作安装工程",
+                    "安装",
+                    "1.49",
+                    "1.76",
+                    "1.14"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1",
+                    "colspan=2, 一般水工工程",
+                    "1.27",
+                    "1.49",
+                    "0.97"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 620,
+            "table2_idx": 621,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "rowspan=2, 内河航运设备及大型金属结构设备制作安装工程",
+                    "安装",
+                    "8.44",
+                    "9.16",
+                    "9.60",
+                    "10.06",
+                    "10.25",
+                    "11.14"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, 序号",
+                    "rowspan=2,colspan=2, 专业工程名称",
+                    "L≤25",
+                    "251003005001000",
+                    "251003005001000",
+                    "1003005001000",
+                    "3005001000",
+                    "5001000"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        12,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 277 133 720<|content|>One Liberty Plaza, 52nd Floor New York, New York 10006\n<|id|>2<|page|>1<|box|>141 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 715 185 854<|content|>February 24, 2026\n<|id|>4<|page|>1<|box|>193 140 229 852<|content|>Belmont Ridge Bank, National Association 600 Lexington Avenue, 38th Floor New York, New York 10022\n<|id|>5<|page|>1<|box|>237 176 253 681<|content|>Attention: ... Wexler, General Counsel & Corporate Secretary\n<|id|>6<|page|>1<|box|>253 140 290 854<|content|>Re: ... 1045-00001\n<|id|>7<|page|>1<|box|>299 140 316 279<|content|>Dear Ms. ... Wexler\n<|id|>24<|page|>2<|box|>733 142 768 854<|content|>10. ... and\n<|id|>26<|page|>2<|box|>828 140 883 856<|content|>The documents described in items (1) through (6) a...nsidered relevant to the opinions expressed herein\n<|id|>47<|page|>4<|box|>875 174 909 854<|content|>4. ... The representations and warranties of BRB c...t forth in the Purchase Agreement and the Officers\n<|id|>48<|page|>5<|box|>90 210 143 854<|content|>Certificate dated February 24, 2026, are and will ... of any relevant date during the term of the Notes\n<|id|>55<|page|>5<|box|>792 140 902 856<|content|>In the absence of a single statutory or regulatory... be treated as debt or equity for U. ... 2d 11 (2d\n<|id|>56<|page|>6<|box|>89 140 181 856<|content|>Cir. ... While no single factor is dispositive, an...g factors are among those most commonly considered\n<|id|>67<|page|>6<|box|>575 174 613 854<|content|>(11) Whether the instrument was issued in exchange...or cash or other non-equity consideration; ... and\n<|id|>69<|page|>6<|box|>683 140 738 856<|content|>As noted, no single factor is determinative, and t... foregoing factors, as applied to the Notes, below\n<|id|>87<|page|>8<|box|>789 138 898 857<|content|>Subordination is sometimes cited as a factor that ...ose borne by senior creditors. ... In re Lane, 742\n<|id|>89<|page|>9<|box|>189 140 262 856<|content|>Moreover, the Notes are not subordinated to all ob...debtedness and clearly distinguishable from equity\n<|id|>124<|page|>12<|box|>632 174 686 854<|content|>(ii) The yield to maturity of the debt instrument ... (5) percentage points (the \"Yield Test\"); ... and\n<|id|>126<|page|>12<|box|>739 140 756 681<|content|>We address each prong of the AHYDO test as applied...ng of the AHYDO test as applied to the Notes below\n<|id|>163<|page|>16<|box|>820 140 893 856<|content|>Calderwood & Harkness LLP hereby consents to the r...of the U. ... In giving such consent, Calderwood &\n<|id|>164<|page|>17<|box|>89 140 145 854<|content|>Harkness LLP does not thereby admit that it is wit...ies and Exchange Commission promulgated thereunder\n<|id|>170<|page|>17<|box|>333 142 349 308<|content|>Name: ... Leonard Cross\n<|id|>171<|page|>17<|box|>349 142 366 357<|content|>Title: ... Specialist Partner, Tax\n<|id|>172<|page|>17<|box|>367 143 382 199<|content|>Noted: ... Noted\n<|id|>174<|page|>17<|box|>401 142 417 341<|content|>Name: ... Claire\n<|id|>175<|page|>17<|box|>417 142 435 460<|content|>Title: ... Responsible Partner, Capital Markets\n<|id|>176<|page|>17<|box|>436 142 453 310<|content|>Enclosures: ... As stated\n<|id|>178<|page|>17<|box|>487 174 541 854<|content|>Vivienne St. ... Talbott, Treasurer, Belmont Ridge Bank, National Association\n<|id|>179<|page|>17<|box|>549 138 626 854<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGE / ATTORNE...stribution of this document is strictly prohibited",
+    "raw_response": "<|src_id|>47<|tgt_id|>48\n<|src_id|>55<|tgt_id|>56\n<|src_id|>163<|tgt_id|>164",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        }
+    ]
+}

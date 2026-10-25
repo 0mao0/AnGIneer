@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 447 106 550<|content|>EXHIBIT O\n<|id|>1<|type|>title<|page|>1<|box|>114 269 133 728<|content|>FORM OF CERTIFICATE OF NON-FOREIGN STATUS\n<|id|>2<|type|>title<|page|>1<|box|>141 390 159 606<|content|>(FIRPTA CERTIFICATE)\n<|id|>4<|type|>title<|page|>1<|box|>318 142 335 241<|content|>RECITALS\n<|id|>7<|type|>title<|page|>1<|box|>502 140 518 305<|content|>CERTIFICATIONS\n<|id|>8<|type|>title<|page|>1<|box|>534 140 551 401<|content|>Section 1. Identity of Transferor.\n<|id|>13<|type|>title<|page|>1<|box|>709 140 727 439<|content|>Section 2. Non-Foreign Person Status.\n<|id|>17<|type|>title<|page|>2<|box|>157 140 174 457<|content|>Section 3. General Partner Information.\n<|id|>22<|type|>title<|page|>2<|box|>460 140 478 413<|content|>Section 4. Taxpayer Identification.\n<|id|>25<|type|>title<|page|>2<|box|>571 140 589 437<|content|>Section 5. Description of Transaction.\n<|id|>28<|type|>table<|page|>2<|box|>724 143 893 852<|content|>None\n<|id|>29<|type|>table<|page|>3<|box|>88 143 202 852<|content|>None\n<|id|>31<|type|>title<|page|>3<|box|>321 140 339 442<|content|>Section 6. Additional Representations.\n<|id|>35<|type|>title<|page|>3<|box|>652 140 670 308<|content|>Section 7. Authority.\n<|id|>39<|type|>title<|page|>4<|box|>90 140 107 498<|content|>Section 8. Governing Law and Miscellaneous.\n<|id|>46<|type|>title<|page|>5<|box|>89 142 107 256<|content|>SIGNATURE\n<|id|>47<|type|>title<|page|>5<|box|>114 142 132 227<|content|>SELLER:\n<|id|>55<|type|>title<|page|>5<|box|>300 142 318 421<|content|>NOTARY ACKNOWLEDGMENT\n<|id|>56<|type|>title<|page|>5<|box|>325 140 344 330<|content|>STATE OF GEORGIA\n<|id|>57<|type|>title<|page|>5<|box|>352 140 369 336<|content|>COUNTY OF FULTON",
+    "raw_response": "<|src_id|>28<|tgt_id|>25\n<|src_id|>29<|tgt_id|>25",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 25
+        }
+    ]
+}

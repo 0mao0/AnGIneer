@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 9,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Book value of U.S. interest excl. interag.items....', '5.0', '16.8', '5.3', '2,545.2', '.4', '1,406.9', '*', '216.3', '2,499.3']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Account', 'rowspan=2, Housing and Home Finance Agency - (Continued)', 'rowspan=3, Panama Canal Company 15/', 'colspan=4, Reconstruction Finance Corporation and certain affiliates 16/', 'colspan=2, In liquidation by Reconstruction Finance Corporation 16/', 'rowspan=3, Tennessee Valley Authority']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 196,
+    "table2_idx": 198
+}

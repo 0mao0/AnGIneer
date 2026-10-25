@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 27,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['', 'A)首尾导标的几何类型为点;B)灯的几何类型为点;C)顶标的几何类型为点;D)除航空障碍物灯或雾探测灯外,COLOUR(颜色)、LITCHR(灯质)为灯必备属性;E)当为航空障碍物灯或物探测灯时,CATLIT(灯类)为灯必备属性;F)当为孤光时,SECTR1(扇形界线1)、SECTR2(扇形界线2)为灯必备属性;G)当不是定光灯时,SIGPER(信号周期)、SIGGRP(信号组)为灯必备属性;H)当灯为定向的或光栅效应时,ORIENT(方位)为灯必备属性;', 'BCNNVG(航行标志岸标)(M)CATNGM(航行标志类)=[15(首尾导标)](M)BCNSHP(岸标形状)=[1(桩、杆、秆、竿、柱),2(柳条),3(立标塔)]共用标:左侧:(M)COLOUR(颜色)=[1(白),2(黑)]右侧:(M)COLOUR(颜色)=[1(白),3(红)]非共用标:背景深暗处:(M)COLOUR(颜色)=[1(白色)]背景明亮处:(M)COLOUR(颜色)=[2(黑色),3(红色)](O)CODADN(航标编码)=[首尾导标编码](C)COLPAT(彩色图案)=[1(横条纹),2(竖条纹)](M)VIRANS(虚拟航标标识)=[1(否),2(是)](O)OBJNAM(英文名称)=[首尾导标英文名称](O)NOBJNM(中文名称)=[首尾导标中文名称](O)INFORM(英文信息)=[首尾导标英文信息](O)NINFOM(中文信息)=[首尾导标中文信息](C)SORDAT(数据来源日期)=[YYYYMMDD](C)SORIND(数据来源表示)=[cc,cc,cccc,c···]LIGHTS(灯)']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=3, 首尾导标(岸标)'], ['示意图', '编码说明', '对应物标属性编码']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 2813,
+    "table2_idx": 2814
+}

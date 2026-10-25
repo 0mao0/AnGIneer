@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['\"for coupling between an optical fiber and a photonic integrated', 'No construction disputed; plain and ordinary meaning.', 'Both accused products couple light between external optical fibers and', 'Met. Both products couple light between an optical fiber and a PIC.']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['circuit\"', '', 'the on-chip photonic integrated circuit. The LumosBridgeTM 800G uses an edge-coupled fiber array; the LumosEdgeTM 400ZR+ uses a similar edge-coupling arrangement. See Lumos Product Datasheets.', '']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 161,
+    "table2_idx": 162
+}

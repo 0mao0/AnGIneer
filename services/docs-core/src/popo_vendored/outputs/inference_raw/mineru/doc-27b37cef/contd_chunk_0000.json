@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        11,
+        12,
+        19,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>183 140 219 854<|content|>From: ... Pamela Cross, Nicholas Stern, and Theres...LP 125 Broad Street, 44th Floor New York, NY 10004\n<|id|>3<|page|>1<|box|>228 140 282 854<|content|>To: ... Calloway, Founder & Chief Investment Offic... 590 Madison Avenue, 38th Floor New York, NY 10022\n<|id|>4<|page|>1<|box|>290 140 308 341<|content|>Date: ... September 15, 2024\n<|id|>5<|page|>1<|box|>315 140 351 854<|content|>Re: ... Analysis of Meridian Reactivation Feasibility Memo — Key Issues for ICM Cascadia Co- Invest, LP\n<|id|>6<|page|>1<|box|>359 142 377 331<|content|>Matter No. ... 1023-00001\n<|id|>7<|page|>1<|box|>385 140 402 408<|content|>Right-click to update Table of Contents\n<|id|>53<|page|>6<|box|>857 140 893 854<|content|>The Reactivation Memo, a copy of which is attached...uld be reactivated and brought to closing. ... The\n<|id|>54<|page|>7<|box|>90 140 162 854<|content|>Reactivation Memo was prepared by Meridian's deal ...s financial advisor, Blackthorn Advisory Group LLC\n<|id|>63<|page|>7<|box|>869 140 906 857<|content|>Financing Availability. ... It references Meridian's intention to re-engage Atlas\n<|id|>64<|page|>8<|box|>90 140 181 854<|content|>National Bank, N. ... The assumption of \"commercia...he original commitment was executed in August 2022\n<|id|>98<|page|>11<|box|>857 140 893 854<|content|>Due Diligence. ... A new commitment will almost ce...ements for fiscal years 2022 and 2023 (prepared by\n<|id|>99<|page|>12<|box|>89 140 164 854<|content|>Halstead & Greer LLP, Cascadia's independent audit...s and any other changes during the dormancy period\n<|id|>169<|page|>19<|box|>42 163 71 833<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>170<|page|>19<|box|>90 140 273 856<|content|>C&H Recommendation: ... This mechanism would prote...thout ultimately resulting in a closed transaction\n<|id|>239<|page|>27<|box|>351 142 367 320<|content|>Respectfully submitted,\n<|id|>240<|page|>27<|box|>368 140 383 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>241<|page|>27<|box|>386 143 402 253<|content|>By: ... By\n<|id|>242<|page|>27<|box|>402 143 419 305<|content|>Pamela Cross Partner\n<|id|>243<|page|>27<|box|>420 143 436 254<|content|>By: ... By\n<|id|>244<|page|>27<|box|>436 142 454 313<|content|>Nicholas Stern Partner\n<|id|>245<|page|>27<|box|>455 143 472 253<|content|>By: ... By\n<|id|>246<|page|>27<|box|>472 143 488 318<|content|>Theresa Kim Associate\n<|id|>247<|page|>27<|box|>488 140 505 738<|content|>Calderwood & Harkness LLP 125 Broad Street, 44th Floor New York, NY 10004\n<|id|>249<|page|>27<|box|>550 140 587 854<|content|>Enclosure A: ... Meridian Reactivation Feasibility...rk product — not a Calderwood & Harkness document)\n<|id|>250<|page|>27<|box|>594 140 631 854<|content|>Enclosure B: ... B of this memorandum)\n<|id|>251<|page|>27<|box|>638 140 676 854<|content|>Enclosure C: ... Financial Summary — ICM Cascadia ...st, LP Capital Position (as of September 15, 2024)",
+    "raw_response": "<|src_id|>53<|tgt_id|>54\n<|src_id|>63<|tgt_id|>64\n<|src_id|>98<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        }
+    ]
+}

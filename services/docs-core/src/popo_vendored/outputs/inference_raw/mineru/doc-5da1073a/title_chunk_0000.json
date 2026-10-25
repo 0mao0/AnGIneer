@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 357 107 854<|content|>As filed with the Securities and Exchange Commissi\n<|id|>2<|page|>1<|box|>140 241 157 756<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION\n<|id|>7<|page|>1<|box|>296 351 314 645<|content|>CASCADE RETAIL HOLDINGS INC.\n<|id|>34<|page|>3<|box|>470 439 487 558<|content|>PROSPECTUS\n<|id|>35<|page|>3<|box|>496 351 513 643<|content|>CASCADE RETAIL HOLDINGS INC.\n<|id|>36<|page|>3<|box|>523 439 539 558<|content|>$3,000,000,000\n<|id|>37<|page|>3<|box|>549 439 565 558<|content|>Common Stock\n<|id|>38<|page|>3<|box|>575 439 590 558<|content|>Preferred Stock\n<|id|>39<|page|>3<|box|>601 344 618 653<|content|>Debt Securities (Senior and Subordinated)\n<|id|>52<|page|>4<|box|>459 452 478 545<|content|>PART II\n<|id|>53<|page|>4<|box|>503 142 520 575<|content|>INFORMATION NOT REQUIRED IN PROSPECTUS\n<|id|>54<|page|>4<|box|>534 142 551 560<|content|>Item 14. Other Expenses of Issuance and Distributi\n<|id|>59<|page|>5<|box|>90 140 107 535<|content|>Item 15. Indemnification of Directors and Officers\n<|id|>65<|page|>5<|box|>686 142 704 281<|content|>Item 16. Exhibits\n<|id|>69<|page|>6<|box|>617 143 633 321<|content|>Item 17. Undertakings\n<|id|>83<|page|>8<|box|>393 140 412 267<|content|>SIGNATURES\n<|id|>89<|page|>8<|box|>580 142 598 352<|content|>POWER OF ATTORNEY\n<|id|>93<|page|>10<|box|>89 143 107 287<|content|>EXHIBIT INDEX",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>7<|level|>1\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>36<|level|>2\n<|id|>37<|level|>2\n<|id|>38<|level|>2\n<|id|>39<|level|>2\n<|id|>52<|level|>1\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>59<|level|>3\n<|id|>65<|level|>3\n<|id|>69<|level|>3\n<|id|>83<|level|>1\n<|id|>89<|level|>1\n<|id|>93<|level|>1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        }
+    ]
+}

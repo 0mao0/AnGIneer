@@ -1,0 +1,118 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ld06rrtl\\input\\pdfs\\doc-109296e3.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ld06rrtl\\enriched\\doc-109296e3.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>12<|level|>2\n<|id|>31<|level|>2\n<|id|>52<|level|>2\n<|id|>60<|level|>2\n<|id|>91<|level|>2\n<|id|>122<|level|>2\n<|id|>130<|level|>2\n<|id|>135<|level|>2\n<|id|>154<|level|>2\n<|id|>166<|level|>2\n<|id|>176<|level|>2\n<|id|>183<|level|>2\n<|id|>194<|level|>2\n<|id|>200<|level|>2\n<|id|>222<|level|>2\n<|id|>231<|level|>2\n<|id|>238<|level|>2",
+    "image_output": "<|src_id|>209<|tgt_id|>200\n<|src_id|>210<|tgt_id|>200",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 231,
+            "level": 2
+        },
+        {
+            "id": 238,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 209,
+            "tgt_id": 200
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 200
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 209,
+            "table2_idx": 210,
+            "upper_row_ss": [
+                [
+                    "Revenue",
+                    "$312.8M",
+                    "$401.5M",
+                    "$487.3M"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Adjusted EBITDA",
+                    "—",
+                    "—",
+                    "$218.6M"
+                ]
+            ]
+        }
+    ]
+}

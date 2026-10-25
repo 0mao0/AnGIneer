@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>12<|page|>1<|box|>690 140 708 612<|content|>Background — Trade Relationship and Outstanding Cl\n<|id|>16<|page|>2<|box|>414 140 431 511<|content|>Reclamation Demand Under 11 U.S.C. § 546(c)\n<|id|>24<|page|>3<|box|>375 140 391 428<|content|>Identification of Reclamation Goods\n<|id|>31<|page|>4<|box|>241 140 258 375<|content|>Demand for Return of Goods\n<|id|>38<|page|>4<|box|>766 140 782 470<|content|>Alternative Relief — Adequate Protection\n<|id|>45<|page|>5<|box|>527 140 545 316<|content|>Reservation of Rights\n<|id|>56<|page|>6<|box|>590 140 607 450<|content|>Request for Response and Cooperation\n<|id|>59<|page|>7<|box|>90 142 107 310<|content|>Contact Information\n<|id|>78<|page|>7<|box|>825 143 842 238<|content|>Enclosures:",
+    "raw_response": "<|id|>12<|level|>1\n<|id|>16<|level|>1\n<|id|>24<|level|>1\n<|id|>31<|level|>1\n<|id|>38<|level|>1\n<|id|>45<|level|>1\n<|id|>56<|level|>1\n<|id|>59<|level|>1\n<|id|>78<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        }
+    ]
+}

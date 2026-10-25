@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>419 140 435 678<|content|>I. INTRODUCTION AND IDENTIFICATION OF TRANSACTION\n<|id|>13<|page|>2<|box|>167 140 184 393<|content|>II. DOCUMENTS EXAMINED\n<|id|>28<|page|>3<|box|>667 140 684 310<|content|>III. ASSUMPTIONS\n<|id|>39<|page|>5<|box|>89 142 106 267<|content|>IV. OPINIONS\n<|id|>41<|page|>5<|box|>166 140 183 748<|content|>4.1 Due Authorization and Execution by the Borrowe\n<|id|>45<|page|>5<|box|>564 140 582 604<|content|>4.2 Enforceability of the Deed of Trust Under Virg\n<|id|>52<|page|>6<|box|>513 140 530 424<|content|>4.3 Assignment of Leases and Rents\n<|id|>56<|page|>7<|box|>176 140 194 475<|content|>4.4 Security Agreement and Fixture Filing\n<|id|>59<|page|>7<|box|>549 140 566 635<|content|>4.5 Sufficiency of Recording in Loudoun County Lan\n<|id|>65<|page|>8<|box|>367 140 383 297<|content|>4.6 Priority of Lien\n<|id|>71<|page|>9<|box|>138 140 157 411<|content|>4.7 No Conflict with Virginia Law\n<|id|>73<|page|>9<|box|>349 140 367 503<|content|>V. QUALIFICATIONS AND LIMITATIONS\n<|id|>89<|page|>11<|box|>339 140 357 400<|content|>VI. RELIANCE AND BENEFIT\n<|id|>94<|page|>12<|box|>89 140 107 292<|content|>VII. SIGNATURE",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>28<|level|>1\n<|id|>39<|level|>1\n<|id|>41<|level|>2\n<|id|>45<|level|>2\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>59<|level|>2\n<|id|>65<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>1\n<|id|>89<|level|>1\n<|id|>94<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        }
+    ]
+}

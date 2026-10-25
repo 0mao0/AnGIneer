@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['B-8', 'CRM System (Pinnacle Health IT — TBD)', 'Cloud (Pinnacle Health IT infrastructure', 'N/A (structured data export)', '0.05–0.1 TB', 'Structured export (CSV / API export)', 'TMC IT (Redstone oversight)']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', ')', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 315,
+    "table2_idx": 316
+}

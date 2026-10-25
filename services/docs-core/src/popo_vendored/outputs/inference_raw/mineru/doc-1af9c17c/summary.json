@@ -1,0 +1,185 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-f450bfal\\input\\pdfs\\doc-1af9c17c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-f450bfal\\enriched\\doc-1af9c17c.json",
+    "contd_output": "<|src_id|>87<|tgt_id|>88\n<|src_id|>158<|tgt_id|>159",
+    "title_output": "<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>9<|level|>2\n<|id|>18<|level|>2\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>39<|level|>3\n<|id|>51<|level|>3\n<|id|>61<|level|>3\n<|id|>71<|level|>3\n<|id|>82<|level|>3\n<|id|>90<|level|>3\n<|id|>96<|level|>3\n<|id|>106<|level|>3\n<|id|>116<|level|>3\n<|id|>123<|level|>3\n<|id|>129<|level|>3\n<|id|>136<|level|>3\n<|id|>144<|level|>3\n<|id|>153<|level|>3\n<|id|>165<|level|>3\n<|id|>171<|level|>3\n<|id|>176<|level|>3\n<|id|>188<|level|>3\n<|id|>196<|level|>3\n<|id|>205<|level|>3\n<|id|>215<|level|>3\n<|id|>221<|level|>3\n<|id|>227<|level|>3\n<|id|>238<|level|>3\n<|id|>245<|level|>2\n<|id|>256<|level|>2",
+    "image_output": "<|src_id|>0<|tgt_id|>1\n<|src_id|>93<|tgt_id|>90\n<|src_id|>94<|tgt_id|>90",
+    "contd_label": [
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 159
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 188,
+            "level": 3
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 227,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 3
+        },
+        {
+            "id": 245,
+            "level": 2
+        },
+        {
+            "id": 256,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 90
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 93,
+            "table2_idx": 94,
+            "upper_row_ss": [
+                [
+                    "CY2",
+                    "April 1, 2020 – March 31, 2021",
+                    "Approximately $31,800,000",
+                    "$43,200,000 (unadjusted) / $21,600,000 (adjusted for force majeure)",
+                    "ACV satisfied on an adjusted basis. Stonefield properly invoked force majeure under TSA Section 12.1 for COVID-19 pandemic impacts on freight demand for the period April 2020 through September 2020 (six months). The adjusted ACV for CY2 was $43,200,000 × (6/12) = $21,600,000. Stonefield's actual tenders of"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "approximately $31,800,000 during CY2 exceeded the adjusted ACV minimum by approximately $10,200,000."
+                ]
+            ]
+        }
+    ]
+}

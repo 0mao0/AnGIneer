@@ -1,0 +1,142 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>219 140 237 254<|content|>1. Addressees\n<|id|>12<|page|>1<|box|>522 140 539 338<|content|>2. Recitals / Background\n<|id|>19<|page|>2<|box|>502 140 518 285<|content|>3. Payoff Amount\n<|id|>21<|page|>2<|box|>577 140 594 343<|content|>3.1 Principal Component\n<|id|>23<|page|>2<|box|>625 433 643 563<|content|>$450,000,000.00\n<|id|>25<|page|>2<|box|>738 140 755 434<|content|>3.2 Applicable Redemption Premium\n<|id|>31<|page|>3<|box|>184 140 200 401<|content|>3.3 Accrued and Unpaid Interest\n<|id|>39<|page|>3<|box|>503 140 520 339<|content|>3.4 Total Payoff Amount\n<|id|>45<|page|>4<|box|>89 140 107 334<|content|>3.5 Good-Through Date\n<|id|>47<|page|>4<|box|>300 140 319 377<|content|>4. Wire Transfer Instructions\n<|id|>48<|page|>4<|box|>332 140 349 462<|content|>4.1 Wire Instructions for Payoff Amount\n<|id|>58<|page|>4<|box|>739 140 757 364<|content|>4.2 Confirmation of Receipt\n<|id|>67<|page|>5<|box|>380 140 397 594<|content|>5. Confirmation of Outstanding Balance Post-Redemp\n<|id|>69<|page|>5<|box|>486 434 503 563<|content|>$400,000,000.00\n<|id|>72<|page|>5<|box|>781 140 797 313<|content|>6. Release Mechanics\n<|id|>73<|page|>5<|box|>811 140 828 477<|content|>6.1 No Release of Indenture or Guarantees\n<|id|>77<|page|>6<|box|>319 140 335 424<|content|>6.2 Cancellation of Redeemed Notes\n<|id|>81<|page|>6<|box|>681 140 699 495<|content|>6.3 Selection of Notes for Partial Redemption\n<|id|>84<|page|>7<|box|>204 140 222 581<|content|>7. Representations and Acknowledgments of the Trus\n<|id|>91<|page|>7<|box|>804 140 821 375<|content|>8. Conditions to Effectiveness\n<|id|>97<|page|>8<|box|>520 140 537 276<|content|>9. Authorization\n<|id|>100<|page|>9<|box|>90 142 107 297<|content|>10. Governing Law\n<|id|>102<|page|>9<|box|>250 142 265 383<|content|>11. Counterparts and Delivery\n<|id|>105<|page|>9<|box|>472 176 508 816<|content|>SIGNATURE PAGE TO PAYOFF LETTER Partial Redemption\n<|id|>112<|page|>9<|box|>647 316 662 679<|content|>ACKNOWLEDGMENT AND AGREEMENT\n<|id|>125<|page|>10<|box|>107 447 125 550<|content|>EXHIBIT A\n<|id|>126<|page|>10<|box|>132 294 148 704<|content|>FORM OF NOTICE OF PARTIAL REDEMPTION\n<|id|>127<|page|>10<|box|>157 171 194 825<|content|>7.50% Senior Unsecured Notes due October 15, 2028\n<|id|>128<|page|>10<|box|>203 336 220 658<|content|>NOTICE OF PARTIAL REDEMPTION\n<|id|>143<|page|>11<|box|>246 447 263 550<|content|>EXHIBIT B\n<|id|>144<|page|>11<|box|>272 338 289 660<|content|>FORM OF OFFICERS' CERTIFICATE\n<|id|>145<|page|>11<|box|>297 205 342 790<|content|>Partial Redemption of 7.50% Senior Unsecured Notes\n<|id|>167<|page|>12<|box|>505 405 522 591<|content|>DISTRIBUTION LIST",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>12<|level|>1\n<|id|>19<|level|>1\n<|id|>21<|level|>2\n<|id|>23<|level|>-1\n<|id|>25<|level|>2\n<|id|>31<|level|>2\n<|id|>39<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>1\n<|id|>48<|level|>2\n<|id|>58<|level|>2\n<|id|>67<|level|>1\n<|id|>69<|level|>-1\n<|id|>72<|level|>1\n<|id|>73<|level|>2\n<|id|>77<|level|>2\n<|id|>81<|level|>2\n<|id|>84<|level|>1\n<|id|>91<|level|>1\n<|id|>97<|level|>1\n<|id|>100<|level|>1\n<|id|>102<|level|>1\n<|id|>105<|level|>1\n<|id|>112<|level|>1\n<|id|>125<|level|>1\n<|id|>126<|level|>2\n<|id|>127<|level|>-1\n<|id|>128<|level|>3\n<|id|>143<|level|>1\n<|id|>144<|level|>2\n<|id|>145<|level|>-1\n<|id|>167<|level|>1",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 1
+        }
+    ]
+}

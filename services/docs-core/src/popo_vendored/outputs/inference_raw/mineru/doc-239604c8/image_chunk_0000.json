@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>9<|type|>title<|page|>1<|box|>594 142 612 354<|content|>1. Scope of Representation\n<|id|>34<|type|>title<|page|>3<|box|>587 140 604 313<|content|>2. Engagement Team\n<|id|>45<|type|>title<|page|>4<|box|>703 140 719 338<|content|>3. Fees and Billing Rates\n<|id|>47<|type|>table<|page|>4<|box|>770 143 864 852<|content|>None\n<|id|>51<|type|>title<|page|>5<|box|>421 140 438 372<|content|>4. Fee Estimate and Soft Cap\n<|id|>57<|type|>title<|page|>6<|box|>267 140 284 460<|content|>5. Disbursements and Third-Party Costs\n<|id|>68<|type|>title<|page|>7<|box|>321 140 339 380<|content|>6. Billing and Payment Terms\n<|id|>73<|type|>title<|page|>7<|box|>777 140 794 387<|content|>7. Client Identity and Conflicts\n<|id|>78<|type|>title<|page|>8<|box|>483 140 500 284<|content|>8. Confidentiality\n<|id|>86<|type|>title<|page|>9<|box|>148 140 167 326<|content|>9. Document Retention\n<|id|>90<|type|>title<|page|>9<|box|>488 142 505 393<|content|>10. Termination of Engagement\n<|id|>96<|type|>title<|page|>9<|box|>840 142 859 297<|content|>11. Governing Law\n<|id|>98<|type|>title<|page|>10<|box|>204 142 222 431<|content|>12. Entire Agreement / Amendments\n<|id|>105<|type|>title<|page|>10<|box|>714 140 731 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>109<|type|>title<|page|>10<|box|>809 339 824 656<|content|>ACKNOWLEDGED AND ACCEPTED\n<|id|>111<|type|>title<|page|>11<|box|>89 140 106 563<|content|>GREENFIELD AGRICULTURAL PARTNERS LLC",
+    "raw_response": "<|src_id|>47<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        }
+    ]
+}

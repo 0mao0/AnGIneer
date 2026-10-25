@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        61
+    ],
+    "pages": [
+        1,
+        3,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        36,
+        45,
+        60
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>705 570 849 743<|content|>FEATURES Profile of the Economy Financial Operations International Statistics Special Reports\n<|id|>2<|page|>1<|box|>864 614 887 746<|content|>Produced and Published by\n<|id|>3<|page|>1<|box|>891 522 921 748<|content|>Department of the Treasury Bureau of the Fiscal Service\n<|id|>7<|page|>3<|box|>507 318 529 676<|content|>treasury. ... gov\n<|id|>8<|page|>3<|box|>544 120 580 875<|content|>Internet service subscribers can access the Treasu...rough the Bureau of the Fiscal Service's home page\n<|id|>28<|page|>8<|box|>174 527 189 700<|content|>Growth of Real GDP\n<|id|>30<|page|>8<|box|>630 504 805 915<|content|>Private domestic final demand (consumption plus pr...age points to real GDP growth in the third quarter\n<|id|>29<|page|>8<|box|>191 532 205 751<|content|>(Quarterly percent change at annual rate)\n<|id|>41<|page|>9<|box|>748 504 909 916<|content|>Job losses during the recession were spread broadl...health care and social assistance sector has added\n<|id|>42<|page|>10<|box|>555 81 818 491<|content|>The unemployment rate peaked in October 2009 at a ...ear high of 10. ... 5 percent before the recession\n<|id|>48<|page|>10<|box|>863 504 909 915<|content|>In February 2015, the Administration released its ...icit slightly further in the near term and put the\n<|id|>49<|page|>11<|box|>95 91 128 308<|content|>Consumer Prices (Percent change from a year earlier)\n<|id|>51<|page|>11<|box|>659 81 909 491<|content|>Key fiscal and monetary policy actions taken over ...ast few years have aided the recovery. ... In late\n<|id|>52<|page|>11<|box|>89 504 178 915<|content|>December 2011, the 2 percentage point payroll tax ...its for the remainder of 2012 were signed into law\n<|id|>62<|page|>12<|box|>704 504 909 916<|content|>Key interest rates on private securities, which sp... points in April 2014, but thereafter, has widened\n<|id|>63<|page|>13<|box|>99 98 128 364<|content|>Long-Term Interest Rate Spreads (Percent)\n<|id|>64<|page|>13<|box|>409 81 439 490<|content|>very gradually to 317 basis points, still very hig...is points, still very high by historical standards\n<|id|>67<|page|>13<|box|>571 81 618 491<|content|>The value of the U. ... dollar compared with the c...ies, Japan, Canada, the United Kingdom, Australia,\n<|id|>68<|page|>13<|box|>409 504 616 915<|content|>Sweden, and Switzerland) appreciated to a peak lev...o), the dollar has appreciated by about 20 percent\n<|id|>89<|page|>15<|box|>515 380 527 616<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>90<|page|>15<|box|>535 83 551 279<|content|>Fourth-Quarter Receipts\n<|id|>91<|page|>15<|box|>554 81 657 488<|content|>The following capsule analysis of budget receipts,... to analyze adequately collections for the quarter\n<|id|>159<|page|>36<|box|>685 81 717 491<|content|>• Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>161<|page|>36<|box|>250 504 397 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>191<|page|>45<|box|>537 338 549 658<|content|>[Source: ... Bureau of the Fiscal Service, Division of Financing Operations]\n<|id|>192<|page|>45<|box|>556 83 575 156<|content|>JULY\n<|id|>193<|page|>45<|box|>585 83 602 271<|content|>Auction of 3-Year Notes\n<|id|>194<|page|>45<|box|>614 81 674 490<|content|>On July 2, 2015, Treasury announced it would aucti...to raise new cash of approximately \\$5,274 million\n<|id|>344<|page|>60<|box|>85 421 167 913<|content|>INTERNATIONAL\n<|id|>345<|page|>60<|box|>200 710 252 919<|content|>Foreign Currency Positions Exchange Stabilization Fund\n<|id|>346<|page|>60<|box|>167 602 189 915<|content|>STATISTICS",
+    "raw_response": "<|src_id|>51<|tgt_id|>52\n<|src_id|>62<|tgt_id|>64\n<|src_id|>67<|tgt_id|>68",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        }
+    ]
+}

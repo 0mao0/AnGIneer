@@ -1,0 +1,157 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ty3sqoq7\\input\\pdfs\\doc-581ba8dd.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ty3sqoq7\\enriched\\doc-581ba8dd.json",
+    "contd_output": "<|src_id|>29<|tgt_id|>30\n<|src_id|>36<|tgt_id|>37\n<|src_id|>42<|tgt_id|>43",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>21<|level|>2\n<|id|>24<|level|>2\n<|id|>53<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>2\n<|id|>66<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>3\n<|id|>83<|level|>3\n<|id|>84<|level|>3\n<|id|>85<|level|>4\n<|id|>87<|level|>3\n<|id|>91<|level|>3\n<|id|>92<|level|>4\n<|id|>94<|level|>3",
+    "image_output": "<|src_id|>9<|tgt_id|>7\n<|src_id|>14<|tgt_id|>12\n<|src_id|>15<|tgt_id|>12\n<|src_id|>55<|tgt_id|>53\n<|src_id|>64<|tgt_id|>62\n<|src_id|>68<|tgt_id|>66\n<|src_id|>78<|tgt_id|>77",
+    "contd_label": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 4
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 4
+        },
+        {
+            "id": 94,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 9,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 77
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 14,
+            "table2_idx": 15,
+            "upper_row_ss": [
+                [
+                    "Janet Gould",
+                    "Director",
+                    "Independent Director"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

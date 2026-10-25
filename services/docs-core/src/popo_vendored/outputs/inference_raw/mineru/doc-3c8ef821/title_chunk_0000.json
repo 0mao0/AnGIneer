@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        34
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        11,
+        14,
+        20,
+        26,
+        27,
+        28,
+        29,
+        30,
+        32,
+        34
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 707<|content|>ATTORNEY-CLIENT PRIVILEGED & CONFIDENTIAL ATTORNEY\n<|id|>1<|page|>1<|box|>113 403 133 593<|content|>MEMORANDUM\n<|id|>10<|page|>1<|box|>436 142 452 321<|content|>I. Executive Summary\n<|id|>18<|page|>2<|box|>593 140 609 297<|content|>II. Scope of Review\n<|id|>29<|page|>4<|box|>186 140 204 498<|content|>III. Summary Table of Mortgaged Properties\n<|id|>31<|page|>4<|box|>699 140 715 267<|content|>Notes to Table:\n<|id|>34<|page|>5<|box|>250 140 266 550<|content|>IV. Property-by-Property Title and Survey Analysis\n<|id|>35<|page|>5<|box|>279 140 297 640<|content|>A. Property 1: 1400 Industrial Parkway, Schaumburg\n<|id|>81<|page|>11<|box|>89 140 107 593<|content|>B. Property 2: 2750 Commerce Drive, Rockford, IL 6\n<|id|>115<|page|>14<|box|>830 140 848 620<|content|>C. Property 3: 600 Manufacturers Row, Greenville,\n<|id|>159<|page|>20<|box|>257 140 273 704<|content|>D. Property 4: 9100 Westpark Industrial Boulevard,\n<|id|>208<|page|>26<|box|>89 140 107 398<|content|>V. Existing Liens to Be Released\n<|id|>221<|page|>27<|box|>148 140 167 573<|content|>VI. Title Insurance — Policy Forms and Endorsement\n<|id|>222<|page|>27<|box|>180 140 198 390<|content|>Policy Form and Insured Party\n<|id|>228<|page|>28<|box|>359 140 377 565<|content|>VII. Mortgage Recording Tax and Fee Considerations\n<|id|>230<|page|>28<|box|>508 140 526 503<|content|>Cook County, Illinois (Schaumburg Property)\n<|id|>232<|page|>28<|box|>672 140 690 524<|content|>Winnebago County, Illinois (Rockford Property)\n<|id|>234<|page|>28<|box|>763 140 781 586<|content|>Greenville County, South Carolina (Greenville Prop\n<|id|>236<|page|>29<|box|>213 140 229 472<|content|>Harris County, Texas (Houston Property)\n<|id|>238<|page|>29<|box|>321 140 339 334<|content|>Transaction Fee Budget\n<|id|>240<|page|>29<|box|>459 140 477 493<|content|>VIII. Coordination with Other Workstreams\n<|id|>248<|page|>30<|box|>747 140 763 405<|content|>IX. Open Items and Action Items\n<|id|>254<|page|>32<|box|>573 142 590 258<|content|>X. Conclusion\n<|id|>271<|page|>34<|box|>128 140 146 344<|content|>Appendices (Referenced)",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>18<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>3\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>81<|level|>3\n<|id|>115<|level|>3\n<|id|>159<|level|>3\n<|id|>208<|level|>2\n<|id|>221<|level|>2\n<|id|>222<|level|>3\n<|id|>228<|level|>2\n<|id|>230<|level|>3\n<|id|>232<|level|>3\n<|id|>234<|level|>3\n<|id|>236<|level|>3\n<|id|>238<|level|>3\n<|id|>240<|level|>2\n<|id|>248<|level|>2\n<|id|>254<|level|>2\n<|id|>271<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 3
+        },
+        {
+            "id": 236,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 3
+        },
+        {
+            "id": 240,
+            "level": 2
+        },
+        {
+            "id": 248,
+            "level": 2
+        },
+        {
+            "id": 254,
+            "level": 2
+        },
+        {
+            "id": 271,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 315 157 681<|content|>COMMONWEALTH OF MASSACHUSETTS SUPERIOR COURT CIVIL\n<|id|>5<|page|>1<|box|>328 142 344 490<|content|>SECTION 1: PLAINTIFF INFORMATION\n<|id|>14<|page|>1<|box|>575 143 593 504<|content|>SECTION 2: DEFENDANT INFORMATION\n<|id|>21<|page|>1<|box|>790 143 806 609<|content|>SECTION 3: PLAINTIFF'S ATTORNEY INFORMATION\n<|id|>31<|page|>2<|box|>260 140 277 736<|content|>SECTION 4: DEFENDANT'S ATTORNEY INFORMATION (IF KN\n<|id|>44<|page|>3<|box|>148 140 166 403<|content|>SECTION 6: RELATED CASES\n<|id|>51<|page|>3<|box|>400 140 417 599<|content|>SECTION 7: DEMAND / AMOUNT IN CONTROVERSY\n<|id|>55<|page|>3<|box|>686 140 704 323<|content|>Jury Trial Demanded:\n<|id|>57<|page|>3<|box|>809 140 825 563<|content|>SECTION 8: BRIEF DESCRIPTION OF THE CASE\n<|id|>63<|page|>4<|box|>599 140 618 560<|content|>SECTION 9: BASIS FOR VENUE / JURISDICTION\n<|id|>69<|page|>6<|box|>89 140 106 563<|content|>SECTION 10: CERTIFICATION AND SIGNATURE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>31<|level|>2\n<|id|>44<|level|>2\n<|id|>51<|level|>2\n<|id|>55<|level|>3\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>69<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        }
+    ]
+}

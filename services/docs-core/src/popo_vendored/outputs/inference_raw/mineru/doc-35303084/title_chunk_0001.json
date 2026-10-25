@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        49
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>505<|page|>45<|box|>250 142 265 321<|content|>Part 3 — Volume Tier\n<|id|>511<|page|>45<|box|>488 437 503 560<|content|>SCHEDULE B\n<|id|>512<|page|>45<|box|>513 426 530 571<|content|>FEE SCHEDULE\n<|id|>521<|page|>46<|box|>460 447 479 550<|content|>EXHIBIT A\n<|id|>522<|page|>46<|box|>487 241 505 754<|content|>FORM OF FCRA PERMISSIBLE PURPOSE CERTIFICATION\n<|id|>523<|page|>46<|box|>513 142 531 566<|content|>FCRA PERMISSIBLE PURPOSE CERTIFICATION\n<|id|>535<|page|>47<|box|>483 142 500 504<|content|>QUORUM INSURANCE HOLDINGS CORP.\n<|id|>540<|page|>47<|box|>569 449 585 549<|content|>EXHIBIT B\n<|id|>541<|page|>47<|box|>595 287 612 710<|content|>DATA PROCESSING AGREEMENT (CCPA/CPRA)\n<|id|>552<|page|>48<|box|>321 447 339 550<|content|>EXHIBIT C\n<|id|>553<|page|>48<|box|>348 364 364 633<|content|>DATA SECURITY ADDENDUM\n<|id|>568<|page|>49<|box|>246 449 262 550<|content|>EXHIBIT D\n<|id|>569<|page|>49<|box|>272 361 289 635<|content|>SERVICE LEVEL AGREEMENT",
+    "raw_response": "<|id|>505<|level|>1\n<|id|>511<|level|>1\n<|id|>512<|level|>2\n<|id|>521<|level|>1\n<|id|>522<|level|>2\n<|id|>523<|level|>3\n<|id|>535<|level|>1\n<|id|>540<|level|>1\n<|id|>541<|level|>2\n<|id|>552<|level|>1\n<|id|>553<|level|>2\n<|id|>568<|level|>1\n<|id|>569<|level|>2",
+    "parsed": [
+        {
+            "id": 505,
+            "level": 1
+        },
+        {
+            "id": 511,
+            "level": 1
+        },
+        {
+            "id": 512,
+            "level": 2
+        },
+        {
+            "id": 521,
+            "level": 1
+        },
+        {
+            "id": 522,
+            "level": 2
+        },
+        {
+            "id": 523,
+            "level": 3
+        },
+        {
+            "id": 535,
+            "level": 1
+        },
+        {
+            "id": 540,
+            "level": 1
+        },
+        {
+            "id": 541,
+            "level": 2
+        },
+        {
+            "id": 552,
+            "level": 1
+        },
+        {
+            "id": 553,
+            "level": 2
+        },
+        {
+            "id": 568,
+            "level": 1
+        },
+        {
+            "id": 569,
+            "level": 2
+        }
+    ]
+}

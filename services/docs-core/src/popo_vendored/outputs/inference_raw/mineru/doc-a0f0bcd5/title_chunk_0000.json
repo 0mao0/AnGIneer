@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>112 194 160 800<|content|>DEPARTMENT OF THE TREASURY — INTERNAL REVENUE SERV\n<|id|>1<|page|>1<|box|>185 290 202 707<|content|>Power of Attorney and Declaration of Representativ\n<|id|>6<|page|>1<|box|>320 142 338 439<|content|>PART I — POWER OF ATTORNEY\n<|id|>8<|page|>1<|box|>396 142 412 397<|content|>Line 1 — Taxpayer Information\n<|id|>11<|page|>1<|box|>614 142 631 357<|content|>Line 2 — Representative(s)\n<|id|>13<|page|>1<|box|>700 143 715 282<|content|>Representative 1:\n<|id|>17<|page|>2<|box|>507 142 523 349<|content|>Line 3 — Acts Authorized\n<|id|>21<|page|>3<|box|>213 140 229 416<|content|>Line 4 — Specific Acts Authorized\n<|id|>32<|page|>4<|box|>90 140 107 620<|content|>Line 5 — Retention/Revocation of Prior Power(s) of\n<|id|>36<|page|>5<|box|>90 140 108 397<|content|>Line 6 — Taxpayer Signature(s)\n<|id|>41<|page|>5<|box|>589 142 606 576<|content|>PART II — DECLARATION OF REPRESENTATIVE\n<|id|>62<|page|>7<|box|>277 364 292 633<|content|>ATTACHMENT TO FORM 2848\n<|id|>63<|page|>7<|box|>303 258 319 738<|content|>COVER NOTE — PRIVATE LETTER RULING REQUEST\n<|id|>64<|page|>7<|box|>329 272 345 725<|content|>Fairwater Real Estate Investment Trust (EIN 52-471\n<|id|>89<|page|>9<|box|>90 142 125 638<|content|>Garrett Simmons Counsel (202) 555-7100 FILING / SU\n<|id|>90<|page|>9<|box|>133 323 150 673<|content|>(Internal Use — Calderwood & Harkness LLP)\n<|id|>92<|page|>9<|box|>465 143 482 359<|content|>Accompanying Documents:\n<|id|>97<|page|>9<|box|>696 176 714 429<|content|>5. Supporting exhibits, including:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>6<|level|>2\n<|id|>8<|level|>3\n<|id|>11<|level|>3\n<|id|>13<|level|>4\n<|id|>17<|level|>3\n<|id|>21<|level|>3\n<|id|>32<|level|>3\n<|id|>36<|level|>3\n<|id|>41<|level|>2\n<|id|>62<|level|>1\n<|id|>63<|level|>2\n<|id|>64<|level|>3\n<|id|>89<|level|>-1\n<|id|>90<|level|>-1\n<|id|>92<|level|>3\n<|id|>97<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 4
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 4
+        }
+    ]
+}

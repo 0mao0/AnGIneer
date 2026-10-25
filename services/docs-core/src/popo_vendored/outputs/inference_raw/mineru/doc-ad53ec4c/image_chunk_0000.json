@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>549 142 566 416<|content|>1. Description of Third Production\n<|id|>13<|type|>title<|page|>2<|box|>186 140 204 429<|content|>2. Cumulative Production Summary\n<|id|>15<|type|>table<|page|>2<|box|>272 143 487 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>617 140 633 254<|content|>3. Custodians\n<|id|>26<|type|>title<|page|>3<|box|>267 140 284 383<|content|>4. Completeness of Production\n<|id|>30<|type|>title<|page|>3<|box|>625 140 640 385<|content|>5. Confidentiality Designations\n<|id|>33<|type|>title<|page|>4<|box|>90 140 107 271<|content|>6. Privilege Log\n<|id|>37<|type|>title<|page|>4<|box|>539 140 556 346<|content|>7. Cooperation Statement\n<|id|>54<|type|>title<|page|>5<|box|>396 143 412 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>15<|tgt_id|>13",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        }
+    ]
+}

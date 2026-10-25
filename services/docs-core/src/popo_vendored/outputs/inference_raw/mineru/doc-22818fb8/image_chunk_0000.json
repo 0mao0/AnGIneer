@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        17,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 187 118 810<|content|>RIGHT OF FIRST REFUSAL AND CO-SALE AGREEMENT\n<|id|>1<|type|>title<|page|>1<|box|>135 359 152 637<|content|>MERIDIAN DIAGNOSTICS, INC.\n<|id|>2<|type|>title<|page|>1<|box|>162 403 180 594<|content|>a Delaware corporation\n<|id|>3<|type|>title<|page|>1<|box|>186 390 205 607<|content|>Dated as of February 9, 2026\n<|id|>4<|type|>title<|page|>1<|box|>213 251 229 745<|content|>RIGHT OF FIRST REFUSAL AND CO-SALE AGREEMENT\n<|id|>10<|type|>title<|page|>1<|box|>457 140 474 243<|content|>RECITALS\n<|id|>19<|type|>title<|page|>2<|box|>273 140 291 374<|content|>SECTION 1: DEFINITIONS\n<|id|>40<|type|>title<|page|>4<|box|>273 140 291 490<|content|>SECTION 2: RIGHT OF FIRST REFUSAL\n<|id|>65<|type|>title<|page|>7<|box|>376 140 393 429<|content|>SECTION 3: RIGHT OF CO-SALE\n<|id|>89<|type|>title<|page|>9<|box|>787 140 805 442<|content|>SECTION 4: EXEMPT TRANSFERS\n<|id|>102<|type|>title<|page|>11<|box|>266 140 282 555<|content|>SECTION 5: EFFECT OF FAILURE TO COMPLY\n<|id|>106<|type|>title<|page|>12<|box|>89 142 106 331<|content|>SECTION 6: LEGEND\n<|id|>113<|type|>title<|page|>13<|box|>167 140 184 338<|content|>SECTION 7: LOCK-UP\n<|id|>119<|type|>title<|page|>13<|box|>758 140 776 413<|content|>SECTION 8: MISCELLANEOUS\n<|id|>126<|type|>title<|page|>14<|box|>314 140 332 383<|content|>8.2 Amendments and Waivers.\n<|id|>166<|type|>title<|page|>17<|box|>787 236 805 759<|content|>[Remainder of Page Intentionally Left Blank; Signa\n<|id|>167<|type|>title<|page|>17<|box|>813 147 830 848<|content|>SIGNATURE PAGES TO RIGHT OF FIRST REFUSAL AND CO-S\n<|id|>169<|type|>title<|page|>17<|box|>883 142 898 248<|content|>COMPANY:\n<|id|>219<|type|>table<|page|>19<|box|>208 143 407 852<|content|>None\n<|id|>221<|type|>table<|page|>19<|box|>619 143 825 852<|content|>None\n<|id|>223<|type|>title<|page|>20<|box|>203 447 219 550<|content|>EXHIBIT C\n<|id|>224<|type|>title<|page|>20<|box|>228 362 244 633<|content|>FORM OF SPOUSAL CONSENT",
+    "raw_response": "<|src_id|>219<|tgt_id|>167\n<|src_id|>221<|tgt_id|>167",
+    "parsed": [
+        {
+            "src_id": 219,
+            "tgt_id": 167
+        },
+        {
+            "src_id": 221,
+            "tgt_id": 167
+        }
+    ]
+}

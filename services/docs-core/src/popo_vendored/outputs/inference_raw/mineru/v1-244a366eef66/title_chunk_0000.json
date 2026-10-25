@@ -1,0 +1,135 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 351<|content|>【4474636#0】城际列车 (德国)\n<|id|>2<|page|>1<|box|>175 105 191 351<|content|>【4474636#1】城际列车 (德国)\n<|id|>4<|page|>1<|box|>293 107 309 359<|content|>【4474636#28】城际列车 (德国)\n<|id|>6<|page|>1<|box|>462 105 478 359<|content|>【4474636#60】城际列车 (德国)\n<|id|>8<|page|>1<|box|>563 107 579 352<|content|>【4474636#7】城际列车 (德国)\n<|id|>10<|page|>1<|box|>699 105 715 425<|content|>【4477532#0】城际列车 (德国)路线列表\n<|id|>14<|page|>2<|box|>117 105 133 319<|content|>【44951#47】香港商業電台\n<|id|>16<|page|>2<|box|>184 107 200 223<|content|>【45#21】戲劇\n<|id|>18<|page|>2<|box|>336 107 353 223<|content|>【45#23】戲劇\n<|id|>20<|page|>2<|box|>420 105 436 319<|content|>【450599#1】三信商業銀行\n<|id|>22<|page|>2<|box|>486 107 502 248<|content|>【451#81】浙江省\n<|id|>24<|page|>3<|box|>73 107 89 359<|content|>【451802#1】千島群島 (北美洲)\n<|id|>26<|page|>3<|box|>175 107 190 354<|content|>【4521873#66】对法轮功的镇压\n<|id|>28<|page|>3<|box|>292 107 309 319<|content|>【453#13】广西壮族自治区\n<|id|>30<|page|>3<|box|>428 107 444 258<|content|>【45353#7】宿迁市\n<|id|>32<|page|>3<|box|>529 105 545 364<|content|>【4540187#0】阿尔及利亚共产党\n<|id|>34<|page|>3<|box|>595 107 611 364<|content|>【4540187#1】阿尔及利亚共产党\n<|id|>36<|page|>3<|box|>662 105 677 364<|content|>【4540187#3】阿尔及利亚共产党\n<|id|>38<|page|>3<|box|>746 107 760 300<|content|>【455#65】内蒙古自治区\n<|id|>40<|page|>3<|box|>846 105 863 300<|content|>【455#66】内蒙古自治区\n<|id|>42<|page|>4<|box|>99 105 116 302<|content|>【455#80】内蒙古自治区\n<|id|>44<|page|>4<|box|>374 105 388 329<|content|>【4552273#0】上海道路命名\n<|id|>46<|page|>5<|box|>73 107 89 336<|content|>【4552273#15】上海道路命名\n<|id|>48<|page|>5<|box|>156 105 173 337<|content|>【4552273#34】上海道路命名\n<|id|>50<|page|>5<|box|>258 105 274 336<|content|>【4552273#75】上海道路命名\n<|id|>52<|page|>5<|box|>410 105 426 337<|content|>【4552273#87】上海道路命名\n<|id|>54<|page|>5<|box|>476 105 493 337<|content|>【4552273#88】上海道路命名\n<|id|>56<|page|>5<|box|>577 105 594 336<|content|>【4552273#89】上海道路命名\n<|id|>58<|page|>5<|box|>852 105 866 337<|content|>【4552273#91】上海道路命名",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>1\n<|id|>58<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ]
+}

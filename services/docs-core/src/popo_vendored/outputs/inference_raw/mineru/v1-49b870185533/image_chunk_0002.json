@@ -1,0 +1,73 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        99,
+        121
+    ],
+    "pages": [
+        99,
+        100,
+        101,
+        103,
+        105,
+        106,
+        108,
+        110,
+        111,
+        113,
+        114,
+        116,
+        118,
+        120,
+        121
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>932<|type|>title<|page|>99<|box|>143 34 157 369<|content|>Changes in Internal Control over Financial Reporti\n<|id|>934<|type|>title<|page|>99<|box|>228 34 241 240<|content|>ITEM 9B. OTHER INFORMATION\n<|id|>938<|type|>title<|page|>99<|box|>424 34 436 630<|content|>ITEM 9C. DISCLOSURE REGARDING FOREIGN JURISDICTION\n<|id|>940<|type|>title<|page|>100<|box|>79 470 90 527<|content|>PART III\n<|id|>941<|type|>title<|page|>100<|box|>118 34 132 540<|content|>ITEM 10. DIRECTORS, EXECUTIVE OFFICERS AND CORPORA\n<|id|>943<|type|>title<|page|>100<|box|>214 34 227 279<|content|>ITEM 11. EXECUTIVE COMPENSATION\n<|id|>945<|type|>title<|page|>100<|box|>297 32 324 637<|content|>ITEM 12. SECURITY OWNERSHIP OF CERTAIN BENEFICIAL\n<|id|>947<|type|>title<|page|>100<|box|>369 34 383 676<|content|>ITEM 13. CERTAIN RELATIONSHIPS AND RELATED TRANSAC\n<|id|>949<|type|>title<|page|>100<|box|>429 34 443 397<|content|>ITEM 14. PRINCIPAL ACCOUNTING FEES AND SERVICES\n<|id|>952<|type|>title<|page|>101<|box|>64 470 78 527<|content|>PART IV\n<|id|>953<|type|>title<|page|>101<|box|>102 34 114 400<|content|>ITEM 15. EXHIBITS, FINANCIAL STATEMENT SCHEDULES\n<|id|>954<|type|>title<|page|>101<|box|>125 35 137 186<|content|>1. Financial Statements\n<|id|>956<|type|>table<|page|>101<|box|>175 35 273 962<|content|>None\n<|id|>958<|type|>title<|page|>101<|box|>306 34 320 104<|content|>2. Exhibits\n<|id|>960<|type|>table<|page|>101<|box|>375 81 622 939<|content|>None\n<|id|>977<|type|>table<|page|>103<|box|>71 169 669 942<|content|>None\n<|id|>993<|type|>table<|page|>105<|box|>70 165 654 941<|content|>None\n<|id|>994<|type|>table<|page|>106<|box|>78 161 603 942<|content|>None\n<|id|>996<|type|>title<|page|>108<|box|>66 444 80 553<|content|>SIGNATURES\n<|id|>1000<|type|>table<|page|>108<|box|>159 444 200 923<|content|>None\n<|id|>1002<|type|>table<|page|>108<|box|>272 73 661 937<|content|>None\n<|id|>1011<|type|>table<|page|>110<|box|>128 32 393 954<|content|>None\n<|id|>1012<|type|>table<|page|>110<|box|>452 32 792 821<|content|>None\n<|id|>1013<|type|>table<|page|>111<|box|>54 32 426 792<|content|>None\n<|id|>1039<|type|>title<|page|>113<|box|>112 328 125 668<|content|>Consent of Independent Registered Public Accountin\n<|id|>1061<|type|>title<|page|>114<|box|>102 423 114 575<|content|>POWER OF ATTORNEY\n<|id|>1063<|type|>table<|page|>114<|box|>234 32 665 862<|content|>None\n<|id|>1073<|type|>title<|page|>116<|box|>104 333 133 663<|content|>Certification of Chief Executive Officer Pursuant\n<|id|>1089<|type|>title<|page|>118<|box|>106 300 137 697<|content|>Certification of Chief Financial Officer Pursuant\n<|id|>1090<|type|>title<|page|>118<|box|>141 32 156 186<|content|>I, Jean Hu, certify that:\n<|id|>1108<|type|>title<|page|>120<|box|>101 32 117 723<|content|>Certification of Principal Executive Officer Pursu\n<|id|>1115<|type|>title<|page|>121<|box|>101 32 117 720<|content|>Certification of Principal Financial Officer Pursu",
+    "raw_response": "<|src_id|>956<|tgt_id|>954\n<|src_id|>960<|tgt_id|>958\n<|src_id|>977<|tgt_id|>958\n<|src_id|>993<|tgt_id|>958\n<|src_id|>994<|tgt_id|>958\n<|src_id|>1000<|tgt_id|>996\n<|src_id|>1002<|tgt_id|>996\n<|src_id|>1011<|tgt_id|>996\n<|src_id|>1012<|tgt_id|>996\n<|src_id|>1013<|tgt_id|>996\n<|src_id|>1063<|tgt_id|>1061",
+    "parsed": [
+        {
+            "src_id": 956,
+            "tgt_id": 954
+        },
+        {
+            "src_id": 960,
+            "tgt_id": 958
+        },
+        {
+            "src_id": 977,
+            "tgt_id": 958
+        },
+        {
+            "src_id": 993,
+            "tgt_id": 958
+        },
+        {
+            "src_id": 994,
+            "tgt_id": 958
+        },
+        {
+            "src_id": 1000,
+            "tgt_id": 996
+        },
+        {
+            "src_id": 1002,
+            "tgt_id": 996
+        },
+        {
+            "src_id": 1011,
+            "tgt_id": 996
+        },
+        {
+            "src_id": 1012,
+            "tgt_id": 996
+        },
+        {
+            "src_id": 1013,
+            "tgt_id": 996
+        },
+        {
+            "src_id": 1063,
+            "tgt_id": 1061
+        }
+    ]
+}

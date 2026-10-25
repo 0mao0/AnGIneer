@@ -1,0 +1,59 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>609 142 627 444<|content|>1. Gross Settlement Proceeds Received\n<|id|>14<|page|>2<|box|>267 140 284 354<|content|>2. Deduction — Legal Fees\n<|id|>15<|page|>2<|box|>297 140 314 271<|content|>2.1 Hourly Fees\n<|id|>20<|page|>2<|box|>805 140 821 385<|content|>2.2 Contingency Enhancement\n<|id|>27<|page|>3<|box|>287 140 304 303<|content|>2.3 Total Legal Fees\n<|id|>30<|page|>3<|box|>592 140 609 537<|content|>3. Deduction — Reimbursable Expenses Advanced\n<|id|>40<|page|>5<|box|>90 140 107 447<|content|>4. Net Settlement Proceeds Calculation\n<|id|>45<|page|>5<|box|>391 140 407 372<|content|>5. Disbursement Instructions\n<|id|>53<|page|>5<|box|>777 140 794 437<|content|>6. Remaining Administrative Matters\n<|id|>58<|page|>6<|box|>484 140 500 209<|content|>Closing",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>20<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>1\n<|id|>40<|level|>1\n<|id|>45<|level|>1\n<|id|>53<|level|>1\n<|id|>58<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ]
+}

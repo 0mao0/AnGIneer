@@ -1,0 +1,125 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>166 108 201 898<|content|>中华人民共和国交通行业标准\n<|id|>3<|page|>1<|box|>411 174 448 832<|content|>海区航标维护 固定建(构)筑物\n<|id|>4<|page|>1<|box|>473 206 495 800<|content|>Maintenance of marine aids to navigation-fixed str\n<|id|>8<|page|>2<|box|>133 448 156 558<|content|>目次\n<|id|>10<|page|>3<|box|>138 445 160 558<|content|>前言\n<|id|>22<|page|>4<|box|>132 316 153 697<|content|>海区航标维护 固定建(构)筑物\n<|id|>23<|page|>4<|box|>185 115 201 186<|content|>1 范围\n<|id|>26<|page|>4<|box|>259 113 276 274<|content|>2 规范性引用文件\n<|id|>31<|page|>4<|box|>410 113 425 236<|content|>3 术语和定义\n<|id|>33<|page|>4<|box|>457 113 470 148<|content|>3.1\n<|id|>36<|page|>4<|box|>513 115 526 150<|content|>3.2\n<|id|>37<|page|>4<|box|>531 150 545 517<|content|>固定航标建(构)筑物 fixed sea mark building\n<|id|>39<|page|>4<|box|>624 113 638 150<|content|>3.3\n<|id|>40<|page|>4<|box|>643 150 657 624<|content|>航标附属固定建(构)筑物 fixed sea mark affiliated building\n<|id|>42<|page|>4<|box|>707 113 723 329<|content|>4 建(构)筑物的基本要求\n<|id|>56<|page|>5<|box|>188 109 203 360<|content|>5 建(构)筑物的维护工作程序\n<|id|>66<|page|>5<|box|>448 109 464 324<|content|>6 建(构)筑物的维护要求\n<|id|>67<|page|>5<|box|>476 109 491 252<|content|>6.1 地基与基础\n<|id|>69<|page|>5<|box|>532 109 547 252<|content|>6.2 混凝土结构\n<|id|>73<|page|>5<|box|>662 109 676 233<|content|>6.3 金属结构\n<|id|>78<|page|>5<|box|>773 108 787 206<|content|>6.4 墙、柱\n<|id|>82<|page|>5<|box|>867 106 880 302<|content|>6.5 楼地面、屋面、顶棚\n<|id|>118<|page|>7<|box|>191 116 206 365<|content|>6.10 道路、台阶、码头、登陆点\n<|id|>126<|page|>7<|box|>359 116 375 250<|content|>6.11 涂层维护\n<|id|>141<|page|>8<|box|>543 116 558 302<|content|>6.12 避雷与接地装置\n<|id|>145<|page|>8<|box|>636 116 650 250<|content|>6.13 历史灯塔",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>2\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>22<|level|>1\n<|id|>23<|level|>2\n<|id|>26<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>3\n<|id|>36<|level|>3\n<|id|>37<|level|>4\n<|id|>39<|level|>3\n<|id|>40<|level|>4\n<|id|>42<|level|>2\n<|id|>56<|level|>2\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>69<|level|>3\n<|id|>73<|level|>3\n<|id|>78<|level|>3\n<|id|>82<|level|>3\n<|id|>118<|level|>3\n<|id|>126<|level|>3\n<|id|>141<|level|>3\n<|id|>145<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 4
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 4
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        }
+    ]
+}

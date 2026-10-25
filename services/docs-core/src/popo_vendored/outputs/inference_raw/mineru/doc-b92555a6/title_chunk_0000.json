@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 367 118 630<|content|>PRICING TERM SHEET\n<|id|>2<|page|>1<|box|>162 331 179 666<|content|>Belmont Ridge Bank, National Association\n<|id|>3<|page|>1<|box|>188 261 205 736<|content|>6.750% Fixed-to-Floating Rate Subordinated Notes d\n<|id|>8<|page|>1<|box|>655 142 672 295<|content|>Issuer Information\n<|id|>16<|page|>2<|box|>167 140 184 289<|content|>Securities Offered\n<|id|>21<|page|>2<|box|>404 140 421 305<|content|>Final Pricing Terms\n<|id|>27<|page|>2<|box|>648 142 665 305<|content|>Interest Rate Terms\n<|id|>35<|page|>3<|box|>165 143 183 310<|content|>Floating Rate Period\n<|id|>41<|page|>3<|box|>409 142 426 593<|content|>Day Count Convention (Floating Rate Period): Actua\n<|id|>45<|page|>3<|box|>719 143 737 410<|content|>Fixed-to-Floating Rate Reset Date\n<|id|>48<|page|>3<|box|>864 142 882 351<|content|>Maturity and Redemption\n<|id|>57<|page|>4<|box|>645 140 662 364<|content|>Ranking and Subordination\n<|id|>67<|page|>5<|box|>622 140 638 210<|content|>Ratings\n<|id|>70<|page|>6<|box|>89 140 107 256<|content|>CUSIP / ISIN\n<|id|>78<|page|>6<|box|>455 140 473 271<|content|>Use of Proceeds\n<|id|>82<|page|>6<|box|>794 140 811 271<|content|>Governing Law\n<|id|>84<|page|>7<|box|>204 140 222 418<|content|>Offering and Transfer Restrictions\n<|id|>89<|page|>7<|box|>604 142 623 287<|content|>Initial Purchasers\n<|id|>95<|page|>8<|box|>184 142 200 320<|content|>Regulatory Approvals",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>2\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>35<|level|>2\n<|id|>41<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>57<|level|>2\n<|id|>67<|level|>2\n<|id|>70<|level|>2\n<|id|>78<|level|>2\n<|id|>82<|level|>2\n<|id|>84<|level|>2\n<|id|>89<|level|>2\n<|id|>95<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        }
+    ]
+}

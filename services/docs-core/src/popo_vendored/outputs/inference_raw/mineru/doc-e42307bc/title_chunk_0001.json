@@ -1,0 +1,42 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>410<|page|>45<|box|>204 140 222 465<|content|>E. No Pending Litigation or Examination\n<|id|>412<|page|>45<|box|>398 140 417 424<|content|>F. Statement Regarding IRC § 6110\n<|id|>415<|page|>46<|box|>90 192 109 803<|content|>X. SIGNATURE BLOCK AND CONTACT INFORMATION\n<|id|>432<|page|>46<|box|>536 250 556 746<|content|>XI. DRAFT NOTATION / VERSION CONTROL\n<|id|>433<|page|>46<|box|>574 290 590 707<|content|>DRAFT — Version 3.0 — For LPAC Counsel Review\n<|id|>446<|page|>47<|box|>405 143 421 277<|content|>Version History:\n<|id|>448<|page|>48<|box|>123 348 138 648<|content|>— END OF DRAFT — VERSION 3.0 —",
+    "raw_response": "<|id|>410<|level|>2\n<|id|>412<|level|>2\n<|id|>415<|level|>1\n<|id|>432<|level|>1\n<|id|>433<|level|>2\n<|id|>446<|level|>2\n<|id|>448<|level|>-1",
+    "parsed": [
+        {
+            "id": 410,
+            "level": 2
+        },
+        {
+            "id": 412,
+            "level": 2
+        },
+        {
+            "id": 415,
+            "level": 1
+        },
+        {
+            "id": 432,
+            "level": 1
+        },
+        {
+            "id": 433,
+            "level": 2
+        },
+        {
+            "id": 446,
+            "level": 2
+        }
+    ]
+}

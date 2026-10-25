@@ -1,0 +1,84 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>113 197 157 797<|content|>MUTUAL CONFIDENTIALITY AND NON-DISCLOSURE AGREEMEN\n<|id|>7<|page|>1<|box|>436 140 454 243<|content|>RECITALS\n<|id|>12<|page|>1<|box|>690 140 708 374<|content|>SECTION 1: DEFINITIONS\n<|id|>40<|page|>4<|box|>148 140 166 601<|content|>SECTION 2: USE OF CONFIDENTIAL INFORMATION\n<|id|>43<|page|>4<|box|>589 140 606 439<|content|>SECTION 3: STANDARD OF CARE\n<|id|>45<|page|>4<|box|>839 140 856 491<|content|>SECTION 4: COMPELLED DISCLOSURE\n<|id|>48<|page|>5<|box|>595 140 613 723<|content|>SECTION 5: NON-DISCLOSURE OF TRANSACTION INFORMATI\n<|id|>50<|page|>6<|box|>148 140 166 581<|content|>SECTION 6: NON-SOLICITATION OF EMPLOYEES\n<|id|>56<|page|>6<|box|>630 140 667 779<|content|>SECTION 7: NO OBLIGATION TO PROCEED; NO REPRESENTA\n<|id|>59<|page|>7<|box|>332 140 349 823<|content|>SECTION 8: RETURN AND DESTRUCTION OF CONFIDENTIAL\n<|id|>69<|page|>8<|box|>364 140 383 473<|content|>SECTION 9: STANDSTILL PROVISION\n<|id|>77<|page|>9<|box|>376 140 393 558<|content|>SECTION 10: SECURITIES LAWS COMPLIANCE\n<|id|>79<|page|>9<|box|>736 140 753 359<|content|>SECTION 11: REMEDIES\n<|id|>82<|page|>10<|box|>285 140 301 498<|content|>SECTION 12: TERM AND TERMINATION\n<|id|>85<|page|>10<|box|>707 140 724 537<|content|>SECTION 13: MISCELLANEOUS PROVISIONS\n<|id|>95<|page|>12<|box|>535 143 551 284<|content|>If to Harrowgate:\n<|id|>112<|page|>13<|box|>695 142 710 553<|content|>HARROWGATE PRIVATE EQUITY FUND IV LP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>40<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>56<|level|>2\n<|id|>59<|level|>2\n<|id|>69<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>2\n<|id|>82<|level|>2\n<|id|>85<|level|>2\n<|id|>95<|level|>-1\n<|id|>112<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        }
+    ]
+}

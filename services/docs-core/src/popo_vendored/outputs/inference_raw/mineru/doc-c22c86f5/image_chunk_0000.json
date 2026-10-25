@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 326 118 669<|content|>UNITED STATES OF AMERICA\n<|id|>1<|type|>title<|page|>1<|box|>137 421 157 576<|content|>BEFORE THE\n<|id|>2<|type|>title<|page|>1<|box|>175 225 195 772<|content|>FEDERAL ENERGY REGULATORY COMMISSION\n<|id|>3<|type|>table<|page|>1<|box|>246 147 294 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>378 272 393 723<|content|>VERIFICATION AND CERTIFICATE OF ACCURACY\n<|id|>6<|type|>title<|page|>1<|box|>479 142 494 433<|content|>I. IDENTIFICATION OF AFFIANT\n<|id|>12<|type|>title<|page|>2<|box|>89 142 106 395<|content|>II. DESCRIPTION OF FILING\n<|id|>21<|type|>title<|page|>2<|box|>648 140 665 673<|content|>III. VERIFICATION OF KEY DATA — SYSTEM DESCRIPTION\n<|id|>31<|type|>title<|page|>3<|box|>631 142 648 781<|content|>IV. VERIFICATION OF KEY DATA — RATE BASE AND COST\n<|id|>33<|type|>title<|page|>3<|box|>707 143 723 248<|content|>A. Rate Base\n<|id|>40<|type|>title<|page|>4<|box|>436 142 454 367<|content|>B. Test-Year Cost of Service\n<|id|>49<|type|>title<|page|>5<|box|>275 140 292 400<|content|>C. Capital Structure and Return\n<|id|>53<|type|>title<|page|>5<|box|>542 140 560 584<|content|>V. VERIFICATION OF KEY DATA — RATE DESIGN\n<|id|>59<|type|>title<|page|>6<|box|>242 140 258 758<|content|>VI. VERIFICATION OF KEY DATA — INTERCONNECTION FAC\n<|id|>68<|type|>title<|page|>7<|box|>148 140 166 580<|content|>VII. VERIFICATION OF KEY DATA — FINANCING\n<|id|>73<|type|>title<|page|>7<|box|>659 140 676 457<|content|>VIII. CERTIFICATION OF SOURCES\n<|id|>81<|type|>title<|page|>8<|box|>513 140 532 589<|content|>IX. VERIFICATION UNDER PENALTY OF PERJURY\n<|id|>85<|type|>title<|page|>8<|box|>729 140 747 434<|content|>X. CERTIFICATE OF ACCURACY\n<|id|>91<|type|>title<|page|>10<|box|>89 142 107 285<|content|>XI. SIGNATURE\n<|id|>94<|type|>title<|page|>10<|box|>266 142 282 457<|content|>XII. NOTARY ACKNOWLEDGMENT\n<|id|>96<|type|>title<|page|>10<|box|>316 140 335 359<|content|>COUNTY OF KANAWHA",
+    "raw_response": "<|src_id|>3<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        }
+    ]
+}

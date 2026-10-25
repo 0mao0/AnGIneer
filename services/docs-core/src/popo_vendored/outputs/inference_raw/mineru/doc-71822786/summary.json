@@ -1,0 +1,657 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-oxssr3oe\\input\\pdfs\\doc-71822786.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-oxssr3oe\\enriched\\doc-71822786.json",
+    "contd_output": "<|src_id|>73<|tgt_id|>74\n<|src_id|>183<|tgt_id|>184",
+    "title_output": "<|id|>9<|level|>1\n<|id|>23<|level|>1\n<|id|>24<|level|>2\n<|id|>32<|level|>2\n<|id|>40<|level|>2\n<|id|>59<|level|>2\n<|id|>68<|level|>1\n<|id|>69<|level|>2\n<|id|>78<|level|>2\n<|id|>89<|level|>3\n<|id|>98<|level|>3\n<|id|>100<|level|>3\n<|id|>102<|level|>1\n<|id|>104<|level|>2\n<|id|>119<|level|>3\n<|id|>128<|level|>2\n<|id|>135<|level|>3\n<|id|>143<|level|>2\n<|id|>152<|level|>3\n<|id|>160<|level|>2\n<|id|>169<|level|>2\n<|id|>178<|level|>2\n<|id|>188<|level|>2\n<|id|>193<|level|>1\n<|id|>194<|level|>2\n<|id|>203<|level|>2\n<|id|>208<|level|>2\n<|id|>215<|level|>1\n<|id|>216<|level|>2\n<|id|>219<|level|>2\n<|id|>225<|level|>2\n<|id|>235<|level|>2\n<|id|>238<|level|>1\n<|id|>239<|level|>2\n<|id|>242<|level|>2\n<|id|>258<|level|>2\n<|id|>263<|level|>1\n<|id|>264<|level|>2\n<|id|>279<|level|>2\n<|id|>290<|level|>2\n<|id|>298<|level|>1\n<|id|>309<|level|>1\n<|id|>310<|level|>2\n<|id|>313<|level|>2\n<|id|>323<|level|>1\n<|id|>333<|level|>1\n<|id|>350<|level|>1\n<|id|>370<|level|>1\n<|id|>372<|level|>2\n<|id|>385<|level|>2\n<|id|>390<|level|>1\n<|id|>392<|level|>1",
+    "image_output": "<|src_id|>210<|tgt_id|>208\n<|src_id|>241<|tgt_id|>239\n<|src_id|>306<|tgt_id|>298\n<|src_id|>311<|tgt_id|>310\n<|src_id|>312<|tgt_id|>310\n<|src_id|>324<|tgt_id|>323\n<|src_id|>375<|tgt_id|>372\n<|src_id|>376<|tgt_id|>372\n<|src_id|>377<|tgt_id|>372\n<|src_id|>378<|tgt_id|>372\n<|src_id|>379<|tgt_id|>372\n<|src_id|>380<|tgt_id|>372\n<|src_id|>381<|tgt_id|>372\n<|src_id|>382<|tgt_id|>372\n<|src_id|>383<|tgt_id|>372\n<|src_id|>384<|tgt_id|>372\n<|src_id|>391<|tgt_id|>390\n<|src_id|>393<|tgt_id|>392\n<|src_id|>394<|tgt_id|>392\n<|src_id|>395<|tgt_id|>392",
+    "contd_label": [
+        {
+            "src_id": 73,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 184
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 1
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 1
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 2
+        },
+        {
+            "id": 235,
+            "level": 2
+        },
+        {
+            "id": 238,
+            "level": 1
+        },
+        {
+            "id": 239,
+            "level": 2
+        },
+        {
+            "id": 242,
+            "level": 2
+        },
+        {
+            "id": 258,
+            "level": 2
+        },
+        {
+            "id": 263,
+            "level": 1
+        },
+        {
+            "id": 264,
+            "level": 2
+        },
+        {
+            "id": 279,
+            "level": 2
+        },
+        {
+            "id": 290,
+            "level": 2
+        },
+        {
+            "id": 298,
+            "level": 1
+        },
+        {
+            "id": 309,
+            "level": 1
+        },
+        {
+            "id": 310,
+            "level": 2
+        },
+        {
+            "id": 313,
+            "level": 2
+        },
+        {
+            "id": 323,
+            "level": 1
+        },
+        {
+            "id": 333,
+            "level": 1
+        },
+        {
+            "id": 350,
+            "level": 1
+        },
+        {
+            "id": 370,
+            "level": 1
+        },
+        {
+            "id": 372,
+            "level": 2
+        },
+        {
+            "id": 385,
+            "level": 2
+        },
+        {
+            "id": 390,
+            "level": 1
+        },
+        {
+            "id": 392,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 210,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 241,
+            "tgt_id": 239
+        },
+        {
+            "src_id": 306,
+            "tgt_id": 298
+        },
+        {
+            "src_id": 311,
+            "tgt_id": 310
+        },
+        {
+            "src_id": 312,
+            "tgt_id": 310
+        },
+        {
+            "src_id": 324,
+            "tgt_id": 323
+        },
+        {
+            "src_id": 375,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 376,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 377,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 378,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 379,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 380,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 381,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 382,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 383,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 384,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 391,
+            "tgt_id": 390
+        },
+        {
+            "src_id": 393,
+            "tgt_id": 392
+        },
+        {
+            "src_id": 394,
+            "tgt_id": 392
+        },
+        {
+            "src_id": 395,
+            "tgt_id": 392
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 311,
+            "table2_idx": 312,
+            "upper_row_ss": [
+                [
+                    "August 14, 2024",
+                    "Most restrictive statutory deadline — Colorado and Florida (30 days from July 15, 2024 determination date). All individual notifications and AG filings will have been completed 9 days prior to this deadline"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "August 29, 2024",
+                    "45-day deadline — Maryland, Washington, Oregon, and similar 45-day states. All notifications will have been completed 24 days prior to this deadline"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 375,
+            "table2_idx": 376,
+            "upper_row_ss": [
+                [
+                    "Arizona",
+                    "Ariz. Rev. Stat. § 18-551 et seq.",
+                    "Name + SSN, DL, financial acct (w/code), health ins., biometric,",
+                    "Access/ Acquisition",
+                    "Yes",
+                    "Yes (>1,000)",
+                    "45 days",
+                    "298",
+                    "Email/ credential prong applies"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "email + password, tax ID, passport",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 376,
+            "table2_idx": 377,
+            "upper_row_ss": [
+                [
+                    "Delaware",
+                    "Del. Code tit. 6, § 12B-101 et seq.",
+                    "Name + SSN, DL, financial acct (w/ code),",
+                    "Access",
+                    "Yes",
+                    "Yes (>500)",
+                    "60 days",
+                    "173",
+                    "Email/ credential prong applies"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "medical,biometric,email +password,passport,tax ID",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 377,
+            "table2_idx": 378,
+            "upper_row_ss": [
+                [
+                    "Illinois",
+                    "815 ILCS 530/1 et seq.",
+                    "Name + SSN, DL,financial acct (w/code),medical,biometric,email +",
+                    "Access/Acquisiti on",
+                    "Yes",
+                    "Yes (>500)",
+                    "Most expedient time",
+                    "712",
+                    "Email/ credential prong applies"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "password",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 378,
+            "table2_idx": 379,
+            "upper_row_ss": [
+                [
+                    "Maine",
+                    "Me. Rev. Stat. tit. 10, § 1346 et seq.",
+                    "Name + SSN, DL, financial acct (w/code), email + password, biometric,",
+                    "Access",
+                    "Yes",
+                    "Yes (no threshold)",
+                    "Most expedient time",
+                    "42",
+                    "Email/ credential prong applies"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "medical",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 379,
+            "table2_idx": 380,
+            "upper_row_ss": [
+                [
+                    "Missouri",
+                    "Mo. Rev. Stat. § 407.1500",
+                    "Name + SSN, DL, financial acct (w/ code), medical, biometric,",
+                    "Access/Acquisition",
+                    "Yes",
+                    "Yes (>500)",
+                    "Most expedient time",
+                    "197",
+                    "Email/ credential prong applies"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "email + password",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 380,
+            "table2_idx": 381,
+            "upper_row_ss": [
+                [
+                    "New Mexico",
+                    "N.M. Stat. § 57-12C-1 et seq.",
+                    "Name + SSN, DL, financial acct (w/ code), biometric, email + password",
+                    "Access",
+                    "Yes",
+                    "Yes (>1,000)",
+                    "45 days",
+                    "46",
+                    "Email/ credential prong applies"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "New York",
+                    "N.Y. Gen. Bus. Law § 899-aa",
+                    "Name + SSN, DL, financial acct (w/ code), biometric; OR email + password",
+                    "Access",
+                    "Yes",
+                    "Yes (AG + DoS + State Police)",
+                    "Most expedient time",
+                    "2,107",
+                    "See Section IV.B; SHIELD Act Prong 2 directly applicable"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 381,
+            "table2_idx": 382,
+            "upper_row_ss": [
+                [
+                    "Oregon",
+                    "Or. Rev. Stat. § 646A.600 et seq.",
+                    "Name + SSN, DL, financial acct (w/ code),",
+                    "Access",
+                    "Yes",
+                    "Yes (>250)",
+                    "45 days",
+                    "198",
+                    "Email/ credential prong applies"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "passport,biometric,medical,email +password",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 382,
+            "table2_idx": 383,
+            "upper_row_ss": [
+                [
+                    "Tennessee",
+                    "Tenn.Code §47-18-2107",
+                    "Name +SSN, DL,financialacct (w/code),email +password",
+                    "Acquisiti on",
+                    "Yes",
+                    "Yes(>1,000)",
+                    "45 days",
+                    "201",
+                    "Email/credentialprongapplies;conservativapproach"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Texas",
+                    "Tex. Bus. & Com. Code § 521.053",
+                    "Name + SSN, DL, financial acct (w/ code), medical; catch-all for identity fraud",
+                    "Access/ Acquisiti on",
+                    "Yes",
+                    "Yes (>250)",
+                    "As quickly as possible",
+                    "1,843",
+                    "See Section IV.C; catch-all provision applies"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 383,
+            "table2_idx": 384,
+            "upper_row_ss": [
+                [
+                    "Washington",
+                    "Wash. Rev. Code § 19.255.01 0 et seq.",
+                    "Name + SSN, DL, financial acct (w/ code), medical, health ins., biometric, email + password,",
+                    "Access",
+                    "Yes",
+                    "Yes (>500)",
+                    "45 days",
+                    "287",
+                    "Email/ credential prong applies"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "DOB",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 393,
+            "table2_idx": 394,
+            "upper_row_ss": [
+                [
+                    "Employer name",
+                    "Not a triggering element",
+                    "Not a triggering element",
+                    "Not a triggering element",
+                    "Not a triggering element",
+                    "Not a triggering element",
+                    "Not a triggering element",
+                    "Potentially relevant in",
+                    "May contribute to identity"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "combination",
+                    "fraud risk under catch-all provisions"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 394,
+            "table2_idx": 395,
+            "upper_row_ss": [
+                [
+                    "Asset",
+                    "Not a",
+                    "Not a",
+                    "Not",
+                    "Not a",
+                    "Not a",
+                    "Not a",
+                    "Potentiall",
+                    "Financiall"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "allocation summary",
+                    "triggering element",
+                    "triggering element",
+                    "independently triggering",
+                    "triggering element",
+                    "triggering element",
+                    "triggering element",
+                    "y relevant in combination",
+                    "y sensitive but not independently enumerated"
+                ]
+            ]
+        }
+    ]
+}

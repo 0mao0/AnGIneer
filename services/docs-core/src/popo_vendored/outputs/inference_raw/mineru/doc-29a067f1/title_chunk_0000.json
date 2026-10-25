@@ -1,0 +1,124 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 321 107 674<|content|>IRREVOCABLE BORROWING REQUEST\n<|id|>1<|page|>1<|box|>114 147 151 849<|content|>Delivered pursuant to Section 2.02(a) of the Mezza\n<|id|>3<|page|>1<|box|>185 202 280 794<|content|>STONEFIELD LOGISTICS GROUP INC. (as Borrower) RIDG\n<|id|>5<|page|>1<|box|>316 143 330 197<|content|>From:\n<|id|>17<|page|>1<|box|>652 143 669 475<|content|>1. Introductory Provisions; Defined Terms\n<|id|>22<|page|>2<|box|>304 140 321 508<|content|>2. Request for Mezzanine Term Loan Advance\n<|id|>33<|page|>3<|box|>402 140 420 338<|content|>3. Purpose of Borrowing\n<|id|>35<|page|>3<|box|>671 140 688 449<|content|>4. Disbursement and Wire Instructions\n<|id|>38<|page|>4<|box|>140 140 157 388<|content|>4(a). Net Proceeds to Borrower\n<|id|>41<|page|>4<|box|>292 140 310 490<|content|>4(b). Commitment Fee to Mezzanine Lender\n<|id|>44<|page|>4<|box|>501 140 518 367<|content|>4(c). Financial Advisory Fee\n<|id|>46<|page|>4<|box|>647 142 664 534<|content|>4(d). Borrower's Counsel Fees and Disbursements\n<|id|>48<|page|>4<|box|>811 140 829 606<|content|>4(e). Mezzanine Lender's Counsel Expense Reimburse\n<|id|>52<|page|>5<|box|>239 140 256 493<|content|>4(f). Senior Agent Consent / Amendment Fee\n<|id|>54<|page|>5<|box|>402 142 420 465<|content|>4(g). Summary of Closing Disbursements\n<|id|>58<|page|>5<|box|>819 140 835 403<|content|>5. Certifications by the Borrower\n<|id|>61<|page|>6<|box|>138 140 157 439<|content|>5(a). Representations and Warranties\n<|id|>64<|page|>6<|box|>531 140 547 274<|content|>5(b). No Default\n<|id|>66<|page|>6<|box|>732 140 750 401<|content|>5(c). No Material Adverse Effect\n<|id|>69<|page|>7<|box|>138 140 157 356<|content|>5(d). Conditions Precedent\n<|id|>86<|page|>9<|box|>565 140 582 450<|content|>5(e). Senior Credit Facility Compliance\n<|id|>95<|page|>10<|box|>500 140 517 310<|content|>5(g). Use of Proceeds\n<|id|>97<|page|>10<|box|>729 140 746 289<|content|>6. Governing Law\n<|id|>99<|page|>10<|box|>833 140 849 274<|content|>7. Irrevocability\n<|id|>109<|page|>11<|box|>330 142 347 452<|content|>ACKNOWLEDGMENT OF RECEIPT\n<|id|>111<|page|>11<|box|>473 142 489 563<|content|>RIDGELINE MEZZANINE CAPITAL FUND III, LP\n<|id|>118<|page|>11<|box|>614 142 632 271<|content|>ENCLOSURES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>3<|level|>1\n<|id|>5<|level|>-1\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>3\n<|id|>41<|level|>3\n<|id|>44<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>52<|level|>3\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>61<|level|>3\n<|id|>64<|level|>3\n<|id|>66<|level|>3\n<|id|>69<|level|>3\n<|id|>86<|level|>3\n<|id|>95<|level|>3\n<|id|>97<|level|>2\n<|id|>99<|level|>2\n<|id|>109<|level|>2\n<|id|>111<|level|>2\n<|id|>118<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        }
+    ]
+}

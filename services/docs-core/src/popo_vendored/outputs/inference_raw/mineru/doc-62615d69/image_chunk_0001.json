@@ -1,0 +1,60 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        50,
+        62
+    ],
+    "pages": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        58,
+        60,
+        62
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>542<|type|>title<|page|>50<|box|>90 254 109 743<|content|>EXHIBIT B — DESCRIPTION OF PROPERTY\n<|id|>543<|type|>title<|page|>50<|box|>128 142 146 285<|content|>Legal Description\n<|id|>553<|type|>title<|page|>51<|box|>90 256 109 741<|content|>EXHIBIT C — APPROVED INITIAL BUDGET\n<|id|>554<|type|>table<|page|>51<|box|>159 143 383 852<|content|>None\n<|id|>555<|type|>table<|page|>51<|box|>457 143 597 852<|content|>None\n<|id|>556<|type|>table<|page|>51<|box|>669 143 691 852<|content|>None\n<|id|>557<|type|>title<|page|>51<|box|>724 145 741 450<|content|>| Lender | Meridian National Bank , N.A. |\n<|id|>558<|type|>table<|page|>51<|box|>750 143 893 852<|content|>None\n<|id|>559<|type|>table<|page|>52<|box|>89 145 167 851<|content|>None\n<|id|>560<|type|>table<|page|>53<|box|>114 143 286 852<|content|>None\n<|id|>562<|type|>title<|page|>54<|box|>90 228 171 769<|content|>EXHIBIT D — FORM OF CAPITAL CALL NOTICE HARBOR POI\n<|id|>575<|type|>table<|page|>54<|box|>580 143 655 852<|content|>None\n<|id|>577<|type|>title<|page|>54<|box|>771 140 787 382<|content|>5. Wire Transfer Instructions:\n<|id|>580<|type|>table<|page|>55<|box|>159 143 261 852<|content|>None\n<|id|>587<|type|>title<|page|>56<|box|>90 183 135 813<|content|>EXHIBIT E — FORM OF DEVELOPMENT MANAGEMENT AGREEME\n<|id|>588<|type|>title<|page|>56<|box|>160 142 176 315<|content|>Key Terms Summary\n<|id|>606<|type|>title<|page|>58<|box|>90 210 135 787<|content|>EXHIBIT F — FORM OF PROPERTY MANAGEMENT AGREEMENT\n<|id|>607<|type|>title<|page|>58<|box|>159 142 176 316<|content|>Key Terms Summary\n<|id|>626<|type|>title<|page|>60<|box|>90 253 109 745<|content|>EXHIBIT G — INSURANCE REQUIREMENTS\n<|id|>627<|type|>table<|page|>60<|box|>171 143 806 852<|content|>None\n<|id|>628<|type|>title<|page|>60<|box|>840 143 857 348<|content|>Additional Requirements:\n<|id|>635<|type|>title<|page|>62<|box|>90 336 109 660<|content|>EXHIBIT H — KEY PERSONS\n<|id|>637<|type|>title<|page|>62<|box|>172 142 189 316<|content|>1. Harold K. Brennan\n<|id|>641<|type|>title<|page|>62<|box|>414 142 430 328<|content|>2. Marcus D. Okonkwo\n<|id|>645<|type|>title<|page|>62<|box|>637 142 655 336<|content|>Key Person Obligations:\n<|id|>647<|type|>title<|page|>62<|box|>780 408 796 589<|content|>SIGNATURE PAGES\n<|id|>648<|type|>title<|page|>62<|box|>806 400 824 596<|content|>[Signature Pages Follow]\n<|id|>650<|type|>title<|page|>62<|box|>876 142 893 346<|content|>MANAGING MEMBER:",
+    "raw_response": "<|src_id|>554<|tgt_id|>553\n<|src_id|>555<|tgt_id|>553\n<|src_id|>556<|tgt_id|>553\n<|src_id|>558<|tgt_id|>553\n<|src_id|>559<|tgt_id|>553\n<|src_id|>560<|tgt_id|>553\n<|src_id|>575<|tgt_id|>562\n<|src_id|>580<|tgt_id|>562\n<|src_id|>627<|tgt_id|>626",
+    "parsed": [
+        {
+            "src_id": 554,
+            "tgt_id": 553
+        },
+        {
+            "src_id": 555,
+            "tgt_id": 553
+        },
+        {
+            "src_id": 556,
+            "tgt_id": 553
+        },
+        {
+            "src_id": 558,
+            "tgt_id": 553
+        },
+        {
+            "src_id": 559,
+            "tgt_id": 553
+        },
+        {
+            "src_id": 560,
+            "tgt_id": 553
+        },
+        {
+            "src_id": 575,
+            "tgt_id": 562
+        },
+        {
+            "src_id": 580,
+            "tgt_id": 562
+        },
+        {
+            "src_id": 627,
+            "tgt_id": 626
+        }
+    ]
+}

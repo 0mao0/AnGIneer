@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 152 550<|content|>Telephone: ... (212) 555-7401\n<|id|>2<|page|>1<|box|>160 715 176 854<|content|>December 1, 2025\n<|id|>3<|page|>1<|box|>186 140 204 385<|content|>Nexford Industrial Holdings Inc. ... Nexford Industrial Holdings Inc\n<|id|>4<|page|>1<|box|>212 140 229 521<|content|>Attn: ... Raymond Chiu, General Counsel & Secretary\n<|id|>5<|page|>1<|box|>229 140 246 584<|content|>2400 Commerce Parkway, Suite 800 Schaumburg, IL 60173\n<|id|>6<|page|>1<|box|>253 140 291 854<|content|>Re: ... 1005-00002\n<|id|>7<|page|>1<|box|>299 140 316 259<|content|>Dear Mr. ... Chiu\n<|id|>29<|page|>4<|box|>703 210 758 857<|content|>(v) Coordination and review of all collateral fili...ed States Copyright Office, if applicable; ... and\n<|id|>31<|page|>4<|box|>829 174 902 857<|content|>(i) Incurrence Covenant Analysis. ... The Firm wil...e, including, without limitation, the Fixed Charge\n<|id|>32<|page|>5<|box|>90 174 181 856<|content|>Coverage Ratio incurrence test (minimum of 2. ... ...the financial data required for these calculations\n<|id|>59<|page|>8<|box|>286 183 320 854<|content|>• Electronic database and legal research charges (e. ... and\n<|id|>61<|page|>8<|box|>343 140 435 854<|content|>Billing. ... 0%) per month, or the maximum rate permitted by applicable law, whichever is less\n<|id|>89<|page|>11<|box|>757 212 773 343<|content|>Very truly yours,\n<|id|>90<|page|>11<|box|>782 140 797 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>91<|page|>11<|box|>800 143 816 253<|content|>By: ... By\n<|id|>92<|page|>11<|box|>816 143 833 308<|content|>Name: ... Jennifer Kwon\n<|id|>93<|page|>11<|box|>834 143 849 246<|content|>Title: ... Partner\n<|id|>98<|page|>12<|box|>169 142 185 313<|content|>Name: ... Raymond Chiu\n<|id|>99<|page|>12<|box|>186 142 203 403<|content|>Title: ... General Counsel & Secretary\n<|id|>100<|page|>12<|box|>204 143 220 267<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>31<|tgt_id|>32",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        }
+    ]
+}

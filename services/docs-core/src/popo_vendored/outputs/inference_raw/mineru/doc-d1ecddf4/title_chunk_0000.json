@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>340 142 358 264<|content|>1. Introduction\n<|id|>9<|page|>1<|box|>819 142 835 282<|content|>2. Defined Terms\n<|id|>19<|page|>2<|box|>513 140 530 534<|content|>3. Documents to Be Reviewed by Opining Counsel\n<|id|>36<|page|>3<|box|>621 140 638 323<|content|>4. Opinions Requested\n<|id|>38<|page|>3<|box|>714 140 732 468<|content|>4.1 Due Organization and Good Standing\n<|id|>40<|page|>4<|box|>138 140 157 434<|content|>4.2 Subsidiaries — Due Organization\n<|id|>42<|page|>4<|box|>414 140 431 424<|content|>4.3 Corporate Power and Authority\n<|id|>44<|page|>4<|box|>578 140 594 320<|content|>4.4 Due Authorization\n<|id|>50<|page|>5<|box|>220 140 237 357<|content|>4.5 Execution and Delivery\n<|id|>53<|page|>5<|box|>489 140 506 504<|content|>4.7 No Conflicts — Organizational Documents\n<|id|>55<|page|>5<|box|>689 140 705 433<|content|>4.8 No Conflicts — Laws and Orders\n<|id|>58<|page|>6<|box|>213 140 229 462<|content|>4.9 No Conflicts — Material Agreements\n<|id|>67<|page|>6<|box|>723 140 739 645<|content|>4.10 No Consents Required (or All Required Consent\n<|id|>80<|page|>7<|box|>704 140 722 349<|content|>4.12 Certificate of Merger\n<|id|>82<|page|>7<|box|>861 140 877 415<|content|>5. Addressees and Reliance Parties\n<|id|>92<|page|>8<|box|>606 140 623 604<|content|>6. Acceptable Assumptions, Qualifications, and Lim\n<|id|>93<|page|>8<|box|>636 140 654 366<|content|>6.1 Customary Assumptions\n<|id|>102<|page|>9<|box|>327 140 344 496<|content|>6.2 Customary Qualifications and Exceptions\n<|id|>111<|page|>9<|box|>837 140 854 555<|content|>6.3 Limitations Calderwood & Harkness Will Accept\n<|id|>119<|page|>10<|box|>672 140 689 599<|content|>6.4 Limitations Calderwood & Harkness Will NOT Acc\n<|id|>125<|page|>11<|box|>329 140 347 493<|content|>7. Officer's Certificates and Factual Reliance\n<|id|>131<|page|>11<|box|>811 140 829 426<|content|>8. Form and Delivery Requirements\n<|id|>141<|page|>12<|box|>462 140 479 467<|content|>9. Coordination and Contact Information\n<|id|>149<|page|>13<|box|>90 142 107 439<|content|>10. Reservation of Rights / No Waiver\n<|id|>152<|page|>13<|box|>383 142 402 235<|content|>11. Closing\n<|id|>165<|page|>14<|box|>90 142 107 233<|content|>Enclosures",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>9<|level|>1\n<|id|>19<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>58<|level|>2\n<|id|>67<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>1\n<|id|>92<|level|>1\n<|id|>93<|level|>2\n<|id|>102<|level|>2\n<|id|>111<|level|>2\n<|id|>119<|level|>2\n<|id|>125<|level|>1\n<|id|>131<|level|>1\n<|id|>141<|level|>1\n<|id|>149<|level|>1\n<|id|>152<|level|>1\n<|id|>165<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        }
+    ]
+}

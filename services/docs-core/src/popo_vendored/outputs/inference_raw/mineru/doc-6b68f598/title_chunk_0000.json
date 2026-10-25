@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 424 128 573<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>306 321 325 674<|content|>I. Purpose and Executive Summary\n<|id|>20<|page|>2<|box|>646 267 666 728<|content|>II. Background on the Permitting Proceedings\n<|id|>22<|page|>2<|box|>743 140 760 388<|content|>A. PSD Air Permit Application\n<|id|>30<|page|>3<|box|>828 140 845 380<|content|>B. NPDES Permit Application\n<|id|>40<|page|>5<|box|>267 140 284 431<|content|>C. Local Approvals Already in Place\n<|id|>42<|page|>5<|box|>484 163 505 831<|content|>III. Summary and Analysis of Public Comments — PSD\n<|id|>44<|page|>5<|box|>599 140 617 709<|content|>A. Comment 1: Neighboring Landowner — Particulate\n<|id|>52<|page|>6<|box|>801 140 819 604<|content|>B. Comment 2: Neighboring Landowner — Odor Concern\n<|id|>62<|page|>8<|box|>431 140 468 841<|content|>C. Comment 3: Heartland Environmental Alliance (HE\n<|id|>65<|page|>8<|box|>766 140 782 295<|content|>Analysis — BACT.\n<|id|>72<|page|>10<|box|>90 142 107 428<|content|>Analysis — Public Hearing Request.\n<|id|>85<|page|>11<|box|>378 140 414 785<|content|>D. Comment 4: Muscatine County Soil & Water Conser\n<|id|>95<|page|>12<|box|>625 168 643 828<|content|>IV. Summary and Analysis of Public Comments — NPDE\n<|id|>97<|page|>12<|box|>739 140 773 805<|content|>A. Comment 5: Heartland Environmental Alliance (HE\n<|id|>100<|page|>13<|box|>190 140 207 220<|content|>Analysis.\n<|id|>110<|page|>14<|box|>619 140 655 831<|content|>B. Comment 6: Prairie Farmers Coalition (PFC) — Sw\n<|id|>126<|page|>16<|box|>534 248 554 748<|content|>V. Consolidated Recommended Response Strategy\n<|id|>127<|page|>16<|box|>579 142 595 426<|content|>A. Response Priorities and Timeline\n<|id|>131<|page|>17<|box|>354 142 372 493<|content|>B. Coordination with Client and Consultants\n<|id|>138<|page|>18<|box|>204 140 222 428<|content|>C. Public Hearing Recommendation\n<|id|>145<|page|>19<|box|>167 140 185 325<|content|>D. Tone and Approach\n<|id|>151<|page|>19<|box|>672 336 691 660<|content|>VI. Action Items and Next Steps\n<|id|>162<|page|>20<|box|>563 330 582 668<|content|>VII. Attachments / Reference List",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>3\n<|id|>30<|level|>3\n<|id|>40<|level|>3\n<|id|>42<|level|>2\n<|id|>44<|level|>3\n<|id|>52<|level|>3\n<|id|>62<|level|>3\n<|id|>65<|level|>4\n<|id|>72<|level|>4\n<|id|>85<|level|>3\n<|id|>95<|level|>2\n<|id|>97<|level|>3\n<|id|>100<|level|>4\n<|id|>110<|level|>3\n<|id|>126<|level|>2\n<|id|>127<|level|>3\n<|id|>131<|level|>3\n<|id|>138<|level|>3\n<|id|>145<|level|>3\n<|id|>151<|level|>2\n<|id|>162<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 4
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        }
+    ]
+}

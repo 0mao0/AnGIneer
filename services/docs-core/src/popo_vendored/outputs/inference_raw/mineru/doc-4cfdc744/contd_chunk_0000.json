@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        13,
+        14,
+        17,
+        22,
+        23,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>176 140 194 584<|content|>TO: ... George Trujillo, Partner, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>203 140 238 854<|content|>FROM: ... Brett Callahan, Associate, and Michelle Tsao, Lead Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>247 140 263 310<|content|>DATE: ... May 15, 2023\n<|id|>5<|page|>1<|box|>273 140 328 856<|content|>RE: ... 160A RCW)\n<|id|>6<|page|>1<|box|>335 142 352 359<|content|>MATTER NO. ... 1030-00001\n<|id|>7<|page|>1<|box|>361 140 378 583<|content|>CLIENT: ... Cascadia State Infrastructure Authority (\"CSIA\")\n<|id|>8<|page|>1<|box|>387 142 402 408<|content|>Right-click to update Table of Contents\n<|id|>122<|page|>13<|box|>406 174 441 854<|content|>(ii) Connection fees assessed and collected from new connections to the water-treatment system; ... and\n<|id|>124<|page|>13<|box|>494 138 676 857<|content|>A critical feature of the Enabling Act is the self...creditors, secured creditors, or other lienholders\n<|id|>127<|page|>13<|box|>830 140 885 857<|content|>CSIA's pledged revenue base is substantial, divers... revenue and expense data for fiscal year 2022, as\n<|id|>129<|page|>14<|box|>242 140 315 854<|content|>CSIA estimates that net pledged revenues for fisca...es associated with the expanded treatment capacity\n<|id|>161<|page|>17<|box|>613 174 631 704<|content|>(ii) 125% of average annual debt service on the Series 2023A Bonds; ... or\n<|id|>163<|page|>17<|box|>664 140 700 854<|content|>Because the maximum annual debt service of $11,610...uirement for the Series 2023A Bonds is $11,610,000\n<|id|>217<|page|>22<|box|>859 140 896 854<|content|>5. ... Calderwood & Harkness LLP will deliver a 10...iters (Meridian Capital Partners LLC and Dralvecen\n<|id|>218<|page|>23<|box|>90 174 199 854<|content|>Fenn & Co. ... ) with respect to the Preliminary O...stances under which they were made, not misleading\n<|id|>244<|page|>25<|box|>390 142 407 545<|content|>Brett Callahan Associate Calderwood & Harkness LLP\n<|id|>245<|page|>25<|box|>440 140 474 584<|content|>Michelle Tsao Lead Associate Calderwood & Harkness...Calderwood & Harkness LLP REVIEWED AND APPROVED BY",
+    "raw_response": "<|src_id|>127<|tgt_id|>129\n<|src_id|>217<|tgt_id|>218",
+    "parsed": [
+        {
+            "src_id": 127,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 218
+        }
+    ]
+}

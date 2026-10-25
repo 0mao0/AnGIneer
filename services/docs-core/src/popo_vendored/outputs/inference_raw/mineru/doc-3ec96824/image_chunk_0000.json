@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>561 151 580 844<|content|>1. BACKGROUND AND TRANSACTION DOCUMENTS DEFINED\n<|id|>23<|type|>title<|page|>3<|box|>396 341 415 655<|content|>2. DOCUMENTS EXAMINED\n<|id|>49<|type|>title<|page|>5<|box|>90 400 111 596<|content|>3. ASSUMPTIONS\n<|id|>59<|type|>title<|page|>6<|box|>189 426 209 571<|content|>4. OPINIONS\n<|id|>61<|type|>title<|page|>6<|box|>287 140 304 504<|content|>4.1 No Violation of Organizational Documents\n<|id|>63<|type|>title<|page|>6<|box|>518 140 536 444<|content|>4.2 No Breach of Material Agreements\n<|id|>72<|type|>title<|page|>7<|box|>319 140 335 419<|content|>4.3 No Violation of Applicable Law\n<|id|>79<|type|>title<|page|>7<|box|>771 140 787 457<|content|>4.4 No Governmental Consent Required\n<|id|>82<|type|>title<|page|>8<|box|>223 140 239 312<|content|>4.5 No Liens Created\n<|id|>84<|type|>title<|page|>8<|box|>477 272 496 723<|content|>5. QUALIFICATIONS AND LIMITATIONS\n<|id|>86<|type|>title<|page|>8<|box|>556 140 573 367<|content|>5.1 Jurisdictional Limitation\n<|id|>89<|type|>title<|page|>8<|box|>830 140 849 493<|content|>5.2 Bankruptcy and Insolvency Qualification\n<|id|>92<|type|>title<|page|>9<|box|>377 140 393 419<|content|>5.3 Equitable Principles Limitation\n<|id|>94<|type|>title<|page|>9<|box|>517 140 534 419<|content|>5.4 Material Agreement Limitation\n<|id|>96<|type|>title<|page|>9<|box|>767 140 784 357<|content|>5.5 Regulatory Limitations\n<|id|>103<|type|>title<|page|>10<|box|>392 140 409 338<|content|>5.6 No Implied Opinions\n<|id|>105<|type|>title<|page|>10<|box|>500 341 518 655<|content|>6. RELIANCE AND BENEFIT\n<|id|>107<|type|>table<|page|>10<|box|>660 143 864 852<|content|>None\n<|id|>109<|type|>title<|page|>11<|box|>190 294 209 702<|content|>7. DATE AND CHANGE LIMITATION\n<|id|>112<|type|>title<|page|>11<|box|>407 433 425 563<|content|>Very truly yours,\n<|id|>113<|type|>title<|page|>11<|box|>433 140 449 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>118<|type|>title<|page|>11<|box|>535 434 551 562<|content|>SCHEDULE A\n<|id|>119<|type|>title<|page|>11<|box|>561 148 579 848<|content|>Material Agreements of Thalassa Americas Inc. Revi",
+    "raw_response": "<|src_id|>107<|tgt_id|>105",
+    "parsed": [
+        {
+            "src_id": 107,
+            "tgt_id": 105
+        }
+    ]
+}

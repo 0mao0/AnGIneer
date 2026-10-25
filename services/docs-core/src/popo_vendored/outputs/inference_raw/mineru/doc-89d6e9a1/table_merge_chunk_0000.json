@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['4', 'Southport Logistics Park, Jackson', 'GMP Southport LLC', 'Atlas Freight Logistics Corp.', 'Rent Amount', 'ABR: $5,330,000 ($13.00/', 'ABR: $5,190,000 ($12.66/', '-$140,000 (-2.6%)', 'Undisclosed rent abatement,', 'Pending Seller confirmation']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'ville, FL', '', '', '', 'RSF)', 'RSF)', '', 'credit, or projected escalation not yet effective', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 162,
+    "table2_idx": 163
+}

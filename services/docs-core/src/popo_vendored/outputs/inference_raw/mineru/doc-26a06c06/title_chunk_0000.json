@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 131 852<|content|>TEMPLATE FORM — NOT FOR ISSUANCE UNTIL ALL PLACEHO\n<|id|>13<|page|>1<|box|>571 142 589 576<|content|>I. Introduction and Identification of Escrow Agree\n<|id|>19<|page|>2<|box|>90 142 107 441<|content|>II. Confirmation of Receipt of Deposit\n<|id|>20<|page|>2<|box|>121 142 138 341<|content|>A. Wire Transfer Details\n<|id|>24<|page|>2<|box|>489 140 507 450<|content|>B. Identification as Tranche 1 Payment\n<|id|>29<|page|>2<|box|>799 142 816 540<|content|>III. Status of Escrow Funds and Release Provisions\n<|id|>35<|page|>3<|box|>467 140 484 542<|content|>IV. Escrow Agent Representations and Disclaimers\n<|id|>45<|page|>4<|box|>366 140 383 401<|content|>V. Request for Countersignature\n<|id|>47<|page|>4<|box|>527 408 544 588<|content|>SIGNATURE PAGES\n<|id|>48<|page|>4<|box|>553 142 569 303<|content|>ESCROW AGENT:\n<|id|>61<|page|>4<|box|>821 143 838 233<|content|>Enclosures\n<|id|>67<|page|>5<|box|>198 142 214 243<|content|>Distribution\n<|id|>73<|page|>5<|box|>352 147 388 849<|content|>FORMATTING AND USAGE NOTES For Use by Document Dra",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>24<|level|>3\n<|id|>29<|level|>2\n<|id|>35<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>1\n<|id|>48<|level|>2\n<|id|>61<|level|>2\n<|id|>67<|level|>2\n<|id|>73<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        }
+    ]
+}

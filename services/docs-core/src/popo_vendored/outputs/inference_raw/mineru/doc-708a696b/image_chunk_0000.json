@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        11
+    ],
+    "pages": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>89 143 109 852<|content|>SIGNATURE PAGE TO MASTER CLINICAL TRIAL AGREEMENT\n<|id|>8<|type|>title<|page|>2<|box|>361 142 378 385<|content|>INTRODUCTORY RECITAL\n<|id|>15<|type|>title<|page|>4<|box|>89 140 107 754<|content|>SIGNATURE BLOCK — GRAYSTONE UNIVERSITY MEDICAL CEN\n<|id|>22<|type|>title<|page|>4<|box|>303 140 320 480<|content|>ACKNOWLEDGMENT OF KEY TERMS\n<|id|>24<|type|>title<|page|>4<|box|>397 140 414 467<|content|>A. Total Deal Value and Financial Terms\n<|id|>36<|type|>title<|page|>5<|box|>412 140 429 379<|content|>B. Indemnification Provisions\n<|id|>41<|type|>title<|page|>6<|box|>90 140 107 343<|content|>C. Insurance Obligations\n<|id|>47<|type|>title<|page|>6<|box|>491 140 508 470<|content|>E. Data Ownership and Record Retention\n<|id|>49<|type|>title<|page|>6<|box|>691 142 709 313<|content|>F. Publication Rights\n<|id|>51<|type|>title<|page|>7<|box|>90 140 107 475<|content|>G. Governing Law and Dispute Resolution\n<|id|>56<|type|>title<|page|>7<|box|>488 140 505 553<|content|>REPRESENTATIONS OF SIGNING AUTHORITY\n<|id|>61<|type|>title<|page|>8<|box|>204 142 220 509<|content|>DESIGNATION OF KEY SITE PERSONNEL\n<|id|>63<|type|>table<|page|>8<|box|>291 143 502 852<|content|>None\n<|id|>65<|type|>title<|page|>8<|box|>613 140 630 359<|content|>NOTICE INFORMATION\n<|id|>67<|type|>title<|page|>8<|box|>720 142 738 480<|content|>If to Graystone University Medical Center:\n<|id|>69<|type|>title<|page|>8<|box|>791 142 806 581<|content|>With a copy to Veridian Health Research Network, I\n<|id|>74<|type|>title<|page|>9<|box|>193 140 210 401<|content|>COUNTERPART EXECUTION\n<|id|>76<|type|>title<|page|>10<|box|>89 140 106 602<|content|>CROSS-REFERENCE TO OTHER SIGNATURE PAGES\n<|id|>86<|type|>title<|page|>10<|box|>489 142 508 308<|content|>EFFECTIVE DATE\n<|id|>95<|type|>title<|page|>11<|box|>152 334 170 661<|content|>[Remainder of page intentionally left blank]\n<|id|>96<|type|>title<|page|>11<|box|>178 351 195 645<|content|>ACKNOWLEDGED AND AGREED\n<|id|>97<|type|>title<|page|>11<|box|>204 143 239 854<|content|>GRAYSTONE UNIVERSITY MEDICAL CENTER Lead Participa\n<|id|>98<|type|>title<|page|>11<|box|>248 140 265 802<|content|>GRAYSTONE UNIVERSITY MEDICAL CENTER a Pennsylvania",
+    "raw_response": "<|src_id|>63<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 63,
+            "tgt_id": 61
+        }
+    ]
+}

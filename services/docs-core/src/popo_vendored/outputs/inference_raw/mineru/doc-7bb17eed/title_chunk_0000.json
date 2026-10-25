@@ -1,0 +1,163 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 310 159 686<|content|>EXHIBIT A-2 FORM OF REGULATION S GLOBAL NOTE [FACE\n<|id|>6<|page|>2<|box|>244 364 260 630<|content|>TORCHLIGHT MINING CORP.\n<|id|>7<|page|>2<|box|>270 207 313 787<|content|>(a corporation incorporated under the Canada Busin\n<|id|>13<|page|>2<|box|>613 140 630 210<|content|>Interest\n<|id|>17<|page|>3<|box|>167 140 184 328<|content|>Principal and Maturity\n<|id|>19<|page|>3<|box|>289 142 306 305<|content|>Payment Mechanics\n<|id|>22<|page|>3<|box|>676 140 691 328<|content|>Reference to Indenture\n<|id|>25<|page|>4<|box|>204 140 222 233<|content|>Guarantee\n<|id|>31<|page|>4<|box|>503 140 520 215<|content|>Security\n<|id|>38<|page|>4<|box|>864 140 881 217<|content|>Ranking\n<|id|>44<|page|>5<|box|>301 142 318 266<|content|>Denominations\n<|id|>46<|page|>5<|box|>386 140 402 316<|content|>Optional Redemption\n<|id|>47<|page|>5<|box|>417 142 434 537<|content|>Make-Whole Redemption (Prior to April 15, 2025)\n<|id|>55<|page|>5<|box|>828 142 845 473<|content|>Equity Clawback (Prior to April 15, 2025)\n<|id|>60<|page|>7<|box|>90 140 107 627<|content|>Fixed Price Redemption Schedule (On or After April\n<|id|>63<|page|>7<|box|>362 142 378 387<|content|>Partial Redemption Mechanics\n<|id|>66<|page|>7<|box|>654 140 671 292<|content|>Change of Control\n<|id|>68<|page|>7<|box|>830 140 848 294<|content|>Certain Covenants\n<|id|>79<|page|>8<|box|>558 142 575 282<|content|>Events of Default\n<|id|>90<|page|>9<|box|>337 140 354 236<|content|>Defeasance\n<|id|>92<|page|>9<|box|>550 140 566 450<|content|>Book-Entry Provisions — Regulation S\n<|id|>96<|page|>10<|box|>148 140 167 439<|content|>Transfer Restrictions — Regulation S\n<|id|>101<|page|>10<|box|>587 140 604 452<|content|>Amendment, Modification, and Waiver\n<|id|>113<|page|>11<|box|>434 140 450 271<|content|>Governing Law\n<|id|>115<|page|>11<|box|>573 140 590 328<|content|>Consent to Jurisdiction\n<|id|>118<|page|>12<|box|>90 140 107 310<|content|>Waiver of Jury Trial\n<|id|>120<|page|>12<|box|>267 142 284 264<|content|>Authentication\n<|id|>133<|page|>12<|box|>570 292 588 702<|content|>[REVERSE OF REGULATION S GLOBAL NOTE]\n<|id|>134<|page|>12<|box|>595 437 613 560<|content|>GUARANTEE\n<|id|>153<|page|>13<|box|>601 158 635 836<|content|>SCHEDULE OF EXCHANGES OF INTERESTS IN THE REGULATI\n<|id|>156<|page|>13<|box|>839 403 854 594<|content|>FORM OF TRANSFER\n<|id|>164<|page|>14<|box|>330 142 345 416<|content|>ADDITIONAL CERTIFICATION\n<|id|>168<|page|>14<|box|>507 310 523 686<|content|>REGULATION S TRANSFER CERTIFICATE\n<|id|>178<|page|>14<|box|>878 333 893 663<|content|>RULE 144A TRANSFER CERTIFICATE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>2\n<|id|>22<|level|>2\n<|id|>25<|level|>2\n<|id|>31<|level|>2\n<|id|>38<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>47<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>79<|level|>2\n<|id|>90<|level|>2\n<|id|>92<|level|>2\n<|id|>96<|level|>2\n<|id|>101<|level|>2\n<|id|>113<|level|>2\n<|id|>115<|level|>2\n<|id|>118<|level|>2\n<|id|>120<|level|>2\n<|id|>133<|level|>1\n<|id|>134<|level|>2\n<|id|>153<|level|>1\n<|id|>156<|level|>2\n<|id|>164<|level|>2\n<|id|>168<|level|>2\n<|id|>178<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        }
+    ]
+}

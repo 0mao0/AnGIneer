@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 153 126 843<|content|>CALDERWOOD & HARKNESS LLP One Liberty Plaza, 50th\n<|id|>5<|page|>1<|box|>292 140 309 316<|content|>Ladies and Gentlemen:\n<|id|>10<|page|>2<|box|>89 140 106 540<|content|>I. DOCUMENTS EXAMINED AND RELIANCES\n<|id|>11<|page|>2<|box|>121 140 138 336<|content|>A. Documents Reviewed\n<|id|>26<|page|>3<|box|>289 142 305 433<|content|>B. Factual Certificates and Reliances\n<|id|>33<|page|>4<|box|>90 140 107 352<|content|>C. Scope of Laws Covered\n<|id|>41<|page|>4<|box|>584 140 601 261<|content|>II. OPINIONS\n<|id|>43<|page|>4<|box|>659 140 676 537<|content|>Opinion 1: Due Incorporation and Valid Existence\n<|id|>45<|page|>5<|box|>138 140 157 483<|content|>Opinion 2: Corporate Power and Authority\n<|id|>48<|page|>5<|box|>476 140 493 573<|content|>Opinion 3: Due Authorization, Execution, and Deliv\n<|id|>51<|page|>5<|box|>720 140 738 346<|content|>Opinion 4: Enforceability\n<|id|>53<|page|>5<|box|>849 140 866 424<|content|>Opinion 5: Valid Issuance of Shares\n<|id|>56<|page|>6<|box|>367 140 383 669<|content|>Opinion 6: Registration Statement Effectiveness an\n<|id|>59<|page|>6<|box|>612 140 628 437<|content|>Opinion 7: No Violation / No Conflict\n<|id|>66<|page|>7<|box|>301 140 318 410<|content|>Opinion 8: No Consents Required\n<|id|>72<|page|>7<|box|>633 140 650 653<|content|>III. QUALIFICATIONS, ASSUMPTIONS, AND LIMITATIONS\n<|id|>74<|page|>7<|box|>709 142 726 393<|content|>A. Enforceability Qualifications\n<|id|>86<|page|>9<|box|>90 140 107 334<|content|>C. Limitations on Scope\n<|id|>92<|page|>9<|box|>797 142 814 370<|content|>D. Knowledge Qualifications\n<|id|>100<|page|>10<|box|>363 140 380 357<|content|>IV. USE AND RELIANCE\n<|id|>104<|page|>10<|box|>815 236 833 759<|content|>[Remainder of Page Intentionally Left Blank; Signa",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>5<|level|>-1\n<|id|>10<|level|>1\n<|id|>11<|level|>2\n<|id|>26<|level|>2\n<|id|>33<|level|>2\n<|id|>41<|level|>1\n<|id|>43<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>56<|level|>2\n<|id|>59<|level|>2\n<|id|>66<|level|>2\n<|id|>72<|level|>1\n<|id|>74<|level|>2\n<|id|>86<|level|>2\n<|id|>92<|level|>2\n<|id|>100<|level|>1\n<|id|>104<|level|>-1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        }
+    ]
+}

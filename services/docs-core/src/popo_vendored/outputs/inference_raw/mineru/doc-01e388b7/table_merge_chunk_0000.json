@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['3', 'November 19, 2020', 'Petronova Trading FZE', 'Urals Blend, 500,000 bbl', '$22,150,000', 'Wire transfer / Crescent Commercial', 'MV Arktika Voyager (IMO', 'Funds traced to VIG-controlled']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '1 Bank PJSC', '9487612)', 'account at Eurokommerts Bank (Moscow)']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 29,
+    "table2_idx": 30
+}

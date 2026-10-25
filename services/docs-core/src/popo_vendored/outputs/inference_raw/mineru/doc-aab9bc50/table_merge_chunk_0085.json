@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 85,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['5', '\"BRIDGE\", \"CATBRG2\", \"LS(SOLD,5,CHGRD);SY(BRIDGE01);TE(\\'clr cl %4.1lf \\', \\'VERCCL \\',3,1,2,\\'15110 \\',1,0,CHBLK,11);TE(\\'clr op %4.1lf \\', \\'VERCOP \\',3,1,2,\\'15110 \\',1,1,CHBLK,11)\" , \"8\" ,\"O\" , \"DISPLAYBASE\" , \"12210\"']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['6', '\"BRIDGE\",\"CATBRG3\",\"LS(SOLD,5,CHGRD);SY(BRIDGE01);TE(\\'clr cl %4.1lf\\', \\'VERCCL\\',3,1,2,\\'15110\\',1,0,CHBLK,11);TE(\\'clr op %4.1lf\\', \\'VERCOP\\',3,1,2,\\'15110\\',1,1,CHBLK,11)\",\"8\",\"O\",\"DISPLAYBASE\",\"12210\"']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 3211,
+    "table2_idx": 3212
+}

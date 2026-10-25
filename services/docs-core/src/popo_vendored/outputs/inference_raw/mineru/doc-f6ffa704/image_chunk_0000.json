@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 284 125 712<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>159 143 412 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>481 174 501 821<|content|>NOTICE OF DEPOSITION OF PLAINTIFF GAVIN ALDRICH\n<|id|>12<|type|>title<|page|>2<|box|>260 183 280 813<|content|>MATTERS UPON WHICH EXAMINATION IS REQUESTED\n<|id|>14<|type|>title<|page|>2<|box|>412 140 429 651<|content|>Topic 1: Employment History with Aurelius Media Am\n<|id|>23<|type|>title<|page|>3<|box|>311 140 329 452<|content|>Topic 2: Circumstances of Termination\n<|id|>34<|type|>title<|page|>4<|box|>375 140 391 611<|content|>Topic 3: Confidential Information and Email Transm\n<|id|>44<|type|>title<|page|>5<|box|>411 140 428 779<|content|>Topic 4: Relationship with Halcyon Creek Productio\n<|id|>57<|type|>title<|page|>6<|box|>645 140 662 491<|content|>Topic 5: AMA's Data Loss Prevention Audit\n<|id|>63<|type|>title<|page|>7<|box|>267 140 284 679<|content|>Topic 6: Employment Agreement — Restrictive Covena\n<|id|>78<|type|>title<|page|>8<|box|>523 140 542 575<|content|>Topic 7: Post-Termination Employment and Mitigatio\n<|id|>86<|type|>title<|page|>9<|box|>167 142 185 287<|content|>Topic 8: Damages\n<|id|>102<|type|>title<|page|>10<|box|>311 140 329 594<|content|>Topic 9: Communications with Counsel and Third Par\n<|id|>107<|type|>title<|page|>10<|box|>657 140 674 377<|content|>Topic 10: AMA Cross-Claims\n<|id|>118<|type|>title<|page|>11<|box|>601 191 621 805<|content|>REQUEST TO PRODUCE DOCUMENTS AT DEPOSITION\n<|id|>129<|type|>title<|page|>12<|box|>738 367 757 630<|content|>COMPLIANCE NOTICE\n<|id|>135<|type|>title<|page|>13<|box|>301 140 316 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>140<|type|>title<|page|>13<|box|>410 383 429 614<|content|>PROOF OF SERVICE\n<|id|>141<|type|>title<|page|>13<|box|>446 406 464 591<|content|>PROOF OF SERVICE\n<|id|>142<|type|>title<|page|>13<|box|>473 140 489 604<|content|>STATE OF CALIFORNIA, COUNTY OF LOS ANGELES\n<|id|>148<|type|>title<|page|>13<|box|>813 143 829 271<|content|>Persons Served:\n<|id|>149<|type|>table<|page|>13<|box|>835 143 905 852<|content|>None",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>149<|tgt_id|>148",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 148
+        }
+    ]
+}

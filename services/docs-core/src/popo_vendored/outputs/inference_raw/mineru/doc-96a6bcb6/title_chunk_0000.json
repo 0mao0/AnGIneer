@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 325 133 671<|content|>425 Park Avenue New York, New York 10022\n<|id|>9<|page|>1<|box|>411 140 429 364<|content|>I. Introduction and Purpose\n<|id|>17<|page|>2<|box|>276 140 294 540<|content|>II. Background — Permanent Financing Structure\n<|id|>28<|page|>3<|box|>148 140 167 377<|content|>III. Request for Payoff Letter\n<|id|>38<|page|>4<|box|>383 140 402 604<|content|>IV. Request for Mortgage Release / Satisfaction Do\n<|id|>40<|page|>4<|box|>551 140 568 326<|content|>A. Texas (5 Properties)\n<|id|>43<|page|>5<|box|>90 142 108 341<|content|>B. Georgia (3 Properties)\n<|id|>46<|page|>5<|box|>378 142 396 338<|content|>C. Florida (3 Properties)\n<|id|>49<|page|>5<|box|>651 142 669 398<|content|>D. North Carolina (2 Properties)\n<|id|>53<|page|>6<|box|>90 142 107 346<|content|>E. Tennessee (1 Property)\n<|id|>59<|page|>6<|box|>691 140 709 511<|content|>V. Request for UCC-3 Termination Statements\n<|id|>61<|page|>6<|box|>804 140 821 573<|content|>A. Delaware Secretary of State Filings (Equity Ple\n<|id|>64<|page|>7<|box|>176 140 193 470<|content|>B. Fixture Filings (County Land Records)\n<|id|>74<|page|>7<|box|>631 142 647 444<|content|>VI. Confirmation of Wire Instructions\n<|id|>84<|page|>8<|box|>271 140 287 599<|content|>VII. Proposed Timeline for Delivery of Release Doc\n<|id|>88<|page|>8<|box|>847 142 864 431<|content|>VIII. Escrow and Closing Mechanics\n<|id|>94<|page|>9<|box|>648 142 665 326<|content|>IX. Additional Matters\n<|id|>100<|page|>10<|box|>476 140 493 472<|content|>X. Contact Information and Coordination",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>9<|level|>1\n<|id|>17<|level|>1\n<|id|>28<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>2\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>49<|level|>2\n<|id|>53<|level|>2\n<|id|>59<|level|>1\n<|id|>61<|level|>2\n<|id|>64<|level|>2\n<|id|>74<|level|>1\n<|id|>84<|level|>1\n<|id|>88<|level|>1\n<|id|>94<|level|>1\n<|id|>100<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        }
+    ]
+}

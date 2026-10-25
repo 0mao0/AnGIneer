@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        60,
+        75
+    ],
+    "pages": [
+        61,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        71,
+        72,
+        75
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>179<|page|>61<|box|>56 415 70 587<|content|>CAPITAL MOVEMENTS\n<|id|>185<|page|>61<|box|>535 364 550 633<|content|>Section I - Historical Summary\n<|id|>192<|page|>63<|box|>93 364 107 632<|content|>Section I - Historical Summary\n<|id|>193<|page|>63<|box|>113 168 126 829<|content|>Table 4.- Purchases and Sales of Long-Term Domesti\n<|id|>196<|page|>64<|box|>54 415 67 589<|content|>CAPITAL MOVEMENTS\n<|id|>197<|page|>64<|box|>88 340 102 636<|content|>Section II - Summary by Countries\n<|id|>198<|page|>64<|box|>108 210 123 784<|content|>Table 1.- Net Movement of Capital and of Short-Ter\n<|id|>200<|page|>65<|box|>56 415 71 584<|content|>CAPITAL MOVEMENTS\n<|id|>201<|page|>65<|box|>92 350 105 643<|content|>Section II - Summary by Countries\n<|id|>204<|page|>66<|box|>51 419 66 591<|content|>CAPITAL MOVEMENTS\n<|id|>205<|page|>66<|box|>86 351 100 648<|content|>Section II - Summary by Countries\n<|id|>206<|page|>66<|box|>106 238 120 768<|content|>Table 3.- Short-Term Claims on and Liabilities to\n<|id|>208<|page|>67<|box|>56 408 70 579<|content|>CAPITAL MOVEMENTS\n<|id|>209<|page|>67<|box|>89 340 104 632<|content|>Section II - Summary by Countries\n<|id|>210<|page|>67<|box|>109 211 124 778<|content|>Table 4.- Foreign Debit and Credit Balances in Bro\n<|id|>212<|page|>68<|box|>96 304 128 716<|content|>Section III - Details for Month of August 1949 Tab\n<|id|>216<|page|>71<|box|>85 221 101 752<|content|>Section III A - Preliminary Details for Month of O\n<|id|>218<|page|>72<|box|>70 231 84 777<|content|>Section III A - Preliminary Details for Month of O\n<|id|>219<|page|>72<|box|>88 300 104 709<|content|>Table 2.- Short-Term Liabilities to Foreigners\n<|id|>224<|page|>75<|box|>55 347 68 621<|content|>CUMULATIVE TABLE OF CONTENTS",
+    "raw_response": "<|id|>179<|level|>1\n<|id|>185<|level|>2\n<|id|>192<|level|>2\n<|id|>193<|level|>3\n<|id|>196<|level|>1\n<|id|>197<|level|>2\n<|id|>198<|level|>3\n<|id|>200<|level|>1\n<|id|>201<|level|>2\n<|id|>204<|level|>1\n<|id|>205<|level|>2\n<|id|>206<|level|>3\n<|id|>208<|level|>1\n<|id|>209<|level|>2\n<|id|>210<|level|>3\n<|id|>212<|level|>2\n<|id|>216<|level|>3\n<|id|>218<|level|>3\n<|id|>219<|level|>4\n<|id|>224<|level|>1",
+    "parsed": [
+        {
+            "id": 179,
+            "level": 1
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 196,
+            "level": 1
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 1
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 1
+        },
+        {
+            "id": 205,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 1
+        },
+        {
+            "id": 209,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 3
+        },
+        {
+            "id": 212,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 3
+        },
+        {
+            "id": 218,
+            "level": 3
+        },
+        {
+            "id": 219,
+            "level": 4
+        },
+        {
+            "id": 224,
+            "level": 1
+        }
+    ]
+}

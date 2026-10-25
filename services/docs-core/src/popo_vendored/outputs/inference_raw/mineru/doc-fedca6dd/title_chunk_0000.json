@@ -1,0 +1,125 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 156 166 839<|content|>FORM OF WRITTEN CONSENT IN LIEU OF MEETING OF THE\n<|id|>2<|page|>1<|box|>267 142 284 243<|content|>RECITALS\n<|id|>6<|page|>1<|box|>743 140 760 431<|content|>Identification of the General Partner\n<|id|>8<|page|>2<|box|>90 140 108 485<|content|>Background on the Proposed Restructuring\n<|id|>14<|page|>2<|box|>651 140 669 434<|content|>Background on Entity Restructuring\n<|id|>18<|page|>3<|box|>194 142 212 359<|content|>Background on Departures\n<|id|>22<|page|>3<|box|>539 142 556 457<|content|>Background on Economics Realignment\n<|id|>27<|page|>4<|box|>231 140 248 408<|content|>Background on LPA Amendment\n<|id|>29<|page|>4<|box|>450 140 467 455<|content|>Background on Governance Documents\n<|id|>41<|page|>5<|box|>90 140 107 501<|content|>Confirmation of No Material Impact on Fund\n<|id|>49<|page|>5<|box|>566 140 583 370<|content|>CONSENT RESOLUTIONS\n<|id|>50<|page|>5<|box|>597 140 614 508<|content|>Resolution 1: Consent to Formation of HoldCo\n<|id|>52<|page|>5<|box|>779 142 797 578<|content|>Resolution 2: Consent to Formation of GP Intermedi\n<|id|>54<|page|>6<|box|>138 140 157 617<|content|>Resolution 3: Consent to Amendment of GP LLC Agree\n<|id|>61<|page|>6<|box|>542 140 560 651<|content|>Resolution 4: Consent to Amendment of ManCo LLC Ag\n<|id|>67<|page|>7<|box|>138 140 157 522<|content|>Resolution 5: Consent to LPA Amendment No. 1\n<|id|>73<|page|>7<|box|>590 140 607 568<|content|>Resolution 6: Consent to Carried Interest Realloca\n<|id|>77<|page|>8<|box|>90 140 107 553<|content|>Resolution 7: Consent to Departure of David Kellne\n<|id|>84<|page|>8<|box|>494 142 511 553<|content|>Resolution 8: Consent to Departure of Joanna Trask\n<|id|>90<|page|>9<|box|>90 140 107 651<|content|>Resolution 9: Authorization to Execute Restructuri\n<|id|>92<|page|>9<|box|>328 140 344 437<|content|>Resolution 10: General Authorization\n<|id|>94<|page|>9<|box|>518 140 536 521<|content|>ACKNOWLEDGMENTS AND LIMITATIONS\n<|id|>102<|page|>10<|box|>393 140 411 310<|content|>GOVERNING LAW\n<|id|>104<|page|>10<|box|>498 140 515 299<|content|>COUNTERPARTS\n<|id|>131<|page|>11<|box|>387 142 404 710<|content|>ACKNOWLEDGED AND RECEIVED BY THE GENERAL PARTNER",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>6<|level|>3\n<|id|>8<|level|>3\n<|id|>14<|level|>3\n<|id|>18<|level|>3\n<|id|>22<|level|>3\n<|id|>27<|level|>3\n<|id|>29<|level|>3\n<|id|>41<|level|>3\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>52<|level|>3\n<|id|>54<|level|>3\n<|id|>61<|level|>3\n<|id|>67<|level|>3\n<|id|>73<|level|>3\n<|id|>77<|level|>3\n<|id|>84<|level|>3\n<|id|>90<|level|>3\n<|id|>92<|level|>3\n<|id|>94<|level|>2\n<|id|>102<|level|>2\n<|id|>104<|level|>2\n<|id|>131<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        }
+    ]
+}

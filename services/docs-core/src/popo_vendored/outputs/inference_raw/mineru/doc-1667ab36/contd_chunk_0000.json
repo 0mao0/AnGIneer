@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>136 748 152 854<|content|>June 30, 2024\n<|id|>2<|page|>1<|box|>162 140 234 856<|content|>Delivered pursuant to Section 8. ... , a Delaware corporation (\"Seller\")\n<|id|>8<|page|>1<|box|>551 140 625 854<|content|>WHEREAS, the undersigned, Victoria Chen, is the Pr...ent of Ardent Healthcare Acquisition Corp. ... and\n<|id|>9<|page|>1<|box|>633 140 688 854<|content|>WHEREAS, the undersigned has reviewed the Agreemen...he obligations and certifications contained herein\n<|id|>19<|page|>3<|box|>362 210 472 856<|content|>(i) Equity Financing. ... and\n<|id|>21<|page|>3<|box|>633 174 688 856<|content|>The foregoing equity and debt financing, together ...g and to pay all related fees, costs, and expenses\n<|id|>32<|page|>4<|box|>814 174 906 857<|content|>(c) Escrow Deposit. ... Purchaser has deposited, o...te, by and among Purchaser, Seller, and the Escrow\n<|id|>33<|page|>5<|box|>90 174 143 854<|content|>Agent (the \"Escrow Agreement\"). ... The Escrow Amo...n accordance with the terms and conditions thereof\n<|id|>53<|page|>6<|box|>667 210 703 854<|content|>(ii) Georgia: ... and\n<|id|>55<|page|>6<|box|>755 174 828 856<|content|>No governmental authority in any such jurisdiction... expired or been terminated without adverse action\n<|id|>56<|page|>6<|box|>835 174 910 856<|content|>(f) Hart-Scott-Rodino Act. ... Outside counsel to Purchaser (Calderwood &\n<|id|>57<|page|>7<|box|>90 174 164 856<|content|>Harkness LLP) and outside counsel to Seller have e...accordingly no HSR Act filing was made or required\n<|id|>85<|page|>9<|box|>453 176 469 339<|content|>Name: ... Victoria Chen\n<|id|>86<|page|>9<|box|>469 178 484 297<|content|>Title: ... President\n<|id|>87<|page|>9<|box|>487 178 503 328<|content|>Date: ... June 30, 2024\n<|id|>91<|page|>9<|box|>638 176 675 852<|content|>Ardent Healthcare Acquisition Corp. ... c/o Ardent...adison Avenue, 34th Floor New York, New York 10022\n<|id|>92<|page|>9<|box|>684 176 719 759<|content|>Attention: ... (212) 555-8400\n<|id|>93<|page|>9<|box|>727 176 762 736<|content|>Email: ... com With a copy to (which shall not constitute notice)\n<|id|>94<|page|>9<|box|>768 176 805 854<|content|>Calderwood & Harkness LLP One World Financial Cent...iberty Street, 40th Floor New York, New York 10281\n<|id|>95<|page|>9<|box|>814 176 849 457<|content|>Attention: ... (212) 555-2200\n<|id|>96<|page|>9<|box|>858 176 875 511<|content|>Email: ... com\n<|id|>97<|page|>9<|box|>875 176 904 854<|content|>This Buyer's Closing Certificate is delivered purs...ies to the Agreement and their respective advisors",
+    "raw_response": "<|src_id|>32<|tgt_id|>33\n<|src_id|>56<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        }
+    ]
+}

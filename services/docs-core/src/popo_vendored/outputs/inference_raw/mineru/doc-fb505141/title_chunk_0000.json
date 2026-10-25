@@ -1,0 +1,48 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        15,
+        16
+    ],
+    "pages": [
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>39<|page|>15<|box|>85 87 101 218<|content|>FieldDetail\n<|id|>42<|page|>15<|box|>193 87 208 263<|content|>CLIENT INFORMATION\n<|id|>58<|page|>15<|box|>495 87 510 213<|content|>IP TRANSFEROR\n<|id|>68<|page|>15<|box|>692 87 707 208<|content|>IP TRANSFEREE\n<|id|>75<|page|>15<|box|>834 87 848 292<|content|>KEY TRANSACTION TERMS\n<|id|>81<|page|>16<|box|>441 87 457 176<|content|>KEY DATES\n<|id|>83<|page|>16<|box|>673 85 689 278<|content|>THIRD-PARTY ADVISORS\n<|id|>85<|page|>16<|box|>797 87 814 406<|content|>TAX PROVISIONS ADDRESSED IN OPINION",
+    "raw_response": "<|id|>39<|level|>1\n<|id|>42<|level|>2\n<|id|>58<|level|>2\n<|id|>68<|level|>2\n<|id|>75<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>2\n<|id|>85<|level|>2",
+    "parsed": [
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        }
+    ]
+}

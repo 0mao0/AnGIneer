@@ -1,0 +1,59 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>170 116 203 899<|content|>中华人民共和国交通行业标准\n<|id|>3<|type|>title<|page|>1<|box|>414 128 450 887<|content|>港口码头劳动定员 第 5 部分: 散货码头\n<|id|>4<|type|>title<|page|>1<|box|>474 210 496 804<|content|>Port terminal labour manning—Part 5: Bulk cargo te\n<|id|>8<|type|>title<|page|>2<|box|>133 443 156 549<|content|>目次\n<|id|>10<|type|>title<|page|>3<|box|>134 444 156 552<|content|>前言\n<|id|>28<|type|>title<|page|>4<|box|>134 265 155 720<|content|>港口码头劳动定员 第 5 部分: 散货码头\n<|id|>29<|type|>title<|page|>4<|box|>190 112 204 180<|content|>1 范围\n<|id|>32<|type|>title<|page|>4<|box|>282 111 297 265<|content|>2 规范性引用文件\n<|id|>35<|type|>title<|page|>4<|box|>394 112 409 214<|content|>3 单项定员\n<|id|>37<|type|>table<|page|>5<|box|>128 138 310 882<|content|>None\n<|id|>61<|type|>table<|page|>6<|box|>134 115 479 881<|content|>None\n<|id|>68<|type|>title<|page|>6<|box|>673 113 688 344<|content|>3.14 装卸机械运行技术人员\n<|id|>75<|type|>title<|page|>6<|box|>824 113 838 345<|content|>3.15 队(车间)生产管理人员\n<|id|>77<|type|>title<|page|>6<|box|>862 113 876 293<|content|>3.16 现场安全监督员\n<|id|>80<|type|>title<|page|>7<|box|>114 127 129 336<|content|>3.17 现场货运质量监督员\n<|id|>82<|type|>title<|page|>7<|box|>160 126 176 311<|content|>4 装卸作业线综合定员\n<|id|>83<|type|>title<|page|>7<|box|>189 127 204 262<|content|>4.1 散矿作业线\n<|id|>84<|type|>title<|page|>7<|box|>207 126 223 434<|content|>4.1.1 散矿作业线装卸机械配备见表3。\n<|id|>85<|type|>table<|page|>7<|box|>244 128 415 882<|content|>None\n<|id|>86<|type|>title<|page|>7<|box|>422 128 437 400<|content|>4.1.2 散矿作业线综合定员见表4。\n<|id|>87<|type|>table<|page|>7<|box|>457 128 693 882<|content|>None\n<|id|>88<|type|>title<|page|>7<|box|>699 128 715 263<|content|>4.2 散粮作业线\n<|id|>89<|type|>title<|page|>7<|box|>718 127 734 434<|content|>4.2.1 散粮作业线装卸机械配备见表5。\n<|id|>90<|type|>table<|page|>7<|box|>755 128 909 882<|content|>None\n<|id|>91<|type|>table<|page|>8<|box|>135 112 405 876<|content|>None\n<|id|>92<|type|>title<|page|>8<|box|>409 111 424 388<|content|>4.2.2 散粮作业线综合定员见表6。\n<|id|>93<|type|>table<|page|>8<|box|>445 112 702 875<|content|>None\n<|id|>94<|type|>title<|page|>8<|box|>707 111 722 265<|content|>4.3 散化肥作业线\n<|id|>95<|type|>title<|page|>8<|box|>726 110 741 440<|content|>4.3.1 散化肥作业线装卸机械配备见表7。\n<|id|>96<|type|>table<|page|>8<|box|>761 112 892 875<|content|>None\n<|id|>97<|type|>title<|page|>8<|box|>896 110 913 405<|content|>4.3.2 散化肥作业线综合定员见表8。\n<|id|>98<|type|>table<|page|>9<|box|>136 135 308 881<|content|>None\n<|id|>99<|type|>title<|page|>9<|box|>323 133 338 297<|content|>5 全部定员计算方法\n<|id|>100<|type|>title<|page|>9<|box|>351 133 366 267<|content|>5.1 港口装卸工\n<|id|>102<|type|>title<|page|>9<|box|>388 133 402 282<|content|>5.2 装卸机械司机\n<|id|>104<|type|>title<|page|>9<|box|>425 135 439 251<|content|>5.3 其他岗位",
+    "raw_response": "<|src_id|>37<|tgt_id|>35\n<|src_id|>61<|tgt_id|>35\n<|src_id|>85<|tgt_id|>84\n<|src_id|>87<|tgt_id|>86\n<|src_id|>90<|tgt_id|>89\n<|src_id|>91<|tgt_id|>89\n<|src_id|>93<|tgt_id|>92\n<|src_id|>96<|tgt_id|>95\n<|src_id|>98<|tgt_id|>97",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 97
+        }
+    ]
+}

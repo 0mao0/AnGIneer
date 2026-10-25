@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 200 118 795<|content|>SETTLEMENT AGREEMENT AND MUTUAL RELEASE\n<|id|>7<|page|>1<|box|>397 140 415 243<|content|>RECITALS\n<|id|>8<|page|>1<|box|>422 140 440 248<|content|>WHEREAS:\n<|id|>17<|page|>2<|box|>662 140 680 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>30<|page|>3<|box|>675 142 691 468<|content|>ARTICLE II — SETTLEMENT TERMS\n<|id|>44<|page|>4<|box|>667 140 685 421<|content|>Section 2.5 Dismissal with Prejudice.\n<|id|>48<|page|>5<|box|>167 142 184 462<|content|>ARTICLE III — MUTUAL RELEASES\n<|id|>49<|page|>5<|box|>194 140 210 513<|content|>Section 3.1 Definition of Releasors and Releasees.\n<|id|>62<|page|>6<|box|>306 140 324 550<|content|>Section 3.3 California Civil Code Section 1542 Wai\n<|id|>66<|page|>6<|box|>630 140 647 457<|content|>Section 3.4 Covenant Not to Sue (Limited).\n<|id|>68<|page|>6<|box|>806 140 823 797<|content|>ARTICLE IV — CONFIDENTIAL INFORMATION AND PROTECTI\n<|id|>69<|page|>6<|box|>832 140 849 586<|content|>Section 4.1 Return or Destruction of Confidential\n<|id|>72<|page|>7<|box|>354 140 371 534<|content|>Section 4.2 Survival of Protective Order Obligatio\n<|id|>74<|page|>7<|box|>494 140 511 625<|content|>ARTICLE V — REPRESENTATIONS AND WARRANTIES\n<|id|>83<|page|>8<|box|>464 140 482 612<|content|>ARTICLE VI — CONFIDENTIALITY OF SETTLEMENT\n<|id|>94<|page|>9<|box|>614 140 633 563<|content|>ARTICLE VII — MISCELLANEOUS PROVISIONS\n<|id|>105<|page|>11<|box|>460 176 477 269<|content|>If to OWS:\n<|id|>111<|page|>11<|box|>637 178 652 281<|content|>If to Lumos:\n<|id|>121<|page|>12<|box|>277 142 294 475<|content|>OPTIWAVE SEMICONDUCTOR CORP.\n<|id|>131<|page|>12<|box|>449 447 465 549<|content|>EXHIBIT A\n<|id|>132<|page|>12<|box|>474 210 492 785<|content|>FORM OF JOINT STIPULATION OF DISMISSAL WITH PREJUD\n<|id|>133<|page|>12<|box|>501 143 532 852<|content|>UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF\n<|id|>152<|page|>13<|box|>474 449 491 547<|content|>EXHIBIT B\n<|id|>153<|page|>13<|box|>500 220 517 777<|content|>FORM OF PROPOSED ORDER OF DISMISSAL WITH PREJUDICE\n<|id|>154<|page|>13<|box|>526 143 556 851<|content|>UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF\n<|id|>157<|page|>13<|box|>799 142 816 400<|content|>IT IS HEREBY ORDERED that:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>17<|level|>2\n<|id|>30<|level|>2\n<|id|>44<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>62<|level|>3\n<|id|>66<|level|>3\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>72<|level|>3\n<|id|>74<|level|>2\n<|id|>83<|level|>2\n<|id|>94<|level|>2\n<|id|>105<|level|>-1\n<|id|>111<|level|>-1\n<|id|>121<|level|>-1\n<|id|>131<|level|>2\n<|id|>132<|level|>3\n<|id|>133<|level|>4\n<|id|>152<|level|>2\n<|id|>153<|level|>3\n<|id|>154<|level|>4\n<|id|>157<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 4
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 4
+        }
+    ]
+}

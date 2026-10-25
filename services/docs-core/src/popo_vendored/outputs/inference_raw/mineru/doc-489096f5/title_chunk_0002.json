@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        97,
+        119
+    ],
+    "pages": [
+        98,
+        99,
+        105,
+        106,
+        109,
+        110,
+        111,
+        118,
+        119
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>461<|page|>98<|box|>713 107 728 300<|content|>6.4 铁路平交道口标线\n<|id|>470<|page|>99<|box|>743 107 758 230<|content|>6.5 减速标线\n<|id|>489<|page|>105<|box|>790 107 804 231<|content|>6.6 立面标记\n<|id|>493<|page|>106<|box|>357 107 373 231<|content|>6.7 实体标记\n<|id|>495<|page|>106<|box|>460 105 476 176<|content|>7 其他\n<|id|>496<|page|>106<|box|>488 107 502 231<|content|>7.1 突起路标\n<|id|>513<|page|>109<|box|>319 107 334 213<|content|>7.2 轮廓标\n<|id|>526<|page|>110<|box|>135 455 149 544<|content|>附录 A\n<|id|>530<|page|>111<|box|>135 453 149 544<|content|>附录 B\n<|id|>532<|page|>111<|box|>172 425 187 571<|content|>交叉路口标线设置\n<|id|>533<|page|>111<|box|>210 107 225 231<|content|>B.1 一般原则\n<|id|>537<|page|>111<|box|>388 107 403 302<|content|>B.2 交叉路口标线分类\n<|id|>541<|page|>111<|box|>585 107 600 389<|content|>B.3 交叉路口出入部分的路面标线\n<|id|>542<|page|>111<|box|>614 107 629 319<|content|>B.3.1 左转弯专用道标线\n<|id|>579<|page|>118<|box|>105 107 121 285<|content|>B.3.2 右转弯专用道\n<|id|>589<|page|>118<|box|>702 107 717 408<|content|>B.3.3 出入口导向车道线及导向箭头\n<|id|>592<|page|>118<|box|>804 107 820 337<|content|>B.4 交叉路口内的路面标线\n<|id|>593<|page|>118<|box|>834 107 848 250<|content|>B. 4.1 人行横道\n<|id|>598<|page|>119<|box|>200 107 214 231<|content|>B. 4.2 停止线\n<|id|>603<|page|>119<|box|>293 107 307 231<|content|>B.4.3 让行线\n<|id|>605<|page|>119<|box|>349 107 363 302<|content|>B.4.4 导向线和导流线\n<|id|>610<|page|>119<|box|>795 107 809 302<|content|>B. 4.5 非机动车专用道",
+    "raw_response": "<|id|>461<|level|>2\n<|id|>470<|level|>2\n<|id|>489<|level|>2\n<|id|>493<|level|>2\n<|id|>495<|level|>1\n<|id|>496<|level|>2\n<|id|>513<|level|>2\n<|id|>526<|level|>1\n<|id|>530<|level|>1\n<|id|>532<|level|>2\n<|id|>533<|level|>3\n<|id|>537<|level|>3\n<|id|>541<|level|>3\n<|id|>542<|level|>4\n<|id|>579<|level|>4\n<|id|>589<|level|>4\n<|id|>592<|level|>3\n<|id|>593<|level|>4\n<|id|>598<|level|>4\n<|id|>603<|level|>4\n<|id|>605<|level|>4\n<|id|>610<|level|>4",
+    "parsed": [
+        {
+            "id": 461,
+            "level": 2
+        },
+        {
+            "id": 470,
+            "level": 2
+        },
+        {
+            "id": 489,
+            "level": 2
+        },
+        {
+            "id": 493,
+            "level": 2
+        },
+        {
+            "id": 495,
+            "level": 1
+        },
+        {
+            "id": 496,
+            "level": 2
+        },
+        {
+            "id": 513,
+            "level": 2
+        },
+        {
+            "id": 526,
+            "level": 1
+        },
+        {
+            "id": 530,
+            "level": 1
+        },
+        {
+            "id": 532,
+            "level": 2
+        },
+        {
+            "id": 533,
+            "level": 3
+        },
+        {
+            "id": 537,
+            "level": 3
+        },
+        {
+            "id": 541,
+            "level": 3
+        },
+        {
+            "id": 542,
+            "level": 4
+        },
+        {
+            "id": 579,
+            "level": 4
+        },
+        {
+            "id": 589,
+            "level": 4
+        },
+        {
+            "id": 592,
+            "level": 3
+        },
+        {
+            "id": 593,
+            "level": 4
+        },
+        {
+            "id": 598,
+            "level": 4
+        },
+        {
+            "id": 603,
+            "level": 4
+        },
+        {
+            "id": 605,
+            "level": 4
+        },
+        {
+            "id": 610,
+            "level": 4
+        }
+    ]
+}

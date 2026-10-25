@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        14,
+        15,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>87 142 133 851<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT PRIVIL\n<|id|>9<|page|>1<|box|>391 142 407 321<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>450 140 467 267<|content|>II. Background\n<|id|>17<|page|>2<|box|>481 140 498 261<|content|>A. The Parties\n<|id|>20<|page|>3<|box|>268 140 284 344<|content|>B. Transaction Structure\n<|id|>27<|page|>3<|box|>780 140 797 346<|content|>C. Related-Party Context\n<|id|>30<|page|>4<|box|>340 140 357 411<|content|>III. HSR Act Filing Requirements\n<|id|>31<|page|>4<|box|>371 140 388 473<|content|>A. Overview of the Hart-Scott-Rodino Act\n<|id|>35<|page|>4<|box|>789 140 805 359<|content|>B. Size-of-Transaction Test\n<|id|>40<|page|>5<|box|>492 140 508 321<|content|>C. Size-of-Person Test\n<|id|>45<|page|>6<|box|>239 140 256 493<|content|>D. Ultimate Parent Entity and Filing Persons\n<|id|>52<|page|>7<|box|>268 140 285 424<|content|>E. Notification Form and Filing Fee\n<|id|>64<|page|>8<|box|>186 140 204 509<|content|>IV. Waiting Period and Timing Considerations\n<|id|>65<|page|>8<|box|>217 140 234 341<|content|>A. Initial Waiting Period\n<|id|>69<|page|>8<|box|>633 140 652 315<|content|>B. Early Termination\n<|id|>73<|page|>9<|box|>212 140 229 333<|content|>C. Second Request Risk\n<|id|>77<|page|>9<|box|>593 142 609 480<|content|>D. Timing Implications for the Transaction\n<|id|>82<|page|>10<|box|>286 140 303 406<|content|>V. Substantive Antitrust Analysis\n<|id|>83<|page|>10<|box|>316 140 333 375<|content|>A. Relevant Product Markets\n<|id|>98<|page|>12<|box|>250 140 266 397<|content|>B. Relevant Geographic Market\n<|id|>102<|page|>12<|box|>575 140 592 393<|content|>C. Competitive Effects Analysis\n<|id|>110<|page|>14<|box|>90 140 107 344<|content|>D. Market Concentration\n<|id|>114<|page|>14<|box|>470 140 488 364<|content|>E. Precedent Agency Action\n<|id|>119<|page|>15<|box|>212 140 229 413<|content|>VI. State Antitrust Considerations\n<|id|>123<|page|>15<|box|>661 140 676 601<|content|>VII. Merger Agreement Provisions — Antitrust Coven\n<|id|>132<|page|>17<|box|>90 140 107 454<|content|>VIII. Recommendations and Next Steps\n<|id|>141<|page|>18<|box|>297 140 314 264<|content|>IX. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>1\n<|id|>31<|level|>2\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>52<|level|>2\n<|id|>64<|level|>1\n<|id|>65<|level|>2\n<|id|>69<|level|>2\n<|id|>73<|level|>2\n<|id|>77<|level|>2\n<|id|>82<|level|>1\n<|id|>83<|level|>2\n<|id|>98<|level|>2\n<|id|>102<|level|>2\n<|id|>110<|level|>2\n<|id|>114<|level|>2\n<|id|>119<|level|>1\n<|id|>123<|level|>1\n<|id|>132<|level|>1\n<|id|>141<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        }
+    ]
+}

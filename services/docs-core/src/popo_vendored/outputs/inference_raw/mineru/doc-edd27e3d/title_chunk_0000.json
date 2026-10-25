@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 200 118 795<|content|>SETTLEMENT AGREEMENT AND MUTUAL RELEASE\n<|id|>10<|page|>1<|box|>566 140 584 243<|content|>RECITALS\n<|id|>20<|page|>2<|box|>699 142 715 287<|content|>1. DEFINITIONS\n<|id|>35<|page|>3<|box|>744 140 762 387<|content|>2. SETTLEMENT PAYMENT\n<|id|>41<|page|>4<|box|>349 140 369 844<|content|>2.2 Payment Schedule. The Settlement Amount shall\n<|id|>55<|page|>5<|box|>439 140 455 379<|content|>3. PROSPECTIVE LICENSE\n<|id|>69<|page|>7<|box|>512 140 529 300<|content|>4. AUDIT RIGHTS\n<|id|>74<|page|>8<|box|>347 140 364 336<|content|>5. MUTUAL RELEASE\n<|id|>81<|page|>9<|box|>483 140 500 267<|content|>6. DISMISSAL\n<|id|>85<|page|>10<|box|>89 140 107 339<|content|>7. CONFIDENTIALITY\n<|id|>94<|page|>11<|box|>89 140 107 517<|content|>8. REPRESENTATIONS AND WARRANTIES\n<|id|>99<|page|>11<|box|>421 140 439 643<|content|>8.3 Ownership of Copyrights. Plaintiffs represent\n<|id|>106<|page|>12<|box|>285 140 301 339<|content|>9. INDEMNIFICATION\n<|id|>109<|page|>12<|box|>670 142 688 383<|content|>10. GENERAL PROVISIONS\n<|id|>132<|page|>15<|box|>214 142 231 261<|content|>PLAINTIFFS:\n<|id|>166<|page|>16<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>167<|page|>16<|box|>114 393 132 602<|content|>SCHEDULE OF WORKS\n<|id|>169<|page|>16<|box|>227 142 244 393<|content|>Part I — Musical Compositions\n<|id|>171<|page|>16<|box|>277 142 294 803<|content|>United States Copyright Office Registration Nos.:\n<|id|>174<|page|>16<|box|>414 142 431 369<|content|>Part II — Sound Recordings\n<|id|>176<|page|>16<|box|>464 142 481 800<|content|>United States Copyright Office Registration Nos.:\n<|id|>180<|page|>17<|box|>89 450 106 545<|content|>EXHIBIT 1\n<|id|>181<|page|>17<|box|>114 241 132 754<|content|>FORM OF STIPULATION OF DISMISSAL WITH PREJUDICE\n<|id|>182<|page|>17<|box|>142 194 157 800<|content|>UNITED STATES DISTRICT COURT CENTRAL DISTRICT OF C\n<|id|>202<|page|>18<|box|>142 462 157 534<|content|>ORDER",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>20<|level|>2\n<|id|>35<|level|>2\n<|id|>41<|level|>3\n<|id|>55<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>2\n<|id|>81<|level|>2\n<|id|>85<|level|>2\n<|id|>94<|level|>2\n<|id|>99<|level|>3\n<|id|>106<|level|>2\n<|id|>109<|level|>2\n<|id|>132<|level|>2\n<|id|>166<|level|>2\n<|id|>167<|level|>3\n<|id|>169<|level|>4\n<|id|>171<|level|>-1\n<|id|>174<|level|>4\n<|id|>176<|level|>-1\n<|id|>180<|level|>2\n<|id|>181<|level|>3\n<|id|>182<|level|>-1\n<|id|>202<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 4
+        },
+        {
+            "id": 174,
+            "level": 4
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 202,
+            "level": 2
+        }
+    ]
+}

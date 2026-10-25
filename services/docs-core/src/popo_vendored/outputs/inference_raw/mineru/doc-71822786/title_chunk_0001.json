@@ -1,0 +1,30 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        51
+    ],
+    "pages": [
+        46,
+        48,
+        49,
+        51
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>385<|page|>46<|box|>806 142 824 230<|content|>Summary:\n<|id|>390<|page|>48<|box|>90 267 111 730<|content|>Appendix B — Notification Deadline Calendar\n<|id|>392<|page|>49<|box|>90 181 111 815<|content|>Appendix C — Data Elements Mapping to Statutory De\n<|id|>397<|page|>51<|box|>386 143 421 852<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT PRIVIL",
+    "raw_response": "<|id|>385<|level|>2\n<|id|>390<|level|>1\n<|id|>392<|level|>1\n<|id|>397<|level|>-1",
+    "parsed": [
+        {
+            "id": 385,
+            "level": 2
+        },
+        {
+            "id": 390,
+            "level": 1
+        },
+        {
+            "id": 392,
+            "level": 1
+        }
+    ]
+}

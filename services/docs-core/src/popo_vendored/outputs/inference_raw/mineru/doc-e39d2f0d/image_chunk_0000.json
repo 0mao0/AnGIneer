@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>136 250 157 746<|content|>SECURITIES AND EXCHANGE COMMISSION\n<|id|>1<|type|>title<|page|>1<|box|>175 377 195 620<|content|>Washington, D.C. 20549\n<|id|>3<|type|>title<|page|>1<|box|>250 156 323 839<|content|>CERTIFICATION AND NOTICE OF TERMINATION OF REGISTR\n<|id|>6<|type|>table<|page|>1<|box|>383 143 589 852<|content|>None\n<|id|>11<|type|>title<|page|>1<|box|>784 142 800 390<|content|>ITEM 1 — NAME OF ISSUER\n<|id|>14<|type|>title<|page|>2<|box|>239 142 258 421<|content|>ITEM 2 — ADDRESS OF ISSUER\n<|id|>16<|type|>title<|page|>2<|box|>292 142 310 369<|content|>United States Headquarters:\n<|id|>18<|type|>title<|page|>2<|box|>363 142 380 433<|content|>Registered Office (United Kingdom):\n<|id|>23<|type|>title<|page|>2<|box|>542 140 579 748<|content|>ITEM 3 — SECURITIES TO BE DEREGISTERED AND REPORTS\n<|id|>24<|type|>title<|page|>2<|box|>592 140 609 310<|content|>A. Class of Securities\n<|id|>26<|type|>title<|page|>2<|box|>773 140 792 777<|content|>B. Basis for Termination of Registration and Suspe\n<|id|>31<|type|>title<|page|>3<|box|>231 140 250 316<|content|>C. Grounds for Filing\n<|id|>48<|type|>title<|page|>5<|box|>212 140 229 692<|content|>ITEM 4 — APPROXIMATE NUMBER OF HOLDERS OF RECORD\n<|id|>53<|type|>title<|page|>5<|box|>631 140 648 813<|content|>ITEM 5 — TITLE OF EACH CLASS OF SECURITIES COVERED\n<|id|>56<|type|>title<|page|>5<|box|>760 140 796 795<|content|>ITEM 6 — WHETHER THE ISSUER HAS A DUTY TO FILE REP\n<|id|>62<|type|>title<|page|>6<|box|>464 140 482 297<|content|>CERTIFICATION\n<|id|>68<|type|>title<|page|>8<|box|>89 142 106 256<|content|>SIGNATURE\n<|id|>70<|type|>title<|page|>8<|box|>178 142 194 442<|content|>CLOUDIUM TECHNOLOGIES PLC\n<|id|>76<|type|>title<|page|>8<|box|>359 142 378 424<|content|>ATTACHMENTS AND EXHIBITS\n<|id|>78<|type|>table<|page|>8<|box|>446 143 857 851<|content|>None\n<|id|>80<|type|>title<|page|>9<|box|>151 140 167 748<|content|>CONFIDENTIAL — FOR INTERNAL REFERENCE ONLY — NOT P\n<|id|>81<|type|>title<|page|>9<|box|>174 142 189 367<|content|>DRAFTER / PREPARER NOTES\n<|id|>82<|type|>table<|page|>9<|box|>219 143 309 852<|content|>None\n<|id|>83<|type|>title<|page|>9<|box|>344 143 358 295<|content|>Transaction Summary:\n<|id|>85<|type|>table<|page|>9<|box|>454 143 654 852<|content|>None\n<|id|>86<|type|>table<|page|>9<|box|>708 143 803 852<|content|>None\n<|id|>87<|type|>title<|page|>9<|box|>837 143 851 259<|content|>Additional Notes:",
+    "raw_response": "<|src_id|>6<|tgt_id|>3\n<|src_id|>78<|tgt_id|>76\n<|src_id|>82<|tgt_id|>81\n<|src_id|>85<|tgt_id|>83\n<|src_id|>86<|tgt_id|>83",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 83
+        }
+    ]
+}

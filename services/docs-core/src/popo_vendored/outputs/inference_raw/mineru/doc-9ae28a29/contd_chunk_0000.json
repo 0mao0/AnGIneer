@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>157 142 174 297<|content|>Fax: ... (202) 555-7401\n<|id|>3<|page|>1<|box|>174 620 191 856<|content|>www. ... com\n<|id|>4<|page|>1<|box|>199 741 218 854<|content|>April 14, 2022\n<|id|>6<|page|>1<|box|>251 140 287 854<|content|>Marcus Wellbourne, Esq. ... 1200 McKinney Street, Suite 3400 Houston, TX 77010, USA\n<|id|>7<|page|>1<|box|>296 174 333 854<|content|>With a copy to the registered office: ... Harbour ... George Town, Grand Cayman KY1-1002 Cayman Islands\n<|id|>8<|page|>1<|box|>339 140 371 854<|content|>Re: ... 1016-00009\n<|id|>20<|page|>2<|box|>342 181 359 761<|content|>• Dunmore Renewables GmbH (Hamburg, Federal Republic of Germany); ... and\n<|id|>25<|page|>2<|box|>851 140 930 854<|content|>(d) Engagement with, cooperation with, and respons... 20006 | Attorney-Client Privileged & Confidential\n<|id|>26<|page|>3<|box|>90 174 143 854<|content|>cooperation framework, proffer sessions, presentat... government inquiry or enforcement action; ... and\n<|id|>45<|page|>4<|box|>833 140 930 856<|content|>Amara Osei, Associate, White Collar Defense & Inve... 20006 | Attorney-Client Privileged & Confidential\n<|id|>46<|page|>5<|box|>90 174 127 854<|content|>witness interviews in international jurisdictions,...many, Nigeria, and the Cayman Islands as necessary\n<|id|>75<|page|>8<|box|>554 183 571 697<|content|>• Filing fees, certification fees, and related governmental charges; ... and\n<|id|>77<|page|>8<|box|>594 138 795 856<|content|>With respect to third-party vendor engagements—inc...ed through to the Client, as the parties may agree\n<|id|>92<|page|>9<|box|>746 183 762 714<|content|>• Rajesh Malhotra, Controller, Dunmore Trading International Ltd. ... and\n<|id|>94<|page|>9<|box|>785 140 858 854<|content|>Any communications between the Firm and the above-... and has the exclusive right to assert or waive it\n<|id|>95<|page|>9<|box|>864 140 901 856<|content|>The Firm does not represent any of the Company's e...pital Partners Fund IV, L. ... 5% of the equity of\n<|id|>96<|page|>10<|box|>90 140 181 856<|content|>Dunmore Energy Holdings Ltd. ... These entities ar...our clients for purposes of this or any engagement\n<|id|>108<|page|>10<|box|>676 183 693 495<|content|>• Thornbury Asset Management Ltd. ... and\n<|id|>110<|page|>10<|box|>752 140 844 856<|content|>Based on the results of this conflict check, the F...mployees of the Client listed above, in any matter\n<|id|>118<|page|>11<|box|>815 140 930 856<|content|>The Firm will promptly prepare and issue litigatio... 20006 | Attorney-Client Privileged & Confidential\n<|id|>119<|page|>12<|box|>90 140 127 854<|content|>financial records, compliance records, and any oth...cluding paper, electronic, and cloud-based formats\n<|id|>136<|page|>13<|box|>863 140 898 854<|content|>In addition, as directed by you and subject to app... the Board of Directors of Dunmore Energy Holdings\n<|id|>137<|page|>14<|box|>90 140 253 856<|content|>Ltd. ... All such communications with shareholders...te framework and protocols for such communications\n<|id|>155<|page|>15<|box|>568 142 584 338<|content|>Name: ... Victoria Chambers\n<|id|>156<|page|>15<|box|>585 142 602 584<|content|>Title: ... Partner, White Collar Defense & Investigations Group\n<|id|>157<|page|>15<|box|>603 143 619 264<|content|>Date: ... Date\n<|id|>159<|page|>15<|box|>637 143 652 308<|content|>Name: ... Howard Quinn\n<|id|>160<|page|>15<|box|>654 143 671 584<|content|>Title: ... Partner, White Collar Defense & Investigations Group\n<|id|>161<|page|>15<|box|>671 143 686 264<|content|>Date: ... Date\n<|id|>171<|page|>15<|box|>902 140 929 830<|content|>Calderwood & Harkness LLP | 1750 Pennsylvania Aven... 20006 | Attorney-Client Privileged & Confidential\n<|id|>174<|page|>16<|box|>127 140 157 852<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED Calderwo...00, Washington, DC 20006 Matter No. ... 1016-00009\n<|id|>172<|page|>16<|box|>89 176 107 754<|content|>2. ... Staffing Plan & Budget Estimate Memorandum (to be dated April 18, 2022)\n<|id|>173<|page|>16<|box|>109 176 127 650<|content|>3. ... Litigation Hold Notice Template (to be dated April 20, 2022)",
+    "raw_response": "<|src_id|>25<|tgt_id|>26\n<|src_id|>45<|tgt_id|>46\n<|src_id|>95<|tgt_id|>96\n<|src_id|>136<|tgt_id|>137",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 137
+        }
+    ]
+}

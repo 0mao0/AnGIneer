@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['2', \"'567 Patent (U.S. 10,234,567)\", '1', '\"tapered silicon waveguide having a tip width of less than 200 nanometers\"', '\"a silicon waveguide with a taper whose narrowest point is less than 200 nm wide\"', '\"a silicon waveguide with a taper terminating at a tip measured at the interface with the silicon nitride layer, the tip having a width of less than 200 nm\"', 'Parties\\' positions have narrowed; \"tip width\" refers to narrowest point per conventional meaning; Lumos\\'s interface measurement point drawn from preferred embodiment. Section III.B.']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['3', \"'567 Patent (U.S. 10,234,567)\", '1, 7, 15', '\"silicon nitride waveguide layer\"', '\"a waveguide layer composed of silicon nitride, including both stoichiometric and non-stoichiometric compositions\"', '\"a waveguide layer composed of stoichiometricSi_{3}N_{4}\"', 'Specification does not limit to stoichiometric compositions; industry usage encompasses silicon-rich SiN. Section III.B.']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 204,
+    "table2_idx": 205
+}

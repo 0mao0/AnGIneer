@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>1<|box|>518 140 592 854<|content|>WHEREAS, this Bill of Sale is being executed and d... by Seller to Buyer pursuant to Section 2. ... and\n<|id|>7<|page|>1<|box|>599 140 729 856<|content|>WHEREAS, the total consideration for the Purchased... Closing Cash Consideration, the \"Purchase Price\")\n<|id|>71<|page|>8<|box|>291 142 306 325<|content|>Name: ... Martin Kowalski\n<|id|>72<|page|>8<|box|>308 142 324 361<|content|>Title: ... Chief Financial Officer\n<|id|>73<|page|>8<|box|>325 143 340 303<|content|>Date: ... August 8, 2023\n<|id|>74<|page|>8<|box|>343 143 358 214<|content|>Address: ... Address\n<|id|>75<|page|>8<|box|>359 143 376 591<|content|>10250 Science Center Drive, Suite 600 San Diego, CA 92121\n<|id|>76<|page|>8<|box|>377 143 392 274<|content|>EIN: ... 47-3892061\n<|id|>81<|page|>8<|box|>517 143 534 300<|content|>Name: ... Angela Rossi\n<|id|>82<|page|>8<|box|>534 142 550 362<|content|>Title: ... Chief Financial Officer\n<|id|>83<|page|>8<|box|>551 142 568 305<|content|>Date: ... August 8, 2023\n<|id|>84<|page|>8<|box|>569 143 584 214<|content|>Address: ... Address\n<|id|>85<|page|>8<|box|>585 140 603 547<|content|>2400 Meridian Parkway, Suite 300 Durham, NC 27713\n<|id|>86<|page|>8<|box|>603 143 619 277<|content|>EIN: ... 56-4210783",
+    "raw_response": "<|src_id|>74<|tgt_id|>75\n<|src_id|>84<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 74,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        }
+    ]
+}

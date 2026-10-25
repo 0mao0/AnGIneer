@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 163 166 834<|content|>UNANIMOUS WRITTEN CONSENT OF THE BOARD OF DIRECTOR\n<|id|>5<|type|>title<|page|>1<|box|>448 142 465 243<|content|>RECITALS\n<|id|>6<|type|>title<|page|>1<|box|>473 140 489 248<|content|>WHEREAS:\n<|id|>38<|type|>title<|page|>6<|box|>277 140 294 279<|content|>RESOLUTIONS\n<|id|>39<|type|>title<|page|>6<|box|>303 140 320 377<|content|>NOW, THEREFORE, BE IT:\n<|id|>40<|type|>title<|page|>6<|box|>334 140 352 779<|content|>Resolution 1 — Adoption of the Amended and Restate\n<|id|>48<|type|>title<|page|>7<|box|>212 140 250 854<|content|>Resolution 2 — Adoption of the Amended and Restate\n<|id|>56<|type|>title<|page|>8<|box|>90 140 126 854<|content|>Resolution 3 — Adoption of the Amended and Restate\n<|id|>65<|type|>title<|page|>9<|box|>90 140 107 769<|content|>Resolution 4 — Adoption of the Amended and Restate\n<|id|>73<|type|>title<|page|>9<|box|>628 140 647 821<|content|>Resolution 5 — Adoption of the Amended and Restate\n<|id|>82<|type|>title<|page|>10<|box|>388 140 424 854<|content|>Resolution 6 — Adoption of the Charter for the Tec\n<|id|>97<|type|>title<|page|>11<|box|>434 140 450 816<|content|>Resolution 7 — Approval of the Revised Delegation\n<|id|>99<|type|>table<|page|>11<|box|>635 143 901 852<|content|>None\n<|id|>100<|type|>table<|page|>12<|box|>89 143 280 852<|content|>None\n<|id|>102<|type|>title<|page|>12<|box|>455 140 491 854<|content|>Resolution 8 — Approval of the Model Subsidiary De\n<|id|>105<|type|>title<|page|>12<|box|>791 140 809 828<|content|>Resolution 9 — Adoption of the Amended & Restated\n<|id|>114<|type|>title<|page|>14<|box|>213 140 229 630<|content|>Resolution 10 — Adoption of Conforming Bylaw Amend\n<|id|>120<|type|>title<|page|>14<|box|>773 140 790 643<|content|>Resolution 11 — Authorization of Public Filings an\n<|id|>126<|type|>title<|page|>15<|box|>601 140 619 681<|content|>Resolution 12 — Authorization of State Insurance R\n<|id|>133<|type|>title<|page|>16<|box|>429 142 446 500<|content|>Resolution 13 — Ratification of Prior Actions\n<|id|>141<|type|>title<|page|>17<|box|>90 140 107 455<|content|>Resolution 14 — General Authorization\n<|id|>143<|type|>title<|page|>17<|box|>392 140 409 493<|content|>EFFECTIVENESS AND COUNTERPARTS\n<|id|>147<|type|>title<|page|>17<|box|>694 142 710 236<|content|>EXHIBITS\n<|id|>158<|type|>title<|page|>19<|box|>89 408 107 588<|content|>SIGNATURE PAGES\n<|id|>216<|type|>title<|page|>20<|box|>335 313 352 684<|content|>CORPORATE SECRETARY ATTESTATION",
+    "raw_response": "<|src_id|>99<|tgt_id|>97\n<|src_id|>100<|tgt_id|>97",
+    "parsed": [
+        {
+            "src_id": 99,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 97
+        }
+    ]
+}

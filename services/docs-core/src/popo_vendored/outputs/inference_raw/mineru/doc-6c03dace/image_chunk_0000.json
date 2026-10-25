@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>449 142 465 333<|content|>1. Scope of Engagement\n<|id|>17<|type|>title<|page|>2<|box|>564 142 582 313<|content|>2. Engagement Team\n<|id|>19<|type|>table<|page|>2<|box|>614 143 708 852<|content|>None\n<|id|>22<|type|>title<|page|>3<|box|>150 142 167 310<|content|>3. Fees and Expenses\n<|id|>24<|type|>table<|page|>3<|box|>236 143 292 852<|content|>None\n<|id|>29<|type|>title<|page|>4<|box|>90 140 107 290<|content|>4. Matter Number\n<|id|>31<|type|>title<|page|>4<|box|>231 140 248 395<|content|>5. Conflicts and Governing Law\n<|id|>35<|type|>title<|page|>4<|box|>625 140 641 284<|content|>6. Confidentiality\n<|id|>38<|type|>title<|page|>5<|box|>223 140 239 264<|content|>7. Termination\n<|id|>41<|type|>title<|page|>5<|box|>517 140 534 326<|content|>8. Document Retention\n<|id|>43<|type|>title<|page|>5<|box|>750 140 765 370<|content|>9. Limitation of Engagement",
+    "raw_response": "<|src_id|>19<|tgt_id|>17\n<|src_id|>24<|tgt_id|>22",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 22
+        }
+    ]
+}

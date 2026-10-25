@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        9,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>125 142 141 480<|content|>OPTIWAVE SEMICONDUCTOR CORP. ... ,\n<|id|>2<|page|>1<|box|>148 212 167 282<|content|>Plaintiff,\n<|id|>4<|page|>1<|box|>200 142 219 452<|content|>LUMICORE TECHNOLOGIES, INC. ... ,\n<|id|>5<|page|>1<|box|>228 212 244 297<|content|>Defendant. ... Defendant\n<|id|>6<|page|>1<|box|>253 142 270 370<|content|>Case No. ... 24-cv-00319-JRG\n<|id|>7<|page|>1<|box|>279 140 297 330<|content|>Hon. ... Gilstrap\n<|id|>8<|page|>1<|box|>305 142 321 367<|content|>JURY TRIAL DEMANDED\n<|id|>30<|page|>3<|box|>839 140 893 857<|content|>LumiLink 800G-DR8. ... OWS alleges that the\n<|id|>31<|page|>4<|box|>89 140 145 854<|content|>LumiLink 800G-DR8 infringes all four Asserted Pate... it Lumicore's highest-revenue transceiver product\n<|id|>73<|page|>9<|box|>217 140 252 854<|content|>I. ... Lumicore Has Waived the Attorney-Client Privilege by Placing Its Counsel's Opinions \"At Issue\"\n<|id|>75<|page|>9<|box|>489 140 599 857<|content|>The Fifth Circuit, whose law governs general privi...ileged communications at issue in the litigation\")\n<|id|>150<|page|>17<|box|>847 140 878 852<|content|>350 South Grand Avenue, 48th Floor Los Angeles, California 90071 Telephone: ... (213) 426-7801\n<|id|>151<|page|>17<|box|>882 142 897 176<|content|>and",
+    "raw_response": "<|src_id|>30<|tgt_id|>31",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        }
+    ]
+}

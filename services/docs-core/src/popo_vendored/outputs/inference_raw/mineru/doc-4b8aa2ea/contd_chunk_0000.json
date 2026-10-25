@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 424 176 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>186 140 204 751<|content|>TO: ... Elaine Forsythe, Responsible Partner, Antitrust & Competition Practice Group\n<|id|>4<|page|>1<|box|>212 140 229 707<|content|>FROM: ... Aaron Liu, Lead Associate, Antitrust & Competition Practice Group\n<|id|>5<|page|>1<|box|>237 142 253 310<|content|>DATE: ... June 12, 2022\n<|id|>6<|page|>1<|box|>263 140 300 854<|content|>RE: ... Defense Strategy\n<|id|>7<|page|>1<|box|>308 140 324 361<|content|>MATTER NO. ... 1039-00001\n<|id|>8<|page|>1<|box|>334 140 351 622<|content|>CLIENT: ... TMC)\n<|id|>9<|page|>1<|box|>359 140 396 854<|content|>INVESTIGATION: ... , San Francisco Division)\n<|id|>22<|page|>2<|box|>867 174 902 854<|content|>Pinnacle Earth Resources Ltd. ... Pinnacle's CEO is Douglas\n<|id|>23<|page|>3<|box|>89 174 181 856<|content|>Harlowe. ... We understand that Tsang has also ret...e identity of his individual attorney at this time\n<|id|>56<|page|>7<|box|>853 140 907 856<|content|>Volume of Affected Commerce. ... TMC's share of affected commerce is estimated at approximately\n<|id|>57<|page|>8<|box|>89 140 164 854<|content|>USD 478 million, representing approximately 35. .....or twice the gross loss resulting from the offense\n<|id|>149<|page|>19<|box|>869 140 885 504<|content|>Filed in Calderwood & Harkness matter file: ... 1039-00001\n<|id|>150<|page|>20<|box|>89 140 119 854<|content|>Distribution: ... Monica Reyes (Working Associate) — For internal use only",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>56<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        }
+    ]
+}

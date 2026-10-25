@@ -1,0 +1,671 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7uregeib\\input\\pdfs\\doc-685a623e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7uregeib\\enriched\\doc-685a623e.json",
+    "contd_output": "<|src_id|>63<|tgt_id|>64\n<|src_id|>86<|tgt_id|>87\n<|src_id|>246<|tgt_id|>247",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>38<|level|>3\n<|id|>53<|level|>3\n<|id|>66<|level|>2\n<|id|>68<|level|>3\n<|id|>69<|level|>4\n<|id|>74<|level|>4\n<|id|>79<|level|>4\n<|id|>85<|level|>4\n<|id|>91<|level|>4\n<|id|>96<|level|>4\n<|id|>102<|level|>4\n<|id|>108<|level|>4\n<|id|>113<|level|>4\n<|id|>119<|level|>4\n<|id|>124<|level|>4\n<|id|>129<|level|>4\n<|id|>134<|level|>3\n<|id|>135<|level|>4\n<|id|>141<|level|>4\n<|id|>146<|level|>4\n<|id|>152<|level|>4\n<|id|>158<|level|>2\n<|id|>159<|level|>3\n<|id|>161<|level|>4\n<|id|>166<|level|>4\n<|id|>180<|level|>4\n<|id|>185<|level|>4\n<|id|>190<|level|>3\n<|id|>192<|level|>4\n<|id|>198<|level|>4\n<|id|>204<|level|>4\n<|id|>219<|level|>4\n<|id|>225<|level|>4\n<|id|>234<|level|>4\n<|id|>244<|level|>4\n<|id|>251<|level|>4\n<|id|>257<|level|>4\n<|id|>263<|level|>4\n<|id|>273<|level|>4\n<|id|>279<|level|>3\n<|id|>280<|level|>4\n<|id|>291<|level|>4\n<|id|>296<|level|>2\n<|id|>334<|level|>2\n<|id|>335<|level|>3\n<|id|>337<|level|>4\n<|id|>339<|level|>4\n<|id|>341<|level|>4\n<|id|>343<|level|>4\n<|id|>345<|level|>4\n<|id|>347<|level|>4\n<|id|>349<|level|>4\n<|id|>351<|level|>4\n<|id|>353<|level|>4\n<|id|>355<|level|>4\n<|id|>357<|level|>4\n<|id|>359<|level|>4\n<|id|>361<|level|>4\n<|id|>363<|level|>4\n<|id|>365<|level|>4\n<|id|>367<|level|>4\n<|id|>369<|level|>4\n<|id|>371<|level|>4\n<|id|>373<|level|>4\n<|id|>375<|level|>4\n<|id|>377<|level|>4\n<|id|>379<|level|>4\n<|id|>382<|level|>3\n<|id|>396<|level|>2\n<|id|>401<|level|>2\n<|id|>414<|level|>2\n<|id|>424<|level|>2\n<|id|>432<|level|>2\n<|id|>451<|level|>2\n<|id|>458<|level|>2\n<|id|>462<|level|>2\n<|id|>469<|level|>2\n<|id|>484<|level|>2\n<|id|>491<|level|>2",
+    "image_output": "<|src_id|>397<|tgt_id|>396\n<|src_id|>398<|tgt_id|>396\n<|src_id|>399<|tgt_id|>396\n<|src_id|>416<|tgt_id|>414\n<|src_id|>459<|tgt_id|>458\n<|src_id|>460<|tgt_id|>458\n<|src_id|>461<|tgt_id|>458\n<|src_id|>464<|tgt_id|>462\n<|src_id|>465<|tgt_id|>462\n<|src_id|>466<|tgt_id|>462\n<|src_id|>467<|tgt_id|>462\n<|src_id|>485<|tgt_id|>484\n<|src_id|>486<|tgt_id|>484\n<|src_id|>487<|tgt_id|>484\n<|src_id|>488<|tgt_id|>484\n<|src_id|>489<|tgt_id|>484",
+    "contd_label": [
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 246,
+            "tgt_id": 247
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 4
+        },
+        {
+            "id": 74,
+            "level": 4
+        },
+        {
+            "id": 79,
+            "level": 4
+        },
+        {
+            "id": 85,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 96,
+            "level": 4
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 108,
+            "level": 4
+        },
+        {
+            "id": 113,
+            "level": 4
+        },
+        {
+            "id": 119,
+            "level": 4
+        },
+        {
+            "id": 124,
+            "level": 4
+        },
+        {
+            "id": 129,
+            "level": 4
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 4
+        },
+        {
+            "id": 141,
+            "level": 4
+        },
+        {
+            "id": 146,
+            "level": 4
+        },
+        {
+            "id": 152,
+            "level": 4
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 4
+        },
+        {
+            "id": 166,
+            "level": 4
+        },
+        {
+            "id": 180,
+            "level": 4
+        },
+        {
+            "id": 185,
+            "level": 4
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 4
+        },
+        {
+            "id": 198,
+            "level": 4
+        },
+        {
+            "id": 204,
+            "level": 4
+        },
+        {
+            "id": 219,
+            "level": 4
+        },
+        {
+            "id": 225,
+            "level": 4
+        },
+        {
+            "id": 234,
+            "level": 4
+        },
+        {
+            "id": 244,
+            "level": 4
+        },
+        {
+            "id": 251,
+            "level": 4
+        },
+        {
+            "id": 257,
+            "level": 4
+        },
+        {
+            "id": 263,
+            "level": 4
+        },
+        {
+            "id": 273,
+            "level": 4
+        },
+        {
+            "id": 279,
+            "level": 3
+        },
+        {
+            "id": 280,
+            "level": 4
+        },
+        {
+            "id": 291,
+            "level": 4
+        },
+        {
+            "id": 296,
+            "level": 2
+        },
+        {
+            "id": 334,
+            "level": 2
+        },
+        {
+            "id": 335,
+            "level": 3
+        },
+        {
+            "id": 337,
+            "level": 4
+        },
+        {
+            "id": 339,
+            "level": 4
+        },
+        {
+            "id": 341,
+            "level": 4
+        },
+        {
+            "id": 343,
+            "level": 4
+        },
+        {
+            "id": 345,
+            "level": 4
+        },
+        {
+            "id": 347,
+            "level": 4
+        },
+        {
+            "id": 349,
+            "level": 4
+        },
+        {
+            "id": 351,
+            "level": 4
+        },
+        {
+            "id": 353,
+            "level": 4
+        },
+        {
+            "id": 355,
+            "level": 4
+        },
+        {
+            "id": 357,
+            "level": 4
+        },
+        {
+            "id": 359,
+            "level": 4
+        },
+        {
+            "id": 361,
+            "level": 4
+        },
+        {
+            "id": 363,
+            "level": 4
+        },
+        {
+            "id": 365,
+            "level": 4
+        },
+        {
+            "id": 367,
+            "level": 4
+        },
+        {
+            "id": 369,
+            "level": 4
+        },
+        {
+            "id": 371,
+            "level": 4
+        },
+        {
+            "id": 373,
+            "level": 4
+        },
+        {
+            "id": 375,
+            "level": 4
+        },
+        {
+            "id": 377,
+            "level": 4
+        },
+        {
+            "id": 379,
+            "level": 4
+        },
+        {
+            "id": 382,
+            "level": 3
+        },
+        {
+            "id": 396,
+            "level": 2
+        },
+        {
+            "id": 401,
+            "level": 2
+        },
+        {
+            "id": 414,
+            "level": 2
+        },
+        {
+            "id": 424,
+            "level": 2
+        },
+        {
+            "id": 432,
+            "level": 2
+        },
+        {
+            "id": 451,
+            "level": 2
+        },
+        {
+            "id": 458,
+            "level": 2
+        },
+        {
+            "id": 462,
+            "level": 2
+        },
+        {
+            "id": 469,
+            "level": 2
+        },
+        {
+            "id": 484,
+            "level": 2
+        },
+        {
+            "id": 491,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 397,
+            "tgt_id": 396
+        },
+        {
+            "src_id": 398,
+            "tgt_id": 396
+        },
+        {
+            "src_id": 399,
+            "tgt_id": 396
+        },
+        {
+            "src_id": 416,
+            "tgt_id": 414
+        },
+        {
+            "src_id": 459,
+            "tgt_id": 458
+        },
+        {
+            "src_id": 460,
+            "tgt_id": 458
+        },
+        {
+            "src_id": 461,
+            "tgt_id": 458
+        },
+        {
+            "src_id": 464,
+            "tgt_id": 462
+        },
+        {
+            "src_id": 465,
+            "tgt_id": 462
+        },
+        {
+            "src_id": 466,
+            "tgt_id": 462
+        },
+        {
+            "src_id": 467,
+            "tgt_id": 462
+        },
+        {
+            "src_id": 485,
+            "tgt_id": 484
+        },
+        {
+            "src_id": 486,
+            "tgt_id": 484
+        },
+        {
+            "src_id": 487,
+            "tgt_id": 484
+        },
+        {
+            "src_id": 488,
+            "tgt_id": 484
+        },
+        {
+            "src_id": 489,
+            "tgt_id": 484
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 397,
+            "table2_idx": 398,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Updated ALTA/NSPS Land Title Survey, certified to all required parties, with all Table A items",
+                    "Connor McBride (MTDC) / Surveyor",
+                    "Prior to first draft distribution — May 1, 2025",
+                    "In progress (fieldwork underway)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "5",
+                    "Municipal lien search (real property taxes, water/sewer charges, assessments) — current status confirmation",
+                    "Sentinel Title / Patricia Eng",
+                    "10 business days prior to closing (no later than June 2, 2025)",
+                    "To be ordered"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 398,
+            "table2_idx": 399,
+            "upper_row_ss": [
+                [
+                    "12",
+                    "Negotiate deletion",
+                    "Grace Nakamura /",
+                    "Prior to pro forma",
+                    "In process"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "of standard printed exceptions (Exceptions 1–5) with Sentinel Title; deliver required affidavits and indemnities",
+                    "Patricia Eng",
+                    "policy issuance (target: May 15, 2025)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 459,
+            "table2_idx": 460,
+            "upper_row_ss": [
+                [
+                    "10(a)",
+                    "Ashford Partners LLC Easement (electrical)",
+                    "04/02/1998",
+                    "Liber 2765, Page 1142",
+                    "Fee Owner (predecessor)",
+                    "Ashford Partners LLC",
+                    "Underground electrical conduits; western boundary Lot 1; 12' x",
+                    "Accept, subject to survey"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "200'",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 460,
+            "table2_idx": 461,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "Hudson Yards BID Assessments / Special",
+                    "N/A",
+                    "N/A",
+                    "N/A",
+                    "N/A",
+                    "Annual BID assessment ~$385,000;",
+                    "Accept — confirm current status"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "District",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "potentialTIF-relatedcharges",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 464,
+            "table2_idx": 465,
+            "upper_row_ss": [
+                [
+                    "14",
+                    "ALTA 22",
+                    "Location (Address)",
+                    "Yes",
+                    "$1,500",
+                    "§ 5.1(n)",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "16",
+                    "ALTA 28",
+                    "Easement, Encroachment, Minerals — Damage",
+                    "Yes",
+                    "$4,500",
+                    "§ 5.1(p)",
+                    "Pending"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 466,
+            "table2_idx": 467,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "Authority / Due Organization",
+                    "Insurance of pledgor's authority and",
+                    "Yes",
+                    "TBD",
+                    "§ 4.2(b)",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "due organization",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 485,
+            "table2_idx": 486,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Lot consolidation / merger application for Lots 1, 5, 12, 15 (Block 729) with NYC Department of Finance",
+                    "Raymond Cho (Hargrove & Linden) / MTDC",
+                    "File by April 1, 2025; completion target TBD (4–8 weeks)",
+                    "To be initiated",
+                    "Even if not completed by closing, filing plus ALTA 4.0 contiguity endorsement should suffice"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "5",
+                    "Updated ALTA/NSPS Land Title Survey — fieldwork, drafting, certification to all required parties, with all Table A optional items",
+                    "Connor McBride (MTDC) / Licensed Surveyor (TBD)",
+                    "May 1, 2025",
+                    "In progress — fieldwork underway",
+                    "Confirm surveyor has list of Table A items; confirm certification language; monitor timeline"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 486,
+            "table2_idx": 487,
+            "upper_row_ss": [
+                [
+                    "10",
+                    "NYCTA Grant Agreement review — obtain complete Grant Agreement;",
+                    "Grace Nakamura (C&H) / Lydia Okafor (MTDC)",
+                    "Obtain document by April 1, 2025; complete analysis by",
+                    "Pending document receipt",
+                    "CRITICAL — if lien or reversionary interest exists, subordination"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "analyze for liens, reversionary interests, consent requirements",
+                    "",
+                    "April 15, 2025",
+                    "",
+                    "negotiations required"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 487,
+            "table2_idx": 488,
+            "upper_row_ss": [
+                [
+                    "15",
+                    "Confirm mezzanine/UCC title insurance product form and scope; order required endorsements;",
+                    "Grace Nakamura (C&H) / Patricia Eng (Sentinel Title) / Natasha Ivanovic (VRB)",
+                    "May 15, 2025",
+                    "Pending — awaiting Sentinel Title confirmation of product form",
+                    "Cross-reference with Granite Peak term sheet § 4.2"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "coordinate with Granite Peak counsel",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 488,
+            "table2_idx": 489,
+            "upper_row_ss": [
+                [
+                    "20",
+                    "Coordinate survey review with Dr. Rajesh Banerjee (Trident Structural Engineers) — structural clearances relative to MTA/NYCTA easement,",
+                    "Grace Nakamura (C&H) / Dr. Rajesh Banerjee (Trident)",
+                    "Within 2 weeks of survey receipt (target: May 15, 2025)",
+                    "Pending survey delivery",
+                    "Structural review critical for easement acceptance by lenders"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Ashford Partners LLC steam easement, NYC DEP easement",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

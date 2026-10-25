@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        9,
+        10,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>169 140 186 570<|content|>CRESTLINE PACKAGING SOLUTIONS LLC, et al. ... ,\n<|id|>4<|page|>1<|box|>196 212 212 279<|content|>Debtors. ... Debtors\n<|id|>66<|page|>6<|box|>869 174 905 854<|content|>(a) Joint Administration: ... The Court entered an... CPS Holdings pursuant to Bankruptcy Rule 1015(b),\n<|id|>67<|page|>6<|box|>916 142 929 243<|content|>CONFIDENTIAL\n<|id|>68<|page|>7<|box|>90 174 127 854<|content|>given that the two entities share common ownership...omotes administrative efficiency and reduces costs\n<|id|>101<|page|>9<|box|>839 140 895 856<|content|>41. ... The Second Lien\n<|id|>102<|page|>10<|box|>90 174 143 854<|content|>Group was represented by Pemberton & Locke LLP, le...eld, was separately represented by its own counsel\n<|id|>172<|page|>16<|box|>816 174 909 857<|content|>(b) Second Lien Secured Creditors (Class 3): ... U... reorganized equity and warrants for an additional\n<|id|>173<|page|>17<|box|>90 176 126 854<|content|>5% of reorganized equity. ... The Plan therefore p...erially superior outcome compared to a liquidation\n<|id|>193<|page|>18<|box|>825 140 882 854<|content|>82. ... Based on all of the foregoing, I respectfu...est interests test under Section 1129(a)(7) of the\n<|id|>194<|page|>19<|box|>90 174 125 854<|content|>Bankruptcy Code, and meets all of the requirements...irmation under Section 1129 of the Bankruptcy Code\n<|id|>200<|page|>19<|box|>460 580 479 854<|content|>Dated: ... August 22, 2022 Akron, Ohio\n<|id|>201<|page|>19<|box|>513 140 546 854<|content|>Dana Kowalski Chief Financial Officer Crestline Pa...LLC 4710 Industrial Corridor Drive Akron, OH 44308\n<|id|>209<|page|>19<|box|>880 176 898 772<|content|>6. ... and\n<|id|>211<|page|>20<|box|>128 140 143 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>212<|page|>20<|box|>146 143 162 253<|content|>By: ... By\n<|id|>213<|page|>20<|box|>162 142 179 638<|content|>Nathaniel Bower Colette Whitman Gabrielle Moss Amy Chesterton\n<|id|>214<|page|>20<|box|>179 140 196 666<|content|>30 Rockefeller Plaza New York, NY 10112 Telephone: ... (212) 558-4000\n<|id|>216<|page|>20<|box|>214 142 229 513<|content|>Counsel to the Debtors and Debtors in Possession\n<|id|>215<|page|>20<|box|>196 142 213 732<|content|>127 Public Square, Suite 4100 Cleveland, OH 44114 Telephone: ... (216) 479-8500",
+    "raw_response": "<|src_id|>66<|tgt_id|>68\n<|src_id|>101<|tgt_id|>102\n<|src_id|>172<|tgt_id|>173\n<|src_id|>193<|tgt_id|>194",
+    "parsed": [
+        {
+            "src_id": 66,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 173
+        },
+        {
+            "src_id": 193,
+            "tgt_id": 194
+        }
+    ]
+}

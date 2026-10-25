@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 191 165 805<|content|>CERTIFICATE OF THE CHIEF FINANCIAL OFFICER OF CASC\n<|id|>4<|page|>1<|box|>304 140 323 243<|content|>RECITALS\n<|id|>15<|page|>2<|box|>508 140 527 509<|content|>SECTION 1: AUTHORITY AND CAPACITY\n<|id|>19<|page|>3<|box|>89 140 106 620<|content|>SECTION 2: DEFINITIONS OF KEY FINANCIAL TERMS\n<|id|>27<|page|>3<|box|>824 140 859 767<|content|>SECTION 3: RATE COVENANT COMPLIANCE — FY 2022 NET\n<|id|>30<|page|>4<|box|>138 140 157 455<|content|>3.1 — FY 2022 Gross Pledged Revenues\n<|id|>33<|page|>4<|box|>412 140 429 560<|content|>3.2 — FY 2022 Operation and Maintenance Expenses\n<|id|>35<|page|>4<|box|>539 142 556 437<|content|>3.3 — FY 2022 Net Pledged Revenues\n<|id|>37<|page|>4<|box|>712 142 729 772<|content|>3.4 — Total Outstanding Parity Debt (Pro Forma, In\n<|id|>41<|page|>5<|box|>209 140 227 640<|content|>3.5 — Total Annual Aggregate Parity Debt Service (\n<|id|>44<|page|>5<|box|>363 140 378 514<|content|>3.6 — Debt-Service Coverage Ratio Calculation\n<|id|>50<|page|>5<|box|>747 140 763 617<|content|>SECTION 4: ADDITIONAL BONDS TEST COMPLIANCE\n<|id|>51<|page|>5<|box|>779 140 796 532<|content|>4.1 — Requirements of the Additional Bonds Test\n<|id|>57<|page|>6<|box|>282 142 299 393<|content|>4.2 — Historical Test (FY 2022)\n<|id|>62<|page|>6<|box|>614 140 631 607<|content|>4.3 — Projected Test (FY 2024, Supplemental Certif\n<|id|>66<|page|>7<|box|>200 140 218 596<|content|>SECTION 5: SERIES 2023A BOND TERMS SUMMARY\n<|id|>69<|page|>7<|box|>779 140 796 753<|content|>SECTION 6: SOURCES AND USES OF FUNDS (SUMMARY REFE\n<|id|>71<|page|>7<|box|>849 143 864 285<|content|>Sources of Funds:\n<|id|>77<|page|>8<|box|>652 140 670 635<|content|>SECTION 7: REPRESENTATIONS AND CERTIFICATIONS\n<|id|>89<|page|>10<|box|>89 142 106 349<|content|>SECTION 8: RELIANCE\n<|id|>94<|page|>10<|box|>439 271 455 723<|content|>CASCADIA STATE INFRASTRUCTURE AUTHORITY\n<|id|>95<|page|>10<|box|>464 140 479 573<|content|>CASCADIA STATE INFRASTRUCTURE AUTHORITY\n<|id|>102<|page|>10<|box|>607 142 625 517<|content|>ACKNOWLEDGMENT AND ATTESTATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>3\n<|id|>33<|level|>3\n<|id|>35<|level|>3\n<|id|>37<|level|>3\n<|id|>41<|level|>3\n<|id|>44<|level|>3\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>57<|level|>3\n<|id|>62<|level|>3\n<|id|>66<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>-1\n<|id|>77<|level|>2\n<|id|>89<|level|>2\n<|id|>94<|level|>-1\n<|id|>95<|level|>-1\n<|id|>102<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        }
+    ]
+}

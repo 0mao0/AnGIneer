@@ -1,0 +1,57 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 272 128 723<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>10<|type|>title<|page|>1<|box|>416 142 433 264<|content|>I. Introduction\n<|id|>14<|type|>title<|page|>1<|box|>845 140 863 388<|content|>II. Description of the Company\n<|id|>20<|type|>title<|page|>2<|box|>784 140 801 464<|content|>III. Description of the Proposed Offering\n<|id|>24<|type|>table<|page|>3<|box|>385 143 472 852<|content|>None\n<|id|>29<|type|>table<|page|>3<|box|>851 143 900 852<|content|>None\n<|id|>30<|type|>table<|page|>4<|box|>88 143 127 852<|content|>None\n<|id|>33<|type|>title<|page|>4<|box|>319 142 337 362<|content|>IV. Underwriting Syndicate\n<|id|>35<|type|>title<|page|>4<|box|>388 140 407 665<|content|>Lead-Left Book-Running Manager and Coordinating Un\n<|id|>37<|type|>title<|page|>4<|box|>459 142 477 393<|content|>Joint Book-Running Managers:\n<|id|>40<|type|>title<|page|>4<|box|>537 142 554 259<|content|>Co-Managers:\n<|id|>43<|type|>title<|page|>4<|box|>614 142 631 330<|content|>Underwriters' Counsel:\n<|id|>46<|type|>title<|page|>4<|box|>816 142 834 581<|content|>V. Pre-IPO Ownership and Post-IPO Share Distributi\n<|id|>48<|type|>table<|page|>4<|box|>886 143 907 852<|content|>None\n<|id|>50<|type|>table<|page|>5<|box|>89 143 164 852<|content|>None\n<|id|>55<|type|>title<|page|>5<|box|>700 140 719 356<|content|>VI. Corporate Governance\n<|id|>58<|type|>table<|page|>5<|box|>849 143 904 852<|content|>None\n<|id|>59<|type|>table<|page|>6<|box|>89 143 234 852<|content|>None\n<|id|>68<|type|>title<|page|>7<|box|>513 140 530 285<|content|>VII. Equity Plans\n<|id|>72<|type|>title<|page|>8<|box|>258 140 277 450<|content|>VIII. Financial Qualification Summary\n<|id|>74<|type|>table<|page|>8<|box|>407 143 585 852<|content|>None\n<|id|>76<|type|>title<|page|>8<|box|>751 140 768 408<|content|>IX. Transfer Agent and Registrar\n<|id|>80<|type|>title<|page|>9<|box|>186 140 203 256<|content|>X. Enclosures\n<|id|>92<|type|>title<|page|>9<|box|>803 142 820 416<|content|>XI. FINRA Filing Cross-Reference\n<|id|>94<|type|>title<|page|>10<|box|>167 140 184 434<|content|>XII. Confidential Treatment Request\n<|id|>97<|type|>title<|page|>10<|box|>479 140 497 424<|content|>XIII. Key Contacts and Availability\n<|id|>99<|type|>title<|page|>10<|box|>550 140 568 542<|content|>Calderwood & Harkness LLP (Company Counsel):\n<|id|>104<|type|>title<|page|>10<|box|>699 142 715 413<|content|>Calloway-Briggs Renewables Inc.:\n<|id|>110<|type|>title<|page|>11<|box|>148 142 167 250<|content|>XIV. Closing\n<|id|>114<|type|>title<|page|>11<|box|>381 212 397 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>115<|type|>title<|page|>11<|box|>406 140 422 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>24<|tgt_id|>20\n<|src_id|>29<|tgt_id|>20\n<|src_id|>30<|tgt_id|>20\n<|src_id|>48<|tgt_id|>46\n<|src_id|>50<|tgt_id|>46\n<|src_id|>58<|tgt_id|>55\n<|src_id|>59<|tgt_id|>55\n<|src_id|>74<|tgt_id|>72",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 72
+        }
+    ]
+}

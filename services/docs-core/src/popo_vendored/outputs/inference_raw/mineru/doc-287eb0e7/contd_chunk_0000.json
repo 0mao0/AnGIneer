@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>176 290 220 707<|content|>BETWEEN: ... THALASSA SHIPPING & LOGISTICS SA Claimant\n<|id|>2<|page|>1<|box|>229 457 244 542<|content|>— and —\n<|id|>3<|page|>1<|box|>253 222 271 774<|content|>KORINTHIAN MARITIME HOLDINGS LTD. ... Respondent / Applicant\n<|id|>4<|page|>2<|box|>44 178 71 818<|content|>Claim No. ... — CONFIDENTIAL\n<|id|>7<|page|>2<|box|>256 496 275 856<|content|>Filed on behalf of the Claimant 14 October 2024\n<|id|>8<|page|>2<|box|>316 140 335 251<|content|>Prepared by: ... Prepared by\n<|id|>9<|page|>2<|box|>343 140 361 607<|content|>Calderwood & Harkness LLP 45 Moorgate London EC2R 6AR\n<|id|>10<|page|>2<|box|>369 140 387 612<|content|>Solicitors for the Claimant Ref: ... SE/LO/HB/PG/TSL-KMH-ENF\n<|id|>57<|page|>5<|box|>866 140 902 854<|content|>4. ... 4 The circumstances in which indemnity cost...ndustrial Holdings Ltd v Salisbury Hammer Aspden &\n<|id|>58<|page|>6<|box|>90 140 162 856<|content|>Johnson [2002] EWCA Civ 879, where Lord Woolf CJ h...ces warrant a departure from the standard approach\n<|id|>81<|page|>7<|box|>872 140 909 854<|content|>4. ... The evidence before the\n<|id|>82<|page|>8<|box|>89 140 127 854<|content|>Court, including the forensic asset tracing report...treet, London EC2N 1HN), establishes the following\n<|id|>88<|page|>8<|box|>464 210 502 854<|content|>(iii) Korinthian DMCC, a Dubai Multi Commodities C...ute payments through UAE banking channels; ... and\n<|id|>94<|page|>8<|box|>876 140 893 609<|content|>##### 4. ... 3 Failure to Engage with Pre-Action Correspondence\n<|id|>222<|page|>25<|box|>388 140 407 359<|content|>[Orders attached separately]\n<|id|>223<|page|>25<|box|>415 437 431 560<|content|>BACK SHEET\n<|id|>224<|page|>25<|box|>477 151 491 220<|content|>Claim No. ... Claim No\n<|id|>229<|page|>26<|box|>89 140 107 624<|content|>Calderwood & Harkness LLP 45 Moorgate London EC2R 6AR\n<|id|>230<|page|>26<|box|>114 140 133 336<|content|>Tel: ... +44 (0)20 7946 0123\n<|id|>231<|page|>26<|box|>141 140 159 339<|content|>Fax: ... +44 (0)20 7946 0124\n<|id|>232<|page|>26<|box|>159 140 176 308<|content|>DX: ... 42615 Moorgate\n<|id|>233<|page|>26<|box|>184 140 202 418<|content|>Ref: ... SE/LO/HB/PG/TSL-KMH-ENF\n<|id|>234<|page|>26<|box|>210 140 228 343<|content|>Solicitors for the Claimant",
+    "raw_response": "<|src_id|>57<|tgt_id|>58\n<|src_id|>81<|tgt_id|>82",
+    "parsed": [
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        }
+    ]
+}

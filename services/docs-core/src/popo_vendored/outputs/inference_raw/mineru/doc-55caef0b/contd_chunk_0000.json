@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        10,
+        12,
+        13,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>287 140 323 854<|content|>FROM: ... Brett Callahan, Lead Associate, Energy &...Energy & Infrastructure, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>330 140 349 321<|content|>DATE: ... August 4, 2025\n<|id|>6<|page|>1<|box|>357 140 393 856<|content|>RE: ... )\n<|id|>7<|page|>1<|box|>401 140 417 331<|content|>Matter No. ... 1015-00002\n<|id|>8<|page|>1<|box|>426 140 463 856<|content|>cc: ... David Stanton, Working Associate, Calderwo...ounsel, Project Finance, Calderwood & Harkness LLP\n<|id|>12<|page|>1<|box|>800 140 892 857<|content|>The availability guarantee provisions are among th...e $108,000,000 construction-to-term loan facility)\n<|id|>13<|page|>2<|box|>90 140 126 852<|content|>requires a bankability sign-off on the PPA as a co...oan closing, which is targeted for October 1, 2025\n<|id|>16<|page|>2<|box|>351 181 368 735<|content|>• Guaranteed Availability Threshold: ... 0% on a rolling 12-month basis\n<|id|>20<|page|>2<|box|>465 140 594 854<|content|>Lender bankability is a critical constraint throug...id routine LD payments that erode the DSCR cushion\n<|id|>17<|page|>2<|box|>369 181 405 854<|content|>• LD Rate: ... 0% shortfall below the guaranteed availability threshold\n<|id|>18<|page|>2<|box|>409 183 425 571<|content|>• LD Cap: ... 5% of trailing 12-month PPA revenues\n<|id|>19<|page|>2<|box|>428 183 463 854<|content|>• Termination Trigger: ... 5% in two consecutive 12-month measurement periods, uncured\n<|id|>58<|page|>6<|box|>393 174 431 854<|content|>(b) Curtailment hours — hours during which the Pro... applicable transmission service provider; ... and\n<|id|>60<|page|>6<|box|>484 140 537 854<|content|>The 200-hour scheduled maintenance allowance is ag...package, as discussed in Section VIII. ... E below\n<|id|>101<|page|>10<|box|>337 174 373 854<|content|>Annual PPA revenue (P50): ... 35x\n<|id|>102<|page|>10<|box|>381 140 398 643<|content|>The DSCR cushion above the minimum 1. ... 30x covenant is therefore\n<|id|>103<|page|>10<|box|>406 174 460 854<|content|>Revenue at 1. ... $7,000,000 − $6,760,000 = $240,0...ounting for rounding in the debt service estimate)\n<|id|>104<|page|>10<|box|>469 140 523 854<|content|>This $240,000–$260,000 cushion is the maximum amou... production levels and no other revenue reductions\n<|id|>130<|page|>12<|box|>837 140 875 854<|content|>Buyer proposes that it may terminate the PPA if th...ller proposes that Buyer may terminate only if the\n<|id|>131<|page|>13<|box|>90 140 127 854<|content|>Project's availability falls below 85. ... 0% in t...ing uncured at the end of a notice and cure period\n<|id|>214<|page|>23<|box|>617 142 633 321<|content|>Respectfully submitted,\n<|id|>215<|page|>23<|box|>633 140 650 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>216<|page|>23<|box|>652 143 669 253<|content|>By: ... By\n<|id|>217<|page|>23<|box|>669 142 685 550<|content|>Brett Callahan Lead Associate, Energy & Infrastructure\n<|id|>218<|page|>23<|box|>686 143 703 253<|content|>By: ... By\n<|id|>219<|page|>23<|box|>703 142 719 607<|content|>Patricia Dunmore Responsible Partner, Energy & Infrastructure\n<|id|>220<|page|>23<|box|>719 143 736 692<|content|>1100 Louisiana Street, Suite 4500 Houston, TX 77002 Tel: ... (713) 555-4000\n<|id|>221<|page|>23<|box|>736 140 782 854<|content|>CALDERWOOD & HARKNESS LLP — PRIVILEGED AND CONFIDE...e, copying, or distribution is strictly prohibited",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>130<|tgt_id|>131",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 131
+        }
+    ]
+}

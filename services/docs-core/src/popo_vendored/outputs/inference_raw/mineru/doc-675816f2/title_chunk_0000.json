@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>5<|page|>1<|box|>219 140 236 741<|content|>VIA CERTIFIED MAIL (RETURN RECEIPT REQUESTED) AND\n<|id|>10<|page|>1<|box|>436 140 454 364<|content|>I. Purpose and Introduction\n<|id|>14<|page|>2<|box|>90 140 107 470<|content|>II. Description of the Insured and Its Role\n<|id|>18<|page|>2<|box|>539 140 556 460<|content|>III. Description of the Underlying Claim\n<|id|>19<|page|>2<|box|>569 140 587 490<|content|>A. Background — The Call-Option Exercise\n<|id|>26<|page|>3<|box|>500 142 515 413<|content|>B. MSH's Demand for Arbitration\n<|id|>30<|page|>3<|box|>751 140 768 390<|content|>C. MSH's Claims Against PCG\n<|id|>38<|page|>5<|box|>212 140 229 299<|content|>D. PCG's Response\n<|id|>41<|page|>5<|box|>578 140 594 468<|content|>IV. Policy Coverage and Basis for Tender\n<|id|>55<|page|>6<|box|>799 140 815 473<|content|>V. Defense Counsel and Anticipated Costs\n<|id|>67<|page|>7<|box|>657 140 674 488<|content|>VI. Key Individuals and Entities Referenced\n<|id|>69<|page|>7<|box|>728 140 744 274<|content|>Named Insured:\n<|id|>71<|page|>7<|box|>797 142 814 328<|content|>Key Personnel of PCG:\n<|id|>75<|page|>7<|box|>883 142 898 227<|content|>Claimant:\n<|id|>77<|page|>8<|box|>133 142 152 313<|content|>Joint Venture Entity:\n<|id|>79<|page|>8<|box|>204 142 222 269<|content|>Hotel Property:\n<|id|>81<|page|>8<|box|>292 142 309 238<|content|>JV Lender:\n<|id|>83<|page|>8<|box|>363 142 378 305<|content|>PCG's Accountants:\n<|id|>85<|page|>8<|box|>415 142 431 300<|content|>Arbitration Forum:\n<|id|>87<|page|>8<|box|>500 140 517 344<|content|>VII. Enclosed Documents\n<|id|>97<|page|>9<|box|>186 140 204 491<|content|>VIII. Reservation of Rights and Cooperation\n<|id|>107<|page|>9<|box|>728 140 744 338<|content|>IX. Contact Information",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>18<|level|>1\n<|id|>19<|level|>2\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>1\n<|id|>55<|level|>1\n<|id|>67<|level|>1\n<|id|>69<|level|>2\n<|id|>71<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>2\n<|id|>85<|level|>2\n<|id|>87<|level|>1\n<|id|>97<|level|>1\n<|id|>107<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        }
+    ]
+}

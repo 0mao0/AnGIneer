@@ -1,0 +1,58 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        52
+    ],
+    "pages": [
+        47,
+        49,
+        51,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>505<|page|>47<|box|>90 143 109 852<|content|>APPENDIX 4 — HSAG PERSONNEL ACKNOWLEDGMENT FORM\n<|id|>506<|page|>47<|box|>128 161 164 834<|content|>TECHNOLOGY CONTROL PLAN — HSAG PERSONNEL ACKNOWLED\n<|id|>507<|page|>47<|box|>189 142 205 563<|content|>Part A — General HSAG Personnel Acknowledgment\n<|id|>520<|page|>47<|box|>654 142 671 540<|content|>Part B — HSAG Board Designee Acknowledgment\n<|id|>532<|page|>49<|box|>90 155 135 841<|content|>APPENDIX 5 — INFORMATION SHARING REQUEST AND LOG T\n<|id|>533<|page|>49<|box|>159 143 176 501<|content|>Part A — Information Sharing Request Form\n<|id|>539<|page|>51<|box|>90 200 135 795<|content|>APPENDIX 6 — VISITOR ACCESS REQUEST AND LOG TEMPLA\n<|id|>540<|page|>51<|box|>152 204 169 792<|content|>VPI TECHNOLOGY CONTROL PLAN — VISITOR ACCESS REQUE\n<|id|>543<|page|>51<|box|>681 143 696 297<|content|>Escort Assignment:\n<|id|>546<|page|>51<|box|>856 143 872 367<|content|>Visitor Access Log Template\n<|id|>550<|page|>52<|box|>295 264 311 732<|content|>END OF ANNEX B — TECHNOLOGY CONTROL PLAN",
+    "raw_response": "<|id|>505<|level|>1\n<|id|>506<|level|>1\n<|id|>507<|level|>2\n<|id|>520<|level|>2\n<|id|>532<|level|>1\n<|id|>533<|level|>2\n<|id|>539<|level|>1\n<|id|>540<|level|>1\n<|id|>543<|level|>2\n<|id|>546<|level|>2\n<|id|>550<|level|>-1",
+    "parsed": [
+        {
+            "id": 505,
+            "level": 1
+        },
+        {
+            "id": 506,
+            "level": 1
+        },
+        {
+            "id": 507,
+            "level": 2
+        },
+        {
+            "id": 520,
+            "level": 2
+        },
+        {
+            "id": 532,
+            "level": 1
+        },
+        {
+            "id": 533,
+            "level": 2
+        },
+        {
+            "id": 539,
+            "level": 1
+        },
+        {
+            "id": 540,
+            "level": 1
+        },
+        {
+            "id": 543,
+            "level": 2
+        },
+        {
+            "id": 546,
+            "level": 2
+        }
+    ]
+}

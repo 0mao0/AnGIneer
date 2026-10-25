@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>224 704 239 854<|content|>November 15, 2023\n<|id|>4<|page|>1<|box|>250 140 267 339<|content|>Date: ... November 15, 2023\n<|id|>5<|page|>1<|box|>275 140 292 370<|content|>Time: ... Eastern Time\n<|id|>6<|page|>1<|box|>301 140 338 854<|content|>Location: ... Conference Room 12-A, 400 Innovation...ain participants joining by secure videoconference\n<|id|>11<|page|>1<|box|>585 147 621 854<|content|>• James Okafor, Independent Director (retired Mana...rector of Fielding Capital Partners, LLC); ... and\n<|id|>13<|page|>1<|box|>680 140 717 854<|content|>The following individuals were also in attendance,...cipate in the meeting in their advisory capacities\n<|id|>15<|page|>1<|box|>762 147 779 683<|content|>• Sophie Tremblay, Lead Associate, Calderwood & Harkness LLP; ... and\n<|id|>16<|page|>1<|box|>782 145 818 854<|content|>Gregory Ashford, Managing Director, Thorngate Part...pendent financial advisor to the Special Committee\n<|id|>25<|page|>2<|box|>457 174 492 854<|content|>3. ... and\n<|id|>27<|page|>2<|box|>513 140 588 854<|content|>Ms. ... Ng, the Special Committee unanimously approved the agenda as presented\n<|id|>50<|page|>4<|box|>857 140 893 856<|content|>Ms. ... Evan Whitmore, who serves as Caliston's\n<|id|>51<|page|>5<|box|>89 140 143 854<|content|>Head of Clinical Development and is a member of Ca...iston or have material relationships with Caliston\n<|id|>72<|page|>7<|box|>772 140 900 857<|content|>Mr. ... Ashford further noted that a\n<|id|>73<|page|>8<|box|>90 140 181 856<|content|>10-percentage-point change in the assumed probabil...range of discount rate and probability assumptions\n<|id|>85<|page|>9<|box|>713 140 897 857<|content|>Third, Ms. ... Vasquez advised the\n<|id|>86<|page|>10<|box|>90 140 181 854<|content|>Committee that, given the magnitude of Dr. ... 5% ...ports a finding of entire fairness in all respects\n<|id|>94<|page|>10<|box|>616 181 669 854<|content|>• The opinion is properly addressed to the Special...he full Board or to Penterra stockholders; ... and\n<|id|>96<|page|>10<|box|>710 140 782 856<|content|>Ms. ... Vasquez concluded that, in Calderwood & Ha...serve as a component of the entire fairness record\n<|id|>98<|page|>10<|box|>819 140 893 856<|content|>Ms. ... Vasquez noted that the fairness opinion, i... with the Penterra stockholder vote required under\n<|id|>99<|page|>11<|box|>89 140 145 854<|content|>NYSE listing rules for the issuance of 5,903,497 s...ure must be accurate, complete, and not misleading\n<|id|>171<|page|>17<|box|>89 140 125 854<|content|>Sophie Tremblay Lead Associate, Calderwood & Harkness LLP Assistant Secretary for the Meeting\n<|id|>172<|page|>17<|box|>125 142 141 264<|content|>Date: ... Date\n<|id|>175<|page|>17<|box|>191 140 209 785<|content|>Attachment A: ... Fairness Opinion of Thorngate Partners LLC, dated November 15, 2023\n<|id|>176<|page|>17<|box|>218 140 253 854<|content|>Attachment B: ... Calderwood & Harkness LLP Memora...ncy and Disclosure Review, dated November 15, 2023\n<|id|>177<|page|>17<|box|>263 140 297 854<|content|>Attachment C: ... Summary of Thorngate Partners LLC Valuation Analyses (presentation materials)\n<|id|>178<|page|>17<|box|>305 140 412 856<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT PRIVIL...the prior written consent of the Special Committee",
+    "raw_response": "<|src_id|>50<|tgt_id|>51\n<|src_id|>72<|tgt_id|>73\n<|src_id|>85<|tgt_id|>86\n<|src_id|>98<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        }
+    ]
+}

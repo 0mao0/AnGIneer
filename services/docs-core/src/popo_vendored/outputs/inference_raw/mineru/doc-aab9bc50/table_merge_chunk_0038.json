@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 38,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['分水闸', 'rowspan=4, A)闸的几何类型为点、线、面;B)DRVAL1(深度范围值1):槛上最浅水深;C)HORACC(水平精度):仅与HORCLR(水平净空)一起使用;D)VERACC(垂直精度):仅与VERCLR(竖向净空)一起使用;E)VERDAT(垂直基准面):仅与VERCLR(竖向净空)一起使用;F)在编辑比例尺下可航行则编码HORCLR(水平净空)属性;G)HORCLR(水平净空)精度由属性HORACC(水平精度)给出,属性HORACC(水平精度)只能用于HORCLR(水平净空)', 'rowspan=4, GATCON(闸门)(M)CATGAT(闸门类)=[2(防洪闸门),4(船闸闸门),5(堤坝闸门),6(水闸),100(分水闸),101(进水闸),102(节制闸),103(挡潮闸),104(水闸房屋)](C)CONDTN(状态)=[1(建造中),2(废弃的),5(计划建造的),999(其他)](O)NATCON(建筑结构性质)=[附录A中允许的属性值](O)OBJNAM(英文名称)=[闸英文名称](O)NOBJNM(中文名称)=[闸中文名称](C)HORCLR(水平净空)=[(xx.x)单位:m](O)HORACC(水平精度)=[(xx.x)单位:m](O)INFORM(英文信息)=[闸英文信息](O)NINFOM(中文信息)=[闸中文信息](O)DRVAL1(深度范围值1)=[(xx.x)单位:m](O)VERACC(垂直精度)=[(xx.x)单位:m](O)VERCLR(竖向净空)=[(xx.x)单位:m]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['进水闸', 'rowspan=5, ', 'rowspan=5, ']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 2928,
+    "table2_idx": 2929
+}

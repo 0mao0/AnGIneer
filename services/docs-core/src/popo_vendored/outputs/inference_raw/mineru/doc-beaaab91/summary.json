@@ -1,0 +1,559 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-uvouik1g\\input\\pdfs\\doc-beaaab91.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-uvouik1g\\enriched\\doc-beaaab91.json",
+    "contd_output": "<|src_id|>65<|tgt_id|>66",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>44<|level|>3\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>64<|level|>3\n<|id|>71<|level|>3\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>85<|level|>3\n<|id|>92<|level|>3\n<|id|>96<|level|>2\n<|id|>106<|level|>3\n<|id|>110<|level|>2\n<|id|>111<|level|>3\n<|id|>120<|level|>3\n<|id|>126<|level|>3\n<|id|>134<|level|>3\n<|id|>142<|level|>2\n<|id|>143<|level|>3\n<|id|>151<|level|>3\n<|id|>162<|level|>3\n<|id|>172<|level|>2\n<|id|>173<|level|>3\n<|id|>190<|level|>4\n<|id|>195<|level|>3\n<|id|>200<|level|>3\n<|id|>210<|level|>3\n<|id|>215<|level|>3\n<|id|>219<|level|>2\n<|id|>228<|level|>2\n<|id|>229<|level|>3\n<|id|>245<|level|>2\n<|id|>246<|level|>3\n<|id|>255<|level|>3\n<|id|>259<|level|>3\n<|id|>266<|level|>2\n<|id|>270<|level|>2\n<|id|>282<|level|>2\n<|id|>284<|level|>3\n<|id|>286<|level|>3\n<|id|>288<|level|>3\n<|id|>291<|level|>3\n<|id|>293<|level|>3\n<|id|>295<|level|>3\n<|id|>298<|level|>3\n<|id|>320<|level|>2\n<|id|>327<|level|>2\n<|id|>336<|level|>2\n<|id|>337<|level|>3\n<|id|>340<|level|>3\n<|id|>342<|level|>3\n<|id|>344<|level|>3",
+    "image_output": "<|src_id|>21<|tgt_id|>12\n<|src_id|>58<|tgt_id|>56\n<|src_id|>81<|tgt_id|>79\n<|src_id|>82<|tgt_id|>79\n<|src_id|>93<|tgt_id|>92\n<|src_id|>197<|tgt_id|>195\n<|src_id|>239<|tgt_id|>229\n<|src_id|>267<|tgt_id|>266\n<|src_id|>268<|tgt_id|>266\n<|src_id|>285<|tgt_id|>284\n<|src_id|>287<|tgt_id|>286\n<|src_id|>289<|tgt_id|>288\n<|src_id|>290<|tgt_id|>288\n<|src_id|>292<|tgt_id|>291\n<|src_id|>294<|tgt_id|>293\n<|src_id|>296<|tgt_id|>295\n<|src_id|>297<|tgt_id|>295\n<|src_id|>316<|tgt_id|>298\n<|src_id|>317<|tgt_id|>298\n<|src_id|>318<|tgt_id|>298\n<|src_id|>328<|tgt_id|>327\n<|src_id|>329<|tgt_id|>327\n<|src_id|>330<|tgt_id|>327\n<|src_id|>331<|tgt_id|>327\n<|src_id|>333<|tgt_id|>327\n<|src_id|>334<|tgt_id|>327\n<|src_id|>338<|tgt_id|>337\n<|src_id|>339<|tgt_id|>337",
+    "contd_label": [
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 4
+        },
+        {
+            "id": 195,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 210,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 245,
+            "level": 2
+        },
+        {
+            "id": 246,
+            "level": 3
+        },
+        {
+            "id": 255,
+            "level": 3
+        },
+        {
+            "id": 259,
+            "level": 3
+        },
+        {
+            "id": 266,
+            "level": 2
+        },
+        {
+            "id": 270,
+            "level": 2
+        },
+        {
+            "id": 282,
+            "level": 2
+        },
+        {
+            "id": 284,
+            "level": 3
+        },
+        {
+            "id": 286,
+            "level": 3
+        },
+        {
+            "id": 288,
+            "level": 3
+        },
+        {
+            "id": 291,
+            "level": 3
+        },
+        {
+            "id": 293,
+            "level": 3
+        },
+        {
+            "id": 295,
+            "level": 3
+        },
+        {
+            "id": 298,
+            "level": 3
+        },
+        {
+            "id": 320,
+            "level": 2
+        },
+        {
+            "id": 327,
+            "level": 2
+        },
+        {
+            "id": 336,
+            "level": 2
+        },
+        {
+            "id": 337,
+            "level": 3
+        },
+        {
+            "id": 340,
+            "level": 3
+        },
+        {
+            "id": 342,
+            "level": 3
+        },
+        {
+            "id": 344,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 21,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 197,
+            "tgt_id": 195
+        },
+        {
+            "src_id": 239,
+            "tgt_id": 229
+        },
+        {
+            "src_id": 267,
+            "tgt_id": 266
+        },
+        {
+            "src_id": 268,
+            "tgt_id": 266
+        },
+        {
+            "src_id": 285,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 287,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 289,
+            "tgt_id": 288
+        },
+        {
+            "src_id": 290,
+            "tgt_id": 288
+        },
+        {
+            "src_id": 292,
+            "tgt_id": 291
+        },
+        {
+            "src_id": 294,
+            "tgt_id": 293
+        },
+        {
+            "src_id": 296,
+            "tgt_id": 295
+        },
+        {
+            "src_id": 297,
+            "tgt_id": 295
+        },
+        {
+            "src_id": 316,
+            "tgt_id": 298
+        },
+        {
+            "src_id": 317,
+            "tgt_id": 298
+        },
+        {
+            "src_id": 318,
+            "tgt_id": 298
+        },
+        {
+            "src_id": 328,
+            "tgt_id": 327
+        },
+        {
+            "src_id": 329,
+            "tgt_id": 327
+        },
+        {
+            "src_id": 330,
+            "tgt_id": 327
+        },
+        {
+            "src_id": 331,
+            "tgt_id": 327
+        },
+        {
+            "src_id": 333,
+            "tgt_id": 327
+        },
+        {
+            "src_id": 334,
+            "tgt_id": 327
+        },
+        {
+            "src_id": 338,
+            "tgt_id": 337
+        },
+        {
+            "src_id": 339,
+            "tgt_id": 337
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 81,
+            "table2_idx": 82,
+            "upper_row_ss": [
+                [
+                    "lakewoodheal thpa.com",
+                    "Marlowe Software",
+                    "Lakewood Regional Health Partners,",
+                    "February 12, 2021",
+                    "February 12, 2026",
+                    "Yes",
+                    "Kestrel Holdings"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "LLC",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 267,
+            "table2_idx": 268,
+            "upper_row_ss": [
+                [
+                    "Patient Database & Health Records",
+                    "~85,000–110,000 active patients on Clearpath",
+                    "Very High — core operational asset",
+                    "Confirmed (entity), subject to HIPAA and payor",
+                    "N/A",
+                    "INB blanket lien (to be released); Meridian",
+                    "Transferable subject to HIPAA compliance and",
+                    "Moderate"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "EHR",
+                    "",
+                    "restrictions",
+                    "",
+                    "Shield joint ownership claim",
+                    "Meridian Shield consent",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 296,
+            "table2_idx": 297,
+            "upper_row_ss": [
+                [
+                    "16-008",
+                    "Lakewood Notice of Privacy Practices (current version)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "N/A",
+                    "Marchand Healthcare Regulatory Advisors, LLC — Preliminary Regulatory Due Diligence Report (Draft, May 28, 2025)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 316,
+            "table2_idx": 317,
+            "upper_row_ss": [
+                [
+                    "Lakewood Regional",
+                    "Trade Name / DBA",
+                    "Pennsylvania (Luzerne)",
+                    "FBN-2021-0301B",
+                    "March 1, 2021",
+                    "Active (renews",
+                    "Lakewood Regional"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Health Partners",
+                    "",
+                    "County)",
+                    "",
+                    "",
+                    "2026)",
+                    "Health Partners, LLC"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 317,
+            "table2_idx": 318,
+            "upper_row_ss": [
+                [
+                    "\"Your Health, Our Community\"",
+                    "Tagline",
+                    "Federal / State",
+                    "N/A",
+                    "~2017 (est.)",
+                    "Not Registered",
+                    "Lakewood Regional Health Partners, LLC (claimed)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Domain Name",
+                    "Registrar",
+                    "Registrant",
+                    "Registration Date",
+                    "Expiration Date",
+                    "Auto-Renew",
+                    "DNS Provider"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 328,
+            "table2_idx": 329,
+            "upper_row_ss": [
+                [
+                    "Ithaca",
+                    "(607) 555-0700",
+                    "Main Line",
+                    "Harborline Industries",
+                    "Yes"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "(607) 555-0701",
+                    "Secondary Line",
+                    "Harborline Industries",
+                    "Yes"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 333,
+            "table2_idx": 334,
+            "upper_row_ss": [
+                [
+                    "Equipment Lease — CT (VML-2023-1141)",
+                    "Marlowe Asset Management Medical Equipment",
+                    "June 1, 2023",
+                    "May 31, 2026",
+                    "$350,400 ($29,200/m o)",
+                    "Not without consent",
+                    "Yes",
+                    "Not yet requested"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Finance, LLC",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 338,
+            "table2_idx": 339,
+            "upper_row_ss": [
+                [
+                    "202310051876543",
+                    "October 5, 2023",
+                    "Lakewood Regional Health Partners, LLC",
+                    "Marlowe Asset Management Medical Equipment Finance, LLC (Parsippany, NJ)",
+                    "Specific equipment described in Lease Schedules VML-2023-1140 (Harborview Group MAGNETOM Sola MRI system, S/N SM-2023-48291) and VML-2023-1141 (GE Revolution Apex CT scanner, S/N GE-RA-2023-11057), together with all accessories, attachments, additions, substitutions, and replacements.",
+                    "Active — Equipment-specific; does not encumber IP"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "202412151098765",
+                    "December 15, 2024",
+                    "Lakewood Regional Health Partners, LLC",
+                    "Marlowe Asset Management Medical Equipment Finance, LLC (Parsippany, NJ)",
+                    "Specific equipment described in Lease Schedule VML-2024-0219 (Philips EPIQ Elite ultrasound system, S/N PE-2024-73841), together with all accessories, attachments, additions, substitutions, and replacements.",
+                    "Active — Equipment-specific; does not encumber IP"
+                ]
+            ]
+        }
+    ]
+}

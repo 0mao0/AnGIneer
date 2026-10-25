@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 723 151 854<|content|>October 16, 2023\n<|id|>2<|page|>1<|box|>160 140 176 367<|content|>Pinnacle Trust & Transfer Co. ... Pinnacle Trust & Transfer Co\n<|id|>3<|page|>1<|box|>186 140 220 632<|content|>Attention: ... Corporate Actions Department 1 Ashb...sset Advisors Plaza, 30th Floor New York, NY 10004\n<|id|>4<|page|>1<|box|>229 140 284 854<|content|>Re: ... PNTR) in Connection with Registered Selling-Stockholder Secondary Offering\n<|id|>5<|page|>1<|box|>292 140 345 854<|content|>Reference is made to the appointment of Pinnacle Trust & Transfer Co. ... , a Delaware corporation\n<|id|>11<|page|>1<|box|>828 140 883 856<|content|>The selling stockholders in the Offering are as fo...lling Stockholders is a current stockholder of the\n<|id|>12<|page|>2<|box|>90 140 127 854<|content|>Company and is the registered or beneficial holder...nection with the Company's initial public offering\n<|id|>28<|page|>3<|box|>835 140 909 856<|content|>The Company further represents and confirms that D...t to such Power of Attorney and Custody Agreement,\n<|id|>29<|page|>4<|box|>90 140 181 854<|content|>Mr. ... Orenstein as attorney-in-fact for the Sell...ckholders without further inquiry or investigation\n<|id|>38<|page|>4<|box|>756 138 885 857<|content|>In the event that the Underwriters exercise their ...ly agreed upon by the Selling Stockholders and the\n<|id|>39<|page|>5<|box|>90 140 126 854<|content|>Underwriters); ... and (iv) the DTC delivery instr...ding the DTC participant account(s) to be credited\n<|id|>50<|page|>6<|box|>273 174 329 854<|content|>Company Contact: ... (609) 555-4820\n<|id|>51<|page|>6<|box|>337 176 354 478<|content|>Email: ... com\n<|id|>52<|page|>6<|box|>354 174 390 854<|content|>Issuer's Counsel: ... (212) 555-7300\n<|id|>53<|page|>6<|box|>398 176 415 480<|content|>Email: ... com\n<|id|>54<|page|>6<|box|>416 174 469 854<|content|>Lead Book-Running Manager — Syndicate Desk: ... (212) 555-9140\n<|id|>55<|page|>6<|box|>478 176 494 468<|content|>Email: ... com\n<|id|>56<|page|>6<|box|>494 140 566 856<|content|>Pinnacle is requested to direct all communications... timely delivery of the Shares on the Closing Date\n<|id|>60<|page|>6<|box|>869 140 907 854<|content|>This direction letter supersedes any prior instruc...ontained herein with respect to the Shares and the\n<|id|>61<|page|>6<|box|>916 142 931 205<|content|>Page ___\n<|id|>69<|page|>7<|box|>369 142 385 321<|content|>Name: ... David Orenstein\n<|id|>70<|page|>7<|box|>387 140 402 480<|content|>Title: ... General Counsel & Corporate Secretary\n<|id|>71<|page|>7<|box|>404 140 454 854<|content|>Signing on behalf of the Company, and in his capac...ey and Custody Agreement dated October 12, 2023 cc",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>28<|tgt_id|>29\n<|src_id|>38<|tgt_id|>39",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        }
+    ]
+}

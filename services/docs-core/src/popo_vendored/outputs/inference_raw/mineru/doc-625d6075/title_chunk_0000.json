@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>215 140 234 584<|content|>Via Email and Certified Mail, Return Receipt Reque\n<|id|>16<|page|>1<|box|>589 142 607 437<|content|>I. Introduction and Purpose of Notice\n<|id|>21<|page|>2<|box|>348 140 364 426<|content|>II. Identification of the Policyholder\n<|id|>36<|page|>3<|box|>148 140 167 508<|content|>III. Description of the Cyber-Security Incident\n<|id|>39<|page|>3<|box|>508 140 527 351<|content|>B. Timeline of Key Events\n<|id|>49<|page|>4<|box|>726 140 744 485<|content|>C. Anticipated Scope of Compromised Data\n<|id|>61<|page|>5<|box|>539 142 556 413<|content|>IV. Anticipated Categories of Loss\n<|id|>73<|page|>7<|box|>212 140 229 508<|content|>V. Underlying Primary Insurance Information\n<|id|>86<|page|>7<|box|>729 140 744 465<|content|>VI. Cyber Insurance Broker Information\n<|id|>92<|page|>8<|box|>186 140 204 611<|content|>VII. Outside Counsel and Forensic Investigator Inf\n<|id|>94<|page|>8<|box|>273 142 291 281<|content|>Outside Counsel:\n<|id|>102<|page|>8<|box|>643 140 660 359<|content|>VIII. Reservation of Rights\n<|id|>111<|page|>9<|box|>417 142 434 397<|content|>IX. Requested Acknowledgment\n<|id|>121<|page|>9<|box|>849 142 864 522<|content|>X. Request for Cooperation and Communication\n<|id|>126<|page|>10<|box|>383 140 402 236<|content|>XI. Closing\n<|id|>131<|page|>10<|box|>660 140 676 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>136<|page|>10<|box|>763 143 777 240<|content|>Enclosures:",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>16<|level|>2\n<|id|>21<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>3\n<|id|>49<|level|>3\n<|id|>61<|level|>2\n<|id|>73<|level|>2\n<|id|>86<|level|>2\n<|id|>92<|level|>2\n<|id|>94<|level|>3\n<|id|>102<|level|>2\n<|id|>111<|level|>2\n<|id|>121<|level|>2\n<|id|>126<|level|>2\n<|id|>131<|level|>-1\n<|id|>136<|level|>2",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        }
+    ]
+}

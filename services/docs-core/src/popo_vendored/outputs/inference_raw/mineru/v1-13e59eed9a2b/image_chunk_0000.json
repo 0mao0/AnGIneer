@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>table<|page|>1<|box|>176 50 315 923<|content|>None\n<|id|>2<|type|>table<|page|>1<|box|>332 50 507 923<|content|>None\n<|id|>3<|type|>table<|page|>1<|box|>521 50 583 921<|content|>None\n<|id|>4<|type|>table<|page|>1<|box|>595 52 638 923<|content|>None\n<|id|>5<|type|>table<|page|>1<|box|>652 53 695 923<|content|>None\n<|id|>6<|type|>title<|page|>1<|box|>861 57 875 130<|content|>DISCLAIMER\n<|id|>8<|type|>title<|page|>2<|box|>94 57 108 256<|content|>VALUATION INFORMATION\n<|id|>13<|type|>table<|page|>2<|box|>321 52 382 921<|content|>None\n<|id|>14<|type|>title<|page|>2<|box|>400 57 415 232<|content|>MUNICIPAL VALUATION\n<|id|>16<|type|>table<|page|>2<|box|>450 50 510 921<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>862 58 875 130<|content|>DISCLAIMER\n<|id|>20<|type|>image<|page|>3<|box|>145 238 527 735<|content|>None\n<|id|>21<|type|>table<|page|>3<|box|>545 49 830 924<|content|>None\n<|id|>22<|type|>title<|page|>3<|box|>862 57 875 130<|content|>DISCLAIMER\n<|id|>24<|type|>table<|page|>4<|box|>88 50 136 923<|content|>None\n<|id|>25<|type|>image<|page|>4<|box|>193 53 430 483<|content|>None\n<|id|>26<|type|>image<|page|>4<|box|>193 490 420 919<|content|>None\n<|id|>27<|type|>table<|page|>4<|box|>446 50 821 923<|content|>None\n<|id|>28<|type|>title<|page|>4<|box|>862 57 875 130<|content|>DISCLAIMER\n<|id|>30<|type|>table<|page|>5<|box|>90 50 261 921<|content|>None\n<|id|>31<|type|>title<|page|>5<|box|>279 57 294 183<|content|>SUBURB TRENDS\n<|id|>34<|type|>title<|page|>5<|box|>862 57 875 130<|content|>DISCLAIMER\n<|id|>36<|type|>title<|page|>6<|box|>862 57 875 132<|content|>DISCLAIMER",
+    "raw_response": "<|src_id|>13<|tgt_id|>8\n<|src_id|>16<|tgt_id|>14",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        }
+    ]
+}

@@ -1,0 +1,148 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        47,
+        64
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>667<|page|>47<|box|>80 31 112 635<|content|>2009 River Dell Rd, Clayton, NC 27527\n<|id|>671<|page|>47<|box|>467 31 481 101<|content|>List Price\n<|id|>677<|page|>48<|box|>80 31 111 834<|content|>Swift Creek Rd, #WESteRmA, Smithfield, NC 27527\n<|id|>680<|page|>48<|box|>426 34 439 104<|content|>PENDING\n<|id|>682<|page|>48<|box|>467 31 481 101<|content|>List Price\n<|id|>683<|page|>48<|box|>483 32 508 166<|content|>$339,000\n<|id|>687<|page|>49<|box|>80 31 112 524<|content|>8 Jeffrey Dr, Clayton, NC 27527\n<|id|>695<|page|>50<|box|>82 31 112 547<|content|>63 Rapallo Ct, Clayton, NC 27527\n<|id|>698<|page|>50<|box|>467 31 481 101<|content|>List Price\n<|id|>705<|page|>51<|box|>80 29 112 617<|content|>Neuse River Pkwy, Clayton, NC 27527\n<|id|>712<|page|>52<|box|>80 31 112 583<|content|>Southerland Rd, Clayton, NC 27527\n<|id|>716<|page|>52<|box|>467 31 481 101<|content|>List Price\n<|id|>722<|page|>53<|box|>164 29 183 89<|content|>Address\n<|id|>744<|page|>53<|box|>253 689 272 761<|content|>2/28/2019\n<|id|>749<|page|>53<|box|>253 846 272 919<|content|>2/28/2019\n<|id|>777<|page|>54<|box|>253 689 272 761<|content|>2/28/2019\n<|id|>781<|page|>54<|box|>253 846 272 919<|content|>2/27/2019\n<|id|>784<|page|>55<|box|>80 31 112 588<|content|>12 Gold Rush Ct, Clayton, NC 27527\n<|id|>791<|page|>56<|box|>80 31 112 594<|content|>30 Gold Rush Ct, Clayton, NC 27527\n<|id|>797<|page|>57<|box|>82 32 111 650<|content|>102 Bonaventure Dr, Clayton, NC 27527\n<|id|>803<|page|>58<|box|>82 29 113 547<|content|>244 Lanier Pl, Clayton, NC 27527\n<|id|>810<|page|>59<|box|>80 31 112 627<|content|>128 Gaillardia Way, Clayton, NC 27527\n<|id|>817<|page|>60<|box|>80 29 112 602<|content|>313 E Webber Ln, Clayton, NC 27527\n<|id|>824<|page|>61<|box|>82 32 111 591<|content|>69 Roterham Dr, Clayton, NC 27527\n<|id|>831<|page|>62<|box|>82 32 112 323<|content|>Clayton, NC 27527\n<|id|>837<|page|>63<|box|>82 32 112 519<|content|>Recommended Pricing Strategy\n<|id|>840<|page|>63<|box|>318 31 337 282<|content|>Details of Comparative Analysis\n<|id|>842<|page|>63<|box|>511 31 529 89<|content|>Sellers\n<|id|>847<|page|>64<|box|>82 31 109 292<|content|>Seller’s Proceeds\n<|id|>849<|page|>64<|box|>152 31 169 76<|content|>Price\n<|id|>850<|page|>64<|box|>186 31 204 153<|content|>Encumbrances\n<|id|>853<|page|>64<|box|>287 31 305 223<|content|>Estimated Closing Costs\n<|id|>865<|page|>64<|box|>705 32 720 80<|content|>Other",
+    "raw_response": "<|id|>667<|level|>1\n<|id|>671<|level|>2\n<|id|>677<|level|>1\n<|id|>680<|level|>2\n<|id|>682<|level|>2\n<|id|>683<|level|>3\n<|id|>687<|level|>1\n<|id|>695<|level|>1\n<|id|>698<|level|>2\n<|id|>705<|level|>1\n<|id|>712<|level|>1\n<|id|>716<|level|>2\n<|id|>722<|level|>2\n<|id|>744<|level|>-1\n<|id|>749<|level|>-1\n<|id|>777<|level|>-1\n<|id|>781<|level|>-1\n<|id|>784<|level|>1\n<|id|>791<|level|>1\n<|id|>797<|level|>1\n<|id|>803<|level|>1\n<|id|>810<|level|>1\n<|id|>817<|level|>1\n<|id|>824<|level|>1\n<|id|>831<|level|>1\n<|id|>837<|level|>1\n<|id|>840<|level|>1\n<|id|>842<|level|>2\n<|id|>847<|level|>2\n<|id|>849<|level|>3\n<|id|>850<|level|>3\n<|id|>853<|level|>3\n<|id|>865<|level|>2",
+    "parsed": [
+        {
+            "id": 667,
+            "level": 1
+        },
+        {
+            "id": 671,
+            "level": 2
+        },
+        {
+            "id": 677,
+            "level": 1
+        },
+        {
+            "id": 680,
+            "level": 2
+        },
+        {
+            "id": 682,
+            "level": 2
+        },
+        {
+            "id": 683,
+            "level": 3
+        },
+        {
+            "id": 687,
+            "level": 1
+        },
+        {
+            "id": 695,
+            "level": 1
+        },
+        {
+            "id": 698,
+            "level": 2
+        },
+        {
+            "id": 705,
+            "level": 1
+        },
+        {
+            "id": 712,
+            "level": 1
+        },
+        {
+            "id": 716,
+            "level": 2
+        },
+        {
+            "id": 722,
+            "level": 2
+        },
+        {
+            "id": 784,
+            "level": 1
+        },
+        {
+            "id": 791,
+            "level": 1
+        },
+        {
+            "id": 797,
+            "level": 1
+        },
+        {
+            "id": 803,
+            "level": 1
+        },
+        {
+            "id": 810,
+            "level": 1
+        },
+        {
+            "id": 817,
+            "level": 1
+        },
+        {
+            "id": 824,
+            "level": 1
+        },
+        {
+            "id": 831,
+            "level": 1
+        },
+        {
+            "id": 837,
+            "level": 1
+        },
+        {
+            "id": 840,
+            "level": 1
+        },
+        {
+            "id": 842,
+            "level": 2
+        },
+        {
+            "id": 847,
+            "level": 2
+        },
+        {
+            "id": 849,
+            "level": 3
+        },
+        {
+            "id": 850,
+            "level": 3
+        },
+        {
+            "id": 853,
+            "level": 3
+        },
+        {
+            "id": 865,
+            "level": 2
+        }
+    ]
+}

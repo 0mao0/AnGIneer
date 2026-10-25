@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        11,
+        21,
+        22,
+        27,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>198 140 215 292<|content|>MEMORANDUM\n<|id|>4<|page|>1<|box|>224 140 260 854<|content|>From: ... Leila Nazari, Working Associate, Tax — Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>268 140 304 852<|content|>To: ... Morgan Tsai, VP of Legal Affairs, Cobalt Ventures LP\n<|id|>6<|page|>1<|box|>313 140 330 320<|content|>Date: ... February 7, 2026\n<|id|>7<|page|>1<|box|>338 140 375 852<|content|>Re: ... QSBS Eligibility Analysis under IRC § 1202... Seed Preferred Stock of Meridian Diagnostics, Inc\n<|id|>8<|page|>1<|box|>383 142 398 330<|content|>Matter No. ... 1004-00001\n<|id|>9<|page|>1<|box|>407 140 484 854<|content|>This memorandum is protected by the attorney-clien...re may result in a waiver of applicable privileges\n<|id|>67<|page|>7<|box|>790 140 900 857<|content|>In the present transaction, the Series Seed Prefer...s, LLC, Thornfield Capital Partners, LP, and Atlas\n<|id|>68<|page|>8<|box|>89 140 145 854<|content|>Point Angel Syndicate, LLC—is similarly acquiring ...e Financing are newly authorized and issued shares\n<|id|>73<|page|>8<|box|>421 174 477 856<|content|>(c) A conversion right, pursuant to which each sha...binations, and anti-dilution adjustments); ... and\n<|id|>75<|page|>8<|box|>527 140 675 856<|content|>These features are typical of venture-backed prefe...ot be treated as non-QSBS stock under § 1202(c)(3)\n<|id|>98<|page|>11<|box|>204 174 258 854<|content|>(D) Any business involving the production or extra...ion is allowable under § 613 or § 613A (i. ... and\n<|id|>100<|page|>11<|box|>292 140 330 854<|content|>Additionally, § 1202(e)(3) excludes any trade or b...eputation or skill of one or more of its employees\n<|id|>193<|page|>21<|box|>763 138 875 856<|content|>This provision may be particularly relevant if Mer... period would expire for the Series Seed Preferred\n<|id|>194<|page|>22<|box|>89 140 126 854<|content|>Stock), the investors would not be eligible for th... but may be eligible for § 1045 rollover treatment\n<|id|>198<|page|>22<|box|>212 174 250 854<|content|>(c) The replacement QSBS must be issued by a quali...SBS requirements at the time of issuance); ... and\n<|id|>200<|page|>22<|box|>300 140 429 854<|content|>For pass-through entities like Fund III, the § 104...ll in advance of any pre-five-year liquidity event\n<|id|>225<|page|>27<|box|>821 143 839 424<|content|>Garrett Simmons Lead Associate, Tax\n<|id|>226<|page|>27<|box|>840 143 857 253<|content|>By: ... By\n<|id|>227<|page|>27<|box|>857 143 875 418<|content|>Leila Nazari Working Associate, Tax\n<|id|>228<|page|>27<|box|>875 143 890 318<|content|>Date: ... February 7, 2026\n<|id|>229<|page|>27<|box|>891 142 907 323<|content|>Matter No. ... 1004-00001\n<|id|>230<|page|>28<|box|>89 140 151 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV...mmediately and destroy all copies of this document",
+    "raw_response": "<|src_id|>67<|tgt_id|>68\n<|src_id|>193<|tgt_id|>194",
+    "parsed": [
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 193,
+            "tgt_id": 194
+        }
+    ]
+}

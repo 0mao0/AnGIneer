@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['[8.5, 9.5)', '8.84', '9.30', '9.07', '2.54', '3.20', '2.89', '1.02', '1.14', '1.08']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['[9.5, 10.5)', '9.60', '10.21', '10.04', '2.54', '4.09', '3.51', '0.74', '1.09', '0.91']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 975,
+    "table2_idx": 976
+}

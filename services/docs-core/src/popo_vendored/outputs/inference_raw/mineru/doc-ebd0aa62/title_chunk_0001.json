@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        51
+    ],
+    "pages": [
+        46,
+        50,
+        51
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>160<|page|>46<|box|>129 431 157 566<|content|>一、补充工程机械\n<|id|>165<|page|>50<|box|>129 440 156 558<|content|>一、黑色金属\n<|id|>167<|page|>51<|box|>248 242 337 754<|content|>本局部修订主编单位、参编单位、主要起草人、主要审查人、总校人员和管理组人员名单",
+    "raw_response": "<|id|>160<|level|>1\n<|id|>165<|level|>1\n<|id|>167<|level|>1",
+    "parsed": [
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 167,
+            "level": 1
+        }
+    ]
+}

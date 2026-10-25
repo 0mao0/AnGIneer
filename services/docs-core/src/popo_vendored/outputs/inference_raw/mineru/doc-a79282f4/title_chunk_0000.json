@@ -1,0 +1,48 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        6,
+        8
+    ],
+    "pages": [
+        6,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>6<|box|>210 87 225 452<|content|>ALLOCATION OF NET CLOSING CONSIDERATION\n<|id|>16<|page|>6<|box|>351 87 369 699<|content|>ESCROW HOLDBACK ALLOCATION (Released 18 months pos\n<|id|>38<|page|>8<|box|>137 87 155 221<|content|>DEAL OVERVIEW\n<|id|>45<|page|>8<|box|>281 85 297 623<|content|>TARVEX FINANCIAL METRICS (FY2025, year ended Decem\n<|id|>54<|page|>8<|box|>458 87 475 273<|content|>VALUATION MULTIPLES\n<|id|>57<|page|>8<|box|>530 87 546 334<|content|>R&W INSURANCE PARAMETERS\n<|id|>61<|page|>8<|box|>619 87 636 482<|content|>BUYER REFERENCE DATA (as of December 31, 2025)\n<|id|>71<|page|>8<|box|>816 87 831 245<|content|>BANK PARTNERSHIP",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>16<|level|>1\n<|id|>38<|level|>1\n<|id|>45<|level|>1\n<|id|>54<|level|>1\n<|id|>57<|level|>1\n<|id|>61<|level|>1\n<|id|>71<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        }
+    ]
+}

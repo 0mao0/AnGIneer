@@ -1,0 +1,119 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nu3g731c\\input\\pdfs\\doc-f67928d5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nu3g731c\\enriched\\doc-f67928d5.json",
+    "contd_output": "<|src_id|>87<|tgt_id|>88",
+    "title_output": "<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>32<|level|>1\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>1\n<|id|>56<|level|>1\n<|id|>62<|level|>1\n<|id|>64<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>2\n<|id|>99<|level|>1\n<|id|>107<|level|>1",
+    "image_output": "<|src_id|>40<|tgt_id|>38\n<|src_id|>41<|tgt_id|>38\n<|src_id|>45<|tgt_id|>43",
+    "contd_label": [
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 43
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 40,
+            "table2_idx": 41,
+            "upper_row_ss": [
+                [
+                    "Pre-award interest (5.25% per annum simple from dates",
+                    "£6,780,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "of breach to date of Award)",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

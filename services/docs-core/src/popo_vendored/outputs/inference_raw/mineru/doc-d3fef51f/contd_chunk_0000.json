@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 274 133 722<|content|>311 South Wacker Drive, Suite 4800 Chicago, Illinois 60606\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 738 185 854<|content|>August 5, 2022\n<|id|>4<|page|>1<|box|>193 140 210 560<|content|>VIA HAND DELIVERY AND ELECTRONIC MAIL\n<|id|>5<|page|>1<|box|>219 140 256 854<|content|>Dr. ... 550 West Adams Street, 14th Floor Chicago, Illinois 60661\n<|id|>6<|page|>1<|box|>263 140 300 854<|content|>Re: ... Engagement of Calderwood & Harkness LLP — Agency-Level Bid Protest and Related Proceedings\n<|id|>7<|page|>1<|box|>308 140 343 854<|content|>Matter: ... IDOT-BPC-2022-0047\n<|id|>8<|page|>1<|box|>352 140 388 854<|content|>Solicitation: ... IDOT-TS-2022-014, Illinois Integrated Transit Modernization Program (IITMP)\n<|id|>9<|page|>1<|box|>396 140 412 527<|content|>Calderwood & Harkness Matter No. ... 1031-00003\n<|id|>10<|page|>1<|box|>422 140 439 367<|content|>Dear Dr. ... Ng\n<|id|>16<|page|>1<|box|>866 140 902 856<|content|>The Firm will represent MTDC in the agency-level b...nsportation (\"IDOT\"), challenging the award of the\n<|id|>17<|page|>2<|box|>90 138 217 856<|content|>IITMP contract to Pinnacle Transit Solutions, Inc....ings and correspondence will reference that number\n<|id|>37<|page|>3<|box|>872 140 907 854<|content|>On January 18, 2022, the Illinois Department of Transportation issued Request for Proposals No. ... The\n<|id|>38<|page|>4<|box|>90 140 219 856<|content|>IITMP is a comprehensive initiative to modernize a...ly $310 million over the full thirteen-year period\n<|id|>46<|page|>5<|box|>90 174 143 854<|content|>(d) Failure to conduct an adequate cost-realism an...innacle's proposed pricing, which was $12. ... and\n<|id|>48<|page|>5<|box|>214 140 252 854<|content|>The statutory deadline for filing the protest is r...mediately upon execution of this engagement letter\n<|id|>62<|page|>6<|box|>142 174 176 854<|content|>(f) Expert and consultant fees, to the extent advanced by the Firm on behalf of the Client; ... and\n<|id|>64<|page|>6<|box|>229 140 304 854<|content|>Expert consultant fees — specifically those associ...nsultant fees that have been previously authorized\n<|id|>81<|page|>7<|box|>827 140 901 857<|content|>Ian Blackwood — Responsible Partner, Government Co...ral agencies, including the Illinois Department of\n<|id|>82<|page|>8<|box|>89 140 127 854<|content|>Transportation, the U. ... Blackwood will serve as...sel and primary client contact for this engagement\n<|id|>127<|page|>13<|box|>203 140 251 854<|content|>Ian Blackwood Partner — Government Contracts / Ban...cago, Illinois 60606 Telephone: ... (312) 555-7244\n<|id|>128<|page|>13<|box|>253 142 268 485<|content|>Email: ... com\n<|id|>129<|page|>13<|box|>271 143 287 251<|content|>By: ... By\n<|id|>130<|page|>13<|box|>287 140 320 854<|content|>Stephanie Okafor Partner — Banking & Finance Pract...cago, Illinois 60606 Telephone: ... (312) 555-7261\n<|id|>131<|page|>13<|box|>321 142 337 455<|content|>Email: ... com\n<|id|>137<|page|>13<|box|>494 142 511 359<|content|>Name: ... Raymond Alcázar\n<|id|>138<|page|>13<|box|>512 143 529 331<|content|>Title: ... Executive Director\n<|id|>139<|page|>13<|box|>530 143 547 266<|content|>Date: ... Date\n<|id|>141<|page|>13<|box|>564 143 580 284<|content|>Name: ... Patricia Ng\n<|id|>142<|page|>13<|box|>580 143 597 313<|content|>Title: ... General Counsel\n<|id|>143<|page|>13<|box|>599 143 614 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>16<|tgt_id|>17\n<|src_id|>37<|tgt_id|>38\n<|src_id|>81<|tgt_id|>82",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        }
+    ]
+}

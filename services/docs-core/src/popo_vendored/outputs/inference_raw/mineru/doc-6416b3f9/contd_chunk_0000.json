@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUNICATION ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>127 140 164 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1750 K Street NW, Suite 1100 Washington, D. ... 20006\n<|id|>2<|page|>1<|box|>172 723 189 854<|content|>January 31, 2024\n<|id|>3<|page|>1<|box|>196 140 234 854<|content|>Mr. ... Whitmore Chief Executive Officer Whitmore ...n Ridge Parkway, Suite 800 Herndon, Virginia 20171\n<|id|>4<|page|>1<|box|>242 140 277 854<|content|>Re: ... Recommended Corrective Action and Next Steps\n<|id|>5<|page|>1<|box|>286 140 321 856<|content|>Engagement No. ... FA8222-23- D-0193\n<|id|>6<|page|>1<|box|>330 142 347 248<|content|>Dear Marcus: ... Dear Marcus\n<|id|>23<|page|>2<|box|>872 140 909 854<|content|>This finding was materially supported by documenta...he unredacted Agency Report Tabs 22 and 28 — which\n<|id|>24<|page|>3<|box|>90 140 236 856<|content|>Calderwood & Harkness successfully obtained throug... provide Halcyon with an opportunity to address it\n<|id|>87<|page|>9<|box|>358 174 393 854<|content|>Claudia Merritt, Partner Calderwood & Harkness LLP...t NW, Suite 1100 Washington, D. ... (202) 555-0147\n<|id|>88<|page|>9<|box|>402 174 419 493<|content|>Email: ... com\n<|id|>89<|page|>9<|box|>420 140 436 470<|content|>We look forward to speaking with you soon. ... We look forward to speaking with you soon\n<|id|>90<|page|>9<|box|>446 142 462 272<|content|>Very truly yours,\n<|id|>91<|page|>9<|box|>463 142 479 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>92<|page|>9<|box|>481 143 498 251<|content|>By: ... By",
+    "raw_response": "<|src_id|>23<|tgt_id|>24",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        }
+    ]
+}

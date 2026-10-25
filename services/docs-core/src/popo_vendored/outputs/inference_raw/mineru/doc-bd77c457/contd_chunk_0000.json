@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 142 154 730<|content|>1735 Market Street, Suite 3100 Philadelphia, PA 19103 Tel: ... (215) 448-6201\n<|id|>4<|page|>1<|box|>184 142 198 334<|content|>www. ... com\n<|id|>3<|page|>1<|box|>160 140 176 673<|content|>600 Lexington Avenue New York, NY 10022 Tel: ... (212) 536-7401\n<|id|>5<|page|>1<|box|>205 702 223 854<|content|>September 20, 2022\n<|id|>6<|page|>1<|box|>232 140 268 854<|content|>Martin Ogilvy, CPA Engagement Partner Crestfield &...LLP 1200 Avenue of the Americas New York, NY 10036\n<|id|>7<|page|>1<|box|>276 140 329 854<|content|>Re: ... 1018-00009\n<|id|>8<|page|>1<|box|>339 142 357 274<|content|>Dear Mr. ... Ogilvy\n<|id|>32<|page|>3<|box|>844 140 898 854<|content|>Separately from the CSA, PBI licenses from PPC cer...agreement (the \"Legacy IP License\"). ... Under the\n<|id|>33<|page|>4<|box|>90 140 145 854<|content|>Legacy IP License, PBI pays PPC a royalty of 4. .....ped and approved prior to the execution of the CSA\n<|id|>53<|page|>6<|box|>160 181 178 674<|content|>• Supervisory Revenue Agent (Team Manager): ... Gerald Meskill\n<|id|>58<|page|>6<|box|>258 140 422 856<|content|>As of the date of this letter, the IRS has issued ... IDRs will be issued as the examination progresses\n<|id|>54<|page|>6<|box|>180 183 196 506<|content|>• Lead Revenue Agent: ... Patricia Dunleavy\n<|id|>55<|page|>6<|box|>199 183 215 694<|content|>• IRS Economist (Transfer Pricing Practice): ... Alan Washburne\n<|id|>56<|page|>6<|box|>219 183 234 697<|content|>• IRS Office of Chief Counsel, Attorney-Advisor: ... Franklin Rosario\n<|id|>57<|page|>6<|box|>239 183 255 696<|content|>• IRS Office of Chief Counsel, Senior Counsel: ... Donna Hirabayash\n<|id|>74<|page|>7<|box|>856 174 892 856<|content|>4. ... Whether PBI possesses sufficient economic s...rms adequate functions related to the Development,\n<|id|>75<|page|>8<|box|>89 210 162 856<|content|>Enhancement, Maintenance, Protection, and Exploita... the residual profits attributable to IP ownership\n<|id|>172<|page|>17<|box|>875 174 907 854<|content|>5. ... This letter is provided solely for the purp...nt of PPC's ASC 740-10 reserves in connection with\n<|id|>173<|page|>18<|box|>90 210 162 854<|content|>PPC's financial statement audit. ... This letter s... incorporated therein), or advice to third parties\n<|id|>183<|page|>19<|box|>179 176 195 687<|content|>Leonard Cross, Partner, Tax Department Telephone: ... (215) 448-6247\n<|id|>184<|page|>19<|box|>204 176 220 478<|content|>Email: ... com\n<|id|>185<|page|>19<|box|>222 176 239 725<|content|>Garrett Simmons, Associate, Tax Department Telephone: ... (215) 448-6319\n<|id|>186<|page|>19<|box|>248 174 263 511<|content|>Email: ... com\n<|id|>187<|page|>19<|box|>263 140 300 854<|content|>We would be pleased to supplement or update this a...becomes available or as the examination progresses\n<|id|>188<|page|>19<|box|>309 142 327 274<|content|>Very truly yours,\n<|id|>189<|page|>19<|box|>334 140 349 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>190<|page|>19<|box|>353 143 369 251<|content|>By: ... By",
+    "raw_response": "<|src_id|>32<|tgt_id|>33\n<|src_id|>74<|tgt_id|>75\n<|src_id|>172<|tgt_id|>173",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 173
+        }
+    ]
+}

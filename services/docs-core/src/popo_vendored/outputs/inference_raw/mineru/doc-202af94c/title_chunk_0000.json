@@ -1,0 +1,140 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 107 575<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>364 385 383 611<|content|>I. Executive Summary\n<|id|>18<|page|>2<|box|>712 321 732 674<|content|>II. Scope and Documents Reviewed\n<|id|>19<|page|>2<|box|>757 140 773 336<|content|>A. Documents Reviewed\n<|id|>29<|page|>3<|box|>484 140 502 418<|content|>B. Proposed Transaction Overview\n<|id|>37<|page|>4<|box|>260 142 277 258<|content|>C. Purchasers\n<|id|>40<|page|>4<|box|>633 147 679 848<|content|>III. Analysis of the Amended and Restated Certific\n<|id|>41<|page|>4<|box|>703 142 720 367<|content|>A. Authorized Capital Stock\n<|id|>50<|page|>5<|box|>821 140 837 483<|content|>B. Board Authority to Issue Debt Securities\n<|id|>58<|page|>6<|box|>736 140 753 604<|content|>C. Protective Provisions — Preferred Stock Consent\n<|id|>80<|page|>8<|box|>689 140 705 359<|content|>D. Anti-Dilution Provisions\n<|id|>89<|page|>10<|box|>90 367 111 630<|content|>IV. Analysis of the Bylaws\n<|id|>90<|page|>10<|box|>136 140 152 524<|content|>A. Board Action — Meeting vs. Written Consent\n<|id|>105<|page|>11<|box|>250 140 265 482<|content|>B. Officer Authority to Execute Documents\n<|id|>113<|page|>11<|box|>763 140 780 620<|content|>C. Stockholder Action — Written Consent in Lieu of\n<|id|>120<|page|>12<|box|>734 148 777 846<|content|>V. Analysis of the Amended and Restated Investors'\n<|id|>121<|page|>12<|box|>801 142 819 617<|content|>A. Preemptive Rights / Right of First Offer (Pro R\n<|id|>149<|page|>15<|box|>148 142 167 320<|content|>B. Information Rights\n<|id|>160<|page|>15<|box|>747 140 763 321<|content|>C. Registration Rights\n<|id|>167<|page|>16<|box|>470 140 488 452<|content|>D. Consent and Amendment Provisions\n<|id|>175<|page|>17<|box|>148 140 167 473<|content|>E. Board Observation / Board Seat Rights\n<|id|>180<|page|>17<|box|>482 174 502 821<|content|>VI. Analysis of the Right of First Refusal and Co-\n<|id|>189<|page|>18<|box|>489 305 508 691<|content|>VII. Analysis of the Voting Agreement\n<|id|>199<|page|>19<|box|>234 171 279 823<|content|>VIII. Existing Kelvantis Venture Debt Facility — I\n<|id|>207<|page|>20<|box|>136 222 155 774<|content|>IX. Summary of Required Authorizations and Consent\n<|id|>210<|page|>21<|box|>391 313 411 683<|content|>X. Recommendations and Next Steps\n<|id|>220<|page|>22<|box|>672 419 691 578<|content|>XI. Limitations",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>29<|level|>3\n<|id|>37<|level|>3\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>50<|level|>3\n<|id|>58<|level|>3\n<|id|>80<|level|>3\n<|id|>89<|level|>2\n<|id|>90<|level|>3\n<|id|>105<|level|>3\n<|id|>113<|level|>3\n<|id|>120<|level|>2\n<|id|>121<|level|>3\n<|id|>149<|level|>3\n<|id|>160<|level|>3\n<|id|>167<|level|>3\n<|id|>175<|level|>3\n<|id|>180<|level|>2\n<|id|>189<|level|>2\n<|id|>199<|level|>2\n<|id|>207<|level|>2\n<|id|>210<|level|>2\n<|id|>220<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        }
+    ]
+}

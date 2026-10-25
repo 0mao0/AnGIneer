@@ -1,0 +1,86 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>196 83 218 501<|content|>PACKING LIST / SHIPPING MANIFEST\n<|id|>1<|type|>table<|page|>1<|box|>229 71 419 918<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>450 84 470 348<|content|>CONTAINER SUMMARY\n<|id|>3<|type|>table<|page|>1<|box|>481 86 834 911<|content|>None\n<|id|>4<|type|>title<|page|>2<|box|>199 84 220 305<|content|>LINE ITEM DETAILS\n<|id|>5<|type|>table<|page|>2<|box|>232 84 886 911<|content|>None\n<|id|>6<|type|>table<|page|>3<|box|>89 84 864 913<|content|>None\n<|id|>7<|type|>table<|page|>4<|box|>89 84 883 913<|content|>None\n<|id|>8<|type|>table<|page|>5<|box|>89 84 883 913<|content|>None\n<|id|>9<|type|>table<|page|>6<|box|>88 84 372 911<|content|>None\n<|id|>10<|type|>title<|page|>6<|box|>402 83 422 509<|content|>FOOTNOTES & SHIPPING NOTATIONS\n<|id|>16<|type|>table<|page|>6<|box|>785 49 878 947<|content|>None\n<|id|>17<|type|>title<|page|>7<|box|>90 83 116 602<|content|>MERIDIAN INDUSTRIAL SUPPLY CO.\n<|id|>21<|type|>title<|page|>7<|box|>358 83 378 344<|content|>CERTIFIED LINE ITEMS\n<|id|>22<|type|>table<|page|>7<|box|>398 84 849 852<|content|>None\n<|id|>23<|type|>table<|page|>8<|box|>89 84 862 854<|content|>None\n<|id|>24<|type|>table<|page|>9<|box|>90 84 862 854<|content|>None\n<|id|>25<|type|>table<|page|>10<|box|>90 84 862 854<|content|>None\n<|id|>26<|type|>table<|page|>11<|box|>90 84 862 854<|content|>None\n<|id|>27<|type|>table<|page|>12<|box|>89 84 474 852<|content|>None\n<|id|>28<|type|>title<|page|>12<|box|>515 84 534 169<|content|>NOTES\n<|id|>32<|type|>table<|page|>12<|box|>696 84 811 926<|content|>None",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>3<|tgt_id|>2\n<|src_id|>5<|tgt_id|>4\n<|src_id|>6<|tgt_id|>4\n<|src_id|>7<|tgt_id|>4\n<|src_id|>8<|tgt_id|>4\n<|src_id|>9<|tgt_id|>4\n<|src_id|>16<|tgt_id|>10\n<|src_id|>22<|tgt_id|>21\n<|src_id|>23<|tgt_id|>4\n<|src_id|>24<|tgt_id|>4\n<|src_id|>25<|tgt_id|>4\n<|src_id|>26<|tgt_id|>4\n<|src_id|>27<|tgt_id|>4\n<|src_id|>32<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 28
+        }
+    ]
+}

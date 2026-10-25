@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>170 116 203 899<|content|>中华人民共和国交通行业标准\n<|id|>3<|page|>1<|box|>414 128 450 887<|content|>港口码头劳动定员 第 5 部分: 散货码头\n<|id|>4<|page|>1<|box|>474 210 496 804<|content|>Port terminal labour manning—Part 5: Bulk cargo te\n<|id|>8<|page|>2<|box|>133 443 156 549<|content|>目次\n<|id|>10<|page|>3<|box|>134 444 156 552<|content|>前言\n<|id|>28<|page|>4<|box|>134 265 155 720<|content|>港口码头劳动定员 第 5 部分: 散货码头\n<|id|>29<|page|>4<|box|>190 112 204 180<|content|>1 范围\n<|id|>32<|page|>4<|box|>282 111 297 265<|content|>2 规范性引用文件\n<|id|>35<|page|>4<|box|>394 112 409 214<|content|>3 单项定员\n<|id|>68<|page|>6<|box|>673 113 688 344<|content|>3.14 装卸机械运行技术人员\n<|id|>75<|page|>6<|box|>824 113 838 345<|content|>3.15 队(车间)生产管理人员\n<|id|>77<|page|>6<|box|>862 113 876 293<|content|>3.16 现场安全监督员\n<|id|>80<|page|>7<|box|>114 127 129 336<|content|>3.17 现场货运质量监督员\n<|id|>82<|page|>7<|box|>160 126 176 311<|content|>4 装卸作业线综合定员\n<|id|>83<|page|>7<|box|>189 127 204 262<|content|>4.1 散矿作业线\n<|id|>84<|page|>7<|box|>207 126 223 434<|content|>4.1.1 散矿作业线装卸机械配备见表3。\n<|id|>86<|page|>7<|box|>422 128 437 400<|content|>4.1.2 散矿作业线综合定员见表4。\n<|id|>88<|page|>7<|box|>699 128 715 263<|content|>4.2 散粮作业线\n<|id|>89<|page|>7<|box|>718 127 734 434<|content|>4.2.1 散粮作业线装卸机械配备见表5。\n<|id|>92<|page|>8<|box|>409 111 424 388<|content|>4.2.2 散粮作业线综合定员见表6。\n<|id|>94<|page|>8<|box|>707 111 722 265<|content|>4.3 散化肥作业线\n<|id|>95<|page|>8<|box|>726 110 741 440<|content|>4.3.1 散化肥作业线装卸机械配备见表7。\n<|id|>97<|page|>8<|box|>896 110 913 405<|content|>4.3.2 散化肥作业线综合定员见表8。\n<|id|>99<|page|>9<|box|>323 133 338 297<|content|>5 全部定员计算方法\n<|id|>100<|page|>9<|box|>351 133 366 267<|content|>5.1 港口装卸工\n<|id|>102<|page|>9<|box|>388 133 402 282<|content|>5.2 装卸机械司机\n<|id|>104<|page|>9<|box|>425 135 439 251<|content|>5.3 其他岗位",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>28<|level|>1\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>2\n<|id|>68<|level|>3\n<|id|>75<|level|>3\n<|id|>77<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>2\n<|id|>83<|level|>3\n<|id|>84<|level|>4\n<|id|>86<|level|>4\n<|id|>88<|level|>3\n<|id|>89<|level|>4\n<|id|>92<|level|>4\n<|id|>94<|level|>3\n<|id|>95<|level|>4\n<|id|>97<|level|>4\n<|id|>99<|level|>2\n<|id|>100<|level|>3\n<|id|>102<|level|>3\n<|id|>104<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 4
+        },
+        {
+            "id": 86,
+            "level": 4
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 4
+        },
+        {
+            "id": 92,
+            "level": 4
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        }
+    ]
+}

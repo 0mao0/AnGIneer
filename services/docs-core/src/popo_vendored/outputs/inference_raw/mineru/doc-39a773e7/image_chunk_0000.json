@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        16
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>13<|type|>title<|page|>2<|box|>212 140 229 424<|content|>I. Proposed ESI Production Format\n<|id|>14<|type|>title<|page|>2<|box|>243 140 261 282<|content|>A. Image Format\n<|id|>17<|type|>title<|page|>2<|box|>469 140 486 364<|content|>B. Extracted Text and OCR\n<|id|>21<|type|>title<|page|>2<|box|>758 140 775 297<|content|>C. Metadata Fields\n<|id|>23<|type|>table<|page|>2<|box|>842 143 900 852<|content|>None\n<|id|>24<|type|>table<|page|>3<|box|>89 143 559 852<|content|>None\n<|id|>26<|type|>title<|page|>3<|box|>696 142 714 352<|content|>D. Native File Productions\n<|id|>31<|type|>title<|page|>4<|box|>250 140 268 359<|content|>E. Email-Specific Protocols\n<|id|>35<|type|>title<|page|>4<|box|>568 140 585 408<|content|>II. Bates Numbering Conventions\n<|id|>45<|type|>title<|page|>5<|box|>348 140 364 372<|content|>III. De-Duplication Protocols\n<|id|>46<|type|>title<|page|>5<|box|>378 140 396 357<|content|>A. Scope of De-Duplication\n<|id|>50<|type|>title<|page|>5<|box|>704 142 722 338<|content|>B. Email De-Duplication\n<|id|>53<|type|>title<|page|>6<|box|>157 140 175 398<|content|>C. Near-Duplicate Identification\n<|id|>56<|type|>title<|page|>6<|box|>412 140 430 266<|content|>IV. Custodians\n<|id|>57<|type|>title<|page|>6<|box|>444 140 460 375<|content|>A. BRB Proposed Custodians\n<|id|>65<|type|>title<|page|>7<|box|>194 140 212 457<|content|>B. Triton Harbor Requested Custodians\n<|id|>72<|type|>title<|page|>7<|box|>766 140 782 413<|content|>V. Search Terms and Date Ranges\n<|id|>73<|type|>title<|page|>7<|box|>797 140 814 338<|content|>A. Proposed Date Range\n<|id|>83<|type|>title<|page|>8<|box|>556 142 573 354<|content|>B. Proposed Search Terms\n<|id|>112<|type|>title<|page|>9<|box|>607 140 625 357<|content|>C. Iterative Search Process\n<|id|>119<|type|>title<|page|>10<|box|>148 140 167 357<|content|>VI. Hard-Copy Documents\n<|id|>125<|type|>title<|page|>10<|box|>648 140 667 547<|content|>VII. Proposed Confidentiality and Protective Order\n<|id|>146<|type|>title<|page|>12<|box|>321 140 339 397<|content|>VIII. Privilege Logging Protocol\n<|id|>148<|type|>title<|page|>12<|box|>397 142 414 336<|content|>A. Privilege Log Format\n<|id|>149<|type|>table<|page|>12<|box|>462 143 785 852<|content|>None\n<|id|>150<|type|>title<|page|>12<|box|>824 142 840 333<|content|>B. Redacted Documents\n<|id|>152<|type|>title<|page|>13<|box|>157 140 176 361<|content|>C. Timing of Privilege Logs\n<|id|>154<|type|>title<|page|>13<|box|>286 140 301 468<|content|>D. Clawback and Inadvertent Production\n<|id|>161<|type|>title<|page|>13<|box|>691 140 709 517<|content|>IX. Production Timing and Rolling Productions\n<|id|>173<|type|>title<|page|>14<|box|>502 140 518 310<|content|>X. Production Media\n<|id|>184<|type|>title<|page|>15<|box|>186 140 203 506<|content|>XI. Meet and Confer and Contact Information\n<|id|>201<|type|>title<|page|>16<|box|>282 142 297 233<|content|>Enclosure:",
+    "raw_response": "<|src_id|>23<|tgt_id|>21\n<|src_id|>24<|tgt_id|>21\n<|src_id|>149<|tgt_id|>148",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 148
+        }
+    ]
+}

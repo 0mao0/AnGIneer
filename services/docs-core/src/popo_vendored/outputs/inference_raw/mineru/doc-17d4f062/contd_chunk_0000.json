@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        16,
+        17,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>296 140 313 297<|content|>Date: ... May 22, 2022\n<|id|>5<|page|>1<|box|>321 140 359 854<|content|>To: ... Priya Anand, General Counsel, Torchlight Mining Corp\n<|id|>6<|page|>1<|box|>367 140 402 854<|content|>From: ... Elaine Forsythe, Partner, Antitrust & Competition Practice Group, Calderwood & Harkness LLP\n<|id|>7<|page|>1<|box|>410 140 446 854<|content|>Re: ... Receipt of DOJ Antitrust Division Target L... Significance, Options, and Recommended Next Steps\n<|id|>8<|page|>1<|box|>454 140 472 377<|content|>C&H Matter No. ... 1039-00001\n<|id|>53<|page|>6<|box|>809 138 902 857<|content|>Alleged Conspiracy Period. ... The start date of J...vin Holt assumed his expanded pricing authority at\n<|id|>54<|page|>7<|box|>90 140 127 854<|content|>TMC, while the end date of August 2021 corresponds...ately the time Cascade Chemical approached the DOJ\n<|id|>149<|page|>16<|box|>787 138 897 857<|content|>Anticipated Retention of Personal Counsel. ... We recommend that\n<|id|>150<|page|>17<|box|>90 140 125 854<|content|>TMC refrain from direct contact with Holt regardin...the Investigation pending his retention of counsel\n<|id|>204<|page|>22<|box|>612 140 628 320<|content|>Respectfully submitted,\n<|id|>205<|page|>22<|box|>637 140 652 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>206<|page|>22<|box|>655 142 672 253<|content|>By: ... By\n<|id|>207<|page|>22<|box|>672 140 704 854<|content|>Elaine Forsythe Partner, Antitrust & Competition P...co, California 94104 Telephone: ... (415) 555-8200\n<|id|>208<|page|>22<|box|>705 142 720 468<|content|>Email: ... com\n<|id|>209<|page|>22<|box|>722 140 782 856<|content|>cc: ... Howard Bellamy (Billing Partner, Calderwoo...cisco) — via privileged internal distribution only\n<|id|>210<|page|>22<|box|>789 140 864 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV...tify the sender immediately and destroy all copies",
+    "raw_response": "<|src_id|>53<|tgt_id|>54\n<|src_id|>149<|tgt_id|>150",
+    "parsed": [
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 150
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>411 140 429 658<|content|>1. Purpose of Letter; Confirmation of Termination\n<|id|>16<|type|>title<|page|>2<|box|>439 140 457 563<|content|>2. Summary of Engagement and Negotiation Timeline\n<|id|>33<|type|>title<|page|>4<|box|>627 140 643 506<|content|>3. Calderwood & Harkness Engagement Team\n<|id|>35<|type|>table<|page|>4<|box|>695 143 789 852<|content|>None\n<|id|>38<|type|>title<|page|>5<|box|>285 140 321 776<|content|>4. Obligations Under the Mutual NDA — Return and D\n<|id|>45<|type|>title<|page|>6<|box|>321 140 339 328<|content|>5. File Retention Policy\n<|id|>50<|type|>title<|page|>6<|box|>796 140 813 413<|content|>6. Outstanding Invoicing and Fees\n<|id|>52<|type|>table<|page|>7<|box|>176 143 268 852<|content|>None\n<|id|>55<|type|>title<|page|>7<|box|>497 140 513 619<|content|>7. No Ongoing Representation; Potential Future Eng\n<|id|>59<|type|>title<|page|>8<|box|>148 140 167 344<|content|>8. Strategic Observations\n<|id|>66<|type|>title<|page|>8<|box|>787 140 804 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>35<|tgt_id|>33\n<|src_id|>52<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 50
+        }
+    ]
+}

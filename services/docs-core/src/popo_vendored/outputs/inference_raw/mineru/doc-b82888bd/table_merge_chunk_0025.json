@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 25,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['8.2.3', \"Can the vendor's platform support data feeds from all 14 of BRB's active BaaS partners? Particular attention should be given to: (a) NovaPay Technologies (consumer payments/P2P) — the largest partner by volume and the source of the unscreened\", '', '', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'transaction deficiency; (b) FairLend Digital (online small-business lending; approximately $1.4 billion in loan originations in FY 2024); and (c) VaultEdge (digital savings/neobanking). Describe the integration methodology for each partner category. [CO]', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 200,
+    "table2_idx": 201
+}

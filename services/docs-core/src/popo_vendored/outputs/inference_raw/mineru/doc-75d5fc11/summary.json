@@ -1,0 +1,133 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-j9cl91hc\\input\\pdfs\\doc-75d5fc11.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-j9cl91hc\\enriched\\doc-75d5fc11.json",
+    "contd_output": "<|src_id|>15<|tgt_id|>16",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>3\n<|id|>39<|level|>3\n<|id|>48<|level|>3\n<|id|>56<|level|>3\n<|id|>59<|level|>3\n<|id|>72<|level|>3\n<|id|>74<|level|>3\n<|id|>80<|level|>3\n<|id|>87<|level|>3\n<|id|>89<|level|>2\n<|id|>96<|level|>2\n<|id|>98<|level|>3\n<|id|>136<|level|>2\n<|id|>137<|level|>3\n<|id|>142<|level|>2\n<|id|>143<|level|>3\n<|id|>146<|level|>2\n<|id|>147<|level|>3",
+    "image_output": "<|src_id|>8<|tgt_id|>3\n<|src_id|>9<|tgt_id|>3\n<|src_id|>145<|tgt_id|>143",
+    "contd_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 8,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 143
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 8,
+            "table2_idx": 9,
+            "upper_row_ss": [
+                [
+                    "Priya Narasimhan",
+                    "[___]",
+                    "8.3%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

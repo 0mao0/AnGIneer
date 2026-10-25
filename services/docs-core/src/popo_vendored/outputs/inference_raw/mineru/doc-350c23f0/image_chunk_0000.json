@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|type|>title<|page|>1<|box|>305 140 321 364<|content|>1. Purpose and Engagement\n<|id|>10<|type|>title<|page|>1<|box|>544 140 561 352<|content|>2. Scope of Representation\n<|id|>23<|type|>title<|page|>2<|box|>806 140 824 472<|content|>3. Matter Number and Internal Reference\n<|id|>26<|type|>title<|page|>3<|box|>186 140 204 522<|content|>4. Engagement Team and Responsible Attorneys\n<|id|>33<|type|>title<|page|>3<|box|>821 140 839 447<|content|>5. Billing Rates and Fee Arrangements\n<|id|>35<|type|>table<|page|>3<|box|>890 143 909 852<|content|>None\n<|id|>36<|type|>table<|page|>4<|box|>88 143 174 852<|content|>None\n<|id|>41<|type|>title<|page|>4<|box|>547 140 564 379<|content|>6. Billing and Payment Terms\n<|id|>47<|type|>title<|page|>5<|box|>304 140 320 321<|content|>7. Conflicts of Interest\n<|id|>51<|type|>title<|page|>5<|box|>789 140 806 390<|content|>8. Confidentiality and Privilege\n<|id|>56<|type|>title<|page|>6<|box|>520 140 537 326<|content|>9. Document Retention\n<|id|>60<|type|>title<|page|>7<|box|>90 142 107 393<|content|>10. Termination of Engagement\n<|id|>64<|type|>title<|page|>7<|box|>429 142 446 348<|content|>11. Limitation of Liability\n<|id|>67<|type|>title<|page|>7<|box|>686 142 704 297<|content|>12. Governing Law\n<|id|>69<|type|>title<|page|>8<|box|>90 142 107 568<|content|>13. Counterparty and Opposing Counsel Identificati\n<|id|>73<|type|>title<|page|>8<|box|>319 142 335 442<|content|>14. Client Contacts and Authorization\n<|id|>80<|type|>title<|page|>8<|box|>698 142 714 380<|content|>15. Acceptance and Execution\n<|id|>85<|type|>title<|page|>9<|box|>196 212 213 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>94<|type|>title<|page|>9<|box|>359 380 376 616<|content|>AGREED AND ACCEPTED:",
+    "raw_response": "<|src_id|>35<|tgt_id|>33\n<|src_id|>36<|tgt_id|>33",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 33
+        }
+    ]
+}

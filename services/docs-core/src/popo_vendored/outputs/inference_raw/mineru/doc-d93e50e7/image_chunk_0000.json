@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 321 133 674<|content|>STATE OF DELAWARE OFFICE OF THE SECRETARY OF STATE\n<|id|>10<|type|>title<|page|>1<|box|>445 142 462 285<|content|>Article I — Name\n<|id|>14<|type|>title<|page|>1<|box|>564 142 580 550<|content|>Article II — Registered Office and Registered Agen\n<|id|>20<|type|>title<|page|>1<|box|>771 142 787 398<|content|>Article III — Authorized Person\n<|id|>23<|type|>title<|page|>2<|box|>90 143 107 362<|content|>Article IV — Effective Date\n<|id|>25<|type|>title<|page|>2<|box|>175 143 191 310<|content|>Article V — Purpose\n<|id|>31<|type|>title<|page|>2<|box|>436 142 454 356<|content|>Article VI — Sole Member\n<|id|>33<|type|>title<|page|>2<|box|>525 359 542 637<|content|>[EXECUTION PAGE FOLLOWS]\n<|id|>41<|type|>title<|page|>2<|box|>724 321 741 674<|content|>OFFICE OF THE SECRETARY OF STATE\n<|id|>42<|type|>table<|page|>2<|box|>775 143 906 852<|content|>None\n<|id|>43<|type|>table<|page|>3<|box|>89 145 127 852<|content|>None",
+    "raw_response": "<|src_id|>42<|tgt_id|>0\n<|src_id|>43<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 0
+        }
+    ]
+}

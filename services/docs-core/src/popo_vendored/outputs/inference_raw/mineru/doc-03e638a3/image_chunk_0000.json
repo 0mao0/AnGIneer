@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        3,
+        16
+    ],
+    "pages": [
+        3,
+        10,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>28<|type|>title<|page|>3<|box|>246 87 262 215<|content|>USES OF FUNDS\n<|id|>36<|type|>title<|page|>3<|box|>406 87 422 225<|content|>RECONCILIATION\n<|id|>83<|type|>table<|page|>10<|box|>85 85 388 877<|content|>None\n<|id|>116<|type|>table<|page|>16<|box|>84 85 458 557<|content|>None",
+    "raw_response": "<|src_id|>83<|tgt_id|>36\n<|src_id|>116<|tgt_id|>36",
+    "parsed": [
+        {
+            "src_id": 83,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 36
+        }
+    ]
+}

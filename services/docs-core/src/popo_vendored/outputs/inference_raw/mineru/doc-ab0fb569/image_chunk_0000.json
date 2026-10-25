@@ -1,0 +1,64 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 143 104 611<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|type|>title<|page|>1<|box|>114 305 132 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>2<|type|>title<|page|>1<|box|>151 424 167 573<|content|>MEMORANDUM\n<|id|>3<|type|>table<|page|>1<|box|>175 143 352 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>401 142 417 321<|content|>I. Executive Summary\n<|id|>7<|type|>title<|page|>1<|box|>790 142 806 380<|content|>Our key findings are as follows:\n<|id|>12<|type|>title<|page|>2<|box|>402 140 420 495<|content|>II. Background — The Existing TLB Facility\n<|id|>13<|type|>title<|page|>2<|box|>434 140 450 504<|content|>A. Overview of the Existing Credit Agreement\n<|id|>31<|type|>title<|page|>4<|box|>90 140 107 439<|content|>B. Existing Capital Structure Context\n<|id|>33<|type|>table<|page|>4<|box|>174 143 357 852<|content|>None\n<|id|>38<|type|>title<|page|>5<|box|>90 140 107 357<|content|>III. Prepayment Provisions\n<|id|>39<|type|>title<|page|>5<|box|>121 140 138 437<|content|>A. Voluntary Prepayment — General\n<|id|>45<|type|>title<|page|>6<|box|>90 140 107 506<|content|>B. Prepayment Premium / Soft Call Protection\n<|id|>53<|type|>title<|page|>7<|box|>138 140 157 364<|content|>C. Mandatory Prepayments\n<|id|>65<|type|>title<|page|>8<|box|>330 140 347 418<|content|>D. Total Estimated Payoff Amount\n<|id|>67<|type|>table<|page|>8<|box|>396 143 505 852<|content|>None\n<|id|>71<|type|>title<|page|>9<|box|>148 140 167 460<|content|>IV. Assignment and Transfer Provisions\n<|id|>72<|type|>title<|page|>9<|box|>180 142 198 330<|content|>A. Lender Assignments\n<|id|>87<|type|>title<|page|>10<|box|>739 140 758 421<|content|>C. Implications for the Refinancing\n<|id|>92<|type|>title<|page|>11<|box|>531 140 547 591<|content|>V. Repricing and Most Favored Nation (MFN) Provisi\n<|id|>93<|type|>title<|page|>11<|box|>561 140 579 398<|content|>A. Existing Repricing Protection\n<|id|>96<|type|>title<|page|>11<|box|>825 140 842 364<|content|>B. Existing MFN Provisions\n<|id|>103<|type|>title<|page|>12<|box|>536 140 554 537<|content|>C. Implications for Negotiation of the New Facilit\n<|id|>119<|type|>title<|page|>14<|box|>148 140 167 460<|content|>VI. Benchmark / LIBOR Considerations\n<|id|>123<|type|>table<|page|>14<|box|>507 143 583 852<|content|>None\n<|id|>131<|type|>title<|page|>15<|box|>366 140 383 388<|content|>VII. Other Relevant Provisions\n<|id|>132<|type|>title<|page|>15<|box|>397 140 414 316<|content|>A. Change of Control\n<|id|>135<|type|>title<|page|>15<|box|>752 142 768 328<|content|>B. Financial Covenants\n<|id|>140<|type|>title<|page|>16<|box|>419 140 436 496<|content|>C. Negative Covenants / Restricted Payments\n<|id|>152<|type|>title<|page|>17<|box|>148 142 167 486<|content|>VIII. Cost-Benefit Summary of Prepayment\n<|id|>154<|type|>table<|page|>17<|box|>224 143 383 852<|content|>None\n<|id|>155<|type|>title<|page|>17<|box|>417 143 433 215<|content|>Benefits:\n<|id|>156<|type|>table<|page|>17<|box|>441 143 614 852<|content|>None\n<|id|>161<|type|>title<|page|>18<|box|>148 140 167 380<|content|>IX. Recommended Next Steps\n<|id|>171<|type|>table<|page|>20<|box|>113 143 435 852<|content|>None\n<|id|>172<|type|>title<|page|>21<|box|>90 142 107 493<|content|>Appendix B — Estimated Payoff Calculation\n<|id|>174<|type|>table<|page|>21<|box|>176 143 372 852<|content|>None",
+    "raw_response": "<|src_id|>3<|tgt_id|>2\n<|src_id|>33<|tgt_id|>31\n<|src_id|>67<|tgt_id|>65\n<|src_id|>123<|tgt_id|>119\n<|src_id|>154<|tgt_id|>152\n<|src_id|>156<|tgt_id|>152\n<|src_id|>171<|tgt_id|>161\n<|src_id|>174<|tgt_id|>172",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 152
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 152
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 172
+        }
+    ]
+}

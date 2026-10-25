@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>279 140 296 834<|content|>Re: Separation and Release Agreement — Joanna Tras\n<|id|>11<|page|>1<|box|>625 140 642 310<|content|>Summary of Context\n<|id|>16<|page|>2<|box|>285 140 303 540<|content|>Section 1 — Carried Interest Retention Percentage\n<|id|>24<|page|>3<|box|>231 140 248 558<|content|>Section 2 — Clawback Obligation on Retained Carry\n<|id|>30<|page|>3<|box|>786 140 801 441<|content|>Section 3 — Carry Escrow Mechanics\n<|id|>35<|page|>4<|box|>440 140 457 428<|content|>Section 4 — Non-Compete Duration\n<|id|>40<|page|>5<|box|>148 140 167 455<|content|>Section 5 — Non-Solicitation Provisions\n<|id|>45<|page|>5<|box|>625 140 641 403<|content|>Section 6 — Separation Payment\n<|id|>48<|page|>6<|box|>90 140 107 473<|content|>Section 7 — GP Commitment Assumption\n<|id|>52<|page|>6<|box|>429 140 445 431<|content|>Section 8 — Mutual General Release\n<|id|>56<|page|>6<|box|>731 140 747 346<|content|>Section 9 — Other Terms\n<|id|>62<|page|>7<|box|>440 140 457 519<|content|>Closing — Request for Response and Next Steps\n<|id|>75<|page|>8<|box|>306 143 323 238<|content|>Enclosures:",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>24<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>75<|level|>2",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        }
+    ]
+}

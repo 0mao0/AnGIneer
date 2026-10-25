@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        8,
+        9,
+        16,
+        17,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 424 151 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>160 140 214 854<|content|>TO: ... Conrad Ashby, Responsible Partner, White C...Collar & Investigations, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>222 140 258 854<|content|>FROM: ... Jasmine Thornton, Working Associate, White Collar & Investigations, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>266 142 284 316<|content|>DATE: ... April 22, 2025\n<|id|>5<|page|>1<|box|>292 140 329 854<|content|>RE: ... 1039-00005)\n<|id|>6<|page|>1<|box|>335 140 412 854<|content|>PRIVILEGE DESIGNATION: ... It is protected by the ...r or the General Counsel of Torchlight Mining Corp\n<|id|>23<|page|>3<|box|>676 138 898 857<|content|>Marcus Delacroix — Former Vice President, Africa O...aran citizen or resident, Maître Ndong advises tha\n<|id|>24<|page|>4<|box|>89 140 127 856<|content|>Ganaran criminal jurisdiction extends to conduct o...offender, as discussed in Section III. ... E below\n<|id|>65<|page|>8<|box|>746 140 893 857<|content|>Article 78 — Grounds for Revocation of Mining Lice...at the grounds for revocation are established, the\n<|id|>66<|page|>9<|box|>90 140 145 854<|content|>Minister may issue a final order of revocation, wh...issuance unless stayed by the Administrative Court\n<|id|>130<|page|>16<|box|>842 140 897 854<|content|>However, the absence of a formal MLAT does not pre...both countries, through the World Bank's Integrity\n<|id|>131<|page|>17<|box|>90 140 200 857<|content|>Vice Presidency (which maintains an interest in an...s of justice are served by coordinated enforcement\n<|id|>161<|page|>21<|box|>210 181 228 594<|content|>• Article 314 — Active Corruption (Corruption Active)\n<|id|>162<|page|>21<|box|>229 181 247 609<|content|>• Article 315 — Passive Corruption (Corruption Passive)\n<|id|>163<|page|>21<|box|>250 181 267 656<|content|>• Article 316 — Use of Intermediaries; ... Complicity (Complicité)\n<|id|>164<|page|>21<|box|>268 140 305 854<|content|>2. ... 2015 Amendments to the Ganaran Penal Code —...lity (responsabilité pénale des personnes morales)\n<|id|>166<|page|>21<|box|>345 181 362 625<|content|>• Article 78 — Grounds for Revocation of Mining Licenses\n<|id|>167<|page|>21<|box|>364 181 382 694<|content|>• Article 82 — Suspension of Mining Licenses Pending Investigation\n<|id|>168<|page|>21<|box|>383 140 420 854<|content|>4. ... Ganaran Criminal Procedure Code (Code de Pr...ons provisions (prescription de l'action publique)\n<|id|>169<|page|>21<|box|>422 140 458 854<|content|>5. ... Ganaran Environmental Code (Code de l'Envir...nvironmental impact approval revocation provisions\n<|id|>170<|page|>21<|box|>459 140 496 854<|content|>6. ... ratified by the Republic of Ganara, 2008)\n<|id|>172<|page|>22<|box|>409 140 454 854<|content|>Note: ... Risk levels are assessed based on the st...arding the likelihood of Ganaran regulatory action",
+    "raw_response": "<|src_id|>23<|tgt_id|>24\n<|src_id|>65<|tgt_id|>66\n<|src_id|>130<|tgt_id|>131",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 131
+        }
+    ]
+}

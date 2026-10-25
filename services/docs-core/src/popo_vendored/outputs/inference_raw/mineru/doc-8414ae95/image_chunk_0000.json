@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 147 143 849<|content|>OFFICER'S CERTIFICATE OF PENTERRA PHARMACEUTICALS\n<|id|>7<|type|>title<|page|>1<|box|>834 140 851 450<|content|>Section 1: Authority and Authorization\n<|id|>18<|type|>title<|page|>2<|box|>796 140 813 480<|content|>Section 2: Representations and Warranties\n<|id|>40<|type|>title<|page|>6<|box|>377 140 393 434<|content|>Section 3: Performance of Covenants\n<|id|>48<|type|>title<|page|>7<|box|>630 140 647 454<|content|>Section 4: No Material Adverse Change\n<|id|>51<|type|>title<|page|>8<|box|>241 140 258 377<|content|>Section 5: Closing Conditions\n<|id|>58<|type|>title<|page|>9<|box|>150 140 167 513<|content|>Section 6: Transaction Summary Confirmation\n<|id|>65<|type|>table<|page|>9<|box|>659 143 750 852<|content|>None\n<|id|>68<|type|>title<|page|>10<|box|>223 140 239 295<|content|>Section 7: Reliance\n<|id|>73<|type|>title<|page|>10<|box|>608 217 643 779<|content|>SIGNATURE PAGE TO OFFICER'S CERTIFICATE OF PENTERR",
+    "raw_response": "<|src_id|>65<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 65,
+            "tgt_id": 58
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        44
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        32,
+        44
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>207 705 225 885<|content|>GB 13851—2019\n<|id|>2<|page|>1<|box|>225 709 239 885<|content|>代替 GB 13851—2008\n<|id|>53<|page|>5<|box|>384 142 397 339<|content|>GB 2893—2008 安全色\n<|id|>54<|page|>5<|box|>402 141 418 662<|content|>GB 5768. ... 道路交通标志\n<|id|>55<|page|>5<|box|>421 142 435 378<|content|>GB/T 8416 视觉信号表面色\n<|id|>56<|page|>5<|box|>440 142 454 347<|content|>GB 50139 内河通航标准\n<|id|>57<|page|>5<|box|>459 141 473 431<|content|>JT 376 内河通航水域桥梁警示标志\n<|id|>61<|page|>5<|box|>572 142 586 342<|content|>告示性标志 notice signs\n<|id|>62<|page|>5<|box|>590 142 606 766<|content|>以文字为主,辅以或不辅以图形、符号,按文字告示的内容确定类别归属的主标志。 ... 以文字为主,辅以或不辅以图形、符号,按文字告示的内容确定类别归属的主标志\n<|id|>64<|page|>5<|box|>628 142 643 458<|content|>可变信息标志 changeable-message signs\n<|id|>65<|page|>5<|box|>646 142 662 616<|content|>一种因交通、航道、气候等状况的变化而改变显示内容的标志。 ... 一种因交通、航道、气候等状况的变化而改变显示内容的标志\n<|id|>72<|page|>5<|box|>872 105 906 890<|content|>4. ... 计量单位采用国际单位制(SI)单位的国际代号表示，其中，航速单位应为千米每小时 (\\mathrm{km / h}) ，时间采用\n<|id|>73<|page|>6<|box|>106 107 121 233<|content|>“hh: ... mm”表示\n<|id|>420<|page|>32<|box|>172 381 188 618<|content|>内河交通安全标志的颜色范围\n<|id|>421<|page|>32<|box|>201 142 217 563<|content|>表面色和逆反射材料色的颜色范围见表 A. ... 1\n<|id|>493<|page|>44<|box|>172 359 188 638<|content|>内河交通安全标志的名称、代码索引\n<|id|>494<|page|>44<|box|>201 142 217 515<|content|>内河交通安全标志的名称、代码索引参见表 F. ... 1",
+    "raw_response": "<|src_id|>72<|tgt_id|>73",
+    "parsed": [
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        }
+    ]
+}

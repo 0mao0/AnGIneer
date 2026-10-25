@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 227 125 854<|content|>HARBORVIEW LENDING GROUP, LLC 100 Summer Street, S\n<|id|>14<|page|>1<|box|>541 142 558 334<|content|>1. Recitals; Background\n<|id|>20<|page|>2<|box|>392 142 409 285<|content|>2. Payoff Amount\n<|id|>27<|page|>3<|box|>285 140 303 259<|content|>3. Payoff Date\n<|id|>31<|page|>3<|box|>625 140 641 305<|content|>4. Wire Instructions\n<|id|>35<|page|>4<|box|>90 140 107 584<|content|>5. Release of Liens and Termination of Security In\n<|id|>47<|page|>5<|box|>402 140 419 468<|content|>6. Termination of Existing Credit Facility\n<|id|>53<|page|>6<|box|>204 140 222 589<|content|>7. No Outstanding Letters of Credit or Other Oblig\n<|id|>58<|page|>6<|box|>661 142 676 294<|content|>8. Direction to Pay\n<|id|>61<|page|>7<|box|>167 140 184 558<|content|>9. Representations and Confirmations of Harborview\n<|id|>67<|page|>7<|box|>631 142 648 336<|content|>10. Contact Information\n<|id|>71<|page|>7<|box|>784 142 801 297<|content|>11. Governing Law\n<|id|>74<|page|>8<|box|>90 143 106 284<|content|>12. Miscellaneous\n<|id|>79<|page|>8<|box|>458 400 474 596<|content|>[Signature Pages Follow]\n<|id|>81<|page|>8<|box|>527 140 544 753<|content|>HARBORVIEW LENDING GROUP, LLC, as Lender and Admin",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>14<|level|>2\n<|id|>20<|level|>2\n<|id|>27<|level|>2\n<|id|>31<|level|>2\n<|id|>35<|level|>2\n<|id|>47<|level|>2\n<|id|>53<|level|>2\n<|id|>58<|level|>2\n<|id|>61<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>2\n<|id|>74<|level|>2\n<|id|>79<|level|>-1\n<|id|>81<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        }
+    ]
+}

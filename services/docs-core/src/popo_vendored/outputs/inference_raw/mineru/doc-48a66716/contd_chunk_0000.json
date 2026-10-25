@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        12,
+        13,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>12<|page|>1<|box|>811 174 848 854<|content|>(iv) Priya Narasimhan, Co-Founder & Chief Technology Officer of NovaMart (approximately 8. ... and\n<|id|>14<|page|>2<|box|>90 140 164 854<|content|>for an aggregate purchase price of One Billion Two...SPA being referred to herein as the \"Acquisition\")\n<|id|>22<|page|>3<|box|>90 174 162 856<|content|>(c) Whitmore & Paige LLP (Sandra Chiu, Engagement ... purchase price allocation considerations; ... and\n<|id|>24<|page|>3<|box|>270 140 325 854<|content|>The Board has had the opportunity to ask questions...d has been satisfied with the information provided\n<|id|>114<|page|>12<|box|>304 174 339 854<|content|>(n) title insurance policies from Ridgecrest Title Group Inc. ... and\n<|id|>116<|page|>12<|box|>410 140 482 854<|content|>each in substantially the form reviewed by the Boa...f by the Company is hereby authorized and directed\n<|id|>130<|page|>13<|box|>503 176 521 544<|content|>(c) Elena Vasquez-Bright, General Counsel; ... and\n<|id|>132<|page|>13<|box|>554 140 590 854<|content|>acting individually or together, is hereby authori...cted, in the name and on behalf of the Company, to\n<|id|>165<|page|>16<|box|>464 143 479 364<|content|>Name: ... Donovan\n<|id|>166<|page|>16<|box|>481 143 498 375<|content|>Title: ... Chairperson of the Board\n<|id|>167<|page|>16<|box|>500 143 516 264<|content|>Date: ... Date\n<|id|>169<|page|>16<|box|>534 143 549 388<|content|>Name: ... Margaret \"Meg\" Alderton\n<|id|>170<|page|>16<|box|>550 143 566 434<|content|>Title: ... Chief Executive Officer\n<|id|>171<|page|>16<|box|>569 143 585 264<|content|>Date: ... Date\n<|id|>173<|page|>16<|box|>602 143 618 349<|content|>Name: ... Harrington\n<|id|>174<|page|>16<|box|>619 143 633 254<|content|>Title: ... Director\n<|id|>175<|page|>16<|box|>637 143 654 264<|content|>Date: ... Date\n<|id|>177<|page|>16<|box|>671 143 686 354<|content|>Name: ... Fujimoto\n<|id|>178<|page|>16<|box|>689 143 704 254<|content|>Title: ... Director\n<|id|>179<|page|>16<|box|>705 143 722 264<|content|>Date: ... Date\n<|id|>181<|page|>16<|box|>739 142 756 321<|content|>Name: ... Wells\n<|id|>182<|page|>16<|box|>758 143 773 254<|content|>Title: ... Director\n<|id|>183<|page|>16<|box|>775 143 791 264<|content|>Date: ... Date\n<|id|>185<|page|>16<|box|>809 142 825 334<|content|>Name: ... Patel\n<|id|>186<|page|>16<|box|>825 143 842 254<|content|>Title: ... Director\n<|id|>187<|page|>16<|box|>844 143 859 264<|content|>Date: ... Date\n<|id|>189<|page|>16<|box|>878 143 893 349<|content|>Name: ... Kowalski\n<|id|>190<|page|>17<|box|>89 142 107 254<|content|>Title: ... Director\n<|id|>191<|page|>17<|box|>108 143 125 264<|content|>Date: ... Date\n<|id|>193<|page|>17<|box|>142 143 159 367<|content|>Name: ... Bergström\n<|id|>194<|page|>17<|box|>159 143 175 254<|content|>Title: ... Director\n<|id|>195<|page|>17<|box|>176 143 194 264<|content|>Date: ... Date\n<|id|>197<|page|>17<|box|>210 143 228 321<|content|>Name: ... Okafor\n<|id|>198<|page|>17<|box|>228 143 244 254<|content|>Title: ... Director\n<|id|>199<|page|>17<|box|>246 143 262 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>12<|tgt_id|>14\n<|src_id|>114<|tgt_id|>116\n<|src_id|>130<|tgt_id|>132\n<|src_id|>189<|tgt_id|>190",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 190
+        }
+    ]
+}

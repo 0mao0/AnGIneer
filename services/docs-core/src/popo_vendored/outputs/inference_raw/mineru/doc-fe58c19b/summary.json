@@ -1,0 +1,219 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9z5h_muu\\input\\pdfs\\doc-fe58c19b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9z5h_muu\\enriched\\doc-fe58c19b.json",
+    "contd_output": "<|src_id|>37<|tgt_id|>38\n<|src_id|>134<|tgt_id|>135\n<|src_id|>204<|tgt_id|>205",
+    "title_output": "<|id|>8<|level|>1\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>25<|level|>3\n<|id|>40<|level|>3\n<|id|>57<|level|>3\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>76<|level|>2\n<|id|>77<|level|>3\n<|id|>96<|level|>3\n<|id|>99<|level|>3\n<|id|>102<|level|>2\n<|id|>113<|level|>2\n<|id|>123<|level|>2\n<|id|>132<|level|>2\n<|id|>155<|level|>2\n<|id|>167<|level|>2\n<|id|>170<|level|>2\n<|id|>175<|level|>2\n<|id|>184<|level|>2\n<|id|>188<|level|>2\n<|id|>194<|level|>2\n<|id|>198<|level|>2\n<|id|>202<|level|>2\n<|id|>261<|level|>1\n<|id|>262<|level|>2\n<|id|>269<|level|>1",
+    "image_output": "<|src_id|>63<|tgt_id|>62\n<|src_id|>64<|tgt_id|>62\n<|src_id|>71<|tgt_id|>68\n<|src_id|>72<|tgt_id|>68\n<|src_id|>172<|tgt_id|>170\n<|src_id|>264<|tgt_id|>262\n<|src_id|>266<|tgt_id|>262\n<|src_id|>267<|tgt_id|>262",
+    "contd_label": [
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 204,
+            "tgt_id": 205
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 261,
+            "level": 1
+        },
+        {
+            "id": 262,
+            "level": 2
+        },
+        {
+            "id": 269,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 63,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 264,
+            "tgt_id": 262
+        },
+        {
+            "src_id": 266,
+            "tgt_id": 262
+        },
+        {
+            "src_id": 267,
+            "tgt_id": 262
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 63,
+            "table2_idx": 64,
+            "upper_row_ss": [
+                [
+                    "Brindoval Ventures Fund III, LP",
+                    "22.8%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Julian Reeves (Founder & CEO)",
+                    "18.5%"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 71,
+            "table2_idx": 72,
+            "upper_row_ss": [
+                [
+                    "Cash on hand from Cascade's balance sheet",
+                    "$250,000,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 266,
+            "table2_idx": 267,
+            "upper_row_ss": [
+                [
+                    "Initial HSR waiting period expiration (30 days)",
+                    "Approximately June 2025"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Second Request response (if applicable)",
+                    "Timeline dependent on scope of request"
+                ]
+            ]
+        }
+    ]
+}

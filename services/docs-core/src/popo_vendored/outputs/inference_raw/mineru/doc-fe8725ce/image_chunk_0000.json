@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 104 566<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|type|>title<|page|>1<|box|>112 274 128 722<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>11<|type|>title<|page|>1<|box|>625 140 642 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>16<|type|>title<|page|>2<|box|>329 140 347 375<|content|>2. Background of the Dispute\n<|id|>18<|type|>title<|page|>2<|box|>441 140 459 415<|content|>2.1 The Master Supply Agreement\n<|id|>22<|type|>table<|page|>2<|box|>760 143 873 852<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>194 140 212 468<|content|>2.2 The Quality Dispute and Termination\n<|id|>27<|type|>title<|page|>3<|box|>476 140 493 465<|content|>2.3 Procedural History of the Arbitration\n<|id|>35<|type|>title<|page|>4<|box|>90 140 107 333<|content|>3. Scope of Engagement\n<|id|>37<|type|>title<|page|>4<|box|>184 140 200 671<|content|>3.1 Primary Assignment — Rebuttal of Claimant's Da\n<|id|>50<|type|>title<|page|>5<|box|>584 140 599 663<|content|>3.2 Affirmative Analysis — Quantification of WAL's\n<|id|>60<|type|>title<|page|>6<|box|>268 140 286 442<|content|>3.3 Forensic Accounting Coordination\n<|id|>63<|type|>title<|page|>6<|box|>532 140 549 406<|content|>3.4 Expert Report and Testimony\n<|id|>68<|type|>title<|page|>7<|box|>204 140 222 361<|content|>4. Materials to Be Provided\n<|id|>82<|type|>title<|page|>8<|box|>90 140 107 406<|content|>5. Independence and Impartiality\n<|id|>93<|type|>title<|page|>8<|box|>590 140 607 284<|content|>6. Confidentiality\n<|id|>99<|type|>title<|page|>9<|box|>311 140 329 400<|content|>7. Fee Arrangements and Billing\n<|id|>104<|type|>title<|page|>9<|box|>821 140 839 344<|content|>8. Term and Termination\n<|id|>108<|type|>title<|page|>10<|box|>383 140 402 470<|content|>9. Communications and Points of Contact\n<|id|>116<|type|>title<|page|>10<|box|>736 142 753 297<|content|>10. Governing Law\n<|id|>118<|type|>title<|page|>11<|box|>90 142 107 380<|content|>11. Acceptance and Execution\n<|id|>122<|type|>title<|page|>11<|box|>303 140 319 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>127<|type|>title<|page|>11<|box|>406 142 422 524<|content|>RIDGELINE ECONOMIC CONSULTING LLC",
+    "raw_response": "<|src_id|>22<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 18
+        }
+    ]
+}

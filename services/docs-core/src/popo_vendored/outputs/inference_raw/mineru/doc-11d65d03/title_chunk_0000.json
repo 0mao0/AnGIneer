@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 187 141 810<|content|>SECRETARY'S CERTIFICATE OF BRIGHTFIELD CLOUD SERVI\n<|id|>5<|page|>1<|box|>516 142 532 380<|content|>1. Certificate of Incorporation\n<|id|>8<|page|>1<|box|>829 140 845 223<|content|>2. Bylaws\n<|id|>10<|page|>2<|box|>186 140 203 349<|content|>3. Board Written Consent\n<|id|>19<|page|>3<|box|>90 140 107 421<|content|>4. Good Standing and Qualification\n<|id|>24<|page|>3<|box|>510 142 527 377<|content|>5. Incumbency and Authority\n<|id|>30<|page|>4<|box|>186 140 204 277<|content|>6. Capitalization\n<|id|>38<|page|>4<|box|>839 140 854 465<|content|>7. No Conflicts; Resolutions in Full Force\n<|id|>41<|page|>5<|box|>340 142 357 287<|content|>8. No Proceedings\n<|id|>44<|page|>5<|box|>510 245 527 751<|content|>[Remainder of page intentionally left blank; signa\n<|id|>45<|page|>5<|box|>535 168 570 826<|content|>SIGNATURE PAGE TO SECRETARY'S CERTIFICATE BRIGHTFI\n<|id|>47<|page|>6<|box|>89 433 107 565<|content|>EXHIBIT LIST",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>19<|level|>2\n<|id|>24<|level|>2\n<|id|>30<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>44<|level|>-1\n<|id|>45<|level|>1\n<|id|>47<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        }
+    ]
+}

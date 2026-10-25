@@ -1,0 +1,205 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-utslw66u\\input\\pdfs\\doc-f1ab7a6d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-utslw66u\\enriched\\doc-f1ab7a6d.json",
+    "contd_output": "<|src_id|>45<|tgt_id|>46",
+    "title_output": "<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>1\n<|id|>27<|level|>2\n<|id|>36<|level|>2\n<|id|>43<|level|>2\n<|id|>51<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>80<|level|>1\n<|id|>87<|level|>1\n<|id|>88<|level|>2\n<|id|>94<|level|>2\n<|id|>102<|level|>2\n<|id|>109<|level|>2\n<|id|>120<|level|>2\n<|id|>125<|level|>2\n<|id|>128<|level|>1\n<|id|>140<|level|>1\n<|id|>147<|level|>1\n<|id|>159<|level|>1\n<|id|>170<|level|>1\n<|id|>178<|level|>1\n<|id|>190<|level|>1\n<|id|>197<|level|>1\n<|id|>205<|level|>1\n<|id|>210<|level|>1\n<|id|>213<|level|>1\n<|id|>229<|level|>1",
+    "image_output": "<|src_id|>16<|tgt_id|>15\n<|src_id|>19<|tgt_id|>17\n<|src_id|>90<|tgt_id|>88\n<|src_id|>91<|tgt_id|>88\n<|src_id|>107<|tgt_id|>102\n<|src_id|>122<|tgt_id|>120",
+    "contd_label": [
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 190,
+            "level": 1
+        },
+        {
+            "id": 197,
+            "level": 1
+        },
+        {
+            "id": 205,
+            "level": 1
+        },
+        {
+            "id": 210,
+            "level": 1
+        },
+        {
+            "id": 213,
+            "level": 1
+        },
+        {
+            "id": 229,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 16,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 120
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 90,
+            "table2_idx": 91,
+            "upper_row_ss": [
+                [
+                    "Samuel Eklund",
+                    "Partner",
+                    "£850"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Linda Osei",
+                    "Partner",
+                    "£825"
+                ]
+            ]
+        }
+    ]
+}

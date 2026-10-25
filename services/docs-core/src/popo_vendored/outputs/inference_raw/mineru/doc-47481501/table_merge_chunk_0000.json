@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Severity 2 (High)', 'Significant degradation of a Licensed Data Service materially', 'Severe API latency degradation affecting underwriting workflow']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', \"impairing Licensee's operations; API P95 response time exceeding 1,000 ms for 30 or more consecutive minutes; batch delivery Materially Late (4–12 hours past the applicable Data Delivery Window); data completeness falling below 99.5% but remaining above 98.0%.\", 'throughput; substantial missing records in a batch delivery; partial API availability with intermittent failures; SFTP connectivity intermittent but not fully down.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 135,
+    "table2_idx": 136
+}

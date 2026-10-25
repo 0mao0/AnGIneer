@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>344 142 359 176<|content|>Re:\n<|id|>11<|page|>1<|box|>508 140 527 248<|content|>Introduction\n<|id|>15<|page|>2<|box|>90 140 107 403<|content|>Section 1: Petitioner Information\n<|id|>24<|page|>3<|box|>148 140 167 416<|content|>Section 2: Beneficiary Information\n<|id|>29<|page|>3<|box|>625 140 641 459<|content|>Section 3: Specialty Occupation Position\n<|id|>41<|page|>4<|box|>551 140 569 419<|content|>Specialty Occupation Qualification\n<|id|>45<|page|>5<|box|>148 140 167 517<|content|>Section 4: Prevailing Wage and Proffered Wage\n<|id|>54<|page|>5<|box|>733 140 750 455<|content|>Section 5: Premium Processing Request\n<|id|>58<|page|>6<|box|>186 140 204 488<|content|>Section 6: Government Filing Fees Enclosed\n<|id|>65<|page|>6<|box|>829 140 845 668<|content|>Section 7: List of Enclosed Exhibits and Supportin\n<|id|>83<|page|>8<|box|>186 140 204 496<|content|>Section 8: H-1B Non-Dependency Attestation\n<|id|>87<|page|>8<|box|>469 140 487 400<|content|>Section 9: Worksite Information\n<|id|>92<|page|>9<|box|>90 142 107 405<|content|>Section 10: Request for Approval\n<|id|>99<|page|>9<|box|>505 140 522 464<|content|>Section 11: Counsel Contact Information\n<|id|>110<|page|>10<|box|>89 140 106 294<|content|>Date: June 25, 2025\n<|id|>112<|page|>10<|box|>136 142 148 171<|content|>cc:",
+    "raw_response": "<|id|>8<|level|>-1\n<|id|>11<|level|>1\n<|id|>15<|level|>1\n<|id|>24<|level|>1\n<|id|>29<|level|>1\n<|id|>41<|level|>1\n<|id|>45<|level|>1\n<|id|>54<|level|>1\n<|id|>58<|level|>1\n<|id|>65<|level|>1\n<|id|>83<|level|>1\n<|id|>87<|level|>1\n<|id|>92<|level|>1\n<|id|>99<|level|>1\n<|id|>110<|level|>-1\n<|id|>112<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        }
+    ]
+}

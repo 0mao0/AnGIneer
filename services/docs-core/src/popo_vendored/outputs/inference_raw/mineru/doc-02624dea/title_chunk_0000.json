@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 205 142 790<|content|>CLOSING CERTIFICATE OF ARDENT HEALTHCARE HOLDINGS\n<|id|>6<|page|>1<|box|>671 140 688 495<|content|>Section 1 — Representations and Warranties\n<|id|>9<|page|>2<|box|>304 140 321 450<|content|>Section 2 — Performance of Covenants\n<|id|>14<|page|>3<|box|>286 140 303 527<|content|>Section 3 — Satisfaction of Conditions to Closing\n<|id|>28<|page|>5<|box|>431 140 449 413<|content|>Section 4 — No Legal Proceedings\n<|id|>30<|page|>5<|box|>700 140 717 434<|content|>Section 5 — Organizational Standing\n<|id|>31<|page|>5<|box|>726 142 743 519<|content|>The undersigned hereby certifies and confirms that\n<|id|>35<|page|>6<|box|>286 140 301 522<|content|>Section 6 — Reliance; No Other Representations\n<|id|>38<|page|>6<|box|>598 140 614 366<|content|>Section 7 — Governing Law\n<|id|>40<|page|>6<|box|>760 220 777 774<|content|>[Signature Page to Closing Certificate of Ardent H",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>2\n<|id|>31<|level|>-1\n<|id|>35<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        }
+    ]
+}

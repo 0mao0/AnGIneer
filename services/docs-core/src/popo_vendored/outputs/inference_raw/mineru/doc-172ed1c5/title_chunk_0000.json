@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>97 191 119 805<|content|>OFFICER'S CERTIFICATE OF LUMOS ANALYTICS INC.\n<|id|>2<|page|>1<|box|>136 158 154 839<|content|>Conditions Precedent Certificate Pursuant to the C\n<|id|>6<|page|>1<|box|>306 140 324 243<|content|>RECITALS\n<|id|>7<|page|>2<|box|>89 140 106 653<|content|>SECTION 1: IDENTIFICATION OF CERTIFYING OFFICERS\n<|id|>12<|page|>2<|box|>472 140 489 834<|content|>SECTION 2: CERTIFICATION OF SATISFACTION OF CONDIT\n<|id|>14<|page|>2<|box|>603 140 619 563<|content|>2.1 Execution and Delivery of Transaction Document\n<|id|>34<|page|>4<|box|>419 140 436 370<|content|>2.2 Corporate Authorization\n<|id|>41<|page|>5<|box|>138 140 157 459<|content|>2.4 Regulatory and Compliance Matters\n<|id|>45<|page|>5<|box|>758 140 776 344<|content|>2.5 No Legal Impediment\n<|id|>48<|page|>6<|box|>258 140 276 730<|content|>SECTION 3: REPRESENTATIONS AND WARRANTIES BRING-DO\n<|id|>57<|page|>8<|box|>89 140 106 558<|content|>SECTION 4: NO MATERIAL ADVERSE CHANGE\n<|id|>60<|page|>8<|box|>530 140 547 720<|content|>SECTION 5: GOOD STANDING AND ORGANIZATIONAL MATTER\n<|id|>65<|page|>9<|box|>89 142 106 580<|content|>SECTION 6: ESCROW AND PAYMENT READINESS\n<|id|>77<|page|>9<|box|>782 140 799 349<|content|>SECTION 7: RELIANCE",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>6<|level|>2\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>3\n<|id|>34<|level|>3\n<|id|>41<|level|>3\n<|id|>45<|level|>3\n<|id|>48<|level|>2\n<|id|>57<|level|>2\n<|id|>60<|level|>2\n<|id|>65<|level|>2\n<|id|>77<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        }
+    ]
+}

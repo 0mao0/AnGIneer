@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        54,
+        79
+    ],
+    "pages": [
+        55,
+        58,
+        59,
+        78,
+        79
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>594<|page|>55<|box|>782 134 797 470<|content|>式中： ... P——试件的粘结强度，\\mathrm { M P a }\n<|id|>595<|page|>55<|box|>806 200 822 510<|content|>F——试件破坏时的最大荷载，N； ... F——试件破坏时的最大荷载，N\n<|id|>631<|page|>58<|box|>892 161 908 499<|content|>式中： ... τ—— 试件的剪切强度，\\mathrm { M P a }\n<|id|>632<|page|>59<|box|>89 221 105 542<|content|>F—— 试件破坏时的最大荷载，N； ... F—— 试件破坏时的最大荷载，N\n<|id|>633<|page|>59<|box|>112 223 129 484<|content|>S—— 试件受剪面积，\\mathrm { m m } ^ { 2 } { : ... }\n<|id|>634<|page|>59<|box|>136 223 154 477<|content|>α—— 试件受剪角度，4 5 ^ { \\circ }\n<|id|>801<|page|>78<|box|>890 132 908 897<|content|>K. ... 3 环氧沥青混合料配合比设计采用动稳定度、劈裂强度比和低温弯曲应变作为控\n<|id|>802<|page|>79<|box|>89 119 105 194<|content|>制指标。 ... 制指标",
+    "raw_response": "<|src_id|>801<|tgt_id|>802",
+    "parsed": [
+        {
+            "src_id": 801,
+            "tgt_id": 802
+        }
+    ]
+}

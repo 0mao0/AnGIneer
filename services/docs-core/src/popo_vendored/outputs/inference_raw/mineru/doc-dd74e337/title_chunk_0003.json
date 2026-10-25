@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        153,
+        155
+    ],
+    "pages": [
+        153,
+        154,
+        155
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>536<|page|>153<|box|>64 239 79 723<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>542<|page|>154<|box|>65 258 81 739<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>543<|page|>154<|box|>107 401 122 593<|content|>Footnotes to Table I\n<|id|>546<|page|>154<|box|>262 401 274 593<|content|>Footnotes to Table 2\n<|id|>565<|page|>154<|box|>678 404 691 597<|content|>Footnotes to Table 3\n<|id|>571<|page|>154<|box|>774 407 786 600<|content|>Footnotes to Table 4\n<|id|>587<|page|>155<|box|>64 240 78 728<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>588<|page|>155<|box|>107 387 121 584<|content|>Footnotes to Table 8",
+    "raw_response": "<|id|>536<|level|>1\n<|id|>542<|level|>1\n<|id|>543<|level|>2\n<|id|>546<|level|>2\n<|id|>565<|level|>2\n<|id|>571<|level|>2\n<|id|>587<|level|>1\n<|id|>588<|level|>2",
+    "parsed": [
+        {
+            "id": 536,
+            "level": 1
+        },
+        {
+            "id": 542,
+            "level": 1
+        },
+        {
+            "id": 543,
+            "level": 2
+        },
+        {
+            "id": 546,
+            "level": 2
+        },
+        {
+            "id": 565,
+            "level": 2
+        },
+        {
+            "id": 571,
+            "level": 2
+        },
+        {
+            "id": 587,
+            "level": 1
+        },
+        {
+            "id": 588,
+            "level": 2
+        }
+    ]
+}

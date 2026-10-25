@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 194 108 800<|content|>UNITED STATES DISTRICT COURT CENTRAL DISTRICT OF C\n<|id|>1<|type|>table<|page|>1<|box|>142 143 335 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>404 285 420 710<|content|>STIPULATION OF DISMISSAL WITH PREJUDICE\n<|id|>8<|type|>title<|page|>2<|box|>186 140 204 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>13<|type|>title<|page|>2<|box|>339 140 356 488<|content|>HARGROVE, PENNINGTON & CAO LLP\n<|id|>18<|type|>title<|page|>2<|box|>443 462 459 535<|content|>ORDER\n<|id|>20<|type|>title<|page|>2<|box|>512 142 529 316<|content|>IT IS SO ORDERED.",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

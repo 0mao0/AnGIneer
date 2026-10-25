@@ -1,0 +1,62 @@
+{
+    "task": "image",
+    "chunk_index": 5,
+    "range": [
+        243,
+        263
+    ],
+    "pages": [
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1842<|type|>title<|page|>243<|box|>288 408 308 594<|content|>10.3 植物材料\n<|id|>1843<|type|>title<|page|>243<|box|>340 140 360 567<|content|>10.3.1 植物材料基本要求说明如下：\n<|id|>1847<|type|>title<|page|>243<|box|>545 140 564 567<|content|>10.3.3 植物材料外观质量说明如下：\n<|id|>1850<|type|>title<|page|>243<|box|>675 374 694 623<|content|>10.4 乔木、灌木栽植\n<|id|>1855<|type|>table<|page|>244<|box|>168 106 301 816<|content|>None\n<|id|>1856<|type|>table<|page|>244<|box|>340 106 472 816<|content|>None\n<|id|>1857<|type|>table<|page|>244<|box|>512 106 618 816<|content|>None\n<|id|>1858<|type|>table<|page|>244<|box|>659 106 712 814<|content|>None\n<|id|>1863<|type|>title<|page|>245<|box|>233 355 254 659<|content|>10.5 草坪、草本地被栽植\n<|id|>1868<|type|>title<|page|>246<|box|>185 231 209 797<|content|>附录 A 单位、分部及分项工程的划分\n<|id|>1871<|type|>image<|page|>246<|box|>397 362 657 661<|content|>None\n<|id|>1872<|type|>title<|page|>247<|box|>168 272 194 734<|content|>附录 B 路基、路面压实度评定\n<|id|>1878<|type|>title<|page|>248<|box|>175 210 199 724<|content|>附录 C 水泥混凝土弯拉强度评定\n<|id|>1882<|type|>title<|page|>249<|box|>168 246 194 760<|content|>附录 D 水泥混凝土抗压强度评定\n<|id|>1886<|type|>title<|page|>250<|box|>183 256 209 768<|content|>附录E 喷射混凝土抗压强度评定\n<|id|>1890<|type|>image<|page|>250<|box|>394 357 655 661<|content|>None\n<|id|>1891<|type|>title<|page|>251<|box|>172 301 196 714<|content|>附录 F 水泥砂浆强度评定\n<|id|>1897<|type|>title<|page|>252<|box|>172 166 196 751<|content|>附录 G 无机结合料稳定粒料强度评定\n<|id|>1901<|type|>title<|page|>253<|box|>173 282 196 731<|content|>附录 H 路面结构层厚度评定\n<|id|>1905<|type|>title<|page|>254<|box|>181 149 209 852<|content|>附录 J 路基、基层和底基层、沥青路面弯沉值评定\n<|id|>1910<|type|>title<|page|>255<|box|>165 265 222 746<|content|>附录 K 工程质量检验评定用表和质量保证资料检查要求\n<|id|>1911<|type|>title<|page|>255<|box|>272 340 293 673<|content|>K.1 工程质量检验评定用表\n<|id|>1915<|type|>title<|page|>255<|box|>686 299 704 707<|content|>K.2 质量保证资料检查内容和要求\n<|id|>1923<|type|>title<|page|>257<|box|>168 282 194 729<|content|>附录 L 路面横向力系数评定\n<|id|>1927<|type|>title<|page|>258<|box|>181 241 207 765<|content|>附录 M 水泥基浆体抗压强度评定\n<|id|>1931<|type|>image<|page|>258<|box|>400 345 654 652<|content|>None\n<|id|>1932<|type|>title<|page|>259<|box|>165 207 222 806<|content|>附录 N 混凝土构件粘贴纤维复合材料、钢板正拉粘结强度评定\n<|id|>1936<|type|>title<|page|>260<|box|>172 166 196 748<|content|>附录 P 结构混凝土外观质量限制缺陷\n<|id|>1938<|type|>title<|page|>261<|box|>170 316 194 698<|content|>附录 Q 路面平整度评定\n<|id|>1944<|type|>title<|page|>262<|box|>189 253 214 734<|content|>附录 R 高性能混凝土技术要求\n<|id|>1946<|type|>title<|page|>263<|box|>173 214 199 789<|content|>附录 S 植筋拉拔承载力现场检验评定",
+    "raw_response": "<|src_id|>1855<|tgt_id|>1850\n<|src_id|>1856<|tgt_id|>1850\n<|src_id|>1857<|tgt_id|>1850\n<|src_id|>1858<|tgt_id|>1850\n<|src_id|>1871<|tgt_id|>1868\n<|src_id|>1890<|tgt_id|>1886\n<|src_id|>1931<|tgt_id|>1927",
+    "parsed": [
+        {
+            "src_id": 1855,
+            "tgt_id": 1850
+        },
+        {
+            "src_id": 1856,
+            "tgt_id": 1850
+        },
+        {
+            "src_id": 1857,
+            "tgt_id": 1850
+        },
+        {
+            "src_id": 1858,
+            "tgt_id": 1850
+        },
+        {
+            "src_id": 1871,
+            "tgt_id": 1868
+        },
+        {
+            "src_id": 1890,
+            "tgt_id": 1886
+        },
+        {
+            "src_id": 1931,
+            "tgt_id": 1927
+        }
+    ]
+}

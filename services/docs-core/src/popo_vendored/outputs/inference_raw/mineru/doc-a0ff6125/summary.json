@@ -1,0 +1,188 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-09_asroe\\input\\pdfs\\doc-a0ff6125.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-09_asroe\\enriched\\doc-a0ff6125.json",
+    "contd_output": "",
+    "title_output": "<|id|>2<|level|>1\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>14<|level|>3\n<|id|>18<|level|>3\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>25<|level|>3\n<|id|>26<|level|>4\n<|id|>28<|level|>4\n<|id|>30<|level|>4\n<|id|>32<|level|>4\n<|id|>34<|level|>4\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>39<|level|>3\n<|id|>48<|level|>3\n<|id|>54<|level|>2\n<|id|>61<|level|>2\n<|id|>72<|level|>3\n<|id|>75<|level|>3\n<|id|>85<|level|>2\n<|id|>86<|level|>3\n<|id|>88<|level|>3\n<|id|>91<|level|>4\n<|id|>125<|level|>1\n<|id|>126<|level|>2\n<|id|>130<|level|>3\n<|id|>137<|level|>3\n<|id|>139<|level|>4",
+    "image_output": "<|src_id|>16<|tgt_id|>14\n<|src_id|>19<|tgt_id|>18\n<|src_id|>24<|tgt_id|>23\n<|src_id|>69<|tgt_id|>61\n<|src_id|>71<|tgt_id|>61\n<|src_id|>128<|tgt_id|>126\n<|src_id|>129<|tgt_id|>126\n<|src_id|>135<|tgt_id|>126\n<|src_id|>136<|tgt_id|>126",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 4
+        },
+        {
+            "id": 28,
+            "level": 4
+        },
+        {
+            "id": 30,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 4
+        },
+        {
+            "id": 34,
+            "level": 4
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 126
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 135,
+            "table2_idx": 136,
+            "upper_row_ss": [
+                [
+                    "1. Organizational Expenses",
+                    "$285,000",
+                    "1.27%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "2. Placement Agent Fee (Rivermark Capital Markets Inc.)",
+                    "$1,050,000",
+                    "4.67%"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>349 142 366 364<|content|>I. Introduction and Purpose\n<|id|>11<|page|>2<|box|>90 140 107 433<|content|>II. Background — The Covered Loss\n<|id|>12<|page|>2<|box|>121 140 138 315<|content|>A. Hurricane Callista\n<|id|>16<|page|>2<|box|>520 140 537 385<|content|>B. VHG's Damaged Properties\n<|id|>21<|page|>3<|box|>305 140 321 450<|content|>C. Timely Notice and Estimated Losses\n<|id|>25<|page|>3<|box|>696 140 714 364<|content|>III. The Insurance Program\n<|id|>33<|page|>4<|box|>454 140 472 563<|content|>IV. Ironclad's Reservation of Rights Is Without Me\n<|id|>35<|page|>4<|box|>547 140 565 563<|content|>A. The Named Windstorm Sub-Limit Does Not Apply\n<|id|>43<|page|>5<|box|>664 140 681 514<|content|>B. The Flood Exclusion Does Not Bar Coverage\n<|id|>52<|page|>7<|box|>90 140 107 665<|content|>C. The Period of Restoration Defense Is Premature\n<|id|>58<|page|>8<|box|>90 140 107 550<|content|>D. The Failure-to-Mitigate Defense Is Without Basi\n<|id|>70<|page|>9<|box|>90 140 107 645<|content|>V. Ironclad's Obligation to Investigate and Adjust\n<|id|>79<|page|>10<|box|>167 140 184 372<|content|>VI. Notice to Excess Carriers\n<|id|>86<|page|>10<|box|>527 140 545 421<|content|>VII. Reservation of Rights by VHG\n<|id|>95<|page|>11<|box|>241 140 258 428<|content|>VIII. Demand for Immediate Action\n<|id|>108<|page|>12<|box|>176 140 194 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>21<|level|>2\n<|id|>25<|level|>1\n<|id|>33<|level|>1\n<|id|>35<|level|>2\n<|id|>43<|level|>2\n<|id|>52<|level|>2\n<|id|>58<|level|>2\n<|id|>70<|level|>1\n<|id|>79<|level|>1\n<|id|>86<|level|>1\n<|id|>95<|level|>1\n<|id|>108<|level|>-1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        }
+    ]
+}

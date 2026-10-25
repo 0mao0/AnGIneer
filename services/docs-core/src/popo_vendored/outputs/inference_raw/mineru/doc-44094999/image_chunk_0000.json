@@ -1,0 +1,55 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 348 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>114 158 151 838<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>2<|type|>table<|page|>1<|box|>196 143 333 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>382 142 398 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>9<|type|>title<|page|>2<|box|>248 140 265 395<|content|>II. FACTUAL BACKGROUND\n<|id|>10<|type|>title<|page|>2<|box|>279 142 296 259<|content|>A. The Parties\n<|id|>29<|type|>title<|page|>3<|box|>421 140 438 607<|content|>B. The Master Transportation Services Agreement (M\n<|id|>46<|type|>title<|page|>4<|box|>603 140 619 305<|content|>C. The Overcharges\n<|id|>57<|type|>title<|page|>6<|box|>90 140 107 607<|content|>D. Discovery of Overcharges and Pre-Suit Communica\n<|id|>69<|type|>title<|page|>7<|box|>202 142 219 521<|content|>E. Engagement of Calderwood & Harkness LLP\n<|id|>78<|type|>title<|page|>7<|box|>696 142 714 419<|content|>III. APPLICABLE LAW (TEXAS)\n<|id|>80<|type|>title<|page|>7<|box|>772 142 787 320<|content|>A. Breach of Contract\n<|id|>88<|type|>title<|page|>8<|box|>561 142 578 544<|content|>B. Statute of Frauds / No-Oral-Modification Clause\n<|id|>94<|type|>title<|page|>9<|box|>294 140 311 645<|content|>C. Statutory Fraud — Texas Business & Commerce Cod\n<|id|>101<|type|>title<|page|>10<|box|>176 140 193 370<|content|>D. Money Had and Received\n<|id|>104<|type|>title<|page|>10<|box|>421 142 438 320<|content|>E. Unjust Enrichment\n<|id|>107<|type|>title<|page|>10<|box|>657 140 674 401<|content|>IV. ANTICIPATED DEFENSES\n<|id|>109<|type|>title<|page|>10<|box|>733 142 750 310<|content|>A. Oral Modification\n<|id|>113<|type|>title<|page|>11<|box|>220 142 238 310<|content|>B. Waiver / Estoppel\n<|id|>119<|type|>title<|page|>11<|box|>689 140 705 339<|content|>C. Statute of Limitations\n<|id|>125<|type|>title<|page|>12<|box|>263 140 281 454<|content|>D. Counterclaim for Early Termination\n<|id|>130<|type|>title<|page|>12<|box|>736 140 753 506<|content|>V. DAMAGES ANALYSIS (PRELIMINARY)\n<|id|>132<|type|>table<|page|>12<|box|>804 143 876 852<|content|>None\n<|id|>133<|type|>table<|page|>13<|box|>88 143 172 852<|content|>None\n<|id|>139<|type|>title<|page|>14<|box|>89 142 106 431<|content|>VI. RECOMMENDED STRATEGY\n<|id|>141<|type|>title<|page|>14<|box|>147 143 162 300<|content|>1. Pre-Suit Demand\n<|id|>150<|type|>title<|page|>14<|box|>584 142 599 383<|content|>2. Retain Forensic Accountant\n<|id|>160<|type|>title<|page|>15<|box|>316 140 333 233<|content|>3. File Suit\n<|id|>169<|type|>title<|page|>15<|box|>771 140 789 328<|content|>4. Aggressive discovery\n<|id|>186<|type|>title<|page|>16<|box|>752 142 768 406<|content|>5. Mediation / Settlement Posture\n<|id|>190<|type|>title<|page|>17<|box|>275 140 292 377<|content|>6. Target Resolution Timeline\n<|id|>192<|type|>table<|page|>17<|box|>359 143 491 852<|content|>None\n<|id|>194<|type|>title<|page|>17<|box|>638 140 655 361<|content|>VII. BUDGET ESTIMATE\n<|id|>201<|type|>table<|page|>17<|box|>848 143 905 852<|content|>None\n<|id|>202<|type|>table<|page|>18<|box|>88 143 183 852<|content|>None\n<|id|>205<|type|>title<|page|>18<|box|>429 140 446 315<|content|>VIII. CONCLUSION",
+    "raw_response": "<|src_id|>2<|tgt_id|>3\n<|src_id|>132<|tgt_id|>130\n<|src_id|>133<|tgt_id|>130\n<|src_id|>192<|tgt_id|>190\n<|src_id|>201<|tgt_id|>194\n<|src_id|>202<|tgt_id|>194",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 194
+        }
+    ]
+}

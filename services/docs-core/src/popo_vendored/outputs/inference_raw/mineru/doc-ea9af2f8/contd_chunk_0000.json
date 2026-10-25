@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>237 403 253 594<|content|>(a Delaware corporation)\n<|id|>4<|page|>1<|box|>262 217 279 779<|content|>AMENDED AND RESTATED CERTIFICATE OF INCORPORATION\n<|id|>5<|page|>1<|box|>287 483 304 514<|content|>OF\n<|id|>50<|page|>5<|box|>851 174 905 854<|content|>(c) Upon such automatic conversion, each certifica...of shares of Common Stock. ... Holders of Enhanced\n<|id|>51<|page|>6<|box|>90 174 200 854<|content|>Voting Shares shall not be required to surrender t...sfer agent to make such adjustments in its records\n<|id|>84<|page|>9<|box|>465 210 501 854<|content|>(iii) the Board of Directors, pursuant to a resolu...e entire Board of Directors then in office; ... or\n<|id|>87<|page|>9<|box|>707 140 744 854<|content|>Section 6. ... * No stockholder of the Corporation...es in the election of directors of the Corporation\n<|id|>91<|page|>9<|box|>844 174 898 854<|content|>(a) To the fullest extent permitted by the DGCL as...ion Law Amendment Act of 2022), no director of the\n<|id|>92<|page|>10<|box|>90 174 199 856<|content|>Corporation shall be personally liable to the Corp...extent permitted by the DGCL, except for liability\n<|id|>117<|page|>11<|box|>845 174 902 857<|content|>The rights to indemnification and advancement of e...ed under any provision of law, this Certificate of\n<|id|>118<|page|>12<|box|>90 174 291 857<|content|>Incorporation, the Bylaws, any agreement (includin...not prohibited by the DGCL or other applicable law\n<|id|>164<|page|>16<|box|>875 140 890 557<|content|>Section 12. ... *\n<|id|>165<|page|>17<|box|>90 174 292 854<|content|>Any person or entity purchasing or otherwise acqui...he Foreign Action as agent for such claiming party\n<|id|>176<|page|>17<|box|>915 140 930 361<|content|>CONFIDENTIAL — Subject to Review\n<|id|>177<|page|>18<|box|>90 140 108 254<|content|>By: ... By\n<|id|>178<|page|>18<|box|>107 140 125 331<|content|>Name: ... Sandra Haverford\n<|id|>179<|page|>18<|box|>125 140 142 480<|content|>Title: ... General Counsel & Corporate Secretary\n<|id|>180<|page|>18<|box|>142 142 159 267<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>50<|tgt_id|>51\n<|src_id|>91<|tgt_id|>92\n<|src_id|>117<|tgt_id|>118",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 118
+        }
+    ]
+}

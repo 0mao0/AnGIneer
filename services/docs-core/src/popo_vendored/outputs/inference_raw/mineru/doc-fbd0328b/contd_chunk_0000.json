@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        39
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        13,
+        32,
+        33,
+        39
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>228 140 263 854<|content|>TO: ... Oliver Mackenzie, Partner, Calderwood & Ha...rrison Wexford, Partner, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>272 140 308 854<|content|>CC: ... Natalie Reiner, SVP Corporate Development, Penterra Pharmaceuticals Corp\n<|id|>5<|page|>1<|box|>316 140 351 854<|content|>FROM: ... Megan Chu, Associate, Calderwood & Harkn...erek Okonkwo, Associate, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>359 142 377 310<|content|>DATE: ... May 20, 2024\n<|id|>7<|page|>1<|box|>385 140 404 751<|content|>RE: ... Regulatory and FDA Compliance Due Diligence — Veridian Biosciences, Inc\n<|id|>8<|page|>1<|box|>411 140 429 362<|content|>MATTER NO. ... 1018-00008\n<|id|>9<|page|>1<|box|>438 140 454 408<|content|>Right-click to update Table of Contents\n<|id|>28<|page|>3<|box|>869 140 907 856<|content|>Since its founding, Veridian has raised approximat...ity financing (Series A through Series D). ... The\n<|id|>29<|page|>4<|box|>90 140 236 856<|content|>Company's principal institutional investors includ...porate Due Diligence Memorandum dated May 16, 2024\n<|id|>61<|page|>6<|box|>869 140 907 856<|content|>Dosing and Protocol. ... 2, dated January\n<|id|>62<|page|>7<|box|>90 140 273 854<|content|>22, 2024), employs a step-up dosing approach. ... 0) in the data room\n<|id|>130<|page|>13<|box|>152 176 170 465<|content|>(a) Cytokine Release Syndrome (CRS)\n<|id|>135<|page|>13<|box|>282 140 392 856<|content|>Of these, CRS is the most clinically significant a...blinatumomab (Blincyto) and teclistamab (Tecvayli)\n<|id|>131<|page|>13<|box|>178 174 196 705<|content|>(b) Immune Effector Cell-Associated Neurotoxicity Syndrome (ICANS)\n<|id|>132<|page|>13<|box|>204 176 222 498<|content|>(c) Hepatotoxicity (elevated transaminases)\n<|id|>133<|page|>13<|box|>229 176 248 372<|content|>(d) Tumor lysis syndrome\n<|id|>134<|page|>13<|box|>256 176 273 393<|content|>(e) Infection and neutropenia\n<|id|>312<|page|>32<|box|>854 174 892 857<|content|>(b) The randomized, controlled design of the Phase...ll allow assessment of the incremental CRS risk of\n<|id|>313<|page|>33<|box|>90 174 126 854<|content|>VRD-4187 relative to standard chemotherapy. ... Th...sessment at the time of a potential BLA submission\n<|id|>376<|page|>39<|box|>382 140 398 527<|content|>Megan Chu Associate Calderwood & Harkness LLP\n<|id|>377<|page|>39<|box|>398 142 416 560<|content|>Derek Okonkwo Associate Calderwood & Harkness LLP\n<|id|>378<|page|>39<|box|>417 142 434 245<|content|>Reviewed by: ... Reviewed by",
+    "raw_response": "<|src_id|>28<|tgt_id|>29\n<|src_id|>61<|tgt_id|>62\n<|src_id|>312<|tgt_id|>313",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 312,
+            "tgt_id": 313
+        }
+    ]
+}

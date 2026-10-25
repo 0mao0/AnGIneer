@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 415 119 581<|content|>BILL OF SALE\n<|id|>1<|type|>title<|page|>1<|box|>136 282 154 714<|content|>Portfolio-Wide Transfer of Tangible Personal Prope\n<|id|>3<|type|>title<|page|>1<|box|>294 140 311 243<|content|>RECITALS\n<|id|>9<|type|>title<|page|>1<|box|>794 140 811 545<|content|>SECTION 1 — CONVEYANCE AND TRANSFER\n<|id|>24<|type|>title<|page|>3<|box|>373 142 390 599<|content|>SECTION 2 — PROPERTIES AND TARGET ENTITIES\n<|id|>25<|type|>table<|page|>3<|box|>460 143 895 852<|content|>None\n<|id|>26<|type|>table<|page|>4<|box|>89 143 220 852<|content|>None\n<|id|>28<|type|>title<|page|>4<|box|>496 140 513 808<|content|>SECTION 3 — \"AS IS, WHERE IS\" CONVEYANCE; WARRANTY\n<|id|>39<|type|>title<|page|>5<|box|>561 140 578 477<|content|>SECTION 4 — RELATIONSHIP TO PSA\n<|id|>44<|type|>title<|page|>6<|box|>89 142 106 483<|content|>SECTION 5 — FURTHER ASSURANCES\n<|id|>46<|type|>title<|page|>6<|box|>303 140 320 678<|content|>SECTION 6 — BINDING EFFECT; SUCCESSORS AND ASSIGNS\n<|id|>48<|type|>title<|page|>6<|box|>425 140 441 431<|content|>SECTION 7 — GOVERNING LAW\n<|id|>50<|type|>title<|page|>6<|box|>565 140 582 709<|content|>SECTION 8 — COUNTERPARTS AND ELECTRONIC SIGNATURES\n<|id|>53<|type|>title<|page|>6<|box|>753 140 771 661<|content|>[Remainder of Page Intentionally Left Blank; Signa\n<|id|>54<|type|>title<|page|>6<|box|>779 334 795 661<|content|>SIGNATURE PAGE TO BILL OF SALE\n<|id|>56<|type|>title<|page|>6<|box|>849 142 864 225<|content|>SELLER:\n<|id|>57<|type|>title<|page|>6<|box|>875 140 909 810<|content|>GREYSTONE MERIDIAN PARTNERS FUND III, L.P. a Delaw\n<|id|>63<|type|>title<|page|>7<|box|>313 178 349 816<|content|>SIGNATURE PAGE TO BILL OF SALE (BUYER'S ACKNOWLEDG\n<|id|>65<|type|>title<|page|>7<|box|>420 143 436 217<|content|>BUYER:\n<|id|>74<|type|>title<|page|>7<|box|>686 447 703 549<|content|>EXHIBIT A\n<|id|>75<|type|>title<|page|>7<|box|>712 294 729 702<|content|>LIST OF TARGET ENTITIES AND PROPERTIES\n<|id|>77<|type|>table<|page|>7<|box|>818 143 898 851<|content|>None\n<|id|>78<|type|>table<|page|>8<|box|>90 143 902 854<|content|>None\n<|id|>79<|type|>table<|page|>9<|box|>89 143 652 854<|content|>None\n<|id|>80<|type|>table<|page|>9<|box|>709 143 842 852<|content|>None\n<|id|>81<|type|>title<|page|>9<|box|>875 143 888 246<|content|>End of Exhibit A",
+    "raw_response": "<|src_id|>25<|tgt_id|>24\n<|src_id|>26<|tgt_id|>24\n<|src_id|>77<|tgt_id|>75\n<|src_id|>78<|tgt_id|>75\n<|src_id|>79<|tgt_id|>75\n<|src_id|>80<|tgt_id|>75",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 75
+        }
+    ]
+}

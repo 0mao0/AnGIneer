@@ -1,0 +1,38 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>311 140 328 372<|content|>Dear Revenue Agent Albrecht:\n<|id|>8<|page|>1<|box|>643 140 662 339<|content|>I. Purpose of This Letter\n<|id|>11<|page|>2<|box|>133 140 152 433<|content|>II. Description of Enclosed Materials\n<|id|>25<|page|>3<|box|>414 140 431 457<|content|>III. Reservation of Privileges and Rights\n<|id|>28<|page|>4<|box|>90 140 107 500<|content|>IV. Cooperation and Future Communications\n<|id|>31<|page|>4<|box|>314 142 332 400<|content|>V. Request for Acknowledgment\n<|id|>36<|page|>4<|box|>608 142 625 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>5<|level|>-1\n<|id|>8<|level|>1\n<|id|>11<|level|>1\n<|id|>25<|level|>1\n<|id|>28<|level|>1\n<|id|>31<|level|>1\n<|id|>36<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        }
+    ]
+}

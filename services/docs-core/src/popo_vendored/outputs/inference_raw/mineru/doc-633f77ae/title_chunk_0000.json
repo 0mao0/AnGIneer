@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 161 143 836<|content|>SECRETARY'S CERTIFICATE OF CBR SOLSTICE MANAGER, L\n<|id|>1<|page|>1<|box|>159 153 195 844<|content|>Delivered in Connection with the Closing of the Ta\n<|id|>35<|page|>4<|box|>340 140 358 852<|content|>6. No Dissolution, Bankruptcy, or Adverse Proceedi\n<|id|>40<|page|>4<|box|>671 140 689 669<|content|>7. No Amendments or Changes. The undersigned hereb\n<|id|>60<|page|>5<|box|>580 140 598 392<|content|>COUNTER-CERTIFICATION\n<|id|>64<|page|>6<|box|>90 173 204 823<|content|>EXHIBIT A Certificate of Formation of CBR Solstice\n<|id|>78<|page|>7<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>79<|page|>7<|box|>114 223 133 774<|content|>Limited Liability Company Agreement of CBR Solstic\n<|id|>80<|page|>7<|box|>141 377 160 620<|content|>(Effective as of August 14, 2023)\n<|id|>81<|page|>7<|box|>167 158 204 836<|content|>LIMITED LIABILITY COMPANY AGREEMENT OF CBR SOLSTIC\n<|id|>83<|page|>7<|box|>316 140 333 415<|content|>ARTICLE I — ORGANIZATION\n<|id|>91<|page|>7<|box|>818 140 835 506<|content|>ARTICLE II — MEMBER; MANAGEMENT\n<|id|>96<|page|>8<|box|>375 142 390 397<|content|>ARTICLE III — TAX STATUS\n<|id|>99<|page|>8<|box|>564 140 580 674<|content|>ARTICLE IV — CAPITAL CONTRIBUTIONS; DISTRIBUTIONS\n<|id|>102<|page|>8<|box|>680 140 696 401<|content|>ARTICLE V — DISSOLUTION\n<|id|>105<|page|>8<|box|>816 140 833 441<|content|>ARTICLE VI — MISCELLANEOUS\n<|id|>115<|page|>10<|box|>166 143 204 852<|content|>WRITTEN CONSENT OF THE SOLE MEMBER OF CBR SOLSTICE\n<|id|>116<|page|>10<|box|>212 256 229 740<|content|>IN LIEU OF A MEETING Effective as of September 15,\n<|id|>163<|page|>13<|box|>90 218 210 777<|content|>EXHIBIT D Certificate of Good Standing — CBR Solst\n<|id|>164<|page|>13<|box|>219 140 310 854<|content|>I, JEFFREY W. BULLOCK, SECRETARY OF STATE OF THE S",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>35<|level|>3\n<|id|>40<|level|>3\n<|id|>60<|level|>1\n<|id|>64<|level|>1\n<|id|>78<|level|>1\n<|id|>79<|level|>2\n<|id|>80<|level|>3\n<|id|>81<|level|>2\n<|id|>83<|level|>3\n<|id|>91<|level|>3\n<|id|>96<|level|>3\n<|id|>99<|level|>3\n<|id|>102<|level|>3\n<|id|>105<|level|>3\n<|id|>115<|level|>1\n<|id|>116<|level|>2\n<|id|>163<|level|>1\n<|id|>164<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 1
+        }
+    ]
+}

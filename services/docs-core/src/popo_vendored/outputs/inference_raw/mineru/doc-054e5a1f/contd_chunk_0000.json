@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        10,
+        21,
+        22,
+        25,
+        27,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>142 140 176 854<|content|>TO: ... Douglas Fairchild, Responsible Partner, Re... Associate, Real Estate, Calderwood & Harkness LLP\n<|id|>2<|page|>1<|box|>186 140 203 797<|content|>FROM: ... Grace Nakamura, Working Associate, Real Estate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>212 140 229 722<|content|>DATE: ... Draft — prepared in advance of June 1, 2025 Phase I completion target\n<|id|>4<|page|>1<|box|>237 140 273 852<|content|>RE: ... /95-4A-2///\n<|id|>5<|page|>1<|box|>282 140 297 361<|content|>MATTER NO. ... 1043-00002\n<|id|>6<|page|>1<|box|>308 140 324 437<|content|>CLIENT: ... Ironhaven Data Centers LLC\n<|id|>7<|page|>1<|box|>333 140 409 854<|content|>This memorandum constitutes attorney work product ...n or entity other than the client identified above\n<|id|>12<|page|>1<|box|>787 140 898 856<|content|>The acquisition is governed by that certain Purcha... and IHDC, as buyer. ... Completion of the Phase I\n<|id|>13<|page|>2<|box|>90 140 126 854<|content|>ESA within this period is essential to preserve IH...to environmental conditions affecting the Property\n<|id|>20<|page|>2<|box|>859 140 895 856<|content|>The Phase I ESA is being conducted in strict accor...mental Site Assessments: ... Phase I Environmental\n<|id|>21<|page|>3<|box|>90 140 164 854<|content|>Site Assessment Process,\" which is the current sta...identification of emerging contaminants of concern\n<|id|>24<|page|>3<|box|>277 176 295 733<|content|>(ii) The \"contiguous property owner\" defense under CERCLA § 107(q); ... and\n<|id|>26<|page|>3<|box|>330 140 420 854<|content|>Establishment of one or more of these defenses is ... certain circumstances, affect the Meridian Parcel\n<|id|>85<|page|>10<|box|>256 183 273 403<|content|>• 1944 Leesburg Quadrangle\n<|id|>92<|page|>10<|box|>393 140 484 854<|content|>In each of the topographic map editions reviewed, ...sal were identified on any of the topographic maps\n<|id|>86<|page|>10<|box|>276 183 292 403<|content|>• 1952 Leesburg Quadrangle\n<|id|>87<|page|>10<|box|>296 183 313 573<|content|>• 1965 Ashburn Quadrangle (first separate coverage)\n<|id|>88<|page|>10<|box|>315 183 330 397<|content|>• 1970 Ashburn Quadrangle\n<|id|>89<|page|>10<|box|>335 183 351 397<|content|>• 1983 Ashburn Quadrangle\n<|id|>90<|page|>10<|box|>354 183 369 397<|content|>• 1994 Ashburn Quadrangle\n<|id|>91<|page|>10<|box|>375 183 390 459<|content|>• 2016 Ashburn Quadrangle (digital)\n<|id|>207<|page|>21<|box|>805 140 897 857<|content|>1. ... We recommend that Douglas\n<|id|>208<|page|>22<|box|>90 140 236 856<|content|>Fairchild and Cynthia Ho coordinate with Pendleton...or evaluation of cross-parcel environmental issues\n<|id|>240<|page|>25<|box|>491 174 527 854<|content|>(b) Remediation Cost Cap policies, which provide c...with environmental remediation activities; ... and\n<|id|>242<|page|>25<|box|>579 140 671 856<|content|>Given the identified environmental concern on the ...the Stonebridge Phase II ESA results are available\n<|id|>251<|page|>27<|box|>559 140 632 854<|content|>Exhibit A: ... June 1, 2025]\n<|id|>252<|page|>27<|box|>640 140 714 856<|content|>Exhibit B: ... [To be attached upon receipt of final report]\n<|id|>253<|page|>27<|box|>720 140 795 854<|content|>Exhibit C: ... [To be attached upon receipt of final report]\n<|id|>254<|page|>27<|box|>801 140 876 856<|content|>Exhibit D: ... [To be attached upon receipt of final report]\n<|id|>255<|page|>28<|box|>90 140 162 854<|content|>Exhibit E: ... [To be compiled and attached]\n<|id|>256<|page|>28<|box|>171 140 262 854<|content|>This memorandum is a draft prepared in advance of ...pinions expressed in the Phase I ESA report itself\n<|id|>258<|page|>28<|box|>319 140 337 723<|content|>Grace Nakamura Working Associate, Real Estate Calderwood & Harkness LLP\n<|id|>259<|page|>28<|box|>338 143 354 266<|content|>Date: ... Date\n<|id|>261<|page|>28<|box|>404 140 421 655<|content|>Cynthia Ho Lead Associate, Real Estate Calderwood & Harkness LLP\n<|id|>262<|page|>28<|box|>422 143 439 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>20<|tgt_id|>21\n<|src_id|>207<|tgt_id|>208",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 208
+        }
+    ]
+}

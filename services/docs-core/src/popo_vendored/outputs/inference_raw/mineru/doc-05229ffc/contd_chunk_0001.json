@@ -1,0 +1,53 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        61,
+        108
+    ],
+    "pages": [
+        62,
+        76,
+        79,
+        80,
+        98,
+        105,
+        107
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>444<|page|>62<|box|>85 421 167 913<|content|>INTERNATIONAL\n<|id|>445<|page|>62<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>446<|page|>62<|box|>200 710 253 919<|content|>Foreign Currency Positions Exchange Stabilization Fund\n<|id|>501<|page|>76<|box|>518 81 694 491<|content|>On December 27, 2020, the Consolidated Appropriati... Recovery pursuant to Section 4018(g), and for the\n<|id|>502<|page|>76<|box|>125 504 154 913<|content|>Congressional Oversight Commission pursuant to Sec...onal Oversight Commission pursuant to Section 4020\n<|id|>509<|page|>79<|box|>199 723 268 913<|content|>Financial Report of the United States Government Excerpt\n<|id|>510<|page|>79<|box|>282 820 309 913<|content|>Trust Funds\n<|id|>513<|page|>80<|box|>300 83 359 491<|content|>The Department of the Treasury, in coordination wi...U. ... The United States Government Accountability\n<|id|>514<|page|>80<|box|>140 504 300 915<|content|>Office (GAO) is required to audit these statements...ederal Accounting Standards Advisory Board (FASAB)\n<|id|>516<|page|>80<|box|>329 506 344 870<|content|>https: ... gov/reports-statements/financial-\n<|id|>517<|page|>80<|box|>344 506 359 684<|content|>report/current-report. ... html\n<|id|>617<|page|>98<|box|>583 84 597 656<|content|>^{6} These amounts represent the PV of the future transfers from the General Fund to the SMI Trust\n<|id|>618<|page|>98<|box|>597 94 609 684<|content|>Fund. ... These future intra-governmental transfers are included as income in both HHS' and the CMS's\n<|id|>619<|page|>98<|box|>609 91 625 779<|content|>Financial Reports but, by accounting convention, a...rom the government-wide perspective of this report\n<|id|>658<|page|>105<|box|>364 81 513 491<|content|>The Emergency Economic Stabilization Act of 2008 (...om the obligations issued by the Trust Fund to the\n<|id|>659<|page|>105<|box|>118 504 176 915<|content|>Secretary of the Treasury. ... The Act also extend... of the Trust Fund debt prior to the maturity date\n<|id|>671<|page|>107<|box|>329 81 549 493<|content|>The appropriations act for the Department of Trans...l 1, 1987). ... Section 201 of the Water Resources\n<|id|>672<|page|>107<|box|>125 504 199 915<|content|>Development Act of 1996 (Public Law 104-303) autho...eral navigation projects for commercial navigation",
+    "raw_response": "<|src_id|>444<|tgt_id|>445\n<|src_id|>501<|tgt_id|>502\n<|src_id|>513<|tgt_id|>514\n<|src_id|>516<|tgt_id|>517\n<|src_id|>617<|tgt_id|>618\n<|src_id|>618<|tgt_id|>619\n<|src_id|>658<|tgt_id|>659\n<|src_id|>671<|tgt_id|>672",
+    "parsed": [
+        {
+            "src_id": 444,
+            "tgt_id": 445
+        },
+        {
+            "src_id": 501,
+            "tgt_id": 502
+        },
+        {
+            "src_id": 513,
+            "tgt_id": 514
+        },
+        {
+            "src_id": 516,
+            "tgt_id": 517
+        },
+        {
+            "src_id": 617,
+            "tgt_id": 618
+        },
+        {
+            "src_id": 618,
+            "tgt_id": 619
+        },
+        {
+            "src_id": 658,
+            "tgt_id": 659
+        },
+        {
+            "src_id": 671,
+            "tgt_id": 672
+        }
+    ]
+}

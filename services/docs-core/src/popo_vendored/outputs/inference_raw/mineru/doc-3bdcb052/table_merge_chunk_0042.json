@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 42,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=30, 管理设施构件', 'rowspan=2, 收费设施构件', '车牌自动识别设备', 'IfcSensor', '引用']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=31, 管理设施构件', 'rowspan=9, 收费设施构件', '光栅分车器', 'IfcSensor', '引用']]\n",
+    "raw_response": "[1, 1, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 303,
+    "table2_idx": 304
+}

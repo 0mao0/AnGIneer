@@ -1,0 +1,475 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-w0w08axk\\input\\pdfs\\doc-a45f3ebd.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-w0w08axk\\enriched\\doc-a45f3ebd.json",
+    "contd_output": "<|src_id|>48<|tgt_id|>49",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>10<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>35<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>2\n<|id|>45<|level|>3\n<|id|>62<|level|>3\n<|id|>99<|level|>3\n<|id|>127<|level|>3\n<|id|>130<|level|>4\n<|id|>137<|level|>4\n<|id|>170<|level|>3\n<|id|>184<|level|>2\n<|id|>186<|level|>3\n<|id|>187<|level|>4\n<|id|>189<|level|>4\n<|id|>195<|level|>4\n<|id|>198<|level|>3\n<|id|>211<|level|>2\n<|id|>212<|level|>3\n<|id|>216<|level|>3\n<|id|>230<|level|>3\n<|id|>237<|level|>3\n<|id|>246<|level|>2\n<|id|>249<|level|>3\n<|id|>255<|level|>2\n<|id|>257<|level|>3\n<|id|>261<|level|>3\n<|id|>265<|level|>3\n<|id|>269<|level|>3\n<|id|>273<|level|>3\n<|id|>277<|level|>3\n<|id|>281<|level|>2\n<|id|>291<|level|>2\n<|id|>294<|level|>3\n<|id|>295<|level|>2\n<|id|>299<|level|>3\n<|id|>303<|level|>2\n<|id|>306<|level|>2\n<|id|>310<|level|>3",
+    "image_output": "<|src_id|>4<|tgt_id|>2\n<|src_id|>46<|tgt_id|>45\n<|src_id|>63<|tgt_id|>62\n<|src_id|>87<|tgt_id|>62\n<|src_id|>88<|tgt_id|>62\n<|src_id|>93<|tgt_id|>62\n<|src_id|>113<|tgt_id|>99\n<|src_id|>128<|tgt_id|>127\n<|src_id|>152<|tgt_id|>137\n<|src_id|>159<|tgt_id|>137\n<|src_id|>163<|tgt_id|>137\n<|src_id|>164<|tgt_id|>137\n<|src_id|>171<|tgt_id|>170\n<|src_id|>175<|tgt_id|>137\n<|src_id|>218<|tgt_id|>216\n<|src_id|>248<|tgt_id|>246\n<|src_id|>292<|tgt_id|>291\n<|src_id|>293<|tgt_id|>291\n<|src_id|>296<|tgt_id|>295\n<|src_id|>297<|tgt_id|>295\n<|src_id|>298<|tgt_id|>295\n<|src_id|>304<|tgt_id|>303\n<|src_id|>305<|tgt_id|>303\n<|src_id|>307<|tgt_id|>306\n<|src_id|>308<|tgt_id|>306\n<|src_id|>309<|tgt_id|>306",
+    "contd_label": [
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 4
+        },
+        {
+            "id": 137,
+            "level": 4
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 4
+        },
+        {
+            "id": 189,
+            "level": 4
+        },
+        {
+            "id": 195,
+            "level": 4
+        },
+        {
+            "id": 198,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 3
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 237,
+            "level": 3
+        },
+        {
+            "id": 246,
+            "level": 2
+        },
+        {
+            "id": 249,
+            "level": 3
+        },
+        {
+            "id": 255,
+            "level": 2
+        },
+        {
+            "id": 257,
+            "level": 3
+        },
+        {
+            "id": 261,
+            "level": 3
+        },
+        {
+            "id": 265,
+            "level": 3
+        },
+        {
+            "id": 269,
+            "level": 3
+        },
+        {
+            "id": 273,
+            "level": 3
+        },
+        {
+            "id": 277,
+            "level": 3
+        },
+        {
+            "id": 281,
+            "level": 2
+        },
+        {
+            "id": 291,
+            "level": 2
+        },
+        {
+            "id": 294,
+            "level": 3
+        },
+        {
+            "id": 295,
+            "level": 2
+        },
+        {
+            "id": 299,
+            "level": 3
+        },
+        {
+            "id": 303,
+            "level": 2
+        },
+        {
+            "id": 306,
+            "level": 2
+        },
+        {
+            "id": 310,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 248,
+            "tgt_id": 246
+        },
+        {
+            "src_id": 292,
+            "tgt_id": 291
+        },
+        {
+            "src_id": 293,
+            "tgt_id": 291
+        },
+        {
+            "src_id": 296,
+            "tgt_id": 295
+        },
+        {
+            "src_id": 297,
+            "tgt_id": 295
+        },
+        {
+            "src_id": 298,
+            "tgt_id": 295
+        },
+        {
+            "src_id": 304,
+            "tgt_id": 303
+        },
+        {
+            "src_id": 305,
+            "tgt_id": 303
+        },
+        {
+            "src_id": 307,
+            "tgt_id": 306
+        },
+        {
+            "src_id": 308,
+            "tgt_id": 306
+        },
+        {
+            "src_id": 309,
+            "tgt_id": 306
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 163,
+            "table2_idx": 164,
+            "upper_row_ss": [
+                [
+                    "Retention:",
+                    "$150,000 per claim"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Annual Premium:",
+                    "$118,000"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 292,
+            "table2_idx": 293,
+            "upper_row_ss": [
+                [
+                    "Cyber Liability / Data Breach",
+                    "Fortis Cyber Insurance Group Inc.",
+                    "FCIG-CYB-2024-77194",
+                    "$15M per claim / $15M agg",
+                    "$500K per claim",
+                    "7/1/24 - 7/1/25",
+                    "$385,000",
+                    "NovaMart Global Inc. & subsidiaries",
+                    "Ransomware $5M sublimit; PCI-DSS $3M sublimit; social engineering $2M sublimit"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Workers' Compensation & EL",
+                    "Continental Workers Insurance Co.",
+                    "CWI-WC-2024 -60182",
+                    "Statutory WC; EL $1M/$1M/$1M",
+                    "N/A (statutory)",
+                    "7/1/24 - 7/1/25",
+                    "$624,000",
+                    "NovaMart Global Inc.",
+                    "All 10 operating states; EMR 0.92"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 296,
+            "table2_idx": 297,
+            "upper_row_ss": [
+                [
+                    "CYB-001",
+                    "Cyber",
+                    "6/14/2023",
+                    "Unauthorized access to internal HR",
+                    "Austin, TX (HQ)",
+                    "Closed",
+                    "$85,000",
+                    "$85,000",
+                    "$0"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "database (~340 employee records); phishing attack",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 297,
+            "table2_idx": 298,
+            "upper_row_ss": [
+                [
+                    "EPLI-001",
+                    "EPLI",
+                    "8/5/2022",
+                    "Racial discrimination",
+                    "Savannah, GA",
+                    "Closed",
+                    "$125,000",
+                    "$125,000",
+                    "$0"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "claim by former employee",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 304,
+            "table2_idx": 305,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "Evaluate and increase E&O",
+                    "Cascade risk mgmt. / broker",
+                    "At 7/1/25 renewal or sooner",
+                    "Not yet initiated"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "coverage to $20M-$25M",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 307,
+            "table2_idx": 308,
+            "upper_row_ss": [
+                [
+                    "Cranbury, NJ Fulfillment Center Lease",
+                    "Liberty Industrial Realty Trust",
+                    "CGL; Property; WC; Umbrella",
+                    "CGL: $2M occ / $4M agg; Property: TI & contents; WC: statutory;",
+                    "Yes (CGL, Umbrella)",
+                    "Waiver of subrogation; 30-day notice of cancellation",
+                    "Compliant"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "Umbrella: $5M",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 308,
+            "table2_idx": 309,
+            "upper_row_ss": [
+                [
+                    "Tampa, FL Fulfillment Center Lease",
+                    "Sunbelt Warehouse Holdings LLC",
+                    "CGL; Property; WC",
+                    "CGL: $1M occ / $2M agg; Property: TI & contents (incl.",
+                    "Yes (CGL)",
+                    "Waiver of subrogation; windstorm coverage required",
+                    "Compliant"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "windstorm);WC: statutory",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

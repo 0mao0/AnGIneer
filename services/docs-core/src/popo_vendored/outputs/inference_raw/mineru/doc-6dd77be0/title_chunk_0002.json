@@ -1,0 +1,45 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        100,
+        102
+    ],
+    "pages": [
+        100,
+        101,
+        102
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>753<|page|>100<|box|>341 369 361 658<|content|>6.11 伸缩缝整修及填缝\n<|id|>755<|page|>100<|box|>576 343 598 682<|content|>6.12 特殊气候条件下的施工\n<|id|>757<|page|>101<|box|>145 374 170 603<|content|>7 质量验收\n<|id|>758<|page|>101<|box|>211 389 231 589<|content|>7.2 滑动层\n<|id|>760<|page|>101<|box|>448 391 468 589<|content|>7.3 混凝土面层\n<|id|>763<|page|>102<|box|>141 188 200 837<|content|>附录 A 预应力混凝土路面面板应力分析及计算流程\n<|id|>764<|page|>102<|box|>240 233 260 789<|content|>A.4 预应力混凝土路面面板厚度及配筋计算流程",
+    "raw_response": "<|id|>753<|level|>3\n<|id|>755<|level|>3\n<|id|>757<|level|>1\n<|id|>758<|level|>2\n<|id|>760<|level|>2\n<|id|>763<|level|>1\n<|id|>764<|level|>2",
+    "parsed": [
+        {
+            "id": 753,
+            "level": 3
+        },
+        {
+            "id": 755,
+            "level": 3
+        },
+        {
+            "id": 757,
+            "level": 1
+        },
+        {
+            "id": 758,
+            "level": 2
+        },
+        {
+            "id": 760,
+            "level": 2
+        },
+        {
+            "id": 763,
+            "level": 1
+        },
+        {
+            "id": 764,
+            "level": 2
+        }
+    ]
+}

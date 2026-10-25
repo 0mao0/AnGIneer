@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>142 192 157 803<|content|>Exhibit A to the Data License Agreement Reference No. ... AHT-PCA-DLA-2024-001\n<|id|>2<|page|>1<|box|>167 393 184 604<|content|>Effective Date: ... July 1, 2024\n<|id|>4<|page|>1<|box|>219 140 237 834<|content|>Pinnacle Claims Analytics LLC (\"Licensor\" or \"PCA\"), a Delaware limited liability company\n<|id|>5<|page|>1<|box|>244 143 263 740<|content|>Arbor Health Technologies Inc. ... (\"Licensee\" or \"AHT\"), a Delaware corporation\n<|id|>6<|page|>1<|box|>272 140 381 854<|content|>This Exhibit A is attached to and incorporated by ...tions of this Exhibit A unless otherwise indicated\n<|id|>23<|page|>2<|box|>875 140 931 854<|content|>The Licensed Data includes physician and other pro...s, surgical procedures, diagnostic testing, Pageof\n<|id|>24<|page|>3<|box|>90 140 145 854<|content|>therapeutic procedures, consultations, preventive ...pists, and other licensed healthcare professionals\n<|id|>64<|page|>6<|box|>425 174 446 674<|content|>(Q) Full face photographic images and any comparable images; ... and\n<|id|>66<|page|>6<|box|>496 138 589 856<|content|>PCA has no actual knowledge that the remaining inf...to meet the requirements of the Safe Harbor method\n<|id|>146<|page|>14<|box|>652 174 708 854<|content|>(b) As automatically stored in disaster-recovery o... any purpose other than disaster recovery; ... and\n<|id|>148<|page|>14<|box|>758 140 833 856<|content|>Any copies of Licensed Data retained pursuant to t...onger required to be retained under applicable law",
+    "raw_response": "<|src_id|>23<|tgt_id|>24",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        }
+    ]
+}

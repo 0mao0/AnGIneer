@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>180 743 196 854<|content|>March 9, 2023\n<|id|>3<|page|>1<|box|>205 140 242 854<|content|>Ridgeline National Bank, National Association as A...00 Lexington Avenue, 22nd Floor New York, NY 10022\n<|id|>4<|page|>1<|box|>250 140 267 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>15<|page|>2<|box|>189 174 299 854<|content|>(iii) the intellectual Property Security Agreement...trademarks, copyrights, and trade secrets; ... and\n<|id|>17<|page|>2<|box|>351 140 368 580<|content|>Now, therefore, the undersigned hereby certifies a...efore, the undersigned hereby certifies as follows\n<|id|>24<|page|>2<|box|>814 140 930 854<|content|>The undersigned hereby certifies that the Borrower... its jurisdiction of incorporation. ... 1008-00001\n<|id|>25<|page|>3<|box|>90 140 162 854<|content|>duly qualified to do business and in good standing...ably be expected to have a Material Adverse Effect\n<|id|>33<|page|>3<|box|>734 174 878 857<|content|>(iv) the execution and delivery of all documents a...ce and the United States Copyright Office; ... and\n<|id|>35<|page|>4<|box|>189 140 316 854<|content|>The undersigned further certifies that the Resolut...dit Agreement and each of the other Loan Documents\n<|id|>49<|page|>5<|box|>869 142 929 854<|content|>(ii) Authorization; ... 1008-00001\n<|id|>50<|page|>6<|box|>90 174 237 856<|content|>corporate action, including the Resolutions descri...binding upon the Borrower or any of its properties\n<|id|>62<|page|>7<|box|>771 174 805 854<|content|>(iv) property and casualty insurance covering all material tangible assets of the Borrower; ... and\n<|id|>64<|page|>7<|box|>840 140 877 854<|content|>All such insurance policies are in full force and ...ult under any of such policies. ... The Collateral\n<|id|>65<|page|>8<|box|>90 140 127 852<|content|>Agent has been named as an additional insured and/...by the Credit Agreement and the Security Agreement\n<|id|>69<|page|>8<|box|>292 176 310 557<|content|>(i) Employer Identification Number: ... 82-4917356\n<|id|>76<|page|>8<|box|>510 140 565 854<|content|>The Borrower has not, during the five (5) years pr..., and has not merged with or into any other entity\n<|id|>70<|page|>8<|box|>318 176 335 459<|content|>(ii) Delaware File Number: ... 6284501\n<|id|>71<|page|>8<|box|>344 176 362 580<|content|>(iii) Jurisdiction of Incorporation: ... State of Delaware\n<|id|>72<|page|>8<|box|>369 174 405 854<|content|>(iv) Principal Place of Business and Chief Executi...0 Gateway Boulevard, Suite 400, San Jose, CA 95110\n<|id|>73<|page|>8<|box|>414 174 450 852<|content|>(v) Registered Agent in Delaware: ... Capitol Regi...C, 850 New Burton Road, Suite 201, Dover, DE 19904\n<|id|>74<|page|>8<|box|>459 176 477 477<|content|>(vi) Organizational Form: ... Corporation\n<|id|>79<|page|>8<|box|>789 140 808 336<|content|>[Signature Page Follows]\n<|id|>80<|page|>8<|box|>815 140 851 854<|content|>IN WITNESS WHEREOF, the undersigned has executed t...r's Certificate as of the date first written above\n<|id|>83<|page|>9<|box|>90 140 106 321<|content|>Name: ... Marcus Delaney\n<|id|>84<|page|>9<|box|>107 140 125 416<|content|>Title: ... General Counsel and Secretary\n<|id|>88<|page|>9<|box|>286 142 301 315<|content|>Name: ... Arjun Malhotra\n<|id|>89<|page|>9<|box|>301 142 319 488<|content|>Title: ... Chief Executive Officer and Co-Founder\n<|id|>90<|page|>9<|box|>319 142 335 299<|content|>Date: ... March 9, 2023\n<|id|>93<|page|>9<|box|>388 140 424 852<|content|>Exhibit A — Certificate of Incorporation of Lumos ...ate of the State of Delaware (File Number 6284501)\n<|id|>94<|page|>9<|box|>431 140 468 852<|content|>Exhibit B — Bylaws of Lumos Analytics Inc. ... (as...d/or restated), currently in full force and effect\n<|id|>95<|page|>9<|box|>477 140 531 854<|content|>Exhibit C — Resolutions of the Board of Directors ...d the execution and delivery of the Loan Documents\n<|id|>96<|page|>9<|box|>537 140 569 852<|content|>Prepared by Daniel Obi, Calderwood & Harkness LLP,...rancisco, CA 94105 | C&H Matter No. ... 1008-00001",
+    "raw_response": "<|src_id|>24<|tgt_id|>25\n<|src_id|>49<|tgt_id|>50\n<|src_id|>64<|tgt_id|>65",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        }
+    ]
+}

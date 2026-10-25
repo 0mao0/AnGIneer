@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>200 705 218 854<|content|>Filed: ... May 2, 2023\n<|id|>5<|page|>1<|box|>476 156 513 839<|content|>INCOME AND EXPENSE DECLARATION (Family Code, §§ 2030–2032, 3552, 4050 et seq. ... )\n<|id|>6<|page|>1<|box|>535 143 553 354<|content|>ITEM 1: ... EMPLOYMENT\n<|id|>7<|page|>1<|box|>561 143 579 411<|content|>1(a). ... Are you currently employed\n<|id|>11<|page|>1<|box|>665 176 681 694<|content|>Address of Employer: ... 3200 West Olive Avenue, Burbank, CA 91505\n<|id|>12<|page|>1<|box|>691 176 708 740<|content|>Job Title or Position: ... Senior Vice President, Original Content Development\n<|id|>13<|page|>1<|box|>717 176 734 431<|content|>Date Job Started: ... March 6, 2017\n<|id|>14<|page|>1<|box|>743 143 760 473<|content|>Description of Duties and Responsibilities: ... Description of Duties and Responsibilities\n<|id|>15<|page|>1<|box|>768 174 897 856<|content|>I am employed full-time as the Senior Vice Preside...tent strategy recommendations to the Chief Content\n<|id|>16<|page|>2<|box|>90 174 218 856<|content|>Officer and the Executive Committee; ... I was pro... position of Senior Vice President in January 2021\n<|id|>34<|page|>3<|box|>268 176 286 792<|content|>Expressed as a monthly average: ... 00 per month\n<|id|>35<|page|>3<|box|>294 176 311 738<|content|>Supporting documentation of my bonus history is at...on of my bonus history is attached as Attachment 5\n<|id|>86<|page|>8<|box|>321 176 339 828<|content|>Address of Residence: ... 1742 Laurel Canyon Boulevard, Unit 3A, Studio City, CA 91604\n<|id|>88<|page|>8<|box|>532 174 625 856<|content|>I have resided at this address since December 2022... two children, each of whom has a separate bedroom\n<|id|>122<|page|>13<|box|>840 174 896 854<|content|>I do not currently own any real property. ... Purs...the Judgment of Dissolution entered on November 3,\n<|id|>123<|page|>14<|box|>89 174 146 854<|content|>2022, in Case No. ... I have no further interest in that property\n<|id|>135<|page|>15<|box|>705 142 724 607<|content|>Number of children for whom support is requested: ... Two (2)\n<|id|>136<|page|>15<|box|>732 143 750 475<|content|>Children's names, dates of birth, and ages: ... Children's names, dates of birth, and ages\n<|id|>144<|page|>16<|box|>335 176 371 852<|content|>3. ... and\n<|id|>146<|page|>16<|box|>411 174 446 854<|content|>I further request that the child support order be ... May 2, 2023, pursuant to Family Code section 4009\n<|id|>153<|page|>16<|box|>864 174 900 856<|content|>In early February 2023, Mr. ... Medrano accepted a... that required him to be on location in Vancouver,\n<|id|>154<|page|>17<|box|>90 174 218 854<|content|>British Columbia, Canada, for a period of approxim...o toward the increased childcare and related costs\n<|id|>165<|page|>18<|box|>189 176 207 323<|content|>Date: ... May 2, 2023\n<|id|>166<|page|>18<|box|>214 176 233 753<|content|>City and County of Execution: ... Los Angeles, Los Angeles County, California\n<|id|>170<|page|>18<|box|>412 140 429 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>171<|page|>18<|box|>431 143 448 254<|content|>By: ... By\n<|id|>172<|page|>18<|box|>449 142 464 307<|content|>Name: ... Devon Archer\n<|id|>173<|page|>18<|box|>465 140 481 383<|content|>California State Bar No. ... 318742\n<|id|>174<|page|>18<|box|>483 142 500 357<|content|>Title: ... Attorney for Petitioner\n<|id|>175<|page|>18<|box|>500 142 517 285<|content|>Date: ... May 2, 2023\n<|id|>182<|page|>18<|box|>840 140 877 856<|content|>Attachment 5: ... Documentation of bonus history f...onus award letters or compensation statements from\n<|id|>183<|page|>19<|box|>90 140 126 854<|content|>Luminos Entertainment Group, Inc. ... confirming the discretionary bonus amounts paid in each year",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>122<|tgt_id|>123\n<|src_id|>153<|tgt_id|>154\n<|src_id|>182<|tgt_id|>183",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 183
+        }
+    ]
+}

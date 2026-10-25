@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        17,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 187 118 810<|content|>RIGHT OF FIRST REFUSAL AND CO-SALE AGREEMENT\n<|id|>1<|page|>1<|box|>135 359 152 637<|content|>MERIDIAN DIAGNOSTICS, INC.\n<|id|>2<|page|>1<|box|>162 403 180 594<|content|>a Delaware corporation\n<|id|>3<|page|>1<|box|>186 390 205 607<|content|>Dated as of February 9, 2026\n<|id|>4<|page|>1<|box|>213 251 229 745<|content|>RIGHT OF FIRST REFUSAL AND CO-SALE AGREEMENT\n<|id|>10<|page|>1<|box|>457 140 474 243<|content|>RECITALS\n<|id|>19<|page|>2<|box|>273 140 291 374<|content|>SECTION 1: DEFINITIONS\n<|id|>40<|page|>4<|box|>273 140 291 490<|content|>SECTION 2: RIGHT OF FIRST REFUSAL\n<|id|>65<|page|>7<|box|>376 140 393 429<|content|>SECTION 3: RIGHT OF CO-SALE\n<|id|>89<|page|>9<|box|>787 140 805 442<|content|>SECTION 4: EXEMPT TRANSFERS\n<|id|>102<|page|>11<|box|>266 140 282 555<|content|>SECTION 5: EFFECT OF FAILURE TO COMPLY\n<|id|>106<|page|>12<|box|>89 142 106 331<|content|>SECTION 6: LEGEND\n<|id|>113<|page|>13<|box|>167 140 184 338<|content|>SECTION 7: LOCK-UP\n<|id|>119<|page|>13<|box|>758 140 776 413<|content|>SECTION 8: MISCELLANEOUS\n<|id|>126<|page|>14<|box|>314 140 332 383<|content|>8.2 Amendments and Waivers.\n<|id|>166<|page|>17<|box|>787 236 805 759<|content|>[Remainder of Page Intentionally Left Blank; Signa\n<|id|>167<|page|>17<|box|>813 147 830 848<|content|>SIGNATURE PAGES TO RIGHT OF FIRST REFUSAL AND CO-S\n<|id|>169<|page|>17<|box|>883 142 898 248<|content|>COMPANY:\n<|id|>223<|page|>20<|box|>203 447 219 550<|content|>EXHIBIT C\n<|id|>224<|page|>20<|box|>228 362 244 633<|content|>FORM OF SPOUSAL CONSENT",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>2<|level|>-1\n<|id|>3<|level|>-1\n<|id|>4<|level|>1\n<|id|>10<|level|>2\n<|id|>19<|level|>2\n<|id|>40<|level|>2\n<|id|>65<|level|>2\n<|id|>89<|level|>2\n<|id|>102<|level|>2\n<|id|>106<|level|>2\n<|id|>113<|level|>2\n<|id|>119<|level|>2\n<|id|>126<|level|>3\n<|id|>166<|level|>-1\n<|id|>167<|level|>1\n<|id|>169<|level|>2\n<|id|>223<|level|>1\n<|id|>224<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 1
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 1
+        },
+        {
+            "id": 224,
+            "level": 2
+        }
+    ]
+}

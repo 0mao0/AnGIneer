@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 140 106 575<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>193 140 210 496<|content|>VIA OVERNIGHT COURIER AND EMAIL\n<|id|>6<|page|>1<|box|>263 174 318 854<|content|>Re: Notice of Default Under the Amended and Restat\n<|id|>10<|page|>1<|box|>731 140 748 743<|content|>I. Background — Capital Contribution Structure and\n<|id|>20<|page|>2<|box|>481 140 497 699<|content|>II. The Capital Call and Pinnacle's Failure to Fun\n<|id|>29<|page|>3<|box|>285 140 303 549<|content|>III. Declaration of Default Under the JV Agreement\n<|id|>34<|page|>3<|box|>667 140 684 671<|content|>IV. Commencement of the Sixty-Day Cure Period Unde\n<|id|>42<|page|>4<|box|>421 140 438 527<|content|>V. Reservation of Rights and Available Remedies\n<|id|>50<|page|>5<|box|>484 140 500 413<|content|>VI. Demand for Immediate Action\n<|id|>57<|page|>6<|box|>250 140 265 307<|content|>VII. Governing Law\n<|id|>59<|page|>6<|box|>369 140 388 419<|content|>VIII. Direction of Communications",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>-1\n<|id|>6<|level|>1\n<|id|>10<|level|>2\n<|id|>20<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>2\n<|id|>42<|level|>2\n<|id|>50<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>2",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        }
+    ]
+}

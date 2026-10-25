@@ -1,0 +1,25 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['7', 'Takes hi Naka mura', 'Signal Integrity', 'H-1B', '17-2072', 'San Jose', 'Extension', '06/01 /2022 - 05/31', 'EXPI RED 05/31 /2025', '09/10 /2022', 'EB-1 B', '240-day rule; monit', 'IMM EDI ATE']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'Eng.', '', '', '', '', '/2025', '', '', '', 'or RFE', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 623,
+    "table2_idx": 624
+}

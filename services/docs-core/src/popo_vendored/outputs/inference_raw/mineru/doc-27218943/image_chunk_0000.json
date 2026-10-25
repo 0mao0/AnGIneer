@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 151 125 844<|content|>FINRA CORPORATE FINANCING DEPARTMENT 1735 K Street\n<|id|>10<|type|>title<|page|>1<|box|>401 142 417 429<|content|>1. Introduction and Filing Reference\n<|id|>14<|type|>title<|page|>1<|box|>794 140 811 480<|content|>2. Description of Offering Terms Reviewed\n<|id|>21<|type|>title<|page|>2<|box|>556 140 574 629<|content|>3. Identification of Participating Underwriters an\n<|id|>23<|type|>table<|page|>2<|box|>643 143 857 852<|content|>None\n<|id|>25<|type|>title<|page|>3<|box|>223 140 239 617<|content|>4. Review of Underwriting Compensation and Arrange\n<|id|>36<|type|>title<|page|>4<|box|>377 140 393 524<|content|>5. Review of Affiliations and Conflicts of Interes\n<|id|>39<|type|>title<|page|>4<|box|>744 140 761 395<|content|>6. No-Objections Determination\n<|id|>43<|type|>title<|page|>5<|box|>285 140 303 398<|content|>7. Conditions and Qualifications\n<|id|>50<|type|>title<|page|>6<|box|>223 140 239 478<|content|>8. Contact Information and Filing Records",
+    "raw_response": "<|src_id|>23<|tgt_id|>21",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        }
+    ]
+}

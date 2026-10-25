@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>316 447 333 550<|content|>SUMMONS\n<|id|>13<|page|>1<|box|>800 142 818 401<|content|>ATTORNEY FOR PLAINTIFF:\n<|id|>19<|page|>2<|box|>212 281 229 715<|content|>[SEAL OF THE CIRCUIT COURT OF COOK COUNTY]\n<|id|>20<|page|>2<|box|>237 400 255 598<|content|>RETURN OF SERVICE",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>13<|level|>2\n<|id|>19<|level|>1\n<|id|>20<|level|>2",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        }
+    ]
+}

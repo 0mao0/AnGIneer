@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>116 218 133 779<|content|>In its capacity as General Partner ofHarrowgate Pr\n<|id|>6<|type|>title<|page|>1<|box|>352 140 369 413<|content|>Section 1 — Notice of Distribution\n<|id|>9<|type|>title<|page|>1<|box|>631 142 648 364<|content|>Distribution Date: [__], 20[]\n<|id|>10<|type|>title<|page|>1<|box|>657 142 675 325<|content|>Record Date: [__], 20[]\n<|id|>12<|type|>title<|page|>1<|box|>797 140 814 491<|content|>Section 2 — Aggregate Distribution Amount\n<|id|>14<|type|>image<|page|>1<|box|>867 447 883 547<|content|>None\n<|id|>22<|type|>title<|page|>2<|box|>561 140 579 609<|content|>Section 3 — Waterfall Tier Allocation and Characte\n<|id|>24<|type|>title<|page|>2<|box|>728 140 744 459<|content|>Tier 1 — Return of Contributed Capital\n<|id|>28<|type|>title<|page|>3<|box|>194 142 210 357<|content|>Tier 2 — Preferred Return\n<|id|>29<|type|>title<|page|>3<|box|>218 140 234 459<|content|>Amount allocated to Tier 2: $[_]\n<|id|>32<|type|>title<|page|>3<|box|>520 142 537 328<|content|>Tier 3 — GP Catch-Up\n<|id|>33<|type|>title<|page|>3<|box|>544 140 561 460<|content|>Amount allocated to Tier 3: $[\n<|id|>36<|type|>title<|page|>3<|box|>845 142 863 470<|content|>Tier 4 — Carried Interest / Residual Split\n<|id|>40<|type|>title<|page|>4<|box|>321 140 339 539<|content|>Section 4 — Individual Limited Partner Allocation\n<|id|>55<|type|>title<|page|>5<|box|>90 140 107 411<|content|>Section 5 — Tax Characterization\n<|id|>61<|type|>title<|page|>6<|box|>90 140 107 455<|content|>Section 6 — Wire Transfer Instructions\n<|id|>75<|type|>title<|page|>6<|box|>763 140 779 434<|content|>Section 7 — Reserves and Holdbacks\n<|id|>82<|type|>title<|page|>7<|box|>546 140 563 377<|content|>Section 8 — Clawback Notice\n<|id|>90<|type|>title<|page|>8<|box|>299 140 316 496<|content|>Section 9 — Partnership Agreement Governs\n<|id|>94<|type|>title<|page|>8<|box|>637 140 654 372<|content|>Section 10 — Confidentiality\n<|id|>98<|type|>title<|page|>9<|box|>152 400 170 596<|content|>[Signature Page Follows]\n<|id|>99<|type|>title<|page|>9<|box|>176 143 213 851<|content|>SIGNATURE PAGE TO DISTRIBUTION NOTICE NO. [__] HAR\n<|id|>107<|type|>title<|page|>9<|box|>369 437 386 558<|content|>SCHEDULE A\n<|id|>108<|type|>title<|page|>9<|box|>396 297 412 700<|content|>Individual Limited Partner Distribution Allocation\n<|id|>109<|type|>title<|page|>9<|box|>422 225 439 771<|content|>Distribution Notice No. [__] — Harrowgate Private\n<|id|>112<|type|>table<|page|>9<|box|>540 143 888 852<|content|>None\n<|id|>113<|type|>table<|page|>10<|box|>88 143 314 852<|content|>None\n<|id|>114<|type|>title<|page|>10<|box|>348 449 364 549<|content|>EXHIBIT B\n<|id|>115<|type|>title<|page|>10<|box|>375 390 391 606<|content|>Wire Transfer Information\n<|id|>116<|type|>title<|page|>10<|box|>401 405 417 593<|content|>(For Internal Use Only)\n<|id|>118<|type|>table<|page|>10<|box|>507 143 773 852<|content|>None",
+    "raw_response": "<|src_id|>14<|tgt_id|>12\n<|src_id|>112<|tgt_id|>108\n<|src_id|>113<|tgt_id|>108\n<|src_id|>118<|tgt_id|>115",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 115
+        }
+    ]
+}

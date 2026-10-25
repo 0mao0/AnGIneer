@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        9,
+        10,
+        12,
+        13,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>156 424 172 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>181 140 219 854<|content|>TO: ... Howard Bellamy, Responsible Partner, Antit...ot Nguyen, Lead Associate, Antitrust & Competition\n<|id|>4<|page|>1<|box|>227 140 244 720<|content|>FROM: ... Aaron Liu, Associate, Antitrust & Competition (San Francisco Office)\n<|id|>5<|page|>1<|box|>253 142 270 308<|content|>DATE: ... July 18, 2025\n<|id|>6<|page|>1<|box|>277 140 314 854<|content|>RE: ... )\n<|id|>7<|page|>1<|box|>323 142 339 359<|content|>MATTER NO. ... 1038-00001\n<|id|>8<|page|>1<|box|>347 140 393 854<|content|>CONFIDENTIALITY LEGEND: ... Do not distribute without the express authorization of Howard Bellamy\n<|id|>74<|page|>9<|box|>242 147 258 733<|content|>• CascadeMarket FbC program historical data (2021–2024 rollout metrics); ... and\n<|id|>76<|page|>9<|box|>299 140 316 745<|content|>The following two sections provide a detailed anal...de a detailed analysis of each efficiency category\n<|id|>82<|page|>9<|box|>816 140 872 856<|content|>The combined e-commerce and marketplace segments g...tly serves approximately 18,000 of CascadeMarket's\n<|id|>83<|page|>10<|box|>90 140 126 852<|content|>42,000 active sellers, representing the segment of...rs the greatest value relative to self-fulfillment\n<|id|>112<|page|>12<|box|>862 140 898 854<|content|>Pinnacle's prior attempts to improve its logistics...om Pinnacle's due diligence data room (reviewed by\n<|id|>113<|page|>13<|box|>89 140 145 854<|content|>Harmon Ridgeway & Strauss LLP, specifically by Mon...apabilities during the 2023–2024 period, including\n<|id|>116<|page|>13<|box|>277 174 333 854<|content|>(c) Evaluating a potential strategic partnership w...th needed to serve Pinnacle's seller base; ... and\n<|id|>118<|page|>13<|box|>402 140 439 854<|content|>These documented failed alternatives confirm that ... are not replicable through less restrictive means\n<|id|>210<|page|>22<|box|>666 147 719 854<|content|>• Multi-homing rates among sellers and consumers, ...sed through to retain market participants; ... and\n<|id|>212<|page|>22<|box|>758 140 832 856<|content|>At the midpoint of the 55–65% range (60% pass-thro...t that would be lost if the transaction is blocked",
+    "raw_response": "<|src_id|>82<|tgt_id|>83\n<|src_id|>112<|tgt_id|>113",
+    "parsed": [
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 316 107 679<|content|>PALMETTO STRAUSS PA Attorneys at Law\n<|id|>1<|page|>1<|box|>114 168 152 831<|content|>100 Southeast Second Street, Suite 2800 Miami, Flo\n<|id|>12<|page|>1<|box|>551 142 568 308<|content|>I. INTRODUCTION\n<|id|>21<|page|>2<|box|>801 140 819 393<|content|>II. DOCUMENTS EXAMINED\n<|id|>51<|page|>5<|box|>465 140 484 310<|content|>III. ASSUMPTIONS\n<|id|>62<|page|>6<|box|>516 142 534 267<|content|>IV. OPINIONS\n<|id|>64<|page|>6<|box|>592 140 609 571<|content|>A. Foreign Qualification and Good Standing in Flor\n<|id|>68<|page|>7<|box|>176 140 194 442<|content|>B. Real Property Ownership and Title\n<|id|>72<|page|>7<|box|>709 140 726 643<|content|>C. Enforceability of Transaction Documents Under F\n<|id|>79<|page|>8<|box|>419 140 436 424<|content|>D. Lease and Contract Assignments\n<|id|>83<|page|>9<|box|>138 140 157 460<|content|>E. Documentary Stamp Tax Compliance\n<|id|>89<|page|>10<|box|>305 142 321 393<|content|>F. No Violations of Florida Law\n<|id|>96<|page|>10<|box|>843 142 859 274<|content|>G. No Litigation\n<|id|>103<|page|>11<|box|>537 140 554 566<|content|>H. Assumed Loan Documents — Florida Law Matters\n<|id|>115<|page|>12<|box|>756 140 773 503<|content|>V. QUALIFICATIONS AND LIMITATIONS\n<|id|>137<|page|>14<|box|>523 140 540 454<|content|>VI. RELIANCE AND DISTRIBUTION\n<|id|>146<|page|>15<|box|>90 220 108 774<|content|>[Remainder of This Page Intentionally Left Blank;\n<|id|>154<|page|>15<|box|>284 447 300 550<|content|>EXHIBIT A\n<|id|>155<|page|>15<|box|>310 250 327 746<|content|>LIST OF FLORIDA TARGET ENTITIES AND PROPERTIES\n<|id|>157<|page|>15<|box|>789 449 804 549<|content|>EXHIBIT B\n<|id|>158<|page|>15<|box|>814 277 830 718<|content|>LIST OF TRANSACTION DOCUMENTS REVIEWED",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>12<|level|>1\n<|id|>21<|level|>1\n<|id|>51<|level|>1\n<|id|>62<|level|>1\n<|id|>64<|level|>2\n<|id|>68<|level|>2\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>83<|level|>2\n<|id|>89<|level|>2\n<|id|>96<|level|>2\n<|id|>103<|level|>2\n<|id|>115<|level|>1\n<|id|>137<|level|>1\n<|id|>146<|level|>-1\n<|id|>154<|level|>1\n<|id|>155<|level|>2\n<|id|>157<|level|>1\n<|id|>158<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 154,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 2
+        }
+    ]
+}

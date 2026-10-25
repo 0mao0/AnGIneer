@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>174 140 193 710<|content|>TO: ... Rachel Bernstein, Responsible Partner Miriam Calloway, Billing Partner\n<|id|>3<|page|>1<|box|>200 140 219 424<|content|>FROM: ... Leila Nazari, Lead Associate\n<|id|>4<|page|>1<|box|>224 140 244 308<|content|>DATE: ... April 1, 2026\n<|id|>5<|page|>1<|box|>251 140 289 854<|content|>RE: ... Conflicts Check Results — Representation o...erred Stock Financing of Quillen Technologies, Inc\n<|id|>6<|page|>1<|box|>296 140 314 411<|content|>MATTER NUMBER: ... 1002-00002\n<|id|>7<|page|>1<|box|>321 140 339 369<|content|>BILLING CODE: ... 001\n<|id|>119<|page|>10<|box|>849 147 883 857<|content|>• Commonwealth Escrow Services, Inc. ... If\n<|id|>120<|page|>11<|box|>90 174 126 854<|content|>Commonwealth is engaged as escrow agent for the Tr...n and execution of standard escrow agreement terms\n<|id|>135<|page|>12<|box|>444 183 460 483<|content|>• Rachel Bernstein, Responsible Partner\n<|id|>140<|page|>12<|box|>542 140 651 856<|content|>This memorandum shall not be disclosed to the Clie...ration, circulation, or retention of this document\n<|id|>136<|page|>12<|box|>464 183 479 450<|content|>• Miriam Calloway, Billing Partner\n<|id|>137<|page|>12<|box|>483 183 500 416<|content|>• Leila Nazari, Lead Associate\n<|id|>138<|page|>12<|box|>503 183 518 455<|content|>• Robert Jansen, Working Associate\n<|id|>139<|page|>12<|box|>522 183 539 715<|content|>• Calderwood & Harkness LLP General Counsel / Conflicts Department\n<|id|>142<|page|>12<|box|>708 140 758 854<|content|>Leila Nazari Lead Associate Calderwood & Harkness ...00 San Francisco, CA 94105 Date: ... April 1, 2026\n<|id|>143<|page|>12<|box|>758 140 777 433<|content|>REVIEWED AND APPROVED BY: ... REVIEWED AND APPROVED BY",
+    "raw_response": "<|src_id|>119<|tgt_id|>120",
+    "parsed": [
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        }
+    ]
+}

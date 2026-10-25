@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 145 142 852<|content|>UNANIMOUS WRITTEN CONSENT OF THE SOLE DIRECTOR OF\n<|id|>4<|page|>1<|box|>362 140 378 437<|content|>I. RECITALS AND BACKGROUND\n<|id|>38<|page|>5<|box|>229 176 247 586<|content|>II. APPROVAL OF THE MERGER AGREEMENT\n<|id|>42<|page|>5<|box|>568 176 585 645<|content|>III. APPROVAL OF THE TRANSACTION DOCUMENTS\n<|id|>44<|page|>5<|box|>782 176 799 622<|content|>IV. AUTHORIZATION TO EXECUTE AND DELIVER\n<|id|>46<|page|>6<|box|>204 176 220 727<|content|>V. AUTHORIZATION TO FILE THE CERTIFICATE OF MERGER\n<|id|>48<|page|>6<|box|>381 176 398 707<|content|>VI. AUTHORIZATION OF PERFORMANCE OF OBLIGATIONS\n<|id|>50<|page|>6<|box|>648 176 666 480<|content|>VII. ENGAGEMENT OF ADVISORS\n<|id|>55<|page|>7<|box|>285 176 301 434<|content|>VIII. REGULATORY FILINGS\n<|id|>61<|page|>7<|box|>839 176 857 419<|content|>IX. GENERAL AUTHORITY\n<|id|>64<|page|>8<|box|>339 176 356 684<|content|>X. EFFECTIVENESS; COUNTERPARTS; GOVERNING LAW\n<|id|>69<|page|>8<|box|>633 202 669 826<|content|>SIGNATURE PAGE TO UNANIMOUS WRITTEN CONSENT OF THE\n<|id|>72<|page|>8<|box|>842 310 858 720<|content|>ACKNOWLEDGMENT AND FILING NOTATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>55<|level|>2\n<|id|>61<|level|>2\n<|id|>64<|level|>2\n<|id|>69<|level|>2\n<|id|>72<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        }
+    ]
+}

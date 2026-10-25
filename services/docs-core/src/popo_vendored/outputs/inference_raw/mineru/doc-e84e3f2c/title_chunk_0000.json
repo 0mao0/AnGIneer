@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 176 184 821<|content|>CALDERWOOD & HARKNESS LLP Solicitors & Internation\n<|id|>2<|page|>1<|box|>219 310 236 687<|content|>WITHOUT PREJUDICE SAVE AS TO COSTS\n<|id|>8<|page|>1<|box|>426 142 444 501<|content|>1. Privilege, Purpose, and Status of this Letter\n<|id|>13<|page|>2<|box|>90 140 107 377<|content|>2. Background — The Award\n<|id|>26<|page|>2<|box|>808 140 825 550<|content|>3. Summary of Enforcement Actions and Recoveries\n<|id|>28<|page|>3<|box|>138 140 157 328<|content|>3.1 England and Wales\n<|id|>34<|page|>3<|box|>681 142 699 238<|content|>3.2 Cyprus.\n<|id|>39<|page|>4<|box|>239 140 256 259<|content|>3.3 Singapore.\n<|id|>44<|page|>4<|box|>590 140 607 348<|content|>3.4 United Arab Emirates\n<|id|>49<|page|>5<|box|>90 140 106 343<|content|>3.5 Professional Advisers\n<|id|>54<|page|>5<|box|>361 140 378 689<|content|>4. Current Financial Position — Amounts Recovered\n<|id|>55<|page|>5<|box|>392 142 407 390<|content|>4.1 Amounts Recovered to Date\n<|id|>58<|page|>5<|box|>757 142 773 415<|content|>4.2 Total Amounts Owed by KMH\n<|id|>64<|page|>6<|box|>220 140 238 339<|content|>4.3 Outstanding Balance\n<|id|>72<|page|>6<|box|>585 140 604 669<|content|>5. Observations on KMH's Position and Continuing C\n<|id|>85<|page|>7<|box|>696 140 714 271<|content|>6. The Proposal\n<|id|>87<|page|>7<|box|>809 140 825 429<|content|>6.1 Payment of Outstanding Balance\n<|id|>90<|page|>8<|box|>220 140 237 310<|content|>6.2 Costs Concession\n<|id|>97<|page|>8<|box|>789 140 806 550<|content|>6.3 Discharge of Freezing Order and discontinuance\n<|id|>102<|page|>9<|box|>202 140 219 361<|content|>6.4 Value of the Concession\n<|id|>105<|page|>9<|box|>402 140 419 426<|content|>7. Consequences of Non-Acceptance\n<|id|>114<|page|>10<|box|>90 140 107 343<|content|>8. Mechanics of Payment\n<|id|>116<|page|>10<|box|>160 176 176 673<|content|>Ionian National Bank SA 22 Stadiou Street Athens 1\n<|id|>119<|page|>10<|box|>363 140 380 267<|content|>9. Reservations\n<|id|>128<|page|>10<|box|>830 142 848 250<|content|>10. Response\n<|id|>141<|page|>11<|box|>433 142 448 259<|content|>Enclosures: None",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>-1\n<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>2\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>58<|level|>2\n<|id|>64<|level|>2\n<|id|>72<|level|>1\n<|id|>85<|level|>1\n<|id|>87<|level|>2\n<|id|>90<|level|>2\n<|id|>97<|level|>2\n<|id|>102<|level|>2\n<|id|>105<|level|>1\n<|id|>114<|level|>1\n<|id|>116<|level|>-1\n<|id|>119<|level|>1\n<|id|>128<|level|>1\n<|id|>141<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        }
+    ]
+}

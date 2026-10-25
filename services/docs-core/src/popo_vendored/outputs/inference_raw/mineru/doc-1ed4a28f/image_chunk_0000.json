@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>358 140 375 230<|content|>I. Purpose\n<|id|>12<|type|>title<|page|>1<|box|>768 140 786 473<|content|>II. Procedural History and Current Status\n<|id|>13<|type|>title<|page|>1<|box|>800 140 816 346<|content|>A. Background Summary\n<|id|>23<|type|>title<|page|>2<|box|>814 142 832 379<|content|>B. Key Procedural Milestones\n<|id|>38<|type|>title<|page|>4<|box|>708 140 724 287<|content|>C. Current Status\n<|id|>43<|type|>title<|page|>5<|box|>476 140 493 545<|content|>III. Summary of Estate Assets and Contested Issues\n<|id|>44<|type|>title<|page|>5<|box|>507 142 523 364<|content|>A. Probate Estate Overview\n<|id|>47<|type|>title<|page|>5<|box|>734 142 751 362<|content|>B. Asset-by-Asset Summary\n<|id|>49<|type|>table<|page|>5<|box|>799 143 902 852<|content|>None\n<|id|>50<|type|>table<|page|>6<|box|>89 143 570 852<|content|>None\n<|id|>53<|type|>title<|page|>7<|box|>90 140 107 415<|content|>C. Outstanding Contestant Claims\n<|id|>55<|type|>title<|page|>7<|box|>157 142 175 403<|content|>1. Alleged Premarital Agreement\n<|id|>59<|type|>title<|page|>7<|box|>737 140 753 419<|content|>2. Isabela's Promissory Note Claim\n<|id|>63<|type|>title<|page|>8<|box|>398 140 415 452<|content|>3. Nicolás's Educational Expense Claim\n<|id|>66<|type|>title<|page|>8<|box|>700 140 719 367<|content|>D. Malibu Property Tracing\n<|id|>73<|type|>title<|page|>9<|box|>464 140 482 410<|content|>IV. Estate Administration Update\n<|id|>82<|type|>title<|page|>10<|box|>648 140 665 416<|content|>V. Financial Status of Engagement\n<|id|>83<|type|>title<|page|>10<|box|>679 140 696 506<|content|>A. Fee Summary Through September 30, 2024\n<|id|>92<|type|>title<|page|>11<|box|>199 142 215 269<|content|>B. Billing Rates\n<|id|>94<|type|>table<|page|>11<|box|>246 143 359 852<|content|>None\n<|id|>96<|type|>title<|page|>11<|box|>441 140 459 328<|content|>C. Billing Observations\n<|id|>100<|type|>title<|page|>12<|box|>90 140 107 555<|content|>VI. Recommendation: Execute Standstill Renewal #3\n<|id|>101<|type|>title<|page|>12<|box|>121 140 138 299<|content|>A. Proposed Terms\n<|id|>113<|type|>title<|page|>12<|box|>700 140 718 344<|content|>B. Rationale for Renewal\n<|id|>119<|type|>title<|page|>13<|box|>710 140 728 328<|content|>C. Risk Considerations\n<|id|>125<|type|>title<|page|>14<|box|>593 140 609 743<|content|>VII. Strategic Considerations Upon Standstill Expi\n<|id|>127<|type|>title<|page|>14<|box|>724 140 739 459<|content|>A. Option 1: Further Standstill Renewal\n<|id|>130<|type|>title<|page|>15<|box|>176 140 193 609<|content|>B. Option 2: Renewed Mediation or Settlement Negot\n<|id|>137<|type|>title<|page|>15<|box|>737 140 753 447<|content|>C. Option 3: Reactivation of Litigation\n<|id|>157<|type|>title<|page|>17<|box|>242 140 258 290<|content|>VIII. Action Items\n<|id|>165<|type|>title<|page|>18<|box|>90 142 107 264<|content|>IX. Conclusion",
+    "raw_response": "<|src_id|>49<|tgt_id|>47\n<|src_id|>50<|tgt_id|>47\n<|src_id|>94<|tgt_id|>92",
+    "parsed": [
+        {
+            "src_id": 49,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 92
+        }
+    ]
+}

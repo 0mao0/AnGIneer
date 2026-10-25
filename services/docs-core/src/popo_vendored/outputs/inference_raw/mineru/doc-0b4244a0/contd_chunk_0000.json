@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>116 433 133 565<|content|>Attorneys at Law\n<|id|>2<|page|>1<|box|>142 163 176 833<|content|>1 International Place, Suite 4100 Boston, Massachusetts 02110 Telephone: ... (617) 904-2201\n<|id|>4<|page|>1<|box|>231 380 247 614<|content|>www. ... com\n<|id|>3<|page|>1<|box|>185 169 222 825<|content|>300 South Wacker Drive, Suite 2800 Chicago, Illinois 60606 Telephone: ... (312) 667-5501\n<|id|>5<|page|>1<|box|>256 743 273 854<|content|>April 28, 2025\n<|id|>6<|page|>1<|box|>282 142 299 447<|content|>VIA EMAIL AND HAND DELIVERY\n<|id|>7<|page|>1<|box|>308 140 344 854<|content|>Mr. ... 4800 Innovation Drive Auburn Hills, Michigan 48326\n<|id|>8<|page|>1<|box|>352 140 388 854<|content|>Mr. ... 4800 Innovation Drive Auburn Hills, Michigan 48326\n<|id|>9<|page|>1<|box|>396 174 431 852<|content|>cc: ... Howard Trask, Managing Partner Veltrano Ca...riswold Street, Suite 3400 Detroit, Michigan 48226\n<|id|>10<|page|>1<|box|>440 140 477 854<|content|>Re: ... — Proposed Stock Acquisition of PulseLink Telematics, Inc\n<|id|>11<|page|>1<|box|>484 142 502 413<|content|>Firm Matter Number: ... 1001-00004\n<|id|>12<|page|>1<|box|>510 142 527 416<|content|>Dear Mr. ... Winslow\n<|id|>16<|page|>1<|box|>867 140 904 854<|content|>We further understand that Vantage is a portfolio ...nd managed by Veltrano Capital GP IV LLC, and that\n<|id|>17<|page|>2<|box|>90 140 183 856<|content|>Veltrano IV and its affiliated entities have a sig... except to the extent separately agreed in writing\n<|id|>29<|page|>3<|box|>830 140 887 857<|content|>The Transaction is expected to be governed by the ... firm of Whitfield, Draper & Colón LLP, located in\n<|id|>30<|page|>4<|box|>89 140 127 854<|content|>Columbus, Ohio, with Catherine Okafor, Partner, se... and the Target (collectively, \"Sellers' Counsel\")\n<|id|>39<|page|>4<|box|>869 140 906 857<|content|>We understand that the primary client contacts for...imura, Vice President of Corporate Development, of\n<|id|>40<|page|>5<|box|>89 140 145 854<|content|>Vantage Mobility Systems Corp. ... Nishimura, with...ano Capital as you may designate from time to time\n<|id|>57<|page|>7<|box|>258 174 351 854<|content|>(b) Disclosures made in the ordinary course of per...accomplish the purposes of the engagement; ... and\n<|id|>59<|page|>7<|box|>402 140 568 856<|content|>We understand that the due diligence materials for...any data room protocols established by the parties\n<|id|>72<|page|>8<|box|>821 140 877 854<|content|>This Engagement Letter shall be governed by and co...all be interpreted and enforced in accordance with\n<|id|>73<|page|>9<|box|>90 140 126 854<|content|>Massachusetts law, including the Massachusetts Rul...s of Professional Conduct to the extent applicable\n<|id|>84<|page|>9<|box|>758 142 773 294<|content|>Name: ... Sandra Tung\n<|id|>85<|page|>9<|box|>775 142 791 540<|content|>Title: ... Partner, Mergers & Acquisitions Practice Group\n<|id|>86<|page|>9<|box|>792 143 809 251<|content|>By: ... By\n<|id|>87<|page|>9<|box|>809 142 825 331<|content|>Name: ... Oliver Mackenzie\n<|id|>88<|page|>9<|box|>825 142 843 540<|content|>Title: ... Partner, Mergers & Acquisitions Practice Group\n<|id|>92<|page|>10<|box|>186 140 204 323<|content|>Name: ... Marcus Reinholt\n<|id|>93<|page|>10<|box|>204 142 220 366<|content|>Title: ... Chief Executive Officer\n<|id|>94<|page|>10<|box|>222 143 239 267<|content|>Date: ... Date\n<|id|>96<|page|>10<|box|>256 142 272 315<|content|>Name: ... Derek Winslow\n<|id|>97<|page|>10<|box|>273 142 289 315<|content|>Title: ... General Counsel\n<|id|>98<|page|>10<|box|>291 143 306 267<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>16<|tgt_id|>17\n<|src_id|>29<|tgt_id|>30\n<|src_id|>39<|tgt_id|>40\n<|src_id|>72<|tgt_id|>73",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        }
+    ]
+}

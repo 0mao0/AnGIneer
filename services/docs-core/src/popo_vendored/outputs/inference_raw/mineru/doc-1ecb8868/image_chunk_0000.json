@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>136 153 180 844<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF AURELIUS\n<|id|>1<|type|>title<|page|>1<|box|>196 228 215 767<|content|>Adopted at a Meeting of the Board of Directors hel\n<|id|>2<|type|>title<|page|>1<|box|>238 142 253 393<|content|>PREAMBLE AND RECITALS\n<|id|>26<|type|>table<|page|>4<|box|>459 143 549 852<|content|>None\n<|id|>27<|type|>table<|page|>4<|box|>608 143 699 852<|content|>None\n<|id|>33<|type|>title<|page|>5<|box|>611 140 628 279<|content|>RESOLUTIONS\n<|id|>35<|type|>title<|page|>5<|box|>669 140 686 573<|content|>Resolution 1 — Tabling of the CEO Succession Proce\n<|id|>39<|type|>title<|page|>6<|box|>231 140 248 555<|content|>Resolution 2 — Dissolution of the Special Committe\n<|id|>44<|type|>title<|page|>6<|box|>638 140 655 826<|content|>Resolution 3 — Continuation of Priya Nair-Whitfiel\n<|id|>48<|type|>title<|page|>7<|box|>286 140 304 671<|content|>Resolution 4 — Status of Hargrove Tate Partners LL\n<|id|>52<|type|>title<|page|>7<|box|>703 140 720 754<|content|>Resolution 5 — Preservation of Special Committee R\n<|id|>57<|type|>title<|page|>8<|box|>465 140 483 465<|content|>Resolution 6 — Authorization of Officers\n<|id|>64<|type|>title<|page|>9<|box|>220 142 237 362<|content|>Resolution 7 — Ratification\n<|id|>67<|type|>title<|page|>9<|box|>420 140 436 405<|content|>SECRETARY'S CERTIFICATE\n<|id|>80<|type|>title<|page|>11<|box|>89 142 107 243<|content|>EXHIBIT A\n<|id|>81<|type|>title<|page|>11<|box|>114 228 133 767<|content|>LIST OF SPECIAL COMMITTEE MEMBERS (For Reference O\n<|id|>83<|type|>table<|page|>11<|box|>220 143 402 851<|content|>None\n<|id|>85<|type|>title<|page|>12<|box|>89 142 107 243<|content|>EXHIBIT B\n<|id|>86<|type|>title<|page|>12<|box|>114 156 133 839<|content|>DIRECTORS PRESENT AT MEETING OF JUNE 14, 2024 (Ful\n<|id|>87<|type|>table<|page|>12<|box|>220 143 893 852<|content|>None\n<|id|>89<|type|>title<|page|>13<|box|>222 140 237 339<|content|>End of Resolutions and Exhibits",
+    "raw_response": "<|src_id|>26<|tgt_id|>33\n<|src_id|>27<|tgt_id|>33\n<|src_id|>83<|tgt_id|>81\n<|src_id|>87<|tgt_id|>86",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 86
+        }
+    ]
+}

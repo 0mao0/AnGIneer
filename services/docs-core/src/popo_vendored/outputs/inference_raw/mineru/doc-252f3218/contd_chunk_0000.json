@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        2,
+        10,
+        28,
+        31,
+        32
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>9<|page|>1<|box|>797 174 834 852<|content|>(d) One (1) laboratory services agreement with Redstone Diagnostics, Inc. ... and\n<|id|>11<|page|>2<|box|>90 140 181 854<|content|>Each contract has been analyzed for change-of-cont...hitfield, Ames & Greer LLP, led by Catherine Greer\n<|id|>59<|page|>10<|box|>90 174 127 854<|content|>(d) A finding by any governmental authority of bil... to services provided under the Agreement; ... and\n<|id|>61<|page|>10<|box|>160 140 196 854<|content|>Section 14. ... 2(d) provides\n<|id|>209<|page|>28<|box|>377 176 412 854<|content|>(i) Buffalo lease — Personal guaranty of Dr. ... and\n<|id|>211<|page|>28<|box|>465 140 593 854<|content|>Both guarantees run for the full lease term and ar... issue should be addressed in the APA negotiations\n<|id|>248<|page|>31<|box|>867 140 902 854<|content|>The Incremental Term Loan from Ironclad National B... together with the existing Credit Agreement dated\n<|id|>249<|page|>32<|box|>90 140 162 854<|content|>September 17, 2021, among CPS Holdings, Inc. ... Specifically",
+    "raw_response": "<|src_id|>248<|tgt_id|>249",
+    "parsed": [
+        {
+            "src_id": 248,
+            "tgt_id": 249
+        }
+    ]
+}

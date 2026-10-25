@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        92,
+        94
+    ],
+    "pages": [
+        93,
+        94
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>211<|type|>title<|page|>93<|box|>82 491 108 594<|content|>1. 2023年1月1日\n<|id|>212<|type|>table<|page|>93<|box|>288 356 390 711<|content|>None\n<|id|>213<|type|>image<|page|>94<|box|>3 0 998 886<|content|>None",
+    "raw_response": "<|src_id|>212<|tgt_id|>211\n<|src_id|>213<|tgt_id|>211",
+    "parsed": [
+        {
+            "src_id": 212,
+            "tgt_id": 211
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 211
+        }
+    ]
+}

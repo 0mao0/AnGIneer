@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        50,
+        106
+    ],
+    "pages": [
+        51,
+        67,
+        68,
+        105
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>311<|page|>51<|box|>85 421 167 913<|content|>INTERNATIONAL\n<|id|>312<|page|>51<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>313<|page|>51<|box|>200 710 253 919<|content|>Foreign Currency Positions Exchange Stabilization Fund\n<|id|>378<|page|>67<|box|>199 723 268 913<|content|>Financial Report of the United States Government Excerpt\n<|id|>379<|page|>67<|box|>282 820 309 913<|content|>Trust Funds\n<|id|>382<|page|>68<|box|>297 81 358 491<|content|>The Department of the Treasury, in coordination wi...U. ... The United States Government Accountability\n<|id|>383<|page|>68<|box|>138 504 299 915<|content|>Office (GAO) is required to audit these statements...ederal Accounting Standards Advisory Board (FASAB)\n<|id|>570<|page|>105<|box|>123 81 402 491<|content|>The Leaking Underground Storage Tank (LUST) Trust ...9, dated August 8, 2014), and section 31203 of the\n<|id|>571<|page|>105<|box|>125 504 152 913<|content|>Fixing America's Surface Transportation (FAST) Act...f 2015 (Public Law 114-94, dated December 4, 2015)",
+    "raw_response": "<|src_id|>311<|tgt_id|>312\n<|src_id|>382<|tgt_id|>383\n<|src_id|>570<|tgt_id|>571",
+    "parsed": [
+        {
+            "src_id": 311,
+            "tgt_id": 312
+        },
+        {
+            "src_id": 382,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 570,
+            "tgt_id": 571
+        }
+    ]
+}

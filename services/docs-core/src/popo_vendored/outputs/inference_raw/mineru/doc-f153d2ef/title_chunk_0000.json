@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>15<|page|>1<|box|>507 140 523 254<|content|>Dear Ms. Lau:\n<|id|>18<|page|>2<|box|>90 142 107 462<|content|>1. Background of the Merger Agreement\n<|id|>22<|page|>2<|box|>720 140 739 648<|content|>2. Regulatory Proceedings and Failure of the Antit\n<|id|>23<|page|>2<|box|>752 140 768 493<|content|>2.1 HSR Act Filing and DOJ Second Request\n<|id|>27<|page|>3<|box|>422 140 439 532<|content|>2.2 EUMR Notification and Phase II Investigation\n<|id|>31<|page|>4<|box|>138 140 157 416<|content|>2.3 DOJ Civil Antitrust Complaint\n<|id|>35<|page|>4<|box|>612 142 628 398<|content|>2.4 Proposed Remedies Rejected\n<|id|>39<|page|>5<|box|>204 140 222 500<|content|>3. Basis for Termination Under Section 8.1(d)\n<|id|>48<|page|>6<|box|>458 140 474 341<|content|>4. Reverse Break-Up Fee\n<|id|>52<|page|>7<|box|>90 140 107 328<|content|>5. Surviving Provisions\n<|id|>65<|page|>8<|box|>90 140 107 334<|content|>6. Reservation of Rights\n<|id|>68<|page|>8<|box|>383 140 402 500<|content|>7. Request for Confirmation and Cooperation\n<|id|>74<|page|>8<|box|>878 142 895 629<|content|>HALCYON SEMICONDUCTOR AKTIENGESELLSCHAFT\n<|id|>85<|page|>9<|box|>270 142 282 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>15<|level|>-1\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>27<|level|>3\n<|id|>31<|level|>3\n<|id|>35<|level|>3\n<|id|>39<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>65<|level|>2\n<|id|>68<|level|>2\n<|id|>74<|level|>1\n<|id|>85<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        }
+    ]
+}

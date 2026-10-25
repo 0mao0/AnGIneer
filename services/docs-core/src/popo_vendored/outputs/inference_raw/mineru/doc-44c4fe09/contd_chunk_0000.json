@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        58
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        11,
+        22,
+        25,
+        29,
+        31,
+        34,
+        42,
+        57,
+        58
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>171 433 192 564<|content|>March 1976\n<|id|>3<|page|>1<|box|>877 179 921 839<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>4<|page|>2<|box|>445 229 523 768<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents, U. ... Single copy price varies\n<|id|>6<|page|>3<|box|>167 439 188 570<|content|>March 1976\n<|id|>8<|page|>3<|box|>855 151 896 615<|content|>DEPARTMENT OF THE TREASURY WASHINGTON, D. ... C\n<|id|>54<|page|>11<|box|>276 91 285 452<|content|>7/ Represents holdings of special drawing rights, less certificates\n<|id|>55<|page|>11<|box|>136 535 144 708<|content|>issued to Federal Reserve banks. ... issued to Federal Reserve banks\n<|id|>104<|page|>22<|box|>380 85 390 471<|content|>13/ Rate reduced from 10 percent to 2 percent effective December 1, 1974\n<|id|>118<|page|>22<|box|>388 512 398 617<|content|>* Less than \\$500. ... * Less than \\$500\n<|id|>135<|page|>25<|box|>253 81 361 481<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>136<|page|>25<|box|>160 506 221 905<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>152<|page|>29<|box|>819 85 921 491<|content|>Note: ... Beginning with data for December 31, 1958, the computation is based on\n<|id|>153<|page|>29<|box|>827 515 837 800<|content|>1/ As of July 1974, includes Federal Financing Ban.../ As of July 1974, includes Federal Financing Bank\n<|id|>164<|page|>31<|box|>834 93 952 493<|content|>1/ Consists of Government National Mortgage Associ... Overseas Private Investment Corporation beginning\n<|id|>165<|page|>31<|box|>807 545 931 914<|content|>February 1975. ... Revised\n<|id|>166<|page|>31<|box|>932 548 944 653<|content|>Less than \\$500,000. ... Less than \\$500,000\n<|id|>175<|page|>34<|box|>71 439 85 561<|content|>FEDERAL DEBT\n<|id|>177<|page|>34<|box|>467 510 520 899<|content|>1/ Adjusted to exclude notes to IMF and other inte...s and notes of international lending organizations\n<|id|>227<|page|>42<|box|>234 515 245 890<|content|>18/ Except \\$960,000 at 94. ... 660,\n<|id|>235<|page|>42<|box|>319 516 328 586<|content|>r Revised. ... r Revised\n<|id|>366<|page|>57<|box|>126 420 137 570<|content|>(Dollar amounts in millions)\n<|id|>368<|page|>58<|box|>89 285 119 714<|content|>Table PDO-7. ... - Disposition of Public Marketabl...Other than Regular Weekly Treasury Bills—Continued",
+    "raw_response": "<|src_id|>54<|tgt_id|>55\n<|src_id|>135<|tgt_id|>136\n<|src_id|>164<|tgt_id|>165",
+    "parsed": [
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 136
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 165
+        }
+    ]
+}

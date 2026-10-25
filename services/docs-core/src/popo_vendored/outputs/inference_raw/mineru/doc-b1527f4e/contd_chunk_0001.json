@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        62,
+        121
+    ],
+    "pages": [
+        63,
+        64,
+        76,
+        93,
+        94,
+        96,
+        97,
+        98,
+        120
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>383<|page|>63<|box|>108 331 120 652<|content|>Other than Regular Weekly Treasury Bills—Continued\n<|id|>384<|page|>63<|box|>123 416 133 551<|content|>(Dollar amounts in millions)\n<|id|>386<|page|>64<|box|>114 133 123 353<|content|>1/ Original call and maturity dates are used. ... 1/ Original call and maturity dates are used\n<|id|>464<|page|>76<|box|>103 151 184 497<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>465<|page|>76<|box|>101 518 184 864<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1976\n<|id|>517<|page|>93<|box|>106 442 116 558<|content|>(In millions of dollars)\n<|id|>518<|page|>93<|box|>673 516 702 868<|content|>3/ Principally the International Bank for Reconstr...which breakdown by type of holder is not available\n<|id|>535<|page|>94<|box|>587 129 605 481<|content|>3/ Data on the two lines shown for this date diffe...e. ... Figures on the first line are comparable in\n<|id|>536<|page|>94<|box|>604 506 613 586<|content|>p Preliminary. ... p Preliminary\n<|id|>554<|page|>96<|box|>726 513 832 698<|content|>1977-Feb. ... 7\n<|id|>555<|page|>96<|box|>835 515 844 631<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>563<|page|>97<|box|>583 149 594 318<|content|>(EQ1) \\mathbf{E}_{\\mathrm{m}} = \\Sigma (\\Delta \\ma...athbf{c}_{1} * \\mathbf{M}_{1} / \\Sigma \\mathbf{M})\n<|id|>564<|page|>97<|box|>598 168 623 445<|content|>Where: ... E_{m} is the weighted average of percen...n the dollar cost of individual foreign currencies\n<|id|>565<|page|>97<|box|>627 213 645 455<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency 1; ... and\n<|id|>566<|page|>97<|box|>649 213 673 443<|content|>M_{1}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>569<|page|>97<|box|>467 583 486 807<|content|>\\Delta \\mathrm{fc}_1 / \\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>570<|page|>97<|box|>489 583 513 803<|content|>X_{1}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>572<|page|>97<|box|>548 524 559 778<|content|>(EQ3) \\mathbf{E} = [(E_{\\mathrm{m}} * \\mathrm{m} /...mathrm{X}} * \\mathrm{x} / \\mathrm{m} + \\mathrm{x}]\n<|id|>573<|page|>97<|box|>564 542 587 819<|content|>Where: ... and\n<|id|>574<|page|>97<|box|>593 586 616 823<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>580<|page|>98<|box|>252 133 309 487<|content|>The report forms and instructions used in the coll...istics have been revised a number of times. ... 1/\n<|id|>581<|page|>98<|box|>312 133 403 489<|content|>The present form of the published presentation of ...rt-term liquid claims of large nonbanking concerns\n<|id|>630<|page|>120<|box|>98 430 116 589<|content|>Preliminary (Position in millions of dollars)",
+    "raw_response": "<|src_id|>464<|tgt_id|>465\n<|src_id|>535<|tgt_id|>536",
+    "parsed": [
+        {
+            "src_id": 464,
+            "tgt_id": 465
+        },
+        {
+            "src_id": 535,
+            "tgt_id": 536
+        }
+    ]
+}

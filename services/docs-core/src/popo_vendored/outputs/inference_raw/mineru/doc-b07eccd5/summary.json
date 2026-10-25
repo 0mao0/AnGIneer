@@ -1,0 +1,164 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-5if48ngt\\input\\pdfs\\doc-b07eccd5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-5if48ngt\\enriched\\doc-b07eccd5.json",
+    "contd_output": "",
+    "title_output": "<|id|>2<|level|>1\n<|id|>11<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>29<|level|>3\n<|id|>36<|level|>3\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>58<|level|>3\n<|id|>62<|level|>2\n<|id|>63<|level|>3\n<|id|>76<|level|>3\n<|id|>104<|level|>3\n<|id|>107<|level|>2\n<|id|>108<|level|>3\n<|id|>115<|level|>3\n<|id|>124<|level|>3\n<|id|>130<|level|>3\n<|id|>138<|level|>2\n<|id|>139<|level|>3\n<|id|>154<|level|>2\n<|id|>156<|level|>3\n<|id|>160<|level|>3\n<|id|>172<|level|>3\n<|id|>181<|level|>3\n<|id|>191<|level|>2\n<|id|>196<|level|>2\n<|id|>205<|level|>2",
+    "image_output": "<|src_id|>56<|tgt_id|>54\n<|src_id|>57<|tgt_id|>54\n<|src_id|>193<|tgt_id|>191\n<|src_id|>194<|tgt_id|>191",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 193,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 191
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 56,
+            "table2_idx": 57,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "Castellan Holdings Limited",
+                    "Minority shareholder in intermediary",
+                    "Republic of Cyprus (private limited company)",
+                    "28% equity holder in Drakon Defence Systems S.A.;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Registration No. HE-394521; registered office at 8 Themistocles Dervis Street, Office 401, Nicosia, Cyprus 1066"
+                ]
+            ]
+        }
+    ]
+}

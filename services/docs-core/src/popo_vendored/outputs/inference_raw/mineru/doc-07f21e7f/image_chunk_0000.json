@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>449 142 465 486<|content|>1. Engagement and Scope of Representation\n<|id|>11<|type|>title<|page|>1<|box|>693 143 710 310<|content|>1.2 Scope of Services\n<|id|>26<|type|>title<|page|>4<|box|>375 142 391 339<|content|>1.3 Limitations on Scope\n<|id|>30<|type|>title<|page|>4<|box|>747 140 763 230<|content|>2. Staffing\n<|id|>32<|type|>table<|page|>4<|box|>815 143 906 852<|content|>None\n<|id|>33<|type|>table<|page|>5<|box|>88 143 137 852<|content|>None\n<|id|>36<|type|>title<|page|>5<|box|>494 140 512 405<|content|>3. Fees and Billing Arrangements\n<|id|>37<|type|>title<|page|>5<|box|>525 140 542 315<|content|>3.1 Monthly Retainer\n<|id|>39<|type|>title<|page|>5<|box|>744 140 762 300<|content|>3.2 Hourly Overage\n<|id|>43<|type|>title<|page|>6<|box|>275 140 291 267<|content|>3.3 Success Fee\n<|id|>47<|type|>title<|page|>6<|box|>601 140 618 400<|content|>3.4 Disbursements and Expenses\n<|id|>49<|type|>title<|page|>7<|box|>90 140 107 410<|content|>3.5 Invoicing and Payment Terms\n<|id|>52<|type|>title<|page|>7<|box|>354 140 369 364<|content|>3.6 Fee Estimate Disclaimer\n<|id|>54<|type|>title<|page|>7<|box|>564 140 582 321<|content|>4. Conflicts of Interest\n<|id|>55<|type|>title<|page|>7<|box|>595 140 612 300<|content|>4.1 Conflicts Check\n<|id|>57<|type|>title<|page|>8<|box|>90 140 107 367<|content|>4.2 Current Representations\n<|id|>60<|type|>title<|page|>8<|box|>372 140 388 261<|content|>4.3 Sole Client\n<|id|>62<|type|>title<|page|>8<|box|>564 140 582 284<|content|>5. Confidentiality\n<|id|>66<|type|>title<|page|>9<|box|>148 140 167 326<|content|>6. Document Retention\n<|id|>70<|type|>title<|page|>9<|box|>488 140 505 264<|content|>7. Termination\n<|id|>71<|type|>title<|page|>9<|box|>518 140 537 405<|content|>7.1 Termination by the Company\n<|id|>75<|type|>title<|page|>10<|box|>89 140 107 344<|content|>7.2 Termination by C&H\n<|id|>80<|type|>title<|page|>10<|box|>656 140 672 500<|content|>8. Limitation of Liability and Indemnification\n<|id|>85<|type|>title<|page|>11<|box|>311 140 329 472<|content|>9. Governing Law and Dispute Resolution\n<|id|>88<|type|>title<|page|>11<|box|>642 142 659 285<|content|>10. Miscellaneous\n<|id|>96<|type|>title<|page|>12<|box|>420 140 436 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>104<|type|>title<|page|>12<|box|>575 140 593 504<|content|>CALLOWAY-BRIGGS RENEWABLES INC.",
+    "raw_response": "<|src_id|>32<|tgt_id|>30\n<|src_id|>33<|tgt_id|>30",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 30
+        }
+    ]
+}

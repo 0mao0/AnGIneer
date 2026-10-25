@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 575<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|page|>1<|box|>340 140 359 367<|content|>1. Introduction and Purpose\n<|id|>13<|page|>2<|box|>231 140 248 318<|content|>2. General Comments\n<|id|>14<|page|>2<|box|>261 140 277 576<|content|>2.1 Borrower Identification and Corporate Informat\n<|id|>25<|page|>3<|box|>90 140 107 493<|content|>2.2 Confidentiality and Disclaimer Language\n<|id|>29<|page|>3<|box|>554 140 571 437<|content|>3. Comments on Business Description\n<|id|>30<|page|>3<|box|>585 140 602 424<|content|>3.1 Overview of Thalassa's Business\n<|id|>34<|page|>4<|box|>231 140 248 460<|content|>3.2 Subsidiary and Guarantor Structure\n<|id|>41<|page|>5<|box|>138 140 157 433<|content|>3.3 Insurance and Risk Management\n<|id|>45<|page|>5<|box|>604 140 621 622<|content|>4. Comments on Fleet Information and Collateral De\n<|id|>46<|page|>5<|box|>633 140 651 261<|content|>4.1 Total Fleet\n<|id|>48<|page|>5<|box|>744 140 761 321<|content|>4.2 Mortgaged Vessels\n<|id|>52<|page|>6<|box|>402 140 421 331<|content|>4.3 Collateral Coverage\n<|id|>56<|page|>6<|box|>801 140 820 388<|content|>4.4 Security Package Summary\n<|id|>64<|page|>7<|box|>609 140 626 575<|content|>5. Comments on Transaction Summary and Key Terms\n<|id|>65<|page|>7<|box|>638 140 657 313<|content|>5.1 Facility Structure\n<|id|>73<|page|>8<|box|>508 140 527 305<|content|>5.2 Pricing and Fees\n<|id|>80<|page|>9<|box|>231 140 248 419<|content|>5.3 Proposed Syndicate Allocations\n<|id|>83<|page|>9<|box|>614 140 631 334<|content|>5.4 Financial Covenants\n<|id|>90<|page|>10<|box|>348 140 364 493<|content|>6. Comments on Financial Data Presentation\n<|id|>91<|page|>10<|box|>378 140 395 470<|content|>6.1 FY2022 Audited Financial Statements\n<|id|>97<|page|>10<|box|>816 140 834 477<|content|>6.2 Historical Comparison and Projections\n<|id|>100<|page|>11<|box|>367 140 383 346<|content|>6.3 Existing Indebtedness\n<|id|>108<|page|>11<|box|>816 140 834 527<|content|>7. Specific Factual Corrections and Clarifications\n<|id|>115<|page|>12<|box|>645 140 662 346<|content|>8. Process and Next Steps\n<|id|>122<|page|>13<|box|>429 140 445 334<|content|>9. Reservation of Rights\n<|id|>131<|page|>14<|box|>90 140 107 254<|content|>cc: (via email)",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>25<|level|>3\n<|id|>29<|level|>2\n<|id|>30<|level|>3\n<|id|>34<|level|>3\n<|id|>41<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>52<|level|>3\n<|id|>56<|level|>3\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>73<|level|>3\n<|id|>80<|level|>3\n<|id|>83<|level|>3\n<|id|>90<|level|>2\n<|id|>91<|level|>3\n<|id|>97<|level|>3\n<|id|>100<|level|>3\n<|id|>108<|level|>2\n<|id|>115<|level|>2\n<|id|>122<|level|>2\n<|id|>131<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        }
+    ]
+}

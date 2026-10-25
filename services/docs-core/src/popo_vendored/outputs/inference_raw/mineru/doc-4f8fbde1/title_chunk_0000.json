@@ -1,0 +1,138 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 178 141 818<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>3<|page|>1<|box|>200 156 237 841<|content|>THALASSA SHIPPING & LOGISTICS SA and AEGEAN FORTUN\n<|id|>7<|page|>1<|box|>323 148 359 849<|content|>DECLARATION OF CARLOS ESPINOZA IN SUPPORT OF DEFEN\n<|id|>10<|page|>1<|box|>435 143 452 397<|content|>PRELIMINARY STATEMENT\n<|id|>14<|page|>2<|box|>89 140 106 446<|content|>I. BACKGROUND OF THE ACTION\n<|id|>21<|page|>2<|box|>821 142 839 473<|content|>II. PURPOSE OF THIS DECLARATION\n<|id|>27<|page|>3<|box|>625 140 642 550<|content|>III. DISCOVERY PROCEEDINGS AND RECORD\n<|id|>43<|page|>5<|box|>89 140 106 640<|content|>IV. DESCRIPTION AND AUTHENTICATION OF EXHIBITS\n<|id|>45<|page|>6<|box|>89 140 107 630<|content|>A. Exhibit A — Time Charter-Party (NW-TSL-CP-2020-\n<|id|>53<|page|>7<|box|>90 140 107 777<|content|>B. Exhibit B — Excerpts from Deposition of Alexand\n<|id|>60<|page|>8<|box|>89 140 107 740<|content|>C. Exhibit C — Excerpts from Deposition of Viktor\n<|id|>67<|page|>9<|box|>90 140 108 836<|content|>D. Exhibit D — Excerpts from Deposition of Capt. N\n<|id|>74<|page|>10<|box|>89 140 107 718<|content|>E. Exhibit E — Excerpts from Deposition of Sandra\n<|id|>81<|page|>11<|box|>89 140 108 836<|content|>F. Exhibit F — Excerpts from Deposition of Chief E\n<|id|>88<|page|>12<|box|>90 140 107 609<|content|>G. Exhibit G — Charter-Party Negotiation Correspon\n<|id|>93<|page|>13<|box|>89 140 107 725<|content|>H. Exhibit H — M/V *Aegean Fortuna* Maintenance Re\n<|id|>100<|page|>14<|box|>90 140 108 705<|content|>I. Exhibit I — Voyage Log for M/V *Aegean Fortuna*\n<|id|>107<|page|>15<|box|>90 140 107 722<|content|>J. Exhibit J — Weather Reports and Routing Advisor\n<|id|>110<|page|>16<|box|>90 140 107 789<|content|>K. Exhibit K — Northwind's Internal Communications\n<|id|>115<|page|>17<|box|>89 140 107 694<|content|>L. Exhibit L — Expert Report of Dr. Henrik Sørense\n<|id|>123<|page|>18<|box|>89 140 107 725<|content|>M. Exhibit M — Expert Report of Dr. Constance Albr\n<|id|>131<|page|>19<|box|>89 140 125 854<|content|>N. Exhibit N — Sub-Charter Agreement Between North\n<|id|>134<|page|>20<|box|>90 140 107 767<|content|>O. Exhibit O — Demurrage and Dead Freight Document\n<|id|>137<|page|>20<|box|>375 140 392 741<|content|>V. STATEMENT REGARDING AUTHENTICITY AND COMPLETENE\n<|id|>141<|page|>20<|box|>628 142 643 300<|content|>VI. CONCLUSION\n<|id|>149<|page|>21<|box|>292 140 309 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>7<|level|>1\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>3\n<|id|>53<|level|>3\n<|id|>60<|level|>3\n<|id|>67<|level|>3\n<|id|>74<|level|>3\n<|id|>81<|level|>3\n<|id|>88<|level|>3\n<|id|>93<|level|>3\n<|id|>100<|level|>3\n<|id|>107<|level|>3\n<|id|>110<|level|>3\n<|id|>115<|level|>3\n<|id|>123<|level|>3\n<|id|>131<|level|>3\n<|id|>134<|level|>3\n<|id|>137<|level|>2\n<|id|>141<|level|>2\n<|id|>149<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        }
+    ]
+}

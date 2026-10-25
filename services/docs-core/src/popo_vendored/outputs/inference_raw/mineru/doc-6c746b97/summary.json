@@ -1,0 +1,415 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1k7yzfhm\\input\\pdfs\\doc-6c746b97.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1k7yzfhm\\enriched\\doc-6c746b97.json",
+    "contd_output": "<|src_id|>77<|tgt_id|>78\n<|src_id|>94<|tgt_id|>95\n<|src_id|>141<|tgt_id|>142\n<|src_id|>175<|tgt_id|>176\n<|src_id|>306<|tgt_id|>307",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>7<|level|>1\n<|id|>17<|level|>2\n<|id|>26<|level|>2\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>71<|level|>4\n<|id|>76<|level|>4\n<|id|>82<|level|>3\n<|id|>84<|level|>3\n<|id|>89<|level|>3\n<|id|>93<|level|>3\n<|id|>97<|level|>2\n<|id|>98<|level|>3\n<|id|>109<|level|>3\n<|id|>118<|level|>3\n<|id|>126<|level|>3\n<|id|>130<|level|>2\n<|id|>131<|level|>3\n<|id|>135<|level|>3\n<|id|>139<|level|>3\n<|id|>144<|level|>3\n<|id|>146<|level|>2\n<|id|>147<|level|>3\n<|id|>156<|level|>3\n<|id|>163<|level|>3\n<|id|>169<|level|>3\n<|id|>177<|level|>2\n<|id|>178<|level|>3\n<|id|>184<|level|>3\n<|id|>192<|level|>3\n<|id|>194<|level|>2\n<|id|>195<|level|>3\n<|id|>197<|level|>3\n<|id|>199<|level|>3\n<|id|>202<|level|>2\n<|id|>203<|level|>3\n<|id|>225<|level|>3\n<|id|>233<|level|>3\n<|id|>246<|level|>3\n<|id|>250<|level|>3\n<|id|>252<|level|>3\n<|id|>257<|level|>3\n<|id|>259<|level|>3\n<|id|>262<|level|>3\n<|id|>264<|level|>3\n<|id|>266<|level|>3\n<|id|>268<|level|>3\n<|id|>304<|level|>1\n<|id|>305<|level|>1\n<|id|>308<|level|>2\n<|id|>310<|level|>2\n<|id|>313<|level|>2\n<|id|>316<|level|>2\n<|id|>318<|level|>2\n<|id|>322<|level|>2\n<|id|>324<|level|>1\n<|id|>325<|level|>1\n<|id|>326<|level|>2\n<|id|>335<|level|>3\n<|id|>342<|level|>3\n<|id|>350<|level|>1\n<|id|>352<|level|>2\n<|id|>354<|level|>2\n<|id|>358<|level|>2",
+    "image_output": "<|src_id|>86<|tgt_id|>84\n<|src_id|>87<|tgt_id|>84\n<|src_id|>312<|tgt_id|>310\n<|src_id|>314<|tgt_id|>313\n<|src_id|>315<|tgt_id|>313\n<|src_id|>320<|tgt_id|>318\n<|src_id|>329<|tgt_id|>326\n<|src_id|>330<|tgt_id|>326\n<|src_id|>331<|tgt_id|>326\n<|src_id|>332<|tgt_id|>326\n<|src_id|>333<|tgt_id|>326\n<|src_id|>334<|tgt_id|>326",
+    "contd_label": [
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 306,
+            "tgt_id": 307
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 76,
+            "level": 4
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 233,
+            "level": 3
+        },
+        {
+            "id": 246,
+            "level": 3
+        },
+        {
+            "id": 250,
+            "level": 3
+        },
+        {
+            "id": 252,
+            "level": 3
+        },
+        {
+            "id": 257,
+            "level": 3
+        },
+        {
+            "id": 259,
+            "level": 3
+        },
+        {
+            "id": 262,
+            "level": 3
+        },
+        {
+            "id": 264,
+            "level": 3
+        },
+        {
+            "id": 266,
+            "level": 3
+        },
+        {
+            "id": 268,
+            "level": 3
+        },
+        {
+            "id": 304,
+            "level": 1
+        },
+        {
+            "id": 305,
+            "level": 1
+        },
+        {
+            "id": 308,
+            "level": 2
+        },
+        {
+            "id": 310,
+            "level": 2
+        },
+        {
+            "id": 313,
+            "level": 2
+        },
+        {
+            "id": 316,
+            "level": 2
+        },
+        {
+            "id": 318,
+            "level": 2
+        },
+        {
+            "id": 322,
+            "level": 2
+        },
+        {
+            "id": 324,
+            "level": 1
+        },
+        {
+            "id": 325,
+            "level": 1
+        },
+        {
+            "id": 326,
+            "level": 2
+        },
+        {
+            "id": 335,
+            "level": 3
+        },
+        {
+            "id": 342,
+            "level": 3
+        },
+        {
+            "id": 350,
+            "level": 1
+        },
+        {
+            "id": 352,
+            "level": 2
+        },
+        {
+            "id": 354,
+            "level": 2
+        },
+        {
+            "id": 358,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 86,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 312,
+            "tgt_id": 310
+        },
+        {
+            "src_id": 314,
+            "tgt_id": 313
+        },
+        {
+            "src_id": 315,
+            "tgt_id": 313
+        },
+        {
+            "src_id": 320,
+            "tgt_id": 318
+        },
+        {
+            "src_id": 329,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 330,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 331,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 332,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 333,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 334,
+            "tgt_id": 326
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 86,
+            "table2_idx": 87,
+            "upper_row_ss": [
+                [
+                    "Management Shareholders (collectively)",
+                    "8%",
+                    "8% of total Earnout Payment (allocated pro rata among the Management Shareholders in accordance with their respective"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "individual ownership percentages of Seller)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 314,
+            "table2_idx": 315,
+            "upper_row_ss": [
+                [
+                    "(d) Stock-Based Compensation",
+                    "Non-cash stock-based compensation expense (equity incentive plans, phantom equity, etc.)",
+                    "Add Back"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "(e) Extraordinary / Non-Recurring Items",
+                    "Including Dawson litigation costs, restructuring charges, asset impairments, severance (outside ordinary course), force majeure losses (net of insurance)",
+                    "Add Back / Exclude"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 329,
+            "table2_idx": 330,
+            "upper_row_ss": [
+                [
+                    "Interest Expense",
+                    "____"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 332,
+            "table2_idx": 333,
+            "upper_row_ss": [
+                [
+                    "Earnout Payment Due",
+                    "___"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

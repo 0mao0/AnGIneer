@@ -1,0 +1,53 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 310 106 687<|content|>CALDERWOOD & HARKNESS LLP Solicitors\n<|id|>12<|type|>title<|page|>1<|box|>672 140 689 279<|content|>1. THE CLIENT\n<|id|>23<|type|>title<|page|>2<|box|>532 140 549 393<|content|>2. SCOPE OF ENGAGEMENT\n<|id|>40<|type|>title<|page|>3<|box|>849 140 864 339<|content|>2.2 Five-Phase Structure\n<|id|>82<|type|>title<|page|>8<|box|>90 140 107 315<|content|>2.3 Scope Limitations\n<|id|>88<|type|>title<|page|>8<|box|>770 140 787 357<|content|>3. ENGAGEMENT TEAM\n<|id|>90<|type|>title<|page|>8<|box|>823 140 839 490<|content|>3.2 Responsible Partner — Kevin Ostrowski\n<|id|>92<|type|>title<|page|>9<|box|>189 140 207 450<|content|>3.3 Billing Partner — Rachel Bernstein\n<|id|>94<|type|>title<|page|>9<|box|>369 140 386 439<|content|>3.4 Lead Associate — Sara Hendricks\n<|id|>96<|type|>title<|page|>9<|box|>549 140 566 464<|content|>3.5 Working Associate — Priscilla Wynn\n<|id|>99<|type|>title<|page|>9<|box|>787 140 805 524<|content|>4. CLIENT CONTACTS AND COOPERATION\n<|id|>113<|type|>title<|page|>11<|box|>89 140 106 496<|content|>5. FEES AND BILLING ARRANGEMENTS\n<|id|>114<|type|>title<|page|>11<|box|>121 142 138 279<|content|>5.1 Hourly Rates\n<|id|>116<|type|>table<|page|>11<|box|>169 143 244 852<|content|>None\n<|id|>119<|type|>title<|page|>11<|box|>390 142 407 349<|content|>5.2 Phase-Based Fee Caps\n<|id|>120<|type|>table<|page|>11<|box|>455 143 602 852<|content|>None\n<|id|>124<|type|>title<|page|>12<|box|>90 140 107 400<|content|>5.3 Disbursements and Expenses\n<|id|>129<|type|>title<|page|>12<|box|>441 140 459 388<|content|>5.4 Billing and Payment Terms\n<|id|>135<|type|>title<|page|>13<|box|>89 140 106 444<|content|>6. THIRD-PARTY COORDINATION\n<|id|>142<|type|>title<|page|>13<|box|>724 140 743 339<|content|>7. CONFIDENTIALITY\n<|id|>150<|type|>title<|page|>14<|box|>373 140 390 480<|content|>8. LEGAL PROFESSIONAL PRIVILEGE\n<|id|>161<|type|>title<|page|>15<|box|>89 140 106 573<|content|>9. DATA PROTECTION — C&H AS CONTROLLER\n<|id|>164<|type|>title<|page|>15<|box|>383 142 401 406<|content|>10. CONFLICTS OF INTEREST\n<|id|>170<|type|>title<|page|>15<|box|>829 142 845 419<|content|>11. LIMITATION OF LIABILITY\n<|id|>179<|type|>title<|page|>16<|box|>513 142 530 411<|content|>12. TERM AND TERMINATION\n<|id|>191<|type|>title<|page|>17<|box|>381 140 398 683<|content|>13. REGULATORY STATUS AND PROFESSIONAL STANDARDS\n<|id|>195<|type|>title<|page|>17<|box|>756 142 773 514<|content|>14. GOVERNING LAW AND JURISDICTION\n<|id|>198<|type|>title<|page|>18<|box|>89 142 106 498<|content|>15. ACCEPTANCE AND COUNTERPARTS\n<|id|>204<|type|>title<|page|>18<|box|>483 142 500 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>208<|type|>title<|page|>18<|box|>569 142 585 413<|content|>TELECOMMUNICATIONS PLC\n<|id|>210<|type|>title<|page|>18<|box|>676 142 691 534<|content|>NORTHGATE TELECOMMUNICATIONS PLC\n<|id|>216<|type|>title<|page|>19<|box|>89 142 107 655<|content|>APPENDIX A: KEY MILESTONES (INDICATIVE TIMELINE)\n<|id|>218<|type|>table<|page|>19<|box|>195 143 535 852<|content|>None\n<|id|>220<|type|>title<|page|>20<|box|>89 142 106 508<|content|>APPENDIX B: FEE SCHEDULE SUMMARY\n<|id|>222<|type|>table<|page|>20<|box|>186 143 263 852<|content|>None\n<|id|>224<|type|>table<|page|>20<|box|>367 143 513 852<|content|>None\n<|id|>225<|type|>title<|page|>20<|box|>554 143 569 264<|content|>Disbursements.\n<|id|>226<|type|>table<|page|>20<|box|>574 143 628 852<|content|>None",
+    "raw_response": "<|src_id|>116<|tgt_id|>114\n<|src_id|>120<|tgt_id|>119\n<|src_id|>218<|tgt_id|>216\n<|src_id|>222<|tgt_id|>220\n<|src_id|>224<|tgt_id|>220\n<|src_id|>226<|tgt_id|>225",
+    "parsed": [
+        {
+            "src_id": 116,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 222,
+            "tgt_id": 220
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 220
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 225
+        }
+    ]
+}

@@ -1,0 +1,163 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qf9w6ra1\\input\\pdfs\\doc-709555fb.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qf9w6ra1\\enriched\\doc-709555fb.json",
+    "contd_output": "<|src_id|>54<|tgt_id|>55",
+    "title_output": "<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>24<|level|>2\n<|id|>29<|level|>2\n<|id|>39<|level|>2\n<|id|>45<|level|>1\n<|id|>46<|level|>2\n<|id|>56<|level|>2\n<|id|>63<|level|>1\n<|id|>64<|level|>2\n<|id|>68<|level|>2\n<|id|>75<|level|>2\n<|id|>79<|level|>2\n<|id|>85<|level|>2\n<|id|>94<|level|>2\n<|id|>102<|level|>2\n<|id|>111<|level|>1\n<|id|>113<|level|>2\n<|id|>117<|level|>2\n<|id|>120<|level|>2\n<|id|>124<|level|>1\n<|id|>125<|level|>2\n<|id|>132<|level|>2\n<|id|>137<|level|>1\n<|id|>138<|level|>2\n<|id|>142<|level|>2\n<|id|>152<|level|>1",
+    "image_output": "<|src_id|>26<|tgt_id|>24\n<|src_id|>71<|tgt_id|>68\n<|src_id|>72<|tgt_id|>68",
+    "contd_label": [
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 26,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 68
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 71,
+            "table2_idx": 72,
+            "upper_row_ss": [
+                [
+                    "On-time pickup rate",
+                    "\\geq 95\\%",
+                    "78.2%",
+                    "16.8 percentage points"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

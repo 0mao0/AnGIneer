@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 147 133 849<|content|>CALDERWOOD & HARKNESS LLP 1900 Euclid Avenue, Suit\n<|id|>7<|type|>title<|page|>1<|box|>335 444 354 553<|content|>I. Purpose\n<|id|>11<|type|>title<|page|>1<|box|>763 214 782 782<|content|>II. Requesting Attorney and Proposed Engagement Te\n<|id|>13<|type|>table<|page|>1<|box|>859 143 898 852<|content|>None\n<|id|>14<|type|>table<|page|>2<|box|>89 143 198 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>486 377 506 620<|content|>III. Client Identification\n<|id|>19<|type|>title<|page|>2<|box|>568 142 584 202<|content|>Client:\n<|id|>26<|type|>title<|page|>3<|box|>90 140 107 310<|content|>Key Client Contacts:\n<|id|>31<|type|>title<|page|>3<|box|>231 142 248 326<|content|>Key Sponsor Contacts:\n<|id|>36<|type|>title<|page|>3<|box|>398 331 417 663<|content|>IV. Parties and Entities Searched\n<|id|>38<|type|>title<|page|>3<|box|>549 140 566 388<|content|>A. Target and Target Affiliates\n<|id|>48<|type|>title<|page|>4<|box|>281 142 297 294<|content|>B. Seller's Counsel\n<|id|>52<|type|>title<|page|>4<|box|>460 140 478 514<|content|>C. Seller's Financial Advisor / Investment Bank\n<|id|>56<|type|>title<|page|>4<|box|>640 140 657 637<|content|>D. Client and Client Affiliates (for Adverse-Party\n<|id|>69<|type|>title<|page|>5<|box|>190 140 207 385<|content|>E. Other Known Third Parties\n<|id|>83<|type|>title<|page|>5<|box|>839 140 857 694<|content|>F. Potential Insurance and Advisory Parties (Known\n<|id|>87<|type|>title<|page|>6<|box|>194 380 213 617<|content|>V. Search Methodology\n<|id|>106<|type|>title<|page|>7<|box|>477 441 497 557<|content|>VI. Results\n<|id|>107<|type|>title<|page|>7<|box|>522 140 539 328<|content|>A. Entity-Level Results\n<|id|>109<|type|>title<|page|>7<|box|>592 140 609 370<|content|>Target and Target Affiliates.\n<|id|>115<|type|>title<|page|>8<|box|>179 140 195 276<|content|>Seller's Counsel.\n<|id|>117<|type|>title<|page|>8<|box|>286 140 301 496<|content|>Seller's Financial Advisor / Investment Bank.\n<|id|>119<|type|>title<|page|>8<|box|>375 142 390 359<|content|>Client and Client Affiliates.\n<|id|>130<|type|>title<|page|>9<|box|>314 142 330 367<|content|>Other Known Third Parties.\n<|id|>142<|type|>title<|page|>10<|box|>194 140 210 359<|content|>B. Individual-Level Results\n<|id|>164<|type|>title<|page|>11<|box|>282 140 299 406<|content|>C. Lateral Attorney Cross-Check\n<|id|>168<|type|>title<|page|>11<|box|>643 351 662 645<|content|>VII. Analysis and Conclusion\n<|id|>176<|type|>table<|page|>12<|box|>566 143 699 852<|content|>None\n<|id|>177<|type|>title<|page|>12<|box|>734 375 753 622<|content|>IX. Ongoing Obligations",
+    "raw_response": "<|src_id|>13<|tgt_id|>11\n<|src_id|>14<|tgt_id|>11\n<|src_id|>176<|tgt_id|>168",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 168
+        }
+    ]
+}

@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 147 143 851<|content|>SECRETARY'S CERTIFICATE OF GENOME DX THERAPEUTICS\n<|id|>4<|page|>1<|box|>398 140 416 493<|content|>Section 1. Identification of Certifying Officer\n<|id|>7<|page|>1<|box|>675 140 691 333<|content|>Section 2. Certifications\n<|id|>9<|page|>1<|box|>750 142 767 390<|content|>2.1 Certificate of Incorporation\n<|id|>12<|page|>2<|box|>316 140 334 318<|content|>2.3 Board Resolutions\n<|id|>23<|page|>3<|box|>455 140 472 357<|content|>2.4 Incumbency of Officers\n<|id|>28<|page|>4<|box|>90 140 107 292<|content|>2.5 Good Standing\n<|id|>30<|page|>4<|box|>273 142 289 267<|content|>2.6 No Conflict\n<|id|>32<|page|>4<|box|>539 140 555 294<|content|>Section 3. Reliance\n<|id|>34<|page|>4<|box|>696 140 714 305<|content|>Section 4. Execution\n<|id|>41<|page|>5<|box|>90 140 107 635<|content|>Section 5. Confirmation of Incumbency (Counter-Cer\n<|id|>48<|page|>5<|box|>356 447 372 550<|content|>EXHIBIT A\n<|id|>49<|page|>5<|box|>382 388 398 607<|content|>Certificate of Incorporation\n<|id|>52<|page|>5<|box|>541 447 558 550<|content|>EXHIBIT B\n<|id|>53<|page|>5<|box|>568 467 584 529<|content|>Bylaws\n<|id|>56<|page|>5<|box|>674 447 691 550<|content|>EXHIBIT C\n<|id|>57<|page|>5<|box|>700 225 718 769<|content|>Resolutions of the Board of Directors of Genome Dx\n<|id|>58<|page|>5<|box|>727 413 744 584<|content|>Adopted May 8, 2023\n<|id|>69<|page|>7<|box|>89 140 107 563<|content|>Operative Resolutions. NOW, THEREFORE, BE IT:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>7<|level|>2\n<|id|>9<|level|>3\n<|id|>12<|level|>3\n<|id|>23<|level|>3\n<|id|>28<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>2\n<|id|>34<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>58<|level|>4\n<|id|>69<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 4
+        }
+    ]
+}

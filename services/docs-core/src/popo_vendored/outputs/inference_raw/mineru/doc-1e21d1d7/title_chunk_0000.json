@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>148 84 181 895<|content|>中华人民共和国交通运输行业标准\n<|id|>3<|page|>1<|box|>393 302 428 675<|content|>公路绿化设计制图\n<|id|>4<|page|>1<|box|>454 273 476 705<|content|>Drawings for highway revegetation design\n<|id|>7<|page|>2<|box|>123 431 144 539<|content|>目次\n<|id|>9<|page|>3<|box|>125 453 147 566<|content|>前言\n<|id|>32<|page|>4<|box|>125 376 149 596<|content|>公路绿化设计制图\n<|id|>33<|page|>4<|box|>184 95 201 166<|content|>1 范围\n<|id|>36<|page|>4<|box|>279 94 296 255<|content|>2 规范性引用文件\n<|id|>42<|page|>4<|box|>448 95 465 205<|content|>3 一般要求\n<|id|>89<|page|>6<|box|>236 90 251 198<|content|>4 图例图示\n<|id|>94<|page|>6<|box|>385 90 401 200<|content|>5 图样画法\n<|id|>95<|page|>6<|box|>416 90 433 287<|content|>5.1 绿化植物图例画法\n<|id|>100<|page|>7<|box|>389 115 404 364<|content|>5.2 典型路段绿化布置示意图\n<|id|>104<|page|>7<|box|>828 117 845 349<|content|>5.3 中央分隔带绿化设计图\n<|id|>114<|page|>8<|box|>780 97 795 310<|content|>5.4 边坡植物防护设计图\n<|id|>117<|page|>9<|box|>111 109 128 519<|content|>5.5 护坡道(含碎落台)及隔离栅内侧绿化带设计图\n<|id|>123<|page|>9<|box|>452 110 467 341<|content|>5.6 互通式立交绿化设计图\n<|id|>136<|page|>11<|box|>345 117 361 332<|content|>5.7 沿线设施绿化设计图\n<|id|>145<|page|>12<|box|>105 90 119 305<|content|>5.8 隧道洞口绿化设计图\n<|id|>152<|page|>12<|box|>701 92 717 289<|content|>5.9 其他绿化设计制图",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>2\n<|id|>7<|level|>1\n<|id|>9<|level|>1\n<|id|>32<|level|>1\n<|id|>33<|level|>2\n<|id|>36<|level|>2\n<|id|>42<|level|>2\n<|id|>89<|level|>2\n<|id|>94<|level|>2\n<|id|>95<|level|>3\n<|id|>100<|level|>3\n<|id|>104<|level|>3\n<|id|>114<|level|>3\n<|id|>117<|level|>3\n<|id|>123<|level|>3\n<|id|>136<|level|>3\n<|id|>145<|level|>3\n<|id|>152<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>113 351 133 645<|content|>OFFICER'S CERTIFICATE\n<|id|>1<|page|>1<|box|>151 344 169 653<|content|>Form of Buyer Bring-Down Certificate\n<|id|>2<|page|>1<|box|>176 297 194 700<|content|>FORM — To be completed and executed at Closing\n<|id|>4<|page|>1<|box|>299 140 315 375<|content|>OFFICER'S CERTIFICATE\n<|id|>9<|page|>1<|box|>726 140 743 560<|content|>Section 1. Representations and Warranties — Parent\n<|id|>12<|page|>2<|box|>349 140 366 601<|content|>Section 2. Representations and Warranties — Merger\n<|id|>15<|page|>3<|box|>90 140 107 392<|content|>Section 3. Covenants — Parent.\n<|id|>22<|page|>3<|box|>695 140 712 433<|content|>Section 4. Covenants — Merger Sub.\n<|id|>24<|page|>4<|box|>176 140 194 630<|content|>Section 5. Conditions to Closing — Buyer Condition\n<|id|>34<|page|>5<|box|>90 140 107 640<|content|>Section 6. No Material Adverse Effect on Parent or\n<|id|>36<|page|>5<|box|>291 140 308 418<|content|>Section 7. Financing Confirmation.\n<|id|>45<|page|>6<|box|>268 140 285 457<|content|>Section 8. Good Standing Confirmation.\n<|id|>49<|page|>6<|box|>556 140 574 452<|content|>Section 9. Authority and Authorization.\n<|id|>55<|page|>7<|box|>393 140 409 403<|content|>Section 10. Absence of Litigation.\n<|id|>57<|page|>7<|box|>667 140 684 673<|content|>Section 11. No Amendments or Waivers to Financing\n<|id|>64<|page|>8<|box|>309 140 325 419<|content|>Section 12. Limitation / Disclaimer.\n<|id|>68<|page|>8<|box|>666 230 684 767<|content|>[Remainder of this page intentionally left blank.\n<|id|>70<|page|>8<|box|>734 142 752 421<|content|>ARDENT APEX HOLDINGS INC.\n<|id|>78<|page|>9<|box|>157 143 174 424<|content|>EXHIBITS AND ATTACHMENTS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>4<|level|>1\n<|id|>9<|level|>2\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>2\n<|id|>34<|level|>2\n<|id|>36<|level|>2\n<|id|>45<|level|>2\n<|id|>49<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>64<|level|>2\n<|id|>68<|level|>-1\n<|id|>70<|level|>-1\n<|id|>78<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        100,
+        108
+    ],
+    "pages": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1600<|type|>table<|page|>100<|box|>193 124 689 895<|content|>None\n<|id|>1601<|type|>title<|page|>101<|box|>153 443 170 532<|content|>附 录 C\n<|id|>1605<|type|>title<|page|>101<|box|>253 268 269 702<|content|>表C 主要材料试验和现场检验抽样组批原则及检验项目\n<|id|>1606<|type|>table<|page|>101<|box|>279 99 902 873<|content|>None\n<|id|>1607<|type|>table<|page|>102<|box|>148 119 807 900<|content|>None\n<|id|>1608<|type|>table<|page|>103<|box|>148 92 860 878<|content|>None\n<|id|>1609<|type|>table<|page|>104<|box|>148 97 902 922<|content|>None\n<|id|>1610<|type|>table<|page|>105<|box|>129 99 401 873<|content|>None\n<|id|>1611<|type|>title<|page|>106<|box|>153 465 170 556<|content|>附 录 D\n<|id|>1613<|type|>title<|page|>106<|box|>190 312 206 707<|content|>内河航道工程混凝土结构实体质量验证性检测要求\n<|id|>1614<|type|>title<|page|>106<|box|>228 112 244 263<|content|>D.1 一 般 规 定\n<|id|>1620<|type|>title<|page|>106<|box|>432 112 448 290<|content|>D.2 混凝土强度检测\n<|id|>1622<|type|>table<|page|>106<|box|>521 122 626 897<|content|>None\n<|id|>1623<|type|>title<|page|>106<|box|>684 112 701 324<|content|>D.3 钢筋保护层厚度检测\n<|id|>1625<|type|>table<|page|>106<|box|>774 122 875 897<|content|>None\n<|id|>1628<|type|>table<|page|>107<|box|>241 97 336 873<|content|>None\n<|id|>1634<|type|>title<|page|>108<|box|>151 445 168 576<|content|>参 考 文 献",
+    "raw_response": "<|src_id|>1606<|tgt_id|>1605\n<|src_id|>1607<|tgt_id|>1605\n<|src_id|>1608<|tgt_id|>1605\n<|src_id|>1609<|tgt_id|>1605\n<|src_id|>1610<|tgt_id|>1605\n<|src_id|>1622<|tgt_id|>1620\n<|src_id|>1625<|tgt_id|>1623\n<|src_id|>1628<|tgt_id|>1623",
+    "parsed": [
+        {
+            "src_id": 1606,
+            "tgt_id": 1605
+        },
+        {
+            "src_id": 1607,
+            "tgt_id": 1605
+        },
+        {
+            "src_id": 1608,
+            "tgt_id": 1605
+        },
+        {
+            "src_id": 1609,
+            "tgt_id": 1605
+        },
+        {
+            "src_id": 1610,
+            "tgt_id": 1605
+        },
+        {
+            "src_id": 1622,
+            "tgt_id": 1620
+        },
+        {
+            "src_id": 1625,
+            "tgt_id": 1623
+        },
+        {
+            "src_id": 1628,
+            "tgt_id": 1623
+        }
+    ]
+}

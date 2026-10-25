@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 174 118 821<|content|>CLOSING CERTIFICATE OF ARDENT CAPITAL GP III LLC\n<|id|>1<|type|>title<|page|>1<|box|>136 187 171 808<|content|>Delivered Pursuant to the Management Company Restr\n<|id|>4<|type|>title<|page|>1<|box|>284 140 300 243<|content|>RECITALS\n<|id|>24<|type|>title<|page|>2<|box|>521 140 537 558<|content|>SECTION 1: ORGANIZATION AND AUTHORITY\n<|id|>30<|type|>title<|page|>3<|box|>148 140 166 604<|content|>SECTION 2: REPRESENTATIONS AND WARRANTIES\n<|id|>37<|type|>title<|page|>4<|box|>412 140 430 452<|content|>SECTION 3: CONSENTS OBTAINED\n<|id|>61<|type|>title<|page|>6<|box|>604 140 619 558<|content|>SECTION 4: NO MATERIAL ADVERSE CHANGE\n<|id|>66<|type|>table<|page|>6<|box|>830 143 906 852<|content|>None\n<|id|>67<|type|>table<|page|>7<|box|>89 143 220 852<|content|>None\n<|id|>70<|type|>title<|page|>7<|box|>484 140 502 586<|content|>SECTION 5: CONDITIONS TO CLOSING SATISFIED\n<|id|>80<|type|>table<|page|>8<|box|>613 143 744 852<|content|>None\n<|id|>83<|type|>table<|page|>9<|box|>151 143 282 852<|content|>None\n<|id|>85<|type|>title<|page|>9<|box|>449 140 465 537<|content|>SECTION 6: AUTHORIZATION OF OFFICERS\n<|id|>101<|type|>title<|page|>10<|box|>462 140 479 517<|content|>SECTION 7: NO DEFAULTS OR BREACHES\n<|id|>102<|type|>title<|page|>10<|box|>487 140 505 756<|content|>7.1. The undersigned hereby certifies, on behalf o\n<|id|>108<|type|>title<|page|>11<|box|>295 140 313 349<|content|>SECTION 8: RELIANCE\n<|id|>119<|type|>title<|page|>11<|box|>873 290 890 705<|content|>SIGNATURE PAGE TO CLOSING CERTIFICATE",
+    "raw_response": "<|src_id|>66<|tgt_id|>61\n<|src_id|>67<|tgt_id|>61\n<|src_id|>80<|tgt_id|>70\n<|src_id|>83<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 66,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 70
+        }
+    ]
+}

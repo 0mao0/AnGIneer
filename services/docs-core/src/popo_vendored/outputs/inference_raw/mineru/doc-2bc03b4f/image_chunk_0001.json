@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        50,
+        64
+    ],
+    "pages": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>494<|type|>title<|page|>50<|box|>375 142 391 401<|content|>12.2 Sensitivity and Risk Factors\n<|id|>502<|type|>title<|page|>51<|box|>266 142 284 299<|content|>13. CONCLUSION\n<|id|>503<|type|>title<|page|>51<|box|>297 142 315 455<|content|>13.1 Summary of Arm's-Length Results\n<|id|>508<|type|>title<|page|>51<|box|>741 142 758 388<|content|>13.2 No Adjustments Required\n<|id|>512<|type|>title<|page|>52<|box|>138 142 157 594<|content|>13.3 Documentation Completeness and Penalty Protec\n<|id|>525<|type|>title<|page|>52<|box|>724 142 741 264<|content|>APPENDICES\n<|id|>526<|type|>title<|page|>53<|box|>90 140 108 661<|content|>Appendix A: Comparable Company Profiles (CPM/TNMM\n<|id|>538<|type|>title<|page|>54<|box|>90 142 108 665<|content|>Appendix B: Comparable License Agreement Profiles\n<|id|>548<|type|>title<|page|>55<|box|>90 142 107 598<|content|>Appendix C: HSI Detailed Financial Statements (FY\n<|id|>556<|type|>title<|page|>56<|box|>89 142 108 645<|content|>Appendix D: HSAG Consolidated Financial Summary (F\n<|id|>557<|type|>table<|page|>56<|box|>156 143 398 852<|content|>None\n<|id|>560<|type|>title<|page|>57<|box|>90 142 107 663<|content|>Appendix E: Intercompany Transaction Schedules (FY\n<|id|>561<|type|>table<|page|>57<|box|>155 143 295 852<|content|>None\n<|id|>568<|type|>title<|page|>58<|box|>90 140 107 488<|content|>Appendix F: CSA Documentation Summary\n<|id|>594<|type|>title<|page|>59<|box|>90 142 108 535<|content|>Appendix G: Copies of Intercompany Agreements\n<|id|>600<|type|>title<|page|>60<|box|>90 142 107 583<|content|>Appendix H: Organizational Chart and Entity Overvi\n<|id|>605<|type|>table<|page|>61<|box|>112 143 896 852<|content|>None\n<|id|>606<|type|>table<|page|>62<|box|>88 143 324 852<|content|>None\n<|id|>607<|type|>title<|page|>63<|box|>90 140 108 486<|content|>Appendix J: List of Advisors and Preparers\n<|id|>625<|type|>title<|page|>63<|box|>813 421 829 576<|content|>CERTIFICATION\n<|id|>642<|type|>title<|page|>64<|box|>494 274 513 720<|content|>IRC § 6662(e) PENALTY PROTECTION STATEMENT",
+    "raw_response": "<|src_id|>557<|tgt_id|>556\n<|src_id|>561<|tgt_id|>560\n<|src_id|>605<|tgt_id|>600\n<|src_id|>606<|tgt_id|>600",
+    "parsed": [
+        {
+            "src_id": 557,
+            "tgt_id": 556
+        },
+        {
+            "src_id": 561,
+            "tgt_id": 560
+        },
+        {
+            "src_id": 605,
+            "tgt_id": 600
+        },
+        {
+            "src_id": 606,
+            "tgt_id": 600
+        }
+    ]
+}

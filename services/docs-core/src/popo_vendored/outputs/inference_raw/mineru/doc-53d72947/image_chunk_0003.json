@@ -1,0 +1,65 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        147,
+        157
+    ],
+    "pages": [
+        147,
+        148,
+        149,
+        150,
+        151,
+        154,
+        157
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>541<|type|>table<|page|>147<|box|>291 3 858 940<|content|>None\n<|id|>542<|type|>title<|page|>148<|box|>41 435 56 664<|content|>Highway Trust Fund—Continued\n<|id|>545<|type|>table<|page|>148<|box|>113 53 238 983<|content|>None\n<|id|>546<|type|>table<|page|>148<|box|>280 53 412 985<|content|>None\n<|id|>547<|type|>table<|page|>148<|box|>453 53 605 987<|content|>None\n<|id|>554<|type|>table<|page|>149<|box|>215 3 339 929<|content|>None\n<|id|>555<|type|>table<|page|>149<|box|>390 0 536 933<|content|>None\n<|id|>559<|type|>table<|page|>150<|box|>179 83 361 979<|content|>None\n<|id|>565<|type|>table<|page|>151<|box|>276 3 409 937<|content|>None\n<|id|>566<|type|>table<|page|>151<|box|>465 1 587 937<|content|>None\n<|id|>567<|type|>title<|page|>154<|box|>36 241 54 750<|content|>U.S. Currency and Coin Outstanding and in Circulat\n<|id|>568<|type|>table<|page|>154<|box|>86 35 215 959<|content|>None\n<|id|>569<|type|>table<|page|>154<|box|>238 33 452 957<|content|>None\n<|id|>571<|type|>title<|page|>157<|box|>154 243 176 708<|content|>THIS FORM CAN BE REPRODUCED.\n<|id|>572<|type|>title<|page|>157<|box|>204 195 224 750<|content|>Superintendent of Documents Subscriptions Order Fo\n<|id|>575<|type|>image<|page|>157<|box|>227 767 257 822<|content|>None",
+    "raw_response": "<|src_id|>545<|tgt_id|>542\n<|src_id|>546<|tgt_id|>542\n<|src_id|>547<|tgt_id|>542\n<|src_id|>554<|tgt_id|>542\n<|src_id|>555<|tgt_id|>542\n<|src_id|>559<|tgt_id|>542\n<|src_id|>565<|tgt_id|>542\n<|src_id|>566<|tgt_id|>542\n<|src_id|>568<|tgt_id|>567\n<|src_id|>569<|tgt_id|>567\n<|src_id|>575<|tgt_id|>572",
+    "parsed": [
+        {
+            "src_id": 545,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 546,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 547,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 554,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 555,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 559,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 565,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 566,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 568,
+            "tgt_id": 567
+        },
+        {
+            "src_id": 569,
+            "tgt_id": 567
+        },
+        {
+            "src_id": 575,
+            "tgt_id": 572
+        }
+    ]
+}

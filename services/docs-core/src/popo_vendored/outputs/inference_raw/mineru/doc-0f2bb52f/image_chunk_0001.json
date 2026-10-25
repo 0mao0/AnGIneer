@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        50,
+        55
+    ],
+    "pages": [
+        51,
+        52,
+        53,
+        54,
+        55
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>622<|type|>title<|page|>51<|box|>90 142 107 594<|content|>Appendix B: State Registration and Fee Payment Tra\n<|id|>623<|type|>table<|page|>51<|box|>176 143 531 852<|content|>None\n<|id|>624<|type|>title<|page|>51<|box|>564 143 580 197<|content|>Notes:\n<|id|>628<|type|>table<|page|>52<|box|>143 143 638 852<|content|>None\n<|id|>629<|type|>table<|page|>52<|box|>699 143 902 852<|content|>None\n<|id|>630<|type|>table<|page|>53<|box|>89 143 205 852<|content|>None\n<|id|>631<|type|>title<|page|>54<|box|>90 142 107 663<|content|>Appendix D: State-by-State Applicability Determina\n<|id|>632<|type|>table<|page|>54<|box|>176 143 902 852<|content|>None\n<|id|>633<|type|>table<|page|>55<|box|>89 143 375 851<|content|>None\n<|id|>635<|type|>title<|page|>55<|box|>476 142 492 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>623<|tgt_id|>622\n<|src_id|>628<|tgt_id|>622\n<|src_id|>629<|tgt_id|>622\n<|src_id|>630<|tgt_id|>622\n<|src_id|>632<|tgt_id|>631\n<|src_id|>633<|tgt_id|>631",
+    "parsed": [
+        {
+            "src_id": 623,
+            "tgt_id": 622
+        },
+        {
+            "src_id": 628,
+            "tgt_id": 622
+        },
+        {
+            "src_id": 629,
+            "tgt_id": 622
+        },
+        {
+            "src_id": 630,
+            "tgt_id": 622
+        },
+        {
+            "src_id": 632,
+            "tgt_id": 631
+        },
+        {
+            "src_id": 633,
+            "tgt_id": 631
+        }
+    ]
+}

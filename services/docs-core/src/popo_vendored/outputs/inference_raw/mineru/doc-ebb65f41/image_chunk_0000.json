@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 313 119 683<|content|>ACCEPTANCE OF TRUSTEESHIP\n<|id|>1<|type|>title<|page|>1<|box|>143 315 161 683<|content|>CALDWELL FAMILY INSURANCE TRUST\n<|id|>6<|type|>title<|page|>1<|box|>361 140 378 243<|content|>RECITALS\n<|id|>14<|type|>title<|page|>2<|box|>292 140 309 547<|content|>SECTION 1: ACCEPTANCE OF APPOINTMENT\n<|id|>20<|type|>title<|page|>3<|box|>204 140 220 653<|content|>SECTION 2: ACKNOWLEDGMENT OF FIDUCIARY DUTIES\n<|id|>27<|type|>title<|page|>4<|box|>148 140 185 761<|content|>SECTION 3: ACKNOWLEDGMENT OF TRUST PROPERTY AND PO\n<|id|>29<|type|>table<|page|>4<|box|>354 143 578 852<|content|>None\n<|id|>35<|type|>title<|page|>5<|box|>474 140 493 697<|content|>SECTION 4: CRUMMEY WITHDRAWAL NOTICE OBLIGATIONS\n<|id|>48<|type|>title<|page|>7<|box|>167 140 184 553<|content|>SECTION 5: COORDINATION WITH ADVISORS\n<|id|>67<|type|>title<|page|>9<|box|>89 142 106 393<|content|>SECTION 6: FEE SCHEDULE\n<|id|>72<|type|>table<|page|>9<|box|>750 143 824 852<|content|>None\n<|id|>76<|type|>title<|page|>10<|box|>420 140 438 524<|content|>SECTION 7: RESIGNATION AND REMOVAL\n<|id|>81<|type|>title<|page|>11<|box|>266 140 284 604<|content|>SECTION 8: REPRESENTATIONS AND WARRANTIES\n<|id|>88<|type|>title<|page|>12<|box|>89 140 106 415<|content|>SECTION 9: GOVERNING LAW\n<|id|>92<|type|>title<|page|>12<|box|>373 140 390 344<|content|>SECTION 10: NOTICES\n<|id|>108<|type|>title<|page|>14<|box|>89 142 106 310<|content|>SIGNATURE PAGE\n<|id|>115<|type|>title<|page|>14<|box|>267 142 284 591<|content|>ACKNOWLEDGMENT AND RECEIPT BY GRANTOR\n<|id|>117<|type|>title<|page|>14<|box|>411 142 428 246<|content|>GRANTOR:",
+    "raw_response": "<|src_id|>29<|tgt_id|>27\n<|src_id|>72<|tgt_id|>67",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 67
+        }
+    ]
+}

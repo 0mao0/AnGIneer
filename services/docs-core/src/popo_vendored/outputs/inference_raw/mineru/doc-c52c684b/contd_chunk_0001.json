@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        57,
+        88
+    ],
+    "pages": [
+        58,
+        78,
+        88
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>215<|page|>58<|box|>347 62 486 476<|content|>The term \"foreigner\" as used in these reports cove...in the June 1954 issue of the \"Treasury Bulletin,\"\n<|id|>216<|page|>58<|box|>117 524 156 940<|content|>pages 45-47. ... As a result of changes in present... will be exactly comparable to those now presented\n<|id|>255<|page|>78<|box|>116 439 128 591<|content|>(In millions of dollars)\n<|id|>256<|page|>78<|box|>49 273 65 757<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV...RATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIVITIES\n<|id|>278<|page|>88<|box|>128 380 143 637<|content|>Footnotes to Tables 2 and 3\n<|id|>279<|page|>88<|box|>186 22 224 475<|content|>Note: ... The reports as received are revised by t...spective corporations and business-type activities",
+    "raw_response": "<|src_id|>215<|tgt_id|>216",
+    "parsed": [
+        {
+            "src_id": 215,
+            "tgt_id": 216
+        }
+    ]
+}

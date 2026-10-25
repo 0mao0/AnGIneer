@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 140 104 596<|content|>CONFIDENTIAL — SUBJECT TO CONFIDENTIALITY AGREEMEN\n<|id|>1<|type|>title<|page|>1<|box|>112 259 128 854<|content|>CALDERWOOD & HARKNESS LLP 125 Broad Street New Yor\n<|id|>9<|type|>title<|page|>1<|box|>390 140 407 697<|content|>I. Introductory Paragraph — Scope of Engagement an\n<|id|>15<|type|>title<|page|>2<|box|>241 140 258 624<|content|>II. Description of the Confidential Information Me\n<|id|>17<|type|>title<|page|>2<|box|>388 140 406 410<|content|>A. The Borrower and Its Business\n<|id|>19<|type|>title<|page|>2<|box|>536 142 553 334<|content|>B. Ownership Structure\n<|id|>21<|type|>title<|page|>2<|box|>662 140 680 308<|content|>C. Key Management\n<|id|>29<|type|>title<|page|>3<|box|>89 140 107 343<|content|>D. Key Financial Metrics\n<|id|>35<|type|>title<|page|>3<|box|>320 140 338 434<|content|>E. Data Center Campus Descriptions\n<|id|>37<|type|>title<|page|>3<|box|>388 140 405 491<|content|>Virginia Campus — \"Ironhaven Ashburn I\"\n<|id|>40<|type|>title<|page|>3<|box|>648 142 666 516<|content|>Frankfurt Campus — \"Ironhaven Frankfurt I\"\n<|id|>43<|type|>title<|page|>4<|box|>138 142 157 460<|content|>F. Proposed Terms of the Credit Facility\n<|id|>46<|type|>title<|page|>4<|box|>268 176 287 486<|content|>Aggregate Commitments: $950,000,000\n<|id|>47<|type|>title<|page|>4<|box|>296 176 311 261<|content|>Tranches:\n<|id|>50<|type|>title<|page|>4<|box|>378 176 395 290<|content|>Interest Rate:\n<|id|>57<|type|>title<|page|>4<|box|>638 176 655 348<|content|>Financial Covenants:\n<|id|>60<|type|>title<|page|>4<|box|>704 176 720 375<|content|>Mandatory Prepayment:\n<|id|>63<|type|>title<|page|>4<|box|>843 178 859 441<|content|>Capital Expenditure Limitations:\n<|id|>68<|type|>title<|page|>5<|box|>138 140 157 370<|content|>G. Pro Forma Capitalization\n<|id|>70<|type|>table<|page|>5<|box|>224 143 407 852<|content|>None\n<|id|>71<|type|>title<|page|>5<|box|>446 142 463 292<|content|>H. Use of Proceeds\n<|id|>72<|type|>table<|page|>5<|box|>494 143 640 852<|content|>None\n<|id|>73<|type|>title<|page|>5<|box|>679 142 696 310<|content|>I. Collateral Package\n<|id|>75<|type|>title<|page|>6<|box|>90 140 107 421<|content|>J. Proposed Syndicate Composition\n<|id|>78<|type|>title<|page|>6<|box|>267 140 284 583<|content|>L. Calderwood & Harkness's Role in Review of the C\n<|id|>80<|type|>title<|page|>6<|box|>478 140 494 529<|content|>III. Role of Calderwood & Harkness; Limitations\n<|id|>95<|type|>title<|page|>8<|box|>90 142 107 331<|content|>IV. Negative Assurance\n<|id|>106<|type|>title<|page|>9<|box|>148 140 167 416<|content|>V. Qualifications and Assumptions\n<|id|>115<|type|>title<|page|>10<|box|>277 140 294 522<|content|>VI. Confidentiality and Distribution Restrictions\n<|id|>125<|type|>title<|page|>10<|box|>752 140 768 470<|content|>VII. No Ongoing Obligation; Bring-Down\n<|id|>128<|type|>title<|page|>11<|box|>277 140 294 313<|content|>VIII. Governing Law\n<|id|>132<|type|>title<|page|>11<|box|>464 140 479 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>146<|type|>title<|page|>11<|box|>765 140 781 321<|content|>cc: (via electronic mail)",
+    "raw_response": "<|src_id|>70<|tgt_id|>68\n<|src_id|>72<|tgt_id|>71",
+    "parsed": [
+        {
+            "src_id": 70,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 71
+        }
+    ]
+}

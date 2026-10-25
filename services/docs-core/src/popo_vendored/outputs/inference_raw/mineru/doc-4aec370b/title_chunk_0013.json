@@ -1,0 +1,58 @@
+{
+    "task": "title",
+    "chunk_index": 13,
+    "range": [
+        662,
+        716
+    ],
+    "pages": [
+        663,
+        678,
+        684,
+        699,
+        701,
+        703,
+        705,
+        715
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2124<|page|>663<|box|>165 330 200 661<|content|>第六节 现浇混凝土及钢筋混凝土\n<|id|>2125<|page|>663<|box|>253 455 286 539<|content|>说明\n<|id|>2170<|page|>678<|box|>161 410 185 577<|content|>III. 框架、肋形埋置式桥台\n<|id|>2186<|page|>684<|box|>152 431 176 556<|content|>V. Y 形墩及薄壁墩\n<|id|>2229<|page|>699<|box|>139 417 165 577<|content|>4-6-5 索塔\n<|id|>2235<|page|>701<|box|>119 433 143 558<|content|>II. 劲性骨架及钢筋\n<|id|>2241<|page|>703<|box|>116 441 139 558<|content|>III. 安装附属结构\n<|id|>2247<|page|>705<|box|>136 406 163 592<|content|>4-6-6 现浇锚块\n<|id|>2274<|page|>715<|box|>134 404 161 585<|content|>4-6-9 现浇T形梁",
+    "raw_response": "<|id|>2124<|level|>1\n<|id|>2125<|level|>2\n<|id|>2170<|level|>3\n<|id|>2186<|level|>3\n<|id|>2229<|level|>2\n<|id|>2235<|level|>3\n<|id|>2241<|level|>3\n<|id|>2247<|level|>2\n<|id|>2274<|level|>2",
+    "parsed": [
+        {
+            "id": 2124,
+            "level": 1
+        },
+        {
+            "id": 2125,
+            "level": 2
+        },
+        {
+            "id": 2170,
+            "level": 3
+        },
+        {
+            "id": 2186,
+            "level": 3
+        },
+        {
+            "id": 2229,
+            "level": 2
+        },
+        {
+            "id": 2235,
+            "level": 3
+        },
+        {
+            "id": 2241,
+            "level": 3
+        },
+        {
+            "id": 2247,
+            "level": 2
+        },
+        {
+            "id": 2274,
+            "level": 2
+        }
+    ]
+}

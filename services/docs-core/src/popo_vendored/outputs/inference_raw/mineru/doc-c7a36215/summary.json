@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4nepw8mo\\input\\pdfs\\doc-c7a36215.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4nepw8mo\\enriched\\doc-c7a36215.json",
+    "contd_output": "<|src_id|>30<|tgt_id|>31\n<|src_id|>121<|tgt_id|>122\n<|src_id|>176<|tgt_id|>177",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>2\n<|id|>19<|level|>2\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>72<|level|>3\n<|id|>85<|level|>2\n<|id|>86<|level|>3\n<|id|>101<|level|>2\n<|id|>114<|level|>2\n<|id|>120<|level|>2\n<|id|>133<|level|>2\n<|id|>139<|level|>2\n<|id|>151<|level|>2\n<|id|>158<|level|>2\n<|id|>205<|level|>2\n<|id|>206<|level|>3\n<|id|>210<|level|>4\n<|id|>216<|level|>2\n<|id|>217<|level|>3\n<|id|>219<|level|>4\n<|id|>244<|level|>2\n<|id|>245<|level|>3\n<|id|>253<|level|>4",
+    "image_output": "<|src_id|>208<|tgt_id|>206\n<|src_id|>209<|tgt_id|>206\n<|src_id|>259<|tgt_id|>253\n<|src_id|>260<|tgt_id|>253",
+    "contd_label": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 177
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 3
+        },
+        {
+            "id": 210,
+            "level": 4
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 3
+        },
+        {
+            "id": 219,
+            "level": 4
+        },
+        {
+            "id": 244,
+            "level": 2
+        },
+        {
+            "id": 245,
+            "level": 3
+        },
+        {
+            "id": 253,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 208,
+            "tgt_id": 206
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 206
+        },
+        {
+            "src_id": 259,
+            "tgt_id": 253
+        },
+        {
+            "src_id": 260,
+            "tgt_id": 253
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 208,
+            "table2_idx": 209,
+            "upper_row_ss": [
+                [
+                    "Other Management",
+                    "Various (see attachment)",
+                    "[To be specified at",
+                    "~7.70% (aggregate)",
+                    "[To be specified at",
+                    "[To be specified at",
+                    "[To be specified at"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "/ Employee Holders (as listed on attachment to this Schedule A)",
+                    "",
+                    "Closing]",
+                    "",
+                    "Closing]",
+                    "Closing]",
+                    "Closing]"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 259,
+            "table2_idx": 260,
+            "upper_row_ss": [
+                [
+                    "7.",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "8.",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

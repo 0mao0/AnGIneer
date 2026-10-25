@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        48,
+        50
+    ],
+    "pages": [
+        49,
+        50
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>476<|type|>title<|page|>49<|box|>89 142 106 243<|content|>EXHIBIT C\n<|id|>477<|type|>title<|page|>49<|box|>114 250 132 746<|content|>LIST OF SUBSIDIARIES AND ORGANIZATIONAL CHART\n<|id|>479<|type|>title<|page|>49<|box|>246 142 263 269<|content|>I. Parent Entity\n<|id|>481<|type|>title<|page|>49<|box|>337 142 354 348<|content|>II. Operating Partnership\n<|id|>486<|type|>title<|page|>49<|box|>493 142 510 485<|content|>III. Material Property-Owning Subsidiaries\n<|id|>488<|type|>table<|page|>49<|box|>676 143 898 852<|content|>None\n<|id|>489<|type|>table<|page|>50<|box|>88 143 142 852<|content|>None\n<|id|>490<|type|>title<|page|>50<|box|>181 143 198 393<|content|>IV. Other Material Subsidiaries\n<|id|>491<|type|>table<|page|>50<|box|>202 143 290 852<|content|>None\n<|id|>492<|type|>title<|page|>50<|box|>329 143 345 338<|content|>V. Organizational Chart\n<|id|>494<|type|>title<|page|>50<|box|>420 351 436 645<|content|>[Organizational Chart to be Inserted]",
+    "raw_response": "<|src_id|>488<|tgt_id|>486\n<|src_id|>489<|tgt_id|>486\n<|src_id|>491<|tgt_id|>490",
+    "parsed": [
+        {
+            "src_id": 488,
+            "tgt_id": 486
+        },
+        {
+            "src_id": 489,
+            "tgt_id": 486
+        },
+        {
+            "src_id": 491,
+            "tgt_id": 490
+        }
+    ]
+}

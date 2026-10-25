@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 140 195 854<|content|>FROM: ... Grace Nakamura, Calderwood & Harkness LLP, 450 Park Avenue, 28th Floor, New York, NY 10022\n<|id|>3<|page|>1<|box|>204 140 220 692<|content|>TO: ... Douglas Fairchild, Responsible Partner, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>229 140 282 854<|content|>CC: ... Sylvia Hartwell, Specialist Partner (Tax), Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>292 140 310 330<|content|>DATE: ... August 22, 2024\n<|id|>6<|page|>1<|box|>318 140 373 854<|content|>RE: ... — Post-Closing Proration True- Up Analysis\n<|id|>7<|page|>1<|box|>381 142 398 361<|content|>MATTER NO. ... 1036-00004\n<|id|>8<|page|>1<|box|>406 140 483 854<|content|>This memorandum is protected by the attorney-clien...tify the sender immediately and destroy all copies\n<|id|>36<|page|>3<|box|>804 174 823 697<|content|>(j) All amounts payable under service contracts assumed by Buyer; ... and\n<|id|>38<|page|>4<|box|>90 140 145 854<|content|>Leap Year Calculation. ... This provision is relev...the real property tax proration, among other items\n<|id|>46<|page|>4<|box|>751 174 768 594<|content|>$14,760,000 × (157 / 366) = $6,332,951 (approximately)\n<|id|>47<|page|>4<|box|>777 140 814 854<|content|>This figure was credited to Buyer at closing as a ... real property taxes during the Pre-Closing Period\n<|id|>69<|page|>7<|box|>258 174 276 444<|content|>$6,420,855 − $6,332,951 = $87,904\n<|id|>70<|page|>7<|box|>284 140 358 854<|content|>Because Seller's actual prorated share exceeds the...riod was not captured in the Preliminary Statement\n<|id|>92<|page|>8<|box|>858 176 876 531<|content|>$1,850,000 − $182,320 − $47,830 = $1,619,850\n<|id|>93<|page|>9<|box|>90 140 162 854<|content|>Because the preliminary reserve of $1,850,000 was ...ldback and the actual Pre-Closing Period shortfall\n<|id|>106<|page|>9<|box|>830 140 930 854<|content|>At closing, the parties agreed that Buyer would ob...COUNSEL FOR FAIRWATER REAL ESTATE INVESTMENT TRUST\n<|id|>107<|page|>10<|box|>90 140 125 854<|content|>Insurance Group, were maintained through the Closi...Date and terminated or allowed to lapse thereafter\n<|id|>156<|page|>13<|box|>867 140 930 854<|content|>Calculation: ... aggregate PRIVILEGED & CONFIDENTI...COUNSEL FOR FAIRWATER REAL ESTATE INVESTMENT TRUST\n<|id|>157<|page|>14<|box|>90 140 200 854<|content|>Buyer\\mathrm { C r e d i t s } \\ ( \\mathbb { S } 8...s in a net incremental credit to Buyer of $347,218\n<|id|>187<|page|>17<|box|>352 181 368 640<|content|>• Marcus Devereaux, Executive Vice President, Acquisitions\n<|id|>191<|page|>17<|box|>430 140 465 852<|content|>We are available to arrange a call with the Fairwa...il and address any questions prior to finalization\n<|id|>188<|page|>17<|box|>372 183 388 470<|content|>• David Elgin Park, General Counsel\n<|id|>189<|page|>17<|box|>391 183 407 549<|content|>• Camille Oduya, In-House Real Estate Counsel\n<|id|>190<|page|>17<|box|>411 183 426 565<|content|>• Patricia Sung-Calloway, Chief Financial Officer",
+    "raw_response": "<|src_id|>106<|tgt_id|>107\n<|src_id|>156<|tgt_id|>157",
+    "parsed": [
+        {
+            "src_id": 106,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 157
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|type|>title<|page|>1<|box|>359 140 377 374<|content|>I. Purpose and Authorization\n<|id|>12<|type|>title<|page|>1<|box|>815 140 832 560<|content|>II. Active Visa Holder Petition Files (18 Benefici\n<|id|>14<|type|>title<|page|>2<|box|>157 142 174 454<|content|>A. H-1B Visa Holders (14 Beneficiaries)\n<|id|>15<|type|>table<|page|>2<|box|>224 143 714 852<|content|>None\n<|id|>16<|type|>title<|page|>2<|box|>753 142 768 431<|content|>B. O-1 Visa Holders (4 Beneficiaries)\n<|id|>17<|type|>table<|page|>2<|box|>819 143 906 852<|content|>None\n<|id|>18<|type|>table<|page|>3<|box|>88 143 172 852<|content|>None\n<|id|>19<|type|>title<|page|>3<|box|>210 140 229 568<|content|>C. Specific Documents Requested for Each Beneficia\n<|id|>29<|type|>title<|page|>3<|box|>757 142 773 526<|content|>III. Pending Matters Requiring Urgent Attention\n<|id|>31<|type|>title<|page|>3<|box|>851 140 868 547<|content|>A. Takeshi Nakamura — H-1B Extension (Pending)\n<|id|>40<|type|>title<|page|>4<|box|>496 142 513 539<|content|>B. Arjun Krishnamurthy — PERM Audit Pending\n<|id|>46<|type|>title<|page|>4<|box|>819 140 835 475<|content|>C. Withdrawn Candidate — Pending RFE\n<|id|>49<|type|>title<|page|>5<|box|>250 140 265 645<|content|>IV. PERM / Green Card Case Files (7 Cases, Includi\n<|id|>50<|type|>table<|page|>5<|box|>335 143 501 852<|content|>None\n<|id|>59<|type|>title<|page|>6<|box|>194 140 210 563<|content|>V. Historical Public Access File (PAF) Documentati\n<|id|>71<|type|>title<|page|>6<|box|>709 142 724 493<|content|>VI. I-9 Records and E-Verify Documentation\n<|id|>74<|type|>title<|page|>7<|box|>148 140 167 513<|content|>VII. FY2026 H-1B Registration Documentation\n<|id|>76<|type|>title<|page|>7<|box|>273 142 292 336<|content|>We request the following:\n<|id|>82<|type|>title<|page|>7<|box|>503 142 520 334<|content|>Selected Candidates (5):\n<|id|>88<|type|>title<|page|>7<|box|>627 143 643 354<|content|>Unselected Candidates (4):\n<|id|>94<|type|>title<|page|>7<|box|>809 140 825 436<|content|>VIII. FDNS Site Visit Documentation\n<|id|>99<|type|>title<|page|>8<|box|>348 140 364 431<|content|>IX. Engagement Records and Billing\n<|id|>102<|type|>title<|page|>8<|box|>551 140 568 429<|content|>X. Format and Delivery Instructions\n<|id|>110<|type|>title<|page|>9<|box|>167 140 185 366<|content|>XI. Target Completion Date\n<|id|>117<|type|>title<|page|>9<|box|>712 140 729 344<|content|>XII. Client Authorization\n<|id|>120<|type|>title<|page|>10<|box|>90 140 107 406<|content|>XIII. Cooperation and Transition\n<|id|>123<|type|>title<|page|>10<|box|>366 140 383 250<|content|>XIV. Closing\n<|id|>125<|type|>title<|page|>10<|box|>473 176 489 477<|content|>Megan Chu Telephone: (213) 555-4819\n<|id|>134<|type|>title<|page|>10<|box|>690 142 704 171<|content|>cc:",
+    "raw_response": "<|src_id|>15<|tgt_id|>14\n<|src_id|>17<|tgt_id|>16\n<|src_id|>18<|tgt_id|>16\n<|src_id|>50<|tgt_id|>49",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 49
+        }
+    ]
+}

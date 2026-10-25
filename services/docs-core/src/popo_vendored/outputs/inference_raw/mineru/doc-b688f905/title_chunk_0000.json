@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 272 107 723<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>8<|page|>1<|box|>383 142 401 264<|content|>I. Introduction\n<|id|>11<|page|>1<|box|>642 140 659 622<|content|>II. Defined Terms and Mezzanine Loan Documents Ide\n<|id|>23<|page|>2<|box|>523 140 542 449<|content|>III. Documents and Records Examined\n<|id|>37<|page|>3<|box|>781 142 797 277<|content|>IV. Assumptions\n<|id|>49<|page|>4<|box|>821 142 839 243<|content|>V. Opinions\n<|id|>51<|page|>5<|box|>90 140 108 800<|content|>Opinion 1 — Organization and Existence of Mezzanin\n<|id|>53<|page|>5<|box|>273 140 308 854<|content|>Opinion 2 — Organization and Existence of HYW Mort\n<|id|>55<|page|>5<|box|>601 140 619 547<|content|>Opinion 3 — Authorization of MTDC as Guarantor\n<|id|>57<|page|>6<|box|>90 140 107 511<|content|>Opinion 4 — Due Authorization and Execution\n<|id|>59<|page|>6<|box|>345 140 363 362<|content|>Opinion 5 — Enforceability\n<|id|>61<|page|>6<|box|>510 140 527 640<|content|>Opinion 6 — Security Interest in Pledged Membershi\n<|id|>66<|page|>7<|box|>531 140 549 349<|content|>Opinion 7 — No Conflicts\n<|id|>72<|page|>8<|box|>257 140 273 455<|content|>Opinion 8 — No Consents or Approvals\n<|id|>74<|page|>8<|box|>494 140 511 364<|content|>Opinion 9 — Choice of Law\n<|id|>76<|page|>8<|box|>786 140 804 310<|content|>Opinion 10 — Usury\n<|id|>78<|page|>9<|box|>277 140 295 511<|content|>VI. Qualifications, Limitations, and Exceptions\n<|id|>79<|page|>9<|box|>309 140 325 393<|content|>A. Enforceability Qualifications\n<|id|>86<|page|>10<|box|>90 140 107 553<|content|>B. Other Qualifications, Limitations, and Exceptio\n<|id|>96<|page|>11<|box|>393 140 412 344<|content|>VII. Reliance and Benefit",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>11<|level|>1\n<|id|>23<|level|>1\n<|id|>37<|level|>1\n<|id|>49<|level|>1\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>72<|level|>2\n<|id|>74<|level|>2\n<|id|>76<|level|>2\n<|id|>78<|level|>1\n<|id|>79<|level|>2\n<|id|>86<|level|>2\n<|id|>96<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 1
+        }
+    ]
+}

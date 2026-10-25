@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12,
+        13,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 126 852<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 633 Wes\n<|id|>2<|page|>1<|box|>171 424 188 573<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>335 140 352 321<|content|>I. Executive Summary\n<|id|>12<|page|>2<|box|>186 140 204 424<|content|>II. Notice Administration Summary\n<|id|>18<|page|>3<|box|>90 140 107 316<|content|>III. Opt-Out Analysis\n<|id|>19<|page|>3<|box|>121 140 138 321<|content|>A. Summary Statistics\n<|id|>23<|page|>3<|box|>392 142 409 299<|content|>B. Pattern Analysis\n<|id|>32<|page|>4<|box|>518 140 534 274<|content|>IV. Claims Data\n<|id|>38<|page|>5<|box|>476 140 493 318<|content|>V. Objection Analysis\n<|id|>41<|page|>5<|box|>708 140 724 511<|content|>B. Objection 1: Carlos Vega — Attorneys' Fees\n<|id|>45<|page|>6<|box|>135 140 151 243<|content|>Assessment:\n<|id|>58<|page|>7<|box|>429 140 446 566<|content|>C. Objection 2: Rachel Kimura — Allocation Formula\n<|id|>62<|page|>7<|box|>733 140 748 243<|content|>Assessment:\n<|id|>68<|page|>8<|box|>638 140 655 633<|content|>D. Objection 3: Samuel Torres — Settlement Amount\n<|id|>72<|page|>8<|box|>868 140 883 243<|content|>Assessment:\n<|id|>85<|page|>10<|box|>239 140 256 710<|content|>E. Objection 4: Dawn Prescott — Broad Release of N\n<|id|>89<|page|>10<|box|>597 140 613 243<|content|>Assessment:\n<|id|>100<|page|>12<|box|>340 140 357 655<|content|>VI. Comparative Analysis — Opt-Outs and Objections\n<|id|>105<|page|>13<|box|>90 140 107 328<|content|>VII. Recommendations\n<|id|>116<|page|>15<|box|>90 140 107 460<|content|>VIII. Appendix / Attachments Reference",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>23<|level|>3\n<|id|>32<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>3\n<|id|>45<|level|>4\n<|id|>58<|level|>3\n<|id|>62<|level|>4\n<|id|>68<|level|>3\n<|id|>72<|level|>4\n<|id|>85<|level|>3\n<|id|>89<|level|>4\n<|id|>100<|level|>2\n<|id|>105<|level|>2\n<|id|>116<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 4
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        }
+    ]
+}

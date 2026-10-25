@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>13<|page|>1<|box|>758 140 906 856<|content|>PURPOSE. ... Without limiting the generality of th...ng the Corporation, the Target, and Solara Digital\n<|id|>14<|page|>2<|box|>90 140 200 856<|content|>Infrastructure LP, a Delaware limited partnership ...y be required or advisable in connection therewith\n<|id|>22<|page|>2<|box|>625 174 660 854<|content|>Tiffany Rosenthal Calderwood & Harkness LLP 599 Lexington Avenue New York, New York 10022\n<|id|>23<|page|>2<|box|>669 140 797 856<|content|>The incorporator is acting in her capacity as Lead... the initial board of directors of the Corporation\n<|id|>28<|page|>3<|box|>342 174 378 854<|content|>Marcus Elliston c/o Solara Digital Infrastructure ...rket Street, Suite 3400 Wilmington, Delaware 19801\n<|id|>29<|page|>3<|box|>387 140 479 854<|content|>Section 6. ... Unless and until otherwise provided...poration, the number of directors shall be one (1)\n<|id|>42<|page|>5<|box|>199 174 234 854<|content|>Solara Digital Infrastructure Fund VI LP 1200 Market Street, Suite 3400 Wilmington, Delaware 19801\n<|id|>43<|page|>5<|box|>244 140 372 854<|content|>Section 9. ... Evidence of such shares shall be re...ficates issued in the name of the Sole Stockholder\n<|id|>53<|page|>5<|box|>888 140 906 333<|content|>Name: ... Tiffany Rosenthal\n<|id|>54<|page|>5<|box|>916 140 930 550<|content|>Filed with the Secretary of State of the State of Delaware — January 8, 2024\n<|id|>55<|page|>6<|box|>89 140 141 746<|content|>Title: ... January 8, 2024",
+    "raw_response": "<|src_id|>13<|tgt_id|>14",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        }
+    ]
+}

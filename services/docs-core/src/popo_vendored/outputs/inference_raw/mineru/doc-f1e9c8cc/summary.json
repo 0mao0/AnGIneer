@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wk39xr0b\\input\\pdfs\\doc-f1e9c8cc.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wk39xr0b\\enriched\\doc-f1e9c8cc.json",
+    "contd_output": "<|src_id|>77<|tgt_id|>78\n<|src_id|>90<|tgt_id|>91\n<|src_id|>153<|tgt_id|>154\n<|src_id|>161<|tgt_id|>163",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>18<|level|>2\n<|id|>51<|level|>2\n<|id|>61<|level|>2\n<|id|>70<|level|>2\n<|id|>74<|level|>2\n<|id|>81<|level|>2\n<|id|>89<|level|>2\n<|id|>95<|level|>2\n<|id|>99<|level|>2\n<|id|>105<|level|>2\n<|id|>120<|level|>2\n<|id|>129<|level|>2\n<|id|>137<|level|>2\n<|id|>140<|level|>2\n<|id|>156<|level|>2\n<|id|>165<|level|>2\n<|id|>194<|level|>2\n<|id|>196<|level|>3\n<|id|>209<|level|>2\n<|id|>210<|level|>2\n<|id|>214<|level|>3\n<|id|>219<|level|>2\n<|id|>220<|level|>2\n<|id|>224<|level|>3\n<|id|>230<|level|>2\n<|id|>231<|level|>2\n<|id|>242<|level|>2\n<|id|>243<|level|>2",
+    "image_output": "<|src_id|>85<|tgt_id|>81\n<|src_id|>212<|tgt_id|>210\n<|src_id|>213<|tgt_id|>210\n<|src_id|>222<|tgt_id|>220\n<|src_id|>223<|tgt_id|>220",
+    "contd_label": [
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 163
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 214,
+            "level": 3
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 224,
+            "level": 3
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 231,
+            "level": 2
+        },
+        {
+            "id": 242,
+            "level": 2
+        },
+        {
+            "id": 243,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 85,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 210
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 210
+        },
+        {
+            "src_id": 222,
+            "tgt_id": 220
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 220
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 212,
+            "table2_idx": 213,
+            "upper_row_ss": [
+                [
+                    "Forfeited Vested Carry (40% × $10,512,000)",
+                    "$4,204,800"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Forfeited Unvested Carry",
+                    "100% (amount to be determined based on remaining vesting schedule under the Carried Interest Allocation Agreement)"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        48,
+        50
+    ],
+    "pages": [
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>642<|type|>title<|page|>48<|box|>90 140 107 831<|content|>Appendix D — Model Advertising Compliance Clause f\n<|id|>653<|type|>title<|page|>49<|box|>90 142 107 468<|content|>Appendix E — ACF Contact Information\n<|id|>662<|type|>title<|page|>49<|box|>319 397 339 599<|content|>APPROVAL PAGE\n<|id|>663<|type|>title<|page|>49<|box|>356 168 392 826<|content|>STANDARD OPERATING PROCEDURE — ADVERTISING REVIEW\n<|id|>664<|type|>title<|page|>49<|box|>435 143 453 250<|content|>Prepared by:\n<|id|>668<|type|>title<|page|>49<|box|>609 142 627 251<|content|>Reviewed by:\n<|id|>674<|type|>title<|page|>49<|box|>808 143 825 254<|content|>Approved by:\n<|id|>678<|type|>table<|page|>50<|box|>123 143 162 852<|content|>None",
+    "raw_response": "<|src_id|>678<|tgt_id|>674",
+    "parsed": [
+        {
+            "src_id": 678,
+            "tgt_id": 674
+        }
+    ]
+}

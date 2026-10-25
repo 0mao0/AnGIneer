@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>367 142 383 364<|content|>I. Introduction and Purpose\n<|id|>16<|page|>2<|box|>366 142 383 573<|content|>II. Category 1: Missing Project Files for Phases 2\n<|id|>17<|page|>2<|box|>397 140 433 852<|content|>A. Phase 2 Construction Documentation (Connecticut\n<|id|>27<|page|>3<|box|>565 140 599 854<|content|>B. Phase 3 Construction Documentation (Maryland, V\n<|id|>38<|page|>4<|box|>419 140 435 741<|content|>III. Category 2: Incomplete Subcontractor Communic\n<|id|>48<|page|>5<|box|>390 140 407 638<|content|>IV. Category 3: Ridgepoint Capital Group LP Commun\n<|id|>49<|page|>5<|box|>421 142 438 303<|content|>A. Scope of Request\n<|id|>58<|page|>6<|box|>301 140 318 524<|content|>B. Meridian's Withholding on Privilege Grounds\n<|id|>64<|page|>7<|box|>186 140 204 787<|content|>V. Category 4: Meridian's Internal Financial Recor\n<|id|>74<|page|>8<|box|>366 140 383 844<|content|>VI. Category 5: Documents Related to Meridian's Co\n<|id|>76<|page|>8<|box|>527 140 544 403<|content|>The relevant timeline is as follows:\n<|id|>93<|page|>9<|box|>651 140 667 808<|content|>VII. Category 6: Communications Regarding Alleged\n<|id|>104<|page|>10<|box|>452 140 469 759<|content|>VIII. Category 7: Meridian's Communications with I\n<|id|>109<|page|>11<|box|>90 140 107 415<|content|>IX. Search Methodology Concerns\n<|id|>122<|page|>11<|box|>809 140 825 369<|content|>X. Meet and Confer Request\n<|id|>127<|page|>12<|box|>421 140 438 344<|content|>XI. Reservation of Rights\n<|id|>131<|page|>12<|box|>686 140 704 243<|content|>XII. Closing\n<|id|>137<|page|>13<|box|>90 140 106 287<|content|>Linda Osei Partner",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>27<|level|>3\n<|id|>38<|level|>2\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>58<|level|>3\n<|id|>64<|level|>2\n<|id|>74<|level|>2\n<|id|>76<|level|>-1\n<|id|>93<|level|>2\n<|id|>104<|level|>2\n<|id|>109<|level|>2\n<|id|>122<|level|>2\n<|id|>127<|level|>2\n<|id|>131<|level|>2\n<|id|>137<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 728 185 854<|content|>August 19, 2024\n<|id|>4<|page|>1<|box|>193 140 210 339<|content|>Via Email and U. ... Mail\n<|id|>5<|page|>1<|box|>219 140 255 854<|content|>Marcus D. ... 2900 Petroleum Tower Boulevard, Suite 400 Midland, TX 79701\n<|id|>6<|page|>1<|box|>263 140 299 854<|content|>Dale Engstrom Vice President of Risk Management St...oleum Tower Boulevard, Suite 400 Midland, TX 79701\n<|id|>7<|page|>1<|box|>308 140 344 854<|content|>Re: ... 1012-00003\n<|id|>8<|page|>1<|box|>352 140 369 434<|content|>Dear Mr. ... Engstrom\n<|id|>59<|page|>6<|box|>215 174 233 821<|content|>Legal Fees: ... 00\n<|id|>60<|page|>6<|box|>241 140 258 771<|content|>SLG's net recovery, after deduction of all legal f...all legal fees and costs, is calculated as follows\n<|id|>61<|page|>6<|box|>267 174 301 854<|content|>Settlement Proceeds: ... 00\n<|id|>62<|page|>6<|box|>311 140 385 854<|content|>We note that the final invoice accompanying this l...accordance with the terms of the engagement letter\n<|id|>75<|page|>7<|box|>148 176 181 854<|content|>10. ... and\n<|id|>77<|page|>7<|box|>224 140 334 856<|content|>We remind you that the confidentiality provision c...ounting departments, and risk management personnel\n<|id|>105<|page|>9<|box|>813 174 849 854<|content|>Howard Bellamy Partner Calderwood & Harkness LLP 7... 4500 Houston, TX 77002 Direct: ... (713) 554-8124\n<|id|>106<|page|>9<|box|>857 176 875 503<|content|>Email: ... com\n<|id|>107<|page|>10<|box|>89 176 125 854<|content|>Andrew Fitzpatrick Senior Associate Calderwood & H... 4500 Houston, TX 77002 Direct: ... (713) 554-8247\n<|id|>108<|page|>10<|box|>133 142 170 517<|content|>Email: ... com Very truly yours,\n<|id|>109<|page|>10<|box|>176 140 194 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>110<|page|>10<|box|>195 143 212 253<|content|>By: ... By\n<|id|>111<|page|>10<|box|>212 142 228 331<|content|>Howard Bellamy Partner\n<|id|>112<|page|>10<|box|>228 140 273 854<|content|>cc: ... Carolyn Reeves, Managing Partner, Irongate...patrick, Lead Associate, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>105<|tgt_id|>106\n<|src_id|>107<|tgt_id|>108\n<|src_id|>110<|tgt_id|>111",
+    "parsed": [
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        }
+    ]
+}

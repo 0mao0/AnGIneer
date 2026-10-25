@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 179 126 856<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1700 Pa\n<|id|>4<|page|>1<|box|>203 140 220 465<|content|>VIA EMAIL AND FIRST-CLASS MAIL\n<|id|>8<|page|>1<|box|>359 140 376 442<|content|>1. Purpose and Engagement Overview\n<|id|>11<|page|>1<|box|>726 140 744 354<|content|>2. Scope of Representation\n<|id|>29<|page|>3<|box|>444 140 460 377<|content|>3. Staffing and Key Personnel\n<|id|>36<|page|>4<|box|>231 140 247 377<|content|>4. Client Contact Information\n<|id|>44<|page|>4<|box|>579 142 595 310<|content|>5. Fee Arrangements\n<|id|>45<|page|>4<|box|>609 142 627 279<|content|>5.1 Hourly Rates\n<|id|>49<|page|>5<|box|>90 140 107 400<|content|>5.2 Expenses and Disbursements\n<|id|>59<|page|>5<|box|>435 140 453 388<|content|>5.3 Billing and Payment Terms\n<|id|>67<|page|>5<|box|>828 140 845 390<|content|>5.4 Fee Estimate (Non-Binding)\n<|id|>72<|page|>6<|box|>434 140 450 321<|content|>6. Conflicts of Interest\n<|id|>77<|page|>7<|box|>90 140 107 390<|content|>7. Confidentiality and Privilege\n<|id|>86<|page|>7<|box|>648 140 667 326<|content|>8. Document Retention\n<|id|>90<|page|>8<|box|>167 140 184 385<|content|>9. Termination of Engagement\n<|id|>97<|page|>8<|box|>621 142 637 379<|content|>10. No Guarantee of Outcome\n<|id|>100<|page|>9<|box|>90 142 107 297<|content|>11. Governing Law\n<|id|>103<|page|>9<|box|>330 142 347 455<|content|>12. Entire Agreement and Amendments\n<|id|>106<|page|>9<|box|>532 142 549 264<|content|>13. Acceptance\n<|id|>125<|page|>10<|box|>301 142 314 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>-1\n<|id|>8<|level|>2\n<|id|>11<|level|>2\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>49<|level|>3\n<|id|>59<|level|>3\n<|id|>67<|level|>3\n<|id|>72<|level|>2\n<|id|>77<|level|>2\n<|id|>86<|level|>2\n<|id|>90<|level|>2\n<|id|>97<|level|>2\n<|id|>100<|level|>2\n<|id|>103<|level|>2\n<|id|>106<|level|>2\n<|id|>125<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        }
+    ]
+}

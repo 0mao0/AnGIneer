@@ -1,0 +1,174 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-m1kgfupa\\input\\pdfs\\doc-6bec1e14.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-m1kgfupa\\enriched\\doc-6bec1e14.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>15<|level|>2\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>35<|level|>2\n<|id|>39<|level|>2\n<|id|>56<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>79<|level|>2\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>106<|level|>2\n<|id|>147<|level|>2\n<|id|>148<|level|>3\n<|id|>150<|level|>3\n<|id|>174<|level|>4\n<|id|>179<|level|>4\n<|id|>198<|level|>2\n<|id|>199<|level|>3\n<|id|>201<|level|>4\n<|id|>204<|level|>4\n<|id|>206<|level|>4\n<|id|>208<|level|>4\n<|id|>210<|level|>4\n<|id|>215<|level|>4",
+    "image_output": "<|src_id|>172<|tgt_id|>150\n<|src_id|>173<|tgt_id|>150\n<|src_id|>202<|tgt_id|>201\n<|src_id|>205<|tgt_id|>204\n<|src_id|>207<|tgt_id|>206\n<|src_id|>209<|tgt_id|>208",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 4
+        },
+        {
+            "id": 179,
+            "level": 4
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 4
+        },
+        {
+            "id": 204,
+            "level": 4
+        },
+        {
+            "id": 206,
+            "level": 4
+        },
+        {
+            "id": 208,
+            "level": 4
+        },
+        {
+            "id": 210,
+            "level": 4
+        },
+        {
+            "id": 215,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 172,
+            "tgt_id": 150
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 150
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 206
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 208
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 172,
+            "table2_idx": 173,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "Configuration files",
+                    "—",
+                    "—"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "4",
+                    "Database schemas and migration scripts",
+                    "—",
+                    "—"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        16,
+        17,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 140 176 616<|content|>TO: ... Wendy Schultz, Senior Associate\n<|id|>3<|page|>1<|box|>186 140 203 401<|content|>FROM: ... Omar Siddiqui, Associate\n<|id|>4<|page|>1<|box|>212 140 229 343<|content|>DATE: ... February 26, 2026\n<|id|>5<|page|>1<|box|>237 140 273 852<|content|>RE: ... et al\n<|id|>6<|page|>1<|box|>281 140 299 361<|content|>MATTER NO. ... 1017-00003\n<|id|>7<|page|>1<|box|>308 140 325 482<|content|>CLIENT: ... Aurelius Global Media Group PLC\n<|id|>8<|page|>1<|box|>333 140 393 854<|content|>This memorandum is a privileged and confidential c...r than the named recipients is strictly prohibited\n<|id|>21<|page|>2<|box|>824 176 840 596<|content|>1. ... — Dallas, Texas\n<|id|>22<|page|>2<|box|>844 176 861 534<|content|>2. ... BrightLoop Media, LLC — Miami, Florida\n<|id|>23<|page|>2<|box|>864 176 880 633<|content|>3. ... Velvet Stream Partners, LP — Toronto, Ontario, Canada\n<|id|>24<|page|>2<|box|>883 176 900 740<|content|>4. ... Pacific Lantern Digital Pty Ltd — Sydney, New South Wales, Australia\n<|id|>25<|page|>3<|box|>90 140 162 856<|content|>Each of these sublicensing arrangements constitute...f reproduction and public performance. ... B below\n<|id|>53<|page|>5<|box|>868 181 902 854<|content|>• June 2026 (contingent): ... If settlement is not...n the United States District Court for the Central\n<|id|>54<|page|>6<|box|>89 210 161 856<|content|>District of California. ... The complaint will ass... state law claims as discussed in Section IX below\n<|id|>149<|page|>16<|box|>171 181 207 854<|content|>• Statutory damages under 17 U. ... and\n<|id|>153<|page|>16<|box|>367 140 477 856<|content|>Importantly, registration status does not affect t...Aurelius may proceed with claims as to all of them\n<|id|>151<|page|>16<|box|>291 181 325 854<|content|>• Actual damages suffered by Aurelius as a result of the infringement, under 17 U. ... and\n<|id|>159<|page|>16<|box|>872 140 907 854<|content|>MDD's role in the infringement is that of a facili...mNow on or about March 15, 2024, pursuant to which\n<|id|>160<|page|>17<|box|>90 140 236 856<|content|>StreamNow obtained and exercised what it believed ...ion rights to Aurelius's content. ... 2001) (same)\n<|id|>212<|page|>21<|box|>829 140 847 549<|content|>Omar Siddiqui Associate Calderwood & Harkness LLP\n<|id|>213<|page|>21<|box|>847 142 864 326<|content|>Date: ... February 26, 2026\n<|id|>214<|page|>21<|box|>863 140 893 854<|content|>CONFIDENTIAL — PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGE — ATTORNEY WORK PRODUCT\n<|id|>215<|page|>22<|box|>90 140 151 854<|content|>This memorandum constitutes attorney work product ...Group PLC without prior written consent of counsel",
+    "raw_response": "<|src_id|>53<|tgt_id|>54\n<|src_id|>159<|tgt_id|>160",
+    "parsed": [
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 160
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 29,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=15, 4', 'rowspan=15, 苗木规格', 'rowspan=4, 球类', 'rowspan=4, 冠径(mm)', '>2000', '-200', 'rowspan=15, 尺量:带状绿地每1km检查100m内的苗木;点状绿地每个连续种植单元按苗木数量抽查10%,且不少于10株,少于10株的苗木应全部检查']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=13, 4', 'rowspan=13, 苗木规格', 'rowspan=4, 球类', 'rowspan=4, 高度(mm)', '<500', '0', 'rowspan=13, 尺量:带状绿地每1km检查100m内的苗木;点状绿地每个连续种植单元按苗木数量抽查10%,且不少于10株,少于10株的苗木应全部检查']]\n",
+    "raw_response": "[1, 1, 0, 0, 0, 0, 1]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+    ],
+    "table1_idx": 1753,
+    "table2_idx": 1754
+}

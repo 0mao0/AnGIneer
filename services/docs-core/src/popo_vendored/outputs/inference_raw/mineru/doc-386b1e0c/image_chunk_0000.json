@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>113 183 133 813<|content|>SECRETARY'S CERTIFICATE OF AUTHORIZED PERSON\n<|id|>1<|type|>title<|page|>1<|box|>157 279 175 717<|content|>SOLARA DIGITAL ACQUISITION HOLDINGS LLC\n<|id|>5<|type|>title<|page|>1<|box|>332 140 349 568<|content|>RECITALS AND INTRODUCTORY CERTIFICATE\n<|id|>11<|type|>title<|page|>2<|box|>148 140 166 727<|content|>SECTION 1: CERTIFICATION OF ORGANIZATIONAL DOCUMEN\n<|id|>12<|type|>title<|page|>2<|box|>180 140 196 437<|content|>Section 1(a): Certificate of Formation\n<|id|>15<|type|>title<|page|>2<|box|>517 140 534 553<|content|>Section 1(b): Limited Liability Company Agreement\n<|id|>19<|type|>title<|page|>3<|box|>89 140 107 565<|content|>SECTION 2: CERTIFICATION OF RESOLUTIONS\n<|id|>40<|type|>title<|page|>4<|box|>678 140 695 643<|content|>SECTION 3: INCUMBENCY AND SPECIMEN SIGNATURES\n<|id|>42<|type|>table<|page|>4<|box|>839 143 907 852<|content|>None\n<|id|>43<|type|>table<|page|>5<|box|>89 143 186 852<|content|>None\n<|id|>47<|type|>title<|page|>5<|box|>551 140 568 560<|content|>SECTION 4: GOOD STANDING AND EXISTENCE\n<|id|>51<|type|>title<|page|>6<|box|>89 140 106 509<|content|>SECTION 5: NO CONFLICT; NO DEFAULT\n<|id|>57<|type|>title<|page|>6<|box|>828 140 844 418<|content|>SECTION 6: NO PROCEEDINGS\n<|id|>60<|type|>title<|page|>7<|box|>321 140 339 532<|content|>SECTION 7: ADDITIONAL CERTIFICATIONS\n<|id|>61<|type|>title<|page|>7<|box|>347 140 364 684<|content|>The undersigned further certifies and acknowledges\n<|id|>66<|type|>title<|page|>8<|box|>89 142 107 272<|content|>EXHIBIT LIST\n<|id|>72<|type|>title<|page|>8<|box|>354 400 375 596<|content|>[Signature Pages Follow]\n<|id|>79<|type|>title<|page|>8<|box|>551 140 568 586<|content|>COUNTER-CERTIFICATION AND CONFIRMATION",
+    "raw_response": "<|src_id|>42<|tgt_id|>40\n<|src_id|>43<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 40
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['3', 'Section 10.1', 'Schedule K-1 Delivery Timeline', '90 days following fiscal year-end', '75 days following fiscal year-end', 'Open standard—LPA provides — 120 days; — both parties agree to shorten GP resolved bracket at 90 days in Second GP']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', 'Markup; still 30-day improvement over 120-day LPA standard; obligation qualified by \"commercially reasonable efforts\" — recommend accepting GP position']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 200,
+    "table2_idx": 201
+}

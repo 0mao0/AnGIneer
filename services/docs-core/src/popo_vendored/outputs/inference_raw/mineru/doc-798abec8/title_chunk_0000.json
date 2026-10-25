@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 189 142 805<|content|>OFFICER'S CERTIFICATE OF CRESTLINE PACKAGING SOLUT\n<|id|>5<|page|>1<|box|>388 142 405 243<|content|>RECITALS\n<|id|>9<|page|>1<|box|>780 140 797 307<|content|>CERTIFICATIONS\n<|id|>11<|page|>2<|box|>89 140 106 514<|content|>I. REPRESENTATIONS AND WARRANTIES\n<|id|>23<|page|>4<|box|>383 140 401 460<|content|>II. COVENANTS AND OBLIGATIONS\n<|id|>36<|page|>6<|box|>229 140 247 540<|content|>III. CONDITIONS TO BUYER'S OBLIGATIONS\n<|id|>65<|page|>9<|box|>383 140 401 573<|content|>IV. NO MATERIAL ADVERSE EFFECT ON BUYER\n<|id|>67<|page|>9<|box|>549 140 565 423<|content|>V. ABSENCE OF PROCEEDINGS\n<|id|>69<|page|>9<|box|>731 140 748 764<|content|>VI. GOVERNING LAW; AGREEMENT CROSS-REFERENCES; REL\n<|id|>72<|page|>10<|box|>138 140 156 464<|content|>VII. LIMITATION AND DISCLAIMER\n<|id|>76<|page|>10<|box|>478 156 513 839<|content|>SIGNATURE PAGE TO OFFICER'S CERTIFICATE OF CRESTLI",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>9<|level|>2\n<|id|>11<|level|>2\n<|id|>23<|level|>2\n<|id|>36<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>2\n<|id|>72<|level|>2\n<|id|>76<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        }
+    ]
+}

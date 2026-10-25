@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>176 464 195 854<|content|>$[__] [Insert Lender's Committed Amount]\n<|id|>3<|page|>1<|box|>228 584 246 854<|content|>CUSIP: ... [Insert CUSIP if applicable]\n<|id|>2<|page|>1<|box|>203 594 220 854<|content|>[__, 20__] [Insert date of issuance]\n<|id|>4<|page|>1<|box|>255 140 347 854<|content|>This Form of Term Loan Note (this \"Note\") is a bla...ed prior to execution and delivery by the Borrower\n<|id|>10<|page|>1<|box|>681 140 736 854<|content|>WHEREAS, the Lender has requested the issuance of ... Loans made by the Lender to the Borrower; ... and\n<|id|>11<|page|>1<|box|>744 140 799 854<|content|>WHEREAS, all capitalized terms used herein and not...greement shall apply to this Note mutatis mutandis\n<|id|>21<|page|>2<|box|>843 174 880 854<|content|>[Instructional Note: ... 01 and in\n<|id|>22<|page|>3<|box|>90 174 126 854<|content|>Section 2. ... ]\n<|id|>39<|page|>4<|box|>847 140 883 856<|content|>(d) Guarantee. ... This Note and the obligations o...ment executed and delivered in connection with the\n<|id|>40<|page|>5<|box|>90 140 127 854<|content|>Credit Agreement. ... The Lender is entitled to th... respect to the obligations evidenced by this Note\n<|id|>63<|page|>7<|box|>297 174 352 854<|content|>(d) all other notices, demands, and formalities of...t the liability of the Borrower hereunder; ... and\n<|id|>65<|page|>7<|box|>440 140 551 856<|content|>No failure or delay on the part of the Lender in e...may otherwise have at law, in equity, or otherwise\n<|id|>72<|page|>8<|box|>237 142 253 527<|content|>[INSERT FULL LEGAL NAME OF BORROWER]\n<|id|>73<|page|>8<|box|>256 143 272 254<|content|>By: ... By\n<|id|>74<|page|>8<|box|>273 142 289 300<|content|>Name: ... [Insert name]\n<|id|>75<|page|>8<|box|>290 143 306 279<|content|>Title: ... [Insert title]",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>39<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ]
+}

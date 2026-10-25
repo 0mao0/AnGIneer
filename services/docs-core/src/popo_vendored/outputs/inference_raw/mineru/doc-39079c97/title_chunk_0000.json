@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>1<|box|>208 140 224 540<|content|>VIA HAND DELIVERY AND ELECTRONIC MAIL\n<|id|>8<|page|>1<|box|>382 140 398 367<|content|>1. Introduction and Purpose\n<|id|>12<|page|>2<|box|>90 140 107 354<|content|>2. Scope of Representation\n<|id|>27<|page|>4<|box|>90 140 107 313<|content|>3. Engagement Team\n<|id|>29<|page|>4<|box|>184 140 200 457<|content|>3.1 Priya Anand — Responsible Partner\n<|id|>31<|page|>4<|box|>366 140 383 475<|content|>3.2 Douglas Carmichael — Billing Partner\n<|id|>33<|page|>4<|box|>566 140 584 457<|content|>3.3 Patrick Gallagher — Lead Associate\n<|id|>35<|page|>4<|box|>713 140 729 475<|content|>3.4 Simone Laroche — Working Associate\n<|id|>37<|page|>5<|box|>90 140 106 339<|content|>3.5 Additional Personnel\n<|id|>39<|page|>5<|box|>246 140 263 338<|content|>4. Fees and Billing Rates\n<|id|>40<|page|>5<|box|>277 140 294 313<|content|>4.1 Fee Arrangement\n<|id|>45<|page|>5<|box|>674 140 691 274<|content|>4.2 Billing Cycle\n<|id|>49<|page|>6<|box|>157 140 175 395<|content|>4.3 Estimated Litigation Budget\n<|id|>60<|page|>6<|box|>667 140 684 390<|content|>5. Expenses and Disbursements\n<|id|>74<|page|>7<|box|>398 140 416 316<|content|>6. Matter Description\n<|id|>82<|page|>7<|box|>804 140 821 339<|content|>7. Client Responsibilities\n<|id|>89<|page|>8<|box|>674 140 691 390<|content|>8. Confidentiality and Privilege\n<|id|>94<|page|>9<|box|>395 140 412 321<|content|>9. Conflicts of Interest\n<|id|>98<|page|>9<|box|>770 140 787 393<|content|>10. Termination of Engagement\n<|id|>102<|page|>10<|box|>348 142 364 334<|content|>11. Document Retention\n<|id|>105<|page|>10<|box|>623 140 640 348<|content|>12. Limitation of Liability\n<|id|>107<|page|>10<|box|>837 142 854 416<|content|>13. Governing Law of Engagement\n<|id|>109<|page|>11<|box|>186 140 204 316<|content|>14. Entire Agreement\n<|id|>113<|page|>11<|box|>523 142 542 379<|content|>15. Acceptance and Execution\n<|id|>117<|page|>11<|box|>773 140 790 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>126<|page|>12<|box|>125 383 140 614<|content|>ACCEPTED AND AGREED\n<|id|>127<|page|>12<|box|>150 140 166 413<|content|>WHITMORE AEROSPACE LLC",
+    "raw_response": "<|id|>4<|level|>-1\n<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>27<|level|>1\n<|id|>29<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>1\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>49<|level|>2\n<|id|>60<|level|>1\n<|id|>74<|level|>1\n<|id|>82<|level|>1\n<|id|>89<|level|>1\n<|id|>94<|level|>1\n<|id|>98<|level|>1\n<|id|>102<|level|>1\n<|id|>105<|level|>1\n<|id|>107<|level|>1\n<|id|>109<|level|>1\n<|id|>113<|level|>1\n<|id|>117<|level|>-1\n<|id|>126<|level|>-1\n<|id|>127<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        }
+    ]
+}

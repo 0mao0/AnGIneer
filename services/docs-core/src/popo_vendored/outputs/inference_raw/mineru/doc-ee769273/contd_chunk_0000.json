@@ -1,0 +1,42 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        19,
+        21,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>250 140 321 854<|content|>CC: ... Sylvia Hartwell, Partner, Calderwood & Har...Leila Nazari, Associate, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>330 140 347 730<|content|>FROM: ... Leonard Cross, Partner, Tax Department, Calderwood & Harkness LLP\n<|id|>7<|page|>1<|box|>356 140 392 852<|content|>RE: ... Transfer Pricing Arrangements (TY 2021 Forward)\n<|id|>8<|page|>1<|box|>400 142 417 370<|content|>Matter Number: ... 1018-00009\n<|id|>9<|page|>1<|box|>425 140 502 854<|content|>PRIVILEGE NOTICE: ... Any inadvertent disclosure d...a waiver of any applicable privilege or protection\n<|id|>24<|page|>2<|box|>623 174 641 777<|content|>(8) Strategic considerations specific to PPC in light of the recent examination; ... and\n<|id|>26<|page|>2<|box|>675 140 750 854<|content|>We note at the outset that this memorandum should ...y C&H and previously delivered to PPC's management\n<|id|>38<|page|>4<|box|>172 181 208 854<|content|>• Imvara (immunology): ... and\n<|id|>40<|page|>4<|box|>248 140 301 854<|content|>These three products collectively represent the su...both the CSA and the legacy IP royalty arrangement\n<|id|>46<|page|>4<|box|>580 183 614 852<|content|>• PBI exercises independent pricing authority acro...ts in which it distributes PPC's products; ... and\n<|id|>48<|page|>4<|box|>655 140 710 854<|content|>This substance profile was instrumental in defeati...ment to residual profits under any APA methodology\n<|id|>120<|page|>11<|box|>834 181 869 854<|content|>• T&K Irish coordination and Irish Revenue engagement fees: ... and\n<|id|>122<|page|>12<|box|>90 140 143 854<|content|>Irish Revenue does not currently charge a formal u...ration, which is reflected in T&K's estimated fees\n<|id|>139<|page|>13<|box|>785 140 896 857<|content|>Conversely, several countervailing considerations ...lving transfer pricing disputes prospectively, and\n<|id|>140<|page|>14<|box|>90 140 126 854<|content|>APA filings are a routine feature of large-taxpaye...is not, in itself, an unusual or suspicious action\n<|id|>171<|page|>16<|box|>811 181 847 854<|content|>• It demonstrates that PPC has applied the agreed ...r in accordance with the terms of the APA; ... and\n<|id|>173<|page|>17<|box|>90 140 162 854<|content|>If a critical assumption is violated — for example...may need to be renegotiated, amended, or cancelled\n<|id|>181<|page|>17<|box|>561 181 595 854<|content|>• The treatment of adjustments required by changes...f different products in different markets; ... and\n<|id|>183<|page|>17<|box|>637 140 691 856<|content|>For reference, in TY 2020, the total qualified R&D cost pool was $598. ... 4 million total)\n<|id|>202<|page|>19<|box|>420 181 455 854<|content|>• Ireland's Knowledge Development box regime remai...cable to PBI's qualifying income at the 6. ... and\n<|id|>204<|page|>19<|box|>515 140 589 854<|content|>The specific formulation and thresholds for each c...he continued application of the agreed methodology\n<|id|>227<|page|>21<|box|>704 183 757 854<|content|>• Providing PBI's Irish statutory financial statements (FY 2020 revenue: ... and\n<|id|>229<|page|>21<|box|>816 140 890 857<|content|>Irish Revenue will want assurance that the APA doe...r to ensure that the APA methodology reflects this\n<|id|>294<|page|>27<|box|>768 140 800 854<|content|>Leonard Cross Partner, Tax Department Calderwood &...5 Market Street, Suite 3100 Philadelphia, PA 19103\n<|id|>295<|page|>27<|box|>801 142 816 297<|content|>Tel: ... (215) 496-7200\n<|id|>296<|page|>27<|box|>819 142 834 444<|content|>Email: ... com\n<|id|>297<|page|>27<|box|>834 140 895 854<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN...Calderwood & Harkness LLP. ... All rights reserved",
+    "raw_response": "<|src_id|>120<|tgt_id|>122\n<|src_id|>139<|tgt_id|>140\n<|src_id|>171<|tgt_id|>173\n<|src_id|>227<|tgt_id|>229",
+    "parsed": [
+        {
+            "src_id": 120,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 173
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 229
+        }
+    ]
+}

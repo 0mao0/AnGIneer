@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 148 125 846<|content|>CALDERWOOD & HARKNESS LLP 1301 Avenue of the Ameri...York, New York 10019 Telephone: ... (212) 558-3588\n<|id|>1<|page|>1<|box|>133 140 164 854<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION ATTORNEY WORK PRODUCT\n<|id|>6<|page|>1<|box|>844 140 898 854<|content|>Based on our analysis, we recommend a phased submi...d ten-month review timeline under the Prescription\n<|id|>7<|page|>2<|box|>90 140 237 856<|content|>Drug User Fee Act (\"PDUFA\"), this would yield a pr...al sNDA assembly if CLARION-3 results are positive\n<|id|>39<|page|>6<|box|>859 140 897 856<|content|>7. ... The\n<|id|>40<|page|>7<|box|>90 140 200 854<|content|>Written Request contemplates a pharmacokinetic and...separate C&H memorandum expected in September 2022\n<|id|>126<|page|>14<|box|>674 145 709 854<|content|>• U. ... February 2034)\n<|id|>128<|page|>14<|box|>750 140 803 854<|content|>Both patents are currently listed in the Orange Bo...rdless of the addition of the psoriasis indication\n<|id|>127<|page|>14<|box|>712 145 748 854<|content|>• U. ... August 2036)\n<|id|>133<|page|>15<|box|>324 147 342 839<|content|>• Target first complete draft USPI incorporating the psoriasis indication: ... September 2022\n<|id|>136<|page|>15<|box|>401 140 474 854<|content|>This timeline is designed to allow sufficient time...ith a target draft completion in late October 2022\n<|id|>134<|page|>15<|box|>344 147 361 808<|content|>• Target Rev. ... Mid-October 2022\n<|id|>135<|page|>15<|box|>364 147 398 854<|content|>• Target final USPI for sNDA submission: ... Q1 20...ION-3 results and incorporation of CLARION-3 data)\n<|id|>144<|page|>16<|box|>766 140 893 857<|content|>3. ... (b)\n<|id|>145<|page|>17<|box|>90 140 200 856<|content|>additional Warnings and Precautions language addre...area to anticipate potential labeling restrictions\n<|id|>149<|page|>17<|box|>853 140 907 856<|content|>7. ... 2 (Clinical Studies — Psoriasis) of the USPI could be relevant in future Hatch-\n<|id|>150<|page|>18<|box|>90 138 234 854<|content|>Waxman Act paragraph IV certification proceedings ...n of the pending method-of-treatment patent claims",
+    "raw_response": "<|src_id|>6<|tgt_id|>7\n<|src_id|>39<|tgt_id|>40\n<|src_id|>144<|tgt_id|>145\n<|src_id|>149<|tgt_id|>150",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 150
+        }
+    ]
+}

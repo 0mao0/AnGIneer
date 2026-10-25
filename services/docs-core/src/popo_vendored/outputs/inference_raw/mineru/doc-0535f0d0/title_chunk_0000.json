@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 284 125 712<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>2<|page|>1<|box|>478 331 494 665<|content|>DECLARATION OF ANGELA TRUONG\n<|id|>3<|page|>1<|box|>503 140 521 470<|content|>I, Angela Truong, hereby declare as follows:\n<|id|>7<|page|>2<|box|>152 140 170 738<|content|>3. The settlement class, as defined in the Prelimi\n<|id|>72<|page|>9<|box|>90 406 104 589<|content|>INDEX OF EXHIBITS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>3\n<|id|>7<|level|>3\n<|id|>72<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 3
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        }
+    ]
+}

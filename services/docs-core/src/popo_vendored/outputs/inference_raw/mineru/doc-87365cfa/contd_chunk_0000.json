@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        9,
+        18
+    ],
+    "pages": [
+        9,
+        10,
+        11,
+        12,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>83<|page|>9<|box|>873 140 909 854<|content|>39. ... The Debtors respectfully request that the ...Petition Date of June 20, 2022, so that C&H may be\n<|id|>84<|page|>9<|box|>916 143 929 269<|content|>ACTIVE/117284692. ... 4\n<|id|>85<|page|>10<|box|>90 174 126 854<|content|>compensated for professional services rendered and...te, subject to the Court's fee approval procedures\n<|id|>105<|page|>11<|box|>737 174 810 854<|content|>(b) Authorizing C&H to be compensated for professi...interim and final fee approval procedures; ... and\n<|id|>107<|page|>11<|box|>844 678 861 854<|content|>Respectfully submitted,\n<|id|>108<|page|>11<|box|>869 140 905 431<|content|>CALDERWOOD & HARKNESS LLP By: ... CALDERWOOD & HARKNESS LLP By\n<|id|>109<|page|>12<|box|>89 140 123 852<|content|>Colette Whitman (Ohio Bar No. ... (212) 555-7001\n<|id|>110<|page|>12<|box|>125 143 138 220<|content|>— and —\n<|id|>111<|page|>12<|box|>140 142 172 852<|content|>127 Public Square, Suite 4100 Cleveland, Ohio 44114 Telephone: ... (216) 555-3201\n<|id|>112<|page|>12<|box|>174 143 190 584<|content|>Proposed Counsel to the Debtors and Debtors in Possession\n<|id|>113<|page|>12<|box|>191 697 207 854<|content|>Dated: ... July 11, 2022\n<|id|>173<|page|>17<|box|>601 174 691 856<|content|>(c) Dralvecen Reyes Linley CPAs LLP & Associates L...Tax and accounting advisor to the Debtors. ... and\n<|id|>176<|page|>17<|box|>829 140 885 856<|content|>VIII. ... For the reasons set forth herein and in ...erson within the meaning of section 101(14) of the\n<|id|>177<|page|>18<|box|>90 140 125 854<|content|>Bankruptcy Code, and that the retention of C&H sho...unc pro tunc to the Petition Date of June 20, 2022\n<|id|>179<|page|>18<|box|>175 493 193 854<|content|>Executed on July 11, 2022 New York, New York\n<|id|>180<|page|>18<|box|>229 140 262 852<|content|>Colette Whitman Partner Calderwood & Harkness LLP ...York, New York 10112 Telephone: ... (212) 555-7001",
+    "raw_response": "<|src_id|>83<|tgt_id|>85\n<|src_id|>176<|tgt_id|>177",
+    "parsed": [
+        {
+            "src_id": 83,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 177
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>5<|type|>title<|page|>1<|box|>219 140 236 611<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED\n<|id|>11<|type|>title<|page|>1<|box|>436 142 453 400<|content|>1. Introduction and Engagement\n<|id|>16<|type|>title<|page|>2<|box|>148 140 167 334<|content|>2. Scope of Engagement\n<|id|>17<|type|>title<|page|>2<|box|>180 140 198 369<|content|>2.1 Tax Structuring Services\n<|id|>55<|type|>title<|page|>6<|box|>319 140 337 316<|content|>2.2 Scope Limitations\n<|id|>66<|type|>title<|page|>7<|box|>275 140 292 447<|content|>2.3 No Representation of Other Parties\n<|id|>74<|type|>title<|page|>7<|box|>751 142 768 313<|content|>3. Engagement Team\n<|id|>76<|type|>table<|page|>7<|box|>800 143 896 852<|content|>None\n<|id|>77<|type|>table<|page|>8<|box|>89 143 464 852<|content|>None\n<|id|>80<|type|>title<|page|>8<|box|>729 140 748 290<|content|>4. Fees and Billing\n<|id|>81<|type|>title<|page|>8<|box|>761 142 779 305<|content|>4.1 Billing Structure\n<|id|>84<|type|>title<|page|>9<|box|>176 140 193 276<|content|>4.2 Fee Estimate\n<|id|>92<|type|>title<|page|>10<|box|>157 140 175 354<|content|>4.5 Invoicing and Payment\n<|id|>96<|type|>title<|page|>10<|box|>457 140 474 390<|content|>5. Key Transaction Parameters\n<|id|>104<|type|>table<|page|>10<|box|>674 143 823 852<|content|>None\n<|id|>107<|type|>title<|page|>11<|box|>89 140 107 294<|content|>CV Capitalization:\n<|id|>112<|type|>title<|page|>11<|box|>194 142 210 312<|content|>CV Proposed Terms:\n<|id|>116<|type|>title<|page|>11<|box|>316 143 332 320<|content|>Transaction Timeline:\n<|id|>119<|type|>title<|page|>11<|box|>381 143 397 261<|content|>Escrow Agent:\n<|id|>122<|type|>title<|page|>11<|box|>559 140 575 367<|content|>6. Deliverables and Timeline\n<|id|>124<|type|>table<|page|>11<|box|>626 143 905 852<|content|>None\n<|id|>125<|type|>table<|page|>12<|box|>89 143 310 852<|content|>None\n<|id|>127<|type|>title<|page|>12<|box|>531 140 549 339<|content|>7. Client Responsibilities\n<|id|>135<|type|>title<|page|>13<|box|>373 140 391 284<|content|>8. Confidentiality\n<|id|>139<|type|>title<|page|>13<|box|>804 140 820 321<|content|>9. Conflicts of Interest\n<|id|>144<|type|>title<|page|>14<|box|>402 140 419 477<|content|>10. Limitation of Liability and Disclaimers\n<|id|>148<|type|>title<|page|>15<|box|>90 142 107 274<|content|>11. Termination\n<|id|>152<|type|>title<|page|>15<|box|>465 140 482 480<|content|>12. Governing Law and Dispute Resolution\n<|id|>156<|type|>title<|page|>16<|box|>90 142 107 470<|content|>13. Acknowledgment and Signature block\n<|id|>160<|type|>title<|page|>16<|box|>285 140 301 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>166<|type|>title<|page|>16<|box|>405 142 422 509<|content|>PINNACLE CAPITAL MANAGEMENT LLC\n<|id|>171<|type|>title<|page|>16<|box|>522 143 539 233<|content|>Enclosures\n<|id|>175<|type|>title<|page|>16<|box|>662 143 676 230<|content|>Distribution:",
+    "raw_response": "<|src_id|>76<|tgt_id|>74\n<|src_id|>77<|tgt_id|>74\n<|src_id|>104<|tgt_id|>96\n<|src_id|>124<|tgt_id|>122\n<|src_id|>125<|tgt_id|>122",
+    "parsed": [
+        {
+            "src_id": 76,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 122
+        }
+    ]
+}

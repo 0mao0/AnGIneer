@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 447 106 550<|content|>EXHIBIT A\n<|id|>1<|type|>title<|page|>1<|box|>114 346 132 650<|content|>FORM OF BORROWING REQUEST\n<|id|>13<|type|>title<|page|>1<|box|>664 142 681 370<|content|>Section 1: Borrowing Details\n<|id|>14<|type|>title<|page|>1<|box|>696 143 713 323<|content|>1.1 Type of Borrowing\n<|id|>20<|type|>title<|page|>2<|box|>90 142 107 506<|content|>1.2 Date of Borrowing (the \"Borrowing Date\")\n<|id|>22<|type|>image<|page|>2<|box|>138 178 157 272<|content|>None\n<|id|>25<|type|>title<|page|>2<|box|>294 143 311 429<|content|>1.3 Aggregate Amount of Borrowing\n<|id|>27<|type|>image<|page|>2<|box|>343 178 359 258<|content|>None\n<|id|>34<|type|>title<|page|>2<|box|>753 143 772 517<|content|>1.4 Type of Borrowing — Interest Rate Election\n<|id|>44<|type|>title<|page|>3<|box|>358 143 375 563<|content|>1.5 Interest Period (for Term SOFR Borrowings only\n<|id|>52<|type|>title<|page|>3<|box|>703 143 719 380<|content|>1.6 Disbursement Instructions\n<|id|>54<|type|>table<|page|>3<|box|>768 143 882 852<|content|>None\n<|id|>55<|type|>table<|page|>4<|box|>113 143 227 852<|content|>None\n<|id|>57<|type|>title<|page|>4<|box|>357 140 375 496<|content|>Section 2: Representations and Certifications\n<|id|>59<|type|>title<|page|>4<|box|>469 142 486 426<|content|>2.1 Representations and Warranties\n<|id|>61<|type|>title<|page|>4<|box|>761 140 777 261<|content|>2.2 No Default\n<|id|>63<|type|>title<|page|>5<|box|>90 140 108 449<|content|>2.3 Compliance with Borrowing Limits\n<|id|>65<|type|>title<|page|>5<|box|>273 140 290 424<|content|>2.4 Financial Covenant Compliance\n<|id|>72<|type|>title<|page|>5<|box|>824 142 840 297<|content|>2.5 Use of Proceeds\n<|id|>80<|type|>title<|page|>6<|box|>517 140 534 534<|content|>Section 3: Conditions Precedent Acknowledgment\n<|id|>87<|type|>title<|page|>7<|box|>186 140 204 508<|content|>Section 4: Administrative Agent Authorization\n<|id|>90<|type|>title<|page|>8<|box|>90 142 107 225<|content|>Signature\n<|id|>92<|type|>title<|page|>8<|box|>160 142 176 413<|content|>WHITMORE AEROSPACE LLC\n<|id|>101<|type|>title<|page|>9<|box|>90 143 106 405<|content|>Schedule 1 to Borrowing Request\n<|id|>102<|type|>title<|page|>9<|box|>114 308 132 687<|content|>BORROWING REQUEST SUMMARY TABLE\n<|id|>103<|type|>title<|page|>9<|box|>142 361 159 635<|content|>(For Administrative Agent's Records)\n<|id|>104<|type|>table<|page|>9<|box|>165 143 420 852<|content|>None\n<|id|>106<|type|>title<|page|>9<|box|>523 143 539 339<|content|>Calculation Verification:\n<|id|>107<|type|>table<|page|>9<|box|>546 143 785 852<|content|>None\n<|id|>111<|type|>title<|page|>10<|box|>90 143 107 400<|content|>Delivery and Notice Information",
+    "raw_response": "<|src_id|>22<|tgt_id|>20\n<|src_id|>27<|tgt_id|>25\n<|src_id|>54<|tgt_id|>52\n<|src_id|>55<|tgt_id|>52\n<|src_id|>104<|tgt_id|>102\n<|src_id|>107<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 106
+        }
+    ]
+}

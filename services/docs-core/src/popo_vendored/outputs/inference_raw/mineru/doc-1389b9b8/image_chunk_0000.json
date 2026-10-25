@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        10,
+        11,
+        12,
+        17,
+        19,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 106 651<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>2<|type|>title<|page|>1<|box|>183 424 199 573<|content|>MEMORANDUM\n<|id|>7<|type|>title<|page|>1<|box|>347 142 364 292<|content|>I. Issues Presented\n<|id|>14<|type|>title<|page|>2<|box|>250 140 265 287<|content|>II. Short Answers\n<|id|>18<|type|>title<|page|>3<|box|>258 140 277 318<|content|>III. Legal Framework\n<|id|>19<|type|>title<|page|>3<|box|>290 140 306 514<|content|>A. Transaction Value Method (Article 70 UCC)\n<|id|>25<|type|>title<|page|>4<|box|>138 140 157 547<|content|>B. Additions to Transaction Value (Article 71 UCC)\n<|id|>30<|type|>title<|page|>4<|box|>655 140 672 583<|content|>C. Deductions from Transaction Value (Article 72 U\n<|id|>34<|type|>title<|page|>5<|box|>229 140 250 491<|content|>D. Implementing Regulation (EU) 2015/2447\n<|id|>39<|type|>title<|page|>5<|box|>784 140 801 560<|content|>E. WCO Technical Committee on Customs Valuation\n<|id|>49<|type|>title<|page|>7<|box|>167 140 185 245<|content|>IV. Analysis\n<|id|>50<|type|>title<|page|>7<|box|>198 140 215 457<|content|>A. Technology License Fees (€4,900,000)\n<|id|>84<|type|>table<|page|>10<|box|>584 143 888 852<|content|>None\n<|id|>85<|type|>table<|page|>11<|box|>89 143 521 852<|content|>None\n<|id|>98<|type|>title<|page|>12<|box|>718 140 734 812<|content|>B. Procurement Coordination Fees — Nereus Maritime\n<|id|>149<|type|>title<|page|>17<|box|>571 140 590 455<|content|>C. Commissioning Services (€2,100,000)\n<|id|>173<|type|>table<|page|>19<|box|>714 143 895 852<|content|>None\n<|id|>174<|type|>table<|page|>20<|box|>88 143 393 852<|content|>None\n<|id|>178<|type|>title<|page|>21<|box|>90 140 107 671<|content|>V. Aggregate Valuation Exposure — Probability-Weig\n<|id|>179<|type|>table<|page|>21<|box|>161 143 321 852<|content|>None\n<|id|>181<|type|>title<|page|>21<|box|>422 140 440 537<|content|>Probability-Weighted Additional Duty Calculation\n<|id|>186<|type|>title<|page|>21<|box|>719 142 737 609<|content|>Additional Downstream Exposure on Valuation Compon\n<|id|>192<|type|>title<|page|>22<|box|>316 142 334 321<|content|>VI. Recommendations",
+    "raw_response": "<|src_id|>84<|tgt_id|>50\n<|src_id|>85<|tgt_id|>50\n<|src_id|>173<|tgt_id|>149\n<|src_id|>174<|tgt_id|>149\n<|src_id|>179<|tgt_id|>178",
+    "parsed": [
+        {
+            "src_id": 84,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 178
+        }
+    ]
+}

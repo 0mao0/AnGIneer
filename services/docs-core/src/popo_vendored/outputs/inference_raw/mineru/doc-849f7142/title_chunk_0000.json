@@ -1,0 +1,110 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 651<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>11<|page|>1<|box|>570 140 587 367<|content|>1. Introduction and Purpose\n<|id|>16<|page|>3<|box|>90 140 107 709<|content|>2. Summary of EPC Agreement Insurance Requirements\n<|id|>18<|page|>3<|box|>220 140 238 566<|content|>2.1 Commercial General Liability (\"CGL\") Insurance\n<|id|>29<|page|>4<|box|>239 140 255 367<|content|>2.2 Builder's Risk Insurance\n<|id|>40<|page|>5<|box|>492 140 508 323<|content|>2.3 Performance Bond\n<|id|>49<|page|>6<|box|>239 140 255 290<|content|>2.4 Payment Bond\n<|id|>57<|page|>6<|box|>648 140 667 643<|content|>2.5 Workers' Compensation and Employers' Liability\n<|id|>64<|page|>7<|box|>138 140 157 419<|content|>2.6 Automobile Liability Insurance\n<|id|>66<|page|>7<|box|>285 140 303 467<|content|>2.7 Umbrella / Excess Liability Insurance\n<|id|>68<|page|>7<|box|>468 140 484 591<|content|>2.8 Professional Liability / Errors & Omissions In\n<|id|>74<|page|>7<|box|>827 140 844 707<|content|>2.9 Pollution / Environmental Liability (Contracto\n<|id|>76<|page|>8<|box|>204 140 222 423<|content|>3. Review of COIs Received to Date\n<|id|>85<|page|>9<|box|>90 140 107 720<|content|>4. Cross-Reference to Construction Loan Agreement\n<|id|>93<|page|>9<|box|>789 140 806 531<|content|>5. Insurance Compliance Matrix Cross-Reference\n<|id|>97<|page|>10<|box|>421 140 438 509<|content|>6. Specific Requests and Required Deliverables\n<|id|>111<|page|>11<|box|>671 140 688 333<|content|>7. Deadline for Delivery\n<|id|>121<|page|>12<|box|>414 140 431 408<|content|>8. Ongoing Insurance Obligations\n<|id|>123<|page|>12<|box|>558 140 575 410<|content|>In particular, TMCG is obligated to:\n<|id|>128<|page|>13<|box|>90 140 107 334<|content|>9. Reservation of Rights\n<|id|>134<|page|>13<|box|>556 176 573 482<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>139<|page|>13<|box|>849 142 864 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>2\n<|id|>29<|level|>2\n<|id|>40<|level|>2\n<|id|>49<|level|>2\n<|id|>57<|level|>2\n<|id|>64<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>74<|level|>2\n<|id|>76<|level|>1\n<|id|>85<|level|>1\n<|id|>93<|level|>1\n<|id|>97<|level|>1\n<|id|>111<|level|>1\n<|id|>121<|level|>1\n<|id|>123<|level|>2\n<|id|>128<|level|>1\n<|id|>134<|level|>-1\n<|id|>139<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        }
+    ]
+}

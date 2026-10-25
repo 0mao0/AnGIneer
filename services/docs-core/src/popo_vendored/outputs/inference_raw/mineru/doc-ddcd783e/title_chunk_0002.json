@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        105,
+        114
+    ],
+    "pages": [
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1381<|page|>106<|box|>214 401 233 610<|content|>8.4 实腹板梁式主梁\n<|id|>1387<|page|>106<|box|>679 422 698 589<|content|>8.5 桁架式主梁\n<|id|>1390<|page|>106<|box|>842 401 861 610<|content|>8.6 空腹拱桁式主梁\n<|id|>1392<|page|>107<|box|>172 393 202 639<|content|>9 箱形轨道梁\n<|id|>1395<|page|>108<|box|>169 385 196 645<|content|>10 钢 管 桩\n<|id|>1399<|page|>109<|box|>177 379 206 637<|content|>11 钢 板 桩\n<|id|>1403<|page|>110<|box|>174 369 202 628<|content|>12 钢 撑 杆\n<|id|>1407<|page|>111<|box|>163 325 193 691<|content|>13 钢与混凝土组合梁\n<|id|>1408<|page|>111<|box|>227 419 245 596<|content|>13.1 一般规定\n<|id|>1413<|page|>111<|box|>806 429 825 585<|content|>13.2 计算\n<|id|>1417<|page|>112<|box|>212 410 231 589<|content|>13.3 构造要求\n<|id|>1419<|page|>113<|box|>188 328 217 660<|content|>14 船闸闸门和阀门\n<|id|>1421<|page|>114<|box|>177 386 207 644<|content|>15 船坞坞门",
+    "raw_response": "<|id|>1381<|level|>2\n<|id|>1387<|level|>2\n<|id|>1390<|level|>2\n<|id|>1392<|level|>1\n<|id|>1395<|level|>1\n<|id|>1399<|level|>1\n<|id|>1403<|level|>1\n<|id|>1407<|level|>1\n<|id|>1408<|level|>2\n<|id|>1413<|level|>2\n<|id|>1417<|level|>2\n<|id|>1419<|level|>1\n<|id|>1421<|level|>1",
+    "parsed": [
+        {
+            "id": 1381,
+            "level": 2
+        },
+        {
+            "id": 1387,
+            "level": 2
+        },
+        {
+            "id": 1390,
+            "level": 2
+        },
+        {
+            "id": 1392,
+            "level": 1
+        },
+        {
+            "id": 1395,
+            "level": 1
+        },
+        {
+            "id": 1399,
+            "level": 1
+        },
+        {
+            "id": 1403,
+            "level": 1
+        },
+        {
+            "id": 1407,
+            "level": 1
+        },
+        {
+            "id": 1408,
+            "level": 2
+        },
+        {
+            "id": 1413,
+            "level": 2
+        },
+        {
+            "id": 1417,
+            "level": 2
+        },
+        {
+            "id": 1419,
+            "level": 1
+        },
+        {
+            "id": 1421,
+            "level": 1
+        }
+    ]
+}

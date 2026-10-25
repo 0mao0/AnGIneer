@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 中', 'rowspan=2, 对双向6车道及以上一级公路,中央分隔带宽度小于2.5m并采用分设式护栏形式,同时中央分隔带内设有车辆不能安全穿越的障碍物^{1}的路段', '一级公路60^{2}', '三(Am)']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 低', 'rowspan=3, 不符合上述条件的其他路段', '高速公路、一级公路120、100、80', '三(Am)']]\n",
+    "raw_response": "[0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 840,
+    "table2_idx": 841
+}

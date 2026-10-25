@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 145 143 852<|content|>SECRETARY'S CERTIFICATE OF CASCADE RETAIL HOLDINGS\n<|id|>9<|type|>title<|page|>1<|box|>648 140 666 446<|content|>Section 1. Certificate of Incorporation.\n<|id|>11<|type|>title<|page|>2<|box|>90 140 107 287<|content|>Section 2. Bylaws.\n<|id|>13<|type|>title<|page|>2<|box|>250 140 266 470<|content|>Section 3. Board of Directors Resolutions.\n<|id|>24<|type|>title<|page|>3<|box|>148 140 167 413<|content|>Section 4. Incumbency Certificate.\n<|id|>25<|type|>table<|page|>3<|box|>253 143 349 852<|content|>None\n<|id|>27<|type|>title<|page|>3<|box|>497 140 513 346<|content|>Section 5. Good Standing.\n<|id|>29<|type|>title<|page|>3<|box|>691 140 709 423<|content|>Section 6. Additional Certifications.\n<|id|>36<|type|>title<|page|>4<|box|>219 140 237 297<|content|>Section 7. Reliance.\n<|id|>43<|type|>title<|page|>4<|box|>534 233 550 763<|content|>OFFICER CONFIRMATION OF SECRETARY'S CERTIFICATE\n<|id|>50<|type|>title<|page|>5<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>51<|type|>title<|page|>5<|box|>128 168 145 826<|content|>CERTIFICATE OF INCORPORATION OF CASCADE RETAIL HOL\n<|id|>55<|type|>title<|page|>6<|box|>90 436 109 562<|content|>EXHIBIT B\n<|id|>56<|type|>title<|page|>6<|box|>128 287 145 707<|content|>BYLAWS OF CASCADE RETAIL HOLDINGS INC.\n<|id|>57<|type|>title<|page|>6<|box|>154 362 171 635<|content|>As Amended Through May 19, 2023\n<|id|>60<|type|>title<|page|>7<|box|>89 434 111 563<|content|>EXHIBIT C\n<|id|>61<|type|>title<|page|>7<|box|>127 191 162 805<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF CASCADE R\n<|id|>62<|type|>title<|page|>7<|box|>172 395 190 601<|content|>Adopted February 27, 2023\n<|id|>76<|type|>title<|page|>8<|box|>204 140 222 379<|content|>NOW, THEREFORE, BE IT:\n<|id|>91<|type|>title<|page|>10<|box|>90 434 109 562<|content|>EXHIBIT D\n<|id|>92<|type|>title<|page|>10<|box|>128 197 145 797<|content|>INCUMBENCY CERTIFICATE OF CASCADE RETAIL HOLDINGS\n<|id|>95<|type|>table<|page|>10<|box|>369 143 479 852<|content|>None\n<|id|>102<|type|>title<|page|>11<|box|>90 434 109 562<|content|>EXHIBIT E\n<|id|>103<|type|>title<|page|>11<|box|>128 169 145 825<|content|>CERTIFICATE OF GOOD STANDING OF CASCADE RETAIL HOL",
+    "raw_response": "<|src_id|>25<|tgt_id|>24\n<|src_id|>95<|tgt_id|>92",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 92
+        }
+    ]
+}

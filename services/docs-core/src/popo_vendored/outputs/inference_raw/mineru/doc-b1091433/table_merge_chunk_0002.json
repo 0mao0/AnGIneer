@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, 6', 'rowspan=2, 设备倾覆', '气象', '风', '1.465', '1.46', 'II', 'rowspan=2, II']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=4, 7', 'rowspan=4, 设备损毁', '地质地貌', '地震', '1', '2.093', 'II', 'rowspan=4, II']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 509,
+    "table2_idx": 510
+}

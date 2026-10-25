@@ -1,0 +1,191 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-os4hkfxe\\input\\pdfs\\doc-436f9ec7.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-os4hkfxe\\enriched\\doc-436f9ec7.json",
+    "contd_output": "<|src_id|>26<|tgt_id|>27\n<|src_id|>76<|tgt_id|>77",
+    "title_output": "<|id|>9<|level|>1\n<|id|>22<|level|>1\n<|id|>30<|level|>1\n<|id|>44<|level|>1\n<|id|>49<|level|>1\n<|id|>56<|level|>1\n<|id|>67<|level|>1\n<|id|>74<|level|>1\n<|id|>85<|level|>1\n<|id|>92<|level|>1\n<|id|>96<|level|>1\n<|id|>100<|level|>1\n<|id|>116<|level|>1\n<|id|>143<|level|>1\n<|id|>144<|level|>1\n<|id|>145<|level|>2\n<|id|>150<|level|>2\n<|id|>155<|level|>2\n<|id|>158<|level|>1\n<|id|>159<|level|>1",
+    "image_output": "<|src_id|>37<|tgt_id|>30\n<|src_id|>38<|tgt_id|>30\n<|src_id|>64<|tgt_id|>56\n<|src_id|>117<|tgt_id|>116\n<|src_id|>118<|tgt_id|>116\n<|src_id|>161<|tgt_id|>159\n<|src_id|>162<|tgt_id|>159",
+    "contd_label": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 37,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 159
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 37,
+            "table2_idx": 38,
+            "upper_row_ss": [
+                [
+                    "Pacific Rim Institutional Lending Corp.",
+                    "$75,000,000",
+                    "0.50%",
+                    "$375,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Osprey Insurance Capital, Ltd.",
+                    "$75,000,000",
+                    "0.50%",
+                    "$375,000"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 117,
+            "table2_idx": 118,
+            "upper_row_ss": [
+                [
+                    "Ticking Fee",
+                    "0.25% per annum on undrawn commitments",
+                    "Each Lender (pro rata based on commitments)",
+                    "In arrears on the Closing Date (or date of"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "(estimated $527,778 for 80-day accrual period)",
+                    "",
+                    "termination)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 161,
+            "table2_idx": 162,
+            "upper_row_ss": [
+                [
+                    "Osprey Insurance Capital, Ltd.",
+                    "$75,000,000",
+                    "7.89%",
+                    "$375,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Total",
+                    "$950,000,000",
+                    "100.00%",
+                    "$4,750,000"
+                ]
+            ]
+        }
+    ]
+}

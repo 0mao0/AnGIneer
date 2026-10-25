@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>452 140 469 540<|content|>I. Identification of Counsel and the Notifying Par\n<|id|>14<|page|>2<|box|>90 140 107 411<|content|>II. Background of the Notification\n<|id|>19<|page|>2<|box|>766 140 782 511<|content|>III. Procedural History Before the Commission\n<|id|>23<|page|>3<|box|>395 140 412 447<|content|>IV. Parallel U.S. Antitrust Proceedings\n<|id|>28<|page|>4<|box|>90 140 107 468<|content|>V. Termination of the Merger Agreement\n<|id|>35<|page|>5<|box|>90 140 107 527<|content|>VI. Formal Request to Withdraw the Notification\n<|id|>40<|page|>5<|box|>564 140 582 568<|content|>VII. Contact Information for Further Correspondenc\n<|id|>52<|page|>6<|box|>143 143 157 240<|content|>Enclosures:\n<|id|>55<|page|>6<|box|>282 143 295 171<|content|>cc:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>52<|level|>2\n<|id|>55<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        }
+    ]
+}

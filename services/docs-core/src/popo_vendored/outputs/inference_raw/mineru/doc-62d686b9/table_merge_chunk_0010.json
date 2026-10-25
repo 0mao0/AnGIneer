@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Item No.', 'Document Description', 'Responsible Party', 'Status']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['39.', 'Certified Copies of Organizational Documents — Certified copies of the certificates of incorporation (or certificates of formation, as applicable), and all amendments thereto, for all Loan Parties, obtained from the respective Secretaries of State (or equivalent governmental authority) of the states of organization of each such entity. Copies of the bylaws (or limited liability company agreements, as applicable), as currently in effect, shall also be included, certified by the Corporate Secretary or an authorized person of each such entity.', 'C&H (ordering)', '']]\n",
+    "raw_response": "[0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 62,
+    "table2_idx": 63
+}

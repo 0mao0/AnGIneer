@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        11,
+        12,
+        20,
+        32
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>142 140 159 655<|content|>TO: ... Marcus Delgado, Billing Partner\n<|id|>3<|page|>1<|box|>167 140 185 707<|content|>FROM: ... Omar Siddiqui, Working Associate\n<|id|>4<|page|>1<|box|>193 142 210 325<|content|>DATE: ... December 2024\n<|id|>5<|page|>1<|box|>219 140 273 854<|content|>RE: ... )\n<|id|>6<|page|>1<|box|>282 140 299 637<|content|>CLIENT: ... (\"OWS\" or \"Optiwave\")\n<|id|>7<|page|>1<|box|>308 140 362 854<|content|>MATTER: ... and 11,402,015 (the \"'015 Patent\") (collectively, the \"Asserted Patents\")\n<|id|>8<|page|>1<|box|>369 142 387 408<|content|>Right-click to update Table of Contents\n<|id|>60<|page|>8<|box|>868 145 902 856<|content|>• Deposition testimony of Dr. ... Huang, who is a named inventor on the '847, '193, and '015\n<|id|>61<|page|>9<|box|>90 174 162 854<|content|>Patents, testified regarding the relationship betw...tions and the commercial success of OWS's products\n<|id|>77<|page|>11<|box|>820 140 893 857<|content|>The unmet needs described above were widely acknow... such as the Optical Internetworking Forum (\"OIF\")\n<|id|>78<|page|>12<|box|>90 140 145 854<|content|>and the Consortium for On-Board Optics (\"COBO\") al...ncement of silicon-photonic transceiver technology\n<|id|>146<|page|>20<|box|>522 142 539 441<|content|>Multiplexer with Low Insertion Loss\"\n<|id|>147<|page|>20<|box|>547 140 603 854<|content|>Patent Information: ... The '847 Patent is in the ...hares a continuation relationship with that patent\n<|id|>237<|page|>32<|box|>439 143 455 416<|content|>WENDY SCHULTZ Lead Associate\n<|id|>238<|page|>32<|box|>489 143 507 259<|content|>Wendy Schultz\n<|id|>239<|page|>32<|box|>523 143 542 429<|content|>OMAR SIDDIQUI Working Associate\n<|id|>240<|page|>32<|box|>575 142 611 261<|content|>Omar Siddiqui Date: ... Omar Siddiqui Date",
+    "raw_response": "<|src_id|>60<|tgt_id|>61\n<|src_id|>77<|tgt_id|>78",
+    "parsed": [
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>154 140 172 620<|content|>TO: ... Patricia Dunmore, Partner, Energy & Infrastructure Practice\n<|id|>2<|page|>1<|box|>180 140 198 681<|content|>FROM: ... David Stanton, Lead Associate, Energy & Infrastructure Practice\n<|id|>3<|page|>1<|box|>205 140 223 310<|content|>DATE: ... June 13, 2023\n<|id|>4<|page|>1<|box|>232 140 267 854<|content|>RE: ... 23-0214\n<|id|>5<|page|>1<|box|>275 140 292 405<|content|>MATTER NO. ... C&H 1031-00002\n<|id|>6<|page|>1<|box|>301 140 320 653<|content|>CLIENT: ... Metropolitan Transit Development Corporation (\"MTDC\")\n<|id|>19<|page|>2<|box|>691 181 726 854<|content|>• North Garage: ... 4501 West Lawrence Avenue, Chicago, Illinois 60630 — 18 MW new electrical load\n<|id|>22<|page|>2<|box|>805 140 840 854<|content|>The combined new electrical load across the three ...ibution system in the affected service territories\n<|id|>20<|page|>2<|box|>729 181 763 854<|content|>• West Garage: ... 1200 South Cicero Avenue, Chicago, Illinois 60804 — 15 MW new electrical load\n<|id|>21<|page|>2<|box|>768 181 801 854<|content|>• South Garage: ... 7800 South Vincennes Avenue, Chicago, Illinois 60620 — 12 MW new electrical load\n<|id|>23<|page|>2<|box|>849 140 904 856<|content|>An interconnection study performed by the Creston ... ... These upgrades were to be cost-shared between\n<|id|>24<|page|>3<|box|>90 140 181 854<|content|>MTDC and Prairie Shore Electric Company pursuant t...ve, Peck & Tillotson LLP but had not been executed\n<|id|>122<|page|>12<|box|>844 140 898 856<|content|>As a matter of professional courtesy — and to fore...eck at Hargrove, Peck & Tillotson LLP (counsel for\n<|id|>123<|page|>13<|box|>90 140 181 854<|content|>Prairie Shore Electric Company) and Diane L. ... T... to communicate that to the ALJ in a timely manner",
+    "raw_response": "<|src_id|>23<|tgt_id|>24\n<|src_id|>122<|tgt_id|>123",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        }
+    ]
+}

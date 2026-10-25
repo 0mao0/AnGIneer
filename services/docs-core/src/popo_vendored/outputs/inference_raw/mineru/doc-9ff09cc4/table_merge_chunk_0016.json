@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 16,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Grand total', '5,974.9', '7,469.3 2/', '7,957.2r 2/', '7,646.2 3/', '7,498.2r', '7,391.5r', '7,489.3', '7,646.2', '7,731.7 4/', '7,564.4']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Country', '1963 1/2', 'colspan=2, 1964 2/', '1965 p', 'August', 'September', 'October', 'November', 'December p', 'January p']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 351,
+    "table2_idx": 352
+}

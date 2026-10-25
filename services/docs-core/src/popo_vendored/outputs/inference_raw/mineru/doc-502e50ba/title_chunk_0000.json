@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>445 140 462 367<|content|>1. Introduction and Purpose\n<|id|>16<|page|>2<|box|>267 140 284 717<|content|>2. Background — Phase I ESA Findings Triggering Ph\n<|id|>22<|page|>3<|box|>90 140 107 535<|content|>2.1 Recognized Environmental Conditions (RECs)\n<|id|>26<|page|>3<|box|>599 140 616 614<|content|>2.2 Historical Recognized Environmental Condition\n<|id|>29<|page|>4<|box|>90 140 107 704<|content|>2.3 Phase II Recommendation from C&H Phase I Revie\n<|id|>31<|page|>4<|box|>282 140 299 506<|content|>3. Review of Proposed Phase II Scope of Work\n<|id|>35<|page|>4<|box|>628 140 647 500<|content|>3.1 Soil Borings — Approved with Comments\n<|id|>42<|page|>5<|box|>710 140 729 633<|content|>3.2 Temporary Monitoring Wells — Approved with Com\n<|id|>49<|page|>6<|box|>590 140 609 573<|content|>3.3 Sub-Slab Soil Gas Sampling — Requested Additio\n<|id|>59<|page|>7<|box|>806 140 824 447<|content|>3.4 Analytical Parameters — Specified\n<|id|>74<|page|>9<|box|>214 140 231 470<|content|>3.5 Applicable Standards for Comparison\n<|id|>80<|page|>9<|box|>674 140 691 647<|content|>4. Laboratory Selection and Quality Assurance / Qu\n<|id|>88<|page|>11<|box|>90 140 107 457<|content|>5. Investigation Schedule and Reporting\n<|id|>103<|page|>12<|box|>348 140 364 401<|content|>6. Health and Safety; Site Access\n<|id|>109<|page|>13<|box|>321 140 339 336<|content|>7. Lender Requirements\n<|id|>113<|page|>13<|box|>789 140 805 333<|content|>8. Budget Confirmation\n<|id|>117<|page|>14<|box|>431 140 449 390<|content|>9. Confidentiality and Privilege\n<|id|>125<|page|>15<|box|>128 142 146 442<|content|>10. Closing / Authorization to Proceed\n<|id|>131<|page|>15<|box|>631 140 648 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>136<|page|>15<|box|>806 142 823 232<|content|>Enclosure:",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>22<|level|>2\n<|id|>26<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>1\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>49<|level|>2\n<|id|>59<|level|>2\n<|id|>74<|level|>2\n<|id|>80<|level|>1\n<|id|>88<|level|>1\n<|id|>103<|level|>1\n<|id|>109<|level|>1\n<|id|>113<|level|>1\n<|id|>117<|level|>1\n<|id|>125<|level|>1\n<|id|>131<|level|>-1\n<|id|>136<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 1
+        }
+    ]
+}

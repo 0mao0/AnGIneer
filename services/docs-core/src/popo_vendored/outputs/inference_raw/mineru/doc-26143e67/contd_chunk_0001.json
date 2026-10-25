@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        47,
+        95
+    ],
+    "pages": [
+        48,
+        49,
+        72,
+        80,
+        94
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>224<|page|>48<|box|>121 420 131 570<|content|>(Dollar amounts in millions)\n<|id|>226<|page|>49<|box|>155 81 165 266<|content|>Source: ... Bureau of Public Debt\n<|id|>355<|page|>72<|box|>101 90 192 478<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>356<|page|>72<|box|>104 503 194 895<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1973\n<|id|>377<|page|>80<|box|>131 85 307 478<|content|>The monthly Treasury Survey of Ownership covers se...ished for banks and insurance companies in the May\n<|id|>378<|page|>80<|box|>131 516 185 906<|content|>1941 Treasury Bulletin, for corporations and savin...nd local governments in the February 1962 Bulletin\n<|id|>444<|page|>94<|box|>675 82 918 490<|content|>Note: ... Government bonds and notes held by foreign banks\n<|id|>445<|page|>94<|box|>675 503 910 915<|content|>3/ Principally the International Bank for Reconstr...Bank and the Asian Development Bank. ... r Revised",
+    "raw_response": "<|src_id|>355<|tgt_id|>356\n<|src_id|>377<|tgt_id|>378",
+    "parsed": [
+        {
+            "src_id": 355,
+            "tgt_id": 356
+        },
+        {
+            "src_id": 377,
+            "tgt_id": 378
+        }
+    ]
+}

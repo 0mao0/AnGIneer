@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 633<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>1<|page|>1<|box|>112 271 128 725<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>7<|page|>1<|box|>304 142 321 238<|content|>Dear David:\n<|id|>9<|page|>1<|box|>463 142 479 437<|content|>1. Confirmation of Successful Closing\n<|id|>26<|page|>2<|box|>660 142 676 560<|content|>2. Use of Proceeds and Existing Credit Facility Pa\n<|id|>33<|page|>3<|box|>691 140 707 449<|content|>3. Summary of Key Terms of the Notes\n<|id|>44<|page|>5<|box|>90 140 107 416<|content|>3.1 Optional Redemption Schedule\n<|id|>48<|page|>5<|box|>388 140 405 310<|content|>3.2 Equity Clawback\n<|id|>53<|page|>5<|box|>684 140 702 321<|content|>3.3 Change of Control\n<|id|>56<|page|>6<|box|>186 140 204 687<|content|>4. Ongoing Obligations Under the Indenture — Incur\n<|id|>59<|page|>6<|box|>434 140 450 405<|content|>4.1 Fixed Charge Coverage Ratio\n<|id|>63<|page|>7<|box|>90 140 107 444<|content|>4.2 Limitation on Restricted Payments\n<|id|>75<|page|>7<|box|>768 140 787 388<|content|>4.3 Limitation on Indebtedness\n<|id|>85<|page|>8<|box|>441 140 458 330<|content|>4.4 Limitation on Liens\n<|id|>88<|page|>8<|box|>667 140 684 334<|content|>4.5 Asset Sale Covenant\n<|id|>95<|page|>9<|box|>220 140 238 348<|content|>4.6 Reporting Obligations\n<|id|>101<|page|>9<|box|>736 140 753 651<|content|>5. Ongoing Obligations Under the Registration Righ\n<|id|>103<|page|>9<|box|>848 140 864 475<|content|>5.1 Registration Statement Filing Deadline\n<|id|>108<|page|>10<|box|>429 140 446 475<|content|>5.2 Exchange Offer Effectiveness Deadline\n<|id|>111<|page|>10<|box|>601 140 618 485<|content|>5.3 Additional Interest for Non-Compliance\n<|id|>119<|page|>11<|box|>220 142 237 321<|content|>6. Key Dates Calendar\n<|id|>122<|page|>11<|box|>779 140 795 465<|content|>7. Trustee and Paying Agent Information\n<|id|>124<|page|>11<|box|>849 140 867 650<|content|>Indenture Trustee, Registrar, Paying Agent, and Tr\n<|id|>129<|page|>12<|box|>347 140 364 357<|content|>8. Enclosed Closing Binder\n<|id|>152<|page|>13<|box|>207 140 224 313<|content|>9. Post-Closing Items\n<|id|>158<|page|>13<|box|>597 143 614 236<|content|>10. Ratings\n<|id|>162<|page|>14<|box|>90 140 107 444<|content|>11. Continuing Availability of Counsel",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>7<|level|>-1\n<|id|>9<|level|>1\n<|id|>26<|level|>1\n<|id|>33<|level|>1\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>53<|level|>2\n<|id|>56<|level|>1\n<|id|>59<|level|>2\n<|id|>63<|level|>2\n<|id|>75<|level|>2\n<|id|>85<|level|>2\n<|id|>88<|level|>2\n<|id|>95<|level|>2\n<|id|>101<|level|>1\n<|id|>103<|level|>2\n<|id|>108<|level|>2\n<|id|>111<|level|>2\n<|id|>119<|level|>1\n<|id|>122<|level|>1\n<|id|>124<|level|>2\n<|id|>129<|level|>1\n<|id|>152<|level|>1\n<|id|>158<|level|>1\n<|id|>162<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        }
+    ]
+}

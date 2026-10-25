@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|type|>title<|page|>1<|box|>212 140 229 462<|content|>VIA EMAIL AND Sundial Data Systems\n<|id|>14<|type|>title<|page|>1<|box|>724 142 741 366<|content|>1. Introduction and Purpose\n<|id|>19<|type|>title<|page|>2<|box|>513 140 529 303<|content|>2. Entities Searched\n<|id|>28<|type|>title<|page|>2<|box|>781 140 797 411<|content|>2. Ironhaven Holdings Inc. (\"IHI\")\n<|id|>36<|type|>title<|page|>3<|box|>316 140 334 341<|content|>3. Jurisdictions Searched\n<|id|>38<|type|>title<|page|>3<|box|>446 140 463 403<|content|>3.1 Ironhaven Data Centers LLC\n<|id|>50<|type|>title<|page|>4<|box|>138 140 157 364<|content|>3.2 Ironhaven Holdings Inc.\n<|id|>56<|type|>title<|page|>4<|box|>454 140 470 493<|content|>4. Search Methodology and Date Parameters\n<|id|>64<|type|>title<|page|>5<|box|>421 140 438 431<|content|>5. Search Results — Summary Table\n<|id|>65<|type|>title<|page|>5<|box|>452 140 469 320<|content|>5.1 Tabular Summary\n<|id|>67<|type|>table<|page|>5<|box|>536 143 907 852<|content|>None\n<|id|>68<|type|>table<|page|>6<|box|>89 143 224 852<|content|>None\n<|id|>69<|type|>title<|page|>6<|box|>263 140 280 343<|content|>5.2 Summary Conclusion\n<|id|>72<|type|>title<|page|>6<|box|>500 140 517 723<|content|>6. Description of Existing UCC Filing — Greystone\n<|id|>73<|type|>title<|page|>6<|box|>530 142 547 279<|content|>6.1 Filing Details\n<|id|>85<|type|>title<|page|>7<|box|>345 140 363 364<|content|>6.2 Analysis and Disposition\n<|id|>90<|type|>title<|page|>7<|box|>625 183 641 496<|content|>• Total payoff amount: $132,708,333.33\n<|id|>95<|type|>title<|page|>8<|box|>303 140 321 266<|content|>7. Certification\n<|id|>100<|type|>title<|page|>9<|box|>90 140 107 403<|content|>8. Qualifications and Limitations\n<|id|>107<|type|>title<|page|>10<|box|>186 140 203 344<|content|>9. Attachments / Exhibits\n<|id|>115<|type|>title<|page|>10<|box|>594 140 609 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>123<|type|>title<|page|>10<|box|>780 140 796 738<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGE / ATTORNE",
+    "raw_response": "<|src_id|>67<|tgt_id|>65\n<|src_id|>68<|tgt_id|>65",
+    "parsed": [
+        {
+            "src_id": 67,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 65
+        }
+    ]
+}

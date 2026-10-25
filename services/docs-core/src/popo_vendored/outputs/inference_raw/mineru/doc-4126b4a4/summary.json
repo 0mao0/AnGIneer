@@ -1,0 +1,511 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-u_nejcdp\\input\\pdfs\\doc-4126b4a4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-u_nejcdp\\enriched\\doc-4126b4a4.json",
+    "contd_output": "<|src_id|>22<|tgt_id|>23",
+    "title_output": "<|id|>10<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>29<|level|>2\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>44<|level|>1\n<|id|>61<|level|>1\n<|id|>63<|level|>2\n<|id|>64<|level|>3\n<|id|>68<|level|>4\n<|id|>76<|level|>4\n<|id|>80<|level|>3\n<|id|>89<|level|>4\n<|id|>93<|level|>3\n<|id|>97<|level|>4\n<|id|>104<|level|>4\n<|id|>108<|level|>3\n<|id|>117<|level|>2\n<|id|>118<|level|>3\n<|id|>122<|level|>4\n<|id|>129<|level|>4\n<|id|>134<|level|>3\n<|id|>137<|level|>4\n<|id|>140<|level|>4\n<|id|>143<|level|>3\n<|id|>147<|level|>4\n<|id|>151<|level|>4\n<|id|>154<|level|>3\n<|id|>164<|level|>2\n<|id|>165<|level|>3\n<|id|>169<|level|>4\n<|id|>176<|level|>4\n<|id|>181<|level|>3\n<|id|>190<|level|>4\n<|id|>193<|level|>3\n<|id|>204<|level|>2\n<|id|>205<|level|>3\n<|id|>216<|level|>4\n<|id|>221<|level|>3\n<|id|>225<|level|>4\n<|id|>232<|level|>4\n<|id|>237<|level|>3\n<|id|>241<|level|>4\n<|id|>244<|level|>4\n<|id|>247<|level|>3\n<|id|>258<|level|>1\n<|id|>260<|level|>2\n<|id|>269<|level|>2\n<|id|>273<|level|>2\n<|id|>277<|level|>2\n<|id|>280<|level|>2\n<|id|>284<|level|>2\n<|id|>289<|level|>2\n<|id|>292<|level|>2\n<|id|>295<|level|>1\n<|id|>302<|level|>1\n<|id|>303<|level|>2\n<|id|>306<|level|>2\n<|id|>308<|level|>2\n<|id|>310<|level|>2\n<|id|>312<|level|>1\n<|id|>320<|level|>1\n<|id|>322<|level|>2\n<|id|>327<|level|>2\n<|id|>333<|level|>1\n<|id|>344<|level|>1\n<|id|>346<|level|>1",
+    "image_output": "<|src_id|>36<|tgt_id|>33\n<|src_id|>286<|tgt_id|>284\n<|src_id|>335<|tgt_id|>333\n<|src_id|>336<|tgt_id|>333\n<|src_id|>337<|tgt_id|>333\n<|src_id|>338<|tgt_id|>333\n<|src_id|>339<|tgt_id|>333\n<|src_id|>340<|tgt_id|>333\n<|src_id|>341<|tgt_id|>333\n<|src_id|>342<|tgt_id|>333\n<|src_id|>343<|tgt_id|>333\n<|src_id|>345<|tgt_id|>344\n<|src_id|>347<|tgt_id|>346\n<|src_id|>348<|tgt_id|>346",
+    "contd_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 4
+        },
+        {
+            "id": 76,
+            "level": 4
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 4
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 104,
+            "level": 4
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 4
+        },
+        {
+            "id": 129,
+            "level": 4
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 4
+        },
+        {
+            "id": 140,
+            "level": 4
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 4
+        },
+        {
+            "id": 151,
+            "level": 4
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 4
+        },
+        {
+            "id": 176,
+            "level": 4
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 4
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 4
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 225,
+            "level": 4
+        },
+        {
+            "id": 232,
+            "level": 4
+        },
+        {
+            "id": 237,
+            "level": 3
+        },
+        {
+            "id": 241,
+            "level": 4
+        },
+        {
+            "id": 244,
+            "level": 4
+        },
+        {
+            "id": 247,
+            "level": 3
+        },
+        {
+            "id": 258,
+            "level": 1
+        },
+        {
+            "id": 260,
+            "level": 2
+        },
+        {
+            "id": 269,
+            "level": 2
+        },
+        {
+            "id": 273,
+            "level": 2
+        },
+        {
+            "id": 277,
+            "level": 2
+        },
+        {
+            "id": 280,
+            "level": 2
+        },
+        {
+            "id": 284,
+            "level": 2
+        },
+        {
+            "id": 289,
+            "level": 2
+        },
+        {
+            "id": 292,
+            "level": 2
+        },
+        {
+            "id": 295,
+            "level": 1
+        },
+        {
+            "id": 302,
+            "level": 1
+        },
+        {
+            "id": 303,
+            "level": 2
+        },
+        {
+            "id": 306,
+            "level": 2
+        },
+        {
+            "id": 308,
+            "level": 2
+        },
+        {
+            "id": 310,
+            "level": 2
+        },
+        {
+            "id": 312,
+            "level": 1
+        },
+        {
+            "id": 320,
+            "level": 1
+        },
+        {
+            "id": 322,
+            "level": 2
+        },
+        {
+            "id": 327,
+            "level": 2
+        },
+        {
+            "id": 333,
+            "level": 1
+        },
+        {
+            "id": 344,
+            "level": 1
+        },
+        {
+            "id": 346,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 36,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 286,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 335,
+            "tgt_id": 333
+        },
+        {
+            "src_id": 336,
+            "tgt_id": 333
+        },
+        {
+            "src_id": 337,
+            "tgt_id": 333
+        },
+        {
+            "src_id": 338,
+            "tgt_id": 333
+        },
+        {
+            "src_id": 339,
+            "tgt_id": 333
+        },
+        {
+            "src_id": 340,
+            "tgt_id": 333
+        },
+        {
+            "src_id": 341,
+            "tgt_id": 333
+        },
+        {
+            "src_id": 342,
+            "tgt_id": 333
+        },
+        {
+            "src_id": 343,
+            "tgt_id": 333
+        },
+        {
+            "src_id": 345,
+            "tgt_id": 344
+        },
+        {
+            "src_id": 347,
+            "tgt_id": 346
+        },
+        {
+            "src_id": 348,
+            "tgt_id": 346
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 335,
+            "table2_idx": 336,
+            "upper_row_ss": [
+                [
+                    "6",
+                    "Sep. 2017",
+                    "Dublin",
+                    "Regular Q3",
+                    "Nine-month financial review; reforecast;",
+                    "Approved budget reforecast;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Dublin office CapEx",
+                    "approved CapEx for office improvements"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 337,
+            "table2_idx": 338,
+            "upper_row_ss": [
+                [
+                    "12",
+                    "Apr. 19, 2018",
+                    "Dublin",
+                    "Special",
+                    "Imvara regulatory submissions (5 EMEA markets);",
+                    "Approved 5 regulatory submissions; approved CapEx"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Dublin office/IT CapEx",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 338,
+            "table2_idx": 339,
+            "upper_row_ss": [
+                [
+                    "21",
+                    "Dec. 2018",
+                    "Dublin",
+                    "Special",
+                    "Year-end EMEA pricing; treasury/FX hedging for 2019; legacy compound review",
+                    "Approved pricing; approved hedging parameters with Glenmore Bank"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Meeting No.",
+                    "Date",
+                    "Location",
+                    "Type",
+                    "Key Agenda Items",
+                    "Key Decisions/Resolutions"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 339,
+            "table2_idx": 340,
+            "upper_row_ss": [
+                [
+                    "29",
+                    "Oct. 2019",
+                    "Dublin",
+                    "Special",
+                    "Competitive",
+                    "Approved"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "landscape (Imvara, 2 EMEA markets)",
+                    "proactive market defense strategies"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 341,
+            "table2_idx": 342,
+            "upper_row_ss": [
+                [
+                    "35",
+                    "Jun. 2020",
+                    "Dublin (hybrid)",
+                    "Regular Q2",
+                    "H1 2020 review; COVID-19 revenue impact; product",
+                    "Reviewed financial performance and supply-chain"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "performance;PMI status",
+                    "status"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 342,
+            "table2_idx": 343,
+            "upper_row_ss": [
+                [
+                    "42",
+                    "Dec. 2020",
+                    "Dublin (hybrid)",
+                    "Special",
+                    "CapEx year-end closeout (€47.2M cumulative regulatory spend confirmed); year-end pricing; 2021",
+                    "Approved CapEx closeout; approved pricing; authorized 2021 budget preparation"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "priorities",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 347,
+            "table2_idx": 348,
+            "upper_row_ss": [
+                [
+                    "KDB Compliance Documentation",
+                    "Knowledge Development box calculations and supporting analyses prepared by Thornbury &",
+                    "13, 40",
+                    "Located and catalogued"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Keogh",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

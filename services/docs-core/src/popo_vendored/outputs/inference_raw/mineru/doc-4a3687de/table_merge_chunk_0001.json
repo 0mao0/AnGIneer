@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 3', '14', '8', '9', '10', '11', '11', '12', '13', '13', '14', '15', '15']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['服务时间', 'colspan=2, 6s', 'colspan=2, 8s', 'colspan=2, 10s', 'colspan=2, 14s', 'colspan=2, 18s', 'colspan=2, 20s']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 1402,
+    "table2_idx": 1403
+}

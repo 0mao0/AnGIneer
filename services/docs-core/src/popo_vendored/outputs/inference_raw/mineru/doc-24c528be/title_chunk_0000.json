@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        16
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>16<|page|>2<|box|>148 140 166 547<|content|>I. DOCUMENTS EXAMINED; DEFINED TERMS\n<|id|>18<|page|>2<|box|>205 140 224 519<|content|>A. Opinion Documents (the \"Loan Documents\")\n<|id|>27<|page|>3<|box|>246 140 263 390<|content|>B. Other Documents Examined\n<|id|>49<|page|>5<|box|>184 140 200 509<|content|>C. Certificates and Confirmations Relied Upon\n<|id|>55<|page|>5<|box|>498 142 513 303<|content|>II. ASSUMPTIONS\n<|id|>69<|page|>6<|box|>722 140 739 269<|content|>III. OPINIONS\n<|id|>71<|page|>6<|box|>797 140 815 697<|content|>Opinion 1 — Due Organization and Good Standing (De\n<|id|>78<|page|>7<|box|>518 140 535 416<|content|>Opinion 2 — Power and Authority\n<|id|>81<|page|>7<|box|>816 140 834 397<|content|>Opinion 3 — Due Authorization\n<|id|>87<|page|>8<|box|>583 140 599 434<|content|>Opinion 4 — Execution and Delivery\n<|id|>89<|page|>8<|box|>729 140 747 362<|content|>Opinion 5 — Enforceability\n<|id|>91<|page|>8<|box|>839 140 856 547<|content|>Opinion 6 — No Violation of Governing Documents\n<|id|>95<|page|>9<|box|>294 140 311 540<|content|>Opinion 7 — No Violation of Specified Agreements\n<|id|>98<|page|>9<|box|>556 140 574 552<|content|>Opinion 8 — No Governmental Approvals Required\n<|id|>104<|page|>10<|box|>194 140 212 504<|content|>Opinion 9 — No Litigation (to our knowledge)\n<|id|>107<|page|>10<|box|>531 140 549 584<|content|>Opinion 10 — Security Interest Opinions (UCC / Ple\n<|id|>112<|page|>11<|box|>422 140 439 460<|content|>Opinion 11 — Investment Company Act\n<|id|>114<|page|>11<|box|>585 140 604 416<|content|>Opinion 12 — Margin Regulations\n<|id|>116<|page|>11<|box|>814 140 832 640<|content|>IV. QUALIFICATIONS, LIMITATIONS, AND EXCEPTIONS\n<|id|>118<|page|>12<|box|>90 140 107 370<|content|>A. Enforceability Exceptions\n<|id|>123<|page|>12<|box|>588 142 604 274<|content|>B. Law Covered\n<|id|>138<|page|>13<|box|>632 142 648 344<|content|>C. Specific Qualifications\n<|id|>156<|page|>15<|box|>393 140 410 588<|content|>D. Reliance and Assumptions Regarding Factual Matt\n<|id|>159<|page|>15<|box|>739 140 756 565<|content|>V. RELIANCE, BENEFIT, AND OTHER MATTERS\n<|id|>163<|page|>16<|box|>309 142 325 315<|content|>B. No Duty to Update\n<|id|>165<|page|>16<|box|>474 140 491 379<|content|>C. Governing Law of Opinion\n<|id|>167<|page|>16<|box|>669 232 686 763<|content|>[Remainder of this page intentionally left blank;",
+    "raw_response": "<|id|>16<|level|>1\n<|id|>18<|level|>2\n<|id|>27<|level|>2\n<|id|>49<|level|>2\n<|id|>55<|level|>1\n<|id|>69<|level|>1\n<|id|>71<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>2\n<|id|>87<|level|>2\n<|id|>89<|level|>2\n<|id|>91<|level|>2\n<|id|>95<|level|>2\n<|id|>98<|level|>2\n<|id|>104<|level|>2\n<|id|>107<|level|>2\n<|id|>112<|level|>2\n<|id|>114<|level|>2\n<|id|>116<|level|>1\n<|id|>118<|level|>2\n<|id|>123<|level|>2\n<|id|>138<|level|>2\n<|id|>156<|level|>2\n<|id|>159<|level|>1\n<|id|>163<|level|>2\n<|id|>165<|level|>2\n<|id|>167<|level|>-1",
+    "parsed": [
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 1
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        }
+    ]
+}

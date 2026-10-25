@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>402 199 438 797<|content|>ANSWER AND AFFIRMATIVE DEFENSES OF DEFENDANT NEXFO\n<|id|>3<|page|>1<|box|>488 143 503 397<|content|>PRELIMINARY STATEMENT\n<|id|>7<|page|>1<|box|>847 349 864 647<|content|>PART I ANSWER TO COMPLAINT\n<|id|>8<|page|>2<|box|>89 140 107 622<|content|>I. RESPONSES TO COUNT I — BREACH OF CONTRACT\n<|id|>32<|page|>5<|box|>238 140 255 624<|content|>II. RESPONSES TO COUNT II — UNJUST ENRICHMENT\n<|id|>38<|page|>5<|box|>724 140 743 604<|content|>III. RESPONSES TO COUNT III — ACCOUNT STATED\n<|id|>44<|page|>6<|box|>363 140 380 341<|content|>IV. GENERAL DENIAL\n<|id|>47<|page|>6<|box|>493 344 510 651<|content|>PART II AFFIRMATIVE DEFENSES\n<|id|>49<|page|>6<|box|>585 140 604 423<|content|>FIRST AFFIRMATIVE DEFENSE\n<|id|>53<|page|>7<|box|>194 140 210 444<|content|>SECOND AFFIRMATIVE DEFENSE\n<|id|>59<|page|>7<|box|>518 140 536 428<|content|>THIRD AFFIRMATIVE DEFENSE\n<|id|>67<|page|>8<|box|>621 140 638 447<|content|>FOURTH AFFIRMATIVE DEFENSE\n<|id|>72<|page|>9<|box|>238 140 255 424<|content|>FIFTH AFFIRMATIVE DEFENSE\n<|id|>76<|page|>9<|box|>621 140 638 426<|content|>SIXTH AFFIRMATIVE DEFENSE\n<|id|>81<|page|>10<|box|>220 140 237 455<|content|>SEVENTH AFFIRMATIVE DEFENSE\n<|id|>85<|page|>10<|box|>511 142 527 442<|content|>EIGHTH AFFIRMATIVE DEFENSE\n<|id|>92<|page|>11<|box|>89 140 106 428<|content|>NINTH AFFIRMATIVE DEFENSE\n<|id|>94<|page|>11<|box|>251 361 267 637<|content|>PART III PRAYER FOR RELIEF\n<|id|>111<|page|>11<|box|>699 375 714 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>32<|level|>3\n<|id|>38<|level|>3\n<|id|>44<|level|>3\n<|id|>47<|level|>2\n<|id|>49<|level|>3\n<|id|>53<|level|>3\n<|id|>59<|level|>3\n<|id|>67<|level|>3\n<|id|>72<|level|>3\n<|id|>76<|level|>3\n<|id|>81<|level|>3\n<|id|>85<|level|>3\n<|id|>92<|level|>3\n<|id|>94<|level|>2\n<|id|>111<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        }
+    ]
+}

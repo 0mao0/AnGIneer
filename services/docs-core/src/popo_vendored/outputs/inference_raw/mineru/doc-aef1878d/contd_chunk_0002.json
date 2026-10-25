@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        104,
+        125
+    ],
+    "pages": [
+        105,
+        110,
+        115,
+        117,
+        119,
+        123,
+        125
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>570<|page|>105<|box|>123 81 402 491<|content|>The Leaking Underground Storage Tank (LUST) Trust ...9, dated August 8, 2014), and section 31203 of the\n<|id|>571<|page|>105<|box|>125 504 152 913<|content|>Fixing America's Surface Transportation (FAST) Act...f 2015 (Public Law 114-94, dated December 4, 2015)\n<|id|>596<|page|>110<|box|>303 81 582 491<|content|>Section 3 of the Dingell-Johnson Sport Fish Restor... 2015, Public Law 114-94, Fixing America's Surface\n<|id|>597<|page|>110<|box|>128 504 172 915<|content|>Transportation (FAST) Act, Sec. ... 10001, amended...ations for each of the Fiscal Years 2016 thru 2021\n<|id|>625<|page|>115<|box|>378 81 438 491<|content|>The Act provides that the Secretary of the Treasur...ceived on articles under chapters 51 and 52 of the\n<|id|>626<|page|>115<|box|>146 504 250 915<|content|>Harmonized Tariff Schedule of the United States. ....ited States wool market for the following purposes\n<|id|>635<|page|>117<|box|>263 80 352 491<|content|>Funds from the Agricultural Disaster Relief Trust ... disaster assistance programs: ... Tree Assistance\n<|id|>636<|page|>117<|box|>117 504 147 913<|content|>Program (TAP); ... and Emergency Assistance for Li...k, Honey Bees, and Farm-Raised Fish (ELAP) Program\n<|id|>646<|page|>119<|box|>258 504 319 915<|content|>- 80 percent to the Office of Communication and Kn...section 937 of the Public Health Services Act, and\n<|id|>648<|page|>119<|box|>349 504 409 915<|content|>No amounts shall be available for expenditure from...be transferred to the general fund of the Treasury\n<|id|>681<|page|>123<|box|>148 388 162 609<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>682<|page|>123<|box|>184 81 258 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>690<|page|>123<|box|>839 81 901 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>691<|page|>123<|box|>184 504 229 915<|content|>Second Liberty Loan Act of 1917, the nature of the...o an overall limit on the outstanding Federal debt\n<|id|>722<|page|>125<|box|>140 81 172 491<|content|>United States—Includes the 50 States, District of ...ommonwealth of Puerto Rico, American Samoa, Midway\n<|id|>723<|page|>125<|box|>89 504 121 913<|content|>Island, Virgin Islands, Wake Island, and all other... Island, and all other territories and possessions",
+    "raw_response": "<|src_id|>570<|tgt_id|>571\n<|src_id|>596<|tgt_id|>597\n<|src_id|>625<|tgt_id|>626\n<|src_id|>635<|tgt_id|>636\n<|src_id|>690<|tgt_id|>691\n<|src_id|>722<|tgt_id|>723",
+    "parsed": [
+        {
+            "src_id": 570,
+            "tgt_id": 571
+        },
+        {
+            "src_id": 596,
+            "tgt_id": 597
+        },
+        {
+            "src_id": 625,
+            "tgt_id": 626
+        },
+        {
+            "src_id": 635,
+            "tgt_id": 636
+        },
+        {
+            "src_id": 690,
+            "tgt_id": 691
+        },
+        {
+            "src_id": 722,
+            "tgt_id": 723
+        }
+    ]
+}

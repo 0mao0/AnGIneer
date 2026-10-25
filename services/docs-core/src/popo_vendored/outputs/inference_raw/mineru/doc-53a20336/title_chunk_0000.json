@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        59
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        18,
+        20,
+        32,
+        33,
+        38,
+        46,
+        47,
+        48,
+        50,
+        52,
+        58
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>7<|box|>105 96 258 859<|content|>TREASURY BULLETIN\n<|id|>10<|page|>9<|box|>103 363 125 593<|content|>Table of Contents\n<|id|>13<|page|>11<|box|>43 341 59 620<|content|>Treasury Financing Operations\n<|id|>14<|page|>11<|box|>82 90 96 316<|content|>2-3/4 Percent Treasury Bonds,\n<|id|>22<|page|>11<|box|>254 504 268 802<|content|>1-1/2 Percent Five-Year Treasury Notes\n<|id|>24<|page|>11<|box|>638 504 666 876<|content|>Reinvestment Offered Owners of Maturing Series E S\n<|id|>32<|page|>12<|box|>350 514 364 701<|content|>Treasury Bills Refunded\n<|id|>35<|page|>13<|box|>47 290 61 683<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>37<|page|>14<|box|>55 333 71 661<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>43<|page|>16<|box|>46 333 60 659<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>46<|page|>16<|box|>536 28 546 154<|content|>14/ See footnote 15.\n<|id|>56<|page|>18<|box|>43 342 57 664<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>71<|page|>20<|box|>50 335 62 638<|content|>TRUST ACCOUNT AND OTHER TRANSACTIONS\n<|id|>105<|page|>32<|box|>50 413 64 577<|content|>DEBT OUTSTANDING\n<|id|>110<|page|>33<|box|>371 148 401 825<|content|>Table 2.- Application of Limitation to Public Debt\n<|id|>121<|page|>38<|box|>48 410 62 570<|content|>DEBT OPERATIONS\n<|id|>145<|page|>46<|box|>477 194 491 791<|content|>Table 2.- Summary of Interest-Bearing Public Marke\n<|id|>147<|page|>47<|box|>77 141 108 809<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>149<|page|>48<|box|>85 129 119 835<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>153<|page|>50<|box|>48 340 62 647<|content|>MARKET QUOTATIONS, FEBRUARY 28, 1951.\n<|id|>160<|page|>52<|box|>48 349 62 654<|content|>MARKET QUOTATIONS, FEBRUARY 28, 1951\n<|id|>175<|page|>58<|box|>50 347 64 633<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>176<|page|>58<|box|>83 215 100 765<|content|>Table 2.- Detail of Collections by Type of Tax^{y}",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>10<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>1\n<|id|>37<|level|>1\n<|id|>43<|level|>1\n<|id|>46<|level|>-1\n<|id|>56<|level|>1\n<|id|>71<|level|>1\n<|id|>105<|level|>1\n<|id|>110<|level|>2\n<|id|>121<|level|>1\n<|id|>145<|level|>2\n<|id|>147<|level|>3\n<|id|>149<|level|>3\n<|id|>153<|level|>1\n<|id|>160<|level|>1\n<|id|>175<|level|>1\n<|id|>176<|level|>2",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 176,
+            "level": 2
+        }
+    ]
+}

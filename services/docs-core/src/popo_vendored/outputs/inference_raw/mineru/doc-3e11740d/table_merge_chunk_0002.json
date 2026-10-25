@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['5\\\\geqslant\\\\frac{l_0}{S_0}>3.4', '2.5S_0']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['3.4 \\\\geqslant \\\\frac{l_0}{S_0} >1', '\\\\frac{T}{S_0} \\\\leqslant 3 \\\\text{时: } 0.8S_0 + 0.5l_0\\\\frac{T}{S_0} >3 \\\\text{时: } 3S_0']]\n",
+    "raw_response": "[0, 0]",
+    "parsed": [
+        0,
+        0
+    ],
+    "table1_idx": 1836,
+    "table2_idx": 1837
+}

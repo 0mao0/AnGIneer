@@ -1,0 +1,25 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['F', 'Haloran BioPharmaceuticals, Inc.', 'Oncology (Breast)', 'III', '50', '$120M', '$1M', '$25M', 'Uncapped', '$10M', '$50M', '$50M/$100M', 'New York']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['G', 'Meridian Life Sciences, LLC', 'Specialty (Autoimmune)', 'III', '22', '$48M', '$250K', '$5M', 'High-capped ($50M)', '$2M', '$8M', '$10M / $25M', 'Massachusetts']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 224,
+    "table2_idx": 225
+}

@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['3', 'Portuguese employee equity holders', 'Portugal', '~380,000', '~$7,200,000 (net of exercise prices)', 'Compensation-character income', 'U.S.-Portugal Treaty: Art. 13 (capital', 'W-8BEN']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '(VeloPay Europe, Unipessoal Lda.) (~20-25 holders)', '', '', '', '(option spreads, RSU settlements ) may be subject to Section 1441 withholding at 30% or treaty-reduced rate; capital gain portion exempt under treaty', 'gains), Art. 16 (dependent personal services)', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 209,
+    "table2_idx": 210
+}

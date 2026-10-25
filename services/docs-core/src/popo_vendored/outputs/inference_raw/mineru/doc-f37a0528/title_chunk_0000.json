@@ -1,0 +1,150 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 145 151 851<|content|>425 Park Avenue, 28th Floor New York, NY 10065 Tel\n<|id|>10<|page|>1<|box|>565 142 582 328<|content|>1. Identity of the Client\n<|id|>14<|page|>2<|box|>241 140 258 333<|content|>2. Scope of Engagement\n<|id|>15<|page|>2<|box|>272 140 289 333<|content|>2.1 General Description\n<|id|>20<|page|>2<|box|>733 140 751 305<|content|>2.2 Specific Services\n<|id|>35<|page|>4<|box|>690 140 707 339<|content|>2.3 Limitations on Scope\n<|id|>41<|page|>5<|box|>364 140 383 313<|content|>3. Engagement Team\n<|id|>49<|page|>6<|box|>250 140 266 433<|content|>4. Coordination with Other Advisors\n<|id|>51<|page|>6<|box|>342 140 359 344<|content|>4.1 Meridian Cobalt LLP\n<|id|>54<|page|>6<|box|>660 140 676 395<|content|>4.2 Ashford Pike Advisory LLC\n<|id|>58<|page|>7<|box|>231 140 248 295<|content|>4.3 Other Advisors\n<|id|>64<|page|>7<|box|>508 140 525 290<|content|>5. Fees and Billing\n<|id|>65<|page|>7<|box|>539 140 556 279<|content|>5.1 Hourly Rates\n<|id|>68<|page|>7<|box|>734 140 750 660<|content|>A summary of these rates is also set forth in Exhi\n<|id|>70<|page|>8<|box|>90 140 106 277<|content|>5.2 Fee Estimate\n<|id|>73<|page|>8<|box|>390 140 407 400<|content|>5.3 Expenses and Disbursements\n<|id|>76<|page|>8<|box|>617 140 633 334<|content|>5.4 Billing and Payment\n<|id|>79<|page|>9<|box|>90 140 107 390<|content|>6. Confidentiality and Privilege\n<|id|>84<|page|>9<|box|>638 140 654 321<|content|>7. Conflicts of Interest\n<|id|>90<|page|>10<|box|>250 140 265 370<|content|>8. No Guarantee of Outcome\n<|id|>93<|page|>10<|box|>542 140 559 326<|content|>9. Document Retention\n<|id|>96<|page|>11<|box|>90 142 107 274<|content|>10. Termination\n<|id|>100<|page|>11<|box|>446 140 464 480<|content|>11. Governing Law and Dispute Resolution\n<|id|>104<|page|>11<|box|>785 140 801 369<|content|>12. Miscellaneous Provisions\n<|id|>116<|page|>12<|box|>566 142 584 238<|content|>Acceptance\n<|id|>127<|page|>13<|box|>133 142 150 382<|content|>BELMONT RIDGE BANK NA\n<|id|>132<|page|>13<|box|>220 449 236 549<|content|>EXHIBIT A\n<|id|>133<|page|>13<|box|>246 341 263 655<|content|>Engagement Team Contact Information\n<|id|>136<|page|>13<|box|>529 143 546 321<|content|>BRB Primary Contact\n<|id|>139<|page|>13<|box|>733 447 750 549<|content|>EXHIBIT B\n<|id|>140<|page|>13<|box|>758 393 776 602<|content|>Summary of Hourly Rates",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>20<|level|>2\n<|id|>35<|level|>2\n<|id|>41<|level|>1\n<|id|>49<|level|>1\n<|id|>51<|level|>2\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>64<|level|>1\n<|id|>65<|level|>2\n<|id|>68<|level|>-1\n<|id|>70<|level|>2\n<|id|>73<|level|>2\n<|id|>76<|level|>2\n<|id|>79<|level|>1\n<|id|>84<|level|>1\n<|id|>90<|level|>1\n<|id|>93<|level|>1\n<|id|>96<|level|>1\n<|id|>100<|level|>1\n<|id|>104<|level|>1\n<|id|>116<|level|>1\n<|id|>127<|level|>1\n<|id|>132<|level|>1\n<|id|>133<|level|>2\n<|id|>136<|level|>3\n<|id|>139<|level|>1\n<|id|>140<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 2
+        }
+    ]
+}

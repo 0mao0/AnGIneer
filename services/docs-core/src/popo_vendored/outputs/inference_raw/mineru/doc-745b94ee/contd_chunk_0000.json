@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        11,
+        12,
+        21,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>150 140 169 720<|content|>From: ... Leila Nazari, Associate, Tax Department, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>176 140 213 854<|content|>Reviewed By: ... Garrett Simmons, Senior Associate... Department Leonard Cross, Partner, Tax Department\n<|id|>4<|page|>1<|box|>220 140 239 294<|content|>Date: ... July 25, 2022\n<|id|>5<|page|>1<|box|>246 140 282 854<|content|>Re: ... under IRC § 355(a)(1)(B)\n<|id|>6<|page|>1<|box|>291 140 309 375<|content|>Engagement No. ... 1003-00005\n<|id|>7<|page|>1<|box|>316 140 334 377<|content|>Matter Code: ... HRW-SPIN-001\n<|id|>8<|page|>1<|box|>343 140 359 503<|content|>Client: ... P\n<|id|>89<|page|>11<|box|>845 174 901 856<|content|>(1) Independent Capital-Allocation Strategies. ... The Engineered\n<|id|>90<|page|>12<|box|>90 174 236 857<|content|>Coatings business primarily serves the aerospace, ...mal investment decisions for one or both divisions\n<|id|>163<|page|>21<|box|>464 174 501 854<|content|>(v) Cessation of, or material changes to, the acti...5(b) active trade or business requirement; ... and\n<|id|>165<|page|>21<|box|>554 140 681 857<|content|>These post-spin restrictions serve a dual purpose....vice for extracting earnings at preferential rates\n<|id|>220<|page|>25<|box|>204 176 222 638<|content|>Leonard Cross, Partner, Tax Department (Responsible Partner)\n<|id|>221<|page|>25<|box|>229 176 248 607<|content|>Sylvia Hartwell, Partner, Tax Department (Billing Partner)\n<|id|>222<|page|>25<|box|>256 176 273 691<|content|>Garrett Simmons, Senior Associate, Tax Department (Lead Associate)\n<|id|>223<|page|>25<|box|>282 176 299 633<|content|>Leila Nazari, Associate, Tax Department (Author / File Copy)\n<|id|>224<|page|>25<|box|>306 140 369 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...is restricted to persons identified in Section XII",
+    "raw_response": "<|src_id|>89<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        146,
+        175
+    ],
+    "pages": [
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>217<|type|>table<|page|>146<|box|>193 150 720 834<|content|>None\n<|id|>218<|type|>title<|page|>147<|box|>191 432 220 563<|content|>七、动力机械\n<|id|>219<|type|>table<|page|>147<|box|>238 155 763 839<|content|>None\n<|id|>220<|type|>table<|page|>148<|box|>195 153 720 839<|content|>None\n<|id|>221<|type|>table<|page|>149<|box|>218 161 744 846<|content|>None\n<|id|>222<|type|>table<|page|>150<|box|>193 148 718 832<|content|>None\n<|id|>223<|type|>table<|page|>151<|box|>218 153 839 839<|content|>None\n<|id|>224<|type|>table<|page|>152<|box|>194 155 747 840<|content|>None\n<|id|>225<|type|>title<|page|>153<|box|>191 430 218 561<|content|>八、泵类机械\n<|id|>226<|type|>table<|page|>153<|box|>236 153 761 838<|content|>None\n<|id|>227<|type|>table<|page|>154<|box|>196 155 720 840<|content|>None\n<|id|>228<|type|>table<|page|>155<|box|>220 157 744 840<|content|>None\n<|id|>229<|type|>table<|page|>156<|box|>197 152 722 836<|content|>None\n<|id|>230<|type|>table<|page|>157<|box|>220 157 744 840<|content|>None\n<|id|>231<|type|>table<|page|>158<|box|>193 149 718 834<|content|>None\n<|id|>232<|type|>table<|page|>159<|box|>218 150 742 834<|content|>None\n<|id|>233<|type|>table<|page|>160<|box|>195 157 720 840<|content|>None\n<|id|>234<|type|>title<|page|>161<|box|>189 434 217 565<|content|>九、其他机械\n<|id|>235<|type|>table<|page|>161<|box|>234 157 757 840<|content|>None\n<|id|>236<|type|>table<|page|>162<|box|>193 153 718 838<|content|>None\n<|id|>237<|type|>table<|page|>163<|box|>224 157 750 840<|content|>None\n<|id|>238<|type|>table<|page|>164<|box|>197 153 724 839<|content|>None\n<|id|>239<|type|>table<|page|>165<|box|>218 157 742 842<|content|>None\n<|id|>240<|type|>table<|page|>166<|box|>189 150 715 835<|content|>None\n<|id|>241<|type|>table<|page|>167<|box|>218 155 771 839<|content|>None\n<|id|>242<|type|>table<|page|>168<|box|>193 153 687 838<|content|>None\n<|id|>243<|type|>table<|page|>169<|box|>218 157 740 843<|content|>None\n<|id|>244<|type|>table<|page|>170<|box|>188 150 716 835<|content|>None\n<|id|>245<|type|>table<|page|>171<|box|>217 153 701 836<|content|>None\n<|id|>246<|type|>title<|page|>172<|box|>174 157 201 203<|content|>附表1\n<|id|>247<|type|>table<|page|>172<|box|>246 157 823 840<|content|>None\n<|id|>248<|type|>table<|page|>173<|box|>220 153 678 838<|content|>None\n<|id|>249<|type|>title<|page|>174<|box|>163 157 186 200<|content|>附表 2\n<|id|>250<|type|>table<|page|>174<|box|>225 157 716 840<|content|>None\n<|id|>251<|type|>title<|page|>175<|box|>296 253 383 742<|content|>本定额主编单位、主要起草人、主要审查人、总校人员和管理组人员名单",
+    "raw_response": "<|src_id|>219<|tgt_id|>218\n<|src_id|>226<|tgt_id|>225\n<|src_id|>235<|tgt_id|>234\n<|src_id|>247<|tgt_id|>246\n<|src_id|>250<|tgt_id|>249",
+    "parsed": [
+        {
+            "src_id": 219,
+            "tgt_id": 218
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 235,
+            "tgt_id": 234
+        },
+        {
+            "src_id": 247,
+            "tgt_id": 246
+        },
+        {
+            "src_id": 250,
+            "tgt_id": 249
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        16,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>304 142 319 576<|content|>DRAFT — FOR DISCUSSION PURPOSES ONLY — NEVER FILED\n<|id|>3<|page|>1<|box|>327 140 604 856<|content|>Thalassa Americas Inc. ... In support of this Motion, the Debtor respectfully states as follows\n<|id|>7<|page|>1<|box|>854 140 909 854<|content|>3. ... These\n<|id|>8<|page|>2<|box|>90 174 143 854<|content|>Employees are essential to the continued operation...nize and emerge from Chapter 11 as a going concern\n<|id|>15<|page|>2<|box|>804 140 895 857<|content|>9. ... The Debtor confirms its consent, pursuant to Bankruptcy\n<|id|>16<|page|>3<|box|>90 174 161 854<|content|>Rule 7008, to the entry of a final order by this C...with Article III of the United States Constitution\n<|id|>145<|page|>16<|box|>371 555 388 854<|content|>Dated: ... January 15, 2023 Houston, Texas\n<|id|>146<|page|>16<|box|>397 143 412 320<|content|>Respectfully submitted,\n<|id|>147<|page|>16<|box|>414 142 429 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>148<|page|>16<|box|>431 143 448 251<|content|>By: ... By\n<|id|>149<|page|>16<|box|>449 140 497 854<|content|>Nathaniel Bower (State Bar No. ... (212) 555-4001\n<|id|>150<|page|>16<|box|>498 143 513 454<|content|>Email: ... com\n<|id|>151<|page|>16<|box|>515 142 531 482<|content|>Email: ... com\n<|id|>152<|page|>16<|box|>532 143 547 450<|content|>Email: ... com\n<|id|>153<|page|>16<|box|>550 142 566 560<|content|>Proposed Counsel for the Debtor, Thalassa Americas...osed Counsel for the Debtor, Thalassa Americas Inc\n<|id|>211<|page|>21<|box|>354 176 369 457<|content|>9. ... and\n<|id|>213<|page|>21<|box|>411 143 428 253<|content|>By: ... By\n<|id|>212<|page|>21<|box|>373 142 409 800<|content|>10. ... CALDERWOOD & HARKNESS LLP\n<|id|>214<|page|>21<|box|>426 142 444 797<|content|>Nathan Ikeda 780 Third Avenue New York, New York 10017 Telephone: ... (212) 555-4000\n<|id|>215<|page|>21<|box|>445 142 462 450<|content|>Email: ... com\n<|id|>216<|page|>21<|box|>462 140 479 563<|content|>Proposed Counsel for the Debtor, Thalassa Americas...osed Counsel for the Debtor, Thalassa Americas Inc",
+    "raw_response": "<|src_id|>7<|tgt_id|>8\n<|src_id|>15<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        }
+    ]
+}

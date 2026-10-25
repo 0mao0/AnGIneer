@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        14,
+        19,
+        20,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>166 140 184 826<|content|>FROM: ... Alan Burke, Lead Associate, Privacy & Data Security, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>191 140 229 854<|content|>TO: ... Whitfield, General Counsel, Quorum Insurance Holdings Corp\n<|id|>4<|page|>1<|box|>234 140 253 310<|content|>DATE: ... May 12, 2023\n<|id|>5<|page|>1<|box|>262 140 316 854<|content|>RE: ... (dated November 12, 2019, as amended) — Indemnification, Data Security, and Related Provisions\n<|id|>6<|page|>1<|box|>324 140 342 364<|content|>MATTER NO. ... 1025-00006\n<|id|>7<|page|>1<|box|>349 140 369 478<|content|>CLIENT: ... Quorum Insurance Holdings Corp\n<|id|>12<|page|>1<|box|>806 174 880 857<|content|>Second, Palomar breached the breach notification r... Palomar's Security Operations Center detected the\n<|id|>13<|page|>2<|box|>89 174 127 854<|content|>Incident on April 18, 2023, but Palomar did not no...enty-four (24) hours past the contractual deadline\n<|id|>109<|page|>14<|box|>714 174 731 413<|content|>2 × $16,300,000 = $32,600,000\n<|id|>110<|page|>14<|box|>739 140 777 854<|content|>Carve-Outs from Liability Cap. ... 2 of the MSA, t...uts from Liability Cap,\" provides in relevant part\n<|id|>153<|page|>19<|box|>823 140 897 856<|content|>Consultation Required. ... Priya Deshmukh, VP,\n<|id|>154<|page|>20<|box|>90 140 126 854<|content|>Vendor Risk Management, should also be consulted r... the availability of alternative service providers\n<|id|>194<|page|>25<|box|>784 140 893 856<|content|>We recommend a measured, strategic approach that p...tion notice and material breach notice, confirming\n<|id|>195<|page|>26<|box|>90 140 127 854<|content|>Palomar's insurance status, and advancing the Gray...ion of losses and preparation of the formal demand",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>153<|tgt_id|>154\n<|src_id|>194<|tgt_id|>195",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 195
+        }
+    ]
+}

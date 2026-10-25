@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>128 338 148 658<|content|>PROSPECTUS SUPPLEMENT\n<|id|>2<|type|>title<|page|>1<|box|>166 341 184 653<|content|>(To Prospectus dated February 9, 2024)\n<|id|>3<|type|>title<|page|>1<|box|>191 325 209 671<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>4<|type|>title<|page|>1<|box|>218 250 234 746<|content|>3,000,000 Shares of Common Stock Par Value $0.001\n<|id|>5<|type|>title<|page|>1<|box|>244 236 261 759<|content|>New York Stock Exchange Ticker Symbol: ARHT CUSIP:\n<|id|>11<|type|>title<|page|>1<|box|>799 140 816 578<|content|>THE OFFERING — OVERALLOTMENT EXERCISE\n<|id|>12<|type|>title<|page|>1<|box|>830 142 847 401<|content|>Summary of the Option Exercise\n<|id|>26<|type|>title<|page|>2<|box|>625 142 642 532<|content|>Underwriter Allocations — Overallotment Shares\n<|id|>28<|type|>table<|page|>2<|box|>728 143 854 852<|content|>None\n<|id|>30<|type|>title<|page|>3<|box|>185 140 203 248<|content|>PROCEEDS\n<|id|>31<|type|>title<|page|>3<|box|>217 140 234 560<|content|>Gross and Net Proceeds from Overallotment Exercise\n<|id|>33<|type|>table<|page|>3<|box|>301 143 402 852<|content|>None\n<|id|>35<|type|>title<|page|>3<|box|>541 142 558 442<|content|>Updated Aggregate Offering Proceeds\n<|id|>37<|type|>table<|page|>3<|box|>606 143 715 852<|content|>None\n<|id|>39<|type|>title<|page|>4<|box|>90 140 107 271<|content|>Use of Proceeds\n<|id|>47<|type|>title<|page|>5<|box|>89 142 106 400<|content|>UPDATED CAPITALIZATION\n<|id|>48<|type|>title<|page|>5<|box|>121 140 138 671<|content|>Post-Offering Capitalization Table (As Adjusted fo\n<|id|>50<|type|>table<|page|>5<|box|>279 143 450 852<|content|>None\n<|id|>63<|type|>title<|page|>6<|box|>148 140 166 470<|content|>UPDATED DILUTION INFORMATION\n<|id|>66<|type|>title<|page|>6<|box|>553 140 570 534<|content|>UPDATED BENEFICIAL OWNERSHIP TABLE\n<|id|>67<|type|>title<|page|>6<|box|>584 142 602 503<|content|>Principal Stockholders — Post-Overallotment\n<|id|>71<|type|>table<|page|>7<|box|>89 143 477 852<|content|>None\n<|id|>82<|type|>title<|page|>8<|box|>204 140 220 233<|content|>LOCK-UP\n<|id|>99<|type|>title<|page|>9<|box|>472 140 489 669<|content|>EQUITY INCENTIVE PLANS — UPDATED SHARE RESERVES\n<|id|>104<|type|>title<|page|>10<|box|>412 140 430 611<|content|>UNDERWRITING — SUPPLEMENTAL INFORMATION\n<|id|>109<|type|>title<|page|>11<|box|>89 140 106 470<|content|>TRANSFER AGENT AND REGISTRAR\n<|id|>112<|type|>title<|page|>11<|box|>255 140 273 400<|content|>STOCK EXCHANGE LISTING\n<|id|>114<|type|>title<|page|>11<|box|>359 140 377 307<|content|>LEGAL MATTERS\n<|id|>116<|type|>title<|page|>11<|box|>481 142 500 233<|content|>EXPERTS\n<|id|>118<|type|>title<|page|>11<|box|>657 140 674 553<|content|>WHERE YOU CAN FIND MORE INFORMATION\n<|id|>121<|type|>title<|page|>12<|box|>314 142 330 450<|content|>INCORPORATION BY REFERENCE\n<|id|>123<|type|>title<|page|>12<|box|>513 374 529 622<|content|>Arbor Health Technologies Inc.",
+    "raw_response": "<|src_id|>28<|tgt_id|>26\n<|src_id|>33<|tgt_id|>31\n<|src_id|>37<|tgt_id|>35\n<|src_id|>50<|tgt_id|>48\n<|src_id|>71<|tgt_id|>67",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 67
+        }
+    ]
+}

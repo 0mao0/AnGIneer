@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['050101008', '屋面清理', '1.屋面做法2.屋面高度', 'rowspan=4, m^{2}', '按设计图示尺寸以面积计算', '1.原屋面清扫2.废弃物运输3.场地清理']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['050101009', '种植土回(换)填', '1.回填土质要求2.取土运距3.回填厚度4.弃土运距', '1.m^{3}2.株', '1.以立方米计量,按设计图示回填面积乘以回填厚度以体积计算2.以株计量,按设计图示数量计算', '1.土方挖、运2.回填3.找平、找坡4.废弃物运输']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 99,
+    "table2_idx": 100
+}

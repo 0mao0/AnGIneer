@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 367 106 629<|content|>SECRETARY'S CERTIFICATE\n<|id|>3<|type|>title<|page|>1<|box|>167 241 184 756<|content|>Delivered Pursuant to Section 7.2(d) of the Stock\n<|id|>11<|type|>title<|page|>1<|box|>848 140 864 442<|content|>Section 1. Certificate of Incorporation\n<|id|>19<|type|>title<|page|>2<|box|>444 140 460 284<|content|>Section 2. Bylaws\n<|id|>21<|type|>title<|page|>2<|box|>619 140 638 593<|content|>Section 3. Board Resolutions Authorizing the Trans\n<|id|>35<|type|>title<|page|>4<|box|>810 140 827 450<|content|>Section 4. Sole Stockholder Resolutions\n<|id|>38<|type|>title<|page|>5<|box|>250 140 265 522<|content|>Section 5. Incumbency and Authority of Officers\n<|id|>40<|type|>table<|page|>5<|box|>372 143 449 852<|content|>None\n<|id|>43<|type|>title<|page|>5<|box|>732 140 750 330<|content|>Section 6. Sole Director\n<|id|>46<|type|>title<|page|>6<|box|>167 140 185 344<|content|>Section 7. Good Standing\n<|id|>48<|type|>title<|page|>6<|box|>344 140 362 348<|content|>Section 8. No Proceedings\n<|id|>50<|type|>title<|page|>6<|box|>539 140 556 400<|content|>Section 9. General Certifications\n<|id|>55<|type|>title<|page|>7<|box|>90 400 108 596<|content|>[Signature Page Follows]\n<|id|>61<|type|>title<|page|>7<|box|>251 140 268 464<|content|>Confirmation of Secretary's Incumbency\n<|id|>68<|type|>title<|page|>7<|box|>460 434 478 563<|content|>EXHIBIT LIST",
+    "raw_response": "<|src_id|>40<|tgt_id|>38",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        }
+    ]
+}

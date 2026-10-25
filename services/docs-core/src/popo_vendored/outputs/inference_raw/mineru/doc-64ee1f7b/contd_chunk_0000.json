@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>1<|box|>328 140 345 756<|content|>Solara Digital Infrastructure Fund VI LP, a Delaware limited partnership (\"Parent\")\n<|id|>7<|page|>1<|box|>354 142 369 176<|content|>and\n<|id|>16<|page|>2<|box|>196 140 252 854<|content|>WHEREAS, this Officer's Certificate is being deliv...sing deliverable required under Section 7. ... and\n<|id|>17<|page|>2<|box|>258 140 296 854<|content|>WHEREAS, capitalized terms used but not otherwise ...ngs ascribed to such terms in the Merger Agreement\n<|id|>31<|page|>4<|box|>651 210 797 856<|content|>(2) Committed debt financing consisting of (x) a T...2024, issued by Meridian Atlantic Bank, N. ... and\n<|id|>32<|page|>4<|box|>805 210 897 857<|content|>(3) Rollover equity of approximately Six Hundred S...n an amount of approximately Four Hundred Seventy-\n<|id|>33<|page|>5<|box|>89 210 143 854<|content|>Three Million Two Hundred Forty-One Thousand Four ..., by and between Parent and such rollover investor\n<|id|>45<|page|>6<|box|>787 174 878 857<|content|>(i) that certain Credit Agreement (the \"Credit Agr...te principal amount of Three Billion Seven Hundred\n<|id|>46<|page|>7<|box|>90 174 126 854<|content|>Forty Million Dollars ($3,740,000,000) and (y) a R...unt of Five Hundred Million Dollars ($500,000,000)\n<|id|>47<|page|>7<|box|>135 174 189 854<|content|>(ii) that certain Guarantee and Collateral Agreeme...guarantors, and Meridian Atlantic Bank, N. ... and\n<|id|>49<|page|>7<|box|>258 140 333 854<|content|>The conditions precedent to the initial funding un... accordance with the terms of the Credit Agreement\n<|id|>62<|page|>8<|box|>787 140 898 856<|content|>(d) Debt Commitment Letter. ... and Ironclad Capit...Million Dollars ($500,000,000) under the Revolving\n<|id|>63<|page|>9<|box|>90 140 219 854<|content|>Credit Facility), remains in full force and effect...en satisfied (or waived by the applicable lenders)\n<|id|>73<|page|>9<|box|>864 142 883 496<|content|>By: ... Solara Fund VI GP LLC, its general partner\n<|id|>74<|page|>9<|box|>883 142 900 253<|content|>By: ... By\n<|id|>75<|page|>10<|box|>90 140 107 318<|content|>Name: ... Marcus Elliston\n<|id|>76<|page|>10<|box|>107 140 125 349<|content|>Title: ... Authorized Signatory\n<|id|>77<|page|>10<|box|>125 142 141 284<|content|>Date: ... July 9, 2024\n<|id|>78<|page|>10<|box|>142 142 157 215<|content|>Address: ... Address\n<|id|>79<|page|>10<|box|>159 142 176 591<|content|>1200 Market Street, Suite 3400 Wilmington, Delaware 19801\n<|id|>80<|page|>10<|box|>176 142 193 401<|content|>STRATOS MERGER SUB INC. ... STRATOS MERGER SUB INC\n<|id|>82<|page|>10<|box|>210 142 228 318<|content|>Name: ... Marcus Elliston\n<|id|>83<|page|>10<|box|>228 142 244 264<|content|>Title: ... President\n<|id|>84<|page|>10<|box|>244 142 262 282<|content|>Date: ... July 9, 2024\n<|id|>85<|page|>10<|box|>262 140 280 643<|content|>Registered Office: ... 1209 Orange Street Wilmington, Delaware 19801",
+    "raw_response": "<|src_id|>32<|tgt_id|>33\n<|src_id|>45<|tgt_id|>46\n<|src_id|>62<|tgt_id|>63",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        }
+    ]
+}

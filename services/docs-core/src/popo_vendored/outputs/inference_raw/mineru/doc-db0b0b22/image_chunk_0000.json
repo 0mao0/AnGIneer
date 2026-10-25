@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|type|>title<|page|>1<|box|>359 142 377 379<|content|>Dear Revenue Agent Dunleavy:\n<|id|>11<|type|>title<|page|>1<|box|>775 187 794 808<|content|>I. OVERVIEW OF THE COST-SHARING ARRANGEMENT\n<|id|>12<|type|>title<|page|>1<|box|>821 142 837 424<|content|>1.1 CSA Background and Structure\n<|id|>19<|type|>title<|page|>2<|box|>719 142 734 357<|content|>1.2 Controlled Participants\n<|id|>24<|type|>title<|page|>3<|box|>421 140 438 495<|content|>1.3 Scope of Intangible Development Activity\n<|id|>32<|type|>title<|page|>4<|box|>152 161 198 834<|content|>II. COMPOSITION OF THE QUALIFIED R&D COST POOL (TY\n<|id|>33<|type|>title<|page|>4<|box|>222 140 239 485<|content|>2.1 Aggregate Annual Qualified R&D Costs\n<|id|>35<|type|>table<|page|>4<|box|>290 143 383 852<|content|>None\n<|id|>38<|type|>title<|page|>4<|box|>632 140 648 568<|content|>2.2 Categories of Costs Included in the R&D Cost P\n<|id|>48<|type|>title<|page|>6<|box|>476 140 493 490<|content|>2.3 Costs Excluded from the R&D Cost Pool\n<|id|>55<|type|>title<|page|>7<|box|>223 140 239 411<|content|>2.4 Year-by-Year Cost Pool Detail\n<|id|>59<|type|>title<|page|>7<|box|>693 192 737 803<|content|>III. COST-SHARING ALLOCATION METHODOLOGY — REASONA\n<|id|>60<|type|>title<|page|>7<|box|>762 140 779 334<|content|>3.1 Governing Standard\n<|id|>63<|type|>title<|page|>8<|box|>351 140 368 532<|content|>3.2 RAB Methodology — Projected Revenue Split\n<|id|>77<|type|>title<|page|>9<|box|>242 140 258 558<|content|>3.3 Cost-Sharing Percentages by Year (PPC Position\n<|id|>79<|type|>table<|page|>9<|box|>329 143 438 852<|content|>None\n<|id|>86<|type|>title<|page|>10<|box|>90 140 107 553<|content|>3.4 Key Revenue Data Supporting RAB Calculations\n<|id|>87<|type|>table<|page|>10<|box|>159 143 234 852<|content|>None\n<|id|>91<|type|>title<|page|>10<|box|>526 140 544 575<|content|>3.5 Consistency with Contemporaneous Documentation\n<|id|>95<|type|>title<|page|>11<|box|>150 140 167 398<|content|>3.6 Annual True-Up Mechanism\n<|id|>103<|type|>title<|page|>11<|box|>632 225 652 771<|content|>IV. SUPPORTING DOCUMENTATION PRODUCED\n<|id|>104<|type|>title<|page|>11<|box|>669 140 686 789<|content|>The following documents and materials are produced\n<|id|>111<|type|>title<|page|>12<|box|>469 330 489 666<|content|>V. PRIVILEGE RESERVATION\n<|id|>115<|type|>title<|page|>13<|box|>90 326 109 669<|content|>VI. RESERVATION OF RIGHTS\n<|id|>127<|type|>title<|page|>13<|box|>789 143 805 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>35<|tgt_id|>33\n<|src_id|>79<|tgt_id|>77\n<|src_id|>87<|tgt_id|>86",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 86
+        }
+    ]
+}

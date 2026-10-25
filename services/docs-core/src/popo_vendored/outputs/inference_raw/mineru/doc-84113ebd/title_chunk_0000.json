@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 202 106 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|page|>1<|box|>114 375 132 622<|content|>INTERNAL MEMORANDUM\n<|id|>3<|page|>1<|box|>577 142 594 341<|content|>I. Purpose and Summary\n<|id|>9<|page|>2<|box|>267 142 284 267<|content|>II. Background\n<|id|>10<|page|>2<|box|>297 140 315 357<|content|>A. The Underlying Dispute\n<|id|>20<|page|>3<|box|>257 140 273 354<|content|>B. The DJ Action and Stay\n<|id|>26<|page|>4<|box|>157 140 174 496<|content|>C. Coordination with Ashford & Reeves LLP\n<|id|>30<|page|>4<|box|>566 142 584 496<|content|>III. Current Status of the DCMA Field Audit\n<|id|>31<|page|>4<|box|>598 142 614 524<|content|>A. Information Received from Ashford & Reeves\n<|id|>34<|page|>4<|box|>787 142 804 264<|content|>B. Audit Phase\n<|id|>39<|page|>5<|box|>484 140 500 276<|content|>C. COFD Status\n<|id|>44<|page|>6<|box|>90 140 107 558<|content|>D. HDDS's Position in the Administrative Proceedin\n<|id|>52<|page|>7<|box|>90 140 107 413<|content|>IV. Implications for the DJ Action\n<|id|>53<|page|>7<|box|>122 140 138 377<|content|>A. Stay Remains Appropriate\n<|id|>57<|page|>7<|box|>484 140 500 362<|content|>B. Next Joint Status Report\n<|id|>61<|page|>7<|box|>753 140 771 434<|content|>C. Potential Timeline Considerations\n<|id|>65<|page|>8<|box|>340 140 357 562<|content|>V. Insurance and Financial Reporting Consideration\n<|id|>70<|page|>9<|box|>148 140 167 380<|content|>VI. Recommended Next Steps\n<|id|>77<|page|>9<|box|>797 140 814 352<|content|>VII. Fees and Budget Note\n<|id|>80<|page|>10<|box|>267 140 284 277<|content|>VIII. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>3<|level|>1\n<|id|>9<|level|>1\n<|id|>10<|level|>2\n<|id|>20<|level|>2\n<|id|>26<|level|>2\n<|id|>30<|level|>1\n<|id|>31<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>2\n<|id|>44<|level|>2\n<|id|>52<|level|>1\n<|id|>53<|level|>2\n<|id|>57<|level|>2\n<|id|>61<|level|>2\n<|id|>65<|level|>1\n<|id|>70<|level|>1\n<|id|>77<|level|>1\n<|id|>80<|level|>1",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        }
+    ]
+}

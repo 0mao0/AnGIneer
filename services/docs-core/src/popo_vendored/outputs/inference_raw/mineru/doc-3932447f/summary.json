@@ -1,0 +1,193 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wis80xf6\\input\\pdfs\\doc-3932447f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wis80xf6\\enriched\\doc-3932447f.json",
+    "contd_output": "<|src_id|>35<|tgt_id|>36\n<|src_id|>45<|tgt_id|>46\n<|src_id|>65<|tgt_id|>66",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>4<|level|>1\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>29<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>72<|level|>2\n<|id|>76<|level|>2\n<|id|>87<|level|>2\n<|id|>97<|level|>2\n<|id|>122<|level|>1\n<|id|>124<|level|>2\n<|id|>134<|level|>1\n<|id|>135<|level|>2\n<|id|>143<|level|>1\n<|id|>144<|level|>2\n<|id|>151<|level|>1\n<|id|>152<|level|>2",
+    "image_output": "<|src_id|>137<|tgt_id|>135\n<|src_id|>138<|tgt_id|>135\n<|src_id|>139<|tgt_id|>135\n<|src_id|>140<|tgt_id|>135\n<|src_id|>141<|tgt_id|>135\n<|src_id|>146<|tgt_id|>144\n<|src_id|>147<|tgt_id|>144\n<|src_id|>148<|tgt_id|>144\n<|src_id|>149<|tgt_id|>144",
+    "contd_label": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 137,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 144
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 137,
+            "table2_idx": 138,
+            "upper_row_ss": [
+                [
+                    "1",
+                    "US 9,284,517B2",
+                    "Probe-Hybridization",
+                    "March 14,",
+                    "March 15,",
+                    "Vasquez, H.;Kim, S.J.;",
+                    "Issued"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Methods for Companion Diagnostic Assays in Oncology",
+                    "2014",
+                    "2016",
+                    "Okafor, N.",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 146,
+            "table2_idx": 147,
+            "upper_row_ss": [
+                [
+                    "OncuPath-HER3TM",
+                    "6,412,088",
+                    "July 12, 2022",
+                    "Class 10",
+                    "Registered",
+                    "HER3 companion diagnostic assay kits for use in oncology, namely, in vitro diagnostic kits comprising reagents, probes, and slides for the detection and quantification of HER3 protein"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "expression in tumor tissue samples"
+                ]
+            ]
+        }
+    ]
+}

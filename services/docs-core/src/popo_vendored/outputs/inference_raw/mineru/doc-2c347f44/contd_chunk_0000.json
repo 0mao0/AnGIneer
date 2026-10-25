@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1251 Av...r New York, NY 10020 Telephone: ... (212) 548-6001\n<|id|>1<|page|>1<|box|>133 746 152 854<|content|>May 19, 2023\n<|id|>2<|page|>1<|box|>159 140 176 583<|content|>VIA CERTIFIED MAIL AND ELECTRONIC DELIVERY\n<|id|>3<|page|>1<|box|>186 140 239 854<|content|>Revenue Agent Timothy J. ... 74-28193) Internal Re...ties Practice Area 290 Broadway New York, NY 10007\n<|id|>4<|page|>1<|box|>248 174 303 854<|content|>Re: ... Return of Partnership Income Response to Information Document Request #1\n<|id|>22<|page|>3<|box|>220 181 275 854<|content|>• Fund administration workpapers prepared by Greys... redemption records for the 2021 tax year; ... and\n<|id|>23<|page|>3<|box|>277 183 330 854<|content|>Trade records, trade confirmations, account statem...sponsive to the specific items requested in IDR #1\n<|id|>38<|page|>4<|box|>652 143 669 447<|content|>Sylvia Hartwell Partner, Tax Department\n<|id|>39<|page|>4<|box|>669 143 685 398<|content|>Direct Telephone: ... (212) 548-6034\n<|id|>40<|page|>4<|box|>686 143 703 467<|content|>Email: ... com\n<|id|>41<|page|>4<|box|>704 143 719 238<|content|>Enclosures: ... Enclosures\n<|id|>42<|page|>4<|box|>729 174 765 852<|content|>Response to Information Document Request #1 (2,847...mber with tabbed dividers and index for each item)\n<|id|>43<|page|>4<|box|>773 142 790 254<|content|>cc: ... (via email)\n<|id|>44<|page|>4<|box|>799 174 853 854<|content|>Dawn M. ... , Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>22<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ]
+}

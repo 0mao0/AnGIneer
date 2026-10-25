@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>125 645 141 854<|content|>Claim No. ... CL-2024-000487\n<|id|>2<|page|>1<|box|>150 707 167 854<|content|>Filed: ... 15 July 2024\n<|id|>3<|page|>1<|box|>176 447 193 550<|content|>BETWEEN: ... BETWEEN\n<|id|>29<|page|>2<|box|>675 174 729 854<|content|>(b) A time charter-party dated 22 January 2020 in ... the motor vessel Crimson Horizon (IMO No. ... and\n<|id|>31<|page|>2<|box|>800 140 892 856<|content|>Under the terms of each Charter-party, the Respond... and legal place of arbitration in London, England\n<|id|>44<|page|>3<|box|>869 181 904 854<|content|>• Co-Arbitrator: ... and\n<|id|>46<|page|>4<|box|>109 140 200 854<|content|>The arbitration proceeded through the usual stages...on Centre (IDRC), 70 Fleet Street, London EC4Y 1EU\n<|id|>70<|page|>6<|box|>402 174 494 854<|content|>(e) No application to set aside or challenge the A...as of the date of this Application Notice. ... and\n<|id|>72<|page|>6<|box|>546 140 601 857<|content|>The Claimant respectfully submits that leave to en... continuing post-award interest as described above\n<|id|>104<|page|>8<|box|>742 143 758 325<|content|>Name: ... Hannah Brinkley\n<|id|>105<|page|>8<|box|>758 140 792 852<|content|>Position: ... Lead Associate, Calderwood & Harknes...for the Claimant, Thalassa Shipping & Logistics SA\n<|id|>106<|page|>8<|box|>792 143 809 285<|content|>Date: ... 15 July 2024\n<|id|>109<|page|>8<|box|>883 176 898 767<|content|>Calderwood & Harkness LLP 45 Moorgate London EC2R 6AR United Kingdom\n<|id|>110<|page|>8<|box|>916 142 929 478<|content|>Calderwood & Harkness LLP — Ref: ... SE/HB/TSL-KMH/2024\n<|id|>111<|page|>9<|box|>89 176 143 854<|content|>Reference: ... DX 42618 Moorgate\n<|id|>112<|page|>9<|box|>152 140 208 854<|content|>All documents and communications in connection wit...service of all documents on behalf of the Claimant\n<|id|>113<|page|>9<|box|>214 142 229 267<|content|>Filed: ... 15 July 2024\n<|id|>114<|page|>9<|box|>237 140 268 854<|content|>Court Fee Paid: ... 9(e) — proceedings to enforce an arbitral award where the amount exceeds £100,000)\n<|id|>115<|page|>9<|box|>273 142 290 325<|content|>Claim No. ... CL-2024-000487\n<|id|>116<|page|>9<|box|>297 140 313 617<|content|>Matter Reference: ... 224718",
+    "raw_response": "<|src_id|>29<|tgt_id|>31\n<|src_id|>44<|tgt_id|>46\n<|src_id|>110<|tgt_id|>111",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        }
+    ]
+}

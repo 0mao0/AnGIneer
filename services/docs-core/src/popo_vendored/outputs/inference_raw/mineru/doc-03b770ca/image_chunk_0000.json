@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        9,
+        11,
+        14,
+        15,
+        17,
+        18,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 161 125 834<|content|>IN THE CIRCUIT COURT OF THE SEVENTEENTH JUDICIAL C\n<|id|>2<|type|>table<|page|>1<|box|>217 145 402 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>460 143 497 849<|content|>PLAINTIFF'S FIRST REQUEST FOR PRODUCTION OF DOCUME\n<|id|>8<|type|>title<|page|>2<|box|>152 408 172 589<|content|>I. DEFINITIONS\n<|id|>9<|type|>title<|page|>2<|box|>199 140 215 287<|content|>A. Defined Terms\n<|id|>35<|type|>title<|page|>4<|box|>612 142 628 330<|content|>B. General Instructions\n<|id|>43<|type|>title<|page|>5<|box|>579 310 599 684<|content|>II. REQUESTS FOR PRODUCTION\n<|id|>44<|type|>title<|page|>5<|box|>625 140 642 669<|content|>Category A: Franchise License Agreements and Relat\n<|id|>57<|type|>title<|page|>7<|box|>204 140 222 612<|content|>Category B: Gross Room Revenue Reports and Calcula\n<|id|>76<|type|>title<|page|>9<|box|>250 140 266 575<|content|>Category C: Suncoast Room Management Inc. Records\n<|id|>102<|type|>title<|page|>11<|box|>689 140 707 509<|content|>Category D: Property-Level Financial Records\n<|id|>126<|type|>title<|page|>14<|box|>90 140 107 841<|content|>Category E: OTA Contracts, Booking-Channel Agreeme\n<|id|>144<|type|>title<|page|>15<|box|>715 140 732 547<|content|>Category F: Bank Records and Lending Documents\n<|id|>158<|type|>title<|page|>17<|box|>212 140 229 527<|content|>Category G: Tax Returns and Regulatory Filings\n<|id|>169<|type|>title<|page|>18<|box|>186 140 204 620<|content|>Category H: Communications Regarding Revenue Repor\n<|id|>187<|type|>title<|page|>20<|box|>204 140 222 504<|content|>Category I: Counterclaim-Related Documents\n<|id|>194<|type|>title<|page|>20<|box|>785 140 803 465<|content|>Category J: Miscellaneous and Catch-All\n<|id|>201<|type|>title<|page|>21<|box|>631 380 650 614<|content|>III. CERTIFICATION\n<|id|>204<|type|>title<|page|>22<|box|>150 140 167 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>209<|type|>title<|page|>22<|box|>414 323 434 671<|content|>IV. CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>2<|tgt_id|>3",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        }
+    ]
+}

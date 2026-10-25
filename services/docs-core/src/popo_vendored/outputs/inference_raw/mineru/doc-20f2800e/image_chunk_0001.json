@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        74
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        57,
+        59,
+        61,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        73,
+        74
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>479<|type|>table<|page|>45<|box|>161 151 858 906<|content|>None\n<|id|>484<|type|>title<|page|>46<|box|>117 290 134 664<|content|>表 B.0.4 地下水位监测原始记录表\n<|id|>487<|type|>table<|page|>46<|box|>164 103 863 853<|content|>None\n<|id|>491<|type|>title<|page|>47<|box|>166 318 191 750<|content|>附录 C 最终沉降推算方法\n<|id|>555<|type|>title<|page|>50<|box|>171 358 196 616<|content|>本标准用词说明\n<|id|>564<|type|>title<|page|>51<|box|>166 406 196 628<|content|>引用标准名录\n<|id|>573<|type|>title<|page|>52<|box|>184 272 210 669<|content|>中华人民共和国国家标准\n<|id|>574<|type|>title<|page|>52<|box|>255 265 284 674<|content|>软土地基路基监控标准\n<|id|>577<|type|>title<|page|>53<|box|>168 366 194 570<|content|>编制说明\n<|id|>581<|type|>title<|page|>54<|box|>169 401 196 542<|content|>目次\n<|id|>583<|type|>title<|page|>55<|box|>161 376 188 578<|content|>1 总 则\n<|id|>589<|type|>title<|page|>57<|box|>164 371 191 611<|content|>2 术语和符号\n<|id|>590<|type|>title<|page|>57<|box|>233 401 255 585<|content|>2.1 术语\n<|id|>597<|type|>title<|page|>59<|box|>171 373 198 616<|content|>3 基本规定\n<|id|>617<|type|>title<|page|>61<|box|>169 358 196 601<|content|>4 监控设计\n<|id|>618<|type|>title<|page|>61<|box|>238 373 260 585<|content|>4.2 施工期监控\n<|id|>642<|type|>title<|page|>64<|box|>151 414 171 626<|content|>4.3 运营期监控\n<|id|>643<|type|>title<|page|>64<|box|>191 141 211 578<|content|>4.3.2 本条对监控断面进行了规定。\n<|id|>646<|type|>title<|page|>65<|box|>164 381 191 621<|content|>5 监测实施\n<|id|>647<|type|>title<|page|>65<|box|>233 396 253 606<|content|>5.1 一般规定\n<|id|>650<|type|>title<|page|>65<|box|>447 396 468 608<|content|>5.2 沉降监测\n<|id|>663<|type|>title<|page|>66<|box|>579 388 600 623<|content|>5.3 水平位移监测\n<|id|>672<|type|>title<|page|>67<|box|>400 371 421 633<|content|>5.4 孔隙水压力监测\n<|id|>683<|type|>title<|page|>68<|box|>287 393 309 606<|content|>5.5 土压力监测\n<|id|>686<|type|>title<|page|>69<|box|>166 308 193 691<|content|>6 监测资料分析与应用\n<|id|>687<|type|>title<|page|>69<|box|>236 381 255 621<|content|>6.2 监测资料分析\n<|id|>691<|type|>image<|page|>69<|box|>589 335 843 671<|content|>None\n<|id|>692<|type|>title<|page|>70<|box|>124 368 146 633<|content|>6.3 路基稳定性评估\n<|id|>696<|type|>title<|page|>71<|box|>310 118 332 714<|content|>6.3.4 本条对拐点法评估路基稳定性进行了规定。\n<|id|>706<|type|>title<|page|>73<|box|>141 356 161 595<|content|>6.4 工后沉降预测\n<|id|>716<|type|>title<|page|>73<|box|>838 361 858 598<|content|>6.5 施工时间确定\n<|id|>722<|type|>title<|page|>74<|box|>643 421 663 631<|content|>6.6 监控报告",
+    "raw_response": "<|src_id|>479<|tgt_id|>484\n<|src_id|>487<|tgt_id|>484\n<|src_id|>691<|tgt_id|>687",
+    "parsed": [
+        {
+            "src_id": 479,
+            "tgt_id": 484
+        },
+        {
+            "src_id": 487,
+            "tgt_id": 484
+        },
+        {
+            "src_id": 691,
+            "tgt_id": 687
+        }
+    ]
+}

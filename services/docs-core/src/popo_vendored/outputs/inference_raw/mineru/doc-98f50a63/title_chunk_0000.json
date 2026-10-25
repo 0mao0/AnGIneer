@@ -1,0 +1,151 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 279 118 717<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>1<|page|>1<|box|>143 192 179 805<|content|>CHARTER OF THE COMPENSATION COMMITTEE OF THE BOARD\n<|id|>4<|page|>1<|box|>289 142 306 250<|content|>I. PURPOSE\n<|id|>15<|page|>2<|box|>148 140 166 477<|content|>II. COMPOSITION AND MEMBERSHIP\n<|id|>16<|page|>2<|box|>180 142 196 333<|content|>A. Number of Members\n<|id|>18<|page|>2<|box|>271 142 287 295<|content|>B. Initial Members\n<|id|>21<|page|>2<|box|>483 142 500 390<|content|>C. Independence Requirements\n<|id|>32<|page|>3<|box|>565 140 582 380<|content|>D. Appointment and Removal\n<|id|>36<|page|>3<|box|>799 142 816 377<|content|>E. Resignation and Vacancies\n<|id|>39<|page|>4<|box|>186 140 203 449<|content|>III. MEETINGS AND PROCEDURES\n<|id|>42<|page|>4<|box|>417 142 435 326<|content|>B. Quorum and Voting\n<|id|>45<|page|>4<|box|>608 140 625 398<|content|>C. Attendance and Participation\n<|id|>49<|page|>5<|box|>157 140 175 333<|content|>D. Agenda and Minutes\n<|id|>53<|page|>5<|box|>484 140 500 313<|content|>E. Executive Sessions\n<|id|>55<|page|>5<|box|>657 140 674 506<|content|>IV. AUTHORITY AND RESPONSIBILITIES\n<|id|>57<|page|>5<|box|>806 140 823 362<|content|>A. Executive Compensation\n<|id|>69<|page|>7<|box|>90 140 108 385<|content|>B. Equity Compensation Plans\n<|id|>79<|page|>8<|box|>609 140 627 513<|content|>C. Incentive Compensation and Risk Oversight\n<|id|>83<|page|>9<|box|>176 140 193 352<|content|>D. Director Compensation\n<|id|>86<|page|>9<|box|>439 140 457 429<|content|>E. Compensation Committee Report\n<|id|>89<|page|>9<|box|>684 140 702 655<|content|>F. Compensation Consultants, Legal Counsel, and Ot\n<|id|>102<|page|>10<|box|>801 140 819 330<|content|>G. Succession Planning\n<|id|>105<|page|>11<|box|>220 140 238 542<|content|>H. Stock Ownership and Hedging/Pledging Policies\n<|id|>108<|page|>11<|box|>446 140 464 563<|content|>I. Stockholder Engagement on Compensation Matters\n<|id|>111<|page|>11<|box|>720 140 737 294<|content|>V. DELEGATION\n<|id|>114<|page|>12<|box|>277 140 294 527<|content|>VI. ANNUAL PERFORMANCE EVALUATION\n<|id|>117<|page|>12<|box|>535 140 551 426<|content|>VII. RESOURCES AND FUNDING\n<|id|>123<|page|>13<|box|>89 140 106 316<|content|>VIII. LIMITATIONS\n<|id|>127<|page|>13<|box|>428 140 445 310<|content|>IX. AMENDMENTS\n<|id|>130<|page|>13<|box|>667 140 684 377<|content|>X. PUBLIC AVAILABILITY\n<|id|>133<|page|>13<|box|>837 344 853 653<|content|>ADOPTION AND EFFECTIVE DATE\n<|id|>135<|page|>14<|box|>133 315 152 679<|content|>Approved and Adopted by the Board of Directors",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>18<|level|>3\n<|id|>21<|level|>3\n<|id|>32<|level|>3\n<|id|>36<|level|>3\n<|id|>39<|level|>2\n<|id|>42<|level|>3\n<|id|>45<|level|>3\n<|id|>49<|level|>3\n<|id|>53<|level|>3\n<|id|>55<|level|>2\n<|id|>57<|level|>3\n<|id|>69<|level|>3\n<|id|>79<|level|>3\n<|id|>83<|level|>3\n<|id|>86<|level|>3\n<|id|>89<|level|>3\n<|id|>102<|level|>3\n<|id|>105<|level|>3\n<|id|>108<|level|>3\n<|id|>111<|level|>2\n<|id|>114<|level|>2\n<|id|>117<|level|>2\n<|id|>123<|level|>2\n<|id|>127<|level|>2\n<|id|>130<|level|>2\n<|id|>133<|level|>2\n<|id|>135<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,168 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        31
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25,
+        27,
+        28,
+        29,
+        30,
+        31
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 349 119 648<|content|>Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>252 423 270 573<|content|>MEMORANDUM\n<|id|>11<|page|>1<|box|>479 142 496 321<|content|>I. Executive Summary\n<|id|>22<|page|>2<|box|>633 142 652 506<|content|>II. Background and Current Financing Profile\n<|id|>23<|page|>2<|box|>665 143 681 388<|content|>A. Sun Belt Portfolio Overview\n<|id|>30<|page|>3<|box|>482 140 500 486<|content|>B. Existing Bridge Credit Facility Summary\n<|id|>35<|page|>4<|box|>592 140 609 465<|content|>C. Fairwater's Capital Structure Context\n<|id|>40<|page|>5<|box|>320 142 338 421<|content|>D. Funding Sources for Acquisition\n<|id|>45<|page|>5<|box|>517 142 534 431<|content|>III. Financing Alternatives Analyzed\n<|id|>46<|page|>5<|box|>547 140 566 777<|content|>A. Alternative 1: CMBS Conduit — Clarendon Metropo\n<|id|>85<|page|>10<|box|>465 140 484 763<|content|>B. Alternative 2: Agency Multifamily — Fannie Mae\n<|id|>89<|page|>10<|box|>845 140 863 383<|content|>2. Estimated Economic Terms.\n<|id|>100<|page|>12<|box|>156 140 172 261<|content|>4. Advantages.\n<|id|>107<|page|>12<|box|>758 140 775 338<|content|>5. Disadvantages / Risks.\n<|id|>116<|page|>14<|box|>90 140 107 457<|content|>C. Alternative 3: Bank Permanent Loan\n<|id|>118<|page|>14<|box|>275 142 291 383<|content|>2. Estimated Economic Terms.\n<|id|>127<|page|>15<|box|>460 140 477 261<|content|>4. Advantages.\n<|id|>134<|page|>16<|box|>218 140 234 338<|content|>5. Disadvantages / Risks.\n<|id|>144<|page|>17<|box|>402 142 420 408<|content|>IV. Comparative Summary Table\n<|id|>148<|page|>19<|box|>203 140 219 468<|content|>V. Strategic Considerations for Fairwater\n<|id|>149<|page|>19<|box|>234 140 250 334<|content|>A. Timeline Constraints\n<|id|>159<|page|>20<|box|>138 140 157 359<|content|>B. Cost-of-Capital Analysis\n<|id|>166<|page|>20<|box|>811 140 829 426<|content|>C. REIT Distribution Requirements\n<|id|>173<|page|>21<|box|>573 140 590 468<|content|>D. Portfolio and Capital Stack Alignment\n<|id|>179<|page|>22<|box|>238 140 256 433<|content|>E. Prepayment Flexibility Trade-Off\n<|id|>185<|page|>23<|box|>277 142 294 313<|content|>VI. Recommendation\n<|id|>204<|page|>25<|box|>429 140 446 267<|content|>VII. Next Steps\n<|id|>221<|page|>27<|box|>90 140 107 279<|content|>VIII. Conclusion\n<|id|>227<|page|>27<|box|>719 142 734 240<|content|>Appendices\n<|id|>229<|page|>28<|box|>90 140 108 790<|content|>Appendix A — Summary of Clarendon Metropolitan Ter\n<|id|>231<|page|>29<|box|>90 142 107 537<|content|>Appendix B — Debt Service Comparison Schedule\n<|id|>238<|page|>30<|box|>90 142 108 560<|content|>Appendix C — Sun Belt Portfolio Property Summary\n<|id|>241<|page|>31<|box|>90 140 108 517<|content|>Appendix D — Preliminary Timeline to Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>1\n<|id|>11<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>30<|level|>3\n<|id|>35<|level|>3\n<|id|>40<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>85<|level|>3\n<|id|>89<|level|>4\n<|id|>100<|level|>4\n<|id|>107<|level|>4\n<|id|>116<|level|>3\n<|id|>118<|level|>4\n<|id|>127<|level|>4\n<|id|>134<|level|>4\n<|id|>144<|level|>2\n<|id|>148<|level|>2\n<|id|>149<|level|>3\n<|id|>159<|level|>3\n<|id|>166<|level|>3\n<|id|>173<|level|>3\n<|id|>179<|level|>3\n<|id|>185<|level|>2\n<|id|>204<|level|>2\n<|id|>221<|level|>2\n<|id|>227<|level|>2\n<|id|>229<|level|>3\n<|id|>231<|level|>3\n<|id|>238<|level|>3\n<|id|>241<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 4
+        },
+        {
+            "id": 100,
+            "level": 4
+        },
+        {
+            "id": 107,
+            "level": 4
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 4
+        },
+        {
+            "id": 127,
+            "level": 4
+        },
+        {
+            "id": 134,
+            "level": 4
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 227,
+            "level": 2
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 231,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 3
+        },
+        {
+            "id": 241,
+            "level": 3
+        }
+    ]
+}

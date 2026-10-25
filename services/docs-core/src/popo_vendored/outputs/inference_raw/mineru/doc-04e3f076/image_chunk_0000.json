@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 276 107 720<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>9<|type|>title<|page|>1<|box|>411 140 429 400<|content|>1. Introduction and Engagement\n<|id|>14<|type|>title<|page|>2<|box|>186 140 204 444<|content|>2. Documents and Materials Reviewed\n<|id|>32<|type|>title<|page|>3<|box|>481 140 498 575<|content|>3. Description of the Transaction and Capital Stru\n<|id|>34<|type|>table<|page|>3<|box|>640 143 892 852<|content|>None\n<|id|>35<|type|>table<|page|>4<|box|>88 143 119 852<|content|>None\n<|id|>38<|type|>table<|page|>4<|box|>356 143 518 852<|content|>None\n<|id|>42<|type|>title<|page|>5<|box|>90 140 107 267<|content|>4. Assumptions\n<|id|>53<|type|>title<|page|>6<|box|>250 140 266 238<|content|>5. Opinions\n<|id|>55<|type|>title<|page|>6<|box|>378 140 396 720<|content|>5.1 Classification of the Issuer — Not Engaged in\n<|id|>66<|type|>title<|page|>8<|box|>138 140 157 581<|content|>5.2 Classification of the Co-Issuer — Disregarded\n<|id|>73<|type|>title<|page|>9<|box|>90 140 107 514<|content|>5.3 Characterization of the Rated Notes as Debt\n<|id|>82<|type|>table<|page|>10<|box|>484 143 542 852<|content|>None\n<|id|>89<|type|>title<|page|>11<|box|>601 140 619 589<|content|>5.4 Characterization of the Subordinated Notes as\n<|id|>101<|type|>title<|page|>13<|box|>402 140 420 635<|content|>6. Additional Tax Considerations Noted (Not Formal\n<|id|>103<|type|>title<|page|>13<|box|>496 140 513 313<|content|>6.1 FATCA and CRS\n<|id|>106<|type|>title<|page|>13<|box|>833 140 849 352<|content|>6.2 ERISA Considerations\n<|id|>109<|type|>title<|page|>14<|box|>385 140 402 475<|content|>6.3 Withholding Tax on Interest Payments\n<|id|>112<|type|>title<|page|>14<|box|>794 140 811 331<|content|>6.4 State and Local Tax\n<|id|>115<|type|>title<|page|>15<|box|>296 140 313 403<|content|>7. Qualifications and Limitations\n<|id|>124<|type|>title<|page|>16<|box|>377 140 393 334<|content|>8. Consent and Reliance",
+    "raw_response": "<|src_id|>34<|tgt_id|>32\n<|src_id|>35<|tgt_id|>32\n<|src_id|>38<|tgt_id|>32\n<|src_id|>82<|tgt_id|>73",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 73
+        }
+    ]
+}

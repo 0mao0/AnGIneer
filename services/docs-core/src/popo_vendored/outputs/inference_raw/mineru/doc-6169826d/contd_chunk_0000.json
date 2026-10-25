@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        10,
+        15,
+        17,
+        18,
+        20,
+        21,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>42 163 71 833<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>89 140 181 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...disclosure, or distribution is strictly prohibited\n<|id|>3<|page|>1<|box|>213 140 231 826<|content|>TO: ... Samuel Eklund, Responsible Partner, Litigation (General), Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>239 140 276 854<|content|>CC: ... Derek Calloway, Chief Executive Officer, Vantage Mobility Systems Corp\n<|id|>5<|page|>1<|box|>284 140 320 854<|content|>FROM: ... Carlos Espinoza, Lead Associate, Litigat...e, Litigation (General), Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>328 142 345 316<|content|>DATE: ... March 4, 2022\n<|id|>7<|page|>1<|box|>354 140 390 854<|content|>RE: ... Meridian Powertrain Holdings, Inc\n<|id|>22<|page|>2<|box|>839 140 895 856<|content|>Vantage was acquired in December 2019 by Ironclad ...cle Ironclad Capital Partners Fund III, L. ... , a\n<|id|>23<|page|>3<|box|>90 140 162 856<|content|>Delaware limited partnership. ... Since the acquis...lf of Douglas Brenton, Ironclad's Managing Partner\n<|id|>32<|page|>3<|box|>625 145 679 854<|content|>• Karen Whitford, Vice President of Supply Chain, ...ial discussions regarding the chargebacks; ... and\n<|id|>34<|page|>3<|box|>718 140 809 857<|content|>Meridian is represented in this matter by Pratt, G...office acknowledging our representation of Vantage\n<|id|>36<|page|>3<|box|>845 140 902 857<|content|>As noted above, Ironclad Capital Partners, LLC is ..., Ironclad's Managing Partner, maintains a seat on\n<|id|>37<|page|>4<|box|>90 140 181 856<|content|>Vantage's board of directors and is closely monito...ated risks that could affect the investment thesis\n<|id|>98<|page|>10<|box|>593 174 666 854<|content|>(c) Meridian's internal failure-analysis data and 8D reports (i. ... and\n<|id|>100<|page|>10<|box|>718 140 811 856<|content|>Expert engagement is essential to this defense. .....her proper bolt torque was applied during assembly\n<|id|>142<|page|>15<|box|>656 181 672 517<|content|>• A $65 million revolving credit facility; ... and\n<|id|>144<|page|>15<|box|>695 140 767 856<|content|>The credit agreement contains a minimum trailing-t...y and its avoidance of default under the term loan\n<|id|>169<|page|>17<|box|>811 174 883 856<|content|>(c) Evaluation of assembly-related failure modes, ... rather than (or in addition to) porosity; ... and\n<|id|>171<|page|>18<|box|>133 140 280 856<|content|>The retention of Apex Metallurgical Consulting sho...findings affirmatively if they support the defense\n<|id|>194<|page|>20<|box|>179 174 233 854<|content|>(c) A prospective amendment to the LTSA's warranty... more balanced dispute-resolution process; ... and\n<|id|>196<|page|>20<|box|>285 140 377 854<|content|>The optimal timing for initiating the commercial n... expert findings are central to Vantage's leverage\n<|id|>206<|page|>20<|box|>772 181 806 854<|content|>• Any Meridian-sourced failure-analysis reports, 8...ause data already in Vantage's possession; ... and\n<|id|>215<|page|>21<|box|>244 140 300 854<|content|>Thomas Reinhardt, as VP of Quality, is the custodi...Reinhardt to ensure prompt collection and delivery\n<|id|>213<|page|>21<|box|>193 176 210 678<|content|>(f) Any Meridian-sourced failure-analysis reports or 8D reports; ... and\n<|id|>238<|page|>24<|box|>162 142 179 320<|content|>Respectfully submitted,\n<|id|>239<|page|>24<|box|>179 142 195 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>240<|page|>24<|box|>196 143 214 253<|content|>By: ... By\n<|id|>241<|page|>24<|box|>214 142 231 534<|content|>Carlos Espinoza Lead Associate, Litigation (General)\n<|id|>242<|page|>24<|box|>232 143 250 251<|content|>By: ... By\n<|id|>247<|page|>24<|box|>398 176 415 807<|content|>1. ... LTSA-MPT-2020-0315 (March 15, 2020)\n<|id|>252<|page|>24<|box|>494 140 556 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM... & Harkness LLP immediately and destroy all copies\n<|id|>248<|page|>24<|box|>417 176 434 697<|content|>2. ... Warranty Chargeback Notice WCN-2021-1247 (December 6, 2021)\n<|id|>249<|page|>24<|box|>436 176 454 687<|content|>3. ... Warranty Chargeback Notice WCN-2022-0103 (January 18, 2022)\n<|id|>250<|page|>24<|box|>457 176 474 687<|content|>4. ... Warranty Chargeback Notice WCN-2022-0289 (February 7, 2022)\n<|id|>251<|page|>24<|box|>477 176 493 620<|content|>5. ... Vantage PPAP and SPC data summaries (to be collected)",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>36<|tgt_id|>37",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        }
+    ]
+}

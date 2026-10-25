@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 375 176 622<|content|>Dated as of September 29, 2023\n<|id|>2<|page|>1<|box|>185 155 277 841<|content|>Delivered in connection with that certain Mezzanin...and the guarantors party thereto from time to time\n<|id|>9<|page|>1<|box|>803 174 839 854<|content|>(b) Stonefield Fleet Management, LLC (\"SFM\"), a li...ting under the laws of the State of Texas; ... and\n<|id|>11<|page|>2<|box|>90 140 181 854<|content|>Each Subsidiary Guarantor is a direct or indirect ...Certificate on behalf of each Subsidiary Guarantor\n<|id|>24<|page|>3<|box|>314 174 406 854<|content|>(c) the granting of a second-priority security int...granted under the Senior Credit Agreement; ... and\n<|id|>26<|page|>3<|box|>531 140 623 854<|content|>The undersigned further certifies that the SIS Boa... authority granted under the SIS Board Resolutions\n<|id|>40<|page|>5<|box|>207 174 299 854<|content|>(c) the granting of a second-priority security int...granted under the Senior Credit Agreement; ... and\n<|id|>42<|page|>5<|box|>424 140 516 854<|content|>The undersigned further certifies that the SFM Mem...the authority granted under the SFM Member Consent\n<|id|>56<|page|>7<|box|>133 174 226 854<|content|>(c) the granting of a second-priority security int...granted under the Senior Credit Agreement; ... and\n<|id|>58<|page|>7<|box|>351 140 443 854<|content|>The undersigned further certifies that the SFB Boa... authority granted under the SFB Board Resolutions",
+    "raw_response": "<|src_id|>9<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 11
+        }
+    ]
+}

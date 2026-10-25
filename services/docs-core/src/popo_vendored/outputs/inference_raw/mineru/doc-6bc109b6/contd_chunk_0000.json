@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        15
+    ],
+    "pages": [
+        2,
+        4,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>15<|page|>2<|box|>148 181 183 854<|content|>• Crescent Harbor Bank, N. ... and\n<|id|>17<|page|>2<|box|>205 138 388 856<|content|>The Credit Agreement provides for a senior secured...ng, and (d) provide for general corporate purposes\n<|id|>34<|page|>4<|box|>474 140 512 854<|content|>Total Loan Parties: ... 13 (1 Borrower + 1 Holding...1 Subsidiary Guarantors, comprising 12 Guarantors)\n<|id|>35<|page|>4<|box|>518 140 556 852<|content|>Total Certificates: ... Tab 1 represents the Borrower)\n<|id|>89<|page|>12<|box|>869 174 906 856<|content|>Illinois Local Counsel. ... The Illinois good stan...Kimura, lead partner), located at 233 South Wacker\n<|id|>90<|page|>13<|box|>90 174 181 856<|content|>Drive, Suite 4500, Chicago, Illinois 60606. ... Ha...unsel legal opinion in connection with the closing\n<|id|>98<|page|>13<|box|>853 176 907 856<|content|>1. ... Nexford\n<|id|>99<|page|>14<|box|>90 210 181 854<|content|>Canada Holdings ULC is a wholly owned subsidiary o...y, consistent with the CFC holdco pledge structure\n<|id|>109<|page|>14<|box|>773 174 808 854<|content|>Tab 1: ... (Delaware Secretary of State, dated March 24, 2025)\n<|id|>110<|page|>14<|box|>816 174 852 854<|content|>Tab 2: ... Good Standing Certificate — Granite Pea...Delaware Secretary of State, dated March 24, 2025)\n<|id|>111<|page|>14<|box|>861 176 897 854<|content|>Tab 3: ... (Delaware Secretary of State, dated March 24, 2025)\n<|id|>112<|page|>15<|box|>90 176 126 854<|content|>Tab 4: ... Good Standing Certificate — Nexford Eng...Delaware Secretary of State, dated March 24, 2025)\n<|id|>113<|page|>15<|box|>133 176 170 852<|content|>Tab 5: ... (Delaware Secretary of State, dated March 24, 2025)\n<|id|>114<|page|>15<|box|>178 176 214 852<|content|>Tab 6: ... Good Standing Certificate — Nexford Man...Illinois Secretary of State, dated March 25, 2025)\n<|id|>115<|page|>15<|box|>222 176 258 852<|content|>Tab 7: ... Good Standing Certificate — Nexford Pro...Delaware Secretary of State, dated March 24, 2025)\n<|id|>116<|page|>15<|box|>266 176 303 852<|content|>Tab 8: ... (Delaware Secretary of State, dated March 24, 2025)\n<|id|>117<|page|>15<|box|>311 176 347 854<|content|>Tab 9: ... (Pennsylvania Department of State, dated March 25, 2025)\n<|id|>118<|page|>15<|box|>354 176 391 852<|content|>Tab 10: ... (South Carolina Secretary of State, dated March 25, 2025)\n<|id|>119<|page|>15<|box|>398 176 435 852<|content|>Tab 11: ... Certificate of Fact — Status (Good Sta...C (Texas Secretary of State, dated March 25, 2025)\n<|id|>120<|page|>15<|box|>443 176 479 854<|content|>Tab 12: ... (Michigan Department of State, dated March 25, 2025)",
+    "raw_response": "<|src_id|>89<|tgt_id|>90\n<|src_id|>98<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        }
+    ]
+}

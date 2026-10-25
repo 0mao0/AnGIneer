@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 163 143 833<|content|>CLOSING CERTIFICATE OF PELLEGRINO CAPITAL GROUP LL\n<|id|>5<|type|>title<|page|>1<|box|>479 142 496 241<|content|>RECITALS\n<|id|>16<|type|>title<|page|>2<|box|>564 140 580 570<|content|>SECTION 1: AUTHORITY AND AUTHORIZATION\n<|id|>22<|type|>title<|page|>3<|box|>449 140 467 602<|content|>SECTION 2: REPRESENTATIONS AND WARRANTIES\n<|id|>30<|type|>title<|page|>4<|box|>703 140 719 625<|content|>SECTION 3: SATISFACTION OF CLOSING CONDITIONS\n<|id|>50<|type|>title<|page|>6<|box|>784 140 800 372<|content|>SECTION 4: NO DEFAULT\n<|id|>53<|type|>title<|page|>7<|box|>321 140 338 645<|content|>SECTION 5: OFFICERS AND AUTHORIZED SIGNATORIES\n<|id|>55<|type|>table<|page|>7<|box|>426 143 503 852<|content|>None\n<|id|>57<|type|>title<|page|>7<|box|>650 140 667 413<|content|>SECTION 6: GOVERNING LAW\n<|id|>60<|type|>title<|page|>7<|box|>839 230 856 766<|content|>[Remainder of Page Intentionally Left Blank — Sign\n<|id|>61<|type|>title<|page|>7<|box|>863 171 898 825<|content|>SIGNATURE PAGE TO CLOSING CERTIFICATE OF PELLEGRIN",
+    "raw_response": "<|src_id|>55<|tgt_id|>53",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        }
+    ]
+}

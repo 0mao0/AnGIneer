@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        35
+    ],
+    "pages": [
+        1,
+        2,
+        17,
+        18,
+        20,
+        21,
+        22,
+        23,
+        35
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>176 174 194 547<|content|>Diane Prescott, Chair James Okafor Dr. ... Helen Ng\n<|id|>4<|page|>1<|box|>203 140 220 665<|content|>From: ... Sophie Tremblay and Daniel Obi, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>229 142 246 294<|content|>Date: ... July 25, 2023\n<|id|>6<|page|>1<|box|>253 140 273 730<|content|>Re: ... (Project Coriander)\n<|id|>7<|page|>1<|box|>280 140 297 380<|content|>C&H Matter No. ... 1025-00006\n<|id|>8<|page|>1<|box|>306 140 361 854<|content|>Classification: ... Marcus Hale, Angela Whitmore, ...nt to the Independence Protocol dated June 2, 2023\n<|id|>13<|page|>1<|box|>758 140 905 856<|content|>Scope of Review. ... and (vi) the regulatory implications of a change of control of the\n<|id|>14<|page|>2<|box|>89 140 127 854<|content|>Company, including IND transfer procedures, Hart-S...HSR\") Act filing requirements, and related matters\n<|id|>156<|page|>17<|box|>838 140 893 854<|content|>A comprehensive analysis of Caliston's intellectua...igence Memorandum dated July 21, 2023, prepared by\n<|id|>157<|page|>18<|box|>89 140 145 854<|content|>C&H's intellectual property practice group. ... Th... the anticipated NDA approval pathway for CLT-4019\n<|id|>178<|page|>20<|box|>859 176 895 856<|content|>1. ... Certain documents requested in the C&H due ...ne 9, 2023 have not yet been produced by Whitfield\n<|id|>179<|page|>21<|box|>90 210 253 854<|content|>Graves LLP. ... With respect to item (c), we under...requests on this item pending Penterra's direction\n<|id|>193<|page|>22<|box|>859 181 878 566<|content|>• Legal Due Diligence Report (dated July 14, 2023)\n<|id|>194<|page|>22<|box|>880 181 898 689<|content|>• intellectual Property Diligence Memorandum (dated July 21, 2023)\n<|id|>196<|page|>23<|box|>154 142 171 320<|content|>Respectfully submitted,\n<|id|>197<|page|>23<|box|>171 142 188 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>198<|page|>23<|box|>189 142 205 251<|content|>By: ... By\n<|id|>199<|page|>23<|box|>205 142 223 336<|content|>Sophie Tremblay, Partner\n<|id|>200<|page|>23<|box|>224 143 239 254<|content|>By: ... By\n<|id|>201<|page|>23<|box|>239 142 256 292<|content|>Daniel Obi, Partner\n<|id|>202<|page|>23<|box|>257 140 273 364<|content|>C&H Matter No. ... 1025-00006\n<|id|>225<|page|>35<|box|>186 142 200 852<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGE / ATTORNEY WORK PRODUCT\n<|id|>226<|page|>35<|box|>209 140 284 854<|content|>This memorandum has been prepared by Calderwood & ...prior written consent of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>156<|tgt_id|>157\n<|src_id|>178<|tgt_id|>179",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 179
+        }
+    ]
+}

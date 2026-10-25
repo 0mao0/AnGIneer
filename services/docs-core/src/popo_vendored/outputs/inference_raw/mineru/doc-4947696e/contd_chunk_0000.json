@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>837 140 910 854<|content|>The FCC possesses specialized expertise in telecom...justify denial of colocation requests, and whether\n<|id|>8<|page|>2<|box|>90 140 181 854<|content|>Northgate's obligations under Sections 251 and 252...nce and this Court, with all due respect, does not\n<|id|>20<|page|>3<|box|>588 142 604 447<|content|>1. ... Broad Street, Philadelphia, PA\n<|id|>34<|page|>3<|box|>862 140 897 854<|content|>According to the Complaint, between March 2021 and...or each of these fourteen facilities, all of which\n<|id|>21<|page|>3<|box|>607 140 625 493<|content|>2. ... 1500 Spring Garden Street, Philadelphia, PA\n<|id|>22<|page|>3<|box|>627 140 643 437<|content|>3. ... 100 Delancey Place, Cherry Hill, NJ\n<|id|>23<|page|>3<|box|>647 140 662 419<|content|>4. ... Warren Street, Trenton, NJ\n<|id|>24<|page|>3<|box|>667 140 683 424<|content|>5. ... Pratt Street, Baltimore, MD\n<|id|>25<|page|>3<|box|>686 140 702 429<|content|>6. ... Fayette Street, Baltimore, MD\n<|id|>26<|page|>3<|box|>705 142 722 410<|content|>7. ... Gay Street, Baltimore, MD\n<|id|>27<|page|>3<|box|>724 142 741 480<|content|>8. ... 9221 Corporate Boulevard, Rockville, MD\n<|id|>30<|page|>3<|box|>784 143 800 441<|content|>11. ... 44755 Prentice Drive, Ashburn, VA\n<|id|>31<|page|>3<|box|>803 143 819 470<|content|>12. ... 21571 Beaumeade Circle, Ashburn, VA\n<|id|>32<|page|>3<|box|>823 143 839 483<|content|>13. ... 1807 Michael Faraday Court, Reston, VA\n<|id|>33<|page|>3<|box|>843 143 859 498<|content|>14. ... 8100 Boone Boulevard, Tysons Corner, VA\n<|id|>35<|page|>4<|box|>90 140 127 854<|content|>Northgate declined. ... The Complaint characterize...other competitors from the alleged relevant market\n<|id|>55<|page|>5<|box|>737 138 883 857<|content|>A federal district court possesses broad inherent ...t administration of the Court's business. ... 681,\n<|id|>56<|page|>6<|box|>89 140 127 854<|content|>706 (1997) (recognizing the \"broad discretion\" of ... incident to its power to control its own docket\")\n<|id|>71<|page|>8<|box|>203 147 239 856<|content|>• Whether Northgate's obligations under Sections 2...dgepoint seeks at the fourteen facilities; ... and\n<|id|>73<|page|>8<|box|>258 140 388 856<|content|>These are precisely the types of questions that Co...on of the FCC's technical and regulatory expertise\n<|id|>91<|page|>10<|box|>859 140 896 854<|content|>A stay also preserves this Court's ability to adju...y issues. ... Defendants do not seek to avoid this\n<|id|>92<|page|>11<|box|>89 140 127 854<|content|>Court's jurisdiction. ... They seek only to ensure...s the interest of all parties and the Court itself\n<|id|>108<|page|>12<|box|>410 676 428 854<|content|>Respectfully submitted,\n<|id|>109<|page|>12<|box|>470 140 486 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>110<|page|>12<|box|>503 140 537 854<|content|>Elaine Forsythe (Va. ... 86319)\n<|id|>111<|page|>12<|box|>537 140 570 852<|content|>1200 K Street NW, Suite 900 Washington, D. ... (202) 555-7401\n<|id|>112<|page|>12<|box|>571 140 588 468<|content|>Email: ... com\n<|id|>113<|page|>12<|box|>588 140 621 854<|content|>Counsel for Defendants Northgate Networks America Inc. ... and Northgate Telecommunications PLC\n<|id|>114<|page|>12<|box|>656 689 672 854<|content|>Dated: ... March 6, 2023",
+    "raw_response": "<|src_id|>7<|tgt_id|>8\n<|src_id|>34<|tgt_id|>35\n<|src_id|>55<|tgt_id|>56\n<|src_id|>91<|tgt_id|>92",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 92
+        }
+    ]
+}

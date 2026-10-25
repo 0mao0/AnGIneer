@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>152 374 170 624<|content|>INTERNAL MEMORANDUM\n<|id|>3<|page|>1<|box|>179 140 196 602<|content|>TO: ... Samuel Eklund, Responsible Partner, Litigation (General)\n<|id|>4<|page|>1<|box|>205 142 223 612<|content|>FROM: ... Patrick Gallagher, Lead Associate, Litigation (General)\n<|id|>5<|page|>1<|box|>231 140 248 354<|content|>DATE: ... September 22, 2022\n<|id|>6<|page|>1<|box|>257 140 292 854<|content|>RE: ... )\n<|id|>7<|page|>1<|box|>301 140 318 362<|content|>MATTER NO. ... 1012-00005\n<|id|>8<|page|>1<|box|>327 140 344 454<|content|>CLIENT: ... Stonefield Logistics Group Inc\n<|id|>21<|page|>2<|box|>864 140 900 854<|content|>Contract Year 2 commenced on April 1, 2020, a date...9 pandemic in the United States. ... By late March\n<|id|>22<|page|>3<|box|>89 140 181 854<|content|>2020, the World Health Organization had declared C...oss virtually every sector of the American economy\n<|id|>28<|page|>3<|box|>809 140 883 856<|content|>Stonefield invoked the force majeure provision of ... associated government orders constituted a \"Force\n<|id|>29<|page|>4<|box|>90 140 127 854<|content|>Majeure Event\" within the meaning of Section 12. .... to tender the full ACV during the affected months\n<|id|>116<|page|>14<|box|>750 140 896 857<|content|>Third, the first-to-breach doctrine. ... Camberwell\n<|id|>117<|page|>15<|box|>90 140 145 854<|content|>Industries, 500 F. ... If VTS's fleet capacity red...s subsequent volume shortfall (if any) was excused",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>28<|tgt_id|>29\n<|src_id|>116<|tgt_id|>117",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 117
+        }
+    ]
+}

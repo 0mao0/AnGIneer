@@ -1,0 +1,70 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        3,
+        55
+    ],
+    "pages": [
+        3,
+        5,
+        7,
+        8,
+        21,
+        22,
+        46,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>3<|box|>93 62 255 879<|content|>TREASURY BULLETIN\n<|id|>6<|page|>5<|box|>89 388 113 651<|content|>Table of Contents\n<|id|>9<|page|>7<|box|>74 364 89 637<|content|>Treasury Financing Operations\n<|id|>10<|page|>7<|box|>118 115 131 362<|content|>Treasury Savings Notes, Series C\n<|id|>14<|page|>7<|box|>317 294 339 698<|content|>Treasury Savings Notes of Series C -- Tax-Payment\n<|id|>20<|page|>8<|box|>141 521 155 791<|content|>Treasury 91-Day Bills Increased\n<|id|>72<|page|>21<|box|>171 260 187 731<|content|>Table 1.- Status under Limitation, August 31, 1953\n<|id|>74<|page|>21<|box|>372 125 403 838<|content|>Table 2.- Application of Limitation to Public Debt\n<|id|>76<|page|>22<|box|>70 155 121 840<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>126<|page|>46<|box|>70 229 86 794<|content|>Table 2.- Detail of Collections by Type of Tax \\fr\n<|id|>155<|page|>54<|box|>73 354 88 657<|content|>Section II - Summary by Countries\n<|id|>156<|page|>54<|box|>91 208 107 801<|content|>Table 1.- Net Movement of Capital and of Short-Ter",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>6<|level|>2\n<|id|>9<|level|>2\n<|id|>10<|level|>3\n<|id|>14<|level|>3\n<|id|>20<|level|>3\n<|id|>72<|level|>3\n<|id|>74<|level|>3\n<|id|>76<|level|>3\n<|id|>126<|level|>3\n<|id|>155<|level|>2\n<|id|>156<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 3
+        }
+    ]
+}

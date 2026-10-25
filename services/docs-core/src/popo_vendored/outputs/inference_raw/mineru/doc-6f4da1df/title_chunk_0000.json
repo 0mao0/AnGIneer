@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>112 305 159 691<|content|>EXHIBIT [__] TO THE CREDIT AGREEMENT FORM OF TERM\n<|id|>5<|page|>1<|box|>369 142 386 243<|content|>RECITALS\n<|id|>13<|page|>2<|box|>90 140 107 344<|content|>Section 1. Promise to Pay\n<|id|>17<|page|>2<|box|>502 140 518 289<|content|>Section 2. Interest\n<|id|>24<|page|>3<|box|>212 140 229 303<|content|>Section 3. Payments\n<|id|>31<|page|>4<|box|>150 140 167 475<|content|>Section 4. Records of Loans and Payments\n<|id|>35<|page|>4<|box|>542 140 560 437<|content|>Section 5. Credit Agreement Governs\n<|id|>42<|page|>5<|box|>212 140 229 446<|content|>Section 6. Transferability; Assignment\n<|id|>47<|page|>5<|box|>704 140 720 349<|content|>Section 7. Governing Law\n<|id|>50<|page|>6<|box|>204 140 222 491<|content|>Section 8. Jurisdiction; Waiver of Jury Trial\n<|id|>57<|page|>7<|box|>89 140 126 854<|content|>OTHER THINGS, THE MUTUAL WAIVERS AND CERTIFICATION\n<|id|>58<|page|>7<|box|>148 140 167 571<|content|>Section 9. Waiver of Presentment, Demand, and Noti\n<|id|>66<|page|>7<|box|>573 140 590 339<|content|>Section 10. Amendments\n<|id|>70<|page|>8<|box|>167 142 184 227<|content|>Execution\n<|id|>77<|page|>9<|box|>90 256 106 740<|content|>SCHEDULE OF LOANS AND PAYMENTS OF PRINCIPAL\n<|id|>78<|page|>9<|box|>114 171 152 830<|content|>to FORM OF TERM LOAN NOTE dated [_, 20__] of [Inse\n<|id|>81<|page|>10<|box|>88 452 108 545<|content|>ANNEX A\n<|id|>82<|page|>10<|box|>128 339 148 656<|content|>INSTRUCTIONS FOR COMPLETION\n<|id|>83<|page|>10<|box|>156 349 175 647<|content|>(Internal Guidance — Not Part of Note)",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>13<|level|>2\n<|id|>17<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>47<|level|>2\n<|id|>50<|level|>2\n<|id|>57<|level|>2\n<|id|>58<|level|>3\n<|id|>66<|level|>3\n<|id|>70<|level|>3\n<|id|>77<|level|>2\n<|id|>78<|level|>3\n<|id|>81<|level|>2\n<|id|>82<|level|>3\n<|id|>83<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 4
+        }
+    ]
+}

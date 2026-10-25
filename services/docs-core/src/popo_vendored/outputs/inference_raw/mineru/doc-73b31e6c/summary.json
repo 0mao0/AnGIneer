@@ -1,0 +1,115 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-itl_sfm1\\input\\pdfs\\doc-73b31e6c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-itl_sfm1\\enriched\\doc-73b31e6c.json",
+    "contd_output": "<|src_id|>14<|tgt_id|>15\n<|src_id|>22<|tgt_id|>23",
+    "title_output": "<|id|>13<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>30<|level|>2\n<|id|>41<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>1\n<|id|>69<|level|>2\n<|id|>80<|level|>2\n<|id|>89<|level|>2\n<|id|>100<|level|>1\n<|id|>121<|level|>1\n<|id|>131<|level|>1",
+    "image_output": "<|src_id|>38<|tgt_id|>30\n<|src_id|>39<|tgt_id|>30\n<|src_id|>64<|tgt_id|>62\n<|src_id|>66<|tgt_id|>62",
+    "contd_label": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ],
+    "title_label": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 38,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 62
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 38,
+            "table2_idx": 39,
+            "upper_row_ss": [
+                [
+                    "Q3 2021",
+                    "$5,950,000",
+                    "June 29, 2021",
+                    "June 29, 2021"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

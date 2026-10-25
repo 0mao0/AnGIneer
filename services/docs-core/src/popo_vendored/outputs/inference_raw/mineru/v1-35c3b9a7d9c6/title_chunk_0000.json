@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>152 250 181 751<|content|>Never-ending Search for Innovation\n<|id|>3<|page|>1<|box|>317 458 332 544<|content|>Abstract\n<|id|>7<|page|>2<|box|>93 117 114 341<|content|>1 Introduction\n<|id|>15<|page|>4<|box|>93 115 112 255<|content|>2 Model\n<|id|>18<|page|>4<|box|>331 115 353 452<|content|>3 Never-ending Search\n<|id|>32<|page|>5<|box|>777 115 796 317<|content|>4 Conclusion\n<|id|>36<|page|>7<|box|>93 117 116 581<|content|>Appendix: Proof of Proposition 1\n<|id|>62<|page|>10<|box|>93 115 115 268<|content|>References",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>7<|level|>2\n<|id|>15<|level|>2\n<|id|>18<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>62<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        }
+    ]
+}

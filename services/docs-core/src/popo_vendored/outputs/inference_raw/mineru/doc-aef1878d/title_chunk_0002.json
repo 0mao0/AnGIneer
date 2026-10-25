@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        99,
+        126
+    ],
+    "pages": [
+        100,
+        101,
+        103,
+        104,
+        105,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        121,
+        123,
+        126
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>543<|page|>100<|box|>98 290 118 707<|content|>INTRODUCTION: Highway Trust Fund\n<|id|>550<|page|>101<|box|>90 330 126 666<|content|>TABLE TF-6.—Highway Trust Fund Results of Operatio\n<|id|>556<|page|>103<|box|>90 331 108 666<|content|>TABLE TF-6A.—Highway Trust Fund\n<|id|>561<|page|>104<|box|>98 240 118 756<|content|>INTRODUCTION: Inland Waterways Trust Fund\n<|id|>569<|page|>105<|box|>98 166 117 830<|content|>INTRODUCTION: Leaking Underground Storage Tank Tru\n<|id|>577<|page|>107<|box|>90 290 109 707<|content|>INTRODUCTION: Nuclear Waste Fund\n<|id|>582<|page|>108<|box|>90 215 114 782<|content|>CHARTS TF-A and B.—Major Trust Funds\n<|id|>586<|page|>109<|box|>90 263 109 733<|content|>INTRODUCTION: Reforestation Trust Fund\n<|id|>594<|page|>110<|box|>98 143 118 852<|content|>INTRODUCTION: Sport Fish Restoration and Boating T\n<|id|>602<|page|>111<|box|>104 225 141 779<|content|>TABLE TF-11.—Sport Fish Restoration and Boating Tr\n<|id|>605<|page|>112<|box|>98 248 118 748<|content|>INTRODUCTION: Oil Spill Liability Trust Fund\n<|id|>615<|page|>114<|box|>98 176 118 820<|content|>INTRODUCTION: Vaccine Injury Compensation Trust Fu\n<|id|>618<|page|>114<|box|>273 246 309 754<|content|>TABLE TF-13.—Vaccine Injury Compensation Trust Fun\n<|id|>621<|page|>114<|box|>626 200 662 797<|content|>Vaccine Injury Compensation Trust Fund Expected Co\n<|id|>623<|page|>115<|box|>98 236 138 759<|content|>INTRODUCTION: Wool Research, Development, and Prom\n<|id|>631<|page|>116<|box|>114 181 152 820<|content|>TABLE TF-14.—Wool Research, Development, and Promo\n<|id|>633<|page|>117<|box|>90 192 109 803<|content|>INTRODUCTION: Agriculture Disaster Relief Trust Fu\n<|id|>640<|page|>118<|box|>90 199 126 797<|content|>Agriculture Disaster Relief Trust Fund Trust Fund\n<|id|>642<|page|>119<|box|>98 130 118 864<|content|>INTRODUCTION: Patient Centered Outcomes Research T\n<|id|>653<|page|>121<|box|>89 388 109 609<|content|>Research Paper Series\n<|id|>654<|page|>121<|box|>128 143 148 854<|content|>Available through the Office of the Assistant Secr\n<|id|>679<|page|>123<|box|>98 446 119 552<|content|>Glossary\n<|id|>680<|page|>123<|box|>125 258 143 743<|content|>With References to Applicable Sections and Tables\n<|id|>726<|page|>126<|box|>400 55 419 158<|content|>Subscription",
+    "raw_response": "<|id|>543<|level|>1\n<|id|>550<|level|>2\n<|id|>556<|level|>2\n<|id|>561<|level|>1\n<|id|>569<|level|>1\n<|id|>577<|level|>1\n<|id|>582<|level|>1\n<|id|>586<|level|>1\n<|id|>594<|level|>1\n<|id|>602<|level|>2\n<|id|>605<|level|>1\n<|id|>615<|level|>1\n<|id|>618<|level|>2\n<|id|>621<|level|>2\n<|id|>623<|level|>1\n<|id|>631<|level|>2\n<|id|>633<|level|>1\n<|id|>640<|level|>2\n<|id|>642<|level|>1\n<|id|>653<|level|>1\n<|id|>654<|level|>-1\n<|id|>679<|level|>1\n<|id|>680<|level|>2\n<|id|>726<|level|>1",
+    "parsed": [
+        {
+            "id": 543,
+            "level": 1
+        },
+        {
+            "id": 550,
+            "level": 2
+        },
+        {
+            "id": 556,
+            "level": 2
+        },
+        {
+            "id": 561,
+            "level": 1
+        },
+        {
+            "id": 569,
+            "level": 1
+        },
+        {
+            "id": 577,
+            "level": 1
+        },
+        {
+            "id": 582,
+            "level": 1
+        },
+        {
+            "id": 586,
+            "level": 1
+        },
+        {
+            "id": 594,
+            "level": 1
+        },
+        {
+            "id": 602,
+            "level": 2
+        },
+        {
+            "id": 605,
+            "level": 1
+        },
+        {
+            "id": 615,
+            "level": 1
+        },
+        {
+            "id": 618,
+            "level": 2
+        },
+        {
+            "id": 621,
+            "level": 2
+        },
+        {
+            "id": 623,
+            "level": 1
+        },
+        {
+            "id": 631,
+            "level": 2
+        },
+        {
+            "id": 633,
+            "level": 1
+        },
+        {
+            "id": 640,
+            "level": 2
+        },
+        {
+            "id": 642,
+            "level": 1
+        },
+        {
+            "id": 653,
+            "level": 1
+        },
+        {
+            "id": 679,
+            "level": 1
+        },
+        {
+            "id": 680,
+            "level": 2
+        },
+        {
+            "id": 726,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 447 106 550<|content|>EXHIBIT B\n<|id|>1<|page|>1<|box|>114 375 132 622<|content|>RULES AND REGULATIONS\n<|id|>5<|page|>1<|box|>473 142 489 415<|content|>Rule 1. Access and Building Hours\n<|id|>11<|page|>2<|box|>439 140 457 330<|content|>Rule 2. Use of Premises\n<|id|>16<|page|>3<|box|>286 140 303 330<|content|>Rule 3. Common Areas\n<|id|>21<|page|>3<|box|>704 140 722 269<|content|>Rule 4. Signage\n<|id|>26<|page|>4<|box|>366 140 383 457<|content|>Rule 5. Deliveries, Freight, and Loading\n<|id|>31<|page|>5<|box|>90 140 107 444<|content|>Rule 6. Alterations and Improvements\n<|id|>37<|page|>5<|box|>755 140 772 281<|content|>Rule 7. Elevators\n<|id|>41<|page|>6<|box|>321 140 339 349<|content|>Rule 8. Keys and Security\n<|id|>47<|page|>7<|box|>90 140 107 354<|content|>Rule 9. Noise and Conduct\n<|id|>53<|page|>7<|box|>700 140 717 421<|content|>Rule 10. Trash and Waste Removal\n<|id|>59<|page|>8<|box|>439 140 457 370<|content|>Rule 11. Fire and Life Safety\n<|id|>65<|page|>9<|box|>304 140 321 483<|content|>Rule 12. Electrical and Mechanical Systems\n<|id|>70<|page|>9<|box|>833 140 849 375<|content|>Rule 13. Window Treatments\n<|id|>73<|page|>10<|box|>285 140 303 310<|content|>Rule 14. Floor Loads\n<|id|>76<|page|>10<|box|>598 140 614 380<|content|>Rule 15. Water and Plumbing\n<|id|>80<|page|>11<|box|>150 140 167 431<|content|>Rule 16. Solicitation and Canvassing\n<|id|>83<|page|>11<|box|>352 140 369 374<|content|>Rule 17. Parking and Garage\n<|id|>86<|page|>11<|box|>536 140 554 524<|content|>Rule 18. Sustainability and Energy Conservation\n<|id|>90<|page|>12<|box|>90 140 107 540<|content|>Rule 19. Compliance with Insurance Requirements\n<|id|>98<|page|>12<|box|>604 140 623 390<|content|>Rule 20. ADA and Accessibility\n<|id|>101<|page|>13<|box|>90 140 107 566<|content|>Rule 21. Telecommunications and Satellite Equipmen\n<|id|>104<|page|>13<|box|>402 140 420 380<|content|>Rule 22. Hazardous Materials\n<|id|>107<|page|>13<|box|>696 142 714 318<|content|>Rule 23. Enforcement\n<|id|>111<|page|>14<|box|>231 142 247 370<|content|>Rule 24. Non-Discrimination\n<|id|>114<|page|>14<|box|>454 393 470 604<|content|>GENERAL PROVISIONS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>21<|level|>2\n<|id|>26<|level|>2\n<|id|>31<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>47<|level|>2\n<|id|>53<|level|>2\n<|id|>59<|level|>2\n<|id|>65<|level|>2\n<|id|>70<|level|>2\n<|id|>73<|level|>2\n<|id|>76<|level|>2\n<|id|>80<|level|>2\n<|id|>83<|level|>2\n<|id|>86<|level|>2\n<|id|>90<|level|>2\n<|id|>98<|level|>2\n<|id|>101<|level|>2\n<|id|>104<|level|>2\n<|id|>107<|level|>2\n<|id|>111<|level|>2\n<|id|>114<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 1
+        }
+    ]
+}

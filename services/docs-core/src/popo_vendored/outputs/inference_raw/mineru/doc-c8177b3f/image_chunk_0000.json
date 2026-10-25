@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 200 148 797<|content|>EXHIBIT D TO SETTLEMENT AGREEMENT AND MUTUAL RELEA\n<|id|>1<|type|>table<|page|>1<|box|>183 143 407 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>474 142 492 217<|content|>Filed by:\n<|id|>5<|type|>title<|page|>1<|box|>625 187 660 807<|content|>STIPULATION AND [PROPOSED] ORDER FOR ENTRY OF PERM\n<|id|>6<|type|>title<|page|>1<|box|>684 140 700 274<|content|>STIPULATION\n<|id|>20<|type|>title<|page|>3<|box|>564 140 580 374<|content|>SECTION 1: DEFINITIONS\n<|id|>32<|type|>title<|page|>5<|box|>89 140 106 611<|content|>SECTION 2: INJUNCTION AGAINST REPUBLICATION\n<|id|>43<|type|>title<|page|>6<|box|>556 140 573 743<|content|>SECTION 3: INJUNCTION AGAINST TRADING IN RDGM SECU\n<|id|>61<|type|>title<|page|>8<|box|>329 140 345 540<|content|>SECTION 4: ENFORCEMENT AND REMEDIES\n<|id|>71<|type|>title<|page|>9<|box|>439 140 455 408<|content|>SECTION 5: BINDING EFFECT\n<|id|>78<|type|>title<|page|>10<|box|>148 140 166 540<|content|>SECTION 6: MODIFICATION AND DURATION\n<|id|>82<|type|>title<|page|>10<|box|>542 140 559 673<|content|>SECTION 7: RELATIONSHIP TO SETTLEMENT AGREEMENT\n<|id|>86<|type|>title<|page|>11<|box|>222 140 239 460<|content|>SECTION 8: GENERAL PROVISIONS\n<|id|>97<|type|>title<|page|>12<|box|>161 178 176 313<|content|>If to Defendants:\n<|id|>108<|type|>title<|page|>12<|box|>574 375 590 620<|content|>STIPULATED AND AGREED\n<|id|>109<|type|>title<|page|>12<|box|>633 142 651 539<|content|>FOR PLAINTIFF REDSTONE GAMING CORP.:\n<|id|>116<|type|>title<|page|>12<|box|>830 140 866 852<|content|>FOR DEFENDANTS GRIZZLY PEAK RESEARCH LLC, GRIZZLY\n<|id|>122<|type|>title<|page|>13<|box|>191 217 209 779<|content|>[PROPOSED] ORDER FOR ENTRY OF PERMANENT INJUNCTION\n<|id|>123<|type|>title<|page|>13<|box|>252 285 286 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>124<|type|>table<|page|>13<|box|>319 143 542 852<|content|>None",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>124<|tgt_id|>122",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 122
+        }
+    ]
+}

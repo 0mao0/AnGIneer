@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>164 93 229 828<|content|>Ulta Beauty Announces Fourth Quarter Fiscal 2022 R\n<|id|>6<|page|>1<|box|>838 91 858 444<|content|>For the Fourth Quarter of Fiscal 2022\n<|id|>15<|page|>2<|box|>532 91 550 388<|content|>For the Full Year of Fiscal 2022\n<|id|>24<|page|>3<|box|>154 93 172 235<|content|>Balance Sheet\n<|id|>27<|page|>3<|box|>344 91 364 357<|content|>Share Repurchase Program\n<|id|>29<|page|>3<|box|>482 91 501 223<|content|>Store Update\n<|id|>32<|page|>3<|box|>689 91 708 285<|content|>Fiscal 2023 Outlook\n<|id|>35<|page|>4<|box|>66 93 85 362<|content|>Conference Call Information\n<|id|>37<|page|>4<|box|>242 91 260 269<|content|>About Ulta Beauty\n<|id|>39<|page|>4<|box|>419 91 436 370<|content|>Forward‑Looking Statements\n<|id|>61<|page|>6<|box|>80 377 121 620<|content|>Ulta Beauty, Inc. Consolidated Statements of Incom\n<|id|>69<|page|>9<|box|>229 436 258 560<|content|>Ulta Beauty, Inc. Sales by Category",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>2\n<|id|>61<|level|>2\n<|id|>69<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        }
+    ]
+}

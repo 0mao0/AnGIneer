@@ -1,0 +1,163 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>354 385 375 611<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>344 364 364 633<|content|>II. Scope and Methodology\n<|id|>15<|page|>2<|box|>390 142 407 300<|content|>A. Scope of Inquiry\n<|id|>24<|page|>3<|box|>167 140 184 313<|content|>B. Sources Consulted\n<|id|>42<|page|>4<|box|>378 246 398 750<|content|>III. Corporate Profile — Zenith Petroleum DMCC\n<|id|>43<|page|>4<|box|>424 140 440 387<|content|>A. Formation and Registration\n<|id|>51<|page|>4<|box|>797 142 814 282<|content|>B. Key Personnel\n<|id|>56<|page|>5<|box|>383 140 402 336<|content|>C. Ownership Structure\n<|id|>60<|page|>5<|box|>777 140 795 344<|content|>D. Banking Relationships\n<|id|>64<|page|>6<|box|>290 241 310 754<|content|>IV. The Two Flagged Crude Oil Swap Transactions\n<|id|>65<|page|>6<|box|>334 140 352 344<|content|>A. Transaction Overview\n<|id|>68<|page|>6<|box|>611 142 627 277<|content|>B. Transaction 1\n<|id|>80<|page|>7<|box|>518 140 536 279<|content|>C. Transaction 2\n<|id|>92<|page|>8<|box|>319 140 337 302<|content|>D. Combined Value\n<|id|>94<|page|>8<|box|>464 168 508 826<|content|>V. Connections to Petronova Trading FZE and Volkho\n<|id|>95<|page|>8<|box|>532 140 549 700<|content|>A. Relationship Between Zenith Petroleum and Petro\n<|id|>106<|page|>9<|box|>652 140 670 550<|content|>B. Potential Links to Volkhov Industrial Group JSC\n<|id|>120<|page|>11<|box|>303 140 320 374<|content|>C. OFAC 50% Rule Analysis\n<|id|>125<|page|>12<|box|>90 147 136 849<|content|>VI. Assessment of Dunmore's Pre-Transaction Due Di\n<|id|>126<|page|>12<|box|>159 142 176 460<|content|>A. DTI's KYC and Onboarding Records\n<|id|>134<|page|>12<|box|>704 142 722 357<|content|>B. Red Flags Not Escalated\n<|id|>143<|page|>13<|box|>654 352 672 643<|content|>VII. Regulatory Implications\n<|id|>144<|page|>13<|box|>698 142 715 370<|content|>A. OFAC Sanctions Analysis\n<|id|>149<|page|>14<|box|>513 140 530 318<|content|>B. Criminal Exposure\n<|id|>153<|page|>15<|box|>136 295 155 700<|content|>VIII. Open Items and Recommendations\n<|id|>154<|page|>15<|box|>181 142 198 383<|content|>A. Further Investigation Steps\n<|id|>162<|page|>16<|box|>204 140 222 529<|content|>B. Implications for DOJ Cooperation and Proffer\n<|id|>165<|page|>16<|box|>479 140 498 553<|content|>C. Implications for OFAC Voluntary Self-Disclosure\n<|id|>168<|page|>16<|box|>705 421 724 575<|content|>IX. Conclusion\n<|id|>175<|page|>17<|box|>520 142 537 341<|content|>Appendices (Referenced)\n<|id|>181<|page|>18<|box|>161 140 179 790<|content|>Appendix C — Selected Wire Transfer Records (Cresc\n<|id|>183<|page|>18<|box|>268 142 286 480<|content|>Appendix D — Key Email Correspondence\n<|id|>185<|page|>18<|box|>393 142 410 460<|content|>Appendix E — OFAC Screening Results",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>1\n<|id|>65<|level|>2\n<|id|>68<|level|>2\n<|id|>80<|level|>2\n<|id|>92<|level|>2\n<|id|>94<|level|>1\n<|id|>95<|level|>2\n<|id|>106<|level|>2\n<|id|>120<|level|>2\n<|id|>125<|level|>1\n<|id|>126<|level|>2\n<|id|>134<|level|>2\n<|id|>143<|level|>1\n<|id|>144<|level|>2\n<|id|>149<|level|>2\n<|id|>153<|level|>1\n<|id|>154<|level|>2\n<|id|>162<|level|>2\n<|id|>165<|level|>2\n<|id|>168<|level|>1\n<|id|>175<|level|>1\n<|id|>181<|level|>2\n<|id|>183<|level|>2\n<|id|>185<|level|>2",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        }
+    ]
+}

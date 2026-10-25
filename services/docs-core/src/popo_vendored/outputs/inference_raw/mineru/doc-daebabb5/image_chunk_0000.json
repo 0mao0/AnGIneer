@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 202 107 794<|content|>UNITED STATES DISTRICT COURT FOR THE DISTRICT OF D\n<|id|>1<|type|>table<|page|>1<|box|>141 143 301 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>334 258 352 738<|content|>[PROPOSED] ORDER OF DISMISSAL WITH PREJUDICE\n<|id|>6<|type|>title<|page|>1<|box|>637 142 654 447<|content|>IT IS HEREBY ORDERED as follows:\n<|id|>18<|type|>title<|page|>2<|box|>666 142 684 496<|content|>For Plaintiff Apex Surgical Innovations, Inc.:",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

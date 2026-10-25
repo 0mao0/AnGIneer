@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Certain Covenants', \"The Indenture governing the Notes will contain covenants that, among other things, will limit the Issuer's ability and the ability of the Guarantors and certain of their subsidiaries to: (i) incur additional indebtedness if the Consolidated Leverage Ratio would exceed 3.75:1.00 on a pro forma basis; (ii) make restricted payments in excess of a cumulative basket starting at $25,000,000, plus a builder basket equal to\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '50% of Consolidated Net Income (if positive), available only if the Consolidated Leverage Ratio is 3.00:1.00 or less on a pro forma basis; (iii) sell assets (at least 75% cash consideration, with a 365-day reinvestment period); (iv) create liens (subject to Permitted Liens); (v) merge or consolidate; and (vi) engage in transactions with affiliates.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 82,
+    "table2_idx": 83
+}

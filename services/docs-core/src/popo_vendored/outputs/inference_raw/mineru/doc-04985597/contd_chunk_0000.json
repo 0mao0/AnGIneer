@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        10,
+        11,
+        13,
+        14,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 151 383<|content|>TO: ... Victoria Chambers, Partner\n<|id|>2<|page|>1<|box|>160 140 176 462<|content|>FROM: ... Jasmine Thornton, Lead Associate\n<|id|>3<|page|>1<|box|>186 140 203 550<|content|>CC: ... Liam Donahue, Associate\n<|id|>4<|page|>1<|box|>212 140 229 334<|content|>DATE: ... January 19, 2024\n<|id|>5<|page|>1<|box|>237 140 273 854<|content|>RE: ... EN-2023-0947)\n<|id|>6<|page|>1<|box|>282 140 299 426<|content|>MATTER NO. ... SC-MAT-2023-4172\n<|id|>7<|page|>1<|box|>306 140 412 854<|content|>PRIVILEGE DESIGNATION: ... This memorandum is not ...tion of the responsible partner, Victoria Chambers\n<|id|>12<|page|>1<|box|>704 147 720 633<|content|>• Andrea Felton, Senior Staff Attorney, Division of Enforcement\n<|id|>15<|page|>1<|box|>762 140 797 854<|content|>The following Calderwood & Harkness LLP attorneys were present on behalf of Ms. ... Navarrete and BRB\n<|id|>13<|page|>1<|box|>724 147 739 611<|content|>• Christopher Yuen, Staff Attorney, Division of Enforcement\n<|id|>14<|page|>1<|box|>743 145 758 612<|content|>• Diane Milosevic, Staff Accountant, Division of Enforcement\n<|id|>16<|page|>1<|box|>806 147 824 380<|content|>• Victoria Chambers, Partner\n<|id|>19<|page|>1<|box|>866 140 901 854<|content|>A court reporter was present and recorded the enti... standard arrangement with the Staff, Calderwood &\n<|id|>17<|page|>1<|box|>827 147 843 431<|content|>• Jasmine Thornton, Lead Associate\n<|id|>18<|page|>1<|box|>847 147 863 433<|content|>• Liam Donahue, Working Associate\n<|id|>20<|page|>2<|box|>90 140 127 854<|content|>Harkness will receive a copy of the transcript, wh...within approximately ten to fourteen business days\n<|id|>81<|page|>10<|box|>834 140 888 854<|content|>Mr. ... Navarrete testified that she participated in quarterly status meetings with the\n<|id|>82<|page|>11<|box|>90 140 127 854<|content|>Whitfield Keane team and that the BridgeFin portfo...hose meetings given its size and growth trajectory\n<|id|>102<|page|>13<|box|>834 140 907 856<|content|>Disclosure Specificity Risk. ... The FY 2022 Form ...id not specifically quantify the number of re-aged\n<|id|>103<|page|>14<|box|>90 138 311 857<|content|>BridgeFin loans (12,847) or their aggregate outsta...endered its periodic reports materially misleading\n<|id|>152<|page|>18<|box|>762 140 891 857<|content|>4. ... and (d) the credit-risk analytics team's monitoring and reporting of\n<|id|>153<|page|>19<|box|>90 174 125 854<|content|>BridgeFin credit quality. ... Hu should be scheduled for the week of February 5, 2024\n<|id|>156<|page|>19<|box|>404 140 465 854<|content|>This memorandum is a privileged and confidential a...ritten authorization of Victoria Chambers, Partner\n<|id|>157<|page|>19<|box|>472 142 489 320<|content|>Respectfully submitted,\n<|id|>158<|page|>19<|box|>489 142 506 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>159<|page|>19<|box|>508 143 523 251<|content|>By: ... By\n<|id|>160<|page|>19<|box|>523 140 556 852<|content|>Jasmine Thornton Lead Associate Calderwood & Harkn...25 Lexington Avenue, 30th Floor New York, NY 10017\n<|id|>161<|page|>19<|box|>558 142 574 318<|content|>Date: ... January 19, 2024",
+    "raw_response": "<|src_id|>19<|tgt_id|>20\n<|src_id|>81<|tgt_id|>82\n<|src_id|>102<|tgt_id|>103\n<|src_id|>152<|tgt_id|>153",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        }
+    ]
+}

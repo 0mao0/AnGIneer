@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 276 107 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|page|>1<|box|>609 140 627 555<|content|>1. Defined Terms; Transaction Documents Reviewed\n<|id|>21<|page|>2<|box|>473 140 489 437<|content|>2. Documents and Records Examined\n<|id|>35<|page|>3<|box|>679 140 696 267<|content|>3. Assumptions\n<|id|>48<|page|>4<|box|>789 140 806 238<|content|>4. Opinions\n<|id|>50<|page|>5<|box|>90 140 108 473<|content|>4.1 Due Incorporation and Good Standing\n<|id|>52<|page|>5<|box|>383 140 398 573<|content|>4.2 Authorization and Filing of the Restated Certi\n<|id|>59<|page|>6<|box|>90 140 107 687<|content|>4.3 Authorization, Valid Issuance, and Non-Assessa\n<|id|>63<|page|>6<|box|>579 140 595 720<|content|>4.4 Due Authorization, Execution, and Delivery of\n<|id|>65<|page|>6<|box|>797 140 814 272<|content|>4.5 No Conflicts\n<|id|>71<|page|>7<|box|>455 140 472 593<|content|>4.6 No Governmental Consents Required (Delaware La\n<|id|>73<|page|>7<|box|>703 140 719 403<|content|>5. Qualifications and Limitations\n<|id|>75<|page|>7<|box|>777 140 795 349<|content|>5.1 Scope of Law Covered\n<|id|>77<|page|>8<|box|>268 140 284 392<|content|>5.2 Enforceability Qualification\n<|id|>83<|page|>8<|box|>681 140 699 450<|content|>5.3 \"To Our Knowledge\" Qualification\n<|id|>85<|page|>9<|box|>138 140 156 385<|content|>5.4 Securities Laws Disclaimer\n<|id|>87<|page|>9<|box|>377 140 393 295<|content|>5.5 Tax Disclaimer\n<|id|>89<|page|>9<|box|>523 140 540 364<|content|>5.6 No Obligation to Update\n<|id|>91<|page|>9<|box|>696 140 714 328<|content|>6. Reliance and Benefit\n<|id|>96<|page|>10<|box|>232 140 248 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>1\n<|id|>21<|level|>1\n<|id|>35<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>59<|level|>2\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>1\n<|id|>75<|level|>2\n<|id|>77<|level|>2\n<|id|>83<|level|>2\n<|id|>85<|level|>2\n<|id|>87<|level|>2\n<|id|>89<|level|>2\n<|id|>91<|level|>1\n<|id|>96<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        }
+    ]
+}

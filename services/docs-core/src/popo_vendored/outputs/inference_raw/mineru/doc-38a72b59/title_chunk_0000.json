@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        9,
+        11,
+        12,
+        15,
+        16,
+        17,
+        18,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 145 118 852<|content|>SUBORDINATION OF PROPERTY MANAGEMENT AGREEMENT\n<|id|>1<|page|>1<|box|>136 303 152 692<|content|>450 West 34th Street, New York, New York 10001\n<|id|>6<|page|>1<|box|>518 140 535 243<|content|>RECITALS\n<|id|>14<|page|>2<|box|>655 140 672 390<|content|>SECTION 1 — DEFINITIONS\n<|id|>30<|page|>4<|box|>239 140 258 424<|content|>SECTION 2 — SUBORDINATION\n<|id|>47<|page|>5<|box|>714 140 732 513<|content|>SECTION 3 — COVENANTS OF MANAGER\n<|id|>55<|page|>7<|box|>732 140 750 558<|content|>SECTION 4 — LENDER TERMINATION RIGHTS\n<|id|>66<|page|>9<|box|>655 140 672 750<|content|>SECTION 5 — REPRESENTATIONS AND WARRANTIES OF MANA\n<|id|>78<|page|>11<|box|>89 142 106 364<|content|>SECTION 6 — ESTOPPEL\n<|id|>86<|page|>11<|box|>714 140 732 352<|content|>SECTION 7 — NOTICES\n<|id|>88<|page|>11<|box|>877 176 893 297<|content|>If to Manager:\n<|id|>95<|page|>12<|box|>265 176 282 272<|content|>If to Agent:\n<|id|>104<|page|>12<|box|>641 140 659 429<|content|>SECTION 8 — MISCELLANEOUS\n<|id|>118<|page|>15<|box|>152 222 170 774<|content|>[Remainder of this page intentionally left blank.]\n<|id|>119<|page|>15<|box|>178 176 213 818<|content|>SIGNATURE PAGES TO SUBORDINATION OF PROPERTY MANAG\n<|id|>121<|page|>15<|box|>267 143 282 250<|content|>MANAGER:\n<|id|>147<|page|>15<|box|>729 395 747 601<|content|>ACKNOWLEDGMENTS\n<|id|>148<|page|>15<|box|>756 142 773 460<|content|>ACKNOWLEDGMENT — MANAGER\n<|id|>149<|page|>15<|box|>782 140 799 540<|content|>STATE OF NEW YORK COUNTY OF NEW YORK\n<|id|>165<|page|>16<|box|>867 447 883 550<|content|>EXHIBIT A\n<|id|>166<|page|>17<|box|>89 310 106 686<|content|>LEGAL DESCRIPTION OF THE PROPERTY\n<|id|>168<|page|>17<|box|>179 140 196 383<|content|>PARCEL 1 (Lot 1, Block 729):\n<|id|>174<|page|>17<|box|>425 142 441 383<|content|>PARCEL 2 (Lot 5, Block 729):\n<|id|>180<|page|>17<|box|>672 142 689 393<|content|>PARCEL 3 (Lot 12, Block 729):\n<|id|>186<|page|>18<|box|>133 142 151 392<|content|>PARCEL 4 (Lot 15, Block 729):\n<|id|>192<|page|>18<|box|>398 143 417 320<|content|>Tax Map Designation:\n<|id|>194<|page|>18<|box|>450 142 468 344<|content|>Ground Lease Reference:\n<|id|>196<|page|>18<|box|>558 143 575 377<|content|>Title Commitment Reference:\n<|id|>198<|page|>18<|box|>646 447 662 549<|content|>EXHIBIT B\n<|id|>199<|page|>18<|box|>671 238 714 758<|content|>FORM OF PROPERTY MANAGER ESTOPPEL CERTIFICATE PROP\n<|id|>222<|page|>20<|box|>321 142 339 831<|content|>EVERGREEN PROPERTY MANAGEMENT LLC, a New York limi\n<|id|>227<|page|>20<|box|>409 428 426 568<|content|>[End of Exhibit B]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>6<|level|>2\n<|id|>14<|level|>2\n<|id|>30<|level|>2\n<|id|>47<|level|>2\n<|id|>55<|level|>2\n<|id|>66<|level|>2\n<|id|>78<|level|>2\n<|id|>86<|level|>2\n<|id|>88<|level|>3\n<|id|>95<|level|>3\n<|id|>104<|level|>2\n<|id|>118<|level|>-1\n<|id|>119<|level|>2\n<|id|>121<|level|>3\n<|id|>147<|level|>2\n<|id|>148<|level|>3\n<|id|>149<|level|>4\n<|id|>165<|level|>2\n<|id|>166<|level|>3\n<|id|>168<|level|>4\n<|id|>174<|level|>4\n<|id|>180<|level|>4\n<|id|>186<|level|>4\n<|id|>192<|level|>4\n<|id|>194<|level|>4\n<|id|>196<|level|>4\n<|id|>198<|level|>2\n<|id|>199<|level|>3\n<|id|>222<|level|>4\n<|id|>227<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 4
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 4
+        },
+        {
+            "id": 174,
+            "level": 4
+        },
+        {
+            "id": 180,
+            "level": 4
+        },
+        {
+            "id": 186,
+            "level": 4
+        },
+        {
+            "id": 192,
+            "level": 4
+        },
+        {
+            "id": 194,
+            "level": 4
+        },
+        {
+            "id": 196,
+            "level": 4
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 4
+        }
+    ]
+}

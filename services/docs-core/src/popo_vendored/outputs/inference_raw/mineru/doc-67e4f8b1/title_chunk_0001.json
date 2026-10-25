@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        51,
+        53
+    ],
+    "pages": [
+        52,
+        53
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>592<|page|>52<|box|>89 282 107 715<|content|>EXHIBIT D — UCC FIXTURE FILING ADDENDUM\n<|id|>595<|page|>52<|box|>316 142 334 496<|content|>1. Name and Address of Debtor (Mortgagor):\n<|id|>598<|page|>52<|box|>431 140 449 550<|content|>2. Name and Address of Secured Party (Mortgagee):\n<|id|>600<|page|>52<|box|>501 140 518 362<|content|>3. Description of Collateral:\n<|id|>602<|page|>52<|box|>718 142 734 393<|content|>4. Description of Real Property:\n<|id|>604<|page|>52<|box|>768 140 787 447<|content|>5. Record Owner of the Real Property:\n<|id|>607<|page|>53<|box|>90 140 108 421<|content|>6. Filing and Indexing Instructions:\n<|id|>609<|page|>53<|box|>252 142 268 348<|content|>7. Additional UCC Filing:\n<|id|>611<|page|>53<|box|>393 142 409 279<|content|>END OF EXHIBIT D",
+    "raw_response": "<|id|>592<|level|>1\n<|id|>595<|level|>2\n<|id|>598<|level|>2\n<|id|>600<|level|>2\n<|id|>602<|level|>2\n<|id|>604<|level|>2\n<|id|>607<|level|>2\n<|id|>609<|level|>2\n<|id|>611<|level|>2",
+    "parsed": [
+        {
+            "id": 592,
+            "level": 1
+        },
+        {
+            "id": 595,
+            "level": 2
+        },
+        {
+            "id": 598,
+            "level": 2
+        },
+        {
+            "id": 600,
+            "level": 2
+        },
+        {
+            "id": 602,
+            "level": 2
+        },
+        {
+            "id": 604,
+            "level": 2
+        },
+        {
+            "id": 607,
+            "level": 2
+        },
+        {
+            "id": 609,
+            "level": 2
+        },
+        {
+            "id": 611,
+            "level": 2
+        }
+    ]
+}

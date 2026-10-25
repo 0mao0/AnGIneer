@@ -1,0 +1,160 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21,
+        23,
+        24,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 222 133 774<|content|>DUE DILIGENCE MEMORANDUM — LITIGATION\n<|id|>2<|page|>1<|box|>150 179 167 818<|content|>CALDERWOOD & HARKNESS LLP 425 Lexington Avenue New\n<|id|>10<|page|>1<|box|>422 142 440 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>24<|page|>2<|box|>734 142 752 321<|content|>II. METHODOLOGY\n<|id|>25<|page|>2<|box|>766 140 782 447<|content|>A. Document and Information Sources\n<|id|>45<|page|>4<|box|>90 140 107 341<|content|>B. Materiality Threshold\n<|id|>53<|page|>4<|box|>611 140 628 398<|content|>C. Limitations and Assumptions\n<|id|>58<|page|>5<|box|>222 140 239 506<|content|>III. SUMMARY OF PENDING LITIGATION\n<|id|>60<|page|>5<|box|>316 140 334 545<|content|>A. Dunmore Nigeria E&P Ltd. — Nigerian Matters\n<|id|>111<|page|>10<|box|>536 140 554 517<|content|>D. Dunmore Senegal S.A. — Senegalese Matters\n<|id|>131<|page|>12<|box|>239 140 256 563<|content|>F. Dunmore Midstream Holdings Inc. — U.S. Matters\n<|id|>138<|page|>12<|box|>681 140 699 607<|content|>G. Dunmore Energy Holdings Ltd. — Parent-Level Mat\n<|id|>144<|page|>13<|box|>512 140 529 540<|content|>IV. THREATENED OR POTENTIAL MATTERS\n<|id|>149<|page|>14<|box|>186 140 203 486<|content|>V. INSURANCE COVERAGE SUMMARY\n<|id|>157<|page|>15<|box|>239 140 258 521<|content|>VI. AGGREGATE EXPOSURE ASSESSMENT\n<|id|>164<|page|>16<|box|>428 140 445 535<|content|>VII. OM DISCLOSURE RECOMMENDATIONS\n<|id|>165<|page|>16<|box|>460 140 476 547<|content|>A. Matters Recommended for Individual Disclosure\n<|id|>172<|page|>17<|box|>257 140 273 491<|content|>B. General / Aggregate Litigation Disclosure\n<|id|>176<|page|>17<|box|>527 140 544 401<|content|>C. Risk Factor Cross-References\n<|id|>184<|page|>18<|box|>89 140 107 746<|content|>VIII. INTERACTION WITH OTHER DUE DILIGENCE WORKSTR\n<|id|>191<|page|>19<|box|>89 140 107 450<|content|>IX. OPEN ITEMS AND FOLLOW-UP\n<|id|>198<|page|>19<|box|>652 140 669 294<|content|>X. CONCLUSION\n<|id|>211<|page|>21<|box|>89 142 106 563<|content|>APPENDIX A — LITIGATION SUMMARY TABLE\n<|id|>214<|page|>23<|box|>89 142 106 723<|content|>APPENDIX B — LIST OF DUE DILIGENCE MATERIALS REVIE\n<|id|>216<|page|>23<|box|>161 142 176 330<|content|>Management Materials\n<|id|>226<|page|>23<|box|>527 140 544 411<|content|>Court Filings and Docket Records\n<|id|>233<|page|>23<|box|>799 142 815 325<|content|>Local Counsel Reports\n<|id|>238<|page|>24<|box|>166 143 183 303<|content|>Regulatory Records\n<|id|>245<|page|>24<|box|>364 142 380 290<|content|>Insurance Policies\n<|id|>250<|page|>24<|box|>542 142 558 274<|content|>Other Materials\n<|id|>256<|page|>25<|box|>89 142 107 674<|content|>APPENDIX C — LOCAL COUNSEL CONTACT INFORMATION\n<|id|>265<|page|>26<|box|>89 142 125 756<|content|>APPENDIX D — DUNMORE ORGANIZATIONAL CHART (GUARANT\n<|id|>267<|page|>26<|box|>196 151 241 846<|content|>DUNMORE ENERGY HOLDINGS LTD. (Cayman Islands exemp",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>-1\n<|id|>10<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>45<|level|>3\n<|id|>53<|level|>3\n<|id|>58<|level|>2\n<|id|>60<|level|>3\n<|id|>111<|level|>3\n<|id|>131<|level|>3\n<|id|>138<|level|>3\n<|id|>144<|level|>2\n<|id|>149<|level|>2\n<|id|>157<|level|>2\n<|id|>164<|level|>2\n<|id|>165<|level|>3\n<|id|>172<|level|>3\n<|id|>176<|level|>3\n<|id|>184<|level|>2\n<|id|>191<|level|>2\n<|id|>198<|level|>2\n<|id|>211<|level|>2\n<|id|>214<|level|>2\n<|id|>216<|level|>3\n<|id|>226<|level|>3\n<|id|>233<|level|>3\n<|id|>238<|level|>3\n<|id|>245<|level|>3\n<|id|>250<|level|>3\n<|id|>256<|level|>2\n<|id|>265<|level|>2\n<|id|>267<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 3
+        },
+        {
+            "id": 226,
+            "level": 3
+        },
+        {
+            "id": 233,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 3
+        },
+        {
+            "id": 245,
+            "level": 3
+        },
+        {
+            "id": 250,
+            "level": 3
+        },
+        {
+            "id": 256,
+            "level": 2
+        },
+        {
+            "id": 265,
+            "level": 2
+        },
+        {
+            "id": 267,
+            "level": 3
+        }
+    ]
+}

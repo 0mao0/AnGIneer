@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        52,
+        99
+    ],
+    "pages": [
+        52,
+        53,
+        63,
+        64,
+        73,
+        74,
+        76,
+        81,
+        93,
+        96,
+        99
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>144<|page|>52<|box|>70 263 85 751<|content|>Table 3. ... - Sales Reported by Series, Classified by States\n<|id|>146<|page|>53<|box|>50 275 65 708<|content|>Sales of United States Savings Bonds - (Continued)\n<|id|>147<|page|>53<|box|>71 188 87 794<|content|>Table 3. ... - Sales Reported by Series, Classified by States - (Continued)\n<|id|>164<|page|>63<|box|>55 184 99 780<|content|>Summary Data from Treasury Survey of Ownership of ...Guaranteed by the United States, November 30, 1942\n<|id|>165<|page|>63<|box|>130 152 251 811<|content|>The following tables present summary data from the...banks and insurance companies in the United States\n<|id|>166<|page|>63<|box|>290 188 320 785<|content|>Table I. ... - Analysis of Ownership by Type of Se..., by Call Classes, and by Tax-Exemption Provisions\n<|id|>168<|page|>64<|box|>898 537 910 753<|content|>Excludes Exchange Stabilization Fund. ... Excludes Exchange Stabilization Fund\n<|id|>170<|page|>64<|box|>103 196 121 801<|content|>Table I. ... - Analysis of Ownership by Type of Security, by Call Classes,\n<|id|>171<|page|>64<|box|>125 299 141 696<|content|>and by Tax-Exemption Provisions - (Continued)\n<|id|>205<|page|>73<|box|>115 244 130 722<|content|>Based on Mean of Closing Bid and Asked Quotations\n<|id|>207<|page|>74<|box|>770 104 862 532<|content|>Basis of Computation: ... on days when an issue do...sell, the price of the last preceding sale is used\n<|id|>209<|page|>74<|box|>877 131 926 535<|content|>1/ Average of partially tax-exempt Treasury bonds ...ipal amount of partially tax-exempt Treasury bonds\n<|id|>213<|page|>76<|box|>460 169 519 892<|content|>GOVERNMENT CORPORATIONS AND CREDIT AGENCIES OF THE UNITED STATES\n<|id|>233<|page|>81<|box|>781 66 984 482<|content|>Source: ... from the proceeds of its notes sold to the Treasury, such amounts being included in\n<|id|>234<|page|>81<|box|>782 494 964 919<|content|>the total of obligations of the corporation cancel... paid-in capital stock held by member institutions\n<|id|>261<|page|>93<|box|>717 311 729 650<|content|>Administrative expense of the Exchange Stabilization Fund\n<|id|>265<|page|>96<|box|>391 503 619 671<|content|>BUY UNITED STATES WAR BONDS AND STAMPS\n<|id|>266<|page|>99<|box|>114 248 211 320<|content|>Treas. ... 2",
+    "raw_response": "<|src_id|>170<|tgt_id|>171\n<|src_id|>233<|tgt_id|>234",
+    "parsed": [
+        {
+            "src_id": 170,
+            "tgt_id": 171
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 234
+        }
+    ]
+}

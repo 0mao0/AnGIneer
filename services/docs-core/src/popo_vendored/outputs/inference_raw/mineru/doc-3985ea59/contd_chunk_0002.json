@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        100,
+        102
+    ],
+    "pages": [
+        101,
+        102
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1403<|page|>101<|box|>881 136 900 905<|content|>64-2 简化式、64-1 修正式，即本规范式（8. ... 1-4），适用于有底\n<|id|>1404<|page|>102<|box|>122 99 140 514<|content|>沙运动的非黏性河槽，使用该两式时应注意。 ... 沙运动的非黏性河槽，使用该两式时应注意",
+    "raw_response": "<|src_id|>1403<|tgt_id|>1404",
+    "parsed": [
+        {
+            "src_id": 1403,
+            "tgt_id": 1404
+        }
+    ]
+}

@@ -1,0 +1,197 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qxtwi1tj\\input\\pdfs\\doc-b16da434.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qxtwi1tj\\enriched\\doc-b16da434.json",
+    "contd_output": "<|src_id|>50<|tgt_id|>52\n<|src_id|>62<|tgt_id|>63\n<|src_id|>144<|tgt_id|>145",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>26<|level|>2\n<|id|>53<|level|>3\n<|id|>56<|level|>2\n<|id|>58<|level|>3\n<|id|>91<|level|>3\n<|id|>111<|level|>3\n<|id|>125<|level|>3\n<|id|>147<|level|>3\n<|id|>164<|level|>3\n<|id|>167<|level|>4\n<|id|>174<|level|>4\n<|id|>184<|level|>4\n<|id|>193<|level|>4\n<|id|>200<|level|>3\n<|id|>209<|level|>3\n<|id|>218<|level|>3\n<|id|>230<|level|>3\n<|id|>239<|level|>3\n<|id|>262<|level|>2\n<|id|>265<|level|>2\n<|id|>266<|level|>3\n<|id|>272<|level|>3\n<|id|>284<|level|>2\n<|id|>285<|level|>3\n<|id|>289<|level|>3\n<|id|>302<|level|>2\n<|id|>310<|level|>2\n<|id|>318<|level|>3\n<|id|>323<|level|>2",
+    "image_output": "<|src_id|>263<|tgt_id|>262\n<|src_id|>268<|tgt_id|>266\n<|src_id|>274<|tgt_id|>272\n<|src_id|>275<|tgt_id|>272\n<|src_id|>287<|tgt_id|>285\n<|src_id|>288<|tgt_id|>285\n<|src_id|>300<|tgt_id|>289",
+    "contd_label": [
+        {
+            "src_id": 50,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 145
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 4
+        },
+        {
+            "id": 174,
+            "level": 4
+        },
+        {
+            "id": 184,
+            "level": 4
+        },
+        {
+            "id": 193,
+            "level": 4
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 3
+        },
+        {
+            "id": 218,
+            "level": 3
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 239,
+            "level": 3
+        },
+        {
+            "id": 262,
+            "level": 2
+        },
+        {
+            "id": 265,
+            "level": 2
+        },
+        {
+            "id": 266,
+            "level": 3
+        },
+        {
+            "id": 272,
+            "level": 3
+        },
+        {
+            "id": 284,
+            "level": 2
+        },
+        {
+            "id": 285,
+            "level": 3
+        },
+        {
+            "id": 289,
+            "level": 3
+        },
+        {
+            "id": 302,
+            "level": 2
+        },
+        {
+            "id": 310,
+            "level": 2
+        },
+        {
+            "id": 318,
+            "level": 3
+        },
+        {
+            "id": 323,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 263,
+            "tgt_id": 262
+        },
+        {
+            "src_id": 268,
+            "tgt_id": 266
+        },
+        {
+            "src_id": 274,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 275,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 287,
+            "tgt_id": 285
+        },
+        {
+            "src_id": 288,
+            "tgt_id": 285
+        },
+        {
+            "src_id": 300,
+            "tgt_id": 289
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 287,
+            "table2_idx": 288,
+            "upper_row_ss": [
+                [
+                    "Fidelitas Title & Escrow, Inc. /",
+                    "Title insurance premiums — owner's",
+                    "$150,000–$200,000 (estimate)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Sovereign Title Insurance Company",
+                    "policies (Stonebridge: $58.5M; Meridian: $19.4M) and lender's policy ($390M)",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

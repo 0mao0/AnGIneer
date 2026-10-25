@@ -1,0 +1,55 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 163 125 833<|content|>MEMORANDUM — PRIVILEGED AND CONFIDENTIAL — ATTORNE\n<|id|>1<|type|>title<|page|>1<|box|>133 233 151 763<|content|>CALDERWOOD & HARKNESS LLP Internal Conflicts Clear\n<|id|>11<|type|>title<|page|>1<|box|>444 271 460 723<|content|>RESULT: CLEARED — NO CONFLICTS IDENTIFIED\n<|id|>16<|type|>title<|page|>2<|box|>167 140 184 424<|content|>Section 2: Scope of Conflicts Search\n<|id|>29<|type|>title<|page|>3<|box|>90 140 107 364<|content|>Section 3: Entities Searched\n<|id|>31<|type|>title<|page|>3<|box|>184 140 200 383<|content|>3.1 Client and Client Affiliates\n<|id|>32<|type|>table<|page|>3<|box|>229 143 595 852<|content|>None\n<|id|>34<|type|>title<|page|>3<|box|>789 142 806 380<|content|>3.2 Majority Owner / Sponsor\n<|id|>36<|type|>table<|page|>3<|box|>835 143 902 852<|content|>None\n<|id|>37<|type|>table<|page|>4<|box|>88 143 186 852<|content|>None\n<|id|>39<|type|>title<|page|>4<|box|>325 140 343 723<|content|>3.3 D&O Tower — Incumbent Insurance Carriers (2021\n<|id|>40<|type|>table<|page|>4<|box|>409 143 597 852<|content|>None\n<|id|>42<|type|>title<|page|>4<|box|>717 140 734 815<|content|>3.4 Product-Liability Tower — Incumbent Insurance\n<|id|>43<|type|>table<|page|>4<|box|>782 143 904 852<|content|>None\n<|id|>44<|type|>table<|page|>5<|box|>88 143 142 852<|content|>None\n<|id|>46<|type|>title<|page|>5<|box|>316 140 333 419<|content|>3.5 Other Related Parties Searched\n<|id|>48<|type|>table<|page|>5<|box|>382 143 570 852<|content|>None\n<|id|>50<|type|>title<|page|>5<|box|>782 140 799 375<|content|>3.6 Key Individuals Searched\n<|id|>67<|type|>title<|page|>6<|box|>476 140 493 576<|content|>Section 4: Search Results — Client and Client Affi\n<|id|>74<|type|>title<|page|>7<|box|>494 140 511 573<|content|>Section 5: Search Results — Majority Owner / Spons\n<|id|>79<|type|>title<|page|>8<|box|>186 140 203 537<|content|>Section 6: Search Results — D&O Tower Carriers\n<|id|>86<|type|>title<|page|>9<|box|>351 140 369 630<|content|>Section 7: Search Results — Product-Liability Towe\n<|id|>93<|type|>title<|page|>10<|box|>90 140 107 537<|content|>Section 8: Search Results — Other Related Parties\n<|id|>100<|type|>title<|page|>11<|box|>250 140 266 493<|content|>Section 9: Search Results — Key Individuals\n<|id|>105<|type|>title<|page|>11<|box|>575 140 594 710<|content|>Section 10: Nature of Proposed Engagement — Confli\n<|id|>119<|type|>title<|page|>13<|box|>90 140 107 447<|content|>Section 11: Prior Representation Notes\n<|id|>121<|type|>title<|page|>13<|box|>196 174 233 854<|content|>1. C&H Prior Representation of Vandermeer National\n<|id|>123<|type|>title<|page|>13<|box|>393 176 431 852<|content|>2. C&H Prior Adverse Representation Against Harrin\n<|id|>125<|type|>title<|page|>13<|box|>628 176 666 854<|content|>3. C&H Prior Representation of Broadleaf Capital M\n<|id|>128<|type|>title<|page|>14<|box|>90 140 107 439<|content|>Section 12: Conclusion and Clearance\n<|id|>129<|type|>title<|page|>14<|box|>114 285 132 712<|content|>DETERMINATION: CLEARED — NO CONFLICTS\n<|id|>134<|type|>title<|page|>14<|box|>627 143 643 354<|content|>Approval and Distribution\n<|id|>135<|type|>title<|page|>14<|box|>652 143 669 284<|content|>APPROVED BY:",
+    "raw_response": "<|src_id|>32<|tgt_id|>31\n<|src_id|>36<|tgt_id|>34\n<|src_id|>37<|tgt_id|>34\n<|src_id|>40<|tgt_id|>39\n<|src_id|>43<|tgt_id|>42\n<|src_id|>44<|tgt_id|>42\n<|src_id|>48<|tgt_id|>46",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        }
+    ]
+}

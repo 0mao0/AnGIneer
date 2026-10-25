@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 323 133 673<|content|>345 Park Avenue New York, New York 10154\n<|id|>2<|page|>1<|box|>142 184 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 743 184 854<|content|>March 1, 2024\n<|id|>4<|page|>1<|box|>193 140 229 854<|content|>Whitfield Barrow & Co. ... , LLC as Representative...riters 383 Madison Avenue New York, New York 10179\n<|id|>5<|page|>1<|box|>237 140 255 810<|content|>Calloway Pierce Securities LLC 200 Park Avenue, 40th Floor New York, New York 10166\n<|id|>6<|page|>1<|box|>263 140 281 844<|content|>Velthorn Capital Partners Inc. ... 555 California Street, Suite 3000 San Francisco, California 94104\n<|id|>7<|page|>1<|box|>289 140 306 756<|content|>Pemberton Wallis LLC 100 Federal Street, 28th Floor Boston, Massachusetts 02110\n<|id|>8<|page|>1<|box|>315 142 332 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>14<|page|>1<|box|>815 140 907 856<|content|>We confirm that we have re-performed the procedure...\"Prospectus Supplement\" and, collectively with the\n<|id|>15<|page|>2<|box|>89 140 143 854<|content|>Registration Statement and the Prospectus, the \"Of...-performed procedures are set forth in this letter\n<|id|>45<|page|>4<|box|>869 140 906 856<|content|>6. ... Nothing has come to our attention as a resu...ieve that the capitalization table included in the\n<|id|>46<|page|>5<|box|>90 140 219 856<|content|>Prospectus under the caption \"Capitalization\" is n...Prospectus, were 80,000,000 shares of common stock\n<|id|>80<|page|>8<|box|>866 140 902 854<|content|>This Overallotment Bring-Down Letter has been prep...tified Public Accountants (\"AICPA\") and the Public\n<|id|>81<|page|>9<|box|>90 140 127 854<|content|>Company Accounting Oversight Board (\"PCAOB\") for l...cular in accordance with the guidance set forth in\n<|id|>82<|page|>9<|box|>135 174 170 854<|content|>(a) AU-C Section 920, Letters for Underwriters and...ued by the AICPA Auditing Standards Board; ... and\n<|id|>84<|page|>9<|box|>222 140 258 854<|content|>The procedures performed and the form and content ...quirements of the foregoing professional standards\n<|id|>85<|page|>9<|box|>267 212 284 343<|content|>Very truly yours,\n<|id|>86<|page|>9<|box|>292 142 308 444<|content|>KELLERMAN & ASSOCIATES LLP\n<|id|>87<|page|>9<|box|>311 143 327 251<|content|>By: ... By\n<|id|>88<|page|>9<|box|>327 143 344 460<|content|>Richard Olander Lead Engagement Partner\n<|id|>89<|page|>9<|box|>345 143 361 253<|content|>By: ... By\n<|id|>90<|page|>9<|box|>362 142 378 431<|content|>Sonia Melendez Audit Senior Manager\n<|id|>91<|page|>9<|box|>405 176 421 411<|content|>Arbor Health Technologies Inc. ... Arbor Health Technologies Inc\n<|id|>92<|page|>9<|box|>431 176 446 568<|content|>Attention: ... David Halderman, Chief Financial Officer\n<|id|>93<|page|>9<|box|>448 176 483 854<|content|>Rachel Moynihan, General Counsel & Corporate Secre... Avenue, Suite 1400 Cambridge, Massachusetts 02142\n<|id|>94<|page|>9<|box|>492 176 508 398<|content|>Calderwood & Harkness LLP\n<|id|>95<|page|>9<|box|>518 176 534 555<|content|>Attention: ... Theodore Langston, Responsible Partner\n<|id|>96<|page|>9<|box|>536 176 551 753<|content|>Eric Johannsen, Lead Associate 125 Broad Street New York, New York 10004\n<|id|>97<|page|>9<|box|>561 176 578 408<|content|>Meridian Hale & Quivorn LLP\n<|id|>98<|page|>9<|box|>587 176 604 480<|content|>Attention: ... Graham Neville, Lead Partner\n<|id|>99<|page|>9<|box|>604 176 621 544<|content|>51 West 52nd Street New York, New York 10019\n<|id|>100<|page|>9<|box|>628 140 690 854<|content|>CONFIDENTIAL — This letter is furnished solely for...rior written consent of Kellerman & Associates LLP",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>45<|tgt_id|>46\n<|src_id|>80<|tgt_id|>81",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        }
+    ]
+}

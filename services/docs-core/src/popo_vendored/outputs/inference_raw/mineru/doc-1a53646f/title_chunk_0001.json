@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        55,
+        63
+    ],
+    "pages": [
+        55,
+        56,
+        58,
+        59,
+        60,
+        61,
+        63
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>645<|page|>55<|box|>275 413 295 597<|content|>4.5 粗骨料\n<|id|>650<|page|>56<|box|>140 289 169 674<|content|>5 混凝土配合比控制\n<|id|>652<|page|>56<|box|>303 393 322 576<|content|>5.1 一般规定\n<|id|>654<|page|>56<|box|>404 381 422 586<|content|>5.4 大体积混凝土\n<|id|>656<|page|>56<|box|>550 376 570 591<|content|>5.5 水下混凝土\n<|id|>661<|page|>56<|box|>845 357 865 608<|content|>5.6 水下不分散混凝土\n<|id|>666<|page|>58<|box|>138 224 168 727<|content|>6 混凝土施工过程质量控制\n<|id|>667<|page|>58<|box|>202 398 222 559<|content|>6.1 配料\n<|id|>670<|page|>58<|box|>322 398 341 559<|content|>6.2 搅拌\n<|id|>672<|page|>58<|box|>417 398 436 559<|content|>6.3 运输\n<|id|>676<|page|>58<|box|>607 398 627 559<|content|>6.4 浇筑\n<|id|>685<|page|>59<|box|>180 432 198 593<|content|>6.5 养护\n<|id|>687<|page|>60<|box|>137 268 166 691<|content|>7 硬化混凝土质量控制\n<|id|>688<|page|>60<|box|>202 368 221 595<|content|>7.1 混凝土外观质量\n<|id|>691<|page|>60<|box|>368 376 387 587<|content|>7.2 混凝土强度\n<|id|>705<|page|>61<|box|>657 408 675 614<|content|>7.3 混凝土耐久性\n<|id|>713<|page|>63<|box|>162 151 227 865<|content|>附录 A 混凝土抗氯离子渗透性标准试验方法——电通量法\n<|id|>714<|page|>63<|box|>256 413 277 603<|content|>A.4 结果计算",
+    "raw_response": "<|id|>645<|level|>3\n<|id|>650<|level|>1\n<|id|>652<|level|>2\n<|id|>654<|level|>2\n<|id|>656<|level|>2\n<|id|>661<|level|>2\n<|id|>666<|level|>1\n<|id|>667<|level|>2\n<|id|>670<|level|>2\n<|id|>672<|level|>2\n<|id|>676<|level|>2\n<|id|>685<|level|>2\n<|id|>687<|level|>1\n<|id|>688<|level|>2\n<|id|>691<|level|>2\n<|id|>705<|level|>2\n<|id|>713<|level|>1\n<|id|>714<|level|>2",
+    "parsed": [
+        {
+            "id": 645,
+            "level": 3
+        },
+        {
+            "id": 650,
+            "level": 1
+        },
+        {
+            "id": 652,
+            "level": 2
+        },
+        {
+            "id": 654,
+            "level": 2
+        },
+        {
+            "id": 656,
+            "level": 2
+        },
+        {
+            "id": 661,
+            "level": 2
+        },
+        {
+            "id": 666,
+            "level": 1
+        },
+        {
+            "id": 667,
+            "level": 2
+        },
+        {
+            "id": 670,
+            "level": 2
+        },
+        {
+            "id": 672,
+            "level": 2
+        },
+        {
+            "id": 676,
+            "level": 2
+        },
+        {
+            "id": 685,
+            "level": 2
+        },
+        {
+            "id": 687,
+            "level": 1
+        },
+        {
+            "id": 688,
+            "level": 2
+        },
+        {
+            "id": 691,
+            "level": 2
+        },
+        {
+            "id": 705,
+            "level": 2
+        },
+        {
+            "id": 713,
+            "level": 1
+        },
+        {
+            "id": 714,
+            "level": 2
+        }
+    ]
+}

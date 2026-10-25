@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        20,
+        21,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>210 181 247 813<|content|>Pursuant to UAE Federal Law No. ... 6 of 2018 on A...cement of Foreign Arbitral Awards (New York, 1958)\n<|id|>3<|page|>1<|box|>255 617 273 854<|content|>Date of Filing: ... 22 August 2024\n<|id|>7<|page|>1<|box|>395 174 449 854<|content|>Al-Rashid Hatem & Associates Managing Partner: ......s (South Tower), DIFC, Dubai, United Arab Emirates\n<|id|>8<|page|>1<|box|>458 176 476 388<|content|>Acting on instructions from: ... Acting on instructions from\n<|id|>12<|page|>1<|box|>598 174 654 854<|content|>Korinthian Maritime Holdings Ltd. ... HE 387421, h...okli Dervi Avenue, Suite 601, Nicosia 1066, Cyprus\n<|id|>13<|page|>1<|box|>660 174 714 854<|content|>UAE Entity: ... Korinthian DMCC, a DMCC free zone ...ah Lakes Towers (JLT), Dubai, United Arab Emirates\n<|id|>22<|page|>2<|box|>811 140 904 857<|content|>6. ... Korinthian DMCC holds bank accounts and rec...IFC, Dubai, UAE, and its head office located at Al\n<|id|>23<|page|>3<|box|>90 174 126 854<|content|>Maryah Island, Abu Dhabi, UAE. ... These accounts ...t against which the Award may properly be enforced\n<|id|>75<|page|>7<|box|>867 174 902 854<|content|>(a) M/V *Aegean Fortuna — a Supramax Bulk Carrier,...e marshall Islands, and owned by Dnepr Shipholding\n<|id|>76<|page|>8<|box|>90 174 162 854<|content|>Inc. ... A certified copy of this charter-party, i...rein, is annexed to this application as Exhibit 3*\n<|id|>216<|page|>20<|box|>844 140 898 854<|content|>THIRD: ... Grant execution against all assets of t...mirates Gulf Commercial Bank PJSC (Gate Village 3,\n<|id|>217<|page|>21<|box|>89 140 126 854<|content|>DIFC, Dubai, UAE; ... Al Maryah Island, Abu Dhabi,...other bank or financial institution within the UAE\n<|id|>239<|page|>23<|box|>239 140 273 854<|content|>AL-RASHID HATEM & ASSOCIATES Office 1802, Emirates...rs (South Tower) DIFC, Dubai, United Arab Emirates\n<|id|>240<|page|>23<|box|>273 143 290 253<|content|>By: ... By\n<|id|>241<|page|>23<|box|>290 143 308 411<|content|>Tariq Al-Rashid Managing Partner\n<|id|>242<|page|>23<|box|>309 143 325 254<|content|>By: ... By\n<|id|>243<|page|>23<|box|>325 142 342 447<|content|>Leila Hatem Partner, Dispute Resolution\n<|id|>244<|page|>23<|box|>342 143 359 310<|content|>Date: ... 22 August 2024\n<|id|>245<|page|>23<|box|>359 142 375 316<|content|>On instructions from: ... On instructions from\n<|id|>246<|page|>23<|box|>376 140 393 820<|content|>CALDERWOOD & HARKNESS LLP 45 Moorgate, London EC2R 6AR United Kingdom\n<|id|>247<|page|>23<|box|>395 143 411 251<|content|>By: ... By\n<|id|>248<|page|>23<|box|>411 143 428 416<|content|>Samuel Eklund Responsible Partner\n<|id|>249<|page|>23<|box|>429 143 445 253<|content|>By: ... By\n<|id|>250<|page|>23<|box|>446 143 462 398<|content|>Hannah Brinkley Lead Associate\n<|id|>251<|page|>23<|box|>463 142 479 310<|content|>Date: ... 22 August 2024",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>75<|tgt_id|>76\n<|src_id|>216<|tgt_id|>217",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 217
+        }
+    ]
+}

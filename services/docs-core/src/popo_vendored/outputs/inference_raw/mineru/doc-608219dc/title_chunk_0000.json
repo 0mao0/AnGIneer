@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 212 141 784<|content|>AMENDMENT NO. 1 TO AMENDED AND RESTATED INVESTORS'\n<|id|>4<|page|>1<|box|>262 173 297 823<|content|>THE UNDERSIGNED HOLDERS OF SHARES OF THE COMPANY'S\n<|id|>5<|page|>1<|box|>306 178 343 818<|content|>AMENDMENT NO. 1 TO AMENDED AND RESTATED INVESTORS'\n<|id|>7<|page|>1<|box|>465 140 483 243<|content|>RECITALS\n<|id|>16<|page|>2<|box|>373 140 390 372<|content|>SECTION 1. DEFINITIONS\n<|id|>25<|page|>3<|box|>392 140 409 586<|content|>SECTION 2. AMENDMENTS TO THE EXISTING IRA\n<|id|>54<|page|>8<|box|>358 140 375 602<|content|>SECTION 3. REPRESENTATIONS AND WARRANTIES\n<|id|>67<|page|>9<|box|>843 140 859 552<|content|>SECTION 4. CONDITIONS TO EFFECTIVENESS\n<|id|>74<|page|>10<|box|>381 140 398 411<|content|>SECTION 5. MISCELLANEOUS\n<|id|>103<|page|>12<|box|>859 169 895 826<|content|>SIGNATURE PAGES TO AMENDMENT NO. 1 TO AMENDED AND\n<|id|>105<|page|>13<|box|>138 142 156 253<|content|>COMPANY:.\n<|id|>111<|page|>13<|box|>248 169 284 826<|content|>SIGNATURE PAGES TO AMENDMENT NO. 1 TO AMENDED AND\n<|id|>112<|page|>13<|box|>297 142 314 281<|content|>PURCHASERS:.\n<|id|>139<|page|>14<|box|>89 143 143 826<|content|>1201 Third Avenue, Suite 5600 Seattle, WA 98101 SI\n<|id|>140<|page|>14<|box|>156 142 172 849<|content|>EXISTING INVESTORS / REQUISITE HOLDERS (CONSENTING\n<|id|>147<|page|>14<|box|>282 169 318 825<|content|>SIGNATURE PAGES TO AMENDMENT NO. 1 TO AMENDED AND\n<|id|>152<|page|>14<|box|>395 169 431 826<|content|>SIGNATURE PAGES TO AMENDMENT NO. 1 TO AMENDED AND\n<|id|>157<|page|>14<|box|>526 169 561 826<|content|>SIGNATURE PAGES TO AMENDMENT NO. 1 TO AMENDED AND\n<|id|>162<|page|>14<|box|>638 169 674 825<|content|>SIGNATURE PAGES TO AMENDMENT NO. 1 TO AMENDED AND\n<|id|>169<|page|>14<|box|>819 437 834 560<|content|>SCHEDULE A\n<|id|>170<|page|>14<|box|>844 367 859 629<|content|>SCHEDULE OF PURCHASERS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>1\n<|id|>5<|level|>1\n<|id|>7<|level|>2\n<|id|>16<|level|>2\n<|id|>25<|level|>2\n<|id|>54<|level|>2\n<|id|>67<|level|>2\n<|id|>74<|level|>2\n<|id|>103<|level|>1\n<|id|>105<|level|>2\n<|id|>111<|level|>1\n<|id|>112<|level|>2\n<|id|>139<|level|>-1\n<|id|>140<|level|>2\n<|id|>147<|level|>1\n<|id|>152<|level|>1\n<|id|>157<|level|>1\n<|id|>162<|level|>1\n<|id|>169<|level|>2\n<|id|>170<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        }
+    ]
+}

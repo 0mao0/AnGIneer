@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>13<|type|>title<|page|>1<|box|>763 140 780 498<|content|>1. DTC Participant Status of Brindoval Trust\n<|id|>16<|type|>title<|page|>2<|box|>186 140 204 383<|content|>2. Description of the Securities\n<|id|>18<|type|>table<|page|>2<|box|>253 143 665 852<|content|>None\n<|id|>20<|type|>title<|page|>2<|box|>777 140 794 415<|content|>3. Confirmation of DTC Eligibility\n<|id|>28<|type|>title<|page|>3<|box|>517 140 534 349<|content|>4. Book-Entry Procedures\n<|id|>36<|type|>title<|page|>4<|box|>321 140 339 393<|content|>5. Transfer Restrictions Legend\n<|id|>40<|type|>title<|page|>4<|box|>770 140 787 467<|content|>6. Paying Agent / Registrar Confirmation\n<|id|>45<|type|>title<|page|>5<|box|>439 140 457 326<|content|>7. Contact Information\n<|id|>49<|type|>title<|page|>5<|box|>592 140 609 207<|content|>Closing\n<|id|>52<|type|>title<|page|>5<|box|>834 401 852 596<|content|>[Signature Page Follows]",
+    "raw_response": "<|src_id|>18<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 16
+        }
+    ]
+}

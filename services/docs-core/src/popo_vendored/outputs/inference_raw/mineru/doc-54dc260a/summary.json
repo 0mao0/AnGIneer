@@ -1,0 +1,471 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-adii8q56\\input\\pdfs\\doc-54dc260a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-adii8q56\\enriched\\doc-54dc260a.json",
+    "contd_output": "<|src_id|>12<|tgt_id|>13\n<|src_id|>19<|tgt_id|>20\n<|src_id|>83<|tgt_id|>84\n<|src_id|>426<|tgt_id|>428",
+    "title_output": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>34<|level|>3\n<|id|>39<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>49<|level|>3\n<|id|>57<|level|>2\n<|id|>58<|level|>3\n<|id|>59<|level|>4\n<|id|>61<|level|>5\n<|id|>71<|level|>5\n<|id|>81<|level|>4\n<|id|>90<|level|>4\n<|id|>96<|level|>4\n<|id|>100<|level|>3\n<|id|>101<|level|>4\n<|id|>117<|level|>4\n<|id|>124<|level|>4\n<|id|>131<|level|>4\n<|id|>134<|level|>4\n<|id|>139<|level|>3\n<|id|>140<|level|>4\n<|id|>153<|level|>4\n<|id|>161<|level|>4\n<|id|>175<|level|>4\n<|id|>183<|level|>4\n<|id|>191<|level|>4\n<|id|>195<|level|>3\n<|id|>196<|level|>4\n<|id|>208<|level|>4\n<|id|>214<|level|>4\n<|id|>217<|level|>4\n<|id|>219<|level|>3\n<|id|>220<|level|>4\n<|id|>235<|level|>4\n<|id|>241<|level|>4\n<|id|>246<|level|>4\n<|id|>249<|level|>4\n<|id|>251<|level|>3\n<|id|>252<|level|>4\n<|id|>267<|level|>4\n<|id|>274<|level|>4\n<|id|>277<|level|>4\n<|id|>282<|level|>3\n<|id|>283<|level|>4\n<|id|>295<|level|>4\n<|id|>310<|level|>4\n<|id|>314<|level|>4\n<|id|>317<|level|>3\n<|id|>318<|level|>4\n<|id|>337<|level|>4\n<|id|>350<|level|>4\n<|id|>354<|level|>4\n<|id|>357<|level|>3\n<|id|>358<|level|>4\n<|id|>369<|level|>4\n<|id|>377<|level|>4\n<|id|>380<|level|>2\n<|id|>381<|level|>3\n<|id|>385<|level|>3\n<|id|>389<|level|>3\n<|id|>395<|level|>2\n<|id|>396<|level|>3\n<|id|>404<|level|>3\n<|id|>410<|level|>3\n<|id|>419<|level|>2\n<|id|>420<|level|>3\n<|id|>429<|level|>3\n<|id|>436<|level|>3\n<|id|>442<|level|>3\n<|id|>459<|level|>2\n<|id|>460<|level|>3\n<|id|>469<|level|>3\n<|id|>476<|level|>2\n<|id|>484<|level|>2\n<|id|>499<|level|>2\n<|id|>500<|level|>3\n<|id|>507<|level|>3\n<|id|>509<|level|>3",
+    "image_output": "<|src_id|>47<|tgt_id|>46\n<|src_id|>48<|tgt_id|>46\n<|src_id|>386<|tgt_id|>385\n<|src_id|>387<|tgt_id|>385\n<|src_id|>501<|tgt_id|>500\n<|src_id|>503<|tgt_id|>500\n<|src_id|>505<|tgt_id|>500\n<|src_id|>508<|tgt_id|>507\n<|src_id|>510<|tgt_id|>509\n<|src_id|>511<|tgt_id|>509",
+    "contd_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 426,
+            "tgt_id": 428
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 5
+        },
+        {
+            "id": 71,
+            "level": 5
+        },
+        {
+            "id": 81,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 4
+        },
+        {
+            "id": 96,
+            "level": 4
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 4
+        },
+        {
+            "id": 117,
+            "level": 4
+        },
+        {
+            "id": 124,
+            "level": 4
+        },
+        {
+            "id": 131,
+            "level": 4
+        },
+        {
+            "id": 134,
+            "level": 4
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 4
+        },
+        {
+            "id": 153,
+            "level": 4
+        },
+        {
+            "id": 161,
+            "level": 4
+        },
+        {
+            "id": 175,
+            "level": 4
+        },
+        {
+            "id": 183,
+            "level": 4
+        },
+        {
+            "id": 191,
+            "level": 4
+        },
+        {
+            "id": 195,
+            "level": 3
+        },
+        {
+            "id": 196,
+            "level": 4
+        },
+        {
+            "id": 208,
+            "level": 4
+        },
+        {
+            "id": 214,
+            "level": 4
+        },
+        {
+            "id": 217,
+            "level": 4
+        },
+        {
+            "id": 219,
+            "level": 3
+        },
+        {
+            "id": 220,
+            "level": 4
+        },
+        {
+            "id": 235,
+            "level": 4
+        },
+        {
+            "id": 241,
+            "level": 4
+        },
+        {
+            "id": 246,
+            "level": 4
+        },
+        {
+            "id": 249,
+            "level": 4
+        },
+        {
+            "id": 251,
+            "level": 3
+        },
+        {
+            "id": 252,
+            "level": 4
+        },
+        {
+            "id": 267,
+            "level": 4
+        },
+        {
+            "id": 274,
+            "level": 4
+        },
+        {
+            "id": 277,
+            "level": 4
+        },
+        {
+            "id": 282,
+            "level": 3
+        },
+        {
+            "id": 283,
+            "level": 4
+        },
+        {
+            "id": 295,
+            "level": 4
+        },
+        {
+            "id": 310,
+            "level": 4
+        },
+        {
+            "id": 314,
+            "level": 4
+        },
+        {
+            "id": 317,
+            "level": 3
+        },
+        {
+            "id": 318,
+            "level": 4
+        },
+        {
+            "id": 337,
+            "level": 4
+        },
+        {
+            "id": 350,
+            "level": 4
+        },
+        {
+            "id": 354,
+            "level": 4
+        },
+        {
+            "id": 357,
+            "level": 3
+        },
+        {
+            "id": 358,
+            "level": 4
+        },
+        {
+            "id": 369,
+            "level": 4
+        },
+        {
+            "id": 377,
+            "level": 4
+        },
+        {
+            "id": 380,
+            "level": 2
+        },
+        {
+            "id": 381,
+            "level": 3
+        },
+        {
+            "id": 385,
+            "level": 3
+        },
+        {
+            "id": 389,
+            "level": 3
+        },
+        {
+            "id": 395,
+            "level": 2
+        },
+        {
+            "id": 396,
+            "level": 3
+        },
+        {
+            "id": 404,
+            "level": 3
+        },
+        {
+            "id": 410,
+            "level": 3
+        },
+        {
+            "id": 419,
+            "level": 2
+        },
+        {
+            "id": 420,
+            "level": 3
+        },
+        {
+            "id": 429,
+            "level": 3
+        },
+        {
+            "id": 436,
+            "level": 3
+        },
+        {
+            "id": 442,
+            "level": 3
+        },
+        {
+            "id": 459,
+            "level": 2
+        },
+        {
+            "id": 460,
+            "level": 3
+        },
+        {
+            "id": 469,
+            "level": 3
+        },
+        {
+            "id": 476,
+            "level": 2
+        },
+        {
+            "id": 484,
+            "level": 2
+        },
+        {
+            "id": 499,
+            "level": 2
+        },
+        {
+            "id": 500,
+            "level": 3
+        },
+        {
+            "id": 507,
+            "level": 3
+        },
+        {
+            "id": 509,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 47,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 386,
+            "tgt_id": 385
+        },
+        {
+            "src_id": 387,
+            "tgt_id": 385
+        },
+        {
+            "src_id": 501,
+            "tgt_id": 500
+        },
+        {
+            "src_id": 503,
+            "tgt_id": 500
+        },
+        {
+            "src_id": 505,
+            "tgt_id": 500
+        },
+        {
+            "src_id": 508,
+            "tgt_id": 507
+        },
+        {
+            "src_id": 510,
+            "tgt_id": 509
+        },
+        {
+            "src_id": 511,
+            "tgt_id": 509
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 47,
+            "table2_idx": 48,
+            "upper_row_ss": [
+                [
+                    "Clinical Trial Liability",
+                    "Bioguard Specialty Underwriters Ltd.",
+                    "BSU-CTL-2023-90147",
+                    "9/1/2023 – 9/1/2024",
+                    "$20,000,000 per claim / $40,000,000 aggregate",
+                    "$250,000 per claim",
+                    "$412,000",
+                    "Veridian"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Product Liability",
+                    "Continental Pharma Insurance Co.",
+                    "CPI-PL-2024-12038",
+                    "1/1/2024 - 1/1/2025",
+                    "$5,000,000 per claim / $10,000,000 aggregate",
+                    "$100,000 per claim",
+                    "$67,800",
+                    "Veridian"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 386,
+            "table2_idx": 387,
+            "upper_row_ss": [
+                [
+                    "Cyber Liability",
+                    "Claims-Made",
+                    "Yes (§XI)",
+                    "Automatic run-off",
+                    "Yes (3-6 years recommended)",
+                    "$144,600 - $289,200"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Umbrella / Excess",
+                    "Occurrence",
+                    "No",
+                    "None expected; policy continues",
+                    "N/A",
+                    "N/A"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 510,
+            "table2_idx": 511,
+            "upper_row_ss": [
+                [
+                    "D-6",
+                    "Updated premium invoice and confirmation of payment for the Sentinel",
+                    "4/29/2024",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Cyber policy (SCI-CY-2024-20459) for the current policy period commencing 2/1/2024",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>204 704 220 854<|content|>November 22, 2023\n<|id|>2<|page|>1<|box|>229 140 246 210<|content|>FROM: ... FROM\n<|id|>3<|page|>1<|box|>256 174 292 854<|content|>Howard Quinn, Partner Calderwood & Harkness LLP 20...4400 Miami, FL 33131 Telephone: ... (305) 555-7200\n<|id|>4<|page|>1<|box|>300 176 318 486<|content|>Email: ... com\n<|id|>5<|page|>1<|box|>318 142 334 181<|content|>TO: ... TO\n<|id|>7<|page|>1<|box|>369 176 387 735<|content|>Diane Kowalski, Chair Reginald Faulkner, Member Sandra Yeung, Member\n<|id|>8<|page|>1<|box|>395 142 412 777<|content|>RE: ... 1021-00008)\n<|id|>9<|page|>1<|box|>420 140 457 854<|content|>REPORTING PERIOD: ... 2, dated October 20, 2023)\n<|id|>10<|page|>1<|box|>464 140 481 408<|content|>Right-click to update Table of Contents\n<|id|>59<|page|>7<|box|>842 140 897 854<|content|>CDC is a Florida corporation formed on June 4, 202...s, and bank records obtained from Fenmore National\n<|id|>60<|page|>8<|box|>90 140 127 854<|content|>Bank, the sole shareholder of CDC is Nicole Presco...d was involved in the administration of the entity\n<|id|>71<|page|>9<|box|>229 183 263 852<|content|>• Luxury-goods purchases at various retailers, inc...ewelry, designer apparel, and electronics; ... and\n<|id|>73<|page|>9<|box|>304 140 395 854<|content|>The detailed fund-flow analysis, including source-...received by each of the three individuals involved\n<|id|>95<|page|>11<|box|>785 174 878 857<|content|>(a) Phase 1 — Non-Privileged Financial Records and...e of production is expected to be delivered to the\n<|id|>96<|page|>12<|box|>89 174 127 854<|content|>SEC in coordination with Westlake Burris & Holt LL...t review and the finalization of the privilege log\n<|id|>103<|page|>12<|box|>815 140 907 856<|content|>The restatement of VHG's affected filings — specif...prepared and filed following the completion of the\n<|id|>104<|page|>13<|box|>89 140 162 854<|content|>Investigation, which is currently targeted for the...and re-review of the affected financial statements\n<|id|>112<|page|>13<|box|>737 183 772 854<|content|>• Analysis of potential indemnification obligation...ation, Bylaws, and applicable Florida law; ... and\n<|id|>114<|page|>14<|box|>90 174 143 854<|content|>Revenue-Recognition Analysis Memorandum (ASC 606).... is expected to be completed in late December 2023\n<|id|>141<|page|>16<|box|>777 142 794 320<|content|>Respectfully submitted,\n<|id|>142<|page|>16<|box|>795 140 811 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>143<|page|>16<|box|>814 143 829 251<|content|>By: ... By\n<|id|>144<|page|>16<|box|>829 140 862 852<|content|>Howard Quinn, Partner 200 South Biscayne Boulevard...4400 Miami, FL 33131 Telephone: ... (305) 555-7200\n<|id|>145<|page|>16<|box|>864 143 880 450<|content|>Email: ... com\n<|id|>146<|page|>16<|box|>881 143 896 336<|content|>Date: ... November 22, 2023\n<|id|>147<|page|>17<|box|>90 140 125 852<|content|>cc: ... Conrad Ashby, Partner, Calderwood & Harkne...nahue, Senior Associate, Calderwood & Harkness LLP\n<|id|>148<|page|>17<|box|>133 140 189 854<|content|>Enclosures: ... All referenced memoranda, intervie...able for the Audit Committee's review upon request",
+    "raw_response": "<|src_id|>59<|tgt_id|>60\n<|src_id|>95<|tgt_id|>96\n<|src_id|>103<|tgt_id|>104",
+    "parsed": [
+        {
+            "src_id": 59,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 104
+        }
+    ]
+}

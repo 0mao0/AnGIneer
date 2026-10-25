@@ -1,0 +1,144 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        60
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        58,
+        59,
+        60
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>534<|page|>45<|box|>90 140 107 313<|content|>Section 11.03 Waiver\n<|id|>536<|page|>45<|box|>267 140 284 349<|content|>Section 11.04 Subrogation\n<|id|>538<|page|>45<|box|>481 140 497 367<|content|>Section 11.05 Reinstatement\n<|id|>540<|page|>45<|box|>602 140 619 326<|content|>Section 11.06 Keepwell\n<|id|>542<|page|>46<|box|>90 423 109 575<|content|>ARTICLE XII\n<|id|>543<|page|>46<|box|>128 321 148 674<|content|>RETENTION OF JURISDICTION\n<|id|>544<|page|>46<|box|>175 140 191 493<|content|>Section 12.01 Bankruptcy Court Jurisdiction\n<|id|>546<|page|>47<|box|>90 397 111 601<|content|>SCHEDULE 1.01(a)\n<|id|>547<|page|>47<|box|>128 354 148 643<|content|>LENDER COMMITMENTS\n<|id|>552<|page|>49<|box|>90 410 109 588<|content|>SCHEDULE 4.05\n<|id|>553<|page|>49<|box|>128 398 148 599<|content|>REAL PROPERTY\n<|id|>555<|page|>50<|box|>90 411 109 586<|content|>SCHEDULE 4.11\n<|id|>556<|page|>50<|box|>130 316 148 681<|content|>SUBSIDIARIES AND AFFILIATES\n<|id|>558<|page|>51<|box|>90 411 109 588<|content|>SCHEDULE 4.16\n<|id|>559<|page|>51<|box|>130 357 148 638<|content|>MATERIAL CONTRACTS\n<|id|>561<|page|>52<|box|>90 410 109 586<|content|>SCHEDULE 6.01\n<|id|>562<|page|>52<|box|>128 349 148 648<|content|>EXISTING INDEBTEDNESS\n<|id|>566<|page|>53<|box|>90 411 109 586<|content|>SCHEDULE 6.02\n<|id|>567<|page|>53<|box|>128 403 148 594<|content|>EXISTING LIENS\n<|id|>569<|page|>54<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>570<|page|>54<|box|>128 277 148 720<|content|>FORM OF COMPLIANCE CERTIFICATE\n<|id|>589<|page|>55<|box|>89 142 107 215<|content|>Annex I.\n<|id|>601<|page|>56<|box|>90 437 109 560<|content|>EXHIBIT B\n<|id|>602<|page|>56<|box|>128 176 148 820<|content|>FORM OF ASSIGNMENT AND ASSUMPTION AGREEMENT\n<|id|>630<|page|>58<|box|>90 436 111 562<|content|>EXHIBIT C\n<|id|>631<|page|>58<|box|>128 307 148 689<|content|>FORM OF BORROWING REQUEST\n<|id|>647<|page|>59<|box|>90 434 111 563<|content|>EXHIBIT D\n<|id|>648<|page|>59<|box|>128 405 148 591<|content|>FORM OF NOTE\n<|id|>660<|page|>60<|box|>90 385 109 611<|content|>SIGNATURE PAGES",
+    "raw_response": "<|id|>534<|level|>3\n<|id|>536<|level|>3\n<|id|>538<|level|>3\n<|id|>540<|level|>3\n<|id|>542<|level|>1\n<|id|>543<|level|>1\n<|id|>544<|level|>3\n<|id|>546<|level|>1\n<|id|>547<|level|>1\n<|id|>552<|level|>1\n<|id|>553<|level|>1\n<|id|>555<|level|>1\n<|id|>556<|level|>1\n<|id|>558<|level|>1\n<|id|>559<|level|>1\n<|id|>561<|level|>1\n<|id|>562<|level|>1\n<|id|>566<|level|>1\n<|id|>567<|level|>1\n<|id|>569<|level|>1\n<|id|>570<|level|>1\n<|id|>589<|level|>1\n<|id|>601<|level|>1\n<|id|>602<|level|>1\n<|id|>630<|level|>1\n<|id|>631<|level|>1\n<|id|>647<|level|>1\n<|id|>648<|level|>1\n<|id|>660<|level|>1",
+    "parsed": [
+        {
+            "id": 534,
+            "level": 3
+        },
+        {
+            "id": 536,
+            "level": 3
+        },
+        {
+            "id": 538,
+            "level": 3
+        },
+        {
+            "id": 540,
+            "level": 3
+        },
+        {
+            "id": 542,
+            "level": 1
+        },
+        {
+            "id": 543,
+            "level": 1
+        },
+        {
+            "id": 544,
+            "level": 3
+        },
+        {
+            "id": 546,
+            "level": 1
+        },
+        {
+            "id": 547,
+            "level": 1
+        },
+        {
+            "id": 552,
+            "level": 1
+        },
+        {
+            "id": 553,
+            "level": 1
+        },
+        {
+            "id": 555,
+            "level": 1
+        },
+        {
+            "id": 556,
+            "level": 1
+        },
+        {
+            "id": 558,
+            "level": 1
+        },
+        {
+            "id": 559,
+            "level": 1
+        },
+        {
+            "id": 561,
+            "level": 1
+        },
+        {
+            "id": 562,
+            "level": 1
+        },
+        {
+            "id": 566,
+            "level": 1
+        },
+        {
+            "id": 567,
+            "level": 1
+        },
+        {
+            "id": 569,
+            "level": 1
+        },
+        {
+            "id": 570,
+            "level": 1
+        },
+        {
+            "id": 589,
+            "level": 1
+        },
+        {
+            "id": 601,
+            "level": 1
+        },
+        {
+            "id": 602,
+            "level": 1
+        },
+        {
+            "id": 630,
+            "level": 1
+        },
+        {
+            "id": 631,
+            "level": 1
+        },
+        {
+            "id": 647,
+            "level": 1
+        },
+        {
+            "id": 648,
+            "level": 1
+        },
+        {
+            "id": 660,
+            "level": 1
+        }
+    ]
+}

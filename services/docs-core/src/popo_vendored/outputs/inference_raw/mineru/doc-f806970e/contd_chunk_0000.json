@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        10,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>381 669 398 854<|content|>Filed: ... February 11, 2022\n<|id|>4<|page|>1<|box|>407 140 474 852<|content|>CALDERWOOD & HARKNESS LLP Linda Osei (BBO No. ... ...ounsel for Plaintiff Penterra Pharmaceuticals Corp\n<|id|>65<|page|>8<|box|>854 140 909 854<|content|>Farnham testified at his deposition that he did no...poor Email, combined with what he characterized as\n<|id|>66<|page|>9<|box|>89 140 180 857<|content|>Penterra's \"failure to object\" to certain earlier ...es in late 2019, amounted to tacit approval. ... 8\n<|id|>74<|page|>9<|box|>839 140 895 857<|content|>On April 12, 2021, Penterra filed its Complaint fo...t seeks a declaration that the Territory under the\n<|id|>75<|page|>10<|box|>89 140 143 854<|content|>EDA is limited to the six New England states defin...ed and in violation of Section 2. ... 3 of the EDA\n<|id|>80<|page|>10<|box|>463 181 498 854<|content|>• Rachel Mendez, Senior Director of Distribution and Logistics at Penterra — November 19, 2021; ... and\n<|id|>82<|page|>10<|box|>539 140 556 220<|content|>SUF ¶ 40. ... SUF ¶ 40\n<|id|>206<|page|>25<|box|>146 140 200 856<|content|>4. ... and\n<|id|>208<|page|>25<|box|>222 408 239 588<|content|>Respectfully submitted,\n<|id|>209<|page|>25<|box|>247 140 265 604<|content|>PENTERRA PHARMACEUTICALS CORP. ... , By its attorneys,\n<|id|>210<|page|>25<|box|>273 140 290 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>211<|page|>25<|box|>292 143 308 251<|content|>By: ... By\n<|id|>212<|page|>25<|box|>308 142 324 372<|content|>Linda Osei (BBO No. ... 672148)\n<|id|>213<|page|>25<|box|>325 140 375 854<|content|>Priya Anand (BBO No. ... (617) 555- 4200\n<|id|>214<|page|>25<|box|>375 142 392 334<|content|>Dated: ... February 11, 2022",
+    "raw_response": "<|src_id|>65<|tgt_id|>66\n<|src_id|>74<|tgt_id|>75",
+    "parsed": [
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 75
+        }
+    ]
+}

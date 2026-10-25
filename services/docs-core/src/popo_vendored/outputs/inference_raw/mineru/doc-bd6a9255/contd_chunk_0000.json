@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        7,
+        13,
+        14,
+        21,
+        22,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>152 140 189 852<|content|>FROM: ... Elliot Nguyen, Lead Associate, Calderwoo...ace Nakamura, Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>196 140 234 852<|content|>TO: ... Harrison Wexford, Responsible Partner, Cal...lloway, Billing Partner, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>242 140 279 854<|content|>CC: ... Gareth Linford, Vice President, Environmental Health & Safety, Torchlight Mining Corp\n<|id|>5<|page|>1<|box|>286 140 304 325<|content|>DATE: ... January 3, 2025\n<|id|>6<|page|>1<|box|>311 140 366 854<|content|>RE: ... District Court for the District of Montana, Missoula Division\n<|id|>7<|page|>1<|box|>375 142 391 361<|content|>MATTER NO. ... 1039-00003\n<|id|>8<|page|>1<|box|>398 140 476 854<|content|>This memorandum is a privileged and confidential a...sure does not constitute a waiver of any privilege\n<|id|>31<|page|>3<|box|>872 140 909 857<|content|>The negotiated remediation cost for Ridgecrest is ...ssion of the Remedial Action Work Plan by December\n<|id|>32<|page|>4<|box|>89 140 219 854<|content|>14, 2025; ... The site's remote location also crea...mobilization and demobilization of heavy equipment\n<|id|>60<|page|>7<|box|>42 148 71 846<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION AND ATTORNEY WORK PRODUCT\n<|id|>61<|page|>7<|box|>90 140 181 856<|content|>EPA Discretion. ... If TMC disagrees with EPA's de...a formal EPA decision, followed by judicial review\n<|id|>124<|page|>13<|box|>765 174 819 854<|content|>(f) Identification of any cascading effects on oth...ected milestone and downstream milestones; ... and\n<|id|>126<|page|>14<|box|>89 140 181 854<|content|>The inclusion of cascading-effects analysis in the... in connection with a specific force majeure event\n<|id|>187<|page|>21<|box|>160 181 195 854<|content|>• A surety bond in the amount of $165. ... and\n<|id|>189<|page|>21<|box|>236 140 383 854<|content|>The consent decree includes an annual adjustment m...urance amounts as a consequence of the same events\n<|id|>194<|page|>21<|box|>786 140 896 857<|content|>Expanded Definitions of Force Majeure Events. ... ...pidemics, pandemics, or public health emergencies\"\n<|id|>195<|page|>22<|box|>89 140 181 856<|content|>within its enumerated list — a provision that prov... timely submission of complete permit applications\n<|id|>244<|page|>27<|box|>733 140 766 852<|content|>Elliot Nguyen Lead Associate Environmental Enforcement & Regulatory Practice Group Direct: ... com\n<|id|>245<|page|>27<|box|>766 140 799 852<|content|>Grace Nakamura Associate Environmental Enforcement & Regulatory Practice Group Direct: ... com\n<|id|>246<|page|>27<|box|>797 140 829 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...TION AND ATTORNEY WORK PRODUCT — DO NOT DISTRIBUTE",
+    "raw_response": "<|src_id|>31<|tgt_id|>32\n<|src_id|>124<|tgt_id|>126\n<|src_id|>187<|tgt_id|>189\n<|src_id|>194<|tgt_id|>195",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 189
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 195
+        }
+    ]
+}

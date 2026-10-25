@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        106,
+        115
+    ],
+    "pages": [
+        107,
+        114,
+        115
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>641<|page|>107<|box|>295 353 314 648<|content|>DG/TJ 08-2269A-2018\n<|id|>642<|page|>107<|box|>322 411 339 590<|content|>J 14387-2018\n<|id|>643<|page|>107<|box|>386 409 411 590<|content|>条文说明\n<|id|>675<|page|>114<|box|>826 186 848 881<|content|>但根据网上问卷调查结果,72. ... 51%的市民更倾向于全部采\n<|id|>676<|page|>115<|box|>104 123 124 419<|content|>用中英文对照,详见表2。 ... 用中英文对照,详见表2",
+    "raw_response": "<|src_id|>675<|tgt_id|>676",
+    "parsed": [
+        {
+            "src_id": 675,
+            "tgt_id": 676
+        }
+    ]
+}

@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        12,
+        14,
+        16,
+        18,
+        19,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 151 125 844<|content|>MULTISTATE ATTORNEY GENERAL JOINT DEMAND LETTER C&\n<|id|>8<|page|>1<|box|>422 236 439 759<|content|>CALDERWOOD & HARKNESS LLP COVER MEMORANDUM\n<|id|>25<|page|>2<|box|>715 264 733 730<|content|>ORIGINAL JOINT DEMAND LETTER — ANNOTATED\n<|id|>26<|page|>2<|box|>741 209 784 785<|content|>OFFICE OF THE ATTORNEY GENERAL STATE OF CONNECTICU\n<|id|>30<|page|>3<|box|>90 140 143 854<|content|>Re: Multistate Investigation — Data Security Incid\n<|id|>38<|page|>4<|box|>332 140 349 524<|content|>SECTION I: BACKGROUND INFORMATION\n<|id|>39<|page|>4<|box|>364 140 380 570<|content|>Demand 1: Corporate and Organizational Information\n<|id|>55<|page|>5<|box|>463 140 479 625<|content|>Demand 2: Vendor Relationship and Contractual Fram\n<|id|>72<|page|>7<|box|>404 140 420 465<|content|>Demand 3: Detailed Incident Description\n<|id|>97<|page|>9<|box|>393 140 410 457<|content|>Demand 4: Scope of Compromised Data\n<|id|>108<|page|>10<|box|>551 142 566 413<|content|>Demand 5: Consumer Notification\n<|id|>124<|page|>12<|box|>90 140 107 426<|content|>Demand 6: Regulatory Notifications\n<|id|>134<|page|>12<|box|>837 140 854 589<|content|>SECTION II: INFORMATION SECURITY PROGRAM\n<|id|>135<|page|>12<|box|>868 142 885 557<|content|>Demand 7: Quorum's Information Security Program\n<|id|>155<|page|>14<|box|>661 142 678 514<|content|>Demand 8: Vendor Risk Management Program\n<|id|>172<|page|>16<|box|>349 140 368 740<|content|>SECTION III: REMEDIATION AND FORWARD-LOOKING MEASU\n<|id|>173<|page|>16<|box|>382 142 398 442<|content|>Demand 9: Remedial Measures Taken\n<|id|>196<|page|>18<|box|>268 140 284 485<|content|>Demand 10: Vendor Accountability Actions\n<|id|>212<|page|>19<|box|>589 140 607 633<|content|>SECTION IV: CLOSING AND RESPONSE INSTRUCTIONS\n<|id|>233<|page|>21<|box|>431 142 449 245<|content|>Respectfully,\n<|id|>239<|page|>21<|box|>689 169 724 826<|content|>C&H MASTER ANNOTATION SUMMARY Appended to Demand L\n<|id|>241<|page|>21<|box|>776 140 792 330<|content|>I. Key Risk Assessment\n<|id|>242<|page|>21<|box|>800 140 816 408<|content|>Overall Risk Level: MODERATE\n<|id|>245<|page|>22<|box|>171 140 188 359<|content|>Primary Areas of Concern:\n<|id|>249<|page|>22<|box|>622 142 638 300<|content|>Mitigating Factors:\n<|id|>255<|page|>23<|box|>214 140 232 411<|content|>II. Preliminary Response Strategy",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>25<|level|>1\n<|id|>26<|level|>-1\n<|id|>30<|level|>1\n<|id|>38<|level|>2\n<|id|>39<|level|>3\n<|id|>55<|level|>3\n<|id|>72<|level|>3\n<|id|>97<|level|>3\n<|id|>108<|level|>3\n<|id|>124<|level|>3\n<|id|>134<|level|>2\n<|id|>135<|level|>3\n<|id|>155<|level|>3\n<|id|>172<|level|>2\n<|id|>173<|level|>3\n<|id|>196<|level|>3\n<|id|>212<|level|>2\n<|id|>233<|level|>-1\n<|id|>239<|level|>1\n<|id|>241<|level|>2\n<|id|>242<|level|>3\n<|id|>245<|level|>3\n<|id|>249<|level|>3\n<|id|>255<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 212,
+            "level": 2
+        },
+        {
+            "id": 239,
+            "level": 1
+        },
+        {
+            "id": 241,
+            "level": 2
+        },
+        {
+            "id": 242,
+            "level": 3
+        },
+        {
+            "id": 245,
+            "level": 3
+        },
+        {
+            "id": 249,
+            "level": 3
+        },
+        {
+            "id": 255,
+            "level": 2
+        }
+    ]
+}

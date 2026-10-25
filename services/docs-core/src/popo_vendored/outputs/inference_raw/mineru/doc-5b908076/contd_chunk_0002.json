@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        97,
+        127
+    ],
+    "pages": [
+        98,
+        121,
+        124,
+        125,
+        127
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>456<|page|>98<|box|>875 83 910 482<|content|>^{2} In cludes data on Ser bia and Montenegro, whi...mally recog nized by the United States. ... and be\n<|id|>457<|page|>98<|box|>883 514 896 637<|content|>^{4} For merely known as Zaire. ... ^{4} For merely known as Zaire\n<|id|>567<|page|>121<|box|>853 81 881 491<|content|>This statement shows the net costs of Government o...ear 1999, which is funded by tax action or through\n<|id|>568<|page|>121<|box|>323 500 349 911<|content|>Federal borrowing. ... The statement reflects the ...y out the national priorities as determined by law\n<|id|>573<|page|>121<|box|>534 514 551 908<|content|>- The revenues earned from the public for goods and services\n<|id|>574<|page|>121<|box|>549 514 561 589<|content|>vices; ... and\n<|id|>588<|page|>124<|box|>97 84 148 339<|content|>United States Government Balance Sheet as of September 30, 1999\n<|id|>590<|page|>124<|box|>188 84 881 908<|content|>Assets: ... 0\n<|id|>589<|page|>124<|box|>165 84 181 210<|content|>(In billions of dollars)\n<|id|>591<|page|>124<|box|>893 96 914 761<|content|>The accompanying notes in the complete document ar...an in teal goal part of these financial statements\n<|id|>595<|page|>125<|box|>250 418 268 573<|content|>Highway Account\n<|id|>596<|page|>125<|box|>287 83 340 910<|content|>Unfunded authorizations (EOY) 36,836 24-month revenue estimate 60,006\n<|id|>617<|page|>127<|box|>154 364 169 627<|content|>Source: ... Financial Management Service\n<|id|>618<|page|>127<|box|>185 80 290 486<|content|>Accrueddiscount (SBN-1, -2, -3)—Interest that accu... their holders is not included in accrued discount",
+    "raw_response": "<|src_id|>567<|tgt_id|>568\n<|src_id|>573<|tgt_id|>574",
+    "parsed": [
+        {
+            "src_id": 567,
+            "tgt_id": 568
+        },
+        {
+            "src_id": 573,
+            "tgt_id": 574
+        }
+    ]
+}

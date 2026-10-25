@@ -1,0 +1,122 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wnfm1ull\\input\\pdfs\\doc-2115a5b4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wnfm1ull\\enriched\\doc-2115a5b4.json",
+    "contd_output": "",
+    "title_output": "<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>20<|level|>1\n<|id|>25<|level|>1\n<|id|>26<|level|>2\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>43<|level|>1\n<|id|>44<|level|>2\n<|id|>52<|level|>2\n<|id|>57<|level|>2\n<|id|>61<|level|>1\n<|id|>62<|level|>2\n<|id|>71<|level|>2\n<|id|>79<|level|>2\n<|id|>82<|level|>2\n<|id|>85<|level|>1\n<|id|>95<|level|>1\n<|id|>100<|level|>1\n<|id|>111<|level|>1",
+    "image_output": "<|src_id|>22<|tgt_id|>20\n<|src_id|>23<|tgt_id|>20\n<|src_id|>88<|tgt_id|>85",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 85
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 22,
+            "table2_idx": 23,
+            "upper_row_ss": [
+                [
+                    "April 22, 2024",
+                    "Supplemental letter submitted by Calderwood & Harkness to the SEC Staff, providing updated fourth-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "quarter 2023 BridgeFin credit performance metrics demonstrating stabilization and improvement in delinquency rates and net charge-offs"
+                ]
+            ]
+        }
+    ]
+}

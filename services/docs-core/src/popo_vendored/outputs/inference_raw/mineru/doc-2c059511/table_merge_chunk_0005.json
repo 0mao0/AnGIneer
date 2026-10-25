@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['', '', '', '', '', '', '', '', ''], ['colspan=9, '], ['colspan=9, 1.工程内容:'], ['colspan=9, 2.依据说明:']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=4, 工程船舶机械艘(台)班用量汇总表'], ['colspan=4, 工程名称: 工程代号:'], ['序 号', '名称及规格', '单 位', '数 量']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 448,
+    "table2_idx": 449
+}

@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        3,
+        6,
+        8,
+        9,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 150 176 846<|content|>7 Times Square New York, New York 10036 Telephone: ... (212) 506- 5100\n<|id|>4<|page|>1<|box|>229 673 247 854<|content|>Matter No. ... 1001-00004\n<|id|>3<|page|>1<|box|>185 145 222 851<|content|>555 California Street, Suite 3200, San Francisco, ...104 1 Angel Court, London EC2R 7HJ, United Kingdom\n<|id|>6<|page|>1<|box|>281 140 300 839<|content|>Luminex Systems Holdings Inc. ... 2100 Reston Gateway Drive, Suite 800 Reston, Virginia 20191\n<|id|>5<|page|>1<|box|>255 772 273 854<|content|>[__], 2025\n<|id|>7<|page|>1<|box|>308 142 324 348<|content|>Attention: ... General Counsel\n<|id|>8<|page|>1<|box|>325 140 359 854<|content|>Ridgeline Growth Equity Fund II LP 200 Clarendon Street, 52nd Floor Boston, Massachusetts 02116\n<|id|>9<|page|>1<|box|>369 142 386 359<|content|>Attention: ... Legal Department\n<|id|>10<|page|>1<|box|>386 140 421 854<|content|>Meridian Venture Partners IV LP 600 Montgomery Street, Suite 2800 San Francisco, California 94111\n<|id|>11<|page|>1<|box|>430 142 446 348<|content|>Attention: ... General Counsel\n<|id|>12<|page|>1<|box|>448 140 483 854<|content|>Stonebridge Credit Partners LLC 600 Lexington Avenue, 20th Floor New York, New York 10022\n<|id|>13<|page|>1<|box|>492 142 508 524<|content|>Attention: ... Administrative Agent — Credit Facilities\n<|id|>14<|page|>1<|box|>508 156 564 857<|content|>Re: ... — Legal Opinion of Buyer's Counsel\n<|id|>15<|page|>1<|box|>571 142 588 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>38<|page|>3<|box|>577 143 613 852<|content|>17. ... and\n<|id|>40<|page|>3<|box|>652 140 708 856<|content|>The Merger Agreement, the Escrow Agreement, the Pa... collectively as the \"Transaction Documents. ... \"\n<|id|>65<|page|>6<|box|>294 174 383 854<|content|>(b) the approval by the Board of Directors of Ardent Apex Merger Sub Inc. ... and\n<|id|>67<|page|>6<|box|>474 140 565 856<|content|>No further corporate proceedings on the part of Pa... transactions contemplated by the Merger Agreement\n<|id|>83<|page|>8<|box|>194 174 231 854<|content|>(a) the filing of the Certificate of Merger with t...ith the applicable provisions of the DGCL; ... and\n<|id|>85<|page|>8<|box|>356 140 446 856<|content|>We express no opinion as to any consent, approval,...Merger Agreement or the consummation of the Merger\n<|id|>97<|page|>9<|box|>287 174 343 854<|content|>(a) the laws of the State of Delaware (including t...ial decisions interpreting the foregoing); ... and\n<|id|>99<|page|>9<|box|>393 140 522 856<|content|>We do not express any opinion as to the laws of an...no opinion with respect to the effect of such laws\n<|id|>129<|page|>12<|box|>292 142 310 272<|content|>Very truly yours,\n<|id|>130<|page|>12<|box|>318 140 334 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>131<|page|>12<|box|>335 143 353 253<|content|>By: ... By\n<|id|>132<|page|>12<|box|>354 143 369 308<|content|>Name: ... James Prentice\n<|id|>133<|page|>12<|box|>369 143 386 246<|content|>Title: ... Partner",
+    "raw_response": "<|src_id|>38<|tgt_id|>40\n<|src_id|>65<|tgt_id|>67",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 67
+        }
+    ]
+}

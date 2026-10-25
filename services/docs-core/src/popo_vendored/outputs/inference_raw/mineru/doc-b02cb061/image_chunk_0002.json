@@ -1,0 +1,59 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        94,
+        106
+    ],
+    "pages": [
+        94,
+        95,
+        97,
+        98,
+        99,
+        100,
+        101,
+        105,
+        106
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>289<|type|>table<|page|>94<|box|>89 61 936 961<|content|>None\n<|id|>291<|type|>title<|page|>95<|box|>61 211 77 783<|content|>Detailed Analysis of Internal Revenue Collections\n<|id|>292<|type|>table<|page|>95<|box|>96 41 827 948<|content|>None\n<|id|>294<|type|>table<|page|>97<|box|>91 27 413 932<|content|>None\n<|id|>295<|type|>table<|page|>97<|box|>539 27 850 934<|content|>None\n<|id|>296<|type|>table<|page|>98<|box|>87 116 426 951<|content|>None\n<|id|>297<|type|>table<|page|>98<|box|>517 119 866 951<|content|>None\n<|id|>298<|type|>table<|page|>99<|box|>91 62 400 911<|content|>None\n<|id|>299<|type|>table<|page|>99<|box|>523 62 878 911<|content|>None\n<|id|>300<|type|>table<|page|>100<|box|>94 68 424 958<|content|>None\n<|id|>301<|type|>table<|page|>100<|box|>447 68 778 963<|content|>None\n<|id|>302<|type|>image<|page|>101<|box|>0 0 998 997<|content|>None\n<|id|>304<|type|>table<|page|>105<|box|>295 313 397 662<|content|>None\n<|id|>305<|type|>image<|page|>106<|box|>0 809 32 937<|content|>None",
+    "raw_response": "<|src_id|>292<|tgt_id|>291\n<|src_id|>294<|tgt_id|>291\n<|src_id|>295<|tgt_id|>291\n<|src_id|>296<|tgt_id|>291\n<|src_id|>297<|tgt_id|>291\n<|src_id|>298<|tgt_id|>291\n<|src_id|>299<|tgt_id|>291\n<|src_id|>300<|tgt_id|>291\n<|src_id|>301<|tgt_id|>291",
+    "parsed": [
+        {
+            "src_id": 292,
+            "tgt_id": 291
+        },
+        {
+            "src_id": 294,
+            "tgt_id": 291
+        },
+        {
+            "src_id": 295,
+            "tgt_id": 291
+        },
+        {
+            "src_id": 296,
+            "tgt_id": 291
+        },
+        {
+            "src_id": 297,
+            "tgt_id": 291
+        },
+        {
+            "src_id": 298,
+            "tgt_id": 291
+        },
+        {
+            "src_id": 299,
+            "tgt_id": 291
+        },
+        {
+            "src_id": 300,
+            "tgt_id": 291
+        },
+        {
+            "src_id": 301,
+            "tgt_id": 291
+        }
+    ]
+}

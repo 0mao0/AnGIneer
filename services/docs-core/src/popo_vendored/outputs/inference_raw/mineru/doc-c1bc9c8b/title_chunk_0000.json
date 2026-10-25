@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        62
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        11,
+        15,
+        19,
+        21,
+        29,
+        31,
+        33,
+        45,
+        49,
+        61
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>5<|box|>300 183 335 794<|content|>TREASURY DEPARTMENT\n<|id|>17<|page|>7<|box|>296 181 329 789<|content|>TREASURY DEPARTMENT\n<|id|>24<|page|>9<|box|>155 368 177 619<|content|>Table of Contents\n<|id|>26<|page|>11<|box|>279 393 295 570<|content|>INTRODUCTION\n<|id|>33<|page|>15<|box|>58 183 73 310<|content|>Summary Tables\n<|id|>43<|page|>15<|box|>58 531 74 818<|content|>Federal Receipts and Expenditures\n<|id|>47<|page|>15<|box|>575 563 589 784<|content|>Receipts and Expenditures\n<|id|>53<|page|>19<|box|>58 180 87 776<|content|>Federal Expenditures - Recovery and Relief, Revolv\n<|id|>60<|page|>21<|box|>594 439 623 878<|content|>Railroad Retirement Account by Fiscal Years to Jun\n<|id|>68<|page|>29<|box|>56 345 70 677<|content|>Composition of Treasury General Fund\n<|id|>70<|page|>29<|box|>416 153 432 873<|content|>Statement of the Outstanding Public Debt on June 3\n<|id|>73<|page|>31<|box|>58 205 87 768<|content|>Holdings of Direct and Guaranteed Interest-Bearing\n<|id|>75<|page|>33<|box|>57 360 70 637<|content|>Composition of the Public Debt\n<|id|>94<|page|>45<|box|>62 75 90 495<|content|>Governmental Corporations and Credit Agencies of t\n<|id|>98<|page|>49<|box|>61 156 90 788<|content|>Net Capital Movement between the United States and\n<|id|>112<|page|>61<|box|>604 170 631 786<|content|>Net Position in Foreign Currencies of Reporting Ba",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>17<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>33<|level|>1\n<|id|>43<|level|>1\n<|id|>47<|level|>2\n<|id|>53<|level|>1\n<|id|>60<|level|>1\n<|id|>68<|level|>1\n<|id|>70<|level|>1\n<|id|>73<|level|>1\n<|id|>75<|level|>1\n<|id|>94<|level|>1\n<|id|>98<|level|>1\n<|id|>112<|level|>1",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        }
+    ]
+}

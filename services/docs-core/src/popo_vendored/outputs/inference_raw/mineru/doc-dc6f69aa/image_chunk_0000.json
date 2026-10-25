@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 220 118 776<|content|>STOCKHOLDER REPRESENTATIVE AGREEMENT\n<|id|>3<|type|>title<|page|>1<|box|>188 343 204 651<|content|>CASCADE RETAIL HOLDINGS INC.\n<|id|>4<|type|>title<|page|>1<|box|>214 223 231 774<|content|>RIDGELINE EQUITY PARTNERS, LP (as Stockholder Repr\n<|id|>6<|type|>title<|page|>1<|box|>265 264 282 733<|content|>THE SELLING STOCKHOLDERS IDENTIFIED HEREIN\n<|id|>7<|type|>title<|page|>1<|box|>291 277 308 718<|content|>STOCKHOLDER REPRESENTATIVE AGREEMENT\n<|id|>19<|type|>title<|page|>2<|box|>258 140 276 243<|content|>RECITALS\n<|id|>26<|type|>title<|page|>3<|box|>167 140 184 390<|content|>ARTICLE I — DEFINITIONS\n<|id|>46<|type|>title<|page|>4<|box|>787 140 805 584<|content|>ARTICLE II — APPOINTMENT AND ACCEPTANCE\n<|id|>51<|type|>title<|page|>5<|box|>830 140 848 521<|content|>ARTICLE III — AUTHORITY AND POWERS\n<|id|>102<|type|>title<|page|>10<|box|>751 140 787 825<|content|>ARTICLE IV — STANDARD OF CARE; EXCULPATION; INDEMN\n<|id|>107<|type|>title<|page|>12<|box|>239 140 258 583<|content|>ARTICLE V — REPRESENTATIVE EXPENSE FUND\n<|id|>119<|type|>title<|page|>13<|box|>559 140 577 452<|content|>ARTICLE VI — PRO RATA SHARES\n<|id|>121<|type|>table<|page|>13<|box|>757 143 902 852<|content|>None\n<|id|>125<|type|>title<|page|>14<|box|>545 140 563 848<|content|>ARTICLE VII — RESIGNATION AND REMOVAL; SUCCESSOR R\n<|id|>131<|type|>title<|page|>15<|box|>659 142 675 377<|content|>ARTICLE VIII — NOTICES\n<|id|>143<|type|>title<|page|>16<|box|>246 143 263 267<|content|>If to the Buyer:\n<|id|>156<|type|>title<|page|>16<|box|>672 140 689 517<|content|>ARTICLE IX — TERM AND TERMINATION\n<|id|>164<|type|>title<|page|>17<|box|>599 140 618 542<|content|>ARTICLE X — BUYER ACKNOWLEDGMENTS\n<|id|>170<|type|>title<|page|>18<|box|>585 140 603 441<|content|>ARTICLE XI — MISCELLANEOUS\n<|id|>183<|type|>title<|page|>21<|box|>479 400 497 596<|content|>[Signature Pages Follow]\n<|id|>185<|type|>title<|page|>21<|box|>549 460 564 535<|content|>BUYER:\n<|id|>186<|type|>title<|page|>21<|box|>574 142 590 434<|content|>CASCADE RETAIL HOLDINGS INC.\n<|id|>191<|type|>title<|page|>21<|box|>661 336 676 658<|content|>STOCKHOLDER REPRESENTATIVE:\n<|id|>192<|type|>title<|page|>21<|box|>686 142 703 442<|content|>RIDGELINE EQUITY PARTNERS, LP\n<|id|>198<|type|>title<|page|>21<|box|>790 374 806 620<|content|>SELLING STOCKHOLDERS:\n<|id|>218<|type|>title<|page|>22<|box|>417 447 434 550<|content|>EXHIBIT A\n<|id|>219<|type|>title<|page|>22<|box|>444 230 460 764<|content|>LIST OF SELLING STOCKHOLDERS AND PRO RATA SHARES\n<|id|>221<|type|>table<|page|>22<|box|>568 143 906 852<|content|>None\n<|id|>222<|type|>table<|page|>23<|box|>88 143 119 852<|content|>None\n<|id|>223<|type|>title<|page|>23<|box|>152 142 169 197<|content|>Notes:\n<|id|>229<|type|>title<|page|>23<|box|>507 447 523 550<|content|>EXHIBIT B\n<|id|>230<|type|>title<|page|>23<|box|>532 349 549 647<|content|>FORM OF JOINDER AGREEMENT\n<|id|>231<|type|>title<|page|>23<|box|>559 393 575 604<|content|>JOINDER AGREEMENT\n<|id|>233<|type|>title<|page|>23<|box|>739 142 755 241<|content|>RECITALS",
+    "raw_response": "<|src_id|>121<|tgt_id|>119\n<|src_id|>221<|tgt_id|>219\n<|src_id|>222<|tgt_id|>219",
+    "parsed": [
+        {
+            "src_id": 121,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 221,
+            "tgt_id": 219
+        },
+        {
+            "src_id": 222,
+            "tgt_id": 219
+        }
+    ]
+}

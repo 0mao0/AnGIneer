@@ -1,0 +1,84 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        48,
+        57
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>173<|page|>48<|box|>441 333 501 653<|content|>第五章 其他\n<|id|>174<|page|>49<|box|>92 417 123 569<|content|>一、灌浆材料\n<|id|>175<|page|>49<|box|>136 123 165 242<|content|>(一) 止水灌浆\n<|id|>176<|page|>49<|box|>172 125 200 272<|content|>1. 水泥基止水灌浆\n<|id|>179<|page|>49<|box|>635 126 664 322<|content|>2. 水泥—水玻璃双液注浆\n<|id|>181<|page|>50<|box|>114 131 143 300<|content|>（二）预应力孔道灌浆\n<|id|>184<|page|>51<|box|>94 121 123 237<|content|>（三）锚固灌浆\n<|id|>187<|page|>52<|box|>121 348 152 662<|content|>二、钢筋混凝土管桩粘结（拼接）剂\n<|id|>190<|page|>53<|box|>97 396 128 593<|content|>三、细石混凝土灌浆料\n<|id|>193<|page|>54<|box|>445 311 507 688<|content|>第六章 参考定额\n<|id|>194<|page|>55<|box|>101 414 132 574<|content|>一、大管桩混凝土\n<|id|>197<|page|>56<|box|>121 422 154 582<|content|>二、自密实混凝土\n<|id|>200<|page|>57<|box|>99 420 128 573<|content|>三、环氧砂浆\n<|id|>201<|page|>57<|box|>143 126 169 245<|content|>(一) 环氧砂浆\n<|id|>204<|page|>57<|box|>501 126 529 279<|content|>（二）水泥环氧砂浆",
+    "raw_response": "<|id|>173<|level|>1\n<|id|>174<|level|>2\n<|id|>175<|level|>3\n<|id|>176<|level|>4\n<|id|>179<|level|>4\n<|id|>181<|level|>3\n<|id|>184<|level|>3\n<|id|>187<|level|>2\n<|id|>190<|level|>2\n<|id|>193<|level|>1\n<|id|>194<|level|>2\n<|id|>197<|level|>2\n<|id|>200<|level|>2\n<|id|>201<|level|>3\n<|id|>204<|level|>3",
+    "parsed": [
+        {
+            "id": 173,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 4
+        },
+        {
+            "id": 179,
+            "level": 4
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 1
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 3
+        }
+    ]
+}

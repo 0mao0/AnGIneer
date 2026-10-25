@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 272 128 725<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>2<|type|>title<|page|>1<|box|>138 254 155 743<|content|>1750 Pennsylvania Avenue NW, Suite 800 Washington,\n<|id|>12<|type|>title<|page|>1<|box|>527 142 544 676<|content|>I. Purpose of This Letter and Reference to the Gra\n<|id|>16<|type|>title<|page|>2<|box|>167 140 185 460<|content|>II. Description of the Second Production\n<|id|>20<|type|>title<|page|>2<|box|>561 140 579 421<|content|>III. Scope of the Second Production\n<|id|>21<|type|>title<|page|>2<|box|>592 140 609 334<|content|>A. Subpoena Categories\n<|id|>29<|type|>title<|page|>3<|box|>419 140 435 397<|content|>B. Custodians and Data Sources\n<|id|>36<|type|>title<|page|>3<|box|>767 140 784 344<|content|>C. Additional Custodians\n<|id|>43<|type|>title<|page|>4<|box|>500 140 516 424<|content|>D. Additional Document Categories\n<|id|>48<|type|>title<|page|>5<|box|>90 142 107 514<|content|>IV. Document Collection and Review Summary\n<|id|>50<|type|>table<|page|>5<|box|>159 143 369 852<|content|>None\n<|id|>53<|type|>title<|page|>5<|box|>652 140 670 348<|content|>V. Privilege Withholdings\n<|id|>58<|type|>title<|page|>6<|box|>321 140 339 483<|content|>VI. Cooperation and Ongoing Investigation\n<|id|>60<|type|>title<|page|>6<|box|>434 140 450 410<|content|>A. Ongoing Internal Investigation\n<|id|>64<|type|>title<|page|>6<|box|>814 142 830 279<|content|>B. Prior Proffers\n<|id|>66<|type|>title<|page|>7<|box|>194 140 212 367<|content|>C. Compliance Remediation\n<|id|>68<|type|>title<|page|>7<|box|>441 140 459 320<|content|>VII. Points of Contact\n<|id|>79<|type|>title<|page|>8<|box|>90 142 107 357<|content|>VIII. Reservation of Rights\n<|id|>95<|type|>title<|page|>9<|box|>171 142 186 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>50<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>108 653 126 856<|content|>10022 Tel: ... (212) 554-7000\n<|id|>1<|page|>1<|box|>133 140 152 297<|content|>Fax: ... (212) 554-7001\n<|id|>2<|page|>1<|box|>152 622 167 856<|content|>www. ... com\n<|id|>3<|page|>1<|box|>176 746 194 854<|content|>June 10, 2022\n<|id|>4<|page|>1<|box|>203 143 220 328<|content|>Via Email and U. ... Mail\n<|id|>5<|page|>1<|box|>229 140 263 854<|content|>Diana Ressler, Esq. ... General Counsel Meridian C...0 Park Avenue South, 18th Floor New York, NY 10016\n<|id|>6<|page|>1<|box|>273 174 328 854<|content|>Re: ... 1011-00005\n<|id|>7<|page|>1<|box|>335 142 353 279<|content|>Dear Ms. ... Ressler\n<|id|>44<|page|>5<|box|>396 176 431 852<|content|>Diana Ressler, General Counsel Meridian Consumer B...0 Park Avenue South, 18th Floor New York, NY 10016\n<|id|>45<|page|>5<|box|>441 176 457 426<|content|>Email: ... com\n<|id|>56<|page|>5<|box|>916 142 929 272<|content|>Matter No. ... 1011-00005\n<|id|>59<|page|>6<|box|>160 140 215 854<|content|>All disbursements will be reflected on the Firm's ...ent prior to the Firm's incurrence of such expense\n<|id|>57<|page|>6<|box|>90 176 108 650<|content|>(g) long-distance telephone and video conferencing charges; ... and\n<|id|>84<|page|>8<|box|>875 140 910 854<|content|>12. ... Any dispute, claim, or controversy arising...eunder, or the Firm's fees or billing practices (a\n<|id|>85<|page|>8<|box|>916 142 929 272<|content|>Matter No. ... 1011-00005\n<|id|>86<|page|>9<|box|>90 140 237 854<|content|>\"Dispute\") shall be resolved by final and binding ...s and costs to the prevailing party is appropriate\n<|id|>97<|page|>9<|box|>856 143 872 295<|content|>Name: ... Sandra Tung\n<|id|>98<|page|>9<|box|>873 142 890 478<|content|>Title: ... Partner, Mergers & Acquisitions Group\n<|id|>99<|page|>9<|box|>890 142 907 441<|content|>Email: ... com\n<|id|>100<|page|>10<|box|>89 140 193 486<|content|>Tel: ... (212) 554-7244\n<|id|>106<|page|>10<|box|>342 143 359 303<|content|>Name: ... Diana Ressler\n<|id|>107<|page|>10<|box|>359 143 376 313<|content|>Title: ... General Counsel\n<|id|>108<|page|>10<|box|>377 143 393 264<|content|>Date: ... Date\n<|id|>112<|page|>10<|box|>506 176 542 854<|content|>Gareth Holloway, Chief Executive Officer & Managing Member, Meridian Consumer Brands LLC\n<|id|>113<|page|>10<|box|>550 176 569 699<|content|>Priya Anand, Chief Financial Officer, Meridian Consumer Brands LLC\n<|id|>114<|page|>10<|box|>575 174 613 854<|content|>Thomas Liang, Managing Partner, Lakepoint Capital Partners, LP (courtesy copy, at Client's direction)",
+    "raw_response": "<|src_id|>84<|tgt_id|>86",
+    "parsed": [
+        {
+            "src_id": 84,
+            "tgt_id": 86
+        }
+    ]
+}

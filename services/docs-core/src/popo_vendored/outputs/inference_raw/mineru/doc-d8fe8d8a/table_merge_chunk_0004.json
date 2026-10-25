@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['New Hampshire', 'N.H. Rev. Stat. Ann. § 359-C:20', '1,761', 'NH Office of the Attorney General, Consumer Protection and Antitrust Bureau', 'Mail', 'Aug. 25, 2023', 'N', 'N', 'Must notify AG \"as soon as possible\" and prior to consumer notice; resident count subject to final reconcilia']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', '', '', 'tion']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 140,
+    "table2_idx": 141
+}

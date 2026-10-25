@@ -1,0 +1,41 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        72,
+        84
+    ],
+    "pages": [
+        73,
+        77,
+        84
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>124<|page|>73<|box|>404 115 418 426<|content|>Components of Silver Monetary Stock\n<|id|>139<|page|>77<|box|>77 419 90 522<|content|>Schedule #2\n<|id|>141<|page|>77<|box|>321 419 334 519<|content|>Schedule #3\n<|id|>144<|page|>77<|box|>599 421 612 514<|content|>Schedule 4\n<|id|>155<|page|>84<|box|>52 79 78 483<|content|>Summary of Criminal Cases in the United States Dis\n<|id|>160<|page|>84<|box|>52 571 67 873<|content|>Treasury Criminal Cases, by Months",
+    "raw_response": "<|id|>124<|level|>1\n<|id|>139<|level|>1\n<|id|>141<|level|>1\n<|id|>144<|level|>1\n<|id|>155<|level|>1\n<|id|>160<|level|>1",
+    "parsed": [
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        }
+    ]
+}

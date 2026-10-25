@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Fulfillment Center Leases (NJ — Edison)', 'Hawthorne Industrial Properties LLC', \"Lease for NovaMart's Edison, NJ fulfillment center. This facility\", 'Consent Likely Required. Standard commercial lease']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'handles NovaHome products. If any subleasing or shared occupancy arrangement is included in the divestiture package, landlord consent would be required.', 'provisions typically prohibit subletting without landlord consent. Any arrangement involving divestiture buyer access to this facility would require lease review and landlord negotiation.']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 250,
+    "table2_idx": 251
+}

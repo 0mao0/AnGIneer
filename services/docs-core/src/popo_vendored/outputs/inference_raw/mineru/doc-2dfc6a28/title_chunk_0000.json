@@ -1,0 +1,33 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>578 140 594 411<|content|>CONFIRMATION OF FUNDS FLOW\n<|id|>15<|page|>2<|box|>239 142 257 500<|content|>CONFIRMATION OF CLOSING DELIVERABLES\n<|id|>31<|page|>3<|box|>258 143 275 555<|content|>REPRESENTATIONS AND WARRANTIES INSURANCE\n<|id|>33<|page|>3<|box|>402 142 419 594<|content|>POST-CLOSING ITEMS AND OUTSTANDING OBLIGATIONS",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>15<|level|>1\n<|id|>31<|level|>1\n<|id|>33<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        }
+    ]
+}

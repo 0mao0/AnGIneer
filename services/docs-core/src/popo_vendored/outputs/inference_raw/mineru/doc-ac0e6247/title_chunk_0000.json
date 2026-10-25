@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 104 678<|content|>CONFIDENTIAL — SETTLEMENT COMMUNICATION — WITHOUT\n<|id|>1<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>13<|page|>1<|box|>731 140 750 411<|content|>Summary of Engagement Context\n<|id|>16<|page|>2<|box|>223 140 239 511<|content|>Summary of Key OWS Positions in the Redline\n<|id|>18<|page|>2<|box|>353 142 369 357<|content|>1. Term and Effective Date\n<|id|>21<|page|>2<|box|>633 140 652 467<|content|>2. Licensed Products — Scope Expansion\n<|id|>28<|page|>3<|box|>393 140 410 339<|content|>3. Seat Count Expansion\n<|id|>33<|page|>3<|box|>838 140 854 392<|content|>4. Pricing and Volume discount\n<|id|>40<|page|>4<|box|>635 140 652 267<|content|>5. Audit Rights\n<|id|>49<|page|>5<|box|>382 140 398 455<|content|>6. Intellectual Property Indemnification\n<|id|>57<|page|>6<|box|>273 140 292 339<|content|>7. Limitation of Liability\n<|id|>66<|page|>6<|box|>750 140 765 326<|content|>8. Source Code Escrow\n<|id|>74<|page|>7<|box|>573 140 590 486<|content|>9. Cloud Services — SLA and Data Security\n<|id|>84<|page|>8<|box|>481 142 498 480<|content|>10. Governing Law and Dispute Resolution\n<|id|>89<|page|>8<|box|>796 143 813 364<|content|>11. Other Notable Revisions\n<|id|>96<|page|>9<|box|>491 142 508 310<|content|>Enclosed Documents\n<|id|>102<|page|>9<|box|>715 140 733 573<|content|>Requested Response Timeline and Proposed Next Step\n<|id|>108<|page|>10<|box|>273 142 292 316<|content|>Reservation of Rights",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>13<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>2\n<|id|>21<|level|>2\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>40<|level|>2\n<|id|>49<|level|>2\n<|id|>57<|level|>2\n<|id|>66<|level|>2\n<|id|>74<|level|>2\n<|id|>84<|level|>2\n<|id|>89<|level|>2\n<|id|>96<|level|>1\n<|id|>102<|level|>1\n<|id|>108<|level|>1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 292<|content|>【1002503#1】鲁豫有约\n<|id|>2<|page|>1<|box|>174 105 191 285<|content|>【100825#7】原生生物\n<|id|>4<|page|>1<|box|>292 107 309 284<|content|>【101613#5】马来群岛\n<|id|>6<|page|>1<|box|>376 107 393 327<|content|>【1016931#2】考迪葡萄酒厂\n<|id|>8<|page|>1<|box|>494 107 510 292<|content|>【101761#26】长图铁路\n<|id|>10<|page|>1<|box|>613 107 629 310<|content|>【10192#0】中国中信集团\n<|id|>12<|page|>1<|box|>782 105 799 310<|content|>【10192#2】中国中信集团\n<|id|>14<|page|>2<|box|>73 107 89 292<|content|>【1022921#0】法兰西人\n<|id|>16<|page|>2<|box|>156 105 173 292<|content|>【1022921#2】法兰西人\n<|id|>18<|page|>2<|box|>241 105 256 292<|content|>【1022921#4】法兰西人\n<|id|>20<|page|>2<|box|>307 107 323 267<|content|>【10244#15】温州市\n<|id|>22<|page|>2<|box|>374 107 390 267<|content|>【102939#0】霍邱县\n<|id|>24<|page|>2<|box|>439 107 456 267<|content|>【102941#0】金安区\n<|id|>26<|page|>2<|box|>506 107 521 267<|content|>【102942#0】裕安区\n<|id|>28<|page|>2<|box|>574 107 589 310<|content|>【1030854#3】玳瑁石斑鱼\n<|id|>30<|page|>2<|box|>640 105 656 310<|content|>【1031541#4】斑点海猪鱼\n<|id|>32<|page|>2<|box|>689 107 705 310<|content|>【1031543#3】胸斑海猪鱼\n<|id|>34<|page|>2<|box|>739 105 753 284<|content|>【104010#3】創科實業\n<|id|>36<|page|>3<|box|>73 107 89 292<|content|>【10409#102】人口過多\n<|id|>38<|page|>3<|box|>209 105 225 329<|content|>【1043297#1】甘肃省博物馆\n<|id|>40<|page|>3<|box|>293 105 309 389<|content|>【1045182#0】T-54/55系列主战坦克\n<|id|>42<|page|>3<|box|>394 107 409 284<|content|>【104666#6】新五代史\n<|id|>44<|page|>3<|box|>476 105 493 292<|content|>【1047478#1】单性生殖\n<|id|>46<|page|>3<|box|>630 105 646 275<|content|>【104874#10】札幌市\n<|id|>48<|page|>3<|box|>851 105 866 284<|content|>【104942#2】新潟大学",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        }
+    ]
+}

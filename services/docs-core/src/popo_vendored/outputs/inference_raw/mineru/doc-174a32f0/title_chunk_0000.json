@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        9,
+        11,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 104 717<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED / ATTORN\n<|id|>1<|page|>1<|box|>113 316 133 679<|content|>DUE DILIGENCE REQUEST LIST\n<|id|>2<|page|>1<|box|>152 339 171 658<|content|>INTELLECTUAL PROPERTY\n<|id|>3<|page|>1<|box|>189 148 224 848<|content|>Proposed Initial Public Offering of Common Stock o\n<|id|>6<|page|>1<|box|>690 143 707 225<|content|>Copies to:\n<|id|>9<|page|>2<|box|>89 140 106 441<|content|>INTRODUCTORY INSTRUCTIONS\n<|id|>32<|page|>4<|box|>167 140 184 620<|content|>CATEGORY I: PATENTS AND PATENT APPLICATIONS\n<|id|>72<|page|>6<|box|>229 140 247 758<|content|>CATEGORY II: TRADEMARKS, SERVICE MARKS, AND TRADE\n<|id|>117<|page|>8<|box|>375 140 392 411<|content|>CATEGORY III: COPYRIGHTS\n<|id|>140<|page|>9<|box|>455 140 473 733<|content|>CATEGORY IV: TRADE SECRETS AND PROPRIETARY KNOW-HO\n<|id|>174<|page|>11<|box|>362 140 378 542<|content|>CATEGORY V: SOFTWARE — PROPRIETARY\n<|id|>209<|page|>13<|box|>148 140 166 740<|content|>CATEGORY VI: SOFTWARE — THIRD-PARTY LICENSES (INBO\n<|id|>247<|page|>14<|box|>588 140 604 763<|content|>CATEGORY VII: SCADA SYSTEMS AND OPERATIONAL TECHNO\n<|id|>290<|page|>16<|box|>655 140 672 813<|content|>CATEGORY VIII: TECHNOLOGY AGREEMENTS AND JOINT DEV\n<|id|>303<|page|>17<|box|>638 140 655 642<|content|>CATEGORY IX: INBOUND LICENSES — NON-SOFTWARE\n<|id|>314<|page|>18<|box|>406 140 424 478<|content|>CATEGORY X: OUTBOUND LICENSES\n<|id|>325<|page|>19<|box|>89 140 106 750<|content|>CATEGORY XI: IP ASSIGNMENTS — EMPLOYEE AND CONTRAC\n<|id|>336<|page|>19<|box|>683 140 700 764<|content|>CATEGORY XII: IP-RELATED DISPUTES, CLAIMS, AND PRO\n<|id|>358<|page|>20<|box|>757 140 773 663<|content|>CATEGORY XIII: DOMAIN NAMES AND INTERNET ASSETS\n<|id|>380<|page|>21<|box|>654 140 672 707<|content|>CATEGORY XIV: GOVERNMENT GRANTS, INCENTIVES, AND I\n<|id|>381<|page|>21<|box|>672 142 691 305<|content|>ENCUMBRANCES\n<|id|>405<|page|>22<|box|>728 140 744 648<|content|>CATEGORY XV: DATA PRIVACY AND DATA OWNERSHIP\n<|id|>424<|page|>23<|box|>705 140 723 653<|content|>CATEGORY XVI: IP DUE DILIGENCE — MISCELLANEOUS\n<|id|>448<|page|>25<|box|>89 140 106 638<|content|>CLOSING INSTRUCTIONS AND SUBMISSION LOGISTICS",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>-1\n<|id|>6<|level|>-1\n<|id|>9<|level|>1\n<|id|>32<|level|>1\n<|id|>72<|level|>1\n<|id|>117<|level|>1\n<|id|>140<|level|>1\n<|id|>174<|level|>1\n<|id|>209<|level|>1\n<|id|>247<|level|>1\n<|id|>290<|level|>1\n<|id|>303<|level|>1\n<|id|>314<|level|>1\n<|id|>325<|level|>1\n<|id|>336<|level|>1\n<|id|>358<|level|>1\n<|id|>380<|level|>1\n<|id|>381<|level|>1\n<|id|>405<|level|>1\n<|id|>424<|level|>1\n<|id|>448<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 209,
+            "level": 1
+        },
+        {
+            "id": 247,
+            "level": 1
+        },
+        {
+            "id": 290,
+            "level": 1
+        },
+        {
+            "id": 303,
+            "level": 1
+        },
+        {
+            "id": 314,
+            "level": 1
+        },
+        {
+            "id": 325,
+            "level": 1
+        },
+        {
+            "id": 336,
+            "level": 1
+        },
+        {
+            "id": 358,
+            "level": 1
+        },
+        {
+            "id": 380,
+            "level": 1
+        },
+        {
+            "id": 381,
+            "level": 1
+        },
+        {
+            "id": 405,
+            "level": 1
+        },
+        {
+            "id": 424,
+            "level": 1
+        },
+        {
+            "id": 448,
+            "level": 1
+        }
+    ]
+}

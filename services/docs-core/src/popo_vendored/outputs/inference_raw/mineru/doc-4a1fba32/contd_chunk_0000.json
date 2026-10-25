@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        15,
+        16,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>224 140 261 854<|content|>From: ... Tiffany Rosenthal, Lead Associate, Calde...ulatory & Life Sciences, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>268 140 286 294<|content|>Date: ... July 22, 2024\n<|id|>5<|page|>1<|box|>294 140 330 852<|content|>Re: ... 1037-00006)\n<|id|>6<|page|>1<|box|>338 140 375 854<|content|>Cc: ... Beatrice Holloway, Responsible Partner, M&... Working Associate, M&A, Calderwood & Harkness LLP\n<|id|>7<|page|>1<|box|>382 140 398 408<|content|>Right-click to update Table of Contents\n<|id|>16<|page|>2<|box|>204 145 258 854<|content|>• Significant trade secrets, most critically inclu...oNav Software Module and the Generation 2. ... and\n<|id|>18<|page|>2<|box|>316 138 481 857<|content|>Material Litigation. ... The litigation has been f...subject to specific indemnification by the Sellers\n<|id|>21<|page|>2<|box|>742 138 888 857<|content|>Documents Reviewed. ... We have also conducted ind...orm Commercial Code filing records in Delaware and\n<|id|>22<|page|>3<|box|>89 140 126 854<|content|>Pennsylvania. ... A complete list of the documents... our diligence files and is available upon request\n<|id|>51<|page|>6<|box|>819 140 875 856<|content|>A. ... All six patents are assigned to\n<|id|>52<|page|>7<|box|>90 140 127 854<|content|>Meridian Surgical Technologies, Inc. ... A complet...nd validated countries, is set forth in Appendix C\n<|id|>131<|page|>15<|box|>314 140 388 856<|content|>In addition, we reviewed Meridian's internal freed... of potentially relevant third-party patent rights\n<|id|>133<|page|>15<|box|>606 140 717 857<|content|>PrecisionBlade Products. ... The PrecisionBlade pr...tfolio provides defensive protection in this space\n<|id|>135<|page|>15<|box|>823 140 896 857<|content|>Cartilage Mapping Algorithms (Trade Secrets). ... However, the trade secret strategy also means that\n<|id|>136<|page|>16<|box|>90 138 181 854<|content|>Meridian does not hold patent exclusivity over the...d long-term IP strategy for the ArthroNav platform\n<|id|>197<|page|>22<|box|>89 140 107 320<|content|>Respectfully submitted,\n<|id|>198<|page|>22<|box|>107 140 125 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>199<|page|>22<|box|>125 143 142 253<|content|>By: ... By\n<|id|>200<|page|>22<|box|>141 142 159 578<|content|>Tiffany Rosenthal Lead Associate, Mergers & Acquisitions\n<|id|>201<|page|>22<|box|>160 143 176 254<|content|>By: ... By",
+    "raw_response": "<|src_id|>16<|tgt_id|>18\n<|src_id|>21<|tgt_id|>22\n<|src_id|>51<|tgt_id|>52\n<|src_id|>135<|tgt_id|>136",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 136
+        }
+    ]
+}

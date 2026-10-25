@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        7,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 707 107 854<|content|>CONFIDENTIAL\n<|id|>1<|page|>1<|box|>114 714 133 856<|content|>February 28, 2026\n<|id|>2<|page|>1<|box|>141 140 159 833<|content|>Calderwood & Harkness LLP 599 Lexington Avenue, 36th Floor New York, New York 10022\n<|id|>3<|page|>1<|box|>166 140 185 772<|content|>Pinnacle Atlantic Bank, N. ... 201 South Tryon Street, 34th Floor Charlotte, NC 28202\n<|id|>4<|page|>1<|box|>193 140 229 823<|content|>Attention: ... Harrison Wolfe, Managing Director, ...ctured Products & Specialty Finance With a copy to\n<|id|>5<|page|>1<|box|>236 140 253 730<|content|>Whitmore Crane & Bates LLP 1 Liberty Plaza, 41st Floor New York, NY 10006\n<|id|>6<|page|>1<|box|>262 176 279 390<|content|>Attention: ... Conrad Whitfield\n<|id|>37<|page|>4<|box|>277 174 314 854<|content|>(i) Pinnacle Atlantic Bank, N. ... and\n<|id|>41<|page|>4<|box|>472 174 508 854<|content|>Of which $3,750 (75%) would be allocated to the Co...25%) would be allocated to the Participating Buyer\n<|id|>40<|page|>4<|box|>446 176 464 493<|content|>$20,000,000 × 0. ... 0030 × (30/360) = $5,000\n<|id|>70<|page|>6<|box|>854 140 909 856<|content|>(c) Event of Default. ... Any failure by the Selle...te an Event of Default under and as defined in the\n<|id|>71<|page|>7<|box|>90 140 162 856<|content|>MRA, with all the rights and remedies attendant th... to the Purchased Receivables and other collateral\n<|id|>102<|page|>10<|box|>176 142 194 468<|content|>By: ... , its sole member\n<|id|>103<|page|>10<|box|>195 143 212 251<|content|>By: ... By\n<|id|>104<|page|>10<|box|>212 143 228 321<|content|>Name: ... Rajan Sundaram\n<|id|>105<|page|>10<|box|>228 142 260 823<|content|>Title: ... , as sole member of SBF Warehouse I LLC\n<|id|>106<|page|>10<|box|>262 143 277 326<|content|>Date: ... February 28, 2026\n<|id|>107<|page|>10<|box|>279 142 296 586<|content|>SKYBRIDGE FINTECH LTD. ... , as Performance Guarantor\n<|id|>108<|page|>10<|box|>297 143 314 253<|content|>By: ... By\n<|id|>109<|page|>10<|box|>314 143 330 321<|content|>Name: ... Rajan Sundaram\n<|id|>110<|page|>10<|box|>330 143 347 361<|content|>Title: ... Chief Financial Officer\n<|id|>111<|page|>10<|box|>349 143 364 326<|content|>Date: ... February 28, 2026\n<|id|>112<|page|>10<|box|>364 143 383 627<|content|>PINNACLE ATLANTIC BANK, N. ... , as Administrative Agent\n<|id|>113<|page|>10<|box|>383 143 400 251<|content|>By: ... By\n<|id|>114<|page|>10<|box|>400 143 416 313<|content|>Name: ... Harrison Wolfe\n<|id|>115<|page|>10<|box|>417 143 435 632<|content|>Title: ... Managing Director, Structured Products & Specialty Finance\n<|id|>116<|page|>10<|box|>435 142 452 326<|content|>Date: ... February 28, 2026\n<|id|>122<|page|>10<|box|>782 174 816 854<|content|>Candace Reeves Director, Warehouse Lending Pinnacl...South Tryon Street, 34th Floor Charlotte, NC 28202\n<|id|>123<|page|>10<|box|>825 140 887 854<|content|>The Seller and the Performance Guarantor shall con...iness Days prior to any scheduled fee payment date",
+    "raw_response": "<|src_id|>70<|tgt_id|>71",
+    "parsed": [
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        }
+    ]
+}

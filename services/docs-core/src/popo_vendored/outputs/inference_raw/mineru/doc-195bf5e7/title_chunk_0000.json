@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>377 142 393 263<|content|>I. Introduction\n<|id|>11<|page|>1<|box|>799 142 816 341<|content|>II. Documents Examined\n<|id|>32<|page|>3<|box|>594 142 611 279<|content|>III. Assumptions\n<|id|>44<|page|>4<|box|>627 140 643 250<|content|>IV. Opinions\n<|id|>62<|page|>7<|box|>824 140 840 607<|content|>V. Certain Additional Matters — Knowledge Qualific\n<|id|>65<|page|>8<|box|>223 140 239 413<|content|>VI. Qualifications and Limitations\n<|id|>67<|page|>8<|box|>280 142 297 393<|content|>A. Enforceability Qualifications\n<|id|>75<|page|>8<|box|>837 142 854 274<|content|>B. Law Covered\n<|id|>78<|page|>9<|box|>340 140 358 413<|content|>C. No Opinion on Certain Matters\n<|id|>91<|page|>10<|box|>220 140 237 457<|content|>D. Additional Customary Qualifications\n<|id|>99<|page|>10<|box|>843 140 859 383<|content|>VII. Reliance and Distribution\n<|id|>103<|page|>11<|box|>513 142 529 452<|content|>VIII. Governing Law of Opinion Letter\n<|id|>105<|page|>11<|box|>601 140 619 645<|content|>[Remainder of page intentionally left blank; signa\n<|id|>107<|page|>11<|box|>652 212 667 516<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>109<|page|>11<|box|>752 439 768 557<|content|>SCHEDULE I\n<|id|>110<|page|>11<|box|>779 410 795 586<|content|>Reviewed Agreements",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>11<|level|>2\n<|id|>32<|level|>2\n<|id|>44<|level|>2\n<|id|>62<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>3\n<|id|>75<|level|>3\n<|id|>78<|level|>3\n<|id|>91<|level|>3\n<|id|>99<|level|>2\n<|id|>103<|level|>2\n<|id|>105<|level|>-1\n<|id|>107<|level|>-1\n<|id|>109<|level|>1\n<|id|>110<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 2
+        }
+    ]
+}

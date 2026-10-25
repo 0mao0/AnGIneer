@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>359 140 377 364<|content|>I. Introduction and Purpose\n<|id|>12<|page|>2<|box|>167 140 184 557<|content|>II. Identification of the Disputed Chargeback Noti\n<|id|>14<|page|>2<|box|>279 140 297 532<|content|>A. Warranty Chargeback Notice WCN-2022-0103\n<|id|>18<|page|>2<|box|>642 142 659 532<|content|>B. Warranty Chargeback Notice WCN-2022-0289\n<|id|>22<|page|>3<|box|>138 140 157 522<|content|>C. Aggregate Exposure Across All Three Notices\n<|id|>26<|page|>3<|box|>568 140 584 421<|content|>III. Vantage's Substantive Defenses\n<|id|>28<|page|>3<|box|>696 140 715 700<|content|>A. Specification Compliance — ASTM E505 Level 2 Po\n<|id|>34<|page|>4<|box|>693 140 710 573<|content|>B. Root Cause Dispute — Meridian's Assembly Proces\n<|id|>40<|page|>5<|box|>710 140 729 607<|content|>C. Procedural Non-Compliance Under LTSA Section 9.\n<|id|>46<|page|>6<|box|>710 140 728 547<|content|>D. Administrative Fee Challenge — $48.00 Per Unit\n<|id|>54<|page|>7<|box|>638 140 656 763<|content|>IV. Meridian's Unilateral Deductions Constitute a\n<|id|>60<|page|>8<|box|>593 140 609 338<|content|>V. Reservation of Rights\n<|id|>70<|page|>9<|box|>446 140 464 473<|content|>VI. Proposal for Meet-and-Confer Session\n<|id|>76<|page|>10<|box|>303 140 321 243<|content|>VII. Closing",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>26<|level|>1\n<|id|>28<|level|>2\n<|id|>34<|level|>2\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>54<|level|>1\n<|id|>60<|level|>1\n<|id|>70<|level|>1\n<|id|>76<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        }
+    ]
+}

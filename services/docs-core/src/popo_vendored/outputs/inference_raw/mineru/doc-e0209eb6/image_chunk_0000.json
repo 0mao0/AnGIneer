@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 151 126 857<|content|>AURELIUS GLOBAL MEDIA GROUP PLC 45 Broadwick Stree\n<|id|>5<|type|>title<|page|>1<|box|>253 140 309 854<|content|>Re: Transfer of 1,500,000 Ordinary Shares of Aurel\n<|id|>7<|type|>title<|page|>1<|box|>359 142 375 357<|content|>Authorization and Context\n<|id|>13<|type|>title<|page|>2<|box|>167 140 184 406<|content|>Instruction — Transfer of Shares\n<|id|>17<|type|>title<|page|>2<|box|>633 140 652 313<|content|>Settlement Condition\n<|id|>20<|type|>title<|page|>3<|box|>90 143 107 251<|content|>Share Details\n<|id|>22<|type|>table<|page|>3<|box|>159 143 453 852<|content|>None\n<|id|>23<|type|>title<|page|>3<|box|>503 142 518 364<|content|>Post-Transfer Confirmation\n<|id|>30<|type|>title<|page|>4<|box|>90 142 107 387<|content|>Representations and Authority\n<|id|>33<|type|>title<|page|>4<|box|>402 140 419 415<|content|>Indemnification of Transfer Agent\n<|id|>35<|type|>title<|page|>4<|box|>689 142 707 308<|content|>Contact Information",
+    "raw_response": "<|src_id|>22<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        }
+    ]
+}

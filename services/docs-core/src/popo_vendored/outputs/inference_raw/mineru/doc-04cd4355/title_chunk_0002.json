@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        91,
+        96
+    ],
+    "pages": [
+        91,
+        92,
+        93,
+        94,
+        96
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>963<|page|>91<|box|>436 142 453 271<|content|>8. Attachments:\n<|id|>980<|page|>92<|box|>89 142 107 612<|content|>EXHIBIT E — FORM OF COMPLIANCE CERTIFICATE\n<|id|>981<|page|>92<|box|>114 156 152 839<|content|>QUARTERLY COMPLIANCE CERTIFICATE Pursuant to the S\n<|id|>989<|page|>92<|box|>434 143 450 459<|content|>1. Debt Service Coverage Ratio (DSCR):\n<|id|>991<|page|>92<|box|>604 143 621 254<|content|>2. Debt Yield:\n<|id|>993<|page|>92<|box|>776 142 792 506<|content|>3. Loan-to-Value Ratio (LTV) (tested annually):\n<|id|>996<|page|>93<|box|>171 142 189 364<|content|>4. Cash Sweep Trigger Test:\n<|id|>998<|page|>93<|box|>324 142 340 282<|content|>5. Default Status:\n<|id|>1000<|page|>93<|box|>412 142 429 421<|content|>6. Representations and Warranties:\n<|id|>1002<|page|>93<|box|>518 142 535 349<|content|>7. Calculation Worksheet:\n<|id|>1011<|page|>94<|box|>89 142 107 767<|content|>EXHIBIT F — FORM OF ASSIGNMENT AND ASSUMPTION AGRE\n<|id|>1012<|page|>94<|box|>114 290 132 707<|content|>ASSIGNMENT AND ASSUMPTION AGREEMENT\n<|id|>1014<|page|>94<|box|>204 142 220 241<|content|>RECITALS\n<|id|>1055<|page|>96<|box|>89 142 106 620<|content|>EXHIBIT G — FORM OF TENANT DIRECTION LETTER",
+    "raw_response": "<|id|>963<|level|>2\n<|id|>980<|level|>1\n<|id|>981<|level|>2\n<|id|>989<|level|>3\n<|id|>991<|level|>3\n<|id|>993<|level|>3\n<|id|>996<|level|>3\n<|id|>998<|level|>3\n<|id|>1000<|level|>3\n<|id|>1002<|level|>3\n<|id|>1011<|level|>1\n<|id|>1012<|level|>2\n<|id|>1014<|level|>3\n<|id|>1055<|level|>1",
+    "parsed": [
+        {
+            "id": 963,
+            "level": 2
+        },
+        {
+            "id": 980,
+            "level": 1
+        },
+        {
+            "id": 981,
+            "level": 2
+        },
+        {
+            "id": 989,
+            "level": 3
+        },
+        {
+            "id": 991,
+            "level": 3
+        },
+        {
+            "id": 993,
+            "level": 3
+        },
+        {
+            "id": 996,
+            "level": 3
+        },
+        {
+            "id": 998,
+            "level": 3
+        },
+        {
+            "id": 1000,
+            "level": 3
+        },
+        {
+            "id": 1002,
+            "level": 3
+        },
+        {
+            "id": 1011,
+            "level": 1
+        },
+        {
+            "id": 1012,
+            "level": 2
+        },
+        {
+            "id": 1014,
+            "level": 3
+        },
+        {
+            "id": 1055,
+            "level": 1
+        }
+    ]
+}

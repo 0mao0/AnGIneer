@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>4<|type|>title<|page|>1<|box|>205 184 222 810<|content|>OFFICER'S CERTIFICATE OF QUORUM INSURANCE HOLDINGS\n<|id|>10<|type|>title<|page|>1<|box|>686 140 704 450<|content|>Section 1. Identity of Certifying Officer\n<|id|>22<|type|>title<|page|>2<|box|>359 140 377 450<|content|>Section 2. Authority and Authorization\n<|id|>33<|type|>title<|page|>3<|box|>148 140 167 620<|content|>Section 3. Certification as to Representations and\n<|id|>44<|type|>title<|page|>5<|box|>90 140 107 650<|content|>Section 4. Certification as to Satisfaction of Con\n<|id|>60<|type|>title<|page|>6<|box|>575 140 592 594<|content|>Section 5. Certification as to No Material Adverse\n<|id|>67<|type|>title<|page|>7<|box|>150 140 167 424<|content|>Section 6. Incumbency Certification\n<|id|>69<|type|>table<|page|>7<|box|>291 143 368 852<|content|>None\n<|id|>72<|type|>title<|page|>7<|box|>568 142 584 421<|content|>Section 7. No Defaults or Violations\n<|id|>80<|type|>title<|page|>8<|box|>229 140 248 294<|content|>Section 8. Reliance\n<|id|>84<|type|>title<|page|>8<|box|>513 140 531 388<|content|>Section 9. Knowledge Qualifier\n<|id|>101<|type|>title<|page|>9<|box|>236 300 253 696<|content|>SCHEDULE OF TRANSACTION DOCUMENTS",
+    "raw_response": "<|src_id|>69<|tgt_id|>67",
+    "parsed": [
+        {
+            "src_id": 69,
+            "tgt_id": 67
+        }
+    ]
+}

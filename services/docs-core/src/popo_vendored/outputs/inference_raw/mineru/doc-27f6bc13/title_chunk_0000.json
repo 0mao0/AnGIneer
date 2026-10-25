@@ -1,0 +1,110 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 174 142 823<|content|>COMBINED SECRETARY'S CERTIFICATE OF SUBSIDIARY GUA\n<|id|>3<|page|>1<|box|>282 447 301 549<|content|>RECITALS\n<|id|>5<|page|>1<|box|>570 140 588 787<|content|>I. INTRODUCTION AND IDENTIFICATION OF SUBSIDIARY G\n<|id|>13<|page|>2<|box|>303 140 320 836<|content|>II. CERTIFICATIONS REGARDING STONEFIELD INTERMODAL\n<|id|>14<|page|>2<|box|>334 140 352 426<|content|>A. Organization and Good Standing\n<|id|>16<|page|>2<|box|>554 142 571 377<|content|>B. Organizational Documents\n<|id|>20<|page|>2<|box|>824 140 842 357<|content|>C. Authorizing Resolutions\n<|id|>29<|page|>4<|box|>89 140 107 821<|content|>III. CERTIFICATIONS REGARDING STONEFIELD FLEET MAN\n<|id|>30<|page|>4<|box|>121 140 138 426<|content|>A. Organization and Good Standing\n<|id|>32<|page|>4<|box|>359 142 376 377<|content|>B. Organizational Documents\n<|id|>36<|page|>4<|box|>648 140 665 357<|content|>C. Authorizing Resolutions\n<|id|>45<|page|>6<|box|>89 140 107 826<|content|>IV. CERTIFICATIONS REGARDING STONEFIELD FREIGHT BR\n<|id|>46<|page|>6<|box|>121 140 138 426<|content|>A. Organization and Good Standing\n<|id|>48<|page|>6<|box|>359 140 376 377<|content|>B. Organizational Documents\n<|id|>52<|page|>6<|box|>628 140 647 357<|content|>C. Authorizing Resolutions\n<|id|>61<|page|>7<|box|>729 140 763 730<|content|>V. GENERAL CERTIFICATIONS APPLICABLE TO ALL SUBSID\n<|id|>68<|page|>8<|box|>758 142 775 287<|content|>VI. EXECUTION\n<|id|>71<|page|>9<|box|>161 140 179 428<|content|>VII. COUNTER-CERTIFICATION\n<|id|>77<|page|>10<|box|>89 140 107 330<|content|>EXHIBIT SCHEDULE\n<|id|>79<|page|>10<|box|>184 140 200 519<|content|>Exhibits for Stonefield Intermodal Services, Inc.\n<|id|>84<|page|>10<|box|>425 142 443 517<|content|>Exhibits for Stonefield Fleet Management, LLC\n<|id|>89<|page|>10<|box|>704 140 720 506<|content|>Exhibits for Stonefield Freight Brokerage, Inc.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>5<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>16<|level|>3\n<|id|>20<|level|>3\n<|id|>29<|level|>2\n<|id|>30<|level|>3\n<|id|>32<|level|>3\n<|id|>36<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>52<|level|>3\n<|id|>61<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>3\n<|id|>84<|level|>3\n<|id|>89<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        }
+    ]
+}

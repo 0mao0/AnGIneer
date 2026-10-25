@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['10(a)', 'Ashford Partners LLC Easement (electrical)', '04/02/1998', 'Liber 2765, Page 1142', 'Fee Owner (predecessor)', 'Ashford Partners LLC', \"Underground electrical conduits; western boundary Lot 1; 12' x\", 'Accept, subject to survey']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', \"200'\", '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 459,
+    "table2_idx": 460
+}

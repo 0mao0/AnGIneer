@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 142 104 584<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>111 156 147 839<|content|>CALDERWOOD & HARKNESS LLP 200 Park Avenue, 38th Floor New York, New York 10166\n<|id|>3<|page|>1<|box|>195 669 212 854<|content|>Date: ... February 15, 2023\n<|id|>4<|page|>1<|box|>220 140 239 602<|content|>TO: ... Samuel Eklund, Responsible Partner, Litigation (General)\n<|id|>5<|page|>1<|box|>247 140 265 612<|content|>FROM: ... Patrick Gallagher, Lead Associate, Litigation (General)\n<|id|>6<|page|>1<|box|>273 140 308 854<|content|>RE: ... )\n<|id|>7<|page|>1<|box|>316 140 334 362<|content|>MATTER NO. ... 1012-00005\n<|id|>8<|page|>1<|box|>343 140 378 854<|content|>PRIVILEGE DESIGNATION: ... Attorney-Client Privile...ork Product — Do Not Distribute Outside of Counsel\n<|id|>37<|page|>4<|box|>858 140 893 854<|content|>We anticipate that Vantor's damages expert, Dr. ... Under the Case Management Order,\n<|id|>38<|page|>5<|box|>90 140 162 854<|content|>Vantor's expert reports are due on May 15, 2023. ...., as appropriate, after reviewing the Trask report\n<|id|>130<|page|>16<|box|>279 140 294 674<|content|>Calderwood & Harkness LLP 200 Park Avenue, 38th Floor New York, New York 10166\n<|id|>131<|page|>16<|box|>301 142 316 289<|content|>Matter No. ... 1012-00005",
+    "raw_response": "<|src_id|>37<|tgt_id|>38",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        }
+    ]
+}

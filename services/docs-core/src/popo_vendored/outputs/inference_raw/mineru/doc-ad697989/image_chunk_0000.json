@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 140 128 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|type|>title<|page|>1<|box|>301 140 319 704<|content|>VIA HAND DELIVERY AND SECURE ELECTRONIC TRANSMISSI\n<|id|>10<|type|>title<|page|>1<|box|>472 142 489 380<|content|>Dear Revenue Agent Dunleavy:\n<|id|>14<|type|>title<|page|>2<|box|>89 140 106 547<|content|>I. DESCRIPTION OF DOCUMENTS PRODUCED\n<|id|>15<|type|>title<|page|>2<|box|>121 140 138 643<|content|>A. Overview of PPC's Transfer Pricing Documentatio\n<|id|>19<|type|>title<|page|>2<|box|>739 140 757 560<|content|>B. Enumeration of Produced Documents by Tax Year\n<|id|>43<|type|>title<|page|>5<|box|>625 140 642 486<|content|>C. Supporting Workpapers and Appendices\n<|id|>58<|type|>title<|page|>7<|box|>417 142 434 468<|content|>II. DOCUMENT PRODUCTION INDEX\n<|id|>59<|type|>table<|page|>7<|box|>484 143 779 852<|content|>None\n<|id|>62<|type|>title<|page|>8<|box|>258 140 276 416<|content|>III. PRIVILEGE RESERVATION\n<|id|>66<|type|>title<|page|>8<|box|>762 140 779 527<|content|>IV. REPRESENTATIONS AND LIMITATIONS\n<|id|>71<|type|>title<|page|>9<|box|>439 140 455 565<|content|>V. REQUEST FOR CONFIRMATION OF RECEIPT\n<|id|>73<|type|>title<|page|>9<|box|>614 140 632 261<|content|>VI. CLOSING\n<|id|>78<|type|>title<|page|>10<|box|>89 140 106 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>80<|type|>title<|page|>10<|box|>178 142 190 171<|content|>cc:\n<|id|>87<|type|>title<|page|>10<|box|>411 142 428 240<|content|>Enclosures:",
+    "raw_response": "<|src_id|>59<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 59,
+            "tgt_id": 58
+        }
+    ]
+}

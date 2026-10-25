@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 189 142 805<|content|>OFFICER'S CERTIFICATE OF CRESTLINE PACKAGING SOLUT\n<|id|>5<|page|>1<|box|>516 140 534 478<|content|>Section 1. Representations and Warranties\n<|id|>9<|page|>1<|box|>800 140 816 439<|content|>Section 2. Covenants and Agreements\n<|id|>11<|page|>2<|box|>167 140 184 439<|content|>Section 3. No Material Adverse Effect\n<|id|>13<|page|>2<|box|>325 140 344 433<|content|>Section 4. Confirmation of Authority\n<|id|>15<|page|>2<|box|>612 140 628 294<|content|>Section 5. Reliance\n<|id|>17<|page|>2<|box|>789 140 806 349<|content|>Section 6. Governing Law\n<|id|>20<|page|>3<|box|>114 228 133 767<|content|>[SIGNATURE PAGE TO OFFICER'S CERTIFICATE OF BUYER]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>9<|level|>2\n<|id|>11<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>20<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 1
+        }
+    ]
+}

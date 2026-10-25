@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 104 606<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|type|>title<|page|>1<|box|>113 405 133 591<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>340 140 357 343<|content|>I. Purpose and Summary\n<|id|>15<|type|>title<|page|>2<|box|>90 142 107 267<|content|>II. Background\n<|id|>16<|type|>title<|page|>2<|box|>121 140 138 375<|content|>A. The TSA and Termination\n<|id|>19<|type|>table<|page|>2<|box|>477 143 604 852<|content|>None\n<|id|>21<|type|>table<|page|>2<|box|>736 143 864 852<|content|>None\n<|id|>25<|type|>title<|page|>3<|box|>539 140 556 617<|content|>B. Vantor's Claims (Amended Complaint, December 2,\n<|id|>38<|type|>title<|page|>4<|box|>661 140 678 321<|content|>C. Procedural Posture\n<|id|>45<|type|>title<|page|>5<|box|>311 140 329 395<|content|>III. The Proposed Counterclaim\n<|id|>46<|type|>title<|page|>5<|box|>342 140 359 308<|content|>A. Nature and Scope\n<|id|>52<|type|>title<|page|>6<|box|>138 140 157 446<|content|>B. Compulsory Counterclaim Analysis\n<|id|>58<|type|>title<|page|>7<|box|>90 140 107 457<|content|>IV. Merits Analysis of the Counterclaim\n<|id|>59<|type|>title<|page|>7<|box|>121 140 138 549<|content|>A. Strength of Valid Termination for Cause Defense\n<|id|>66<|type|>title<|page|>8<|box|>550 140 566 406<|content|>B. No Liquidated Damages Owed\n<|id|>71<|type|>title<|page|>9<|box|>275 140 292 362<|content|>C. First-to-Breach Doctrine\n<|id|>77<|type|>title<|page|>10<|box|>90 140 107 584<|content|>D. Addressing Vantor's Anticipated Counter-Argumen\n<|id|>85<|type|>title<|page|>11<|box|>321 140 339 447<|content|>V. Strategic Value of the Counterclaim\n<|id|>86<|type|>title<|page|>11<|box|>353 140 369 318<|content|>A. Narrative Framing\n<|id|>90<|type|>title<|page|>11<|box|>752 142 768 419<|content|>B. Summary Judgment Positioning\n<|id|>99<|type|>title<|page|>12<|box|>532 140 550 328<|content|>C. Settlement Leverage\n<|id|>104<|type|>title<|page|>13<|box|>311 140 329 589<|content|>D. Protection Against Vantor's Potential Counterst\n<|id|>108<|type|>title<|page|>13<|box|>691 142 709 349<|content|>E. Minimal Cost and Risk\n<|id|>115<|type|>title<|page|>14<|box|>439 140 457 364<|content|>VI. Drafting Considerations\n<|id|>116<|type|>title<|page|>14<|box|>470 142 487 357<|content|>A. Counterclaim Structure\n<|id|>123<|type|>title<|page|>15<|box|>275 140 292 467<|content|>B. Consistency with Affirmative Defenses\n<|id|>130<|type|>title<|page|>15<|box|>768 140 786 364<|content|>C. Coordination with Client\n<|id|>136<|type|>title<|page|>16<|box|>434 140 450 431<|content|>VII. Burden of Proof Considerations\n<|id|>142<|type|>title<|page|>17<|box|>229 140 247 328<|content|>VIII. Recommendation\n<|id|>152<|type|>title<|page|>18<|box|>90 142 107 264<|content|>IX. Conclusion",
+    "raw_response": "<|src_id|>19<|tgt_id|>16\n<|src_id|>21<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 16
+        }
+    ]
+}

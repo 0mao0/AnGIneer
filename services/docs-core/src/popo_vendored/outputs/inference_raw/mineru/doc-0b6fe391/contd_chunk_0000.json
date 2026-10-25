@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>160 751 176 854<|content|>July 12, 2023\n<|id|>2<|page|>1<|box|>186 140 239 854<|content|>FROM: ... Wendy Schultz, Senior Associate, intelle...00 Louisiana Street, Suite 3400, Houston, TX 77002\n<|id|>3<|page|>1<|box|>248 140 284 854<|content|>TO: ... Daniel Oshiro, General Counsel, Brightfield Cloud Services Inc\n<|id|>4<|page|>1<|box|>292 140 329 854<|content|>RE: ... DeltaSync Patent Portfolio — Preliminary P...dscape Analysis and Freedom-to- Operate Assessment\n<|id|>5<|page|>1<|box|>335 140 354 331<|content|>Matter No. ... 1042-00003\n<|id|>6<|page|>1<|box|>362 140 378 441<|content|>Billing Code: ... BCS-NEXILIS-LIC-2023\n<|id|>46<|page|>5<|box|>768 181 821 854<|content|>• Machine-learning-driven cache placement optimiza...load forecasts, and network topology data; ... and\n<|id|>48<|page|>6<|box|>90 140 145 854<|content|>Both of these technology areas are highly relevant...h diverse and geographically distributed workloads\n<|id|>63<|page|>7<|box|>724 183 779 854<|content|>• Classification-code searches using relevant Coop...gement, and cloud computing architectures; ... and\n<|id|>65<|page|>7<|box|>837 140 909 857<|content|>Geographic Scope. ... markets in a material way, w...al jurisdictions, as discussed in Section VI below\n<|id|>132<|page|>15<|box|>710 140 742 854<|content|>Wendy Schultz, Senior Associate, intellectual Prop...3400, Houston, TX 77002 Direct: ... (713) 555-4821\n<|id|>133<|page|>15<|box|>750 142 763 408<|content|>Email: ... com\n<|id|>134<|page|>15<|box|>763 140 794 852<|content|>Omar Siddiqui, Associate, intellectual Property Ca...3400, Houston, TX 77002 Direct: ... (713) 555-4837\n<|id|>135<|page|>15<|box|>801 140 816 411<|content|>Email: ... com\n<|id|>136<|page|>15<|box|>815 140 876 854<|content|>DISTRIBUTION NOTICE: ... Do not forward, copy, or ...the prior written authorization of Catherine Bloom",
+    "raw_response": "<|src_id|>46<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 46,
+            "tgt_id": 48
+        }
+    ]
+}

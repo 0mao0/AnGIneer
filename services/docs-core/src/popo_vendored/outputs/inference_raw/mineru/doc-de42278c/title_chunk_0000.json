@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|page|>1<|box|>664 140 681 746<|content|>Background — The Underlying Litigation and Tempora\n<|id|>16<|page|>2<|box|>487 140 503 758<|content|>Settlement of the Litigation and Entry of Consent\n<|id|>23<|page|>3<|box|>439 140 457 655<|content|>Formal Request for Discharge of Bond No. BSC-2025-\n<|id|>32<|page|>4<|box|>90 142 107 233<|content|>Enclosures\n<|id|>38<|page|>4<|box|>369 140 387 441<|content|>Confirmation Request and Next Steps\n<|id|>44<|page|>4<|box|>776 140 792 529<|content|>Contact Information for Further Communication\n<|id|>51<|page|>5<|box|>213 176 229 447<|content|>Email: tyunpark@cascaderetail.com\n<|id|>54<|page|>5<|box|>318 140 334 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>58<|page|>5<|box|>415 142 431 233<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>32<|level|>2\n<|id|>38<|level|>2\n<|id|>44<|level|>2\n<|id|>51<|level|>-1\n<|id|>54<|level|>1\n<|id|>58<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        19
+    ],
+    "pages": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>2<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>2<|type|>title<|page|>2<|box|>135 323 180 673<|content|>SERVICE LEVEL AGREEMENT to the Master Software-as-\n<|id|>11<|type|>title<|page|>2<|box|>593 140 609 313<|content|>Section 1: Definitions\n<|id|>31<|type|>title<|page|>4<|box|>186 140 204 377<|content|>Section 2: Availability Target\n<|id|>38<|type|>title<|page|>4<|box|>804 140 821 535<|content|>Section 3: Availability Measurement Methodology\n<|id|>63<|type|>title<|page|>6<|box|>652 140 670 490<|content|>Section 4: Scheduled Maintenance Windows\n<|id|>72<|type|>title<|page|>7<|box|>763 140 780 377<|content|>Section 5: Excused Downtime\n<|id|>82<|type|>title<|page|>8<|box|>726 140 743 326<|content|>Section 6: SLA Credits\n<|id|>83<|type|>table<|page|>8<|box|>794 143 888 852<|content|>None\n<|id|>105<|type|>title<|page|>10<|box|>556 140 574 524<|content|>Section 7: Chronic Failure — Termination Right\n<|id|>113<|type|>title<|page|>11<|box|>383 140 402 563<|content|>Section 8: Incident Classification and Response Ti\n<|id|>118<|type|>table<|page|>12<|box|>195 143 301 852<|content|>None\n<|id|>132<|type|>title<|page|>13<|box|>652 140 670 537<|content|>Section 9: Incident Communication and Reporting\n<|id|>152<|type|>title<|page|>14<|box|>811 140 829 410<|content|>Section 10: Escalation Procedures\n<|id|>164<|type|>title<|page|>15<|box|>704 140 722 452<|content|>Section 11: Steering Committee Review\n<|id|>180<|type|>title<|page|>16<|box|>654 140 671 553<|content|>Section 12: Relationship to MSA and Other Exhibits\n<|id|>186<|type|>title<|page|>17<|box|>531 140 547 385<|content|>Section 13: General Provisions\n<|id|>191<|type|>title<|page|>18<|box|>89 428 107 568<|content|>SCHEDULE A-1\n<|id|>192<|type|>title<|page|>18<|box|>121 140 138 411<|content|>SLA Credit Calculation Examples\n<|id|>194<|type|>title<|page|>18<|box|>207 140 224 540<|content|>Example 1: Year 1 — 30-Day Measurement Period\n<|id|>204<|type|>title<|page|>18<|box|>409 142 426 540<|content|>Example 2: Year 3 — 31-Day Measurement Period\n<|id|>214<|type|>title<|page|>18<|box|>611 142 628 751<|content|>Example 3: Year 2 — 28-Day Measurement Period (Chr\n<|id|>225<|type|>title<|page|>19<|box|>89 140 107 310<|content|>[End of Schedule A-1]\n<|id|>226<|type|>title<|page|>19<|box|>114 352 132 645<|content|>ACKNOWLEDGED AND AGREED\n<|id|>233<|type|>title<|page|>19<|box|>289 142 306 738<|content|>MERIDIAN NATIONAL BANK, NATIONAL ASSOCIATION (\"Cus",
+    "raw_response": "<|src_id|>83<|tgt_id|>82\n<|src_id|>118<|tgt_id|>113",
+    "parsed": [
+        {
+            "src_id": 83,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 113
+        }
+    ]
+}

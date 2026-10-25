@@ -49,6 +49,10 @@ RUN mkdir -p services/ai-inference/src/ai_inference \
     && mkdir -p services/community/src/community \
     && touch services/community/src/community/__init__.py
 
+# popo-client（dgx-spark-popo 独立库）：vendor wheel 离线安装，满足 docs-core 依赖不触外网
+COPY services/docs-core/vendor/popo_client-0.1.0-py3-none-any.whl /tmp/popo_client.whl
+RUN pip install --no-cache-dir /tmp/popo_client.whl && rm -f /tmp/popo_client.whl
+
 RUN pip install --no-cache-dir -e services/ai-inference \
     -e services/tree-core \
     -e services/shared \
@@ -74,6 +78,10 @@ RUN pip install --no-cache-dir \
 
 COPY services/ services/
 COPY apps/shared/ports.json apps/shared/ports.json
+
+# popo-client（dgx-spark-popo 独立库）：vendor wheel 离线安装，满足 docs-core 依赖不触外网
+COPY services/docs-core/vendor/popo_client-0.1.0-py3-none-any.whl /tmp/popo_client.whl
+RUN pip install --no-cache-dir /tmp/popo_client.whl && rm -f /tmp/popo_client.whl
 
 RUN pip install --no-cache-dir -e services/ai-inference \
     -e services/tree-core \

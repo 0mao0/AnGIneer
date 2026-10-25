@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>11<|page|>1<|box|>849 174 886 856<|content|>(c) \"Selling Stockholders\" means, collectively, Ri...nd III, LP, a Delaware limited partnership, Julian\n<|id|>12<|page|>2<|box|>90 174 127 854<|content|>Reeves, an individual, Priya Narasimhan, an indivi...tockholders identified on Annex A to the Agreement\n<|id|>28<|page|>3<|box|>583 174 636 854<|content|>(a) for representations and warranties that by the... in all respects as of such specific date; ... and\n<|id|>37<|page|>4<|box|>375 140 429 854<|content|>totaling 100% of the issued and outstanding capita...suant to the procedures set forth in the Agreement\n<|id|>35<|page|>4<|box|>266 174 304 854<|content|>(d) Priya Narasimhan — approximately 8. ... and\n<|id|>36<|page|>4<|box|>311 174 364 854<|content|>(e) Other management and employee stockholders — a...s issuable upon exercise of vested stock options),\n<|id|>97<|page|>10<|box|>792 143 809 215<|content|>Title: ... [●]\n<|id|>98<|page|>10<|box|>810 142 825 261<|content|>Date: ... [●], 2025",
+    "raw_response": "<|src_id|>11<|tgt_id|>12",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        }
+    ]
+}

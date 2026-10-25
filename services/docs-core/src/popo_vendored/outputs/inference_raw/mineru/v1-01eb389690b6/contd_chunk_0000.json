@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>179 426 196 575<|content|>Elisabeth Steffen\n<|id|>2<|page|>1<|box|>202 421 231 576<|content|>HTW Berlin, Germany steffen@htw-berlin. ... de\n<|id|>30<|page|>3<|box|>727 514 813 915<|content|>HDBSCAN is a soft clustering method that labels no... than forcing them into clusters. ... <sup>7</sup>\n<|id|>32<|page|>4<|box|>339 81 551 480<|content|>Evaluation Our quantitative and qualitative evalua...with modality-specific deduplication (see Table 2)\n<|id|>45<|page|>5<|box|>777 81 891 480<|content|>The manually assigned topic groups offer a broad v...ities. ... Its prevalence varies by modality, with\n<|id|>47<|page|>5<|box|>290 514 388 916<|content|>In November 2024, we find three topic groups ranki...shift, with Israel Gaza losing its dom- inant role\n<|id|>60<|page|>7<|box|>777 81 890 480<|content|>To develop a framework that captures CTs as active...ysis of CT memes (Gur-S¸eker, Boonen, and Wentker¨\n<|id|>62<|page|>7<|box|>104 535 162 893<|content|>a (more or less accurate and more or less inten- t...cial, political, psychological, or linguistic goal\n<|id|>68<|page|>8<|box|>614 81 684 480<|content|>We used the proposed framework to analyze the pred...ctober 2023 dataset, Israel Gaza. ... <sup>9</sup>\n<|id|>69<|page|>8<|box|>684 81 781 480<|content|>Due to the large volume of 4,700 messages in the t...he same process as with the initial topic modeling\n<|id|>70<|page|>8<|box|>780 81 853 480<|content|>The identified topics mention political and milita...inst Israel’s actions, and discuss the role of the\n<|id|>71<|page|>8<|box|>69 514 152 915<|content|>US administration and the German government in the...ation between Islam, immigration, and antisemitism",
+    "raw_response": "<|src_id|>45<|tgt_id|>47\n<|src_id|>60<|tgt_id|>62\n<|src_id|>70<|tgt_id|>71",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        }
+    ]
+}

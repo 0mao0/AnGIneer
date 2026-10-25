@@ -1,0 +1,142 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 259 128 854<|content|>CALDERWOOD & HARKNESS LLP 125 Broad Street New Yor\n<|id|>9<|page|>1<|box|>426 140 444 339<|content|>1. Opening / Transmittal\n<|id|>14<|page|>2<|box|>90 140 107 514<|content|>2. Transmittal of Executed Original Documents\n<|id|>17<|page|>2<|box|>359 140 375 431<|content|>2.2 Index of Transmitted Documents\n<|id|>19<|page|>2<|box|>411 142 426 348<|content|>A. Core Loan Documents.\n<|id|>27<|page|>3<|box|>193 142 210 357<|content|>B. US Security Documents.\n<|id|>35<|page|>3<|box|>838 140 854 398<|content|>C. German Security Documents.\n<|id|>44<|page|>4<|box|>657 142 675 292<|content|>D. Legal Opinions.\n<|id|>50<|page|>5<|box|>452 143 469 331<|content|>E. Closing Deliverables.\n<|id|>66<|page|>6<|box|>852 142 869 434<|content|>F. Sanctions & KYC Documentation.\n<|id|>71<|page|>7<|box|>434 140 450 328<|content|>G. Tax Documentation.\n<|id|>73<|page|>7<|box|>579 142 595 316<|content|>2.3 Note on Retention\n<|id|>75<|page|>7<|box|>791 140 808 357<|content|>3. Post-Closing Obligations\n<|id|>78<|page|>8<|box|>138 140 157 380<|content|>3.1 UCC Continuation Filings\n<|id|>83<|page|>8<|box|>674 140 691 544<|content|>3.2 German Grundbuch Registration Confirmation\n<|id|>88<|page|>9<|box|>393 140 410 470<|content|>3.3 Annual Insurance Certificate Delivery\n<|id|>92<|page|>9<|box|>773 140 790 444<|content|>3.4 Quarterly Compliance Certificates\n<|id|>100<|page|>10<|box|>580 140 598 439<|content|>3.5 Quarterly Amortization Payments\n<|id|>106<|page|>11<|box|>138 140 157 462<|content|>3.6 Annual Financial Statement Delivery\n<|id|>109<|page|>11<|box|>476 140 493 367<|content|>3.7 Excess Cash Flow Sweep\n<|id|>113<|page|>11<|box|>825 140 843 413<|content|>3.8 Change of Control Monitoring\n<|id|>116<|page|>12<|box|>294 140 311 506<|content|>3.9 Ongoing OFAC and Sanctions Compliance\n<|id|>120<|page|>12<|box|>638 140 654 419<|content|>3.10 Soft Call Protection Reminder\n<|id|>123<|page|>13<|box|>90 140 107 370<|content|>4. Key Compliance Calendar\n<|id|>127<|page|>14<|box|>671 142 689 397<|content|>5. Notice Information Reminder\n<|id|>129<|page|>14<|box|>742 143 758 321<|content|>Administrative Agent:\n<|id|>146<|page|>15<|box|>429 140 445 522<|content|>6. Calderwood & Harkness Ongoing Availability\n<|id|>161<|page|>16<|box|>174 142 189 300<|content|>7. Closing Remarks\n<|id|>181<|page|>16<|box|>883 143 898 238<|content|>Enclosures:",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>17<|level|>2\n<|id|>19<|level|>3\n<|id|>27<|level|>3\n<|id|>35<|level|>3\n<|id|>44<|level|>3\n<|id|>50<|level|>3\n<|id|>66<|level|>3\n<|id|>71<|level|>3\n<|id|>73<|level|>2\n<|id|>75<|level|>1\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>100<|level|>2\n<|id|>106<|level|>2\n<|id|>109<|level|>2\n<|id|>113<|level|>2\n<|id|>116<|level|>2\n<|id|>120<|level|>2\n<|id|>123<|level|>1\n<|id|>127<|level|>1\n<|id|>129<|level|>2\n<|id|>146<|level|>1\n<|id|>161<|level|>1\n<|id|>181<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 161,
+            "level": 1
+        },
+        {
+            "id": 181,
+            "level": 1
+        }
+    ]
+}

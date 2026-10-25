@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        16
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>9<|page|>2<|box|>116 174 152 854<|content|>(b) North Carolina — the state in which Veldran ma...s Engineered Coatings Division operations; ... and\n<|id|>11<|page|>2<|box|>222 138 369 856<|content|>Key Takeaway. ... Georgia, in particular, may impo...hat are not present in the other two jurisdictions\n<|id|>23<|page|>3<|box|>315 181 349 854<|content|>• $1. ... and\n<|id|>26<|page|>3<|box|>592 140 684 854<|content|>Harrowgate Private Equity Fund IV, L. ... C below\n<|id|>39<|page|>4<|box|>829 140 904 857<|content|>The original target for both the record date and t...n of this memorandum but prior to its circulation)\n<|id|>40<|page|>5<|box|>90 140 127 854<|content|>confirmed the indefinite pause. ... This memorandu...agement if and when the transaction is reactivated\n<|id|>144<|page|>16<|box|>277 183 295 508<|content|>• North Carolina: ... 5%\n<|id|>146<|page|>16<|box|>316 140 372 854<|content|>The Section 355(e) risk is particularly relevant g...t of a \"plan\" within the meaning of Section 355(e)\n<|id|>145<|page|>16<|box|>297 183 314 467<|content|>• Georgia: ... 75%",
+    "raw_response": "<|src_id|>39<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ]
+}

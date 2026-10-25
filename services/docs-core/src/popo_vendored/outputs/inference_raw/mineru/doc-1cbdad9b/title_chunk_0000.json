@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 140 130 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|page|>1<|box|>258 140 276 542<|content|>VIA ELECTRONIC MAIL AND HAND DELIVERY\n<|id|>10<|page|>1<|box|>433 140 450 406<|content|>Transmittal of Second Draft PPA\n<|id|>17<|page|>2<|box|>150 140 167 375<|content|>Summary of Key Movements\n<|id|>18<|page|>2<|box|>180 140 198 450<|content|>I. Availability Guarantee (Article VIII)\n<|id|>23<|page|>2<|box|>679 140 696 526<|content|>II. Availability Liquidated Damages (Section 8.3)\n<|id|>29<|page|>3<|box|>547 140 564 500<|content|>III. Change of Control of Seller (Section 17.2)\n<|id|>39<|page|>4<|box|>672 140 689 568<|content|>IV. Reciprocal Buyer Change of Control (Section 17\n<|id|>42<|page|>5<|box|>268 140 284 562<|content|>V. Other Key Revisions Reflected in the Second Dra\n<|id|>50<|page|>6<|box|>321 142 339 328<|content|>Remaining Open Items\n<|id|>61<|page|>6<|box|>828 140 844 362<|content|>Lender Consent Agreement\n<|id|>64<|page|>7<|box|>204 140 222 308<|content|>Proposed Next Steps\n<|id|>78<|page|>7<|box|>776 140 792 316<|content|>Reservation of Rights\n<|id|>80<|page|>8<|box|>148 140 167 266<|content|>Confidentiality",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>6<|level|>1\n<|id|>10<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>23<|level|>2\n<|id|>29<|level|>2\n<|id|>39<|level|>2\n<|id|>42<|level|>2\n<|id|>50<|level|>1\n<|id|>61<|level|>1\n<|id|>64<|level|>1\n<|id|>78<|level|>1\n<|id|>80<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        }
+    ]
+}

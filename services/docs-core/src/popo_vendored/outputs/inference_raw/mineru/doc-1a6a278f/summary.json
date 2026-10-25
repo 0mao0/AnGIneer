@@ -1,0 +1,188 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-p694b510\\input\\pdfs\\doc-1a6a278f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-p694b510\\enriched\\doc-1a6a278f.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>11<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>3\n<|id|>31<|level|>3\n<|id|>36<|level|>3\n<|id|>41<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>51<|level|>4\n<|id|>60<|level|>4\n<|id|>70<|level|>4\n<|id|>77<|level|>3\n<|id|>80<|level|>3\n<|id|>85<|level|>2\n<|id|>86<|level|>3\n<|id|>89<|level|>3\n<|id|>94<|level|>3\n<|id|>98<|level|>3\n<|id|>102<|level|>3\n<|id|>105<|level|>3\n<|id|>110<|level|>2\n<|id|>112<|level|>3\n<|id|>119<|level|>3\n<|id|>124<|level|>3\n<|id|>131<|level|>3\n<|id|>137<|level|>2\n<|id|>145<|level|>2\n<|id|>154<|level|>2\n<|id|>161<|level|>2\n<|id|>172<|level|>2\n<|id|>175<|level|>2\n<|id|>179<|level|>2",
+    "image_output": "<|src_id|>169<|tgt_id|>161\n<|src_id|>170<|tgt_id|>161\n<|src_id|>174<|tgt_id|>172\n<|src_id|>177<|tgt_id|>175\n<|src_id|>178<|tgt_id|>175",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 4
+        },
+        {
+            "id": 70,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 169,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 172
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 175
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 177,
+            "table2_idx": 178,
+            "upper_row_ss": [
+                [
+                    "Deposition outline — Hideo Tanaka",
+                    "Omar Siddiqui",
+                    "October 7, 2022"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

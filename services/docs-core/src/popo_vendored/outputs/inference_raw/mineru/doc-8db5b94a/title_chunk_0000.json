@@ -1,0 +1,154 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        61
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        11,
+        12,
+        14,
+        16,
+        17,
+        18,
+        20,
+        24,
+        28,
+        29,
+        32,
+        41,
+        43,
+        44,
+        45,
+        47,
+        50,
+        54,
+        55,
+        57,
+        60
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>5<|box|>107 88 258 842<|content|>TREASURY BULLETIN\n<|id|>11<|page|>7<|box|>119 370 139 579<|content|>Table of Contents\n<|id|>14<|page|>9<|box|>114 294 133 647<|content|>Treasury Financing Operations\n<|id|>15<|page|>9<|box|>184 41 200 432<|content|>April Certificate and Note Maturities\n<|id|>21<|page|>9<|box|>455 492 471 738<|content|>Treasury Bills Refunded\n<|id|>23<|page|>9<|box|>612 488 628 777<|content|>United States Savings Bonds\n<|id|>26<|page|>11<|box|>57 288 73 671<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>30<|page|>12<|box|>54 359 68 682<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>40<|page|>14<|box|>60 357 72 680<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>50<|page|>16<|box|>60 352 73 675<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>54<|page|>17<|box|>55 333 69 651<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>59<|page|>18<|box|>49 408 64 610<|content|>TRUST ACCOUNTS, ETC.\n<|id|>65<|page|>20<|box|>53 410 68 608<|content|>TRUST ACCOUNTS, ETC.\n<|id|>75<|page|>24<|box|>52 364 68 668<|content|>TREASURY CASH INCOME AND OUTGO\n<|id|>84<|page|>28<|box|>52 422 65 587<|content|>DEBT OUTSTANDING\n<|id|>88<|page|>29<|box|>52 411 65 572<|content|>DEBT OUTSTANDING\n<|id|>96<|page|>32<|box|>86 161 132 836<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>116<|page|>41<|box|>55 331 69 635<|content|>OWNERSHIP OF FEDERAL SECURITIES\n<|id|>122<|page|>43<|box|>198 160 212 817<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>125<|page|>44<|box|>84 182 100 850<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>127<|page|>45<|box|>94 141 129 827<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>140<|page|>47<|box|>264 558 280 841<|content|>Table 2.- Certificates (Taxable)\n<|id|>147<|page|>50<|box|>53 308 68 696<|content|>YIELDS OF TREASURY AND CORPORATE BONDS\n<|id|>161<|page|>54<|box|>50 371 65 656<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>163<|page|>55<|box|>52 336 68 617<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>167<|page|>57<|box|>55 389 69 581<|content|>MONETARY STATISTICS\n<|id|>176<|page|>60<|box|>336 50 352 236<|content|>Reporting Coverage\n<|id|>178<|page|>60<|box|>584 50 600 226<|content|>Capital Movements\n<|id|>182<|page|>60<|box|>392 536 408 722<|content|>Basis of Reporting",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>40<|level|>2\n<|id|>50<|level|>2\n<|id|>54<|level|>2\n<|id|>59<|level|>2\n<|id|>65<|level|>2\n<|id|>75<|level|>2\n<|id|>84<|level|>2\n<|id|>88<|level|>2\n<|id|>96<|level|>2\n<|id|>116<|level|>2\n<|id|>122<|level|>3\n<|id|>125<|level|>3\n<|id|>127<|level|>3\n<|id|>140<|level|>2\n<|id|>147<|level|>2\n<|id|>161<|level|>2\n<|id|>163<|level|>2\n<|id|>167<|level|>2\n<|id|>176<|level|>3\n<|id|>178<|level|>3\n<|id|>182<|level|>3",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 3
+        }
+    ]
+}

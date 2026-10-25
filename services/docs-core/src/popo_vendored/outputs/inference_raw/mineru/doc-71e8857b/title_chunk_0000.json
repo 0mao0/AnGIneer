@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        66
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        17,
+        29,
+        38,
+        65
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 202 118 795<|content|>CLOSING BINDER INDEX AND TABLE OF CONTENTS\n<|id|>1<|page|>1<|box|>143 250 161 748<|content|>Stonebridge Data Center Campus — Loudoun County, V\n<|id|>2<|page|>1<|box|>175 142 193 614<|content|>$600,000,000 Ground-Up Data Center Campus Developm\n<|id|>4<|page|>1<|box|>441 178 458 818<|content|>DRAFT SHELL — For internal use; to be finalized up\n<|id|>10<|page|>1<|box|>809 246 825 750<|content|>KEY TRANSACTION PARTICIPANTS REFERENCE TABLE\n<|id|>26<|page|>4<|box|>503 385 520 611<|content|>BINDER ORGANIZATION\n<|id|>31<|page|>5<|box|>234 184 253 810<|content|>TAB 1 — ENTITY AND ORGANIZATIONAL DOCUMENTS\n<|id|>48<|page|>17<|box|>564 191 583 805<|content|>TAB 2 — LAND ACQUISITION: STONEBRIDGE PARCEL\n<|id|>66<|page|>29<|box|>143 215 162 781<|content|>TAB 3 — LAND ACQUISITION: MERIDIAN PARCEL\n<|id|>68<|page|>29<|box|>357 143 373 406<|content|>3.1 Purchase and Sale Agreement\n<|id|>82<|page|>38<|box|>204 303 222 694<|content|>TAB 4 — FINANCING DOCUMENTS\n<|id|>120<|page|>65<|box|>90 140 107 535<|content|>5.3 Liquidated Damages and Retainage Provisions",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>26<|level|>2\n<|id|>31<|level|>2\n<|id|>48<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>3\n<|id|>82<|level|>2\n<|id|>120<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        }
+    ]
+}

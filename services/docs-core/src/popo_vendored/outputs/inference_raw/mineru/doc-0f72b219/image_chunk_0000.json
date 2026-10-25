@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>9<|type|>title<|page|>1<|box|>407 142 425 380<|content|>1. Introduction and Authority\n<|id|>15<|type|>title<|page|>2<|box|>148 140 167 544<|content|>2. Direction to Establish and Fund Escrow Account\n<|id|>19<|type|>title<|page|>2<|box|>671 142 688 467<|content|>3. Wire Transfer Instructions for Deposit\n<|id|>21<|type|>table<|page|>2<|box|>739 143 885 852<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>465 140 482 388<|content|>4. Investment of Escrow Funds\n<|id|>29<|type|>title<|page|>5<|box|>90 140 107 361<|content|>5. Escrow Release Schedule\n<|id|>35<|type|>title<|page|>6<|box|>258 140 277 421<|content|>6. Notices and Contact Information\n<|id|>37<|type|>title<|page|>6<|box|>334 142 352 529<|content|>Parent (Harrowgate Private Equity Fund IV LP):\n<|id|>44<|type|>title<|page|>6<|box|>585 142 603 511<|content|>Stockholder Representative (Nathan Aldridge):\n<|id|>51<|type|>title<|page|>6<|box|>838 143 854 475<|content|>Escrow Agent (Garrison Trust Company):\n<|id|>57<|type|>title<|page|>7<|box|>155 140 172 517<|content|>7. Confirmation and Acknowledgment Requests\n<|id|>60<|type|>title<|page|>7<|box|>412 140 429 313<|content|>8. General Provisions\n<|id|>65<|type|>title<|page|>7<|box|>816 400 834 596<|content|>[Signature Pages Follow]\n<|id|>67<|type|>title<|page|>7<|box|>886 142 902 228<|content|>PARENT:\n<|id|>79<|type|>title<|page|>8<|box|>270 308 287 687<|content|>ACKNOWLEDGMENT OF ESCROW AGENT\n<|id|>81<|type|>title<|page|>8<|box|>414 142 431 439<|content|>ACKNOWLEDGED AND AGREED:\n<|id|>87<|type|>title<|page|>8<|box|>547 142 565 233<|content|>Enclosures",
+    "raw_response": "<|src_id|>21<|tgt_id|>19",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        }
+    ]
+}

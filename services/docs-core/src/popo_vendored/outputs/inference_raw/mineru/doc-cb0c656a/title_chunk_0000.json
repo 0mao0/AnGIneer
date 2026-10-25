@@ -1,0 +1,137 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>12<|page|>1<|box|>535 140 551 264<|content|>I. Introduction\n<|id|>15<|page|>2<|box|>148 140 167 411<|content|>II. Definitions of Loan Documents\n<|id|>39<|page|>4<|box|>148 140 167 545<|content|>III. Documents Examined and Diligence Performed\n<|id|>55<|page|>5<|box|>571 142 589 277<|content|>IV. Assumptions\n<|id|>67<|page|>6<|box|>681 140 699 406<|content|>V. Qualifications and Limitations\n<|id|>83<|page|>8<|box|>90 140 107 250<|content|>VI. Opinions\n<|id|>85<|page|>8<|box|>165 140 183 669<|content|>Opinion 1 — Due Organization and Good Standing (Co\n<|id|>92<|page|>8<|box|>660 140 679 736<|content|>Opinion 2 — Due Organization and Good Standing (Op\n<|id|>94<|page|>8<|box|>751 140 768 643<|content|>Opinion 3 — Due Organization and Good Standing (Gu\n<|id|>96<|page|>9<|box|>90 140 107 415<|content|>Opinion 4 — Power and Authority\n<|id|>98<|page|>9<|box|>309 140 325 397<|content|>Opinion 5 — Due Authorization\n<|id|>100<|page|>9<|box|>601 142 619 468<|content|>Opinion 6 — Due Execution and Delivery\n<|id|>102<|page|>9<|box|>674 142 691 362<|content|>Opinion 7 — Enforceability\n<|id|>104<|page|>9<|box|>784 142 800 349<|content|>Opinion 8 — No Conflicts\n<|id|>111<|page|>10<|box|>527 140 546 552<|content|>Opinion 9 — No Governmental Approvals Required\n<|id|>117<|page|>11<|box|>194 140 212 588<|content|>Opinion 10 — Non-Consolidation / Separateness Opin\n<|id|>127<|page|>12<|box|>329 140 347 591<|content|>VII. Enforceability and Non-Consolidation Qualific\n<|id|>128<|page|>12<|box|>361 142 377 393<|content|>A. Enforceability Qualifications\n<|id|>137<|page|>13<|box|>194 140 210 428<|content|>B. Non-Consolidation Qualifications\n<|id|>144<|page|>13<|box|>763 140 779 493<|content|>C. Additional Qualifications and Limitations\n<|id|>152<|page|>14<|box|>571 140 589 352<|content|>VIII. Reliance and Benefit\n<|id|>158<|page|>15<|box|>186 140 203 385<|content|>IX. Governing Law of Opinion\n<|id|>165<|page|>16<|box|>89 142 107 243<|content|>EXHIBIT A\n<|id|>166<|page|>16<|box|>114 222 132 774<|content|>LIST OF CO-BORROWERS, PROPERTIES, AND JURISDICTION\n<|id|>168<|page|>16<|box|>746 143 763 640<|content|>Total: approximately 4,200 units across 14 Propert\n<|id|>170<|page|>17<|box|>89 143 106 243<|content|>EXHIBIT B\n<|id|>171<|page|>17<|box|>114 370 132 627<|content|>LIST OF LOAN DOCUMENTS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>39<|level|>2\n<|id|>55<|level|>2\n<|id|>67<|level|>2\n<|id|>83<|level|>2\n<|id|>85<|level|>3\n<|id|>92<|level|>3\n<|id|>94<|level|>3\n<|id|>96<|level|>3\n<|id|>98<|level|>3\n<|id|>100<|level|>3\n<|id|>102<|level|>3\n<|id|>104<|level|>3\n<|id|>111<|level|>3\n<|id|>117<|level|>3\n<|id|>127<|level|>2\n<|id|>128<|level|>3\n<|id|>137<|level|>3\n<|id|>144<|level|>3\n<|id|>152<|level|>2\n<|id|>158<|level|>2\n<|id|>165<|level|>2\n<|id|>166<|level|>3\n<|id|>168<|level|>-1\n<|id|>170<|level|>2\n<|id|>171<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 3
+        }
+    ]
+}

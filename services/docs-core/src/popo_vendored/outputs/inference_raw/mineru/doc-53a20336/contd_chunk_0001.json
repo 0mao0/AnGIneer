@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        54,
+        81
+    ],
+    "pages": [
+        55,
+        76,
+        77,
+        81
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>169<|page|>55<|box|>745 27 814 488<|content|>Source: ... 1/ Excludes collections for credit to certain trust accounts for island pos-\n<|id|>170<|page|>55<|box|>807 27 826 488<|content|>1/ Excludes collections for credit to certain trus...includes corporation income tax on Alaska Railroad\n<|id|>171<|page|>55<|box|>824 27 854 481<|content|>2/ Includes excess profite taxes formerly shown se...), declared value (repealed for years ending after\n<|id|>172<|page|>55<|box|>743 506 845 944<|content|>June 30, 1946), Excess Profite Tax Act of 1940 (Ti...ing with July 1950, included under \"Miscellaneous\"\n<|id|>224<|page|>76<|box|>612 23 687 476<|content|>Note: ... The\n<|id|>225<|page|>76<|box|>612 516 651 922<|content|>amounts shown here represent more than 70 percent ...e found since January 1950 in Section III, Table 2\n<|id|>227<|page|>77<|box|>76 23 193 464<|content|>Data relating to corporations in which the United ...les 1 and 2 are compiled from the mid-month \"Daily\n<|id|>228<|page|>77<|box|>76 514 179 957<|content|>Treasury Statement\", which contains greater detail...or the same date will appear in a subsequent issue\n<|id|>250<|page|>81<|box|>442 16 470 450<|content|>16/ Consists of Defense Home Corporation (in liquidation); ... Panama\n<|id|>251<|page|>81<|box|>111 521 137 915<|content|>Railroad Company; ... and War Damage Corporation (in liquidation)",
+    "raw_response": "<|src_id|>171<|tgt_id|>172\n<|src_id|>224<|tgt_id|>225\n<|src_id|>227<|tgt_id|>228\n<|src_id|>250<|tgt_id|>251",
+    "parsed": [
+        {
+            "src_id": 171,
+            "tgt_id": 172
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 228
+        },
+        {
+            "src_id": 250,
+            "tgt_id": 251
+        }
+    ]
+}

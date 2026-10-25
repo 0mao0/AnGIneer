@@ -1,0 +1,201 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vk_2i036\\input\\pdfs\\doc-7aab6837.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vk_2i036\\enriched\\doc-7aab6837.json",
+    "contd_output": "<|src_id|>87<|tgt_id|>88",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>37<|level|>3\n<|id|>55<|level|>3\n<|id|>72<|level|>3\n<|id|>80<|level|>2\n<|id|>82<|level|>3\n<|id|>96<|level|>3\n<|id|>106<|level|>3\n<|id|>122<|level|>3\n<|id|>146<|level|>3\n<|id|>161<|level|>3\n<|id|>173<|level|>3\n<|id|>189<|level|>3\n<|id|>200<|level|>2\n<|id|>202<|level|>3\n<|id|>207<|level|>3\n<|id|>225<|level|>3\n<|id|>233<|level|>3\n<|id|>238<|level|>2\n<|id|>239<|level|>3\n<|id|>243<|level|>3\n<|id|>253<|level|>3\n<|id|>259<|level|>2\n<|id|>271<|level|>2",
+    "image_output": "<|src_id|>27<|tgt_id|>23\n<|src_id|>28<|tgt_id|>23\n<|src_id|>78<|tgt_id|>72\n<|src_id|>283<|tgt_id|>259\n<|src_id|>284<|tgt_id|>259\n<|src_id|>286<|tgt_id|>259\n<|src_id|>287<|tgt_id|>259\n<|src_id|>289<|tgt_id|>259",
+    "contd_label": [
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 3
+        },
+        {
+            "id": 207,
+            "level": 3
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 233,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 2
+        },
+        {
+            "id": 239,
+            "level": 3
+        },
+        {
+            "id": 243,
+            "level": 3
+        },
+        {
+            "id": 253,
+            "level": 3
+        },
+        {
+            "id": 259,
+            "level": 2
+        },
+        {
+            "id": 271,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 27,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 283,
+            "tgt_id": 259
+        },
+        {
+            "src_id": 284,
+            "tgt_id": 259
+        },
+        {
+            "src_id": 286,
+            "tgt_id": 259
+        },
+        {
+            "src_id": 287,
+            "tgt_id": 259
+        },
+        {
+            "src_id": 289,
+            "tgt_id": 259
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 27,
+            "table2_idx": 28,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "Pelagos Institutional",
+                    "Limassol, Cyprus",
+                    "$26,000,000",
+                    "3.8%",
+                    "Andreas Michailides,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Credit Fund",
+                    "",
+                    "",
+                    "",
+                    "Fund Manager"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 283,
+            "table2_idx": 284,
+            "upper_row_ss": [
+                [
+                    "Negative Covenants (§7)",
+                    "No new debt, liens, asset sales >$1M/$5M, dividends,",
+                    "Medium"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "intercompany transfers >$500K/$2M, capex above budget, management changes without notice",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

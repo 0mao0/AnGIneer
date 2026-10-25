@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11,
+        13,
+        15,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 169 108 825<|content|>IN THE UNITED STATES DISTRICT COURT FOR THE DISTRI\n<|id|>2<|page|>1<|box|>411 158 465 836<|content|>DEFENDANT SOLSTICE BIOMEDICAL, INC.'S MOTION FOR S\n<|id|>4<|page|>1<|box|>534 398 551 598<|content|>TABLE OF CONTENTS\n<|id|>6<|page|>1<|box|>599 140 616 308<|content|>I. INTRODUCTION\n<|id|>13<|page|>2<|box|>720 140 738 387<|content|>II. PROCEDURAL HISTORY\n<|id|>30<|page|>4<|box|>724 140 743 609<|content|>III. STATEMENT OF UNDISPUTED MATERIAL FACTS\n<|id|>32<|page|>5<|box|>90 140 107 426<|content|>A. The Asserted Patents and Claims\n<|id|>38<|page|>5<|box|>497 140 513 388<|content|>B. The PE-5000 Series Product\n<|id|>44<|page|>6<|box|>250 140 268 627<|content|>C. The Court's Claim Construction Order (December\n<|id|>54<|page|>7<|box|>311 140 329 663<|content|>D. Comparison of the PE-5000 to the Construed Clai\n<|id|>63<|page|>9<|box|>90 140 107 380<|content|>E. No Doctrine of Equivalents\n<|id|>68<|page|>9<|box|>707 140 724 346<|content|>IV. LEGAL STANDARD\n<|id|>75<|page|>11<|box|>185 140 203 279<|content|>V. ARGUMENT\n<|id|>76<|page|>11<|box|>217 140 234 653<|content|>A. The PE-5000 Series Does Not Literally Infringe\n<|id|>92<|page|>13<|box|>463 140 481 653<|content|>B. The PE-5000 Series Does Not Literally Infringe\n<|id|>108<|page|>15<|box|>482 140 500 723<|content|>C. The Doctrine of Equivalents Does Not Save Apex'\n<|id|>122<|page|>17<|box|>680 140 698 697<|content|>D. No Genuine Dispute of Material Fact Precludes S\n<|id|>126<|page|>18<|box|>393 140 411 537<|content|>VI. CONCLUSION AND PRAYER FOR RELIEF\n<|id|>141<|page|>19<|box|>131 140 148 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>13<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>3\n<|id|>38<|level|>3\n<|id|>44<|level|>3\n<|id|>54<|level|>3\n<|id|>63<|level|>3\n<|id|>68<|level|>2\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>92<|level|>3\n<|id|>108<|level|>3\n<|id|>122<|level|>3\n<|id|>126<|level|>2\n<|id|>141<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        }
+    ]
+}

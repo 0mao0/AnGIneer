@@ -1,0 +1,70 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>99 147 118 849<|content|>WIRE TRANSFER CONFIRMATION — IRS USER FEE PAYMENT\n<|id|>1<|type|>title<|page|>1<|box|>137 194 152 803<|content|>Internal Administrative Record — Attorney-Client P\n<|id|>2<|type|>title<|page|>1<|box|>162 142 176 833<|content|>DOCUMENT CLASSIFICATION: Internal Administrative R\n<|id|>3<|type|>table<|page|>1<|box|>181 143 402 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>450 140 468 385<|content|>Section 1: Purpose of Payment\n<|id|>9<|type|>title<|page|>2<|box|>212 140 229 462<|content|>Section 2: Taxpayer / Client Information\n<|id|>10<|type|>table<|page|>2<|box|>263 143 407 852<|content|>None\n<|id|>11<|type|>title<|page|>2<|box|>446 142 464 452<|content|>2.2 Client Contacts for Billing Purposes\n<|id|>16<|type|>title<|page|>2<|box|>621 140 638 550<|content|>2.3 Additional Entities Covered by the PLR Request\n<|id|>18<|type|>table<|page|>2<|box|>705 143 891 852<|content|>None\n<|id|>19<|type|>table<|page|>3<|box|>89 143 109 852<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>257 140 273 398<|content|>Section 3: Wire Transfer Details\n<|id|>22<|type|>table<|page|>3<|box|>308 143 367 852<|content|>None\n<|id|>24<|type|>table<|page|>3<|box|>507 143 547 852<|content|>None\n<|id|>26<|type|>title<|page|>3<|box|>685 140 702 511<|content|>3.3 Originating Bank and Account Information\n<|id|>27<|type|>table<|page|>3<|box|>705 143 800 852<|content|>None\n<|id|>29<|type|>title<|page|>4<|box|>90 142 107 496<|content|>3.4 Beneficiary / Receiving Bank Information\n<|id|>30<|type|>table<|page|>4<|box|>112 143 251 852<|content|>None\n<|id|>32<|type|>title<|page|>4<|box|>388 142 406 400<|content|>3.5 Wire Confirmation Numbers\n<|id|>33<|type|>table<|page|>4<|box|>411 145 449 852<|content|>None\n<|id|>35<|type|>title<|page|>4<|box|>588 142 604 267<|content|>3.6 Wire Status\n<|id|>36<|type|>table<|page|>4<|box|>609 143 648 852<|content|>None\n<|id|>38<|type|>title<|page|>4<|box|>779 140 795 447<|content|>Section 4: Authorization and Approval\n<|id|>43<|type|>title<|page|>5<|box|>513 140 530 480<|content|>Section 5: Responsible Accounting Contact\n<|id|>44<|type|>table<|page|>5<|box|>599 143 727 852<|content|>None\n<|id|>47<|type|>title<|page|>6<|box|>167 140 184 563<|content|>Section 6: Accompanying IRS Submission Documents\n<|id|>61<|type|>title<|page|>8<|box|>90 140 107 550<|content|>Section 7: Rev. Proc. 2025-1 Fee Schedule Referenc\n<|id|>66<|type|>title<|page|>8<|box|>508 140 527 436<|content|>Section 8: File Copy and Distribution\n<|id|>67<|type|>table<|page|>8<|box|>559 143 751 852<|content|>None\n<|id|>70<|type|>title<|page|>9<|box|>204 140 222 500<|content|>Section 9: Preparer Attestation and Approval\n<|id|>72<|type|>title<|page|>9<|box|>329 142 348 251<|content|>Prepared by:",
+    "raw_response": "<|src_id|>3<|tgt_id|>0\n<|src_id|>10<|tgt_id|>9\n<|src_id|>18<|tgt_id|>16\n<|src_id|>19<|tgt_id|>16\n<|src_id|>22<|tgt_id|>21\n<|src_id|>24<|tgt_id|>21\n<|src_id|>27<|tgt_id|>26\n<|src_id|>30<|tgt_id|>29\n<|src_id|>33<|tgt_id|>32\n<|src_id|>36<|tgt_id|>35\n<|src_id|>44<|tgt_id|>43\n<|src_id|>67<|tgt_id|>66",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 66
+        }
+    ]
+}

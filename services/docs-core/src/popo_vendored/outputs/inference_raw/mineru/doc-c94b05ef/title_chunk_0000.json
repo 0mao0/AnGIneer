@@ -1,0 +1,125 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 153 159 841<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>359 387 378 611<|content|>I. Executive Summary\n<|id|>11<|page|>2<|box|>383 294 402 702<|content|>II. Background and Transaction Context\n<|id|>12<|page|>2<|box|>426 140 444 343<|content|>A. Transaction Overview\n<|id|>29<|page|>3<|box|>643 140 660 423<|content|>B. Incremental Facility Framework\n<|id|>35<|page|>4<|box|>517 202 537 792<|content|>III. Detailed Analysis of the Most Favored Nation\n<|id|>36<|page|>4<|box|>561 142 579 297<|content|>A. Core Mechanics\n<|id|>45<|page|>5<|box|>626 140 643 405<|content|>B. Definition of \"Effective Yield\"\n<|id|>56<|page|>7<|box|>148 140 167 504<|content|>C. Applicable MFN Period (12-Month Sunset)\n<|id|>60<|page|>7<|box|>598 140 614 344<|content|>D. Scope and Carve-Outs\n<|id|>63<|page|>7<|box|>804 142 821 289<|content|>Does not apply to:\n<|id|>70<|page|>8<|box|>737 140 753 348<|content|>E. Adjustment Mechanics\n<|id|>76<|page|>9<|box|>489 271 508 727<|content|>IV. Comparison to Recent Market Precedents\n<|id|>78<|page|>9<|box|>621 142 638 297<|content|>A. MFN Threshold\n<|id|>85<|page|>10<|box|>260 142 277 277<|content|>B. Sunset Period\n<|id|>91<|page|>10<|box|>742 140 758 366<|content|>C. Effective Yield Definition\n<|id|>96<|page|>11<|box|>377 140 393 475<|content|>D. Incremental Equivalent Debt Exclusion\n<|id|>100<|page|>11<|box|>775 223 794 772<|content|>V. Borrower Considerations and Strategic Implicati\n<|id|>101<|page|>11<|box|>820 142 837 470<|content|>A. Impact on Future Financing Flexibility\n<|id|>106<|page|>12<|box|>594 142 609 444<|content|>B. Interaction with Soft Call Premium\n<|id|>112<|page|>13<|box|>277 140 294 504<|content|>C. Interaction with the Free-and-Clear Basket\n<|id|>115<|page|>13<|box|>575 380 595 617<|content|>VI. Negotiation History\n<|id|>124<|page|>14<|box|>631 300 651 697<|content|>VII. Open Items and Recommendations\n<|id|>125<|page|>14<|box|>676 140 693 380<|content|>A. Remaining Drafting Points\n<|id|>131<|page|>15<|box|>574 142 592 305<|content|>B. Recommendation\n<|id|>136<|page|>16<|box|>154 411 174 584<|content|>VIII. Conclusion\n<|id|>142<|page|>16<|box|>739 214 756 784<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>29<|level|>2\n<|id|>35<|level|>1\n<|id|>36<|level|>2\n<|id|>45<|level|>2\n<|id|>56<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>-1\n<|id|>70<|level|>2\n<|id|>76<|level|>1\n<|id|>78<|level|>2\n<|id|>85<|level|>2\n<|id|>91<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>1\n<|id|>101<|level|>2\n<|id|>106<|level|>2\n<|id|>112<|level|>2\n<|id|>115<|level|>1\n<|id|>124<|level|>1\n<|id|>125<|level|>2\n<|id|>131<|level|>2\n<|id|>136<|level|>1\n<|id|>142<|level|>-1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 1
+        }
+    ]
+}

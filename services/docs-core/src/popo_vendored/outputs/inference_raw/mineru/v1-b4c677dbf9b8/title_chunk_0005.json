@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 5,
+    "range": [
+        245,
+        297
+    ],
+    "pages": [
+        246,
+        249,
+        274,
+        276,
+        286,
+        296
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1952<|page|>246<|box|>90 449 108 547<|content|>ARTICLE I\n<|id|>1953<|page|>246<|box|>118 452 137 543<|content|>Foreword\n<|id|>1959<|page|>249<|box|>91 380 137 617<|content|>ARTICLE II Definitions and Construction\n<|id|>2073<|page|>274<|box|>91 444 108 550<|content|>ARTICLE III\n<|id|>2074<|page|>274<|box|>120 393 137 602<|content|>Participation and Service\n<|id|>2086<|page|>276<|box|>91 388 137 607<|content|>ARTICLE IV Requirements for Benefits\n<|id|>2121<|page|>286<|box|>91 370 137 626<|content|>ARTICLE V Amount of Retirement Pension\n<|id|>2181<|page|>296<|box|>210 75 225 180<|content|>Section 5.2.",
+    "raw_response": "<|id|>1952<|level|>1\n<|id|>1953<|level|>2\n<|id|>1959<|level|>1\n<|id|>2073<|level|>1\n<|id|>2074<|level|>2\n<|id|>2086<|level|>1\n<|id|>2121<|level|>1\n<|id|>2181<|level|>3",
+    "parsed": [
+        {
+            "id": 1952,
+            "level": 1
+        },
+        {
+            "id": 1953,
+            "level": 2
+        },
+        {
+            "id": 1959,
+            "level": 1
+        },
+        {
+            "id": 2073,
+            "level": 1
+        },
+        {
+            "id": 2074,
+            "level": 2
+        },
+        {
+            "id": 2086,
+            "level": 1
+        },
+        {
+            "id": 2121,
+            "level": 1
+        },
+        {
+            "id": 2181,
+            "level": 3
+        }
+    ]
+}

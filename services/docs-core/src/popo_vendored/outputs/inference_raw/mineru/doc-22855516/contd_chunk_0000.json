@@ -1,0 +1,51 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        53
+    ],
+    "pages": [
+        2,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        17,
+        18,
+        30,
+        31,
+        38,
+        39,
+        41,
+        50,
+        51,
+        52
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>14<|page|>2<|box|>234 140 268 854<|content|>WHEREAS, the parties hereto desire to set forth th...o be authenticated, issued, and delivered; ... and\n<|id|>15<|page|>2<|box|>277 140 369 854<|content|>WHEREAS, all things necessary to make this Indentu... of the Issuers and the Guarantors, have been done\n<|id|>83<|page|>8<|box|>915 140 929 400<|content|>EXECUTION VERSION — CONFIDENTIAL\n<|id|>84<|page|>9<|box|>90 138 347 856<|content|>\"Permitted Liens\" means: ... and (xii) other Liens... to exceed $50,000,000 at any one time outstanding\n<|id|>91<|page|>9<|box|>766 138 893 857<|content|>\"Sanctioned Person\" means, at any time, any Person...y the United Kingdom Office of Financial Sanctions\n<|id|>92<|page|>10<|box|>90 140 181 854<|content|>Implementation (the \"UK OFSI Consolidated List\"); ...by any Person described in clauses (i) through (v)\n<|id|>118<|page|>12<|box|>489 142 508 655<|content|>\"indenture trustee\" or \"institutional trustee\" means the Trustee; ... and\n<|id|>119<|page|>12<|box|>516 142 534 591<|content|>\"obligor\" on the Notes means the Issuers and the G... on the Notes means the Issuers and the Guarantors\n<|id|>143<|page|>13<|box|>839 140 893 854<|content|>(e) Legends. ... Each Note shall bear (i) a restri...he face of the applicable form of Note attached as\n<|id|>144<|page|>14<|box|>90 140 181 856<|content|>Exhibit A-1 or Exhibit A-2 hereto regarding restri...red by applicable law or regulation. ... 06 hereof\n<|id|>172<|page|>17<|box|>847 140 902 856<|content|>Pending the preparation of Definitive Notes, the I... Definitive Notes but may have variations that the\n<|id|>173<|page|>18<|box|>90 140 143 854<|content|>Issuers consider appropriate for temporary Notes. ...r Definitive Notes in exchange for temporary Notes\n<|id|>298<|page|>30<|box|>844 140 898 857<|content|>(a) If a Change of Control Triggering Event occurs...eof, the Issuers shall make an offer (a \"Change of\n<|id|>299<|page|>31<|box|>90 140 181 854<|content|>Control Offer\") to each Holder to repurchase all o...date of purchase (the \"Change of Control Payment\")\n<|id|>368<|page|>38<|box|>810 140 902 857<|content|>(c) The Holders of a majority in aggregate princip...rincipal of, premium (if any), and interest on the\n<|id|>369<|page|>39<|box|>90 140 145 854<|content|>Notes that have become due solely by reason of suc...amounts) have been paid or tendered to the Trustee\n<|id|>394<|page|>41<|box|>436 174 491 854<|content|>Third: ... and\n<|id|>395<|page|>41<|box|>500 174 534 854<|content|>Fourth: ... to the Issuers or as a court of compet...urisdiction may direct, any surplus then remaining\n<|id|>482<|page|>50<|box|>813 140 849 854<|content|>(j) to make any change that would provide any addi...t the legal rights hereunder of any Holder; ... or\n<|id|>484<|page|>51<|box|>90 140 236 856<|content|>Upon the request of the Issuers accompanied by a r...ustee need not execute such supplemental indenture\n<|id|>496<|page|>52<|box|>90 140 143 854<|content|>(i) make any change to, or release all or substant... Documents, or the Intercreditor Agreement; ... or\n<|id|>498<|page|>52<|box|>215 140 251 854<|content|>Any modification to the Collateral or the Security...ubject to the terms of the Intercreditor Agreement",
+    "raw_response": "<|src_id|>91<|tgt_id|>92\n<|src_id|>143<|tgt_id|>144\n<|src_id|>172<|tgt_id|>173\n<|src_id|>298<|tgt_id|>299\n<|src_id|>368<|tgt_id|>369",
+    "parsed": [
+        {
+            "src_id": 91,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 173
+        },
+        {
+            "src_id": 298,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 368,
+            "tgt_id": 369
+        }
+    ]
+}

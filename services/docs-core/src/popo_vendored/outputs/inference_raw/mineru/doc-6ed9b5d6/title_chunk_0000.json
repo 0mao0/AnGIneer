@@ -1,0 +1,59 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1 Feder\n<|id|>9<|page|>1<|box|>575 140 594 450<|content|>I. Background of the discovery Dispute\n<|id|>13<|page|>2<|box|>194 140 210 584<|content|>II. Identification of the Challenged Privilege Log\n<|id|>17<|page|>2<|box|>679 140 696 596<|content|>III. Penterra's Legal Position on Attorney-Client\n<|id|>18<|page|>2<|box|>709 140 727 761<|content|>A. The Communications Were Made for the Purpose of\n<|id|>23<|page|>4<|box|>90 140 107 650<|content|>B. The Communications Were Made in Anticipation of\n<|id|>27<|page|>4<|box|>654 140 671 478<|content|>C. Vantage's Characterization Is Incorrect\n<|id|>32<|page|>5<|box|>439 140 457 354<|content|>IV. No Waiver of Privilege\n<|id|>38<|page|>6<|box|>314 140 332 331<|content|>V. Proposed Resolution\n<|id|>44<|page|>6<|box|>832 140 849 344<|content|>VI. Reservation of Rights",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>23<|level|>3\n<|id|>27<|level|>3\n<|id|>32<|level|>2\n<|id|>38<|level|>2\n<|id|>44<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        }
+    ]
+}

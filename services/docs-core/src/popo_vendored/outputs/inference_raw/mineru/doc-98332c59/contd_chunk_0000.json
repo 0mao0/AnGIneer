@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>176 140 194 673<|content|>VERIMARK HOSPITALITY GROUP INC. ... , a Delaware corporation,\n<|id|>2<|page|>1<|box|>202 210 219 284<|content|>Plaintiff,\n<|id|>4<|page|>1<|box|>253 140 308 856<|content|>COASTAL PALMS FRANCHISE HOLDINGS LLC, a Florida limited liability company; ... , a Florida corporation,\n<|id|>5<|page|>1<|box|>316 212 332 305<|content|>Defendants. ... Defendants\n<|id|>7<|page|>1<|box|>402 212 419 385<|content|>Counterclaim Plaintiff,\n<|id|>9<|page|>1<|box|>454 142 470 496<|content|>VERIMARK HOSPITALITY GROUP INC. ... ,\n<|id|>10<|page|>1<|box|>479 212 496 400<|content|>Counterclaim Defendant. ... Counterclaim Defendant\n<|id|>31<|page|>5<|box|>321 174 358 854<|content|>(b) A marketing-fund contribution equal to two and one-half percent (2. ... and\n<|id|>33<|page|>5<|box|>446 140 686 857<|content|>Verimark further affirmatively states that the pro...k denies the remaining allegations of Paragraph 13\n<|id|>46<|page|>6<|box|>856 140 892 854<|content|>Coastal Palms failed to take reasonable and timely...ribed in the Counterclaim. ... Without limitation,\n<|id|>47<|page|>7<|box|>90 140 218 854<|content|>Coastal Palms failed to timely notify Verimark of ..., bars or reduces any recovery on the Counterclaim\n<|id|>53<|page|>7<|box|>854 174 891 854<|content|>(b) Marketing-fund contribution underpayments (2. ... and\n<|id|>55<|page|>8<|box|>133 140 207 854<|content|>Coastal Palms' knowing and willful misconduct in p...ainst Verimark in connection with the Counterclaim\n<|id|>81<|page|>10<|box|>351 140 368 465<|content|>Priya Anand, Esq. ... 0087451\n<|id|>82<|page|>10<|box|>368 140 385 522<|content|>Douglas Carmichael, Esq. ... 0093217\n<|id|>83<|page|>10<|box|>385 140 402 493<|content|>Yuki Nakamura, Esq. ... 0119644\n<|id|>84<|page|>10<|box|>402 140 419 493<|content|>Carlos Espinoza, Esq. ... 0128903\n<|id|>85<|page|>10<|box|>419 140 452 854<|content|>110 SE 6th Street, Suite 2800 Fort Lauderdale, Florida 33301 Telephone: ... (954) 761-8201\n<|id|>86<|page|>10<|box|>453 140 470 738<|content|>Attorneys for Plaintiff / Counterclaim Defendant V...nterclaim Defendant Verimark Hospitality Group Inc",
+    "raw_response": "<|src_id|>46<|tgt_id|>47\n<|src_id|>53<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 55
+        }
+    ]
+}

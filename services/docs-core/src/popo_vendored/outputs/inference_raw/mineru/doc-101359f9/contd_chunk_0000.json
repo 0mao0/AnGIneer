@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        13,
+        15,
+        16,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>348 310 364 687<|content|>Filed as Exhibit A to Plaintiff's Original Complaint\n<|id|>4<|page|>1<|box|>375 697 391 854<|content|>Filed: ... April 22, 2024\n<|id|>5<|page|>1<|box|>398 143 417 573<|content|>Attorneys for Plaintiff Optiwave Semiconductor Cor...ttorneys for Plaintiff Optiwave Semiconductor Corp\n<|id|>6<|page|>1<|box|>424 142 441 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>7<|page|>1<|box|>450 140 505 854<|content|>Alan Ngo, Responsible Partner (CA Bar No. ... (213) 555-7201\n<|id|>8<|page|>1<|box|>513 143 530 434<|content|>Email: ... com\n<|id|>9<|page|>1<|box|>531 143 547 470<|content|>Email: ... com\n<|id|>10<|page|>1<|box|>549 143 565 264<|content|>Local Counsel: ... Local Counsel\n<|id|>11<|page|>1<|box|>574 143 590 421<|content|>WHITMORE & CALLAHAN LLP\n<|id|>12<|page|>1<|box|>599 142 636 852<|content|>James \"Jim\" Callahan (TX Bar No. ... (903) 555-1401\n<|id|>13<|page|>1<|box|>643 143 678 612<|content|>Email: ... com UNITED STATES PATENT\n<|id|>26<|page|>2<|box|>359 142 404 669<|content|>(51) Int. ... 01)\n<|id|>28<|page|>2<|box|>435 174 474 854<|content|>CPC — G02B 6/12007 (2013. ... 01)\n<|id|>30<|page|>2<|box|>506 174 563 854<|content|>CPC — G02B 6/12007; ... 398/79, 82, 83, 87 See application file for complete search history\n<|id|>29<|page|>2<|box|>481 142 500 408<|content|>(58) Field of Classification Search\n<|id|>125<|page|>13<|box|>597 174 633 854<|content|>wherein the waveguide multiplexer achieves an insertion loss of less than approximately 1. ... and\n<|id|>126<|page|>13<|box|>642 174 679 854<|content|>wherein the waveguide multiplexer is fabricated us...ary metal-oxide-semiconductor (CMOS) manufacturing\n<|id|>143<|page|>15<|box|>90 174 127 854<|content|>a first plurality of coupling stages, each configu... onto a respective intermediate waveguide; ... and\n<|id|>144<|page|>15<|box|>133 174 171 854<|content|>a second coupling stage configured to combine opti...ediate waveguides onto the single output waveguide\n<|id|>149<|page|>15<|box|>337 174 375 854<|content|>at least one laser source optically coupled to the...ier signals at the respective wavelengths; ... and\n<|id|>150<|page|>15<|box|>381 174 417 854<|content|>wherein the silicon photonic integrated circuit is...gh-bandwidth data-center interconnect applications\n<|id|>169<|page|>16<|box|>679 142 696 558<|content|>Certifying Officer Office of Patent Legal Administration\n<|id|>170<|page|>16<|box|>696 143 713 413<|content|>Date of Certification: ... April 15, 2024\n<|id|>183<|page|>18<|box|>306 140 324 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>184<|page|>18<|box|>325 143 343 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>125<|tgt_id|>126\n<|src_id|>143<|tgt_id|>144\n<|src_id|>149<|tgt_id|>150",
+    "parsed": [
+        {
+            "src_id": 125,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 150
+        }
+    ]
+}

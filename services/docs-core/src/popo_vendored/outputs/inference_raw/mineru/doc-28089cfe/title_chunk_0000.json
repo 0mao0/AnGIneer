@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>354 142 369 651<|content|>1. Purpose of This Letter and Confirmation of Matt\n<|id|>14<|page|>1<|box|>674 140 691 393<|content|>2. Summary of the Engagement\n<|id|>23<|page|>2<|box|>353 140 369 493<|content|>3. Summary of Key Milestones and Outcome\n<|id|>35<|page|>3<|box|>583 140 599 450<|content|>4. Summary of Final Agreement Terms\n<|id|>51<|page|>5<|box|>348 140 364 343<|content|>5. Final Billing Summary\n<|id|>53<|page|>5<|box|>422 142 439 308<|content|>5.1 Professional Fees\n<|id|>57<|page|>5<|box|>684 142 700 300<|content|>5.2 Costs Advanced\n<|id|>61<|page|>6<|box|>157 140 175 514<|content|>5.3 Total Client Obligation and Payment Status\n<|id|>66<|page|>6<|box|>436 140 454 326<|content|>6. Enclosed Documents\n<|id|>75<|page|>6<|box|>733 142 750 401<|content|>7. Document Retention Advisory\n<|id|>79<|page|>7<|box|>267 140 284 504<|content|>8. Continuing Obligations and Future Matters\n<|id|>87<|page|>8<|box|>90 140 107 377<|content|>9. Expression of Appreciation",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>23<|level|>2\n<|id|>35<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>3\n<|id|>57<|level|>3\n<|id|>61<|level|>3\n<|id|>66<|level|>2\n<|id|>75<|level|>2\n<|id|>79<|level|>2\n<|id|>87<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        }
+    ]
+}

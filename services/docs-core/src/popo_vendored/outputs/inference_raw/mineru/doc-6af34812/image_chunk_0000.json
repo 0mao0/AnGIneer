@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 331 133 666<|content|>WIRE TRANSFER INSTRUCTIONS PAYOFF OF EXISTING TERM\n<|id|>7<|type|>title<|page|>1<|box|>477 140 494 364<|content|>1. Purpose and Background\n<|id|>14<|type|>title<|page|>2<|box|>421 140 439 364<|content|>2. Payoff Amount Summary\n<|id|>16<|type|>table<|page|>2<|box|>507 143 632 852<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>421 140 439 792<|content|>3. Wire Transfer Instructions — Greystone Federal\n<|id|>23<|type|>table<|page|>3<|box|>525 143 824 852<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>859 143 877 508<|content|>Important Notes Regarding Wire Instructions:\n<|id|>29<|type|>title<|page|>4<|box|>411 140 428 638<|content|>4. Wire Originator Information — Crescent Harbor B\n<|id|>31<|type|>table<|page|>4<|box|>515 143 691 852<|content|>None\n<|id|>32<|type|>title<|page|>4<|box|>726 140 743 557<|content|>Authorized Contacts at Crescent Harbor Bank, N.A.:\n<|id|>37<|type|>title<|page|>5<|box|>186 140 204 442<|content|>5. Timing and Settlement Instructions\n<|id|>49<|type|>title<|page|>6<|box|>219 140 237 493<|content|>6. Confirmation and Notification Procedures\n<|id|>62<|type|>title<|page|>7<|box|>268 140 287 524<|content|>7. Cross-Reference to Funds Flow Memorandum\n<|id|>65<|type|>table<|page|>7<|box|>436 143 568 852<|content|>None\n<|id|>68<|type|>title<|page|>7<|box|>787 140 805 436<|content|>8. Disclaimers and Important Notices\n<|id|>74<|type|>title<|page|>9<|box|>89 142 107 372<|content|>Signature and Contact Block\n<|id|>76<|type|>title<|page|>9<|box|>141 142 157 437<|content|>PREPARED AND DELIVERED BY:\n<|id|>83<|type|>title<|page|>9<|box|>287 143 303 284<|content|>APPROVED BY:\n<|id|>109<|type|>title<|page|>11<|box|>89 142 107 261<|content|>APPENDIX A\n<|id|>110<|type|>title<|page|>11<|box|>114 339 133 656<|content|>Copy of Payoff Letter Wire Instructions\n<|id|>111<|type|>title<|page|>11<|box|>142 220 159 774<|content|>Payoff Letter dated July 19, 2022 Issued by Greyst\n<|id|>113<|type|>title<|page|>11<|box|>250 142 265 328<|content|>Issuer of Payoff Letter:\n<|id|>117<|type|>title<|page|>11<|box|>344 142 359 313<|content|>Payoff Letter Details:\n<|id|>122<|type|>title<|page|>11<|box|>448 142 465 447<|content|>Notation Regarding Wire Instructions.\n<|id|>125<|type|>title<|page|>11<|box|>617 336 635 660<|content|>[Payoff Letter attached on following pages]",
+    "raw_response": "<|src_id|>16<|tgt_id|>14\n<|src_id|>23<|tgt_id|>21\n<|src_id|>31<|tgt_id|>29\n<|src_id|>65<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 62
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 60,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['73', 'Final Billing Summary and Trust Account Reconciliation', 'Oct 3, 2024', 'C&H Billing', 'Not Privileged (billing record)', 'Cumulative engagement financial summary: total fees billed $487,350.00;']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', 'total disbursements $8,275.00; total engagement cost $495,625.00; retainer held $75,000.00; retainer applied to final invoice $75,000.00; total payments received from client $420,625.00; net balance due $0.00. Trust account balance after application of retainer: $0.00.']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 119,
+    "table2_idx": 120
+}

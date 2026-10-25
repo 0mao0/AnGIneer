@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        94
+    ],
+    "pages": [
+        47,
+        49,
+        53,
+        55,
+        56,
+        58,
+        61,
+        64,
+        68,
+        84,
+        85,
+        88,
+        89,
+        90,
+        91,
+        94
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>320<|page|>47<|box|>621 107 638 305<|content|>D.9 涌水突泥(钻爆法)\n<|id|>325<|page|>49<|box|>630 107 646 297<|content|>D.10 大变形(钻爆法)\n<|id|>332<|page|>53<|box|>835 107 851 315<|content|>D.11 瓦斯爆炸(钻爆法)\n<|id|>336<|page|>55<|box|>620 107 636 280<|content|>D.12 岩爆(钻爆法)\n<|id|>340<|page|>56<|box|>642 107 658 332<|content|>D.13 掌子面失稳(盾构法)\n<|id|>345<|page|>58<|box|>564 107 580 371<|content|>D.14 建(构)筑物受损(盾构法)\n<|id|>351<|page|>61<|box|>556 107 571 280<|content|>D.15 突水(盾构法)\n<|id|>357<|page|>64<|box|>285 107 300 332<|content|>D.16 盾构机损伤(盾构法)\n<|id|>364<|page|>68<|box|>126 453 143 544<|content|>附 录 E\n<|id|>396<|page|>84<|box|>126 453 142 544<|content|>附 录 F\n<|id|>398<|page|>84<|box|>167 398 183 598<|content|>重要性排序法权重系数表\n<|id|>404<|page|>85<|box|>200 107 217 359<|content|>G.1 常用的评估方法及其特点\n<|id|>409<|page|>88<|box|>114 107 130 221<|content|>G. 2 LEC 法\n<|id|>417<|page|>88<|box|>722 107 739 235<|content|>G.3 检查表法\n<|id|>423<|page|>89<|box|>611 107 627 253<|content|>G.4 层次分析法\n<|id|>439<|page|>90<|box|>854 107 871 235<|content|>G.5 点估计法\n<|id|>466<|page|>91<|box|>854 107 870 270<|content|>G.6 未确知测度法\n<|id|>490<|page|>94<|box|>129 445 146 552<|content|>参 考 文 献",
+    "raw_response": "<|id|>320<|level|>3\n<|id|>325<|level|>3\n<|id|>332<|level|>3\n<|id|>336<|level|>3\n<|id|>340<|level|>3\n<|id|>345<|level|>3\n<|id|>351<|level|>3\n<|id|>357<|level|>3\n<|id|>364<|level|>1\n<|id|>396<|level|>1\n<|id|>398<|level|>2\n<|id|>404<|level|>2\n<|id|>409<|level|>2\n<|id|>417<|level|>2\n<|id|>423<|level|>2\n<|id|>439<|level|>2\n<|id|>466<|level|>2\n<|id|>490<|level|>1",
+    "parsed": [
+        {
+            "id": 320,
+            "level": 3
+        },
+        {
+            "id": 325,
+            "level": 3
+        },
+        {
+            "id": 332,
+            "level": 3
+        },
+        {
+            "id": 336,
+            "level": 3
+        },
+        {
+            "id": 340,
+            "level": 3
+        },
+        {
+            "id": 345,
+            "level": 3
+        },
+        {
+            "id": 351,
+            "level": 3
+        },
+        {
+            "id": 357,
+            "level": 3
+        },
+        {
+            "id": 364,
+            "level": 1
+        },
+        {
+            "id": 396,
+            "level": 1
+        },
+        {
+            "id": 398,
+            "level": 2
+        },
+        {
+            "id": 404,
+            "level": 2
+        },
+        {
+            "id": 409,
+            "level": 2
+        },
+        {
+            "id": 417,
+            "level": 2
+        },
+        {
+            "id": 423,
+            "level": 2
+        },
+        {
+            "id": 439,
+            "level": 2
+        },
+        {
+            "id": 466,
+            "level": 2
+        },
+        {
+            "id": 490,
+            "level": 1
+        }
+    ]
+}

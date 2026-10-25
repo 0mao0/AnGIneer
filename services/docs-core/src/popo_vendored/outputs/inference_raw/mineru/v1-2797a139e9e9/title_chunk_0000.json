@@ -1,0 +1,48 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 265<|content|>【229730#6】大快活\n<|id|>4<|page|>1<|box|>293 107 309 292<|content|>【1233589#2】富臨集團\n<|id|>6<|page|>1<|box|>462 107 478 275<|content|>【6976473#7】洪为民\n<|id|>8<|page|>1<|box|>563 107 579 319<|content|>【3093213#14】拉罗克布鲁\n<|id|>10<|page|>1<|box|>630 107 645 265<|content|>【5935810#16】里奥\n<|id|>12<|page|>1<|box|>714 107 728 275<|content|>【1168350#8】黃永幟\n<|id|>14<|page|>1<|box|>780 107 795 284<|content|>【6755109#3】優品360\n<|id|>16<|page|>2<|box|>83 107 99 354<|content|>【556031#8】巴黎大眾運輸公司",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        }
+    ]
+}

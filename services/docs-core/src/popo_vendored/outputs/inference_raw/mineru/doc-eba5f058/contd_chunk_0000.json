@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 140 176 767<|content|>TO: ... 1021-00008)\n<|id|>3<|page|>1<|box|>186 142 203 545<|content|>FROM: ... Liam Donahue, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>212 142 229 328<|content|>DATE: ... August 22, 2023\n<|id|>5<|page|>1<|box|>237 140 273 852<|content|>RE: ... Interview of Thomas Rhett Griffith, Chief Financial Officer, Verimark Hospitality Group Inc\n<|id|>54<|page|>6<|box|>845 140 901 856<|content|>Griffith stated he was \"surprised and concerned\" b...ated that he immediately discussed the matter with\n<|id|>55<|page|>7<|box|>89 140 164 854<|content|>CEO Calder and General Counsel Patricia Navarro, b...nts, and the appropriate steps to take in response\n<|id|>116<|page|>13<|box|>821 140 895 856<|content|>As of the date of this interview, August 22, 2023,...tter was anticipated following the August 14, 2023\n<|id|>117<|page|>14<|box|>89 140 127 854<|content|>Form 8-K filing. ... Griffith stated that he expec... should be prepared to respond to any such inquiry",
+    "raw_response": "<|src_id|>54<|tgt_id|>55\n<|src_id|>116<|tgt_id|>117",
+    "parsed": [
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 117
+        }
+    ]
+}

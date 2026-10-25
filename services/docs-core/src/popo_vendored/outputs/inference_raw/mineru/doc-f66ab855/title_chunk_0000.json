@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>5<|page|>1<|box|>367 362 383 633<|content|>UCC FINANCING STATEMENT\n<|id|>7<|page|>1<|box|>434 143 450 433<|content|>Box 1 — DEBTOR INFORMATION\n<|id|>10<|page|>1<|box|>825 143 843 318<|content|>1b. Individual's Name\n<|id|>13<|page|>2<|box|>282 143 299 415<|content|>1d. Additional Debtor Information\n<|id|>16<|page|>2<|box|>529 142 547 416<|content|>Box 2 — ADDITIONAL DEBTOR\n<|id|>18<|page|>2<|box|>651 142 669 509<|content|>Box 3 — SECURED PARTY INFORMATION\n<|id|>21<|page|>3<|box|>90 142 106 318<|content|>3b. Individual's Name\n<|id|>23<|page|>3<|box|>145 142 161 303<|content|>3c. Mailing Address\n<|id|>25<|page|>3<|box|>328 143 344 475<|content|>Box 4 — COLLATERAL DESCRIPTION\n<|id|>44<|page|>4<|box|>616 140 633 344<|content|>Pledged Equity Interests:\n<|id|>46<|page|>4<|box|>851 140 869 408<|content|>Reference to Security Agreement:\n<|id|>52<|page|>6<|box|>89 142 107 614<|content|>Box 7 — FILING OFFICE COPY / ACKNOWLEDGMENT\n<|id|>53<|page|>6<|box|>116 142 133 413<|content|>Return Acknowledgment Copy to:\n<|id|>58<|page|>7<|box|>89 142 106 665<|content|>AUTHORIZED SIGNATURE / FILING PARTY INFORMATION\n<|id|>65<|page|>7<|box|>443 142 459 253<|content|>FILING FEE\n<|id|>67<|page|>7<|box|>604 320 621 676<|content|>CONTEXT NOTE FOR CLOSING BINDER\n<|id|>73<|page|>8<|box|>390 140 407 364<|content|>Termination of Prior Liens:\n<|id|>75<|page|>8<|box|>625 140 642 506<|content|>Role of the Debtor — CFC Holding Company:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>1\n<|id|>7<|level|>2\n<|id|>10<|level|>3\n<|id|>13<|level|>3\n<|id|>16<|level|>2\n<|id|>18<|level|>2\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>25<|level|>2\n<|id|>44<|level|>3\n<|id|>46<|level|>3\n<|id|>52<|level|>2\n<|id|>53<|level|>-1\n<|id|>58<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2\n<|id|>73<|level|>3\n<|id|>75<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 259 128 854<|content|>CALDERWOOD & HARKNESS LLP 125 Broad Street New Yor\n<|id|>9<|type|>title<|page|>1<|box|>426 140 444 339<|content|>1. Opening / Transmittal\n<|id|>14<|type|>title<|page|>2<|box|>90 140 107 514<|content|>2. Transmittal of Executed Original Documents\n<|id|>17<|type|>title<|page|>2<|box|>359 140 375 431<|content|>2.2 Index of Transmitted Documents\n<|id|>19<|type|>title<|page|>2<|box|>411 142 426 348<|content|>A. Core Loan Documents.\n<|id|>24<|type|>table<|page|>2<|box|>693 143 862 852<|content|>None\n<|id|>27<|type|>title<|page|>3<|box|>193 142 210 357<|content|>B. US Security Documents.\n<|id|>35<|type|>title<|page|>3<|box|>838 140 854 398<|content|>C. German Security Documents.\n<|id|>44<|type|>title<|page|>4<|box|>657 142 675 292<|content|>D. Legal Opinions.\n<|id|>50<|type|>title<|page|>5<|box|>452 143 469 331<|content|>E. Closing Deliverables.\n<|id|>52<|type|>table<|page|>5<|box|>512 143 602 852<|content|>None\n<|id|>53<|type|>table<|page|>5<|box|>633 143 765 852<|content|>None\n<|id|>66<|type|>title<|page|>6<|box|>852 142 869 434<|content|>F. Sanctions & KYC Documentation.\n<|id|>71<|type|>title<|page|>7<|box|>434 140 450 328<|content|>G. Tax Documentation.\n<|id|>73<|type|>title<|page|>7<|box|>579 142 595 316<|content|>2.3 Note on Retention\n<|id|>75<|type|>title<|page|>7<|box|>791 140 808 357<|content|>3. Post-Closing Obligations\n<|id|>78<|type|>title<|page|>8<|box|>138 140 157 380<|content|>3.1 UCC Continuation Filings\n<|id|>83<|type|>title<|page|>8<|box|>674 140 691 544<|content|>3.2 German Grundbuch Registration Confirmation\n<|id|>88<|type|>title<|page|>9<|box|>393 140 410 470<|content|>3.3 Annual Insurance Certificate Delivery\n<|id|>92<|type|>title<|page|>9<|box|>773 140 790 444<|content|>3.4 Quarterly Compliance Certificates\n<|id|>100<|type|>title<|page|>10<|box|>580 140 598 439<|content|>3.5 Quarterly Amortization Payments\n<|id|>106<|type|>title<|page|>11<|box|>138 140 157 462<|content|>3.6 Annual Financial Statement Delivery\n<|id|>109<|type|>title<|page|>11<|box|>476 140 493 367<|content|>3.7 Excess Cash Flow Sweep\n<|id|>111<|type|>table<|page|>11<|box|>578 143 669 852<|content|>None\n<|id|>113<|type|>title<|page|>11<|box|>825 140 843 413<|content|>3.8 Change of Control Monitoring\n<|id|>116<|type|>title<|page|>12<|box|>294 140 311 506<|content|>3.9 Ongoing OFAC and Sanctions Compliance\n<|id|>120<|type|>title<|page|>12<|box|>638 140 654 419<|content|>3.10 Soft Call Protection Reminder\n<|id|>123<|type|>title<|page|>13<|box|>90 140 107 370<|content|>4. Key Compliance Calendar\n<|id|>125<|type|>table<|page|>13<|box|>232 143 896 852<|content|>None\n<|id|>126<|type|>table<|page|>14<|box|>89 143 622 852<|content|>None\n<|id|>127<|type|>title<|page|>14<|box|>671 142 689 397<|content|>5. Notice Information Reminder\n<|id|>129<|type|>title<|page|>14<|box|>742 143 758 321<|content|>Administrative Agent:\n<|id|>146<|type|>title<|page|>15<|box|>429 140 445 522<|content|>6. Calderwood & Harkness Ongoing Availability\n<|id|>161<|type|>title<|page|>16<|box|>174 142 189 300<|content|>7. Closing Remarks\n<|id|>181<|type|>title<|page|>16<|box|>883 143 898 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>24<|tgt_id|>19\n<|src_id|>52<|tgt_id|>50\n<|src_id|>53<|tgt_id|>50\n<|src_id|>111<|tgt_id|>109\n<|src_id|>125<|tgt_id|>123\n<|src_id|>126<|tgt_id|>123",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 123
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 148 142 846<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF REDSTONE\n<|id|>4<|page|>1<|box|>362 140 378 241<|content|>RECITALS\n<|id|>15<|page|>2<|box|>782 140 800 279<|content|>RESOLUTIONS\n<|id|>36<|page|>5<|box|>611 140 628 267<|content|>SIGNATURES\n<|id|>54<|page|>6<|box|>573 300 589 697<|content|>CERTIFICATE OF CORPORATE SECRETARY",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>15<|level|>2\n<|id|>36<|level|>2\n<|id|>54<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        }
+    ]
+}

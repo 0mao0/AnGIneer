@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 148 142 848<|content|>RESOLUTIONS OF THE BOARD OF TRUSTEES OF FAIRWATER\n<|id|>5<|page|>1<|box|>319 142 335 243<|content|>RECITALS\n<|id|>6<|page|>1<|box|>344 140 361 246<|content|>WHEREAS:\n<|id|>22<|page|>5<|box|>186 140 203 279<|content|>RESOLUTIONS\n<|id|>23<|page|>5<|box|>212 140 229 522<|content|>NOW, THEREFORE, BE IT RESOLVED, that:\n<|id|>24<|page|>5<|box|>244 140 260 560<|content|>Resolution 1 — Authorization of the Permanent Loan\n<|id|>26<|page|>5<|box|>444 140 460 535<|content|>Resolution 2 — Authorization of Loan Documents\n<|id|>40<|page|>6<|box|>797 142 814 573<|content|>Resolution 3 — Authorization of Guaranty Obligatio\n<|id|>45<|page|>7<|box|>393 140 429 854<|content|>Resolution 4 — Authorization of Carve-Out Guaranto\n<|id|>47<|page|>7<|box|>703 140 738 854<|content|>Resolution 5 — Authorization to Direct Fairwater O\n<|id|>53<|page|>8<|box|>375 142 391 593<|content|>Resolution 6 — Authorization of Bridge Loan Repaym\n<|id|>57<|page|>9<|box|>138 140 157 547<|content|>Resolution 7 — Authorization of Rate Lock Deposit\n<|id|>59<|page|>9<|box|>395 140 412 537<|content|>Resolution 8 — Authorization of Loan Application\n<|id|>61<|page|>9<|box|>595 140 613 702<|content|>Resolution 9 — Authorization of Origination Fee an\n<|id|>72<|page|>10<|box|>342 140 359 550<|content|>Resolution 10 — Designation of Authorized Officers\n<|id|>82<|page|>11<|box|>330 140 347 584<|content|>Resolution 11 — Ratification of Engagement of Advi\n<|id|>87<|page|>11<|box|>664 140 681 645<|content|>Resolution 12 — Delegation of Authority for Minist\n<|id|>96<|page|>12<|box|>345 140 363 529<|content|>Resolution 13 — Authorization of Legal Opinions\n<|id|>105<|page|>13<|box|>90 140 107 571<|content|>Resolution 14 — Compliance with REIT Requirements\n<|id|>111<|page|>13<|box|>541 140 558 455<|content|>Resolution 15 — General Authorization\n<|id|>115<|page|>14<|box|>167 367 184 630<|content|>SECRETARY'S CERTIFICATE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>6<|level|>-1\n<|id|>22<|level|>2\n<|id|>23<|level|>-1\n<|id|>24<|level|>3\n<|id|>26<|level|>3\n<|id|>40<|level|>3\n<|id|>45<|level|>3\n<|id|>47<|level|>3\n<|id|>53<|level|>3\n<|id|>57<|level|>3\n<|id|>59<|level|>3\n<|id|>61<|level|>3\n<|id|>72<|level|>3\n<|id|>82<|level|>3\n<|id|>87<|level|>3\n<|id|>96<|level|>3\n<|id|>105<|level|>3\n<|id|>111<|level|>3\n<|id|>115<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 2
+        }
+    ]
+}

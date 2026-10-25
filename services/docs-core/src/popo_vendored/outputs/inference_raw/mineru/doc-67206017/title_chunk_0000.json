@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>135 281 154 715<|content|>599 Lexington Avenue, 38th Floor New York, NY 1002\n<|id|>2<|page|>1<|box|>176 238 194 758<|content|>MEMORANDUM — CONFIDENTIAL / INTERNAL USE ONLY\n<|id|>9<|page|>1<|box|>392 142 409 454<|content|>1. Purpose and Summary of Conclusion\n<|id|>14<|page|>2<|box|>90 140 107 480<|content|>2. Description of the Proposed Engagement\n<|id|>15<|page|>2<|box|>121 140 138 331<|content|>2.1 Client Identification\n<|id|>17<|page|>2<|box|>207 142 224 452<|content|>Halcyon Semiconductor AG (\"HSAG\")\n<|id|>32<|page|>2<|box|>819 142 835 380<|content|>2.2 Nature of the Engagement\n<|id|>51<|page|>4<|box|>401 140 419 596<|content|>2.3 Affiliated Entities (Not Directly Engaged but\n<|id|>55<|page|>4<|box|>773 140 791 434<|content|>3. Parties and Third Parties Checked\n<|id|>61<|page|>5<|box|>376 140 393 524<|content|>3.2 Client Officers, Directors, and Key Personnel\n<|id|>65<|page|>5<|box|>782 140 799 488<|content|>3.3 Adverse Party / Government Authorities\n<|id|>71<|page|>6<|box|>391 140 409 496<|content|>3.4 Co-Counsel and Coordinating Law Firms\n<|id|>76<|page|>6<|box|>809 140 825 491<|content|>3.5 Subcontracted Consultants and Advisors\n<|id|>82<|page|>7<|box|>771 142 787 339<|content|>3.6 Independent Auditor\n<|id|>88<|page|>8<|box|>537 140 554 341<|content|>3.7 Financial Institutions\n<|id|>96<|page|>9<|box|>465 140 483 393<|content|>3.8 Data Sources and Databases\n<|id|>100<|page|>9<|box|>739 140 755 388<|content|>4. Conflict Check Methodology\n<|id|>111<|page|>10<|box|>685 140 703 421<|content|>5. Engagement Team Confirmation\n<|id|>115<|page|>11<|box|>219 140 237 364<|content|>6. Ethical Rules Considered\n<|id|>123<|page|>12<|box|>359 140 376 370<|content|>7. Conclusion and Clearance\n<|id|>127<|page|>12<|box|>770 140 787 250<|content|>8. Approvals",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>-1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>17<|level|>-1\n<|id|>32<|level|>3\n<|id|>51<|level|>3\n<|id|>55<|level|>2\n<|id|>61<|level|>3\n<|id|>65<|level|>3\n<|id|>71<|level|>3\n<|id|>76<|level|>3\n<|id|>82<|level|>3\n<|id|>88<|level|>3\n<|id|>96<|level|>3\n<|id|>100<|level|>2\n<|id|>111<|level|>2\n<|id|>115<|level|>2\n<|id|>123<|level|>2\n<|id|>127<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        }
+    ]
+}

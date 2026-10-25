@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 330 107 666<|content|>SECTION 754 ELECTION STATEMENT\n<|id|>1<|page|>1<|box|>114 238 133 759<|content|>PINNACLE HEALTH SERVICES GROUP LLC EIN: 82-1947632\n<|id|>6<|page|>1<|box|>263 349 284 647<|content|>I. COVER MEMORANDUM\n<|id|>7<|page|>1<|box|>301 140 319 292<|content|>MEMORANDUM\n<|id|>22<|page|>2<|box|>655 140 672 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>23<|page|>2<|box|>683 256 700 740<|content|>II. ELECTION STATEMENT — SECTION 754\n<|id|>24<|page|>2<|box|>728 142 744 295<|content|>A. Formal Caption\n<|id|>33<|page|>3<|box|>366 142 383 334<|content|>B. Statement of Election\n<|id|>39<|page|>4<|box|>90 140 107 326<|content|>C. Triggering Transfer\n<|id|>52<|page|>5<|box|>246 143 263 230<|content|>Key Dates.\n<|id|>56<|page|>5<|box|>369 140 387 630<|content|>D. Section 743(b) Basis Adjustment — Summary Compu\n<|id|>58<|page|>5<|box|>494 176 513 774<|content|>Transferee's Cost Basis in Partnership Interest (O\n<|id|>64<|page|>6<|box|>241 140 258 624<|content|>E. Allocation of Section 743(b) Adjustment Under S\n<|id|>77<|page|>8<|box|>296 233 340 763<|content|>III. FILING INSTRUCTIONS AND PROCEDURAL REQUIREMEN\n<|id|>78<|page|>8<|box|>366 142 383 328<|content|>A. Filing Requirements\n<|id|>83<|page|>9<|box|>90 140 107 277<|content|>B. Irrevocability\n<|id|>87<|page|>9<|box|>483 140 500 374<|content|>C. Related Filing Obligations\n<|id|>97<|page|>11<|box|>90 364 109 633<|content|>IV. SIGNATURE BLOCK\n<|id|>100<|page|>11<|box|>286 140 304 529<|content|>PINNACLE HEALTH SERVICES GROUP LLC\n<|id|>107<|page|>11<|box|>422 227 443 769<|content|>V. APPENDICES / ATTACHMENTS REFERENCED\n<|id|>113<|page|>12<|box|>253 259 272 736<|content|>VI. DISCLAIMER AND PRIVILEGE NOTICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>6<|level|>2\n<|id|>7<|level|>3\n<|id|>22<|level|>-1\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>3\n<|id|>52<|level|>4\n<|id|>56<|level|>3\n<|id|>58<|level|>4\n<|id|>64<|level|>3\n<|id|>77<|level|>2\n<|id|>78<|level|>3\n<|id|>83<|level|>3\n<|id|>87<|level|>3\n<|id|>97<|level|>2\n<|id|>100<|level|>-1\n<|id|>107<|level|>2\n<|id|>113<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 4
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        }
+    ]
+}

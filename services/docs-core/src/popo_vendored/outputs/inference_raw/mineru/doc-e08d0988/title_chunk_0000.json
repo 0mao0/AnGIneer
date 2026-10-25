@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>411 140 429 264<|content|>I. Introduction\n<|id|>15<|page|>2<|box|>250 140 266 808<|content|>II. Response to Comment No. 1: AERMOD Receptor Gri\n<|id|>16<|page|>2<|box|>279 140 297 398<|content|>A. Summary of IDNR Comment\n<|id|>18<|page|>2<|box|>500 140 516 285<|content|>B. GAP Response\n<|id|>30<|page|>4<|box|>377 140 412 852<|content|>III. Response to Comment No. 2: Startup and Shutdo\n<|id|>31<|page|>4<|box|>426 140 443 398<|content|>A. Summary of IDNR Comment\n<|id|>33<|page|>4<|box|>664 140 681 285<|content|>B. GAP Response\n<|id|>51<|page|>7<|box|>330 140 349 797<|content|>IV. Response to Comment No. 3: Baghouse Filter PM\n<|id|>52<|page|>7<|box|>363 142 378 398<|content|>A. Summary of IDNR Comment\n<|id|>54<|page|>7<|box|>599 140 617 285<|content|>B. GAP Response\n<|id|>81<|page|>10<|box|>204 140 222 472<|content|>V. Enclosures and Attachments Summary\n<|id|>87<|page|>10<|box|>758 140 777 495<|content|>VI. Request for Completeness Determination\n<|id|>92<|page|>11<|box|>421 140 438 473<|content|>VII. Availability and Contact Information\n<|id|>103<|page|>11<|box|>829 140 845 251<|content|>VIII. Closing\n<|id|>113<|page|>12<|box|>398 143 414 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>18<|level|>3\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>33<|level|>3\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>54<|level|>3\n<|id|>81<|level|>2\n<|id|>87<|level|>2\n<|id|>92<|level|>2\n<|id|>103<|level|>2\n<|id|>113<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        }
+    ]
+}

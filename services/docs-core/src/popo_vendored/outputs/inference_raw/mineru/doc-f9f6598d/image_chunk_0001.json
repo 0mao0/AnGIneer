@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        54
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        49,
+        51,
+        52,
+        53,
+        54
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>478<|type|>table<|page|>45<|box|>89 143 902 854<|content|>None\n<|id|>479<|type|>table<|page|>46<|box|>88 143 138 852<|content|>None\n<|id|>480<|type|>table<|page|>46<|box|>199 143 349 852<|content|>None\n<|id|>481<|type|>table<|page|>46<|box|>410 143 479 852<|content|>None\n<|id|>482<|type|>table<|page|>46<|box|>540 143 704 852<|content|>None\n<|id|>485<|type|>title<|page|>47<|box|>89 142 107 243<|content|>EXHIBIT D\n<|id|>486<|type|>title<|page|>47<|box|>130 142 148 519<|content|>FORM OF MONTHLY FINANCIAL REPORT\n<|id|>487<|type|>title<|page|>47<|box|>157 142 174 633<|content|>Harbor Point Towers — Monthly Financial Reporting\n<|id|>491<|type|>title<|page|>47<|box|>260 143 277 310<|content|>Report Components:\n<|id|>506<|type|>title<|page|>49<|box|>89 143 106 511<|content|>INSURANCE REQUIREMENTS SCHEDULE\n<|id|>507<|type|>title<|page|>49<|box|>116 143 133 578<|content|>Harbor Point Towers — Required Insurance Coverages\n<|id|>508<|type|>table<|page|>49<|box|>140 143 647 852<|content|>None\n<|id|>509<|type|>title<|page|>49<|box|>681 143 696 503<|content|>Additional Insured Parties (Liability Policies):\n<|id|>517<|type|>title<|page|>51<|box|>89 143 106 241<|content|>EXHIBIT F\n<|id|>518<|type|>title<|page|>51<|box|>131 142 148 514<|content|>LIST OF EXISTING SERVICE CONTRACTS\n<|id|>519<|type|>title<|page|>51<|box|>157 142 174 568<|content|>Harbor Point Towers — Schedule of Service Contract\n<|id|>522<|type|>table<|page|>51<|box|>268 143 761 852<|content|>None\n<|id|>524<|type|>title<|page|>52<|box|>89 142 106 245<|content|>EXHIBIT G\n<|id|>525<|type|>title<|page|>53<|box|>89 143 106 441<|content|>ON-SITE PERSONNEL SCHEDULE\n<|id|>526<|type|>title<|page|>53<|box|>116 142 133 493<|content|>Harbor Point Towers — Initial Staffing Plan\n<|id|>527<|type|>title<|page|>53<|box|>142 142 159 702<|content|>[To be finalized and approved by Owner prior to or\n<|id|>528<|type|>table<|page|>53<|box|>166 143 898 852<|content|>None\n<|id|>529<|type|>table<|page|>54<|box|>89 143 478 852<|content|>None\n<|id|>530<|type|>title<|page|>54<|box|>512 140 529 194<|content|>Notes:",
+    "raw_response": "<|src_id|>508<|tgt_id|>507\n<|src_id|>522<|tgt_id|>519\n<|src_id|>528<|tgt_id|>526\n<|src_id|>529<|tgt_id|>526",
+    "parsed": [
+        {
+            "src_id": 508,
+            "tgt_id": 507
+        },
+        {
+            "src_id": 522,
+            "tgt_id": 519
+        },
+        {
+            "src_id": 528,
+            "tgt_id": 526
+        },
+        {
+            "src_id": 529,
+            "tgt_id": 526
+        }
+    ]
+}

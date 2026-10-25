@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        107,
+        154
+    ],
+    "pages": [
+        108,
+        130,
+        143,
+        150,
+        154
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>536<|page|>108<|box|>199 723 268 913<|content|>Financial Report of the United States Government Excerpt\n<|id|>537<|page|>108<|box|>282 820 309 913<|content|>Trust Funds\n<|id|>668<|page|>130<|box|>184 81 446 491<|content|>Amounts in the Harbor Maintenance Trust Fund are a...elopment Act of 1986. ... Section 201 of the Water\n<|id|>669<|page|>130<|box|>125 504 199 913<|content|>Resources Development Act of 1996 (Public Law 104-...eral navigation projects for commercial navigation\n<|id|>732<|page|>143<|box|>449 81 508 491<|content|>Effective October 1, 2005, motorboat fuel taxes (l...ibus Budget Reconciliation Act of 1990, Public Law\n<|id|>733<|page|>143<|box|>128 504 217 915<|content|>101-508, title XI, section 11211(i)(2) and (3)] we... and pleasure craft are appropriated into the fund\n<|id|>772<|page|>150<|box|>411 106 441 490<|content|>- Supplemental Revenue Assistance Payments Program (SURE)\n<|id|>776<|page|>150<|box|>169 504 227 915<|content|>The Farm Service Agency shall invest such portions... interest bearing obligations of the United States\n<|id|>773<|page|>150<|box|>444 107 459 418<|content|>• Livestock Forage Disaster Program (LFP)\n<|id|>774<|page|>150<|box|>121 529 136 777<|content|>• Tree Assistance Program (TAP)\n<|id|>775<|page|>150<|box|>138 529 167 913<|content|>- Emergency Assistance of Livestock, Honey Bees, and Farm-Raised Fish Program (ELAP)\n<|id|>811<|page|>154<|box|>148 364 166 630<|content|>Source: ... Financial Management Service\n<|id|>812<|page|>154<|box|>186 81 262 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>820<|page|>154<|box|>842 81 904 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>821<|page|>154<|box|>186 504 262 915<|content|>Second Liberty Loan Act of 1917, the nature of the...l debt. ... the limit may change from year to year",
+    "raw_response": "<|src_id|>668<|tgt_id|>669\n<|src_id|>732<|tgt_id|>733\n<|src_id|>820<|tgt_id|>821",
+    "parsed": [
+        {
+            "src_id": 668,
+            "tgt_id": 669
+        },
+        {
+            "src_id": 732,
+            "tgt_id": 733
+        },
+        {
+            "src_id": 820,
+            "tgt_id": 821
+        }
+    ]
+}

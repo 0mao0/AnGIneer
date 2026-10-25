@@ -1,0 +1,51 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        19
+    ],
+    "pages": [
+        4,
+        5,
+        9,
+        13,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>38<|page|>4<|box|>728 174 746 834<|content|>a plurality of impedance mapping electrodes disposed along the cryoablation element; ... and\n<|id|>39<|page|>4<|box|>753 174 789 856<|content|>a control unit in communication with the cryoablat... and the plurality of impedance mapping electrodes\n<|id|>44<|page|>5<|box|>189 174 263 854<|content|>a plurality of impedance mapping electrodes dispos...ance in real time during cryoablation</u>; ... and\n<|id|>45<|page|>5<|box|>270 174 344 856<|content|>a control unit in communication with the cryoablat... electrode positioned within that cooling zone</u>\n<|id|>104<|page|>9<|box|>135 174 170 854<|content|>applying a calibration algorithm to the baseline i...s to generate calibrated impedance values; ... and\n<|id|>105<|page|>9<|box|>179 176 196 666<|content|>displaying the calibrated impedance values as a ti...alibrated impedance values as a tissue contact map\n<|id|>110<|page|>9<|box|>455 176 489 854<|content|>applying a calibration algorithm to the baseline i... <u>the calibration algorithm comprising: ... </u>\n<|id|>111<|page|>9<|box|>500 210 553 854<|content|><u>(a) calculating a baseline impedance offset for... calibration table within a control unit; ... </u>\n<|id|>112<|page|>9<|box|>561 210 616 854<|content|><u>(b) applying a temperature-compensation factor ...easurements to a standard temperature; ... and</u>\n<|id|>113<|page|>9<|box|>625 210 660 854<|content|><u>(c) generating calibrated impedance values for ... the temperature-compensation factor; ... </u> and\n<|id|>114<|page|>9<|box|>667 174 722 854<|content|>displaying the calibrated impedance values as a <u...ty of independently controllable cooling zones</u>\n<|id|>162<|page|>13<|box|>223 174 296 854<|content|>a plurality of impedance mapping electrodes dispos...mpedance in real time during cryoablation; ... and\n<|id|>163<|page|>13<|box|>304 176 340 856<|content|>a control unit in communication with the cryoablat...mapping electrodes, the control unit configured to\n<|id|>213<|page|>19<|box|>321 140 338 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>214<|page|>19<|box|>340 143 356 253<|content|>By: ... By\n<|id|>215<|page|>19<|box|>356 143 373 313<|content|>Name: ... Wendy Schultz\n<|id|>216<|page|>19<|box|>373 143 390 328<|content|>Registration No. ... 78,115\n<|id|>217<|page|>19<|box|>391 143 407 331<|content|>Title: ... Working Associate\n<|id|>218<|page|>19<|box|>409 143 425 264<|content|>Date: ... Date\n<|id|>221<|page|>19<|box|>469 142 484 310<|content|>Name: ... Peter Vassiliev\n<|id|>222<|page|>19<|box|>484 143 502 326<|content|>Registration No. ... 72,340\n<|id|>223<|page|>19<|box|>503 143 518 303<|content|>Title: ... Lead Associate\n<|id|>224<|page|>19<|box|>520 143 537 264<|content|>Date: ... Date\n<|id|>226<|page|>19<|box|>554 143 571 352<|content|>Name: ... Claire Nakamura\n<|id|>227<|page|>19<|box|>571 143 588 326<|content|>Registration No. ... 66,203\n<|id|>228<|page|>19<|box|>589 143 604 383<|content|>Title: ... Patent Agent (Of Counsel)\n<|id|>229<|page|>19<|box|>607 143 621 187<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>38<|tgt_id|>39\n<|src_id|>44<|tgt_id|>45\n<|src_id|>104<|tgt_id|>105\n<|src_id|>110<|tgt_id|>111\n<|src_id|>111<|tgt_id|>112\n<|src_id|>112<|tgt_id|>113\n<|src_id|>113<|tgt_id|>114\n<|src_id|>162<|tgt_id|>163",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        }
+    ]
+}

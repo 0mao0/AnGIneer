@@ -1,0 +1,43 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        102,
+        110
+    ],
+    "pages": [
+        103,
+        106,
+        107,
+        108,
+        110
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>700<|page|>103<|box|>321 442 340 550<|content|>ANALYSIS\n<|id|>702<|page|>103<|box|>495 334 515 660<|content|>Section 7.5(q) of FOIA and the PRRA\n<|id|>715<|page|>106<|box|>372 393 391 596<|content|>Section 7(1)(c) of FOIA\n<|id|>720<|page|>107<|box|>252 393 271 599<|content|>Section 7(1)(n) of FOIA\n<|id|>723<|page|>108<|box|>128 346 147 645<|content|>FINDINGS AND CONCLUSIONS\n<|id|>746<|page|>110<|box|>89 366 109 633<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>700<|level|>1\n<|id|>702<|level|>2\n<|id|>715<|level|>3\n<|id|>720<|level|>3\n<|id|>723<|level|>1\n<|id|>746<|level|>1",
+    "parsed": [
+        {
+            "id": 700,
+            "level": 1
+        },
+        {
+            "id": 702,
+            "level": 2
+        },
+        {
+            "id": 715,
+            "level": 3
+        },
+        {
+            "id": 720,
+            "level": 3
+        },
+        {
+            "id": 723,
+            "level": 1
+        },
+        {
+            "id": 746,
+            "level": 1
+        }
+    ]
+}

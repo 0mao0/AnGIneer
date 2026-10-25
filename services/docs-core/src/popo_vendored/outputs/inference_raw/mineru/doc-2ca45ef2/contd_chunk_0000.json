@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 143 196 852<|content|>In connection with the initial public offering of ...es (\"ADSs\") of Solstice Biomedical Devices Limited\n<|id|>4<|page|>1<|box|>232 140 267 854<|content|>Keystone Mercer & Co. ... , LLC As Representative ...ers 280 Park Avenue, 14th Floor New York, NY 10017\n<|id|>5<|page|>1<|box|>276 140 292 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>12<|page|>1<|box|>857 140 893 854<|content|>\"ADSs\" means American Depositary Shares of the Com... Agreement dated March 2, 2023, among the Company,\n<|id|>13<|page|>2<|box|>90 140 143 854<|content|>Meridian Trust Company, N. ... , as depositary, an...plemented, or otherwise modified from time to time\n<|id|>27<|page|>2<|box|>869 174 906 854<|content|>(c) establish or increase any \"put equivalent posi...within the meaning of Section 16 of the Securities\n<|id|>28<|page|>3<|box|>90 174 127 854<|content|>Exchange Act of 1934, as amended (the \"Exchange Ac...thereunder) with respect to any Lock-Up Securities\n<|id|>30<|page|>3<|box|>234 174 398 856<|content|>(e) make any demand for, or exercise any right wit...he Company, Greystone Ventures Fund III, L. ... or\n<|id|>32<|page|>3<|box|>450 140 484 854<|content|>Each of the actions described in clauses (a) throu... above is referred to herein as a \"Transfer. ... \"\n<|id|>43<|page|>5<|box|>270 174 416 856<|content|>(g) Transfers to satisfy tax withholding obligations. ... and\n<|id|>47<|page|>5<|box|>703 174 849 857<|content|>(ii) no filing under the Exchange Act (including, ...lock-up agreement with the Representative; ... and\n<|id|>49<|page|>6<|box|>152 140 189 854<|content|>For the avoidance of doubt, nothing in this Sectio... including the Securities Act and the Exchange Act\n<|id|>61<|page|>7<|box|>491 174 564 854<|content|>(a) exercising any option, warrant, or other right...nt for the remainder of the Lock-Up Period; ... or\n<|id|>63<|page|>7<|box|>652 140 818 856<|content|>Nothing in this Agreement shall restrict the abili... the extent required by the Underwriting Agreement\n<|id|>65<|page|>7<|box|>866 140 902 857<|content|>7. ... This Agreement shall become effective upon ... the Representative (expected to occur on or about\n<|id|>66<|page|>8<|box|>90 140 127 854<|content|>March 2, 2023). ... Prior to the execution and del..., and no party shall have any obligation hereunder\n<|id|>85<|page|>10<|box|>454 174 472 777<|content|>Keystone Mercer & Co. ... , LLC 280 Park Avenue, 14th Floor New York, NY 10017\n<|id|>86<|page|>10<|box|>479 176 498 777<|content|>Attention: ... Margaret Hollister, Managing Director, Healthcare Investment Banking\n<|id|>87<|page|>10<|box|>498 176 515 477<|content|>Email: ... com\n<|id|>88<|page|>10<|box|>515 140 532 303<|content|>If to the undersigned: ... If to the undersigned\n<|id|>98<|page|>11<|box|>304 142 321 272<|content|>Very truly yours,\n<|id|>99<|page|>11<|box|>330 143 347 300<|content|>Signature: ... Signature\n<|id|>107<|page|>11<|box|>579 143 595 272<|content|>Very truly yours,\n<|id|>109<|page|>11<|box|>648 143 666 254<|content|>By: ... By\n<|id|>108<|page|>11<|box|>631 143 648 290<|content|>[Insert entity name]",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>27<|tgt_id|>28\n<|src_id|>65<|tgt_id|>66",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        }
+    ]
+}

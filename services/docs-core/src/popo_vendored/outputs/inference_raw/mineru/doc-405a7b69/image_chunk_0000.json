@@ -1,0 +1,60 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 241 154 756<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION W\n<|id|>1<|type|>title<|page|>1<|box|>250 222 268 776<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST\n<|id|>7<|type|>title<|page|>1<|box|>417 241 436 754<|content|>FAIRWATER OPERATING PARTNERSHIP, L.P.\n<|id|>58<|type|>table<|page|>3<|box|>643 143 901 851<|content|>None\n<|id|>59<|type|>table<|page|>4<|box|>89 143 348 852<|content|>None\n<|id|>64<|type|>title<|page|>4<|box|>594 421 612 576<|content|>PROSPECTUS\n<|id|>65<|type|>title<|page|>4<|box|>632 220 651 776<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST\n<|id|>66<|type|>title<|page|>4<|box|>670 243 689 754<|content|>FAIRWATER OPERATING PARTNERSHIP, L.P.\n<|id|>67<|type|>title<|page|>4<|box|>709 424 729 573<|content|>$2,000,000,000\n<|id|>74<|type|>title<|page|>5<|box|>89 475 106 522<|content|>Units\n<|id|>82<|type|>title<|page|>5<|box|>573 452 592 544<|content|>PART II\n<|id|>83<|type|>title<|page|>5<|box|>618 143 633 576<|content|>INFORMATION NOT REQUIRED IN PROSPECTUS\n<|id|>84<|type|>title<|page|>5<|box|>648 142 666 560<|content|>Item 14. Other Expenses of Issuance and Distributi\n<|id|>86<|type|>table<|page|>5<|box|>768 143 893 852<|content|>None\n<|id|>87<|type|>table<|page|>6<|box|>88 143 198 852<|content|>None\n<|id|>90<|type|>title<|page|>6<|box|>352 140 369 529<|content|>Item 15. Indemnification of Trustees and Officers\n<|id|>100<|type|>table<|page|>8<|box|>111 143 825 852<|content|>None\n<|id|>101<|type|>title<|page|>9<|box|>90 140 107 323<|content|>Item 17. Undertakings\n<|id|>123<|type|>title<|page|>11<|box|>297 142 315 267<|content|>SIGNATURES\n<|id|>130<|type|>title<|page|>11<|box|>520 142 537 352<|content|>POWER OF ATTORNEY\n<|id|>132<|type|>table<|page|>11<|box|>787 143 902 852<|content|>None\n<|id|>133<|type|>table<|page|>12<|box|>88 143 250 852<|content|>None\n<|id|>142<|type|>title<|page|>12<|box|>530 142 547 352<|content|>POWER OF ATTORNEY\n<|id|>144<|type|>table<|page|>12<|box|>816 143 897 852<|content|>None\n<|id|>145<|type|>table<|page|>13<|box|>89 143 643 852<|content|>None",
+    "raw_response": "<|src_id|>58<|tgt_id|>7\n<|src_id|>59<|tgt_id|>7\n<|src_id|>86<|tgt_id|>84\n<|src_id|>87<|tgt_id|>84\n<|src_id|>100<|tgt_id|>90\n<|src_id|>132<|tgt_id|>130\n<|src_id|>133<|tgt_id|>130\n<|src_id|>144<|tgt_id|>142\n<|src_id|>145<|tgt_id|>142",
+    "parsed": [
+        {
+            "src_id": 58,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 142
+        }
+    ]
+}

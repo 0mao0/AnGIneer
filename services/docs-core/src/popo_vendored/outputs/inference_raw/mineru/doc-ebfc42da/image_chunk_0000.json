@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 284 125 712<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>159 143 464 852<|content|>None\n<|id|>52<|type|>title<|page|>8<|box|>833 142 867 854<|content|>12. The following exhibits are attached to this de",
+    "raw_response": "<|src_id|>1<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        }
+    ]
+}

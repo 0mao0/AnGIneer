@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 401 118 594<|content|>CROSS-RECEIPT\n<|id|>1<|page|>1<|box|>143 406 161 591<|content|>Overallotment Closing\n<|id|>4<|page|>1<|box|>345 140 363 243<|content|>RECITALS\n<|id|>9<|page|>2<|box|>339 140 357 295<|content|>CROSS-RECEIPT\n<|id|>11<|page|>2<|box|>452 140 469 694<|content|>Section 1. Receipt by the Representative on Behalf\n<|id|>19<|page|>3<|box|>194 140 212 421<|content|>Section 2. Receipt by the Company.\n<|id|>29<|page|>3<|box|>694 140 710 488<|content|>Section 3. Aggregate Transaction Summary.\n<|id|>37<|page|>4<|box|>380 184 397 720<|content|>• Total shares outstanding (post-Option Closing):\n<|id|>39<|page|>4<|box|>486 140 503 504<|content|>Section 4. Representations and Confirmations.\n<|id|>48<|page|>5<|box|>282 140 299 547<|content|>Section 5. Underwriter Allocation of Option Shares\n<|id|>51<|page|>5<|box|>618 140 633 377<|content|>Section 6. General Provisions.\n<|id|>56<|page|>6<|box|>252 400 268 596<|content|>[Signature Page Follows]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>9<|level|>1\n<|id|>11<|level|>2\n<|id|>19<|level|>2\n<|id|>29<|level|>2\n<|id|>37<|level|>3\n<|id|>39<|level|>2\n<|id|>48<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        }
+    ]
+}

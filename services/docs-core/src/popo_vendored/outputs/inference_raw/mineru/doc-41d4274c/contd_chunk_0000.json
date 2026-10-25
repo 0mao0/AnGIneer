@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>117 318 159 679<|content|>to the MASTER CLINICAL TRIAL AGREEMENT\n<|id|>2<|page|>1<|box|>167 423 184 573<|content|>dated June 28, 2023\n<|id|>3<|page|>1<|box|>246 483 261 516<|content|>and\n<|id|>5<|page|>1<|box|>323 372 339 625<|content|>Protocol Number: ... PPC-4871-III\n<|id|>6<|page|>1<|box|>349 183 383 813<|content|>CLARION — Clinical Assessment of Response with Longitudinal Investigation in ONcology\n<|id|>7<|page|>1<|box|>393 393 409 602<|content|>IND Number: ... IND 157823\n<|id|>8<|page|>1<|box|>419 328 435 669<|content|>ClinicalTrials. ... NCT05928174\n<|id|>9<|page|>1<|box|>445 377 460 620<|content|>Final Version — June 23, 2023\n<|id|>10<|page|>1<|box|>470 142 484 410<|content|>CONFIDENTIAL AND PROPRIETARY\n<|id|>11<|page|>1<|box|>494 140 628 854<|content|>This document contains confidential and proprietar...n protected under applicable federal and state law\n<|id|>14<|page|>1<|box|>702 140 719 611<|content|>Sponsor: ... (\"Penterra\" or \"PPC\")\n<|id|>15<|page|>1<|box|>727 142 744 844<|content|>Principal Office Address: ... 200 Biopharma Boulevard, Suite 1400, Princeton, New Jersey 08540\n<|id|>16<|page|>1<|box|>753 140 806 854<|content|>Entity Type: ... \"\n<|id|>33<|page|>3<|box|>589 140 662 854<|content|>A Phase III, Randomized, Double-Blind, Placebo-Con...essed on or After Prior Systemic Therapy (CLARION)\n<|id|>34<|page|>3<|box|>670 140 708 854<|content|>Protocol Short Title: ... CLARION — Clinical Asses...sponse with Longitudinal Investigation in ONcology\n<|id|>35<|page|>3<|box|>714 140 732 392<|content|>Protocol Number: ... PPC-4871-III\n<|id|>36<|page|>3<|box|>739 140 758 351<|content|>IND Number: ... IND 157823\n<|id|>37<|page|>3<|box|>766 140 784 482<|content|>ClinicalTrials. ... NCT05928174\n<|id|>38<|page|>3<|box|>792 140 902 856<|content|>This protocol has been registered on ClinicalTrials. ... § 282(j)\n<|id|>60<|page|>6<|box|>116 142 132 269<|content|>Phase: ... Phase III\n<|id|>61<|page|>6<|box|>142 140 215 854<|content|>Design: ... The CLARION trial is a randomized, dou... after at least one prior line of systemic therapy\n<|id|>88<|page|>7<|box|>869 174 905 856<|content|>4. ... Clinically significant cardiovascular disea...ve heart failure (New York Heart Association Class\n<|id|>89<|page|>8<|box|>90 210 126 854<|content|>III or IV), unstable angina pectoris, myocardial i...significant cardiac arrhythmia requiring treatment\n<|id|>100<|page|>8<|box|>859 140 895 854<|content|>Key Enrollment Site: ... Lakemont Medical Center, ...002 and serves as a key enrollment site within the\n<|id|>101<|page|>9<|box|>90 140 127 854<|content|>Veridian Network. ... Lakemont Medical Center is a...lly recognized hepatology and liver cancer program\n<|id|>125<|page|>10<|box|>864 183 901 856<|content|>• Pharmacokinetic (PK) parameters, including plasm...ary metabolites, analyzed centrally by Northbridge\n<|id|>126<|page|>11<|box|>89 210 125 854<|content|>Bioanalytical Laboratories, Inc. ... , located at 2900 Commerce Way, Baltimore, Maryland 21224",
+    "raw_response": "<|src_id|>88<|tgt_id|>89\n<|src_id|>100<|tgt_id|>101\n<|src_id|>125<|tgt_id|>126",
+    "parsed": [
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 126
+        }
+    ]
+}

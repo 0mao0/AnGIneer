@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>14<|page|>1<|box|>580 176 616 854<|content|>Stephen Adler Calderwood & Harkness LLP 400 South ...et Advisors, Suite 3000 Wilmington, Delaware 19801\n<|id|>15<|page|>1<|box|>625 140 660 854<|content|>IN WITNESS WHEREOF, the undersigned has executed t...ficate of Formation as of the date set forth below\n<|id|>18<|page|>1<|box|>704 143 720 305<|content|>Name: ... Stephen Adler\n<|id|>19<|page|>1<|box|>722 143 737 330<|content|>As an Authorized Person\n<|id|>20<|page|>1<|box|>739 143 755 264<|content|>Date: ... Date\n<|id|>25<|page|>1<|box|>856 140 909 854<|content|>This Certificate of Formation of Harrowgate Fund V...ations, John G. ... The applicable filing fee must\n<|id|>26<|page|>1<|box|>916 142 930 336<|content|>Filed pursuant to 6 Del. ... § 18-201\n<|id|>27<|page|>2<|box|>90 140 127 854<|content|>accompany the submission of this Certificate of Fo...dule prescribed by the Delaware Secretary of State\n<|id|>29<|page|>2<|box|>178 174 196 674<|content|>HPE Fund V GP — DE LLC File No. ... To be assigned upon filing\n<|id|>30<|page|>2<|box|>204 140 223 508<|content|>Entity Type: ... Delaware limited liability company\n<|id|>31<|page|>2<|box|>229 140 321 854<|content|>Purpose of Entity: ... The limited partnership agr...wgate Fund V GP LLC as the general partner thereof",
+    "raw_response": "<|src_id|>25<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 27
+        }
+    ]
+}

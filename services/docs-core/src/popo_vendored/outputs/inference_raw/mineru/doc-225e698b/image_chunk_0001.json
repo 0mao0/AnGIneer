@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        50
+    ],
+    "pages": [
+        46,
+        47,
+        50
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>568<|type|>table<|page|>46<|box|>89 143 532 852<|content|>None\n<|id|>569<|type|>title<|page|>46<|box|>565 143 582 383<|content|>MEDIUM PRIORITY ITEMS\n<|id|>570<|type|>table<|page|>46<|box|>589 143 898 852<|content|>None\n<|id|>571<|type|>table<|page|>47<|box|>88 143 172 852<|content|>None\n<|id|>573<|type|>title<|page|>47<|box|>268 143 284 349<|content|>LOW PRIORITY ITEMS\n<|id|>574<|type|>table<|page|>47<|box|>292 143 522 852<|content|>None\n<|id|>575<|type|>title<|page|>47<|box|>561 138 579 666<|content|>24.2 Recommended Next Steps 24.2 Proposed Next Ste\n<|id|>593<|type|>title<|page|>50<|box|>89 140 107 473<|content|>SIGNATURE / DISTRIBUTION BLOCK\n<|id|>595<|type|>title<|page|>50<|box|>232 138 252 357<|content|>Prepared by: Delivered by:",
+    "raw_response": "<|src_id|>570<|tgt_id|>569\n<|src_id|>574<|tgt_id|>573",
+    "parsed": [
+        {
+            "src_id": 570,
+            "tgt_id": 569
+        },
+        {
+            "src_id": 574,
+            "tgt_id": 573
+        }
+    ]
+}

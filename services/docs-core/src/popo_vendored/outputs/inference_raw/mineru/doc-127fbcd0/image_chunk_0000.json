@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>8<|type|>title<|page|>1<|box|>474 140 492 488<|content|>1. Engagement and Scope of Representation\n<|id|>36<|type|>title<|page|>3<|box|>699 140 715 385<|content|>2. Firm Personnel and Staffing\n<|id|>43<|type|>title<|page|>4<|box|>564 140 582 290<|content|>3. Matter Number\n<|id|>45<|type|>title<|page|>4<|box|>667 142 684 310<|content|>4. Fee Arrangements\n<|id|>47<|type|>table<|page|>4<|box|>792 143 906 852<|content|>None\n<|id|>48<|type|>table<|page|>5<|box|>88 143 119 852<|content|>None\n<|id|>62<|type|>title<|page|>6<|box|>304 140 320 321<|content|>5. Conflicts of Interest\n<|id|>71<|type|>title<|page|>7<|box|>267 140 284 433<|content|>6. Counterparties and Their Counsel\n<|id|>82<|type|>title<|page|>7<|box|>660 140 676 547<|content|>7. Client Communications and Authorized Contacts\n<|id|>89<|type|>title<|page|>8<|box|>316 140 334 326<|content|>8. Document Retention\n<|id|>93<|type|>title<|page|>8<|box|>637 140 654 284<|content|>9. Confidentiality\n<|id|>95<|type|>title<|page|>9<|box|>90 142 107 274<|content|>10. Termination\n<|id|>97<|type|>title<|page|>9<|box|>340 140 357 560<|content|>11. Limitation of Liability; No Guarantee of Outco\n<|id|>99<|type|>title<|page|>9<|box|>590 142 607 297<|content|>12. Governing Law\n<|id|>101<|type|>title<|page|>9<|box|>731 142 747 408<|content|>13. Acceptance and Confirmation",
+    "raw_response": "<|src_id|>47<|tgt_id|>45\n<|src_id|>48<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        }
+    ]
+}

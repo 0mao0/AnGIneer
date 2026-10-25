@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 145 123 851<|content|>IN THE HIGH COURT OF JUSTICE BUSINESS AND PROPERTY\n<|id|>6<|type|>title<|page|>1<|box|>279 310 297 684<|content|>KORINTHIAN MARITIME HOLDINGS LTD.\n<|id|>7<|type|>title<|page|>1<|box|>332 367 352 630<|content|>APPLICATION NOTICE\n<|id|>9<|type|>title<|page|>1<|box|>411 142 428 527<|content|>1. APPLICANT AND RESPONDENT DETAILS\n<|id|>14<|type|>title<|page|>1<|box|>700 140 719 468<|content|>2. DETAILS OF THE ORDER SOUGHT\n<|id|>25<|type|>title<|page|>2<|box|>459 140 476 460<|content|>3. GROUNDS OF THE APPLICATION\n<|id|>26<|type|>title<|page|>2<|box|>489 140 507 390<|content|>3.1 The Arbitration Agreement\n<|id|>33<|type|>title<|page|>3<|box|>138 140 157 271<|content|>3.2 The Dispute\n<|id|>39<|type|>title<|page|>3<|box|>627 140 643 349<|content|>3.3 The LCIA Arbitration\n<|id|>48<|type|>title<|page|>4<|box|>368 140 385 310<|content|>3.4 The Final Award\n<|id|>51<|type|>table<|page|>4<|box|>540 143 784 852<|content|>None\n<|id|>53<|type|>table<|page|>5<|box|>150 143 257 852<|content|>None\n<|id|>56<|type|>title<|page|>5<|box|>421 140 439 454<|content|>3.5 Non-Compliance by the Respondent\n<|id|>60<|type|>title<|page|>5<|box|>729 140 744 426<|content|>3.6 Statutory Basis for Enforcement\n<|id|>62<|type|>title<|page|>5<|box|>796 176 813 444<|content|>\"66.— Enforcement of the award.\n<|id|>73<|type|>title<|page|>6<|box|>623 140 640 392<|content|>4. EVIDENCE RELIED UPON\n<|id|>83<|type|>title<|page|>7<|box|>300 140 316 517<|content|>5. RESPONDENT'S DETAILS AND SERVICE\n<|id|>87<|type|>title<|page|>7<|box|>638 140 655 338<|content|>6. HEARING DETAILS\n<|id|>91<|type|>title<|page|>8<|box|>148 140 166 395<|content|>7. RELATED APPLICATIONS\n<|id|>101<|type|>title<|page|>8<|box|>636 142 652 377<|content|>8. STATEMENT OF TRUTH\n<|id|>107<|type|>title<|page|>8<|box|>830 142 847 611<|content|>9. ADDRESS FOR SERVICE AND SOLICITOR DETAILS\n<|id|>108<|type|>title<|page|>8<|box|>857 142 873 315<|content|>Claimant's Solicitors:",
+    "raw_response": "<|src_id|>51<|tgt_id|>48\n<|src_id|>53<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 48
+        }
+    ]
+}

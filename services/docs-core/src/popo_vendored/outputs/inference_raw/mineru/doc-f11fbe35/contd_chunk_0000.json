@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        10,
+        14,
+        15,
+        18,
+        19,
+        20,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>368 176 459 854<|content|>Linda Osei (BBO No. ... com\n<|id|>8<|page|>1<|box|>468 176 484 581<|content|>Attorneys for Plaintiff Penterra Pharmaceuticals C...orneys for Plaintiff Penterra Pharmaceuticals Corp\n<|id|>68<|page|>8<|box|>550 212 566 598<|content|>A: ... \"No, but I understood from Steve's email that —\"\n<|id|>69<|page|>8<|box|>575 210 594 803<|content|>Q: ... \"\n<|id|>74<|page|>8<|box|>818 140 930 856<|content|>Rachel Mendez, Penterra's Director of Distribution...h Vantage and that any such shipments CONFIDENTIAL\n<|id|>75<|page|>9<|box|>90 140 126 854<|content|>occurred because Vantage independently sourced or ...t outside of Penterra's authorized logistics chain\n<|id|>92<|page|>10<|box|>361 147 378 818<|content|>• Rachel Mendez (Director, Distribution & Logistics, Penterra) — November 19, 2021; ... and\n<|id|>94<|page|>10<|box|>400 140 455 854<|content|>On February 11, 2022, Penterra filed its Motion fo...Kapoor and Rachel Mendez, with supporting exhibits\n<|id|>135<|page|>14<|box|>742 140 779 854<|content|>##### 1. ... 8) Precludes Implied Modification Through Course of Dealing\n<|id|>136<|page|>14<|box|>786 140 878 856<|content|>Section 14. ... \" This is a comprehensive integrat...reement regarding the distribution of the Products\n<|id|>140<|page|>15<|box|>441 140 478 854<|content|>##### 2. ... 1) Independently Bars Implied Modification\n<|id|>141<|page|>15<|box|>487 140 595 856<|content|>Even if the integration clause were somehow inappl...xecution, during performance, or at any later date\n<|id|>164<|page|>18<|box|>366 174 402 854<|content|>(c) A written-amendment requirement mandating bila...writings for any modification (Section 13. ... and\n<|id|>166<|page|>18<|box|>454 140 638 854<|content|>In the face of these express provisions, no reason...e the express terms of a fully integrated contract\n<|id|>178<|page|>19<|box|>872 140 930 854<|content|>Vantage cannot breach-of-contract its way into a t... does not grant. ... Penterra did not CONFIDENTIAL\n<|id|>179<|page|>20<|box|>89 140 126 854<|content|>violate any provision of the EDA by exercising its... that were never part of Vantage's exclusive grant\n<|id|>210<|page|>22<|box|>709 176 744 854<|content|>4. ... and\n<|id|>212<|page|>22<|box|>766 142 782 320<|content|>Respectfully submitted,\n<|id|>213<|page|>22<|box|>784 140 800 599<|content|>PENTERRA PHARMACEUTICALS CORP. ... By its attorneys,\n<|id|>214<|page|>22<|box|>800 142 816 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>215<|page|>22<|box|>819 143 835 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>74<|tgt_id|>75\n<|src_id|>178<|tgt_id|>179",
+    "parsed": [
+        {
+            "src_id": 74,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 179
+        }
+    ]
+}

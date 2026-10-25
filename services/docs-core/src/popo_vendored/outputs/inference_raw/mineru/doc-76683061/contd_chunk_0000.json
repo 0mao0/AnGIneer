@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        8
+    ],
+    "pages": [
+        3,
+        4,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>37<|page|>3<|box|>833 142 894 868<|content|>监理单位负责完成监理资料的汇总、整理，协助项目法人检查施 工单位的合同执行情况，核对工程数量，科学公正地对工程质量进行\n<|id|>38<|page|>4<|box|>93 147 114 208<|content|>评定； ... 评定\n<|id|>83<|page|>7<|box|>871 191 891 865<|content|>评定得分大于等于 90 分且工程质量等级优良的为优良，大于等于\n<|id|>84<|page|>8<|box|>93 146 112 510<|content|>75 分为合格，小于 75 分为不合格。 ... 75 分为合格，小于 75 分为不合格",
+    "raw_response": "<|src_id|>37<|tgt_id|>38\n<|src_id|>83<|tgt_id|>84",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 84
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        139,
+        145
+    ],
+    "pages": [
+        140,
+        141,
+        144,
+        145
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>454<|page|>140<|box|>88 72 121 944<|content|>Table 7. ... - Loans Outstanding December 31, 1963...nds, Classified by Types of Loans - (Continued) 1/\n<|id|>456<|page|>141<|box|>590 11 603 287<|content|>2/ Does not include foreign currency loans. ... 2/ Does not include foreign currency loans\n<|id|>478<|page|>144<|box|>159 30 217 483<|content|>2/ Includes foreign currency assets, representing ...principally the Agricultural Trade Development and\n<|id|>479<|page|>144<|box|>93 554 207 989<|content|>Assistance Act of 1954, as amended, and the Mutual...ge are stated at rates specified in the agreements\n<|id|>488<|page|>144<|box|>397 53 619 473<|content|>Activity Amount (In millions of dollars) Agriculture Department: ... 104\n<|id|>489<|page|>144<|box|>252 531 272 983<|content|>7/ Represents the fund known as \"Advances to emplo...nistration account, unemployment trust fund. ... \"\n<|id|>530<|page|>145<|box|>667 28 688 444<|content|>Consists of the loan to the United Kingdom and oth...l civil defense loans, loans of the Reconstruction\n<|id|>531<|page|>145<|box|>118 523 238 944<|content|>Finance Corporation liquidation fund beginning Dec... footnote 17). ... 2091) through December 31, 1960",
+    "raw_response": "<|src_id|>478<|tgt_id|>479\n<|src_id|>530<|tgt_id|>531",
+    "parsed": [
+        {
+            "src_id": 478,
+            "tgt_id": 479
+        },
+        {
+            "src_id": 530,
+            "tgt_id": 531
+        }
+    ]
+}

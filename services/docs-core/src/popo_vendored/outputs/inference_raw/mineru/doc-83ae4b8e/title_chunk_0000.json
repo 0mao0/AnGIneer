@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law One Lib\n<|id|>12<|page|>1<|box|>489 142 506 437<|content|>I. Introduction and Purpose of Letter\n<|id|>15<|page|>2<|box|>90 140 107 395<|content|>II. Background of the Litigation\n<|id|>19<|page|>2<|box|>484 140 501 632<|content|>III. Summary of Alleged Breaches Relevant to H&M C\n<|id|>26<|page|>3<|box|>612 142 628 418<|content|>IV. Northwind's Claimed Damages\n<|id|>29<|page|>4<|box|>256 140 273 320<|content|>V. Procedural History\n<|id|>35<|page|>4<|box|>773 140 791 364<|content|>VI. Terms of the Settlement\n<|id|>49<|page|>6<|box|>250 140 266 790<|content|>VII. Confirmation that the Settlement Does Not Imp\n<|id|>51<|page|>6<|box|>410 140 428 450<|content|>Specifically, TSL confirms the following:\n<|id|>57<|page|>7<|box|>90 140 107 511<|content|>VIII. Request for Confirmation and Next Steps\n<|id|>64<|page|>7<|box|>500 142 516 344<|content|>IX. Reservation of Rights",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>26<|level|>2\n<|id|>29<|level|>2\n<|id|>35<|level|>2\n<|id|>49<|level|>2\n<|id|>51<|level|>3\n<|id|>57<|level|>2\n<|id|>64<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        }
+    ]
+}

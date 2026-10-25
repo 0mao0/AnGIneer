@@ -1,0 +1,148 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        41
+    ],
+    "pages": [
+        1,
+        5,
+        9,
+        11,
+        16,
+        18,
+        19,
+        21,
+        23,
+        26,
+        28,
+        29,
+        31,
+        35,
+        38,
+        39,
+        40,
+        41
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 153 223 843<|content|>CALDERWOOD & HARKNESS LLP 280 Park Avenue, 34th Fl\n<|id|>15<|page|>5<|box|>426 321 446 674<|content|>VOLUME II — MCTA EXHIBITS\n<|id|>25<|page|>9<|box|>296 176 314 602<|content|>(a) Sponsor Indemnification of Sites and Investiga\n<|id|>30<|page|>9<|box|>553 176 570 544<|content|>(b) Carve-Outs from Sponsor Indemnification:\n<|id|>32<|page|>9<|box|>660 176 676 457<|content|>(c) Reciprocal Site Indemnification:\n<|id|>36<|page|>9<|box|>787 178 804 370<|content|>(d) Notice Requirement:\n<|id|>38<|page|>9<|box|>876 176 892 485<|content|>(e) Defense and Settlement Procedures:\n<|id|>41<|page|>11<|box|>296 176 313 544<|content|>(a) Penterra Clinical Trial Liability Insurance:\n<|id|>47<|page|>11<|box|>438 178 454 408<|content|>(b) Veridian / Site Insurance:\n<|id|>51<|page|>11<|box|>540 176 558 447<|content|>(c) Certificate Exchange Deadline:\n<|id|>53<|page|>11<|box|>611 176 628 267<|content|>(d) Forms:\n<|id|>87<|page|>16<|box|>296 176 314 594<|content|>(a) Serious Adverse Event (SAE) Reporting Timeline\n<|id|>89<|page|>16<|box|>421 176 439 454<|content|>(b) IND Safety Report Obligations:\n<|id|>92<|page|>16<|box|>559 176 575 362<|content|>(c) CRO Coordination:\n<|id|>94<|page|>16<|box|>666 176 683 535<|content|>(d) Site Expedited Reporting Responsibilities:\n<|id|>99<|page|>18<|box|>90 346 109 648<|content|>VOLUME III — SCHEDULE\n<|id|>102<|page|>19<|box|>348 143 364 233<|content|>Lead Sites:\n<|id|>105<|page|>19<|box|>648 227 694 769<|content|>VOLUME IV — INDIVIDUAL SITE AGREEMENTS (REPRESENTA\n<|id|>114<|page|>21<|box|>756 243 775 754<|content|>VOLUME V — INVESTIGATOR AGREEMENTS\n<|id|>118<|page|>23<|box|>125 258 143 740<|content|>VOLUME VI — ANCILLARY AGREEMENTS\n<|id|>119<|page|>23<|box|>162 142 179 767<|content|>Volume VI contains the ancillary agreements execut\n<|id|>121<|page|>23<|box|>715 161 760 834<|content|>VOLUME VII — CLOSING CERTIFICATES AND CORPORATE AU\n<|id|>131<|page|>26<|box|>263 256 282 740<|content|>VOLUME VIII — INSURANCE DOCUMENTS\n<|id|>139<|page|>28<|box|>633 240 654 756<|content|>VOLUME IX — IRB APPROVALS (LEAD SITES)\n<|id|>144<|page|>29<|box|>750 179 768 816<|content|>VOLUME X — CONDITIONS PRECEDENT SATISFACTION\n<|id|>155<|page|>31<|box|>203 299 223 697<|content|>VOLUME XI — CORRESPONDENCE\n<|id|>170<|page|>35<|box|>628 184 650 810<|content|>VOLUME XII — DRAFT HISTORY (REFERENCE COPIES)\n<|id|>182<|page|>38<|box|>248 140 292 854<|content|>VOLUME XIII — KEY REFERENCE DOCUMENTS (NOT PART OF\n<|id|>190<|page|>39<|box|>700 176 718 372<|content|>(c) Key Milestone Dates:\n<|id|>194<|page|>40<|box|>90 246 109 751<|content|>APPENDIX — KEY CONTACT INFORMATION\n<|id|>213<|page|>41<|box|>595 423 612 573<|content|>CERTIFICATION",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>15<|level|>1\n<|id|>25<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>47<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>87<|level|>2\n<|id|>89<|level|>2\n<|id|>92<|level|>2\n<|id|>94<|level|>2\n<|id|>99<|level|>1\n<|id|>102<|level|>2\n<|id|>105<|level|>1\n<|id|>114<|level|>1\n<|id|>118<|level|>1\n<|id|>119<|level|>-1\n<|id|>121<|level|>1\n<|id|>131<|level|>1\n<|id|>139<|level|>1\n<|id|>144<|level|>1\n<|id|>155<|level|>1\n<|id|>170<|level|>1\n<|id|>182<|level|>1\n<|id|>190<|level|>2\n<|id|>194<|level|>1\n<|id|>213<|level|>1",
+    "parsed": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 1
+        },
+        {
+            "id": 182,
+            "level": 1
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 1
+        },
+        {
+            "id": 213,
+            "level": 1
+        }
+    ]
+}

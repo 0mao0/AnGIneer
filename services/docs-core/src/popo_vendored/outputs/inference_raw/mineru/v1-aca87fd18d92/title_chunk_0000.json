@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>27 70 47 197<|content|>#1 Jon Speirs\n<|id|>2<|page|>1<|box|>121 68 140 236<|content|>#2 Sariah Maxwell\n<|id|>4<|page|>1<|box|>237 66 257 254<|content|>#3 Jennifer Stillman\n<|id|>6<|page|>1<|box|>354 66 375 254<|content|>#4 Maryann Gutman\n<|id|>8<|page|>1<|box|>491 65 511 230<|content|>#5 Colson Ranger\n<|id|>10<|page|>1<|box|>628 63 648 238<|content|>#6 Blanca Jimenez\n<|id|>12<|page|>1<|box|>744 63 763 228<|content|>#7 Sally Smithson\n<|id|>14<|page|>2<|box|>138 321 175 655<|content|>FARMERS INSURANCE EXCHANGE ARIZONA\n<|id|>24<|page|>4<|box|>172 68 191 611<|content|>Amendatory Endorsement - Arizona (AZ050 -2nd Editi\n<|id|>26<|page|>4<|box|>229 68 248 169<|content|>Definitions\n<|id|>34<|page|>4<|box|>518 70 537 500<|content|>Section I - Types of Personal Property Not Insured\n<|id|>40<|page|>4<|box|>652 71 671 364<|content|>Section I - Extensions of Coverage\n<|id|>49<|page|>5<|box|>287 66 303 785<|content|>Limited Matching Coverage for Vinyl or Aluminum Si\n<|id|>56<|page|>5<|box|>512 68 527 380<|content|>Limited Particulate Matter Cleaning Coverage.\n<|id|>59<|page|>5<|box|>657 66 670 156<|content|>b. This limit:\n<|id|>65<|page|>5<|box|>782 66 801 735<|content|>Section I - Uninsured Loss or Damage and Excluded\n<|id|>66<|page|>5<|box|>805 66 820 310<|content|>Uninsured Types of Loss or Damage\n<|id|>70<|page|>6<|box|>212 68 227 313<|content|>Excluded Causes of Loss or Damage\n<|id|>78<|page|>6<|box|>398 68 412 318<|content|>Marijuana or Controlled Substances.\n<|id|>81<|page|>6<|box|>523 68 537 200<|content|>Particulate Matter.\n<|id|>83<|page|>6<|box|>584 68 601 334<|content|>Section I - Property Conditions\n<|id|>88<|page|>6<|box|>768 68 782 392<|content|>Replacement Cost Settlement - Time Limitation.\n<|id|>90<|page|>7<|box|>103 70 125 367<|content|>Policy Endorsements (continued)\n<|id|>95<|page|>7<|box|>286 68 306 441<|content|>Section II - Liability Extensions of Coverage\n<|id|>97<|page|>7<|box|>335 68 356 493<|content|>General Conditions - Applying to the Entire Policy",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>2\n<|id|>34<|level|>2\n<|id|>40<|level|>2\n<|id|>49<|level|>3\n<|id|>56<|level|>3\n<|id|>59<|level|>-1\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>70<|level|>3\n<|id|>78<|level|>4\n<|id|>81<|level|>4\n<|id|>83<|level|>2\n<|id|>88<|level|>3\n<|id|>90<|level|>1\n<|id|>95<|level|>2\n<|id|>97<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 4
+        },
+        {
+            "id": 81,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        }
+    ]
+}

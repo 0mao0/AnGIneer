@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>116 431 133 565<|content|>Attorneys at Law\n<|id|>2<|page|>1<|box|>141 277 159 720<|content|>One Liberty Plaza, 52nd Floor New York, New York 10006\n<|id|>3<|page|>1<|box|>167 183 185 813<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>194 723 210 854<|content|>October 16, 2023\n<|id|>6<|page|>1<|box|>244 140 281 854<|content|>David Orenstein, Esq. ... 400 Meridian Parkway, Suite 1200 Princeton, New Jersey 08540\n<|id|>7<|page|>1<|box|>289 174 344 854<|content|>Re: ... 001 Per Share Underwriting Agreement dated October 12, 2023\n<|id|>21<|page|>2<|box|>803 140 895 857<|content|>Please also note that an additional certificate of...sed, in whole or in part, at any time on or before\n<|id|>22<|page|>3<|box|>90 140 199 854<|content|>November 16, 2023. ... We will monitor this issue ... should an additional certificate become necessary\n<|id|>25<|page|>3<|box|>305 142 321 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>26<|page|>3<|box|>324 143 339 251<|content|>By: ... By\n<|id|>27<|page|>3<|box|>340 142 357 540<|content|>Audrey Zhou Senior Associate Capital Markets Group\n<|id|>28<|page|>3<|box|>357 143 373 352<|content|>Direct Dial: ... (212) 504-6247\n<|id|>29<|page|>3<|box|>375 142 391 488<|content|>Email: ... com\n<|id|>41<|page|>4<|box|>196 140 214 570<|content|>Authentication / Verification Number: ... 9247-8381-6502\n<|id|>42<|page|>4<|box|>222 140 238 834<|content|>This certificate may be verified online at https: ... gov by entering the authentication number above",
+    "raw_response": "<|src_id|>21<|tgt_id|>22",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        }
+    ]
+}

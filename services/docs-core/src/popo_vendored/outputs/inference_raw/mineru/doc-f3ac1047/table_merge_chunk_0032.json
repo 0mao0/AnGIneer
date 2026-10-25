@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 32,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=9, 四川', '达州市(宣汉县),凉山自治州(普格县)', 'rowspan=4, II', '6']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=4, 贵州', '贵阳、遵义、毕节市', 'rowspan=4, II', '4']]\n",
+    "raw_response": "[0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 538,
+    "table2_idx": 539
+}

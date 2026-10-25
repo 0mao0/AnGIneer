@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['一般服务区', '用于船舶待泊、候航、一般补给、交通管制等情况下的停泊', '应包括船舶停靠、生活垃圾回收、船舶污水回收', '应包括加水、生活用品购物等', '可包括岸电供应等']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['一般停泊区', '用于船舶因水文气象条件不足、桥梁净高不足的候航停泊,需要控制流量或交通管制时的候航停泊', '应包括船舶停靠', '—', '—']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 262,
+    "table2_idx": 263
+}

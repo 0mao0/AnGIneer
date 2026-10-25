@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 12,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['[Step (c)] \"sealing the plurality of', 'Bergmann discloses covering the', 'PARTIALLY DISCLOSED but']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['micro-channels with a capping layer bonded to the silicon substrate to form enclosed micro-channel passages\"', 'channels with a \"top plate\" attached by adhesive. See Bergmann at col. 5, ll. 1-15.', 'distinguishable. Bergmann describes sealing channels with a top plate, but Bergmann\\'s top plate is a separate metal plate attached by adhesive, not a \"capping layer bonded to the silicon substrate.\" The \\'562 Patent specifies bonding techniques (e.g., direct silicon bonding, anodic bonding) that create hermetic, monolithic seals suitable for liquid containment in a micro-channel environment. Bergmann\\'s adhesive attachment is not a \"capping layer bonded to the silicon substrate\" under the ordinary meaning of these terms in the silicon microfabrication field.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 303,
+    "table2_idx": 304
+}

@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>9<|page|>1<|box|>484 140 502 508<|content|>1. Introduction and Engagement Identification\n<|id|>13<|page|>2<|box|>90 140 107 339<|content|>2. Transaction Overview\n<|id|>14<|page|>2<|box|>121 140 138 408<|content|>2.1 Purchase and Sale Agreement\n<|id|>18<|page|>2<|box|>429 140 445 403<|content|>2.2 Purchase Price and Structure\n<|id|>25<|page|>3<|box|>90 142 107 431<|content|>2.3 Assumed Debt — Pinnacle Loans\n<|id|>37<|page|>4<|box|>234 140 251 457<|content|>2.4 Change of Control Triggering Event\n<|id|>40<|page|>4<|box|>515 140 532 339<|content|>2.5 Anticipated Timeline\n<|id|>47<|page|>4<|box|>794 140 811 805<|content|>3. Information Regarding Fairwater (Proposed Trans\n<|id|>48<|page|>4<|box|>824 142 840 323<|content|>3.1 Entity Information\n<|id|>60<|page|>5<|box|>401 140 417 411<|content|>3.2 Portfolio and Financial Profile\n<|id|>64<|page|>5<|box|>727 140 744 508<|content|>3.3 Financial Statements and Creditworthiness\n<|id|>74<|page|>6<|box|>488 140 505 352<|content|>3.4 Property Management\n<|id|>78<|page|>6<|box|>842 140 859 346<|content|>4. Replacement Guaranty\n<|id|>86<|page|>7<|box|>431 140 448 263<|content|>5. Consent Fee\n<|id|>96<|page|>8<|box|>90 140 107 349<|content|>6. Assumption Agreement\n<|id|>104<|page|>8<|box|>587 140 604 604<|content|>7. Additional Information Regarding the Borrower E\n<|id|>110<|page|>9<|box|>258 140 273 253<|content|>8. Enclosures\n<|id|>122<|page|>9<|box|>691 140 709 531<|content|>9. Request for Response and Contact Information",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>18<|level|>3\n<|id|>25<|level|>3\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>60<|level|>3\n<|id|>64<|level|>3\n<|id|>74<|level|>3\n<|id|>78<|level|>2\n<|id|>86<|level|>2\n<|id|>96<|level|>2\n<|id|>104<|level|>2\n<|id|>110<|level|>2\n<|id|>122<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        2,
+        21,
+        22,
+        29
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>172 374 190 622<|content|>INTERNAL MEMORANDUM\n<|id|>3<|page|>1<|box|>199 140 217 354<|content|>TO: ... Leonard Cross, Partner\n<|id|>4<|page|>1<|box|>224 140 262 854<|content|>FROM: ... Wendy Schultz, Associate, intellectual P...or Counsel, Technology Transactions Practice Group\n<|id|>5<|page|>1<|box|>268 140 287 352<|content|>DATE: ... December 15, 2022\n<|id|>6<|page|>1<|box|>295 140 332 854<|content|>RE: ... (\"Meridian\")\n<|id|>7<|page|>1<|box|>339 140 357 488<|content|>MATTER NO. ... 1025-00008\n<|id|>8<|page|>1<|box|>366 140 513 854<|content|>Purpose: ... This memorandum is intended solely fo...ttorney-client privilege and work product doctrine\n<|id|>12<|page|>1<|box|>718 174 773 854<|content|>(1) Most Favored Nation Pricing — Quorum's demand ...stry licensee of Meridian's data products; ... and\n<|id|>14<|page|>2<|box|>90 140 218 854<|content|>The aggregate deal value is approximately $60,000,...ely 85 million consumer alternative- data records)\n<|id|>206<|page|>21<|box|>829 217 845 656<|content|>• intellectual property infringement claims (by either party)\n<|id|>207<|page|>21<|box|>849 218 864 676<|content|>• Data breach or data security incident claims (by either party)\n<|id|>208<|page|>21<|box|>869 218 886 642<|content|>• Breaches of confidentiality obligations (by either party)\n<|id|>209<|page|>22<|box|>89 174 127 854<|content|>Uncapped liability: ... Indemnification obligation...ence, or fraud should be uncapped for both parties\n<|id|>281<|page|>29<|box|>467 142 484 602<|content|>Wendy Schultz Associate, intellectual Property Practice Group\n<|id|>282<|page|>29<|box|>484 142 501 666<|content|>Patricia Heng Senior Counsel, Technology Transactions Practice Group\n<|id|>283<|page|>29<|box|>501 196 518 854<|content|>cc: ... Omar Siddiqui, Associate (C&H) David Cartwright, Associate (C&H) Lisa Johannsen,\n<|id|>284<|page|>29<|box|>518 204 537 854<|content|>Associate (C&H) Marcus Weill, Partner (C&H) Nathaniel Bower, Billing Partner (C&H)",
+    "raw_response": "<|src_id|>12<|tgt_id|>14\n<|src_id|>283<|tgt_id|>284",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 283,
+            "tgt_id": 284
+        }
+    ]
+}

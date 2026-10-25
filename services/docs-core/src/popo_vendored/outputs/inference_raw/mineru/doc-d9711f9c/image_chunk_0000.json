@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 145 143 851<|content|>OFFICER'S CERTIFICATE OF BRIGHTFIELD CLOUD SERVICE\n<|id|>11<|type|>title<|page|>1<|box|>589 142 606 532<|content|>1. Recitals and Identification of Certifying Offic\n<|id|>17<|type|>title<|page|>2<|box|>421 140 438 542<|content|>2. Certification — Representations and Warranties\n<|id|>29<|type|>title<|page|>4<|box|>383 140 402 527<|content|>3. Certification — No Default or Event of Default\n<|id|>40<|type|>title<|page|>5<|box|>630 140 647 517<|content|>4. Certification — No Material Adverse Change\n<|id|>46<|type|>title<|page|>6<|box|>90 184 106 375<|content|>• EBITDA: $12,800,000\n<|id|>48<|type|>title<|page|>6<|box|>261 142 277 413<|content|>5. Certification — Use of Proceeds\n<|id|>50<|type|>table<|page|>6<|box|>364 143 621 852<|content|>None\n<|id|>52<|type|>title<|page|>7<|box|>90 140 107 640<|content|>6. Certification — Financial Covenant Compliance (\n<|id|>59<|type|>title<|page|>7<|box|>835 140 853 527<|content|>7. Certification — Conditions Precedent Satisfied\n<|id|>75<|type|>title<|page|>9<|box|>833 176 849 269<|content|>8. Reliance\n<|id|>78<|type|>title<|page|>10<|box|>340 176 357 279<|content|>9. Execution",
+    "raw_response": "<|src_id|>50<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        }
+    ]
+}

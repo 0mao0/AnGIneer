@@ -1,0 +1,135 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6fs_j_jm\\input\\pdfs\\doc-13a5b2dd.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6fs_j_jm\\enriched\\doc-13a5b2dd.json",
+    "contd_output": "<|src_id|>13<|tgt_id|>14\n<|src_id|>75<|tgt_id|>76\n<|src_id|>162<|tgt_id|>163",
+    "title_output": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>28<|level|>3\n<|id|>35<|level|>3\n<|id|>43<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>63<|level|>3\n<|id|>89<|level|>3\n<|id|>123<|level|>2\n<|id|>125<|level|>3\n<|id|>129<|level|>3\n<|id|>139<|level|>3\n<|id|>143<|level|>3\n<|id|>147<|level|>3\n<|id|>159<|level|>2\n<|id|>169<|level|>2",
+    "image_output": "<|src_id|>30<|tgt_id|>28\n<|src_id|>31<|tgt_id|>28",
+    "contd_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 28
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 30,
+            "table2_idx": 31,
+            "upper_row_ss": [
+                [
+                    "2nd Excess",
+                    "Graystone",
+                    "$10,000,000 xs",
+                    "GMA-XS2-",
+                    "$198,750",
+                    "Follows form to"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Mutual Assurance Co.",
+                    "$20,000,000",
+                    "2021-71048",
+                    "",
+                    "Vandermeer primary"
+                ]
+            ]
+        }
+    ]
+}

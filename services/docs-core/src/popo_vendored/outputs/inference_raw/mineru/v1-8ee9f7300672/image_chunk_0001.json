@@ -1,0 +1,87 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        85
+    ],
+    "pages": [
+        46,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        59,
+        62,
+        63,
+        64,
+        65,
+        73,
+        76,
+        80,
+        81,
+        85
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>164<|type|>table<|page|>46<|box|>166 94 328 903<|content|>None\n<|id|>166<|type|>title<|page|>46<|box|>474 101 493 339<|content|>3.4. Extreme Temperature\n<|id|>171<|type|>image<|page|>48<|box|>83 127 527 867<|content|>None\n<|id|>172<|type|>image<|page|>49<|box|>83 127 527 867<|content|>None\n<|id|>175<|type|>title<|page|>50<|box|>507 101 525 397<|content|>3.5. Other Temperature Variables\n<|id|>178<|type|>image<|page|>51<|box|>85 140 314 859<|content|>None\n<|id|>179<|type|>image<|page|>51<|box|>319 133 526 857<|content|>None\n<|id|>181<|type|>image<|page|>52<|box|>85 127 527 867<|content|>None\n<|id|>182<|type|>image<|page|>53<|box|>82 127 527 867<|content|>None\n<|id|>186<|type|>title<|page|>54<|box|>488 101 506 305<|content|>3.6. Mean Precipitation\n<|id|>188<|type|>image<|page|>55<|box|>99 133 541 864<|content|>None\n<|id|>189<|type|>image<|page|>56<|box|>83 127 527 867<|content|>None\n<|id|>191<|type|>image<|page|>57<|box|>106 192 704 800<|content|>None\n<|id|>196<|type|>image<|page|>59<|box|>88 194 704 797<|content|>None\n<|id|>197<|type|>title<|page|>62<|box|>80 101 99 336<|content|>3.7. Extreme Precipitation\n<|id|>200<|type|>image<|page|>63<|box|>82 127 527 867<|content|>None\n<|id|>201<|type|>image<|page|>64<|box|>84 127 527 867<|content|>None\n<|id|>203<|type|>title<|page|>65<|box|>80 101 99 645<|content|>3.8. Comparison Between Model Simulations and Obse\n<|id|>212<|type|>title<|page|>73<|box|>82 99 101 259<|content|>4. SUMMARY\n<|id|>240<|type|>title<|page|>76<|box|>80 99 101 292<|content|>5. REFERENCES\n<|id|>296<|type|>title<|page|>80<|box|>82 99 101 406<|content|>6. ACKNOWLEDGEMENTS\n<|id|>297<|type|>title<|page|>80<|box|>117 99 135 627<|content|>6.1. National Climate Trends and Important Climate\n<|id|>307<|type|>title<|page|>81<|box|>176 99 194 444<|content|>6.2. Future National Climate Scenarios\n<|id|>349<|type|>title<|page|>85<|box|>89 142 108 648<|content|>NOAA SCIENTIFIC AND TECHNICAL PUBLICATIONS\n<|id|>358<|type|>image<|page|>85<|box|>657 418 794 593<|content|>None",
+    "raw_response": "<|src_id|>171<|tgt_id|>166\n<|src_id|>172<|tgt_id|>166\n<|src_id|>178<|tgt_id|>175\n<|src_id|>179<|tgt_id|>175\n<|src_id|>181<|tgt_id|>175\n<|src_id|>182<|tgt_id|>175\n<|src_id|>188<|tgt_id|>186\n<|src_id|>189<|tgt_id|>186\n<|src_id|>191<|tgt_id|>186\n<|src_id|>196<|tgt_id|>186\n<|src_id|>200<|tgt_id|>197\n<|src_id|>201<|tgt_id|>197\n<|src_id|>358<|tgt_id|>349",
+    "parsed": [
+        {
+            "src_id": 171,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 200,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 358,
+            "tgt_id": 349
+        }
+    ]
+}

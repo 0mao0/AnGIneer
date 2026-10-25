@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 104 504<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>199 140 215 462<|content|>VIA Sundial Data Systems AND EMAIL\n<|id|>8<|page|>1<|box|>373 140 390 364<|content|>I. Introduction and Purpose\n<|id|>12<|page|>1<|box|>801 140 819 406<|content|>II. Description of the Transaction\n<|id|>22<|page|>2<|box|>531 140 549 464<|content|>III. Identification of the Sycamore Loans\n<|id|>24<|page|>2<|box|>588 142 604 243<|content|>A. Loan 3-A\n<|id|>29<|page|>2<|box|>775 142 791 243<|content|>B. Loan 3-B\n<|id|>34<|page|>3<|box|>184 140 200 401<|content|>C. Summary of Key Loan Terms\n<|id|>38<|page|>3<|box|>467 142 484 403<|content|>IV. Nature of Consent Requested\n<|id|>45<|page|>4<|box|>167 140 185 352<|content|>V. Replacement Guaranty\n<|id|>52<|page|>4<|box|>608 140 625 516<|content|>VI. Buyer's Financial Profile and Qualifications\n<|id|>61<|page|>5<|box|>439 140 457 281<|content|>VII. Consent Fee\n<|id|>68<|page|>5<|box|>763 140 780 493<|content|>VIII. Lender Consent Deadline and Timeline\n<|id|>72<|page|>6<|box|>321 140 339 362<|content|>IX. Summary of Enclosures\n<|id|>85<|page|>6<|box|>794 140 810 472<|content|>X. Contact Information and Coordination\n<|id|>92<|page|>7<|box|>223 142 239 622<|content|>Fairwater Real Estate Investment Trust (Buyer — In\n<|id|>100<|page|>7<|box|>667 140 683 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>-1\n<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>2\n<|id|>38<|level|>1\n<|id|>45<|level|>1\n<|id|>52<|level|>1\n<|id|>61<|level|>1\n<|id|>68<|level|>1\n<|id|>72<|level|>1\n<|id|>85<|level|>1\n<|id|>92<|level|>2\n<|id|>100<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 2
+        }
+    ]
+}

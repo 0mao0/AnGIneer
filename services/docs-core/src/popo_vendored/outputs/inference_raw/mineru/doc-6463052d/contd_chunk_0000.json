@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        18
+    ],
+    "pages": [
+        3,
+        4,
+        8,
+        15,
+        16,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>16<|page|>3<|box|>782 140 875 856<|content|>PBI maintains its principal banking relationship w... decisions, and maintained financial autonomy from\n<|id|>17<|page|>4<|box|>90 140 127 854<|content|>PPC's U. ... 22, dated January 20, 2023\n<|id|>28<|page|>4<|box|>686 181 724 852<|content|>• Financial performance review, including quarterl...lity, and budget performance against plan; ... and\n<|id|>30<|page|>4<|box|>763 140 872 854<|content|>Complete board minutes for all 42 meetings held du... produced in connection with the same IDR response\n<|id|>64<|page|>8<|box|>184 181 220 854<|content|>• The employee's reporting relationships, includin...d to PBI management in Dublin or to any U. ... and\n<|id|>66<|page|>8<|box|>260 140 369 856<|content|>The summaries of the 12 interviews confirm that PB...laborative and informational rather than directive\n<|id|>137<|page|>15<|box|>776 138 904 857<|content|>From fiscal year 2016 forward, PBI claimed benefit...t box (\"KDB\") at an effective rate of 6. ... PBI's\n<|id|>138<|page|>16<|box|>89 140 126 854<|content|>KDB claims were based on qualifying expenditure in...red by PBI in connection with its DEMPE activities\n<|id|>158<|page|>18<|box|>146 140 161 356<|content|>C&H Matter Number: ... 1018-00009\n<|id|>159<|page|>18<|box|>169 140 184 300<|content|>Date: ... December 22, 2023",
+    "raw_response": "<|src_id|>16<|tgt_id|>17\n<|src_id|>137<|tgt_id|>138",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 138
+        }
+    ]
+}

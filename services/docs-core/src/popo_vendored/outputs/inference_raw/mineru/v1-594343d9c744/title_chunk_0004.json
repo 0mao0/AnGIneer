@@ -1,0 +1,28 @@
+{
+    "task": "title",
+    "chunk_index": 4,
+    "range": [
+        198,
+        200
+    ],
+    "pages": [
+        199,
+        200
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>997<|page|>199<|box|>341 305 363 690<|content|>第4章 项目进度计划及保证措施\n<|id|>998<|page|>199<|box|>414 144 436 448<|content|>4.1 项目总体进度计划编制\n<|id|>1000<|page|>200<|box|>99 144 120 400<|content|>4.2 详细进度节点分解",
+    "raw_response": "<|id|>997<|level|>1\n<|id|>998<|level|>2\n<|id|>1000<|level|>2",
+    "parsed": [
+        {
+            "id": 997,
+            "level": 1
+        },
+        {
+            "id": 998,
+            "level": 2
+        },
+        {
+            "id": 1000,
+            "level": 2
+        }
+    ]
+}

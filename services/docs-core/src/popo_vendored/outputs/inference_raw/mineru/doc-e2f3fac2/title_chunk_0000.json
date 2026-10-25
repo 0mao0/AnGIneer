@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 282 133 714<|content|>450 Park Avenue, 30th Floor New York, New York 100\n<|id|>11<|page|>1<|box|>585 140 604 609<|content|>Scope of the Subpoena and Volume of Responsive Mat\n<|id|>14<|page|>2<|box|>281 142 297 393<|content|>Basis for the Extension Request\n<|id|>23<|page|>3<|box|>133 142 152 446<|content|>Proposed Rolling Production Schedule\n<|id|>25<|page|>3<|box|>388 140 404 488<|content|>Mr. Caldwell's Cooperation and Good Faith\n<|id|>27<|page|>3<|box|>641 142 657 336<|content|>Testimonial Component\n<|id|>29<|page|>3<|box|>876 143 892 348<|content|>Request for Confirmation",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,121 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        17,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 194 108 800<|content|>UNITED STATES DISTRICT COURT CENTRAL DISTRICT OF C\n<|id|>2<|page|>1<|box|>402 161 458 836<|content|>PETITIONER HALCYON SEMICONDUCTOR AG'S MEMORANDUM O\n<|id|>5<|page|>2<|box|>654 385 670 612<|content|>TABLE OF AUTHORITIES\n<|id|>10<|page|>4<|box|>89 140 106 310<|content|>I. INTRODUCTION\n<|id|>17<|page|>5<|box|>376 140 393 379<|content|>II. STATEMENT OF FACTS\n<|id|>18<|page|>5<|box|>407 140 424 509<|content|>A. The Parties and the Distribution Agreement\n<|id|>30<|page|>7<|box|>220 140 237 464<|content|>B. Meridian's Breaches and Termination\n<|id|>35<|page|>8<|box|>176 140 193 393<|content|>C. The Arbitration Proceedings\n<|id|>44<|page|>9<|box|>157 142 174 303<|content|>D. The Final Award\n<|id|>53<|page|>10<|box|>157 140 174 320<|content|>E. Post-Award Events\n<|id|>56<|page|>10<|box|>449 140 465 346<|content|>III. LEGAL STANDARD\n<|id|>57<|page|>10<|box|>479 140 498 676<|content|>A. The Federal Arbitration Act's Strong Policy Fav\n<|id|>61<|page|>11<|box|>157 140 175 674<|content|>B. The Extremely Narrow Grounds for Vacatur Under\n<|id|>70<|page|>11<|box|>777 140 795 544<|content|>C. Standard for Evident Partiality Under § 10(a)(2\n<|id|>77<|page|>12<|box|>755 140 773 537<|content|>D. Standard for Excess of Powers Under § 10(a)(4)\n<|id|>82<|page|>13<|box|>530 142 547 285<|content|>IV. ARGUMENT\n<|id|>83<|page|>13<|box|>561 140 579 640<|content|>A. Respondents' Evident Partiality Claim Under § 1\n<|id|>112<|page|>17<|box|>424 140 441 637<|content|>B. Respondents' Excess-of-Powers Claim Under § 10(\n<|id|>116<|page|>17<|box|>781 140 797 248<|content|>Ex. A, § 14.3.\n<|id|>148<|page|>21<|box|>508 140 525 790<|content|>C. Respondents' Cross-Motion Is an Impermissible A\n<|id|>153<|page|>22<|box|>210 140 229 666<|content|>V. THE AWARD SHOULD BE CONFIRMED IN ITS ENTIRETY\n<|id|>162<|page|>22<|box|>618 142 633 300<|content|>VI. CONCLUSION\n<|id|>178<|page|>23<|box|>295 375 311 622<|content|>CERTIFICATE OF SERVICE\n<|id|>184<|page|>23<|box|>623 142 640 277<|content|>Patrick Gallagher\n<|id|>185<|page|>23<|box|>638 281 657 715<|content|>DECLARATION INDEX / EXHIBITS REFERENCED",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>1\n<|id|>10<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>44<|level|>2\n<|id|>53<|level|>2\n<|id|>56<|level|>1\n<|id|>57<|level|>2\n<|id|>61<|level|>2\n<|id|>70<|level|>2\n<|id|>77<|level|>2\n<|id|>82<|level|>1\n<|id|>83<|level|>2\n<|id|>112<|level|>2\n<|id|>116<|level|>-1\n<|id|>148<|level|>2\n<|id|>153<|level|>1\n<|id|>162<|level|>1\n<|id|>178<|level|>1\n<|id|>184<|level|>-1\n<|id|>185<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 185,
+            "level": 1
+        }
+    ]
+}

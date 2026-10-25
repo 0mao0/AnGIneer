@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        60
+    ],
+    "pages": [
+        1,
+        3,
+        8,
+        9,
+        10,
+        13,
+        34,
+        43,
+        59
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>705 570 849 743<|content|>FEATURES Profile of the Economy Financial Operations International Statistics Special Reports\n<|id|>2<|page|>1<|box|>864 614 887 746<|content|>Produced and Published by\n<|id|>3<|page|>1<|box|>891 522 921 748<|content|>Department of the Treasury Bureau of the Fiscal Service\n<|id|>7<|page|>3<|box|>516 318 537 676<|content|>treasury. ... gov\n<|id|>8<|page|>3<|box|>551 150 590 846<|content|>Internet service subscribers can access the Treasu...rough the Bureau of the Fiscal Service's home page\n<|id|>27<|page|>8<|box|>734 81 882 491<|content|>According to the advance estimate of real GDP, the...st four quarters, private domestic final purchases\n<|id|>28<|page|>8<|box|>184 517 202 712<|content|>Growth of Real GDP\n<|id|>30<|page|>8<|box|>502 504 532 913<|content|>have grown by 3. ... 9 percent average seen over the previous two years\n<|id|>29<|page|>8<|box|>205 539 220 785<|content|>(Quarterly percent change at annual rate)\n<|id|>39<|page|>9<|box|>422 504 585 916<|content|>The pace of nominal wage growth is accelerating, a...wages are also showing solid gains. ... 0 percent,\n<|id|>40<|page|>10<|box|>89 81 209 491<|content|>September) suggests real average hourly earnings w...d with 3 percent weekly earnings growth since 2007\n<|id|>76<|page|>13<|box|>516 380 527 616<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>77<|page|>13<|box|>536 83 551 266<|content|>Fourth-Quarter Receipts\n<|id|>78<|page|>13<|box|>554 81 643 488<|content|>The following capsule analysis of budget receipts,... to analyze adequately collections for the quarter\n<|id|>142<|page|>34<|box|>685 81 717 491<|content|>• Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>144<|page|>34<|box|>250 504 397 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>174<|page|>43<|box|>512 339 523 656<|content|>[Source: ... Bureau of the Fiscal Service, Division of Financing Operations]\n<|id|>175<|page|>43<|box|>530 112 547 186<|content|>JULY\n<|id|>338<|page|>59<|box|>85 421 167 913<|content|>INTERNATIONAL\n<|id|>339<|page|>59<|box|>200 710 252 919<|content|>Foreign Currency Positions Exchange Stabilization Fund\n<|id|>340<|page|>59<|box|>167 602 189 915<|content|>STATISTICS",
+    "raw_response": "<|src_id|>27<|tgt_id|>28\n<|src_id|>28<|tgt_id|>30\n<|src_id|>39<|tgt_id|>40\n<|src_id|>338<|tgt_id|>339",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 338,
+            "tgt_id": 339
+        }
+    ]
+}

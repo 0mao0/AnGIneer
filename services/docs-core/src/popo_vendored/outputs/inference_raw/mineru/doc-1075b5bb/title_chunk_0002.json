@@ -1,0 +1,165 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        102,
+        142
+    ],
+    "pages": [
+        103,
+        104,
+        105,
+        112,
+        114,
+        115,
+        117,
+        118,
+        119,
+        122,
+        123,
+        124,
+        126,
+        127,
+        128,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        137,
+        142
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>377<|page|>103<|box|>52 329 65 554<|content|>CAPITAL MOVEMENTS.\n<|id|>378<|page|>103<|box|>143 0 155 46<|content|>ground\n<|id|>382<|page|>103<|box|>468 0 481 104<|content|>c definitions\n<|id|>387<|page|>103<|box|>202 462 215 613<|content|>Reporting coverage\n<|id|>391<|page|>103<|box|>555 467 568 676<|content|>Description of statistics\n<|id|>396<|page|>104<|box|>45 411 58 635<|content|>CAPITAL MOVEMENTS.\n<|id|>402<|page|>105<|box|>50 341 64 563<|content|>CAPITAL MOVEMENTS.\n<|id|>411<|page|>112<|box|>48 413 61 631<|content|>CAPITAL MOVEMENTS\n<|id|>414<|page|>114<|box|>70 220 104 826<|content|>Section II - Claims on Foreigners Reported by Bank\n<|id|>421<|page|>115<|box|>71 183 106 790<|content|>Section II - Claims on Foreigners Reported by Bank\n<|id|>424<|page|>117<|box|>52 364 65 584<|content|>CAPITAL MOVEMENTS.\n<|id|>430<|page|>118<|box|>75 213 109 820<|content|>Section II - Claims on Foreigners Reported by Bank\n<|id|>433<|page|>119<|box|>71 178 105 783<|content|>Section II - Claims on Foreigners Reported by Bank\n<|id|>439<|page|>122<|box|>72 139 105 889<|content|>Section III - Liabilities to Foreigners Reported b\n<|id|>441<|page|>123<|box|>43 365 56 585<|content|>CAPITAL MOVEMENTS\n<|id|>443<|page|>124<|box|>42 392 56 612<|content|>CAPITAL MOVEMENTS.\n<|id|>446<|page|>126<|box|>45 399 58 619<|content|>CAPITAL MOVEMENTS\n<|id|>448<|page|>127<|box|>43 345 57 567<|content|>CAPITAL MOVEMENTS\n<|id|>454<|page|>128<|box|>572 120 589 908<|content|>Table CM-IV-5. - Short-Term Liquid Claims Reported\n<|id|>458<|page|>130<|box|>48 416 63 636<|content|>_CAPITAL MOVEMENTS_\n<|id|>461<|page|>131<|box|>52 345 65 568<|content|>CAPITAL MOVEMENTS.\n<|id|>462<|page|>131<|box|>67 201 95 718<|content|>Section V - Transactions in Long-Term Securities b\n<|id|>466<|page|>132<|box|>44 411 58 631<|content|>CAPITAL MOVEMENTS.\n<|id|>471<|page|>133<|box|>67 67 108 903<|content|>Section V - Transactions in Long-Term Securities b\n<|id|>473<|page|>133<|box|>49 376 63 589<|content|>CAPITAL MOVEMENTS.\n<|id|>475<|page|>134<|box|>44 414 58 636<|content|>CAPITAL MOVEMENTS.\n<|id|>482<|page|>135<|box|>52 338 65 561<|content|>CAPITAL MOVEMENTS.\n<|id|>492<|page|>137<|box|>52 326 65 549<|content|>CAPITAL MOVEMENTS.\n<|id|>494<|page|>137<|box|>69 151 110 738<|content|>Section V - Transactions in Long-Term Securities b\n<|id|>504<|page|>142<|box|>49 209 64 829<|content|>.FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND F\n<|id|>505<|page|>142<|box|>70 358 85 672<|content|>Section III - Federal Credit Programs\n<|id|>506<|page|>142<|box|>87 282 103 750<|content|>Table GA-III-1. - Direct Sales and Repurchases of",
+    "raw_response": "<|id|>377<|level|>1\n<|id|>378<|level|>2\n<|id|>382<|level|>2\n<|id|>387<|level|>2\n<|id|>391<|level|>2\n<|id|>396<|level|>1\n<|id|>402<|level|>1\n<|id|>411<|level|>1\n<|id|>414<|level|>2\n<|id|>421<|level|>2\n<|id|>424<|level|>1\n<|id|>430<|level|>2\n<|id|>433<|level|>2\n<|id|>439<|level|>2\n<|id|>441<|level|>1\n<|id|>443<|level|>1\n<|id|>446<|level|>1\n<|id|>448<|level|>1\n<|id|>454<|level|>3\n<|id|>458<|level|>1\n<|id|>461<|level|>1\n<|id|>462<|level|>2\n<|id|>466<|level|>1\n<|id|>471<|level|>2\n<|id|>473<|level|>1\n<|id|>475<|level|>1\n<|id|>482<|level|>1\n<|id|>492<|level|>1\n<|id|>494<|level|>2\n<|id|>504<|level|>1\n<|id|>505<|level|>2\n<|id|>506<|level|>3",
+    "parsed": [
+        {
+            "id": 377,
+            "level": 1
+        },
+        {
+            "id": 378,
+            "level": 2
+        },
+        {
+            "id": 382,
+            "level": 2
+        },
+        {
+            "id": 387,
+            "level": 2
+        },
+        {
+            "id": 391,
+            "level": 2
+        },
+        {
+            "id": 396,
+            "level": 1
+        },
+        {
+            "id": 402,
+            "level": 1
+        },
+        {
+            "id": 411,
+            "level": 1
+        },
+        {
+            "id": 414,
+            "level": 2
+        },
+        {
+            "id": 421,
+            "level": 2
+        },
+        {
+            "id": 424,
+            "level": 1
+        },
+        {
+            "id": 430,
+            "level": 2
+        },
+        {
+            "id": 433,
+            "level": 2
+        },
+        {
+            "id": 439,
+            "level": 2
+        },
+        {
+            "id": 441,
+            "level": 1
+        },
+        {
+            "id": 443,
+            "level": 1
+        },
+        {
+            "id": 446,
+            "level": 1
+        },
+        {
+            "id": 448,
+            "level": 1
+        },
+        {
+            "id": 454,
+            "level": 3
+        },
+        {
+            "id": 458,
+            "level": 1
+        },
+        {
+            "id": 461,
+            "level": 1
+        },
+        {
+            "id": 462,
+            "level": 2
+        },
+        {
+            "id": 466,
+            "level": 1
+        },
+        {
+            "id": 471,
+            "level": 2
+        },
+        {
+            "id": 473,
+            "level": 1
+        },
+        {
+            "id": 475,
+            "level": 1
+        },
+        {
+            "id": 482,
+            "level": 1
+        },
+        {
+            "id": 492,
+            "level": 1
+        },
+        {
+            "id": 494,
+            "level": 2
+        },
+        {
+            "id": 504,
+            "level": 1
+        },
+        {
+            "id": 505,
+            "level": 2
+        },
+        {
+            "id": 506,
+            "level": 3
+        }
+    ]
+}

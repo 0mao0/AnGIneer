@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['6', 'Cybersecurity Standards', 'NIST 800-171 + CMMC Level 2 within 12 months; 24-hour incident reporting; complete IT separation; separate VPI IT team', 'Accept NIST 800-171; CMMC within 24 months or upon CMMC mandate; 72-hour incident reporting; separation for classified systems only; shared unclassified ERP/HR/fina', '48-hour minimum incident reporting; no complete separation for unclassified admin systems; no hard CMMC deadline ahead of DoD rollout', 'Accept 48-hour reporting; CMMC within 18 months if final rule published; DMZ architecture for unclassified data sharing', 'N/A (limited precedent on CMMC; NIST 800-171 standard in all recent NSAs)']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'nce', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 277,
+    "table2_idx": 278
+}

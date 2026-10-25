@@ -1,0 +1,167 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-hec2nyil\\input\\pdfs\\doc-202af94c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-hec2nyil\\enriched\\doc-202af94c.json",
+    "contd_output": "<|src_id|>10<|tgt_id|>11\n<|src_id|>133<|tgt_id|>134\n<|src_id|>205<|tgt_id|>206",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>29<|level|>3\n<|id|>37<|level|>3\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>50<|level|>3\n<|id|>58<|level|>3\n<|id|>80<|level|>3\n<|id|>89<|level|>2\n<|id|>90<|level|>3\n<|id|>105<|level|>3\n<|id|>113<|level|>3\n<|id|>120<|level|>2\n<|id|>121<|level|>3\n<|id|>149<|level|>3\n<|id|>160<|level|>3\n<|id|>167<|level|>3\n<|id|>175<|level|>3\n<|id|>180<|level|>2\n<|id|>189<|level|>2\n<|id|>199<|level|>2\n<|id|>207<|level|>2\n<|id|>210<|level|>2\n<|id|>220<|level|>2",
+    "image_output": "<|src_id|>38<|tgt_id|>37\n<|src_id|>208<|tgt_id|>207\n<|src_id|>209<|tgt_id|>207",
+    "contd_label": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 206
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 38,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 208,
+            "tgt_id": 207
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 207
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 208,
+            "table2_idx": 209,
+            "upper_row_ss": [
+                [
+                    "Kelvantis lender consent and waiver (consent to incurrence of subordinated convertible note indebtedness; waiver of any resulting default)",
+                    "Loan and Security Agreement, dated August 15, 2022 (negative covenants restricting additional indebtedness)",
+                    "Kelvantis Lending Corp. (contact: Theodore \"Ted\" Marsh)",
+                    "Prior to signing/closing (target: on or before January 10, 2024)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "DGCL § 228(e) Notice to Non-Consenting Stockholders (if the Stockholder Consent is not unanimous)",
+                    "DGCL § 228(e)",
+                    "Company (Corporate Secretary)",
+                    "Promptly after written consent becomes effective"
+                ]
+            ]
+        }
+    ]
+}

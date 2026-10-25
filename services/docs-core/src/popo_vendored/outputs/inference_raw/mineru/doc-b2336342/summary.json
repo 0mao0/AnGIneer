@@ -1,0 +1,207 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-iyoz3l50\\input\\pdfs\\doc-b2336342.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-iyoz3l50\\enriched\\doc-b2336342.json",
+    "contd_output": "<|src_id|>169<|tgt_id|>170\n<|src_id|>176<|tgt_id|>177\n<|src_id|>294<|tgt_id|>295",
+    "title_output": "<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>23<|level|>2\n<|id|>30<|level|>2\n<|id|>50<|level|>2\n<|id|>81<|level|>2\n<|id|>86<|level|>3\n<|id|>93<|level|>2\n<|id|>110<|level|>2\n<|id|>137<|level|>2\n<|id|>150<|level|>2\n<|id|>173<|level|>2\n<|id|>178<|level|>2\n<|id|>201<|level|>2\n<|id|>219<|level|>2\n<|id|>233<|level|>2\n<|id|>249<|level|>2\n<|id|>257<|level|>2\n<|id|>260<|level|>2\n<|id|>263<|level|>2\n<|id|>279<|level|>2\n<|id|>299<|level|>2\n<|id|>301<|level|>3\n<|id|>308<|level|>3\n<|id|>319<|level|>3\n<|id|>324<|level|>3\n<|id|>329<|level|>4\n<|id|>334<|level|>4\n<|id|>348<|level|>2\n<|id|>350<|level|>3",
+    "image_output": "<|src_id|>322<|tgt_id|>319\n<|src_id|>330<|tgt_id|>329\n<|src_id|>345<|tgt_id|>324\n<|src_id|>346<|tgt_id|>324\n<|src_id|>347<|tgt_id|>324",
+    "contd_label": [
+        {
+            "src_id": 169,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 294,
+            "tgt_id": 295
+        }
+    ],
+    "title_label": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 233,
+            "level": 2
+        },
+        {
+            "id": 249,
+            "level": 2
+        },
+        {
+            "id": 257,
+            "level": 2
+        },
+        {
+            "id": 260,
+            "level": 2
+        },
+        {
+            "id": 263,
+            "level": 2
+        },
+        {
+            "id": 279,
+            "level": 2
+        },
+        {
+            "id": 299,
+            "level": 2
+        },
+        {
+            "id": 301,
+            "level": 3
+        },
+        {
+            "id": 308,
+            "level": 3
+        },
+        {
+            "id": 319,
+            "level": 3
+        },
+        {
+            "id": 324,
+            "level": 3
+        },
+        {
+            "id": 329,
+            "level": 4
+        },
+        {
+            "id": 334,
+            "level": 4
+        },
+        {
+            "id": 348,
+            "level": 2
+        },
+        {
+            "id": 350,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 322,
+            "tgt_id": 319
+        },
+        {
+            "src_id": 330,
+            "tgt_id": 329
+        },
+        {
+            "src_id": 345,
+            "tgt_id": 324
+        },
+        {
+            "src_id": 346,
+            "tgt_id": 324
+        },
+        {
+            "src_id": 347,
+            "tgt_id": 324
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 345,
+            "table2_idx": 346,
+            "upper_row_ss": [
+                [
+                    "6.2 (Data Subject Notification)",
+                    "Reduce from 5 to 3 business days",
+                    "Accept",
+                    "Reasonable acceleration"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "7.1 (Breach Notification)",
+                    "Reduce from 48 to 24 hours",
+                    "Reject",
+                    "48 hours provides sufficient triage time; consistent with bank-to-vendor DPA standards"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 346,
+            "table2_idx": 347,
+            "upper_row_ss": [
+                [
+                    "11.6 (Certification of Deletion)",
+                    "Officer-level certification",
+                    "Accept",
+                    "CISO or General Counsel certification per NIST SP"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "800-88"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        158,
+        170
+    ],
+    "pages": [
+        158,
+        159,
+        161,
+        162,
+        170
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>516<|type|>title<|page|>158<|box|>54 287 70 755<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>517<|type|>title<|page|>158<|box|>83 316 97 732<|content|>Section I - Statements of Financial Condition\n<|id|>518<|type|>title<|page|>158<|box|>97 163 143 874<|content|>Table 8.- Loans Outstanding by Periods for All Bus\n<|id|>519<|type|>table<|page|>158<|box|>156 49 947 995<|content|>None\n<|id|>522<|type|>title<|page|>159<|box|>57 234 73 707<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>523<|type|>title<|page|>159<|box|>92 380 105 568<|content|>Footnotes to Table 1\n<|id|>528<|type|>title<|page|>159<|box|>254 381 268 573<|content|>Footnotes to Table 2\n<|id|>534<|type|>table<|page|>159<|box|>418 28 623 454<|content|>None\n<|id|>548<|type|>title<|page|>159<|box|>635 388 647 578<|content|>Footnotes to Table 3\n<|id|>551<|type|>title<|page|>159<|box|>735 390 750 581<|content|>Footnotes to Table 4\n<|id|>582<|type|>table<|page|>161<|box|>112 4 916 953<|content|>None\n<|id|>583<|type|>table<|page|>162<|box|>107 42 921 983<|content|>None\n<|id|>586<|type|>image<|page|>170<|box|>1 815 31 940<|content|>None",
+    "raw_response": "<|src_id|>519<|tgt_id|>518\n<|src_id|>534<|tgt_id|>522\n<|src_id|>582<|tgt_id|>522\n<|src_id|>583<|tgt_id|>522\n<|src_id|>586<|tgt_id|>522",
+    "parsed": [
+        {
+            "src_id": 519,
+            "tgt_id": 518
+        },
+        {
+            "src_id": 534,
+            "tgt_id": 522
+        },
+        {
+            "src_id": 582,
+            "tgt_id": 522
+        },
+        {
+            "src_id": 583,
+            "tgt_id": 522
+        },
+        {
+            "src_id": 586,
+            "tgt_id": 522
+        }
+    ]
+}

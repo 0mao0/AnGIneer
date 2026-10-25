@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 308 118 689<|content|>UNANIMOUS WRITTEN CONSENT\n<|id|>1<|page|>1<|box|>137 318 156 678<|content|>OF THE BOARD OF DIRECTORS\n<|id|>3<|page|>1<|box|>214 267 233 728<|content|>CALLOWAY-BRIGGS RENEWABLES INC.\n<|id|>4<|page|>1<|box|>253 312 271 684<|content|>IN LIEU OF A SPECIAL MEETING\n<|id|>5<|page|>1<|box|>291 236 308 759<|content|>Approval and Adoption of the 2022 Omnibus Equity I\n<|id|>8<|page|>1<|box|>529 142 546 241<|content|>RECITALS\n<|id|>9<|page|>1<|box|>560 142 578 679<|content|>A. Background of the Company and Proposed Initial\n<|id|>15<|page|>2<|box|>157 140 175 433<|content|>B. Need for an Equity Incentive Plan\n<|id|>21<|page|>2<|box|>828 140 845 263<|content|>C. Plan Terms\n<|id|>35<|page|>3<|box|>816 140 834 447<|content|>D. Stockholder Approval Requirement\n<|id|>38<|page|>4<|box|>339 140 356 279<|content|>RESOLUTIONS\n<|id|>40<|page|>4<|box|>397 142 414 524<|content|>Resolution 1: Approval and Adoption of the Plan\n<|id|>43<|page|>4<|box|>642 142 659 478<|content|>Resolution 2: Share Reserve Authorization\n<|id|>46<|page|>5<|box|>231 140 248 413<|content|>Resolution 3: Evergreen Provision\n<|id|>48<|page|>5<|box|>505 140 522 473<|content|>Resolution 4: Form of Award Agreements\n<|id|>56<|page|>6<|box|>231 140 250 403<|content|>Resolution 5: IPO Equity Grants\n<|id|>61<|page|>7<|box|>90 140 107 519<|content|>Resolution 6: Section 409A and Tax Compliance\n<|id|>65<|page|>7<|box|>672 140 689 584<|content|>Resolution 7: Recommendation of Stockholder Approv\n<|id|>68<|page|>8<|box|>194 140 212 452<|content|>Resolution 8: Registration on Form S-8\n<|id|>70<|page|>8<|box|>414 140 430 413<|content|>Resolution 9: Plan Administration\n<|id|>82<|page|>9<|box|>213 140 229 547<|content|>Resolution 10: Disclosure in Registration Statemen\n<|id|>85<|page|>9<|box|>531 140 547 439<|content|>Resolution 11: General Authorization\n<|id|>96<|page|>10<|box|>472 142 489 236<|content|>EXHIBITS\n<|id|>103<|page|>10<|box|>705 142 723 259<|content|>EXECUTION\n<|id|>106<|page|>11<|box|>89 140 108 678<|content|>[Remainder of this page intentionally left blank.\n<|id|>136<|page|>12<|box|>89 140 106 426<|content|>SECRETARY'S CERTIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>5<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>15<|level|>3\n<|id|>21<|level|>3\n<|id|>35<|level|>3\n<|id|>38<|level|>2\n<|id|>40<|level|>3\n<|id|>43<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>56<|level|>3\n<|id|>61<|level|>3\n<|id|>65<|level|>3\n<|id|>68<|level|>3\n<|id|>70<|level|>3\n<|id|>82<|level|>3\n<|id|>85<|level|>3\n<|id|>96<|level|>2\n<|id|>103<|level|>2\n<|id|>106<|level|>-1\n<|id|>136<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        }
+    ]
+}

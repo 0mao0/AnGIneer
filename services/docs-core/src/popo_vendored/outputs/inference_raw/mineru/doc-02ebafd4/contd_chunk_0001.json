@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        47,
+        141
+    ],
+    "pages": [
+        48,
+        53,
+        54,
+        72,
+        77,
+        78,
+        81,
+        82,
+        140,
+        141
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>177<|page|>48<|box|>103 397 116 573<|content|>(Dollar amounts in millions)\n<|id|>179<|page|>48<|box|>354 10 395 484<|content|>1/ Excludes issues of strips of additional amounts...01 million), and October 28, 1963. ... See Table 4\n<|id|>199<|page|>53<|box|>932 16 945 456<|content|>33/ Combined total includes \\$80 million allotted on subscriptions from\n<|id|>200<|page|>53<|box|>110 540 129 956<|content|>holders of the Federal National Mortgage Associati...n notes maturing August 23, 1960 (see footnote 32)\n<|id|>234<|page|>54<|box|>633 10 690 466<|content|>66/ Holders of approximately \\$458 million of Seri...mber 15, 1962, at a price of 99. ... Cash payments\n<|id|>254<|page|>54<|box|>680 496 690 760<|content|>p Preliminary. ... not available\n<|id|>309<|page|>72<|box|>82 0 160 456<|content|>Series E and H are the only savings bonds currentl... F and G were sold from May 1, 1941, through April\n<|id|>310<|page|>72<|box|>81 506 159 959<|content|>30, 1952. ... Details of the principal changes in ...ctober and December 1959, and May and October 1961\n<|id|>319<|page|>77<|box|>106 374 119 612<|content|>(Par values 1/ in billions of dollars)\n<|id|>321<|page|>78<|box|>91 3 230 471<|content|>The monthly Treasury Survey of Ownership covers se...nd local governments in the February 1962 Bulletin\n<|id|>329<|page|>81<|box|>105 367 117 598<|content|>(Par values - in millions of dollars)\n<|id|>331<|page|>82<|box|>64 26 126 481<|content|>Current market quotations shown here are over-the-...e Treasury by the Federal Reserve Bank of New York\n<|id|>454<|page|>140<|box|>88 72 121 944<|content|>Table 7. ... - Loans Outstanding December 31, 1963...nds, Classified by Types of Loans - (Continued) 1/\n<|id|>456<|page|>141<|box|>590 11 603 287<|content|>2/ Does not include foreign currency loans. ... 2/ Does not include foreign currency loans",
+    "raw_response": "<|src_id|>199<|tgt_id|>200\n<|src_id|>309<|tgt_id|>310",
+    "parsed": [
+        {
+            "src_id": 199,
+            "tgt_id": 200
+        },
+        {
+            "src_id": 309,
+            "tgt_id": 310
+        }
+    ]
+}

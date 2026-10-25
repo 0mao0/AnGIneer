@@ -1,0 +1,137 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-uk_fall9\\input\\pdfs\\doc-6915e3fa.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-uk_fall9\\enriched\\doc-6915e3fa.json",
+    "contd_output": "<|src_id|>84<|tgt_id|>85",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>23<|level|>2\n<|id|>31<|level|>2\n<|id|>36<|level|>2\n<|id|>41<|level|>2\n<|id|>46<|level|>2\n<|id|>51<|level|>2\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>63<|level|>2\n<|id|>67<|level|>2\n<|id|>74<|level|>2\n<|id|>75<|level|>2\n<|id|>81<|level|>2\n<|id|>82<|level|>3\n<|id|>92<|level|>1\n<|id|>93<|level|>1",
+    "image_output": "<|src_id|>96<|tgt_id|>93\n<|src_id|>97<|tgt_id|>93",
+    "contd_label": [
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 96,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 93
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 96,
+            "table2_idx": 97,
+            "upper_row_ss": [
+                [
+                    "9.",
+                    "Buckhead Place Office Tower",
+                    "3380 Peachtree Road NE, Atlanta, GA",
+                    "GMP Buckhead LLC",
+                    "84-2639901"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "10.",
+                    "SouthPark Corporate Center",
+                    "6200 Fairview Road, Charlotte, NC",
+                    "GMP SouthPark LLC",
+                    "84-2639918"
+                ]
+            ]
+        }
+    ]
+}

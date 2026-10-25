@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 176 118 820<|content|>OFFICER'S CERTIFICATE OF SKYBRIDGE FINTECH LTD.\n<|id|>1<|page|>1<|box|>136 169 179 826<|content|>Authority to Execute Data Processing Agreement and\n<|id|>6<|page|>1<|box|>636 142 654 457<|content|>1. Due Organization and Good Standing\n<|id|>9<|page|>2<|box|>148 140 167 473<|content|>2. Corporate Authority and Authorization\n<|id|>13<|page|>2<|box|>652 140 670 343<|content|>3. Authority of Signatory\n<|id|>24<|page|>3<|box|>558 142 574 367<|content|>4. No Conflicts or Violations\n<|id|>32<|page|>4<|box|>356 140 373 589<|content|>5. Representations Regarding Compliance and Insura\n<|id|>38<|page|>5<|box|>241 140 258 279<|content|>6. Binding Effect\n<|id|>41<|page|>5<|box|>571 140 589 233<|content|>7. Reliance",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>6<|level|>3\n<|id|>9<|level|>3\n<|id|>13<|level|>3\n<|id|>24<|level|>3\n<|id|>32<|level|>3\n<|id|>38<|level|>3\n<|id|>41<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        }
+    ]
+}

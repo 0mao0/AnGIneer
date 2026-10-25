@@ -1,0 +1,819 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2qboks_9\\input\\pdfs\\doc-44d6ffcf.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2qboks_9\\enriched\\doc-44d6ffcf.json",
+    "contd_output": "<|src_id|>55<|tgt_id|>56\n<|src_id|>219<|tgt_id|>220",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>14<|level|>3\n<|id|>16<|level|>4\n<|id|>23<|level|>4\n<|id|>25<|level|>4\n<|id|>30<|level|>4\n<|id|>33<|level|>3\n<|id|>43<|level|>3\n<|id|>51<|level|>2\n<|id|>53<|level|>3\n<|id|>60<|level|>3\n<|id|>74<|level|>3\n<|id|>86<|level|>3\n<|id|>88<|level|>4\n<|id|>97<|level|>3\n<|id|>102<|level|>2\n<|id|>103<|level|>3\n<|id|>106<|level|>4\n<|id|>112<|level|>4\n<|id|>116<|level|>4\n<|id|>120<|level|>3\n<|id|>125<|level|>3\n<|id|>129<|level|>2\n<|id|>130<|level|>3\n<|id|>132<|level|>4\n<|id|>136<|level|>4\n<|id|>139<|level|>4\n<|id|>142<|level|>4\n<|id|>144<|level|>4\n<|id|>145<|level|>5\n<|id|>147<|level|>5\n<|id|>149<|level|>4\n<|id|>155<|level|>4\n<|id|>163<|level|>5\n<|id|>168<|level|>3\n<|id|>170<|level|>4\n<|id|>181<|level|>4\n<|id|>190<|level|>4\n<|id|>198<|level|>4\n<|id|>205<|level|>4\n<|id|>207<|level|>5\n<|id|>211<|level|>5\n<|id|>215<|level|>5\n<|id|>217<|level|>4\n<|id|>224<|level|>4\n<|id|>237<|level|>4\n<|id|>238<|level|>5\n<|id|>245<|level|>5\n<|id|>253<|level|>3\n<|id|>266<|level|>2\n<|id|>268<|level|>3\n<|id|>270<|level|>3\n<|id|>272<|level|>3\n<|id|>277<|level|>3\n<|id|>279<|level|>3\n<|id|>288<|level|>3\n<|id|>290<|level|>3\n<|id|>297<|level|>3\n<|id|>300<|level|>3\n<|id|>302<|level|>3\n<|id|>306<|level|>3\n<|id|>311<|level|>3\n<|id|>320<|level|>3\n<|id|>322<|level|>2\n<|id|>328<|level|>2\n<|id|>329<|level|>3\n<|id|>338<|level|>3\n<|id|>343<|level|>2\n<|id|>344<|level|>3\n<|id|>349<|level|>3\n<|id|>363<|level|>3\n<|id|>369<|level|>2\n<|id|>370<|level|>3\n<|id|>393<|level|>3\n<|id|>401<|level|>2\n<|id|>402<|level|>3\n<|id|>406<|level|>3\n<|id|>428<|level|>3\n<|id|>435<|level|>3\n<|id|>465<|level|>3",
+    "image_output": "<|src_id|>4<|tgt_id|>0\n<|src_id|>65<|tgt_id|>60\n<|src_id|>108<|tgt_id|>106\n<|src_id|>109<|tgt_id|>106\n<|src_id|>110<|tgt_id|>106\n<|src_id|>111<|tgt_id|>106\n<|src_id|>113<|tgt_id|>112\n<|src_id|>114<|tgt_id|>112\n<|src_id|>115<|tgt_id|>112\n<|src_id|>118<|tgt_id|>116\n<|src_id|>119<|tgt_id|>116\n<|src_id|>122<|tgt_id|>120\n<|src_id|>123<|tgt_id|>120\n<|src_id|>124<|tgt_id|>120\n<|src_id|>127<|tgt_id|>125\n<|src_id|>180<|tgt_id|>170\n<|src_id|>187<|tgt_id|>181\n<|src_id|>192<|tgt_id|>190\n<|src_id|>214<|tgt_id|>211\n<|src_id|>216<|tgt_id|>215\n<|src_id|>309<|tgt_id|>306\n<|src_id|>324<|tgt_id|>322\n<|src_id|>325<|tgt_id|>322\n<|src_id|>403<|tgt_id|>402\n<|src_id|>404<|tgt_id|>402\n<|src_id|>405<|tgt_id|>402\n<|src_id|>463<|tgt_id|>435\n<|src_id|>464<|tgt_id|>435\n<|src_id|>466<|tgt_id|>465\n<|src_id|>467<|tgt_id|>465\n<|src_id|>468<|tgt_id|>465",
+    "contd_label": [
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 220
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 4
+        },
+        {
+            "id": 23,
+            "level": 4
+        },
+        {
+            "id": 25,
+            "level": 4
+        },
+        {
+            "id": 30,
+            "level": 4
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 4
+        },
+        {
+            "id": 112,
+            "level": 4
+        },
+        {
+            "id": 116,
+            "level": 4
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 4
+        },
+        {
+            "id": 136,
+            "level": 4
+        },
+        {
+            "id": 139,
+            "level": 4
+        },
+        {
+            "id": 142,
+            "level": 4
+        },
+        {
+            "id": 144,
+            "level": 4
+        },
+        {
+            "id": 145,
+            "level": 5
+        },
+        {
+            "id": 147,
+            "level": 5
+        },
+        {
+            "id": 149,
+            "level": 4
+        },
+        {
+            "id": 155,
+            "level": 4
+        },
+        {
+            "id": 163,
+            "level": 5
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 4
+        },
+        {
+            "id": 181,
+            "level": 4
+        },
+        {
+            "id": 190,
+            "level": 4
+        },
+        {
+            "id": 198,
+            "level": 4
+        },
+        {
+            "id": 205,
+            "level": 4
+        },
+        {
+            "id": 207,
+            "level": 5
+        },
+        {
+            "id": 211,
+            "level": 5
+        },
+        {
+            "id": 215,
+            "level": 5
+        },
+        {
+            "id": 217,
+            "level": 4
+        },
+        {
+            "id": 224,
+            "level": 4
+        },
+        {
+            "id": 237,
+            "level": 4
+        },
+        {
+            "id": 238,
+            "level": 5
+        },
+        {
+            "id": 245,
+            "level": 5
+        },
+        {
+            "id": 253,
+            "level": 3
+        },
+        {
+            "id": 266,
+            "level": 2
+        },
+        {
+            "id": 268,
+            "level": 3
+        },
+        {
+            "id": 270,
+            "level": 3
+        },
+        {
+            "id": 272,
+            "level": 3
+        },
+        {
+            "id": 277,
+            "level": 3
+        },
+        {
+            "id": 279,
+            "level": 3
+        },
+        {
+            "id": 288,
+            "level": 3
+        },
+        {
+            "id": 290,
+            "level": 3
+        },
+        {
+            "id": 297,
+            "level": 3
+        },
+        {
+            "id": 300,
+            "level": 3
+        },
+        {
+            "id": 302,
+            "level": 3
+        },
+        {
+            "id": 306,
+            "level": 3
+        },
+        {
+            "id": 311,
+            "level": 3
+        },
+        {
+            "id": 320,
+            "level": 3
+        },
+        {
+            "id": 322,
+            "level": 2
+        },
+        {
+            "id": 328,
+            "level": 2
+        },
+        {
+            "id": 329,
+            "level": 3
+        },
+        {
+            "id": 338,
+            "level": 3
+        },
+        {
+            "id": 343,
+            "level": 2
+        },
+        {
+            "id": 344,
+            "level": 3
+        },
+        {
+            "id": 349,
+            "level": 3
+        },
+        {
+            "id": 363,
+            "level": 3
+        },
+        {
+            "id": 369,
+            "level": 2
+        },
+        {
+            "id": 370,
+            "level": 3
+        },
+        {
+            "id": 393,
+            "level": 3
+        },
+        {
+            "id": 401,
+            "level": 2
+        },
+        {
+            "id": 402,
+            "level": 3
+        },
+        {
+            "id": 406,
+            "level": 3
+        },
+        {
+            "id": 428,
+            "level": 3
+        },
+        {
+            "id": 435,
+            "level": 3
+        },
+        {
+            "id": 465,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 125
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 181
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 211
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 215
+        },
+        {
+            "src_id": 309,
+            "tgt_id": 306
+        },
+        {
+            "src_id": 324,
+            "tgt_id": 322
+        },
+        {
+            "src_id": 325,
+            "tgt_id": 322
+        },
+        {
+            "src_id": 403,
+            "tgt_id": 402
+        },
+        {
+            "src_id": 404,
+            "tgt_id": 402
+        },
+        {
+            "src_id": 405,
+            "tgt_id": 402
+        },
+        {
+            "src_id": 463,
+            "tgt_id": 435
+        },
+        {
+            "src_id": 464,
+            "tgt_id": 435
+        },
+        {
+            "src_id": 466,
+            "tgt_id": 465
+        },
+        {
+            "src_id": 467,
+            "tgt_id": 465
+        },
+        {
+            "src_id": 468,
+            "tgt_id": 465
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 108,
+            "table2_idx": 109,
+            "upper_row_ss": [
+                [
+                    "California",
+                    "Cal. Fin.Code § 2060 et seq.",
+                    "Prior Approval",
+                    "30 days before closing (minimum)",
+                    "$5,000",
+                    "NMLS + Paper Supplement",
+                    "NMLS MU1/ MU2; Biographical affidavits;",
+                    "DFPI —Dept. of Financial Protecti",
+                    "Approved",
+                    "04/07/2025",
+                    "06/30/2025"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Fingerprint cards via approved vendor",
+                    "on & Innovation",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 109,
+            "table2_idx": 110,
+            "upper_row_ss": [
+                [
+                    "Massachusetts",
+                    "Mass. Gen. Laws ch. 169, § 7",
+                    "Prior Approval",
+                    "30 days before closing",
+                    "$1,500",
+                    "NMLS + Mail",
+                    "NMLS filing; State supplemental form; Fingerprint",
+                    "Div. of Banks",
+                    "Approved",
+                    "04/07/2025",
+                    "07/10/2025"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "cards",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 110,
+            "table2_idx": 111,
+            "upper_row_ss": [
+                [
+                    "Washington",
+                    "Wash. Rev. Code § 19.230.090",
+                    "Prior Approval",
+                    "30 days before closing",
+                    "$2,500",
+                    "NMLS",
+                    "NMLS MU1/MU2; Fingerprint cards; Pro forma",
+                    "DFI — Dept. of Financial Institutions",
+                    "Approved",
+                    "04/07/2025",
+                    "07/03/2025"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "financials",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 113,
+            "table2_idx": 114,
+            "upper_row_ss": [
+                [
+                    "Iowa",
+                    "Iowa Code § 533C.301",
+                    "Notification (Pre)",
+                    "15 days before closing",
+                    "$0",
+                    "Mail",
+                    "Letter notification; Transaction summary",
+                    "Div. of Banking",
+                    "Acknowledged",
+                    "07/01/2025",
+                    "07/14/2025"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Kansas",
+                    "Kan. Stat. Ann. § 9-510",
+                    "Notification (Post)",
+                    "30 days after closing",
+                    "$0",
+                    "Mail",
+                    "Letter notification; Updated org chart",
+                    "Office of the State Bank Commissioner",
+                    "Acknowledged",
+                    "07/22/2025",
+                    "08/01/2025"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 114,
+            "table2_idx": 115,
+            "upper_row_ss": [
+                [
+                    "Ohio",
+                    "Ohio Rev. Code §",
+                    "Notification",
+                    "30 days before",
+                    "$250",
+                    "NMLS",
+                    "NMLS update; Notific",
+                    "Div. of Financial",
+                    "Acknowledged",
+                    "06/15/2025",
+                    "07/03/2025"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "1315.13",
+                    "(Pre)",
+                    "closing",
+                    "",
+                    "",
+                    "ation letter",
+                    "Institutions",
+                    "d",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 122,
+            "table2_idx": 123,
+            "upper_row_ss": [
+                [
+                    "Delaware",
+                    "MT-DE-2016-0779",
+                    "Delaware's statutory framework does not impose a change-of-control filing requirement for money"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "transmitter licensees."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 123,
+            "table2_idx": 124,
+            "upper_row_ss": [
+                [
+                    "Oklahoma",
+                    "MT-OK-2018-0724",
+                    "Oklahoma law does not include a change-of-control approval or"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "notification requirement for money transmitter licensees."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 324,
+            "table2_idx": 325,
+            "upper_row_ss": [
+                [
+                    "Nevada",
+                    "$0",
+                    "N/A",
+                    "N/A",
+                    "No filing fee"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "required"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 403,
+            "table2_idx": 404,
+            "upper_row_ss": [
+                [
+                    "Maryland",
+                    "MT-MD-2017-",
+                    "10/05/2017",
+                    "10/05/2024",
+                    "Yes — Prior",
+                    "Approved"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "0715",
+                    "",
+                    "",
+                    "Approval",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 404,
+            "table2_idx": 405,
+            "upper_row_ss": [
+                [
+                    "Vermont",
+                    "MT-VT-2020-",
+                    "03/05/2020",
+                    "03/05/2025",
+                    "No",
+                    "N/A"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "0107",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 463,
+            "table2_idx": 464,
+            "upper_row_ss": [
+                [
+                    "Merger Sub",
+                    "Harrowgate Velocity Merger Sub Inc., a Delaware corporation formed solely for the purpose of effecting the Merger. Merger Sub ceases to exist upon consummation of the Merger."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "NMLS",
+                    "Nationwide Multistate Licensing System, the online regulatory platform administered by the Conference of State Bank Supervisors and the State Regulatory Registry for the licensing and supervision of non-bank financial services companies."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 466,
+            "table2_idx": 467,
+            "upper_row_ss": [
+                [
+                    "Massachusetts",
+                    "04/07/2025",
+                    "Prior Approval",
+                    "07/10/2025",
+                    "None",
+                    "Approved by"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Commissioner; deficiency letter received 05/12/2025 re: fingerprint processing; response filed 05/16/2025"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 467,
+            "table2_idx": 468,
+            "upper_row_ss": [
+                [
+                    "Washington",
+                    "04/07/2025",
+                    "Prior Approval",
+                    "07/03/2025",
+                    "None",
+                    "Approved by"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "DFI Director"
+                ]
+            ]
+        }
+    ]
+}

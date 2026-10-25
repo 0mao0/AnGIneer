@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>421 627 438 854<|content|>Date Served: ... January 27, 2026\n<|id|>4<|page|>1<|box|>446 140 482 854<|content|>Propounding Party: ... (\"GenomeDx\" or \"Plaintiff\")...h its counsel of record, Calderwood & Harkness LLP\n<|id|>51<|page|>5<|box|>796 140 906 854<|content|>All Documents Relating to the machine-learning cla...network, logistic regression, or ensemble methods)\n<|id|>52<|page|>6<|box|>90 140 126 854<|content|>used, tested, evaluated, or considered for use in ...ProstaSignal™ test at any stage of its development\n<|id|>62<|page|>6<|box|>825 140 898 856<|content|>All Documents Relating to the integration, combina...ment, and/or pathological stage, and any Documents\n<|id|>63<|page|>7<|box|>90 140 162 854<|content|>Relating to the generation of a composite, combine...on-support tools incorporating ProstaScore results\n<|id|>151<|page|>16<|box|>114 673 133 854<|content|>Dated: ... January 27, 2026\n<|id|>152<|page|>16<|box|>141 142 159 320<|content|>Respectfully submitted,\n<|id|>155<|page|>16<|box|>210 140 228 586<|content|>Catherine Bloom (CA Bar No. ... 247189) Responsible Partner\n<|id|>156<|page|>16<|box|>228 142 244 535<|content|>Peter Vassiliev (CA Bar No. ... 312054) Lead Associate\n<|id|>157<|page|>16<|box|>244 140 279 852<|content|>CALDERWOOD & HARKNESS LLP 555 Mission Street, Suit...co, California 94105 Telephone: ... (415) 773-6201\n<|id|>158<|page|>16<|box|>279 140 296 457<|content|>Email: ... com\n<|id|>159<|page|>16<|box|>296 140 313 475<|content|>Email: ... com\n<|id|>160<|page|>16<|box|>313 140 330 526<|content|>Attorneys for Plaintiff Genome Dx Therapeutics Inc...Attorneys for Plaintiff Genome Dx Therapeutics Inc\n<|id|>163<|page|>16<|box|>494 174 549 854<|content|>Marcus Pellegrini, Esq. ... (617) 542-8800\n<|id|>164<|page|>16<|box|>556 176 575 522<|content|>Email: ... com\n<|id|>165<|page|>16<|box|>575 176 592 496<|content|>Email: ... com\n<|id|>166<|page|>16<|box|>592 176 609 475<|content|>Email: ... com\n<|id|>167<|page|>16<|box|>611 176 626 212<|content|>and\n<|id|>168<|page|>16<|box|>635 176 671 854<|content|>RIDGECREST DURNEVAL LLP 350 South Grand Avenue, Suite 2800 Los Angeles, California 90071\n<|id|>169<|page|>16<|box|>679 176 696 607<|content|>Attorneys for Defendant Helios Precision Diagnosti...ys for Defendant Helios Precision Diagnostics, Inc",
+    "raw_response": "<|src_id|>51<|tgt_id|>52\n<|src_id|>62<|tgt_id|>63",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        }
+    ]
+}

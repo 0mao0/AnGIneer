@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        51
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>622<|type|>table<|page|>46<|box|>126 96 313 921<|content|>None\n<|id|>623<|type|>table<|page|>46<|box|>361 96 603 921<|content|>None\n<|id|>624<|type|>title<|page|>47<|box|>117 438 134 536<|content|>附录 C\n<|id|>625<|type|>title<|page|>47<|box|>139 427 156 545<|content|>(规范性附录)\n<|id|>626<|type|>title<|page|>47<|box|>160 409 175 563<|content|>AIS 航标显示符号\n<|id|>627<|type|>title<|page|>47<|box|>195 71 210 315<|content|>C.1 AIS 航标海图显示符号\n<|id|>628<|type|>title<|page|>47<|box|>223 73 240 190<|content|>C.1.1 概述\n<|id|>630<|type|>title<|page|>47<|box|>299 73 315 379<|content|>C.1.2 实体 AIS 航标海图显示符号\n<|id|>633<|type|>image<|page|>47<|box|>410 240 475 737<|content|>None\n<|id|>634<|type|>title<|page|>47<|box|>513 74 530 381<|content|>C.1.3 虚拟 AIS 航标海图显示符号\n<|id|>636<|type|>table<|page|>47<|box|>598 76 900 903<|content|>None\n<|id|>637<|type|>table<|page|>48<|box|>122 101 518 926<|content|>None\n<|id|>638<|type|>title<|page|>48<|box|>539 101 555 443<|content|>C.2 船载移动设备上 AIS 航标显示符号\n<|id|>642<|type|>table<|page|>48<|box|>699 105 905 930<|content|>None\n<|id|>643<|type|>table<|page|>49<|box|>118 67 896 894<|content|>None\n<|id|>644<|type|>table<|page|>50<|box|>122 92 562 914<|content|>None\n<|id|>645<|type|>title<|page|>51<|box|>115 440 130 550<|content|>参考文献",
+    "raw_response": "<|src_id|>633<|tgt_id|>630\n<|src_id|>636<|tgt_id|>634\n<|src_id|>637<|tgt_id|>634\n<|src_id|>642<|tgt_id|>638\n<|src_id|>643<|tgt_id|>638\n<|src_id|>644<|tgt_id|>638",
+    "parsed": [
+        {
+            "src_id": 633,
+            "tgt_id": 630
+        },
+        {
+            "src_id": 636,
+            "tgt_id": 634
+        },
+        {
+            "src_id": 637,
+            "tgt_id": 634
+        },
+        {
+            "src_id": 642,
+            "tgt_id": 638
+        },
+        {
+            "src_id": 643,
+            "tgt_id": 638
+        },
+        {
+            "src_id": 644,
+            "tgt_id": 638
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['3. CDD/EDD Failures', 'Not Cited. CDD/EDD was not addressed in the MRA.', 'Not Cited as Standalone. Implicitly related to OFAC screening gaps (inadequate CDD/EDD undermines screening effectiveness), but not identified as a', 'Cited (New Finding). Approximately 47,000 high-risk customer accounts, primarily onboarded through fintech BaaS partners, lacked adequate CDD/EDD', '50% remediation (23,500 accounts): July 15, 2025; 100% remediation (47,000 accounts): January 15, 2026']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'standalone MRIA finding.', 'documentation.Systemic failure reflecting BaaS growth without adequate CDD/EDD infrastructure.', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 236,
+    "table2_idx": 237
+}

@@ -1,0 +1,54 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        97,
+        147
+    ],
+    "pages": [
+        98,
+        99,
+        103,
+        106,
+        109,
+        112,
+        123,
+        127,
+        128,
+        129,
+        130,
+        131,
+        136,
+        137,
+        146,
+        147
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>351<|page|>98<|box|>406 75 438 502<|content|>Table IFS-2 brings together the various statistica...nts of the liabilities which enter into the United\n<|id|>352<|page|>98<|box|>128 571 241 1000<|content|>States balance of payments calculated on the liqui...stics, see headnote to \"Capital Movements\" section\n<|id|>355<|page|>98<|box|>353 574 385 998<|content|>Table IFS-5 sets forth the factors which affect th...States position in the International Monetary Fund\n<|id|>356<|page|>98<|box|>389 576 437 998<|content|>Table IFS-6 presents United States net monetary go...tries and international and regional organizations\n<|id|>366<|page|>99<|box|>827 14 867 432<|content|>U. ... Upon termination of investment, the same quantity of gold can be\n<|id|>367<|page|>99<|box|>649 497 660 785<|content|>reacquired by the International Monetary Fund. ... reacquired by the International Monetary Fund\n<|id|>380<|page|>103<|box|>280 16 328 456<|content|>The report forms and instructions used in the coll...istics have been revised a number of times. ... 1/\n<|id|>381<|page|>103<|box|>335 13 447 455<|content|>The present form of the published presentation of ...rt-term liquid claims of large nonbanking concerns\n<|id|>408<|page|>106<|box|>591 65 604 505<|content|>3/ Data on the two lines shown for this date differ because of changes in\n<|id|>410<|page|>106<|box|>559 558 601 986<|content|>reporting coverage. ... Preliminary\n<|id|>415<|page|>109<|box|>65 157 118 821<|content|>Section I - Liabilities to Foreigners Reported by ...1969 Preliminary (Position in millions of dollars)\n<|id|>419<|page|>112<|box|>887 550 908 929<|content|>column are comparable to those shown for the following date. ... Less than \\$500,000\n<|id|>443<|page|>123<|box|>593 11 615 471<|content|>1/ Data are shown for calendar year ends and for t...figures are available. ... Data are also shown for\n<|id|>444<|page|>123<|box|>556 497 615 966<|content|>earlier quarter ends when the reporting coverage changed. ... r Revised\n<|id|>455<|page|>127<|box|>384 0 436 466<|content|>Note: ... Negotiable and other readily transferable foreign obligations payable\n<|id|>456<|page|>127<|box|>384 505 431 960<|content|>on demand or having a contractual maturity of not ...curred by the foreigner. ... * Less than \\$500,000\n<|id|>459<|page|>128<|box|>68 149 106 935<|content|>Section IV - Claims on Foreigners Reported by Nonb...s Table CM-IV-7. ... - Long-Term Claims by Country\n<|id|>461<|page|>129<|box|>472 0 493 449<|content|>1/ Data include transactions in issues of states a... other agencies of the U. ... Government which are\n<|id|>464<|page|>130<|box|>52 162 112 919<|content|>Section V - Transactions in Long-Term Securities b...r a net outflow of capital from the United States)\n<|id|>468<|page|>131<|box|>895 0 983 458<|content|>Date: ... For statistical convenience, the new ser...introduced as of December 31, 1968, rather than as\n<|id|>469<|page|>131<|box|>892 505 902 624<|content|>of the survey date. ... of the survey date\n<|id|>477<|page|>136<|box|>51 283 106 800<|content|>Section V - Transactions in Long-Term Securities b...November 1969 Preliminary (In millions of dollars)\n<|id|>479<|page|>137<|box|>58 191 115 770<|content|>Section V - Transactions in Long-Term Securities b...es, by Type and Country, During Calendar Year 1968\n<|id|>504<|page|>146<|box|>76 252 133 803<|content|>Section I - Government Corporations and Other Busi...e 30, 1969 - (Continued) (In thousands of dollars)\n<|id|>506<|page|>147<|box|>66 202 114 782<|content|>Section I - Government Corporations and Other Busi...he Twelve Months Ended June 30, 1969 - (Continued)",
+    "raw_response": "<|src_id|>351<|tgt_id|>352\n<|src_id|>366<|tgt_id|>367\n<|src_id|>408<|tgt_id|>410\n<|src_id|>443<|tgt_id|>444\n<|src_id|>455<|tgt_id|>456\n<|src_id|>468<|tgt_id|>469",
+    "parsed": [
+        {
+            "src_id": 351,
+            "tgt_id": 352
+        },
+        {
+            "src_id": 366,
+            "tgt_id": 367
+        },
+        {
+            "src_id": 408,
+            "tgt_id": 410
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 444
+        },
+        {
+            "src_id": 455,
+            "tgt_id": 456
+        },
+        {
+            "src_id": 468,
+            "tgt_id": 469
+        }
+    ]
+}

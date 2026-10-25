@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=5, 粉质黏土10 < I_p \\\\leqslant 17', '0 < I_L \\\\leqslant 0.25', '800~1300', '1300~1800', '1800~2200', '2200~2500', '2500~2800', '2800~3100']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=4, 粉土I_p \\\\leqslant 10', '0.75 < I_L \\\\leqslant 1.0', '600~1000', '1000~1400', '1400~1800', '1800~2150', '2150~2400', '2400~2650']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 365,
+    "table2_idx": 366
+}

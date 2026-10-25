@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>140 140 156 611<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>3<|page|>1<|box|>164 140 181 454<|content|>TO: ... 1025-00001\n<|id|>4<|page|>1<|box|>190 140 207 444<|content|>FROM: ... Eric Johannsen\n<|id|>5<|page|>1<|box|>215 140 233 310<|content|>DATE: ... May 20, 2021\n<|id|>6<|page|>1<|box|>242 140 277 854<|content|>RE: ... Follow-On Offering\n<|id|>7<|page|>1<|box|>286 140 415 854<|content|>This memorandum summarizes the substance of the ma...f the undersigned or C&H partnership authorization\n<|id|>15<|page|>1<|box|>599 147 616 352<|content|>• Robert Adeyemi, Partner\n<|id|>18<|page|>1<|box|>657 142 675 511<|content|>Greystone Harwick & Co. ... (Lead Underwriter)\n<|id|>16<|page|>1<|box|>619 147 635 361<|content|>• Natasha Forbes, Associate\n<|id|>17<|page|>1<|box|>638 147 654 359<|content|>• Eric Johannsen, Associate\n<|id|>19<|page|>1<|box|>684 145 700 702<|content|>• Sarah P. ... Langford, Vice President, Equity Capital Markets (Deal Captain)\n<|id|>20<|page|>1<|box|>704 142 720 517<|content|>Duval & Pressler LLP (Underwriters' Counsel): ... Duval & Pressler LLP (Underwriters' Counsel)\n<|id|>21<|page|>1<|box|>729 145 746 411<|content|>• Gregory R. ... Tannenbaum, Partner\n<|id|>23<|page|>1<|box|>768 140 805 852<|content|>Call Logistics: ... No recording was made\n<|id|>22<|page|>1<|box|>750 145 765 380<|content|>• Megan S. ... Cavallo, Associate\n<|id|>32<|page|>2<|box|>857 140 893 856<|content|>In response to a question from Ms. ... Calloway st...ily with mid-sized specialty carriers and that the\n<|id|>33<|page|>3<|box|>90 140 146 854<|content|>QuorumEdge platform differentiates the Company fro... industry average over the past three fiscal years\n<|id|>41<|page|>3<|box|>695 183 713 834<|content|>• Quorum Specialty Insurance Company: ... RBC ratio of 412% of company action level\n<|id|>43<|page|>3<|box|>734 140 806 854<|content|>Ms. ... She noted that the company action level is...ther subsidiary is near any action level threshold\n<|id|>42<|page|>3<|box|>714 183 732 776<|content|>• Quorum National Casualty Co. ... RBC ratio of 385% of company action level\n<|id|>44<|page|>3<|box|>815 140 907 857<|content|>Ms. ... §\n<|id|>45<|page|>4<|box|>89 140 164 856<|content|>38a-136, et seq. ... Okafor would follow up with t...XI below for further discussion of this open item)\n<|id|>103<|page|>9<|box|>864 174 900 854<|content|>(b) Debt Instrument Documentation. ... 875%\n<|id|>104<|page|>10<|box|>89 174 145 854<|content|>Senior Notes due 2028, together with all amendment...rough outside counsel's document management system",
+    "raw_response": "<|src_id|>32<|tgt_id|>33\n<|src_id|>44<|tgt_id|>45\n<|src_id|>103<|tgt_id|>104",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 104
+        }
+    ]
+}

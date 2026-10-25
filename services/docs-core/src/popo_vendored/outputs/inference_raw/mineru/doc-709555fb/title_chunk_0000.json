@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>464 385 483 611<|content|>I. Executive Summary\n<|id|>15<|page|>2<|box|>253 419 273 576<|content|>II. Background\n<|id|>16<|page|>2<|box|>297 140 314 485<|content|>A. The TSA and Its Termination Provisions\n<|id|>24<|page|>3<|box|>148 140 167 460<|content|>B. The Service Level Obligations (SLOs)\n<|id|>29<|page|>3<|box|>703 140 720 299<|content|>C. The Cure Notice\n<|id|>39<|page|>4<|box|>659 140 676 544<|content|>D. Vantor's Response and Subsequent Termination\n<|id|>45<|page|>5<|box|>561 147 580 849<|content|>III. Legal Standard: \"Reasonable Particularity\" Un\n<|id|>46<|page|>5<|box|>606 142 623 315<|content|>A. General Principles\n<|id|>56<|page|>7<|box|>148 140 167 584<|content|>B. Commercial Context and Sophistication of the Pa\n<|id|>63<|page|>8<|box|>263 147 309 849<|content|>IV. Analysis: Application of the Standard to the J\n<|id|>64<|page|>8<|box|>332 142 349 540<|content|>A. Identification of Specific Contractual Provisio\n<|id|>68<|page|>8<|box|>707 142 724 352<|content|>B. Quantitative Specificity\n<|id|>75<|page|>9<|box|>561 140 579 267<|content|>C. Time Period\n<|id|>79<|page|>10<|box|>204 140 222 759<|content|>D. Actionability — Whether VTS Could Understand Wh\n<|id|>85<|page|>10<|box|>796 140 813 509<|content|>E. Vantor's Response as Evidence of Adequacy\n<|id|>94<|page|>11<|box|>627 140 643 640<|content|>F. Comparison to Cases Where Notices Were Found In\n<|id|>102<|page|>12<|box|>489 140 506 697<|content|>G. Potential Counterargument: Alleged Vagueness of\n<|id|>111<|page|>13<|box|>550 294 570 702<|content|>V. Additional Procedural Considerations\n<|id|>113<|page|>13<|box|>666 140 683 362<|content|>A. Cure Period Compliance\n<|id|>117<|page|>14<|box|>212 140 229 300<|content|>B. Delivery Method\n<|id|>120<|page|>14<|box|>523 140 542 354<|content|>C. Authority of the Sender\n<|id|>124<|page|>15<|box|>90 395 111 602<|content|>VI. Risk Assessment\n<|id|>125<|page|>15<|box|>136 142 152 246<|content|>A. Strengths\n<|id|>132<|page|>15<|box|>729 142 744 318<|content|>B. Weaknesses / Risks\n<|id|>137<|page|>16<|box|>503 303 523 694<|content|>VII. Conclusion and Recommendations\n<|id|>138<|page|>16<|box|>549 140 566 236<|content|>Conclusion\n<|id|>142<|page|>17<|box|>150 142 167 292<|content|>Recommendations\n<|id|>152<|page|>19<|box|>90 310 111 687<|content|>Appendix — Referenced Attachments",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>24<|level|>2\n<|id|>29<|level|>2\n<|id|>39<|level|>2\n<|id|>45<|level|>1\n<|id|>46<|level|>2\n<|id|>56<|level|>2\n<|id|>63<|level|>1\n<|id|>64<|level|>2\n<|id|>68<|level|>2\n<|id|>75<|level|>2\n<|id|>79<|level|>2\n<|id|>85<|level|>2\n<|id|>94<|level|>2\n<|id|>102<|level|>2\n<|id|>111<|level|>1\n<|id|>113<|level|>2\n<|id|>117<|level|>2\n<|id|>120<|level|>2\n<|id|>124<|level|>1\n<|id|>125<|level|>2\n<|id|>132<|level|>2\n<|id|>137<|level|>1\n<|id|>138<|level|>2\n<|id|>142<|level|>2\n<|id|>152<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 1
+        }
+    ]
+}

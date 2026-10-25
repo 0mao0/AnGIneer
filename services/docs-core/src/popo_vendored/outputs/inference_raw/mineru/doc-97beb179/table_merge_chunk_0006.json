@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['31', 'Form 8-K — Closing (Super 8-K)', 'July 21, 2025 (filed)', 'The \"Super 8-K\" was filed by the Combined Company (Skybridge']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'Fintech Holdings, Inc.) with the SEC on July 21, 2025, reporting the completion of the merger and the Domestication, the closing of the PIPE investment, the change of the company\\'s name from Pinnacle Growth Acquisition Corp. to Skybridge Fintech Holdings, Inc., and the change of the Nasdaq trading symbol from \"PGAC\" to \"SBFT.\" The Super 8-K included the disclosures required for a company that has ceased to be a \"shell company\" within the meaning of Rule 12b-2 under the Exchange Act, including the information that would be required in a registration statement on Form 10. Exhibits to the Super 8-K included the audited financial statements of Skybridge, the pro forma financial statements of the Combined Company, the Amended and Restated Certificate of Incorporation and Amended and Restated Bylaws, and such other material agreements and documents as required.']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 174,
+    "table2_idx": 175
+}

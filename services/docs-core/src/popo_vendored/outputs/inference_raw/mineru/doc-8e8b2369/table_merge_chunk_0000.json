@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['BBB(cr) / Baa2(p)', '~3.75%–6.25%(based on 1.5x–2.5x stress multiple)', '~6.0%–9.0% (based on 2.0x–3.0x stress multiple)', '3.0%', \"Lower end for Brindoval; below Pinnacle's estimated range — excess spread and revolving structure provide additional protection; flagged\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'for discussion']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 158,
+    "table2_idx": 159
+}

@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        49,
+        54
+    ],
+    "pages": [
+        50,
+        52,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>567<|page|>50<|box|>89 142 106 274<|content|>SCHEDULE III\n<|id|>568<|page|>50<|box|>114 406 132 591<|content|>SOURCES AND USES\n<|id|>570<|page|>50<|box|>186 143 203 287<|content|>Sources of Funds:\n<|id|>572<|page|>50<|box|>455 143 470 261<|content|>Uses of Funds:\n<|id|>574<|page|>50<|box|>689 143 705 197<|content|>Notes:\n<|id|>585<|page|>52<|box|>90 143 106 272<|content|>SCHEDULE IV\n<|id|>586<|page|>52<|box|>114 285 132 710<|content|>SUBSIDIARIES OF THE ISSUER (POST-MERGER)\n<|id|>588<|page|>52<|box|>651 143 666 197<|content|>Notes:\n<|id|>592<|page|>54<|box|>89 143 106 264<|content|>SCHEDULE V\n<|id|>593<|page|>54<|box|>114 380 132 617<|content|>EXISTING INDEBTEDNESS\n<|id|>595<|page|>54<|box|>632 143 648 197<|content|>Notes:",
+    "raw_response": "<|id|>567<|level|>1\n<|id|>568<|level|>1\n<|id|>570<|level|>2\n<|id|>572<|level|>2\n<|id|>574<|level|>2\n<|id|>585<|level|>1\n<|id|>586<|level|>1\n<|id|>588<|level|>2\n<|id|>592<|level|>1\n<|id|>593<|level|>1\n<|id|>595<|level|>2",
+    "parsed": [
+        {
+            "id": 567,
+            "level": 1
+        },
+        {
+            "id": 568,
+            "level": 1
+        },
+        {
+            "id": 570,
+            "level": 2
+        },
+        {
+            "id": 572,
+            "level": 2
+        },
+        {
+            "id": 574,
+            "level": 2
+        },
+        {
+            "id": 585,
+            "level": 1
+        },
+        {
+            "id": 586,
+            "level": 1
+        },
+        {
+            "id": 588,
+            "level": 2
+        },
+        {
+            "id": 592,
+            "level": 1
+        },
+        {
+            "id": 593,
+            "level": 1
+        },
+        {
+            "id": 595,
+            "level": 2
+        }
+    ]
+}

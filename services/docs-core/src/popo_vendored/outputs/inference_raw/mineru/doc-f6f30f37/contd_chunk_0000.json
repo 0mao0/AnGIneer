@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        10,
+        11,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>309 140 364 854<|content|>Matter: ... June 14, 2022\n<|id|>4<|page|>1<|box|>372 140 407 854<|content|>Prepared By: ... )\n<|id|>16<|page|>2<|box|>90 181 126 854<|content|>• Jasmine Thornton, Lead Associate, White Collar &...arkness LLP, Washington, D. ... (lead interviewer)\n<|id|>18<|page|>2<|box|>166 140 294 856<|content|>Counsel for Witness: ... Al-Rashidi acknowledged t...d not wish to retain personal counsel at this time\n<|id|>17<|page|>2<|box|>128 181 164 854<|content|>• Amara Osei, Associate, White Collar & Investigat...s LLP, London (second chair and primary notetaker)\n<|id|>35<|page|>3<|box|>852 140 907 856<|content|>Mr. ... He holds a Bachelor's degree in Business\n<|id|>36<|page|>4<|box|>90 140 181 856<|content|>Administration from a university in the UAE and a ...he UAE for the entirety of his professional career\n<|id|>107<|page|>10<|box|>856 140 892 854<|content|>Mr. ... He identified the bank's head office as located in\n<|id|>108<|page|>11<|box|>90 140 162 854<|content|>Al Maktoum Tower, DIFC, and confirmed that DTI's r...nce facilities, and transactional banking accounts\n<|id|>199<|page|>21<|box|>199 142 217 294<|content|>Date: ... June 14, 2022\n<|id|>200<|page|>21<|box|>218 142 234 271<|content|>Notes taken by: ... Notes taken by\n<|id|>201<|page|>21<|box|>267 140 301 813<|content|>Amara Osei Associate, White Collar & Investigation...wood & Harkness LLP London Date: ... June 14, 2022\n<|id|>202<|page|>21<|box|>301 142 320 364<|content|>Reviewed and approved by: ... Reviewed and approved by\n<|id|>207<|page|>21<|box|>491 181 526 854<|content|>• Victoria Chambers, Responsible Partner, White Collar & Investigations, Calderwood & Harkness LLP\n<|id|>211<|page|>21<|box|>606 140 625 787<|content|>Filed under: ... 18\n<|id|>208<|page|>21<|box|>529 181 547 653<|content|>• Howard Quinn, Billing Partner, Calderwood & Harkness LLP\n<|id|>209<|page|>21<|box|>549 183 583 854<|content|>• Conrad Reeves, Senior Counsel, Export Controls & Sanctions, Calderwood & Harkness LLP\n<|id|>210<|page|>21<|box|>587 181 604 683<|content|>• Elena Vasquez, Paralegal Manager, Calderwood & Harkness LLP\n<|id|>212<|page|>21<|box|>630 140 662 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV... IN ANTICIPATION OF LITIGATION — DO NOT DISTRIBUTE",
+    "raw_response": "<|src_id|>35<|tgt_id|>36\n<|src_id|>107<|tgt_id|>108",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 108
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        108,
+        134
+    ],
+    "pages": [
+        109,
+        130,
+        134
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>510<|page|>109<|box|>199 723 268 913<|content|>Financial Report of the United States Government Excerpt\n<|id|>511<|page|>109<|box|>282 820 309 913<|content|>Trust Funds\n<|id|>641<|page|>130<|box|>148 364 166 630<|content|>Source: ... Financial Management Service\n<|id|>642<|page|>130<|box|>186 81 262 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>650<|page|>130<|box|>842 81 904 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>651<|page|>130<|box|>186 504 262 915<|content|>Second Liberty Loan Act of 1917, the nature of the...l debt. ... the limit may change from year to year\n<|id|>693<|page|>134<|box|>60 75 104 379<|content|>DEPARTMENT OF THE TREASURY FINANCIAL MANAGEMENT SERVICE WASHINGTON, D. ... 20227\n<|id|>694<|page|>134<|box|>118 93 148 361<|content|>OFFICIAL BUSINESS PENALTY FOR PRIVATE USE, \\$300\n<|id|>695<|page|>134<|box|>69 658 131 929<|content|>FIRST CLASS MAIL POSTAGE AND FEES PAID DEPARTMENT OF THE TREASURY PERMIT NO. ... G-4",
+    "raw_response": "<|src_id|>650<|tgt_id|>651",
+    "parsed": [
+        {
+            "src_id": 650,
+            "tgt_id": 651
+        }
+    ]
+}

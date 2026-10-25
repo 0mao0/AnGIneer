@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        190,
+        200
+    ],
+    "pages": [
+        190,
+        191,
+        195,
+        196,
+        198,
+        199,
+        200
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2397<|type|>table<|page|>190<|box|>226 85 398 932<|content|>None\n<|id|>2405<|type|>table<|page|>191<|box|>166 74 340 923<|content|>None\n<|id|>2406<|type|>table<|page|>191<|box|>367 74 454 921<|content|>None\n<|id|>2408<|type|>title<|page|>191<|box|>526 70 544 247<|content|>8.3 膨胀性岩土\n<|id|>2431<|type|>table<|page|>195<|box|>275 72 349 921<|content|>None\n<|id|>2432<|type|>table<|page|>195<|box|>392 72 522 916<|content|>None\n<|id|>2435<|type|>table<|page|>196<|box|>123 87 189 934<|content|>None\n<|id|>2440<|type|>table<|page|>196<|box|>648 85 714 934<|content|>None\n<|id|>2455<|type|>title<|page|>198<|box|>588 68 606 199<|content|>8.4 盐渍土\n<|id|>2465<|type|>title<|page|>199<|box|>863 74 879 206<|content|>8.8 红黏土\n<|id|>2467<|type|>table<|page|>200<|box|>250 76 316 925<|content|>None",
+    "raw_response": "<|src_id|>2431<|tgt_id|>2408\n<|src_id|>2432<|tgt_id|>2408\n<|src_id|>2435<|tgt_id|>2408\n<|src_id|>2440<|tgt_id|>2408\n<|src_id|>2467<|tgt_id|>2465",
+    "parsed": [
+        {
+            "src_id": 2431,
+            "tgt_id": 2408
+        },
+        {
+            "src_id": 2432,
+            "tgt_id": 2408
+        },
+        {
+            "src_id": 2435,
+            "tgt_id": 2408
+        },
+        {
+            "src_id": 2440,
+            "tgt_id": 2408
+        },
+        {
+            "src_id": 2467,
+            "tgt_id": 2465
+        }
+    ]
+}

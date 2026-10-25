@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        3
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 143 123 852<|content|>UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF\n<|id|>1<|type|>table<|page|>1<|box|>157 143 301 852<|content|>None\n<|id|>17<|type|>title<|page|>3<|box|>244 140 263 498<|content|>For Plaintiff Optiwave Semiconductor Corp.:",
+    "raw_response": "<|src_id|>1<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        }
+    ]
+}

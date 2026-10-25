@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>1<|box|>208 140 224 576<|content|>VIA Sundial Data Systems AND ELECTRONIC MAIL\n<|id|>15<|page|>1<|box|>529 142 545 437<|content|>1. Introduction and Purpose of Letter\n<|id|>21<|page|>2<|box|>366 140 383 356<|content|>2. Description of the Policy\n<|id|>26<|page|>3<|box|>148 140 167 540<|content|>3. Description of the Underlying SEC Investigation\n<|id|>27<|page|>3<|box|>180 140 198 622<|content|>3.1 Background on Belmont Ridge Bank National Asso\n<|id|>37<|page|>3<|box|>720 140 739 439<|content|>3.2 Initiation of the SEC Investigation\n<|id|>48<|page|>4<|box|>534 140 551 444<|content|>3.3 Subject Matter of the Investigation\n<|id|>61<|page|>5<|box|>569 140 585 437<|content|>3.4 Individuals Potentially Implicated\n<|id|>72<|page|>6<|box|>340 140 357 475<|content|>4. Basis for Tender and Coverage Analysis\n<|id|>80<|page|>7<|box|>421 140 439 745<|content|>5. Identification of Defense Counsel and Consultan\n<|id|>81<|page|>7<|box|>452 140 468 303<|content|>5.1 Defense Counsel\n<|id|>87<|page|>8<|box|>213 140 229 426<|content|>5.2 Forensic Accounting Consultant\n<|id|>91<|page|>8<|box|>640 140 657 444<|content|>6. Notice and Cooperation Obligations\n<|id|>99<|page|>9<|box|>411 140 428 473<|content|>7. Prior Counsel and Auditor Information\n<|id|>105<|page|>10<|box|>90 142 107 310<|content|>8. Requested Actions\n<|id|>114<|page|>10<|box|>630 142 647 334<|content|>9. Reservation of Rights\n<|id|>122<|page|>11<|box|>280 142 297 292<|content|>10. Confidentiality\n<|id|>125<|page|>11<|box|>574 140 592 210<|content|>Closing\n<|id|>135<|page|>12<|box|>108 142 125 240<|content|>Enclosures:",
+    "raw_response": "<|id|>4<|level|>-1\n<|id|>15<|level|>1\n<|id|>21<|level|>1\n<|id|>26<|level|>1\n<|id|>27<|level|>2\n<|id|>37<|level|>2\n<|id|>48<|level|>2\n<|id|>61<|level|>2\n<|id|>72<|level|>1\n<|id|>80<|level|>1\n<|id|>81<|level|>2\n<|id|>87<|level|>2\n<|id|>91<|level|>1\n<|id|>99<|level|>1\n<|id|>105<|level|>1\n<|id|>114<|level|>1\n<|id|>122<|level|>1\n<|id|>125<|level|>1\n<|id|>135<|level|>1",
+    "parsed": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,153 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>330 385 349 611<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>381 323 401 671<|content|>II. Background on the Transaction\n<|id|>17<|page|>2<|box|>426 140 443 338<|content|>A. Parties and Structure\n<|id|>26<|page|>3<|box|>656 142 672 305<|content|>B. Capital Structure\n<|id|>31<|page|>4<|box|>373 140 390 312<|content|>C. Underlying Assets\n<|id|>44<|page|>5<|box|>308 331 327 666<|content|>III. Overview of the Volcker Rule\n<|id|>45<|page|>5<|box|>353 142 369 339<|content|>A. Statutory Framework\n<|id|>52<|page|>6<|box|>340 140 357 362<|content|>B. Covered Fund Definition\n<|id|>57<|page|>7<|box|>90 140 107 405<|content|>C. 2020 Regulatory Amendments\n<|id|>64<|page|>7<|box|>619 285 638 710<|content|>IV. Covered Fund Analysis — QRF 2022-1\n<|id|>65<|page|>7<|box|>664 140 681 547<|content|>A. Investment Company Act Exclusion Relied Upon\n<|id|>80<|page|>9<|box|>703 140 720 686<|content|>B. Even If QRF 2022-1 Were a Covered Fund — Availa\n<|id|>84<|page|>10<|box|>136 310 155 684<|content|>V. The Loan Securitization Exclusion\n<|id|>85<|page|>10<|box|>180 140 196 303<|content|>A. Regulatory Basis\n<|id|>88<|page|>10<|box|>493 140 510 331<|content|>B. Definition of \"Loan\"\n<|id|>93<|page|>11<|box|>267 140 284 547<|content|>C. Conditions for the Loan Securitization Exclusio\n<|id|>111<|page|>12<|box|>768 140 787 379<|content|>D. Application to QRF 2022-1\n<|id|>118<|page|>13<|box|>378 336 397 660<|content|>VI. Ownership Interest Analysis\n<|id|>119<|page|>13<|box|>422 140 439 441<|content|>A. Definition of \"Ownership Interest\"\n<|id|>128<|page|>14<|box|>148 140 167 357<|content|>B. Application to the Notes\n<|id|>138<|page|>15<|box|>90 140 107 480<|content|>C. Retained Interest / Overcollateralization\n<|id|>142<|page|>15<|box|>542 223 561 772<|content|>VII. Permissible Activities for Banking Entity Inv\n<|id|>143<|page|>15<|box|>588 140 604 702<|content|>A. Acquiring Notes as Non-Ownership Interests in a\n<|id|>148<|page|>16<|box|>148 140 167 648<|content|>B. Underwriting and Market-Making Exemptions (if A\n<|id|>157<|page|>16<|box|>744 140 763 450<|content|>C. Proprietary Trading Considerations\n<|id|>162<|page|>17<|box|>517 204 537 792<|content|>VIII. Offering Memorandum Disclosure Recommendatio\n<|id|>171<|page|>18<|box|>560 331 580 665<|content|>IX. Structural Recommendations\n<|id|>179<|page|>19<|box|>819 313 838 684<|content|>X. Open Items and Further Diligence\n<|id|>185<|page|>21<|box|>90 419 111 576<|content|>XI. Conclusion",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>26<|level|>3\n<|id|>31<|level|>3\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>52<|level|>3\n<|id|>57<|level|>3\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>80<|level|>3\n<|id|>84<|level|>2\n<|id|>85<|level|>3\n<|id|>88<|level|>3\n<|id|>93<|level|>3\n<|id|>111<|level|>3\n<|id|>118<|level|>2\n<|id|>119<|level|>3\n<|id|>128<|level|>3\n<|id|>138<|level|>3\n<|id|>142<|level|>2\n<|id|>143<|level|>3\n<|id|>148<|level|>3\n<|id|>157<|level|>3\n<|id|>162<|level|>2\n<|id|>171<|level|>2\n<|id|>179<|level|>2\n<|id|>185<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        }
+    ]
+}

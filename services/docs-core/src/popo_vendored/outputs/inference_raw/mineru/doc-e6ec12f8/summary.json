@@ -1,0 +1,129 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kdxarnfk\\input\\pdfs\\doc-e6ec12f8.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kdxarnfk\\enriched\\doc-e6ec12f8.json",
+    "contd_output": "<|src_id|>119<|tgt_id|>120",
+    "title_output": "<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>20<|level|>2\n<|id|>29<|level|>2\n<|id|>43<|level|>2\n<|id|>49<|level|>1\n<|id|>51<|level|>2\n<|id|>58<|level|>2\n<|id|>64<|level|>2\n<|id|>68<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>1\n<|id|>80<|level|>1\n<|id|>86<|level|>1\n<|id|>98<|level|>1\n<|id|>101<|level|>1\n<|id|>106<|level|>1",
+    "image_output": "<|src_id|>23<|tgt_id|>20\n<|src_id|>24<|tgt_id|>20\n<|src_id|>66<|tgt_id|>64\n<|src_id|>95<|tgt_id|>86\n<|src_id|>96<|tgt_id|>86",
+    "contd_label": [
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 23,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 86
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 23,
+            "table2_idx": 24,
+            "upper_row_ss": [
+                [
+                    "Brindoval Institutional Lending, LLC (\"Brindoval\")",
+                    "$22,000,000",
+                    "18.33%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Driftwood Absolute Return Fund Ltd.",
+                    "$32,000,000",
+                    "26.67%"
+                ]
+            ]
+        }
+    ]
+}

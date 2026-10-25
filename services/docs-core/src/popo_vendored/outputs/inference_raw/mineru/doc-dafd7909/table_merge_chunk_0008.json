@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 8,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 拼接拓宽', '中央拓宽', '图6-1c)', '平纵几乎不用调整,最易实施,交通组织无须改变', '中央分隔带必须事先预留足够的宽度,否则无法实施']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 分离拓宽', '单侧拓宽', '图6-1d)', '只需小幅调整平纵,拓宽侧容易实施', '既有公路双向横坡需要调整为单向横坡,构造物处难以处理;分离拓宽侧的立交进出的交通组织很难处理;占地大']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 2320,
+    "table2_idx": 2321
+}

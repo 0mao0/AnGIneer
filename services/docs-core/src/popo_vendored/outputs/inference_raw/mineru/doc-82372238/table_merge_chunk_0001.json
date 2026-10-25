@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Alternative PLI (Berry', 'IRS proposes Berry ratio', 'Present analysis showing', 'Operating margin remains']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['ratio/ROA)', 'or return on assets as cross-check', 'consistency between operating margin and alternative PLIs; resist replacing operating margin as primary PLI', 'primary PLI; Berry ratio or ROA accepted as cross-check only']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 239,
+    "table2_idx": 240
+}

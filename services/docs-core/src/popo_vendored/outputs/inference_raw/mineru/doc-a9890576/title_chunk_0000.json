@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>172 223 189 772<|content|>CALDERWOOD & HARKNESS LLP INTERNAL MEMORANDUM\n<|id|>7<|page|>1<|box|>398 142 415 321<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>304 140 321 457<|content|>II. Background and Procedural Context\n<|id|>17<|page|>2<|box|>334 140 352 557<|content|>A. Settlement Agreement Remediation Requirements\n<|id|>26<|page|>3<|box|>402 140 421 537<|content|>B. Stipulated Permanent Injunction Requirements\n<|id|>32<|page|>4<|box|>90 142 107 411<|content|>C. Forensic Remediation Timeline\n<|id|>40<|page|>4<|box|>628 142 646 333<|content|>D. Prior Forensic Work\n<|id|>50<|page|>5<|box|>454 140 470 593<|content|>III. Scope of the Final Forensic Remediation Certi\n<|id|>51<|page|>5<|box|>484 140 503 687<|content|>A. Categories of Lumos Proprietary Materials Subje\n<|id|>60<|page|>6<|box|>492 140 508 513<|content|>B. Devices and Systems Subject to Remediation\n<|id|>67<|page|>7<|box|>421 140 438 575<|content|>IV. Summary of Brindoval's Findings and Certificat\n<|id|>69<|page|>7<|box|>515 140 532 410<|content|>A. NovaSpark Corporate Systems\n<|id|>73<|page|>8<|box|>213 140 229 452<|content|>B. Rajiv Anand's Devices and Accounts\n<|id|>79<|page|>8<|box|>737 140 753 472<|content|>C. Serena Mallick's Devices and Accounts\n<|id|>84<|page|>9<|box|>375 142 391 439<|content|>D. Derek Yun's Devices and Accounts\n<|id|>89<|page|>9<|box|>726 142 743 367<|content|>E. Verification Methodology\n<|id|>97<|page|>10<|box|>609 140 626 683<|content|>V. Meridian Cybersecurity Advisors Inc. — Independ\n<|id|>108<|page|>11<|box|>511 140 529 776<|content|>VI. Compliance with Settlement Agreement and Stipu\n<|id|>116<|page|>12<|box|>421 140 438 584<|content|>VII. Outstanding Post-Dismissal Monitoring Obligat\n<|id|>126<|page|>13<|box|>627 140 643 326<|content|>VIII. Recommendation\n<|id|>133<|page|>14<|box|>414 411 431 584<|content|>Respectfully submitted,\n<|id|>135<|page|>14<|box|>494 140 511 277<|content|>IX. Attachments",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>26<|level|>3\n<|id|>32<|level|>3\n<|id|>40<|level|>3\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>60<|level|>3\n<|id|>67<|level|>2\n<|id|>69<|level|>3\n<|id|>73<|level|>3\n<|id|>79<|level|>3\n<|id|>84<|level|>3\n<|id|>89<|level|>3\n<|id|>97<|level|>2\n<|id|>108<|level|>2\n<|id|>116<|level|>2\n<|id|>126<|level|>2\n<|id|>133<|level|>-1\n<|id|>135<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        }
+    ]
+}

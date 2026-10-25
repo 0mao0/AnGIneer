@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>455 142 472 316<|content|>Date: ... January 30, 2026\n<|id|>4<|page|>1<|box|>472 140 489 821<|content|>I, Peter Vassiliev, hereby declare under penalty of perjury under 28 U. ... § 1746 as follows\n<|id|>9<|page|>1<|box|>873 140 909 854<|content|>4. ... I submit this declaration in support of Pla...First Set of Requests for Production of Documents,\n<|id|>10<|page|>2<|box|>89 174 164 856<|content|>Nos. ... Specifically, GenomeDx seeks the producti...protection, as reflected in Helios's privilege log\n<|id|>37<|page|>4<|box|>845 174 882 854<|content|>(c) Eight (8) documents described as internal busi...subject lines such as \"ProstaSignal™ Market Launch\n<|id|>38<|page|>5<|box|>90 176 126 854<|content|>Strategy — Confidential,\" \"Competitive Analysis: ....Revenue Projection Model — ProstaSignal™ Platform\"\n<|id|>80<|page|>9<|box|>862 140 898 854<|content|>47. ... Nathan Ashford (Chief Executive Officer),\n<|id|>81<|page|>10<|box|>90 174 255 856<|content|>Dr. ... The broad distribution of these emails to ...pose of the communications was business, not legal\n<|id|>87<|page|>10<|box|>840 140 895 856<|content|>49. ... Willful infringement, damages, and the acc...and the thirty-four (34) challenged documents — by\n<|id|>88<|page|>11<|box|>90 174 164 854<|content|>Helios's own privilege log descriptions — are squa... strategy regarding GenomeDx's patented technology",
+    "raw_response": "<|src_id|>9<|tgt_id|>10\n<|src_id|>37<|tgt_id|>38\n<|src_id|>80<|tgt_id|>81\n<|src_id|>87<|tgt_id|>88",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        }
+    ]
+}

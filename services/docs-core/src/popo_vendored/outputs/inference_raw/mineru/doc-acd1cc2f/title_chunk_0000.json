@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>297 142 314 232<|content|>Dear Priya:\n<|id|>8<|page|>1<|box|>455 142 473 354<|content|>1. Confirmation of Closing\n<|id|>14<|page|>2<|box|>428 140 445 424<|content|>2. Summary of Closing Deliverables\n<|id|>16<|page|>2<|box|>522 140 539 361<|content|>2.1 Transaction Documents\n<|id|>23<|page|>3<|box|>90 140 107 534<|content|>2.2 Company Closing Certificates and Resolutions\n<|id|>27<|page|>3<|box|>617 140 633 385<|content|>2.3 Good Standing Certificates\n<|id|>30<|page|>3<|box|>789 142 806 287<|content|>2.4 Legal Opinion\n<|id|>32<|page|>4<|box|>323 142 339 323<|content|>2.5 Other Deliverables\n<|id|>37<|page|>4<|box|>593 140 609 450<|content|>3. Summary of Key Transaction Terms\n<|id|>47<|page|>5<|box|>681 140 699 370<|content|>4. Use of Proceeds Reminder\n<|id|>53<|page|>6<|box|>410 140 428 359<|content|>5. Post-Closing Obligations\n<|id|>55<|page|>6<|box|>522 140 539 308<|content|>5.1 Securities Filings\n<|id|>63<|page|>7<|box|>290 140 309 418<|content|>5.2 Ongoing Covenant Compliance\n<|id|>79<|page|>8<|box|>747 140 763 292<|content|>5.3 Closing Binder\n<|id|>82<|page|>9<|box|>204 140 222 310<|content|>6. Investors' Counsel\n<|id|>84<|page|>9<|box|>363 140 378 385<|content|>7. Our Continuing Availability\n<|id|>92<|page|>9<|box|>678 140 694 415<|content|>8. Acknowledgment and Gratitude\n<|id|>96<|page|>10<|box|>160 140 176 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>6<|level|>-1\n<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>1\n<|id|>47<|level|>1\n<|id|>53<|level|>1\n<|id|>55<|level|>2\n<|id|>63<|level|>2\n<|id|>79<|level|>2\n<|id|>82<|level|>1\n<|id|>84<|level|>1\n<|id|>92<|level|>1\n<|id|>96<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        }
+    ]
+}

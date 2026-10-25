@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>529 140 546 457<|content|>1. Engagement and Client Identification\n<|id|>14<|page|>2<|box|>90 140 107 334<|content|>2. Scope of Engagement\n<|id|>16<|page|>2<|box|>184 140 200 397<|content|>2.1 Fund Vehicles to Be Formed\n<|id|>23<|page|>2<|box|>714 140 732 351<|content|>2.2 Core Formation Work\n<|id|>33<|page|>3<|box|>441 140 459 334<|content|>2.3 Offering Documents\n<|id|>38<|page|>3<|box|>756 140 773 431<|content|>2.4 Side Letters and LP Negotiations\n<|id|>51<|page|>4<|box|>599 140 617 303<|content|>2.5 Tax Structuring\n<|id|>60<|page|>5<|box|>419 140 436 393<|content|>2.6 Regulatory and Compliance\n<|id|>67<|page|>6<|box|>90 140 107 493<|content|>2.7 Ancillary and Administrative Documents\n<|id|>74<|page|>6<|box|>439 142 455 294<|content|>2.8 Legal Opinions\n<|id|>78<|page|>6<|box|>728 140 744 421<|content|>2.9 Third-Party Agreement Review\n<|id|>83<|page|>7<|box|>311 142 329 323<|content|>2.10 Excluded Matters\n<|id|>91<|page|>7<|box|>751 140 768 313<|content|>3. Engagement Team\n<|id|>99<|page|>8<|box|>700 140 717 339<|content|>4. Client Responsibilities\n<|id|>117<|page|>10<|box|>90 140 107 290<|content|>5. Fees and Billing\n<|id|>118<|page|>10<|box|>121 140 138 274<|content|>5.1 Billing Rates\n<|id|>124<|page|>10<|box|>470 140 488 442<|content|>5.2 Fee Cap — Core Formation Work\n<|id|>128<|page|>10<|box|>796 140 814 437<|content|>5.3 Side Letter Negotiation — Hourly\n<|id|>140<|page|>11<|box|>602 140 619 334<|content|>5.5 Billing and Payment\n<|id|>145<|page|>11<|box|>839 174 856 460<|content|>Email: jbirch@harrowgatecapital.com\n<|id|>147<|page|>12<|box|>90 140 107 284<|content|>6. Confidentiality\n<|id|>153<|page|>12<|box|>500 140 515 326<|content|>7. Document Retention\n<|id|>156<|page|>12<|box|>738 140 753 321<|content|>8. Conflicts of Interest\n<|id|>160<|page|>13<|box|>285 140 303 370<|content|>9. Limitation of Engagement\n<|id|>163<|page|>13<|box|>561 140 579 297<|content|>10. Governing Law\n<|id|>165<|page|>13<|box|>683 142 700 274<|content|>11. Termination\n<|id|>169<|page|>14<|box|>186 140 204 264<|content|>12. Acceptance",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>51<|level|>2\n<|id|>60<|level|>2\n<|id|>67<|level|>2\n<|id|>74<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>91<|level|>1\n<|id|>99<|level|>1\n<|id|>117<|level|>1\n<|id|>118<|level|>2\n<|id|>124<|level|>2\n<|id|>128<|level|>2\n<|id|>140<|level|>2\n<|id|>145<|level|>-1\n<|id|>147<|level|>1\n<|id|>153<|level|>1\n<|id|>156<|level|>1\n<|id|>160<|level|>1\n<|id|>163<|level|>1\n<|id|>165<|level|>1\n<|id|>169<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 169,
+            "level": 1
+        }
+    ]
+}

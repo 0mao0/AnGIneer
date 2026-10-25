@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 148 142 848<|content|>NOTICE OF DATA BREACH INVOLVING PROTECTED HEALTH I\n<|id|>1<|type|>title<|page|>1<|box|>159 223 176 772<|content|>FOR IMMEDIATE RELEASE / DISTRIBUTION: AUGUST 15, 2\n<|id|>3<|type|>title<|page|>1<|box|>244 140 262 450<|content|>Introduction and Summary of Incident\n<|id|>10<|type|>title<|page|>2<|box|>167 140 185 390<|content|>Description of What Happened\n<|id|>20<|type|>title<|page|>3<|box|>383 140 402 385<|content|>Types of Information Involved\n<|id|>40<|type|>title<|page|>4<|box|>321 140 339 442<|content|>Scope of Affected Individuals by State\n<|id|>42<|type|>table<|page|>4<|box|>409 143 667 852<|content|>None\n<|id|>44<|type|>title<|page|>4<|box|>833 140 849 428<|content|>What Quorum Is Doing in Response\n<|id|>54<|type|>title<|page|>6<|box|>304 140 320 519<|content|>What Individuals Can Do to Protect Themselves\n<|id|>66<|type|>title<|page|>7<|box|>494 140 512 498<|content|>Contact Information for Affected Individuals\n<|id|>68<|type|>title<|page|>7<|box|>602 142 619 321<|content|>Toll-Free Call Center:\n<|id|>70<|type|>title<|page|>7<|box|>709 143 726 282<|content|>Mailing Address:\n<|id|>74<|type|>title<|page|>7<|box|>804 142 820 442<|content|>Dedicated Incident Response Website:\n<|id|>78<|type|>title<|page|>8<|box|>267 140 284 470<|content|>About Quorum Insurance Holdings Corp.\n<|id|>83<|type|>title<|page|>8<|box|>686 140 703 362<|content|>Media Contact Information\n<|id|>90<|type|>title<|page|>9<|box|>152 477 167 521<|content|># # #",
+    "raw_response": "<|src_id|>42<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        }
+    ]
+}

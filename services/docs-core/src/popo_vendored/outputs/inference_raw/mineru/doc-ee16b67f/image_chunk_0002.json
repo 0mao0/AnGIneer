@@ -1,0 +1,65 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        100,
+        110
+    ],
+    "pages": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        109,
+        110
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>216<|type|>title<|page|>100<|box|>71 340 85 677<|content|>As of June 30, 1940 and June 30, 1941\n<|id|>217<|type|>table<|page|>100<|box|>102 86 671 940<|content|>None\n<|id|>219<|type|>title<|page|>100<|box|>779 465 794 564<|content|>Schedule 1\n<|id|>220<|type|>table<|page|>100<|box|>818 84 944 940<|content|>None\n<|id|>222<|type|>table<|page|>101<|box|>115 57 271 910<|content|>None\n<|id|>223<|type|>title<|page|>101<|box|>346 433 359 532<|content|>Schedule 3\n<|id|>224<|type|>table<|page|>101<|box|>386 53 628 913<|content|>None\n<|id|>225<|type|>title<|page|>101<|box|>702 435 715 535<|content|>Schedule 4\n<|id|>227<|type|>table<|page|>101<|box|>740 53 912 913<|content|>None\n<|id|>228<|type|>table<|page|>102<|box|>102 69 504 953<|content|>None\n<|id|>229<|type|>table<|page|>102<|box|>516 68 924 953<|content|>None\n<|id|>230<|type|>table<|page|>103<|box|>112 39 473 919<|content|>None\n<|id|>231<|type|>table<|page|>103<|box|>485 39 851 924<|content|>None\n<|id|>232<|type|>table<|page|>104<|box|>89 34 787 983<|content|>None\n<|id|>233<|type|>title<|page|>109<|box|>208 397 242 596<|content|>L. BARY\n<|id|>235<|type|>image<|page|>110<|box|>2 0 998 902<|content|>None",
+    "raw_response": "<|src_id|>217<|tgt_id|>216\n<|src_id|>220<|tgt_id|>219\n<|src_id|>222<|tgt_id|>219\n<|src_id|>224<|tgt_id|>223\n<|src_id|>227<|tgt_id|>225\n<|src_id|>228<|tgt_id|>225\n<|src_id|>229<|tgt_id|>225\n<|src_id|>230<|tgt_id|>225\n<|src_id|>231<|tgt_id|>225\n<|src_id|>232<|tgt_id|>225\n<|src_id|>235<|tgt_id|>216",
+    "parsed": [
+        {
+            "src_id": 217,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 219
+        },
+        {
+            "src_id": 222,
+            "tgt_id": 219
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 223
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 230,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 231,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 235,
+            "tgt_id": 216
+        }
+    ]
+}

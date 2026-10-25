@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 269 107 725<|content|>CALDERWOOD & HARKNESS LLP Counsellors at Law\n<|id|>4<|page|>1<|box|>193 140 209 611<|content|>VIA ELECTRONIC MAIL AND OVERNIGHT COURIER\n<|id|>13<|page|>2<|box|>90 140 107 743<|content|>II. Confirmation of Receipt of the Voluntary Docum\n<|id|>17<|page|>2<|box|>539 140 556 715<|content|>III. Description of Document Preservation Measures\n<|id|>40<|page|>4<|box|>806 140 823 488<|content|>IV. Awareness of Parallel SEC Investigation\n<|id|>44<|page|>5<|box|>383 140 402 473<|content|>V. Expression of Willingness to Cooperate\n<|id|>49<|page|>5<|box|>840 140 857 687<|content|>VI. Identification of Counsel and Request for Futu\n<|id|>59<|page|>6<|box|>414 140 431 374<|content|>VII. Closing and Reservation",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>13<|level|>1\n<|id|>17<|level|>1\n<|id|>40<|level|>1\n<|id|>44<|level|>1\n<|id|>49<|level|>1\n<|id|>59<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        }
+    ]
+}

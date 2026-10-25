@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 269 133 728<|content|>100 Southeast Second Street, Suite 3800 Miami, Florida 33131\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 723 185 854<|content|>January 10, 2023\n<|id|>4<|page|>1<|box|>193 140 210 349<|content|>VIA EMAIL AND FEDEX\n<|id|>5<|page|>1<|box|>219 140 237 771<|content|>Castlegate Risk Advisors LLC 701 Brickell Avenue, Suite 1400 Miami, Florida 33131\n<|id|>6<|page|>1<|box|>244 143 262 473<|content|>Attn: ... Monica Iglesias, Senior Vice President\n<|id|>7<|page|>1<|box|>262 174 343 854<|content|>Re: ... 1021-00007\n<|id|>8<|page|>1<|box|>351 142 369 279<|content|>Dear Ms. ... Iglesias\n<|id|>17<|page|>2<|box|>273 140 292 517<|content|>Property Name: ... Coral Palms Grand Resort & Spa\n<|id|>18<|page|>2<|box|>300 140 318 777<|content|>Street Address: ... 99000 Overseas Highway, Key Largo, Monroe County, Florida 33037\n<|id|>19<|page|>2<|box|>325 142 343 434<|content|>Tax Folio Number: ... 00460780-000100\n<|id|>20<|page|>2<|box|>352 140 388 854<|content|>Property Type: ... Full-service luxury oceanfront ...service spa, marina, and ancillary commercial uses\n<|id|>22<|page|>2<|box|>623 140 714 856<|content|>Construction and Renovation History: ... The renov...enter, building systems, and exterior improvements\n<|id|>42<|page|>4<|box|>815 140 888 857<|content|>The Property is located within a Special Flood Haz...e should confirm that both the NFIP policy and the\n<|id|>43<|page|>5<|box|>90 140 127 854<|content|>Bayfront Specialty excess flood policy are current...s meet or exceed the lender's minimum requirements\n<|id|>51<|page|>5<|box|>446 174 500 854<|content|>(d) liquor liability coverage, which is essential ...ions where alcoholic beverages are served; ... and\n<|id|>53<|page|>5<|box|>571 140 609 854<|content|>Please confirm that all of the foregoing coverages...rately, identify the applicable carrier and policy\n<|id|>82<|page|>8<|box|>194 174 229 854<|content|>Named Mortgagee / Loss Payee: ... Pinnacle Atlanti...ington Avenue, 38th Floor New York, New York 10016\n<|id|>83<|page|>8<|box|>239 140 311 854<|content|>The mortgagee clause must provide that the interes...ew York standard mortgage clause or its equivalent\n<|id|>105<|page|>9<|box|>585 174 622 854<|content|>(b) Coverage B — Demolition Cost: ... and\n<|id|>107<|page|>9<|box|>710 140 803 856<|content|>Given the Property's location in Monroe County, wh...hey are adequate to meet the lender's requirements\n<|id|>109<|page|>9<|box|>851 140 888 854<|content|>We respectfully request that Castlegate procure an... to lender's counsel at Whitford Baines & Driscoll\n<|id|>110<|page|>10<|box|>90 140 126 854<|content|>LLP) as soon as practicable, and in any event prio...to the anticipated closing date of the refinancing\n<|id|>132<|page|>11<|box|>829 176 845 424<|content|>(a) Calderwood & Harkness LLP\n<|id|>133<|page|>11<|box|>854 178 869 349<|content|>Attn: ... Grace Nakamura\n<|id|>134<|page|>11<|box|>871 178 888 638<|content|>100 Southeast Second Street, Suite 3800 Miami, Florida 33131\n<|id|>135<|page|>12<|box|>90 176 107 519<|content|>Email: ... com\n<|id|>137<|page|>12<|box|>133 178 150 323<|content|>Attn: ... Derek Huang\n<|id|>138<|page|>12<|box|>150 176 167 620<|content|>1400 Bayshore Boulevard, Suite 2200 Miami, Florida 33131\n<|id|>139<|page|>12<|box|>176 176 194 488<|content|>Email: ... com\n<|id|>150<|page|>12<|box|>648 142 664 343<|content|>Douglas Fairchild, Partner\n<|id|>151<|page|>12<|box|>664 142 681 398<|content|>Direct Telephone: ... (305) 814-7218\n<|id|>152<|page|>12<|box|>681 142 699 475<|content|>Email: ... com\n<|id|>153<|page|>12<|box|>700 143 717 254<|content|>Enclosures (3)\n<|id|>155<|page|>12<|box|>751 174 824 854<|content|>Conrad W. ... Angela Fontaine, Partner, Calderwood...ace Nakamura, Associate, Calderwood & Harkness LLP\n<|id|>156<|page|>12<|box|>830 140 877 854<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT This letter a...tify the sender immediately and destroy all copies",
+    "raw_response": "<|src_id|>42<|tgt_id|>43\n<|src_id|>109<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        15
+    ],
+    "pages": [
+        2,
+        3,
+        6,
+        7,
+        8,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>11<|page|>2<|box|>782 140 930 857<|content|>7. ... The cumulative investment in the technology...itures, not including the substantial CONFIDENTIAL\n<|id|>12<|page|>3<|box|>90 174 161 854<|content|>indirect costs of recruiting and retaining the spe...uarded as among the company's most valuable assets\n<|id|>32<|page|>6<|box|>809 140 900 856<|content|>23. ... The dataset includes historical market data, fundamental data, macroeconomic\n<|id|>33<|page|>6<|box|>915 142 929 243<|content|>CONFIDENTIAL\n<|id|>34<|page|>7<|box|>90 174 143 854<|content|>indicators, and alternative data from dozens of so...timized for training the LumosEdge ensemble models\n<|id|>39<|page|>7<|box|>801 140 893 857<|content|>27. ... 0 roadmap by virtue of his role as Principal\n<|id|>40<|page|>8<|box|>90 174 180 854<|content|>Engineer — ML Infrastructure and his direct involv... twelve individuals who were authorized to view it\n<|id|>79<|page|>13<|box|>873 140 930 854<|content|>54. ... As described in Paragraph 39, NovaSpark's ...esks — directly competes with Lumos's CONFIDENTIAL\n<|id|>80<|page|>14<|box|>90 174 181 854<|content|>core market. ... The exfiltrated technology is not...NovaSpark would need to build a competing platform\n<|id|>86<|page|>14<|box|>839 174 893 856<|content|>(a) Immediately cease and desist from any and all ...ecture, proprietary feature-engineering libraries,\n<|id|>87<|page|>14<|box|>916 142 929 243<|content|>CONFIDENTIAL\n<|id|>88<|page|>15<|box|>90 174 127 854<|content|>DataStream ETL pipeline codebase, curated and labe...tasets, and the LumosEdge 3. ... 0 product roadmap\n<|id|>90<|page|>15<|box|>289 174 344 854<|content|>(c) Immediately return to Lumos all company materi...obligations under their respective PIIAAs; ... and\n<|id|>93<|page|>15<|box|>433 140 450 540<|content|>Executed on January 19, 2023, at San Jose, Califor...cuted on January 19, 2023, at San Jose, California",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>32<|tgt_id|>34\n<|src_id|>39<|tgt_id|>40\n<|src_id|>79<|tgt_id|>80\n<|src_id|>86<|tgt_id|>88",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 88
+        }
+    ]
+}

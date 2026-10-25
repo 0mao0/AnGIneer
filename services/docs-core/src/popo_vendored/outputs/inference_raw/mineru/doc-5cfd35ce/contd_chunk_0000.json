@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 176 151 820<|content|>225 West Wacker Drive, Suite 4000 Chicago, Illinois 60606 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 743 176 854<|content|>April 11, 2022\n<|id|>3<|page|>1<|box|>186 140 203 771<|content|>VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED AND VIA EMAIL\n<|id|>4<|page|>1<|box|>212 140 229 318<|content|>Prairie Basin Grain Co. ... Prairie Basin Grain Co\n<|id|>5<|page|>1<|box|>237 140 272 485<|content|>Attention: ... Musgrave, President 4520 Harvest Road Champaign, Illinois 61820\n<|id|>6<|page|>1<|box|>280 140 297 764<|content|>Darren K. ... Musgrave, individually 1188 Windermere Lane Champaign, Illinois 61822\n<|id|>7<|page|>1<|box|>306 174 359 854<|content|>Re: ... 1020- 00005\n<|id|>8<|page|>1<|box|>369 140 387 297<|content|>Dear Mr. ... Musgrave\n<|id|>26<|page|>3<|box|>792 140 883 856<|content|>This formal demand letter is not the first occasio...led Three Million Fifty-Three Thousand Two Hundred\n<|id|>27<|page|>4<|box|>90 140 127 854<|content|>Fifty Dollars ($3,053,250. ... That written demand... serious consequences of its continued non-payment\n<|id|>51<|page|>6<|box|>250 142 263 339<|content|>Francesca Morano Partner\n<|id|>52<|page|>6<|box|>265 140 311 854<|content|>cc: ... Hannah Brinkley, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>26<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Dropout rate', '0.5', 'Chosen from the same earlier hyperparameter experiment, where we varied dropout rate from 0.125 to 0.5.']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Number of epochs', '1000', 'In each epoch, 36 training batches and 12 validation batches – with 20 samples per batch (see Section 3b of main text) – are presented to the NN.']]\n",
+    "raw_response": "",
+    "parsed": [],
+    "table1_idx": 270,
+    "table2_idx": 271
+}

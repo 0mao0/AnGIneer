@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        58
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        16,
+        26,
+        29,
+        31,
+        57
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>7<|box|>0 62 253 864<|content|>TREASURY BULLETIN\n<|id|>8<|page|>9<|box|>86 376 109 631<|content|>Table of Contents\n<|id|>12<|page|>11<|box|>149 267 172 680<|content|>Treasury Financing Operations\n<|id|>25<|page|>16<|box|>502 337 516 658<|content|>Footnotes to Table 1 - (Continued)\n<|id|>65<|page|>26<|box|>49 425 61 613<|content|>CASH INCOME AND OUTGO\n<|id|>66<|page|>26<|box|>84 419 98 611<|content|>Footnotes to Table 3\n<|id|>72<|page|>26<|box|>183 419 196 611<|content|>Footnotes to Table 4\n<|id|>80<|page|>26<|box|>337 419 349 611<|content|>Footnotes to Table 5\n<|id|>88<|page|>26<|box|>504 421 516 614<|content|>Footnotes to Table 6\n<|id|>99<|page|>26<|box|>695 423 707 614<|content|>Footnotes to Table 7\n<|id|>117<|page|>29<|box|>514 532 524 790<|content|>For Farmers' Home Administration program.\n<|id|>121<|page|>31<|box|>47 359 63 620<|content|>STATUTORY DEBT LIMITATION\n<|id|>220<|page|>57<|box|>86 207 104 767<|content|>INTERNAL REVENUE COLLECTIONS BY PRINCIPAL SOURCES",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>25<|level|>3\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>72<|level|>3\n<|id|>80<|level|>3\n<|id|>88<|level|>3\n<|id|>99<|level|>3\n<|id|>117<|level|>4\n<|id|>121<|level|>2\n<|id|>220<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 4
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        }
+    ]
+}

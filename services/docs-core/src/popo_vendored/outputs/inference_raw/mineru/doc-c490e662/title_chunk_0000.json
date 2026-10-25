@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        9,
+        12,
+        13,
+        17,
+        18,
+        19,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 210 118 787<|content|>COMPANY STOCKHOLDER SUPPORT AGREEMENT\n<|id|>10<|page|>1<|box|>585 140 604 243<|content|>RECITALS\n<|id|>16<|page|>2<|box|>582 140 599 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>37<|page|>4<|box|>229 140 247 602<|content|>ARTICLE II — WRITTEN CONSENT AND APPROVAL\n<|id|>50<|page|>5<|box|>729 140 744 531<|content|>ARTICLE III — NO-TRANSFER COVENANTS\n<|id|>64<|page|>7<|box|>248 140 265 606<|content|>ARTICLE IV — ADDITIONAL SUPPORT COVENANTS\n<|id|>84<|page|>9<|box|>559 140 577 851<|content|>ARTICLE V — REPRESENTATIONS AND WARRANTIES OF THE\n<|id|>104<|page|>12<|box|>167 140 184 803<|content|>ARTICLE VI — REPRESENTATIONS AND WARRANTIES OF THE\n<|id|>110<|page|>12<|box|>686 140 703 423<|content|>ARTICLE VII — TERMINATION\n<|id|>118<|page|>13<|box|>373 142 390 455<|content|>ARTICLE VIII — MISCELLANEOUS\n<|id|>120<|page|>13<|box|>554 142 570 295<|content|>If to the Company:\n<|id|>156<|page|>17<|box|>526 140 544 676<|content|>[Remainder of this page intentionally left blank.\n<|id|>157<|page|>17<|box|>551 165 569 830<|content|>[SIGNATURE PAGE TO COMPANY STOCKHOLDER SUPPORT AGR\n<|id|>159<|page|>17<|box|>622 143 638 388<|content|>SKYBRIDGE FINTECH LTD.\n<|id|>164<|page|>17<|box|>708 165 724 828<|content|>[SIGNATURE PAGE TO COMPANY STOCKHOLDER SUPPORT AGR\n<|id|>165<|page|>17<|box|>734 143 750 313<|content|>Harborview Partners\n<|id|>170<|page|>17<|box|>838 165 854 828<|content|>[SIGNATURE PAGE TO COMPANY STOCKHOLDER SUPPORT AGR\n<|id|>171<|page|>17<|box|>863 142 878 508<|content|>ATLAS HORIZON VENTURES FUND II, LP\n<|id|>177<|page|>18<|box|>157 165 176 828<|content|>[SIGNATURE PAGE TO COMPANY STOCKHOLDER SUPPORT AGR\n<|id|>178<|page|>18<|box|>184 143 202 483<|content|>PRIYA CHANDRASEKARAN Individually\n<|id|>188<|page|>18<|box|>425 449 441 549<|content|>EXHIBIT A\n<|id|>189<|page|>18<|box|>450 349 469 647<|content|>SCHEDULE OF SUBJECT SHARES\n<|id|>193<|page|>19<|box|>186 142 200 189<|content|>Notes:\n<|id|>198<|page|>19<|box|>364 449 378 549<|content|>EXHIBIT B\n<|id|>199<|page|>19<|box|>388 349 406 647<|content|>FORM OF JOINDER AGREEMENT\n<|id|>218<|page|>21<|box|>114 290 133 707<|content|>[SIGNATURE PAGE TO JOINDER AGREEMENT]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>37<|level|>2\n<|id|>50<|level|>2\n<|id|>64<|level|>2\n<|id|>84<|level|>2\n<|id|>104<|level|>2\n<|id|>110<|level|>2\n<|id|>118<|level|>2\n<|id|>120<|level|>-1\n<|id|>156<|level|>-1\n<|id|>157<|level|>2\n<|id|>159<|level|>-1\n<|id|>164<|level|>2\n<|id|>165<|level|>-1\n<|id|>170<|level|>2\n<|id|>171<|level|>-1\n<|id|>177<|level|>2\n<|id|>178<|level|>-1\n<|id|>188<|level|>2\n<|id|>189<|level|>2\n<|id|>193<|level|>3\n<|id|>198<|level|>2\n<|id|>199<|level|>2\n<|id|>218<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 2
+        }
+    ]
+}

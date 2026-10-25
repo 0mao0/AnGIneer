@@ -1,0 +1,43 @@
+{
+    "task": "title",
+    "chunk_index": 4,
+    "range": [
+        187,
+        199
+    ],
+    "pages": [
+        188,
+        189,
+        191,
+        198,
+        199
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2378<|page|>188<|box|>177 87 201 312<|content|>8 特殊性岩土\n<|id|>2379<|page|>188<|box|>268 87 286 197<|content|>8.1 黄土\n<|id|>2393<|page|>189<|box|>619 61 636 171<|content|>8.2 冻土\n<|id|>2408<|page|>191<|box|>526 70 544 247<|content|>8.3 膨胀性岩土\n<|id|>2455<|page|>198<|box|>588 68 606 199<|content|>8.4 盐渍土\n<|id|>2465<|page|>199<|box|>863 74 879 206<|content|>8.8 红黏土",
+    "raw_response": "<|id|>2378<|level|>1\n<|id|>2379<|level|>2\n<|id|>2393<|level|>2\n<|id|>2408<|level|>2\n<|id|>2455<|level|>2\n<|id|>2465<|level|>2",
+    "parsed": [
+        {
+            "id": 2378,
+            "level": 1
+        },
+        {
+            "id": 2379,
+            "level": 2
+        },
+        {
+            "id": 2393,
+            "level": 2
+        },
+        {
+            "id": 2408,
+            "level": 2
+        },
+        {
+            "id": 2455,
+            "level": 2
+        },
+        {
+            "id": 2465,
+            "level": 2
+        }
+    ]
+}

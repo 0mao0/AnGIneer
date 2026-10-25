@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, Dec...', 'Total....', '6,688', '1,485', '-', '', '', '', '', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Year and month', 'rowspan=3, Description of security 1/', 'colspan=3, Amount of maturity', 'rowspan=3, Year and month', 'rowspan=3, Description of security 1/', 'colspan=3, Amount of maturities']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 202,
+    "table2_idx": 203
+}

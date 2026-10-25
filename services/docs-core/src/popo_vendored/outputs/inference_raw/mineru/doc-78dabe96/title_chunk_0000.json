@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>114 200 133 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>7<|page|>1<|box|>340 140 359 321<|content|>I. Executive Summary\n<|id|>11<|page|>1<|box|>789 142 806 267<|content|>II. Background\n<|id|>12<|page|>1<|box|>820 142 838 372<|content|>A. The Underlying Litigation\n<|id|>26<|page|>3<|box|>157 142 174 299<|content|>B. The D&O Policy\n<|id|>46<|page|>4<|box|>184 140 200 263<|content|>C. The Tender\n<|id|>54<|page|>4<|box|>551 140 569 295<|content|>D. The Declination\n<|id|>61<|page|>5<|box|>372 140 388 385<|content|>III. Analysis of the Declination\n<|id|>63<|page|>5<|box|>484 140 501 568<|content|>A. The Contractual Liability Exclusion Bars Covera\n<|id|>80<|page|>7<|box|>220 140 256 854<|content|>B. The Insured Capacity Requirement Is Not Satisfi\n<|id|>95<|page|>8<|box|>356 140 373 374<|content|>C. Additional Considerations\n<|id|>111<|page|>10<|box|>90 140 107 352<|content|>IV. Assessment of Options\n<|id|>113<|page|>10<|box|>165 140 183 609<|content|>A. Option 1: Challenge the Declination (Not Recomm\n<|id|>120<|page|>10<|box|>770 140 787 825<|content|>B. Option 2: Request Reconsideration with Addition\n<|id|>126<|page|>11<|box|>400 140 417 553<|content|>C. Option 3: Accept the Declination (Recommended)\n<|id|>132<|page|>12<|box|>90 140 107 493<|content|>V. Impact on Litigation Budget and Funding\n<|id|>140<|page|>13<|box|>204 140 222 313<|content|>VI. Recommendation\n<|id|>148<|page|>13<|box|>705 140 723 272<|content|>VII. Conclusion\n<|id|>159<|page|>14<|box|>478 143 492 240<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>26<|level|>3\n<|id|>46<|level|>3\n<|id|>54<|level|>3\n<|id|>61<|level|>2\n<|id|>63<|level|>3\n<|id|>80<|level|>3\n<|id|>95<|level|>3\n<|id|>111<|level|>2\n<|id|>113<|level|>3\n<|id|>120<|level|>3\n<|id|>126<|level|>3\n<|id|>132<|level|>2\n<|id|>140<|level|>2\n<|id|>148<|level|>2\n<|id|>159<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        }
+    ]
+}

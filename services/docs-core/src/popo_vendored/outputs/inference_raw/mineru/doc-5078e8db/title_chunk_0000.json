@@ -1,0 +1,145 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>3<|page|>1<|box|>185 140 203 506<|content|>VIA EMAIL AND OVERNIGHT DELIVERY\n<|id|>9<|page|>1<|box|>407 142 425 339<|content|>I. Purpose of This Letter\n<|id|>18<|page|>2<|box|>204 140 222 488<|content|>II. Summary of Agreed and Resolved Points\n<|id|>21<|page|>2<|box|>452 140 469 454<|content|>A. Commercial Terms and Order Form\n<|id|>30<|page|>3<|box|>138 140 156 318<|content|>B. Term and Renewal\n<|id|>32<|page|>3<|box|>285 140 303 421<|content|>C. Representations and Warranties\n<|id|>37<|page|>3<|box|>715 142 733 316<|content|>D. IP Indemnification\n<|id|>41<|page|>4<|box|>273 140 292 397<|content|>E. General Indemnification Cap\n<|id|>43<|page|>4<|box|>402 140 421 357<|content|>F. Aggregate Liability Cap\n<|id|>46<|page|>4<|box|>628 140 648 416<|content|>G. Regulatory Examination Rights\n<|id|>49<|page|>5<|box|>90 140 106 331<|content|>H. Source Code Escrow\n<|id|>56<|page|>5<|box|>542 142 559 410<|content|>I. Subprocessor Approval Process\n<|id|>59<|page|>5<|box|>768 140 785 287<|content|>J. Data Residency\n<|id|>61<|page|>6<|box|>90 140 107 344<|content|>K. Encryption Standards\n<|id|>66<|page|>6<|box|>356 140 373 388<|content|>L. Data Retention and Deletion\n<|id|>70<|page|>6<|box|>584 143 601 331<|content|>M. Background Checks\n<|id|>72<|page|>6<|box|>748 140 765 447<|content|>N. Governance and Dispute Resolution\n<|id|>85<|page|>7<|box|>679 140 696 383<|content|>P. Data Processing Addendum\n<|id|>87<|page|>8<|box|>90 140 107 575<|content|>III. Remaining Open Points Requiring Final Resolut\n<|id|>90<|page|>9<|box|>90 142 107 434<|content|>A. SLA Uptime Standard (Exhibit A)\n<|id|>98<|page|>10<|box|>89 140 108 387<|content|>B. SLA Credit Cap (Exhibit A)\n<|id|>104<|page|>10<|box|>541 140 559 488<|content|>C. Data Breach Indemnification Cap (MSA)\n<|id|>110<|page|>11<|box|>220 140 238 553<|content|>D. Confidentiality / Data Security Super-Cap (MSA)\n<|id|>116<|page|>11<|box|>652 140 670 661<|content|>E. Consequential Damages Carve-Out for Regulatory\n<|id|>122<|page|>13<|box|>90 140 107 557<|content|>F. Security Incident Notification Window (Exhibit\n<|id|>130<|page|>14<|box|>90 140 107 464<|content|>G. Penetration Testing Scope (Exhibit B)\n<|id|>136<|page|>14<|box|>669 140 686 555<|content|>H. Additional Insured Status on Cyber Policy (MSA)\n<|id|>140<|page|>15<|box|>148 140 167 472<|content|>IV. Proposed Process for Final Resolution\n<|id|>150<|page|>16<|box|>250 140 265 380<|content|>V. Enclosed Documents Index\n<|id|>157<|page|>16<|box|>584 140 602 238<|content|>VI. Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>3<|level|>-1\n<|id|>9<|level|>1\n<|id|>18<|level|>1\n<|id|>21<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>49<|level|>2\n<|id|>56<|level|>2\n<|id|>59<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>2\n<|id|>85<|level|>2\n<|id|>87<|level|>1\n<|id|>90<|level|>2\n<|id|>98<|level|>2\n<|id|>104<|level|>2\n<|id|>110<|level|>2\n<|id|>116<|level|>2\n<|id|>122<|level|>2\n<|id|>130<|level|>2\n<|id|>136<|level|>2\n<|id|>140<|level|>1\n<|id|>150<|level|>1\n<|id|>157<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 1
+        }
+    ]
+}

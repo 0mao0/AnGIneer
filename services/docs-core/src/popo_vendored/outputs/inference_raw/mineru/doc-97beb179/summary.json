@@ -1,0 +1,663 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1d5te2jg\\input\\pdfs\\doc-97beb179.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1d5te2jg\\enriched\\doc-97beb179.json",
+    "contd_output": "<|src_id|>21<|tgt_id|>22",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>9<|level|>1\n<|id|>10<|level|>2\n<|id|>15<|level|>2\n<|id|>26<|level|>2\n<|id|>29<|level|>1\n<|id|>30<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>3\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>61<|level|>2\n<|id|>63<|level|>1\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>73<|level|>3\n<|id|>76<|level|>3\n<|id|>79<|level|>3\n<|id|>82<|level|>2\n<|id|>83<|level|>3\n<|id|>88<|level|>3\n<|id|>91<|level|>3\n<|id|>94<|level|>3\n<|id|>97<|level|>2\n<|id|>98<|level|>3\n<|id|>101<|level|>3\n<|id|>104<|level|>3\n<|id|>107<|level|>3\n<|id|>110<|level|>3\n<|id|>113<|level|>3\n<|id|>116<|level|>1\n<|id|>118<|level|>2\n<|id|>125<|level|>2\n<|id|>136<|level|>2\n<|id|>147<|level|>2\n<|id|>151<|level|>1\n<|id|>153<|level|>2\n<|id|>157<|level|>2\n<|id|>161<|level|>2\n<|id|>166<|level|>2\n<|id|>168<|level|>1\n<|id|>169<|level|>2\n<|id|>176<|level|>1\n<|id|>180<|level|>1\n<|id|>181<|level|>2\n<|id|>184<|level|>2\n<|id|>190<|level|>2\n<|id|>200<|level|>1\n<|id|>207<|level|>1\n<|id|>208<|level|>2\n<|id|>211<|level|>2\n<|id|>215<|level|>2\n<|id|>219<|level|>1\n<|id|>223<|level|>1\n<|id|>231<|level|>1\n<|id|>238<|level|>1\n<|id|>250<|level|>1\n<|id|>252<|level|>2\n<|id|>254<|level|>2\n<|id|>256<|level|>2\n<|id|>258<|level|>2\n<|id|>264<|level|>2\n<|id|>266<|level|>1",
+    "image_output": "<|src_id|>5<|tgt_id|>2\n<|src_id|>27<|tgt_id|>26\n<|src_id|>28<|tgt_id|>26\n<|src_id|>40<|tgt_id|>30\n<|src_id|>41<|tgt_id|>30\n<|src_id|>59<|tgt_id|>58\n<|src_id|>148<|tgt_id|>147\n<|src_id|>155<|tgt_id|>153\n<|src_id|>158<|tgt_id|>157\n<|src_id|>159<|tgt_id|>157\n<|src_id|>160<|tgt_id|>157\n<|src_id|>163<|tgt_id|>161\n<|src_id|>164<|tgt_id|>161\n<|src_id|>165<|tgt_id|>161\n<|src_id|>167<|tgt_id|>166\n<|src_id|>171<|tgt_id|>169\n<|src_id|>172<|tgt_id|>169\n<|src_id|>173<|tgt_id|>169\n<|src_id|>174<|tgt_id|>169\n<|src_id|>175<|tgt_id|>169\n<|src_id|>177<|tgt_id|>176\n<|src_id|>178<|tgt_id|>176\n<|src_id|>179<|tgt_id|>176\n<|src_id|>185<|tgt_id|>184\n<|src_id|>186<|tgt_id|>184\n<|src_id|>187<|tgt_id|>184\n<|src_id|>209<|tgt_id|>208\n<|src_id|>213<|tgt_id|>211\n<|src_id|>214<|tgt_id|>211\n<|src_id|>217<|tgt_id|>215\n<|src_id|>221<|tgt_id|>219\n<|src_id|>222<|tgt_id|>219\n<|src_id|>240<|tgt_id|>238\n<|src_id|>241<|tgt_id|>238\n<|src_id|>242<|tgt_id|>238\n<|src_id|>243<|tgt_id|>238\n<|src_id|>244<|tgt_id|>238\n<|src_id|>245<|tgt_id|>238\n<|src_id|>246<|tgt_id|>238\n<|src_id|>247<|tgt_id|>238\n<|src_id|>248<|tgt_id|>238\n<|src_id|>249<|tgt_id|>238",
+    "contd_label": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 1
+        },
+        {
+            "id": 180,
+            "level": 1
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 1
+        },
+        {
+            "id": 207,
+            "level": 1
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 1
+        },
+        {
+            "id": 223,
+            "level": 1
+        },
+        {
+            "id": 231,
+            "level": 1
+        },
+        {
+            "id": 238,
+            "level": 1
+        },
+        {
+            "id": 250,
+            "level": 1
+        },
+        {
+            "id": 252,
+            "level": 2
+        },
+        {
+            "id": 254,
+            "level": 2
+        },
+        {
+            "id": 256,
+            "level": 2
+        },
+        {
+            "id": 258,
+            "level": 2
+        },
+        {
+            "id": 264,
+            "level": 2
+        },
+        {
+            "id": 266,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 5,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 147
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 211
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 211
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 215
+        },
+        {
+            "src_id": 221,
+            "tgt_id": 219
+        },
+        {
+            "src_id": 222,
+            "tgt_id": 219
+        },
+        {
+            "src_id": 240,
+            "tgt_id": 238
+        },
+        {
+            "src_id": 241,
+            "tgt_id": 238
+        },
+        {
+            "src_id": 242,
+            "tgt_id": 238
+        },
+        {
+            "src_id": 243,
+            "tgt_id": 238
+        },
+        {
+            "src_id": 244,
+            "tgt_id": 238
+        },
+        {
+            "src_id": 245,
+            "tgt_id": 238
+        },
+        {
+            "src_id": 246,
+            "tgt_id": 238
+        },
+        {
+            "src_id": 247,
+            "tgt_id": 238
+        },
+        {
+            "src_id": 248,
+            "tgt_id": 238
+        },
+        {
+            "src_id": 249,
+            "tgt_id": 238
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 27,
+            "table2_idx": 28,
+            "upper_row_ss": [
+                [
+                    "June 2, 2025",
+                    "Amendment No. 1 to Form S-4 filed, incorporating responses to SEC comments and updated financial data"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "June 16, 2025",
+                    "SEC declared Form S-4 effective"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 40,
+            "table2_idx": 41,
+            "upper_row_ss": [
+                [
+                    "Atlas Horizon Ventures Fund II, LP",
+                    "~22.7%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Founder & Management (Chandrasekaran, Ellingham, Okafor, Hsiao, and others)",
+                    "~31.4%"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 163,
+            "table2_idx": 164,
+            "upper_row_ss": [
+                [
+                    "17",
+                    "Certificate of Incorporation (Domestication)",
+                    "Filed concurrently with the Certificate of Domestication. This is the initial certificate of incorporation of Pinnacle as a domesticated Delaware corporation."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "18",
+                    "Amended and Restated Certificate of Incorporation of Skybridge Fintech Holdings, Inc.",
+                    "Filed with the Secretary of State of the State of Delaware on July 21, 2025, effective as of the Closing Date. The Amended and Restated Certificate of Incorporation establishes the authorized capital stock of the Combined Company, the rights and preferences of each class and series of stock, the board structure (including provisions for classified board, if applicable), and customary protective provisions, including provisions regarding director exculpation and indemnification under Section 102(b)(7) and Section 145 of the DGCL."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 164,
+            "table2_idx": 165,
+            "upper_row_ss": [
+                [
+                    "21",
+                    "2025 Equity Incentive Plan of Skybridge Fintech Holdings, Inc.",
+                    "The 2025 Equity Incentive Plan was approved by the shareholders of Pinnacle at the Extraordinary General Meeting held on July 18, 2025, and became effective at the Closing Date. The plan authorizes the Combined Company to grant stock options, restricted stock awards, restricted stock units, stock"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "appreciation rights, and other equity-based awards to employees, directors, and consultants of the Combined Company and its subsidiaries."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 171,
+            "table2_idx": 172,
+            "upper_row_ss": [
+                [
+                    "24",
+                    "Form 8-K —Announcement of",
+                    "April 14, 2025",
+                    "Filed by PGAC with the SEC on April 14, 2025,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Business Combination",
+                    "",
+                    "reporting the execution of the Business Combination Agreement. The Form 8-K summarized the key terms of the Transaction, including the implied enterprise/equity value of approximately $450,000,000, the forward triangular merger structure, the Domestication from the Cayman Islands to Delaware, the $150,000,000 PIPE investment, and the backstop arrangement with Velthryn. The filing included a copy of the BCA as an exhibit."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 172,
+            "table2_idx": 173,
+            "upper_row_ss": [
+                [
+                    "26",
+                    "SEC Comment Letter (First Round)",
+                    "May 19, 2025 (received)",
+                    "The Division of Corporation Finance of the SEC issued its first-round comment letter on the Form S-4. The comment letter contained questions and requests for"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "additional disclosure on various topics."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 174,
+            "table2_idx": 175,
+            "upper_row_ss": [
+                [
+                    "31",
+                    "Form 8-K — Closing (Super 8-K)",
+                    "July 21, 2025 (filed)",
+                    "The \"Super 8-K\" was filed by the Combined Company (Skybridge"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "Fintech Holdings, Inc.) with the SEC on July 21, 2025, reporting the completion of the merger and the Domestication, the closing of the PIPE investment, the change of the company's name from Pinnacle Growth Acquisition Corp. to Skybridge Fintech Holdings, Inc., and the change of the Nasdaq trading symbol from \"PGAC\" to \"SBFT.\" The Super 8-K included the disclosures required for a company that has ceased to be a \"shell company\" within the meaning of Rule 12b-2 under the Exchange Act, including the information that would be required in a registration statement on Form 10. Exhibits to the Super 8-K included the audited financial statements of Skybridge, the pro forma financial statements of the Combined Company, the Amended and Restated Certificate of Incorporation and Amended and Restated Bylaws, and such other material agreements and documents as required."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 177,
+            "table2_idx": 178,
+            "upper_row_ss": [
+                [
+                    "32",
+                    "Tax Structure Memorandum",
+                    "Prepared by Leonard Cross (Calderwood & Harkness LLP, Tax). The memorandum provides a comprehensive analysis of the U.S. federal income tax treatment of the Transaction, including: (i) the"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "qualification of the merger as a reorganization under Section 368(a)(1)(A) of the Code, (ii) the tax consequences of the Domestication under Sections 367(b) and 368(a)(1)(F) of the Code, (iii) the treatment of the PIPE shares, including the absence of Section 351 or Section 368 treatment for the PIPE, (iv) the tax treatment of the Earnout Shares, including the application of the installment sale rules and the open transaction doctrine, and (v) the tax treatment of the warrants (both private placement and public warrants) in connection with the Domestication and the merger. The memorandum concludes that the merger should qualify as a reorganization under Section 368(a)(1)(A) and that the Domestication should qualify as a reorganization under Section 368(a)(1)(F) of the Code."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 178,
+            "table2_idx": 179,
+            "upper_row_ss": [
+                [
+                    "34",
+                    "FIRPTA / Withholding Analysis Memorandum",
+                    "Prepared by Leonard Cross (Calderwood & Harkness LLP, Tax). The memorandum analyzes the Foreign Investment in Real Property Tax Act (\"FIRPTA\")"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "implications of the Transaction, including: (i) whether Skybridge constitutes a \"United States real property holding corporation\" (\"USRPHC\") within the meaning of Section 897(c)(2) of the Code (concluding that it does not), (ii) the withholding obligations under Section 1445 and Section 1446 of the Code, and (iii) the availability and form of the FIRPTA certificate delivered by Skybridge (Tab 13)."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 221,
+            "table2_idx": 222,
+            "upper_row_ss": [
+                [
+                    "Backstop Commitment",
+                    "Up to $51,250,000 (5,000,000 shares at $10.25/share)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Earnout Shares",
+                    "Up to 5,000,000 shares (Tranche 1: 2,500,000 at VWAP ≥ $12.50; Tranche 2: 2,500,000 at VWAP ≥ $15.00)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 241,
+            "table2_idx": 242,
+            "upper_row_ss": [
+                [
+                    "Tab 15",
+                    "Good Standing Certificates — Skybridge Fintech Ltd. (Delaware and qualification states)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Tab 16",
+                    "Certificate of Domestication (Section 388, DGCL)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 245,
+            "table2_idx": 246,
+            "upper_row_ss": [
+                [
+                    "Tab 34",
+                    "FIRPTA / Withholding Analysis Memorandum"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Tab 35",
+                    "Legal Due Diligence Summary Memorandum"
+                ]
+            ]
+        }
+    ]
+}

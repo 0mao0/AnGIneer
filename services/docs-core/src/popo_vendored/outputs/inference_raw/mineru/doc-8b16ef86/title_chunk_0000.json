@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 104 633<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>1<|page|>1<|box|>112 346 128 651<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>9<|page|>1<|box|>354 142 369 653<|content|>1. Reference to Original Engagement and Purpose of\n<|id|>14<|page|>1<|box|>809 142 825 416<|content|>2. Expanded Scope of Engagement\n<|id|>27<|page|>3<|box|>825 140 842 403<|content|>3. Relationship to Original Scope\n<|id|>35<|page|>4<|box|>470 140 487 447<|content|>4. Billing Rates and Fee Arrangements\n<|id|>42<|page|>5<|box|>231 140 248 433<|content|>5. Coordination with Other Advisors\n<|id|>47<|page|>6<|box|>167 140 185 442<|content|>6. Conflicts Disclosure (Supplemental)\n<|id|>53<|page|>6<|box|>613 140 630 284<|content|>7. Confidentiality\n<|id|>58<|page|>7<|box|>250 140 266 264<|content|>8. Termination\n<|id|>62<|page|>7<|box|>604 140 623 547<|content|>9. Continuing Effect of Original Engagement Letter\n<|id|>66<|page|>8<|box|>90 142 107 395<|content|>10. Counterparts and Execution",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>27<|level|>1\n<|id|>35<|level|>1\n<|id|>42<|level|>1\n<|id|>47<|level|>1\n<|id|>53<|level|>1\n<|id|>58<|level|>1\n<|id|>62<|level|>1\n<|id|>66<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        }
+    ]
+}

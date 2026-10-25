@@ -1,0 +1,39 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        49
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>167<|page|>45<|box|>119 438 142 564<|content|>七、沉箱半潜驳运输\n<|id|>171<|page|>46<|box|>127 391 152 590<|content|>八、沉箱卸船储存(3000t内/个)\n<|id|>175<|page|>47<|box|>132 416 156 586<|content|>九、综合物资后方基地装船\n<|id|>179<|page|>48<|box|>114 439 137 549<|content|>十、综合物资运输\n<|id|>183<|page|>49<|box|>201 277 287 720<|content|>本定额主编单位、参编单位、主要起草人、主要审查人、总校人员和管理组人员名单",
+    "raw_response": "<|id|>167<|level|>1\n<|id|>171<|level|>1\n<|id|>175<|level|>1\n<|id|>179<|level|>1\n<|id|>183<|level|>1",
+    "parsed": [
+        {
+            "id": 167,
+            "level": 1
+        },
+        {
+            "id": 171,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 179,
+            "level": 1
+        },
+        {
+            "id": 183,
+            "level": 1
+        }
+    ]
+}

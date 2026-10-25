@@ -1,0 +1,23 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['8', 'Priya Venkat araman', 'IC3 Engineer', '15-1211', 'Site C (Portland)', 'I-200-24008-001234', '08/01/2 024 - 07/31/2 027', 'WAC-24- XXX-XXXX', '08/01/2 024 - 07/31/2', 'Portland HR Office', 'Portland MSA LCA']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', '', 'X', '027', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 585,
+    "table2_idx": 586
+}

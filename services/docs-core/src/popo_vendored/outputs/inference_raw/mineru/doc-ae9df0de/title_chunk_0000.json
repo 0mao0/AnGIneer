@@ -1,0 +1,154 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        19,
+        20,
+        22,
+        23,
+        25,
+        28
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 200 133 795<|content|>MEMORANDUM PRIVILEGED AND CONFIDENTIAL — ATTORNEY\n<|id|>8<|page|>1<|box|>321 267 340 728<|content|>I. EXECUTIVE SUMMARY AND PURPOSE\n<|id|>22<|page|>2<|box|>614 161 660 834<|content|>II. MFW MASTER SUBSCRIPTION AGREEMENT (STANDARD FO\n<|id|>23<|page|>2<|box|>684 140 700 246<|content|>A. Overview\n<|id|>29<|page|>3<|box|>421 140 438 256<|content|>B. Key Terms\n<|id|>37<|page|>5<|box|>90 140 107 354<|content|>C. Observations and Risks\n<|id|>44<|page|>6<|box|>90 225 135 769<|content|>III. TERRALINK LOGISTICS, INC. — STRATEGIC PARTNER\n<|id|>45<|page|>6<|box|>159 142 176 246<|content|>A. Overview\n<|id|>49<|page|>6<|box|>571 140 589 256<|content|>B. Key Terms\n<|id|>55<|page|>7<|box|>513 140 529 617<|content|>C. Change-of-Control Provision — CRITICAL PATH ITE\n<|id|>76<|page|>9<|box|>744 160 789 836<|content|>IV. BRINDOVAL DATA SOLUTIONS LLC — CLOUD HOSTING A\n<|id|>77<|page|>9<|box|>814 143 830 246<|content|>A. Overview\n<|id|>81<|page|>10<|box|>383 140 402 256<|content|>B. Key Terms\n<|id|>87<|page|>11<|box|>304 140 321 514<|content|>C. Assignment and Change-of-Control Analysis\n<|id|>99<|page|>12<|box|>359 163 402 831<|content|>V. SENTINEL COMMERCE BANK, N.A. — EXISTING CREDIT\n<|id|>100<|page|>12<|box|>429 142 445 246<|content|>A. Overview\n<|id|>104<|page|>12<|box|>766 140 782 256<|content|>B. Key Terms\n<|id|>114<|page|>13<|box|>715 140 732 416<|content|>C. Analysis and Recommendations\n<|id|>121<|page|>14<|box|>761 236 781 759<|content|>VI. EXECUTIVE EMPLOYMENT AGREEMENTS\n<|id|>122<|page|>14<|box|>806 142 824 517<|content|>A. Garrett Holliday — Employment Agreement\n<|id|>135<|page|>16<|box|>321 140 339 547<|content|>B. Diana Vasquez-Park — Employment Agreement\n<|id|>148<|page|>17<|box|>392 140 409 488<|content|>C. Analysis and Transaction Considerations\n<|id|>161<|page|>19<|box|>296 140 313 519<|content|>D. Other Key Employee: Marcus Trahan (CFO)\n<|id|>169<|page|>20<|box|>90 272 109 723<|content|>VII. MFW 2016 STOCK INCENTIVE PLAN\n<|id|>170<|page|>20<|box|>136 142 152 246<|content|>A. Overview\n<|id|>176<|page|>20<|box|>654 142 672 334<|content|>B. Treatment at Closing\n<|id|>190<|page|>22<|box|>383 142 402 326<|content|>C. Key Option Holders\n<|id|>195<|page|>22<|box|>784 166 829 828<|content|>VIII. SUMMARY OF CHANGE-OF-CONTROL AND CONSENT REQ\n<|id|>200<|page|>23<|box|>818 156 838 839<|content|>IX. OUTSTANDING DILIGENCE ITEMS AND OPEN REQUESTS\n<|id|>212<|page|>25<|box|>228 256 248 740<|content|>X. RECOMMENDATIONS AND NEXT STEPS\n<|id|>237<|page|>28<|box|>90 222 109 774<|content|>APPENDIX A — LIST OF REVIEWED CONTRACTS",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>22<|level|>1\n<|id|>23<|level|>2\n<|id|>29<|level|>2\n<|id|>37<|level|>2\n<|id|>44<|level|>1\n<|id|>45<|level|>2\n<|id|>49<|level|>2\n<|id|>55<|level|>2\n<|id|>76<|level|>1\n<|id|>77<|level|>2\n<|id|>81<|level|>2\n<|id|>87<|level|>2\n<|id|>99<|level|>1\n<|id|>100<|level|>2\n<|id|>104<|level|>2\n<|id|>114<|level|>2\n<|id|>121<|level|>1\n<|id|>122<|level|>2\n<|id|>135<|level|>2\n<|id|>148<|level|>2\n<|id|>161<|level|>2\n<|id|>169<|level|>1\n<|id|>170<|level|>2\n<|id|>176<|level|>2\n<|id|>190<|level|>2\n<|id|>195<|level|>1\n<|id|>200<|level|>1\n<|id|>212<|level|>1\n<|id|>237<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 1
+        },
+        {
+            "id": 200,
+            "level": 1
+        },
+        {
+            "id": 212,
+            "level": 1
+        },
+        {
+            "id": 237,
+            "level": 1
+        }
+    ]
+}

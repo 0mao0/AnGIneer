@@ -1,0 +1,55 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        93,
+        120
+    ],
+    "pages": [
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        120
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>321<|type|>table<|page|>93<|box|>117 7 931 952<|content|>None\n<|id|>322<|type|>table<|page|>94<|box|>118 14 931 973<|content|>None\n<|id|>323<|type|>table<|page|>95<|box|>115 31 933 976<|content|>None\n<|id|>324<|type|>table<|page|>96<|box|>118 9 931 965<|content|>None\n<|id|>325<|type|>table<|page|>97<|box|>117 19 935 961<|content|>None\n<|id|>326<|type|>table<|page|>98<|box|>113 4 929 954<|content|>None\n<|id|>327<|type|>table<|page|>99<|box|>119 7 935 947<|content|>None\n<|id|>328<|type|>table<|page|>100<|box|>115 24 929 975<|content|>None\n<|id|>329<|type|>table<|page|>101<|box|>119 16 935 956<|content|>None\n<|id|>330<|type|>table<|page|>102<|box|>117 26 929 975<|content|>None\n<|id|>331<|type|>table<|page|>103<|box|>122 33 938 976<|content|>None\n<|id|>332<|type|>table<|page|>104<|box|>113 14 920 963<|content|>None\n<|id|>333<|type|>table<|page|>105<|box|>124 35 893 976<|content|>None\n<|id|>335<|type|>table<|page|>106<|box|>115 2 890 956<|content|>None\n<|id|>336<|type|>title<|page|>107<|box|>75 222 90 767<|content|>Section I - Statements of Financial Condition, Jun\n<|id|>337<|type|>table<|page|>107<|box|>120 28 920 956<|content|>None\n<|id|>338<|type|>title<|page|>108<|box|>68 216 82 771<|content|>Section I - Statements of Financial Condition, Jun\n<|id|>339<|type|>title<|page|>108<|box|>84 36 100 968<|content|>Table 7.- Gross Loans Outstanding, Excluding Inter\n<|id|>340<|type|>table<|page|>108<|box|>115 38 798 980<|content|>None\n<|id|>341<|type|>title<|page|>109<|box|>39 262 55 725<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>343<|type|>table<|page|>109<|box|>138 170 297 807<|content|>None\n<|id|>344<|type|>title<|page|>109<|box|>333 401 346 586<|content|>Footnotes to Table 1\n<|id|>349<|type|>title<|page|>109<|box|>436 403 449 591<|content|>Footnotes to Table 2\n<|id|>366<|type|>title<|page|>109<|box|>696 396 711 584<|content|>Footnotes to Table 3\n<|id|>371<|type|>title<|page|>109<|box|>774 358 788 625<|content|>Footnotes to Table 4 - Part A\n<|id|>381<|type|>title<|page|>110<|box|>95 373 109 643<|content|>Footnotes to Table 4 - Part B\n<|id|>393<|type|>title<|page|>110<|box|>358 414 372 604<|content|>Footnotes to Table 6\n<|id|>398<|type|>table<|page|>111<|box|>88 31 844 973<|content|>None\n<|id|>399<|type|>table<|page|>112<|box|>93 24 796 961<|content|>None\n<|id|>404<|type|>image<|page|>120<|box|>8 794 47 932<|content|>None",
+    "raw_response": "<|src_id|>337<|tgt_id|>336\n<|src_id|>340<|tgt_id|>338\n<|src_id|>343<|tgt_id|>341\n<|src_id|>398<|tgt_id|>341\n<|src_id|>399<|tgt_id|>341",
+    "parsed": [
+        {
+            "src_id": 337,
+            "tgt_id": 336
+        },
+        {
+            "src_id": 340,
+            "tgt_id": 338
+        },
+        {
+            "src_id": 343,
+            "tgt_id": 341
+        },
+        {
+            "src_id": 398,
+            "tgt_id": 341
+        },
+        {
+            "src_id": 399,
+            "tgt_id": 341
+        }
+    ]
+}

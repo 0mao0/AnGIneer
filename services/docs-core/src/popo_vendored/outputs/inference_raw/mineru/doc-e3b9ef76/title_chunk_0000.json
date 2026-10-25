@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 733<|content|>DRAFT — FOR DISCUSSION PURPOSES ONLY — NOT FOR EXE\n<|id|>8<|page|>1<|box|>419 142 435 264<|content|>1. Introduction\n<|id|>11<|page|>1<|box|>786 140 803 336<|content|>2. Documents Examined\n<|id|>13<|page|>2<|box|>90 140 107 383<|content|>2.1 Organizational Documents\n<|id|>17<|page|>2<|box|>324 142 340 361<|content|>2.2 Transaction Documents\n<|id|>30<|page|>3<|box|>246 140 263 439<|content|>2.3 Certificates and Other Documents\n<|id|>36<|page|>3<|box|>579 140 595 267<|content|>3. Assumptions\n<|id|>48<|page|>4<|box|>571 140 589 238<|content|>4. Opinions\n<|id|>50<|page|>4<|box|>647 140 664 416<|content|>4.1 Valid Formation and Existence\n<|id|>52<|page|>4<|box|>848 140 864 339<|content|>4.2 Power and Authority\n<|id|>60<|page|>5<|box|>507 140 523 320<|content|>4.3 Due Authorization\n<|id|>65<|page|>5<|box|>840 140 857 357<|content|>4.4 Execution and Delivery\n<|id|>69<|page|>6<|box|>202 140 219 522<|content|>4.5 No Conflicts with Organizational Documents\n<|id|>75<|page|>6<|box|>450 140 468 426<|content|>4.6 No Conflicts with Delaware Law\n<|id|>77<|page|>6<|box|>579 140 595 640<|content|>4.7 No Governmental Approvals Required under Delaw\n<|id|>79<|page|>6<|box|>743 140 760 308<|content|>4.8 Limited Liability\n<|id|>81<|page|>7<|box|>90 140 107 403<|content|>5. Qualifications and Limitations\n<|id|>83<|page|>7<|box|>165 140 181 349<|content|>5.1 Scope of Law Covered\n<|id|>85<|page|>7<|box|>476 140 493 379<|content|>5.2 Good Standing Certificate\n<|id|>87<|page|>7<|box|>622 140 638 388<|content|>5.3 Bankruptcy and Insolvency\n<|id|>89<|page|>8<|box|>90 140 106 305<|content|>5.4 Factual Reliance\n<|id|>91<|page|>8<|box|>253 140 271 272<|content|>5.5 Draft Status\n<|id|>93<|page|>8<|box|>484 140 500 326<|content|>6. Reliance and Benefit\n<|id|>100<|page|>9<|box|>250 346 267 650<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>11<|level|>1\n<|id|>13<|level|>2\n<|id|>17<|level|>2\n<|id|>30<|level|>2\n<|id|>36<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>60<|level|>2\n<|id|>65<|level|>2\n<|id|>69<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>1\n<|id|>83<|level|>2\n<|id|>85<|level|>2\n<|id|>87<|level|>2\n<|id|>89<|level|>2\n<|id|>91<|level|>2\n<|id|>93<|level|>1\n<|id|>100<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 1
+        }
+    ]
+}

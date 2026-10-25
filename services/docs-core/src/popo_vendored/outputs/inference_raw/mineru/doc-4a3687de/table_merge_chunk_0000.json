@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=5, 符合', 'rowspan=2, 不符合', '—', '—', '不符合', '针对性局部补强后二层式罩面']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 不符合', 'rowspan=2, --', '--', 'rowspan=2, --', '符合', 'PCI为中等时,高速公路二层式罩面,一级公路一层式罩面;PCI为次、差等时,二层式罩面']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 413,
+    "table2_idx": 414
+}

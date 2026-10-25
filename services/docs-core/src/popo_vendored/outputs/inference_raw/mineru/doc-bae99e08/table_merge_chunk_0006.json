@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['4', '\"retractable blade deployment mechanism\"', \"'884\", '1, 2, 5, 9, 14', 'A mechanism that deploys a cutting blade for tissue penetration and subsequently retracts or withdraws the blade.', 'A mechanism comprising a blade that is affirmatively advanced from a retracted position to a deployed position for tissue cutting and is then automatically retracted to the retracted position by a dedicated retraction component, where the blade moves linearly along the longitudinal', 'Disputed']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', 'axis of the obturator.', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 463,
+    "table2_idx": 464
+}

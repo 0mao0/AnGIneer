@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>675 142 691 584<|content|>1. DEFINED TERMS AND DOCUMENTS EXAMINED\n<|id|>11<|page|>1<|box|>705 142 723 290<|content|>1.1 Defined Terms\n<|id|>24<|page|>2<|box|>467 142 484 346<|content|>1.2 Documents Examined\n<|id|>41<|page|>3<|box|>685 140 703 297<|content|>2. ASSUMPTIONS\n<|id|>51<|page|>4<|box|>626 140 643 500<|content|>3. QUALIFICATIONS AND LIMITATIONS\n<|id|>62<|page|>5<|box|>743 140 761 256<|content|>4. OPINIONS\n<|id|>64<|page|>5<|box|>819 140 837 488<|content|>4.1 Corporate Existence and Good Standing\n<|id|>66<|page|>6<|box|>138 140 157 424<|content|>4.2 Corporate Power and Authority\n<|id|>68<|page|>6<|box|>267 140 284 321<|content|>4.3 Due Authorization\n<|id|>70<|page|>6<|box|>486 140 503 357<|content|>4.4 Execution and Delivery\n<|id|>72<|page|>6<|box|>541 140 556 416<|content|>4.5 Enforceability of the Indenture\n<|id|>74<|page|>6<|box|>686 140 703 383<|content|>4.6 Enforceability of the Notes\n<|id|>77<|page|>7<|box|>257 140 273 500<|content|>4.7 Enforceability of the Purchase Agreement\n<|id|>79<|page|>7<|box|>366 140 383 566<|content|>4.8 Valid Issuance of Common Stock upon Conversion\n<|id|>82<|page|>7<|box|>720 140 738 496<|content|>4.9 No Registration Required (Securities Act)\n<|id|>84<|page|>8<|box|>176 140 194 508<|content|>4.10 No Investment Company Act Registration\n<|id|>86<|page|>8<|box|>359 140 375 282<|content|>4.11 No Conflicts\n<|id|>92<|page|>9<|box|>90 140 107 483<|content|>4.12 No Governmental Approvals Required\n<|id|>97<|page|>9<|box|>396 140 412 388<|content|>5. RELIANCE AND BENEFIT",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>1\n<|id|>11<|level|>2\n<|id|>24<|level|>2\n<|id|>41<|level|>1\n<|id|>51<|level|>1\n<|id|>62<|level|>1\n<|id|>64<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>2\n<|id|>74<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>2\n<|id|>82<|level|>2\n<|id|>84<|level|>2\n<|id|>86<|level|>2\n<|id|>92<|level|>2\n<|id|>97<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        }
+    ]
+}

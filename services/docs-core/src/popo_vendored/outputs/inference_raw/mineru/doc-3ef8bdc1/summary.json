@@ -1,0 +1,154 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gv_1ccjb\\input\\pdfs\\doc-3ef8bdc1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gv_1ccjb\\enriched\\doc-3ef8bdc1.json",
+    "contd_output": "",
+    "title_output": "",
+    "image_output": "<|src_id|>4<|tgt_id|>0\n<|src_id|>5<|tgt_id|>0\n<|src_id|>7<|tgt_id|>0\n<|src_id|>8<|tgt_id|>0\n<|src_id|>10<|tgt_id|>0\n<|src_id|>11<|tgt_id|>0\n<|src_id|>12<|tgt_id|>0\n<|src_id|>13<|tgt_id|>0\n<|src_id|>14<|tgt_id|>0\n<|src_id|>16<|tgt_id|>0\n<|src_id|>17<|tgt_id|>0\n<|src_id|>18<|tgt_id|>0",
+    "contd_label": [],
+    "title_label": [],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 0
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 13,
+            "table2_idx": 14,
+            "upper_row_ss": [
+                [
+                    "20",
+                    "GasLog Singapore",
+                    "97818",
+                    "155000",
+                    "285",
+                    "43.4",
+                    "26.0",
+                    "12.1",
+                    "GTT 薄膜舱",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, 序号",
+                    "rowspan=2, 船名",
+                    "rowspan=2, 总吨(GT)",
+                    "rowspan=2, 总舱容量(m^3)",
+                    "colspan=4, 船舶主要尺度(m)",
+                    "rowspan=2, 围护系统",
+                    "rowspan=2, 同类船型总吨范围(GT)",
+                    "rowspan=2, 同类船型舱容范围(m^3)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 16,
+            "table2_idx": 17,
+            "upper_row_ss": [
+                [
+                    "60",
+                    "Papua",
+                    "114166",
+                    "172000",
+                    "290",
+                    "46.4",
+                    "26.5",
+                    "12.5",
+                    "GTT 薄膜舱",
+                    "114166 ~ 114500",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, 序号",
+                    "rowspan=2, 船名",
+                    "rowspan=2, 总吨(GT)",
+                    "rowspan=2, 总舱容量(m^3)",
+                    "colspan=4, 船舶主要尺度(m)",
+                    "rowspan=2, 围护系统",
+                    "rowspan=2, 同类船型总吨范围(GT)",
+                    "rowspan=2, 同类船型舱容范围(m^3)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 17,
+            "table2_idx": 18,
+            "upper_row_ss": [
+                [
+                    "80",
+                    "SK Serenity",
+                    "115610",
+                    "174117",
+                    "296",
+                    "45.6",
+                    "20.8",
+                    "12.4",
+                    "KC1薄膜舱",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, 序号",
+                    "rowspan=2, 船名",
+                    "rowspan=2, 总吨(GT)",
+                    "rowspan=2, 总舱容量(m3)",
+                    "colspan=4, 船舶主要尺度(m)",
+                    "rowspan=2, 围护系统",
+                    "rowspan=2, 同类船型总吨范围(GT)",
+                    "rowspan=2, 同类船型舱容范围(m3)"
+                ]
+            ]
+        }
+    ]
+}

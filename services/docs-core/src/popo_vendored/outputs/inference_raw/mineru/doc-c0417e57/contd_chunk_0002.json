@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        112,
+        120
+    ],
+    "pages": [
+        113,
+        118,
+        120
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>545<|page|>113<|box|>297 81 436 488<|content|>Amounts in the Harbor Maintenance Trust Fund are a...erican Free Trade Agreement (NAFTA) Implementation\n<|id|>546<|page|>113<|box|>133 508 243 913<|content|>Act of 1994 (Public Law 103-182, Sec. ... Army Cor...of chapter 36 (relating to harbor maintenance tax)\n<|id|>563<|page|>118<|box|>121 81 205 488<|content|>The following information is released according to... concerning the Highway Trust Fund. ... The 24-and\n<|id|>564<|page|>118<|box|>121 508 193 913<|content|>12-month revenue estimates for the highway and mas...hose periods beginning at the close of fiscal 1995\n<|id|>582<|page|>120<|box|>483 81 500 668<|content|>9201. ... June 1992\n<|id|>589<|page|>120<|box|>824 398 878 599<|content|>Copies may be obtained by writing to: ... 20220",
+    "raw_response": "<|src_id|>545<|tgt_id|>546\n<|src_id|>563<|tgt_id|>564",
+    "parsed": [
+        {
+            "src_id": 545,
+            "tgt_id": 546
+        },
+        {
+            "src_id": 563,
+            "tgt_id": 564
+        }
+    ]
+}

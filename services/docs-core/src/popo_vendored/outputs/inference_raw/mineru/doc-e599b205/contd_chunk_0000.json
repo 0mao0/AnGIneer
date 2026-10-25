@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        10,
+        13,
+        14,
+        16,
+        17,
+        29,
+        30,
+        32
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>180 140 215 854<|content|>TO: ... Jennifer Kwon, Responsible Partner, Capita...ets Brendan Walsh, Lead Associate, Capital Markets\n<|id|>3<|page|>1<|box|>224 140 242 493<|content|>FROM: ... Leonard Cross, Specialist Partner, Tax\n<|id|>4<|page|>1<|box|>250 140 268 568<|content|>CC: ... Natasha Forbes, Working Associate, Capital Markets\n<|id|>5<|page|>1<|box|>275 140 294 316<|content|>DATE: ... April 25, 2022\n<|id|>6<|page|>1<|box|>301 140 338 852<|content|>RE: ... 1015-00001)\n<|id|>7<|page|>1<|box|>345 140 364 678<|content|>CLIENT: ... (\"CBR\" or the \"Company\")\n<|id|>8<|page|>1<|box|>371 140 390 730<|content|>MATTER: ... Proposed Initial Public Offering of Common Stock (~$600,000,000)\n<|id|>9<|page|>1<|box|>398 140 414 408<|content|>Right-click to update Table of Contents\n<|id|>20<|page|>2<|box|>794 140 886 857<|content|>4. ... Federal Income Tax Consequences\"\n<|id|>21<|page|>3<|box|>90 174 126 854<|content|>section of the S-1 should include appropriate cave...dvisors regarding state and local tax consequences\n<|id|>54<|page|>5<|box|>811 140 904 856<|content|>CBR's post-IPO authorized share count and par valu...ization cushion, including shares reserved for the\n<|id|>55<|page|>6<|box|>89 140 126 854<|content|>2022 Omnibus Equity Incentive Plan (12,727,273 sha...22 Employee Stock Purchase Plan (2,545,455 shares)\n<|id|>69<|page|>7<|box|>332 181 368 854<|content|>• Development activities conducted by CBR Development Co. ... and\n<|id|>71<|page|>7<|box|>407 140 443 854<|content|>Taxable Margin Calculation. ... The Texas franchis... entity's \"taxable margin,\" which is the lesser of\n<|id|>73<|page|>7<|box|>477 176 494 591<|content|>(b) total revenue minus cost of goods sold (\"COGS\"); ... or\n<|id|>75<|page|>7<|box|>529 140 603 854<|content|>The taxable entity elects the method of computation that produces the lowest margin. ... 1011\n<|id|>97<|page|>10<|box|>90 181 143 854<|content|>• An exemption for items used in the production of...fic criteria of the applicable exemption); ... and\n<|id|>99<|page|>10<|box|>166 140 273 854<|content|>The applicability of these exemptions to specific ... and other taxable items used at the project sites\n<|id|>132<|page|>13<|box|>849 140 886 857<|content|>The state TPT rate for the utilities classification is 5. ... Combined TPT rates in Maricopa\n<|id|>133<|page|>14<|box|>90 140 126 854<|content|>County range from approximately 7. ... 6%, dependi...nd taxing district in which the transaction occurs\n<|id|>161<|page|>16<|box|>853 183 869 781<|content|>• Operations and maintenance employees stationed at or near the project site; ... and\n<|id|>163<|page|>17<|box|>90 138 200 856<|content|>The addition of the Copper Basin project will subs...ould further increase the apportionment percentage\n<|id|>277<|page|>29<|box|>666 174 684 834<|content|>(c) Selected Financial Data presentation consistent with the effective tax rate analysis; ... and\n<|id|>292<|page|>30<|box|>804 140 840 854<|content|>We recommend that Kessler McBride include state le...pdates to Calderwood & Harkness and CBR management\n<|id|>284<|page|>30<|box|>267 174 303 854<|content|>(c) Status of any pending state audits, examinatio...r inquiries from state taxing authorities; ... and\n<|id|>290<|page|>30<|box|>696 174 734 854<|content|>(c) Oklahoma: ... and\n<|id|>306<|page|>32<|box|>356 140 388 854<|content|>Jennifer Kwon Responsible Partner, Capital Markets...2 (212) 558-4000 jkwon@calderwoodharkness. ... com\n<|id|>307<|page|>32<|box|>388 140 479 854<|content|>DISTRIBUTION: ... If you have received this docume...tify the sender immediately and destroy all copies",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>54<|tgt_id|>55\n<|src_id|>132<|tgt_id|>133",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        }
+    ]
+}

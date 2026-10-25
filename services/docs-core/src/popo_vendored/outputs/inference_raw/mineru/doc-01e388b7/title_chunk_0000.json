@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 236 148 856<|content|>CALDERWOOD & HARKNESS LLP 1750 Pennsylvania Avenue\n<|id|>13<|page|>1<|box|>529 140 546 351<|content|>I. Introduction & Purpose\n<|id|>19<|page|>2<|box|>402 140 420 767<|content|>II. Section 1: Supplemental Transaction Details —\n<|id|>20<|page|>2<|box|>434 140 450 547<|content|>A. Overview of All 14 Crude Oil Swap Transactions\n<|id|>26<|page|>3<|box|>90 140 107 504<|content|>B. Identification of the 9 Tainted Transactions\n<|id|>34<|page|>5<|box|>566 140 583 609<|content|>C. Zenith Petroleum DMCC — Specific Transaction De\n<|id|>41<|page|>6<|box|>732 140 750 694<|content|>III. Section 2: Petronova Trading FZE — Beneficial\n<|id|>52<|page|>8<|box|>347 140 364 738<|content|>IV. Section 3: Oilfield Equipment Export Details —\n<|id|>66<|page|>11<|box|>167 140 185 751<|content|>V. Section 4: Payment Structuring Through Crescent\n<|id|>81<|page|>12<|box|>656 140 672 594<|content|>VI. Section 5: Key Personnel Involved in the Trans\n<|id|>89<|page|>14<|box|>148 140 167 521<|content|>VII. Section 6: Compliance Remediation Update\n<|id|>101<|page|>15<|box|>508 140 527 462<|content|>VIII. Section 7: Voluntary Disgorgement\n<|id|>110<|page|>16<|box|>204 140 222 529<|content|>IX. Section 8: Enclosed Supplemental Documents\n<|id|>118<|page|>16<|box|>719 140 737 563<|content|>X. Reservation of Rights and Continuing Cooperatio\n<|id|>123<|page|>17<|box|>421 140 438 295<|content|>XI. Confidentiality\n<|id|>126<|page|>17<|box|>696 142 714 245<|content|>XII. Closing\n<|id|>135<|page|>18<|box|>248 142 261 171<|content|>cc:\n<|id|>137<|page|>18<|box|>334 142 349 238<|content|>Enclosures:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>26<|level|>3\n<|id|>34<|level|>3\n<|id|>41<|level|>2\n<|id|>52<|level|>2\n<|id|>66<|level|>2\n<|id|>81<|level|>2\n<|id|>89<|level|>2\n<|id|>101<|level|>2\n<|id|>110<|level|>2\n<|id|>118<|level|>2\n<|id|>123<|level|>2\n<|id|>126<|level|>2\n<|id|>135<|level|>-1\n<|id|>137<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        }
+    ]
+}

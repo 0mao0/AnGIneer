@@ -1,0 +1,146 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>89 156 125 839<|content|>CALDERWOOD & HARKNESS LLP 777 South Flower Street,\n<|id|>8<|page|>1<|box|>406 385 426 612<|content|>I. Executive Summary\n<|id|>13<|page|>2<|box|>215 246 236 750<|content|>II. Revised Settlement Authority Recommendation\n<|id|>14<|page|>2<|box|>261 142 279 297<|content|>A. Summary Table\n<|id|>17<|page|>2<|box|>619 142 638 614<|content|>B. Rationale for Revised Class Authority (Up to $1\n<|id|>26<|page|>4<|box|>167 140 184 625<|content|>C. Rationale for Revised Aldrich Authority (Up to\n<|id|>44<|page|>6<|box|>90 142 107 377<|content|>D. RSU Component (Aldrich)\n<|id|>53<|page|>6<|box|>599 235 618 761<|content|>III. Anticipated Settlement Structure — Class Acti\n<|id|>54<|page|>6<|box|>643 142 660 620<|content|>A. Projected Term Sheet (if settled at $15M author\n<|id|>63<|page|>7<|box|>743 140 760 316<|content|>B. PAGA Structuring\n<|id|>69<|page|>8<|box|>462 259 482 736<|content|>IV. Anticipated Settlement Structure — Aldrich\n<|id|>70<|page|>8<|box|>507 142 523 624<|content|>A. Projected Term Sheet (if settled at $2.5M autho\n<|id|>74<|page|>9<|box|>428 140 445 457<|content|>B. Key Negotiation Points for Session #2\n<|id|>81<|page|>10<|box|>444 178 463 816<|content|>V. Insurance Coordination — Pemberton Mutual Assur\n<|id|>82<|page|>10<|box|>489 142 506 338<|content|>A. EPL Policy Summary\n<|id|>85<|page|>10<|box|>837 142 854 362<|content|>B. SIR Exhaustion Analysis\n<|id|>89<|page|>11<|box|>321 140 339 465<|content|>C. Pemberton's Authorized Contribution\n<|id|>95<|page|>11<|box|>699 140 717 431<|content|>D. Pemberton — PAGA Reservation\n<|id|>99<|page|>12<|box|>285 140 301 473<|content|>E. Pemberton — Aldrich Coverage Denial\n<|id|>107<|page|>13<|box|>227 325 247 671<|content|>VI. Combined Financial Summary\n<|id|>108<|page|>13<|box|>272 142 289 511<|content|>A. All-In Cost Analysis at Maximum Authority\n<|id|>112<|page|>13<|box|>723 143 739 431<|content|>B. Comparison to Claimed Exposure\n<|id|>115<|page|>14<|box|>256 140 273 457<|content|>C. Comparison to Most Likely Outcome\n<|id|>122<|page|>14<|box|>614 325 633 673<|content|>VII. Board Approval Requirement\n<|id|>134<|page|>15<|box|>422 238 441 758<|content|>VIII. Mediation Session #2 — Logistics and Strateg\n<|id|>135<|page|>15<|box|>465 142 483 240<|content|>A. Logistics\n<|id|>141<|page|>15<|box|>633 143 648 277<|content|>AMA Attendees:\n<|id|>155<|page|>16<|box|>131 140 148 321<|content|>B. Strategic Approach\n<|id|>162<|page|>17<|box|>227 390 247 607<|content|>IX. Recommendation\n<|id|>172<|page|>17<|box|>816 140 832 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>175<|page|>18<|box|>44 145 70 849<|content|>CALDERWOOD & HARKNESS LLP — CONFIDENTIAL — ATTORNE\n<|id|>176<|page|>18<|box|>90 140 106 326<|content|>Date: September 4, 2023",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>26<|level|>2\n<|id|>44<|level|>2\n<|id|>53<|level|>1\n<|id|>54<|level|>2\n<|id|>63<|level|>2\n<|id|>69<|level|>1\n<|id|>70<|level|>2\n<|id|>74<|level|>2\n<|id|>81<|level|>1\n<|id|>82<|level|>2\n<|id|>85<|level|>2\n<|id|>89<|level|>2\n<|id|>95<|level|>2\n<|id|>99<|level|>2\n<|id|>107<|level|>1\n<|id|>108<|level|>2\n<|id|>112<|level|>2\n<|id|>115<|level|>2\n<|id|>122<|level|>1\n<|id|>134<|level|>1\n<|id|>135<|level|>2\n<|id|>141<|level|>3\n<|id|>155<|level|>2\n<|id|>162<|level|>1\n<|id|>172<|level|>-1\n<|id|>175<|level|>-1\n<|id|>176<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 1
+        }
+    ]
+}

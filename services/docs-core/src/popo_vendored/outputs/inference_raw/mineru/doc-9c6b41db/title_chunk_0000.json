@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 160 118 836<|content|>OFFICER'S CERTIFICATE AND BRING-DOWN CERTIFICATE\n<|id|>1<|page|>1<|box|>136 266 154 730<|content|>Delivered Pursuant to Section 4.01 of the Credit A\n<|id|>3<|page|>1<|box|>188 143 205 253<|content|>Delivered by:\n<|id|>5<|page|>1<|box|>294 142 311 248<|content|>Delivered to:\n<|id|>8<|page|>1<|box|>383 143 398 233<|content|>Reference:\n<|id|>10<|page|>1<|box|>507 142 523 210<|content|>Project:\n<|id|>12<|page|>1<|box|>577 142 594 274<|content|>Matter Context:\n<|id|>14<|page|>1<|box|>643 140 661 243<|content|>RECITALS\n<|id|>32<|page|>3<|box|>273 140 291 508<|content|>SECTION 1: AUTHORITY AND CAPACITY\n<|id|>37<|page|>4<|box|>148 140 166 759<|content|>SECTION 2: BRING-DOWN OF REPRESENTATIONS AND WARRA\n<|id|>41<|page|>5<|box|>148 140 166 372<|content|>SECTION 3: NO DEFAULT\n<|id|>49<|page|>5<|box|>737 140 753 653<|content|>SECTION 4: SATISFACTION OF CONDITIONS PRECEDENT\n<|id|>85<|page|>11<|box|>89 140 107 723<|content|>SECTION 5: ORGANIZATIONAL DOCUMENTS AND RESOLUTION\n<|id|>96<|page|>12<|box|>349 142 367 509<|content|>SECTION 6: INCUMBENCY CERTIFICATE\n<|id|>101<|page|>13<|box|>89 140 106 532<|content|>SECTION 7: ADDITIONAL CERTIFICATIONS\n<|id|>107<|page|>14<|box|>167 140 184 558<|content|>SECTION 8: RELIANCE AND GOVERNING LAW\n<|id|>112<|page|>14<|box|>627 400 643 596<|content|>[Signature Page Follows]\n<|id|>123<|page|>15<|box|>89 142 107 312<|content|>LIST OF EXHIBITS\n<|id|>125<|page|>15<|box|>142 140 176 854<|content|>Exhibit A — Organizational Documents and Resolutio\n<|id|>130<|page|>15<|box|>325 142 344 803<|content|>Exhibit B — Organizational Documents and Resolutio",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>2\n<|id|>5<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>49<|level|>2\n<|id|>85<|level|>2\n<|id|>96<|level|>2\n<|id|>101<|level|>2\n<|id|>107<|level|>2\n<|id|>112<|level|>-1\n<|id|>123<|level|>2\n<|id|>125<|level|>3\n<|id|>130<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        }
+    ]
+}

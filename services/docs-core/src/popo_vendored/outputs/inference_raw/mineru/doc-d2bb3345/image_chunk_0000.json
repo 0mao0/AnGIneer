@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 142 104 617<|content|>TEMPLATE — FOR USE IN ALL IDR RESPONSES, MATTER 10\n<|id|>1<|type|>title<|page|>1<|box|>112 346 128 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>32<|type|>title<|page|>4<|box|>167 326 210 669<|content|>ATTACHMENT A DOCUMENT PRODUCTION SCHEDULE\n<|id|>36<|type|>title<|page|>4<|box|>297 290 314 707<|content|>Calderwood & Harkness LLP Matter No. 1018-00009\n<|id|>38<|type|>table<|page|>4<|box|>402 143 898 852<|content|>None\n<|id|>39<|type|>table<|page|>5<|box|>89 143 547 852<|content|>None\n<|id|>43<|type|>title<|page|>5<|box|>779 421 796 575<|content|>ATTACHMENT B\n<|id|>44<|type|>title<|page|>5<|box|>805 423 821 575<|content|>PRIVILEGE LOG\n<|id|>45<|type|>title<|page|>5<|box|>832 423 849 573<|content|>IDR No. [IDR No.]\n<|id|>46<|type|>title<|page|>5<|box|>858 297 875 697<|content|>Penterra Pharmaceuticals Corp. (EIN: 22-3741856)\n<|id|>47<|type|>title<|page|>5<|box|>883 287 900 710<|content|>Tax Years Under Examination: 2017, 2018, 2019, 202\n<|id|>48<|type|>title<|page|>6<|box|>90 290 106 707<|content|>Calderwood & Harkness LLP Matter No. 1018-00009\n<|id|>50<|type|>table<|page|>6<|box|>251 143 904 852<|content|>None\n<|id|>51<|type|>table<|page|>7<|box|>88 143 138 852<|content|>None\n<|id|>53<|type|>title<|page|>7<|box|>271 142 287 387<|content|>Total Documents Withheld: [Number]\n<|id|>55<|type|>title<|page|>7<|box|>465 343 483 653<|content|>INTERNAL USAGE INSTRUCTIONS\n<|id|>56<|type|>title<|page|>7<|box|>492 236 508 759<|content|>CALDERWOOD & HARKNESS LLP — FOR TEAM USE ONLY\n<|id|>57<|type|>title<|page|>7<|box|>518 155 553 841<|content|>DO NOT TRANSMIT TO THE IRS OR TO THE CLIENT WITHOU\n<|id|>64<|type|>title<|page|>7<|box|>838 142 854 354<|content|>Completion Requirements.\n<|id|>68<|type|>title<|page|>8<|box|>344 142 359 429<|content|>Review and Approval Requirements\n<|id|>73<|type|>title<|page|>8<|box|>573 142 590 470<|content|>Filing and Record-Keeping Requirements",
+    "raw_response": "<|src_id|>38<|tgt_id|>32\n<|src_id|>39<|tgt_id|>32\n<|src_id|>50<|tgt_id|>43\n<|src_id|>51<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 43
+        }
+    ]
+}

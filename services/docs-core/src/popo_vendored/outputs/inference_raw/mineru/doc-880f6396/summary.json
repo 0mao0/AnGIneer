@@ -1,0 +1,139 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2m_d7484\\input\\pdfs\\doc-880f6396.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2m_d7484\\enriched\\doc-880f6396.json",
+    "contd_output": "<|src_id|>86<|tgt_id|>87",
+    "title_output": "<|id|>5<|level|>1\n<|id|>7<|level|>2\n<|id|>28<|level|>2\n<|id|>38<|level|>3\n<|id|>43<|level|>3\n<|id|>44<|level|>4\n<|id|>48<|level|>4\n<|id|>50<|level|>4\n<|id|>55<|level|>4\n<|id|>62<|level|>3\n<|id|>75<|level|>3\n<|id|>78<|level|>3\n<|id|>83<|level|>3\n<|id|>89<|level|>3\n<|id|>92<|level|>3\n<|id|>95<|level|>3\n<|id|>104<|level|>2\n<|id|>109<|level|>3",
+    "image_output": "<|src_id|>106<|tgt_id|>104\n<|src_id|>107<|tgt_id|>104\n<|src_id|>108<|tgt_id|>104",
+    "contd_label": [
+        {
+            "src_id": 86,
+            "tgt_id": 87
+        }
+    ],
+    "title_label": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 50,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 106,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 104
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 106,
+            "table2_idx": 107,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "Tone",
+                    "Replace the absolute language in the original draft (\"Stonefield does not believe any liability will result from this litigation\") with the more measured and standard characterization: \"Management believes that the claims lack merit and intends to vigorously defend.\" This formulation conveys appropriate confidence while"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "avoiding the risks associated with an absolute statement regarding litigation outcomes."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 107,
+            "table2_idx": 108,
+            "upper_row_ss": [
+                [
+                    "6",
+                    "Insurance Coverage",
+                    "Reference the Borrower's evaluation of insurance coverage generically. Do not detail the expected coverage declination at this stage — report factually once actual carrier determinations are received. The D&O policy (Graymark Insurance Company, Policy No. GLG-DO-1025-00008) and CGL policy (Brindoval Mutual Insurance Co., Policy No. CGL-SLG-2022-11902) are both unlikely to cover"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "this commercial contract dispute, but formal tender and determination should precede any disclosure to the lender."
+                ]
+            ]
+        }
+    ]
+}

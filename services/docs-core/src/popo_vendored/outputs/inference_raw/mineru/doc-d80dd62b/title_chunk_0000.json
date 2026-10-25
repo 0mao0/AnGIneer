@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 343 117 653<|content|>CERTIFICATE OF MERGER\n<|id|>7<|page|>1<|box|>316 160 353 836<|content|>[DRAFT — FOR FILING WITH THE SECRETARY OF STATE OF\n<|id|>8<|page|>1<|box|>363 343 381 653<|content|>CERTIFICATE OF MERGER\n<|id|>13<|page|>1<|box|>773 142 791 202<|content|>FIRST\n<|id|>19<|page|>2<|box|>185 140 203 225<|content|>SECOND\n<|id|>23<|page|>2<|box|>835 140 853 209<|content|>THIRD\n<|id|>31<|page|>3<|box|>270 140 289 228<|content|>FOURTH\n<|id|>33<|page|>3<|box|>465 140 483 205<|content|>FIFTH\n<|id|>37<|page|>3<|box|>694 140 712 207<|content|>SIXTH\n<|id|>40<|page|>4<|box|>88 140 107 236<|content|>SEVENTH\n<|id|>49<|page|>5<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>50<|page|>5<|box|>136 377 152 620<|content|>AMENDED AND RESTATED\n<|id|>51<|page|>5<|box|>176 338 194 660<|content|>CERTIFICATE OF INCORPORATION\n<|id|>52<|page|>5<|box|>219 483 234 514<|content|>OF\n<|id|>53<|page|>5<|box|>258 336 276 661<|content|>LUMINEX SYSTEMS HOLDINGS INC.\n<|id|>54<|page|>5<|box|>285 269 303 727<|content|>(As Adopted Effective as of the Effective Time of",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>-1\n<|id|>8<|level|>1\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>23<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>2\n<|id|>49<|level|>1\n<|id|>50<|level|>2\n<|id|>51<|level|>2\n<|id|>52<|level|>2\n<|id|>53<|level|>2\n<|id|>54<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        }
+    ]
+}

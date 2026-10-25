@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        55,
+        57
+    ],
+    "pages": [
+        55,
+        56,
+        57
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>493<|page|>55<|box|>844 181 898 856<|content|>The draft EPA's MAE definition contains customary ...ssion or Oregon SB 1567. ... We recommend that the\n<|id|>494<|page|>56<|box|>90 209 199 854<|content|>Purchasers consider whether to (a) include a speci...nued validity and absence of material modification\n<|id|>498<|page|>56<|box|>862 181 898 854<|content|>• The proposed Transaction structure — a 100% equi...ing entity — should not constitute an \"assignment\"\n<|id|>499<|page|>57<|box|>90 210 162 854<|content|>under contracts with narrow assignment definitions. ... \"",
+    "raw_response": "<|src_id|>493<|tgt_id|>494\n<|src_id|>498<|tgt_id|>499",
+    "parsed": [
+        {
+            "src_id": 493,
+            "tgt_id": 494
+        },
+        {
+            "src_id": 498,
+            "tgt_id": 499
+        }
+    ]
+}

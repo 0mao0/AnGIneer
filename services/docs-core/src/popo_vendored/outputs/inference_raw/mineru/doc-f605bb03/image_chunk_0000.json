@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        18,
+        19,
+        20,
+        21,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>128 370 148 627<|content|>VOTING AGREEMENT\n<|id|>4<|type|>title<|page|>1<|box|>217 397 234 601<|content|>VOTING AGREEMENT\n<|id|>10<|type|>title<|page|>1<|box|>443 140 460 243<|content|>RECITALS\n<|id|>19<|type|>title<|page|>2<|box|>335 142 352 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>53<|type|>title<|page|>4<|box|>662 140 680 673<|content|>ARTICLE 2 — BOARD COMPOSITION; VOTING PROVISIONS\n<|id|>77<|type|>title<|page|>7<|box|>643 140 662 539<|content|>ARTICLE 3 — VOTING ON OTHER MATTERS\n<|id|>91<|type|>title<|page|>9<|box|>167 140 184 750<|content|>ARTICLE 4 — TRANSFER RESTRICTIONS ON VOTING OBLIGA\n<|id|>95<|type|>title<|page|>9<|box|>762 140 779 397<|content|>ARTICLE 5 — DRAG-ALONG\n<|id|>108<|type|>title<|page|>11<|box|>578 140 595 779<|content|>5.3 Exceptions. Notwithstanding anything to the co\n<|id|>112<|type|>title<|page|>12<|box|>167 140 184 555<|content|>ARTICLE 6 — COVENANTS OF THE COMPANY\n<|id|>118<|type|>title<|page|>13<|box|>229 140 247 620<|content|>ARTICLE 7 — REPRESENTATIONS AND WARRANTIES\n<|id|>124<|type|>title<|page|>14<|box|>90 142 106 506<|content|>ARTICLE 8 — TERM AND TERMINATION\n<|id|>131<|type|>title<|page|>14<|box|>597 142 614 429<|content|>ARTICLE 9 — MISCELLANEOUS\n<|id|>144<|type|>title<|page|>16<|box|>244 176 261 331<|content|>If to the Company:\n<|id|>174<|type|>title<|page|>18<|box|>614 400 632 596<|content|>[Signature Pages Follow]\n<|id|>176<|type|>title<|page|>18<|box|>684 444 700 550<|content|>COMPANY:\n<|id|>211<|type|>title<|page|>19<|box|>468 426 486 571<|content|>KEY HOLDERS:\n<|id|>218<|type|>title<|page|>20<|box|>89 447 107 552<|content|>EXHIBIT A\n<|id|>219<|type|>title<|page|>21<|box|>90 377 106 620<|content|>SCHEDULE OF INVESTORS\n<|id|>220<|type|>table<|page|>21<|box|>160 143 773 852<|content|>None\n<|id|>222<|type|>title<|page|>23<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>223<|type|>title<|page|>24<|box|>90 362 106 633<|content|>SCHEDULE OF KEY HOLDERS\n<|id|>224<|type|>table<|page|>24<|box|>159 143 656 852<|content|>None\n<|id|>226<|type|>title<|page|>25<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>227<|type|>title<|page|>25<|box|>131 348 148 648<|content|>FORM OF JOINDER AGREEMENT\n<|id|>229<|type|>title<|page|>25<|box|>292 140 309 243<|content|>RECITALS",
+    "raw_response": "<|src_id|>220<|tgt_id|>219\n<|src_id|>224<|tgt_id|>223",
+    "parsed": [
+        {
+            "src_id": 220,
+            "tgt_id": 219
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 223
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>15<|page|>1<|box|>854 97 923 889<|content|>有性生殖的演化由若干个相互竞争的科学假说所描述。 ... 然而，由于性的起源的学说难以通过实验检测，目前的主要工作集中于有性生\n<|id|>16<|page|>2<|box|>73 100 89 215<|content|>殖的维持方面。 ... 殖的维持方面",
+    "raw_response": "<|src_id|>15<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        }
+    ]
+}

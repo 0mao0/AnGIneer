@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 125 854<|content|>PENTERRA PHARMACEUTICALS CORP. 400 Meridian Parkwa\n<|id|>10<|type|>title<|page|>1<|box|>803 142 820 385<|content|>1. Background on the Offering\n<|id|>16<|type|>title<|page|>2<|box|>429 142 446 517<|content|>2. Share Allocation Among Selling Stockholders\n<|id|>18<|type|>table<|page|>2<|box|>497 143 609 852<|content|>None\n<|id|>20<|type|>table<|page|>2<|box|>723 143 835 852<|content|>None\n<|id|>22<|type|>title<|page|>3<|box|>148 140 167 614<|content|>3. Direction to Facilitate Book-Entry Delivery Thr\n<|id|>30<|type|>title<|page|>4<|box|>204 140 222 415<|content|>4. Confirmation of DTC Eligibility\n<|id|>37<|type|>title<|page|>4<|box|>731 140 748 405<|content|>5. Over-Allotment Option Shares\n<|id|>41<|type|>title<|page|>5<|box|>250 140 266 470<|content|>6. Representations and Acknowledgments\n<|id|>48<|type|>title<|page|>6<|box|>204 140 222 462<|content|>7. Contact Information for Coordination\n<|id|>57<|type|>title<|page|>6<|box|>590 140 609 436<|content|>8. Authorization and Indemnification\n<|id|>63<|type|>title<|page|>7<|box|>148 140 166 287<|content|>9. Governing Law\n<|id|>67<|type|>title<|page|>7<|box|>325 142 342 496<|content|>PENTERRA PHARMACEUTICALS CORP.\n<|id|>73<|type|>title<|page|>7<|box|>544 142 559 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>18<|tgt_id|>16\n<|src_id|>20<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 16
+        }
+    ]
+}

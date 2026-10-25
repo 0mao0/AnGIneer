@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        10,
+        11,
+        12,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>142 142 159 782<|content|>Exhibit E to the Master Services Agreement dated June 9, 2023 (the \"Agreement\")\n<|id|>1<|page|>1<|box|>194 176 210 663<|content|>Northgate Americas, Inc. ... , a Delaware corporation (\"Customer\")\n<|id|>2<|page|>1<|box|>220 176 236 212<|content|>and\n<|id|>3<|page|>1<|box|>244 176 263 805<|content|>Cedarpoint Systems Integration, Inc. ... , a Delaware corporation (\"Service Provider\")\n<|id|>4<|page|>1<|box|>271 140 363 854<|content|>This Exhibit E is attached to and incorporated by ...ave the meanings ascribed to them in the Agreement\n<|id|>9<|page|>1<|box|>837 140 910 857<|content|>1. ... (b) the Canadian Personal Information\n<|id|>10<|page|>2<|box|>90 140 237 856<|content|>Protection and Electronic Documents Act (PIPEDA) a...ng to the security, privacy, or protection of data\n<|id|>26<|page|>3<|box|>862 140 898 854<|content|>3. ... All Customer Data transmitted over the mana...ises and Service Provider Systems, and between the\n<|id|>27<|page|>4<|box|>89 140 219 856<|content|>Reston NOC and Winnipeg NOC shall be encrypted usi... Publication 800-52 (as revised from time to time)\n<|id|>55<|page|>7<|box|>273 174 311 854<|content|>(e) A description of the measures taken or propose...e containment actions already implemented; ... and\n<|id|>68<|page|>8<|box|>571 140 700 857<|content|>Such indemnification obligations are uncapped purs...pplicable to data breaches and willful misconduct)\n<|id|>66<|page|>8<|box|>518 174 537 756<|content|>(e) Litigation costs and settlement amounts arising from third-party claims; ... and\n<|id|>92<|page|>10<|box|>571 174 607 854<|content|>(c) Customer's principal office, located at 1700 M...00, Philadelphia, PA 19103, United States; ... and\n<|id|>94<|page|>10<|box|>679 140 714 854<|content|>Service Provider shall not process, store, or acce...ted above without Customer's prior written consent\n<|id|>101<|page|>11<|box|>656 174 710 857<|content|>(a) Return all Customer Data to Customer in a mutually agreed machine-readable format (e. ... or\n<|id|>103<|page|>11<|box|>799 140 854 854<|content|>If Customer does not make an election within thirt... Data in accordance with Section 9. ... 2(b) above\n<|id|>111<|page|>12<|box|>726 174 780 854<|content|>(c) Any applicable telecommunications regulations ...of Customer Data over the managed network; ... and\n<|id|>113<|page|>12<|box|>833 140 904 854<|content|>Service Provider shall maintain sufficient knowled...ng compliance with Applicable Data Protection Laws\n<|id|>138<|page|>16<|box|>664 174 699 854<|content|>VP of Network Operations: ... 1700 Market Street, Suite 2400 Philadelphia, PA 19103 United States\n<|id|>139<|page|>16<|box|>707 174 744 854<|content|>Chief Technology Officer: ... Alistair Pemberton N... Threadneedle Court London EC2R 8AH United Kingdom\n<|id|>140<|page|>16<|box|>752 140 787 854<|content|>Customer may update the above contact information ...rdance with the notice provisions of the Agreement\n<|id|>142<|page|>16<|box|>859 174 893 854<|content|>General Counsel: ... 11400 Commerce Park Drive, Suite 600 Reston, VA 20191 United States\n<|id|>143<|page|>17<|box|>90 140 127 854<|content|>Service Provider may update the above contact info...rdance with the notice provisions of the Agreement",
+    "raw_response": "<|src_id|>9<|tgt_id|>10\n<|src_id|>26<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        }
+    ]
+}

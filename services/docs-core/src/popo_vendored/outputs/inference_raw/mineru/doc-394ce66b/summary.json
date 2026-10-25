@@ -1,0 +1,131 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-q4vwxed7\\input\\pdfs\\doc-394ce66b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-q4vwxed7\\enriched\\doc-394ce66b.json",
+    "contd_output": "<|src_id|>59<|tgt_id|>60",
+    "title_output": "<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>19<|level|>1\n<|id|>27<|level|>1\n<|id|>32<|level|>2\n<|id|>39<|level|>1\n<|id|>41<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>56<|level|>1\n<|id|>64<|level|>1\n<|id|>68<|level|>1\n<|id|>71<|level|>1\n<|id|>78<|level|>1\n<|id|>85<|level|>1\n<|id|>104<|level|>1",
+    "image_output": "<|src_id|>16<|tgt_id|>12\n<|src_id|>22<|tgt_id|>19\n<|src_id|>30<|tgt_id|>27\n<|src_id|>33<|tgt_id|>32\n<|src_id|>34<|tgt_id|>27\n<|src_id|>36<|tgt_id|>27\n<|src_id|>65<|tgt_id|>64",
+    "contd_label": [
+        {
+            "src_id": 59,
+            "tgt_id": 60
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 16,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 64
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 33,
+            "table2_idx": 34,
+            "upper_row_ss": [
+                [
+                    "Total",
+                    "100.0%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

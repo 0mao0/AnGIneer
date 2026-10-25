@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|type|>title<|page|>1<|box|>114 294 133 704<|content|>700 Louisiana Street, Suite 4500 Houston, Texas 77\n<|id|>9<|type|>title<|page|>1<|box|>393 142 410 341<|content|>1. Purpose of This Letter\n<|id|>12<|type|>title<|page|>1<|box|>705 140 723 406<|content|>2. Summary of Matter Resolution\n<|id|>13<|type|>title<|page|>1<|box|>737 142 753 349<|content|>2.1 Settlement Agreement\n<|id|>21<|type|>title<|page|>2<|box|>470 142 487 393<|content|>2.2 Receipt of Settlement Funds\n<|id|>23<|type|>title<|page|>2<|box|>616 140 633 333<|content|>2.3 Context of Recovery\n<|id|>26<|type|>table<|page|>2<|box|>763 143 902 852<|content|>None\n<|id|>27<|type|>table<|page|>3<|box|>88 143 119 852<|content|>None\n<|id|>31<|type|>title<|page|>3<|box|>502 140 518 397<|content|>3. Procedural History Summary\n<|id|>48<|type|>title<|page|>5<|box|>273 140 292 393<|content|>4. Final Fee and Cost Summary\n<|id|>49<|type|>title<|page|>5<|box|>305 140 323 259<|content|>4.1 Legal Fees\n<|id|>51<|type|>table<|page|>5<|box|>415 143 508 852<|content|>None\n<|id|>54<|type|>title<|page|>5<|box|>747 142 763 300<|content|>4.2 Costs Advanced\n<|id|>55<|type|>table<|page|>5<|box|>794 143 896 852<|content|>None\n<|id|>56<|type|>table<|page|>6<|box|>88 143 127 852<|content|>None\n<|id|>57<|type|>title<|page|>6<|box|>166 140 184 457<|content|>4.3 Total Legal Spend and Net Recovery\n<|id|>63<|type|>title<|page|>6<|box|>407 140 424 473<|content|>5. Document Retention Recommendations\n<|id|>79<|type|>title<|page|>7<|box|>455 140 472 550<|content|>6. Prospective Risk-Management Recommendations\n<|id|>81<|type|>title<|page|>7<|box|>566 140 584 648<|content|>6.1 NFPA 25 Compliance — Annual Full-Flow Sprinkle\n<|id|>83<|type|>title<|page|>7<|box|>689 140 707 370<|content|>We recommend the following:\n<|id|>88<|type|>title<|page|>8<|box|>275 140 292 387<|content|>6.2 Insurance Program Review\n<|id|>94<|type|>title<|page|>8<|box|>781 140 797 354<|content|>6.3 Warehouse Operations\n<|id|>97<|type|>title<|page|>9<|box|>268 140 285 522<|content|>6.4 Coordination with Irongate Capital Partners\n<|id|>99<|type|>title<|page|>9<|box|>424 140 441 287<|content|>7. Matter Closure\n<|id|>103<|type|>title<|page|>9<|box|>724 140 743 326<|content|>8. Contact Information\n<|id|>113<|type|>title<|page|>10<|box|>281 142 296 223<|content|>Enclosures:",
+    "raw_response": "<|src_id|>26<|tgt_id|>23\n<|src_id|>27<|tgt_id|>23\n<|src_id|>51<|tgt_id|>49\n<|src_id|>55<|tgt_id|>54\n<|src_id|>56<|tgt_id|>54",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['colspan=2, 总计', ''], ['colspan=3, 投标人:(盖章)法定代表人或授权代理人:(签字)']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=7, 分部分项工程量清单计价表单位工程名称:'], ['rowspan=2, 序号', 'rowspan=2, 项目编码', 'rowspan=2, 项目名称', 'rowspan=2, 计量单位', 'rowspan=2, 工程数量', 'colspan=2, 金额(元)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 434,
+    "table2_idx": 435
+}

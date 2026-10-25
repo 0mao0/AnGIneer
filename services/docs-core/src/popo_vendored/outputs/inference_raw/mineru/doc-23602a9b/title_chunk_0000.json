@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        56
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        10,
+        11,
+        13,
+        25,
+        26,
+        28,
+        31,
+        33,
+        38,
+        55,
+        56
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>348 345 403 637<|content|>公路工程概算定额\n<|id|>5<|page|>2<|box|>228 345 259 635<|content|>中华人民共和国行业推荐性标准\n<|id|>6<|page|>2<|box|>288 374 329 607<|content|>公路工程概算定额\n<|id|>13<|page|>3<|box|>290 231 348 762<|content|>中华人民共和国交通运输部公告\n<|id|>26<|page|>5<|box|>257 366 292 633<|content|>《公路工程概算定额》编委会\n<|id|>43<|page|>7<|box|>286 429 321 558<|content|>总说明\n<|id|>65<|page|>10<|box|>222 430 265 559<|content|>总目录\n<|id|>66<|page|>10<|box|>300 449 337 539<|content|>上册\n<|id|>69<|page|>11<|box|>339 455 372 544<|content|>下册\n<|id|>72<|page|>13<|box|>220 445 255 559<|content|>上册目录\n<|id|>85<|page|>25<|box|>292 399 327 600<|content|>第一章 路基工程\n<|id|>86<|page|>25<|box|>372 463 399 536<|content|>说明\n<|id|>94<|page|>26<|box|>186 384 217 603<|content|>第一节 路基土、石方工程\n<|id|>95<|page|>26<|box|>267 456 294 530<|content|>说明\n<|id|>96<|page|>26<|box|>313 167 339 311<|content|>1. 土石方体积的计算。\n<|id|>111<|page|>28<|box|>168 371 195 618<|content|>1-1-1 伐树、挖根、除草、清除表土\n<|id|>123<|page|>31<|box|>209 401 234 596<|content|>1-1-4 挖淤泥、湿土、流沙\n<|id|>130<|page|>33<|box|>217 410 242 559<|content|>1-1-6 夯实填土\n<|id|>142<|page|>38<|box|>174 401 199 589<|content|>1-1-9 装载机装土、石方\n<|id|>179<|page|>55<|box|>220 407 244 565<|content|>1-1-19 渗水路堤\n<|id|>181<|page|>56<|box|>178 419 201 592<|content|>1-1-20 机械碾压路基",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>1\n<|id|>6<|level|>1\n<|id|>13<|level|>1\n<|id|>26<|level|>1\n<|id|>43<|level|>1\n<|id|>65<|level|>1\n<|id|>66<|level|>2\n<|id|>69<|level|>2\n<|id|>72<|level|>1\n<|id|>85<|level|>1\n<|id|>86<|level|>2\n<|id|>94<|level|>2\n<|id|>95<|level|>3\n<|id|>96<|level|>4\n<|id|>111<|level|>5\n<|id|>123<|level|>5\n<|id|>130<|level|>5\n<|id|>142<|level|>5\n<|id|>179<|level|>5\n<|id|>181<|level|>5",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 4
+        },
+        {
+            "id": 111,
+            "level": 5
+        },
+        {
+            "id": 123,
+            "level": 5
+        },
+        {
+            "id": 130,
+            "level": 5
+        },
+        {
+            "id": 142,
+            "level": 5
+        },
+        {
+            "id": 179,
+            "level": 5
+        },
+        {
+            "id": 181,
+            "level": 5
+        }
+    ]
+}

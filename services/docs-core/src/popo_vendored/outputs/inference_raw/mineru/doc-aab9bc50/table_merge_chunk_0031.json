@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 31,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['无', 'A)航道受限标牌的几何类型为点;B)灯的几何类型为点;C)除航空障碍物灯或雾探测灯外,COLOUR、LITCHR为灯必备属性;D)当为航空障碍物灯或物探测灯时,CATLIT为灯必备属性;E)当为孤光时,SECTR1、SEC-TR2为灯必备属性;F)当不是定光灯时,SIGPER、SIGGRP为灯必备属性;G)当灯为定向的或光栅效应时,ORIENT(方位)为灯必备属性;', 'BOYWAR(警示标志浮标)(M)CATWAR(警示标志类) = [4(航道受限标牌)](O)CODADN(航标编码) = [航道受限标牌编码](M)COLOUR(颜色) = [1(白),2(黑),3(红)](M)BOYSHP(浮标形状) = [附录A中允许的属性值](C)COLPAT(彩色图案) = [3(斜条纹)](M)VIRANS(虚拟航标标识) = [1(否),2(是)](O)CATBYD(浮具类型) = [附录A中允许的属性值](O)OBJNAM(英文名称) = [航道受限标牌英文名称](O)NOBJNM(中文名称) = [航道受限标牌中文名称](O)INFORM(英文信息) = [航道受限标牌英文信息](O)NINFOM(中文信息) = [航道受限标牌中文信息](C)SORDAT(信息的年份或日期) = [YYYYMMDD]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=3, 航道受限标牌(浮标)'], ['图像', '编码说明', '对应物标属性编码']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 2894,
+    "table2_idx": 2895
+}

@@ -1,0 +1,147 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 367 106 629<|content|>SECRETARY'S CERTIFICATE\n<|id|>1<|page|>1<|box|>114 483 131 514<|content|>OF\n<|id|>2<|page|>1<|box|>141 349 157 647<|content|>WOLVERINE LAKE MINING LTD.\n<|id|>4<|page|>1<|box|>267 442 284 555<|content|>April 19, 2022\n<|id|>5<|page|>1<|box|>292 140 309 728<|content|>SECRETARY'S CERTIFICATE OF WOLVERINE LAKE MINING L\n<|id|>10<|page|>2<|box|>167 140 184 307<|content|>CERTIFICATIONS\n<|id|>12<|page|>2<|box|>261 140 279 433<|content|>2.1 Organization and Good Standing\n<|id|>17<|page|>2<|box|>838 140 854 318<|content|>2.3 Board Resolutions\n<|id|>27<|page|>4<|box|>565 140 582 629<|content|>2.4 No Shareholder Approval Required / Shareholder\n<|id|>29<|page|>4<|box|>801 140 819 359<|content|>2.5 Incumbency Certificate\n<|id|>34<|page|>5<|box|>455 140 473 305<|content|>2.6 No Amendments\n<|id|>37<|page|>5<|box|>738 142 753 272<|content|>2.7 No Conflicts\n<|id|>43<|page|>6<|box|>329 142 345 245<|content|>RELIANCE\n<|id|>53<|page|>7<|box|>133 349 151 645<|content|>WOLVERINE LAKE MINING LTD.\n<|id|>58<|page|>7<|box|>250 140 267 455<|content|>CONFIRMATION OF INCUMBENCY\n<|id|>65<|page|>7<|box|>460 447 478 549<|content|>EXHIBIT A\n<|id|>66<|page|>7<|box|>487 354 503 643<|content|>ARTICLES OF INCORPORATION\n<|id|>67<|page|>7<|box|>513 346 531 650<|content|>(Including All Articles of Amendment)\n<|id|>68<|page|>7<|box|>540 488 555 509<|content|>of\n<|id|>69<|page|>7<|box|>564 349 580 645<|content|>WOLVERINE LAKE MINING LTD.\n<|id|>84<|page|>8<|box|>373 447 390 549<|content|>EXHIBIT B\n<|id|>85<|page|>8<|box|>398 452 416 545<|content|>BY-LAWS\n<|id|>86<|page|>8<|box|>426 488 441 511<|content|>of\n<|id|>87<|page|>8<|box|>450 349 468 647<|content|>WOLVERINE LAKE MINING LTD.\n<|id|>104<|page|>9<|box|>193 447 210 550<|content|>EXHIBIT C\n<|id|>105<|page|>9<|box|>219 395 236 602<|content|>BOARD RESOLUTIONS\n<|id|>107<|page|>9<|box|>271 349 287 647<|content|>WOLVERINE LAKE MINING LTD.\n<|id|>108<|page|>9<|box|>297 318 315 679<|content|>(Including Sole Shareholder Written Consent)\n<|id|>115<|page|>9<|box|>753 176 770 573<|content|>NOW, THEREFORE, BE IT RESOLVED THAT:\n<|id|>124<|page|>10<|box|>477 449 494 549<|content|>EXHIBIT D\n<|id|>125<|page|>10<|box|>503 367 518 627<|content|>INCUMBENCY CERTIFICATE\n<|id|>126<|page|>10<|box|>530 488 545 509<|content|>of\n<|id|>127<|page|>10<|box|>555 351 571 645<|content|>WOLVERINE LAKE MINING LTD.\n<|id|>128<|page|>10<|box|>580 421 598 576<|content|>As of April 19, 2022",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>-1\n<|id|>5<|level|>1\n<|id|>10<|level|>2\n<|id|>12<|level|>3\n<|id|>17<|level|>3\n<|id|>27<|level|>3\n<|id|>29<|level|>3\n<|id|>34<|level|>3\n<|id|>37<|level|>3\n<|id|>43<|level|>2\n<|id|>53<|level|>-1\n<|id|>58<|level|>2\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>67<|level|>3\n<|id|>68<|level|>3\n<|id|>69<|level|>3\n<|id|>84<|level|>2\n<|id|>85<|level|>3\n<|id|>86<|level|>3\n<|id|>87<|level|>3\n<|id|>104<|level|>2\n<|id|>105<|level|>3\n<|id|>107<|level|>3\n<|id|>108<|level|>3\n<|id|>115<|level|>-1\n<|id|>124<|level|>2\n<|id|>125<|level|>3\n<|id|>126<|level|>3\n<|id|>127<|level|>3\n<|id|>128<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        }
+    ]
+}

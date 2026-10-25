@@ -1,0 +1,47 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>234 143 252 660<|content|>Via Email (brian.mulcahy@fidelisescrow.com) and Ov\n<|id|>8<|page|>1<|box|>441 143 457 287<|content|>Dear Mr. Mulcahy:\n<|id|>11<|page|>1<|box|>683 142 700 568<|content|>I. Background — The SPA and the Escrow Agreement\n<|id|>17<|page|>2<|box|>542 142 558 428<|content|>II. Notice of Termination of the SPA\n<|id|>23<|page|>3<|box|>252 142 268 594<|content|>III. Confirmation That No Escrow Deposits Will Be\n<|id|>30<|page|>3<|box|>690 142 707 475<|content|>IV. Termination of the Escrow Agreement\n<|id|>34<|page|>4<|box|>244 142 260 354<|content|>V. Administrative Matters\n<|id|>39<|page|>4<|box|>739 140 757 344<|content|>VI. Reservation of Rights\n<|id|>41<|page|>5<|box|>133 142 151 344<|content|>VII. Contact Information\n<|id|>51<|page|>5<|box|>459 142 476 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>5<|level|>-1\n<|id|>8<|level|>-1\n<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>23<|level|>1\n<|id|>30<|level|>1\n<|id|>34<|level|>1\n<|id|>39<|level|>1\n<|id|>41<|level|>1\n<|id|>51<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        }
+    ]
+}

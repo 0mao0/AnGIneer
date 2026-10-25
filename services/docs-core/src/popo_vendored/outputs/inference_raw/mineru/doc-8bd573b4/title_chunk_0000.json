@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law One Lib\n<|id|>8<|page|>1<|box|>404 140 421 364<|content|>I. Introduction and Purpose\n<|id|>12<|page|>2<|box|>90 140 107 736<|content|>II. Background on the Relevance of the Eastbourne\n<|id|>21<|page|>3<|box|>468 140 484 509<|content|>III. TSL's Specific Document Requests at Issue\n<|id|>30<|page|>4<|box|>311 140 329 480<|content|>IV. Deficiencies in Northwind's Production\n<|id|>32<|page|>4<|box|>386 140 404 826<|content|>A. Sub-Charter Agreement Produced Only in Partiall\n<|id|>38<|page|>5<|box|>375 140 391 805<|content|>B. Absence of Communications Between Northwind and\n<|id|>49<|page|>6<|box|>496 140 513 720<|content|>C. No Financial Records of the Sub-Charter Relatio\n<|id|>54<|page|>7<|box|>138 140 157 761<|content|>D. No Documents Reflecting Eastbourne's Claims or\n<|id|>59<|page|>7<|box|>619 140 636 584<|content|>E. No Settlement or Release Documents (Request No.\n<|id|>64<|page|>8<|box|>304 140 320 385<|content|>V. Governing Legal Standards\n<|id|>69<|page|>9<|box|>89 140 107 310<|content|>VI. Meet and Confer\n<|id|>76<|page|>9<|box|>542 140 559 529<|content|>VII. Reservation of Rights and Motion to Compel\n<|id|>85<|page|>10<|box|>300 140 316 251<|content|>VIII. Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>21<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>3\n<|id|>38<|level|>3\n<|id|>49<|level|>3\n<|id|>54<|level|>3\n<|id|>59<|level|>3\n<|id|>64<|level|>2\n<|id|>69<|level|>2\n<|id|>76<|level|>2\n<|id|>85<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        }
+    ]
+}

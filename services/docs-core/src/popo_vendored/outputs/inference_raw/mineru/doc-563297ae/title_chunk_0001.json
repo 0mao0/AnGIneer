@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        51
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>466<|page|>46<|box|>90 140 107 434<|content|>Section 10.2 — Effect of Termination\n<|id|>468<|page|>46<|box|>291 140 308 411<|content|>Section 10.3 — Fees and Expenses\n<|id|>470<|page|>46<|box|>464 142 482 439<|content|>ARTICLE XI — MISCELLANEOUS\n<|id|>471<|page|>46<|box|>496 140 513 325<|content|>Section 11.1 — Notices\n<|id|>473<|page|>46<|box|>656 142 671 236<|content|>If to Seller:\n<|id|>481<|page|>46<|box|>864 143 881 238<|content|>If to Buyer:\n<|id|>490<|page|>47<|box|>411 140 428 388<|content|>Section 11.2 — Governing Law\n<|id|>492<|page|>47<|box|>556 140 574 447<|content|>Section 11.3 — Jurisdiction and Venue\n<|id|>494<|page|>47<|box|>794 140 811 429<|content|>Section 11.4 — Waiver of Jury Trial\n<|id|>495<|page|>47<|box|>816 140 909 856<|content|>EACH PARTY HEREBY IRREVOCABLY AND UNCONDITIONALLY\n<|id|>497<|page|>48<|box|>286 140 303 408<|content|>Section 11.5 — Entire Agreement\n<|id|>499<|page|>48<|box|>450 140 467 431<|content|>Section 11.6 — Amendment; Waiver\n<|id|>501<|page|>48<|box|>614 140 631 359<|content|>Section 11.7 — Assignment\n<|id|>503<|page|>49<|box|>90 140 107 359<|content|>Section 11.8 — Severability\n<|id|>505<|page|>49<|box|>253 140 272 549<|content|>Section 11.9 — Counterparts; Electronic Signatures\n<|id|>507<|page|>49<|box|>455 140 472 475<|content|>Section 11.10 — Third-Party Beneficiaries\n<|id|>509<|page|>49<|box|>619 140 636 423<|content|>Section 11.11 — Dispute Resolution\n<|id|>515<|page|>50<|box|>667 140 684 442<|content|>Section 11.12 — Specific Performance\n<|id|>517<|page|>51<|box|>90 140 107 349<|content|>Section 11.13 — Expenses\n<|id|>519<|page|>51<|box|>212 361 229 635<|content|>[SIGNATURE PAGES FOLLOW]\n<|id|>521<|page|>51<|box|>282 142 297 225<|content|>SELLER:",
+    "raw_response": "<|id|>466<|level|>3\n<|id|>468<|level|>3\n<|id|>470<|level|>2\n<|id|>471<|level|>3\n<|id|>473<|level|>4\n<|id|>481<|level|>4\n<|id|>490<|level|>3\n<|id|>492<|level|>3\n<|id|>494<|level|>3\n<|id|>495<|level|>-1\n<|id|>497<|level|>3\n<|id|>499<|level|>3\n<|id|>501<|level|>3\n<|id|>503<|level|>3\n<|id|>505<|level|>3\n<|id|>507<|level|>3\n<|id|>509<|level|>3\n<|id|>515<|level|>3\n<|id|>517<|level|>3\n<|id|>519<|level|>2\n<|id|>521<|level|>3",
+    "parsed": [
+        {
+            "id": 466,
+            "level": 3
+        },
+        {
+            "id": 468,
+            "level": 3
+        },
+        {
+            "id": 470,
+            "level": 2
+        },
+        {
+            "id": 471,
+            "level": 3
+        },
+        {
+            "id": 473,
+            "level": 4
+        },
+        {
+            "id": 481,
+            "level": 4
+        },
+        {
+            "id": 490,
+            "level": 3
+        },
+        {
+            "id": 492,
+            "level": 3
+        },
+        {
+            "id": 494,
+            "level": 3
+        },
+        {
+            "id": 497,
+            "level": 3
+        },
+        {
+            "id": 499,
+            "level": 3
+        },
+        {
+            "id": 501,
+            "level": 3
+        },
+        {
+            "id": 503,
+            "level": 3
+        },
+        {
+            "id": 505,
+            "level": 3
+        },
+        {
+            "id": 507,
+            "level": 3
+        },
+        {
+            "id": 509,
+            "level": 3
+        },
+        {
+            "id": 515,
+            "level": 3
+        },
+        {
+            "id": 517,
+            "level": 3
+        },
+        {
+            "id": 519,
+            "level": 2
+        },
+        {
+            "id": 521,
+            "level": 3
+        }
+    ]
+}

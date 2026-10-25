@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['February', '-.1', '.1', '.3', '.3', '-']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Fiscal year or month', 'rowspan=2, Total trust accounts etc., est', 'colspan=3, Federal Old-Age and Survivors Insurance Trust Fund', 'colspan=3, National Service Life Insurance Fund', 'colspan=3, Unemployment Trust Fund', 'colspan=3, Railroad Retirement Account']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 52,
+    "table2_idx": 53
+}

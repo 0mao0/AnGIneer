@@ -1,0 +1,127 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-b_w0isp9\\input\\pdfs\\doc-ee500a7d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-b_w0isp9\\enriched\\doc-ee500a7d.json",
+    "contd_output": "<|src_id|>23<|tgt_id|>24\n<|src_id|>70<|tgt_id|>71\n<|src_id|>82<|tgt_id|>83",
+    "title_output": "<|id|>1<|level|>1\n<|id|>14<|level|>2\n<|id|>31<|level|>2\n<|id|>39<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>57<|level|>3\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>94<|level|>1\n<|id|>116<|level|>2\n<|id|>127<|level|>1\n<|id|>128<|level|>1",
+    "image_output": "<|src_id|>119<|tgt_id|>116\n<|src_id|>120<|tgt_id|>116\n<|src_id|>123<|tgt_id|>116",
+    "contd_label": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 119,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 116
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 119,
+            "table2_idx": 120,
+            "upper_row_ss": [
+                [
+                    "Options / Warrants /",
+                    "None",
+                    "N/A",
+                    "N/A"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Convertible Securities",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|type|>title<|page|>1<|box|>500 140 516 488<|content|>1. Engagement and Scope of Representation\n<|id|>15<|type|>table<|page|>2<|box|>89 143 179 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>335 143 353 303<|content|>1.1 Specific Services\n<|id|>39<|type|>title<|page|>4<|box|>382 143 398 339<|content|>1.2 Limitations on Scope\n<|id|>46<|type|>title<|page|>5<|box|>90 142 107 312<|content|>2. Engagement Team\n<|id|>47<|type|>table<|page|>5<|box|>138 143 263 852<|content|>None\n<|id|>52<|type|>title<|page|>5<|box|>656 140 672 323<|content|>3. Client Identification\n<|id|>56<|type|>title<|page|>6<|box|>204 140 222 290<|content|>4. Fees and Billing\n<|id|>57<|type|>title<|page|>6<|box|>234 140 253 279<|content|>4.1 Hourly Rates\n<|id|>60<|type|>table<|page|>6<|box|>388 143 484 852<|content|>None\n<|id|>63<|type|>title<|page|>6<|box|>666 140 683 277<|content|>4.2 Fee Estimate\n<|id|>72<|type|>title<|page|>7<|box|>500 140 516 400<|content|>4.3 Disbursements and Expenses\n<|id|>84<|type|>title<|page|>8<|box|>90 140 107 334<|content|>4.4 Billing and Payment\n<|id|>88<|type|>title<|page|>8<|box|>426 140 444 235<|content|>5. Retainer\n<|id|>90<|type|>title<|page|>8<|box|>621 140 638 321<|content|>6. Conflicts of Interest\n<|id|>94<|type|>title<|page|>9<|box|>148 140 167 284<|content|>7. Confidentiality\n<|id|>98<|type|>title<|page|>9<|box|>469 140 487 326<|content|>8. Document Retention\n<|id|>101<|type|>title<|page|>9<|box|>690 140 708 264<|content|>9. Termination\n<|id|>107<|type|>title<|page|>10<|box|>250 142 265 349<|content|>10. Limitation of Liability\n<|id|>111<|type|>title<|page|>10<|box|>587 140 604 480<|content|>11. Governing Law and Dispute Resolution\n<|id|>114<|type|>title<|page|>10<|box|>827 140 844 428<|content|>12. Entire Agreement; Amendments\n<|id|>117<|type|>title<|page|>11<|box|>267 142 284 264<|content|>13. Acceptance\n<|id|>122<|type|>title<|page|>11<|box|>542 140 558 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>132<|type|>title<|page|>11<|box|>733 142 748 379<|content|>AGREED AND ACCEPTED:",
+    "raw_response": "<|src_id|>15<|tgt_id|>10\n<|src_id|>47<|tgt_id|>46\n<|src_id|>60<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 57
+        }
+    ]
+}

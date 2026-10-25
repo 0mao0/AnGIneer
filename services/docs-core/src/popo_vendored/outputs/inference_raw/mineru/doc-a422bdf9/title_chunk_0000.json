@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 403 119 593<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 281 152 715<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>7<|page|>1<|box|>343 140 361 230<|content|>I. Purpose\n<|id|>13<|page|>2<|box|>229 140 248 405<|content|>II. Proposed Client Identification\n<|id|>27<|page|>2<|box|>797 140 814 488<|content|>III. Adverse and Interested Parties Checked\n<|id|>82<|page|>6<|box|>273 140 292 573<|content|>H. Gulf Atlantic National Bank (Joint-Venture Lend\n<|id|>102<|page|>7<|box|>444 140 460 550<|content|>I. Aurelian Hotels & Resorts Inc. (Hotel Franchiso\n<|id|>122<|page|>8<|box|>722 140 739 637<|content|>L. JAMS (Arbitration Forum) / Hon. Margaret Liu Ch\n<|id|>126<|page|>9<|box|>257 140 273 741<|content|>M. Raymond Alcazar / Alcazar Dispute Resolution LL\n<|id|>132<|page|>9<|box|>553 142 570 405<|content|>IV. Engagement Team Clearance\n<|id|>138<|page|>10<|box|>250 140 265 457<|content|>V. Related-Entity and Affiliate Searches\n<|id|>147<|page|>10<|box|>825 140 842 437<|content|>VI. Conclusion and Recommendation\n<|id|>157<|page|>11<|box|>683 140 700 266<|content|>VII. Approvals\n<|id|>161<|page|>13<|box|>90 140 107 514<|content|>VIII. Appendix — Conflicts Search Parameters\n<|id|>163<|page|>13<|box|>165 140 183 643<|content|>A. Names, Entities, EINs, and Aliases Entered into\n<|id|>168<|page|>15<|box|>90 140 106 446<|content|>C. Lateral-Hire Disclosure File Review\n<|id|>174<|page|>15<|box|>301 142 319 321<|content|>D. File Retention Note",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>27<|level|>2\n<|id|>82<|level|>3\n<|id|>102<|level|>3\n<|id|>122<|level|>3\n<|id|>126<|level|>3\n<|id|>132<|level|>2\n<|id|>138<|level|>2\n<|id|>147<|level|>2\n<|id|>157<|level|>2\n<|id|>161<|level|>2\n<|id|>163<|level|>3\n<|id|>168<|level|>3\n<|id|>174<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 3
+        }
+    ]
+}

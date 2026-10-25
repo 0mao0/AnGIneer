@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>127 189 172 805<|content|>OFFICER'S CERTIFICATE OF CRESTLINE PACKAGING SOLUT\n<|id|>2<|type|>title<|page|>1<|box|>188 143 224 854<|content|>Delivered Pursuant to Section 4.01 of the Mezzanin\n<|id|>4<|type|>title<|page|>1<|box|>260 140 276 233<|content|>Addressee:\n<|id|>13<|type|>title<|page|>1<|box|>503 140 522 243<|content|>RECITALS\n<|id|>18<|type|>title<|page|>2<|box|>248 140 265 602<|content|>SECTION 1: ORGANIZATION AND GOOD STANDING\n<|id|>34<|type|>title<|page|>3<|box|>486 140 503 545<|content|>SECTION 2: ORGANIZATIONAL DOCUMENTS\n<|id|>41<|type|>title<|page|>4<|box|>167 140 184 589<|content|>SECTION 3: AUTHORIZATION AND RESOLUTIONS\n<|id|>60<|type|>title<|page|>6<|box|>167 140 184 643<|content|>SECTION 4: INCUMBENCY AND SPECIMEN SIGNATURES\n<|id|>62<|type|>table<|page|>6<|box|>383 143 458 852<|content|>None\n<|id|>64<|type|>title<|page|>6<|box|>606 140 623 372<|content|>SECTION 5: NO DEFAULT\n<|id|>65<|type|>title<|page|>6<|box|>632 140 650 522<|content|>Each of the undersigned hereby certifies as follow\n<|id|>69<|type|>title<|page|>7<|box|>303 140 320 550<|content|>SECTION 6: NO MATERIAL ADVERSE EFFECT\n<|id|>73<|type|>title<|page|>7<|box|>678 140 695 602<|content|>SECTION 7: REPRESENTATIONS AND WARRANTIES\n<|id|>81<|type|>title<|page|>8<|box|>589 140 607 625<|content|>SECTION 8: CONDITIONS PRECEDENT SATISFACTION\n<|id|>89<|type|>title<|page|>9<|box|>489 140 508 573<|content|>SECTION 9: USE OF PROCEEDS CONFIRMATION\n<|id|>95<|type|>title<|page|>10<|box|>89 142 106 236<|content|>EXHIBITS\n<|id|>101<|type|>title<|page|>11<|box|>89 142 106 310<|content|>SIGNATURE PAGE\n<|id|>103<|type|>title<|page|>11<|box|>233 140 250 521<|content|>CRESTLINE PACKAGING SOLUTIONS LLC\n<|id|>113<|type|>title<|page|>11<|box|>426 142 444 392<|content|>COUNTER-CERTIFICATION",
+    "raw_response": "<|src_id|>62<|tgt_id|>60",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['A-2', 'Management Fee — Large LP discount', 'Additional reduction of five (5) basis points in the annual management fee', 'Available only to Eligible Limited Partners whose aggregate capital', 'A-2']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'during the Investment Period (cumulative with the Early Close discount, if applicable, yielding a management fee of 1.60% on committed capital during the Investment Period). The standard post-Investment Period management fee of 1.50% on invested capital (at cost) remains unchanged.', 'commitments to the Fund (or the Fund Vehicles) equal or exceed One Hundred Fifty Million Dollars ($150,000,000).', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 130,
+    "table2_idx": 131
+}

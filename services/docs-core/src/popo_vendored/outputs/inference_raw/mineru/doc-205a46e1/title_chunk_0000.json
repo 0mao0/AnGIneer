@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 320 125 676<|content|>IN THE 134TH JUDICIAL DISTRICT COURT OF DALLAS COU\n<|id|>2<|page|>1<|box|>366 169 401 826<|content|>AFFIDAVIT OF PRIYA ANAND IN SUPPORT OF PLAINTIFF'S\n<|id|>3<|page|>1<|box|>444 142 460 344<|content|>THE STATE OF TEXAS\n<|id|>4<|page|>1<|box|>470 142 487 334<|content|>COUNTY OF DALLAS\n<|id|>6<|page|>1<|box|>556 140 573 509<|content|>I. IDENTITY AND BASIS OF KNOWLEDGE\n<|id|>11<|page|>2<|box|>89 140 106 589<|content|>II. PROFESSIONAL QUALIFICATIONS OF AFFIANT\n<|id|>16<|page|>2<|box|>453 140 470 785<|content|>III. DESCRIPTION OF THE ENGAGEMENT AND NATURE OF T\n<|id|>29<|page|>3<|box|>449 140 465 787<|content|>IV. IDENTIFICATION OF THE ENGAGEMENT TEAM AND BILL\n<|id|>36<|page|>4<|box|>339 140 357 674<|content|>V. NATURE AND COMPLEXITY OF THE WORK PERFORMED\n<|id|>38<|page|>4<|box|>434 140 450 444<|content|>A. Pre-Suit Investigation and Demand\n<|id|>43<|page|>5<|box|>90 140 108 418<|content|>B. Pleading Preparation and Filing\n<|id|>46<|page|>5<|box|>402 140 419 310<|content|>C. Service of Process\n<|id|>51<|page|>5<|box|>808 142 825 290<|content|>D. Legal Research\n<|id|>54<|page|>6<|box|>305 140 323 501<|content|>E. Default and Default Judgment Proceedings\n<|id|>59<|page|>6<|box|>729 142 747 424<|content|>F. Damages Quantification Support\n<|id|>63<|page|>7<|box|>268 142 286 326<|content|>G. Note on Complexity\n<|id|>69<|page|>7<|box|>657 142 674 568<|content|>VI. HOURS EXPENDED AND FEE CALCULATION\n<|id|>79<|page|>9<|box|>89 140 106 820<|content|>VII. REASONABLENESS OF FEES UNDER THE ARTHUR ANDER\n<|id|>89<|page|>10<|box|>90 176 107 565<|content|>(5) The amount involved and the results obtained.\n<|id|>92<|page|>10<|box|>328 176 345 740<|content|>(7) The nature and length of the professional rela\n<|id|>96<|page|>10<|box|>715 140 733 485<|content|>VIII. CONDITIONAL APPELLATE FEES\n<|id|>98<|page|>11<|box|>89 142 107 697<|content|>IX. CONCLUSION AND STATEMENT OF FEE AMOUNT SOUGHT\n<|id|>104<|page|>11<|box|>550 143 566 447<|content|>FURTHER AFFIANT SAYETH NOT.\n<|id|>110<|page|>12<|box|>114 364 132 633<|content|>ATTORNEY IDENTIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>3\n<|id|>43<|level|>3\n<|id|>46<|level|>3\n<|id|>51<|level|>3\n<|id|>54<|level|>3\n<|id|>59<|level|>3\n<|id|>63<|level|>3\n<|id|>69<|level|>2\n<|id|>79<|level|>2\n<|id|>89<|level|>3\n<|id|>92<|level|>3\n<|id|>96<|level|>2\n<|id|>98<|level|>2\n<|id|>104<|level|>-1\n<|id|>110<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        }
+    ]
+}

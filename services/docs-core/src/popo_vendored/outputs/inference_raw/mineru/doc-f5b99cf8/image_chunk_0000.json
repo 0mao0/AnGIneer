@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>11<|type|>title<|page|>1<|box|>464 398 484 598<|content|>I. Purpose of Letter\n<|id|>17<|type|>title<|page|>2<|box|>308 287 328 710<|content|>II. Background — The FERC Proceedings\n<|id|>18<|type|>title<|page|>2<|box|>353 142 369 370<|content|>A. Nature of the Proceedings\n<|id|>21<|type|>title<|page|>2<|box|>684 140 700 403<|content|>B. The Ridgeline Pipeline System\n<|id|>25<|type|>title<|page|>3<|box|>212 140 229 380<|content|>C. Original Filing Parameters\n<|id|>31<|type|>title<|page|>3<|box|>602 140 619 370<|content|>D. Proposed Interconnection\n<|id|>34<|type|>title<|page|>4<|box|>90 380 111 616<|content|>III. Procedural History\n<|id|>35<|type|>title<|page|>4<|box|>136 140 154 531<|content|>A. Initial Proceedings (May 2022 – January 2023)\n<|id|>48<|type|>title<|page|>5<|box|>222 140 239 545<|content|>B. FERC Deficiency Letter and Stay of Proceedings\n<|id|>66<|type|>title<|page|>6<|box|>148 140 167 413<|content|>C. Extensions and Tariff Redesign\n<|id|>72<|type|>title<|page|>6<|box|>758 140 777 506<|content|>D. Current Status as of the Date of This Letter\n<|id|>76<|type|>title<|page|>7<|box|>234 290 255 707<|content|>IV. Summary of Tariff Redesign Progress\n<|id|>97<|type|>table<|page|>8<|box|>501 143 689 852<|content|>None\n<|id|>98<|type|>title<|page|>8<|box|>724 370 744 627<|content|>V. Settlement Discussions\n<|id|>106<|type|>title<|page|>9<|box|>575 310 595 687<|content|>VI. Regulatory Covenant Compliance\n<|id|>116<|type|>title<|page|>10<|box|>459 367 479 627<|content|>VII. Anticipated Timeline\n<|id|>117<|type|>table<|page|>10<|box|>539 143 744 852<|content|>None\n<|id|>120<|type|>title<|page|>11<|box|>136 263 155 735<|content|>VIII. Request for Acknowledgment; No Waiver\n<|id|>124<|type|>title<|page|>11<|box|>417 403 436 594<|content|>IX. Confidentiality",
+    "raw_response": "<|src_id|>97<|tgt_id|>76\n<|src_id|>117<|tgt_id|>116",
+    "parsed": [
+        {
+            "src_id": 97,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 116
+        }
+    ]
+}

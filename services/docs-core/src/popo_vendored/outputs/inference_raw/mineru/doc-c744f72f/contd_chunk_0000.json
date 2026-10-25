@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        11,
+        12,
+        14,
+        15,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 179 133 816<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNICATION\n<|id|>2<|page|>1<|box|>141 140 178 854<|content|>FROM: ... Cynthia Ho, Associate, and Angela Fontai...nue of the Americas, 40th Floor New York, NY 10019\n<|id|>3<|page|>1<|box|>186 140 222 854<|content|>TO: ... Kevin Driscoll, Vice President, Supply Cha...LLC 450 Park Avenue, 18th Floor New York, NY 10022\n<|id|>4<|page|>1<|box|>229 140 266 854<|content|>Martin Solberg, Principal, Operations Team Halcyon...99 Lexington Avenue, 34th Floor New York, NY 10022\n<|id|>5<|page|>1<|box|>273 140 292 354<|content|>DATE: ... September 22, 2022\n<|id|>6<|page|>1<|box|>300 140 354 856<|content|>RE: ... 04, Township of Cranbury, Middlesex County...onebridge Industrial Realty Trust, LP, as Landlord\n<|id|>7<|page|>1<|box|>362 140 378 362<|content|>MATTER NO. ... 1011-00007\n<|id|>8<|page|>1<|box|>387 140 434 854<|content|>This memorandum is a privileged and confidential a...r distribution to, or reliance by, any third party\n<|id|>18<|page|>2<|box|>869 140 906 854<|content|>MCB's tenant broker in the transaction is Daniel T...ey. ... The landlord's broker is Patricia Emerson,\n<|id|>19<|page|>3<|box|>89 140 145 854<|content|>Executive Vice President, Velthorn Realty Advisors... in the initial facility tour and LOI negotiations\n<|id|>115<|page|>11<|box|>869 140 905 854<|content|>The Letter of Intent (LOI-2022-CCC-B4) is, by its ...pal commercial and operational provisions. ... (1)\n<|id|>116<|page|>12<|box|>90 140 199 856<|content|>the confidentiality obligations, under which both ...okerage Group LLC and Velthorn Realty Advisors LLC\n<|id|>138<|page|>14<|box|>309 147 343 852<|content|>• Any potential migration of the PCE plume from Bl...groundwater flow from the basin expansion; ... and\n<|id|>140<|page|>14<|box|>364 140 439 854<|content|>C&H's first markup of the lease included robust en... site plan revision to ensure they remain adequate\n<|id|>155<|page|>15<|box|>281 147 297 738<|content|>• Environmental indemnity review in light of the detention basin expansion; ... and\n<|id|>157<|page|>15<|box|>339 140 449 854<|content|>C&H recommends that the second markup not be trans... would risk prejudicing MCB's negotiating position\n<|id|>195<|page|>19<|box|>190 140 205 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>196<|page|>19<|box|>208 142 224 250<|content|>By: ... By\n<|id|>197<|page|>19<|box|>224 142 242 331<|content|>Angela Fontaine, Partner\n<|id|>198<|page|>19<|box|>244 142 258 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>18<|tgt_id|>19\n<|src_id|>115<|tgt_id|>116",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 116
+        }
+    ]
+}

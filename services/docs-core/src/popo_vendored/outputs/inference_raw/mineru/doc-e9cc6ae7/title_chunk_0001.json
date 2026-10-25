@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        55
+    ],
+    "pages": [
+        50,
+        51,
+        52,
+        53,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>508<|page|>50<|box|>486 174 530 821<|content|>X. NOTES ON CLOSING CONDITIONS AND OUTSTANDING ITE\n<|id|>509<|page|>51<|box|>90 142 107 571<|content|>A. Documents Not Included in Signature Page Packag\n<|id|>511<|page|>51<|box|>179 178 196 328<|content|>1. Legal Opinions.\n<|id|>523<|page|>52<|box|>354 176 369 575<|content|>B. Outstanding Conditions Precedent Not Satisfied\n<|id|>535<|page|>53<|box|>266 295 285 700<|content|>XI. REACTIVATION INSTRUCTIONS\n<|id|>537<|page|>53<|box|>420 176 438 580<|content|>FILE NOTE — REACTIVATION PROCEDURES\n<|id|>551<|page|>55<|box|>339 308 358 687<|content|>XII. CERTIFICATION / FILE NOTE\n<|id|>552<|page|>55<|box|>376 366 393 665<|content|>CERTIFICATION AND FILE NOTE",
+    "raw_response": "<|id|>508<|level|>1\n<|id|>509<|level|>2\n<|id|>511<|level|>3\n<|id|>523<|level|>2\n<|id|>535<|level|>1\n<|id|>537<|level|>2\n<|id|>551<|level|>1\n<|id|>552<|level|>2",
+    "parsed": [
+        {
+            "id": 508,
+            "level": 1
+        },
+        {
+            "id": 509,
+            "level": 2
+        },
+        {
+            "id": 511,
+            "level": 3
+        },
+        {
+            "id": 523,
+            "level": 2
+        },
+        {
+            "id": 535,
+            "level": 1
+        },
+        {
+            "id": 537,
+            "level": 2
+        },
+        {
+            "id": 551,
+            "level": 1
+        },
+        {
+            "id": 552,
+            "level": 2
+        }
+    ]
+}

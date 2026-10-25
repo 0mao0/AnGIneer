@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        11,
+        12,
+        13,
+        14,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23,
+        26,
+        27
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>169 154 232 842<|content|>On discretely structured growth models and their m\n<|id|>5<|page|>1<|box|>507 448 522 548<|content|>Abstract\n<|id|>8<|page|>2<|box|>79 111 100 350<|content|>1 Introduction\n<|id|>13<|page|>3<|box|>500 109 522 446<|content|>2 Model formulation\n<|id|>14<|page|>3<|box|>537 109 558 542<|content|>2.1 The scalar logistic equation\n<|id|>21<|page|>4<|box|>396 109 415 485<|content|>2.2 Structured populations\n<|id|>45<|page|>7<|box|>142 109 166 478<|content|>3 Structured examples\n<|id|>47<|page|>7<|box|>291 109 310 530<|content|>3.1 State-independent kinetics\n<|id|>55<|page|>8<|box|>654 109 674 496<|content|>3.2 State-dependent models\n<|id|>73<|page|>11<|box|>79 109 126 831<|content|>4 Exact moment closure for polynomial state depend\n<|id|>81<|page|>11<|box|>765 109 786 421<|content|>4.1 The trivial closure\n<|id|>85<|page|>12<|box|>303 109 322 615<|content|>4.2 Essentially unstructured systems\n<|id|>98<|page|>13<|box|>683 109 702 528<|content|>4.3 General closure conditions\n<|id|>101<|page|>14<|box|>46 179 64 767<|content|>On discretely structured growth models and their m\n<|id|>145<|page|>17<|box|>708 109 732 425<|content|>5 Example closures\n<|id|>147<|page|>17<|box|>825 109 846 615<|content|>5.1 Essentially unstructured systems\n<|id|>154<|page|>18<|box|>794 109 813 432<|content|>5.2 Structured systems\n<|id|>156<|page|>19<|box|>82 109 102 571<|content|>5.2.1 Structured exponential growth\n<|id|>173<|page|>20<|box|>677 109 696 533<|content|>5.2.2 Nonlinear state dependence\n<|id|>189<|page|>21<|box|>795 109 842 719<|content|>6 Identifying mechanism in essentially unstructure\n<|id|>209<|page|>23<|box|>819 109 842 318<|content|>7 Discussion\n<|id|>217<|page|>26<|box|>144 109 166 801<|content|>Acknowledgements and competing interests\n<|id|>219<|page|>26<|box|>240 109 262 375<|content|>Data availability\n<|id|>221<|page|>26<|box|>336 109 358 708<|content|>Appendix A Flux in both directions\n<|id|>236<|page|>27<|box|>493 109 515 284<|content|>References",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>21<|level|>3\n<|id|>45<|level|>2\n<|id|>47<|level|>3\n<|id|>55<|level|>3\n<|id|>73<|level|>2\n<|id|>81<|level|>3\n<|id|>85<|level|>3\n<|id|>98<|level|>3\n<|id|>101<|level|>-1\n<|id|>145<|level|>2\n<|id|>147<|level|>3\n<|id|>154<|level|>3\n<|id|>156<|level|>4\n<|id|>173<|level|>4\n<|id|>189<|level|>2\n<|id|>209<|level|>2\n<|id|>217<|level|>2\n<|id|>219<|level|>2\n<|id|>221<|level|>2\n<|id|>236<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 4
+        },
+        {
+            "id": 173,
+            "level": 4
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 236,
+            "level": 2
+        }
+    ]
+}

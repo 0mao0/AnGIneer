@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 302 118 694<|content|>UNITED STATES DISTRICT COURT\n<|id|>1<|page|>1<|box|>137 276 156 720<|content|>NORTHERN DISTRICT OF CALIFORNIA\n<|id|>2<|page|>1<|box|>176 385 195 612<|content|>SAN JOSE DIVISION\n<|id|>3<|page|>1<|box|>213 361 229 635<|content|>SUMMONS IN A CIVIL ACTION\n<|id|>5<|page|>1<|box|>498 361 513 635<|content|>SUMMONS IN A CIVIL ACTION\n<|id|>23<|page|>2<|box|>635 302 654 694<|content|>UNITED STATES DISTRICT COURT\n<|id|>24<|page|>2<|box|>674 276 693 720<|content|>NORTHERN DISTRICT OF CALIFORNIA\n<|id|>25<|page|>2<|box|>713 385 732 612<|content|>SAN JOSE DIVISION\n<|id|>26<|page|>2<|box|>750 344 766 653<|content|>PROOF OF SERVICE OF SUMMONS\n<|id|>31<|page|>3<|box|>263 142 281 383<|content|>1. Entity or Individual Served:\n<|id|>33<|page|>3<|box|>334 142 351 459<|content|>2. Address Where Service Was Effected:\n<|id|>35<|page|>3<|box|>386 142 402 287<|content|>3. Date of Service:\n<|id|>37<|page|>3<|box|>438 142 454 313<|content|>4. Method of Service:\n<|id|>39<|page|>3<|box|>636 142 652 352<|content|>5. Additional Information:\n<|id|>44<|page|>3<|box|>875 374 891 622<|content|>DECLARATION OF SERVER\n<|id|>48<|page|>4<|box|>315 143 333 380<|content|>Telephone Number:\n<|id|>49<|page|>4<|box|>340 143 358 397<|content|>Fees and Mileage (if applicable):\n<|id|>51<|page|>4<|box|>502 143 518 290<|content|>Signature of Server",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>5<|level|>2\n<|id|>23<|level|>1\n<|id|>24<|level|>1\n<|id|>25<|level|>1\n<|id|>26<|level|>2\n<|id|>31<|level|>3\n<|id|>33<|level|>3\n<|id|>35<|level|>3\n<|id|>37<|level|>3\n<|id|>39<|level|>3\n<|id|>44<|level|>2\n<|id|>48<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        }
+    ]
+}

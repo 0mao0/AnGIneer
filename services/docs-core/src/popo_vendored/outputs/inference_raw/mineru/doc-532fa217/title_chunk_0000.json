@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 305 133 692<|content|>200 Park Avenue, 42nd Floor New York, NY 10166\n<|id|>9<|page|>1<|box|>395 253 412 743<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL\n<|id|>10<|page|>1<|box|>422 140 439 333<|content|>Dear Marcus and Sandra:\n<|id|>14<|page|>2<|box|>90 352 111 643<|content|>I. Summary of the Judgment\n<|id|>22<|page|>3<|box|>252 176 268 437<|content|>(d) Total Judgment: $58,900,000.\n<|id|>24<|page|>3<|box|>304 215 325 781<|content|>II. Overview of Post-Judgment Enforcement Proceedi\n<|id|>37<|page|>4<|box|>833 326 852 669<|content|>III. Detailed Recovery Accounting\n<|id|>39<|page|>5<|box|>90 142 107 663<|content|>A. Bridgemont Bank NA — Turnover of Meridian Prime\n<|id|>43<|page|>5<|box|>483 140 518 803<|content|>B. Marlowe Asset Management Trust Company of Delaw\n<|id|>48<|page|>6<|box|>90 140 107 781<|content|>C. Palmetto International Bank Ltd. / Stellaris Tr\n<|id|>53<|page|>6<|box|>619 140 636 663<|content|>D. Receiver Sale of Real Property — 425 East 58th\n<|id|>57<|page|>7<|box|>131 142 148 627<|content|>E. Receiver Sale of Real Property — 17 Wooster Str\n<|id|>61<|page|>7<|box|>378 142 395 812<|content|>F. Aldermere Private Capital Digital Asset Custody\n<|id|>66<|page|>7<|box|>743 142 758 403<|content|>G. Summary Table of Recoveries\n<|id|>69<|page|>8<|box|>277 142 294 486<|content|>H. Recovery Rate and Unrecovered Balance\n<|id|>76<|page|>8<|box|>532 300 551 697<|content|>IV. Assessment of Unrecovered Balance\n<|id|>85<|page|>9<|box|>734 287 753 709<|content|>V. Calderwood & Harkness Fee Summary\n<|id|>87<|page|>9<|box|>811 142 829 354<|content|>A. Hourly Fee Component\n<|id|>91<|page|>10<|box|>393 142 410 377<|content|>B. Contingency Enhancement\n<|id|>98<|page|>10<|box|>662 140 679 313<|content|>C. Total Fees Earned\n<|id|>103<|page|>10<|box|>808 142 824 333<|content|>D. Court-Awarded Fees\n<|id|>105<|page|>11<|box|>186 140 203 295<|content|>E. Costs Advanced\n<|id|>117<|page|>11<|box|>532 385 551 611<|content|>VI. Recommendations\n<|id|>119<|page|>11<|box|>628 140 647 488<|content|>A. Filing of Partial Satisfaction of Judgment\n<|id|>122<|page|>12<|box|>90 140 107 467<|content|>B. Closure of Active Enforcement Efforts\n<|id|>125<|page|>12<|box|>402 140 419 573<|content|>C. Coordination with Fund Administrator and Audito\n<|id|>128<|page|>12<|box|>696 142 714 339<|content|>D. Discharge of Receiver\n<|id|>130<|page|>13<|box|>90 387 111 609<|content|>VII. Closing Remarks\n<|id|>138<|page|>14<|box|>89 140 106 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>144<|page|>14<|box|>239 143 255 240<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>9<|level|>-1\n<|id|>10<|level|>-1\n<|id|>14<|level|>1\n<|id|>22<|level|>2\n<|id|>24<|level|>1\n<|id|>37<|level|>1\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>48<|level|>2\n<|id|>53<|level|>2\n<|id|>57<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>2\n<|id|>76<|level|>1\n<|id|>85<|level|>1\n<|id|>87<|level|>2\n<|id|>91<|level|>2\n<|id|>98<|level|>2\n<|id|>103<|level|>2\n<|id|>105<|level|>2\n<|id|>117<|level|>1\n<|id|>119<|level|>2\n<|id|>122<|level|>2\n<|id|>125<|level|>2\n<|id|>128<|level|>2\n<|id|>130<|level|>1\n<|id|>138<|level|>-1\n<|id|>144<|level|>1",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        }
+    ]
+}

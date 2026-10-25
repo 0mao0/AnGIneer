@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        47,
+        50
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>494<|page|>47<|box|>464 437 479 560<|content|>SCHEDULE C\n<|id|>495<|page|>47<|box|>489 382 506 614<|content|>LICENSED TRADEMARKS\n<|id|>499<|page|>47<|box|>883 437 900 560<|content|>SCHEDULE D\n<|id|>500<|page|>48<|box|>89 441 106 557<|content|>TERRITORY\n<|id|>515<|page|>48<|box|>420 437 436 560<|content|>SCHEDULE E\n<|id|>516<|page|>48<|box|>446 398 463 599<|content|>DEVELOPMENT PLAN\n<|id|>529<|page|>48<|box|>811 437 828 560<|content|>SCHEDULE F\n<|id|>530<|page|>48<|box|>837 357 854 640<|content|>MFN PRICING METHODOLOGY\n<|id|>538<|page|>49<|box|>678 452 695 545<|content|>EXHIBITS\n<|id|>539<|page|>49<|box|>705 328 723 668<|content|>(Identified by reference; forms to be attached)\n<|id|>553<|page|>50<|box|>722 377 738 620<|content|>— END OF AGREEMENT —",
+    "raw_response": "<|id|>494<|level|>1\n<|id|>495<|level|>2\n<|id|>499<|level|>1\n<|id|>500<|level|>2\n<|id|>515<|level|>1\n<|id|>516<|level|>2\n<|id|>529<|level|>1\n<|id|>530<|level|>2\n<|id|>538<|level|>1\n<|id|>539<|level|>2\n<|id|>553<|level|>1",
+    "parsed": [
+        {
+            "id": 494,
+            "level": 1
+        },
+        {
+            "id": 495,
+            "level": 2
+        },
+        {
+            "id": 499,
+            "level": 1
+        },
+        {
+            "id": 500,
+            "level": 2
+        },
+        {
+            "id": 515,
+            "level": 1
+        },
+        {
+            "id": 516,
+            "level": 2
+        },
+        {
+            "id": 529,
+            "level": 1
+        },
+        {
+            "id": 530,
+            "level": 2
+        },
+        {
+            "id": 538,
+            "level": 1
+        },
+        {
+            "id": 539,
+            "level": 2
+        },
+        {
+            "id": 553,
+            "level": 1
+        }
+    ]
+}

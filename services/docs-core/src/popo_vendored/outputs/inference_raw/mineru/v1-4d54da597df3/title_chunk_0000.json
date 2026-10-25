@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 265<|content|>【328825#0】加賀藩\n<|id|>2<|page|>1<|box|>175 107 190 292<|content|>【5093485#1】佐嘉神社\n<|id|>4<|page|>1<|box|>241 105 256 292<|content|>【1153651#1】前田重靖\n<|id|>6<|page|>1<|box|>325 105 340 294<|content|>【6939140#4】村井长家\n<|id|>8<|page|>1<|box|>374 105 390 292<|content|>【1153025#1】前田宗辰\n<|id|>10<|page|>1<|box|>439 107 456 267<|content|>【328834#1】兼六園\n<|id|>12<|page|>1<|box|>541 107 557 267<|content|>【328825#6】加賀藩\n<|id|>14<|page|>1<|box|>625 107 640 267<|content|>【73413#20】石川縣\n<|id|>16<|page|>1<|box|>846 107 863 285<|content|>【210832#1】前田綱紀\n<|id|>19<|page|>2<|box|>99 107 116 267<|content|>【328825#2】加賀藩",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>19<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        }
+    ]
+}

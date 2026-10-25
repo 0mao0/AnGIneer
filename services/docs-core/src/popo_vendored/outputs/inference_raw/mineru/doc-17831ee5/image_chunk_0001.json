@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        52
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        50,
+        51,
+        52
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>439<|type|>table<|page|>45<|box|>346 51 516 892<|content|>None\n<|id|>440<|type|>title<|page|>45<|box|>543 110 570 301<|content|>抗折强度试验\n<|id|>441<|type|>title<|page|>45<|box|>576 110 601 318<|content|>一 试验目的\n<|id|>443<|type|>title<|page|>45<|box|>674 110 699 318<|content|>二 试验仪具\n<|id|>446<|type|>image<|page|>46<|box|>95 278 248 610<|content|>None\n<|id|>447<|type|>image<|page|>46<|box|>342 269 425 596<|content|>None\n<|id|>454<|type|>title<|page|>46<|box|>692 110 719 289<|content|>三 试 件\n<|id|>456<|type|>title<|page|>46<|box|>792 110 819 318<|content|>四 试验步骤\n<|id|>460<|type|>title<|page|>47<|box|>107 110 134 380<|content|>五 试验结果计算\n<|id|>469<|type|>title<|page|>47<|box|>595 110 624 451<|content|>圆柱体劈裂抗拉强度试验\n<|id|>470<|type|>title<|page|>47<|box|>645 110 672 318<|content|>一 试验目的\n<|id|>472<|type|>title<|page|>47<|box|>744 110 771 318<|content|>二 试验仪具\n<|id|>476<|type|>image<|page|>48<|box|>64 142 371 775<|content|>None\n<|id|>477<|type|>title<|page|>48<|box|>429 110 456 318<|content|>三 试 件\n<|id|>479<|type|>title<|page|>48<|box|>626 110 653 318<|content|>四 试验步骤\n<|id|>483<|type|>title<|page|>48<|box|>858 110 883 377<|content|>五 试验结果计算\n<|id|>499<|type|>title<|page|>50<|box|>74 252 109 698<|content|>附录七 计量单位的换算\n<|id|>502<|type|>table<|page|>50<|box|>182 51 767 892<|content|>None\n<|id|>503<|type|>title<|page|>51<|box|>64 252 99 698<|content|>附录八 本规范用词说明\n<|id|>513<|type|>title<|page|>52<|box|>153 241 230 707<|content|>本规范主编单位 参加单位 和主要起草人名单",
+    "raw_response": "<|src_id|>446<|tgt_id|>443\n<|src_id|>447<|tgt_id|>443\n<|src_id|>476<|tgt_id|>472\n<|src_id|>502<|tgt_id|>499",
+    "parsed": [
+        {
+            "src_id": 446,
+            "tgt_id": 443
+        },
+        {
+            "src_id": 447,
+            "tgt_id": 443
+        },
+        {
+            "src_id": 476,
+            "tgt_id": 472
+        },
+        {
+            "src_id": 502,
+            "tgt_id": 499
+        }
+    ]
+}

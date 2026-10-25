@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 140 128 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>13<|type|>title<|page|>1<|box|>512 142 529 537<|content|>1. Purpose and Engagement Closure Confirmation\n<|id|>18<|type|>title<|page|>2<|box|>267 140 284 411<|content|>2. Summary of Services Rendered\n<|id|>20<|type|>title<|page|>2<|box|>378 140 396 571<|content|>2.1 Second Request Strategy and Compliance Plannin\n<|id|>24<|type|>title<|page|>2<|box|>814 140 832 563<|content|>2.2 Custodian Identification and Document Collecti\n<|id|>28<|type|>title<|page|>3<|box|>502 140 518 439<|content|>2.3 Document Review and Production\n<|id|>32<|type|>title<|page|>4<|box|>176 140 194 406<|content|>2.4 Privilege Review and Logging\n<|id|>41<|type|>title<|page|>4<|box|>809 140 825 462<|content|>2.5 Substantial Compliance Certification\n<|id|>43<|type|>title<|page|>5<|box|>157 140 175 372<|content|>2.6 Supplemental Production\n<|id|>46<|type|>title<|page|>5<|box|>366 140 383 457<|content|>2.7 Economic Submission and Advocacy\n<|id|>51<|type|>title<|page|>6<|box|>90 140 107 349<|content|>3. Fee and Cost Summary\n<|id|>53<|type|>title<|page|>6<|box|>184 140 200 493<|content|>3.1 Calderwood & Harkness LLP Legal Fees\n<|id|>54<|type|>table<|page|>6<|box|>250 143 893 851<|content|>None\n<|id|>55<|type|>table<|page|>7<|box|>88 143 551 851<|content|>None\n<|id|>56<|type|>title<|page|>7<|box|>585 142 603 624<|content|>Total Calderwood & Harkness LLP Legal Fees: $5,740\n<|id|>58<|type|>title<|page|>7<|box|>715 140 733 665<|content|>3.2 E-discovery Vendor Costs (Keymark Document Sol\n<|id|>61<|type|>title<|page|>7<|box|>864 176 880 326<|content|>Services Provided:\n<|id|>69<|type|>title<|page|>8<|box|>255 140 273 580<|content|>3.3 Total Solara-Side Second Request Compliance Co\n<|id|>71<|type|>table<|page|>8<|box|>321 143 397 852<|content|>None\n<|id|>74<|type|>title<|page|>8<|box|>616 140 633 284<|content|>3.4 Invoice Detail\n<|id|>79<|type|>title<|page|>9<|box|>167 140 184 377<|content|>4. Matter Outcome Summary\n<|id|>83<|type|>title<|page|>9<|box|>598 140 614 483<|content|>5. Document Retention and File Disposition\n<|id|>89<|type|>title<|page|>10<|box|>359 140 376 478<|content|>6. Acknowledgments and Closing Remarks\n<|id|>101<|type|>title<|page|>11<|box|>334 143 349 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>54<|tgt_id|>53\n<|src_id|>55<|tgt_id|>53\n<|src_id|>71<|tgt_id|>69",
+    "parsed": [
+        {
+            "src_id": 54,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 69
+        }
+    ]
+}

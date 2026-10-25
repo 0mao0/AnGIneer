@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>214 140 231 839<|content|>TO: ... Alan Ngo, Responsible Partner, intellectual Property Group, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>239 140 273 854<|content|>FROM: ... Omar Siddiqui, Lead Associate, intellectual Property Group, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>284 142 301 341<|content|>DATE: ... February 22, 2023\n<|id|>5<|page|>1<|box|>309 140 364 854<|content|>RE: ... )\n<|id|>6<|page|>1<|box|>371 140 388 361<|content|>MATTER NO. ... 1014-00003\n<|id|>7<|page|>1<|box|>397 140 414 408<|content|>Right-click to update Table of Contents\n<|id|>74<|page|>9<|box|>179 210 214 854<|content|>a common optical interface configured to couple th...exed optical channels to an optical fiber; ... and\n<|id|>75<|page|>9<|box|>223 210 258 854<|content|>electronic control circuitry operably connected to...al modulators and the plurality of photodetectors,\n<|id|>76<|page|>9<|box|>267 210 321 854<|content|>wherein the wavelength-division multiplexing eleme...rface are co- integrated on the single silicon die\n<|id|>95<|page|>11<|box|>810 174 902 856<|content|>Exception 1 — Unforeseeability. ... By that date, ...cs, including publications by researchers at Ghent\n<|id|>96<|page|>12<|box|>89 174 164 854<|content|>University, IMEC, and Tyndall National Institute d...s clearly foreseeable at the time of the amendment\n<|id|>104<|page|>12<|box|>789 138 898 857<|content|>As established above, Lumos's accused products do ... 800 GHz spacing) is required, though we note that\n<|id|>105<|page|>13<|box|>90 140 145 854<|content|>Lumos's products likely satisfy this additional li... 400ZR+ employs four channels with 800 GHz spacing\n<|id|>117<|page|>13<|box|>852 140 888 854<|content|>Claim 9 depends from Claim 1 and adds a limitation... using a specified coherent modulation format (DP-\n<|id|>118<|page|>14<|box|>90 140 127 854<|content|>QPSK or DP-16QAM). ... This limitation relates to ...n to its physical structure or fabrication process\n<|id|>144<|page|>16<|box|>854 140 909 856<|content|>Under Festo, when a patent claim is narrowed by am...l claim and the amended claim. ... The \"territory\"\n<|id|>145<|page|>17<|box|>89 140 126 854<|content|>surrendered here is substantial: ... it encompasse...nts on a silicon die, including but not limited to\n<|id|>201<|page|>23<|box|>381 210 417 854<|content|>a common optical interface configured to couple th...exed optical channels to an optical fiber; ... and\n<|id|>202<|page|>23<|box|>425 210 462 854<|content|>electronic control circuitry operably connected to...al modulators and the plurality of photodetectors,\n<|id|>203<|page|>23<|box|>469 210 523 854<|content|>wherein the wavelength-division multiplexing eleme...rface are co- integrated on the single silicon die",
+    "raw_response": "<|src_id|>95<|tgt_id|>96\n<|src_id|>104<|tgt_id|>105\n<|src_id|>117<|tgt_id|>118\n<|src_id|>144<|tgt_id|>145",
+    "parsed": [
+        {
+            "src_id": 95,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 118
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 145
+        }
+    ]
+}

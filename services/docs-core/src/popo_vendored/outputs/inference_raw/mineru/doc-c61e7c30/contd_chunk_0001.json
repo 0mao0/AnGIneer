@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        53,
+        75
+    ],
+    "pages": [
+        54,
+        57,
+        58,
+        60,
+        61,
+        64,
+        65,
+        74,
+        75
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>492<|page|>54<|box|>321 174 393 854<|content|>(ii) the transfer of such share to any person or e...anning vehicles controlled by the holder); ... and\n<|id|>494<|page|>54<|box|>446 140 483 852<|content|>Upon conversion of all outstanding shares of Class...ll have a single class of common stock outstanding\n<|id|>524<|page|>57<|box|>275 181 347 854<|content|>• offer, pledge, sell, contract to sell, sell any ...sable or exchangeable for our common stock; ... or\n<|id|>526<|page|>57<|box|>387 140 422 854<|content|>whether any such transaction is to be settled by d...elivery of our common stock, in cash, or otherwise\n<|id|>532<|page|>58<|box|>133 181 151 779<|content|>• 1% of the number of shares of our Class A Common Stock then outstanding; ... or\n<|id|>534<|page|>58<|box|>191 140 228 854<|content|>Sales under Rule 144 by affiliates are also subjec...vailability of current public information about us\n<|id|>556<|page|>60<|box|>738 181 791 854<|content|>• the non-U. ... or\n<|id|>558<|page|>61<|box|>89 140 164 854<|content|>If the gain is effectively connected with a U. ...... a rate of 30% (or a lower applicable treaty rate)\n<|id|>593<|page|>64<|box|>691 183 727 854<|content|>• enter into any swap, hedge, or other arrangement...of ownership of shares of our common stock; ... or\n<|id|>595<|page|>64<|box|>786 142 803 617<|content|>These restrictions are subject to customary carve-...ons are subject to customary carve-outs, including\n<|id|>599<|page|>65<|box|>109 181 145 854<|content|>• exercises of stock options or settlement of rest...emain subject to the lock-up restrictions; ... and\n<|id|>601<|page|>65<|box|>186 140 296 856<|content|>We have also agreed that, during the lock-up perio...ic transactions approved by our board of directors\n<|id|>675<|page|>74<|box|>107 140 125 341<|content|>Name: ... Priya Subramanian\n<|id|>676<|page|>74<|box|>125 142 141 366<|content|>Title: ... Chief Executive Officer\n<|id|>678<|page|>74<|box|>160 143 176 253<|content|>By: ... By\n<|id|>677<|page|>74<|box|>142 142 159 359<|content|>(Principal Executive Officer)\n<|id|>679<|page|>74<|box|>176 142 191 279<|content|>Name: ... David Lau\n<|id|>680<|page|>74<|box|>193 142 210 361<|content|>Title: ... Chief Financial Officer\n<|id|>682<|page|>74<|box|>228 142 244 354<|content|>POWER OF ATTORNEY\n<|id|>681<|page|>74<|box|>210 142 228 598<|content|>(Principal Financial Officer and Principal Accounting Officer)\n<|id|>683<|page|>74<|box|>253 140 491 854<|content|>KNOW ALL PERSONS BY THESE PRESENTS, that each pers...y lawfully do or cause to be done by virtue hereof\n<|id|>685<|page|>75<|box|>109 142 145 341<|content|>Catherine Mercer Director Date: ... [●], 2022\n<|id|>686<|page|>75<|box|>176 142 213 315<|content|>Jonathan Tsai Director Date: ... [●], 2022\n<|id|>687<|page|>75<|box|>244 140 280 316<|content|>Rebecca Stahl Director Date: ... [●], 2022",
+    "raw_response": "<|src_id|>556<|tgt_id|>558\n<|src_id|>595<|tgt_id|>599\n<|src_id|>678<|tgt_id|>677\n<|src_id|>681<|tgt_id|>682",
+    "parsed": [
+        {
+            "src_id": 556,
+            "tgt_id": 558
+        },
+        {
+            "src_id": 595,
+            "tgt_id": 599
+        },
+        {
+            "src_id": 678,
+            "tgt_id": 677
+        },
+        {
+            "src_id": 681,
+            "tgt_id": 682
+        }
+    ]
+}

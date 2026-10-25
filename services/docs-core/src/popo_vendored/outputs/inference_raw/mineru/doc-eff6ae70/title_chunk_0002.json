@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        100,
+        110
+    ],
+    "pages": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>446<|page|>100<|box|>109 328 128 669<|content|>SECTION IV.—Sterling Positions\n<|id|>447<|page|>100<|box|>136 215 155 782<|content|>TABLE FCP-IV-1.—Weekly Report of Major Market Part\n<|id|>449<|page|>101<|box|>90 303 111 694<|content|>SECTION IV.—Sterling Positions, con.\n<|id|>450<|page|>101<|box|>118 210 136 787<|content|>TABLE FCP-IV-2.—Monthly Report of Major Market Par\n<|id|>452<|page|>101<|box|>539 205 558 790<|content|>TABLE FCP-IV-3.—Quarterly Report of Large Market P\n<|id|>454<|page|>102<|box|>90 316 109 679<|content|>SECTION V.—U.S. Dollar Positions\n<|id|>455<|page|>102<|box|>118 218 136 777<|content|>TABLE FCP-V-1.—Weekly Report of Major Market Parti\n<|id|>457<|page|>103<|box|>90 290 109 705<|content|>SECTION V.—U.S. Dollar Positions, con.\n<|id|>458<|page|>103<|box|>118 215 136 782<|content|>TABLE FCP-V-2.—Monthly Report of Major Market Part\n<|id|>460<|page|>103<|box|>517 210 535 787<|content|>TABLE FCP-V-3.—Quarterly Report of Large Market Pa\n<|id|>462<|page|>104<|box|>90 341 109 653<|content|>SECTION VI.—Euro Positions\n<|id|>463<|page|>104<|box|>118 215 137 782<|content|>TABLE FCP-VI-1.—Weekly Report of Major Market Part\n<|id|>465<|page|>105<|box|>90 313 109 678<|content|>SECTION VI.—Euro Positions, con.\n<|id|>468<|page|>106<|box|>98 243 118 753<|content|>INTRODUCTION: Exchange Stabilization Fund\n<|id|>475<|page|>107<|box|>44 359 59 637<|content|>EXCHANGE STABILIZATION FUND\n<|id|>476<|page|>107<|box|>90 334 108 663<|content|>TABLE ESF-2.—Income and Expense\n<|id|>479<|page|>108<|box|>90 325 108 671<|content|>TABLE TF-15A.—Highway Trust Fund\n<|id|>484<|page|>109<|box|>98 370 119 625<|content|>Research Paper Series\n<|id|>485<|page|>109<|box|>138 143 159 854<|content|>Available through the Office of the Assistant Secr\n<|id|>503<|page|>110<|box|>97 446 119 552<|content|>Glossary\n<|id|>504<|page|>110<|box|>125 256 143 741<|content|>With References to Applicable Sections and Tables",
+    "raw_response": "<|id|>446<|level|>1\n<|id|>447<|level|>2\n<|id|>449<|level|>1\n<|id|>450<|level|>2\n<|id|>452<|level|>2\n<|id|>454<|level|>1\n<|id|>455<|level|>2\n<|id|>457<|level|>1\n<|id|>458<|level|>2\n<|id|>460<|level|>2\n<|id|>462<|level|>1\n<|id|>463<|level|>2\n<|id|>465<|level|>1\n<|id|>468<|level|>1\n<|id|>475<|level|>2\n<|id|>476<|level|>3\n<|id|>479<|level|>3\n<|id|>484<|level|>1\n<|id|>485<|level|>-1\n<|id|>503<|level|>1\n<|id|>504<|level|>2",
+    "parsed": [
+        {
+            "id": 446,
+            "level": 1
+        },
+        {
+            "id": 447,
+            "level": 2
+        },
+        {
+            "id": 449,
+            "level": 1
+        },
+        {
+            "id": 450,
+            "level": 2
+        },
+        {
+            "id": 452,
+            "level": 2
+        },
+        {
+            "id": 454,
+            "level": 1
+        },
+        {
+            "id": 455,
+            "level": 2
+        },
+        {
+            "id": 457,
+            "level": 1
+        },
+        {
+            "id": 458,
+            "level": 2
+        },
+        {
+            "id": 460,
+            "level": 2
+        },
+        {
+            "id": 462,
+            "level": 1
+        },
+        {
+            "id": 463,
+            "level": 2
+        },
+        {
+            "id": 465,
+            "level": 1
+        },
+        {
+            "id": 468,
+            "level": 1
+        },
+        {
+            "id": 475,
+            "level": 2
+        },
+        {
+            "id": 476,
+            "level": 3
+        },
+        {
+            "id": 479,
+            "level": 3
+        },
+        {
+            "id": 484,
+            "level": 1
+        },
+        {
+            "id": 503,
+            "level": 1
+        },
+        {
+            "id": 504,
+            "level": 2
+        }
+    ]
+}

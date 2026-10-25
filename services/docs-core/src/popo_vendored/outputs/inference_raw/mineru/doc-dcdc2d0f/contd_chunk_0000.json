@@ -1,0 +1,43 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        39
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        13,
+        18,
+        19,
+        29,
+        31,
+        35,
+        38,
+        39
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>255 140 310 854<|content|>FROM: ... Miriam Calloway, Partner, Calderwood & H...my Whitfield, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>318 142 335 310<|content|>DATE: ... June 15, 2023\n<|id|>5<|page|>1<|box|>344 140 362 781<|content|>RE: ... Anti-Kickback Statute Compliance Assessment — Arbor Health Technologies Inc\n<|id|>6<|page|>1<|box|>369 140 387 377<|content|>C&H Matter No. ... 1010-00003\n<|id|>7<|page|>1<|box|>395 140 412 408<|content|>Right-click to update Table of Contents\n<|id|>30<|page|>3<|box|>845 140 882 854<|content|>Ridgeline designates two members to the AHT Board ...s LLC, and Marcus Whitmore, Principal of Ridgeline\n<|id|>31<|page|>4<|box|>89 140 127 854<|content|>Capital Advisors LLC. ... Whitmore have been brief...mpliance risk profile discussed in this memorandum\n<|id|>39<|page|>4<|box|>814 140 907 857<|content|>In October 2022, AHT retained Grayson Whitaker & A...ts classified as \"high-risk\" and twenty-three (23)\n<|id|>40<|page|>5<|box|>90 140 126 854<|content|>arrangements classified as \"moderate-risk,\" for a ...requiring legal review under the AKS and Stark Law\n<|id|>59<|page|>6<|box|>479 147 513 854<|content|>• Equipment access arrangements, analyzed for compliance with the equipment rental safe harbor; ... and\n<|id|>61<|page|>6<|box|>555 140 609 854<|content|>We note for the record that AHT has no prior OIG e...nt and in any future voluntary disclosure analysis\n<|id|>131<|page|>13<|box|>493 140 529 854<|content|>$1,920,000 ÷ (38 physicians × 8. ... 28 per hour\n<|id|>132<|page|>13<|box|>537 140 574 854<|content|>This effective average hourly rate is significant ...director services across virtually all specialties\n<|id|>195<|page|>18<|box|>815 140 883 854<|content|>5. ... and\n<|id|>197<|page|>19<|box|>89 138 219 856<|content|>Element 5 Failure: ... This is precisely the type ...sation that the safe harbor is designed to exclude\n<|id|>304<|page|>29<|box|>561 147 595 854<|content|>• The agreement does not describe \"value-based act...red format anticipated by the regulations; ... and\n<|id|>306<|page|>29<|box|>637 140 710 854<|content|>These are primarily documentation issues rather th... and formality required for safe harbor protection\n<|id|>331<|page|>31<|box|>393 147 429 854<|content|>• The absence of FMV substantiation for either lea...that rental rates are consistent with FMV; ... and\n<|id|>333<|page|>31<|box|>506 140 616 854<|content|>Recommendation: ... The leases should have minimum...tion provisions regarding AKS and Stark compliance\n<|id|>378<|page|>35<|box|>375 147 392 635<|content|>• Evidence of remediation of known compliance deficiencies; ... and\n<|id|>380<|page|>35<|box|>414 140 488 854<|content|>The remediation program recommended in this memora...oved — compliance profile to prospective acquirers\n<|id|>429<|page|>38<|box|>840 140 877 856<|content|>2. ... All fourteen (14) Lakeview legacy employmen...ts should be amended or replaced using the revised\n<|id|>430<|page|>39<|box|>90 174 126 854<|content|>AHT physician employment agreement template with A...methodology, supported by Northbridge FMV opinions",
+    "raw_response": "<|src_id|>30<|tgt_id|>31\n<|src_id|>39<|tgt_id|>40\n<|src_id|>195<|tgt_id|>197\n<|src_id|>429<|tgt_id|>430",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 429,
+            "tgt_id": 430
+        }
+    ]
+}

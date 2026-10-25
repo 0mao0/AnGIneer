@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 143 123 852<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>1<|type|>table<|page|>1<|box|>157 143 301 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>369 285 386 710<|content|>STIPULATION OF DISMISSAL WITH PREJUDICE\n<|id|>5<|type|>title<|page|>1<|box|>662 142 679 241<|content|>RECITALS\n<|id|>11<|type|>title<|page|>2<|box|>364 140 383 274<|content|>STIPULATION\n<|id|>20<|type|>title<|page|>3<|box|>628 349 646 647<|content|>[Signature blocks Follow on Next Page]\n<|id|>21<|type|>title<|page|>3<|box|>654 142 672 328<|content|>Respectfully submitted,\n<|id|>36<|type|>table<|page|>4<|box|>284 143 429 852<|content|>None\n<|id|>37<|type|>title<|page|>4<|box|>497 315 513 681<|content|>ORDER OF DISMISSAL WITH PREJUDICE\n<|id|>47<|type|>title<|page|>5<|box|>508 374 527 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>36<|tgt_id|>37",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        }
+    ]
+}

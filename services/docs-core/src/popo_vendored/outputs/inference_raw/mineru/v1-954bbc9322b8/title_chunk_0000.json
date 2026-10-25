@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 258<|content|>【45353#7】宿迁市\n<|id|>2<|page|>1<|box|>174 105 190 452<|content|>【1768010#2】浙江各县市地区生产总值列表\n<|id|>4<|page|>1<|box|>292 107 309 267<|content|>【92620#23】江津区\n<|id|>6<|page|>1<|box|>410 107 426 275<|content|>【215890#12】于都县\n<|id|>8<|page|>1<|box|>529 107 545 265<|content|>【12160#44】厦门市\n<|id|>10<|page|>1<|box|>630 107 646 267<|content|>【10244#15】温州市\n<|id|>12<|page|>1<|box|>696 107 712 267<|content|>【92620#22】江津区\n<|id|>14<|page|>1<|box|>815 105 831 487<|content|>【7184951#3】越南共产党第十三次全国代表大会\n<|id|>16<|page|>2<|box|>83 107 99 248<|content|>【451#81】浙江省\n<|id|>18<|page|>2<|box|>184 105 200 381<|content|>【7537371#4】宁夏回族自治区经济",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

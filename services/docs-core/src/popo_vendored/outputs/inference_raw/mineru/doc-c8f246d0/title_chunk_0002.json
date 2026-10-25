@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        101,
+        130
+    ],
+    "pages": [
+        102,
+        109,
+        116,
+        117,
+        122,
+        125,
+        127,
+        130
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>277<|page|>102<|box|>84 403 97 615<|content|>Footnotes to Section II\n<|id|>299<|page|>102<|box|>434 400 446 619<|content|>Footnotes to Section III\n<|id|>323<|page|>109<|box|>58 260 88 683<|content|>Balance Sheet of the Exchange Stabilization Fund A\n<|id|>325<|page|>109<|box|>697 205 727 751<|content|>Schedules for Balance Sheet of the Exchange Stabil\n<|id|>345<|page|>116<|box|>51 219 67 805<|content|>Capital Movements Between the United States and Fo\n<|id|>355<|page|>116<|box|>385 382 401 661<|content|>Section I.- Historical Summary\n<|id|>356<|page|>116<|box|>409 382 424 661<|content|>Table 1.- Net Capital Movement\n<|id|>359<|page|>117<|box|>81 292 97 681<|content|>Section I - Historical Summary - (Continued)\n<|id|>360<|page|>117<|box|>108 169 137 802<|content|>Table 2.- Short-Term Claims on and Liabilities to\n<|id|>381<|page|>122<|box|>79 308 93 722<|content|>Section II.- Summary by Countries - (Continued)\n<|id|>392<|page|>125<|box|>77 272 93 681<|content|>Section II - Summary by Countries - (Continued)\n<|id|>399<|page|>127<|box|>77 257 92 676<|content|>Section III - Details for Month of September 1946\n<|id|>400<|page|>127<|box|>99 205 126 730<|content|>Table 1.- Short-Term Claims on Foreigners as Repor\n<|id|>411<|page|>130<|box|>59 124 73 859<|content|>Position in Foreign Currencies as Reported by Bank",
+    "raw_response": "<|id|>277<|level|>2\n<|id|>299<|level|>2\n<|id|>323<|level|>1\n<|id|>325<|level|>1\n<|id|>345<|level|>1\n<|id|>355<|level|>2\n<|id|>356<|level|>3\n<|id|>359<|level|>2\n<|id|>360<|level|>3\n<|id|>381<|level|>2\n<|id|>392<|level|>2\n<|id|>399<|level|>2\n<|id|>400<|level|>3\n<|id|>411<|level|>3",
+    "parsed": [
+        {
+            "id": 277,
+            "level": 2
+        },
+        {
+            "id": 299,
+            "level": 2
+        },
+        {
+            "id": 323,
+            "level": 1
+        },
+        {
+            "id": 325,
+            "level": 1
+        },
+        {
+            "id": 345,
+            "level": 1
+        },
+        {
+            "id": 355,
+            "level": 2
+        },
+        {
+            "id": 356,
+            "level": 3
+        },
+        {
+            "id": 359,
+            "level": 2
+        },
+        {
+            "id": 360,
+            "level": 3
+        },
+        {
+            "id": 381,
+            "level": 2
+        },
+        {
+            "id": 392,
+            "level": 2
+        },
+        {
+            "id": 399,
+            "level": 2
+        },
+        {
+            "id": 400,
+            "level": 3
+        },
+        {
+            "id": 411,
+            "level": 3
+        }
+    ]
+}

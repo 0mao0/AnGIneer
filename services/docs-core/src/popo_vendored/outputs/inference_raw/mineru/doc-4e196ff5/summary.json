@@ -1,0 +1,106 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_q8g_wkn\\input\\pdfs\\doc-4e196ff5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_q8g_wkn\\enriched\\doc-4e196ff5.json",
+    "contd_output": "",
+    "title_output": "<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>28<|level|>1\n<|id|>35<|level|>1\n<|id|>37<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>60<|level|>1\n<|id|>67<|level|>1\n<|id|>78<|level|>1\n<|id|>82<|level|>1\n<|id|>87<|level|>1",
+    "image_output": "<|src_id|>21<|tgt_id|>12\n<|src_id|>65<|tgt_id|>60\n<|src_id|>69<|tgt_id|>67\n<|src_id|>70<|tgt_id|>67",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 21,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 67
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 69,
+            "table2_idx": 70,
+            "upper_row_ss": [
+                [
+                    "Class A Notes",
+                    "0.30%",
+                    "$375,000,000",
+                    "$1,125,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Class B Notes",
+                    "0.45%",
+                    "$75,000,000",
+                    "$337,500"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>138 405 155 591<|content|>Form 872 (Rev. 3-2012)\n<|id|>2<|page|>1<|box|>164 279 180 718<|content|>CONSENT TO EXTEND THE TIME TO ASSESS TAX\n<|id|>3<|page|>1<|box|>189 143 204 571<|content|>Under the authority of Section 6501(c)(4) of the I\n<|id|>4<|page|>1<|box|>213 210 229 787<|content|>EXAMINATION COVER PAGE NOTATION For Internal Refer\n<|id|>7<|page|>1<|box|>589 194 632 800<|content|>DEPARTMENT OF THE TREASURY — INTERNAL REVENUE SERV\n<|id|>8<|page|>1<|box|>641 277 657 718<|content|>CONSENT TO EXTEND THE TIME TO ASSESS TAX\n<|id|>19<|page|>2<|box|>90 140 107 596<|content|>Tax Year(s) / Period(s): Tax year ended December 3\n<|id|>20<|page|>2<|box|>131 140 148 401<|content|>CONSENT AND AGREEMENT\n<|id|>26<|page|>2<|box|>575 140 593 437<|content|>RESTRICTION AND LIMITATION\n<|id|>28<|page|>2<|box|>734 140 752 547<|content|>ADDITIONAL CONDITIONS AND PROVISIONS\n<|id|>34<|page|>3<|box|>353 140 369 267<|content|>SIGNATURES\n<|id|>43<|page|>5<|box|>90 140 107 423<|content|>Internal Revenue Service Signature\n<|id|>52<|page|>5<|box|>282 142 300 415<|content|>INSTRUCTIONS AND NOTICES\n<|id|>53<|page|>5<|box|>314 140 332 316<|content|>Making This Consent\n<|id|>55<|page|>5<|box|>479 142 496 321<|content|>Effect of This Consent\n<|id|>57<|page|>5<|box|>625 140 642 330<|content|>Note on Refund Claims\n<|id|>60<|page|>6<|box|>90 140 107 403<|content|>Paperwork Reduction Act Notice\n<|id|>62<|page|>6<|box|>263 140 281 596<|content|>COUNSEL OF RECORD / PREPARATION NOTATION\n<|id|>65<|page|>6<|box|>657 142 674 488<|content|>DISTRIBUTION OF EXECUTED COPIES",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>4<|level|>3\n<|id|>7<|level|>1\n<|id|>8<|level|>1\n<|id|>19<|level|>2\n<|id|>20<|level|>2\n<|id|>26<|level|>2\n<|id|>28<|level|>2\n<|id|>34<|level|>2\n<|id|>43<|level|>3\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>55<|level|>3\n<|id|>57<|level|>3\n<|id|>60<|level|>3\n<|id|>62<|level|>2\n<|id|>65<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        }
+    ]
+}

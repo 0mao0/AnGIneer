@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>861 57 875 130<|content|>DISCLAIMER\n<|id|>8<|page|>2<|box|>94 57 108 256<|content|>VALUATION INFORMATION\n<|id|>14<|page|>2<|box|>400 57 415 232<|content|>MUNICIPAL VALUATION\n<|id|>17<|page|>2<|box|>862 58 875 130<|content|>DISCLAIMER\n<|id|>22<|page|>3<|box|>862 57 875 130<|content|>DISCLAIMER\n<|id|>28<|page|>4<|box|>862 57 875 130<|content|>DISCLAIMER\n<|id|>31<|page|>5<|box|>279 57 294 183<|content|>SUBURB TRENDS\n<|id|>34<|page|>5<|box|>862 57 875 130<|content|>DISCLAIMER\n<|id|>36<|page|>6<|box|>862 57 875 132<|content|>DISCLAIMER",
+    "raw_response": "<|id|>6<|level|>2\n<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>28<|level|>2\n<|id|>31<|level|>1\n<|id|>34<|level|>2\n<|id|>36<|level|>2",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        }
+    ]
+}

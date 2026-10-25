@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>396 140 414 297<|content|>I. Purpose of Filing\n<|id|>10<|page|>1<|box|>763 140 781 627<|content|>II. Description of Applicant and the Ridgeline Pip\n<|id|>15<|page|>2<|box|>429 140 446 684<|content|>III. Description of the Filing — Rate Case (Docket\n<|id|>31<|page|>4<|box|>90 140 107 839<|content|>IV. Description of the Filing — Interconnection Au\n<|id|>38<|page|>5<|box|>148 140 166 486<|content|>V. List of Enclosed Documents and Exhibits\n<|id|>48<|page|>6<|box|>90 140 107 771<|content|>VI. Request for Establishment of Intervention Dead\n<|id|>51<|page|>6<|box|>402 140 419 439<|content|>VII. Contact Information for Counsel\n<|id|>64<|page|>7<|box|>89 142 107 251<|content|>VIII. Closing",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>31<|level|>1\n<|id|>38<|level|>1\n<|id|>48<|level|>1\n<|id|>51<|level|>1\n<|id|>64<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        }
+    ]
+}

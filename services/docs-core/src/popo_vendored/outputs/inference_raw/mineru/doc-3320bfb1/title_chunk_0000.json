@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 184 118 810<|content|>CLOSING CERTIFICATE OF SELLER REPRESENTATIVE\n<|id|>1<|page|>1<|box|>136 187 152 808<|content|>Delivered Pursuant to the Stock Purchase Agreement\n<|id|>4<|page|>1<|box|>559 140 575 718<|content|>Section 1 — Bring-Down of Representations and Warr\n<|id|>9<|page|>2<|box|>383 140 402 743<|content|>Section 2 — Bring-Down of Representations and Warr\n<|id|>14<|page|>3<|box|>359 140 376 581<|content|>Section 3 — Performance of Covenants and Agreement\n<|id|>23<|page|>5<|box|>90 140 107 473<|content|>Section 4 — Absence of Legal Proceedings\n<|id|>29<|page|>5<|box|>700 140 717 537<|content|>Section 5 — No Company Material Adverse Effect\n<|id|>32<|page|>6<|box|>150 140 167 566<|content|>Section 6 — Governmental and Regulatory Approvals\n<|id|>40<|page|>7<|box|>186 140 204 493<|content|>Section 7 — Delivery of Closing Deliverables\n<|id|>55<|page|>9<|box|>366 140 383 522<|content|>Section 8 — Reliance; No Other Representations\n<|id|>58<|page|>9<|box|>696 140 714 367<|content|>Section 9 — Governing Law\n<|id|>60<|page|>9<|box|>819 142 835 370<|content|>Section 10 — Defined Terms\n<|id|>64<|page|>10<|box|>89 151 107 843<|content|>SIGNATURE PAGE TO CLOSING CERTIFICATE OF SELLER RE\n<|id|>66<|page|>10<|box|>178 140 195 395<|content|>SELLER REPRESENTATIVE:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>23<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>40<|level|>2\n<|id|>55<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>1\n<|id|>66<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        }
+    ]
+}

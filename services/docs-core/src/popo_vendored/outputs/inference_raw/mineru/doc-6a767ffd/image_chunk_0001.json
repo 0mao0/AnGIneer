@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        47,
+        50
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>494<|type|>title<|page|>47<|box|>464 437 479 560<|content|>SCHEDULE C\n<|id|>495<|type|>title<|page|>47<|box|>489 382 506 614<|content|>LICENSED TRADEMARKS\n<|id|>496<|type|>table<|page|>47<|box|>540 143 762 852<|content|>None\n<|id|>499<|type|>title<|page|>47<|box|>883 437 900 560<|content|>SCHEDULE D\n<|id|>500<|type|>title<|page|>48<|box|>89 441 106 557<|content|>TERRITORY\n<|id|>515<|type|>title<|page|>48<|box|>420 437 436 560<|content|>SCHEDULE E\n<|id|>516<|type|>title<|page|>48<|box|>446 398 463 599<|content|>DEVELOPMENT PLAN\n<|id|>529<|type|>title<|page|>48<|box|>811 437 828 560<|content|>SCHEDULE F\n<|id|>530<|type|>title<|page|>48<|box|>837 357 854 640<|content|>MFN PRICING METHODOLOGY\n<|id|>538<|type|>title<|page|>49<|box|>678 452 695 545<|content|>EXHIBITS\n<|id|>539<|type|>title<|page|>49<|box|>705 328 723 668<|content|>(Identified by reference; forms to be attached)\n<|id|>553<|type|>title<|page|>50<|box|>722 377 738 620<|content|>— END OF AGREEMENT —",
+    "raw_response": "<|src_id|>496<|tgt_id|>495",
+    "parsed": [
+        {
+            "src_id": 496,
+            "tgt_id": 495
+        }
+    ]
+}

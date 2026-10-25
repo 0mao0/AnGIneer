@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 416<|content|>【635771#56】二战时英国的反入侵战备\n<|id|>2<|page|>1<|box|>175 105 191 416<|content|>【5529319#6】第一次世界大战中的英国\n<|id|>4<|page|>1<|box|>275 105 291 319<|content|>【301494#8】德意志國防軍\n<|id|>6<|page|>1<|box|>376 105 393 408<|content|>【635771#9】二战时英国的反入侵战备\n<|id|>8<|page|>1<|box|>460 105 476 354<|content|>【170942#6】英国陆军元帅列表\n<|id|>10<|page|>1<|box|>577 105 594 408<|content|>【635771#8】二战时英国的反入侵战备\n<|id|>12<|page|>1<|box|>662 105 678 364<|content|>【7880640#8】罗得西亚安全部队\n<|id|>14<|page|>1<|box|>745 105 762 416<|content|>【635771#19】二战时英国的反入侵战备\n<|id|>16<|page|>2<|box|>73 107 89 468<|content|>【1260538#0】第二次世界大戰各國指揮官列表\n<|id|>18<|page|>2<|box|>156 105 173 310<|content|>【6731846#0】约翰·迪尔",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

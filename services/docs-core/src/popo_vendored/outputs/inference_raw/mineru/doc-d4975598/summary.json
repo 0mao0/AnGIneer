@@ -1,0 +1,179 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-86dhybc_\\input\\pdfs\\doc-d4975598.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-86dhybc_\\enriched\\doc-d4975598.json",
+    "contd_output": "<|src_id|>104<|tgt_id|>105",
+    "title_output": "<|id|>9<|level|>1\n<|id|>26<|level|>1\n<|id|>33<|level|>1\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>53<|level|>2\n<|id|>56<|level|>1\n<|id|>59<|level|>2\n<|id|>63<|level|>2\n<|id|>75<|level|>2\n<|id|>85<|level|>2\n<|id|>88<|level|>2\n<|id|>95<|level|>2\n<|id|>101<|level|>1\n<|id|>103<|level|>2\n<|id|>108<|level|>2\n<|id|>111<|level|>2\n<|id|>119<|level|>1\n<|id|>122<|level|>1\n<|id|>124<|level|>2\n<|id|>129<|level|>1\n<|id|>152<|level|>1\n<|id|>158<|level|>1\n<|id|>162<|level|>1",
+    "image_output": "<|src_id|>23<|tgt_id|>9\n<|src_id|>28<|tgt_id|>26\n<|src_id|>29<|tgt_id|>26\n<|src_id|>46<|tgt_id|>44\n<|src_id|>116<|tgt_id|>111\n<|src_id|>117<|tgt_id|>111\n<|src_id|>121<|tgt_id|>119\n<|src_id|>160<|tgt_id|>158",
+    "contd_label": [
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 23,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 158
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 28,
+            "table2_idx": 29,
+            "upper_row_ss": [
+                [
+                    "Prepayment premium (0.50% of outstanding principal)",
+                    "$2,336,714.10"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Transaction fees and expenses (legal, trustee, rating agencies, printing, and miscellaneous)",
+                    "$6,863,285.90"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 116,
+            "table2_idx": 117,
+            "upper_row_ss": [
+                [
+                    "0.50%",
+                    "$2,500,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1.00% (cap)",
+                    "$5,000,000"
+                ]
+            ]
+        }
+    ]
+}

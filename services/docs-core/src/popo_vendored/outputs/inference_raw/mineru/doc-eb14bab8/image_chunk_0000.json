@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>4<|type|>title<|page|>1<|box|>224 140 243 576<|content|>VIA EMAIL (ENCRYPTED) AND HAND DELIVERY\n<|id|>11<|type|>title<|page|>1<|box|>551 142 568 323<|content|>1. Executive Summary\n<|id|>16<|type|>title<|page|>2<|box|>186 140 204 462<|content|>2. HSR Waiting Period — Status Update\n<|id|>22<|type|>title<|page|>2<|box|>723 140 739 380<|content|>3. FTC Staff Communications\n<|id|>27<|type|>title<|page|>3<|box|>476 140 493 550<|content|>4. Satisfaction of EPA Regulatory Closing Conditio\n<|id|>36<|type|>title<|page|>4<|box|>439 140 457 668<|content|>5. Summary of Antitrust Analysis — Key Conclusions\n<|id|>61<|type|>title<|page|>6<|box|>204 140 222 522<|content|>6. Item 4(c)/4(d) Document Production — Status\n<|id|>67<|type|>title<|page|>6<|box|>777 140 795 450<|content|>7. Pending Deliverables and Next Steps\n<|id|>69<|type|>title<|page|>7<|box|>89 140 107 383<|content|>7.1 HSR Clearance Certificate\n<|id|>73<|type|>title<|page|>7<|box|>434 140 452 488<|content|>7.2 Continued Availability Through Closing\n<|id|>78<|type|>title<|page|>7<|box|>713 142 729 294<|content|>7.3 Matter Closing\n<|id|>83<|type|>title<|page|>8<|box|>167 140 184 344<|content|>8. Fee and Billing Update\n<|id|>85<|type|>table<|page|>8<|box|>272 143 393 852<|content|>None",
+    "raw_response": "<|src_id|>85<|tgt_id|>83",
+    "parsed": [
+        {
+            "src_id": 85,
+            "tgt_id": 83
+        }
+    ]
+}

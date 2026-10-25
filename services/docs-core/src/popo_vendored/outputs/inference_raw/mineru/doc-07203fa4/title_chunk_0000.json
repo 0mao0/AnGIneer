@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 333 118 663<|content|>TERMINATION AGREEMENT\n<|id|>1<|page|>1<|box|>136 236 154 759<|content|>Regarding the Amended and Restated Investors' Righ\n<|id|>9<|page|>1<|box|>343 416 359 580<|content|>Margaret Tsujimoto\n<|id|>18<|page|>1<|box|>810 140 828 241<|content|>RECITALS\n<|id|>27<|page|>2<|box|>809 140 827 390<|content|>SECTION 1 — DEFINITIONS\n<|id|>37<|page|>3<|box|>506 140 523 821<|content|>SECTION 2 — ACKNOWLEDGMENT AND CONFIRMATION OF TER\n<|id|>49<|page|>4<|box|>477 140 494 490<|content|>SECTION 3 — SURVIVING PROVISIONS\n<|id|>58<|page|>5<|box|>601 140 618 620<|content|>SECTION 4 — REPRESENTATIONS AND WARRANTIES\n<|id|>65<|page|>6<|box|>494 140 510 354<|content|>SECTION 5 — RELEASE\n<|id|>68<|page|>7<|box|>186 140 203 429<|content|>SECTION 6 — MISCELLANEOUS\n<|id|>78<|page|>8<|box|>689 176 705 331<|content|>If to the Company:\n<|id|>105<|page|>9<|box|>797 142 813 488<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>129<|page|>11<|box|>89 142 107 246<|content|>EXHIBIT A\n<|id|>130<|page|>11<|box|>114 145 133 849<|content|>Copy of Amended and Restated Investors' Rights Agr",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>9<|level|>-1\n<|id|>18<|level|>2\n<|id|>27<|level|>2\n<|id|>37<|level|>2\n<|id|>49<|level|>2\n<|id|>58<|level|>2\n<|id|>65<|level|>2\n<|id|>68<|level|>2\n<|id|>78<|level|>-1\n<|id|>105<|level|>2\n<|id|>129<|level|>2\n<|id|>130<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 3
+        }
+    ]
+}

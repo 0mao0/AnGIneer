@@ -1,0 +1,162 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lgae5pn7\\input\\pdfs\\doc-9e21ee9c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lgae5pn7\\enriched\\doc-9e21ee9c.json",
+    "contd_output": "",
+    "title_output": "<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>2\n<|id|>35<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>2\n<|id|>53<|level|>2\n<|id|>61<|level|>2\n<|id|>63<|level|>1\n<|id|>65<|level|>2\n<|id|>80<|level|>2\n<|id|>88<|level|>2\n<|id|>94<|level|>2\n<|id|>99<|level|>2\n<|id|>108<|level|>2\n<|id|>111<|level|>2\n<|id|>113<|level|>2\n<|id|>121<|level|>1\n<|id|>122<|level|>2\n<|id|>126<|level|>2\n<|id|>130<|level|>2\n<|id|>133<|level|>2\n<|id|>136<|level|>2\n<|id|>138<|level|>3\n<|id|>145<|level|>3\n<|id|>156<|level|>1\n<|id|>165<|level|>1\n<|id|>171<|level|>1",
+    "image_output": "<|src_id|>128<|tgt_id|>126\n<|src_id|>183<|tgt_id|>171\n<|src_id|>184<|tgt_id|>171",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 171,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 128,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 171
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 171
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 183,
+            "table2_idx": 184,
+            "upper_row_ss": [
+                [
+                    "Transaction Structure Sections (structure, consideration, financing, closing conditions)",
+                    "C&H",
+                    "W&G",
+                    "June 30, 2023"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Transaction Rationale / Business Purpose",
+                    "C&H (initial draft)",
+                    "W&G (supplement)",
+                    "June 30, 2023"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,147 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>371 140 388 361<|content|>I. Purpose and Background\n<|id|>12<|page|>2<|box|>223 140 239 553<|content|>II. Overview of the Joint Voluntary Notice Structu\n<|id|>23<|page|>2<|box|>797 140 814 637<|content|>III. Calderwood & Harkness Responsibilities (Buyer\n<|id|>25<|page|>3<|box|>90 140 107 496<|content|>3.1 Main Notice Body — Buyer-Side Sections\n<|id|>35<|page|>4<|box|>583 140 599 416<|content|>3.2 Transaction Structure Sections\n<|id|>41<|page|>6<|box|>90 140 107 676<|content|>3.3 Exhibit C — Business Description of Halcyon Se\n<|id|>43<|page|>7<|box|>90 140 107 647<|content|>3.4 Exhibit D — Organizational Charts and Corporat\n<|id|>53<|page|>7<|box|>497 140 513 488<|content|>3.5 Proposed Mitigation Framework Section\n<|id|>61<|page|>8<|box|>257 140 273 447<|content|>3.6 Certification Declaration — HSAG\n<|id|>63<|page|>8<|box|>393 140 412 679<|content|>IV. Wethersfield & Gale Responsibilities (Seller's\n<|id|>65<|page|>8<|box|>469 140 487 501<|content|>4.1 Main Notice Body — Target-Side Sections\n<|id|>80<|page|>10<|box|>90 140 106 460<|content|>4.2 Exhibit A — Transaction Documents\n<|id|>88<|page|>11<|box|>90 140 107 792<|content|>4.3 Exhibit B — Business Description of Marlowe As\n<|id|>94<|page|>12<|box|>90 140 107 754<|content|>4.4 Exhibit E — Products and Services Subject to U\n<|id|>99<|page|>13<|box|>90 140 107 532<|content|>4.5 Exhibit F — Government Contracts Summary\n<|id|>108<|page|>14<|box|>90 140 107 687<|content|>4.6 Exhibit G — Personnel with U.S. Government Sec\n<|id|>111<|page|>14<|box|>316 140 333 426<|content|>4.7 Certification Declaration — VPI\n<|id|>113<|page|>14<|box|>463 142 479 318<|content|>4.8 Seller Information\n<|id|>121<|page|>15<|box|>90 140 107 491<|content|>V. Shared Responsibilities and Coordination\n<|id|>122<|page|>15<|box|>121 140 138 385<|content|>5.1 Joint Sections of the Notice\n<|id|>126<|page|>15<|box|>539 140 555 475<|content|>5.2 Internal Deadlines and Review Process\n<|id|>130<|page|>16<|box|>194 140 212 310<|content|>5.3 Client Approvals\n<|id|>133<|page|>16<|box|>458 140 474 426<|content|>5.4 Classified Information Handling\n<|id|>136<|page|>16<|box|>684 140 700 338<|content|>5.5 Document Collection\n<|id|>138<|page|>16<|box|>770 140 787 483<|content|>C&H will provide the following documents:\n<|id|>145<|page|>17<|box|>167 140 184 490<|content|>W&G will provide the following documents:\n<|id|>156<|page|>17<|box|>537 140 556 313<|content|>VI. Points of Contact\n<|id|>165<|page|>18<|box|>347 140 364 408<|content|>VII. Confidentiality and Privilege\n<|id|>171<|page|>18<|box|>773 140 792 251<|content|>VIII. Closing\n<|id|>177<|page|>19<|box|>339 142 354 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>2\n<|id|>35<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>2\n<|id|>53<|level|>2\n<|id|>61<|level|>2\n<|id|>63<|level|>1\n<|id|>65<|level|>2\n<|id|>80<|level|>2\n<|id|>88<|level|>2\n<|id|>94<|level|>2\n<|id|>99<|level|>2\n<|id|>108<|level|>2\n<|id|>111<|level|>2\n<|id|>113<|level|>2\n<|id|>121<|level|>1\n<|id|>122<|level|>2\n<|id|>126<|level|>2\n<|id|>130<|level|>2\n<|id|>133<|level|>2\n<|id|>136<|level|>2\n<|id|>138<|level|>3\n<|id|>145<|level|>3\n<|id|>156<|level|>1\n<|id|>165<|level|>1\n<|id|>171<|level|>1\n<|id|>177<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 171,
+            "level": 1
+        }
+    ]
+}

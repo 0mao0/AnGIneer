@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>5<|type|>title<|page|>1<|box|>275 142 291 248<|content|>Dear Marcus:\n<|id|>8<|type|>title<|page|>1<|box|>641 142 657 393<|content|>1. SCOPE OF ENGAGEMENT\n<|id|>17<|type|>title<|page|>3<|box|>148 142 166 357<|content|>2. ENGAGEMENT TEAM\n<|id|>24<|type|>title<|page|>3<|box|>741 140 758 338<|content|>3. FEES AND BILLING\n<|id|>27<|type|>table<|page|>4<|box|>89 143 164 852<|content|>None\n<|id|>31<|type|>title<|page|>4<|box|>748 140 765 478<|content|>4. CLIENT IDENTITY AND PRIVILEGE\n<|id|>35<|type|>title<|page|>5<|box|>376 140 393 272<|content|>5. CONFLICTS\n<|id|>38<|type|>title<|page|>5<|box|>614 140 633 328<|content|>6. GOVERNING LAW",
+    "raw_response": "<|src_id|>27<|tgt_id|>24",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 24
+        }
+    ]
+}

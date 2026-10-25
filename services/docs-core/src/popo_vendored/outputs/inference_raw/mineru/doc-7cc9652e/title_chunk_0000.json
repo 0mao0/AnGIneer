@@ -1,0 +1,153 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 160 125 836<|content|>UNITED STATES GOVERNMENT ACCOUNTABILITY OFFICE PRO\n<|id|>4<|page|>1<|box|>308 184 352 813<|content|>PROTESTER'S APPLICATION FOR PROTECTIVE ORDER PURSU\n<|id|>8<|page|>1<|box|>479 142 497 441<|content|>I. INTRODUCTION AND PURPOSE\n<|id|>15<|page|>2<|box|>402 140 419 465<|content|>II. BACKGROUND OF THE PROTEST\n<|id|>26<|page|>3<|box|>768 140 787 482<|content|>III. NEED FOR A PROTECTIVE ORDER\n<|id|>37<|page|>5<|box|>640 140 657 609<|content|>IV. PROPOSED TERMS OF THE PROTECTIVE ORDER\n<|id|>47<|page|>7<|box|>148 140 166 720<|content|>V. PERSONS TO BE ADMITTED UNDER THE PROTECTIVE ORD\n<|id|>49<|page|>7<|box|>261 140 277 555<|content|>A. Outside Counsel — Calderwood & Harkness LLP\n<|id|>50<|page|>7<|box|>284 142 301 475<|content|>1. Claudia Merritt — Responsible Partner\n<|id|>55<|page|>7<|box|>570 140 588 823<|content|>2. Lt. Col. (Ret.) Nathan Yardley — Of Counsel, Go\n<|id|>60<|page|>7<|box|>893 140 909 504<|content|>3. Megan Zhao — Senior Associate, Litigation\n<|id|>65<|page|>8<|box|>354 140 372 468<|content|>B. Technical Advisor / Expert Consultant\n<|id|>66<|page|>8<|box|>378 140 396 689<|content|>4. Janet K. Overmeyer — Principal, Ridgeline Consu\n<|id|>79<|page|>9<|box|>669 140 686 491<|content|>C. Individuals NOT Proposed for Admission\n<|id|>85<|page|>10<|box|>292 140 309 483<|content|>VI. CERTIFICATION OF COMPLIANCE\n<|id|>96<|page|>11<|box|>148 140 166 540<|content|>VII. NOTICE TO AGENCY AND INTERVENOR\n<|id|>98<|page|>11<|box|>256 140 273 279<|content|>Agency Counsel:\n<|id|>108<|page|>11<|box|>650 140 667 393<|content|>VIII. REQUEST FOR RELIEF\n<|id|>118<|page|>13<|box|>89 142 107 285<|content|>IX. SIGNATURE\n<|id|>127<|page|>14<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>128<|page|>14<|box|>128 197 150 799<|content|>PROPOSED PROTECTIVE ORDER (STANDARD FORM)\n<|id|>129<|page|>14<|box|>166 158 202 836<|content|>UNITED STATES GOVERNMENT ACCOUNTABILITY OFFICE PRO\n<|id|>130<|page|>14<|box|>210 400 228 596<|content|>PROTECTIVE ORDER\n<|id|>151<|page|>15<|box|>551 303 569 692<|content|>PROTECTIVE ORDER ACKNOWLEDGMENT\n<|id|>158<|page|>16<|box|>128 158 172 838<|content|>BIOGRAPHICAL INFORMATION AND BAR ADMISSIONS FOR PR\n<|id|>159<|page|>16<|box|>190 142 207 292<|content|>1. Claudia Merritt\n<|id|>175<|page|>17<|box|>220 140 238 266<|content|>3. Megan Zhao\n<|id|>183<|page|>17<|box|>582 140 599 325<|content|>4. Janet K. Overmeyer\n<|id|>190<|page|>18<|box|>270 341 290 655<|content|>CERTIFICATE OF SERVICE\n<|id|>192<|page|>18<|box|>426 140 444 279<|content|>Agency Counsel:\n<|id|>197<|page|>18<|box|>575 140 592 316<|content|>Intervenor's Counsel:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>1\n<|id|>8<|level|>2\n<|id|>15<|level|>2\n<|id|>26<|level|>2\n<|id|>37<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>3\n<|id|>50<|level|>4\n<|id|>55<|level|>4\n<|id|>60<|level|>4\n<|id|>65<|level|>3\n<|id|>66<|level|>4\n<|id|>79<|level|>3\n<|id|>85<|level|>2\n<|id|>96<|level|>2\n<|id|>98<|level|>3\n<|id|>108<|level|>2\n<|id|>118<|level|>2\n<|id|>127<|level|>1\n<|id|>128<|level|>1\n<|id|>129<|level|>1\n<|id|>130<|level|>1\n<|id|>151<|level|>1\n<|id|>158<|level|>1\n<|id|>159<|level|>2\n<|id|>175<|level|>2\n<|id|>183<|level|>2\n<|id|>190<|level|>1\n<|id|>192<|level|>2\n<|id|>197<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 1
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        }
+    ]
+}

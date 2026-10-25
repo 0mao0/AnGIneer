@@ -1,0 +1,210 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vifk35m9\\input\\pdfs\\doc-1061c69b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vifk35m9\\enriched\\doc-1061c69b.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>17<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>3\n<|id|>46<|level|>4\n<|id|>52<|level|>5\n<|id|>67<|level|>4\n<|id|>74<|level|>4\n<|id|>96<|level|>4\n<|id|>102<|level|>4\n<|id|>110<|level|>4\n<|id|>119<|level|>3\n<|id|>124<|level|>4\n<|id|>138<|level|>3\n<|id|>153<|level|>3\n<|id|>160<|level|>3\n<|id|>162<|level|>4\n<|id|>168<|level|>4\n<|id|>173<|level|>4\n<|id|>178<|level|>4\n<|id|>183<|level|>2\n<|id|>184<|level|>3\n<|id|>194<|level|>3\n<|id|>198<|level|>3\n<|id|>211<|level|>2\n<|id|>213<|level|>3\n<|id|>218<|level|>3\n<|id|>225<|level|>3\n<|id|>231<|level|>3\n<|id|>236<|level|>3\n<|id|>240<|level|>2\n<|id|>246<|level|>2\n<|id|>255<|level|>2",
+    "image_output": "<|src_id|>59<|tgt_id|>46\n<|src_id|>105<|tgt_id|>102\n<|src_id|>195<|tgt_id|>194\n<|src_id|>196<|tgt_id|>194\n<|src_id|>197<|tgt_id|>194",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 4
+        },
+        {
+            "id": 52,
+            "level": 5
+        },
+        {
+            "id": 67,
+            "level": 4
+        },
+        {
+            "id": 74,
+            "level": 4
+        },
+        {
+            "id": 96,
+            "level": 4
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 110,
+            "level": 4
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 4
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 4
+        },
+        {
+            "id": 168,
+            "level": 4
+        },
+        {
+            "id": 173,
+            "level": 4
+        },
+        {
+            "id": 178,
+            "level": 4
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 198,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 213,
+            "level": 3
+        },
+        {
+            "id": 218,
+            "level": 3
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 231,
+            "level": 3
+        },
+        {
+            "id": 236,
+            "level": 3
+        },
+        {
+            "id": 240,
+            "level": 2
+        },
+        {
+            "id": 246,
+            "level": 2
+        },
+        {
+            "id": 255,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 59,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 197,
+            "tgt_id": 194
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 195,
+            "table2_idx": 196,
+            "upper_row_ss": [
+                [
+                    "Business interruption coverage",
+                    "Compliant",
+                    "$250,000,000 sublimit with a 12-month indemnity period and 6-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "month extended period of indemnity. Coverage is on a gross earnings basis, including extra expense."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 196,
+            "table2_idx": 197,
+            "upper_row_ss": [
+                [
+                    "Additional insured endorsements (CGL)",
+                    "Action Required",
+                    "Crescent Harbor Bank, N.A. must be added as an additional insured on the CGL and umbrella/excess"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "liability policies. Current policies name Atlas Meridian Bank, N.A. as additional insured; this must be updated."
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        59
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        13,
+        14,
+        20,
+        24,
+        30,
+        52,
+        58,
+        59
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>5<|box|>219 301 256 909<|content|>TREASURY DEPARTMENT\n<|id|>11<|page|>7<|box|>153 348 192 661<|content|>BULLETIN\n<|id|>13<|page|>7<|box|>285 199 321 817<|content|>TREASURY DEPARTMENT\n<|id|>20<|page|>9<|box|>170 402 188 597<|content|>Table of Contents\n<|id|>26<|page|>13<|box|>266 125 280 430<|content|>First 3 Months, Fiscal Years 1935 to 1940\n<|id|>33<|page|>14<|box|>449 328 465 661<|content|>Summary of Receipts and Expenditures\n<|id|>42<|page|>20<|box|>79 275 108 736<|content|>COLLECTIONS OF INTERNAL REVENUE\n<|id|>50<|page|>24<|box|>452 368 465 620<|content|>Railroad Retirement Account\n<|id|>60<|page|>30<|box|>618 359 632 641<|content|>Composition of the Public Debt\n<|id|>99<|page|>52<|box|>72 184 102 843<|content|>FOREIGN PURCHASES AND SALES OF U.S. DOMESTIC SECUR\n<|id|>105<|page|>58<|box|>53 216 68 783<|content|>Schedules for Balance Sheet of the Exchange Stabil\n<|id|>106<|page|>58<|box|>80 446 94 554<|content|>Schedule #1\n<|id|>110<|page|>58<|box|>264 448 277 556<|content|>Schedule #2\n<|id|>114<|page|>58<|box|>710 450 723 558<|content|>Schedule #3\n<|id|>121<|page|>59<|box|>692 556 706 877<|content|>Monetary Stocks of Gold and Silver",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>11<|level|>1\n<|id|>13<|level|>1\n<|id|>20<|level|>1\n<|id|>26<|level|>2\n<|id|>33<|level|>2\n<|id|>42<|level|>2\n<|id|>50<|level|>2\n<|id|>60<|level|>2\n<|id|>99<|level|>2\n<|id|>105<|level|>2\n<|id|>106<|level|>3\n<|id|>110<|level|>3\n<|id|>114<|level|>3\n<|id|>121<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        }
+    ]
+}

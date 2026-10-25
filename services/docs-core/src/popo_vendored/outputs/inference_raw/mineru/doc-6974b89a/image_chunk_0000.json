@@ -1,0 +1,55 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|type|>title<|page|>1<|box|>226 140 244 292<|content|>MEMORANDUM\n<|id|>11<|type|>title<|page|>1<|box|>537 370 556 625<|content|>1. Purpose and Summary\n<|id|>15<|type|>title<|page|>2<|box|>136 305 156 691<|content|>2. Background — Transaction Closing\n<|id|>25<|type|>title<|page|>3<|box|>154 241 174 754<|content|>3. Form and Content of Tenant Notification Letters\n<|id|>26<|type|>title<|page|>3<|box|>199 140 215 380<|content|>3.1 Preparation and Approval\n<|id|>28<|type|>title<|page|>3<|box|>393 140 411 354<|content|>3.2 Content of Each Letter\n<|id|>40<|type|>title<|page|>4<|box|>542 315 561 681<|content|>4. Distribution Method and Logistics\n<|id|>41<|type|>title<|page|>4<|box|>588 140 604 413<|content|>4.1 Mailing (First-Class U.S. Mail)\n<|id|>45<|type|>title<|page|>5<|box|>229 140 248 321<|content|>4.2 Email Distribution\n<|id|>49<|type|>title<|page|>5<|box|>625 140 641 557<|content|>4.3 Coordination with Argyle Property Services LLC\n<|id|>52<|type|>title<|page|>6<|box|>90 264 111 732<|content|>5. Distribution by Property — Summary Table\n<|id|>54<|type|>table<|page|>6<|box|>229 143 675 852<|content|>None\n<|id|>55<|type|>table<|page|>6<|box|>746 143 906 852<|content|>None\n<|id|>56<|type|>table<|page|>7<|box|>88 143 236 852<|content|>None\n<|id|>57<|type|>table<|page|>7<|box|>309 143 628 852<|content|>None\n<|id|>58<|type|>table<|page|>7<|box|>700 143 891 852<|content|>None\n<|id|>59<|type|>table<|page|>8<|box|>88 143 236 852<|content|>None\n<|id|>60<|type|>table<|page|>8<|box|>308 143 472 852<|content|>None\n<|id|>62<|type|>title<|page|>8<|box|>551 284 570 712<|content|>6. Major Tenants — Specific Confirmation\n<|id|>64<|type|>title<|page|>8<|box|>686 178 704 490<|content|>1. Cascade Supply Chain Solutions Inc.\n<|id|>66<|type|>title<|page|>8<|box|>768 176 786 486<|content|>2. Zynvaro Distribution Holdings LLC\n<|id|>70<|type|>title<|page|>9<|box|>152 176 170 473<|content|>4. Birchwood Technology Group Inc.\n<|id|>72<|type|>title<|page|>9<|box|>234 176 252 429<|content|>5. Atlas Freight Logistics Corp.\n<|id|>76<|type|>title<|page|>9<|box|>590 303 609 692<|content|>7. Compliance with PSA Requirements\n<|id|>88<|type|>title<|page|>10<|box|>675 295 695 700<|content|>8. Security Deposit Transfer Notification\n<|id|>95<|type|>title<|page|>11<|box|>484 328 505 668<|content|>9. Document Retention and Filing\n<|id|>102<|type|>title<|page|>12<|box|>136 395 156 602<|content|>10. Follow-Up Items\n<|id|>119<|type|>title<|page|>13<|box|>398 433 417 565<|content|>Attachments",
+    "raw_response": "<|src_id|>54<|tgt_id|>52\n<|src_id|>55<|tgt_id|>52\n<|src_id|>56<|tgt_id|>52\n<|src_id|>57<|tgt_id|>52\n<|src_id|>58<|tgt_id|>52\n<|src_id|>59<|tgt_id|>52\n<|src_id|>60<|tgt_id|>52",
+    "parsed": [
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 52
+        }
+    ]
+}

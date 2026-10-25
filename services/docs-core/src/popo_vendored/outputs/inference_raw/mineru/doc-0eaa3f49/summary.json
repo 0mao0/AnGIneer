@@ -1,0 +1,366 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zzjl57dq\\input\\pdfs\\doc-0eaa3f49.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zzjl57dq\\enriched\\doc-0eaa3f49.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>18<|level|>3\n<|id|>22<|level|>4\n<|id|>28<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>2\n<|id|>38<|level|>3\n<|id|>40<|level|>3\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>55<|level|>3\n<|id|>57<|level|>3\n<|id|>59<|level|>3\n<|id|>64<|level|>3\n<|id|>68<|level|>2\n<|id|>70<|level|>3\n<|id|>72<|level|>3\n<|id|>74<|level|>3\n<|id|>77<|level|>3\n<|id|>79<|level|>3\n<|id|>86<|level|>3\n<|id|>88<|level|>2\n<|id|>89<|level|>3\n<|id|>91<|level|>3\n<|id|>95<|level|>3\n<|id|>97<|level|>3\n<|id|>99<|level|>2\n<|id|>110<|level|>2\n<|id|>111<|level|>3\n<|id|>117<|level|>3\n<|id|>121<|level|>3\n<|id|>125<|level|>3\n<|id|>132<|level|>2\n<|id|>140<|level|>2\n<|id|>141<|level|>3\n<|id|>147<|level|>3\n<|id|>150<|level|>3\n<|id|>152<|level|>3\n<|id|>156<|level|>3\n<|id|>163<|level|>2\n<|id|>165<|level|>3\n<|id|>176<|level|>2\n<|id|>182<|level|>2\n<|id|>187<|level|>2\n<|id|>192<|level|>2\n<|id|>195<|level|>2\n<|id|>196<|level|>3\n<|id|>199<|level|>3\n<|id|>201<|level|>3\n<|id|>203<|level|>2\n<|id|>213<|level|>2\n<|id|>223<|level|>2\n<|id|>226<|level|>2\n<|id|>236<|level|>2\n<|id|>240<|level|>2\n<|id|>241<|level|>1\n<|id|>248<|level|>1",
+    "image_output": "<|src_id|>15<|tgt_id|>12\n<|src_id|>16<|tgt_id|>12\n<|src_id|>21<|tgt_id|>18\n<|src_id|>24<|tgt_id|>22\n<|src_id|>25<|tgt_id|>22\n<|src_id|>29<|tgt_id|>28\n<|src_id|>31<|tgt_id|>30\n<|src_id|>39<|tgt_id|>38\n<|src_id|>41<|tgt_id|>40\n<|src_id|>48<|tgt_id|>45\n<|src_id|>60<|tgt_id|>59\n<|src_id|>75<|tgt_id|>74\n<|src_id|>93<|tgt_id|>91\n<|src_id|>123<|tgt_id|>121\n<|src_id|>134<|tgt_id|>132\n<|src_id|>135<|tgt_id|>132\n<|src_id|>169<|tgt_id|>163\n<|src_id|>238<|tgt_id|>236",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 4
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 2
+        },
+        {
+            "id": 226,
+            "level": 2
+        },
+        {
+            "id": 236,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 2
+        },
+        {
+            "id": 241,
+            "level": 1
+        },
+        {
+            "id": 248,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 238,
+            "tgt_id": 236
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 15,
+            "table2_idx": 16,
+            "upper_row_ss": [
+                [
+                    "Katrina Bosch",
+                    "Vice President of Network Operations"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Marcus Harcourt",
+                    "General Counsel"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 24,
+            "table2_idx": 25,
+            "upper_row_ss": [
+                [
+                    "Rajiv Sundaram (CEO, Co-Founder)",
+                    "18%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Teresa Cho (Co-Founder)",
+                    "12%"
+                ]
+            ]
+        }
+    ]
+}

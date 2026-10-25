@@ -1,0 +1,41 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 153 108 841<|content|>UNITED STATES DISTRICT COURT FOR THE CENTRAL DISTR\n<|id|>9<|page|>2<|box|>268 140 287 741<|content|>IT IS HEREBY ORDERED, ADJUDGED, AND DECREED AS FOL\n<|id|>10<|page|>2<|box|>311 140 329 470<|content|>I. Confirmation of the Arbitration Award\n<|id|>12<|page|>2<|box|>488 140 503 429<|content|>II. Denial of Cross-Motion to Vacate\n<|id|>14<|page|>2<|box|>792 140 810 326<|content|>III. Entry of Judgment\n<|id|>24<|page|>4<|box|>241 142 258 279<|content|>IV. Enforcement",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>1\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>24<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        }
+    ]
+}

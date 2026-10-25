@@ -1,0 +1,50 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        49
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>543<|page|>46<|box|>193 374 220 647<|content|>5 标准编写格式\n<|id|>546<|page|>47<|box|>181 376 209 648<|content|>6 标准编写细则\n<|id|>547<|page|>47<|box|>240 401 259 626<|content|>6.1 标准中的典型用语\n<|id|>549<|page|>47<|box|>329 431 347 594<|content|>6.2 标准中的注\n<|id|>551<|page|>47<|box|>418 421 437 605<|content|>6.3 标准中的表格\n<|id|>553<|page|>47<|box|>551 369 569 653<|content|>6.7 标准中的计量单位和符号\n<|id|>555<|page|>48<|box|>197 200 260 823<|content|>附录 C 《中华人民共和国法定计量单位使用方法》\n<|id|>557<|page|>49<|box|>193 294 222 722<|content|>附录 D 常用法定计量单位",
+    "raw_response": "<|id|>543<|level|>1\n<|id|>546<|level|>1\n<|id|>547<|level|>2\n<|id|>549<|level|>2\n<|id|>551<|level|>2\n<|id|>553<|level|>2\n<|id|>555<|level|>1\n<|id|>557<|level|>1",
+    "parsed": [
+        {
+            "id": 543,
+            "level": 1
+        },
+        {
+            "id": 546,
+            "level": 1
+        },
+        {
+            "id": 547,
+            "level": 2
+        },
+        {
+            "id": 549,
+            "level": 2
+        },
+        {
+            "id": 551,
+            "level": 2
+        },
+        {
+            "id": 553,
+            "level": 2
+        },
+        {
+            "id": 555,
+            "level": 1
+        },
+        {
+            "id": 557,
+            "level": 1
+        }
+    ]
+}

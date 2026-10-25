@@ -1,0 +1,127 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        120,
+        137
+    ],
+    "pages": [
+        121,
+        125,
+        126,
+        127,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>325<|page|>121<|box|>203 189 231 858<|content|>附录 B 临时工程的信息模型分类与编码表\n<|id|>326<|page|>121<|box|>251 134 269 613<|content|>B.0.1 临时工程单体宜按表 B.0.1 进行分类和编码。\n<|id|>332<|page|>125<|box|>199 327 225 722<|content|>附录 C 本标准用词说明\n<|id|>338<|page|>126<|box|>167 359 194 576<|content|>引用标准名录\n<|id|>342<|page|>127<|box|>201 216 264 843<|content|>本标准主编单位、参编单位、主要起草人、主要审查人、总校人员和管理组人员名单\n<|id|>349<|page|>129<|box|>256 228 283 727<|content|>水运工程施工信息模型应用标准\n<|id|>352<|page|>130<|box|>165 405 194 547<|content|>目 次\n<|id|>354<|page|>131<|box|>167 378 194 574<|content|>1 总 则\n<|id|>357<|page|>132<|box|>201 400 228 636<|content|>3 基本规定\n<|id|>371<|page|>133<|box|>168 295 195 638<|content|>4 施工阶段信息模型\n<|id|>380<|page|>134<|box|>130 443 148 606<|content|>4.2 模型深度\n<|id|>385<|page|>134<|box|>432 443 450 606<|content|>4.3 信息共享\n<|id|>388<|page|>134<|box|>690 443 707 606<|content|>4.4 模型交付\n<|id|>394<|page|>135<|box|>166 354 193 591<|content|>5 分类与编码\n<|id|>395<|page|>135<|box|>225 391 242 554<|content|>5.1 一般规定\n<|id|>397<|page|>135<|box|>332 373 350 574<|content|>5.2 分类与编码应用\n<|id|>402<|page|>136<|box|>200 406 226 643<|content|>6 模型应用\n<|id|>403<|page|>136<|box|>258 443 277 608<|content|>6.1 一般规定\n<|id|>405<|page|>136<|box|>388 445 406 606<|content|>6.2 施工准备\n<|id|>407<|page|>136<|box|>453 435 470 616<|content|>6.3 施工组织管理\n<|id|>414<|page|>136<|box|>732 443 750 606<|content|>6.4 进度管理\n<|id|>423<|page|>137<|box|>245 400 264 556<|content|>6.5 费用管理\n<|id|>430<|page|>137<|box|>503 400 521 561<|content|>6.6 质量管理\n<|id|>433<|page|>137<|box|>631 401 650 563<|content|>6.7 安全管理\n<|id|>436<|page|>137<|box|>762 391 780 574<|content|>6.8 交工验收管理",
+    "raw_response": "<|id|>325<|level|>1\n<|id|>326<|level|>2\n<|id|>332<|level|>1\n<|id|>338<|level|>1\n<|id|>342<|level|>1\n<|id|>349<|level|>1\n<|id|>352<|level|>1\n<|id|>354<|level|>1\n<|id|>357<|level|>1\n<|id|>371<|level|>1\n<|id|>380<|level|>2\n<|id|>385<|level|>2\n<|id|>388<|level|>2\n<|id|>394<|level|>1\n<|id|>395<|level|>2\n<|id|>397<|level|>2\n<|id|>402<|level|>1\n<|id|>403<|level|>2\n<|id|>405<|level|>2\n<|id|>407<|level|>2\n<|id|>414<|level|>2\n<|id|>423<|level|>2\n<|id|>430<|level|>2\n<|id|>433<|level|>2\n<|id|>436<|level|>2",
+    "parsed": [
+        {
+            "id": 325,
+            "level": 1
+        },
+        {
+            "id": 326,
+            "level": 2
+        },
+        {
+            "id": 332,
+            "level": 1
+        },
+        {
+            "id": 338,
+            "level": 1
+        },
+        {
+            "id": 342,
+            "level": 1
+        },
+        {
+            "id": 349,
+            "level": 1
+        },
+        {
+            "id": 352,
+            "level": 1
+        },
+        {
+            "id": 354,
+            "level": 1
+        },
+        {
+            "id": 357,
+            "level": 1
+        },
+        {
+            "id": 371,
+            "level": 1
+        },
+        {
+            "id": 380,
+            "level": 2
+        },
+        {
+            "id": 385,
+            "level": 2
+        },
+        {
+            "id": 388,
+            "level": 2
+        },
+        {
+            "id": 394,
+            "level": 1
+        },
+        {
+            "id": 395,
+            "level": 2
+        },
+        {
+            "id": 397,
+            "level": 2
+        },
+        {
+            "id": 402,
+            "level": 1
+        },
+        {
+            "id": 403,
+            "level": 2
+        },
+        {
+            "id": 405,
+            "level": 2
+        },
+        {
+            "id": 407,
+            "level": 2
+        },
+        {
+            "id": 414,
+            "level": 2
+        },
+        {
+            "id": 423,
+            "level": 2
+        },
+        {
+            "id": 430,
+            "level": 2
+        },
+        {
+            "id": 433,
+            "level": 2
+        },
+        {
+            "id": 436,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 145 167 852<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>6<|page|>1<|box|>323 176 359 818<|content|>PLAINTIFF'S REPLY IN SUPPORT OF MOTION TO STRIKE D\n<|id|>7<|page|>1<|box|>383 142 400 308<|content|>I. INTRODUCTION\n<|id|>12<|page|>2<|box|>204 140 222 279<|content|>II. ARGUMENT\n<|id|>42<|page|>7<|box|>236 140 253 557<|content|>C. GAP's Position on the Failure-to-Mitigate Defen\n<|id|>53<|page|>8<|box|>440 142 455 300<|content|>III. CONCLUSION\n<|id|>57<|page|>8<|box|>672 176 689 723<|content|>GREENFIELD AGRICULTURAL PARTNERS LLC, By its attor\n<|id|>58<|page|>8<|box|>698 176 714 482<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>66<|page|>8<|box|>869 375 885 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>42<|level|>3\n<|id|>53<|level|>2\n<|id|>57<|level|>-1\n<|id|>58<|level|>-1\n<|id|>66<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        }
+    ]
+}

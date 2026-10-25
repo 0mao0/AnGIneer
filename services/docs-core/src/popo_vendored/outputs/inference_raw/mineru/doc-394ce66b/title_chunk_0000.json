@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>375 140 392 437<|content|>1. Introduction and Purpose of Letter\n<|id|>12<|page|>2<|box|>148 140 167 535<|content|>2. Background — Original Series 2024-A Issuance\n<|id|>19<|page|>3<|box|>90 140 107 444<|content|>3. Summary of Proposed Tap Issuance\n<|id|>27<|page|>4<|box|>304 140 321 462<|content|>4. Tap Pool — Collateral Characteristics\n<|id|>32<|page|>4<|box|>753 143 772 382<|content|>Equipment Type Distribution:\n<|id|>39<|page|>5<|box|>599 140 617 480<|content|>5. Post-Tap Credit Enhancement Structure\n<|id|>41<|page|>5<|box|>689 140 705 318<|content|>Overcollateralization:\n<|id|>44<|page|>6<|box|>135 142 151 285<|content|>Reserve Account:\n<|id|>46<|page|>6<|box|>277 140 294 267<|content|>Subordination:\n<|id|>48<|page|>6<|box|>385 142 402 264<|content|>Excess Spread:\n<|id|>56<|page|>6<|box|>710 140 727 354<|content|>6. Servicing Arrangements\n<|id|>64<|page|>7<|box|>429 140 446 320<|content|>7. Transaction Parties\n<|id|>68<|page|>8<|box|>148 140 167 313<|content|>8. Rating Agency Fee\n<|id|>71<|page|>8<|box|>388 140 405 315<|content|>9. Enclosed Materials\n<|id|>78<|page|>9<|box|>90 142 107 366<|content|>10. Requested Confirmation\n<|id|>85<|page|>9<|box|>616 142 633 336<|content|>11. Contact Information\n<|id|>104<|page|>10<|box|>467 142 484 240<|content|>Enclosures:",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>19<|level|>1\n<|id|>27<|level|>1\n<|id|>32<|level|>2\n<|id|>39<|level|>1\n<|id|>41<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>56<|level|>1\n<|id|>64<|level|>1\n<|id|>68<|level|>1\n<|id|>71<|level|>1\n<|id|>78<|level|>1\n<|id|>85<|level|>1\n<|id|>104<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        }
+    ]
+}

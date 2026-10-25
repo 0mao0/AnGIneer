@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        50,
+        100
+    ],
+    "pages": [
+        50,
+        51,
+        57,
+        59,
+        71,
+        79,
+        96,
+        99,
+        100
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>220<|page|>50<|box|>122 420 133 572<|content|>(Dollar amounts in millions)\n<|id|>222<|page|>51<|box|>151 87 160 292<|content|>Source: ... Bureau of the Public Debt\n<|id|>232<|page|>51<|box|>403 81 420 470<|content|>13/ Sold at auction through competitive and noncompetitive bidding. ... 79%)\n<|id|>285<|page|>51<|box|>862 524 872 650<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>301<|page|>57<|box|>86 286 116 713<|content|>Table PDO-7. ... - Disposition of Public Marketable Securities Other than Regular Weekly Treasury Bills\n<|id|>302<|page|>57<|box|>119 420 129 570<|content|>(Dollar amounts in millions)\n<|id|>305<|page|>59<|box|>137 94 146 294<|content|>Source: ... Bureau of the Public Debt\n<|id|>358<|page|>71<|box|>101 101 192 491<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>359<|page|>71<|box|>101 515 190 903<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1974\n<|id|>381<|page|>79<|box|>129 87 304 475<|content|>The monthly Treasury Survey of Ownership covers se...ished for banks and insurance companies in the May\n<|id|>382<|page|>79<|box|>130 516 184 905<|content|>1941 Treasury Bulletin, for corporations and savin...nd local governments in the February 1962 Bulletin\n<|id|>456<|page|>96<|box|>643 84 662 481<|content|>3/ Data on the two lines shown for this date diffe...e. ... Figures on the first line are comparable in\n<|id|>459<|page|>96<|box|>636 503 646 593<|content|>p Preliminary. ... p Preliminary\n<|id|>478<|page|>99<|box|>653 192 673 462<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>479<|page|>99<|box|>679 192 706 451<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>481<|page|>99<|box|>440 551 453 743<|content|>(EQ2) E_{x} = \\Sigma(\\Delta f c_{i}/\\$ * X_{i}/\\Sigma X)\n<|id|>482<|page|>99<|box|>457 573 484 882<|content|>Where: ... E_{x} is the weighted average of percentage changes in the foreign currency cost of dollars\n<|id|>483<|page|>99<|box|>490 625 511 877<|content|>\\Delta f c_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>484<|page|>99<|box|>515 625 542 871<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>487<|page|>99<|box|>604 574 631 883<|content|>Where: ... and\n<|id|>488<|page|>99<|box|>636 624 662 890<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>494<|page|>100<|box|>290 90 334 491<|content|>The report forms and instructions used in the coll...istics have been revised a number of times. ... 1/\n<|id|>495<|page|>100<|box|>341 88 446 489<|content|>The present form of the published presentation of ...rt-term liquid claims of large nonbanking concerns",
+    "raw_response": "<|src_id|>358<|tgt_id|>359\n<|src_id|>381<|tgt_id|>382",
+    "parsed": [
+        {
+            "src_id": 358,
+            "tgt_id": 359
+        },
+        {
+            "src_id": 381,
+            "tgt_id": 382
+        }
+    ]
+}

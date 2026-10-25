@@ -1,0 +1,147 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        54,
+        105
+    ],
+    "pages": [
+        55,
+        67,
+        69,
+        70,
+        72,
+        73,
+        74,
+        78,
+        79,
+        80,
+        81,
+        91,
+        92,
+        93,
+        96,
+        97,
+        99,
+        100,
+        103,
+        104,
+        105
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>257<|page|>55<|box|>79 139 113 825<|content|>Section II - Interest-Bearing Securities Issued by\n<|id|>287<|page|>67<|box|>474 352 488 642<|content|>Section I - Summary by Periods\n<|id|>288<|page|>67<|box|>490 134 505 860<|content|>Table 1.- Net Capital Movement between the United\n<|id|>292<|page|>69<|box|>71 345 88 629<|content|>Section I - Summary by Periods\n<|id|>294<|page|>70<|box|>73 350 88 666<|content|>Section II - Summary by Countries\n<|id|>297<|page|>72<|box|>84 348 97 666<|content|>Section II - Summary by Countries\n<|id|>299<|page|>73<|box|>75 330 93 642<|content|>Section II - Summary by Countries\n<|id|>301<|page|>74<|box|>75 276 91 710<|content|>Section III - Preliminary Details by Countries\n<|id|>307<|page|>78<|box|>71 166 128 813<|content|>Section IV - Supplementary Data by Countries Table\n<|id|>314<|page|>79<|box|>51 250 64 730<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>320<|page|>80<|box|>86 193 119 796<|content|>Section I - Statements of Financial Condition, Dec\n<|id|>322<|page|>81<|box|>71 198 90 799<|content|>Section I - Statements of Financial Condition, Dec\n<|id|>337<|page|>91<|box|>79 191 112 794<|content|>Section I - Statements of Financial Condition, Dec\n<|id|>339<|page|>92<|box|>45 253 60 739<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>340<|page|>92<|box|>75 192 110 795<|content|>Section I - Statements of Financial Condition, Dec\n<|id|>342<|page|>93<|box|>45 252 58 737<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>346<|page|>96<|box|>46 260 60 742<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>347<|page|>96<|box|>77 199 92 802<|content|>Section I - Statements of Financial Condition, Dec\n<|id|>348<|page|>96<|box|>97 335 110 661<|content|>Table 4.- Certain Other Activities\n<|id|>352<|page|>97<|box|>80 188 113 789<|content|>Section I - Statements of Financial Condition, Dec\n<|id|>356<|page|>99<|box|>88 193 102 801<|content|>Section I - Statements of Financial Condition, Dec\n<|id|>359<|page|>100<|box|>71 199 105 793<|content|>Section I - Statements of Financial Condition, Dec\n<|id|>363<|page|>103<|box|>71 59 106 911<|content|>Section I - Statements of Financial Condition, Dec\n<|id|>365<|page|>104<|box|>75 201 90 807<|content|>Section I - Statements of Financial Condition, Dec\n<|id|>369<|page|>105<|box|>92 392 107 587<|content|>Footnotes to Table 2\n<|id|>389<|page|>105<|box|>420 392 435 585<|content|>Footnotes to Table 3\n<|id|>399<|page|>105<|box|>514 392 527 587<|content|>Footnotes to Table 4\n<|id|>405<|page|>105<|box|>662 395 677 587<|content|>Footnotes to Table 6",
+    "raw_response": "<|id|>257<|level|>1\n<|id|>287<|level|>1\n<|id|>288<|level|>2\n<|id|>292<|level|>1\n<|id|>294<|level|>1\n<|id|>297<|level|>1\n<|id|>299<|level|>1\n<|id|>301<|level|>1\n<|id|>307<|level|>1\n<|id|>314<|level|>2\n<|id|>320<|level|>1\n<|id|>322<|level|>1\n<|id|>337<|level|>1\n<|id|>339<|level|>2\n<|id|>340<|level|>1\n<|id|>342<|level|>2\n<|id|>346<|level|>2\n<|id|>347<|level|>1\n<|id|>348<|level|>2\n<|id|>352<|level|>1\n<|id|>356<|level|>1\n<|id|>359<|level|>1\n<|id|>363<|level|>1\n<|id|>365<|level|>1\n<|id|>369<|level|>2\n<|id|>389<|level|>2\n<|id|>399<|level|>2\n<|id|>405<|level|>2",
+    "parsed": [
+        {
+            "id": 257,
+            "level": 1
+        },
+        {
+            "id": 287,
+            "level": 1
+        },
+        {
+            "id": 288,
+            "level": 2
+        },
+        {
+            "id": 292,
+            "level": 1
+        },
+        {
+            "id": 294,
+            "level": 1
+        },
+        {
+            "id": 297,
+            "level": 1
+        },
+        {
+            "id": 299,
+            "level": 1
+        },
+        {
+            "id": 301,
+            "level": 1
+        },
+        {
+            "id": 307,
+            "level": 1
+        },
+        {
+            "id": 314,
+            "level": 2
+        },
+        {
+            "id": 320,
+            "level": 1
+        },
+        {
+            "id": 322,
+            "level": 1
+        },
+        {
+            "id": 337,
+            "level": 1
+        },
+        {
+            "id": 339,
+            "level": 2
+        },
+        {
+            "id": 340,
+            "level": 1
+        },
+        {
+            "id": 342,
+            "level": 2
+        },
+        {
+            "id": 346,
+            "level": 2
+        },
+        {
+            "id": 347,
+            "level": 1
+        },
+        {
+            "id": 348,
+            "level": 2
+        },
+        {
+            "id": 352,
+            "level": 1
+        },
+        {
+            "id": 356,
+            "level": 1
+        },
+        {
+            "id": 359,
+            "level": 1
+        },
+        {
+            "id": 363,
+            "level": 1
+        },
+        {
+            "id": 365,
+            "level": 1
+        },
+        {
+            "id": 369,
+            "level": 2
+        },
+        {
+            "id": 389,
+            "level": 2
+        },
+        {
+            "id": 399,
+            "level": 2
+        },
+        {
+            "id": 405,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>356 140 375 359<|content|>I. Purpose and Transmittal\n<|id|>13<|type|>title<|page|>2<|box|>186 140 204 374<|content|>II. Summary of Key Changes\n<|id|>14<|type|>title<|page|>2<|box|>217 142 234 333<|content|>1. Definitions (Article I)\n<|id|>21<|type|>title<|page|>3<|box|>630 140 648 439<|content|>2. Interest Rate Provisions (Article II)\n<|id|>29<|type|>title<|page|>4<|box|>583 140 599 666<|content|>3. Amortization and Prepayment Provisions (Article\n<|id|>36<|type|>title<|page|>5<|box|>719 140 736 426<|content|>4. Financial Covenants (Article VII)\n<|id|>42<|type|>title<|page|>7<|box|>138 140 157 511<|content|>5. Representations and Warranties (Article IV)\n<|id|>48<|type|>title<|page|>8<|box|>212 140 229 413<|content|>6. Negative Covenants (Article VI)\n<|id|>55<|type|>title<|page|>9<|box|>484 140 501 501<|content|>7. Conditions Precedent to Closing (Article V)\n<|id|>68<|type|>title<|page|>11<|box|>638 140 656 653<|content|>8. Agency and Collateral Agent Provisions (Article\n<|id|>72<|type|>title<|page|>12<|box|>323 140 339 354<|content|>9. Intercreditor Provisions\n<|id|>75<|type|>title<|page|>12<|box|>641 142 657 477<|content|>10. Miscellaneous / Boilerplate (Article XI)\n<|id|>89<|type|>title<|page|>13<|box|>656 142 672 450<|content|>III. Lender Commitment Confirmation\n<|id|>91<|type|>table<|page|>13<|box|>724 143 904 852<|content|>None\n<|id|>92<|type|>table<|page|>14<|box|>88 143 109 852<|content|>None\n<|id|>94<|type|>title<|page|>14<|box|>220 140 237 366<|content|>IV. Timeline and Next Steps\n<|id|>102<|type|>title<|page|>14<|box|>808 142 825 256<|content|>V. Enclosures",
+    "raw_response": "<|src_id|>91<|tgt_id|>89\n<|src_id|>92<|tgt_id|>89",
+    "parsed": [
+        {
+            "src_id": 91,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 89
+        }
+    ]
+}

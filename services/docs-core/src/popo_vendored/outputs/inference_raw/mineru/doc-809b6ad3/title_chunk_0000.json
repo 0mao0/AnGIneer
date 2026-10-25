@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 169 171 828<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL ATTORN\n<|id|>3<|page|>1<|box|>497 142 513 321<|content|>I. Executive Summary\n<|id|>12<|page|>2<|box|>508 140 527 478<|content|>II. Compliance with Reporting Obligations\n<|id|>13<|page|>2<|box|>540 142 558 343<|content|>A. Timeliness of Delivery\n<|id|>16<|page|>2<|box|>840 140 857 344<|content|>B. Content Requirements\n<|id|>25<|page|>3<|box|>542 140 560 429<|content|>III. Status of Underlying Acquisition\n<|id|>26<|page|>3<|box|>574 140 590 728<|content|>A. Equity Purchase Agreement — Third Extended Outs\n<|id|>42<|page|>4<|box|>777 140 795 344<|content|>B. Standstill Negotiations\n<|id|>52<|page|>5<|box|>742 140 758 663<|content|>C. Portland Metropolitan Water District Concession\n<|id|>59<|page|>7<|box|>90 140 108 410<|content|>IV. Regulatory Approvals Update\n<|id|>60<|page|>7<|box|>121 140 138 339<|content|>A. FERC §203 Approval\n<|id|>68<|page|>7<|box|>714 140 733 338<|content|>B. Oregon PUC (OPUC)\n<|id|>75<|page|>8<|box|>549 140 566 302<|content|>V. Financing Status\n<|id|>76<|page|>8<|box|>579 140 597 454<|content|>A. Debt Commitment Letter Expiration\n<|id|>86<|page|>9<|box|>719 140 736 553<|content|>B. Representations and Warranties Insurance Policy\n<|id|>95<|page|>10<|box|>532 140 549 563<|content|>VI. Financial Position of ICM Cascadia Co-Invest,\n<|id|>96<|page|>10<|box|>563 142 580 377<|content|>A. Capital Account Summary\n<|id|>104<|page|>11<|box|>351 140 369 477<|content|>B. Vehicle Operating Expenses — Q4 2023\n<|id|>114<|page|>12<|box|>148 140 167 596<|content|>VII. GP's Assessment of Dormancy Duration and Outl\n<|id|>125<|page|>13<|box|>267 140 284 581<|content|>VIII. Open Items and Recommended Follow-Up Actions\n<|id|>126<|page|>13<|box|>297 140 315 532<|content|>A. Items Requiring Ironside Response or Decision\n<|id|>134<|page|>14<|box|>90 140 107 372<|content|>B. Items for C&H Follow-Up\n<|id|>141<|page|>14<|box|>643 140 660 264<|content|>IX. Conclusion\n<|id|>161<|page|>16<|box|>89 143 103 204<|content|>COPIES\n<|id|>163<|page|>16<|box|>220 142 234 364<|content|>FILE: C&H Matter No. 1023-00001",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>16<|level|>3\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>42<|level|>3\n<|id|>52<|level|>3\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>68<|level|>3\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>86<|level|>3\n<|id|>95<|level|>2\n<|id|>96<|level|>3\n<|id|>104<|level|>3\n<|id|>114<|level|>2\n<|id|>125<|level|>2\n<|id|>126<|level|>3\n<|id|>134<|level|>3\n<|id|>141<|level|>2\n<|id|>161<|level|>2\n<|id|>163<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        }
+    ]
+}

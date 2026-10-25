@@ -1,0 +1,52 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>319 140 335 397<|content|>I. Introduction and Background\n<|id|>13<|type|>title<|page|>2<|box|>304 140 321 351<|content|>II. Purpose of the Request\n<|id|>20<|type|>title<|page|>3<|box|>297 140 314 676<|content|>III. Identification of Financial Statements and Fi\n<|id|>22<|type|>title<|page|>3<|box|>391 140 407 504<|content|>A. Audited Consolidated Financial Statements\n<|id|>31<|type|>table<|page|>3<|box|>753 143 885 852<|content|>None\n<|id|>32<|type|>table<|page|>4<|box|>147 143 261 852<|content|>None\n<|id|>33<|type|>title<|page|>4<|box|>294 143 311 444<|content|>Fiscal Year Ended December 31, 2019:\n<|id|>34<|type|>table<|page|>4<|box|>319 143 431 852<|content|>None\n<|id|>35<|type|>title<|page|>4<|box|>470 143 487 488<|content|>B. Unaudited Interim Financial Information\n<|id|>41<|type|>table<|page|>4<|box|>676 143 787 852<|content|>None\n<|id|>43<|type|>title<|page|>5<|box|>138 140 157 707<|content|>C. Financial Information Appearing Outside of the\n<|id|>60<|type|>title<|page|>6<|box|>479 142 497 483<|content|>IV. Requested Procedures — Independence\n<|id|>62<|type|>title<|page|>6<|box|>729 140 747 598<|content|>V. Requested Procedures — Audited Financial Statem\n<|id|>68<|type|>title<|page|>7<|box|>292 140 310 694<|content|>VI. Requested Procedures — Unaudited Interim Finan\n<|id|>74<|type|>title<|page|>7<|box|>829 140 847 498<|content|>VII. Requested Procedures — Change Period\n<|id|>86<|type|>title<|page|>9<|box|>277 140 294 686<|content|>VIII. Requested Procedures — Specific Financial Da\n<|id|>104<|type|>title<|page|>11<|box|>186 140 203 542<|content|>IX. Requested Procedures — Tables and Schedules\n<|id|>112<|type|>table<|page|>11<|box|>739 143 900 852<|content|>None\n<|id|>114<|type|>title<|page|>12<|box|>200 140 218 514<|content|>X. Requested Procedures — Subsequent Events\n<|id|>124<|type|>title<|page|>12<|box|>713 140 729 753<|content|>XI. Requested Procedures — HLBV Methodology and Ta\n<|id|>131<|type|>title<|page|>14<|box|>90 142 107 447<|content|>XII. Comfort Letter Delivery Schedule\n<|id|>132<|type|>table<|page|>14<|box|>159 143 294 852<|content|>None\n<|id|>135<|type|>title<|page|>14<|box|>579 140 595 362<|content|>XIII. Scope and Addressees\n<|id|>153<|type|>title<|page|>15<|box|>256 140 273 411<|content|>XIV. Form and Scope Limitations\n<|id|>160<|type|>title<|page|>16<|box|>148 140 167 450<|content|>XV. Contact Information and Logistics\n<|id|>162<|type|>title<|page|>16<|box|>220 142 236 325<|content|>Underwriter Contacts:\n<|id|>165<|type|>title<|page|>16<|box|>334 142 352 303<|content|>Company Contacts:\n<|id|>167<|type|>title<|page|>16<|box|>422 140 439 267<|content|>A&P Contacts:\n<|id|>174<|type|>title<|page|>16<|box|>771 140 787 251<|content|>XVI. Closing\n<|id|>178<|type|>title<|page|>17<|box|>186 140 203 738<|content|>HARGROVE KEATING & CO. As Representative of the Se",
+    "raw_response": "<|src_id|>31<|tgt_id|>22\n<|src_id|>32<|tgt_id|>22\n<|src_id|>34<|tgt_id|>33\n<|src_id|>41<|tgt_id|>35\n<|src_id|>112<|tgt_id|>104\n<|src_id|>132<|tgt_id|>131",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 131
+        }
+    ]
+}

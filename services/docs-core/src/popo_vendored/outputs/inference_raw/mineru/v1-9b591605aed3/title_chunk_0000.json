@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 292<|content|>【5216158#2】东北文化\n<|id|>2<|page|>1<|box|>209 107 225 302<|content|>【455#65】内蒙古自治区\n<|id|>4<|page|>1<|box|>310 105 326 364<|content|>【7537348#7】内蒙古自治区经济\n<|id|>6<|page|>1<|box|>410 107 426 302<|content|>【455#66】内蒙古自治区\n<|id|>8<|page|>1<|box|>512 107 527 257<|content|>【5308#84】蒙古国\n<|id|>10<|page|>1<|box|>613 107 629 337<|content|>【5619463#13】喀尔喀蒙古族\n<|id|>12<|page|>1<|box|>696 105 713 364<|content|>【7537348#6】内蒙古自治区经济\n<|id|>14<|page|>1<|box|>797 105 813 371<|content|>【3928005#39】中国东北地区历史\n<|id|>16<|page|>2<|box|>83 107 99 329<|content|>【78999#0】内蒙古农业大学\n<|id|>18<|page|>2<|box|>184 107 200 302<|content|>【455#80】内蒙古自治区",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>3\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>3\n<|id|>12<|level|>3\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        }
+    ]
+}

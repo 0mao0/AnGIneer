@@ -1,0 +1,207 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9yaa3dbu\\input\\pdfs\\doc-61d86a61.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9yaa3dbu\\enriched\\doc-61d86a61.json",
+    "contd_output": "<|src_id|>131<|tgt_id|>132",
+    "title_output": "<|id|>2<|level|>1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>3\n<|id|>27<|level|>4\n<|id|>37<|level|>3\n<|id|>48<|level|>3\n<|id|>55<|level|>3\n<|id|>57<|level|>4\n<|id|>61<|level|>4\n<|id|>65<|level|>4\n<|id|>69<|level|>4\n<|id|>73<|level|>4\n<|id|>77<|level|>4\n<|id|>81<|level|>4\n<|id|>97<|level|>4\n<|id|>100<|level|>3\n<|id|>105<|level|>2\n<|id|>120<|level|>2\n<|id|>122<|level|>3\n<|id|>128<|level|>3\n<|id|>138<|level|>3\n<|id|>142<|level|>3\n<|id|>148<|level|>2\n<|id|>156<|level|>2\n<|id|>162<|level|>2\n<|id|>163<|level|>3\n<|id|>167<|level|>2\n<|id|>182<|level|>2",
+    "image_output": "<|src_id|>184<|tgt_id|>182\n<|src_id|>185<|tgt_id|>182\n<|src_id|>186<|tgt_id|>182\n<|src_id|>187<|tgt_id|>182\n<|src_id|>188<|tgt_id|>182\n<|src_id|>189<|tgt_id|>182\n<|src_id|>190<|tgt_id|>182",
+    "contd_label": [
+        {
+            "src_id": 131,
+            "tgt_id": 132
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 4
+        },
+        {
+            "id": 73,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 81,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 184,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 182
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 186,
+            "table2_idx": 187,
+            "upper_row_ss": [
+                [
+                    "Seller's Counsel —",
+                    "David Soo",
+                    "Soo, David; D. Soo",
+                    "Individual"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Attorney",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 188,
+            "table2_idx": 189,
+            "upper_row_ss": [
+                [
+                    "R&W Insurance Carrier",
+                    "Sentinel Specialty Insurance Company",
+                    "Sentinel Specialty Insurance; Sentinel",
+                    "Entity"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Specialty; Sentinel; SSIC",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

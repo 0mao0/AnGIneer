@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>398 142 416 233<|content|>Dear Elliot:\n<|id|>12<|page|>1<|box|>540 142 556 334<|content|>1. Closing Confirmation\n<|id|>17<|page|>2<|box|>204 140 222 354<|content|>2. Financing Confirmation\n<|id|>26<|page|>2<|box|>767 176 784 348<|content|>Financial Covenants:\n<|id|>34<|page|>3<|box|>460 140 477 584<|content|>3. Equity Contributions and Joint Venture Confirma\n<|id|>48<|page|>4<|box|>286 140 303 470<|content|>4. Post-Closing Obligations and Deadlines\n<|id|>50<|page|>4<|box|>417 140 434 433<|content|>4.1 Recording of Deed and Mortgage\n<|id|>53<|page|>4<|box|>698 140 715 387<|content|>4.2 UCC Financing Statements\n<|id|>56<|page|>5<|box|>90 140 106 401<|content|>4.3 Final Title Insurance Policies\n<|id|>62<|page|>5<|box|>412 140 430 437<|content|>4.4 Property Management Transition\n<|id|>73<|page|>6<|box|>138 140 156 387<|content|>4.5 Tenant Notification Letters\n<|id|>82<|page|>6<|box|>618 140 635 362<|content|>4.6 Insurance Confirmation\n<|id|>92<|page|>7<|box|>289 140 306 434<|content|>4.7 Miscellaneous Post-Closing Items\n<|id|>99<|page|>8<|box|>90 140 108 419<|content|>5. Ongoing Compliance Reminders\n<|id|>109<|page|>9<|box|>194 140 210 470<|content|>6. Index of Enclosed Executed Documents\n<|id|>142<|page|>10<|box|>794 140 811 300<|content|>7. Closing Remarks\n<|id|>152<|page|>11<|box|>491 140 508 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>10<|level|>-1\n<|id|>12<|level|>1\n<|id|>17<|level|>1\n<|id|>26<|level|>2\n<|id|>34<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>73<|level|>2\n<|id|>82<|level|>2\n<|id|>92<|level|>2\n<|id|>99<|level|>1\n<|id|>109<|level|>1\n<|id|>142<|level|>1\n<|id|>152<|level|>-1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        }
+    ]
+}

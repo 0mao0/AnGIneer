@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 820<|content|>LOUDOUN COUNTY CIRCUIT COURT CLERK — RECORDING SPA\n<|id|>1<|page|>1<|box|>112 372 128 625<|content|>SPECIAL WARRANTY DEED\n<|id|>2<|page|>1<|box|>138 383 156 856<|content|>Tax Map Reference: Loudoun County Tax Map Ref. /95\n<|id|>4<|page|>1<|box|>191 143 208 357<|content|>Prepared by and return to:\n<|id|>10<|page|>1<|box|>378 372 395 625<|content|>SPECIAL WARRANTY DEED\n<|id|>14<|page|>1<|box|>537 140 554 189<|content|>AND\n<|id|>17<|page|>1<|box|>684 140 700 326<|content|>GRANTING CLAUSE\n<|id|>22<|page|>2<|box|>347 140 364 334<|content|>HABENDUM CLAUSE\n<|id|>24<|page|>2<|box|>469 140 486 429<|content|>SPECIAL WARRANTY OF TITLE\n<|id|>28<|page|>2<|box|>808 140 824 506<|content|>SUBJECT-TO / PERMITTED EXCEPTIONS\n<|id|>36<|page|>3<|box|>448 142 465 468<|content|>TAX PRORATION AND ASSESSMENT\n<|id|>38<|page|>3<|box|>698 140 715 537<|content|>GRANTOR AUTHORITY REPRESENTATIONS\n<|id|>44<|page|>4<|box|>210 140 229 519<|content|>FIRPTA / WITHHOLDING CERTIFICATION\n<|id|>46<|page|>4<|box|>388 142 405 310<|content|>GOVERNING LAW\n<|id|>48<|page|>4<|box|>474 143 489 258<|content|>EXECUTION\n<|id|>50<|page|>4<|box|>544 142 560 246<|content|>GRANTOR:\n<|id|>56<|page|>4<|box|>656 143 672 259<|content|>WITNESSES:\n<|id|>61<|page|>4<|box|>833 143 849 540<|content|>NOTARY ACKNOWLEDGMENT — GRANTOR\n<|id|>68<|page|>5<|box|>287 142 305 397<|content|>ACCEPTANCE BY GRANTEE\n<|id|>70<|page|>5<|box|>358 142 375 243<|content|>GRANTEE:\n<|id|>79<|page|>5<|box|>556 447 574 550<|content|>EXHIBIT A\n<|id|>80<|page|>5<|box|>583 310 599 686<|content|>LEGAL DESCRIPTION OF THE PROPERTY\n<|id|>88<|page|>6<|box|>152 447 169 550<|content|>EXHIBIT B\n<|id|>89<|page|>6<|box|>178 380 194 617<|content|>PERMITTED EXCEPTIONS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>2\n<|id|>28<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>3\n<|id|>56<|level|>3\n<|id|>61<|level|>3\n<|id|>68<|level|>2\n<|id|>70<|level|>3\n<|id|>79<|level|>2\n<|id|>80<|level|>3\n<|id|>88<|level|>2\n<|id|>89<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        59,
+        114
+    ],
+    "pages": [
+        60,
+        62,
+        67,
+        90,
+        100,
+        113,
+        114
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>230<|page|>60<|box|>95 433 107 608<|content|>(Dollar Amounts in millions)\n<|id|>234<|page|>62<|box|>330 32 348 465<|content|>101/ Yields accepted ranged from 9. ... 822)\n<|id|>309<|page|>67<|box|>314 26 327 412<|content|>3/ Treasury Notes, 7-3/8% Series C-1981 and 7-3/8% Series E-1981\n<|id|>311<|page|>67<|box|>295 508 307 733<|content|>consolidated effective Sept. ... 1, 1976\n<|id|>425<|page|>90<|box|>85 96 175 458<|content|>Series E, EE and Series HH are the only savings bo... sold. ... Series H sold from June 1, 1952 through\n<|id|>426<|page|>90<|box|>81 584 176 949<|content|>December 31, 1979. ... and the Annual Report of th...of the Treasury for fiscal years 1966 through 1977\n<|id|>452<|page|>100<|box|>66 490 80 607<|content|>MAY 31, 1980\n<|id|>453<|page|>100<|box|>81 305 96 717<|content|>Table TSO-4. ... - Securities Issued by Government Agencies\n<|id|>508<|page|>113<|box|>709 118 730 419<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>509<|page|>113<|box|>735 118 764 405<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>513<|page|>113<|box|>530 587 553 865<|content|>\\Delta fc_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>514<|page|>113<|box|>556 587 583 858<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>517<|page|>113<|box|>622 531 650 872<|content|>Where: ... and\n<|id|>518<|page|>113<|box|>655 587 683 878<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>532<|page|>114<|box|>926 50 961 487<|content|>A number of changes in geographical classification..... Several countries formerly included in \"Eastern\n<|id|>533<|page|>114<|box|>175 533 293 974<|content|>Europe\" and in \"Other Latin American Republics\" ar...justed in accordance with the revised country stub",
+    "raw_response": "<|src_id|>425<|tgt_id|>426\n<|src_id|>532<|tgt_id|>533",
+    "parsed": [
+        {
+            "src_id": 425,
+            "tgt_id": 426
+        },
+        {
+            "src_id": 532,
+            "tgt_id": 533
+        }
+    ]
+}

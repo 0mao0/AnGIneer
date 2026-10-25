@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>316 192 352 803<|content|>UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF\n<|id|>10<|page|>1<|box|>439 145 489 849<|content|>Before the Honorable Margaret T. Calloway United S\n<|id|>11<|page|>1<|box|>511 142 529 436<|content|>I. Introduction and Purpose of Letter\n<|id|>16<|page|>2<|box|>267 140 284 687<|content|>II. Background and Procedural History of the Vanto\n<|id|>17<|page|>2<|box|>297 142 315 344<|content|>A. Scheduling and Notice\n<|id|>19<|page|>2<|box|>500 140 516 388<|content|>B. The August 18, 2023 Session\n<|id|>25<|page|>3<|box|>410 140 428 357<|content|>C. Topics Not Yet Covered\n<|id|>35<|page|>4<|box|>383 140 402 620<|content|>III. Stonefield Does Not Oppose Completion of the\n<|id|>41<|page|>5<|box|>90 140 107 573<|content|>IV. Request for Full Seven Hours of Examination Ti\n<|id|>42<|page|>5<|box|>121 140 138 519<|content|>A. The Circumstances Warrant Expanded Time\n<|id|>46<|page|>5<|box|>484 140 500 415<|content|>B. Justification for Extended Time\n<|id|>56<|page|>7<|box|>304 140 321 351<|content|>C. No Prejudice to Vantor\n<|id|>60<|page|>7<|box|>732 140 750 334<|content|>V. Proposed Scheduling\n<|id|>64<|page|>8<|box|>285 140 301 264<|content|>VI. Conclusion\n<|id|>78<|page|>9<|box|>90 142 107 310<|content|>Certificate of Service",
+    "raw_response": "<|id|>6<|level|>-1\n<|id|>10<|level|>-1\n<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>19<|level|>2\n<|id|>25<|level|>2\n<|id|>35<|level|>1\n<|id|>41<|level|>1\n<|id|>42<|level|>2\n<|id|>46<|level|>2\n<|id|>56<|level|>2\n<|id|>60<|level|>1\n<|id|>64<|level|>1\n<|id|>78<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        }
+    ]
+}

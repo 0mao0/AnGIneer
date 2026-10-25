@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 152 854<|content|>1201 Third Avenue, Suite 4400 Seattle, WA 98101 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 743 178 854<|content|>April 23, 2024\n<|id|>3<|page|>1<|box|>186 140 222 854<|content|>Meredith Calloway-Voss Lead Assistant Attorney Gen...ton 800 Fifth Avenue, Suite 2000 Seattle, WA 98104\n<|id|>4<|page|>1<|box|>229 174 248 813<|content|>Re: ... , dated March 26, 2024\n<|id|>5<|page|>1<|box|>256 176 273 400<|content|>C&H Matter No. ... 1038-00004\n<|id|>6<|page|>1<|box|>282 140 299 336<|content|>Dear Ms. ... Calloway-Voss\n<|id|>49<|page|>5<|box|>763 183 816 856<|content|>• Communications between Cascade's in-house legal ...regarding FTC pricing-guidance compliance; ... and\n<|id|>51<|page|>6<|box|>90 140 273 856<|content|>Cascade takes this opportunity to state expressly ... whether or not related to the same subject matter\n<|id|>69<|page|>7<|box|>691 183 744 854<|content|>• Collection and processing of structured data fro... at issue during the relevant time period; ... and\n<|id|>71<|page|>7<|box|>786 140 840 854<|content|>Cascade will promptly notify the Attorney General'...d May 31, 2024 completion date requires adjustment\n<|id|>77<|page|>8<|box|>347 176 400 854<|content|>4. ... and\n<|id|>79<|page|>8<|box|>460 140 550 854<|content|>Cascade suggests scheduling the meet-and-confer du...lease do not hesitate to suggest alternative dates\n<|id|>83<|page|>8<|box|>761 174 777 771<|content|>Calderwood & Harkness LLP 1201 Third Avenue, Suite 4400 Seattle, WA 98101\n<|id|>84<|page|>8<|box|>787 176 804 604<|content|>Patrick Gallagher, Associate Telephone: ... (206) 555-8247\n<|id|>85<|page|>8<|box|>813 176 830 514<|content|>Email: ... com\n<|id|>86<|page|>8<|box|>830 178 847 519<|content|>Alan Ngo, Partner Telephone: ... (206) 555-8212\n<|id|>87<|page|>8<|box|>857 176 873 472<|content|>Email: ... com\n<|id|>88<|page|>8<|box|>873 140 930 854<|content|>We appreciate your courtesy and cooperation in thi...fice as this process moves forward. ... 1038-00004\n<|id|>89<|page|>9<|box|>90 140 125 854<|content|>production or any other aspect of the CID response...esitate to contact us at your earliest convenience\n<|id|>90<|page|>9<|box|>135 142 152 272<|content|>Very truly yours,\n<|id|>91<|page|>9<|box|>160 140 176 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>92<|page|>9<|box|>178 143 195 253<|content|>By: ... By\n<|id|>93<|page|>9<|box|>195 143 210 351<|content|>Patrick Gallagher Associate\n<|id|>94<|page|>9<|box|>210 143 229 720<|content|>1201 Third Avenue, Suite 4400 Seattle, WA 98101 Telephone: ... (206) 555-8247\n<|id|>95<|page|>9<|box|>229 142 246 477<|content|>Email: ... com",
+    "raw_response": "<|src_id|>49<|tgt_id|>51\n<|src_id|>69<|tgt_id|>71\n<|src_id|>77<|tgt_id|>79",
+    "parsed": [
+        {
+            "src_id": 49,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 79
+        }
+    ]
+}

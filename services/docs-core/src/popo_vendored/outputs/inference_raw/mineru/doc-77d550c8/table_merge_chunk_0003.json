@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[[\"'890(11,312,890) /Cl. 1\", '\"high-speed silicon photonic Mach-Zehnder modulator\"', '\"a silicon-based Mach-Zehnder interferometric modulator operating at a data rate of at', 'Plain and ordinary meaning: \"a silicon-based Mach-Zehnder modulator', \"'890 spec. col. 5, ll. 10-30 (disclosing carrier-depletion and carrier-injection\", 'Dr. Whitfield declaration']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'least 50 Gbaud, utilizing carrier depletion in a reverse-biased p-n junction within the waveguide arms\"', 'designed for high-data-rate operation\"', 'mechanisms); col. 4, ll. 15–30 (various data rate embodiments)', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 287,
+    "table2_idx": 288
+}

@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        187,
+        201
+    ],
+    "pages": [
+        187,
+        188,
+        191,
+        192,
+        194,
+        195,
+        197,
+        198,
+        199,
+        200,
+        201
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2647<|type|>title<|page|>187<|box|>133 66 151 222<|content|>14.2 加固计算\n<|id|>2650<|type|>title<|page|>187<|box|>396 63 414 215<|content|>14.3 构造要求\n<|id|>2652<|type|>title<|page|>188<|box|>157 102 181 356<|content|>15 桥梁抗震加固\n<|id|>2653<|type|>title<|page|>188<|box|>244 101 262 255<|content|>15.1 适用范围\n<|id|>2655<|type|>title<|page|>188<|box|>418 101 437 255<|content|>15.2 抗震评估\n<|id|>2681<|type|>title<|page|>191<|box|>106 78 124 273<|content|>15.3 桥墩加固方法\n<|id|>2691<|type|>image<|page|>192<|box|>86 482 263 878<|content|>None\n<|id|>2700<|type|>image<|page|>192<|box|>567 234 762 750<|content|>None\n<|id|>2724<|type|>title<|page|>194<|box|>281 85 300 323<|content|>15.4 桥梁基础加固方法\n<|id|>2730<|type|>image<|page|>194<|box|>742 273 863 690<|content|>None\n<|id|>2732<|type|>title<|page|>195<|box|>260 56 278 232<|content|>15.5 减隔震措施\n<|id|>2748<|type|>title<|page|>197<|box|>545 71 563 246<|content|>15.6 防落梁措施\n<|id|>2752<|type|>title<|page|>198<|box|>153 80 175 366<|content|>16 混凝土裂缝处理\n<|id|>2753<|type|>title<|page|>198<|box|>240 80 257 232<|content|>16.1 一般规定\n<|id|>2755<|type|>title<|page|>198<|box|>393 80 410 275<|content|>16.3 裂缝修补方法\n<|id|>2759<|type|>title<|page|>199<|box|>156 59 180 361<|content|>17 支座、伸缩缝更换\n<|id|>2760<|type|>title<|page|>199<|box|>242 56 260 212<|content|>17.1 支座更换\n<|id|>2762<|type|>title<|page|>200<|box|>151 95 207 750<|content|>附录 C 钢筋混凝土矩形截面偏心受压构件应力 (应变)计算\n<|id|>2766<|type|>title<|page|>201<|box|>148 56 202 773<|content|>附录 E 体外索加固体系结构分析方法和简支体系的内力计算方法",
+    "raw_response": "<|src_id|>2691<|tgt_id|>2681\n<|src_id|>2700<|tgt_id|>2681\n<|src_id|>2730<|tgt_id|>2724",
+    "parsed": [
+        {
+            "src_id": 2691,
+            "tgt_id": 2681
+        },
+        {
+            "src_id": 2700,
+            "tgt_id": 2681
+        },
+        {
+            "src_id": 2730,
+            "tgt_id": 2724
+        }
+    ]
+}

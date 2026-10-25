@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 282 130 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>2<|page|>1<|box|>138 263 156 735<|content|>599 Lexington Avenue, 38th Floor New York, New Yor\n<|id|>19<|page|>2<|box|>231 140 248 410<|content|>1. Payment Amount and Deadline\n<|id|>23<|page|>2<|box|>604 140 622 684<|content|>2. Wire Transfer Instructions for Beneficiary (Vec\n<|id|>29<|page|>3<|box|>463 140 479 522<|content|>3. Instructions to Halcyon Treasury Department\n<|id|>38<|page|>4<|box|>375 140 391 633<|content|>4. Instructions to Ironclad National Bank, N.A. (E\n<|id|>42<|page|>4<|box|>840 140 858 403<|content|>5. Confirmation and Compliance\n<|id|>47<|page|>5<|box|>531 140 547 357<|content|>6. Fraud Prevention Notice\n<|id|>48<|page|>5<|box|>556 140 573 630<|content|>IMPORTANT — WIRE FRAUD PREVENTION ADVISORY\n<|id|>54<|page|>6<|box|>223 140 239 209<|content|>Closing",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>19<|level|>1\n<|id|>23<|level|>1\n<|id|>29<|level|>1\n<|id|>38<|level|>1\n<|id|>42<|level|>1\n<|id|>47<|level|>1\n<|id|>48<|level|>2\n<|id|>54<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        }
+    ]
+}

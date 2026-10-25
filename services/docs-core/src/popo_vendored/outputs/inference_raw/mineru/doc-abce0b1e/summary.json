@@ -1,0 +1,205 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bcpurjpz\\input\\pdfs\\doc-abce0b1e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bcpurjpz\\enriched\\doc-abce0b1e.json",
+    "contd_output": "<|src_id|>36<|tgt_id|>37\n<|src_id|>129<|tgt_id|>130",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>23<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>3\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>60<|level|>3\n<|id|>67<|level|>3\n<|id|>74<|level|>2\n<|id|>76<|level|>3\n<|id|>97<|level|>3\n<|id|>120<|level|>3\n<|id|>139<|level|>3\n<|id|>151<|level|>3\n<|id|>165<|level|>3\n<|id|>187<|level|>2\n<|id|>188<|level|>3\n<|id|>196<|level|>3\n<|id|>199<|level|>3\n<|id|>206<|level|>2\n<|id|>207<|level|>3\n<|id|>212<|level|>3\n<|id|>214<|level|>4\n<|id|>216<|level|>4\n<|id|>218<|level|>4\n<|id|>220<|level|>4\n<|id|>222<|level|>4\n<|id|>224<|level|>4\n<|id|>226<|level|>3\n<|id|>232<|level|>2\n<|id|>233<|level|>3\n<|id|>237<|level|>3\n<|id|>243<|level|>3\n<|id|>248<|level|>2",
+    "image_output": "<|src_id|>209<|tgt_id|>207\n<|src_id|>210<|tgt_id|>207\n<|src_id|>228<|tgt_id|>226",
+    "contd_label": [
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 130
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 3
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 3
+        },
+        {
+            "id": 212,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 4
+        },
+        {
+            "id": 216,
+            "level": 4
+        },
+        {
+            "id": 218,
+            "level": 4
+        },
+        {
+            "id": 220,
+            "level": 4
+        },
+        {
+            "id": 222,
+            "level": 4
+        },
+        {
+            "id": 224,
+            "level": 4
+        },
+        {
+            "id": 226,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 2
+        },
+        {
+            "id": 233,
+            "level": 3
+        },
+        {
+            "id": 237,
+            "level": 3
+        },
+        {
+            "id": 243,
+            "level": 3
+        },
+        {
+            "id": 248,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 209,
+            "tgt_id": 207
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 207
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 226
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 209,
+            "table2_idx": 210,
+            "upper_row_ss": [
+                [
+                    "Voluntary joint notice filed",
+                    "April 4, 2025",
+                    "Tracking No. CFIUS-2025-0087"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

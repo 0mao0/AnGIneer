@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 13,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['[Step (e)] \"circulating the liquid coolant through the enclosed micro-channel passages at a flow rate sufficient to maintain a temperature uniformity across the photonic waveguide layer of ±0.5°C or better during operation of the photonic integrated circuit\"', 'Not disclosed.', \"MISSING. Bergmann does not disclose circulating liquid coolant (it uses air), does not address temperature uniformity across a photonic waveguide layer (no such layer exists in its device), and does not specify any temperature uniformity requirement. Bergmann's cooling approach is designed to prevent thermal throttling of a microprocessor — a much coarser thermal management objective (maintaining junction temperature below a maximum threshold) — not\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'the fine-grained temperature uniformity required for PIC operation.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 304,
+    "table2_idx": 305
+}

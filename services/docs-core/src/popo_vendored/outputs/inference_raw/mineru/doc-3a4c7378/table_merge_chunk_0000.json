@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['\"wherein the waveguide multiplexer is monolithically formed on a silicon substrate comprising a silicon device', 'Accused Element: The silicon photonic integrated circuit in the LumiLink 400G-ZR+ is fabricated on a']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['layer disposed on a buried oxide layer;\"', 'silicon-on-insulator (SOI) substrate comprising a silicon device layer disposed on a buried oxide (Box) layer. The Benchmark teardown report (Exhibit OWS-1001 at pp. 28–30) confirmed the SOI substrate through cross-sectional SEM analysis and EDS elemental mapping. The cross-sectional SEM image (Exhibit OWS-1012) shows the silicon device layer (approximately 220 nm thick), the buried oxide layer (approximately 2 μm thick), and the silicon handle wafer beneath. Luminore engineering specifications (LC-00008103 at p. 7) identify the fabrication platform as \"standard SOI with 220 nm Si device layer on 2 μm box.\" Dr. Michaud testified at her deposition (November 19, 2024, at 52:7–53:4) that the LumiLink product line is fabricated on an SOI platform.Dr.Ashford\\'s Explanation:The claim requires that the waveguide multiplexer be monolithically formed on a silicon substrate comprising a silicon device layer disposed on a buried oxide layer. The Benchmark teardown\\'s cross-sectional SEM analysis conclusively confirms that the LumiLink 400G-ZR+\\'s PIC, including the waveguide multiplexer, is fabricated on an SOI substrate with the recited layered structure. The silicon device layer forms the waveguide cores, and the buried oxide layer provides optical confinement. This is the standard SOI waveguide platform used throughout the silicon photonics industry, and the accused product employs it exactly as recited in the claim.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 72,
+    "table2_idx": 73
+}

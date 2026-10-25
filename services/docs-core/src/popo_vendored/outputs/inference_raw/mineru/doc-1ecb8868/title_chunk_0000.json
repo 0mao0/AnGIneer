@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>136 153 180 844<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF AURELIUS\n<|id|>1<|page|>1<|box|>196 228 215 767<|content|>Adopted at a Meeting of the Board of Directors hel\n<|id|>2<|page|>1<|box|>238 142 253 393<|content|>PREAMBLE AND RECITALS\n<|id|>33<|page|>5<|box|>611 140 628 279<|content|>RESOLUTIONS\n<|id|>35<|page|>5<|box|>669 140 686 573<|content|>Resolution 1 — Tabling of the CEO Succession Proce\n<|id|>39<|page|>6<|box|>231 140 248 555<|content|>Resolution 2 — Dissolution of the Special Committe\n<|id|>44<|page|>6<|box|>638 140 655 826<|content|>Resolution 3 — Continuation of Priya Nair-Whitfiel\n<|id|>48<|page|>7<|box|>286 140 304 671<|content|>Resolution 4 — Status of Hargrove Tate Partners LL\n<|id|>52<|page|>7<|box|>703 140 720 754<|content|>Resolution 5 — Preservation of Special Committee R\n<|id|>57<|page|>8<|box|>465 140 483 465<|content|>Resolution 6 — Authorization of Officers\n<|id|>64<|page|>9<|box|>220 142 237 362<|content|>Resolution 7 — Ratification\n<|id|>67<|page|>9<|box|>420 140 436 405<|content|>SECRETARY'S CERTIFICATE\n<|id|>80<|page|>11<|box|>89 142 107 243<|content|>EXHIBIT A\n<|id|>81<|page|>11<|box|>114 228 133 767<|content|>LIST OF SPECIAL COMMITTEE MEMBERS (For Reference O\n<|id|>85<|page|>12<|box|>89 142 107 243<|content|>EXHIBIT B\n<|id|>86<|page|>12<|box|>114 156 133 839<|content|>DIRECTORS PRESENT AT MEETING OF JUNE 14, 2024 (Ful\n<|id|>89<|page|>13<|box|>222 140 237 339<|content|>End of Resolutions and Exhibits",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>3\n<|id|>39<|level|>3\n<|id|>44<|level|>3\n<|id|>48<|level|>3\n<|id|>52<|level|>3\n<|id|>57<|level|>3\n<|id|>64<|level|>3\n<|id|>67<|level|>2\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>85<|level|>2\n<|id|>86<|level|>3\n<|id|>89<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        14,
+        22,
+        24,
+        26
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>348 290 410 703<|content|>疏浚工程船舶艘班费用定额\n<|id|>2<|page|>1<|box|>441 224 482 770<|content|>Unit Expense Quota for Ships of Dredging Engineeri\n<|id|>6<|page|>2<|box|>133 379 166 596<|content|>中华人民共和国行业标准\n<|id|>7<|page|>2<|box|>197 305 244 672<|content|>疏浚工程船舶艘班费用定额\n<|id|>15<|page|>3<|box|>96 193 211 788<|content|>交通运输部关于发布《水运建设工程概算预算编制规定》及其配套定额的公告\n<|id|>22<|page|>5<|box|>106 399 156 585<|content|>修订说明\n<|id|>33<|page|>7<|box|>112 432 162 563<|content|>目 次\n<|id|>35<|page|>8<|box|>110 430 162 570<|content|>说明\n<|id|>52<|page|>9<|box|>372 178 403 348<|content|>（二）船舶停置艘班费\n<|id|>59<|page|>9<|box|>653 181 682 296<|content|>四、其他说明。\n<|id|>70<|page|>14<|box|>143 419 170 589<|content|>一、船舶艘班费用定额\n<|id|>80<|page|>22<|box|>120 407 147 611<|content|>二、排泥管线台班费用定额\n<|id|>84<|page|>24<|box|>172 275 261 737<|content|>本定额主编单位、参编单位、主要起草人、主要审查人、总校人员和管理组人员名单\n<|id|>103<|page|>26<|box|>65 201 100 384<|content|>主要审查人：姜明宝",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>6<|level|>-1\n<|id|>7<|level|>1\n<|id|>15<|level|>-1\n<|id|>22<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>2\n<|id|>52<|level|>3\n<|id|>59<|level|>2\n<|id|>70<|level|>2\n<|id|>80<|level|>2\n<|id|>84<|level|>2\n<|id|>103<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        }
+    ]
+}

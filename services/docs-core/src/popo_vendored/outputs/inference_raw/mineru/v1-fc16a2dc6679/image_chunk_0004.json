@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        198,
+        200
+    ],
+    "pages": [
+        198,
+        199,
+        200
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>995<|type|>table<|page|>198<|box|>84 147 901 848<|content|>None\n<|id|>996<|type|>table<|page|>199<|box|>82 147 288 848<|content|>None\n<|id|>997<|type|>title<|page|>199<|box|>341 305 363 690<|content|>第4章 项目进度计划及保证措施\n<|id|>998<|type|>title<|page|>199<|box|>414 144 436 448<|content|>4.1 项目总体进度计划编制\n<|id|>1000<|type|>title<|page|>200<|box|>99 144 120 400<|content|>4.2 详细进度节点分解",
+    "raw_response": "<|src_id|>995<|tgt_id|>997\n<|src_id|>996<|tgt_id|>997",
+    "parsed": [
+        {
+            "src_id": 995,
+            "tgt_id": 997
+        },
+        {
+            "src_id": 996,
+            "tgt_id": 997
+        }
+    ]
+}

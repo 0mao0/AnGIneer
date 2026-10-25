@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>450 105 466 470<|content|>【1159078#1】中华人民共和国民用机动车号牌\n<|id|>3<|page|>1<|box|>516 105 533 292<|content|>【1372232#1】电动汽车\n<|id|>5<|page|>1<|box|>617 105 633 400<|content|>【6020774#0】株洲中车时代电动汽车\n<|id|>7<|page|>1<|box|>753 105 769 285<|content|>【7226818#52】丰田iQ\n<|id|>9<|page|>1<|box|>835 105 853 478<|content|>【1159078#13】中华人民共和国民用机动车号牌\n<|id|>12<|page|>2<|box|>99 105 116 292<|content|>【1923377#2】新能源车\n<|id|>14<|page|>2<|box|>184 105 200 337<|content|>【115423#0】中国汽车制造业\n<|id|>16<|page|>2<|box|>302 107 318 258<|content|>【4651#39】杭州市\n<|id|>18<|page|>2<|box|>403 105 419 470<|content|>【1159078#5】中华人民共和国民用机动车号牌",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>5<|level|>2\n<|id|>7<|level|>2\n<|id|>9<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

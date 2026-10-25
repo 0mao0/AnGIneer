@@ -1,0 +1,83 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0g1nolgc\\input\\pdfs\\doc-58433739.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0g1nolgc\\enriched\\doc-58433739.json",
+    "contd_output": "<|src_id|>78<|tgt_id|>79",
+    "title_output": "<|id|>10<|level|>1\n<|id|>13<|level|>1\n<|id|>21<|level|>1\n<|id|>22<|level|>2\n<|id|>30<|level|>2\n<|id|>38<|level|>2\n<|id|>46<|level|>1\n<|id|>50<|level|>1\n<|id|>55<|level|>1\n<|id|>58<|level|>1",
+    "image_output": "<|src_id|>48<|tgt_id|>46\n<|src_id|>49<|tgt_id|>46",
+    "contd_label": [
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 46
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 48,
+            "table2_idx": 49,
+            "upper_row_ss": [
+                [
+                    "Attachment 2",
+                    "Supplemental Exhibit — HSAG Cybersecurity Program Overview"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Attachment 3",
+                    "Supplemental Exhibit — HSAG China Operations Summary"
+                ]
+            ]
+        }
+    ]
+}

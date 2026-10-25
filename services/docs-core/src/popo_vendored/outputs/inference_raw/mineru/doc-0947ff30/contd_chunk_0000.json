@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>156 181 174 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>181 142 199 555<|content|>Patricia Dunmore Partner Direct Dial: ... (415) 772-8034\n<|id|>4<|page|>1<|box|>209 140 226 473<|content|>Email: ... com\n<|id|>5<|page|>1<|box|>226 723 242 854<|content|>October 19, 2023\n<|id|>6<|page|>1<|box|>251 142 268 380<|content|>VIA EMAIL AND U. ... MAIL\n<|id|>7<|page|>1<|box|>277 140 313 854<|content|>Jonathan Whitfield, Esq. ... Partner Whitfield Har...Camino Real, Suite 500 Palo Alto, California 94306\n<|id|>8<|page|>1<|box|>321 176 358 854<|content|>Re: ... — Post-Money SAFE dated September 12, 2023 with Lumos Analytics Inc\n<|id|>51<|page|>6<|box|>785 140 877 857<|content|>Nothing in this letter, or in any prior or subsequ...nd they are subject to the protections afforded by\n<|id|>52<|page|>7<|box|>89 140 127 854<|content|>Federal Rule of Evidence 408, California Evidence ...all analogous state and federal rules and statutes\n<|id|>76<|page|>9<|box|>333 142 349 272<|content|>Very truly yours,\n<|id|>77<|page|>9<|box|>349 142 366 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>78<|page|>9<|box|>368 143 383 251<|content|>By: ... By\n<|id|>79<|page|>9<|box|>385 143 401 334<|content|>Patricia Dunmore Partner\n<|id|>80<|page|>9<|box|>401 143 417 352<|content|>Direct Dial: ... (415) 772-8034\n<|id|>81<|page|>9<|box|>419 142 435 473<|content|>Email: ... com\n<|id|>82<|page|>9<|box|>436 140 453 732<|content|>cc: ... (via email)\n<|id|>83<|page|>9<|box|>462 176 478 596<|content|>Omar Siddiqui, Calderwood & Harkness LLP (via email)",
+    "raw_response": "<|src_id|>51<|tgt_id|>52",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        48,
+        50
+    ],
+    "pages": [
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>573<|type|>title<|page|>48<|box|>338 142 354 264<|content|>6. Certification\n<|id|>580<|type|>title<|page|>49<|box|>89 143 106 553<|content|>EXHIBIT B — FORM OF QUARTERLY REPORT\n<|id|>581<|type|>title<|page|>49<|box|>114 150 169 844<|content|>CATASTROPHE EXCESS-OF-LOSS REINSURANCE CONTRACT QU\n<|id|>586<|type|>table<|page|>49<|box|>324 143 497 852<|content|>None\n<|id|>587<|type|>table<|page|>49<|box|>554 143 674 852<|content|>None\n<|id|>588<|type|>table<|page|>49<|box|>731 143 823 852<|content|>None\n<|id|>589<|type|>title<|page|>49<|box|>857 142 875 643<|content|>Section 4 — Reinstatement Premium Calculations (if\n<|id|>598<|type|>table<|page|>50<|box|>295 143 383 852<|content|>None\n<|id|>599<|type|>title<|page|>50<|box|>417 142 434 457<|content|>Section 6 — Layer Utilization Summary\n<|id|>600<|type|>table<|page|>50<|box|>440 143 628 852<|content|>None\n<|id|>601<|type|>title<|page|>50<|box|>662 140 679 344<|content|>Section 7 — Certification",
+    "raw_response": "<|src_id|>586<|tgt_id|>581\n<|src_id|>587<|tgt_id|>581\n<|src_id|>588<|tgt_id|>581\n<|src_id|>598<|tgt_id|>589\n<|src_id|>600<|tgt_id|>599",
+    "parsed": [
+        {
+            "src_id": 586,
+            "tgt_id": 581
+        },
+        {
+            "src_id": 587,
+            "tgt_id": 581
+        },
+        {
+            "src_id": 588,
+            "tgt_id": 581
+        },
+        {
+            "src_id": 598,
+            "tgt_id": 589
+        },
+        {
+            "src_id": 600,
+            "tgt_id": 599
+        }
+    ]
+}

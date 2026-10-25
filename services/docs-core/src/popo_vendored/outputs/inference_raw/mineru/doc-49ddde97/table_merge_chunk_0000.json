@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Milestone 2: Completion of', 'Last patient enrolled (randomized)', '$8,000,000']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['enrollment in first Phase III trial', 'in the first pivotal Phase III clinical trial of a Licensed Product in the Licensed Territory (i.e., the date on which the last patient is randomized to a treatment arm in Study PPC-4187-301 or its equivalent).', '']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 124,
+    "table2_idx": 125
+}

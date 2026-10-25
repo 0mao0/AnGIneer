@@ -1,0 +1,157 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        65
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        11,
+        12,
+        13,
+        16,
+        19,
+        21,
+        22,
+        28,
+        31,
+        33,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        64
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>382 203 442 781<|content|>沿海港口工程船舶机械艘（台）班费用定额\n<|id|>1<|page|>1<|box|>475 253 549 732<|content|>Quota for Per-shift Cost of Ships and Machinery Us\n<|id|>5<|page|>2<|box|>259 388 292 606<|content|>中华人民共和国行业标准\n<|id|>6<|page|>2<|box|>323 208 370 787<|content|>沿海港口工程船舶机械艘（台）班费用定额\n<|id|>14<|page|>3<|box|>226 194 341 791<|content|>交通运输部关于发布《水运建设工程概算预算编制规定》及其配套定额的公告\n<|id|>21<|page|>5<|box|>232 400 284 588<|content|>修订说明\n<|id|>27<|page|>6<|box|>228 433 282 567<|content|>目 次\n<|id|>30<|page|>8<|box|>226 427 277 563<|content|>说明\n<|id|>56<|page|>11<|box|>156 179 186 639<|content|>十二、工程船舶机械的停置艘（台）班费可参考以下方法计算：\n<|id|>60<|page|>11<|box|>333 181 362 606<|content|>十三、参考定额根据有限船舶机械资料制定，供参考使用。\n<|id|>62<|page|>12<|box|>498 334 552 659<|content|>第一章 工程船舶\n<|id|>63<|page|>13<|box|>191 436 218 558<|content|>一、打桩船、锤\n<|id|>67<|page|>16<|box|>164 436 191 558<|content|>二、起重船\n<|id|>71<|page|>19<|box|>184 440 213 562<|content|>三、挖 泥 船\n<|id|>74<|page|>21<|box|>184 433 211 570<|content|>四、混凝土搅拌船\n<|id|>76<|page|>22<|box|>158 148 182 183<|content|>续表\n<|id|>83<|page|>28<|box|>163 448 190 554<|content|>六、拖 轮\n<|id|>87<|page|>31<|box|>182 427 209 563<|content|>七、半潜驳、浮坞\n<|id|>90<|page|>33<|box|>184 434 213 563<|content|>八、辅助船舶\n<|id|>94<|page|>36<|box|>164 427 193 556<|content|>九、其他船舶\n<|id|>96<|page|>37<|box|>498 294 548 700<|content|>第二章 工程船舶参考定额\n<|id|>97<|page|>38<|box|>189 441 217 563<|content|>一、打桩船、锤\n<|id|>99<|page|>39<|box|>163 432 190 554<|content|>二、起重船\n<|id|>101<|page|>40<|box|>189 436 217 556<|content|>三、挖 泥 船\n<|id|>103<|page|>41<|box|>164 438 191 559<|content|>四、半 潜 驳\n<|id|>105<|page|>42<|box|>180 422 209 574<|content|>五、打夯船、钻探船\n<|id|>107<|page|>43<|box|>157 430 186 559<|content|>六、其他船舶\n<|id|>109<|page|>44<|box|>492 340 544 663<|content|>第三章 工程机械\n<|id|>110<|page|>45<|box|>187 441 213 563<|content|>一、土石方机械\n<|id|>130<|page|>64<|box|>160 421 187 559<|content|>二、水平运输机械",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>6<|level|>1\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>56<|level|>3\n<|id|>60<|level|>3\n<|id|>62<|level|>2\n<|id|>63<|level|>3\n<|id|>67<|level|>3\n<|id|>71<|level|>3\n<|id|>74<|level|>3\n<|id|>76<|level|>-1\n<|id|>83<|level|>3\n<|id|>87<|level|>3\n<|id|>90<|level|>3\n<|id|>94<|level|>3\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>99<|level|>3\n<|id|>101<|level|>3\n<|id|>103<|level|>3\n<|id|>105<|level|>3\n<|id|>107<|level|>3\n<|id|>109<|level|>2\n<|id|>110<|level|>3\n<|id|>130<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 140 128 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>8<|page|>1<|box|>349 140 366 290<|content|>Dear Ms. Feinberg:\n<|id|>11<|page|>1<|box|>625 142 642 333<|content|>1. Scope of Engagement\n<|id|>38<|page|>4<|box|>89 142 107 230<|content|>2. Staffing\n<|id|>46<|page|>4<|box|>789 140 806 310<|content|>3. Fees and Expenses\n<|id|>47<|page|>4<|box|>819 140 837 313<|content|>3.1 Fee Arrangement\n<|id|>52<|page|>5<|box|>561 140 579 240<|content|>3.2 Fee Cap\n<|id|>59<|page|>6<|box|>213 140 229 400<|content|>3.3 Disbursements and Expenses\n<|id|>68<|page|>6<|box|>686 140 704 388<|content|>3.4 Billing and Payment Terms\n<|id|>72<|page|>7<|box|>167 140 184 437<|content|>4. Client Identification and Authority\n<|id|>90<|page|>8<|box|>90 140 107 321<|content|>5. Conflicts of Interest\n<|id|>91<|page|>8<|box|>121 140 138 367<|content|>5.1 Current Conflicts Check\n<|id|>94<|page|>8<|box|>348 140 364 449<|content|>5.2 General Waiver / Advance Consent\n<|id|>100<|page|>8<|box|>762 140 779 339<|content|>5.3 Subsequent Conflicts\n<|id|>106<|page|>9<|box|>301 140 318 284<|content|>6. Confidentiality\n<|id|>116<|page|>10<|box|>194 140 210 326<|content|>7. Document Retention\n<|id|>120<|page|>10<|box|>569 140 585 264<|content|>8. Termination\n<|id|>121<|page|>10<|box|>599 140 617 405<|content|>8.1 Termination by the Company\n<|id|>124<|page|>10<|box|>808 140 825 370<|content|>8.2 Termination by the Firm\n<|id|>132<|page|>11<|box|>489 140 506 511<|content|>8.3 Effect of IPO Withdrawal or Postponement\n<|id|>135<|page|>11<|box|>724 140 742 339<|content|>9. Limitation of Liability\n<|id|>139<|page|>12<|box|>212 142 229 480<|content|>10. Governing Law and Dispute Resolution\n<|id|>144<|page|>12<|box|>667 142 684 383<|content|>11. Re-Engagement Provisions\n<|id|>150<|page|>13<|box|>229 142 247 285<|content|>12. Miscellaneous\n<|id|>162<|page|>14<|box|>303 140 319 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>167<|page|>14<|box|>414 383 431 614<|content|>AGREED AND ACCEPTED\n<|id|>169<|page|>14<|box|>539 142 556 366<|content|>LUMOS ANALYTICS INC.\n<|id|>176<|page|>14<|box|>691 142 704 171<|content|>cc:",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>8<|level|>-1\n<|id|>11<|level|>1\n<|id|>38<|level|>1\n<|id|>46<|level|>1\n<|id|>47<|level|>2\n<|id|>52<|level|>2\n<|id|>59<|level|>2\n<|id|>68<|level|>2\n<|id|>72<|level|>1\n<|id|>90<|level|>1\n<|id|>91<|level|>2\n<|id|>94<|level|>2\n<|id|>100<|level|>2\n<|id|>106<|level|>1\n<|id|>116<|level|>1\n<|id|>120<|level|>1\n<|id|>121<|level|>2\n<|id|>124<|level|>2\n<|id|>132<|level|>2\n<|id|>135<|level|>1\n<|id|>139<|level|>1\n<|id|>144<|level|>1\n<|id|>150<|level|>1\n<|id|>162<|level|>-1\n<|id|>167<|level|>-1\n<|id|>169<|level|>-1\n<|id|>176<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        }
+    ]
+}

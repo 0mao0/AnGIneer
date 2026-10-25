@@ -1,0 +1,59 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        14,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>111 161 147 834<|content|>CALDERWOOD & HARKNESS LLP 600 Lexington Avenue, 30\n<|id|>2<|type|>title<|page|>1<|box|>156 424 172 573<|content|>MEMORANDUM\n<|id|>10<|type|>title<|page|>1<|box|>383 370 402 625<|content|>1. Purpose and Summary\n<|id|>15<|type|>title<|page|>2<|box|>90 374 111 622<|content|>2. Transaction Overview\n<|id|>32<|type|>title<|page|>4<|box|>90 395 111 601<|content|>3. Proposed Staffing\n<|id|>33<|type|>title<|page|>4<|box|>136 142 152 303<|content|>3.1 Core Deal Team\n<|id|>35<|type|>table<|page|>4<|box|>223 143 900 852<|content|>None\n<|id|>36<|type|>table<|page|>5<|box|>88 143 547 852<|content|>None\n<|id|>37<|type|>title<|page|>5<|box|>597 140 614 323<|content|>3.2 Support Resources\n<|id|>41<|type|>title<|page|>6<|box|>186 140 204 503<|content|>3.3 Staffing Notes and Coordination Protocols\n<|id|>48<|type|>title<|page|>7<|box|>90 362 111 633<|content|>4. Work Stream Allocation\n<|id|>50<|type|>title<|page|>7<|box|>244 140 260 570<|content|>4.1 Work Stream 1: Indenture and Related Documents\n<|id|>53<|type|>title<|page|>7<|box|>325 140 343 264<|content|>Scope of Work\n<|id|>69<|type|>title<|page|>8<|box|>843 142 859 465<|content|>4.2 Work Stream 2: Purchase Agreement\n<|id|>73<|type|>title<|page|>9<|box|>147 140 164 264<|content|>Scope of Work\n<|id|>84<|type|>title<|page|>10<|box|>253 140 271 488<|content|>4.3 Work Stream 3: Offering Memorandum\n<|id|>88<|type|>title<|page|>10<|box|>398 140 416 264<|content|>Scope of Work\n<|id|>112<|type|>title<|page|>12<|box|>327 140 344 524<|content|>4.4 Work Stream 4: Capped Call Documentation\n<|id|>116<|type|>title<|page|>12<|box|>454 140 470 264<|content|>Scope of Work\n<|id|>143<|type|>title<|page|>14<|box|>253 140 271 751<|content|>4.5 Work Stream 5: Legal Opinions, Closing Deliver\n<|id|>148<|type|>title<|page|>14<|box|>425 140 441 264<|content|>Scope of Work\n<|id|>178<|type|>title<|page|>17<|box|>90 282 111 714<|content|>5. Internal Memoranda and Analysis Work\n<|id|>184<|type|>title<|page|>18<|box|>90 312 111 684<|content|>6. Estimated Budget Against Fee Cap\n<|id|>185<|type|>title<|page|>18<|box|>136 140 152 361<|content|>6.1 Summary Budget Table\n<|id|>187<|type|>table<|page|>18<|box|>223 143 429 852<|content|>None\n<|id|>189<|type|>title<|page|>18<|box|>578 140 594 375<|content|>6.2 Fee Cap and Contingency\n<|id|>201<|type|>title<|page|>19<|box|>633 140 652 356<|content|>6.3 Disbursement Estimate\n<|id|>203<|type|>table<|page|>19<|box|>703 143 875 852<|content|>None\n<|id|>204<|type|>table<|page|>20<|box|>89 143 142 852<|content|>None\n<|id|>206<|type|>title<|page|>20<|box|>272 140 289 395<|content|>6.4 Client Billing Arrangements\n<|id|>213<|type|>title<|page|>20<|box|>693 290 712 705<|content|>7. Projected Timeline and Key Milestones\n<|id|>215<|type|>table<|page|>20<|box|>809 143 898 852<|content|>None\n<|id|>216<|type|>table<|page|>21<|box|>89 143 766 852<|content|>None\n<|id|>218<|type|>title<|page|>22<|box|>90 361 111 635<|content|>8. Approval and Next Steps",
+    "raw_response": "<|src_id|>35<|tgt_id|>33\n<|src_id|>36<|tgt_id|>33\n<|src_id|>187<|tgt_id|>185\n<|src_id|>203<|tgt_id|>201\n<|src_id|>204<|tgt_id|>201\n<|src_id|>215<|tgt_id|>213\n<|src_id|>216<|tgt_id|>213",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 204,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 215,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 213
+        }
+    ]
+}

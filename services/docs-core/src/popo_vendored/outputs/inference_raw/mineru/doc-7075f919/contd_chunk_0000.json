@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>90 140 108 730<|content|># Re: ... 1039-00005)\n<|id|>5<|page|>1<|box|>277 142 296 272<|content|>Dear Mr. ... Ashby,\n<|id|>1<|page|>1<|box|>152 140 170 627<|content|>- From: ... com>\n<|id|>2<|page|>1<|box|>184 140 202 584<|content|>- To: ... com>\n<|id|>4<|page|>1<|box|>246 140 263 465<|content|>- Date: ... 00 -0000\n<|id|>6<|page|>1<|box|>340 140 470 841<|content|>Thank you for your email of March 25, 2025, in whi... 1401 K Street NW, Suite 700, Washington, DC 20005\n<|id|>16<|page|>3<|box|>390 142 407 246<|content|>Respectfully,\n<|id|>17<|page|>3<|box|>453 140 470 277<|content|>Helen Whitmore\n<|id|>18<|page|>3<|box|>484 140 501 209<|content|>Partner\n<|id|>19<|page|>3<|box|>515 140 532 334<|content|>Whitmore & Sharpe LLP\n<|id|>20<|page|>3<|box|>546 143 564 367<|content|>1401 K Street NW, Suite 700\n<|id|>21<|page|>3<|box|>578 140 595 325<|content|>Washington, DC 20005\n<|id|>22<|page|>3<|box|>609 140 627 305<|content|>Tel: ... (202) 555-4100\n<|id|>23<|page|>3<|box|>640 140 657 308<|content|>Fax: ... (202) 555-4101\n<|id|>24<|page|>3<|box|>672 140 690 467<|content|>Email: ... com\n<|id|>25<|page|>3<|box|>797 140 910 849<|content|>CONFIDENTIALITY NOTICE: ... If you have received this email in\n<|id|>26<|page|>4<|box|>90 140 127 838<|content|>error, please notify the sender immediately by rep...age and all copies from your system. ... Thank you",
+    "raw_response": "<|src_id|>25<|tgt_id|>26",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        }
+    ]
+}

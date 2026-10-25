@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, 修补', 'rowspan=2, ', 'rowspan=2, 0.1', '条状m', '', '', '', '', '', '', '', '', '', '', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 构造物类型', 'rowspan=2, 评定等级', 'rowspan=2, 单位扣分', 'rowspan=2, 单位', 'colspan=10, 百米损坏', 'rowspan=2, 累计损坏']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 353,
+    "table2_idx": 354
+}

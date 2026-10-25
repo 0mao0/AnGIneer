@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        12,
+        13,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 424 151 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>160 140 196 854<|content|>TO: ... Elena Graff, General Counsel, Thornwick Me...an Resources, Thornwick Medical Research Institute\n<|id|>3<|page|>1<|box|>204 140 239 854<|content|>FROM: ... Renata Vasquez, Partner, Calderwood & Ha...Nadia Petrov, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>248 140 265 344<|content|>DATE: ... November 4, 2024\n<|id|>5<|page|>1<|box|>273 140 310 854<|content|>RE: ... Marcus Ellender, Director, Biomedical Engineering Laboratories\n<|id|>6<|page|>1<|box|>318 140 335 377<|content|>C&H Matter No. ... 1029-00002\n<|id|>7<|page|>1<|box|>343 140 450 854<|content|>CONFIDENTIALITY NOTICE: ... If you have received t...tify the sender immediately and destroy all copies\n<|id|>11<|page|>1<|box|>840 140 877 854<|content|>The investigation team comprises the following attorneys: ... and James Underwood, Associate (Working\n<|id|>12<|page|>2<|box|>90 140 126 854<|content|>Associate). ... Each member of the investigation t... and no conflicts of interest have been identified\n<|id|>37<|page|>4<|box|>702 183 718 514<|content|>• Karen Ashby, Lab Technician IV, Lab B-4\n<|id|>42<|page|>4<|box|>835 140 890 854<|content|>Each corroborating-witness interview was conducted...ns ranged from approximately 45 minutes to 2 hours\n<|id|>38<|page|>4<|box|>720 183 738 527<|content|>• Derek Loomis, Research Associate, Lab B-4\n<|id|>39<|page|>4<|box|>741 183 758 671<|content|>• Alan Murdoch, Director, Environmental Health & Safety, TMRI\n<|id|>40<|page|>4<|box|>761 183 777 447<|content|>• Joanna Pratt, Lab B-2 Supervisor\n<|id|>41<|page|>4<|box|>780 183 833 854<|content|>• Four additional laboratory personnel and adminis...poses but are documented in the investigation file\n<|id|>112<|page|>12<|box|>839 140 895 854<|content|>Sandra Nix, Research Associate in Lab B-2, alleged... that Dr. ... The breach involved BSL-2 (Biosafety\n<|id|>113<|page|>13<|box|>90 138 200 854<|content|>Level 2) materials. ... Ellender subsequently dire...cedural deviation rather than a containment breach\n<|id|>158<|page|>18<|box|>845 142 863 320<|content|>Respectfully submitted,\n<|id|>159<|page|>18<|box|>863 140 880 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>160<|page|>18<|box|>881 142 898 254<|content|>By: ... By\n<|id|>161<|page|>19<|box|>89 140 123 854<|content|>Renata Vasquez Partner, Labor & Employment Calderw...eral Place, Suite 3200 Boston, Massachusetts 02110\n<|id|>162<|page|>19<|box|>125 143 140 253<|content|>By: ... By\n<|id|>165<|page|>19<|box|>195 140 226 854<|content|>TO: ... Elena Graff, General Counsel, Thornwick Me...an Resources, Thornwick Medical Research Institute\n<|id|>166<|page|>19<|box|>233 140 250 653<|content|>CC: ... Bernard Crawford, Billing Partner, Calderwood & Harkness LLP (internal copy)\n<|id|>167<|page|>19<|box|>255 140 286 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>112<|tgt_id|>113",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        }
+    ]
+}

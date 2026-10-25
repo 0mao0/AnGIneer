@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>1<|box|>190 140 207 398<|content|>VIA EMAIL AND FACSIMILE\n<|id|>9<|page|>1<|box|>372 140 388 467<|content|>1. Introduction and Basis for the Request\n<|id|>17<|page|>2<|box|>402 140 420 388<|content|>2. Legal Obligation to Preserve\n<|id|>22<|page|>3<|box|>204 140 222 457<|content|>3. Scope of Data Subject to Preservation\n<|id|>24<|page|>3<|box|>353 140 369 349<|content|>3.1 Account Identification\n<|id|>34<|page|>3<|box|>753 140 771 303<|content|>3.2 Temporal Scope\n<|id|>38<|page|>4<|box|>330 140 347 444<|content|>3.3 Categories of Data to Be Preserved\n<|id|>93<|page|>7<|box|>155 140 209 854<|content|>3.3.7 Overtime Calculation Algorithms and Configur\n<|id|>99<|page|>7<|box|>414 140 465 854<|content|>3.3.8 Contractual and Service Agreement Documentat\n<|id|>106<|page|>7<|box|>654 140 690 854<|content|>3.3.9 Communications. Luminos must preserve all co\n<|id|>117<|page|>8<|box|>366 140 383 375<|content|>4. Data-Export Specifications\n<|id|>128<|page|>9<|box|>378 140 397 491<|content|>5. Suspension of Data-Destruction Schedules\n<|id|>144<|page|>10<|box|>170 140 188 437<|content|>6. Confirmation and Point of Contact\n<|id|>151<|page|>10<|box|>545 140 563 410<|content|>VHG's Primary Internal Contact:\n<|id|>154<|page|>10<|box|>633 140 650 500<|content|>Calderwood & Harkness's Primary Contacts:\n<|id|>159<|page|>10<|box|>804 140 820 274<|content|>7. Authorization\n<|id|>162<|page|>11<|box|>250 140 266 390<|content|>8. Confidentiality and Privilege\n<|id|>166<|page|>11<|box|>604 140 622 334<|content|>9. Reservation of Rights",
+    "raw_response": "<|id|>4<|level|>-1\n<|id|>9<|level|>1\n<|id|>17<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>2\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>93<|level|>3\n<|id|>99<|level|>3\n<|id|>106<|level|>3\n<|id|>117<|level|>1\n<|id|>128<|level|>1\n<|id|>144<|level|>1\n<|id|>151<|level|>2\n<|id|>154<|level|>2\n<|id|>159<|level|>1\n<|id|>162<|level|>1\n<|id|>166<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 166,
+            "level": 1
+        }
+    ]
+}

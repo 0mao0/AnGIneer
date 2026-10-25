@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        9,
+        11,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 187 176 808<|content|>Delivered Pursuant to the Mezzanine Loan Agreement dated as of June 15, 2025\n<|id|>2<|page|>1<|box|>186 434 203 563<|content|>by and between\n<|id|>3<|page|>1<|box|>210 259 228 736<|content|>Hudson Yards West Mezzanine LLC, as Mezzanine Borrower,\n<|id|>4<|page|>1<|box|>238 480 253 517<|content|>and\n<|id|>5<|page|>1<|box|>263 279 280 718<|content|>Granite Peak Capital Partners, LP, as Mezzanine Lender\n<|id|>6<|page|>1<|box|>289 140 527 856<|content|>The undersigned, Marcus J. ... The Mezzanine Loan ...ty, County, and State of New York) (the \"Project\")\n<|id|>20<|page|>2<|box|>696 174 752 854<|content|>(c) Exhibit C: ... and\n<|id|>22<|page|>2<|box|>859 140 895 856<|content|>No organizational document of the Company has been...e the only organizational documents of the Company\n<|id|>26<|page|>3<|box|>484 174 518 854<|content|>(b) the authorization of the undersigned, as Manag...e Loan Documents on behalf of the Company; ... and\n<|id|>28<|page|>3<|box|>571 140 662 854<|content|>A true, correct, and complete copy of the written ...ns in full force and effect as of the Closing Date\n<|id|>59<|page|>7<|box|>171 174 226 854<|content|>(b) challenges or questions the validity, binding ...er, or perform any Mezzanine Loan Document; ... or\n<|id|>61<|page|>7<|box|>314 140 369 854<|content|>There are no outstanding orders, judgments, injunc...ffects described in clauses (a), (b), or (c) above\n<|id|>66<|page|>7<|box|>587 174 623 854<|content|>(c) the Company is able to pay its debts and other...ss, and will continue to be able to do so; ... and\n<|id|>68<|page|>7<|box|>675 140 750 854<|content|>In making the foregoing certifications, the unders...es known to the undersigned as of the Closing Date\n<|id|>85<|page|>9<|box|>263 142 282 346<|content|>Name: ... Pellegrini\n<|id|>86<|page|>9<|box|>282 143 300 259<|content|>Title: ... Manager\n<|id|>100<|page|>11<|box|>500 174 554 854<|content|>(e) Springing member provisions, providing for the...o perpetuate the existence of the Company; ... and\n<|id|>102<|page|>11<|box|>623 140 660 854<|content|>The undersigned confirms that the independent dire...ons have not been triggered as of the Closing Date\n<|id|>113<|page|>13<|box|>186 174 258 857<|content|>(a) Certificate of Authority to transact business ...conduct business in the State of New York; ... and\n<|id|>115<|page|>13<|box|>329 138 366 854<|content|>Each of the above certificates is dated no earlier... 2025, as required by the Mezzanine Loan Agreement\n<|id|>124<|page|>14<|box|>546 174 655 854<|content|>(e) The authorization of all other actions, filing...es and certifications required thereunder; ... and\n<|id|>126<|page|>14<|box|>726 138 799 857<|content|>The undersigned hereby certifies that the Sole Mem...ns in full force and effect as of the Closing Date",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>2<|tgt_id|>3\n<|src_id|>3<|tgt_id|>4\n<|src_id|>4<|tgt_id|>5",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        }
+    ]
+}

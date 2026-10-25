@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        13
+    ],
+    "pages": [
+        3,
+        4,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>29<|page|>3<|box|>868 142 904 854<|content|>17. ... Each of these properties prominently features the\n<|id|>30<|page|>3<|box|>915 142 929 243<|content|>CONFIDENTIAL\n<|id|>31<|page|>4<|box|>90 174 181 854<|content|>VERIMARK marks in its exterior and interior signag...mers encounter when engaging with any VHG property\n<|id|>110<|page|>11<|box|>915 142 929 243<|content|>CONFIDENTIAL\n<|id|>112<|page|>12<|box|>583 140 621 852<|content|>I declare under penalty of perjury under the laws ... of America that the foregoing is true and correct\n<|id|>114<|page|>13<|box|>89 176 107 477<|content|>Email: ... com\n<|id|>115<|page|>13<|box|>108 176 125 462<|content|>Email: ... com\n<|id|>116<|page|>13<|box|>159 142 176 251<|content|>By: ... By\n<|id|>117<|page|>13<|box|>175 140 209 854<|content|>Peter Vassiliev Florida Bar No. ... (305) 555-0347\n<|id|>118<|page|>13<|box|>209 140 227 475<|content|>Email: ... com\n<|id|>119<|page|>13<|box|>227 140 244 537<|content|>Counsel for Plaintiff Verimark Hospitality Group I...unsel for Plaintiff Verimark Hospitality Group Inc",
+    "raw_response": "<|src_id|>29<|tgt_id|>31",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 31
+        }
+    ]
+}

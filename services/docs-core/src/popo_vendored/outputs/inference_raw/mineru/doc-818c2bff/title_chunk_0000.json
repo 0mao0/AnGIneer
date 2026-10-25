@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>378 140 396 455<|content|>1. Purpose and Confirmation of Closing\n<|id|>14<|page|>1<|box|>791 140 808 537<|content|>2. Conditions Precedent — Satisfaction Confirmed\n<|id|>45<|page|>4<|box|>763 140 781 521<|content|>3. Payoff of Ridgeline Commercial Bank Facility\n<|id|>52<|page|>5<|box|>398 140 416 540<|content|>4. UCC Filings and Perfection of Security Interest\n<|id|>65<|page|>6<|box|>171 174 188 735<|content|>Meridian Whitcomb LLC 100 Wall Street, 18th Floor\n<|id|>67<|page|>6<|box|>273 140 292 413<|content|>5. Disbursement of Loan Proceeds\n<|id|>71<|page|>6<|box|>744 140 760 602<|content|>6. Key Terms and Upcoming Dates — Summary Reminder\n<|id|>93<|page|>8<|box|>282 140 299 357<|content|>7. Post-Closing Obligations\n<|id|>107<|page|>9<|box|>425 176 441 532<|content|>8. Document Retention and Execution Copies\n<|id|>115<|page|>9<|box|>799 176 815 362<|content|>9. Contact Information\n<|id|>124<|page|>10<|box|>300 178 316 468<|content|>Email: dobi@calderwoodharkness.com\n<|id|>126<|page|>10<|box|>380 176 397 410<|content|>Pinnacle National Bank, N.A.\n<|id|>129<|page|>10<|box|>494 176 512 527<|content|>Meridian Whitcomb LLC (Collateral Agent)\n<|id|>131<|page|>10<|box|>579 178 595 508<|content|>10. Acknowledgment and Congratulations\n<|id|>136<|page|>11<|box|>114 176 132 482<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>141<|page|>11<|box|>319 176 335 274<|content|>Enclosures:",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>45<|level|>1\n<|id|>52<|level|>1\n<|id|>65<|level|>-1\n<|id|>67<|level|>1\n<|id|>71<|level|>1\n<|id|>93<|level|>1\n<|id|>107<|level|>1\n<|id|>115<|level|>1\n<|id|>124<|level|>-1\n<|id|>126<|level|>-1\n<|id|>129<|level|>-1\n<|id|>131<|level|>1\n<|id|>136<|level|>-1\n<|id|>141<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        }
+    ]
+}

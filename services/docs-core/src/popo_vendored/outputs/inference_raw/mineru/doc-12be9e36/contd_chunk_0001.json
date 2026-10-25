@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        50,
+        102
+    ],
+    "pages": [
+        51,
+        65,
+        86,
+        87,
+        89,
+        94,
+        101
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>210<|page|>51<|box|>65 401 78 603<|content|>Footnotes to Table PDO-4\n<|id|>211<|page|>51<|box|>129 48 150 416<|content|>Note: ... All securities except EA & EO notes were...ion through competitive and noncompetitive bidding\n<|id|>249<|page|>65<|box|>732 36 743 413<|content|>3/ Because there is a normal lsg in classifying redemptiona, the\n<|id|>250<|page|>65<|box|>642 506 660 884<|content|>Includes exchanges of Series 1949 F and G bonds fo...1949 F and G bonds for 4% marketable bonds of 1969\n<|id|>338<|page|>86<|box|>668 206 687 488<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>339<|page|>86<|box|>692 206 719 476<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>341<|page|>86<|box|>449 572 460 771<|content|>(EQ2) E_{x} \\equiv \\Sigma(\\Delta f c_{1}/\\$ * X_{i}/\\Sigma X)\n<|id|>342<|page|>86<|box|>464 594 492 917<|content|>Where: ... E_{x} is the weighted average of percentage changes in the foreign currency cost of dollars\n<|id|>343<|page|>86<|box|>497 649 519 910<|content|>\\Delta f c_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>344<|page|>86<|box|>522 649 549 905<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>347<|page|>86<|box|>585 596 612 918<|content|>Where: ... and\n<|id|>348<|page|>86<|box|>617 649 643 923<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>375<|page|>87<|box|>818 487 949 894<|content|>Sections IV and V, respectively, show the liabilit... of prospective reporters undertaken in late 1978,\n<|id|>377<|page|>89<|box|>431 20 493 432<|content|>Note: ... 2/ Includes Bank for International Settlements\n<|id|>378<|page|>89<|box|>490 515 500 612<|content|>\\overline{p} Preliminary. ... \\overline{p} Preliminary\n<|id|>379<|page|>89<|box|>465 513 475 913<|content|>4/ Includes \\$15 million increase in dollar value of foreign currency\n<|id|>381<|page|>89<|box|>473 515 483 851<|content|>liabilities revalued to reflect market exchange ra...bilities revalued to reflect market exchange rates\n<|id|>397<|page|>94<|box|>95 486 107 554<|content|>(OLD SERIES)\n<|id|>399<|page|>94<|box|>452 94 508 504<|content|>Note: ... )\n<|id|>424<|page|>101<|box|>379 10 389 420<|content|>2/ Data on the two lines shown for this date differ because of changes\n<|id|>425<|page|>101<|box|>379 491 389 567<|content|>r Revised. ... r Revised\n<|id|>426<|page|>101<|box|>385 15 395 420<|content|>in reporting coverage. ... Figures on the first line are comparable in\n<|id|>427<|page|>101<|box|>395 34 405 432<|content|>coverage to those shown for the preceding date; ... figures on the second\n<|id|>428<|page|>101<|box|>404 36 413 368<|content|>line are comparable to those shown for the followi...e comparable to those shown for the following date",
+    "raw_response": "<|src_id|>379<|tgt_id|>381\n<|src_id|>424<|tgt_id|>426\n<|src_id|>426<|tgt_id|>427\n<|src_id|>427<|tgt_id|>428",
+    "parsed": [
+        {
+            "src_id": 379,
+            "tgt_id": 381
+        },
+        {
+            "src_id": 424,
+            "tgt_id": 426
+        },
+        {
+            "src_id": 426,
+            "tgt_id": 427
+        },
+        {
+            "src_id": 427,
+            "tgt_id": 428
+        }
+    ]
+}

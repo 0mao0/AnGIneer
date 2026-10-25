@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        13,
+        14,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>213 704 229 854<|content|>November 22, 2022\n<|id|>4<|page|>1<|box|>239 142 256 602<|content|>TO: ... Samuel Eklund, Responsible Partner, Litigation (General)\n<|id|>5<|page|>1<|box|>263 140 300 854<|content|>FROM: ... Patrick Gallagher, Lead Associate, Litig...e Laroche, Working Associate, Litigation (General)\n<|id|>6<|page|>1<|box|>309 140 363 854<|content|>RE: ... 24, filed November 18, 2022)\n<|id|>7<|page|>1<|box|>369 140 388 362<|content|>MATTER NO. ... 1012-00005\n<|id|>8<|page|>1<|box|>397 140 414 454<|content|>CLIENT: ... Stonefield Logistics Group Inc\n<|id|>29<|page|>3<|box|>800 147 852 854<|content|>• Workforce reduction costs: ... and\n<|id|>31<|page|>4<|box|>90 140 237 856<|content|>Calderwood & Harkness was engaged by Stonefield on...not properly resolved on the face of the Complaint\n<|id|>111<|page|>13<|box|>847 140 883 854<|content|>Section 14. ... 2's recital that the parties \"ackn...he damages VTS would suffer and is \"not a penalty\"\n<|id|>112<|page|>14<|box|>90 140 126 854<|content|>provides strong textual support for Vantor's posit.... This language is significant for several reasons\n<|id|>184<|page|>21<|box|>795 142 811 544<|content|>Patrick Gallagher Lead Associate, Litigation (General)\n<|id|>185<|page|>21<|box|>813 142 829 563<|content|>Simone Laroche Working Associate, Litigation (General)\n<|id|>186<|page|>21<|box|>830 142 845 573<|content|>200 Park Avenue, 38th Floor New York, New York 10166\n<|id|>187<|page|>21<|box|>845 140 877 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT Matter No. ... )",
+    "raw_response": "<|src_id|>111<|tgt_id|>112",
+    "parsed": [
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        }
+    ]
+}

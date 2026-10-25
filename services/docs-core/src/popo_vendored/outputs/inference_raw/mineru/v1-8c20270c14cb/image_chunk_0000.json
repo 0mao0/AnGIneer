@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>47 50 944 947<|content|>None\n<|id|>1<|type|>table<|page|>2<|box|>56 50 949 947<|content|>None\n<|id|>3<|type|>title<|page|>3<|box|>276 53 294 214<|content|>Wire Confirmations:\n<|id|>4<|type|>title<|page|>3<|box|>184 53 200 240<|content|>Time is Of The Essence:\n<|id|>8<|type|>title<|page|>3<|box|>416 55 431 155<|content|>Ticket Scale\n<|id|>9<|type|>title<|page|>3<|box|>431 53 449 248<|content|>Per performance (USD):\n<|id|>10<|type|>table<|page|>3<|box|>467 274 556 903<|content|>None\n<|id|>20<|type|>title<|page|>5<|box|>205 114 223 325<|content|>(Symphony Pops Music)\n<|id|>33<|type|>title<|page|>7<|box|>556 114 571 163<|content|>AND\n<|id|>74<|type|>title<|page|>12<|box|>66 341 113 715<|content|>SCHEDULE “A” DISNEY’S POLICIES, TERMS AND CONDITIO\n<|id|>75<|type|>title<|page|>12<|box|>128 114 143 406<|content|>1.Billing, Advertising, Promotion\n<|id|>82<|type|>title<|page|>12<|box|>564 303 580 753<|content|>“Presentation licensed by Disney Concerts © All ri\n<|id|>88<|type|>title<|page|>13<|box|>180 112 195 287<|content|>2.Compensation\n<|id|>95<|type|>title<|page|>14<|box|>191 112 208 410<|content|>3.Marketing and Public Relations\n<|id|>99<|type|>title<|page|>14<|box|>641 112 656 261<|content|>4.Ownership\n<|id|>101<|type|>title<|page|>14<|box|>820 112 835 241<|content|>5.Notices\n<|id|>103<|type|>title<|page|>15<|box|>150 112 166 287<|content|>6.Confidentiality\n<|id|>105<|type|>title<|page|>15<|box|>260 112 277 336<|content|>7.Limitation of Liability\n<|id|>107<|type|>title<|page|>15<|box|>398 112 414 285<|content|>8.Miscellaneous\n<|id|>117<|type|>title<|page|>17<|box|>267 112 285 633<|content|>1.0 SET / SOUND / LIGHTING / VIDEO REQUIREMENTS\n<|id|>119<|type|>title<|page|>17<|box|>369 171 388 534<|content|>1.1 Minimum requirements are as follows:\n<|id|>120<|type|>title<|page|>17<|box|>405 171 422 359<|content|>Set / Orchestra Setup\n<|id|>126<|type|>title<|page|>17<|box|>674 173 691 333<|content|>1.2 Sound System:\n<|id|>136<|type|>title<|page|>18<|box|>529 171 547 287<|content|>1.3 Lighting:\n<|id|>139<|type|>title<|page|>18<|box|>665 171 683 444<|content|>1.4 VIDEO REQUIREMENTS\n<|id|>145<|type|>title<|page|>19<|box|>294 112 311 274<|content|>2.0 ORCHESTRA\n<|id|>150<|type|>title<|page|>19<|box|>767 112 784 254<|content|>3.0 CATERING\n<|id|>153<|type|>table<|page|>20<|box|>311 112 349 882<|content|>None\n<|id|>171<|type|>title<|page|>22<|box|>241 112 258 267<|content|>INTERMISSION",
+    "raw_response": "<|src_id|>10<|tgt_id|>9\n<|src_id|>153<|tgt_id|>150",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 150
+        }
+    ]
+}

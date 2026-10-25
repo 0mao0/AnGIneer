@@ -1,0 +1,108 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        57
+    ],
+    "pages": [
+        45,
+        46,
+        48,
+        50,
+        51,
+        52,
+        54,
+        55,
+        56,
+        57
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>416<|page|>45<|box|>168 115 191 473<|content|>4 公路技术状况评定等级\n<|id|>420<|page|>46<|box|>165 102 188 339<|content|>5 公路损坏分类\n<|id|>421<|page|>46<|box|>250 102 268 203<|content|>5.1 路基\n<|id|>424<|page|>46<|box|>442 102 460 243<|content|>5.2 沥青路面\n<|id|>429<|page|>46<|box|>719 102 737 304<|content|>5.3 水泥混凝土路面\n<|id|>435<|page|>48<|box|>167 102 191 490<|content|>6 公路技术状况检测与调查\n<|id|>436<|page|>48<|box|>255 102 273 243<|content|>6.1 一般规定\n<|id|>442<|page|>48<|box|>638 100 656 384<|content|>6.2 路基技术状况检测与调查\n<|id|>444<|page|>48<|box|>742 100 758 383<|content|>6.3 路面技术状况自动化检测\n<|id|>461<|page|>50<|box|>119 102 137 366<|content|>6.4 路面技术状况人工调查\n<|id|>464<|page|>50<|box|>270 104 287 447<|content|>6.5 桥隧构造物技术状况检测与调查\n<|id|>467<|page|>50<|box|>463 104 480 426<|content|>6.6 沿线设施技术状况检测与调查\n<|id|>469<|page|>51<|box|>173 110 197 406<|content|>7 公路技术状况评定\n<|id|>470<|page|>51<|box|>267 110 285 252<|content|>7.1 一般规定\n<|id|>473<|page|>51<|box|>505 110 523 415<|content|>7.2 公路技术状况（MQI）评定\n<|id|>481<|page|>52<|box|>527 100 545 396<|content|>7.3 路基技术状况（SCI）评定\n<|id|>484<|page|>52<|box|>783 99 802 396<|content|>7.4 路面技术状况（PQI）评定\n<|id|>501<|page|>54<|box|>286 104 304 462<|content|>7.5 桥隧构造物技术状况（BCI）评定\n<|id|>503<|page|>55<|box|>163 110 187 600<|content|>附录 A 公路技术状况调查及评定表\n<|id|>508<|page|>56<|box|>160 107 182 473<|content|>附录 B 路面跳车计算方法\n<|id|>510<|page|>57<|box|>163 109 187 566<|content|>附录 C 路面弯沉标准值计算方法",
+    "raw_response": "<|id|>416<|level|>1\n<|id|>420<|level|>1\n<|id|>421<|level|>2\n<|id|>424<|level|>2\n<|id|>429<|level|>2\n<|id|>435<|level|>1\n<|id|>436<|level|>2\n<|id|>442<|level|>2\n<|id|>444<|level|>2\n<|id|>461<|level|>2\n<|id|>464<|level|>2\n<|id|>467<|level|>2\n<|id|>469<|level|>1\n<|id|>470<|level|>2\n<|id|>473<|level|>2\n<|id|>481<|level|>2\n<|id|>484<|level|>2\n<|id|>501<|level|>2\n<|id|>503<|level|>1\n<|id|>508<|level|>1\n<|id|>510<|level|>1",
+    "parsed": [
+        {
+            "id": 416,
+            "level": 1
+        },
+        {
+            "id": 420,
+            "level": 1
+        },
+        {
+            "id": 421,
+            "level": 2
+        },
+        {
+            "id": 424,
+            "level": 2
+        },
+        {
+            "id": 429,
+            "level": 2
+        },
+        {
+            "id": 435,
+            "level": 1
+        },
+        {
+            "id": 436,
+            "level": 2
+        },
+        {
+            "id": 442,
+            "level": 2
+        },
+        {
+            "id": 444,
+            "level": 2
+        },
+        {
+            "id": 461,
+            "level": 2
+        },
+        {
+            "id": 464,
+            "level": 2
+        },
+        {
+            "id": 467,
+            "level": 2
+        },
+        {
+            "id": 469,
+            "level": 1
+        },
+        {
+            "id": 470,
+            "level": 2
+        },
+        {
+            "id": 473,
+            "level": 2
+        },
+        {
+            "id": 481,
+            "level": 2
+        },
+        {
+            "id": 484,
+            "level": 2
+        },
+        {
+            "id": 501,
+            "level": 2
+        },
+        {
+            "id": 503,
+            "level": 1
+        },
+        {
+            "id": 508,
+            "level": 1
+        },
+        {
+            "id": 510,
+            "level": 1
+        }
+    ]
+}

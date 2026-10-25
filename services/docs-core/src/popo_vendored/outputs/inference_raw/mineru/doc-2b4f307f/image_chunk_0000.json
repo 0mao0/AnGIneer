@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3<|type|>title<|page|>1<|box|>202 171 256 826<|content|>NOTICE OF ACTION TAKEN BY WRITTEN CONSENT OF STOCK\n<|id|>9<|type|>title<|page|>1<|box|>575 142 593 385<|content|>1. Purpose and Statutory Basis\n<|id|>12<|type|>title<|page|>2<|box|>148 140 167 633<|content|>2. Description of Corporate Actions Taken by Writt\n<|id|>14<|type|>title<|page|>2<|box|>205 140 224 578<|content|>2.1 Authorization of Convertible Note Bridge Finan\n<|id|>24<|type|>title<|page|>3<|box|>502 140 518 457<|content|>2.2 Approval of Transaction Documents\n<|id|>27<|type|>table<|page|>3<|box|>685 143 797 852<|content|>None\n<|id|>31<|type|>title<|page|>4<|box|>330 140 348 627<|content|>2.3 Approval of Amendments to Existing Investor Ag\n<|id|>35<|type|>title<|page|>4<|box|>747 140 763 370<|content|>2.4 Authorization of Officers\n<|id|>41<|type|>title<|page|>5<|box|>281 140 297 295<|content|>3. Board Approval\n<|id|>44<|type|>title<|page|>5<|box|>556 140 573 357<|content|>4. Effective Date of Actions\n<|id|>49<|type|>title<|page|>6<|box|>148 140 167 323<|content|>5. No Action Required\n<|id|>52<|type|>title<|page|>6<|box|>407 140 424 367<|content|>6. Availability of Documents\n<|id|>63<|type|>title<|page|>7<|box|>90 140 107 441<|content|>7. Questions and Contact Information\n<|id|>69<|type|>title<|page|>7<|box|>353 151 388 843<|content|>SIGNATURE PAGE TO NOTICE OF ACTION TAKEN BY WRITTE",
+    "raw_response": "<|src_id|>27<|tgt_id|>24",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 24
+        }
+    ]
+}

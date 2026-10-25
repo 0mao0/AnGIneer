@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 158 176 838<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION W\n<|id|>3<|type|>table<|page|>1<|box|>332 143 438 852<|content|>None\n<|id|>10<|type|>table<|page|>1<|box|>655 145 724 852<|content|>None\n<|id|>14<|type|>title<|page|>2<|box|>89 140 106 401<|content|>ITEM 8.01 — OTHER EVENTS\n<|id|>16<|type|>title<|page|>2<|box|>257 140 273 357<|content|>Description of the Offering\n<|id|>19<|type|>title<|page|>2<|box|>574 140 592 462<|content|>Identification of the Selling Stockholders\n<|id|>27<|type|>title<|page|>3<|box|>213 140 229 465<|content|>Underwriting discount and Commissions\n<|id|>31<|type|>title<|page|>3<|box|>669 140 686 540<|content|>Lock-Up Waiver and New Lock-Up Arrangements\n<|id|>35<|type|>title<|page|>4<|box|>585 140 604 328<|content|>Closing and Settlement\n<|id|>37<|type|>title<|page|>4<|box|>696 140 713 444<|content|>Summary of Underwriting Agreement\n<|id|>41<|type|>title<|page|>5<|box|>275 140 292 594<|content|>Cautionary Note Regarding Forward-Looking Statemen\n<|id|>44<|type|>title<|page|>5<|box|>750 140 766 624<|content|>ITEM 9.01 — FINANCIAL STATEMENTS AND EXHIBITS\n<|id|>45<|type|>table<|page|>5<|box|>801 143 900 852<|content|>None\n<|id|>46<|type|>table<|page|>6<|box|>89 143 234 851<|content|>None\n<|id|>47<|type|>title<|page|>6<|box|>284 142 301 266<|content|>SIGNATURES",
+    "raw_response": "<|src_id|>3<|tgt_id|>0\n<|src_id|>10<|tgt_id|>0\n<|src_id|>45<|tgt_id|>44\n<|src_id|>46<|tgt_id|>44",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 44
+        }
+    ]
+}

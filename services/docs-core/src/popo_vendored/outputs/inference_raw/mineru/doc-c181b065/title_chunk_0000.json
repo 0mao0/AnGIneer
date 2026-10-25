@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 126 854<|content|>BORROWER'S CERTIFICATE — USE OF PROCEEDS COMPLIANC\n<|id|>6<|page|>1<|box|>444 140 460 450<|content|>Section 1. Identity of Certifying Officer\n<|id|>11<|page|>1<|box|>753 140 770 553<|content|>Section 2. Certification of Permitted Use of Proce\n<|id|>24<|page|>4<|box|>90 140 107 501<|content|>Section 3. Sanctions Compliance Certification\n<|id|>51<|page|>5<|box|>497 140 513 555<|content|>Section 4. Anti-Corruption Compliance Certificatio\n<|id|>56<|page|>6<|box|>167 140 185 614<|content|>Section 5. Anti-Money Laundering Compliance Certif\n<|id|>59<|page|>6<|box|>535 140 553 661<|content|>Section 6. Representations Regarding Knowledge and\n<|id|>67<|page|>7<|box|>439 140 457 388<|content|>Section 7. Reliance and Benefit\n<|id|>71<|page|>7<|box|>814 140 832 349<|content|>Section 8. Governing Law\n<|id|>73<|page|>8<|box|>90 140 108 338<|content|>[Signature Page Follows]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>11<|level|>2\n<|id|>24<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>2\n<|id|>59<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        }
+    ]
+}

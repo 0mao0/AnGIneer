@@ -1,0 +1,63 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 272 107 723<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>5<|page|>1<|box|>234 140 251 388<|content|>Via Email and First Class Mail\n<|id|>9<|page|>1<|box|>409 143 425 486<|content|>1. Purpose and Effective Date Confirmation\n<|id|>13<|page|>2<|box|>90 142 107 433<|content|>2. Summary of Transaction Timeline\n<|id|>17<|page|>3<|box|>90 140 107 429<|content|>3. Summary of Executed Documents\n<|id|>47<|page|>5<|box|>281 140 297 426<|content|>4. Conditions Precedent Satisfaction\n<|id|>56<|page|>6<|box|>90 140 107 372<|content|>5. Delivery of Closing Binder\n<|id|>60<|page|>6<|box|>411 140 428 665<|content|>6. Key Terms Reminder — Governing Law and Dispute\n<|id|>68<|page|>7<|box|>90 140 107 565<|content|>7. Ongoing Post-Closing Obligations and Action Ite\n<|id|>87<|page|>8<|box|>741 140 757 483<|content|>8. Engagement Team and Ongoing Support\n<|id|>96<|page|>9<|box|>366 140 383 439<|content|>9. Acknowledgment and Appreciation\n<|id|>105<|page|>10<|box|>89 140 107 483<|content|>Email: m.calloway@calderwoodharkness.com\n<|id|>107<|page|>10<|box|>196 142 212 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>5<|level|>-1\n<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>17<|level|>1\n<|id|>47<|level|>1\n<|id|>56<|level|>1\n<|id|>60<|level|>1\n<|id|>68<|level|>1\n<|id|>87<|level|>1\n<|id|>96<|level|>1\n<|id|>105<|level|>-1\n<|id|>107<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        }
+    ]
+}

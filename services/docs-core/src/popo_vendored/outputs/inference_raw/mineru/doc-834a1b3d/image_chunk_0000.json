@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 212 133 782<|content|>MEMORANDUM PRIVILEGED & CONFIDENTIAL — ATTORNEY WO\n<|id|>8<|type|>title<|page|>1<|box|>417 140 434 228<|content|>I. Purpose\n<|id|>12<|type|>title<|page|>2<|box|>90 140 107 517<|content|>II. Procedural History and Judgment Summary\n<|id|>13<|type|>title<|page|>2<|box|>121 140 138 553<|content|>A. The Court's Memorandum of Decision and Order\n<|id|>21<|type|>title<|page|>3<|box|>232 140 250 362<|content|>B. Entry of Final Judgment\n<|id|>25<|type|>title<|page|>3<|box|>513 140 530 377<|content|>III. Applicable Appeal Period\n<|id|>26<|type|>title<|page|>3<|box|>544 140 561 295<|content|>A. Governing Rule\n<|id|>29<|type|>title<|page|>3<|box|>789 140 806 411<|content|>B. Calculation of Appeal Deadline\n<|id|>35<|type|>title<|page|>4<|box|>508 140 527 348<|content|>C. Extensions and Tolling\n<|id|>40<|type|>title<|page|>5<|box|>186 140 204 446<|content|>IV. Calendar and Monitoring Protocol\n<|id|>41<|type|>title<|page|>5<|box|>217 140 234 250<|content|>A. Key Dates\n<|id|>43<|type|>table<|page|>5<|box|>301 143 845 852<|content|>None\n<|id|>44<|type|>title<|page|>6<|box|>90 140 107 383<|content|>B. Monitoring Responsibilities\n<|id|>50<|type|>title<|page|>6<|box|>540 140 558 334<|content|>C. Notification to Client\n<|id|>53<|type|>title<|page|>7<|box|>90 140 107 547<|content|>V. Contingency: If Vantage Files a Notice of Appea\n<|id|>55<|type|>title<|page|>7<|box|>184 140 200 300<|content|>A. Immediate Steps\n<|id|>60<|type|>title<|page|>7<|box|>633 142 650 341<|content|>B. Appellate Preparation\n<|id|>65<|type|>title<|page|>8<|box|>417 140 434 305<|content|>C. Record Assembly\n<|id|>85<|type|>title<|page|>9<|box|>416 140 434 478<|content|>VI. Judgment Preservation Considerations\n<|id|>86<|type|>title<|page|>9<|box|>446 140 464 583<|content|>A. Ensuring Enforceability of the Declaratory Judg\n<|id|>90<|type|>title<|page|>10<|box|>176 140 193 452<|content|>B. EDA Expiration and Renewal Status\n<|id|>94<|type|>title<|page|>10<|box|>575 140 592 285<|content|>C. Costs and Fees\n<|id|>97<|type|>title<|page|>10<|box|>775 140 792 344<|content|>VII. Document Retention\n<|id|>106<|type|>title<|page|>11<|box|>426 142 444 282<|content|>VIII. Update Log\n<|id|>108<|type|>table<|page|>11<|box|>513 143 789 852<|content|>None\n<|id|>109<|type|>title<|page|>11<|box|>823 142 839 501<|content|>Post-Deadline Notation — September 6, 2022:\n<|id|>112<|type|>title<|page|>12<|box|>223 140 239 437<|content|>IX. Conclusion and Recommendation\n<|id|>119<|type|>title<|page|>12<|box|>787 142 805 251<|content|>Prepared by:",
+    "raw_response": "<|src_id|>43<|tgt_id|>41\n<|src_id|>108<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 106
+        }
+    ]
+}

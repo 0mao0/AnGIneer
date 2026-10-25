@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['\"wherein the micro-channel heat sink is positioned such that the plurality of channels are aligned with regions of the semiconductor substrate corresponding to locations of the plurality of active optical components.\"', \"Accused Element: The Benchmark teardown (Exhibit OWS-1001 at pp. 72–74) confirmed through thermal imaging and cross-sectional analysis that the micro-channel array in the LumiLink 400G-ZR+ is spatially aligned with the active-component regions of the PIC die, including the laser source area, the modulator array, and the photodetector area. Annotated thermal map overlay photographs (Exhibit OWS-1033) show the alignment between the micro-channel positions and the heat-generating regions. Lumicore design files (LC-HC-SC-00012530) include the thermal management layout showing the alignment between the micro-channel cooler and the PIC die's active-component regions. Dr.Ashford's Explanation: The claim requires the micro-channels to be aligned with the active-component regions. The Benchmark teardown confirms this spatial\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'alignment, which is a deliberate design choice to maximize thermal management effectiveness. The Lumicore design files show that the micro-channel array was specifically designed to target the hotspot locations on the PIC die.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 194,
+    "table2_idx": 195
+}

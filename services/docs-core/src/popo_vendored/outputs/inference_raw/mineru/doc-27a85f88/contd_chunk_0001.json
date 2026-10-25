@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        50,
+        111
+    ],
+    "pages": [
+        51,
+        57,
+        69,
+        111
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>305<|page|>51<|box|>167 604 189 915<|content|>STATISTICS\n<|id|>306<|page|>51<|box|>199 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund\n<|id|>349<|page|>57<|box|>744 81 877 491<|content|>The geographical allocation of the transactions da... reporting purposes would be recorded opposite the\n<|id|>350<|page|>57<|box|>89 504 164 915<|content|>United Kingdom and not opposite Japan. ... In that...ported opposite Switzerland and not opposite Italy\n<|id|>376<|page|>69<|box|>77 109 125 888<|content|>CHART CM-B. ... Banks, Brokers, and Dealers with Respect to Selected Countries\n<|id|>378<|page|>69<|box|>726 114 786 854<|content|>In March 2012, U. ... However, they decreased \\$287 billion in 2011\n<|id|>531<|page|>111<|box|>148 364 166 630<|content|>Source: ... Financial Management Service\n<|id|>532<|page|>111<|box|>186 81 262 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>540<|page|>111<|box|>843 81 904 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>541<|page|>111<|box|>186 504 262 915<|content|>Second Liberty Loan Act of 1917, the nature of the...l debt. ... the limit may change from year to year",
+    "raw_response": "<|src_id|>349<|tgt_id|>350\n<|src_id|>540<|tgt_id|>541",
+    "parsed": [
+        {
+            "src_id": 349,
+            "tgt_id": 350
+        },
+        {
+            "src_id": 540,
+            "tgt_id": 541
+        }
+    ]
+}

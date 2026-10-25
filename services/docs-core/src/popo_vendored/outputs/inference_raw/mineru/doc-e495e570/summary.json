@@ -1,0 +1,611 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-5qchdlqi\\input\\pdfs\\doc-e495e570.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-5qchdlqi\\enriched\\doc-e495e570.json",
+    "contd_output": "<|src_id|>17<|tgt_id|>18\n<|src_id|>53<|tgt_id|>54\n<|src_id|>155<|tgt_id|>156\n<|src_id|>168<|tgt_id|>169\n<|src_id|>180<|tgt_id|>181\n<|src_id|>213<|tgt_id|>214",
+    "title_output": "<|id|>15<|level|>1\n<|id|>28<|level|>1\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>40<|level|>3\n<|id|>57<|level|>2\n<|id|>65<|level|>2\n<|id|>69<|level|>1\n<|id|>70<|level|>2\n<|id|>81<|level|>2\n<|id|>86<|level|>2\n<|id|>89<|level|>2\n<|id|>100<|level|>2\n<|id|>122<|level|>1\n<|id|>124<|level|>2\n<|id|>129<|level|>2\n<|id|>144<|level|>2\n<|id|>152<|level|>2\n<|id|>159<|level|>2\n<|id|>165<|level|>2\n<|id|>178<|level|>2\n<|id|>182<|level|>1\n<|id|>184<|level|>2\n<|id|>187<|level|>2\n<|id|>193<|level|>2\n<|id|>201<|level|>2\n<|id|>206<|level|>2\n<|id|>212<|level|>2\n<|id|>219<|level|>1\n<|id|>220<|level|>2\n<|id|>223<|level|>2\n<|id|>228<|level|>2\n<|id|>232<|level|>1\n<|id|>236<|level|>1\n<|id|>237<|level|>2\n<|id|>245<|level|>2\n<|id|>253<|level|>1\n<|id|>262<|level|>1\n<|id|>266<|level|>1\n<|id|>267<|level|>2\n<|id|>275<|level|>2\n<|id|>283<|level|>1\n<|id|>285<|level|>2\n<|id|>289<|level|>2\n<|id|>293<|level|>2\n<|id|>297<|level|>2\n<|id|>301<|level|>2\n<|id|>305<|level|>2\n<|id|>309<|level|>2\n<|id|>313<|level|>1\n<|id|>317<|level|>1\n<|id|>335<|level|>1\n<|id|>339<|level|>1",
+    "image_output": "<|src_id|>30<|tgt_id|>28\n<|src_id|>31<|tgt_id|>28\n<|src_id|>67<|tgt_id|>65\n<|src_id|>91<|tgt_id|>89\n<|src_id|>189<|tgt_id|>187\n<|src_id|>190<|tgt_id|>187\n<|src_id|>221<|tgt_id|>220\n<|src_id|>224<|tgt_id|>223\n<|src_id|>225<|tgt_id|>223\n<|src_id|>229<|tgt_id|>228\n<|src_id|>230<|tgt_id|>228\n<|src_id|>233<|tgt_id|>232\n<|src_id|>263<|tgt_id|>262\n<|src_id|>264<|tgt_id|>262\n<|src_id|>314<|tgt_id|>313\n<|src_id|>315<|tgt_id|>313\n<|src_id|>319<|tgt_id|>317\n<|src_id|>320<|tgt_id|>317\n<|src_id|>321<|tgt_id|>317\n<|src_id|>322<|tgt_id|>317\n<|src_id|>323<|tgt_id|>317\n<|src_id|>324<|tgt_id|>317\n<|src_id|>325<|tgt_id|>317\n<|src_id|>326<|tgt_id|>317\n<|src_id|>327<|tgt_id|>317\n<|src_id|>328<|tgt_id|>317\n<|src_id|>329<|tgt_id|>317\n<|src_id|>330<|tgt_id|>317\n<|src_id|>331<|tgt_id|>317\n<|src_id|>332<|tgt_id|>317\n<|src_id|>333<|tgt_id|>317\n<|src_id|>334<|tgt_id|>317\n<|src_id|>337<|tgt_id|>335",
+    "contd_label": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 156
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 181
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 214
+        }
+    ],
+    "title_label": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 1
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 1
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 2
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 232,
+            "level": 1
+        },
+        {
+            "id": 236,
+            "level": 1
+        },
+        {
+            "id": 237,
+            "level": 2
+        },
+        {
+            "id": 245,
+            "level": 2
+        },
+        {
+            "id": 253,
+            "level": 1
+        },
+        {
+            "id": 262,
+            "level": 1
+        },
+        {
+            "id": 266,
+            "level": 1
+        },
+        {
+            "id": 267,
+            "level": 2
+        },
+        {
+            "id": 275,
+            "level": 2
+        },
+        {
+            "id": 283,
+            "level": 1
+        },
+        {
+            "id": 285,
+            "level": 2
+        },
+        {
+            "id": 289,
+            "level": 2
+        },
+        {
+            "id": 293,
+            "level": 2
+        },
+        {
+            "id": 297,
+            "level": 2
+        },
+        {
+            "id": 301,
+            "level": 2
+        },
+        {
+            "id": 305,
+            "level": 2
+        },
+        {
+            "id": 309,
+            "level": 2
+        },
+        {
+            "id": 313,
+            "level": 1
+        },
+        {
+            "id": 317,
+            "level": 1
+        },
+        {
+            "id": 335,
+            "level": 1
+        },
+        {
+            "id": 339,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 187
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 187
+        },
+        {
+            "src_id": 221,
+            "tgt_id": 220
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 223
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 223
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 228
+        },
+        {
+            "src_id": 230,
+            "tgt_id": 228
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 232
+        },
+        {
+            "src_id": 263,
+            "tgt_id": 262
+        },
+        {
+            "src_id": 264,
+            "tgt_id": 262
+        },
+        {
+            "src_id": 314,
+            "tgt_id": 313
+        },
+        {
+            "src_id": 315,
+            "tgt_id": 313
+        },
+        {
+            "src_id": 319,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 320,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 321,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 322,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 323,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 324,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 325,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 326,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 327,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 328,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 329,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 330,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 331,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 332,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 333,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 334,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 337,
+            "tgt_id": 335
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 224,
+            "table2_idx": 225,
+            "upper_row_ss": [
+                [
+                    "Virginia campus construction escrow (Pinnacle Trust Company, N.A. as Escrow Agent)",
+                    "$475,000,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Frankfurt campus construction escrow (NordBrücke AG as Frankfurt Escrow Bank) — €253,571,429 at EUR/USD 1.0846",
+                    "$275,000,000"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 229,
+            "table2_idx": 230,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Crescent Harbor Bank,",
+                    "$14,250,000",
+                    "Arrangement fee"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "N.A.",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 314,
+            "table2_idx": 315,
+            "upper_row_ss": [
+                [
+                    "Quarterly",
+                    "Amortization payments (first business day of each March, June, September, and December); interest payments (last business day of each March, June, September, and December); delivery of quarterly"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "compliance certificates (within 45 days after each quarter-end)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 319,
+            "table2_idx": 320,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "First Lien / Super-Senior Intercreditor Agreement",
+                    "May 15, 2024",
+                    "IHDC, CHB (as Term Loan Agent and Revolver Agent), Pinnacle Trust (Collateral Agent)",
+                    "Signing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "4",
+                    "Promissory Note — Crescent Harbor Bank, N.A.",
+                    "May 15, 2024",
+                    "IHDC (maker), CHB (payee)",
+                    "Signing"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 321,
+            "table2_idx": 322,
+            "upper_row_ss": [
+                [
+                    "15",
+                    "Equity Interest Pledge Agreement — IHDC Pledge",
+                    "May 15, 2024",
+                    "IHDC (Pledgor), Pinnacle Trust (Collateral Agent)",
+                    "Signing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "(IHDC Frankfurt shares)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 323,
+            "table2_idx": 324,
+            "upper_row_ss": [
+                [
+                    "25",
+                    "German Global Assignment of Receivables",
+                    "May 15, 2024",
+                    "IHDC Frankfurt, Pinnacle Trust (Security Trustee)",
+                    "Signing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "(Globalzession)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 325,
+            "table2_idx": 326,
+            "upper_row_ss": [
+                [
+                    "35",
+                    "Wendt Falkenberg Legal Opinion — German Law",
+                    "May 15, 2024",
+                    "Wendt Falkenberg PartG mbB",
+                    "Signing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Doc. No.",
+                    "Title",
+                    "Date",
+                    "Executing / Delivering Parties",
+                    "Delivery"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 327,
+            "table2_idx": 328,
+            "upper_row_ss": [
+                [
+                    "Doc. No.",
+                    "Title",
+                    "Date",
+                    "Executing /",
+                    "Delivery"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "Delivering Parties",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 329,
+            "table2_idx": 330,
+            "upper_row_ss": [
+                [
+                    "52",
+                    "Good Standing Certificates — IHDC (Delaware and Virginia) and Holdings",
+                    "May 13, 2024",
+                    "Delaware Secretary of State, Virginia State Corporation Commission",
+                    "Pre-Closing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "(Delaware)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 331,
+            "table2_idx": 332,
+            "upper_row_ss": [
+                [
+                    "62",
+                    "Borrowing Request",
+                    "June 3, 2024",
+                    "IHDC (Rebecca Sung, CFO)",
+                    "Closing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "63",
+                    "UCC-1 Financing Statements — Filing Receipts (Delaware SOS, Loudoun County)",
+                    "May 17–20, 2024 (filed); receipts confirmed prior to Closing",
+                    "Pinnacle Trust (Secured Party); IHDC, Holdings (Debtors)",
+                    "Pre-Closing"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 333,
+            "table2_idx": 334,
+            "upper_row_ss": [
+                [
+                    "75",
+                    "Post-Closing Letter",
+                    "June 10, 2024",
+                    "Calderwood &",
+                    "Post-Closing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "(distribution instructions for original executed documents)",
+                    "",
+                    "Harkness LLP (to Jonathan Pryce-Williams)",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

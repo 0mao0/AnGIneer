@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        46
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        22,
+        30,
+        31,
+        46
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>242 181 277 813<|content|>CALDERWOOD & HARKNESS LLP 1100 Connecticut Avenue, N. ... (202) 555-8201\n<|id|>3<|page|>1<|box|>285 140 303 292<|content|>MEMORANDUM\n<|id|>4<|page|>1<|box|>311 140 349 854<|content|>TO: ... Leonard Cross, Responsible Partner, Tax De...t Sylvia Hartwell, Billing Partner, Tax Department\n<|id|>5<|page|>1<|box|>356 140 393 854<|content|>FROM: ... Leila Nazari, Working Associate, Tax Dep...nt Garrett Simmons, Lead Associate, Tax Department\n<|id|>6<|page|>1<|box|>400 142 417 308<|content|>DATE: ... July 20, 2022\n<|id|>7<|page|>1<|box|>426 140 463 854<|content|>RE: ... Transfer Pricing Methodologies\n<|id|>8<|page|>1<|box|>470 140 488 362<|content|>MATTER NO. ... 1018-00009\n<|id|>9<|page|>1<|box|>496 140 513 598<|content|>CLIENT: ... 22-3741856)\n<|id|>10<|page|>1<|box|>522 140 539 521<|content|>TAX YEARS AT ISSUE: ... 2017, 2018, 2019, 2020\n<|id|>11<|page|>1<|box|>547 140 565 524<|content|>IRS EXAM TEAM ID: ... LB&I-NE-TP-2022-00641\n<|id|>12<|page|>1<|box|>574 142 590 408<|content|>Right-click to update Table of Contents\n<|id|>20<|page|>2<|box|>329 174 383 854<|content|>(d) The cost-sharing arrangement requirements under Treas. ... and\n<|id|>22<|page|>2<|box|>455 140 638 856<|content|>Based on the analysis set forth herein, we conclud...cost-sharing ratios (ranging from 38. ... 482-7(e)\n<|id|>32<|page|>3<|box|>755 138 902 857<|content|>Penterra Pharmaceuticals Corp. ... PPC maintains i...rinceton Junction and at satellite laboratories in\n<|id|>33<|page|>4<|box|>89 140 162 854<|content|>Cambridge, Massachusetts, and San Diego, Californi... Central America, South America, and the Caribbean\n<|id|>67<|page|>7<|box|>858 174 893 854<|content|>\"In any case of two or more organizations, trades,...the United States, and whether or not affiliated)\"\n<|id|>68<|page|>8<|box|>90 174 181 854<|content|>owned or controlled directly or indirectly by the ...f such organizations, trades, or businesses. ... \"\n<|id|>200<|page|>22<|box|>717 174 772 854<|content|>(c) The participants must maintain contemporaneous...ture of the cost-sharing and PCT payments; ... and\n<|id|>202<|page|>22<|box|>824 138 898 857<|content|>PPC's CSA was executed on July 1, 2012, prior to t...s at issue, as prepared by Crestfield & Associates\n<|id|>281<|page|>30<|box|>862 140 898 854<|content|>The IRS has indicated, through the examination tea...nary information requests and Dr. ... Based on the\n<|id|>282<|page|>31<|box|>90 138 183 854<|content|>IRS's proposed rate of 11. ... or (b) a different ...lysis, that produces a higher implied royalty rate\n<|id|>394<|page|>46<|box|>157 143 175 439<|content|>Leila Nazari Associate, Tax Department\n<|id|>395<|page|>46<|box|>208 143 243 511<|content|>Garrett Simmons Lead Associate, Tax Department Rev...Simmons Lead Associate, Tax Department Reviewed by\n<|id|>396<|page|>46<|box|>276 143 294 437<|content|>Leonard Cross Partner, Tax Department\n<|id|>397<|page|>46<|box|>327 142 362 444<|content|>Sylvia Hartwell Partner, Tax Department Date: ... July 20, 2022",
+    "raw_response": "<|src_id|>32<|tgt_id|>33\n<|src_id|>67<|tgt_id|>68\n<|src_id|>281<|tgt_id|>282",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 281,
+            "tgt_id": 282
+        }
+    ]
+}

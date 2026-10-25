@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>111 269 139 727<|content|>CURRENT REPORT Pursuant to Section 13 or 15(d) of the Securities Exchange Act of 1934\n<|id|>3<|page|>1<|box|>149 257 165 737<|content|>Date of report (Date of earliest event reported): ... May 20, 2022 (May 18, 2022)\n<|id|>4<|page|>1<|box|>179 348 212 648<|content|>Foot Locker, Inc. ... (Exact name of registrant as specified in charter)\n<|id|>5<|page|>1<|box|>225 104 265 269<|content|>New York (State or other jurisdiction of incorporation)\n<|id|>6<|page|>1<|box|>224 459 265 547<|content|>1-10299 (Commission File Number)\n<|id|>9<|page|>1<|box|>318 276 332 720<|content|>Registrant's telephone number, including area code: ... (212) 720-3700\n<|id|>8<|page|>1<|box|>277 304 306 688<|content|>330 West 34th Street, New York, New York 10001 (Address of principal executive offices) (Zip Code)\n<|id|>10<|page|>1<|box|>356 21 384 914<|content|>Check the appropriate box below if the Form 8-K fi...e registrant under any of the following provisions\n<|id|>11<|page|>1<|box|>394 23 409 601<|content|>☐ Written communications pursuant to Rule 425 under the Securities Act (17 CFR 230. ... 425)\n<|id|>12<|page|>1<|box|>420 23 435 602<|content|>☐ Soliciting material pursuant to Rule 14a-12 under the Exchange Act (17 CFR 240. ... 14a-12)\n<|id|>13<|page|>1<|box|>445 23 460 735<|content|>☐ Pre-commencement communications pursuant to Rule... under the Exchange Act (17 CFR 240. ... 14d-2(b))\n<|id|>14<|page|>1<|box|>472 23 486 732<|content|>☐ Pre-commencement communications pursuant to Rule... under the Exchange Act (17 CFR 240. ... 13e-4(c))\n<|id|>15<|page|>1<|box|>498 23 512 377<|content|>Securities registered pursuant to Section 12(b) of...es registered pursuant to Section 12(b) of the Act\n<|id|>16<|page|>1<|box|>550 23 576 282<|content|>Title of each class Common Stock, par value $0. ... 01 per share\n<|id|>17<|page|>1<|box|>549 377 574 518<|content|>Trading Symbol(s) FL\n<|id|>18<|page|>1<|box|>537 664 550 833<|content|>Name of each exchange on\n<|id|>19<|page|>1<|box|>551 693 563 801<|content|>which registered\n<|id|>20<|page|>1<|box|>563 664 576 831<|content|>New York Stock Exchange\n<|id|>21<|page|>1<|box|>588 21 615 929<|content|>Indicate by check mark whether the registrant is a...ties Act of 1933 (§230. ... 12b-2 of this chapter)\n<|id|>22<|page|>1<|box|>627 777 640 971<|content|>Emerging growth company ☐\n<|id|>23<|page|>1<|box|>652 21 680 957<|content|>If an emerging growth company, indicate by check m...rsuant to Section 13(a) of the Exchange Act. ... ☐\n<|id|>33<|page|>2<|box|>580 21 608 971<|content|>Based on the votes set forth above, the Company wi... annual meeting of shareholders to be held in 2028\n<|id|>34<|page|>2<|box|>618 21 646 973<|content|>Proposal 4. ... With respect to the proposal to ra...otes were cast for the proposal as set forth below\n<|id|>42<|page|>4<|box|>122 23 136 151<|content|>Date: ... May 20, 2022\n<|id|>43<|page|>4<|box|>121 494 136 671<|content|>By: ... Clarke\n<|id|>44<|page|>4<|box|>135 520 149 696<|content|>Name: ... Clarke\n<|id|>45<|page|>4<|box|>148 521 162 728<|content|>Title: ... Executive Vice President,\n<|id|>46<|page|>4<|box|>161 553 175 752<|content|>General Counsel and Secretary",
+    "raw_response": "<|src_id|>18<|tgt_id|>19\n<|src_id|>45<|tgt_id|>46",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        }
+    ]
+}

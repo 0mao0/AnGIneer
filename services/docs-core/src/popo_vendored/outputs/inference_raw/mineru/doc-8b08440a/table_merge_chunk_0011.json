@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 11,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Book value of U.S. interest excl. intereg.items....', '848.4', '349.5', '636.4', '340.1', '-', '122.2', '-', '1.6', '1,684.1']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Account', 'rowspan=3, Total', 'colspan=4, Department of Agriculture', 'Department of the Army', 'Department of Commerce', 'Department of Health, Education, and Welfare', 'Department of the Interior']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 200,
+    "table2_idx": 201
+}

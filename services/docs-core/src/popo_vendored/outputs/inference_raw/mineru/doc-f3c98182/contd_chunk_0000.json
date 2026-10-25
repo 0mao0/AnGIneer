@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 183 152 813<|content|>Telephone: ... com\n<|id|>2<|page|>1<|box|>160 715 176 854<|content|>February 28, 2026\n<|id|>3<|page|>1<|box|>186 140 202 338<|content|>VIA EMAIL AND FedEx\n<|id|>4<|page|>1<|box|>212 140 248 854<|content|>Rebecca S. ... Partner, Life Sciences & Academic M...P 55 Church Street, Suite 1200 New Haven, CT 06510\n<|id|>5<|page|>1<|box|>256 140 310 854<|content|>Re: ... 1029-00001\n<|id|>6<|page|>1<|box|>319 142 335 290<|content|>Dear Ms. ... Norcross\n<|id|>10<|page|>1<|box|>715 174 770 854<|content|>(b) Exhibit A — Study Budget, reflecting the total... value of Six Million Dollars ($6,000,000. ... and\n<|id|>12<|page|>1<|box|>839 140 893 854<|content|>Please note that TMRI's authorized signatory, Dr. ...h TMRI's organizational authorization requirements\n<|id|>18<|page|>2<|box|>805 174 859 854<|content|>(iii) Confirmation of HUMC's Institutional Federal...man Services, as required under Section 5. ... and\n<|id|>19<|page|>2<|box|>868 174 904 857<|content|>(iv) Wire transfer instructions for HUMC's designa...red Thousand Dollars ($300,000. ... 00) payable by\n<|id|>20<|page|>3<|box|>89 176 126 854<|content|>TMRI within ten (10) business days following the E...in Exhibit A, Section I. ... A of the Study Budget\n<|id|>27<|page|>3<|box|>492 140 539 854<|content|>Christopher Aiken Associate, Healthcare & Life Sci...ston, Massachusetts 02109 Tel: ... (617) 884- 7246\n<|id|>28<|page|>3<|box|>541 143 558 447<|content|>Email: ... com\n<|id|>30<|page|>3<|box|>584 174 657 854<|content|>Four (4) counterpart signature copies of the Clini...A (Study Budget) and Exhibit B (Protocol Synopsis)\n<|id|>31<|page|>3<|box|>667 143 680 169<|content|>cc: ... cc",
+    "raw_response": "<|src_id|>19<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        }
+    ]
+}

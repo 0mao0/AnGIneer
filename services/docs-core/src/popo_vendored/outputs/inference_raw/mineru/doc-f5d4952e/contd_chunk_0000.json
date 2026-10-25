@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        11,
+        12,
+        13,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>205 140 234 854<|content|>Prepared by: ... 1025-00006\n<|id|>5<|page|>1<|box|>487 142 503 408<|content|>Right-click to update Table of Contents\n<|id|>9<|page|>1<|box|>858 140 893 854<|content|>All work product, reports, communications, finding...d by Graystone under this SOW (collectively, \"Work\n<|id|>10<|page|>2<|box|>90 140 237 856<|content|>Product\") are privileged and confidential. ... Gra...ivileged and confidential nature of such materials\n<|id|>19<|page|>3<|box|>234 147 250 527<|content|>• Margaret D. ... Calloway, Chief Executive Officer\n<|id|>25<|page|>3<|box|>349 140 424 856<|content|>Quorum's General Counsel, Mr. ... Whitfield, autho...e privilege framework set forth in Section 1 above\n<|id|>20<|page|>3<|box|>253 147 268 464<|content|>• Thomas R. ... Whitfield, General Counsel\n<|id|>21<|page|>3<|box|>273 147 289 617<|content|>• David Naranjo, Chief Information Security Officer (\"CISO\")\n<|id|>22<|page|>3<|box|>292 147 309 516<|content|>• Jennifer Liang, Chief Privacy Officer (\"CPO\")\n<|id|>23<|page|>3<|box|>311 147 329 627<|content|>• Robert Wentworth, Senior Vice President, Claims Operations\n<|id|>24<|page|>3<|box|>330 145 348 614<|content|>• Priya Deshmukh, Vice President, Vendor Risk Management\n<|id|>31<|page|>3<|box|>832 145 849 496<|content|>• Marcus J. ... Trevino, Chief Executive Officer\n<|id|>32<|page|>3<|box|>852 147 869 558<|content|>• Anita Raghavan, Chief Technology Officer (\"CTO\")\n<|id|>33<|page|>3<|box|>872 147 888 426<|content|>• Derek Copeland, General Counsel\n<|id|>34<|page|>4<|box|>90 140 164 854<|content|>Palomar is represented by outside counsel Mercer, ...LP, a Dallas-based law firm. ... Langford's office\n<|id|>41<|page|>4<|box|>854 140 909 856<|content|>Following receipt of Palomar's notification, Quoru...Harkness subsequently retained Graystone Forensics\n<|id|>42<|page|>5<|box|>89 140 127 857<|content|>LLC under privilege on May 5, 2023, pursuant to th...g the forensic investigation described in this SOW\n<|id|>117<|page|>11<|box|>864 140 900 857<|content|>Graystone shall conduct an assessment of Palomar's... This assessment is undertaken at the direction of\n<|id|>118<|page|>12<|box|>90 140 164 854<|content|>Counsel to support Calderwood & Harkness's legal a...ssment constitute privileged attorney work product\n<|id|>129<|page|>13<|box|>196 181 214 702<|content|>• Full legal name (first name, middle name or initial, last name, suffix)\n<|id|>134<|page|>13<|box|>330 140 422 854<|content|>Graystone shall coordinate with Quorum's SVP, Clai...h the prior authorization of Calderwood & Harkness\n<|id|>130<|page|>13<|box|>217 183 234 669<|content|>• Last known mailing address (street address, city, state, zip code)\n<|id|>131<|page|>13<|box|>236 183 252 334<|content|>• State of residence\n<|id|>132<|page|>13<|box|>255 181 290 852<|content|>• Data elements compromised for each individual (c... by category: ... PII, financial information, PHI)\n<|id|>133<|page|>13<|box|>294 183 329 854<|content|>• Specific data elements compromised (e. ... , Soc...cense number, bank account number, diagnosis code)\n<|id|>287<|page|>25<|box|>578 140 594 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>288<|page|>25<|box|>597 143 613 253<|content|>By: ... By\n<|id|>289<|page|>25<|box|>614 143 628 285<|content|>Name: ... Alan Burke\n<|id|>290<|page|>25<|box|>630 142 647 599<|content|>Title: ... Lead Associate, Privacy & Data Security Practice Group\n<|id|>291<|page|>25<|box|>664 142 680 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>292<|page|>25<|box|>683 143 699 251<|content|>By: ... By\n<|id|>293<|page|>25<|box|>699 142 715 323<|content|>Name: ... Kevin Ostrowski\n<|id|>294<|page|>25<|box|>717 142 734 633<|content|>Title: ... Responsible Partner, Privacy & Data Security Practice Group\n<|id|>295<|page|>25<|box|>734 143 750 264<|content|>Date: ... Date\n<|id|>298<|page|>26<|box|>89 140 106 400<|content|>GRAYSTONE FORENSICS LLC\n<|id|>299<|page|>26<|box|>108 140 125 253<|content|>By: ... By\n<|id|>300<|page|>26<|box|>125 140 142 328<|content|>Name: ... Nolan Briggs\n<|id|>301<|page|>26<|box|>142 140 159 472<|content|>Title: ... Managing Director, Incident Response\n<|id|>302<|page|>26<|box|>159 142 175 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>9<|tgt_id|>10\n<|src_id|>41<|tgt_id|>42\n<|src_id|>117<|tgt_id|>118",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 118
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=6, 纵断', '17', '桥梁', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 纵断', '18', '分离式立交a.主线上跨b.主线下穿', '']]\n",
+    "raw_response": "[1, 0, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 431,
+    "table2_idx": 432
+}

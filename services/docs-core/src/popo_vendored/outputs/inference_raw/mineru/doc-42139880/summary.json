@@ -1,0 +1,151 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-umrzqhv3\\input\\pdfs\\doc-42139880.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-umrzqhv3\\enriched\\doc-42139880.json",
+    "contd_output": "<|src_id|>85<|tgt_id|>86",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>19<|level|>3\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>37<|level|>3\n<|id|>42<|level|>3\n<|id|>54<|level|>2\n<|id|>56<|level|>3\n<|id|>62<|level|>3\n<|id|>81<|level|>3\n<|id|>88<|level|>3\n<|id|>96<|level|>3\n<|id|>105<|level|>3\n<|id|>113<|level|>3\n<|id|>125<|level|>3\n<|id|>130<|level|>3\n<|id|>135<|level|>2\n<|id|>136<|level|>3\n<|id|>147<|level|>3\n<|id|>151<|level|>3\n<|id|>155<|level|>3\n<|id|>162<|level|>2\n<|id|>168<|level|>2\n<|id|>172<|level|>2",
+    "image_output": "<|src_id|>170<|tgt_id|>168\n<|src_id|>171<|tgt_id|>168",
+    "contd_label": [
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 170,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 168
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 170,
+            "table2_idx": 171,
+            "upper_row_ss": [
+                [
+                    "Exhibit 5",
+                    "Pinnacle Forensics Encrypted Messaging Metadata"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Summary (January 13–24, 2025) (cross-referenced from Pinnacle Forensics LLC preliminary report)"
+                ]
+            ]
+        }
+    ]
+}

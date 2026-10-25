@@ -1,0 +1,150 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        64
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        61,
+        62,
+        63,
+        64
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>525<|page|>46<|box|>241 140 258 437<|content|>Section 11.18 — Electronic Execution\n<|id|>527<|page|>46<|box|>436 140 454 668<|content|>Section 11.19 — Acknowledgment Regarding Any Suppo\n<|id|>532<|page|>47<|box|>89 361 107 635<|content|>[SIGNATURE PAGES FOLLOW]\n<|id|>533<|page|>47<|box|>114 218 132 777<|content|>SIGNATURE PAGE TO SENIOR SECURED CREDIT AGREEMENT\n<|id|>535<|page|>47<|box|>186 143 202 263<|content|>BORROWER:\n<|id|>553<|page|>47<|box|>527 370 544 627<|content|>LENDER SIGNATURE PAGES\n<|id|>575<|page|>48<|box|>166 424 186 573<|content|>SCHEDULES\n<|id|>578<|page|>51<|box|>90 140 107 504<|content|>Schedule 5.01 — Jurisdictions of Qualification\n<|id|>585<|page|>52<|box|>90 140 107 424<|content|>Schedule 5.06 — Existing Litigation\n<|id|>587<|page|>53<|box|>90 140 107 390<|content|>Schedule 5.08 — Existing Liens\n<|id|>592<|page|>54<|box|>90 140 107 375<|content|>Schedule 5.13 — Subsidiaries\n<|id|>594<|page|>55<|box|>90 140 107 405<|content|>Schedule 7.01 — Permitted Liens\n<|id|>596<|page|>56<|box|>90 140 107 464<|content|>Schedule 7.02 — Permitted Indebtedness\n<|id|>602<|page|>57<|box|>90 140 107 423<|content|>Schedule 11.02 — Notice Addresses\n<|id|>604<|page|>57<|box|>198 439 217 558<|content|>EXHIBITS\n<|id|>605<|page|>58<|box|>90 140 107 411<|content|>Exhibit A — Form of Loan Notice\n<|id|>606<|page|>58<|box|>114 387 132 609<|content|>FORM OF LOAN NOTICE\n<|id|>623<|page|>59<|box|>90 142 107 495<|content|>Exhibit B — Form of Compliance Certificate\n<|id|>624<|page|>59<|box|>114 323 132 673<|content|>FORM OF COMPLIANCE CERTIFICATE\n<|id|>632<|page|>59<|box|>516 143 532 493<|content|>(b) Interest Coverage Ratio (Section 7.11(b)):\n<|id|>634<|page|>59<|box|>667 143 685 460<|content|>(c) Minimum Liquidity (Section 7.11(c)):\n<|id|>636<|page|>59<|box|>820 140 875 852<|content|>4. The Applicable Rate and Commitment Fee Rate as\n<|id|>639<|page|>61<|box|>90 140 107 537<|content|>Exhibit C — Form of Assignment and Assumption\n<|id|>640<|page|>61<|box|>114 305 132 691<|content|>FORM OF ASSIGNMENT AND ASSUMPTION\n<|id|>652<|page|>62<|box|>90 142 107 446<|content|>Exhibit D — Form of Promissory Note\n<|id|>653<|page|>62<|box|>114 362 132 633<|content|>FORM OF PROMISSORY NOTE\n<|id|>654<|page|>62<|box|>142 367 157 627<|content|>[TERM LOAN A / REVOLVING]\n<|id|>663<|page|>63<|box|>90 142 107 470<|content|>Exhibit E — Form of Solvency Certificate\n<|id|>664<|page|>63<|box|>114 334 132 661<|content|>FORM OF SOLVENCY CERTIFICATE\n<|id|>677<|page|>64<|box|>90 142 107 542<|content|>Exhibit F — Form of Officer's Certificate (Closing\n<|id|>678<|page|>64<|box|>114 287 132 707<|content|>FORM OF OFFICER'S CERTIFICATE (CLOSING)",
+    "raw_response": "<|id|>525<|level|>1\n<|id|>527<|level|>1\n<|id|>532<|level|>-1\n<|id|>533<|level|>1\n<|id|>535<|level|>2\n<|id|>553<|level|>1\n<|id|>575<|level|>1\n<|id|>578<|level|>2\n<|id|>585<|level|>2\n<|id|>587<|level|>2\n<|id|>592<|level|>2\n<|id|>594<|level|>2\n<|id|>596<|level|>2\n<|id|>602<|level|>2\n<|id|>604<|level|>1\n<|id|>605<|level|>2\n<|id|>606<|level|>3\n<|id|>623<|level|>2\n<|id|>624<|level|>3\n<|id|>632<|level|>4\n<|id|>634<|level|>4\n<|id|>636<|level|>4\n<|id|>639<|level|>2\n<|id|>640<|level|>3\n<|id|>652<|level|>2\n<|id|>653<|level|>3\n<|id|>654<|level|>4\n<|id|>663<|level|>2\n<|id|>664<|level|>3\n<|id|>677<|level|>2\n<|id|>678<|level|>3",
+    "parsed": [
+        {
+            "id": 525,
+            "level": 1
+        },
+        {
+            "id": 527,
+            "level": 1
+        },
+        {
+            "id": 533,
+            "level": 1
+        },
+        {
+            "id": 535,
+            "level": 2
+        },
+        {
+            "id": 553,
+            "level": 1
+        },
+        {
+            "id": 575,
+            "level": 1
+        },
+        {
+            "id": 578,
+            "level": 2
+        },
+        {
+            "id": 585,
+            "level": 2
+        },
+        {
+            "id": 587,
+            "level": 2
+        },
+        {
+            "id": 592,
+            "level": 2
+        },
+        {
+            "id": 594,
+            "level": 2
+        },
+        {
+            "id": 596,
+            "level": 2
+        },
+        {
+            "id": 602,
+            "level": 2
+        },
+        {
+            "id": 604,
+            "level": 1
+        },
+        {
+            "id": 605,
+            "level": 2
+        },
+        {
+            "id": 606,
+            "level": 3
+        },
+        {
+            "id": 623,
+            "level": 2
+        },
+        {
+            "id": 624,
+            "level": 3
+        },
+        {
+            "id": 632,
+            "level": 4
+        },
+        {
+            "id": 634,
+            "level": 4
+        },
+        {
+            "id": 636,
+            "level": 4
+        },
+        {
+            "id": 639,
+            "level": 2
+        },
+        {
+            "id": 640,
+            "level": 3
+        },
+        {
+            "id": 652,
+            "level": 2
+        },
+        {
+            "id": 653,
+            "level": 3
+        },
+        {
+            "id": 654,
+            "level": 4
+        },
+        {
+            "id": 663,
+            "level": 2
+        },
+        {
+            "id": 664,
+            "level": 3
+        },
+        {
+            "id": 677,
+            "level": 2
+        },
+        {
+            "id": 678,
+            "level": 3
+        }
+    ]
+}

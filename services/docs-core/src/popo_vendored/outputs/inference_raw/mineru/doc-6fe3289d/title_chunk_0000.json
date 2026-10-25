@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        8,
+        10,
+        14,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 187 141 808<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>3<|page|>1<|box|>200 156 237 841<|content|>THALASSA SHIPPING & LOGISTICS SA and AEGEAN FORTUN\n<|id|>6<|page|>1<|box|>297 171 333 826<|content|>REPLY MEMORANDUM OF LAW IN FURTHER SUPPORT OF DEFE\n<|id|>11<|page|>1<|box|>515 385 532 612<|content|>TABLE OF AUTHORITIES\n<|id|>17<|page|>3<|box|>138 142 155 398<|content|>PRELIMINARY STATEMENT\n<|id|>25<|page|>4<|box|>212 140 229 258<|content|>ARGUMENT\n<|id|>26<|page|>4<|box|>242 140 279 854<|content|>I. COUNT V (UNJUST ENRICHMENT) MUST BE DISMISSED B\n<|id|>52<|page|>8<|box|>527 140 564 854<|content|>II. COUNT III (THIRD-PARTY SHIPPER CLAIMS AS CHART\n<|id|>53<|page|>8<|box|>575 140 628 854<|content|>A. Northwind Cannot Recover Third-Party Shipper Cl\n<|id|>66<|page|>10<|box|>424 140 441 790<|content|>##### 2. Northwind's Opposition Conflates Indemnit\n<|id|>91<|page|>14<|box|>501 140 537 854<|content|>III. NORTHWIND'S OPPOSITION RAISES NO GENUINE FACT\n<|id|>104<|page|>16<|box|>556 140 573 271<|content|>CONCLUSION\n<|id|>116<|page|>17<|box|>253 375 272 622<|content|>CERTIFICATE OF SERVICE\n<|id|>122<|page|>17<|box|>551 354 569 640<|content|>WORD COUNT CERTIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>6<|level|>1\n<|id|>11<|level|>2\n<|id|>17<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>52<|level|>3\n<|id|>53<|level|>4\n<|id|>66<|level|>5\n<|id|>91<|level|>3\n<|id|>104<|level|>2\n<|id|>116<|level|>2\n<|id|>122<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 5
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        }
+    ]
+}

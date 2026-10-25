@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        55
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>505<|type|>title<|page|>46<|box|>595 142 612 535<|content|>NORTHGATE TELECOMMUNICATIONS PLC\n<|id|>515<|type|>title<|page|>46<|box|>776 142 792 493<|content|>RIDGELINE WIRELESS HOLDINGS LLC\n<|id|>520<|type|>title<|page|>47<|box|>89 142 106 689<|content|>EXHIBIT D — FORM OF LICENSE ASSIGNMENT INSTRUMENT\n<|id|>521<|type|>title<|page|>47<|box|>114 142 132 426<|content|>INSTRUMENT OF ASSIGNMENT\n<|id|>525<|type|>title<|page|>47<|box|>273 142 291 241<|content|>RECITALS\n<|id|>530<|type|>title<|page|>47<|box|>513 142 530 271<|content|>ASSIGNMENT\n<|id|>532<|type|>table<|page|>47<|box|>594 143 875 852<|content|>None\n<|id|>550<|type|>title<|page|>48<|box|>555 424 574 571<|content|>SCHEDULES\n<|id|>551<|type|>title<|page|>49<|box|>89 142 106 483<|content|>SCHEDULE A — LICENSE PORTFOLIO\n<|id|>552<|type|>table<|page|>49<|box|>160 143 906 852<|content|>None\n<|id|>553<|type|>table<|page|>50<|box|>88 143 299 852<|content|>None\n<|id|>554<|type|>title<|page|>50<|box|>334 142 351 230<|content|>Summary:\n<|id|>560<|type|>title<|page|>50<|box|>476 143 491 197<|content|>Notes:\n<|id|>565<|type|>title<|page|>51<|box|>89 142 107 578<|content|>SCHEDULE B — PURCHASE PRICE ALLOCATION\n<|id|>566<|type|>table<|page|>51<|box|>159 143 602 852<|content|>None\n<|id|>567<|type|>title<|page|>51<|box|>636 142 652 197<|content|>Notes:\n<|id|>571<|type|>title<|page|>52<|box|>89 140 107 648<|content|>SCHEDULE 4.5 — BUILDOUT COMPLIANCE EXCEPTIONS\n<|id|>573<|type|>title<|page|>52<|box|>161 142 176 534<|content|>1. Licenses Meeting Interim Buildout Benchmark:\n<|id|>575<|type|>title<|page|>52<|box|>304 140 320 578<|content|>2. Licenses NOT Meeting Interim Buildout Benchmark\n<|id|>577<|type|>table<|page|>52<|box|>371 143 463 852<|content|>None\n<|id|>578<|type|>title<|page|>52<|box|>497 143 513 315<|content|>Description of Status:\n<|id|>582<|type|>title<|page|>53<|box|>90 140 107 470<|content|>3. Interim Buildout Benchmark Deadline:\n<|id|>584<|type|>title<|page|>53<|box|>179 142 195 390<|content|>4. Final Construction Deadline:\n<|id|>586<|type|>title<|page|>53<|box|>285 140 303 344<|content|>5. FCC Compliance Risk:\n<|id|>588<|type|>title<|page|>54<|box|>89 140 107 816<|content|>SCHEDULE 4.7 — ANTI-TRAFFICKING / UNJUST ENRICHMEN\n<|id|>590<|type|>title<|page|>54<|box|>160 142 178 331<|content|>1. Original Acquisition:\n<|id|>592<|type|>title<|page|>54<|box|>248 140 266 295<|content|>2. Bidding Credits:\n<|id|>594<|type|>title<|page|>54<|box|>373 140 391 423<|content|>3. Anti-Trafficking Holding Period:\n<|id|>597<|type|>title<|page|>54<|box|>561 140 579 455<|content|>4. Ten-Year Unjust Enrichment Period:\n<|id|>606<|type|>title<|page|>55<|box|>133 142 152 341<|content|>5. Seller's Responsibility:\n<|id|>608<|type|>title<|page|>55<|box|>258 143 277 264<|content|>6. FCC Filings:",
+    "raw_response": "<|src_id|>532<|tgt_id|>530\n<|src_id|>552<|tgt_id|>551\n<|src_id|>553<|tgt_id|>551\n<|src_id|>566<|tgt_id|>565\n<|src_id|>577<|tgt_id|>571",
+    "parsed": [
+        {
+            "src_id": 532,
+            "tgt_id": 530
+        },
+        {
+            "src_id": 552,
+            "tgt_id": 551
+        },
+        {
+            "src_id": 553,
+            "tgt_id": 551
+        },
+        {
+            "src_id": 566,
+            "tgt_id": 565
+        },
+        {
+            "src_id": 577,
+            "tgt_id": 571
+        }
+    ]
+}

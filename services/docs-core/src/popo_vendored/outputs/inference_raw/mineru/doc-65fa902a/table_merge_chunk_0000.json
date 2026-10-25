@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, 上部结构', '胸墙', '完好,或有轻度损坏;钢筋无锈蚀', '小于10%的墙段中度损坏;钢筋局部锈蚀', '10%~20%的墙段中度损坏,或小于10%的墙段严重损坏;钢筋明显锈蚀', '20%以上的墙段中度损坏或10%以上的墙段严重裂缝、表面损坏,钢筋严重锈蚀', '—']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 墙身', '方块', '完好,或有轻度损坏,表面无明显剥落', '小于10%的构件中度损坏,表面剥落', '10%~20%的构件中度损坏,表面剥落或小于10%的构件严重损坏或断裂', '20%以上的构件中度损坏,表面剥落或10%以上的构件严重损坏或断裂', '—']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 95,
+    "table2_idx": 96
+}

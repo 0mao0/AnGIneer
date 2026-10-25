@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>128 415 148 581<|content|>BILL OF SALE\n<|id|>2<|type|>title<|page|>1<|box|>167 308 184 687<|content|>Draft — Exhibit B to Asset Purchase Agreement\n<|id|>9<|type|>title<|page|>1<|box|>655 140 672 746<|content|>ARTICLE I — TRANSFER AND CONVEYANCE OF ACQUIRED AS\n<|id|>30<|type|>title<|page|>4<|box|>597 142 614 504<|content|>ARTICLE II — TERMS AND CONDITIONS\n<|id|>35<|type|>title<|page|>5<|box|>805 140 821 558<|content|>ARTICLE III — MISCELLANEOUS PROVISIONS\n<|id|>42<|type|>title<|page|>6<|box|>703 142 719 225<|content|>SELLER:\n<|id|>53<|type|>title<|page|>8<|box|>90 142 106 563<|content|>SCHEDULE AND EXHIBIT CROSS-REFERENCES\n<|id|>55<|type|>table<|page|>8<|box|>159 143 279 852<|content|>None",
+    "raw_response": "<|src_id|>55<|tgt_id|>53",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        }
+    ]
+}

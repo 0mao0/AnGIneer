@@ -1,0 +1,418 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lqta58uf\\input\\pdfs\\doc-0b411212.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lqta58uf\\enriched\\doc-0b411212.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>21<|level|>3\n<|id|>25<|level|>3\n<|id|>29<|level|>2\n<|id|>31<|level|>3\n<|id|>35<|level|>3\n<|id|>39<|level|>3\n<|id|>43<|level|>3\n<|id|>50<|level|>2\n<|id|>52<|level|>3\n<|id|>57<|level|>3\n<|id|>61<|level|>3\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>70<|level|>3\n<|id|>85<|level|>3\n<|id|>89<|level|>3\n<|id|>93<|level|>2\n<|id|>94<|level|>3\n<|id|>101<|level|>3\n<|id|>130<|level|>3\n<|id|>135<|level|>3\n<|id|>137<|level|>2\n<|id|>138<|level|>3\n<|id|>145<|level|>3\n<|id|>165<|level|>3\n<|id|>171<|level|>3\n<|id|>174<|level|>2\n<|id|>175<|level|>3\n<|id|>187<|level|>3\n<|id|>215<|level|>3\n<|id|>222<|level|>3\n<|id|>224<|level|>2\n<|id|>225<|level|>3\n<|id|>232<|level|>3\n<|id|>255<|level|>3\n<|id|>261<|level|>3\n<|id|>263<|level|>2\n<|id|>264<|level|>3\n<|id|>269<|level|>3\n<|id|>278<|level|>3\n<|id|>283<|level|>3\n<|id|>286<|level|>2\n<|id|>291<|level|>2\n<|id|>293<|level|>3\n<|id|>299<|level|>3\n<|id|>305<|level|>3\n<|id|>311<|level|>3\n<|id|>317<|level|>2\n<|id|>318<|level|>3\n<|id|>326<|level|>3\n<|id|>328<|level|>3\n<|id|>330<|level|>3\n<|id|>335<|level|>2\n<|id|>343<|level|>2\n<|id|>351<|level|>2",
+    "image_output": "<|src_id|>19<|tgt_id|>17\n<|src_id|>20<|tgt_id|>17\n<|src_id|>23<|tgt_id|>21\n<|src_id|>24<|tgt_id|>21\n<|src_id|>27<|tgt_id|>25\n<|src_id|>28<|tgt_id|>25\n<|src_id|>90<|tgt_id|>89\n<|src_id|>92<|tgt_id|>89\n<|src_id|>136<|tgt_id|>135\n<|src_id|>172<|tgt_id|>171\n<|src_id|>223<|tgt_id|>222\n<|src_id|>262<|tgt_id|>261\n<|src_id|>284<|tgt_id|>283\n<|src_id|>285<|tgt_id|>283\n<|src_id|>288<|tgt_id|>286\n<|src_id|>289<|tgt_id|>286\n<|src_id|>290<|tgt_id|>286",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 224,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 255,
+            "level": 3
+        },
+        {
+            "id": 261,
+            "level": 3
+        },
+        {
+            "id": 263,
+            "level": 2
+        },
+        {
+            "id": 264,
+            "level": 3
+        },
+        {
+            "id": 269,
+            "level": 3
+        },
+        {
+            "id": 278,
+            "level": 3
+        },
+        {
+            "id": 283,
+            "level": 3
+        },
+        {
+            "id": 286,
+            "level": 2
+        },
+        {
+            "id": 291,
+            "level": 2
+        },
+        {
+            "id": 293,
+            "level": 3
+        },
+        {
+            "id": 299,
+            "level": 3
+        },
+        {
+            "id": 305,
+            "level": 3
+        },
+        {
+            "id": 311,
+            "level": 3
+        },
+        {
+            "id": 317,
+            "level": 2
+        },
+        {
+            "id": 318,
+            "level": 3
+        },
+        {
+            "id": 326,
+            "level": 3
+        },
+        {
+            "id": 328,
+            "level": 3
+        },
+        {
+            "id": 330,
+            "level": 3
+        },
+        {
+            "id": 335,
+            "level": 2
+        },
+        {
+            "id": 343,
+            "level": 2
+        },
+        {
+            "id": 351,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 171
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 222
+        },
+        {
+            "src_id": 262,
+            "tgt_id": 261
+        },
+        {
+            "src_id": 284,
+            "tgt_id": 283
+        },
+        {
+            "src_id": 285,
+            "tgt_id": 283
+        },
+        {
+            "src_id": 288,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 289,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 290,
+            "tgt_id": 286
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 19,
+            "table2_idx": 20,
+            "upper_row_ss": [
+                [
+                    "Leila Nazari",
+                    "Senior Associate, Tax",
+                    "Lead associate; day-to-day project management and coordination across all work streams; primary drafter of the APA application, legal analysis, contemporaneous transfer pricing documentation, and intercompany agreement amendments;",
+                    "$825/hr"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "principal point of coordination with KP and Meridian",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 23,
+            "table2_idx": 24,
+            "upper_row_ss": [
+                [
+                    "Thomas Kuroda",
+                    "VP, Supply Chain Operations",
+                    "HSI",
+                    "Functional interview contact (semiconductor wafer and die procurement, supply chain logistics, inventory management, and distribution operations)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Dr. Hendrik Möller",
+                    "Chief Technology Officer",
+                    "HSAG",
+                    "R&D and Cost Sharing Arrangement functional interview contact (research and development activities, technology roadmap, IP development)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 27,
+            "table2_idx": 28,
+            "upper_row_ss": [
+                [
+                    "Gresham Whitfield LLP",
+                    "Simon Cardwell (London, group audit partner), Janet Okonkwo (Houston, US engagement partner)",
+                    "Independent auditor — source for audited financial statements (HSAG consolidated and HSI standalone) for FY 2020–2024; coordination on segmented financial data reconciliation for",
+                    "N/A (existing HSAG audit engagement; no additional fees to C&H)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "APA Financial Data Appendix",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 288,
+            "table2_idx": 289,
+            "upper_row_ss": [
+                [
+                    "May 30, 2025",
+                    "Review Memo — Existing",
+                    "WS 6",
+                    "R. Jansen"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "IC Agreements — draft",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 289,
+            "table2_idx": 290,
+            "upper_row_ss": [
+                [
+                    "September 19, 2025",
+                    "US Local File — FY 2024 — final; Penalty Protection Statement —",
+                    "WS 3 / WS 5",
+                    "L. Nazari"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "final; Sensitivity Testing — final",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

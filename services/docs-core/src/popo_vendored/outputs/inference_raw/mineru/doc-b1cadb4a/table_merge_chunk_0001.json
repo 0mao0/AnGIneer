@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['New York', '6.5% / 7.25% (> $5M income)', 'Single sales factor; market-based sourcing', 'Yes', 'Yes (mandatory combined)', 'Yes (N.Y. Tax Law § 208(9)(o))', 'None (no stock transfer tax; confirm no real', 'Confirm current filing status; likely economic', 'Establish post-closing combined group; confirm']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', 'property)', 'nexus', 'amortization benefits']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 370,
+    "table2_idx": 371
+}

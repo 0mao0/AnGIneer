@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>212 140 229 292<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>238 140 275 854<|content|>TO: ... Conrad Ashby, Deputy General Counsel — Regulatory, Halcyon Semiconductor Inc\n<|id|>4<|page|>1<|box|>282 140 318 854<|content|>FROM: ... Steven Hollander, Partner, Calderwood & ...P Liam Donahue, Counsel, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>327 140 344 354<|content|>DATE: ... November 22, 2025\n<|id|>6<|page|>1<|box|>353 140 388 854<|content|>RE: ... (DOJ NSD-CES-2025-04871)\n<|id|>26<|page|>3<|box|>707 140 799 856<|content|>Lansheng Status. ... 21, supported by classified i... institute affiliated with the People's Liberation\n<|id|>27<|page|>3<|box|>805 140 862 854<|content|>Army. ... The details of DOJ's military end-use th...anda and are not the subject of this OFAC analysis\n<|id|>79<|page|>11<|box|>90 140 145 854<|content|>Zhonghe Microelectronics Co. ... Zhang Haifeng (in...) holds a 65% equity interest, and Qianhai Venture\n<|id|>80<|page|>11<|box|>151 140 244 854<|content|>Capital Partners ( 前 海 创 投 合 伙 企 业 ), a Shenzhen-b... nexus has been identified with respect to Zhonghe",
+    "raw_response": "<|src_id|>26<|tgt_id|>27\n<|src_id|>79<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        }
+    ]
+}

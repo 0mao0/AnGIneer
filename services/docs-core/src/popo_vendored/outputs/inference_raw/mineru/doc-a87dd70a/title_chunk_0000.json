@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        16,
+        18,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>343 153 397 843<|content|>DEFENDANT STONEFIELD LOGISTICS GROUP INC.'S MEMORA\n<|id|>3<|page|>1<|box|>469 292 486 700<|content|>Attorneys for Defendant Stonefield Logistics Group\n<|id|>4<|page|>1<|box|>494 398 510 599<|content|>TABLE OF CONTENTS\n<|id|>7<|page|>2<|box|>714 142 731 413<|content|>I. PRELIMINARY STATEMENT\n<|id|>16<|page|>4<|box|>376 140 393 379<|content|>II. STATEMENT OF FACTS\n<|id|>18<|page|>4<|box|>470 142 487 261<|content|>A. The Parties\n<|id|>23<|page|>5<|box|>138 140 157 480<|content|>B. The Transportation Services Agreement\n<|id|>37<|page|>6<|box|>309 140 325 529<|content|>C. The Liquidated Damages Clause (Section 14.2)\n<|id|>46<|page|>6<|box|>744 140 762 566<|content|>D. The Termination for Cause Provision (Section 13\n<|id|>52<|page|>7<|box|>295 142 314 250<|content|>(TSA § 13.1.)\n<|id|>54<|page|>7<|box|>407 140 425 558<|content|>E. The Consequential Damages Waiver (Section 15.1)\n<|id|>58<|page|>7<|box|>660 142 676 616<|content|>F. VTS's Performance Failures and Stonefield's Ter\n<|id|>70<|page|>9<|box|>138 140 157 321<|content|>G. Procedural History\n<|id|>74<|page|>9<|box|>493 140 510 346<|content|>III. LEGAL STANDARD\n<|id|>75<|page|>9<|box|>523 140 541 349<|content|>A. Rule 12(b)(6) Standard\n<|id|>81<|page|>10<|box|>411 140 428 429<|content|>B. New York Contract Law Governs\n<|id|>84<|page|>10<|box|>702 140 719 285<|content|>IV. ARGUMENT\n<|id|>85<|page|>10<|box|>733 140 768 854<|content|>A. THE LIQUIDATED DAMAGES CLAUSE IN SECTION 14.2 I\n<|id|>133<|page|>16<|box|>354 140 391 854<|content|>B. VANTOR'S LOST PROFITS CLAIM FAILS TO STATE A CL\n<|id|>157<|page|>18<|box|>746 140 782 854<|content|>C. VANTOR'S CONSEQUENTIAL DAMAGES CLAIMS ARE BARRE\n<|id|>172<|page|>20<|box|>89 140 106 294<|content|>V. CONCLUSION\n<|id|>180<|page|>20<|box|>479 212 496 501<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>186<|page|>20<|box|>608 374 625 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>-1\n<|id|>4<|level|>1\n<|id|>7<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>2\n<|id|>23<|level|>2\n<|id|>37<|level|>2\n<|id|>46<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>70<|level|>2\n<|id|>74<|level|>1\n<|id|>75<|level|>2\n<|id|>81<|level|>2\n<|id|>84<|level|>1\n<|id|>85<|level|>2\n<|id|>133<|level|>2\n<|id|>157<|level|>2\n<|id|>172<|level|>1\n<|id|>180<|level|>-1\n<|id|>186<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 186,
+            "level": 1
+        }
+    ]
+}

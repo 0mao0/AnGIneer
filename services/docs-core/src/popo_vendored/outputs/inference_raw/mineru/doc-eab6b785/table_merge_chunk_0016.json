@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 16,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Description', 'Transmittal letter from Miriam Calloway to Allison Whitmore transmitting the Second Draft of the Master']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', \"Clinical Trial Agreement, together with a tracked-changes redline against the First Draft. The letter summarizes the key revisions reflected in the Second Draft, including: (a) incorporation of Penterra's responses to Veridian's initial markup of the First Draft; (b) revised indemnification provisions reflecting the May 5 indemnification term sheet; (c) updated budget and payment schedule; and (d) revised insurance requirements. The letter requests that Whitmore, Jansen & Callahan provide a marked-up version of the Second Draft within two weeks (i.e., by June 2, 2023).\"]]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 161,
+    "table2_idx": 162
+}

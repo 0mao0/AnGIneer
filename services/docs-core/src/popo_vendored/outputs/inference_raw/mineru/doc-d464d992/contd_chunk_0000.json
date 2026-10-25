@@ -1,0 +1,56 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        11,
+        12,
+        13,
+        26,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>518 140 592 854<|content|>Bernard Crawford (TX Bar No. ... (214) 555-7801\n<|id|>4<|page|>1<|box|>599 142 618 550<|content|>Attorneys for Defendant Stonefield Logistics Group...rneys for Defendant Stonefield Logistics Group Inc\n<|id|>76<|page|>11<|box|>819 140 893 854<|content|>The Supreme Court has repeatedly underscored the strength and breadth of this federal policy. ... \" 460\n<|id|>78<|page|>12<|box|>152 140 299 856<|content|>In Ridgeway Services Inc. ... at 510–21\n<|id|>87<|page|>13<|box|>444 140 479 854<|content|>A. ... * Resolved the Question of Whether the FAA ...ivers in Employment-Related Arbitration Agreements\n<|id|>88<|page|>13<|box|>486 140 595 856<|content|>Plaintiff's proposed collective action seeks to ag... collective action mechanism, 29 U. ... 497 (2018)\n<|id|>182<|page|>26<|box|>334 174 369 854<|content|>3. ... and\n<|id|>184<|page|>26<|box|>426 678 444 854<|content|>Respectfully submitted,\n<|id|>185<|page|>26<|box|>486 140 503 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>186<|page|>26<|box|>505 143 521 254<|content|>By: ... By\n<|id|>187<|page|>26<|box|>521 140 537 459<|content|>Bernard Crawford (TX Bar No. ... 24031872)\n<|id|>188<|page|>26<|box|>537 140 571 854<|content|>Renata Vasquez (TX Bar No. ... 24089201)\n<|id|>189<|page|>26<|box|>571 140 603 854<|content|>2200 Ross Avenue, Suite 3600 Dallas, TX 75201 Telephone: ... (214) 555-7801\n<|id|>190<|page|>26<|box|>604 140 621 475<|content|>Email: ... com\n<|id|>191<|page|>26<|box|>622 140 638 555<|content|>Attorneys for Defendant Stonefield Logistics Group...rneys for Defendant Stonefield Logistics Group Inc\n<|id|>194<|page|>26<|box|>782 174 819 852<|content|>Claudia Hartwell Jordan Brashear HARTWELL & BRASHEAR PLLC 500 N. ... (214) 555-3201\n<|id|>195<|page|>26<|box|>827 176 844 477<|content|>Email: ... com\n<|id|>196<|page|>26<|box|>845 176 861 477<|content|>Email: ... com\n<|id|>197<|page|>26<|box|>862 176 878 490<|content|>Lead Counsel for Plaintiff Marcus Delano\n<|id|>198<|page|>27<|box|>152 143 167 279<|content|>Bernard Crawford",
+    "raw_response": "<|src_id|>186<|tgt_id|>187\n<|src_id|>187<|tgt_id|>188\n<|src_id|>188<|tgt_id|>189\n<|src_id|>189<|tgt_id|>190\n<|src_id|>190<|tgt_id|>191\n<|src_id|>194<|tgt_id|>195\n<|src_id|>195<|tgt_id|>196\n<|src_id|>196<|tgt_id|>197\n<|src_id|>197<|tgt_id|>198",
+    "parsed": [
+        {
+            "src_id": 186,
+            "tgt_id": 187
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 189
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 195
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 196
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 197,
+            "tgt_id": 198
+        }
+    ]
+}

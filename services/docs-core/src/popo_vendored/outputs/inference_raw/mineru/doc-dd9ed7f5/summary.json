@@ -1,0 +1,139 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-sq8tm9jq\\input\\pdfs\\doc-dd9ed7f5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-sq8tm9jq\\enriched\\doc-dd9ed7f5.json",
+    "contd_output": "<|src_id|>93<|tgt_id|>94",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>17<|level|>2\n<|id|>34<|level|>2\n<|id|>47<|level|>3\n<|id|>52<|level|>2\n<|id|>64<|level|>2\n<|id|>69<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>3\n<|id|>87<|level|>2\n<|id|>90<|level|>2\n<|id|>131<|level|>2\n<|id|>132<|level|>3\n<|id|>134<|level|>4\n<|id|>139<|level|>4",
+    "image_output": "<|src_id|>135<|tgt_id|>134\n<|src_id|>136<|tgt_id|>134\n<|src_id|>137<|tgt_id|>134\n<|src_id|>138<|tgt_id|>134\n<|src_id|>140<|tgt_id|>139",
+    "contd_label": [
+        {
+            "src_id": 93,
+            "tgt_id": 94
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 4
+        },
+        {
+            "id": 139,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 135,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 139
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 135,
+            "table2_idx": 136,
+            "upper_row_ss": [
+                [
+                    "23",
+                    "Anil Subramanian",
+                    "Laboratory Technician I"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "24",
+                    "Samuel Briggs",
+                    "Director, OncuPath Commercial Operations"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 137,
+            "table2_idx": 138,
+            "upper_row_ss": [
+                [
+                    "55",
+                    "Christopher Bauer",
+                    "Quality Control Analyst I"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "56",
+                    "Patricia Langley",
+                    "Director, Manufacturing Operations"
+                ]
+            ]
+        }
+    ]
+}

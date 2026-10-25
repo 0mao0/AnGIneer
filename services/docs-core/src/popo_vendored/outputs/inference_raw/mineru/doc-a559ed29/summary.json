@@ -1,0 +1,143 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wphmwrc_\\input\\pdfs\\doc-a559ed29.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wphmwrc_\\enriched\\doc-a559ed29.json",
+    "contd_output": "<|src_id|>21<|tgt_id|>22\n<|src_id|>92<|tgt_id|>93",
+    "title_output": "<|id|>10<|level|>1\n<|id|>12<|level|>2\n<|id|>23<|level|>1\n<|id|>25<|level|>2\n<|id|>37<|level|>1\n<|id|>39<|level|>2\n<|id|>42<|level|>3\n<|id|>44<|level|>3\n<|id|>53<|level|>3\n<|id|>55<|level|>3\n<|id|>57<|level|>3\n<|id|>59<|level|>3\n<|id|>67<|level|>1\n<|id|>69<|level|>2\n<|id|>96<|level|>2\n<|id|>106<|level|>2\n<|id|>117<|level|>1\n<|id|>119<|level|>2\n<|id|>130<|level|>1\n<|id|>132<|level|>2\n<|id|>137<|level|>3\n<|id|>147<|level|>3\n<|id|>149<|level|>3\n<|id|>153<|level|>3",
+    "image_output": "<|src_id|>135<|tgt_id|>132\n<|src_id|>136<|tgt_id|>132",
+    "contd_label": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 93
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 135,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 132
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 135,
+            "table2_idx": 136,
+            "upper_row_ss": [
+                [
+                    "Total Sources",
+                    "$32,500,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Use",
+                    "Amount"
+                ]
+            ]
+        }
+    ]
+}

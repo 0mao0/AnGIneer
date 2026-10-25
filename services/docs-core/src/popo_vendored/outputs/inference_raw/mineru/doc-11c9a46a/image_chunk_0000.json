@@ -1,0 +1,62 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        16,
+        17,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        30
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 202 137 794<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>9<|type|>title<|page|>1<|box|>520 142 536 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>28<|type|>title<|page|>3<|box|>357 140 375 560<|content|>II. SURVEY SPECIFICATIONS AND STANDARDS\n<|id|>29<|type|>title<|page|>3<|box|>388 142 405 303<|content|>A. Survey Standard\n<|id|>53<|type|>title<|page|>4<|box|>816 142 834 380<|content|>B. Certification Requirements\n<|id|>60<|type|>title<|page|>5<|box|>417 140 435 413<|content|>C. Coordination with Title Review\n<|id|>64<|type|>title<|page|>6<|box|>89 140 107 573<|content|>III. PROPERTY-BY-PROPERTY SURVEY REVIEW\n<|id|>214<|type|>title<|page|>16<|box|>219 140 237 281<|content|>Survey Findings:\n<|id|>230<|type|>title<|page|>17<|box|>194 140 212 281<|content|>Survey Findings:\n<|id|>290<|type|>title<|page|>21<|box|>410 142 426 477<|content|>IV. SUMMARY OF ENCROACHMENTS\n<|id|>292<|type|>table<|page|>21<|box|>515 143 902 852<|content|>None\n<|id|>293<|type|>table<|page|>22<|box|>88 143 109 852<|content|>None\n<|id|>295<|type|>title<|page|>22<|box|>256 142 273 468<|content|>V. SUMMARY OF EASEMENT ISSUES\n<|id|>296<|type|>table<|page|>22<|box|>343 143 799 852<|content|>None\n<|id|>298<|type|>title<|page|>23<|box|>89 142 106 486<|content|>VI. SUMMARY OF SETBACK MATTERS\n<|id|>299<|type|>table<|page|>23<|box|>159 143 561 852<|content|>None\n<|id|>302<|type|>title<|page|>24<|box|>148 140 166 643<|content|>VII. SUMMARY OF SURVEY CORRECTIONS REQUESTED\n<|id|>303<|type|>table<|page|>24<|box|>255 143 901 852<|content|>None\n<|id|>304<|type|>table<|page|>25<|box|>88 143 296 852<|content|>None\n<|id|>306<|type|>title<|page|>25<|box|>479 142 497 411<|content|>VIII. FLOOD ZONE SUMMARY\n<|id|>308<|type|>table<|page|>25<|box|>566 143 892 852<|content|>None\n<|id|>309<|type|>table<|page|>26<|box|>89 143 268 852<|content|>None\n<|id|>315<|type|>title<|page|>26<|box|>648 140 665 580<|content|>IX. COORDINATION WITH TITLE WORKSTREAM\n<|id|>329<|type|>title<|page|>27<|box|>691 140 708 529<|content|>X. COORDINATION WITH ZONING REVIEW\n<|id|>336<|type|>title<|page|>28<|box|>489 140 506 372<|content|>XI. RECOMMENDATIONS\n<|id|>345<|type|>title<|page|>30<|box|>148 140 166 326<|content|>XII. ATTACHMENTS",
+    "raw_response": "<|src_id|>292<|tgt_id|>290\n<|src_id|>293<|tgt_id|>290\n<|src_id|>296<|tgt_id|>295\n<|src_id|>299<|tgt_id|>298\n<|src_id|>303<|tgt_id|>302\n<|src_id|>304<|tgt_id|>302\n<|src_id|>308<|tgt_id|>306\n<|src_id|>309<|tgt_id|>306",
+    "parsed": [
+        {
+            "src_id": 292,
+            "tgt_id": 290
+        },
+        {
+            "src_id": 293,
+            "tgt_id": 290
+        },
+        {
+            "src_id": 296,
+            "tgt_id": 295
+        },
+        {
+            "src_id": 299,
+            "tgt_id": 298
+        },
+        {
+            "src_id": 303,
+            "tgt_id": 302
+        },
+        {
+            "src_id": 304,
+            "tgt_id": 302
+        },
+        {
+            "src_id": 308,
+            "tgt_id": 306
+        },
+        {
+            "src_id": 309,
+            "tgt_id": 306
+        }
+    ]
+}

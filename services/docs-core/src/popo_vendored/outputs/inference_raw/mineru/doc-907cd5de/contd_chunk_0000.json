@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 151 555<|content|>FROM: ... Carlos Espinoza, Calderwood & Harkness LLP\n<|id|>2<|page|>1<|box|>160 140 176 477<|content|>TO: ... Douglas Carmichael, Francesca Morano\n<|id|>3<|page|>1<|box|>186 140 204 310<|content|>CC: ... Hannah Brinkley\n<|id|>4<|page|>1<|box|>212 140 229 330<|content|>DATE: ... August 26, 2024\n<|id|>5<|page|>1<|box|>238 140 310 854<|content|>RE: ... )\n<|id|>6<|page|>1<|box|>318 140 335 408<|content|>C&H MATTER NO. ... 1044-00006\n<|id|>7<|page|>1<|box|>343 140 420 854<|content|>PRIVILEGE DESIGNATION: ... It is intended solely f...press written consent of Calderwood & Harkness LLP\n<|id|>13<|page|>1<|box|>814 140 904 857<|content|>Overall Assessment. ... 1923)), reliability-based challenges remain viable in Commercial\n<|id|>14<|page|>2<|box|>90 140 145 854<|content|>Division practice, particularly where, as here, an...been receptive to such challenges in prior matters",
+    "raw_response": "<|src_id|>13<|tgt_id|>14",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        }
+    ]
+}

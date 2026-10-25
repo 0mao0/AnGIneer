@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>224 418 239 580<|content|>OMB No. ... 1545-0150\n<|id|>4<|page|>1<|box|>250 691 267 854<|content|>Filed: ... April 14, 2023\n<|id|>5<|page|>1<|box|>275 140 306 854<|content|>▶ Go to www. ... See instructions\n<|id|>36<|page|>3<|box|>579 174 633 854<|content|>(h) The authority to substitute or add other repre...isions of Treasury Department Circular No. ... and\n<|id|>38<|page|>3<|box|>686 140 741 854<|content|>Specific exceptions or additions to the acts other...mitation or restriction, except as provided by law\n<|id|>57<|page|>5<|box|>479 176 515 854<|content|>• I am authorized to represent the taxpayer(s) ide...I for the tax matter(s) specified therein; ... and\n<|id|>61<|page|>6<|box|>90 143 107 263<|content|>Sylvia Hartwell\n<|id|>62<|page|>6<|box|>108 143 125 299<|content|>Signature: ... Signature\n<|id|>63<|page|>6<|box|>125 143 141 264<|content|>Sylvia Hartwell\n<|id|>64<|page|>6<|box|>142 143 159 297<|content|>Date: ... April 14, 2023\n<|id|>66<|page|>6<|box|>335 142 351 240<|content|>Leila Nazari\n<|id|>67<|page|>6<|box|>353 142 369 300<|content|>Signature: ... Signature\n<|id|>68<|page|>6<|box|>369 142 386 240<|content|>Leila Nazari\n<|id|>69<|page|>6<|box|>387 142 404 297<|content|>Date: ... April 14, 2023\n<|id|>74<|page|>8<|box|>257 140 273 473<|content|>IRONSIDE CAPITAL MANAGEMENT LP\n<|id|>75<|page|>8<|box|>275 142 292 504<|content|>By: ... Ironside Capital GP LLC, its General Partner\n<|id|>76<|page|>8<|box|>292 143 309 251<|content|>By: ... By\n<|id|>77<|page|>8<|box|>309 142 325 364<|content|>Name: ... Calloway\n<|id|>78<|page|>8<|box|>325 140 359 795<|content|>Title: ... Managing Member of Ironside Capital GP ... General Partner of Ironside Capital Management LP\n<|id|>79<|page|>8<|box|>359 142 377 297<|content|>Date: ... April 14, 2023",
+    "raw_response": "<|src_id|>36<|tgt_id|>38",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 38
+        }
+    ]
+}

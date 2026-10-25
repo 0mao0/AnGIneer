@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>167 140 185 653<|content|>VERIMARK HOSPITALITY GROUP INC. ... , a Delaware corporation,\n<|id|>2<|page|>1<|box|>194 212 210 282<|content|>Plaintiff,\n<|id|>4<|page|>1<|box|>244 140 318 854<|content|>IRONCLAD INDEMNITY CORPORATION, a Connecticut stoc...company; ... , a Bermuda-domiciled excess carrier,\n<|id|>5<|page|>1<|box|>325 212 342 305<|content|>Defendants. ... Defendants\n<|id|>30<|page|>3<|box|>830 140 904 856<|content|>8. ... 14 to the predecessor policy) that imposed ...the National Hurricane Center, the Central Pacific\n<|id|>31<|page|>4<|box|>90 174 180 854<|content|>Hurricane Center, or any successor agency. ... )\n<|id|>59<|page|>7<|box|>178 174 215 854<|content|>(3) A portion of VHG's losses are attributable to ...usion and concurrent-causation provisions; ... and\n<|id|>61<|page|>7<|box|>267 140 321 854<|content|>The first ground — the named-windstorm sub-limit — is the subject of this Motion. ... )\n<|id|>66<|page|>7<|box|>792 140 883 856<|content|>30. ... Whitford testified that she was not asked ...the sub-limit in her report because it appeared in\n<|id|>67<|page|>8<|box|>89 174 125 854<|content|>Endorsement No. ... )\n<|id|>139<|page|>16<|box|>114 140 133 321<|content|>Respectfully submitted,\n<|id|>140<|page|>16<|box|>133 140 148 854<|content|>CALDERWOOD & HARKNESS LLP 333 SE 2nd Avenue, Suite 4400 Miami, Florida 33131\n<|id|>141<|page|>16<|box|>148 140 166 542<|content|>Telephone: ... (305) 555-7201\n<|id|>142<|page|>16<|box|>167 142 184 251<|content|>By: ... By\n<|id|>143<|page|>16<|box|>183 140 200 490<|content|>Elaine Forsythe, Esq. ... 0847239\n<|id|>144<|page|>16<|box|>200 142 218 470<|content|>Email: ... com\n<|id|>145<|page|>16<|box|>219 142 234 300<|content|>Responsible Partner\n<|id|>146<|page|>16<|box|>234 140 252 506<|content|>Tiffany Rosenthal, Esq. ... 1024516\n<|id|>147<|page|>16<|box|>253 140 268 473<|content|>Email: ... com\n<|id|>148<|page|>16<|box|>270 142 286 261<|content|>Lead Associate\n<|id|>149<|page|>16<|box|>287 140 304 516<|content|>Andrew Fitzpatrick, Esq. ... 1131078\n<|id|>150<|page|>16<|box|>305 140 321 485<|content|>Email: ... com\n<|id|>151<|page|>16<|box|>321 143 339 287<|content|>Working Associate\n<|id|>152<|page|>16<|box|>339 140 357 754<|content|>Counsel for Plaintiff Verimark Hospitality Group Inc. ... 1021-00003",
+    "raw_response": "<|src_id|>30<|tgt_id|>31\n<|src_id|>66<|tgt_id|>67",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        }
+    ]
+}

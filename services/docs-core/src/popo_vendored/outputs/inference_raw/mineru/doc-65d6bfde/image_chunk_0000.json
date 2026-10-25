@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 104 635<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>1<|type|>title<|page|>1<|box|>112 281 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|type|>title<|page|>1<|box|>416 142 433 300<|content|>I. Purpose of Letter\n<|id|>15<|type|>title<|page|>2<|box|>258 140 277 562<|content|>II. Summary of Transaction and Engagement History\n<|id|>36<|type|>title<|page|>4<|box|>564 140 582 419<|content|>III. Unresolved Commercial Terms\n<|id|>38<|type|>title<|page|>4<|box|>657 142 675 285<|content|>A. Valuation Gap\n<|id|>48<|type|>title<|page|>6<|box|>194 140 210 334<|content|>B. Protective Provisions\n<|id|>56<|type|>title<|page|>7<|box|>565 140 583 318<|content|>C. Drag-Along Rights\n<|id|>61<|type|>title<|page|>8<|box|>330 140 347 313<|content|>D. Other Open Items\n<|id|>65<|type|>title<|page|>8<|box|>830 140 848 571<|content|>IV. Customer Concentration Risk — Diligence Findin\n<|id|>72<|type|>title<|page|>10<|box|>90 140 107 495<|content|>V. Current Status of Transaction Documents\n<|id|>81<|type|>title<|page|>11<|box|>402 140 419 513<|content|>VI. Financial Summary — Legal Fees Incurred\n<|id|>86<|type|>table<|page|>11<|box|>732 143 825 852<|content|>None\n<|id|>88<|type|>title<|page|>12<|box|>148 140 167 321<|content|>VII. Recommendation\n<|id|>90<|type|>title<|page|>12<|box|>292 140 309 630<|content|>The basis for this recommendation may be summarize\n<|id|>95<|type|>title<|page|>13<|box|>223 140 239 558<|content|>VIII. Preservation of Pinnacle's Ability to Re-Eng\n<|id|>104<|type|>title<|page|>14<|box|>421 140 439 238<|content|>IX. Closing",
+    "raw_response": "<|src_id|>86<|tgt_id|>81",
+    "parsed": [
+        {
+            "src_id": 86,
+            "tgt_id": 81
+        }
+    ]
+}

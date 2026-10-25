@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>532 142 549 282<|content|>Date: ... May 5, 2023\n<|id|>3<|page|>1<|box|>549 506 566 854<|content|>Time: ... April 14, 2023\n<|id|>4<|page|>1<|box|>609 142 626 401<|content|>I, Nadia Petrov, declare as follows: ... I, Nadia Petrov, declare as follows\n<|id|>6<|page|>1<|box|>763 140 893 856<|content|>2. ... A true and correct copy of AMA's First Set of Requests for Production of\n<|id|>7<|page|>2<|box|>90 174 125 854<|content|>Documents, Nos. ... 1 through 28, is attached hereto as Exhibit A and incorporated herein by reference\n<|id|>27<|page|>4<|box|>789 174 824 854<|content|>(b) Aldrich has already produced all documents tha... believe any supplementation is warranted; ... and\n<|id|>29<|page|>5<|box|>90 140 328 856<|content|>During the same call, I explained AMA's position i...ted that Aldrich would oppose any motion to compel\n<|id|>39<|page|>6<|box|>835 140 909 857<|content|>Aldrich's privacy objection does not justify the w... Protective Order entered by the Court on February\n<|id|>40<|page|>7<|box|>90 140 200 854<|content|>15, 2023, in the related class action (Aldrich et ...rized disclosure of Aldrich's personal information",
+    "raw_response": "<|src_id|>6<|tgt_id|>7\n<|src_id|>39<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ]
+}

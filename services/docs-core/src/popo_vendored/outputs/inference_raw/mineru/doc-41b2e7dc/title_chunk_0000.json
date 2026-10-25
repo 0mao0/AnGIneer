@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 168 142 828<|content|>SECRETARY'S / AUTHORIZED PERSON'S CERTIFICATE OF G\n<|id|>15<|page|>2<|box|>277 140 294 545<|content|>SECTION 1: ORGANIZATIONAL DOCUMENTS\n<|id|>16<|page|>2<|box|>309 140 325 364<|content|>(a) Certificate of Formation\n<|id|>19<|page|>2<|box|>590 140 608 477<|content|>(b) Limited Liability Company Agreement\n<|id|>22<|page|>3<|box|>89 140 107 581<|content|>SECTION 2: MANAGER / MEMBER RESOLUTIONS\n<|id|>33<|page|>4<|box|>574 140 590 380<|content|>SECTION 3: INCUMBENCY\n<|id|>37<|page|>5<|box|>239 140 257 408<|content|>SECTION 4: GOOD STANDING\n<|id|>40<|page|>5<|box|>516 140 532 584<|content|>SECTION 5: NO AMENDMENTS; NO DISSOLUTION\n<|id|>47<|page|>6<|box|>186 140 203 532<|content|>SECTION 6: ADDITIONAL CERTIFICATIONS\n<|id|>60<|page|>7<|box|>89 142 106 630<|content|>ACKNOWLEDGMENT AND COUNTER-CERTIFICATION\n<|id|>70<|page|>8<|box|>89 447 107 552<|content|>EXHIBIT A\n<|id|>74<|page|>9<|box|>90 200 186 795<|content|>EXHIBIT B Limited Liability Company Agreement of G\n<|id|>75<|page|>10<|box|>89 447 108 550<|content|>EXHIBIT C\n<|id|>76<|page|>10<|box|>114 192 133 803<|content|>Written Consent of Managing Member(s) of Granite P\n<|id|>77<|page|>10<|box|>141 408 159 589<|content|>dated January 13, 2025",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>19<|level|>3\n<|id|>22<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>2\n<|id|>47<|level|>2\n<|id|>60<|level|>2\n<|id|>70<|level|>2\n<|id|>74<|level|>2\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>77<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        }
+    ]
+}

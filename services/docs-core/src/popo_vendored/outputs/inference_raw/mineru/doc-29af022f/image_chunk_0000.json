@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 143 125 852<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>1<|type|>table<|page|>1<|box|>157 143 301 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>369 393 386 602<|content|>VERIFIED COMPLAINT\n<|id|>4<|type|>title<|page|>1<|box|>525 142 542 294<|content|>INTRODUCTION\n<|id|>6<|type|>title<|page|>1<|box|>757 142 773 269<|content|>THE PARTIES\n<|id|>10<|type|>title<|page|>2<|box|>590 142 608 390<|content|>JURISDICTION AND VENUE\n<|id|>15<|type|>title<|page|>3<|box|>239 140 258 372<|content|>FACTUAL ALLEGATIONS\n<|id|>16<|type|>title<|page|>3<|box|>272 140 289 586<|content|>A. The Master Grain Purchase and Off-Take Agreemen\n<|id|>25<|type|>title<|page|>4<|box|>138 142 157 362<|content|>B. The Musgrave Guaranty\n<|id|>28<|type|>title<|page|>4<|box|>469 140 486 439<|content|>C. GAP's Performance and Deliveries\n<|id|>30<|type|>table<|page|>4<|box|>640 143 828 852<|content|>None\n<|id|>33<|type|>title<|page|>5<|box|>275 140 292 428<|content|>D. PBGC's Breach — Failure to Pay\n<|id|>36<|type|>title<|page|>5<|box|>715 140 732 485<|content|>E. Pre-Litigation Demand and Forbearance\n<|id|>44<|type|>title<|page|>6<|box|>840 142 858 300<|content|>F. Accrued Interest\n<|id|>52<|type|>title<|page|>7<|box|>444 140 460 227<|content|>COUNT I\n<|id|>53<|type|>title<|page|>7<|box|>486 142 503 540<|content|>BREACH OF CONTRACT (Off-Take Agreement)\n<|id|>54<|type|>title<|page|>7<|box|>527 140 544 491<|content|>(Against Defendant Prairie Basin Grain Co.)\n<|id|>69<|type|>title<|page|>8<|box|>539 142 555 233<|content|>COUNT II\n<|id|>70<|type|>title<|page|>8<|box|>579 142 597 467<|content|>BREACH OF PERSONAL GUARANTY\n<|id|>71<|type|>title<|page|>8<|box|>621 140 638 470<|content|>(Against Defendant Darren K. Musgrave)\n<|id|>84<|type|>title<|page|>9<|box|>575 142 592 240<|content|>COUNT III\n<|id|>85<|type|>title<|page|>9<|box|>616 143 633 316<|content|>ACCOUNT STATED\n<|id|>86<|type|>title<|page|>9<|box|>657 140 674 491<|content|>(Against Defendant Prairie Basin Grain Co.)\n<|id|>100<|type|>title<|page|>10<|box|>558 142 575 240<|content|>COUNT IV\n<|id|>101<|type|>title<|page|>10<|box|>599 142 617 452<|content|>UNJUST ENRICHMENT (Alternative)\n<|id|>102<|type|>title<|page|>10<|box|>641 140 657 491<|content|>(Against Defendant Prairie Basin Grain Co.)\n<|id|>114<|type|>title<|page|>11<|box|>450 142 468 339<|content|>PRAYER FOR RELIEF\n<|id|>122<|type|>title<|page|>11<|box|>787 142 804 282<|content|>JURY DEMAND\n<|id|>124<|type|>title<|page|>12<|box|>89 140 106 285<|content|>VERIFICATION\n<|id|>147<|type|>title<|page|>13<|box|>89 142 107 272<|content|>EXHIBIT LIST\n<|id|>153<|type|>title<|page|>13<|box|>369 142 387 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>30<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        }
+    ]
+}

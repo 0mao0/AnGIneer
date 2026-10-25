@@ -1,0 +1,639 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-jzhp5czt\\input\\pdfs\\doc-96069ce6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-jzhp5czt\\enriched\\doc-96069ce6.json",
+    "contd_output": "<|src_id|>12<|tgt_id|>13\n<|src_id|>207<|tgt_id|>208\n<|src_id|>251<|tgt_id|>252",
+    "title_output": "<|id|>2<|level|>1\n<|id|>6<|level|>2\n<|id|>11<|level|>2\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>34<|level|>4\n<|id|>40<|level|>4\n<|id|>46<|level|>4\n<|id|>50<|level|>4\n<|id|>54<|level|>4\n<|id|>58<|level|>3\n<|id|>60<|level|>3\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>71<|level|>4\n<|id|>83<|level|>4\n<|id|>91<|level|>4\n<|id|>98<|level|>3\n<|id|>108<|level|>3\n<|id|>115<|level|>3\n<|id|>122<|level|>2\n<|id|>123<|level|>3\n<|id|>135<|level|>3\n<|id|>146<|level|>3\n<|id|>157<|level|>3\n<|id|>172<|level|>3\n<|id|>183<|level|>2\n<|id|>184<|level|>3\n<|id|>194<|level|>3\n<|id|>203<|level|>3\n<|id|>211<|level|>2\n<|id|>212<|level|>3\n<|id|>215<|level|>3\n<|id|>221<|level|>3\n<|id|>234<|level|>3\n<|id|>239<|level|>2\n<|id|>240<|level|>3\n<|id|>243<|level|>3\n<|id|>253<|level|>3\n<|id|>260<|level|>3\n<|id|>266<|level|>3\n<|id|>271<|level|>3\n<|id|>277<|level|>2\n<|id|>278<|level|>3\n<|id|>281<|level|>3\n<|id|>285<|level|>3\n<|id|>291<|level|>3\n<|id|>295<|level|>3\n<|id|>301<|level|>2\n<|id|>302<|level|>3\n<|id|>305<|level|>3\n<|id|>311<|level|>3\n<|id|>314<|level|>3\n<|id|>319<|level|>3\n<|id|>324<|level|>2\n<|id|>325<|level|>3\n<|id|>332<|level|>3\n<|id|>345<|level|>2\n<|id|>353<|level|>2\n<|id|>366<|level|>2\n<|id|>379<|level|>2\n<|id|>380<|level|>3\n<|id|>389<|level|>3\n<|id|>401<|level|>3\n<|id|>410<|level|>2\n<|id|>419<|level|>2\n<|id|>428<|level|>2\n<|id|>434<|level|>2\n<|id|>439<|level|>3\n<|id|>444<|level|>2\n<|id|>450<|level|>2\n<|id|>452<|level|>3\n<|id|>458<|level|>2\n<|id|>460<|level|>3",
+    "image_output": "<|src_id|>3<|tgt_id|>2\n<|src_id|>36<|tgt_id|>34\n<|src_id|>37<|tgt_id|>34\n<|src_id|>43<|tgt_id|>40\n<|src_id|>48<|tgt_id|>46\n<|src_id|>53<|tgt_id|>50\n<|src_id|>56<|tgt_id|>54\n<|src_id|>67<|tgt_id|>60\n<|src_id|>101<|tgt_id|>98\n<|src_id|>190<|tgt_id|>184\n<|src_id|>191<|tgt_id|>184\n<|src_id|>334<|tgt_id|>332\n<|src_id|>421<|tgt_id|>419\n<|src_id|>422<|tgt_id|>419\n<|src_id|>423<|tgt_id|>419\n<|src_id|>424<|tgt_id|>419\n<|src_id|>425<|tgt_id|>419\n<|src_id|>426<|tgt_id|>419\n<|src_id|>427<|tgt_id|>419\n<|src_id|>429<|tgt_id|>428\n<|src_id|>430<|tgt_id|>428\n<|src_id|>431<|tgt_id|>428\n<|src_id|>432<|tgt_id|>428\n<|src_id|>435<|tgt_id|>434\n<|src_id|>436<|tgt_id|>434\n<|src_id|>437<|tgt_id|>434\n<|src_id|>438<|tgt_id|>434\n<|src_id|>441<|tgt_id|>439\n<|src_id|>442<|tgt_id|>439\n<|src_id|>443<|tgt_id|>434\n<|src_id|>443<|tgt_id|>439\n<|src_id|>446<|tgt_id|>444\n<|src_id|>447<|tgt_id|>444\n<|src_id|>448<|tgt_id|>444\n<|src_id|>451<|tgt_id|>450",
+    "contd_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 251,
+            "tgt_id": 252
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 4
+        },
+        {
+            "id": 40,
+            "level": 4
+        },
+        {
+            "id": 46,
+            "level": 4
+        },
+        {
+            "id": 50,
+            "level": 4
+        },
+        {
+            "id": 54,
+            "level": 4
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 3
+        },
+        {
+            "id": 239,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 3
+        },
+        {
+            "id": 243,
+            "level": 3
+        },
+        {
+            "id": 253,
+            "level": 3
+        },
+        {
+            "id": 260,
+            "level": 3
+        },
+        {
+            "id": 266,
+            "level": 3
+        },
+        {
+            "id": 271,
+            "level": 3
+        },
+        {
+            "id": 277,
+            "level": 2
+        },
+        {
+            "id": 278,
+            "level": 3
+        },
+        {
+            "id": 281,
+            "level": 3
+        },
+        {
+            "id": 285,
+            "level": 3
+        },
+        {
+            "id": 291,
+            "level": 3
+        },
+        {
+            "id": 295,
+            "level": 3
+        },
+        {
+            "id": 301,
+            "level": 2
+        },
+        {
+            "id": 302,
+            "level": 3
+        },
+        {
+            "id": 305,
+            "level": 3
+        },
+        {
+            "id": 311,
+            "level": 3
+        },
+        {
+            "id": 314,
+            "level": 3
+        },
+        {
+            "id": 319,
+            "level": 3
+        },
+        {
+            "id": 324,
+            "level": 2
+        },
+        {
+            "id": 325,
+            "level": 3
+        },
+        {
+            "id": 332,
+            "level": 3
+        },
+        {
+            "id": 345,
+            "level": 2
+        },
+        {
+            "id": 353,
+            "level": 2
+        },
+        {
+            "id": 366,
+            "level": 2
+        },
+        {
+            "id": 379,
+            "level": 2
+        },
+        {
+            "id": 380,
+            "level": 3
+        },
+        {
+            "id": 389,
+            "level": 3
+        },
+        {
+            "id": 401,
+            "level": 3
+        },
+        {
+            "id": 410,
+            "level": 2
+        },
+        {
+            "id": 419,
+            "level": 2
+        },
+        {
+            "id": 428,
+            "level": 2
+        },
+        {
+            "id": 434,
+            "level": 2
+        },
+        {
+            "id": 439,
+            "level": 3
+        },
+        {
+            "id": 444,
+            "level": 2
+        },
+        {
+            "id": 450,
+            "level": 2
+        },
+        {
+            "id": 452,
+            "level": 3
+        },
+        {
+            "id": 458,
+            "level": 2
+        },
+        {
+            "id": 460,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 334,
+            "tgt_id": 332
+        },
+        {
+            "src_id": 421,
+            "tgt_id": 419
+        },
+        {
+            "src_id": 422,
+            "tgt_id": 419
+        },
+        {
+            "src_id": 423,
+            "tgt_id": 419
+        },
+        {
+            "src_id": 424,
+            "tgt_id": 419
+        },
+        {
+            "src_id": 425,
+            "tgt_id": 419
+        },
+        {
+            "src_id": 426,
+            "tgt_id": 419
+        },
+        {
+            "src_id": 427,
+            "tgt_id": 419
+        },
+        {
+            "src_id": 429,
+            "tgt_id": 428
+        },
+        {
+            "src_id": 430,
+            "tgt_id": 428
+        },
+        {
+            "src_id": 431,
+            "tgt_id": 428
+        },
+        {
+            "src_id": 432,
+            "tgt_id": 428
+        },
+        {
+            "src_id": 435,
+            "tgt_id": 434
+        },
+        {
+            "src_id": 436,
+            "tgt_id": 434
+        },
+        {
+            "src_id": 437,
+            "tgt_id": 434
+        },
+        {
+            "src_id": 438,
+            "tgt_id": 434
+        },
+        {
+            "src_id": 441,
+            "tgt_id": 439
+        },
+        {
+            "src_id": 442,
+            "tgt_id": 439
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 434
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 439
+        },
+        {
+            "src_id": 446,
+            "tgt_id": 444
+        },
+        {
+            "src_id": 447,
+            "tgt_id": 444
+        },
+        {
+            "src_id": 448,
+            "tgt_id": 444
+        },
+        {
+            "src_id": 451,
+            "tgt_id": 450
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 190,
+            "table2_idx": 191,
+            "upper_row_ss": [
+                [
+                    "Restricted Stock",
+                    "11,400,000",
+                    "N/A",
+                    "6,800,000",
+                    "4,600,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Units (RSUs)",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 421,
+            "table2_idx": 422,
+            "upper_row_ss": [
+                [
+                    "8–22",
+                    "Various (15 additional)",
+                    "Director-level",
+                    "Various (2020–2024)",
+                    "Offer Letters",
+                    "Base: $180,000–$245,000;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Standard at-will terms;PIIA included"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 424,
+            "table2_idx": 425,
+            "upper_row_ss": [
+                [
+                    "3–620",
+                    "Various (~618)",
+                    "Various",
+                    "Various",
+                    "Standard",
+                    "German law;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Employment Contracts",
+                    "indefinite term; statutory notice"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 431,
+            "table2_idx": 432,
+            "upper_row_ss": [
+                [
+                    "Stock Options (NQSO)",
+                    "10,600,000",
+                    "$10.50 ($20.00 - $9.50)",
+                    "$111,300,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "RSUs (All)",
+                    "11,400,000",
+                    "$20.00",
+                    "$228,000,000"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 436,
+            "table2_idx": 437,
+            "upper_row_ss": [
+                [
+                    "BVG Pension (Second Pillar)",
+                    "Occupational Pension",
+                    "Helvetia Foundation",
+                    "60% of contribution",
+                    "40% of contribution",
+                    "Salary > CHF 22,050/yr",
+                    "Age-graduated rates; ~107%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "funded"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 446,
+            "table2_idx": 447,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "Thomas",
+                    "VP,",
+                    "Luminex",
+                    "June 1,",
+                    "Double",
+                    "100%",
+                    "$464,750",
+                    "12"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Brennan",
+                    "Finance",
+                    "Inc.",
+                    "2022",
+                    "(equity & cash)",
+                    "unvested — double trigger",
+                    "(12 mo. salary + 0.75x bonus)",
+                    "months"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 447,
+            "table2_idx": 448,
+            "upper_row_ss": [
+                [
+                    "18–30",
+                    "Various (13 additional )",
+                    "Director-level (U.S.)",
+                    "Luminex Inc.",
+                    "Various",
+                    "Double",
+                    "Varies",
+                    "$180,000 – $245,000 per",
+                    "6–12 months"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "individual",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

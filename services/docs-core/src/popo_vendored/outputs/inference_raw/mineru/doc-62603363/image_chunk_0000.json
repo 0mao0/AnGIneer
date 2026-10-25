@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 140 104 700<|content|>CONFIDENTIAL TREATMENT REQUESTED — DRAFT — NOT FOR\n<|id|>1<|type|>title<|page|>1<|box|>113 279 133 715<|content|>SHARES ELIGIBLE FOR FUTURE SALE\n<|id|>7<|type|>title<|page|>1<|box|>809 140 825 274<|content|>Share Summary\n<|id|>9<|type|>table<|page|>2<|box|>88 143 502 852<|content|>None\n<|id|>15<|type|>title<|page|>3<|box|>321 140 339 313<|content|>Lock-Up Agreements\n<|id|>16<|type|>title<|page|>3<|box|>352 140 369 370<|content|>Overview of Lock-Up Terms\n<|id|>22<|type|>title<|page|>4<|box|>90 140 106 227<|content|>Directors:\n<|id|>30<|type|>title<|page|>4<|box|>271 140 287 356<|content|>Named Executive Officers:\n<|id|>41<|type|>title<|page|>4<|box|>602 140 619 434<|content|>Lock-Up Carve-Outs and Exceptions\n<|id|>48<|type|>title<|page|>5<|box|>474 140 491 339<|content|>Early Release Provisions\n<|id|>58<|type|>title<|page|>6<|box|>542 140 559 218<|content|>Rule 144\n<|id|>69<|type|>title<|page|>7<|box|>761 140 777 444<|content|>Status of CBR's Pre-IPO Stockholders\n<|id|>72<|type|>title<|page|>8<|box|>258 140 276 218<|content|>Rule 701\n<|id|>78<|type|>title<|page|>8<|box|>782 142 800 388<|content|>Registration Rights Agreement\n<|id|>79<|type|>title<|page|>8<|box|>814 140 830 315<|content|>Parties and Overview\n<|id|>81<|type|>title<|page|>9<|box|>194 140 212 369<|content|>Demand Registration Rights\n<|id|>86<|type|>title<|page|>9<|box|>643 142 661 383<|content|>Piggyback Registration Rights\n<|id|>93<|type|>title<|page|>10<|box|>334 140 352 372<|content|>S-3 Shelf Registration Rights\n<|id|>97<|type|>title<|page|>10<|box|>734 140 751 382<|content|>Expenses and Indemnification\n<|id|>101<|type|>title<|page|>11<|box|>719 140 736 562<|content|>Equity Compensation Plans — Form S-8 Registration\n<|id|>102<|type|>title<|page|>11<|box|>750 140 767 433<|content|>2022 Omnibus Equity Incentive Plan\n<|id|>106<|type|>title<|page|>12<|box|>440 140 457 429<|content|>2022 Employee Stock Purchase Plan\n<|id|>110<|type|>title<|page|>13<|box|>90 142 107 297<|content|>IPO Equity Grants\n<|id|>111<|type|>table<|page|>13<|box|>174 143 463 852<|content|>None\n<|id|>113<|type|>title<|page|>13<|box|>648 140 665 344<|content|>Stockholders' Agreement\n<|id|>120<|type|>title<|page|>14<|box|>428 140 445 588<|content|>Controlled-Company and Affiliate Status Considerat\n<|id|>124<|type|>title<|page|>15<|box|>258 140 277 390<|content|>Effect of Sales on Market Price",
+    "raw_response": "<|src_id|>9<|tgt_id|>7\n<|src_id|>111<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 110
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>9<|type|>title<|page|>1<|box|>609 142 627 333<|content|>I. Description of Claims\n<|id|>10<|type|>title<|page|>1<|box|>640 140 657 625<|content|>A. Class Action — *Fuentes v. Aurelius Media Ameri\n<|id|>22<|type|>title<|page|>3<|box|>138 140 157 400<|content|>B. PAGA Representative Claims\n<|id|>25<|type|>title<|page|>3<|box|>439 140 457 527<|content|>C. Anticipated Related and Consolidated Actions\n<|id|>27<|type|>title<|page|>3<|box|>640 140 657 625<|content|>D. Anticipated Individual Executive Dispute — Gavi\n<|id|>39<|type|>title<|page|>4<|box|>744 140 762 316<|content|>II. Policy Information\n<|id|>41<|type|>table<|page|>4<|box|>795 143 905 852<|content|>None\n<|id|>42<|type|>table<|page|>5<|box|>88 143 137 852<|content|>None\n<|id|>44<|type|>title<|page|>5<|box|>340 142 357 437<|content|>III. Tender of Defense and Indemnity\n<|id|>53<|type|>title<|page|>5<|box|>819 142 837 573<|content|>IV. Contact Information for Coverage Correspondenc\n<|id|>55<|type|>title<|page|>5<|box|>890 143 907 285<|content|>Primary Contact:\n<|id|>59<|type|>title<|page|>6<|box|>152 143 169 264<|content|>With copies to:\n<|id|>64<|type|>title<|page|>6<|box|>321 140 339 344<|content|>V. Preservation of Rights\n<|id|>66<|type|>title<|page|>6<|box|>517 142 534 408<|content|>VI. Request for Prompt Response\n<|id|>74<|type|>title<|page|>6<|box|>888 140 904 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>81<|type|>title<|page|>7<|box|>210 143 224 171<|content|>cc:",
+    "raw_response": "<|src_id|>41<|tgt_id|>39\n<|src_id|>42<|tgt_id|>39",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 39
+        }
+    ]
+}

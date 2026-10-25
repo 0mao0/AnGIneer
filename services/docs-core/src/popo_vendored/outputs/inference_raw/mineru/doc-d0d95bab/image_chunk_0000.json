@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 184 148 857<|content|>CALDERWOOD & HARKNESS LLP 777 South Flower Street,\n<|id|>5<|type|>title<|page|>1<|box|>224 140 242 449<|content|>VIA EMAIL AND CERTIFIED MAIL\n<|id|>8<|type|>title<|page|>1<|box|>340 142 358 334<|content|>Dear Claims Department:\n<|id|>12<|type|>title<|page|>1<|box|>770 140 787 326<|content|>I. Settlement Overview\n<|id|>17<|type|>title<|page|>2<|box|>446 140 464 380<|content|>II. Material Settlement Terms\n<|id|>32<|type|>table<|page|>3<|box|>479 143 628 852<|content|>None\n<|id|>37<|type|>title<|page|>4<|box|>231 140 248 514<|content|>III. Litigation Context and Basis for Settlement\n<|id|>45<|type|>title<|page|>5<|box|>359 140 375 526<|content|>IV. Request for Consent and Policy Contribution\n<|id|>51<|type|>title<|page|>5<|box|>729 140 747 364<|content|>V. SIR Exhaustion Analysis\n<|id|>62<|type|>title<|page|>6<|box|>535 140 553 313<|content|>VI. PAGA Allocation\n<|id|>70<|type|>title<|page|>7<|box|>428 142 445 416<|content|>VII. Settlement Approval Timeline\n<|id|>71<|type|>table<|page|>7<|box|>477 143 662 852<|content|>None\n<|id|>73<|type|>title<|page|>7<|box|>828 142 845 401<|content|>VIII. Conditions and Protections\n<|id|>80<|type|>title<|page|>8<|box|>674 140 691 480<|content|>IX. Exclusion of Aldrich Executive Dispute\n<|id|>85<|type|>title<|page|>9<|box|>204 140 222 401<|content|>X. Request for Prompt Response\n<|id|>95<|type|>title<|page|>9<|box|>660 142 676 344<|content|>XI. Reservation of Rights",
+    "raw_response": "<|src_id|>32<|tgt_id|>17\n<|src_id|>71<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 70
+        }
+    ]
+}

@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 140 130 576<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>407 140 425 475<|content|>I. Introduction and Purpose of This Letter\n<|id|>14<|page|>2<|box|>277 140 294 501<|content|>II. Background — The Current Arrangement\n<|id|>21<|page|>3<|box|>148 140 167 668<|content|>III. Compliance Concerns with the Current Per-Scan\n<|id|>23<|page|>3<|box|>297 140 314 415<|content|>A. Anti-Kickback Statute Analysis\n<|id|>37<|page|>4<|box|>669 140 686 323<|content|>B. Stark Law Analysis\n<|id|>49<|page|>6<|box|>90 140 107 467<|content|>C. Connecticut State Law Considerations\n<|id|>52<|page|>6<|box|>345 140 363 678<|content|>IV. Proposed Restructured Arrangement — Summary of\n<|id|>61<|page|>7<|box|>630 140 647 495<|content|>V. Fair Market Value Determination Process\n<|id|>66<|page|>8<|box|>458 140 474 419<|content|>VI. Transition and Implementation\n<|id|>69<|page|>8<|box|>825 140 842 343<|content|>VII. Request for Meeting\n<|id|>77<|page|>9<|box|>398 142 415 277<|content|>VIII. Enclosures\n<|id|>81<|page|>9<|box|>627 140 643 401<|content|>IX. Confidentiality and Privilege\n<|id|>84<|page|>10<|box|>90 140 107 338<|content|>X. Reservation of Rights",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>37<|level|>3\n<|id|>49<|level|>3\n<|id|>52<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>2\n<|id|>77<|level|>2\n<|id|>81<|level|>2\n<|id|>84<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        }
+    ]
+}

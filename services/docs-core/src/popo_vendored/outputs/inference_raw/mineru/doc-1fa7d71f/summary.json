@@ -1,0 +1,151 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-hm3ia5z7\\input\\pdfs\\doc-1fa7d71f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-hm3ia5z7\\enriched\\doc-1fa7d71f.json",
+    "contd_output": "<|src_id|>12<|tgt_id|>13\n<|src_id|>119<|tgt_id|>120",
+    "title_output": "<|id|>8<|level|>1\n<|id|>10<|level|>2\n<|id|>15<|level|>2\n<|id|>22<|level|>2\n<|id|>31<|level|>2\n<|id|>37<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>2\n<|id|>60<|level|>2\n<|id|>66<|level|>1\n<|id|>74<|level|>1\n<|id|>75<|level|>2\n<|id|>79<|level|>2\n<|id|>82<|level|>2\n<|id|>91<|level|>2\n<|id|>94<|level|>1\n<|id|>95<|level|>2\n<|id|>99<|level|>2\n<|id|>103<|level|>2\n<|id|>105<|level|>2\n<|id|>107<|level|>2\n<|id|>109<|level|>1\n<|id|>114<|level|>1\n<|id|>116<|level|>1\n<|id|>118<|level|>1",
+    "image_output": "<|src_id|>77<|tgt_id|>75\n<|src_id|>111<|tgt_id|>109\n<|src_id|>112<|tgt_id|>109",
+    "contd_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 109
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 111,
+            "table2_idx": 112,
+            "upper_row_ss": [
+                [
+                    "Preliminary Offering Memorandum distributed to",
+                    "June 3, 2024"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "prospective investors",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

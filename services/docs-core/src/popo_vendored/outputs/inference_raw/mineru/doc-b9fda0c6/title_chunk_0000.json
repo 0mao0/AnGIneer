@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>9<|page|>1<|box|>411 140 429 364<|content|>I. Introduction and Purpose\n<|id|>13<|page|>2<|box|>148 140 167 557<|content|>II. Background — Current Organizational Structure\n<|id|>23<|page|>2<|box|>619 140 637 633<|content|>A. Fund IV Complex (Vintage 2021; Final Close June\n<|id|>27<|page|>3<|box|>212 140 229 671<|content|>B. Fund V Complex (Vintage 2023; Final Close Septe\n<|id|>32<|page|>3<|box|>609 140 628 514<|content|>III. Description of the Proposed Reorganization\n<|id|>33<|page|>3<|box|>641 142 657 316<|content|>A. Business Rationale\n<|id|>40<|page|>4<|box|>601 140 619 444<|content|>B. Five-Step Reorganization Structure\n<|id|>59<|page|>6<|box|>525 140 542 406<|content|>C. Aggregate Financial Summary\n<|id|>63<|page|>7<|box|>90 140 107 697<|content|>IV. Post-Reorganization Structure — New Entities R\n<|id|>65<|page|>7<|box|>184 140 200 599<|content|>A. Newly Formed Entities Requiring Addition to Cov\n<|id|>70<|page|>7<|box|>662 140 680 565<|content|>B. Entities to Be Dissolved — Run-Off / Tail Cover\n<|id|>78<|page|>8<|box|>121 140 138 509<|content|>C. Continuing Entities — No Change Required\n<|id|>84<|page|>8<|box|>289 140 305 480<|content|>V. Specific Request — Policy Endorsement\n<|id|>101<|page|>9<|box|>388 140 405 508<|content|>VI. Key Personnel and Governance Continuity\n<|id|>106<|page|>10<|box|>90 140 107 393<|content|>VII. Timeline and Coordination\n<|id|>111<|page|>10<|box|>670 140 686 601<|content|>VIII. Third-Party Advisors Involved in the Reorgan\n<|id|>119<|page|>11<|box|>273 140 292 450<|content|>IX. Contact Information for Follow-Up\n<|id|>121<|page|>11<|box|>344 142 362 442<|content|>Primary Contact (Insurance Matters):\n<|id|>123<|page|>11<|box|>414 142 431 308<|content|>Alternative Contact:\n<|id|>125<|page|>11<|box|>484 140 503 477<|content|>Legal Counsel (Reorganization Structure):\n<|id|>128<|page|>11<|box|>633 140 650 287<|content|>X. Confidentiality",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>23<|level|>3\n<|id|>27<|level|>3\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>40<|level|>3\n<|id|>59<|level|>3\n<|id|>63<|level|>2\n<|id|>65<|level|>3\n<|id|>70<|level|>3\n<|id|>78<|level|>3\n<|id|>84<|level|>2\n<|id|>101<|level|>2\n<|id|>106<|level|>2\n<|id|>111<|level|>2\n<|id|>119<|level|>2\n<|id|>121<|level|>3\n<|id|>123<|level|>3\n<|id|>125<|level|>3\n<|id|>128<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 2
+        }
+    ]
+}

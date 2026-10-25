@@ -1,0 +1,56 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 194 152 803<|content|>MEMORANDUM PRIVILEGED AND CONFIDENTIAL ATTORNEY-CL\n<|id|>6<|type|>title<|page|>1<|box|>359 140 377 230<|content|>I. Purpose\n<|id|>10<|type|>title<|page|>2<|box|>90 140 107 318<|content|>II. Client Information\n<|id|>11<|type|>title<|page|>2<|box|>121 140 138 593<|content|>A. Northgate Telecommunications PLC (Ultimate Pare\n<|id|>17<|type|>title<|page|>2<|box|>529 142 547 526<|content|>B. Northgate Americas, Inc. (Contracting Entity)\n<|id|>27<|type|>title<|page|>3<|box|>241 140 258 383<|content|>III. Counterparty Information\n<|id|>28<|type|>title<|page|>3<|box|>272 140 289 455<|content|>A. Cedarpoint Systems Integration, Inc.\n<|id|>38<|type|>title<|page|>3<|box|>825 140 844 655<|content|>B. Ridgeline Capital Partners, LP (Cedarpoint's Ma\n<|id|>46<|type|>title<|page|>4<|box|>388 140 407 357<|content|>C. Counterparty's Counsel\n<|id|>49<|type|>title<|page|>4<|box|>609 140 626 352<|content|>IV. Transaction Summary\n<|id|>52<|type|>title<|page|>5<|box|>90 140 107 367<|content|>B. Deal Structure and Value\n<|id|>57<|type|>table<|page|>5<|box|>258 143 412 852<|content|>None\n<|id|>59<|type|>title<|page|>5<|box|>532 140 550 320<|content|>C. Term and Renewal\n<|id|>62<|type|>title<|page|>5<|box|>777 142 795 303<|content|>D. Scope of Services\n<|id|>71<|type|>title<|page|>6<|box|>843 142 859 290<|content|>E. Escrow Deposit\n<|id|>80<|type|>title<|page|>7<|box|>429 140 446 362<|content|>F. Service Level Agreement\n<|id|>82<|type|>table<|page|>7<|box|>613 143 703 852<|content|>None\n<|id|>85<|type|>title<|page|>8<|box|>138 140 157 362<|content|>G. Insurance Requirements\n<|id|>87<|type|>table<|page|>8<|box|>224 143 299 852<|content|>None\n<|id|>90<|type|>title<|page|>8<|box|>547 140 564 397<|content|>V. Engagement Team and Roles\n<|id|>91<|type|>table<|page|>8<|box|>614 143 898 851<|content|>None\n<|id|>92<|type|>table<|page|>9<|box|>89 143 428 851<|content|>None\n<|id|>101<|type|>title<|page|>10<|box|>90 140 107 354<|content|>VI. Key Negotiation Issues\n<|id|>103<|type|>title<|page|>10<|box|>257 140 273 397<|content|>A. Most Favored Nation Pricing\n<|id|>138<|type|>title<|page|>13<|box|>138 140 157 316<|content|>C. Change of Control\n<|id|>155<|type|>title<|page|>14<|box|>703 142 720 357<|content|>D. IP and Licensing Terms\n<|id|>162<|type|>title<|page|>15<|box|>534 142 551 374<|content|>E. Data Security and Privacy\n<|id|>170<|type|>title<|page|>16<|box|>343 140 359 367<|content|>F. Transition and Migration\n<|id|>178<|type|>title<|page|>17<|box|>157 140 175 297<|content|>G. Tax Structuring\n<|id|>185<|type|>title<|page|>17<|box|>747 140 763 300<|content|>VII. Conflict Check\n<|id|>197<|type|>title<|page|>18<|box|>321 142 339 354<|content|>VIII. Anticipated Timeline\n<|id|>199<|type|>table<|page|>18<|box|>407 143 597 852<|content|>None\n<|id|>201<|type|>title<|page|>18<|box|>726 140 743 496<|content|>IX. Document List (Anticipated Deliverables)\n<|id|>203<|type|>title<|page|>18<|box|>797 143 814 308<|content|>Primary Agreement:\n<|id|>205<|type|>title<|page|>18<|box|>842 142 858 310<|content|>Exhibits to the MSA:\n<|id|>212<|type|>title<|page|>19<|box|>169 140 185 323<|content|>Schedules to the MSA:\n<|id|>216<|type|>title<|page|>19<|box|>272 142 289 323<|content|>Ancillary Agreements:\n<|id|>220<|type|>title<|page|>19<|box|>448 140 465 303<|content|>Closing Documents:\n<|id|>227<|type|>title<|page|>19<|box|>667 140 684 352<|content|>X. Administrative Matters\n<|id|>234<|type|>title<|page|>20<|box|>297 140 314 261<|content|>XI. Next Steps",
+    "raw_response": "<|src_id|>57<|tgt_id|>52\n<|src_id|>82<|tgt_id|>80\n<|src_id|>87<|tgt_id|>85\n<|src_id|>91<|tgt_id|>90\n<|src_id|>92<|tgt_id|>90\n<|src_id|>199<|tgt_id|>197",
+    "parsed": [
+        {
+            "src_id": 57,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 197
+        }
+    ]
+}

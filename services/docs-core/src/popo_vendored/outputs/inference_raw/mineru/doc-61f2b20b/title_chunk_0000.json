@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>614 140 632 540<|content|>1. Documents Reviewed and Scope of Participation\n<|id|>9<|page|>1<|box|>690 140 707 354<|content|>1.1 Registration Statement\n<|id|>11<|page|>2<|box|>90 142 108 357<|content|>1.2 Prospectus Supplement\n<|id|>13<|page|>2<|box|>291 142 308 370<|content|>1.3 Incorporated Documents\n<|id|>15<|page|>2<|box|>474 142 491 362<|content|>1.4 Block Trade Agreement\n<|id|>17<|page|>2<|box|>583 142 599 388<|content|>1.5 Due Diligence Participation\n<|id|>27<|page|>3<|box|>426 140 441 403<|content|>2. Limitations and Qualifications\n<|id|>29<|page|>3<|box|>501 142 517 406<|content|>2.1 Nature of Negative Assurance\n<|id|>31<|page|>3<|box|>738 140 755 630<|content|>2.2 Scope Limitations — No Audit or Independent Ve\n<|id|>33<|page|>4<|box|>138 140 157 513<|content|>2.3 Scope Limitations — Excluded Information\n<|id|>40<|page|>4<|box|>561 140 578 395<|content|>2.4 Reliance on Representations\n<|id|>42<|page|>4<|box|>799 140 816 508<|content|>2.5 Qualification Regarding Legal Conclusions\n<|id|>44<|page|>5<|box|>204 140 222 594<|content|>3. Negative Assurance Statement (Registration Stat\n<|id|>47<|page|>5<|box|>500 140 516 720<|content|>4. Negative Assurance Statement (Prospectus Supple\n<|id|>52<|page|>6<|box|>186 140 204 470<|content|>5. Additional Limitations and Disclaimers\n<|id|>53<|page|>6<|box|>217 140 234 364<|content|>5.1 Securities Act Reference\n<|id|>55<|page|>6<|box|>436 140 454 321<|content|>5.2 No Duty to Update\n<|id|>57<|page|>6<|box|>599 140 618 297<|content|>5.3 Governing Law\n<|id|>59<|page|>6<|box|>700 140 719 462<|content|>6. Reliance and Distribution Restrictions",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>9<|level|>2\n<|id|>11<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>27<|level|>1\n<|id|>29<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>1\n<|id|>47<|level|>1\n<|id|>52<|level|>1\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        57,
+        87
+    ],
+    "pages": [
+        58,
+        63,
+        70,
+        80,
+        81,
+        82,
+        83,
+        85,
+        86,
+        87
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>306<|page|>58<|box|>79 358 93 672<|content|>Footnotes to Table 6 - (Continued)\n<|id|>335<|page|>63<|box|>51 347 65 617<|content|>OWNERSHIP OF FEDERAL SECURITIES\n<|id|>357<|page|>70<|box|>50 264 65 746<|content|>MARKET QUOTATIONS ON TREASURY SECURITIES, AUGUST 3\n<|id|>390<|page|>80<|box|>512 365 527 650<|content|>Section I - Summary by Periods\n<|id|>391<|page|>80<|box|>529 148 544 865<|content|>Table 1.- Net Capital Movement Between the United\n<|id|>394<|page|>81<|box|>75 338 90 623<|content|>Section I - Summary by Periods\n<|id|>395<|page|>81<|box|>94 163 109 797<|content|>Table 2.- Short-Term Banking Liabilities to and Cl\n<|id|>398<|page|>82<|box|>73 373 86 653<|content|>Section I - Summary by Periods\n<|id|>400<|page|>83<|box|>79 330 94 643<|content|>Section II - Summary by Countries\n<|id|>403<|page|>85<|box|>77 329 92 643<|content|>Section II - Summary by Countries\n<|id|>404<|page|>85<|box|>92 143 108 827<|content|>Table 3.- Net Transactions in Long-Term Domestic S\n<|id|>407<|page|>86<|box|>79 358 94 666<|content|>Section II - Summary by Countries\n<|id|>409<|page|>87<|box|>79 264 94 694<|content|>Section III - Preliminary Details by Countries",
+    "raw_response": "<|id|>306<|level|>1\n<|id|>335<|level|>1\n<|id|>357<|level|>1\n<|id|>390<|level|>1\n<|id|>391<|level|>2\n<|id|>394<|level|>1\n<|id|>395<|level|>2\n<|id|>398<|level|>1\n<|id|>400<|level|>1\n<|id|>403<|level|>1\n<|id|>404<|level|>2\n<|id|>407<|level|>1\n<|id|>409<|level|>1",
+    "parsed": [
+        {
+            "id": 306,
+            "level": 1
+        },
+        {
+            "id": 335,
+            "level": 1
+        },
+        {
+            "id": 357,
+            "level": 1
+        },
+        {
+            "id": 390,
+            "level": 1
+        },
+        {
+            "id": 391,
+            "level": 2
+        },
+        {
+            "id": 394,
+            "level": 1
+        },
+        {
+            "id": 395,
+            "level": 2
+        },
+        {
+            "id": 398,
+            "level": 1
+        },
+        {
+            "id": 400,
+            "level": 1
+        },
+        {
+            "id": 403,
+            "level": 1
+        },
+        {
+            "id": 404,
+            "level": 2
+        },
+        {
+            "id": 407,
+            "level": 1
+        },
+        {
+            "id": 409,
+            "level": 1
+        }
+    ]
+}

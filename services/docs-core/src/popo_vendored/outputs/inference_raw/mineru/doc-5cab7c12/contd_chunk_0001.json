@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        56,
+        111
+    ],
+    "pages": [
+        57,
+        61,
+        68,
+        110
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>328<|page|>57<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>329<|page|>57<|box|>198 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund\n<|id|>351<|page|>61<|box|>877 81 907 491<|content|>The term “foreigner” as used in TIC reporting cove...utions and individuals resident outside the United\n<|id|>352<|page|>61<|box|>126 504 244 915<|content|>States, including U. ... The term “foreigner” also... institutions to be acting on behalf of foreigners\n<|id|>384<|page|>68<|box|>829 91 840 457<|content|>^{3} U. ... Treasury bills and certificates held in custody for the account of oil-exporting\n<|id|>385<|page|>68<|box|>847 91 858 418<|content|>^{4} Before January 2001, combined data reported f...001, combined data reported for Belgium-Luxembourg\n<|id|>533<|page|>110<|box|>513 89 691 911<|content|>[In billions of dollars. ... 1\n<|id|>534<|page|>110<|box|>702 91 715 316<|content|>Note: ... Detail may not add to totals due to rounding",
+    "raw_response": "<|src_id|>351<|tgt_id|>352",
+    "parsed": [
+        {
+            "src_id": 351,
+            "tgt_id": 352
+        }
+    ]
+}

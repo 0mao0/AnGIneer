@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 156 152 841<|content|>101 California Street, Suite 4500 San Francisco, California 94111 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 715 176 854<|content|>February 20, 2024\n<|id|>4<|page|>1<|box|>212 140 247 854<|content|>Margaux Fontaine, Esq. ... 450 Mission Street, Suite 2200 San Francisco, California 94105\n<|id|>5<|page|>1<|box|>256 174 309 854<|content|>Re: ... 1008-00008\n<|id|>6<|page|>1<|box|>319 142 335 289<|content|>Dear Ms. ... Fontaine\n<|id|>47<|page|>5<|box|>799 140 909 856<|content|>The ten percent (10%) voluntary discount is applie...o the Firm's standard rates, the ten percent (10%)\n<|id|>48<|page|>6<|box|>90 140 143 854<|content|>partner discount described above will remain in ef... rates in effect at the time services are rendered\n<|id|>60<|page|>6<|box|>832 181 867 852<|content|>• Outside vendor charges for services such as docu... access, and similar technology platforms; ... and\n<|id|>62<|page|>7<|box|>90 140 143 854<|content|>All disbursements and expenses will be separately ...ch are billed at the Firm's standard per-page rate\n<|id|>81<|page|>8<|box|>820 174 892 854<|content|>(b) as necessary to perform the services contempla...'s behalf and with the Company's knowledge; ... or\n<|id|>83<|page|>9<|box|>152 140 189 854<|content|>The Firm's obligations of confidentiality will sur...e the termination or conclusion of this engagement\n<|id|>97<|page|>10<|box|>258 174 314 854<|content|>(c) if the Company fails to cooperate with the Fir...perform its services under this engagement; ... or\n<|id|>99<|page|>10<|box|>383 140 421 854<|content|>In the event of any withdrawal by the Firm, the Fi...erly transition of the matter to successor counsel\n<|id|>106<|page|>10<|box|>834 140 907 857<|content|>Any dispute, controversy, or claim arising out of ...e then-current Commercial Arbitration Rules of the\n<|id|>107<|page|>11<|box|>90 140 236 854<|content|>American Arbitration Association (the \"AAA\"). ... ...vailing party is warranted under the circumstances\n<|id|>117<|page|>12<|box|>108 140 193 683<|content|>By: ... com ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>118<|page|>12<|box|>202 140 257 854<|content|>The undersigned, on behalf of Lumos Analytics Inc....grees to the terms and conditions set forth herein\n<|id|>123<|page|>12<|box|>351 143 367 315<|content|>Title: ... General Counsel\n<|id|>124<|page|>12<|box|>369 143 383 264<|content|>Date: ... Date\n<|id|>125<|page|>12<|box|>383 140 430 854<|content|>cc: ... Naomi Petersen, Associate, Calderwood & Harkness LLP\n<|id|>126<|page|>12<|box|>438 140 492 854<|content|>For the avoidance of doubt, the Client, Lumos Anal...e sponsor may apply in connection with this matter",
+    "raw_response": "<|src_id|>47<|tgt_id|>48\n<|src_id|>60<|tgt_id|>62\n<|src_id|>81<|tgt_id|>83\n<|src_id|>106<|tgt_id|>107",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 107
+        }
+    ]
+}

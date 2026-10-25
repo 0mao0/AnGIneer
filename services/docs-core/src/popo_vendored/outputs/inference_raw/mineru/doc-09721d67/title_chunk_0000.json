@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 259 107 854<|content|>CALDERWOOD & HARKNESS LLP 125 Broad Street New Yor\n<|id|>11<|page|>1<|box|>573 140 589 405<|content|>I. ENGAGEMENT AND SCOPE\n<|id|>15<|page|>2<|box|>186 140 203 529<|content|>II. DOCUMENTS AND RECORDS EXAMINED\n<|id|>29<|page|>3<|box|>558 142 575 310<|content|>III. ASSUMPTIONS\n<|id|>40<|page|>4<|box|>589 142 607 267<|content|>IV. OPINIONS\n<|id|>42<|page|>4<|box|>665 140 683 622<|content|>Opinion 1 — Valid Existence and Good Standing in D\n<|id|>44<|page|>5<|box|>90 142 107 500<|content|>Opinion 2 — Corporate Power and Authority\n<|id|>50<|page|>5<|box|>393 142 412 449<|content|>Opinion 3 — Authorized Capital Stock\n<|id|>55<|page|>5<|box|>672 140 690 674<|content|>Opinion 4 — Due Qualification — Commonwealth of Ma\n<|id|>57<|page|>5<|box|>782 140 799 566<|content|>Opinion 5 — Due Qualification — Other Jurisdiction\n<|id|>59<|page|>6<|box|>268 140 285 565<|content|>Opinion 6 — Corporate Authorization of the Offerin\n<|id|>67<|page|>6<|box|>679 140 696 679<|content|>Opinion 7 — No Conflict with Certificate of Incorp\n<|id|>71<|page|>7<|box|>89 140 106 501<|content|>V. QUALIFICATIONS AND LIMITATIONS\n<|id|>79<|page|>8<|box|>407 140 424 400<|content|>VI. RELIANCE AND BENEFIT\n<|id|>83<|page|>8<|box|>763 140 780 393<|content|>VII. COMPANION OPINIONS\n<|id|>89<|page|>9<|box|>273 142 291 352<|content|>VIII. GOVERNING LAW",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>11<|level|>1\n<|id|>15<|level|>1\n<|id|>29<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>50<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>1\n<|id|>79<|level|>1\n<|id|>83<|level|>1\n<|id|>89<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        }
+    ]
+}

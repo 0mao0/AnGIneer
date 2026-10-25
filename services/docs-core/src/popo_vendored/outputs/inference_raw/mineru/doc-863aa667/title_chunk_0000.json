@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 339 118 656<|content|>NO-CLAIMS DECLARATION\n<|id|>1<|page|>1<|box|>135 174 172 821<|content|>Pre-Closing Declaration Delivered Pursuant to the\n<|id|>9<|page|>1<|box|>484 140 503 243<|content|>RECITALS\n<|id|>14<|page|>2<|box|>347 140 364 390<|content|>SECTION 1 — DEFINITIONS\n<|id|>30<|page|>3<|box|>318 140 335 620<|content|>SECTION 2 — DECLARATIONS AND CONFIRMATIONS\n<|id|>31<|page|>3<|box|>349 142 366 299<|content|>2.1 No Claim Made\n<|id|>33<|page|>3<|box|>532 140 549 310<|content|>2.2 No Known Claim\n<|id|>35<|page|>3<|box|>751 140 768 318<|content|>2.3 No Breach Known\n<|id|>40<|page|>4<|box|>275 140 292 803<|content|>2.4 No Pending or Threatened Litigation Relating t\n<|id|>42<|page|>4<|box|>549 140 566 393<|content|>2.5 Due Diligence Confirmation\n<|id|>44<|page|>4<|box|>840 140 859 513<|content|>2.6 No Material Changes to Merger Agreement\n<|id|>46<|page|>5<|box|>239 140 258 687<|content|>SECTION 3 — INDEMNIFICATION FRAMEWORK REFERENCE\n<|id|>51<|page|>5<|box|>623 140 640 473<|content|>SECTION 4 — RELIANCE AND SCOPE\n<|id|>53<|page|>5<|box|>796 140 811 400<|content|>4.2 No Third-Party Beneficiaries\n<|id|>55<|page|>6<|box|>138 140 157 348<|content|>4.3 Limitation of Liability\n<|id|>57<|page|>6<|box|>330 140 348 431<|content|>SECTION 5 — GOVERNING LAW\n<|id|>59<|page|>6<|box|>527 140 544 428<|content|>SECTION 6 — MISCELLANEOUS\n<|id|>89<|page|>8<|box|>89 437 107 560<|content|>SCHEDULE A\n<|id|>90<|page|>8<|box|>130 390 148 607<|content|>KNOWLEDGE PERSONS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>33<|level|>3\n<|id|>35<|level|>3\n<|id|>40<|level|>3\n<|id|>42<|level|>3\n<|id|>44<|level|>3\n<|id|>46<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>3\n<|id|>55<|level|>3\n<|id|>57<|level|>2\n<|id|>59<|level|>2\n<|id|>89<|level|>2\n<|id|>90<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        }
+    ]
+}

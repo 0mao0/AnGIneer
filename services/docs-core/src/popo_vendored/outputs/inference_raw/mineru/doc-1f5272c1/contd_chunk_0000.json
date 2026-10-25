@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        7,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 225 133 772<|content|>One Liberty Plaza, 48th Floor 165 Broadway New York, New York 10006\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 704 184 854<|content|>November 30, 2024\n<|id|>4<|page|>1<|box|>194 140 210 377<|content|>C&H Matter No. ... 1039-00003\n<|id|>5<|page|>1<|box|>219 140 256 854<|content|>VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED AND E...NIC MAIL (sgrantham@meridianenvinsurance. ... com)\n<|id|>6<|page|>1<|box|>263 140 299 854<|content|>Ms. ... Sheila Grantham Claims Adjuster Meridian E...h Wacker Drive, Suite 4100 Chicago, Illinois 60606\n<|id|>7<|page|>1<|box|>308 174 398 856<|content|>Re: ... $5,000,000 Per Occurrence\n<|id|>8<|page|>1<|box|>407 142 424 297<|content|>Dear Ms. ... Grantham\n<|id|>61<|page|>7<|box|>747 147 763 442<|content|>• Per-Occurrence Limit: ... $50,000,000\n<|id|>64<|page|>7<|box|>805 140 897 857<|content|>The Policy's insuring agreement provides coverage ...g from pollution conditions at scheduled locations\n<|id|>62<|page|>7<|box|>766 147 782 398<|content|>• Aggregate Limit: ... $75,000,000\n<|id|>63<|page|>7<|box|>786 147 801 547<|content|>• Self-Insured Retention: ... $5,000,000 per occurrence\n<|id|>90<|page|>11<|box|>823 140 897 857<|content|>The Torchlight Entities demand that Meridian promp...s at both sites in the near term, and any delay in\n<|id|>91<|page|>12<|box|>89 140 125 854<|content|>Meridian's reimbursement of covered costs will cau...material financial harm to the Torchlight Entities\n<|id|>109<|page|>13<|box|>821 140 895 857<|content|>Nothing in this letter, and no prior or subsequent...ic grounds for coverage, and the engagement of the\n<|id|>110<|page|>14<|box|>90 140 145 854<|content|>Torchlight Entities in any discussions or negotiat... Entities under the Policy or under applicable law\n<|id|>120<|page|>14<|box|>800 174 853 854<|content|>Harrison Wexford, Partner Calderwood & Harkness LL...ork, New York 10006 Telephone: ... (212) 558- 3588\n<|id|>121<|page|>14<|box|>863 176 896 504<|content|>Email: ... 1039-00003\n<|id|>122<|page|>15<|box|>90 140 107 478<|content|>All communications should include copies to: ... All communications should include copies to\n<|id|>123<|page|>15<|box|>114 174 133 854<|content|>Miriam Soo-Hwan Park General Counsel Torchlight Mining Corp. ... Headquarters 750\n<|id|>124<|page|>15<|box|>133 176 152 823<|content|>Copper Ridge Boulevard, Suite 200 Helena, Montana 59601 Telephone: ... (406) 442-7800\n<|id|>125<|page|>15<|box|>161 176 176 457<|content|>Email: ... com\n<|id|>126<|page|>15<|box|>178 140 250 854<|content|>Please update your records accordingly and direct ...ess expressly agreed in writing by the undersigned\n<|id|>131<|page|>15<|box|>542 142 558 274<|content|>Very truly yours,\n<|id|>132<|page|>15<|box|>559 142 574 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>133<|page|>15<|box|>577 143 594 253<|content|>By: ... By\n<|id|>134<|page|>15<|box|>594 142 609 338<|content|>Harrison Wexford Partner\n<|id|>135<|page|>15<|box|>611 140 628 640<|content|>On behalf of Torchlight Mining Corp. ... and its scheduled subsidiaries\n<|id|>136<|page|>15<|box|>628 142 645 320<|content|>cc (via electronic mail): ... cc (via electronic mail)",
+    "raw_response": "<|src_id|>90<|tgt_id|>91\n<|src_id|>109<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 90,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        }
+    ]
+}

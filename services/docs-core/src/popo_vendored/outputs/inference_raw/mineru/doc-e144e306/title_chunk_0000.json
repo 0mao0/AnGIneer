@@ -1,0 +1,43 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>625 142 641 547<|content|>1. Litigation Hold Remains in Full Force and Effec\n<|id|>20<|page|>2<|box|>835 140 854 490<|content|>2. Expediting-Fee Payments to Goldenshore.\n<|id|>28<|page|>4<|box|>171 140 188 354<|content|>3. SEC Whistleblower Tip.\n<|id|>34<|page|>4<|box|>876 140 892 370<|content|>4. Voluntary Self-Disclosure.\n<|id|>43<|page|>6<|box|>289 140 306 403<|content|>5. Credit Facility Considerations.\n<|id|>50<|page|>7<|box|>424 140 441 267<|content|>6. Reactivation.",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>20<|level|>1\n<|id|>28<|level|>1\n<|id|>34<|level|>1\n<|id|>43<|level|>1\n<|id|>50<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 153 133 843<|content|>CALDERWOOD & HARKNESS LLP One Liberty Plaza, 45th\n<|id|>7<|page|>1<|box|>391 140 407 343<|content|>I. Purpose and Summary\n<|id|>13<|page|>2<|box|>148 140 167 346<|content|>II. Transaction Summary\n<|id|>29<|page|>3<|box|>90 140 106 292<|content|>Initial Purchasers:\n<|id|>40<|page|>3<|box|>599 142 617 539<|content|>III. Key Transaction Timeline — Confirmed Dates\n<|id|>44<|page|>4<|box|>594 140 612 464<|content|>IV. Confirmation of Closing Deliverables\n<|id|>46<|page|>4<|box|>689 140 705 563<|content|>A. Issuer Deliverables — All Received and Confirme\n<|id|>61<|page|>6<|box|>138 140 157 591<|content|>B. Transaction Documents — All Executed and Delive\n<|id|>78<|page|>7<|box|>752 140 768 560<|content|>C. Opinions and Negative Assurance — All Delivered\n<|id|>93<|page|>9<|box|>157 140 174 401<|content|>D. Initial Purchaser Deliverables\n<|id|>95<|page|>9<|box|>285 142 301 364<|content|>E. Third-Party Deliverables\n<|id|>101<|page|>9<|box|>679 140 695 692<|content|>V. Confirmation of Payoff and Lien Release — Exist\n<|id|>104<|page|>9<|box|>883 140 902 671<|content|>Original Principal Commitments under the Existing\n<|id|>120<|page|>11<|box|>285 140 301 460<|content|>VI. Funds Flow — Confirmed Execution\n<|id|>125<|page|>12<|box|>263 140 280 405<|content|>VII. Post-Closing Items — Status\n<|id|>126<|page|>12<|box|>294 140 311 763<|content|>A. Items Tracked Per Post-Closing Checklist Memora\n<|id|>130<|page|>12<|box|>680 142 696 390<|content|>B. Post-Closing Letter to Client\n<|id|>136<|page|>13<|box|>280 140 297 387<|content|>VIII. Closing Binder Assembly\n<|id|>149<|page|>13<|box|>739 140 777 839<|content|>IX. Outstanding / Forward-Looking Obligations (For\n<|id|>155<|page|>14<|box|>648 140 665 406<|content|>X. Engagement Team and Billing\n<|id|>162<|page|>15<|box|>332 142 349 313<|content|>XI. Recommendation\n<|id|>168<|page|>15<|box|>648 142 665 282<|content|>XII. Prepared By",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>29<|level|>3\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>3\n<|id|>61<|level|>3\n<|id|>78<|level|>3\n<|id|>93<|level|>3\n<|id|>95<|level|>3\n<|id|>101<|level|>2\n<|id|>104<|level|>3\n<|id|>120<|level|>2\n<|id|>125<|level|>2\n<|id|>126<|level|>3\n<|id|>130<|level|>3\n<|id|>136<|level|>2\n<|id|>149<|level|>2\n<|id|>155<|level|>2\n<|id|>162<|level|>2\n<|id|>168<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        }
+    ]
+}

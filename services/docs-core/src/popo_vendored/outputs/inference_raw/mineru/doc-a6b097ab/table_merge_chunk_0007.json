@@ -1,0 +1,23 @@
+{
+    "task": "table_merge",
+    "chunk_index": 7,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 10000kW≤装机总功率<20000kW的大型绞吸挖泥船', '3', '13585', '27', '103.0', '—', '3500', '2460', '3700×2', '1280', '2780×1700']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=7, 10000kW≤装机总功率<20000kW的大型绞吸挖泥船', '4', '13551', '27', '116.1', '-', '4500', '1960', '3626×2', '1100', '2330×1900']]\n",
+    "raw_response": "[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 1468,
+    "table2_idx": 1469
+}

@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        34
+    ],
+    "pages": [
+        1,
+        8,
+        13,
+        27,
+        28,
+        34
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 163 125 831<|content|>CALDERWOOD & HARKNESS LLP 1700 K Street, N. ... 20006\n<|id|>1<|page|>1<|box|>133 140 164 854<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT — DO NOT DISTRIBUTE\n<|id|>2<|page|>1<|box|>171 142 188 290<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>196 733 214 854<|content|>March 10, 2025\n<|id|>4<|page|>1<|box|>223 140 258 854<|content|>FROM: ... Philip Hartmann, Partner, and Carlos Espinoza, Associate — Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>268 140 340 854<|content|>TO: ... Linda Petrosian, Chief Information Officer...y Officer, Belmont Ridge Bank National Association\n<|id|>6<|page|>1<|box|>348 140 385 854<|content|>CC: ... Thomas Ikeda, BSA Officer / AML Program Director, Belmont Ridge Bank National Association\n<|id|>7<|page|>1<|box|>393 140 429 854<|content|>RE: ... 0 Upgrade and OFAC Module Enhancement Mapped to Consent Order Deadlines\n<|id|>8<|page|>1<|box|>436 140 454 408<|content|>C&H MATTER NO. ... 1045-00002\n<|id|>9<|page|>1<|box|>462 140 553 854<|content|>THIS MEMORANDUM IS PROTECTED BY THE ATTORNEY-CLIEN...SS LLP AND BELMONT RIDGE BANK NATIONAL ASSOCIATION\n<|id|>75<|page|>8<|box|>473 181 489 596<|content|>• Model methodology and conceptual soundness review\n<|id|>84<|page|>8<|box|>667 140 702 852<|content|>Validation Entity. ... Two candidates are under consideration\n<|id|>76<|page|>8<|box|>493 183 508 547<|content|>• Scenario design and detection logic assessment\n<|id|>77<|page|>8<|box|>512 181 547 854<|content|>• Tuning parameter evaluation, including both abov...ting) and below- the-line (suppression) thresholds\n<|id|>78<|page|>8<|box|>550 183 566 524<|content|>• Data integrity and completeness verification\n<|id|>79<|page|>8<|box|>570 183 587 444<|content|>• Alert generation accuracy testing\n<|id|>80<|page|>8<|box|>589 183 606 540<|content|>• False-positive rate analysis and benchmarking\n<|id|>81<|page|>8<|box|>609 183 625 542<|content|>• Back-testing against known suspicious activity\n<|id|>82<|page|>8<|box|>628 183 645 637<|content|>• Governance framework and model risk management review\n<|id|>83<|page|>8<|box|>648 183 664 475<|content|>• Documentation adequacy assessment\n<|id|>127<|page|>13<|box|>250 174 324 854<|content|>MSA Amendment Execution (April 1) → System Configu... → Independent Model Validation (August–October 1)\n<|id|>128<|page|>13<|box|>330 140 422 854<|content|>The August 1 to October 1 segment is the tightest constraint in the overall timeline. ... B above\n<|id|>274<|page|>27<|box|>664 181 719 854<|content|>• The Caldera & Pope BSA/AML independent testing l... an expansion of the existing relationship; ... or\n<|id|>276<|page|>27<|box|>758 140 794 854<|content|>We recommend that BRB formally budget $750,000 for...to avoid any delay in engaging the validation firm\n<|id|>281<|page|>28<|box|>343 181 359 772<|content|>• Linda Petrosian, Chief Information Officer / Chief Technology Officer (Chair)\n<|id|>286<|page|>28<|box|>460 140 513 854<|content|>The Steering Committee should meet weekly to revie...should be maintained as part of the project record\n<|id|>282<|page|>28<|box|>363 183 378 594<|content|>• Thomas Ikeda, BSA Officer / AML Program Director\n<|id|>283<|page|>28<|box|>383 183 398 531<|content|>• Patricia Langston, Chief Compliance Officer\n<|id|>284<|page|>28<|box|>402 183 419 529<|content|>• Warren Ashby, Head of Fintech Partnerships\n<|id|>285<|page|>28<|box|>422 181 457 854<|content|>• A Calderwood & Harkness representative (Carlos Espinoza or designee, in an advisory capacity)\n<|id|>323<|page|>34<|box|>222 140 238 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>324<|page|>34<|box|>239 143 257 253<|content|>By: ... By\n<|id|>325<|page|>34<|box|>257 143 273 331<|content|>Philip Hartmann, Partner\n<|id|>326<|page|>34<|box|>275 143 291 253<|content|>By: ... By\n<|id|>327<|page|>34<|box|>292 142 306 346<|content|>Carlos Espinoza, Associate\n<|id|>328<|page|>34<|box|>308 140 383 854<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL — ATTO...rwood & Harkness LLP immediately at (202) 555-0100",
+    "raw_response": "<|src_id|>324<|tgt_id|>325\n<|src_id|>326<|tgt_id|>327",
+    "parsed": [
+        {
+            "src_id": 324,
+            "tgt_id": 325
+        },
+        {
+            "src_id": 326,
+            "tgt_id": 327
+        }
+    ]
+}

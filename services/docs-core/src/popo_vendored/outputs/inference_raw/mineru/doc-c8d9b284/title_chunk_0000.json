@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 166 126 830<|content|>KELLERMAN & ASSOCIATES LLP Certified Public Accoun\n<|id|>9<|page|>1<|box|>419 142 436 354<|content|>1. Introductory Paragraph\n<|id|>15<|page|>2<|box|>204 140 222 276<|content|>2. Independence\n<|id|>18<|page|>2<|box|>462 140 479 558<|content|>3. Financial Statements Covered by Auditor's Repor\n<|id|>27<|page|>3<|box|>90 140 107 486<|content|>4. Unaudited Interim Financial Information\n<|id|>30<|page|>3<|box|>366 140 383 669<|content|>5. Procedures Performed — Specified Financial Data\n<|id|>32<|page|>3<|box|>532 140 550 710<|content|>5(a). Agreed-Upon Financial Amounts and Percentage\n<|id|>46<|page|>4<|box|>823 140 840 348<|content|>5(b). Capitalization Table\n<|id|>58<|page|>5<|box|>794 140 811 292<|content|>5(c). Dilution Data\n<|id|>61<|page|>6<|box|>194 140 212 542<|content|>5(d). Selected Financial Data / Financial Highligh\n<|id|>73<|page|>6<|box|>542 140 559 431<|content|>5(e). Non-GAAP Financial Measures\n<|id|>78<|page|>7<|box|>90 140 108 395<|content|>5(f). Equity Compensation Data\n<|id|>89<|page|>7<|box|>638 140 656 344<|content|>5(g). Credit Facility Data\n<|id|>97<|page|>8<|box|>263 140 282 261<|content|>5(h). Tax Data\n<|id|>102<|page|>8<|box|>516 140 534 637<|content|>6. Negative Assurance — Subsequent Changes (Change\n<|id|>116<|page|>10<|box|>167 140 185 352<|content|>7. Concluding Paragraphs\n<|id|>117<|page|>10<|box|>199 140 215 465<|content|>7(a). Limitations on Use and Distribution\n<|id|>119<|page|>10<|box|>398 140 417 553<|content|>7(b). No Responsibility for Sufficiency of Procedu\n<|id|>121<|page|>10<|box|>582 140 599 416<|content|>7(c). Bring-Down Letter Reference\n<|id|>123<|page|>10<|box|>746 140 763 354<|content|>7(d). Governing Standards\n<|id|>127<|page|>11<|box|>159 436 175 560<|content|>SCHEDULE A\n<|id|>128<|page|>11<|box|>184 348 202 648<|content|>Specified Items — Circle-Up Schedule\n<|id|>129<|page|>11<|box|>210 153 246 843<|content|>Arbor Health Technologies Inc. Initial Public Offe",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>18<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>3\n<|id|>46<|level|>3\n<|id|>58<|level|>3\n<|id|>61<|level|>3\n<|id|>73<|level|>3\n<|id|>78<|level|>3\n<|id|>89<|level|>3\n<|id|>97<|level|>3\n<|id|>102<|level|>2\n<|id|>116<|level|>2\n<|id|>117<|level|>3\n<|id|>119<|level|>3\n<|id|>121<|level|>3\n<|id|>123<|level|>3\n<|id|>127<|level|>2\n<|id|>128<|level|>3\n<|id|>129<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 4
+        }
+    ]
+}

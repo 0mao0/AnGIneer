@@ -1,0 +1,51 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 166 126 830<|content|>KELLERMAN & ASSOCIATES LLP Certified Public Accoun\n<|id|>9<|type|>title<|page|>1<|box|>419 142 436 354<|content|>1. Introductory Paragraph\n<|id|>15<|type|>title<|page|>2<|box|>204 140 222 276<|content|>2. Independence\n<|id|>18<|type|>title<|page|>2<|box|>462 140 479 558<|content|>3. Financial Statements Covered by Auditor's Repor\n<|id|>27<|type|>title<|page|>3<|box|>90 140 107 486<|content|>4. Unaudited Interim Financial Information\n<|id|>30<|type|>title<|page|>3<|box|>366 140 383 669<|content|>5. Procedures Performed — Specified Financial Data\n<|id|>32<|type|>title<|page|>3<|box|>532 140 550 710<|content|>5(a). Agreed-Upon Financial Amounts and Percentage\n<|id|>46<|type|>title<|page|>4<|box|>823 140 840 348<|content|>5(b). Capitalization Table\n<|id|>58<|type|>title<|page|>5<|box|>794 140 811 292<|content|>5(c). Dilution Data\n<|id|>61<|type|>title<|page|>6<|box|>194 140 212 542<|content|>5(d). Selected Financial Data / Financial Highligh\n<|id|>73<|type|>title<|page|>6<|box|>542 140 559 431<|content|>5(e). Non-GAAP Financial Measures\n<|id|>78<|type|>title<|page|>7<|box|>90 140 108 395<|content|>5(f). Equity Compensation Data\n<|id|>89<|type|>title<|page|>7<|box|>638 140 656 344<|content|>5(g). Credit Facility Data\n<|id|>97<|type|>title<|page|>8<|box|>263 140 282 261<|content|>5(h). Tax Data\n<|id|>102<|type|>title<|page|>8<|box|>516 140 534 637<|content|>6. Negative Assurance — Subsequent Changes (Change\n<|id|>116<|type|>title<|page|>10<|box|>167 140 185 352<|content|>7. Concluding Paragraphs\n<|id|>117<|type|>title<|page|>10<|box|>199 140 215 465<|content|>7(a). Limitations on Use and Distribution\n<|id|>119<|type|>title<|page|>10<|box|>398 140 417 553<|content|>7(b). No Responsibility for Sufficiency of Procedu\n<|id|>121<|type|>title<|page|>10<|box|>582 140 599 416<|content|>7(c). Bring-Down Letter Reference\n<|id|>123<|type|>title<|page|>10<|box|>746 140 763 354<|content|>7(d). Governing Standards\n<|id|>127<|type|>title<|page|>11<|box|>159 436 175 560<|content|>SCHEDULE A\n<|id|>128<|type|>title<|page|>11<|box|>184 348 202 648<|content|>Specified Items — Circle-Up Schedule\n<|id|>129<|type|>title<|page|>11<|box|>210 153 246 843<|content|>Arbor Health Technologies Inc. Initial Public Offe\n<|id|>131<|type|>table<|page|>11<|box|>334 143 906 852<|content|>None\n<|id|>132<|type|>table<|page|>12<|box|>89 143 902 852<|content|>None\n<|id|>133<|type|>table<|page|>13<|box|>89 143 782 854<|content|>None\n<|id|>134<|type|>table<|page|>13<|box|>877 143 898 852<|content|>None\n<|id|>135<|type|>table<|page|>14<|box|>88 143 625 852<|content|>None\n<|id|>136<|type|>table<|page|>14<|box|>656 143 726 852<|content|>None",
+    "raw_response": "<|src_id|>131<|tgt_id|>128\n<|src_id|>132<|tgt_id|>128\n<|src_id|>133<|tgt_id|>128\n<|src_id|>134<|tgt_id|>128\n<|src_id|>135<|tgt_id|>128\n<|src_id|>136<|tgt_id|>128",
+    "parsed": [
+        {
+            "src_id": 131,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 128
+        }
+    ]
+}

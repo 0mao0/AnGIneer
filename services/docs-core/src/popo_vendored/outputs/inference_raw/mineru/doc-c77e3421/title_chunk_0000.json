@@ -1,0 +1,65 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        8
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>13<|page|>2<|box|>121 142 138 460<|content|>I. BACKGROUND ON THE TRANSACTION\n<|id|>16<|page|>2<|box|>532 142 551 658<|content|>II. DISTRIBUTION INSTRUCTIONS FOR LETTER OF TRANSM\n<|id|>23<|page|>3<|box|>483 142 500 571<|content|>III. EXCHANGE AGENT MECHANICS AND PROCEDURES\n<|id|>31<|page|>4<|box|>440 142 457 406<|content|>IV. ROLLOVER SHARE HANDLING\n<|id|>38<|page|>5<|box|>308 142 325 529<|content|>V. LOST, STOLEN, OR DESTROYED CERTIFICATES\n<|id|>40<|page|>5<|box|>527 142 544 444<|content|>VI. APPRAISAL / DISSENTING SHARES\n<|id|>43<|page|>5<|box|>845 142 863 596<|content|>VII. FUNDING AND SOURCE OF MERGER CONSIDERATION\n<|id|>47<|page|>6<|box|>464 140 482 493<|content|>VIII. COORDINATION WITH OTHER PARTIES\n<|id|>53<|page|>7<|box|>220 142 238 367<|content|>IX. TIMING AND DEADLINES\n<|id|>61<|page|>7<|box|>652 140 670 364<|content|>X. CONTACT INFORMATION\n<|id|>76<|page|>8<|box|>465 142 483 277<|content|>XI. ENCLOSURES",
+    "raw_response": "<|id|>13<|level|>1\n<|id|>16<|level|>1\n<|id|>23<|level|>1\n<|id|>31<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>43<|level|>1\n<|id|>47<|level|>1\n<|id|>53<|level|>1\n<|id|>61<|level|>1\n<|id|>76<|level|>1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        }
+    ]
+}

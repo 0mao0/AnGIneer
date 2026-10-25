@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 151 143 844<|content|>REDLINE — Draft Response to Demand Letter of Garza\n<|id|>2<|type|>title<|page|>1<|box|>214 143 251 852<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>4<|type|>title<|page|>1<|box|>329 142 345 279<|content|>COVER EMAIL\n<|id|>6<|type|>title<|page|>1<|box|>436 142 454 230<|content|>Bernard\n<|id|>18<|type|>title<|page|>2<|box|>373 277 391 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>21<|type|>title<|page|>2<|box|>450 181 486 815<|content|>DRAFT — PRIVILEGED & CONFIDENTIAL — FOR CLIENT REV\n<|id|>79<|type|>table<|page|>8<|box|>433 143 571 852<|content|>None\n<|id|>80<|type|>title<|page|>8<|box|>606 142 623 236<|content|>Dear Devin:\n<|id|>90<|type|>title<|page|>9<|box|>734 143 750 243<|content|>Best regards,\n<|id|>95<|type|>table<|page|>10<|box|>114 143 898 852<|content|>None\n<|id|>96<|type|>table<|page|>11<|box|>90 145 805 851<|content|>None",
+    "raw_response": "<|src_id|>79<|tgt_id|>0\n<|src_id|>95<|tgt_id|>0\n<|src_id|>96<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 79,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 0
+        }
+    ]
+}

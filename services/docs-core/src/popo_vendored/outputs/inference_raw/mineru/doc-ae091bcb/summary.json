@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-slw8ay31\\input\\pdfs\\doc-ae091bcb.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-slw8ay31\\enriched\\doc-ae091bcb.json",
+    "contd_output": "<|src_id|>86<|tgt_id|>87",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>9<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>25<|level|>3\n<|id|>32<|level|>3\n<|id|>42<|level|>3\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>59<|level|>3\n<|id|>66<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>81<|level|>3\n<|id|>85<|level|>3\n<|id|>89<|level|>3\n<|id|>92<|level|>2\n<|id|>93<|level|>3\n<|id|>98<|level|>3\n<|id|>102<|level|>3\n<|id|>104<|level|>2\n<|id|>106<|level|>3\n<|id|>112<|level|>3\n<|id|>116<|level|>3\n<|id|>123<|level|>2\n<|id|>130<|level|>3\n<|id|>133<|level|>2\n<|id|>145<|level|>2\n<|id|>151<|level|>2\n<|id|>160<|level|>2\n<|id|>171<|level|>2\n<|id|>198<|level|>2\n<|id|>199<|level|>3\n<|id|>209<|level|>2\n<|id|>210<|level|>3",
+    "image_output": "<|src_id|>187<|tgt_id|>160\n<|src_id|>188<|tgt_id|>160",
+    "contd_label": [
+        {
+            "src_id": 86,
+            "tgt_id": 87
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 187,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 160
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 187,
+            "table2_idx": 188,
+            "upper_row_ss": [
+                [
+                    "12",
+                    "WQAB212",
+                    "Meridian Technologies-3 (Band",
+                    "47 C.F.R. Part 27",
+                    "Southern Oregon EA",
+                    "OR",
+                    "39 MHz",
+                    "See total"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "66)",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 233 118 763<|content|>LITIGATION HOLD NOTICE — CONFIDENTIAL\n<|id|>1<|type|>title<|page|>1<|box|>143 315 160 683<|content|>DOCUMENT PRESERVATION DIRECTIVE\n<|id|>9<|type|>title<|page|>1<|box|>532 142 549 416<|content|>Section 1: Custodian Identification\n<|id|>11<|type|>table<|page|>1<|box|>619 143 840 852<|content|>None\n<|id|>12<|type|>title<|page|>2<|box|>90 140 107 405<|content|>Section 2: Purpose of This Notice\n<|id|>19<|type|>title<|page|>2<|box|>816 140 834 429<|content|>Section 3: Scope of the Legal Matter\n<|id|>32<|type|>title<|page|>3<|box|>821 140 839 397<|content|>Section 4: Relevant Time Period\n<|id|>37<|type|>title<|page|>4<|box|>348 140 364 678<|content|>Section 5: Categories of Documents and Information\n<|id|>39<|type|>title<|page|>4<|box|>478 140 494 437<|content|>5.1 Counterparty-Related Documents\n<|id|>41<|type|>title<|page|>4<|box|>564 176 580 397<|content|>(a) Petronova Trading FZE\n<|id|>43<|type|>title<|page|>4<|box|>633 176 651 450<|content|>(b) Volkhov Industrial Group JSC\n<|id|>45<|type|>title<|page|>4<|box|>685 176 702 405<|content|>(c) Zenith Petroleum DMCC\n<|id|>47<|type|>title<|page|>4<|box|>756 176 773 398<|content|>(d) Caspian Logistik GmbH\n<|id|>51<|type|>title<|page|>5<|box|>195 140 210 424<|content|>5.2 Transaction-Related Documents\n<|id|>59<|type|>title<|page|>5<|box|>720 142 738 504<|content|>5.3 Compliance and Due Diligence Documents\n<|id|>83<|type|>title<|page|>7<|box|>157 140 175 442<|content|>5.5 Financial and Accounting Records\n<|id|>90<|type|>title<|page|>7<|box|>525 140 542 325<|content|>5.6 Corporate Records\n<|id|>95<|type|>title<|page|>7<|box|>821 140 838 415<|content|>5.7 Personal Devices and Accounts\n<|id|>99<|type|>title<|page|>8<|box|>402 140 419 522<|content|>Section 6: Definition of \"Documents\" and \"ESI\"\n<|id|>121<|type|>title<|page|>9<|box|>566 140 584 465<|content|>Section 7: Your Preservation Obligations\n<|id|>122<|type|>title<|page|>9<|box|>597 142 614 398<|content|>7.1 Immediate Actions Required\n<|id|>129<|type|>title<|page|>10<|box|>319 142 337 331<|content|>7.2 Physical Documents\n<|id|>134<|type|>title<|page|>10<|box|>561 142 578 413<|content|>7.3 Electronic Documents and ESI\n<|id|>140<|type|>title<|page|>11<|box|>176 142 194 330<|content|>7.4 Ongoing Obligation\n<|id|>144<|type|>title<|page|>11<|box|>421 140 436 495<|content|>Section 8: Entities and Jurisdictions Covered\n<|id|>154<|type|>title<|page|>12<|box|>258 140 277 635<|content|>Section 9: Coordination with E-discovery Counsel a\n<|id|>155<|type|>table<|page|>12<|box|>345 143 440 852<|content|>None\n<|id|>165<|type|>title<|page|>13<|box|>167 140 185 354<|content|>Section 10: Confidentiality\n<|id|>179<|type|>title<|page|>14<|box|>148 140 167 511<|content|>Section 11: Questions and Contact Information\n<|id|>181<|type|>table<|page|>14<|box|>261 143 383 852<|content|>None\n<|id|>183<|type|>table<|page|>14<|box|>484 143 539 852<|content|>None\n<|id|>186<|type|>title<|page|>14<|box|>731 142 750 455<|content|>Section 12: Acknowledgment of Receipt\n<|id|>188<|type|>title<|page|>14<|box|>838 287 854 710<|content|>CUSTODIAN ACKNOWLEDGMENT OF RECEIPT\n<|id|>189<|type|>title<|page|>14<|box|>864 256 880 740<|content|>LITIGATION HOLD NOTICE — MATTER NO. 1016-00009\n<|id|>190<|type|>table<|page|>14<|box|>887 143 907 852<|content|>None\n<|id|>191<|type|>table<|page|>15<|box|>88 143 193 852<|content|>None\n<|id|>205<|type|>title<|page|>16<|box|>167 140 184 500<|content|>Section 13: Consequences of Non-Compliance\n<|id|>213<|type|>title<|page|>16<|box|>722 313 739 683<|content|>— END OF LITIGATION HOLD NOTICE —\n<|id|>214<|type|>title<|page|>16<|box|>748 140 777 852<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM",
+    "raw_response": "<|src_id|>11<|tgt_id|>9\n<|src_id|>155<|tgt_id|>154\n<|src_id|>181<|tgt_id|>179\n<|src_id|>183<|tgt_id|>179\n<|src_id|>190<|tgt_id|>188\n<|src_id|>191<|tgt_id|>188",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 179
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 179
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 188
+        }
+    ]
+}

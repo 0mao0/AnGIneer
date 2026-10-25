@@ -1,0 +1,64 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        155,
+        170
+    ],
+    "pages": [
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        163,
+        164,
+        165,
+        166,
+        168,
+        169,
+        170
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2453<|type|>title<|page|>155<|box|>318 93 335 178<|content|>7 记录\n<|id|>2470<|type|>table<|page|>155<|box|>522 98 697 907<|content|>None\n<|id|>2471<|type|>title<|page|>155<|box|>744 100 761 193<|content|>条文说明\n<|id|>2474<|type|>table<|page|>156<|box|>143 97 274 903<|content|>None\n<|id|>2475<|type|>title<|page|>156<|box|>299 224 318 771<|content|>T 0859—2009 无机结合料稳定材料渗水试验方法\n<|id|>2476<|type|>title<|page|>156<|box|>351 94 369 217<|content|>1 适用范围\n<|id|>2478<|type|>title<|page|>156<|box|>457 92 474 217<|content|>2 仪器设备\n<|id|>2486<|type|>title<|page|>156<|box|>795 91 812 277<|content|>3 试件制备和养护\n<|id|>2492<|type|>title<|page|>157<|box|>301 97 318 225<|content|>4 试验步骤\n<|id|>2493<|type|>title<|page|>157<|box|>333 118 350 288<|content|>4.1 透水性基层\n<|id|>2501<|type|>title<|page|>158<|box|>124 112 142 388<|content|>4.2 密实型半刚性基层材料\n<|id|>2505<|type|>title<|page|>158<|box|>390 93 408 178<|content|>5 计算\n<|id|>2513<|type|>title<|page|>158<|box|>623 92 642 176<|content|>6 报告\n<|id|>2522<|type|>title<|page|>158<|box|>848 93 865 186<|content|>条文说明\n<|id|>2525<|type|>title<|page|>159<|box|>209 219 229 789<|content|>T 0860—2009 无机结合料稳定材料抗冲刷试验方法\n<|id|>2526<|type|>title<|page|>159<|box|>262 97 279 224<|content|>1 适用范围\n<|id|>2528<|type|>title<|page|>159<|box|>326 95 344 222<|content|>2 仪器设备\n<|id|>2531<|type|>image<|page|>159<|box|>446 253 638 750<|content|>None\n<|id|>2537<|type|>title<|page|>160<|box|>158 97 176 221<|content|>3 试件准备\n<|id|>2544<|type|>table<|page|>160<|box|>531 92 603 901<|content|>None\n<|id|>2546<|type|>title<|page|>160<|box|>659 88 677 214<|content|>4 试验步骤\n<|id|>2554<|type|>title<|page|>161<|box|>273 85 292 171<|content|>5 计算\n<|id|>2560<|type|>title<|page|>161<|box|>444 84 462 214<|content|>6 结果整理\n<|id|>2563<|type|>title<|page|>161<|box|>594 85 613 172<|content|>7 报告\n<|id|>2572<|type|>title<|page|>161<|box|>817 87 835 181<|content|>条文说明\n<|id|>2577<|type|>title<|page|>163<|box|>163 192 215 796<|content|>附录 A 正态样本异常值的判断及处理方法 ——狄克逊准则\n<|id|>2586<|type|>table<|page|>164<|box|>145 98 758 908<|content|>None\n<|id|>2594<|type|>title<|page|>165<|box|>171 313 194 697<|content|>附录 B 一元线性回归分析\n<|id|>2595<|type|>title<|page|>165<|box|>244 96 261 309<|content|>1 一元线性回归方程\n<|id|>2615<|type|>title<|page|>166<|box|>157 96 175 306<|content|>2 线性回归效果检验\n<|id|>2618<|type|>image<|page|>166<|box|>232 629 410 893<|content|>None\n<|id|>2660<|type|>table<|page|>168<|box|>308 93 438 900<|content|>None\n<|id|>2662<|type|>title<|page|>168<|box|>495 89 512 256<|content|>3 回归预测区间\n<|id|>2674<|type|>title<|page|>169<|box|>71 296 89 694<|content|>公路工程现行标准、规范、规程、指南一览表\n<|id|>2675<|type|>table<|page|>169<|box|>110 122 932 865<|content|>None\n<|id|>2676<|type|>table<|page|>170<|box|>75 130 862 872<|content|>None",
+    "raw_response": "<|src_id|>2470<|tgt_id|>2453\n<|src_id|>2474<|tgt_id|>2471\n<|src_id|>2531<|tgt_id|>2528\n<|src_id|>2544<|tgt_id|>2537\n<|src_id|>2586<|tgt_id|>2577\n<|src_id|>2618<|tgt_id|>2615\n<|src_id|>2660<|tgt_id|>2615\n<|src_id|>2675<|tgt_id|>2674\n<|src_id|>2676<|tgt_id|>2674",
+    "parsed": [
+        {
+            "src_id": 2470,
+            "tgt_id": 2453
+        },
+        {
+            "src_id": 2474,
+            "tgt_id": 2471
+        },
+        {
+            "src_id": 2531,
+            "tgt_id": 2528
+        },
+        {
+            "src_id": 2544,
+            "tgt_id": 2537
+        },
+        {
+            "src_id": 2586,
+            "tgt_id": 2577
+        },
+        {
+            "src_id": 2618,
+            "tgt_id": 2615
+        },
+        {
+            "src_id": 2660,
+            "tgt_id": 2615
+        },
+        {
+            "src_id": 2675,
+            "tgt_id": 2674
+        },
+        {
+            "src_id": 2676,
+            "tgt_id": 2674
+        }
+    ]
+}

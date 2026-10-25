@@ -1,0 +1,183 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-58dobbew\\input\\pdfs\\doc-c8d9b284.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-58dobbew\\enriched\\doc-c8d9b284.json",
+    "contd_output": "<|src_id|>13<|tgt_id|>14\n<|src_id|>47<|tgt_id|>48",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>18<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>3\n<|id|>46<|level|>3\n<|id|>58<|level|>3\n<|id|>61<|level|>3\n<|id|>73<|level|>3\n<|id|>78<|level|>3\n<|id|>89<|level|>3\n<|id|>97<|level|>3\n<|id|>102<|level|>2\n<|id|>116<|level|>2\n<|id|>117<|level|>3\n<|id|>119<|level|>3\n<|id|>121<|level|>3\n<|id|>123<|level|>3\n<|id|>127<|level|>2\n<|id|>128<|level|>3\n<|id|>129<|level|>4",
+    "image_output": "<|src_id|>131<|tgt_id|>128\n<|src_id|>132<|tgt_id|>128\n<|src_id|>133<|tgt_id|>128\n<|src_id|>134<|tgt_id|>128\n<|src_id|>135<|tgt_id|>128\n<|src_id|>136<|tgt_id|>128",
+    "contd_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 131,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 128
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 131,
+            "table2_idx": 132,
+            "upper_row_ss": [
+                [
+                    "p. 1, 6, 94",
+                    "Platform Usage — Hospital Systems",
+                    "Over 1,200 across",
+                    "Company representation;",
+                    "Agreed to management"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "and Physician Groups",
+                    "42 states",
+                    "internal customer records",
+                    "representation"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 132,
+            "table2_idx": 133,
+            "upper_row_ss": [
+                [
+                    "p. 35, 80",
+                    "Keypoint — Interest Rate",
+                    "SOFR + 200 bps",
+                    "Credit Agreement, as amended by First Amendment dated",
+                    "Agrees"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "January 18, 2024",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

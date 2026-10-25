@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 5,
+    "range": [
+        252,
+        257
+    ],
+    "pages": [
+        252,
+        253,
+        254,
+        255,
+        256,
+        257
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2082<|type|>title<|page|>252<|box|>93 287 109 710<|content|>Consent of Independent Registered Public Accountin\n<|id|>2090<|type|>title<|page|>253<|box|>69 359 84 637<|content|>The AES Corporation (the “Company”)\n<|id|>2091<|type|>title<|page|>253<|box|>88 431 102 565<|content|>Power of Attorney\n<|id|>2093<|type|>table<|page|>253<|box|>184 62 616 924<|content|>None\n<|id|>2094<|type|>title<|page|>254<|box|>93 434 108 563<|content|>CERTIFICATIONS\n<|id|>2095<|type|>title<|page|>254<|box|>117 24 133 215<|content|>I, Andrés Gluski, certify that:\n<|id|>2108<|type|>title<|page|>255<|box|>93 434 108 563<|content|>CERTIFICATIONS\n<|id|>2122<|type|>title<|page|>256<|box|>93 310 108 687<|content|>CERTIFICATION OF PERIODIC FINANCIAL REPORTS\n<|id|>2130<|type|>title<|page|>257<|box|>93 310 108 687<|content|>CERTIFICATION OF PERIODIC FINANCIAL REPORTS",
+    "raw_response": "<|src_id|>2093<|tgt_id|>2091",
+    "parsed": [
+        {
+            "src_id": 2093,
+            "tgt_id": 2091
+        }
+    ]
+}

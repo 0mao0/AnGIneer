@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 8,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=14, 1/22/64', 'rowspan=7, 4-1/4%', 'rowspan=7, Bond', 'rowspan=7, - 5/15/75-85 4/', '748', '', '', '', '', 'colspan=2, ']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Date issued', 'rowspan=2,colspan=3, Securities issued', 'rowspan=2, Amount issued(In millions)', 'colspan=2, Adjustment payments at issue (per $100 of face value) 1/', 'rowspan=2, Effective interest rate 2/', 'rowspan=2, Investment yield 2/', 'rowspan=2,colspan=2, Eligible securities exchanged']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 221,
+    "table2_idx": 222
+}

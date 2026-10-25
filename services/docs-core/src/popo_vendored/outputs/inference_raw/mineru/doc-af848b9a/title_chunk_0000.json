@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 447 106 550<|content|>EXHIBIT O\n<|id|>1<|page|>1<|box|>114 269 133 728<|content|>FORM OF CERTIFICATE OF NON-FOREIGN STATUS\n<|id|>2<|page|>1<|box|>141 390 159 606<|content|>(FIRPTA CERTIFICATE)\n<|id|>4<|page|>1<|box|>318 142 335 241<|content|>RECITALS\n<|id|>7<|page|>1<|box|>502 140 518 305<|content|>CERTIFICATIONS\n<|id|>8<|page|>1<|box|>534 140 551 401<|content|>Section 1. Identity of Transferor.\n<|id|>13<|page|>1<|box|>709 140 727 439<|content|>Section 2. Non-Foreign Person Status.\n<|id|>17<|page|>2<|box|>157 140 174 457<|content|>Section 3. General Partner Information.\n<|id|>22<|page|>2<|box|>460 140 478 413<|content|>Section 4. Taxpayer Identification.\n<|id|>25<|page|>2<|box|>571 140 589 437<|content|>Section 5. Description of Transaction.\n<|id|>31<|page|>3<|box|>321 140 339 442<|content|>Section 6. Additional Representations.\n<|id|>35<|page|>3<|box|>652 140 670 308<|content|>Section 7. Authority.\n<|id|>39<|page|>4<|box|>90 140 107 498<|content|>Section 8. Governing Law and Miscellaneous.\n<|id|>46<|page|>5<|box|>89 142 107 256<|content|>SIGNATURE\n<|id|>47<|page|>5<|box|>114 142 132 227<|content|>SELLER:\n<|id|>55<|page|>5<|box|>300 142 318 421<|content|>NOTARY ACKNOWLEDGMENT\n<|id|>56<|page|>5<|box|>325 140 344 330<|content|>STATE OF GEORGIA\n<|id|>57<|page|>5<|box|>352 140 369 336<|content|>COUNTY OF FULTON",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>13<|level|>3\n<|id|>17<|level|>3\n<|id|>22<|level|>3\n<|id|>25<|level|>3\n<|id|>31<|level|>3\n<|id|>35<|level|>3\n<|id|>39<|level|>3\n<|id|>46<|level|>2\n<|id|>47<|level|>3\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>57<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        }
+    ]
+}

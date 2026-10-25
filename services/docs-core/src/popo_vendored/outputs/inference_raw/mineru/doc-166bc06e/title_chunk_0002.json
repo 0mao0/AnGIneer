@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        101,
+        120
+    ],
+    "pages": [
+        102,
+        103,
+        104,
+        106,
+        109,
+        113,
+        114,
+        118,
+        120
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>343<|page|>102<|box|>39 398 54 614<|content|>_CAPITAL MOVEMENTS.\n<|id|>344<|page|>102<|box|>63 371 78 648<|content|>Section II - Summary by Countries\n<|id|>345<|page|>102<|box|>81 267 96 752<|content|>Table 6. - Net Transactions in Domestic Stocks by\n<|id|>348<|page|>103<|box|>58 360 74 642<|content|>Section II - Summary by Countries\n<|id|>350<|page|>104<|box|>56 340 71 630<|content|>Section II - Summary by Countries\n<|id|>354<|page|>106<|box|>31 383 46 599<|content|>CAPITAL MOVEMENTS\n<|id|>360<|page|>109<|box|>46 382 63 597<|content|>CAPITAL MOVEMENTS\n<|id|>361<|page|>109<|box|>73 263 89 709<|content|>Section III - Preliminary Details by Countries\n<|id|>368<|page|>113<|box|>49 375 64 592<|content|>CAPITAL MOVEMENTS.\n<|id|>369<|page|>113<|box|>74 297 89 677<|content|>Section IV - Supplementary Data by Countries\n<|id|>370<|page|>113<|box|>91 163 107 814<|content|>Table 4. - Long-Term Liabilities to Foreigners Rep\n<|id|>372<|page|>114<|box|>43 388 58 605<|content|>CAPITAL MOVEMENTS,\n<|id|>373<|page|>114<|box|>64 314 79 689<|content|>Section IV - Supplementary Data by Countries\n<|id|>374<|page|>114<|box|>83 181 98 807<|content|>Table 5. - Long-Term Claims on Foreigners Reported\n<|id|>380<|page|>118<|box|>34 235 49 784<|content|>CORPORATIONS AND OTHER BUSINESS-TYPE ACTIVITIES.\n<|id|>385<|page|>120<|box|>39 334 54 678<|content|>CUMULATIVE TABLE OF CONTENTS.\n<|id|>386<|page|>120<|box|>74 281 89 727<|content|>February 1968 through January 1969 - (Continued)",
+    "raw_response": "<|id|>343<|level|>1\n<|id|>344<|level|>2\n<|id|>345<|level|>3\n<|id|>348<|level|>2\n<|id|>350<|level|>2\n<|id|>354<|level|>1\n<|id|>360<|level|>1\n<|id|>361<|level|>2\n<|id|>368<|level|>1\n<|id|>369<|level|>2\n<|id|>370<|level|>3\n<|id|>372<|level|>1\n<|id|>373<|level|>2\n<|id|>374<|level|>3\n<|id|>380<|level|>1\n<|id|>385<|level|>1\n<|id|>386<|level|>2",
+    "parsed": [
+        {
+            "id": 343,
+            "level": 1
+        },
+        {
+            "id": 344,
+            "level": 2
+        },
+        {
+            "id": 345,
+            "level": 3
+        },
+        {
+            "id": 348,
+            "level": 2
+        },
+        {
+            "id": 350,
+            "level": 2
+        },
+        {
+            "id": 354,
+            "level": 1
+        },
+        {
+            "id": 360,
+            "level": 1
+        },
+        {
+            "id": 361,
+            "level": 2
+        },
+        {
+            "id": 368,
+            "level": 1
+        },
+        {
+            "id": 369,
+            "level": 2
+        },
+        {
+            "id": 370,
+            "level": 3
+        },
+        {
+            "id": 372,
+            "level": 1
+        },
+        {
+            "id": 373,
+            "level": 2
+        },
+        {
+            "id": 374,
+            "level": 3
+        },
+        {
+            "id": 380,
+            "level": 1
+        },
+        {
+            "id": 385,
+            "level": 1
+        },
+        {
+            "id": 386,
+            "level": 2
+        }
+    ]
+}

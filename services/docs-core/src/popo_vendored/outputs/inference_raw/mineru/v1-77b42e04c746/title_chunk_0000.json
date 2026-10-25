@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 302<|content|>【23078#23】中国新闻社\n<|id|>2<|page|>1<|box|>156 105 173 302<|content|>【23078#24】中国新闻社\n<|id|>4<|page|>1<|box|>241 105 256 302<|content|>【23078#43】中国新闻社\n<|id|>6<|page|>1<|box|>325 107 341 275<|content|>【23091#6】香港大學\n<|id|>8<|page|>1<|box|>494 107 510 284<|content|>【23128#34】南海诸岛\n<|id|>10<|page|>1<|box|>595 107 611 248<|content|>【2315#0】太阳系\n<|id|>12<|page|>1<|box|>678 107 695 248<|content|>【2315#1】太阳系\n<|id|>14<|page|>1<|box|>815 107 831 258<|content|>【2315#28】太阳系\n<|id|>16<|page|>2<|box|>73 107 89 284<|content|>【233275#5】商船三井\n<|id|>18<|page|>2<|box|>140 105 156 267<|content|>【234265#1】黄骅市\n<|id|>20<|page|>2<|box|>224 107 240 284<|content|>【23500#66】中国音乐\n<|id|>22<|page|>2<|box|>307 107 323 265<|content|>【237543#8】淮阳区\n<|id|>24<|page|>2<|box|>374 107 390 373<|content|>【23832#17】史蒂芬·沃爾夫勒姆\n<|id|>26<|page|>2<|box|>439 107 456 292<|content|>【24113#0】五胡十六国\n<|id|>28<|page|>2<|box|>558 107 574 302<|content|>【24113#21】五胡十六国\n<|id|>30<|page|>2<|box|>677 107 693 319<|content|>【241777#0】基辅牌照相机\n<|id|>32<|page|>3<|box|>73 107 87 300<|content|>【242877#3】珊瑚海海战\n<|id|>34<|page|>3<|box|>191 105 208 406<|content|>【244792#5】中国保险监督管理委员会\n<|id|>36<|page|>3<|box|>275 107 291 257<|content|>【24666#8】中国画\n<|id|>38<|page|>3<|box|>394 107 409 258<|content|>【247418#60】日本\n<|id|>40<|page|>3<|box|>546 107 562 258<|content|>【247430#71】香港\n<|id|>42<|page|>3<|box|>681 107 697 354<|content|>【24837#12】皮克斯动画工作室\n<|id|>44<|page|>3<|box|>782 107 797 258<|content|>【24962#3】哈得斯\n<|id|>46<|page|>3<|box|>848 107 865 329<|content|>【25070#0】陕西历史博物馆\n<|id|>48<|page|>4<|box|>83 107 99 329<|content|>【25070#1】陕西历史博物馆\n<|id|>50<|page|>4<|box|>218 107 234 329<|content|>【25070#2】陕西历史博物馆\n<|id|>52<|page|>4<|box|>302 107 318 329<|content|>【25070#6】陕西历史博物馆\n<|id|>54<|page|>4<|box|>369 107 384 238<|content|>【25123#2】黄海\n<|id|>56<|page|>4<|box|>573 107 589 302<|content|>【25278#24】飛越瘋人院\n<|id|>58<|page|>5<|box|>73 107 89 275<|content|>【25634#3】脊索动物",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>1\n<|id|>58<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ]
+}

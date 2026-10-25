@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 202 137 794<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|page|>1<|box|>388 140 404 321<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>383 140 402 423<|content|>II. Scope of Caldwell's Engagement\n<|id|>26<|page|>3<|box|>377 140 393 722<|content|>III. Summary of Hurricane Callista Meteorological\n<|id|>32<|page|>4<|box|>241 140 258 638<|content|>IV. Property-by-Property Analysis of Draft Report\n<|id|>33<|page|>4<|box|>272 140 289 710<|content|>A. Verimark Grand Key Resort — Mile Marker 48, Mar\n<|id|>48<|page|>6<|box|>329 140 364 854<|content|>B. Verimark Harborview Hotel & Conference Center —\n<|id|>61<|page|>7<|box|>633 140 652 746<|content|>C. Verimark Sunset Shores — 7200 Gulf Boulevard, S\n<|id|>72<|page|>8<|box|>719 140 736 482<|content|>V. Assessment of Strengths of Draft Report\n<|id|>81<|page|>10<|box|>377 140 393 578<|content|>VI. Identified Weaknesses and Recommended Revision\n<|id|>83<|page|>10<|box|>470 142 488 632<|content|>A. Grand Key Storm Surge Analysis — Potential Vuln\n<|id|>85<|page|>10<|box|>648 140 665 769<|content|>I have the following specific recommendations to s\n<|id|>89<|page|>11<|box|>402 142 420 573<|content|>B. Period of Restoration — Additional Support Need\n<|id|>95<|page|>12<|box|>367 140 383 488<|content|>C. Failure to Mitigate — Proactive Rebuttal\n<|id|>103<|page|>13<|box|>90 140 107 423<|content|>D. Drafting and Presentation Issues\n<|id|>109<|page|>13<|box|>752 140 768 800<|content|>VII. Coordination with Dr. Vasquez's Expert Report\n<|id|>119<|page|>14<|box|>652 140 670 475<|content|>VIII. Anticipated Defense Expert Rebuttal\n<|id|>127<|page|>15<|box|>839 140 856 483<|content|>IX. Recommended Next Steps and Timeline\n<|id|>137<|page|>16<|box|>598 140 614 258<|content|>X. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>16<|level|>1\n<|id|>26<|level|>1\n<|id|>32<|level|>1\n<|id|>33<|level|>2\n<|id|>48<|level|>2\n<|id|>61<|level|>2\n<|id|>72<|level|>1\n<|id|>81<|level|>1\n<|id|>83<|level|>2\n<|id|>85<|level|>-1\n<|id|>89<|level|>2\n<|id|>95<|level|>2\n<|id|>103<|level|>2\n<|id|>109<|level|>1\n<|id|>119<|level|>1\n<|id|>127<|level|>1\n<|id|>137<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        }
+    ]
+}

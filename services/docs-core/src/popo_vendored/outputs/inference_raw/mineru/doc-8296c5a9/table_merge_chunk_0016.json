@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 16,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['[Limitation 1c] \"the two-dimensional periodic grating pattern configured to simultaneously diffract a TE polarization', 'Not disclosed. The documents describe a single-output grating coupler directing light into one waveguide. See LTC-00045700,', 'MISSING. Because the Lumicore documents describe a one-dimensional grating with a single output waveguide, there is no']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['component... into a first on-chip single-mode waveguide and a TM polarization component... into a second on-chip single-mode waveguide\"', 'LTC-00045810 (simulation setup showing single-waveguide output).', \"disclosure of simultaneously diffracting two polarization components into two separate on-chip waveguides. The polarization-diverse coupling functionality — the core innovation of the '015 Patent — is entirely absent from the Lumicore documents.\"]]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 393,
+    "table2_idx": 394
+}

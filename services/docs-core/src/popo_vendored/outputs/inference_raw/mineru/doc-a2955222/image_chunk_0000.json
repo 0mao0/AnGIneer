@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        5
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>19<|type|>title<|page|>2<|box|>140 143 156 380<|content|>Beneficiary Bank Information\n<|id|>26<|type|>title<|page|>2<|box|>334 142 349 540<|content|>Wire Transfer No. 2 — Ridgeline Angel Fund, L.P.\n<|id|>27<|type|>title<|page|>2<|box|>364 143 380 295<|content|>Payee Information.\n<|id|>30<|type|>title<|page|>2<|box|>445 143 460 259<|content|>Wire Amount.\n<|id|>32<|type|>title<|page|>2<|box|>500 143 515 303<|content|>Purpose / Reference\n<|id|>34<|type|>title<|page|>2<|box|>627 143 643 380<|content|>Beneficiary Bank Information\n<|id|>44<|type|>title<|page|>3<|box|>122 142 138 259<|content|>Wire Amount.\n<|id|>46<|type|>title<|page|>3<|box|>176 143 191 303<|content|>Purpose / Reference\n<|id|>48<|type|>title<|page|>3<|box|>304 143 320 380<|content|>Beneficiary Bank Information\n<|id|>55<|type|>title<|page|>3<|box|>515 140 532 325<|content|>Summary of Transfers\n<|id|>57<|type|>table<|page|>3<|box|>583 143 688 852<|content|>None\n<|id|>59<|type|>title<|page|>3<|box|>781 140 799 526<|content|>Authorization and Source Account Confirmation\n<|id|>63<|type|>title<|page|>4<|box|>377 140 393 321<|content|>Confirmation Request\n<|id|>72<|type|>title<|page|>4<|box|>661 140 676 416<|content|>Contact Information for Questions\n<|id|>83<|type|>title<|page|>5<|box|>143 143 157 240<|content|>Enclosures:",
+    "raw_response": "<|src_id|>57<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 57,
+            "tgt_id": 55
+        }
+    ]
+}

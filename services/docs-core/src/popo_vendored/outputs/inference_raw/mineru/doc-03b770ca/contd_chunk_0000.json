@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>594 140 612 310<|content|>Served: ... July 11, 2022\n<|id|>6<|page|>1<|box|>646 140 792 856<|content|>Pursuant to Florida Rule of Civil Procedure 1. ......se Holdings LLC (twenty-five (25) interrogatories)\n<|id|>20<|page|>2<|box|>866 140 902 856<|content|>10. ... \"FLA\" or \"Franchise License Agreement\" sha...ark (or any of its predecessors or affiliates) and\n<|id|>21<|page|>3<|box|>90 174 181 856<|content|>Coastal Palms (or any Property Entity), including ... letters, and ancillary agreements related thereto\n<|id|>207<|page|>22<|box|>253 140 356 854<|content|>Priya Anand, Esq. ... (954) 761-8201\n<|id|>208<|page|>22<|box|>388 140 407 290<|content|>Date: ... July 11, 2022\n<|id|>211<|page|>22<|box|>532 174 588 854<|content|>Nathan Whitfield III, Esq. ... com\n<|id|>212<|page|>22<|box|>595 176 631 854<|content|>Counsel for Defendants Coastal Palms Franchise Hol... Randall Brecker, and Suncoast Room Management Inc",
+    "raw_response": "<|src_id|>20<|tgt_id|>21",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        }
+    ]
+}

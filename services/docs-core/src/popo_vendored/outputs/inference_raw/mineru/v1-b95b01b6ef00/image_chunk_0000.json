@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>61 179 119 816<|content|>Enabling Auditory Large Language Models for Automa\n<|id|>4<|type|>title<|page|>1<|box|>503 223 517 344<|content|>I. INTRODUCTION\n<|id|>8<|type|>title<|page|>1<|box|>292 647 305 779<|content|>II. RELATED WORK\n<|id|>9<|type|>title<|page|>1<|box|>310 504 324 823<|content|>A. Auditory LLM for Diverse Comprehension Tasks\n<|id|>11<|type|>title<|page|>1<|box|>585 504 599 756<|content|>B. Automatic Speech Quality Evaluation\n<|id|>14<|type|>image<|page|>2<|box|>61 68 228 928<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>430 214 443 352<|content|>III. METHODOLOGY\n<|id|>18<|type|>title<|page|>2<|box|>446 73 460 442<|content|>A. Auditory LLMs for Audio Perception and Understa\n<|id|>22<|type|>title<|page|>2<|box|>460 504 476 813<|content|>B. Speech Quality Evaluation with Auditory LLM\n<|id|>27<|type|>table<|page|>3<|box|>118 78 250 913<|content|>None\n<|id|>29<|type|>title<|page|>3<|box|>327 202 340 364<|content|>IV. EXPERIMENT SETUP\n<|id|>30<|type|>title<|page|>3<|box|>345 73 358 155<|content|>A. Datasets\n<|id|>33<|type|>title<|page|>3<|box|>662 75 676 145<|content|>B. Models\n<|id|>35<|type|>title<|page|>3<|box|>814 75 827 160<|content|>C. Baselines\n<|id|>37<|type|>title<|page|>3<|box|>604 504 617 651<|content|>D. Evaluation Criteria\n<|id|>39<|type|>title<|page|>3<|box|>724 671 739 756<|content|>V. RESULTS\n<|id|>40<|type|>title<|page|>3<|box|>742 504 756 630<|content|>A. MOS Prediction\n<|id|>43<|type|>table<|page|>4<|box|>402 78 580 485<|content|>None\n<|id|>44<|type|>title<|page|>4<|box|>612 75 626 192<|content|>B. SIM Prediction\n<|id|>46<|type|>table<|page|>4<|box|>779 145 890 416<|content|>None\n<|id|>47<|type|>title<|page|>4<|box|>61 504 75 599<|content|>C. A/B testing\n<|id|>49<|type|>table<|page|>4<|box|>295 602 367 820<|content|>None\n<|id|>50<|type|>title<|page|>4<|box|>383 504 398 839<|content|>D. Natural Language Descriptions for Speech Qualit\n<|id|>52<|type|>table<|page|>4<|box|>650 581 743 843<|content|>None\n<|id|>53<|type|>title<|page|>4<|box|>761 653 773 772<|content|>VI. CONCLUSION",
+    "raw_response": "<|src_id|>14<|tgt_id|>22\n<|src_id|>27<|tgt_id|>33\n<|src_id|>43<|tgt_id|>40\n<|src_id|>46<|tgt_id|>44\n<|src_id|>49<|tgt_id|>47\n<|src_id|>52<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 50
+        }
+    ]
+}

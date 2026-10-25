@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        12,
+        13,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 423 151 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>160 140 176 668<|content|>TO: ... Conrad Ashby, Responsible Partner, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>186 140 220 854<|content|>FROM: ... Steven Hollander, Lead Associate, and Ja...nton, Working Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>229 140 248 308<|content|>DATE: ... April 8, 2025\n<|id|>5<|page|>1<|box|>255 140 273 818<|content|>RE: ... Witness Interview — Diane Fournier, Vice President, Finance, Torchlight Mining Corp\n<|id|>43<|page|>4<|box|>806 147 839 854<|content|>• Success fees of $100,000 per mining permit or re...val obtained with Crestfield's assistance; ... and\n<|id|>45<|page|>4<|box|>863 140 898 854<|content|>Ms. ... She noted that\n<|id|>46<|page|>5<|box|>90 140 164 854<|content|>TGH's board was composed of members of Torchlight'...ed by TGH's board in a documented board resolution\n<|id|>119<|page|>12<|box|>872 140 907 854<|content|>Ms. ... She stated that\n<|id|>120<|page|>13<|box|>89 140 127 854<|content|>Clarendon's audit procedures included the review o...ion of internal controls at the consolidated level\n<|id|>153<|page|>16<|box|>578 147 594 429<|content|>• Conrad Ashby, Responsible Partner\n<|id|>157<|page|>16<|box|>656 140 729 856<|content|>This memorandum is not to be shared with the witne...lient privilege and/or the work product protection\n<|id|>154<|page|>16<|box|>597 147 614 426<|content|>• Victoria Chambers, Senior Counsel\n<|id|>155<|page|>16<|box|>617 147 633 416<|content|>• Steven Hollander, Lead Associate\n<|id|>156<|page|>16<|box|>636 147 652 447<|content|>• Jasmine Thornton, Working Associate",
+    "raw_response": "<|src_id|>45<|tgt_id|>46\n<|src_id|>119<|tgt_id|>120",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        }
+    ]
+}

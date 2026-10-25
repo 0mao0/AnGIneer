@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        4,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>228 140 263 854<|content|>TO: ... Philippa Cartwright, General Counsel, Aurelius Global Media Group plc\n<|id|>4<|page|>1<|box|>272 140 306 854<|content|>FROM: ... Renata Vasquez, Partner, and Devon Archer, Senior Associate, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>316 140 333 352<|content|>DATE: ... December 15, 2022\n<|id|>6<|page|>1<|box|>342 140 378 854<|content|>RE: ... 22STCV41087)\n<|id|>7<|page|>1<|box|>385 140 402 333<|content|>Matter No. ... 1017-00004\n<|id|>8<|page|>1<|box|>412 140 429 408<|content|>Right-click to update Table of Contents\n<|id|>32<|page|>4<|box|>152 174 207 854<|content|>(b) Two pilot sizzle reels — professionally produc...\"Apex Endurance\" and \"The Remix\" concepts; ... and\n<|id|>34<|page|>4<|box|>277 140 479 857<|content|>Halcyon Creek Productions LLC is owned and operate...ting venture while both were still employed by AMA\n<|id|>171<|page|>20<|box|>666 140 681 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>172<|page|>20<|box|>684 143 700 253<|content|>By: ... By\n<|id|>173<|page|>20<|box|>700 143 718 326<|content|>Renata Vasquez, Partner\n<|id|>174<|page|>20<|box|>719 143 734 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>172<|tgt_id|>173",
+    "parsed": [
+        {
+            "src_id": 172,
+            "tgt_id": 173
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 143 127 857<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 425 Lexington Avenue New York, NY 10017 Telephone: ... com\n<|id|>1<|page|>1<|box|>133 702 152 854<|content|>September 27, 2021\n<|id|>2<|page|>1<|box|>160 678 176 854<|content|>Matter No. ... 1027-00001\n<|id|>3<|page|>1<|box|>184 140 200 674<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>4<|page|>1<|box|>208 140 244 857<|content|>Mr. ... Pellegrino Managing Member & Founder Pelle... Shore Boulevard North, Suite 600 Naples, FL 34102\n<|id|>5<|page|>1<|box|>253 142 271 299<|content|>Dear Mr. ... Pellegrino\n<|id|>12<|page|>1<|box|>869 174 907 857<|content|>(i) Drafting and filing of PHAC's Certificate of I...paration of an Amended and Restated Certificate of\n<|id|>13<|page|>2<|box|>90 174 126 854<|content|>Incorporation and Amended and Restated Bylaws, eac...ch to become effective upon the closing of the IPO\n<|id|>23<|page|>2<|box|>824 174 898 856<|content|>(xi) Coordination with the Financial Industry Regulatory Authority, Inc. ... and\n<|id|>25<|page|>3<|box|>152 140 227 856<|content|>In addition to representing PCG in connection with...mation, as more fully described in Section 7 below\n<|id|>61<|page|>6<|box|>285 174 340 854<|content|>(h) Computerized legal research charges, including..., Sundial Solutions, Cascade Services Inc. ... and\n<|id|>63<|page|>6<|box|>392 140 446 854<|content|>Expenses and disbursements are not subject to the ...Section 3. ... 3 and are payable on the same terms\n<|id|>69<|page|>6<|box|>875 174 909 857<|content|>(d) Third-Party Representation. ... Meridian\n<|id|>70<|page|>7<|box|>90 174 164 856<|content|>Tidewater Securities LLC or any other underwriter ... party is expected to engage its own legal counsel\n<|id|>85<|page|>8<|box|>561 174 652 854<|content|>(c) as necessary to the Firm's engagement of servi...are subject to confidentiality obligations; ... or\n<|id|>87<|page|>8<|box|>704 140 777 854<|content|>PCG acknowledges that a significant portion of the...o the confidentiality obligations described herein\n<|id|>95<|page|>9<|box|>443 174 500 854<|content|>(b) The Firm will take reasonable steps to protect...ct to successor counsel designated by PCG; ... and\n<|id|>97<|page|>9<|box|>550 138 698 857<|content|>The Firm reserves the right to withdraw from the e... seek to minimize any disruption to the engagement\n<|id|>107<|page|>10<|box|>598 142 614 272<|content|>Very truly yours,\n<|id|>108<|page|>10<|box|>623 140 638 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>109<|page|>10<|box|>642 143 657 253<|content|>By: ... By\n<|id|>110<|page|>10<|box|>659 142 674 343<|content|>Name: ... Theodore Langston\n<|id|>111<|page|>10<|box|>676 142 691 370<|content|>Title: ... Partner, Capital Markets\n<|id|>112<|page|>10<|box|>691 140 709 681<|content|>425 Lexington Avenue New York, NY 10017 Telephone: ... (212) 554-7112\n<|id|>113<|page|>10<|box|>710 142 726 467<|content|>Email: ... com\n<|id|>114<|page|>10<|box|>727 140 743 442<|content|>ACKNOWLEDGED AND AGREED: ... ACKNOWLEDGED AND AGREED\n<|id|>115<|page|>10<|box|>753 140 768 444<|content|>PELLEGRINO CAPITAL GROUP LLC\n<|id|>116<|page|>10<|box|>787 142 804 349<|content|>Name: ... Pellegrino\n<|id|>117<|page|>10<|box|>804 142 821 415<|content|>Title: ... Managing Member & Founder\n<|id|>118<|page|>10<|box|>823 143 838 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>69<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        }
+    ]
+}

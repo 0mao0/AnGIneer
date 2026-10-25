@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>136 186 179 810<|content|>SECRETARY'S CERTIFICATE OF QUORUM INSURANCE HOLDIN\n<|id|>9<|type|>title<|page|>1<|box|>715 140 733 555<|content|>Section 1. Certification of Organizational Documen\n<|id|>10<|type|>title<|page|>1<|box|>746 142 763 390<|content|>1.1 Certificate of Incorporation\n<|id|>14<|type|>title<|page|>2<|box|>309 140 325 491<|content|>Section 2. Certification of Board Resolutions\n<|id|>17<|type|>title<|page|>2<|box|>657 140 674 576<|content|>Section 3. Certification of Good Standing and Exis\n<|id|>20<|type|>title<|page|>3<|box|>148 140 167 424<|content|>Section 4. Incumbency Certification\n<|id|>22<|type|>table<|page|>3<|box|>253 143 438 852<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>641 140 659 410<|content|>Section 5. No Conflicts; Authority\n<|id|>31<|type|>title<|page|>4<|box|>604 140 621 348<|content|>Section 6. No Proceedings\n<|id|>33<|type|>title<|page|>4<|box|>835 140 853 295<|content|>Section 7. Reliance\n<|id|>39<|type|>title<|page|>5<|box|>397 140 414 316<|content|>Counter-Certification\n<|id|>42<|type|>title<|page|>5<|box|>640 142 657 310<|content|>LIST OF EXHIBITS\n<|id|>43<|type|>title<|page|>6<|box|>89 140 107 250<|content|>EXHIBIT A.\n<|id|>44<|type|>title<|page|>6<|box|>113 387 131 609<|content|>Certificate of Incorporation\n<|id|>47<|type|>title<|page|>7<|box|>89 140 106 246<|content|>EXHIBIT B.\n<|id|>48<|type|>title<|page|>7<|box|>114 467 131 529<|content|>Bylaws\n<|id|>51<|type|>title<|page|>8<|box|>89 140 106 248<|content|>EXHIBIT C.\n<|id|>52<|type|>title<|page|>8<|box|>114 424 130 573<|content|>Board Resolutions\n<|id|>56<|type|>title<|page|>9<|box|>89 142 106 248<|content|>EXHIBIT D.\n<|id|>57<|type|>title<|page|>9<|box|>114 383 131 614<|content|>Certificate of Good Standing",
+    "raw_response": "<|src_id|>22<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        }
+    ]
+}

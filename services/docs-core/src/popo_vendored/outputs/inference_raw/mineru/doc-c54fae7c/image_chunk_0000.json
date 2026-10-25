@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>8<|type|>title<|page|>1<|box|>455 142 472 455<|content|>1. Engagement and Client Identification\n<|id|>11<|type|>title<|page|>2<|box|>90 140 107 354<|content|>2. Scope of Representation\n<|id|>39<|type|>title<|page|>5<|box|>148 140 167 313<|content|>3. Engagement Team\n<|id|>47<|type|>title<|page|>6<|box|>90 140 107 303<|content|>4. Fee Arrangement\n<|id|>48<|type|>title<|page|>6<|box|>121 140 138 279<|content|>4.1 Hourly Rates\n<|id|>50<|type|>table<|page|>6<|box|>224 143 299 852<|content|>None\n<|id|>53<|type|>title<|page|>6<|box|>688 140 704 267<|content|>4.3 Success Fee\n<|id|>55<|type|>title<|page|>7<|box|>138 140 157 400<|content|>4.4 Disbursements and Expenses\n<|id|>57<|type|>title<|page|>7<|box|>414 140 431 334<|content|>4.5 Billing and Payment\n<|id|>60<|type|>title<|page|>7<|box|>724 140 739 321<|content|>5. Conflicts of Interest\n<|id|>65<|type|>title<|page|>8<|box|>556 140 574 284<|content|>6. Confidentiality\n<|id|>68<|type|>title<|page|>9<|box|>90 140 107 326<|content|>7. Document Retention\n<|id|>70<|type|>title<|page|>9<|box|>359 140 375 264<|content|>8. Termination\n<|id|>75<|type|>title<|page|>9<|box|>723 140 739 339<|content|>9. Limitation of Liability\n<|id|>77<|type|>title<|page|>10<|box|>167 142 184 480<|content|>10. Governing Law and Dispute Resolution\n<|id|>80<|type|>title<|page|>10<|box|>481 140 497 370<|content|>11. Miscellaneous Provisions\n<|id|>87<|type|>title<|page|>11<|box|>286 142 301 379<|content|>12. Acceptance and Execution\n<|id|>91<|type|>title<|page|>11<|box|>516 140 532 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>97<|type|>title<|page|>11<|box|>628 313 645 683<|content|>ACCEPTANCE AND ACKNOWLEDGMENT\n<|id|>99<|type|>title<|page|>11<|box|>699 142 715 377<|content|>AGREED AND ACCEPTED:\n<|id|>100<|type|>title<|page|>11<|box|>724 140 741 478<|content|>STONEFIELD LOGISTICS GROUP INC.",
+    "raw_response": "<|src_id|>50<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        }
+    ]
+}

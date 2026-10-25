@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['10', '', \"colspan=2, 1.0桩承台桥墩局部冲刷计算方法当承台底面低于一般冲刷线时,按上部实体计算;承台底面高于水面应按排架墩计算,承台底面相对高度在0 \\\\leqslant h_{\\\\phi}/h \\\\leqslant 1.0时,冲刷深度h_b按下式计算:h_b = (K'_{\\\\xi} K_{m\\\\phi} K_{h\\\\phi} \\\\phi^{0.6} + 0.85 K_{\\\\xi1} K_{h2} B_1^{0.6}) K_{\\\\eta1} (v_0 - t_0') \\\\times \\\\left( \\\\frac{v - t_0'}{v_0 - t_0'} \\\\right)^{n_1}K_{h\\\\phi}——淹没柱体折减系数,K_{h\\\\phi} = 1.0 - \\\\frac{0.001}{(h_{\\\\phi}/h + 0.1)^3};K_{\\\\xi1} B_1——按承台底处于一般冲刷线计算;K_{h2}——墩身承台减少系数;K_{\\\\eta1}、v、v_0、v'_0、n_1见65-1公式;K'_{\\\\xi}、K_{m\\\\phi}见编号(9)\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['编号', '墩形示意图', '墩形系数K_{\\\\xi}', '桥墩计算宽度B_{1}']]\n",
+    "raw_response": "[0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 1251,
+    "table2_idx": 1252
+}

@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>114 316 132 679<|content|>CONFIDENTIAL — INTERNAL USE ONLY\n<|id|>2<|page|>1<|box|>141 367 157 630<|content|>ATTORNEY WORK PRODUCT\n<|id|>3<|page|>1<|box|>167 143 184 290<|content|>MEMORANDUM\n<|id|>5<|page|>1<|box|>465 140 484 228<|content|>I. Purpose\n<|id|>10<|page|>2<|box|>186 140 204 328<|content|>II. Client Identification\n<|id|>28<|page|>3<|box|>90 140 107 405<|content|>III. Engagement Scope Summary\n<|id|>37<|page|>4<|box|>200 140 218 433<|content|>IV. Parties and Individuals Searched\n<|id|>39<|page|>4<|box|>313 140 329 459<|content|>A. Client — Key Principals and Officers\n<|id|>44<|page|>4<|box|>799 140 815 542<|content|>B. Lead Investor — Related Entities and Personnel\n<|id|>53<|page|>6<|box|>90 142 107 424<|content|>C. Other Outside Counsel to Lumos\n<|id|>61<|page|>7<|box|>400 140 417 330<|content|>E. HR Consulting Firm\n<|id|>65<|page|>7<|box|>815 140 832 478<|content|>V. Conflicts Database Search Methodology\n<|id|>82<|page|>9<|box|>167 140 184 511<|content|>VI. Potential Concerns Reviewed and Resolved\n<|id|>84<|page|>9<|box|>261 140 277 375<|content|>A. Positional Conflict Review\n<|id|>89<|page|>9<|box|>777 140 795 715<|content|>B. Co-Counsel / Collaborative Relationship with Wh\n<|id|>94<|page|>10<|box|>465 140 482 388<|content|>VII. Conclusion and Clearance\n<|id|>99<|page|>10<|box|>829 140 847 361<|content|>VIII. Signatures / Approval\n<|id|>100<|page|>10<|box|>854 143 871 282<|content|>PREPARED BY:\n<|id|>107<|page|>12<|box|>90 140 107 640<|content|>IX. Appendix — Summary of Entities and Individuals",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>2<|level|>-1\n<|id|>3<|level|>1\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>28<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>3\n<|id|>44<|level|>3\n<|id|>53<|level|>3\n<|id|>61<|level|>3\n<|id|>65<|level|>2\n<|id|>82<|level|>2\n<|id|>84<|level|>3\n<|id|>89<|level|>3\n<|id|>94<|level|>2\n<|id|>99<|level|>2\n<|id|>100<|level|>3\n<|id|>107<|level|>2",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 2
+        }
+    ]
+}

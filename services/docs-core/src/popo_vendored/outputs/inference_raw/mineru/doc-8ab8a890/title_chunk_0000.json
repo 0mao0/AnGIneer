@@ -1,0 +1,134 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        40
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        17,
+        20,
+        25,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        39,
+        40
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 200 152 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>9<|page|>1<|box|>375 142 392 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>22<|page|>2<|box|>643 140 662 578<|content|>II. BACKGROUND AND TRANSACTION CONTEXT\n<|id|>23<|page|>2<|box|>676 140 693 501<|content|>A. The Credit Facility and Collateral Package\n<|id|>36<|page|>3<|box|>746 142 763 418<|content|>B. Mortgaged Properties Overview\n<|id|>42<|page|>4<|box|>633 140 650 473<|content|>C. Coordination with Other Workstreams\n<|id|>49<|page|>5<|box|>784 140 819 774<|content|>III. GENERAL STANDARDS AND REQUIREMENTS APPLICABLE\n<|id|>50<|page|>5<|box|>833 140 849 339<|content|>A. Lender's Policy Form\n<|id|>54<|page|>7<|box|>90 140 107 666<|content|>C. Standard Requirements Across All Commitments (S\n<|id|>64<|page|>8<|box|>580 140 598 594<|content|>D. Standard Exceptions to Be Removed or Endorsed O\n<|id|>70<|page|>9<|box|>489 140 507 480<|content|>E. Required Endorsements (All Properties)\n<|id|>85<|page|>11<|box|>258 140 276 594<|content|>IV. PROPERTY-SPECIFIC COMMITMENT REVIEWS\n<|id|>86<|page|>11<|box|>290 140 325 852<|content|>A. Property 1: 1400 Industrial Parkway, Schaumburg\n<|id|>123<|page|>17<|box|>89 140 126 852<|content|>B. Property 2: 2750 Commerce Drive, Rockford, IL 6\n<|id|>146<|page|>20<|box|>393 140 410 442<|content|>5. Action Items — Rockford Property.\n<|id|>155<|page|>20<|box|>712 140 747 852<|content|>C. Property 3: 600 Manufacturers Row, Greenville,\n<|id|>181<|page|>25<|box|>679 140 696 450<|content|>5. Action Items — Greenville Property.\n<|id|>236<|page|>32<|box|>813 140 829 434<|content|>6. Action Items — Houston Property.\n<|id|>249<|page|>33<|box|>527 140 544 712<|content|>V. AGGREGATE / CROSS-COLLATERAL ENDORSEMENT (TIE-I\n<|id|>259<|page|>34<|box|>589 140 606 473<|content|>VI. PREMIUM AND COST ESTIMATES\n<|id|>266<|page|>35<|box|>674 140 690 508<|content|>VII. INTERCREDITOR CONSIDERATIONS\n<|id|>272<|page|>36<|box|>464 140 482 666<|content|>VIII. COORDINATION WITH POST-CLOSING OBLIGATIONS\n<|id|>276<|page|>36<|box|>734 176 751 493<|content|>Week of April 14, 2025 (Current Week):\n<|id|>288<|page|>37<|box|>207 178 224 511<|content|>By April 30, 2025 (Post-Closing Deadline):\n<|id|>293<|page|>37<|box|>496 142 513 581<|content|>IX. SUMMARY OF OUTSTANDING ACTION ITEMS\n<|id|>297<|page|>39<|box|>500 142 515 364<|content|>X. RECOMMENDATIONS\n<|id|>306<|page|>40<|box|>667 140 684 447<|content|>XI. ATTACHMENTS / APPENDICES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>9<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>36<|level|>3\n<|id|>42<|level|>3\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>54<|level|>3\n<|id|>64<|level|>3\n<|id|>70<|level|>3\n<|id|>85<|level|>2\n<|id|>86<|level|>3\n<|id|>123<|level|>3\n<|id|>146<|level|>4\n<|id|>155<|level|>3\n<|id|>181<|level|>4\n<|id|>236<|level|>4\n<|id|>249<|level|>2\n<|id|>259<|level|>2\n<|id|>266<|level|>2\n<|id|>272<|level|>2\n<|id|>276<|level|>-1\n<|id|>288<|level|>-1\n<|id|>293<|level|>2\n<|id|>297<|level|>2\n<|id|>306<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 4
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 4
+        },
+        {
+            "id": 236,
+            "level": 4
+        },
+        {
+            "id": 249,
+            "level": 2
+        },
+        {
+            "id": 259,
+            "level": 2
+        },
+        {
+            "id": 266,
+            "level": 2
+        },
+        {
+            "id": 272,
+            "level": 2
+        },
+        {
+            "id": 293,
+            "level": 2
+        },
+        {
+            "id": 297,
+            "level": 2
+        },
+        {
+            "id": 306,
+            "level": 2
+        }
+    ]
+}

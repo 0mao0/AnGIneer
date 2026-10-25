@@ -1,0 +1,63 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        50
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>489<|type|>title<|page|>46<|box|>112 131 129 220<|content|>条文说明\n<|id|>491<|type|>image<|page|>46<|box|>212 376 296 635<|content|>None\n<|id|>492<|type|>image<|page|>46<|box|>315 255 353 784<|content|>None\n<|id|>493<|type|>image<|page|>46<|box|>381 354 517 650<|content|>None\n<|id|>495<|type|>image<|page|>46<|box|>693 263 806 774<|content|>None\n<|id|>497<|type|>title<|page|>47<|box|>96 85 112 171<|content|>条文说明\n<|id|>499<|type|>image<|page|>47<|box|>216 176 388 522<|content|>None\n<|id|>500<|type|>image<|page|>47<|box|>238 613 380 773<|content|>None\n<|id|>502<|type|>title<|page|>47<|box|>523 89 540 176<|content|>条文说明\n<|id|>504<|type|>image<|page|>47<|box|>644 223 747 722<|content|>None\n<|id|>505<|type|>image<|page|>47<|box|>785 179 815 778<|content|>None\n<|id|>506<|type|>title<|page|>48<|box|>173 129 198 495<|content|>附录 B 桥梁造型常用比例\n<|id|>508<|type|>title<|page|>48<|box|>304 129 321 218<|content|>条文说明\n<|id|>511<|type|>title<|page|>48<|box|>461 131 479 218<|content|>条文说明\n<|id|>513<|type|>image<|page|>48<|box|>618 307 714 522<|content|>None\n<|id|>514<|type|>image<|page|>48<|box|>581 569 712 732<|content|>None\n<|id|>516<|type|>title<|page|>48<|box|>811 134 828 221<|content|>条文说明\n<|id|>518<|type|>title<|page|>49<|box|>95 107 112 663<|content|>B.0.4 和谐音阶比例可用于桥梁主体或构件造型的比例选择。\n<|id|>519<|type|>title<|page|>49<|box|>137 90 154 176<|content|>条文说明\n<|id|>522<|type|>image<|page|>49<|box|>275 183 328 771<|content|>None\n<|id|>523<|type|>title<|page|>50<|box|>172 129 195 408<|content|>本规范用词用语说明",
+    "raw_response": "<|src_id|>491<|tgt_id|>489\n<|src_id|>492<|tgt_id|>489\n<|src_id|>493<|tgt_id|>489\n<|src_id|>495<|tgt_id|>489\n<|src_id|>499<|tgt_id|>497\n<|src_id|>500<|tgt_id|>497\n<|src_id|>504<|tgt_id|>502\n<|src_id|>505<|tgt_id|>502\n<|src_id|>513<|tgt_id|>511\n<|src_id|>514<|tgt_id|>511\n<|src_id|>522<|tgt_id|>519",
+    "parsed": [
+        {
+            "src_id": 491,
+            "tgt_id": 489
+        },
+        {
+            "src_id": 492,
+            "tgt_id": 489
+        },
+        {
+            "src_id": 493,
+            "tgt_id": 489
+        },
+        {
+            "src_id": 495,
+            "tgt_id": 489
+        },
+        {
+            "src_id": 499,
+            "tgt_id": 497
+        },
+        {
+            "src_id": 500,
+            "tgt_id": 497
+        },
+        {
+            "src_id": 504,
+            "tgt_id": 502
+        },
+        {
+            "src_id": 505,
+            "tgt_id": 502
+        },
+        {
+            "src_id": 513,
+            "tgt_id": 511
+        },
+        {
+            "src_id": 514,
+            "tgt_id": 511
+        },
+        {
+            "src_id": 522,
+            "tgt_id": 519
+        }
+    ]
+}

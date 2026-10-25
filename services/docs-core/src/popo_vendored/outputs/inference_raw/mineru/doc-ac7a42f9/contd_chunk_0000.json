@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        8,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 127 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 200 Sou...cago, Illinois 60606 Telephone: ... (312) 555-7401\n<|id|>1<|page|>1<|box|>133 751 152 854<|content|>July 22, 2022\n<|id|>2<|page|>1<|box|>160 140 176 464<|content|>VIA EMAIL AND FIRST CLASS MAIL\n<|id|>3<|page|>1<|box|>185 140 263 856<|content|>CONFIDENTIAL — SETTLEMENT COMMUNICATION / FRE 408 ...ois Rule of Evidence 408. ... or any related party\n<|id|>4<|page|>1<|box|>268 140 304 854<|content|>Rachel Drummond, Esq. ... Pratt, Givens & Lowell L...ichigan Avenue, Suite 2700 Chicago, Illinois 60601\n<|id|>5<|page|>1<|box|>313 174 368 854<|content|>Re: ... WCN-2022-0289\n<|id|>6<|page|>1<|box|>375 142 392 308<|content|>Dear Ms. ... Drummond\n<|id|>12<|page|>1<|box|>839 140 893 854<|content|>Under the LTSA, Vantage supplies precision-machine...os. ... These valve body housings are delivered to\n<|id|>13<|page|>2<|box|>89 140 181 854<|content|>Meridian's assembly plant located in Schaumburg, I... with significant volume commitments on both sides\n<|id|>17<|page|>2<|box|>448 183 464 424<|content|>• Replacement part cost: ... 50\n<|id|>22<|page|>2<|box|>545 140 619 854<|content|>Without awaiting resolution of Vantage's timely co... otherwise due and owing to Vantage under the LTSA\n<|id|>18<|page|>2<|box|>467 183 483 405<|content|>• OEM dealer labor: ... 00\n<|id|>19<|page|>2<|box|>487 183 503 571<|content|>• Internal failure-analysis and logistics costs: ... 80\n<|id|>20<|page|>2<|box|>506 183 522 400<|content|>• Administrative fee: ... 00\n<|id|>21<|page|>2<|box|>526 183 542 477<|content|>• Total per-unit chargeback: ... 30\n<|id|>53<|page|>5<|box|>804 140 878 857<|content|>Section 9. ... Notwithstanding Vantage's timely contestation, Meridian began withholding amounts from\n<|id|>54<|page|>6<|box|>90 140 127 854<|content|>Vantage's receivables without awaiting resolution ...o so during the pendency of a contested chargeback\n<|id|>79<|page|>8<|box|>90 174 145 854<|content|>(b) all breach-of-contract claims that either part...ctions from Vantage's accounts receivable; ... and\n<|id|>81<|page|>8<|box|>196 140 270 854<|content|>The release shall not extend to claims or obligati...her matters not encompassed by the present dispute\n<|id|>89<|page|>8<|box|>867 140 904 856<|content|>The supplemental protocol would consist of compute...00) units produced for valve body housings bearing\n<|id|>90<|page|>9<|box|>89 140 162 856<|content|>Part Nos. ... This CT-scan sampling would suppleme... required ASTM E505 Level 2 porosity specification\n<|id|>114<|page|>11<|box|>321 140 338 222<|content|>Sincerely,\n<|id|>115<|page|>11<|box|>339 140 354 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>116<|page|>11<|box|>357 143 375 251<|content|>By: ... By\n<|id|>117<|page|>11<|box|>373 140 406 852<|content|>Samuel Eklund Partner Calderwood & Harkness LLP 20...cago, Illinois 60606 Telephone: ... (312) 555-7400\n<|id|>118<|page|>11<|box|>407 142 422 457<|content|>Email: ... com\n<|id|>119<|page|>11<|box|>424 140 441 767<|content|>cc: ... (via email)\n<|id|>120<|page|>11<|box|>449 140 467 620<|content|>cc: ... , Pratt, Givens & Lowell LLP (via email)\n<|id|>121<|page|>11<|box|>474 140 494 784<|content|>Enclosures: ... None (all referenced documents previously exchanged between the parties)",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>53<|tgt_id|>54\n<|src_id|>89<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        }
+    ]
+}

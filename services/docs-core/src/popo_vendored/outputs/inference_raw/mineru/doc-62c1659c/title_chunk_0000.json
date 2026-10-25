@@ -1,0 +1,141 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 147 126 849<|content|>AUDIT COMMITTEE OF THE BOARD OF DIRECTORS VERIMARK\n<|id|>2<|page|>1<|box|>160 140 176 761<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV\n<|id|>6<|page|>1<|box|>334 140 351 483<|content|>1. Purpose and Background of Engagement\n<|id|>12<|page|>2<|box|>359 140 375 328<|content|>2. Identity of the Client\n<|id|>16<|page|>2<|box|>696 140 714 364<|content|>3. Scope of the Investigation\n<|id|>18<|page|>2<|box|>791 140 808 460<|content|>3(a). Revenue-Recognition Irregularities\n<|id|>26<|page|>3<|box|>507 140 523 444<|content|>3(b). Expense-Reporting Irregularities\n<|id|>33<|page|>4<|box|>90 142 107 312<|content|>3(c). Related Matters\n<|id|>39<|page|>4<|box|>478 140 494 230<|content|>4. Staffing\n<|id|>47<|page|>5<|box|>186 140 204 459<|content|>5. Engagement of Advisors and Vendors\n<|id|>53<|page|>5<|box|>686 140 704 390<|content|>6. Privilege and Confidentiality\n<|id|>54<|page|>5<|box|>717 140 734 604<|content|>6(a). Attorney-Client Privilege and Work-Product D\n<|id|>57<|page|>6<|box|>231 140 250 325<|content|>6(b). Upjohn Protocols\n<|id|>65<|page|>6<|box|>679 140 696 447<|content|>6(c). Coordination with Other Counsel\n<|id|>69<|page|>7<|box|>138 140 157 411<|content|>6(d). Individual Subjects' Counsel\n<|id|>71<|page|>7<|box|>314 142 330 405<|content|>7. Fees and Billing Arrangements\n<|id|>72<|page|>7<|box|>344 142 362 290<|content|>7(a). Hourly Rates\n<|id|>75<|page|>7<|box|>648 142 667 313<|content|>7(b). No Contingency\n<|id|>77<|page|>7<|box|>758 142 776 367<|content|>7(c). Invoicing and Payment\n<|id|>81<|page|>8<|box|>275 140 292 460<|content|>7(d). Third-Party Advisors and Vendors\n<|id|>83<|page|>8<|box|>449 140 467 339<|content|>8. Reporting Obligations\n<|id|>88<|page|>9<|box|>90 140 107 349<|content|>9. Document Preservation\n<|id|>91<|page|>9<|box|>402 142 420 272<|content|>10. Cooperation\n<|id|>99<|page|>9<|box|>825 142 844 380<|content|>11. Duration and Termination\n<|id|>103<|page|>10<|box|>304 142 320 266<|content|>12. Limitations\n<|id|>109<|page|>10<|box|>694 142 710 246<|content|>13. Conflicts\n<|id|>112<|page|>11<|box|>150 142 167 297<|content|>14. Governing Law\n<|id|>114<|page|>11<|box|>272 142 287 380<|content|>15. Acceptance and Execution\n<|id|>119<|page|>11<|box|>510 140 542 852<|content|>AUDIT COMMITTEE OF THE BOARD OF DIRECTORS VERIMARK\n<|id|>125<|page|>11<|box|>638 140 654 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>-1\n<|id|>6<|level|>2\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>3\n<|id|>26<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>2\n<|id|>47<|level|>2\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>57<|level|>3\n<|id|>65<|level|>3\n<|id|>69<|level|>3\n<|id|>71<|level|>2\n<|id|>72<|level|>3\n<|id|>75<|level|>3\n<|id|>77<|level|>3\n<|id|>81<|level|>3\n<|id|>83<|level|>2\n<|id|>88<|level|>2\n<|id|>91<|level|>2\n<|id|>99<|level|>2\n<|id|>103<|level|>2\n<|id|>109<|level|>2\n<|id|>112<|level|>2\n<|id|>114<|level|>2\n<|id|>119<|level|>1\n<|id|>125<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        }
+    ]
+}

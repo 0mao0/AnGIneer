@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>111 205 148 857<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1700 K\n<|id|>8<|type|>title<|page|>1<|box|>354 142 373 367<|content|>1. Introduction and Purpose\n<|id|>14<|type|>title<|page|>2<|box|>148 140 167 334<|content|>2. Scope of Engagement\n<|id|>16<|type|>title<|page|>2<|box|>261 140 279 424<|content|>2.1 Incident Response Coordination\n<|id|>23<|type|>title<|page|>2<|box|>756 140 773 428<|content|>2.2 Forensic Investigation Oversight\n<|id|>29<|type|>title<|page|>3<|box|>419 140 436 364<|content|>2.3 Notification Compliance\n<|id|>36<|type|>title<|page|>4<|box|>157 140 175 328<|content|>2.4 Regulatory Defense\n<|id|>42<|type|>title<|page|>4<|box|>462 140 479 351<|content|>2.5 Vendor Accountability\n<|id|>49<|type|>title<|page|>5<|box|>90 140 107 437<|content|>2.6 Insurance Coverage Coordination\n<|id|>58<|type|>title<|page|>5<|box|>601 140 618 447<|content|>2.7 Board and Management Reporting\n<|id|>60<|type|>title<|page|>5<|box|>763 140 781 416<|content|>2.8 SEC Disclosure Considerations\n<|id|>62<|type|>title<|page|>6<|box|>150 142 167 313<|content|>3. Engagement Team\n<|id|>63<|type|>table<|page|>6<|box|>217 143 387 852<|content|>None\n<|id|>67<|type|>title<|page|>6<|box|>808 140 824 446<|content|>4. Billing Rates and Fee Arrangements\n<|id|>68<|type|>title<|page|>6<|box|>838 142 854 279<|content|>4.1 Hourly Rates\n<|id|>70<|type|>table<|page|>7<|box|>88 143 183 852<|content|>None\n<|id|>73<|type|>title<|page|>7<|box|>364 140 382 400<|content|>4.2 Disbursements and Expenses\n<|id|>76<|type|>title<|page|>7<|box|>720 140 737 334<|content|>4.3 Billing and Payment\n<|id|>79<|type|>title<|page|>8<|box|>148 140 167 290<|content|>5. Matter Number\n<|id|>81<|type|>title<|page|>8<|box|>271 140 289 390<|content|>6. Privilege and Confidentiality\n<|id|>82<|type|>title<|page|>8<|box|>303 140 319 370<|content|>6.1 Attorney-Client Privilege\n<|id|>85<|type|>title<|page|>8<|box|>566 140 583 514<|content|>6.2 Forensic Investigation Privilege Framework\n<|id|>89<|type|>title<|page|>9<|box|>140 140 157 408<|content|>6.3 Common Interest Agreements\n<|id|>92<|type|>title<|page|>9<|box|>376 140 393 321<|content|>7. Conflicts of Interest\n<|id|>95<|type|>title<|page|>9<|box|>671 140 688 326<|content|>8. Document Retention\n<|id|>99<|type|>title<|page|>10<|box|>241 140 258 370<|content|>9. Limitation of Engagement\n<|id|>103<|type|>title<|page|>10<|box|>561 140 579 274<|content|>10. Termination\n<|id|>107<|type|>title<|page|>11<|box|>90 142 107 297<|content|>11. Governing Law\n<|id|>109<|type|>title<|page|>11<|box|>194 142 210 380<|content|>12. Acceptance and Execution\n<|id|>114<|type|>title<|page|>11<|box|>487 140 503 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>118<|type|>title<|page|>11<|box|>573 383 589 614<|content|>ACCEPTED AND AGREED\n<|id|>120<|type|>title<|page|>11<|box|>642 140 659 504<|content|>QUORUM INSURANCE HOLDINGS CORP.",
+    "raw_response": "<|src_id|>63<|tgt_id|>62\n<|src_id|>70<|tgt_id|>68",
+    "parsed": [
+        {
+            "src_id": 63,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 68
+        }
+    ]
+}

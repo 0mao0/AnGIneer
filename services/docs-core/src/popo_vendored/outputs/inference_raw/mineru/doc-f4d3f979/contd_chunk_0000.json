@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 140 176 316<|content|>DATE: ... March 3, 2022\n<|id|>3<|page|>1<|box|>186 140 204 491<|content|>TO: ... Priya Anand, Partner, Litigation (General)\n<|id|>4<|page|>1<|box|>212 140 229 576<|content|>FROM: ... Douglas Carmichael, Partner, Litigation (General)\n<|id|>5<|page|>1<|box|>237 140 273 852<|content|>RE: ... Coastal Palms Franchise Holdings LLC et al\n<|id|>6<|page|>1<|box|>282 140 300 547<|content|>MATTER NO. ... [To be assigned upon matter opening]\n<|id|>7<|page|>1<|box|>306 140 383 854<|content|>CONFIDENTIALITY NOTICE: ... Unauthorized disclosure may result in waiver of applicable privileges\n<|id|>11<|page|>1<|box|>813 140 905 857<|content|>The request to initiate this conflicts check was r... indicated that Verimark had selected Calderwood &\n<|id|>12<|page|>2<|box|>90 140 127 854<|content|>Harkness as its preferred outside counsel for this...chise litigation in the southeastern United States\n<|id|>41<|page|>3<|box|>828 174 864 854<|content|>Searched under: ... ,\" \"Verimark Hospitality Group,\" \"Verimark Hospitality,\" \"VHG,\" \"Verimark,\" \"VHMK\"\n<|id|>42<|page|>3<|box|>873 174 909 854<|content|>Entity Type: ... publicly traded on the Nasdaq Stock Market under the ticker symbol VHMK\n<|id|>52<|page|>4<|box|>625 174 660 854<|content|>Searched under: ... \"Coastal Palms Franchise Holdi...Palms Franchise Holdings,\" \"Coastal Palms,\" \"CPFH\"\n<|id|>53<|page|>4<|box|>667 174 686 815<|content|>Entity Type: ... Limited liability company organized under the laws of the State of Florida\n<|id|>66<|page|>5<|box|>756 181 883 857<|content|>• Suncoast Room Management Inc. ... \"Suncoast Room\n<|id|>67<|page|>6<|box|>89 210 125 854<|content|>Management Inc. ... \"\n<|id|>70<|page|>6<|box|>188 174 223 854<|content|>Searched under: ... \"Whitfield, Barrow & Crane LLP... & Crane,\" \"Whitfield Barrow Crane,\" \"WBC,\" \"WB&C\"\n<|id|>71<|page|>6<|box|>232 176 250 831<|content|>Entity Type: ... Limited liability partnership organized under the laws of the State of Florida\n<|id|>132<|page|>9<|box|>816 174 891 856<|content|>(b) Whitfield, Barrow & Crane LLP has appeared as ... under the Rules Regulating The Florida Bar or the\n<|id|>133<|page|>10<|box|>90 174 127 854<|content|>Firm's internal policies. ... The prior matters in...ally unrelated to the proposed Verimark engagement\n<|id|>174<|page|>12<|box|>670 183 686 808<|content|>• Theresa Brecker, individually and in her capacity as Member of Coastal Palms; ... and\n<|id|>176<|page|>12<|box|>709 140 744 854<|content|>No conflicts of interest have been identified unde...ting The Florida Bar, including but not limited to\n<|id|>178<|page|>12<|box|>791 181 845 854<|content|>• Rule 4-1. ... and\n<|id|>180<|page|>13<|box|>90 140 126 854<|content|>The conflicts clearance documented herein is likew...nterest Policy (revised effective January 1, 2022)\n<|id|>193<|page|>13<|box|>852 140 883 852<|content|>Douglas Carmichael Partner, Litigation (General) Calderwood & Harkness LLP FL Bar No. ... 0093217\n<|id|>194<|page|>13<|box|>886 142 902 395<|content|>Date of Clearance: ... March 3, 2022",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>66<|tgt_id|>67\n<|src_id|>132<|tgt_id|>133",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        }
+    ]
+}

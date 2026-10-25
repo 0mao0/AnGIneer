@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>196 305 214 692<|content|>Engagement of Independent Governance Counsel\n<|id|>3<|page|>1<|box|>223 434 239 562<|content|>March 12, 2024\n<|id|>4<|page|>1<|box|>250 140 579 854<|content|>WHEREAS, Aurelius Global Media Group PLC (\"AGMG\" o...Governance Code, each as applicable to the Company\n<|id|>6<|page|>1<|box|>814 140 905 856<|content|>WHEREAS, Corvus Peak Capital Partners LP (\"Corvus ...g beneficial ownership of approximately 6. ... The\n<|id|>7<|page|>2<|box|>90 140 164 856<|content|>Initial 13D disclosed, among other things, that Co...tal allocation practices, and corporate governance\n<|id|>25<|page|>4<|box|>809 140 902 857<|content|>NOW, THEREFORE, BE IT RESOLVED, that the Board of ...s of the Company, in connection with: ... (ii) the\n<|id|>26<|page|>5<|box|>90 140 237 856<|content|>Board's evaluation of and response to the activist...s fiduciary duties and governance responsibilities\n<|id|>32<|page|>6<|box|>863 140 898 854<|content|>RESOLVED FURTHER, that each of the officers of the...icer, the Chief Financial Officer, and the General\n<|id|>33<|page|>7<|box|>90 140 273 856<|content|>Counsel and Corporate Secretary, is hereby authori... of the approval thereof by the Board of Directors\n<|id|>38<|page|>7<|box|>640 142 657 482<|content|>AURELIUS GLOBAL MEDIA GROUP PLC\n<|id|>39<|page|>7<|box|>659 143 675 254<|content|>By: ... By\n<|id|>40<|page|>7<|box|>675 142 691 303<|content|>Name: ... Nadine Khalil\n<|id|>41<|page|>7<|box|>691 142 709 480<|content|>Title: ... General Counsel & Corporate Secretary\n<|id|>42<|page|>7<|box|>710 143 726 308<|content|>Date: ... March 12, 2024",
+    "raw_response": "<|src_id|>6<|tgt_id|>7\n<|src_id|>25<|tgt_id|>26\n<|src_id|>32<|tgt_id|>33",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        }
+    ]
+}

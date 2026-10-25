@@ -1,0 +1,62 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        22,
+        23
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>135 194 171 802<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>8<|type|>title<|page|>1<|box|>422 142 439 321<|content|>I. Executive Summary\n<|id|>19<|type|>title<|page|>2<|box|>489 140 508 602<|content|>II. Compliance Review: Delivery and Format of Q2 R\n<|id|>24<|type|>title<|page|>2<|box|>810 142 828 344<|content|>B. Content Requirements\n<|id|>32<|type|>title<|page|>3<|box|>825 140 843 351<|content|>C. Form and Certification\n<|id|>37<|type|>title<|page|>4<|box|>375 140 391 509<|content|>III. Summary of GP's Q2 2024 Report Content\n<|id|>39<|type|>title<|page|>4<|box|>486 142 502 395<|content|>A. Transaction Status Overview\n<|id|>55<|type|>title<|page|>5<|box|>804 140 821 483<|content|>B. Regulatory Approvals — Current Status\n<|id|>66<|type|>title<|page|>7<|box|>181 140 199 511<|content|>C. Material Developments Affecting the Target\n<|id|>85<|type|>title<|page|>9<|box|>157 140 174 405<|content|>D. Financial Status of the Vehicle\n<|id|>86<|type|>table<|page|>9<|box|>224 143 339 852<|content|>None\n<|id|>89<|type|>table<|page|>9<|box|>496 143 672 852<|content|>None\n<|id|>102<|type|>title<|page|>10<|box|>387 142 404 576<|content|>E. Status of Key Transaction Documents and Insuran\n<|id|>118<|type|>title<|page|>11<|box|>747 140 763 565<|content|>F. GP's Assessment and Forward-Looking Statements\n<|id|>124<|type|>title<|page|>12<|box|>421 140 438 478<|content|>IV. C&H Analysis: Key Issues for Ironside\n<|id|>126<|type|>title<|page|>12<|box|>496 140 513 653<|content|>A. 18-Month Wind-Down Election Right (LP Agreement\n<|id|>136<|type|>title<|page|>13<|box|>492 140 508 535<|content|>B. FERC §203 Lapse — Reactivation Implications\n<|id|>143<|type|>title<|page|>14<|box|>138 140 157 419<|content|>C. Financing Refresh Requirement\n<|id|>150<|type|>title<|page|>14<|box|>597 140 614 514<|content|>D. Concession Framework — Valuation Impact\n<|id|>158<|type|>title<|page|>15<|box|>398 140 415 527<|content|>E. R&W Insurance Tolling — Continuation Risk\n<|id|>165<|type|>title<|page|>16<|box|>90 140 107 318<|content|>F. OPUC Proceedings\n<|id|>171<|type|>title<|page|>16<|box|>349 142 366 349<|content|>V. Status Summary Table\n<|id|>172<|type|>table<|page|>16<|box|>417 143 900 852<|content|>None\n<|id|>173<|type|>table<|page|>17<|box|>88 143 109 852<|content|>None\n<|id|>174<|type|>title<|page|>17<|box|>157 142 174 320<|content|>VI. Recommendations\n<|id|>185<|type|>title<|page|>18<|box|>204 140 222 434<|content|>VII. Limitations and Privilege Notice\n<|id|>190<|type|>title<|page|>19<|box|>90 142 107 313<|content|>VIII. Signature block\n<|id|>197<|type|>table<|page|>20<|box|>114 143 906 852<|content|>None\n<|id|>198<|type|>table<|page|>22<|box|>114 143 902 852<|content|>None\n<|id|>199<|type|>table<|page|>23<|box|>89 143 273 852<|content|>None",
+    "raw_response": "<|src_id|>86<|tgt_id|>85\n<|src_id|>89<|tgt_id|>85\n<|src_id|>172<|tgt_id|>171\n<|src_id|>173<|tgt_id|>171\n<|src_id|>197<|tgt_id|>190\n<|src_id|>198<|tgt_id|>190\n<|src_id|>199<|tgt_id|>190",
+    "parsed": [
+        {
+            "src_id": 86,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 171
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 171
+        },
+        {
+            "src_id": 197,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 190
+        }
+    ]
+}

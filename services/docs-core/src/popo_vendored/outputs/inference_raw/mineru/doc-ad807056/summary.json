@@ -1,0 +1,139 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-keh7ko23\\input\\pdfs\\doc-ad807056.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-keh7ko23\\enriched\\doc-ad807056.json",
+    "contd_output": "<|src_id|>109<|tgt_id|>110",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>9<|level|>2\n<|id|>17<|level|>2\n<|id|>27<|level|>2\n<|id|>47<|level|>2\n<|id|>54<|level|>2\n<|id|>65<|level|>2\n<|id|>82<|level|>2\n<|id|>95<|level|>2\n<|id|>104<|level|>2\n<|id|>108<|level|>2\n<|id|>119<|level|>2\n<|id|>121<|level|>3\n<|id|>146<|level|>2\n<|id|>147<|level|>2\n<|id|>148<|level|>3\n<|id|>161<|level|>2\n<|id|>162<|level|>2\n<|id|>163<|level|>3\n<|id|>165<|level|>4\n<|id|>169<|level|>4",
+    "image_output": "<|src_id|>166<|tgt_id|>165\n<|src_id|>167<|tgt_id|>162\n<|src_id|>168<|tgt_id|>162\n<|src_id|>170<|tgt_id|>169",
+    "contd_label": [
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 4
+        },
+        {
+            "id": 169,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 166,
+            "tgt_id": 165
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 162
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 162
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 169
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 166,
+            "table2_idx": 167,
+            "upper_row_ss": [
+                [
+                    "Initial Purchasers",
+                    "Ridgepoint Capital Markets LLC (lead left bookrunner,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "60% allocation); Harborstone Securities Inc. (co-manager, 25% allocation); Velthorn Zanthor & Co. (co-manager, 15% allocation)"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 158 123 838<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION W\n<|id|>21<|page|>2<|box|>90 140 108 346<|content|>Emerging growth company\n<|id|>25<|page|>2<|box|>263 140 280 586<|content|>Item 1.01 — Entry into a Material Definitive Agree\n<|id|>29<|page|>2<|box|>731 140 748 638<|content|>Item 2.01 — Completion of Acquisition or Dispositi\n<|id|>30<|page|>2<|box|>761 140 779 351<|content|>Completion of the Merger\n<|id|>51<|page|>5<|box|>609 142 627 431<|content|>Repayment of Existing Indebtedness\n<|id|>59<|page|>6<|box|>515 140 532 462<|content|>Representation and Warranty Insurance\n<|id|>70<|page|>7<|box|>511 142 529 300<|content|>Exchange of Shares\n<|id|>73<|page|>7<|box|>784 140 820 851<|content|>Item 3.01 — Notice of Delisting or Failure to Sati\n<|id|>78<|page|>8<|box|>458 140 474 650<|content|>Item 3.03 — Material Modification to Rights of Sec\n<|id|>82<|page|>9<|box|>90 140 107 506<|content|>Item 5.01 — Changes in Control of Registrant.\n<|id|>90<|page|>9<|box|>550 140 587 754<|content|>Item 5.02 — Departure of Directors or Certain Offi\n<|id|>97<|page|>10<|box|>304 140 321 354<|content|>Item 8.01 — Other Events.\n<|id|>101<|page|>11<|box|>333 142 349 514<|content|>Item 9.01 — Financial Statements and Exhibits.\n<|id|>102<|page|>11<|box|>364 142 380 506<|content|>(a) Financial Statements of Business Acquired.\n<|id|>104<|page|>11<|box|>417 142 434 437<|content|>(b) Pro Forma Financial Information.\n<|id|>106<|page|>11<|box|>472 142 489 398<|content|>(c) Shell Company Transactions.\n<|id|>109<|page|>12<|box|>89 142 106 266<|content|>SIGNATURES\n<|id|>111<|page|>12<|box|>160 142 176 442<|content|>CLOUDIUM TECHNOLOGIES PLC\n<|id|>116<|page|>12<|box|>246 165 281 831<|content|>DRAFTING NOTES — PRIVILEGED AND CONFIDENTIAL ATTOR\n<|id|>119<|page|>12<|box|>381 142 395 411<|content|>Open Items and Confirmations Required:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>21<|level|>-1\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>30<|level|>3\n<|id|>51<|level|>3\n<|id|>59<|level|>3\n<|id|>70<|level|>3\n<|id|>73<|level|>2\n<|id|>78<|level|>2\n<|id|>82<|level|>2\n<|id|>90<|level|>2\n<|id|>97<|level|>2\n<|id|>101<|level|>2\n<|id|>102<|level|>3\n<|id|>104<|level|>3\n<|id|>106<|level|>3\n<|id|>109<|level|>2\n<|id|>111<|level|>-1\n<|id|>116<|level|>2\n<|id|>119<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        }
+    ]
+}

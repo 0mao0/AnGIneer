@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        58
+    ],
+    "pages": [
+        1,
+        2,
+        31,
+        32,
+        40,
+        41,
+        42,
+        58
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>1<|box|>614 529 632 854<|content|>Draft — Target Service Date: ... June 15, 2025\n<|id|>9<|page|>1<|box|>674 140 736 854<|content|>DRAFT — ATTORNEY WORK PRODUCT — PRIVILEGED AND CON...nformation contained herein is strictly prohibited\n<|id|>13<|page|>1<|box|>839 143 893 854<|content|>1. ... I have been retained by the law firm of Cal... LLP on behalf of Plaintiff Optiwave Semiconductor\n<|id|>14<|page|>2<|box|>90 174 143 854<|content|>Corp. ... My retention agreement with Calderwood & Harkness LLP is dated August 1, 2024\n<|id|>317<|page|>31<|box|>834 142 907 856<|content|>166. ... However, even if literal infringement is not established for this specific sub-element in the\n<|id|>318<|page|>32<|box|>90 174 125 854<|content|>LumiEdge 1600G-LR, infringement is established und...ne of equivalents, as analyzed in Section IX below\n<|id|>402<|page|>40<|box|>848 173 902 854<|content|>(a) LumiLink 400G-ZR+: ... The coherent detection ...ectors), to achieve the same result (high-fidelity\n<|id|>403<|page|>41<|box|>90 174 126 854<|content|>400G coherent signal recovery). ... I conclude tha...f Claim 3 is met under the doctrine of equivalents\n<|id|>422<|page|>42<|box|>734 140 751 584<|content|>240. ... I have applied the function-way-result test to the \"two-\n<|id|>423<|page|>42<|box|>753 140 790 854<|content|>dimensional sub-wavelength grating\" limitation of ...or the LumiLink 800G-DR8 and the LumiEdge 1600G-LR\n<|id|>542<|page|>58<|box|>425 142 441 395<|content|>RESPECTFULLY SUBMITTED,\n<|id|>543<|page|>58<|box|>444 143 459 253<|content|>By: ... By\n<|id|>544<|page|>58<|box|>459 140 493 852<|content|>Dr. ... Professor of Electrical Engineering & Phot...nology 2145 Sheridan Road Evanston, Illinois 60208\n<|id|>545<|page|>58<|box|>494 143 510 264<|content|>Date: ... Date\n<|id|>546<|page|>58<|box|>510 143 527 326<|content|>[Draft — June 15, 2025]\n<|id|>547<|page|>58<|box|>561 140 638 854<|content|>DRAFT — ATTORNEY WORK PRODUCT — PRIVILEGED AND CON...preparation, circulation, or filing of this report",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>317<|tgt_id|>318\n<|src_id|>402<|tgt_id|>403\n<|src_id|>422<|tgt_id|>423",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 317,
+            "tgt_id": 318
+        },
+        {
+            "src_id": 402,
+            "tgt_id": 403
+        },
+        {
+            "src_id": 422,
+            "tgt_id": 423
+        }
+    ]
+}

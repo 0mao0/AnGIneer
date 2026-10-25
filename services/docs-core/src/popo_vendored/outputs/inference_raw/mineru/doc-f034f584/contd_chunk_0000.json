@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        18,
+        68
+    ],
+    "pages": [
+        18,
+        21,
+        30,
+        36,
+        44,
+        53,
+        54,
+        55,
+        67
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>81<|page|>18<|box|>120 433 131 560<|content|>(In millions of dollars)\n<|id|>82<|page|>18<|box|>65 378 79 612<|content|>. ... FEDERAL FISCAL OPERATIONS\n<|id|>96<|page|>21<|box|>241 80 351 481<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>97<|page|>21<|box|>146 506 207 906<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>129<|page|>30<|box|>628 74 711 481<|content|>Source: ... The average\n<|id|>130<|page|>30<|box|>626 519 677 902<|content|>annual interest rate is computed by dividing the c...ate it was based on the coupon rate for all issues\n<|id|>147<|page|>36<|box|>141 91 150 468<|content|>2/ For 13-week, 26-week, and one-year issues, tenders for \\$200,000 or\n<|id|>181<|page|>36<|box|>289 522 297 593<|content|>r Revised. ... r Revised\n<|id|>178<|page|>36<|box|>252 519 262 889<|content|>33/ Except \\$200,000 at 94. ... 916\n<|id|>228<|page|>44<|box|>767 81 785 443<|content|>31/ Sold at auction through competitive and noncompetitive bidding. ... 20\n<|id|>257<|page|>44<|box|>768 522 777 751<|content|>p Preliminary. ... * Less than \\$500,000\n<|id|>236<|page|>44<|box|>307 513 332 908<|content|>38/ Sold at auction through competitive and noncompetitive bidding. ... 83%)\n<|id|>249<|page|>44<|box|>589 513 614 879<|content|>52/ Sold at auction through competitive and noncompetitive bidding. ... 91%)\n<|id|>250<|page|>44<|box|>613 513 631 912<|content|>53/ Sold at auction through competitive and noncompetitive bidding. ... 32%)\n<|id|>256<|page|>44<|box|>741 513 766 877<|content|>59/ Sold at auction through competitive and noncompetitive bidding. ... 08%)\n<|id|>278<|page|>53<|box|>120 422 131 574<|content|>(Dollar amounts in millions)\n<|id|>280<|page|>54<|box|>115 420 125 572<|content|>(Dollar amounts in millions)\n<|id|>282<|page|>55<|box|>138 88 149 429<|content|>Source: ... Daily Treasury statement and Bureau of the Public Debt\n<|id|>327<|page|>67<|box|>100 96 190 487<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>328<|page|>67<|box|>101 512 192 903<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1973",
+    "raw_response": "<|src_id|>96<|tgt_id|>97\n<|src_id|>129<|tgt_id|>130\n<|src_id|>327<|tgt_id|>328",
+    "parsed": [
+        {
+            "src_id": 96,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 327,
+            "tgt_id": 328
+        }
+    ]
+}

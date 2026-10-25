@@ -1,0 +1,167 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-g5q5onl6\\input\\pdfs\\doc-88ca19a3.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-g5q5onl6\\enriched\\doc-88ca19a3.json",
+    "contd_output": "<|src_id|>123<|tgt_id|>124",
+    "title_output": "<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>18<|level|>2\n<|id|>23<|level|>2\n<|id|>31<|level|>2\n<|id|>39<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>1\n<|id|>46<|level|>2\n<|id|>51<|level|>2\n<|id|>61<|level|>2\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>82<|level|>3\n<|id|>90<|level|>3\n<|id|>97<|level|>3\n<|id|>103<|level|>3\n<|id|>107<|level|>1\n<|id|>108<|level|>2\n<|id|>117<|level|>2\n<|id|>127<|level|>2\n<|id|>131<|level|>2\n<|id|>139<|level|>2\n<|id|>144<|level|>1\n<|id|>149<|level|>1\n<|id|>150<|level|>2\n<|id|>157<|level|>2\n<|id|>161<|level|>2\n<|id|>170<|level|>2\n<|id|>174<|level|>1",
+    "image_output": "<|src_id|>141<|tgt_id|>139\n<|src_id|>142<|tgt_id|>139",
+    "contd_label": [
+        {
+            "src_id": 123,
+            "tgt_id": 124
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 141,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 139
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 141,
+            "table2_idx": 142,
+            "upper_row_ss": [
+                [
+                    "Statutory enhancement (willfulness premium)",
+                    "$940,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Attorney's fees",
+                    "$285,000"
+                ]
+            ]
+        }
+    ]
+}

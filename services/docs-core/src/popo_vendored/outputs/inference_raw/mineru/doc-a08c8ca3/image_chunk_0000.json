@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>113 214 157 782<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF CALLOWAY-\n<|id|>2<|type|>title<|page|>1<|box|>174 233 191 763<|content|>Appointment of Nominating and Corporate Governance\n<|id|>5<|type|>title<|page|>1<|box|>340 140 358 243<|content|>RECITALS\n<|id|>16<|type|>title<|page|>3<|box|>229 142 247 279<|content|>RESOLUTIONS\n<|id|>17<|type|>title<|page|>3<|box|>261 140 279 828<|content|>Resolution 1 — Establishment of the Nominating and\n<|id|>19<|type|>title<|page|>3<|box|>407 140 424 560<|content|>Resolution 2 — Appointment of Committee Members\n<|id|>21<|type|>table<|page|>3<|box|>508 143 601 852<|content|>None\n<|id|>23<|type|>title<|page|>3<|box|>720 140 737 519<|content|>Resolution 3 — Adoption of Committee Charter\n<|id|>27<|type|>title<|page|>4<|box|>176 140 194 591<|content|>Resolution 4 — Delegation of Authority to the Comm\n<|id|>39<|type|>title<|page|>5<|box|>492 140 508 710<|content|>Resolution 5 — Compliance with NYSE Controlled-Com\n<|id|>43<|type|>title<|page|>6<|box|>138 140 157 797<|content|>Resolution 6 — Interaction with Stockholders' Agre\n<|id|>49<|type|>title<|page|>6<|box|>535 142 551 465<|content|>Resolution 7 — Authorization of Officers\n<|id|>56<|type|>title<|page|>7<|box|>202 142 219 575<|content|>Resolution 8 — General Authorization and Ratificat\n<|id|>60<|type|>title<|page|>7<|box|>430 447 446 550<|content|>EXHIBIT A\n<|id|>61<|type|>title<|page|>7<|box|>455 176 474 818<|content|>NOMINATING AND CORPORATE GOVERNANCE COMMITTEE CHAR\n<|id|>62<|type|>title<|page|>7<|box|>482 316 500 679<|content|>CALLOWAY-BRIGGS RENEWABLES INC.\n<|id|>63<|type|>title<|page|>7<|box|>508 388 526 607<|content|>(Summary of Key Provisions)\n<|id|>65<|type|>title<|page|>7<|box|>657 140 674 308<|content|>Section 1 — Purpose\n<|id|>71<|type|>title<|page|>8<|box|>157 140 175 344<|content|>Section 2 — Composition\n<|id|>75<|type|>title<|page|>8<|box|>518 140 537 316<|content|>Section 3 — Meetings\n<|id|>81<|type|>title<|page|>9<|box|>157 140 175 452<|content|>Section 4 — Duties and Responsibilities\n<|id|>93<|type|>title<|page|>10<|box|>157 140 174 321<|content|>Section 5 — Authority\n<|id|>99<|type|>title<|page|>10<|box|>481 140 497 429<|content|>Section 6 — Annual Charter Review\n<|id|>101<|type|>title<|page|>10<|box|>566 140 584 284<|content|>[End of Exhibit A]\n<|id|>102<|type|>title<|page|>10<|box|>592 316 609 679<|content|>SIGNATURE PAGE AND CERTIFICATION\n<|id|>111<|type|>title<|page|>11<|box|>220 380 236 614<|content|>CONSENT OF DIRECTORS\n<|id|>113<|type|>table<|page|>11<|box|>344 143 539 852<|content|>None",
+    "raw_response": "<|src_id|>21<|tgt_id|>19\n<|src_id|>113<|tgt_id|>111",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 111
+        }
+    ]
+}

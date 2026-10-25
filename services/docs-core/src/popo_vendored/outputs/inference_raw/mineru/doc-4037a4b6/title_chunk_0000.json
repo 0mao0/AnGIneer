@@ -1,0 +1,135 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 279 118 717<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>1<|page|>1<|box|>143 281 160 717<|content|>RESTRICTED STOCK UNIT AWARD AGREEMENT\n<|id|>2<|page|>1<|box|>184 303 200 692<|content|>UNDER THE 2024 EQUITY INCENTIVE PLAN\n<|id|>5<|page|>1<|box|>349 424 364 571<|content|>GRANT NOTICE\n<|id|>6<|page|>1<|box|>375 326 391 669<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>7<|page|>1<|box|>401 341 417 656<|content|>RESTRICTED STOCK UNIT AWARD\n<|id|>8<|page|>1<|box|>426 305 444 692<|content|>UNDER THE 2024 EQUITY INCENTIVE PLAN\n<|id|>13<|page|>2<|box|>152 142 169 488<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>18<|page|>2<|box|>272 143 289 274<|content|>PARTICIPANT\n<|id|>21<|page|>2<|box|>356 281 426 715<|content|>ARBOR HEALTH TECHNOLOGIES INC. RESTRICTED STOCK UN\n<|id|>23<|page|>2<|box|>549 140 565 614<|content|>SECTION 1 — GRANT OF RESTRICTED STOCK UNITS\n<|id|>28<|page|>3<|box|>393 140 411 352<|content|>SECTION 2 — VESTING\n<|id|>36<|page|>5<|box|>89 140 107 547<|content|>SECTION 3 — SETTLEMENT OF VESTED RSUs\n<|id|>48<|page|>6<|box|>527 140 544 388<|content|>SECTION 4 — FORFEITURE\n<|id|>55<|page|>7<|box|>468 140 484 450<|content|>SECTION 5 — TAX WITHHOLDING\n<|id|>65<|page|>9<|box|>148 140 166 524<|content|>SECTION 6 — SECTION 409A COMPLIANCE\n<|id|>73<|page|>10<|box|>556 140 573 531<|content|>SECTION 7 — RIGHTS AS A STOCKHOLDER\n<|id|>77<|page|>11<|box|>266 140 282 488<|content|>SECTION 8 — NON-TRANSFERABILITY\n<|id|>81<|page|>11<|box|>751 140 768 658<|content|>SECTION 9 — RESTRICTIVE LEGENDS AND COMPLIANCE\n<|id|>89<|page|>12<|box|>662 140 680 413<|content|>SECTION 10 — ADJUSTMENTS\n<|id|>91<|page|>13<|box|>89 140 106 553<|content|>SECTION 11 — MISCELLANEOUS PROVISIONS\n<|id|>110<|page|>16<|box|>133 439 151 558<|content|>APPENDIX A\n<|id|>111<|page|>16<|box|>159 403 176 594<|content|>VESTING SCHEDULE\n<|id|>116<|page|>16<|box|>289 143 306 285<|content|>Vesting Schedule:\n<|id|>118<|page|>16<|box|>378 140 396 570<|content|>Standard Time-Based Vesting Schedule (if applicabl\n<|id|>123<|page|>17<|box|>189 439 205 558<|content|>APPENDIX B\n<|id|>124<|page|>17<|box|>214 357 231 640<|content|>PLAN DOCUMENT REFERENCE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>1\n<|id|>6<|level|>1\n<|id|>7<|level|>1\n<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>18<|level|>1\n<|id|>21<|level|>1\n<|id|>23<|level|>1\n<|id|>28<|level|>1\n<|id|>36<|level|>1\n<|id|>48<|level|>1\n<|id|>55<|level|>1\n<|id|>65<|level|>1\n<|id|>73<|level|>1\n<|id|>77<|level|>1\n<|id|>81<|level|>1\n<|id|>89<|level|>1\n<|id|>91<|level|>1\n<|id|>110<|level|>1\n<|id|>111<|level|>1\n<|id|>116<|level|>2\n<|id|>118<|level|>2\n<|id|>123<|level|>1\n<|id|>124<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        }
+    ]
+}

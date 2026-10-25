@@ -1,0 +1,134 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 104 673<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>9<|page|>1<|box|>372 142 388 364<|content|>1. Purpose and Engagement\n<|id|>13<|page|>1<|box|>839 142 854 352<|content|>2. Scope of Representation\n<|id|>15<|page|>2<|box|>138 140 157 490<|content|>2.1 Transaction Structuring and Negotiation\n<|id|>22<|page|>2<|box|>633 142 652 284<|content|>2.2 Due Diligence\n<|id|>34<|page|>3<|box|>632 142 648 500<|content|>2.3 Ancillary Agreements and Documentation\n<|id|>44<|page|>4<|box|>426 140 444 457<|content|>2.4 Regulatory and Compliance Matters\n<|id|>49<|page|>5<|box|>90 140 107 370<|content|>2.6 Closing and Post-Closing\n<|id|>56<|page|>5<|box|>531 140 547 339<|content|>2.7 Limitations on Scope\n<|id|>65<|page|>6<|box|>231 140 248 411<|content|>3. Engagement Team and Staffing\n<|id|>66<|page|>6<|box|>261 140 277 334<|content|>3.1 Responsible Partner\n<|id|>68<|page|>6<|box|>407 140 424 292<|content|>3.2 Billing Partner\n<|id|>70<|page|>6<|box|>534 140 551 292<|content|>3.3 Lead Associate\n<|id|>72<|page|>6<|box|>681 142 698 323<|content|>3.4 Working Associate\n<|id|>74<|page|>6<|box|>789 140 806 341<|content|>3.5 Additional Resources\n<|id|>76<|page|>7<|box|>150 140 167 310<|content|>4. Fee Arrangements\n<|id|>77<|page|>7<|box|>180 140 198 279<|content|>4.1 Hourly Rates\n<|id|>82<|page|>7<|box|>541 140 559 388<|content|>4.2 Billing and Payment Terms\n<|id|>88<|page|>8<|box|>90 140 107 400<|content|>4.3 Expenses and Disbursements\n<|id|>98<|page|>8<|box|>534 140 551 294<|content|>4.4 Estimated Fees\n<|id|>101<|page|>8<|box|>844 140 862 444<|content|>5. Client Responsibilities and Contacts\n<|id|>105<|page|>9<|box|>494 140 511 284<|content|>6. Confidentiality\n<|id|>111<|page|>10<|box|>90 140 107 321<|content|>7. Conflicts of Interest\n<|id|>115<|page|>10<|box|>465 140 482 326<|content|>8. Document Retention\n<|id|>118<|page|>10<|box|>723 140 739 264<|content|>9. Termination\n<|id|>121<|page|>11<|box|>148 142 167 349<|content|>10. Limitation of Liability\n<|id|>125<|page|>11<|box|>450 140 469 480<|content|>11. Governing Law and Dispute Resolution\n<|id|>128<|page|>11<|box|>728 142 744 315<|content|>12. Entire Agreement\n<|id|>134<|page|>12<|box|>266 176 282 482<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>135<|page|>12<|box|>292 142 308 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>142<|page|>12<|box|>430 142 446 460<|content|>BRIGHTFIELD CLOUD SERVICES INC.",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>2\n<|id|>22<|level|>2\n<|id|>34<|level|>2\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>56<|level|>2\n<|id|>65<|level|>1\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>2\n<|id|>74<|level|>2\n<|id|>76<|level|>1\n<|id|>77<|level|>2\n<|id|>82<|level|>2\n<|id|>88<|level|>2\n<|id|>98<|level|>2\n<|id|>101<|level|>1\n<|id|>105<|level|>1\n<|id|>111<|level|>1\n<|id|>115<|level|>1\n<|id|>118<|level|>1\n<|id|>121<|level|>1\n<|id|>125<|level|>1\n<|id|>128<|level|>1\n<|id|>134<|level|>-1\n<|id|>135<|level|>-1\n<|id|>142<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        }
+    ]
+}

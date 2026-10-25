@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>523 140 541 454<|content|>I. PURPOSE AND BASIS OF NOTICE\n<|id|>16<|page|>2<|box|>167 140 184 483<|content|>II. IDENTIFICATION OF THE INSURED\n<|id|>29<|page|>2<|box|>665 140 681 388<|content|>III. POLICY INFORMATION\n<|id|>38<|page|>3<|box|>204 140 220 648<|content|>IV. DESCRIPTION OF THE CLAIM — PARTIES INVOLVED\n<|id|>39<|page|>3<|box|>234 142 253 557<|content|>A. Prospective Defendant: StreamNow Holdings, Inc.\n<|id|>47<|page|>3<|box|>531 176 549 614<|content|>Estimated FY2025 Revenue: Approximately $312 milli\n<|id|>55<|page|>3<|box|>828 142 845 712<|content|>B. Additional Prospective Defendant: Meridian Digi\n<|id|>62<|page|>4<|box|>463 140 479 663<|content|>C. Additional Prospective Defendants: FAST Channel\n<|id|>69<|page|>4<|box|>739 140 758 635<|content|>V. NATURE OF THE CLAIM — FACTUAL BACKGROUND\n<|id|>80<|page|>6<|box|>186 140 203 578<|content|>VI. DISCOVERY AND INVESTIGATION TIMELINE\n<|id|>92<|page|>7<|box|>237 140 253 627<|content|>VII. LEGAL CLAIMS ASSERTED AND TO BE ASSERTED\n<|id|>102<|page|>8<|box|>303 140 320 522<|content|>VIII. COPYRIGHT REGISTRATION STATUS\n<|id|>107<|page|>8<|box|>672 140 690 383<|content|>IX. ESTIMATED DAMAGES\n<|id|>119<|page|>10<|box|>89 140 107 390<|content|>X. COVERAGE REQUESTED\n<|id|>130<|page|>11<|box|>205 140 223 674<|content|>XI. ANTICIPATED TIMELINE AND UPCOMING MILESTONES\n<|id|>136<|page|>11<|box|>540 140 558 537<|content|>XII. OUTSIDE COUNSEL AND EXPERT TEAM\n<|id|>147<|page|>12<|box|>89 140 107 772<|content|>XIII. BROKER INFORMATION AND CORRESPONDENCE INSTRU\n<|id|>156<|page|>12<|box|>419 140 435 728<|content|>XIV. RESERVATION OF RIGHTS AND REQUEST FOR ADDITIO\n<|id|>157<|page|>12<|box|>436 143 454 284<|content|>INFORMATION\n<|id|>160<|page|>12<|box|>676 140 693 437<|content|>XV. DOCUMENT PRESERVATION\n<|id|>166<|page|>13<|box|>204 140 220 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>172<|page|>13<|box|>396 142 412 238<|content|>Enclosures:",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>29<|level|>1\n<|id|>38<|level|>1\n<|id|>39<|level|>2\n<|id|>47<|level|>-1\n<|id|>55<|level|>2\n<|id|>62<|level|>2\n<|id|>69<|level|>1\n<|id|>80<|level|>1\n<|id|>92<|level|>1\n<|id|>102<|level|>1\n<|id|>107<|level|>1\n<|id|>119<|level|>1\n<|id|>130<|level|>1\n<|id|>136<|level|>1\n<|id|>147<|level|>1\n<|id|>156<|level|>1\n<|id|>157<|level|>1\n<|id|>160<|level|>1\n<|id|>166<|level|>-1\n<|id|>172<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        }
+    ]
+}

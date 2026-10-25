@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['13', 'Protective Provisions / Consent Rights', 'Consent rights over: (a) new debt >$5M; (b) annual budgets deviating >15% from board-approved plan; (c) issuance of equity senior to or pari', 'Accepts items (c)-(i) in principle (subject to drafting); objects to (a) debt consent at $5M threshold — proposes $15M instead; objects to', 'Divergence on debt consent threshold ($5M vs. $15M) and budget deviation consent (included vs. excluded)']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'passu with Series D; (d) amendments to Certificate of Incorporation adversely affecting Series D; (e) any acquisition, merger, or sale of substantially all assets; (f) changes to authorized share capital; (g) declaration or payment of dividends on junior stock; (h) redemption or repurchase of equity (other than from departing service providers); (i) increase or decrease in Board size', '(b) budget deviation consent — proposes deletion entirely', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 57,
+    "table2_idx": 58
+}

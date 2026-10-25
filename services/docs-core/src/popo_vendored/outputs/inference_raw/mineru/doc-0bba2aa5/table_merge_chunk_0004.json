@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['3.2', 'Payor Enrollment Updates (Medicare)', 'CMS provider enrollment applications (Form CMS-855B, CMS-855I, CMS-855R) for updated ownership and reassignment of benefits; updates to PECOS;', 'Credentialing Coordinator; Enrollment Specialist', '180 days post-Closing', '1.5 FTEs']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'updates to CMS Certification Numbers 33-7021 through 33-7028 (NY) and 39-6011 through 39-6013 (PA)', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 334,
+    "table2_idx": 335
+}

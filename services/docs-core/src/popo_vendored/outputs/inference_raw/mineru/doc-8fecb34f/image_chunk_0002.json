@@ -1,0 +1,51 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        98,
+        118
+    ],
+    "pages": [
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        107,
+        108,
+        110,
+        111,
+        112,
+        113,
+        114,
+        116,
+        118
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1659<|type|>title<|page|>98<|box|>162 373 191 615<|content|>3 基本规定\n<|id|>1661<|type|>title<|page|>99<|box|>162 389 190 634<|content|>4 地基处理\n<|id|>1662<|type|>title<|page|>99<|box|>224 430 243 598<|content|>4.1 一般规定\n<|id|>1664<|type|>title<|page|>99<|box|>338 430 357 598<|content|>4.2 换填法\n<|id|>1667<|type|>title<|page|>99<|box|>613 409 632 617<|content|>4.3 爆破排淤填石法\n<|id|>1670<|type|>title<|page|>99<|box|>773 430 791 596<|content|>4.4 加筋垫层法\n<|id|>1675<|type|>title<|page|>100<|box|>172 409 191 574<|content|>4.5 堆载预压法\n<|id|>1681<|type|>title<|page|>100<|box|>675 409 694 574<|content|>4.6 真空预压法\n<|id|>1696<|type|>title<|page|>101<|box|>628 387 647 636<|content|>4.7 强夯法和强夯置换法\n<|id|>1701<|type|>title<|page|>102<|box|>281 90 299 389<|content|>4.7.6 通过试夯达到以下目的：\n<|id|>1712<|type|>title<|page|>102<|box|>704 406 722 571<|content|>4.8 降水强夯法\n<|id|>1715<|type|>title<|page|>103<|box|>174 432 194 598<|content|>4.9 振冲密实法\n<|id|>1717<|type|>title<|page|>103<|box|>334 385 354 644<|content|>4.10 砂桩法和挤密砂桩法\n<|id|>1736<|type|>title<|page|>104<|box|>294 399 311 576<|content|>4.11 碎石桩法\n<|id|>1750<|type|>title<|page|>105<|box|>314 418 332 615<|content|>4.12 水泥搅拌桩法\n<|id|>1796<|type|>title<|page|>107<|box|>813 406 830 624<|content|>4.13 高压喷射注浆法\n<|id|>1804<|type|>table<|page|>108<|box|>387 90 550 881<|content|>None\n<|id|>1826<|type|>title<|page|>110<|box|>362 396 381 571<|content|>4.14 其他方法\n<|id|>1833<|type|>title<|page|>111<|box|>160 399 188 643<|content|>5 基础工程\n<|id|>1834<|type|>title<|page|>111<|box|>222 439 239 605<|content|>5.1 一般规定\n<|id|>1837<|type|>title<|page|>111<|box|>358 439 378 605<|content|>5.2 桩 基 础\n<|id|>1841<|type|>title<|page|>111<|box|>565 439 583 605<|content|>5.3 箱筒型基础\n<|id|>1845<|type|>image<|page|>111<|box|>726 190 887 857<|content|>None\n<|id|>1847<|type|>title<|page|>112<|box|>128 385 148 595<|content|>5.4 重力式结构基础\n<|id|>1851<|type|>table<|page|>112<|box|>364 94 503 883<|content|>None\n<|id|>1856<|type|>title<|page|>112<|box|>792 404 811 572<|content|>5.5 其他基础\n<|id|>1859<|type|>image<|page|>113<|box|>97 130 439 915<|content|>None\n<|id|>1860<|type|>image<|page|>113<|box|>493 157 633 874<|content|>None\n<|id|>1866<|type|>title<|page|>114<|box|>159 370 186 615<|content|>6 基坑工程\n<|id|>1867<|type|>title<|page|>114<|box|>220 409 239 579<|content|>6.1 一般规定\n<|id|>1870<|type|>title<|page|>114<|box|>380 420 398 567<|content|>6.2 锚杆\n<|id|>1875<|type|>title<|page|>114<|box|>631 409 650 576<|content|>6.3 基坑支护\n<|id|>1895<|type|>title<|page|>116<|box|>220 413 239 579<|content|>6.4 基坑降水\n<|id|>1921<|type|>title<|page|>118<|box|>83 408 102 576<|content|>6.5 基坑开挖\n<|id|>1926<|type|>title<|page|>118<|box|>381 408 398 574<|content|>6.6 施工监控",
+    "raw_response": "<|src_id|>1804<|tgt_id|>1796\n<|src_id|>1845<|tgt_id|>1841\n<|src_id|>1851<|tgt_id|>1847\n<|src_id|>1859<|tgt_id|>1856\n<|src_id|>1860<|tgt_id|>1856",
+    "parsed": [
+        {
+            "src_id": 1804,
+            "tgt_id": 1796
+        },
+        {
+            "src_id": 1845,
+            "tgt_id": 1841
+        },
+        {
+            "src_id": 1851,
+            "tgt_id": 1847
+        },
+        {
+            "src_id": 1859,
+            "tgt_id": 1856
+        },
+        {
+            "src_id": 1860,
+            "tgt_id": 1856
+        }
+    ]
+}

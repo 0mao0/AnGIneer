@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 58,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['A)数据编辑比例尺的几何类型为面;B)编辑比例尺为超比例尺读数提供参考值;C)整个数据值的缺省值是由数据集参数(DSPM)字段的CSCL子字段提供。编辑比例尺不同于部分数据集CSCL提供的值时,编码就应使用元物标M_CSCL(数据编辑比例尺)。元物标M_CSCL(数据编辑比例尺)所覆盖的区域不重叠', 'M_CSCL(数据编辑比例尺)(M)CSCALE(编辑比例尺) = [编辑比例尺](O)INFORM(英文信息) = [英文信息](O)NINFOM(中文信息) = [中文信息](O)NTXTDS(中文正文描述) = [文件名](文件名应符合6.3.5.4款的规定)(O)TXTDSC(正文描述) = [文件名](文件名应符合6.3.5.4款的规定)']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['A)覆盖范围的几何类型为面;B)在内河电子航道图中的所有空间对象都应被一个CATCOV(有效作用范围类)=1(有效作用范围)的面状物标M_COVR(地理覆盖范围)覆盖;无数据的区域应将有效作用范围类(CATCOV)编码为2;C)被M_COVR(CATCOV=1)覆盖的区域应完全被没有互相重叠的地表面特征物标所覆盖,地表面特征物标包括深度范围(DEPARE)、疏浚区(DRGARE)、浮船坞(FLODOC)、趸船(HULKES)、陆域(LNDARE)、浮码头(PONTON)和未测区(UNSARE)', 'M_COVR(地理覆盖范围)(M)CATCOV(有效作用范围类)=[1(有效作用范围),2(无有效作用范围)](C)SORDAT(数据来源日期)=[YYYYMMDD](数据来源日期)(C)SORIND(数据来源表示)=[cc,cc,cccc,c⋯](O)INFORM(英文信息)=[英文信息](O)NINFOM(中文信息)=[中文信息]']]\n",
+    "raw_response": "[0, 0]",
+    "parsed": [
+        0,
+        0
+    ],
+    "table1_idx": 3007,
+    "table2_idx": 3008
+}

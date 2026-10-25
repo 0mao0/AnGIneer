@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 181 147 857<|content|>CALDERWOOD & HARKNESS LLP 600 Lexington Avenue, 30\n<|id|>5<|page|>1<|box|>234 140 252 544<|content|>Attention: Robert Nishimura, Engagement Partner\n<|id|>6<|page|>1<|box|>260 174 295 854<|content|>Re: Request for Comfort Letter — Optiwave Semicond\n<|id|>13<|page|>2<|box|>212 140 229 491<|content|>1. Description of the Offering Memorandum\n<|id|>18<|page|>2<|box|>814 140 832 478<|content|>2. Scope of Comfort Procedures Requested\n<|id|>21<|page|>3<|box|>213 140 229 406<|content|>2.2 Audited Financial Statements\n<|id|>26<|page|>3<|box|>619 140 636 439<|content|>2.3 Unaudited Interim Financial Data\n<|id|>32<|page|>4<|box|>220 140 238 529<|content|>2.4 Specific Financial Data — Tables and Figures\n<|id|>42<|page|>6<|box|>176 140 194 553<|content|>2.5 Negative Assurance on Changes (Change Period)\n<|id|>47<|page|>6<|box|>684 140 702 439<|content|>3. Timing and Delivery Requirements\n<|id|>48<|page|>6<|box|>714 140 732 346<|content|>3.1 Initial Comfort Letter\n<|id|>52<|page|>7<|box|>286 140 303 395<|content|>3.2 Bring-Down Comfort Letter\n<|id|>56<|page|>7<|box|>659 140 675 354<|content|>4. Form of Comfort Letter\n<|id|>60<|page|>8<|box|>204 140 222 501<|content|>5. Access to Information and Working Papers\n<|id|>63<|page|>8<|box|>517 140 534 498<|content|>6. Key Transaction Parameters for Reference\n<|id|>68<|page|>9<|box|>421 140 436 467<|content|>7. Contact Information and Coordination\n<|id|>70<|page|>9<|box|>489 140 507 553<|content|>Calderwood & Harkness LLP (Company's Counsel):\n<|id|>84<|page|>9<|box|>838 143 854 558<|content|>Prescott Whitfield LLP (Initial Purchasers' Counse",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>5<|level|>-1\n<|id|>6<|level|>1\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>21<|level|>3\n<|id|>26<|level|>3\n<|id|>32<|level|>3\n<|id|>42<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>52<|level|>3\n<|id|>56<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>3\n<|id|>84<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        }
+    ]
+}

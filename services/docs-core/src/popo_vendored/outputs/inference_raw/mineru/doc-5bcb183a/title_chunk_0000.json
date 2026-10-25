@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>547 140 564 323<|content|>I. Nature of the Action\n<|id|>19<|page|>2<|box|>518 140 536 321<|content|>II. Procedural History\n<|id|>27<|page|>3<|box|>375 140 391 535<|content|>III. Defendant's Summary of Claims and Defenses\n<|id|>28<|page|>3<|box|>404 140 422 604<|content|>A. Vantor's Claims (as Alleged in the Amended Comp\n<|id|>34<|page|>4<|box|>90 140 106 331<|content|>B. Stonefield's Defenses\n<|id|>45<|page|>6<|box|>90 140 107 470<|content|>IV. Proposed Case Management Schedule\n<|id|>47<|page|>6<|box|>220 142 238 284<|content|>A. Fact discovery\n<|id|>63<|page|>7<|box|>90 140 108 300<|content|>B. Expert discovery\n<|id|>70<|page|>7<|box|>388 142 407 323<|content|>C. Dispositive Motions\n<|id|>71<|page|>7<|box|>412 142 430 495<|content|>Proposed Deadline for Filing: March 1, 2024.\n<|id|>74<|page|>7<|box|>712 140 729 390<|content|>V. Anticipated discovery Issues\n<|id|>76<|page|>7<|box|>787 140 804 395<|content|>A. Scope of Document discovery\n<|id|>83<|page|>8<|box|>388 142 407 290<|content|>B. Privilege Issues\n<|id|>87<|page|>8<|box|>752 140 768 477<|content|>C. Electronically Stored Information (ESI)\n<|id|>97<|page|>9<|box|>523 140 541 439<|content|>VI. Related Matters and Notifications\n<|id|>101<|page|>10<|box|>90 140 107 344<|content|>VII. Settlement and ADR\n<|id|>104<|page|>10<|box|>421 140 438 413<|content|>VIII. Consent to Magistrate Judge\n<|id|>106<|page|>10<|box|>506 140 523 379<|content|>IX. Estimated Length of Trial\n<|id|>108<|page|>10<|box|>628 140 645 514<|content|>X. Other Matters for the Court's Consideration",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>19<|level|>1\n<|id|>27<|level|>1\n<|id|>28<|level|>2\n<|id|>34<|level|>2\n<|id|>45<|level|>1\n<|id|>47<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>71<|level|>-1\n<|id|>74<|level|>1\n<|id|>76<|level|>2\n<|id|>83<|level|>2\n<|id|>87<|level|>2\n<|id|>97<|level|>1\n<|id|>101<|level|>1\n<|id|>104<|level|>1\n<|id|>106<|level|>1\n<|id|>108<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        }
+    ]
+}

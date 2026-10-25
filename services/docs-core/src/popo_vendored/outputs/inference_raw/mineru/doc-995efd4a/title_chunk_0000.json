@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 155 107 841<|content|>WHITMORE & LATHROP, P.C. Certified Public Accounta\n<|id|>4<|page|>1<|box|>193 140 229 854<|content|>DRAFT — FOR REVIEW AND COMMENT BY CALDERWOOD & HAR\n<|id|>6<|page|>1<|box|>291 142 308 251<|content|>I. Addressees\n<|id|>12<|page|>1<|box|>516 140 532 361<|content|>II. Introductory Paragraph\n<|id|>19<|page|>2<|box|>476 140 493 287<|content|>III. Independence\n<|id|>22<|page|>2<|box|>789 140 805 517<|content|>IV. Financial Statements and Auditors' Reports\n<|id|>33<|page|>3<|box|>704 140 722 490<|content|>V. Unaudited Interim Financial Information\n<|id|>37<|page|>4<|box|>359 140 376 818<|content|>VI. Procedures and Findings — Specified Financial\n<|id|>39<|page|>4<|box|>470 142 487 547<|content|>A. Selected Financial Data and Capitalization Tabl\n<|id|>49<|page|>5<|box|>534 142 551 429<|content|>B. Pro Forma Financial Information\n<|id|>61<|page|>6<|box|>531 140 547 689<|content|>C. Statistical and Financial Information in the Of\n<|id|>70<|page|>7<|box|>779 140 795 723<|content|>VII. Agreed-Upon Cut-Off Date and Subsequent Chang\n<|id|>86<|page|>9<|box|>366 140 383 428<|content|>VIII. Limitations and Qualifications\n<|id|>91<|page|>10<|box|>90 140 107 431<|content|>IX. Restrictions on Use and Reliance\n<|id|>95<|page|>10<|box|>446 140 464 532<|content|>X. Subsequent Events and Bring-Down at Closing\n<|id|>102<|page|>12<|box|>89 140 107 254<|content|>XI. Signature\n<|id|>110<|page|>13<|box|>89 140 107 267<|content|>SCHEDULE A\n<|id|>111<|page|>14<|box|>90 142 107 477<|content|>Schedule of Specified Financial Data Items",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>2\n<|id|>12<|level|>2\n<|id|>19<|level|>2\n<|id|>22<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>3\n<|id|>49<|level|>3\n<|id|>61<|level|>3\n<|id|>70<|level|>2\n<|id|>86<|level|>2\n<|id|>91<|level|>2\n<|id|>95<|level|>2\n<|id|>102<|level|>2\n<|id|>110<|level|>2\n<|id|>111<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 3
+        }
+    ]
+}

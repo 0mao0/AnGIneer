@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>501<|page|>45<|box|>125 333 142 663<|content|>[Form to be finalized prior to Final Closing]\n<|id|>504<|page|>45<|box|>566 385 584 612<|content|>DISCLOSURE SCHEDULE\n<|id|>508<|page|>45<|box|>796 142 813 380<|content|>Schedule 4.4 — Capitalization\n<|id|>510<|page|>46<|box|>133 140 151 367<|content|>Schedule 4.5 — Subsidiaries\n<|id|>512<|page|>46<|box|>223 140 239 348<|content|>Schedule 4.8 — Litigation\n<|id|>514<|page|>46<|box|>329 140 347 433<|content|>Schedule 4.9 — Intellectual Property\n<|id|>516<|page|>46<|box|>473 140 489 542<|content|>Schedule 4.10 — Regulatory Compliance / Licenses\n<|id|>518<|page|>46<|box|>598 140 614 423<|content|>Schedule 4.12 — Employee Matters\n<|id|>520<|page|>46<|box|>704 142 722 429<|content|>Schedule 4.14 — Material Contracts\n<|id|>522<|page|>46<|box|>811 142 829 450<|content|>Schedule 4.15 — Existing Indebtedness\n<|id|>524<|page|>47<|box|>89 387 108 609<|content|>[End of Disclosure Schedule]",
+    "raw_response": "<|id|>501<|level|>-1\n<|id|>504<|level|>1\n<|id|>508<|level|>2\n<|id|>510<|level|>2\n<|id|>512<|level|>2\n<|id|>514<|level|>2\n<|id|>516<|level|>2\n<|id|>518<|level|>2\n<|id|>520<|level|>2\n<|id|>522<|level|>2\n<|id|>524<|level|>-1",
+    "parsed": [
+        {
+            "id": 504,
+            "level": 1
+        },
+        {
+            "id": 508,
+            "level": 2
+        },
+        {
+            "id": 510,
+            "level": 2
+        },
+        {
+            "id": 512,
+            "level": 2
+        },
+        {
+            "id": 514,
+            "level": 2
+        },
+        {
+            "id": 516,
+            "level": 2
+        },
+        {
+            "id": 518,
+            "level": 2
+        },
+        {
+            "id": 520,
+            "level": 2
+        },
+        {
+            "id": 522,
+            "level": 2
+        }
+    ]
+}

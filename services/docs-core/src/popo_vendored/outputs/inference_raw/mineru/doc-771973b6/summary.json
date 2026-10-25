@@ -1,0 +1,131 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xgexgqxx\\input\\pdfs\\doc-771973b6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xgexgqxx\\enriched\\doc-771973b6.json",
+    "contd_output": "<|src_id|>69<|tgt_id|>70",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>16<|level|>3\n<|id|>18<|level|>2\n<|id|>20<|level|>3\n<|id|>39<|level|>3\n<|id|>47<|level|>3\n<|id|>66<|level|>3\n<|id|>68<|level|>3\n<|id|>96<|level|>3\n<|id|>106<|level|>3\n<|id|>108<|level|>2\n<|id|>112<|level|>2\n<|id|>115<|level|>2\n<|id|>120<|level|>2\n<|id|>124<|level|>2\n<|id|>132<|level|>2\n<|id|>138<|level|>2",
+    "image_output": "<|src_id|>110<|tgt_id|>108\n<|src_id|>113<|tgt_id|>112\n<|src_id|>114<|tgt_id|>112\n<|src_id|>133<|tgt_id|>132\n<|src_id|>135<|tgt_id|>132",
+    "contd_label": [
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 110,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 132
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 113,
+            "table2_idx": 114,
+            "upper_row_ss": [
+                [
+                    "January 29, 2024",
+                    "Governance Gap Analysis Memorandum delivered to CRH, identifying gaps in existing governance documents and setting forth recommendations"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "February 5, 2024",
+                    "Delaware Law Update Memorandum delivered, analyzing recent DGCL amendments and case law developments"
+                ]
+            ]
+        }
+    ]
+}

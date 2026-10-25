@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 8,
+    "range": [
+        389,
+        395
+    ],
+    "pages": [
+        389,
+        390,
+        391,
+        392,
+        393,
+        395
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1538<|type|>table<|page|>389<|box|>182 165 401 847<|content|>None\n<|id|>1539<|type|>title<|page|>390<|box|>182 172 205 300<|content|>4. 水上拆除混凝土\n<|id|>1542<|type|>table<|page|>390<|box|>244 146 587 829<|content|>None\n<|id|>1543<|type|>title<|page|>391<|box|>157 425 184 595<|content|>三十一、混凝土面凿毛\n<|id|>1546<|type|>table<|page|>391<|box|>229 168 386 850<|content|>None\n<|id|>1547<|type|>title<|page|>392<|box|>172 146 197 182<|content|>续表\n<|id|>1550<|type|>table<|page|>392<|box|>236 149 579 832<|content|>None\n<|id|>1551<|type|>title<|page|>393<|box|>151 163 182 245<|content|>附加说明\n<|id|>1552<|type|>title<|page|>393<|box|>255 212 346 798<|content|>本定额主编单位、参编单位、主要起草人、参加人员、主要审查人、总校人员和管理组人员名单\n<|id|>1581<|type|>title<|page|>395<|box|>691 198 726 385<|content|>主要审查人：姜明宝",
+    "raw_response": "<|src_id|>1542<|tgt_id|>1539\n<|src_id|>1546<|tgt_id|>1543\n<|src_id|>1550<|tgt_id|>1547",
+    "parsed": [
+        {
+            "src_id": 1542,
+            "tgt_id": 1539
+        },
+        {
+            "src_id": 1546,
+            "tgt_id": 1543
+        },
+        {
+            "src_id": 1550,
+            "tgt_id": 1547
+        }
+    ]
+}

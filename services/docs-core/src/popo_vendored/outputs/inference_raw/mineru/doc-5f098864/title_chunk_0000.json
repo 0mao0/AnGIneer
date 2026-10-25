@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>14<|page|>1<|box|>729 142 744 452<|content|>1. CONFIRMATION OF KEY DATES\n<|id|>18<|page|>2<|box|>489 140 506 390<|content|>2. PREMISES DESCRIPTION\n<|id|>20<|page|>2<|box|>724 140 741 472<|content|>3. BASE RENT SCHEDULE SUMMARY\n<|id|>25<|page|>3<|box|>335 140 352 638<|content|>4. TENANT'S PROPORTIONATE SHARE AND BASE YEAR\n<|id|>29<|page|>3<|box|>566 140 584 588<|content|>5. CONFIRMATION OF DELIVERY OF POSSESSION\n<|id|>31<|page|>3<|box|>782 140 800 498<|content|>6. CONDITIONS PRECEDENT SATISFIED\n<|id|>38<|page|>4<|box|>412 142 430 496<|content|>7. REQUEST FOR COUNTERSIGNATURE\n<|id|>44<|page|>4<|box|>806 140 823 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>49<|page|>5<|box|>133 348 151 648<|content|>ACKNOWLEDGED AND AGREED:",
+    "raw_response": "<|id|>14<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>1\n<|id|>25<|level|>1\n<|id|>29<|level|>1\n<|id|>31<|level|>1\n<|id|>38<|level|>1\n<|id|>44<|level|>-1\n<|id|>49<|level|>1",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        }
+    ]
+}

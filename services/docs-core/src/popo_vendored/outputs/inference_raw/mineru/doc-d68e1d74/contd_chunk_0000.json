@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        14
+    ],
+    "pages": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>2<|box|>180 140 234 856<|content|>Northgate Americas, Inc. ... , a corporation organ... 18th Floor, New York, New York 10022 (\"Customer\")\n<|id|>4<|page|>2<|box|>244 140 258 176<|content|>and\n<|id|>5<|page|>2<|box|>268 140 323 857<|content|>Cedarpoint Systems Integration, Inc. ... , a corpo...te 1500, Houston, Texas 77056 (\"Service Provider\")\n<|id|>6<|page|>2<|box|>330 140 367 856<|content|>Customer and Service Provider are each referred to... a \"Party\" and collectively as the \"Parties. ... \"\n<|id|>22<|page|>4<|box|>332 174 369 854<|content|>Pricing Differential = ((Customer Per-Unit Pricing...Lowest Comparable Customer Per-Unit Pricing) × 100\n<|id|>23<|page|>4<|box|>377 140 449 854<|content|>A positive Pricing Differential indicates that Cus... Per-Unit Pricing and that no MFN Violation exists\n<|id|>36<|page|>5<|box|>684 174 757 857<|content|>(d) Entering into side letters, verbal agreements,...vice Provider and such Comparable Customer; ... or\n<|id|>38<|page|>5<|box|>809 140 883 857<|content|>In the event that Service Provider offers a Compar...he methodology set forth in Section 1. ... 4 above\n<|id|>42<|page|>6<|box|>378 174 489 856<|content|>(c) Government and Public-Sector Contracts. ... and\n<|id|>44<|page|>6<|box|>632 140 669 854<|content|>Service Provider shall have the burden of proving ... ... 3 in connection with any MFN audit or dispute\n<|id|>48<|page|>6<|box|>845 140 900 854<|content|>A Pricing Differential of three percent (3%) or le...h Pricing Differential. ... The three percent (3%)\n<|id|>49<|page|>7<|box|>89 140 143 854<|content|>threshold is intended to account for minor variati... in de minimis pricing differences among customers\n<|id|>53<|page|>7<|box|>361 174 398 854<|content|>(a) the aggregate Managed Network Services fees ac...er during the applicable Benchmark Period; ... and\n<|id|>55<|page|>7<|box|>468 140 541 856<|content|>For purposes of illustration, if the lowest Compar... retroactive credit would be calculated as follows\n<|id|>56<|page|>7<|box|>547 181 584 854<|content|>• Customer's actual aggregate fees for the Benchma... ... 24 (rounded to $10,500,000 per the Agreement)\n<|id|>59<|page|>7<|box|>643 140 789 856<|content|>All retroactive credits due under this Section 3. ...ior to the application of the credit to an invoice\n<|id|>57<|page|>7<|box|>585 181 621 854<|content|>• Fees that would have been payable at lowest Comparable Customer pricing: ... 00\n<|id|>58<|page|>7<|box|>625 183 640 718<|content|>• Retroactive credit due: ... 00\n<|id|>72<|page|>8<|box|>869 174 906 854<|content|>(e) Service Provider's proposed timeline for issui...rice adjustment required under Sections 3. ... and\n<|id|>74<|page|>9<|box|>133 140 226 854<|content|>Failure by Service Provider to provide the notific...ice Provider's compliance with its MFN obligations\n<|id|>86<|page|>10<|box|>314 174 387 856<|content|>(d) a schedule prepared by Service Provider settin...th the methodology set forth in Section 1. ... and\n<|id|>88<|page|>10<|box|>476 140 549 856<|content|>The auditor shall conduct the audit at Service Pro...nimize disruption to Service Provider's operations\n<|id|>92<|page|>10<|box|>671 174 707 854<|content|>(iii) if an MFN Violation has occurred, the amount..., calculated in accordance with Section 3. ... and\n<|id|>94<|page|>10<|box|>741 140 795 854<|content|>The auditor's report shall comply with the confide...s applicable to any individual Comparable Customer\n<|id|>111<|page|>12<|box|>838 140 893 854<|content|>The independent expert shall be an individual with...ent or recent (within the preceding two (2) years)\n<|id|>112<|page|>13<|box|>90 140 181 854<|content|>engagement with either Party. ... If the Parties a...e AAA's procedures for the appointment of neutrals\n<|id|>117<|page|>13<|box|>421 174 457 854<|content|>(c) the amount of any retroactive credit due to Cu..., calculated in accordance with Section 3. ... and\n<|id|>119<|page|>13<|box|>527 140 619 856<|content|>The independent expert's determination shall be fi...l Arbitration Act or any state arbitration statute\n<|id|>123<|page|>13<|box|>869 140 905 854<|content|>The MFN pricing provisions set forth in this Sched...s set forth in Exhibit C (Pricing Schedule and Fee\n<|id|>124<|page|>14<|box|>90 140 162 854<|content|>Structure) to the Agreement, except to the extent ...end Exhibit C for all purposes under the Agreement",
+    "raw_response": "<|src_id|>48<|tgt_id|>49\n<|src_id|>111<|tgt_id|>112\n<|src_id|>123<|tgt_id|>124",
+    "parsed": [
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 124
+        }
+    ]
+}

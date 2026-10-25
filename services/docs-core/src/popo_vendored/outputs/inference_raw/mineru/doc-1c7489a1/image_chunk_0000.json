@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>8<|type|>title<|page|>1<|box|>386 142 402 367<|content|>1. Introduction and Purpose\n<|id|>11<|type|>title<|page|>1<|box|>680 140 696 504<|content|>2. Transmittal of Executed Escrow Agreement\n<|id|>14<|type|>title<|page|>2<|box|>167 140 185 457<|content|>3. Escrow Deposit Amount and Funding\n<|id|>18<|type|>title<|page|>2<|box|>561 140 579 527<|content|>4. Wire Transfer Instructions for Escrow Deposit\n<|id|>20<|type|>table<|page|>2<|box|>647 143 805 852<|content|>None\n<|id|>25<|type|>title<|page|>4<|box|>90 140 107 361<|content|>5. Escrow Release Schedule\n<|id|>30<|type|>title<|page|>4<|box|>619 140 636 405<|content|>6. Investment of Escrowed Funds\n<|id|>34<|type|>title<|page|>5<|box|>148 140 167 408<|content|>7. Claim Procedures — Overview\n<|id|>38<|type|>title<|page|>5<|box|>506 140 523 313<|content|>8. Escrow Agent Fees\n<|id|>40<|type|>title<|page|>5<|box|>700 140 718 362<|content|>9. Key Contact Information\n<|id|>42<|type|>title<|page|>5<|box|>771 140 789 477<|content|>For Seller (Genome Dx Therapeutics Inc.):\n<|id|>60<|type|>title<|page|>6<|box|>561 142 577 354<|content|>10. Confirmation Requests\n<|id|>68<|type|>title<|page|>7<|box|>90 142 107 235<|content|>11. Closing\n<|id|>73<|type|>title<|page|>7<|box|>347 140 364 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>20<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        }
+    ]
+}

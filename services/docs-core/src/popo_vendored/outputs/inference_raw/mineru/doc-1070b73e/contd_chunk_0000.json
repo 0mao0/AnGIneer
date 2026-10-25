@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>151 140 169 838<|content|>TO: ... Marcus Delgado, Responsible Partner, intellectual Property, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>176 140 214 854<|content|>FROM: ... Peter Vassiliev, Working Associate, intellectual Property\n<|id|>4<|page|>1<|box|>220 140 238 303<|content|>DATE: ... June 8, 2025\n<|id|>5<|page|>1<|box|>247 140 282 856<|content|>RE: ... )\n<|id|>6<|page|>1<|box|>290 140 308 361<|content|>MATTER NO. ... 0017\n<|id|>7<|page|>1<|box|>316 140 335 663<|content|>CLIENT: ... / Solstice Biomedical, Inc\n<|id|>62<|page|>7<|box|>791 140 902 857<|content|>Royalty Floor ($500,000 per Calendar Year, Beginni... ... Solstice remains free to manufacture and sell\n<|id|>63<|page|>8<|box|>90 140 200 857<|content|>Licensed Products at any volume. ... Minimum royal...eives adequate consideration for the license grant\n<|id|>152<|page|>18<|box|>881 142 898 318<|content|>Respectfully submitted,\n<|id|>153<|page|>19<|box|>89 140 106 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>154<|page|>19<|box|>108 142 125 253<|content|>By: ... By\n<|id|>155<|page|>19<|box|>125 140 142 519<|content|>Christy Bauer Lead Associate, intellectual Property\n<|id|>156<|page|>19<|box|>143 143 159 253<|content|>By: ... By\n<|id|>157<|page|>19<|box|>159 142 176 557<|content|>Peter Vassiliev Working Associate, intellectual Property\n<|id|>158<|page|>19<|box|>176 140 212 852<|content|>cc: ... Catherine Bloom, Billing Partner, Calderwo..., General Counsel, Solstice Biomedical Devices Ltd",
+    "raw_response": "<|src_id|>62<|tgt_id|>63",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        }
+    ]
+}

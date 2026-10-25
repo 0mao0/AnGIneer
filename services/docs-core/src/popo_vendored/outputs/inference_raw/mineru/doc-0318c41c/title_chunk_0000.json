@@ -1,0 +1,153 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|page|>1<|box|>282 143 297 174<|content|>Re:\n<|id|>9<|page|>1<|box|>449 142 465 514<|content|>I. Introduction and Purpose of Correspondence\n<|id|>15<|page|>2<|box|>212 140 229 464<|content|>II. Notice of Litigation — Covered Claim\n<|id|>16<|page|>2<|box|>244 142 258 349<|content|>A. Overview of the Action\n<|id|>28<|page|>3<|box|>207 140 224 522<|content|>2. U.S. Patent No. 11,204,893 (\"the '893 Patent\")\n<|id|>35<|page|>3<|box|>430 140 448 521<|content|>3. U.S. Patent No. 11,891,647 (\"the '647 Patent\")\n<|id|>46<|page|>4<|box|>294 140 311 532<|content|>D. Accused Product and Infringement Allegations\n<|id|>54<|page|>5<|box|>138 140 157 686<|content|>E. GenomeDx's Damages Theories (Summary for Covera\n<|id|>59<|page|>5<|box|>556 142 573 480<|content|>III. Procedural History and Current Status\n<|id|>60<|page|>5<|box|>588 142 604 361<|content|>A. Chronological Summary\n<|id|>64<|page|>6<|box|>656 142 672 297<|content|>B. Current Posture\n<|id|>70<|page|>7<|box|>319 142 337 334<|content|>C. Upcoming Key Dates\n<|id|>74<|page|>7<|box|>609 142 627 537<|content|>IV. Identification of Counsel and Billing Personne\n<|id|>80<|page|>8<|box|>551 140 569 517<|content|>V. Summary of Fees and Costs Incurred to Date\n<|id|>81<|page|>8<|box|>582 140 599 509<|content|>A. Legal Fees — Calderwood & Harkness LLP\n<|id|>87<|page|>9<|box|>470 140 488 602<|content|>B. E-discovery Costs — Canfield Document Solutions\n<|id|>97<|page|>10<|box|>157 140 174 264<|content|>C. Other Costs\n<|id|>106<|page|>10<|box|>489 140 507 393<|content|>D. Total Costs Incurred to Date\n<|id|>109<|page|>10<|box|>794 140 811 415<|content|>VI. Projected Costs Through Trial\n<|id|>119<|page|>12<|box|>90 142 107 501<|content|>VII. Coverage Analysis and Deductible Status\n<|id|>120<|page|>12<|box|>121 142 138 352<|content|>A. Policy Terms Summary\n<|id|>123<|page|>12<|box|>402 142 419 305<|content|>B. Deductible Status\n<|id|>127<|page|>12<|box|>674 140 691 408<|content|>C. Projected Coverage Utilization\n<|id|>129<|page|>12<|box|>758 142 776 480<|content|>Low-End Scenario (Total Cost: $6,800,000)\n<|id|>136<|page|>13<|box|>89 140 107 485<|content|>High-End Scenario (Total Cost: $9,200,000)\n<|id|>145<|page|>13<|box|>410 140 428 553<|content|>VIII. Policy Period Expiration and Renewal Request\n<|id|>153<|page|>14<|box|>223 140 239 349<|content|>IX. Reporting Obligations\n<|id|>164<|page|>14<|box|>785 140 801 377<|content|>X. Requests for Confirmation\n<|id|>174<|page|>15<|box|>542 142 559 263<|content|>XI. Enclosures\n<|id|>182<|page|>16<|box|>89 140 107 243<|content|>XII. Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>9<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>28<|level|>3\n<|id|>35<|level|>3\n<|id|>46<|level|>2\n<|id|>54<|level|>2\n<|id|>59<|level|>1\n<|id|>60<|level|>2\n<|id|>64<|level|>2\n<|id|>70<|level|>2\n<|id|>74<|level|>1\n<|id|>80<|level|>1\n<|id|>81<|level|>2\n<|id|>87<|level|>2\n<|id|>97<|level|>2\n<|id|>106<|level|>2\n<|id|>109<|level|>1\n<|id|>119<|level|>1\n<|id|>120<|level|>2\n<|id|>123<|level|>2\n<|id|>127<|level|>2\n<|id|>129<|level|>3\n<|id|>136<|level|>3\n<|id|>145<|level|>1\n<|id|>153<|level|>1\n<|id|>164<|level|>1\n<|id|>174<|level|>1\n<|id|>182<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 164,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 182,
+            "level": 1
+        }
+    ]
+}

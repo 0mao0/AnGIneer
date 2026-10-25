@@ -1,0 +1,54 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 187 122 807<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>1<|page|>1<|box|>125 143 141 395<|content|>BELMONT RIDGE BANK NA,\n<|id|>4<|page|>1<|box|>202 140 236 852<|content|>TRITON HARBOR INDUSTRIES, LLC, MARCUS J. KAPPEL, a\n<|id|>6<|page|>1<|box|>272 493 289 854<|content|>Index No. 654871/2024 Hon. Althea Marchetti\n<|id|>7<|page|>1<|box|>297 163 333 833<|content|>NOTICE OF SUBSTITUTION OF COUNSEL FOR PLAINTIFF/CO\n<|id|>11<|page|>1<|box|>691 142 709 653<|content|>I. IDENTIFICATION OF NEW COUNSEL (INCOMING FIRM)\n<|id|>23<|page|>2<|box|>306 142 323 679<|content|>II. IDENTIFICATION OF PRIOR COUNSEL (OUTGOING FIRM\n<|id|>29<|page|>2<|box|>513 142 530 369<|content|>III. CONSENT OF CLIENT\n<|id|>36<|page|>2<|box|>746 142 763 447<|content|>IV. CONSENT OF PRIOR COUNSEL\n<|id|>40<|page|>3<|box|>133 140 150 393<|content|>BLAKEMORE & STERN LLP\n<|id|>46<|page|>4<|box|>89 140 106 446<|content|>V. SIGNATURE OF NEW COUNSEL",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>6<|level|>-1\n<|id|>7<|level|>1\n<|id|>11<|level|>2\n<|id|>23<|level|>2\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>40<|level|>-1\n<|id|>46<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        }
+    ]
+}

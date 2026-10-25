@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 165 142 831<|content|>CERTIFICATION OF NON-FOREIGN STATUS PURSUANT TO SE\n<|id|>4<|page|>1<|box|>398 140 416 290<|content|>Section 1. Recitals\n<|id|>8<|page|>2<|box|>90 140 107 334<|content|>Section 2. Certifications\n<|id|>9<|page|>2<|box|>121 140 138 346<|content|>2.1 Identity of Transferor\n<|id|>15<|page|>2<|box|>334 140 351 535<|content|>2.2 United States Taxpayer Identification Number\n<|id|>17<|page|>2<|box|>406 140 424 385<|content|>2.3 Non-Foreign Person Status\n<|id|>19<|page|>2<|box|>534 140 551 397<|content|>2.4 Domestic Partnership Status\n<|id|>22<|page|>2<|box|>760 140 777 426<|content|>2.5 Disregarded Entity Clarification\n<|id|>24<|page|>3<|box|>90 142 107 506<|content|>Section 3. Description of Transferred Interests\n<|id|>27<|page|>3<|box|>679 140 695 500<|content|>Section 4. Acknowledgments and Agreements\n<|id|>28<|page|>3<|box|>709 140 727 318<|content|>4.1 Penalty of Perjury\n<|id|>30<|page|>4<|box|>90 140 107 318<|content|>4.2 Reliance by Buyer\n<|id|>32<|page|>4<|box|>273 140 290 287<|content|>4.3 Duty to Notify\n<|id|>35<|page|>4<|box|>661 140 678 292<|content|>Section 5. Delivery\n<|id|>38<|page|>4<|box|>827 140 844 349<|content|>Section 6. Governing Law\n<|id|>41<|page|>6<|box|>90 142 108 225<|content|>Signature\n<|id|>42<|page|>6<|box|>114 142 132 225<|content|>SELLER:\n<|id|>49<|page|>6<|box|>301 142 319 341<|content|>Notary Acknowledgment\n<|id|>50<|page|>6<|box|>325 140 344 330<|content|>STATE OF GEORGIA\n<|id|>51<|page|>6<|box|>352 142 369 336<|content|>COUNTY OF FULTON",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>15<|level|>3\n<|id|>17<|level|>3\n<|id|>19<|level|>3\n<|id|>22<|level|>3\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>3\n<|id|>35<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>51<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        }
+    ]
+}

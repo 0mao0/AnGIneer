@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>183 155 219 841<|content|>Cascadia State Infrastructure Authority Water Trea...empt) Aggregate Principal Amount: ... $220,000,000\n<|id|>2<|page|>1<|box|>227 722 244 854<|content|>October 24, 2023\n<|id|>3<|page|>1<|box|>252 140 282 854<|content|>Prepared by Calderwood & Harkness LLP, Issuer's Co...00 Seattle, WA 98101 C&H Matter No. ... 1030-00001\n<|id|>12<|page|>2<|box|>233 174 343 854<|content|>(e) CSIA Board Resolution No. ... and\n<|id|>14<|page|>2<|box|>414 140 487 856<|content|>Capitalized terms used but not otherwise defined i... First Supplemental Indenture, as context requires\n<|id|>28<|page|>3<|box|>869 140 906 854<|content|>The undersigned hereby certifies the following wit...e and the Revenue Pledge Agreement, based upon the\n<|id|>29<|page|>4<|box|>89 140 126 852<|content|>FY 2022 Audited Financial Statements and the pro f...y Debt Service inclusive of the Series 2023A Bonds\n<|id|>53<|page|>5<|box|>845 174 901 854<|content|>(a) Net Pledged Revenues for the most recently com...ual to one hundred forty percent (140%) of Maximum\n<|id|>54<|page|>6<|box|>90 176 127 854<|content|>Annual Parity Debt Service, calculated to include ...s and the proposed additional parity bonds; ... or\n<|id|>56<|page|>6<|box|>252 140 268 825<|content|>The foregoing requirements are collectively referred to herein as the \"Additional Bonds Test. ... \"\n<|id|>80<|page|>8<|box|>816 174 907 856<|content|>2. ... The FY 2022 Audited Financial Statements of...andards generally accepted in the United States of\n<|id|>81<|page|>9<|box|>90 210 162 854<|content|>America and the standards applicable to financial ... June 30, 2022, and for the fiscal year then ended\n<|id|>97<|page|>10<|box|>500 142 515 344<|content|>Name: ... Whitford\n<|id|>98<|page|>10<|box|>517 143 532 359<|content|>Title: ... Chief Financial Officer\n<|id|>99<|page|>10<|box|>534 143 549 318<|content|>Date: ... October 24, 2023\n<|id|>100<|page|>10<|box|>551 143 566 212<|content|>Address: ... Address",
+    "raw_response": "<|src_id|>28<|tgt_id|>29\n<|src_id|>53<|tgt_id|>54\n<|src_id|>80<|tgt_id|>81",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        }
+    ]
+}

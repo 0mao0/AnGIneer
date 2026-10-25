@@ -1,0 +1,139 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2m3hynej\\input\\pdfs\\doc-3ec123a9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2m3hynej\\enriched\\doc-3ec123a9.json",
+    "contd_output": "<|src_id|>52<|tgt_id|>53\n<|src_id|>111<|tgt_id|>112",
+    "title_output": "<|id|>0<|level|>1\n<|id|>10<|level|>1\n<|id|>19<|level|>1\n<|id|>36<|level|>1\n<|id|>45<|level|>1\n<|id|>58<|level|>1\n<|id|>67<|level|>1\n<|id|>68<|level|>2\n<|id|>75<|level|>2\n<|id|>128<|level|>2\n<|id|>132<|level|>2\n<|id|>141<|level|>1\n<|id|>143<|level|>2\n<|id|>146<|level|>2\n<|id|>149<|level|>2\n<|id|>152<|level|>1\n<|id|>169<|level|>1\n<|id|>170<|level|>2\n<|id|>186<|level|>1\n<|id|>187<|level|>2\n<|id|>191<|level|>3\n<|id|>195<|level|>1\n<|id|>196<|level|>2",
+    "image_output": "<|src_id|>189<|tgt_id|>187\n<|src_id|>190<|tgt_id|>187",
+    "contd_label": [
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 169,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 1
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 191,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 1
+        },
+        {
+            "id": 196,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 189,
+            "tgt_id": 187
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 187
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 189,
+            "table2_idx": 190,
+            "upper_row_ss": [
+                [
+                    "Type of Collateral",
+                    "Accounts; Payment Intangibles; General Intangibles;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Proceeds"
+                ]
+            ]
+        }
+    ]
+}

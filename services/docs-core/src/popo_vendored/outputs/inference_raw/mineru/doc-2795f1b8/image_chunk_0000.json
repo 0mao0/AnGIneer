@@ -1,0 +1,54 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        22,
+        23
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>10<|type|>title<|page|>1<|box|>382 372 402 625<|content|>I. Purpose and Summary\n<|id|>28<|type|>title<|page|>2<|box|>599 419 619 576<|content|>II. Background\n<|id|>29<|type|>title<|page|>2<|box|>643 140 661 379<|content|>A. AHT Ownership Structure\n<|id|>36<|type|>title<|page|>3<|box|>710 140 728 516<|content|>B. Proposed Executive Compensation Overview\n<|id|>51<|type|>title<|page|>4<|box|>731 140 748 413<|content|>C. Existing Precedent Agreements\n<|id|>55<|type|>title<|page|>5<|box|>289 307 309 689<|content|>III. Definition of \"Change in Control\"\n<|id|>57<|type|>title<|page|>5<|box|>478 142 494 434<|content|>A. Standard Definitional Framework\n<|id|>67<|type|>title<|page|>6<|box|>691 140 709 498<|content|>B. The Ridgeline Capital Partners Carve-Out\n<|id|>77<|type|>title<|page|>7<|box|>780 140 797 496<|content|>C. Treatment of Helix Ventures Fund III, LP\n<|id|>82<|type|>title<|page|>8<|box|>421 140 438 428<|content|>D. Definition Variations to Consider\n<|id|>87<|type|>title<|page|>9<|box|>90 245 111 751<|content|>IV. Single-Trigger vs. Double-Trigger Acceleration\n<|id|>88<|type|>title<|page|>9<|box|>137 140 154 362<|content|>A. Overview of Approaches\n<|id|>96<|type|>title<|page|>10<|box|>414 140 431 514<|content|>B. Recommendation: Double-Trigger Structure\n<|id|>102<|type|>title<|page|>11<|box|>250 140 266 361<|content|>C. Double-Trigger Window\n<|id|>109<|type|>title<|page|>11<|box|>848 140 864 517<|content|>D. Definition of \"Good Reason\" in CIC Context\n<|id|>129<|type|>title<|page|>13<|box|>679 161 699 834<|content|>V. CIC Severance Multiples — Market Data and Recom\n<|id|>130<|type|>title<|page|>13<|box|>724 140 741 349<|content|>A. Market Data Overview\n<|id|>132<|type|>table<|page|>14<|box|>133 143 291 852<|content|>None\n<|id|>134<|type|>table<|page|>14<|box|>392 143 484 852<|content|>None\n<|id|>135<|type|>table<|page|>14<|box|>541 143 633 852<|content|>None\n<|id|>137<|type|>title<|page|>14<|box|>744 142 762 473<|content|>B. Recommended CIC Severance Package\n<|id|>146<|type|>table<|page|>15<|box|>354 143 448 852<|content|>None\n<|id|>151<|type|>title<|page|>15<|box|>820 140 838 444<|content|>C. Comparison to Non-CIC Severance\n<|id|>153<|type|>table<|page|>16<|box|>133 143 275 852<|content|>None\n<|id|>156<|type|>title<|page|>16<|box|>503 142 522 307<|content|>D. Form of Payment\n<|id|>165<|type|>title<|page|>17<|box|>440 192 484 803<|content|>VI. Interaction with Ridgeline Capital Partners St\n<|id|>166<|type|>title<|page|>17<|box|>508 142 526 348<|content|>A. Drag-Along Provisions\n<|id|>178<|type|>title<|page|>19<|box|>90 140 107 480<|content|>B. Consent Rights and Approval Authority\n<|id|>184<|type|>title<|page|>19<|box|>681 140 699 370<|content|>C. Equity Plan Coordination\n<|id|>190<|type|>title<|page|>20<|box|>469 261 489 736<|content|>VII. Section 280G Considerations (Preliminary)\n<|id|>209<|type|>title<|page|>22<|box|>339 331 359 663<|content|>VIII. Open Issues and Next Steps\n<|id|>226<|type|>title<|page|>23<|box|>751 421 771 575<|content|>IX. Conclusion",
+    "raw_response": "<|src_id|>132<|tgt_id|>130\n<|src_id|>134<|tgt_id|>130\n<|src_id|>135<|tgt_id|>130\n<|src_id|>146<|tgt_id|>137\n<|src_id|>153<|tgt_id|>151",
+    "parsed": [
+        {
+            "src_id": 132,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 151
+        }
+    ]
+}

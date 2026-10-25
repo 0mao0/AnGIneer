@@ -1,0 +1,43 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        12,
+        16,
+        19,
+        20,
+        21,
+        23,
+        24,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>1<|box|>314 176 330 750<|content|>Grace Nakamura, Senior Associate, Real Estate, Calderwood & Harkness LLP\n<|id|>7<|page|>1<|box|>339 142 357 300<|content|>DATE: ... June 1, 2025\n<|id|>8<|page|>1<|box|>364 140 419 854<|content|>RE: ... 1031- 00004)\n<|id|>9<|page|>1<|box|>428 142 444 181<|content|>CC: ... CC\n<|id|>10<|page|>1<|box|>454 174 525 854<|content|>Douglas Fairchild, Partner, Real Estate, Calderwoo... Hartwell, Partner, Tax, Calderwood & Harkness LLP\n<|id|>11<|page|>1<|box|>534 143 551 408<|content|>Right-click to update Table of Contents\n<|id|>15<|page|>1<|box|>872 174 907 854<|content|>(b) Mezzanine Loan. ... A mezzanine loan in the or...ezzanine Loan\") to be made by Granite Peak Capital\n<|id|>16<|page|>2<|box|>89 174 181 856<|content|>Partners, LP (\"Granite Peak\"), to Hudson Yards Wes...ndred Seventy- Five Million Dollars ($675,000,000)\n<|id|>20<|page|>2<|box|>468 174 523 854<|content|>(ii) Mezzanine Loan Agreement, dated as of the Clo...s Lender (the \"Mezzanine Loan Agreement\"); ... and\n<|id|>22<|page|>2<|box|>593 140 777 856<|content|>The respective lenders' counsel have prepared and ...t A hereto and is being updated on a rolling basis\n<|id|>36<|page|>4<|box|>827 174 901 856<|content|>(a) The Mortgage Borrower shall at all times maint...ot, and has not been within the preceding five (5)\n<|id|>37<|page|>5<|box|>90 174 164 854<|content|>years, (i) a member, partner, shareholder, directo...rvices, and the engagement letter is in final form\n<|id|>62<|page|>8<|box|>241 174 296 854<|content|>(h) Mezzanine financing endorsement — confirming t...alidity of the insured leasehold mortgage; ... and\n<|id|>64<|page|>8<|box|>348 140 402 854<|content|>Sentinel Title has confirmed that all of the foreg...d above and the payment of all applicable premiums\n<|id|>88<|page|>12<|box|>252 174 268 619<|content|>(a) Senior LTV: ... 34%\n<|id|>90<|page|>12<|box|>304 140 414 856<|content|>Both the Senior LTV and the Combined LTV are withi...Project's achieving the projected stabilized value\n<|id|>89<|page|>12<|box|>277 176 295 818<|content|>(b) Combined LTV (Senior + Mezzanine): ... 85%\n<|id|>124<|page|>16<|box|>436 174 473 854<|content|>(g) Debt Service Reserve Account — for the mainten...months of estimated debt service payments; ... and\n<|id|>126<|page|>16<|box|>561 140 633 854<|content|>C&H is coordinating with Ironclad's account servic... secured party) for each of the foregoing accounts\n<|id|>152<|page|>19<|box|>779 138 907 857<|content|>2. ... Ironclad may require a subordination agreement or standstill agreement from the\n<|id|>153<|page|>20<|box|>90 138 181 854<|content|>NYCTA, confirming that the NYCTA's rights under th... NYCTA counsel to obtain the required deliverables\n<|id|>170<|page|>21<|box|>440 174 566 856<|content|>(xiv) Subordination, Non-Disturbance, and Attornme...ment of tenants to any successor landlord. ... and\n<|id|>172<|page|>21<|box|>674 140 747 856<|content|>All of the foregoing documents must be executed by...tion with Clearfield (Whitmore) and VRB (Ivanovic)\n<|id|>192<|page|>23<|box|>799 174 833 854<|content|>(h) Bankruptcy provisions, including waivers of certain rights in bankruptcy proceedings; ... and\n<|id|>194<|page|>23<|box|>868 140 904 856<|content|>The Intercreditor Agreement has been heavily negot...the intercreditor terms), Clearfield (on behalf of\n<|id|>195<|page|>24<|box|>90 140 126 854<|content|>Ironclad), and VRB (on behalf of Granite Peak). ... However, two key issues remain unresolved\n<|id|>217<|page|>26<|box|>234 174 268 854<|content|>(viii) Deposit Account Control Agreements — for an...lished under the Mezzanine Loan Agreement; ... and\n<|id|>219<|page|>26<|box|>304 140 339 852<|content|>All of the foregoing documents must be executed by...signatories of each party and delivered at closing",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>36<|tgt_id|>37\n<|src_id|>152<|tgt_id|>153\n<|src_id|>194<|tgt_id|>195",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 195
+        }
+    ]
+}

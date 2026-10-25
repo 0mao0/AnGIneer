@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        10,
+        11,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 297 133 700<|content|>1200 K Street NW, Suite 900 Washington, D. ... 20005\n<|id|>2<|page|>1<|box|>141 181 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 733 184 854<|content|>March 29, 2024\n<|id|>4<|page|>1<|box|>191 140 224 854<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN...ION WITHOUT PRIOR AUTHORIZATION OF OUTSIDE COUNSEL\n<|id|>5<|page|>1<|box|>231 140 267 854<|content|>Mr. ... James Whitford Group General Counsel North...LC 14 Broadwall Lane London SE1 9PQ United Kingdom\n<|id|>6<|page|>1<|box|>275 176 292 263<|content|>Copies to: ... Copies to\n<|id|>7<|page|>1<|box|>301 174 337 854<|content|>Catherine Ng, U. ... 8200 Dulles Corner Boulevard, Suite 1100 Tysons Corner, VA 22182\n<|id|>8<|page|>1<|box|>345 174 381 854<|content|>Diane Okoro, U. ... 8200 Dulles Corner Boulevard, Suite 1100 Tysons Corner, VA 22182\n<|id|>9<|page|>1<|box|>388 174 426 854<|content|>Patrick Salazar, Chief Regulatory Officer Northgat...LC 14 Broadwall Lane London SE1 9PQ United Kingdom\n<|id|>10<|page|>1<|box|>434 140 488 854<|content|>Re: ... WC-23-0042\n<|id|>11<|page|>1<|box|>494 140 513 542<|content|>Engagement Reference No. ... C&H-2022-ATR-00419\n<|id|>12<|page|>1<|box|>522 140 556 854<|content|>From: ... Elaine Forsythe, Responsible Partner, Antitrust & Competition, Calderwood & Harkness LLP\n<|id|>13<|page|>1<|box|>566 142 583 238<|content|>Dear James: ... Dear James\n<|id|>73<|page|>8<|box|>838 174 892 857<|content|>Market Definition and Market Share. ... Under a pr...t-mile enterprise fiber-optic transport services —\n<|id|>74<|page|>9<|box|>90 174 181 856<|content|>Northgate's corrected market share is estimated at...power necessary to sustain a monopolization theory\n<|id|>93<|page|>10<|box|>854 140 892 854<|content|>Northgate tendered the Ridgepoint claims to Claren...ors & Officers / Entity Liability Policy (the \"D&O\n<|id|>94<|page|>11<|box|>90 140 126 854<|content|>Policy\"). ... The D&O Policy provides a primary pe...ct to a $10 million self-insured retention (\"SIR\")\n<|id|>152<|page|>17<|box|>125 142 141 504<|content|>Elaine Forsythe Partner, Antitrust & Competition\n<|id|>153<|page|>17<|box|>141 142 174 854<|content|>1200 K Street NW, Suite 900 Washington, D. ... (202) 555-7438\n<|id|>154<|page|>17<|box|>175 142 191 468<|content|>Email: ... com\n<|id|>155<|page|>17<|box|>191 140 247 854<|content|>Enclosures: ... Referenced documents — including N...request from the Calderwood & Harkness matter file",
+    "raw_response": "<|src_id|>73<|tgt_id|>74\n<|src_id|>93<|tgt_id|>94",
+    "parsed": [
+        {
+            "src_id": 73,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 94
+        }
+    ]
+}

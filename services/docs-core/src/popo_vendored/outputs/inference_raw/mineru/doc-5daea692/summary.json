@@ -1,0 +1,175 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-e1bpnr1u\\input\\pdfs\\doc-5daea692.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-e1bpnr1u\\enriched\\doc-5daea692.json",
+    "contd_output": "<|src_id|>111<|tgt_id|>112",
+    "title_output": "<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>21<|level|>3\n<|id|>29<|level|>3\n<|id|>35<|level|>3\n<|id|>40<|level|>3\n<|id|>46<|level|>2\n<|id|>47<|level|>3\n<|id|>50<|level|>3\n<|id|>55<|level|>3\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>66<|level|>3\n<|id|>70<|level|>3\n<|id|>75<|level|>3\n<|id|>88<|level|>3\n<|id|>97<|level|>3\n<|id|>104<|level|>3\n<|id|>108<|level|>2\n<|id|>117<|level|>2\n<|id|>119<|level|>3\n<|id|>124<|level|>3\n<|id|>129<|level|>3\n<|id|>136<|level|>3\n<|id|>150<|level|>3\n<|id|>164<|level|>2\n<|id|>168<|level|>2\n<|id|>172<|level|>2",
+    "image_output": "<|src_id|>0<|tgt_id|>2\n<|src_id|>31<|tgt_id|>29\n<|src_id|>32<|tgt_id|>29\n<|src_id|>51<|tgt_id|>50",
+    "contd_label": [
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 0,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 50
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 31,
+            "table2_idx": 32,
+            "upper_row_ss": [
+                [
+                    "Plant 3 (Baton Rouge)",
+                    "8100 River Road, Baton Rouge, LA 70820",
+                    "Specialty containment vessels",
+                    "310"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Plant 4 (Ravenna)",
+                    "1480 State Route 59, Ravenna, OH 44266",
+                    "Extrusion and secondary processing",
+                    "240"
+                ]
+            ]
+        }
+    ]
+}

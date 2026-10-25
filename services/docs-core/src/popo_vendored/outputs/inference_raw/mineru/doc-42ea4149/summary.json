@@ -1,0 +1,115 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pgqer3yz\\input\\pdfs\\doc-42ea4149.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pgqer3yz\\enriched\\doc-42ea4149.json",
+    "contd_output": "<|src_id|>29<|tgt_id|>30\n<|src_id|>85<|tgt_id|>86",
+    "title_output": "<|id|>1<|level|>1\n<|id|>6<|level|>1\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>21<|level|>3\n<|id|>26<|level|>3\n<|id|>32<|level|>3\n<|id|>42<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>52<|level|>3\n<|id|>56<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>3\n<|id|>84<|level|>3",
+    "image_output": "<|src_id|>65<|tgt_id|>63\n<|src_id|>66<|tgt_id|>63",
+    "contd_label": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 65,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 63
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 65,
+            "table2_idx": 66,
+            "upper_row_ss": [
+                [
+                    "Capped Call Cap Price",
+                    "$110.07 per share (50.0% premium over the Reference Price)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Capped Call Aggregate Cost",
+                    "$28,750,000 (Ridgepoint: $17,250,000; Northvane Financial Products LP: $11,500,000)"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        51
+    ],
+    "pages": [
+        3,
+        6,
+        7,
+        8,
+        15,
+        17,
+        19,
+        20,
+        25,
+        30,
+        31,
+        32,
+        33,
+        34,
+        37,
+        39,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>3<|box|>232 723 304 855<|content|>LIBRARY ROOM 5025 AUG 9 1966\n<|id|>2<|page|>3<|box|>320 680 346 890<|content|>TREASURY DEPARTMENT\n<|id|>4<|page|>6<|box|>152 161 169 373<|content|>OFFICIAL BUSINESS\n<|id|>5<|page|>6<|box|>390 552 589 680<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>7<|page|>7<|box|>170 343 194 620<|content|>OCTOBER 1965\n<|id|>9<|page|>7<|box|>909 77 938 840<|content|>UNITED STATES TREASURY DEPARTMENT\n<|id|>10<|page|>7<|box|>946 298 966 615<|content|>OFFICE OF THE SECRETARY\n<|id|>11<|page|>8<|box|>442 255 521 818<|content|>The Treasury Bulletin is for sale by the Superinte...uments, U. ... 00 foreign Single copy price varies\n<|id|>47<|page|>15<|box|>899 11 912 461<|content|>3/ For current month detail and list of acts, see section on \"Statutory\n<|id|>48<|page|>15<|box|>786 526 899 971<|content|>Debt Limitation\" in each issue of the Bulletin. ... Preliminary\n<|id|>60<|page|>17<|box|>874 16 949 490<|content|>12/ The Federal Disability Insurance Trust Fund wa...1956 (42 U. ... Rates of tax were increased by the\n<|id|>61<|page|>17<|box|>614 536 642 943<|content|>percentages appropriated to the Federal Disability...nd taxable years beginning after December 31, 1956\n<|id|>69<|page|>19<|box|>862 11 948 480<|content|>Note: ... beginning 1958, Federal Facilities Corpo... functions) from \"Treasury Department\" to \"General\n<|id|>70<|page|>19<|box|>944 366 956 605<|content|>Remaining footnotes on following page. ... Remaining footnotes on following page\n<|id|>85<|page|>20<|box|>916 512 941 986<|content|>1. ... Preliminary\n<|id|>86<|page|>20<|box|>936 514 947 771<|content|>Less than \\$500,000. ... p Preliminary\n<|id|>105<|page|>25<|box|>858 6 870 415<|content|>2/ Includes Federal intermediate credit banks. ... See also Table 3,\n<|id|>106<|page|>25<|box|>869 8 879 103<|content|>footnote 7. ... footnote 7\n<|id|>107<|page|>25<|box|>834 496 847 930<|content|>4/ Management and liquidating functions as provided by the Housing Act\n<|id|>109<|page|>25<|box|>874 500 884 745<|content|>* Less than \\$500,000. ... p Preliminary\n<|id|>118<|page|>30<|box|>112 440 125 596<|content|>(in millions of dollars)\n<|id|>119<|page|>31<|box|>80 186 97 785<|content|>Source and Availability of the Balance in the Treasurer's Account\n<|id|>120<|page|>31<|box|>110 13 154 475<|content|>The account of the Treasurer of the United States ... trust, deposit fund, and public debt transactions\n<|id|>128<|page|>32<|box|>103 426 117 578<|content|>(In millions of dollars)\n<|id|>131<|page|>33<|box|>477 6 518 471<|content|>Source: ... Figures in the first four columns of t...ubsequent reclassification of certain transactions\n<|id|>135<|page|>34<|box|>846 24 939 492<|content|>Note: ... The average annual interest rate is comp...y dividing the computed annual interest charge for\n<|id|>136<|page|>34<|box|>883 514 904 955<|content|>1/ Guaranteed securities included are those held outside the Treasury. ... see Table 3\n<|id|>143<|page|>37<|box|>127 408 142 560<|content|>(In millions of dollars)\n<|id|>146<|page|>39<|box|>77 11 236 481<|content|>The Second Liberty Bond Act (31 U. ... \\$8 billion from July 1, 1960, through June 30,\n<|id|>147<|page|>39<|box|>80 503 238 961<|content|>1961 (act of June 30, 1960); ... and \\$43 billion ... 1965 through June 30, 1966 (act of June 24, 1965)\n<|id|>162<|page|>49<|box|>58 395 73 585<|content|>PUBLIC DEBT OPERATIONS\n<|id|>164<|page|>50<|box|>132 24 143 402<|content|>Source: ... Bureau of the Public Debt\n<|id|>186<|page|>50<|box|>897 19 926 474<|content|>23/ In addition to the amounts allotted to the pub...lion of the 4% bonds of 1980, \\$218 million of the\n<|id|>188<|page|>50<|box|>132 510 169 961<|content|>Subscriptions for \\$0,000 or less were allotted in...nds was allotted to Government investment accounts\n<|id|>223<|page|>51<|box|>449 11 487 473<|content|>60/ Subscriptions from States, political subdivisi...al banks and foreign States, Government investment\n<|id|>224<|page|>51<|box|>127 530 165 928<|content|>circulars, totaled \\$1,950 million and were allott...tted 15 percent but in no case less than \\$100,000",
+    "raw_response": "<|src_id|>47<|tgt_id|>48\n<|src_id|>60<|tgt_id|>61\n<|src_id|>105<|tgt_id|>106\n<|src_id|>146<|tgt_id|>147\n<|src_id|>223<|tgt_id|>224",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 147
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 224
+        }
+    ]
+}

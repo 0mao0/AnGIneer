@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>459<|type|>title<|page|>46<|box|>89 424 111 573<|content|>APPENDIX C\n<|id|>460<|type|>title<|page|>46<|box|>136 140 154 704<|content|>Cross-References to Other Calderwood & Harkness LL\n<|id|>462<|type|>table<|page|>46<|box|>242 143 896 852<|content|>None\n<|id|>463<|type|>table<|page|>47<|box|>88 143 262 852<|content|>None\n<|id|>464<|type|>title<|page|>47<|box|>301 142 318 470<|content|>Additional Related Materials (Non-C&H)\n<|id|>476<|type|>title<|page|>48<|box|>172 339 189 656<|content|>END OF ANNOTATED TERM SHEET",
+    "raw_response": "<|src_id|>462<|tgt_id|>460\n<|src_id|>463<|tgt_id|>460",
+    "parsed": [
+        {
+            "src_id": 462,
+            "tgt_id": 460
+        },
+        {
+            "src_id": 463,
+            "tgt_id": 460
+        }
+    ]
+}

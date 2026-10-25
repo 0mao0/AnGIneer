@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        67
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        20,
+        29,
+        30,
+        32,
+        38,
+        41,
+        66,
+        67
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>7<|box|>31 0 125 918<|content|>Treasury Bulletin\n<|id|>14<|page|>9<|box|>124 369 148 613<|content|>Table of Contents\n<|id|>23<|page|>11<|box|>84 328 102 629<|content|>Reporting Bases - (Continued)\n<|id|>27<|page|>13<|box|>122 318 144 661<|content|>Treasury Financing Operations\n<|id|>28<|page|>13<|box|>186 11 201 174<|content|>April Cash Borrowing\n<|id|>39<|page|>13<|box|>722 503 737 622<|content|>One-Year Bills\n<|id|>43<|page|>14<|box|>60 250 82 756<|content|>Treasury Financing Operations - (Continued)\n<|id|>48<|page|>14<|box|>596 21 612 224<|content|>13-Week and 26-Week Bills\n<|id|>52<|page|>14<|box|>490 513 505 852<|content|>Foreign Series and Foreign Currency Series\n<|id|>55<|page|>15<|box|>60 340 74 651<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>57<|page|>16<|box|>54 296 69 699<|content|>ADMINISTRATIVE BUDGET RECEIPTS AND EXPENDITURES\n<|id|>60<|page|>17<|box|>55 288 70 689<|content|>ADMINISTRATIVE BUDGET RECEIPTS AND EXPENDITURES\n<|id|>62<|page|>17<|box|>515 338 529 666<|content|>Footnotes to Table 1 - (Continued)\n<|id|>82<|page|>20<|box|>593 335 605 657<|content|>Footnotes to Table 3.- (Continued)\n<|id|>113<|page|>29<|box|>58 352 72 612<|content|>CONSOLIDATED CASH TRANSACTIONS\n<|id|>116<|page|>30<|box|>57 360 70 622<|content|>CONSOLIDATED CASH TRANSACTIONS\n<|id|>120<|page|>32<|box|>46 302 62 692<|content|>ACCOUNT OF THE TREASURER OF THE UNITED STATES\n<|id|>121<|page|>32<|box|>78 189 93 798<|content|>Source and Availability of the Balance in the Trea\n<|id|>139<|page|>38<|box|>76 194 108 770<|content|>Table 6.- Treasury Holdings of Securities Issued b\n<|id|>149<|page|>41<|box|>79 130 126 835<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>266<|page|>66<|box|>51 385 65 580<|content|>PUBLIC DEBT OPERATIONS\n<|id|>268<|page|>67<|box|>83 404 97 597<|content|>Footnotes to Table 7\n<|id|>300<|page|>67<|box|>505 511 515 615<|content|>p Preliminary.",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>23<|level|>1\n<|id|>27<|level|>1\n<|id|>28<|level|>2\n<|id|>39<|level|>2\n<|id|>43<|level|>1\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>55<|level|>1\n<|id|>57<|level|>1\n<|id|>60<|level|>1\n<|id|>62<|level|>2\n<|id|>82<|level|>2\n<|id|>113<|level|>1\n<|id|>116<|level|>1\n<|id|>120<|level|>1\n<|id|>121<|level|>2\n<|id|>139<|level|>1\n<|id|>149<|level|>1\n<|id|>266<|level|>1\n<|id|>268<|level|>2\n<|id|>300<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 266,
+            "level": 1
+        },
+        {
+            "id": 268,
+            "level": 2
+        }
+    ]
+}

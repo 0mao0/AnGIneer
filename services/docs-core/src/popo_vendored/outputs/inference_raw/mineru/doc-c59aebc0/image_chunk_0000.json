@@ -1,0 +1,21 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        4
+    ],
+    "pages": [
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>90 143 109 852<|content|>SIGNATURE PAGE TO MASTER CLINICAL TRIAL AGREEMENT\n<|id|>6<|type|>title<|page|>2<|box|>513 450 530 545<|content|>SPONSOR:\n<|id|>7<|type|>title<|page|>2<|box|>540 321 556 674<|content|>PENTERRA PHARMACEUTICALS CORP.\n<|id|>16<|type|>title<|page|>3<|box|>140 143 156 400<|content|>Agreement Identification Details\n<|id|>17<|type|>table<|page|>3<|box|>160 143 382 852<|content|>None\n<|id|>18<|type|>title<|page|>4<|box|>90 142 108 470<|content|>Counterpart and Related Signature Pages",
+    "raw_response": "<|src_id|>17<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 16
+        }
+    ]
+}

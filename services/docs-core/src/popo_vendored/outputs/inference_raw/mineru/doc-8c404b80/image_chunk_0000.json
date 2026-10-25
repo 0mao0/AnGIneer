@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|type|>title<|page|>1<|box|>114 282 133 714<|content|>450 Park Avenue, 30th Floor New York, New York 100\n<|id|>9<|type|>title<|page|>1<|box|>354 142 369 341<|content|>1. Purpose of This Letter\n<|id|>12<|type|>title<|page|>1<|box|>684 142 700 442<|content|>2. Summary of Document Productions\n<|id|>13<|type|>title<|page|>1<|box|>715 142 731 398<|content|>2.1 Overall Production Statistics\n<|id|>15<|type|>table<|page|>1<|box|>799 145 905 852<|content|>None\n<|id|>16<|type|>table<|page|>2<|box|>88 143 209 852<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>402 140 419 517<|content|>2.2 Rolling Productions — Chronological Detail\n<|id|>20<|type|>title<|page|>2<|box|>488 140 505 495<|content|>First Rolling Production — January 20, 2023\n<|id|>22<|type|>title<|page|>2<|box|>741 140 758 522<|content|>Second Rolling Production — February 10, 2023\n<|id|>24<|type|>title<|page|>3<|box|>133 140 152 529<|content|>Third and Final Production — February 24, 2023\n<|id|>26<|type|>title<|page|>3<|box|>301 140 319 279<|content|>2.3 Privilege Log\n<|id|>33<|type|>title<|page|>3<|box|>824 140 842 602<|content|>3. Government's Acknowledgment — No Further Reques\n<|id|>38<|type|>title<|page|>4<|box|>612 140 628 473<|content|>4. Matter Status — Dormant / Monitoring\n<|id|>46<|type|>title<|page|>5<|box|>453 140 470 583<|content|>5. Important Client Instructions — Ongoing Obligat\n<|id|>60<|type|>title<|page|>6<|box|>771 140 789 344<|content|>6. Final Billing Summary\n<|id|>62<|type|>title<|page|>6<|box|>845 140 863 308<|content|>6.1 Professional Fees\n<|id|>64<|type|>table<|page|>7<|box|>88 143 366 852<|content|>None\n<|id|>65<|type|>title<|page|>7<|box|>398 143 415 428<|content|>Total Professional Fees: $287,450.00\n<|id|>67<|type|>title<|page|>7<|box|>566 142 583 370<|content|>6.2 Costs and Disbursements\n<|id|>69<|type|>table<|page|>7<|box|>613 143 758 852<|content|>None\n<|id|>70<|type|>title<|page|>7<|box|>799 143 815 452<|content|>6.3 Total Billed and Payments Received\n<|id|>71<|type|>table<|page|>7<|box|>820 143 895 852<|content|>None\n<|id|>72<|type|>table<|page|>8<|box|>147 143 297 852<|content|>None\n<|id|>73<|type|>title<|page|>8<|box|>330 140 348 362<|content|>Outstanding Balance: $0.00\n<|id|>75<|type|>title<|page|>8<|box|>453 140 470 447<|content|>7. Acknowledgments and Appreciation\n<|id|>79<|type|>title<|page|>9<|box|>90 140 107 552<|content|>8. Reservation of Rights and Continuing Availabili",
+    "raw_response": "<|src_id|>15<|tgt_id|>13\n<|src_id|>16<|tgt_id|>13\n<|src_id|>64<|tgt_id|>62\n<|src_id|>69<|tgt_id|>67\n<|src_id|>71<|tgt_id|>70\n<|src_id|>72<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 70
+        }
+    ]
+}

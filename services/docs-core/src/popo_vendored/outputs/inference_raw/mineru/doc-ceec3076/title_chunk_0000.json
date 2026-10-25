@@ -1,0 +1,158 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21,
+        22,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 238 108 759<|content|>IN THE COURT OF CHANCERY OF THE STATE OF DELAWARE\n<|id|>2<|page|>1<|box|>414 222 431 774<|content|>VERIFIED COMPLAINT FOR INJUNCTIVE AND OTHER RELIEF\n<|id|>5<|page|>1<|box|>578 142 594 390<|content|>I. NATURE OF THE ACTION\n<|id|>11<|page|>2<|box|>683 142 700 292<|content|>II. THE PARTIES\n<|id|>12<|page|>2<|box|>714 143 731 238<|content|>A. Plaintiff.\n<|id|>17<|page|>3<|box|>397 142 412 343<|content|>B. Individual Defendants\n<|id|>27<|page|>5<|box|>619 142 636 336<|content|>C. Corporate Defendant\n<|id|>32<|page|>6<|box|>334 140 349 421<|content|>III. JURISDICTION AND VENUE\n<|id|>37<|page|>7<|box|>90 142 106 401<|content|>IV. FACTUAL ALLEGATIONS\n<|id|>38<|page|>7<|box|>121 140 138 491<|content|>A. CRH's Business and Competitive Position\n<|id|>42<|page|>7<|box|>819 140 835 607<|content|>B. The Employment Agreements and Restrictive Coven\n<|id|>52<|page|>9<|box|>563 140 580 800<|content|>C. The Individual Defendants' Access to Confidenti\n<|id|>61<|page|>10<|box|>646 140 662 522<|content|>D. Verdana's Recruitment of the Rathore Group\n<|id|>68<|page|>12<|box|>231 142 248 303<|content|>E. Data Exfiltration\n<|id|>77<|page|>13<|box|>324 140 340 403<|content|>F. The Coordinated Resignations\n<|id|>82<|page|>14<|box|>138 140 156 428<|content|>G. Verdana's Public Announcement\n<|id|>85<|page|>14<|box|>488 140 505 302<|content|>H. CRH's Response\n<|id|>92<|page|>15<|box|>544 140 561 307<|content|>I. Irreparable Harm\n<|id|>94<|page|>15<|box|>752 143 768 635<|content|>59. The irreparable harm CRH faces includes, but i\n<|id|>102<|page|>16<|box|>626 140 643 357<|content|>V. CLAIMS FOR RELIEF\n<|id|>104<|page|>16<|box|>680 171 717 823<|content|>BREACH OF RESTRICTIVE COVENANT — NON-COMPETITION (\n<|id|>111<|page|>17<|box|>619 142 636 236<|content|>COUNT II.\n<|id|>112<|page|>17<|box|>643 158 680 838<|content|>BREACH OF RESTRICTIVE COVENANT — CONFIDENTIALITY O\n<|id|>118<|page|>18<|box|>470 142 488 245<|content|>COUNT III.\n<|id|>119<|page|>18<|box|>494 151 531 844<|content|>MISAPPROPRIATION OF TRADE SECRETS UNDER THE DELAWA\n<|id|>127<|page|>20<|box|>89 142 106 243<|content|>COUNT IV.\n<|id|>128<|page|>20<|box|>113 143 131 852<|content|>TORTIOUS INTERFERENCE WITH CONTRACTUAL RELATIONS (\n<|id|>140<|page|>21<|box|>415 140 431 236<|content|>COUNT V.\n<|id|>141<|page|>21<|box|>439 214 455 782<|content|>CIVIL CONSPIRACY (Against All Individual Defendant\n<|id|>151<|page|>22<|box|>391 140 409 367<|content|>VI. PRAYER FOR RELIEF\n<|id|>163<|page|>23<|box|>263 140 280 321<|content|>VII. VERIFICATION\n<|id|>166<|page|>24<|box|>89 142 106 300<|content|>IX. EXHIBIT LIST",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>17<|level|>3\n<|id|>27<|level|>3\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>38<|level|>3\n<|id|>42<|level|>3\n<|id|>52<|level|>3\n<|id|>61<|level|>3\n<|id|>68<|level|>3\n<|id|>77<|level|>3\n<|id|>82<|level|>3\n<|id|>85<|level|>3\n<|id|>92<|level|>3\n<|id|>94<|level|>-1\n<|id|>102<|level|>2\n<|id|>104<|level|>3\n<|id|>111<|level|>3\n<|id|>112<|level|>3\n<|id|>118<|level|>3\n<|id|>119<|level|>3\n<|id|>127<|level|>3\n<|id|>128<|level|>3\n<|id|>140<|level|>3\n<|id|>141<|level|>3\n<|id|>151<|level|>2\n<|id|>163<|level|>2\n<|id|>166<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        }
+    ]
+}

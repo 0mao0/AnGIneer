@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 285 125 712<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>3<|page|>1<|box|>186 285 219 712<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>5<|page|>1<|box|>672 400 689 598<|content|>TABLE OF CONTENTS\n<|id|>8<|page|>2<|box|>396 385 412 612<|content|>TABLE OF AUTHORITIES\n<|id|>11<|page|>2<|box|>753 143 768 210<|content|>Statutes\n<|id|>14<|page|>3<|box|>217 287 233 710<|content|>MEMORANDUM OF POINTS AND AUTHORITIES\n<|id|>15<|page|>3<|box|>257 142 273 308<|content|>I. INTRODUCTION\n<|id|>21<|page|>4<|box|>364 140 383 483<|content|>II. STATEMENT OF RELEVANT FACTS\n<|id|>22<|page|>4<|box|>397 140 414 601<|content|>A. Aldrich's Employment and the Employment Agreeme\n<|id|>31<|page|>5<|box|>492 140 508 514<|content|>B. Aldrich's Conduct and AMA's Cross-Claims\n<|id|>38<|page|>6<|box|>492 140 508 553<|content|>C. AMA's Cross-Complaint (Filed January 20, 2023)\n<|id|>45<|page|>7<|box|>411 140 428 560<|content|>D. Aldrich's Complaint and Declaratory Relief Clai\n<|id|>50<|page|>8<|box|>89 140 107 591<|content|>III. LEGAL STANDARD FOR A MOTION TO STRIKE\n<|id|>56<|page|>8<|box|>337 140 354 326<|content|>(Code Civ. Proc. § 436.)\n<|id|>60<|page|>8<|box|>748 142 765 285<|content|>IV. ARGUMENT\n<|id|>68<|page|>9<|box|>810 140 828 743<|content|>B. References to § 9.1 Are Relevant to AMA's Prope\n<|id|>87<|page|>13<|box|>89 140 126 854<|content|>C. Cal. Bus. & Prof. Code § 16600 Does Not Prohibi\n<|id|>95<|page|>14<|box|>231 140 248 741<|content|>D. A Motion to Strike Is Not the Appropriate Vehic\n<|id|>102<|page|>15<|box|>294 140 310 563<|content|>E. In the Alternative, AMA Requests Leave to Amend\n<|id|>110<|page|>16<|box|>185 140 203 294<|content|>V. CONCLUSION\n<|id|>119<|page|>16<|box|>691 406 708 591<|content|>PROOF OF SERVICE\n<|id|>120<|page|>16<|box|>718 140 734 606<|content|>STATE OF CALIFORNIA, COUNTY OF LOS ANGELES",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>3<|level|>-1\n<|id|>5<|level|>1\n<|id|>8<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>31<|level|>3\n<|id|>38<|level|>3\n<|id|>45<|level|>3\n<|id|>50<|level|>2\n<|id|>56<|level|>-1\n<|id|>60<|level|>2\n<|id|>68<|level|>3\n<|id|>87<|level|>3\n<|id|>95<|level|>3\n<|id|>102<|level|>3\n<|id|>110<|level|>2\n<|id|>119<|level|>1\n<|id|>120<|level|>-1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        }
+    ]
+}

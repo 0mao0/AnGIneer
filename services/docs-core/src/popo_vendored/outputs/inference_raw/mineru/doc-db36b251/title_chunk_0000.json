@@ -1,0 +1,134 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>5<|page|>1<|box|>256 142 273 651<|content|>VIA ELECTRONIC MAIL AND INTERNATIONAL COURIER\n<|id|>9<|page|>1<|box|>430 142 446 493<|content|>1. Purpose and Confirmation of Engagement\n<|id|>15<|page|>2<|box|>223 140 239 323<|content|>2. Client Identification\n<|id|>19<|page|>2<|box|>633 140 652 354<|content|>3. Scope of Representation\n<|id|>21<|page|>2<|box|>728 140 744 575<|content|>Phase 1 — FCC Application and Regulatory Approvals\n<|id|>31<|page|>3<|box|>806 140 825 442<|content|>Corporate and Transactional Support\n<|id|>38<|page|>4<|box|>554 142 571 308<|content|>Tax and Structuring\n<|id|>44<|page|>5<|box|>250 140 267 439<|content|>Dispute-Related Work (If Applicable)\n<|id|>48<|page|>5<|box|>645 140 662 313<|content|>4. Engagement Team\n<|id|>56<|page|>6<|box|>510 140 527 406<|content|>5. Fees and Billing Arrangements\n<|id|>57<|page|>6<|box|>541 142 556 323<|content|>Hourly Rate Structure\n<|id|>60<|page|>6<|box|>767 142 784 277<|content|>Phase 1 Fee Cap\n<|id|>68<|page|>7<|box|>468 140 484 372<|content|>Disbursements and Expenses\n<|id|>70<|page|>7<|box|>595 140 613 352<|content|>Interest on Late Payments\n<|id|>72<|page|>7<|box|>751 140 768 594<|content|>6. Co-Counsel Arrangement — Broadfield Whitaker LL\n<|id|>84<|page|>8<|box|>712 142 729 313<|content|>7. Conflict of Interest\n<|id|>95<|page|>9<|box|>534 140 551 390<|content|>8. Confidentiality and Privilege\n<|id|>103<|page|>10<|box|>315 140 333 326<|content|>9. Document Retention\n<|id|>107<|page|>10<|box|>617 142 633 393<|content|>10. Termination of Engagement\n<|id|>111<|page|>11<|box|>90 142 107 348<|content|>11. Limitation of Liability\n<|id|>114<|page|>11<|box|>348 142 364 480<|content|>12. Governing Law and Dispute Resolution\n<|id|>117<|page|>11<|box|>642 142 659 436<|content|>13. Acknowledgment and Acceptance\n<|id|>122<|page|>12<|box|>89 142 106 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>131<|page|>12<|box|>253 352 270 643<|content|>ACKNOWLEDGED AND AGREED\n<|id|>133<|page|>12<|box|>340 140 359 534<|content|>NORTHGATE TELECOMMUNICATIONS PLC\n<|id|>139<|page|>12<|box|>467 143 484 233<|content|>Enclosures",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>9<|level|>1\n<|id|>15<|level|>1\n<|id|>19<|level|>1\n<|id|>21<|level|>2\n<|id|>31<|level|>2\n<|id|>38<|level|>2\n<|id|>44<|level|>2\n<|id|>48<|level|>1\n<|id|>56<|level|>1\n<|id|>57<|level|>2\n<|id|>60<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>1\n<|id|>84<|level|>1\n<|id|>95<|level|>1\n<|id|>103<|level|>1\n<|id|>107<|level|>1\n<|id|>111<|level|>1\n<|id|>114<|level|>1\n<|id|>117<|level|>1\n<|id|>122<|level|>1\n<|id|>131<|level|>2\n<|id|>133<|level|>1\n<|id|>139<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        167,
+        182
+    ],
+    "pages": [
+        168,
+        173,
+        178,
+        182
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1445<|page|>168<|box|>194 379 212 714<|content|>* PILE CAPACITY COMPUTATIONS *\n<|id|>1456<|page|>173<|box|>188 328 205 645<|content|>* PILE CAPACITY COMPUTATIONS *\n<|id|>1468<|page|>178<|box|>181 372 196 668<|content|>* PILE CAPACITY COMPUTATIONS *\n<|id|>1479<|page|>182<|box|>184 400 200 715<|content|>* PILE CAPACITY COMPUTATIONS *\n<|id|>1480<|page|>182<|box|>224 462 268 643<|content|>CASE IV TIMBER PILE INTERBEDDED SOILS",
+    "raw_response": "<|id|>1445<|level|>1\n<|id|>1456<|level|>1\n<|id|>1468<|level|>1\n<|id|>1479<|level|>1\n<|id|>1480<|level|>2",
+    "parsed": [
+        {
+            "id": 1445,
+            "level": 1
+        },
+        {
+            "id": 1456,
+            "level": 1
+        },
+        {
+            "id": 1468,
+            "level": 1
+        },
+        {
+            "id": 1479,
+            "level": 1
+        },
+        {
+            "id": 1480,
+            "level": 2
+        }
+    ]
+}

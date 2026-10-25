@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 243 141 754<|content|>AMENDED AND RESTATED CERTIFICATE OF INCORPORATION\n<|id|>2<|page|>1<|box|>199 297 218 699<|content|>CASCADIA FIBER NETWORKS, INC.\n<|id|>3<|page|>1<|box|>237 398 253 599<|content|>(a Delaware corporation)\n<|id|>4<|page|>1<|box|>262 151 297 844<|content|>AMENDED AND RESTATED CERTIFICATE OF INCORPORATION\n<|id|>9<|page|>1<|box|>700 142 715 243<|content|>ARTICLE I\n<|id|>10<|page|>1<|box|>724 467 742 529<|content|>NAME\n<|id|>12<|page|>1<|box|>792 143 809 250<|content|>ARTICLE II\n<|id|>13<|page|>1<|box|>818 282 834 714<|content|>REGISTERED OFFICE AND REGISTERED AGENT\n<|id|>16<|page|>2<|box|>148 140 166 258<|content|>ARTICLE III\n<|id|>17<|page|>2<|box|>175 452 191 545<|content|>PURPOSE\n<|id|>19<|page|>2<|box|>352 140 369 256<|content|>ARTICLE IV\n<|id|>20<|page|>2<|box|>378 415 393 581<|content|>CAPITALIZATION\n<|id|>23<|page|>2<|box|>767 140 784 450<|content|>Section 4.3 *Rights of Common Stock.*\n<|id|>28<|page|>3<|box|>512 142 529 250<|content|>ARTICLE V\n<|id|>29<|page|>3<|box|>539 393 554 604<|content|>BOARD OF DIRECTORS\n<|id|>36<|page|>4<|box|>556 142 573 254<|content|>ARTICLE VI\n<|id|>37<|page|>4<|box|>582 455 599 542<|content|>BYLAWS\n<|id|>39<|page|>4<|box|>739 140 758 264<|content|>ARTICLE VII\n<|id|>40<|page|>4<|box|>766 323 782 674<|content|>LIMITATION OF DIRECTOR LIABILITY\n<|id|>43<|page|>5<|box|>303 142 320 269<|content|>ARTICLE VIII\n<|id|>44<|page|>5<|box|>329 408 345 588<|content|>INDEMNIFICATION\n<|id|>50<|page|>6<|box|>714 142 729 256<|content|>ARTICLE IX\n<|id|>51<|page|>6<|box|>739 429 756 568<|content|>AMENDMENTS\n<|id|>53<|page|>7<|box|>148 142 166 250<|content|>ARTICLE X\n<|id|>54<|page|>7<|box|>175 387 191 609<|content|>STOCKHOLDER ACTION\n<|id|>56<|page|>7<|box|>407 142 424 256<|content|>ARTICLE XI\n<|id|>57<|page|>7<|box|>433 395 449 602<|content|>BOOKS AND RECORDS\n<|id|>59<|page|>7<|box|>595 230 612 766<|content|>[Remainder of this page intentionally left blank.\n<|id|>70<|page|>7<|box|>847 395 862 602<|content|>FILING INFORMATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>3\n<|id|>4<|level|>1\n<|id|>9<|level|>2\n<|id|>10<|level|>3\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>23<|level|>4\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>39<|level|>2\n<|id|>40<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>59<|level|>-1\n<|id|>70<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 3
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 4
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        }
+    ]
+}

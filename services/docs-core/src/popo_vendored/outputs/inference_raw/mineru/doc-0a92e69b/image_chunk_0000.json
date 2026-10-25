@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        18
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>11<|type|>title<|page|>2<|box|>90 233 109 763<|content|>I. BACKGROUND AND PROCEDURAL HISTORY\n<|id|>12<|type|>title<|page|>2<|box|>136 142 154 282<|content|>A. The Applicant\n<|id|>16<|type|>title<|page|>2<|box|>511 140 529 370<|content|>B. The Imported Equipment\n<|id|>21<|type|>table<|page|>2<|box|>830 143 900 852<|content|>None\n<|id|>22<|type|>table<|page|>3<|box|>88 143 334 852<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>573 140 590 374<|content|>C. The Classification Dispute\n<|id|>30<|type|>title<|page|>4<|box|>354 140 373 434<|content|>D. The BTI Application and Referral\n<|id|>40<|type|>title<|page|>5<|box|>172 205 191 790<|content|>II. SUMMARY OF TSL'S CLASSIFICATION POSITION\n<|id|>54<|type|>title<|page|>6<|box|>568 155 588 839<|content|>III. ADDITIONAL EXPERT OPINION OF DR. LUKAS BRENNE\n<|id|>68<|type|>title<|page|>8<|box|>380 189 424 805<|content|>IV. SURVEY OF EU MEMBER STATE BTI RULINGS AND CLAS\n<|id|>77<|type|>title<|page|>9<|box|>194 140 210 527<|content|>A. Analysis of NL-BTI-2021-01234 (Netherlands)\n<|id|>85<|type|>title<|page|>10<|box|>194 140 210 609<|content|>B. Analysis and Rebuttal of DE-BTI-2020-05678 (Ger\n<|id|>99<|type|>title<|page|>11<|box|>733 166 753 828<|content|>V. WCO HARMONIZED SYSTEM COMMITTEE PRECEDENT\n<|id|>108<|type|>title<|page|>13<|box|>135 187 179 808<|content|>VI. THE AUTOMATION QUESTION — CLASSIFICATION PRINC\n<|id|>110<|type|>title<|page|>13<|box|>329 140 345 607<|content|>A. Heading Text Does Not Distinguish by Automation\n<|id|>114<|type|>title<|page|>13<|box|>739 140 758 547<|content|>B. Objective Characteristics at Time of Importatio\n<|id|>124<|type|>title<|page|>14<|box|>544 140 561 584<|content|>C. Technological Evolution Does Not Alter Classifi\n<|id|>129<|type|>title<|page|>15<|box|>148 140 167 495<|content|>D. Section XVI, Note 3 — Principal Function\n<|id|>136<|type|>title<|page|>15<|box|>715 204 734 792<|content|>VII. ECONOMIC AND COMMERCIAL SIGNIFICANCE\n<|id|>146<|type|>title<|page|>16<|box|>847 333 867 663<|content|>VIII. REQUESTED OUTCOME\n<|id|>154<|type|>title<|page|>17<|box|>599 274 619 723<|content|>IX. AVAILABILITY AND COOPERATION\n<|id|>158<|type|>title<|page|>18<|box|>133 143 152 330<|content|>Respectfully submitted,\n<|id|>170<|type|>title<|page|>18<|box|>407 354 426 643<|content|>ENCLOSURES / EXHIBITS\n<|id|>171<|type|>table<|page|>18<|box|>467 143 815 851<|content|>None",
+    "raw_response": "<|src_id|>21<|tgt_id|>16\n<|src_id|>22<|tgt_id|>16\n<|src_id|>171<|tgt_id|>170",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 170
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>112 411 128 854<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>2<|page|>1<|box|>138 468 156 854<|content|>200 Park Avenue, 42nd Floor New York, NY 10166\n<|id|>3<|page|>1<|box|>164 223 181 854<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>190 715 207 854<|content|>February 14, 2024\n<|id|>5<|page|>1<|box|>215 140 252 854<|content|>Thomas F. ... 1100 Meridian Boulevard, Suite 400 Princeton, NJ 08540\n<|id|>6<|page|>1<|box|>260 140 296 854<|content|>Re: ... 1018-00008\n<|id|>7<|page|>1<|box|>304 142 321 228<|content|>Dear Tom: ... Dear Tom\n<|id|>44<|page|>4<|box|>734 174 789 854<|content|>(g) Computerized legal research charges, including..., Sundial Solutions, Cascade Services Inc. ... and\n<|id|>46<|page|>4<|box|>840 140 897 856<|content|>All expenses and disbursements will be reflected o...notify Penterra as promptly as possible thereafter\n<|id|>55<|page|>5<|box|>763 138 893 857<|content|>C&H will maintain the confidentiality of all infor...HSW Antitrust Advisors LLP, and Prescott Whitfield\n<|id|>56<|page|>6<|box|>90 140 126 854<|content|>Insurance Brokers, Inc. ... or (iii) otherwise authorized by Penterra in writing\n<|id|>64<|page|>6<|box|>839 140 895 857<|content|>C&H reserves the right to destroy the files relati...to such destruction. ... Penterra may request that\n<|id|>65<|page|>7<|box|>90 140 181 854<|content|>C&H retain the file for a longer period or that th...t for storage purposes during the retention period\n<|id|>83<|page|>8<|box|>585 140 602 331<|content|>Name: ... Oliver Mackenzie\n<|id|>84<|page|>8<|box|>603 140 619 428<|content|>Title: ... Partner, Mergers & Acquisitions\n<|id|>85<|page|>8<|box|>619 140 637 745<|content|>Calderwood & Harkness LLP 200 Park Avenue, 42nd Floor New York, NY 10166\n<|id|>86<|page|>8<|box|>638 143 655 251<|content|>By: ... By\n<|id|>87<|page|>8<|box|>655 142 671 334<|content|>Name: ... Harrison Wexford\n<|id|>88<|page|>8<|box|>672 142 689 426<|content|>Title: ... Partner, Mergers & Acquisitions\n<|id|>89<|page|>8<|box|>689 142 705 364<|content|>Calderwood & Harkness LLP\n<|id|>94<|page|>8<|box|>806 142 823 403<|content|>Title: ... General Counsel & Secretary\n<|id|>95<|page|>8<|box|>824 143 839 266<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>55<|tgt_id|>56\n<|src_id|>64<|tgt_id|>65",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        }
+    ]
+}

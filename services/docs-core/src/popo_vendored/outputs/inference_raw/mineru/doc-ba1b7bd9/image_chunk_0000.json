@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 179 142 816<|content|>SECRETARY'S CERTIFICATE OF NEXFORD INDUSTRIAL HOLD\n<|id|>2<|type|>title<|page|>1<|box|>313 411 330 586<|content|>Date: March 28, 2025\n<|id|>7<|type|>title<|page|>1<|box|>714 142 732 439<|content|>1. Incumbency of Authorized Officers\n<|id|>9<|type|>table<|page|>1<|box|>875 143 895 852<|content|>None\n<|id|>10<|type|>table<|page|>2<|box|>88 143 194 852<|content|>None\n<|id|>12<|type|>title<|page|>2<|box|>361 140 378 310<|content|>2. Board Resolutions\n<|id|>16<|type|>title<|page|>3<|box|>90 140 108 375<|content|>3. Organizational Documents\n<|id|>17<|type|>title<|page|>3<|box|>121 140 138 388<|content|>(a) Certificate of Incorporation\n<|id|>20<|type|>title<|page|>3<|box|>436 140 454 284<|content|>4. Good Standing\n<|id|>22<|type|>title<|page|>3<|box|>648 140 667 439<|content|>5. No Conflict; No Further Approvals\n<|id|>28<|type|>title<|page|>4<|box|>248 140 265 331<|content|>6. Full Force and Effect\n<|id|>30<|type|>title<|page|>4<|box|>444 140 460 235<|content|>7. Reliance\n<|id|>37<|type|>title<|page|>4<|box|>768 140 785 287<|content|>8. Governing Law\n<|id|>50<|type|>title<|page|>6<|box|>89 434 112 563<|content|>EXHIBIT A\n<|id|>51<|type|>title<|page|>6<|box|>135 287 154 707<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS\n<|id|>52<|type|>title<|page|>6<|box|>176 305 194 691<|content|>OF NEXFORD INDUSTRIAL HOLDINGS INC.\n<|id|>53<|type|>title<|page|>6<|box|>203 397 220 601<|content|>Adopted: January 13, 2025\n<|id|>63<|type|>title<|page|>7<|box|>446 140 464 480<|content|>Resolutions. NOW, THEREFORE, BE IT:\n<|id|>79<|type|>title<|page|>10<|box|>90 434 111 562<|content|>EXHIBIT B\n<|id|>80<|type|>title<|page|>10<|box|>136 388 154 609<|content|>Certificate of Incorporation\n<|id|>81<|type|>title<|page|>10<|box|>176 359 194 638<|content|>of Nexford Industrial Holdings Inc.\n<|id|>82<|type|>title<|page|>10<|box|>203 279 220 718<|content|>As filed with the Secretary of State of the State\n<|id|>88<|type|>title<|page|>11<|box|>89 434 111 562<|content|>EXHIBIT C\n<|id|>89<|type|>title<|page|>11<|box|>136 467 154 531<|content|>Bylaws\n<|id|>90<|type|>title<|page|>11<|box|>176 359 194 637<|content|>of Nexford Industrial Holdings Inc.\n<|id|>91<|type|>title<|page|>11<|box|>203 413 220 584<|content|>As Currently in Effect",
+    "raw_response": "<|src_id|>9<|tgt_id|>7\n<|src_id|>10<|tgt_id|>7",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 7
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        4,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>195 140 213 826<|content|>TO: ... (Billing Partner)\n<|id|>3<|page|>1<|box|>220 140 239 812<|content|>FROM: ... (Working Associate)\n<|id|>4<|page|>1<|box|>246 142 263 325<|content|>DATE: ... March 29, 2024\n<|id|>5<|page|>1<|box|>273 140 291 645<|content|>RE: ... Legal Due Diligence Summary — Prismyx Data Solutions LLC\n<|id|>6<|page|>1<|box|>297 142 315 362<|content|>MATTER NO. ... 1008-00008\n<|id|>7<|page|>1<|box|>324 140 342 383<|content|>CLIENT: ... Lumos Analytics Inc\n<|id|>39<|page|>4<|box|>811 174 864 854<|content|>Title: ... Prismyx Data Solutions LLC\n<|id|>40<|page|>4<|box|>873 140 909 854<|content|>The patent application covers the core anomaly det...onse, or the ultimate rejection of the application\n<|id|>163<|page|>16<|box|>777 138 888 857<|content|>We note that Prismyx does not maintain directors a...demnification protections in the Merger Agreement)\n<|id|>164<|page|>17<|box|>90 140 127 854<|content|>is appropriate to cover any pre-closing acts or om... founders in their capacity as managers of Prismyx",
+    "raw_response": "<|src_id|>163<|tgt_id|>164",
+    "parsed": [
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        }
+    ]
+}

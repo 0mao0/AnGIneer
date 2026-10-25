@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 184 165 813<|content|>CERTIFIED COPY OF RESOLUTIONS OF THE BOARD OF DIRE\n<|id|>6<|page|>1<|box|>583 163 618 833<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF BELMONT R\n<|id|>7<|page|>1<|box|>627 393 643 602<|content|>Adopted January 28, 2026\n<|id|>21<|page|>3<|box|>219 142 237 750<|content|>ARTICLE I — AUTHORIZATION OF THE NOTES AND THE OFF\n<|id|>40<|page|>4<|box|>696 140 714 617<|content|>ARTICLE II — AUTHORIZATION OF THE INDENTURE\n<|id|>43<|page|>5<|box|>194 140 210 738<|content|>ARTICLE III — AUTHORIZATION OF THE PURCHASE AGREEM\n<|id|>50<|page|>5<|box|>633 140 651 852<|content|>ARTICLE IV — AUTHORIZATION OF THE REGISTRATION RIG\n<|id|>53<|page|>6<|box|>89 140 125 854<|content|>ARTICLE V — AUTHORIZATION OF THE OFFERING MEMORAND\n<|id|>59<|page|>6<|box|>540 140 558 648<|content|>ARTICLE VI — AUTHORIZATION OF THE GLOBAL NOTE\n<|id|>62<|page|>6<|box|>821 142 839 655<|content|>ARTICLE VII — REGULATORY FILINGS AND APPROVALS\n<|id|>68<|page|>7<|box|>546 140 563 464<|content|>ARTICLE VIII — USE OF PROCEEDS\n<|id|>70<|page|>7<|box|>801 140 819 480<|content|>ARTICLE IX — EXPENSE APPROVALS\n<|id|>74<|page|>8<|box|>525 142 542 656<|content|>ARTICLE X — DESIGNATION OF AUTHORIZED OFFICERS\n<|id|>79<|page|>9<|box|>273 140 291 596<|content|>ARTICLE XI — RATIFICATION OF PRIOR ACTIONS\n<|id|>89<|page|>9<|box|>737 142 753 493<|content|>ARTICLE XII — GENERAL AUTHORITY",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>7<|level|>-1\n<|id|>21<|level|>2\n<|id|>40<|level|>2\n<|id|>43<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>59<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>74<|level|>2\n<|id|>79<|level|>2\n<|id|>89<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        }
+    ]
+}

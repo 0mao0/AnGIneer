@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        11,
+        23
+    ],
+    "pages": [
+        11,
+        12,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>66<|page|>11<|box|>825 140 900 857<|content|>Under the Supremacy Clause of the United States Co... purposes and objectives of Congress. ... see also\n<|id|>67<|page|>12<|box|>89 140 181 856<|content|>Crosby v. ... at 873–74\n<|id|>144<|page|>23<|box|>294 140 344 854<|content|>Elaine Forsythe (admitted pro hac vice) Aaron Liu ..., 35th Floor New York, NY 10019 Telephone: ... com\n<|id|>145<|page|>23<|box|>359 142 377 777<|content|>555 California Street, Suite 2800 San Francisco, CA 94104 Telephone: ... (415) 773-5500\n<|id|>146<|page|>23<|box|>377 142 393 468<|content|>GRANTHAM DAVIS & KOWALSKI LLP\n<|id|>147<|page|>23<|box|>395 143 412 253<|content|>By: ... By\n<|id|>148<|page|>23<|box|>412 140 460 854<|content|>Thomas Kowalski, OSB No. ... com\n<|id|>149<|page|>23<|box|>462 140 478 604<|content|>Attorneys for Defendant Halcyon Semiconductor Amer...s for Defendant Halcyon Semiconductor Americas Inc\n<|id|>153<|page|>23<|box|>619 174 657 854<|content|>Marcus Trujillo Senior Assistant Attorney General ...162 Court Street NE Salem, OR 97301 marcus. ... us\n<|id|>154<|page|>23<|box|>664 174 719 854<|content|>Constance Yee Derek Holmgren Ashworth & Pendleton ...500Portland,OR97204cyee@ashworthpendleton. ... com",
+    "raw_response": "<|src_id|>66<|tgt_id|>67\n<|src_id|>147<|tgt_id|>148",
+    "parsed": [
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 148
+        }
+    ]
+}

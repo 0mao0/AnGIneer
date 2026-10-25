@@ -1,0 +1,130 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1liy0jmq\\input\\pdfs\\doc-890cefd6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1liy0jmq\\enriched\\doc-890cefd6.json",
+    "contd_output": "",
+    "title_output": "<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>27<|level|>1\n<|id|>29<|level|>2\n<|id|>33<|level|>2\n<|id|>49<|level|>2\n<|id|>60<|level|>2\n<|id|>69<|level|>1\n<|id|>81<|level|>1\n<|id|>95<|level|>1\n<|id|>108<|level|>1\n<|id|>116<|level|>1\n<|id|>120<|level|>1\n<|id|>128<|level|>1",
+    "image_output": "<|src_id|>51<|tgt_id|>49\n<|src_id|>52<|tgt_id|>49\n<|src_id|>117<|tgt_id|>116\n<|src_id|>118<|tgt_id|>116",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 51,
+            "table2_idx": 52,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "Malcolm Haverford",
+                    "CEO",
+                    "Dunmore Energy",
+                    "12.1 GB",
+                    "~63,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "Holdings Ltd.",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 117,
+            "table2_idx": 118,
+            "upper_row_ss": [
+                [
+                    "10",
+                    "Extended CID response",
+                    "—",
+                    "November 3, 2025"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "deadline (if 30-day extension is granted)",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

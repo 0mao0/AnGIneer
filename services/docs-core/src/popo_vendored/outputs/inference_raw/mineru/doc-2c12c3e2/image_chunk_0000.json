@@ -1,0 +1,70 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 148 125 846<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law One Lib\n<|id|>1<|type|>title<|page|>1<|box|>133 142 148 653<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>2<|type|>title<|page|>1<|box|>157 143 172 290<|content|>MEMORANDUM\n<|id|>3<|type|>table<|page|>1<|box|>181 143 465 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>513 142 531 364<|content|>I. Introduction and Purpose\n<|id|>9<|type|>title<|page|>2<|box|>321 142 339 457<|content|>II. Summary of Key Commercial Terms\n<|id|>11<|type|>title<|page|>2<|box|>416 143 433 274<|content|>A. The Property\n<|id|>16<|type|>table<|page|>2<|box|>686 143 810 852<|content|>None\n<|id|>19<|type|>title<|page|>3<|box|>176 140 193 285<|content|>B. Purchase Price\n<|id|>29<|type|>title<|page|>4<|box|>90 142 107 307<|content|>E. Deposit Structure\n<|id|>36<|type|>title<|page|>4<|box|>584 140 602 331<|content|>F. Due Diligence Period\n<|id|>40<|type|>title<|page|>5<|box|>90 142 107 297<|content|>G. Target Timeline\n<|id|>41<|type|>table<|page|>5<|box|>137 143 287 852<|content|>None\n<|id|>43<|type|>title<|page|>5<|box|>444 140 460 318<|content|>H. Closing Mechanics\n<|id|>60<|type|>title<|page|>6<|box|>194 140 210 284<|content|>I. Transfer Taxes\n<|id|>67<|type|>title<|page|>6<|box|>689 140 708 313<|content|>J. Existing Financing\n<|id|>71<|type|>title<|page|>7<|box|>340 140 358 390<|content|>K. Prorations and Adjustments\n<|id|>79<|type|>title<|page|>7<|box|>830 140 847 413<|content|>L. Condition of Property / \"As-Is\"\n<|id|>94<|type|>title<|page|>8<|box|>561 140 579 452<|content|>III. Binding vs. Non-Binding Provisions\n<|id|>96<|type|>title<|page|>8<|box|>674 140 690 354<|content|>A. Non-Binding Provisions\n<|id|>99<|type|>title<|page|>9<|box|>157 142 175 316<|content|>B. Binding Provisions\n<|id|>114<|type|>title<|page|>10<|box|>275 140 292 344<|content|>C. Note on Break-Up Fee\n<|id|>118<|type|>title<|page|>10<|box|>666 140 683 380<|content|>IV. Existing Tenant Summary\n<|id|>121<|type|>table<|page|>11<|box|>89 143 415 852<|content|>None\n<|id|>128<|type|>title<|page|>12<|box|>377 140 393 369<|content|>V. Financing Considerations\n<|id|>131<|type|>table<|page|>12<|box|>599 143 723 852<|content|>None\n<|id|>146<|type|>table<|page|>13<|box|>866 143 905 852<|content|>None\n<|id|>147<|type|>table<|page|>14<|box|>88 143 171 852<|content|>None\n<|id|>149<|type|>title<|page|>14<|box|>356 140 373 354<|content|>VI. Property Management\n<|id|>159<|type|>title<|page|>15<|box|>167 140 185 267<|content|>VII. Next Steps\n<|id|>161<|type|>title<|page|>15<|box|>261 140 279 671<|content|>A. PSA Negotiation and Drafting (Target: April 11,\n<|id|>174<|type|>title<|page|>15<|box|>819 142 837 305<|content|>B. Entity Formation\n<|id|>187<|type|>title<|page|>16<|box|>599 142 616 277<|content|>C. Due Diligence\n<|id|>204<|type|>title<|page|>18<|box|>386 140 404 253<|content|>D. Financing.\n<|id|>212<|type|>title<|page|>19<|box|>148 140 167 398<|content|>VIII. Key Risks and Open Items\n<|id|>225<|type|>title<|page|>20<|box|>789 142 806 338<|content|>IX. Contact Information\n<|id|>227<|type|>table<|page|>20<|box|>856 143 895 852<|content|>None\n<|id|>228<|type|>table<|page|>21<|box|>88 143 209 852<|content|>None\n<|id|>234<|type|>title<|page|>21<|box|>503 140 520 256<|content|>X. Enclosures",
+    "raw_response": "<|src_id|>3<|tgt_id|>2\n<|src_id|>16<|tgt_id|>11\n<|src_id|>41<|tgt_id|>40\n<|src_id|>121<|tgt_id|>118\n<|src_id|>131<|tgt_id|>128\n<|src_id|>146<|tgt_id|>128\n<|src_id|>147<|tgt_id|>128\n<|src_id|>227<|tgt_id|>225\n<|src_id|>228<|tgt_id|>225",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 118
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 225
+        }
+    ]
+}

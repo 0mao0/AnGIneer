@@ -1,0 +1,140 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 303 133 692<|content|>601 Lexington Avenue New York, New York 10022\n<|id|>4<|page|>1<|box|>193 192 210 803<|content|>DRAFT — FOR DISCUSSION PURPOSES ONLY — NOT FOR REL\n<|id|>12<|page|>1<|box|>470 142 488 264<|content|>1. Introduction\n<|id|>21<|page|>2<|box|>321 140 339 336<|content|>2. Documents Examined\n<|id|>38<|page|>3<|box|>541 140 558 267<|content|>3. Assumptions\n<|id|>50<|page|>4<|box|>763 140 780 508<|content|>4. Applicable Law and Regulatory Framework\n<|id|>51<|page|>4<|box|>794 140 810 343<|content|>4.1 Securities Act of 1933\n<|id|>55<|page|>5<|box|>356 140 373 258<|content|>4.2 Rule 144A\n<|id|>63<|page|>6<|box|>422 140 439 276<|content|>4.3 Regulation S\n<|id|>75<|page|>7<|box|>715 140 733 447<|content|>4.4 Section 4(a)(2) of the Securities Act\n<|id|>85<|page|>8<|box|>815 140 832 398<|content|>4.5 Regulation D Considerations\n<|id|>91<|page|>9<|box|>334 140 352 423<|content|>4.6 Securities Exchange Act of 1934\n<|id|>94<|page|>9<|box|>571 140 589 429<|content|>5. Analysis of the Offering Structure\n<|id|>95<|page|>9<|box|>602 140 619 511<|content|>5.1 The Initial Sale (Issuer to Initial Purchaser)\n<|id|>100<|page|>10<|box|>212 140 229 372<|content|>5.2 Resales Under Rule 144A\n<|id|>109<|page|>11<|box|>319 140 337 372<|content|>5.3 Sales Under Regulation S\n<|id|>118<|page|>12<|box|>294 140 311 442<|content|>5.4 Offering Memorandum Disclosure\n<|id|>130<|page|>13<|box|>652 140 671 460<|content|>5.5 Transfer Restrictions and Legending\n<|id|>139<|page|>14<|box|>510 140 527 434<|content|>6. Investment Company Act Analysis\n<|id|>148<|page|>15<|box|>359 140 376 238<|content|>7. Opinions\n<|id|>150<|page|>15<|box|>434 140 450 568<|content|>Opinion 1 — Section 4(a)(2) Exemption for Initial\n<|id|>152<|page|>15<|box|>616 140 633 477<|content|>Opinion 2 — Rule 144A Resale Exemption\n<|id|>154<|page|>15<|box|>780 140 797 439<|content|>Opinion 3 — Regulation S Exemption\n<|id|>156<|page|>16<|box|>176 140 194 367<|content|>Opinion 4 — No Integration\n<|id|>158<|page|>16<|box|>395 140 412 433<|content|>Opinion 5 — No General Solicitation\n<|id|>160<|page|>16<|box|>643 140 660 403<|content|>8. Qualifications and Limitations\n<|id|>175<|page|>18<|box|>229 140 247 326<|content|>9. Reliance and Benefit\n<|id|>185<|page|>19<|box|>90 143 107 251<|content|>10. Signature\n<|id|>187<|page|>19<|box|>142 142 157 679<|content|>[DRAFT — SIGNATURE TO BE INSERTED UPON FINALIZATIO\n<|id|>190<|page|>19<|box|>273 387 290 611<|content|>Cross-Reference Documents",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>4<|level|>-1\n<|id|>12<|level|>1\n<|id|>21<|level|>1\n<|id|>38<|level|>1\n<|id|>50<|level|>1\n<|id|>51<|level|>2\n<|id|>55<|level|>2\n<|id|>63<|level|>2\n<|id|>75<|level|>2\n<|id|>85<|level|>2\n<|id|>91<|level|>2\n<|id|>94<|level|>1\n<|id|>95<|level|>2\n<|id|>100<|level|>2\n<|id|>109<|level|>2\n<|id|>118<|level|>2\n<|id|>130<|level|>2\n<|id|>139<|level|>1\n<|id|>148<|level|>1\n<|id|>150<|level|>2\n<|id|>152<|level|>2\n<|id|>154<|level|>2\n<|id|>156<|level|>2\n<|id|>158<|level|>2\n<|id|>160<|level|>1\n<|id|>175<|level|>1\n<|id|>185<|level|>1\n<|id|>187<|level|>-1\n<|id|>190<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 185,
+            "level": 1
+        },
+        {
+            "id": 190,
+            "level": 1
+        }
+    ]
+}

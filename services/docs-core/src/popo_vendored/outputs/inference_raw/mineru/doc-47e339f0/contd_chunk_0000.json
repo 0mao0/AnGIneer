@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        7,
+        15,
+        16,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>167 153 204 841<|content|>CALDERWOOD & HARKNESS LLP One Embarcadero Center, ...co, California 94111 Telephone: ... (415) 555-7201\n<|id|>3<|page|>1<|box|>212 142 229 290<|content|>MEMORANDUM\n<|id|>4<|page|>1<|box|>239 715 256 854<|content|>February 22, 2023\n<|id|>5<|page|>1<|box|>263 140 282 617<|content|>TO: ... Alan Ngo, Responsible Partner, intellectual Property Group\n<|id|>6<|page|>1<|box|>290 140 308 645<|content|>FROM: ... Omar Siddiqui, Lead Associate, intellectual Property Group\n<|id|>7<|page|>1<|box|>316 140 334 611<|content|>CC: ... Marcus Delgado, Billing Partner\n<|id|>8<|page|>1<|box|>342 140 378 854<|content|>RE: ... 10,234,567 (\"the '567 Patent\") — Asserted Claims 1, 4, 7, 12, and 15\n<|id|>9<|page|>1<|box|>386 140 422 854<|content|>MATTER: ... )\n<|id|>10<|page|>1<|box|>430 140 448 406<|content|>C&H MATTER NO. ... 1014-00003\n<|id|>11<|page|>1<|box|>455 140 474 455<|content|>CLIENT: ... Optiwave Semiconductor Corp\n<|id|>64<|page|>7<|box|>160 174 196 854<|content|>\"coupled through a gradual, continuous taper desig...her-order modes over the entire transition length\"\n<|id|>65<|page|>7<|box|>204 140 220 339<|content|>See Markman Order at 12. ... See Markman Order at 12\n<|id|>139<|page|>15<|box|>862 140 898 856<|content|>Compounding Effect. ... As analyzed in the separat...llel Post-Markman viability memoranda for the '234\n<|id|>140<|page|>16<|box|>89 140 164 856<|content|>Patent, the '678 Patent, and the '890 Patent (each...orts the recommendation for settlement discussions\n<|id|>170<|page|>21<|box|>830 140 886 857<|content|>August 15, 2018 — Applicant's Second Response. ...... silicon waveguide having a tip width of less than\n<|id|>171<|page|>22<|box|>90 140 126 854<|content|>200 nanometers adiabatically coupled to a silicon ...rming amendments were made to the dependent claims",
+    "raw_response": "<|src_id|>139<|tgt_id|>140\n<|src_id|>170<|tgt_id|>171",
+    "parsed": [
+        {
+            "src_id": 139,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 171
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>19<|type|>title<|page|>2<|box|>289 163 309 833<|content|>I. GENERAL COMMENTS APPLICABLE TO ALL 14 SURVEYS\n<|id|>21<|type|>title<|page|>2<|box|>386 140 404 383<|content|>A. Certification Requirements\n<|id|>24<|type|>title<|page|>2<|box|>753 140 771 369<|content|>B. Table A Item Compliance\n<|id|>38<|type|>title<|page|>4<|box|>411 140 428 455<|content|>C. Consistency with Title Commitments\n<|id|>41<|type|>title<|page|>4<|box|>796 140 813 403<|content|>D. Legal Description Verification\n<|id|>43<|type|>title<|page|>5<|box|>223 140 239 437<|content|>E. General Formatting Requirements\n<|id|>54<|type|>title<|page|>5<|box|>585 287 604 709<|content|>II. PROPERTY-SPECIFIC COMMENTS\n<|id|>56<|type|>title<|page|>5<|box|>719 140 737 450<|content|>Property 1: Fairfield Logistics Center I\n<|id|>63<|type|>title<|page|>6<|box|>575 140 592 457<|content|>Property 2: Fairfield Logistics Center II\n<|id|>69<|type|>title<|page|>7<|box|>304 140 321 450<|content|>Property 3: Westlake Distribution Hub\n<|id|>76<|type|>title<|page|>8<|box|>148 140 167 467<|content|>Property 4: Katy Freeway Logistics Park\n<|id|>82<|type|>title<|page|>8<|box|>667 140 685 452<|content|>Property 5: Alliance Commerce Center\n<|id|>88<|type|>title<|page|>9<|box|>366 140 383 477<|content|>Property 6: Lakeland Crossings Industrial\n<|id|>95<|type|>title<|page|>10<|box|>231 140 248 436<|content|>Property 7: Southport Logistics Park\n<|id|>101<|type|>title<|page|>11<|box|>90 140 107 506<|content|>Property 8: Murfreesboro Distribution Center\n<|id|>114<|type|>title<|page|>12<|box|>612 142 628 477<|content|>Property 10: SouthPark Corporate Center\n<|id|>121<|type|>title<|page|>13<|box|>402 140 420 444<|content|>Property 11: Cool Springs Office Park\n<|id|>128<|type|>title<|page|>14<|box|>204 140 222 468<|content|>Property 12: Brickell Bay Office Building\n<|id|>135<|type|>title<|page|>15<|box|>90 140 107 524<|content|>Property 13: Peachtree Corners Logistics Center\n<|id|>141<|type|>title<|page|>15<|box|>681 142 699 482<|content|>Property 14: Mount Juliet Commerce Park\n<|id|>148<|type|>title<|page|>16<|box|>450 230 470 766<|content|>III. SUMMARY TABLE OF REVISION REQUESTS\n<|id|>149<|type|>table<|page|>16<|box|>513 143 902 852<|content|>None\n<|id|>150<|type|>table<|page|>17<|box|>89 143 520 852<|content|>None\n<|id|>152<|type|>title<|page|>17<|box|>726 235 744 761<|content|>IV. DEADLINE AND DELIVERY INSTRUCTIONS\n<|id|>167<|type|>title<|page|>18<|box|>467 272 486 723<|content|>V. AVAILABILITY FOR COORDINATION\n<|id|>177<|type|>title<|page|>19<|box|>114 140 133 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>149<|tgt_id|>148\n<|src_id|>150<|tgt_id|>148",
+    "parsed": [
+        {
+            "src_id": 149,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 148
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        53,
+        55
+    ],
+    "pages": [
+        53,
+        54,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>582<|page|>53<|box|>90 140 107 470<|content|>3. Interim Buildout Benchmark Deadline:\n<|id|>584<|page|>53<|box|>179 142 195 390<|content|>4. Final Construction Deadline:\n<|id|>586<|page|>53<|box|>285 140 303 344<|content|>5. FCC Compliance Risk:\n<|id|>588<|page|>54<|box|>89 140 107 816<|content|>SCHEDULE 4.7 — ANTI-TRAFFICKING / UNJUST ENRICHMEN\n<|id|>590<|page|>54<|box|>160 142 178 331<|content|>1. Original Acquisition:\n<|id|>592<|page|>54<|box|>248 140 266 295<|content|>2. Bidding Credits:\n<|id|>594<|page|>54<|box|>373 140 391 423<|content|>3. Anti-Trafficking Holding Period:\n<|id|>597<|page|>54<|box|>561 140 579 455<|content|>4. Ten-Year Unjust Enrichment Period:\n<|id|>606<|page|>55<|box|>133 142 152 341<|content|>5. Seller's Responsibility:\n<|id|>608<|page|>55<|box|>258 143 277 264<|content|>6. FCC Filings:",
+    "raw_response": "<|id|>582<|level|>3\n<|id|>584<|level|>3\n<|id|>586<|level|>3\n<|id|>588<|level|>1\n<|id|>590<|level|>2\n<|id|>592<|level|>2\n<|id|>594<|level|>2\n<|id|>597<|level|>2\n<|id|>606<|level|>2\n<|id|>608<|level|>2",
+    "parsed": [
+        {
+            "id": 582,
+            "level": 3
+        },
+        {
+            "id": 584,
+            "level": 3
+        },
+        {
+            "id": 586,
+            "level": 3
+        },
+        {
+            "id": 588,
+            "level": 1
+        },
+        {
+            "id": 590,
+            "level": 2
+        },
+        {
+            "id": 592,
+            "level": 2
+        },
+        {
+            "id": 594,
+            "level": 2
+        },
+        {
+            "id": 597,
+            "level": 2
+        },
+        {
+            "id": 606,
+            "level": 2
+        },
+        {
+            "id": 608,
+            "level": 2
+        }
+    ]
+}

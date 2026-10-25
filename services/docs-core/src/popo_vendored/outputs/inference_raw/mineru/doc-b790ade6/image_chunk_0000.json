@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 194 107 802<|content|>UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF\n<|id|>1<|type|>table<|page|>1<|box|>107 143 329 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>362 174 416 821<|content|>JOINT STIPULATION AND [PROPOSED] ORDER TO STAY PRO\n<|id|>6<|type|>title<|page|>1<|box|>518 143 534 635<|content|>I. INTRODUCTION AND PARTIES TO THE STIPULATION\n<|id|>9<|type|>title<|page|>2<|box|>89 140 106 566<|content|>II. BACKGROUND AND PROCEDURAL HISTORY\n<|id|>18<|type|>title<|page|>3<|box|>352 140 369 611<|content|>III. THE PENDING DCMA ADMINISTRATIVE REVIEW\n<|id|>29<|type|>title<|page|>4<|box|>635 140 652 524<|content|>IV. AGREED TERMS OF THE STIPULATION\n<|id|>37<|type|>title<|page|>6<|box|>89 140 106 437<|content|>V. BASIS FOR THE STIPULATION\n<|id|>45<|type|>title<|page|>7<|box|>246 303 263 691<|content|>SIGNATURE PAGE TO JOINT STIPULATION\n<|id|>47<|type|>title<|page|>7<|box|>299 140 315 457<|content|>For Plaintiff Whitmore Aerospace LLC:\n<|id|>50<|type|>table<|page|>8<|box|>88 143 157 852<|content|>None\n<|id|>51<|type|>title<|page|>8<|box|>191 302 207 694<|content|>ORDER GRANTING STAY OF PROCEEDINGS\n<|id|>55<|type|>title<|page|>8<|box|>496 142 512 321<|content|>ORDERED as follows:\n<|id|>62<|type|>title<|page|>9<|box|>393 433 411 563<|content|>SO ORDERED.\n<|id|>65<|type|>title<|page|>9<|box|>482 374 500 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>50<|tgt_id|>51",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        }
+    ]
+}

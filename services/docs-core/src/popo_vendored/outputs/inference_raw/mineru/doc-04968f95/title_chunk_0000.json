@@ -1,0 +1,146 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 158 125 838<|content|>CALDERWOOD & HARKNESS LLP 125 Broad Street, 40th F\n<|id|>3<|page|>1<|box|>459 359 478 635<|content|>I. Purpose and Background\n<|id|>10<|page|>2<|box|>633 379 654 617<|content|>II. General Instructions\n<|id|>11<|page|>2<|box|>679 142 696 313<|content|>A. Ordering Protocol\n<|id|>16<|page|>3<|box|>366 140 383 325<|content|>B. Acceptable Formats\n<|id|>23<|page|>3<|box|>768 140 787 334<|content|>C. Delivery Instructions\n<|id|>32<|page|>4<|box|>369 140 387 450<|content|>D. Dating and Freshness Requirements\n<|id|>37<|page|>4<|box|>825 140 843 207<|content|>E. Cost\n<|id|>41<|page|>6<|box|>90 334 111 663<|content|>III. Certificate Request Schedule\n<|id|>46<|page|>7<|box|>188 142 204 321<|content|>B. Qualification States\n<|id|>48<|page|>7<|box|>300 143 316 250<|content|>1. California.\n<|id|>50<|page|>7<|box|>863 142 878 245<|content|>2. New York\n<|id|>53<|page|>8<|box|>488 143 503 215<|content|>3. Texas.\n<|id|>55<|page|>8<|box|>853 143 869 281<|content|>4. Massachusetts.\n<|id|>60<|page|>9<|box|>823 143 839 232<|content|>6. Georgia.\n<|id|>63<|page|>10<|box|>391 143 406 227<|content|>7. Florida.\n<|id|>65<|page|>10<|box|>770 143 787 233<|content|>8. Virginia.\n<|id|>71<|page|>12<|box|>294 305 314 689<|content|>IV. Summary Table — All Certificates\n<|id|>77<|page|>14<|box|>419 339 438 658<|content|>V. Pre-Order Verification Steps\n<|id|>96<|page|>15<|box|>732 303 752 692<|content|>VI. Additional Certificates to Consider\n<|id|>97<|page|>15<|box|>777 140 794 444<|content|>A. Pinnacle Growth Acquisition Corp.\n<|id|>104<|page|>16<|box|>335 140 353 377<|content|>B. Tax Clearance Certificates\n<|id|>110<|page|>16<|box|>799 140 816 424<|content|>C. UCC / Lien Search Coordination\n<|id|>114<|page|>17<|box|>388 341 409 655<|content|>VII. Timeline and Action Items\n<|id|>118<|page|>18<|box|>431 281 450 715<|content|>VIII. Contact Information for Coordination\n<|id|>120<|page|>18<|box|>513 142 529 383<|content|>Calderwood & Harkness LLP:\n<|id|>127<|page|>18<|box|>705 143 723 333<|content|>Skybridge Fintech Ltd.:\n<|id|>132<|page|>18<|box|>854 143 871 519<|content|>Ashland Burke & Thayer LLP (SPAC Counsel):\n<|id|>135<|page|>19<|box|>154 413 174 584<|content|>IX. Closing Note",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>16<|level|>3\n<|id|>23<|level|>3\n<|id|>32<|level|>3\n<|id|>37<|level|>3\n<|id|>41<|level|>2\n<|id|>46<|level|>3\n<|id|>48<|level|>4\n<|id|>50<|level|>4\n<|id|>53<|level|>4\n<|id|>55<|level|>4\n<|id|>60<|level|>4\n<|id|>63<|level|>4\n<|id|>65<|level|>4\n<|id|>71<|level|>2\n<|id|>77<|level|>2\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>104<|level|>3\n<|id|>110<|level|>3\n<|id|>114<|level|>2\n<|id|>118<|level|>2\n<|id|>120<|level|>3\n<|id|>127<|level|>3\n<|id|>132<|level|>3\n<|id|>135<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 50,
+            "level": 4
+        },
+        {
+            "id": 53,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 4
+        },
+        {
+            "id": 63,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 2
+        }
+    ]
+}

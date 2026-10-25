@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Cimarron Flats', 'Crockett Co., TX', '150', '1,800', 'Private Lease', 'Issued (9/28/23)', 'Severed mineral estate (surface', 'None material; standard endorsem', 'Clear with standard exception']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', 'waiver obtained); ranch road easement (E boundary — no impact)', 'ents recommended', 's']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 220,
+    "table2_idx": 221
+}

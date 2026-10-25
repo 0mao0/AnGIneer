@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vvz6qp_2\\input\\pdfs\\doc-df4fe16f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vvz6qp_2\\enriched\\doc-df4fe16f.json",
+    "contd_output": "<|src_id|>33<|tgt_id|>34\n<|src_id|>113<|tgt_id|>114",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>11<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>29<|level|>3\n<|id|>35<|level|>3\n<|id|>38<|level|>2\n<|id|>39<|level|>3\n<|id|>44<|level|>3\n<|id|>49<|level|>2\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>64<|level|>3\n<|id|>67<|level|>3\n<|id|>73<|level|>2\n<|id|>83<|level|>2\n<|id|>84<|level|>3\n<|id|>87<|level|>3\n<|id|>96<|level|>3\n<|id|>101<|level|>3\n<|id|>104<|level|>3\n<|id|>107<|level|>2\n<|id|>111<|level|>2\n<|id|>115<|level|>2\n<|id|>120<|level|>2\n<|id|>129<|level|>2\n<|id|>132<|level|>2\n<|id|>134<|level|>3\n<|id|>138<|level|>3\n<|id|>141<|level|>3\n<|id|>145<|level|>3\n<|id|>147<|level|>2\n<|id|>155<|level|>2\n<|id|>157<|level|>3\n<|id|>169<|level|>3\n<|id|>175<|level|>2",
+    "image_output": "<|src_id|>1<|tgt_id|>2\n<|src_id|>80<|tgt_id|>73\n<|src_id|>81<|tgt_id|>73",
+    "contd_label": [
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 73
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 80,
+            "table2_idx": 81,
+            "upper_row_ss": [
+                [
+                    "Rathore Equity Forfeiture",
+                    "$362,500.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Remaining Individual Defendants Equity Forfeiture",
+                    "$487,000.00"
+                ]
+            ]
+        }
+    ]
+}

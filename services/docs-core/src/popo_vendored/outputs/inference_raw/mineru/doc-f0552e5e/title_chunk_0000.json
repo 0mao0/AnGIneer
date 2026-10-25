@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        14,
+        16,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>279 145 333 851<|content|>DEFENDANT NORTHGATE FIBER AMERICAS INC.'S MEMORAND\n<|id|>12<|page|>1<|box|>489 398 506 598<|content|>TABLE OF CONTENTS\n<|id|>15<|page|>2<|box|>262 142 277 397<|content|>PRELIMINARY STATEMENT\n<|id|>22<|page|>3<|box|>358 140 375 354<|content|>STATEMENT OF FACTS\n<|id|>23<|page|>3<|box|>388 140 407 477<|content|>A. The Parties and the Underlying Dispute\n<|id|>36<|page|>5<|box|>465 140 484 509<|content|>B. The discovery Process and the Privilege Log\n<|id|>43<|page|>6<|box|>583 140 599 406<|content|>C. The 214 Privileged Documents\n<|id|>48<|page|>7<|box|>732 140 750 258<|content|>ARGUMENT\n<|id|>49<|page|>7<|box|>763 140 797 854<|content|>I. THE ATTORNEY-CLIENT PRIVILEGE PROTECTS THE 214\n<|id|>79<|page|>14<|box|>329 140 347 851<|content|>II. MERIDIAN HAS FAILED TO ESTABLISH ANY EXCEPTION\n<|id|>99<|page|>16<|box|>825 140 843 495<|content|>III. THE PRIVILEGE LOG IS ADEQUATE\n<|id|>107<|page|>18<|box|>89 140 106 764<|content|>IV. IN THE ALTERNATIVE, IN CAMERA REVIEW SHOULD BE\n<|id|>113<|page|>18<|box|>734 140 751 271<|content|>CONCLUSION\n<|id|>129<|page|>19<|box|>718 354 734 640<|content|>WORD COUNT CERTIFICATION",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>36<|level|>3\n<|id|>43<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>79<|level|>3\n<|id|>99<|level|>3\n<|id|>107<|level|>3\n<|id|>113<|level|>2\n<|id|>129<|level|>2",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        }
+    ]
+}

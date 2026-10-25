@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 9,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['[Limitation 1c] \"a plurality of adiabatic waveguide tapers... taper ratio of at least 5:1 and a taper length of at least 50 μm...\"', 'Simonsen describes tapered waveguide transitions at the Echelle grating interfaces. See Simonsen at [0035], Fig. 5. The tapers have a reported taper ratio of approximately 3:1 and a length of 30 μm.', \"MISSING. While Simonsen does disclose tapered waveguide transitions, these tapers fail to meet the specific geometric requirements of the claim. Simonsen's tapers have a taper ratio of approximately 3:1 (less than the required 5:1) and a length of approximately 30 μm (less than the required 50 μm minimum). Additionally, Simonsen's tapers are designed for InP waveguides with very different mode-field diameters and refractive index profiles compared to SOI waveguides. The mode-matching function and the adiabaticity criteria for InP-based tapers are not equivalent to those for\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'silicon waveguides, because the higher refractive index contrast in SOI (\\\\Delta n \\\\approx 2.0forSi/SiO_{2}) compared to InP/InGaAsP (\\\\Delta n \\\\approx 0.3) fundamentally changes the required taper geometry for adiabatic transitions.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 133,
+    "table2_idx": 134
+}

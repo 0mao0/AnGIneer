@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>112 228 128 854<|content|>WHITFIELD BARROW & CO., LLC 383 Madison Avenue New\n<|id|>9<|page|>1<|box|>536 140 553 637<|content|>1. Introductory Recitals and Reference to Lock-Up\n<|id|>15<|page|>2<|box|>622 140 638 493<|content|>2. Identification of Pre-Existing 10b5-1 Plans\n<|id|>16<|page|>2<|box|>652 140 670 771<|content|>2.1 Dr. Nathaniel Rourke — Co-Founder, Chairman an\n<|id|>25<|page|>3<|box|>489 140 506 687<|content|>2.2 Margaret Tsujimoto — Co-Founder and Chief Tech\n<|id|>34<|page|>4<|box|>300 140 318 640<|content|>2.3 Confirmation that No Other Pre-Existing 10b5-1\n<|id|>37<|page|>4<|box|>609 140 648 841<|content|>3. Confirmed Parameters for Operation of Pre-Exist\n<|id|>40<|page|>5<|box|>90 140 107 364<|content|>3.2 Conditions to Operation\n<|id|>50<|page|>6<|box|>729 140 747 364<|content|>3.3 Notice to Representative\n<|id|>57<|page|>7<|box|>263 140 282 413<|content|>3.4 Remedies for Non-Compliance\n<|id|>60<|page|>7<|box|>593 140 609 565<|content|>4. No Waiver or Modification of Lock-Up Agreements\n<|id|>69<|page|>8<|box|>344 140 362 550<|content|>5. Company Representations and Acknowledgments\n<|id|>77<|page|>9<|box|>186 140 204 434<|content|>6. Governing Law and Miscellaneous\n<|id|>86<|page|>11<|box|>89 142 107 290<|content|>7. Signature block\n<|id|>89<|page|>11<|box|>185 207 203 787<|content|>SIGNATURE PAGE TO SIDE LETTER RE: 10b5-1 PLAN EXCE\n<|id|>108<|page|>12<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>109<|page|>12<|box|>116 344 133 651<|content|>Summary of Pre-Existing 10b5-1 Plans",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>25<|level|>3\n<|id|>34<|level|>3\n<|id|>37<|level|>2\n<|id|>40<|level|>3\n<|id|>50<|level|>3\n<|id|>57<|level|>3\n<|id|>60<|level|>2\n<|id|>69<|level|>2\n<|id|>77<|level|>2\n<|id|>86<|level|>2\n<|id|>89<|level|>2\n<|id|>108<|level|>2\n<|id|>109<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        }
+    ]
+}

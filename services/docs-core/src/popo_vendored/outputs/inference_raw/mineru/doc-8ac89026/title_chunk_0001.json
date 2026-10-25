@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        49,
+        66
+    ],
+    "pages": [
+        50,
+        53,
+        54,
+        55,
+        61,
+        65,
+        66
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1151<|page|>50<|box|>168 210 196 734<|content|>7 船厂水工工程设计说明及图纸\n<|id|>1152<|page|>50<|box|>230 391 248 556<|content|>7.1 总平面\n<|id|>1155<|page|>50<|box|>388 391 407 554<|content|>7.2 工艺及设备\n<|id|>1158<|page|>50<|box|>501 391 520 554<|content|>7.3 水工建筑物\n<|id|>1203<|page|>53<|box|>127 382 148 632<|content|>7.4 干船坞灌水排水系统\n<|id|>1205<|page|>53<|box|>230 134 249 469<|content|>7.4.1.1 设计说明应包括下列内容：\n<|id|>1222<|page|>54<|box|>171 284 199 678<|content|>附录 A 施工图文件格式\n<|id|>1223<|page|>54<|box|>233 397 250 564<|content|>A.1 一般规定\n<|id|>1227<|page|>54<|box|>368 397 387 564<|content|>A.2 文件格式\n<|id|>1234<|page|>55<|box|>263 435 289 576<|content|>(工程全称)\n<|id|>1238<|page|>55<|box|>838 374 863 637<|content|>设计单位(名称、印章)\n<|id|>1256<|page|>61<|box|>181 295 210 724<|content|>附录 B 施工图文件总目录\n<|id|>1261<|page|>65<|box|>181 275 210 741<|content|>附录 C 本规定用词用语说明\n<|id|>1275<|page|>66<|box|>188 156 253 785<|content|>本规定主编单位、参编单位、 主要起草人、总校人员和管理组人员名单",
+    "raw_response": "<|id|>1151<|level|>1\n<|id|>1152<|level|>2\n<|id|>1155<|level|>2\n<|id|>1158<|level|>2\n<|id|>1203<|level|>2\n<|id|>1205<|level|>3\n<|id|>1222<|level|>1\n<|id|>1223<|level|>2\n<|id|>1227<|level|>2\n<|id|>1234<|level|>-1\n<|id|>1238<|level|>-1\n<|id|>1256<|level|>1\n<|id|>1261<|level|>1\n<|id|>1275<|level|>1",
+    "parsed": [
+        {
+            "id": 1151,
+            "level": 1
+        },
+        {
+            "id": 1152,
+            "level": 2
+        },
+        {
+            "id": 1155,
+            "level": 2
+        },
+        {
+            "id": 1158,
+            "level": 2
+        },
+        {
+            "id": 1203,
+            "level": 2
+        },
+        {
+            "id": 1205,
+            "level": 3
+        },
+        {
+            "id": 1222,
+            "level": 1
+        },
+        {
+            "id": 1223,
+            "level": 2
+        },
+        {
+            "id": 1227,
+            "level": 2
+        },
+        {
+            "id": 1256,
+            "level": 1
+        },
+        {
+            "id": 1261,
+            "level": 1
+        },
+        {
+            "id": 1275,
+            "level": 1
+        }
+    ]
+}

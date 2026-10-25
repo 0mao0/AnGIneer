@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 326 117 669<|content|>UCC FINANCING STATEMENT\n<|id|>1<|type|>title<|page|>1<|box|>137 426 157 570<|content|>(Form UCC1)\n<|id|>2<|type|>title<|page|>1<|box|>175 228 191 767<|content|>Filed Pursuant to the Uniform Commercial Code — Re\n<|id|>4<|type|>title<|page|>1<|box|>226 143 243 250<|content|>Filing Office:\n<|id|>7<|type|>title<|page|>1<|box|>424 297 440 700<|content|>UCC FINANCING STATEMENT — FORM UCC1\n<|id|>8<|type|>title<|page|>1<|box|>465 143 481 295<|content|>Box 1 — DEBTOR\n<|id|>19<|type|>title<|page|>2<|box|>89 142 107 470<|content|>1j. Organizational Identification Number:\n<|id|>21<|type|>title<|page|>2<|box|>154 143 171 372<|content|>Box 2 — SECURED PARTY\n<|id|>22<|type|>title<|page|>2<|box|>185 142 203 344<|content|>2a. Organization's Name:\n<|id|>24<|type|>title<|page|>2<|box|>239 143 257 310<|content|>2b. Mailing Address:\n<|id|>31<|type|>title<|page|>2<|box|>450 140 468 599<|content|>Box 3 — ADDITIONAL SECURED PARTY / ASSIGNEE\n<|id|>33<|type|>title<|page|>2<|box|>518 143 535 475<|content|>Box 4 — COLLATERAL DESCRIPTION\n<|id|>65<|type|>title<|page|>5<|box|>114 140 132 620<|content|>IMPORTANT NOTICE REGARDING SCOPE OF FILING:\n<|id|>67<|type|>title<|page|>5<|box|>383 142 401 638<|content|>Box 5 — CHECK BOXES / ALTERNATIVE DESIGNATIONS\n<|id|>68<|type|>title<|page|>5<|box|>415 142 433 431<|content|>5a. Transmitting Utility Designation:\n<|id|>70<|type|>title<|page|>5<|box|>469 142 487 720<|content|>5b. Alternative Designations (check only if applic\n<|id|>75<|type|>table<|page|>5<|box|>691 143 898 852<|content|>None\n<|id|>76<|type|>title<|page|>6<|box|>138 142 155 437<|content|>FILING FEE AND INSTRUCTIONS\n<|id|>82<|type|>title<|page|>6<|box|>434 142 450 305<|content|>AUTHORIZATION\n<|id|>84<|type|>title<|page|>6<|box|>651 142 667 354<|content|>Filer Contact Information:\n<|id|>87<|type|>title<|page|>6<|box|>760 339 776 656<|content|>INTERNAL COVER MEMORANDUM\n<|id|>88<|type|>title<|page|>6<|box|>801 295 818 702<|content|>(Appended for File Purposes Only — Not for Filing)\n<|id|>96<|type|>title<|page|>7<|box|>282 140 300 364<|content|>UCC-1 Filings — Summary\n<|id|>97<|type|>table<|page|>7<|box|>349 143 851 852<|content|>None\n<|id|>99<|type|>title<|page|>8<|box|>157 140 174 563<|content|>UCC-3 Termination Statements — Prior Lien Release\n<|id|>109<|type|>title<|page|>8<|box|>686 140 703 380<|content|>Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>75<|tgt_id|>70\n<|src_id|>97<|tgt_id|>96",
+    "parsed": [
+        {
+            "src_id": 75,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 96
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 285 142 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>175 143 248 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>316 241 333 754<|content|>STIPULATION AND [PROPOSED] ORDER FOR MEDIATION\n<|id|>4<|type|>title<|page|>1<|box|>530 142 546 241<|content|>RECITALS\n<|id|>13<|type|>title<|page|>2<|box|>300 140 316 437<|content|>1. APPOINTMENT OF MEDIATOR\n<|id|>18<|type|>title<|page|>2<|box|>646 140 662 370<|content|>2. SCOPE OF MEDIATION\n<|id|>36<|type|>title<|page|>5<|box|>89 140 107 379<|content|>3. MEDIATION SCHEDULE\n<|id|>44<|type|>title<|page|>5<|box|>641 140 659 344<|content|>4. MEDIATION BRIEFS\n<|id|>50<|type|>title<|page|>6<|box|>212 140 229 339<|content|>5. CONFIDENTIALITY\n<|id|>57<|type|>title<|page|>6<|box|>756 140 773 434<|content|>6. GOOD FAITH PARTICIPATION\n<|id|>61<|type|>title<|page|>7<|box|>285 140 301 307<|content|>7. COST-SHARING\n<|id|>66<|type|>title<|page|>7<|box|>612 140 628 495<|content|>8. EFFECT ON LITIGATION DEADLINES\n<|id|>71<|type|>title<|page|>8<|box|>222 140 239 442<|content|>9. TERMINATION OF MEDIATION\n<|id|>75<|type|>title<|page|>8<|box|>506 142 523 284<|content|>10. NO WAIVER\n<|id|>78<|type|>title<|page|>8<|box|>709 142 726 383<|content|>11. BINDING SETTLEMENT\n<|id|>82<|type|>title<|page|>9<|box|>167 143 184 450<|content|>12. MISCELLANEOUS PROVISIONS\n<|id|>97<|type|>title<|page|>9<|box|>756 379 773 617<|content|>[Signatures on Following Page]\n<|id|>98<|type|>title<|page|>9<|box|>782 437 797 560<|content|>SIGNATURES\n<|id|>99<|type|>title<|page|>9<|box|>842 143 858 308<|content|>FOR PETITIONER:\n<|id|>104<|type|>title<|page|>10<|box|>209 142 224 331<|content|>FOR CONTESTANTS:\n<|id|>109<|type|>title<|page|>10<|box|>335 406 353 593<|content|>[PROPOSED] ORDER",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

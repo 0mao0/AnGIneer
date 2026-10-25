@@ -1,0 +1,70 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        53
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        17,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 405 119 593<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>372 142 388 312<|content|>I. Purpose and Scope\n<|id|>20<|page|>2<|box|>431 140 449 429<|content|>II. Applicable Privilege Designations\n<|id|>22<|page|>2<|box|>525 140 542 366<|content|>A. Attorney-Client Privilege\n<|id|>31<|page|>3<|box|>214 140 231 357<|content|>B. Attorney Work Product\n<|id|>36<|page|>3<|box|>705 140 723 433<|content|>C. Common Interest / Joint Privilege\n<|id|>40<|page|>4<|box|>367 140 383 367<|content|>D. Non-Privileged Materials\n<|id|>48<|page|>5<|box|>90 140 107 609<|content|>III. Complete Document Catalog and Privilege Desig\n<|id|>50<|page|>5<|box|>202 140 219 581<|content|>Category 1: Engagement and Conflicts (Documents 1–\n<|id|>54<|page|>7<|box|>436 140 454 710<|content|>Category 2: Initial Research and Strategy Memorand\n<|id|>66<|page|>17<|box|>268 142 285 578<|content|>Category 3: Term Sheet Negotiation (Documents 16–3\n<|id|>104<|page|>52<|box|>794 140 811 709<|content|>Category 6: Termination of Negotiations and Closin",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>3\n<|id|>31<|level|>3\n<|id|>36<|level|>3\n<|id|>40<|level|>3\n<|id|>48<|level|>2\n<|id|>50<|level|>3\n<|id|>54<|level|>3\n<|id|>66<|level|>3\n<|id|>104<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,122 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>114 424 132 573<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>395 372 415 624<|content|>I. Purpose and Summary\n<|id|>15<|page|>2<|box|>289 380 310 614<|content|>II. Privilege Log Status\n<|id|>16<|page|>2<|box|>334 140 352 328<|content|>A. Scope and Coverage\n<|id|>22<|page|>3<|box|>304 140 321 444<|content|>B. Categories of Privileged Documents\n<|id|>30<|page|>4<|box|>758 140 775 370<|content|>C. Log Format and Location\n<|id|>41<|page|>5<|box|>417 140 434 387<|content|>D. Completeness Confirmation\n<|id|>44<|page|>5<|box|>642 346 662 651<|content|>III. Litigation Hold — Release\n<|id|>45<|page|>5<|box|>686 140 704 352<|content|>A. Litigation Hold History\n<|id|>54<|page|>6<|box|>455 140 472 290<|content|>B. Release of Hold\n<|id|>58<|page|>7<|box|>90 250 111 746<|content|>IV. Document Retention and Destruction Protocol\n<|id|>59<|page|>7<|box|>136 140 152 421<|content|>A. Firm Standard Retention Period\n<|id|>63<|page|>7<|box|>474 142 492 290<|content|>B. Electronic Files\n<|id|>73<|page|>8<|box|>575 140 593 277<|content|>C. Physical Files\n<|id|>80<|page|>9<|box|>90 140 107 442<|content|>D. Destruction After Retention Period\n<|id|>86<|page|>9<|box|>443 142 460 375<|content|>E. Return of Client Materials\n<|id|>89<|page|>9<|box|>705 225 724 771<|content|>V. Third-Party Vendor and Expert File Consideratio\n<|id|>90<|page|>9<|box|>750 140 767 460<|content|>A. Greystone Technical Consulting LLC\n<|id|>94<|page|>10<|box|>304 140 320 467<|content|>B. Caldwell Barrow LLP (Local Counsel)\n<|id|>98<|page|>10<|box|>587 140 604 612<|content|>C. Meridian Document Solutions LLC (E-discovery Ve\n<|id|>101<|page|>10<|box|>776 153 795 844<|content|>VI. Summary of Key Financial and Matter Data for A\n<|id|>105<|page|>11<|box|>464 295 483 702<|content|>VII. Action Items and Recommendations\n<|id|>114<|page|>12<|box|>90 411 109 584<|content|>VIII. Conclusion\n<|id|>119<|page|>12<|box|>489 142 505 320<|content|>Respectfully submitted,",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>22<|level|>3\n<|id|>30<|level|>3\n<|id|>41<|level|>3\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>54<|level|>3\n<|id|>58<|level|>2\n<|id|>59<|level|>3\n<|id|>63<|level|>3\n<|id|>73<|level|>3\n<|id|>80<|level|>3\n<|id|>86<|level|>3\n<|id|>89<|level|>2\n<|id|>90<|level|>3\n<|id|>94<|level|>3\n<|id|>98<|level|>3\n<|id|>101<|level|>2\n<|id|>105<|level|>2\n<|id|>114<|level|>2\n<|id|>119<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        }
+    ]
+}

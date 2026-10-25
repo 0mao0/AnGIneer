@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>719 140 736 470<|content|>ENGAGEMENT OPENED: ... June 30, 2022\n<|id|>6<|page|>1<|box|>744 140 763 614<|content|>CURRENT STATUS: ... DORMANT (since September 30, 2022)\n<|id|>7<|page|>1<|box|>772 140 900 857<|content|>REASON FOR DORMANCY: ... Karavelis communicated this request through General Counsel Dimitra\n<|id|>8<|page|>2<|box|>89 140 181 854<|content|>Karavelis-Stavrou during a telephone call with Vic...s would continue to run during the dormancy period\n<|id|>12<|page|>2<|box|>824 140 898 856<|content|>The outstanding accounts receivable amount of $27,...placed on dormant status. ... The Billing Partner,\n<|id|>13<|page|>3<|box|>90 140 162 854<|content|>Howard Quinn, has been advised and has authorized ...t has been received as of the date of this summary\n<|id|>122<|page|>13<|box|>689 176 705 571<|content|>PREPARED BY: ... Jasmine Thornton, Lead Associate\n<|id|>123<|page|>13<|box|>714 176 731 465<|content|>LAST UPDATED: ... December 1, 2022\n<|id|>124<|page|>13<|box|>741 174 776 854<|content|>NEXT SCHEDULED UPDATE: ... March 1, 2023 (or upon reactivation of the matter, whichever is earlier)\n<|id|>125<|page|>13<|box|>784 140 861 854<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT ...disclosure, or distribution is strictly prohibited",
+    "raw_response": "<|src_id|>7<|tgt_id|>8\n<|src_id|>12<|tgt_id|>13",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        }
+    ]
+}

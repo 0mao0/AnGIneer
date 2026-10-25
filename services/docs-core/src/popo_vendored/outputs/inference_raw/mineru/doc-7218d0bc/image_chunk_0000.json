@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>157 178 174 818<|content|>CALDERWOOD & HARKNESS LLP 600 Lexington Avenue New\n<|id|>2<|type|>title<|page|>1<|box|>184 341 204 655<|content|>INTERNAL MEMORANDUM\n<|id|>12<|type|>title<|page|>1<|box|>523 140 542 251<|content|>I. PURPOSE\n<|id|>16<|type|>title<|page|>2<|box|>89 140 106 352<|content|>II. MATTER SUMMARY\n<|id|>17<|type|>title<|page|>2<|box|>121 140 138 346<|content|>A. Engagement Overview\n<|id|>22<|type|>title<|page|>2<|box|>674 142 691 318<|content|>B. The OPDP Inquiry\n<|id|>30<|type|>title<|page|>4<|box|>90 140 107 444<|content|>C. Engagement Team and Co-Counsel\n<|id|>40<|type|>title<|page|>4<|box|>763 142 779 482<|content|>III. KEY MILESTONES AND TIMELINE\n<|id|>42<|type|>table<|page|>4<|box|>830 145 900 852<|content|>None\n<|id|>43<|type|>table<|page|>5<|box|>90 143 900 852<|content|>None\n<|id|>44<|type|>table<|page|>6<|box|>88 143 344 852<|content|>None\n<|id|>46<|type|>title<|page|>6<|box|>473 142 489 338<|content|>IV. FDA DISPOSITION\n<|id|>53<|type|>title<|page|>7<|box|>285 140 301 651<|content|>V. SUMMARY OF CORRECTIVE ACTIONS IMPLEMENTED\n<|id|>63<|type|>title<|page|>8<|box|>796 140 813 524<|content|>VI. INTERNAL INVESTIGATION SUMMARY\n<|id|>82<|type|>title<|page|>10<|box|>630 142 647 415<|content|>VII. SECURITIES DISCLOSURE\n<|id|>89<|type|>title<|page|>11<|box|>420 140 438 429<|content|>VIII. FINAL BILLING SUMMARY\n<|id|>90<|type|>title<|page|>11<|box|>452 140 468 403<|content|>A. Calderwood & Harkness LLP\n<|id|>94<|type|>title<|page|>11<|box|>589 176 607 424<|content|>Amount under fee cap: $62,760\n<|id|>96<|type|>title<|page|>11<|box|>700 142 718 544<|content|>B. Whitfield Bauer & Associates LLP (Co-Counsel)\n<|id|>100<|type|>title<|page|>12<|box|>90 140 107 643<|content|>C. Tavrenis Stern Consulting Group LLC (Forensic C\n<|id|>104<|type|>title<|page|>12<|box|>268 142 286 323<|content|>D. Total Outside Costs\n<|id|>106<|type|>table<|page|>12<|box|>316 143 412 852<|content|>None\n<|id|>108<|type|>title<|page|>12<|box|>523 140 540 735<|content|>IX. DOCUMENT RETENTION AND PRIVILEGE-LOG MAINTENAN\n<|id|>109<|type|>title<|page|>12<|box|>554 142 571 424<|content|>A. Document-Retention Obligations\n<|id|>114<|type|>title<|page|>13<|box|>157 140 175 380<|content|>B. Privilege-Log Maintenance\n<|id|>118<|type|>title<|page|>13<|box|>502 140 518 442<|content|>C. Key Privileged Documents Indexed\n<|id|>135<|type|>title<|page|>14<|box|>224 140 242 593<|content|>X. RESIDUAL CONSIDERATIONS AND OPEN ITEMS\n<|id|>136<|type|>title<|page|>14<|box|>256 140 273 403<|content|>A. Ongoing Penterra Obligations\n<|id|>142<|type|>title<|page|>14<|box|>731 142 748 421<|content|>B. Risk Assessment Going Forward\n<|id|>147<|type|>title<|page|>15<|box|>378 140 397 313<|content|>C. Client Notification\n<|id|>150<|type|>title<|page|>15<|box|>542 140 560 361<|content|>XI. RECOMMENDATION\n<|id|>154<|type|>title<|page|>16<|box|>89 142 107 361<|content|>XII. SIGNATURE BLOCK\n<|id|>155<|type|>title<|page|>16<|box|>114 143 133 282<|content|>PREPARED BY:",
+    "raw_response": "<|src_id|>42<|tgt_id|>40\n<|src_id|>43<|tgt_id|>40\n<|src_id|>44<|tgt_id|>40\n<|src_id|>106<|tgt_id|>104",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 104
+        }
+    ]
+}

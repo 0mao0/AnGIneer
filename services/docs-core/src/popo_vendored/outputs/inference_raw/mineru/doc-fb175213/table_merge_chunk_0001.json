@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Dec', '489', '589', '1,078', '902', '401', '418', '84', '159,365', '8,695']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=10, Series H and HH'], ['colspan=10, Fiscal years:'], ['1952-96.', '13,572', '-', '13,572', '20,471', '20,471', '-', '19,153', '11,940', '16']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 269,
+    "table2_idx": 270
+}

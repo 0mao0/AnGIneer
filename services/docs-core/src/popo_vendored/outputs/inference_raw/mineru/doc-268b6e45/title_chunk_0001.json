@@ -1,0 +1,40 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        46,
+        47
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>526<|page|>46<|box|>125 447 140 549<|content|>EXHIBIT B\n<|id|>527<|page|>46<|box|>150 287 167 710<|content|>DATA PROCESSING AGREEMENT (CCPA/CPRA)\n<|id|>538<|page|>46<|box|>647 447 662 550<|content|>EXHIBIT C\n<|id|>539<|page|>46<|box|>672 364 689 632<|content|>DATA SECURITY ADDENDUM\n<|id|>553<|page|>47<|box|>547 447 563 550<|content|>EXHIBIT D\n<|id|>554<|page|>47<|box|>571 361 589 635<|content|>SERVICE LEVEL AGREEMENT",
+    "raw_response": "<|id|>526<|level|>1\n<|id|>527<|level|>2\n<|id|>538<|level|>1\n<|id|>539<|level|>2\n<|id|>553<|level|>1\n<|id|>554<|level|>2",
+    "parsed": [
+        {
+            "id": 526,
+            "level": 1
+        },
+        {
+            "id": 527,
+            "level": 2
+        },
+        {
+            "id": 538,
+            "level": 1
+        },
+        {
+            "id": 539,
+            "level": 2
+        },
+        {
+            "id": 553,
+            "level": 1
+        },
+        {
+            "id": 554,
+            "level": 2
+        }
+    ]
+}

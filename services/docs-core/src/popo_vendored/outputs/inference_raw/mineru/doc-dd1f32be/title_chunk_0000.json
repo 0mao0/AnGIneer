@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>127 143 141 532<|content|>Attorneys for Defendant AURELIUS MEDIA AMERICAS IN\n<|id|>2<|page|>1<|box|>150 271 166 723<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA\n<|id|>3<|page|>1<|box|>176 272 191 723<|content|>COUNTY OF LOS ANGELES — CENTRAL DISTRICT\n<|id|>5<|page|>1<|box|>368 148 422 846<|content|>[PROPOSED] ORDER ON DEFENDANT'S DEMURRER TO PLAINT\n<|id|>15<|page|>1<|box|>755 408 772 589<|content|>OPERATIVE ORDER\n<|id|>17<|page|>1<|box|>806 150 824 745<|content|>OPTION 1 — DEMURRER SUSTAINED WITHOUT LEAVE TO AME\n<|id|>21<|page|>2<|box|>233 150 250 707<|content|>OPTION 2 — DEMURRER SUSTAINED WITH LEAVE TO AMEND\n<|id|>26<|page|>2<|box|>527 150 544 495<|content|>OPTION 3 — DEMURRER OVERRULED\n<|id|>29<|page|>2<|box|>714 287 731 709<|content|>ADDITIONAL ORDERS OR COMMENTS, IF ANY:\n<|id|>30<|page|>3<|box|>159 411 175 584<|content|>IT IS SO ORDERED.",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>5<|level|>1\n<|id|>15<|level|>2\n<|id|>17<|level|>3\n<|id|>21<|level|>3\n<|id|>26<|level|>3\n<|id|>29<|level|>2\n<|id|>30<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        }
+    ]
+}

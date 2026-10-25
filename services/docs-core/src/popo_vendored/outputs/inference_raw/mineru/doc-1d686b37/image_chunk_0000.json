@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 143 104 606<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|type|>title<|page|>1<|box|>112 424 128 573<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>417 357 436 638<|content|>I. Introduction and Purpose\n<|id|>13<|type|>table<|page|>1<|box|>805 143 897 852<|content|>None\n<|id|>14<|type|>table<|page|>2<|box|>88 143 152 852<|content|>None\n<|id|>23<|type|>title<|page|>2<|box|>633 385 652 612<|content|>II. Overall Assessment\n<|id|>35<|type|>title<|page|>3<|box|>289 274 310 720<|content|>III. Classification of the Issuer (QRF 2022-1)\n<|id|>36<|type|>title<|page|>3<|box|>334 140 352 372<|content|>A. Disregarded Entity Status\n<|id|>41<|type|>title<|page|>4<|box|>148 140 167 555<|content|>B. Qualifying SPE / Taxable Mortgage Pool Analysis\n<|id|>45<|type|>title<|page|>4<|box|>487 140 505 411<|content|>C. Partnership Classification Risk\n<|id|>52<|type|>title<|page|>5<|box|>284 292 303 704<|content|>IV. Characterization of the Notes as Debt\n<|id|>53<|type|>title<|page|>5<|box|>329 142 345 361<|content|>A. Debt vs. Equity Analysis\n<|id|>63<|type|>title<|page|>6<|box|>525 140 544 398<|content|>B. Original Issue discount (OID)\n<|id|>70<|type|>title<|page|>7<|box|>431 140 449 300<|content|>C. Market discount\n<|id|>72<|type|>title<|page|>7<|box|>575 312 595 684<|content|>V. Tax Consequences to U.S. Holders\n<|id|>73<|type|>title<|page|>7<|box|>622 140 638 294<|content|>A. Interest Income\n<|id|>76<|type|>title<|page|>7<|box|>824 140 840 403<|content|>B. Sale, Exchange, or Retirement\n<|id|>79<|type|>title<|page|>8<|box|>285 140 303 300<|content|>C. Medicare Surtax\n<|id|>82<|type|>title<|page|>8<|box|>450 140 469 333<|content|>D. Backup Withholding\n<|id|>85<|type|>title<|page|>8<|box|>638 284 659 712<|content|>VI. Tax Consequences to Non-U.S. Holders\n<|id|>86<|type|>title<|page|>8<|box|>685 140 702 393<|content|>A. Portfolio Interest Exemption\n<|id|>93<|type|>title<|page|>9<|box|>358 140 376 401<|content|>B. Effectively Connected Income\n<|id|>96<|type|>title<|page|>9<|box|>560 140 578 240<|content|>C. FIRPTA\n<|id|>99<|type|>title<|page|>9<|box|>744 140 763 254<|content|>D. Estate Tax\n<|id|>102<|type|>title<|page|>10<|box|>90 367 111 630<|content|>VII. FATCA Withholding\n<|id|>108<|type|>title<|page|>10<|box|>809 292 829 705<|content|>VIII. State and Local Tax Considerations\n<|id|>114<|type|>title<|page|>12<|box|>90 364 109 632<|content|>IX. ERISA Considerations\n<|id|>115<|type|>title<|page|>12<|box|>137 142 152 303<|content|>A. Plan Asset Issues\n<|id|>120<|type|>title<|page|>12<|box|>665 140 683 444<|content|>B. Prohibited Transaction Exemptions\n<|id|>130<|type|>title<|page|>13<|box|>347 140 364 374<|content|>C. IRC § 4975 (IRA Holders)\n<|id|>133<|type|>title<|page|>13<|box|>518 243 537 753<|content|>X. Tax Shelter / Reportable Transaction Disclosure\n<|id|>137<|type|>title<|page|>14<|box|>90 279 111 717<|content|>XI. Conforming and Cross-Reference Issues\n<|id|>154<|type|>title<|page|>15<|box|>172 217 191 779<|content|>XII. Contingent Payment Debt Instrument (CPDI) Rul\n<|id|>161<|type|>title<|page|>16<|box|>172 354 191 643<|content|>XIII. Information Reporting\n<|id|>168<|type|>title<|page|>16<|box|>506 282 525 714<|content|>XIV. Summary of Recommended Revisions\n<|id|>188<|type|>title<|page|>18<|box|>229 339 250 658<|content|>XV. Open Items and Next Steps",
+    "raw_response": "<|src_id|>13<|tgt_id|>9\n<|src_id|>14<|tgt_id|>9",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 9
+        }
+    ]
+}

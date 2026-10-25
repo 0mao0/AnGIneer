@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        4,
+        7,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 119 854<|content|>Prepared By and When Recorded Return To: ... Whitf...nue of the Americas, Suite 4400 New York, NY 10020\n<|id|>1<|page|>1<|box|>127 142 156 459<|content|>Attention: ... Philip Tarrant Corporation DRAFT — FOR DISCUSSION PURPOSES ONLY\n<|id|>3<|page|>1<|box|>190 434 207 563<|content|>$160,000,000. ... 00\n<|id|>5<|page|>1<|box|>242 413 258 583<|content|>New York, New York\n<|id|>4<|page|>1<|box|>215 457 234 540<|content|>[__, 20__]\n<|id|>6<|page|>1<|box|>268 140 450 856<|content|>FOR VALUE RECEIVED, CORAL PALMS RESORT HOLDINGS LL...nce with the terms and conditions set forth herein\n<|id|>28<|page|>4<|box|>282 174 318 854<|content|>(b) second, to the payment of accrued and unpaid i...crued at the Default Rate, if applicable); ... and\n<|id|>30<|page|>4<|box|>352 140 462 854<|content|>Notwithstanding the foregoing, during the continua...hereunder or under any of the other Loan Documents\n<|id|>59<|page|>7<|box|>465 174 521 854<|content|>(g) any right to require Lender to proceed against... proceeding against Maker under this Note; ... and\n<|id|>61<|page|>7<|box|>573 140 684 857<|content|>No failure or delay by Lender in exercising any ri... remedies that Lender may have at law or in equity\n<|id|>71<|page|>9<|box|>114 210 152 854<|content|>Coral Palms Resort Holdings LLC c/o Verimark Hospi...ayshore Boulevard, Suite 2200 Miami, Florida 33131\n<|id|>72<|page|>9<|box|>160 176 195 656<|content|>Attention: ... Derek Huang, SVP – Capital Markets ...With a copy to (which shall not constitute notice)\n<|id|>73<|page|>9<|box|>203 210 238 854<|content|>Calderwood & Harkness LLP 100 Southeast Second Street, Suite 3800 Miami, Florida 33131\n<|id|>74<|page|>9<|box|>247 212 263 428<|content|>Attention: ... Douglas Fairchild\n<|id|>75<|page|>9<|box|>265 176 281 276<|content|>If to Lender: ... If to Lender\n<|id|>76<|page|>9<|box|>290 210 325 854<|content|>Pinnacle Atlantic Capital, LLC 200 Lexington Avenue, 38th Floor New York, New York 10016\n<|id|>77<|page|>9<|box|>334 176 369 723<|content|>Attention: ... Martin Drubeck, Managing Director –...With a copy to (which shall not constitute notice)\n<|id|>78<|page|>9<|box|>378 210 412 852<|content|>Whitford Baines & Driscoll LLP 1221 Avenue of the Americas, Suite 4400 New York, New York 10020\n<|id|>79<|page|>9<|box|>422 210 439 490<|content|>Attention: ... Philip Tarrant Corporation\n<|id|>80<|page|>9<|box|>439 140 474 854<|content|>Either party may change its notice address by givi... other party in accordance with the Loan Agreement\n<|id|>97<|page|>10<|box|>768 140 784 419<|content|>By: ... ,\n<|id|>98<|page|>10<|box|>785 142 801 441<|content|>a Delaware corporation, its sole member\n<|id|>99<|page|>10<|box|>803 143 819 251<|content|>By: ... By\n<|id|>100<|page|>10<|box|>819 143 835 250<|content|>Name: ... [____]\n<|id|>101<|page|>10<|box|>835 143 852 240<|content|>Title: ... [____]\n<|id|>102<|page|>10<|box|>853 140 888 854<|content|>ACKNOWLEDGED AND AGREED by Lender solely for purpo...of jury trial set forth in Section 14 of this Note\n<|id|>106<|page|>11<|box|>151 143 166 318<|content|>Name: ... Martin Drubeck\n<|id|>107<|page|>11<|box|>167 142 184 493<|content|>Title: ... Managing Director – Real Estate Lending\n<|id|>114<|page|>11<|box|>395 140 430 854<|content|>Coral Palms Grand Resort & Spa 99000 Overseas Highway Key Largo, Monroe County, Florida 33037\n<|id|>115<|page|>11<|box|>439 140 531 854<|content|>Together with all of the right, title, and interes...all as more particularly described in the Mortgage",
+    "raw_response": "<|src_id|>97<|tgt_id|>98\n<|src_id|>99<|tgt_id|>100\n<|src_id|>100<|tgt_id|>101\n<|src_id|>106<|tgt_id|>107",
+    "parsed": [
+        {
+            "src_id": 97,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 107
+        }
+    ]
+}

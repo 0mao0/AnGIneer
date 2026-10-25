@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>1<|box|>229 140 247 823<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>8<|page|>1<|box|>422 140 439 444<|content|>1. Purpose and Urgency of This Letter\n<|id|>14<|page|>2<|box|>90 140 107 437<|content|>2. Procedural History of the Deadline\n<|id|>21<|page|>2<|box|>652 140 670 454<|content|>3. Current Status of the Draft Response\n<|id|>36<|page|>3<|box|>640 140 657 575<|content|>4. Consequences of Missing the March 9, 2025 Deadl\n<|id|>38<|page|>3<|box|>734 140 751 535<|content|>4.1 Abandonment of the Foundational Application\n<|id|>45<|page|>4<|box|>395 140 412 679<|content|>4.2 Loss of Design-Around Claim Scope — Pinnacle O\n<|id|>50<|page|>5<|box|>90 140 107 408<|content|>4.3 Impact on Portfolio Valuation\n<|id|>53<|page|>5<|box|>335 140 352 485<|content|>4.4 Potential Lender Covenant Implications\n<|id|>60<|page|>5<|box|>840 140 857 408<|content|>5. Required Actions and Timeline\n<|id|>76<|page|>7<|box|>90 140 107 413<|content|>6. Additional Upcoming Deadlines\n<|id|>83<|page|>7<|box|>724 140 743 362<|content|>7. Ethical Obligation Notice\n<|id|>87<|page|>8<|box|>212 140 229 334<|content|>8. Request for Response\n<|id|>94<|page|>8<|box|>594 140 609 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>4<|level|>-1\n<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>21<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>60<|level|>1\n<|id|>76<|level|>1\n<|id|>83<|level|>1\n<|id|>87<|level|>1\n<|id|>94<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        }
+    ]
+}

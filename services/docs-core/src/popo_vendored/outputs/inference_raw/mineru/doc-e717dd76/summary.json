@@ -1,0 +1,183 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_awcqf_i\\input\\pdfs\\doc-e717dd76.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_awcqf_i\\enriched\\doc-e717dd76.json",
+    "contd_output": "<|src_id|>63<|tgt_id|>64\n<|src_id|>98<|tgt_id|>99\n<|src_id|>135<|tgt_id|>136",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>13<|level|>2\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>2\n<|id|>40<|level|>3\n<|id|>49<|level|>3\n<|id|>55<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>68<|level|>3\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>86<|level|>3\n<|id|>101<|level|>3\n<|id|>104<|level|>2\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>113<|level|>3\n<|id|>121<|level|>2\n<|id|>129<|level|>2\n<|id|>132<|level|>3\n<|id|>139<|level|>3\n<|id|>148<|level|>2\n<|id|>149<|level|>3",
+    "image_output": "<|src_id|>43<|tgt_id|>40\n<|src_id|>45<|tgt_id|>40\n<|src_id|>47<|tgt_id|>40\n<|src_id|>66<|tgt_id|>62\n<|src_id|>145<|tgt_id|>139\n<|src_id|>146<|tgt_id|>139\n<|src_id|>147<|tgt_id|>139",
+    "contd_label": [
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 136
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 43,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 139
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 145,
+            "table2_idx": 146,
+            "upper_row_ss": [
+                [
+                    "No.",
+                    "Action Item",
+                    "Responsible",
+                    "Deadline"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1",
+                    "Finalize and submit IDR No. 47 response (supplemental documentation including employee compensation data and travel records for PBI personnel)",
+                    "Simmons / Nazari",
+                    "September 29, 2023"
+                ]
+            ]
+        }
+    ]
+}

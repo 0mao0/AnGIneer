@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        94,
+        110
+    ],
+    "pages": [
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        107,
+        110
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>330<|type|>table<|page|>94<|box|>116 31 922 962<|content|>None\n<|id|>331<|type|>table<|page|>95<|box|>114 3 928 941<|content|>None\n<|id|>334<|type|>table<|page|>96<|box|>124 49 933 984<|content|>None\n<|id|>335<|type|>table<|page|>97<|box|>125 8 929 934<|content|>None\n<|id|>337<|type|>table<|page|>98<|box|>123 42 851 978<|content|>None\n<|id|>338<|type|>table<|page|>99<|box|>124 10 858 939<|content|>None\n<|id|>340<|type|>table<|page|>100<|box|>125 39 771 966<|content|>None\n<|id|>386<|type|>title<|page|>101<|box|>491 395 506 579<|content|>Footnotes to Table 3\n<|id|>387<|type|>table<|page|>102<|box|>100 47 901 971<|content|>None\n<|id|>388<|type|>table<|page|>103<|box|>104 14 860 941<|content|>None\n<|id|>390<|type|>image<|page|>107<|box|>0 0 994 1000<|content|>None\n<|id|>392<|type|>image<|page|>110<|box|>3 821 43 957<|content|>None",
+    "raw_response": "<|src_id|>387<|tgt_id|>386\n<|src_id|>388<|tgt_id|>386",
+    "parsed": [
+        {
+            "src_id": 387,
+            "tgt_id": 386
+        },
+        {
+            "src_id": 388,
+            "tgt_id": 386
+        }
+    ]
+}

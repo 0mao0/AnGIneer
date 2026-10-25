@@ -1,0 +1,617 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xxyxvgu9\\input\\pdfs\\doc-f3596477.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xxyxvgu9\\enriched\\doc-f3596477.json",
+    "contd_output": "<|src_id|>17<|tgt_id|>18\n<|src_id|>42<|tgt_id|>43\n<|src_id|>308<|tgt_id|>309",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>13<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>37<|level|>3\n<|id|>47<|level|>3\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>58<|level|>3\n<|id|>67<|level|>3\n<|id|>74<|level|>3\n<|id|>83<|level|>3\n<|id|>91<|level|>2\n<|id|>92<|level|>3\n<|id|>102<|level|>3\n<|id|>112<|level|>3\n<|id|>119<|level|>3\n<|id|>122<|level|>2\n<|id|>123<|level|>3\n<|id|>129<|level|>4\n<|id|>133<|level|>4\n<|id|>137<|level|>4\n<|id|>141<|level|>3\n<|id|>151<|level|>3\n<|id|>156<|level|>3\n<|id|>161<|level|>2\n<|id|>162<|level|>3\n<|id|>168<|level|>3\n<|id|>175<|level|>3\n<|id|>184<|level|>3\n<|id|>189<|level|>3\n<|id|>200<|level|>2\n<|id|>202<|level|>3\n<|id|>207<|level|>3\n<|id|>209<|level|>4\n<|id|>219<|level|>4\n<|id|>227<|level|>2\n<|id|>228<|level|>3\n<|id|>235<|level|>3\n<|id|>246<|level|>3\n<|id|>255<|level|>3\n<|id|>259<|level|>2\n<|id|>269<|level|>2\n<|id|>288<|level|>2\n<|id|>289<|level|>3\n<|id|>291<|level|>4\n<|id|>294<|level|>4\n<|id|>297<|level|>4\n<|id|>299<|level|>4\n<|id|>302<|level|>4\n<|id|>304<|level|>4\n<|id|>306<|level|>4\n<|id|>310<|level|>2\n<|id|>311<|level|>3\n<|id|>313<|level|>4\n<|id|>317<|level|>4\n<|id|>318<|level|>5\n<|id|>327<|level|>5\n<|id|>329<|level|>4\n<|id|>332<|level|>2\n<|id|>333<|level|>3\n<|id|>339<|level|>2\n<|id|>340<|level|>3\n<|id|>343<|level|>4\n<|id|>345<|level|>4\n<|id|>350<|level|>4",
+    "image_output": "<|src_id|>28<|tgt_id|>25\n<|src_id|>72<|tgt_id|>67\n<|src_id|>106<|tgt_id|>102\n<|src_id|>107<|tgt_id|>102\n<|src_id|>108<|tgt_id|>102\n<|src_id|>109<|tgt_id|>102\n<|src_id|>113<|tgt_id|>112\n<|src_id|>153<|tgt_id|>151\n<|src_id|>154<|tgt_id|>151\n<|src_id|>204<|tgt_id|>202\n<|src_id|>205<|tgt_id|>202\n<|src_id|>216<|tgt_id|>207\n<|src_id|>217<|tgt_id|>207\n<|src_id|>224<|tgt_id|>207\n<|src_id|>292<|tgt_id|>291\n<|src_id|>293<|tgt_id|>291\n<|src_id|>295<|tgt_id|>294\n<|src_id|>298<|tgt_id|>297\n<|src_id|>300<|tgt_id|>299\n<|src_id|>301<|tgt_id|>299\n<|src_id|>303<|tgt_id|>302\n<|src_id|>305<|tgt_id|>304\n<|src_id|>307<|tgt_id|>306\n<|src_id|>314<|tgt_id|>313\n<|src_id|>315<|tgt_id|>313\n<|src_id|>324<|tgt_id|>317\n<|src_id|>325<|tgt_id|>317\n<|src_id|>328<|tgt_id|>327\n<|src_id|>330<|tgt_id|>329\n<|src_id|>335<|tgt_id|>333\n<|src_id|>336<|tgt_id|>333\n<|src_id|>342<|tgt_id|>341\n<|src_id|>353<|tgt_id|>350\n<|src_id|>354<|tgt_id|>340\n<|src_id|>355<|tgt_id|>340",
+    "contd_label": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 308,
+            "tgt_id": 309
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 4
+        },
+        {
+            "id": 133,
+            "level": 4
+        },
+        {
+            "id": 137,
+            "level": 4
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 3
+        },
+        {
+            "id": 207,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 4
+        },
+        {
+            "id": 219,
+            "level": 4
+        },
+        {
+            "id": 227,
+            "level": 2
+        },
+        {
+            "id": 228,
+            "level": 3
+        },
+        {
+            "id": 235,
+            "level": 3
+        },
+        {
+            "id": 246,
+            "level": 3
+        },
+        {
+            "id": 255,
+            "level": 3
+        },
+        {
+            "id": 259,
+            "level": 2
+        },
+        {
+            "id": 269,
+            "level": 2
+        },
+        {
+            "id": 288,
+            "level": 2
+        },
+        {
+            "id": 289,
+            "level": 3
+        },
+        {
+            "id": 291,
+            "level": 4
+        },
+        {
+            "id": 294,
+            "level": 4
+        },
+        {
+            "id": 297,
+            "level": 4
+        },
+        {
+            "id": 299,
+            "level": 4
+        },
+        {
+            "id": 302,
+            "level": 4
+        },
+        {
+            "id": 304,
+            "level": 4
+        },
+        {
+            "id": 306,
+            "level": 4
+        },
+        {
+            "id": 310,
+            "level": 2
+        },
+        {
+            "id": 311,
+            "level": 3
+        },
+        {
+            "id": 313,
+            "level": 4
+        },
+        {
+            "id": 317,
+            "level": 4
+        },
+        {
+            "id": 318,
+            "level": 5
+        },
+        {
+            "id": 327,
+            "level": 5
+        },
+        {
+            "id": 329,
+            "level": 4
+        },
+        {
+            "id": 332,
+            "level": 2
+        },
+        {
+            "id": 333,
+            "level": 3
+        },
+        {
+            "id": 339,
+            "level": 2
+        },
+        {
+            "id": 340,
+            "level": 3
+        },
+        {
+            "id": 343,
+            "level": 4
+        },
+        {
+            "id": 345,
+            "level": 4
+        },
+        {
+            "id": 350,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 28,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 204,
+            "tgt_id": 202
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 202
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 207
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 207
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 207
+        },
+        {
+            "src_id": 292,
+            "tgt_id": 291
+        },
+        {
+            "src_id": 293,
+            "tgt_id": 291
+        },
+        {
+            "src_id": 295,
+            "tgt_id": 294
+        },
+        {
+            "src_id": 298,
+            "tgt_id": 297
+        },
+        {
+            "src_id": 300,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 301,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 303,
+            "tgt_id": 302
+        },
+        {
+            "src_id": 305,
+            "tgt_id": 304
+        },
+        {
+            "src_id": 307,
+            "tgt_id": 306
+        },
+        {
+            "src_id": 314,
+            "tgt_id": 313
+        },
+        {
+            "src_id": 315,
+            "tgt_id": 313
+        },
+        {
+            "src_id": 324,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 325,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 328,
+            "tgt_id": 327
+        },
+        {
+            "src_id": 330,
+            "tgt_id": 329
+        },
+        {
+            "src_id": 335,
+            "tgt_id": 333
+        },
+        {
+            "src_id": 336,
+            "tgt_id": 333
+        },
+        {
+            "src_id": 342,
+            "tgt_id": 341
+        },
+        {
+            "src_id": 353,
+            "tgt_id": 350
+        },
+        {
+            "src_id": 354,
+            "tgt_id": 340
+        },
+        {
+            "src_id": 355,
+            "tgt_id": 340
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 108,
+            "table2_idx": 109,
+            "upper_row_ss": [
+                [
+                    "Tennessee Excise Tax",
+                    "6.5%",
+                    "$269,100,000 (est. 50% apportionment)",
+                    "$17,492,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Alabama Corporate Income Tax",
+                    "6.5%",
+                    "$134,550,000 (est. 25% apportionment)",
+                    "$8,746,000"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 153,
+            "table2_idx": 154,
+            "upper_row_ss": [
+                [
+                    "Alabama",
+                    "None — stock sale not subject to",
+                    "Not triggered — no change in legal title",
+                    "Business privilege tax continues as",
+                    "$0"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "transfer tax",
+                    "to real property",
+                    "annual tax; no one-time transfer charge",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 204,
+            "table2_idx": 205,
+            "upper_row_ss": [
+                [
+                    "Class VII",
+                    "Goodwill and going concern value",
+                    "$389,200,000",
+                    "$0",
+                    "$389,200,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "(residual)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 216,
+            "table2_idx": 217,
+            "upper_row_ss": [
+                [
+                    "Section 197 Intangibles",
+                    "$73,700,000",
+                    "15 years",
+                    "$4,913,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "(ex-Goodwill)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 292,
+            "table2_idx": 293,
+            "upper_row_ss": [
+                [
+                    "VII",
+                    "Goodwill and going concern value",
+                    "$389,200,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "(residual)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 300,
+            "table2_idx": 301,
+            "upper_row_ss": [
+                [
+                    "Less: Utilization of existing federal NOL carryforward",
+                    "($1,200,000)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "(80% of taxable income cap; NOL available: ~$1,200,000)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 324,
+            "table2_idx": 325,
+            "upper_row_ss": [
+                [
+                    "Terminal Value (PV of Years 6–39 shields, discounted to Year 5, then",
+                    "",
+                    "",
+                    "Included in total below"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "to present)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 335,
+            "table2_idx": 336,
+            "upper_row_ss": [
+                [
+                    "Tennessee",
+                    "Excise tax: 6.5% on net",
+                    "~50%",
+                    "None — no stock transfer",
+                    "Not triggered; legal title to",
+                    "Low — Tennessee",
+                    "State NOLs follow federal"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "earnings;Franchise tax:0.25%(phase-out pending — confirm status)",
+                    "",
+                    "tax",
+                    "real property does not change; state rate of $0.37/$100 of consideration applies only to conveyances of real property",
+                    "does not trigger reassessment upon change in entity ownership",
+                    "treatment;§382 limitation effectively applies through federal conformity"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 353,
+            "table2_idx": 355,
+            "upper_row_ss": [
+                [
+                    "Patel, K. Tolliver) |",
+                    "| ~93.9% of stock",
+                    "| ~6.1% of stock"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Element",
+                    "Rule",
+                    "Result"
+                ]
+            ]
+        }
+    ]
+}

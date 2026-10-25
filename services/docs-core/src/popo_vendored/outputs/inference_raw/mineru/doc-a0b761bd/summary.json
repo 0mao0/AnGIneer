@@ -1,0 +1,201 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8g_4u0h9\\input\\pdfs\\doc-a0b761bd.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8g_4u0h9\\enriched\\doc-a0b761bd.json",
+    "contd_output": "<|src_id|>133<|tgt_id|>134",
+    "title_output": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>20<|level|>3\n<|id|>27<|level|>3\n<|id|>31<|level|>3\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>46<|level|>3\n<|id|>54<|level|>3\n<|id|>61<|level|>3\n<|id|>70<|level|>2\n<|id|>71<|level|>3\n<|id|>77<|level|>3\n<|id|>83<|level|>2\n<|id|>96<|level|>2\n<|id|>112<|level|>2\n<|id|>119<|level|>2\n<|id|>127<|level|>2\n<|id|>137<|level|>2\n<|id|>145<|level|>2\n<|id|>147<|level|>3\n<|id|>150<|level|>3\n<|id|>157<|level|>3\n<|id|>160<|level|>3",
+    "image_output": "<|src_id|>17<|tgt_id|>16\n<|src_id|>108<|tgt_id|>96\n<|src_id|>109<|tgt_id|>96\n<|src_id|>110<|tgt_id|>96\n<|src_id|>114<|tgt_id|>112\n<|src_id|>115<|tgt_id|>112",
+    "contd_label": [
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 17,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 112
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 108,
+            "table2_idx": 109,
+            "upper_row_ss": [
+                [
+                    "May 10, 2023",
+                    "06:45 PM",
+                    "Daily Collection Checkpoint",
+                    "Email and Meridian Solutions data collection completed for Custodians 1 through 3. Forensic imaging of Hale's mobile device commenced. All collected data secured in Linden Forensics' on-site"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "evidence storage (locked, access-controlled workroom at APS)."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 109,
+            "table2_idx": 110,
+            "upper_row_ss": [
+                [
+                    "May 12, 2023",
+                    "12:30 PM",
+                    "Processing & De-Duplication",
+                    "Processing, de-duplication, and search-term/date-range filtering finalized. Filtered data set of approximately 38,600 items prepared for"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "transfer."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 114,
+            "table2_idx": 115,
+            "upper_row_ss": [
+                [
+                    "Priya S. Chandra",
+                    "Forensic Examiner",
+                    "Westmark Data Systems Certified Examiner (ACE); Sundial Services Inc. Certified Mobile Examiner (CCME); Certified Information Systems Security Professional (CISSP)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Daniel K. Wu",
+                    "Processing Analyst",
+                    "Relativity Certified Administrator (RCA); Severin Software Certified User; Certified eDiscovery Specialist (CEDS)"
+                ]
+            ]
+        }
+    ]
+}

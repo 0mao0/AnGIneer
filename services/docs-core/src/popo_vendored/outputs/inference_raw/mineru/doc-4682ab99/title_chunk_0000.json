@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 233 118 764<|content|>ASSIGNMENT AND ASSUMPTION AGREEMENT\n<|id|>7<|page|>1<|box|>415 140 434 243<|content|>RECITALS\n<|id|>13<|page|>1<|box|>843 142 859 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>27<|page|>3<|box|>410 140 426 398<|content|>ARTICLE II — ASSIGNMENT\n<|id|>32<|page|>4<|box|>449 140 467 403<|content|>ARTICLE III — ASSUMPTION\n<|id|>40<|page|>5<|box|>556 140 573 535<|content|>ARTICLE IV — RELATIONSHIP TO THE APA\n<|id|>44<|page|>6<|box|>239 140 258 625<|content|>ARTICLE V — REPRESENTATIONS AND WARRANTIES\n<|id|>54<|page|>7<|box|>303 140 320 441<|content|>ARTICLE VI — MISCELLANEOUS\n<|id|>77<|page|>9<|box|>219 191 237 805<|content|>SIGNATURE PAGE TO ASSIGNMENT AND ASSUMPTION AGREEM\n<|id|>79<|page|>9<|box|>290 143 306 248<|content|>ASSIGNOR:\n<|id|>91<|page|>9<|box|>513 447 531 549<|content|>EXHIBIT A\n<|id|>92<|page|>9<|box|>540 326 556 671<|content|>SCHEDULE OF ASSUMED CONTRACTS\n<|id|>94<|page|>9<|box|>628 143 646 272<|content|>1. Facility Lease\n<|id|>97<|page|>10<|box|>210 142 227 683<|content|>2. Master Supply Agreement — Ironclad Bridge & Inf\n<|id|>99<|page|>10<|box|>617 142 633 575<|content|>3. Supply Agreement — Calumet Steel Distributors I\n<|id|>102<|page|>11<|box|>143 140 159 369<|content|>4. Other Assumed Contracts\n<|id|>115<|page|>11<|box|>844 447 861 550<|content|>EXHIBIT B\n<|id|>116<|page|>11<|box|>869 326 887 669<|content|>SCHEDULE OF ASSUMED LIABILITIES\n<|id|>118<|page|>12<|box|>799 142 816 772<|content|>Total Estimated Assumed Liabilities (quantifiable",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>27<|level|>2\n<|id|>32<|level|>2\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>54<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>3\n<|id|>91<|level|>2\n<|id|>92<|level|>3\n<|id|>94<|level|>4\n<|id|>97<|level|>4\n<|id|>99<|level|>4\n<|id|>102<|level|>4\n<|id|>115<|level|>2\n<|id|>116<|level|>3\n<|id|>118<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 99,
+            "level": 4
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 4
+        }
+    ]
+}

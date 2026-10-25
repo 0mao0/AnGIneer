@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        16,
+        17,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 140 159 599<|content|>TO: ... Miriam Calloway, Partner, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>167 140 204 854<|content|>CC: ... Jennifer Holt, VP, Clinical Operations, Penterra Pharmaceuticals Corp\n<|id|>4<|page|>1<|box|>212 140 247 854<|content|>FROM: ... Sean Morrissey, Associate, and Christopher Aiken, Associate, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>255 140 273 307<|content|>DATE: ... April 3, 2023\n<|id|>6<|page|>1<|box|>281 140 318 852<|content|>RE: ... IRB Reliance and Central IRB Structure for...l Across 38 Veridian Health Research Network Sites\n<|id|>7<|page|>1<|box|>325 140 343 362<|content|>MATTER NO. ... 1018-00004\n<|id|>8<|page|>1<|box|>351 140 368 408<|content|>Right-click to update Table of Contents\n<|id|>146<|page|>16<|box|>868 140 904 854<|content|>With respect to the closing of the MCTA, the parti...versity Medical Center (through the Graystone IRB,\n<|id|>147<|page|>17<|box|>89 138 200 856<|content|>IRB00012847) and Lakemont Medical Center (through ...B approval before that site may enroll any subject\n<|id|>202<|page|>23<|box|>872 140 907 854<|content|>1. ... Graystone University Medical Center (Site 0...ough the Graystone University Institutional Review\n<|id|>203<|page|>24<|box|>90 174 198 856<|content|>Board (IRB00012847). ... Part 56, ICH E6(R2) GCP g...try practice for large, multi-site clinical trials",
+    "raw_response": "<|src_id|>146<|tgt_id|>147\n<|src_id|>202<|tgt_id|>203",
+    "parsed": [
+        {
+            "src_id": 146,
+            "tgt_id": 147
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 203
+        }
+    ]
+}

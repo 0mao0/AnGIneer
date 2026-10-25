@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 341 118 655<|content|>CERTIFICATION OF TRUST\n<|id|>1<|page|>1<|box|>143 395 161 602<|content|>Caldwell Revocable Trust\n<|id|>2<|page|>1<|box|>185 388 202 607<|content|>(as Amended and Restated)\n<|id|>6<|page|>1<|box|>505 140 522 380<|content|>Section 1: Trust Identification\n<|id|>15<|page|>2<|box|>296 140 313 359<|content|>Section 2: Settlor / Grantor\n<|id|>23<|page|>2<|box|>684 140 700 424<|content|>Section 3: Currently Acting Trustee\n<|id|>31<|page|>3<|box|>250 140 265 375<|content|>Section 4: Successor Trustees\n<|id|>33<|page|>3<|box|>324 142 340 328<|content|>First Successor Trustee\n<|id|>35<|page|>3<|box|>375 142 388 218<|content|>Address:\n<|id|>38<|page|>3<|box|>529 140 545 348<|content|>Second Successor Trustee\n<|id|>40<|page|>3<|box|>579 142 594 218<|content|>Address:\n<|id|>43<|page|>3<|box|>753 142 768 338<|content|>Third Successor Trustee\n<|id|>45<|page|>3<|box|>801 142 818 218<|content|>Address:\n<|id|>49<|page|>4<|box|>345 140 363 326<|content|>Section 5: Revocability\n<|id|>54<|page|>4<|box|>820 140 837 349<|content|>Section 6: Trustee Powers\n<|id|>67<|page|>6<|box|>810 140 827 614<|content|>Section 7: Number of Beneficiaries and General Inf\n<|id|>71<|page|>7<|box|>377 140 393 385<|content|>Section 8: Title to Trust Assets\n<|id|>78<|page|>7<|box|>773 140 792 473<|content|>Section 9: Trust Situs and Governing Law\n<|id|>83<|page|>8<|box|>231 140 248 601<|content|>Section 10: Representations and Warranties of the\n<|id|>92<|page|>9<|box|>90 140 107 436<|content|>Section 11: Reliance by Third Parties\n<|id|>98<|page|>9<|box|>737 140 753 428<|content|>Section 12: Limitation on Disclosure\n<|id|>109<|page|>10<|box|>496 140 512 450<|content|>Section 13: Execution and Notarization\n<|id|>117<|page|>10<|box|>698 140 715 764<|content|>ACKNOWLEDGMENT. STATE OF NEW YORK COUNTY OF NEW YO\n<|id|>124<|page|>12<|box|>89 140 107 245<|content|>EXHIBIT A\n<|id|>125<|page|>12<|box|>114 303 133 694<|content|>Excerpt of Trustee Powers (Optional Attachment)\n<|id|>130<|page|>12<|box|>517 140 534 439<|content|>Preparation and Law Firm Reference\n<|id|>134<|page|>12<|box|>609 140 625 205<|content|>Contact:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>6<|level|>2\n<|id|>15<|level|>2\n<|id|>23<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>3\n<|id|>35<|level|>4\n<|id|>38<|level|>3\n<|id|>40<|level|>4\n<|id|>43<|level|>3\n<|id|>45<|level|>4\n<|id|>49<|level|>2\n<|id|>54<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>92<|level|>2\n<|id|>98<|level|>2\n<|id|>109<|level|>2\n<|id|>117<|level|>2\n<|id|>124<|level|>2\n<|id|>125<|level|>3\n<|id|>130<|level|>2\n<|id|>134<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 4
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 4
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        }
+    ]
+}

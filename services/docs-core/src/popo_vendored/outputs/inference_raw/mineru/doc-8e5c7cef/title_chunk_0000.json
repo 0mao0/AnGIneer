@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        10,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>168 389 200 608<|content|>中华人民共和国行业标准\n<|id|>1<|page|>1<|box|>226 158 321 837<|content|>《疏浚工程预算定额》(JTS/T 278—1—2019) 局部修订 (耙吸挖泥船舶吹部分)\n<|id|>7<|page|>2<|box|>230 149 317 849<|content|>交通运输部关于发布《疏浚工程预算定额》 (JTS/T 278—1—2019)局部修订(耙吸挖泥船艏吹\n<|id|>14<|page|>4<|box|>228 430 267 565<|content|>修订说明\n<|id|>21<|page|>6<|box|>226 446 268 553<|content|>目次\n<|id|>23<|page|>8<|box|>463 292 517 706<|content|>第一章 自航耙吸挖泥船\n<|id|>24<|page|>10<|box|>129 466 154 530<|content|>说明\n<|id|>35<|page|>18<|box|>250 242 336 754<|content|>本局部修订主编单位、参编单位、主要起草人、主要审查人、总校人员和管理组人员名单",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>7<|level|>1\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>35<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        }
+    ]
+}

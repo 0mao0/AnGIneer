@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=19, 8', 'rowspan=19, 水文观测', 'rowspan=3, 泥沙测验和底质探测', '外业观测']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=33, 8', 'rowspan=33, 水文观测', 'rowspan=2, 泥沙测验和底质探测', '外业记录']]\n",
+    "raw_response": "[1, 1, 1, 0]",
+    "parsed": [
+        1,
+        1,
+        1,
+        0
+    ],
+    "table1_idx": 104,
+    "table2_idx": 105
+}

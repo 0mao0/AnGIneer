@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 287 143 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>5<|page|>1<|box|>508 153 529 844<|content|>STIPULATION APPOINTING NEUTRAL FORENSIC EXAMINER\n<|id|>7<|page|>1<|box|>645 142 662 241<|content|>RECITALS\n<|id|>13<|page|>2<|box|>275 140 292 565<|content|>Section 1: Appointment of Neutral Forensic Examine\n<|id|>18<|page|>2<|box|>713 140 729 467<|content|>Section 2: Scope of Forensic Examination\n<|id|>19<|page|>2<|box|>744 140 760 524<|content|>2.1. Devices and Systems Subject to Examination\n<|id|>27<|page|>3<|box|>719 140 736 483<|content|>2.2. Categories of Materials to Be Identified\n<|id|>35<|page|>4<|box|>444 142 460 426<|content|>2.3. Forensic Examination Activities\n<|id|>43<|page|>5<|box|>167 140 185 500<|content|>Section 3: Timeline for Forensic Examination\n<|id|>53<|page|>6<|box|>90 140 107 431<|content|>Section 4: Cooperation of the Parties\n<|id|>54<|page|>6<|box|>121 140 138 367<|content|>4.1. Defendants' Obligations\n<|id|>59<|page|>6<|box|>601 142 618 349<|content|>4.2. Plaintiff's Obligations\n<|id|>65<|page|>7<|box|>321 140 339 514<|content|>Section 5: Confidentiality and Protective Order\n<|id|>70<|page|>7<|box|>814 140 832 375<|content|>Section 6: Allocation of Costs\n<|id|>75<|page|>8<|box|>366 140 383 459<|content|>Section 7: Reports and Communications\n<|id|>87<|page|>8<|box|>840 140 857 395<|content|>Section 8: Reservation of Rights\n<|id|>91<|page|>9<|box|>366 140 383 395<|content|>Section 9: Additional Provisions\n<|id|>97<|page|>9<|box|>631 437 647 560<|content|>SIGNATURES\n<|id|>98<|page|>9<|box|>657 140 674 326<|content|>DATED: March 8, 2023\n<|id|>112<|page|>10<|box|>217 285 270 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>117<|page|>10<|box|>578 191 598 805<|content|>ORDER APPOINTING NEUTRAL FORENSIC EXAMINER\n<|id|>120<|page|>10<|box|>796 142 813 447<|content|>IT IS HEREBY ORDERED as follows:\n<|id|>128<|page|>11<|box|>820 411 835 584<|content|>IT IS SO ORDERED.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>27<|level|>3\n<|id|>35<|level|>3\n<|id|>43<|level|>2\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>59<|level|>3\n<|id|>65<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>87<|level|>2\n<|id|>91<|level|>2\n<|id|>97<|level|>2\n<|id|>98<|level|>-1\n<|id|>112<|level|>1\n<|id|>117<|level|>1\n<|id|>120<|level|>-1\n<|id|>128<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        }
+    ]
+}

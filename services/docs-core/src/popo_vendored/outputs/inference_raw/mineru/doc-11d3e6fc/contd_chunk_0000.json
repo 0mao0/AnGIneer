@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        12,
+        13
+    ],
+    "pages": [
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>114<|page|>12<|box|>888 93 907 849<|content|>6. ... 4锚地应布置在天然水深适宜、海底平坦、海床稳定、底质锚抓力好、水域开阔、风、\n<|id|>115<|page|>13<|box|>100 145 140 901<|content|>浪和水流较小，便于船舶进出航道的水域。 ... 有条件时，宜布置在航道进港方向的右侧以及 具有船舶定位条件的水域，并应符合下列规定",
+    "raw_response": "<|src_id|>114<|tgt_id|>115",
+    "parsed": [
+        {
+            "src_id": 114,
+            "tgt_id": 115
+        }
+    ]
+}

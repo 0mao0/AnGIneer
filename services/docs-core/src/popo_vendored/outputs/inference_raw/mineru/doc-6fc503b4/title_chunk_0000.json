@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 267 155 730<|content|>CALDERWOOD & HARKNESS LLP PRIVILEGED AND CONFIDENT\n<|id|>5<|page|>1<|box|>282 143 300 300<|content|>1. Matter Overview\n<|id|>16<|page|>2<|box|>90 142 107 312<|content|>2. Engagement Team\n<|id|>19<|page|>2<|box|>438 140 455 308<|content|>3. Opposing Counsel\n<|id|>24<|page|>2<|box|>691 140 709 437<|content|>4. Key Consultants and Third Parties\n<|id|>34<|page|>3<|box|>708 140 724 343<|content|>5. Background Summary\n<|id|>35<|page|>3<|box|>739 140 756 444<|content|>5.1 The Partnership and Its Properties\n<|id|>44<|page|>4<|box|>648 142 667 374<|content|>5.2 The Disputed Accounting\n<|id|>61<|page|>5<|box|>597 140 614 398<|content|>6. Procedural History / Timeline\n<|id|>66<|page|>7<|box|>715 142 734 297<|content|>7. Result Summary\n<|id|>67<|page|>7<|box|>747 142 763 331<|content|>7.1 Settlement Payment\n<|id|>73<|page|>8<|box|>239 142 255 393<|content|>7.2 Restated Revenue Waterfall\n<|id|>80<|page|>8<|box|>752 142 768 715<|content|>7.3 Governance Reforms (Second Amendment to Partne\n<|id|>87<|page|>9<|box|>474 142 489 295<|content|>7.4 Mutual Release\n<|id|>97<|page|>10<|box|>157 142 175 485<|content|>7.6 Non-Disparagement and Confidentiality\n<|id|>104<|page|>10<|box|>467 142 484 274<|content|>8. Fee Summary\n<|id|>109<|page|>11<|box|>194 140 210 344<|content|>9. Key Documents in File\n<|id|>123<|page|>12<|box|>273 143 292 305<|content|>10. Follow-Up Items\n<|id|>134<|page|>13<|box|>90 142 107 318<|content|>11. Lessons and Notes\n<|id|>144<|page|>14<|box|>578 400 595 596<|content|>[END OF DOCUMENT]",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>5<|level|>1\n<|id|>16<|level|>1\n<|id|>19<|level|>1\n<|id|>24<|level|>1\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>44<|level|>2\n<|id|>61<|level|>1\n<|id|>66<|level|>1\n<|id|>67<|level|>2\n<|id|>73<|level|>2\n<|id|>80<|level|>2\n<|id|>87<|level|>2\n<|id|>97<|level|>2\n<|id|>104<|level|>1\n<|id|>109<|level|>1\n<|id|>123<|level|>1\n<|id|>134<|level|>1\n<|id|>144<|level|>-1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        }
+    ]
+}

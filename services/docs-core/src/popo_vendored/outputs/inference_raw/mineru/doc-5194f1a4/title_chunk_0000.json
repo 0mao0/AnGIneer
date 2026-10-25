@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        10,
+        14
+    ],
+    "pages": [
+        10,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>52<|page|>10<|box|>86 87 101 139<|content|>Notes\n<|id|>71<|page|>14<|box|>423 87 441 418<|content|>NET TRUE $347,218 NET CREDIT TO BUYER\n<|id|>73<|page|>14<|box|>565 87 582 359<|content|>AGREED AND ACCEPTED BY BUYER:\n<|id|>75<|page|>14<|box|>655 87 671 361<|content|>AGREED AND ACCEPTED BY SELLER:",
+    "raw_response": "<|id|>52<|level|>1\n<|id|>71<|level|>1\n<|id|>73<|level|>1\n<|id|>75<|level|>1",
+    "parsed": [
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        }
+    ]
+}

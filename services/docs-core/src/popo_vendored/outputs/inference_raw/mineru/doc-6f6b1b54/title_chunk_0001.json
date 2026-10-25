@@ -1,0 +1,65 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        45,
+        46,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>542<|page|>45<|box|>196 142 213 383<|content|>Recertification Determination.\n<|id|>546<|page|>45<|box|>369 140 386 266<|content|>CCO Sign-Off:\n<|id|>551<|page|>46<|box|>90 156 133 841<|content|>APPENDIX D: APPROVED BENCHMARK DATA SOURCES AND CO\n<|id|>552<|page|>46<|box|>152 168 186 828<|content|>ARBOR HEALTH TECHNOLOGIES INC. Approved Benchmark\n<|id|>553<|page|>46<|box|>200 143 218 387<|content|>1. Independent Valuation Firm\n<|id|>555<|page|>46<|box|>386 142 402 491<|content|>2. MGMA DataDive Provider Compensation\n<|id|>557<|page|>46<|box|>583 142 599 663<|content|>3. SullivanCotter Physician Compensation and Produ\n<|id|>559<|page|>46<|box|>765 143 780 297<|content|>4. External Auditor\n<|id|>562<|page|>48<|box|>90 187 133 810<|content|>APPENDIX E: CURRENT AHT MEDIAN COMPENSATION REFERE\n<|id|>563<|page|>48<|box|>152 151 186 844<|content|>ARBOR HEALTH TECHNOLOGIES INC. Physician Compensat\n<|id|>566<|page|>48<|box|>742 143 757 584<|content|>Calculation Note — Effective Average Medical Direc\n<|id|>570<|page|>48<|box|>878 344 893 653<|content|>APPROVAL AND EFFECTIVE DATE",
+    "raw_response": "<|id|>542<|level|>2\n<|id|>546<|level|>3\n<|id|>551<|level|>1\n<|id|>552<|level|>2\n<|id|>553<|level|>3\n<|id|>555<|level|>3\n<|id|>557<|level|>3\n<|id|>559<|level|>3\n<|id|>562<|level|>1\n<|id|>563<|level|>2\n<|id|>566<|level|>3\n<|id|>570<|level|>3",
+    "parsed": [
+        {
+            "id": 542,
+            "level": 2
+        },
+        {
+            "id": 546,
+            "level": 3
+        },
+        {
+            "id": 551,
+            "level": 1
+        },
+        {
+            "id": 552,
+            "level": 2
+        },
+        {
+            "id": 553,
+            "level": 3
+        },
+        {
+            "id": 555,
+            "level": 3
+        },
+        {
+            "id": 557,
+            "level": 3
+        },
+        {
+            "id": 559,
+            "level": 3
+        },
+        {
+            "id": 562,
+            "level": 1
+        },
+        {
+            "id": 563,
+            "level": 2
+        },
+        {
+            "id": 566,
+            "level": 3
+        },
+        {
+            "id": 570,
+            "level": 3
+        }
+    ]
+}

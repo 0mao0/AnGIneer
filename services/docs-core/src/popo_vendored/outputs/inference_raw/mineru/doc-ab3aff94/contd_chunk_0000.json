@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 256 133 738<|content|>200 South Biscayne Boulevard, Suite 4400 Miami, Florida 33131\n<|id|>2<|page|>1<|box|>141 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 728 185 854<|content|>August 11, 2023\n<|id|>4<|page|>1<|box|>191 140 234 846<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL...WORK PRODUCT VIA HAND DELIVERY AND ENCRYPTED EMAIL\n<|id|>5<|page|>1<|box|>242 140 277 852<|content|>Irene Castellanos, Esq. ... Westlake Burris & Holt...0 Brickell Avenue, Suite 3100 Miami, Florida 33131\n<|id|>6<|page|>1<|box|>286 140 347 854<|content|>Re: ... 1021-00008 Dear Irene\n<|id|>10<|page|>1<|box|>760 140 888 856<|content|>The purpose of this letter is to initiate a struct... Statements or a Related Audit Report or Completed\n<|id|>11<|page|>2<|box|>90 140 127 854<|content|>Interim Review), which we believe should be filed ...mmittee and Company management, is August 14, 2023\n<|id|>31<|page|>4<|box|>847 140 902 857<|content|>To place these figures in context, VCR reported to...mbined FY 2022 revenue overstatement (Q3 2022 plus\n<|id|>32<|page|>5<|box|>90 140 181 856<|content|>Q4 2022) amounts to approximately $10. ... 3 million for fiscal year 2022\n<|id|>37<|page|>5<|box|>478 176 496 491<|content|>(b) Clearwater Design Collective Inc. ... and\n<|id|>39<|page|>5<|box|>530 140 659 857<|content|>The investigation is continuing to examine the own...ransactions, potential fraud, and remedial actions\n<|id|>45<|page|>6<|box|>354 174 392 854<|content|>(b) The unaudited condensed consolidated financial...Quarterly Report on Form 10-Q for Q1 2023; ... and\n<|id|>47<|page|>6<|box|>444 140 517 854<|content|>The Audit Committee reached this non-reliance dete...h the Audit Committee's non-reliance determination\n<|id|>59<|page|>7<|box|>816 140 909 857<|content|>Amended 10-K and Amended 10-Qs. ... These amended ...clusion of the investigation and the completion of\n<|id|>60<|page|>8<|box|>90 140 181 854<|content|>Crestline's forensic analysis, and will need to be...t with the protocols described in Section VI below\n<|id|>83<|page|>11<|box|>744 217 761 839<|content|>• Howard Quinn, Conrad Ashby, and Liam Donahue (Calderwood & Harkness LLP)\n<|id|>87<|page|>11<|box|>823 174 876 854<|content|>We are available for this call at your earliest co...ure that the draft 8-K can be prepared on schedule\n<|id|>84<|page|>11<|box|>763 218 780 848<|content|>• Irene Castellanos and relevant members of your team (Westlake Burris & Holt LLP)\n<|id|>85<|page|>11<|box|>784 218 799 537<|content|>• Patricia Navarro, General Counsel, VHG\n<|id|>86<|page|>11<|box|>803 218 819 627<|content|>• Thomas Rhett Griffith, Chief Financial Officer, VHG\n<|id|>93<|page|>12<|box|>619 176 636 534<|content|>Howard Quinn, Partner Direct: ... (305) 814-7218\n<|id|>94<|page|>12<|box|>645 176 661 486<|content|>Email: ... com\n<|id|>95<|page|>12<|box|>662 176 679 601<|content|>Liam Donahue, Senior Associate Direct: ... (305) 814-7244\n<|id|>96<|page|>12<|box|>689 176 704 503<|content|>Email: ... com\n<|id|>97<|page|>12<|box|>705 140 777 854<|content|>For day-to-day coordination purposes, Liam Donahue... in all substantive review and strategic decisions\n<|id|>99<|page|>12<|box|>830 434 848 563<|content|>Very truly yours,\n<|id|>100<|page|>12<|box|>856 140 872 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>101<|page|>12<|box|>875 142 891 253<|content|>By: ... By\n<|id|>102<|page|>13<|box|>89 140 157 854<|content|>Howard Quinn Partner, White Collar Defense & Inves...1 Direct: ... , Partner, Calderwood & Harkness LLP\n<|id|>103<|page|>13<|box|>166 209 203 854<|content|>Diane Kowalski, Audit Committee Chair, Verimark Ho...up Inc. ... (via separate privileged transmission)\n<|id|>104<|page|>13<|box|>210 210 229 753<|content|>Patricia Navarro, Esq. ... , General Counsel, Verimark Hospitality Group Inc",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>31<|tgt_id|>32\n<|src_id|>59<|tgt_id|>60",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 60
+        }
+    ]
+}

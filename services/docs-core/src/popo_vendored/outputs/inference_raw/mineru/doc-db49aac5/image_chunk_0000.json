@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>1<|type|>title<|page|>1<|box|>169 205 263 790<|content|>Prepared for Review Purposes Only — Not Yet Filed\n<|id|>9<|type|>title<|page|>1<|box|>518 326 537 669<|content|>UCC FINANCING STATEMENT\n<|id|>10<|type|>title<|page|>1<|box|>564 442 580 555<|content|>(Form UCC1)\n<|id|>11<|type|>title<|page|>1<|box|>604 140 621 545<|content|>SECTION 1 — FILING OFFICE INFORMATION\n<|id|>12<|type|>title<|page|>1<|box|>631 143 648 251<|content|>Filing Office:\n<|id|>15<|type|>title<|page|>1<|box|>763 142 781 419<|content|>Return Acknowledgment Copy To:\n<|id|>19<|type|>table<|page|>2<|box|>190 143 323 852<|content|>None\n<|id|>21<|type|>table<|page|>2<|box|>623 143 770 852<|content|>None\n<|id|>23<|type|>title<|page|>3<|box|>167 140 184 547<|content|>SECTION 3 — ASSIGNEE OF SECURED PARTY\n<|id|>26<|type|>title<|page|>3<|box|>443 140 460 526<|content|>SECTION 4 — COLLATERAL DESCRIPTION\n<|id|>28<|type|>title<|page|>3<|box|>518 140 536 513<|content|>4.1 — Insurance Premium Finance Receivables\n<|id|>34<|type|>title<|page|>4<|box|>282 140 299 428<|content|>4.2 — Related Rights and Collateral\n<|id|>41<|type|>title<|page|>4<|box|>723 140 739 377<|content|>4.3 — Accounts and Proceeds\n<|id|>48<|type|>title<|page|>5<|box|>400 140 417 495<|content|>4.4 — Supporting Obligations and Insurance\n<|id|>54<|type|>title<|page|>5<|box|>833 142 849 375<|content|>4.5 — Proceeds and Products\n<|id|>61<|type|>title<|page|>6<|box|>316 140 334 439<|content|>4.6 — Precautionary Filing Language\n<|id|>65<|type|>title<|page|>7<|box|>89 140 107 686<|content|>SECTION 5 — TYPE OF FILING / ADDITIONAL INFORMATIO\n<|id|>79<|type|>title<|page|>7<|box|>395 143 412 406<|content|>Transmitting Utility Designation:\n<|id|>82<|type|>title<|page|>7<|box|>465 140 484 410<|content|>Precautionary Filing Designation:\n<|id|>85<|type|>title<|page|>7<|box|>643 140 661 751<|content|>SECTION 6 — FILER INFORMATION / SEND ACKNOWLEDGMEN\n<|id|>86<|type|>title<|page|>7<|box|>670 142 688 498<|content|>Filed By / Return Acknowledgment Copy To:\n<|id|>93<|type|>title<|page|>8<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>94<|type|>title<|page|>8<|box|>135 328 152 668<|content|>FINANCING STATEMENT ADDENDUM\n<|id|>95<|type|>title<|page|>8<|box|>176 297 194 697<|content|>(COLLATERAL DESCRIPTION — EXTENDED)\n<|id|>96<|type|>title<|page|>8<|box|>203 142 220 517<|content|>Debtor Name: Quorum Receivables Holding LLC\n<|id|>97<|type|>title<|page|>8<|box|>229 140 246 629<|content|>Secured Party Name: Quorum Receivables Funding 202\n<|id|>103<|type|>table<|page|>8<|box|>861 143 898 852<|content|>None\n<|id|>104<|type|>table<|page|>9<|box|>89 143 220 852<|content|>None\n<|id|>112<|type|>title<|page|>10<|box|>148 140 166 529<|content|>FILING FEE AND ADMINISTRATIVE NOTES\n<|id|>115<|type|>title<|page|>10<|box|>338 140 354 204<|content|>Status:\n<|id|>122<|type|>title<|page|>12<|box|>89 142 106 486<|content|>CERTIFICATION / SIGNATURE BLOCK\n<|id|>123<|type|>title<|page|>12<|box|>114 320 132 676<|content|>AUTHORIZATION AND CERTIFICATION\n<|id|>125<|type|>title<|page|>12<|box|>222 142 238 230<|content|>DEBTOR:\n<|id|>126<|type|>title<|page|>12<|box|>239 142 256 500<|content|>QUORUM RECEIVABLES HOLDING LLC\n<|id|>132<|type|>title<|page|>12<|box|>351 142 368 498<|content|>QUORUM RECEIVABLES HOLDING LLC\n<|id|>140<|type|>title<|page|>12<|box|>656 403 674 593<|content|>[END OF DOCUMENT]",
+    "raw_response": "<|src_id|>19<|tgt_id|>11\n<|src_id|>21<|tgt_id|>11\n<|src_id|>103<|tgt_id|>95\n<|src_id|>104<|tgt_id|>95",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 95
+        }
+    ]
+}

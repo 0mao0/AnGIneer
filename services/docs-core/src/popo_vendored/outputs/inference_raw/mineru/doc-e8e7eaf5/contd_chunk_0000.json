@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 140 104 566<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>112 140 148 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1735 Ma...800 Philadelphia, PA 19103 Tel: ... (215) 498-7200\n<|id|>2<|page|>1<|box|>157 140 191 375<|content|>Fax: ... com\n<|id|>3<|page|>1<|box|>200 733 217 854<|content|>January 8, 2026\n<|id|>4<|page|>1<|box|>224 140 242 542<|content|>VIA ELECTRONIC MAIL AND HAND DELIVERY\n<|id|>5<|page|>1<|box|>252 140 287 854<|content|>Constance Liu, Esq. ... Partner Blackwell, Raines ...LLP 200 Park Avenue, 31st Floor New York, NY 10166\n<|id|>6<|page|>1<|box|>296 174 330 854<|content|>Re: ... 1009-00004\n<|id|>7<|page|>1<|box|>340 142 357 251<|content|>Dear Ms. ... Liu\n<|id|>20<|page|>2<|box|>834 140 907 857<|content|>We have also included carve-out language in the re...tory fines indemnification. ... Fines arising from\n<|id|>21<|page|>3<|box|>90 140 181 856<|content|>Controller's own regulatory non-compliance, includ...s and remain the sole responsibility of Controller\n<|id|>54<|page|>6<|box|>845 140 902 854<|content|>In order to permit the parties to finalize the DPA...on agreement (total contract value of $13,700,000)\n<|id|>55<|page|>7<|box|>90 140 162 854<|content|>— we respectfully request that BRS provide its mar...ransaction documents in advance of the target date\n<|id|>60<|page|>7<|box|>277 174 311 852<|content|>3. ... and\n<|id|>62<|page|>7<|box|>334 140 407 854<|content|>We are available at your convenience to discuss an...to bringing this transaction to a successful close\n<|id|>66<|page|>7<|box|>474 140 525 854<|content|>Kevin Ostrowski Partner, Privacy & Data Security C...et, Suite 2800 Philadelphia, PA 19103 Tel: ... com\n<|id|>67<|page|>7<|box|>527 142 540 171<|content|>cc: ... cc\n<|id|>68<|page|>7<|box|>550 174 604 854<|content|>Thomas Elridge, Esq. ... , Blackwell, Raines & Stoddard LLP\n<|id|>69<|page|>7<|box|>613 140 628 235<|content|>Enclosures (4)",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>54<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        }
+    ]
+}

@@ -1,0 +1,177 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-65rku3q_\\input\\pdfs\\doc-6e6e4d73.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-65rku3q_\\enriched\\doc-6e6e4d73.json",
+    "contd_output": "<|src_id|>77<|tgt_id|>78\n<|src_id|>168<|tgt_id|>169",
+    "title_output": "<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>25<|level|>2\n<|id|>31<|level|>2\n<|id|>36<|level|>1\n<|id|>38<|level|>2\n<|id|>45<|level|>2\n<|id|>49<|level|>2\n<|id|>53<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>1\n<|id|>65<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>2\n<|id|>80<|level|>2\n<|id|>84<|level|>1\n<|id|>86<|level|>2\n<|id|>91<|level|>2\n<|id|>95<|level|>2\n<|id|>106<|level|>2\n<|id|>110<|level|>2\n<|id|>118<|level|>1\n<|id|>120<|level|>2\n<|id|>126<|level|>2\n<|id|>146<|level|>2\n<|id|>154<|level|>2\n<|id|>161<|level|>1\n<|id|>164<|level|>1\n<|id|>178<|level|>1",
+    "image_output": "<|src_id|>28<|tgt_id|>25\n<|src_id|>29<|tgt_id|>25\n<|src_id|>162<|tgt_id|>161\n<|src_id|>163<|tgt_id|>161",
+    "contd_label": [
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 169
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 1
+        },
+        {
+            "id": 164,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 28,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 161
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 162,
+            "table2_idx": 163,
+            "upper_row_ss": [
+                [
+                    "Causation",
+                    "Strong — Direct causal chain from unpatched CVE-2023-0669 to data",
+                    "High — Effectively forecloses Palomar's \"sophisticated attack\""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "exfiltration, documented in Graystone forensic report",
+                    "defense"
+                ]
+            ]
+        }
+    ]
+}

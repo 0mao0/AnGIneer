@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        95,
+        112
+    ],
+    "pages": [
+        95,
+        96,
+        97,
+        99,
+        101,
+        102,
+        104,
+        105,
+        106,
+        107,
+        109,
+        110,
+        112
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>955<|type|>title<|page|>95<|box|>90 250 109 746<|content|>SCHEDULE 7.04 — EXISTING INVESTMENTS\n<|id|>956<|type|>table<|page|>95<|box|>171 143 474 852<|content|>None\n<|id|>958<|type|>title<|page|>96<|box|>89 253 109 743<|content|>SCHEDULE 11.02 — NOTICE INFORMATION\n<|id|>959<|type|>title<|page|>96<|box|>136 142 154 225<|content|>Borrower\n<|id|>964<|type|>title<|page|>96<|box|>348 143 366 305<|content|>Target / Guarantors\n<|id|>967<|type|>title<|page|>96<|box|>455 142 474 751<|content|>Administrative Agent, Collateral Agent, Swing Line\n<|id|>972<|type|>title<|page|>96<|box|>651 140 669 418<|content|>Pinnacle Commercial Credit Corp.\n<|id|>975<|type|>title<|page|>97<|box|>90 228 109 767<|content|>EXHIBIT A — FORM OF BORROWING REQUEST\n<|id|>1014<|type|>title<|page|>99<|box|>90 183 109 813<|content|>EXHIBIT B — FORM OF INTEREST ELECTION REQUEST\n<|id|>1043<|type|>title<|page|>101<|box|>90 178 109 818<|content|>EXHIBIT C — FORM OF ASSIGNMENT AND ASSUMPTION\n<|id|>1045<|type|>title<|page|>101<|box|>243 142 260 343<|content|>1. Reference Information\n<|id|>1050<|type|>title<|page|>101<|box|>441 142 459 308<|content|>2. Assigned Interests\n<|id|>1052<|type|>table<|page|>101<|box|>529 143 602 852<|content|>None\n<|id|>1053<|type|>title<|page|>101<|box|>651 142 667 362<|content|>3. Assignee Representations\n<|id|>1060<|type|>title<|page|>102<|box|>212 140 229 387<|content|>4. Assignment and Assumption\n<|id|>1062<|type|>title<|page|>102<|box|>334 140 351 243<|content|>5. Payments\n<|id|>1064<|type|>title<|page|>102<|box|>455 140 473 274<|content|>6. Miscellaneous\n<|id|>1066<|type|>title<|page|>102<|box|>544 143 560 243<|content|>ASSIGNOR:\n<|id|>1085<|type|>title<|page|>104<|box|>90 200 109 797<|content|>EXHIBIT D — FORM OF COMPLIANCE CERTIFICATE\n<|id|>1093<|type|>title<|page|>104<|box|>500 142 517 390<|content|>1. Financial Statement Delivery\n<|id|>1095<|type|>title<|page|>104<|box|>584 142 601 434<|content|>2. Consolidated EBITDA Calculation\n<|id|>1096<|type|>table<|page|>104<|box|>608 143 869 852<|content|>None\n<|id|>1097<|type|>title<|page|>105<|box|>90 140 107 385<|content|>3. Leverage Ratio Calculations\n<|id|>1098<|type|>title<|page|>105<|box|>121 143 138 367<|content|>(a) Total Net Leverage Ratio\n<|id|>1099<|type|>table<|page|>105<|box|>142 143 218 852<|content|>None\n<|id|>1100<|type|>title<|page|>105<|box|>258 142 273 403<|content|>(b) First Lien Net Leverage Ratio\n<|id|>1101<|type|>table<|page|>105<|box|>279 143 354 852<|content|>None\n<|id|>1102<|type|>title<|page|>105<|box|>404 140 421 437<|content|>4. Springing Financial Covenant Test\n<|id|>1114<|type|>title<|page|>105<|box|>758 142 776 230<|content|>5. Defaults\n<|id|>1120<|type|>title<|page|>106<|box|>297 142 314 264<|content|>6. Certification\n<|id|>1130<|type|>title<|page|>107<|box|>90 156 109 839<|content|>EXHIBIT E — FORM OF GUARANTEE AGREEMENT JOINDER\n<|id|>1156<|type|>title<|page|>109<|box|>90 250 109 746<|content|>EXHIBIT F — FORM OF PROMISSORY NOTE\n<|id|>1157<|type|>title<|page|>109<|box|>128 140 145 359<|content|>$____ New York, New York\n<|id|>1169<|type|>title<|page|>110<|box|>90 215 109 782<|content|>EXHIBIT G — FORM OF SOLVENCY CERTIFICATE\n<|id|>1170<|type|>title<|page|>110<|box|>128 142 143 364<|content|>SOLVENCY CERTIFICATE\n<|id|>1190<|type|>title<|page|>112<|box|>90 223 109 774<|content|>EXHIBIT H — FORM OF SECURITY AGREEMENT",
+    "raw_response": "<|src_id|>956<|tgt_id|>955\n<|src_id|>1052<|tgt_id|>1050\n<|src_id|>1096<|tgt_id|>1095\n<|src_id|>1099<|tgt_id|>1098\n<|src_id|>1101<|tgt_id|>1100",
+    "parsed": [
+        {
+            "src_id": 956,
+            "tgt_id": 955
+        },
+        {
+            "src_id": 1052,
+            "tgt_id": 1050
+        },
+        {
+            "src_id": 1096,
+            "tgt_id": 1095
+        },
+        {
+            "src_id": 1099,
+            "tgt_id": 1098
+        },
+        {
+            "src_id": 1101,
+            "tgt_id": 1100
+        }
+    ]
+}

@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 163 108 831<|content|>UNITED STATES OF AMERICA FEDERAL ENERGY REGULATORY\n<|id|>2<|page|>1<|box|>258 174 275 821<|content|>MOTION FOR ADMISSION *PRO HAC VICE* OF GEORGE TRUJ\n<|id|>4<|page|>1<|box|>393 140 410 544<|content|>I. INTRODUCTION AND NATURE OF MOTION\n<|id|>9<|page|>2<|box|>89 140 106 658<|content|>II. IDENTIFICATION OF THE APPLICANT FOR ADMISSION\n<|id|>18<|page|>2<|box|>521 140 537 622<|content|>III. BAR ADMISSIONS AND PROFESSIONAL STANDING\n<|id|>27<|page|>3<|box|>292 140 309 503<|content|>IV. QUALIFICATIONS AND EXPERIENCE\n<|id|>35<|page|>4<|box|>347 140 364 632<|content|>V. DESCRIPTION OF THE UNDERLYING PROCEEDINGS\n<|id|>37<|page|>4<|box|>417 142 434 254<|content|>A. The Client\n<|id|>44<|page|>4<|box|>702 142 719 370<|content|>B. Nature of the Proceedings\n<|id|>48<|page|>5<|box|>200 140 219 513<|content|>C. Description of the Ridgeline Pipeline System\n<|id|>50<|page|>5<|box|>344 142 362 346<|content|>D. Key Filing Parameters\n<|id|>53<|page|>5<|box|>616 140 633 359<|content|>E. Interconnecting Pipeline\n<|id|>55<|page|>5<|box|>755 140 773 575<|content|>VI. IDENTIFICATION OF ADDITIONAL COUNSEL\n<|id|>60<|page|>6<|box|>301 142 318 495<|content|>Disclosure of Dual Role — Patricia Dunmore\n<|id|>63<|page|>6<|box|>686 140 704 426<|content|>VII. GROUNDS FOR ADMISSION\n<|id|>68<|page|>7<|box|>420 140 438 563<|content|>VIII. CERTIFICATION AND REPRESENTATIONS\n<|id|>77<|page|>8<|box|>148 142 166 442<|content|>IX. SERVICE LIST INFORMATION\n<|id|>83<|page|>8<|box|>383 140 401 359<|content|>X. PRAYER FOR RELIEF\n<|id|>89<|page|>8<|box|>680 140 696 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>95<|page|>8<|box|>837 140 854 388<|content|>CERTIFICATE OF SERVICE\n<|id|>106<|page|>9<|box|>571 161 633 834<|content|>EXHIBIT A DECLARATION OF GEORGE TRUJILLO, ESQ., IN\n<|id|>109<|page|>9<|box|>843 323 859 674<|content|>DECLARATION OF GEORGE TRUJILLO\n<|id|>128<|page|>11<|box|>694 349 710 647<|content|>NOTARIAL ACKNOWLEDGMENT\n<|id|>129<|page|>11<|box|>753 140 772 584<|content|>DISTRICT OF COLUMBIA )) ss.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>18<|level|>2\n<|id|>27<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>3\n<|id|>44<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>53<|level|>3\n<|id|>55<|level|>2\n<|id|>60<|level|>3\n<|id|>63<|level|>2\n<|id|>68<|level|>2\n<|id|>77<|level|>2\n<|id|>83<|level|>2\n<|id|>89<|level|>2\n<|id|>95<|level|>2\n<|id|>106<|level|>2\n<|id|>109<|level|>3\n<|id|>128<|level|>2\n<|id|>129<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 2
+        }
+    ]
+}

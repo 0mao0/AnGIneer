@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 133 566<|content|>1 Federal Street, 35th Floor Boston, Massachusetts 02110\n<|id|>2<|page|>1<|box|>141 140 159 774<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 140 185 480<|content|>Hannah Brinkley Direct Dial: ... (617) 548-7244\n<|id|>4<|page|>1<|box|>193 140 210 470<|content|>Email: ... com\n<|id|>5<|page|>1<|box|>210 723 228 854<|content|>January 10, 2022\n<|id|>6<|page|>1<|box|>236 140 253 375<|content|>Via Email and First-Class Mail\n<|id|>7<|page|>1<|box|>262 140 297 854<|content|>Alicia Fontaine, Esq. ... Hargrove, Sinclair & Pol...t Advisors, Suite 1800 Boston, Massachusetts 02109\n<|id|>8<|page|>1<|box|>306 174 362 854<|content|>Re: ... 2184-CV-01537-BLS Superior Court of Massachusetts, Business Litigation Session, Suffolk County\n<|id|>9<|page|>1<|box|>369 174 405 854<|content|>Subject: ... Farnham\n<|id|>10<|page|>1<|box|>414 140 430 287<|content|>Dear Ms. ... Fontaine\n<|id|>14<|page|>1<|box|>825 140 880 854<|content|>The document that is the subject of this request i.... ... Farnham, who at all relevant times served as\n<|id|>15<|page|>2<|box|>89 140 127 854<|content|>Managing Member and Chief Executive Officer of Van...LC (hereinafter referred to as the \"Kapoor Email\")\n<|id|>33<|page|>3<|box|>816 174 890 857<|content|>4. ... The parties agree that the stipulation may ...ded as undisputed facts in each party's Rule 9A(b)\n<|id|>35<|page|>4<|box|>128 140 219 856<|content|>We have endeavored to draft these proposed terms i...plicative authentication procedures — is preserved\n<|id|>45<|page|>4<|box|>869 181 904 857<|content|>• If Vantage is agreeable, Calderwood & Harkness w...ture by Hargrove, Sinclair & Polk LLP on behalf of\n<|id|>46<|page|>5<|box|>89 210 162 854<|content|>Vantage. ... We anticipate that the draft can be c... of Penterra's anticipated summary judgment filing\n<|id|>51<|page|>5<|box|>445 140 463 272<|content|>Very truly yours,\n<|id|>52<|page|>5<|box|>470 140 487 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>53<|page|>5<|box|>489 142 505 253<|content|>By: ... By\n<|id|>54<|page|>5<|box|>505 140 536 852<|content|>Hannah Brinkley 1 Federal Street, 35th Floor Boston, Massachusetts 02110 Direct: ... (617) 548- 7244\n<|id|>55<|page|>5<|box|>537 140 555 470<|content|>Email: ... com\n<|id|>56<|page|>5<|box|>556 140 609 854<|content|>cc: ... (via email)",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>45<|tgt_id|>46",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        }
+    ]
+}

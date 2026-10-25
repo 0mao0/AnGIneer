@@ -1,0 +1,137 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 151 125 844<|content|>GREYSTONE FEDERAL CREDIT CORP. 200 Park Avenue Sou\n<|id|>11<|page|>1<|box|>536 140 553 361<|content|>1. Recitals and Background\n<|id|>28<|page|>3<|box|>148 140 167 658<|content|>2. Authorization and Direction — UCC-3 Termination\n<|id|>43<|page|>4<|box|>223 140 239 678<|content|>3. Authorization and Direction — Mortgage Releases\n<|id|>54<|page|>5<|box|>508 140 545 790<|content|>4. Authorization and Direction — Release of Pledge\n<|id|>81<|page|>6<|box|>820 140 837 540<|content|>5. Authorization and Direction — IP Lien Releases\n<|id|>85<|page|>7<|box|>385 140 402 566<|content|>6. Authorization and Direction — Other Lien Releas\n<|id|>95<|page|>8<|box|>223 140 239 772<|content|>7. Appointment of VHG and Calderwood & Harkness LL\n<|id|>106<|page|>9<|box|>90 140 107 573<|content|>8. Representations and Acknowledgments of Greyston\n<|id|>114<|page|>10<|box|>204 140 222 290<|content|>9. Indemnification\n<|id|>121<|page|>10<|box|>675 142 693 369<|content|>10. Miscellaneous Provisions\n<|id|>129<|page|>11<|box|>546 142 563 470<|content|>11. Contact Information for Coordination\n<|id|>131<|page|>11<|box|>633 142 652 424<|content|>At Greystone Federal Credit Corp.:\n<|id|>141<|page|>12<|box|>189 401 205 594<|content|>[Signature Pages Follow]\n<|id|>142<|page|>12<|box|>213 158 229 836<|content|>SIGNATURE PAGE TO LIEN RELEASE AND TERMINATION AUT\n<|id|>149<|page|>12<|box|>368 313 383 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>151<|page|>12<|box|>455 142 472 490<|content|>VERIMARK HOSPITALITY GROUP INC.\n<|id|>156<|page|>12<|box|>542 437 559 560<|content|>SCHEDULE A\n<|id|>157<|page|>12<|box|>569 285 585 710<|content|>List of UCC-1 Financing Statements to Be Terminate\n<|id|>162<|page|>13<|box|>308 437 324 560<|content|>SCHEDULE B\n<|id|>163<|page|>13<|box|>334 305 351 691<|content|>List of Mortgages / Deeds of Trust to Be Released\n<|id|>168<|page|>14<|box|>404 436 420 560<|content|>SCHEDULE C\n<|id|>169<|page|>14<|box|>430 305 446 691<|content|>List of IP Security Interest Filings to Be Release\n<|id|>171<|page|>14<|box|>537 143 554 271<|content|>USPTO Filings:\n<|id|>174<|page|>15<|box|>266 143 284 377<|content|>U.S. Copyright Office Filings:\n<|id|>177<|page|>15<|box|>470 437 486 560<|content|>SCHEDULE D\n<|id|>178<|page|>15<|box|>496 313 513 684<|content|>List of Pledged Equity Interests to Be Returned\n<|id|>181<|page|>16<|box|>143 142 159 612<|content|>Transfer Powers and Other Instruments Held by Grey",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>28<|level|>2\n<|id|>43<|level|>2\n<|id|>54<|level|>2\n<|id|>81<|level|>2\n<|id|>85<|level|>2\n<|id|>95<|level|>2\n<|id|>106<|level|>2\n<|id|>114<|level|>2\n<|id|>121<|level|>2\n<|id|>129<|level|>2\n<|id|>131<|level|>3\n<|id|>141<|level|>-1\n<|id|>142<|level|>2\n<|id|>149<|level|>2\n<|id|>151<|level|>2\n<|id|>156<|level|>2\n<|id|>157<|level|>3\n<|id|>162<|level|>2\n<|id|>163<|level|>3\n<|id|>168<|level|>2\n<|id|>169<|level|>3\n<|id|>171<|level|>4\n<|id|>174<|level|>4\n<|id|>177<|level|>2\n<|id|>178<|level|>3\n<|id|>181<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 4
+        },
+        {
+            "id": 174,
+            "level": 4
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 2
+        }
+    ]
+}

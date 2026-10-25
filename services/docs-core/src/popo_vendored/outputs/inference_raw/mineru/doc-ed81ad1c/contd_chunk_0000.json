@@ -1,0 +1,42 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>136 155 228 841<|content|>Delivered pursuant to Section 4. ... , as Administrative Agent and Collateral\n<|id|>2<|page|>1<|box|>229 473 244 526<|content|>Agent\n<|id|>3<|page|>1<|box|>253 140 270 294<|content|>Date: ... May 19, 2023\n<|id|>4<|page|>1<|box|>270 140 363 854<|content|>Capitalized terms used but not otherwise defined h...ined below), unless the context otherwise requires\n<|id|>11<|page|>1<|box|>811 140 885 854<|content|>\"Credit Agreement\" means the Credit Agreement date...providing for a $300,000,000 Senior Secured Asset-\n<|id|>12<|page|>2<|box|>90 140 127 854<|content|>Based Revolving Credit Facility (as the same may b...ed from time to time in accordance with its terms)\n<|id|>17<|page|>2<|box|>383 174 421 857<|content|>(d) the granting of Liens on the Collateral in fav...ty Agreement and the other Loan Documents; ... and\n<|id|>19<|page|>2<|box|>489 140 564 854<|content|>\"Solvent\" and \"Solvency\" shall have the meanings a... basis and after giving effect to the Transactions\n<|id|>22<|page|>2<|box|>806 140 898 857<|content|>\"Stated Liabilities\" means the recorded liabilitie...legal, equitable, and all other liabilities of the\n<|id|>23<|page|>3<|box|>89 140 126 854<|content|>Borrower and its Subsidiaries, in each case determ...cordance with GAAP as in effect on the date hereof\n<|id|>34<|page|>3<|box|>864 174 902 854<|content|>(d) Reviewed the field examination and appraisal r...ependent third-party appraisal firm engaged by the\n<|id|>35<|page|>4<|box|>90 174 162 854<|content|>Administrative Agent, which provided a comprehensi... analysis of receivables aging and dilution trends\n<|id|>46<|page|>4<|box|>868 140 905 856<|content|>The Fair Value of the assets of the Borrower and i...ect to the Transactions, exceed their total Stated\n<|id|>47<|page|>5<|box|>90 138 255 857<|content|>Liabilities (including subordinated, unsubordinate... rendered, insolvent by reason of the Transactions\n<|id|>64<|page|>6<|box|>827 174 900 856<|content|>(b) the financial projections and forecasts review...projections or forecasts will be realized; ... and\n<|id|>66<|page|>7<|box|>215 140 380 854<|content|>The undersigned has not made an independent apprai...reasonable and appropriate under the circumstances\n<|id|>75<|page|>7<|box|>916 142 930 464<|content|>Delivered Pursuant to Credit Agreement Dated May 4, 2023\n<|id|>76<|page|>8<|box|>89 140 126 854<|content|>IN WITNESS WHEREOF, the undersigned has executed t...y Certificate as of the date first set forth above\n<|id|>79<|page|>8<|box|>169 142 185 318<|content|>Name: ... Elena Kowalski\n<|id|>80<|page|>8<|box|>186 142 203 362<|content|>Title: ... Chief Financial Officer\n<|id|>81<|page|>8<|box|>203 142 220 295<|content|>Date: ... May 19, 2023\n<|id|>82<|page|>8<|box|>220 142 237 295<|content|>Address for notices: ... Address for notices\n<|id|>83<|page|>8<|box|>244 174 263 771<|content|>Cascade Retail Holdings Inc. ... 2200 Elliott Avenue, Suite 1400 Seattle, WA 98121\n<|id|>84<|page|>8<|box|>272 174 289 433<|content|>Attention: ... Chief Financial Officer",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>11<|tgt_id|>12\n<|src_id|>22<|tgt_id|>23\n<|src_id|>34<|tgt_id|>35\n<|src_id|>46<|tgt_id|>47",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        }
+    ]
+}

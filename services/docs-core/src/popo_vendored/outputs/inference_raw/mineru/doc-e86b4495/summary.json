@@ -1,0 +1,201 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cjmvr5hn\\input\\pdfs\\doc-e86b4495.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cjmvr5hn\\enriched\\doc-e86b4495.json",
+    "contd_output": "<|src_id|>25<|tgt_id|>26\n<|src_id|>43<|tgt_id|>44\n<|src_id|>116<|tgt_id|>117",
+    "title_output": "<|id|>10<|level|>1\n<|id|>22<|level|>1\n<|id|>23<|level|>2\n<|id|>29<|level|>2\n<|id|>40<|level|>2\n<|id|>53<|level|>1\n<|id|>54<|level|>2\n<|id|>61<|level|>2\n<|id|>65<|level|>2\n<|id|>71<|level|>1\n<|id|>72<|level|>2\n<|id|>81<|level|>2\n<|id|>91<|level|>2\n<|id|>102<|level|>1\n<|id|>103<|level|>2\n<|id|>111<|level|>2\n<|id|>120<|level|>1\n<|id|>121<|level|>2\n<|id|>123<|level|>3\n<|id|>133<|level|>3\n<|id|>137<|level|>3\n<|id|>141<|level|>3\n<|id|>149<|level|>3\n<|id|>152<|level|>2\n<|id|>158<|level|>1\n<|id|>159<|level|>2\n<|id|>171<|level|>2\n<|id|>177<|level|>1\n<|id|>178<|level|>2\n<|id|>187<|level|>2\n<|id|>191<|level|>2\n<|id|>202<|level|>1\n<|id|>204<|level|>2\n<|id|>211<|level|>2\n<|id|>219<|level|>2\n<|id|>224<|level|>1",
+    "image_output": "<|src_id|>34<|tgt_id|>29\n<|src_id|>35<|tgt_id|>29",
+    "contd_label": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 117
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 1
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 224,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 34,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 29
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 34,
+            "table2_idx": 35,
+            "upper_row_ss": [
+                [
+                    "Letters of Credit",
+                    "$3.5M",
+                    "—",
+                    "—",
+                    "—"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "First Lien Term Loan B",
+                    "$285.0M",
+                    "—",
+                    "SOFR + 425 bps (75 bps floor)",
+                    "December 15, 2024"
+                ]
+            ]
+        }
+    ]
+}

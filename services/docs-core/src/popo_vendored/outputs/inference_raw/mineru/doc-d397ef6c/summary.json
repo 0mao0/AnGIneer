@@ -1,0 +1,219 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rhlmyzv5\\input\\pdfs\\doc-d397ef6c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rhlmyzv5\\enriched\\doc-d397ef6c.json",
+    "contd_output": "<|src_id|>50<|tgt_id|>51",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>16<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>36<|level|>2\n<|id|>46<|level|>2\n<|id|>49<|level|>2\n<|id|>57<|level|>2\n<|id|>64<|level|>2\n<|id|>67<|level|>2\n<|id|>84<|level|>2\n<|id|>86<|level|>3\n<|id|>98<|level|>2\n<|id|>99<|level|>2\n<|id|>100<|level|>3\n<|id|>107<|level|>2\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>113<|level|>2\n<|id|>114<|level|>2\n<|id|>115<|level|>3\n<|id|>128<|level|>3",
+    "image_output": "<|src_id|>102<|tgt_id|>100\n<|src_id|>103<|tgt_id|>100\n<|src_id|>104<|tgt_id|>100\n<|src_id|>105<|tgt_id|>100\n<|src_id|>111<|tgt_id|>109\n<|src_id|>119<|tgt_id|>113\n<|src_id|>120<|tgt_id|>113",
+    "contd_label": [
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 102,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 113
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 102,
+            "table2_idx": 103,
+            "upper_row_ss": [
+                [
+                    "8",
+                    "Methods of Treating",
+                    "11,345,678",
+                    "January 25, 2022",
+                    "Dr. Ananya Mehta;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Frontotemporal Dementia Using Targeted RNA Degraders",
+                    "",
+                    "",
+                    "Dr. James L. Whitfield; Dr. Michael Okafor"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 104,
+            "table2_idx": 105,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "AI-Guided Patient Selection",
+                    "PCT/",
+                    "June 28, 2024",
+                    "Dr. Sarah K. Ling; Dr.",
+                    "International Phase —"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Methods for RNA Therapeutic Clinical Trials",
+                    "US2024/038912",
+                    "",
+                    "Michael Okafor",
+                    "Pending"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 119,
+            "table2_idx": 120,
+            "upper_row_ss": [
+                [
+                    "Item No.",
+                    "Title",
+                    "Registration No. / Application No.",
+                    "Issue Date / Filing Date",
+                    "Inventor(s)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Item No.",
+                    "Mark",
+                    "Registration No. / Application No.",
+                    "Registration Date / Filing Date",
+                    "Status"
+                ]
+            ]
+        }
+    ]
+}

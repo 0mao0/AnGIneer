@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        93,
+        106
+    ],
+    "pages": [
+        94,
+        95,
+        100,
+        102,
+        104,
+        105,
+        106
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>979<|page|>94<|box|>206 116 229 460<|content|>12 质量管理及检查验收\n<|id|>980<|page|>94<|box|>296 115 313 266<|content|>12.1 一般规定\n<|id|>984<|page|>94<|box|>597 116 615 329<|content|>12.2 材料验收与存储\n<|id|>986<|page|>94<|box|>749 116 766 206<|content|>条文说明\n<|id|>992<|page|>95<|box|>334 101 352 254<|content|>12.3 试验路段\n<|id|>1000<|page|>95<|box|>762 99 780 252<|content|>12.4 检查验收\n<|id|>1022<|page|>100<|box|>678 94 695 247<|content|>12.5 质量管理\n<|id|>1035<|page|>102<|box|>191 94 214 738<|content|>附录 A 侧向浸水加州承载比(MCBR)试验方法\n<|id|>1036<|page|>102<|box|>280 94 296 242<|content|>A.1 适用范围\n<|id|>1039<|page|>102<|box|>408 94 425 240<|content|>A.2 仪器设备\n<|id|>1059<|page|>104<|box|>334 106 352 252<|content|>A.3 试样制备\n<|id|>1064<|page|>104<|box|>615 106 631 252<|content|>A.4 试验步骤\n<|id|>1073<|page|>105<|box|>345 118 362 500<|content|>A.4.5 按以下步骤和要求进行贯入试验：\n<|id|>1077<|page|>105<|box|>496 97 511 245<|content|>A.5 结果整理\n<|id|>1079<|page|>106<|box|>193 118 216 403<|content|>本规范用词用语说明",
+    "raw_response": "<|id|>979<|level|>1\n<|id|>980<|level|>2\n<|id|>984<|level|>2\n<|id|>986<|level|>3\n<|id|>992<|level|>2\n<|id|>1000<|level|>2\n<|id|>1022<|level|>2\n<|id|>1035<|level|>1\n<|id|>1036<|level|>2\n<|id|>1039<|level|>2\n<|id|>1059<|level|>2\n<|id|>1064<|level|>2\n<|id|>1073<|level|>3\n<|id|>1077<|level|>2\n<|id|>1079<|level|>1",
+    "parsed": [
+        {
+            "id": 979,
+            "level": 1
+        },
+        {
+            "id": 980,
+            "level": 2
+        },
+        {
+            "id": 984,
+            "level": 2
+        },
+        {
+            "id": 986,
+            "level": 3
+        },
+        {
+            "id": 992,
+            "level": 2
+        },
+        {
+            "id": 1000,
+            "level": 2
+        },
+        {
+            "id": 1022,
+            "level": 2
+        },
+        {
+            "id": 1035,
+            "level": 1
+        },
+        {
+            "id": 1036,
+            "level": 2
+        },
+        {
+            "id": 1039,
+            "level": 2
+        },
+        {
+            "id": 1059,
+            "level": 2
+        },
+        {
+            "id": 1064,
+            "level": 2
+        },
+        {
+            "id": 1073,
+            "level": 3
+        },
+        {
+            "id": 1077,
+            "level": 2
+        },
+        {
+            "id": 1079,
+            "level": 1
+        }
+    ]
+}

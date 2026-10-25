@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>164 140 181 334<|content|>DATE: ... January 10, 2023\n<|id|>4<|page|>1<|box|>190 140 207 676<|content|>FROM: ... Howard Bellamy, Billing Partner, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>215 140 233 676<|content|>TO: ... Elaine Forsythe, Responsible Partner, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>242 140 277 854<|content|>CC: ... Firm Accounting / Finance Department\n<|id|>7<|page|>1<|box|>286 140 321 854<|content|>RE: ... Insurance- Coverage Dispute\n<|id|>8<|page|>1<|box|>330 140 347 415<|content|>ENGAGEMENT NO. ... 1021-00003\n<|id|>9<|page|>1<|box|>356 140 375 598<|content|>CLIENT: ... VMRK)\n<|id|>10<|page|>1<|box|>382 140 398 584<|content|>CLIENT CONTACT: ... Nathaniel Driscoll, General Counsel\n<|id|>18<|page|>1<|box|>840 140 893 854<|content|>VHG's total claimed business-interruption losses a...uption insurance program, which is structured as a\n<|id|>20<|page|>2<|box|>321 140 431 854<|content|>At the time the engagement was opened, the Origina...suit negotiations and formal demand correspondence\n<|id|>108<|page|>12<|box|>595 140 613 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>109<|page|>12<|box|>614 143 632 253<|content|>By: ... By\n<|id|>110<|page|>12<|box|>632 143 648 331<|content|>Howard Bellamy Partner\n<|id|>111<|page|>12<|box|>648 142 665 318<|content|>Date: ... January 10, 2023\n<|id|>112<|page|>12<|box|>665 140 683 439<|content|>ACKNOWLEDGED AND AGREED: ... ACKNOWLEDGED AND AGREED",
+    "raw_response": "<|src_id|>109<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        }
+    ]
+}

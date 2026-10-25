@@ -1,0 +1,115 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        55
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        23,
+        28,
+        29,
+        30,
+        35,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>7<|box|>98 97 258 917<|content|>TREASURY BULLETIN\n<|id|>12<|page|>9<|box|>75 370 99 632<|content|>Table of Contents\n<|id|>22<|page|>11<|box|>75 331 93 655<|content|>Treasury Financing Operations\n<|id|>23<|page|>11<|box|>117 33 133 243<|content|>September Cash Offering\n<|id|>30<|page|>11<|box|>626 509 641 726<|content|>Weekly Bills Increased\n<|id|>33<|page|>13<|box|>53 332 68 651<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>46<|page|>15<|box|>74 326 87 647<|content|>Footnotes to Table 1 - (Continued)\n<|id|>65<|page|>17<|box|>57 33 91 936<|content|>Table 3.- Summary of Appropriations and Authorizat\n<|id|>74<|page|>19<|box|>81 208 96 784<|content|>Table 4.- Expenditures and Balances by Functions -\n<|id|>93<|page|>19<|box|>612 333 626 651<|content|>Footnotes to Table 3 - (Continued)\n<|id|>114<|page|>23<|box|>68 96 85 874<|content|>Table 5.- Net Redemption or Sale of Obligations of\n<|id|>128<|page|>28<|box|>75 115 122 925<|content|>Table 7.- Derivation or Federal Government Net Cas\n<|id|>131<|page|>29<|box|>38 394 50 581<|content|>CASH INCOME AND OUTGO\n<|id|>132<|page|>29<|box|>78 392 90 583<|content|>Footnotes to Table 3\n<|id|>136<|page|>29<|box|>170 392 182 585<|content|>Footnotes to Table 4\n<|id|>145<|page|>29<|box|>337 396 349 590<|content|>Footnotes to Table 5\n<|id|>153<|page|>29<|box|>573 400 587 590<|content|>Footnotes to Table 6\n<|id|>163<|page|>29<|box|>760 407 774 601<|content|>Footnotes to Table 7\n<|id|>172<|page|>30<|box|>72 202 92 816<|content|>Source and Availability of the Balance in the Trea\n<|id|>198<|page|>35<|box|>235 260 251 730<|content|>Table 1.- Status under Limitation, August 31, 1958\n<|id|>200<|page|>35<|box|>416 137 449 847<|content|>Table 2.- Application of Limitation to Public Debt\n<|id|>285<|page|>54<|box|>195 147 209 856<|content|>Section I.- Securities Issued or Guaranteed by the",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>12<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>30<|level|>3\n<|id|>33<|level|>2\n<|id|>46<|level|>3\n<|id|>65<|level|>2\n<|id|>74<|level|>2\n<|id|>93<|level|>3\n<|id|>114<|level|>2\n<|id|>128<|level|>2\n<|id|>131<|level|>2\n<|id|>132<|level|>3\n<|id|>136<|level|>3\n<|id|>145<|level|>3\n<|id|>153<|level|>3\n<|id|>163<|level|>3\n<|id|>172<|level|>2\n<|id|>198<|level|>2\n<|id|>200<|level|>2\n<|id|>285<|level|>3",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 285,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 147 143 849<|content|>OFFICER'S CERTIFICATE OF PENTERRA PHARMACEUTICALS\n<|id|>4<|page|>1<|box|>270 142 287 243<|content|>RECITALS\n<|id|>10<|page|>2<|box|>148 140 166 508<|content|>SECTION 1: AUTHORITY AND CAPACITY\n<|id|>16<|page|>2<|box|>814 140 830 723<|content|>SECTION 2: REPRESENTATIONS AND WARRANTIES BRINGDOW\n<|id|>19<|page|>3<|box|>275 140 292 433<|content|>2.1 Organization and Good Standing\n<|id|>21<|page|>3<|box|>531 140 547 400<|content|>2.2 Authority and Enforceability\n<|id|>23<|page|>3<|box|>823 140 839 272<|content|>2.3 No Conflicts\n<|id|>27<|page|>4<|box|>440 140 458 359<|content|>2.4 Regulatory Compliance\n<|id|>43<|page|>6<|box|>294 140 310 357<|content|>2.6 Investigational Product\n<|id|>47<|page|>6<|box|>747 140 763 334<|content|>2.7 intellectual Property\n<|id|>50<|page|>7<|box|>367 140 383 323<|content|>2.8 Financial Capacity\n<|id|>57<|page|>7<|box|>843 140 859 344<|content|>2.9 Litigation and Claims\n<|id|>60<|page|>8<|box|>329 142 348 403<|content|>2.10 Indemnification Obligations\n<|id|>67<|page|>9<|box|>212 140 229 496<|content|>SECTION 3: COVENANTS COMPLIANCE\n<|id|>78<|page|>10<|box|>391 140 409 558<|content|>SECTION 4: NO MATERIAL ADVERSE CHANGE\n<|id|>81<|page|>10<|box|>704 140 720 486<|content|>SECTION 5: CONDITIONS PRECEDENT\n<|id|>94<|page|>12<|box|>89 142 106 529<|content|>SECTION 6: GOVERNING LAW REFERENCE\n<|id|>97<|page|>12<|box|>347 140 364 349<|content|>SECTION 7: RELIANCE\n<|id|>102<|page|>12<|box|>733 217 768 779<|content|>SIGNATURE PAGE TO OFFICER'S CERTIFICATE OF PENTERR",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>19<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>27<|level|>3\n<|id|>43<|level|>3\n<|id|>47<|level|>3\n<|id|>50<|level|>3\n<|id|>57<|level|>3\n<|id|>60<|level|>3\n<|id|>67<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>2\n<|id|>94<|level|>2\n<|id|>97<|level|>2\n<|id|>102<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        }
+    ]
+}

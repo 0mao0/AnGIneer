@@ -1,0 +1,129 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-b15oifbm\\input\\pdfs\\doc-5004c584.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-b15oifbm\\enriched\\doc-5004c584.json",
+    "contd_output": "<|src_id|>71<|tgt_id|>72\n<|src_id|>94<|tgt_id|>95\n<|src_id|>140<|tgt_id|>141",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>60<|level|>2\n<|id|>70<|level|>2\n<|id|>78<|level|>2\n<|id|>84<|level|>2\n<|id|>90<|level|>3\n<|id|>98<|level|>2\n<|id|>110<|level|>2\n<|id|>118<|level|>2\n<|id|>133<|level|>2\n<|id|>147<|level|>2\n<|id|>153<|level|>2\n<|id|>176<|level|>2\n<|id|>189<|level|>2\n<|id|>197<|level|>2\n<|id|>215<|level|>2",
+    "image_output": "<|src_id|>192<|tgt_id|>189\n<|src_id|>193<|tgt_id|>189",
+    "contd_label": [
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 141
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 192,
+            "tgt_id": 189
+        },
+        {
+            "src_id": 193,
+            "tgt_id": 189
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 192,
+            "table2_idx": 193,
+            "upper_row_ss": [
+                [
+                    "Stockholder",
+                    "Shares of Common Stock",
+                    "Percentage of Outstanding"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Brindoval Trelvon Partners Fund IV, L.P.",
+                    "28,000,000",
+                    "27.2%"
+                ]
+            ]
+        }
+    ]
+}

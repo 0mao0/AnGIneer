@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        4,
+        12
+    ],
+    "pages": [
+        4,
+        8,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>29<|page|>4<|box|>87 87 99 139<|content|>Notes\n<|id|>33<|page|>8<|box|>86 87 99 139<|content|>Notes\n<|id|>38<|page|>12<|box|>86 87 101 294<|content|>ConsequencAction Required",
+    "raw_response": "<|id|>29<|level|>1\n<|id|>33<|level|>1\n<|id|>38<|level|>1",
+    "parsed": [
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        }
+    ]
+}

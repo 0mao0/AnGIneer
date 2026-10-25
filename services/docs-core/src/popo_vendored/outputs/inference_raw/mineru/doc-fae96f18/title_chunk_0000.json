@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 333 118 663<|content|>SECRETARY'S CERTIFICATE\n<|id|>2<|page|>1<|box|>175 279 195 717<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>6<|page|>1<|box|>452 140 469 243<|content|>RECITALS\n<|id|>13<|page|>2<|box|>148 140 167 307<|content|>CERTIFICATIONS\n<|id|>14<|page|>2<|box|>180 140 198 668<|content|>Certification 1: Amended and Restated Certificate\n<|id|>23<|page|>3<|box|>282 140 299 511<|content|>Certification 2: Amended and Restated Bylaws\n<|id|>31<|page|>4<|box|>202 140 219 584<|content|>Certification 3: Board Resolutions — IPO Authoriza\n<|id|>46<|page|>5<|box|>844 140 861 509<|content|>Certification 4: Pricing Committee Resolutions\n<|id|>56<|page|>6<|box|>669 140 685 496<|content|>Certification 5: Stockholder Written Consent\n<|id|>67<|page|>7<|box|>650 142 667 428<|content|>ADDITIONAL CERTIFICATIONS\n<|id|>68<|page|>7<|box|>681 140 699 366<|content|>Certification 6: Incumbency\n<|id|>73<|page|>8<|box|>263 140 279 421<|content|>Certification 7: Board Composition\n<|id|>77<|page|>8<|box|>638 143 654 287<|content|>Audit Committee:\n<|id|>82<|page|>8<|box|>804 142 820 354<|content|>Compensation Committee:\n<|id|>90<|page|>9<|box|>160 142 176 380<|content|>Certification 8: Capitalization\n<|id|>98<|page|>9<|box|>589 140 607 526<|content|>Certification 9: Good Standing and Qualification\n<|id|>102<|page|>9<|box|>859 140 878 500<|content|>Certification 10: No Conflict; No Proceedings\n<|id|>106<|page|>10<|box|>467 142 484 336<|content|>REGISTERED AGENT\n<|id|>108<|page|>10<|box|>589 140 607 245<|content|>RELIANCE\n<|id|>111<|page|>10<|box|>832 140 851 338<|content|>[Signature Page Follows]\n<|id|>119<|page|>11<|box|>214 142 231 310<|content|>LIST OF EXHIBITS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>6<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>23<|level|>3\n<|id|>31<|level|>3\n<|id|>46<|level|>3\n<|id|>56<|level|>3\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>73<|level|>3\n<|id|>77<|level|>4\n<|id|>82<|level|>4\n<|id|>90<|level|>3\n<|id|>98<|level|>3\n<|id|>102<|level|>3\n<|id|>106<|level|>2\n<|id|>108<|level|>2\n<|id|>111<|level|>-1\n<|id|>119<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        }
+    ]
+}

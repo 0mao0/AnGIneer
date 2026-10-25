@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>61 168 99 836<|content|>Compressing Hamiltonians with ab initio downfoldin\n<|id|>4<|page|>1<|box|>417 197 430 374<|content|>I. INTRODUCTION\n<|id|>12<|page|>2<|box|>646 220 660 352<|content|>II. METHODS\n<|id|>13<|page|>2<|box|>678 184 693 390<|content|>A. Ab initio downfolding\n<|id|>21<|page|>3<|box|>469 143 484 429<|content|>B. Tensor network VQE simulation\n<|id|>30<|page|>3<|box|>589 514 618 918<|content|>C. Hamiltonian compression and the measurement pro\n<|id|>42<|page|>4<|box|>382 537 410 893<|content|>D. Downfolded Hamiltonian simulation with near-ter\n<|id|>48<|page|>5<|box|>561 223 575 349<|content|>III. RESULTS\n<|id|>51<|page|>5<|box|>577 573 590 859<|content|>A. Antiferromagnetism in Ca<sub>2</sub>CuO<sub>3</\n<|id|>59<|page|>6<|box|>821 145 837 426<|content|>B. Excitonic ground state in WTe<sub>2</sub>\n<|id|>65<|page|>8<|box|>547 148 561 424<|content|>C. Charge-ordered state in SrVO<sub>3</sub>\n<|id|>70<|page|>8<|box|>575 558 590 874<|content|>IV. CONCLUSIONS AND OUTLOOK\n<|id|>74<|page|>9<|box|>559 169 573 405<|content|>V. ACKNOWLEDGMENTS\n<|id|>76<|page|>9<|box|>796 124 811 450<|content|>Appendix A: Details of VQE optimization\n<|id|>83<|page|>9<|box|>750 519 779 911<|content|>Appendix B: Details of DFT and constrained RPA cal\n<|id|>89<|page|>10<|box|>484 93 500 480<|content|>Appendix C: Downfolded Hamiltonian parameters\n<|id|>91<|page|>10<|box|>652 233 667 339<|content|>1. Ca<sub>2</sub>CuO<sub>3</sub>\n<|id|>93<|page|>10<|box|>849 246 864 326<|content|>2. WTe<sub>2</sub>",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>21<|level|>3\n<|id|>30<|level|>3\n<|id|>42<|level|>3\n<|id|>48<|level|>2\n<|id|>51<|level|>3\n<|id|>59<|level|>3\n<|id|>65<|level|>3\n<|id|>70<|level|>2\n<|id|>74<|level|>2\n<|id|>76<|level|>2\n<|id|>83<|level|>2\n<|id|>89<|level|>2\n<|id|>91<|level|>3\n<|id|>93<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        }
+    ]
+}

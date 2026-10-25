@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>116 431 133 565<|content|>Attorneys at Law\n<|id|>2<|page|>1<|box|>141 281 159 717<|content|>One Liberty Plaza, 44th Floor New York, New York 10006\n<|id|>3<|page|>1<|box|>167 297 185 699<|content|>Telephone: ... (212) 455-7201\n<|id|>4<|page|>1<|box|>194 748 210 854<|content|>June 16, 2025\n<|id|>5<|page|>1<|box|>219 140 253 854<|content|>Lakebridge Home & Personal Care, Inc. ... 7100 Rockside Road, Suite 400 Independence, Ohio 44131\n<|id|>6<|page|>1<|box|>263 176 280 684<|content|>Attention: ... Thomas Brennan III, Chairman & Chief Executive Officer\n<|id|>7<|page|>1<|box|>281 174 316 854<|content|>Lisa Nakamura, Chief Financial Officer Philip Kowalski, Vice President, Corporate Development\n<|id|>8<|page|>1<|box|>325 143 343 259<|content|>With a copy to: ... With a copy to\n<|id|>9<|page|>1<|box|>351 140 369 700<|content|>Oakridge Phelps LLP 200 Public Square, Suite 3600 Cleveland, Ohio 44114\n<|id|>10<|page|>1<|box|>377 176 393 496<|content|>Attention: ... Warren Gladstone, Lead Partner\n<|id|>11<|page|>1<|box|>393 176 411 433<|content|>Monica Ferreira, Senior Associate\n<|id|>12<|page|>1<|box|>419 140 511 854<|content|>Re: ... , an Ohio corporation (\"Buyer\"), for the s...onal-care product line and related Acquired Assets\n<|id|>13<|page|>1<|box|>518 142 536 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>17<|page|>1<|box|>857 140 893 854<|content|>In rendering the opinions expressed herein, we hav... Phelps LLP, or any other party to the Transaction\n<|id|>18<|page|>2<|box|>90 140 143 854<|content|>Documents (as defined below). ... Nothing in this ...ess LLP and any person or entity other than Seller\n<|id|>45<|page|>3<|box|>857 176 893 854<|content|>11. ... and\n<|id|>47<|page|>4<|box|>169 140 220 854<|content|>We have also reviewed such matters of law as we ha...ppropriate to render the opinions expressed herein\n<|id|>105<|page|>9<|box|>867 174 902 854<|content|>(b) In rendering the opinions relating to the auth...n Sections 4. ... 3 above, we have relied upon the\n<|id|>106<|page|>10<|box|>90 174 218 856<|content|>Authorizing Resolutions adopted by the members and...ain in full force and effect as of the date hereof\n<|id|>115<|page|>11<|box|>135 212 152 344<|content|>Very truly yours,\n<|id|>116<|page|>11<|box|>160 140 176 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>117<|page|>11<|box|>179 143 195 254<|content|>By: ... By\n<|id|>118<|page|>11<|box|>195 142 210 310<|content|>Name: ... James Prentice\n<|id|>119<|page|>11<|box|>212 140 228 428<|content|>Title: ... Partner, Mergers & Acquisitions\n<|id|>120<|page|>11<|box|>229 140 244 578<|content|>One Liberty Plaza, 44th Floor New York, New York 10006\n<|id|>121<|page|>11<|box|>246 140 263 570<|content|>Enclosures: ... Transaction Documents (as described herein)\n<|id|>122<|page|>11<|box|>272 140 289 323<|content|>cc (without enclosures): ... cc (without enclosures)\n<|id|>123<|page|>11<|box|>297 174 334 854<|content|>Gerald Fontenot, General Counsel & Corporate Secre... Avenue South, 14th Floor New York, New York 10016\n<|id|>124<|page|>11<|box|>342 174 378 854<|content|>Diane Choi, Vice President, Business Development M... Avenue South, 14th Floor New York, New York 10016\n<|id|>125<|page|>11<|box|>386 174 422 854<|content|>Elena Vasquez-Drummond, Partner, Consumer & Retail...ington Avenue, Suite 3200 New York, New York 10017",
+    "raw_response": "<|src_id|>17<|tgt_id|>18\n<|src_id|>105<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        }
+    ]
+}

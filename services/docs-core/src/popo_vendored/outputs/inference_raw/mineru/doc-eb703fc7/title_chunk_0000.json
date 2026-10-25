@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 341 118 655<|content|>LETTER OF TRANSMITTAL\n<|id|>1<|page|>1<|box|>136 158 172 838<|content|>For Tender of Shares of Common Stock of NovaMart G\n<|id|>8<|page|>1<|box|>508 303 527 694<|content|>IMPORTANT INSTRUCTIONS AND NOTICES\n<|id|>9<|page|>1<|box|>535 140 590 854<|content|>DO NOT SEND THIS LETTER OF TRANSMITTAL TO NOVAMART\n<|id|>16<|page|>2<|box|>494 142 510 666<|content|>SECTION 1: IDENTIFICATION OF SELLING STOCKHOLDER\n<|id|>29<|page|>3<|box|>89 142 106 589<|content|>SECTION 2: DESCRIPTION OF SHARES TENDERED\n<|id|>32<|page|>3<|box|>316 142 333 495<|content|>Total Number of Shares Tendered:\n<|id|>35<|page|>3<|box|>518 140 535 795<|content|>SECTION 3: LOST, STOLEN, DESTROYED, OR MUTILATED C\n<|id|>36<|page|>3<|box|>544 140 579 854<|content|>Check here if any certificate(s) listed in Section\n<|id|>40<|page|>4<|box|>89 142 106 486<|content|>SECTION 4: PAYMENT INSTRUCTIONS\n<|id|>41<|page|>4<|box|>121 140 138 614<|content|>Section 4(a): Wire Transfer Instructions (Preferre\n<|id|>52<|page|>4<|box|>646 140 662 741<|content|>Section 4(b): Check Payment (Alternative — If Wire\n<|id|>60<|page|>5<|box|>222 140 258 812<|content|>SECTION 5: PRO RATA CONSIDERATION CALCULATION (FOR\n<|id|>68<|page|>6<|box|>148 140 185 820<|content|>SECTION 6: REPRESENTATIONS, WARRANTIES, AND AGREEM\n<|id|>78<|page|>7<|box|>648 140 664 454<|content|>SECTION 7: TAX CERTIFICATIONS\n<|id|>79<|page|>7<|box|>679 140 696 442<|content|>Section 7(a): U.S. Person Certification\n<|id|>81<|page|>7<|box|>801 140 818 594<|content|>CERTIFICATION UNDER PENALTIES OF PERJURY:\n<|id|>92<|page|>8<|box|>449 140 465 480<|content|>Section 7(b): Non-U.S. Person Certification\n<|id|>101<|page|>10<|box|>89 142 106 431<|content|>SECTION 8: SIGNATURE BLOCK\n<|id|>112<|page|>11<|box|>89 142 106 493<|content|>MEDALLION SIGNATURE GUARANTEE\n<|id|>113<|page|>11<|box|>114 140 131 763<|content|>A Medallion Signature Guarantee is REQUIRED if any\n<|id|>123<|page|>12<|box|>90 434 109 563<|content|>EXHIBIT A\n<|id|>124<|page|>12<|box|>136 189 152 808<|content|>AFFIDAVIT OF LOST, STOLEN, OR DESTROYED STOCK CERT\n<|id|>138<|page|>12<|box|>876 142 892 295<|content|>NOTARIZATION.\n<|id|>144<|page|>13<|box|>196 142 212 418<|content|>BOND REQUIREMENT NOTICE\n<|id|>146<|page|>14<|box|>90 434 109 563<|content|>EXHIBIT B\n<|id|>147<|page|>14<|box|>136 307 152 689<|content|>SUMMARY OF KEY TRANSACTION TERMS\n<|id|>148<|page|>15<|box|>90 140 107 810<|content|>(For Reference Only — This Exhibit Does Not Modify\n<|id|>151<|page|>15<|box|>656 312 672 684<|content|>DELIVERY AND MAILING INSTRUCTIONS\n<|id|>156<|page|>15<|box|>833 142 849 366<|content|>Accepted Delivery Methods:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>16<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>-1\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>52<|level|>3\n<|id|>60<|level|>2\n<|id|>68<|level|>2\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>81<|level|>4\n<|id|>92<|level|>3\n<|id|>101<|level|>2\n<|id|>112<|level|>2\n<|id|>113<|level|>-1\n<|id|>123<|level|>2\n<|id|>124<|level|>3\n<|id|>138<|level|>4\n<|id|>144<|level|>2\n<|id|>146<|level|>2\n<|id|>147<|level|>3\n<|id|>148<|level|>-1\n<|id|>151<|level|>2\n<|id|>156<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 4
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 4
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 3
+        }
+    ]
+}

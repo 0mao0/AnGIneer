@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        11,
+        12,
+        13,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>169 155 204 844<|content|>THALASSA SHIPPING & LOGISTICS SA (Société Anonyme ...56729) 14 Akti Miaouli, 4th Floor, Piraeus 185 35,\n<|id|>2<|page|>1<|box|>207 470 222 527<|content|>Greece\n<|id|>3<|page|>1<|box|>231 369 250 630<|content|>. ... Judgment Creditor / Applicant\n<|id|>4<|page|>1<|box|>257 477 273 521<|content|>AND\n<|id|>5<|page|>1<|box|>282 148 337 849<|content|>KORINTHIAN MARITIME HOLDINGS LTD. ... HE 387421) 2...okli Dervi Avenue, Suite 601, Nicosia 1066, Cyprus\n<|id|>6<|page|>1<|box|>345 419 363 578<|content|>. ... Judgment Debtor\n<|id|>7<|page|>1<|box|>372 477 387 521<|content|>AND\n<|id|>8<|page|>1<|box|>397 179 414 816<|content|>PINNACLE BANK (SINGAPORE) LTD. ... 6 Battery Road, #20-01, Singapore 049909\n<|id|>9<|page|>1<|box|>424 447 440 550<|content|>. ... Garnishee\n<|id|>10<|page|>1<|box|>449 176 484 821<|content|>APPLICATION FOR GARNISHEE ORDER TO SHOW CAUSE PURSUANT TO ORDER 49 OF THE RULES OF COURT 2021\n<|id|>11<|page|>1<|box|>493 140 537 854<|content|>Filed by Straits Meridian LLP, Solicitors for the ...C2R 6AR, United Kingdom (lead enforcement counsel)\n<|id|>69<|page|>5<|box|>818 140 892 857<|content|>28. ... It is a matter of particular significance that\n<|id|>70<|page|>6<|box|>90 174 126 854<|content|>M/V Crimson Horizon was one of the three vessels t...he underlying charter-party disputes and the Award\n<|id|>79<|page|>6<|box|>587 140 680 854<|content|>33. ... (Singapore)\n<|id|>83<|page|>6<|box|>849 174 887 854<|content|>(c) Key operational decisions concerning KBSPL are...e KMH group, specifically Mr. ... Marina Kazakova,\n<|id|>84<|page|>7<|box|>89 174 127 854<|content|>Chief Financial Officer, both of whom manage the o...f KMH and report directly to Mr. ... Sergei Volkov\n<|id|>141<|page|>11<|box|>808 173 844 854<|content|>Straits Meridian LLP Solicitors for the Judgment C... #44-01 One Raffles Place Tower 2 Singapore 048616\n<|id|>142<|page|>11<|box|>852 174 897 800<|content|>Partner having conduct: ... +65 6221 8801\n<|id|>143<|page|>12<|box|>89 174 125 813<|content|>Email: ... DTW/PS/KOR/2024-0872\n<|id|>145<|page|>12<|box|>178 176 215 854<|content|>Responsible Partner: ... Patrick Gallagher\n<|id|>144<|page|>12<|box|>133 140 171 785<|content|>61. ... Calderwood & Harkness LLP 45 Moorgate London EC2R 6AR United Kingdom\n<|id|>146<|page|>12<|box|>223 176 239 617<|content|>Telephone: ... +44 20 7490 6001\n<|id|>147<|page|>12<|box|>250 176 282 781<|content|>Email: ... SE/HB/PG/TSL-KMH/2024\n<|id|>151<|page|>13<|box|>154 140 172 617<|content|>STRAITS MERIDIAN LLP Solicitors for the Judgment Creditor\n<|id|>152<|page|>13<|box|>172 143 189 253<|content|>By: ... By\n<|id|>153<|page|>13<|box|>189 140 205 344<|content|>Name: ... David Teo Wei Lin\n<|id|>154<|page|>13<|box|>205 142 223 248<|content|>Title: ... Partner\n<|id|>155<|page|>13<|box|>223 140 241 810<|content|>Straits Meridian LLP 1 Raffles Place, #44-01 One Raffles Place Tower 2 Singapore 048616\n<|id|>190<|page|>17<|box|>152 174 189 854<|content|>(a) Korinthian Bulkers (Singapore) Pte. ... and/or\n<|id|>192<|page|>17<|box|>239 140 277 854<|content|>at Pinnacle Bank (Singapore) Ltd. ... , up to the ..., without the prior leave of this Honourable Court\n<|id|>191<|page|>17<|box|>196 174 233 854<|content|>(b) Korinthian Maritime Holdings Ltd. ... (28 Them...li Dervi Avenue, Suite 601, Nicosia 1066, Cyprus),\n<|id|>195<|page|>17<|box|>373 174 428 854<|content|>(b) the Judgment Debtor, Korinthian Maritime Holdings Ltd. ... and\n<|id|>197<|page|>17<|box|>479 140 516 854<|content|>within seven (7) days of the date of this Order, o...h further time as this Honourable Court may direct\n<|id|>196<|page|>17<|box|>436 174 472 854<|content|>(c) the account holder, Korinthian Bulkers (Singap.... , at 80 Robinson Road, #14-02, Singapore 068898,",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>69<|tgt_id|>70\n<|src_id|>83<|tgt_id|>84",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 84
+        }
+    ]
+}

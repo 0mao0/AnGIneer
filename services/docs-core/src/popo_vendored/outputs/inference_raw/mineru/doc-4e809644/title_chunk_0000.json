@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>5<|page|>1<|box|>219 140 236 560<|content|>VIA HAND DELIVERY AND ELECTRONIC MAIL\n<|id|>8<|page|>1<|box|>353 142 369 305<|content|>Dear Agent Albrecht:\n<|id|>13<|page|>2<|box|>258 140 276 816<|content|>I. BACKGROUND — FUND STRUCTURE AND PERFORMANCE ALL\n<|id|>28<|page|>3<|box|>457 140 474 560<|content|>II. SUMMARY OF ISSUE UNDER EXAMINATION\n<|id|>33<|page|>4<|box|>303 140 320 493<|content|>III. APPLICABLE LEGAL FRAMEWORK\n<|id|>34<|page|>4<|box|>334 140 369 854<|content|>A. IRC § 1061 — Partnership Interests Held in Conn\n<|id|>41<|page|>5<|box|>257 140 273 560<|content|>B. Treasury Regulation § 1.1061 — Final Regulation\n<|id|>47<|page|>6<|box|>90 140 107 452<|content|>C. Holding Period Determination Rules\n<|id|>51<|page|>6<|box|>517 140 534 630<|content|>IV. METHODOLOGY FOR HOLDING PERIOD ANALYSIS\n<|id|>67<|page|>8<|box|>89 140 106 504<|content|>V. ITEM-BY-ITEM RESPONSES TO IDR #3\n<|id|>69<|page|>8<|box|>142 142 157 202<|content|>Item 1.\n<|id|>72<|page|>8<|box|>366 140 383 202<|content|>Item 2.\n<|id|>75<|page|>8<|box|>536 142 551 202<|content|>Item 3.\n<|id|>78<|page|>8<|box|>686 142 703 202<|content|>Item 4.\n<|id|>81<|page|>8<|box|>892 142 907 204<|content|>Item 5.\n<|id|>85<|page|>9<|box|>270 140 287 204<|content|>Item 6.\n<|id|>88<|page|>9<|box|>549 140 566 204<|content|>Item 7.\n<|id|>91<|page|>9<|box|>737 142 753 202<|content|>Item 8.\n<|id|>94<|page|>10<|box|>133 140 151 204<|content|>Item 9.\n<|id|>97<|page|>10<|box|>340 140 356 212<|content|>Item 10.\n<|id|>104<|page|>10<|box|>741 142 757 212<|content|>Item 11.\n<|id|>107<|page|>11<|box|>152 140 169 212<|content|>Item 12.\n<|id|>111<|page|>11<|box|>508 140 527 820<|content|>VI. NARRATIVE DISCUSSION — TRADE-LEVEL HOLDING PER\n<|id|>112<|page|>11<|box|>540 142 556 532<|content|>A. Overview of the Fourteen Challenged Positions\n<|id|>117<|page|>12<|box|>194 140 212 411<|content|>B. Summary of Aggregate Results\n<|id|>121<|page|>12<|box|>566 140 584 390<|content|>C. Verification and Audit Trail\n<|id|>127<|page|>14<|box|>89 142 106 308<|content|>VII. EXHIBIT LIST\n<|id|>129<|page|>14<|box|>708 142 724 428<|content|>VIII. RESERVATION OF RIGHTS\n<|id|>136<|page|>15<|box|>402 140 419 635<|content|>IX. REQUEST FOR COMMUNICATION AND NEXT STEPS\n<|id|>147<|page|>16<|box|>258 140 276 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>152<|page|>16<|box|>362 143 378 240<|content|>Enclosures:\n<|id|>158<|page|>16<|box|>593 142 604 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>5<|level|>-1\n<|id|>8<|level|>-1\n<|id|>13<|level|>1\n<|id|>28<|level|>1\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>41<|level|>2\n<|id|>47<|level|>2\n<|id|>51<|level|>1\n<|id|>67<|level|>1\n<|id|>69<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>2\n<|id|>85<|level|>2\n<|id|>88<|level|>2\n<|id|>91<|level|>2\n<|id|>94<|level|>2\n<|id|>97<|level|>2\n<|id|>104<|level|>2\n<|id|>107<|level|>2\n<|id|>111<|level|>1\n<|id|>112<|level|>2\n<|id|>117<|level|>2\n<|id|>121<|level|>2\n<|id|>127<|level|>1\n<|id|>129<|level|>1\n<|id|>136<|level|>1\n<|id|>147<|level|>-1\n<|id|>152<|level|>-1\n<|id|>158<|level|>-1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>546 140 564 666<|content|>Emerging Growth Company Status and JOBS Act Accomm\n<|id|>14<|page|>1<|box|>880 140 898 433<|content|>Description of the Proposed Offering\n<|id|>19<|page|>2<|box|>592 142 608 410<|content|>Identification of the Underwriters\n<|id|>27<|page|>2<|box|>823 142 839 364<|content|>Description of the Company\n<|id|>34<|page|>3<|box|>402 142 419 359<|content|>Contents of the Submission\n<|id|>59<|page|>4<|box|>90 140 125 854<|content|>Part II — Information Not Required in Prospectus.\n<|id|>68<|page|>4<|box|>474 143 491 271<|content|>Use of Proceeds\n<|id|>74<|page|>4<|box|>776 140 794 431<|content|>Concurrent Filings and Applications\n<|id|>78<|page|>5<|box|>165 140 181 421<|content|>Scaled Disclosure Accommodations\n<|id|>84<|page|>5<|box|>715 142 733 333<|content|>Confidentiality Request\n<|id|>86<|page|>5<|box|>877 140 893 513<|content|>Contact Information for Staff Communications",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>14<|level|>1\n<|id|>19<|level|>1\n<|id|>27<|level|>1\n<|id|>34<|level|>1\n<|id|>59<|level|>1\n<|id|>68<|level|>1\n<|id|>74<|level|>1\n<|id|>78<|level|>1\n<|id|>84<|level|>1\n<|id|>86<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Helena Bright', 'CFO', 'NTP', '1', 'NTP London email, NFA financial systems, Aldermere Systems (Finance),', '1/1/2019 – 9/15/2024', '60,000+', 'High (Phase A)', 'Financial analysis, capex ($340M budget), Crestline evaluation, pretext']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'Board files', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 375,
+    "table2_idx": 376
+}

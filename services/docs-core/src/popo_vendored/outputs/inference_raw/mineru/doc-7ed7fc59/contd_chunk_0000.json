@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>150 140 186 854<|content|>TO: ... Catherine Bloom, Partner, intellectual Property Practice Group, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>194 140 229 854<|content|>FROM: ... Wendy Schultz, Associate, intellectual Property Practice Group, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>239 140 257 344<|content|>DATE: ... February 19, 2026\n<|id|>5<|page|>1<|box|>265 140 320 857<|content|>RE: ... )\n<|id|>6<|page|>1<|box|>327 140 345 362<|content|>MATTER NO. ... 1013-00005\n<|id|>7<|page|>1<|box|>352 140 430 856<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT PRIVIL...ship may result in waiver of applicable privileges\n<|id|>53<|page|>6<|box|>593 174 628 854<|content|>(c) applying a trained machine-learning classifier...e of the probability of cancer recurrence; ... and\n<|id|>55<|page|>6<|box|>662 140 718 854<|content|>The examiner found this claim to be drawn at too h...ying a mathematical algorithm to the gathered data\n<|id|>72<|page|>8<|box|>761 138 909 857<|content|>\"Trained Machine-Learning Classifier\" — No PHE. .....ifiers, the latter being the type used by Helios's\n<|id|>73<|page|>9<|box|>89 140 143 854<|content|>ProstaSignal™ product. ... The absence of any PHE ...l infringement will be established on this element",
+    "raw_response": "<|src_id|>72<|tgt_id|>73",
+    "parsed": [
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        }
+    ]
+}

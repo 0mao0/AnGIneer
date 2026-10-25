@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        21
+    ],
+    "pages": [
+        5,
+        6,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>44<|page|>5<|box|>854 140 893 854<|content|>The transaction is a \"covered transaction\" under 3...rough AcquisitionCo) acquiring \"control\" (in fact,\n<|id|>45<|page|>6<|box|>89 140 145 854<|content|>100% ownership) of a U. ... the strategic posture is one of full and proactive engagement\n<|id|>241<|page|>21<|box|>527 143 545 483<|content|>Beatrice Holloway Responsible Partner, M&A\n<|id|>242<|page|>21<|box|>579 143 595 650<|content|>Margaret \"Peggy\" Ashworth Of Counsel, National Security & CFIUS\n<|id|>243<|page|>21<|box|>628 142 647 833<|content|>David Caruso Lt. ... ), USAF Senior Counsel, Government Contracts & Export Controls",
+    "raw_response": "<|src_id|>44<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        }
+    ]
+}

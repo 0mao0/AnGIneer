@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>166 140 184 800<|content|>TO: ... Conrad Ashby, Partner, White Collar & Investigations, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>191 140 210 761<|content|>FROM: ... Lisa Morrow, Associate, Banking & Finance, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>217 140 236 326<|content|>DATE: ... January 5, 2024\n<|id|>5<|page|>1<|box|>244 140 297 854<|content|>RE: ... District Court for the Southern District of New York)\n<|id|>6<|page|>1<|box|>305 140 324 741<|content|>Calderwood & Harkness LLP 450 Park Avenue, 30th Floor New York, NY 10022\n<|id|>11<|page|>1<|box|>707 140 909 857<|content|>The federal grand jury subpoena at issue was issue...ings with lending institutions, including Westlake\n<|id|>12<|page|>2<|box|>89 140 127 852<|content|>Fidelity Bank, N. ... (600 Summer Street, Stamford...(88 Broad Street, Suite 200, Bridgeport, CT 06604)\n<|id|>35<|page|>4<|box|>361 147 378 398<|content|>• \"Caldwell\" (party name search)\n<|id|>39<|page|>4<|box|>440 142 455 450<|content|>The results of this search were as follows: ... The results of this search were as follows\n<|id|>36<|page|>4<|box|>381 147 397 387<|content|>• \"Stavros\" (party name search)\n<|id|>37<|page|>4<|box|>400 147 417 437<|content|>• \"Aegean Realty\" (party name search)\n<|id|>38<|page|>4<|box|>419 147 436 429<|content|>• \"22-GJ-4481\" (case number search)\n<|id|>50<|page|>5<|box|>497 147 512 354<|content|>• \"Caldwell\" and \"Stavros\"\n<|id|>54<|page|>5<|box|>575 140 667 854<|content|>Results Regarding Jonathan R. ... , other individu...y matter involving the Aegean Realty investigation\n<|id|>51<|page|>5<|box|>516 147 532 406<|content|>• \"Caldwell\" and \"Aegean Realty\"\n<|id|>52<|page|>5<|box|>536 148 553 375<|content|>• \"Caldwell\" and \"grand jury\"\n<|id|>53<|page|>5<|box|>555 147 571 447<|content|>• \"Stavros\" and \"fraud\" and \"real estate\"\n<|id|>85<|page|>8<|box|>859 140 896 854<|content|>Based on the 90-day periodic status check performe...lated to Grand Jury No. ... 22-GJ-4481 that affect\n<|id|>86<|page|>9<|box|>90 140 200 854<|content|>Jonathan R. ... Stavros has appeared on the SDNY public docket\n<|id|>90<|page|>9<|box|>313 140 345 854<|content|>Lisa Morrow Associate, Banking & Finance Practice ...h Floor New York, NY 10022 Tel: ... (212) 555-4100\n<|id|>91<|page|>9<|box|>347 142 363 462<|content|>Email: ... com\n<|id|>92<|page|>9<|box|>364 140 381 709<|content|>cc: ... Conrad Ashby, Partner, White Collar & Investigations (via internal email)",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>85<|tgt_id|>86",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        }
+    ]
+}

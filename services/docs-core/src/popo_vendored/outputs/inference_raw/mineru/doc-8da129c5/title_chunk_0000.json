@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>354 145 444 851<|content|>DECLARATION OF JEFFREY PARK IN SUPPORT OF (I) DEFE\n<|id|>5<|page|>1<|box|>741 140 758 504<|content|>I. BACKGROUND AND QUALIFICATIONS\n<|id|>10<|page|>2<|box|>518 142 534 761<|content|>II. PROCEDURAL HISTORY RELEVANT TO THE PRIVILEGE D\n<|id|>24<|page|>4<|box|>297 140 315 754<|content|>III. DEFENDANT'S DOCUMENT COLLECTION AND REVIEW PR\n<|id|>26<|page|>4<|box|>429 140 445 426<|content|>A. Litigation Hold and Preservation\n<|id|>30<|page|>5<|box|>90 140 106 323<|content|>B. Custodian Selection\n<|id|>38<|page|>5<|box|>696 140 713 491<|content|>C. E-discovery Vendor and Review Platform\n<|id|>41<|page|>6<|box|>213 140 229 405<|content|>D. Privilege Review Methodology\n<|id|>47<|page|>6<|box|>758 142 773 681<|content|>IV. THE 214 DOCUMENTS ON DEFENDANT'S PRIVILEGE LOG\n<|id|>48<|page|>6<|box|>789 142 806 537<|content|>A. Overview and Composition of the Privilege Log\n<|id|>56<|page|>7<|box|>702 143 719 439<|content|>B. Categories of Withheld Documents\n<|id|>62<|page|>9<|box|>194 140 212 397<|content|>C. Sample Privilege Log Entries\n<|id|>79<|page|>10<|box|>492 142 508 470<|content|>D. Why the 214 Documents Are Protected\n<|id|>87<|page|>11<|box|>794 140 810 607<|content|>V. MERIDIAN'S MOTION TO COMPEL LACKS MERIT\n<|id|>92<|page|>12<|box|>757 140 792 764<|content|>VI. DEFENDANT'S CROSS-MOTION — MERIDIAN'S WITHHOLD\n<|id|>93<|page|>12<|box|>806 140 824 622<|content|>A. Meridian's Privilege Log and the 187 Withheld D\n<|id|>97<|page|>13<|box|>362 142 378 537<|content|>B. The Common Interest Privilege Does Not Apply\n<|id|>104<|page|>14<|box|>470 140 488 576<|content|>C. Relevance of the Withheld Documents to the Defe\n<|id|>110<|page|>15<|box|>453 142 470 313<|content|>D. Request for Relief\n<|id|>112<|page|>15<|box|>662 140 680 348<|content|>VII. LIST OF EXHIBITS\n<|id|>120<|page|>16<|box|>410 140 426 313<|content|>VIII. CONCLUSION",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>3\n<|id|>30<|level|>3\n<|id|>38<|level|>3\n<|id|>41<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>56<|level|>3\n<|id|>62<|level|>3\n<|id|>79<|level|>3\n<|id|>87<|level|>2\n<|id|>92<|level|>2\n<|id|>93<|level|>3\n<|id|>97<|level|>3\n<|id|>104<|level|>3\n<|id|>110<|level|>3\n<|id|>112<|level|>2\n<|id|>120<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        }
+    ]
+}

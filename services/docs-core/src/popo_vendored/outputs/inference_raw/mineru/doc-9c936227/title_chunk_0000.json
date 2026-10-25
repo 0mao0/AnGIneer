@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 147 125 849<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>2<|page|>1<|box|>433 434 453 562<|content|>SUMMONS\n<|id|>3<|page|>1<|box|>470 142 488 339<|content|>TO THE DEFENDANT:\n<|id|>11<|page|>1<|box|>830 142 848 661<|content|>RESPONSE DEADLINE AND CONSEQUENCES OF DEFAULT\n<|id|>14<|page|>2<|box|>239 142 258 354<|content|>FILING INSTRUCTIONS\n<|id|>20<|page|>2<|box|>445 140 463 380<|content|>CLERK'S CERTIFICATION\n<|id|>22<|page|>2<|box|>515 142 532 377<|content|>Date of Issuance: May 9, 2022\n<|id|>25<|page|>2<|box|>667 143 684 390<|content|>ATTORNEY INFORMATION\n<|id|>26<|page|>2<|box|>694 142 712 408<|content|>Prepared by / Attorney for Plaintiff:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>3\n<|id|>25<|level|>2\n<|id|>26<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        }
+    ]
+}

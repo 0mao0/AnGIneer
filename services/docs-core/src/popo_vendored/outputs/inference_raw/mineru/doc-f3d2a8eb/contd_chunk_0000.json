@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 449 106 854<|content|>CALDERWOOD & HARKNESS LLP FILE COPY\n<|id|>1<|page|>1<|box|>114 155 170 857<|content|>Matter No. ... February 16, 2024\n<|id|>3<|page|>1<|box|>239 281 256 715<|content|>UNITED STATES FEDERAL TRADE COMMISSION\n<|id|>4<|page|>1<|box|>266 406 284 591<|content|>Bureau of Competition\n<|id|>5<|page|>1<|box|>292 380 309 617<|content|>Premerger Notification Office\n<|id|>6<|page|>1<|box|>318 294 335 704<|content|>600 Pennsylvania Avenue, NW Washington, DC 20580\n<|id|>7<|page|>1<|box|>344 715 361 854<|content|>February 16, 2024\n<|id|>8<|page|>1<|box|>369 140 404 854<|content|>Howard Bellamy, Esq. ... Calderwood & Harkness LLP 600 Lexington Avenue New York, NY 10022\n<|id|>10<|page|>1<|box|>439 140 476 854<|content|>Re: ... Pinnacle Health Systems, Inc\n<|id|>9<|page|>1<|box|>414 142 431 403<|content|>(Counsel for the Acquiring Person)\n<|id|>15<|page|>1<|box|>825 140 898 857<|content|>Please be advised that the initial thirty (30) cal...arlier terminated or extended by the issuance of a\n<|id|>16<|page|>2<|box|>90 140 126 854<|content|>Request for Additional Information and Documentary...l expire at 11: ... Eastern Time on March 17, 2024\n<|id|>20<|page|>2<|box|>505 143 521 220<|content|>Sincerely,\n<|id|>21<|page|>2<|box|>522 140 555 854<|content|>Katherine M. ... Driscoll Compliance Specialist Pr...ice Bureau of Competition Federal Trade Commission\n<|id|>44<|page|>3<|box|>852 174 906 854<|content|>\"Filing fee of $280,000 paid by Ardent Capital Par...uity Purchase Agreement ('EPA') §5. ... Ostrander,\n<|id|>45<|page|>4<|box|>89 176 125 852<|content|>Whitfield & Crane LLP, transaction counsel) on 2/14/2024. ... \"\n<|id|>71<|page|>6<|box|>563 176 580 733<|content|>Calderwood & Harkness LLP 600 Lexington Avenue New York, NY 10022\n<|id|>72<|page|>6<|box|>589 174 625 852<|content|>Matter No. ... Regulatory Filing Receipts\n<|id|>74<|page|>6<|box|>659 174 714 854<|content|>C&H Document Management System Document ID: ... February 16, 2024\n<|id|>75<|page|>6<|box|>720 140 782 854<|content|>This annotated file copy is a privileged and confi...stribution of this document is strictly prohibited",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>44<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        }
+    ]
+}

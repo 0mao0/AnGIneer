@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        9,
+        18
+    ],
+    "pages": [
+        9,
+        11,
+        12,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>80<|page|>9<|box|>303 218 339 854<|content|>• Greystone Fixed Income Partners LP (contact: ... and\n<|id|>82<|page|>9<|box|>378 174 433 854<|content|>The Ad Hoc Group of First Lien Lenders retained Ha...s at 51 West 52nd Street, New York, New York 10019\n<|id|>84<|page|>9<|box|>521 217 558 854<|content|>• Fenwick Structured Credit Fund II LP (contact: ... and\n<|id|>86<|page|>9<|box|>597 174 652 854<|content|>The Ad Hoc Group of Second Lien Noteholders retain...fices at 1 Liberty Plaza, New York, New York 10006\n<|id|>111<|page|>11<|box|>875 174 909 856<|content|>(b) Kellner & Hartwick LLP — Local Co-Counsel. ... The firm is located at 600\n<|id|>112<|page|>12<|box|>89 174 145 856<|content|>Superior Avenue East, Suite 1800, Cleveland, Ohio ...rtwick's representation are approximately $380,000\n<|id|>170<|page|>17<|box|>669 553 686 854<|content|>Executed on: ... June 20, 2022 Akron, Ohio\n<|id|>171<|page|>17<|box|>722 140 755 854<|content|>Dana Kowalski Chief Financial Officer Crestline Pa...LLC 4710 Industrial Corridor Drive Akron, OH 44308\n<|id|>174<|page|>17<|box|>882 176 898 549<|content|>1. ... Office of the United States Trustee, Region 9\n<|id|>175<|page|>18<|box|>89 174 107 810<|content|>Howard M. ... Courthouse 201 Superior Avenue Cleveland, OH 44114\n<|id|>177<|page|>18<|box|>154 176 171 370<|content|>Attn: ... Victoria Kline, Esq\n<|id|>176<|page|>18<|box|>114 174 151 854<|content|>2. ... Hargrove, Mitchell & Saunders LLP (counsel to the Ad Hoc Group of First Lien Lenders)",
+    "raw_response": "<|src_id|>111<|tgt_id|>112",
+    "parsed": [
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        }
+    ]
+}

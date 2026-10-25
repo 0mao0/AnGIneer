@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>10<|page|>1<|box|>785 140 896 857<|content|>Engagement Opening and Kick-Off (April 11–18, 2022... April 18, 2022 with representatives of Harrowgate\n<|id|>11<|page|>2<|box|>90 140 127 856<|content|>Capital Advisors, Whitfield & Gage LLP (corporate ...ructure, timeline, and workstream responsibilities\n<|id|>30<|page|>4<|box|>647 174 681 854<|content|>Calderwood & Harkness LLP 1301 Avenue of the Americas, 40th Floor New York, New York 10019\n<|id|>31<|page|>4<|box|>691 176 708 379<|content|>Attn: ... Accounts Receivable\n<|id|>32<|page|>4<|box|>709 176 744 852<|content|>Please include Invoice Number 22-7831-001 and Matt... check or in accompanying remittance documentation\n<|id|>35<|page|>4<|box|>819 174 856 854<|content|>Sylvia Hartwell, Partner Calderwood & Harkness LLP...York, New York 10019 Telephone: ... (212) 554-8147\n<|id|>36<|page|>4<|box|>864 140 895 501<|content|>Email: ... com TERMS AND CONDITIONS\n<|id|>37<|page|>5<|box|>89 140 150 854<|content|>Payment of the full amount stated above is due wit...due until the date payment is received by the firm",
+    "raw_response": "<|src_id|>10<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        }
+    ]
+}

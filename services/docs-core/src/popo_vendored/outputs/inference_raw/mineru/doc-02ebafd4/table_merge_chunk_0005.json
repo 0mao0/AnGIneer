@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, 9/15/62', 'rowspan=2,colspan=3, 3-3/4% Note - 8/15/67-A4% Bond - 8/15/72', '3702594024497203792,579', '0.700.300.600.601.20', '--', '4.094.044.074.074.084.15', '4.064.054.064.064.064.07', '3-1/2% Certificate - 2/15/63-A2-5/8% Note - 2/15/63-A3-1/4% Note - 2/15/63-E3-1/4% Certificate - 5/15/63-B3-1/4% Note - 5/15/63-D4% Note - 5/15/63-B', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Date issued', 'rowspan=2,colspan=3, Securities issued', 'rowspan=2, Amount issued (In millions)', 'colspan=2, Adjustment payments at issue (per $100 of face value) 1/', 'rowspan=2, Effective interest rate 2/', 'rowspan=2, Investment yield 3/', 'rowspan=2, Eligible securities exchanged']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 255,
+    "table2_idx": 256
+}

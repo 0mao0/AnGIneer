@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 281 106 715<|content|>DECLARATION UNDER PENALTIES OF PERJURY\n<|id|>3<|page|>1<|box|>200 140 218 370<|content|>I. Identification of Declarant\n<|id|>6<|page|>1<|box|>625 140 640 653<|content|>II. Identification of Taxpayer Entities Covered by\n<|id|>8<|page|>1<|box|>736 143 753 387<|content|>A. Requesting Entity / Sponsor\n<|id|>12<|page|>2<|box|>209 142 227 509<|content|>B. Existing Fund Vehicles (Being Reorganized)\n<|id|>16<|page|>2<|box|>756 140 773 465<|content|>C. General Partners of Offshore Vehicles\n<|id|>25<|page|>3<|box|>428 142 446 521<|content|>D. Newly Formed Entities (Post-Reorganization)\n<|id|>29<|page|>4<|box|>167 140 185 439<|content|>III. Description of the Ruling Request\n<|id|>44<|page|>5<|box|>722 140 739 449<|content|>IV. Summary of Key Facts Attested To\n<|id|>56<|page|>7<|box|>223 140 239 513<|content|>V. Identification of Authorized Representatives\n<|id|>64<|page|>7<|box|>720 140 737 480<|content|>VI. Declaration Under Penalties of Perjury\n<|id|>69<|page|>8<|box|>364 140 383 263<|content|>VII. Execution\n<|id|>78<|page|>8<|box|>655 142 670 232<|content|>Notary Public\n<|id|>81<|page|>8<|box|>784 140 800 352<|content|>VIII. Contact Information\n<|id|>83<|page|>8<|box|>835 143 853 346<|content|>To the Requesting Entity:\n<|id|>86<|page|>9<|box|>107 140 125 486<|content|>With a copy to Authorized Representatives:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>3\n<|id|>12<|level|>3\n<|id|>16<|level|>3\n<|id|>25<|level|>3\n<|id|>29<|level|>2\n<|id|>44<|level|>2\n<|id|>56<|level|>2\n<|id|>64<|level|>2\n<|id|>69<|level|>2\n<|id|>78<|level|>3\n<|id|>81<|level|>2\n<|id|>83<|level|>-1\n<|id|>86<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        }
+    ]
+}

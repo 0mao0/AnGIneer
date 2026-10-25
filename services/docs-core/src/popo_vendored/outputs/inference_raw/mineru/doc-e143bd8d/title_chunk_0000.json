@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 383<|content|>CONFIDENTIAL AND PRIVILEGED\n<|id|>10<|page|>1<|box|>527 140 545 558<|content|>Calderwood & Harkness LLP Matter No. 1005-00001\n<|id|>11<|page|>1<|box|>554 142 571 336<|content|>Dear David and Michelle:\n<|id|>20<|page|>2<|box|>348 142 364 570<|content|>1. Summary of Post-Closing Obligations and Deadlin\n<|id|>24<|page|>3<|box|>90 142 107 343<|content|>2. Mortgage Deliverables\n<|id|>25<|page|>3<|box|>121 140 138 380<|content|>2.1 Mortgages to Be Recorded\n<|id|>29<|page|>3<|box|>441 142 459 619<|content|>Property 1: 1400 Industrial Parkway, Schaumburg, I\n<|id|>36<|page|>3<|box|>824 142 842 573<|content|>Property 2: 2750 Commerce Drive, Rockford, IL 6110\n<|id|>43<|page|>4<|box|>292 142 310 599<|content|>Property 3: 600 Manufacturers Row, Greenville, SC\n<|id|>49<|page|>4<|box|>594 143 612 681<|content|>Property 4: 9100 Westpark Industrial Boulevard, Ho\n<|id|>59<|page|>5<|box|>263 140 282 584<|content|>2.2 Mortgage Recording Actions Required from Nexfo\n<|id|>70<|page|>6<|box|>338 140 354 357<|content|>2.3 Title Insurance Policies\n<|id|>85<|page|>7<|box|>417 140 435 691<|content|>3. UCC-3 Termination Statements — Atlas Meridian B\n<|id|>87<|page|>7<|box|>643 140 662 325<|content|>3.2 Filing Jurisdictions\n<|id|>91<|page|>8<|box|>191 140 208 401<|content|>3.3 Confirmation and Follow-Up\n<|id|>95<|page|>8<|box|>489 140 507 678<|content|>4. Delivery of Original Executed Documents to Admi\n<|id|>119<|page|>10<|box|>205 140 223 390<|content|>5. Flood Insurance Compliance\n<|id|>124<|page|>10<|box|>680 140 696 289<|content|>6. Survey Updates\n<|id|>128<|page|>11<|box|>194 140 210 352<|content|>7. Post-Closing Certificate\n<|id|>132<|page|>11<|box|>477 140 494 540<|content|>8. New UCC-1 Financing Statement Confirmations\n<|id|>138<|page|>12<|box|>308 140 324 400<|content|>9. IP Security Agreement Filings\n<|id|>143<|page|>12<|box|>617 140 633 537<|content|>10. Ongoing Compliance Obligations — Reminder\n<|id|>152<|page|>13<|box|>833 142 849 341<|content|>11. Post-Closing Tracker\n<|id|>155<|page|>14<|box|>267 142 284 477<|content|>12. Contact Information and Coordination\n<|id|>177<|page|>15<|box|>343 142 359 250<|content|>Distribution:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>-1\n<|id|>11<|level|>-1\n<|id|>20<|level|>1\n<|id|>24<|level|>1\n<|id|>25<|level|>2\n<|id|>29<|level|>3\n<|id|>36<|level|>3\n<|id|>43<|level|>3\n<|id|>49<|level|>3\n<|id|>59<|level|>2\n<|id|>70<|level|>2\n<|id|>85<|level|>1\n<|id|>87<|level|>2\n<|id|>91<|level|>2\n<|id|>95<|level|>1\n<|id|>119<|level|>1\n<|id|>124<|level|>1\n<|id|>128<|level|>1\n<|id|>132<|level|>1\n<|id|>138<|level|>1\n<|id|>143<|level|>1\n<|id|>152<|level|>1\n<|id|>155<|level|>1\n<|id|>177<|level|>-1",
+    "parsed": [
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 1
+        }
+    ]
+}

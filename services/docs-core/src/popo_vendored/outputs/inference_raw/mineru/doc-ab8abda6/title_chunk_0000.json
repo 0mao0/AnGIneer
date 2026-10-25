@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>340 140 359 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>11<|page|>1<|box|>808 140 825 375<|content|>2. Background of the Dispute\n<|id|>13<|page|>2<|box|>90 140 107 462<|content|>2.1 Farris's Employment and Separation\n<|id|>24<|page|>3<|box|>157 140 174 434<|content|>2.2 Farris's Post-Separation Conduct\n<|id|>44<|page|>4<|box|>599 140 617 367<|content|>2.3 Confirmed Client Losses\n<|id|>48<|page|>4<|box|>810 142 828 318<|content|>2.4 Opposing Counsel\n<|id|>50<|page|>5<|box|>90 140 107 390<|content|>3. Scope of Expert Engagement\n<|id|>51<|page|>5<|box|>121 140 138 287<|content|>3.1 General Scope\n<|id|>54<|page|>5<|box|>383 140 402 517<|content|>3.2 Specific Damages Categories to Be Analyzed\n<|id|>73<|page|>8<|box|>90 140 107 392<|content|>3.3 Additional Analytical Tasks\n<|id|>80<|page|>8<|box|>724 140 739 359<|content|>4. Materials to Be Provided\n<|id|>93<|page|>9<|box|>750 140 766 372<|content|>5. Compensation and Budget\n<|id|>103<|page|>10<|box|>585 140 603 377<|content|>6. Confidentiality Obligations\n<|id|>108<|page|>11<|box|>321 140 339 400<|content|>7. Independence and Objectivity\n<|id|>112<|page|>11<|box|>789 140 805 369<|content|>8. Deliverables and Timeline\n<|id|>120<|page|>12<|box|>491 140 508 264<|content|>9. Termination\n<|id|>123<|page|>12<|box|>712 142 729 354<|content|>10. Conflicts Confirmation\n<|id|>125<|page|>13<|box|>90 140 107 437<|content|>11. Acceptance and Countersignature\n<|id|>135<|page|>13<|box|>452 142 465 171<|content|>cc:\n<|id|>137<|page|>13<|box|>537 313 554 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>13<|level|>2\n<|id|>24<|level|>2\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>1\n<|id|>51<|level|>2\n<|id|>54<|level|>2\n<|id|>73<|level|>2\n<|id|>80<|level|>1\n<|id|>93<|level|>1\n<|id|>103<|level|>1\n<|id|>108<|level|>1\n<|id|>112<|level|>1\n<|id|>120<|level|>1\n<|id|>123<|level|>1\n<|id|>125<|level|>1\n<|id|>135<|level|>-1\n<|id|>137<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        }
+    ]
+}

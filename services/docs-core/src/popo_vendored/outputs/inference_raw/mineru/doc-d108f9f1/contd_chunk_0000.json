@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        8,
+        27,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 164 854<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>171 142 188 290<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>196 683 215 854<|content|>Date: ... August 25, 2024\n<|id|>4<|page|>1<|box|>224 142 239 176<|content|>To: ... To\n<|id|>9<|page|>1<|box|>353 176 369 375<|content|>Oliver Mackenzie, Partner\n<|id|>10<|page|>1<|box|>378 176 396 348<|content|>Megan Chu, Associate\n<|id|>11<|page|>1<|box|>405 176 421 383<|content|>Derek Okonkwo, Associate\n<|id|>12<|page|>1<|box|>430 140 465 854<|content|>Re: ... Material Adverse Effect Analysis — Marlowe...ment-2 Phase II Interim Clinical Data for VRD-4187\n<|id|>13<|page|>1<|box|>474 140 491 331<|content|>Matter No. ... 1018-00008\n<|id|>14<|page|>1<|box|>500 140 606 854<|content|>CONFIDENTIALITY NOTICE: ... Any unauthorized distribution may constitute a waiver of privilege\n<|id|>42<|page|>5<|box|>849 140 905 857<|content|>Treatment-Related Deaths: ... This represents a se... higher rate of treatment-related mortality in the\n<|id|>43<|page|>6<|box|>90 140 181 854<|content|>VRD-4187 arm. ... The occurrence of seven treatmen...t at any dose without major protocol modifications\n<|id|>62<|page|>8<|box|>133 174 170 854<|content|>(vi) changes in the financial, banking, or securit...anges in interest rates or exchange rates; ... and\n<|id|>64<|page|>8<|box|>241 140 315 854<|content|>These carveouts serve to allocate between the part... of them might shield Veridian from an MAE finding\n<|id|>214<|page|>27<|box|>880 140 897 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>215<|page|>28<|box|>89 142 107 511<|content|>Oliver Mackenzie, Partner Direct: ... (212) 558-4217\n<|id|>216<|page|>28<|box|>108 143 125 488<|content|>Email: ... com\n<|id|>217<|page|>28<|box|>125 143 141 485<|content|>Megan Chu, Associate Direct: ... (212) 558-4893\n<|id|>218<|page|>28<|box|>142 143 157 442<|content|>Email: ... com\n<|id|>219<|page|>28<|box|>159 143 175 517<|content|>Derek Okonkwo, Associate Direct: ... (212) 558-4651\n<|id|>220<|page|>28<|box|>176 143 193 478<|content|>Email: ... com\n<|id|>221<|page|>28<|box|>193 142 224 852<|content|>Calderwood & Harkness LLP 200 Park Avenue, 42nd Floor New York, New York 10166 Main: ... (212) 558-4000\n<|id|>222<|page|>28<|box|>224 140 286 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...f Calderwood & Harkness LLP is strictly prohibited",
+    "raw_response": "<|src_id|>42<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ]
+}

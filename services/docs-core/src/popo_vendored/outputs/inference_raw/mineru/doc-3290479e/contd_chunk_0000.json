@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>13<|page|>1<|box|>828 140 883 854<|content|>E. ... and\n<|id|>15<|page|>2<|box|>152 140 207 854<|content|>NOW, THEREFORE, in consideration of the mutual cov... to be legally bound, the Parties agree as follows\n<|id|>32<|page|>3<|box|>810 140 902 857<|content|>3. ... The Company shall initiate the wire transfer of the Refund Amount from its operating account at\n<|id|>33<|page|>4<|box|>89 140 162 854<|content|>Silicon Valley Commerce Bank (Account No. ... The ...rate wire transfer instructions in a timely manner\n<|id|>62<|page|>7<|box|>866 174 902 854<|content|>(a) to such Party's legal, financial, tax, and acc...ection with the performance or enforcement of this\n<|id|>63<|page|>8<|box|>90 174 199 854<|content|>Agreement or such Party's tax, accounting, or regu...o maintain the confidentiality of such information\n<|id|>77<|page|>9<|box|>776 174 792 800<|content|>Lumos Analytics Inc. ... 340 Folsom Street, Suite 1100 San Francisco, California 94105\n<|id|>78<|page|>9<|box|>801 176 819 573<|content|>Attention: ... Priya Narasimhan, Chief Executive Officer\n<|id|>79<|page|>9<|box|>820 176 837 419<|content|>Email: ... io\n<|id|>80<|page|>9<|box|>837 176 854 542<|content|>with a copy (which shall not constitute notice) to...with a copy (which shall not constitute notice) to\n<|id|>81<|page|>9<|box|>862 174 897 854<|content|>Calderwood & Harkness LLP 555 California Street, 30th Floor San Francisco, California 94104\n<|id|>82<|page|>10<|box|>90 176 106 390<|content|>Attention: ... Patricia Dunmore\n<|id|>83<|page|>10<|box|>108 176 125 509<|content|>Email: ... com\n<|id|>84<|page|>10<|box|>125 176 141 320<|content|>If to the Investor: ... If to the Investor\n<|id|>85<|page|>10<|box|>150 176 167 799<|content|>Ridgeline Angel Fund, L. ... 55 Liberty Street, Suite 800 New York, New York 10005\n<|id|>86<|page|>10<|box|>176 176 193 485<|content|>Attention: ... David Choi, Managing Partner\n<|id|>87<|page|>10<|box|>194 176 210 433<|content|>Email: ... com\n<|id|>96<|page|>10<|box|>731 143 746 331<|content|>Name: ... Priya Narasimhan\n<|id|>97<|page|>10<|box|>747 142 763 550<|content|>Title: ... Co-Founder, Chief Executive Officer & President\n<|id|>98<|page|>10<|box|>763 143 780 318<|content|>Date: ... October 27, 2023\n<|id|>99<|page|>10<|box|>782 143 797 415<|content|>RIDGELINE ANGEL FUND, L. ... P\n<|id|>100<|page|>10<|box|>799 143 816 578<|content|>By: ... Ridgeline Angel Management LLC, its General Partner\n<|id|>101<|page|>10<|box|>816 143 834 253<|content|>By: ... By\n<|id|>102<|page|>10<|box|>834 143 849 285<|content|>Name: ... David Choi\n<|id|>103<|page|>10<|box|>851 143 867 323<|content|>Title: ... Managing Partner\n<|id|>104<|page|>10<|box|>869 143 883 318<|content|>Date: ... October 27, 2023\n<|id|>106<|page|>10<|box|>917 142 931 205<|content|>Page ____\n<|id|>105<|page|>10<|box|>885 397 902 601<|content|>[END OF AGREEMENT]",
+    "raw_response": "<|src_id|>32<|tgt_id|>33\n<|src_id|>62<|tgt_id|>63",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        }
+    ]
+}

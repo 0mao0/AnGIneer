@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>114 153 151 843<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT PRIVILEG\n<|id|>4<|type|>table<|page|>1<|box|>229 143 465 852<|content|>None\n<|id|>6<|type|>title<|page|>1<|box|>582 142 599 321<|content|>I. Executive Summary\n<|id|>14<|type|>title<|page|>2<|box|>662 140 681 413<|content|>II. Filing History and Background\n<|id|>16<|type|>title<|page|>3<|box|>90 140 107 537<|content|>A. Preliminary Schedule 13D (November 10, 2022)\n<|id|>29<|type|>title<|page|>5<|box|>90 140 107 573<|content|>B. First Amendment to Schedule 13D (January 6, 202\n<|id|>37<|type|>title<|page|>6<|box|>90 140 107 792<|content|>C. Second Amendment to Schedule 13D (March 15, 202\n<|id|>40<|type|>title<|page|>7<|box|>90 140 107 702<|content|>III. Item-by-Item Review of the March 15, 2023 Ame\n<|id|>42<|type|>title<|page|>7<|box|>202 142 219 261<|content|>A. Cover Page\n<|id|>51<|type|>title<|page|>7<|box|>691 142 709 441<|content|>B. Item 2 — Identity and Background\n<|id|>58<|type|>title<|page|>8<|box|>325 140 342 660<|content|>C. Item 3 — Source and Amount of Funds or Other Co\n<|id|>64<|type|>title<|page|>8<|box|>628 140 645 428<|content|>D. Item 4 — Purpose of Transaction\n<|id|>92<|type|>title<|page|>11<|box|>411 140 428 506<|content|>E. Item 5 — Interest in Securities of the Issuer\n<|id|>101<|type|>title<|page|>12<|box|>90 140 125 854<|content|>F. Item 6 — Contracts, Arrangements, Understanding\n<|id|>109<|type|>title<|page|>12<|box|>609 140 627 493<|content|>G. Item 7 — Material to Be Filed as Exhibits\n<|id|>114<|type|>title<|page|>13<|box|>205 140 224 849<|content|>IV. Compliance Analysis — Sections 13(d) and 14(a)\n<|id|>116<|type|>title<|page|>13<|box|>299 142 316 323<|content|>A. Timeliness of Filing\n<|id|>125<|type|>title<|page|>14<|box|>90 140 107 380<|content|>B. Completeness of Disclosure\n<|id|>135<|type|>title<|page|>14<|box|>625 140 642 359<|content|>C. Group Formation Issues\n<|id|>139<|type|>title<|page|>15<|box|>90 140 107 573<|content|>V. Comparison to Joint Press Release (March 13, 20\n<|id|>147<|type|>title<|page|>15<|box|>604 140 622 429<|content|>VI. Comparison to RGC's Form 8-K\n<|id|>156<|type|>title<|page|>16<|box|>329 140 347 468<|content|>VII. Observations and Recommendations\n<|id|>158<|type|>title<|page|>16<|box|>404 140 422 375<|content|>A. No Material Discrepancies\n<|id|>167<|type|>title<|page|>16<|box|>779 142 797 405<|content|>B. Monitoring Recommendations\n<|id|>176<|type|>title<|page|>17<|box|>606 140 623 411<|content|>C. Termination Event Monitoring\n<|id|>183<|type|>title<|page|>18<|box|>492 142 508 429<|content|>D. No Action Required at This Time\n<|id|>191<|type|>title<|page|>19<|box|>90 142 107 279<|content|>VIII. Conclusion\n<|id|>200<|type|>title<|page|>20<|box|>90 142 107 349<|content|>Appendix — Attachments\n<|id|>202<|type|>table<|page|>20<|box|>176 143 470 852<|content|>None",
+    "raw_response": "<|src_id|>4<|tgt_id|>1\n<|src_id|>202<|tgt_id|>200",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 200
+        }
+    ]
+}

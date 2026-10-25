@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['GA', 'MedVance Surgical Hospital, Dalton', 'Specialty Surgical Hospital (64 beds)', 'GA-HF-2013-07891', 'GA Dept. of Community Health', '11/30/2025', 'CON approved (GA-CON-201', '11-0342', 'GA-MCD-110 0342']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', '3-0462); compliant', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 440,
+    "table2_idx": 441
+}

@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        4,
+        15,
+        16,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>152 148 170 848<|content|>CALDERWOOD & HARKNESS LLP 1001 Fannin Street, Suite 4200 Houston, Texas 77002\n<|id|>3<|page|>1<|box|>179 707 196 854<|content|>December 20, 2023\n<|id|>4<|page|>1<|box|>205 140 222 462<|content|>TO: ... Catherine Bloom, Responsible Partner\n<|id|>5<|page|>1<|box|>231 140 248 457<|content|>FROM: ... Hannah Brinkley, Lead Associate\n<|id|>6<|page|>1<|box|>257 140 292 854<|content|>RE: ... / Dunmore Power Trading LLC)\n<|id|>7<|page|>1<|box|>301 140 318 408<|content|>C&H MATTER NO. ... 1016-00004\n<|id|>8<|page|>1<|box|>327 140 344 387<|content|>BILLING CODE: ... 00001\n<|id|>31<|page|>4<|box|>146 181 199 856<|content|>• Second Production (August 21, 2023): ... and\n<|id|>33<|page|>4<|box|>277 140 313 854<|content|>Witness Testimony. ... The key witnesses included\n<|id|>35<|page|>4<|box|>377 181 449 854<|content|>• Anastasia Petrov (Director of FTR Trading, DPT),... economic rationale for the FTR portfolio; ... and\n<|id|>37<|page|>4<|box|>526 140 563 854<|content|>Three additional employees provided testimony on d...ns, gas nomination procedures, and market analysis\n<|id|>138<|page|>15<|box|>702 181 738 854<|content|>• First installment of $1,750,000 due within 30 ca...ing the Stipulation and Consent Agreement; ... and\n<|id|>140<|page|>15<|box|>777 140 833 854<|content|>The installment structure is appropriate given the...suring full payment within six months of the order\n<|id|>147<|page|>16<|box|>294 183 310 655<|content|>• Quarterly compliance reports to FERC OE for 36 months; ... and\n<|id|>149<|page|>16<|box|>333 140 386 854<|content|>\"Neither Admit Nor Deny\" Language. ... This term is non-negotiable for Dunmore\n<|id|>200<|page|>22<|box|>107 140 140 854<|content|>Prepared by: ... com\n<|id|>201<|page|>22<|box|>140 140 174 854<|content|>Reviewed by: ... com\n<|id|>202<|page|>22<|box|>174 142 191 334<|content|>Date: ... December 20, 2023",
+    "raw_response": "<|src_id|>31<|tgt_id|>33\n<|src_id|>35<|tgt_id|>37\n<|src_id|>138<|tgt_id|>140\n<|src_id|>147<|tgt_id|>149",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 149
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>24 299 70 695<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION W\n<|id|>24<|type|>title<|page|>2<|box|>45 21 59 481<|content|>Item 5.07.Submission of Matters to a Vote of Secur\n<|id|>28<|type|>table<|page|>2<|box|>210 21 354 942<|content|>None\n<|id|>30<|type|>table<|page|>2<|box|>423 23 453 971<|content|>None\n<|id|>32<|type|>table<|page|>2<|box|>526 23 568 971<|content|>None\n<|id|>35<|type|>table<|page|>2<|box|>655 21 686 968<|content|>None\n<|id|>37<|type|>title<|page|>3<|box|>45 21 58 228<|content|>Item 8.01.Other Events.\n<|id|>38<|type|>table<|page|>3<|box|>70 21 293 974<|content|>None\n<|id|>39<|type|>title<|page|>4<|box|>30 449 46 545<|content|>SIGNATURE",
+    "raw_response": "<|src_id|>28<|tgt_id|>24\n<|src_id|>30<|tgt_id|>24\n<|src_id|>32<|tgt_id|>24\n<|src_id|>35<|tgt_id|>24\n<|src_id|>38<|tgt_id|>37",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 37
+        }
+    ]
+}

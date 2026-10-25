@@ -1,0 +1,138 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 207 142 790<|content|>OFFICER'S CERTIFICATE OF WHITMORE DEFENSE SOLUTION\n<|id|>4<|page|>1<|box|>325 142 342 411<|content|>I. INTRODUCTORY RECITALS\n<|id|>13<|page|>2<|box|>329 140 345 730<|content|>II. CERTIFICATION REGARDING ORGANIZATIONAL DOCUMEN\n<|id|>14<|page|>2<|box|>361 140 378 450<|content|>Section 2.1 — Articles of Incorporation\n<|id|>17<|page|>2<|box|>606 140 623 315<|content|>Section 2.2 — Bylaws\n<|id|>19<|page|>2<|box|>768 140 787 460<|content|>Section 2.3 — Good Standing Certificate\n<|id|>29<|page|>3<|box|>513 140 530 576<|content|>III. CERTIFICATION REGARDING RESOLUTIONS\n<|id|>30<|page|>3<|box|>544 142 561 401<|content|>Section 3.1 — Board Resolutions\n<|id|>40<|page|>4<|box|>489 142 508 455<|content|>IV. INCUMBENCY CERTIFICATION\n<|id|>41<|page|>4<|box|>522 142 539 437<|content|>Section 4.1 — Authorized Signatories\n<|id|>46<|page|>5<|box|>212 140 229 674<|content|>V. ADDITIONAL REPRESENTATIONS AND CERTIFICATIONS\n<|id|>47<|page|>5<|box|>243 140 260 488<|content|>Section 5.1 — No Dissolution or Liquidation\n<|id|>49<|page|>5<|box|>388 140 406 455<|content|>Section 5.2 — No Amendments Pending\n<|id|>51<|page|>5<|box|>534 140 551 424<|content|>Section 5.3 — Full Force and Effect\n<|id|>53<|page|>5<|box|>680 140 696 349<|content|>Section 5.4 — No Conflict\n<|id|>55<|page|>6<|box|>89 142 106 341<|content|>VI. LIST OF EXHIBITS\n<|id|>61<|page|>6<|box|>369 142 387 472<|content|>VII. EXECUTION AND ATTESTATION\n<|id|>75<|page|>7<|box|>89 142 107 246<|content|>EXHIBIT A\n<|id|>76<|page|>7<|box|>114 161 133 834<|content|>ARTICLES OF INCORPORATION OF WHITMORE DEFENSE SOLU\n<|id|>82<|page|>8<|box|>89 142 106 243<|content|>EXHIBIT B\n<|id|>83<|page|>8<|box|>114 264 132 730<|content|>BYLAWS OF WHITMORE DEFENSE SOLUTIONS, INC.\n<|id|>88<|page|>9<|box|>89 142 107 243<|content|>EXHIBIT C\n<|id|>89<|page|>9<|box|>114 143 151 852<|content|>CERTIFICATE OF GOOD STANDING (CERTIFICATE OF EXIST\n<|id|>93<|page|>10<|box|>89 142 106 243<|content|>EXHIBIT D\n<|id|>94<|page|>10<|box|>114 191 151 805<|content|>UNANIMOUS WRITTEN CONSENT OF THE BOARD OF DIRECTOR\n<|id|>97<|page|>10<|box|>290 142 306 323<|content|>Preamble and Recitals\n<|id|>104<|page|>11<|box|>89 140 107 480<|content|>Resolutions. NOW, THEREFORE, BE IT:\n<|id|>111<|page|>12<|box|>338 143 354 349<|content|>Attestation and Execution\n<|id|>113<|page|>12<|box|>441 142 459 738<|content|>BOARD OF DIRECTORS OF WHITMORE DEFENSE SOLUTIONS,",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>17<|level|>3\n<|id|>19<|level|>3\n<|id|>29<|level|>2\n<|id|>30<|level|>3\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>46<|level|>2\n<|id|>47<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>3\n<|id|>53<|level|>3\n<|id|>55<|level|>2\n<|id|>61<|level|>2\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>82<|level|>2\n<|id|>83<|level|>3\n<|id|>88<|level|>2\n<|id|>89<|level|>3\n<|id|>93<|level|>2\n<|id|>94<|level|>3\n<|id|>97<|level|>4\n<|id|>104<|level|>4\n<|id|>111<|level|>4\n<|id|>113<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 104,
+            "level": 4
+        },
+        {
+            "id": 111,
+            "level": 4
+        }
+    ]
+}

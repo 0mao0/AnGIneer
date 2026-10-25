@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        47,
+        57
+    ],
+    "pages": [
+        48,
+        50,
+        51,
+        52,
+        54,
+        56,
+        57
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>543<|page|>48<|box|>90 192 111 803<|content|>Appendix A: Sample LCA Posting Notice (Electronic\n<|id|>545<|page|>48<|box|>209 330 226 665<|content|>OPTIWAVE SEMICONDUCTOR CORP.\n<|id|>546<|page|>48<|box|>234 228 252 767<|content|>NOTICE OF LABOR CONDITION APPLICATION (LCA) FILING\n<|id|>568<|page|>50<|box|>90 241 111 756<|content|>Appendix B: PAF Inspection Request Log Template\n<|id|>571<|page|>50<|box|>470 142 487 248<|content|>Instructions:\n<|id|>576<|page|>51<|box|>90 246 111 751<|content|>Appendix C: Short-Term Placement Log Template\n<|id|>578<|page|>51<|box|>539 142 555 248<|content|>Instructions:\n<|id|>584<|page|>52<|box|>90 145 137 851<|content|>Appendix D: Current H-1B Beneficiary Roster with L\n<|id|>587<|page|>54<|box|>90 233 111 763<|content|>Appendix E: Prevailing Wage Quick Reference Table\n<|id|>596<|page|>56<|box|>90 282 111 714<|content|>Appendix F: Relevant Regulatory Citations\n<|id|>598<|page|>56<|box|>196 140 212 215<|content|>Statutes.\n<|id|>601<|page|>56<|box|>343 142 359 534<|content|>DOL Regulations (20 C.F.R. Part 655, Subpart H)\n<|id|>615<|page|>57<|box|>157 142 174 300<|content|>USCIS Regulations.\n<|id|>617<|page|>57<|box|>250 142 265 344<|content|>Administrative Decisions.\n<|id|>619<|page|>57<|box|>358 143 375 323<|content|>Additional References.\n<|id|>625<|page|>57<|box|>686 140 703 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>634<|page|>57<|box|>876 142 892 447<|content|>ACKNOWLEDGED AND ACCEPTED:",
+    "raw_response": "<|id|>543<|level|>1\n<|id|>545<|level|>2\n<|id|>546<|level|>2\n<|id|>568<|level|>1\n<|id|>571<|level|>2\n<|id|>576<|level|>1\n<|id|>578<|level|>2\n<|id|>584<|level|>1\n<|id|>587<|level|>1\n<|id|>596<|level|>1\n<|id|>598<|level|>2\n<|id|>601<|level|>2\n<|id|>615<|level|>2\n<|id|>617<|level|>2\n<|id|>619<|level|>2\n<|id|>625<|level|>-1\n<|id|>634<|level|>2",
+    "parsed": [
+        {
+            "id": 543,
+            "level": 1
+        },
+        {
+            "id": 545,
+            "level": 2
+        },
+        {
+            "id": 546,
+            "level": 2
+        },
+        {
+            "id": 568,
+            "level": 1
+        },
+        {
+            "id": 571,
+            "level": 2
+        },
+        {
+            "id": 576,
+            "level": 1
+        },
+        {
+            "id": 578,
+            "level": 2
+        },
+        {
+            "id": 584,
+            "level": 1
+        },
+        {
+            "id": 587,
+            "level": 1
+        },
+        {
+            "id": 596,
+            "level": 1
+        },
+        {
+            "id": 598,
+            "level": 2
+        },
+        {
+            "id": 601,
+            "level": 2
+        },
+        {
+            "id": 615,
+            "level": 2
+        },
+        {
+            "id": 617,
+            "level": 2
+        },
+        {
+            "id": 619,
+            "level": 2
+        },
+        {
+            "id": 634,
+            "level": 2
+        }
+    ]
+}

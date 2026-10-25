@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>12<|page|>1<|box|>801 140 895 856<|content|>The name of the corporation being merged with and ...ion is Stratos Merger Sub Inc. ... in the State of\n<|id|>13<|page|>2<|box|>90 140 126 854<|content|>Delaware is located at 1209 Orange Street, Wilming... at such address is National Registered Agents Inc\n<|id|>19<|page|>2<|box|>845 174 902 857<|content|>(c) Approval by Solara Digital Infrastructure Fund...execution, delivery, and performance of the Merger\n<|id|>20<|page|>3<|box|>90 174 127 854<|content|>Agreement and the consummation of the transactions...equisite action on the part of its general partner\n<|id|>47<|page|>5<|box|>792 140 902 857<|content|>At the Effective Time, the certificate of incorpor... of England and Wales, and the terms of the Merger\n<|id|>48<|page|>6<|box|>89 140 127 854<|content|>Agreement, as applicable. ... The form of such ame... by reference to Exhibit B to the Merger Agreement\n<|id|>58<|page|>7<|box|>169 143 186 351<|content|>Name: ... [Authorized Officer]\n<|id|>59<|page|>7<|box|>186 143 203 238<|content|>Title: ... [Title]\n<|id|>60<|page|>7<|box|>204 143 220 261<|content|>Date: ... [●], 2024\n<|id|>65<|page|>7<|box|>383 143 400 351<|content|>Name: ... [Authorized Officer]\n<|id|>66<|page|>7<|box|>400 143 417 238<|content|>Title: ... [Title]\n<|id|>67<|page|>7<|box|>417 143 434 261<|content|>Date: ... [●], 2024",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>19<|tgt_id|>20\n<|src_id|>47<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        }
+    ]
+}

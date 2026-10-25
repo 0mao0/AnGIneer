@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        7,
+        56
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        12,
+        29,
+        42,
+        43,
+        55
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>7<|box|>491 330 526 535<|content|>APRIL - 1951\n<|id|>8<|page|>7<|box|>804 91 862 859<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>11<|page|>9<|box|>188 164 737 788<|content|>Treasury financing operations. ... 70\n<|id|>12<|page|>9<|box|>753 161 815 784<|content|>Note: ... Consequently the details may not add to the totals shown\n<|id|>15<|page|>11<|box|>96 106 110 320<|content|>Investment Series B-1975-80\n<|id|>16<|page|>11<|box|>112 88 282 469<|content|>On March 19, 1951, the Secretary of the Treasury r...both of the specified series tendered and accepted\n<|id|>27<|page|>11<|box|>840 504 870 883<|content|>Option 1. ... -- In accordance with the original terms of the contract, the owner of any\n<|id|>28<|page|>12<|box|>67 93 125 478<|content|>Series E bond may receive full cash payment for hi...right of the investor to cash his bond at any time\n<|id|>95<|page|>29<|box|>828 41 903 493<|content|>1/ Issues which commercial banks (banks accepting ...y be redeemed at par and accrued interest upon the\n<|id|>97<|page|>29<|box|>889 520 901 662<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>132<|page|>42<|box|>649 23 661 478<|content|>Includes sales resulting from special offering of Series F and Series G\n<|id|>135<|page|>43<|box|>68 27 259 458<|content|>Treasury savings notes (originally designated tax ...asury Bulletin\" for February 1946, pages 42 and 43\n<|id|>169<|page|>55<|box|>745 27 814 488<|content|>Source: ... 1/ Excludes collections for credit to certain trust accounts for island pos-\n<|id|>170<|page|>55<|box|>807 27 826 488<|content|>1/ Excludes collections for credit to certain trus...includes corporation income tax on Alaska Railroad\n<|id|>171<|page|>55<|box|>824 27 854 481<|content|>2/ Includes excess profite taxes formerly shown se...), declared value (repealed for years ending after\n<|id|>172<|page|>55<|box|>743 506 845 944<|content|>June 30, 1946), Excess Profite Tax Act of 1940 (Ti...ing with July 1950, included under \"Miscellaneous\"",
+    "raw_response": "<|src_id|>27<|tgt_id|>28\n<|src_id|>171<|tgt_id|>172",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 172
+        }
+    ]
+}

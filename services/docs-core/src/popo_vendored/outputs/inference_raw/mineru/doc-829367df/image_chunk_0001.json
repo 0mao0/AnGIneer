@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>485<|type|>title<|page|>45<|box|>194 140 210 475<|content|>Section 11.10 — Third-Party Beneficiaries\n<|id|>487<|type|>title<|page|>45<|box|>359 140 376 423<|content|>Section 11.11 — Dispute Resolution\n<|id|>492<|type|>title<|page|>46<|box|>239 140 255 442<|content|>Section 11.12 — Specific Performance\n<|id|>494<|type|>title<|page|>46<|box|>494 140 511 349<|content|>Section 11.13 — Expenses\n<|id|>496<|type|>title<|page|>46<|box|>616 359 633 635<|content|>[SIGNATURE PAGES FOLLOW]\n<|id|>498<|type|>title<|page|>46<|box|>686 142 702 225<|content|>SELLER:\n<|id|>504<|type|>title<|page|>46<|box|>790 143 805 217<|content|>BUYER:\n<|id|>505<|type|>title<|page|>46<|box|>806 142 823 522<|content|>MERIDIAN PRECISION DIAGNOSTICS, INC.\n<|id|>510<|type|>table<|page|>47<|box|>113 143 568 852<|content|>None\n<|id|>511<|type|>table<|page|>47<|box|>641 143 902 852<|content|>None\n<|id|>512<|type|>table<|page|>48<|box|>89 143 309 852<|content|>None",
+    "raw_response": "<|src_id|>510<|tgt_id|>504\n<|src_id|>511<|tgt_id|>504\n<|src_id|>512<|tgt_id|>504",
+    "parsed": [
+        {
+            "src_id": 510,
+            "tgt_id": 504
+        },
+        {
+            "src_id": 511,
+            "tgt_id": 504
+        },
+        {
+            "src_id": 512,
+            "tgt_id": 504
+        }
+    ]
+}

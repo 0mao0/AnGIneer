@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        51,
+        87
+    ],
+    "pages": [
+        51,
+        52,
+        56,
+        57,
+        58,
+        59,
+        61,
+        63,
+        64,
+        65,
+        70,
+        71,
+        78,
+        86,
+        87
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>140<|page|>51<|box|>97 218 111 770<|content|>Table 2.- Sales Reported by Series, Classified by\n<|id|>142<|page|>52<|box|>65 285 80 716<|content|>Sales of Tax Series Treasury Notes - (Continued)\n<|id|>143<|page|>52<|box|>94 199 110 800<|content|>Table 3.- Sales Reported by Series, Classified by\n<|id|>148<|page|>56<|box|>63 187 102 805<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>151<|page|>57<|box|>69 122 107 861<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>152<|page|>57<|box|>118 183 151 805<|content|>Table I.- Analysis of Ownership by Type of Securit\n<|id|>160<|page|>58<|box|>65 143 105 879<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>161<|page|>58<|box|>116 227 131 793<|content|>Table II.- Distribution of Ownership for Each Issu\n<|id|>163<|page|>59<|box|>67 127 107 863<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>164<|page|>59<|box|>116 152 132 838<|content|>Table II.- Distribution of Ownership for Each Issu\n<|id|>168<|page|>61<|box|>69 89 109 886<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>169<|page|>61<|box|>120 141 136 831<|content|>Table II.- Distribution of Ownership for Each Issu\n<|id|>173<|page|>63<|box|>70 43 135 943<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>174<|page|>63<|box|>149 227 164 758<|content|>Table I.- Securities Issued by the United States G\n<|id|>176<|page|>64<|box|>65 85 120 919<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>177<|page|>64<|box|>137 176 152 828<|content|>Table I.- Securities Issued by the United States G\n<|id|>181<|page|>65<|box|>69 43 128 938<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>194<|page|>70<|box|>65 182 97 800<|content|>Assets and Liabilities of Government Corporations\n<|id|>198<|page|>71<|box|>69 183 99 803<|content|>Assets and Liabilities of Government Corporations\n<|id|>199<|page|>71<|box|>110 418 122 567<|content|>(In millions of dollars)\n<|id|>217<|page|>78<|box|>78 190 103 830<|content|>COLLECTIONS OF INTERNAL REVENUE\n<|id|>229<|page|>86<|box|>64 283 95 716<|content|>Balance Sheet of the Exchange Stabilization Fund A\n<|id|>231<|page|>86<|box|>754 224 768 777<|content|>Schedules for Balance Sheet of the Exchange Stabil\n<|id|>232<|page|>86<|box|>783 434 798 530<|content|>Schedule 1\n<|id|>234<|page|>87<|box|>69 145 84 821<|content|>Schedules for Balance Sheet of the Exchange Stabil\n<|id|>236<|page|>87<|box|>367 436 381 532<|content|>Schedule 3\n<|id|>238<|page|>87<|box|>714 436 727 534<|content|>Schedule 4",
+    "raw_response": "<|id|>140<|level|>1\n<|id|>142<|level|>2\n<|id|>143<|level|>1\n<|id|>148<|level|>1\n<|id|>151<|level|>1\n<|id|>152<|level|>2\n<|id|>160<|level|>1\n<|id|>161<|level|>2\n<|id|>163<|level|>1\n<|id|>164<|level|>2\n<|id|>168<|level|>1\n<|id|>169<|level|>2\n<|id|>173<|level|>1\n<|id|>174<|level|>2\n<|id|>176<|level|>1\n<|id|>177<|level|>2\n<|id|>181<|level|>1\n<|id|>194<|level|>1\n<|id|>198<|level|>1\n<|id|>199<|level|>-1\n<|id|>217<|level|>1\n<|id|>229<|level|>1\n<|id|>231<|level|>2\n<|id|>232<|level|>3\n<|id|>234<|level|>2\n<|id|>236<|level|>3\n<|id|>238<|level|>3",
+    "parsed": [
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 1
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 1
+        },
+        {
+            "id": 194,
+            "level": 1
+        },
+        {
+            "id": 198,
+            "level": 1
+        },
+        {
+            "id": 217,
+            "level": 1
+        },
+        {
+            "id": 229,
+            "level": 1
+        },
+        {
+            "id": 231,
+            "level": 2
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 2
+        },
+        {
+            "id": 236,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 3
+        }
+    ]
+}

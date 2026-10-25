@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 8,
+    "range": [
+        410,
+        412
+    ],
+    "pages": [
+        411,
+        412
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5805<|page|>411<|box|>900 35 944 943<|content|>4. ... 01mol/L EDTA 二钠盐标准溶液滴定，当溶液由玫\n<|id|>5806<|page|>412<|box|>43 49 63 441<|content|>瑰红色突变为纯蓝色时即为滴定终点。 ... 瑰红色突变为纯蓝色时即为滴定终点\n<|id|>5820<|page|>412<|box|>550 364 566 623<|content|>表 T 0168-1 钙、镁试验记录\n<|id|>5821<|page|>412<|box|>576 99 594 389<|content|>工程名称____",
+    "raw_response": "<|src_id|>5805<|tgt_id|>5806",
+    "parsed": [
+        {
+            "src_id": 5805,
+            "tgt_id": 5806
+        }
+    ]
+}

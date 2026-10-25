@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25,
+        26,
+        27
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 187 118 808<|content|>THE SALVATORE A. PELLEGRINO 2025 FAMILY TRUST\n<|id|>1<|type|>title<|page|>1<|box|>143 334 160 663<|content|>IRREVOCABLE TRUST AGREEMENT\n<|id|>9<|type|>title<|page|>1<|box|>349 334 367 661<|content|>IRREVOCABLE TRUST AGREEMENT\n<|id|>12<|type|>title<|page|>1<|box|>469 143 484 390<|content|>PREAMBLE AND RECITALS\n<|id|>17<|type|>title<|page|>1<|box|>708 142 724 241<|content|>RECITALS\n<|id|>26<|type|>title<|page|>2<|box|>571 140 589 390<|content|>ARTICLE I — DEFINITIONS\n<|id|>45<|type|>title<|page|>4<|box|>383 140 402 754<|content|>ARTICLE II — ESTABLISHMENT OF TRUST; INITIAL CONTR\n<|id|>54<|type|>title<|page|>5<|box|>412 140 430 797<|content|>ARTICLE III — BENEFICIAL INTERESTS AND DISTRIBUTIO\n<|id|>74<|type|>title<|page|>7<|box|>358 140 375 750<|content|>ARTICLE IV — DISPOSITION AT DEATH OF PRIMARY BENEF\n<|id|>80<|type|>title<|page|>8<|box|>303 140 320 575<|content|>ARTICLE V — TRUST TERM AND TERMINATION\n<|id|>81<|type|>title<|page|>8<|box|>329 140 347 570<|content|>5.1 Duration. The Trust shall continue until the e\n<|id|>88<|type|>title<|page|>9<|box|>148 140 166 483<|content|>ARTICLE VI — TRUSTEE PROVISIONS\n<|id|>101<|type|>title<|page|>10<|box|>574 140 592 457<|content|>ARTICLE VII — TRUSTEE POWERS\n<|id|>147<|type|>title<|page|>13<|box|>715 140 733 540<|content|>ARTICLE VIII — SPENDTHRIFT PROVISIONS\n<|id|>152<|type|>title<|page|>14<|box|>457 140 493 831<|content|>ARTICLE IX — GRANTOR TRUST PROVISIONS (INTENTIONAL\n<|id|>162<|type|>title<|page|>16<|box|>449 140 467 455<|content|>ARTICLE X — TRUST PROTECTOR\n<|id|>179<|type|>title<|page|>17<|box|>847 142 864 759<|content|>ARTICLE XI — GENERATION-SKIPPING TRANSFER TAX PROV\n<|id|>185<|type|>title<|page|>18<|box|>720 140 738 594<|content|>ARTICLE XII — TAX AND ACCOUNTING MATTERS\n<|id|>190<|type|>title<|page|>19<|box|>518 140 537 575<|content|>ARTICLE XIII — ADMINISTRATIVE PROVISIONS\n<|id|>197<|type|>title<|page|>20<|box|>377 176 393 344<|content|>(a) If to the Grantor:\n<|id|>212<|type|>title<|page|>21<|box|>303 140 320 758<|content|>ARTICLE XIV — LIMITATION ON GRANTOR'S RETAINED INT\n<|id|>217<|type|>title<|page|>22<|box|>89 142 106 447<|content|>ARTICLE XV — MISCELLANEOUS\n<|id|>231<|type|>title<|page|>24<|box|>89 408 107 588<|content|>SIGNATURE PAGES\n<|id|>233<|type|>title<|page|>24<|box|>160 449 176 547<|content|>GRANTOR\n<|id|>247<|type|>title<|page|>24<|box|>660 452 676 544<|content|>TRUSTEE\n<|id|>260<|type|>title<|page|>25<|box|>143 300 160 697<|content|>NOTARY ACKNOWLEDGMENT — GRANTOR\n<|id|>261<|type|>title<|page|>25<|box|>169 140 186 558<|content|>STATE OF FLORIDA COUNTY OF MIAMI-DADE\n<|id|>266<|type|>title<|page|>25<|box|>425 303 441 692<|content|>NOTARY ACKNOWLEDGMENT — TRUSTEE\n<|id|>267<|type|>title<|page|>25<|box|>450 140 467 504<|content|>STATE OF FLORIDA COUNTY OF DUVAL\n<|id|>271<|type|>title<|page|>26<|box|>89 437 107 560<|content|>SCHEDULE A\n<|id|>272<|type|>title<|page|>26<|box|>130 375 148 622<|content|>INITIAL TRUST PROPERTY\n<|id|>274<|type|>table<|page|>26<|box|>217 143 391 852<|content|>None\n<|id|>276<|type|>title<|page|>26<|box|>505 142 522 246<|content|>GRANTOR:\n<|id|>285<|type|>title<|page|>27<|box|>89 437 107 560<|content|>SCHEDULE B\n<|id|>286<|type|>title<|page|>27<|box|>131 299 148 697<|content|>MEMBERSHIP INTERESTS TO BE ACQUIRED\n<|id|>287<|type|>title<|page|>27<|box|>156 192 174 803<|content|>(RESERVED — TO BE COMPLETED AND ATTACHED UPON CLOS\n<|id|>289<|type|>table<|page|>27<|box|>306 143 580 852<|content|>None",
+    "raw_response": "<|src_id|>274<|tgt_id|>272\n<|src_id|>289<|tgt_id|>286",
+    "parsed": [
+        {
+            "src_id": 274,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 289,
+            "tgt_id": 286
+        }
+    ]
+}

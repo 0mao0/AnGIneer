@@ -1,0 +1,113 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        45,
+        53
+    ],
+    "pages": [
+        45,
+        46,
+        53
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>457<|page|>45<|box|>547 142 564 470<|content|>THALASSA SHIPPING & LOGISTICS SA\n<|id|>458<|page|>45<|box|>566 143 582 253<|content|>By: ... By\n<|id|>459<|page|>45<|box|>583 143 598 316<|content|>Name: ... Elena Vassiliou\n<|id|>460<|page|>45<|box|>599 143 614 366<|content|>Title: ... Chief Executive Officer\n<|id|>461<|page|>45<|box|>618 143 633 264<|content|>Date: ... Date\n<|id|>462<|page|>45<|box|>633 142 648 470<|content|>THALASSA SHIPPING & LOGISTICS SA\n<|id|>463<|page|>45<|box|>652 143 667 251<|content|>By: ... By\n<|id|>464<|page|>45<|box|>669 142 684 334<|content|>Name: ... Dimitrios Pantazis\n<|id|>465<|page|>45<|box|>686 143 700 361<|content|>Title: ... Chief Financial Officer\n<|id|>466<|page|>45<|box|>704 143 719 264<|content|>Date: ... Date\n<|id|>467<|page|>45<|box|>720 143 736 498<|content|>[THALASSA DRY BULK HOLDINGS LTD. ... ]*\n<|id|>468<|page|>45<|box|>739 143 755 253<|content|>By: ... By\n<|id|>472<|page|>45<|box|>806 143 823 459<|content|>*[If a separate Pledgor — to be confirmed]\n<|id|>474<|page|>45<|box|>842 143 858 253<|content|>By: ... By\n<|id|>473<|page|>45<|box|>824 143 840 501<|content|>[THALASSA TANKER OPERATIONS LTD. ... ]*\n<|id|>478<|page|>46<|box|>125 140 142 650<|content|>*[If a separate Pledgor — to be confirmed based on ownership chain]\n<|id|>480<|page|>46<|box|>160 143 176 254<|content|>By: ... By\n<|id|>479<|page|>46<|box|>141 142 159 557<|content|>[THALASSA LOGISTICS INTERNATIONAL LTD. ... ]*\n<|id|>484<|page|>46<|box|>228 142 244 460<|content|>*[If a separate Pledgor — to be confirmed]\n<|id|>485<|page|>46<|box|>244 142 261 351<|content|>COLLATERAL AGENT: ... COLLATERAL AGENT\n<|id|>486<|page|>46<|box|>262 140 279 674<|content|>PINNACLE TRUST & AGENCY SERVICES INC. ... , as Collateral Agent\n<|id|>487<|page|>46<|box|>280 143 297 254<|content|>By: ... By\n<|id|>489<|page|>46<|box|>314 142 330 349<|content|>Title: ... Authorized Signatory\n<|id|>490<|page|>46<|box|>332 142 348 267<|content|>Date: ... Date\n<|id|>492<|page|>46<|box|>364 140 383 800<|content|>MERIDIAN ATLANTIC BANK, NATIONAL ASSOCIATION, as Administrative Agent\n<|id|>493<|page|>46<|box|>383 142 400 254<|content|>By: ... By\n<|id|>494<|page|>46<|box|>401 142 417 330<|content|>Name: ... Catherine Hsiang\n<|id|>495<|page|>46<|box|>417 140 436 517<|content|>Title: ... Managing Director — Relationship Manager\n<|id|>496<|page|>46<|box|>436 140 453 267<|content|>Date: ... Date\n<|id|>514<|page|>53<|box|>686 140 702 668<|content|>End of Calderwood & Harkness LLP Redline Markup of Draft Share Pledge Agreement\n<|id|>515<|page|>53<|box|>709 140 768 854<|content|>This document is privileged and confidential attor...disclosure, or distribution is strictly prohibited",
+    "raw_response": "<|src_id|>457<|tgt_id|>458\n<|src_id|>458<|tgt_id|>459\n<|src_id|>459<|tgt_id|>460\n<|src_id|>460<|tgt_id|>461\n<|src_id|>461<|tgt_id|>462\n<|src_id|>462<|tgt_id|>463\n<|src_id|>463<|tgt_id|>464\n<|src_id|>464<|tgt_id|>465\n<|src_id|>465<|tgt_id|>466\n<|src_id|>466<|tgt_id|>467\n<|src_id|>467<|tgt_id|>468\n<|src_id|>473<|tgt_id|>474\n<|src_id|>474<|tgt_id|>472\n<|src_id|>479<|tgt_id|>480\n<|src_id|>480<|tgt_id|>478\n<|src_id|>485<|tgt_id|>486\n<|src_id|>486<|tgt_id|>487\n<|src_id|>489<|tgt_id|>490\n<|src_id|>490<|tgt_id|>487\n<|src_id|>492<|tgt_id|>493\n<|src_id|>493<|tgt_id|>494\n<|src_id|>494<|tgt_id|>495\n<|src_id|>495<|tgt_id|>496\n<|src_id|>496<|tgt_id|>487",
+    "parsed": [
+        {
+            "src_id": 457,
+            "tgt_id": 458
+        },
+        {
+            "src_id": 458,
+            "tgt_id": 459
+        },
+        {
+            "src_id": 459,
+            "tgt_id": 460
+        },
+        {
+            "src_id": 460,
+            "tgt_id": 461
+        },
+        {
+            "src_id": 461,
+            "tgt_id": 462
+        },
+        {
+            "src_id": 462,
+            "tgt_id": 463
+        },
+        {
+            "src_id": 463,
+            "tgt_id": 464
+        },
+        {
+            "src_id": 464,
+            "tgt_id": 465
+        },
+        {
+            "src_id": 465,
+            "tgt_id": 466
+        },
+        {
+            "src_id": 466,
+            "tgt_id": 467
+        },
+        {
+            "src_id": 467,
+            "tgt_id": 468
+        },
+        {
+            "src_id": 473,
+            "tgt_id": 474
+        },
+        {
+            "src_id": 474,
+            "tgt_id": 472
+        },
+        {
+            "src_id": 479,
+            "tgt_id": 480
+        },
+        {
+            "src_id": 480,
+            "tgt_id": 478
+        },
+        {
+            "src_id": 485,
+            "tgt_id": 486
+        },
+        {
+            "src_id": 486,
+            "tgt_id": 487
+        },
+        {
+            "src_id": 489,
+            "tgt_id": 490
+        },
+        {
+            "src_id": 490,
+            "tgt_id": 487
+        },
+        {
+            "src_id": 492,
+            "tgt_id": 493
+        },
+        {
+            "src_id": 493,
+            "tgt_id": 494
+        },
+        {
+            "src_id": 494,
+            "tgt_id": 495
+        },
+        {
+            "src_id": 495,
+            "tgt_id": 496
+        },
+        {
+            "src_id": 496,
+            "tgt_id": 487
+        }
+    ]
+}

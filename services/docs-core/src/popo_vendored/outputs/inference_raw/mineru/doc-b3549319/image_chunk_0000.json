@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        10,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>85 85 781 873<|content|>None\n<|id|>1<|type|>table<|page|>2<|box|>85 85 889 867<|content|>None\n<|id|>20<|type|>title<|page|>5<|box|>406 87 420 260<|content|>LENDER BREAKDOWN\n<|id|>33<|type|>title<|page|>5<|box|>655 87 670 231<|content|>BUYER'S COUNSEL\n<|id|>38<|type|>title<|page|>5<|box|>762 87 777 233<|content|>SELLER'S COUNSEL\n<|id|>42<|type|>title<|page|>5<|box|>852 87 866 272<|content|>ESCROW / TITLE AGENT\n<|id|>44<|type|>table<|page|>7<|box|>84 87 406 875<|content|>None\n<|id|>46<|type|>table<|page|>8<|box|>102 144 405 499<|content|>None\n<|id|>48<|type|>table<|page|>10<|box|>85 87 174 875<|content|>None\n<|id|>49<|type|>table<|page|>12<|box|>84 85 265 878<|content|>None",
+    "raw_response": "<|src_id|>0<|tgt_id|>20\n<|src_id|>1<|tgt_id|>20\n<|src_id|>44<|tgt_id|>20\n<|src_id|>46<|tgt_id|>20\n<|src_id|>48<|tgt_id|>20\n<|src_id|>49<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 1,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 20
+        }
+    ]
+}

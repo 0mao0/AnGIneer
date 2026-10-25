@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 447 106 549<|content|>EXHIBIT T\n<|id|>1<|type|>title<|page|>1<|box|>114 326 132 669<|content|>FORM OF TITLE AFFIDAVIT (SELLER)\n<|id|>3<|type|>title<|page|>1<|box|>209 400 224 596<|content|>OWNER'S AFFIDAVIT\n<|id|>7<|type|>title<|page|>1<|box|>424 140 440 524<|content|>Section 1 — Affiant Identification and Authority\n<|id|>13<|type|>title<|page|>2<|box|>152 140 169 504<|content|>Section 2 — Identity of Owner / Chain of Title\n<|id|>18<|type|>title<|page|>2<|box|>539 140 555 522<|content|>Section 3 — Possession and Parties in Possession\n<|id|>23<|type|>title<|page|>3<|box|>152 140 169 441<|content|>Section 4 — Liens and Encumbrances\n<|id|>31<|type|>title<|page|>3<|box|>854 140 871 583<|content|>Section 5 — Mechanic's Liens and Construction Acti\n<|id|>36<|type|>title<|page|>4<|box|>487 140 503 550<|content|>Section 6 — Judgments, Litigation, and Bankruptcy\n<|id|>41<|type|>title<|page|>5<|box|>152 140 170 540<|content|>Section 7 — Unrecorded Interests and Agreements\n<|id|>46<|type|>title<|page|>5<|box|>556 140 574 366<|content|>Section 8 — Survey Matters\n<|id|>51<|type|>title<|page|>6<|box|>133 140 151 410<|content|>Section 9 — FIRPTA / Tax Status\n<|id|>54<|type|>title<|page|>6<|box|>359 140 375 437<|content|>Section 10 — Environmental Matters\n<|id|>58<|type|>title<|page|>6<|box|>792 140 809 504<|content|>Section 11 — Status of Entity / Good Standing\n<|id|>63<|type|>title<|page|>7<|box|>388 140 404 506<|content|>Section 12 — Knowledge Limitation / Reliance\n<|id|>67<|type|>title<|page|>7<|box|>839 140 854 377<|content|>Section 13 — Indemnification\n<|id|>74<|type|>title<|page|>8<|box|>537 143 555 416<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>75<|type|>title<|page|>8<|box|>564 300 580 694<|content|>SIGNATURE PAGE TO OWNER'S AFFIDAVIT\n<|id|>81<|type|>title<|page|>8<|box|>752 349 768 647<|content|>NOTARIAL ACKNOWLEDGMENT\n<|id|>82<|type|>title<|page|>8<|box|>779 140 795 267<|content|>STATE OF ___\n<|id|>92<|type|>title<|page|>9<|box|>328 437 344 560<|content|>SCHEDULE A\n<|id|>93<|type|>title<|page|>9<|box|>354 310 371 684<|content|>LEGAL DESCRIPTION OF THE PROPERTY\n<|id|>96<|type|>table<|page|>9<|box|>465 143 893 852<|content|>None\n<|id|>97<|type|>table<|page|>10<|box|>89 143 304 852<|content|>None",
+    "raw_response": "<|src_id|>96<|tgt_id|>93\n<|src_id|>97<|tgt_id|>93",
+    "parsed": [
+        {
+            "src_id": 96,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 93
+        }
+    ]
+}

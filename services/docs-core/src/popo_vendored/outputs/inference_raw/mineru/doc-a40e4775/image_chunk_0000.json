@@ -1,0 +1,21 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        13,
+        26
+    ],
+    "pages": [
+        13,
+        23,
+        26
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>37<|type|>title<|page|>13<|box|>86 87 102 529<|content|>Element IDClaim ElemProstaSignEvidence /Infringeme\n<|id|>50<|type|>title<|page|>23<|box|>86 87 101 515<|content|>Topic Detail Relevance to Infringement Analysis\n<|id|>52<|type|>table<|page|>26<|box|>86 87 602 878<|content|>None",
+    "raw_response": "<|src_id|>52<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 52,
+            "tgt_id": 50
+        }
+    ]
+}

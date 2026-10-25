@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        100,
+        105
+    ],
+    "pages": [
+        101,
+        103,
+        104,
+        105
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>953<|page|>101<|box|>89 140 107 645<|content|>SCHEDULE 4 — COLLATERAL DESCRIPTION SUMMARY\n<|id|>954<|page|>101<|box|>114 140 133 650<|content|>I. U.S. Collateral (governed by the laws of the St\n<|id|>959<|page|>101<|box|>410 142 428 763<|content|>II. Nigerian Collateral (governed by the laws of t\n<|id|>969<|page|>101<|box|>648 142 667 669<|content|>III. English Collateral (governed by the laws of E\n<|id|>972<|page|>101<|box|>763 142 781 723<|content|>IV. Senegalese Collateral (governed by the laws of\n<|id|>981<|page|>103<|box|>89 142 107 547<|content|>SCHEDULE 5 — SECURITY DOCUMENTS LIST\n<|id|>983<|page|>104<|box|>89 140 106 643<|content|>SCHEDULE 6 — MINIMUM INSURANCE REQUIREMENTS\n<|id|>987<|page|>104<|box|>469 410 486 586<|content|>SIGNATURE PAGES\n<|id|>989<|page|>104<|box|>540 460 555 535<|content|>ISSUER:\n<|id|>997<|page|>104<|box|>686 444 702 553<|content|>CO-ISSUER:\n<|id|>1002<|page|>104<|box|>781 429 797 566<|content|>GUARANTORS:\n<|id|>1027<|page|>105<|box|>417 330 434 666<|content|>TRUSTEE AND COLLATERAL AGENT:\n<|id|>1028<|page|>105<|box|>443 140 460 694<|content|>NORTHGATE TRUST COMPANY, N.A., as Trustee and Coll\n<|id|>1032<|page|>105<|box|>512 143 549 852<|content|>INTERNAL DRAFTING NOTES (For Calderwood & Harkness",
+    "raw_response": "<|id|>953<|level|>1\n<|id|>954<|level|>2\n<|id|>959<|level|>2\n<|id|>969<|level|>2\n<|id|>972<|level|>2\n<|id|>981<|level|>1\n<|id|>983<|level|>1\n<|id|>987<|level|>1\n<|id|>989<|level|>2\n<|id|>997<|level|>2\n<|id|>1002<|level|>2\n<|id|>1027<|level|>2\n<|id|>1028<|level|>3\n<|id|>1032<|level|>1",
+    "parsed": [
+        {
+            "id": 953,
+            "level": 1
+        },
+        {
+            "id": 954,
+            "level": 2
+        },
+        {
+            "id": 959,
+            "level": 2
+        },
+        {
+            "id": 969,
+            "level": 2
+        },
+        {
+            "id": 972,
+            "level": 2
+        },
+        {
+            "id": 981,
+            "level": 1
+        },
+        {
+            "id": 983,
+            "level": 1
+        },
+        {
+            "id": 987,
+            "level": 1
+        },
+        {
+            "id": 989,
+            "level": 2
+        },
+        {
+            "id": 997,
+            "level": 2
+        },
+        {
+            "id": 1002,
+            "level": 2
+        },
+        {
+            "id": 1027,
+            "level": 2
+        },
+        {
+            "id": 1028,
+            "level": 3
+        },
+        {
+            "id": 1032,
+            "level": 1
+        }
+    ]
+}

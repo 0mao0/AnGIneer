@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 160 167 836<|content|>FORM OF WRITTEN CONSENT IN LIEU OF A SPECIAL MEETI\n<|id|>4<|page|>1<|box|>349 140 367 241<|content|>RECITALS\n<|id|>18<|page|>3<|box|>204 142 220 279<|content|>RESOLUTIONS\n<|id|>20<|page|>3<|box|>261 140 279 544<|content|>Resolution 1 — Adoption of the Merger Agreement\n<|id|>22<|page|>3<|box|>407 140 424 656<|content|>Resolution 2 — Approval of the Merger and Related\n<|id|>24<|page|>3<|box|>553 142 570 575<|content|>Resolution 3 — Authorization of Officers and Direc\n<|id|>26<|page|>3<|box|>753 140 770 490<|content|>Resolution 4 — Ratification of Prior Actions\n<|id|>29<|page|>4<|box|>186 140 203 354<|content|>GENERAL PROVISIONS\n<|id|>30<|page|>4<|box|>217 140 234 354<|content|>1. Effectiveness of Consent\n<|id|>32<|page|>4<|box|>508 140 527 403<|content|>2. Filing with Corporate Records\n<|id|>36<|page|>5<|box|>138 140 157 334<|content|>5. No Meeting Required\n<|id|>38<|page|>5<|box|>313 140 330 640<|content|>APPRAISAL RIGHTS NOTICE AND ACKNOWLEDGMENT\n<|id|>42<|page|>6<|box|>90 142 106 321<|content|>SIGNATURE PAGES\n<|id|>44<|page|>7<|box|>90 140 107 475<|content|>Signature block — Individual Stockholder\n<|id|>51<|page|>8<|box|>90 140 107 442<|content|>Signature block — Entity Stockholder\n<|id|>68<|page|>9<|box|>89 142 107 243<|content|>EXHIBIT A\n<|id|>69<|page|>9<|box|>114 393 132 604<|content|>MERGER AGREEMENT\n<|id|>72<|page|>9<|box|>377 334 393 661<|content|>[Remainder of page intentionally left blank]\n<|id|>75<|page|>9<|box|>446 142 460 498<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>18<|level|>2\n<|id|>20<|level|>3\n<|id|>22<|level|>3\n<|id|>24<|level|>3\n<|id|>26<|level|>3\n<|id|>29<|level|>2\n<|id|>30<|level|>3\n<|id|>32<|level|>3\n<|id|>36<|level|>3\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>3\n<|id|>51<|level|>3\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>72<|level|>-1\n<|id|>75<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        }
+    ]
+}

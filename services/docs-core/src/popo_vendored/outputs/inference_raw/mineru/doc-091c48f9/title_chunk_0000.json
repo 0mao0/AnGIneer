@@ -1,0 +1,119 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 107 573<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>114 212 133 784<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>8<|page|>1<|box|>404 140 421 321<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>304 140 321 416<|content|>II. Background on the Transaction\n<|id|>20<|page|>3<|box|>213 142 229 321<|content|>Key Financial Metrics\n<|id|>23<|page|>3<|box|>453 142 470 406<|content|>Key Rollover Equity Participants\n<|id|>28<|page|>3<|box|>729 140 746 581<|content|>III. UK Nexus and Jurisdictional Basis for CMA Rev\n<|id|>29<|page|>3<|box|>758 140 777 361<|content|>Cloudium's UK Operations\n<|id|>33<|page|>4<|box|>361 140 378 348<|content|>CMA Jurisdictional Tests\n<|id|>38<|page|>5<|box|>90 140 107 439<|content|>IV. CMA Filing Process and Timeline\n<|id|>46<|page|>6<|box|>148 140 167 550<|content|>V. Summary of CMA Phase 1 Analysis and Decision\n<|id|>48<|page|>6<|box|>244 140 260 377<|content|>A. Relevant Merger Situation\n<|id|>56<|page|>7<|box|>202 140 219 478<|content|>C. Frame of Reference (Market Definition)\n<|id|>65<|page|>8<|box|>268 140 284 526<|content|>D. Competitive Assessment — Horizontal Effects\n<|id|>73<|page|>9<|box|>393 140 410 650<|content|>E. Competitive Assessment — Vertical and Conglomer\n<|id|>86<|page|>10<|box|>369 140 386 656<|content|>VI. Implications for Transaction Timeline and Clos\n<|id|>87<|page|>10<|box|>398 140 417 462<|content|>Satisfaction of UK Regulatory Condition\n<|id|>89<|page|>10<|box|>582 140 599 557<|content|>All Antitrust / Competition Conditions Now Satisfi\n<|id|>91<|page|>10<|box|>709 142 727 385<|content|>Remaining Closing Conditions\n<|id|>99<|page|>11<|box|>554 140 571 449<|content|>Outside Date and Timeline Assessment\n<|id|>102<|page|>11<|box|>809 140 825 566<|content|>VII. Other Regulatory Clearances — Status Summary\n<|id|>106<|page|>13<|box|>89 140 107 433<|content|>VIII. Coordination with UK Counsel\n<|id|>113<|page|>13<|box|>689 140 705 380<|content|>IX. Recommended Next Steps\n<|id|>125<|page|>14<|box|>843 142 859 483<|content|>X. Document Retention and Confidentiality",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>20<|level|>3\n<|id|>23<|level|>3\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>38<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>3\n<|id|>56<|level|>3\n<|id|>65<|level|>3\n<|id|>73<|level|>3\n<|id|>86<|level|>2\n<|id|>87<|level|>3\n<|id|>89<|level|>4\n<|id|>91<|level|>3\n<|id|>99<|level|>3\n<|id|>102<|level|>2\n<|id|>106<|level|>2\n<|id|>113<|level|>2\n<|id|>125<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        }
+    ]
+}

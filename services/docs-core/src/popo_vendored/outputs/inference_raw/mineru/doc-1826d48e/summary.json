@@ -1,0 +1,135 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ia_oeekh\\input\\pdfs\\doc-1826d48e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ia_oeekh\\enriched\\doc-1826d48e.json",
+    "contd_output": "<|src_id|>221<|tgt_id|>223",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>13<|level|>2\n<|id|>17<|level|>3\n<|id|>21<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>3\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>52<|level|>3\n<|id|>61<|level|>3\n<|id|>69<|level|>3\n<|id|>81<|level|>3\n<|id|>95<|level|>2\n<|id|>96<|level|>3\n<|id|>102<|level|>3\n<|id|>158<|level|>3\n<|id|>224<|level|>2\n<|id|>236<|level|>2\n<|id|>240<|level|>2",
+    "image_output": "<|src_id|>15<|tgt_id|>13\n<|src_id|>16<|tgt_id|>13\n<|src_id|>18<|tgt_id|>17\n<|src_id|>19<|tgt_id|>17\n<|src_id|>20<|tgt_id|>17",
+    "contd_label": [
+        {
+            "src_id": 221,
+            "tgt_id": 223
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 224,
+            "level": 2
+        },
+        {
+            "id": 236,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 15,
+            "table2_idx": 16,
+            "upper_row_ss": [
+                [
+                    "Gelber v. Steigerwald & Son Funeral Home, Inc., 168 A.D.3d 477 (1st Dep't 2019)",
+                    "19"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Greenfield v. Philles Records, Inc., 98 N.Y.2d 562 (2002)",
+                    "22, 27"
+                ]
+            ]
+        }
+    ]
+}

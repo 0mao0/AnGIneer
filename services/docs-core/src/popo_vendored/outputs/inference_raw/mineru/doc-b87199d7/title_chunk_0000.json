@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>99 307 118 689<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>143 398 161 599<|content|>Internal Annotated Copy\n<|id|>2<|page|>1<|box|>169 181 204 815<|content|>MULTISTATE ATTORNEY GENERAL COALITION CLOSURE LETT\n<|id|>3<|page|>1<|box|>213 140 243 854<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT PRIVIL\n<|id|>5<|page|>1<|box|>455 151 493 844<|content|>C&H INTERNAL COVER SHEET — ANNOTATION LEGEND AND D\n<|id|>19<|page|>2<|box|>407 250 424 748<|content|>[BEGIN ORIGINAL LETTER TEXT WITH ANNOTATIONS]\n<|id|>20<|page|>2<|box|>433 163 469 834<|content|>OFFICE OF THE ATTORNEY GENERAL STATE OF CONNECTICU\n<|id|>21<|page|>2<|box|>478 379 494 617<|content|>Consumer Protection Division\n<|id|>27<|page|>2<|box|>710 140 727 357<|content|>I. PURPOSE AND SCOPE\n<|id|>32<|page|>3<|box|>520 140 537 614<|content|>II. BACKGROUND AND SUMMARY OF THE INCIDENT\n<|id|>40<|page|>4<|box|>583 140 599 611<|content|>III. QUORUM'S RESPONSE AND REMEDIAL ACTIONS\n<|id|>64<|page|>6<|box|>715 140 732 472<|content|>IV. FINDINGS AND DETERMINATION\n<|id|>71<|page|>7<|box|>693 140 709 447<|content|>V. RESERVATIONS AND CAVEATS\n<|id|>79<|page|>8<|box|>755 140 772 594<|content|>VI. ACKNOWLEDGMENTS AND COMMENDATIONS\n<|id|>86<|page|>9<|box|>608 142 625 413<|content|>VII. CONTACT INFORMATION\n<|id|>97<|page|>10<|box|>542 354 560 640<|content|>[END ORIGINAL LETTER TEXT]\n<|id|>98<|page|>11<|box|>89 441 107 557<|content|>APPENDIX A\n<|id|>99<|page|>11<|box|>131 236 148 759<|content|>LIST OF 29 PARTICIPATING STATE ATTORNEYS GENERAL\n<|id|>100<|page|>11<|box|>172 343 189 655<|content|>*(As Referenced in the Closure Letter)*\n<|id|>103<|page|>12<|box|>89 274 107 722<|content|>C&H INTERNAL SUMMARY ANNOTATION BLOCK\n<|id|>104<|page|>12<|box|>131 269 148 727<|content|>*(Not Part of Original Letter — Attorney Work Prod\n<|id|>109<|page|>12<|box|>554 142 571 627<|content|>Key Takeaways for Client Memorandum (November 24,\n<|id|>117<|page|>13<|box|>400 143 417 326<|content|>Remaining Open Items\n<|id|>120<|page|>13<|box|>875 143 888 343<|content|>Distribution Instructions.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>1\n<|id|>3<|level|>-1\n<|id|>5<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>27<|level|>2\n<|id|>32<|level|>2\n<|id|>40<|level|>2\n<|id|>64<|level|>2\n<|id|>71<|level|>2\n<|id|>79<|level|>2\n<|id|>86<|level|>2\n<|id|>97<|level|>1\n<|id|>98<|level|>1\n<|id|>99<|level|>2\n<|id|>100<|level|>3\n<|id|>103<|level|>1\n<|id|>104<|level|>2\n<|id|>109<|level|>2\n<|id|>117<|level|>2\n<|id|>120<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        }
+    ]
+}

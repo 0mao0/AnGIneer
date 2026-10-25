@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 104 813<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>9<|page|>1<|box|>409 142 425 364<|content|>I. Introduction and Purpose\n<|id|>13<|page|>2<|box|>90 140 107 692<|content|>II. Background and Reference to HSA's June 19, 202\n<|id|>18<|page|>2<|box|>619 140 636 377<|content|>III. Scope of the Investigation\n<|id|>27<|page|>3<|box|>700 140 717 408<|content|>IV. Information-Sharing Protocol\n<|id|>29<|page|>3<|box|>794 140 811 635<|content|>A. Sharing of Information from HSA to the Investig\n<|id|>39<|page|>4<|box|>669 140 686 633<|content|>B. Sharing of Information from the Investigation T\n<|id|>46<|page|>5<|box|>301 140 318 393<|content|>C. Designated Points of Contact\n<|id|>54<|page|>5<|box|>630 140 647 331<|content|>V. Privilege Protections\n<|id|>55<|page|>5<|box|>661 140 678 728<|content|>A. Preservation of Attorney-Client Privilege and W\n<|id|>60<|page|>6<|box|>330 140 348 415<|content|>B. HSA's Independent Obligations\n<|id|>64<|page|>6<|box|>758 140 773 429<|content|>VI. Coordination with Other Parties\n<|id|>71<|page|>7<|box|>502 140 518 555<|content|>VII. Avoidance of Interference with the Investigat\n<|id|>78<|page|>8<|box|>285 140 303 374<|content|>VIII. Document Preservation\n<|id|>82<|page|>8<|box|>679 140 696 606<|content|>IX. Scheduling of Informational Interview with Mr.\n<|id|>87<|page|>9<|box|>267 140 284 449<|content|>X. Confirmation and Acknowledgment\n<|id|>92<|page|>9<|box|>579 140 595 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>98<|page|>9<|box|>772 142 789 468<|content|>Enclosure: Acknowledgment Copy (below)\n<|id|>99<|page|>9<|box|>797 316 814 679<|content|>ACKNOWLEDGMENT AND AGREEMENT",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>18<|level|>1\n<|id|>27<|level|>1\n<|id|>29<|level|>2\n<|id|>39<|level|>2\n<|id|>46<|level|>2\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>1\n<|id|>71<|level|>1\n<|id|>78<|level|>1\n<|id|>82<|level|>1\n<|id|>87<|level|>1\n<|id|>92<|level|>-1\n<|id|>98<|level|>1\n<|id|>99<|level|>2",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 2
+        }
+    ]
+}

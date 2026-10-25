@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 230 157 764<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF NORTHGATE\n<|id|>7<|page|>1<|box|>508 140 527 241<|content|>RECITALS\n<|id|>8<|page|>1<|box|>535 140 551 246<|content|>WHEREAS:\n<|id|>33<|page|>5<|box|>89 140 106 279<|content|>RESOLUTIONS\n<|id|>35<|page|>5<|box|>166 140 183 627<|content|>Resolution 1 — Approval of the Spectrum License Ac\n<|id|>37<|page|>5<|box|>402 140 420 758<|content|>Resolution 2 — Authorization to Incorporate Northg\n<|id|>39<|page|>5<|box|>640 140 657 671<|content|>Resolution 3 — Authorization to Form Northgate US\n<|id|>41<|page|>6<|box|>90 140 107 583<|content|>Resolution 4 — Capitalization and Ownership Struct\n<|id|>47<|page|>6<|box|>505 140 522 704<|content|>Resolution 5 — Authorization to Execute the Asset\n<|id|>56<|page|>7<|box|>400 140 417 576<|content|>Resolution 6 — Authorization to File FCC Applicati\n<|id|>62<|page|>8<|box|>90 140 107 537<|content|>Resolution 7 — Designation of Authorized Persons\n<|id|>69<|page|>8<|box|>474 142 493 723<|content|>Resolution 8 — Appointment of Officers and Directo\n<|id|>71<|page|>8<|box|>580 176 597 473<|content|>(a) Northgate Wireless Americas Inc.:\n<|id|>74<|page|>8<|box|>675 176 693 436<|content|>(b) Northgate US Holdings LLC:\n<|id|>77<|page|>8<|box|>813 142 830 460<|content|>Resolution 9 — Engagement of Advisors\n<|id|>84<|page|>9<|box|>500 142 516 516<|content|>Resolution 10 — Authorization of Expenditures\n<|id|>91<|page|>10<|box|>90 140 107 455<|content|>Resolution 11 — General Authorization\n<|id|>94<|page|>10<|box|>390 140 407 359<|content|>Resolution 12 — Reporting\n<|id|>97<|page|>10<|box|>643 140 662 297<|content|>CERTIFICATION\n<|id|>106<|page|>11<|box|>162 140 179 727<|content|>UNANIMOUS WRITTEN CONSENT OF THE BOARD OF DIRECTOR\n<|id|>128<|page|>11<|box|>845 143 863 398<|content|>EXHIBITS AND APPENDICES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>8<|level|>-1\n<|id|>33<|level|>2\n<|id|>35<|level|>3\n<|id|>37<|level|>3\n<|id|>39<|level|>3\n<|id|>41<|level|>3\n<|id|>47<|level|>3\n<|id|>56<|level|>3\n<|id|>62<|level|>3\n<|id|>69<|level|>3\n<|id|>71<|level|>4\n<|id|>74<|level|>4\n<|id|>77<|level|>3\n<|id|>84<|level|>3\n<|id|>91<|level|>3\n<|id|>94<|level|>3\n<|id|>97<|level|>2\n<|id|>106<|level|>2\n<|id|>128<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 74,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        }
+    ]
+}

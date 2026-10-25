@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        49
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>436<|type|>table<|page|>45<|box|>271 143 321 852<|content|>None\n<|id|>437<|type|>title<|page|>46<|box|>89 142 107 243<|content|>EXHIBIT C\n<|id|>438<|type|>title<|page|>46<|box|>114 279 132 717<|content|>FORM OF TRADEMARK SECURITY AGREEMENT\n<|id|>459<|type|>table<|page|>47<|box|>315 143 378 852<|content|>None\n<|id|>460<|type|>title<|page|>48<|box|>89 142 107 243<|content|>EXHIBIT D\n<|id|>461<|type|>title<|page|>48<|box|>114 284 132 710<|content|>FORM OF COPYRIGHT SECURITY AGREEMENT\n<|id|>481<|type|>table<|page|>49<|box|>271 143 321 852<|content|>None",
+    "raw_response": "<|src_id|>459<|tgt_id|>438",
+    "parsed": [
+        {
+            "src_id": 459,
+            "tgt_id": 438
+        }
+    ]
+}

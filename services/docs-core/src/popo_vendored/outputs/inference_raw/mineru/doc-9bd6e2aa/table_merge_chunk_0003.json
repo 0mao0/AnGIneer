@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['扩径', '', '\\\\theta =6^{\\\\circ} \\\\sim 10^{\\\\circ}时,损失最小。\\\\theta =60^{\\\\circ} \\\\sim 70^{\\\\circ}时,损失最大,此时最好做成\\\\theta =180^{\\\\circ}的突变扩大']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['缩径', '', '应避免突然缩小。\\\\theta < 60^{\\\\circ}较好,当\\\\theta >60^{\\\\circ}时,宜做成喇叭口状,以减小损失。喇叭口半径宜大于0.1D,理想状态为0.3D左右']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 845,
+    "table2_idx": 846
+}

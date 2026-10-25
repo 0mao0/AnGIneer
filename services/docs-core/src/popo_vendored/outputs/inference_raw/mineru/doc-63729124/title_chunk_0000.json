@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 160 148 854<|content|>Prepared by: Calderwood & Harkness LLP 599 Lexingt\n<|id|>2<|page|>1<|box|>157 366 176 630<|content|>POWER OF ATTORNEY\n<|id|>19<|page|>2<|box|>527 140 545 491<|content|>Section 1. Appointment of Attorneys-in-Fact\n<|id|>28<|page|>3<|box|>286 140 301 527<|content|>Section 2. Scope of Authority — Grant of Powers\n<|id|>30<|page|>3<|box|>397 142 414 501<|content|>2.1 Execution of the Underwriting Agreement\n<|id|>37<|page|>4<|box|>294 140 311 452<|content|>2.2 Execution of the Pricing Agreement\n<|id|>45<|page|>4<|box|>723 140 739 334<|content|>2.3 Lock-Up Agreement\n<|id|>48<|page|>5<|box|>140 140 157 357<|content|>2.4 Custody Arrangements\n<|id|>50<|page|>5<|box|>340 142 357 447<|content|>2.5 Selling Stockholder Documentation\n<|id|>56<|page|>5<|box|>681 140 699 475<|content|>2.6 Registration Statement and Prospectus\n<|id|>57<|page|>5<|box|>705 142 722 549<|content|>Each Attorney-in-Fact is authorized and empowered\n<|id|>62<|page|>6<|box|>202 142 218 380<|content|>2.7 Amendments and Waivers\n<|id|>70<|page|>6<|box|>539 142 556 334<|content|>2.8 Closing Deliverables\n<|id|>78<|page|>7<|box|>138 140 157 433<|content|>2.9 Regulatory and Exchange Filings\n<|id|>80<|page|>7<|box|>340 140 357 328<|content|>2.10 General Authority\n<|id|>82<|page|>7<|box|>532 140 549 575<|content|>Section 3. Representations and Warranties of PVCP\n<|id|>90<|page|>8<|box|>676 140 694 318<|content|>Section 4. Ratification\n<|id|>92<|page|>9<|box|>90 142 107 413<|content|>Section 5. Irrevocability; Duration\n<|id|>100<|page|>9<|box|>628 140 645 348<|content|>Section 6. Governing Law\n<|id|>102<|page|>9<|box|>806 140 823 333<|content|>Section 7. Counterparts\n<|id|>105<|page|>10<|box|>204 140 220 284<|content|>Section 8. Notices\n<|id|>107<|page|>10<|box|>347 176 364 300<|content|>If to PVCP III:\n<|id|>126<|page|>11<|box|>133 142 150 547<|content|>PINNACLE VISTA CAPITAL PARTNERS III, LP\n<|id|>138<|page|>11<|box|>361 359 378 637<|content|>NOTARY ACKNOWLEDGMENT\n<|id|>146<|page|>11<|box|>710 447 727 550<|content|>EXHIBIT A\n<|id|>147<|page|>11<|box|>737 370 753 627<|content|>Description of Secondary Shares\n<|id|>152<|page|>12<|box|>247 143 263 343<|content|>Pre-Offering Ownership:\n<|id|>154<|page|>12<|box|>316 142 335 805<|content|>Post-Offering Ownership (Assuming Base Offering Wi\n<|id|>156<|page|>12<|box|>460 142 478 328<|content|>Subject to Adjustment:",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>2<|level|>1\n<|id|>19<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>3\n<|id|>37<|level|>3\n<|id|>45<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>56<|level|>3\n<|id|>57<|level|>-1\n<|id|>62<|level|>3\n<|id|>70<|level|>3\n<|id|>78<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>2\n<|id|>90<|level|>2\n<|id|>92<|level|>2\n<|id|>100<|level|>2\n<|id|>102<|level|>2\n<|id|>105<|level|>2\n<|id|>107<|level|>-1\n<|id|>126<|level|>-1\n<|id|>138<|level|>2\n<|id|>146<|level|>2\n<|id|>147<|level|>3\n<|id|>152<|level|>4\n<|id|>154<|level|>4\n<|id|>156<|level|>4",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 4
+        },
+        {
+            "id": 154,
+            "level": 4
+        },
+        {
+            "id": 156,
+            "level": 4
+        }
+    ]
+}

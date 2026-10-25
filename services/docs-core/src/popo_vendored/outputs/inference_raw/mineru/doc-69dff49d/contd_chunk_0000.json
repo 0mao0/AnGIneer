@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        52
+    ],
+    "pages": [
+        3,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        16,
+        27,
+        36,
+        38,
+        51
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>3<|box|>507 343 529 653<|content|>treasury. ... gov\n<|id|>7<|page|>3<|box|>544 120 580 875<|content|>Internet service subscribers can access the Treasu...rough the Bureau of the Fiscal Service's home page\n<|id|>18<|page|>7<|box|>167 578 190 913<|content|>OPERATIONS\n<|id|>19<|page|>7<|box|>199 746 224 913<|content|>Profile of the Economy\n<|id|>20<|page|>7<|box|>224 727 251 913<|content|>Federal Fiscal Operations\n<|id|>21<|page|>7<|box|>251 707 277 913<|content|>Account of the U. ... Treasury\n<|id|>22<|page|>7<|box|>277 815 301 913<|content|>Federal Debt\n<|id|>23<|page|>7<|box|>303 745 329 913<|content|>Public Debt Operations\n<|id|>24<|page|>7<|box|>329 681 354 913<|content|>Ownership of Federal Securities\n<|id|>26<|page|>7<|box|>382 779 409 913<|content|>and in Circulation\n<|id|>25<|page|>7<|box|>354 660 382 913<|content|>U. ... Currency and Coin Outstanding\n<|id|>36<|page|>8<|box|>205 526 220 772<|content|>(Quarterly percent change at annual rate)\n<|id|>37<|page|>8<|box|>481 504 584 913<|content|>Business and residential investment fell, and gove...ick in Federal spending. ... 4 percent annual rate\n<|id|>47<|page|>10<|box|>101 524 118 687<|content|>Unemployment Rate\n<|id|>48<|page|>10<|box|>97 107 140 361<|content|>Payroll Employment (Average monthly change in thousands from end of quarter to end of quarter)\n<|id|>49<|page|>10<|box|>409 81 758 491<|content|>Job losses during the recession were spread broadl...including more than 25,000 jobs in local education\n<|id|>57<|page|>11<|box|>806 81 909 491<|content|>In March 2014, the Administration released its fiscal year 2015 budget. ... 7 percent of\n<|id|>58<|page|>11<|box|>89 504 236 915<|content|>GDP) in fiscal year 2014 and \\$564 billion (3. ......(roughly equivalent to its fiscal year 2012 level)\n<|id|>67<|page|>12<|box|>750 504 897 916<|content|>After plunging 38. ... The S&P Stock Market Volati..., surged to an all-time high of 80 in late October\n<|id|>68<|page|>13<|box|>421 81 523 491<|content|>2008, after hovering in a range of 20 to 30 for most of that year. ... 9 as of early May 2014\n<|id|>69<|page|>13<|box|>522 81 859 491<|content|>A variety of factors have buffeted long-term Treas...al retrenchment, the downgrade of U. ... The 2- to\n<|id|>70<|page|>13<|box|>422 504 526 915<|content|>10-year Treasury yield spread, one measure of the ...ed, reaching 220 basis points as of early May 2014\n<|id|>95<|page|>16<|box|>515 380 527 616<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>96<|page|>16<|box|>535 83 551 287<|content|>Second-Quarter Receipts\n<|id|>97<|page|>16<|box|>554 81 657 491<|content|>The following capsule analysis of budget receipts,... to analyze adequately collections for the quarter\n<|id|>143<|page|>27<|box|>685 81 717 491<|content|>• Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>145<|page|>27<|box|>250 504 397 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>174<|page|>36<|box|>537 339 549 658<|content|>[Source: ... Bureau of the Fiscal Service, Division of Financing Operations]\n<|id|>175<|page|>36<|box|>556 83 574 217<|content|>JANUARY\n<|id|>210<|page|>38<|box|>159 504 218 915<|content|>On January 23, 2014, Treasury announced it would a...o raise new cash of approximately \\$59,068 million\n<|id|>211<|page|>38<|box|>218 504 291 915<|content|>The 7-year notes of Series G-2021 were dated and i...ich tenders were accepted on a yield auction basis\n<|id|>323<|page|>51<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>324<|page|>51<|box|>200 710 253 919<|content|>Foreign Currency Positions Exchange Stabilization Fund",
+    "raw_response": "<|src_id|>57<|tgt_id|>58\n<|src_id|>67<|tgt_id|>68\n<|src_id|>69<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        }
+    ]
+}

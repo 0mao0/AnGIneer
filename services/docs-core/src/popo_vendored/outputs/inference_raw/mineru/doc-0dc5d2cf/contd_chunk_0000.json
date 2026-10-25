@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 281 132 715<|content|>200 Park Avenue, 42nd Floor New York, New York 10166\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 732 184 854<|content|>October 1, 2024\n<|id|>4<|page|>1<|box|>193 140 209 496<|content|>VIA OVERNIGHT COURIER AND EMAIL\n<|id|>5<|page|>1<|box|>219 140 236 691<|content|>Ironclad Trust Company, N. ... 60 Wall Street New York, New York 10005\n<|id|>6<|page|>1<|box|>244 176 262 504<|content|>Attention: ... Samantha Hwang, Vice President\n<|id|>7<|page|>1<|box|>263 210 316 854<|content|>Re: ... Acquisition\n<|id|>8<|page|>1<|box|>325 142 343 277<|content|>Dear Ms. ... Hwang\n<|id|>45<|page|>5<|box|>500 174 571 854<|content|>2. ... and\n<|id|>47<|page|>5<|box|>630 140 722 854<|content|>Such written confirmation should be directed to th...ut of all matters related to the Commitment Letter\n<|id|>50<|page|>5<|box|>814 174 849 852<|content|>Oliver Mackenzie, Partner Calderwood & Harkness LL...York, New York 10166 Telephone: ... (212) 558-4217\n<|id|>51<|page|>5<|box|>859 176 876 522<|content|>Email: ... com\n<|id|>52<|page|>6<|box|>89 176 126 854<|content|>Thomas F. ... (609) 844-3100\n<|id|>53<|page|>6<|box|>133 176 152 473<|content|>Email: ... com\n<|id|>57<|page|>6<|box|>416 143 431 272<|content|>Very truly yours,\n<|id|>58<|page|>6<|box|>431 140 449 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>59<|page|>6<|box|>450 142 467 251<|content|>By: ... By\n<|id|>60<|page|>6<|box|>467 140 484 519<|content|>Oliver Mackenzie Partner, Mergers & Acquisitions\n<|id|>61<|page|>6<|box|>484 140 502 524<|content|>Acting on behalf of Penterra Pharmaceuticals Corp.... Acting on behalf of Penterra Pharmaceuticals Corp\n<|id|>65<|page|>6<|box|>590 176 626 852<|content|>Summit Ridge Capital Partners, LP 277 Park Avenue, 40th Floor New York, New York 10172\n<|id|>66<|page|>6<|box|>635 176 652 527<|content|>Attention: ... Philip Ostrander, Managing Director\n<|id|>67<|page|>6<|box|>652 174 689 854<|content|>Thomas F. ... 1100 Meridian Boulevard, Suite 400 Princeton, New Jersey 08540\n<|id|>68<|page|>6<|box|>696 174 733 854<|content|>Catherine M. ... 1100 Meridian Boulevard, Suite 400 Princeton, New Jersey 08540",
+    "raw_response": "<|src_id|>51<|tgt_id|>52",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        }
+    ]
+}

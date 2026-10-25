@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        193,
+        201
+    ],
+    "pages": [
+        194,
+        195,
+        201
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>889<|type|>title<|page|>194<|box|>43 195 60 775<|content|>U.S. CURRENCY AND COIN OUTSTANDING AND IN CIRCULAT\n<|id|>890<|type|>title<|page|>194<|box|>78 427 94 545<|content|>INTRODUCTION\n<|id|>891<|type|>title<|page|>194<|box|>118 24 132 166<|content|>Purpose and Scope\n<|id|>894<|type|>title<|page|>194<|box|>351 24 365 82<|content|>History\n<|id|>896<|type|>title<|page|>194<|box|>118 500 132 637<|content|>Definition of Terms\n<|id|>903<|type|>title<|page|>194<|box|>515 500 531 635<|content|>Reporting Sources\n<|id|>906<|type|>title<|page|>195<|box|>14 255 31 727<|content|>U.S. Currency and Coin Outstanding and in Circulat\n<|id|>907<|type|>table<|page|>195<|box|>65 40 209 940<|content|>None\n<|id|>908<|type|>table<|page|>195<|box|>248 37 474 938<|content|>None\n<|id|>910<|type|>title<|page|>201<|box|>116 227 137 675<|content|>THIS FORM CAN BE REPRODUCED.\n<|id|>911<|type|>title<|page|>201<|box|>165 182 181 715<|content|>Superintendent of Documents Subscriptions Order Fo\n<|id|>914<|type|>image<|page|>201<|box|>188 734 215 786<|content|>None\n<|id|>925<|type|>title<|page|>201<|box|>329 466 343 760<|content|>3. Please choose method of payment:",
+    "raw_response": "<|src_id|>907<|tgt_id|>906\n<|src_id|>908<|tgt_id|>906\n<|src_id|>914<|tgt_id|>906",
+    "parsed": [
+        {
+            "src_id": 907,
+            "tgt_id": 906
+        },
+        {
+            "src_id": 908,
+            "tgt_id": 906
+        },
+        {
+            "src_id": 914,
+            "tgt_id": 906
+        }
+    ]
+}

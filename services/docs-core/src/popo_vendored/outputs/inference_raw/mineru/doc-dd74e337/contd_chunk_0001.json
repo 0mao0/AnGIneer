@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        51,
+        99
+    ],
+    "pages": [
+        52,
+        53,
+        59,
+        72,
+        75,
+        77,
+        84,
+        88,
+        89,
+        91,
+        92,
+        98
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>214<|page|>52<|box|>122 407 135 588<|content|>(Dollar amounts in millions)\n<|id|>216<|page|>53<|box|>371 8 412 486<|content|>1/ Excludes issues of strips of additional amounts...ctober 28, 1963 (\\$1,001 million). ... See Table 4\n<|id|>268<|page|>59<|box|>598 18 611 482<|content|>69/ In addition to the amounts allotted to the public, there was allotted\n<|id|>269<|page|>59<|box|>130 537 158 983<|content|>to Government investment accounts \\$19. ... 9 million of the 4% bonds of 1980\n<|id|>304<|page|>72<|box|>161 38 177 456<|content|>6/ Called on May 14, 1958, for redemption on Septe...Represents amount which owns exercised the date of\n<|id|>329<|page|>72<|box|>520 539 541 983<|content|>Note: ... Information or retirement of tax anticip... referred to in footnote 4, in millions of dollars\n<|id|>333<|page|>75<|box|>102 234 117 711<|content|>Table 8. ... - Foreign Series Securities (Nonmarketable)\n<|id|>334<|page|>75<|box|>119 164 135 775<|content|>Issued to Official Institutions of Foreign Countries - (Continued)\n<|id|>337<|page|>77<|box|>114 6 191 464<|content|>Series E and H are the only savings bonds currentl... F and G were sold from May 1, 1941, through April\n<|id|>338<|page|>77<|box|>116 516 193 973<|content|>30, 1952. ... Details of the principal changes in ...ctober and December 1959, and May and October 1961\n<|id|>352<|page|>84<|box|>67 355 80 632<|content|>OWNERSHIP OF FEDERAL SECURITIES\n<|id|>354<|page|>84<|box|>987 511 1000 830<|content|>9/ Immediate postwar debt peak. ... p Preliminary\n<|id|>366<|page|>88<|box|>132 382 145 619<|content|>(Par values - in millions of dollars)\n<|id|>368<|page|>89<|box|>102 6 196 468<|content|>The tables which follow provide an analysis of the...al Reserve member bank classes and nonmember banks\n<|id|>375<|page|>91<|box|>69 228 86 765<|content|>TREASURY SURVEY - COMMERCIAL BANK OWNERSHIP, DECEMBER 31, 1963\n<|id|>378<|page|>92<|box|>64 231 81 771<|content|>TREASURY SURVEY - COMMERCIAL BANK OWNERSHIP, DECEMBER 31, 1963\n<|id|>393<|page|>98<|box|>814 21 968 501<|content|>2/ The following paper currencies are in process o...ficates, United States notes, Federal Reserve Bank\n<|id|>394<|page|>98<|box|>785 548 881 989<|content|>notes, and national bank notes all issued before July 1, 1929; ... Highest amount to date",
+    "raw_response": "<|src_id|>268<|tgt_id|>269\n<|src_id|>337<|tgt_id|>338\n<|src_id|>393<|tgt_id|>394",
+    "parsed": [
+        {
+            "src_id": 268,
+            "tgt_id": 269
+        },
+        {
+            "src_id": 337,
+            "tgt_id": 338
+        },
+        {
+            "src_id": 393,
+            "tgt_id": 394
+        }
+    ]
+}

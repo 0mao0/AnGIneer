@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        141,
+        151
+    ],
+    "pages": [
+        141,
+        142,
+        143,
+        147,
+        149,
+        150,
+        151
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>359<|page|>141<|box|>108 410 136 608<|content|>七、固定皮带机安装\n<|id|>362<|page|>142<|box|>134 45 161 88<|content|>续表\n<|id|>365<|page|>143<|box|>119 72 147 116<|content|>续表\n<|id|>375<|page|>147<|box|>114 410 143 608<|content|>八、螺旋送料机安装\n<|id|>381<|page|>149<|box|>119 426 150 592<|content|>九、缆车安装\n<|id|>384<|page|>150<|box|>143 407 174 574<|content|>十、趸船安装\n<|id|>388<|page|>151<|box|>227 197 328 811<|content|>本局部修订主编单位、主要起草人、参加人和管理组人员名单",
+    "raw_response": "<|id|>359<|level|>1\n<|id|>362<|level|>2\n<|id|>365<|level|>2\n<|id|>375<|level|>1\n<|id|>381<|level|>1\n<|id|>384<|level|>1\n<|id|>388<|level|>1",
+    "parsed": [
+        {
+            "id": 359,
+            "level": 1
+        },
+        {
+            "id": 362,
+            "level": 2
+        },
+        {
+            "id": 365,
+            "level": 2
+        },
+        {
+            "id": 375,
+            "level": 1
+        },
+        {
+            "id": 381,
+            "level": 1
+        },
+        {
+            "id": 384,
+            "level": 1
+        },
+        {
+            "id": 388,
+            "level": 1
+        }
+    ]
+}

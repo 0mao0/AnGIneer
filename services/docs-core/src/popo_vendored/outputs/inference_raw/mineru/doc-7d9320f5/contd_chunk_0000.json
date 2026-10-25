@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 194 126 857<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law One Federal Street, 42nd Floor Boston, Massachusetts 02110\n<|id|>1<|page|>1<|box|>133 223 152 856<|content|>Telephone: ... com\n<|id|>2<|page|>1<|box|>160 746 176 854<|content|>June 20, 2023\n<|id|>3<|page|>1<|box|>186 140 204 834<|content|>Pinnacle Venture Acquisition Corp. ... 101 Park Avenue, 34th Floor New York, New York 10178\n<|id|>4<|page|>1<|box|>212 176 229 553<|content|>Attention: ... Derek Holroyd, Chief Executive Officer\n<|id|>5<|page|>1<|box|>229 176 246 486<|content|>Samantha Briggs, Chief Financial Officer\n<|id|>6<|page|>1<|box|>253 140 364 856<|content|>Re: ... , a Delaware corporation (\"HBT\" or the \"Company\")\n<|id|>21<|page|>2<|box|>847 210 902 856<|content|>(1) The Subscription Agreement, dated as of March ...A common stock at a purchase price of $10. ... and\n<|id|>28<|page|>3<|box|>691 140 785 856<|content|>The Business Combination Agreement and the agreeme...contemplated by the Business Combination Agreement\n<|id|>26<|page|>3<|box|>549 174 604 856<|content|>(k) The Certificate of Merger relating to the Merg...roved by us (the \"Certificate of Merger\"); ... and\n<|id|>39<|page|>5<|box|>133 174 208 856<|content|>(i) That the factual matters, representations, and...would affect the opinions rendered herein; ... and\n<|id|>41<|page|>5<|box|>314 140 425 854<|content|>We have not made any independent investigation of ..., without any independent investigation or inquiry\n<|id|>47<|page|>5<|box|>838 140 892 856<|content|>HBT has all requisite corporate power and authorit...nsactions contemplated by the Business Combination\n<|id|>48<|page|>6<|box|>90 140 237 856<|content|>Agreement. ... Such corporate power and authority ...contemplated by the Business Combination Agreement\n<|id|>60<|page|>7<|box|>421 174 493 854<|content|>(a) Applicable bankruptcy, insolvency, reorganizat...generally, as from time to time in effect; ... and\n<|id|>62<|page|>7<|box|>582 140 618 854<|content|>The qualifications set forth in clauses (a) and (b...ly herein as the \"Enforceability Exceptions. ... \"\n<|id|>70<|page|>8<|box|>241 174 277 854<|content|>(g) Federal, state, or local laws governing intell...rk law, copyright law, or trade secret law; ... or\n<|id|>72<|page|>8<|box|>353 140 407 854<|content|>Additional Qualifications. ... In addition to the ...subject to the following additional qualifications\n<|id|>77<|page|>8<|box|>845 174 901 857<|content|>(e) We express no opinion regarding title to, the ...d Regents of Graystone University, dated September\n<|id|>78<|page|>9<|box|>90 174 219 856<|content|>14, 2019 (License No. ... Our opinions are rendere...ty rights, licenses, or collaboration arrangements\n<|id|>84<|page|>9<|box|>828 140 901 854<|content|>We hereby consent to the filing of this opinion le...l not be deemed an admission that we are \"experts\"\n<|id|>85<|page|>10<|box|>90 140 145 857<|content|>within the meaning of the Securities Act of 1933, ...ctus for which this opinion is filed as an exhibit\n<|id|>86<|page|>10<|box|>152 210 170 343<|content|>Very truly yours,\n<|id|>87<|page|>10<|box|>178 140 194 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>88<|page|>10<|box|>196 142 214 254<|content|>By: ... By\n<|id|>89<|page|>10<|box|>214 142 229 295<|content|>Name: ... Sandra Tung\n<|id|>90<|page|>10<|box|>231 142 246 248<|content|>Title: ... Partner\n<|id|>91<|page|>10<|box|>247 140 265 792<|content|>One Federal Street, 42nd Floor Boston, Massachusetts 02110 Telephone: ... (617) 555-8200",
+    "raw_response": "<|src_id|>47<|tgt_id|>48\n<|src_id|>77<|tgt_id|>78\n<|src_id|>84<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        }
+    ]
+}

@@ -1,0 +1,180 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pv2brdcu\\input\\pdfs\\doc-75c85f4d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pv2brdcu\\enriched\\doc-75c85f4d.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>3\n<|id|>31<|level|>3\n<|id|>49<|level|>3\n<|id|>61<|level|>3\n<|id|>68<|level|>3\n<|id|>76<|level|>3\n<|id|>84<|level|>3\n<|id|>92<|level|>2\n<|id|>102<|level|>2\n<|id|>116<|level|>2\n<|id|>121<|level|>2\n<|id|>125<|level|>2\n<|id|>126<|level|>3",
+    "image_output": "<|src_id|>29<|tgt_id|>27\n<|src_id|>33<|tgt_id|>31\n<|src_id|>35<|tgt_id|>31\n<|src_id|>51<|tgt_id|>49\n<|src_id|>52<|tgt_id|>49\n<|src_id|>54<|tgt_id|>49\n<|src_id|>63<|tgt_id|>61\n<|src_id|>64<|tgt_id|>61\n<|src_id|>70<|tgt_id|>68\n<|src_id|>78<|tgt_id|>76\n<|src_id|>79<|tgt_id|>76\n<|src_id|>86<|tgt_id|>84\n<|src_id|>118<|tgt_id|>116",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 29,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 63,
+            "table2_idx": 64,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "Prescott Capital Management LP",
+                    "Institutional shareholder holding 14.8% of Veldran common stock",
+                    "New York LP",
+                    "13-4928371"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "(11,026,000 shares)",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 78,
+            "table2_idx": 79,
+            "upper_row_ss": [
+                [
+                    "25",
+                    "Brackenridge & Co.",
+                    "Financial advisor / investment bank to Harrowgate and the Veldran Board on the",
+                    "383 Madison Avenue, New York, New York 10179"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "proposed spin-off",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,138 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_h4yekfm\\input\\pdfs\\doc-9f679d4b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_h4yekfm\\enriched\\doc-9f679d4b.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>3\n<|id|>26<|level|>3\n<|id|>31<|level|>3\n<|id|>36<|level|>3\n<|id|>41<|level|>3\n<|id|>46<|level|>3\n<|id|>50<|level|>3\n<|id|>54<|level|>3\n<|id|>58<|level|>3\n<|id|>62<|level|>2\n<|id|>69<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>2",
+    "image_output": "<|src_id|>15<|tgt_id|>13\n<|src_id|>17<|tgt_id|>13\n<|src_id|>91<|tgt_id|>90\n<|src_id|>92<|tgt_id|>90\n<|src_id|>93<|tgt_id|>90",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 90
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 91,
+            "table2_idx": 92,
+            "upper_row_ss": [
+                [
+                    "MFN — Instrument Scope",
+                    "Covers any subsequent convertible note, SAFE, other convertible",
+                    "Covers only subsequent convertible notes or SAFEs; express carve-out"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "instrument, or debt instrument",
+                    "for bank/commercial lending facilities and equipment financing — OPEN"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 92,
+            "table2_idx": 93,
+            "upper_row_ss": [
+                [
+                    "Dispute Resolution",
+                    "Exclusive jurisdiction in federal or state courts of Massachusetts",
+                    "Exclusive jurisdiction in Court of Chancery of Delaware (or Superior Court of Delaware), or U.S. District Court for the District of Delaware"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "— OPEN"
+                ]
+            ]
+        }
+    ]
+}

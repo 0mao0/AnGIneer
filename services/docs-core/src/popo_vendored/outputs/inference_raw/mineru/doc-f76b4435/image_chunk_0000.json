@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|type|>title<|page|>1<|box|>315 142 333 493<|content|>1. Purpose and Confirmation of Engagement\n<|id|>11<|type|>title<|page|>1<|box|>771 142 789 354<|content|>2. Scope of Representation\n<|id|>28<|type|>title<|page|>3<|box|>375 142 391 228<|content|>3. Staffing\n<|id|>29<|type|>table<|page|>3<|box|>424 143 547 852<|content|>None\n<|id|>36<|type|>title<|page|>4<|box|>321 142 339 303<|content|>4. Fee Arrangement\n<|id|>38<|type|>table<|page|>4<|box|>409 143 503 852<|content|>None\n<|id|>47<|type|>title<|page|>5<|box|>167 140 184 390<|content|>5. Expenses and Disbursements\n<|id|>57<|type|>title<|page|>5<|box|>617 140 633 325<|content|>6. Billing and Payment\n<|id|>62<|type|>title<|page|>6<|box|>223 140 239 395<|content|>7. Conflict of Interest Clearance\n<|id|>66<|type|>title<|page|>6<|box|>579 140 597 284<|content|>8. Confidentiality\n<|id|>70<|type|>title<|page|>7<|box|>167 140 184 326<|content|>9. Document Retention\n<|id|>74<|type|>title<|page|>7<|box|>488 142 503 393<|content|>10. Termination of Engagement\n<|id|>78<|type|>title<|page|>7<|box|>808 142 825 297<|content|>11. Governing Law\n<|id|>80<|type|>title<|page|>8<|box|>148 142 166 380<|content|>12. No Guarantee of Outcome\n<|id|>82<|type|>title<|page|>8<|box|>344 142 362 388<|content|>13. Acceptance and Agreement\n<|id|>87<|type|>title<|page|>8<|box|>602 140 618 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>92<|type|>title<|page|>8<|box|>688 349 704 647<|content|>ACKNOWLEDGED AND AGREED:",
+    "raw_response": "<|src_id|>29<|tgt_id|>28\n<|src_id|>38<|tgt_id|>36",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        }
+    ]
+}

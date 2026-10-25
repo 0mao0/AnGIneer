@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>430 140 446 364<|content|>I. Introduction and Purpose\n<|id|>13<|page|>1<|box|>823 142 840 470<|content|>II. Identification of the Underlying Action\n<|id|>23<|page|>2<|box|>469 140 487 493<|content|>III. Summary of the Complaint's Allegations\n<|id|>37<|page|>3<|box|>587 140 604 580<|content|>IV. Identification of the Policy and Applicable Co\n<|id|>49<|page|>4<|box|>383 140 402 418<|content|>V. Engagement of Defense Counsel\n<|id|>58<|page|>5<|box|>194 140 210 562<|content|>VI. Anticipated Defense Strategy and Cost Categori\n<|id|>69<|page|>6<|box|>539 140 556 694<|content|>VII. Request for Coverage Confirmation and Ongoing\n<|id|>80<|page|>7<|box|>415 142 431 357<|content|>VIII. Reservation of Rights\n<|id|>82<|page|>7<|box|>647 142 664 263<|content|>IX. Enclosures",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>23<|level|>1\n<|id|>37<|level|>1\n<|id|>49<|level|>1\n<|id|>58<|level|>1\n<|id|>69<|level|>1\n<|id|>80<|level|>1\n<|id|>82<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        }
+    ]
+}

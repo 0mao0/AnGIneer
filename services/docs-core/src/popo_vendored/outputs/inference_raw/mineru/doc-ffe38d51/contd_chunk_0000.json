@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>198 712 219 892<|content|>JT/T 451—2017\n<|id|>2<|page|>1<|box|>226 715 245 892<|content|>代替 JT/T 451—2009\n<|id|>26<|page|>4<|box|>385 139 402 465<|content|>JT/T 877 船舶溢油应急能力评估导则\n<|id|>27<|page|>4<|box|>404 139 420 500<|content|>JT/T 1143 水上溢油环境风险评估技术导则\n<|id|>28<|page|>4<|box|>423 139 439 552<|content|>JT/T 1144 溢油应急处置船应急装备物资配备要求\n<|id|>29<|page|>4<|box|>442 139 459 465<|content|>JTS 149-1 水运工程环境保护设计规范\n<|id|>40<|page|>4<|box|>878 105 894 889<|content|>4. ... 5 可协调的应急防备能力区域范围为在表1的应急反应时间内,主要应急资源可到达事故多发点\n<|id|>41<|page|>5<|box|>104 105 119 472<|content|>的周边区域,应急反应时间按照 JT/T 877 计算。 ... 的周边区域,应急反应时间按照 JT/T 877 计算",
+    "raw_response": "<|src_id|>40<|tgt_id|>41",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        }
+    ]
+}

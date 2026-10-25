@@ -1,0 +1,178 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-c7cui8oc\\input\\pdfs\\doc-dcb42bb4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-c7cui8oc\\enriched\\doc-dcb42bb4.json",
+    "contd_output": "",
+    "title_output": "<|id|>8<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>2\n<|id|>23<|level|>2\n<|id|>30<|level|>2\n<|id|>37<|level|>2\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>53<|level|>2\n<|id|>61<|level|>1\n<|id|>63<|level|>2\n<|id|>66<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>2\n<|id|>80<|level|>2\n<|id|>83<|level|>2\n<|id|>88<|level|>2\n<|id|>91<|level|>2\n<|id|>104<|level|>2\n<|id|>121<|level|>1\n<|id|>129<|level|>1\n<|id|>141<|level|>1\n<|id|>149<|level|>1\n<|id|>156<|level|>1\n<|id|>158<|level|>2\n<|id|>161<|level|>3\n<|id|>167<|level|>2\n<|id|>169<|level|>2\n<|id|>172<|level|>2",
+    "image_output": "<|src_id|>160<|tgt_id|>158\n<|src_id|>162<|tgt_id|>161\n<|src_id|>163<|tgt_id|>161\n<|src_id|>164<|tgt_id|>161\n<|src_id|>165<|tgt_id|>161\n<|src_id|>166<|tgt_id|>161\n<|src_id|>170<|tgt_id|>169\n<|src_id|>174<|tgt_id|>172",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 160,
+            "tgt_id": 158
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 172
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 163,
+            "table2_idx": 164,
+            "upper_row_ss": [
+                [
+                    "Velthorn Capital",
+                    "Abbreviated name"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Pemberton Wallis LLC",
+                    "Full legal name"
+                ]
+            ]
+        }
+    ]
+}

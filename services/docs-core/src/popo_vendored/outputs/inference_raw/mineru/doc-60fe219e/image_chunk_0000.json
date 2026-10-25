@@ -1,0 +1,55 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 147 126 849<|content|>CALDERWOOD & HARKNESS LLP ATTORNEYS AT LAW 333 Sou\n<|id|>2<|type|>table<|page|>1<|box|>239 143 441 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>491 142 508 228<|content|>I. Purpose\n<|id|>7<|type|>title<|page|>2<|box|>223 140 239 354<|content|>II. Settlement Background\n<|id|>13<|type|>title<|page|>3<|box|>186 140 204 346<|content|>III. EPL Policy Summary\n<|id|>15<|type|>table<|page|>3<|box|>253 143 422 852<|content|>None\n<|id|>21<|type|>title<|page|>4<|box|>148 140 167 416<|content|>IV. Allocation of Settlement Funds\n<|id|>22<|type|>title<|page|>4<|box|>180 142 196 300<|content|>A. Allocation Table\n<|id|>23<|type|>table<|page|>4<|box|>246 143 337 852<|content|>None\n<|id|>25<|type|>title<|page|>4<|box|>585 140 602 419<|content|>B. Pemberton Contribution Details\n<|id|>30<|type|>title<|page|>5<|box|>348 140 364 375<|content|>C. AMA Self-Funded Portion\n<|id|>34<|type|>title<|page|>5<|box|>720 140 738 362<|content|>V. SIR Exhaustion Analysis\n<|id|>35<|type|>title<|page|>5<|box|>751 140 768 285<|content|>A. SIR Threshold\n<|id|>37<|type|>title<|page|>6<|box|>90 140 108 398<|content|>B. Components Eroding the SIR\n<|id|>39<|type|>table<|page|>6<|box|>210 143 301 852<|content|>None\n<|id|>41<|type|>title<|page|>6<|box|>494 140 512 254<|content|>C. SIR Status\n<|id|>44<|type|>title<|page|>6<|box|>794 142 811 380<|content|>D. Remaining Policy Capacity\n<|id|>48<|type|>title<|page|>7<|box|>296 140 313 553<|content|>VI. Total AMA Out-of-Pocket Analysis (All Matters)\n<|id|>50<|type|>table<|page|>7<|box|>400 143 555 852<|content|>None\n<|id|>56<|type|>title<|page|>8<|box|>204 140 222 506<|content|>VII. Accounting Treatment Recommendations\n<|id|>58<|type|>title<|page|>8<|box|>372 140 388 426<|content|>A. Financial Statement Presentation\n<|id|>60<|type|>title<|page|>8<|box|>439 140 455 665<|content|>1. Settlement Expense (Class Action — AMA Self-Fun\n<|id|>62<|type|>title<|page|>8<|box|>656 140 672 627<|content|>2. Insurance Receivable / Recovery (Pemberton Cont\n<|id|>66<|type|>title<|page|>9<|box|>281 140 297 277<|content|>3. Defense Costs.\n<|id|>68<|type|>title<|page|>9<|box|>441 140 459 316<|content|>4. Aldrich Settlement.\n<|id|>70<|type|>title<|page|>9<|box|>590 142 608 370<|content|>B. Disclosure Considerations\n<|id|>75<|type|>title<|page|>10<|box|>330 140 347 450<|content|>C. Coordination with External Auditor\n<|id|>83<|type|>title<|page|>10<|box|>787 140 804 377<|content|>VIII. PAGA Allocation Detail\n<|id|>90<|type|>title<|page|>11<|box|>622 142 638 508<|content|>IX. Settlement Funding Timeline and Logistics\n<|id|>91<|type|>table<|page|>11<|box|>690 143 892 852<|content|>None\n<|id|>92<|type|>table<|page|>12<|box|>89 143 127 852<|content|>None\n<|id|>98<|type|>title<|page|>12<|box|>635 140 652 313<|content|>X. Recommendations\n<|id|>111<|type|>title<|page|>13<|box|>729 142 747 344<|content|>Attachments / References",
+    "raw_response": "<|src_id|>2<|tgt_id|>0\n<|src_id|>15<|tgt_id|>13\n<|src_id|>23<|tgt_id|>22\n<|src_id|>39<|tgt_id|>37\n<|src_id|>50<|tgt_id|>48\n<|src_id|>91<|tgt_id|>90\n<|src_id|>92<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 90
+        }
+    ]
+}

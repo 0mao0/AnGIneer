@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        11,
+        12,
+        13,
+        14,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>136 151 171 844<|content|>CALDERWOOD & HARKNESS LLP 1221 Avenue of the Americas, 40th Floor New York, NY 10020\n<|id|>2<|page|>1<|box|>179 140 241 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...disclosure, or distribution is strictly prohibited\n<|id|>6<|page|>1<|box|>777 140 888 857<|content|>Conclusion. ... We recommend that the HSR Forms fo... soon as practicable, with a target filing date of\n<|id|>7<|page|>2<|box|>90 140 126 852<|content|>December 18, 2024, and that the filing include a r...ination of the statutory thirty-day waiting period\n<|id|>48<|page|>6<|box|>577 174 613 854<|content|>(a) At least one party to the transaction (or its ...sets or annual net sales of at least $222. ... and\n<|id|>50<|page|>6<|box|>665 140 739 854<|content|>See 15 U. ... However, both thresholds are indepen...portability under all potentially applicable tests\n<|id|>102<|page|>11<|box|>840 181 858 674<|content|>• 621111 (Offices of Physicians, except Mental Health Specialists)\n<|id|>103<|page|>11<|box|>861 183 877 563<|content|>• 622110 (General Medical and Surgical Hospitals)\n<|id|>104<|page|>11<|box|>880 183 897 477<|content|>• 621610 (Home Health Care Services)\n<|id|>107<|page|>12<|box|>147 140 202 854<|content|>This list should include the identity of the acqui...cquired entity's operations. ... December 16, 2024\n<|id|>105<|page|>12<|box|>90 181 106 700<|content|>• 621999 (All Other Miscellaneous Ambulatory Health Care Services)\n<|id|>106<|page|>12<|box|>109 181 143 854<|content|>• Any other healthcare services NAICS codes in which Fund III portfolio companies operate\n<|id|>118<|page|>12<|box|>792 140 902 856<|content|>Based on our preliminary review, as discussed in d...apital Management III LLC confirm the full list of\n<|id|>119<|page|>13<|box|>90 140 127 854<|content|>Fund III portfolio companies operating in healthca...ocations of their operations, by December 16, 2024\n<|id|>124<|page|>13<|box|>421 181 455 854<|content|>• Ardent Capital's investment committee memorandum(s) relating to the MedVance acquisition\n<|id|>126<|page|>13<|box|>497 181 550 854<|content|>Presentations from Hargrove Bancroft & Co. ... (Na...ess competition, market shares, or market dynamics\n<|id|>125<|page|>13<|box|>459 181 494 854<|content|>• Any market study or competitive landscape analys... Ardent Capital in connection with the Transaction\n<|id|>130<|page|>13<|box|>763 174 837 856<|content|>For the acquiring person's filing, this includes a...essing the strategic rationale for the Transaction\n<|id|>127<|page|>13<|box|>553 181 588 854<|content|>• The Confidential Information Memorandum (CIM) pr...provided to Ardent Capital's officers or directors\n<|id|>128<|page|>13<|box|>590 181 625 854<|content|>• Management presentations delivered by MedVance t... to the extent they address competitive conditions\n<|id|>131<|page|>13<|box|>845 140 898 856<|content|>Document Review Protocol. ... Beatrice Holloway, James\n<|id|>132<|page|>14<|box|>90 140 219 856<|content|>Prentice, Graham Whitfield, Priya Ranganathan, and...s, and the absence of inadvertent privilege waiver\n<|id|>136<|page|>14<|box|>434 183 450 578<|content|>• Transaction description and valuation methodology\n<|id|>139<|page|>14<|box|>493 140 676 856<|content|>MedVance's filing will include its own revenue dat...es all responsive materials from Crestline's files\n<|id|>137<|page|>14<|box|>454 183 470 584<|content|>• NAICS code classifications for MedVance's revenue\n<|id|>138<|page|>14<|box|>474 183 489 540<|content|>• Timing and logistics of the concurrent e-filing\n<|id|>221<|page|>23<|box|>853 181 907 854<|content|>• Receipt of all required state healthcare licensu...cted by the dates set forth in Section VI. ... and\n<|id|>223<|page|>24<|box|>146 140 202 854<|content|>No further action is required under the HSR Act. ....tters that may arise prior to or following closing",
+    "raw_response": "<|src_id|>6<|tgt_id|>7\n<|src_id|>118<|tgt_id|>119\n<|src_id|>131<|tgt_id|>132\n<|src_id|>221<|tgt_id|>223",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 221,
+            "tgt_id": 223
+        }
+    ]
+}

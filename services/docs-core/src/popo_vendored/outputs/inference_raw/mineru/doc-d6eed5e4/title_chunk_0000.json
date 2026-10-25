@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        9,
+        11,
+        12,
+        14,
+        15,
+        16,
+        18,
+        20,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 272 118 725<|content|>INDEPENDENT MANAGER AGREEMENT\n<|id|>6<|page|>1<|box|>316 271 335 725<|content|>INDEPENDENT MANAGER AGREEMENT\n<|id|>12<|page|>1<|box|>626 142 643 241<|content|>RECITALS\n<|id|>21<|page|>2<|box|>589 140 607 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>45<|page|>4<|box|>602 140 619 584<|content|>ARTICLE II — APPOINTMENT AND ACCEPTANCE\n<|id|>50<|page|>5<|box|>566 140 584 831<|content|>ARTICLE III — DUTIES AND RESPONSIBILITIES OF INDEP\n<|id|>75<|page|>8<|box|>167 140 184 785<|content|>ARTICLE IV — QUALIFICATIONS AND INDEPENDENCE REQUI\n<|id|>84<|page|>9<|box|>204 140 220 424<|content|>ARTICLE V — COMPENSATION\n<|id|>88<|page|>9<|box|>799 142 815 632<|content|>ARTICLE VI — REPRESENTATIONS AND WARRANTIES\n<|id|>110<|page|>11<|box|>487 140 503 751<|content|>ARTICLE VII — INDEMNIFICATION AND LIMITATION OF LI\n<|id|>117<|page|>12<|box|>684 140 720 754<|content|>ARTICLE VIII — TERM, RESIGNATION, AND REMOVAL; SUC\n<|id|>127<|page|>14<|box|>239 140 258 575<|content|>ARTICLE IX — RELATIONSHIP OF THE PARTIES\n<|id|>130<|page|>14<|box|>753 140 772 447<|content|>ARTICLE X — CONFIDENTIALITY\n<|id|>138<|page|>15<|box|>542 142 559 364<|content|>ARTICLE XI — NOTICES\n<|id|>159<|page|>16<|box|>563 140 580 563<|content|>ARTICLE XII — MISCELLANEOUS PROVISIONS\n<|id|>175<|page|>18<|box|>638 400 655 596<|content|>[Signature Pages Follow]\n<|id|>177<|page|>18<|box|>707 140 724 500<|content|>QUORUM RECEIVABLES HOLDING LLC\n<|id|>190<|page|>20<|box|>89 447 107 552<|content|>EXHIBIT A\n<|id|>191<|page|>21<|box|>89 424 107 571<|content|>FEE SCHEDULE\n<|id|>193<|page|>21<|box|>215 140 233 436<|content|>1. Annual Independent Manager Fee.\n<|id|>195<|page|>21<|box|>340 142 357 294<|content|>2. Payment Terms.\n<|id|>200<|page|>21<|box|>523 140 542 362<|content|>3. Expense Reimbursement.\n<|id|>202<|page|>21<|box|>648 140 667 300<|content|>4. Fee Adjustments.\n<|id|>204<|page|>21<|box|>756 140 773 303<|content|>5. Payment Method.\n<|id|>206<|page|>22<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>207<|page|>22<|box|>131 214 148 781<|content|>FORM OF JOINDER FOR SUCCESSOR INDEPENDENT MANAGER\n<|id|>209<|page|>22<|box|>310 142 328 243<|content|>RECITALS\n<|id|>226<|page|>23<|box|>446 142 464 591<|content|>[NAME OF SUCCESSOR INDEPENDENT MANAGER]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>12<|level|>2\n<|id|>21<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>75<|level|>2\n<|id|>84<|level|>2\n<|id|>88<|level|>2\n<|id|>110<|level|>2\n<|id|>117<|level|>2\n<|id|>127<|level|>2\n<|id|>130<|level|>2\n<|id|>138<|level|>2\n<|id|>159<|level|>2\n<|id|>175<|level|>-1\n<|id|>177<|level|>-1\n<|id|>190<|level|>1\n<|id|>191<|level|>1\n<|id|>193<|level|>2\n<|id|>195<|level|>2\n<|id|>200<|level|>2\n<|id|>202<|level|>2\n<|id|>204<|level|>2\n<|id|>206<|level|>1\n<|id|>207<|level|>1\n<|id|>209<|level|>2\n<|id|>226<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 1
+        },
+        {
+            "id": 191,
+            "level": 1
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 1
+        },
+        {
+            "id": 207,
+            "level": 1
+        },
+        {
+            "id": 209,
+            "level": 2
+        }
+    ]
+}

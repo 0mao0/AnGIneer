@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 202 107 794<|content|>UNITED STATES DISTRICT COURT FOR THE DISTRICT OF D\n<|id|>2<|page|>1<|box|>334 258 352 738<|content|>[PROPOSED] ORDER OF DISMISSAL WITH PREJUDICE\n<|id|>6<|page|>1<|box|>637 142 654 447<|content|>IT IS HEREBY ORDERED as follows:\n<|id|>18<|page|>2<|box|>666 142 684 496<|content|>For Plaintiff Apex Surgical Innovations, Inc.:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>6<|level|>3\n<|id|>18<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 4
+        }
+    ]
+}

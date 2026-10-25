@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>1<|box|>835 140 909 857<|content|>WHEREAS, in connection with the Offering and sale ...all Counterparties\"), pursuant to 2002 ISDA Master\n<|id|>9<|page|>2<|box|>90 138 181 857<|content|>Agreements (including schedules thereto) and relat...amount of converted Notes upon any such conversion\n<|id|>41<|page|>5<|box|>678 174 714 854<|content|>(f) customary indemnification and contribution pro...for the benefit of the Initial Purchasers; ... and\n<|id|>43<|page|>5<|box|>767 140 840 854<|content|>The Purchase Agreement shall be governed by and co..., or as may be determined by the Pricing Committee\n<|id|>55<|page|>6<|box|>866 140 904 854<|content|>RESOLVED, that the Board hereby authorizes and dir...iminary Offering Memorandum and the Final Offering\n<|id|>56<|page|>7<|box|>90 140 292 856<|content|>Memorandum, in each case containing a description ...t or pursuant to an applicable exemption therefrom\n<|id|>71<|page|>8<|box|>829 176 847 540<|content|>(i) Marcus Harding, Chief Executive Officer; ... and\n<|id|>72<|page|>8<|box|>854 176 873 527<|content|>(ii) Priya Nandakumar, Chief Financial Officer,\n<|id|>73<|page|>9<|box|>90 140 145 854<|content|>and hereby delegates to the Pricing Committee, act...ng, without limitation, the authority to determine\n<|id|>83<|page|>9<|box|>459 174 494 856<|content|>(j) the number of shares of Common Stock to be res...for issuance upon conversion of the Notes; ... and\n<|id|>85<|page|>9<|box|>529 140 638 856<|content|>RESOLVED FURTHER, that the Pricing Committee shall...cing Committee has taken action prior to such time\n<|id|>125<|page|>13<|box|>429 142 446 434<|content|>James Whitaker Director (Independent)\n<|id|>126<|page|>13<|box|>446 142 464 294<|content|>Date: ... May 19, 2023",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>55<|tgt_id|>56\n<|src_id|>72<|tgt_id|>73",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        }
+    ]
+}

@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        14
+    ],
+    "pages": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>89 434 111 563<|content|>EXHIBIT A\n<|id|>1<|page|>2<|box|>135 341 152 656<|content|>FACILITY DESCRIPTION AND SITE\n<|id|>4<|page|>2<|box|>339 140 356 462<|content|>Section 1. Project Name and Designation\n<|id|>9<|page|>2<|box|>776 140 794 486<|content|>Section 2. Facility Technology and Capacity\n<|id|>10<|page|>2<|box|>806 140 824 359<|content|>2.1 Technology Description\n<|id|>21<|page|>4<|box|>194 142 212 334<|content|>2.2 Nameplate Capacity\n<|id|>26<|page|>4<|box|>555 140 571 405<|content|>2.3 Estimated Energy Production\n<|id|>27<|page|>4<|box|>578 140 595 722<|content|>P50 Estimated Annual Net Generation: 350,000 MWh p\n<|id|>32<|page|>5<|box|>285 140 303 410<|content|>Section 3. Project Site Description\n<|id|>33<|page|>5<|box|>316 140 333 277<|content|>3.1 Site Location\n<|id|>37<|page|>5<|box|>737 140 753 272<|content|>3.2 Land Rights\n<|id|>43<|page|>6<|box|>393 140 409 299<|content|>3.3 Site Boundaries\n<|id|>46<|page|>6<|box|>574 140 592 310<|content|>Section 4. Permitting\n<|id|>47<|page|>6<|box|>604 140 622 370<|content|>4.1 County Land Use Permit\n<|id|>54<|page|>7<|box|>157 140 175 390<|content|>4.2 Environmental Compliance\n<|id|>61<|page|>7<|box|>726 140 743 287<|content|>4.3 Other Permits\n<|id|>71<|page|>8<|box|>450 140 469 349<|content|>Section 5. Interconnection\n<|id|>72<|page|>8<|box|>482 140 500 344<|content|>5.1 Interconnection Point\n<|id|>78<|page|>8<|box|>768 140 785 413<|content|>5.2 Transmission Service Provider\n<|id|>82<|page|>9<|box|>195 140 212 388<|content|>5.3 Interconnection Agreement\n<|id|>87<|page|>9<|box|>686 140 703 297<|content|>5.4 Settlement Hub\n<|id|>88<|page|>9<|box|>709 176 726 519<|content|>ERCOT Settlement Hub: ERCOT West Hub\n<|id|>90<|page|>10<|box|>90 142 107 354<|content|>Section 6. EPC Contractor\n<|id|>99<|page|>11<|box|>546 140 563 400<|content|>Section 8. Independent Engineer\n<|id|>110<|page|>12<|box|>469 140 487 305<|content|>Section 9. Insurance\n<|id|>117<|page|>13<|box|>366 140 383 383<|content|>Section 10. Project Useful Life\n<|id|>121<|page|>14<|box|>89 357 107 640<|content|>ATTACHMENT 1 TO EXHIBIT A\n<|id|>122<|page|>14<|box|>121 140 138 485<|content|>LEGAL DESCRIPTION AND SITE PLAN",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>3\n<|id|>9<|level|>3\n<|id|>10<|level|>4\n<|id|>21<|level|>4\n<|id|>26<|level|>4\n<|id|>27<|level|>-1\n<|id|>32<|level|>3\n<|id|>33<|level|>4\n<|id|>37<|level|>4\n<|id|>43<|level|>4\n<|id|>46<|level|>3\n<|id|>47<|level|>4\n<|id|>54<|level|>4\n<|id|>61<|level|>4\n<|id|>71<|level|>3\n<|id|>72<|level|>4\n<|id|>78<|level|>4\n<|id|>82<|level|>4\n<|id|>87<|level|>4\n<|id|>88<|level|>-1\n<|id|>90<|level|>3\n<|id|>99<|level|>3\n<|id|>110<|level|>3\n<|id|>117<|level|>3\n<|id|>121<|level|>1\n<|id|>122<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 4
+        },
+        {
+            "id": 21,
+            "level": 4
+        },
+        {
+            "id": 26,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 4
+        },
+        {
+            "id": 37,
+            "level": 4
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 4
+        },
+        {
+            "id": 54,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 78,
+            "level": 4
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 87,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 2
+        }
+    ]
+}

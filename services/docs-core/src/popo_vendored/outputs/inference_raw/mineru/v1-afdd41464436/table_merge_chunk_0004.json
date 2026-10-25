@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, Adjusted Income Before Tax by Segment % to Sales', '22.0%', '18.6%', '38.2%', '33.9%', '25.3%', '18.1%', '-0.6%', '-1.7%', '0.0%', '0.0%', '31.3%', '25.6%']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, ', 'colspan=2, Consumer Health1', 'colspan=2, Pharmaceutical1', 'colspan=2, MedTech', 'colspan=2, Unallocated', 'colspan=2, Consumer Health Separation Costs', 'colspan=2, Worldwide Total']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 71,
+    "table2_idx": 72
+}

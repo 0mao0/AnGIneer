@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>145 89 182 912<|content|>中华人民共和国交通行业标准\n<|id|>3<|page|>1<|box|>399 250 477 754<|content|>工程船舶劳动定员 第 2 部分: 航道工程船舶\n<|id|>4<|page|>1<|box|>500 312 547 695<|content|>Manning norm for engineering ship Part 2: Channel\n<|id|>8<|page|>2<|box|>117 464 139 577<|content|>目次\n<|id|>10<|page|>3<|box|>132 426 154 545<|content|>前言\n<|id|>23<|page|>4<|box|>118 233 141 770<|content|>工程船舶劳动定员 第2部分:航道工程船舶\n<|id|>24<|page|>4<|box|>177 99 193 171<|content|>1 范围\n<|id|>27<|page|>4<|box|>253 95 270 169<|content|>2 定员\n<|id|>77<|page|>7<|box|>238 95 255 326<|content|>2.7.4 轮机部定员见表15。\n<|id|>79<|page|>7<|box|>373 95 388 189<|content|>2.8 拖轮\n<|id|>84<|page|>7<|box|>589 95 605 328<|content|>2.8.5 轮机部定员见表17。\n<|id|>86<|page|>7<|box|>740 97 755 191<|content|>2.9 锚艇\n<|id|>101<|page|>8<|box|>620 99 637 342<|content|>2.10.3 轮机部定员见表23。",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>23<|level|>1\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>77<|level|>4\n<|id|>79<|level|>3\n<|id|>84<|level|>4\n<|id|>86<|level|>3\n<|id|>101<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 4
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 4
+        }
+    ]
+}

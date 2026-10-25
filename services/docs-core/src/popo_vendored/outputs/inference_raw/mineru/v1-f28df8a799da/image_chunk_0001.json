@@ -1,0 +1,64 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        62
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        55,
+        59,
+        60,
+        61,
+        62
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>365<|type|>title<|page|>45<|box|>79 447 92 550<|content|>SIGNATURES\n<|id|>367<|type|>table<|page|>45<|box|>147 24 281 970<|content|>None\n<|id|>368<|type|>title<|page|>46<|box|>99 401 116 596<|content|>AMENDMENT LETTER\n<|id|>369<|type|>title<|page|>46<|box|>127 24 143 406<|content|>From: MGM CHINA HOLDINGS LIMITED as Company\n<|id|>375<|type|>title<|page|>46<|box|>300 24 314 187<|content|>1 INTRODUCTION\n<|id|>380<|type|>title<|page|>46<|box|>448 24 462 250<|content|>2SPECIFIC AMENDMENTS\n<|id|>383<|type|>title<|page|>46<|box|>568 24 583 369<|content|>3 EFFECT OF THE SPECIFIC AMENDMENTS\n<|id|>388<|type|>title<|page|>46<|box|>727 24 742 215<|content|>4REPRESENTATIONS\n<|id|>391<|type|>title<|page|>47<|box|>130 24 145 200<|content|>5MISCELLANEOUS\n<|id|>396<|type|>image<|page|>47<|box|>340 66 422 643<|content|>None\n<|id|>402<|type|>title<|page|>48<|box|>122 447 137 547<|content|>SCHEDULE 1\n<|id|>403<|type|>title<|page|>48<|box|>152 442 167 555<|content|>AMENDMENTS\n<|id|>421<|type|>title<|page|>49<|box|>181 40 196 205<|content|>“17.3 Leverage Ratio\n<|id|>423<|type|>table<|page|>49<|box|>289 112 429 859<|content|>None\n<|id|>424<|type|>title<|page|>49<|box|>481 66 494 290<|content|>“17.4 Interest Coverage Ratio\n<|id|>426<|type|>table<|page|>49<|box|>588 112 670 859<|content|>None\n<|id|>427<|type|>title<|page|>50<|box|>191 401 207 594<|content|>AMENDMENT LETTER\n<|id|>434<|type|>title<|page|>50<|box|>402 24 417 187<|content|>1INTRODUCTION\n<|id|>439<|type|>title<|page|>50<|box|>550 24 565 250<|content|>2SPECIFIC AMENDMENTS\n<|id|>442<|type|>title<|page|>50<|box|>670 24 686 367<|content|>3EFFECT OF THE SPECIFIC AMENDMENTS\n<|id|>447<|type|>title<|page|>51<|box|>106 24 119 215<|content|>4REPRESENTATIONS\n<|id|>454<|type|>image<|page|>51<|box|>414 66 459 217<|content|>None\n<|id|>455<|type|>image<|page|>51<|box|>356 334 474 588<|content|>None\n<|id|>460<|type|>image<|page|>51<|box|>604 70 667 398<|content|>None\n<|id|>464<|type|>title<|page|>52<|box|>135 447 150 547<|content|>SCHEDULE 1\n<|id|>465<|type|>title<|page|>52<|box|>166 442 181 555<|content|>AMENDMENTS\n<|id|>483<|type|>title<|page|>53<|box|>229 40 244 205<|content|>“17.3 Leverage Ratio\n<|id|>485<|type|>table<|page|>53<|box|>325 112 465 859<|content|>None\n<|id|>487<|type|>title<|page|>53<|box|>512 66 527 290<|content|>“17.4 Interest Coverage Ratio\n<|id|>489<|type|>table<|page|>53<|box|>608 112 689 861<|content|>None\n<|id|>490<|type|>title<|page|>55<|box|>131 300 143 697<|content|>List of Guarantor Subsidiaries of MGM Resorts Inte\n<|id|>495<|type|>title<|page|>59<|box|>89 437 104 560<|content|>CERTIFICATION\n<|id|>511<|type|>title<|page|>60<|box|>89 437 104 560<|content|>CERTIFICATION\n<|id|>528<|type|>title<|page|>61<|box|>89 300 104 697<|content|>CERTIFICATION PURSUANT TO 18 U.S.C. SECTION 1350\n<|id|>532<|type|>title<|page|>61<|box|>231 26 246 233<|content|>/s/ WILLIAM J. HORNBUCKLE\n<|id|>535<|type|>title<|page|>62<|box|>89 300 104 697<|content|>CERTIFICATION PURSUANT TO 18 U.S.C. SECTION 1350\n<|id|>539<|type|>title<|page|>62<|box|>231 26 246 228<|content|>/s/ JONATHAN S. HALKYARD",
+    "raw_response": "<|src_id|>367<|tgt_id|>365\n<|src_id|>396<|tgt_id|>391\n<|src_id|>423<|tgt_id|>421\n<|src_id|>426<|tgt_id|>424\n<|src_id|>454<|tgt_id|>447\n<|src_id|>455<|tgt_id|>447\n<|src_id|>460<|tgt_id|>447\n<|src_id|>485<|tgt_id|>483\n<|src_id|>489<|tgt_id|>487",
+    "parsed": [
+        {
+            "src_id": 367,
+            "tgt_id": 365
+        },
+        {
+            "src_id": 396,
+            "tgt_id": 391
+        },
+        {
+            "src_id": 423,
+            "tgt_id": 421
+        },
+        {
+            "src_id": 426,
+            "tgt_id": 424
+        },
+        {
+            "src_id": 454,
+            "tgt_id": 447
+        },
+        {
+            "src_id": 455,
+            "tgt_id": 447
+        },
+        {
+            "src_id": 460,
+            "tgt_id": 447
+        },
+        {
+            "src_id": 485,
+            "tgt_id": 483
+        },
+        {
+            "src_id": 489,
+            "tgt_id": 487
+        }
+    ]
+}

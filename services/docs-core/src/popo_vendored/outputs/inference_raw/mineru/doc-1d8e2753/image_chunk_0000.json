@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 212 133 784<|content|>MEMORANDUM PRIVILEGED & CONFIDENTIAL — ATTORNEY WO\n<|id|>9<|type|>title<|page|>1<|box|>479 359 500 638<|content|>I. Purpose of Memorandum\n<|id|>13<|type|>title<|page|>2<|box|>136 419 156 578<|content|>II. Background\n<|id|>14<|type|>title<|page|>2<|box|>181 140 196 366<|content|>A. Consent Order Overview\n<|id|>27<|type|>title<|page|>4<|box|>148 140 167 575<|content|>B. Article VII — Independent Consultant Requiremen\n<|id|>36<|type|>title<|page|>5<|box|>204 140 222 483<|content|>C. Engagement of Calderwood & Harkness\n<|id|>40<|type|>title<|page|>5<|box|>638 156 659 839<|content|>III. Independent Consultant Candidate Identificati\n<|id|>41<|type|>title<|page|>5<|box|>684 140 700 423<|content|>A. Candidate Identification Process\n<|id|>45<|type|>title<|page|>6<|box|>395 140 412 321<|content|>B. Evaluation Criteria\n<|id|>53<|type|>title<|page|>7<|box|>446 140 464 599<|content|>C. Recommendation of Thornfield Consulting Group L\n<|id|>62<|type|>title<|page|>8<|box|>659 316 679 679<|content|>IV. OCC Non-Objection Submission\n<|id|>63<|type|>title<|page|>8<|box|>704 140 720 323<|content|>A. Submission to OCC\n<|id|>74<|type|>title<|page|>10<|box|>90 140 107 380<|content|>B. OCC Review and Response\n<|id|>79<|type|>title<|page|>10<|box|>550 243 570 754<|content|>V. Execution of Thornfield Engagement Agreement\n<|id|>80<|type|>title<|page|>10<|box|>595 142 613 411<|content|>A. Engagement Agreement Terms\n<|id|>90<|type|>title<|page|>11<|box|>484 140 501 285<|content|>B. Scope of Work\n<|id|>97<|type|>title<|page|>12<|box|>426 140 444 339<|content|>C. Ancillary Agreements\n<|id|>107<|type|>title<|page|>13<|box|>344 321 364 676<|content|>VI. Compliance Timeline Summary\n<|id|>108<|type|>table<|page|>13<|box|>424 143 904 852<|content|>None\n<|id|>109<|type|>table<|page|>14<|box|>88 143 224 852<|content|>None\n<|id|>111<|type|>title<|page|>14<|box|>359 323 378 674<|content|>VII. Observations and Conclusions\n<|id|>112<|type|>title<|page|>14<|box|>404 140 420 390<|content|>A. Compliance with Article VII\n<|id|>115<|type|>title<|page|>14<|box|>753 140 770 441<|content|>B. Ongoing Oversight Responsibilities\n<|id|>121<|type|>title<|page|>15<|box|>398 140 414 369<|content|>C. Documentation Retention",
+    "raw_response": "<|src_id|>108<|tgt_id|>107\n<|src_id|>109<|tgt_id|>107",
+    "parsed": [
+        {
+            "src_id": 108,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 107
+        }
+    ]
+}

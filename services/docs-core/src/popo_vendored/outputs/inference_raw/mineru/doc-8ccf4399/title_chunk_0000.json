@@ -1,0 +1,148 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 189 141 807<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>8<|page|>1<|box|>348 150 383 846<|content|>DEFENDANTS' FIRST SET OF INTERROGATORIES TO PLAINT\n<|id|>10<|page|>1<|box|>420 142 438 303<|content|>Propounding Party:\n<|id|>12<|page|>1<|box|>508 142 527 294<|content|>Responding Party:\n<|id|>14<|page|>1<|box|>579 142 595 387<|content|>Counsel for Responding Party:\n<|id|>16<|page|>1<|box|>662 142 680 397<|content|>PRELIMINARY STATEMENT\n<|id|>21<|page|>2<|box|>303 140 320 452<|content|>DEFINITIONS AND INSTRUCTIONS\n<|id|>38<|page|>3<|box|>715 142 733 267<|content|>B. Instructions.\n<|id|>47<|page|>4<|box|>410 142 426 328<|content|>INTERROGATORIES\n<|id|>48<|page|>4<|box|>436 140 454 648<|content|>INTERROGATORY NO. 1 — Corporate Identity and Autho\n<|id|>50<|page|>4<|box|>690 140 707 754<|content|>INTERROGATORY NO. 2 — Negotiation and Execution of\n<|id|>58<|page|>5<|box|>314 140 332 772<|content|>INTERROGATORY NO. 3 — Interpretation of Clause 28\n<|id|>65<|page|>5<|box|>733 140 750 555<|content|>INTERROGATORY NO. 4 — Off-Hire Calculations\n<|id|>80<|page|>7<|box|>133 140 152 848<|content|>INTERROGATORY NO. 6 — Incident 2 — BWTS / Boiler F\n<|id|>88<|page|>7<|box|>707 140 744 854<|content|>INTERROGATORY NO. 7 — Incident 3 — Cylinder Liner\n<|id|>94<|page|>8<|box|>333 140 349 750<|content|>INTERROGATORY NO. 8 — Alleged Deviation to Maputo\n<|id|>103<|page|>9<|box|>226 140 243 580<|content|>INTERROGATORY NO. 9 — Substitute Charter Costs\n<|id|>111<|page|>9<|box|>744 140 761 841<|content|>INTERROGATORY NO. 10 — Cargo Damage Claims (Iron O\n<|id|>119<|page|>10<|box|>585 140 604 617<|content|>INTERROGATORY NO. 11 — Third-Party Shipper Claims\n<|id|>126<|page|>11<|box|>234 140 250 774<|content|>INTERROGATORY NO. 12 — Sub-Charter with Eastbourne\n<|id|>135<|page|>11<|box|>851 142 868 571<|content|>INTERROGATORY NO. 13 — Mitigation of Damages\n<|id|>142<|page|>12<|box|>428 140 446 764<|content|>INTERROGATORY NO. 14 — Withheld Hire (October 1 –\n<|id|>149<|page|>12<|box|>829 142 847 753<|content|>INTERROGATORY NO. 15 — Additional Port Costs and B\n<|id|>155<|page|>13<|box|>340 140 358 781<|content|>INTERROGATORY NO. 16 — Legal Fees and Expert Costs\n<|id|>161<|page|>13<|box|>623 140 640 475<|content|>INTERROGATORY NO. 17 — Insurance\n<|id|>166<|page|>14<|box|>152 140 169 473<|content|>INTERROGATORY NO. 18 — Witnesses\n<|id|>171<|page|>14<|box|>375 140 390 531<|content|>INTERROGATORY NO. 19 — Expert Witnesses\n<|id|>179<|page|>14<|box|>744 140 763 687<|content|>INTERROGATORY NO. 20 — Damages Summary and Computa\n<|id|>200<|page|>15<|box|>603 140 619 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>209<|page|>15<|box|>834 375 851 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>16<|level|>2\n<|id|>21<|level|>2\n<|id|>38<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>58<|level|>3\n<|id|>65<|level|>3\n<|id|>80<|level|>3\n<|id|>88<|level|>3\n<|id|>94<|level|>3\n<|id|>103<|level|>3\n<|id|>111<|level|>3\n<|id|>119<|level|>3\n<|id|>126<|level|>3\n<|id|>135<|level|>3\n<|id|>142<|level|>3\n<|id|>149<|level|>3\n<|id|>155<|level|>3\n<|id|>161<|level|>3\n<|id|>166<|level|>3\n<|id|>171<|level|>3\n<|id|>179<|level|>3\n<|id|>200<|level|>2\n<|id|>209<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 2
+        }
+    ]
+}

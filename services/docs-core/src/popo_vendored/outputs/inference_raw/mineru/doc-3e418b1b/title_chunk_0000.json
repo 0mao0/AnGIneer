@@ -1,0 +1,45 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 153 107 843<|content|>CALDERWOOD & HARKNESS LLP 1301 Avenue of the Ameri\n<|id|>3<|page|>1<|box|>186 140 220 854<|content|>Re: Invoice — Quorum Insurance Holdings Corp. Foll\n<|id|>9<|page|>1<|box|>857 354 873 643<|content|>TOTAL AMOUNT DUE: $95,645.00\n<|id|>10<|page|>2<|box|>90 142 107 446<|content|>Payment Terms and Wire Instructions\n<|id|>14<|page|>2<|box|>301 142 316 323<|content|>Fee Cap Confirmation\n<|id|>17<|page|>2<|box|>521 142 537 395<|content|>Description of Work Performed\n<|id|>28<|page|>3<|box|>354 142 372 450<|content|>Dormancy and Continuing Availability",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>9<|level|>2\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>28<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        }
+    ]
+}

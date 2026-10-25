@@ -1,0 +1,178 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l5d3cxh6\\input\\pdfs\\doc-3b4f87cc.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l5d3cxh6\\enriched\\doc-3b4f87cc.json",
+    "contd_output": "",
+    "title_output": "<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>2\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>26<|level|>1\n<|id|>29<|level|>2\n<|id|>33<|level|>2\n<|id|>39<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>78<|level|>2\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>109<|level|>2\n<|id|>115<|level|>2\n<|id|>124<|level|>2\n<|id|>132<|level|>2\n<|id|>136<|level|>2\n<|id|>139<|level|>2\n<|id|>145<|level|>2\n<|id|>151<|level|>2\n<|id|>156<|level|>2",
+    "image_output": "<|src_id|>9<|tgt_id|>4\n<|src_id|>12<|tgt_id|>11\n<|src_id|>40<|tgt_id|>39\n<|src_id|>90<|tgt_id|>88\n<|src_id|>91<|tgt_id|>88\n<|src_id|>127<|tgt_id|>124\n<|src_id|>129<|tgt_id|>124\n<|src_id|>131<|tgt_id|>124\n<|src_id|>134<|tgt_id|>132\n<|src_id|>137<|tgt_id|>136\n<|src_id|>147<|tgt_id|>145\n<|src_id|>148<|tgt_id|>145",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 9,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 136
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 145
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 90,
+            "table2_idx": 91,
+            "upper_row_ss": [
+                [
+                    "Item",
+                    "Detail"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Common stock offered by us",
+                    "[•] shares (approximately 16,895,455 shares), representing approximately $371,700,000 in primary proceeds at the assumed midpoint price of $22.00 per share"
+                ]
+            ]
+        }
+    ]
+}

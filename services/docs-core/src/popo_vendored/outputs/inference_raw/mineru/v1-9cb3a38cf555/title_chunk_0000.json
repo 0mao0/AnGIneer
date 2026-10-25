@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 248<|content|>【427#49】河南省\n<|id|>2<|page|>1<|box|>260 107 275 248<|content|>【423#30】河北省\n<|id|>4<|page|>1<|box|>395 105 412 319<|content|>【5359336#12】河北省经济\n<|id|>6<|page|>1<|box|>514 107 530 381<|content|>【7350619#0】石家庄循环化工园区\n<|id|>8<|page|>1<|box|>580 105 596 329<|content|>【1765680#2】中捷友谊农场\n<|id|>10<|page|>1<|box|>664 105 680 327<|content|>【1273743#0】曹妃甸工业区\n<|id|>12<|page|>1<|box|>731 107 746 265<|content|>【234265#1】黄骅市\n<|id|>14<|page|>1<|box|>815 107 829 381<|content|>【6582283#1】洛阳经济技术开发区\n<|id|>16<|page|>1<|box|>898 107 914 319<|content|>【270234#7】中部崛起计划\n<|id|>18<|page|>2<|box|>135 107 149 248<|content|>【423#40】河北省",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

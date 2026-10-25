@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>767 142 784 352<|content|>1. Scope of Representation\n<|id|>27<|page|>4<|box|>90 142 107 313<|content|>2. Engagement Team\n<|id|>34<|page|>4<|box|>652 140 670 290<|content|>3. Fees and Billing\n<|id|>44<|page|>6<|box|>148 140 167 431<|content|>4. Client Identification and Conflicts\n<|id|>48<|page|>6<|box|>671 140 688 284<|content|>5. Confidentiality\n<|id|>51<|page|>7<|box|>167 140 184 326<|content|>6. Document Retention\n<|id|>53<|page|>7<|box|>417 140 434 442<|content|>7. Communication and Client Contact\n<|id|>57<|page|>7<|box|>792 140 809 264<|content|>8. Termination\n<|id|>60<|page|>8<|box|>258 140 277 339<|content|>9. Limitation of Liability\n<|id|>63<|page|>8<|box|>554 142 571 297<|content|>10. Governing Law\n<|id|>65<|page|>8<|box|>731 142 747 431<|content|>11. Entire Agreement / Amendments\n<|id|>71<|page|>9<|box|>376 140 393 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>75<|page|>9<|box|>454 140 488 839<|content|>Calderwood & Harkness LLP 600 California Street, 4\n<|id|>77<|page|>9<|box|>559 140 575 449<|content|>GENOME DX THERAPEUTICS INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>57<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>71<|level|>-1\n<|id|>75<|level|>-1\n<|id|>77<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        }
+    ]
+}

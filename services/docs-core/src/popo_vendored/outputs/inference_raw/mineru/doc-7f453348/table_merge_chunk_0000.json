@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, 资源节约', 'rowspan=2, 20分', 'rowspan=2, 土地资源节约利用', 'rowspan=2, 6分', '节地措施', '3分', 'a)临时设施占地面积按用地指标所需的最低面积设计,且有效利用率大于90%,得1分;b)临时办公和生活用房采用多层、可重复使用的装配式结构或租用既有房屋,得1分;c)临时道路布置与原有及永久道路兼顾考虑,得0.5分;d)临时设施布置考虑远近结合,减少和避免大量临时建筑拆迁和场地搬迁,得0.5分']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=5, 资源节约', 'rowspan=5, 20分', 'rowspan=5, 材料节约与循环利用', 'rowspan=5, 14分', '土石方综合利用率', '3分', '土石方综合利用率达30%(含)以上得3分,20%(含)~30%得2分,20%以下不得分']]\n",
+    "raw_response": "[1, 1, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 87,
+    "table2_idx": 89
+}

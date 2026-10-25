@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        49
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>458<|type|>title<|page|>45<|box|>90 142 107 702<|content|>Appendix B: Veridian TMS v.10.0 Feature Comparison\n<|id|>459<|type|>table<|page|>45<|box|>176 143 714 852<|content|>None\n<|id|>461<|type|>title<|page|>46<|box|>90 142 107 483<|content|>Appendix C: Model Validation History Log\n<|id|>462<|type|>table<|page|>46<|box|>159 143 819 852<|content|>None\n<|id|>463<|type|>title<|page|>47<|box|>90 142 108 663<|content|>Appendix D: Scenario Inventory and Threshold Matri\n<|id|>464<|type|>table<|page|>47<|box|>195 143 415 852<|content|>None\n<|id|>466<|type|>table<|page|>48<|box|>113 143 599 852<|content|>None\n<|id|>467<|type|>table<|page|>49<|box|>113 143 503 852<|content|>None\n<|id|>468<|type|>table<|page|>49<|box|>561 143 638 852<|content|>None",
+    "raw_response": "<|src_id|>459<|tgt_id|>458\n<|src_id|>462<|tgt_id|>461\n<|src_id|>464<|tgt_id|>463\n<|src_id|>466<|tgt_id|>463\n<|src_id|>467<|tgt_id|>463\n<|src_id|>468<|tgt_id|>463",
+    "parsed": [
+        {
+            "src_id": 459,
+            "tgt_id": 458
+        },
+        {
+            "src_id": 462,
+            "tgt_id": 461
+        },
+        {
+            "src_id": 464,
+            "tgt_id": 463
+        },
+        {
+            "src_id": 466,
+            "tgt_id": 463
+        },
+        {
+            "src_id": 467,
+            "tgt_id": 463
+        },
+        {
+            "src_id": 468,
+            "tgt_id": 463
+        }
+    ]
+}

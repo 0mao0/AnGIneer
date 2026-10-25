@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        28
+    ],
+    "pages": [
+        3,
+        4,
+        11,
+        12,
+        13,
+        17,
+        18,
+        25,
+        26,
+        27,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>15<|page|>3<|box|>785 140 896 856<|content|>Complainant Ridgepoint Communications Inc. ... §§\n<|id|>16<|page|>4<|box|>90 140 181 854<|content|>251, 252, by declining Ridgepoint's interconnectio...ovide colocation access at all fourteen facilities\n<|id|>66<|page|>11<|box|>851 140 906 856<|content|>Under the terms of the MIA, Ridgepoint was granted...colocation at three designated facilities. ... The\n<|id|>67<|page|>12<|box|>89 140 126 854<|content|>MIA had a fixed five-year term, commencing on June... 14, 2020, with no provision for automatic renewal\n<|id|>79<|page|>13<|box|>559 176 575 532<|content|>1. ... Broad Street, Philadelphia, PA 19108\n<|id|>93<|page|>13<|box|>833 140 868 852<|content|>Northgate declined each of Ridgepoint's fourteen r...nce, identified the following bases for the denial\n<|id|>80<|page|>13<|box|>578 176 595 580<|content|>2. ... 1500 Spring Garden Street, Philadelphia, PA 19130\n<|id|>81<|page|>13<|box|>598 176 614 521<|content|>3. ... 100 Delancey Place, Cherry Hill, NJ 08034\n<|id|>82<|page|>13<|box|>618 176 633 504<|content|>4. ... Warren Street, Trenton, NJ 08608\n<|id|>83<|page|>13<|box|>637 176 654 508<|content|>5. ... Pratt Street, Baltimore, MD 21202\n<|id|>84<|page|>13<|box|>657 176 672 513<|content|>6. ... Fayette Street, Baltimore, MD 21201\n<|id|>85<|page|>13<|box|>676 176 693 495<|content|>7. ... Gay Street, Baltimore, MD 21202\n<|id|>86<|page|>13<|box|>696 176 712 566<|content|>8. ... 9221 Corporate Boulevard, Rockville, MD 20850\n<|id|>87<|page|>13<|box|>715 176 732 648<|content|>9. ... 20036\n<|id|>88<|page|>13<|box|>734 178 751 612<|content|>10. ... 20001\n<|id|>89<|page|>13<|box|>753 179 771 527<|content|>11. ... 44755 Prentice Drive, Ashburn, VA 20147\n<|id|>90<|page|>13<|box|>773 178 791 553<|content|>12. ... 21571 Beaumeade Circle, Ashburn, VA 20147\n<|id|>91<|page|>13<|box|>794 178 810 568<|content|>13. ... 1807 Michael Faraday Court, Reston, VA 20190\n<|id|>92<|page|>13<|box|>813 178 830 583<|content|>14. ... 8100 Boone Boulevard, Tysons Corner, VA 22182\n<|id|>119<|page|>17<|box|>803 140 895 857<|content|>Ridgepoint has offered no credible legal theory un...'s reliance on the general interconnection duty of\n<|id|>120<|page|>18<|box|>90 140 181 857<|content|>Section 251(a) is addressed separately below, but ...colocation rights that Ridgepoint seeks. ... 2003)\n<|id|>174<|page|>25<|box|>834 140 888 857<|content|>2. ... Kuo also testified regarding his estimate o...t's inability to obtain colocation at the fourteen\n<|id|>175<|page|>26<|box|>90 140 126 854<|content|>Northgate facilities. ... § 15\n<|id|>192<|page|>27<|box|>613 174 685 854<|content|>(4) There was no prior course of dealing between N...greement that covered different locations; ... and\n<|id|>194<|page|>27<|box|>738 140 830 854<|content|>In the alternative, should the ALJ decline to dism...ity operating at or above 85% capacity utilization\n<|id|>196<|page|>27<|box|>916 140 930 408<|content|>CONFIDENTIAL — Subject to Protective Order\n<|id|>197<|page|>28<|box|>125 676 143 854<|content|>Respectfully submitted,\n<|id|>198<|page|>28<|box|>150 140 338 856<|content|>CALDERWOOD & HARKNESS LLP By: ... March 15, 2024",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>66<|tgt_id|>67\n<|src_id|>119<|tgt_id|>120\n<|src_id|>174<|tgt_id|>175",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 175
+        }
+    ]
+}

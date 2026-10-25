@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 140 148 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 599 Lex\n<|id|>8<|type|>title<|page|>1<|box|>382 140 398 418<|content|>I. Introduction and Representation\n<|id|>11<|type|>title<|page|>1<|box|>823 140 840 527<|content|>II. Background — The Partnership and the Loan\n<|id|>18<|type|>title<|page|>2<|box|>718 140 734 465<|content|>III. Summary of Deadlock and Litigation\n<|id|>26<|type|>title<|page|>3<|box|>784 140 801 400<|content|>IV. The Consensual Wind-Down\n<|id|>42<|type|>title<|page|>5<|box|>633 142 652 349<|content|>V. Estimated Loan Payoff\n<|id|>44<|type|>table<|page|>5<|box|>776 143 900 852<|content|>None\n<|id|>48<|type|>title<|page|>6<|box|>619 140 636 390<|content|>VI. Specific Consent Requested\n<|id|>56<|type|>title<|page|>7<|box|>537 142 554 406<|content|>VII. Portfolio Property Summary\n<|id|>57<|type|>table<|page|>7<|box|>625 143 878 852<|content|>None\n<|id|>58<|type|>table<|page|>8<|box|>88 143 119 852<|content|>None\n<|id|>61<|type|>title<|page|>8<|box|>364 140 383 277<|content|>VIII. Enclosures\n<|id|>67<|type|>title<|page|>8<|box|>681 140 699 540<|content|>IX. Request for Response and Contact Information\n<|id|>79<|type|>title<|page|>9<|box|>414 140 431 338<|content|>X. Reservation of Rights\n<|id|>84<|type|>title<|page|>9<|box|>800 212 816 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>89<|type|>title<|page|>10<|box|>90 142 107 284<|content|>Acknowledgment\n<|id|>105<|type|>title<|page|>10<|box|>457 143 469 171<|content|>cc:",
+    "raw_response": "<|src_id|>44<|tgt_id|>42\n<|src_id|>57<|tgt_id|>56\n<|src_id|>58<|tgt_id|>56",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 56
+        }
+    ]
+}

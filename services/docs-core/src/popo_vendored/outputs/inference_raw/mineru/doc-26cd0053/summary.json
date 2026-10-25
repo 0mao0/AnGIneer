@@ -1,0 +1,118 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_sl7gki5\\input\\pdfs\\doc-26cd0053.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_sl7gki5\\enriched\\doc-26cd0053.json",
+    "contd_output": "",
+    "title_output": "<|id|>10<|level|>1\n<|id|>19<|level|>1\n<|id|>28<|level|>1\n<|id|>35<|level|>1\n<|id|>37<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>2\n<|id|>51<|level|>2\n<|id|>57<|level|>1\n<|id|>58<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>2\n<|id|>74<|level|>2\n<|id|>87<|level|>1\n<|id|>97<|level|>1\n<|id|>102<|level|>1\n<|id|>110<|level|>1\n<|id|>119<|level|>1\n<|id|>123<|level|>1\n<|id|>131<|level|>1",
+    "image_output": "<|src_id|>30<|tgt_id|>28\n<|src_id|>31<|tgt_id|>28",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 28
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 30,
+            "table2_idx": 31,
+            "upper_row_ss": [
+                [
+                    "Intermediate Holding Company",
+                    "Oceangate Ventures Ltd. (Cyprus Registration No. HE 401293)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Ultimate Parent / Beneficial Owner (Judgment Debtor)",
+                    "Korinthian Maritime Holdings Ltd. (HE 387421)"
+                ]
+            ]
+        }
+    ]
+}

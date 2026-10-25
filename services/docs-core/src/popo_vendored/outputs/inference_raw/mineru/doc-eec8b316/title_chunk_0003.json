@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        171,
+        226
+    ],
+    "pages": [
+        172,
+        179,
+        180,
+        186,
+        212,
+        226
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>432<|page|>172<|box|>94 112 106 178<|content|>Background\n<|id|>435<|page|>172<|box|>238 112 248 290<|content|>Common Definitions and Concepts\n<|id|>440<|page|>172<|box|>63 521 73 592<|content|>INTRODUCTION\n<|id|>442<|page|>172<|box|>182 563 193 680<|content|>Reporting Threshold\n<|id|>445<|page|>172<|box|>387 563 399 710<|content|>Description of Statistics\n<|id|>459<|page|>179<|box|>55 295 68 591<|content|>Section VII. — U.S. Dollar Positions Abroad\n<|id|>462<|page|>180<|box|>36 440 51 660<|content|>FOREIGN CURRENCY POSITIONS\n<|id|>463<|page|>180<|box|>56 401 71 703<|content|>Footnotes to Tables FCP-I through FCP-VII\n<|id|>464<|page|>180<|box|>81 112 93 167<|content|>SECTION I\n<|id|>469<|page|>180<|box|>229 112 240 243<|content|>SECTIONS II THROUGH VII\n<|id|>496<|page|>186<|box|>112 614 122 869<|content|>Task Group #3 Payments Application Procedure\n<|id|>500<|page|>186<|box|>224 614 234 887<|content|>Task Group #4 Revision of 1 TFRM Chapter 6-8000\n<|id|>550<|page|>212<|box|>379 510 391 689<|content|>Section II.--Undelivered Orders\n<|id|>594<|page|>226<|box|>51 420 65 638<|content|>Highway Trust Fund—Continued",
+    "raw_response": "<|id|>432<|level|>1\n<|id|>435<|level|>2\n<|id|>440<|level|>1\n<|id|>442<|level|>2\n<|id|>445<|level|>2\n<|id|>459<|level|>1\n<|id|>462<|level|>1\n<|id|>463<|level|>2\n<|id|>464<|level|>2\n<|id|>469<|level|>2\n<|id|>496<|level|>2\n<|id|>500<|level|>2\n<|id|>550<|level|>2\n<|id|>594<|level|>1",
+    "parsed": [
+        {
+            "id": 432,
+            "level": 1
+        },
+        {
+            "id": 435,
+            "level": 2
+        },
+        {
+            "id": 440,
+            "level": 1
+        },
+        {
+            "id": 442,
+            "level": 2
+        },
+        {
+            "id": 445,
+            "level": 2
+        },
+        {
+            "id": 459,
+            "level": 1
+        },
+        {
+            "id": 462,
+            "level": 1
+        },
+        {
+            "id": 463,
+            "level": 2
+        },
+        {
+            "id": 464,
+            "level": 2
+        },
+        {
+            "id": 469,
+            "level": 2
+        },
+        {
+            "id": 496,
+            "level": 2
+        },
+        {
+            "id": 500,
+            "level": 2
+        },
+        {
+            "id": 550,
+            "level": 2
+        },
+        {
+            "id": 594,
+            "level": 1
+        }
+    ]
+}

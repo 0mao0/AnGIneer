@@ -1,0 +1,193 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kvn_xpf3\\input\\pdfs\\doc-56d5db96.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kvn_xpf3\\enriched\\doc-56d5db96.json",
+    "contd_output": "<|src_id|>22<|tgt_id|>23\n<|src_id|>36<|tgt_id|>37\n<|src_id|>108<|tgt_id|>109\n<|src_id|>117<|tgt_id|>118\n<|src_id|>137<|tgt_id|>138",
+    "title_output": "<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>1\n<|id|>65<|level|>2\n<|id|>68<|level|>2\n<|id|>80<|level|>2\n<|id|>92<|level|>2\n<|id|>94<|level|>1\n<|id|>95<|level|>2\n<|id|>106<|level|>2\n<|id|>120<|level|>2\n<|id|>125<|level|>1\n<|id|>126<|level|>2\n<|id|>134<|level|>2\n<|id|>143<|level|>1\n<|id|>144<|level|>2\n<|id|>149<|level|>2\n<|id|>153<|level|>1\n<|id|>154<|level|>2\n<|id|>162<|level|>2\n<|id|>165<|level|>2\n<|id|>168<|level|>1\n<|id|>175<|level|>1\n<|id|>181<|level|>2\n<|id|>183<|level|>2\n<|id|>185<|level|>2",
+    "image_output": "<|src_id|>179<|tgt_id|>175\n<|src_id|>180<|tgt_id|>175",
+    "contd_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 118
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 138
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 179,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 175
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 179,
+            "table2_idx": 180,
+            "upper_row_ss": [
+                [
+                    "Crescent Bank Ref. No.",
+                    "CCB-1028-20-7792",
+                    "CCB-0706-21-3148"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Trader of Record",
+                    "Natasha Sorokin",
+                    "Natasha Sorokin"
+                ]
+            ]
+        }
+    ]
+}

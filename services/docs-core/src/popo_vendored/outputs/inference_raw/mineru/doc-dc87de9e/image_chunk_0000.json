@@ -1,0 +1,71 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 403 119 593<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>135 200 152 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|type|>title<|page|>1<|box|>369 142 386 364<|content|>1. Purpose of Memorandum\n<|id|>14<|type|>title<|page|>2<|box|>267 140 284 388<|content|>2. Conflict Check Methodology\n<|id|>22<|type|>title<|page|>3<|box|>186 140 203 390<|content|>3. Parties Searched and Results\n<|id|>24<|type|>title<|page|>3<|box|>261 140 277 532<|content|>3.1 The Issuer — Penterra Pharmaceuticals Corp.\n<|id|>25<|type|>table<|page|>3<|box|>282 143 497 852<|content|>None\n<|id|>26<|type|>title<|page|>3<|box|>531 142 547 352<|content|>Key Individuals Searched:\n<|id|>32<|type|>title<|page|>3<|box|>794 140 811 532<|content|>3.2 Selling Stockholders — The Castellano Family\n<|id|>41<|type|>table<|page|>4<|box|>864 143 904 852<|content|>None\n<|id|>42<|type|>table<|page|>5<|box|>89 143 175 852<|content|>None\n<|id|>43<|type|>title<|page|>5<|box|>209 142 226 352<|content|>Key Individuals Searched:\n<|id|>50<|type|>title<|page|>5<|box|>638 142 656 535<|content|>3.4 Joint Book-Runner — Broadmark Capital Inc.\n<|id|>51<|type|>table<|page|>5<|box|>661 143 785 852<|content|>None\n<|id|>52<|type|>title<|page|>5<|box|>820 143 835 344<|content|>Key Individual Searched:\n<|id|>55<|type|>table<|page|>6<|box|>179 143 289 852<|content|>None\n<|id|>57<|type|>table<|page|>6<|box|>411 143 521 852<|content|>None\n<|id|>59<|type|>table<|page|>6<|box|>662 143 801 852<|content|>None\n<|id|>60<|type|>title<|page|>6<|box|>835 143 853 344<|content|>Key Individual Searched:\n<|id|>64<|type|>table<|page|>7<|box|>315 143 469 852<|content|>None\n<|id|>65<|type|>title<|page|>7<|box|>503 142 520 352<|content|>Key Individuals Searched:\n<|id|>69<|type|>table<|page|>7<|box|>712 143 837 852<|content|>None\n<|id|>70<|type|>title<|page|>7<|box|>871 143 888 344<|content|>Key Individual Searched:\n<|id|>71<|type|>title<|page|>8<|box|>90 145 106 385<|content|>• Patricia Velázquez — Partner\n<|id|>73<|type|>table<|page|>8<|box|>344 143 469 852<|content|>None\n<|id|>74<|type|>title<|page|>8<|box|>503 140 520 344<|content|>Key Individual Searched:\n<|id|>77<|type|>title<|page|>8<|box|>652 140 670 367<|content|>3.11 Other Parties Searched\n<|id|>82<|type|>title<|page|>9<|box|>359 140 375 377<|content|>4. Analysis of Potential Issues\n<|id|>84<|type|>title<|page|>9<|box|>470 140 488 557<|content|>4.1 Prior Representation of Ridgeline Securities L\n<|id|>92<|type|>title<|page|>10<|box|>349 140 366 473<|content|>4.2 Issuer vs. Selling Stockholder Interests\n<|id|>100<|type|>title<|page|>11<|box|>547 140 564 697<|content|>4.3 Dr. Marco Castellano — Dual Role as CEO and Se\n<|id|>106<|type|>title<|page|>12<|box|>329 140 347 362<|content|>5. Clearance Determination\n<|id|>115<|type|>title<|page|>12<|box|>760 140 776 303<|content|>6. Recommendation\n<|id|>119<|type|>table<|page|>13<|box|>167 143 263 852<|content|>None\n<|id|>121<|type|>title<|page|>13<|box|>430 142 446 377<|content|>7. Certification and Approval",
+    "raw_response": "<|src_id|>25<|tgt_id|>24\n<|src_id|>41<|tgt_id|>32\n<|src_id|>42<|tgt_id|>32\n<|src_id|>51<|tgt_id|>50\n<|src_id|>55<|tgt_id|>50\n<|src_id|>57<|tgt_id|>50\n<|src_id|>59<|tgt_id|>50\n<|src_id|>64<|tgt_id|>50\n<|src_id|>69<|tgt_id|>50\n<|src_id|>73<|tgt_id|>71\n<|src_id|>119<|tgt_id|>115",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 115
+        }
+    ]
+}

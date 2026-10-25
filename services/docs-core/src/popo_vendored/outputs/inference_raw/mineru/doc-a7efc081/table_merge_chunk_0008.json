@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 8,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Book value of United States interest, after exclusion of interagency items......', '1,861.7', '202.8', '55.2', '819.6', '742.9', '786.3', '23.9', '1,258.8', '502.7']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, ', 'rowspan=2, Grand total', 'colspan=8, Corporations']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 200,
+    "table2_idx": 201
+}

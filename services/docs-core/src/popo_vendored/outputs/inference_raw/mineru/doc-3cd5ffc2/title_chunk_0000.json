@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 232 133 764<|content|>MEMORANDUM INTERNAL / CONFIDENTIAL — TRUST ACCOUNT\n<|id|>6<|page|>1<|box|>378 142 395 233<|content|>1. Purpose\n<|id|>11<|page|>2<|box|>90 142 107 405<|content|>2. Client and Matter Information\n<|id|>16<|page|>2<|box|>775 142 792 364<|content|>3. Retainer Payment Details\n<|id|>22<|page|>3<|box|>375 140 391 439<|content|>4. Trust Account Deposit Information\n<|id|>27<|page|>4<|box|>90 140 107 348<|content|>5. Application of Retainer\n<|id|>34<|page|>5<|box|>90 140 107 330<|content|>6. Engagement Context\n<|id|>39<|page|>5<|box|>656 140 672 449<|content|>7. Trust Account Administration Notes\n<|id|>47<|page|>6<|box|>556 140 573 344<|content|>8. Distribution and Filing\n<|id|>57<|page|>7<|box|>148 140 167 272<|content|>9. Confirmation\n<|id|>59<|page|>7<|box|>209 142 224 263<|content|>Confirmed by:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>1\n<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>22<|level|>1\n<|id|>27<|level|>1\n<|id|>34<|level|>1\n<|id|>39<|level|>1\n<|id|>47<|level|>1\n<|id|>57<|level|>1\n<|id|>59<|level|>-1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        }
+    ]
+}

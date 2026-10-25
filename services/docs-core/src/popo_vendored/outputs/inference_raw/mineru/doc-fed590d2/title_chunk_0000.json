@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>443 142 459 321<|content|>I. Executive Summary\n<|id|>21<|page|>2<|box|>561 140 577 359<|content|>II. Scope of the Assessment\n<|id|>23<|page|>2<|box|>727 140 744 377<|content|>A. Data Categories Evaluated\n<|id|>29<|page|>3<|box|>527 140 544 421<|content|>B. Platform Architecture Reviewed\n<|id|>35<|page|>4<|box|>311 140 329 529<|content|>C. Applicable Legal and Regulatory Frameworks\n<|id|>41<|page|>5<|box|>90 140 107 460<|content|>III. Summary of Fenwick DCA Findings\n<|id|>43<|page|>5<|box|>202 140 219 467<|content|>A. Data Flow Mapping and Classification\n<|id|>48<|page|>5<|box|>718 142 734 393<|content|>B. CTDPA Compliance Posture\n<|id|>54<|page|>6<|box|>502 140 518 419<|content|>C. HIPAA Compliance Assessment\n<|id|>59<|page|>7<|box|>402 140 420 596<|content|>D. NAIC Insurance Data Security Model Law Complian\n<|id|>68<|page|>8<|box|>325 140 342 570<|content|>E. AI and Automated Decision-Making Considerations\n<|id|>72<|page|>8<|box|>789 140 806 415<|content|>IV. Subprocessor Risk Assessment\n<|id|>75<|page|>9<|box|>140 140 156 428<|content|>A. Cobalt Cloud Infrastructure, Inc.\n<|id|>81<|page|>9<|box|>681 142 698 383<|content|>B. Redline Document AI, LLC\n<|id|>87<|page|>10<|box|>375 140 391 550<|content|>C. Subprocessor Consent and Objection Mechanism\n<|id|>97<|page|>11<|box|>90 140 107 364<|content|>V. Residual Risks Identified\n<|id|>99<|page|>11<|box|>202 140 219 334<|content|>A. Aggregated Data Use\n<|id|>108<|page|>11<|box|>632 142 648 444<|content|>B. Vendor Insolvency and Data Access\n<|id|>114<|page|>12<|box|>362 140 378 517<|content|>C. Cross-Border and Multi-State Data Transfer\n<|id|>117<|page|>12<|box|>607 140 625 359<|content|>D. Breach Notification Gap\n<|id|>123<|page|>13<|box|>223 140 239 468<|content|>VI. Recommended Contractual Mitigants\n<|id|>125<|page|>14<|box|>90 142 108 694<|content|>A. Mitigants Incorporated into Exhibit C (Data Pro\n<|id|>138<|page|>16<|box|>90 140 107 656<|content|>B. Mitigants Incorporated into Exhibit D (Security\n<|id|>149<|page|>16<|box|>781 140 797 575<|content|>C. Mitigants Addressed in Other Agreement Provisio\n<|id|>155<|page|>17<|box|>410 140 426 645<|content|>VII. Open Items and Recommendations for Ongoing Mo\n<|id|>162<|page|>18<|box|>260 140 277 279<|content|>VIII. Conclusion\n<|id|>174<|page|>18<|box|>835 142 851 232<|content|>Enclosure:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>29<|level|>3\n<|id|>35<|level|>3\n<|id|>41<|level|>2\n<|id|>43<|level|>3\n<|id|>48<|level|>3\n<|id|>54<|level|>3\n<|id|>59<|level|>3\n<|id|>68<|level|>3\n<|id|>72<|level|>2\n<|id|>75<|level|>3\n<|id|>81<|level|>3\n<|id|>87<|level|>3\n<|id|>97<|level|>2\n<|id|>99<|level|>3\n<|id|>108<|level|>3\n<|id|>114<|level|>3\n<|id|>117<|level|>3\n<|id|>123<|level|>2\n<|id|>125<|level|>3\n<|id|>138<|level|>3\n<|id|>149<|level|>3\n<|id|>155<|level|>2\n<|id|>162<|level|>2\n<|id|>174<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 2
+        }
+    ]
+}

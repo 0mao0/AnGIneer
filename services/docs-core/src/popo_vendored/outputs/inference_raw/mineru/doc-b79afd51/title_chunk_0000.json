@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 106 720<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>10<|page|>1<|box|>436 140 453 364<|content|>I. Purpose and Introduction\n<|id|>15<|page|>2<|box|>223 140 239 406<|content|>II. Description of the Transaction\n<|id|>24<|page|>3<|box|>426 140 443 557<|content|>III. CFIUS Review and National Security Agreement\n<|id|>31<|page|>4<|box|>502 140 518 511<|content|>IV. Maintenance of Facility Security Clearance\n<|id|>41<|page|>5<|box|>582 140 599 449<|content|>V. Continuing Facility Security Officer\n<|id|>46<|page|>6<|box|>212 140 229 725<|content|>VI. Reconstituted Board of Directors and Governmen\n<|id|>66<|page|>7<|box|>494 140 512 537<|content|>VII. FOCI Mitigation and NSA as SSA Equivalent\n<|id|>75<|page|>9<|box|>167 140 185 452<|content|>VIII. Third-Party Compliance Monitor\n<|id|>82<|page|>10<|box|>90 140 107 540<|content|>IX. Export Control Registrations and Notifications\n<|id|>88<|page|>10<|box|>773 142 790 416<|content|>X. Government Contract Novation\n<|id|>93<|page|>11<|box|>502 140 518 519<|content|>XI. Pre-Notification Obligations Going Forward\n<|id|>103<|page|>12<|box|>223 140 239 344<|content|>XII. Contact Information\n<|id|>115<|page|>12<|box|>685 140 702 277<|content|>XIII. Enclosures",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>41<|level|>2\n<|id|>46<|level|>2\n<|id|>66<|level|>2\n<|id|>75<|level|>2\n<|id|>82<|level|>2\n<|id|>88<|level|>2\n<|id|>93<|level|>2\n<|id|>103<|level|>2\n<|id|>115<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        }
+    ]
+}

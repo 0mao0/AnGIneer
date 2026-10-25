@@ -1,0 +1,23 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Mesquite Wind', 'Mesquite Wind', '11/03/2020', 'Mesquite Wind', 'Mesquite Wind', 'PPA', '20 yrs from COD', '[Redacted]', 'Yes (consen t req.;', 'Yes (consen t req.)', 'Yes']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['PPA', 'Holdings LLC / PREC', '', '', 'Holdings LLC', '', '', '', 'no IPO carve-out)', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 352,
+    "table2_idx": 353
+}

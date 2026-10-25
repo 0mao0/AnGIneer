@@ -1,0 +1,108 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1xgmquno\\input\\pdfs\\v1-549f025589ca.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1xgmquno\\enriched\\v1-549f025589ca.json",
+    "contd_output": "",
+    "title_output": "",
+    "image_output": "",
+    "contd_label": [],
+    "title_label": [],
+    "image_label": [],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 182,
+            "table2_idx": 183,
+            "upper_row_ss": [
+                [
+                    "rowspan=2, Transfer learning & Data augmentation ±",
+                    "0.053",
+                    "0.027",
+                    "0.035",
+                    "0.000",
+                    "0.000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "None",
+                    "0.169",
+                    "0.078",
+                    "0.071",
+                    "0.000",
+                    "0.019"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 184,
+            "table2_idx": 185,
+            "upper_row_ss": [
+                [
+                    "±",
+                    "0.232",
+                    "0.231",
+                    "0.192",
+                    "0.016",
+                    "0.032"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1/4",
+                    "0.091",
+                    "0.035",
+                    "0.125",
+                    "0.000",
+                    "0.009"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 185,
+            "table2_idx": 186,
+            "upper_row_ss": [
+                [
+                    "±",
+                    "0.282",
+                    "0.274",
+                    "0.235",
+                    "0.024",
+                    "0.043"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Loss function",
+                    "JCD",
+                    "RDD",
+                    "RCD",
+                    "ISF",
+                    "ASF"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 186,
+            "table2_idx": 187,
+            "upper_row_ss": [
+                [
+                    "rowspan=2, Dice ±",
+                    "0.048",
+                    "0.023",
+                    "0.035",
+                    "0.000",
+                    "0.000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Cross-Entropy ±",
+                    "0.067",
+                    "0.022",
+                    "0.043",
+                    "0.000",
+                    "0.000"
+                ]
+            ]
+        }
+    ]
+}

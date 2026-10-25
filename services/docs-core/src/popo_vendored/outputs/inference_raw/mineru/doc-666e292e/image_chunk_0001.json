@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        49,
+        51
+    ],
+    "pages": [
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>568<|type|>table<|page|>49<|box|>153 102 815 882<|content|>None\n<|id|>569<|type|>title<|page|>50<|box|>143 460 159 552<|content|>附录E\n<|id|>572<|type|>title<|page|>50<|box|>219 112 235 201<|content|>E.1 柱式\n<|id|>574<|type|>image<|page|>50<|box|>270 248 467 366<|content|>None\n<|id|>575<|type|>image<|page|>50<|box|>269 574 469 838<|content|>None\n<|id|>576<|type|>title<|page|>50<|box|>508 112 524 218<|content|>E.2 悬臂式\n<|id|>581<|type|>image<|page|>50<|box|>674 149 828 336<|content|>None\n<|id|>582<|type|>image<|page|>50<|box|>618 389 839 621<|content|>None\n<|id|>583<|type|>image<|page|>50<|box|>638 650 827 889<|content|>None\n<|id|>584<|type|>title<|page|>51<|box|>125 100 140 203<|content|>E.3 附着式\n<|id|>586<|type|>image<|page|>51<|box|>191 132 343 324<|content|>None\n<|id|>587<|type|>image<|page|>51<|box|>220 386 338 606<|content|>None\n<|id|>588<|type|>image<|page|>51<|box|>257 636 321 885<|content|>None",
+    "raw_response": "<|src_id|>574<|tgt_id|>572\n<|src_id|>575<|tgt_id|>572\n<|src_id|>581<|tgt_id|>576\n<|src_id|>582<|tgt_id|>576\n<|src_id|>583<|tgt_id|>576\n<|src_id|>586<|tgt_id|>584\n<|src_id|>587<|tgt_id|>584\n<|src_id|>588<|tgt_id|>584",
+    "parsed": [
+        {
+            "src_id": 574,
+            "tgt_id": 572
+        },
+        {
+            "src_id": 575,
+            "tgt_id": 572
+        },
+        {
+            "src_id": 581,
+            "tgt_id": 576
+        },
+        {
+            "src_id": 582,
+            "tgt_id": 576
+        },
+        {
+            "src_id": 583,
+            "tgt_id": 576
+        },
+        {
+            "src_id": 586,
+            "tgt_id": 584
+        },
+        {
+            "src_id": 587,
+            "tgt_id": 584
+        },
+        {
+            "src_id": 588,
+            "tgt_id": 584
+        }
+    ]
+}

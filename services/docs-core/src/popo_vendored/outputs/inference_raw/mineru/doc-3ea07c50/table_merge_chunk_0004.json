@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['*', '1-1/2', '-', '4/01/85-EA', '63.07', '+.27', '13.76', '-.11', '4/01/80', '83.00', '5/30/80', '62.12', '2/28/81']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Amount outstanding millions)', 'rowspan=3,colspan=3, Description', 'colspan=2, Price', 'colspan=2, Yield', 'rowspan=3, Price', 'colspan=4, Price range and first traded']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 305,
+    "table2_idx": 306
+}

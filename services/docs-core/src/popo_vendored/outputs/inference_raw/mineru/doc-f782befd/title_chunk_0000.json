@@ -1,0 +1,50 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        67
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        23,
+        26,
+        40,
+        66,
+        67
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>7<|box|>0 61 271 856<|content|>TREASURY BULLETIN\n<|id|>9<|page|>9<|box|>64 349 87 607<|content|>Table of Contents\n<|id|>13<|page|>11<|box|>220 270 242 676<|content|>Treasury Financing Operations\n<|id|>81<|page|>23<|box|>604 397 619 584<|content|>Footnotes to Table 3\n<|id|>105<|page|>26<|box|>508 500 520 780<|content|>8/ For Farmere' Home Administration program.\n<|id|>139<|page|>40<|box|>183 170 198 856<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>217<|page|>66<|box|>77 366 93 673<|content|>Section II - Summary by Countries\n<|id|>219<|page|>67<|box|>67 337 82 639<|content|>Section II - Summary by Countries",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>81<|level|>3\n<|id|>105<|level|>-1\n<|id|>139<|level|>2\n<|id|>217<|level|>2\n<|id|>219<|level|>2",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 2
+        }
+    ]
+}

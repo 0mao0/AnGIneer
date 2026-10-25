@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        7,
+        9,
+        11,
+        12,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>85 84 550 816<|content|>FieldValue Document TClosing Funds Flow Memorandum...l/360) Status CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>3<|page|>7<|box|>86 87 102 327<|content|>Category Amount ($% of Total\n<|id|>4<|page|>7<|box|>104 87 120 166<|content|>SOURCES\n<|id|>5<|page|>7<|box|>121 87 137 307<|content|>Rated Note364,000,0 91. ... 00%\n<|id|>6<|page|>7<|box|>139 87 155 297<|content|>Subordinat36,000,00 9. ... 00%\n<|id|>7<|page|>7<|box|>156 87 173 315<|content|>Total Sour400,000,0 100. ... 00%\n<|id|>9<|page|>7<|box|>210 87 225 307<|content|>Warehouse 213,485,0 53. ... 37%\n<|id|>10<|page|>7<|box|>228 87 244 297<|content|>Placement 1,910,000 0. ... 48%\n<|id|>11<|page|>7<|box|>246 87 262 297<|content|>Trustee Ac25,000 0. ... 01%\n<|id|>12<|page|>7<|box|>263 87 280 297<|content|>Legal Fees 2,110,000 0. ... 53%\n<|id|>13<|page|>7<|box|>281 87 298 297<|content|>Rating Age650,000 0. ... 16%\n<|id|>14<|page|>7<|box|>299 87 315 297<|content|>Accounting125,000 0. ... 03%\n<|id|>15<|page|>7<|box|>317 87 334 297<|content|>Funding of2,500,000 0. ... 63%\n<|id|>16<|page|>7<|box|>335 87 351 307<|content|>New Collat179,195,0 44. ... 80%\n<|id|>17<|page|>7<|box|>353 87 369 315<|content|>Total Uses400,000,0 100. ... 00%\n<|id|>18<|page|>7<|box|>388 87 404 336<|content|>Balance Ch0Must be $0\n<|id|>21<|page|>9<|box|>103 85 120 875<|content|>Principal $212,500,000 + accrued interest/fees $98... ... final per diem to be confirmed by Kenton & Ca\n<|id|>24<|page|>9<|box|>156 87 173 875<|content|>Trustee fee $25,000 + Collection Account $500,000 + Interest Reserve $2,000,000; ... 2\n<|id|>22<|page|>9<|box|>121 87 137 310<|content|>0. ... 50% of $364M rated notes\n<|id|>23<|page|>9<|box|>139 87 155 361<|content|>0. ... 25% of $36M subordinated notes\n<|id|>25<|page|>9<|box|>175 87 191 418<|content|>Per engagement leter dated May 15, 2023\n<|id|>26<|page|>9<|box|>192 87 209 295<|content|>Placement agent's counsel\n<|id|>27<|page|>9<|box|>211 87 225 228<|content|>Trustee's counsel\n<|id|>28<|page|>9<|box|>228 87 244 309<|content|>Warehouse lender's counsel\n<|id|>29<|page|>9<|box|>247 87 262 220<|content|>Cayman counsel\n<|id|>30<|page|>9<|box|>263 87 281 393<|content|>Initial rating fee + first-year surveillance\n<|id|>31<|page|>9<|box|>282 87 298 292<|content|>Dual-rated with Brindoval\n<|id|>32<|page|>9<|box|>299 87 316 297<|content|>Closing-related accounting\n<|id|>33<|page|>9<|box|>317 87 334 442<|content|>OM printing, DTC eligibility, CUSIP registration\n<|id|>34<|page|>9<|box|>335 87 351 727<|content|>Balance of proceeds for remaining ramp; ... efective date deadline December 12, 2023\n<|id|>35<|page|>11<|box|>86 87 174 806<|content|>Investor Key ContacTranche(s)Allocation ERISA Elig...00,0 Rated NotesBalance placed through syndication\n<|id|>36<|page|>12<|box|>85 84 549 566<|content|>Sequence DateEvent / CoResponsiblStatus 12023-05-1...9-1End of Rei —Future 252036-10-1Stated Mat—Future\n<|id|>38<|page|>15<|box|>86 85 388 877<|content|>Fee CategoPayeeAmount / Dollar AmoCalculationTimin...mated Closing DaPaid from note proceeds at closing",
+    "raw_response": "<|src_id|>3<|tgt_id|>4\n<|src_id|>24<|tgt_id|>22",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 22
+        }
+    ]
+}

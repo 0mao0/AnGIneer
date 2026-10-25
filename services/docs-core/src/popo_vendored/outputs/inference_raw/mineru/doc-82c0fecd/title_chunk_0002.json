@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        107,
+        127
+    ],
+    "pages": [
+        108,
+        109,
+        113,
+        117,
+        120,
+        126,
+        127
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>383<|page|>108<|box|>47 256 62 735<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>386<|page|>109<|box|>46 255 61 732<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>391<|page|>113<|box|>46 240 59 717<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>397<|page|>117<|box|>50 245 64 720<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>402<|page|>120<|box|>44 259 57 740<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>413<|page|>126<|box|>51 268 64 750<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>415<|page|>127<|box|>72 331 87 636<|content|>Footnotes to Sections II and III",
+    "raw_response": "<|id|>383<|level|>1\n<|id|>386<|level|>1\n<|id|>391<|level|>1\n<|id|>397<|level|>1\n<|id|>402<|level|>1\n<|id|>413<|level|>1\n<|id|>415<|level|>2",
+    "parsed": [
+        {
+            "id": 383,
+            "level": 1
+        },
+        {
+            "id": 386,
+            "level": 1
+        },
+        {
+            "id": 391,
+            "level": 1
+        },
+        {
+            "id": 397,
+            "level": 1
+        },
+        {
+            "id": 402,
+            "level": 1
+        },
+        {
+            "id": 413,
+            "level": 1
+        },
+        {
+            "id": 415,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        10
+    ],
+    "pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>17<|page|>3<|box|>766 174 893 857<|content|>(b) Cooperation with Financing. ... (as Co-Lender), as more fully described in\n<|id|>18<|page|>4<|box|>90 174 219 857<|content|>Section 6. ... Such cooperation has included, with...documents and certificates required by the lenders\n<|id|>26<|page|>5<|box|>332 174 405 856<|content|>(i) Martinez v. ... and\n<|id|>28<|page|>5<|box|>494 140 678 856<|content|>The aggregate claimed exposure of the foregoing li...ed to constitute a Company Material Adverse Effect\n<|id|>30<|page|>5<|box|>726 140 910 856<|content|>The Seller Representative hereby certifies that, s...nce, or condition has come to the Knowledge of the\n<|id|>31<|page|>6<|box|>90 140 126 854<|content|>Seller Representative that would reasonably be exp... to give rise to a Company Material Adverse Effect\n<|id|>46<|page|>7<|box|>872 174 909 854<|content|>(e) Officer's Certificate. ... A certificate of th...ity as Chief Executive Officer of the Company, and\n<|id|>47<|page|>8<|box|>90 174 181 854<|content|>Angela Moretti, in her capacity as Chief Financial...ntemplated by Section 8. ... 2(d) of the Agreement\n<|id|>62<|page|>9<|box|>888 140 906 336<|content|>[Signature Page Follows]\n<|id|>63<|page|>9<|box|>916 142 929 215<|content|>Confidential\n<|id|>68<|page|>10<|box|>308 174 344 854<|content|>c/o Crestline Growth Equity Fund II LP 200 Clarendon Street, 42nd Floor Boston, MA 02116\n<|id|>69<|page|>10<|box|>353 176 388 383<|content|>Attention: ... (617) 555-0184\n<|id|>70<|page|>10<|box|>395 174 414 478<|content|>Email: ... com\n<|id|>71<|page|>10<|box|>412 140 431 529<|content|>With a copy to (which shall not constitute notice)...With a copy to (which shall not constitute notice)\n<|id|>72<|page|>10<|box|>438 174 458 813<|content|>Whitaker, Poole & Simms LLP 333 Commerce Street, Suite 2800 Nashville, TN 37201\n<|id|>73<|page|>10<|box|>464 174 501 436<|content|>Attention: ... (615) 555-0293\n<|id|>74<|page|>10<|box|>508 176 527 415<|content|>Email: ... com",
+    "raw_response": "<|src_id|>17<|tgt_id|>18\n<|src_id|>30<|tgt_id|>31\n<|src_id|>46<|tgt_id|>47",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        }
+    ]
+}

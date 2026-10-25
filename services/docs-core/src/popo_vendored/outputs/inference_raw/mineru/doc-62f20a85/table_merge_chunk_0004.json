@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['100701007000', '管沟梁', 'm^{3}、件', '构件预制,构件堆放、装车(船)、运输,安装等', '单件体积、重量,安装位置,混凝土强度等级,管沟梁最薄壁厚,运距等']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['100701008000', '带靠船构件梁', 'm^3、件', '构件预制,构件堆放、装车(船)、运输,安装等', '单件体积、重量,安装位置,混凝土强度等级,运距等']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 280,
+    "table2_idx": 281
+}

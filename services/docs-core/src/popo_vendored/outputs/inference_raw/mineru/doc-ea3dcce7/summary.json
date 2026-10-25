@@ -1,0 +1,324 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-b69iuxr5\\input\\pdfs\\doc-ea3dcce7.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-b69iuxr5\\enriched\\doc-ea3dcce7.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>23<|level|>2\n<|id|>46<|level|>2\n<|id|>47<|level|>3\n<|id|>56<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>72<|level|>3\n<|id|>85<|level|>3\n<|id|>94<|level|>3\n<|id|>117<|level|>3\n<|id|>131<|level|>2\n<|id|>137<|level|>2\n<|id|>138<|level|>3\n<|id|>153<|level|>3\n<|id|>158<|level|>3\n<|id|>162<|level|>2\n<|id|>164<|level|>3\n<|id|>168<|level|>3\n<|id|>172<|level|>3\n<|id|>175<|level|>2\n<|id|>184<|level|>2\n<|id|>190<|level|>2",
+    "image_output": "<|src_id|>18<|tgt_id|>8\n<|src_id|>133<|tgt_id|>131\n<|src_id|>134<|tgt_id|>131\n<|src_id|>135<|tgt_id|>131\n<|src_id|>186<|tgt_id|>184\n<|src_id|>187<|tgt_id|>184\n<|src_id|>188<|tgt_id|>184\n<|src_id|>189<|tgt_id|>184\n<|src_id|>191<|tgt_id|>190\n<|src_id|>192<|tgt_id|>190",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 18,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 190
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 133,
+            "table2_idx": 134,
+            "upper_row_ss": [
+                [
+                    "Ridgeline Public Employees' Retirement System",
+                    "Y",
+                    "Y (Kellner)",
+                    "Y",
+                    "Y (15 bps reduction)",
+                    "Y (30-day notice; consent not to be unreasonably",
+                    "Y",
+                    "Compliant (subject to confirmatory steps)",
+                    "Confirm LPAC consent satisfies side-letter requireme"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "(SL-01)",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "withheld)",
+                    "",
+                    "",
+                    "nt; send Contributing Person notification by ~April 22, 2024"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 134,
+            "table2_idx": 135,
+            "upper_row_ss": [
+                [
+                    "LP-06",
+                    "Y",
+                    "Y (Kellner)",
+                    "N",
+                    "Y (15 bps reduction)",
+                    "N",
+                    "Y",
+                    "Compliant (notification pending)",
+                    "Send Contributing Person notification by ~April"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "22, 2024"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 186,
+            "table2_idx": 187,
+            "upper_row_ss": [
+                [
+                    "Crestwood Endowment Partners",
+                    "$150",
+                    "August 1, 2020",
+                    "Standard MFN; $150M threshold carve-out; annual disclosure upon request",
+                    "Key Persons: Aldridge, Narayan an; Contributing Person: Kellner; 15 bus.",
+                    "No",
+                    "20 bps reduction (1.55% IP / 1.30% post-IP); 80% fee offset",
+                    "20 business days' prior written notice",
+                    "Tier 1 priority; minimum 5% of each co-invest opportunity",
+                    "LPAC member"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "day notification",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 187,
+            "table2_idx": 188,
+            "upper_row_ss": [
+                [
+                    "LP-07",
+                    "$75",
+                    "October 1, 2020",
+                    "Standard MFN; $100M threshold carve-out; semi-annual disclosure",
+                    "Key Persons: Aldridge, Narayan an; Contributing Person: Kellner; 15 bus. day",
+                    "No",
+                    "10 bps reduction (1.65% IP / 1.40% post-IP); 80% fee offset",
+                    "Not applicable",
+                    "Not applicable",
+                    "—"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "notification",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 188,
+            "table2_idx": 189,
+            "upper_row_ss": [
+                [
+                    "LP-13",
+                    "$35",
+                    "January 15, 2021",
+                    "Not applicable",
+                    "Not applicable",
+                    "No",
+                    "Not applicable",
+                    "Not applicable",
+                    "Tier 3 priority; co-",
+                    "Co-invest only"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "invest allocation at GP discretion",
+                    "side letter"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 191,
+            "table2_idx": 192,
+            "upper_row_ss": [
+                [
+                    "March 10, 2024",
+                    "SEC Form ADV amendment filed for Ardent Capital Management LLC (CRD #298417), reflecting updated ownership structure and changes to Schedule A and Schedule",
+                    "Scheduled"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "B",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

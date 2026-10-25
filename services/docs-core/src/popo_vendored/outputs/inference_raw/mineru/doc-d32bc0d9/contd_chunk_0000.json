@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        12,
+        18
+    ],
+    "pages": [
+        12,
+        13,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>137<|page|>12<|box|>840 140 897 854<|content|>If and when the Corporation's stock becomes public...agement Stock Transfer, Inc. ... , 44 Wall Street,\n<|id|>138<|page|>13<|box|>90 140 164 854<|content|>6th Floor, New York, New York 10005, Attention: .....cause the Corporation is a wholly owned subsidiary\n<|id|>206<|page|>18<|box|>407 142 424 318<|content|>Name: ... Jonah Whitfield\n<|id|>207<|page|>18<|box|>425 140 441 498<|content|>Title: ... Sole Incorporator and Initial Sole Director\n<|id|>208<|page|>18<|box|>443 140 460 290<|content|>Date: ... April 7, 2025",
+    "raw_response": "<|src_id|>137<|tgt_id|>138",
+    "parsed": [
+        {
+            "src_id": 137,
+            "tgt_id": 138
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-99tj2gye\\input\\pdfs\\doc-7213e42a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-99tj2gye\\enriched\\doc-7213e42a.json",
+    "contd_output": "<|src_id|>40<|tgt_id|>41",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>5<|level|>2\n<|id|>7<|level|>1\n<|id|>10<|level|>2\n<|id|>20<|level|>2\n<|id|>37<|level|>2\n<|id|>54<|level|>2\n<|id|>59<|level|>2\n<|id|>74<|level|>2\n<|id|>94<|level|>2\n<|id|>100<|level|>2\n<|id|>118<|level|>2\n<|id|>127<|level|>2\n<|id|>140<|level|>2\n<|id|>152<|level|>2\n<|id|>156<|level|>2\n<|id|>160<|level|>2\n<|id|>163<|level|>2\n<|id|>166<|level|>1\n<|id|>171<|level|>2\n<|id|>172<|level|>3\n<|id|>175<|level|>3\n<|id|>180<|level|>2",
+    "image_output": "<|src_id|>80<|tgt_id|>74\n<|src_id|>81<|tgt_id|>74",
+    "contd_label": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 1
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 80,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 74
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 80,
+            "table2_idx": 81,
+            "upper_row_ss": [
+                [
+                    "TIMESENT",
+                    "Time the email was sent (HH:MM:SS format, Eastern"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Time; emails only)"
+                ]
+            ]
+        }
+    ]
+}

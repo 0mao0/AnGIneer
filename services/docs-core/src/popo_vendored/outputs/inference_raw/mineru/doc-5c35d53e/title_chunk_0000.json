@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        56
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        25,
+        26,
+        27,
+        38,
+        46,
+        48,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>7<|box|>0 77 277 869<|content|>TREASURY BULLETIN\n<|id|>10<|page|>9<|box|>139 368 162 627<|content|>Table of Contents\n<|id|>13<|page|>11<|box|>89 324 107 640<|content|>Treasury Financing Operations\n<|id|>18<|page|>11<|box|>338 502 353 746<|content|>Weekly 91-Day Bills Refunded\n<|id|>55<|page|>25<|box|>373 130 390 833<|content|>Table 2.- Application of Limitation to Public Debt\n<|id|>57<|page|>26<|box|>74 165 125 859<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>60<|page|>27<|box|>74 133 124 834<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>85<|page|>38<|box|>199 167 229 852<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>112<|page|>46<|box|>78 174 111 821<|content|>Section II - Interest-Bearing Securities Issued by\n<|id|>118<|page|>48<|box|>33 262 47 760<|content|>MARKET QUOTATIONS ON TREASURY SECURITIES, JANUARY\n<|id|>133<|page|>55<|box|>70 209 88 781<|content|>Table 2.- Detail of Collections by Type of Tax 1/",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>10<|level|>2\n<|id|>13<|level|>2\n<|id|>18<|level|>3\n<|id|>55<|level|>3\n<|id|>57<|level|>3\n<|id|>60<|level|>3\n<|id|>85<|level|>2\n<|id|>112<|level|>2\n<|id|>118<|level|>2\n<|id|>133<|level|>3",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 3
+        }
+    ]
+}

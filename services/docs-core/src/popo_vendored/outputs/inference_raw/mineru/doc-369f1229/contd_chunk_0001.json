@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        75,
+        125
+    ],
+    "pages": [
+        76,
+        77,
+        91,
+        95,
+        97,
+        99,
+        100,
+        101,
+        103,
+        107,
+        109,
+        115,
+        119,
+        122,
+        123,
+        124
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>215<|page|>76<|box|>102 395 115 633<|content|>(Par values 1/ in billions of dollars)\n<|id|>217<|page|>77<|box|>111 0 302 455<|content|>The monthly Treasury Survey of Ownership covers se...ished for banks and insurance companies in the May\n<|id|>218<|page|>77<|box|>114 524 172 974<|content|>1941 Treasury Bulletin, for corporations and savin...nd local governments in the February 1962 Bulletin\n<|id|>257<|page|>91<|box|>824 15 863 467<|content|>U. ... Upon termination of investment, the same quantity of gold can be\n<|id|>258<|page|>91<|box|>651 516 716 979<|content|>4 Includes Bank for International Settlements and ...evelopment and the Inter-American Development Bank\n<|id|>269<|page|>95<|box|>282 18 329 462<|content|>The report forms and instructions used in the coll...istics have been revised a number of times. ... 1/\n<|id|>270<|page|>95<|box|>337 18 449 462<|content|>The present form of the published presentation of ...rt-term liquid claims of large nonbanking concerns\n<|id|>292<|page|>97<|box|>595 11 625 472<|content|>3/ Principally the International Bank for Reconstr...value of securities in IMF gold investment account\n<|id|>296<|page|>99<|box|>104 386 116 538<|content|>(In millions of dollars)\n<|id|>298<|page|>100<|box|>102 348 115 654<|content|>(Position at end of period in millions of dollars)\n<|id|>300<|page|>101<|box|>55 163 100 804<|content|>Section I - Liabilities to Foreigners Reported by ...y Type and Country, as of May 31, 1970 Preliminary\n<|id|>301<|page|>101<|box|>101 375 114 581<|content|>(Position in millions of dollars)\n<|id|>305<|page|>103<|box|>483 1 524 464<|content|>1/ Dollar-foreign currency breakdown not available...6; ... Figures on the first line are comparable in\n<|id|>306<|page|>103<|box|>485 525 506 961<|content|>coverage to those shown for the preceding date; .....e comparable to those shown for the following date\n<|id|>314<|page|>107<|box|>111 410 123 614<|content|>(Position in millions of dollars)\n<|id|>317<|page|>109<|box|>110 327 123 641<|content|>(Position at end of period in millions of dollars)\n<|id|>325<|page|>115<|box|>697 508 754 976<|content|>earlier quarter ends when the reporting coverage changed. ... r Revised\n<|id|>332<|page|>119<|box|>100 396 111 604<|content|>(Position in millions of dollars)\n<|id|>333<|page|>119<|box|>373 500 416 954<|content|>on demand or having a contractual maturity of not ...curred by the foreigner. ... * Less than \\$500,000\n<|id|>339<|page|>122<|box|>93 109 110 875<|content|>(In millions of dollars; ... negative figures indi...r a net outflow of capital from the United States)\n<|id|>340<|page|>122<|box|>49 242 66 755<|content|>Section V - Transactions in Long-Term Securities by Foreigners\n<|id|>341<|page|>122<|box|>64 289 79 712<|content|>Reported by Banks and Brokers in the United States\n<|id|>342<|page|>122<|box|>77 95 96 910<|content|>Table CM-V-3. ... Government Bonds and Notes by Country\n<|id|>344<|page|>123<|box|>60 60 116 918<|content|>Section V - Transactions in Long-Term Securities b...(Position at end of period in millions of dollars)\n<|id|>346<|page|>124<|box|>34 393 49 602<|content|>CAPITAL MOVEMENTS. ... CAPITAL MOVEMENTS\n<|id|>347<|page|>124<|box|>49 245 67 750<|content|>Section V - Transactions in Long-Term Securities by Foreigners\n<|id|>348<|page|>124<|box|>66 286 79 708<|content|>Reported by Banks and Brokers in the United States\n<|id|>349<|page|>124<|box|>78 210 94 791<|content|>Table CM-V-5. ... - Net Foreign Transactions in Long-Term Domestic Bonds,\n<|id|>350<|page|>124<|box|>93 265 108 730<|content|>Other than U. ... Government Bonds and Notes, by Country",
+    "raw_response": "<|src_id|>217<|tgt_id|>218\n<|src_id|>305<|tgt_id|>306",
+    "parsed": [
+        {
+            "src_id": 217,
+            "tgt_id": 218
+        },
+        {
+            "src_id": 305,
+            "tgt_id": 306
+        }
+    ]
+}

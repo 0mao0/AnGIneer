@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 148 142 848<|content|>WRITTEN CONSENT IN LIEU OF A SPECIAL MEETING OF TH\n<|id|>4<|page|>1<|box|>362 140 378 243<|content|>RECITALS\n<|id|>36<|page|>6<|box|>89 142 106 279<|content|>RESOLUTIONS\n<|id|>38<|page|>6<|box|>166 142 183 400<|content|>1. Approval of the Note Offering\n<|id|>40<|page|>6<|box|>292 140 310 493<|content|>2. Approval of the Note Purchase Agreement\n<|id|>42<|page|>6<|box|>439 140 455 336<|content|>3. Approval of the Notes\n<|id|>46<|page|>6<|box|>681 140 699 524<|content|>4. Approval of Ancillary Transaction Documents\n<|id|>48<|page|>7<|box|>90 140 107 475<|content|>5. Authorization of Designated Signatories\n<|id|>54<|page|>7<|box|>573 142 589 230<|content|>and further\n<|id|>55<|page|>7<|box|>604 140 621 377<|content|>6. Securities Law Compliance\n<|id|>62<|page|>8<|box|>246 140 263 393<|content|>7. Exemption from Registration\n<|id|>64<|page|>8<|box|>465 140 482 387<|content|>8. Ratification of Prior Actions\n<|id|>66<|page|>8<|box|>703 140 719 290<|content|>9. Use of Proceeds\n<|id|>68<|page|>9<|box|>138 142 156 359<|content|>10. Omnibus Authorization\n<|id|>70<|page|>9<|box|>377 142 393 397<|content|>11. No Further Action Required\n<|id|>72<|page|>9<|box|>550 140 566 493<|content|>EFFECTIVENESS AND COUNTERPARTS\n<|id|>74<|page|>9<|box|>782 140 799 338<|content|>RECUSAL NOTATION\n<|id|>76<|page|>10<|box|>133 400 152 596<|content|>[Signature Pages Follow]\n<|id|>77<|page|>10<|box|>159 145 195 849<|content|>SIGNATURE PAGE TO WRITTEN CONSENT IN LIEU OF A SPE\n<|id|>78<|page|>10<|box|>204 385 222 612<|content|>Effective Date: April 5, 2024\n<|id|>94<|page|>11<|box|>89 344 106 653<|content|>EXHIBIT AND ATTACHMENT LIST",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>3\n<|id|>40<|level|>3\n<|id|>42<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>54<|level|>-1\n<|id|>55<|level|>3\n<|id|>62<|level|>3\n<|id|>64<|level|>3\n<|id|>66<|level|>3\n<|id|>68<|level|>3\n<|id|>70<|level|>3\n<|id|>72<|level|>2\n<|id|>74<|level|>2\n<|id|>76<|level|>-1\n<|id|>77<|level|>2\n<|id|>78<|level|>-1\n<|id|>94<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,181 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-unlhx11k\\input\\pdfs\\doc-16d04b1a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-unlhx11k\\enriched\\doc-16d04b1a.json",
+    "contd_output": "<|src_id|>171<|tgt_id|>172",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>18<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>2\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>70<|level|>2\n<|id|>82<|level|>2\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>129<|level|>2\n<|id|>141<|level|>2\n<|id|>143<|level|>2\n<|id|>148<|level|>2\n<|id|>151<|level|>2\n<|id|>155<|level|>2\n<|id|>157<|level|>2\n<|id|>161<|level|>2\n<|id|>163<|level|>2\n<|id|>165<|level|>2\n<|id|>169<|level|>2\n<|id|>170<|level|>3\n<|id|>175<|level|>3\n<|id|>179<|level|>3\n<|id|>182<|level|>3\n<|id|>184<|level|>3\n<|id|>186<|level|>3\n<|id|>188<|level|>2\n<|id|>190<|level|>2",
+    "image_output": "<|src_id|>6<|tgt_id|>2\n<|src_id|>8<|tgt_id|>2\n<|src_id|>9<|tgt_id|>2\n<|src_id|>38<|tgt_id|>34\n<|src_id|>131<|tgt_id|>129\n<|src_id|>153<|tgt_id|>151",
+    "contd_label": [
+        {
+            "src_id": 171,
+            "tgt_id": 172
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 6,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 151
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 8,
+            "table2_idx": 9,
+            "upper_row_ss": [
+                [
+                    "Graymont Brothers Inc.",
+                    "20%",
+                    "$104,340,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

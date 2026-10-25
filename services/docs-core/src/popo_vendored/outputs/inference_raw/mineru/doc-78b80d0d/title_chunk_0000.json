@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>359 140 377 364<|content|>I. Introduction and Purpose\n<|id|>12<|page|>2<|box|>90 140 107 630<|content|>II. Preliminary Disclosure Obligations Under CPLR\n<|id|>16<|page|>3<|box|>90 140 107 403<|content|>III. Proposed discovery Schedule\n<|id|>33<|page|>4<|box|>734 140 751 709<|content|>IV. Plaintiffs' Initial Document Demands — Summary\n<|id|>35<|page|>5<|box|>90 140 107 774<|content|>A. Glenmore Realty Advisors Inc. Consulting Agreem\n<|id|>45<|page|>5<|box|>791 140 809 828<|content|>B. Ridgepoint Environmental Consultants LLC Phase\n<|id|>54<|page|>6<|box|>625 140 641 732<|content|>C. Broadmark Commercial Lending Corp. Loan Files a\n<|id|>63<|page|>7<|box|>411 140 428 473<|content|>D. Tax Lien Records and Title Documents\n<|id|>71<|page|>8<|box|>90 140 107 534<|content|>E. Pro Forma Financial Projections and Rent Roll\n<|id|>80<|page|>8<|box|>599 140 635 854<|content|>F. Atlantic Yards Development Partners LLC — Forma\n<|id|>92<|page|>9<|box|>478 140 494 406<|content|>G. Broad and Catch-All Requests\n<|id|>98<|page|>9<|box|>829 140 845 339<|content|>V. Non-Party Subpoenas\n<|id|>105<|page|>10<|box|>612 140 628 370<|content|>VI. Preservation Obligations\n<|id|>110<|page|>11<|box|>359 140 376 397<|content|>VII. Proposed Meet-and-Confer\n<|id|>118<|page|>11<|box|>805 140 821 359<|content|>VIII. Reservation of Rights",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>16<|level|>1\n<|id|>33<|level|>1\n<|id|>35<|level|>2\n<|id|>45<|level|>2\n<|id|>54<|level|>2\n<|id|>63<|level|>2\n<|id|>71<|level|>2\n<|id|>80<|level|>2\n<|id|>92<|level|>2\n<|id|>98<|level|>1\n<|id|>105<|level|>1\n<|id|>110<|level|>1\n<|id|>118<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 140 119 854<|content|>CONFIDENTIAL TREATMENT REQUESTED BY CALLOWAY-BRIGG\n<|id|>1<|type|>title<|page|>1<|box|>128 388 148 607<|content|>USE OF PROCEEDS\n<|id|>7<|type|>title<|page|>2<|box|>131 140 148 607<|content|>Repayment of Approximately $200 Million of Term Lo\n<|id|>12<|type|>title<|page|>2<|box|>806 140 843 803<|content|>Funding of Approximately $100 Million Toward Const\n<|id|>18<|type|>title<|page|>3<|box|>794 140 811 624<|content|>Approximately $71.7 Million for General Corporate\n<|id|>26<|type|>title<|page|>5<|box|>90 140 107 393<|content|>Overallotment Option Proceeds\n<|id|>28<|type|>title<|page|>5<|box|>359 140 375 338<|content|>Pending Use of Proceeds\n<|id|>30<|type|>title<|page|>5<|box|>554 140 570 372<|content|>Selling Stockholder Proceeds\n<|id|>33<|type|>title<|page|>6<|box|>90 142 107 415<|content|>Affiliations and FINRA Disclosure\n<|id|>35<|type|>title<|page|>6<|box|>395 140 412 452<|content|>Summary of Estimated Use of Proceeds\n<|id|>37<|type|>table<|page|>6<|box|>500 143 654 852<|content|>None",
+    "raw_response": "<|src_id|>37<|tgt_id|>35",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 35
+        }
+    ]
+}

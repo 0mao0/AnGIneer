@@ -1,0 +1,86 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>148 84 181 895<|content|>中华人民共和国交通运输行业标准\n<|id|>3<|type|>title<|page|>1<|box|>393 302 428 675<|content|>公路绿化设计制图\n<|id|>4<|type|>title<|page|>1<|box|>454 273 476 705<|content|>Drawings for highway revegetation design\n<|id|>7<|type|>title<|page|>2<|box|>123 431 144 539<|content|>目次\n<|id|>9<|type|>title<|page|>3<|box|>125 453 147 566<|content|>前言\n<|id|>32<|type|>title<|page|>4<|box|>125 376 149 596<|content|>公路绿化设计制图\n<|id|>33<|type|>title<|page|>4<|box|>184 95 201 166<|content|>1 范围\n<|id|>36<|type|>title<|page|>4<|box|>279 94 296 255<|content|>2 规范性引用文件\n<|id|>42<|type|>title<|page|>4<|box|>448 95 465 205<|content|>3 一般要求\n<|id|>82<|type|>table<|page|>5<|box|>492 115 901 894<|content|>None\n<|id|>89<|type|>title<|page|>6<|box|>236 90 251 198<|content|>4 图例图示\n<|id|>94<|type|>title<|page|>6<|box|>385 90 401 200<|content|>5 图样画法\n<|id|>95<|type|>title<|page|>6<|box|>416 90 433 287<|content|>5.1 绿化植物图例画法\n<|id|>98<|type|>table<|page|>6<|box|>535 95 896 875<|content|>None\n<|id|>99<|type|>table<|page|>7<|box|>133 117 349 895<|content|>None\n<|id|>100<|type|>title<|page|>7<|box|>389 115 404 364<|content|>5.2 典型路段绿化布置示意图\n<|id|>103<|type|>image<|page|>7<|box|>495 126 790 892<|content|>None\n<|id|>104<|type|>title<|page|>7<|box|>828 117 845 349<|content|>5.3 中央分隔带绿化设计图\n<|id|>108<|type|>image<|page|>8<|box|>135 132 262 862<|content|>None\n<|id|>110<|type|>image<|page|>8<|box|>315 132 410 862<|content|>None\n<|id|>112<|type|>image<|page|>8<|box|>465 331 701 652<|content|>None\n<|id|>114<|type|>title<|page|>8<|box|>780 97 795 310<|content|>5.4 边坡植物防护设计图\n<|id|>117<|type|>title<|page|>9<|box|>111 109 128 519<|content|>5.5 护坡道(含碎落台)及隔离栅内侧绿化带设计图\n<|id|>121<|type|>image<|page|>9<|box|>203 322 375 682<|content|>None\n<|id|>123<|type|>title<|page|>9<|box|>452 110 467 341<|content|>5.6 互通式立交绿化设计图\n<|id|>127<|type|>image<|page|>9<|box|>600 262 862 742<|content|>None\n<|id|>130<|type|>image<|page|>10<|box|>178 233 466 731<|content|>None\n<|id|>132<|type|>image<|page|>10<|box|>552 349 703 618<|content|>None\n<|id|>133<|type|>image<|page|>10<|box|>726 346 876 621<|content|>None\n<|id|>135<|type|>image<|page|>11<|box|>143 379 314 640<|content|>None\n<|id|>136<|type|>title<|page|>11<|box|>345 117 361 332<|content|>5.7 沿线设施绿化设计图\n<|id|>142<|type|>image<|page|>11<|box|>530 282 834 739<|content|>None\n<|id|>145<|type|>title<|page|>12<|box|>105 90 119 305<|content|>5.8 隧道洞口绿化设计图\n<|id|>151<|type|>image<|page|>12<|box|>283 250 647 719<|content|>None\n<|id|>152<|type|>title<|page|>12<|box|>701 92 717 289<|content|>5.9 其他绿化设计制图",
+    "raw_response": "<|src_id|>82<|tgt_id|>42\n<|src_id|>98<|tgt_id|>95\n<|src_id|>99<|tgt_id|>95\n<|src_id|>103<|tgt_id|>100\n<|src_id|>108<|tgt_id|>104\n<|src_id|>110<|tgt_id|>104\n<|src_id|>112<|tgt_id|>104\n<|src_id|>121<|tgt_id|>117\n<|src_id|>127<|tgt_id|>123\n<|src_id|>130<|tgt_id|>123\n<|src_id|>132<|tgt_id|>123\n<|src_id|>133<|tgt_id|>123\n<|src_id|>135<|tgt_id|>123\n<|src_id|>142<|tgt_id|>136\n<|src_id|>151<|tgt_id|>145",
+    "parsed": [
+        {
+            "src_id": 82,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 136
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 145
+        }
+    ]
+}

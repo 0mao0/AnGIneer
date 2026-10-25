@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        15,
+        17,
+        19,
+        20,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>243 140 277 854<|content|>FROM: ... Wendy Schultz, Associate, intellectual Property Practice Group, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>287 140 324 854<|content|>CC: ... Leonard Cross, Partner (Responsible Partne...i, Associate, intellectual Property Practice Group\n<|id|>5<|page|>1<|box|>330 140 348 284<|content|>DATE: ... June 2023\n<|id|>6<|page|>1<|box|>357 140 393 854<|content|>RE: ... QuorumScore™ intellectual Property Protect...Negotiation with Meridian Credit intelligence, Inc\n<|id|>12<|page|>1<|box|>873 174 909 857<|content|>(a) Meridian's demand for a perpetual, royalty-fre...A), which would grant Meridian unrestricted use of\n<|id|>13<|page|>2<|box|>90 174 143 854<|content|>QuorumScore™ outputs and effectively allow Meridia...benefit or for the benefit of Quorum's competitors\n<|id|>14<|page|>2<|box|>152 174 224 856<|content|>(b) Meridian's insistence on retaining sole discre...nt of QuorumScore™ in the B2B marketplace; ... and\n<|id|>16<|page|>2<|box|>314 140 388 854<|content|>Each of these provisions independently threatens t... underpins Quorum's planned B2B licensing business\n<|id|>22<|page|>2<|box|>573 174 626 854<|content|>5. ... and\n<|id|>24<|page|>2<|box|>685 140 849 857<|content|>Bottom Line: ... Calderwood & Harkness recommends ...pricing provisions in terms of commercial priority\n<|id|>111<|page|>15<|box|>417 174 454 854<|content|>(ii) the output does not reproduce, display, or co...ifiable or individually attributable form; ... and\n<|id|>113<|page|>15<|box|>542 140 671 854<|content|>As an alternative or complementary approach, Calde...exclusive intellectual property without limitation\n<|id|>126<|page|>17<|box|>90 181 161 854<|content|>• Independent expert certification: ... and\n<|id|>128<|page|>17<|box|>220 138 349 856<|content|>With respect to QuorumScore™ outputs specifically,... cannot be used to reconstruct Meridian's raw data\n<|id|>150<|page|>19<|box|>866 174 902 857<|content|>4. ... 97/482,116 and ensure alignment between the scope of those claims and the\n<|id|>151<|page|>20<|box|>89 210 180 854<|content|>MDLA's definitions of \"Derived Data\" and \"Quorum P...carve-out excludes from the Derived Data framework\n<|id|>174<|page|>23<|box|>250 140 311 854<|content|>Distribution List: ... Leonard Cross, Partner, Cal..., intellectual Property, Calderwood & Harkness LLP\n<|id|>175<|page|>23<|box|>319 140 335 320<|content|>Respectfully submitted,\n<|id|>176<|page|>23<|box|>335 140 353 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>177<|page|>23<|box|>354 143 371 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>150<|tgt_id|>151",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        7,
+        9,
+        10,
+        12,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 179 151 818<|content|>One Liberty Plaza, 48th Floor New York, New York 10006 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 705 176 854<|content|>December 10, 2025\n<|id|>3<|page|>1<|box|>186 140 203 792<|content|>Broadleaf Securities LLC 383 Madison Avenue, 12th Floor New York, New York 10179\n<|id|>4<|page|>1<|box|>212 140 229 478<|content|>Attention: ... High Yield Capital Markets Group\n<|id|>5<|page|>1<|box|>229 140 246 823<|content|>Fieldstone Capital Markets, Inc. ... 120 South LaSalle Street, Suite 1600 Chicago, Illinois 60603\n<|id|>6<|page|>1<|box|>255 140 271 383<|content|>Attention: ... Debt Capital Markets\n<|id|>8<|page|>1<|box|>316 140 334 852<|content|>Ridgeline Trust Company, N. ... 60 South Sixth Street, Suite 2100 Minneapolis, Minnesota 55402\n<|id|>7<|page|>1<|box|>272 140 309 854<|content|>(Broadleaf Securities LLC, as Lead Initial Purchas...o herein collectively as the \"Initial Purchasers\")\n<|id|>9<|page|>1<|box|>342 140 359 455<|content|>Attention: ... Corporate Trust Administration\n<|id|>10<|page|>1<|box|>359 140 376 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>54<|page|>4<|box|>628 178 684 854<|content|>17. ... and\n<|id|>56<|page|>4<|box|>724 140 797 854<|content|>We have also reviewed and relied upon such matters...the certificates delivered in connection therewith\n<|id|>72<|page|>6<|box|>186 174 239 854<|content|>(b) The General Corporation Law of the State of De...judicial decisions interpreting such law); ... and\n<|id|>74<|page|>6<|box|>275 140 422 856<|content|>We expressly note that no opinion is expressed her...such Guarantors, as referenced in Section II above\n<|id|>81<|page|>6<|box|>803 174 895 856<|content|>(c) Each of the subsidiary Guarantors organized un... Inc. ... With respect to Nexford Thermal Systems,\n<|id|>82<|page|>7<|box|>90 174 219 856<|content|>LLC and Nexford Defense Solutions, LLC, which are ...by the Secretary of State of the State of Delaware\n<|id|>103<|page|>9<|box|>824 174 897 857<|content|>(c) We note that the security interest in the Note...as between the holders of the Notes (including the\n<|id|>104<|page|>10<|box|>90 174 181 854<|content|>Add-On Notes) and the lenders under the ABL Facili...inventory, deposit accounts, and proceeds thereof)\n<|id|>121<|page|>12<|box|>90 174 310 856<|content|>(c) result in a breach of, or constitute a default...Guarantors, and Ridgeline Trust Company, N. ... or\n<|id|>123<|page|>12<|box|>398 140 508 856<|content|>In rendering the opinion set forth in paragraph (c...antor is a party that are not listed on Schedule A\n<|id|>144<|page|>15<|box|>135 140 151 274<|content|>Very truly yours,\n<|id|>145<|page|>15<|box|>152 140 167 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>146<|page|>15<|box|>170 142 186 254<|content|>By: ... By\n<|id|>147<|page|>15<|box|>186 140 202 310<|content|>Name: ... Jennifer Kwon\n<|id|>148<|page|>15<|box|>204 140 219 248<|content|>Title: ... Partner\n<|id|>149<|page|>15<|box|>220 140 236 539<|content|>Calderwood & Harkness LLP Matter No. ... 1005-00002\n<|id|>150<|page|>15<|box|>237 140 252 542<|content|>Enclosures: ... Schedule A — List of Material Agreements Reviewed",
+    "raw_response": "<|src_id|>81<|tgt_id|>82\n<|src_id|>103<|tgt_id|>104",
+    "parsed": [
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 104
+        }
+    ]
+}

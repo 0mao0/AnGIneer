@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        8
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>22<|page|>2<|box|>446 142 464 302<|content|>1. Grant of Consent\n<|id|>26<|page|>3<|box|>90 142 107 468<|content|>2. Assumption of Obligations by Assignee\n<|id|>36<|page|>3<|box|>767 140 784 316<|content|>3. Release of Assignor\n<|id|>39<|page|>4<|box|>296 140 313 465<|content|>4. No Modification of License Agreement\n<|id|>43<|page|>4<|box|>652 140 670 380<|content|>5. Representations of Vantage\n<|id|>50<|page|>5<|box|>402 140 419 225<|content|>6. Notices\n<|id|>65<|page|>6<|box|>90 142 107 442<|content|>7. Counterparts; Electronic Execution\n<|id|>67<|page|>6<|box|>321 142 339 287<|content|>8. Governing Law\n<|id|>69<|page|>6<|box|>465 230 482 766<|content|>[Remainder of Page Intentionally Left Blank — Sign\n<|id|>71<|page|>6<|box|>535 143 551 248<|content|>LICENSOR:\n<|id|>78<|page|>6<|box|>691 143 707 248<|content|>ASSIGNOR:\n<|id|>92<|page|>8<|box|>90 143 106 243<|content|>EXHIBIT A",
+    "raw_response": "<|id|>22<|level|>1\n<|id|>26<|level|>1\n<|id|>36<|level|>1\n<|id|>39<|level|>1\n<|id|>43<|level|>1\n<|id|>50<|level|>1\n<|id|>65<|level|>1\n<|id|>67<|level|>1\n<|id|>69<|level|>-1\n<|id|>71<|level|>2\n<|id|>78<|level|>2\n<|id|>92<|level|>1",
+    "parsed": [
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 1
+        }
+    ]
+}

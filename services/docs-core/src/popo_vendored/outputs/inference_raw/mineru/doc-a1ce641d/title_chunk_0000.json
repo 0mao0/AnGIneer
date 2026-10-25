@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 408 119 588<|content|>STOCK POWER\n<|id|>1<|page|>1<|box|>143 408 161 588<|content|>NovaMart Global Inc.\n<|id|>15<|page|>2<|box|>90 140 107 517<|content|>2. Irrevocable Appointment of Attorney-in-Fact\n<|id|>27<|page|>2<|box|>746 140 762 477<|content|>3. Reference to Stock Purchase Agreement\n<|id|>31<|page|>3<|box|>304 140 320 493<|content|>4. Representations of the Selling Stockholder\n<|id|>38<|page|>4<|box|>377 140 393 320<|content|>5. Further Assurances\n<|id|>40<|page|>4<|box|>627 140 643 287<|content|>6. Governing Law\n<|id|>42<|page|>4<|box|>767 140 784 513<|content|>7. Binding Effect; No Third-Party Beneficiaries\n<|id|>45<|page|>5<|box|>150 142 167 272<|content|>8. Counterparts\n<|id|>47<|page|>5<|box|>366 400 383 596<|content|>[Signature Pages Follow]\n<|id|>48<|page|>5<|box|>391 328 407 668<|content|>SIGNATURE PAGE TO STOCK POWER\n<|id|>49<|page|>5<|box|>417 274 434 720<|content|>— FOR INDIVIDUAL SELLING STOCKHOLDERS —\n<|id|>55<|page|>5<|box|>577 328 593 668<|content|>SIGNATURE PAGE TO STOCK POWER\n<|id|>56<|page|>5<|box|>603 297 619 700<|content|>— FOR ENTITY SELLING STOCKHOLDERS —\n<|id|>67<|page|>6<|box|>89 455 106 542<|content|>ANNEX A\n<|id|>68<|page|>6<|box|>114 393 132 604<|content|>SCHEDULE OF SHARES\n<|id|>72<|page|>6<|box|>436 323 452 673<|content|>MEDALLION SIGNATURE GUARANTEE\n<|id|>73<|page|>6<|box|>463 450 479 547<|content|>(If Required)\n<|id|>74<|page|>6<|box|>488 323 503 673<|content|>MEDALLION SIGNATURE GUARANTEE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>15<|level|>2\n<|id|>27<|level|>2\n<|id|>31<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>-1\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>67<|level|>1\n<|id|>68<|level|>2\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>74<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        }
+    ]
+}

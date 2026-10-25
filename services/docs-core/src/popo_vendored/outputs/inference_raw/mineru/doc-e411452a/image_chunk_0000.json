@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        16,
+        18,
+        20,
+        21,
+        23,
+        24
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 168 125 826<|content|>UNITED STATES OF AMERICA BEFORE THE FEDERAL ENERGY\n<|id|>1<|type|>table<|page|>1<|box|>157 145 205 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>273 202 291 794<|content|>RIDGELINE MIDSTREAM SERVICES LLC'S STATEMENT OF IS\n<|id|>5<|type|>table<|page|>1<|box|>446 143 875 852<|content|>None\n<|id|>6<|type|>title<|page|>2<|box|>90 140 107 341<|content|>I. Preliminary Statement\n<|id|>18<|type|>title<|page|>3<|box|>718 140 734 513<|content|>II. Description of the Ridgeline Pipeline System\n<|id|>26<|type|>title<|page|>5<|box|>90 140 107 460<|content|>III. Identification of Parties and Counsel\n<|id|>28<|type|>title<|page|>5<|box|>179 142 196 524<|content|>1. Applicant: Ridgeline Midstream Services LLC\n<|id|>39<|type|>title<|page|>5<|box|>547 140 564 689<|content|>2. Protestant/Intervenor: Appalachian Trunk Pipeli\n<|id|>46<|type|>title<|page|>6<|box|>107 140 125 560<|content|>3. Intervenor: Mountainside Gas Producers Coalitio\n<|id|>53<|type|>title<|page|>6<|box|>445 140 462 545<|content|>4. Intervenor: Clearwater Municipal Gas Authority\n<|id|>60<|type|>title<|page|>6<|box|>801 142 816 303<|content|>5. FERC Trial Staff\n<|id|>67<|type|>title<|page|>7<|box|>320 142 337 449<|content|>6. Presiding Administrative Law Judge\n<|id|>69<|type|>title<|page|>7<|box|>390 142 407 300<|content|>7. Settlement Judge\n<|id|>71<|type|>title<|page|>7<|box|>474 140 492 470<|content|>IV. Contested Issues for Track II Hearing\n<|id|>73<|type|>title<|page|>7<|box|>625 140 641 423<|content|>Issue 1: Return on Equity (\"ROE\")\n<|id|>86<|type|>title<|page|>9<|box|>239 140 256 349<|content|>Issue 2: Capital Structure\n<|id|>94<|type|>title<|page|>10<|box|>195 142 210 290<|content|>Issue 3: Rate Base\n<|id|>110<|type|>title<|page|>11<|box|>584 140 599 328<|content|>Issue 4: Cost of Service\n<|id|>126<|type|>title<|page|>13<|box|>157 140 175 504<|content|>Issue 5: Rate Design and Billing Determinants\n<|id|>139<|type|>title<|page|>14<|box|>635 140 652 553<|content|>Issue 6: Interconnection Facilities — Cost Allocat\n<|id|>153<|type|>title<|page|>16<|box|>320 140 337 596<|content|>Issue 7: Interconnection Facilities — Design and M\n<|id|>167<|type|>title<|page|>18<|box|>90 140 107 643<|content|>Issue 8: Interconnection Agreement — Filing as a R\n<|id|>172<|type|>title<|page|>18<|box|>643 140 660 434<|content|>Issue 9: Tariff Terms and Conditions\n<|id|>185<|type|>title<|page|>20<|box|>349 140 366 767<|content|>Issue 10: Income Tax Allowance — Partnership/Pass-\n<|id|>192<|type|>title<|page|>21<|box|>267 140 284 302<|content|>V. List of Witnesses\n<|id|>201<|type|>title<|page|>23<|box|>90 142 107 413<|content|>VI. Proposed Procedural Schedule\n<|id|>203<|type|>table<|page|>23<|box|>159 143 268 852<|content|>None\n<|id|>206<|type|>title<|page|>23<|box|>551 142 569 351<|content|>VII. Reservation of Rights\n<|id|>210<|type|>title<|page|>24<|box|>89 140 107 447<|content|>VIII. Conclusion and Prayer for Relief\n<|id|>222<|type|>title<|page|>24<|box|>537 374 554 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>5<|tgt_id|>2\n<|src_id|>203<|tgt_id|>201",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 201
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>178 140 195 478<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>8<|page|>1<|box|>542 142 559 415<|content|>1. Background and LOI Reference\n<|id|>12<|page|>2<|box|>204 140 222 370<|content|>2. Exclusivity Deposit Terms\n<|id|>19<|page|>2<|box|>657 140 674 377<|content|>3. Wire Transfer Instructions\n<|id|>31<|page|>3<|box|>388 140 406 390<|content|>4. Deposit Holding Instructions\n<|id|>38<|page|>4<|box|>148 140 167 517<|content|>5. Release Conditions (Summary of LOI Terms)\n<|id|>45<|page|>4<|box|>767 140 784 393<|content|>6. Notices and Communications\n<|id|>47<|page|>4<|box|>838 176 854 359<|content|>To Counsel for Solara:\n<|id|>60<|page|>5<|box|>502 142 518 339<|content|>7. Confirmation Request\n<|id|>66<|page|>5<|box|>837 140 854 287<|content|>8. Governing Law\n<|id|>69<|page|>6<|box|>321 140 339 334<|content|>9. Reservation of Rights",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>19<|level|>1\n<|id|>31<|level|>1\n<|id|>38<|level|>1\n<|id|>45<|level|>1\n<|id|>47<|level|>2\n<|id|>60<|level|>1\n<|id|>66<|level|>1\n<|id|>69<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        }
+    ]
+}

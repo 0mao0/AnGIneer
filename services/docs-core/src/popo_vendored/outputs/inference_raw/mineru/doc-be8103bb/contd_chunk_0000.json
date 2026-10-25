@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        29
+    ],
+    "pages": [
+        5,
+        6,
+        7,
+        11,
+        12,
+        13,
+        23,
+        24,
+        27,
+        28,
+        29
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>37<|page|>5<|box|>376 140 393 375<|content|>Title: ... Partner, Tax Department\n<|id|>38<|page|>5<|box|>402 140 419 834<|content|>Office: ... Calderwood & Harkness LLP, 1735 Market Street, Suite 3100, Philadelphia, PA 19103\n<|id|>39<|page|>5<|box|>428 142 445 831<|content|>Bar Admissions: ... Licensed to practice in New York, New Jersey, and the District of Columbia\n<|id|>40<|page|>5<|box|>454 140 582 854<|content|>Experience: ... Cross has represented clients in n... Practice's examination methodology and procedures\n<|id|>54<|page|>6<|box|>869 181 905 854<|content|>• Maintain the primary professional relationship w... Group LLC, 200 Ashbury Asset Advisors, Suite 700,\n<|id|>55<|page|>7<|box|>90 210 162 854<|content|>Boston, MA 02109, regarding the scope, direction, ...e legal defense strategy and the economic evidence\n<|id|>60<|page|>7<|box|>398 140 416 764<|content|>Office: ... Calderwood & Harkness LLP, 600 Lexington Avenue, New York, NY 10022\n<|id|>61<|page|>7<|box|>425 140 441 733<|content|>Bar Admissions: ... Licensed to practice in New York and the District of Columbia\n<|id|>62<|page|>7<|box|>450 140 542 854<|content|>Experience: ... She has represented numerous multi...ce in the life sciences and pharmaceutical sectors\n<|id|>106<|page|>11<|box|>821 181 877 854<|content|>• The OECD Transfer Pricing Guidelines (2017 and 2...thods to intangible property transactions, and the\n<|id|>107<|page|>12<|box|>90 210 125 854<|content|>DEMPE (Development, Enhancement, Maintenance, Prot..., Maintenance, Protection, Exploitation) framework\n<|id|>119<|page|>13<|box|>268 140 287 834<|content|>Office: ... Calderwood & Harkness LLP, 1735 Market Street, Suite 3100, Philadelphia, PA 19103\n<|id|>120<|page|>13<|box|>295 142 313 643<|content|>Bar Admissions: ... Licensed to practice in New York and New Jersey\n<|id|>121<|page|>13<|box|>321 140 412 854<|content|>Experience: ... She has experience supporting IRS ... foreign advisors on multi- jurisdictional matters\n<|id|>259<|page|>23<|box|>786 217 801 653<|content|>• C&H: ... Leonard Cross, Sylvia Hartwell, Garrett Simmons\n<|id|>260<|page|>23<|box|>805 218 821 540<|content|>• PPC: ... Marcus Whitfield, Deborah Staines\n<|id|>261<|page|>23<|box|>825 218 840 477<|content|>• Whitmore: ... Helena Vasquez\n<|id|>262<|page|>23<|box|>844 218 859 532<|content|>• IRS: ... Appeals Officer Noreen Castañeda\n<|id|>276<|page|>24<|box|>638 140 691 854<|content|>Lead Assignments: ... Hartwell co-presents at the ...ges client communications regarding the settlement\n<|id|>270<|page|>24<|box|>465 218 481 437<|content|>• Tax liability: ... 0 million\n<|id|>271<|page|>24<|box|>484 218 502 609<|content|>• Interest (IRC § 6601): ... 84 million\n<|id|>272<|page|>24<|box|>505 218 521 424<|content|>• Penalty: ... $0 (fully abated)\n<|id|>273<|page|>24<|box|>523 218 540 627<|content|>• Total cash cost to PPC: ... 84 million\n<|id|>314<|page|>27<|box|>825 140 898 856<|content|>Kovel Arrangement. ... Under this arrangement, all...connection with C&H's provision of legal advice to\n<|id|>315<|page|>28<|box|>90 140 200 854<|content|>PPC, are protected by the attorney-client privileg...tmore-PPC communications are channeled through C&H\n<|id|>323<|page|>29<|box|>196 140 212 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>324<|page|>29<|box|>215 143 231 253<|content|>By: ... By\n<|id|>325<|page|>29<|box|>232 142 247 308<|content|>Name: ... Leonard Cross\n<|id|>326<|page|>29<|box|>250 142 265 416<|content|>Title: ... Partner — Responsible Partner\n<|id|>327<|page|>29<|box|>267 143 282 264<|content|>Date: ... Date\n<|id|>328<|page|>29<|box|>282 142 299 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>329<|page|>29<|box|>301 143 318 253<|content|>By: ... By\n<|id|>330<|page|>29<|box|>318 142 334 316<|content|>Name: ... Sylvia Hartwell\n<|id|>331<|page|>29<|box|>335 143 351 379<|content|>Title: ... Partner — Billing Partner\n<|id|>332<|page|>29<|box|>353 143 368 266<|content|>Date: ... Date\n<|id|>334<|page|>29<|box|>395 174 412 833<|content|>cc: ... — for information\n<|id|>335<|page|>29<|box|>421 174 438 831<|content|>cc: ... — for information\n<|id|>336<|page|>29<|box|>446 140 507 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...prior written consent of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>54<|tgt_id|>55\n<|src_id|>106<|tgt_id|>107\n<|src_id|>314<|tgt_id|>315",
+    "parsed": [
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 314,
+            "tgt_id": 315
+        }
+    ]
+}

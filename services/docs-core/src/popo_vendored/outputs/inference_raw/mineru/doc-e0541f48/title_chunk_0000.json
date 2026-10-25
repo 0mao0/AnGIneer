@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 158 142 838<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF QUORUM IN\n<|id|>11<|page|>2<|box|>383 140 402 609<|content|>Resolution 1 — Authorization and Approval of the O\n<|id|>13<|page|>2<|box|>671 140 688 519<|content|>Resolution 2 — Authorization of Share Issuance\n<|id|>15<|page|>3<|box|>150 140 167 683<|content|>Resolution 3 — Authorization to Enter Into Underwr\n<|id|>17<|page|>3<|box|>398 140 417 759<|content|>Resolution 4 — Designation of Authorized Officers\n<|id|>30<|page|>4<|box|>638 140 655 534<|content|>Resolution 5 — Approval of Lock-Up Agreements\n<|id|>33<|page|>5<|box|>167 140 185 550<|content|>Resolution 6 — Approval of Prospectus Supplement\n<|id|>35<|page|>5<|box|>454 140 472 575<|content|>Resolution 7 — Ratification of Engagement of Advis\n<|id|>39<|page|>5<|box|>848 140 864 490<|content|>Resolution 8 — Ratification of Prior Actions\n<|id|>47<|page|>6<|box|>506 142 523 413<|content|>Resolution 9 — General Authority\n<|id|>51<|page|>6<|box|>811 300 828 697<|content|>CERTIFICATE OF CORPORATE SECRETARY",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>30<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>2\n<|id|>39<|level|>2\n<|id|>47<|level|>2\n<|id|>51<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        }
+    ]
+}

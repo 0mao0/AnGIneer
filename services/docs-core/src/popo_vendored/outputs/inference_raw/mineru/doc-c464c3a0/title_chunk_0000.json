@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>3<|page|>1<|box|>179 140 196 851<|content|>VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED, AND\n<|id|>11<|page|>1<|box|>439 140 455 437<|content|>I. Introduction and Purpose of Letter\n<|id|>17<|page|>2<|box|>267 142 284 348<|content|>II. Summary of the Policy\n<|id|>23<|page|>3<|box|>148 140 167 473<|content|>III. The Loss Event — November 17, 2023\n<|id|>24<|page|>3<|box|>180 140 198 348<|content|>A. Chronology of the Fire\n<|id|>29<|page|>3<|box|>696 140 714 537<|content|>B. Origin and Cause — Ridgeline Forensic Report\n<|id|>38<|page|>4<|box|>763 140 781 410<|content|>C. Sprinkler System Performance\n<|id|>42<|page|>5<|box|>385 140 402 447<|content|>D. Cargo Destroyed — Verified Values\n<|id|>47<|page|>6<|box|>90 140 107 452<|content|>IV. Meridian's Denial Is Without Merit\n<|id|>50<|page|>6<|box|>375 140 392 591<|content|>A. Exclusion 4(f) — Improper Storage — Does Not Ap\n<|id|>51<|page|>6<|box|>402 140 419 715<|content|>1. Text of the Exclusion. Exclusion 4(f) of the Po\n<|id|>68<|page|>8<|box|>90 140 108 606<|content|>B. Exclusion 4(k) — Failure to Maintain — Does Not\n<|id|>95<|page|>10<|box|>575 140 593 823<|content|>V. Texas Insurance Code — Unfair Settlement Practi\n<|id|>97<|page|>10<|box|>651 140 667 681<|content|>A. Texas Insurance Code Chapter 541 — Unfair Settl\n<|id|>104<|page|>11<|box|>465 140 483 678<|content|>B. Texas Insurance Code Chapter 542 — Prompt Payme\n<|id|>111<|page|>12<|box|>267 140 284 245<|content|>VI. Demand\n<|id|>120<|page|>12<|box|>763 140 782 351<|content|>VII. Reservation of Rights\n<|id|>123<|page|>13<|box|>229 140 247 251<|content|>VIII. Closing\n<|id|>127<|page|>13<|box|>444 210 460 390<|content|>Respectfully submitted,\n<|id|>137<|page|>13<|box|>731 143 747 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>3<|level|>-1\n<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>23<|level|>1\n<|id|>24<|level|>2\n<|id|>29<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>47<|level|>1\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>68<|level|>2\n<|id|>95<|level|>1\n<|id|>97<|level|>2\n<|id|>104<|level|>2\n<|id|>111<|level|>1\n<|id|>120<|level|>1\n<|id|>123<|level|>1\n<|id|>127<|level|>-1\n<|id|>137<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        }
+    ]
+}

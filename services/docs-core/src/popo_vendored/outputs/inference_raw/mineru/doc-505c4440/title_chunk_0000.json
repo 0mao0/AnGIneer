@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 104 643<|content|>CONFIDENTIAL — PRIVILEGED AND CONFIDENTIAL COMMUNI\n<|id|>1<|page|>1<|box|>112 140 128 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>375 140 392 374<|content|>I. Purpose and Authorization\n<|id|>12<|page|>1<|box|>672 140 690 722<|content|>II. Notification of Termination of Negotiations wi\n<|id|>19<|page|>2<|box|>487 140 503 557<|content|>III. Summary of Reasons for Negotiation Breakdown\n<|id|>22<|page|>2<|box|>638 176 655 500<|content|>A. Change in Control Severance Provisions\n<|id|>27<|page|>3<|box|>325 176 342 444<|content|>B. Restrictive Covenant Obligations\n<|id|>39<|page|>4<|box|>417 140 434 517<|content|>IV. Board Direction to Resume the CEO Search\n<|id|>45<|page|>5<|box|>343 140 359 382<|content|>V. Confidentiality Obligations\n<|id|>50<|page|>5<|box|>876 142 893 455<|content|>VI. Request for Meeting and Next Steps\n<|id|>66<|page|>6<|box|>794 142 811 243<|content|>VII. Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>9<|level|>1\n<|id|>12<|level|>1\n<|id|>19<|level|>1\n<|id|>22<|level|>2\n<|id|>27<|level|>2\n<|id|>39<|level|>1\n<|id|>45<|level|>1\n<|id|>50<|level|>1\n<|id|>66<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        }
+    ]
+}

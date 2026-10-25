@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>433 140 476 852<|content|>REQUEST FOR ORDER RE: CHILD CUSTODY, VISITATION, A\n<|id|>6<|page|>1<|box|>753 140 770 642<|content|>I. PROCEDURAL POSTURE AND JURISDICTIONAL BASIS\n<|id|>12<|page|>2<|box|>426 142 443 524<|content|>II. IDENTIFICATION OF MINOR CHILDREN\n<|id|>13<|page|>2<|box|>452 140 469 527<|content|>6. The parties are the parents of two minor childr\n<|id|>18<|page|>2<|box|>767 142 784 370<|content|>III. ORDERS REQUESTED\n<|id|>20<|page|>2<|box|>824 142 840 343<|content|>A. Child Custody Orders\n<|id|>26<|page|>4<|box|>90 142 107 452<|content|>B. Visitation / Parenting Time Schedule\n<|id|>33<|page|>4<|box|>694 140 712 341<|content|>C. Child Support Orders\n<|id|>43<|page|>5<|box|>799 142 816 357<|content|>D. Education Cost-Sharing\n<|id|>48<|page|>6<|box|>362 142 378 334<|content|>E. Healthcare Coverage\n<|id|>51<|page|>6<|box|>672 140 690 303<|content|>F. Additional Relief\n<|id|>53<|page|>6<|box|>792 140 809 635<|content|>IV. FACTUAL BACKGROUND IN SUPPORT OF REQUEST\n<|id|>54<|page|>6<|box|>824 140 840 584<|content|>A. History of the Domestic Partnership and the Chi\n<|id|>58<|page|>7<|box|>325 140 342 627<|content|>B. Post-Dissolution Informal Arrangement and Its B\n<|id|>65<|page|>8<|box|>214 140 231 470<|content|>C. Petitioner's Role as Primary Caregiver\n<|id|>70<|page|>9<|box|>90 140 107 511<|content|>D. Respondent's Work Schedule and Residence\n<|id|>74<|page|>9<|box|>402 142 420 361<|content|>E. Children's Best Interests\n<|id|>79<|page|>10<|box|>89 140 106 290<|content|>V. LEGAL BASIS\n<|id|>80<|page|>10<|box|>121 140 138 444<|content|>A. Custody — Best Interests Standard\n<|id|>85<|page|>10<|box|>655 142 672 475<|content|>B. Child Support — Guideline Calculation\n<|id|>91<|page|>11<|box|>508 140 527 354<|content|>C. Continuing Jurisdiction\n<|id|>93<|page|>11<|box|>665 140 681 611<|content|>VI. SUPPORTING DOCUMENTS AND DECLARATIONS\n<|id|>98<|page|>12<|box|>229 140 247 678<|content|>VII. REQUEST FOR TEMPORARY (PENDENTE LITE) ORDERS\n<|id|>106<|page|>12<|box|>824 140 840 454<|content|>VIII. PROOF OF SERVICE / NOTICE\n<|id|>111<|page|>13<|box|>190 434 205 563<|content|>CONCLUSION\n<|id|>118<|page|>13<|box|>441 426 458 568<|content|>VERIFICATION",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>6<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>18<|level|>2\n<|id|>20<|level|>3\n<|id|>26<|level|>3\n<|id|>33<|level|>3\n<|id|>43<|level|>3\n<|id|>48<|level|>3\n<|id|>51<|level|>3\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>58<|level|>3\n<|id|>65<|level|>3\n<|id|>70<|level|>3\n<|id|>74<|level|>3\n<|id|>79<|level|>2\n<|id|>80<|level|>3\n<|id|>85<|level|>3\n<|id|>91<|level|>3\n<|id|>93<|level|>2\n<|id|>98<|level|>2\n<|id|>106<|level|>2\n<|id|>111<|level|>2\n<|id|>118<|level|>2",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        }
+    ]
+}

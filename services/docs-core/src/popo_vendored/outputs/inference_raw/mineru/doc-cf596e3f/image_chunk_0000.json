@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 315 118 683<|content|>ACTION BY WRITTEN CONSENT\n<|id|>1<|type|>title<|page|>1<|box|>137 318 157 679<|content|>OF THE BOARD OF DIRECTORS\n<|id|>2<|type|>title<|page|>1<|box|>175 285 195 710<|content|>OF GENOME DX THERAPEUTICS INC.\n<|id|>6<|type|>title<|page|>1<|box|>397 140 414 241<|content|>RECITALS\n<|id|>11<|type|>table<|page|>2<|box|>232 143 344 852<|content|>None\n<|id|>27<|type|>title<|page|>4<|box|>739 140 757 279<|content|>RESOLUTIONS\n<|id|>28<|type|>title<|page|>4<|box|>765 140 782 379<|content|>NOW, THEREFORE, BE IT:\n<|id|>39<|type|>title<|page|>6<|box|>648 140 664 310<|content|>GOVERNING LAW\n<|id|>41<|type|>title<|page|>6<|box|>768 140 787 297<|content|>EFFECTIVENESS\n<|id|>46<|type|>title<|page|>7<|box|>277 168 311 826<|content|>SIGNATURE PAGE TO ACTION BY WRITTEN CONSENT OF THE\n<|id|>52<|type|>title<|page|>7<|box|>517 142 534 457<|content|>ACKNOWLEDGMENT OF RECUSAL",
+    "raw_response": "<|src_id|>11<|tgt_id|>6",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 6
+        }
+    ]
+}

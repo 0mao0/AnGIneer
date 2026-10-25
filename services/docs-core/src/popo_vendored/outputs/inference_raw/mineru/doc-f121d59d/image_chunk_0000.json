@@ -1,0 +1,50 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 169 125 828<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL ATTORN\n<|id|>9<|type|>title<|page|>1<|box|>401 385 421 611<|content|>I. Executive Summary\n<|id|>21<|type|>title<|page|>2<|box|>440 356 460 640<|content|>II. Engagement and Staffing\n<|id|>22<|type|>title<|page|>2<|box|>486 142 502 328<|content|>A. Formal Engagement\n<|id|>25<|type|>title<|page|>2<|box|>816 142 833 232<|content|>B. Staffing\n<|id|>26<|type|>table<|page|>2<|box|>866 143 904 852<|content|>None\n<|id|>27<|type|>table<|page|>3<|box|>89 143 145 852<|content|>None\n<|id|>29<|type|>title<|page|>3<|box|>294 140 311 323<|content|>C. Conflicts Clearance\n<|id|>34<|type|>title<|page|>3<|box|>523 303 542 694<|content|>III. Background and Factual Summary\n<|id|>35<|type|>title<|page|>3<|box|>568 142 585 370<|content|>A. The Departing Employees\n<|id|>39<|type|>table<|page|>4<|box|>268 143 584 852<|content|>None\n<|id|>41<|type|>title<|page|>4<|box|>768 142 785 346<|content|>B. CRH Business Context\n<|id|>50<|type|>title<|page|>5<|box|>664 140 681 421<|content|>C. Verdana Commerce Group, Inc.\n<|id|>55<|type|>title<|page|>6<|box|>439 140 457 565<|content|>D. Discovery of Departures and Initial CRH Respons\n<|id|>62<|type|>title<|page|>7<|box|>172 334 191 661<|content|>IV. Restrictive Covenant Review\n<|id|>63<|type|>title<|page|>7<|box|>218 140 234 390<|content|>A. Summary of Review Process\n<|id|>66<|type|>title<|page|>7<|box|>530 140 547 501<|content|>B. Key Covenant Provisions — Priya Rathore\n<|id|>74<|type|>title<|page|>8<|box|>446 140 464 575<|content|>C. Key Covenant Provisions — Other Seven Employees\n<|id|>75<|type|>table<|page|>8<|box|>515 143 710 852<|content|>None\n<|id|>77<|type|>title<|page|>9<|box|>90 140 107 426<|content|>D. Initial Enforceability Assessment\n<|id|>89<|type|>title<|page|>10<|box|>199 375 218 622<|content|>V. Vendor Engagements\n<|id|>90<|type|>title<|page|>10<|box|>243 140 260 357<|content|>A. Pinnacle Forensics LLC\n<|id|>106<|type|>title<|page|>11<|box|>344 140 361 439<|content|>B. Aurelian Investigations Group Inc.\n<|id|>114<|type|>title<|page|>12<|box|>90 140 107 542<|content|>C. Future Vendor Engagement — Damages Expert\n<|id|>117<|type|>title<|page|>12<|box|>334 323 353 673<|content|>VI. Pre-Litigation Correspondence\n<|id|>118<|type|>title<|page|>12<|box|>378 142 395 362<|content|>A. Cease-and-Desist Letters\n<|id|>124<|type|>title<|page|>13<|box|>536 140 553 532<|content|>B. Responses and Opposing Counsel Appearances\n<|id|>131<|type|>title<|page|>14<|box|>215 395 236 599<|content|>VII. Litigation Hold\n<|id|>141<|type|>title<|page|>15<|box|>90 297 111 697<|content|>VIII. Litigation Strategy and Next Steps\n<|id|>142<|type|>title<|page|>15<|box|>136 142 152 303<|content|>A. Proposed Claims\n<|id|>151<|type|>title<|page|>16<|box|>321 142 339 308<|content|>B. Emergency Relief\n<|id|>161<|type|>title<|page|>17<|box|>224 140 243 334<|content|>C. Anticipated Timeline\n<|id|>168<|type|>title<|page|>17<|box|>585 140 603 413<|content|>D. Key Deliverables — Next Week\n<|id|>177<|type|>title<|page|>18<|box|>321 366 340 630<|content|>IX. Budget and Fee Status\n<|id|>182<|type|>title<|page|>18<|box|>719 215 739 781<|content|>X. Corporate Governance and Disclosure Considerati\n<|id|>188<|type|>title<|page|>19<|box|>635 362 654 635<|content|>XI. CRH Internal Contacts\n<|id|>196<|type|>title<|page|>20<|box|>244 307 263 689<|content|>XII. Conclusion and Recommendation",
+    "raw_response": "<|src_id|>26<|tgt_id|>25\n<|src_id|>27<|tgt_id|>25\n<|src_id|>39<|tgt_id|>35\n<|src_id|>75<|tgt_id|>74",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 74
+        }
+    ]
+}

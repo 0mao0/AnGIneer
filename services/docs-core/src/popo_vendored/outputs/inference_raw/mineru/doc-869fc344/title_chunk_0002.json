@@ -1,0 +1,58 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        106,
+        110
+    ],
+    "pages": [
+        107,
+        108,
+        109,
+        110
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>336<|page|>107<|box|>75 222 90 767<|content|>Section I - Statements of Financial Condition, Jun\n<|id|>338<|page|>108<|box|>68 216 82 771<|content|>Section I - Statements of Financial Condition, Jun\n<|id|>339<|page|>108<|box|>84 36 100 968<|content|>Table 7.- Gross Loans Outstanding, Excluding Inter\n<|id|>341<|page|>109<|box|>39 262 55 725<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>344<|page|>109<|box|>333 401 346 586<|content|>Footnotes to Table 1\n<|id|>349<|page|>109<|box|>436 403 449 591<|content|>Footnotes to Table 2\n<|id|>366<|page|>109<|box|>696 396 711 584<|content|>Footnotes to Table 3\n<|id|>371<|page|>109<|box|>774 358 788 625<|content|>Footnotes to Table 4 - Part A\n<|id|>381<|page|>110<|box|>95 373 109 643<|content|>Footnotes to Table 4 - Part B\n<|id|>393<|page|>110<|box|>358 414 372 604<|content|>Footnotes to Table 6",
+    "raw_response": "<|id|>336<|level|>1\n<|id|>338<|level|>1\n<|id|>339<|level|>2\n<|id|>341<|level|>1\n<|id|>344<|level|>3\n<|id|>349<|level|>3\n<|id|>366<|level|>3\n<|id|>371<|level|>3\n<|id|>381<|level|>3\n<|id|>393<|level|>3",
+    "parsed": [
+        {
+            "id": 336,
+            "level": 1
+        },
+        {
+            "id": 338,
+            "level": 1
+        },
+        {
+            "id": 339,
+            "level": 2
+        },
+        {
+            "id": 341,
+            "level": 1
+        },
+        {
+            "id": 344,
+            "level": 3
+        },
+        {
+            "id": 349,
+            "level": 3
+        },
+        {
+            "id": 366,
+            "level": 3
+        },
+        {
+            "id": 371,
+            "level": 3
+        },
+        {
+            "id": 381,
+            "level": 3
+        },
+        {
+            "id": 393,
+            "level": 3
+        }
+    ]
+}

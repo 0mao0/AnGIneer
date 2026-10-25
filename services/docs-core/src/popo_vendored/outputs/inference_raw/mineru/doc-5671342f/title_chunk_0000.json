@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 140 128 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>12<|page|>1<|box|>763 140 781 450<|content|>I. Summary of the Offer and Its Merits\n<|id|>20<|page|>2<|box|>776 140 794 478<|content|>II. Aurelius's Strategic Interest in Pinnacle\n<|id|>25<|page|>3<|box|>542 140 559 627<|content|>III. Response to the Board's Schedule 14D-9 Recomm\n<|id|>32<|page|>4<|box|>479 142 496 612<|content|>IV. The Shareholder Rights Plan — Aurelius's Obser\n<|id|>43<|page|>5<|box|>380 140 397 547<|content|>V. Proposed Standstill and Governance Framework\n<|id|>45<|page|>5<|box|>505 140 523 294<|content|>A. Ownership Cap\n<|id|>49<|page|>5<|box|>810 142 827 339<|content|>B. Board Representation\n<|id|>54<|page|>6<|box|>314 140 332 449<|content|>C. Standstill Duration and Restrictions\n<|id|>62<|page|>6<|box|>851 140 869 349<|content|>D. Rights Plan Exemption\n<|id|>64<|page|>7<|box|>226 140 243 493<|content|>E. Revised Schedule 14D-9 Recommendation\n<|id|>69<|page|>7<|box|>465 142 482 437<|content|>VI. Benefits to Pinnacle Shareholders\n<|id|>77<|page|>8<|box|>220 140 238 470<|content|>VII. Current Offer Timeline and Urgency\n<|id|>81<|page|>8<|box|>580 142 598 359<|content|>VIII. Reservation of Rights\n<|id|>89<|page|>9<|box|>234 140 251 344<|content|>IX. Request for Response",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>12<|level|>1\n<|id|>20<|level|>1\n<|id|>25<|level|>1\n<|id|>32<|level|>1\n<|id|>43<|level|>1\n<|id|>45<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>2\n<|id|>69<|level|>1\n<|id|>77<|level|>1\n<|id|>81<|level|>1\n<|id|>89<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        }
+    ]
+}

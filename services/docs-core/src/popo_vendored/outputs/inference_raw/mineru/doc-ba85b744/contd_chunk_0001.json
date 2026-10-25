@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        62,
+        76
+    ],
+    "pages": [
+        63,
+        64,
+        75,
+        76
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>934<|page|>63<|box|>907 105 925 930<|content|>外购的应用软件应具备完整的文档,包括程序结构说明、安装调试说明、使用和维护\n<|id|>935<|page|>64<|box|>100 71 121 275<|content|>说明书等技术资料。 ... 说明书等技术资料\n<|id|>1140<|page|>75<|box|>909 111 928 937<|content|>(2) 控制电缆: ... 用 500V 兆欧表检测, 芯线间、芯线对铠的绝缘电阻值不应小\n<|id|>1141<|page|>76<|box|>100 71 117 171<|content|>于 50MΩ。 ... 于 50MΩ",
+    "raw_response": "<|src_id|>934<|tgt_id|>935\n<|src_id|>1140<|tgt_id|>1141",
+    "parsed": [
+        {
+            "src_id": 934,
+            "tgt_id": 935
+        },
+        {
+            "src_id": 1140,
+            "tgt_id": 1141
+        }
+    ]
+}

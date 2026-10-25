@@ -1,0 +1,146 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-uaq1rpmx\\input\\pdfs\\doc-b44029ec.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-uaq1rpmx\\enriched\\doc-b44029ec.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>40<|level|>3\n<|id|>50<|level|>3\n<|id|>70<|level|>2\n<|id|>72<|level|>3\n<|id|>77<|level|>3\n<|id|>79<|level|>4\n<|id|>83<|level|>4\n<|id|>88<|level|>4\n<|id|>90<|level|>4\n<|id|>93<|level|>3\n<|id|>100<|level|>3\n<|id|>106<|level|>3\n<|id|>111<|level|>2\n<|id|>113<|level|>3\n<|id|>121<|level|>2\n<|id|>127<|level|>3\n<|id|>129<|level|>3\n<|id|>131<|level|>2\n<|id|>137<|level|>2\n<|id|>155<|level|>2",
+    "image_output": "<|src_id|>38<|tgt_id|>23\n<|src_id|>74<|tgt_id|>72\n<|src_id|>75<|tgt_id|>72\n<|src_id|>99<|tgt_id|>93\n<|src_id|>115<|tgt_id|>113",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 4
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 4
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 38,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 113
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 74,
+            "table2_idx": 75,
+            "upper_row_ss": [
+                [
+                    "Key Contacts",
+                    "Terrence Whitfield (General Counsel); Lucia Marchetti"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "(CISO); Darnell Okafor (Executive Director)"
+                ]
+            ]
+        }
+    ]
+}

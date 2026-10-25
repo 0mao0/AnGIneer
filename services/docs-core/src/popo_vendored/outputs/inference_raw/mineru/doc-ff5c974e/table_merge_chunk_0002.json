@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['', '建筑工程费', '', '', '', '', '', ''], ['colspan=8, 审核: 复核: 编制:']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=11, 建筑安装单位工程施工取费明细表工程名称: 工程代号: 工程类别:'], ['rowspan=4, 费用名称', 'colspan=8, 专业工程类别', 'rowspan=2,colspan=2, 合计']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 298,
+    "table2_idx": 299
+}

@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 95,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['191', '\"TS_FEB\",\"CAT_TS1ORIENT\",\"SY(FLDSTR01,ORIENT);TE(\\'%4.1lf kn\\',CURVEL\\',3,1,2,\\'15110\\',1,-1,CHBLK,31)\",\"4\",\"S\",\"OTHER\",\"33060\"']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['192', '\"TS_FEB\",\"CAT_TS2ORIENT\",\"SY( EBBSTR01,ORIENT);TE( \\'%4.1lf kn\\', \\'CURVEL\\',3,1,2,\\'15110\\', 1,-1,CHBLK,31)\",\"4\",\"S\",\"OTHER\",\"33060\"']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 3230,
+    "table2_idx": 3231
+}

@@ -1,0 +1,227 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-x48zvy3w\\input\\pdfs\\doc-befbc66f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-x48zvy3w\\enriched\\doc-befbc66f.json",
+    "contd_output": "<|src_id|>185<|tgt_id|>186",
+    "title_output": "<|id|>3<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>16<|level|>3\n<|id|>18<|level|>3\n<|id|>20<|level|>3\n<|id|>22<|level|>3\n<|id|>24<|level|>3\n<|id|>32<|level|>2\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>52<|level|>3\n<|id|>69<|level|>3\n<|id|>78<|level|>3\n<|id|>93<|level|>3\n<|id|>108<|level|>2\n<|id|>114<|level|>2\n<|id|>118<|level|>2\n<|id|>132<|level|>2\n<|id|>138<|level|>2\n<|id|>170<|level|>2\n<|id|>194<|level|>2\n<|id|>211<|level|>2\n<|id|>233<|level|>2\n<|id|>255<|level|>2",
+    "image_output": "<|src_id|>4<|tgt_id|>3\n<|src_id|>34<|tgt_id|>32\n<|src_id|>35<|tgt_id|>32\n<|src_id|>36<|tgt_id|>32\n<|src_id|>37<|tgt_id|>32\n<|src_id|>109<|tgt_id|>108",
+    "contd_label": [
+        {
+            "src_id": 185,
+            "tgt_id": 186
+        }
+    ],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 233,
+            "level": 2
+        },
+        {
+            "id": 255,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 108
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 34,
+            "table2_idx": 35,
+            "upper_row_ss": [
+                [
+                    "Texas",
+                    "Breckenridge Osgood LLP",
+                    "Westlake Distribution Hub / GMP Westlake LLC (EIN",
+                    "No — Entity-level transfer; no deed recorded; no",
+                    "No — Texas does not impose a state transfer or controlling-",
+                    "$0",
+                    "N/A",
+                    "June 7, 2024"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "84-2415693);Katy Freeway Logistics Park / GMP Katy LLC (EIN 84-2415710);Alliance Commerce Center / GMP Alliance LLC (EIN 84-2415728)",
+                    "recordable instruments required",
+                    "interest transfer tax; nominal local recording fees N/A as no documents recorded",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 35,
+            "table2_idx": 36,
+            "upper_row_ss": [
+                [
+                    "North Carolina",
+                    "Haversham Cole PLLC",
+                    "SouthPark Corporate",
+                    "No deed recorded;",
+                    "Yes — Transfer",
+                    "~$180,000",
+                    "June 6, 2024",
+                    "June 7, 2024"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Center / GMP SouthPark LLC (EIN 84-2639918)",
+                    "excise tax paid on controlling-interest transfer per N.C. Gen. Stat. requirements",
+                    "tax return / excise tax declaration filed with Mecklenburg County Register of Deeds",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 36,
+            "table2_idx": 37,
+            "upper_row_ss": [
+                [
+                    "Florida",
+                    "Palmetto Strauss PA",
+                    "Lakeland Crossings Industrial / GMP Lakeland LLC (EIN 84-2527834); Southport Logistics Park / GMP Southport LLC (EIN 84-2527849); Brickell Bay Office Building /",
+                    "No deeds recorded; documentary stamp tax on deemed consideration for controlling-interest transfer",
+                    "Yes — Documentary stamp tax returns and declarations filed with Polk County, Duval County, and Miami-Dade County Clerks of Court",
+                    "~$1,680,000",
+                    "June 6-7, 2024",
+                    "June 7, 2024"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "GMPBrickellLLC (EIN 84-2639932)",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

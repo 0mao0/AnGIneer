@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        49
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>522<|type|>title<|page|>45<|box|>159 140 176 580<|content|>20.6 Android App — GDPR Consent Screen Wireframe\n<|id|>524<|type|>title<|page|>45<|box|>250 140 267 715<|content|>20.7 Consent Withdrawal — Persistent Icon and Sett\n<|id|>529<|type|>title<|page|>46<|box|>90 142 108 604<|content|>21. Appendix D — Cookie Classification Register Te\n<|id|>531<|type|>table<|page|>46<|box|>176 143 523 852<|content|>None\n<|id|>534<|type|>title<|page|>47<|box|>90 142 107 720<|content|>22. Appendix E — Server-Side Pixel Inventory and C\n<|id|>536<|type|>table<|page|>47<|box|>159 143 417 852<|content|>None\n<|id|>539<|type|>title<|page|>48<|box|>90 142 107 678<|content|>23. Appendix F — Brightleaf ConsentShield Configur\n<|id|>540<|type|>table<|page|>48<|box|>160 143 906 852<|content|>None\n<|id|>541<|type|>table<|page|>49<|box|>88 143 367 852<|content|>None\n<|id|>542<|type|>title<|page|>49<|box|>400 140 417 220<|content|>Sign-Off:",
+    "raw_response": "<|src_id|>531<|tgt_id|>529\n<|src_id|>536<|tgt_id|>534\n<|src_id|>540<|tgt_id|>539\n<|src_id|>541<|tgt_id|>539",
+    "parsed": [
+        {
+            "src_id": 531,
+            "tgt_id": 529
+        },
+        {
+            "src_id": 536,
+            "tgt_id": 534
+        },
+        {
+            "src_id": 540,
+            "tgt_id": 539
+        },
+        {
+            "src_id": 541,
+            "tgt_id": 539
+        }
+    ]
+}

@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 148 142 848<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF REDSTONE\n<|id|>1<|page|>1<|box|>159 272 176 723<|content|>Adopted at a Special Meeting Held on November 14,\n<|id|>3<|page|>1<|box|>300 142 316 375<|content|>1. Call to Order and Quorum\n<|id|>11<|page|>2<|box|>148 140 167 346<|content|>2. Purpose of the Meeting\n<|id|>26<|page|>3<|box|>500 140 516 418<|content|>3. Formation of Special Committee\n<|id|>27<|page|>3<|box|>531 140 547 535<|content|>3.1 Resolution Establishing the Special Committee\n<|id|>40<|page|>4<|box|>488 140 505 428<|content|>3.3 Mandate and Scope of Authority\n<|id|>51<|page|>6<|box|>90 140 107 532<|content|>3.4 Compensation of Special Committee Members\n<|id|>53<|page|>6<|box|>282 140 299 741<|content|>4. Authorization to Engage Calderwood & Harkness L\n<|id|>54<|page|>6<|box|>314 140 330 351<|content|>4.1 Engagement Approval\n<|id|>69<|page|>7<|box|>289 140 306 370<|content|>4.2 Authorization to Execute\n<|id|>71<|page|>7<|box|>501 140 518 514<|content|>5. Authorization to Engage Additional Advisors\n<|id|>73<|page|>7<|box|>648 140 665 313<|content|>5.1 Financial Advisor\n<|id|>75<|page|>7<|box|>849 140 867 292<|content|>5.2 Proxy Solicitor\n<|id|>78<|page|>8<|box|>213 140 229 383<|content|>5.3 Investor Relations Advisor\n<|id|>80<|page|>8<|box|>395 140 412 537<|content|>5.4 General Authorization for Additional Advisors\n<|id|>82<|page|>8<|box|>588 140 604 504<|content|>6. D&O Insurance — Notice of Circumstances\n<|id|>89<|page|>9<|box|>372 140 388 390<|content|>7. Confidentiality and Privilege\n<|id|>93<|page|>9<|box|>782 140 800 341<|content|>8. General Authorization\n<|id|>96<|page|>10<|box|>321 140 339 274<|content|>9. Adjournment\n<|id|>100<|page|>10<|box|>535 333 551 663<|content|>CERTIFICATION AND ATTESTATION\n<|id|>102<|page|>10<|box|>623 142 638 380<|content|>CORPORATE SECRETARY",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>2\n<|id|>11<|level|>2\n<|id|>26<|level|>2\n<|id|>27<|level|>3\n<|id|>40<|level|>3\n<|id|>51<|level|>3\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>69<|level|>3\n<|id|>71<|level|>2\n<|id|>73<|level|>3\n<|id|>75<|level|>3\n<|id|>78<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>2\n<|id|>89<|level|>2\n<|id|>93<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>1\n<|id|>102<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 2
+        }
+    ]
+}

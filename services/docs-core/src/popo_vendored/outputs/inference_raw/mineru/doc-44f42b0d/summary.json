@@ -1,0 +1,62 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vjwmsvla\\input\\pdfs\\doc-44f42b0d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vjwmsvla\\enriched\\doc-44f42b0d.json",
+    "contd_output": "<|src_id|>31<|tgt_id|>32",
+    "title_output": "<|id|>19<|level|>1\n<|id|>25<|level|>1\n<|id|>27<|level|>1\n<|id|>34<|level|>1\n<|id|>41<|level|>1\n<|id|>43<|level|>1",
+    "image_output": "",
+    "contd_label": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        }
+    ],
+    "title_label": [
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        }
+    ],
+    "image_label": [],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 14,
+            "table2_idx": 15,
+            "upper_row_ss": [
+                [
+                    "Castellano Family",
+                    "250,000",
+                    "37,500",
+                    "287,500"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Holdings LLC",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

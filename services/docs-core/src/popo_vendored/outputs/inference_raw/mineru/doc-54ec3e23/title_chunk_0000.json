@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 243 142 754<|content|>AMENDED AND RESTATED CERTIFICATE OF INCORPORATION\n<|id|>2<|page|>1<|box|>199 354 218 643<|content|>VELOPAY SYSTEMS, INC.\n<|id|>3<|page|>1<|box|>237 290 253 707<|content|>Filed with the Secretary of State of the State of\n<|id|>4<|page|>1<|box|>263 215 279 781<|content|>Pursuant to Sections 242 and 245 of the Delaware G\n<|id|>6<|page|>1<|box|>457 140 474 243<|content|>RECITALS\n<|id|>15<|page|>2<|box|>193 142 210 243<|content|>ARTICLE I\n<|id|>17<|page|>2<|box|>265 142 282 251<|content|>ARTICLE II\n<|id|>18<|page|>2<|box|>296 140 313 573<|content|>REGISTERED OFFICE AND REGISTERED AGENT\n<|id|>20<|page|>2<|box|>434 142 450 258<|content|>ARTICLE III\n<|id|>22<|page|>2<|box|>560 140 579 256<|content|>ARTICLE IV\n<|id|>25<|page|>3<|box|>89 142 107 250<|content|>ARTICLE V\n<|id|>26<|page|>3<|box|>119 140 138 354<|content|>BOARD OF DIRECTORS\n<|id|>32<|page|>3<|box|>819 140 837 256<|content|>ARTICLE VI\n<|id|>35<|page|>4<|box|>222 140 239 264<|content|>ARTICLE VII\n<|id|>36<|page|>4<|box|>253 140 270 493<|content|>LIMITATION OF DIRECTOR LIABILITY\n<|id|>44<|page|>5<|box|>89 140 107 271<|content|>ARTICLE VIII\n<|id|>56<|page|>7<|box|>428 140 446 256<|content|>ARTICLE IX\n<|id|>61<|page|>8<|box|>248 142 265 250<|content|>ARTICLE X\n<|id|>63<|page|>8<|box|>595 142 612 256<|content|>ARTICLE XI\n<|id|>66<|page|>8<|box|>766 395 782 601<|content|>FILING ATTESTATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>-1\n<|id|>3<|level|>-1\n<|id|>4<|level|>-1\n<|id|>6<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>2\n<|id|>56<|level|>2\n<|id|>61<|level|>2\n<|id|>63<|level|>2\n<|id|>66<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 156 133 839<|content|>UPJOHN WARNING SCRIPT — STANDARD FORM FOR WITNESS\n<|id|>6<|page|>1<|box|>362 140 378 334<|content|>Section 1: Introductions\n<|id|>15<|page|>2<|box|>90 140 107 390<|content|>Section 2: Identity of the Client\n<|id|>20<|page|>2<|box|>436 140 454 419<|content|>Section 3: Purpose of the Interview\n<|id|>24<|page|>2<|box|>719 140 737 424<|content|>Section 4: Attorney-Client Privilege\n<|id|>29<|page|>3<|box|>267 140 284 431<|content|>Section 5: Confidentiality Obligation\n<|id|>33<|page|>3<|box|>587 140 604 565<|content|>Section 6: Obligation to Provide Truthful Informat\n<|id|>36<|page|>3<|box|>825 140 844 537<|content|>Section 7: No Obligation to Waive Personal Rights\n<|id|>39<|page|>4<|box|>212 140 229 431<|content|>Section 8: Right to Personal Counsel\n<|id|>44<|page|>4<|box|>539 140 556 437<|content|>Section 9: Notes and Record-Keeping\n<|id|>49<|page|>4<|box|>811 140 829 501<|content|>Section 10: Document Preservation Reminder\n<|id|>53<|page|>5<|box|>330 140 347 483<|content|>Section 11: Confirmation of Understanding\n<|id|>68<|page|>6<|box|>210 140 228 563<|content|>Section 12: Supplemental Instructions to Interview\n<|id|>69<|page|>6<|box|>236 228 253 767<|content|>INTERNAL USE ONLY — DO NOT READ ALOUD TO WITNESS\n<|id|>83<|page|>7<|box|>556 403 571 594<|content|>— END OF SCRIPT —",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>15<|level|>2\n<|id|>20<|level|>2\n<|id|>24<|level|>2\n<|id|>29<|level|>2\n<|id|>33<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>53<|level|>2\n<|id|>68<|level|>2\n<|id|>69<|level|>-1\n<|id|>83<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        }
+    ]
+}

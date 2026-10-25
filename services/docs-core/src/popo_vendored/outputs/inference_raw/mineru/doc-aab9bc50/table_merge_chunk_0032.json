@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 32,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['', 'A)雷达应答器的几何类型为点;B)雷达波长属性中,V.VV为波长值编码,B为频带编码,每一分隔用连字符—连接;C)信号时序属性中,除明暗光以外,对所有灯质的信号时序用固定格式编码明(L)和暗(E)的间隔值', 'RTPBCN(雷达应答器)(M)CATRTB(雷达应答信标类)=[1(雷达指向标(连续发射雷达信标)),2(雷康(雷达应答标)),3(导向雷康/雷达应答标)](O)DATEND(终止日期)=[YYYYMMDD](O)DATSTA(开始日期)=[YYYYMMDD](O)NOBJNM(中文名称)=[雷达指向标中文名称](O)OBJNAM(英文名称)=[雷达指向标英文名称](O)RADWAL(雷达波长)=[V.VV—B,V.VV—B,V.VV—B]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '(O)SECTR1(扇形界限1) = [(x.xx)单位:°,范围:0~360](O)SECTR2(扇形界限2) = [(x.xx)单位:°,范围:0~360](O)SIGGRP(信号组) = [(C)(C)...](O)SIGSEQ(信号时序) = [LL.L + (EE.E); (EE.E) + LL.L](O)VALMXR(最大作用距离) = [(xx)单位:m](O)PEREND(定期终止日期) = [YYYYMMDD](O)PERSTA(定期开始日期) = [YYYYMMDD](O)INFORM(英文信息) = [雷达指向标英文信息](O)NINFOM(中文信息) = [雷达指向标中文信息]']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 2899,
+    "table2_idx": 2900
+}

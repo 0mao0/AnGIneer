@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        11
+    ],
+    "pages": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 434 111 563<|content|>EXHIBIT G\n<|id|>1<|page|>2<|box|>136 261 152 733<|content|>FAIR MARKET RENT DETERMINATION PROCEDURE\n<|id|>4<|page|>2<|box|>320 140 337 395<|content|>SECTION 1. APPLICABILITY\n<|id|>9<|page|>2<|box|>830 140 848 580<|content|>SECTION 2. DEFINITION OF FAIR MARKET RENT\n<|id|>24<|page|>4<|box|>549 140 565 697<|content|>SECTION 3. LANDLORD'S INITIAL NOTICE OF PROPOSED F\n<|id|>28<|page|>5<|box|>339 140 357 457<|content|>SECTION 4. NEGOTIATION PERIOD\n<|id|>34<|page|>6<|box|>222 140 239 547<|content|>SECTION 5. BASEBALL-STYLE ARBITRATION\n<|id|>36<|page|>6<|box|>463 140 479 529<|content|>5.1 Appointment of Party-Designated Arbitrators\n<|id|>43<|page|>7<|box|>90 140 107 591<|content|>5.2 Selection of the Third Arbitrator (Neutral Arb\n<|id|>46<|page|>7<|box|>372 140 388 498<|content|>5.3 Submission of Final FMR Determinations\n<|id|>53<|page|>8<|box|>90 140 107 614<|content|>5.4 Decision of the Arbitration Panel — Baseball A\n<|id|>58<|page|>8<|box|>570 140 587 313<|content|>5.5 Arbitration Costs\n<|id|>64<|page|>9<|box|>89 140 106 637<|content|>SECTION 6. INTERIM RENT PENDING DETERMINATION\n<|id|>70<|page|>9<|box|>736 142 753 434<|content|>SECTION 7. MEMORIALIZATION\n<|id|>79<|page|>10<|box|>381 140 398 625<|content|>SECTION 8. GOVERNING LAW; DISPUTE RESOLUTION\n<|id|>82<|page|>10<|box|>712 140 729 411<|content|>SECTION 9. MISCELLANEOUS\n<|id|>88<|page|>11<|box|>349 416 367 581<|content|>INCORPORATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>24<|level|>2\n<|id|>28<|level|>2\n<|id|>34<|level|>2\n<|id|>36<|level|>3\n<|id|>43<|level|>3\n<|id|>46<|level|>3\n<|id|>53<|level|>3\n<|id|>58<|level|>3\n<|id|>64<|level|>2\n<|id|>70<|level|>2\n<|id|>79<|level|>2\n<|id|>82<|level|>2\n<|id|>88<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        }
+    ]
+}

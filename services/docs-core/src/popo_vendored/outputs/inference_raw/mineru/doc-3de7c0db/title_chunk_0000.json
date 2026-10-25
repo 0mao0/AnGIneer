@@ -1,0 +1,70 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 147 125 849<|content|>COMMONWEALTH OF MASSACHUSETTS SUPERIOR COURT BUSIN\n<|id|>2<|page|>1<|box|>359 174 395 821<|content|>AFFIDAVIT OF RACHEL MENDEZ IN SUPPORT OF PLAINTIFF\n<|id|>5<|page|>1<|box|>616 142 633 390<|content|>Background and Qualifications\n<|id|>11<|page|>2<|box|>463 140 479 555<|content|>The Exclusive Distribution Agreement and Territory\n<|id|>18<|page|>3<|box|>388 140 405 684<|content|>Penterra's Distribution Logistics System and the T\n<|id|>27<|page|>4<|box|>704 140 720 594<|content|>Discovery of Vantage's Unauthorized Tri-State Ship\n<|id|>33<|page|>5<|box|>630 140 647 455<|content|>Vantage's Authorized Purchase History\n<|id|>40<|page|>6<|box|>455 140 473 602<|content|>The Meridian Term Sheet and Tri-State Distribution\n<|id|>44<|page|>7<|box|>90 140 107 429<|content|>The January 12, 2018 Kapoor Email\n<|id|>48<|page|>7<|box|>526 140 542 236<|content|>Conclusion\n<|id|>57<|page|>8<|box|>299 140 316 210<|content|>JURAT\n<|id|>64<|page|>8<|box|>544 452 561 545<|content|>EXHIBITS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>18<|level|>2\n<|id|>27<|level|>2\n<|id|>33<|level|>2\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>57<|level|>2\n<|id|>64<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        }
+    ]
+}

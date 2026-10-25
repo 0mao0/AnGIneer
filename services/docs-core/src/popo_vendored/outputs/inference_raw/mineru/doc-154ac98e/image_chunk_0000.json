@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>484 140 502 400<|content|>1. Introduction and Engagement\n<|id|>12<|type|>title<|page|>1<|box|>779 140 796 354<|content|>2. Scope of Representation\n<|id|>39<|type|>title<|page|>4<|box|>484 140 501 313<|content|>3. Engagement Team\n<|id|>47<|type|>title<|page|>5<|box|>348 142 364 290<|content|>4. Fees and Billing\n<|id|>48<|type|>title<|page|>5<|box|>378 142 395 279<|content|>4.1 Hourly Rates\n<|id|>50<|type|>table<|page|>5<|box|>444 143 539 852<|content|>None\n<|id|>52<|type|>table<|page|>5<|box|>724 143 878 852<|content|>None\n<|id|>54<|type|>title<|page|>6<|box|>250 140 265 401<|content|>4.2 Fee Estimate / Not-to-Exceed\n<|id|>58<|type|>title<|page|>6<|box|>703 140 720 468<|content|>4.3 Disbursements and Third-Party Costs\n<|id|>63<|type|>title<|page|>7<|box|>90 218 107 593<|content|>• Total anticipated IDNR filing fees: $11,100.00\n<|id|>70<|type|>title<|page|>7<|box|>618 140 636 334<|content|>4.4 Billing and Payment\n<|id|>74<|type|>title<|page|>8<|box|>148 140 167 339<|content|>5. Client Responsibilities\n<|id|>83<|type|>title<|page|>8<|box|>768 140 787 284<|content|>6. Confidentiality\n<|id|>86<|type|>title<|page|>9<|box|>296 140 313 321<|content|>7. Conflicts of Interest\n<|id|>90<|type|>title<|page|>9<|box|>598 140 614 264<|content|>8. Termination\n<|id|>94<|type|>title<|page|>10<|box|>148 140 167 460<|content|>9. Limitation of Liability and Disclaimer\n<|id|>98<|type|>title<|page|>10<|box|>506 142 523 297<|content|>10. Governing Law\n<|id|>100<|type|>title<|page|>10<|box|>628 142 645 439<|content|>11. Acceptance and Countersignature\n<|id|>106<|type|>title<|page|>11<|box|>114 140 132 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>111<|type|>title<|page|>11<|box|>210 349 227 647<|content|>ACCEPTANCE AND AGREEMENT\n<|id|>113<|type|>title<|page|>11<|box|>316 142 334 377<|content|>AGREED AND ACCEPTED:\n<|id|>114<|type|>title<|page|>11<|box|>343 140 359 563<|content|>GREENFIELD AGRICULTURAL PARTNERS LLC",
+    "raw_response": "<|src_id|>50<|tgt_id|>48\n<|src_id|>52<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 48
+        }
+    ]
+}

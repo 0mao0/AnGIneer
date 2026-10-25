@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>150 140 169 558<|content|>From: ... Tiffany Rosenthal, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>176 140 194 537<|content|>To: ... Harrison Wexford, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>203 140 238 854<|content|>CC: ... Beatrice Holloway, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>246 140 263 339<|content|>Date: ... November 22, 2023\n<|id|>6<|page|>1<|box|>273 140 329 854<|content|>Re: ... Analysis of Analogous UK Provisions\n<|id|>7<|page|>1<|box|>335 142 352 331<|content|>Matter No. ... 1041-00003\n<|id|>95<|page|>10<|box|>834 140 907 857<|content|>Part 26 is not directly relevant to the Transactio...m and is documented in the Preliminary Structuring\n<|id|>96<|page|>11<|box|>90 140 181 854<|content|>Memorandum dated October 18, 2023. ... Among the f...ssitate compliance with UK procedural requirements",
+    "raw_response": "<|src_id|>95<|tgt_id|>96",
+    "parsed": [
+        {
+            "src_id": 95,
+            "tgt_id": 96
+        }
+    ]
+}

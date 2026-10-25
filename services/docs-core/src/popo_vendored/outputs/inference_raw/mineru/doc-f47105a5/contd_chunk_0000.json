@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        10
+    ],
+    "pages": [
+        4,
+        5,
+        6,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>31<|page|>4<|box|>825 140 898 857<|content|>20. ... The\n<|id|>32<|page|>5<|box|>90 174 162 854<|content|>Teaming Agreement was negotiated over a period of ...s of 22 articles and 7 exhibits, totaling 68 pages\n<|id|>40<|page|>5<|box|>854 140 909 856<|content|>26. ... 5, which provides that \"Team Member's aggr...shall not exceed one hundred twenty percent (120%)\n<|id|>41<|page|>6<|box|>90 174 218 856<|content|>of the value of Team Member's Work Package. ... Wh...imited pass-through liability on the subcontractor\n<|id|>66<|page|>9<|box|>789 140 900 856<|content|>39. ... , and again on October 14, 2022, in New\n<|id|>67<|page|>10<|box|>90 174 181 854<|content|>York, New York. ... These senior executive negotiations thus failed to resolve the dispute",
+    "raw_response": "<|src_id|>31<|tgt_id|>32\n<|src_id|>40<|tgt_id|>41\n<|src_id|>66<|tgt_id|>67",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        }
+    ]
+}

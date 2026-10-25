@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 285 125 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>2<|page|>1<|box|>439 143 474 852<|content|>[PROPOSED] TEMPORARY RESTRAINING ORDER AND ORDER T\n<|id|>25<|page|>3<|box|>599 140 618 694<|content|>I. TEMPORARY RESTRAINING ORDER — INJUNCTIVE RELIEF\n<|id|>26<|page|>3<|box|>632 142 648 671<|content|>A. Prohibition on Use, Disclosure, and Exploitatio\n<|id|>37<|page|>4<|box|>705 140 722 689<|content|>B. Prohibition on Destruction, Alteration, or Conc\n<|id|>46<|page|>5<|box|>679 140 696 584<|content|>C. Preservation of Electronic Devices and Storage\n<|id|>52<|page|>6<|box|>301 140 318 468<|content|>D. Return and Sequestration of Materials\n<|id|>54<|page|>6<|box|>493 140 510 406<|content|>II. SCOPE AND APPLICATION\n<|id|>58<|page|>6<|box|>813 140 830 689<|content|>III. ORDER TO SHOW CAUSE RE: PRELIMINARY INJUNCTIO\n<|id|>71<|page|>7<|box|>536 140 553 403<|content|>IV. SERVICE OF THIS ORDER\n<|id|>74<|page|>7<|box|>775 140 792 330<|content|>V. BOND / SECURITY\n<|id|>76<|page|>8<|box|>186 140 203 413<|content|>VI. RESERVATION OF RIGHTS\n<|id|>81<|page|>8<|box|>479 411 496 584<|content|>IT IS SO ORDERED.\n<|id|>95<|page|>9<|box|>89 142 106 625<|content|>STATE OF CALIFORNIA, COUNTY OF SAN FRANCISCO",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>37<|level|>3\n<|id|>46<|level|>3\n<|id|>52<|level|>3\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>71<|level|>2\n<|id|>74<|level|>2\n<|id|>76<|level|>2\n<|id|>81<|level|>-1\n<|id|>95<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        }
+    ]
+}

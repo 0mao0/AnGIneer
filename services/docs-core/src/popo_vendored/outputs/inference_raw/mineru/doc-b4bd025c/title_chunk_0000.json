@@ -1,0 +1,155 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        55
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        14,
+        15,
+        16,
+        21,
+        29,
+        38,
+        39,
+        41,
+        46,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>7<|box|>219 385 246 657<|content|>ANNOUNCEMENT. THE TREASURY\n<|id|>5<|page|>7<|box|>282 277 303 657<|content|>Electronic Retrieval of Data\n<|id|>10<|page|>9<|box|>194 12 364 1000<|content|>TREASURY BULLETIN\n<|id|>14<|page|>11<|box|>49 101 185 848<|content|>TREASURY BULLETIN\n<|id|>19<|page|>14<|box|>31 373 58 549<|content|>Contents\n<|id|>23<|page|>14<|box|>850 320 861 555<|content|>ELECTRONIC RETRIEVAL OF DATA\n<|id|>26<|page|>15<|box|>22 391 42 654<|content|>Treasury Bulletin User Survey\n<|id|>47<|page|>16<|box|>31 370 49 635<|content|>Treasury Bulletin User Survey\n<|id|>68<|page|>21<|box|>52 320 67 654<|content|>Table FFO-1. — Summary of Fiscal Operations\n<|id|>92<|page|>29<|box|>237 161 271 770<|content|>Table FO-1. — Gross Obligations Incurred Within an\n<|id|>115<|page|>38<|box|>40 295 54 734<|content|>TREASURY FINANCING OPERATIONS, OCTOBER-DECEMBER 19\n<|id|>116<|page|>38<|box|>67 480 81 561<|content|>OCTOBER\n<|id|>117<|page|>38<|box|>95 80 106 211<|content|>Auction of 2-Year Notes\n<|id|>121<|page|>38<|box|>282 80 294 158<|content|>52-Week 6f11s\n<|id|>124<|page|>38<|box|>404 80 416 238<|content|>November Quarterly Financing\n<|id|>136<|page|>38<|box|>239 522 253 644<|content|>Cash Management 8111s\n<|id|>139<|page|>38<|box|>377 477 391 567<|content|>NOVEMBER\n<|id|>141<|page|>38<|box|>436 522 447 656<|content|>Auction of 2-Year Notes\n<|id|>145<|page|>38<|box|>631 525 642 602<|content|>52-Week Bills\n<|id|>147<|page|>38<|box|>753 525 764 647<|content|>Cash Management Bills\n<|id|>151<|page|>39<|box|>38 247 52 692<|content|>TREASURY FINANCING OPERATIONS, OCTOBER-DECEMBER 19\n<|id|>152<|page|>39<|box|>70 420 81 510<|content|>DECEMBER\n<|id|>153<|page|>39<|box|>95 35 106 211<|content|>Auction of 5-Year 2-Month Notes\n<|id|>157<|page|>39<|box|>273 35 285 259<|content|>Auction of 2-Year Notes and 4-Year Notes\n<|id|>165<|page|>39<|box|>647 38 658 307<|content|>Auction of 7-Year Notes and 20-Year 1-Month Bonds\n<|id|>173<|page|>39<|box|>377 480 391 561<|content|>52-Week Bills\n<|id|>175<|page|>39<|box|>493 480 504 591<|content|>Public Debt Ceiling\n<|id|>179<|page|>41<|box|>65 313 81 582<|content|>Table PDO-2. - Offerings of Bills\n<|id|>189<|page|>46<|box|>40 462 54 653<|content|>PUBLIC DEBT OPERATIONS\n<|id|>203<|page|>54<|box|>27 319 42 758<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>204<|page|>54<|box|>49 337 65 740<|content|>Government Corporations and Other Business-Type Ac\n<|id|>212<|page|>54<|box|>377 417 391 653<|content|>Accompanying Charts and Graphs",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>5<|level|>2\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>19<|level|>1\n<|id|>23<|level|>2\n<|id|>26<|level|>1\n<|id|>47<|level|>1\n<|id|>68<|level|>1\n<|id|>92<|level|>1\n<|id|>115<|level|>1\n<|id|>116<|level|>2\n<|id|>117<|level|>3\n<|id|>121<|level|>3\n<|id|>124<|level|>2\n<|id|>136<|level|>3\n<|id|>139<|level|>2\n<|id|>141<|level|>3\n<|id|>145<|level|>3\n<|id|>147<|level|>3\n<|id|>151<|level|>1\n<|id|>152<|level|>2\n<|id|>153<|level|>3\n<|id|>157<|level|>3\n<|id|>165<|level|>3\n<|id|>173<|level|>3\n<|id|>175<|level|>3\n<|id|>179<|level|>1\n<|id|>189<|level|>1\n<|id|>203<|level|>1\n<|id|>204<|level|>2\n<|id|>212<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 1
+        },
+        {
+            "id": 189,
+            "level": 1
+        },
+        {
+            "id": 203,
+            "level": 1
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 2
+        }
+    ]
+}

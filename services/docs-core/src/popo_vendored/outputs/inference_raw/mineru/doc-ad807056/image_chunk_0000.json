@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        11,
+        12,
+        14,
+        15,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 308 118 689<|content|>LIMITED CONSENT AND WAIVER\n<|id|>7<|type|>title<|page|>1<|box|>361 346 378 648<|content|>LIMITED CONSENT AND WAIVER\n<|id|>9<|type|>title<|page|>1<|box|>574 142 592 241<|content|>RECITALS\n<|id|>17<|type|>title<|page|>2<|box|>845 140 863 390<|content|>SECTION 1 — DEFINITIONS\n<|id|>25<|type|>title<|page|>3<|box|>676 140 695 622<|content|>\"Over-Allotment Option\" has the meaning set forth\n<|id|>27<|type|>title<|page|>3<|box|>762 140 779 442<|content|>SECTION 2 — LIMITED CONSENT\n<|id|>47<|type|>title<|page|>5<|box|>696 140 714 431<|content|>SECTION 3 — LIMITED WAIVER\n<|id|>54<|type|>title<|page|>6<|box|>574 140 592 630<|content|>SECTION 4 — AMENDMENTS TO CREDIT AGREEMENT\n<|id|>65<|type|>title<|page|>7<|box|>787 140 805 501<|content|>SECTION 5 — CONDITIONS PRECEDENT\n<|id|>82<|type|>title<|page|>9<|box|>733 140 750 805<|content|>SECTION 6 — REPRESENTATIONS AND WARRANTIES OF THE\n<|id|>95<|type|>title<|page|>11<|box|>212 140 229 385<|content|>SECTION 7 — COVENANTS\n<|id|>104<|type|>title<|page|>12<|box|>292 140 329 756<|content|>SECTION 8 — REAFFIRMATION OF CREDIT AGREEMENT AND\n<|id|>108<|type|>title<|page|>12<|box|>777 140 794 429<|content|>SECTION 9 — MISCELLANEOUS\n<|id|>118<|type|>title<|page|>14<|box|>270 230 287 767<|content|>[Remainder of this page intentionally left blank.\n<|id|>119<|type|>title<|page|>14<|box|>295 243 311 753<|content|>SIGNATURE PAGES TO LIMITED CONSENT AND WAIVER\n<|id|>121<|type|>title<|page|>14<|box|>366 142 382 263<|content|>BORROWER:\n<|id|>146<|type|>title<|page|>15<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>147<|type|>title<|page|>15<|box|>130 338 148 658<|content|>FORM OF OFFICER'S CERTIFICATE\n<|id|>148<|type|>title<|page|>15<|box|>156 382 174 614<|content|>OFFICER'S CERTIFICATE\n<|id|>161<|type|>title<|page|>17<|box|>89 449 107 549<|content|>EXHIBIT B\n<|id|>162<|type|>title<|page|>17<|box|>131 155 148 841<|content|>DESCRIPTION OF CONVERTIBLE NOTES AND CAPPED CALL T\n<|id|>163<|type|>title<|page|>17<|box|>172 380 189 617<|content|>(SUMMARY TERM SHEET)\n<|id|>165<|type|>title<|page|>17<|box|>256 143 273 383<|content|>I. Convertible Notes Summary\n<|id|>166<|type|>table<|page|>17<|box|>277 143 898 852<|content|>None\n<|id|>167<|type|>table<|page|>18<|box|>89 143 186 851<|content|>None\n<|id|>168<|type|>table<|page|>18<|box|>247 143 595 852<|content|>None\n<|id|>169<|type|>title<|page|>18<|box|>636 143 652 379<|content|>III. Use of Proceeds Summary\n<|id|>170<|type|>table<|page|>18<|box|>657 143 821 852<|content|>None",
+    "raw_response": "<|src_id|>166<|tgt_id|>165\n<|src_id|>167<|tgt_id|>162\n<|src_id|>168<|tgt_id|>162\n<|src_id|>170<|tgt_id|>169",
+    "parsed": [
+        {
+            "src_id": 166,
+            "tgt_id": 165
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 162
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 162
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 169
+        }
+    ]
+}

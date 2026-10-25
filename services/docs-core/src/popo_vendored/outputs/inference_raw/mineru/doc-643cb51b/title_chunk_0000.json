@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        10,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 145 157 852<|content|>IN THE CIRCUIT COURT OF THE ELEVENTH JUDICIAL CIRC\n<|id|>3<|page|>1<|box|>218 171 279 823<|content|>IRONCLAD INDEMNITY CORPORATION; PINNACLE SURPLUS L\n<|id|>4<|page|>1<|box|>289 160 343 836<|content|>PLAINTIFF'S OPPOSITION TO DEFENDANTS IRONCLAD INDE\n<|id|>6<|page|>1<|box|>393 142 409 308<|content|>I. INTRODUCTION\n<|id|>13<|page|>2<|box|>439 140 455 483<|content|>II. STATEMENT OF RELEVANT FACTS\n<|id|>15<|page|>2<|box|>569 140 587 477<|content|>A. The Parties and the Insurance Program\n<|id|>24<|page|>3<|box|>507 140 523 460<|content|>B. Hurricane Callista and VHG's Losses\n<|id|>32<|page|>4<|box|>601 140 619 656<|content|>C. The July 2022 Renewal and the Windstorm Sub-Lim\n<|id|>42<|page|>6<|box|>90 140 107 418<|content|>D. Ironclad's Denial and Litigation\n<|id|>50<|page|>6<|box|>694 140 710 348<|content|>III. LEGAL STANDARD\n<|id|>56<|page|>7<|box|>530 140 547 287<|content|>IV. ARGUMENT\n<|id|>77<|page|>10<|box|>429 140 446 759<|content|>B. Defendants' Interpretation of the Policy Contra\n<|id|>95<|page|>12<|box|>375 140 391 460<|content|>C. The Follow-Form Issue as to Pinnacle\n<|id|>99<|page|>12<|box|>792 140 809 787<|content|>D. Even If the Sub-Limit Applied, It Would Not Res\n<|id|>104<|page|>13<|box|>594 140 611 834<|content|>E. Defendants' Remaining Defenses Further Demonstr\n<|id|>110<|page|>14<|box|>457 140 474 294<|content|>V. CONCLUSION\n<|id|>117<|page|>16<|box|>89 140 107 640<|content|>VI. SIGNATURE BLOCK AND CERTIFICATE OF SERVICE\n<|id|>118<|page|>16<|box|>114 142 133 331<|content|>Respectfully submitted,\n<|id|>131<|page|>16<|box|>356 374 375 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>3\n<|id|>24<|level|>3\n<|id|>32<|level|>3\n<|id|>42<|level|>3\n<|id|>50<|level|>2\n<|id|>56<|level|>2\n<|id|>77<|level|>3\n<|id|>95<|level|>3\n<|id|>99<|level|>3\n<|id|>104<|level|>3\n<|id|>110<|level|>2\n<|id|>117<|level|>2\n<|id|>118<|level|>-1\n<|id|>131<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        }
+    ]
+}

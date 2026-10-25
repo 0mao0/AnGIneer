@@ -1,0 +1,42 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        5
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>19<|page|>2<|box|>492 140 508 455<|content|>1. Consent to Early Release and Waiver\n<|id|>25<|page|>3<|box|>186 140 203 475<|content|>2. Waiver of Advance Notice Requirement\n<|id|>27<|page|>3<|box|>473 140 489 339<|content|>3. Conditions to Consent\n<|id|>34<|page|>4<|box|>231 140 248 338<|content|>4. Limitation of Consent\n<|id|>41<|page|>4<|box|>664 140 681 287<|content|>5. Governing Law\n<|id|>43<|page|>4<|box|>786 140 804 429<|content|>6. Counterparts; Electronic Delivery\n<|id|>45<|page|>5<|box|>89 398 108 596<|content|>[Signature Page Follows]",
+    "raw_response": "<|id|>19<|level|>1\n<|id|>25<|level|>1\n<|id|>27<|level|>1\n<|id|>34<|level|>1\n<|id|>41<|level|>1\n<|id|>43<|level|>1\n<|id|>45<|level|>-1",
+    "parsed": [
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        }
+    ]
+}

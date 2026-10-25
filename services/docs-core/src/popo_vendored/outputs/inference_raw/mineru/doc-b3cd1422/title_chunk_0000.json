@@ -1,0 +1,44 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        3,
+        7
+    ],
+    "pages": [
+        3,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>3<|box|>85 87 102 364<|content|>ItemAmount Source / Notes\n<|id|>18<|page|>7<|box|>85 85 102 455<|content|>ItemBase OferOverallot Total (Full Notes\n<|id|>22<|page|>7<|box|>174 85 191 347<|content|>Allocation — Primary (Company):\n<|id|>27<|page|>7<|box|>280 85 298 400<|content|>Allocation — Secondary (Pinnacle Vista):\n<|id|>31<|page|>7<|box|>370 85 387 310<|content|>Allocation — Overallotment:\n<|id|>35<|page|>7<|box|>458 85 476 465<|content|>Underwriting discount Breakdown (Full Exercise):\n<|id|>41<|page|>7<|box|>583 87 601 349<|content|>Use of Net Proceeds to Company:",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>18<|level|>1\n<|id|>22<|level|>2\n<|id|>27<|level|>2\n<|id|>31<|level|>2\n<|id|>35<|level|>1\n<|id|>41<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        }
+    ]
+}

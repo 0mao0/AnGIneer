@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>567<|type|>title<|page|>45<|box|>202 142 219 447<|content|>2. Breakdown by Major Cost Category\n<|id|>569<|type|>table<|page|>45<|box|>250 143 381 852<|content|>None\n<|id|>571<|type|>table<|page|>45<|box|>483 143 614 852<|content|>None\n<|id|>572<|type|>title<|page|>45<|box|>654 140 670 388<|content|>3. Cost Reconciliation Timeline\n<|id|>574<|type|>title<|page|>45<|box|>799 140 816 367<|content|>4. Cost Allocation Principles\n<|id|>576<|type|>title<|page|>46<|box|>133 447 150 549<|content|>EXHIBIT F\n<|id|>577<|type|>title<|page|>46<|box|>160 364 176 630<|content|>INSURANCE REQUIREMENTS\n<|id|>578<|type|>title<|page|>46<|box|>191 142 208 397<|content|>1. Minimum Coverage Amounts\n<|id|>580<|type|>table<|page|>46<|box|>257 143 445 852<|content|>None\n<|id|>581<|type|>title<|page|>46<|box|>484 140 500 428<|content|>2. Additional Insured Endorsements\n<|id|>583<|type|>title<|page|>46<|box|>630 142 647 462<|content|>3. Certificate of Insurance Requirements\n<|id|>585<|type|>title<|page|>46<|box|>776 142 792 343<|content|>4. Waiver of Subrogation\n<|id|>587<|type|>title<|page|>47<|box|>90 140 106 290<|content|>5. Periodic Review\n<|id|>589<|type|>title<|page|>47<|box|>194 395 210 602<|content|>[END OF AGREEMENT]",
+    "raw_response": "<|src_id|>569<|tgt_id|>567\n<|src_id|>571<|tgt_id|>567\n<|src_id|>580<|tgt_id|>578",
+    "parsed": [
+        {
+            "src_id": 569,
+            "tgt_id": 567
+        },
+        {
+            "src_id": 571,
+            "tgt_id": 567
+        },
+        {
+            "src_id": 580,
+            "tgt_id": 578
+        }
+    ]
+}

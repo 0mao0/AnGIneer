@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        4,
+        20
+    ],
+    "pages": [
+        4,
+        5,
+        7,
+        8,
+        12,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>table<|page|>4<|box|>85 84 870 880<|content|>None\n<|id|>3<|type|>table<|page|>5<|box|>86 85 908 878<|content|>None\n<|id|>6<|type|>table<|page|>7<|box|>85 85 906 878<|content|>None\n<|id|>7<|type|>table<|page|>8<|box|>85 85 872 880<|content|>None\n<|id|>8<|type|>title<|page|>12<|box|>86 87 101 374<|content|>Lawful BasiNumber of PercentageNotes\n<|id|>9<|type|>table<|page|>12<|box|>102 85 228 877<|content|>None\n<|id|>24<|type|>title<|page|>20<|box|>86 87 102 374<|content|>Data SubjeApproximaExample AcNotes",
+    "raw_response": "<|src_id|>9<|tgt_id|>8",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 8
+        }
+    ]
+}

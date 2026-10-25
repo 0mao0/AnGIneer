@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>425 406 441 591<|content|>Filed: ... February 24, 2023\n<|id|>4<|page|>1<|box|>450 465 467 532<|content|>PART I\n<|id|>15<|page|>2<|box|>873 140 930 856<|content|>6. ... 24), supported by the Declaration of Cather...President of Government Contracts for CONFIDENTIAL\n<|id|>16<|page|>3<|box|>90 174 272 854<|content|>WAL (ECF No. ... WAL further argued that the DCMA ...nsistent determinations on the same factual issues\n<|id|>48<|page|>7<|box|>324 140 340 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>49<|page|>7<|box|>349 140 367 261<|content|>/s/ Priya Anand\n<|id|>63<|page|>9<|box|>446 140 465 620<|content|>HON. ... BRANNIGAN United States District Judge\n<|id|>64<|page|>9<|box|>465 142 482 480<|content|>Dated: ... March 17, 2023 New York, New York\n<|id|>67<|page|>9<|box|>625 174 662 854<|content|>Leonard Trager, Esq. ... (202) 429-3000\n<|id|>68<|page|>9<|box|>669 176 705 637<|content|>Email: ... com Counsel for Defendant Hargrove-Dalton Defense Systems, Inc",
+    "raw_response": "<|src_id|>15<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        }
+    ]
+}

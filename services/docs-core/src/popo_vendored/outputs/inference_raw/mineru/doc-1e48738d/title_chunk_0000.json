@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        17
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 434 111 562<|content|>EXHIBIT D\n<|id|>1<|page|>2<|box|>128 168 165 828<|content|>Summary of Office of the Comptroller of the Curren\n<|id|>2<|page|>2<|box|>172 145 208 849<|content|>Prepared in Connection with the Wells Submission o\n<|id|>16<|page|>3<|box|>474 140 510 841<|content|>I. BACKGROUND: OCC SUPERVISORY RELATIONSHIP WITH B\n<|id|>17<|page|>3<|box|>523 140 541 560<|content|>A. Overview of BRB's Charter and Regulatory Status\n<|id|>29<|page|>4<|box|>426 142 444 351<|content|>B. The BridgeFin Division\n<|id|>36<|page|>5<|box|>275 140 292 534<|content|>C. OCC Examination Cycle and CAMELS Rating\n<|id|>41<|page|>6<|box|>89 140 125 781<|content|>II. SUMMARY OF OCC SUPERVISORY INTERACTIONS REGARD\n<|id|>42<|page|>6<|box|>138 140 157 341<|content|>A. Scope of OCC Review\n<|id|>50<|page|>7<|box|>89 140 107 496<|content|>B. OCC's Assessment of BRB's CECL Model\n<|id|>57<|page|>7<|box|>768 140 785 614<|content|>C. OCC's Review of Re-Aged and Modified Loan Treat\n<|id|>66<|page|>9<|box|>138 140 157 514<|content|>D. OCC's Evaluation of Credit-Quality Metrics\n<|id|>76<|page|>10<|box|>89 140 126 834<|content|>III. CONCURRENT SUPERVISORY ASSESSMENT DURING SEC\n<|id|>77<|page|>10<|box|>138 140 157 421<|content|>A. OCC Awareness of SEC Inquiry\n<|id|>81<|page|>10<|box|>520 140 537 611<|content|>B. No Concurrent OCC Enforcement or Supervisory Ac\n<|id|>90<|page|>11<|box|>429 140 446 531<|content|>C. OCC's Review of BRB's Enhanced Disclosures\n<|id|>97<|page|>12<|box|>321 140 339 748<|content|>IV. SIGNIFICANCE OF OCC FINDINGS FOR THE WELLS SUB\n<|id|>98<|page|>12<|box|>352 140 388 854<|content|>A. The OCC's Concurrent Assessment Supports the Re\n<|id|>102<|page|>13<|box|>138 140 157 648<|content|>B. Consistency with Regulatory Guidance on Loan Mo\n<|id|>106<|page|>13<|box|>575 140 592 482<|content|>C. No Directive to Restate or Increase ACL\n<|id|>111<|page|>14<|box|>138 140 157 620<|content|>D. CAMELS Rating as Indicator of Sound Risk Manage\n<|id|>115<|page|>14<|box|>566 140 583 294<|content|>V. CONCLUSION\n<|id|>121<|page|>16<|box|>89 142 106 558<|content|>APPENDIX: INDEX OF REDACTED MATERIALS\n<|id|>126<|page|>17<|box|>487 410 505 586<|content|>Respectfully submitted,\n<|id|>127<|page|>17<|box|>513 346 529 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>128<|page|>17<|box|>539 297 556 700<|content|>Counsel for Belmont Ridge Bank National Associatio",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>41<|level|>1\n<|id|>42<|level|>2\n<|id|>50<|level|>2\n<|id|>57<|level|>2\n<|id|>66<|level|>2\n<|id|>76<|level|>1\n<|id|>77<|level|>2\n<|id|>81<|level|>2\n<|id|>90<|level|>2\n<|id|>97<|level|>1\n<|id|>98<|level|>2\n<|id|>102<|level|>2\n<|id|>106<|level|>2\n<|id|>111<|level|>2\n<|id|>115<|level|>1\n<|id|>121<|level|>1\n<|id|>126<|level|>-1\n<|id|>127<|level|>-1\n<|id|>128<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        }
+    ]
+}

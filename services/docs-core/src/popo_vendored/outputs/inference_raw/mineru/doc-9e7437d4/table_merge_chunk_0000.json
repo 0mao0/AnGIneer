@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['4', 'colspan=2, 钢结构检测', '检测结构构件的锈蚀状况、变形、连接和防腐措施状况']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=5, 5', 'rowspan=5, 地基及基础检测', '基桩桩身外观及倾斜检测', '检查桩身泥面以上部分的桩身裂缝开展及破损情况,检查桩的位移并测量桩的倾斜程度']]\n",
+    "raw_response": "[0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 109,
+    "table2_idx": 110
+}

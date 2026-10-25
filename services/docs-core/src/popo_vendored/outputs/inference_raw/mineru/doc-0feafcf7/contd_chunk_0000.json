@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        14,
+        15,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>202 336 219 661<|content|>Case No. ... 22-51247 (Jointly Administered)\n<|id|>3<|page|>1<|box|>228 452 244 545<|content|>Chapter 11\n<|id|>4<|page|>1<|box|>253 390 271 607<|content|>Hon. ... Gallagher\n<|id|>11<|page|>1<|box|>825 140 898 856<|content|>3. ... In my capacity as Lead Managing Director at...of the Restructuring Support Agreement (the \"RSA\")\n<|id|>12<|page|>2<|box|>90 174 219 856<|content|>dated July 8, 2022, the preparation of the Disclos... my opinion based upon my experience and knowledge\n<|id|>140<|page|>14<|box|>849 174 904 857<|content|>(b) Class 2 — First Lien Secured Claims ($191. ......s and priority claims), the estimated recovery for\n<|id|>141<|page|>15<|box|>89 174 145 854<|content|>Class 2 is approximately $104. ... 9 million\n<|id|>214<|page|>21<|box|>840 511 859 854<|content|>Dated: ... August 26, 2022 New York, New York\n<|id|>215<|page|>22<|box|>89 140 125 854<|content|>Priya Narayanan Lead Managing Director Aldersgate ...0 Park Avenue, 12th Floor New York, New York 10017\n<|id|>224<|page|>22<|box|>551 176 587 854<|content|>7. ... and\n<|id|>226<|page|>22<|box|>627 140 699 856<|content|>Pinnacle Claims Administration LLC, the Debtors' C... the Local Rules for the Northern District of Ohio",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>140<|tgt_id|>141",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 141
+        }
+    ]
+}

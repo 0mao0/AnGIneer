@@ -1,0 +1,134 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qqfog01w\\input\\pdfs\\doc-446404c6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qqfog01w\\enriched\\doc-446404c6.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>2\n<|id|>9<|level|>3\n<|id|>12<|level|>3\n<|id|>14<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>24<|level|>4\n<|id|>31<|level|>4\n<|id|>46<|level|>4\n<|id|>58<|level|>4\n<|id|>64<|level|>3\n<|id|>65<|level|>4\n<|id|>72<|level|>4\n<|id|>79<|level|>3\n<|id|>80<|level|>4\n<|id|>85<|level|>4\n<|id|>91<|level|>2\n<|id|>106<|level|>2",
+    "image_output": "<|src_id|>0<|tgt_id|>1\n<|src_id|>4<|tgt_id|>3\n<|src_id|>5<|tgt_id|>6\n<|src_id|>8<|tgt_id|>6\n<|src_id|>11<|tgt_id|>9\n<|src_id|>13<|tgt_id|>12",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 4
+        },
+        {
+            "id": 31,
+            "level": 4
+        },
+        {
+            "id": 46,
+            "level": 4
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 4
+        },
+        {
+            "id": 85,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 12
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 4,
+            "table2_idx": 5,
+            "upper_row_ss": [
+                [
+                    "III. VANTOR'S REMAINING ARGUMENTS LACK",
+                    "20"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "MERIT",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

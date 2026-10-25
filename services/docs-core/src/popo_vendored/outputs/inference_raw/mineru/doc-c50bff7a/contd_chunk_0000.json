@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        7,
+        13,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>198 140 215 508<|content|>TO: ... Linda Osei, Partner\n<|id|>2<|page|>1<|box|>224 140 242 622<|content|>FROM: ... Carlos Espinoza, Associate\n<|id|>3<|page|>1<|box|>250 140 268 302<|content|>DATE: ... May 2, 2022\n<|id|>4<|page|>1<|box|>276 140 313 854<|content|>RE: ... Warranty-Chargeback Dispute\n<|id|>5<|page|>1<|box|>319 140 337 362<|content|>MATTER NO. ... 1007-00005\n<|id|>6<|page|>1<|box|>345 140 364 464<|content|>CLIENT: ... Vantage Mobility Systems Corp\n<|id|>59<|page|>7<|box|>306 140 508 857<|content|>This finding is consistent with information previo...cient operating hours to manifest the failure mode\n<|id|>60<|page|>7<|box|>516 140 589 856<|content|>Dr. ... The bolt-head witness marks and gasket com..., independent of the temporal-correlation argument\n<|id|>114<|page|>13<|box|>662 174 680 531<|content|>$4,870,550. ... 30 per unit)\n<|id|>115<|page|>13<|box|>689 140 705 669<|content|>Proportionate-Causation Model (Porosity-Attributab...Causation Model (Porosity-Attributable Units Only)\n<|id|>116<|page|>13<|box|>714 176 732 584<|content|>39. ... 13\n<|id|>117<|page|>13<|box|>739 174 795 854<|content|>This model attributes to Vantage only those units ...elds an estimated 4,619 Vantage-attributable units\n<|id|>175<|page|>19<|box|>756 142 773 320<|content|>Respectfully submitted,\n<|id|>176<|page|>19<|box|>773 140 789 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>177<|page|>19<|box|>792 143 808 251<|content|>By: ... By\n<|id|>178<|page|>19<|box|>809 142 825 352<|content|>Hannah Brinkley, Associate\n<|id|>179<|page|>19<|box|>825 143 842 251<|content|>By: ... By",
+    "raw_response": "<|src_id|>177<|tgt_id|>178\n<|src_id|>178<|tgt_id|>179",
+    "parsed": [
+        {
+            "src_id": 177,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 179
+        }
+    ]
+}

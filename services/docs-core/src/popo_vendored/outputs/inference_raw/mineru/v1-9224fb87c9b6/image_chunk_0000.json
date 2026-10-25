@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>99 281 141 683<|content|>FARMERS INSURANCE GROUP MAKE MODEL PRICING PROCEDU\n<|id|>15<|type|>title<|page|>4<|box|>51 390 79 589<|content|>FARMERS INSURANCE GROUP (FARMERS AND MID-CENTURY)\n<|id|>16<|type|>title<|page|>4<|box|>90 313 104 666<|content|>Classification of Private Passenger Vehicles (1993\n<|id|>17<|type|>table<|page|>4<|box|>108 158 872 816<|content|>None\n<|id|>18<|type|>title<|page|>5<|box|>56 398 80 568<|content|>FARMERS INSURANCE GROUP (FARMERS AND MID-CENTURY)\n<|id|>19<|type|>title<|page|>5<|box|>88 334 101 630<|content|>Classification of Private Passenger Vehicles (1999\n<|id|>20<|type|>table<|page|>5<|box|>119 107 882 864<|content|>None",
+    "raw_response": "<|src_id|>17<|tgt_id|>16\n<|src_id|>20<|tgt_id|>19",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 19
+        }
+    ]
+}

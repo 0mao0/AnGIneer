@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 210 141 785<|content|>RISK FACTORS — ENVIRONMENTAL, SOCIAL AND GOVERNANC\n<|id|>8<|page|>1<|box|>443 142 459 290<|content|>Introductory Note\n<|id|>13<|page|>2<|box|>285 140 321 844<|content|>Risk Factor 1: Climate-Transition Risk — Regulator\n<|id|>24<|page|>5<|box|>204 140 258 848<|content|>Risk Factor 2: Climate-Transition Risk — Dunmore's\n<|id|>36<|page|>7<|box|>90 140 126 828<|content|>Risk Factor 3: Physical Climate Risk — Dunmore's O\n<|id|>45<|page|>8<|box|>612 140 648 833<|content|>Risk Factor 4: Evolving ESG Regulatory and Disclos\n<|id|>53<|page|>10<|box|>204 140 239 820<|content|>Risk Factor 5: Reputational Risk — Negative ESG Pe\n<|id|>63<|page|>11<|box|>530 140 566 803<|content|>Risk Factor 6: Environmental Remediation and Decom\n<|id|>70<|page|>12<|box|>667 140 684 485<|content|>Risk Factor 7: ESG-Related Litigation Risk\n<|id|>81<|page|>13<|box|>604 140 640 844<|content|>Risk Factor 8: Social and Governance Risks — Human\n<|id|>88<|page|>14<|box|>821 140 838 678<|content|>Cautionary Statement Regarding Forward-Looking ESG\n<|id|>105<|page|>16<|box|>280 140 310 852<|content|>DRAFTING NOTES AND INTERNAL COMMENTARY — NOT FOR I",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>24<|level|>2\n<|id|>36<|level|>2\n<|id|>45<|level|>2\n<|id|>53<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>81<|level|>2\n<|id|>88<|level|>2\n<|id|>105<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        }
+    ]
+}

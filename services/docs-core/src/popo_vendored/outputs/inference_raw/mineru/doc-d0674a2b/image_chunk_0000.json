@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>9<|type|>title<|page|>1<|box|>411 140 428 383<|content|>1. Acknowledgment of Receipt\n<|id|>12<|type|>title<|page|>1<|box|>816 140 833 426<|content|>2. Agreement to Comply — General\n<|id|>16<|type|>title<|page|>2<|box|>383 140 402 398<|content|>3. Billing and Fee Arrangements\n<|id|>17<|type|>table<|page|>2<|box|>452 143 577 852<|content|>None\n<|id|>31<|type|>title<|page|>3<|box|>811 140 829 341<|content|>4. Staffing Requirements\n<|id|>41<|type|>title<|page|>4<|box|>652 140 669 521<|content|>5. Reporting and Communication Requirements\n<|id|>47<|type|>title<|page|>5<|box|>502 140 518 284<|content|>6. Confidentiality\n<|id|>51<|type|>title<|page|>6<|box|>90 140 107 313<|content|>7. Conflict of Interest\n<|id|>63<|type|>title<|page|>6<|box|>617 140 633 318<|content|>8. Expense Guidelines\n<|id|>69<|type|>title<|page|>7<|box|>285 140 301 419<|content|>9. Document Retention and Return\n<|id|>72<|type|>title<|page|>7<|box|>561 142 578 254<|content|>10. Insurance\n<|id|>75<|type|>title<|page|>7<|box|>763 140 781 297<|content|>11. Governing Law\n<|id|>77<|type|>title<|page|>8<|box|>90 142 107 235<|content|>12. Closing",
+    "raw_response": "<|src_id|>17<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 16
+        }
+    ]
+}

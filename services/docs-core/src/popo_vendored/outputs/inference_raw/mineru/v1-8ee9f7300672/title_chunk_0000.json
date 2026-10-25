@@ -1,0 +1,160 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        47
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        9,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25,
+        27,
+        31,
+        34,
+        36,
+        37,
+        38,
+        39,
+        46
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>419 140 544 808<|content|>Regional Climate Trends and Scenarios for the U.S.\n<|id|>6<|page|>3<|box|>222 133 282 771<|content|>Regional Climate Trends and Scenarios for the U.S.\n<|id|>12<|page|>5<|box|>79 439 102 557<|content|>PREFACE\n<|id|>18<|page|>5<|box|>542 99 560 263<|content|>Historical Climate\n<|id|>20<|page|>5<|box|>732 99 750 251<|content|>Future Scenarios\n<|id|>35<|page|>9<|box|>80 101 101 320<|content|>1. INTRODUCTION\n<|id|>54<|page|>14<|box|>80 99 121 790<|content|>2. NATIONAL CLIMATE TRENDS AND IMPORTANT CLIMATE F\n<|id|>55<|page|>14<|box|>137 101 155 385<|content|>2.1. Description of Data Sources\n<|id|>64<|page|>15<|box|>526 101 544 531<|content|>2.2. General Description of United States Climate\n<|id|>70<|page|>16<|box|>508 101 529 379<|content|>2.3. Important Climate Factors\n<|id|>77<|page|>18<|box|>571 104 590 236<|content|>2.3.1. Drought\n<|id|>81<|page|>19<|box|>608 102 625 223<|content|>2.3.2. Floods\n<|id|>83<|page|>19<|box|>814 104 832 285<|content|>2.3.3. Winter Storms\n<|id|>86<|page|>20<|box|>351 102 368 318<|content|>2.3.4. Convective Storms\n<|id|>88<|page|>20<|box|>609 104 627 264<|content|>2.3.5. Heat Waves\n<|id|>91<|page|>21<|box|>619 104 638 263<|content|>2.3.6. Cold Waves\n<|id|>93<|page|>21<|box|>757 102 775 261<|content|>2.3.7. Hurricanes\n<|id|>97<|page|>22<|box|>631 102 648 289<|content|>2.4. Climatic Trends\n<|id|>100<|page|>23<|box|>210 102 229 272<|content|>2.4.1. Temperature\n<|id|>105<|page|>25<|box|>80 102 99 271<|content|>2.4.2. Precipitation\n<|id|>109<|page|>27<|box|>80 102 99 359<|content|>2.4.3. Extreme Heat and Cold\n<|id|>112<|page|>27<|box|>463 102 481 344<|content|>2.4.4. Extreme Precipitation\n<|id|>119<|page|>31<|box|>80 102 99 330<|content|>2.4.5. Freeze-Free Season\n<|id|>122<|page|>31<|box|>305 102 324 274<|content|>2.4.6. Water Levels\n<|id|>126<|page|>34<|box|>566 102 584 246<|content|>2.4.7. Ice Cover\n<|id|>129<|page|>36<|box|>496 102 513 429<|content|>2.4.8. Great Lakes Water Temperature\n<|id|>131<|page|>37<|box|>82 99 101 614<|content|>3. FUTURE NATIONAL CLIMATE SCENARIOS\n<|id|>133<|page|>37<|box|>212 101 229 385<|content|>3.1. Description of Data Sources\n<|id|>142<|page|>38<|box|>429 101 448 227<|content|>3.2. Analyses\n<|id|>150<|page|>39<|box|>606 101 625 316<|content|>3.3. Mean Temperature\n<|id|>166<|page|>46<|box|>474 101 493 339<|content|>3.4. Extreme Temperature",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>12<|level|>2\n<|id|>18<|level|>3\n<|id|>20<|level|>3\n<|id|>35<|level|>2\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>64<|level|>3\n<|id|>70<|level|>3\n<|id|>77<|level|>4\n<|id|>81<|level|>4\n<|id|>83<|level|>4\n<|id|>86<|level|>4\n<|id|>88<|level|>4\n<|id|>91<|level|>4\n<|id|>93<|level|>4\n<|id|>97<|level|>3\n<|id|>100<|level|>4\n<|id|>105<|level|>4\n<|id|>109<|level|>4\n<|id|>112<|level|>4\n<|id|>119<|level|>4\n<|id|>122<|level|>4\n<|id|>126<|level|>4\n<|id|>129<|level|>4\n<|id|>131<|level|>2\n<|id|>133<|level|>3\n<|id|>142<|level|>3\n<|id|>150<|level|>3\n<|id|>166<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 81,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 4
+        },
+        {
+            "id": 86,
+            "level": 4
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 93,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 4
+        },
+        {
+            "id": 105,
+            "level": 4
+        },
+        {
+            "id": 109,
+            "level": 4
+        },
+        {
+            "id": 112,
+            "level": 4
+        },
+        {
+            "id": 119,
+            "level": 4
+        },
+        {
+            "id": 122,
+            "level": 4
+        },
+        {
+            "id": 126,
+            "level": 4
+        },
+        {
+            "id": 129,
+            "level": 4
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 3
+        }
+    ]
+}

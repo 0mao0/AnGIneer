@@ -1,0 +1,83 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>327 119 391 899<|content|>航道养护船舶、机械、仪器艘（台）班费用定额\n<|id|>4<|type|>title<|page|>2<|box|>174 380 206 610<|content|>中华人民共和国行业标准\n<|id|>5<|type|>title<|page|>2<|box|>238 172 285 818<|content|>航道养护船舶、机械、仪器艘（台）班费用定额\n<|id|>14<|type|>title<|page|>3<|box|>218 254 310 738<|content|>交通运输部关于发布《航道养护工程预算编制规定》及其配套定额的公告\n<|id|>21<|type|>title<|page|>4<|box|>176 419 216 573<|content|>制定说明\n<|id|>32<|type|>title<|page|>5<|box|>176 443 220 554<|content|>目次\n<|id|>34<|type|>title<|page|>6<|box|>176 442 223 557<|content|>说明\n<|id|>51<|type|>title<|page|>7<|box|>169 83 196 143<|content|>3. 仪器\n<|id|>57<|type|>title<|page|>7<|box|>393 83 421 147<|content|>1. 船舶\n<|id|>62<|type|>title<|page|>7<|box|>584 83 611 146<|content|>2. 机械\n<|id|>80<|type|>title<|page|>10<|box|>136 411 166 587<|content|>第一节 航标船\n<|id|>81<|type|>table<|page|>10<|box|>194 56 860 939<|content|>None\n<|id|>82<|type|>table<|page|>11<|box|>137 56 613 938<|content|>None\n<|id|>83<|type|>title<|page|>12<|box|>134 422 164 578<|content|>第二节 趸船\n<|id|>84<|type|>table<|page|>12<|box|>194 56 798 941<|content|>None\n<|id|>85<|type|>title<|page|>13<|box|>129 404 159 587<|content|>第三节 其他船舶\n<|id|>86<|type|>table<|page|>13<|box|>188 52 568 936<|content|>None\n<|id|>88<|type|>title<|page|>15<|box|>139 404 169 596<|content|>第一节 水平运输机械\n<|id|>89<|type|>table<|page|>15<|box|>200 58 458 941<|content|>None\n<|id|>90<|type|>title<|page|>16<|box|>134 370 163 619<|content|>第二节 起重及垂直运输机械\n<|id|>91<|type|>table<|page|>16<|box|>191 52 737 936<|content|>None\n<|id|>92<|type|>title<|page|>17<|box|>134 364 164 631<|content|>第三节 钢结构加工及焊接机械\n<|id|>93<|type|>table<|page|>17<|box|>193 55 583 939<|content|>None\n<|id|>94<|type|>title<|page|>18<|box|>127 407 157 591<|content|>第四节 其他机械\n<|id|>95<|type|>table<|page|>18<|box|>186 56 436 939<|content|>None\n<|id|>97<|type|>title<|page|>20<|box|>134 411 164 585<|content|>第一节 扫 测 仪\n<|id|>98<|type|>table<|page|>20<|box|>194 56 463 940<|content|>None\n<|id|>99<|type|>title<|page|>21<|box|>127 413 157 585<|content|>第二节 定位仪\n<|id|>100<|type|>table<|page|>21<|box|>186 56 467 939<|content|>None\n<|id|>101<|type|>title<|page|>22<|box|>139 409 169 583<|content|>第三节 测 深 仪\n<|id|>102<|type|>table<|page|>22<|box|>200 55 379 936<|content|>None\n<|id|>103<|type|>title<|page|>23<|box|>132 409 161 592<|content|>第四节 其他仪器\n<|id|>104<|type|>table<|page|>23<|box|>191 58 452 940<|content|>None\n<|id|>105<|type|>title<|page|>24<|box|>208 258 304 755<|content|>本定额主编单位、参编单位、主要起草人、主要审查人、总校人员和管理组人员名单\n<|id|>112<|type|>title<|page|>25<|box|>200 58 228 218<|content|>主要审查人：徐光",
+    "raw_response": "<|src_id|>81<|tgt_id|>80\n<|src_id|>82<|tgt_id|>80\n<|src_id|>84<|tgt_id|>83\n<|src_id|>86<|tgt_id|>85\n<|src_id|>89<|tgt_id|>88\n<|src_id|>91<|tgt_id|>90\n<|src_id|>93<|tgt_id|>92\n<|src_id|>95<|tgt_id|>94\n<|src_id|>98<|tgt_id|>97\n<|src_id|>100<|tgt_id|>99\n<|src_id|>102<|tgt_id|>101\n<|src_id|>104<|tgt_id|>103",
+    "parsed": [
+        {
+            "src_id": 81,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 103
+        }
+    ]
+}

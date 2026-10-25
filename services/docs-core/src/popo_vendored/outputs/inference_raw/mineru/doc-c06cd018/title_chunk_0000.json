@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        55
+    ],
+    "pages": [
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        17,
+        20,
+        22,
+        24,
+        36,
+        37,
+        42,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>7<|box|>32 0 129 938<|content|>Treasury Bulletin\n<|id|>12<|page|>9<|box|>101 354 125 593<|content|>Table of Contents\n<|id|>14<|page|>10<|box|>76 416 93 576<|content|>Reporting Bases\n<|id|>22<|page|>11<|box|>66 331 82 626<|content|>Reporting Bases - (Continued)\n<|id|>27<|page|>13<|box|>126 313 146 653<|content|>Treasury Financing Operations\n<|id|>28<|page|>13<|box|>177 10 192 190<|content|>Tax Anticipation Bills\n<|id|>33<|page|>13<|box|>865 11 880 201<|content|>One-Year Bills Refunded\n<|id|>37<|page|>13<|box|>439 501 454 703<|content|>13-Week and 26-Week Bills\n<|id|>40<|page|>13<|box|>857 503 875 820<|content|>Foreign Series and Foreign Currency Series\n<|id|>42<|page|>14<|box|>91 248 107 757<|content|>Treasury Financing Operations - (Continued)\n<|id|>51<|page|>17<|box|>586 328 600 650<|content|>Footnotes to Table 1 - (Continued)\n<|id|>72<|page|>20<|box|>58 297 73 700<|content|>ADMINISTRATIVE BUDGET RECEIPTS AND EXPENDITURES\n<|id|>74<|page|>20<|box|>663 337 678 658<|content|>Footnotes to Table 3 - (Continued)\n<|id|>88<|page|>22<|box|>57 285 71 690<|content|>ADMINISTRATIVE BUDGET RECEIPTS AND EXPENDITURES\n<|id|>100<|page|>24<|box|>55 373 69 618<|content|>TRUST AND OTHER TRANSACTIONS\n<|id|>140<|page|>36<|box|>56 436 68 578<|content|>DEBT OUTSTANDING\n<|id|>142<|page|>37<|box|>90 200 124 768<|content|>Table 6.- Treasury Holdings of Securities Issued b\n<|id|>153<|page|>42<|box|>92 321 107 666<|content|>Table 2.- Offerings of Treasury Bills\n<|id|>236<|page|>54<|box|>51 409 65 603<|content|>PUBLIC DEBT OPERATIONS",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>22<|level|>3\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>33<|level|>3\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>42<|level|>2\n<|id|>51<|level|>3\n<|id|>72<|level|>2\n<|id|>74<|level|>3\n<|id|>88<|level|>2\n<|id|>100<|level|>2\n<|id|>140<|level|>2\n<|id|>142<|level|>2\n<|id|>153<|level|>2\n<|id|>236<|level|>2",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 236,
+            "level": 2
+        }
+    ]
+}

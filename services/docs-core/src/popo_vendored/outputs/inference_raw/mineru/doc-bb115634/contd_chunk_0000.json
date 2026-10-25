@@ -1,0 +1,42 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        10,
+        11,
+        13,
+        14,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>825 140 898 856<|content|>1. ... (\"KMH\" or the \"Applicant\") seeks to set asi...e 2024 by the tribunal constituted under LCIA Case\n<|id|>8<|page|>2<|box|>89 140 126 854<|content|>Reference No. ... 224718 (the \"Award\"), pursuant t... and/or 69 of the Arbitration Act 1996 (the \"Act\")\n<|id|>19<|page|>2<|box|>758 140 888 856<|content|>1. ... Parallel enforcement proceedings have been commenced by TSL in Cyprus, Singapore, and the United\n<|id|>20<|page|>3<|box|>90 140 126 854<|content|>Arab Emirates. ... These enforcement steps reflect...k of asset dissipation by KMH and its subsidiaries\n<|id|>30<|page|>3<|box|>678 138 880 857<|content|>2. ... As set out in the evidence filed in support of the worldwide freezing order, the\n<|id|>31<|page|>4<|box|>90 140 126 854<|content|>KMH group has engaged in a pattern of asset dissip..., a matter to which TSL returns below at Section 6\n<|id|>70<|page|>7<|box|>335 174 372 854<|content|>\"Serious irregularity means an irregularity of one...will cause substantial injustice to the applicant—\n<|id|>78<|page|>7<|box|>635 176 652 720<|content|>(h) failure to comply with the requirements as to the form of the award; ... or\n<|id|>82<|page|>8<|box|>90 174 162 854<|content|>\"The test of 'substantial injustice' is intended t...ot by way of interference with that process. ... \"\n<|id|>122<|page|>10<|box|>828 140 902 857<|content|>4. ... (i) its defence of force majeure in relation to the early redelivery of M/V Aegean\n<|id|>123<|page|>11<|box|>89 140 143 854<|content|>Fortuna; ... and (iii) its defence that the off-hi...imately made under the contractual off-hire clause\n<|id|>144<|page|>13<|box|>412 178 431 338<|content|>\"The tribunal shall—\n<|id|>149<|page|>13<|box|>726 174 780 854<|content|>\"It is not unfair for a tribunal to reject evidenc...arguments which it does not find persuasive. ... \"\n<|id|>145<|page|>13<|box|>440 174 477 854<|content|>(a) act fairly and impartially as between the part...ts case and dealing with that of its opponent, and\n<|id|>155<|page|>14<|box|>356 174 411 854<|content|>\"(1) If a party to arbitral proceedings takes part...l or by any provision of this Part, any objection—\n<|id|>157<|page|>14<|box|>445 174 500 854<|content|>he may not raise that objection later, before the ...ve discovered the grounds for the objection. ... \"\n<|id|>260<|page|>22<|box|>821 140 854 854<|content|>Hannah Brinkley Lead Associate Calderwood & Harkness LLP 45 Moorgate London EC2R 6AR United Kingdom\n<|id|>261<|page|>22<|box|>854 143 873 341<|content|>Dated: ... 27 September 2024\n<|id|>266<|page|>23<|box|>482 140 515 852<|content|>Hannah Brinkley Lead Associate Calderwood & Harkness LLP 45 Moorgate London EC2R 6AR United Kingdom\n<|id|>267<|page|>23<|box|>516 143 532 343<|content|>Dated: ... 27 September 2024\n<|id|>268<|page|>23<|box|>532 142 549 547<|content|>Ref: ... +44 (0)20 7496 8200\n<|id|>269<|page|>23<|box|>550 142 566 475<|content|>Email: ... com",
+    "raw_response": "<|src_id|>7<|tgt_id|>8\n<|src_id|>19<|tgt_id|>20\n<|src_id|>30<|tgt_id|>31\n<|src_id|>122<|tgt_id|>123",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        }
+    ]
+}

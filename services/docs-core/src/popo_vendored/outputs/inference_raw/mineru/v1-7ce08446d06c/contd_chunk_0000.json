@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        14,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>247 361 267 635<|content|>Liexin Cheng, Xue Cheng\n<|id|>2<|page|>1<|box|>281 416 299 579<|content|>November 2024\n<|id|>7<|page|>1<|box|>598 144 615 850<|content|>1 Introduction2\n<|id|>11<|page|>1<|box|>757 144 774 850<|content|>A Proof of Proposition 121\n<|id|>8<|page|>1<|box|>629 144 646 850<|content|>2 A Model-independent Characterization4\n<|id|>9<|page|>1<|box|>659 144 713 852<|content|>3 Further discussions of proposed conditions7 3. ... 2 Applicability in distribution-based models14\n<|id|>10<|page|>1<|box|>725 144 743 850<|content|>4Conclusion17\n<|id|>12<|page|>1<|box|>787 144 804 850<|content|>B Proof of Theorem 123\n<|id|>31<|page|>5<|box|>241 173 258 675<|content|>First, we introduce the following notations for\\tau \\in [ 0 , \\bar { T } ] ^ { 1 }\n<|id|>32<|page|>5<|box|>269 228 287 396<|content|>\\mu ( \\tau ): ... mean ofX _ { \\tau }\n<|id|>33<|page|>5<|box|>298 228 315 509<|content|>s ( \\tau ): ... standard deviation ofX _ { \\tau }\n<|id|>34<|page|>5<|box|>326 230 344 431<|content|>\\gamma _ { 1 } ( \\tau ): ... skewness ofX _ { \\tau }\n<|id|>35<|page|>5<|box|>356 230 374 480<|content|>\\gamma _ { 2 } ( \\tau ): ... excess kurtosis ofX _ { \\tau }\n<|id|>36<|page|>5<|box|>384 228 406 564<|content|>\\kappa _ { n } ( \\tau ): ... the n-th cumulant of\\...X _ { \\tau } - E [ X _ { \\tau } ] } { s ( \\tau ) }\n<|id|>37<|page|>5<|box|>418 228 435 600<|content|>k: ... log-moneyness of an option,\\log ( K / S _ { 0 } )\n<|id|>38<|page|>5<|box|>445 144 464 751<|content|>Note that we have\\kappa _ { 1 } ( \\tau ) = 0 , \\ka... \\kappa _ { 4 } ( \\tau ) = \\gamma _ { 2 } ( \\tau )\n<|id|>39<|page|>5<|box|>464 142 516 850<|content|>By applying the Edgeworth expansion toX _ { \\tau }..... The proof can be found in Appendix\\mathrm { A }\n<|id|>49<|page|>6<|box|>406 144 424 813<|content|>Condition 1: ... And lim\\iota _ { \\tau 0 } s ( \\tau ) = 0\n<|id|>50<|page|>6<|box|>435 144 453 789<|content|>Condition 2: ... There exists anM > 0such that| { ... } { s } } | < Mfor all\\tau \\in [ 0 , \\bar { T } ]\n<|id|>51<|page|>6<|box|>464 144 499 850<|content|>Condition 3: ... As\\tau 0, the cumulants of the no... _ { 3 } = o ( 1 ) , \\kappa _ { 4 } = o ( 1 ), and\n<|id|>58<|page|>7<|box|>121 144 190 853<|content|>Remark 1 Proposition 1 states a convergence result under a moderate deviation of moneyness. ... ( 2 )\n<|id|>59<|page|>7<|box|>204 142 273 853<|content|>Remark 2 Condition 1-3 excludes the modeling in wh...IV can explode to infinity for k = O ( s )as\\tau 0\n<|id|>60<|page|>7<|box|>288 142 341 852<|content|>The next theorem shows that the convergence still ...ate ATM skew and ATM curvature under Condition 1-3\n<|id|>78<|page|>8<|box|>615 144 652 853<|content|>Proposition 2 Both the regular SVMs( E q . ... Thus, the results in Proposition 1 and Theorem 1\n<|id|>80<|page|>9<|box|>120 144 137 473<|content|>hold. ... Furthermore, for regular SVMs,\n<|id|>98<|page|>10<|box|>120 144 187 850<|content|>We assert that the largest order of u inB ^ { ( n ) } ( 0 , u )isn + 1by induction. ... ( 9 )\n<|id|>99<|page|>10<|box|>189 144 241 852<|content|>The same induction applies toA ^ { ( n ) } ( 0 , u... the cumulants have the order\\frac { n } { 2 } - 1\n<|id|>112<|page|>10<|box|>712 144 728 258<|content|>forr \\in [ 0 , 1 )\n<|id|>113<|page|>10<|box|>728 144 783 852<|content|>B y \\ d e f i n i t i o n , \\ i f \\ kis the leadin...in{array} { r } { O ( \\tau ^ { k } ) . ... Setting\n<|id|>121<|page|>11<|box|>384 142 435 850<|content|>fork \\geq 2. ... By integration, the coeficient of...has the orderO ( \\tau ^ { ( n - 2 ) \\alpha + 1 } )\n<|id|>122<|page|>11<|box|>435 144 502 853<|content|>To deal with\\mathrm { I } ^ { 1 } h ( u , t ), we ...infinitesimalO ( \\tau ^ { ( n - 1 ) \\alpha + 1 } )\n<|id|>123<|page|>11<|box|>504 174 521 813<|content|>Consequently, the leading order for\\kappa _ { n } ( X _ { \\tau } )is( n - 2 ) \\alpha + 1forn \\geq 2and\n<|id|>125<|page|>11<|box|>560 144 599 850<|content|>Thus, Condition 3 is satisfied, and\\psi ( \\tau ) \\... } } = } \\end{array} O ( \\tau ^ { 2 \\alpha - 2 } )\n<|id|>126<|page|>11<|box|>609 142 645 850<|content|>From Theorem 1, we explicitly compute\\gamma _ { 1 ... derive the limit volatility skew and curvature as\n<|id|>151<|page|>14<|box|>482 144 589 850<|content|>Example 4 (Gamma Return) We assume thatZ _ { t } ^...he non-arbitrage conditionE [ e ^ { X \\tau } ] = 1\n<|id|>152<|page|>14<|box|>590 146 630 850<|content|>Under this model setup, we haves ( \\tau ) = \\sqrt ...ment generating function ofX _ { \\tau }, we obtain\n<|id|>271<|page|>25<|box|>388 142 457 850<|content|>Since the Heston model satisfies our proposed cumu...t tog ( \\cdot ) , \\gamma ( \\cdot )and\\mu ( \\cdot )\n<|id|>272<|page|>25<|box|>457 142 489 850<|content|>According to Hall (1970), for a time-changed Brownian motionB _ { T }, the expres- sion\n<|id|>288<|page|>26<|box|>649 142 702 850<|content|>whose asymptotic order depends on the order of\\beg...t to the choice of\\mu ( \\cdot )and\\gamma ( \\cdot )\n<|id|>289<|page|>26<|box|>702 142 771 852<|content|>Finally, we notice that the cumulants of normalize...ons 1-2 are also satisfied, the limit equivalences",
+    "raw_response": "<|src_id|>78<|tgt_id|>80\n<|src_id|>113<|tgt_id|>121",
+    "parsed": [
+        {
+            "src_id": 78,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 121
+        }
+    ]
+}

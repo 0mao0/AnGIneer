@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 7,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['[Preamble] \"A multi-channel silicon photonic waveguide multiplexer...\"', 'Takahashi describes a \"silicon photonic MUX\" using an arrayed waveguide grating architecture. See Takahashi at Abstract, § I (Introduction).', 'Takahashi describes an AWG-based multiplexer that uses star couplers (slab waveguide regions) as its combining mechanism. Under OWS\\'s construction of \"waveguide multiplexer\" — \"an optical device that combines multiple optical signals of different wavelengths onto a single waveguide\" — Takahashi\\'s device uses a slab coupler output region, not a single-mode waveguide output as required. The slab coupler disperses light spatially before collection, which is architecturally distinct from the claimed \"waveguide multiplexer.\" Even under Lumicore\\'s broader proposed construction (\"any device that combines optical signals\"), Takahashi\\'s device may arguably']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'meet the preamble, but the preamble is not limiting in any event. The critical deficiencies are in the body limitations, as discussed below.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 84,
+    "table2_idx": 85
+}

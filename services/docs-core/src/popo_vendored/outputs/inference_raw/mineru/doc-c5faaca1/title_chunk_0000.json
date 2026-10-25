@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>116 218 133 779<|content|>In its capacity as General Partner ofHarrowgate Pr\n<|id|>6<|page|>1<|box|>352 140 369 413<|content|>Section 1 — Notice of Distribution\n<|id|>9<|page|>1<|box|>631 142 648 364<|content|>Distribution Date: [__], 20[]\n<|id|>10<|page|>1<|box|>657 142 675 325<|content|>Record Date: [__], 20[]\n<|id|>12<|page|>1<|box|>797 140 814 491<|content|>Section 2 — Aggregate Distribution Amount\n<|id|>22<|page|>2<|box|>561 140 579 609<|content|>Section 3 — Waterfall Tier Allocation and Characte\n<|id|>24<|page|>2<|box|>728 140 744 459<|content|>Tier 1 — Return of Contributed Capital\n<|id|>28<|page|>3<|box|>194 142 210 357<|content|>Tier 2 — Preferred Return\n<|id|>29<|page|>3<|box|>218 140 234 459<|content|>Amount allocated to Tier 2: $[_]\n<|id|>32<|page|>3<|box|>520 142 537 328<|content|>Tier 3 — GP Catch-Up\n<|id|>33<|page|>3<|box|>544 140 561 460<|content|>Amount allocated to Tier 3: $[\n<|id|>36<|page|>3<|box|>845 142 863 470<|content|>Tier 4 — Carried Interest / Residual Split\n<|id|>40<|page|>4<|box|>321 140 339 539<|content|>Section 4 — Individual Limited Partner Allocation\n<|id|>55<|page|>5<|box|>90 140 107 411<|content|>Section 5 — Tax Characterization\n<|id|>61<|page|>6<|box|>90 140 107 455<|content|>Section 6 — Wire Transfer Instructions\n<|id|>75<|page|>6<|box|>763 140 779 434<|content|>Section 7 — Reserves and Holdbacks\n<|id|>82<|page|>7<|box|>546 140 563 377<|content|>Section 8 — Clawback Notice\n<|id|>90<|page|>8<|box|>299 140 316 496<|content|>Section 9 — Partnership Agreement Governs\n<|id|>94<|page|>8<|box|>637 140 654 372<|content|>Section 10 — Confidentiality\n<|id|>98<|page|>9<|box|>152 400 170 596<|content|>[Signature Page Follows]\n<|id|>99<|page|>9<|box|>176 143 213 851<|content|>SIGNATURE PAGE TO DISTRIBUTION NOTICE NO. [__] HAR\n<|id|>107<|page|>9<|box|>369 437 386 558<|content|>SCHEDULE A\n<|id|>108<|page|>9<|box|>396 297 412 700<|content|>Individual Limited Partner Distribution Allocation\n<|id|>109<|page|>9<|box|>422 225 439 771<|content|>Distribution Notice No. [__] — Harrowgate Private\n<|id|>114<|page|>10<|box|>348 449 364 549<|content|>EXHIBIT B\n<|id|>115<|page|>10<|box|>375 390 391 606<|content|>Wire Transfer Information\n<|id|>116<|page|>10<|box|>401 405 417 593<|content|>(For Internal Use Only)",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>6<|level|>2\n<|id|>9<|level|>3\n<|id|>10<|level|>3\n<|id|>12<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>3\n<|id|>28<|level|>3\n<|id|>29<|level|>4\n<|id|>32<|level|>3\n<|id|>33<|level|>4\n<|id|>36<|level|>3\n<|id|>40<|level|>2\n<|id|>55<|level|>2\n<|id|>61<|level|>2\n<|id|>75<|level|>2\n<|id|>82<|level|>2\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>98<|level|>-1\n<|id|>99<|level|>1\n<|id|>107<|level|>1\n<|id|>108<|level|>1\n<|id|>109<|level|>1\n<|id|>114<|level|>1\n<|id|>115<|level|>1\n<|id|>116<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 4
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 2
+        }
+    ]
+}

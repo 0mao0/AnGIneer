@@ -1,0 +1,149 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 295 107 702<|content|>BRECKENRIDGE OSGOOD LLP Attorneys at Law\n<|id|>15<|page|>1<|box|>606 142 622 266<|content|>1. Introduction\n<|id|>19<|page|>2<|box|>267 140 284 563<|content|>2. Defined Terms and Identification of Target Enti\n<|id|>20<|page|>2<|box|>297 140 315 341<|content|>2.1 Texas Target Entities\n<|id|>26<|page|>3<|box|>90 140 107 326<|content|>2.2 Key Defined Terms\n<|id|>36<|page|>3<|box|>746 140 763 437<|content|>3. Documents and Records Examined\n<|id|>38<|page|>3<|box|>821 140 839 383<|content|>3.1 Organizational Documents\n<|id|>45<|page|>4<|box|>426 140 443 361<|content|>3.2 Transaction Documents\n<|id|>55<|page|>5<|box|>90 140 107 401<|content|>3.3 Loan and Lender Documents\n<|id|>61<|page|>5<|box|>468 140 484 395<|content|>3.4 Title and Survey Documents\n<|id|>65<|page|>5<|box|>647 142 664 313<|content|>3.5 Other Documents\n<|id|>70<|page|>6<|box|>157 140 175 380<|content|>3.6 Assumptions and Reliance\n<|id|>76<|page|>6<|box|>582 140 599 267<|content|>4. Assumptions\n<|id|>87<|page|>7<|box|>491 140 508 238<|content|>5. Opinions\n<|id|>89<|page|>7<|box|>566 140 584 496<|content|>5.1 Foreign Qualification and Good Standing\n<|id|>92<|page|>7<|box|>848 140 864 398<|content|>5.2 Authority and Authorization\n<|id|>96<|page|>8<|box|>508 140 523 282<|content|>5.4 No Violations\n<|id|>101<|page|>9<|box|>90 140 107 447<|content|>5.5 Transfer Tax Compliance — Texas\n<|id|>105<|page|>9<|box|>544 140 561 491<|content|>5.6 No Consents Required Under Texas Law\n<|id|>110<|page|>10<|box|>90 140 107 400<|content|>5.7 Lien and Judgment Searches\n<|id|>114<|page|>10<|box|>453 140 470 351<|content|>5.8 Real Property Matters\n<|id|>118<|page|>11<|box|>90 140 107 403<|content|>6. Qualifications and Limitations\n<|id|>119<|page|>11<|box|>121 140 138 375<|content|>6.1 Enforceability Exceptions\n<|id|>124<|page|>11<|box|>564 140 582 315<|content|>6.2 Scope Limitations\n<|id|>133<|page|>12<|box|>590 140 608 336<|content|>6.3 Reliance and Benefit\n<|id|>137<|page|>13<|box|>167 140 184 225<|content|>7. Closing\n<|id|>140<|page|>13<|box|>282 359 297 637<|content|>BRECKENRIDGE OSGOOD LLP\n<|id|>144<|page|>14<|box|>89 142 107 243<|content|>EXHIBIT A\n<|id|>145<|page|>14<|box|>114 346 132 650<|content|>LIST OF DOCUMENTS EXAMINED\n<|id|>147<|page|>15<|box|>89 142 107 243<|content|>EXHIBIT B\n<|id|>148<|page|>15<|box|>114 143 152 854<|content|>CERTIFICATES OF GOOD STANDING / CERTIFICATES OF FA",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>15<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>26<|level|>2\n<|id|>36<|level|>1\n<|id|>38<|level|>2\n<|id|>45<|level|>2\n<|id|>55<|level|>2\n<|id|>61<|level|>2\n<|id|>65<|level|>2\n<|id|>70<|level|>2\n<|id|>76<|level|>1\n<|id|>87<|level|>1\n<|id|>89<|level|>2\n<|id|>92<|level|>2\n<|id|>96<|level|>2\n<|id|>101<|level|>2\n<|id|>105<|level|>2\n<|id|>110<|level|>2\n<|id|>114<|level|>2\n<|id|>118<|level|>1\n<|id|>119<|level|>2\n<|id|>124<|level|>2\n<|id|>133<|level|>2\n<|id|>137<|level|>1\n<|id|>140<|level|>-1\n<|id|>144<|level|>1\n<|id|>145<|level|>2\n<|id|>147<|level|>1\n<|id|>148<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 2
+        }
+    ]
+}

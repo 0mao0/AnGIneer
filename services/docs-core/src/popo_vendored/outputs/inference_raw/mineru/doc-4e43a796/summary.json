@@ -1,0 +1,160 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xbvkj0zh\\input\\pdfs\\doc-4e43a796.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xbvkj0zh\\enriched\\doc-4e43a796.json",
+    "contd_output": "",
+    "title_output": "<|id|>2<|level|>1\n<|id|>11<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>28<|level|>3\n<|id|>33<|level|>3\n<|id|>37<|level|>2\n<|id|>42<|level|>3\n<|id|>52<|level|>3\n<|id|>61<|level|>3\n<|id|>71<|level|>3\n<|id|>81<|level|>2\n<|id|>82<|level|>3\n<|id|>89<|level|>3\n<|id|>94<|level|>3\n<|id|>101<|level|>2\n<|id|>102<|level|>3\n<|id|>107<|level|>3\n<|id|>112<|level|>3\n<|id|>117<|level|>2\n<|id|>125<|level|>2\n<|id|>126<|level|>3\n<|id|>134<|level|>3\n<|id|>144<|level|>3\n<|id|>150<|level|>3\n<|id|>154<|level|>2\n<|id|>165<|level|>2",
+    "image_output": "<|src_id|>26<|tgt_id|>19\n<|src_id|>40<|tgt_id|>37\n<|src_id|>96<|tgt_id|>94\n<|src_id|>97<|tgt_id|>94\n<|src_id|>171<|tgt_id|>165",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 26,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 165
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 96,
+            "table2_idx": 97,
+            "upper_row_ss": [
+                [
+                    "Parameter",
+                    "Pre-Markman",
+                    "Post-Markman"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Probability of favorable outcome",
+                    "45-65%",
+                    "<5%"
+                ]
+            ]
+        }
+    ]
+}

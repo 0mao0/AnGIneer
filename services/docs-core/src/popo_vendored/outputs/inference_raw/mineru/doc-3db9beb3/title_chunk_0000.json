@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        57
+    ],
+    "pages": [
+        5,
+        7,
+        14,
+        19,
+        20,
+        26,
+        27,
+        28,
+        29,
+        39,
+        42,
+        43,
+        46,
+        48,
+        56,
+        57
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>5<|box|>107 74 263 848<|content|>TREASURY BULLETIN\n<|id|>12<|page|>7<|box|>125 347 145 548<|content|>Table of Contents\n<|id|>30<|page|>14<|box|>46 348 64 660<|content|>Treasury Market Financing\n<|id|>32<|page|>14<|box|>134 48 149 236<|content|>March Maturities\n<|id|>45<|page|>19<|box|>64 308 78 608<|content|>Budgetary Receipts and Expenditures\n<|id|>49<|page|>20<|box|>57 283 70 734<|content|>Budgetary Receipts and Expenditures - (Continued)\n<|id|>62<|page|>26<|box|>59 211 75 824<|content|>Social Security Program: Section I - Budgetary Rec\n<|id|>65<|page|>27<|box|>67 284 82 611<|content|>Social Security Program - (Continued)\n<|id|>66<|page|>27<|box|>89 178 105 718<|content|>Section I - Budgetary Receipts and Expenditures -\n<|id|>67<|page|>27<|box|>111 281 127 614<|content|>Table 2.- Railroad Retirement Account\n<|id|>70<|page|>28<|box|>53 338 68 670<|content|>Social Security Program - (Continued)\n<|id|>71<|page|>28<|box|>75 320 90 688<|content|>Section II - Statements of Trust Accounts\n<|id|>72<|page|>28<|box|>95 226 110 785<|content|>Table 1.- Federal Old-Age and Survivors Insurance\n<|id|>77<|page|>29<|box|>73 305 87 626<|content|>Cash Income and Outgo of the Treasury\n<|id|>94<|page|>39<|box|>395 41 431 934<|content|>Table 2.- Analysis of U. S. Government Securities\n<|id|>99<|page|>42<|box|>50 208 99 812<|content|>Maturity Schedule of Interest-Bearing Public Marke\n<|id|>101<|page|>43<|box|>71 186 118 774<|content|>Maturity Schedule of Interest-Bearing Public Marke\n<|id|>106<|page|>46<|box|>46 308 62 697<|content|>Offerings and Maturities of Treasury Bills\n<|id|>109<|page|>48<|box|>46 235 62 773<|content|>Sales and Redemptions of United States Savings Bon\n<|id|>124<|page|>56<|box|>44 208 59 815<|content|>Sales and Redemptions of United States Savings Bon\n<|id|>126<|page|>57<|box|>73 258 89 685<|content|>Sales and Redemptions of Treasury Savings Notes",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>12<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>2\n<|id|>45<|level|>1\n<|id|>49<|level|>1\n<|id|>62<|level|>1\n<|id|>65<|level|>1\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>70<|level|>1\n<|id|>71<|level|>2\n<|id|>72<|level|>3\n<|id|>77<|level|>1\n<|id|>94<|level|>1\n<|id|>99<|level|>1\n<|id|>101<|level|>1\n<|id|>106<|level|>1\n<|id|>109<|level|>1\n<|id|>124<|level|>1\n<|id|>126<|level|>1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        }
+    ]
+}

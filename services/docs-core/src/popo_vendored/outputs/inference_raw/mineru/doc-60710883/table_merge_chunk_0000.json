@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Fiscal 1999 to date . . .', '3,486', '19,193', '176,954', '25,142', '21,494', '2,204', '15,974', '3,196', '277', '2,842', '111', '6,678']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Fiscal year or month', 'rowspan=2, National Aeronautics and Space Administration (25)', 'rowspan=2, National Science Foundation (26)', 'rowspan=2, Office of Personnel Management (27)', 'rowspan=2, Small Business Administration (28)', 'rowspan=2, Social Security Administration (29)', 'rowspan=2, Other independent agencies (30)', 'colspan=4, Undistributed offsetting receipts', 'colspan=2, Total outlays']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 136,
+    "table2_idx": 137
+}

@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 158 125 838<|content|>SECRETARY'S CERTIFICATE OF VERIDIAN HEALTH RESEARC\n<|id|>6<|page|>1<|box|>700 140 717 485<|content|>Section 1: Good Standing and Organization\n<|id|>18<|page|>2<|box|>602 140 619 372<|content|>Section 2: Board Resolutions\n<|id|>29<|page|>3<|box|>609 140 626 526<|content|>Section 3: Incumbency of Authorized Signatories\n<|id|>31<|page|>3<|box|>696 140 714 424<|content|>3.1 Dr. Franklin Osei, M.D., Ph.D.\n<|id|>35<|page|>3<|box|>875 176 891 344<|content|>Specimen Signature:\n<|id|>44<|page|>4<|box|>559 140 577 326<|content|>Section 4: No Conflicts\n<|id|>51<|page|>5<|box|>267 140 284 437<|content|>Section 5: Organizational Documents\n<|id|>57<|page|>5<|box|>619 140 638 421<|content|>Section 6: Additional Certifications\n<|id|>62<|page|>6<|box|>241 140 258 295<|content|>Section 7: Reliance\n<|id|>66<|page|>6<|box|>527 179 561 816<|content|>SIGNATURE PAGE TO SECRETARY'S CERTIFICATE VERIDIAN\n<|id|>82<|page|>7<|box|>89 316 108 679<|content|>[Full document attached behind this cover sheet]\n<|id|>83<|page|>7<|box|>114 418 133 578<|content|>ATTACHMENT C\n<|id|>84<|page|>7<|box|>141 184 159 810<|content|>Resolutions of the Board of Directors of Veridian",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>18<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>3\n<|id|>35<|level|>2\n<|id|>44<|level|>2\n<|id|>51<|level|>2\n<|id|>57<|level|>2\n<|id|>62<|level|>2\n<|id|>66<|level|>2\n<|id|>82<|level|>-1\n<|id|>83<|level|>2\n<|id|>84<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        }
+    ]
+}

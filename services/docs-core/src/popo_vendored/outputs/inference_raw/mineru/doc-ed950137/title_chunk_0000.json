@@ -1,0 +1,134 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>14<|page|>2<|box|>90 140 107 545<|content|>Section 1. Defined Terms and Documents Reviewed\n<|id|>15<|page|>2<|box|>121 142 138 442<|content|>1.1 Transaction Documents Examined\n<|id|>24<|page|>2<|box|>777 142 795 465<|content|>1.2 Organizational Documents Examined\n<|id|>30<|page|>3<|box|>345 142 362 542<|content|>1.3 Resolutions and Authorizing Actions Examined\n<|id|>37<|page|>4<|box|>157 142 174 517<|content|>1.4 Certificates and Other Documents Reviewed\n<|id|>43<|page|>4<|box|>609 143 625 292<|content|>1.5 Defined Terms\n<|id|>52<|page|>5<|box|>186 140 204 328<|content|>Section 2. Assumptions\n<|id|>61<|page|>6<|box|>321 140 339 297<|content|>Section 3. Opinions\n<|id|>63<|page|>6<|box|>397 140 414 604<|content|>3.1 Due Organization — Dunmore upstream Finance Co\n<|id|>65<|page|>6<|box|>616 140 633 584<|content|>3.2 Due Organization — Dunmore Gulf Operations LLC\n<|id|>67<|page|>6<|box|>816 140 834 550<|content|>3.3 Due Organization — Dunmore Renewables LLC\n<|id|>69<|page|>7<|box|>194 140 212 611<|content|>3.4 Due Organization — Dunmore Midstream Holdings\n<|id|>71<|page|>7<|box|>377 140 393 715<|content|>3.5 Corporate Power and Authority — Dunmore upstre\n<|id|>73<|page|>7<|box|>651 140 667 826<|content|>3.6 Limited Liability Company Power and Authority\n<|id|>75<|page|>8<|box|>138 140 157 790<|content|>3.7 Limited Liability Company Power and Authority\n<|id|>77<|page|>8<|box|>431 140 449 720<|content|>3.8 Corporate Power and Authority — Dunmore Midstr\n<|id|>79<|page|>8<|box|>705 140 723 392<|content|>3.9 Due Execution and Delivery\n<|id|>81<|page|>9<|box|>138 140 156 274<|content|>3.10 No Conflict\n<|id|>87<|page|>9<|box|>810 140 827 578<|content|>3.11 No Consent or Approval Required (Delaware Law\n<|id|>92<|page|>10<|box|>383 140 402 462<|content|>Section 4. Qualifications and Limitations\n<|id|>94<|page|>10<|box|>441 140 458 383<|content|>4.1 Governing Law Limitation\n<|id|>96<|page|>10<|box|>696 140 714 390<|content|>4.2 Enforceability Qualification\n<|id|>98<|page|>11<|box|>90 140 107 462<|content|>4.3 Bankruptcy and Equitable Principles\n<|id|>100<|page|>11<|box|>291 140 308 388<|content|>4.4 Security Interest Perfection\n<|id|>102<|page|>11<|box|>547 140 564 377<|content|>4.5 No Continuing Obligation\n<|id|>104<|page|>11<|box|>691 140 709 504<|content|>4.6 Beneficial Ownership and Factual Matters\n<|id|>106<|page|>12<|box|>90 140 107 424<|content|>Section 5. Reliance and Distribution",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>30<|level|>2\n<|id|>37<|level|>2\n<|id|>43<|level|>2\n<|id|>52<|level|>1\n<|id|>61<|level|>1\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>2\n<|id|>87<|level|>2\n<|id|>92<|level|>1\n<|id|>94<|level|>2\n<|id|>96<|level|>2\n<|id|>98<|level|>2\n<|id|>100<|level|>2\n<|id|>102<|level|>2\n<|id|>104<|level|>2\n<|id|>106<|level|>1",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 1
+        }
+    ]
+}

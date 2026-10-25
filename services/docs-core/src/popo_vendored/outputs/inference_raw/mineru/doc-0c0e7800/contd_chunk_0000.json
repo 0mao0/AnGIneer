@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 151 152 846<|content|>1450 Brickell Avenue, Suite 3100 Miami, Florida 33131 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 748 176 854<|content|>June 20, 2025\n<|id|>3<|page|>1<|box|>185 140 203 560<|content|>VIA ELECTRONIC MAIL AND HAND DELIVERY\n<|id|>4<|page|>1<|box|>212 140 248 854<|content|>Veronica Suárez-Pellegrino, Esq. ... General Couns... Boulevard, Suite 1100 Coral Gables, Florida 33134\n<|id|>5<|page|>1<|box|>256 174 310 854<|content|>Re: ... Engagement of Calderwood & Harkness LLP — ... 455 South Ocean Boulevard, Delray Beach, FL 33483\n<|id|>6<|page|>1<|box|>318 176 335 457<|content|>C&H Matter Number: ... 00001\n<|id|>7<|page|>1<|box|>344 140 362 354<|content|>Dear Ms. ... Suárez-Pellegrino\n<|id|>38<|page|>4<|box|>859 174 897 857<|content|>(e) Title Insurance. ... 00) and the ALTA Loan Policy of\n<|id|>39<|page|>5<|box|>90 174 162 856<|content|>Title Insurance (coverage amount: ... 1, ALTA 9, A...may be applicable and available under Florida law)\n<|id|>105<|page|>11<|box|>866 140 902 857<|content|>Based on our review, we have identified no conflic...t's informed consent under the applicable Rules of\n<|id|>106<|page|>12<|box|>90 140 161 854<|content|>Professional Conduct. ... Specifically, the Firm d...o this Transaction or in any matter adverse to PCG\n<|id|>107<|page|>12<|box|>171 181 188 455<|content|>• Saltaire Hospitality Holdings LLC\n<|id|>115<|page|>12<|box|>328 140 401 854<|content|>If a potential conflict of interest arises during ...disclosure of all material facts and circumstances\n<|id|>108<|page|>12<|box|>190 183 207 444<|content|>• Saltaire Opportunity Fund I LLC\n<|id|>109<|page|>12<|box|>210 183 226 428<|content|>• Saltaire Management Co. ... LLC\n<|id|>110<|page|>12<|box|>229 184 244 348<|content|>• Nathaniel Whitford\n<|id|>111<|page|>12<|box|>250 183 263 359<|content|>• Elaine Chastain-Park\n<|id|>114<|page|>12<|box|>308 183 325 674<|content|>• Any affiliate, subsidiary, or related entity of any of the foregoing\n<|id|>136<|page|>14<|box|>310 140 325 321<|content|>Name: ... Angela Fontaine\n<|id|>137<|page|>14<|box|>327 140 344 619<|content|>Title: ... Partner — Responsible Partner, Real Estate Practice Group\n<|id|>138<|page|>14<|box|>345 143 362 253<|content|>By: ... By\n<|id|>139<|page|>14<|box|>362 143 378 333<|content|>Name: ... Douglas Fairchild\n<|id|>140<|page|>14<|box|>378 140 395 583<|content|>Title: ... Partner — Billing Partner, Real Estate Practice Group\n<|id|>141<|page|>14<|box|>396 140 412 774<|content|>Calderwood & Harkness LLP 1450 Brickell Avenue, Suite 3100 Miami, Florida 33131\n<|id|>146<|page|>14<|box|>545 140 561 401<|content|>Name: ... Veronica Suárez-Pellegrino\n<|id|>147<|page|>14<|box|>561 142 579 315<|content|>Title: ... General Counsel\n<|id|>148<|page|>14<|box|>580 143 597 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>38<|tgt_id|>39\n<|src_id|>105<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        }
+    ]
+}

@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 171 118 825<|content|>GRAT TRUSTEE ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>1<|page|>1<|box|>135 147 189 851<|content|>Acknowledgment and Acceptance of Trusteeship by Jo\n<|id|>3<|page|>1<|box|>257 142 275 243<|content|>RECITALS\n<|id|>22<|page|>3<|box|>407 140 424 555<|content|>SECTION 1 — ACCEPTANCE OF TRUSTEESHIP\n<|id|>27<|page|>4<|box|>277 140 294 658<|content|>SECTION 2 — ACKNOWLEDGMENT OF TRUST PROPERTY\n<|id|>41<|page|>6<|box|>185 140 203 669<|content|>SECTION 3 — ACKNOWLEDGMENT OF FIDUCIARY DUTIES\n<|id|>50<|page|>7<|box|>758 140 773 583<|content|>SECTION 4 — ANNUITY PAYMENT OBLIGATIONS\n<|id|>68<|page|>9<|box|>739 140 757 653<|content|>SECTION 5 — REMAINDER DISTRIBUTION OBLIGATIONS\n<|id|>75<|page|>10<|box|>655 140 672 643<|content|>SECTION 6 — TAX COMPLIANCE ACKNOWLEDGMENTS\n<|id|>83<|page|>11<|box|>839 140 856 769<|content|>SECTION 7 — REPRESENTATIONS AND COVENANTS OF THE T\n<|id|>95<|page|>13<|box|>425 140 441 584<|content|>SECTION 8 — SUCCESSOR TRUSTEE PROVISIONS\n<|id|>98<|page|>14<|box|>89 140 106 596<|content|>SECTION 9 — INSURANCE AND INDEMNIFICATION\n<|id|>101<|page|>14<|box|>494 140 510 439<|content|>SECTION 10 — GOVERNING LAW\n<|id|>103<|page|>14<|box|>670 140 686 437<|content|>SECTION 11 — MISCELLANEOUS\n<|id|>105<|page|>14<|box|>815 176 830 313<|content|>If to the Trustee:\n<|id|>107<|page|>14<|box|>866 176 883 303<|content|>With a copy to:\n<|id|>112<|page|>15<|box|>364 140 382 259<|content|>EXECUTION\n<|id|>114<|page|>15<|box|>434 142 452 238<|content|>TRUSTEE:\n<|id|>119<|page|>17<|box|>89 142 107 586<|content|>EXHIBIT A — SUMMARY TABLE OF GRAT TERMS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>2\n<|id|>22<|level|>2\n<|id|>27<|level|>2\n<|id|>41<|level|>2\n<|id|>50<|level|>2\n<|id|>68<|level|>2\n<|id|>75<|level|>2\n<|id|>83<|level|>2\n<|id|>95<|level|>2\n<|id|>98<|level|>2\n<|id|>101<|level|>2\n<|id|>103<|level|>2\n<|id|>105<|level|>-1\n<|id|>107<|level|>-1\n<|id|>112<|level|>2\n<|id|>114<|level|>3\n<|id|>119<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 2
+        }
+    ]
+}

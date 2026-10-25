@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        18,
+        19,
+        20,
+        22,
+        23,
+        24
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 227 118 769<|content|>ASSUMPTION AND RECOGNITION AGREEMENT\n<|id|>10<|type|>title<|page|>1<|box|>731 140 750 243<|content|>RECITALS\n<|id|>23<|type|>title<|page|>3<|box|>383 140 401 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>47<|type|>title<|page|>4<|box|>779 142 795 553<|content|>ARTICLE 2 — ASSUMPTION OF OBLIGATIONS\n<|id|>58<|type|>title<|page|>6<|box|>133 176 152 468<|content|>(a) Loan 3-A (GMP Peachtree LLC):\n<|id|>63<|type|>title<|page|>6<|box|>354 176 373 491<|content|>(b) Loan 3-B (GMP Mount Juliet LLC):\n<|id|>68<|type|>title<|page|>6<|box|>575 176 594 393<|content|>(c) Aggregate Loan Terms:\n<|id|>74<|type|>title<|page|>7<|box|>89 140 125 782<|content|>ARTICLE 3 — REPLACEMENT GUARANTY AND RELEASE OF OR\n<|id|>83<|type|>title<|page|>8<|box|>266 140 284 818<|content|>ARTICLE 4 — REPRESENTATIONS AND WARRANTIES OF ASSU\n<|id|>97<|type|>title<|page|>9<|box|>833 142 849 777<|content|>ARTICLE 5 — REPRESENTATIONS AND WARRANTIES OF TRAN\n<|id|>107<|type|>title<|page|>10<|box|>733 140 750 727<|content|>ARTICLE 6 — LENDER ACKNOWLEDGMENTS AND AGREEMENTS\n<|id|>127<|type|>title<|page|>12<|box|>171 142 188 511<|content|>ARTICLE 7 — PROPERTY MANAGEMENT\n<|id|>133<|type|>title<|page|>12<|box|>690 142 707 379<|content|>ARTICLE 8 — INSURANCE\n<|id|>136<|type|>title<|page|>13<|box|>167 140 184 385<|content|>ARTICLE 9 — COVENANTS\n<|id|>141<|type|>title<|page|>13<|box|>824 140 842 452<|content|>ARTICLE 10 — INDEMNIFICATION\n<|id|>148<|type|>title<|page|>14<|box|>516 140 534 513<|content|>ARTICLE 11 — CONDITIONS PRECEDENT\n<|id|>163<|type|>title<|page|>15<|box|>648 140 666 439<|content|>ARTICLE 12 — MISCELLANEOUS\n<|id|>207<|type|>title<|page|>18<|box|>813 179 849 816<|content|>SIGNATURE PAGES TO ASSUMPTION AND RECOGNITION AGRE\n<|id|>209<|type|>title<|page|>19<|box|>89 142 106 228<|content|>LENDER:\n<|id|>249<|type|>title<|page|>20<|box|>89 434 112 565<|content|>EXHIBIT A\n<|id|>250<|type|>title<|page|>20<|box|>133 369 154 627<|content|>LIST OF LOAN DOCUMENTS\n<|id|>265<|type|>title<|page|>22<|box|>90 436 111 562<|content|>EXHIBIT B\n<|id|>266<|type|>title<|page|>22<|box|>135 370 152 625<|content|>REPLACEMENT GUARANTY\n<|id|>269<|type|>table<|page|>22<|box|>311 143 614 852<|content|>None\n<|id|>271<|type|>title<|page|>23<|box|>90 437 109 560<|content|>EXHIBIT C\n<|id|>272<|type|>title<|page|>23<|box|>136 359 152 638<|content|>DESCRIPTION OF PROPERTIES\n<|id|>273<|type|>table<|page|>23<|box|>188 143 479 852<|content|>None\n<|id|>274<|type|>table<|page|>23<|box|>541 143 819 852<|content|>None\n<|id|>275<|type|>title<|page|>24<|box|>90 434 111 563<|content|>EXHIBIT D\n<|id|>276<|type|>title<|page|>24<|box|>135 284 152 714<|content|>OFFICER'S CERTIFICATE OF ASSUMING PARTY\n<|id|>277<|type|>title<|page|>24<|box|>161 380 179 614<|content|>OFFICER'S CERTIFICATE\n<|id|>278<|type|>title<|page|>24<|box|>188 341 205 656<|content|>Fairwater Real Estate Investment Trust",
+    "raw_response": "<|src_id|>269<|tgt_id|>266\n<|src_id|>273<|tgt_id|>272\n<|src_id|>274<|tgt_id|>272",
+    "parsed": [
+        {
+            "src_id": 269,
+            "tgt_id": 266
+        },
+        {
+            "src_id": 273,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 274,
+            "tgt_id": 272
+        }
+    ]
+}

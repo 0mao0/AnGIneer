@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 150 125 846<|content|>CALDERWOOD & HARKNESS LLP 1120 Avenue of the Ameri\n<|id|>7<|page|>1<|box|>506 142 523 333<|content|>1. Scope of Engagement\n<|id|>16<|page|>2<|box|>484 140 501 230<|content|>2. Staffing\n<|id|>23<|page|>3<|box|>90 142 107 290<|content|>3. Fees and Billing\n<|id|>29<|page|>3<|box|>753 142 768 290<|content|>4. Matter Number\n<|id|>31<|page|>3<|box|>804 452 820 545<|content|>1018-00005\n<|id|>33<|page|>4<|box|>148 140 167 284<|content|>5. Confidentiality\n<|id|>35<|page|>4<|box|>417 140 434 321<|content|>6. Conflicts of Interest\n<|id|>38<|page|>4<|box|>712 140 729 264<|content|>7. Termination\n<|id|>41<|page|>5<|box|>150 140 166 287<|content|>8. Governing Law",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>-1\n<|id|>33<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        }
+    ]
+}

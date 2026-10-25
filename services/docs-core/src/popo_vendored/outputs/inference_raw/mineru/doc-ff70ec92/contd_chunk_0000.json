@@ -1,0 +1,54 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        55
+    ],
+    "pages": [
+        1,
+        2,
+        16,
+        17,
+        19,
+        36,
+        37,
+        40,
+        41,
+        47,
+        49,
+        50,
+        51,
+        52,
+        54,
+        55
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>233 294 273 702<|content|>and VELOPAY SYSTEMS, INC. ... , a Delaware corporation\n<|id|>4<|page|>1<|box|>282 418 300 578<|content|>Dated as of [●], 2025\n<|id|>5<|page|>1<|box|>309 140 364 854<|content|>DRAFT — January 17, 2025 Calderwood & Harkness LLP... WORK PRODUCT — DRAFT FOR DISCUSSION PURPOSES ONLY\n<|id|>7<|page|>1<|box|>398 142 414 408<|content|>Right-click to update Table of Contents\n<|id|>8<|page|>1<|box|>421 140 450 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT — DRAFT FOR DISCUSSION PURPOSES ONLY\n<|id|>19<|page|>2<|box|>431 140 523 856<|content|>WHEREAS, concurrently with the execution and deliv...he payment of the Reverse Termination Fee; ... and\n<|id|>20<|page|>2<|box|>531 140 585 856<|content|>WHEREAS, the Merger is intended to be effected as ... the Merger as a wholly-owned subsidiary of Parent\n<|id|>168<|page|>16<|box|>797 138 909 857<|content|>(f) Unclaimed Funds. ... Any amounts remaining unclaimed by former holders of Company\n<|id|>169<|page|>17<|box|>90 140 164 854<|content|>Common Stock immediately prior to the time at whic...interest of any Person previously entitled thereto\n<|id|>187<|page|>19<|box|>251 174 268 838<|content|>(i) Nathan Aldridge: ... and\n<|id|>189<|page|>19<|box|>304 140 358 854<|content|>The aggregate amount contributed to the Co-Invest ...ollars ($23,900,000) (the \"Total Rollover Amount\")\n<|id|>371<|page|>36<|box|>753 140 901 856<|content|>Except for the representations and warranties expr...t forth in Article IV (as qualified by the Company\n<|id|>372<|page|>37<|box|>90 140 162 854<|content|>Disclosure Schedules). ... Without limiting the fo... available to Parent or any of its Representatives\n<|id|>410<|page|>40<|box|>827 140 900 856<|content|>(a) As promptly as practicable after the date of t... of the adoption of this Agreement the Information\n<|id|>411<|page|>41<|box|>90 140 126 854<|content|>Statement in accordance with Section 228(e) of the... the applicable regulations under the Exchange Act\n<|id|>464<|page|>47<|box|>746 140 801 854<|content|>(c) any event, change, or occurrence that such Par...rue or inaccurate in any material respect; ... and\n<|id|>466<|page|>47<|box|>852 140 907 856<|content|>The delivery of any notice pursuant to this Sectio...... 3(b), or any other provision of this Agreement\n<|id|>484<|page|>49<|box|>679 138 898 857<|content|>(a) Representations and Warranties. ... and (iii) ...tations and warranties of the Company set forth in\n<|id|>485<|page|>50<|box|>90 138 164 854<|content|>Article IV shall be true and correct in all materi... material respects only as of such specified date)\n<|id|>504<|page|>51<|box|>829 140 904 856<|content|>(d) Financing. ... Parent shall have obtained the ...other amounts required to be paid by Parent at the\n<|id|>505<|page|>52<|box|>90 140 218 856<|content|>Closing, and to pay all related Transaction Expenses, fees, and costs. ... 4\n<|id|>528<|page|>54<|box|>200 174 219 710<|content|>(i) by the Company pursuant to Section 9. ... or\n<|id|>530<|page|>54<|box|>271 140 363 854<|content|>then the Company shall pay (or cause to be paid) t..., within two (2) Business Days of such termination\n<|id|>529<|page|>54<|box|>227 174 263 854<|content|>(ii) by Parent pursuant to Section 9. ... 1(c)(iii) (Breach of No-Shop),\n<|id|>534<|page|>54<|box|>792 138 904 856<|content|>(a) If this Agreement is terminated (i) by the Com...y (or cause to be paid) to the Company the Reverse\n<|id|>535<|page|>55<|box|>89 140 143 854<|content|>Termination Fee of Fifty-Seven Million Dollars ($5...y within two (2) Business Days of such termination",
+    "raw_response": "<|src_id|>168<|tgt_id|>169\n<|src_id|>371<|tgt_id|>372\n<|src_id|>410<|tgt_id|>411\n<|src_id|>484<|tgt_id|>485\n<|src_id|>504<|tgt_id|>505\n<|src_id|>534<|tgt_id|>535",
+    "parsed": [
+        {
+            "src_id": 168,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 371,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 410,
+            "tgt_id": 411
+        },
+        {
+            "src_id": 484,
+            "tgt_id": 485
+        },
+        {
+            "src_id": 504,
+            "tgt_id": 505
+        },
+        {
+            "src_id": 534,
+            "tgt_id": 535
+        }
+    ]
+}

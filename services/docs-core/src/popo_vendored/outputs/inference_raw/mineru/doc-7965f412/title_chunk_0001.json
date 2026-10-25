@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        69
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        52,
+        53,
+        55,
+        56,
+        57,
+        58,
+        60,
+        63,
+        65,
+        67,
+        68,
+        69
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>617<|page|>46<|box|>189 133 212 241<|content|>1 总则\n<|id|>625<|page|>47<|box|>183 102 207 271<|content|>3 设计要求\n<|id|>626<|page|>47<|box|>269 101 287 238<|content|>3.1 一般规定\n<|id|>641<|page|>48<|box|>655 132 673 269<|content|>3.2 桥涵布置\n<|id|>653<|page|>49<|box|>697 107 714 245<|content|>3.3 桥涵孔径\n<|id|>656<|page|>50<|box|>142 135 158 272<|content|>3.4 桥涵净空\n<|id|>662<|page|>50<|box|>655 135 674 372<|content|>3.5 桥上线形及桥头引道\n<|id|>678<|page|>52<|box|>144 142 162 279<|content|>3.6 构造要求\n<|id|>690<|page|>53<|box|>143 99 161 354<|content|>3.7 桥面铺装、防水和排水\n<|id|>695<|page|>53<|box|>466 101 483 336<|content|>3.8 养护及其他附属设施\n<|id|>702<|page|>55<|box|>189 107 212 215<|content|>4 作用\n<|id|>703<|page|>55<|box|>274 107 291 421<|content|>4.1 作用分类、代表值和作用组合\n<|id|>716<|page|>56<|box|>701 174 718 325<|content|>(1) 组合表达式\n<|id|>718<|page|>56<|box|>807 176 825 326<|content|>(2) 重要性系数\n<|id|>720<|page|>57<|box|>122 155 139 285<|content|>(3) 分项系数\n<|id|>722<|page|>57<|box|>294 114 311 864<|content|>1.4 提高至 1.8，提高的比率是按照 42t 的三联轴效应与双联轴效应等效的原则确定的。\n<|id|>725<|page|>57<|box|>551 155 569 366<|content|>(4) 频遇值和准永久值\n<|id|>727<|page|>57<|box|>637 156 655 305<|content|>(5) 组合值系数\n<|id|>734<|page|>58<|box|>257 130 275 269<|content|>4.2 永久作用\n<|id|>762<|page|>60<|box|>574 138 591 274<|content|>4.3 可变作用\n<|id|>808<|page|>63<|box|>833 151 851 437<|content|>(4) 双塔斜拉桥的竖向弯曲基频\n<|id|>835<|page|>65<|box|>871 117 888 500<|content|>4.3.7 本次修订增加了疲劳荷载计算模型。\n<|id|>848<|page|>67<|box|>120 133 139 292<|content|>2 均匀温度作用\n<|id|>866<|page|>67<|box|>809 135 826 333<|content|>3 竖向梯度温度作用\n<|id|>873<|page|>68<|box|>430 189 447 388<|content|>4 横向梯度温度作用\n<|id|>876<|page|>68<|box|>678 191 695 526<|content|>6 施工阶段沥青摊铺引起的温度影响\n<|id|>883<|page|>69<|box|>620 94 637 230<|content|>4.4 偶然作用",
+    "raw_response": "<|id|>617<|level|>1\n<|id|>625<|level|>1\n<|id|>626<|level|>2\n<|id|>641<|level|>2\n<|id|>653<|level|>2\n<|id|>656<|level|>2\n<|id|>662<|level|>2\n<|id|>678<|level|>2\n<|id|>690<|level|>2\n<|id|>695<|level|>2\n<|id|>702<|level|>1\n<|id|>703<|level|>2\n<|id|>716<|level|>3\n<|id|>718<|level|>3\n<|id|>720<|level|>3\n<|id|>722<|level|>-1\n<|id|>725<|level|>3\n<|id|>727<|level|>3\n<|id|>734<|level|>2\n<|id|>762<|level|>2\n<|id|>808<|level|>3\n<|id|>835<|level|>-1\n<|id|>848<|level|>1\n<|id|>866<|level|>1\n<|id|>873<|level|>1\n<|id|>876<|level|>1\n<|id|>883<|level|>2",
+    "parsed": [
+        {
+            "id": 617,
+            "level": 1
+        },
+        {
+            "id": 625,
+            "level": 1
+        },
+        {
+            "id": 626,
+            "level": 2
+        },
+        {
+            "id": 641,
+            "level": 2
+        },
+        {
+            "id": 653,
+            "level": 2
+        },
+        {
+            "id": 656,
+            "level": 2
+        },
+        {
+            "id": 662,
+            "level": 2
+        },
+        {
+            "id": 678,
+            "level": 2
+        },
+        {
+            "id": 690,
+            "level": 2
+        },
+        {
+            "id": 695,
+            "level": 2
+        },
+        {
+            "id": 702,
+            "level": 1
+        },
+        {
+            "id": 703,
+            "level": 2
+        },
+        {
+            "id": 716,
+            "level": 3
+        },
+        {
+            "id": 718,
+            "level": 3
+        },
+        {
+            "id": 720,
+            "level": 3
+        },
+        {
+            "id": 725,
+            "level": 3
+        },
+        {
+            "id": 727,
+            "level": 3
+        },
+        {
+            "id": 734,
+            "level": 2
+        },
+        {
+            "id": 762,
+            "level": 2
+        },
+        {
+            "id": 808,
+            "level": 3
+        },
+        {
+            "id": 848,
+            "level": 1
+        },
+        {
+            "id": 866,
+            "level": 1
+        },
+        {
+            "id": 873,
+            "level": 1
+        },
+        {
+            "id": 876,
+            "level": 1
+        },
+        {
+            "id": 883,
+            "level": 2
+        }
+    ]
+}

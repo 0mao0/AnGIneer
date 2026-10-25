@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>467<|type|>title<|page|>45<|box|>89 143 106 245<|content|>EXHIBIT G\n<|id|>468<|type|>title<|page|>45<|box|>131 142 148 781<|content|>FORM OF INFORMATION-SHARING AND ACCESS LETTER AGRE\n<|id|>470<|type|>title<|page|>45<|box|>238 143 255 241<|content|>Key Terms:\n<|id|>477<|type|>title<|page|>46<|box|>90 143 106 274<|content|>SCHEDULE 4.4\n<|id|>478<|type|>title<|page|>46<|box|>131 142 148 607<|content|>INDIVIDUAL EQUITY FORFEITURE CALCULATIONS\n<|id|>479<|type|>title<|page|>46<|box|>172 142 189 431<|content|>(Other Seven Individual Defendants)\n<|id|>481<|type|>table<|page|>46<|box|>258 143 604 852<|content|>None\n<|id|>483<|type|>title<|page|>46<|box|>772 138 789 383<|content|>## OPEN POINTS SUMMARY\n<|id|>484<|type|>table<|page|>46<|box|>796 143 898 852<|content|>None\n<|id|>485<|type|>table<|page|>47<|box|>88 143 329 852<|content|>None",
+    "raw_response": "<|src_id|>481<|tgt_id|>478\n<|src_id|>484<|tgt_id|>483\n<|src_id|>485<|tgt_id|>483",
+    "parsed": [
+        {
+            "src_id": 481,
+            "tgt_id": 478
+        },
+        {
+            "src_id": 484,
+            "tgt_id": 483
+        },
+        {
+            "src_id": 485,
+            "tgt_id": 483
+        }
+    ]
+}

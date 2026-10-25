@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>258 142 276 496<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>13<|type|>title<|page|>1<|box|>465 142 482 475<|content|>I. Introduction and Identification of Client\n<|id|>16<|type|>title<|page|>2<|box|>90 140 107 413<|content|>II. Background and Authorization\n<|id|>17<|type|>title<|page|>2<|box|>121 140 138 367<|content|>A. Authorization from CRH\n<|id|>19<|type|>title<|page|>2<|box|>267 142 284 488<|content|>B. The Standstill and Settlement Agreement\n<|id|>21<|type|>title<|page|>2<|box|>431 140 449 339<|content|>C. Underlying Litigation\n<|id|>23<|type|>title<|page|>2<|box|>595 142 612 315<|content|>D. Board Ratification\n<|id|>25<|type|>title<|page|>2<|box|>714 140 732 630<|content|>III. Factual Context — Summary of Departures and L\n<|id|>30<|type|>title<|page|>3<|box|>439 142 457 464<|content|>IV. Direction to Cancel — Priya Rathore\n<|id|>32<|type|>title<|page|>3<|box|>532 142 550 344<|content|>A. Employee Information\n<|id|>37<|type|>title<|page|>3<|box|>700 142 718 315<|content|>B. RSU Grant Details\n<|id|>39<|type|>table<|page|>3<|box|>804 143 907 852<|content|>None\n<|id|>40<|type|>table<|page|>4<|box|>88 143 171 852<|content|>None\n<|id|>42<|type|>title<|page|>4<|box|>309 140 325 624<|content|>C. Forfeiture and Clawback Under the Settlement Ag\n<|id|>46<|type|>table<|page|>4<|box|>729 143 805 852<|content|>None\n<|id|>47<|type|>title<|page|>4<|box|>845 142 862 599<|content|>E. Direction. Northland Trust Company is hereby di\n<|id|>51<|type|>title<|page|>5<|box|>383 140 402 630<|content|>V. Direction to Cancel — Remaining Seven Former Em\n<|id|>53<|type|>title<|page|>5<|box|>532 142 550 439<|content|>A. Individual Employee Identification\n<|id|>55<|type|>table<|page|>5<|box|>580 143 907 852<|content|>None\n<|id|>56<|type|>table<|page|>6<|box|>89 143 138 852<|content|>None\n<|id|>58<|type|>title<|page|>6<|box|>295 140 313 537<|content|>B. Total Aggregate Forfeiture — Seven Employees\n<|id|>61<|type|>title<|page|>6<|box|>482 140 500 668<|content|>VI. Aggregate Forfeiture Summary — All Eight Forme\n<|id|>62<|type|>table<|page|>6<|box|>550 143 708 852<|content|>None\n<|id|>63<|type|>title<|page|>6<|box|>757 142 773 364<|content|>VII. Processing Instructions\n<|id|>69<|type|>title<|page|>7<|box|>537 140 554 413<|content|>VIII. Enclosures and Attachments\n<|id|>75<|type|>title<|page|>8<|box|>90 142 107 294<|content|>IX. Confidentiality\n<|id|>78<|type|>title<|page|>8<|box|>402 140 420 230<|content|>X. Closing\n<|id|>82<|type|>title<|page|>8<|box|>633 176 650 480<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>86<|type|>title<|page|>8<|box|>729 143 744 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>39<|tgt_id|>37\n<|src_id|>40<|tgt_id|>37\n<|src_id|>46<|tgt_id|>42\n<|src_id|>55<|tgt_id|>53\n<|src_id|>56<|tgt_id|>53\n<|src_id|>62<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 61
+        }
+    ]
+}

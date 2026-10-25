@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 223 118 774<|content|>DRAFT FORM OF TRUSTEE'S COUNSEL OPINION\n<|id|>1<|page|>1<|box|>136 192 152 805<|content|>[FOR REVIEW AND COMMENT BY CALDERWOOD & HARKNESS L\n<|id|>14<|page|>2<|box|>89 142 106 387<|content|>I. DOCUMENTS REVIEWED\n<|id|>28<|page|>2<|box|>825 142 843 303<|content|>II. ASSUMPTIONS\n<|id|>40<|page|>3<|box|>821 142 839 269<|content|>III. OPINIONS\n<|id|>42<|page|>4<|box|>90 140 108 544<|content|>Opinion 1 — Due Organization and Good Standing\n<|id|>44<|page|>4<|box|>253 140 272 500<|content|>Opinion 2 — Corporate Power and Authority\n<|id|>46<|page|>4<|box|>436 140 454 397<|content|>Opinion 3 — Due Authorization\n<|id|>48<|page|>4<|box|>619 140 637 433<|content|>Opinion 4 — Execution and Delivery\n<|id|>50<|page|>4<|box|>691 140 709 362<|content|>Opinion 5 — Enforceability\n<|id|>57<|page|>5<|box|>272 140 289 349<|content|>Opinion 6 — No Conflicts\n<|id|>63<|page|>5<|box|>667 140 685 532<|content|>Opinion 7 — No Consents or Approvals Required\n<|id|>65<|page|>6<|box|>90 140 107 410<|content|>Opinion 8 — Trust Indenture Act\n<|id|>67<|page|>6<|box|>300 140 316 509<|content|>IV. QUALIFICATIONS AND LIMITATIONS\n<|id|>85<|page|>8<|box|>89 142 106 393<|content|>V. RELIANCE AND BENEFIT\n<|id|>96<|page|>9<|box|>89 143 107 259<|content|>APPENDIX A\n<|id|>104<|page|>9<|box|>631 184 666 813<|content|>CALDERWOOD & HARKNESS LLP — INTERNAL REVIEW NOTES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>14<|level|>2\n<|id|>28<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>3\n<|id|>44<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>57<|level|>3\n<|id|>63<|level|>3\n<|id|>65<|level|>3\n<|id|>67<|level|>2\n<|id|>85<|level|>2\n<|id|>96<|level|>2\n<|id|>104<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        }
+    ]
+}

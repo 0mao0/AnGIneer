@@ -1,0 +1,374 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-m89bj8nl\\input\\pdfs\\doc-500a9cf5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-m89bj8nl\\enriched\\doc-500a9cf5.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>21<|level|>3\n<|id|>27<|level|>3\n<|id|>34<|level|>3\n<|id|>38<|level|>3\n<|id|>40<|level|>3\n<|id|>42<|level|>2\n<|id|>44<|level|>3\n<|id|>45<|level|>4\n<|id|>48<|level|>4\n<|id|>51<|level|>3\n<|id|>52<|level|>4\n<|id|>55<|level|>4\n<|id|>58<|level|>3\n<|id|>62<|level|>2\n<|id|>63<|level|>3\n<|id|>65<|level|>4\n<|id|>66<|level|>5\n<|id|>68<|level|>4\n<|id|>69<|level|>5\n<|id|>71<|level|>4\n<|id|>72<|level|>5\n<|id|>75<|level|>3\n<|id|>80<|level|>3\n<|id|>85<|level|>3\n<|id|>91<|level|>3\n<|id|>98<|level|>2\n<|id|>99<|level|>3\n<|id|>102<|level|>3\n<|id|>105<|level|>4\n<|id|>115<|level|>3\n<|id|>118<|level|>4\n<|id|>128<|level|>3\n<|id|>131<|level|>4\n<|id|>140<|level|>3\n<|id|>143<|level|>4\n<|id|>159<|level|>3\n<|id|>162<|level|>4\n<|id|>175<|level|>3\n<|id|>178<|level|>4\n<|id|>192<|level|>3\n<|id|>201<|level|>3\n<|id|>204<|level|>4\n<|id|>219<|level|>3\n<|id|>222<|level|>4\n<|id|>230<|level|>2\n<|id|>231<|level|>3\n<|id|>235<|level|>3\n<|id|>247<|level|>3\n<|id|>251<|level|>3\n<|id|>255<|level|>2\n<|id|>262<|level|>2\n<|id|>276<|level|>2\n<|id|>295<|level|>2\n<|id|>297<|level|>3\n<|id|>300<|level|>3\n<|id|>313<|level|>2",
+    "image_output": "<|src_id|>36<|tgt_id|>34\n<|src_id|>114<|tgt_id|>102\n<|src_id|>126<|tgt_id|>115\n<|src_id|>127<|tgt_id|>115\n<|src_id|>138<|tgt_id|>128\n<|src_id|>139<|tgt_id|>128\n<|src_id|>157<|tgt_id|>140\n<|src_id|>158<|tgt_id|>140\n<|src_id|>173<|tgt_id|>159\n<|src_id|>174<|tgt_id|>159\n<|src_id|>199<|tgt_id|>192\n<|src_id|>200<|tgt_id|>192\n<|src_id|>218<|tgt_id|>201\n<|src_id|>228<|tgt_id|>219\n<|src_id|>229<|tgt_id|>219\n<|src_id|>233<|tgt_id|>231\n<|src_id|>249<|tgt_id|>247\n<|src_id|>252<|tgt_id|>251\n<|src_id|>298<|tgt_id|>297\n<|src_id|>299<|tgt_id|>300\n<|src_id|>315<|tgt_id|>313",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 4
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 5
+        },
+        {
+            "id": 68,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 5
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 5
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 4
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 4
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 4
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 4
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 4
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 4
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 4
+        },
+        {
+            "id": 219,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 4
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 231,
+            "level": 3
+        },
+        {
+            "id": 235,
+            "level": 3
+        },
+        {
+            "id": 247,
+            "level": 3
+        },
+        {
+            "id": 251,
+            "level": 3
+        },
+        {
+            "id": 255,
+            "level": 2
+        },
+        {
+            "id": 262,
+            "level": 2
+        },
+        {
+            "id": 276,
+            "level": 2
+        },
+        {
+            "id": 295,
+            "level": 2
+        },
+        {
+            "id": 297,
+            "level": 3
+        },
+        {
+            "id": 300,
+            "level": 3
+        },
+        {
+            "id": 313,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 157,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 200,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 219
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 219
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 231
+        },
+        {
+            "src_id": 249,
+            "tgt_id": 247
+        },
+        {
+            "src_id": 252,
+            "tgt_id": 251
+        },
+        {
+            "src_id": 298,
+            "tgt_id": 297
+        },
+        {
+            "src_id": 299,
+            "tgt_id": 300
+        },
+        {
+            "src_id": 315,
+            "tgt_id": 313
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 173,
+            "table2_idx": 174,
+            "upper_row_ss": [
+                [
+                    "Grace Nakamura",
+                    "Lead on all financial instruments — surety bond application, trust agreement, escrow agreement, monitor agreement drafting; coordination with Thomas Rennick",
+                    "~150 hrs"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "at Ironbark and David Henshaw at Larchfield; indemnity agreement negotiation",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 298,
+            "table2_idx": 299,
+            "upper_row_ss": [
+                [
+                    "Phase 5: Financial Assurance and Trust Instruments",
+                    "Nov 28, 2024 – Feb 20, 2025",
+                    "Nov 28: Financial assurance requirements memo; Dec 10: Surety bond application; Jan 10: Trust agreement draft; Jan 15: Monitor"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "selection memo; Jan 30: Monitor agreement draft; Feb 15: Surety bond execution (ISA-ENV-2025-08934; $165.0M); Feb 15: Monitor agreement execution; Feb 17: Trust agreement execution (LTC-REM-2025-1177; $80.0M); Feb 17: Escrow agreement; Feb 20: Adequacy and adjustment memo"
+                ]
+            ]
+        }
+    ]
+}

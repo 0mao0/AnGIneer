@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 125 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>1<|page|>1<|box|>133 354 151 643<|content|>MEMORANDUM OF INTERVIEW\n<|id|>8<|page|>1<|box|>739 142 756 503<|content|>1. Upjohn Warnings and Preliminary Matters\n<|id|>16<|page|>2<|box|>700 140 717 336<|content|>2. Background and Role\n<|id|>23<|page|>3<|box|>739 140 757 653<|content|>3. Oversight of VCR and Relationship with Division\n<|id|>30<|page|>5<|box|>148 140 167 560<|content|>4. Knowledge of VCR Revenue-Recognition Practices\n<|id|>38<|page|>6<|box|>566 140 584 736<|content|>5. Knowledge of Capital-Improvement Expenditures a\n<|id|>46<|page|>8<|box|>241 140 258 513<|content|>6. HSA Communication and Calder's Response\n<|id|>57<|page|>9<|box|>573 140 590 486<|content|>7. SOX Certifications and Internal Controls\n<|id|>61<|page|>10<|box|>560 140 577 493<|content|>8. Awareness of SEC and Disclosure Matters\n<|id|>66<|page|>11<|box|>304 140 320 524<|content|>9. Institutional Shareholders and Market Impact\n<|id|>69<|page|>11<|box|>671 142 688 486<|content|>10. Communications with Daskine — Detail\n<|id|>74<|page|>12<|box|>696 142 712 388<|content|>11. D&O Insurance Awareness\n<|id|>76<|page|>13<|box|>167 142 185 354<|content|>12. Closing and Follow-Up",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>30<|level|>2\n<|id|>38<|level|>2\n<|id|>46<|level|>2\n<|id|>57<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>2\n<|id|>76<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        }
+    ]
+}

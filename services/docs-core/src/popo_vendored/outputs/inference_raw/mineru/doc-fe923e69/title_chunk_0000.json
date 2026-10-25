@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 156 125 839<|content|>CALDERWOOD & HARKNESS LLP One Embarcadero Center,\n<|id|>9<|page|>1<|box|>604 142 621 403<|content|>1. Summary of Fee Arrangement\n<|id|>15<|page|>2<|box|>338 140 354 320<|content|>2. Engagement Period\n<|id|>22<|page|>2<|box|>654 140 672 395<|content|>3. Total Professional Fees Billed\n<|id|>36<|page|>3<|box|>705 140 723 406<|content|>4. Total Costs and Disbursements\n<|id|>48<|page|>4<|box|>744 140 762 259<|content|>5. Expert Fees\n<|id|>50<|page|>4<|box|>834 140 852 849<|content|>Dr. Harold Whitfield — Whitfield Technical Consult\n<|id|>52<|page|>5<|box|>208 140 224 694<|content|>Dr. Lawrence Kessler — Apex Claim Analytics LLC (C\n<|id|>55<|page|>5<|box|>502 140 518 397<|content|>6. Grand Total Litigation Spend\n<|id|>59<|page|>6<|box|>90 140 107 416<|content|>7. Retainer Account Reconciliation\n<|id|>67<|page|>6<|box|>698 140 715 442<|content|>8. Fees Collected via Monthly Invoices\n<|id|>71<|page|>7<|box|>148 140 167 253<|content|>9. Enclosures\n<|id|>77<|page|>7<|box|>539 140 556 387<|content|>10. File Retention and Records",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>22<|level|>2\n<|id|>36<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>3\n<|id|>52<|level|>3\n<|id|>55<|level|>2\n<|id|>59<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>2\n<|id|>77<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        }
+    ]
+}

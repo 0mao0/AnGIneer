@@ -1,0 +1,41 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        97,
+        99
+    ],
+    "pages": [
+        97,
+        98,
+        99
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>831<|page|>97<|box|>90 142 107 653<|content|>Exhibit G — Form of Priya Narasimhan Employment Ag\n<|id|>832<|page|>97<|box|>114 143 130 240<|content|>Key Terms:\n<|id|>845<|page|>98<|box|>90 142 107 467<|content|>Exhibit H — Form of Joinder Agreement\n<|id|>846<|page|>98<|box|>113 393 128 602<|content|>JOINDER AGREEMENT\n<|id|>852<|page|>99<|box|>90 142 107 504<|content|>Exhibit I — Form of Paying Agent Agreement\n<|id|>853<|page|>99<|box|>114 143 130 240<|content|>Key Terms:",
+    "raw_response": "<|id|>831<|level|>1\n<|id|>832<|level|>2\n<|id|>845<|level|>1\n<|id|>846<|level|>2\n<|id|>852<|level|>1\n<|id|>853<|level|>2",
+    "parsed": [
+        {
+            "id": 831,
+            "level": 1
+        },
+        {
+            "id": 832,
+            "level": 2
+        },
+        {
+            "id": 845,
+            "level": 1
+        },
+        {
+            "id": 846,
+            "level": 2
+        },
+        {
+            "id": 852,
+            "level": 1
+        },
+        {
+            "id": 853,
+            "level": 2
+        }
+    ]
+}

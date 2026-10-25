@@ -1,0 +1,842 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-u8metzdn\\input\\pdfs\\doc-eedd46f2.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-u8metzdn\\enriched\\doc-eedd46f2.json",
+    "contd_output": "",
+    "title_output": "<|id|>7<|level|>1\n<|id|>17<|level|>1\n<|id|>25<|level|>1\n<|id|>26<|level|>2\n<|id|>28<|level|>3\n<|id|>30<|level|>4\n<|id|>32<|level|>4\n<|id|>34<|level|>4\n<|id|>37<|level|>3\n<|id|>39<|level|>4\n<|id|>41<|level|>5\n<|id|>45<|level|>5\n<|id|>47<|level|>4\n<|id|>49<|level|>3\n<|id|>57<|level|>3\n<|id|>69<|level|>3\n<|id|>74<|level|>2\n<|id|>81<|level|>3\n<|id|>87<|level|>4\n<|id|>89<|level|>2\n<|id|>94<|level|>3\n<|id|>96<|level|>4\n<|id|>98<|level|>5\n<|id|>100<|level|>5\n<|id|>114<|level|>4\n<|id|>116<|level|>5\n<|id|>122<|level|>4\n<|id|>124<|level|>5\n<|id|>131<|level|>5\n<|id|>133<|level|>3\n<|id|>138<|level|>2\n<|id|>140<|level|>3\n<|id|>143<|level|>3\n<|id|>152<|level|>3\n<|id|>155<|level|>3\n<|id|>158<|level|>3\n<|id|>159<|level|>3\n<|id|>161<|level|>3\n<|id|>165<|level|>3\n<|id|>169<|level|>3\n<|id|>186<|level|>3\n<|id|>199<|level|>3\n<|id|>209<|level|>3\n<|id|>215<|level|>3\n<|id|>216<|level|>3",
+    "image_output": "<|src_id|>0<|tgt_id|>25\n<|src_id|>53<|tgt_id|>25\n<|src_id|>54<|tgt_id|>25\n<|src_id|>55<|tgt_id|>25\n<|src_id|>58<|tgt_id|>57\n<|src_id|>68<|tgt_id|>57\n<|src_id|>70<|tgt_id|>69\n<|src_id|>71<|tgt_id|>69\n<|src_id|>72<|tgt_id|>69\n<|src_id|>73<|tgt_id|>69\n<|src_id|>76<|tgt_id|>74\n<|src_id|>77<|tgt_id|>74\n<|src_id|>78<|tgt_id|>74\n<|src_id|>80<|tgt_id|>74\n<|src_id|>82<|tgt_id|>81\n<|src_id|>83<|tgt_id|>81\n<|src_id|>84<|tgt_id|>81\n<|src_id|>85<|tgt_id|>81\n<|src_id|>86<|tgt_id|>81\n<|src_id|>88<|tgt_id|>87\n<|src_id|>90<|tgt_id|>89\n<|src_id|>91<|tgt_id|>89\n<|src_id|>92<|tgt_id|>89\n<|src_id|>95<|tgt_id|>94\n<|src_id|>97<|tgt_id|>96\n<|src_id|>99<|tgt_id|>98\n<|src_id|>101<|tgt_id|>100\n<|src_id|>103<|tgt_id|>100\n<|src_id|>104<|tgt_id|>100\n<|src_id|>105<|tgt_id|>100\n<|src_id|>107<|tgt_id|>100\n<|src_id|>110<|tgt_id|>100\n<|src_id|>111<|tgt_id|>100\n<|src_id|>115<|tgt_id|>114\n<|src_id|>119<|tgt_id|>116\n<|src_id|>120<|tgt_id|>116\n<|src_id|>123<|tgt_id|>122\n<|src_id|>126<|tgt_id|>124\n<|src_id|>129<|tgt_id|>124\n<|src_id|>134<|tgt_id|>133\n<|src_id|>136<|tgt_id|>133\n<|src_id|>139<|tgt_id|>138\n<|src_id|>141<|tgt_id|>140\n<|src_id|>142<|tgt_id|>140\n<|src_id|>144<|tgt_id|>143\n<|src_id|>145<|tgt_id|>143\n<|src_id|>146<|tgt_id|>143\n<|src_id|>147<|tgt_id|>143\n<|src_id|>148<|tgt_id|>143\n<|src_id|>149<|tgt_id|>143\n<|src_id|>150<|tgt_id|>143\n<|src_id|>151<|tgt_id|>143\n<|src_id|>153<|tgt_id|>152\n<|src_id|>156<|tgt_id|>155\n<|src_id|>157<|tgt_id|>155\n<|src_id|>160<|tgt_id|>159\n<|src_id|>162<|tgt_id|>161\n<|src_id|>163<|tgt_id|>161\n<|src_id|>164<|tgt_id|>161\n<|src_id|>166<|tgt_id|>165\n<|src_id|>168<|tgt_id|>165\n<|src_id|>170<|tgt_id|>169\n<|src_id|>171<|tgt_id|>169\n<|src_id|>172<|tgt_id|>169\n<|src_id|>175<|tgt_id|>169\n<|src_id|>177<|tgt_id|>169\n<|src_id|>179<|tgt_id|>169\n<|src_id|>180<|tgt_id|>169\n<|src_id|>182<|tgt_id|>169\n<|src_id|>184<|tgt_id|>169\n<|src_id|>185<|tgt_id|>169\n<|src_id|>187<|tgt_id|>186\n<|src_id|>188<|tgt_id|>186\n<|src_id|>189<|tgt_id|>186\n<|src_id|>190<|tgt_id|>186\n<|src_id|>191<|tgt_id|>186\n<|src_id|>192<|tgt_id|>186\n<|src_id|>193<|tgt_id|>186\n<|src_id|>194<|tgt_id|>186\n<|src_id|>195<|tgt_id|>186\n<|src_id|>196<|tgt_id|>186\n<|src_id|>198<|tgt_id|>186\n<|src_id|>200<|tgt_id|>199\n<|src_id|>201<|tgt_id|>199\n<|src_id|>202<|tgt_id|>199\n<|src_id|>203<|tgt_id|>199\n<|src_id|>204<|tgt_id|>199\n<|src_id|>205<|tgt_id|>199\n<|src_id|>208<|tgt_id|>199\n<|src_id|>210<|tgt_id|>209\n<|src_id|>211<|tgt_id|>209\n<|src_id|>212<|tgt_id|>209\n<|src_id|>213<|tgt_id|>209\n<|src_id|>214<|tgt_id|>209\n<|src_id|>218<|tgt_id|>216\n<|src_id|>219<|tgt_id|>216\n<|src_id|>225<|tgt_id|>220",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 4
+        },
+        {
+            "id": 34,
+            "level": 4
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 4
+        },
+        {
+            "id": 41,
+            "level": 5
+        },
+        {
+            "id": 45,
+            "level": 5
+        },
+        {
+            "id": 47,
+            "level": 4
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 4
+        },
+        {
+            "id": 98,
+            "level": 5
+        },
+        {
+            "id": 100,
+            "level": 5
+        },
+        {
+            "id": 114,
+            "level": 4
+        },
+        {
+            "id": 116,
+            "level": 5
+        },
+        {
+            "id": 122,
+            "level": 4
+        },
+        {
+            "id": 124,
+            "level": 5
+        },
+        {
+            "id": 131,
+            "level": 5
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 0,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 133
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 133
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 152
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 157,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 165
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 165
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 193,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 200,
+            "tgt_id": 199
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 199
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 199
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 199
+        },
+        {
+            "src_id": 204,
+            "tgt_id": 199
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 199
+        },
+        {
+            "src_id": 208,
+            "tgt_id": 199
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 211,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 220
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 53,
+            "table2_idx": 54,
+            "upper_row_ss": [
+                [
+                    "Net budget deficit 5/......",
+                    "1,693",
+                    "1,785",
+                    "5,988",
+                    "+4,203",
+                    "1,384",
+                    "3,542",
+                    "3,611",
+                    "5,103",
+                    "12,583",
+                    "+1,492",
+                    "+7,480"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, ",
+                    "colspan=4, End of first 5 months, fiscal years 1940 to 1942",
+                    "colspan=7, End of fiscal years, 1938 to 1942"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 145,
+            "table2_idx": 146,
+            "upper_row_ss": [
+                [
+                    "Total",
+                    "$44,192,609",
+                    "$422,581,023",
+                    "$31,925,873",
+                    "$72,280,652",
+                    "$1,895,755,768"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Corporation or agency",
+                    "Appropriatione from General Fund of the Treasury 1/",
+                    "Allocations, redie-counts, and loans from other governmental corporations and credit agencies (net)",
+                    "Sale of obligations to Treasury (net)",
+                    "Sale of obligations in the market (net)",
+                    "Sale of stock to other agencies"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 147,
+            "table2_idx": 148,
+            "upper_row_ss": [
+                [
+                    "Total....",
+                    "$522,376,119",
+                    "$9,601,929,135",
+                    "$2,533,408,980",
+                    "$236,919,580",
+                    "$23,950,424,274"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Corporation or agency",
+                    "colspan=2, Expenses",
+                    "rowspan=2, Purchase and improvement of property owned",
+                    "rowspan=2, Loans",
+                    "rowspan=2, Retirement of obligations issued in exchange for mortgagee 1/"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 163,
+            "table2_idx": 164,
+            "upper_row_ss": [
+                [
+                    "Total value of dutiable and taxable imports.",
+                    "919,709",
+                    "1,011,262",
+                    "64,858",
+                    "64,663",
+                    "78,151",
+                    "75,559",
+                    "82,791",
+                    "79,682",
+                    "80,881",
+                    "98,519",
+                    "115,234",
+                    "102,031",
+                    "99,787",
+                    "92,757",
+                    "100,731"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Country from which imports originated",
+                    "colspan=2, Fiscal year",
+                    "colspan=5, 1940",
+                    "colspan=8, 1941"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 179,
+            "table2_idx": 180,
+            "upper_row_ss": [
+                [
+                    "Oct. 1......",
+                    "6",
+                    "-",
+                    "-",
+                    "-",
+                    "224",
+                    "14",
+                    "2",
+                    "246",
+                    "67",
+                    "79",
+                    "797",
+                    "4",
+                    "7",
+                    "994",
+                    "138"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Assets as of following dates",
+                    "Grand total",
+                    "United Kingdom",
+                    "France",
+                    "Bel-gium",
+                    "Denmark",
+                    "Finland",
+                    "Germany",
+                    "Italy",
+                    "Netherlands",
+                    "Norway",
+                    "Sweden",
+                    "Switzerland",
+                    "Other Europe",
+                    "Total Europe",
+                    "Canada"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 187,
+            "table2_idx": 188,
+            "upper_row_ss": [
+                [
+                    "Oct. 1......",
+                    "45,797",
+                    "2,110",
+                    "6,405",
+                    "1,369",
+                    "24",
+                    "61",
+                    "9,629",
+                    "193",
+                    "9,596",
+                    "1,297",
+                    "30,684",
+                    "1,888",
+                    "9,938",
+                    "162",
+                    "2,498",
+                    "2,660",
+                    "627"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Transactions during week ended:",
+                    "Grand total",
+                    "United Kingdom",
+                    "France",
+                    "Belgium",
+                    "Germany",
+                    "Italy",
+                    "Netherlands",
+                    "Sweden",
+                    "Switzerland",
+                    "Other Europe",
+                    "Total Europe",
+                    "Canada",
+                    "Latin America",
+                    "Japan, Korea and Manchuria",
+                    "Other Asia",
+                    "Total Asia",
+                    "All other"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 192,
+            "table2_idx": 193,
+            "upper_row_ss": [
+                [
+                    "Oct. 1 Forward....",
+                    "344",
+                    "114",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "114",
+                    "161",
+                    "69",
+                    "-",
+                    "-",
+                    "-",
+                    "-"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Contracts as of following dates",
+                    "colspan=17, Currency of:"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 211,
+            "table2_idx": 212,
+            "upper_row_ss": [
+                [
+                    "Other flage....",
+                    "725",
+                    "980",
+                    "60",
+                    "64",
+                    "86",
+                    "67",
+                    "94",
+                    "62",
+                    "87",
+                    "83",
+                    "97",
+                    "110",
+                    "105",
+                    "162",
+                    "90"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, ",
+                    "colspan=15, Number of vessels"
+                ]
+            ]
+        }
+    ]
+}

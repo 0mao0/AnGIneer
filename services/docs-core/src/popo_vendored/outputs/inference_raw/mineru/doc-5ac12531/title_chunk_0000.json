@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        3,
+        5
+    ],
+    "pages": [
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>24<|page|>3<|box|>152 140 170 583<|content|>**3. SUMMARY OF NON-MONETARY RELIEF SECURED**\n<|id|>31<|page|>4<|box|>119 140 138 733<|content|>**4. POST-SETTLEMENT ACTION ITEMS AND COMPLIANCE M\n<|id|>40<|page|>5<|box|>758 142 775 370<|content|>**6. ACKNOWLEDGMENTS**",
+    "raw_response": "<|id|>24<|level|>1\n<|id|>31<|level|>1\n<|id|>40<|level|>1",
+    "parsed": [
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>344 140 362 343<|content|>I. Purpose and Authority\n<|id|>9<|page|>1<|box|>756 140 773 542<|content|>II. Description of the Muscatine Expansion Facilit\n<|id|>12<|page|>2<|box|>277 140 294 629<|content|>III. Certification of Material Environmental Permi\n<|id|>14<|page|>2<|box|>426 140 443 684<|content|>(i) Prevention of Significant Deterioration (PSD)\n<|id|>27<|page|>3<|box|>368 142 385 377<|content|>(ii) NPDES Individual Permit\n<|id|>40<|page|>4<|box|>334 140 351 594<|content|>IV. Compliance with the Environmental Permit Miles\n<|id|>46<|page|>4<|box|>693 142 710 256<|content|>V. Enclosures\n<|id|>50<|page|>5<|box|>90 140 107 705<|content|>VI. Key Permit Conditions and Deadlines Noted for\n<|id|>56<|page|>5<|box|>718 142 734 419<|content|>VII. Limitations and Qualifications\n<|id|>62<|page|>6<|box|>554 140 571 251<|content|>VIII. Closing\n<|id|>64<|page|>6<|box|>661 142 678 313<|content|>Contact Information:\n<|id|>76<|page|>7<|box|>186 142 203 240<|content|>Enclosures:",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>9<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>27<|level|>2\n<|id|>40<|level|>1\n<|id|>46<|level|>1\n<|id|>50<|level|>1\n<|id|>56<|level|>1\n<|id|>62<|level|>1\n<|id|>64<|level|>2\n<|id|>76<|level|>2",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        }
+    ]
+}

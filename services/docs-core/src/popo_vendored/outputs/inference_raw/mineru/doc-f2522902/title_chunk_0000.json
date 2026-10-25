@@ -1,0 +1,156 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>1<|page|>1<|box|>127 160 162 836<|content|>CALDERWOOD & HARKNESS LLP 600 South Grand Avenue,\n<|id|>8<|page|>1<|box|>347 385 366 611<|content|>I. Executive Summary\n<|id|>15<|page|>2<|box|>309 300 328 697<|content|>II. Background and Procedural Posture\n<|id|>16<|page|>2<|box|>353 142 369 261<|content|>A. The Parties\n<|id|>17<|page|>2<|box|>383 142 401 388<|content|>1. Cascade Retail Holdings Inc.\n<|id|>26<|page|>2<|box|>789 140 806 344<|content|>2. Vantor Holdings Corp.\n<|id|>34<|page|>3<|box|>361 142 378 310<|content|>3. Plaintiff's Counsel\n<|id|>40<|page|>3<|box|>619 140 637 287<|content|>B. Claims Alleged\n<|id|>46<|page|>4<|box|>505 140 523 431<|content|>C. The Three Supplier Relationships\n<|id|>48<|page|>4<|box|>599 140 614 457<|content|>1. Hemsworth Consumer Products LLC\n<|id|>53<|page|>5<|box|>138 140 157 380<|content|>2. Tridale Manufacturing Inc.\n<|id|>57<|page|>5<|box|>446 140 464 393<|content|>3. Orion Lifestyle Brands Corp.\n<|id|>61<|page|>5<|box|>782 140 800 272<|content|>D. Project Atlas\n<|id|>65<|page|>6<|box|>476 142 493 308<|content|>E. Procedural Status\n<|id|>76<|page|>7<|box|>90 370 111 627<|content|>III. Exposure Assessment\n<|id|>77<|page|>7<|box|>136 142 152 493<|content|>A. Vantor's Claimed Damages: $87.4 Million\n<|id|>87<|page|>8<|box|>366 140 383 736<|content|>B. Cascade's Preliminary Damages Assessment: $6.1\n<|id|>96<|page|>9<|box|>555 140 571 491<|content|>C. Key Defense Theories Affecting Exposure\n<|id|>105<|page|>11<|box|>296 140 313 269<|content|>D. Risk Factors\n<|id|>112<|page|>12<|box|>414 140 431 359<|content|>E. Overall Exposure Range\n<|id|>119<|page|>13<|box|>244 334 263 663<|content|>IV. Insurance Coverage Analysis\n<|id|>120<|page|>13<|box|>291 142 308 307<|content|>A. Applicable Policy\n<|id|>123<|page|>13<|box|>530 142 547 336<|content|>B. Coverage Assessment\n<|id|>130<|page|>14<|box|>458 140 474 429<|content|>C. Expected Insurance Contribution\n<|id|>137<|page|>15<|box|>90 341 111 655<|content|>V. Estimated Litigation Budget\n<|id|>138<|page|>15<|box|>137 142 154 271<|content|>A. Assumptions\n<|id|>148<|page|>15<|box|>824 142 840 465<|content|>B. Calderwood & Harkness Fee Estimate\n<|id|>153<|page|>16<|box|>691 140 709 385<|content|>C. Third-Party Cost Estimates\n<|id|>159<|page|>17<|box|>446 142 464 419<|content|>D. Total Estimated Defense Budget\n<|id|>163<|page|>18<|box|>90 297 111 697<|content|>VI. Total Economic Exposure Summary\n<|id|>168<|page|>18<|box|>694 305 714 691<|content|>VII. Recommendations and Next Steps\n<|id|>181<|page|>20<|box|>608 411 628 584<|content|>VIII. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>8<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>26<|level|>3\n<|id|>34<|level|>3\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>3\n<|id|>53<|level|>3\n<|id|>57<|level|>3\n<|id|>61<|level|>2\n<|id|>65<|level|>2\n<|id|>76<|level|>1\n<|id|>77<|level|>2\n<|id|>87<|level|>2\n<|id|>96<|level|>2\n<|id|>105<|level|>2\n<|id|>112<|level|>2\n<|id|>119<|level|>1\n<|id|>120<|level|>2\n<|id|>123<|level|>2\n<|id|>130<|level|>2\n<|id|>137<|level|>1\n<|id|>138<|level|>2\n<|id|>148<|level|>2\n<|id|>153<|level|>2\n<|id|>159<|level|>2\n<|id|>163<|level|>1\n<|id|>168<|level|>1\n<|id|>181<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 181,
+            "level": 1
+        }
+    ]
+}

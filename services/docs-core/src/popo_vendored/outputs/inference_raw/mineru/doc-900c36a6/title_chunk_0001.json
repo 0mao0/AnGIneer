@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        48,
+        66
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        51,
+        56,
+        57,
+        58,
+        59,
+        60,
+        62,
+        63,
+        64,
+        65,
+        66
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>474<|page|>48<|box|>410 92 428 233<|content|>3.2 设计车辆\n<|id|>478<|page|>48<|box|>736 90 752 211<|content|>3.3 交通量\n<|id|>480<|page|>49<|box|>186 122 203 263<|content|>3.5 建筑限界\n<|id|>482<|page|>49<|box|>293 122 311 263<|content|>3.6 防灾减灾\n<|id|>484<|page|>49<|box|>444 122 461 305<|content|>3.7 公路用地范围\n<|id|>486<|page|>50<|box|>165 85 188 200<|content|>4 路线\n<|id|>503<|page|>51<|box|>203 144 220 527<|content|>4.0.6 圆曲线最小半径按式（4-2）计算：\n<|id|>570<|page|>56<|box|>161 92 185 206<|content|>5 路基\n<|id|>579<|page|>57<|box|>168 126 192 240<|content|>6 路面\n<|id|>585<|page|>58<|box|>165 92 187 203<|content|>7 排水\n<|id|>593<|page|>59<|box|>171 124 194 238<|content|>8 桥涵\n<|id|>601<|page|>60<|box|>161 90 184 203<|content|>9 隧道\n<|id|>612<|page|>62<|box|>163 97 186 280<|content|>10 路线交叉\n<|id|>616<|page|>63<|box|>166 119 190 366<|content|>11 交通安全设施\n<|id|>617<|page|>63<|box|>252 119 269 268<|content|>11.1 一般规定\n<|id|>620<|page|>63<|box|>465 119 483 270<|content|>11.2 交通标志\n<|id|>626<|page|>64<|box|>138 92 155 243<|content|>11.3 交通标线\n<|id|>629<|page|>64<|box|>480 94 498 203<|content|>11.4 护栏\n<|id|>639<|page|>65<|box|>485 122 503 312<|content|>11.5 视线诱导设施\n<|id|>643<|page|>66<|box|>163 95 187 371<|content|>12 沿线设施及其他\n<|id|>644<|page|>66<|box|>251 92 268 243<|content|>12.1 一般规定\n<|id|>646<|page|>66<|box|>378 92 397 243<|content|>12.2 服务设施\n<|id|>648<|page|>66<|box|>508 92 524 201<|content|>12.4 其他",
+    "raw_response": "<|id|>474<|level|>2\n<|id|>478<|level|>2\n<|id|>480<|level|>2\n<|id|>482<|level|>2\n<|id|>484<|level|>2\n<|id|>486<|level|>1\n<|id|>503<|level|>3\n<|id|>570<|level|>1\n<|id|>579<|level|>1\n<|id|>585<|level|>1\n<|id|>593<|level|>1\n<|id|>601<|level|>1\n<|id|>612<|level|>1\n<|id|>616<|level|>1\n<|id|>617<|level|>2\n<|id|>620<|level|>2\n<|id|>626<|level|>2\n<|id|>629<|level|>2\n<|id|>639<|level|>2\n<|id|>643<|level|>1\n<|id|>644<|level|>2\n<|id|>646<|level|>2\n<|id|>648<|level|>2",
+    "parsed": [
+        {
+            "id": 474,
+            "level": 2
+        },
+        {
+            "id": 478,
+            "level": 2
+        },
+        {
+            "id": 480,
+            "level": 2
+        },
+        {
+            "id": 482,
+            "level": 2
+        },
+        {
+            "id": 484,
+            "level": 2
+        },
+        {
+            "id": 486,
+            "level": 1
+        },
+        {
+            "id": 503,
+            "level": 3
+        },
+        {
+            "id": 570,
+            "level": 1
+        },
+        {
+            "id": 579,
+            "level": 1
+        },
+        {
+            "id": 585,
+            "level": 1
+        },
+        {
+            "id": 593,
+            "level": 1
+        },
+        {
+            "id": 601,
+            "level": 1
+        },
+        {
+            "id": 612,
+            "level": 1
+        },
+        {
+            "id": 616,
+            "level": 1
+        },
+        {
+            "id": 617,
+            "level": 2
+        },
+        {
+            "id": 620,
+            "level": 2
+        },
+        {
+            "id": 626,
+            "level": 2
+        },
+        {
+            "id": 629,
+            "level": 2
+        },
+        {
+            "id": 639,
+            "level": 2
+        },
+        {
+            "id": 643,
+            "level": 1
+        },
+        {
+            "id": 644,
+            "level": 2
+        },
+        {
+            "id": 646,
+            "level": 2
+        },
+        {
+            "id": 648,
+            "level": 2
+        }
+    ]
+}

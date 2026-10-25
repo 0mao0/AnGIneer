@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        9,
+        10,
+        15,
+        17,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>180 140 198 571<|content|>TO: ... Jennifer Kwon, Responsible Partner, Capital Markets\n<|id|>3<|page|>1<|box|>205 140 242 854<|content|>FROM: ... Brendan Walsh, Lead Associate, Capital M...Natasha Forbes, Working Associate, Capital Markets\n<|id|>4<|page|>1<|box|>250 140 267 325<|content|>DATE: ... March 28, 2022\n<|id|>5<|page|>1<|box|>276 140 294 816<|content|>RE: ... Proposed IPO\n<|id|>6<|page|>1<|box|>301 140 319 362<|content|>MATTER NO. ... 1015-00001\n<|id|>7<|page|>1<|box|>327 140 345 676<|content|>CLIENT: ... (\"CBR\" or the \"Company\")\n<|id|>8<|page|>1<|box|>354 140 371 408<|content|>Right-click to update Table of Contents\n<|id|>13<|page|>1<|box|>844 140 900 856<|content|>Post-IPO Ownership Dynamics. ... When combined with the approximately\n<|id|>14<|page|>2<|box|>90 140 273 856<|content|>100,000,000 shares of common stock outstanding pri...imary defense against hostile acquisition activity\n<|id|>39<|page|>4<|box|>766 140 893 857<|content|>On a base post-IPO basis, the Company will have ap...tters), Pinnacle Vista may effectively control the\n<|id|>40<|page|>5<|box|>90 140 145 854<|content|>Company post-IPO for purposes of the NYSE's contro...held by an individual, a group, or another company\n<|id|>68<|page|>8<|box|>383 174 529 856<|content|>(ii) Upon consummation of the transaction that res... be tendered in a tender or exchange offer; ... or\n<|id|>70<|page|>8<|box|>617 140 763 856<|content|>Section 203 applies by default to Delaware corpora... an interested stockholder prior to such amendment\n<|id|>80<|page|>9<|box|>748 183 819 854<|content|>• Any transferee that receives shares of the Compa... Partners III, LP to its limited partners; ... and\n<|id|>82<|page|>10<|box|>90 140 200 854<|content|>The carve-out language should be carefully drafted...ersons other than Pinnacle Vista or its affiliates\n<|id|>126<|page|>15<|box|>152 174 189 856<|content|>(iv) Any action to interpret, apply, enforce, or d...ncorporation or the bylaws of the Company; ... and\n<|id|>128<|page|>15<|box|>223 140 333 857<|content|>The exclusive forum provision serves to channel li...icient resolution of corporate governance disputes\n<|id|>148<|page|>17<|box|>89 181 125 854<|content|>• The provisions regarding the calling of special ...tockholders (as described in Section VIII. ... and\n<|id|>150<|page|>17<|box|>166 138 313 854<|content|>The supermajority voting requirement for charter a... substantial supermajority of the stockholder base\n<|id|>213<|page|>24<|box|>299 183 315 545<|content|>• Blank-check preferred stock authorization; ... and\n<|id|>215<|page|>24<|box|>338 140 393 854<|content|>The Description of Capital Stock section should cr... be confirmed in coordination with the filing team",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>39<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        7
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>10<|page|>2<|box|>707 140 909 857<|content|>5. ... This ongoing commercial activity at Lumicor...es a meaningful and substantial connection between\n<|id|>11<|page|>3<|box|>90 174 127 854<|content|>Lumicore and the Eastern District of Texas that ex...gent relationship or a single isolated transaction\n<|id|>18<|page|>3<|box|>664 140 904 857<|content|>7. ... This is precisely the type of high-performa...hased and deployed by data-center operators in the\n<|id|>19<|page|>4<|box|>90 174 145 854<|content|>Eastern District of Texas, a region that has exper...further supports the appropriateness of this venue\n<|id|>40<|page|>6<|box|>915 142 929 774<|content|>DECLARATION OF JAMES CALLAHAN IN SUPPORT OF OPPOSITION TO MOTION TO TRANSFER VENUE\n<|id|>41<|page|>7<|box|>90 140 200 856<|content|>I respectfully submit that these facts, taken toge...n the Eastern District of Texas, marshall Division\n<|id|>48<|page|>7<|box|>575 174 613 854<|content|>Catherine \"Kate\" Rourke Hawthorne Vega & Cruz LLP ... Austin, Texas 78701 Telephone: ... (512) 555-7800\n<|id|>49<|page|>7<|box|>619 176 638 408<|content|>Email: ... com\n<|id|>50<|page|>7<|box|>638 174 657 599<|content|>Lead Counsel for Defendant Lumicore Technologies, ...d Counsel for Defendant Lumicore Technologies, Inc\n<|id|>51<|page|>7<|box|>664 174 700 852<|content|>Maria Garza Trask Eddington LLP 425 East Front Str...0 Tyler, Texas 75701 Telephone: ... (903) 555-6100\n<|id|>52<|page|>7<|box|>709 174 744 602<|content|>Email: ... com Local Counsel for Defendant Lumicore Technologies, Inc",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>18<|tgt_id|>19",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        }
+    ]
+}

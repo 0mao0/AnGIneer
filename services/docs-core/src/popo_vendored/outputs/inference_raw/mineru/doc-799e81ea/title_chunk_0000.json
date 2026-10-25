@@ -1,0 +1,138 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 297 133 700<|content|>1200 K Street NW, Suite 900 Washington, D.C. 20005\n<|id|>12<|page|>1<|box|>542 161 563 834<|content|>SECTION 1: INTRODUCTION AND PURPOSE OF RETENTION\n<|id|>19<|page|>2<|box|>417 238 436 758<|content|>SECTION 2: BACKGROUND OF THE MATTERS\n<|id|>21<|page|>2<|box|>532 140 550 366<|content|>2.1 District Court Litigation\n<|id|>29<|page|>3<|box|>574 140 592 303<|content|>2.2 FCC Proceeding\n<|id|>32<|page|>4<|box|>148 140 167 341<|content|>2.3 The Conduct at Issue\n<|id|>39<|page|>4<|box|>808 284 827 712<|content|>SECTION 3: SCOPE OF ENGAGEMENT\n<|id|>41<|page|>5<|box|>90 140 107 617<|content|>3.1 Primary Focus — FCC Proceeding (Docket WC-23-0\n<|id|>52<|page|>6<|box|>212 140 229 614<|content|>3.2 District Court Litigation (Case No. 1:22-cv-01\n<|id|>58<|page|>6<|box|>675 140 693 532<|content|>3.3 Coordination with Other Experts and Counsel\n<|id|>69<|page|>7<|box|>493 253 512 743<|content|>SECTION 4: COMPENSATION AND BILLING\n<|id|>70<|page|>7<|box|>537 142 554 282<|content|>4.1 Fee Structure\n<|id|>80<|page|>8<|box|>539 140 556 377<|content|>4.2 Budget and Fee Estimates\n<|id|>85<|page|>9<|box|>135 223 155 772<|content|>SECTION 5: CONFIDENTIALITY AND PRIVILEGE\n<|id|>86<|page|>9<|box|>180 140 198 370<|content|>5.1 Confidential Information\n<|id|>90<|page|>9<|box|>647 140 664 604<|content|>5.2 Attorney-Client Privilege and Work Product Pro\n<|id|>97<|page|>10<|box|>402 140 420 334<|content|>5.3 Document Retention\n<|id|>100<|page|>10<|box|>700 281 720 715<|content|>SECTION 6: CONFLICTS OF INTEREST\n<|id|>106<|page|>11<|box|>344 217 388 779<|content|>SECTION 7: INDEPENDENCE AND PROFESSIONAL OBLIGATIO\n<|id|>110<|page|>11<|box|>777 277 796 718<|content|>SECTION 8: TERM AND TERMINATION\n<|id|>117<|page|>12<|box|>476 253 497 743<|content|>SECTION 9: MISCELLANEOUS PROVISIONS\n<|id|>123<|page|>13<|box|>171 176 188 457<|content|>If to Calderwood & Harkness LLP:\n<|id|>125<|page|>13<|box|>241 176 258 447<|content|>If to Torrence Policy Group LLC:\n<|id|>130<|page|>14<|box|>90 200 109 797<|content|>SECTION 10: SIGNATURE BLOCK AND ACCEPTANCE\n<|id|>146<|page|>15<|box|>90 424 109 573<|content|>APPENDIX A\n<|id|>147<|page|>15<|box|>128 267 145 730<|content|>LIST OF THE FOURTEEN (14) DISPUTED FACILITIES\n<|id|>150<|page|>16<|box|>90 426 109 571<|content|>APPENDIX B\n<|id|>151<|page|>16<|box|>128 189 162 805<|content|>CALDERWOOD & HARKNESS LLP — ENGAGEMENT TEAM CONTAC",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>12<|level|>1\n<|id|>19<|level|>1\n<|id|>21<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>39<|level|>1\n<|id|>41<|level|>2\n<|id|>52<|level|>2\n<|id|>58<|level|>2\n<|id|>69<|level|>1\n<|id|>70<|level|>2\n<|id|>80<|level|>2\n<|id|>85<|level|>1\n<|id|>86<|level|>2\n<|id|>90<|level|>2\n<|id|>97<|level|>2\n<|id|>100<|level|>1\n<|id|>106<|level|>1\n<|id|>110<|level|>1\n<|id|>117<|level|>1\n<|id|>123<|level|>-1\n<|id|>125<|level|>-1\n<|id|>130<|level|>1\n<|id|>146<|level|>1\n<|id|>147<|level|>2\n<|id|>150<|level|>1\n<|id|>151<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Working Capital Adjustment Risk', 'Estimated NWC vs. $78.5M target; $5M collar; seasonal fluctuations', 'Low', 'Low', 'Low', 'Defined methodology in SPA Annex A; Whitmore & Paige oversight;']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', 'post-closing true-up within 90 days; $5M collar limits adjustment noise']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 234,
+    "table2_idx": 235
+}

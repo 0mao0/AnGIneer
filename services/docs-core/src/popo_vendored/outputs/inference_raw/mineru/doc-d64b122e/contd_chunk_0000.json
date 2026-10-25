@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        5
+    ],
+    "pages": [
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>12<|page|>3<|box|>710 140 893 857<|content|>6. ... 4 of Aldrich's\n<|id|>13<|page|>4<|box|>90 174 217 854<|content|>Employment Agreement with AMA, dated September 5, ...at would result from their unauthorized disclosure\n<|id|>19<|page|>5<|box|>463 142 479 272<|content|>Dwayne Prescott\n<|id|>20<|page|>5<|box|>547 142 564 310<|content|>Prepared and submitted by: ... Prepared and submitted by\n<|id|>21<|page|>5<|box|>570 140 585 782<|content|>CALDERWOOD & HARKNESS LLP 777 South Flower Street, Suite 4200 Los Angeles, California 90017\n<|id|>22<|page|>5<|box|>592 140 609 513<|content|>Renata Vasquez (SBN 224578) Devon Archer (SBN 301462)\n<|id|>23<|page|>5<|box|>614 140 632 617<|content|>Attorneys for Defendant and Cross-Complainant Aure... and Cross-Complainant Aurelius Media Americas Inc",
+    "raw_response": "<|src_id|>12<|tgt_id|>13",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        }
+    ]
+}

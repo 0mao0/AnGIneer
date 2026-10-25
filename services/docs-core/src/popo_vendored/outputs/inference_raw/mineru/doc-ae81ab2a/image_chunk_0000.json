@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>14<|type|>title<|page|>1<|box|>556 142 574 560<|content|>1. Purpose and Confirmation of Investigation Closu\n<|id|>20<|type|>title<|page|>2<|box|>321 140 339 385<|content|>2. Summary of Matter History\n<|id|>31<|type|>title<|page|>3<|box|>583 140 599 486<|content|>3. Remaining NPA Obligations — Overview\n<|id|>36<|type|>title<|page|>4<|box|>212 140 229 403<|content|>4. Monetary Payment Obligation\n<|id|>43<|type|>title<|page|>5<|box|>148 140 167 357<|content|>5. Cooperation Obligations\n<|id|>51<|type|>title<|page|>6<|box|>150 140 167 341<|content|>6. Gavin Holt Carve-Out\n<|id|>59<|type|>title<|page|>6<|box|>773 140 792 490<|content|>7. Enhanced Antitrust Compliance Program\n<|id|>70<|type|>title<|page|>8<|box|>421 140 439 429<|content|>8. Independent Compliance Monitor\n<|id|>81<|type|>title<|page|>9<|box|>383 140 402 500<|content|>9. No-Prosecution Protections and Conditions\n<|id|>86<|type|>title<|page|>10<|box|>90 142 107 480<|content|>10. D&O Insurance and Ongoing Coverage\n<|id|>97<|type|>title<|page|>10<|box|>744 142 760 429<|content|>11. Public Disclosure Considerations\n<|id|>105<|type|>title<|page|>11<|box|>454 143 472 447<|content|>12. Key Dates and Deadlines Summary\n<|id|>106<|type|>table<|page|>11<|box|>522 143 789 852<|content|>None\n<|id|>108<|type|>title<|page|>12<|box|>150 143 167 390<|content|>13. Professional Fees Summary\n<|id|>109<|type|>table<|page|>12<|box|>218 143 405 852<|content|>None\n<|id|>113<|type|>title<|page|>12<|box|>752 142 768 565<|content|>14. Calderwood & Harkness's Continuing Availabilit\n<|id|>121<|type|>title<|page|>13<|box|>417 142 434 413<|content|>15. Closing and Acknowledgments\n<|id|>131<|type|>title<|page|>14<|box|>246 142 263 272<|content|>Enclosure Note:",
+    "raw_response": "<|src_id|>106<|tgt_id|>105\n<|src_id|>109<|tgt_id|>108",
+    "parsed": [
+        {
+            "src_id": 106,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 108
+        }
+    ]
+}

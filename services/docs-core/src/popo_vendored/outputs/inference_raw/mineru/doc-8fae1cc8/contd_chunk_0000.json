@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        16,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>178 140 195 292<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>204 140 222 630<|content|>TO: ... Marcus Friedl, General Counsel, Halcyon Semiconductor AG\n<|id|>4<|page|>1<|box|>229 142 247 573<|content|>FROM: ... Howard Quinn, Liam Donahue, Steven Hollander\n<|id|>5<|page|>1<|box|>256 142 273 334<|content|>DATE: ... January 28, 2026\n<|id|>6<|page|>1<|box|>282 140 299 805<|content|>RE: ... Internal Investigation Findings and Recommendations — DOJ NSD-CES-2025-04871\n<|id|>7<|page|>1<|box|>308 142 324 408<|content|>Right-click to update Table of Contents\n<|id|>23<|page|>3<|box|>496 147 566 854<|content|>• Archipelago's order management system records, c...contractual audit rights under Section 12. ... and\n<|id|>25<|page|>3<|box|>626 140 736 856<|content|>Document review was conducted on C&H's internal do...manual review of all documents from key custodians\n<|id|>29<|page|>3<|box|>849 147 885 856<|content|>• 3 interviews of Archipelago Component Solutions ...r Pratt & Whitfield LLP's (\"KPW\") Singapore-office\n<|id|>30<|page|>4<|box|>90 140 146 854<|content|>network, in accordance with Singapore legal-profes...reement. ... Key interviews included the following\n<|id|>57<|page|>6<|box|>708 140 799 854<|content|>Character-encoding mismatch. ... However, the Sentinel update\n<|id|>58<|page|>6<|box|>805 140 824 854<|content|>did not include the simplified Chinese characters for Zhonghe's trade name (中和微电子有限公\n<|id|>59<|page|>6<|box|>832 140 907 856<|content|>司). ... \"\n<|id|>131<|page|>16<|box|>388 174 479 856<|content|>(b) It would create adverse precedent suggesting that exporters can be held liable under § 744. ... and\n<|id|>133<|page|>16<|box|>568 140 643 854<|content|>C&H recommends that the Company take the firm posi...onfirming that no violation is alleged or admitted\n<|id|>155<|page|>19<|box|>436 140 453 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>156<|page|>19<|box|>454 143 470 253<|content|>By: ... By\n<|id|>157<|page|>19<|box|>470 142 488 320<|content|>Howard Quinn, Partner\n<|id|>158<|page|>19<|box|>489 142 506 263<|content|>By: ... By\n<|id|>159<|page|>19<|box|>506 142 523 318<|content|>Liam Donahue, Partner\n<|id|>160<|page|>19<|box|>523 143 540 253<|content|>By: ... By\n<|id|>161<|page|>19<|box|>540 142 556 344<|content|>Steven Hollander, Counsel\n<|id|>162<|page|>19<|box|>556 140 618 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV...al department without C&H's prior written approval",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>57<|tgt_id|>58\n<|src_id|>58<|tgt_id|>59",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        }
+    ]
+}

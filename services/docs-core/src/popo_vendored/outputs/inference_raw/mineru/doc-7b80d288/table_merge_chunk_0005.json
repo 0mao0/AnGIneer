@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['050201014', '木制步桥', '1.桥宽度2.桥长度3.木材种类4.各部位截面长度5.防护材料种类', 'm^2', '按桥面板设计图示尺寸以面积计算', '1.木桩加工2.打木桩基础3.木梁、木桥板、木桥栏杆、木扶手制作、安装4.连接铁件、螺栓安装5.刷防护材料']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['050201015', '栈道', '1.栈道宽度2.支架材料种类3.面层材料种类4.防护材料种类', 'm^{2}', '按栈道面板设计图示尺寸以面积计算', '1.凿洞2.安装支架3.铺设面板4.刷防护材料']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 114,
+    "table2_idx": 115
+}

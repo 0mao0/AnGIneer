@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>638 140 656 339<|content|>I. Purpose of This Letter\n<|id|>15<|page|>2<|box|>223 140 239 517<|content|>II. Background and Context of the Investigation\n<|id|>16<|page|>2<|box|>253 140 271 341<|content|>A. Origins of the Inquiry\n<|id|>19<|page|>2<|box|>554 140 571 397<|content|>B. Applicable Legal Framework\n<|id|>28<|page|>3<|box|>316 140 334 444<|content|>III. Scope of the Internal Investigation\n<|id|>37<|page|>4<|box|>148 140 167 455<|content|>IV. Summary of Investigation Activities\n<|id|>38<|page|>4<|box|>180 140 196 426<|content|>A. Document Collection and Review\n<|id|>47<|page|>4<|box|>806 142 823 318<|content|>B. Witness Interviews\n<|id|>68<|page|>6<|box|>90 140 107 331<|content|>C. Forensic Accounting\n<|id|>72<|page|>6<|box|>426 140 443 560<|content|>V. Summary of Key Findings Presented in the Report\n<|id|>74<|page|>6<|box|>574 140 592 400<|content|>A. Crude Oil Swap Transactions\n<|id|>78<|page|>7<|box|>138 140 157 385<|content|>B. Oilfield Equipment Exports\n<|id|>81<|page|>7<|box|>439 140 457 334<|content|>C. Payment Structuring\n<|id|>84<|page|>7<|box|>666 140 684 433<|content|>D. Compliance Program Deficiencies\n<|id|>91<|page|>8<|box|>311 140 328 370<|content|>VI. Personnel Actions Taken\n<|id|>97<|page|>8<|box|>627 140 643 416<|content|>VII. Cooperation and Remediation\n<|id|>98<|page|>8<|box|>657 142 675 351<|content|>A. Voluntary Cooperation\n<|id|>101<|page|>9<|box|>157 140 174 328<|content|>B. Remediation Efforts\n<|id|>104<|page|>9<|box|>439 140 457 620<|content|>C. Forthcoming Voluntary Self-Disclosure and Disgo\n<|id|>107<|page|>9<|box|>676 140 693 357<|content|>VIII. Privilege Reservation\n<|id|>115<|page|>10<|box|>289 140 306 362<|content|>IX. Confidentiality Request\n<|id|>119<|page|>10<|box|>646 140 664 375<|content|>X. Availability for Discussion\n<|id|>123<|page|>11<|box|>90 142 107 263<|content|>XI. Enclosures",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>19<|level|>2\n<|id|>28<|level|>1\n<|id|>37<|level|>1\n<|id|>38<|level|>2\n<|id|>47<|level|>2\n<|id|>68<|level|>2\n<|id|>72<|level|>1\n<|id|>74<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>2\n<|id|>84<|level|>2\n<|id|>91<|level|>1\n<|id|>97<|level|>1\n<|id|>98<|level|>2\n<|id|>101<|level|>2\n<|id|>104<|level|>2\n<|id|>107<|level|>1\n<|id|>115<|level|>1\n<|id|>119<|level|>1\n<|id|>123<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        }
+    ]
+}

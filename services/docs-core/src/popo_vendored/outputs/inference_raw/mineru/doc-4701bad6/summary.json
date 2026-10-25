@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-46pfm8u_\\input\\pdfs\\doc-4701bad6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-46pfm8u_\\enriched\\doc-4701bad6.json",
+    "contd_output": "<|src_id|>12<|tgt_id|>13\n<|src_id|>25<|tgt_id|>26\n<|src_id|>50<|tgt_id|>51\n<|src_id|>161<|tgt_id|>162",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>27<|level|>3\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>35<|level|>3\n<|id|>37<|level|>2\n<|id|>38<|level|>3\n<|id|>54<|level|>4\n<|id|>58<|level|>3\n<|id|>73<|level|>4\n<|id|>76<|level|>3\n<|id|>88<|level|>4\n<|id|>91<|level|>3\n<|id|>106<|level|>4\n<|id|>109<|level|>3\n<|id|>122<|level|>4\n<|id|>126<|level|>2\n<|id|>131<|level|>2\n<|id|>135<|level|>2\n<|id|>144<|level|>2\n<|id|>148<|level|>2\n<|id|>157<|level|>2\n<|id|>158<|level|>3\n<|id|>160<|level|>3\n<|id|>163<|level|>3\n<|id|>165<|level|>3\n<|id|>167<|level|>3\n<|id|>170<|level|>2\n<|id|>188<|level|>2\n<|id|>197<|level|>2",
+    "image_output": "<|src_id|>31<|tgt_id|>29\n<|src_id|>145<|tgt_id|>144\n<|src_id|>146<|tgt_id|>144",
+    "contd_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 162
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 4
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 4
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 4
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 4
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 144
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 145,
+            "table2_idx": 146,
+            "upper_row_ss": [
+                [
+                    "Texas",
+                    "Public Information Report (×3 LLCs)",
+                    "Each TX Target Entity",
+                    "PIR",
+                    "May 15, 2025",
+                    "$0 (filed with franchise tax report)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Florida",
+                    "Corporate Income Tax",
+                    "Fairwater REIT",
+                    "Form F-1120",
+                    "May 1, 2025",
+                    "TBD (income-dependent)"
+                ]
+            ]
+        }
+    ]
+}

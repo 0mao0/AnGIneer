@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        16
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        11,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>2<|box|>224 140 242 728<|content|>Saguaro Flats Solar LLC, a Delaware limited liability company (\"Seller\"), and\n<|id|>4<|page|>2<|box|>250 140 268 666<|content|>Meridian DataCore Solutions Inc. ... , a Delaware corporation (\"Buyer\")\n<|id|>17<|page|>3<|box|>275 174 311 854<|content|>(a) Commonwealth Mutual Insurance Co. ... and\n<|id|>19<|page|>3<|box|>345 140 474 856<|content|>If at any time during the Term an insurer providin...wngrade of an insurer providing coverage hereunder\n<|id|>41<|page|>5<|box|>545 174 580 854<|content|>(e) confirm that the policies include a waiver of ...vor of Buyer and the Administrative Agent; ... and\n<|id|>43<|page|>5<|box|>614 140 671 854<|content|>Upon reasonable request by Buyer, Seller shall pro... within fifteen (15) Business Days of such request\n<|id|>122<|page|>11<|box|>263 210 319 854<|content|>(ii) Multiplied by the applicable contract price u... Agreement, initially Twenty Dollars ($20. ... and\n<|id|>124<|page|>11<|box|>388 176 463 856<|content|>The coverage amount shall be adjusted at each annu...ted annual gross revenue for the applicable period\n<|id|>185<|page|>16<|box|>369 176 387 794<|content|>(c) Seller's Termination Payment obligations under Section [●] of the Agreement; ... or\n<|id|>187<|page|>16<|box|>438 140 530 856<|content|>The maintenance of insurance in compliance with th...tute for, Seller's obligations under the Agreement",
+    "raw_response": "<|src_id|>3<|tgt_id|>4",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        }
+    ]
+}

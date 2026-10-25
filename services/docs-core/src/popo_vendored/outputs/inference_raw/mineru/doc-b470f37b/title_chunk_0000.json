@@ -1,0 +1,134 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 143 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>1<|page|>1<|box|>152 258 172 738<|content|>PRIVILEGED INTERVIEW MEMORANDUM\n<|id|>12<|page|>1<|box|>520 140 537 408<|content|>I. Purpose and Scope of Interview\n<|id|>17<|page|>2<|box|>167 140 185 326<|content|>II. Upjohn Admonition\n<|id|>25<|page|>2<|box|>669 140 686 374<|content|>III. Background Information\n<|id|>26<|page|>2<|box|>700 140 718 406<|content|>A. Employment History and Role\n<|id|>37<|page|>3<|box|>527 140 546 612<|content|>B. Relationship with Marcus Hale Prior to Alleged\n<|id|>41<|page|>4<|box|>90 140 126 844<|content|>IV. Account of Alleged Incidents at Monarch Valley\n<|id|>42<|page|>4<|box|>138 140 156 395<|content|>A. Context of the Off-Site Event\n<|id|>47<|page|>4<|box|>546 140 564 544<|content|>B. Sexually Suggestive Comments Regarding Attire\n<|id|>52<|page|>5<|box|>194 140 212 550<|content|>C. Personal Question — \"Are You Seeing Anyone?\"\n<|id|>56<|page|>5<|box|>484 140 501 606<|content|>D. Ngo's Immediate Reaction and Disclosure to a Co\n<|id|>60<|page|>6<|box|>90 140 107 357<|content|>E. Corroborating Evidence\n<|id|>63<|page|>6<|box|>382 140 398 772<|content|>V. Account of Subsequent Exclusion from Strategy M\n<|id|>64<|page|>6<|box|>412 140 430 700<|content|>A. Context — Prior Participation in Talent-Relatio\n<|id|>68<|page|>6<|box|>757 143 773 413<|content|>B. Exclusion from Three Meetings\n<|id|>75<|page|>7<|box|>406 140 424 500<|content|>C. Ngo's Belief Regarding Retaliatory Motive\n<|id|>79<|page|>7<|box|>787 140 804 287<|content|>D. Impact on Ngo\n<|id|>84<|page|>8<|box|>411 140 428 573<|content|>VI. Ngo's Knowledge of Other Complaints or Inciden\n<|id|>85<|page|>8<|box|>441 140 458 491<|content|>A. Awareness of Jenna Morales's Complaint\n<|id|>88<|page|>8<|box|>667 140 684 462<|content|>B. General Awareness of Hale's Conduct\n<|id|>91<|page|>9<|box|>138 140 156 467<|content|>C. No Awareness of Whitfield Retaliation\n<|id|>93<|page|>9<|box|>295 140 311 395<|content|>VII. Prior Interactions with HR\n<|id|>97<|page|>9<|box|>689 140 705 537<|content|>VIII. Documents and Evidence Referenced by Ngo\n<|id|>103<|page|>10<|box|>390 140 407 555<|content|>IX. Ngo's Current Employment Status and Concerns\n<|id|>108<|page|>10<|box|>828 140 844 367<|content|>X. Interviewer Observations\n<|id|>114<|page|>11<|box|>465 140 482 308<|content|>XI. Follow-Up Items\n<|id|>123<|page|>12<|box|>224 140 241 357<|content|>XII. Preparer Certification",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>12<|level|>2\n<|id|>17<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>37<|level|>3\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>47<|level|>3\n<|id|>52<|level|>3\n<|id|>56<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>2\n<|id|>64<|level|>3\n<|id|>68<|level|>3\n<|id|>75<|level|>3\n<|id|>79<|level|>3\n<|id|>84<|level|>2\n<|id|>85<|level|>3\n<|id|>88<|level|>3\n<|id|>91<|level|>3\n<|id|>93<|level|>2\n<|id|>97<|level|>2\n<|id|>103<|level|>2\n<|id|>108<|level|>2\n<|id|>114<|level|>2\n<|id|>123<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        }
+    ]
+}

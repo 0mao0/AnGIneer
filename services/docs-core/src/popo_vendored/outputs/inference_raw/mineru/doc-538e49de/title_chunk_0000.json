@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 169 137 826<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>8<|page|>1<|box|>465 140 483 321<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>285 142 301 267<|content|>II. Background\n<|id|>15<|page|>2<|box|>316 140 334 620<|content|>A. OWS's Relationship with Brindoval Foundry Servi\n<|id|>20<|page|>2<|box|>777 140 795 635<|content|>B. OWS's Existing EDA Licensing Arrangement with M\n<|id|>27<|page|>3<|box|>344 140 362 467<|content|>C. The Proposed Renewal and Expansion\n<|id|>33<|page|>4<|box|>90 140 107 674<|content|>III. Analysis of Section 4.7 of the Brindoval PDK\n<|id|>34<|page|>4<|box|>121 140 138 398<|content|>A. Text and Scope of Section 4.7\n<|id|>39<|page|>4<|box|>601 140 618 465<|content|>B. Consequences of Breach of Section 4.7\n<|id|>45<|page|>5<|box|>340 140 357 532<|content|>IV. Current AEPL Status of Meridian EDA Tools\n<|id|>47<|page|>5<|box|>452 140 469 400<|content|>A. Tools Currently on the AEPL\n<|id|>52<|page|>6<|box|>89 140 107 343<|content|>B. Meridian VerifyPro™\n<|id|>55<|page|>6<|box|>407 140 425 524<|content|>C. Meridian PhotonX™ — Not Yet on the AEPL\n<|id|>59<|page|>7<|box|>90 140 107 741<|content|>V. Risk Assessment — Deployment of PhotonX™ Before\n<|id|>60<|page|>7<|box|>121 140 138 267<|content|>A. Timing Risk\n<|id|>67<|page|>7<|box|>633 140 652 303<|content|>B. Breach Exposure\n<|id|>71<|page|>8<|box|>239 140 256 452<|content|>C. Financial and Operational Exposure\n<|id|>75<|page|>8<|box|>648 140 665 691<|content|>VI. Recommendations — Contractual Safeguards in th\n<|id|>77<|page|>8<|box|>777 140 794 522<|content|>A. Conditional Activation Clause for PhotonX™\n<|id|>83<|page|>9<|box|>573 140 589 490<|content|>B. Fee Abatement / Fee Deferral Mechanism\n<|id|>90<|page|>10<|box|>273 140 292 429<|content|>C. Meridian Cooperation Obligation\n<|id|>97<|page|>10<|box|>770 140 787 501<|content|>D. Representation Regarding Interoperability\n<|id|>103<|page|>11<|box|>375 140 391 576<|content|>E. Internal OWS Controls Pending AEPL Qualificatio\n<|id|>105<|page|>11<|box|>515 140 532 501<|content|>We recommend the following specific measures:\n<|id|>111<|page|>12<|box|>212 140 229 410<|content|>VII. Coordination with Brindoval\n<|id|>118<|page|>12<|box|>811 140 829 434<|content|>VIII. Summary of Recommendations\n<|id|>126<|page|>13<|box|>503 140 521 261<|content|>IX. Next Steps",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>20<|level|>2\n<|id|>27<|level|>2\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>39<|level|>2\n<|id|>45<|level|>1\n<|id|>47<|level|>2\n<|id|>52<|level|>2\n<|id|>55<|level|>2\n<|id|>59<|level|>1\n<|id|>60<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>2\n<|id|>75<|level|>1\n<|id|>77<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>2\n<|id|>97<|level|>2\n<|id|>103<|level|>2\n<|id|>105<|level|>2\n<|id|>111<|level|>1\n<|id|>118<|level|>1\n<|id|>126<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        }
+    ]
+}

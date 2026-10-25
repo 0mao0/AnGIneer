@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        18,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>1<|box|>845 140 902 854<|content|>The purpose of this Certificate is to confirm whet...e the date of execution of the Merger Agreement on\n<|id|>7<|page|>2<|box|>90 140 237 854<|content|>March 18, 2025 (the \"Signing Date\") through the Cl...bligations of the parties to consummate the Merger\n<|id|>14<|page|>2<|box|>856 140 893 854<|content|>Throughout the Bring-Down Diligence Period, Calder... VeloPay, through Rebecca Thornton-Hayes (Partner)\n<|id|>15<|page|>3<|box|>90 140 162 854<|content|>and James Okoro (Senior Associate), to obtain upda...closure requests were addressed in a timely manner\n<|id|>24<|page|>3<|box|>619 176 636 653<|content|>(d) VeloPay Fraud intelligence Inc. ... and\n<|id|>26<|page|>3<|box|>670 138 744 854<|content|>Good standing certificates (or the local equivalen...anization. ... No adverse findings were identified\n<|id|>34<|page|>4<|box|>852 140 888 854<|content|>6. ... Calderwood & Harkness confirmed the complet...onditions to Closing, as tracked in the Regulatory\n<|id|>35<|page|>5<|box|>90 140 126 854<|content|>Approvals Status Tracker maintained by the deal te...fic regulatory milestones confirmed are as follows\n<|id|>161<|page|>18<|box|>160 140 176 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>162<|page|>18<|box|>178 143 195 254<|content|>By: ... By\n<|id|>163<|page|>18<|box|>195 142 212 295<|content|>Name: ... Sandra Tung\n<|id|>164<|page|>18<|box|>212 142 229 428<|content|>Title: ... Partner, Mergers & Acquisitions\n<|id|>165<|page|>18<|box|>229 143 246 295<|content|>Responsible Partner\n<|id|>166<|page|>18<|box|>246 143 263 290<|content|>Date: ... July 22, 2025\n<|id|>167<|page|>18<|box|>263 143 281 253<|content|>By: ... By\n<|id|>168<|page|>18<|box|>281 142 297 287<|content|>Name: ... Megan Chu\n<|id|>169<|page|>18<|box|>297 140 315 444<|content|>Title: ... Associate, Mergers & Acquisitions\n<|id|>170<|page|>18<|box|>316 142 332 261<|content|>Lead Associate\n<|id|>171<|page|>18<|box|>332 142 349 290<|content|>Date: ... July 22, 2025\n<|id|>210<|page|>22<|box|>652 142 667 537<|content|>END OF BRING-DOWN DUE DILIGENCE CERTIFICATE\n<|id|>211<|page|>22<|box|>674 140 691 676<|content|>Calderwood & Harkness LLP — 787 Seventh Avenue, 38th Floor, New York, NY 10019\n<|id|>212<|page|>22<|box|>696 140 714 635<|content|>Matter No. ... 1003-00003 — Privileged and Confidential — Attorney Work Product",
+    "raw_response": "<|src_id|>6<|tgt_id|>7\n<|src_id|>14<|tgt_id|>15\n<|src_id|>34<|tgt_id|>35",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        }
+    ]
+}

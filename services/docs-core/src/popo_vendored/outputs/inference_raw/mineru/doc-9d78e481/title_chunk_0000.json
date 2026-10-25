@@ -1,0 +1,70 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 200 157 795<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law PRIVILE\n<|id|>6<|page|>1<|box|>330 142 348 250<|content|>I. PURPOSE\n<|id|>12<|page|>1<|box|>811 142 828 359<|content|>II. DAMAGES ANALYSIS\n<|id|>13<|page|>1<|box|>843 142 859 287<|content|>A. Data Reviewed\n<|id|>36<|page|>4<|box|>601 140 619 320<|content|>C. Statutory Damages\n<|id|>44<|page|>5<|box|>411 140 428 292<|content|>D. Attorney's Fees\n<|id|>49<|page|>6<|box|>138 142 157 334<|content|>E. Settlement Valuation\n<|id|>61<|page|>7<|box|>489 140 506 472<|content|>III. LITIGATION STRATEGY UPDATE\n<|id|>62<|page|>7<|box|>520 142 537 367<|content|>A. Early Neutral Evaluation\n<|id|>68<|page|>8<|box|>311 142 328 429<|content|>B. Crescendo's Affirmative Defenses\n<|id|>78<|page|>10<|box|>257 140 273 300<|content|>C. Discovery Status\n<|id|>83<|page|>10<|box|>792 142 809 482<|content|>D. Recommendation: Proceed to Mediation\n<|id|>91<|page|>12<|box|>258 140 276 457<|content|>IV. CONCLUSION AND NEXT STEPS",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>61<|level|>1\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>91<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        }
+    ]
+}

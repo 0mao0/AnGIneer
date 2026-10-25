@@ -1,0 +1,549 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ex35flmg\\input\\pdfs\\doc-65fa902a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ex35flmg\\enriched\\doc-65fa902a.json",
+    "contd_output": "<|src_id|>287<|tgt_id|>288\n<|src_id|>345<|tgt_id|>346\n<|src_id|>401<|tgt_id|>402",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>6<|level|>1\n<|id|>14<|level|>1\n<|id|>22<|level|>1\n<|id|>41<|level|>1\n<|id|>44<|level|>1\n<|id|>49<|level|>1\n<|id|>50<|level|>3\n<|id|>54<|level|>3\n<|id|>62<|level|>1\n<|id|>75<|level|>1\n<|id|>76<|level|>2\n<|id|>77<|level|>3\n<|id|>115<|level|>2\n<|id|>116<|level|>3\n<|id|>118<|level|>3\n<|id|>120<|level|>3\n<|id|>122<|level|>1\n<|id|>123<|level|>2\n<|id|>132<|level|>2\n<|id|>142<|level|>2\n<|id|>147<|level|>2\n<|id|>151<|level|>2\n<|id|>159<|level|>2\n<|id|>164<|level|>2\n<|id|>172<|level|>2\n<|id|>178<|level|>1\n<|id|>179<|level|>2\n<|id|>190<|level|>2\n<|id|>221<|level|>2\n<|id|>248<|level|>2\n<|id|>261<|level|>2\n<|id|>265<|level|>1\n<|id|>266<|level|>2\n<|id|>277<|level|>2\n<|id|>305<|level|>2\n<|id|>320<|level|>2\n<|id|>325<|level|>2\n<|id|>339<|level|>2\n<|id|>343<|level|>2\n<|id|>349<|level|>2\n<|id|>356<|level|>2\n<|id|>361<|level|>1\n<|id|>376<|level|>1\n<|id|>377<|level|>2\n<|id|>382<|level|>1\n<|id|>383<|level|>2\n<|id|>385<|level|>1\n<|id|>398<|level|>1\n<|id|>407<|level|>1\n<|id|>410<|level|>1\n<|id|>412<|level|>1\n<|id|>419<|level|>1\n<|id|>425<|level|>1\n<|id|>426<|level|>2\n<|id|>429<|level|>2\n<|id|>432<|level|>2\n<|id|>434<|level|>2\n<|id|>436<|level|>2\n<|id|>439<|level|>1\n<|id|>440<|level|>2\n<|id|>443<|level|>2\n<|id|>445<|level|>2\n<|id|>449<|level|>2\n<|id|>453<|level|>2\n<|id|>457<|level|>2\n<|id|>459<|level|>1\n<|id|>460<|level|>2\n<|id|>464<|level|>2\n<|id|>466<|level|>2\n<|id|>468<|level|>2\n<|id|>470<|level|>2\n<|id|>472<|level|>2\n<|id|>474<|level|>2\n<|id|>476<|level|>2\n<|id|>480<|level|>1",
+    "image_output": "<|src_id|>78<|tgt_id|>77\n<|src_id|>95<|tgt_id|>76\n<|src_id|>96<|tgt_id|>76\n<|src_id|>97<|tgt_id|>76\n<|src_id|>98<|tgt_id|>76\n<|src_id|>99<|tgt_id|>76\n<|src_id|>100<|tgt_id|>76\n<|src_id|>102<|tgt_id|>76\n<|src_id|>103<|tgt_id|>76\n<|src_id|>105<|tgt_id|>76\n<|src_id|>108<|tgt_id|>76\n<|src_id|>109<|tgt_id|>76\n<|src_id|>111<|tgt_id|>76\n<|src_id|>112<|tgt_id|>76\n<|src_id|>113<|tgt_id|>76\n<|src_id|>117<|tgt_id|>116\n<|src_id|>119<|tgt_id|>118\n<|src_id|>121<|tgt_id|>120\n<|src_id|>193<|tgt_id|>190\n<|src_id|>231<|tgt_id|>221\n<|src_id|>233<|tgt_id|>221\n<|src_id|>242<|tgt_id|>221\n<|src_id|>243<|tgt_id|>221\n<|src_id|>245<|tgt_id|>244\n<|src_id|>246<|tgt_id|>244\n<|src_id|>247<|tgt_id|>244\n<|src_id|>378<|tgt_id|>377\n<|src_id|>380<|tgt_id|>377\n<|src_id|>381<|tgt_id|>377\n<|src_id|>384<|tgt_id|>383",
+    "contd_label": [
+        {
+            "src_id": 287,
+            "tgt_id": 288
+        },
+        {
+            "src_id": 345,
+            "tgt_id": 346
+        },
+        {
+            "src_id": 401,
+            "tgt_id": 402
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 248,
+            "level": 2
+        },
+        {
+            "id": 261,
+            "level": 2
+        },
+        {
+            "id": 265,
+            "level": 1
+        },
+        {
+            "id": 266,
+            "level": 2
+        },
+        {
+            "id": 277,
+            "level": 2
+        },
+        {
+            "id": 305,
+            "level": 2
+        },
+        {
+            "id": 320,
+            "level": 2
+        },
+        {
+            "id": 325,
+            "level": 2
+        },
+        {
+            "id": 339,
+            "level": 2
+        },
+        {
+            "id": 343,
+            "level": 2
+        },
+        {
+            "id": 349,
+            "level": 2
+        },
+        {
+            "id": 356,
+            "level": 2
+        },
+        {
+            "id": 361,
+            "level": 1
+        },
+        {
+            "id": 376,
+            "level": 1
+        },
+        {
+            "id": 377,
+            "level": 2
+        },
+        {
+            "id": 382,
+            "level": 1
+        },
+        {
+            "id": 383,
+            "level": 2
+        },
+        {
+            "id": 385,
+            "level": 1
+        },
+        {
+            "id": 398,
+            "level": 1
+        },
+        {
+            "id": 407,
+            "level": 1
+        },
+        {
+            "id": 410,
+            "level": 1
+        },
+        {
+            "id": 412,
+            "level": 1
+        },
+        {
+            "id": 419,
+            "level": 1
+        },
+        {
+            "id": 425,
+            "level": 1
+        },
+        {
+            "id": 426,
+            "level": 2
+        },
+        {
+            "id": 429,
+            "level": 2
+        },
+        {
+            "id": 432,
+            "level": 2
+        },
+        {
+            "id": 434,
+            "level": 2
+        },
+        {
+            "id": 436,
+            "level": 2
+        },
+        {
+            "id": 439,
+            "level": 1
+        },
+        {
+            "id": 440,
+            "level": 2
+        },
+        {
+            "id": 443,
+            "level": 2
+        },
+        {
+            "id": 445,
+            "level": 2
+        },
+        {
+            "id": 449,
+            "level": 2
+        },
+        {
+            "id": 453,
+            "level": 2
+        },
+        {
+            "id": 457,
+            "level": 2
+        },
+        {
+            "id": 459,
+            "level": 1
+        },
+        {
+            "id": 460,
+            "level": 2
+        },
+        {
+            "id": 464,
+            "level": 2
+        },
+        {
+            "id": 466,
+            "level": 2
+        },
+        {
+            "id": 468,
+            "level": 2
+        },
+        {
+            "id": 470,
+            "level": 2
+        },
+        {
+            "id": 472,
+            "level": 2
+        },
+        {
+            "id": 474,
+            "level": 2
+        },
+        {
+            "id": 476,
+            "level": 2
+        },
+        {
+            "id": 480,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 78,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 118
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 193,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 231,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 242,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 243,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 245,
+            "tgt_id": 244
+        },
+        {
+            "src_id": 246,
+            "tgt_id": 244
+        },
+        {
+            "src_id": 247,
+            "tgt_id": 244
+        },
+        {
+            "src_id": 378,
+            "tgt_id": 377
+        },
+        {
+            "src_id": 380,
+            "tgt_id": 377
+        },
+        {
+            "src_id": 381,
+            "tgt_id": 377
+        },
+        {
+            "src_id": 384,
+            "tgt_id": 383
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 95,
+            "table2_idx": 96,
+            "upper_row_ss": [
+                [
+                    "rowspan=2, 上部结构",
+                    "胸墙",
+                    "完好,或有轻度损坏;钢筋无锈蚀",
+                    "小于10%的墙段中度损坏;钢筋局部锈蚀",
+                    "10%~20%的墙段中度损坏,或小于10%的墙段严重损坏;钢筋明显锈蚀",
+                    "20%以上的墙段中度损坏或10%以上的墙段严重裂缝、表面损坏,钢筋严重锈蚀",
+                    "—"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, 墙身",
+                    "方块",
+                    "完好,或有轻度损坏,表面无明显剥落",
+                    "小于10%的构件中度损坏,表面剥落",
+                    "10%~20%的构件中度损坏,表面剥落或小于10%的构件严重损坏或断裂",
+                    "20%以上的构件中度损坏,表面剥落或10%以上的构件严重损坏或断裂",
+                    "—"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 98,
+            "table2_idx": 99,
+            "upper_row_ss": [
+                [
+                    "rowspan=5, 上部结构",
+                    "混凝土桩",
+                    "完好,无损坏,无裂缝、无锈迹",
+                    "小于5%的构件轻度损坏、裂缝,无明显锈迹",
+                    "5%~10%的构件轻度损坏,或小于5%的构件中度损坏、裂缝,局部有锈迹,无严重损坏",
+                    "10%以上的构件轻度损坏,或5%~10%的构件中度损坏、裂缝,局部露筋、锈蚀,或个别严重损坏",
+                    "10%以上的构件中度损坏,或小于5%的构件严重损坏、裂缝,钢筋严重锈蚀缩径"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, 上部结构",
+                    "混凝土管桩",
+                    "完好、无裂缝、无锈迹",
+                    "小于3%的构件轻度损坏,轻度裂缝,无锈迹",
+                    "3%~5%的构件轻度损坏,轻度裂缝,局部有锈迹",
+                    "5%以上的构件轻度损坏或个别构件中度损坏,中度裂缝,有明显锈迹",
+                    "5%以上的构件中度或有严重损坏,严重裂缝,钢筋明显锈蚀"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 112,
+            "table2_idx": 113,
+            "upper_row_ss": [
+                [
+                    "rowspan=2, 主体结构",
+                    "墙体",
+                    "完好,无裂缝",
+                    "墙体完好,饰面有裂纹、剥落",
+                    "墙体局部有裂缝,不影响安全使用",
+                    "墙体有较大裂缝,影响安全使用",
+                    "墙体下沉、断裂,严重影响安全使用"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, 项目",
+                    "colspan=5, 技术状态"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 246,
+            "table2_idx": 247,
+            "upper_row_ss": [
+                [
+                    "6",
+                    "colspan=2, 撑杆、撑墩、升降架",
+                    "位移、变形、开裂",
+                    "5"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, 2",
+                    "rowspan=2, 上部结构",
+                    "胸墙、防浪墙",
+                    "破损、裂缝",
+                    "5"
+                ]
+            ]
+        }
+    ]
+}

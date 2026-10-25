@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        12,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>152 189 200 854<|content|>Draft: Marcus Weill Calderwood & Harkness LLP 425\n<|id|>11<|page|>1<|box|>556 142 574 243<|content|>RECITALS\n<|id|>20<|page|>3<|box|>167 140 184 421<|content|>SECTION 1 — DEFINED TERMS\n<|id|>31<|page|>4<|box|>89 140 107 357<|content|>SECTION 2 — CONSENT\n<|id|>37<|page|>5<|box|>89 140 107 604<|content|>SECTION 3 — LIMITED WAIVER OF SECTION 7.12(b)\n<|id|>40<|page|>5<|box|>659 140 676 805<|content|>SECTION 4 — REPRESENTATIONS AND WARRANTIES OF THE\n<|id|>49<|page|>7<|box|>89 140 106 684<|content|>SECTION 5 — CONDITIONS PRECEDENT TO EFFECTIVENESS\n<|id|>60<|page|>8<|box|>593 140 609 383<|content|>SECTION 6 — COVENANTS\n<|id|>66<|page|>9<|box|>549 140 565 426<|content|>SECTION 7 — REAFFIRMATION\n<|id|>70<|page|>10<|box|>204 140 220 545<|content|>SECTION 8 — MISCELLANEOUS PROVISIONS\n<|id|>94<|page|>12<|box|>160 408 176 588<|content|>SIGNATURE PAGES\n<|id|>95<|page|>12<|box|>186 187 222 810<|content|>CONSENT AND LIMITED WAIVER Under the Amended and R\n<|id|>97<|page|>12<|box|>292 142 309 263<|content|>BORROWER:\n<|id|>104<|page|>12<|box|>430 142 448 619<|content|>STANDISH NATIONAL BANK, N.A., as Administrative Ag\n<|id|>131<|page|>14<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>132<|page|>14<|box|>135 189 152 807<|content|>DESCRIPTION OF THE MASTER DATA LICENSE AGREEMENT (\n<|id|>134<|page|>14<|box|>262 143 277 225<|content|>1. Parties.\n<|id|>157<|page|>16<|box|>89 140 118 852<|content|>DRAFTING NOTES / INTERNAL ANNOTATIONS FOR CALDERWO\n<|id|>158<|page|>16<|box|>127 142 141 323<|content|>C&H Matter No. 1025-00008\n<|id|>162<|page|>16<|box|>378 142 393 604<|content|>4. Open Items to Finalize Before Submission to Sta",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>11<|level|>1\n<|id|>20<|level|>1\n<|id|>31<|level|>1\n<|id|>37<|level|>1\n<|id|>40<|level|>1\n<|id|>49<|level|>1\n<|id|>60<|level|>1\n<|id|>66<|level|>1\n<|id|>70<|level|>1\n<|id|>94<|level|>1\n<|id|>95<|level|>2\n<|id|>97<|level|>3\n<|id|>104<|level|>3\n<|id|>131<|level|>1\n<|id|>132<|level|>2\n<|id|>134<|level|>3\n<|id|>157<|level|>1\n<|id|>158<|level|>-1\n<|id|>162<|level|>3",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 3
+        }
+    ]
+}

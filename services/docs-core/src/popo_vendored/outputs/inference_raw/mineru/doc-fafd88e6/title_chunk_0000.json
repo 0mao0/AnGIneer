@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>1<|box|>566 153 635 844<|content|>DEFENDANT'S DEMURRER TO PLAINTIFFS' SEVENTH CAUSE\n<|id|>5<|page|>1<|box|>659 142 676 292<|content|>INTRODUCTION\n<|id|>12<|page|>2<|box|>409 142 426 566<|content|>MEMORANDUM OF POINTS AND AUTHORITIES\n<|id|>13<|page|>2<|box|>450 140 486 813<|content|>I. THE UCL CLAIM FAILS TO STATE FACTS SUFFICIENT T\n<|id|>14<|page|>2<|box|>500 140 536 852<|content|>A. The UCL Claim Is Entirely Derivative of the Lab\n<|id|>30<|page|>4<|box|>700 140 718 769<|content|>B. No Independent Theory of Liability or Factual B\n<|id|>42<|page|>6<|box|>89 140 106 841<|content|>II. PLAINTIFFS LACK STANDING UNDER THE UCL (BUS. &\n<|id|>49<|page|>7<|box|>339 140 376 803<|content|>III. THE UCL CLAIM IS UNCERTAIN AND AMBIGUOUS (COD\n<|id|>53<|page|>7<|box|>797 140 814 694<|content|>A. Analysis of Each Prong Demonstrates the Deficie\n<|id|>58<|page|>8<|box|>849 140 868 733<|content|>B. The Failure to Specify the Operative Prong Depr\n<|id|>62<|page|>9<|box|>457 140 474 423<|content|>IV. CONCLUSION AND PRAYER\n<|id|>68<|page|>9<|box|>849 140 867 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>70<|page|>10<|box|>89 140 155 854<|content|>Devon Archer (SBN 301462) Katherine M. Reyes (SBN",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>5<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>14<|level|>4\n<|id|>30<|level|>4\n<|id|>42<|level|>3\n<|id|>49<|level|>3\n<|id|>53<|level|>4\n<|id|>58<|level|>4\n<|id|>62<|level|>3\n<|id|>68<|level|>-1\n<|id|>70<|level|>-1",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 4
+        },
+        {
+            "id": 30,
+            "level": 4
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 4
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 3
+        }
+    ]
+}

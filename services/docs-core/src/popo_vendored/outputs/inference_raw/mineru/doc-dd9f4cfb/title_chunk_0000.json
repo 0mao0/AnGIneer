@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>3<|page|>1<|box|>185 140 202 490<|content|>VIA EMAIL AND OVERNIGHT DELIVERY\n<|id|>7<|page|>1<|box|>327 263 347 733<|content|>I. Purpose and Confirmation of Matter Closure\n<|id|>18<|page|>2<|box|>469 161 489 834<|content|>II. Summary of Engagement Activities and Work Prod\n<|id|>33<|page|>4<|box|>746 295 766 700<|content|>III. Pending Deliverables Not Completed\n<|id|>41<|page|>5<|box|>642 215 662 782<|content|>IV. Work Product Preservation and Document Retenti\n<|id|>52<|page|>6<|box|>545 349 564 645<|content|>V. Return of Client Materials\n<|id|>56<|page|>7<|box|>136 251 155 743<|content|>VI. Financial Summary and Outstanding Balance\n<|id|>58<|page|>7<|box|>253 142 270 318<|content|>Summary of Invoices:\n<|id|>60<|page|>7<|box|>460 143 476 310<|content|>Disbursement Detail:\n<|id|>62<|page|>7<|box|>628 140 643 547<|content|>Grand Total Billed Across All Invoices: $220,777.6\n<|id|>65<|page|>8<|box|>90 210 111 785<|content|>VII. Statute of Limitations and Timeliness Conside\n<|id|>73<|page|>9<|box|>388 187 409 808<|content|>VIII. Cessation of Representation and No Ongoing O\n<|id|>77<|page|>9<|box|>834 403 854 594<|content|>IX. Confidentiality\n<|id|>80<|page|>10<|box|>309 343 328 655<|content|>X. Reactivation of Engagement\n<|id|>88<|page|>11<|box|>271 307 291 689<|content|>XI. Coordination with Other Advisors\n<|id|>92<|page|>11<|box|>680 434 700 563<|content|>XII. Closing\n<|id|>102<|page|>12<|box|>250 142 262 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>3<|level|>-1\n<|id|>7<|level|>1\n<|id|>18<|level|>1\n<|id|>33<|level|>1\n<|id|>41<|level|>1\n<|id|>52<|level|>1\n<|id|>56<|level|>1\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>-1\n<|id|>65<|level|>1\n<|id|>73<|level|>1\n<|id|>77<|level|>1\n<|id|>80<|level|>1\n<|id|>88<|level|>1\n<|id|>92<|level|>1\n<|id|>102<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        }
+    ]
+}

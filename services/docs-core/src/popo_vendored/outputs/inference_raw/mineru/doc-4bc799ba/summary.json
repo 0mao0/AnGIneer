@@ -1,0 +1,421 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-z3gvwfdi\\input\\pdfs\\doc-4bc799ba.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-z3gvwfdi\\enriched\\doc-4bc799ba.json",
+    "contd_output": "<|src_id|>55<|tgt_id|>56\n<|src_id|>162<|tgt_id|>163\n<|src_id|>179<|tgt_id|>180\n<|src_id|>345<|tgt_id|>346",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>10<|level|>1\n<|id|>20<|level|>1\n<|id|>21<|level|>2\n<|id|>25<|level|>3\n<|id|>28<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>3\n<|id|>34<|level|>3\n<|id|>37<|level|>2\n<|id|>39<|level|>3\n<|id|>42<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>2\n<|id|>58<|level|>1\n<|id|>59<|level|>2\n<|id|>67<|level|>2\n<|id|>73<|level|>2\n<|id|>81<|level|>2\n<|id|>86<|level|>1\n<|id|>88<|level|>2\n<|id|>98<|level|>3\n<|id|>111<|level|>2\n<|id|>121<|level|>3\n<|id|>136<|level|>3\n<|id|>141<|level|>2\n<|id|>159<|level|>3\n<|id|>166<|level|>3\n<|id|>170<|level|>3\n<|id|>173<|level|>2\n<|id|>187<|level|>3\n<|id|>194<|level|>3\n<|id|>204<|level|>3\n<|id|>213<|level|>2\n<|id|>225<|level|>3\n<|id|>230<|level|>3\n<|id|>235<|level|>1\n<|id|>240<|level|>2\n<|id|>246<|level|>2\n<|id|>249<|level|>1\n<|id|>252<|level|>1\n<|id|>253<|level|>2\n<|id|>257<|level|>2\n<|id|>263<|level|>2\n<|id|>270<|level|>2\n<|id|>276<|level|>2\n<|id|>281<|level|>2\n<|id|>288<|level|>1\n<|id|>289<|level|>2\n<|id|>293<|level|>2\n<|id|>299<|level|>1\n<|id|>300<|level|>2\n<|id|>307<|level|>2\n<|id|>311<|level|>2\n<|id|>314<|level|>1\n<|id|>315<|level|>2\n<|id|>324<|level|>3\n<|id|>326<|level|>2\n<|id|>329<|level|>2\n<|id|>332<|level|>2\n<|id|>334<|level|>3\n<|id|>336<|level|>3\n<|id|>338<|level|>3\n<|id|>340<|level|>3\n<|id|>342<|level|>3\n<|id|>344<|level|>3\n<|id|>347<|level|>3\n<|id|>349<|level|>3",
+    "image_output": "<|src_id|>61<|tgt_id|>59\n<|src_id|>62<|tgt_id|>59\n<|src_id|>68<|tgt_id|>67\n<|src_id|>250<|tgt_id|>249\n<|src_id|>255<|tgt_id|>253\n<|src_id|>291<|tgt_id|>289\n<|src_id|>292<|tgt_id|>289\n<|src_id|>317<|tgt_id|>315\n<|src_id|>318<|tgt_id|>315\n<|src_id|>319<|tgt_id|>315\n<|src_id|>320<|tgt_id|>315\n<|src_id|>321<|tgt_id|>315\n<|src_id|>322<|tgt_id|>315\n<|src_id|>323<|tgt_id|>315\n<|src_id|>325<|tgt_id|>324\n<|src_id|>327<|tgt_id|>326\n<|src_id|>330<|tgt_id|>329",
+    "contd_label": [
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 180
+        },
+        {
+            "src_id": 345,
+            "tgt_id": 346
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 235,
+            "level": 1
+        },
+        {
+            "id": 240,
+            "level": 2
+        },
+        {
+            "id": 246,
+            "level": 2
+        },
+        {
+            "id": 249,
+            "level": 1
+        },
+        {
+            "id": 252,
+            "level": 1
+        },
+        {
+            "id": 253,
+            "level": 2
+        },
+        {
+            "id": 257,
+            "level": 2
+        },
+        {
+            "id": 263,
+            "level": 2
+        },
+        {
+            "id": 270,
+            "level": 2
+        },
+        {
+            "id": 276,
+            "level": 2
+        },
+        {
+            "id": 281,
+            "level": 2
+        },
+        {
+            "id": 288,
+            "level": 1
+        },
+        {
+            "id": 289,
+            "level": 2
+        },
+        {
+            "id": 293,
+            "level": 2
+        },
+        {
+            "id": 299,
+            "level": 1
+        },
+        {
+            "id": 300,
+            "level": 2
+        },
+        {
+            "id": 307,
+            "level": 2
+        },
+        {
+            "id": 311,
+            "level": 2
+        },
+        {
+            "id": 314,
+            "level": 1
+        },
+        {
+            "id": 315,
+            "level": 2
+        },
+        {
+            "id": 324,
+            "level": 3
+        },
+        {
+            "id": 326,
+            "level": 2
+        },
+        {
+            "id": 329,
+            "level": 2
+        },
+        {
+            "id": 332,
+            "level": 2
+        },
+        {
+            "id": 334,
+            "level": 3
+        },
+        {
+            "id": 336,
+            "level": 3
+        },
+        {
+            "id": 338,
+            "level": 3
+        },
+        {
+            "id": 340,
+            "level": 3
+        },
+        {
+            "id": 342,
+            "level": 3
+        },
+        {
+            "id": 344,
+            "level": 3
+        },
+        {
+            "id": 347,
+            "level": 3
+        },
+        {
+            "id": 349,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 61,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 250,
+            "tgt_id": 249
+        },
+        {
+            "src_id": 255,
+            "tgt_id": 253
+        },
+        {
+            "src_id": 291,
+            "tgt_id": 289
+        },
+        {
+            "src_id": 292,
+            "tgt_id": 289
+        },
+        {
+            "src_id": 317,
+            "tgt_id": 315
+        },
+        {
+            "src_id": 318,
+            "tgt_id": 315
+        },
+        {
+            "src_id": 319,
+            "tgt_id": 315
+        },
+        {
+            "src_id": 320,
+            "tgt_id": 315
+        },
+        {
+            "src_id": 321,
+            "tgt_id": 315
+        },
+        {
+            "src_id": 322,
+            "tgt_id": 315
+        },
+        {
+            "src_id": 323,
+            "tgt_id": 315
+        },
+        {
+            "src_id": 325,
+            "tgt_id": 324
+        },
+        {
+            "src_id": 327,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 330,
+            "tgt_id": 329
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 61,
+            "table2_idx": 62,
+            "upper_row_ss": [
+                [
+                    "Rachel Bernstein",
+                    "Billing Partner",
+                    "£895/hour",
+                    "~20% across Phases 1, 4, and 6",
+                    "International data transfers specialist; lead on all TIAs and SCC/IDTA drafting (Phase 4); UK GDPR vs. EU"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "GDPR divergence analysis; DPC inquiry response; billing management"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 291,
+            "table2_idx": 292,
+            "upper_row_ss": [
+                [
+                    "Caldwell Analytics / HLW negotiation delays on SCCs",
+                    "Medium",
+                    "Medium — delays Phase 4 completion and TIA-001 finalisation",
+                    "Early engagement with Natalie Prescott at HLW; circulate draft SCCs and IDTA by end of June 2023; build 10 business day review buffer into Phase 4 timeline; identify fallback negotiation"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "positions on key terms in advance; Rachel Bernstein to lead negotiations with partner-level authority"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        14,
+        16,
+        17,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>204 142 220 292<|content|>MEMORANDUM\n<|id|>4<|page|>1<|box|>229 140 266 854<|content|>TO: ... Calloway, CEO, Redstone Gaming Corp\n<|id|>5<|page|>1<|box|>273 140 291 723<|content|>FROM: ... Francesca Morano, Responsible Partner, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>300 142 316 354<|content|>DATE: ... November 20, 2024\n<|id|>7<|page|>1<|box|>325 140 362 854<|content|>RE: ... 24STCV-01892, Superior Court of California, County of Los Angeles\n<|id|>8<|page|>1<|box|>369 140 388 785<|content|>CC: ... Samuel Eklund, Carlos Espinoza, Hannah Brinkley (Calderwood & Harkness LLP)\n<|id|>18<|page|>2<|box|>520 176 537 754<|content|>(E) The recommended settlement terms, both monetary and non-monetary; ... and\n<|id|>20<|page|>2<|box|>590 140 643 854<|content|>We are confident that the mediation presents a gen...aningful accountability for defendants' misconduct\n<|id|>24<|page|>2<|box|>859 140 897 854<|content|>On March 18, 2024, RGC filed a First Amended Compl...cts. ... First, the FAC added Grizzly Peak Capital\n<|id|>25<|page|>3<|box|>90 140 237 856<|content|>Partners LP and Tobias \"Toby\" Fenchurch, individua...he FAC remains the operative pleading in this case\n<|id|>117<|page|>14<|box|>42 158 71 838<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION — ATTORNEY WORK PRODUCT\n<|id|>118<|page|>14<|box|>90 140 200 854<|content|>Ceiling / Opening Demand — $18 Million. ... An ope...nd their insurer can be expected to take seriously\n<|id|>124<|page|>14<|box|>608 174 645 854<|content|>(ii) That the RNG-manipulation allegation in Repor...endent audit, which cleared RGC's systems; ... and\n<|id|>126<|page|>14<|box|>714 140 768 854<|content|>The corrective publication must remain posted on g...homepage of the website with reasonable prominence\n<|id|>146<|page|>16<|box|>867 140 902 854<|content|>The mediation is scheduled for two full days: ... ...11601 Wilshire Boulevard, Suite 1200, Los Angeles,\n<|id|>147<|page|>17<|box|>89 140 127 854<|content|>California 90025. ... We should plan for the possi...tending into the evening hours on one or both days\n<|id|>191<|page|>22<|box|>89 140 106 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>192<|page|>22<|box|>108 142 125 253<|content|>By: ... By\n<|id|>193<|page|>22<|box|>125 140 156 852<|content|>Francesca Morano Partner 333 South Grand Avenue, S...geles, California 90071 Direct: ... (213) 555-7244\n<|id|>194<|page|>22<|box|>157 142 174 462<|content|>Email: ... com\n<|id|>195<|page|>22<|box|>174 140 250 854<|content|>CONFIDENTIALITY NOTICE: ... If you have received t...tify the sender immediately and destroy all copies",
+    "raw_response": "<|src_id|>24<|tgt_id|>25\n<|src_id|>146<|tgt_id|>147",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 147
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        17,
+        18,
+        19,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 140 156 581<|content|>TO: ... Douglas Fairchild, Partner, Real Estate Practice Group\n<|id|>3<|page|>1<|box|>164 140 181 620<|content|>FROM: ... Grace Nakamura, Associate, Real Estate Practice Group\n<|id|>4<|page|>1<|box|>190 140 224 854<|content|>DATE: ... Draft — October 2025 (to be finalized pr...EPC contract execution target of October 20, 2025)\n<|id|>5<|page|>1<|box|>234 140 270 854<|content|>RE: ... Performance and Payment Bond Review — Tita...uction Group, LLC / Stonebridge Data Center Campus\n<|id|>6<|page|>1<|box|>277 140 295 362<|content|>MATTER NO. ... 1043-00002\n<|id|>7<|page|>1<|box|>304 140 321 437<|content|>CLIENT: ... Ironhaven Data Centers LLC\n<|id|>8<|page|>1<|box|>330 140 347 622<|content|>CLASSIFICATION: ... Attorney-Client Privileged / Work Product\n<|id|>9<|page|>1<|box|>356 142 372 408<|content|>Right-click to update Table of Contents\n<|id|>67<|page|>6<|box|>819 174 856 852<|content|>(b) The surety issuing such bonds shall be rated a...ial Size Category of at least \"VIII\" by A. ... and\n<|id|>69<|page|>7<|box|>90 140 164 854<|content|>The surety qualification requirement under the Con...ting threshold, as discussed in Section VIII below\n<|id|>85<|page|>8<|box|>729 140 876 857<|content|>Virginia Licensing and Authorization. ... We do not anticipate this to be an issue, as Great\n<|id|>86<|page|>9<|box|>89 140 127 854<|content|>Basin has reportedly issued bonds on prior TMCG pr...nt given the magnitude of the obligations involved\n<|id|>102<|page|>10<|box|>825 174 898 854<|content|>(iii) Obtain bids or proposals from qualified cont...ss the balance of the GMP remaining unpaid; ... or\n<|id|>104<|page|>11<|box|>152 140 373 856<|content|>These options are generally consistent with the AI...nce Bond framework and are acceptable. ... C below\n<|id|>154<|page|>17<|box|>90 176 107 557<|content|>(b) Payment Bond — $412,000,000 penal sum; ... and\n<|id|>156<|page|>17<|box|>160 140 268 854<|content|>The aggregate potential exposure of Great Basin ac...rety's financial capacity in a worst-case scenario\n<|id|>175<|page|>18<|box|>775 140 904 857<|content|>4. ... We should confirm that the bond forms do no...create inconsistencies with, the Construction Loan\n<|id|>176<|page|>19<|box|>90 174 162 854<|content|>Agreement's change of control / mandatory prepayme...ms under the bonds to the same extent as the Owner\n<|id|>199<|page|>22<|box|>765 140 801 854<|content|>Appendix A: ... ) — To be attached upon receipt of final form from Northgate Insurance Brokerage\n<|id|>200<|page|>22<|box|>809 140 845 854<|content|>Appendix B: ... ) — To be attached upon receipt of final form from Northgate Insurance Brokerage\n<|id|>201<|page|>22<|box|>854 140 888 854<|content|>Appendix C: ... Exhibit D to EPC Agreement — Insurance Requirements (cross-reference copy) — Attached\n<|id|>202<|page|>23<|box|>90 140 143 854<|content|>Appendix D: ... 08) — Attached\n<|id|>203<|page|>23<|box|>151 140 167 833<|content|>Calderwood & Harkness LLP | 1200 New York Avenue, ... Suite 800 | Washington, DC 20005 | (202) 555-4200",
+    "raw_response": "<|src_id|>67<|tgt_id|>69\n<|src_id|>85<|tgt_id|>86\n<|src_id|>175<|tgt_id|>176",
+    "parsed": [
+        {
+            "src_id": 67,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 176
+        }
+    ]
+}

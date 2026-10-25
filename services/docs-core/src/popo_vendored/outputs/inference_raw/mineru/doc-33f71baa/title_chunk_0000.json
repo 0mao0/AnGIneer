@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 104 596<|content|>CONFIDENTIAL — SUBJECT TO CONFIDENTIALITY AGREEMEN\n<|id|>1<|page|>1<|box|>112 259 128 854<|content|>CALDERWOOD & HARKNESS LLP 125 Broad Street New Yor\n<|id|>9<|page|>1<|box|>390 140 407 697<|content|>I. Introductory Paragraph — Scope of Engagement an\n<|id|>15<|page|>2<|box|>241 140 258 624<|content|>II. Description of the Confidential Information Me\n<|id|>17<|page|>2<|box|>388 140 406 410<|content|>A. The Borrower and Its Business\n<|id|>19<|page|>2<|box|>536 142 553 334<|content|>B. Ownership Structure\n<|id|>21<|page|>2<|box|>662 140 680 308<|content|>C. Key Management\n<|id|>29<|page|>3<|box|>89 140 107 343<|content|>D. Key Financial Metrics\n<|id|>35<|page|>3<|box|>320 140 338 434<|content|>E. Data Center Campus Descriptions\n<|id|>37<|page|>3<|box|>388 140 405 491<|content|>Virginia Campus — \"Ironhaven Ashburn I\"\n<|id|>40<|page|>3<|box|>648 142 666 516<|content|>Frankfurt Campus — \"Ironhaven Frankfurt I\"\n<|id|>43<|page|>4<|box|>138 142 157 460<|content|>F. Proposed Terms of the Credit Facility\n<|id|>46<|page|>4<|box|>268 176 287 486<|content|>Aggregate Commitments: $950,000,000\n<|id|>47<|page|>4<|box|>296 176 311 261<|content|>Tranches:\n<|id|>50<|page|>4<|box|>378 176 395 290<|content|>Interest Rate:\n<|id|>57<|page|>4<|box|>638 176 655 348<|content|>Financial Covenants:\n<|id|>60<|page|>4<|box|>704 176 720 375<|content|>Mandatory Prepayment:\n<|id|>63<|page|>4<|box|>843 178 859 441<|content|>Capital Expenditure Limitations:\n<|id|>68<|page|>5<|box|>138 140 157 370<|content|>G. Pro Forma Capitalization\n<|id|>71<|page|>5<|box|>446 142 463 292<|content|>H. Use of Proceeds\n<|id|>73<|page|>5<|box|>679 142 696 310<|content|>I. Collateral Package\n<|id|>75<|page|>6<|box|>90 140 107 421<|content|>J. Proposed Syndicate Composition\n<|id|>78<|page|>6<|box|>267 140 284 583<|content|>L. Calderwood & Harkness's Role in Review of the C\n<|id|>80<|page|>6<|box|>478 140 494 529<|content|>III. Role of Calderwood & Harkness; Limitations\n<|id|>95<|page|>8<|box|>90 142 107 331<|content|>IV. Negative Assurance\n<|id|>106<|page|>9<|box|>148 140 167 416<|content|>V. Qualifications and Assumptions\n<|id|>115<|page|>10<|box|>277 140 294 522<|content|>VI. Confidentiality and Distribution Restrictions\n<|id|>125<|page|>10<|box|>752 140 768 470<|content|>VII. No Ongoing Obligation; Bring-Down\n<|id|>128<|page|>11<|box|>277 140 294 313<|content|>VIII. Governing Law\n<|id|>132<|page|>11<|box|>464 140 479 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>146<|page|>11<|box|>765 140 781 321<|content|>cc: (via electronic mail)",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>9<|level|>1\n<|id|>15<|level|>1\n<|id|>17<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>2\n<|id|>29<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>43<|level|>2\n<|id|>46<|level|>3\n<|id|>47<|level|>3\n<|id|>50<|level|>3\n<|id|>57<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>3\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>80<|level|>1\n<|id|>95<|level|>1\n<|id|>106<|level|>1\n<|id|>115<|level|>1\n<|id|>125<|level|>1\n<|id|>128<|level|>1\n<|id|>132<|level|>-1\n<|id|>146<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>137 178 174 818<|content|>One Liberty Plaza, 38th Floor New York, New York 1\n<|id|>8<|page|>1<|box|>407 142 425 328<|content|>I. Purpose and Context\n<|id|>12<|page|>2<|box|>90 140 107 496<|content|>II. Transmittal of Due Diligence Request List\n<|id|>30<|page|>3<|box|>335 140 354 514<|content|>III. Request for Document Production Timeline\n<|id|>34<|page|>3<|box|>766 140 782 578<|content|>IV. Proposed Data Room Structure and Access Protoc\n<|id|>36<|page|>4<|box|>90 140 107 377<|content|>A. Proposed Folder Structure\n<|id|>54<|page|>6<|box|>800 140 816 406<|content|>B. Data Room Access Credentials\n<|id|>70<|page|>7<|box|>532 140 550 367<|content|>C. Data Room Functionality\n<|id|>78<|page|>7<|box|>794 140 811 421<|content|>V. Property Access and Inspections\n<|id|>87<|page|>8<|box|>823 140 839 529<|content|>VI. Coordination with Buyer's Financing Sources\n<|id|>91<|page|>9<|box|>340 140 357 341<|content|>VII. CEMA Cooperation\n<|id|>98<|page|>9<|box|>848 140 864 447<|content|>VIII. Closing and Contact Information\n<|id|>114<|page|>10<|box|>626 143 642 232<|content|>Enclosure:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>30<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>2\n<|id|>54<|level|>2\n<|id|>70<|level|>2\n<|id|>78<|level|>1\n<|id|>87<|level|>1\n<|id|>91<|level|>1\n<|id|>98<|level|>1\n<|id|>114<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        }
+    ]
+}

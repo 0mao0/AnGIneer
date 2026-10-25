@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        12,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 140 178 694<|content|>TO: ... Bernard Crawford, Responsible Partner Conrad Ashby, Billing Partner\n<|id|>3<|page|>1<|box|>186 142 203 444<|content|>FROM: ... Gabrielle Moss, Lead Associate\n<|id|>4<|page|>1<|box|>212 142 229 302<|content|>DATE: ... August 2023\n<|id|>5<|page|>1<|box|>237 140 310 854<|content|>RE: ... / Meridian Code Technologies, Inc\n<|id|>6<|page|>1<|box|>318 140 335 488<|content|>MATTER NO. ... 1007-00008\n<|id|>7<|page|>1<|box|>344 140 362 464<|content|>CLIENT: ... Vantage Mobility Systems Corp\n<|id|>99<|page|>12<|box|>405 176 424 833<|content|>19 days ÷ 365 days × $2,400,000 = approximately $125,000 ($124,931. ... 51, to be precise)\n<|id|>100<|page|>12<|box|>430 140 503 854<|content|>This represents the portion of the Year 2 maintena...dispute its obligation to pay this prorated amount\n<|id|>160<|page|>19<|box|>869 140 907 854<|content|>VMS's overall posture — having paid $12,320,000 un...ommercially reasonable approach that preserves the\n<|id|>161<|page|>20<|box|>42 163 71 833<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>162<|page|>20<|box|>89 140 164 854<|content|>MeridianCode relationship while protecting VMS's f...e full spectrum of MESLSA issues currently in play",
+    "raw_response": "<|src_id|>160<|tgt_id|>162",
+    "parsed": [
+        {
+            "src_id": 160,
+            "tgt_id": 162
+        }
+    ]
+}

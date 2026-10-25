@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>11<|type|>title<|page|>1<|box|>460 140 477 436<|content|>I. Introduction and Purpose of Letter\n<|id|>15<|type|>title<|page|>2<|box|>90 140 107 372<|content|>II. Summary of Case Posture\n<|id|>16<|type|>title<|page|>2<|box|>121 140 138 473<|content|>A. Petition to Confirm Arbitration Award\n<|id|>26<|type|>title<|page|>2<|box|>845 142 863 370<|content|>B. Award Breakdown Recap\n<|id|>28<|type|>table<|page|>3<|box|>88 143 378 852<|content|>None\n<|id|>30<|type|>title<|page|>3<|box|>551 140 569 555<|content|>C. Respondents' Anticipated Cross-Motion to Vacate\n<|id|>35<|type|>title<|page|>4<|box|>231 140 248 455<|content|>D. Our Assessment of Vacatur Grounds\n<|id|>40<|type|>title<|page|>5<|box|>229 142 248 374<|content|>III. Key Upcoming Deadlines\n<|id|>42<|type|>table<|page|>5<|box|>299 143 483 852<|content|>None\n<|id|>45<|type|>title<|page|>5<|box|>694 142 710 537<|content|>IV. Asset Preservation and Enforcement Concerns\n<|id|>46<|type|>title<|page|>5<|box|>724 142 742 362<|content|>A. Risk of Asset Dissipation\n<|id|>53<|type|>title<|page|>6<|box|>398 140 417 468<|content|>B. Brindoval National Bank Priority Lien\n<|id|>58<|type|>title<|page|>7<|box|>138 140 157 395<|content|>C. Calloway Personal Guaranty\n<|id|>61<|type|>title<|page|>7<|box|>402 140 420 480<|content|>D. Proposed Ex Parte Application for TRO\n<|id|>69<|type|>title<|page|>8<|box|>294 140 311 415<|content|>E. Client Authorization Requested\n<|id|>72<|type|>title<|page|>8<|box|>530 140 547 287<|content|>V. Budget Update\n<|id|>73<|type|>title<|page|>8<|box|>561 140 579 359<|content|>A. Fee Arrangement Recap\n<|id|>80<|type|>title<|page|>9<|box|>90 140 107 418<|content|>B. Fees and Costs Incurred to Date\n<|id|>81<|type|>table<|page|>9<|box|>155 143 247 852<|content|>None\n<|id|>83<|type|>title<|page|>9<|box|>367 140 383 410<|content|>C. Projected Costs for Next Phase\n<|id|>93<|type|>title<|page|>10<|box|>204 140 222 526<|content|>VI. Commercial and Supply-Chain Coordination\n<|id|>99<|type|>title<|page|>11<|box|>204 140 222 349<|content|>VII. Next Steps Summary\n<|id|>108<|type|>title<|page|>11<|box|>781 140 797 251<|content|>VIII. Closing\n<|id|>118<|type|>title<|page|>12<|box|>670 140 686 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>28<|tgt_id|>26\n<|src_id|>42<|tgt_id|>40\n<|src_id|>81<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 80
+        }
+    ]
+}

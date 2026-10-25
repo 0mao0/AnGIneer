@@ -1,0 +1,135 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 184 125 813<|content|>CALDERWOOD & HARKNESS LLP 1700 Pennsylvania Avenue\n<|id|>1<|page|>1<|box|>133 171 169 826<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>3<|page|>1<|box|>463 431 481 565<|content|>I. PURPOSE\n<|id|>8<|page|>2<|box|>152 207 172 790<|content|>II. CURRENT STATUS OF THE CLINICAL PROGRAM\n<|id|>9<|page|>2<|box|>199 140 215 408<|content|>A. CLARION-3 Top-Line Results\n<|id|>13<|page|>2<|box|>577 140 594 529<|content|>Co-Primary Endpoint #1 — PASI-90 at Week 16:\n<|id|>19<|page|>2<|box|>773 142 790 537<|content|>Co-Primary Endpoint #2 — sPGA 0/1 at Week 16:\n<|id|>30<|page|>3<|box|>419 140 436 444<|content|>B. FDA's Stated Evidentiary Standard\n<|id|>37<|page|>4<|box|>204 140 222 395<|content|>C. CLARION-2 Standing Alone\n<|id|>45<|page|>5<|box|>90 339 109 658<|content|>III. REGULATORY OPTIONS\n<|id|>47<|page|>5<|box|>205 140 224 602<|content|>Option A: Redesigned Confirmatory Trial (CLARION-3\n<|id|>61<|page|>6<|box|>720 140 739 356<|content|>Active Comparator Design\n<|id|>77<|page|>8<|box|>513 140 530 369<|content|>Regulatory Risk Assessment\n<|id|>86<|page|>9<|box|>549 140 566 671<|content|>Option B: Type A Meeting / Supplemental Analysis o\n<|id|>94<|page|>10<|box|>681 140 700 367<|content|>Regulatory Risk Assessment\n<|id|>100<|page|>11<|box|>497 140 513 380<|content|>Option C: Pause and Reassess\n<|id|>102<|page|>11<|box|>650 140 667 333<|content|>Analysis — Advantages\n<|id|>112<|page|>12<|box|>690 140 708 285<|content|>Analysis — Risks\n<|id|>126<|page|>14<|box|>198 264 217 733<|content|>IV. RECOMMENDED COURSE OF ACTION\n<|id|>136<|page|>14<|box|>779 140 797 627<|content|>3. Redesign CLARION-3R with the following key para\n<|id|>150<|page|>15<|box|>537 243 558 751<|content|>V. LABELING AND WORK-PRODUCT STATUS\n<|id|>151<|page|>15<|box|>584 142 601 370<|content|>A. Draft Documents on Hold\n<|id|>162<|page|>16<|box|>719 142 736 385<|content|>B. Coordination with Advisors\n<|id|>167<|page|>17<|box|>535 294 554 702<|content|>VI. ADDITIONAL CONSIDERATIONS\n<|id|>168<|page|>17<|box|>580 140 597 361<|content|>A. Pediatric Study Deferral\n<|id|>172<|page|>18<|box|>167 140 184 316<|content|>B. REMS Assessment\n<|id|>180<|page|>18<|box|>628 140 645 331<|content|>C. Securities Disclosure\n<|id|>186<|page|>19<|box|>228 393 247 602<|content|>VII. CONCLUSION",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>3<|level|>1\n<|id|>8<|level|>1\n<|id|>9<|level|>2\n<|id|>13<|level|>3\n<|id|>19<|level|>3\n<|id|>30<|level|>2\n<|id|>37<|level|>2\n<|id|>45<|level|>1\n<|id|>47<|level|>2\n<|id|>61<|level|>3\n<|id|>77<|level|>3\n<|id|>86<|level|>2\n<|id|>94<|level|>3\n<|id|>100<|level|>2\n<|id|>102<|level|>3\n<|id|>112<|level|>3\n<|id|>126<|level|>1\n<|id|>136<|level|>3\n<|id|>150<|level|>1\n<|id|>151<|level|>2\n<|id|>162<|level|>2\n<|id|>167<|level|>1\n<|id|>168<|level|>2\n<|id|>172<|level|>2\n<|id|>180<|level|>2\n<|id|>186<|level|>1",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 1
+        }
+    ]
+}

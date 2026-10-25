@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        9,
+        10,
+        16,
+        17,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>1<|box|>378 669 393 854<|content|>Filed: ... December 8, 2023\n<|id|>9<|page|>1<|box|>404 142 422 240<|content|>Prepared by: ... Prepared by\n<|id|>10<|page|>1<|box|>429 140 465 854<|content|>CALDERWOOD & HARKNESS LLP 110 SE 6th Street, Suite...rdale, Florida 33301 Telephone: ... (954) 555-7201\n<|id|>11<|page|>1<|box|>474 142 492 545<|content|>Attorneys for Plaintiff Verimark Hospitality Group...rneys for Plaintiff Verimark Hospitality Group Inc\n<|id|>31<|page|>4<|box|>840 140 896 856<|content|>Coastal Palms does not dispute that Suncoast Room Management Inc. ... It does not dispute that\n<|id|>32<|page|>5<|box|>90 140 145 854<|content|>Brecker directed property-level controllers to imp...r of contract interpretation, is unambiguously yes\n<|id|>58<|page|>8<|box|>859 140 897 856<|content|>Third, Coastal Palms' reliance on the \"separate le...the Defendant entities. ... Randall Brecker is the\n<|id|>59<|page|>9<|box|>89 138 255 857<|content|>Managing Member of Coastal Palms Franchise Holding...cting such revenue\" clause was designed to prevent\n<|id|>66<|page|>9<|box|>859 140 897 856<|content|>Admission 3: ... Brecker admitted that he \"personally directed\" property-level controllers to exclude\n<|id|>67<|page|>10<|box|>90 140 292 857<|content|>Suncoast-collected revenues from the monthly GRR r...Property-Level Witnesses, filed September 29, 2023\n<|id|>114<|page|>16<|box|>819 140 893 856<|content|>Verimark acknowledges — and has always acknowledge...e on the quantum of damages. ... Kettlewell Expert\n<|id|>115<|page|>17<|box|>89 140 145 854<|content|>Report at 63. ... Hargrove Expert Report at 34–36\n<|id|>139<|page|>19<|box|>859 140 896 854<|content|>I HEREBY CERTIFY that on this 8th day of December,...ality Group Inc. ... 's Reply Memorandum of Law in\n<|id|>140<|page|>20<|box|>89 140 143 854<|content|>Support of Its Motion for Partial Summary Judgment...ectronic mail upon the following counsel of record\n<|id|>141<|page|>20<|box|>152 174 207 854<|content|>Nathan Whitfield III, Esq. ... (305) 555-4401\n<|id|>142<|page|>20<|box|>214 176 232 419<|content|>Email: ... com\n<|id|>143<|page|>20<|box|>233 176 250 408<|content|>Email: ... com\n<|id|>144<|page|>20<|box|>250 174 285 854<|content|>Counsel for Defendants Coastal Palms Franchise Hol... Randall Brecker, and Suncoast Room Management Inc\n<|id|>145<|page|>20<|box|>294 410 311 586<|content|>Respectfully submitted,\n<|id|>146<|page|>20<|box|>319 140 356 854<|content|>CALDERWOOD & HARKNESS LLP 110 SE 6th Street, Suite...rdale, Florida 33301 Telephone: ... (954) 555-7201\n<|id|>147<|page|>20<|box|>364 142 382 535<|content|>Counsel for Plaintiff Verimark Hospitality Group I...unsel for Plaintiff Verimark Hospitality Group Inc\n<|id|>149<|page|>20<|box|>407 140 424 465<|content|>Priya Anand, Esq. ... 0087451\n<|id|>150<|page|>20<|box|>424 142 441 455<|content|>Email: ... com\n<|id|>151<|page|>20<|box|>441 143 458 297<|content|>Responsible Partner\n<|id|>152<|page|>20<|box|>458 140 474 522<|content|>Douglas Carmichael, Esq. ... 0093217\n<|id|>153<|page|>20<|box|>476 142 493 491<|content|>Email: ... com\n<|id|>154<|page|>20<|box|>494 142 510 258<|content|>Billing Partner\n<|id|>155<|page|>20<|box|>510 142 527 491<|content|>Yuki Nakamura, Esq. ... 0119644\n<|id|>156<|page|>20<|box|>527 142 544 482<|content|>Email: ... com\n<|id|>157<|page|>20<|box|>545 142 561 261<|content|>Lead Associate\n<|id|>158<|page|>20<|box|>561 140 579 491<|content|>Carlos Espinoza, Esq. ... 0128903\n<|id|>159<|page|>20<|box|>580 142 597 473<|content|>Email: ... com\n<|id|>160<|page|>20<|box|>597 143 614 290<|content|>Working Associate",
+    "raw_response": "<|src_id|>31<|tgt_id|>32\n<|src_id|>58<|tgt_id|>59\n<|src_id|>66<|tgt_id|>67\n<|src_id|>114<|tgt_id|>115\n<|src_id|>139<|tgt_id|>140",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 140
+        }
+    ]
+}

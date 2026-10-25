@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        16,
+        17,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>160 702 178 854<|content|>September 27, 2024\n<|id|>2<|page|>1<|box|>186 140 220 854<|content|>FROM: ... Rachel Bernstein, Partner, and Sara Hendricks, Associate — Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>229 140 248 743<|content|>TO: ... Allison Cho, General Counsel & Chief Privacy Officer, Lumos Analytics Inc\n<|id|>5<|page|>1<|box|>318 140 354 854<|content|>RE: ... 1008-00009)\n<|id|>6<|page|>1<|box|>361 140 439 854<|content|>PRIVILEGE LEGEND: ... Inadvertent disclosure does not constitute a waiver of any applicable privilege\n<|id|>16<|page|>2<|box|>393 174 431 854<|content|>(c) Satisfactory conclusion of a 60-day post-notif...was initiated and no litigation was filed; ... and\n<|id|>18<|page|>2<|box|>484 140 556 854<|content|>Notwithstanding the closure of this matter, C&H re...e discussed in further detail in Section XII below\n<|id|>40<|page|>4<|box|>834 140 888 857<|content|>Data Categories Not Exposed. ... The Insight\n<|id|>41<|page|>5<|box|>90 140 127 854<|content|>Platform's architecture segregates sensitive finan...cessible through the user-facing application layer\n<|id|>54<|page|>5<|box|>854 140 909 854<|content|>Harmon Watts & Kendrick LLP (\"HWK\") was engaged to...er states. ... The engagement was led by Catherine\n<|id|>55<|page|>6<|box|>89 140 162 854<|content|>Wye, Partner, in HWK's London office located at 30...r the smaller subset of EU-resident affected users\n<|id|>161<|page|>16<|box|>867 183 883 707<|content|>• Declined to engage in pre-suit settlement discussions at this time; ... and\n<|id|>163<|page|>17<|box|>90 138 162 854<|content|>No privileged information, forensic details, or ot...unication has been received from Garrison & Oakley\n<|id|>225<|page|>21<|box|>648 142 664 326<|content|>Name: ... Rachel Bernstein\n<|id|>226<|page|>21<|box|>666 143 681 246<|content|>Title: ... Partner\n<|id|>227<|page|>21<|box|>681 142 699 336<|content|>Date: ... September 27, 2024\n<|id|>228<|page|>21<|box|>700 143 717 253<|content|>By: ... By\n<|id|>229<|page|>21<|box|>717 142 733 313<|content|>Name: ... Sara Hendricks\n<|id|>230<|page|>21<|box|>734 142 750 264<|content|>Title: ... Associate\n<|id|>231<|page|>21<|box|>751 142 768 338<|content|>Date: ... September 27, 2024\n<|id|>232<|page|>21<|box|>768 140 785 607<|content|>One Embarcadero Center, Suite 3400 San Francisco, CA 94111",
+    "raw_response": "<|src_id|>40<|tgt_id|>41\n<|src_id|>54<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=11, 作用、作用效应和抗力', 'M_{\\\\text{Ek,av}}', '地震主动土压力垂直分力的标准值对计算面前趾产生的稳定力矩']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=14, 作用、作用效应和抗力', 'M_{\\\\text{Ek,Gh}}', '计算面以上水平向地震惯性力标准值对计算面前趾产生的倾覆力矩']]\n",
+    "raw_response": "[1, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        0
+    ],
+    "table1_idx": 138,
+    "table2_idx": 139
+}

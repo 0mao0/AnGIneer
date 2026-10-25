@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        11,
+        12,
+        13,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 140 159 710<|content|>To: ... Samuel Eklund, Responsible Partner\n<|id|>3<|page|>1<|box|>167 140 184 401<|content|>From: ... Simone Laroche, Associate\n<|id|>4<|page|>1<|box|>193 140 210 331<|content|>Date: ... November 1, 2022\n<|id|>5<|page|>1<|box|>219 140 253 854<|content|>Re: ... Sufficiency of Vantor's Cure Response — An... of \"Substantial Cure\" Doctrine Under New York Law\n<|id|>6<|page|>1<|box|>263 140 300 856<|content|>Matter: ... )\n<|id|>58<|page|>5<|box|>814 140 905 856<|content|>A further piece of evidence is critically relevant to the cure analysis. ... account — a separate\n<|id|>59<|page|>6<|box|>90 140 200 856<|content|>VTS customer. ... There is no evidence in the reco...rvice at any point during or after the cure period\n<|id|>111<|page|>11<|box|>827 140 882 856<|content|>No updated delivery rate data was provided in the February 14 response. ... Post-cure data from\n<|id|>112<|page|>12<|box|>90 140 126 854<|content|>SLG systems confirms that VTS's on-time delivery r...remained below 84% through the date of termination\n<|id|>121<|page|>12<|box|>821 138 895 857<|content|>The significance of this omission is compounded by...by VTS — not a consequence of market conditions or\n<|id|>122<|page|>13<|box|>90 140 181 854<|content|>Stonefield's conduct. ... Milescu's statement that...SA and a deliberate decision to proceed regardless\n<|id|>204<|page|>21<|box|>359 140 376 562<|content|>Simone Laroche Associate Calderwood & Harkness LLP\n<|id|>205<|page|>21<|box|>377 140 410 782<|content|>Distributed to: ... 1012-00005\n<|id|>206<|page|>21<|box|>411 140 470 854<|content|>This memorandum is protected by the attorney-clien...hout the prior approval of the Responsible Partner",
+    "raw_response": "<|src_id|>58<|tgt_id|>59\n<|src_id|>111<|tgt_id|>112\n<|src_id|>121<|tgt_id|>122",
+    "parsed": [
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 122
+        }
+    ]
+}

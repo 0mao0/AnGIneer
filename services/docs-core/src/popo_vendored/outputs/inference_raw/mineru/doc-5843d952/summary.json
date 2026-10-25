@@ -1,0 +1,235 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-yuq5stlq\\input\\pdfs\\doc-5843d952.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-yuq5stlq\\enriched\\doc-5843d952.json",
+    "contd_output": "<|src_id|>12<|tgt_id|>13\n<|src_id|>42<|tgt_id|>43",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>24<|level|>3\n<|id|>27<|level|>3\n<|id|>33<|level|>3\n<|id|>36<|level|>3\n<|id|>46<|level|>2\n<|id|>47<|level|>3\n<|id|>48<|level|>3\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>56<|level|>3\n<|id|>62<|level|>2\n<|id|>70<|level|>2\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>82<|level|>4\n<|id|>92<|level|>2",
+    "image_output": "<|src_id|>1<|tgt_id|>0\n<|src_id|>84<|tgt_id|>82\n<|src_id|>85<|tgt_id|>82\n<|src_id|>86<|tgt_id|>82\n<|src_id|>88<|tgt_id|>82\n<|src_id|>89<|tgt_id|>82\n<|src_id|>90<|tgt_id|>82",
+    "contd_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 92,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 82
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 84,
+            "table2_idx": 85,
+            "upper_row_ss": [
+                [
+                    "15",
+                    "Canción de Otoño",
+                    "PA 1-930-781",
+                    "12/05/2003",
+                    "Flor de Luna Publishing, LLC",
+                    "Marguerite D. Fonseca"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "16",
+                    "Puerta del Sol",
+                    "PA 1-948-119",
+                    "05/14/2004",
+                    "Flor de Luna Publishing, LLC",
+                    "Marguerite D. Fonseca"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 85,
+            "table2_idx": 86,
+            "upper_row_ss": [
+                [
+                    "39",
+                    "Fuente de Esperanza",
+                    "PA 2-274-789",
+                    "08/08/2014",
+                    "Flor de Luna Publishing, LLC",
+                    "Marguerite D. Fonseca"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "40",
+                    "Rosa Negra",
+                    "PA 2-288-201",
+                    "01/16/2015",
+                    "Flor de Luna Publishing, LLC",
+                    "Marguerite D. Fonseca"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 88,
+            "table2_idx": 89,
+            "upper_row_ss": [
+                [
+                    "8",
+                    "Luna Creciente",
+                    "SR 0-958-732",
+                    "01/09/2003",
+                    "Mariposa Sound",
+                    "Marguerite D."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Recordings, LLC",
+                    "Fonseca"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 89,
+            "table2_idx": 90,
+            "upper_row_ss": [
+                [
+                    "24",
+                    "Olas del Pacífico",
+                    "SR 1-085-410",
+                    "04/25/2013",
+                    "Mariposa Sound Recordings, LLC",
+                    "Marguerite D. Fonseca"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "25",
+                    "Camino al Cielo",
+                    "SR 1-089-627",
+                    "02/28/2014",
+                    "Mariposa Sound Recordings, LLC",
+                    "Marguerite D. Fonseca"
+                ]
+            ]
+        }
+    ]
+}

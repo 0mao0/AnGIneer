@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 380 106 617<|content|>SOLVENCY CERTIFICATE\n<|id|>6<|page|>1<|box|>417 142 434 421<|content|>Section 1. Recitals and Background\n<|id|>15<|page|>2<|box|>421 140 438 313<|content|>Section 2. Definitions\n<|id|>22<|page|>3<|box|>487 140 503 397<|content|>Section 3. Basis for Certification\n<|id|>53<|page|>6<|box|>90 142 107 405<|content|>Section 4. Solvency Certifications\n<|id|>55<|page|>6<|box|>166 140 181 457<|content|>(a) Fair Value Exceeds Stated Liabilities\n<|id|>57<|page|>6<|box|>402 140 419 527<|content|>(b) Fair Saleable Value Exceeds Stated Liabilities\n<|id|>59<|page|>6<|box|>585 140 602 493<|content|>(c) Ability to Pay Debts as They Become Due\n<|id|>69<|page|>7<|box|>415 140 431 571<|content|>(d) Adequate Capital; Not Unreasonably Small Capit\n<|id|>78<|page|>8<|box|>349 140 366 475<|content|>(e) No Intent to Hinder, Delay, or Defraud\n<|id|>81<|page|>8<|box|>640 140 657 473<|content|>Section 5. Assumptions and Qualifications\n<|id|>89<|page|>9<|box|>784 142 801 348<|content|>Section 6. Governing Law\n<|id|>91<|page|>9<|box|>891 143 909 341<|content|>[Signature Page Follows]\n<|id|>93<|page|>10<|box|>90 341 108 655<|content|>[Signature Page to Solvency Certificate]\n<|id|>100<|page|>10<|box|>268 143 284 285<|content|>Delivery Notation\n<|id|>101<|page|>10<|box|>292 143 308 230<|content|>Delivered to:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>15<|level|>2\n<|id|>22<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>3\n<|id|>57<|level|>3\n<|id|>59<|level|>3\n<|id|>69<|level|>3\n<|id|>78<|level|>3\n<|id|>81<|level|>2\n<|id|>89<|level|>2\n<|id|>91<|level|>-1\n<|id|>93<|level|>1\n<|id|>100<|level|>2\n<|id|>101<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        }
+    ]
+}

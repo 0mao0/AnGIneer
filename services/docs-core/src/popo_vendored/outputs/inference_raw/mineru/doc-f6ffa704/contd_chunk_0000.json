@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>662 142 680 364<|content|>Date: ... Monday, May 22, 2023\n<|id|>6<|page|>1<|box|>688 143 705 267<|content|>Time: ... m\n<|id|>7<|page|>1<|box|>714 140 751 854<|content|>Location: ... Offices of Calderwood & Harkness LLP... Street, Suite 4200, Los Angeles, California 90017\n<|id|>8<|page|>1<|box|>758 140 849 854<|content|>Recording Method: ... The court reporter shall be ...thand reporter licensed in the State of California\n<|id|>50<|page|>5<|box|>859 174 895 854<|content|>(e) The seven (7) emails sent from Aldrich's AMA e...drich@aureliusmedia. ... com between approximately\n<|id|>51<|page|>6<|box|>90 174 126 854<|content|>March 3, 2022 and August 18, 2022, including the d...bject line, content, and attachments of each email\n<|id|>133<|page|>13<|box|>214 676 233 854<|content|>Respectfully submitted,\n<|id|>134<|page|>13<|box|>239 689 258 854<|content|>Dated: ... April 25, 2023\n<|id|>137<|page|>13<|box|>335 140 369 854<|content|>Devon Archer (SBN 301462) 777 South Flower Street,...es, California 90017 Telephone: ... (213) 555-7240\n<|id|>138<|page|>13<|box|>369 142 385 455<|content|>Email: ... com\n<|id|>139<|page|>13<|box|>386 142 404 720<|content|>Attorneys for Defendant and Cross-Complainant Aure... and Cross-Complainant Aurelius Media Americas Inc",
+    "raw_response": "<|src_id|>50<|tgt_id|>51",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        }
+    ]
+}

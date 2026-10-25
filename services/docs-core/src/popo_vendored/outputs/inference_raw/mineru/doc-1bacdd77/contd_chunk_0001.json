@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        56,
+        117
+    ],
+    "pages": [
+        57,
+        61,
+        64,
+        66,
+        86,
+        87,
+        116
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>289<|page|>57<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>290<|page|>57<|box|>198 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund\n<|id|>310<|page|>61<|box|>877 81 907 491<|content|>The term “foreigner” as used in TIC reporting cove...utions and individuals resident outside the United\n<|id|>311<|page|>61<|box|>125 504 244 915<|content|>States, including U. ... The term “foreigner” also... institutions to be acting on behalf of foreigners\n<|id|>335<|page|>64<|box|>154 269 166 727<|content|>[Position at end of period in millions of dollars. ... Treasury International Capital Reporting System]\n<|id|>338<|page|>66<|box|>811 506 839 903<|content|>^{6} Beginning January 2001, Cayman Islands replac... Arabia, and United Arab Emirates (Trucial States)\n<|id|>387<|page|>86<|box|>130 199 151 795<|content|>[In millions of dollars; ... Treasury International Capital Reporting System]\n<|id|>389<|page|>87<|box|>797 513 835 877<|content|>^{4} Before January 2001, data included in United .... ^{6} Includes Algeria, Gabon, Libya, and Nigeria\n<|id|>515<|page|>116<|box|>176 81 440 491<|content|>Amounts in the Harbor Maintenance Trust Fund are a...elopment Act of 1986. ... Section 201 of the Water\n<|id|>516<|page|>116<|box|>117 504 191 913<|content|>Resources Development Act of 1996 (Public Law 104-...eral navigation projects for commercial navigation",
+    "raw_response": "<|src_id|>310<|tgt_id|>311\n<|src_id|>515<|tgt_id|>516",
+    "parsed": [
+        {
+            "src_id": 310,
+            "tgt_id": 311
+        },
+        {
+            "src_id": 515,
+            "tgt_id": 516
+        }
+    ]
+}

@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>401 142 417 364<|content|>1. Engagement and Purpose\n<|id|>12<|page|>2<|box|>90 140 107 374<|content|>2. Background of the Dispute\n<|id|>18<|page|>2<|box|>645 140 662 383<|content|>3. Scope of Expert Assignment\n<|id|>20<|page|>2<|box|>757 140 773 761<|content|>3.1 Incident 1 — Main Engine Turbocharger Failure\n<|id|>29<|page|>3<|box|>550 140 587 854<|content|>3.2 Incident 2 — Ballast Water Treatment System Ma\n<|id|>37<|page|>4<|box|>337 140 354 841<|content|>3.3 Incident 3 — Main Engine Cylinder Liner Failur\n<|id|>45<|page|>4<|box|>804 140 820 575<|content|>3.4 General Seaworthiness and Maintenance Standard\n<|id|>52<|page|>5<|box|>407 140 425 400<|content|>3.5 Rebuttal of Opposing Expert\n<|id|>55<|page|>5<|box|>626 140 643 263<|content|>4. Deliverables\n<|id|>62<|page|>6<|box|>402 140 419 374<|content|>5. Materials and Information\n<|id|>75<|page|>7<|box|>204 140 222 279<|content|>6. Compensation\n<|id|>84<|page|>8<|box|>90 140 107 377<|content|>7. Confidentiality Obligations\n<|id|>90<|page|>8<|box|>590 140 607 398<|content|>8. Independence and Objectivity\n<|id|>94<|page|>9<|box|>150 140 167 470<|content|>9. Conflict Check and Prior Engagements\n<|id|>97<|page|>9<|box|>388 142 406 274<|content|>10. Termination\n<|id|>100<|page|>9<|box|>609 140 627 568<|content|>11. Primary Contacts at Calderwood & Harkness LLP\n<|id|>115<|page|>10<|box|>297 143 315 323<|content|>12. Client Information\n<|id|>119<|page|>10<|box|>564 140 580 437<|content|>13. Acceptance and Countersignature\n<|id|>126<|page|>11<|box|>265 142 281 238<|content|>Enclosures:",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>2\n<|id|>29<|level|>2\n<|id|>37<|level|>2\n<|id|>45<|level|>2\n<|id|>52<|level|>2\n<|id|>55<|level|>1\n<|id|>62<|level|>1\n<|id|>75<|level|>1\n<|id|>84<|level|>1\n<|id|>90<|level|>1\n<|id|>94<|level|>1\n<|id|>97<|level|>1\n<|id|>100<|level|>1\n<|id|>115<|level|>1\n<|id|>119<|level|>1\n<|id|>126<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        }
+    ]
+}

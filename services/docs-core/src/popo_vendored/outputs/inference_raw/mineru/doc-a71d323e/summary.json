@@ -1,0 +1,201 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ok5cx4ct\\input\\pdfs\\doc-a71d323e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ok5cx4ct\\enriched\\doc-a71d323e.json",
+    "contd_output": "<|src_id|>162<|tgt_id|>163\n<|src_id|>303<|tgt_id|>304",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>5<|level|>2\n<|id|>14<|level|>3\n<|id|>20<|level|>3\n<|id|>25<|level|>3\n<|id|>31<|level|>3\n<|id|>38<|level|>2\n<|id|>40<|level|>3\n<|id|>62<|level|>3\n<|id|>86<|level|>3\n<|id|>110<|level|>3\n<|id|>131<|level|>3\n<|id|>152<|level|>3\n<|id|>174<|level|>3\n<|id|>175<|level|>4\n<|id|>198<|level|>2\n<|id|>200<|level|>3\n<|id|>210<|level|>3\n<|id|>220<|level|>3\n<|id|>230<|level|>3\n<|id|>240<|level|>3\n<|id|>251<|level|>3\n<|id|>268<|level|>2\n<|id|>284<|level|>3\n<|id|>290<|level|>2\n<|id|>293<|level|>2\n<|id|>294<|level|>3\n<|id|>308<|level|>3",
+    "image_output": "<|src_id|>22<|tgt_id|>20\n<|src_id|>287<|tgt_id|>284\n<|src_id|>288<|tgt_id|>284\n<|src_id|>291<|tgt_id|>290\n<|src_id|>292<|tgt_id|>290",
+    "contd_label": [
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 303,
+            "tgt_id": 304
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 4
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 210,
+            "level": 3
+        },
+        {
+            "id": 220,
+            "level": 3
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 240,
+            "level": 3
+        },
+        {
+            "id": 251,
+            "level": 3
+        },
+        {
+            "id": 268,
+            "level": 2
+        },
+        {
+            "id": 284,
+            "level": 3
+        },
+        {
+            "id": 290,
+            "level": 2
+        },
+        {
+            "id": 293,
+            "level": 2
+        },
+        {
+            "id": 294,
+            "level": 3
+        },
+        {
+            "id": 308,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 287,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 288,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 291,
+            "tgt_id": 290
+        },
+        {
+            "src_id": 292,
+            "tgt_id": 290
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 287,
+            "table2_idx": 288,
+            "upper_row_ss": [
+                [
+                    "New York",
+                    "VeloPay Processing",
+                    "Foreign LLC",
+                    "July 18, 2025",
+                    "Exhibit B-9"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "LLC",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 291,
+            "table2_idx": 292,
+            "upper_row_ss": [
+                [
+                    "C-2",
+                    "Request Letter — Delaware Secretary of State (VeloPay"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Processing LLC)"
+                ]
+            ]
+        }
+    ]
+}

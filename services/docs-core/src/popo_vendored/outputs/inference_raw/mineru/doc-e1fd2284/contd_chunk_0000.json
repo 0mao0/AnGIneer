@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 390 176 604<|content|>IN LIEU OF A MEETING\n<|id|>2<|page|>1<|box|>185 429 202 568<|content|>January 22, 2024\n<|id|>3<|page|>1<|box|>210 140 340 854<|content|>The undersigned, being the sole director of Strato...t which a quorum was present and acting throughout\n<|id|>10<|page|>1<|box|>811 176 902 857<|content|>1. ... The Merger\n<|id|>11<|page|>2<|box|>90 210 162 856<|content|>Agreement sets forth the terms, conditions, repres...indemnification obligations of the parties thereto\n<|id|>17<|page|>2<|box|>720 210 792 856<|content|>(a) Jonathan Hargrove, the Chief Executive Officer...Hundred Forty-Four Dollars ($142,814,544); ... and\n<|id|>18<|page|>2<|box|>800 210 875 857<|content|>(b) Pinnacle Growth Ventures LLC, which will roll ...housand Four Hundred Eight Dollars ($473,241,408),\n<|id|>19<|page|>3<|box|>89 174 127 854<|content|>for total rollover equity of approximately Six Hun...055,952) (collectively, the \"Rollover Agreements\")\n<|id|>27<|page|>3<|box|>827 181 900 857<|content|>• Termination Fees. ... The reverse termination fe...a in certain circumstances specified in the Merger\n<|id|>28<|page|>4<|box|>90 210 125 854<|content|>Agreement is five and one-half percent (5. ... 5%)...undred Seventy-Four Million Dollars ($374,000,000)",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>18<|tgt_id|>19\n<|src_id|>27<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        }
+    ]
+}

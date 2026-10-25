@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        48,
+        50
+    ],
+    "pages": [
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>490<|type|>table<|page|>48<|box|>89 145 502 852<|content|>None\n<|id|>491<|type|>title<|page|>49<|box|>90 339 111 658<|content|>Appendix D: Document Control\n<|id|>492<|type|>table<|page|>49<|box|>159 143 402 852<|content|>None\n<|id|>493<|type|>title<|page|>49<|box|>450 143 467 277<|content|>Distribution List\n<|id|>494<|type|>table<|page|>49<|box|>518 143 710 852<|content|>None\n<|id|>495<|type|>title<|page|>49<|box|>760 143 776 328<|content|>Next Scheduled Update\n<|id|>498<|type|>title<|page|>50<|box|>89 142 104 454<|content|>CONFIDENTIAL — LEGALLY PRIVILEGED",
+    "raw_response": "<|src_id|>492<|tgt_id|>491\n<|src_id|>494<|tgt_id|>493",
+    "parsed": [
+        {
+            "src_id": 492,
+            "tgt_id": 491
+        },
+        {
+            "src_id": 494,
+            "tgt_id": 493
+        }
+    ]
+}

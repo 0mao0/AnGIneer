@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>180 140 198 805<|content|>TO: ... Nathaniel Bower, Partner, Bankruptcy & Restructuring, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>205 140 241 854<|content|>FROM: ... Amy Chesterton, Lead Associate, Bankruptcy & Restructuring, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>250 140 267 343<|content|>DATE: ... December 5, 2022\n<|id|>5<|page|>1<|box|>276 140 311 856<|content|>RE: ... / Thalassa Shipping & Logistics SA\n<|id|>6<|page|>1<|box|>319 142 337 362<|content|>MATTER NO. ... 1044-00003\n<|id|>7<|page|>1<|box|>345 142 363 408<|content|>Right-click to update Table of Contents\n<|id|>30<|page|>3<|box|>849 140 885 856<|content|>The Intercompany Note is unsecured. ... The note's...turally junior to all obligations under the Senior\n<|id|>31<|page|>4<|box|>89 140 127 854<|content|>Secured Credit Facility and the mezzanine notes, w...r 30, 2022) secured by the assets of the TSL group\n<|id|>42<|page|>4<|box|>852 140 907 854<|content|>Mezzanine Notes. ... The mezzanine notes bear interest at\n<|id|>44<|page|>5<|box|>226 140 354 856<|content|>Unsecured Notes. ... It should be noted that the unsecured notes are obligations of TSL, not TAI\n<|id|>157<|page|>19<|box|>794 140 886 856<|content|>Pooling of Assets. ... KHP's enterprise valuation ...80 million to $640 million (midpoint $610 million)\n<|id|>158<|page|>20<|box|>90 140 126 852<|content|>already reflects the consolidated enterprise, so t...d not change materially from the current valuation",
+    "raw_response": "<|src_id|>30<|tgt_id|>31\n<|src_id|>157<|tgt_id|>158",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 157,
+            "tgt_id": 158
+        }
+    ]
+}

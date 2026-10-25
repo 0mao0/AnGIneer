@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        54,
+        113
+    ],
+    "pages": [
+        55,
+        58,
+        62,
+        113
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>309<|page|>55<|box|>378 81 411 491<|content|>The quotations used by Treasury to calculate the b...nd fit the yield curve are obtained by the Federal\n<|id|>310<|page|>55<|box|>125 504 170 915<|content|>Reserve Bank of New York. ... 15\n<|id|>323<|page|>58<|box|>167 602 189 913<|content|>STATISTICS\n<|id|>324<|page|>58<|box|>196 669 304 913<|content|>InternationalFinancialStatistics CapitalMovements ForeignCurrencyPositions ExchangeStabilizationFund\n<|id|>346<|page|>62<|box|>877 81 907 491<|content|>The term “foreigner” as used in TIC reporting cove...utions and individuals resident outside the United\n<|id|>347<|page|>62<|box|>125 504 244 915<|content|>States, including U. ... The term “foreigner” also... institutions to be acting on behalf of foreigners\n<|id|>545<|page|>113<|box|>148 364 166 630<|content|>Source: ... Financial Management Service\n<|id|>546<|page|>113<|box|>186 81 305 491<|content|>Accrued discount (SBN-1, -2, -3)—Interest that acc... their holders is not included in accrued discount",
+    "raw_response": "<|src_id|>309<|tgt_id|>310\n<|src_id|>346<|tgt_id|>347",
+    "parsed": [
+        {
+            "src_id": 309,
+            "tgt_id": 310
+        },
+        {
+            "src_id": 346,
+            "tgt_id": 347
+        }
+    ]
+}

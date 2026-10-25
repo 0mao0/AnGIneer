@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Employee Retention', 'Low-Medium', 'Employment', '186 employees', 'Prepare template']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['/ Offer Letter Execution', '', '', 'require individual offer letters; extended transaction timeline increases attrition risk; key personnel (Janet Tsao) require specific attention', 'offer letters; coordinate timing with projected closing date; negotiate employment terms with key personnel promptly']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 256,
+    "table2_idx": 257
+}

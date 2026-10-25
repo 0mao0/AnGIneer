@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        49
+    ],
+    "pages": [
+        46,
+        47,
+        49
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>478<|page|>46<|box|>89 437 107 560<|content|>SCHEDULE D\n<|id|>479<|page|>46<|box|>130 343 148 653<|content|>INITIAL CONTACT INFORMATION\n<|id|>480<|page|>46<|box|>162 142 179 303<|content|>1. Servicer Contacts\n<|id|>481<|page|>46<|box|>186 143 203 285<|content|>Primary Contact:\n<|id|>484<|page|>46<|box|>292 143 308 284<|content|>General Counsel:\n<|id|>487<|page|>46<|box|>390 142 407 375<|content|>2. Back-Up Servicer Contacts\n<|id|>488<|page|>46<|box|>414 143 430 285<|content|>Primary Contact:\n<|id|>491<|page|>46<|box|>512 142 529 380<|content|>3. Indenture Trustee Contacts\n<|id|>492<|page|>46<|box|>535 143 553 285<|content|>Primary Contact:\n<|id|>495<|page|>46<|box|>633 142 650 292<|content|>4. Issuer's Counsel\n<|id|>499<|page|>46<|box|>750 142 766 343<|content|>5. Underwriter's Counsel\n<|id|>502<|page|>47<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>503<|page|>47<|box|>130 321 148 676<|content|>FORM OF SERVICER DEFAULT NOTICE\n<|id|>504<|page|>47<|box|>156 142 174 834<|content|>[LETTERHEAD OF CALVONETH TRUST COMPANY, NATIONAL A\n<|id|>525<|page|>49<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>526<|page|>49<|box|>130 142 175 728<|content|>FORM OF TRANSITION COMMENCEMENT NOTICE [LETTERHEAD",
+    "raw_response": "<|id|>478<|level|>1\n<|id|>479<|level|>2\n<|id|>480<|level|>3\n<|id|>481<|level|>4\n<|id|>484<|level|>4\n<|id|>487<|level|>3\n<|id|>488<|level|>4\n<|id|>491<|level|>3\n<|id|>492<|level|>4\n<|id|>495<|level|>3\n<|id|>499<|level|>3\n<|id|>502<|level|>1\n<|id|>503<|level|>2\n<|id|>504<|level|>-1\n<|id|>525<|level|>1\n<|id|>526<|level|>2",
+    "parsed": [
+        {
+            "id": 478,
+            "level": 1
+        },
+        {
+            "id": 479,
+            "level": 2
+        },
+        {
+            "id": 480,
+            "level": 3
+        },
+        {
+            "id": 481,
+            "level": 4
+        },
+        {
+            "id": 484,
+            "level": 4
+        },
+        {
+            "id": 487,
+            "level": 3
+        },
+        {
+            "id": 488,
+            "level": 4
+        },
+        {
+            "id": 491,
+            "level": 3
+        },
+        {
+            "id": 492,
+            "level": 4
+        },
+        {
+            "id": 495,
+            "level": 3
+        },
+        {
+            "id": 499,
+            "level": 3
+        },
+        {
+            "id": 502,
+            "level": 1
+        },
+        {
+            "id": 503,
+            "level": 2
+        },
+        {
+            "id": 525,
+            "level": 1
+        },
+        {
+            "id": 526,
+            "level": 2
+        }
+    ]
+}

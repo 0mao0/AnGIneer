@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>742 140 888 854<|content|>2. ... \" For fiscal year 2022,\n<|id|>6<|page|>2<|box|>90 140 183 854<|content|>AMA generated approximately $687. ... AMA is engag...ction, digital content, and e-commerce programming\n<|id|>23<|page|>3<|box|>828 140 930 854<|content|>7. ... Prior to January 1, 2019, AMA utilized a DE...TION TO PLAINTIFFS' MOTION FOR CLASS CERTIFICATION\n<|id|>24<|page|>4<|box|>90 140 238 856<|content|>manual time-sheet system in which employees record...fied records of employee time entries upon request\n<|id|>30<|page|>5<|box|>133 174 170 854<|content|>(c) Facility 5 — Hollywood Scripted Development (1438 N. ... and\n<|id|>32<|page|>5<|box|>222 140 258 854<|content|>However, the Attestation Feature was not activated... Pro system in a second rollout wave in March 2019\n<|id|>34<|page|>5<|box|>311 174 347 854<|content|>(b) Facility 4 — Burbank Live Events and Field Production (3800 W. ... and\n<|id|>36<|page|>5<|box|>398 140 583 854<|content|>I first became aware of this discrepancy in approx...completed at all three facilities in December 2022\n<|id|>40<|page|>5<|box|>758 174 777 754<|content|>(c) Facility 5 — Hollywood Scripted Development: ... and\n<|id|>42<|page|>5<|box|>811 140 902 854<|content|>These low usage rates across all four facilities w...would require individualized analysis to interpret\n<|id|>61<|page|>9<|box|>864 140 930 854<|content|>(a) I directed the immediate activation of the Mis...TION TO PLAINTIFFS' MOTION FOR CLASS CERTIFICATION\n<|id|>62<|page|>10<|box|>89 174 127 854<|content|>Segundo). ... This directive was communicated to N...completed at all three facilities in December 2022",
+    "raw_response": "<|src_id|>5<|tgt_id|>6\n<|src_id|>23<|tgt_id|>24\n<|src_id|>61<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        }
+    ]
+}

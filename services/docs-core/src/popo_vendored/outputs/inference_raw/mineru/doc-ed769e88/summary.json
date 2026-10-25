@@ -1,0 +1,304 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rywxda6a\\input\\pdfs\\doc-ed769e88.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rywxda6a\\enriched\\doc-ed769e88.json",
+    "contd_output": "",
+    "title_output": "<|id|>11<|level|>1\n<|id|>23<|level|>1\n<|id|>24<|level|>2\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>1\n<|id|>61<|level|>1\n<|id|>63<|level|>2\n<|id|>77<|level|>2\n<|id|>84<|level|>2\n<|id|>92<|level|>2\n<|id|>107<|level|>2\n<|id|>121<|level|>2\n<|id|>128<|level|>2\n<|id|>134<|level|>2\n<|id|>140<|level|>2\n<|id|>145<|level|>1\n<|id|>151<|level|>1\n<|id|>159<|level|>1\n<|id|>160<|level|>2\n<|id|>164<|level|>2\n<|id|>173<|level|>2\n<|id|>176<|level|>3",
+    "image_output": "<|src_id|>35<|tgt_id|>33\n<|src_id|>40<|tgt_id|>38\n<|src_id|>41<|tgt_id|>38\n<|src_id|>51<|tgt_id|>49\n<|src_id|>52<|tgt_id|>49\n<|src_id|>56<|tgt_id|>54\n<|src_id|>57<|tgt_id|>54\n<|src_id|>58<|tgt_id|>54\n<|src_id|>59<|tgt_id|>54\n<|src_id|>60<|tgt_id|>54\n<|src_id|>147<|tgt_id|>145\n<|src_id|>148<|tgt_id|>145\n<|src_id|>149<|tgt_id|>145\n<|src_id|>162<|tgt_id|>160\n<|src_id|>163<|tgt_id|>160\n<|src_id|>166<|tgt_id|>164\n<|src_id|>175<|tgt_id|>173",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 173
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 51,
+            "table2_idx": 52,
+            "upper_row_ss": [
+                [
+                    "April 22, 2022",
+                    "Pinnacle delivers non-binding term sheet (the \"Pinnacle"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Term Sheet\") to Verdana"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 56,
+            "table2_idx": 57,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Pinnacle's Post-Close Ownership (Fully Diluted)",
+                    "18.75% (18,461,538 ÷ 98,461,538 total shares)",
+                    "15.79% without ESOP expansion (15,000,000 ÷ 95,000,000); 15.00% with proposed ESOP expansion (15,000,000 ÷",
+                    "Material Divergence"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "100,000,000)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 57,
+            "table2_idx": 58,
+            "upper_row_ss": [
+                [
+                    "13",
+                    "Protective Provisions / Consent Rights",
+                    "Consent rights over: (a) new debt >$5M; (b) annual budgets deviating >15% from board-approved plan; (c) issuance of equity senior to or pari",
+                    "Accepts items (c)-(i) in principle (subject to drafting); objects to (a) debt consent at $5M threshold — proposes $15M instead; objects to",
+                    "Divergence on debt consent threshold ($5M vs. $15M) and budget deviation consent (included vs. excluded)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "passu with Series D; (d) amendments to Certificate of Incorporation adversely affecting Series D; (e) any acquisition, merger, or sale of substantially all assets; (f) changes to authorized share capital; (g) declaration or payment of dividends on junior stock; (h) redemption or repurchase of equity (other than from departing service providers); (i) increase or decrease in Board size",
+                    "(b) budget deviation consent — proposes deletion entirely",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 58,
+            "table2_idx": 59,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "Right of First Refusal (ROFR)",
+                    "Pro rata participation right on all future equity issuances (subject to customary exclusions)",
+                    "Pro rata participation right on future equity issuances (consistent with existing Investors' Rights Agreement)",
+                    "Substantially Agreed — subject to alignment of exclusions"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "17",
+                    "Registration Rights",
+                    "Demand registration after the earlier of IPO or 5 years from closing; 2 demand registrations; unlimited piggyback registrations; S-3 registration rights once eligible",
+                    "Generally consistent; proposes limiting demand registrations to 1 (not 2) and adding a minimum aggregate offering amount of $10,000,000 for demand registrations",
+                    "Minor Divergence"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 59,
+            "table2_idx": 60,
+            "upper_row_ss": [
+                [
+                    "22",
+                    "Indemnification of",
+                    "Requires",
+                    "Agrees in principle;",
+                    "Agreed in principle"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Board Designee",
+                    "indemnification agreement for Pinnacle's board designee (Marcus Trejo or designee), including advancement of expenses and D&O insurance",
+                    "subject to form of agreement",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 162,
+            "table2_idx": 163,
+            "upper_row_ss": [
+                [
+                    "17",
+                    "Registration Rights",
+                    "2 demands; unlimited piggyback; S-3",
+                    "1 demand; $10M minimum; piggyback; S-3",
+                    "Minor Divergence"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "18",
+                    "Information Rights",
+                    "Quarterly (45 days); Annual audited (90 days); Monthly",
+                    "Quarterly (45 days); Annual audited (120 days); Monthly",
+                    "Minor Divergence"
+                ]
+            ]
+        }
+    ]
+}

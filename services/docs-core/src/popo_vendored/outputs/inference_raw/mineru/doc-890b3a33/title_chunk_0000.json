@@ -1,0 +1,161 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|page|>1<|box|>297 140 314 264<|content|>I. Introduction\n<|id|>12<|page|>1<|box|>815 140 832 344<|content|>II. Transaction Overview\n<|id|>18<|page|>2<|box|>751 140 767 508<|content|>III. Summary of Senior Mortgage Loan Terms\n<|id|>20<|page|>2<|box|>825 142 843 380<|content|>A. Loan Amount and Purpose\n<|id|>22<|page|>3<|box|>231 140 248 287<|content|>B. Lender / Agent\n<|id|>31<|page|>3<|box|>678 142 695 272<|content|>D. Interest Rate\n<|id|>34<|page|>4<|box|>90 140 107 393<|content|>E. Term and Extension Options\n<|id|>39<|page|>4<|box|>338 142 354 290<|content|>F. Origination Fee\n<|id|>41<|page|>4<|box|>429 140 445 236<|content|>G. Exit Fee\n<|id|>51<|page|>5<|box|>157 140 174 284<|content|>I. Title Insurance\n<|id|>53<|page|>5<|box|>340 140 357 465<|content|>J. Financial Covenants (Combined Basis)\n<|id|>59<|page|>5<|box|>773 140 790 318<|content|>K. Cash Management\n<|id|>61<|page|>6<|box|>176 140 193 315<|content|>L. Leasing Threshold\n<|id|>63<|page|>6<|box|>349 140 368 460<|content|>IV. Summary of Mezzanine Loan Terms\n<|id|>65<|page|>6<|box|>407 140 424 279<|content|>A. Loan Amount\n<|id|>69<|page|>6<|box|>651 140 667 272<|content|>D. Interest Rate\n<|id|>71<|page|>6<|box|>760 142 777 292<|content|>E. Origination Fee\n<|id|>73<|page|>7<|box|>90 140 106 233<|content|>F. Exit Fee\n<|id|>76<|page|>7<|box|>340 140 357 328<|content|>H. Intercreditor Terms\n<|id|>84<|page|>8<|box|>231 140 247 424<|content|>V. Guaranty / Recourse Carve-Outs\n<|id|>85<|page|>8<|box|>262 140 277 323<|content|>A. Agreed Framework\n<|id|>91<|page|>8<|box|>565 140 582 498<|content|>B. Open Item: Scope of Recourse Carve-Outs\n<|id|>93<|page|>8<|box|>669 142 686 627<|content|>1. Full-Recourse Triggers (Springing Full Recourse\n<|id|>101<|page|>9<|box|>542 140 559 498<|content|>We request MTDC's direction on whether to:\n<|id|>105<|page|>9<|box|>681 142 699 465<|content|>2. Loss Carve-Outs (Recourse for Losses)\n<|id|>114<|page|>10<|box|>359 140 376 486<|content|>We request MTDC's direction on this point.\n<|id|>115<|page|>10<|box|>385 140 402 385<|content|>3. Cap on Aggregate Exposure\n<|id|>121<|page|>11<|box|>148 140 167 434<|content|>VI. Additional Open Client Decisions\n<|id|>123<|page|>11<|box|>224 140 242 380<|content|>A. Insurance Coverage Levels\n<|id|>135<|page|>12<|box|>435 140 452 354<|content|>B. Extension Fee Amounts\n<|id|>140<|page|>13<|box|>204 140 222 576<|content|>VII. Other Negotiated Terms of Note (For Informati\n<|id|>149<|page|>14<|box|>348 140 364 441<|content|>VIII. Requested Actions and Timeline\n<|id|>159<|page|>15<|box|>248 140 266 336<|content|>IX. Confidentiality Note\n<|id|>161<|page|>15<|box|>425 140 443 230<|content|>X. Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>12<|level|>2\n<|id|>18<|level|>2\n<|id|>20<|level|>3\n<|id|>22<|level|>3\n<|id|>31<|level|>3\n<|id|>34<|level|>3\n<|id|>39<|level|>3\n<|id|>41<|level|>3\n<|id|>51<|level|>3\n<|id|>53<|level|>3\n<|id|>59<|level|>3\n<|id|>61<|level|>3\n<|id|>63<|level|>2\n<|id|>65<|level|>3\n<|id|>69<|level|>3\n<|id|>71<|level|>3\n<|id|>73<|level|>3\n<|id|>76<|level|>3\n<|id|>84<|level|>2\n<|id|>85<|level|>3\n<|id|>91<|level|>3\n<|id|>93<|level|>4\n<|id|>101<|level|>-1\n<|id|>105<|level|>4\n<|id|>114<|level|>-1\n<|id|>115<|level|>4\n<|id|>121<|level|>2\n<|id|>123<|level|>3\n<|id|>135<|level|>3\n<|id|>140<|level|>2\n<|id|>149<|level|>2\n<|id|>159<|level|>2\n<|id|>161<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 4
+        },
+        {
+            "id": 105,
+            "level": 4
+        },
+        {
+            "id": 115,
+            "level": 4
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        }
+    ]
+}

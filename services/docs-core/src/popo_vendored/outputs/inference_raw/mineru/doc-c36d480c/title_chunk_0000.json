@@ -1,0 +1,45 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 143 123 852<|content|>UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF\n<|id|>2<|page|>1<|box|>364 258 382 738<|content|>[PROPOSED] ORDER OF DISMISSAL WITH PREJUDICE\n<|id|>4<|page|>1<|box|>597 142 614 447<|content|>IT IS HEREBY ORDERED as follows:\n<|id|>12<|page|>2<|box|>439 140 474 588<|content|>HON. EDWARD J. TORVELIS United States District Jud\n<|id|>14<|page|>2<|box|>561 140 580 498<|content|>For Plaintiff Optiwave Semiconductor Corp.:\n<|id|>18<|page|>2<|box|>705 140 723 442<|content|>For Defendant Lumos Photonics, Inc.:\n<|id|>22<|page|>3<|box|>89 143 103 344<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>3\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>22<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 133 490<|content|>425 Park Avenue New York, New York 10022\n<|id|>2<|page|>1<|box|>141 140 159 544<|content|>Telephone: ... (212) 558-3588\n<|id|>3<|page|>1<|box|>167 140 184 375<|content|>www. ... com\n<|id|>4<|page|>1<|box|>194 743 210 854<|content|>April 25, 2023\n<|id|>5<|page|>1<|box|>219 140 236 374<|content|>Via Email and First Class Mail\n<|id|>6<|page|>1<|box|>244 140 280 854<|content|>Graham Whitley, Esq. ... Partner, Technology & Lic... Peachtree Street NE, Suite 3000 Atlanta, GA 30309\n<|id|>7<|page|>1<|box|>289 174 325 854<|content|>Copy also directed to KP&A's New York office: ... 51 Madison Avenue, 22nd Floor New York, NY 10010\n<|id|>8<|page|>1<|box|>334 140 387 854<|content|>Re: ... 1025-00008\n<|id|>9<|page|>1<|box|>396 142 412 251<|content|>Dear Graham: ... Dear Graham\n<|id|>22<|page|>2<|box|>718 174 791 857<|content|>(ii) in the event Quorum has a good-faith basis to...icing on a confidential, anonymized basis; ... and\n<|id|>24<|page|>2<|box|>861 140 898 857<|content|>Quorum's position on MFN pricing is not based sole... study delivered by Pinnacle Ridge Advisory LLC on\n<|id|>25<|page|>3<|box|>90 138 237 856<|content|>February 14, 2023, under the direction of Managing... received any substantive response to its findings\n<|id|>45<|page|>5<|box|>592 174 628 854<|content|>(iii) Quorum's independent intellectual effort in ...ing predictive models and analytics tools; ... and\n<|id|>47<|page|>5<|box|>681 140 736 854<|content|>Meridian's raw credit data will serve as one input...dictive analytics — is supplied entirely by Quorum\n<|id|>62<|page|>7<|box|>816 140 888 857<|content|>Quorum recognizes that Meridian has a legitimate i...d redistribution of its raw data. ... To that end,\n<|id|>63<|page|>8<|box|>90 140 127 854<|content|>Quorum is willing to engage in good-faith discussi...legitimate interests, including, by way of example\n<|id|>65<|page|>8<|box|>196 174 251 854<|content|>(b) contractual use restrictions on Meridian's raw...d prohibiting unauthorized redistribution; ... and\n<|id|>67<|page|>8<|box|>340 140 395 854<|content|>Quorum believes that a framework of this nature wo...ian to engage constructively on these alternatives\n<|id|>88<|page|>10<|box|>671 140 688 272<|content|>Very truly yours,\n<|id|>89<|page|>10<|box|>696 140 712 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>90<|page|>10<|box|>714 143 731 253<|content|>By: ... By\n<|id|>91<|page|>10<|box|>732 143 747 313<|content|>Leonard Cross Partner\n<|id|>92<|page|>10<|box|>750 142 763 316<|content|>Direct: ... (212) 558-4155\n<|id|>93<|page|>10<|box|>766 142 782 442<|content|>Email: ... com\n<|id|>94<|page|>10<|box|>784 142 800 254<|content|>cc: ... (via email)\n<|id|>95<|page|>10<|box|>809 174 844 852<|content|>Carolyn Whitford, General Counsel & Executive Vice...ive Vice President, Quorum Insurance Holdings Corp",
+    "raw_response": "<|src_id|>24<|tgt_id|>25\n<|src_id|>62<|tgt_id|>63",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>146 76 252 844<|content|>UNITED STATES OF AMERICA\n<|id|>2<|page|>2<|box|>90 104 109 218<|content|>Overview\n<|id|>7<|page|>3<|box|>448 76 464 297<|content|>Overall causes of death, 2021\n<|id|>8<|page|>3<|box|>648 76 664 305<|content|>Detailed causes of death, 2021\n<|id|>10<|page|>5<|box|>80 75 102 354<|content|>Health Statistics: Health Status\n<|id|>11<|page|>7<|box|>82 75 101 344<|content|>Health Statistics: Risk Factors\n<|id|>13<|page|>10<|box|>82 76 102 390<|content|>Health Statistics: Service Coverage\n<|id|>15<|page|>11<|box|>82 75 102 372<|content|>Health Statistics: Health Systems\n<|id|>16<|page|>13<|box|>114 76 131 243<|content|>Further Resources\n<|id|>19<|page|>13<|box|>251 76 268 200<|content|>Data Sources",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>7<|level|>3\n<|id|>8<|level|>3\n<|id|>10<|level|>2\n<|id|>11<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>2\n<|id|>19<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        }
+    ]
+}

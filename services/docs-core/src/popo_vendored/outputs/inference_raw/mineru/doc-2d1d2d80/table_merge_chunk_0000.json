@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=7, 1', 'rowspan=7, 平面控制测量', 'rowspan=3, 外业观测', '记录']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 1', 'rowspan=3, 平面控制测量', 'rowspan=3, 内业处理与技术报告', '内业计算']]\n",
+    "raw_response": "[1, 1, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0
+    ],
+    "table1_idx": 100,
+    "table2_idx": 101
+}

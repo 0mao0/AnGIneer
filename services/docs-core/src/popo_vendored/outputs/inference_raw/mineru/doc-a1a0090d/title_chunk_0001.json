@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        53
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        51,
+        53
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>502<|page|>46<|box|>89 142 106 336<|content|>SIGNATURE BLOCKS\n<|id|>503<|page|>46<|box|>114 251 133 743<|content|>[FOR DISCUSSION PURPOSES — NOT FOR EXECUTION]\n<|id|>537<|page|>47<|box|>89 142 106 339<|content|>ANNEX REFERENCES\n<|id|>539<|page|>47<|box|>252 142 268 328<|content|>Annex A — Definitions\n<|id|>541<|page|>47<|box|>395 142 412 434<|content|>Annex B — Technology Control Plan\n<|id|>543<|page|>47<|box|>612 142 628 640<|content|>Annex C — Governance Provisions and Security Board\n<|id|>545<|page|>47<|box|>810 142 828 465<|content|>Annex D — Cybersecurity Requirements\n<|id|>547<|page|>48<|box|>189 142 207 532<|content|>Annex E — Annual Compliance Report Template\n<|id|>549<|page|>48<|box|>296 142 313 446<|content|>Annex F — Facility Access Procedures\n<|id|>552<|page|>48<|box|>571 140 589 805<|content|>SUMMARY OF HSAG COUNTERPROPOSAL POSITIONS — SECOND\n<|id|>554<|page|>48<|box|>646 133 665 570<|content|>Category 1: Accepted Without Change (7 9 Provision\n<|id|>558<|page|>49<|box|>292 143 309 748<|content|>Category 2A: HSAG Concessions from First Redline P\n<|id|>561<|page|>49<|box|>582 142 599 678<|content|>Category 2B: Proposed Narrowing / Modification (Re\n<|id|>566<|page|>51<|box|>555 138 590 854<|content|>Category 3: Strongly Oppose / Must Change (5 Provi\n<|id|>571<|page|>53<|box|>128 140 146 504<|content|>Cross-Reference to Priority Negotiation Issues",
+    "raw_response": "<|id|>502<|level|>1\n<|id|>503<|level|>-1\n<|id|>537<|level|>1\n<|id|>539<|level|>2\n<|id|>541<|level|>2\n<|id|>543<|level|>2\n<|id|>545<|level|>2\n<|id|>547<|level|>2\n<|id|>549<|level|>2\n<|id|>552<|level|>1\n<|id|>554<|level|>2\n<|id|>558<|level|>2\n<|id|>561<|level|>2\n<|id|>566<|level|>2\n<|id|>571<|level|>1",
+    "parsed": [
+        {
+            "id": 502,
+            "level": 1
+        },
+        {
+            "id": 537,
+            "level": 1
+        },
+        {
+            "id": 539,
+            "level": 2
+        },
+        {
+            "id": 541,
+            "level": 2
+        },
+        {
+            "id": 543,
+            "level": 2
+        },
+        {
+            "id": 545,
+            "level": 2
+        },
+        {
+            "id": 547,
+            "level": 2
+        },
+        {
+            "id": 549,
+            "level": 2
+        },
+        {
+            "id": 552,
+            "level": 1
+        },
+        {
+            "id": 554,
+            "level": 2
+        },
+        {
+            "id": 558,
+            "level": 2
+        },
+        {
+            "id": 561,
+            "level": 2
+        },
+        {
+            "id": 566,
+            "level": 2
+        },
+        {
+            "id": 571,
+            "level": 1
+        }
+    ]
+}

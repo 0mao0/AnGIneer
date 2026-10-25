@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['3', 'Engineered Systems Manufacturing Plant', '600 Manufacturers Row, Greenville, SC 29607', 'Greenville County, South Carolina', 'Nexford Engineered Systems, LLC', '$38,000,000', 'Mortgage, Assignment of Leases and Rents, Security']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', 'Agreement and Fixture Filing']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 17,
+    "table2_idx": 18
+}

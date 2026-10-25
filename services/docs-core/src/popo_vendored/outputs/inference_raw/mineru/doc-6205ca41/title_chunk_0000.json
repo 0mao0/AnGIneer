@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 594<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>10<|page|>1<|box|>436 140 454 364<|content|>I. Introduction and Purpose\n<|id|>16<|page|>2<|box|>267 140 284 498<|content|>II. The Most Favored Nation Pricing Impasse\n<|id|>17<|page|>2<|box|>297 140 315 447<|content|>A. Quorum's Position on MFN Pricing\n<|id|>26<|page|>3<|box|>250 140 267 524<|content|>B. Meridian's Rejection and Quorum's Response\n<|id|>34<|page|>4<|box|>575 140 593 390<|content|>C. Request for Reconsideration\n<|id|>37<|page|>5<|box|>90 140 107 441<|content|>III. The Derived-Data Rights Impasse\n<|id|>38<|page|>5<|box|>121 140 138 447<|content|>A. Quorum's Position on Derived Data\n<|id|>49<|page|>6<|box|>90 140 107 534<|content|>B. Meridian's Demands and Quorum's Objections\n<|id|>60<|page|>7<|box|>710 140 729 390<|content|>C. Request for Reconsideration\n<|id|>68<|page|>8<|box|>417 140 434 599<|content|>IV. Impact of Continued Impasse on Transaction Tim\n<|id|>74<|page|>9<|box|>258 140 277 305<|content|>V. Escalation Notice\n<|id|>78<|page|>9<|box|>671 140 688 555<|content|>VI. Reservation of Rights and Continued Good Faith\n<|id|>83<|page|>10<|box|>340 140 357 352<|content|>VII. Request for Response\n<|id|>98<|page|>11<|box|>89 176 107 625<|content|>Patricia Heng, Senior Counsel, Calderwood & Harkne\n<|id|>100<|page|>11<|box|>140 140 156 383<|content|>PRIVILEGED AND CONFIDENTIAL",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>26<|level|>2\n<|id|>34<|level|>2\n<|id|>37<|level|>1\n<|id|>38<|level|>2\n<|id|>49<|level|>2\n<|id|>60<|level|>2\n<|id|>68<|level|>1\n<|id|>74<|level|>1\n<|id|>78<|level|>1\n<|id|>83<|level|>1\n<|id|>98<|level|>-1\n<|id|>100<|level|>-1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        }
+    ]
+}

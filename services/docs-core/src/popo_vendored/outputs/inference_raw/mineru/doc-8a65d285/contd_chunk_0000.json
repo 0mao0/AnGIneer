@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>1<|box|>868 140 904 854<|content|>Recording Method. ... The deposition will be recor...ideotape, in accordance with Federal Rule of Civil\n<|id|>9<|page|>2<|box|>90 140 143 854<|content|>Procedure 30(b)(3). ... Vantor may, at its own exp... permitted by the Federal Rules of Civil Procedure\n<|id|>36<|page|>3<|box|>830 210 849 854<|content|>(iii) The Service Level Obligations (\"SLOs\") as set forth in the TSA, including: ... (A) on-\n<|id|>37<|page|>3<|box|>849 210 868 854<|content|>time pickup rate of not less than 95%; ... (B) on-time delivery rate of not less than 93%\n<|id|>182<|page|>14<|box|>196 140 213 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>183<|page|>14<|box|>214 143 231 251<|content|>By: ... By\n<|id|>184<|page|>14<|box|>231 142 248 607<|content|>Patrick Gallagher (Admitted pro hac vice; ... 6312847)\n<|id|>185<|page|>14<|box|>248 142 265 431<|content|>Samuel Eklund (NY Bar No. ... 5198203)\n<|id|>186<|page|>14<|box|>265 140 297 852<|content|>200 Park Avenue, 38th Floor New York, New York 10166 Telephone: ... (212) 459-7201\n<|id|>187<|page|>14<|box|>299 142 316 477<|content|>Email: ... com\n<|id|>188<|page|>14<|box|>316 140 333 457<|content|>Email: ... com\n<|id|>189<|page|>14<|box|>333 140 351 550<|content|>Attorneys for Defendant Stonefield Logistics Group...rneys for Defendant Stonefield Logistics Group Inc\n<|id|>193<|page|>14<|box|>501 174 537 852<|content|>Harrison Caldwell, Esq. ... Caldwell Royce & Shapi...Liberty Plaza, 22nd Floor New York, New York 10006\n<|id|>194<|page|>14<|box|>545 176 563 460<|content|>Email: ... com\n<|id|>195<|page|>14<|box|>564 176 580 457<|content|>Email: ... com",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>36<|tgt_id|>37",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        }
+    ]
+}

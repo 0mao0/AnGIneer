@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>193 140 210 465<|content|>VIA EMAIL AND FIRST-CLASS MAIL\n<|id|>10<|page|>1<|box|>529 142 546 434<|content|>1. Purpose and Scope of Engagement\n<|id|>13<|page|>1<|box|>830 140 849 264<|content|>Scope of Work\n<|id|>23<|page|>3<|box|>510 142 526 328<|content|>Carriers Under Review\n<|id|>35<|page|>4<|box|>655 140 672 383<|content|>Matters Informing the Review\n<|id|>40<|page|>5<|box|>303 140 321 230<|content|>2. Staffing\n<|id|>47<|page|>6<|box|>348 140 364 406<|content|>3. Fees and Billing Arrangements\n<|id|>67<|page|>7<|box|>719 140 734 323<|content|>4. Client Identification\n<|id|>76<|page|>8<|box|>500 140 515 416<|content|>5. Coordination with Third Parties\n<|id|>96<|page|>9<|box|>640 140 657 321<|content|>6. Conflict Disclosures\n<|id|>101<|page|>10<|box|>414 140 431 534<|content|>7. Document Requests and Company Cooperation\n<|id|>116<|page|>11<|box|>436 140 454 377<|content|>8. Limitations of Engagement\n<|id|>124<|page|>12<|box|>186 140 204 346<|content|>9. Term and Termination\n<|id|>128<|page|>12<|box|>542 142 560 480<|content|>10. Governing Law and Dispute Resolution\n<|id|>131<|page|>12<|box|>763 140 781 380<|content|>11. Acceptance and Execution\n<|id|>135<|page|>13<|box|>196 140 213 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>141<|page|>13<|box|>332 140 349 498<|content|>NEXFORD INDUSTRIAL HOLDINGS INC.\n<|id|>147<|page|>13<|box|>473 142 486 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>13<|level|>3\n<|id|>23<|level|>3\n<|id|>35<|level|>3\n<|id|>40<|level|>2\n<|id|>47<|level|>2\n<|id|>67<|level|>2\n<|id|>76<|level|>2\n<|id|>96<|level|>2\n<|id|>101<|level|>2\n<|id|>116<|level|>2\n<|id|>124<|level|>2\n<|id|>128<|level|>2\n<|id|>131<|level|>2\n<|id|>135<|level|>1\n<|id|>141<|level|>1\n<|id|>147<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        8,
+        12
+    ],
+    "pages": [
+        8,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>22<|page|>8<|box|>86 87 101 374<|content|>GBP EquivaRemited Status Notes\n<|id|>39<|page|>12<|box|>174 87 190 431<|content|>POTENTIAL REMAINING RECOVERY SOURCES",
+    "raw_response": "<|id|>22<|level|>1\n<|id|>39<|level|>1",
+    "parsed": [
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        }
+    ]
+}

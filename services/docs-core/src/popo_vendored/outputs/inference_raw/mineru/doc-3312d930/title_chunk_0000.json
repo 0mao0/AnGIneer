@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>12<|page|>1<|box|>679 142 696 323<|content|>1. Executive Summary\n<|id|>17<|page|>2<|box|>395 140 412 465<|content|>2. Transaction Overview (For Reference)\n<|id|>22<|page|>2<|box|>652 140 670 495<|content|>The Target — Pinnacle Health Systems, Inc.:\n<|id|>30<|page|>3<|box|>311 140 329 419<|content|>3. HSR Filing — Status and Details\n<|id|>31<|page|>3<|box|>342 140 359 316<|content|>3.1 Filing Completion\n<|id|>36<|page|>3<|box|>821 140 839 254<|content|>3.2 Filing Fee\n<|id|>39<|page|>4<|box|>220 140 238 405<|content|>3.3 FTC Confirmation of Receipt\n<|id|>41<|page|>4<|box|>348 140 364 388<|content|>3.4 Waiting Period Calculation\n<|id|>46<|page|>4<|box|>728 140 744 379<|content|>4. Early Termination Request\n<|id|>58<|page|>6<|box|>395 140 412 455<|content|>5. Item 4(c) / 4(d) Document Production\n<|id|>59<|page|>6<|box|>426 140 444 375<|content|>Acquiring Person Documents\n<|id|>66<|page|>7<|box|>90 142 107 370<|content|>Acquired Person Documents\n<|id|>74<|page|>7<|box|>468 140 484 480<|content|>6. FTC Staff Contact and Communications\n<|id|>79<|page|>8<|box|>148 140 167 486<|content|>7. Coordination with Counterparty Counsel\n<|id|>86<|page|>8<|box|>571 140 589 473<|content|>8. Coordination with Transaction Counsel\n<|id|>90<|page|>9<|box|>90 140 107 537<|content|>9. Substantive Antitrust Work Product Completed\n<|id|>94<|page|>9<|box|>680 142 696 599<|content|>10. Key EPA Provisions — Regulatory Workstream Sta\n<|id|>98<|page|>10<|box|>407 142 425 359<|content|>11. Outlook and Next Steps\n<|id|>110<|page|>11<|box|>337 142 354 517<|content|>12. Engagement Team and Contact Information",
+    "raw_response": "<|id|>12<|level|>1\n<|id|>17<|level|>1\n<|id|>22<|level|>2\n<|id|>30<|level|>1\n<|id|>31<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>41<|level|>2\n<|id|>46<|level|>1\n<|id|>58<|level|>1\n<|id|>59<|level|>2\n<|id|>66<|level|>2\n<|id|>74<|level|>1\n<|id|>79<|level|>1\n<|id|>86<|level|>1\n<|id|>90<|level|>1\n<|id|>94<|level|>1\n<|id|>98<|level|>1\n<|id|>110<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        16,
+        17,
+        18,
+        20,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>253 140 290 852<|content|>TO: ... Wexler, General Counsel & Corporate Secretary, Belmont Ridge Bank, National Association\n<|id|>5<|page|>1<|box|>297 142 315 825<|content|>FROM: ... Claire Dempsey, Working Associate, Capital Markets, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>324 140 359 852<|content|>REVIEWED BY: ... Claire, Responsible Partner, Capital Markets\n<|id|>7<|page|>1<|box|>368 143 383 343<|content|>DATE: ... February 24, 2026\n<|id|>8<|page|>1<|box|>393 143 410 359<|content|>MATTER NO. ... 1045-00001\n<|id|>9<|page|>1<|box|>420 142 436 540<|content|>CLIENT: ... Belmont Ridge Bank, National Association\n<|id|>10<|page|>1<|box|>446 140 500 854<|content|>RE: ... 750% Fixed-to-Floating Rate Subordinated Notes due 2036 (CUSIP 082651 AB7)\n<|id|>18<|page|>1<|box|>862 176 878 470<|content|>(b) Redstone Capital Markets LLC; ... and\n<|id|>20<|page|>2<|box|>90 138 273 856<|content|>The RRA was executed and delivered in connection w...he eventual public resale or exchange of the Notes\n<|id|>27<|page|>2<|box|>801 138 893 856<|content|>The Exchange Notes will be issued under the same I...r agent. ... The Exchange Notes will bear the same\n<|id|>28<|page|>3<|box|>89 140 145 854<|content|>CUSIP number as the Initial Notes (or a new CUSIP ...and will carry identical economic terms, including\n<|id|>31<|page|>3<|box|>265 181 281 485<|content|>• A maturity date of March 1, 2036; ... and\n<|id|>33<|page|>3<|box|>323 140 395 854<|content|>The exchange offer mechanism is a customary approa...ons associated with a shelf registration statement\n<|id|>51<|page|>4<|box|>856 140 892 857<|content|>Minimum Offer Period: ... The Exchange Offer must ...nt, as required by Rule 14e-1 under the Securities\n<|id|>52<|page|>5<|box|>90 140 162 854<|content|>Exchange Act of 1934, as amended (the \"Exchange Ac...aws in addition to any potential breach of the RRA\n<|id|>59<|page|>5<|box|>491 174 527 854<|content|>(iv) no change in law or regulation shall have occ... Offer illegal or otherwise impermissible; ... and\n<|id|>61<|page|>5<|box|>579 140 652 854<|content|>The engagement team should note that the 330-day c...occur, and Liquidated Damages will begin to accrue\n<|id|>83<|page|>7<|box|>489 210 561 854<|content|>(ii) such holder may not resell the Exchange Notes...ning of Rule 405 under the Securities Act); ... or\n<|id|>86<|page|>7<|box|>731 140 842 857<|content|>The engagement team should note that Shelf Trigger...g holder(s) or Initial Purchaser(s), as applicable\n<|id|>94<|page|>8<|box|>546 176 564 728<|content|>(i) the second anniversary of the Closing Date (i. ... or\n<|id|>96<|page|>8<|box|>671 140 688 594<|content|>This period is referred to herein as the \"Effectiveness Period. ... \"\n<|id|>111<|page|>10<|box|>90 174 143 854<|content|>(e) If a Shelf Trigger Event has occurred, the she...ling of such shelf registration statement; ... and\n<|id|>113<|page|>10<|box|>234 140 344 856<|content|>Each of the foregoing events constitutes a separat... any given time, calculated at the applicable rate\n<|id|>163<|page|>16<|box|>445 210 554 854<|content|>(i) any untrue statement or alleged untrue stateme...under which they were made) not misleading; ... or\n<|id|>165<|page|>16<|box|>625 174 734 856<|content|>BRB's indemnification obligation is subject to the...nt, prospectus, or amendment or supplement thereto\n<|id|>174<|page|>17<|box|>773 138 902 857<|content|>Indenture (dated February 24, 2026). ... 06 of the...es Act (subject to the conditions set forth in the\n<|id|>175<|page|>18<|box|>90 140 164 854<|content|>Exchange Offer prospectus). ... 06 of the Indentur...s to confirm consistency with the terms of the RRA\n<|id|>196<|page|>20<|box|>179 176 196 718<|content|>Claire Dempsey, Working Associate, Capital Markets — Extension 4417\n<|id|>197<|page|>20<|box|>204 176 220 687<|content|>Eric Johannsen, Lead Associate, Capital Markets — Extension 3892\n<|id|>198<|page|>20<|box|>229 140 290 856<|content|>This memorandum is a working document prepared for...ruary 24, 2026, and applicable law as of that date\n<|id|>210<|page|>24<|box|>440 174 477 854<|content|>Claire Dempsey, Working Associate Calderwood & Har...52nd Floor New York, New York 10006 Extension 4417\n<|id|>211<|page|>24<|box|>484 140 516 854<|content|>END OF MEMORANDUM Calderwood & Harkness LLP — Matt...ttorney Work Product — Privileged and Confidential",
+    "raw_response": "<|src_id|>27<|tgt_id|>28\n<|src_id|>51<|tgt_id|>52\n<|src_id|>174<|tgt_id|>175",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 175
+        }
+    ]
+}

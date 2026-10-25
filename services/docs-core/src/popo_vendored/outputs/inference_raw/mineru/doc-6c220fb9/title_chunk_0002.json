@@ -1,0 +1,59 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        93,
+        168
+    ],
+    "pages": [
+        93,
+        94,
+        95,
+        100,
+        104,
+        105,
+        109,
+        111,
+        167
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>335<|page|>93<|box|>106 105 129 197<|content|>(三)板桩码头\n<|id|>338<|page|>94<|box|>127 404 153 583<|content|>三、油品及液体化工码头\n<|id|>342<|page|>95<|box|>99 116 124 252<|content|>(二)桩基梁板引桥式\n<|id|>350<|page|>100<|box|>166 96 189 217<|content|>(一)抛石斜坡结构\n<|id|>359<|page|>104<|box|>127 104 150 210<|content|>(三) 宽肩台结构\n<|id|>362<|page|>105<|box|>124 450 150 562<|content|>五、越浪防波堤\n<|id|>375<|page|>109<|box|>114 112 137 249<|content|>(二) 半圆形混合结构\n<|id|>381<|page|>111<|box|>103 106 126 244<|content|>(三)充填(砂)袋结构\n<|id|>444<|page|>167<|box|>119 465 145 539<|content|>说明",
+    "raw_response": "<|id|>335<|level|>3\n<|id|>338<|level|>2\n<|id|>342<|level|>3\n<|id|>350<|level|>3\n<|id|>359<|level|>3\n<|id|>362<|level|>2\n<|id|>375<|level|>3\n<|id|>381<|level|>3\n<|id|>444<|level|>2",
+    "parsed": [
+        {
+            "id": 335,
+            "level": 3
+        },
+        {
+            "id": 338,
+            "level": 2
+        },
+        {
+            "id": 342,
+            "level": 3
+        },
+        {
+            "id": 350,
+            "level": 3
+        },
+        {
+            "id": 359,
+            "level": 3
+        },
+        {
+            "id": 362,
+            "level": 2
+        },
+        {
+            "id": 375,
+            "level": 3
+        },
+        {
+            "id": 381,
+            "level": 3
+        },
+        {
+            "id": 444,
+            "level": 2
+        }
+    ]
+}

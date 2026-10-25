@@ -1,0 +1,55 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>61 202 126 792<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION W\n<|id|>16<|type|>table<|page|>2<|box|>68 30 262 968<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>334 21 349 213<|content|>Emerging growth company ☐\n<|id|>20<|type|>title<|page|>3<|box|>61 21 76 436<|content|>Item 5.07. Submission of Matters to a Vote of Secu\n<|id|>23<|type|>table<|page|>3<|box|>161 23 382 968<|content|>None\n<|id|>25<|type|>table<|page|>3<|box|>424 23 468 969<|content|>None\n<|id|>27<|type|>table<|page|>3<|box|>510 23 567 969<|content|>None\n<|id|>29<|type|>table<|page|>4<|box|>93 23 162 969<|content|>None\n<|id|>32<|type|>table<|page|>4<|box|>239 23 297 969<|content|>None\n<|id|>34<|type|>table<|page|>4<|box|>344 23 403 969<|content|>None\n<|id|>36<|type|>table<|page|>4<|box|>443 23 501 969<|content|>None\n<|id|>38<|type|>table<|page|>4<|box|>548 23 605 969<|content|>None\n<|id|>39<|type|>title<|page|>5<|box|>52 444 65 550<|content|>SIGNATURES",
+    "raw_response": "<|src_id|>16<|tgt_id|>0\n<|src_id|>23<|tgt_id|>20\n<|src_id|>25<|tgt_id|>20\n<|src_id|>27<|tgt_id|>20\n<|src_id|>29<|tgt_id|>20\n<|src_id|>32<|tgt_id|>20\n<|src_id|>34<|tgt_id|>20\n<|src_id|>36<|tgt_id|>20\n<|src_id|>38<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 20
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>250 74 303 910<|content|>Edward Z. ... Milone<sup>1,2,3</sup>\n<|id|>2<|page|>1<|box|>318 74 450 923<|content|><sup>1</sup>Department ofPathology and Laboratory ...rsity of Pennsylvania, Philadelphia, PA 19104, USA\n<|id|>3<|page|>1<|box|>471 72 823 490<|content|>Antigen heterogeneity that results in tumor antige...rogeneity and enhancing CAR T cell therapy for GBM\n<|id|>7<|page|>2<|box|>385 74 547 490<|content|>In addition to the anti-tumor activity, IAP antago...e (NIK)-mediated NF-kB pathways. ... <sup>25</sup>\n<|id|>8<|page|>2<|box|>561 72 929 492<|content|>IAP antagonists have shown promising anti-tumor ef...proving the efficacy of CAR T cell therapy for GBM\n<|id|>13<|page|>3<|box|>810 74 929 490<|content|>To investigate whether this enhanced bystander cel... conditioned medium significantly killed M059K and\n<|id|>14<|page|>3<|box|>591 505 929 923<|content|>U118-parental cells (Figure 2C), indicating that t...d medium inducing M059K cell death with birinapant\n<|id|>15<|page|>4<|box|>839 74 929 490<|content|>Next, we combined birinapant with CAR T cells to t...ne { { 4 } } }Our data showed that cleaved caspase\n<|id|>16<|page|>4<|box|>796 505 929 922<|content|>3 was significantly upregulated in the presence of... for developing methods to overcome the resistance\n<|id|>23<|page|>7<|box|>163 560 418 920<|content|>NSG mice were subcutaneously implanted with0 . ... 0 5\n<|id|>24<|page|>8<|box|>137 74 300 492<|content|>birinapant or the vehicle control during the prima... CAR T cell therapy to enhance anti-tumor activity\n<|id|>32<|page|>9<|box|>868 74 928 490<|content|>Nevertheless, our data with glioblastoma cell line...of cancer cell lines to cytotoxicity induced by an\n<|id|>33<|page|>9<|box|>766 505 929 923<|content|>IAP antagonist combined with TNF-a or TRAIL, and m...diated cytotoxicity, though it may not be the sole\n<|id|>34<|page|>10<|box|>868 74 928 490<|content|>Multiple IAP antagonists have been developed in th...s are categorized into monovalent or bivalent com-\n<|id|>35<|page|>10<|box|>137 631 174 920<|content|>Figure 6. ... Birinapant enhances CAR T cell treat...ntracranial GBM by promoting bystander tumor death\n<|id|>36<|page|>10<|box|>177 631 404 920<|content|>NSG mice were intracranially implanted with a mixt...U118- EGFRvIII (without luciferase) cells. ... 0 5\n<|id|>37<|page|>10<|box|>459 631 532 920<|content|>pounds based on their structure, with the bivalent...higher anti-tumor activity than monovalent IAP an-\n<|id|>38<|page|>10<|box|>532 505 885 923<|content|>tagonists in preclinical studies. ... <sup>7</sup>\n<|id|>39<|page|>10<|box|>897 505 927 920<|content|>Drug penetration into tumors is an important limit...tics, and the blood-brain barrier (BBB) represents\n<|id|>41<|page|>11<|box|>326 631 386 920<|content|>Overall, we demonstrated that co-administra- tion ...by leveraging T cell cytokines for bystander tumor\n<|id|>42<|page|>11<|box|>386 74 533 490<|content|>one of the formidable challenges. ... <sup>41</sup... in these cases and requires further investigation\n<|id|>54<|page|>12<|box|>664 505 929 923<|content|>Birinapant was purchased from MedChemExpress and r...r in vitro assays or with 12. ... To stimulate CAR\n<|id|>55<|page|>13<|box|>136 74 168 489<|content|>T cells, every three beads were used for one CAR T...T cell after PBS (Corning) washes on a magnet rack\n<|id|>67<|page|>14<|box|>868 72 929 490<|content|>GBM cells were transduced with the lentiCRISPR-v2 ...ana et al. ... To confirm c-FLIP knockout, genomic\n<|id|>68<|page|>14<|box|>136 505 182 923<|content|>DNA from puromycin-selected cells was extracted wi... kit (Qiagen) for AMPLICON-EZ Sequencing (Genewiz)",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>15<|tgt_id|>16\n<|src_id|>23<|tgt_id|>24\n<|src_id|>32<|tgt_id|>33\n<|src_id|>34<|tgt_id|>37\n<|src_id|>37<|tgt_id|>38\n<|src_id|>39<|tgt_id|>42\n<|src_id|>54<|tgt_id|>55\n<|src_id|>67<|tgt_id|>68",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        }
+    ]
+}

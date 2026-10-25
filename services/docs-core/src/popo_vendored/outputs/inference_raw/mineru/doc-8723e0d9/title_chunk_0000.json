@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>587 142 604 333<|content|>1. Scope of Engagement\n<|id|>9<|page|>1<|box|>618 140 636 506<|content|>(a) Royalty Audit and Damages Quantification\n<|id|>19<|page|>2<|box|>643 140 661 289<|content|>(b) Expert Report\n<|id|>29<|page|>3<|box|>359 140 377 361<|content|>2. Materials to Be Provided\n<|id|>42<|page|>4<|box|>429 140 446 379<|content|>3. Background on the Dispute\n<|id|>49<|page|>5<|box|>366 140 383 303<|content|>4. Fee Arrangement\n<|id|>54<|page|>5<|box|>785 140 803 390<|content|>5. Privilege and Confidentiality\n<|id|>60<|page|>6<|box|>411 140 428 321<|content|>6. Conflicts of Interest\n<|id|>73<|page|>6<|box|>772 140 789 566<|content|>7. Engagement Team at Calderwood & Harkness LLP\n<|id|>82<|page|>7<|box|>265 140 282 369<|content|>8. Timeline and Deliverables\n<|id|>89<|page|>7<|box|>739 212 755 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>91<|page|>7<|box|>815 383 830 614<|content|>ACCEPTED AND AGREED",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>9<|level|>2\n<|id|>19<|level|>2\n<|id|>29<|level|>1\n<|id|>42<|level|>1\n<|id|>49<|level|>1\n<|id|>54<|level|>1\n<|id|>60<|level|>1\n<|id|>73<|level|>1\n<|id|>82<|level|>1\n<|id|>89<|level|>-1\n<|id|>91<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        }
+    ]
+}

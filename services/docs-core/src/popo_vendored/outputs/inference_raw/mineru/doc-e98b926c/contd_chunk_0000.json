@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        9,
+        10,
+        13,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>150 140 186 854<|content|>Matter: ... Whitmore Aerospace LLC — $450,000,000 Senior Secured Syndicated Revolving Credit Facility\n<|id|>3<|page|>1<|box|>195 140 212 333<|content|>Matter No. ... 1019-00002\n<|id|>4<|page|>1<|box|>220 140 238 210<|content|>To: ... File\n<|id|>5<|page|>1<|box|>247 140 263 671<|content|>From: ... Lisa Morrow and Marcus Leung, Associates, Banking & Finance\n<|id|>6<|page|>1<|box|>273 140 291 591<|content|>Reviewed By: ... Philip Hartmann, Partner, Banking & Finance\n<|id|>7<|page|>1<|box|>299 140 316 321<|content|>Date: ... January 30, 2026\n<|id|>8<|page|>1<|box|>324 140 361 854<|content|>Re: ... Summary of Transaction Structure, Syndicat...Package, Use of Proceeds, and Conditions Precedent\n<|id|>9<|page|>1<|box|>369 140 386 408<|content|>Right-click to update Table of Contents\n<|id|>77<|page|>9<|box|>811 140 904 857<|content|>All existing liens securing the Existing Facility ...d by C&H in conjunction with Caldwell Pryor & Shea\n<|id|>78<|page|>10<|box|>89 140 162 854<|content|>LLP, as counsel to Prescott in its capacity as len...ion from the Existing Facility to the new Facility\n<|id|>118<|page|>13<|box|>263 174 300 852<|content|>(c) 100% of the issued and outstanding capital stock of Whitmore Propulsion Systems, Inc. ... and\n<|id|>120<|page|>13<|box|>353 140 479 854<|content|>The equity pledges ensure that, in the event of an...sfer documents have been delivered for WAH and WPM\n<|id|>226<|page|>25<|box|>114 174 133 676<|content|>(b) Alabama — Overstreet & Hawkins LLP (Birmingham, AL); ... and\n<|id|>231<|page|>25<|box|>244 140 318 856<|content|>Reference is made to the separate Conditions Prece...isa Morrow and is available in the engagement file\n<|id|>239<|page|>25<|box|>869 140 907 854<|content|>Title Commitments and Policies. ... The\n<|id|>240<|page|>26<|box|>89 140 162 854<|content|>Kansas (Wichita) title commitment remains pending ...stone is the primary contact for all title matters",
+    "raw_response": "<|src_id|>77<|tgt_id|>78\n<|src_id|>239<|tgt_id|>240",
+    "parsed": [
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 239,
+            "tgt_id": 240
+        }
+    ]
+}

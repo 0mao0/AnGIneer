@@ -1,0 +1,95 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 173 146 823<|content|>UNIGEM: A UNIFIED APPROACH TO GENERATION AND PROPE\n<|id|>7<|type|>title<|page|>1<|box|>295 450 310 547<|content|>ABSTRACT\n<|id|>9<|type|>title<|page|>1<|box|>571 174 588 338<|content|>1 INTRODUCTION\n<|id|>12<|type|>image<|page|>2<|box|>92 174 253 820<|content|>None\n<|id|>19<|type|>title<|page|>3<|box|>479 173 496 284<|content|>2 METHOD\n<|id|>20<|type|>title<|page|>3<|box|>512 171 527 380<|content|>2.1 UNIGEM FRAMEWORK\n<|id|>22<|type|>title<|page|>3<|box|>652 171 666 478<|content|>2.1.1 TWO-PHASE GENERATIVE PROCESS\n<|id|>37<|type|>title<|page|>4<|box|>590 171 606 393<|content|>2.1.2 TRAINING STRATEGIES\n<|id|>41<|type|>title<|page|>4<|box|>857 171 872 403<|content|>2.1.3 INFERENCE OF UNIGEM\n<|id|>46<|type|>title<|page|>5<|box|>337 171 351 393<|content|>2.2 THEORETICAL ANALYSIS\n<|id|>48<|type|>title<|page|>5<|box|>420 171 435 803<|content|>2.2.1 INCONSISTENCY BETWEEN MOLECULE GENERATION AN\n<|id|>55<|type|>title<|page|>5<|box|>844 171 859 581<|content|>2.2.2 THEORETICAL ANALYSIS ON GENERATION ERROR\n<|id|>65<|type|>table<|page|>6<|box|>747 542 797 823<|content|>None\n<|id|>68<|type|>table<|page|>7<|box|>133 173 263 828<|content|>None\n<|id|>69<|type|>title<|page|>7<|box|>295 173 311 328<|content|>3 EXPERIMENTS\n<|id|>70<|type|>title<|page|>7<|box|>330 171 345 362<|content|>3.1 MAIN EXPERIMENTS\n<|id|>74<|type|>title<|page|>7<|box|>813 171 828 620<|content|>3.1.1 EXPERIMENTAL RESULTS FOR MOLECULE GENERATION\n<|id|>76<|type|>table<|page|>8<|box|>116 181 233 813<|content|>None\n<|id|>80<|type|>title<|page|>8<|box|>602 171 617 705<|content|>3.1.2 EXPERIMENTAL RESULTS FOR MOLECULAR PROPERTY\n<|id|>83<|type|>title<|page|>8<|box|>857 171 872 607<|content|>3.1.3 COMPARISONS WITH GENERAL UNIFIED APPROACHES\n<|id|>85<|type|>table<|page|>9<|box|>127 223 229 771<|content|>None\n<|id|>86<|type|>table<|page|>9<|box|>285 233 387 763<|content|>None\n<|id|>88<|type|>title<|page|>9<|box|>582 171 595 357<|content|>3.2 ABLATION STUDIES\n<|id|>90<|type|>title<|page|>9<|box|>686 171 703 573<|content|>3.2.1 IMPACT OF PREDICTIVE LOSS ON PERFORMANCE\n<|id|>94<|type|>table<|page|>10<|box|>127 200 229 795<|content|>None\n<|id|>95<|type|>title<|page|>10<|box|>263 171 277 581<|content|>3.2.2 ANALYSIS OF TRAINING STRATEGIES IN UNIGEM\n<|id|>98<|type|>title<|page|>10<|box|>520 171 535 444<|content|>3.2.3 EFFECT OF NUCLEATION TIME\n<|id|>101<|type|>title<|page|>10<|box|>863 171 878 321<|content|>4 CONCLUSION\n<|id|>103<|type|>title<|page|>11<|box|>224 173 238 369<|content|>ACKNOWLEDGEMENTS\n<|id|>105<|type|>title<|page|>11<|box|>290 173 306 287<|content|>REFERENCES\n<|id|>164<|type|>title<|page|>15<|box|>102 171 118 439<|content|>A COMPLIMENTARY FIGURES\n<|id|>165<|type|>image<|page|>15<|box|>138 272 265 725<|content|>None\n<|id|>166<|type|>image<|page|>15<|box|>316 241 422 754<|content|>None\n<|id|>167<|type|>image<|page|>15<|box|>479 174 709 823<|content|>None\n<|id|>168<|type|>title<|page|>15<|box|>782 171 797 483<|content|>B SUPPLEMENTARY EXPERIMENTS\n<|id|>169<|type|>title<|page|>15<|box|>814 171 829 640<|content|>B.1 APPLYING UNIGEM TO ADVANCED GENERATIVE METHODS\n<|id|>171<|type|>table<|page|>16<|box|>133 251 328 741<|content|>None\n<|id|>174<|type|>title<|page|>16<|box|>479 171 494 418<|content|>B.2 CONDITIONAL GENERATION\n<|id|>178<|type|>table<|page|>16<|box|>727 184 830 810<|content|>None\n<|id|>185<|type|>title<|page|>17<|box|>386 171 401 557<|content|>B.3 RELATIONSHIP WITH DENOISING PRE-TRAINING\n<|id|>189<|type|>table<|page|>17<|box|>705 233 794 761<|content|>None\n<|id|>190<|type|>title<|page|>17<|box|>835 171 851 460<|content|>C HYPERPARAMETER SETTINGS\n<|id|>192<|type|>table<|page|>18<|box|>127 277 334 720<|content|>None\n<|id|>197<|type|>title<|page|>18<|box|>647 171 662 351<|content|>D RELATED WORK\n<|id|>198<|type|>title<|page|>18<|box|>680 171 695 423<|content|>D.1 3D MOLECULE GENERATION\n<|id|>203<|type|>title<|page|>19<|box|>431 171 446 444<|content|>D.2 3D MOLECULAR PRE-TRAINING\n<|id|>205<|type|>title<|page|>19<|box|>625 171 641 668<|content|>E INTRODUCTION OF JOINT DIFFUSION FOR MOLECULES\n<|id|>216<|type|>title<|page|>20<|box|>371 171 405 813<|content|>F REPRESENTATION LEARNING ANALYSIS FOR MOLECULAR C\n<|id|>218<|type|>title<|page|>20<|box|>493 171 508 348<|content|>F.1 INFOMAX TARGET\n<|id|>220<|type|>image<|page|>20<|box|>631 341 689 647<|content|>None\n<|id|>226<|type|>title<|page|>21<|box|>316 171 332 648<|content|>F.2 VARIATIONAL UPPER BOUND ON THE KL DIVERGENCE T\n<|id|>232<|type|>title<|page|>21<|box|>544 171 558 437<|content|>F.3 RELATION TO DENOISING LOSS\n<|id|>241<|type|>title<|page|>22<|box|>518 171 549 776<|content|>F.4 THE BENEFITS OF DIFFUSION FOR PROPERTY PREDICT\n<|id|>243<|type|>title<|page|>22<|box|>691 171 724 779<|content|>G GENERATIVE ERROR ANALYSIS OF UNIGEM AND JOINT DI\n<|id|>244<|type|>title<|page|>22<|box|>739 171 755 480<|content|>G.1 GENERAL DIFFUSION ERROR BOUND\n<|id|>257<|type|>title<|page|>23<|box|>431 171 446 589<|content|>G.2 ERROR BOUND FOR UNIGEM AND JOINT DIFFUSION\n<|id|>278<|type|>title<|page|>25<|box|>204 171 219 464<|content|>G.3 GENERATIVE ERROR COMPARISON\n<|id|>286<|type|>title<|page|>25<|box|>508 171 523 460<|content|>b. Type and coordinate estimation error:",
+    "raw_response": "<|src_id|>12<|tgt_id|>9\n<|src_id|>65<|tgt_id|>55\n<|src_id|>68<|tgt_id|>55\n<|src_id|>76<|tgt_id|>74\n<|src_id|>85<|tgt_id|>80\n<|src_id|>86<|tgt_id|>80\n<|src_id|>94<|tgt_id|>90\n<|src_id|>165<|tgt_id|>164\n<|src_id|>166<|tgt_id|>164\n<|src_id|>167<|tgt_id|>164\n<|src_id|>171<|tgt_id|>169\n<|src_id|>178<|tgt_id|>174\n<|src_id|>189<|tgt_id|>185\n<|src_id|>192<|tgt_id|>190\n<|src_id|>220<|tgt_id|>218",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 218
+        }
+    ]
+}

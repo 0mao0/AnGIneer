@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Description', \"Officer's certificate executed by a duly authorized officer of Penterra Pharmaceuticals Corp. confirming that all representations and warranties of Penterra set forth in the MCTA (including, without limitation, the representations and warranties contained in Sections 7.1\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'through 7.15 thereof) are true and correct in all material respects as of the closing date (July 5, 2023), as though made on and as of such date (except to the extent that any such representation or warranty expressly relates to a specific earlier date, in which case such representation or warranty shall be true and correct in all material respects as of such earlier date). This certificate was delivered as a condition precedent to the closing of the transactions contemplated by the MCTA.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 129,
+    "table2_idx": 130
+}

@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        9,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 405 118 591<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 194 171 802<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>11<|page|>1<|box|>594 142 611 310<|content|>I. Purpose and Scope\n<|id|>25<|page|>2<|box|>667 140 685 419<|content|>II. Executive Summary of Findings\n<|id|>32<|page|>3<|box|>546 140 563 362<|content|>III. Layer-by-Layer Review\n<|id|>33<|page|>3<|box|>577 140 594 614<|content|>A. Primary GL/PL — Midland Casualty & Surety Compa\n<|id|>73<|page|>9<|box|>527 140 546 614<|content|>B. 1st Excess / Umbrella — Great Basin Insurance C\n<|id|>86<|page|>11<|box|>494 140 512 527<|content|>C. 2nd Excess — Cornerstone Reinsurance Corp.\n<|id|>97<|page|>12<|box|>681 142 699 560<|content|>D. 3rd Excess — Allegheny Pacific Underwriters, In\n<|id|>108<|page|>14<|box|>90 142 107 586<|content|>IV. Aggregate Tower Summary — Renewal PL Program\n<|id|>116<|page|>15<|box|>90 140 108 617<|content|>V. Negotiated Wording Improvements — Compliance Ch\n<|id|>127<|page|>16<|box|>167 140 185 462<|content|>VI. Comparison with Prior Year Policies\n<|id|>129<|page|>16<|box|>347 140 366 493<|content|>Our comparison yielded the following findings:\n<|id|>135<|page|>17<|box|>90 140 107 455<|content|>VII. Open Items and Recommendations\n<|id|>136<|page|>17<|box|>121 140 138 550<|content|>A. Items Requiring No Further Action on PL Tower\n<|id|>140<|page|>17<|box|>392 142 409 405<|content|>B. Items for Ongoing Monitoring\n<|id|>148<|page|>18<|box|>446 140 464 555<|content|>C. Coordination with D&O Tower Post-Bind Review\n<|id|>151<|page|>18<|box|>747 140 763 566<|content|>D. Outstanding Endorsement Items (Cross-Reference)\n<|id|>155<|page|>19<|box|>186 140 203 279<|content|>VIII. Conclusion\n<|id|>171<|page|>20<|box|>90 142 107 253<|content|>Reviewed by:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>11<|level|>1\n<|id|>25<|level|>1\n<|id|>32<|level|>1\n<|id|>33<|level|>2\n<|id|>73<|level|>2\n<|id|>86<|level|>2\n<|id|>97<|level|>2\n<|id|>108<|level|>1\n<|id|>116<|level|>1\n<|id|>127<|level|>1\n<|id|>129<|level|>2\n<|id|>135<|level|>1\n<|id|>136<|level|>2\n<|id|>140<|level|>2\n<|id|>148<|level|>2\n<|id|>151<|level|>2\n<|id|>155<|level|>1\n<|id|>171<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 1
+        },
+        {
+            "id": 171,
+            "level": 1
+        }
+    ]
+}

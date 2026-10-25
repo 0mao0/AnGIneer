@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>407 140 424 300<|content|>Dear Mr. Castellano:\n<|id|>11<|page|>1<|box|>758 142 777 374<|content|>1. Reference to Payoff Letter.\n<|id|>19<|page|>2<|box|>484 140 501 428<|content|>2. Direction to Wire Payoff Amount.\n<|id|>27<|page|>3<|box|>333 140 349 743<|content|>3. Confirmation of Payoff Wire Instructions from F\n<|id|>34<|page|>3<|box|>770 140 787 468<|content|>4. Release of Liens and Security Interests.\n<|id|>53<|page|>5<|box|>215 176 231 348<|content|>Attention: Megan Chu\n<|id|>54<|page|>5<|box|>233 140 250 431<|content|>5. Termination of Credit Agreement.\n<|id|>57<|page|>5<|box|>604 140 619 478<|content|>6. Per Diem Interest / Good-Through Date.\n<|id|>61<|page|>6<|box|>90 142 107 331<|content|>7. Contact Information.\n<|id|>75<|page|>6<|box|>510 140 527 450<|content|>8. Authorization and Acknowledgment.\n<|id|>80<|page|>6<|box|>876 212 893 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>89<|page|>7<|box|>270 142 287 513<|content|>MERIDIAN COMMERCIAL CREDIT CORP.\n<|id|>102<|page|>7<|box|>700 142 718 192<|content|>Encl.:",
+    "raw_response": "<|id|>8<|level|>-1\n<|id|>11<|level|>1\n<|id|>19<|level|>1\n<|id|>27<|level|>1\n<|id|>34<|level|>1\n<|id|>53<|level|>-1\n<|id|>54<|level|>1\n<|id|>57<|level|>1\n<|id|>61<|level|>1\n<|id|>75<|level|>1\n<|id|>80<|level|>-1\n<|id|>89<|level|>-1\n<|id|>102<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        }
+    ]
+}

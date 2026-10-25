@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 171 143 825<|content|>SECRETARY'S CERTIFICATE OF STONEFIELD LOGISTICS GR\n<|id|>3<|type|>title<|page|>1<|box|>303 142 320 250<|content|>Delivered to:\n<|id|>9<|type|>title<|page|>1<|box|>479 142 498 251<|content|>PREAMBLE\n<|id|>22<|type|>title<|page|>2<|box|>641 140 659 307<|content|>CERTIFICATIONS\n<|id|>23<|type|>title<|page|>2<|box|>672 142 689 380<|content|>1. Certificate of Incorporation\n<|id|>26<|type|>title<|page|>3<|box|>231 140 248 310<|content|>3. Board Resolutions\n<|id|>44<|type|>title<|page|>5<|box|>239 140 256 284<|content|>4. Good Standing\n<|id|>46<|type|>title<|page|>5<|box|>458 140 474 349<|content|>5. Incumbency Certificate\n<|id|>49<|type|>table<|page|>5<|box|>623 143 893 852<|content|>None\n<|id|>51<|type|>title<|page|>6<|box|>223 140 239 315<|content|>Specimen Signatures:\n<|id|>58<|type|>title<|page|>6<|box|>388 140 406 287<|content|>6. No Proceedings\n<|id|>60<|type|>title<|page|>6<|box|>626 140 643 390<|content|>7. No Amendments or Conflicts\n<|id|>63<|type|>title<|page|>7<|box|>258 140 276 354<|content|>GENERAL PROVISIONS\n<|id|>68<|type|>title<|page|>7<|box|>604 142 622 236<|content|>EXHIBITS\n<|id|>75<|type|>title<|page|>8<|box|>88 143 125 852<|content|>SIGNATURE PAGE TO SECRETARY'S CERTIFICATE OF STONE\n<|id|>84<|type|>title<|page|>8<|box|>320 140 337 392<|content|>COUNTER-CERTIFICATION",
+    "raw_response": "<|src_id|>49<|tgt_id|>46",
+    "parsed": [
+        {
+            "src_id": 49,
+            "tgt_id": 46
+        }
+    ]
+}

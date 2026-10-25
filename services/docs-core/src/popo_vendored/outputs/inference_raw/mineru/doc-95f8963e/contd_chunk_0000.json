@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        10,
+        11,
+        12,
+        15,
+        16,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>135 212 152 784<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>162 140 199 852<|content|>FROM: ... Nadia Petrov, Lead Associate, Labor & Em...rking Associate, Labor & Employment Practice Group\n<|id|>3<|page|>1<|box|>205 140 224 787<|content|>TO: ... Miriam Calloway, Responsible Partner, Healthcare & Life Sciences Practice Group\n<|id|>4<|page|>1<|box|>232 140 250 344<|content|>DATE: ... February 12, 2026\n<|id|>5<|page|>1<|box|>258 140 294 854<|content|>RE: ... C-88214\n<|id|>6<|page|>1<|box|>301 140 319 839<|content|>OFFICE: ... Calderwood & Harkness LLP 600 Market Street, Suite 4200 Philadelphia, PA 19106\n<|id|>11<|page|>1<|box|>794 140 905 856<|content|>The Restructuring Plan has already generated signi...nt legal activity. ... Additionally, WET's General\n<|id|>12<|page|>2<|box|>90 140 127 854<|content|>Counsel, Priya Anand-Desai, has identified eight f... to pursue wrongful-termination and related claims\n<|id|>16<|page|>2<|box|>267 174 321 854<|content|>(c) Flag insurance coordination issues, particular...issued by Pinnacle Risk Underwriters, Inc. ... and\n<|id|>18<|page|>2<|box|>354 142 373 493<|content|>The three proposed workstreams are as follows: ... The three proposed workstreams are as follows\n<|id|>20<|page|>2<|box|>425 174 462 854<|content|>Workstream B: ... and\n<|id|>21<|page|>2<|box|>469 174 505 854<|content|>Workstream C: ... Defense of individual wrongful-t...related claims brought by affected faculty members\n<|id|>36<|page|>3<|box|>801 140 893 856<|content|>K&M ceased representing WET effective December 31,...the related wage-and-hour dispute discussed below,\n<|id|>37<|page|>4<|box|>90 140 127 854<|content|>K&M determined that continued representation of WE...WET was untenable and withdrew from the engagement\n<|id|>43<|page|>4<|box|>460 181 478 733<|content|>• Pennsylvania: ... and\n<|id|>45<|page|>4<|box|>500 140 574 854<|content|>The Restructuring Plan is intended to take effect ...t of the proposed Workstream B advisory engagement\n<|id|>101<|page|>10<|box|>277 181 367 854<|content|>Separation agreement and release templates: ... and\n<|id|>103<|page|>10<|box|>426 140 463 856<|content|>Benefits Continuation. ... C&H will advise WET on ...employee benefits following termination, including\n<|id|>110<|page|>10<|box|>848 181 901 856<|content|>• Advice on charter school regulatory compliance —...related to employment law — is not included within\n<|id|>111<|page|>11<|box|>90 210 164 854<|content|>Workstream B. ... We recommend that WET engage sep...tency of the C&H Labor & Employment Practice Group\n<|id|>126<|page|>12<|box|>184 181 200 825<|content|>• Retaliation under federal and state anti-discrimination and whistleblower statutes; ... and\n<|id|>128<|page|>12<|box|>242 140 334 857<|content|>These claims may be filed in state or federal cour...ores the multi-state complexity of this engagement\n<|id|>165<|page|>15<|box|>791 140 883 857<|content|>C&H should advise WET regarding whether the PERB U..... Given the potential aggregate exposure from the\n<|id|>166<|page|>16<|box|>90 140 127 854<|content|>PERB charge and up to eight (or more) individual c...ered or will be triggered as claims are formalized\n<|id|>213<|page|>21<|box|>272 140 289 326<|content|>Date: ... February 12, 2026\n<|id|>214<|page|>21<|box|>289 140 323 854<|content|>JAMES UNDERWOOD Working Associate Labor & Employme...ness LLP, Wilmington Office Admitted: ... Delaware\n<|id|>215<|page|>21<|box|>356 140 406 529<|content|>James Underwood Date: ... Joel Strauss, Billing Partner (for budget implications review)\n<|id|>216<|page|>21<|box|>411 140 443 854<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT — NOT FOR DISTRIBUTION OUTSIDE THE ENGAGEMENT TEAM\n<|id|>217<|page|>21<|box|>450 140 497 854<|content|>This memorandum is protected by the attorney-clien...e prior written consent of the responsible partner",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>36<|tgt_id|>37\n<|src_id|>110<|tgt_id|>111\n<|src_id|>165<|tgt_id|>166",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 166
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 143 104 838<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>1<|type|>title<|page|>1<|box|>113 305 133 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>2<|type|>title<|page|>1<|box|>150 228 167 769<|content|>1285 Avenue of the Americas, 40th Floor New York,\n<|id|>4<|type|>title<|page|>1<|box|>203 142 219 290<|content|>MEMORANDUM\n<|id|>11<|type|>title<|page|>1<|box|>511 140 527 504<|content|>I. PURPOSE AND EXECUTIVE SUMMARY\n<|id|>23<|type|>title<|page|>2<|box|>594 140 611 632<|content|>II. PAYMENT AMOUNT AND DEADLINE CALCULATION\n<|id|>24<|type|>title<|page|>2<|box|>625 142 642 282<|content|>A. CMP Amount\n<|id|>33<|type|>title<|page|>3<|box|>444 140 462 344<|content|>B. Deadline Computation\n<|id|>43<|type|>title<|page|>4<|box|>305 140 321 460<|content|>C. No Installment or Deferral Provisions\n<|id|>46<|type|>title<|page|>4<|box|>578 140 595 697<|content|>III. PAYMENT METHOD AND WIRE TRANSFER INSTRUCTIONS\n<|id|>47<|type|>title<|page|>4<|box|>609 142 627 305<|content|>A. Payment Method\n<|id|>56<|type|>title<|page|>5<|box|>239 140 255 380<|content|>B. Wire Transfer Instructions\n<|id|>63<|type|>title<|page|>5<|box|>734 140 751 524<|content|>C. Funding Source and Liquidity Considerations\n<|id|>65<|type|>table<|page|>5<|box|>816 143 893 852<|content|>None\n<|id|>66<|type|>table<|page|>6<|box|>88 145 109 852<|content|>None\n<|id|>75<|type|>title<|page|>6<|box|>638 140 657 687<|content|>IV. ACCOUNTING AND FINANCIAL REPORTING TREATMENT\n<|id|>76<|type|>title<|page|>6<|box|>670 143 688 333<|content|>A. Expense Recognition\n<|id|>82<|type|>title<|page|>7<|box|>502 140 518 514<|content|>B. Balance Sheet and Income Statement Impact\n<|id|>87<|type|>title<|page|>8<|box|>90 140 107 504<|content|>C. Public Company Disclosure Considerations\n<|id|>95<|type|>title<|page|>8<|box|>712 140 729 421<|content|>V. FEDERAL TAX TREATMENT\n<|id|>96<|type|>title<|page|>8<|box|>743 140 761 501<|content|>A. Non-Deductibility Under 26 U.S.C. § 162(f)\n<|id|>102<|type|>title<|page|>9<|box|>393 140 410 540<|content|>B. Exception Analysis — Restitution / Remediation\n<|id|>106<|type|>title<|page|>10<|box|>90 140 108 346<|content|>C. State Tax Implications\n<|id|>109<|type|>title<|page|>10<|box|>353 140 371 377<|content|>D. IRS Reporting Obligations\n<|id|>117<|type|>title<|page|>11<|box|>89 140 107 810<|content|>VI. CONFIRMATION AND DOCUMENTATION PROCEDURES WITH\n<|id|>119<|type|>title<|page|>11<|box|>202 140 219 367<|content|>A. Pre-Payment Notification\n<|id|>126<|type|>title<|page|>11<|box|>550 142 566 320<|content|>B. Wire Confirmation\n<|id|>135<|type|>title<|page|>12<|box|>89 140 107 406<|content|>C. Written Confirmation to OCC\n<|id|>143<|type|>title<|page|>12<|box|>446 140 464 351<|content|>D. OCC Acknowledgment\n<|id|>150<|type|>title<|page|>12<|box|>813 140 830 444<|content|>E. Entry in OCC Correspondence Log\n<|id|>158<|type|>title<|page|>13<|box|>308 140 325 718<|content|>VII. INTERNAL APPROVAL AND AUTHORIZATION PROCEDURE\n<|id|>159<|type|>title<|page|>13<|box|>339 142 356 333<|content|>A. Board Authorization\n<|id|>164<|type|>title<|page|>14<|box|>89 140 107 356<|content|>B. Internal Sign-Off Chain\n<|id|>171<|type|>title<|page|>14<|box|>542 140 559 369<|content|>C. Documentation Retention\n<|id|>187<|type|>title<|page|>15<|box|>330 142 349 566<|content|>VIII. ACTION ITEMS AND TIMELINE SUMMARY\n<|id|>188<|type|>table<|page|>15<|box|>400 143 906 852<|content|>None\n<|id|>190<|type|>title<|page|>16<|box|>200 140 217 300<|content|>IX. CONCLUSION",
+    "raw_response": "<|src_id|>65<|tgt_id|>63\n<|src_id|>66<|tgt_id|>63\n<|src_id|>188<|tgt_id|>187",
+    "parsed": [
+        {
+            "src_id": 65,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 187
+        }
+    ]
+}

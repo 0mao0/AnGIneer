@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        9,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 104 506<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED\n<|id|>1<|page|>1<|box|>112 174 148 854<|content|>CALDERWOOD & HARKNESS LLP 125 Broad Street New York, NY 10004 Telephone: ... com\n<|id|>2<|page|>1<|box|>156 756 172 854<|content|>June 3, 2024\n<|id|>3<|page|>1<|box|>181 140 218 854<|content|>Crescent Harbor Bank, N. ... , as Administrative Agent 1200 Harbor Point Drive Charlotte, NC 28202\n<|id|>4<|page|>1<|box|>227 140 262 854<|content|>Pinnacle Trust Company, N. ... 20001\n<|id|>5<|page|>1<|box|>271 140 289 642<|content|>Each of the Lenders party to the Credit Agreement referred to below\n<|id|>6<|page|>1<|box|>297 174 369 854<|content|>Re: ... Virginia Law Opinion — Enforceability of D...Secured Term Loan B Credit Facility ($950,000,000)\n<|id|>7<|page|>1<|box|>378 140 395 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>62<|page|>7<|box|>806 140 881 857<|content|>(c) The Deed of Trust, together with the fixture f...h respect to fixtures located at or affixed to the\n<|id|>63<|page|>8<|box|>89 140 127 854<|content|>Property. ... Accordingly, upon due recording, the...rust is duly perfected as a matter of Virginia law\n<|id|>69<|page|>8<|box|>797 138 888 857<|content|>(b) Important Limitation: ... For al matters relat... the Lenders should place reliance solely upon the\n<|id|>70<|page|>9<|box|>89 140 126 854<|content|>ALTA Lender's Title Insurance Policy issued by Key...ty Company, together with any endorsements thereto\n<|id|>95<|page|>12<|box|>114 140 133 274<|content|>Very truly yours,\n<|id|>96<|page|>12<|box|>141 140 157 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>97<|page|>12<|box|>159 143 176 254<|content|>By: ... By\n<|id|>98<|page|>12<|box|>176 142 193 331<|content|>Name: ... Stephanie Okafor\n<|id|>99<|page|>12<|box|>193 142 210 395<|content|>Title: ... Partner, Banking & Finance\n<|id|>100<|page|>12<|box|>210 143 228 254<|content|>By: ... By\n<|id|>101<|page|>12<|box|>228 142 244 282<|content|>Name: ... Daniel Obi\n<|id|>102<|page|>12<|box|>244 140 262 454<|content|>Title: ... Lead Associate, Banking & Finance\n<|id|>104<|page|>12<|box|>279 140 311 852<|content|>CALDERWOOD & HARKNESS LLP 125 Broad Street New York, NY 10004 Matter No. ... 1043- 00001\n<|id|>103<|page|>12<|box|>262 140 279 689<|content|>(as a matter of firm protocol; ... this opinion is issued in the name of the firm)\n<|id|>105<|page|>12<|box|>313 140 330 395<|content|>Enclosures: ... As referenced herein\n<|id|>106<|page|>12<|box|>338 140 357 478<|content|>cc: ... (by electronic mail and overnight courier)\n<|id|>107<|page|>12<|box|>364 174 401 854<|content|>Jonathan Pryce-Williams, Esq. ... General Counsel ...Ridge Boulevard, Suite 300 Ashburn, Virginia 20147\n<|id|>108<|page|>12<|box|>407 174 446 854<|content|>Catherine Ellsworth, Esq. ... Blackthorn & Sundial...unsel to the Administrative Agent and the Lenders)\n<|id|>109<|page|>12<|box|>452 174 489 854<|content|>William Hargrove Pinnacle Trust Company, N. ... 20001",
+    "raw_response": "<|src_id|>62<|tgt_id|>63\n<|src_id|>69<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        }
+    ]
+}

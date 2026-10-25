@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        46,
+        84
+    ],
+    "pages": [
+        47,
+        50,
+        58,
+        59,
+        83,
+        84
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>147<|page|>47<|box|>38 313 54 672<|content|>MARKET QUOTATIONS, NOVEMBER 30, 1948\n<|id|>148<|page|>47<|box|>68 39 170 474<|content|>Market quotations shown here are over-the-counter ...nt except those not regularly quoted in the market\n<|id|>159<|page|>50<|box|>796 37 924 500<|content|>Note: ... Corporate bond yields are computed on the basis of closing prices on the New York Stock\n<|id|>160<|page|>50<|box|>796 510 868 905<|content|>Exchange and the New York Curb Exchange: ... The p...th fifteen or more years to maturity or first call\n<|id|>173<|page|>58<|box|>73 307 102 706<|content|>Table 4. ... - Components of Silver Monetary Stock (In millions of dollars)\n<|id|>176<|page|>59<|box|>467 39 496 467<|content|>Source: ... 1/ These items represent the differenc...alue of silver bullion revalued and held to secure\n<|id|>232<|page|>83<|box|>383 332 479 675<|content|>Treas. ... 2\n<|id|>233<|page|>84<|box|>32 830 46 924<|content|>1 0031963",
+    "raw_response": "<|src_id|>159<|tgt_id|>160",
+    "parsed": [
+        {
+            "src_id": 159,
+            "tgt_id": 160
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 140 107 575<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|type|>title<|page|>1<|box|>334 140 351 367<|content|>1. Introduction and Purpose\n<|id|>11<|type|>title<|page|>1<|box|>844 140 862 354<|content|>2. Scope of Representation\n<|id|>40<|type|>title<|page|>4<|box|>502 140 518 439<|content|>3. Staffing and Responsible Attorneys\n<|id|>49<|type|>title<|page|>5<|box|>411 142 428 310<|content|>4. Fee Arrangements\n<|id|>51<|type|>table<|page|>5<|box|>497 143 573 852<|content|>None\n<|id|>67<|type|>title<|page|>6<|box|>771 140 787 321<|content|>5. Conflicts of Interest\n<|id|>72<|type|>title<|page|>7<|box|>458 140 474 284<|content|>6. Confidentiality\n<|id|>75<|type|>title<|page|>8<|box|>90 140 107 326<|content|>7. Document Retention\n<|id|>78<|type|>title<|page|>8<|box|>383 140 402 385<|content|>8. Termination of Engagement\n<|id|>82<|type|>title<|page|>8<|box|>704 140 722 339<|content|>9. Limitation of Liability\n<|id|>85<|type|>title<|page|>9<|box|>148 142 167 480<|content|>10. Governing Law and Dispute Resolution\n<|id|>88<|type|>title<|page|>9<|box|>463 142 479 406<|content|>11. Acceptance and Counterparts\n<|id|>98<|type|>title<|page|>10<|box|>140 313 156 684<|content|>ACKNOWLEDGMENT AND ACCEPTANCE",
+    "raw_response": "<|src_id|>51<|tgt_id|>49",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        }
+    ]
+}

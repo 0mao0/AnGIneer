@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 143 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1251 Av... Floor New York, New York 10020 Telephone: ... com\n<|id|>1<|page|>1<|box|>152 746 170 854<|content|>May 30, 2023\n<|id|>2<|page|>1<|box|>178 140 214 854<|content|>Thomas R. ... General Counsel Meridian Consumer Br... Avenue South, 14th Floor New York, New York 10016\n<|id|>3<|page|>1<|box|>223 174 294 854<|content|>Re: ... 1011-00003\n<|id|>4<|page|>1<|box|>304 142 320 228<|content|>Dear Tom: ... Dear Tom\n<|id|>89<|page|>9<|box|>791 147 882 857<|content|>• January 9, 2023: ... The Court declines to enjoin Brindoval's use of the \"MERIDIAN\n<|id|>90<|page|>10<|box|>90 174 126 854<|content|>FRESH\" word mark pending trial, finding that the b...st a word-mark injunction at the preliminary stage\n<|id|>102<|page|>11<|box|>90 140 108 272<|content|>Very truly yours,\n<|id|>103<|page|>11<|box|>114 140 132 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>104<|page|>11<|box|>133 143 150 253<|content|>By: ... By\n<|id|>105<|page|>11<|box|>150 140 183 854<|content|>Alan Ngo Partner, intellectual Property Calderwood...r New York, New York 10020 Tel: ... (212) 554-7218\n<|id|>106<|page|>11<|box|>184 140 200 437<|content|>Email: ... com\n<|id|>107<|page|>11<|box|>200 140 290 856<|content|>cc: ... Christy Bauer, Lead Associate, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>89<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        }
+    ]
+}

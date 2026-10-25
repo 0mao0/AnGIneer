@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        53,
+        62
+    ],
+    "pages": [
+        53,
+        54,
+        55,
+        56,
+        57,
+        59,
+        60,
+        61,
+        62
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>570<|type|>title<|page|>53<|box|>189 140 207 416<|content|>Additional Capitalization Matters:\n<|id|>572<|type|>title<|page|>54<|box|>89 433 107 566<|content|>SCHEDULE 4.6\n<|id|>573<|type|>title<|page|>54<|box|>131 375 148 622<|content|>FINANCIAL INFORMATION\n<|id|>575<|type|>title<|page|>54<|box|>219 143 237 390<|content|>1. Net Operating Income (2024)\n<|id|>576<|type|>table<|page|>54<|box|>244 143 338 852<|content|>None\n<|id|>577<|type|>title<|page|>54<|box|>372 142 388 364<|content|>2. Revenue Summary (2024)\n<|id|>578<|type|>table<|page|>54<|box|>396 143 489 852<|content|>None\n<|id|>579<|type|>title<|page|>54<|box|>523 140 541 500<|content|>3. Estimated Annual Distributable Cash Flow\n<|id|>581<|type|>table<|page|>54<|box|>611 143 720 852<|content|>None\n<|id|>582<|type|>title<|page|>54<|box|>753 140 772 388<|content|>4. Debt Service Coverage Ratio\n<|id|>584<|type|>title<|page|>54<|box|>861 142 878 310<|content|>5. Valuation Support\n<|id|>585<|type|>table<|page|>55<|box|>133 143 267 852<|content|>None\n<|id|>588<|type|>title<|page|>56<|box|>89 431 107 566<|content|>SCHEDULE 4.9\n<|id|>589<|type|>title<|page|>56<|box|>130 418 148 580<|content|>REAL PROPERTY\n<|id|>591<|type|>title<|page|>56<|box|>200 142 219 426<|content|>1. Meridian Shores Hospitality LLC\n<|id|>609<|type|>title<|page|>56<|box|>835 140 854 431<|content|>2. Costa Luma Resort Holdings LLC\n<|id|>612<|type|>title<|page|>57<|box|>90 176 107 428<|content|>County: Monroe County, Florida\n<|id|>627<|type|>title<|page|>57<|box|>703 140 719 352<|content|>3. Azulia Beach Club LLC\n<|id|>644<|type|>title<|page|>59<|box|>88 426 108 571<|content|>SCHEDULE 4.12\n<|id|>645<|type|>title<|page|>59<|box|>128 437 148 560<|content|>LITIGATION\n<|id|>647<|type|>title<|page|>59<|box|>256 140 273 194<|content|>None.\n<|id|>649<|type|>title<|page|>60<|box|>89 426 107 570<|content|>SCHEDULE 4.13\n<|id|>650<|type|>title<|page|>60<|box|>130 385 148 611<|content|>MATERIAL CONTRACTS\n<|id|>652<|type|>title<|page|>60<|box|>200 140 219 426<|content|>1. Meridian Shores Hospitality LLC\n<|id|>659<|type|>title<|page|>60<|box|>694 140 710 433<|content|>2. Costa Luma Resort Holdings LLC\n<|id|>666<|type|>title<|page|>61<|box|>358 140 375 354<|content|>3. Azulia Beach Club LLC\n<|id|>674<|type|>title<|page|>62<|box|>89 398 107 599<|content|>[END OF SCHEDULES]",
+    "raw_response": "<|src_id|>576<|tgt_id|>575\n<|src_id|>578<|tgt_id|>577\n<|src_id|>581<|tgt_id|>579\n<|src_id|>585<|tgt_id|>584",
+    "parsed": [
+        {
+            "src_id": 576,
+            "tgt_id": 575
+        },
+        {
+            "src_id": 578,
+            "tgt_id": 577
+        },
+        {
+            "src_id": 581,
+            "tgt_id": 579
+        },
+        {
+            "src_id": 585,
+            "tgt_id": 584
+        }
+    ]
+}

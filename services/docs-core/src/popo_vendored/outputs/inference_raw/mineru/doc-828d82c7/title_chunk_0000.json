@@ -1,0 +1,84 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 194 143 856<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 2200 Ro\n<|id|>9<|page|>1<|box|>411 140 429 457<|content|>1. Purpose of Letter and Representation\n<|id|>14<|page|>2<|box|>148 142 167 323<|content|>2. Policy Identification\n<|id|>18<|page|>2<|box|>534 142 551 475<|content|>3. Description of the Underlying Litigation\n<|id|>19<|page|>2<|box|>565 140 582 462<|content|>3.1 Case Caption and Court Information\n<|id|>25<|page|>3<|box|>334 140 352 310<|content|>3.3 Nature of Claims\n<|id|>36<|page|>4<|box|>345 140 363 330<|content|>3.4 Proposed Collective\n<|id|>40<|page|>4<|box|>633 140 652 281<|content|>3.5 Relief Sought\n<|id|>47<|page|>5<|box|>90 142 107 313<|content|>4. Potential Exposure\n<|id|>61<|page|>6<|box|>258 140 277 307<|content|>5. Procedural Status\n<|id|>69<|page|>6<|box|>669 140 686 444<|content|>6. Request for Coverage Confirmation\n<|id|>75<|page|>7<|box|>421 140 438 393<|content|>7. Defense Counsel Information\n<|id|>85<|page|>8<|box|>369 140 387 334<|content|>8. Document Enclosures\n<|id|>95<|page|>8<|box|>825 140 844 560<|content|>9. Request for Prompt Response and Point of Contac\n<|id|>105<|page|>9<|box|>503 143 518 343<|content|>10. Reservation of Rights\n<|id|>123<|page|>10<|box|>369 143 383 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>18<|level|>1\n<|id|>19<|level|>2\n<|id|>25<|level|>2\n<|id|>36<|level|>2\n<|id|>40<|level|>2\n<|id|>47<|level|>1\n<|id|>61<|level|>1\n<|id|>69<|level|>1\n<|id|>75<|level|>1\n<|id|>85<|level|>1\n<|id|>95<|level|>1\n<|id|>105<|level|>1\n<|id|>123<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['November..', '3,296.2', '3,138.8', '59.6', '15.0', '82.8', '1,357.1', '1,323.1', '19.0', '15.0', '1,939.1', '1,934.0', '3.1', '2.0']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, ', 'colspan=2, 1939', 'colspan=11, 1940']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 55,
+    "table2_idx": 56
+}

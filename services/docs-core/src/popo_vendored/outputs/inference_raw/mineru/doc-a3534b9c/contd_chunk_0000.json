@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>90 140 108 790<|content|># Verdana Software, Inc. ... — Series D Preferred Stock Investment — Open Issues List\n<|id|>5<|page|>1<|box|>277 142 295 217<|content|>Rebecca,\n<|id|>1<|page|>1<|box|>152 140 171 683<|content|>- From: ... com>\n<|id|>2<|page|>1<|box|>184 140 202 584<|content|>- To: ... com>\n<|id|>3<|page|>1<|box|>215 140 233 633<|content|>- Cc: ... com>\n<|id|>4<|page|>1<|box|>246 140 263 460<|content|>- Date: ... 00 -0000\n<|id|>13<|page|>2<|box|>732 140 883 849<|content|>**5. ... Ridgeline Ventures and Brindoval Capital ...founder-friendly threshold, while Northgate Growth\n<|id|>14<|page|>3<|box|>90 140 128 852<|content|>Partners aligns with Pinnacle's position. ... As y... significant source of tension in the negotiations\n<|id|>19<|page|>3<|box|>852 140 909 848<|content|>Given the number and significance of the open item... — schedule a call for the week of September 12 to\n<|id|>20<|page|>4<|box|>90 140 184 851<|content|>discuss these issues and explore whether a path to...ts in advance of the call if that would be helpful\n<|id|>22<|page|>4<|box|>328 142 345 250<|content|>Best regards,\n<|id|>23<|page|>4<|box|>390 142 407 299<|content|>Andrew Fitzpatrick\n<|id|>24<|page|>4<|box|>422 142 438 223<|content|>Associate\n<|id|>25<|page|>4<|box|>453 142 470 367<|content|>Calderwood & Harkness LLP\n<|id|>26<|page|>4<|box|>484 142 502 421<|content|>101 Montgomery Street, Suite 3500\n<|id|>27<|page|>4<|box|>516 140 532 338<|content|>San Francisco, CA 94104\n<|id|>28<|page|>4<|box|>546 142 564 292<|content|>T: ... (415) 555-0178\n<|id|>29<|page|>4<|box|>578 142 595 468<|content|>E: ... com\n<|id|>30<|page|>4<|box|>703 140 873 849<|content|>CONFIDENTIALITY NOTICE: ... Thank you",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>19<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        }
+    ]
+}

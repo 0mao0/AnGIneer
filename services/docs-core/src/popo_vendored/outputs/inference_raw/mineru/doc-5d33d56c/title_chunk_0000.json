@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        11
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 436 109 560<|content|>EXHIBIT D\n<|id|>1<|page|>2<|box|>128 277 148 720<|content|>FORM OF COMPLIANCE CERTIFICATE\n<|id|>11<|page|>2<|box|>542 140 560 555<|content|>SECTION 1: INTRODUCTORY CERTIFICATION\n<|id|>23<|page|>3<|box|>347 140 364 635<|content|>SECTION 2: FINANCIAL STATEMENTS CERTIFICATION\n<|id|>28<|page|>4<|box|>148 140 166 524<|content|>SECTION 3: NO DEFAULT CERTIFICATION\n<|id|>33<|page|>4<|box|>513 140 530 604<|content|>SECTION 4: BORROWING BASE AND AVAILABILITY\n<|id|>37<|page|>5<|box|>176 140 194 388<|content|>FCCR Trigger Threshold Test:\n<|id|>40<|page|>5<|box|>290 140 308 375<|content|>Cash Dominion Trigger Test:\n<|id|>44<|page|>5<|box|>500 140 517 704<|content|>SECTION 5: FIXED CHARGE COVERAGE RATIO CALCULATION\n<|id|>45<|page|>5<|box|>526 142 544 341<|content|>Applicability (check one):\n<|id|>55<|page|>7<|box|>270 142 287 594<|content|>SECTION 6: RESTRICTED PAYMENT COMPLIANCE\n<|id|>68<|page|>7<|box|>750 142 767 687<|content|>SECTION 7: NEGATIVE COVENANT COMPLIANCE SUMMARY\n<|id|>77<|page|>8<|box|>694 140 710 514<|content|>SECTION 8: REPORTING CONFIRMATION\n<|id|>87<|page|>10<|box|>89 142 107 261<|content|>SCHEDULE I\n<|id|>88<|page|>10<|box|>114 197 133 797<|content|>DESCRIPTION OF DEFAULTS OR EVENTS OF DEFAULT (If A\n<|id|>94<|page|>11<|box|>89 142 107 256<|content|>SIGNATURE\n<|id|>101<|page|>11<|box|>266 143 282 385<|content|>DELIVERY INSTRUCTIONS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>11<|level|>2\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>55<|level|>2\n<|id|>68<|level|>2\n<|id|>77<|level|>2\n<|id|>87<|level|>2\n<|id|>88<|level|>3\n<|id|>94<|level|>2\n<|id|>101<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        }
+    ]
+}

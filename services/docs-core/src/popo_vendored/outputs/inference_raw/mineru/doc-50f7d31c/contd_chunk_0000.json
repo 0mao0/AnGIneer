@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        8,
+        9,
+        13,
+        14,
+        15,
+        19,
+        20,
+        21,
+        22,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>151 140 169 635<|content|>FROM: ... Amy Chesterton, Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>176 140 213 854<|content|>TO: ... Priya Narasimhan, General Counsel, Brightfield Cloud Services Inc\n<|id|>4<|page|>1<|box|>220 140 239 326<|content|>DATE: ... January 3, 2026\n<|id|>5<|page|>1<|box|>247 140 301 854<|content|>RE: ... and Vantage Industrial Solutions, LLC\n<|id|>6<|page|>1<|box|>309 140 327 415<|content|>ENGAGEMENT NO. ... 1042-00005\n<|id|>7<|page|>1<|box|>335 142 352 410<|content|>Right-click to update Table of Contents\n<|id|>30<|page|>3<|box|>859 140 897 857<|content|>Co-Mingling Risk. ... Vantage will be embedding BCS's firmware and hardware modules into\n<|id|>31<|page|>4<|box|>90 140 200 854<|content|>Vantage's own product line, creating a combined so... improvements arising from the integration process\n<|id|>76<|page|>8<|box|>484 183 520 852<|content|>• Approved and prohibited uses in digital media, i..., online advertising, and email marketing; ... and\n<|id|>78<|page|>8<|box|>542 140 671 856<|content|>Pre-Approval Requirement. ... This approach ensure...sight of how its marks are used in the marketplace\n<|id|>81<|page|>8<|box|>842 140 898 856<|content|>Under the Lanham Act (15 U. ... Failure to exercis...trol may result in a finding of \"naked licensing,\"\n<|id|>82<|page|>9<|box|>90 140 219 857<|content|>which can lead to a determination that the licenso...hat must be addressed proactively in the Agreement\n<|id|>122<|page|>13<|box|>244 183 261 553<|content|>• Beneficiary: ... Vantage Industrial Solutions, LLC\n<|id|>124<|page|>13<|box|>320 140 393 854<|content|>The escrow agreement will be governed by Delaware ...ve law, avoiding potential conflicts-of-law issues\n<|id|>134<|page|>14<|box|>90 181 126 854<|content|>System architecture documentation, including netwo...urations, and infrastructure requirements; ... and\n<|id|>135<|page|>14<|box|>128 181 199 856<|content|>Such other documentation as would be reasonably ne...he BrightEdge platform without assistance from BCS\n<|id|>144<|page|>14<|box|>821 181 875 856<|content|>• Transfers of BCS's business (or substantially al...igations under the OEM Reseller Agreement; ... and\n<|id|>146<|page|>15<|box|>146 138 257 856<|content|>The exclusion for transfers as a going concern is ...rangement nor justified by any operational failure\n<|id|>180<|page|>19<|box|>428 174 502 856<|content|>(b) Within thirty (30) days of the closing of a ch...g all maintenance and support obligations; ... and\n<|id|>182<|page|>19<|box|>608 140 664 854<|content|>This fallback position provides Vantage with trans...o receive the source code upon a change of control\n<|id|>198<|page|>20<|box|>872 140 909 854<|content|>Pinnacle Escrow Services, Inc. ... We recommend confirming that Pinnacle Escrow\n<|id|>199<|page|>21<|box|>90 140 183 854<|content|>Services' standard terms and conditions are consis...nment with the terms of the OEM Reseller Agreement\n<|id|>219<|page|>22<|box|>607 183 625 671<|content|>• Business strategies, product roadmaps, and market analyses; ... and\n<|id|>221<|page|>22<|box|>646 140 792 857<|content|>Survival Period. ... This approach is consistent w...secret and derives economic value from its secrecy\n<|id|>237<|page|>24<|box|>651 140 667 320<|content|>Respectfully submitted,\n<|id|>238<|page|>24<|box|>667 140 684 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>239<|page|>24<|box|>686 143 703 253<|content|>By: ... By\n<|id|>240<|page|>24<|box|>703 140 734 854<|content|>Amy Chesterton, Associate 1700 Pacific Avenue, Sui... Dallas, Texas 75201 Engagement No. ... 1042-00005\n<|id|>241<|page|>24<|box|>736 140 753 620<|content|>cc: ... Robert Jansen, Lead Associate, Calderwood & Harkness LLP\n<|id|>242<|page|>24<|box|>762 140 779 633<|content|>cc: ... Angela Fontaine, Billing Partner, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>30<|tgt_id|>31\n<|src_id|>81<|tgt_id|>82\n<|src_id|>198<|tgt_id|>199",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 199
+        }
+    ]
+}

@@ -1,0 +1,214 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_8i7u581\\input\\pdfs\\doc-694c3ec6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_8i7u581\\enriched\\doc-694c3ec6.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>26<|level|>3\n<|id|>45<|level|>2\n<|id|>47<|level|>3\n<|id|>59<|level|>3\n<|id|>66<|level|>3\n<|id|>73<|level|>2\n<|id|>74<|level|>3\n<|id|>80<|level|>3\n<|id|>87<|level|>3\n<|id|>94<|level|>3\n<|id|>100<|level|>2\n<|id|>101<|level|>3\n<|id|>110<|level|>3\n<|id|>116<|level|>3\n<|id|>121<|level|>3\n<|id|>128<|level|>2\n<|id|>135<|level|>2\n<|id|>142<|level|>2\n<|id|>148<|level|>2\n<|id|>153<|level|>2\n<|id|>155<|level|>3\n<|id|>165<|level|>3\n<|id|>167<|level|>3\n<|id|>170<|level|>3\n<|id|>172<|level|>3",
+    "image_output": "<|src_id|>2<|tgt_id|>1\n<|src_id|>130<|tgt_id|>128\n<|src_id|>131<|tgt_id|>128\n<|src_id|>150<|tgt_id|>148\n<|src_id|>151<|tgt_id|>148\n<|src_id|>152<|tgt_id|>148",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 2,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 148
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 130,
+            "table2_idx": 131,
+            "upper_row_ss": [
+                [
+                    "Symptom vs. Cause Clarification",
+                    "Not included by default",
+                    "Not included",
+                    "Added at Buyer's request; acceptable formulation covering projections and"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "financial metrics"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 150,
+            "table2_idx": 151,
+            "upper_row_ss": [
+                [
+                    "Exclusion (4) — Changes in GAAP",
+                    "Changes in GAAP or applicable accounting standards, or the",
+                    "Consistent",
+                    "Retained; disproportionate-impact qualifier applies"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "interpretation or enforcement thereof",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 151,
+            "table2_idx": 152,
+            "upper_row_ss": [
+                [
+                    "Announcement/ Pendency Carve-Back",
+                    "Not included by default",
+                    "Not included",
+                    "Added: exclusion (8) does not apply for purposes of"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "for Customer/Supplier Rep",
+                    "",
+                    "",
+                    "Section 3.23"
+                ]
+            ]
+        }
+    ]
+}

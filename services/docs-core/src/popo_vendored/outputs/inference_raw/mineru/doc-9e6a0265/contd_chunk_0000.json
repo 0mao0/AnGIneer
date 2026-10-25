@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        9,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 308 133 689<|content|>One Fountain Square, 11th Floor Detroit, MI 48226\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 723 184 854<|content|>January 15, 2025\n<|id|>5<|page|>1<|box|>219 140 255 854<|content|>Rachel Nguyen, Esq. ... 4200 Innovation Drive Auburn Hills, MI 48326\n<|id|>6<|page|>1<|box|>263 174 316 856<|content|>Re: ... 1007-00003\n<|id|>7<|page|>1<|box|>325 142 344 282<|content|>Dear Ms. ... Nguyen\n<|id|>14<|page|>1<|box|>811 140 904 856<|content|>Pinnacle Innovations LLC (\"Pinnacle\"), a Texas lim... '312 Patent was originally assigned to DataStream\n<|id|>15<|page|>2<|box|>90 140 181 854<|content|>Automotive, Inc. ... Based on publicly available i... terms of that arrangement are not currently known\n<|id|>38<|page|>3<|box|>712 176 750 854<|content|>(g) Trial preparation and trial, if the matter pro...nstrative exhibits, and jury instructions; ... and\n<|id|>40<|page|>3<|box|>800 140 910 854<|content|>This engagement does not include representation of...ther legal matter beyond the scope described above\n<|id|>72<|page|>6<|box|>767 176 784 527<|content|>(g) Courier and overnight delivery charges; ... and\n<|id|>74<|page|>6<|box|>838 140 909 856<|content|>As a cost-management measure, VMS and the Firm hav...hat have been previously approved in the aggregate\n<|id|>101<|page|>9<|box|>625 183 638 455<|content|>• Arcadia Litigation Finance, LP; ... or\n<|id|>103<|page|>9<|box|>680 140 752 854<|content|>The Firm's conflicts check encompassed a review of...neys and principals associated with those entities\n<|id|>128<|page|>12<|box|>383 140 416 852<|content|>Marcus Delgado, Partner Calderwood & Harkness LLP ...or Detroit, MI 48226 Telephone: ... (313) 555-7200\n<|id|>129<|page|>12<|box|>417 142 434 470<|content|>Email: ... com\n<|id|>134<|page|>12<|box|>558 142 574 313<|content|>Name: ... Rachel Nguyen\n<|id|>135<|page|>12<|box|>574 142 590 514<|content|>Title: ... Vice President & Associate General Counsel\n<|id|>136<|page|>12<|box|>593 143 609 264<|content|>Date: ... Date\n<|id|>137<|page|>12<|box|>609 142 626 542<|content|>Enclosure: ... Form W-9 (Calderwood & Harkness LLP)\n<|id|>138<|page|>12<|box|>635 140 689 854<|content|>cc: ... Catherine Bloom, Partner, Calderwood & Har... Caldwell Barrow LLP (via separate correspondence)\n<|id|>139<|page|>12<|box|>696 140 727 852<|content|>This engagement letter is a confidential attorney-...tify the sender immediately and destroy all copies",
+    "raw_response": "<|src_id|>14<|tgt_id|>15",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        }
+    ]
+}

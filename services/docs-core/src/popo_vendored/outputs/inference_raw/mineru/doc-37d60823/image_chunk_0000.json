@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>86 142 152 838<|content|>交通运输部办公厅关于《公路工程营业税 改征增值税计价依据调整方案》的通知\n<|id|>5<|type|>title<|page|>2<|box|>86 257 152 722<|content|>公路工程营业税改征增值税 计价依据调整方案\n<|id|>6<|type|>title<|page|>2<|box|>193 181 217 361<|content|>一、适用范围\n<|id|>8<|type|>title<|page|>2<|box|>638 169 663 731<|content|>二、关于《投资估算办法》和《概预算办法》\n<|id|>29<|type|>table<|page|>5<|box|>117 105 467 880<|content|>None\n<|id|>31<|type|>table<|page|>6<|box|>164 46 877 899<|content|>None\n<|id|>34<|type|>table<|page|>7<|box|>220 114 760 845<|content|>None\n<|id|>39<|type|>title<|page|>8<|box|>173 168 199 534<|content|>三、关于《指标》和《定额》\n<|id|>42<|type|>table<|page|>8<|box|>423 105 600 904<|content|>None\n<|id|>43<|type|>title<|page|>8<|box|>621 176 644 297<|content|>四、其他",
+    "raw_response": "<|src_id|>29<|tgt_id|>8\n<|src_id|>31<|tgt_id|>8\n<|src_id|>34<|tgt_id|>8\n<|src_id|>42<|tgt_id|>39",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 39
+        }
+    ]
+}

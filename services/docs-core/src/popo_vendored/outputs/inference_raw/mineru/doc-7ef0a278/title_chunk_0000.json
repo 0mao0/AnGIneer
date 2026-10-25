@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 187 118 808<|content|>OFFICER'S CERTIFICATE OF VELOPAY SYSTEMS, INC.\n<|id|>1<|page|>1<|box|>136 210 154 785<|content|>Delivered Pursuant to Section 7.2(c) of the Agreem\n<|id|>4<|page|>1<|box|>411 140 429 241<|content|>RECITALS\n<|id|>10<|page|>1<|box|>801 140 819 305<|content|>CERTIFICATIONS\n<|id|>12<|page|>2<|box|>90 140 107 428<|content|>Section 1 — Capacity and Authority\n<|id|>18<|page|>2<|box|>559 140 575 593<|content|>Section 2 — Accuracy of Representations and Warran\n<|id|>19<|page|>2<|box|>583 140 599 707<|content|>2.1 Bring-Down of Representations and Warranties (\n<|id|>24<|page|>3<|box|>289 140 306 465<|content|>2.2 Specified Fundamental Representations.\n<|id|>33<|page|>3<|box|>746 140 763 462<|content|>Section 3 — Compliance with Covenants\n<|id|>44<|page|>5<|box|>474 140 489 519<|content|>Section 4 — Absence of Material Adverse Effect\n<|id|>55<|page|>6<|box|>518 140 534 437<|content|>Section 5 — Additional Certifications\n<|id|>56<|page|>6<|box|>541 140 558 338<|content|>5.1 Stockholder Approval.\n<|id|>59<|page|>6<|box|>839 142 854 383<|content|>5.2 No Injunctions or Restraints.\n<|id|>61<|page|>7<|box|>226 140 244 338<|content|>5.3 Regulatory Approvals.\n<|id|>66<|page|>7<|box|>703 140 720 490<|content|>5.4 Delivery of Company Closing Deliverables.\n<|id|>76<|page|>8<|box|>434 140 450 313<|content|>Section 6 — Reliance\n<|id|>80<|page|>8<|box|>758 140 777 367<|content|>Section 7 — Governing Law\n<|id|>82<|page|>8<|box|>864 143 882 339<|content|>[Signature page follows.]\n<|id|>83<|page|>8<|box|>888 148 907 846<|content|>[SIGNATURE PAGE TO OFFICER'S CERTIFICATE OF VELOPA",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>3\n<|id|>18<|level|>3\n<|id|>19<|level|>4\n<|id|>24<|level|>4\n<|id|>33<|level|>3\n<|id|>44<|level|>3\n<|id|>55<|level|>3\n<|id|>56<|level|>4\n<|id|>59<|level|>4\n<|id|>61<|level|>4\n<|id|>66<|level|>4\n<|id|>76<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>-1\n<|id|>83<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 4
+        },
+        {
+            "id": 24,
+            "level": 4
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 4
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 1
+        }
+    ]
+}

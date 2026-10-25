@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        10
+    ],
+    "pages": [
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>14<|page|>2<|box|>90 142 107 524<|content|>1. Outstanding Indebtedness and Payoff Amount\n<|id|>19<|page|>3<|box|>90 142 107 377<|content|>2. Wire Transfer Instructions\n<|id|>24<|page|>3<|box|>454 140 472 426<|content|>3. Identification of Loan Documents\n<|id|>51<|page|>6<|box|>90 140 107 465<|content|>4. Release of Liens and Security Interests\n<|id|>67<|page|>7<|box|>729 140 746 398<|content|>5. Termination of Commitments\n<|id|>71<|page|>8<|box|>431 140 449 370<|content|>6. No Other Amounts Owing\n<|id|>79<|page|>9<|box|>148 140 167 552<|content|>7. No Default or Event of Default; Consent to Payo\n<|id|>84<|page|>9<|box|>551 140 566 274<|content|>8. Irrevocability\n<|id|>86<|page|>9<|box|>819 140 835 287<|content|>9. Governing Law\n<|id|>88<|page|>10<|box|>148 142 167 357<|content|>10. Counterparts; Delivery\n<|id|>90<|page|>10<|box|>273 140 292 676<|content|>[Remainder of Page Intentionally Left Blank — Sign\n<|id|>91<|page|>10<|box|>300 320 316 674<|content|>SIGNATURE PAGE TO PAYOFF LETTER",
+    "raw_response": "<|id|>14<|level|>1\n<|id|>19<|level|>1\n<|id|>24<|level|>1\n<|id|>51<|level|>1\n<|id|>67<|level|>1\n<|id|>71<|level|>1\n<|id|>79<|level|>1\n<|id|>84<|level|>1\n<|id|>86<|level|>1\n<|id|>88<|level|>1\n<|id|>90<|level|>1\n<|id|>91<|level|>1",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        }
+    ]
+}

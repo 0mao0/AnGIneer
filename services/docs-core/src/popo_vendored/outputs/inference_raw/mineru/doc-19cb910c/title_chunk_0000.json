@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        14
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>14<|page|>2<|box|>148 140 167 467<|content|>1. Closing Transcript Binder Transmittal\n<|id|>38<|page|>3<|box|>489 140 508 550<|content|>2. Summary of Continuing Post-Closing Obligations\n<|id|>42<|page|>4<|box|>90 140 107 596<|content|>2.1 Continuing Disclosure Obligations (SEC Rule 15\n<|id|>66<|page|>6<|box|>90 140 108 622<|content|>2.2 Tax Compliance Obligations (Tax Regulatory Agr\n<|id|>91<|page|>8<|box|>540 140 558 813<|content|>2.3 Financial Covenant Compliance (Rate Covenant a\n<|id|>105<|page|>9<|box|>638 140 655 589<|content|>2.4 Debt-Service Reserve Fund / Surety Bond Obliga\n<|id|>109<|page|>10<|box|>275 140 292 395<|content|>2.5 Debt-Service Payment Dates\n<|id|>114<|page|>10<|box|>645 140 662 343<|content|>2.6 Optional Redemption\n<|id|>118<|page|>11<|box|>157 140 175 620<|content|>2.7 Project Fund Disbursements / Escrow Deposit Ag\n<|id|>124<|page|>11<|box|>645 140 662 447<|content|>2.8 Insurance and Rating Maintenance\n<|id|>128<|page|>12<|box|>194 140 210 282<|content|>2.9 Annual Audit\n<|id|>131<|page|>12<|box|>449 140 467 416<|content|>3. Compliance Calendar Summary\n<|id|>135<|page|>13<|box|>416 142 433 362<|content|>4. Key Contact Information\n<|id|>139<|page|>14<|box|>157 140 174 434<|content|>5. Availability for Further Assistance\n<|id|>153<|page|>14<|box|>657 142 674 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>157<|page|>14<|box|>739 143 751 171<|content|>cc:\n<|id|>159<|page|>14<|box|>843 143 859 238<|content|>Enclosures:",
+    "raw_response": "<|id|>14<|level|>1\n<|id|>38<|level|>1\n<|id|>42<|level|>2\n<|id|>66<|level|>2\n<|id|>91<|level|>2\n<|id|>105<|level|>2\n<|id|>109<|level|>2\n<|id|>114<|level|>2\n<|id|>118<|level|>2\n<|id|>124<|level|>2\n<|id|>128<|level|>2\n<|id|>131<|level|>1\n<|id|>135<|level|>1\n<|id|>139<|level|>1\n<|id|>153<|level|>-1\n<|id|>157<|level|>-1\n<|id|>159<|level|>-1",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        }
+    ]
+}

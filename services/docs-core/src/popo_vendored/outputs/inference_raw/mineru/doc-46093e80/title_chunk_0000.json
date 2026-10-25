@@ -1,0 +1,28 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>20<|page|>3<|box|>527 406 544 591<|content|>PROOF OF SERVICE\n<|id|>21<|page|>3<|box|>553 178 570 816<|content|>Redstone Gaming Corp. v. Grizzly Peak Research LLC",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>20<|level|>1\n<|id|>21<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        }
+    ]
+}

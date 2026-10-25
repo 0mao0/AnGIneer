@@ -1,0 +1,110 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>452 142 469 367<|content|>1. Introduction and Purpose\n<|id|>16<|page|>2<|box|>241 140 258 694<|content|>2. Summary of Phase I ESA Findings Triggering Phas\n<|id|>18<|page|>2<|box|>334 140 369 854<|content|>2.1 Controlled Recognized Environmental Condition\n<|id|>24<|page|>3<|box|>157 140 175 779<|content|>2.2 Recognized Environmental Condition (REC) — Nor\n<|id|>28<|page|>3<|box|>549 140 565 617<|content|>3. Review and Approval of Proposed Phase II Scope\n<|id|>29<|page|>3<|box|>579 140 597 366<|content|>3.1 General Scope Approval\n<|id|>32<|page|>4<|box|>89 140 108 271<|content|>3.2 Soil Borings\n<|id|>41<|page|>5<|box|>294 140 311 405<|content|>3.3 Temporary Monitoring Wells\n<|id|>51<|page|>6<|box|>411 140 429 454<|content|>3.4 Analytical Program — Soil Samples\n<|id|>65<|page|>7<|box|>700 140 719 529<|content|>3.5 Analytical Program — Groundwater Samples\n<|id|>72<|page|>8<|box|>330 140 348 344<|content|>3.6 Applicable Standards\n<|id|>78<|page|>8<|box|>781 140 797 339<|content|>3.7 Laboratory Selection\n<|id|>82<|page|>9<|box|>330 140 347 397<|content|>3.8 Investigation-Derived Waste\n<|id|>87<|page|>10<|box|>90 140 107 429<|content|>4. Landlord Consent and Site Access\n<|id|>91<|page|>11<|box|>90 140 106 369<|content|>5. Schedule and Deliverables\n<|id|>92<|page|>12<|box|>90 142 107 321<|content|>5.1 Proposed Schedule\n<|id|>104<|page|>13<|box|>484 140 500 532<|content|>6. Health and Safety and Regulatory Notifications\n<|id|>109<|page|>14<|box|>321 140 339 333<|content|>7. Budget Confirmation\n<|id|>121<|page|>15<|box|>90 140 107 390<|content|>8. Confidentiality and Privilege\n<|id|>124<|page|>15<|box|>314 174 349 854<|content|>\"PRIVILEGED AND CONFIDENTIAL — PREPARED AT THE DIR\n<|id|>127<|page|>15<|box|>645 140 662 423<|content|>9. Closing and Contact Information\n<|id|>133<|page|>16<|box|>90 176 106 517<|content|>Email: gnakamura@calderwoodharkness.com\n<|id|>137<|page|>16<|box|>258 212 273 517<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>2\n<|id|>24<|level|>2\n<|id|>28<|level|>1\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>41<|level|>2\n<|id|>51<|level|>2\n<|id|>65<|level|>2\n<|id|>72<|level|>2\n<|id|>78<|level|>2\n<|id|>82<|level|>2\n<|id|>87<|level|>1\n<|id|>91<|level|>1\n<|id|>92<|level|>2\n<|id|>104<|level|>1\n<|id|>109<|level|>1\n<|id|>121<|level|>1\n<|id|>124<|level|>-1\n<|id|>127<|level|>1\n<|id|>133<|level|>-1\n<|id|>137<|level|>-1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        }
+    ]
+}

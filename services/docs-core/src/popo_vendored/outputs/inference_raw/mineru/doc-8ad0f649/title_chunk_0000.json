@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 156 118 838<|content|>SECRETARY'S CERTIFICATE OF REDSTONE GAMING CORP.\n<|id|>1<|page|>1<|box|>136 171 171 825<|content|>Certificate Delivered Pursuant to Section 7(d) of\n<|id|>3<|page|>1<|box|>224 429 241 568<|content|>October 31, 2025\n<|id|>9<|page|>1<|box|>797 140 814 442<|content|>Section 1. Certificate of Incorporation\n<|id|>13<|page|>2<|box|>377 140 393 284<|content|>Section 2. Bylaws\n<|id|>15<|page|>2<|box|>554 140 571 370<|content|>Section 3. Board Resolutions\n<|id|>24<|page|>3<|box|>502 140 518 467<|content|>Section 4. Pricing Committee Resolutions\n<|id|>34<|page|>4<|box|>345 140 364 323<|content|>Section 5. Incumbency\n<|id|>41<|page|>5<|box|>343 140 359 454<|content|>Section 6. Good Standing and Existence\n<|id|>47<|page|>5<|box|>715 140 732 336<|content|>Section 7. Capitalization\n<|id|>56<|page|>6<|box|>411 140 428 609<|content|>Section 8. No Conflict; No Proceedings; Regulatory\n<|id|>68<|page|>7<|box|>337 140 354 346<|content|>Section 9. List of Exhibits\n<|id|>75<|page|>7<|box|>574 400 590 596<|content|>[Signature Page Follows]\n<|id|>88<|page|>9<|box|>88 444 107 553<|content|>EXHIBIT A\n<|id|>90<|page|>10<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>93<|page|>11<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>96<|page|>12<|box|>89 447 107 550<|content|>EXHIBIT D\n<|id|>98<|page|>13<|box|>89 447 107 550<|content|>EXHIBIT E",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>-1\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>34<|level|>2\n<|id|>41<|level|>2\n<|id|>47<|level|>2\n<|id|>56<|level|>2\n<|id|>68<|level|>2\n<|id|>75<|level|>-1\n<|id|>88<|level|>1\n<|id|>90<|level|>1\n<|id|>93<|level|>1\n<|id|>96<|level|>1\n<|id|>98<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        }
+    ]
+}

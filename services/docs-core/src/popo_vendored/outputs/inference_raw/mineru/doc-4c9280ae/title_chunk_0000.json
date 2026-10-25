@@ -1,0 +1,155 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>313 370 332 627<|content|>1. DISTRIBUTION LIST\n<|id|>42<|page|>2<|box|>428 307 446 689<|content|>2. INTRODUCTION AND PURPOSE\n<|id|>48<|page|>3<|box|>279 315 297 681<|content|>3. SUMMARY OF INITIAL DRAW\n<|id|>57<|page|>4<|box|>172 318 191 679<|content|>4. LENDER FUNDING AMOUNTS\n<|id|>61<|page|>5<|box|>90 168 109 828<|content|>5. APPLICATION OF FUNDS — DISBURSEMENT SCHEDULE\n<|id|>63<|page|>5<|box|>224 140 242 377<|content|>5.1 Payoff of Existing Facility\n<|id|>79<|page|>6<|box|>536 140 551 450<|content|>5.2 Transaction Costs and Closing Fees\n<|id|>81<|page|>6<|box|>666 140 683 374<|content|>(a) Administrative Agent Fee\n<|id|>86<|page|>7<|box|>90 140 108 568<|content|>(b) Administrative Agent's Counsel Fees and Expens\n<|id|>92<|page|>7<|box|>358 142 375 475<|content|>(c) Borrower's Counsel Fees and Expenses\n<|id|>98<|page|>7<|box|>626 142 643 532<|content|>(d) Title Insurance Premiums and Recording Fees\n<|id|>107<|page|>8<|box|>272 142 289 274<|content|>(e) Survey Costs\n<|id|>112<|page|>8<|box|>513 142 531 385<|content|>(f) Environmental Report Fees\n<|id|>117<|page|>8<|box|>719 142 736 303<|content|>(g) UCC Filing Fees\n<|id|>128<|page|>9<|box|>340 140 359 529<|content|>(h) Mortgage Recording Taxes and Transfer Fees\n<|id|>135<|page|>9<|box|>816 142 834 385<|content|>(i) Commitment Fee (Accrued)\n<|id|>142<|page|>10<|box|>398 142 417 622<|content|>5.3 Summary of Total Deductions from Initial Draw\n<|id|>145<|page|>11<|box|>90 140 107 375<|content|>5.4 Net Proceeds to Borrower\n<|id|>149<|page|>11<|box|>395 140 416 854<|content|>6. CONDITIONS TO FUNDING / PRE-FUNDING CONFIRMATIO\n<|id|>166<|page|>13<|box|>90 362 109 635<|content|>7. WIRE INSTRUCTIONS\n<|id|>179<|page|>14<|box|>90 140 107 761<|content|>(f) Creston Environmental Sciences, Inc. — Environ\n<|id|>181<|page|>14<|box|>181 140 199 671<|content|>(g) Whitmore Aerospace LLC — Operating Account (Ne\n<|id|>184<|page|>14<|box|>353 205 373 790<|content|>8. ADMINISTRATIVE AGENT FUNDING MECHANICS\n<|id|>190<|page|>14<|box|>833 220 852 776<|content|>9. CONFIRMATION AND APPROVAL PROCEDURE\n<|id|>204<|page|>15<|box|>587 241 606 756<|content|>10. IMPORTANT NOTICES AND DISCLAIMERS\n<|id|>210<|page|>17<|box|>90 410 109 588<|content|>11. SIGNATURE\n<|id|>220<|page|>18<|box|>90 272 109 725<|content|>APPENDIX A — FUNDS FLOW DIAGRAM\n<|id|>222<|page|>18<|box|>172 245 189 751<|content|>STEP 1: LENDER FUNDING TO ADMINISTRATIVE AGENT\n<|id|>228<|page|>18<|box|>330 460 351 535<|content|>↓ ↓ ↓ ↓ ↓\n<|id|>230<|page|>18<|box|>405 235 424 761<|content|>STEP 2: DISBURSEMENTS FROM ADMINISTRATIVE AGENT\n<|id|>239<|page|>19<|box|>90 199 109 797<|content|>APPENDIX B — LENDER FUNDING SUMMARY TABLE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>42<|level|>1\n<|id|>48<|level|>1\n<|id|>57<|level|>1\n<|id|>61<|level|>1\n<|id|>63<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>3\n<|id|>86<|level|>3\n<|id|>92<|level|>3\n<|id|>98<|level|>3\n<|id|>107<|level|>3\n<|id|>112<|level|>3\n<|id|>117<|level|>3\n<|id|>128<|level|>3\n<|id|>135<|level|>3\n<|id|>142<|level|>2\n<|id|>145<|level|>2\n<|id|>149<|level|>1\n<|id|>166<|level|>1\n<|id|>179<|level|>2\n<|id|>181<|level|>2\n<|id|>184<|level|>1\n<|id|>190<|level|>1\n<|id|>204<|level|>1\n<|id|>210<|level|>1\n<|id|>220<|level|>1\n<|id|>222<|level|>2\n<|id|>228<|level|>-1\n<|id|>230<|level|>2\n<|id|>239<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 166,
+            "level": 1
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 1
+        },
+        {
+            "id": 190,
+            "level": 1
+        },
+        {
+            "id": 204,
+            "level": 1
+        },
+        {
+            "id": 210,
+            "level": 1
+        },
+        {
+            "id": 220,
+            "level": 1
+        },
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 239,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['11', '陆永军公式g_{\\\\mathrm{b}} = K \\\\frac{\\\\rho_{\\\\mathrm{s}}}{\\\\rho_{\\\\mathrm{s}} - \\\\rho} \\\\tau_{0} u_{*} \\\\left[ 1 - \\\\frac{0.7}{\\\\sqrt{\\\\tau_{0}}} \\\\frac{\\\\sum \\\\sqrt{\\\\tau_{0i}} P_{0i}(1 - q_{i})}{\\\\sum P_{0i}(1 - q_{i})} \\\\right]\\\\sum P_{0i}(1 - q_{i})', 'q_{i} = \\\\frac{1}{\\\\sigma \\\\sqrt{2\\\\pi}} \\\\int_{-\\\\infty}^{\\\\frac{\\\\tau_{\\\\mathrm{cyi}}}{\\\\tau_{0}}} \\\\exp \\\\left( -\\\\frac{t^{2}}{2\\\\sigma^{2}} \\\\right) dt\\\\tau_{\\\\mathrm{cyi}} = 0.031 \\\\zeta (\\\\gamma_{\\\\mathrm{s}} - \\\\gamma) d_{i}\\\\zeta = \\\\begin{cases} 1.0, & \\\\theta > 0.06 \\\\\\\\ 10^{0.551 \\\\lg^{2}(d_{i}/d_{\\\\mathrm{m}}) - 0.204 \\\\lg(d_{i}/d_{\\\\mathrm{m}}) - 0.112}, d_{i} \\\\leqslant 0.5 d_{\\\\mathrm{m}} & \\\\theta \\\\leqslant 0.06 \\\\\\\\ 0.895 (d_{i}/d_{\\\\mathrm{m}})^{-0.16}, d_{i} > 0.5 d_{\\\\mathrm{m}} & \\\\theta \\\\leqslant 0.06 \\\\end{cases}K = \\\\begin{cases} 11.6, \\\\theta > 0.25 \\\\\\\\ 10^{0.2256 - 2.5348 \\\\lg \\\\theta - 1.896 \\\\lg^{2} \\\\theta}, 0.06 < \\\\theta \\\\leqslant 0.25 \\\\\\\\ 10^{12.8719} \\\\theta^{10.1319}, \\\\theta \\\\leqslant 0.06 \\\\end{cases}\\\\theta = \\\\frac{\\\\gamma R J}{(\\\\gamma_{\\\\mathrm{s}} - \\\\gamma) d_{50}}']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['12', '秦荣昱公式g_{\\\\mathrm{b}} = KP_{0} VH \\\\left( \\\\frac{V}{V_{\\\\mathrm{c}}} \\\\right)^{3} \\\\left( \\\\frac{d}{H} \\\\right)^{1/6}', 'K = \\\\begin{cases} 0.3, & d_{0} \\\\leqslant d_{\\\\max} \\\\\\\\ 0.4, & d_{0} > d_{\\\\max} \\\\end{cases}V_{\\\\mathrm{c}} = 0.786 \\\\sqrt{\\\\frac{\\\\gamma_{\\\\mathrm{s}} - \\\\gamma}{\\\\gamma} g(2.5 m d_{\\\\mathrm{m}}) + d_{0}} \\\\left( \\\\frac{h}{d_{90}} \\\\right)^{1/6}']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 2351,
+    "table2_idx": 2352
+}

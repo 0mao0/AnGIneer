@@ -1,0 +1,154 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 155 125 841<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT PRIVILEG\n<|id|>9<|page|>1<|box|>377 385 397 611<|content|>I. Executive Summary\n<|id|>21<|page|>2<|box|>597 271 617 725<|content|>II. Background: The Keypoint Credit Facility\n<|id|>22<|page|>2<|box|>643 142 659 284<|content|>A. Facility Terms\n<|id|>31<|page|>3<|box|>532 142 549 470<|content|>B. First Amendment to Credit Agreement\n<|id|>37<|page|>4<|box|>229 140 248 423<|content|>C. Outstanding Balance and Payoff\n<|id|>47<|page|>5<|box|>90 282 111 715<|content|>III. Tax Treatment of Principal Repayment\n<|id|>48<|page|>5<|box|>136 140 154 633<|content|>A. General Rule — Non-Deductibility of Principal R\n<|id|>52<|page|>5<|box|>529 140 547 428<|content|>B. Source of Funds — IPO Proceeds\n<|id|>56<|page|>6<|box|>154 303 174 692<|content|>IV. Tax Treatment of Accrued Interest\n<|id|>57<|page|>6<|box|>199 140 215 491<|content|>A. AHT's Method of Accounting for Interest\n<|id|>65<|page|>7<|box|>90 140 107 565<|content|>B. Section 163(j) Business Interest Expense Limita\n<|id|>76<|page|>8<|box|>340 140 357 720<|content|>C. Capitalization vs. Deduction of Interest — Sect\n<|id|>81<|page|>9<|box|>154 321 174 674<|content|>V. Original Issue discount Analysis\n<|id|>82<|page|>9<|box|>199 140 215 367<|content|>A. General OID Framework\n<|id|>85<|page|>9<|box|>438 140 455 478<|content|>B. Application to Revolving Credit Facility\n<|id|>91<|page|>10<|box|>154 250 174 746<|content|>VI. Prepayment Premium / Make-Whole Analysis\n<|id|>92<|page|>10<|box|>199 140 215 508<|content|>A. Facility Terms — No Prepayment Premium\n<|id|>96<|page|>10<|box|>611 140 628 602<|content|>B. Tax Treatment if a Prepayment Premium Were Paya\n<|id|>100<|page|>11<|box|>90 174 136 823<|content|>VII. Treatment of Loan Origination Costs and Unamo\n<|id|>101<|page|>11<|box|>159 140 176 424<|content|>A. AHT's Deferred Financing Costs\n<|id|>105<|page|>11<|box|>516 140 534 517<|content|>B. Effect of Partial Repayment on Amortization\n<|id|>111<|page|>12<|box|>215 277 236 720<|content|>VIII. UCC Lien Release — Tax Implications\n<|id|>112<|page|>12<|box|>262 140 277 321<|content|>A. Nature of the Liens\n<|id|>116<|page|>12<|box|>619 140 635 411<|content|>B. Federal Income Tax Treatment\n<|id|>120<|page|>13<|box|>154 194 199 802<|content|>IX. Treatment of Costs Incurred in Connection with\n<|id|>121<|page|>13<|box|>223 140 239 313<|content|>A. Amendment Costs\n<|id|>134<|page|>14<|box|>267 140 284 436<|content|>B. Deductibility of Amendment Costs\n<|id|>138<|page|>14<|box|>720 316 739 679<|content|>X. State Income Tax Considerations\n<|id|>158<|page|>16<|box|>90 292 111 704<|content|>XI. Impact on Use of Proceeds Disclosure\n<|id|>162<|page|>16<|box|>574 349 594 648<|content|>XII. Summary of Conclusions\n<|id|>172<|page|>17<|box|>599 318 619 679<|content|>XIII. Limitations and Qualifications",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>21<|level|>1\n<|id|>22<|level|>2\n<|id|>31<|level|>2\n<|id|>37<|level|>2\n<|id|>47<|level|>1\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>56<|level|>1\n<|id|>57<|level|>2\n<|id|>65<|level|>2\n<|id|>76<|level|>2\n<|id|>81<|level|>1\n<|id|>82<|level|>2\n<|id|>85<|level|>2\n<|id|>91<|level|>1\n<|id|>92<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>1\n<|id|>101<|level|>2\n<|id|>105<|level|>2\n<|id|>111<|level|>1\n<|id|>112<|level|>2\n<|id|>116<|level|>2\n<|id|>120<|level|>1\n<|id|>121<|level|>2\n<|id|>134<|level|>2\n<|id|>138<|level|>1\n<|id|>158<|level|>1\n<|id|>162<|level|>1\n<|id|>172<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        }
+    ]
+}

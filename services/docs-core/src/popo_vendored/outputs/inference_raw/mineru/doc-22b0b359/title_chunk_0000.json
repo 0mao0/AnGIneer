@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        12
+    ],
+    "pages": [
+        2,
+        3,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>89 434 111 563<|content|>EXHIBIT K\n<|id|>1<|page|>2<|box|>136 259 154 738<|content|>Approved Subcontractors and Third-Party Service Pr\n<|id|>3<|page|>2<|box|>207 140 224 346<|content|>Parties to the Agreement:\n<|id|>10<|page|>2<|box|>513 140 530 393<|content|>Section 1 — Purpose and Scope\n<|id|>17<|page|>3<|box|>494 140 511 480<|content|>Section 2 — Approved Subcontractors List\n<|id|>49<|page|>7<|box|>294 140 311 349<|content|>2.3 — Central Laboratory\n<|id|>66<|page|>9<|box|>231 140 248 522<|content|>Section 3 — Data Protection and Confidentiality\n<|id|>71<|page|>10<|box|>90 140 108 522<|content|>Section 4 — Regulatory Compliance Obligations\n<|id|>83<|page|>10<|box|>800 140 818 611<|content|>Section 5 — Modifications to Approved Subcontracto\n<|id|>87<|page|>11<|box|>494 140 511 405<|content|>Section 6 — Contact Information\n<|id|>90<|page|>11<|box|>719 140 734 284<|content|>Sponsor Contact:\n<|id|>92<|page|>11<|box|>789 140 805 321<|content|>Site Network Contact:\n<|id|>94<|page|>12<|box|>90 142 107 284<|content|>Acknowledgment",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>49<|level|>3\n<|id|>66<|level|>2\n<|id|>71<|level|>2\n<|id|>83<|level|>2\n<|id|>87<|level|>2\n<|id|>90<|level|>3\n<|id|>92<|level|>3\n<|id|>94<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        }
+    ]
+}

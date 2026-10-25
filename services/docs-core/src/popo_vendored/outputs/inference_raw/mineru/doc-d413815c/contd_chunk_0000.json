@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        9,
+        16,
+        17,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 143 104 653<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>1<|page|>1<|box|>112 424 128 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>138 140 172 854<|content|>CALDERWOOD & HARKNESS LLP 300 South Fourth Street, Suite 2800 Las Vegas, NV 89101\n<|id|>33<|page|>4<|box|>839 140 893 856<|content|>Equity Kicker — Warrants. ... 00% of the\n<|id|>34<|page|>5<|box|>90 140 236 857<|content|>Company's fully diluted equity based on the approx...on provisions, as discussed in detail in Section V\n<|id|>64<|page|>8<|box|>825 140 898 857<|content|>We note that the institutional investor exemption ...hip were to reach or exceed 5%, at which point the\n<|id|>65<|page|>9<|box|>90 138 199 856<|content|>Fund would need to either (a) undergo a full suita...e of ensuring that the 5% threshold is not crossed\n<|id|>69<|page|>9<|box|>429 174 465 854<|content|>(a) The lender acquires equity conversion rights, ... outstanding shares of the gaming licensee; ... or\n<|id|>71<|page|>9<|box|>535 140 627 856<|content|>The Key Employee & Lender disclosure form requires...erviews, and requests for additional documentation\n<|id|>134<|page|>16<|box|>854 140 909 856<|content|>Under New Mexico law, gaming licensees are require...bility review differ from those in Nevada, and the\n<|id|>135<|page|>17<|box|>90 140 143 854<|content|>New Mexico regulatory framework generally affords ... based on the facts and circumstances of each case\n<|id|>168<|page|>21<|box|>270 140 287 320<|content|>Respectfully submitted,\n<|id|>169<|page|>21<|box|>287 140 304 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>170<|page|>21<|box|>305 142 321 254<|content|>By: ... By\n<|id|>171<|page|>21<|box|>321 140 339 468<|content|>Claudia Merritt Partner, Banking & Finance\n<|id|>172<|page|>21<|box|>340 143 357 254<|content|>By: ... By\n<|id|>173<|page|>21<|box|>356 140 373 480<|content|>Marcus Leung Associate, Banking & Finance\n<|id|>174<|page|>21<|box|>373 140 390 571<|content|>300 South Fourth Street, Suite 2800 Las Vegas, NV 89101\n<|id|>175<|page|>21<|box|>390 140 406 498<|content|>Distribution: ... 1033-00001)",
+    "raw_response": "<|src_id|>33<|tgt_id|>34\n<|src_id|>64<|tgt_id|>65\n<|src_id|>134<|tgt_id|>135",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 135
+        }
+    ]
+}

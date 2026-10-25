@@ -1,0 +1,63 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        108
+    ],
+    "pages": [
+        51,
+        69,
+        71,
+        72,
+        77,
+        79,
+        87,
+        107,
+        108
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>243<|page|>51<|box|>79 117 112 836<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>281<|page|>69<|box|>68 338 84 644<|content|>Section II - Summary by Countries\n<|id|>285<|page|>71<|box|>74 346 88 653<|content|>Section II - Summary by Countries\n<|id|>287<|page|>72<|box|>73 347 89 659<|content|>Section II - Summary by Countries\n<|id|>293<|page|>77<|box|>70 156 113 829<|content|>Section IV - Supplementary Data by Countries Table\n<|id|>301<|page|>79<|box|>74 221 108 766<|content|>Section 1 - Statements of Financial Condition, Jun\n<|id|>312<|page|>87<|box|>66 224 83 772<|content|>Section I - Statements of Financial Condition, Jun\n<|id|>336<|page|>107<|box|>75 222 90 767<|content|>Section I - Statements of Financial Condition, Jun\n<|id|>338<|page|>108<|box|>68 216 82 771<|content|>Section I - Statements of Financial Condition, Jun\n<|id|>339<|page|>108<|box|>84 36 100 968<|content|>Table 7.- Gross Loans Outstanding, Excluding Inter",
+    "raw_response": "<|id|>243<|level|>1\n<|id|>281<|level|>1\n<|id|>285<|level|>1\n<|id|>287<|level|>1\n<|id|>293<|level|>1\n<|id|>301<|level|>1\n<|id|>312<|level|>1\n<|id|>336<|level|>1\n<|id|>338<|level|>1\n<|id|>339<|level|>2",
+    "parsed": [
+        {
+            "id": 243,
+            "level": 1
+        },
+        {
+            "id": 281,
+            "level": 1
+        },
+        {
+            "id": 285,
+            "level": 1
+        },
+        {
+            "id": 287,
+            "level": 1
+        },
+        {
+            "id": 293,
+            "level": 1
+        },
+        {
+            "id": 301,
+            "level": 1
+        },
+        {
+            "id": 312,
+            "level": 1
+        },
+        {
+            "id": 336,
+            "level": 1
+        },
+        {
+            "id": 338,
+            "level": 1
+        },
+        {
+            "id": 339,
+            "level": 2
+        }
+    ]
+}

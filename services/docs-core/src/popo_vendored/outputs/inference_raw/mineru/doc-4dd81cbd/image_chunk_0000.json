@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 212 133 782<|content|>MEMORANDUM PRIVILEGED & CONFIDENTIAL — ATTORNEY WO\n<|id|>8<|type|>title<|page|>1<|box|>340 372 361 624<|content|>I. Purpose and Overview\n<|id|>18<|type|>title<|page|>2<|box|>722 305 743 692<|content|>II. Engagement Team — Core Staffing\n<|id|>20<|type|>title<|page|>3<|box|>90 142 107 238<|content|>A. Partners\n<|id|>21<|type|>title<|page|>3<|box|>121 140 138 679<|content|>1. Oliver Mackenzie — Responsible Partner, Mergers\n<|id|>28<|type|>title<|page|>3<|box|>573 140 590 645<|content|>2. Harrison Wexford — Billing Partner, Mergers & A\n<|id|>35<|type|>title<|page|>4<|box|>159 140 176 661<|content|>3. Howard Bellamy — Specialist Partner, Antitrust\n<|id|>42<|type|>title<|page|>4<|box|>672 142 689 354<|content|>Estimated Hours: 120–160\n<|id|>43<|type|>title<|page|>4<|box|>714 142 729 250<|content|>B. Associates\n<|id|>44<|type|>title<|page|>4<|box|>744 140 761 653<|content|>4. Andrew Fitzpatrick — Lead Associate, Mergers &\n<|id|>51<|type|>title<|page|>5<|box|>627 142 643 354<|content|>Estimated Hours: 550–650\n<|id|>52<|type|>title<|page|>5<|box|>657 140 675 653<|content|>5. Naomi Petersen — Working Associate, Mergers & A\n<|id|>60<|type|>title<|page|>6<|box|>594 140 611 480<|content|>C. Additional Resources (As-Needed Basis)\n<|id|>66<|type|>title<|page|>7<|box|>376 246 396 750<|content|>III. Workstream Breakdown and Estimated Hours\n<|id|>68<|type|>title<|page|>7<|box|>583 140 599 509<|content|>A. Workstream 1: Transaction Documentation\n<|id|>95<|type|>title<|page|>9<|box|>715 142 733 398<|content|>B. Workstream 2: Due Diligence\n<|id|>112<|type|>title<|page|>11<|box|>324 140 342 464<|content|>C. Workstream 3: Regulatory Approvals\n<|id|>121<|type|>title<|page|>12<|box|>436 142 454 370<|content|>D. Workstream 4: Financing\n<|id|>129<|type|>table<|page|>13<|box|>313 143 426 852<|content|>None\n<|id|>133<|type|>title<|page|>13<|box|>734 142 753 370<|content|>E. Workstream 5: Insurance\n<|id|>141<|type|>title<|page|>14<|box|>401 142 417 339<|content|>Lead: Andrew Fitzpatrick\n<|id|>143<|type|>title<|page|>14<|box|>468 142 484 470<|content|>F. Workstream 6: Closing & Post-Closing\n<|id|>148<|type|>table<|page|>14<|box|>741 143 849 852<|content|>None\n<|id|>149<|type|>title<|page|>14<|box|>886 178 901 297<|content|>Uses of Funds:\n<|id|>151<|type|>table<|page|>15<|box|>88 143 250 852<|content|>None\n<|id|>160<|type|>title<|page|>15<|box|>821 341 840 655<|content|>IV. Aggregate Hours Summary\n<|id|>162<|type|>table<|page|>16<|box|>89 143 354 852<|content|>None\n<|id|>165<|type|>title<|page|>16<|box|>569 344 589 653<|content|>V. Projected Budget Summary\n<|id|>166<|type|>title<|page|>16<|box|>614 142 630 305<|content|>A. Professional Fees\n<|id|>172<|type|>title<|page|>17<|box|>90 142 107 488<|content|>B. Disbursements and Expenses (Estimated)\n<|id|>180<|type|>title<|page|>17<|box|>574 140 590 712<|content|>C. Total Estimated Budget (Fees + Disbursements, E\n<|id|>185<|type|>title<|page|>17<|box|>784 264 803 730<|content|>VI. Billing Arrangements and Invoice Cadence\n<|id|>195<|type|>title<|page|>18<|box|>500 212 520 782<|content|>VII. Key Assumptions and Risk Factors Affecting Bu\n<|id|>205<|type|>title<|page|>19<|box|>526 299 545 697<|content|>VIII. Coordination with Other Advisors\n<|id|>212<|type|>title<|page|>20<|box|>425 352 445 643<|content|>IX. Approval and Next Steps",
+    "raw_response": "<|src_id|>129<|tgt_id|>121\n<|src_id|>148<|tgt_id|>143\n<|src_id|>151<|tgt_id|>149\n<|src_id|>162<|tgt_id|>160",
+    "parsed": [
+        {
+            "src_id": 129,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 160
+        }
+    ]
+}

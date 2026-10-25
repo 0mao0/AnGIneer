@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        9,
+        26
+    ],
+    "pages": [
+        9,
+        10,
+        16,
+        17,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>62<|page|>9<|box|>768 174 878 857<|content|>9. ... Whitfield is Professor Emeritus at the Univ...fornia, Santa Barbara, with over two hundred (200)\n<|id|>63<|page|>10<|box|>89 174 127 854<|content|>publications in the field of integrated photonics....onics) from the University of California, Berkeley\n<|id|>117<|page|>16<|box|>801 140 895 857<|content|>Objections: ... OWS further objects to the extent ...esign information, including information regarding\n<|id|>118<|page|>17<|box|>89 140 145 856<|content|>OWS's product architectures, fabrication processes... waiving these objections, OWS responds as follows\n<|id|>122<|page|>17<|box|>248 174 284 854<|content|>(b) The OWS-800LR coherent optical transceiver chi...designed for 800G long-reach applications; ... and\n<|id|>124<|page|>17<|box|>337 140 503 854<|content|>These products are designed by OWS at its headquar... equalization stages as claimed in the '890 Patent\n<|id|>206<|page|>25<|box|>316 140 334 310<|content|>Name: ... Sandra Ellison\n<|id|>207<|page|>25<|box|>334 142 351 315<|content|>Title: ... General Counsel\n<|id|>208<|page|>25<|box|>351 140 386 816<|content|>Optiwave Semiconductor Corp. ... December _, 2022\n<|id|>210<|page|>26<|box|>128 676 146 854<|content|>Respectfully submitted,\n<|id|>211<|page|>26<|box|>154 140 171 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>212<|page|>26<|box|>172 143 189 253<|content|>By: ... By\n<|id|>213<|page|>26<|box|>189 142 205 614<|content|>Alan Ngo (CA State Bar No. ... 52,871)\n<|id|>214<|page|>26<|box|>205 140 223 462<|content|>Omar Siddiqui (CA State Bar No. ... 301,459)\n<|id|>215<|page|>26<|box|>223 140 273 852<|content|>CALDERWOOD & HARKNESS LLP One Embarcadero Center, ... Counsel for Plaintiff Optiwave Semiconductor Corp\n<|id|>218<|page|>26<|box|>417 174 470 854<|content|>Victoria \"Tori\" Ashworth Daniel Kowalski BRANNICK ...co, California 94104 Telephone: ... (415) 555-3401\n<|id|>219<|page|>26<|box|>479 176 497 413<|content|>Email: ... com\n<|id|>220<|page|>26<|box|>498 176 513 415<|content|>Email: ... com\n<|id|>221<|page|>26<|box|>515 176 532 511<|content|>Counsel for Defendant Lumos Photonics, Inc. ... Counsel for Defendant Lumos Photonics, Inc",
+    "raw_response": "<|src_id|>62<|tgt_id|>63\n<|src_id|>117<|tgt_id|>118",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 118
+        }
+    ]
+}

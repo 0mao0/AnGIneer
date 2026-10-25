@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 200 133 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>141 140 159 651<|content|>TO: ... Oliver Mackenzie, Responsible Partner, Mergers & Acquisitions\n<|id|>3<|page|>1<|box|>167 140 204 854<|content|>FROM: ... Harrison Wexford, Billing Partner, Merge...itzpatrick, Lead Associate, Mergers & Acquisitions\n<|id|>4<|page|>1<|box|>210 140 229 343<|content|>DATE: ... February 26, 2025\n<|id|>5<|page|>1<|box|>237 140 273 856<|content|>RE: ... 001)\n<|id|>18<|page|>2<|box|>849 140 904 854<|content|>Scope of C&H Engagement. ... (ii)\n<|id|>19<|page|>3<|box|>90 140 218 854<|content|>coordination and oversight of the legal due dilige...ivities necessary to achieve closing of the Merger\n<|id|>97<|page|>7<|box|>842 145 896 856<|content|>• Elkhorn Capital Markets, LLC: ... D above,\n<|id|>98<|page|>8<|box|>90 174 143 856<|content|>Elkhorn occupies a dual role in the present transa...ts analysis, which is set forth in Section V below\n<|id|>148<|page|>14<|box|>89 174 125 854<|content|>Oliver Mackenzie Responsible Partner, Mergers & Acquisitions Calderwood & Harkness LLP\n<|id|>149<|page|>14<|box|>133 140 151 392<|content|>REVIEWED AND APPROVED: ... REVIEWED AND APPROVED\n<|id|>151<|page|>14<|box|>169 142 185 334<|content|>Name: ... Harrison Wexford\n<|id|>152<|page|>14<|box|>186 142 204 483<|content|>Title: ... Billing Partner, Mergers & Acquisitions\n<|id|>153<|page|>14<|box|>204 143 220 267<|content|>Date: ... Date\n<|id|>156<|page|>14<|box|>255 140 271 333<|content|>Name: ... Oliver Mackenzie\n<|id|>157<|page|>14<|box|>272 140 289 521<|content|>Title: ... Responsible Partner, Mergers & Acquisitions\n<|id|>158<|page|>14<|box|>290 142 306 267<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>18<|tgt_id|>19\n<|src_id|>97<|tgt_id|>98",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 98
+        }
+    ]
+}

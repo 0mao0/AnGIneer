@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 155 125 841<|content|>UNITED STATES BANKRUPTCY COURT NORTHERN DISTRICT O\n<|id|>1<|type|>table<|page|>1<|box|>157 143 258 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>325 155 381 841<|content|>NOTICE OF OCCURRENCE OF EFFECTIVE DATE OF PREPACKA\n<|id|>7<|type|>title<|page|>1<|box|>797 142 814 418<|content|>1. Occurrence of the Effective Date\n<|id|>12<|type|>title<|page|>2<|box|>366 140 383 323<|content|>2. Conditions Satisfied\n<|id|>23<|type|>title<|page|>3<|box|>491 140 508 429<|content|>3. Distributions and Implementation\n<|id|>33<|type|>title<|page|>5<|box|>150 140 167 416<|content|>4. Administrative Claims Bar Date\n<|id|>41<|type|>title<|page|>5<|box|>617 140 633 501<|content|>5. Executory Contracts and Unexpired Leases\n<|id|>48<|type|>title<|page|>6<|box|>348 140 364 457<|content|>6. Releases, Exculpation, and Injunction\n<|id|>52<|type|>title<|page|>6<|box|>833 142 849 279<|content|>7. Binding Effect\n<|id|>54<|type|>title<|page|>7<|box|>223 140 239 354<|content|>8. Where to Obtain Copies\n<|id|>66<|type|>title<|page|>7<|box|>712 142 729 243<|content|>9. Questions\n<|id|>81<|type|>title<|page|>8<|box|>498 375 513 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

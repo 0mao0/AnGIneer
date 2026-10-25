@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 150 143 848<|content|>BULK SALE NOTICE PURSUANT TO 72 P.S. § 1403 AND 73\n<|id|>4<|page|>1<|box|>256 142 273 251<|content|>Prepared by:\n<|id|>13<|page|>1<|box|>502 140 518 566<|content|>Section 1: Introductory Statement and Statutory Ba\n<|id|>19<|page|>2<|box|>366 140 383 429<|content|>Section 2: Identification of the Seller\n<|id|>38<|page|>3<|box|>330 142 348 390<|content|>Authorized Contacts for Seller:\n<|id|>48<|page|>3<|box|>738 140 755 535<|content|>Locations of Business Operations in Pennsylvania:\n<|id|>55<|page|>4<|box|>354 140 373 532<|content|>Section 3: Identification of the Buyer (Transferee\n<|id|>73<|page|>5<|box|>377 140 393 464<|content|>Section 4: Description of the Transaction\n<|id|>82<|page|>6<|box|>375 140 392 517<|content|>4.1: Assets Being Transferred (Acquired Assets)\n<|id|>108<|page|>8<|box|>138 140 156 308<|content|>4.2: Excluded Assets\n<|id|>115<|page|>8<|box|>542 142 559 334<|content|>4.3: Assumed Liabilities\n<|id|>121<|page|>8<|box|>829 140 845 493<|content|>4.4: Excluded Liabilities (Retained by Seller)\n<|id|>128<|page|>9<|box|>583 140 599 504<|content|>Section 5: Tax Matters and Known Exposures\n<|id|>142<|page|>11<|box|>250 140 266 522<|content|>Section 6: Request for Tax Clearance Certificate\n<|id|>156<|page|>12<|box|>333 140 349 313<|content|>Section 7: Enclosures\n<|id|>162<|page|>13<|box|>90 140 107 486<|content|>Section 8: Certification and Signature block\n<|id|>165<|page|>13<|box|>277 142 294 218<|content|>BUYER:\n<|id|>186<|page|>14<|box|>90 142 107 491<|content|>Appendix A: Contact Information Summary",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>-1\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>38<|level|>3\n<|id|>48<|level|>3\n<|id|>55<|level|>2\n<|id|>73<|level|>2\n<|id|>82<|level|>3\n<|id|>108<|level|>3\n<|id|>115<|level|>3\n<|id|>121<|level|>3\n<|id|>128<|level|>2\n<|id|>142<|level|>2\n<|id|>156<|level|>2\n<|id|>162<|level|>2\n<|id|>165<|level|>3\n<|id|>186<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 2
+        }
+    ]
+}

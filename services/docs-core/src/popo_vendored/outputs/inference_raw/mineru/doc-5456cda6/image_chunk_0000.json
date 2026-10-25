@@ -1,0 +1,50 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 401 118 596<|content|>PAYOFF LETTER\n<|id|>1<|type|>title<|page|>1<|box|>136 279 156 718<|content|>FORM AND DRAFTING INSTRUCTIONS\n<|id|>2<|type|>title<|page|>1<|box|>174 330 191 666<|content|>Prepared by Calderwood & Harkness LLP\n<|id|>5<|type|>title<|page|>1<|box|>314 437 333 560<|content|>PART ONE\n<|id|>6<|type|>title<|page|>1<|box|>351 187 371 808<|content|>INTERNAL DRAFTING INSTRUCTIONS MEMORANDUM\n<|id|>7<|type|>title<|page|>1<|box|>397 142 414 290<|content|>MEMORANDUM\n<|id|>13<|type|>title<|page|>1<|box|>575 142 594 424<|content|>Section 1: Background and Purpose\n<|id|>23<|type|>title<|page|>2<|box|>580 140 597 581<|content|>Section 2: Key Information to Be Obtained from Len\n<|id|>36<|type|>title<|page|>4<|box|>330 140 347 681<|content|>Section 3: UCC Termination Statements and Lien Rel\n<|id|>49<|type|>title<|page|>5<|box|>815 140 832 519<|content|>Section 4: Coordination with Closing Mechanics\n<|id|>55<|type|>title<|page|>6<|box|>710 140 729 540<|content|>Section 5: Form of Payoff Letter — Drafting Notes\n<|id|>62<|type|>title<|page|>7<|box|>678 433 696 563<|content|>PART TWO\n<|id|>63<|type|>title<|page|>7<|box|>717 344 734 653<|content|>FORM OF PAYOFF LETTER\n<|id|>73<|type|>title<|page|>8<|box|>344 140 359 290<|content|>Section 1: Recitals\n<|id|>77<|type|>title<|page|>8<|box|>681 140 699 348<|content|>Section 2: Payoff Amount\n<|id|>79<|type|>table<|page|>8<|box|>768 143 897 852<|content|>None\n<|id|>80<|type|>table<|page|>9<|box|>89 143 202 852<|content|>None\n<|id|>83<|type|>title<|page|>9<|box|>541 140 556 437<|content|>Section 3: Wire Transfer Instructions\n<|id|>93<|type|>title<|page|>10<|box|>223 140 239 527<|content|>Section 4: Release of Liens and Security Interests\n<|id|>103<|type|>table<|page|>10<|box|>753 143 845 852<|content|>None\n<|id|>114<|type|>title<|page|>11<|box|>686 140 704 637<|content|>Section 5: Termination of Credit Agreement and Com\n<|id|>122<|type|>table<|page|>12<|box|>337 143 375 852<|content|>None\n<|id|>124<|type|>title<|page|>12<|box|>505 140 522 444<|content|>Section 6: No Outstanding Obligations\n<|id|>130<|type|>title<|page|>13<|box|>90 140 107 441<|content|>Section 7: Authorization and Reliance\n<|id|>133<|type|>title<|page|>13<|box|>383 140 402 349<|content|>Section 8: Governing Law\n<|id|>135<|type|>title<|page|>13<|box|>488 140 503 491<|content|>Section 9: Counterparts; Electronic Delivery\n<|id|>138<|type|>title<|page|>13<|box|>638 321 654 674<|content|>SIGNATURE PAGE TO PAYOFF LETTER\n<|id|>145<|type|>title<|page|>13<|box|>777 318 792 679<|content|>ACKNOWLEDGMENT AND AGREEMENT\n<|id|>149<|type|>title<|page|>14<|box|>183 302 203 694<|content|>APPENDICES AND ATTACHMENTS\n<|id|>150<|type|>title<|page|>14<|box|>229 142 244 424<|content|>Attachment A: UCC Search Results\n<|id|>151<|type|>title<|page|>14<|box|>253 243 272 751<|content|>[Attach copies of UCC lien search results from rel\n<|id|>157<|type|>title<|page|>15<|box|>90 143 107 491<|content|>Attachment B: Schedule of Loan Documents\n<|id|>158<|type|>table<|page|>15<|box|>157 143 477 852<|content|>None\n<|id|>160<|type|>title<|page|>15<|box|>625 142 641 586<|content|>Attachment C: Forms of UCC-3 Termination Statement\n<|id|>169<|type|>title<|page|>16<|box|>143 142 160 553<|content|>Attachment D: Form of General Lien Release Letter\n<|id|>172<|type|>title<|page|>16<|box|>238 326 256 669<|content|>GENERAL RELEASE AND DISCHARGE\n<|id|>192<|type|>title<|page|>17<|box|>347 400 364 598<|content|>[END OF DOCUMENT]",
+    "raw_response": "<|src_id|>79<|tgt_id|>77\n<|src_id|>80<|tgt_id|>77\n<|src_id|>103<|tgt_id|>93\n<|src_id|>122<|tgt_id|>114\n<|src_id|>158<|tgt_id|>157",
+    "parsed": [
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 157
+        }
+    ]
+}

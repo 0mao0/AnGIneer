@@ -1,0 +1,411 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-be_srgul\\input\\pdfs\\doc-68471f4f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-be_srgul\\enriched\\doc-68471f4f.json",
+    "contd_output": "<|src_id|>23<|tgt_id|>24\n<|src_id|>35<|tgt_id|>36\n<|src_id|>308<|tgt_id|>309",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>19<|level|>3\n<|id|>29<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>57<|level|>3\n<|id|>59<|level|>4\n<|id|>61<|level|>4\n<|id|>63<|level|>4\n<|id|>65<|level|>4\n<|id|>67<|level|>4\n<|id|>71<|level|>4\n<|id|>73<|level|>4\n<|id|>75<|level|>4\n<|id|>77<|level|>2\n<|id|>78<|level|>3\n<|id|>87<|level|>3\n<|id|>88<|level|>4\n<|id|>95<|level|>5\n<|id|>100<|level|>4\n<|id|>108<|level|>4\n<|id|>116<|level|>4\n<|id|>124<|level|>3\n<|id|>127<|level|>2\n<|id|>128<|level|>3\n<|id|>138<|level|>3\n<|id|>139<|level|>4\n<|id|>146<|level|>5\n<|id|>151<|level|>4\n<|id|>159<|level|>4\n<|id|>167<|level|>3\n<|id|>170<|level|>2\n<|id|>171<|level|>3\n<|id|>181<|level|>3\n<|id|>182<|level|>4\n<|id|>188<|level|>5\n<|id|>194<|level|>4\n<|id|>202<|level|>4\n<|id|>210<|level|>3\n<|id|>213<|level|>2\n<|id|>214<|level|>3\n<|id|>223<|level|>3\n<|id|>224<|level|>4\n<|id|>236<|level|>4\n<|id|>244<|level|>4\n<|id|>252<|level|>3\n<|id|>255<|level|>2\n<|id|>256<|level|>3\n<|id|>265<|level|>3\n<|id|>266<|level|>4\n<|id|>273<|level|>5\n<|id|>278<|level|>3\n<|id|>282<|level|>2\n<|id|>283<|level|>3\n<|id|>287<|level|>3\n<|id|>291<|level|>2\n<|id|>292<|level|>3\n<|id|>296<|level|>3\n<|id|>300<|level|>3\n<|id|>303<|level|>3\n<|id|>311<|level|>3\n<|id|>314<|level|>2\n<|id|>316<|level|>3\n<|id|>318<|level|>3\n<|id|>320<|level|>3\n<|id|>322<|level|>3\n<|id|>324<|level|>3\n<|id|>326<|level|>3\n<|id|>343<|level|>3",
+    "image_output": "<|src_id|>9<|tgt_id|>1\n<|src_id|>50<|tgt_id|>48\n<|src_id|>51<|tgt_id|>48\n<|src_id|>52<|tgt_id|>48\n<|src_id|>53<|tgt_id|>48\n<|src_id|>54<|tgt_id|>48\n<|src_id|>55<|tgt_id|>48\n<|src_id|>56<|tgt_id|>48\n<|src_id|>285<|tgt_id|>283\n<|src_id|>286<|tgt_id|>283\n<|src_id|>289<|tgt_id|>287",
+    "contd_label": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 308,
+            "tgt_id": 309
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 63,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 67,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 73,
+            "level": 4
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 5
+        },
+        {
+            "id": 100,
+            "level": 4
+        },
+        {
+            "id": 108,
+            "level": 4
+        },
+        {
+            "id": 116,
+            "level": 4
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 4
+        },
+        {
+            "id": 146,
+            "level": 5
+        },
+        {
+            "id": 151,
+            "level": 4
+        },
+        {
+            "id": 159,
+            "level": 4
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 4
+        },
+        {
+            "id": 188,
+            "level": 5
+        },
+        {
+            "id": 194,
+            "level": 4
+        },
+        {
+            "id": 202,
+            "level": 4
+        },
+        {
+            "id": 210,
+            "level": 3
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 214,
+            "level": 3
+        },
+        {
+            "id": 223,
+            "level": 3
+        },
+        {
+            "id": 224,
+            "level": 4
+        },
+        {
+            "id": 236,
+            "level": 4
+        },
+        {
+            "id": 244,
+            "level": 4
+        },
+        {
+            "id": 252,
+            "level": 3
+        },
+        {
+            "id": 255,
+            "level": 2
+        },
+        {
+            "id": 256,
+            "level": 3
+        },
+        {
+            "id": 265,
+            "level": 3
+        },
+        {
+            "id": 266,
+            "level": 4
+        },
+        {
+            "id": 273,
+            "level": 5
+        },
+        {
+            "id": 278,
+            "level": 3
+        },
+        {
+            "id": 282,
+            "level": 2
+        },
+        {
+            "id": 283,
+            "level": 3
+        },
+        {
+            "id": 287,
+            "level": 3
+        },
+        {
+            "id": 291,
+            "level": 2
+        },
+        {
+            "id": 292,
+            "level": 3
+        },
+        {
+            "id": 296,
+            "level": 3
+        },
+        {
+            "id": 300,
+            "level": 3
+        },
+        {
+            "id": 303,
+            "level": 3
+        },
+        {
+            "id": 311,
+            "level": 3
+        },
+        {
+            "id": 314,
+            "level": 2
+        },
+        {
+            "id": 316,
+            "level": 3
+        },
+        {
+            "id": 318,
+            "level": 3
+        },
+        {
+            "id": 320,
+            "level": 3
+        },
+        {
+            "id": 322,
+            "level": 3
+        },
+        {
+            "id": 324,
+            "level": 3
+        },
+        {
+            "id": 326,
+            "level": 3
+        },
+        {
+            "id": 343,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 9,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 285,
+            "tgt_id": 283
+        },
+        {
+            "src_id": 286,
+            "tgt_id": 283
+        },
+        {
+            "src_id": 289,
+            "tgt_id": 287
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 50,
+            "table2_idx": 51,
+            "upper_row_ss": [
+                [
+                    "GMP Buckhead LLC",
+                    "84-2639901",
+                    "Buckhead Place Office Tower",
+                    "3380 Peachtree Road NE,",
+                    "Georgia",
+                    "Amendment to Certificate of"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "Atlanta, GA 30326",
+                    "",
+                    "Authority"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 285,
+            "table2_idx": 286,
+            "upper_row_ss": [
+                [
+                    "Florida",
+                    "GMP Southport LLC",
+                    "Amend. to Cert. of Authority",
+                    "Palmetto Strauss PA",
+                    "Pending",
+                    "Pending",
+                    "Pending",
+                    "Confirm 2024 annual"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "report status"
+                ]
+            ]
+        }
+    ]
+}

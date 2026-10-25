@@ -1,0 +1,70 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>513 140 531 601<|content|>I. Background — The MTSA and the Parties' Relation\n<|id|>18<|page|>2<|box|>609 140 627 488<|content|>II. The Overcharges — Detailed Breakdown\n<|id|>22<|page|>3<|box|>121 140 138 578<|content|>A. Category 1: Inflated Per-Mile Rates — $1,104,89\n<|id|>26<|page|>3<|box|>429 140 446 681<|content|>B. Category 2: Improper Fuel Surcharge Calculation\n<|id|>30<|page|>3<|box|>753 140 772 648<|content|>C. Category 3: Unauthorized Accessorial Charges —\n<|id|>34<|page|>4<|box|>282 140 300 524<|content|>D. Category 4: Duplicate Invoices — $114,320.00\n<|id|>38<|page|>4<|box|>656 140 672 602<|content|>III. Prior Dispute Notice and Failed Good-Faith Re\n<|id|>48<|page|>5<|box|>681 142 699 344<|content|>IV. Demand for Payment\n<|id|>60<|page|>6<|box|>444 140 462 410<|content|>V. Consequences of Non-Payment\n<|id|>70<|page|>7<|box|>212 140 229 426<|content|>VI. Litigation Preservation Demand\n<|id|>83<|page|>8<|box|>359 140 375 470<|content|>VII. Direction of Future Communications\n<|id|>89<|page|>8<|box|>597 434 614 563<|content|>Very truly yours,\n<|id|>90<|page|>8<|box|>622 346 638 650<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>18<|level|>1\n<|id|>22<|level|>2\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>34<|level|>2\n<|id|>38<|level|>1\n<|id|>48<|level|>1\n<|id|>60<|level|>1\n<|id|>70<|level|>1\n<|id|>83<|level|>1\n<|id|>89<|level|>-1\n<|id|>90<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        }
+    ]
+}

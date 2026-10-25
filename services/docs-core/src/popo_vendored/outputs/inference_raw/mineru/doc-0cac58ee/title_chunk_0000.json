@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 403 118 594<|content|>CROSS-RECEIPT\n<|id|>1<|page|>1<|box|>136 148 171 848<|content|>Relating to the $850,000,000 Aggregate Principal A\n<|id|>4<|page|>1<|box|>301 140 319 241<|content|>RECITALS\n<|id|>29<|page|>2<|box|>722 140 739 725<|content|>SECTION 1 — ACKNOWLEDGMENT OF RECEIPT BY THE ISSUE\n<|id|>33<|page|>3<|box|>349 142 367 848<|content|>SECTION 2 — ACKNOWLEDGMENT OF RECEIPT BY THE INITI\n<|id|>36<|page|>3<|box|>714 140 751 738<|content|>SECTION 3 — CONFIRMATION OF COMPLIANCE WITH PURCHA\n<|id|>39<|page|>4<|box|>239 140 257 419<|content|>SECTION 4 — DEFINED TERMS\n<|id|>41<|page|>4<|box|>362 140 378 431<|content|>SECTION 5 — GOVERNING LAW\n<|id|>43<|page|>4<|box|>484 140 501 419<|content|>SECTION 6 — COUNTERPARTS\n<|id|>45<|page|>4<|box|>756 245 773 751<|content|>[Remainder of page intentionally left blank. Signa\n<|id|>46<|page|>4<|box|>782 323 797 673<|content|>SIGNATURE PAGE TO CROSS-RECEIPT\n<|id|>48<|page|>4<|box|>857 142 873 233<|content|>ISSUERS:.\n<|id|>49<|page|>4<|box|>880 142 896 470<|content|>DUNMORE ENERGY HOLDINGS LTD.\n<|id|>57<|page|>5<|box|>210 323 227 673<|content|>SIGNATURE PAGE TO CROSS-RECEIPT\n<|id|>58<|page|>5<|box|>241 142 258 356<|content|>INITIAL PURCHASERS:.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>29<|level|>2\n<|id|>33<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>-1\n<|id|>46<|level|>2\n<|id|>48<|level|>3\n<|id|>49<|level|>4\n<|id|>57<|level|>2\n<|id|>58<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 4
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        }
+    ]
+}

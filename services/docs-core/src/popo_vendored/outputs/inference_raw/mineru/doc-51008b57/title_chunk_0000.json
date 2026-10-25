@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 163 118 833<|content|>BORROWER'S CERTIFICATE — PRO FORMA COMPLIANCE\n<|id|>1<|page|>1<|box|>143 426 161 571<|content|>(Leverage Ratios)\n<|id|>8<|page|>1<|box|>448 140 464 529<|content|>Section 1. Recitals and Introductory Certification\n<|id|>13<|page|>2<|box|>90 140 107 462<|content|>Section 2. Description of the Transaction\n<|id|>30<|page|>3<|box|>523 140 542 429<|content|>Section 3. Pro Forma Financial Data\n<|id|>32<|page|>3<|box|>654 140 672 377<|content|>3(a). LTM Adjusted EBITDA\n<|id|>36<|page|>4<|box|>414 142 431 380<|content|>3(b). Pro Forma Indebtedness\n<|id|>41<|page|>5<|box|>138 140 157 488<|content|>3(c). Pro Forma Cash and Cash Equivalents\n<|id|>45<|page|>5<|box|>511 142 527 411<|content|>3(d). Pro Forma Net Indebtedness\n<|id|>48<|page|>5<|box|>679 142 696 534<|content|>Section 4. Pro Forma Leverage Ratio Calculations\n<|id|>49<|page|>5<|box|>710 142 727 418<|content|>4(a). First Lien Net Leverage Ratio\n<|id|>53<|page|>6<|box|>231 140 250 385<|content|>4(b). Total Net Leverage Ratio\n<|id|>56<|page|>6<|box|>556 140 574 421<|content|>Section 5. Compliance Certification\n<|id|>63<|page|>7<|box|>523 140 540 692<|content|>Section 6. Additional Pro Forma Metrics (For Infor\n<|id|>66<|page|>8<|box|>258 140 277 473<|content|>Section 7. Assumptions and Qualifications\n<|id|>73<|page|>9<|box|>167 140 184 305<|content|>Section 8. Execution\n<|id|>80<|page|>10<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>81<|page|>10<|box|>116 300 133 697<|content|>Pro Forma Leverage Ratio Calculation Worksheet\n<|id|>84<|page|>11<|box|>89 449 107 550<|content|>EXHIBIT B\n<|id|>85<|page|>11<|box|>116 388 133 607<|content|>Sources and Uses Summary",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>3\n<|id|>36<|level|>3\n<|id|>41<|level|>3\n<|id|>45<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>53<|level|>3\n<|id|>56<|level|>2\n<|id|>63<|level|>2\n<|id|>66<|level|>2\n<|id|>73<|level|>2\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>84<|level|>2\n<|id|>85<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        }
+    ]
+}

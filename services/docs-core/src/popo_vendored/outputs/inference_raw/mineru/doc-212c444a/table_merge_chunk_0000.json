@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['U.S. Pat. No.', 'Integrated Pest', 'Issued 10/04/2022', 'USPTO', 'Active —']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['11,456,890', 'ManagementCompositionCombiningHerbicidal andFungicidal Agents', '', '', 'Maintenance fee current']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 259,
+    "table2_idx": 260
+}

@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>111 140 128 645<|content|>THALASSA SHIPPING & LOGISTICS SOCIÉTÉ ANONYME\n<|id|>8<|type|>title<|page|>1<|box|>366 140 383 272<|content|>Dear Mr. Bower:\n<|id|>10<|type|>title<|page|>1<|box|>564 142 583 470<|content|>1. Acknowledgment of Engagement Scope\n<|id|>17<|type|>title<|page|>2<|box|>215 140 232 426<|content|>2. Confirmation of Retainer Deposit\n<|id|>21<|type|>title<|page|>2<|box|>648 140 666 424<|content|>3. Acknowledgment of Billing Rates\n<|id|>23<|type|>table<|page|>2<|box|>734 143 829 852<|content|>None\n<|id|>24<|type|>title<|page|>2<|box|>864 140 898 854<|content|>TSL and TAI further acknowledge and confirm the co\n<|id|>32<|type|>title<|page|>3<|box|>422 140 440 380<|content|>4. Billing and Payment Terms\n<|id|>38<|type|>title<|page|>3<|box|>888 140 907 372<|content|>5. Joint and Several Liability\n<|id|>42<|type|>title<|page|>4<|box|>306 176 324 393<|content|>Primary Invoice Recipient:\n<|id|>50<|type|>title<|page|>4<|box|>563 140 579 472<|content|>6. Authorization and Contact Information\n<|id|>59<|type|>title<|page|>5<|box|>89 140 107 225<|content|>7. Closing",
+    "raw_response": "<|src_id|>23<|tgt_id|>21",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        }
+    ]
+}

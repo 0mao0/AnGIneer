@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        51
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>419<|page|>47<|box|>90 142 107 398<|content|>Appendix D — Draft MLR SOP\n<|id|>421<|page|>47<|box|>138 140 156 480<|content|>STANDARD OPERATING PROCEDURE\n<|id|>423<|page|>47<|box|>228 143 244 240<|content|>1.0 Purpose\n<|id|>425<|page|>47<|box|>334 142 352 222<|content|>2.0 Scope\n<|id|>427<|page|>47<|box|>441 142 458 261<|content|>3.0 Definitions\n<|id|>431<|page|>47<|box|>636 142 652 410<|content|>4.0 MLR Committee Composition\n<|id|>433<|page|>47<|box|>686 142 704 295<|content|>5.0 Review Process\n<|id|>435<|page|>47<|box|>739 142 756 315<|content|>6.0 Expedited Review\n<|id|>437<|page|>47<|box|>791 143 806 292<|content|>7.0 Annual Review\n<|id|>439<|page|>47<|box|>843 142 859 243<|content|>8.0 Training\n<|id|>441<|page|>48<|box|>90 140 106 310<|content|>9.0 Record Retention\n<|id|>443<|page|>48<|box|>161 143 178 259<|content|>10.0 Approval\n<|id|>446<|page|>49<|box|>90 142 108 477<|content|>Appendix E — Form 2253 Filing Checklist\n<|id|>449<|page|>50<|box|>419 143 436 261<|content|>Filing Process:\n<|id|>455<|page|>51<|box|>90 140 107 563<|content|>Appendix F — Selected FDA Enforcement Precedents",
+    "raw_response": "<|id|>419<|level|>1\n<|id|>421<|level|>1\n<|id|>423<|level|>2\n<|id|>425<|level|>2\n<|id|>427<|level|>2\n<|id|>431<|level|>2\n<|id|>433<|level|>2\n<|id|>435<|level|>2\n<|id|>437<|level|>2\n<|id|>439<|level|>2\n<|id|>441<|level|>2\n<|id|>443<|level|>2\n<|id|>446<|level|>1\n<|id|>449<|level|>2\n<|id|>455<|level|>1",
+    "parsed": [
+        {
+            "id": 419,
+            "level": 1
+        },
+        {
+            "id": 421,
+            "level": 1
+        },
+        {
+            "id": 423,
+            "level": 2
+        },
+        {
+            "id": 425,
+            "level": 2
+        },
+        {
+            "id": 427,
+            "level": 2
+        },
+        {
+            "id": 431,
+            "level": 2
+        },
+        {
+            "id": 433,
+            "level": 2
+        },
+        {
+            "id": 435,
+            "level": 2
+        },
+        {
+            "id": 437,
+            "level": 2
+        },
+        {
+            "id": 439,
+            "level": 2
+        },
+        {
+            "id": 441,
+            "level": 2
+        },
+        {
+            "id": 443,
+            "level": 2
+        },
+        {
+            "id": 446,
+            "level": 1
+        },
+        {
+            "id": 449,
+            "level": 2
+        },
+        {
+            "id": 455,
+            "level": 1
+        }
+    ]
+}

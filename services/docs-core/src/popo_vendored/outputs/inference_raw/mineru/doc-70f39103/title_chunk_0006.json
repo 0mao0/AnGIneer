@@ -1,0 +1,34 @@
+{
+    "task": "title",
+    "chunk_index": 6,
+    "range": [
+        297,
+        301
+    ],
+    "pages": [
+        297,
+        298,
+        300,
+        301
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4435<|page|>297<|box|>178 115 206 863<|content|>附录 M 遮帘式板桩码头结构内力的简化计算法\n<|id|>4455<|page|>298<|box|>796 92 814 384<|content|>M.0.3 作用于遮帘桩的土压力\n<|id|>4459<|page|>300<|box|>182 193 243 776<|content|>附录 R 重力式码头抗滑、抗倾稳定性 按可靠指标的设计\n<|id|>4462<|page|>301<|box|>179 310 207 660<|content|>附录 S 贮仓压力计算",
+    "raw_response": "<|id|>4435<|level|>1\n<|id|>4455<|level|>2\n<|id|>4459<|level|>1\n<|id|>4462<|level|>1",
+    "parsed": [
+        {
+            "id": 4435,
+            "level": 1
+        },
+        {
+            "id": 4455,
+            "level": 2
+        },
+        {
+            "id": 4459,
+            "level": 1
+        },
+        {
+            "id": 4462,
+            "level": 1
+        }
+    ]
+}

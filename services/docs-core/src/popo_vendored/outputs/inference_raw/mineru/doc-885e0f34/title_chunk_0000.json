@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 140 128 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>364 140 381 364<|content|>I. Introduction and Purpose\n<|id|>12<|page|>2<|box|>90 140 107 478<|content|>II. Background and Transaction Summary\n<|id|>19<|page|>3<|box|>204 140 222 393<|content|>III. Revised Valuation Proposal\n<|id|>23<|page|>3<|box|>799 140 816 683<|content|>IV. Rationale for Revised Valuation — Customer Con\n<|id|>32<|page|>5<|box|>494 140 511 767<|content|>V. Rationale for Revised Valuation — Financial and\n<|id|>41<|page|>6<|box|>703 140 720 679<|content|>VI. Ongoing Disagreements on Protective Provisions\n<|id|>52<|page|>8<|box|>285 140 303 500<|content|>VII. Pacific Summit Bank — Lender Consent\n<|id|>56<|page|>8<|box|>604 140 623 532<|content|>VIII. Reaffirmation of Interest and Path Forward\n<|id|>68<|page|>9<|box|>521 140 537 540<|content|>IX. Non-Binding Nature and Reservation of Rights\n<|id|>73<|page|>10<|box|>89 140 107 287<|content|>X. Confidentiality",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>19<|level|>2\n<|id|>23<|level|>2\n<|id|>32<|level|>2\n<|id|>41<|level|>2\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>68<|level|>2\n<|id|>73<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        }
+    ]
+}

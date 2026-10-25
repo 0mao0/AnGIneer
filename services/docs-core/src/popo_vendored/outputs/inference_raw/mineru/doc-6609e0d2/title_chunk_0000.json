@@ -1,0 +1,41 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        11,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>298 164 315 547<|content|>SECTION I — PURCHASE PRICE & CONSIDERATION\n<|id|>6<|page|>1<|box|>388 164 403 509<|content|>SECTION II — PRORATIONS & ADJUSTMENTS\n<|id|>16<|page|>1<|box|>583 164 600 561<|content|>SECTION III — TRANSFER TAXES & RECORDING FEES\n<|id|>27<|page|>1<|box|>726 164 741 484<|content|>SECTION IV — TITLE & ESCROW CHARGES\n<|id|>43<|page|>11<|box|>86 87 101 139<|content|>Notes\n<|id|>59<|page|>13<|box|>246 164 261 408<|content|>CLOSING COSTS — PURCHASER",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>6<|level|>1\n<|id|>16<|level|>1\n<|id|>27<|level|>1\n<|id|>43<|level|>1\n<|id|>59<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        }
+    ]
+}

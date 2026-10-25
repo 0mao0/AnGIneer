@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 357 133 638<|content|>STATE OF DELAWARE CERTIFICATE OF FORMATION\n<|id|>2<|page|>1<|box|>167 318 184 679<|content|>HUDSON YARDS WEST MORTGAGE LLC\n<|id|>5<|page|>1<|box|>316 143 332 285<|content|>Article I — Name\n<|id|>7<|page|>1<|box|>401 140 417 552<|content|>Article II — Registered Office and Registered Agen\n<|id|>13<|page|>1<|box|>662 142 679 318<|content|>Article III — Purpose\n<|id|>20<|page|>2<|box|>429 142 445 398<|content|>Article IV — Authorized Person\n<|id|>27<|page|>2<|box|>809 142 825 356<|content|>Article V — Effective Date\n<|id|>29<|page|>3<|box|>89 246 133 750<|content|>[Remainder of page intentionally left blank; signa\n<|id|>31<|page|>3<|box|>167 318 184 679<|content|>HUDSON YARDS WEST MORTGAGE LLC\n<|id|>32<|page|>3<|box|>193 413 210 583<|content|>SIGNATURE PAGE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>5<|level|>3\n<|id|>7<|level|>3\n<|id|>13<|level|>3\n<|id|>20<|level|>3\n<|id|>27<|level|>3\n<|id|>29<|level|>1\n<|id|>31<|level|>2\n<|id|>32<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 3
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        }
+    ]
+}

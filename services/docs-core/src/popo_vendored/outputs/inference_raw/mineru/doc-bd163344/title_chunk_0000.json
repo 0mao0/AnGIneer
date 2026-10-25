@@ -1,0 +1,84 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 194 118 800<|content|>MUTUAL TERMINATION AND RELEASE AGREEMENT\n<|id|>7<|page|>1<|box|>416 142 433 243<|content|>RECITALS\n<|id|>8<|page|>1<|box|>441 142 459 246<|content|>WHEREAS:\n<|id|>17<|page|>2<|box|>292 142 309 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>28<|page|>3<|box|>90 142 106 527<|content|>ARTICLE 2 — TERMINATION AND REFUND\n<|id|>35<|page|>4<|box|>421 140 438 450<|content|>ARTICLE 3 — MUTUAL RELEASES\n<|id|>47<|page|>6<|box|>358 140 375 488<|content|>ARTICLE 4 — COVENANT NOT TO SUE\n<|id|>50<|page|>6<|box|>762 140 779 535<|content|>ARTICLE 5 — NO ADMISSION OF LIABILITY\n<|id|>52<|page|>7<|box|>239 140 258 478<|content|>ARTICLE 6 — NON-DISPARAGEMENT\n<|id|>59<|page|>7<|box|>766 142 782 442<|content|>ARTICLE 7 — CONFIDENTIALITY\n<|id|>68<|page|>8<|box|>571 140 589 620<|content|>ARTICLE 8 — REPRESENTATIONS AND WARRANTIES\n<|id|>80<|page|>9<|box|>768 142 787 545<|content|>ARTICLE 9 — MISCELLANEOUS PROVISIONS\n<|id|>89<|page|>11<|box|>325 176 342 331<|content|>If to the Company:\n<|id|>109<|page|>12<|box|>388 400 405 596<|content|>[Signature Page Follows]\n<|id|>111<|page|>12<|box|>457 142 473 366<|content|>LUMOS ANALYTICS INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>17<|level|>2\n<|id|>28<|level|>2\n<|id|>35<|level|>2\n<|id|>47<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>59<|level|>2\n<|id|>68<|level|>2\n<|id|>80<|level|>2\n<|id|>89<|level|>3\n<|id|>109<|level|>2\n<|id|>111<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        }
+    ]
+}

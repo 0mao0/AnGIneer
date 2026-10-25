@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        3,
+        17,
+        18,
+        19,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>210 158 228 854<|content|>Calderwood & Harkness LLP One Market Plaza, Suite 3600 San Francisco, California 94105\n<|id|>3<|page|>1<|box|>237 140 253 633<|content|>FROM: ... Naomi Petersen, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>263 140 318 854<|content|>TO: ... Andrew Fitzpatrick, Lead Associate, Calder... of Growth Equity, Pinnacle Capital Management LLC\n<|id|>5<|page|>1<|box|>325 140 343 299<|content|>DATE: ... July 5, 2022\n<|id|>6<|page|>1<|box|>351 140 369 658<|content|>RE: ... Customer Concentration Risk Analysis — Verdana Software, Inc\n<|id|>7<|page|>1<|box|>376 140 393 362<|content|>MATTER NO. ... 1002-00004\n<|id|>8<|page|>1<|box|>402 140 419 336<|content|>CLIENT NO. ... PIN-0042\n<|id|>26<|page|>3<|box|>344 181 359 602<|content|>• Raj Anand — Chief Executive Officer & Co-Founder\n<|id|>30<|page|>3<|box|>422 140 494 854<|content|>As of Q1 2022, Verdana serves approximately 185 cu...ontract values in the range of $50,000 to $300,000\n<|id|>27<|page|>3<|box|>363 183 378 624<|content|>• Lena Kovac — Chief Technology Officer & Co-Founder\n<|id|>28<|page|>3<|box|>383 183 398 642<|content|>• Thomas Brightwell — Chief Financial Officer (hired 2021)\n<|id|>29<|page|>3<|box|>402 183 419 495<|content|>• Sandra Mikkelsen — General Counsel\n<|id|>154<|page|>17<|box|>179 174 233 854<|content|>(a) Confirmation that Meridian Logistics Corp. ... or\n<|id|>157<|page|>17<|box|>366 140 476 854<|content|>Failure to Meet Release Conditions. ... The specif...plications for the existing preferred stockholders\n<|id|>155<|page|>17<|box|>241 174 314 856<|content|>(b) Confirmation that Verdana has achieved total A...isk Meridian ARR with new customer revenue; ... or\n<|id|>165<|page|>18<|box|>116 174 170 854<|content|>(a) Verdana's total ARR as of December 31, 2023 eq...ationship at substantially current levels); ... or\n<|id|>167<|page|>18<|box|>223 140 332 856<|content|>Mechanics. ... The specific mechanic would need to... the context of the broader Series D documentation\n<|id|>174<|page|>18<|box|>736 174 809 856<|content|>(iv) A representation that the ARR figures and cus...the measurement date and the closing date; ... and\n<|id|>176<|page|>19<|box|>90 140 219 856<|content|>In addition, we recommend that the SPA include an ...ket arising from unrelated representation breaches\n<|id|>221<|page|>24<|box|>210 181 263 854<|content|>• The Pacific Summit Bank lender consent analysis,...covenants in the existing credit facility; ... and\n<|id|>224<|page|>24<|box|>440 140 494 854<|content|>We are available to discuss the contents of this m...s in the definitive documentation drafting process\n<|id|>227<|page|>24<|box|>588 140 642 854<|content|>Appendix A: ... Customer Revenue Breakdown Table —...ustomers and the Aggregate Long-Tail Customer Base\n<|id|>228<|page|>24<|box|>650 140 705 854<|content|>Appendix B: ... Enterprise License Agreement — Sum...ership, Data Rights, and Service Level Commitments\n<|id|>229<|page|>24<|box|>713 140 785 856<|content|>Appendix C: ... Comparable SaaS Transaction Custom...etary Deal Data and Publicly Available Information\n<|id|>230<|page|>24<|box|>794 140 848 854<|content|>Appendix D: ... Illustrative Escrow and Earnout Te...stment Structure, Prepared for Discussion Purposes\n<|id|>231<|page|>24<|box|>854 140 902 854<|content|>This memorandum is a privileged and confidential a...es available through the ongoing diligence process",
+    "raw_response": "<|src_id|>154<|tgt_id|>155\n<|src_id|>165<|tgt_id|>167\n<|src_id|>174<|tgt_id|>176",
+    "parsed": [
+        {
+            "src_id": 154,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 167
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 176
+        }
+    ]
+}

@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 312 107 684<|content|>HAVERSHAM COLE PLLC Attorneys at Law\n<|id|>1<|page|>1<|box|>114 160 152 836<|content|>301 South College Street, Suite 1400 Charlotte, No\n<|id|>3<|page|>1<|box|>185 140 203 496<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>18<|page|>1<|box|>766 142 782 400<|content|>1. Introduction and Engagement\n<|id|>23<|page|>2<|box|>593 140 609 333<|content|>2. Documents Reviewed\n<|id|>47<|page|>4<|box|>671 140 689 267<|content|>3. Assumptions\n<|id|>58<|page|>5<|box|>734 140 751 238<|content|>4. Opinions\n<|id|>60<|page|>5<|box|>809 140 825 496<|content|>4.1 Foreign Qualification and Good Standing\n<|id|>62<|page|>6<|box|>213 140 229 557<|content|>4.2 Due Authorization (North Carolina Law Aspects)\n<|id|>69<|page|>7<|box|>138 140 156 455<|content|>4.4 No Violation of North Carolina Law\n<|id|>72<|page|>7<|box|>513 140 530 351<|content|>4.5 Real Property Matters\n<|id|>76<|page|>8<|box|>194 140 212 377<|content|>4.6 Transfer Tax Compliance\n<|id|>84<|page|>9<|box|>257 140 273 323<|content|>4.7 Recording Matters\n<|id|>88<|page|>9<|box|>674 140 690 359<|content|>4.8 Title Insurance Matters\n<|id|>93<|page|>10<|box|>321 140 339 403<|content|>5. Qualifications and Limitations\n<|id|>106<|page|>11<|box|>704 140 722 336<|content|>6. Reliance and Delivery\n<|id|>111<|page|>12<|box|>239 236 258 759<|content|>[SIGNATURE PAGE — LOCAL COUNSEL OPINION LETTER]\n<|id|>113<|page|>12<|box|>292 142 309 375<|content|>HAVERSHAM COLE PLLC\n<|id|>118<|page|>12<|box|>412 143 429 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>3<|level|>-1\n<|id|>18<|level|>1\n<|id|>23<|level|>1\n<|id|>47<|level|>1\n<|id|>58<|level|>1\n<|id|>60<|level|>2\n<|id|>62<|level|>2\n<|id|>69<|level|>2\n<|id|>72<|level|>2\n<|id|>76<|level|>2\n<|id|>84<|level|>2\n<|id|>88<|level|>2\n<|id|>93<|level|>1\n<|id|>106<|level|>1\n<|id|>111<|level|>1\n<|id|>113<|level|>2\n<|id|>118<|level|>2",
+    "parsed": [
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 352 118 645<|content|>OFFICER'S CERTIFICATE\n<|id|>1<|page|>1<|box|>136 171 172 825<|content|>Compliance Certificate Delivered Pursuant to the S\n<|id|>4<|page|>1<|box|>258 382 275 614<|content|>OFFICER'S CERTIFICATE\n<|id|>9<|page|>1<|box|>569 140 585 478<|content|>Section 1. Representations and Warranties\n<|id|>13<|page|>2<|box|>143 140 160 439<|content|>Section 2. Covenants and Agreements\n<|id|>16<|page|>2<|box|>335 140 353 439<|content|>Section 3. No Material Adverse Effect\n<|id|>19<|page|>2<|box|>561 140 579 383<|content|>Section 4. Conditions Satisfied\n<|id|>22<|page|>2<|box|>806 140 823 348<|content|>Section 5. No Proceedings\n<|id|>25<|page|>3<|box|>291 140 306 408<|content|>Section 6. Authority and Reliance\n<|id|>29<|page|>3<|box|>628 140 645 348<|content|>Section 7. Governing Law\n<|id|>32<|page|>3<|box|>755 140 772 661<|content|>[Remainder of Page Intentionally Left Blank; Signa\n<|id|>33<|page|>3<|box|>780 277 797 718<|content|>[SIGNATURE PAGE TO OFFICER'S CERTIFICATE]\n<|id|>38<|page|>4<|box|>89 143 125 669<|content|>Title: [Insert title, e.g., Chief Executive Office\n<|id|>39<|page|>4<|box|>133 171 167 823<|content|>INTERNAL — TO BE REMOVED IN THEIR ENTIRETY BEFORE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>9<|level|>3\n<|id|>13<|level|>3\n<|id|>16<|level|>3\n<|id|>19<|level|>3\n<|id|>22<|level|>3\n<|id|>25<|level|>3\n<|id|>29<|level|>3\n<|id|>32<|level|>2\n<|id|>33<|level|>2\n<|id|>38<|level|>-1\n<|id|>39<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        }
+    ]
+}

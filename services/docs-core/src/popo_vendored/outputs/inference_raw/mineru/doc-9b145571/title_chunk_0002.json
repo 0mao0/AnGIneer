@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        96,
+        98
+    ],
+    "pages": [
+        96,
+        97,
+        98
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1467<|page|>96<|box|>203 321 230 662<|content|>6 混凝土耐久性检测\n<|id|>1468<|page|>96<|box|>261 381 279 605<|content|>6.2 抗水渗透性能检测\n<|id|>1471<|page|>96<|box|>435 361 453 625<|content|>6.3 抗氯离子渗透性能检测\n<|id|>1473<|page|>96<|box|>522 401 539 584<|content|>6.4 抗冻性能检测\n<|id|>1476<|page|>96<|box|>651 363 669 625<|content|>6.5 表面硅烷浸渍质量检测\n<|id|>1478<|page|>97<|box|>190 332 217 672<|content|>7 混凝土中钢筋检测\n<|id|>1479<|page|>97<|box|>250 403 266 605<|content|>7.1 保护层厚度检测\n<|id|>1482<|page|>97<|box|>400 413 418 596<|content|>7.2 钢筋锈蚀检测\n<|id|>1485<|page|>98<|box|>200 368 228 640<|content|>8 面层厚度检测",
+    "raw_response": "<|id|>1467<|level|>1\n<|id|>1468<|level|>2\n<|id|>1471<|level|>2\n<|id|>1473<|level|>2\n<|id|>1476<|level|>2\n<|id|>1478<|level|>1\n<|id|>1479<|level|>2\n<|id|>1482<|level|>2\n<|id|>1485<|level|>1",
+    "parsed": [
+        {
+            "id": 1467,
+            "level": 1
+        },
+        {
+            "id": 1468,
+            "level": 2
+        },
+        {
+            "id": 1471,
+            "level": 2
+        },
+        {
+            "id": 1473,
+            "level": 2
+        },
+        {
+            "id": 1476,
+            "level": 2
+        },
+        {
+            "id": 1478,
+            "level": 1
+        },
+        {
+            "id": 1479,
+            "level": 2
+        },
+        {
+            "id": 1482,
+            "level": 2
+        },
+        {
+            "id": 1485,
+            "level": 1
+        }
+    ]
+}

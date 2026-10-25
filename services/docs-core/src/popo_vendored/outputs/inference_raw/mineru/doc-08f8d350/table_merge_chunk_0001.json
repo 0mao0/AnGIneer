@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['软石灰岩', 'rowspan=3, 65', '4400~5000', '0.25', 'rowspan=3, 0.2×10^6~0.3×10^6', 'rowspan=3, 300~500']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['不坚硬泥灰岩', 'rowspan=4, 45', '30~500', '0.29~0.38', 'rowspan=4, 0.06×10^6~0.12×10^6', 'rowspan=4, 150~300']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 811,
+    "table2_idx": 812
+}

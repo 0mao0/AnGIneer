@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>12<|page|>1<|box|>777 142 795 251<|content|>2. SCHEDULE\n<|id|>21<|page|>2<|box|>409 143 426 261<|content|>3. RECORDING\n<|id|>23<|page|>2<|box|>590 143 607 269<|content|>4. DOCUMENTS\n<|id|>25<|page|>2<|box|>864 143 883 341<|content|>5. SCOPE OF INTERVIEW\n<|id|>27<|page|>3<|box|>277 142 294 560<|content|>6. RESERVATION OF RIGHTS AND UPJOHN WARNING\n<|id|>29<|page|>3<|box|>534 143 550 434<|content|>7. BUILDING ACCESS AND LOGISTICS\n<|id|>34<|page|>4<|box|>171 140 188 364<|content|>8. CONTACT INFORMATION\n<|id|>58<|page|>5<|box|>840 142 857 295<|content|>REPRESENTATION\n<|id|>60<|page|>6<|box|>227 142 244 300<|content|>INTERVIEW DATES\n<|id|>64<|page|>6<|box|>515 142 532 388<|content|>RESPONSE TO GROUND RULES\n<|id|>103<|page|>10<|box|>364 142 382 233<|content|>LOCATION\n<|id|>108<|page|>10<|box|>684 142 700 272<|content|>INTERVIEWERS\n<|id|>110<|page|>10<|box|>828 142 845 274<|content|>GROUND RULES\n<|id|>118<|page|>11<|box|>845 143 863 251<|content|>DOCUMENTS\n<|id|>121<|page|>12<|box|>327 142 344 246<|content|>NEXT STEPS",
+    "raw_response": "<|id|>12<|level|>1\n<|id|>21<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>1\n<|id|>27<|level|>1\n<|id|>29<|level|>1\n<|id|>34<|level|>1\n<|id|>58<|level|>1\n<|id|>60<|level|>1\n<|id|>64<|level|>1\n<|id|>103<|level|>1\n<|id|>108<|level|>1\n<|id|>110<|level|>1\n<|id|>118<|level|>1\n<|id|>121<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        }
+    ]
+}

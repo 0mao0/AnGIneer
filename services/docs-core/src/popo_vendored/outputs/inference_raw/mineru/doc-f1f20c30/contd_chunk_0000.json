@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        2,
+        9,
+        10,
+        15,
+        16,
+        19,
+        24,
+        30
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>306 143 323 330<|content|>Matter No. ... 1022-00003\n<|id|>5<|page|>1<|box|>549 142 564 408<|content|>Right-click to update Table of Contents\n<|id|>12<|page|>2<|box|>204 174 239 854<|content|>(iii) The initiation of a formal strategic review ...TP's Enterprise Software Division (\"ESD\"); ... and\n<|id|>14<|page|>2<|box|>273 140 402 856<|content|>This memorandum analyzes each of these demands in ...expected posture of the major proxy advisory firms\n<|id|>18<|page|>2<|box|>604 183 638 854<|content|>• Convene a special session of the Board to discus... initiate private dialogue with Greystone; ... and\n<|id|>19<|page|>2<|box|>642 183 712 856<|content|>Authorize private outreach to Greystone through Ca... that serves the interests of all NTP shareholders\n<|id|>78<|page|>9<|box|>824 140 898 856<|content|>On February 22, 2023 — eight days after the filing...irectors of NTP (the \"Open Letter\"). ... , and the\n<|id|>79<|page|>10<|box|>90 140 127 854<|content|>Granite Harbor Corporation. ... The Open Letter is... Managing Partner of Greystone Capital Partners LP\n<|id|>133<|page|>15<|box|>845 140 900 856<|content|>Blank Check Preferred Stock. ... This \"blank check\"\n<|id|>134<|page|>16<|box|>90 140 145 854<|content|>authorization provides the Board with the legal au...ines that such a measure is warranted. ... C below\n<|id|>167<|page|>19<|box|>494 174 530 854<|content|>(c) The Board made a reasonable assessment that th...interests of NTP and all its shareholders; ... and\n<|id|>169<|page|>19<|box|>601 138 729 856<|content|>Recent Delaware Chancery precedent supports the re...gotiate a settlement with an activist shareholder)\n<|id|>214<|page|>24<|box|>90 181 181 856<|content|>• Operational Improvements. ... If a Greystone-des...iven a seat on the Technology & Strategy Committee\n<|id|>215<|page|>24<|box|>184 140 219 854<|content|>Areas Where NTP Should Resist. ... We recommend th...rd maintain firm positions on the following points\n<|id|>289<|page|>30<|box|>291 181 325 854<|content|>• Ensures that the Company is fully prepared to de...a contested election if negotiations fail; ... and\n<|id|>291<|page|>30<|box|>367 140 383 500<|content|>Our immediate recommendations are as follows: ... Our immediate recommendations are as follows",
+    "raw_response": "<|src_id|>78<|tgt_id|>79\n<|src_id|>133<|tgt_id|>134",
+    "parsed": [
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        }
+    ]
+}

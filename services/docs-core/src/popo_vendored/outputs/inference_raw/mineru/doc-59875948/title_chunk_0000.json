@@ -1,0 +1,125 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>352 142 369 321<|content|>I. Executive Summary\n<|id|>17<|page|>2<|box|>311 140 329 344<|content|>II. Transaction Overview\n<|id|>32<|page|>3<|box|>737 140 753 424<|content|>III. Hart-Scott-Rodino Act Analysis\n<|id|>33<|page|>3<|box|>768 140 785 506<|content|>A. Applicability and Jurisdictional Thresholds\n<|id|>43<|page|>5<|box|>184 140 200 303<|content|>B. Filing Mechanics\n<|id|>55<|page|>7<|box|>90 142 107 315<|content|>C. Expected Timeline\n<|id|>58<|page|>7<|box|>455 142 474 387<|content|>D. Assigned Reviewing Agency\n<|id|>62<|page|>7<|box|>791 140 809 455<|content|>IV. Canadian Competition Act Analysis\n<|id|>68<|page|>8<|box|>734 140 752 408<|content|>B. Filing Mechanics and Timeline\n<|id|>75<|page|>9<|box|>664 140 681 405<|content|>C. Coordination with HSR Filing\n<|id|>78<|page|>10<|box|>90 140 107 468<|content|>V. Substantive Antitrust Risk Assessment\n<|id|>79<|page|>10<|box|>121 140 138 310<|content|>A. Relevant Markets\n<|id|>84<|page|>10<|box|>710 140 729 352<|content|>B. Competitive Landscape\n<|id|>90<|page|>11<|box|>619 140 638 529<|content|>C. Buyer's Existing Portfolio — Overlap Analysis\n<|id|>96<|page|>12<|box|>411 140 428 444<|content|>D. Assessment of Second Request Risk\n<|id|>104<|page|>13<|box|>257 140 273 419<|content|>E. Overall Substantive Risk Rating\n<|id|>106<|page|>13<|box|>430 140 448 303<|content|>VI. CFIUS Analysis\n<|id|>107<|page|>13<|box|>462 140 479 419<|content|>A. Overview of CFIUS Jurisdiction\n<|id|>110<|page|>13<|box|>762 142 779 416<|content|>B. Application to This Transaction\n<|id|>120<|page|>15<|box|>304 140 321 599<|content|>VII. Other Foreign Investment and Antitrust Jurisd\n<|id|>132<|page|>16<|box|>609 140 628 516<|content|>VIII. Recommended Action Items and Timeline\n<|id|>142<|page|>17<|box|>760 140 777 264<|content|>IX. Conclusion\n<|id|>152<|page|>18<|box|>479 143 496 248<|content|>Distribution:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>17<|level|>2\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>43<|level|>3\n<|id|>55<|level|>3\n<|id|>58<|level|>3\n<|id|>62<|level|>2\n<|id|>68<|level|>3\n<|id|>75<|level|>3\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>84<|level|>3\n<|id|>90<|level|>3\n<|id|>96<|level|>3\n<|id|>104<|level|>3\n<|id|>106<|level|>2\n<|id|>107<|level|>3\n<|id|>110<|level|>3\n<|id|>120<|level|>2\n<|id|>132<|level|>2\n<|id|>142<|level|>2\n<|id|>152<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        }
+    ]
+}

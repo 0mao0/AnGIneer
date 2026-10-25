@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 284 125 712<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>2<|page|>1<|box|>590 393 609 602<|content|>I. INTRODUCTION\n<|id|>10<|page|>2<|box|>733 395 752 599<|content|>II. BACKGROUND\n<|id|>11<|page|>2<|box|>777 142 795 261<|content|>A. The Parties\n<|id|>16<|page|>3<|box|>494 140 511 676<|content|>B. The Employment Agreement and Restrictive Covena\n<|id|>24<|page|>4<|box|>439 140 457 344<|content|>C. Aldrich's Termination\n<|id|>31<|page|>5<|box|>383 142 402 330<|content|>D. Aldrich's Complaint\n<|id|>39<|page|>6<|box|>90 140 107 362<|content|>E. AMA's Cross-Complaint\n<|id|>46<|page|>6<|box|>816 140 834 372<|content|>F. Aldrich's Motion to Strike\n<|id|>50<|page|>7<|box|>215 369 234 627<|content|>III. LEGAL STANDARD\n<|id|>58<|page|>7<|box|>784 408 803 588<|content|>IV. ARGUMENT\n<|id|>59<|page|>7<|box|>829 140 845 702<|content|>A. AMA's Cross-Complaint Does Not Seek to Enforce\n<|id|>66<|page|>8<|box|>739 140 757 668<|content|>B. References to § 9.1 Are Relevant to AMA's Prope\n<|id|>68<|page|>9<|box|>90 140 107 415<|content|>1. Aldrich's Knowledge and Intent\n<|id|>76<|page|>10<|box|>90 140 107 614<|content|>2. AMA's Trade Secret Protection Efforts (CUTSA El\n<|id|>82<|page|>11<|box|>90 140 107 477<|content|>3. Aldrich's Own Declaratory Relief Claim\n<|id|>87<|page|>11<|box|>489 140 506 558<|content|>C. A Motion to Strike Is Not the Appropriate Vehic\n<|id|>93<|page|>12<|box|>359 140 375 833<|content|>D. AMA's Alternative Proposal Resolves Aldrich's C\n<|id|>101<|page|>13<|box|>253 403 272 593<|content|>V. CONCLUSION\n<|id|>106<|page|>13<|box|>720 212 737 501<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>108<|page|>14<|box|>125 140 141 604<|content|>STATE OF CALIFORNIA, COUNTY OF LOS ANGELES\n<|id|>111<|page|>14<|box|>238 174 292 854<|content|>DEFENDANT AND CROSS-COMPLAINANT AURELIUS MEDIA AME",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>10<|level|>1\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>39<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>1\n<|id|>58<|level|>1\n<|id|>59<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>3\n<|id|>76<|level|>3\n<|id|>82<|level|>3\n<|id|>87<|level|>2\n<|id|>93<|level|>2\n<|id|>101<|level|>1\n<|id|>106<|level|>-1\n<|id|>108<|level|>-1\n<|id|>111<|level|>-1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['', '', '', '', '', 'rowspan=2, ']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 试验编号', 'rowspan=2, 石灰质量(g)', 'colspan=2, 滴定管中盐酸量', 'rowspan=2, 盐酸标准溶液耗量V_5(mL)', 'rowspan=2, 有效氧化钙含量X(%)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 495,
+    "table2_idx": 496
+}

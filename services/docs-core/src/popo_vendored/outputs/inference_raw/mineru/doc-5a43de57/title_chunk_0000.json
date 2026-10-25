@@ -1,0 +1,137 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 156 125 839<|content|>CALDERWOOD & HARKNESS LLP 600 Lexington Avenue, 28\n<|id|>7<|page|>1<|box|>359 140 377 470<|content|>1. Purpose and Formation of Engagement\n<|id|>11<|page|>1<|box|>753 140 770 323<|content|>2. Client Identification\n<|id|>19<|page|>2<|box|>436 140 454 333<|content|>3. Scope of Engagement\n<|id|>20<|page|>2<|box|>467 140 484 289<|content|>3.1 General Scope\n<|id|>47<|page|>3<|box|>761 140 797 854<|content|>3.2 Phase 1: Assessment, Gap Analysis, Policy Draf\n<|id|>50<|page|>4<|box|>90 140 107 444<|content|>Assessment and Analysis Deliverables:\n<|id|>58<|page|>5<|box|>133 140 152 517<|content|>Consumer-Facing and Internal Privacy Notices:\n<|id|>67<|page|>5<|box|>625 140 641 566<|content|>Vendor Agreements and Data Processing Agreements:\n<|id|>75<|page|>6<|box|>395 140 412 454<|content|>Governance, Procedures, and Training:\n<|id|>94<|page|>8<|box|>275 140 292 351<|content|>3.4 Exclusions from Scope\n<|id|>101<|page|>9<|box|>90 140 107 411<|content|>4. Engagement Team and Staffing\n<|id|>108<|page|>9<|box|>671 140 688 390<|content|>5. Key Milestones and Timeline\n<|id|>113<|page|>10<|box|>477 140 494 406<|content|>6. Fees and Billing Arrangements\n<|id|>114<|page|>10<|box|>508 142 525 279<|content|>6.1 Hourly Rates\n<|id|>118<|page|>10<|box|>805 140 823 303<|content|>6.2 Phase 1 Fee Cap\n<|id|>125<|page|>11<|box|>444 140 460 274<|content|>6.3 Phase 2 Fees\n<|id|>129<|page|>11<|box|>734 140 750 400<|content|>6.4 Expenses and Disbursements\n<|id|>138<|page|>12<|box|>272 140 289 334<|content|>6.5 Billing and Payment\n<|id|>144<|page|>12<|box|>595 140 613 431<|content|>7. Coordination with Other Advisors\n<|id|>152<|page|>13<|box|>484 140 501 390<|content|>8. Confidentiality and Privilege\n<|id|>157<|page|>14<|box|>90 140 107 321<|content|>9. Conflicts of Interest\n<|id|>167<|page|>14<|box|>551 142 569 334<|content|>10. Document Retention\n<|id|>170<|page|>14<|box|>792 142 809 274<|content|>11. Termination\n<|id|>175<|page|>15<|box|>348 140 364 349<|content|>12. Limitation of Liability\n<|id|>179<|page|>15<|box|>686 140 704 480<|content|>13. Governing Law and Dispute Resolution\n<|id|>182<|page|>16<|box|>167 142 184 390<|content|>14. Outside-Counsel Guidelines\n<|id|>185<|page|>16<|box|>388 142 405 380<|content|>15. Acceptance and Execution\n<|id|>189<|page|>16<|box|>657 400 674 596<|content|>[Signature Page Follows]\n<|id|>190<|page|>16<|box|>683 140 699 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>196<|page|>16<|box|>794 142 810 450<|content|>CASCADE RETAIL HOLDINGS INC.",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>47<|level|>2\n<|id|>50<|level|>3\n<|id|>58<|level|>3\n<|id|>67<|level|>3\n<|id|>75<|level|>3\n<|id|>94<|level|>2\n<|id|>101<|level|>1\n<|id|>108<|level|>1\n<|id|>113<|level|>1\n<|id|>114<|level|>2\n<|id|>118<|level|>2\n<|id|>125<|level|>2\n<|id|>129<|level|>2\n<|id|>138<|level|>2\n<|id|>144<|level|>1\n<|id|>152<|level|>1\n<|id|>157<|level|>1\n<|id|>167<|level|>1\n<|id|>170<|level|>1\n<|id|>175<|level|>1\n<|id|>179<|level|>1\n<|id|>182<|level|>1\n<|id|>185<|level|>1\n<|id|>189<|level|>-1\n<|id|>190<|level|>-1\n<|id|>196<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 167,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 179,
+            "level": 1
+        },
+        {
+            "id": 182,
+            "level": 1
+        },
+        {
+            "id": 185,
+            "level": 1
+        }
+    ]
+}

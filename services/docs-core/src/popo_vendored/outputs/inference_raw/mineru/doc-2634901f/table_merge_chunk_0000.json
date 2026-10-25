@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, 防撞限高架', '土的重力(设置于土基处)', 'rowspan=2, 永久作用']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=4, 防撞限高架', '土侧压力(设置于土基处)', '永久作用']]\n",
+    "raw_response": "[1, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        0
+    ],
+    "table1_idx": 145,
+    "table2_idx": 146
+}

@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        11,
+        12,
+        20,
+        21,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>156 374 172 622<|content|>INTERNAL MEMORANDUM\n<|id|>3<|page|>1<|box|>183 140 219 854<|content|>TO: ... Colette Whitman, Partner, Bankruptcy & Res...Bauer, Lead Associate, intellectual Property Group\n<|id|>4<|page|>1<|box|>227 140 244 573<|content|>FROM: ... Garrett Simmons, Working Associate, Tax Group\n<|id|>5<|page|>1<|box|>253 142 270 315<|content|>DATE: ... April 28, 2023\n<|id|>6<|page|>1<|box|>279 140 314 852<|content|>RE: ... Master Services Agreement\n<|id|>7<|page|>1<|box|>323 142 339 361<|content|>MATTER NO. ... 1022-00008\n<|id|>8<|page|>1<|box|>348 140 424 854<|content|>This memorandum is a privileged and confidential a...han the intended recipients is strictly prohibited\n<|id|>38<|page|>4<|box|>784 140 893 857<|content|>Payment Direction. ... These upstream flows implicate transfer pricing considerations under IRC\n<|id|>39<|page|>5<|box|>90 140 126 854<|content|>Section 482 and U. ... withholding tax obligations...–1442, subject to any applicable Treaty reductions\n<|id|>105<|page|>11<|box|>871 140 907 854<|content|>In addition to the service delivery from the Winni...s (the specific provinces are to be confirmed from\n<|id|>106<|page|>12<|box|>89 138 162 854<|content|>Schedule 1 — Node Locations to the MSA, which has ... tax obligations that must be addressed in the MSA\n<|id|>185<|page|>20<|box|>853 174 890 854<|content|>(c) NTP's eligibility for Treaty benefits, includi...\") provisions of Article 23 of the Treaty; ... and\n<|id|>187<|page|>21<|box|>116 140 171 854<|content|>The W-8BEN-E must be signed by an authorized repre... date of signature, after which it must be renewed\n<|id|>251<|page|>26<|box|>776 140 840 854<|content|>Garrett Simmons Working Associate, Tax Group Calde..., 30th Floor New York, NY 10022 T: ... 1022-00008)\n<|id|>252<|page|>26<|box|>847 140 893 854<|content|>This memorandum is a privileged and confidential a...fic set of facts other than those described herein",
+    "raw_response": "<|src_id|>38<|tgt_id|>39\n<|src_id|>105<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        }
+    ]
+}

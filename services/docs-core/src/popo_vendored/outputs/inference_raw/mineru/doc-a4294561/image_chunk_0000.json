@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 333 117 663<|content|>SECRETARY'S CERTIFICATE\n<|id|>1<|type|>title<|page|>1<|box|>137 480 157 517<|content|>OF\n<|id|>2<|type|>title<|page|>1<|box|>175 285 195 712<|content|>STONEFIELD LOGISTICS GROUP INC.\n<|id|>8<|type|>title<|page|>1<|box|>632 142 648 542<|content|>RECITALS AND CERTIFICATION PREAMBLE\n<|id|>19<|type|>title<|page|>2<|box|>311 140 328 601<|content|>SECTION 1: GOOD STANDING AND ORGANIZATION\n<|id|>33<|type|>title<|page|>3<|box|>407 140 424 465<|content|>SECTION 2: CHARTER DOCUMENTS\n<|id|>34<|type|>title<|page|>3<|box|>438 140 455 647<|content|>Section 2(a): Amended and Restated Certificate of\n<|id|>37<|type|>title<|page|>3<|box|>792 140 809 673<|content|>Section 2(b): Certificate of Designations — Series\n<|id|>43<|type|>title<|page|>4<|box|>371 142 388 305<|content|>Section 2(c): Bylaws\n<|id|>45<|type|>title<|page|>4<|box|>527 140 544 454<|content|>SECTION 3: BOARD RESOLUTIONS\n<|id|>46<|type|>title<|page|>4<|box|>558 140 575 848<|content|>Section 3(a): Board Resolutions — Approval of Rest\n<|id|>48<|type|>title<|page|>4<|box|>717 142 734 704<|content|>The June Resolutions approved, authorized, and rat\n<|id|>54<|type|>title<|page|>5<|box|>419 140 454 854<|content|>Section 3(b): Board Resolutions — Authorization of\n<|id|>74<|type|>title<|page|>6<|box|>647 140 664 415<|content|>Section 3(c): No Other Resolutions\n<|id|>76<|type|>title<|page|>6<|box|>803 140 819 504<|content|>SECTION 4: INCUMBENCY OF OFFICERS\n<|id|>78<|type|>table<|page|>7<|box|>150 143 227 852<|content|>None\n<|id|>80<|type|>title<|page|>7<|box|>375 140 391 416<|content|>SECTION 5: NO PROCEEDINGS\n<|id|>83<|type|>title<|page|>7<|box|>686 140 704 532<|content|>SECTION 6: ADDITIONAL CERTIFICATIONS\n<|id|>92<|type|>title<|page|>9<|box|>89 142 106 310<|content|>SIGNATURE PAGE\n<|id|>99<|type|>title<|page|>9<|box|>285 140 303 697<|content|>COUNTER-CERTIFICATION OF INCUMBENCY OF SECRETARY\n<|id|>106<|type|>title<|page|>9<|box|>573 143 589 310<|content|>LIST OF EXHIBITS\n<|id|>107<|type|>table<|page|>9<|box|>623 143 901 852<|content|>None",
+    "raw_response": "<|src_id|>78<|tgt_id|>76\n<|src_id|>107<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 106
+        }
+    ]
+}

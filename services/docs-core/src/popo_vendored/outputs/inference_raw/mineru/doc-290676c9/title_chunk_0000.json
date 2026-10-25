@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>2<|page|>1<|box|>138 424 154 573<|content|>MEMORANDUM\n<|id|>4<|page|>1<|box|>308 385 327 611<|content|>I. Executive Summary\n<|id|>17<|page|>2<|box|>619 362 638 633<|content|>II. Key Transaction Terms\n<|id|>21<|page|>4<|box|>507 292 527 704<|content|>III. Negotiation Summary and Key Issues\n<|id|>23<|page|>4<|box|>695 142 712 331<|content|>A. Interest Rate Spread\n<|id|>32<|page|>5<|box|>619 140 637 441<|content|>B. Mandatory Prepayment Provisions\n<|id|>39<|page|>6<|box|>433 140 450 330<|content|>C. Financial Covenants\n<|id|>59<|page|>7<|box|>544 140 561 380<|content|>D. Negative Covenant Baskets\n<|id|>70<|page|>8<|box|>364 142 380 361<|content|>E. Post-Closing Obligations\n<|id|>78<|page|>9<|box|>90 142 107 393<|content|>F. Change of Control Definition\n<|id|>83<|page|>9<|box|>513 395 532 602<|content|>IV. Risk Assessment\n<|id|>85<|page|>9<|box|>611 142 628 313<|content|>A. Liquidity Runway\n<|id|>98<|page|>10<|box|>513 140 532 303<|content|>B. Refinancing Risk\n<|id|>104<|page|>11<|box|>267 140 284 364<|content|>C. Collateral and Perfection\n<|id|>115<|page|>12<|box|>258 140 277 468<|content|>D. Healthcare Regulatory Considerations\n<|id|>120<|page|>13<|box|>90 390 111 607<|content|>V. Fees and Expenses\n<|id|>121<|page|>13<|box|>136 142 152 388<|content|>Summary of Transaction Costs\n<|id|>125<|page|>13<|box|>534 142 550 524<|content|>Calderwood & Harkness LLP Fee Reconciliation\n<|id|>127<|page|>13<|box|>622 143 637 259<|content|>Partner Time:\n<|id|>129<|page|>13<|box|>796 143 811 269<|content|>Associate Time:\n<|id|>137<|page|>14<|box|>426 403 446 593<|content|>VI. Document List\n<|id|>156<|page|>15<|box|>550 390 569 607<|content|>VII. Follow-Up Items",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>32<|level|>3\n<|id|>39<|level|>3\n<|id|>59<|level|>3\n<|id|>70<|level|>3\n<|id|>78<|level|>3\n<|id|>83<|level|>2\n<|id|>85<|level|>3\n<|id|>98<|level|>3\n<|id|>104<|level|>3\n<|id|>115<|level|>3\n<|id|>120<|level|>2\n<|id|>121<|level|>3\n<|id|>125<|level|>3\n<|id|>127<|level|>4\n<|id|>129<|level|>4\n<|id|>137<|level|>2\n<|id|>156<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 4
+        },
+        {
+            "id": 129,
+            "level": 4
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        }
+    ]
+}

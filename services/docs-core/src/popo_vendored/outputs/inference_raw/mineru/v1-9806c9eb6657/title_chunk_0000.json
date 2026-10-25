@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 400<|content|>【697619#22】中华人民共和国互联网\n<|id|>2<|page|>1<|box|>140 105 155 292<|content|>【3990558#2】中国广电\n<|id|>4<|page|>1<|box|>275 105 291 400<|content|>【34191#4】中华人民共和国网络审查\n<|id|>6<|page|>1<|box|>376 105 392 435<|content|>【6802213#2】中华人民共和国大规模监控\n<|id|>8<|page|>1<|box|>495 105 510 425<|content|>【3948835#73】中华人民共和国审查制度\n<|id|>12<|page|>1<|box|>678 105 695 443<|content|>【5727877#10】中国网络视听节目服务协会\n<|id|>14<|page|>1<|box|>780 105 796 408<|content|>【244792#5】中国保险监督管理委员会\n<|id|>16<|page|>1<|box|>864 105 879 315<|content|>【6162525#1】天网 (中国)\n<|id|>18<|page|>2<|box|>135 105 149 408<|content|>【34191#14】中华人民共和国网络审查",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

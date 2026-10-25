@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 156 118 839<|content|>FIRST AMENDMENT TO PURCHASE AND SALE AGREEMENT\n<|id|>3<|page|>1<|box|>294 140 311 243<|content|>RECITALS\n<|id|>16<|page|>2<|box|>612 140 628 390<|content|>ARTICLE I — DEFINITIONS\n<|id|>20<|page|>3<|box|>167 140 184 604<|content|>ARTICLE II — AMENDMENTS TO THE AGREEMENT\n<|id|>40<|page|>5<|box|>608 140 625 633<|content|>ARTICLE III — REPRESENTATIONS AND WARRANTIES\n<|id|>49<|page|>6<|box|>619 142 635 488<|content|>ARTICLE IV — GENERAL PROVISIONS\n<|id|>56<|page|>7<|box|>585 245 604 751<|content|>[Remainder of page intentionally left blank; signa\n<|id|>58<|page|>7<|box|>656 142 672 225<|content|>SELLER:\n<|id|>72<|page|>8<|box|>128 140 145 401<|content|>NOTICE AND DISTRIBUTION\n<|id|>74<|page|>8<|box|>199 142 215 281<|content|>Buyer's Counsel:\n<|id|>79<|page|>8<|box|>311 142 327 277<|content|>Seller's Counsel:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>16<|level|>2\n<|id|>20<|level|>2\n<|id|>40<|level|>2\n<|id|>49<|level|>2\n<|id|>56<|level|>-1\n<|id|>58<|level|>2\n<|id|>72<|level|>2\n<|id|>74<|level|>3\n<|id|>79<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        }
+    ]
+}

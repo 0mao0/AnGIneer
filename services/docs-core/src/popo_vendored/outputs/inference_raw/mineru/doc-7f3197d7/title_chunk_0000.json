@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 294 133 702<|content|>EXHIBIT A PRIOR INVENTIONS DISCLOSURE SCHEDULE\n<|id|>4<|page|>1<|box|>253 140 268 441<|content|>INTRODUCTORY INSTRUCTIONS\n<|id|>5<|page|>1<|box|>277 140 292 720<|content|>IMPORTANT — PLEASE READ CAREFULLY BEFORE COMPLETIN\n<|id|>15<|page|>2<|box|>186 140 203 516<|content|>SECTION 1: EMPLOYEE IDENTIFICATION\n<|id|>17<|page|>2<|box|>416 140 433 470<|content|>SECTION 2: DISCLOSURE ELECTION\n<|id|>19<|page|>2<|box|>565 140 582 380<|content|>Option 1: No Prior Inventions\n<|id|>21<|page|>2<|box|>784 142 801 429<|content|>Option 2: Prior Inventions Disclosed\n<|id|>23<|page|>3<|box|>222 140 239 575<|content|>SECTION 3: PRIOR INVENTIONS LISTING TABLE\n<|id|>29<|page|>4<|box|>378 140 393 571<|content|>SECTION 4: EXPLANATORY NOTES (OPTIONAL)\n<|id|>40<|page|>4<|box|>842 140 859 560<|content|>SECTION 5: EMPLOYEE ACKNOWLEDGMENTS\n<|id|>47<|page|>6<|box|>89 142 106 468<|content|>SECTION 6: EMPLOYEE SIGNATURE\n<|id|>49<|page|>6<|box|>178 142 194 251<|content|>EMPLOYEE\n<|id|>53<|page|>6<|box|>268 140 285 656<|content|>SECTION 7: COMPANY ACKNOWLEDGMENT OF RECEIPT\n<|id|>56<|page|>6<|box|>493 143 508 366<|content|>LUMOS ANALYTICS INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>5<|level|>3\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>2\n<|id|>29<|level|>2\n<|id|>40<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>3\n<|id|>53<|level|>2\n<|id|>56<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        }
+    ]
+}

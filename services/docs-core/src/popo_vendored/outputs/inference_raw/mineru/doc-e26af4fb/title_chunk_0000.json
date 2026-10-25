@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>417 374 436 622<|content|>I. Purpose of This Letter\n<|id|>15<|page|>2<|box|>136 351 155 645<|content|>II. Background of the Matter\n<|id|>16<|page|>2<|box|>181 140 198 388<|content|>A. The Coordinated Departure\n<|id|>28<|page|>3<|box|>372 140 388 411<|content|>B. Significance to CRH's Business\n<|id|>38<|page|>4<|box|>469 140 487 426<|content|>C. Restrictive Covenant Obligations\n<|id|>47<|page|>5<|box|>433 142 450 303<|content|>D. Data Exfiltration\n<|id|>57<|page|>6<|box|>279 140 296 372<|content|>E. Recruitment Investigation\n<|id|>65<|page|>7<|box|>90 289 111 707<|content|>III. Litigation Actions Taken and Planned\n<|id|>66<|page|>7<|box|>136 142 154 326<|content|>A. Pre-Litigation Steps\n<|id|>74<|page|>7<|box|>760 142 777 486<|content|>B. Court Filing (Anticipated March 5, 2025)\n<|id|>88<|page|>8<|box|>828 140 845 421<|content|>C. Expert and Vendor Engagement\n<|id|>91<|page|>9<|box|>372 346 392 650<|content|>IV. Estimated Litigation Costs\n<|id|>103<|page|>10<|box|>362 236 382 759<|content|>V. Litigation Contingency Accrual Recommendation\n<|id|>104<|page|>10<|box|>406 140 422 310<|content|>A. ASC 450 Analysis\n<|id|>111<|page|>11<|box|>285 140 301 351<|content|>B. Recommended Accrual\n<|id|>119<|page|>11<|box|>667 140 684 472<|content|>C. Coordination with Financial Reporting\n<|id|>131<|page|>12<|box|>566 140 584 393<|content|>D. Credit Agreement Reporting\n<|id|>134<|page|>13<|box|>90 267 111 730<|content|>VI. Recommendations to the Audit Committee\n<|id|>142<|page|>13<|box|>719 434 739 563<|content|>VII. Closing",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>28<|level|>2\n<|id|>38<|level|>2\n<|id|>47<|level|>2\n<|id|>57<|level|>2\n<|id|>65<|level|>1\n<|id|>66<|level|>2\n<|id|>74<|level|>2\n<|id|>88<|level|>2\n<|id|>91<|level|>1\n<|id|>103<|level|>1\n<|id|>104<|level|>2\n<|id|>111<|level|>2\n<|id|>119<|level|>2\n<|id|>131<|level|>2\n<|id|>134<|level|>1\n<|id|>142<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['7', \"First Bank of the Americas v. Motor Car Funding, Inc., 257 A.D.2d 287, 291–92 (1st Dep't 1999)\", 'The First Department articulated the governing standard for distinguishing fraud claims from breach of contract claims. The Court held that a fraud cause of action is not duplicative of a breach of contract claim where the plaintiff alleges a misrepresentation of present fact that is \"collateral to\" the contract—that is, a representation that constitutes a duty \"separate from or in addition to\" the contractual promise. The Court explained that the critical inquiry is whether the fraud claim is based']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'upon a misrepresentation of present fact (actionable in tort) or merely upon a promise of future performance that was not fulfilled (sounding only in contract). The Court further held that where the defendant made affirmative representations of existing fact regarding the quality, accuracy, or status of services already performed, which representations were false when made and intended to deceive, the fraud claim survived independently of the contract claim.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 26,
+    "table2_idx": 27
+}

@@ -1,0 +1,183 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-o814mxci\\input\\pdfs\\doc-20ff1aae.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-o814mxci\\enriched\\doc-20ff1aae.json",
+    "contd_output": "<|src_id|>188<|tgt_id|>189",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>10<|level|>2\n<|id|>14<|level|>3\n<|id|>16<|level|>3\n<|id|>18<|level|>2\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>40<|level|>3\n<|id|>43<|level|>3\n<|id|>46<|level|>2\n<|id|>47<|level|>3\n<|id|>55<|level|>3\n<|id|>61<|level|>3\n<|id|>66<|level|>2\n<|id|>225<|level|>2\n<|id|>231<|level|>2\n<|id|>244<|level|>2",
+    "image_output": "<|src_id|>1<|tgt_id|>0\n<|src_id|>8<|tgt_id|>2\n<|src_id|>9<|tgt_id|>2\n<|src_id|>12<|tgt_id|>10\n<|src_id|>13<|tgt_id|>2\n<|src_id|>15<|tgt_id|>14\n<|src_id|>17<|tgt_id|>16\n<|src_id|>226<|tgt_id|>225\n<|src_id|>228<|tgt_id|>225\n<|src_id|>229<|tgt_id|>225\n<|src_id|>230<|tgt_id|>225",
+    "contd_label": [
+        {
+            "src_id": 188,
+            "tgt_id": 189
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 2
+        },
+        {
+            "id": 231,
+            "level": 2
+        },
+        {
+            "id": 244,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 230,
+            "tgt_id": 225
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 228,
+            "table2_idx": 229,
+            "upper_row_ss": [
+                [
+                    "6",
+                    "\"shielded position\"",
+                    "'884, Cl. 1, 9, 14",
+                    "\"A position in which",
+                    "\"A position in which"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "the blade is not exposed\"",
+                    "the cutting blade is fully retracted within the obturator housing such that no portion of the blade's cutting edge extends beyond the housing's distal shield\""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 229,
+            "table2_idx": 230,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "\"simultaneous instrument passage and gas flow\"",
+                    "'105, Cl. 1, 8",
+                    "\"Allowing both an instrument to pass through the seal and gas to flow through the valve at the same time\"",
+                    "\"The insufflation valve permitting continuous insufflation gas flow into the body cavity through a gas channel that is separate from and does not share a lumen with the instrument passage channel, such that gas flow is maintained while a surgical instrument"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "is inserted through the seal\""
+                ]
+            ]
+        }
+    ]
+}

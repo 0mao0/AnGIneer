@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        53,
+        62
+    ],
+    "pages": [
+        54,
+        55,
+        56,
+        58,
+        60,
+        62
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>450<|page|>54<|box|>90 140 107 573<|content|>Appendix D — \"Other Insurance\" Clause Comparison\n<|id|>453<|page|>54<|box|>189 140 224 854<|content|>Section IV — Commercial General Liability Conditio\n<|id|>470<|page|>55<|box|>731 140 748 323<|content|>Summary of Conflicts:\n<|id|>472<|page|>56<|box|>90 142 107 534<|content|>Appendix E — Follow-Form Gap Analysis Matrix\n<|id|>475<|page|>58<|box|>90 140 107 665<|content|>Appendix F — Kessler Quinn Advisory Group Actuaria\n<|id|>494<|page|>60<|box|>90 142 108 578<|content|>Appendix G — Completed Operations Tail Comparison\n<|id|>497<|page|>60<|box|>833 142 849 292<|content|>Key Observations:\n<|id|>502<|page|>62<|box|>90 143 107 632<|content|>Appendix H — Subsidiary Revenue and Risk Profile S",
+    "raw_response": "<|id|>450<|level|>1\n<|id|>453<|level|>2\n<|id|>470<|level|>2\n<|id|>472<|level|>1\n<|id|>475<|level|>1\n<|id|>494<|level|>1\n<|id|>497<|level|>2\n<|id|>502<|level|>1",
+    "parsed": [
+        {
+            "id": 450,
+            "level": 1
+        },
+        {
+            "id": 453,
+            "level": 2
+        },
+        {
+            "id": 470,
+            "level": 2
+        },
+        {
+            "id": 472,
+            "level": 1
+        },
+        {
+            "id": 475,
+            "level": 1
+        },
+        {
+            "id": 494,
+            "level": 1
+        },
+        {
+            "id": 497,
+            "level": 2
+        },
+        {
+            "id": 502,
+            "level": 1
+        }
+    ]
+}

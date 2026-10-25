@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        51
+    ],
+    "pages": [
+        1,
+        4,
+        10,
+        11,
+        16,
+        25,
+        34,
+        41,
+        42,
+        50
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>648 573 809 748<|content|>FEATURES Profile of the Economy Financial Operations International Statistics Special Reports\n<|id|>2<|page|>1<|box|>840 612 863 743<|content|>Produced and Published by\n<|id|>3<|page|>1<|box|>872 517 907 743<|content|>Department of the Treasury Bureau of the Fiscal Service\n<|id|>8<|page|>4<|box|>507 318 529 676<|content|>treasury. ... gov\n<|id|>9<|page|>4<|box|>544 122 580 874<|content|>Internet service subscribers can access the Treasu...rough the Bureau of the Fiscal Service's home page\n<|id|>30<|page|>10<|box|>792 81 897 491<|content|>Real consumer spending slowed to 1. ... On balance, real personal\n<|id|>31<|page|>10<|box|>508 504 553 913<|content|>consumption expenditures in Q4 added 1. ... 2 perc...econd-largest contribution of any component of GDP\n<|id|>38<|page|>11<|box|>747 81 893 491<|content|>The unemployment rate has remained at or near a ha... 2019. ... 4 percent, its highest level since June\n<|id|>39<|page|>11<|box|>89 504 119 913<|content|>2013, and the prime-age LFPR increased to 83. ... 1 percent, its highest level since September 2008\n<|id|>88<|page|>16<|box|>516 380 527 616<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>89<|page|>16<|box|>536 83 551 251<|content|>First-Quarter Receipts\n<|id|>90<|page|>16<|box|>554 81 643 488<|content|>The following capsule analysis of budget receipts,... to analyze adequately collections for the quarter\n<|id|>126<|page|>25<|box|>686 81 717 491<|content|>- Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>128<|page|>25<|box|>250 504 397 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>162<|page|>34<|box|>512 339 523 658<|content|>[Source: ... Bureau of the Fiscal Service, Division of Financing Operations]\n<|id|>163<|page|>34<|box|>531 112 547 248<|content|>OCTOBER\n<|id|>282<|page|>41<|box|>875 522 904 885<|content|>The 7-year notes of Series T-2026 were dated and issued December 31. ... They are due December 31,\n<|id|>283<|page|>42<|box|>90 112 148 473<|content|>2026, with interest payable on June 30 and Decembe...ich tenders were accepted on a yield auction basis\n<|id|>318<|page|>50<|box|>85 421 167 913<|content|>INTERNATIONAL\n<|id|>319<|page|>50<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>320<|page|>50<|box|>200 710 253 919<|content|>Foreign Currency Positions Exchange Stabilization Fund",
+    "raw_response": "<|src_id|>30<|tgt_id|>31\n<|src_id|>38<|tgt_id|>39\n<|src_id|>282<|tgt_id|>283\n<|src_id|>318<|tgt_id|>319",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 282,
+            "tgt_id": 283
+        },
+        {
+            "src_id": 318,
+            "tgt_id": 319
+        }
+    ]
+}

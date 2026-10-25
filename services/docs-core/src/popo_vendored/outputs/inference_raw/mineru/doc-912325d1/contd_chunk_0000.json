@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 142 104 362<|content|>PRIVILEGED & CONFIDENTIAL\n<|id|>1<|page|>1<|box|>112 140 128 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>2<|page|>1<|box|>138 140 174 854<|content|>200 Park Avenue, 38th Floor New York, NY 10166 Telephone: ... com\n<|id|>3<|page|>1<|box|>183 704 199 854<|content|>November 20, 2025\n<|id|>4<|page|>1<|box|>209 142 226 364<|content|>Via Email and Hand Delivery\n<|id|>5<|page|>1<|box|>234 140 268 854<|content|>Diana Prescott, Esq. ... Garvey & Holbrook LLP 750 Third Avenue, 30th Floor New York, NY 10017\n<|id|>6<|page|>1<|box|>277 174 315 854<|content|>Re: ... ) — Plan Negotiation Positions of Meridian Consumer Brands LLC\n<|id|>7<|page|>1<|box|>324 142 340 284<|content|>Dear Ms. ... Prescott\n<|id|>111<|page|>12<|box|>191 176 246 854<|content|>3. ... and\n<|id|>113<|page|>12<|box|>266 140 378 854<|content|>Meridian is prepared to support the Committee's po... and its ongoing post-petition supply arrangements\n<|id|>118<|page|>12<|box|>613 174 648 854<|content|>Colette Whitman, Partner Calderwood & Harkness LLP...r New York, NY 10166 Telephone: ... (212) 554-8142\n<|id|>119<|page|>12<|box|>657 176 674 508<|content|>Email: ... com\n<|id|>120<|page|>12<|box|>675 140 729 854<|content|>Copies of this letter are being provided to Priya ...nsumer Brands LLC, for their records and reference\n<|id|>123<|page|>12<|box|>881 212 898 344<|content|>Very truly yours,\n<|id|>124<|page|>13<|box|>89 140 106 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>125<|page|>13<|box|>125 140 157 852<|content|>Colette Whitman Partner, Bankruptcy & Restructuring 200 Park Avenue, 38th Floor New York, NY 10166\n<|id|>126<|page|>13<|box|>183 174 256 854<|content|>Priya Anand, General Counsel, Meridian Consumer Br...ness LLP Gabrielle Moss, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>111<|tgt_id|>113",
+    "parsed": [
+        {
+            "src_id": 111,
+            "tgt_id": 113
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 388 107 607<|content|>CLOSING CERTIFICATE\n<|id|>1<|type|>title<|page|>1<|box|>114 310 133 687<|content|>Bring-Down of Representations and Warranties\n<|id|>5<|type|>title<|page|>1<|box|>234 140 252 251<|content|>PREAMBLE\n<|id|>21<|type|>title<|page|>2<|box|>311 140 328 480<|content|>SECTION 1 — CERTIFYING OFFICERS\n<|id|>26<|type|>title<|page|>2<|box|>785 140 801 777<|content|>SECTION 2 — BRING-DOWN OF REPRESENTATIONS AND WARR\n<|id|>30<|type|>title<|page|>3<|box|>714 140 731 745<|content|>SECTION 3 — COMPLIANCE WITH COVENANTS AND AGREEMEN\n<|id|>46<|type|>title<|page|>5<|box|>229 176 247 640<|content|>SECTION 4 — NO DEFAULT OR EVENT OF DEFAULT\n<|id|>48<|type|>title<|page|>5<|box|>479 176 497 609<|content|>SECTION 5 — NO MATERIAL ADVERSE CHANGE\n<|id|>54<|type|>title<|page|>6<|box|>167 176 184 624<|content|>SECTION 6 — USE OF PROCEEDS CONFIRMATION\n<|id|>56<|type|>table<|page|>6<|box|>273 143 502 852<|content|>None\n<|id|>58<|type|>title<|page|>6<|box|>648 176 666 740<|content|>SECTION 7 — CONFIRMATION OF PAYOFF AND LIEN RELEAS\n<|id|>61<|type|>title<|page|>7<|box|>167 176 184 540<|content|>SECTION 8 — RATINGS CONFIRMATION\n<|id|>66<|type|>title<|page|>7<|box|>476 176 494 707<|content|>SECTION 9 — DELIVERY OF OTHER CLOSING CONDITIONS\n<|id|>82<|type|>title<|page|>9<|box|>222 176 239 535<|content|>SECTION 10 — NO LEGAL IMPEDIMENT\n<|id|>86<|type|>title<|page|>9<|box|>633 176 651 475<|content|>SECTION 11 — GOVERNING LAW\n<|id|>88<|type|>title<|page|>9<|box|>758 377 776 653<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>89<|type|>title<|page|>9<|box|>785 183 820 848<|content|>SIGNATURE PAGE TO CLOSING CERTIFICATE Bring-Down o\n<|id|>91<|type|>title<|page|>10<|box|>89 176 106 812<|content|>TORCHLIGHT MINING CORP. (as Issuer and on behalf o\n<|id|>101<|type|>title<|page|>10<|box|>262 318 279 714<|content|>APPENDIX — INCORPORATED DOCUMENTS",
+    "raw_response": "<|src_id|>56<|tgt_id|>54",
+    "parsed": [
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        }
+    ]
+}

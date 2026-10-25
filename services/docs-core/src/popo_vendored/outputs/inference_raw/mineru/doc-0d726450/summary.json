@@ -1,0 +1,177 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-sqg5w50j\\input\\pdfs\\doc-0d726450.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-sqg5w50j\\enriched\\doc-0d726450.json",
+    "contd_output": "<|src_id|>28<|tgt_id|>29\n<|src_id|>91<|tgt_id|>92\n<|src_id|>156<|tgt_id|>157",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>24<|level|>3\n<|id|>39<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>52<|level|>3\n<|id|>62<|level|>3\n<|id|>69<|level|>3\n<|id|>78<|level|>3\n<|id|>83<|level|>2\n<|id|>84<|level|>3\n<|id|>88<|level|>3\n<|id|>94<|level|>3\n<|id|>101<|level|>3\n<|id|>105<|level|>2\n<|id|>106<|level|>3\n<|id|>111<|level|>3\n<|id|>115<|level|>3\n<|id|>121<|level|>2\n<|id|>122<|level|>3\n<|id|>138<|level|>3\n<|id|>146<|level|>3\n<|id|>152<|level|>3\n<|id|>159<|level|>3\n<|id|>164<|level|>3\n<|id|>169<|level|>2\n<|id|>172<|level|>2",
+    "image_output": "<|src_id|>2<|tgt_id|>3\n<|src_id|>170<|tgt_id|>169\n<|src_id|>171<|tgt_id|>169",
+    "contd_label": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 157
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 169
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 170,
+            "table2_idx": 171,
+            "upper_row_ss": [
+                [
+                    "Coordinate with Brindoval National Bank (T. Brierly) regarding status of",
+                    "J. Prentice",
+                    "By March 1, 2022"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "commitment letter and potential extension or replacement",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

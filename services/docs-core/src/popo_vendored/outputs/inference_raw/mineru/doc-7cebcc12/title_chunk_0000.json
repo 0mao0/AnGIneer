@@ -1,0 +1,124 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        13,
+        17,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 145 140 851<|content|>IN THE CIRCUIT COURT OF THE ELEVENTH JUDICIAL CIRC\n<|id|>7<|page|>1<|box|>351 174 387 820<|content|>PLAINTIFF'S MEMORANDUM OF LAW IN OPPOSITION TO DEF\n<|id|>8<|page|>1<|box|>396 271 439 854<|content|>Filed: April 1, 2023 Before the Honorable Catherin\n<|id|>11<|page|>2<|box|>478 142 494 397<|content|>PRELIMINARY STATEMENT\n<|id|>20<|page|>3<|box|>765 140 782 354<|content|>STATEMENT OF FACTS\n<|id|>21<|page|>3<|box|>797 140 814 531<|content|>A. The Insured Properties and Hurricane Callista\n<|id|>23<|page|>4<|box|>133 140 152 560<|content|>1. Verimark Grand Key Resort — Marathon, Florida\n<|id|>27<|page|>4<|box|>513 140 530 787<|content|>2. Verimark Harborview Hotel & Conference Center —\n<|id|>31<|page|>4<|box|>816 140 834 558<|content|>3. Verimark Sunset Shores — St. Pete Beach, Florid\n<|id|>35<|page|>5<|box|>333 142 349 473<|content|>Total Claimed Business-Interruption Loss\n<|id|>38<|page|>5<|box|>584 142 601 292<|content|>Hurricane Callista\n<|id|>42<|page|>6<|box|>194 140 212 356<|content|>B. The Insurance Program\n<|id|>45<|page|>6<|box|>378 140 397 542<|content|>Primary Layer — Ironclad Indemnity Corporation\n<|id|>47<|page|>6<|box|>523 140 540 529<|content|>First Excess Layer — Pinnacle Surplus Lines Inc.\n<|id|>49<|page|>6<|box|>684 140 702 578<|content|>Second Excess Layer — Montclair Assurance Company\n<|id|>51<|page|>6<|box|>827 140 845 465<|content|>Third Excess Layer — Sovereign Re Ltd.\n<|id|>55<|page|>7<|box|>273 140 292 341<|content|>C. The Claim and Denial\n<|id|>66<|page|>8<|box|>656 142 674 289<|content|>D. The Complaint\n<|id|>73<|page|>9<|box|>420 140 438 256<|content|>ARGUMENT\n<|id|>74<|page|>9<|box|>450 140 468 678<|content|>I. THIS COURT HAS JURISDICTION OVER ALL DEFENDANTS\n<|id|>104<|page|>13<|box|>825 140 842 663<|content|>II. THE COMPLAINT STATES VIABLE CLAIMS FOR RELIEF\n<|id|>133<|page|>17<|box|>527 140 544 691<|content|>III. DEFENDANTS' REQUEST FOR A STAY IS WITHOUT MER\n<|id|>161<|page|>21<|box|>175 140 210 854<|content|>IV. THE COURT SHOULD DENY DEFENDANTS' ALTERNATIVE\n<|id|>169<|page|>22<|box|>229 140 247 272<|content|>CONCLUSION\n<|id|>171<|page|>22<|box|>319 140 335 323<|content|>As demonstrated above:\n<|id|>178<|page|>22<|box|>834 142 851 320<|content|>Respectfully submitted,\n<|id|>181<|page|>23<|box|>282 140 300 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>8<|level|>-1\n<|id|>11<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>23<|level|>4\n<|id|>27<|level|>4\n<|id|>31<|level|>4\n<|id|>35<|level|>3\n<|id|>38<|level|>3\n<|id|>42<|level|>3\n<|id|>45<|level|>4\n<|id|>47<|level|>4\n<|id|>49<|level|>4\n<|id|>51<|level|>4\n<|id|>55<|level|>3\n<|id|>66<|level|>3\n<|id|>73<|level|>2\n<|id|>74<|level|>3\n<|id|>104<|level|>3\n<|id|>133<|level|>3\n<|id|>161<|level|>3\n<|id|>169<|level|>2\n<|id|>171<|level|>-1\n<|id|>178<|level|>-1\n<|id|>181<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 4
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 31,
+            "level": 4
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 47,
+            "level": 4
+        },
+        {
+            "id": 49,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 2
+        }
+    ]
+}

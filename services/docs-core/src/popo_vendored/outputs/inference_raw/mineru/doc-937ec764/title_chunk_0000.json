@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 276 107 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>367 140 383 361<|content|>I. Purpose and Background\n<|id|>13<|page|>2<|box|>148 140 167 679<|content|>II. Notice of Intent to Seek Pre-Suit discovery Un\n<|id|>24<|page|>3<|box|>311 140 329 393<|content|>III. Basis for Pre-Suit discovery\n<|id|>34<|page|>4<|box|>575 140 592 635<|content|>IV. Vantor's Prior Failure to Provide Adequate Doc\n<|id|>40<|page|>5<|box|>377 140 393 532<|content|>V. Professional Courtesy and Invitation to Confer\n<|id|>45<|page|>6<|box|>90 140 107 429<|content|>VI. Document Preservation Demand\n<|id|>54<|page|>6<|box|>796 140 813 351<|content|>VII. Reservation of Rights\n<|id|>66<|page|>7<|box|>573 140 590 359<|content|>VIII. Request for Response",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>24<|level|>2\n<|id|>34<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>54<|level|>2\n<|id|>66<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        }
+    ]
+}

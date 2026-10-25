@@ -1,0 +1,151 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ptoa6629\\input\\pdfs\\doc-5fea91ba.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ptoa6629\\enriched\\doc-5fea91ba.json",
+    "contd_output": "<|src_id|>33<|tgt_id|>34\n<|src_id|>61<|tgt_id|>62\n<|src_id|>137<|tgt_id|>138",
+    "title_output": "<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>10<|level|>1\n<|id|>12<|level|>2\n<|id|>18<|level|>2\n<|id|>35<|level|>2\n<|id|>51<|level|>2\n<|id|>65<|level|>2\n<|id|>85<|level|>2\n<|id|>95<|level|>2\n<|id|>122<|level|>2\n<|id|>146<|level|>2\n<|id|>149<|level|>2\n<|id|>176<|level|>1\n<|id|>178<|level|>2\n<|id|>188<|level|>2\n<|id|>195<|level|>1\n<|id|>196<|level|>2\n<|id|>202<|level|>1\n<|id|>203<|level|>2\n<|id|>212<|level|>1\n<|id|>213<|level|>2\n<|id|>217<|level|>3\n<|id|>219<|level|>3",
+    "image_output": "<|src_id|>215<|tgt_id|>213\n<|src_id|>216<|tgt_id|>213\n<|src_id|>218<|tgt_id|>217",
+    "contd_label": [
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 138
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 1
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 1
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 1
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 3
+        },
+        {
+            "id": 219,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 215,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 217
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 215,
+            "table2_idx": 216,
+            "upper_row_ss": [
+                [
+                    "Land Costs",
+                    "$54,000,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Hard Costs (Construction)",
+                    "$432,000,000"
+                ]
+            ]
+        }
+    ]
+}

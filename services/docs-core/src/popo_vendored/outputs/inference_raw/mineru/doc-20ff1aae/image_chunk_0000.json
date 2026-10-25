@@ -1,0 +1,73 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        26,
+        27,
+        28,
+        29,
+        30
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 202 108 794<|content|>UNITED STATES DISTRICT COURT FOR THE DISTRICT OF D\n<|id|>1<|type|>table<|page|>1<|box|>141 143 344 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>411 145 446 849<|content|>DEFENDANT SOLSTICE BIOMEDICAL, INC.'S OPENING CLAI\n<|id|>8<|type|>table<|page|>2<|box|>229 143 873 852<|content|>None\n<|id|>9<|type|>table<|page|>3<|box|>89 143 246 852<|content|>None\n<|id|>10<|type|>title<|page|>3<|box|>280 385 296 612<|content|>TABLE OF AUTHORITIES\n<|id|>12<|type|>table<|page|>3<|box|>330 143 901 852<|content|>None\n<|id|>13<|type|>table<|page|>4<|box|>89 143 276 852<|content|>None\n<|id|>14<|type|>title<|page|>4<|box|>311 143 325 210<|content|>Statutes\n<|id|>15<|type|>table<|page|>4<|box|>334 143 402 852<|content|>None\n<|id|>16<|type|>title<|page|>4<|box|>436 143 452 285<|content|>Other Authorities\n<|id|>17<|type|>table<|page|>4<|box|>459 143 579 852<|content|>None\n<|id|>18<|type|>title<|page|>4<|box|>628 142 645 308<|content|>I. INTRODUCTION\n<|id|>28<|type|>title<|page|>5<|box|>675 142 691 339<|content|>II. LEGAL STANDARD\n<|id|>29<|type|>title<|page|>5<|box|>705 140 723 405<|content|>A. Claim Construction Principles\n<|id|>33<|type|>title<|page|>6<|box|>330 140 347 370<|content|>B. Role of Intrinsic Evidence\n<|id|>40<|type|>title<|page|>7<|box|>502 140 518 375<|content|>C. Role of Extrinsic Evidence\n<|id|>43<|type|>title<|page|>8<|box|>90 140 107 441<|content|>D. Person of Ordinary Skill in the Art\n<|id|>46<|type|>title<|page|>8<|box|>381 140 398 447<|content|>III. TECHNOLOGY BACKGROUND\n<|id|>47<|type|>title<|page|>8<|box|>412 142 430 480<|content|>A. Laparoscopic Trocar Systems Generally\n<|id|>55<|type|>title<|page|>9<|box|>455 140 472 514<|content|>B. The Accused PrecisionEdge™ Product Lines\n<|id|>61<|type|>title<|page|>10<|box|>90 140 107 437<|content|>C. The Asserted Patent Specifications\n<|id|>66<|type|>title<|page|>10<|box|>652 142 670 627<|content|>IV. CONSTRUCTION OF THE DISPUTED CLAIM TERMS\n<|id|>218<|type|>title<|page|>26<|box|>90 142 106 184<|content|>And:\n<|id|>225<|type|>title<|page|>26<|box|>689 140 705 625<|content|>V. SUMMARY TABLE OF PROPOSED CONSTRUCTIONS\n<|id|>226<|type|>table<|page|>26<|box|>758 143 898 851<|content|>None\n<|id|>228<|type|>table<|page|>27<|box|>89 143 907 852<|content|>None\n<|id|>229<|type|>table<|page|>28<|box|>89 143 897 851<|content|>None\n<|id|>230<|type|>table<|page|>29<|box|>88 143 125 852<|content|>None\n<|id|>231<|type|>title<|page|>29<|box|>172 142 189 300<|content|>VI. CONCLUSION\n<|id|>244<|type|>title<|page|>30<|box|>198 375 214 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>8<|tgt_id|>2\n<|src_id|>9<|tgt_id|>2\n<|src_id|>12<|tgt_id|>10\n<|src_id|>13<|tgt_id|>2\n<|src_id|>15<|tgt_id|>14\n<|src_id|>17<|tgt_id|>16\n<|src_id|>226<|tgt_id|>225\n<|src_id|>228<|tgt_id|>225\n<|src_id|>229<|tgt_id|>225\n<|src_id|>230<|tgt_id|>225",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 230,
+            "tgt_id": 225
+        }
+    ]
+}

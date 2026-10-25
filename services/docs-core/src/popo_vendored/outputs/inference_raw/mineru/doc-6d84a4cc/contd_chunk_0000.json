@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        35
+    ],
+    "pages": [
+        1,
+        2,
+        26,
+        27,
+        34,
+        35
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>205 140 241 854<|content|>TO: ... Anwen Llewellyn)\n<|id|>5<|page|>1<|box|>250 140 267 573<|content|>FROM: ... Nathaniel Bower, Colette Whitman, Audrey Zhou\n<|id|>6<|page|>1<|box|>275 142 292 310<|content|>DATE: ... May 30, 2024\n<|id|>7<|page|>1<|box|>301 140 335 854<|content|>RE: ... Settlement Analysis and Recommendation — Corvus Peak Capital Partners LP Proxy Contest\n<|id|>8<|page|>1<|box|>345 142 362 408<|content|>Right-click to update Table of Contents\n<|id|>19<|page|>2<|box|>242 140 258 617<|content|>6. ... and\n<|id|>21<|page|>2<|box|>299 140 482 856<|content|>Recommendation. ... Two incumbent directors — we r...ld voluntarily resign to facilitate the transition\n<|id|>225<|page|>26<|box|>760 138 888 857<|content|>The Board's rejection of Corvus Peak's May 10 sett...(supporting all three), and the Windermere Pension\n<|id|>226<|page|>27<|box|>90 140 127 854<|content|>Trust's public declaration of support for the full...must take into account in reassessing its position\n<|id|>300<|page|>34<|box|>510 147 563 854<|content|>• Maintain the integrity of the CEO succession pro...ate representation from the new directors; ... and\n<|id|>302<|page|>34<|box|>604 140 676 854<|content|>The alternative — proceeding to a contested vote w...iating position deteriorates with each passing day\n<|id|>309<|page|>35<|box|>125 140 157 854<|content|>Nathaniel Bower Partner Calderwood & Harkness LLP ...venth Avenue New York, New York 10019 Tel: ... com\n<|id|>310<|page|>35<|box|>157 143 175 253<|content|>By: ... By\n<|id|>311<|page|>35<|box|>174 142 208 854<|content|>Colette Whitman Partner Calderwood & Harkness LLP ...venth Avenue New York, New York 10019 Tel: ... com\n<|id|>312<|page|>35<|box|>209 143 224 253<|content|>By: ... By\n<|id|>313<|page|>35<|box|>224 140 263 854<|content|>Audrey Zhou Associate Calderwood & Harkness LLP 78...venth Avenue New York, New York 10019 Tel: ... com\n<|id|>314<|page|>35<|box|>280 140 325 854<|content|>Board of Directors, Aurelius Global Media Group PL... Committee (Tobias Kessler, Chair; ... 1017-00002)\n<|id|>315<|page|>35<|box|>332 140 364 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...O NOT DISTRIBUTE WITHOUT PRIOR APPROVAL OF COUNSEL",
+    "raw_response": "<|src_id|>19<|tgt_id|>21\n<|src_id|>225<|tgt_id|>226",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 226
+        }
+    ]
+}

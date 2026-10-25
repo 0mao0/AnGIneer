@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        54,
+        64
+    ],
+    "pages": [
+        55,
+        56,
+        57,
+        63,
+        64
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>443<|page|>55<|box|>229 95 251 441<|content|>主编单位： ... 交通部上海航道局\n<|id|>444<|page|>55<|box|>256 95 279 494<|content|>参加单位： ... 交通部疏浚工程定额站\n<|id|>445<|page|>55<|box|>284 95 305 444<|content|>主要起草人： ... 王谷谦 郑励\n<|id|>447<|page|>55<|box|>392 267 414 565<|content|>于福生 李昌时 郑坤\n<|id|>446<|page|>55<|box|>338 282 359 550<|content|>(以下按姓氏笔画为序)\n<|id|>450<|page|>56<|box|>310 411 331 595<|content|>JTJ/T 320-96\n<|id|>451<|page|>56<|box|>376 398 407 603<|content|>条文说明\n<|id|>457<|page|>57<|box|>496 171 517 507<|content|>主编单位技术负责人: ... 王谷谦\n<|id|>458<|page|>57<|box|>524 171 545 454<|content|>第1、2、3、4、5章： ... 于福生\n<|id|>459<|page|>57<|box|>550 171 572 651<|content|>第 6、7 章，附录 A、B、C、D、E、F、G： ... 李昌时\n<|id|>460<|page|>57<|box|>578 171 598 378<|content|>条文说明: ... 郑励\n<|id|>494<|page|>63<|box|>836 98 887 845<|content|>淤泥质土是淤泥质粘土和淤泥质粉质粘土的合称。 ... 6\\mathrm{kN}/\n<|id|>495<|page|>64<|box|>100 239 166 272<|content|>表 4. ... 1",
+    "raw_response": "<|src_id|>445<|tgt_id|>446",
+    "parsed": [
+        {
+            "src_id": 445,
+            "tgt_id": 446
+        }
+    ]
+}

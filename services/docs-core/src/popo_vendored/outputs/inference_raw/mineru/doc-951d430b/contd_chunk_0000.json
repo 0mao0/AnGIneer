@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 140 104 653<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>1<|page|>1<|box|>112 140 130 576<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>2<|page|>1<|box|>138 140 174 854<|content|>901 Fifth Avenue, Suite 3200 Seattle, WA 98164 Telephone: ... com\n<|id|>3<|page|>1<|box|>183 722 199 854<|content|>October 18, 2021\n<|id|>4<|page|>1<|box|>208 140 244 854<|content|>David Tanaka, Esq. ... General Counsel Cascadia St...0 Jefferson Street SE, Suite 400 Olympia, WA 98501\n<|id|>5<|page|>1<|box|>253 140 308 854<|content|>Re: ... 00001\n<|id|>6<|page|>1<|box|>315 142 332 277<|content|>Dear Mr. ... Tanaka\n<|id|>52<|page|>5<|box|>853 181 888 854<|content|>• Third-party service provider fees, including tit...e copying or document management services; ... and\n<|id|>54<|page|>6<|box|>90 140 164 854<|content|>Travel expenses for Firm attorneys traveling from ...st-effective travel arrangements where practicable\n<|id|>100<|page|>10<|box|>460 140 477 331<|content|>Name: ... Oliver Mackenzie\n<|id|>101<|page|>10<|box|>478 142 494 416<|content|>Title: ... Partner — Responsible Partner\n<|id|>102<|page|>10<|box|>496 143 513 264<|content|>Date: ... Date\n<|id|>104<|page|>10<|box|>530 140 546 334<|content|>Name: ... Harrison Wexford\n<|id|>105<|page|>10<|box|>547 142 564 379<|content|>Title: ... Partner — Billing Partner\n<|id|>106<|page|>10<|box|>565 143 583 267<|content|>Date: ... Date\n<|id|>111<|page|>10<|box|>731 142 748 305<|content|>Name: ... David Tanaka\n<|id|>112<|page|>10<|box|>750 142 765 313<|content|>Title: ... General Counsel\n<|id|>113<|page|>10<|box|>765 140 782 844<|content|>Cascadia State Infrastructure Authority 1100 Jefferson Street SE, Suite 400 Olympia, WA 98501\n<|id|>114<|page|>10<|box|>784 143 800 266<|content|>Date: ... Date\n<|id|>116<|page|>10<|box|>825 176 844 733<|content|>Duplicate original of this Engagement Letter for countersignature and return\n<|id|>117<|page|>11<|box|>89 174 127 854<|content|>Margaret Ellsworth, Executive Director, Cascadia S... Projects, Cascadia State Infrastructure Authority",
+    "raw_response": "<|src_id|>52<|tgt_id|>54",
+    "parsed": [
+        {
+            "src_id": 52,
+            "tgt_id": 54
+        }
+    ]
+}

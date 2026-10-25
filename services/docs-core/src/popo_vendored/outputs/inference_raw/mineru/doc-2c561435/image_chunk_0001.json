@@ -1,0 +1,53 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        54,
+        62
+    ],
+    "pages": [
+        55,
+        56,
+        57,
+        59,
+        60,
+        61,
+        62
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>535<|type|>title<|page|>55<|box|>90 140 107 625<|content|>Appendix E: HSI Financial Statements (FY 2022) — E\n<|id|>537<|type|>table<|page|>55<|box|>223 143 411 852<|content|>None\n<|id|>538<|type|>table<|page|>55<|box|>443 143 630 852<|content|>None\n<|id|>539<|type|>table<|page|>55<|box|>690 143 896 852<|content|>None\n<|id|>540<|type|>table<|page|>56<|box|>88 143 127 852<|content|>None\n<|id|>541<|type|>title<|page|>56<|box|>166 140 184 529<|content|>Selected Notes to Financial Statements (Excerpts)\n<|id|>544<|type|>title<|page|>57<|box|>90 140 107 700<|content|>Appendix F: HSAG Consolidated Financial Data (FY 2\n<|id|>546<|type|>table<|page|>57<|box|>241 143 465 852<|content|>None\n<|id|>548<|type|>table<|page|>57<|box|>680 143 792 852<|content|>None\n<|id|>549<|type|>title<|page|>57<|box|>833 140 849 457<|content|>Intercompany Revenue and Receivables\n<|id|>551<|type|>table<|page|>59<|box|>114 143 904 852<|content|>None\n<|id|>552<|type|>table<|page|>60<|box|>88 143 301 852<|content|>None\n<|id|>553<|type|>title<|page|>61<|box|>90 140 108 460<|content|>Appendix H: Professional Qualifications\n<|id|>554<|type|>title<|page|>61<|box|>121 140 138 602<|content|>Calderwood & Harkness LLP — Transfer Pricing Pract\n<|id|>561<|type|>title<|page|>61<|box|>726 140 743 609<|content|>Meridian Economics GmbH — Transfer Pricing Economi\n<|id|>567<|type|>title<|page|>62<|box|>323 140 339 586<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT",
+    "raw_response": "<|src_id|>537<|tgt_id|>535\n<|src_id|>538<|tgt_id|>535\n<|src_id|>539<|tgt_id|>535\n<|src_id|>540<|tgt_id|>535\n<|src_id|>546<|tgt_id|>544\n<|src_id|>548<|tgt_id|>544\n<|src_id|>551<|tgt_id|>549\n<|src_id|>552<|tgt_id|>549",
+    "parsed": [
+        {
+            "src_id": 537,
+            "tgt_id": 535
+        },
+        {
+            "src_id": 538,
+            "tgt_id": 535
+        },
+        {
+            "src_id": 539,
+            "tgt_id": 535
+        },
+        {
+            "src_id": 540,
+            "tgt_id": 535
+        },
+        {
+            "src_id": 546,
+            "tgt_id": 544
+        },
+        {
+            "src_id": 548,
+            "tgt_id": 544
+        },
+        {
+            "src_id": 551,
+            "tgt_id": 549
+        },
+        {
+            "src_id": 552,
+            "tgt_id": 549
+        }
+    ]
+}

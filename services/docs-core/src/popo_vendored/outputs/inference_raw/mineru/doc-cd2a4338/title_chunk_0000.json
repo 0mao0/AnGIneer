@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 176 118 820<|content|>FORM OF ASSIGNMENT AND ASSUMPTION AGREEMENT\n<|id|>1<|page|>1<|box|>137 362 152 635<|content|>Exhibit E to the Credit Agreement\n<|id|>5<|page|>1<|box|>468 233 487 764<|content|>ASSIGNMENT AND ASSUMPTION AGREEMENT\n<|id|>7<|page|>1<|box|>546 142 563 241<|content|>RECITALS\n<|id|>14<|page|>2<|box|>133 140 151 246<|content|>WHEREAS:\n<|id|>19<|page|>2<|box|>479 140 497 403<|content|>SECTION 1. DEFINED TERMS\n<|id|>24<|page|>2<|box|>698 140 714 540<|content|>SECTION 2. ASSIGNMENT AND ASSUMPTION\n<|id|>28<|page|>3<|box|>614 140 632 771<|content|>SECTION 3. REPRESENTATIONS AND WARRANTIES OF THE A\n<|id|>37<|page|>4<|box|>535 140 551 767<|content|>SECTION 4. REPRESENTATIONS AND WARRANTIES OF THE A\n<|id|>38<|page|>4<|box|>561 140 579 750<|content|>The Assignee represents and warrants to each of th\n<|id|>45<|page|>6<|box|>295 140 313 514<|content|>SECTION 5. TERMS OF THE ASSIGNMENT\n<|id|>61<|page|>7<|box|>599 140 618 516<|content|>SECTION 6. PAYMENT AND SETTLEMENT\n<|id|>65<|page|>8<|box|>358 140 375 599<|content|>SECTION 7. ADMINISTRATIVE AGENT PROVISIONS\n<|id|>75<|page|>9<|box|>89 140 106 633<|content|>SECTION 8. LSTA STANDARD TERMS INCORPORATION\n<|id|>78<|page|>9<|box|>383 140 401 411<|content|>SECTION 9. MISCELLANEOUS\n<|id|>88<|page|>11<|box|>89 142 107 379<|content|>SECTION 10. SIGNATURES\n<|id|>90<|page|>11<|box|>178 142 195 250<|content|>ASSIGNOR:\n<|id|>111<|page|>12<|box|>90 143 106 259<|content|>SCHEDULE 1\n<|id|>112<|page|>12<|box|>116 366 131 630<|content|>TERMS OF THE ASSIGNMENT\n<|id|>114<|page|>13<|box|>89 142 107 233<|content|>ANNEX A\n<|id|>115<|page|>13<|box|>114 334 133 661<|content|>ADMINISTRATIVE QUESTIONNAIRE\n<|id|>130<|page|>14<|box|>89 142 106 230<|content|>ANNEX B\n<|id|>131<|page|>14<|box|>114 377 132 620<|content|>TAX COMPLIANCE FORMS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>1\n<|id|>7<|level|>2\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>24<|level|>2\n<|id|>28<|level|>2\n<|id|>37<|level|>2\n<|id|>38<|level|>-1\n<|id|>45<|level|>2\n<|id|>61<|level|>2\n<|id|>65<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>88<|level|>2\n<|id|>90<|level|>3\n<|id|>111<|level|>2\n<|id|>112<|level|>3\n<|id|>114<|level|>2\n<|id|>115<|level|>3\n<|id|>130<|level|>2\n<|id|>131<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        }
+    ]
+}

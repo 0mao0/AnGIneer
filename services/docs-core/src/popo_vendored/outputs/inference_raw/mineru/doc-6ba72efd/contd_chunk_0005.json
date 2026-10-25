@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 5,
+    "range": [
+        266,
+        376
+    ],
+    "pages": [
+        266,
+        267,
+        268,
+        269,
+        274,
+        275,
+        309,
+        310,
+        375,
+        376
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1070<|page|>266<|box|>145 753 170 831<|content|>10m^{3} 混凝土\n<|id|>1072<|page|>267<|box|>176 161 201 197<|content|>续表\n<|id|>1073<|page|>267<|box|>178 770 201 847<|content|>10\\mathrm{m}^3 混凝土\n<|id|>1075<|page|>267<|box|>468 164 490 285<|content|>注： ... 钢筋含量参考表\n<|id|>1079<|page|>268<|box|>180 755 205 832<|content|>10m^{3} 混凝土\n<|id|>1081<|page|>269<|box|>180 165 205 198<|content|>续表\n<|id|>1082<|page|>269<|box|>180 770 205 849<|content|>10\\mathrm{m}^3 混凝土\n<|id|>1084<|page|>269<|box|>470 165 492 285<|content|>注： ... 钢筋含量参考表\n<|id|>1100<|page|>274<|box|>189 755 213 834<|content|>10m^{3} 混凝土\n<|id|>1102<|page|>275<|box|>178 164 201 198<|content|>续表\n<|id|>1103<|page|>275<|box|>178 770 203 849<|content|>10m^{3} 混凝土\n<|id|>1105<|page|>275<|box|>437 165 459 285<|content|>注： ... 钢筋含量参考表\n<|id|>1223<|page|>309<|box|>213 796 238 836<|content|>100\\mathrm{m}^2\n<|id|>1225<|page|>310<|box|>151 161 174 196<|content|>续表\n<|id|>1481<|page|>375<|box|>253 802 279 844<|content|>100\\mathrm{m}^2\n<|id|>1483<|page|>376<|box|>178 150 203 185<|content|>续表",
+    "raw_response": "<|src_id|>1072<|tgt_id|>1073\n<|src_id|>1081<|tgt_id|>1082\n<|src_id|>1102<|tgt_id|>1103",
+    "parsed": [
+        {
+            "src_id": 1072,
+            "tgt_id": 1073
+        },
+        {
+            "src_id": 1081,
+            "tgt_id": 1082
+        },
+        {
+            "src_id": 1102,
+            "tgt_id": 1103
+        }
+    ]
+}

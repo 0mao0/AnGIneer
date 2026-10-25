@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        35
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        13,
+        14,
+        24,
+        25,
+        35
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>263 140 280 746<|content|>CALDERWOOD & HARKNESS LLP 780 Third Avenue New York, NY 10017\n<|id|>4<|page|>1<|box|>289 142 305 369<|content|>Matter Number: ... 1044-00003\n<|id|>5<|page|>1<|box|>314 669 332 854<|content|>Date: ... February 15, 2023\n<|id|>6<|page|>1<|box|>340 140 395 856<|content|>TO: ... Nathaniel Bower, Partner, Calderwood & Har...on by Georgios Andreadis, Chief Executive Officer)\n<|id|>7<|page|>1<|box|>402 140 439 854<|content|>FROM: ... Amy Chesterton, Lead Associate, and Nath...y & Restructuring Group, Calderwood & Harkness LLP\n<|id|>8<|page|>1<|box|>448 140 484 852<|content|>RE: ... Chapter 11 Filing by Thalassa Americas Inc\n<|id|>9<|page|>1<|box|>491 140 545 854<|content|>COPIES: ... Colette Whitman, Billing Partner, Cald...anaging Director, Kensington Veltrian Partners LLC\n<|id|>10<|page|>1<|box|>554 142 571 408<|content|>Right-click to update Table of Contents\n<|id|>57<|page|>5<|box|>857 140 893 854<|content|>The applicable interest rate under the Credit Agre...e occurrence of the Events of Default described in\n<|id|>58<|page|>6<|box|>90 140 143 854<|content|>Section II. ... B, the default interest rate — an ...greement's provisions regarding retroactive waiver\n<|id|>75<|page|>7<|box|>790 140 844 854<|content|>A clear understanding of the enterprise value of t...ve recoveries available to each class of creditors\n<|id|>76<|page|>7<|box|>852 140 907 856<|content|>Enterprise Value. ... This range incorporates the ... gradual market recovery over the 2023–2025 period\n<|id|>135<|page|>13<|box|>838 174 893 854<|content|>Chapter 11 Administrative Cost Drag. ... Administr...enjoy superpriority status under Section 507(a)(2)\n<|id|>136<|page|>14<|box|>90 174 125 852<|content|>of the Bankruptcy Code and must be paid in full be... before any distributions to prepetition creditors\n<|id|>238<|page|>24<|box|>866 174 902 854<|content|>(a) P&I Club and Insurance Coverage. ... TSL's pro...) insurance coverage is arranged through Seaward &\n<|id|>239<|page|>25<|box|>90 174 164 854<|content|>Beckett Insurance Brokers Ltd. ... Any disruption ...ty and expose the Company to uninsured liabilities\n<|id|>346<|page|>35<|box|>484 140 501 315<|content|>Respectfully submitted,\n<|id|>347<|page|>35<|box|>508 140 525 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>348<|page|>35<|box|>527 143 544 253<|content|>By: ... By\n<|id|>349<|page|>35<|box|>544 142 561 647<|content|>Amy Chesterton Lead Associate, Bankruptcy & Restructuring Group\n<|id|>350<|page|>35<|box|>561 143 578 253<|content|>By: ... By\n<|id|>351<|page|>35<|box|>579 140 594 584<|content|>Nathan Ikeda Associate, Bankruptcy & Restructuring Group\n<|id|>352<|page|>35<|box|>594 140 609 743<|content|>Calderwood & Harkness LLP | 780 Third Avenue, New York, NY 10017 | Matter No. ... 1044-00003\n<|id|>353<|page|>35<|box|>616 140 632 833<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED — ATTORNEY WORK PRODUCT\n<|id|>354<|page|>35<|box|>640 140 700 854<|content|>Distribution of this memorandum is restricted to t...onsent of Calderwood & Harkness LLP and the client",
+    "raw_response": "<|src_id|>57<|tgt_id|>58\n<|src_id|>135<|tgt_id|>136\n<|src_id|>238<|tgt_id|>239",
+    "parsed": [
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 136
+        },
+        {
+            "src_id": 238,
+            "tgt_id": 239
+        }
+    ]
+}

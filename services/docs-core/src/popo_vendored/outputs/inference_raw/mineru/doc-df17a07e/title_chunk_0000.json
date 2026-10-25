@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 243 118 753<|content|>POST-CLOSING COMPLETION CERTIFICATE\n<|id|>4<|page|>1<|box|>397 142 414 256<|content|>Addressed to:\n<|id|>6<|page|>1<|box|>468 140 484 176<|content|>and\n<|id|>9<|page|>1<|box|>614 140 632 290<|content|>Section 1. Recitals\n<|id|>15<|page|>2<|box|>366 140 383 439<|content|>Section 2. Certification of Completion\n<|id|>19<|page|>2<|box|>704 140 722 576<|content|>Section 3. Certification Regarding Recorded Mortga\n<|id|>32<|page|>4<|box|>667 140 684 594<|content|>Section 4. Certification Regarding Title Insurance\n<|id|>38<|page|>5<|box|>414 140 431 547<|content|>Section 5. Certification Regarding Updated Surveys\n<|id|>44<|page|>6<|box|>90 140 107 568<|content|>Section 6. Certification Regarding Flood Certifica\n<|id|>48<|page|>6<|box|>465 140 482 772<|content|>Section 7. Certification Regarding Lien Releases o\n<|id|>54<|page|>7<|box|>304 140 320 537<|content|>Section 8. Additional Post-Closing Items Delivered\n<|id|>59<|page|>8<|box|>90 140 107 663<|content|>Section 9. Schedule A — Itemized List of Post-Clos\n<|id|>71<|page|>9<|box|>212 140 229 362<|content|>Section 10. Representations\n<|id|>77<|page|>9<|box|>821 140 839 357<|content|>Section 11. Governing Law\n<|id|>80<|page|>10<|box|>160 197 176 797<|content|>SIGNATURE PAGE TO POST-CLOSING COMPLETION CERTIFIC\n<|id|>82<|page|>10<|box|>229 142 246 490<|content|>VERIMARK HOSPITALITY GROUP INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>-1\n<|id|>6<|level|>-1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>32<|level|>2\n<|id|>38<|level|>2\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>54<|level|>2\n<|id|>59<|level|>2\n<|id|>71<|level|>2\n<|id|>77<|level|>2\n<|id|>80<|level|>1\n<|id|>82<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 2
+        }
+    ]
+}

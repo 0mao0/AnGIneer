@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        12,
+        13
+    ],
+    "pages": [
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>110<|page|>12<|box|>824 174 897 854<|content|>Catherine Nygaard, Esq. ... Whitfield, Nygaard & D...ia Fernandez-Gill, Nathan Tsao, and Kira Johansson\n<|id|>111<|page|>13<|box|>89 174 127 854<|content|>Gavin Blackhall, Esq. ... Blackhall & Soren LLP 30...1 Counsel to Defendant Verdana Commerce Group, Inc",
+    "raw_response": "<|src_id|>110<|tgt_id|>111",
+    "parsed": [
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        }
+    ]
+}

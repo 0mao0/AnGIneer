@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>113 272 132 725<|content|>AURELIUS GLOBAL MEDIA GROUP PLC\n<|id|>1<|type|>title<|page|>1<|box|>159 289 175 707<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS\n<|id|>2<|type|>title<|page|>1<|box|>184 197 202 797<|content|>Dissolution of the Special Committee and Tabling o\n<|id|>5<|type|>title<|page|>1<|box|>289 142 306 390<|content|>PREAMBLE AND RECITALS\n<|id|>7<|type|>title<|page|>1<|box|>377 142 393 246<|content|>WHEREAS:\n<|id|>8<|type|>title<|page|>1<|box|>409 140 426 354<|content|>A. Company Identification\n<|id|>10<|type|>title<|page|>1<|box|>737 140 755 787<|content|>B. Resignation of Marcus Vane and Designation of I\n<|id|>12<|type|>title<|page|>2<|box|>213 140 229 450<|content|>C. Formation of the Special Committee\n<|id|>14<|type|>title<|page|>2<|box|>614 140 632 462<|content|>D. Activist Campaign and Proxy Contest\n<|id|>16<|type|>title<|page|>3<|box|>194 140 212 663<|content|>E. 2024 Annual General Meeting Results and Board R\n<|id|>27<|type|>title<|page|>3<|box|>773 142 790 429<|content|>F. Reconstituted Board Composition\n<|id|>29<|type|>table<|page|>3<|box|>839 143 893 852<|content|>None\n<|id|>30<|type|>table<|page|>4<|box|>89 143 453 852<|content|>None\n<|id|>32<|type|>title<|page|>4<|box|>590 140 608 586<|content|>G. Impracticability of Continuing the Special Comm\n<|id|>35<|type|>title<|page|>5<|box|>138 140 157 684<|content|>H. Engagement of Hargrove Tate Partners and Status\n<|id|>37<|type|>title<|page|>5<|box|>450 140 467 434<|content|>I. Calderwood & Harkness Guidance\n<|id|>39<|type|>title<|page|>5<|box|>733 140 751 336<|content|>RESOLVED CLAUSES\n<|id|>41<|type|>title<|page|>6<|box|>90 140 107 553<|content|>Resolution 1 — Dissolution of the Special Committe\n<|id|>46<|type|>title<|page|>6<|box|>570 140 587 544<|content|>Resolution 2 — Tabling of CEO Succession Process\n<|id|>51<|type|>title<|page|>7<|box|>257 142 273 558<|content|>Resolution 3 — Hargrove Tate Partners Engagement\n<|id|>55<|type|>title<|page|>7<|box|>691 140 709 604<|content|>Resolution 4 — Preservation of Special Committee R\n<|id|>69<|type|>title<|page|>9<|box|>294 140 311 565<|content|>Resolution 5 — Continuing D&O Insurance Coverage\n<|id|>73<|type|>title<|page|>9<|box|>729 140 747 513<|content|>Resolution 6 — Departing Director Obligations\n<|id|>78<|type|>title<|page|>10<|box|>448 140 465 571<|content|>Resolution 7 — Status of Strategic Alternatives Re\n<|id|>81<|type|>title<|page|>10<|box|>747 140 763 604<|content|>Resolution 8 — Engagement of Board Governance Coun\n<|id|>84<|type|>title<|page|>11<|box|>176 140 193 500<|content|>Resolution 9 — Authorization and Delegation\n<|id|>87<|type|>title<|page|>11<|box|>476 142 493 423<|content|>Resolution 10 — General Authority\n<|id|>91<|type|>title<|page|>11<|box|>720 142 737 441<|content|>ADOPTION AND CERTIFICATION\n<|id|>106<|type|>title<|page|>12<|box|>321 153 351 843<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM",
+    "raw_response": "<|src_id|>29<|tgt_id|>27\n<|src_id|>30<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 27
+        }
+    ]
+}

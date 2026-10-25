@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>114 251 133 746<|content|>PRINCIPAL AND SELLING STOCKHOLDERS\n<|id|>15<|type|>table<|page|>2<|box|>604 143 901 852<|content|>None\n<|id|>16<|type|>table<|page|>3<|box|>89 143 893 854<|content|>None\n<|id|>17<|type|>table<|page|>4<|box|>88 143 305 854<|content|>None\n<|id|>20<|type|>title<|page|>4<|box|>450 142 467 462<|content|>Footnotes to Beneficial Ownership Table\n<|id|>30<|type|>title<|page|>6<|box|>250 140 266 300<|content|>Selling Stockholder\n<|id|>31<|type|>title<|page|>6<|box|>279 140 297 344<|content|>Identity and Background\n<|id|>36<|type|>title<|page|>7<|box|>89 140 107 290<|content|>Shares Being Sold\n<|id|>40<|type|>title<|page|>7<|box|>494 142 512 393<|content|>Relationship with the Company\n<|id|>47<|type|>title<|page|>8<|box|>279 140 296 315<|content|>Lock-Up Agreements\n<|id|>65<|type|>title<|page|>10<|box|>229 140 248 503<|content|>Post-IPO Equity Plans and Dilutive Securities\n<|id|>80<|type|>title<|page|>11<|box|>419 140 436 509<|content|>Controlled-Company Status and Voting Power",
+    "raw_response": "<|src_id|>15<|tgt_id|>0\n<|src_id|>16<|tgt_id|>0\n<|src_id|>17<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 0
+        }
+    ]
+}

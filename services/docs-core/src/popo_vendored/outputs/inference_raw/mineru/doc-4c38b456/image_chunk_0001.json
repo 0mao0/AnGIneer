@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        51
+    ],
+    "pages": [
+        45,
+        46,
+        48,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>375<|type|>table<|page|>45<|box|>89 143 138 852<|content|>None\n<|id|>380<|type|>title<|page|>45<|box|>474 416 491 581<|content|>LEGAL MATTERS\n<|id|>383<|type|>title<|page|>45<|box|>731 380 748 617<|content|>INDEPENDENT AUDITORS\n<|id|>386<|type|>title<|page|>46<|box|>167 372 184 625<|content|>AVAILABLE INFORMATION\n<|id|>390<|type|>table<|page|>46<|box|>589 143 683 852<|content|>None\n<|id|>394<|type|>title<|page|>46<|box|>825 344 842 653<|content|>INCORPORATION BY REFERENCE\n<|id|>404<|type|>title<|page|>48<|box|>89 316 106 681<|content|>APPENDIX A — FORM OF GLOBAL NOTE\n<|id|>409<|type|>table<|page|>48<|box|>308 135 347 852<|content|>None\n<|id|>411<|type|>title<|page|>49<|box|>89 305 106 691<|content|>APPENDIX B — INDEX OF DEFINED TERMS\n<|id|>412<|type|>table<|page|>49<|box|>178 143 893 852<|content|>None\n<|id|>413<|type|>table<|page|>50<|box|>89 143 898 852<|content|>None\n<|id|>414<|type|>table<|page|>51<|box|>89 143 443 852<|content|>None\n<|id|>415<|type|>title<|page|>51<|box|>492 406 508 589<|content|>BACK COVER PAGE\n<|id|>416<|type|>title<|page|>51<|box|>517 271 535 725<|content|>BELMONT RIDGE BANK, NATIONAL ASSOCIATION",
+    "raw_response": "<|src_id|>390<|tgt_id|>386\n<|src_id|>409<|tgt_id|>404\n<|src_id|>412<|tgt_id|>411\n<|src_id|>413<|tgt_id|>411\n<|src_id|>414<|tgt_id|>411",
+    "parsed": [
+        {
+            "src_id": 390,
+            "tgt_id": 386
+        },
+        {
+            "src_id": 409,
+            "tgt_id": 404
+        },
+        {
+            "src_id": 412,
+            "tgt_id": 411
+        },
+        {
+            "src_id": 413,
+            "tgt_id": 411
+        },
+        {
+            "src_id": 414,
+            "tgt_id": 411
+        }
+    ]
+}

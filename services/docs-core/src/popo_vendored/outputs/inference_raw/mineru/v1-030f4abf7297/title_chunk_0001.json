@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        49,
+        128
+    ],
+    "pages": [
+        49,
+        50,
+        127,
+        128
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>339<|page|>49<|box|>652 114 673 519<|content|>4.2.4数据中心硬件安装连接节点控制\n<|id|>340<|page|>49<|box|>684 156 702 300<|content|>1 核对设备清单\n<|id|>342<|page|>49<|box|>850 154 868 300<|content|>2 安装设备布局\n<|id|>344<|page|>50<|box|>196 154 214 322<|content|>3 线缆连接与标识\n<|id|>346<|page|>50<|box|>307 154 325 300<|content|>4 基础网络配置\n<|id|>348<|page|>50<|box|>445 154 464 342<|content|>5 数据传输功能测试\n<|id|>350<|page|>50<|box|>556 154 574 342<|content|>6 安装调试问题记录\n<|id|>352<|page|>50<|box|>668 114 690 359<|content|>5 设备技术参数情况\n<|id|>353<|page|>50<|box|>703 114 725 354<|content|>5.1技术参数响应情况\n<|id|>354<|page|>50<|box|>736 115 757 307<|content|>5.1.1 总体响应表\n<|id|>433<|page|>127<|box|>549 115 569 284<|content|>5.1.2 证明材料\n<|id|>436<|page|>128<|box|>321 285 360 631<|content|>检验报告",
+    "raw_response": "<|id|>339<|level|>1\n<|id|>340<|level|>2\n<|id|>342<|level|>2\n<|id|>344<|level|>2\n<|id|>346<|level|>2\n<|id|>348<|level|>2\n<|id|>350<|level|>2\n<|id|>352<|level|>1\n<|id|>353<|level|>2\n<|id|>354<|level|>3\n<|id|>433<|level|>3\n<|id|>436<|level|>4",
+    "parsed": [
+        {
+            "id": 339,
+            "level": 1
+        },
+        {
+            "id": 340,
+            "level": 2
+        },
+        {
+            "id": 342,
+            "level": 2
+        },
+        {
+            "id": 344,
+            "level": 2
+        },
+        {
+            "id": 346,
+            "level": 2
+        },
+        {
+            "id": 348,
+            "level": 2
+        },
+        {
+            "id": 350,
+            "level": 2
+        },
+        {
+            "id": 352,
+            "level": 1
+        },
+        {
+            "id": 353,
+            "level": 2
+        },
+        {
+            "id": 354,
+            "level": 3
+        },
+        {
+            "id": 433,
+            "level": 3
+        },
+        {
+            "id": 436,
+            "level": 4
+        }
+    ]
+}

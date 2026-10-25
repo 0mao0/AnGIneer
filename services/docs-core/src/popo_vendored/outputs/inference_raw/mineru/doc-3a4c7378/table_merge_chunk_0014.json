@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 14,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['\"wherein the grating coupler further comprises an apodized grating profile in which the duty cycle of the grating features varies across the grating aperture to shape the near-field radiation pattern for improved mode matching with a single-mode fiber.\"', 'Accused Element: The Benchmark teardown (Exhibit OWS-2001 at pp. 91–93) identified a non-uniform (apodized) grating profile in the LumiLink 800G-DR8\\'s polarization-diverse grating coupler. SEM images (Exhibits OWS-2054, OWS-2055) show that the duty cycle (the ratio of the etched feature width to the grating period) varies across the grating aperture, with a smaller duty cycle near the center and a larger duty cycle toward the edges. Lumicore design files (LC-HC-SC-00015170 through LC-HC-SC-00015180) include the apodization profile parameters, with design annotations indicating the purpose of \"Gaussian mode matching\" to optimize overlap with the single-mode fiber mode. Lumicore simulation files (LC-HC-SC-00015175) show mode-overlap calculations demonstrating improved coupling efficiency from the apodized profile.Dr.Ashford\\'s Explanation: Claim 16 requires an apodized grating profile with varying duty cycle to improve fiber mode matching. The Benchmark teardown and Lumicore design files confirm that the accused grating coupler employs duty-cycle apodization for this purpose. Met literally.']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['\"wherein the grating coupler further comprises an apodized grating profile in which the duty cycle of the grating features varies across the grating aperture to shape the near-field radiation pattern for improved mode matching with a single-mode fiber.\"', \"Accused Element: Benchmark teardown (Exhibit OWS-3001 at pp. 77–79; SEM images Exhibits OWS-3032, OWS-3033) shows a substantially identical apodized grating profile in the LumiEdge 1600G-LR grating coupler with varying duty cycle across the aperture. Luminore design files (LC-HC-SC-00016570 through LC-HC-SC-00016580). Dr. Ashford's Explanation: Met literally for the same reasons as the 800G-DR8.\"]]\n",
+    "raw_response": "[0, 0]",
+    "parsed": [
+        0,
+        0
+    ],
+    "table1_idx": 266,
+    "table2_idx": 267
+}

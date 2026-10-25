@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>119 122 857 836<|content|>None\n<|id|>1<|type|>table<|page|>2<|box|>123 124 839 290<|content|>None\n<|id|>2<|type|>table<|page|>3<|box|>119 114 883 875<|content|>None\n<|id|>3<|type|>title<|page|>4<|box|>90 393 109 604<|content|>Changeover Information\n<|id|>24<|type|>title<|page|>4<|box|>667 398 685 599<|content|>Production Constraints\n<|id|>26<|type|>table<|page|>4<|box|>762 120 878 771<|content|>None",
+    "raw_response": "<|src_id|>26<|tgt_id|>24",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 24
+        }
+    ]
+}

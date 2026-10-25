@@ -1,0 +1,147 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6t_9854l\\input\\pdfs\\doc-11ca2fbf.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6t_9854l\\enriched\\doc-11ca2fbf.json",
+    "contd_output": "<|src_id|>3<|tgt_id|>4\n<|src_id|>4<|tgt_id|>5\n<|src_id|>5<|tgt_id|>6\n<|src_id|>54<|tgt_id|>55",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>16<|level|>2\n<|id|>19<|level|>2\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>31<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>2\n<|id|>47<|level|>2\n<|id|>52<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>2\n<|id|>63<|level|>2\n<|id|>71<|level|>2\n<|id|>74<|level|>2\n<|id|>77<|level|>1\n<|id|>79<|level|>2\n<|id|>84<|level|>3\n<|id|>90<|level|>4\n<|id|>93<|level|>4",
+    "image_output": "<|src_id|>22<|tgt_id|>19\n<|src_id|>23<|tgt_id|>19\n<|src_id|>61<|tgt_id|>59",
+    "contd_label": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 4
+        },
+        {
+            "id": 93,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 59
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 22,
+            "table2_idx": 23,
+            "upper_row_ss": [
+                [
+                    "Meridian Bio Australia",
+                    "Proprietary Limited",
+                    "Commonwealth of",
+                    "Sydney, New South"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Pty Ltd",
+                    "Company",
+                    "Australia",
+                    "Wales, Australia"
+                ]
+            ]
+        }
+    ]
+}

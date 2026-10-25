@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Risk 6', 'Inadequate Data Subject Rights Fulfilment', 'MEDIUM', 'Measure 6: Enhanced Transparency and Data Subject Rights Mechanisms', 'Remote (dedicated process, defined SLAs, DPO oversight)', 'Minimal', 'LOW']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Risk 7', 'Processing at Scale — Aggregate Impact', 'MEDIUM', 'Measure 7: Model Performance and Error Monitoring', 'Possible (reduced by continuous monitoring and retraining)', 'Minimal to Significant (detection and response mechanisms limit impact)', 'LOW-MEDIUM']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 427,
+    "table2_idx": 428
+}

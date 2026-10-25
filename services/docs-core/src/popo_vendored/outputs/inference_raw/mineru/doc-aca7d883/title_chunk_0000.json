@@ -1,0 +1,113 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        14,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>304 151 376 844<|content|>MEMORANDUM OF LAW IN SUPPORT OF PLAINTIFF WHITMORE\n<|id|>7<|page|>2<|box|>575 385 590 612<|content|>TABLE OF AUTHORITIES\n<|id|>11<|page|>3<|box|>482 143 500 339<|content|>Statutes and Regulations\n<|id|>13<|page|>3<|box|>750 143 765 285<|content|>Other Authorities\n<|id|>15<|page|>4<|box|>138 142 155 398<|content|>PRELIMINARY STATEMENT\n<|id|>23<|page|>5<|box|>229 140 247 356<|content|>STATEMENT OF FACTS\n<|id|>24<|page|>5<|box|>261 140 277 261<|content|>A. The Parties\n<|id|>27<|page|>5<|box|>652 140 670 550<|content|>B. The Prime Contract and the Teaming Agreement\n<|id|>46<|page|>7<|box|>436 140 454 490<|content|>C. The DCMA Cost-Overrun Determination\n<|id|>54<|page|>8<|box|>270 140 287 436<|content|>(Compl. ¶¶ 33–37; Anand Decl. Ex. C.)\n<|id|>57<|page|>8<|box|>573 140 590 727<|content|>D. HDDS's Indemnification Demand and Pre-Litigatio\n<|id|>61<|page|>9<|box|>213 140 229 700<|content|>E. The DCMA Administrative Review Under the Contra\n<|id|>67<|page|>9<|box|>828 140 845 284<|content|>F. This Litigation\n<|id|>76<|page|>10<|box|>597 142 614 256<|content|>ARGUMENT\n<|id|>77<|page|>10<|box|>628 140 645 611<|content|>I. LEGAL STANDARD FOR A STAY OF PROCEEDINGS\n<|id|>87<|page|>11<|box|>587 140 623 854<|content|>II. THE PRIMARY-JURISDICTION DOCTRINE COUNSELS DEF\n<|id|>118<|page|>14<|box|>770 140 805 854<|content|>III. A STAY WILL PROMOTE JUDICIAL ECONOMY AND AVOI\n<|id|>133<|page|>16<|box|>337 140 354 756<|content|>IV. THE CONTRACT DISPUTES ACT FRAMEWORK SUPPORTS A\n<|id|>139<|page|>17<|box|>329 140 347 622<|content|>V. NEITHER PARTY WILL BE PREJUDICED BY A STAY\n<|id|>150<|page|>18<|box|>527 142 544 450<|content|>VI. PROPOSED STAY CONDITIONS\n<|id|>157<|page|>19<|box|>266 140 282 272<|content|>CONCLUSION\n<|id|>168<|page|>19<|box|>729 375 747 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>11<|level|>3\n<|id|>13<|level|>3\n<|id|>15<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>27<|level|>3\n<|id|>46<|level|>3\n<|id|>54<|level|>-1\n<|id|>57<|level|>3\n<|id|>61<|level|>3\n<|id|>67<|level|>3\n<|id|>76<|level|>2\n<|id|>77<|level|>3\n<|id|>87<|level|>3\n<|id|>118<|level|>3\n<|id|>133<|level|>3\n<|id|>139<|level|>3\n<|id|>150<|level|>3\n<|id|>157<|level|>2\n<|id|>168<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        }
+    ]
+}

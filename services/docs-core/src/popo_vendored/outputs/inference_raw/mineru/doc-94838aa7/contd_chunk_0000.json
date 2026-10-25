@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>13<|page|>1<|box|>864 210 901 856<|content|>(iii) subordinated notes (the \"Subordinated Notes\"...d to Cascade Mezzanine Capital Fund IV, L. ... and\n<|id|>15<|page|>2<|box|>196 140 287 854<|content|>All of the foregoing transactions, together with t...ely referred to herein as the \"Transactions. ... \"\n<|id|>37<|page|>4<|box|>612 174 666 854<|content|>(l) Reviewed the terms and conditions of all mater...the Credit Agreement disclosure schedules; ... and\n<|id|>39<|page|>4<|box|>718 138 902 857<|content|>In rendering the certifications set forth herein, ...ue, correct, and complete in all material respects\n<|id|>56<|page|>6<|box|>837 140 892 854<|content|>The undersigned hereby certifies that, immediately...bilities (including Stated Liabilities, Identified\n<|id|>57<|page|>7<|box|>89 140 127 854<|content|>Contingent Liabilities, and subordinated, continge...lute and mature in the ordinary course of business\n<|id|>77<|page|>9<|box|>301 142 318 344<|content|>Name: ... Hadley\n<|id|>78<|page|>9<|box|>319 142 335 361<|content|>Title: ... Chief Financial Officer\n<|id|>79<|page|>9<|box|>335 142 353 295<|content|>Date: ... June 12, 2025",
+    "raw_response": "<|src_id|>56<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        }
+    ]
+}

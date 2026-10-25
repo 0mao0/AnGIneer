@@ -1,0 +1,163 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3i21lkc7\\input\\pdfs\\doc-c92012f0.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3i21lkc7\\enriched\\doc-c92012f0.json",
+    "contd_output": "<|src_id|>21<|tgt_id|>22",
+    "title_output": "<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>34<|level|>2\n<|id|>43<|level|>2\n<|id|>51<|level|>1\n<|id|>58<|level|>1\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>65<|level|>3\n<|id|>74<|level|>3\n<|id|>83<|level|>2\n<|id|>84<|level|>3\n<|id|>88<|level|>3\n<|id|>96<|level|>3\n<|id|>104<|level|>2\n<|id|>105<|level|>3\n<|id|>109<|level|>3\n<|id|>116<|level|>3\n<|id|>124<|level|>2\n<|id|>125<|level|>3\n<|id|>129<|level|>3\n<|id|>147<|level|>3\n<|id|>155<|level|>1\n<|id|>160<|level|>1\n<|id|>161<|level|>2\n<|id|>163<|level|>2\n<|id|>172<|level|>1\n<|id|>180<|level|>1\n<|id|>187<|level|>1",
+    "image_output": "<|src_id|>31<|tgt_id|>14\n<|src_id|>32<|tgt_id|>14",
+    "contd_label": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 180,
+            "level": 1
+        },
+        {
+            "id": 187,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 31,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 14
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 31,
+            "table2_idx": 32,
+            "upper_row_ss": [
+                [
+                    "Subtotal — Costs",
+                    "12,150,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Grand Total",
+                    "108,600,000"
+                ]
+            ]
+        }
+    ]
+}

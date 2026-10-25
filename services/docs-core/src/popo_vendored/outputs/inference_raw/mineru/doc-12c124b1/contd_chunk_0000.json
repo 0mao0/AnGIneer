@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        3,
+        8,
+        9,
+        10,
+        11,
+        12,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>237 140 255 728<|content|>Matter: ... Northgate Telecommunications PLC — CEO Employment Negotiation\n<|id|>4<|page|>1<|box|>263 142 280 370<|content|>Matter Number: ... 1022-00004\n<|id|>5<|page|>1<|box|>289 140 306 406<|content|>Date of Call: ... Friday, July 12, 2024\n<|id|>6<|page|>1<|box|>314 140 332 660<|content|>Prepared by: ... Devon Archer, Associate, Calderwood & Harkness LLP\n<|id|>7<|page|>1<|box|>340 142 359 411<|content|>Date of Preparation: ... July 12, 2024\n<|id|>9<|page|>1<|box|>407 142 425 349<|content|>Date: ... Friday, July 12, 2024\n<|id|>10<|page|>1<|box|>433 140 450 661<|content|>Time: ... (EDT) (approximately 1 hour 45 minutes)\n<|id|>11<|page|>1<|box|>459 142 477 772<|content|>Format: ... Calderwood & Harkness hosting link)\n<|id|>12<|page|>1<|box|>484 140 558 854<|content|>Reference Document: ... The v4 term sheet containe...ng disputed provisions, as described further below\n<|id|>14<|page|>1<|box|>612 140 630 758<|content|>Calderwood & Harkness LLP (counsel to Northgate Telecommunications PLC)\n<|id|>18<|page|>1<|box|>705 142 724 612<|content|>Hargrove & Liddell LLP (counsel to Marcus Elliot Harding)\n<|id|>15<|page|>1<|box|>636 147 652 357<|content|>• Renata Vasquez, Partner\n<|id|>16<|page|>1<|box|>656 148 672 393<|content|>• James Underwood, Associate\n<|id|>17<|page|>1<|box|>675 147 691 441<|content|>• Devon Archer, Associate (notetaker)\n<|id|>21<|page|>1<|box|>779 142 796 300<|content|>Not Present on Call\n<|id|>19<|page|>1<|box|>729 147 746 374<|content|>• Victoria Hargrove, Partner\n<|id|>20<|page|>1<|box|>750 147 765 344<|content|>• Nathan Chu, Associate\n<|id|>22<|page|>1<|box|>803 140 893 854<|content|>No client principals participated in this call. .....l based on previously received client instructions\n<|id|>42<|page|>3<|box|>196 174 214 839<|content|>(c) the sale, lease, exchange, or other transfer of all or substantially all of NTP's assets; ... and\n<|id|>44<|page|>3<|box|>285 140 358 854<|content|>Hargrove stated that all four triggers are standar...authority structure from which his mandate derives\n<|id|>100<|page|>8<|box|>776 140 904 857<|content|>Vasquez noted that Northgate had already demonstra...onths as the minimum duration necessary to protect\n<|id|>101<|page|>9<|box|>90 140 127 854<|content|>Northgate's legitimate business interests, given t...tial information to which Harding will have access\n<|id|>111<|page|>9<|box|>854 140 910 854<|content|>Vasquez noted the convergence on geographic scope ...mmittee's fallback position contemplated the North\n<|id|>112<|page|>10<|box|>90 140 145 854<|content|>America and Western Europe scope in conjunction wi...d accept the reduced scope at a different duration\n<|id|>130<|page|>11<|box|>857 140 893 856<|content|>Vasquez stated that the concept of concurrent running — i. ... However,\n<|id|>131<|page|>12<|box|>90 140 143 854<|content|>Vasquez argued that the garden leave period and co... example, Vasquez outlined the following structure\n<|id|>188<|page|>17<|box|>281 140 297 581<|content|>Next Scheduled Call: ... July 19, 2024 — Negotiation Call #5\n<|id|>189<|page|>17<|box|>306 142 324 710<|content|>Draft 1 of Employment Agreement: ... Target circulation date of July 22, 2024\n<|id|>190<|page|>17<|box|>333 142 349 707<|content|>Notes Prepared by: ... Devon Archer, Associate, Calderwood & Harkness LLP\n<|id|>191<|page|>17<|box|>358 140 375 738<|content|>Notes Reviewed by: ... James Underwood, Associate, Calderwood & Harkness LLP\n<|id|>193<|page|>17<|box|>411 147 426 349<|content|>• Renata Vasquez, Partner\n<|id|>197<|page|>17<|box|>488 140 547 854<|content|>These call notes are for internal Calderwood & Har...ut the prior review and approval of Renata Vasquez\n<|id|>194<|page|>17<|box|>430 148 446 364<|content|>• Bernard Crawford, Partner\n<|id|>195<|page|>17<|box|>450 148 465 383<|content|>• James Underwood, Associate\n<|id|>196<|page|>17<|box|>469 147 484 352<|content|>• Devon Archer, Associate",
+    "raw_response": "<|src_id|>100<|tgt_id|>101\n<|src_id|>111<|tgt_id|>112\n<|src_id|>130<|tgt_id|>131",
+    "parsed": [
+        {
+            "src_id": 100,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 131
+        }
+    ]
+}

@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 403 106 594<|content|>JAMS ARBITRATION\n<|id|>4<|page|>1<|box|>414 158 469 838<|content|>JOINT STIPULATION AND AGREED ORDER RE: APPOINTMENT\n<|id|>21<|page|>3<|box|>444 140 460 681<|content|>SECTION 1: APPOINTMENT OF NEUTRAL THIRD APPRAISER\n<|id|>26<|page|>4<|box|>157 140 174 450<|content|>SECTION 2: SCOPE OF APPRAISAL\n<|id|>39<|page|>5<|box|>473 140 489 506<|content|>SECTION 3: INFORMATION AND ACCESS\n<|id|>51<|page|>6<|box|>517 140 534 346<|content|>SECTION 4: TIMELINE\n<|id|>58<|page|>7<|box|>256 140 273 392<|content|>SECTION 5: COST SHARING\n<|id|>66<|page|>8<|box|>89 140 107 851<|content|>SECTION 6: DETERMINATION OF FAIR MARKET VALUE UNDE\n<|id|>72<|page|>8<|box|>632 140 648 426<|content|>SECTION 7: CONFIDENTIALITY\n<|id|>76<|page|>9<|box|>175 140 191 535<|content|>SECTION 8: COMMUNICATIONS PROTOCOL\n<|id|>87<|page|>9<|box|>748 140 765 490<|content|>SECTION 9: RESERVATION OF RIGHTS\n<|id|>93<|page|>10<|box|>436 140 453 683<|content|>SECTION 10: ARBITRATOR'S APPROVAL AND JURISDICTION\n<|id|>98<|page|>10<|box|>782 142 799 643<|content|>FOR CLAIMANT MERIDIAN SHORES HOSPITALITY LLC:\n<|id|>99<|page|>10<|box|>809 142 825 478<|content|>HARGROVE, DUNLAP & CASTILLO LLP\n<|id|>101<|page|>11<|box|>89 142 106 640<|content|>FOR RESPONDENT PELLEGRINO CAPITAL GROUP LLC:\n<|id|>107<|page|>11<|box|>223 421 239 575<|content|>AGREED ORDER",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>1\n<|id|>21<|level|>2\n<|id|>26<|level|>2\n<|id|>39<|level|>2\n<|id|>51<|level|>2\n<|id|>58<|level|>2\n<|id|>66<|level|>2\n<|id|>72<|level|>2\n<|id|>76<|level|>2\n<|id|>87<|level|>2\n<|id|>93<|level|>2\n<|id|>98<|level|>3\n<|id|>99<|level|>4\n<|id|>101<|level|>3\n<|id|>107<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 4
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 1
+        }
+    ]
+}

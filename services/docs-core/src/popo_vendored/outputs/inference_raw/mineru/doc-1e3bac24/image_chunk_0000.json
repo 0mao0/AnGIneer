@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 366 118 630<|content|>JOINDER AGREEMENT\n<|id|>1<|type|>title<|page|>1<|box|>136 236 154 761<|content|>Joinder to Restructuring Support Agreement dated M\n<|id|>4<|type|>title<|page|>1<|box|>448 140 465 243<|content|>RECITALS\n<|id|>5<|type|>title<|page|>1<|box|>474 140 491 246<|content|>WHEREAS:\n<|id|>19<|type|>title<|page|>4<|box|>90 142 107 245<|content|>ARTICLE 1\n<|id|>20<|type|>title<|page|>4<|box|>131 140 148 269<|content|>DEFINITIONS\n<|id|>37<|type|>title<|page|>5<|box|>148 142 166 245<|content|>ARTICLE 2\n<|id|>38<|type|>title<|page|>5<|box|>190 140 207 397<|content|>JOINDER AND AGREEMENT\n<|id|>54<|type|>title<|page|>7<|box|>248 142 265 245<|content|>ARTICLE 3\n<|id|>55<|type|>title<|page|>7<|box|>289 140 306 498<|content|>REPRESENTATIONS AND WARRANTIES\n<|id|>62<|type|>title<|page|>8<|box|>412 142 430 245<|content|>ARTICLE 4\n<|id|>63<|type|>title<|page|>8<|box|>454 140 470 282<|content|>TERMINATION\n<|id|>71<|type|>title<|page|>9<|box|>239 142 257 245<|content|>ARTICLE 5\n<|id|>72<|type|>title<|page|>9<|box|>282 140 299 307<|content|>MISCELLANEOUS\n<|id|>102<|type|>title<|page|>11<|box|>674 290 690 705<|content|>SIGNATURE PAGES TO JOINDER AGREEMENT\n<|id|>103<|type|>title<|page|>11<|box|>699 390 715 607<|content|>CONSENTING LENDERS\n<|id|>104<|type|>title<|page|>11<|box|>726 140 742 852<|content|>NORDBANK INTERNATIONAL AG (in its capacity as a Le\n<|id|>123<|type|>title<|page|>12<|box|>228 143 243 385<|content|>HARBORSTONE BANK PLC\n<|id|>132<|type|>title<|page|>12<|box|>383 143 398 450<|content|>PACIFICA TRADE FINANCE CORP.\n<|id|>141<|type|>title<|page|>12<|box|>537 143 554 529<|content|>CONTINENTAL MARITIME LENDING GmbH\n<|id|>150<|type|>title<|page|>12<|box|>709 143 724 423<|content|>TRITON CREDIT PARTNERS LP\n<|id|>159<|type|>title<|page|>12<|box|>880 143 896 433<|content|>LAURENTIAN SHIPPING FUND II\n<|id|>168<|type|>title<|page|>13<|box|>228 143 243 475<|content|>CASPIAN ASSET MANAGEMENT LTD.\n<|id|>177<|type|>title<|page|>13<|box|>414 143 430 513<|content|>PELAGOS INSTITUTIONAL CREDIT FUND\n<|id|>186<|type|>title<|page|>13<|box|>570 299 585 697<|content|>AGGREGATE COMMITMENT VERIFICATION\n<|id|>187<|type|>table<|page|>13<|box|>638 143 844 852<|content|>None\n<|id|>189<|type|>title<|page|>14<|box|>152 352 169 645<|content|>ACKNOWLEDGED AND AGREED\n<|id|>190<|type|>title<|page|>14<|box|>178 357 195 640<|content|>COUNTERPARTY SIGNATURES\n<|id|>209<|type|>title<|page|>14<|box|>556 437 574 560<|content|>SCHEDULE A\n<|id|>210<|type|>title<|page|>14<|box|>583 274 599 723<|content|>CONSENTING LENDER COMMITMENT SCHEDULE\n<|id|>212<|type|>table<|page|>14<|box|>670 143 895 852<|content|>None\n<|id|>213<|type|>table<|page|>15<|box|>89 143 186 852<|content|>None\n<|id|>215<|type|>title<|page|>15<|box|>354 447 371 550<|content|>EXHIBIT A\n<|id|>216<|type|>title<|page|>15<|box|>381 359 398 637<|content|>FORM OF TRANSFER JOINDER\n<|id|>217<|type|>title<|page|>15<|box|>407 343 424 653<|content|>TRANSFER JOINDER AGREEMENT\n<|id|>238<|type|>title<|page|>16<|box|>494 140 512 790<|content|>NORDBANK INTERNATIONAL AG (as Administrative Agent",
+    "raw_response": "<|src_id|>187<|tgt_id|>186\n<|src_id|>212<|tgt_id|>210\n<|src_id|>213<|tgt_id|>210",
+    "parsed": [
+        {
+            "src_id": 187,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 210
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 210
+        }
+    ]
+}

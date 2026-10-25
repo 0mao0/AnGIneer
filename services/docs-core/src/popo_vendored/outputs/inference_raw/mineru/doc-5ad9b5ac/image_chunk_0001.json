@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        51
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>418<|type|>table<|page|>46<|box|>89 145 109 852<|content|>None\n<|id|>419<|type|>title<|page|>47<|box|>90 142 107 398<|content|>Appendix D — Draft MLR SOP\n<|id|>421<|type|>title<|page|>47<|box|>138 140 156 480<|content|>STANDARD OPERATING PROCEDURE\n<|id|>423<|type|>title<|page|>47<|box|>228 143 244 240<|content|>1.0 Purpose\n<|id|>425<|type|>title<|page|>47<|box|>334 142 352 222<|content|>2.0 Scope\n<|id|>427<|type|>title<|page|>47<|box|>441 142 458 261<|content|>3.0 Definitions\n<|id|>431<|type|>title<|page|>47<|box|>636 142 652 410<|content|>4.0 MLR Committee Composition\n<|id|>433<|type|>title<|page|>47<|box|>686 142 704 295<|content|>5.0 Review Process\n<|id|>435<|type|>title<|page|>47<|box|>739 142 756 315<|content|>6.0 Expedited Review\n<|id|>437<|type|>title<|page|>47<|box|>791 143 806 292<|content|>7.0 Annual Review\n<|id|>439<|type|>title<|page|>47<|box|>843 142 859 243<|content|>8.0 Training\n<|id|>441<|type|>title<|page|>48<|box|>90 140 106 310<|content|>9.0 Record Retention\n<|id|>443<|type|>title<|page|>48<|box|>161 143 178 259<|content|>10.0 Approval\n<|id|>446<|type|>title<|page|>49<|box|>90 142 108 477<|content|>Appendix E — Form 2253 Filing Checklist\n<|id|>447<|type|>table<|page|>49<|box|>175 143 890 852<|content|>None\n<|id|>448<|type|>table<|page|>50<|box|>88 143 385 852<|content|>None\n<|id|>449<|type|>title<|page|>50<|box|>419 143 436 261<|content|>Filing Process:\n<|id|>455<|type|>title<|page|>51<|box|>90 140 107 563<|content|>Appendix F — Selected FDA Enforcement Precedents",
+    "raw_response": "<|src_id|>418<|tgt_id|>419\n<|src_id|>447<|tgt_id|>446\n<|src_id|>448<|tgt_id|>446",
+    "parsed": [
+        {
+            "src_id": 418,
+            "tgt_id": 419
+        },
+        {
+            "src_id": 447,
+            "tgt_id": 446
+        },
+        {
+            "src_id": 448,
+            "tgt_id": 446
+        }
+    ]
+}

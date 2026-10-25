@@ -1,0 +1,166 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9x4f617v\\input\\pdfs\\doc-008354f2.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9x4f617v\\enriched\\doc-008354f2.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>26<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>3\n<|id|>46<|level|>3\n<|id|>60<|level|>3\n<|id|>69<|level|>3\n<|id|>76<|level|>3\n<|id|>102<|level|>3\n<|id|>111<|level|>2\n<|id|>124<|level|>2\n<|id|>126<|level|>3\n<|id|>132<|level|>3\n<|id|>139<|level|>3\n<|id|>145<|level|>3\n<|id|>150<|level|>2\n<|id|>180<|level|>2\n<|id|>194<|level|>2\n<|id|>196<|level|>3\n<|id|>202<|level|>3\n<|id|>204<|level|>3\n<|id|>208<|level|>3\n<|id|>211<|level|>3\n<|id|>214<|level|>3\n<|id|>217<|level|>2",
+    "image_output": "<|src_id|>2<|tgt_id|>0\n<|src_id|>28<|tgt_id|>26\n<|src_id|>30<|tgt_id|>26\n<|src_id|>32<|tgt_id|>26\n<|src_id|>34<|tgt_id|>26\n<|src_id|>35<|tgt_id|>26\n<|src_id|>218<|tgt_id|>217",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 202,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 3
+        },
+        {
+            "id": 217,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 2,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 217
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 34,
+            "table2_idx": 35,
+            "upper_row_ss": [
+                [
+                    "Role in Transaction:",
+                    "Guarantor under the Guaranty Agreement; Grantor under the Security Agreement; Mortgagor under the"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Illinois Form Mortgage"
+                ]
+            ]
+        }
+    ]
+}

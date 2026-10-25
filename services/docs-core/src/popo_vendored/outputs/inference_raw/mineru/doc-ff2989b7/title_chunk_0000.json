@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>10<|page|>1<|box|>436 142 453 434<|content|>1. Identification of Sender and Client\n<|id|>15<|page|>2<|box|>223 140 239 663<|content|>2. Background — The Departing Employees and Their\n<|id|>16<|page|>2<|box|>253 140 270 277<|content|>2.1 Rajiv Anand\n<|id|>20<|page|>2<|box|>652 140 669 294<|content|>2.2 Serena Mallick\n<|id|>24<|page|>3<|box|>184 140 200 261<|content|>2.3 Derek Yun\n<|id|>28<|page|>3<|box|>491 140 508 321<|content|>2.4 PIIAA Obligations\n<|id|>37<|page|>4<|box|>484 140 501 571<|content|>3. Lumos's Proprietary Information and Trade Secre\n<|id|>46<|page|>5<|box|>628 140 647 398<|content|>4. Evidence of Misappropriation\n<|id|>55<|page|>7<|box|>167 140 185 338<|content|>5. NovaSpark's Liability\n<|id|>60<|page|>7<|box|>789 140 805 241<|content|>6. Demands\n<|id|>62<|page|>8<|box|>90 140 107 669<|content|>6.1 Cease All Use and Disclosure of Lumos Propriet\n<|id|>64<|page|>8<|box|>291 140 308 566<|content|>6.2 Preserve All Electronic Systems, Devices, and\n<|id|>67<|page|>8<|box|>681 140 699 395<|content|>6.3 Return All Lumos Materials\n<|id|>70<|page|>9<|box|>90 140 107 339<|content|>6.4 Confirm Compliance\n<|id|>77<|page|>9<|box|>467 140 484 416<|content|>7. Warning of Imminent Litigation\n<|id|>87<|page|>10<|box|>250 140 265 334<|content|>8. Reservation of Rights",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>20<|level|>3\n<|id|>24<|level|>3\n<|id|>28<|level|>3\n<|id|>37<|level|>2\n<|id|>46<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>3\n<|id|>64<|level|>3\n<|id|>67<|level|>3\n<|id|>70<|level|>3\n<|id|>77<|level|>2\n<|id|>87<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        }
+    ]
+}

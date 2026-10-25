@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        12,
+        13,
+        14,
+        19,
+        22,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>154 704 172 854<|content|>September 15, 2023\n<|id|>2<|page|>1<|box|>180 140 198 745<|content|>FROM: ... Robert Jansen, Associate, Tax Department, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>205 140 224 777<|content|>TO: ... Leila Nazari, Associate, Tax Department Leonard Cross, Partner, Tax Department\n<|id|>4<|page|>1<|box|>232 140 250 810<|content|>RE: ... )\n<|id|>5<|page|>1<|box|>257 142 275 362<|content|>MATTER NO. ... 1015-00005\n<|id|>6<|page|>1<|box|>282 142 301 349<|content|>BILLING NO. ... 78204-001\n<|id|>14<|page|>2<|box|>128 181 162 854<|content|>• $64,800,000 subject to § 6418 transfer elections...ch $60,000,000 has been sold to Pinehurst; ... and\n<|id|>16<|page|>2<|box|>222 140 387 854<|content|>The five-year recapture period under § 50(a) runs ...iminate recapture exposure at the time of the flip\n<|id|>91<|page|>12<|box|>406 183 460 854<|content|>• The affirmative covenants in the TCPA, pursuant ...asonably be expected to trigger recapture; ... and\n<|id|>93<|page|>12<|box|>536 140 592 854<|content|>While these contractual protections are comprehens...quacy of which we analyze in the following section\n<|id|>98<|page|>12<|box|>830 174 904 856<|content|>(ii) ITC Disallowance. ... If the IRS determines t...apprenticeship requirements were not met, or the §\n<|id|>99<|page|>13<|box|>89 174 143 854<|content|>6418 transfer election was defective — and Pinehur...demnify Pinehurst for the disallowed credit amount\n<|id|>117<|page|>14<|box|>484 183 500 428<|content|>• 2022 Revenues: ... 4 million\n<|id|>121<|page|>14<|box|>579 140 708 856<|content|>The $69,000,000 indemnity cap represents approxima...imately five-year survival period of the agreement\n<|id|>118<|page|>14<|box|>503 183 520 516<|content|>• Total Assets: ... Approximately $412 million\n<|id|>119<|page|>14<|box|>523 181 556 854<|content|>• Existing Operating Portfolio: ... Approximately ...tes (in addition to the 420 MW Solstice Portfolio)\n<|id|>120<|page|>14<|box|>561 183 577 753<|content|>• Corporate Structure: ... C-corporation organized under the laws of Delaware\n<|id|>156<|page|>19<|box|>691 174 709 854<|content|>Total Eligible Basis (EPC Cost): ... Basis Reduction (50% × $153,840,000\n<|id|>157<|page|>19<|box|>710 174 729 723<|content|>ITC): ... $307,680,000\n<|id|>158<|page|>19<|box|>737 140 809 854<|content|>The $307,680,000 in depreciable basis is recovered...n accordance with the LLCA's allocation provisions\n<|id|>185<|page|>22<|box|>760 140 888 857<|content|>1. ... We recommend coordinating with Larchmont &\n<|id|>186<|page|>23<|box|>90 140 127 854<|content|>Associates, PLLC (Susan Kaplan, Tax Partner) on th...velopment of a standardized certification template\n<|id|>197<|page|>24<|box|>762 174 816 854<|content|>(ii) An IRS challenge to the domestic content qual... in disallowance of the enhanced ITC rate; ... and\n<|id|>199<|page|>25<|box|>89 140 145 854<|content|>Each of these residual risks is assessed as low pr...d to provide additional protections where feasible",
+    "raw_response": "<|src_id|>98<|tgt_id|>99\n<|src_id|>156<|tgt_id|>157\n<|src_id|>185<|tgt_id|>186",
+    "parsed": [
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 186
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>12<|page|>1<|box|>715 142 733 320<|content|>I. Scope of Production\n<|id|>23<|page|>2<|box|>799 142 816 343<|content|>II. Volume of Production\n<|id|>26<|page|>3<|box|>204 140 222 328<|content|>III. Production Format\n<|id|>50<|page|>4<|box|>439 140 457 354<|content|>IV. Privilege Withholdings\n<|id|>56<|page|>5<|box|>321 140 339 398<|content|>V. Reservations and Limitations\n<|id|>62<|page|>5<|box|>786 140 803 366<|content|>VI. Continuing Cooperation\n<|id|>65<|page|>7<|box|>90 140 107 549<|content|>VII. Proposed Schedule for Subsequent Productions\n<|id|>68<|page|>7<|box|>292 142 309 352<|content|>VIII. Contact Information",
+    "raw_response": "<|id|>12<|level|>1\n<|id|>23<|level|>1\n<|id|>26<|level|>1\n<|id|>50<|level|>1\n<|id|>56<|level|>1\n<|id|>62<|level|>1\n<|id|>65<|level|>1\n<|id|>68<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>13<|page|>1<|box|>335 87 350 240<|content|>— TIME ENTRIES —\n<|id|>80<|page|>10<|box|>424 87 439 312<|content|>— INSURANCE COVERAGE —\n<|id|>113<|page|>12<|box|>353 87 368 188<|content|>— CLIENT —",
+    "raw_response": "<|id|>13<|level|>1\n<|id|>80<|level|>1\n<|id|>113<|level|>1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        }
+    ]
+}

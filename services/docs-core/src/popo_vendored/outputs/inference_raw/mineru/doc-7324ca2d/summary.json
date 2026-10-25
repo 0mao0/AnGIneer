@@ -1,0 +1,134 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l1k61w8p\\input\\pdfs\\doc-7324ca2d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l1k61w8p\\enriched\\doc-7324ca2d.json",
+    "contd_output": "",
+    "title_output": "<|id|>11<|level|>1\n<|id|>13<|level|>2\n<|id|>19<|level|>1\n<|id|>21<|level|>2\n<|id|>28<|level|>1\n<|id|>30<|level|>2\n<|id|>38<|level|>1\n<|id|>40<|level|>2\n<|id|>50<|level|>1\n<|id|>52<|level|>2\n<|id|>77<|level|>1\n<|id|>79<|level|>2\n<|id|>94<|level|>2\n<|id|>105<|level|>1\n<|id|>107<|level|>2\n<|id|>121<|level|>1\n<|id|>123<|level|>2\n<|id|>135<|level|>1\n<|id|>137<|level|>2\n<|id|>146<|level|>1",
+    "image_output": "<|src_id|>43<|tgt_id|>38\n<|src_id|>46<|tgt_id|>38\n<|src_id|>83<|tgt_id|>77\n<|src_id|>129<|tgt_id|>121\n<|src_id|>130<|tgt_id|>121",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 43,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 121
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 129,
+            "table2_idx": 130,
+            "upper_row_ss": [
+                [
+                    "Upfront underwriting discount",
+                    "$3,000,000",
+                    "2.0%",
+                    "Payable at IPO closing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Deferred underwriting commission",
+                    "$5,250,000",
+                    "3.5%",
+                    "Payable solely upon consummation of an initial business combination"
+                ]
+            ]
+        }
+    ]
+}

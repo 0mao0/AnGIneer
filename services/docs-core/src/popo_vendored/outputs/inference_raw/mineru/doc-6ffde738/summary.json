@@ -1,0 +1,157 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ixvp9xut\\input\\pdfs\\doc-6ffde738.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ixvp9xut\\enriched\\doc-6ffde738.json",
+    "contd_output": "<|src_id|>141<|tgt_id|>142",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>3\n<|id|>38<|level|>3\n<|id|>46<|level|>3\n<|id|>47<|level|>4\n<|id|>50<|level|>4\n<|id|>54<|level|>3\n<|id|>61<|level|>2\n<|id|>63<|level|>3\n<|id|>70<|level|>3\n<|id|>82<|level|>3\n<|id|>87<|level|>2\n<|id|>89<|level|>3\n<|id|>92<|level|>3\n<|id|>93<|level|>4\n<|id|>95<|level|>3\n<|id|>98<|level|>3\n<|id|>101<|level|>2\n<|id|>115<|level|>2\n<|id|>133<|level|>2\n<|id|>137<|level|>2\n<|id|>145<|level|>2",
+    "image_output": "<|src_id|>107<|tgt_id|>105\n<|src_id|>108<|tgt_id|>105\n<|src_id|>135<|tgt_id|>133",
+    "contd_label": [
+        {
+            "src_id": 141,
+            "tgt_id": 142
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 4
+        },
+        {
+            "id": 50,
+            "level": 4
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 107,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 133
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 107,
+            "table2_idx": 108,
+            "upper_row_ss": [
+                [
+                    "1st Excess",
+                    "Pinnacle Surplus Lines Inc.",
+                    "PSL-XS1-2022-3390",
+                    "$15,000,000",
+                    "$25,000,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "2nd Excess",
+                    "Montclair Assurance Company",
+                    "MAC-XS2-2022-09817",
+                    "$10,000,000",
+                    "$40,000,000"
+                ]
+            ]
+        }
+    ]
+}

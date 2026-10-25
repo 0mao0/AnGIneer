@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['6', 'Bautechnik Maurer', 'Friedberger', 'Construction', 'EUR', '475,000.00', 'On demand', 'Disputed —', 'Contractor disputes']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '& Söhne GmbH', 'Landstraße 12,60316 Frankfurt am Main, Germany', 'Warranty Claim — Phase 1 Defects', '', '', '(warranty period expiry: 31 Dec 2028)', 'amount contested by contractor', 'quantum; €475,000 claimed by Assignor; contractor proposes €310,000 settlement']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 328,
+    "table2_idx": 329
+}

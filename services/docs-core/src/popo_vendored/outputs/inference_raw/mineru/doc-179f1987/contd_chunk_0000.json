@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>157 142 174 297<|content|>Fax: ... (202) 555-4101\n<|id|>3<|page|>1<|box|>174 620 191 854<|content|>www. ... com\n<|id|>4<|page|>1<|box|>199 754 217 854<|content|>May 4, 2023\n<|id|>5<|page|>1<|box|>224 140 262 854<|content|>Thomas R. ... 400 Constitution Plaza, Suite 2200 Hartford, CT 06103\n<|id|>6<|page|>1<|box|>268 140 305 854<|content|>Re: ... 1025-00006\n<|id|>7<|page|>1<|box|>314 142 332 294<|content|>Dear Mr. ... Whitfield\n<|id|>12<|page|>1<|box|>824 140 880 854<|content|>C&H's Privacy & Data Security practice group will ...ity incidents, and we are well positioned to guide\n<|id|>13<|page|>2<|box|>90 140 126 854<|content|>Quorum through all phases of its response to this ...gagement are set forth in the sections that follow\n<|id|>51<|page|>5<|box|>176 174 231 857<|content|>(a) A primary cyber-liability insurance policy iss...Atlas Mutual Insurance Company, Policy No. ... and\n<|id|>53<|page|>5<|box|>301 140 318 591<|content|>In connection with insurance coverage matters, the...ion with insurance coverage matters, the Firm will\n<|id|>116<|page|>11<|box|>522 140 555 854<|content|>Kevin Ostrowski Partner, Privacy & Data Security C...et NW, Suite 900 Washington, D. ... (202) 555-4118\n<|id|>117<|page|>11<|box|>556 142 571 480<|content|>Email: ... com\n<|id|>122<|page|>11<|box|>676 140 694 354<|content|>Name: ... Whitfield\n<|id|>123<|page|>11<|box|>694 143 710 313<|content|>Title: ... General Counsel\n<|id|>124<|page|>11<|box|>710 140 744 800<|content|>Quorum Insurance Holdings Corp. ... 400 Constitution Plaza, Suite 2200 Hartford, CT 06103 Date",
+    "raw_response": "<|src_id|>12<|tgt_id|>13",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        }
+    ]
+}

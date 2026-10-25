@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        9,
+        18
+    ],
+    "pages": [
+        9,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>87<|page|>9<|box|>133 174 170 856<|content|>inputting normalized expression values into a rand... a cohort of at least 500 patient samples; ... and\n<|id|>88<|page|>9<|box|>179 176 196 803<|content|>outputting a numerical prognostic score correlated...ore correlated with metastasis risk within 5 years\n<|id|>162<|page|>16<|box|>843 140 898 857<|content|>97. ... As a direct result of\n<|id|>163<|page|>17<|box|>90 174 181 854<|content|>Helios's infringing activities, GenomeDx's market ...le to Helios's infringement of the Patents-in-Suit\n<|id|>179<|page|>18<|box|>364 676 383 854<|content|>Respectfully submitted,\n<|id|>180<|page|>18<|box|>392 679 409 854<|content|>Dated: ... March 28, 2025\n<|id|>183<|page|>18<|box|>486 140 534 854<|content|>Catherine Bloom (CA Bar No. ... (415) 773- 6201\n<|id|>184<|page|>18<|box|>536 140 553 455<|content|>Email: ... com\n<|id|>185<|page|>18<|box|>553 140 570 689<|content|>Peter Vassiliev (CA Bar No. ... 312045) Lead Associate, intellectual Property\n<|id|>186<|page|>18<|box|>570 140 588 653<|content|>Wendy Schultz (CA Bar No. ... 319782) Associate, intellectual Property\n<|id|>187<|page|>18<|box|>588 140 604 527<|content|>Attorneys for Plaintiff Genome Dx Therapeutics Inc...Attorneys for Plaintiff Genome Dx Therapeutics Inc",
+    "raw_response": "<|src_id|>87<|tgt_id|>88\n<|src_id|>162<|tgt_id|>163",
+    "parsed": [
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        }
+    ]
+}

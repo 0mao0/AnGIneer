@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 287 118 710<|content|>VOTING AND SUPPORT AGREEMENT\n<|id|>1<|page|>1<|box|>136 424 152 573<|content|>Execution Version\n<|id|>8<|page|>1<|box|>460 142 478 243<|content|>RECITALS\n<|id|>18<|page|>2<|box|>454 142 470 243<|content|>ARTICLE I\n<|id|>19<|page|>2<|box|>494 142 512 269<|content|>DEFINITIONS\n<|id|>31<|page|>3<|box|>571 143 588 250<|content|>ARTICLE II\n<|id|>32<|page|>3<|box|>612 142 628 714<|content|>REPRESENTATIONS AND WARRANTIES OF THE STOCKHOLDER\n<|id|>43<|page|>5<|box|>420 142 436 256<|content|>ARTICLE III\n<|id|>44<|page|>5<|box|>462 140 479 553<|content|>AGREEMENT TO VOTE; VOTING COVENANTS\n<|id|>61<|page|>7<|box|>321 142 338 256<|content|>ARTICLE IV\n<|id|>62<|page|>7<|box|>362 140 378 450<|content|>GRANT OF IRREVOCABLE PROXY\n<|id|>63<|page|>7<|box|>388 140 405 398<|content|>Section 4.1 *Irrevocable Proxy.*\n<|id|>70<|page|>8<|box|>239 142 258 250<|content|>ARTICLE V\n<|id|>71<|page|>8<|box|>282 140 299 478<|content|>COVENANTS OF THE STOCKHOLDER\n<|id|>72<|page|>8<|box|>308 140 325 354<|content|>Section 5.1 *No Transfer.*\n<|id|>78<|page|>8<|box|>773 142 791 370<|content|>Section 5.2 *No Solicitation.*\n<|id|>91<|page|>10<|box|>776 143 792 254<|content|>ARTICLE VI\n<|id|>92<|page|>10<|box|>816 142 834 774<|content|>REPRESENTATIONS AND WARRANTIES OF PARENT AND MERGE\n<|id|>100<|page|>11<|box|>539 142 555 263<|content|>ARTICLE VII\n<|id|>101<|page|>11<|box|>579 142 595 282<|content|>TERMINATION\n<|id|>108<|page|>12<|box|>351 142 367 269<|content|>ARTICLE VIII\n<|id|>109<|page|>12<|box|>392 142 407 308<|content|>MISCELLANEOUS\n<|id|>124<|page|>13<|box|>516 140 532 410<|content|>Section 8.5 *Jurisdiction; Venue.*\n<|id|>138<|page|>16<|box|>281 400 299 596<|content|>[Signature Pages Follow]\n<|id|>140<|page|>16<|box|>351 143 366 228<|content|>PARENT:\n<|id|>153<|page|>17<|box|>89 437 107 560<|content|>SCHEDULE A\n<|id|>154<|page|>17<|box|>131 421 148 575<|content|>OWNED SHARES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>8<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>63<|level|>4\n<|id|>70<|level|>2\n<|id|>71<|level|>3\n<|id|>72<|level|>4\n<|id|>78<|level|>4\n<|id|>91<|level|>2\n<|id|>92<|level|>3\n<|id|>100<|level|>2\n<|id|>101<|level|>3\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>124<|level|>4\n<|id|>138<|level|>-1\n<|id|>140<|level|>-1\n<|id|>153<|level|>2\n<|id|>154<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 4
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 78,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 4
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 3
+        }
+    ]
+}

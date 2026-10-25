@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=4, 纵隔板', 'colspan=2, 纵隔板接板垂直度(mm)', 'rowspan=4, ', '±2']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=4, 风嘴', 'colspan=2, 长度L、宽度B(mm)', 'rowspan=4, ', '±2']]\n",
+    "raw_response": "[0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 2298,
+    "table2_idx": 2299
+}

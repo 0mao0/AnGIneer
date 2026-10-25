@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['9', '\"simultaneous instrument passage and gas flow\"', \"'105, Cl. 1, 8\", '\"Allowing both an instrument to pass through the seal and gas to flow through the valve at the same time\"', '\"The insufflation valve permitting continuous insufflation gas flow into the body cavity through a gas channel that is separate from and does not share a lumen with the instrument passage channel, such that gas flow is maintained while a surgical instrument']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'is inserted through the seal\"']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 229,
+    "table2_idx": 230
+}

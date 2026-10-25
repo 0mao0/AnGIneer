@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['State', 'Est. Apportionment Factor', 'Apportioned Income ($M)', 'Applicable Rate', 'Est. Additional Tax ($K)', 'Est. Interest ($K)', 'Est. Penalties ($K)', 'Total Est. Exposure ($K)']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['New Jersey', '8%–12%', '$3.81–$5.71', '9.0%–11.5%', '$396–$594', '$134–$200', '$0', '$530–$794']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 222,
+    "table2_idx": 223
+}

@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ri08s9wu\\input\\pdfs\\doc-0785d0db.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ri08s9wu\\enriched\\doc-0785d0db.json",
+    "contd_output": "<|src_id|>121<|tgt_id|>122\n<|src_id|>156<|tgt_id|>157\n<|src_id|>162<|tgt_id|>163",
+    "title_output": "<|id|>2<|level|>1\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>1\n<|id|>20<|level|>1\n<|id|>21<|level|>2\n<|id|>29<|level|>2\n<|id|>30<|level|>3\n<|id|>48<|level|>3\n<|id|>57<|level|>3\n<|id|>65<|level|>3\n<|id|>72<|level|>3\n<|id|>80<|level|>2\n<|id|>85<|level|>2\n<|id|>86<|level|>3\n<|id|>119<|level|>3\n<|id|>129<|level|>3\n<|id|>135<|level|>3\n<|id|>141<|level|>2\n<|id|>145<|level|>2\n<|id|>153<|level|>2\n<|id|>155<|level|>3\n<|id|>158<|level|>3\n<|id|>160<|level|>2\n<|id|>164<|level|>3\n<|id|>169<|level|>3\n<|id|>173<|level|>3\n<|id|>175<|level|>3\n<|id|>177<|level|>3\n<|id|>180<|level|>3\n<|id|>182<|level|>3\n<|id|>186<|level|>2\n<|id|>198<|level|>2\n<|id|>200<|level|>3\n<|id|>203<|level|>3",
+    "image_output": "<|src_id|>4<|tgt_id|>2\n<|src_id|>7<|tgt_id|>6\n<|src_id|>9<|tgt_id|>8\n<|src_id|>161<|tgt_id|>160",
+    "contd_label": [
+        {
+            "src_id": 121,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 160
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 4,
+            "table2_idx": 5,
+            "upper_row_ss": [
+                [
+                    "Garcia v. Severin Industries, Inc., 786 F.3d 733 (9th Cir.",
+                    "25"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "2015) (en banc)",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

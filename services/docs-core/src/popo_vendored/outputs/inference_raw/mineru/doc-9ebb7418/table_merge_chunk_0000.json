@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=5, E2', '索塔', '轻微损伤', 'rowspan=3, 总体保持弹性', 'rowspan=5, 经简单修复可继续使用或依靠结构重力自行恢复']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, E2', '桥墩', '可修复损伤', '可进入塑性', 'rowspan=3, 经简单修复可继续使用或依靠结构重力自行恢复']]\n",
+    "raw_response": "[1, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 389,
+    "table2_idx": 390
+}

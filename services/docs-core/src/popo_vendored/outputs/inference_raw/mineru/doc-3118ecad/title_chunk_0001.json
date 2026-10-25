@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        46,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>566<|page|>46<|box|>89 140 107 566<|content|>SCHEDULE III — SELLER'S LICENSING STATUS\n<|id|>571<|page|>48<|box|>89 140 106 609<|content|>SCHEDULE IV — APPROVED INSURANCE CARRIERS",
+    "raw_response": "<|id|>566<|level|>1\n<|id|>571<|level|>1",
+    "parsed": [
+        {
+            "id": 566,
+            "level": 1
+        },
+        {
+            "id": 571,
+            "level": 1
+        }
+    ]
+}

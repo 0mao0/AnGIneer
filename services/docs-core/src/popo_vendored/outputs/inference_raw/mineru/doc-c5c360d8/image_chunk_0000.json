@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>172 158 208 836<|content|>CALDERWOOD & HARKNESS LLP 1501 K Street, N.W., Sui\n<|id|>2<|type|>title<|page|>1<|box|>215 374 234 622<|content|>INTERNAL MEMORANDUM\n<|id|>10<|type|>title<|page|>1<|box|>534 385 553 611<|content|>I. Executive Summary\n<|id|>21<|type|>title<|page|>2<|box|>704 299 723 697<|content|>II. Background and Procedural Context\n<|id|>22<|type|>title<|page|>2<|box|>750 140 765 343<|content|>A. Transaction Overview\n<|id|>31<|type|>title<|page|>4<|box|>186 140 204 336<|content|>B. CFIUS Filing History\n<|id|>42<|type|>title<|page|>5<|box|>316 140 334 586<|content|>C. Significance of Preliminary Concerns Communicat\n<|id|>47<|type|>title<|page|>6<|box|>90 163 137 833<|content|>III. Analysis of Concern No. 1: Foreign Access to\n<|id|>48<|type|>title<|page|>6<|box|>160 140 176 369<|content|>A. Statement of the Concern\n<|id|>58<|type|>title<|page|>7<|box|>150 140 167 259<|content|>B. Assessment\n<|id|>65<|type|>title<|page|>8<|box|>90 140 107 450<|content|>C. Recommended Mitigation Proposals\n<|id|>90<|type|>title<|page|>10<|box|>378 176 422 818<|content|>IV. Analysis of Concern No. 2: Potential Transfer\n<|id|>91<|type|>title<|page|>10<|box|>446 140 464 367<|content|>A. Statement of the Concern\n<|id|>98<|type|>title<|page|>11<|box|>450 140 467 259<|content|>B. Assessment\n<|id|>104<|type|>title<|page|>12<|box|>542 140 559 450<|content|>C. Recommended Mitigation Proposals\n<|id|>129<|type|>title<|page|>14<|box|>694 163 737 833<|content|>V. Analysis of Concern No. 3: Cybersecurity Risks\n<|id|>130<|type|>title<|page|>14<|box|>762 142 779 367<|content|>A. Statement of the Concern\n<|id|>134<|type|>title<|page|>15<|box|>414 140 431 259<|content|>B. Assessment\n<|id|>146<|type|>title<|page|>16<|box|>545 140 563 450<|content|>C. Recommended Mitigation Proposals\n<|id|>182<|type|>title<|page|>18<|box|>787 140 808 854<|content|>VI. Analysis of Concern No. 4: Continuity of Criti\n<|id|>183<|type|>title<|page|>18<|box|>833 140 849 367<|content|>A. Statement of the Concern\n<|id|>185<|type|>table<|page|>19<|box|>214 143 417 852<|content|>None\n<|id|>187<|type|>title<|page|>19<|box|>602 140 618 259<|content|>B. Assessment\n<|id|>192<|type|>title<|page|>20<|box|>641 140 657 450<|content|>C. Recommended Mitigation Proposals\n<|id|>220<|type|>title<|page|>23<|box|>227 174 247 820<|content|>VII. Cross-Cutting Mitigation: Third-Party Complia\n<|id|>221<|type|>title<|page|>23<|box|>272 142 289 308<|content|>A. Monitor Proposal\n<|id|>230<|type|>title<|page|>24<|box|>250 140 266 359<|content|>B. Candidate Identification\n<|id|>240<|type|>title<|page|>24<|box|>784 233 803 761<|content|>VIII. Recommended Response Strategy and Timeline\n<|id|>241<|type|>title<|page|>24<|box|>829 143 845 341<|content|>A. Immediate Next Steps\n<|id|>247<|type|>title<|page|>25<|box|>720 140 739 364<|content|>B. Anticipated NSA Process\n<|id|>254<|type|>title<|page|>26<|box|>601 140 619 393<|content|>C. Fee and Budget Implications\n<|id|>258<|type|>title<|page|>27<|box|>136 421 155 575<|content|>IX. Conclusion\n<|id|>263<|type|>title<|page|>27<|box|>680 165 724 831<|content|>Appendices (Cross-Referenced; Not Separately Produ\n<|id|>264<|type|>table<|page|>27<|box|>784 143 897 852<|content|>None\n<|id|>265<|type|>table<|page|>28<|box|>89 143 661 852<|content|>None\n<|id|>266<|type|>title<|page|>28<|box|>694 143 710 542<|content|>Appendix B: Cross-Reference to Prior Memoranda\n<|id|>275<|type|>title<|page|>29<|box|>109 140 145 854<|content|>Appendix C: Annotated Timeline — Projected NSA Neg\n<|id|>290<|type|>title<|page|>29<|box|>564 375 580 622<|content|>— END OF MEMORANDUM —",
+    "raw_response": "<|src_id|>185<|tgt_id|>183\n<|src_id|>264<|tgt_id|>258\n<|src_id|>265<|tgt_id|>258",
+    "parsed": [
+        {
+            "src_id": 185,
+            "tgt_id": 183
+        },
+        {
+            "src_id": 264,
+            "tgt_id": 258
+        },
+        {
+            "src_id": 265,
+            "tgt_id": 258
+        }
+    ]
+}

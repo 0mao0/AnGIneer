@@ -1,0 +1,49 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        7,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 158 170 838<|content|>Delivered pursuant to Section 7. ... 02(d) of the ... 14, 2024 (as so amended, the \"Credit Agreement\"),\n<|id|>2<|page|>1<|box|>181 470 196 527<|content|>among\n<|id|>3<|page|>1<|box|>204 315 220 681<|content|>TORCHLIGHT MINING CORP. ... , as Borrower,\n<|id|>4<|page|>1<|box|>229 349 246 647<|content|>THE LENDERS PARTY THERETO,\n<|id|>5<|page|>1<|box|>257 483 272 514<|content|>and\n<|id|>31<|page|>4<|box|>273 174 329 854<|content|>(d) Ridgecrest Mine Holdings, LLC, a Montana limit...ty company (Montana Secretary of State ID: ... and\n<|id|>33<|page|>4<|box|>398 140 474 854<|content|>Each of the foregoing entities is a direct or indi...ling Defendants for internal cost-sharing purposes\n<|id|>50<|page|>6<|box|>787 174 840 854<|content|>(iii) Third installment of $7. ... and\n<|id|>52<|page|>7<|box|>89 140 143 854<|content|>Interest on unpaid installments shall accrue at th... penalties under Section XIV of the Consent Decree\n<|id|>138<|page|>15<|box|>587 217 604 738<|content|>• Revenue (FY2023): ... 56 billion)\n<|id|>142<|page|>15<|box|>684 176 720 854<|content|>The foregoing financial data is provided for infor...is not a guarantee of future financial performance\n<|id|>139<|page|>15<|box|>607 218 625 741<|content|>• EBITDA (FY2023): ... 14 billion (approximately US$843 million)\n<|id|>140<|page|>15<|box|>627 218 643 785<|content|>• Market Capitalization: ... 6 billion (as of October 2024)\n<|id|>141<|page|>15<|box|>646 218 680 854<|content|>• Employees: ... Approximately 11,400 worldwide (approximately 4,200 in the United States)\n<|id|>155<|page|>16<|box|>537 142 555 354<|content|>Name: ... Carolyn Bracebridge\n<|id|>156<|page|>16<|box|>555 142 571 361<|content|>Title: ... Chief Financial Officer\n<|id|>157<|page|>16<|box|>571 142 589 326<|content|>Date: ... February 25, 2025\n<|id|>158<|page|>16<|box|>590 143 606 250<|content|>Delivered to: ... Delivered to\n<|id|>159<|page|>16<|box|>614 174 652 854<|content|>Harborstone National Bank, N. ... as Administrativ...Harborstone Plaza Calgary, Alberta T2P 2M5, Canada\n<|id|>160<|page|>16<|box|>659 176 695 771<|content|>Attention: ... Syndicated Lending Division — Environmental Covenant Compliance With a copy to\n<|id|>161<|page|>16<|box|>703 174 738 854<|content|>Harborstone National Bank, N. ... 1185 Avenue of the Americas, 22nd Floor New York, New York 10036\n<|id|>162<|page|>16<|box|>747 174 763 473<|content|>Attention: ... Cross-Border Lending Group\n<|id|>164<|page|>16<|box|>790 174 844 854<|content|>Calderwood & Harkness LLP Barristers & Solicitors ...io M5H 4E3, Canada Matter No. ... Harrison Wexford\n<|id|>165<|page|>16<|box|>852 174 888 854<|content|>Northspire Capital Markets, Inc. ... Vivian Okafor\n<|id|>169<|page|>17<|box|>250 140 429 854<|content|>The estimates of remediation costs, civil penaltie...are subject to significant uncertainty. ... dollar\n<|id|>170<|page|>17<|box|>436 140 498 854<|content|>This Certificate has been prepared based on inform...bruary 25, 2025. ... 02(f) of the Credit Agreement",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>2<|tgt_id|>3\n<|src_id|>3<|tgt_id|>4\n<|src_id|>4<|tgt_id|>5\n<|src_id|>50<|tgt_id|>52\n<|src_id|>158<|tgt_id|>159\n<|src_id|>160<|tgt_id|>161",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 161
+        }
+    ]
+}

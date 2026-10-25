@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>table<|page|>1<|box|>204 143 262 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>295 166 330 830<|content|>CORPORATE OWNERSHIP STATEMENT PURSUANT TO FEDERAL\n<|id|>4<|type|>title<|page|>1<|box|>381 142 397 519<|content|>I. INTRODUCTION AND BASIS FOR FILING\n<|id|>8<|type|>title<|page|>1<|box|>719 142 734 413<|content|>II. IDENTITY OF THE DEBTOR\n<|id|>18<|type|>title<|page|>2<|box|>391 140 409 700<|content|>III. DIRECT PARENT ENTITY — 100% OWNER OF THE DEBT\n<|id|>30<|type|>title<|page|>3<|box|>347 140 383 826<|content|>IV. INDIRECT EQUITY HOLDERS OF THE DEBTOR — ENTITI\n<|id|>32<|type|>title<|page|>3<|box|>496 140 513 531<|content|>A. KFO Holdings Société Anonyme (80% of TSL)\n<|id|>43<|type|>title<|page|>4<|box|>263 140 282 666<|content|>B. Other Equity Holders of TSL (Minority / Below 1\n<|id|>47<|type|>title<|page|>4<|box|>580 140 598 511<|content|>V. ORGANIZATIONAL CHART SUMMARY\n<|id|>49<|type|>title<|page|>4<|box|>652 142 669 449<|content|>Level 1 — Ultimate Beneficial Owners:\n<|id|>51<|type|>title<|page|>4<|box|>796 142 813 437<|content|>Level 2 — Family Holding Company:\n<|id|>53<|type|>title<|page|>4<|box|>883 140 900 447<|content|>Level 3 — Direct Parent of the Debtor:\n<|id|>55<|type|>title<|page|>5<|box|>152 142 169 326<|content|>Level 4 — The Debtor:\n<|id|>57<|type|>title<|page|>5<|box|>241 140 258 509<|content|>Non-Debtor Affiliates — Vessel-Owning SPVs:\n<|id|>59<|type|>title<|page|>5<|box|>402 140 420 413<|content|>Secured Financing Arrangements:\n<|id|>61<|type|>title<|page|>5<|box|>579 140 595 511<|content|>VI. AFFILIATES AND RELATED ENTITIES\n<|id|>68<|type|>title<|page|>6<|box|>321 140 338 656<|content|>VII. STATEMENT REGARDING PUBLICLY HELD ENTITIES\n<|id|>75<|type|>title<|page|>6<|box|>719 140 736 428<|content|>VIII. RESERVATION OF RIGHTS\n<|id|>79<|type|>title<|page|>8<|box|>89 142 106 468<|content|>IX. VERIFICATION AND SIGNATURE\n<|id|>81<|type|>title<|page|>8<|box|>178 142 194 274<|content|>VERIFICATION\n<|id|>94<|type|>title<|page|>8<|box|>492 449 508 547<|content|>EXHIBIT A\n<|id|>95<|type|>title<|page|>8<|box|>518 333 534 663<|content|>CORPORATE OWNERSHIP DIAGRAM\n<|id|>97<|type|>title<|page|>8<|box|>612 142 628 547<|content|>LEVEL 1 — ULTIMATE BENEFICIAL OWNERS\n<|id|>98<|type|>table<|page|>8<|box|>637 143 712 852<|content|>None\n<|id|>99<|type|>title<|page|>8<|box|>750 493 767 504<|content|>↓\n<|id|>100<|type|>title<|page|>8<|box|>780 143 796 511<|content|>LEVEL 2 — FAMILY HOLDING COMPANY\n<|id|>103<|type|>title<|page|>8<|box|>883 143 901 550<|content|>LEVEL 3 — DIRECT PARENT OF THE DEBTOR\n<|id|>105<|type|>table<|page|>9<|box|>191 143 266 852<|content|>None\n<|id|>107<|type|>title<|page|>9<|box|>382 375 397 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>98<|tgt_id|>97\n<|src_id|>105<|tgt_id|>103",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 103
+        }
+    ]
+}

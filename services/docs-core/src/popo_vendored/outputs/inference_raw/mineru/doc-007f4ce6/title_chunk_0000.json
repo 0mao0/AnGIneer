@@ -1,0 +1,65 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>411 142 429 341<|content|>1. Purpose of This Letter\n<|id|>13<|page|>1<|box|>805 140 823 447<|content|>2. Summary of Engagement and Scope\n<|id|>27<|page|>2<|box|>734 140 751 491<|content|>3. Summary of Key Milestones and Timeline\n<|id|>32<|page|>3<|box|>742 140 758 537<|content|>4. Final Statement of Account — Professional Fees\n<|id|>38<|page|>4<|box|>271 142 287 428<|content|>Total Professional Fees: $236,935.00\n<|id|>41<|page|>4<|box|>455 140 472 517<|content|>5. Final Statement of Account — Disbursements\n<|id|>46<|page|>5<|box|>150 140 167 312<|content|>6. Total Amount Due\n<|id|>53<|page|>5<|box|>643 140 662 377<|content|>7. Key Deliverables Produced\n<|id|>70<|page|>7<|box|>205 140 223 483<|content|>8. Document Retention and File Disposition\n<|id|>77<|page|>7<|box|>694 140 712 535<|content|>9. Termination of Representation / Matter Closing\n<|id|>82<|page|>8<|box|>340 142 357 413<|content|>10. Acknowledgments and Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>27<|level|>2\n<|id|>32<|level|>2\n<|id|>38<|level|>-1\n<|id|>41<|level|>2\n<|id|>46<|level|>2\n<|id|>53<|level|>2\n<|id|>70<|level|>2\n<|id|>77<|level|>2\n<|id|>82<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        }
+    ]
+}

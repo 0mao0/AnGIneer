@@ -1,0 +1,149 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>338 310 358 686<|content|>1. Introduction and Purpose of Letter\n<|id|>12<|page|>2<|box|>234 372 255 624<|content|>2. Transaction Summary\n<|id|>14<|page|>2<|box|>330 140 348 303<|content|>Structure Overview\n<|id|>16<|page|>2<|box|>580 140 599 285<|content|>Capital Structure\n<|id|>19<|page|>3<|box|>148 142 167 397<|content|>Underlying Pool Characteristics\n<|id|>27<|page|>3<|box|>395 140 412 336<|content|>Key Structural Features\n<|id|>34<|page|>3<|box|>713 142 729 300<|content|>Transaction Parties\n<|id|>43<|page|>4<|box|>193 235 213 761<|content|>3. Market Conditions and Spread Widening Analysis\n<|id|>45<|page|>4<|box|>325 140 344 419<|content|>3.1 Spreads at Transaction Launch\n<|id|>53<|page|>4<|box|>823 140 839 457<|content|>3.2 Spread Movement Through H2 2022\n<|id|>60<|page|>5<|box|>565 140 582 527<|content|>3.3 Indicative Pricing Results (November 2, 2022)\n<|id|>66<|page|>6<|box|>340 140 357 478<|content|>3.4 All-In Weighted Average Cost Analysis\n<|id|>71<|page|>6<|box|>542 176 560 637<|content|>Total Implied WAC: approximately 200.25 bps over S\n<|id|>74<|page|>6<|box|>805 390 824 607<|content|>4. Sunk Costs to Date\n<|id|>76<|page|>7<|box|>148 140 167 504<|content|>4.1 Legal Fees (Calderwood & Harkness LLP)\n<|id|>99<|page|>8<|box|>375 140 391 328<|content|>4.2 Rating Agency Fees\n<|id|>104<|page|>8<|box|>689 140 707 269<|content|>4.3 Other Costs\n<|id|>109<|page|>9<|box|>90 140 107 357<|content|>4.4 Costs Not Yet Incurred\n<|id|>115<|page|>9<|box|>521 366 540 630<|content|>5. Analysis of Alternatives\n<|id|>117<|page|>9<|box|>617 140 633 439<|content|>5.1 Proceed at Current Spread Levels\n<|id|>122<|page|>10<|box|>229 140 248 395<|content|>5.2 Restructure the Transaction\n<|id|>129<|page|>11<|box|>90 140 107 553<|content|>5.3 Shelve and Preserve Optionality (Recommended)\n<|id|>137<|page|>11<|box|>676 161 696 834<|content|>6. Recommended Steps to Preserve Optionality for F\n<|id|>139<|page|>11<|box|>809 140 825 397<|content|>6.1 Documentation Preservation\n<|id|>144<|page|>12<|box|>464 140 482 315<|content|>6.2 SPV Maintenance\n<|id|>148<|page|>12<|box|>804 140 821 390<|content|>6.3 Rating Agency Engagement\n<|id|>152<|page|>13<|box|>421 140 438 408<|content|>6.4 Notification to Counterparties\n<|id|>160<|page|>14<|box|>90 142 107 272<|content|>6.5 UCC Filings\n<|id|>166<|page|>14<|box|>481 140 498 354<|content|>6.6 Servicer and Pool Data\n<|id|>172<|page|>14<|box|>820 397 839 599<|content|>7. Recommendation\n<|id|>177<|page|>15<|box|>488 403 508 593<|content|>8. Closing Matters",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>16<|level|>2\n<|id|>19<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>43<|level|>1\n<|id|>45<|level|>2\n<|id|>53<|level|>2\n<|id|>60<|level|>2\n<|id|>66<|level|>2\n<|id|>71<|level|>-1\n<|id|>74<|level|>1\n<|id|>76<|level|>2\n<|id|>99<|level|>2\n<|id|>104<|level|>2\n<|id|>109<|level|>2\n<|id|>115<|level|>1\n<|id|>117<|level|>2\n<|id|>122<|level|>2\n<|id|>129<|level|>2\n<|id|>137<|level|>1\n<|id|>139<|level|>2\n<|id|>144<|level|>2\n<|id|>148<|level|>2\n<|id|>152<|level|>2\n<|id|>160<|level|>2\n<|id|>166<|level|>2\n<|id|>172<|level|>1\n<|id|>177<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 177,
+            "level": 1
+        }
+    ]
+}

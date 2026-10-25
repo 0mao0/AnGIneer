@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 276 128 720<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>2<|type|>title<|page|>1<|box|>138 303 155 692<|content|>599 Lexington Avenue New York, New York 10022\n<|id|>11<|type|>title<|page|>1<|box|>426 238 446 756<|content|>I. CONFIRMATION OF SUCCESSFUL CLOSING\n<|id|>16<|type|>title<|page|>2<|box|>90 220 135 776<|content|>II. SUMMARY OF COMPLETED RESTRUCTURING TRANSACTION\n<|id|>18<|type|>title<|page|>2<|box|>250 140 265 576<|content|>A. Amended and Restated First Lien Credit Agreemen\n<|id|>37<|type|>title<|page|>3<|box|>434 140 452 429<|content|>B. Super-Priority Credit Agreement\n<|id|>45<|type|>title<|page|>4<|box|>458 140 474 545<|content|>C. Amended and Restated Intercreditor Agreement\n<|id|>49<|type|>title<|page|>4<|box|>833 140 849 769<|content|>D. Mezzanine Equitization — Exchange Agreement and\n<|id|>52<|type|>table<|page|>5<|box|>265 143 378 852<|content|>None\n<|id|>56<|type|>title<|page|>5<|box|>734 140 751 611<|content|>First Supplemental Indenture — Exit Consent Amendm\n<|id|>59<|type|>title<|page|>6<|box|>231 140 248 377<|content|>Consent Solicitation Timeline\n<|id|>65<|type|>title<|page|>6<|box|>406 140 422 424<|content|>Mezzanine Ad Hoc Group Advisors\n<|id|>67<|type|>title<|page|>6<|box|>544 140 561 336<|content|>E. Equity Restructuring\n<|id|>72<|type|>table<|page|>7<|box|>176 143 270 852<|content|>None\n<|id|>75<|type|>title<|page|>7<|box|>500 142 518 393<|content|>F. Sponsor Equity Contribution\n<|id|>77<|type|>title<|page|>7<|box|>643 223 664 774<|content|>III. SUMMARY OF CLOSING FINANCIAL IMPACT\n<|id|>78<|type|>table<|page|>7<|box|>724 143 907 852<|content|>None\n<|id|>83<|type|>title<|page|>8<|box|>539 158 559 836<|content|>IV. CORPORATE DELIVERABLES COMPLETED AT CLOSING\n<|id|>89<|type|>title<|page|>9<|box|>325 290 345 705<|content|>V. TRANSACTION COSTS SUMMARY\n<|id|>91<|type|>table<|page|>9<|box|>523 143 882 852<|content|>None\n<|id|>93<|type|>title<|page|>10<|box|>154 310 172 687<|content|>VI. ENCLOSED CLOSING BINDER\n<|id|>103<|type|>title<|page|>10<|box|>718 183 738 813<|content|>VII. POST-CLOSING MATTERS REQUIRING ATTENTION\n<|id|>105<|type|>title<|page|>10<|box|>814 140 851 779<|content|>A. Filing of Amended and Restated Certificate of I\n<|id|>108<|type|>title<|page|>11<|box|>204 140 222 522<|content|>B. Notice to Non-Consenting Mezzanine Holders\n<|id|>111<|type|>title<|page|>11<|box|>498 140 515 267<|content|>C. UCC Filings\n<|id|>116<|type|>title<|page|>12<|box|>90 140 107 331<|content|>D. D&O Tail Insurance\n<|id|>118<|type|>title<|page|>12<|box|>267 140 284 403<|content|>E. Other Administrative Matters\n<|id|>123<|type|>title<|page|>12<|box|>709 352 728 643<|content|>VIII. CLOSING REMARKS\n<|id|>130<|type|>title<|page|>13<|box|>530 140 547 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>137<|type|>title<|page|>13<|box|>804 143 819 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>52<|tgt_id|>49\n<|src_id|>72<|tgt_id|>67\n<|src_id|>78<|tgt_id|>77\n<|src_id|>91<|tgt_id|>89",
+    "parsed": [
+        {
+            "src_id": 52,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 89
+        }
+    ]
+}

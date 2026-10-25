@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>375 140 392 362<|content|>I. Purpose and Background\n<|id|>14<|page|>2<|box|>285 140 301 535<|content|>II. Identification of the Environmental Consultant\n<|id|>18<|page|>2<|box|>733 142 750 341<|content|>III. Property Description\n<|id|>23<|page|>3<|box|>512 142 529 372<|content|>IV. Scope of the Phase I ESA\n<|id|>56<|page|>5<|box|>167 140 185 339<|content|>V. Summary of Findings\n<|id|>58<|page|>5<|box|>243 140 260 529<|content|>A. Recognized Environmental Conditions (RECs)\n<|id|>62<|page|>5<|box|>642 140 659 423<|content|>B. Environmental Database Review\n<|id|>65<|page|>6<|box|>138 140 156 281<|content|>C. Historical Use\n<|id|>69<|page|>6<|box|>539 140 555 334<|content|>D. Hazardous Materials\n<|id|>72<|page|>7<|box|>90 140 107 408<|content|>E. Asbestos-Containing Materials\n<|id|>78<|page|>7<|box|>742 140 758 370<|content|>F. Indoor Air Quality / Mold\n<|id|>81<|page|>8<|box|>213 140 229 297<|content|>G. Vapor Intrusion\n<|id|>83<|page|>8<|box|>406 140 422 846<|content|>VI. Relevant Lease Provisions — Landlord Environme\n<|id|>93<|page|>9<|box|>473 140 489 459<|content|>VII. Conclusions and Recommendations\n<|id|>103<|page|>10<|box|>411 140 428 388<|content|>VIII. Attachments / Enclosures",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>23<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>3\n<|id|>62<|level|>3\n<|id|>65<|level|>3\n<|id|>69<|level|>3\n<|id|>72<|level|>3\n<|id|>78<|level|>3\n<|id|>81<|level|>3\n<|id|>83<|level|>2\n<|id|>93<|level|>2\n<|id|>103<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        }
+    ]
+}

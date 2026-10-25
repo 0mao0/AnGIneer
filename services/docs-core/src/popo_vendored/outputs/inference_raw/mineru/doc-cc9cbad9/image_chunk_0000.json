@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>359 385 378 611<|content|>I. Executive Summary\n<|id|>20<|type|>title<|page|>2<|box|>375 287 393 707<|content|>II. Procedural History and Current Status\n<|id|>21<|type|>title<|page|>2<|box|>419 142 436 374<|content|>A. Overview of the Litigation\n<|id|>30<|type|>table<|page|>3<|box|>205 143 334 852<|content|>None\n<|id|>44<|type|>title<|page|>4<|box|>407 140 424 462<|content|>B. Discovery and Depositions Completed\n<|id|>58<|type|>title<|page|>6<|box|>90 140 107 514<|content|>C. Counsel Withdrawal and Subsequent Events\n<|id|>69<|type|>table<|page|>6<|box|>885 143 906 852<|content|>None\n<|id|>70<|type|>table<|page|>7<|box|>89 143 190 852<|content|>None\n<|id|>72<|type|>title<|page|>7<|box|>321 142 338 393<|content|>D. Corporate Pro Se Limitation\n<|id|>75<|type|>title<|page|>7<|box|>619 181 662 815<|content|>III. Option 1: File Renewed FRCP 41(b) Motion for\n<|id|>76<|type|>title<|page|>7<|box|>688 142 704 410<|content|>A. Legal Standard — FRCP 41(b)\n<|id|>85<|type|>title<|page|>8<|box|>491 140 508 361<|content|>B. Application to This Case\n<|id|>96<|type|>title<|page|>10<|box|>369 140 386 539<|content|>C. Dismissal With Prejudice vs. Without Prejudice\n<|id|>109<|type|>title<|page|>11<|box|>242 140 258 454<|content|>D. Impact on Stonefield's Counterclaim\n<|id|>115<|type|>title<|page|>11<|box|>761 142 777 393<|content|>E. Estimated Cost and Timeline\n<|id|>128<|type|>title<|page|>12<|box|>523 140 539 408<|content|>F. Advantages and Disadvantages\n<|id|>129<|type|>title<|page|>12<|box|>549 142 566 245<|content|>Advantages:\n<|id|>136<|type|>title<|page|>12<|box|>765 143 782 264<|content|>Disadvantages:\n<|id|>141<|type|>title<|page|>13<|box|>228 171 273 825<|content|>IV. Option 2: Continue Quarterly Docket Monitoring\n<|id|>142<|type|>title<|page|>13<|box|>297 142 314 259<|content|>A. Description\n<|id|>147<|type|>title<|page|>13<|box|>532 142 549 207<|content|>B. Cost\n<|id|>152<|type|>title<|page|>13<|box|>775 140 792 410<|content|>C. Advantages and Disadvantages\n<|id|>153<|type|>title<|page|>13<|box|>801 143 818 245<|content|>Advantages:\n<|id|>158<|type|>title<|page|>14<|box|>222 143 238 266<|content|>Disadvantages:\n<|id|>168<|type|>title<|page|>15<|box|>90 183 136 813<|content|>V. Option 3: Contact Nikolai Vantorovich to Explor\n<|id|>169<|type|>title<|page|>15<|box|>160 142 176 261<|content|>A. Description\n<|id|>179<|type|>title<|page|>15<|box|>799 142 816 294<|content|>B. Potential Terms\n<|id|>191<|type|>title<|page|>16<|box|>825 140 843 395<|content|>C. Estimated Cost and Timeline\n<|id|>195<|type|>title<|page|>17<|box|>262 142 279 410<|content|>D. Advantages and Disadvantages\n<|id|>196<|type|>title<|page|>17<|box|>287 143 305 245<|content|>Advantages:\n<|id|>204<|type|>title<|page|>17<|box|>598 143 614 266<|content|>Disadvantages:\n<|id|>212<|type|>title<|page|>18<|box|>376 390 396 607<|content|>VI. Recommendation\n<|id|>213<|type|>title<|page|>18<|box|>421 140 438 697<|content|>A. Primary Recommendation: Option 1 (Renewed FRCP\n<|id|>220<|type|>title<|page|>19<|box|>286 140 303 653<|content|>B. Alternative Recommendation: Option 3 (Contact V\n<|id|>226<|type|>title<|page|>19<|box|>786 140 803 333<|content|>C. Combined Approach\n<|id|>232<|type|>title<|page|>20<|box|>327 419 347 578<|content|>VII. Next Steps\n<|id|>242<|type|>title<|page|>21<|box|>210 411 229 584<|content|>VIII. Conclusion",
+    "raw_response": "<|src_id|>30<|tgt_id|>21\n<|src_id|>69<|tgt_id|>58\n<|src_id|>70<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 58
+        }
+    ]
+}

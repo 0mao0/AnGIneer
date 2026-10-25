@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        12,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>167 140 185 781<|content|>To: ... Marcus Trejo, Partner, Head of Growth Equity, Pinnacle Capital Management LLC\n<|id|>2<|page|>1<|box|>193 140 210 686<|content|>From: ... Andrew Fitzpatrick, Lead Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>219 140 273 854<|content|>Re: ... — Analysis of Consent Triggers in Connection with Proposed Series D Preferred Stock Issuance\n<|id|>4<|page|>1<|box|>282 140 299 331<|content|>Matter No. ... 1002-00004\n<|id|>5<|page|>1<|box|>308 142 324 308<|content|>Client No. ... PIN-0042\n<|id|>10<|page|>1<|box|>873 140 910 856<|content|>Summary of the Credit Facility. ... As of March 31, 2022, Six Million\n<|id|>11<|page|>2<|box|>89 138 200 856<|content|>Two Hundred Thousand Dollars ($6,200,000) was draw...ers of which are set forth in the credit agreement\n<|id|>24<|page|>3<|box|>830 140 886 854<|content|>The key terms of Verdana's existing revolving cred...ade available through the Verdana data room on May\n<|id|>25<|page|>4<|box|>90 140 127 854<|content|>16, 2022, together with supplemental documents req...Rebecca Thornton), Verdana's outside legal counsel\n<|id|>94<|page|>12<|box|>252 174 343 854<|content|>(iii) An express confirmation that the consummatio...nt of Default) under the credit agreement; ... and\n<|id|>96<|page|>12<|box|>395 140 505 854<|content|>In addition to the foregoing specific approvals, t...celerate the obligations under the Credit Facility\n<|id|>127<|page|>16<|box|>561 176 597 854<|content|>Andrew Fitzpatrick, Lead Associate Calderwood & Ha...co, California 94104 Telephone: ... (415) 392-4871\n<|id|>128<|page|>16<|box|>606 176 622 517<|content|>Email: ... com\n<|id|>135<|page|>17<|box|>90 174 143 854<|content|>Harrison Wexford, Responsible Partner(415) 392-4802/ hwexford@calderwoodharkness. ... com\n<|id|>136<|page|>17<|box|>152 140 169 655<|content|>File Reference: ... PIN-0042\n<|id|>137<|page|>17<|box|>179 140 253 854<|content|>This memorandum is a privileged and confidential a...e to any person or entity other than the addressee\n<|id|>138<|page|>17<|box|>261 165 296 828<|content|>CALDERWOOD & HARKNESS LLP 101 Montgomery Street, Suite 3500 San Francisco, California 94104\n<|id|>139<|page|>17<|box|>305 156 321 838<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>24<|tgt_id|>25",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        }
+    ]
+}

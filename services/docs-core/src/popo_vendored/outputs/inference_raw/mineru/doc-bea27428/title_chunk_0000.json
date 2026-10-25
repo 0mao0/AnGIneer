@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        12,
+        16,
+        18,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 238 108 759<|content|>IN THE COURT OF CHANCERY OF THE STATE OF DELAWARE\n<|id|>2<|page|>1<|box|>393 158 429 838<|content|>PLAINTIFF'S REPLY MEMORANDUM IN FURTHER SUPPORT OF\n<|id|>8<|page|>2<|box|>847 385 864 612<|content|>TABLE OF AUTHORITIES\n<|id|>9<|page|>2<|box|>875 143 888 192<|content|>Cases\n<|id|>12<|page|>3<|box|>777 142 792 210<|content|>Statutes\n<|id|>15<|page|>4<|box|>157 143 174 285<|content|>Other Authorities\n<|id|>17<|page|>4<|box|>328 143 344 397<|content|>PRELIMINARY STATEMENT\n<|id|>26<|page|>5<|box|>611 142 628 272<|content|>I. ARGUMENT\n<|id|>27<|page|>5<|box|>643 140 659 800<|content|>A. The Restrictive Covenants Are Reasonable and En\n<|id|>42<|page|>8<|box|>383 140 398 854<|content|>3. Defendants' \"Overbreadth\" Arguments Regarding A\n<|id|>69<|page|>12<|box|>90 140 107 527<|content|>B. Cascade Has Demonstrated Irreparable Harm\n<|id|>72<|page|>12<|box|>333 140 349 388<|content|>The exfiltrated materials include:\n<|id|>101<|page|>16<|box|>411 140 429 480<|content|>C. The Balance of Equities Favors Cascade\n<|id|>115<|page|>18<|box|>484 140 501 607<|content|>D. Cascade Is Likely to Succeed on the Merits of A\n<|id|>142<|page|>21<|box|>811 140 829 668<|content|>E. The $2,500,000 Injunction Bond Adequately Prote\n<|id|>146<|page|>22<|box|>285 142 301 295<|content|>II. CONCLUSION\n<|id|>156<|page|>23<|box|>89 142 106 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>163<|page|>23<|box|>263 140 280 388<|content|>CERTIFICATE OF SERVICE\n<|id|>168<|page|>23<|box|>632 142 648 424<|content|>EXHIBITS AND ATTACHMENTS\n<|id|>171<|page|>23<|box|>866 142 883 557<|content|>Previously Filed with Opening Brief (March 5, 2025",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>12<|level|>3\n<|id|>15<|level|>3\n<|id|>17<|level|>2\n<|id|>26<|level|>2\n<|id|>27<|level|>3\n<|id|>42<|level|>4\n<|id|>69<|level|>3\n<|id|>72<|level|>-1\n<|id|>101<|level|>3\n<|id|>115<|level|>3\n<|id|>142<|level|>3\n<|id|>146<|level|>2\n<|id|>156<|level|>-1\n<|id|>163<|level|>2\n<|id|>168<|level|>2\n<|id|>171<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 3
+        }
+    ]
+}

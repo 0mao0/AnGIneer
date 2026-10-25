@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 194 142 803<|content|>SECRETARY'S CERTIFICATE OF CALLOWAY-BRIGGS RENEWAB\n<|id|>2<|page|>1<|box|>186 142 202 248<|content|>Delivered to:\n<|id|>4<|page|>1<|box|>255 142 273 761<|content|>Re: Tax-Equity and Transferable Tax-Credit Financi\n<|id|>6<|page|>1<|box|>417 142 434 241<|content|>RECITALS\n<|id|>21<|page|>2<|box|>612 140 628 725<|content|>SECTION 1: CERTIFICATION OF ORGANIZATIONAL DOCUMEN\n<|id|>22<|page|>2<|box|>643 143 661 383<|content|>1(a). Articles of Incorporation.\n<|id|>26<|page|>3<|box|>290 140 306 633<|content|>SECTION 2: CERTIFICATION OF BOARD RESOLUTIONS\n<|id|>38<|page|>5<|box|>148 142 166 509<|content|>SECTION 3: INCUMBENCY CERTIFICATE\n<|id|>42<|page|>5<|box|>582 140 599 547<|content|>SECTION 4: GOOD STANDING CERTIFICATES\n<|id|>45<|page|>6<|box|>148 140 166 532<|content|>SECTION 5: ADDITIONAL CERTIFICATIONS\n<|id|>51<|page|>6<|box|>722 140 739 349<|content|>SECTION 6: RELIANCE\n<|id|>71<|page|>8<|box|>89 446 107 553<|content|>EXHIBIT A\n<|id|>72<|page|>8<|box|>116 256 133 740<|content|>Articles of Incorporation of Calloway-Briggs Renew\n<|id|>75<|page|>9<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>76<|page|>9<|box|>116 326 133 669<|content|>Bylaws of Calloway-Briggs Renewables Inc.\n<|id|>77<|page|>9<|box|>142 418 159 580<|content|>As currently in effect\n<|id|>79<|page|>10<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>82<|page|>11<|box|>89 447 107 550<|content|>EXHIBIT D\n<|id|>83<|page|>11<|box|>116 339 133 656<|content|>Certificate of Existence / Good Standing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>-1\n<|id|>4<|level|>-1\n<|id|>6<|level|>2\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>26<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>51<|level|>2\n<|id|>71<|level|>2\n<|id|>72<|level|>3\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>77<|level|>-1\n<|id|>79<|level|>2\n<|id|>82<|level|>2\n<|id|>83<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        }
+    ]
+}

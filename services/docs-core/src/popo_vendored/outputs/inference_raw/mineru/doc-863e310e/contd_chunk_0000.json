@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        18
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        7,
+        11,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>2<|box|>353 176 388 854<|content|>On behalf of the Acquiror: ... Calderwood & Harkne...P 1750 K Street NW, Suite 800 Washington, DC 20006\n<|id|>5<|page|>2<|box|>397 174 434 854<|content|>On behalf of the Target and Selling Stockholders: ...sylvania Avenue NW, Suite 600 Washington, DC 20006\n<|id|>14<|page|>3<|box|>782 140 893 856<|content|>Description: ... (i) Fifty Million Dollars ($50,000,000)\n<|id|>15<|page|>4<|box|>90 140 218 856<|content|>payable upon achievement of specified government-c...nification obligations under Article IX of the SPA\n<|id|>44<|page|>7<|box|>625 176 657 852<|content|>4. ... and\n<|id|>47<|page|>7<|box|>821 140 893 856<|content|>Description: ... The certificate is dated within thirty (30) days of the date of this filing\n<|id|>71<|page|>11<|box|>250 143 266 434<|content|>Document A-21: ... Earnout Agreement\n<|id|>73<|page|>11<|box|>324 140 527 856<|content|>Description: ... both forms are provided as applicable for the Committee's review\n<|id|>113<|page|>17<|box|>410 140 426 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>114<|page|>17<|box|>429 143 446 253<|content|>By: ... By\n<|id|>115<|page|>17<|box|>446 142 462 408<|content|>Name: ... Margaret \"Peggy\" Ashworth\n<|id|>116<|page|>17<|box|>462 140 479 547<|content|>Title: ... Of Counsel, National Security & CFIUS Practice\n<|id|>117<|page|>17<|box|>479 142 497 607<|content|>Address: ... 1750 K Street NW, Suite 800, Washington, DC 20006\n<|id|>118<|page|>17<|box|>498 142 515 266<|content|>Date: ... Date\n<|id|>119<|page|>17<|box|>547 140 564 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>120<|page|>17<|box|>566 142 584 253<|content|>By: ... By\n<|id|>121<|page|>17<|box|>584 142 599 338<|content|>Name: ... Beatrice Holloway\n<|id|>122<|page|>17<|box|>599 140 617 491<|content|>Title: ... Partner, Mergers & Acquisitions Practice\n<|id|>123<|page|>17<|box|>617 142 633 594<|content|>Address: ... 399 Park Avenue, 31st Floor, New York, NY 10022\n<|id|>124<|page|>17<|box|>636 142 652 264<|content|>Date: ... Date\n<|id|>126<|page|>17<|box|>710 142 729 393<|content|>WETHERSFIELD & GALE LLP\n<|id|>127<|page|>17<|box|>729 143 747 253<|content|>By: ... By\n<|id|>128<|page|>17<|box|>747 143 763 339<|content|>Name: ... Harrison Whitfield\n<|id|>129<|page|>17<|box|>763 140 780 629<|content|>Title: ... Partner, Government Contracts & National Security Practice\n<|id|>130<|page|>17<|box|>781 142 797 705<|content|>Address: ... 2000 Pennsylvania Avenue NW, Suite 600, Washington, DC 20006\n<|id|>131<|page|>17<|box|>799 143 816 264<|content|>Date: ... Date\n<|id|>132<|page|>17<|box|>849 142 866 393<|content|>WETHERSFIELD & GALE LLP\n<|id|>133<|page|>17<|box|>868 143 883 253<|content|>By: ... By\n<|id|>134<|page|>17<|box|>885 142 901 315<|content|>Name: ... Sandra Niehaus\n<|id|>135<|page|>18<|box|>89 140 107 491<|content|>Title: ... Partner, Mergers & Acquisitions Practice\n<|id|>136<|page|>18<|box|>107 140 125 707<|content|>Address: ... 2000 Pennsylvania Avenue NW, Suite 600, Washington, DC 20006\n<|id|>137<|page|>18<|box|>125 140 143 269<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>134<|tgt_id|>135",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 135
+        }
+    ]
+}

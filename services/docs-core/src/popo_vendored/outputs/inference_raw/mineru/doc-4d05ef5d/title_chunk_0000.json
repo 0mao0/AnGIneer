@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 236 142 759<|content|>OFFICER'S CERTIFICATE OF ARBOR HEALTH TECHNOLOGIES\n<|id|>7<|page|>1<|box|>679 140 695 478<|content|>Section 1. Representations and Warranties\n<|id|>14<|page|>2<|box|>674 140 691 441<|content|>Section 2. Performance of Obligations\n<|id|>24<|page|>3<|box|>502 140 518 388<|content|>Section 3. Board Authorization\n<|id|>29<|page|>4<|box|>250 140 266 604<|content|>Section 4. Incumbency and Authority of Executing O\n<|id|>31<|page|>4<|box|>342 140 359 339<|content|>4.1 Dr. Priya Narayanan\n<|id|>37<|page|>4<|box|>598 142 614 264<|content|>4.2 Helen Tsao\n<|id|>43<|page|>5<|box|>150 140 167 539<|content|>Section 5. Good Standing and Corporate Existence\n<|id|>48<|page|>5<|box|>532 140 549 648<|content|>Section 6. No Conflicts; Compliance with Lending A\n<|id|>55<|page|>6<|box|>414 140 430 452<|content|>Section 7. No Material Adverse Change\n<|id|>57<|page|>6<|box|>590 140 607 294<|content|>Section 8. Reliance\n<|id|>60<|page|>6<|box|>814 142 830 486<|content|>ARBOR HEALTH TECHNOLOGIES INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>14<|level|>2\n<|id|>24<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>3\n<|id|>37<|level|>3\n<|id|>43<|level|>2\n<|id|>48<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>60<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        }
+    ]
+}

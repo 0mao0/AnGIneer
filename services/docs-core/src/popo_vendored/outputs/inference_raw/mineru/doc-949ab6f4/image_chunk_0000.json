@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 284 118 712<|content|>TRANSITION SERVICES SIDE LETTER\n<|id|>1<|type|>title<|page|>1<|box|>143 243 161 754<|content|>Supplement to the Master Services Agreement dated\n<|id|>8<|type|>title<|page|>1<|box|>431 140 449 243<|content|>RECITALS\n<|id|>15<|type|>title<|page|>2<|box|>167 140 184 390<|content|>SECTION 1 — DEFINITIONS\n<|id|>30<|type|>title<|page|>3<|box|>266 140 282 483<|content|>SECTION 2 — RELATIONSHIP TO MSA\n<|id|>35<|type|>title<|page|>3<|box|>795 140 811 584<|content|>SECTION 3 — TRANSITION PLAN DEVELOPMENT\n<|id|>50<|type|>title<|page|>5<|box|>303 140 320 455<|content|>SECTION 4 — MIGRATION PHASES\n<|id|>52<|type|>title<|page|>5<|box|>484 142 501 374<|content|>4.2 Phase 1 — Pilot Migration.\n<|id|>59<|type|>title<|page|>6<|box|>208 142 224 398<|content|>4.3 Phase 2 — Primary Migration.\n<|id|>65<|type|>title<|page|>6<|box|>527 142 545 377<|content|>4.4 Phase 3 — Final Migration.\n<|id|>73<|type|>title<|page|>7<|box|>204 140 239 748<|content|>SECTION 5 — CEDARPOINT'S COORDINATION OBLIGATIONS\n<|id|>84<|type|>title<|page|>8<|box|>393 140 412 712<|content|>SECTION 6 — SERVICE PROVIDER'S MIGRATION OBLIGATIO\n<|id|>99<|type|>title<|page|>9<|box|>707 140 724 566<|content|>SECTION 7 — PARALLEL-RUN REQUIREMENTS\n<|id|>111<|type|>title<|page|>11<|box|>89 140 106 575<|content|>SECTION 8 — ACCEPTANCE TESTING CRITERIA\n<|id|>126<|type|>title<|page|>12<|box|>655 140 672 503<|content|>SECTION 9 — ROLLBACK PROCEDURES\n<|id|>142<|type|>title<|page|>14<|box|>89 140 107 750<|content|>SECTION 10 — CUSTOMER'S RIGHT TO DELAY MIGRATION P\n<|id|>153<|type|>title<|page|>14<|box|>811 140 829 573<|content|>SECTION 11 — STAFFING AND KEY PERSONNEL\n<|id|>162<|type|>title<|page|>15<|box|>696 140 713 566<|content|>SECTION 12 — REPORTING AND GOVERNANCE\n<|id|>172<|type|>title<|page|>16<|box|>762 140 779 586<|content|>SECTION 13 — DATA MIGRATION AND SECURITY\n<|id|>177<|type|>title<|page|>17<|box|>494 140 511 714<|content|>SECTION 14 — LEGACY INFRASTRUCTURE DECOMMISSIONING\n<|id|>182<|type|>title<|page|>18<|box|>239 140 258 403<|content|>SECTION 15 — WARRANTIES\n<|id|>187<|type|>title<|page|>18<|box|>678 140 695 609<|content|>SECTION 16 — REMEDIES FOR MIGRATION DELAYS\n<|id|>193<|type|>title<|page|>19<|box|>556 140 573 387<|content|>SECTION 17 — INSURANCE\n<|id|>195<|type|>table<|page|>19<|box|>643 143 719 852<|content|>None\n<|id|>199<|type|>title<|page|>20<|box|>148 140 166 475<|content|>SECTION 18 — TERM AND SURVIVAL\n<|id|>203<|type|>title<|page|>20<|box|>450 140 468 485<|content|>SECTION 19 — GENERAL PROVISIONS\n<|id|>230<|type|>title<|page|>22<|box|>89 454 108 544<|content|>ANNEX A\n<|id|>231<|type|>title<|page|>22<|box|>130 294 148 704<|content|>MIGRATION PHASE ALLOCATION SUMMARY\n<|id|>233<|type|>table<|page|>22<|box|>236 143 476 852<|content|>None",
+    "raw_response": "<|src_id|>195<|tgt_id|>193\n<|src_id|>233<|tgt_id|>231",
+    "parsed": [
+        {
+            "src_id": 195,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 231
+        }
+    ]
+}

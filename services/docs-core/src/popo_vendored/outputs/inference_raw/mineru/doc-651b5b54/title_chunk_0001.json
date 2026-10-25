@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        48,
+        57
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        56,
+        57
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>524<|page|>48<|box|>90 176 135 821<|content|>APPENDIX B: DESIGNATED HEALTH SERVICES — QUICK REF\n<|id|>526<|page|>49<|box|>90 209 133 787<|content|>APPENDIX C: REFERRAL INDEPENDENCE ANNUAL CERTIFICA\n<|id|>527<|page|>49<|box|>151 158 186 836<|content|>ARBOR HEALTH TECHNOLOGIES INC. REFERRAL INDEPENDEN\n<|id|>533<|page|>49<|box|>344 142 361 483<|content|>Part I: Referral Independence Certification\n<|id|>540<|page|>49<|box|>622 142 638 570<|content|>Part II: Ownership and Investment Interest Disclos\n<|id|>544<|page|>49<|box|>848 143 864 303<|content|>Part III: Attestation\n<|id|>548<|page|>50<|box|>263 142 277 184<|content|>Date\n<|id|>550<|page|>51<|box|>90 179 109 818<|content|>APPENDIX D: REFERRAL COMPLIANCE DECISION TREE\n<|id|>552<|page|>51<|box|>209 140 227 658<|content|>Step 1: Is the referred service a Designated Healt\n<|id|>557<|page|>51<|box|>363 140 398 854<|content|>Step 2: Does the referring physician (or an immedi\n<|id|>562<|page|>51<|box|>565 140 583 694<|content|>Step 3: Does a Stark Law exception apply to the fi\n<|id|>566<|page|>51<|box|>803 140 820 684<|content|>Step 4: Does the underlying arrangement satisfy an\n<|id|>570<|page|>52<|box|>239 140 256 328<|content|>Step 5: Escalation Path\n<|id|>577<|page|>52<|box|>554 142 570 323<|content|>Important Reminders:\n<|id|>582<|page|>53<|box|>90 241 109 754<|content|>APPENDIX E: KEY REGULATORY CITATIONS\n<|id|>584<|page|>53<|box|>205 142 223 276<|content|>Federal Statutes\n<|id|>589<|page|>53<|box|>479 142 494 413<|content|>Federal Regulations — Stark Law\n<|id|>597<|page|>54<|box|>204 140 222 504<|content|>Federal Regulations — Anti-Kickback Statute\n<|id|>599<|page|>54<|box|>363 142 378 390<|content|>Federal Register — Final Rules\n<|id|>602<|page|>54<|box|>595 142 613 377<|content|>Federal Register — Guidance\n<|id|>604<|page|>54<|box|>718 140 734 254<|content|>State Statutes\n<|id|>607<|page|>56<|box|>90 274 109 723<|content|>APPENDIX F: CONTACT INFORMATION\n<|id|>615<|page|>57<|box|>239 326 256 671<|content|>APPROVAL AND ACKNOWLEDGMENT",
+    "raw_response": "<|id|>524<|level|>1\n<|id|>526<|level|>1\n<|id|>527<|level|>2\n<|id|>533<|level|>3\n<|id|>540<|level|>3\n<|id|>544<|level|>3\n<|id|>548<|level|>-1\n<|id|>550<|level|>1\n<|id|>552<|level|>2\n<|id|>557<|level|>2\n<|id|>562<|level|>2\n<|id|>566<|level|>2\n<|id|>570<|level|>2\n<|id|>577<|level|>2\n<|id|>582<|level|>1\n<|id|>584<|level|>2\n<|id|>589<|level|>2\n<|id|>597<|level|>2\n<|id|>599<|level|>2\n<|id|>602<|level|>2\n<|id|>604<|level|>2\n<|id|>607<|level|>1\n<|id|>615<|level|>1",
+    "parsed": [
+        {
+            "id": 524,
+            "level": 1
+        },
+        {
+            "id": 526,
+            "level": 1
+        },
+        {
+            "id": 527,
+            "level": 2
+        },
+        {
+            "id": 533,
+            "level": 3
+        },
+        {
+            "id": 540,
+            "level": 3
+        },
+        {
+            "id": 544,
+            "level": 3
+        },
+        {
+            "id": 550,
+            "level": 1
+        },
+        {
+            "id": 552,
+            "level": 2
+        },
+        {
+            "id": 557,
+            "level": 2
+        },
+        {
+            "id": 562,
+            "level": 2
+        },
+        {
+            "id": 566,
+            "level": 2
+        },
+        {
+            "id": 570,
+            "level": 2
+        },
+        {
+            "id": 577,
+            "level": 2
+        },
+        {
+            "id": 582,
+            "level": 1
+        },
+        {
+            "id": 584,
+            "level": 2
+        },
+        {
+            "id": 589,
+            "level": 2
+        },
+        {
+            "id": 597,
+            "level": 2
+        },
+        {
+            "id": 599,
+            "level": 2
+        },
+        {
+            "id": 602,
+            "level": 2
+        },
+        {
+            "id": 604,
+            "level": 2
+        },
+        {
+            "id": 607,
+            "level": 1
+        },
+        {
+            "id": 615,
+            "level": 1
+        }
+    ]
+}

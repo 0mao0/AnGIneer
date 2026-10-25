@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>459<|page|>45<|box|>89 140 125 852<|content|>Appendix C: Cross-Reference to Grayson Whitaker Ga\n<|id|>472<|page|>46<|box|>90 140 125 854<|content|>Appendix D: Cross-Reference to Companion Stark Law\n<|id|>480<|page|>47<|box|>90 140 107 470<|content|>Appendix E: List of Documents Reviewed",
+    "raw_response": "<|id|>459<|level|>1\n<|id|>472<|level|>1\n<|id|>480<|level|>1",
+    "parsed": [
+        {
+            "id": 459,
+            "level": 1
+        },
+        {
+            "id": 472,
+            "level": 1
+        },
+        {
+            "id": 480,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        93,
+        160
+    ],
+    "pages": [
+        94,
+        95,
+        96,
+        99,
+        101,
+        104,
+        108,
+        110,
+        112,
+        120,
+        121,
+        122,
+        159,
+        160
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>339<|page|>94<|box|>128 406 139 636<|content|>(Par values - in millions of dollars)\n<|id|>340<|page|>94<|box|>56 260 74 781<|content|>TREASURY SURVEY - COMMERCIAL BANK OWNERSHIP, December 31, 1964\n<|id|>343<|page|>95<|box|>48 198 65 720<|content|>TREASURY SURVEY - COMMERCIAL BANK OWNERSHIP, December 31, 1964\n<|id|>345<|page|>96<|box|>89 46 148 492<|content|>Current market quotations shown here are over-the-...e Treasury by the Federal Reserve Bank of New York\n<|id|>352<|page|>99<|box|>931 16 953 471<|content|>1/ Series includes bonds on which the interest inc...ax and which are neither due nor callable before a\n<|id|>353<|page|>99<|box|>875 502 944 963<|content|>given number of years as follows: ... 4/ Market closed\n<|id|>356<|page|>101<|box|>750 4 949 474<|content|>Source: ... Accordingly, the Secretary of the Treasury has determined\n<|id|>357<|page|>101<|box|>742 520 847 955<|content|>that the following paper currencies have been dest...r redemption: ... 5 million of national bank notes\n<|id|>367<|page|>104<|box|>582 59 596 512<|content|>1/ Includes gold sold to the United States by the International Monetary\n<|id|>368<|page|>104<|box|>495 563 542 1000<|content|>Fund with the right of repurchase, the proceeds of..., \\$300 million in 1959, and \\$300 million in 1960\n<|id|>391<|page|>108<|box|>803 43 900 489<|content|>\"Short-term\" refers to obligations payable on dema..., without deduction of any offsets. ... Exclusions\n<|id|>392<|page|>108<|box|>903 43 934 487<|content|>The data published herein do not cover all types o...r reports on the United States balance of payments\n<|id|>400<|page|>110<|box|>100 238 144 779<|content|>Section I - Summary by Periods Table 2. ... - Bank...(Position at end of period in millions of dollars)\n<|id|>404<|page|>112<|box|>892 540 921 979<|content|>6/ Grand total includes \\$82. ... 2 million\n<|id|>425<|page|>120<|box|>877 46 962 522<|content|>Note: ... Data for December 31, 1963, also are sho...e basis of a July 31, 1963, survey and the monthly\n<|id|>426<|page|>120<|box|>879 545 899 976<|content|>transactions reports. ... For statistical convenie...cember 31, 1963, rather than as of the survey date\n<|id|>429<|page|>121<|box|>100 133 116 872<|content|>Table 1. ... - Short-Term Banking Liabilities to Foreigners as of December 31, 1964 1/\n<|id|>431<|page|>122<|box|>89 303 103 726<|content|>Section III - Preliminary Details by Countries\n<|id|>432<|page|>122<|box|>102 169 118 859<|content|>Table 2. ... - Short-Term Banking Claims on Foreigners as of December 31, 1964 1/\n<|id|>525<|page|>159<|box|>182 6 241 449<|content|>2/ Includes foreign currency assets, representing ...principally the Agricultural Trade Development and\n<|id|>526<|page|>159<|box|>115 517 226 947<|content|>Assistance Act of 1954, as amended, and the Mutual...ge are stated at rates specified in the agreements\n<|id|>535<|page|>159<|box|>296 522 318 938<|content|>Revolving fund (June 30, 1964). ... 40\n<|id|>536<|page|>159<|box|>323 497 350 948<|content|>7/ In November 1964, the assets of this fund were ...an act approved August 22, 1964 (78 Stat. ... 602)\n<|id|>559<|page|>159<|box|>934 9 948 452<|content|>12/ Includes Public Works Administration (in liquidation) and strategic\n<|id|>563<|page|>159<|box|>891 500 911 933<|content|>allowance for uncollectible items. ... 18/ Include...uction work in progress amounting to \\$834 million\n<|id|>574<|page|>160<|box|>664 44 684 478<|content|>11/ Consists of the loan to the United Kingdom and...l civil defense loans, loans of the Reconstruction\n<|id|>575<|page|>160<|box|>128 559 247 978<|content|>Finance Corporation liquidation fund beginning Dec... footnote 17). ... 2091) through December 31, 1960",
+    "raw_response": "<|src_id|>352<|tgt_id|>353\n<|src_id|>356<|tgt_id|>357\n<|src_id|>367<|tgt_id|>368\n<|src_id|>425<|tgt_id|>426\n<|src_id|>525<|tgt_id|>526\n<|src_id|>574<|tgt_id|>575",
+    "parsed": [
+        {
+            "src_id": 352,
+            "tgt_id": 353
+        },
+        {
+            "src_id": 356,
+            "tgt_id": 357
+        },
+        {
+            "src_id": 367,
+            "tgt_id": 368
+        },
+        {
+            "src_id": 425,
+            "tgt_id": 426
+        },
+        {
+            "src_id": 525,
+            "tgt_id": 526
+        },
+        {
+            "src_id": 574,
+            "tgt_id": 575
+        }
+    ]
+}

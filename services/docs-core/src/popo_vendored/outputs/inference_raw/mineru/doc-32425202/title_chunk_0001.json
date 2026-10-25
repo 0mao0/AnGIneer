@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        53
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        51,
+        52,
+        53
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>502<|page|>45<|box|>553 165 574 830<|content|>VIII. Environmental, Appraisal, and Third-Party Re\n<|id|>508<|page|>46<|box|>498 362 518 633<|content|>IX. Timeline and Next Steps\n<|id|>509<|page|>46<|box|>542 140 561 377<|content|>A. Recommended Action Items\n<|id|>519<|page|>47<|box|>575 140 594 287<|content|>B. Target Timeline\n<|id|>523<|page|>47<|box|>840 140 859 330<|content|>C. Contingency Planning\n<|id|>532<|page|>48<|box|>767 400 786 596<|content|>X. Recommendation\n<|id|>551<|page|>51<|box|>90 166 133 828<|content|>Appendix A — Side-by-Side Comparison of Bridge Loa\n<|id|>553<|page|>52<|box|>90 250 112 748<|content|>Appendix B — Sun Belt Portfolio Property Summary\n<|id|>556<|page|>52<|box|>272 143 287 197<|content|>Notes:\n<|id|>560<|page|>53<|box|>90 233 112 764<|content|>Appendix C — Key Negotiation Points Summary Matrix",
+    "raw_response": "<|id|>502<|level|>1\n<|id|>508<|level|>1\n<|id|>509<|level|>2\n<|id|>519<|level|>2\n<|id|>523<|level|>2\n<|id|>532<|level|>1\n<|id|>551<|level|>1\n<|id|>553<|level|>1\n<|id|>556<|level|>2\n<|id|>560<|level|>1",
+    "parsed": [
+        {
+            "id": 502,
+            "level": 1
+        },
+        {
+            "id": 508,
+            "level": 1
+        },
+        {
+            "id": 509,
+            "level": 2
+        },
+        {
+            "id": 519,
+            "level": 2
+        },
+        {
+            "id": 523,
+            "level": 2
+        },
+        {
+            "id": 532,
+            "level": 1
+        },
+        {
+            "id": 551,
+            "level": 1
+        },
+        {
+            "id": 553,
+            "level": 1
+        },
+        {
+            "id": 556,
+            "level": 2
+        },
+        {
+            "id": 560,
+            "level": 1
+        }
+    ]
+}

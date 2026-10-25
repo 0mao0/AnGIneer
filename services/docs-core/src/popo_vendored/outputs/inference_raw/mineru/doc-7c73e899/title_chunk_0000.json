@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 166 107 854<|content|>CALDERWOOD & HARKNESS LLP 425 Lexington Avenue New\n<|id|>11<|page|>1<|box|>481 140 498 423<|content|>I. Introduction and Role of Counsel\n<|id|>14<|page|>1<|box|>794 140 811 584<|content|>II. Defined Terms and Identification of Loan Docum\n<|id|>26<|page|>2<|box|>801 142 819 584<|content|>III. Scope of Review; Documents and Records Examin\n<|id|>42<|page|>4<|box|>212 142 229 277<|content|>IV. Assumptions\n<|id|>55<|page|>5<|box|>148 140 167 406<|content|>V. Qualifications and Limitations\n<|id|>76<|page|>6<|box|>763 140 780 250<|content|>VI. Opinions\n<|id|>78<|page|>6<|box|>838 140 854 630<|content|>Opinion 1: Due Organization and Good Standing — Bo\n<|id|>80<|page|>7<|box|>268 140 285 753<|content|>Opinion 2: Due Organization, Good Standing, and Qu\n<|id|>82<|page|>7<|box|>505 140 522 344<|content|>Opinion 3: Authorization\n<|id|>84<|page|>7<|box|>779 140 797 416<|content|>Opinion 4: Execution and Delivery\n<|id|>87<|page|>8<|box|>138 140 157 346<|content|>Opinion 5: Enforceability\n<|id|>97<|page|>8<|box|>676 140 691 565<|content|>Opinion 6: No Conflicts — Organizational Documents\n<|id|>99<|page|>8<|box|>821 140 839 529<|content|>Opinion 7: No Conflicts — Laws and Regulations\n<|id|>101<|page|>9<|box|>138 140 157 519<|content|>Opinion 8: No Conflicts — Existing Agreements\n<|id|>106<|page|>9<|box|>527 140 545 540<|content|>Opinion 9: Governmental Consents and Approvals\n<|id|>111<|page|>9<|box|>806 142 823 390<|content|>Opinion 10: Deed of Trust Lien\n<|id|>114<|page|>10<|box|>268 140 285 292<|content|>Opinion 11: Usury\n<|id|>116<|page|>10<|box|>441 142 459 375<|content|>VII. Knowledge Qualification\n<|id|>123<|page|>10<|box|>777 140 794 434<|content|>VIII. Reliance and Limitation on Use\n<|id|>128<|page|>11<|box|>366 140 383 537<|content|>IX. Opinion as of Date; No Undertaking to Update",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>11<|level|>1\n<|id|>14<|level|>1\n<|id|>26<|level|>1\n<|id|>42<|level|>1\n<|id|>55<|level|>1\n<|id|>76<|level|>1\n<|id|>78<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>2\n<|id|>84<|level|>2\n<|id|>87<|level|>2\n<|id|>97<|level|>2\n<|id|>99<|level|>2\n<|id|>101<|level|>2\n<|id|>106<|level|>2\n<|id|>111<|level|>2\n<|id|>114<|level|>2\n<|id|>116<|level|>1\n<|id|>123<|level|>1\n<|id|>128<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        }
+    ]
+}

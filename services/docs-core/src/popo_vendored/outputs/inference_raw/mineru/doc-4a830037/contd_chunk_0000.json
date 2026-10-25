@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        9,
+        10,
+        11,
+        13,
+        14,
+        18,
+        19,
+        25,
+        26,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>183 712 200 854<|content|>September 2, 2022\n<|id|>4<|page|>1<|box|>208 140 244 854<|content|>TO: ... Calloway, Founder & Chief Investment Offic...or, Infrastructure, Ironside Capital Management LP\n<|id|>5<|page|>1<|box|>253 140 289 854<|content|>FROM: ... Pamela Cross, Responsible Partner Nichol...m, Lead Associate — Funds & Asset Management Group\n<|id|>6<|page|>1<|box|>297 140 349 854<|content|>RE: ... Analysis of Representations and Warranties...artners Fund IV, LP and ICM Cascadia Co-Invest, LP\n<|id|>7<|page|>1<|box|>359 142 376 408<|content|>MATTER NUMBER: ... 1023-00001\n<|id|>8<|page|>1<|box|>385 142 402 408<|content|>Right-click to update Table of Contents\n<|id|>79<|page|>9<|box|>752 140 898 857<|content|>Availability of Financing (the \"Financing Represen...to consummate the transactions contemplated by the\n<|id|>80<|page|>10<|box|>90 140 143 854<|content|>EPA and to pay all related fees, costs, and expenses. ... A below\n<|id|>88<|page|>10<|box|>830 140 885 856<|content|>However, the EPA contains an \"Equity Commitment Le...s a condition to the execution and delivery of the\n<|id|>89<|page|>11<|box|>90 140 126 854<|content|>EPA. ... The ECLs are attached to the EPA as Exhib...ly, and are incorporated into the EPA by reference\n<|id|>114<|page|>13<|box|>867 140 904 856<|content|>Indirect Guarantee of Fund IV's Obligation. ... To...present that Fund IV will fund its commitment, ICM\n<|id|>115<|page|>14<|box|>89 140 143 857<|content|>Co-Invest could be viewed as indirectly guaranteei...ropriate allocation of risk that must be addressed\n<|id|>158<|page|>18<|box|>799 138 909 857<|content|>The Bull Run Filtration Project concession with th...termination, renegotiation, or modification of the\n<|id|>159<|page|>19<|box|>90 140 183 854<|content|>Bull Run Concession. ... However, given the signif...esentation with respect to the Bull Run Concession\n<|id|>221<|page|>25<|box|>859 140 896 854<|content|>1. ... Restructure the Equity Commitment Letters a...y is several (not joint and several), with ICM Co-\n<|id|>222<|page|>26<|box|>90 174 143 854<|content|>Invest's maximum exposure capped at 28. ... 57% of the $31,500,000 reverse termination fee)\n<|id|>244<|page|>28<|box|>165 147 179 508<|content|>• Marcus J. ... Calloway, Founder & Chief Investment Officer\n<|id|>246<|page|>28<|box|>198 143 212 470<|content|>Calderwood & Harkness LLP (copies to firm files): ... Calderwood & Harkness LLP (copies to firm files)\n<|id|>245<|page|>28<|box|>181 145 196 496<|content|>• Renata Obasi, Senior Managing Director, Infrastructure\n<|id|>247<|page|>28<|box|>220 147 234 375<|content|>• Pamela Cross, Responsible Partner\n<|id|>252<|page|>28<|box|>301 143 315 328<|content|>Matter Number: ... 1023-00001\n<|id|>248<|page|>28<|box|>237 148 250 349<|content|>• Nicholas Stern, Billing Partner\n<|id|>249<|page|>28<|box|>253 148 267 558<|content|>• Theresa Kim, Lead Associate, Funds & Asset Management Group\n<|id|>250<|page|>28<|box|>268 147 284 532<|content|>• Owen Fischer, Associate, Funds & Asset Management Group\n<|id|>251<|page|>28<|box|>286 145 300 408<|content|>• Sylvia Hartwell, Of Counsel, Tax Group\n<|id|>253<|page|>28<|box|>324 375 340 620<|content|>— END OF MEMORANDUM —",
+    "raw_response": "<|src_id|>79<|tgt_id|>80\n<|src_id|>88<|tgt_id|>89\n<|src_id|>114<|tgt_id|>115\n<|src_id|>158<|tgt_id|>159\n<|src_id|>221<|tgt_id|>222",
+    "parsed": [
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 221,
+            "tgt_id": 222
+        }
+    ]
+}

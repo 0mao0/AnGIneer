@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        53
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        11,
+        15,
+        16,
+        17,
+        27,
+        29,
+        30,
+        32,
+        41,
+        43,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>5<|box|>102 98 255 850<|content|>TREASURY BULLETIN\n<|id|>11<|page|>7<|box|>153 382 173 591<|content|>Table of Contents\n<|id|>15<|page|>9<|box|>50 309 70 659<|content|>Treasury Financing Operations\n<|id|>16<|page|>9<|box|>104 56 136 414<|content|>March and April Certificate, Note, and Bond Maturi\n<|id|>27<|page|>9<|box|>739 511 756 758<|content|>Treasury Bills Refunded\n<|id|>30<|page|>11<|box|>55 290 70 668<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>52<|page|>15<|box|>47 336 60 651<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>57<|page|>16<|box|>49 350 63 665<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>60<|page|>17<|box|>50 338 64 649<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>87<|page|>27<|box|>51 410 64 570<|content|>DEBT OUTSTANDING\n<|id|>92<|page|>29<|box|>55 415 68 575<|content|>DEBT OUTSTANDING\n<|id|>97<|page|>30<|box|>372 191 388 860<|content|>Table 2.- Application of Limitation to Public Debt\n<|id|>102<|page|>32<|box|>71 170 101 837<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>121<|page|>41<|box|>54 338 68 642<|content|>OWNERSHIP OF FEDERAL SECURITIES\n<|id|>127<|page|>43<|box|>198 159 213 817<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>163<|page|>52<|box|>87 170 99 822<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>165<|page|>52<|box|>410 65 424 944<|content|>Section II - Securities Issued by Federal Agencies",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>11<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>27<|level|>3\n<|id|>30<|level|>2\n<|id|>52<|level|>2\n<|id|>57<|level|>2\n<|id|>60<|level|>2\n<|id|>87<|level|>2\n<|id|>92<|level|>2\n<|id|>97<|level|>3\n<|id|>102<|level|>3\n<|id|>121<|level|>2\n<|id|>127<|level|>3\n<|id|>163<|level|>3\n<|id|>165<|level|>3",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        }
+    ]
+}

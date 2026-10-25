@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 158 151 839<|content|>1301 K Street NW, Suite 1200 Washington, DC 20005 Telephone: ... com\n<|id|>2<|page|>1<|box|>161 717 176 854<|content|>February 25, 2025\n<|id|>3<|page|>1<|box|>186 140 203 583<|content|>VIA Severin Partners LLC OVERNIGHT AND EMAIL\n<|id|>4<|page|>1<|box|>212 140 229 290<|content|>CONFIDENTIAL\n<|id|>5<|page|>1<|box|>237 140 253 602<|content|>Ms. ... Priya Rathore 14 Harbor Ridge Lane Bellevue, WA 98004\n<|id|>6<|page|>1<|box|>263 176 316 854<|content|>Re: ... Misappropriation of Confidential Information and Trade Secrets\n<|id|>7<|page|>1<|box|>325 176 343 367<|content|>Matter No. ... 1038-00006\n<|id|>8<|page|>1<|box|>353 142 369 282<|content|>Dear Ms. ... Rathore\n<|id|>35<|page|>3<|box|>738 176 753 666<|content|>6. ... and\n<|id|>37<|page|>3<|box|>777 140 885 854<|content|>On February 14, 2025—one week after the coordinate...the other departing CRH employees referenced above\n<|id|>78<|page|>8<|box|>816 140 909 857<|content|>In connection with such litigation, CRH will seek ...ses incurred in connection with the enforcement of\n<|id|>79<|page|>9<|box|>89 140 143 854<|content|>CRH's rights. ... CRH will also seek an extension ... by the Employment Agreement and by applicable law\n<|id|>92<|page|>10<|box|>277 142 294 272<|content|>Very truly yours,\n<|id|>93<|page|>10<|box|>294 142 311 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>94<|page|>10<|box|>313 143 329 251<|content|>By: ... By\n<|id|>95<|page|>10<|box|>330 142 345 343<|content|>Bernard Crawford, Partner\n<|id|>96<|page|>10<|box|>345 142 363 746<|content|>1301 K Street NW, Suite 1200 Washington, DC 20005 Telephone: ... (202) 654-8842\n<|id|>97<|page|>10<|box|>364 142 380 475<|content|>Email: ... com\n<|id|>98<|page|>10<|box|>381 142 398 454<|content|>On behalf of Cascade Retail Holdings Inc. ... On behalf of Cascade Retail Holdings Inc\n<|id|>100<|page|>10<|box|>424 174 478 854<|content|>Theresa Yun-Park, General Counsel, Cascade Retail ...es Underwood, Associate, Calderwood & Harkness LLP\n<|id|>101<|page|>10<|box|>487 142 503 277<|content|>Enclosures: ... None",
+    "raw_response": "<|src_id|>78<|tgt_id|>79",
+    "parsed": [
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        }
+    ]
+}

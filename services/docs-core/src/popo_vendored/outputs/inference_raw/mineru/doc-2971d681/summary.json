@@ -1,0 +1,141 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xcug5cef\\input\\pdfs\\doc-2971d681.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xcug5cef\\enriched\\doc-2971d681.json",
+    "contd_output": "<|src_id|>47<|tgt_id|>48\n<|src_id|>127<|tgt_id|>128",
+    "title_output": "<|id|>0<|level|>1\n<|id|>12<|level|>2\n<|id|>20<|level|>2\n<|id|>41<|level|>2\n<|id|>44<|level|>3\n<|id|>49<|level|>2\n<|id|>59<|level|>2\n<|id|>64<|level|>3\n<|id|>72<|level|>3\n<|id|>80<|level|>3\n<|id|>85<|level|>3\n<|id|>91<|level|>2\n<|id|>92<|level|>3\n<|id|>103<|level|>3\n<|id|>110<|level|>2\n<|id|>125<|level|>2\n<|id|>131<|level|>2\n<|id|>182<|level|>2\n<|id|>183<|level|>3\n<|id|>187<|level|>2\n<|id|>192<|level|>2\n<|id|>196<|level|>2\n<|id|>197<|level|>3",
+    "image_output": "<|src_id|>198<|tgt_id|>197\n<|src_id|>199<|tgt_id|>197",
+    "contd_label": [
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 128
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 198,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 197
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 198,
+            "table2_idx": 199,
+            "upper_row_ss": [
+                [
+                    "Extraordinary Services",
+                    "Fees for services beyond the scope of standard escrow administration, including interpleader actions, court appearances, responses to subpoenas, and other extraordinary matters. Charged at Escrow Agent's standard hourly rates.",
+                    "$350–$500 per hour, depending on personnel"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Reimbursable Expenses",
+                    "Reasonable and documented out-of-pocket expenses, including postage, courier charges, wire transfer fees, filing fees, and fees and disbursements of outside legal counsel retained by Escrow Agent in connection with its duties hereunder.",
+                    "At cost"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        9,
+        10,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 424 155 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>164 140 200 854<|content|>FROM: ... Harold Wren (Of Counsel, Communications ...tion) Jeffrey Park (Working Associate, Litigation)\n<|id|>4<|page|>1<|box|>208 142 226 692<|content|>TO: ... Sylvia Hartwell (Responsible Partner) Leonard Cross (Billing Partner)\n<|id|>5<|page|>1<|box|>234 142 251 334<|content|>DATE: ... January 31, 2024\n<|id|>6<|page|>1<|box|>260 140 296 854<|content|>RE: ... / Ridgeline Wireless Holdings LLC — Analysis of Options for Pending FCC Application\n<|id|>7<|page|>1<|box|>304 142 321 362<|content|>MATTER NO. ... 1018-00009\n<|id|>8<|page|>1<|box|>330 140 347 493<|content|>CLIENT: ... Northgate Telecommunications PLC\n<|id|>9<|page|>1<|box|>356 142 372 408<|content|>Right-click to update Table of Contents\n<|id|>17<|page|>2<|box|>128 140 164 854<|content|>2. ... and\n<|id|>19<|page|>2<|box|>204 140 258 854<|content|>Each option is analyzed along regulatory, commerci... with the Client's commercial and legal leadership\n<|id|>63<|page|>7<|box|>236 147 253 604<|content|>• The informal Q4 2023 reactivation deadline has passed; ... and\n<|id|>65<|page|>7<|box|>273 140 311 854<|content|>Dismissal for failure to prosecute would be withou...t procedural and practical consequences, including\n<|id|>68<|page|>7<|box|>395 147 431 854<|content|>• The need to refile the Section 310(b)(4) petitio...lder and corporate governance information; ... and\n<|id|>70<|page|>7<|box|>489 140 599 856<|content|>By contrast, maintaining the existing application ...tion is dismissed and must be rebuilt from scratch\n<|id|>99<|page|>9<|box|>842 140 897 854<|content|>If the parties reach agreement on the commercial t...tive processing by filing a supplement to FCC File\n<|id|>100<|page|>10<|box|>90 138 162 854<|content|>No. ... , updated shareholder data for the Section 310(b)(4) petition)\n<|id|>108<|page|>10<|box|>666 147 700 854<|content|>• Amendments to the license portfolio (e. ... and\n<|id|>110<|page|>10<|box|>724 140 834 856<|content|>The pending Committee for the Assessment of Foreig...ility of extension for up to an additional 90 days\n<|id|>198<|page|>20<|box|>329 181 382 854<|content|>• Litigation Risk Assessment — evaluating the pote...ormance) and the likely forum and outcome; ... and\n<|id|>200<|page|>20<|box|>424 140 534 856<|content|>Updated Shareholder Information. ... NTP's UK soli...d composition or corporate governance arrangements\n<|id|>203<|page|>20<|box|>794 140 886 856<|content|>Billing Note. ... Components of the analysis that ...ified as dispute-related work and fall outside the\n<|id|>204<|page|>21<|box|>90 140 127 854<|content|>Phase 1 fee cap. ... Dispute-related work is bille...asis across the working team (Wren, Laroche, Park)",
+    "raw_response": "<|src_id|>99<|tgt_id|>100\n<|src_id|>203<|tgt_id|>204",
+    "parsed": [
+        {
+            "src_id": 99,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 204
+        }
+    ]
+}

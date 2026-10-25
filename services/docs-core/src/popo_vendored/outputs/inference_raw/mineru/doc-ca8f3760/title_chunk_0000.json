@@ -1,0 +1,46 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 143 852<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 227 Wes\n<|id|>5<|page|>1<|box|>292 140 309 259<|content|>Dear Mr. Hess:\n<|id|>8<|page|>1<|box|>627 140 643 457<|content|>I. Plaintiff's Complete discovery Default\n<|id|>11<|page|>2<|box|>171 140 188 575<|content|>II. Communication Breakdown with Plaintiff's Couns\n<|id|>14<|page|>2<|box|>487 140 503 607<|content|>III. Prejudice to Nexford and the Court's Scheduli\n<|id|>19<|page|>3<|box|>133 140 152 455<|content|>IV. Demand for Immediate Compliance\n<|id|>21<|page|>3<|box|>351 140 368 679<|content|>V. Notice of Intent to Seek Judicial Intervention,\n<|id|>24<|page|>3<|box|>794 140 811 351<|content|>VI. Preservation of Rights\n<|id|>26<|page|>4<|box|>152 142 170 437<|content|>VII. Request for Immediate Response",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>5<|level|>-1\n<|id|>8<|level|>1\n<|id|>11<|level|>1\n<|id|>14<|level|>1\n<|id|>19<|level|>1\n<|id|>21<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        }
+    ]
+}

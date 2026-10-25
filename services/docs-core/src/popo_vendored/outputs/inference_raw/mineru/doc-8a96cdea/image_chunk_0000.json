@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 328 159 666<|content|>SECRETARY'S CERTIFICATE OF BRIGHTFIELD CLOUD SERVI\n<|id|>1<|type|>title<|page|>1<|box|>167 434 185 562<|content|>August 12, 2022\n<|id|>2<|type|>title<|page|>1<|box|>194 142 210 248<|content|>Delivered to:\n<|id|>7<|type|>title<|page|>1<|box|>484 140 502 848<|content|>I. INTRODUCTORY RECITALS AND IDENTIFICATION OF CER\n<|id|>11<|type|>title<|page|>1<|box|>804 140 821 330<|content|>II. CERTIFICATIONS\n<|id|>13<|type|>title<|page|>2<|box|>90 140 107 485<|content|>Certification 1: Certificate of Incorporation\n<|id|>16<|type|>title<|page|>2<|box|>445 140 462 326<|content|>Certification 2: Bylaws\n<|id|>18<|type|>title<|page|>2<|box|>590 140 608 413<|content|>Certification 3: Board Resolutions\n<|id|>36<|type|>title<|page|>4<|box|>138 142 157 367<|content|>Certification 4: Incumbency\n<|id|>38<|type|>table<|page|>4<|box|>260 143 607 851<|content|>None\n<|id|>40<|type|>title<|page|>4<|box|>763 140 780 658<|content|>Certification 5: No Conflict; Good Standing; Neces\n<|id|>46<|type|>title<|page|>5<|box|>382 140 398 630<|content|>Certification 6: No Amendments to Organizational D\n<|id|>48<|type|>title<|page|>5<|box|>592 140 609 274<|content|>III. RELIANCE\n<|id|>50<|type|>title<|page|>5<|box|>824 142 840 287<|content|>IV. EXECUTION\n<|id|>57<|type|>title<|page|>6<|box|>196 140 214 750<|content|>V. COUNTER-CERTIFICATION — CONFIRMATION OF SECRETA\n<|id|>58<|type|>title<|page|>6<|box|>215 143 233 259<|content|>AUTHORITY\n<|id|>65<|type|>title<|page|>6<|box|>464 449 479 547<|content|>EXHIBIT A\n<|id|>66<|type|>title<|page|>6<|box|>489 336 506 658<|content|>CERTIFICATE OF INCORPORATION\n<|id|>67<|type|>title<|page|>6<|box|>515 483 531 514<|content|>OF\n<|id|>68<|type|>title<|page|>6<|box|>541 330 558 666<|content|>BRIGHTFIELD CLOUD SERVICES INC.\n<|id|>75<|type|>title<|page|>7<|box|>114 447 132 549<|content|>EXHIBIT B\n<|id|>78<|type|>title<|page|>7<|box|>193 328 209 666<|content|>BRIGHTFIELD CLOUD SERVICES INC.\n<|id|>81<|type|>title<|page|>7<|box|>344 447 359 550<|content|>EXHIBIT C\n<|id|>82<|type|>title<|page|>7<|box|>369 290 386 707<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS\n<|id|>83<|type|>title<|page|>7<|box|>396 483 412 514<|content|>OF\n<|id|>84<|type|>title<|page|>7<|box|>422 328 439 666<|content|>BRIGHTFIELD CLOUD SERVICES INC.\n<|id|>94<|type|>table<|page|>8<|box|>628 143 827 852<|content|>None\n<|id|>105<|type|>title<|page|>9<|box|>724 449 741 550<|content|>EXHIBIT D\n<|id|>106<|type|>title<|page|>9<|box|>751 367 767 630<|content|>INCUMBENCY CERTIFICATE\n<|id|>107<|type|>title<|page|>9<|box|>777 328 794 666<|content|>BRIGHTFIELD CLOUD SERVICES INC.\n<|id|>110<|type|>table<|page|>10<|box|>195 143 271 852<|content|>None",
+    "raw_response": "<|src_id|>38<|tgt_id|>36\n<|src_id|>94<|tgt_id|>82\n<|src_id|>110<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 106
+        }
+    ]
+}

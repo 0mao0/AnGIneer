@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>143 364 160 633<|content|>NEW MATTER INTAKE FORM\n<|id|>6<|page|>1<|box|>303 142 320 491<|content|>SECTION 1: MATTER IDENTIFICATION\n<|id|>16<|page|>1<|box|>723 140 739 460<|content|>SECTION 2: CLIENT INFORMATION\n<|id|>31<|page|>2<|box|>670 140 686 653<|content|>SECTION 3: ADVERSE / OPPOSING PARTY INFORMATION\n<|id|>47<|page|>3<|box|>744 140 762 419<|content|>SECTION 5: MINOR CHILDREN\n<|id|>66<|page|>5<|box|>291 142 308 370<|content|>Retainer Deposit: $50,000.00\n<|id|>71<|page|>5<|box|>782 140 799 514<|content|>SECTION 7: SCOPE OF REPRESENTATION\n<|id|>84<|page|>7<|box|>148 140 166 429<|content|>SECTION 8: CONFLICTS CHECK\n<|id|>99<|page|>7<|box|>699 140 715 709<|content|>SECTION 9: MATTER DESCRIPTION / BACKGROUND SUMMARY\n<|id|>108<|page|>9<|box|>89 142 107 777<|content|>SECTION 10: ANTICIPATED THIRD-PARTY PROFESSIONALS\n<|id|>110<|page|>10<|box|>138 140 155 547<|content|>SECTION 11: KEY DATES / INITIAL TIMELINE\n<|id|>113<|page|>11<|box|>89 140 107 584<|content|>SECTION 12: SPECIAL CONSIDERATIONS / NOTES\n<|id|>119<|page|>12<|box|>222 140 239 374<|content|>SECTION 13: APPROVALS\n<|id|>121<|page|>12<|box|>329 140 347 385<|content|>Responsible Partner Approval",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>6<|level|>2\n<|id|>16<|level|>2\n<|id|>31<|level|>2\n<|id|>47<|level|>2\n<|id|>66<|level|>3\n<|id|>71<|level|>2\n<|id|>84<|level|>2\n<|id|>99<|level|>2\n<|id|>108<|level|>2\n<|id|>110<|level|>2\n<|id|>113<|level|>2\n<|id|>119<|level|>2\n<|id|>121<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 3
+        }
+    ]
+}

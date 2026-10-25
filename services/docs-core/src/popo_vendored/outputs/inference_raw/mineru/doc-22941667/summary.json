@@ -1,0 +1,426 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-58m2fpe1\\input\\pdfs\\doc-22941667.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-58m2fpe1\\enriched\\doc-22941667.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>5<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>37<|level|>2\n<|id|>38<|level|>3\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>56<|level|>1",
+    "image_output": "<|src_id|>4<|tgt_id|>3\n<|src_id|>19<|tgt_id|>17\n<|src_id|>20<|tgt_id|>17\n<|src_id|>21<|tgt_id|>17\n<|src_id|>22<|tgt_id|>17\n<|src_id|>26<|tgt_id|>24\n<|src_id|>27<|tgt_id|>24\n<|src_id|>28<|tgt_id|>24\n<|src_id|>29<|tgt_id|>24\n<|src_id|>33<|tgt_id|>31\n<|src_id|>34<|tgt_id|>31\n<|src_id|>35<|tgt_id|>31\n<|src_id|>36<|tgt_id|>31\n<|src_id|>40<|tgt_id|>38\n<|src_id|>41<|tgt_id|>38\n<|src_id|>42<|tgt_id|>38\n<|src_id|>43<|tgt_id|>38\n<|src_id|>47<|tgt_id|>45\n<|src_id|>48<|tgt_id|>45\n<|src_id|>49<|tgt_id|>45\n<|src_id|>53<|tgt_id|>51\n<|src_id|>54<|tgt_id|>51\n<|src_id|>55<|tgt_id|>51",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 51
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 19,
+            "table2_idx": 20,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "Eurycleia Partners, LP v. Padilla & Severin LLP, 12 N.Y.3d 553, 559 (2009)",
+                    "The Court of Appeals reaffirmed the principle that a fraud complaint satisfies CPLR § 3016(b) where it identifies specific fraudulent misrepresentations, states the dates"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "on which the misrepresentations were made with reasonable precision, and identifies the persons responsible for making them. The Court held that the complaint at issue—which alleged that defendant attorneys made specific material misrepresentations regarding a fund's compliance status on identified occasions—adequately pleaded fraud with the requisite particularity. The Court further noted that absolute precision as to dates is not required where the complaint identifies a reasonably defined time period and the nature of the misconduct with clarity."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 20,
+            "table2_idx": 21,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Mandarin Trading Ltd. v. Wildenstein, 16 N.Y.3d 173, 178–80 (2011)",
+                    "The Court of Appeals addressed the requisite particularity for fraud claims involving valuation misrepresentations. The Court held that where the plaintiff identified forty-seven specific transactions, specified the time frame during which the misvaluations occurred, named the responsible personnel, and described the methodology by"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "which the valuations were inflated, the complaint satisfied CPLR § 3016(b). The Court emphasized that the statute requires that the complaint provide \"sufficient detail to clearly inform [the] defendant with respect to the incidents complained of\" and that, viewed in its totality, the complaint's allegations accomplished this purpose. The Court rejected defendant's argument that each of the forty-seven transactions had to be separately and independently particularized, noting that the fraud alleged was a systematic scheme rather than a series of isolated misrepresentations."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 21,
+            "table2_idx": 22,
+            "upper_row_ss": [
+                [
+                    "6",
+                    "Meridian Capital Advisors, LLC v. Regan Fund Admin. Servs., LLC, Index No. 651487/2019, 2020 N.Y. Misc. LEXIS 4512 (Sup. Ct. N.Y. Cnty. Aug. 14, 2020) (Commercial Division)",
+                    "The Commercial Division, in a case with substantial factual parallels to the instant matter, held that allegations of systematic use of stale pricing data in NAV calculations and concealment of internal communications regarding known valuation deficiencies over a defined period of approximately fourteen months, attributed to identified individuals within the defendant"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "fund administrator's valuation team, met the CPLR § 3016(b) standard. The Court rejected defendant's argument that plaintiff was required to identify the precise date and content of each individual misstatement, holding that where the fraud is alleged to have been systematic and ongoing, the identification of the scheme, the time frame, the responsible individuals, and the method of concealment is sufficient. The Court further noted that the defendant's own internal documents, to which plaintiff did not yet have access through discovery, were likely to contain the most granular details of the fraud."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 26,
+            "table2_idx": 27,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "First Bank of the Americas v. Motor Car Funding, Inc., 257 A.D.2d 287, 291–92 (1st Dep't 1999)",
+                    "The First Department articulated the governing standard for distinguishing fraud claims from breach of contract claims. The Court held that a fraud cause of action is not duplicative of a breach of contract claim where the plaintiff alleges a misrepresentation of present fact that is \"collateral to\" the contract—that is, a representation that constitutes a duty \"separate from or in addition to\" the contractual promise. The Court explained that the critical inquiry is whether the fraud claim is based"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "upon a misrepresentation of present fact (actionable in tort) or merely upon a promise of future performance that was not fulfilled (sounding only in contract). The Court further held that where the defendant made affirmative representations of existing fact regarding the quality, accuracy, or status of services already performed, which representations were false when made and intended to deceive, the fraud claim survived independently of the contract claim."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 27,
+            "table2_idx": 28,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "Swersky v. Dreyer & Traub, 219 A.D.2d 321, 326–28 (1st Dep't 1996)",
+                    "The First Department held that fraudulent concealment constitutes a separate tort distinct from breach of contract where three conditions are met: (i) the defendant had a duty to disclose material information, whether arising from a fiduciary relationship, a partial disclosure that created an obligation to speak fully, or a special relationship of trust and confidence; (ii) the defendant intentionally withheld the material information; and (iii) the concealment was of existing facts, not merely a failure to perform a future contractual obligation. The"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Court observed that even where the subject matter of the concealment overlaps with a contractual obligation, the independent tort of fraudulent concealment is established by the deliberate withholding of material information that the defendant had a duty to disclose, coupled with the requisite scienter."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 28,
+            "table2_idx": 29,
+            "upper_row_ss": [
+                [
+                    "11",
+                    "Retail Holdings N.V. v. Harvest Capital Strategies LP, Index No. 652640/2017, 2018 N.Y. Misc. LEXIS 3874 (Sup. Ct. N.Y. Cnty. Sept. 5, 2018) (Commercial Division)",
+                    "The Commercial Division held that allegations of intentional inflation of asset valuations coupled with active concealment of the true methodology used by the defendant fund administrator constituted independent tortious conduct supporting fraud and fraudulent concealment claims separate from the breach of the underlying administration agreement. The Court specifically rejected the defendant's argument that because the administration agreement required accurate valuations, any claim based"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "on inaccurate valuations was necessarily a contract claim. The Court reasoned that the affirmative acts of misrepresentation—including the creation of false valuation memoranda and the intentional suppression of internal reports showing known valuation discrepancies—were \"independent of and collateral to\" the contractual promise to provide accurate valuations, and therefore supported independent fraud claims."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 35,
+            "table2_idx": 36,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "Metropolitan Life Ins. Co. v. Noble Lowndes Int'l, Inc., 192 A.D.2d 83, 89–90 (1st Dep't 1993)",
+                    "The First Department addressed the interplay between an indemnification clause that expressly carved out fraud and willful misconduct from its protections and a separate general liability cap that did not contain a comparable carve-out. The Court held that the two provisions must be read consistently and harmonized, and that because the indemnification clause (analogous to FAA § 9.1 in the instant matter) expressly excluded fraud and willful misconduct from the defendant's indemnification protections, the general liability cap (analogous to FAA § 9.3 here) must be read to exclude fraud and willful misconduct claims from the cap as well. The Court reasoned that interpreting the liability cap to cover fraud claims—when the indemnification provision expressly excluded them—would render the indemnification carve-out surplusage and would produce an absurd and internally inconsistent result, contrary to fundamental"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "principles of contract interpretation."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 40,
+            "table2_idx": 41,
+            "upper_row_ss": [
+                [
+                    "18",
+                    "EBC I, Inc. v. Pinnacle National Bank, 5 N.Y.3d 11, 19–20 (2005)",
+                    "The Court of Appeals held that a fiduciary relationship can arise outside of traditional categories (such as attorney-client, trustee-beneficiary, and guardian-ward) where one party reposes trust and confidence in another who exercises"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "discretion and control over a matter of significant importance to the trusting party, and where the other party accepts and acts upon that trust. The Court emphasized that the existence of a fiduciary relationship is fundamentally a factual inquiry, dependent upon the specific circumstances of the parties' dealings, and that no single factor is dispositive. The Court identified relevant factors including: the degree of discretion exercised by the alleged fiduciary, the extent of the other party's reliance, the vulnerability of the trusting party, and the alleged fiduciary's acceptance of the trust reposed in it."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 41,
+            "table2_idx": 42,
+            "upper_row_ss": [
+                [
+                    "20",
+                    "Crystalline Inv. Fund, LLC v. Crestline Corporation, Index No. 651208/2016, 2017 N.Y. Misc. LEXIS 2590 (Sup. Ct. N.Y. Cnty. June 29, 2017) (Commercial Division)",
+                    "The Commercial Division held that a fund administrator's contractual obligation to independently value Level 3 assets using professional judgment and industry-standard methodologies, combined with the client fund's reliance on those valuations for NAV reporting, investor communications, and"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "regulatory compliance filings, created a fiduciary relationship at least with respect to the valuation function. The Court distinguished between the administrator's ministerial tasks—such as trade processing and cash reconciliation—and its discretionary valuation responsibilities, holding that fiduciary obligations attached only to the latter. The Court emphasized that the fund had no practical ability to independently verify the administrator's Level 3 valuations and was therefore wholly dependent on the administrator's expertise and good faith, which dependence is a hallmark of a fiduciary relationship."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 42,
+            "table2_idx": 43,
+            "upper_row_ss": [
+                [
+                    "22",
+                    "Northeast Gen. Corp. v. Wellington Advert., Inc., 82 N.Y.2d 158, 162–63 (1993)",
+                    "The Court of Appeals held that the question of whether a fiduciary relationship exists is generally a factual one not amenable to resolution on a pre-answer motion to dismiss. The Court held that where a plaintiff alleges facts supporting the existence of trust, reliance, and the exercise of discretion by the defendant—as Ironside does here with respect to Vantor's valuation"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "responsibilities under FAA § 4.2—the claim should survive a CPLR § 3211 motion. The Court cautioned against \"premature dismissal of claims alleging fiduciary duty where the factual predicate for the relationship has been alleged with sufficient specificity to state a claim,\" and noted that the full contours of the parties' relationship are typically revealed only through discovery."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 47,
+            "table2_idx": 48,
+            "upper_row_ss": [
+                [
+                    "23",
+                    "Ossining Union Free Sch. Dist. v. Anderson LaRocca Anderson, 73 N.Y.2d 417, 424 (1989)",
+                    "The Court of Appeals articulated the general rule that the economic loss doctrine bars recovery in tort for purely economic losses arising from a contractual relationship, but recognized significant exceptions. Most relevant here, the Court held that the doctrine does not apply where the defendant owes a duty independent of the contract, including in cases involving fraud and intentional misrepresentation. The Court reasoned that where the defendant's tortious conduct is distinct from and independent of its contractual obligations, the policies underlying the economic loss doctrine—which are principally concerned with maintaining the boundary between tort and contract and preventing parties from circumventing contractual risk allocations—are not implicated. The Court observed that fraud, by its nature, involves a breach of a"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "societal duty that exists independently of any contractual relationship."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 48,
+            "table2_idx": 49,
+            "upper_row_ss": [
+                [
+                    "25",
+                    "Parrott v. Whitfield Castellan CPAs LLP, 95 N.Y.2d 479, 483–84 (2000)",
+                    "The Court of Appeals held that the economic loss doctrine did not bar a negligent misrepresentation claim against a professional service provider where the parties were in a \"special relationship.\" The Court identified the requisite elements of such a relationship as follows: (i) the defendant must possess special or unique expertise; (ii) the information must be provided for a known and particular purpose; (iii) the plaintiff must have justifiably relied on the defendant's professional judgment in a context of particular vulnerability; and (iv) there must be some conduct by the defendant linking it to the plaintiff that evinces the defendant's understanding of the plaintiff's reliance. The Court held that where these elements are present, the professional service provider owes a duty of care that exists"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "independently of any contractual obligation, and the economic loss doctrine does not preclude tort recovery for breach of that independent duty."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 53,
+            "table2_idx": 54,
+            "upper_row_ss": [
+                [
+                    "27",
+                    "IIG Capital LLC v. Archipelago,",
+                    "The First Department, following"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "L.L.C., 36 A.D.3d 401, 404–05 (1st Dep't 2007)",
+                    "Court of Appeals precedent, held that unjust enrichment may be pleaded as an alternative to breach of contract where there is a bona fide dispute as to the enforceability or scope of the contract. The Court specifically held that dismissal of an unjust enrichment claim as duplicative of a contract claim at the pleading stage is premature where the parties dispute the applicability of the contract to the claims at issue. The Court reasoned that because the existence, validity, or scope of the governing contract may be called into question—through defenses such as fraud in the inducement, unconscionability, or the unenforceability of specific provisions on public policy grounds—a plaintiff is entitled to plead in the alternative to protect against the possibility that the contractual remedy may ultimately prove unavailable or inadequate. The Court noted that the proper time to address the preclusive effect of an express contract on an unjust enrichment claim is after discovery and on a motion for summary judgment, not on a CPLR § 3211 motion to dismiss."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 54,
+            "table2_idx": 55,
+            "upper_row_ss": [
+                [
+                    "28",
+                    "Scarola Zubatov & Schaffzin PLLC v. Suarez-Stricker, 188 A.D.3d 459, 460–61 (1st Dep't 2020)",
+                    "The First Department held that where the validity, enforceability, or scope of the contract is in dispute—including where the defendant argues that a contractual liability cap limits recovery while the plaintiff contends the cap is unenforceable as to fraud and willful misconduct claims—the plaintiff may plead unjust enrichment in the alternative, and such claim should not be dismissed on a CPLR § 3211 motion. The Court emphasized that alternative pleading is expressly authorized by CPLR § 3014 and that the existence of a factual dispute regarding the scope of the contractual remedy is precisely the circumstance in which alternative theories of recovery should be preserved. The Court observed that the rule prohibiting unjust"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "enrichment claims where an express contract governs the dispute is applied only where there is no genuine dispute as to the contract's existence, validity, and scope—a determination that typically cannot be made at the motion to dismiss stage on the pleadings alone."
+                ]
+            ]
+        }
+    ]
+}

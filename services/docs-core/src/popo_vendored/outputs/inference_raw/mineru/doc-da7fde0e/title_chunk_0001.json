@@ -1,0 +1,54 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        95
+    ],
+    "pages": [
+        51,
+        55,
+        75,
+        81,
+        85,
+        87,
+        91,
+        95
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>87<|page|>51<|box|>66 46 93 460<|content|>Governmental Corporations and Credit Agencies of t\n<|id|>97<|page|>55<|box|>511 200 539 783<|content|>Statement of Uses of Funds of Certain Governmental\n<|id|>114<|page|>75<|box|>692 198 722 801<|content|>Net Position in Foreign Currencies of Reporting Ba\n<|id|>122<|page|>81<|box|>106 244 134 768<|content|>MONETARY STOCKS OF GOLD AND SILVER IN U.S.\n<|id|>130<|page|>85<|box|>649 296 664 696<|content|>Seigniorage on Silver Since January 1, 1934\n<|id|>134<|page|>87<|box|>442 102 470 391<|content|>Indexes of Prices of 40 Foreign Currencies in New\n<|id|>142<|page|>91<|box|>473 361 492 615<|content|>MISCELLANEOUS\n<|id|>149<|page|>95<|box|>62 563 76 879<|content|>Treasury Criminal Cases, by Months",
+    "raw_response": "<|id|>87<|level|>1\n<|id|>97<|level|>2\n<|id|>114<|level|>2\n<|id|>122<|level|>1\n<|id|>130<|level|>2\n<|id|>134<|level|>2\n<|id|>142<|level|>1\n<|id|>149<|level|>2",
+    "parsed": [
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,115 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        106,
+        120
+    ],
+    "pages": [
+        106,
+        107,
+        108,
+        109,
+        110,
+        113,
+        114,
+        117,
+        120
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1279<|page|>106<|box|>24 63 40 250<|content|>Cash Flow Information\n<|id|>1281<|page|>106<|box|>379 65 395 412<|content|>Note 16. Commitments and Contingencies\n<|id|>1288<|page|>107<|box|>112 65 130 867<|content|>Item 9. Changes in and Disagreements with Accounta\n<|id|>1290<|page|>107<|box|>171 67 188 360<|content|>Item 9A. Controls and Procedures\n<|id|>1291<|page|>107<|box|>197 65 213 476<|content|>Evaluation of Disclosure Controls and Procedures\n<|id|>1293<|page|>107<|box|>339 65 356 498<|content|>Changes in Internal Control over Financial Reporti\n<|id|>1297<|page|>107<|box|>552 65 569 668<|content|>Management's Annual Report on Internal Control ove\n<|id|>1300<|page|>107<|box|>751 65 768 299<|content|>Item 9B. Other Information\n<|id|>1302<|page|>107<|box|>810 67 826 708<|content|>Item 9C. Disclosure Regarding Foreign Jurisdiction\n<|id|>1304<|page|>108<|box|>82 67 99 607<|content|>Item 10. Directors, Executive Officers and Corpora\n<|id|>1310<|page|>108<|box|>565 65 583 356<|content|>Item 11. Executive Compensation\n<|id|>1312<|page|>108<|box|>680 65 714 893<|content|>Item 12. Security Ownership of Certain Beneficial\n<|id|>1320<|page|>109<|box|>324 65 341 765<|content|>Item 13. Certain Relationships and Related Transac\n<|id|>1322<|page|>109<|box|>439 67 456 474<|content|>Item 14. Principal Accounting Fees and Services\n<|id|>1325<|page|>110<|box|>67 67 85 508<|content|>Item 15. Exhibits and Financial Statement Schedule\n<|id|>1326<|page|>110<|box|>93 63 109 343<|content|>(a) Documents filed as part of this report:\n<|id|>1328<|page|>110<|box|>437 119 454 210<|content|>(3) Exhibits\n<|id|>1358<|page|>113<|box|>29 69 45 457<|content|>Schedule II - Valuation and Qualifying Accounts\n<|id|>1359<|page|>113<|box|>55 326 69 670<|content|>Verizon Communications Inc. and Subsidiaries\n<|id|>1360<|page|>113<|box|>80 63 96 454<|content|>For the Years Ended December 31, 2022, 2021 and 20\n<|id|>1364<|page|>114<|box|>29 67 46 319<|content|>Item 16. Form 10-K Summary\n<|id|>1366<|page|>114<|box|>87 65 104 161<|content|>Signatures\n<|id|>1373<|page|>114<|box|>301 65 317 218<|content|>/s/ Hans E. Vestberg\n<|id|>1394<|page|>117<|box|>52 63 68 282<|content|>I, Hans E. Vestberg, certify that:\n<|id|>1426<|page|>120<|box|>51 62 82 932<|content|>CERTIFICATION OF CHIEF FINANCIAL OFFICER PURSUANT",
+    "raw_response": "<|id|>1279<|level|>1\n<|id|>1281<|level|>1\n<|id|>1288<|level|>1\n<|id|>1290<|level|>2\n<|id|>1291<|level|>3\n<|id|>1293<|level|>3\n<|id|>1297<|level|>3\n<|id|>1300<|level|>2\n<|id|>1302<|level|>2\n<|id|>1304<|level|>1\n<|id|>1310<|level|>1\n<|id|>1312<|level|>1\n<|id|>1320<|level|>1\n<|id|>1322<|level|>1\n<|id|>1325<|level|>1\n<|id|>1326<|level|>2\n<|id|>1328<|level|>3\n<|id|>1358<|level|>1\n<|id|>1359<|level|>2\n<|id|>1360<|level|>2\n<|id|>1364<|level|>1\n<|id|>1366<|level|>1\n<|id|>1373<|level|>-1\n<|id|>1394<|level|>-1\n<|id|>1426<|level|>1",
+    "parsed": [
+        {
+            "id": 1279,
+            "level": 1
+        },
+        {
+            "id": 1281,
+            "level": 1
+        },
+        {
+            "id": 1288,
+            "level": 1
+        },
+        {
+            "id": 1290,
+            "level": 2
+        },
+        {
+            "id": 1291,
+            "level": 3
+        },
+        {
+            "id": 1293,
+            "level": 3
+        },
+        {
+            "id": 1297,
+            "level": 3
+        },
+        {
+            "id": 1300,
+            "level": 2
+        },
+        {
+            "id": 1302,
+            "level": 2
+        },
+        {
+            "id": 1304,
+            "level": 1
+        },
+        {
+            "id": 1310,
+            "level": 1
+        },
+        {
+            "id": 1312,
+            "level": 1
+        },
+        {
+            "id": 1320,
+            "level": 1
+        },
+        {
+            "id": 1322,
+            "level": 1
+        },
+        {
+            "id": 1325,
+            "level": 1
+        },
+        {
+            "id": 1326,
+            "level": 2
+        },
+        {
+            "id": 1328,
+            "level": 3
+        },
+        {
+            "id": 1358,
+            "level": 1
+        },
+        {
+            "id": 1359,
+            "level": 2
+        },
+        {
+            "id": 1360,
+            "level": 2
+        },
+        {
+            "id": 1364,
+            "level": 1
+        },
+        {
+            "id": 1366,
+            "level": 1
+        },
+        {
+            "id": 1426,
+            "level": 1
+        }
+    ]
+}

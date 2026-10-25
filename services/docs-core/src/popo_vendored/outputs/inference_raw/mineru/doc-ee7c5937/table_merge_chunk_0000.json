@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Collateral Description', 'All personal property of the Debtor, whether now owned or hereafter acquired, including, without limitation, all accounts, chattel paper, commercial tort claims, deposit accounts, documents, equipment, fixtures, general intangibles (including payment intangibles and software), goods, instruments, inventory, investment']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'property, letter-of-credit rights, money, and proceeds and products of any and all of the foregoing, in each case as such terms are defined in the Virginia Uniform Commercial Code (Title 8.9A of the Code of Virginia), subject to the exclusions set forth in the Security Agreement (including Excluded Assets as defined therein).']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 127,
+    "table2_idx": 128
+}

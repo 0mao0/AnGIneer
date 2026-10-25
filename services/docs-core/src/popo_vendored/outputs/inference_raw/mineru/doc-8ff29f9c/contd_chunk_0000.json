@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 166 152 830<|content|>One Market Plaza, Suite 3600 San Francisco, California 94105 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 753 178 854<|content|>April 1, 2022\n<|id|>4<|page|>1<|box|>212 140 248 854<|content|>Priya Chattopadhyay, Esq. ... General Counsel Estu...ero Way, Suite 300 San Francisco, California 94107\n<|id|>5<|page|>1<|box|>256 140 329 854<|content|>Re: ... CGC-22-599481 (Superior Court of California, County of San Francisco)\n<|id|>11<|page|>1<|box|>756 140 885 857<|content|>As you have informed us, WGFT, through its counsel...nder California law, including the Uniform Prudent\n<|id|>12<|page|>2<|box|>89 140 126 854<|content|>Management of Institutional Funds Act (Cal. ... Co...§ 18501–18510) and applicable equitable principles\n<|id|>23<|page|>2<|box|>864 174 902 857<|content|>(i) Whitfield-Garner Family Trust Funds — $1,700,0... in funds that were disbursed to EF under the Gift\n<|id|>24<|page|>3<|box|>90 174 162 854<|content|>Instrument but remain unexpended following the win...to EF at the time the BATRI program was wound down\n<|id|>49<|page|>4<|box|>843 183 859 844<|content|>• Electronic legal research charges (e. ... and\n<|id|>51<|page|>5<|box|>90 138 200 856<|content|>Expenses will be billed at cost or, where applicab...sitive filings or discovery deadlines are involved\n<|id|>102<|page|>10<|box|>159 142 175 571<|content|>Douglas Carmichael Partner Calderwood & Harkness LLP\n<|id|>103<|page|>10<|box|>176 143 194 253<|content|>By: ... By\n<|id|>107<|page|>10<|box|>334 142 349 356<|content|>ESTUARY FOUNDATION\n<|id|>108<|page|>10<|box|>353 143 369 251<|content|>By: ... By\n<|id|>110<|page|>10<|box|>387 143 402 313<|content|>Title: ... General Counsel\n<|id|>111<|page|>10<|box|>404 143 420 264<|content|>Date: ... Date\n<|id|>113<|page|>10<|box|>439 143 454 344<|content|>Name: ... Margot Ellison-Yee\n<|id|>114<|page|>10<|box|>455 143 470 330<|content|>Title: ... Executive Director\n<|id|>115<|page|>10<|box|>473 143 489 264<|content|>Date: ... Date\n<|id|>116<|page|>10<|box|>489 143 503 259<|content|>Enclosures: ... None\n<|id|>117<|page|>10<|box|>512 140 541 854<|content|>cc: ... Kenneth Oguike, Board Chair, Estuary Foundation",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>23<|tgt_id|>24\n<|src_id|>49<|tgt_id|>51",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 51
+        }
+    ]
+}

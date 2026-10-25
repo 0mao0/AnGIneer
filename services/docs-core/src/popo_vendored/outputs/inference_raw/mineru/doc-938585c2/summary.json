@@ -1,0 +1,209 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-stxzj1mv\\input\\pdfs\\doc-938585c2.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-stxzj1mv\\enriched\\doc-938585c2.json",
+    "contd_output": "<|src_id|>110<|tgt_id|>111\n<|src_id|>178<|tgt_id|>179",
+    "title_output": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>31<|level|>3\n<|id|>41<|level|>3\n<|id|>51<|level|>3\n<|id|>61<|level|>3\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>79<|level|>3\n<|id|>90<|level|>3\n<|id|>99<|level|>2\n<|id|>100<|level|>3\n<|id|>108<|level|>3\n<|id|>118<|level|>3\n<|id|>127<|level|>3\n<|id|>133<|level|>2\n<|id|>134<|level|>3\n<|id|>138<|level|>3\n<|id|>150<|level|>3\n<|id|>169<|level|>3\n<|id|>174<|level|>3\n<|id|>182<|level|>2\n<|id|>183<|level|>3\n<|id|>189<|level|>3\n<|id|>203<|level|>3\n<|id|>210<|level|>2\n<|id|>218<|level|>2\n<|id|>220<|level|>3\n<|id|>227<|level|>3\n<|id|>232<|level|>3\n<|id|>237<|level|>3\n<|id|>244<|level|>2\n<|id|>250<|level|>2\n<|id|>267<|level|>2\n<|id|>269<|level|>3\n<|id|>301<|level|>3\n<|id|>305<|level|>2\n<|id|>306<|level|>3",
+    "image_output": "<|src_id|>265<|tgt_id|>244\n<|src_id|>266<|tgt_id|>244",
+    "contd_label": [
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 179
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 3
+        },
+        {
+            "id": 227,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 237,
+            "level": 3
+        },
+        {
+            "id": 244,
+            "level": 2
+        },
+        {
+            "id": 250,
+            "level": 2
+        },
+        {
+            "id": 267,
+            "level": 2
+        },
+        {
+            "id": 269,
+            "level": 3
+        },
+        {
+            "id": 301,
+            "level": 3
+        },
+        {
+            "id": 305,
+            "level": 2
+        },
+        {
+            "id": 306,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 265,
+            "tgt_id": 244
+        },
+        {
+            "src_id": 266,
+            "tgt_id": 244
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 265,
+            "table2_idx": 266,
+            "upper_row_ss": [
+                [
+                    "Priority Scheme",
+                    "Super-priority for employee claims (wages, severance, social security) and certain tax claims; different ordering from U.S. priority waterfall.",
+                    "Priority waterfall under § 507: domestic support obligations, administrative expenses, gap claims, employee wages (capped), employee benefit plans, grain/fisherman"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "claims, consumer deposits, tax claims, etc."
+                ]
+            ]
+        }
+    ]
+}

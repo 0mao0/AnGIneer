@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>157 372 172 622<|content|>INTERNAL MEMORANDUM\n<|id|>2<|type|>title<|page|>1<|box|>183 346 199 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>9<|type|>title<|page|>1<|box|>398 140 415 321<|content|>I. Executive Summary\n<|id|>20<|type|>title<|page|>2<|box|>539 140 556 455<|content|>II. Background and Procedural Posture\n<|id|>40<|type|>title<|page|>4<|box|>207 140 224 522<|content|>III. Summary of Areas of Agreement (Tentative)\n<|id|>42<|type|>title<|page|>4<|box|>354 142 373 326<|content|>A. Joint Legal Custody\n<|id|>47<|type|>title<|page|>4<|box|>816 140 834 728<|content|>B. Education — Ridgeview Academy Enrollment and Tu\n<|id|>50<|type|>table<|page|>5<|box|>268 143 369 852<|content|>None\n<|id|>55<|type|>title<|page|>6<|box|>90 140 107 400<|content|>D. Holiday Rotation Framework\n<|id|>58<|type|>title<|page|>6<|box|>354 140 371 480<|content|>E. Confidentiality and Non-Disparagement\n<|id|>64<|type|>title<|page|>6<|box|>765 140 782 573<|content|>IV. Remaining Open Issues and Areas of Disagreemen\n<|id|>66<|type|>title<|page|>7<|box|>90 140 108 545<|content|>A. Physical Custody Timeshare — Primary Dispute\n<|id|>94<|type|>title<|page|>9<|box|>232 140 250 395<|content|>B. On-Location Work Provision\n<|id|>98<|type|>title<|page|>9<|box|>667 140 684 361<|content|>C. Travel Notice Provisions\n<|id|>105<|type|>title<|page|>10<|box|>239 140 256 351<|content|>D. Child Support Amount\n<|id|>108<|type|>table<|page|>10<|box|>385 143 518 852<|content|>None\n<|id|>113<|type|>title<|page|>11<|box|>257 140 273 571<|content|>E. Extracurricular / Enrichment Activity Cost-Shar\n<|id|>119<|type|>title<|page|>11<|box|>695 140 712 385<|content|>F. Parenting Plan Coordinator\n<|id|>123<|type|>title<|page|>12<|box|>241 140 258 710<|content|>V. Assessment of Dr. Sorensen's Evaluation Report\n<|id|>127<|type|>title<|page|>12<|box|>527 142 544 405<|content|>Points Favorable to Ms. Fonseca:\n<|id|>137<|type|>title<|page|>13<|box|>334 142 349 377<|content|>Mediator's Use of the Report:\n<|id|>139<|type|>title<|page|>13<|box|>513 140 530 243<|content|>Assessment:\n<|id|>141<|type|>title<|page|>13<|box|>690 140 707 496<|content|>VI. Assessment of Minor's Counsel's Position\n<|id|>149<|type|>title<|page|>14<|box|>758 140 775 818<|content|>VII. Recommended Strategy Adjustments for Mediatio\n<|id|>151<|type|>title<|page|>15<|box|>90 140 107 413<|content|>A. Timeshare Concession Strategy\n<|id|>153<|type|>title<|page|>15<|box|>194 140 212 357<|content|>Proposed Revised Position:\n<|id|>162<|type|>title<|page|>15<|box|>767 140 784 545<|content|>B. On-Location Work Provision — Hold at 14 Days\n<|id|>166<|type|>title<|page|>16<|box|>330 140 347 475<|content|>C. Travel Notice — Potential Compromise\n<|id|>170<|type|>title<|page|>16<|box|>588 140 606 684<|content|>D. Child Support — Package Deal with Extracurricul\n<|id|>184<|type|>title<|page|>17<|box|>506 140 523 387<|content|>E. Parenting Plan Coordinator\n<|id|>188<|type|>title<|page|>17<|box|>795 140 813 436<|content|>F. Education Tie-Breaking Authority\n<|id|>195<|type|>title<|page|>18<|box|>343 140 359 462<|content|>VIII. Budget and Timing Considerations\n<|id|>197<|type|>title<|page|>18<|box|>431 140 449 236<|content|>Legal Fees:\n<|id|>200<|type|>title<|page|>18<|box|>710 140 727 266<|content|>Mediator Fees:\n<|id|>202<|type|>title<|page|>18<|box|>816 142 834 395<|content|>Expert Costs Already Incurred:\n<|id|>205<|type|>title<|page|>19<|box|>90 140 108 210<|content|>Timing:\n<|id|>211<|type|>title<|page|>19<|box|>455 140 472 277<|content|>IX. Action Items\n<|id|>220<|type|>title<|page|>20<|box|>297 140 316 258<|content|>X. Conclusion",
+    "raw_response": "<|src_id|>50<|tgt_id|>47\n<|src_id|>108<|tgt_id|>105",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 105
+        }
+    ]
+}

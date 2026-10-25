@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>386 142 402 364<|content|>I. Introduction and Purpose\n<|id|>15<|page|>2<|box|>340 140 357 522<|content|>II. Background on the Proposed Interconnection\n<|id|>17<|page|>2<|box|>452 140 469 405<|content|>A. The Ridgeline Pipeline System\n<|id|>21<|page|>2<|box|>832 140 849 359<|content|>B. ATPC's Existing System\n<|id|>26<|page|>3<|box|>356 140 373 416<|content|>C. Proposed Interconnection Point\n<|id|>30<|page|>3<|box|>681 142 699 540<|content|>D. ATPC's Protest Concerning the Interconnection\n<|id|>34<|page|>4<|box|>340 140 357 614<|content|>III. Ridgeline's Counterproposal on Metering Stati\n<|id|>35<|page|>4<|box|>371 140 388 400<|content|>A. Overview of Counterproposal\n<|id|>38<|page|>4<|box|>708 140 724 454<|content|>B. Ultrasonic Flow Meter Specifications\n<|id|>55<|page|>6<|box|>556 140 574 442<|content|>C. Gas Chromatograph Requirements\n<|id|>78<|page|>8<|box|>138 140 157 401<|content|>D. SCADA Integration Protocols\n<|id|>96<|page|>9<|box|>638 142 655 457<|content|>E. Pig Launcher/Receiver Specifications\n<|id|>101<|page|>10<|box|>330 140 347 400<|content|>F. Physical Layout and Site Plan\n<|id|>112<|page|>10<|box|>821 140 838 627<|content|>IV. Interconnection Cost Allocation — Reservation\n<|id|>118<|page|>11<|box|>638 140 655 434<|content|>V. Proposed Next Steps and Timeline\n<|id|>126<|page|>12<|box|>691 140 709 295<|content|>VI. Confidentiality\n<|id|>131<|page|>13<|box|>339 140 357 284<|content|>VII. Attachments\n<|id|>137<|page|>13<|box|>803 140 821 251<|content|>VIII. Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>15<|level|>1\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>38<|level|>2\n<|id|>55<|level|>2\n<|id|>78<|level|>2\n<|id|>96<|level|>2\n<|id|>101<|level|>2\n<|id|>112<|level|>1\n<|id|>118<|level|>1\n<|id|>126<|level|>1\n<|id|>131<|level|>1\n<|id|>137<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 107 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>114 400 133 596<|content|>ATTORNEYS AT LAW\n<|id|>6<|type|>title<|page|>1<|box|>263 140 280 496<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>16<|type|>title<|page|>1<|box|>684 142 700 339<|content|>I. Purpose of This Letter\n<|id|>20<|type|>title<|page|>2<|box|>212 140 229 568<|content|>II. Reason for Delay — Amistad Solar Interconnecti\n<|id|>22<|type|>table<|page|>2<|box|>335 143 497 852<|content|>None\n<|id|>27<|type|>title<|page|>3<|box|>359 140 375 495<|content|>III. Status of All Other Conditions Precedent\n<|id|>44<|type|>title<|page|>5<|box|>564 142 582 380<|content|>IV. Revised Funding Timeline\n<|id|>45<|type|>table<|page|>5<|box|>614 143 829 852<|content|>None\n<|id|>50<|type|>title<|page|>6<|box|>476 140 493 434<|content|>V. Impact on Transaction Economics\n<|id|>60<|type|>title<|page|>7<|box|>354 140 369 470<|content|>VI. Action Items and Requests of Counsel\n<|id|>71<|type|>title<|page|>8<|box|>282 140 299 352<|content|>VII. Reservation of Rights",
+    "raw_response": "<|src_id|>22<|tgt_id|>20\n<|src_id|>45<|tgt_id|>44",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 44
+        }
+    ]
+}

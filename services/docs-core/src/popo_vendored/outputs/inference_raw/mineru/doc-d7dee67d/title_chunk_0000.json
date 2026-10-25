@@ -1,0 +1,127 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 250 118 746<|content|>ASSIGNMENT OF MEMBERSHIP INTERESTS\n<|id|>1<|page|>1<|box|>136 375 152 622<|content|>Dated as of November 15, 2024\n<|id|>7<|page|>1<|box|>561 140 580 243<|content|>RECITALS\n<|id|>8<|page|>1<|box|>588 140 604 248<|content|>WHEREAS:\n<|id|>19<|page|>2<|box|>625 140 641 442<|content|>Section 1 — Assignment and Transfer\n<|id|>24<|page|>3<|box|>321 140 339 354<|content|>Section 2 — Consideration\n<|id|>27<|page|>3<|box|>671 140 689 588<|content|>Section 3 — Representations and Warranties of Assi\n<|id|>34<|page|>4<|box|>630 140 647 586<|content|>Section 4 — Representations and Warranties of Assi\n<|id|>38<|page|>5<|box|>90 140 107 545<|content|>Section 5 — Admission of Assignee as Sole Member\n<|id|>42<|page|>5<|box|>446 140 464 398<|content|>Section 6 — Further Assurances\n<|id|>45<|page|>5<|box|>796 140 813 442<|content|>Section 7 — Relationship to the MIPA\n<|id|>50<|page|>6<|box|>476 140 493 367<|content|>Section 8 — Governing Law\n<|id|>52<|page|>6<|box|>633 140 652 424<|content|>Section 9 — Jurisdiction and Venue\n<|id|>55<|page|>7<|box|>90 140 107 359<|content|>Section 10 — Counterparts\n<|id|>57<|page|>7<|box|>321 140 339 433<|content|>Section 11 — Successors and Assigns\n<|id|>59<|page|>7<|box|>481 140 497 357<|content|>Section 12 — Amendments\n<|id|>61<|page|>7<|box|>621 140 637 393<|content|>Section 13 — Entire Agreement\n<|id|>63<|page|>7<|box|>763 243 781 751<|content|>[Remainder of page intentionally left blank. Signa\n<|id|>64<|page|>7<|box|>789 204 806 792<|content|>SIGNATURE PAGE TO ASSIGNMENT OF MEMBERSHIP INTERES\n<|id|>66<|page|>7<|box|>859 176 876 284<|content|>ASSIGNOR:\n<|id|>72<|page|>8<|box|>184 176 200 281<|content|>ASSIGNEE:\n<|id|>78<|page|>8<|box|>296 246 314 750<|content|>ACKNOWLEDGMENT AND CONSENT OF THE COMPANY\n<|id|>86<|page|>9<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>87<|page|>9<|box|>114 300 132 697<|content|>DESCRIPTION OF MEMBERSHIP INTERESTS\n<|id|>89<|page|>9<|box|>205 143 222 228<|content|>Company:\n<|id|>91<|page|>9<|box|>424 143 441 395<|content|>Membership Interests Assigned:\n<|id|>93<|page|>9<|box|>604 143 619 248<|content|>Subsidiaries:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>19<|level|>2\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>2\n<|id|>61<|level|>2\n<|id|>63<|level|>-1\n<|id|>64<|level|>2\n<|id|>66<|level|>3\n<|id|>72<|level|>3\n<|id|>78<|level|>2\n<|id|>86<|level|>2\n<|id|>87<|level|>2\n<|id|>89<|level|>3\n<|id|>91<|level|>3\n<|id|>93<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        }
+    ]
+}

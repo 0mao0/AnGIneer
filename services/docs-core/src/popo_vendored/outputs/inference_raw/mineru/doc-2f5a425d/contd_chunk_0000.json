@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 145 151 849<|content|>999 Third Avenue, Suite 4200 Seattle, Washington 98104 Telephone: ... (206) 555-7801\n<|id|>3<|page|>1<|box|>204 725 220 854<|content|>January 18, 2024\n<|id|>2<|page|>1<|box|>160 165 195 831<|content|>300 Delaware Avenue, Suite 900 Wilmington, Delaware 19801 Telephone: ... (302) 555-2101\n<|id|>4<|page|>1<|box|>229 140 246 464<|content|>VIA EMAIL AND FIRST CLASS MAIL\n<|id|>5<|page|>1<|box|>256 140 292 854<|content|>Priya Sundaram Executive Vice President, General C... 4800 Lakeview Blvd, Suite 1100 Bellevue, WA 98004\n<|id|>6<|page|>1<|box|>300 174 335 854<|content|>Re: ... 1038-00005\n<|id|>7<|page|>1<|box|>345 142 361 297<|content|>Dear Ms. ... Sundaram\n<|id|>73<|page|>8<|box|>862 140 898 856<|content|>All invoices are due and payable within thirty (30...daram, Executive Vice President, General Counsel &\n<|id|>74<|page|>9<|box|>90 140 145 854<|content|>Corporate Secretary, at the address set forth abov...n such format as the Client may reasonably request\n<|id|>111<|page|>12<|box|>604 140 636 852<|content|>Howard Bellamy Partner Calderwood & Harkness LLP 9...00 Seattle, WA 98104 Telephone: ... (206) 555-7812\n<|id|>112<|page|>12<|box|>638 140 654 517<|content|>Email: ... com\n<|id|>117<|page|>12<|box|>758 142 775 316<|content|>Name: ... Priya Sundaram\n<|id|>118<|page|>12<|box|>776 140 792 669<|content|>Title: ... Executive Vice President, General Counsel & Corporate Secretary\n<|id|>119<|page|>12<|box|>794 143 810 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>73<|tgt_id|>74",
+    "parsed": [
+        {
+            "src_id": 73,
+            "tgt_id": 74
+        }
+    ]
+}

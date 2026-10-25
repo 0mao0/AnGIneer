@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>1<|type|>title<|page|>1<|box|>126 143 164 852<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 225 Wes\n<|id|>2<|type|>title<|page|>1<|box|>172 405 191 591<|content|>MEMORANDUM\n<|id|>11<|type|>title<|page|>1<|box|>577 142 594 424<|content|>I. PURPOSE OF MEMORANDUM\n<|id|>15<|type|>title<|page|>2<|box|>148 140 166 405<|content|>II. BACKGROUND SUMMARY\n<|id|>17<|type|>title<|page|>2<|box|>224 140 242 419<|content|>A. Filing of the Verified Complaint\n<|id|>23<|type|>title<|page|>2<|box|>657 142 674 330<|content|>B. The Unpaid Invoices\n<|id|>25<|type|>table<|page|>2<|box|>741 143 898 852<|content|>None\n<|id|>27<|type|>title<|page|>3<|box|>209 140 226 310<|content|>C. Service of Process\n<|id|>29<|type|>title<|page|>3<|box|>337 140 354 527<|content|>D. Defendants' Answer and Affirmative Defenses\n<|id|>34<|type|>title<|page|>3<|box|>707 140 724 517<|content|>E. GAP's Motion to Strike Affirmative Defenses\n<|id|>36<|type|>title<|page|>4<|box|>89 140 107 571<|content|>III. SUMMARY OF THE AUGUST 22, 2022 RULING\n<|id|>38<|type|>title<|page|>4<|box|>184 140 200 560<|content|>A. Force Majeure Defense — Stricken with Prejudice\n<|id|>44<|type|>title<|page|>4<|box|>781 140 797 668<|content|>B. Commercial Impracticability Defense — Stricken\n<|id|>50<|type|>title<|page|>5<|box|>474 140 491 473<|content|>C. Failure to Mitigate Defense — Survives\n<|id|>58<|type|>title<|page|>6<|box|>297 140 315 511<|content|>IV. PRACTICAL IMPACT OF THE RULING\n<|id|>65<|type|>title<|page|>7<|box|>222 140 239 282<|content|>V. NEXT STEPS\n<|id|>67<|type|>title<|page|>7<|box|>279 140 297 584<|content|>A. Case Management Conference — September 12, 2022\n<|id|>72<|type|>title<|page|>7<|box|>686 140 704 393<|content|>B. Commencement of discovery\n<|id|>81<|type|>title<|page|>8<|box|>800 140 816 374<|content|>C. Settlement Considerations\n<|id|>86<|type|>title<|page|>9<|box|>429 140 446 328<|content|>D. Musgrave Guaranty\n<|id|>91<|type|>title<|page|>10<|box|>89 140 106 429<|content|>VI. ACTION ITEMS FOR CLIENT\n<|id|>97<|type|>title<|page|>10<|box|>736 140 753 307<|content|>VII. CONCLUSION",
+    "raw_response": "<|src_id|>25<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 23
+        }
+    ]
+}

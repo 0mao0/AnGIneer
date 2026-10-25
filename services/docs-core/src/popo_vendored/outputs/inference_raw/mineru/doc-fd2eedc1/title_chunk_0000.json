@@ -1,0 +1,154 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>126 423 143 573<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>357 385 377 612<|content|>I. Executive Summary\n<|id|>18<|page|>2<|box|>712 419 732 576<|content|>II. Background\n<|id|>19<|page|>2<|box|>757 142 773 299<|content|>A. The Transaction\n<|id|>33<|page|>4<|box|>354 140 373 341<|content|>B. The Acquiring Parties\n<|id|>34<|page|>4<|box|>386 140 404 426<|content|>1. Ironside Capital Management LP\n<|id|>38<|page|>4<|box|>748 140 765 392<|content|>2. ICM Cascadia Co-Invest, LP\n<|id|>45<|page|>5<|box|>314 140 332 454<|content|>3. Meridian Infrastructure Partners LP\n<|id|>48<|page|>5<|box|>559 140 575 630<|content|>4. Meridian Infrastructure Partners Fund IV, LP (\"\n<|id|>51<|page|>5<|box|>750 140 766 450<|content|>5. Meridian Infrastructure GP IV LLC\n<|id|>53<|page|>6<|box|>89 140 107 259<|content|>C. The Target\n<|id|>61<|page|>7<|box|>90 349 111 647<|content|>III. CFIUS Legal Framework\n<|id|>62<|page|>7<|box|>136 140 154 449<|content|>A. Statutory and Regulatory Authority\n<|id|>67<|page|>7<|box|>720 140 737 423<|content|>B. \"Covered Transaction\" Analysis\n<|id|>71<|page|>8<|box|>90 176 108 410<|content|>(b) any foreign government; or\n<|id|>82<|page|>8<|box|>444 140 460 607<|content|>C. Look-Through Analysis — Investor Base Considera\n<|id|>89<|page|>9<|box|>458 140 474 465<|content|>D. Mandatory Declaration Requirements\n<|id|>95<|page|>9<|box|>779 147 799 848<|content|>IV. Risk Assessment: Why a Voluntary Filing Is Non\n<|id|>97<|page|>10<|box|>90 140 107 403<|content|>A. Critical Infrastructure Profile\n<|id|>102<|page|>10<|box|>710 140 728 540<|content|>B. Proximity to Sensitive Government Installations\n<|id|>106<|page|>11<|box|>285 140 303 334<|content|>C. Safe Harbor Benefits\n<|id|>112<|page|>12<|box|>90 140 107 488<|content|>D. Precedent in Infrastructure Transactions\n<|id|>115<|page|>12<|box|>439 140 457 336<|content|>E. Cost-Benefit Analysis\n<|id|>121<|page|>13<|box|>136 323 156 673<|content|>V. Recommended Filing Approach\n<|id|>122<|page|>13<|box|>180 140 196 503<|content|>A. Declaration vs. Full Joint Voluntary Notice\n<|id|>128<|page|>13<|box|>589 140 607 264<|content|>B. Filing Party\n<|id|>131<|page|>13<|box|>845 140 864 228<|content|>C. Timing\n<|id|>137<|page|>14<|box|>349 140 368 377<|content|>D. Content of the Declaration\n<|id|>146<|page|>15<|box|>90 243 111 754<|content|>VI. Coordination with Other Regulatory Approvals\n<|id|>151<|page|>15<|box|>691 307 710 689<|content|>VII. Conclusion and Recommendation\n<|id|>162<|page|>16<|box|>534 375 554 622<|content|>VIII. Post-Filing Update\n<|id|>172<|page|>17<|box|>252 140 268 308<|content|>Contact Information",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>33<|level|>3\n<|id|>34<|level|>4\n<|id|>38<|level|>4\n<|id|>45<|level|>4\n<|id|>48<|level|>4\n<|id|>51<|level|>4\n<|id|>53<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>67<|level|>3\n<|id|>71<|level|>-1\n<|id|>82<|level|>3\n<|id|>89<|level|>3\n<|id|>95<|level|>2\n<|id|>97<|level|>3\n<|id|>102<|level|>3\n<|id|>106<|level|>3\n<|id|>112<|level|>3\n<|id|>115<|level|>3\n<|id|>121<|level|>2\n<|id|>122<|level|>3\n<|id|>128<|level|>3\n<|id|>131<|level|>3\n<|id|>137<|level|>3\n<|id|>146<|level|>2\n<|id|>151<|level|>2\n<|id|>162<|level|>2\n<|id|>172<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 4
+        },
+        {
+            "id": 38,
+            "level": 4
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        }
+    ]
+}

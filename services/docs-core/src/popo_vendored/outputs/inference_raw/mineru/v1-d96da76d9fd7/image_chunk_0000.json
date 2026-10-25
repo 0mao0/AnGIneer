@@ -1,0 +1,123 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>image<|page|>1<|box|>494 238 537 732<|content|>None\n<|id|>1<|type|>table<|page|>1<|box|>104 45 440 651<|content|>None\n<|id|>3<|type|>table<|page|>1<|box|>632 49 925 915<|content|>None\n<|id|>4<|type|>table<|page|>5<|box|>111 21 877 980<|content|>None\n<|id|>5<|type|>table<|page|>5<|box|>929 22 950 977<|content|>None\n<|id|>6<|type|>table<|page|>6<|box|>116 19 950 980<|content|>None\n<|id|>7<|type|>table<|page|>7<|box|>114 21 930 980<|content|>None\n<|id|>8<|type|>title<|page|>7<|box|>941 22 955 132<|content|>Clubhouse Expense\n<|id|>9<|type|>table<|page|>8<|box|>113 19 666 980<|content|>None\n<|id|>10<|type|>table<|page|>8<|box|>688 19 954 980<|content|>None\n<|id|>11<|type|>title<|page|>9<|box|>84 174 107 823<|content|>Statement of Revenues and Expenses 1/1/2026 - 1/31\n<|id|>12<|type|>table<|page|>9<|box|>114 21 424 978<|content|>None\n<|id|>13<|type|>table<|page|>9<|box|>450 19 949 566<|content|>None\n<|id|>14<|type|>table<|page|>9<|box|>450 568 950 980<|content|>None\n<|id|>15<|type|>title<|page|>10<|box|>83 174 107 823<|content|>Statement of Revenues and Expenses 1/1/2026 - 1/31\n<|id|>16<|type|>table<|page|>10<|box|>114 21 839 980<|content|>None\n<|id|>17<|type|>table<|page|>10<|box|>864 21 940 978<|content|>None\n<|id|>18<|type|>title<|page|>11<|box|>84 174 106 823<|content|>Statement of Revenues and Expenses 1/1/2026 - 1/31\n<|id|>19<|type|>table<|page|>11<|box|>114 21 176 978<|content|>None\n<|id|>20<|type|>title<|page|>12<|box|>165 22 181 165<|content|>Reserve Income\n<|id|>21<|type|>title<|page|>12<|box|>83 174 107 823<|content|>Statement of Revenues and Expenses 1/1/2026 - 1/31\n<|id|>22<|type|>table<|page|>12<|box|>114 21 157 977<|content|>None\n<|id|>23<|type|>table<|page|>12<|box|>200 22 239 977<|content|>None\n<|id|>24<|type|>table<|page|>12<|box|>263 21 321 978<|content|>None\n<|id|>25<|type|>title<|page|>12<|box|>339 24 354 171<|content|>Reserve Expense\n<|id|>26<|type|>table<|page|>12<|box|>371 19 931 980<|content|>None\n<|id|>27<|type|>title<|page|>13<|box|>84 174 106 823<|content|>Statement of Revenues and Expenses 1/1/2026 - 1/31\n<|id|>28<|type|>table<|page|>13<|box|>114 19 176 978<|content|>None\n<|id|>29<|type|>table<|page|>14<|box|>113 21 157 977<|content|>None\n<|id|>30<|type|>table<|page|>14<|box|>199 21 239 978<|content|>None\n<|id|>31<|type|>table<|page|>14<|box|>263 21 303 978<|content|>None\n<|id|>32<|type|>table<|page|>14<|box|>328 21 589 978<|content|>None\n<|id|>33<|type|>table<|page|>14<|box|>642 22 681 978<|content|>None\n<|id|>34<|type|>table<|page|>14<|box|>707 21 746 978<|content|>None\n<|id|>35<|type|>table<|page|>14<|box|>768 21 810 978<|content|>None\n<|id|>36<|type|>table<|page|>14<|box|>835 21 940 978<|content|>None\n<|id|>37<|type|>title<|page|>15<|box|>84 174 107 823<|content|>Statement of Revenues and Expenses 1/1/2026 - 1/31\n<|id|>38<|type|>table<|page|>15<|box|>113 19 787 980<|content|>None\n<|id|>39<|type|>title<|page|>16<|box|>84 174 106 823<|content|>Statement of Revenues and Expenses 1/1/2026 - 1/31\n<|id|>40<|type|>table<|page|>16<|box|>114 22 157 977<|content|>None\n<|id|>41<|type|>title<|page|>16<|box|>164 22 181 223<|content|>Water Reserve Income\n<|id|>42<|type|>table<|page|>16<|box|>199 22 273 977<|content|>None\n<|id|>43<|type|>title<|page|>16<|box|>292 22 310 228<|content|>Water Reserve Expense\n<|id|>44<|type|>table<|page|>16<|box|>325 21 544 978<|content|>None",
+    "raw_response": "<|src_id|>9<|tgt_id|>8\n<|src_id|>12<|tgt_id|>11\n<|src_id|>13<|tgt_id|>11\n<|src_id|>14<|tgt_id|>11\n<|src_id|>16<|tgt_id|>15\n<|src_id|>17<|tgt_id|>15\n<|src_id|>19<|tgt_id|>18\n<|src_id|>22<|tgt_id|>21\n<|src_id|>23<|tgt_id|>21\n<|src_id|>24<|tgt_id|>21\n<|src_id|>26<|tgt_id|>25\n<|src_id|>28<|tgt_id|>27\n<|src_id|>29<|tgt_id|>27\n<|src_id|>30<|tgt_id|>27\n<|src_id|>31<|tgt_id|>27\n<|src_id|>32<|tgt_id|>27\n<|src_id|>33<|tgt_id|>27\n<|src_id|>34<|tgt_id|>27\n<|src_id|>35<|tgt_id|>27\n<|src_id|>36<|tgt_id|>27\n<|src_id|>38<|tgt_id|>37\n<|src_id|>40<|tgt_id|>39\n<|src_id|>42<|tgt_id|>41\n<|src_id|>44<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 43
+        }
+    ]
+}

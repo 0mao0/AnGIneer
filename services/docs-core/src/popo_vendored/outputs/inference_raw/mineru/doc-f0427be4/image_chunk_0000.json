@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 104 668<|content|>CONFIDENTIAL — SETTLEMENT COMMUNICATION PURSUANT T\n<|id|>1<|type|>title<|page|>1<|box|>112 276 130 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>13<|type|>title<|page|>1<|box|>785 140 801 513<|content|>I. Procedural History and Negotiation Timeline\n<|id|>20<|type|>title<|page|>2<|box|>411 140 428 660<|content|>II. Overview of Government Counter-Redline Positio\n<|id|>23<|type|>title<|page|>2<|box|>648 140 667 769<|content|>III. Section-by-Section Summary of TMC's Positions\n<|id|>24<|type|>title<|page|>3<|box|>90 140 107 558<|content|>A. Remediation Cost and Schedule — Ridgecrest Site\n<|id|>32<|type|>title<|page|>3<|box|>628 140 646 800<|content|>B. Remediation Requirements — Gallatin, Bonanza Cr\n<|id|>36<|type|>title<|page|>4<|box|>531 142 547 282<|content|>C. Civil Penalties\n<|id|>38<|type|>table<|page|>4<|box|>597 143 710 852<|content|>None\n<|id|>45<|type|>title<|page|>5<|box|>176 140 194 558<|content|>D. EPA Past-Costs Reimbursement (CERCLA § 107)\n<|id|>50<|type|>title<|page|>5<|box|>534 140 551 521<|content|>E. Supplemental Environmental Projects (SEPs)\n<|id|>56<|type|>title<|page|>6<|box|>213 140 229 397<|content|>F. Stipulated Penalty Provisions\n<|id|>66<|type|>title<|page|>6<|box|>803 140 820 287<|content|>G. Force Majeure\n<|id|>73<|type|>title<|page|>7<|box|>407 140 424 411<|content|>H. Dispute Resolution Mechanism\n<|id|>81<|type|>title<|page|>7<|box|>886 142 902 581<|content|>Both of these proposed clarifications remain open\n<|id|>82<|type|>title<|page|>8<|box|>90 140 106 323<|content|>I. Financial Assurance\n<|id|>88<|type|>title<|page|>8<|box|>510 140 527 334<|content|>J. Independent Monitor\n<|id|>92<|type|>title<|page|>8<|box|>816 140 834 354<|content|>K. Termination Provisions\n<|id|>95<|type|>title<|page|>9<|box|>231 142 248 460<|content|>IV. Summary of Remaining Open Issues\n<|id|>96<|type|>table<|page|>9<|box|>299 143 729 852<|content|>None\n<|id|>97<|type|>title<|page|>9<|box|>779 140 796 501<|content|>V. Proposal for In-Person Negotiation Session\n<|id|>107<|type|>title<|page|>10<|box|>580 140 598 401<|content|>VI. Confidentiality and Privilege",
+    "raw_response": "<|src_id|>38<|tgt_id|>36\n<|src_id|>96<|tgt_id|>95",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 95
+        }
+    ]
+}

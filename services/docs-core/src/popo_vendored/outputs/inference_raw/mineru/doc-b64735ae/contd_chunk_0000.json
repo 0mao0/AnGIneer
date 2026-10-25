@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>185 423 203 575<|content|>Closing Deliverable\n<|id|>3<|page|>1<|box|>210 442 228 555<|content|>June 13, 2025\n<|id|>4<|page|>1<|box|>237 140 253 477<|content|>I, Marcus Reinholt, hereby certify as follows: ... I, Marcus Reinholt, hereby certify as follows\n<|id|>9<|page|>1<|box|>531 174 568 854<|content|>(iii) PulseLink Telematics, Inc. ... and\n<|id|>11<|page|>1<|box|>619 140 674 854<|content|>Capitalized terms used but not otherwise defined i...ctions of the Agreement unless otherwise indicated\n<|id|>52<|page|>6<|box|>727 138 910 857<|content|>6. ... All conditions precedent to the funding of ...ve been satisfied or, upon the consummation of the\n<|id|>53<|page|>7<|box|>90 140 181 856<|content|>Closing, will be satisfied, and no event has occur...tter will not be funded at or prior to the Closing\n<|id|>60<|page|>7<|box|>833 140 906 856<|content|>8. ... Nothing in this Certificate shall be deemed...nts, agreements, or obligations of Buyer under the\n<|id|>61<|page|>8<|box|>90 140 143 856<|content|>Agreement or any ancillary document, or to create ...greement, the terms of the Agreement shall control\n<|id|>69<|page|>8<|box|>500 142 516 323<|content|>Name: ... Marcus Reinholt\n<|id|>70<|page|>8<|box|>517 142 532 367<|content|>Title: ... Chief Executive Officer\n<|id|>71<|page|>8<|box|>534 142 550 295<|content|>Date: ... June 13, 2025\n<|id|>72<|page|>8<|box|>551 140 611 854<|content|>Note: ... , as an acceptable alternative signatory... on behalf of Buyer in connection with the Closing",
+    "raw_response": "<|src_id|>52<|tgt_id|>53\n<|src_id|>60<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        }
+    ]
+}

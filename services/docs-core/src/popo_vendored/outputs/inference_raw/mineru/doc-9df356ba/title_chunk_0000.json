@@ -1,0 +1,41 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>587 140 604 421<|content|>Client Trust Account Confirmation\n<|id|>11<|page|>2<|box|>90 142 107 383<|content|>Application of Retainer Funds\n<|id|>17<|page|>2<|box|>636 142 652 351<|content|>Replenishment Obligation\n<|id|>20<|page|>3<|box|>150 142 167 361<|content|>Accounting and Statements\n<|id|>22<|page|>3<|box|>344 142 362 341<|content|>Refund of Unused Funds\n<|id|>24<|page|>3<|box|>521 140 539 308<|content|>Contact Information",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>11<|level|>2\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>2",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        }
+    ]
+}

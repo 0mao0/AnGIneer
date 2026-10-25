@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 142 104 705<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGE / ATTORNE\n<|id|>1<|page|>1<|box|>113 316 133 681<|content|>DUE DILIGENCE REQUEST LIST\n<|id|>2<|page|>1<|box|>151 356 172 640<|content|>CORPORATE / GENERAL\n<|id|>4<|page|>1<|box|>215 140 234 718<|content|>Matter: Calloway-Briggs Renewables Inc. — Proposed\n<|id|>8<|page|>1<|box|>319 143 335 256<|content|>Addressed to:\n<|id|>10<|page|>1<|box|>390 143 407 227<|content|>Copies to:\n<|id|>12<|page|>1<|box|>510 140 527 540<|content|>INTRODUCTORY NOTE AND INSTRUCTIONS\n<|id|>31<|page|>2<|box|>787 140 805 457<|content|>I. ORGANIZATIONAL DOCUMENTS\n<|id|>52<|page|>4<|box|>248 140 265 531<|content|>II. CORPORATE ORGANIZATIONAL CHART\n<|id|>60<|page|>4<|box|>744 142 762 338<|content|>III. CAPITALIZATION\n<|id|>91<|page|>6<|box|>779 142 795 385<|content|>IV. BOARD OF DIRECTORS\n<|id|>122<|page|>8<|box|>396 140 412 754<|content|>V. STOCKHOLDER AGREEMENTS AND GOVERNANCE AGREEMENT\n<|id|>130<|page|>9<|box|>89 140 107 542<|content|>VI. STOCKHOLDER RECORDS AND ACTIONS\n<|id|>135<|page|>9<|box|>417 140 434 277<|content|>VII. OFFICERS\n<|id|>154<|page|>10<|box|>248 140 265 529<|content|>VIII. MATERIAL AGREEMENTS (GENERAL)\n<|id|>166<|page|>11<|box|>373 140 390 679<|content|>IX. PRIOR OFFERINGS AND SECURITIES LAW COMPLIANCE\n<|id|>176<|page|>12<|box|>89 140 106 665<|content|>X. REGULATORY AND GOVERNMENT FILINGS (GENERAL)\n<|id|>183<|page|>12<|box|>450 140 468 627<|content|>XI. CORPORATE GOVERNANCE POLICIES AND CODES\n<|id|>194<|page|>13<|box|>167 140 184 540<|content|>XII. AUDITOR AND ACCOUNTANT MATTERS\n<|id|>200<|page|>13<|box|>594 140 611 684<|content|>XIII. FINANCIAL STATEMENTS AND FINANCIAL REPORTING\n<|id|>222<|page|>14<|box|>796 142 813 653<|content|>XIV. PENDING AND ANTICIPATED CORPORATE ACTIONS\n<|id|>231<|page|>15<|box|>506 140 523 343<|content|>XV. MISCELLANEOUS\n<|id|>238<|page|>16<|box|>167 140 184 720<|content|>SUPPLEMENTAL INFORMATION REQUEST AND COORDINATION\n<|id|>242<|page|>16<|box|>472 346 489 650<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>-1\n<|id|>8<|level|>-1\n<|id|>10<|level|>-1\n<|id|>12<|level|>2\n<|id|>31<|level|>2\n<|id|>52<|level|>2\n<|id|>60<|level|>2\n<|id|>91<|level|>2\n<|id|>122<|level|>2\n<|id|>130<|level|>2\n<|id|>135<|level|>2\n<|id|>154<|level|>2\n<|id|>166<|level|>2\n<|id|>176<|level|>2\n<|id|>183<|level|>2\n<|id|>194<|level|>2\n<|id|>200<|level|>2\n<|id|>222<|level|>2\n<|id|>231<|level|>2\n<|id|>238<|level|>2\n<|id|>242<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 231,
+            "level": 2
+        },
+        {
+            "id": 238,
+            "level": 2
+        }
+    ]
+}

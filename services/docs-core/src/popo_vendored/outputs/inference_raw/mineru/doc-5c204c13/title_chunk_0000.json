@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 348 118 648<|content|>SOLVENCY CERTIFICATE\n<|id|>4<|page|>1<|box|>335 140 353 433<|content|>I. INTRODUCTORY STATEMENT\n<|id|>15<|page|>2<|box|>428 140 445 517<|content|>II. DESCRIPTION OF THE TRANSACTIONS\n<|id|>31<|page|>4<|box|>204 140 220 299<|content|>III. DEFINITIONS\n<|id|>38<|page|>4<|box|>803 140 820 334<|content|>IV. CERTIFICATIONS\n<|id|>40<|page|>5<|box|>90 140 107 679<|content|>(i) Balance Sheet Solvency — Fair Value of Assets\n<|id|>47<|page|>6<|box|>90 140 107 674<|content|>(ii) Cash Flow Solvency — Ability to Pay Debts as\n<|id|>55<|page|>7<|box|>138 140 157 594<|content|>(iii) Adequate Capital — Not Unreasonably Small Ca\n<|id|>63<|page|>8<|box|>239 140 258 508<|content|>V. QUALIFICATIONS AND ASSUMPTIONS\n<|id|>75<|page|>9<|box|>483 140 500 339<|content|>VI. GOVERNING LAW\n<|id|>77<|page|>9<|box|>604 140 622 294<|content|>VII. EXECUTION\n<|id|>86<|page|>10<|box|>88 454 108 544<|content|>ANNEX A\n<|id|>87<|page|>10<|box|>130 267 148 728<|content|>SUMMARY OF RSA TRANSACTIONS GIVEN EFFECT",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>15<|level|>2\n<|id|>31<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>3\n<|id|>47<|level|>3\n<|id|>55<|level|>3\n<|id|>63<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>2\n<|id|>86<|level|>2\n<|id|>87<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        }
+    ]
+}

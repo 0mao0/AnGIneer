@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 336<|content|>【1287797#8】HKRIA版權風波\n<|id|>2<|page|>1<|box|>208 107 225 284<|content|>【633700#4】唱片公司\n<|id|>4<|page|>1<|box|>275 107 291 267<|content|>【489598#0】寶麗金\n<|id|>6<|page|>1<|box|>462 105 478 284<|content|>【114133#0】滾石唱片\n<|id|>8<|page|>1<|box|>563 107 579 284<|content|>【502450#0】迪卡唱片\n<|id|>10<|page|>1<|box|>646 105 663 381<|content|>【4434127#0】英国最畅销专辑列表\n<|id|>12<|page|>1<|box|>799 105 816 351<|content|>【7031804#0】百代唱片 (上海)\n<|id|>14<|page|>2<|box|>73 107 89 342<|content|>【522821#1】百代唱片 (香港)\n<|id|>16<|page|>2<|box|>260 105 275 342<|content|>【924131#7】肯頓 (新澤西州)\n<|id|>18<|page|>2<|box|>344 107 360 284<|content|>【349107#0】太合麦田",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>3\n<|id|>6<|level|>3\n<|id|>8<|level|>3\n<|id|>10<|level|>2\n<|id|>12<|level|>3\n<|id|>14<|level|>3\n<|id|>16<|level|>3\n<|id|>18<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        }
+    ]
+}

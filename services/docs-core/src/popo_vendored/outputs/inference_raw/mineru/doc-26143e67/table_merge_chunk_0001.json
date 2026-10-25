@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=81, 1972-Sept......', 'rowspan=30, Certificates of indebtedness', '11/30/72', '5/30/73', '5.20', '100', '-', 'rowspan=30, 19,120']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Month of activity', 'rowspan=2, Securities', 'rowspan=2, Issue date', 'rowspan=2, Maturity date', 'rowspan=2, Interest rate (Percent)', 'colspan=3, Amount']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 333,
+    "table2_idx": 336
+}

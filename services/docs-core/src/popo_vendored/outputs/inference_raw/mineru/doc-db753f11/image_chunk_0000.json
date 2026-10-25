@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        3,
+        8
+    ],
+    "pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>15<|type|>title<|page|>3<|box|>85 164 101 287<|content|>CERTIFICATION\n<|id|>21<|type|>table<|page|>4<|box|>85 85 370 872<|content|>None\n<|id|>22<|type|>table<|page|>5<|box|>85 85 370 813<|content|>None\n<|id|>23<|type|>table<|page|>6<|box|>85 87 424 873<|content|>None\n<|id|>24<|type|>table<|page|>7<|box|>85 85 424 588<|content|>None\n<|id|>26<|type|>title<|page|>8<|box|>192 87 209 376<|content|>TRANSFER TAXES (Buyer's 50% Share)TRANSFER TAXES (\n<|id|>28<|type|>title<|page|>8<|box|>334 87 350 183<|content|>INSURANCE\n<|id|>30<|type|>title<|page|>8<|box|>405 87 423 423<|content|>LENDER CONSENT FEES (Buyer's 50% Share)\n<|id|>32<|type|>title<|page|>8<|box|>512 87 529 255<|content|>RECORDING & FILING\n<|id|>35<|type|>title<|page|>8<|box|>655 87 671 147<|content|>OTHER",
+    "raw_response": "<|src_id|>21<|tgt_id|>15\n<|src_id|>22<|tgt_id|>15\n<|src_id|>23<|tgt_id|>15\n<|src_id|>24<|tgt_id|>15",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 15
+        }
+    ]
+}

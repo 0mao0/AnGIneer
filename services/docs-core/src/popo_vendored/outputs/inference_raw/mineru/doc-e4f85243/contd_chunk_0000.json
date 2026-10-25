@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        13,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 140 196 854<|content|>TO: ... Christine Aldridge, Partner, Deal Lead, Pi...edina, Vice President, Pinnacle Venture Fund II LP\n<|id|>3<|page|>1<|box|>204 140 239 854<|content|>FROM: ... Rachel Bernstein, Partner, Calderwood & ...Leila Nazari, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>248 140 266 303<|content|>DATE: ... May 8, 2026\n<|id|>5<|page|>1<|box|>273 140 311 854<|content|>RE: ... — Series A Preferred Stock Financing\n<|id|>6<|page|>1<|box|>318 140 335 331<|content|>Matter No. ... 1002-00002\n<|id|>7<|page|>1<|box|>344 142 362 331<|content|>Billing Code: ... 001\n<|id|>8<|page|>1<|box|>369 142 387 408<|content|>Right-click to update Table of Contents\n<|id|>51<|page|>5<|box|>828 140 902 857<|content|>However, one customer MSA, with a customer represe...hange in the management or ownership structure\" of\n<|id|>52<|page|>6<|box|>90 140 255 856<|content|>Quillen. ... While we do not believe that the Seri...ry sales of founder equity, or any M&A transaction\n<|id|>70<|page|>7<|box|>853 140 888 856<|content|>Annual Spend. ... Based on the Company's internal ...g it one of the most significant line items in the\n<|id|>71<|page|>8<|box|>90 140 127 854<|content|>Company's operating budget and a substantial compo...pany's monthly burn rate of approximately $420,000\n<|id|>127<|page|>13<|box|>604 174 676 854<|content|>(i) the discount price, calculated as the per-shar...iplied by 80% (reflecting a 20% discount). ... and\n<|id|>129<|page|>13<|box|>766 140 803 854<|content|>Because the cap price of $2. ... 00 per share of Series A Preferred Stock\n<|id|>203<|page|>21<|box|>518 140 611 854<|content|>This memorandum has been prepared by Calderwood & ...ute a guarantee of completeness or a legal opinion\n<|id|>204<|page|>21<|box|>617 140 652 854<|content|>CALDERWOOD & HARKNESS LLP 555 Mission Street, Suite 3100 San Francisco, California 94105\n<|id|>205<|page|>21<|box|>662 140 694 854<|content|>Rachel Bernstein Partner Calderwood & Harkness LLP...rnstein@calderwoodharkness. ... com (415) 555-7820\n<|id|>206<|page|>21<|box|>695 140 727 854<|content|>Leila Nazari Associate Calderwood & Harkness LLP lnazari@calderwoodharkness. ... com (415) 555-7844",
+    "raw_response": "<|src_id|>51<|tgt_id|>52\n<|src_id|>70<|tgt_id|>71",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        }
+    ]
+}

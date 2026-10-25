@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 151 142 844<|content|>SECRETARY'S AND OFFICER'S CERTIFICATE OF WHITMORE\n<|id|>5<|type|>title<|page|>1<|box|>441 140 459 243<|content|>RECITALS\n<|id|>11<|type|>title<|page|>2<|box|>402 140 419 307<|content|>CERTIFICATIONS\n<|id|>13<|type|>title<|page|>2<|box|>496 140 513 434<|content|>Section 1. Organizational Documents\n<|id|>18<|type|>title<|page|>3<|box|>328 140 345 504<|content|>Section 2. Resolutions and Authorizing Action\n<|id|>31<|type|>title<|page|>5<|box|>349 140 366 321<|content|>Section 3. Incumbency\n<|id|>33<|type|>table<|page|>5<|box|>450 143 542 852<|content|>None\n<|id|>36<|type|>title<|page|>6<|box|>90 140 107 344<|content|>Section 4. Good Standing\n<|id|>39<|type|>title<|page|>6<|box|>354 140 369 419<|content|>Section 5. Additional Certifications\n<|id|>48<|type|>title<|page|>7<|box|>507 140 523 295<|content|>Section 6. Reliance\n<|id|>52<|type|>title<|page|>7<|box|>845 359 863 637<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>58<|type|>title<|page|>8<|box|>180 140 196 684<|content|>COUNTER-CERTIFICATION — INCUMBENCY VERIFICATION\n<|id|>60<|type|>title<|page|>8<|box|>323 142 340 395<|content|>WHITMORE AEROSPACE LLC\n<|id|>65<|type|>table<|page|>8<|box|>454 143 643 852<|content|>None\n<|id|>66<|type|>title<|page|>9<|box|>89 446 107 553<|content|>EXHIBIT A\n<|id|>69<|type|>title<|page|>10<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>73<|type|>title<|page|>11<|box|>89 274 160 723<|content|>EXHIBIT C Resolutions of the Members of Whitmore A\n<|id|>75<|type|>title<|page|>11<|box|>193 173 210 823<|content|>WRITTEN CONSENT OF THE MEMBERS OF WHITMORE AEROSPA\n<|id|>76<|type|>title<|page|>11<|box|>219 374 237 622<|content|>Adopted as of January 22, 2026\n<|id|>78<|type|>title<|page|>11<|box|>398 142 416 241<|content|>RECITALS\n<|id|>84<|type|>title<|page|>12<|box|>214 140 232 379<|content|>NOW, THEREFORE, BE IT:\n<|id|>97<|type|>title<|page|>13<|box|>737 316 753 679<|content|>[MEMBER SIGNATURE PAGE FOLLOWS]\n<|id|>112<|type|>title<|page|>15<|box|>89 447 107 550<|content|>EXHIBIT D\n<|id|>113<|type|>title<|page|>15<|box|>116 334 133 663<|content|>Certificate of Good Standing — Delaware\n<|id|>117<|type|>title<|page|>16<|box|>89 439 107 558<|content|>EXHIBIT D-1",
+    "raw_response": "<|src_id|>33<|tgt_id|>31\n<|src_id|>65<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 58
+        }
+    ]
+}

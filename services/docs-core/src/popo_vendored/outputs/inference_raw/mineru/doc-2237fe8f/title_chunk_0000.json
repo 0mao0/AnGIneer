@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 168 123 826<|content|>UNITED STATES OF AMERICA BEFORE THE FEDERAL ENERGY\n<|id|>2<|page|>1<|box|>273 147 328 849<|content|>RIDGELINE MIDSTREAM SERVICES LLC'S THIRD MOTION FO\n<|id|>4<|page|>1<|box|>446 140 463 668<|content|>I. INTRODUCTION AND SUMMARY OF RELIEF REQUESTED\n<|id|>10<|page|>2<|box|>292 140 309 566<|content|>II. BACKGROUND AND PROCEDURAL HISTORY\n<|id|>11<|page|>2<|box|>324 140 340 383<|content|>A. Initiation of the Proceeding\n<|id|>15<|page|>2<|box|>686 140 703 374<|content|>B. Interventions and Protests\n<|id|>20<|page|>4<|box|>90 140 107 454<|content|>C. FERC Orders and Hearing Schedule\n<|id|>33<|page|>5<|box|>138 140 157 339<|content|>D. The Deficiency Letter\n<|id|>50<|page|>6<|box|>364 140 380 300<|content|>E. Prior Extensions\n<|id|>56<|page|>7<|box|>157 140 174 344<|content|>F. Settlement Discussions\n<|id|>67<|page|>8<|box|>89 140 106 611<|content|>III. GOOD CAUSE FOR THE REQUESTED EXTENSION\n<|id|>69<|page|>8<|box|>220 142 238 531<|content|>A. Material Scope Changes to the Tariff Redesign\n<|id|>84<|page|>10<|box|>202 142 219 433<|content|>B. Revised Cost-of-Service Summary\n<|id|>95<|page|>11<|box|>176 140 193 591<|content|>C. Remaining Deficiency Items Require Additional W\n<|id|>104<|page|>12<|box|>465 140 484 460<|content|>D. Supplemental Testimony Preparation\n<|id|>109<|page|>13<|box|>138 140 157 609<|content|>E. Ongoing Coordination with Interconnection Negot\n<|id|>114<|page|>13<|box|>628 140 646 473<|content|>IV. NO PARTY WILL BE PREJUDICED\n<|id|>120<|page|>14<|box|>339 140 357 390<|content|>V. PROPOSED CONDITIONS\n<|id|>130<|page|>15<|box|>212 140 229 361<|content|>VI. REQUESTED RELIEF\n<|id|>136<|page|>15<|box|>508 140 526 488<|content|>VII. SERVICE AND COMMUNICATIONS\n<|id|>152<|page|>17<|box|>116 410 133 586<|content|>Respectfully submitted,\n<|id|>162<|page|>17<|box|>410 140 428 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>15<|level|>3\n<|id|>20<|level|>3\n<|id|>33<|level|>3\n<|id|>50<|level|>3\n<|id|>56<|level|>3\n<|id|>67<|level|>2\n<|id|>69<|level|>3\n<|id|>84<|level|>3\n<|id|>95<|level|>3\n<|id|>104<|level|>3\n<|id|>109<|level|>3\n<|id|>114<|level|>2\n<|id|>120<|level|>2\n<|id|>130<|level|>2\n<|id|>136<|level|>2\n<|id|>152<|level|>-1\n<|id|>162<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        }
+    ]
+}

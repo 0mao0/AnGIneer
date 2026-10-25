@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>391 140 409 290<|content|>Dear Mr. Adebayo:\n<|id|>14<|page|>1<|box|>758 142 775 413<|content|>Description of Production Volume\n<|id|>17<|page|>2<|box|>167 140 185 377<|content|>Bates Numbering Convention\n<|id|>19<|page|>2<|box|>381 140 398 385<|content|>Production Format and Media\n<|id|>27<|page|>3<|box|>186 140 203 457<|content|>Custodians Included in This Production\n<|id|>34<|page|>3<|box|>541 140 556 439<|content|>Date Range of Responsive Documents\n<|id|>36<|page|>3<|box|>736 140 752 367<|content|>Confidentiality Designations\n<|id|>39<|page|>4<|box|>333 140 349 341<|content|>Privilege and Redactions\n<|id|>43<|page|>4<|box|>744 142 761 316<|content|>Reservation of Rights\n<|id|>49<|page|>5<|box|>446 140 464 328<|content|>Cooperation Statement",
+    "raw_response": "<|id|>11<|level|>-1\n<|id|>14<|level|>1\n<|id|>17<|level|>1\n<|id|>19<|level|>1\n<|id|>27<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>1\n<|id|>39<|level|>1\n<|id|>43<|level|>1\n<|id|>49<|level|>1",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        }
+    ]
+}

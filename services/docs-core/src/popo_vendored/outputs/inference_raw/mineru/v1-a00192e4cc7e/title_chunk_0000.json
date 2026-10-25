@@ -1,0 +1,137 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 292<|content|>【3068343#0】黄荆苯站\n<|id|>2<|page|>1<|box|>140 105 155 282<|content|>【3074#178】朝鲜战争\n<|id|>4<|page|>1<|box|>258 107 274 336<|content|>【307527#2】香港建築師學會\n<|id|>6<|page|>1<|box|>359 107 375 336<|content|>【307527#3】香港建築師學會\n<|id|>8<|page|>1<|box|>460 107 476 248<|content|>【308013#1】三色\n<|id|>10<|page|>1<|box|>526 107 542 302<|content|>【3092835#15】奥尔贝克\n<|id|>12<|page|>1<|box|>593 107 609 319<|content|>【3093213#14】拉罗克布鲁\n<|id|>14<|page|>1<|box|>659 107 675 312<|content|>【3105044#7】圣埃尔布隆\n<|id|>16<|page|>1<|box|>709 107 725 275<|content|>【3107994#7】库埃龙\n<|id|>18<|page|>1<|box|>758 107 774 300<|content|>【3114412#23】大埃唐日\n<|id|>20<|page|>1<|box|>825 107 840 302<|content|>【3117266#19】奥尔泰兹\n<|id|>22<|page|>1<|box|>891 107 907 381<|content|>【3126649#3】迪诺·德·劳伦提斯\n<|id|>24<|page|>2<|box|>134 107 149 267<|content|>【31271#17】葡萄酒\n<|id|>26<|page|>2<|box|>218 107 234 292<|content|>【31275#1】干白葡萄酒\n<|id|>28<|page|>2<|box|>285 105 300 319<|content|>【314289#0】中密歇根大学\n<|id|>30<|page|>2<|box|>369 107 385 364<|content|>【3166317#0】阿拉伯民主联盟党\n<|id|>32<|page|>2<|box|>451 107 468 329<|content|>【3175976#1】乔治·洛佩兹\n<|id|>34<|page|>2<|box|>518 107 535 364<|content|>【3176127#5】台灣壹傳媒賣盤案\n<|id|>36<|page|>2<|box|>706 105 722 364<|content|>【3176127#8】台灣壹傳媒賣盤案\n<|id|>38<|page|>3<|box|>73 107 89 329<|content|>【3177736#0】德国铁路运输\n<|id|>40<|page|>3<|box|>140 107 156 312<|content|>【3179611#0】墨西哥往事\n<|id|>42<|page|>3<|box|>224 107 240 312<|content|>【3179611#3】墨西哥往事\n<|id|>44<|page|>3<|box|>290 107 306 312<|content|>【3200932#0】西安博物院\n<|id|>46<|page|>3<|box|>374 107 390 329<|content|>【3203450#0】雷姆利亞大陸\n<|id|>48<|page|>3<|box|>475 107 489 329<|content|>【3203450#1】雷姆利亞大陸\n<|id|>50<|page|>3<|box|>524 107 539 329<|content|>【3203450#2】雷姆利亞大陸\n<|id|>52<|page|>3<|box|>590 107 606 329<|content|>【3203450#3】雷姆利亞大陸\n<|id|>54<|page|>3<|box|>675 107 690 285<|content|>【3212033#11】沈开樾\n<|id|>56<|page|>3<|box|>724 107 739 329<|content|>【3214620#8】德意志国铁路\n<|id|>58<|page|>3<|box|>825 107 840 258<|content|>【3254#35】青岛市",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>1\n<|id|>58<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ]
+}

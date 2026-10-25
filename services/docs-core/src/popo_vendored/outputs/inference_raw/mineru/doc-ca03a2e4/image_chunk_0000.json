@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 330 107 666<|content|>SECTION 754 ELECTION STATEMENT\n<|id|>1<|type|>title<|page|>1<|box|>114 238 133 759<|content|>PINNACLE HEALTH SERVICES GROUP LLC EIN: 82-1947632\n<|id|>6<|type|>title<|page|>1<|box|>263 349 284 647<|content|>I. COVER MEMORANDUM\n<|id|>7<|type|>title<|page|>1<|box|>301 140 319 292<|content|>MEMORANDUM\n<|id|>22<|type|>title<|page|>2<|box|>655 140 672 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>23<|type|>title<|page|>2<|box|>683 256 700 740<|content|>II. ELECTION STATEMENT — SECTION 754\n<|id|>24<|type|>title<|page|>2<|box|>728 142 744 295<|content|>A. Formal Caption\n<|id|>33<|type|>title<|page|>3<|box|>366 142 383 334<|content|>B. Statement of Election\n<|id|>39<|type|>title<|page|>4<|box|>90 140 107 326<|content|>C. Triggering Transfer\n<|id|>50<|type|>table<|page|>4<|box|>890 143 909 852<|content|>None\n<|id|>51<|type|>table<|page|>5<|box|>88 143 212 852<|content|>None\n<|id|>52<|type|>title<|page|>5<|box|>246 143 263 230<|content|>Key Dates.\n<|id|>56<|type|>title<|page|>5<|box|>369 140 387 630<|content|>D. Section 743(b) Basis Adjustment — Summary Compu\n<|id|>58<|type|>title<|page|>5<|box|>494 176 513 774<|content|>Transferee's Cost Basis in Partnership Interest (O\n<|id|>62<|type|>table<|page|>5<|box|>786 143 873 852<|content|>None\n<|id|>64<|type|>title<|page|>6<|box|>241 140 258 624<|content|>E. Allocation of Section 743(b) Adjustment Under S\n<|id|>67<|type|>table<|page|>6<|box|>537 143 893 852<|content|>None\n<|id|>68<|type|>table<|page|>7<|box|>88 143 324 852<|content|>None\n<|id|>69<|type|>table<|page|>7<|box|>382 143 580 852<|content|>None\n<|id|>77<|type|>title<|page|>8<|box|>296 233 340 763<|content|>III. FILING INSTRUCTIONS AND PROCEDURAL REQUIREMEN\n<|id|>78<|type|>title<|page|>8<|box|>366 142 383 328<|content|>A. Filing Requirements\n<|id|>83<|type|>title<|page|>9<|box|>90 140 107 277<|content|>B. Irrevocability\n<|id|>87<|type|>title<|page|>9<|box|>483 140 500 374<|content|>C. Related Filing Obligations\n<|id|>97<|type|>title<|page|>11<|box|>90 364 109 633<|content|>IV. SIGNATURE BLOCK\n<|id|>100<|type|>title<|page|>11<|box|>286 140 304 529<|content|>PINNACLE HEALTH SERVICES GROUP LLC\n<|id|>107<|type|>title<|page|>11<|box|>422 227 443 769<|content|>V. APPENDICES / ATTACHMENTS REFERENCED\n<|id|>113<|type|>title<|page|>12<|box|>253 259 272 736<|content|>VI. DISCLAIMER AND PRIVILEGE NOTICE",
+    "raw_response": "<|src_id|>50<|tgt_id|>39\n<|src_id|>51<|tgt_id|>39\n<|src_id|>62<|tgt_id|>58\n<|src_id|>67<|tgt_id|>64\n<|src_id|>68<|tgt_id|>64\n<|src_id|>69<|tgt_id|>64",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 64
+        }
+    ]
+}

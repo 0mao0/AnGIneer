@@ -1,0 +1,131 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1xr65owp\\input\\pdfs\\doc-d424b603.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1xr65owp\\enriched\\doc-d424b603.json",
+    "contd_output": "<|src_id|>16<|tgt_id|>17\n<|src_id|>81<|tgt_id|>83",
+    "title_output": "<|id|>13<|level|>1\n<|id|>18<|level|>1\n<|id|>27<|level|>1\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>1\n<|id|>43<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>1\n<|id|>62<|level|>1\n<|id|>65<|level|>1\n<|id|>71<|level|>1\n<|id|>80<|level|>1",
+    "image_output": "<|src_id|>31<|tgt_id|>29\n<|src_id|>34<|tgt_id|>32\n<|src_id|>35<|tgt_id|>32\n<|src_id|>47<|tgt_id|>45\n<|src_id|>48<|tgt_id|>45",
+    "contd_label": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 83
+        }
+    ],
+    "title_label": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 47,
+            "table2_idx": 48,
+            "upper_row_ss": [
+                [
+                    "2019",
+                    "$12,800,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "2020",
+                    "$11,200,000"
+                ]
+            ]
+        }
+    ]
+}

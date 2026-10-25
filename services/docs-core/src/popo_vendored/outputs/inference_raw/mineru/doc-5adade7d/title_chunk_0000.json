@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|page|>1<|box|>340 140 359 364<|content|>I. Purpose and Introduction\n<|id|>10<|page|>1<|box|>617 140 633 482<|content|>II. Description of Supplemental Production\n<|id|>14<|page|>2<|box|>241 140 258 496<|content|>III. Bates-Range Summary and Organization\n<|id|>23<|page|>3<|box|>421 142 438 352<|content|>IV. Updated Privilege Log\n<|id|>29<|page|>4<|box|>250 140 265 514<|content|>V. Reference to May 14, 2024 Meet-and-Confer\n<|id|>33<|page|>4<|box|>661 140 678 751<|content|>VI. Cascade's Willingness to Negotiate an Assuranc\n<|id|>38<|page|>5<|box|>359 140 376 620<|content|>VII. Completeness of Production and Continuing Obl\n<|id|>42<|page|>5<|box|>696 140 714 359<|content|>VIII. Reservation of Rights\n<|id|>45<|page|>6<|box|>148 140 167 434<|content|>IX. Contact Information and Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>23<|level|>2\n<|id|>29<|level|>2\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        }
+    ]
+}

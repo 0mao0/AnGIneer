@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        11,
+        12,
+        13,
+        14,
+        18,
+        19,
+        20,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>239 140 276 854<|content|>TO: ... Oliver Mackenzie, Responsible Partner, Mer... Mergers & Acquisitions, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>284 140 301 852<|content|>FROM: ... Megan Chu, Working Associate, Mergers & Acquisitions, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>309 140 327 325<|content|>DATE: ... March 26, 2025\n<|id|>6<|page|>1<|box|>335 140 353 772<|content|>RE: ... (Project Summit)\n<|id|>7<|page|>1<|box|>359 140 378 362<|content|>MATTER NO. ... 1003-00004\n<|id|>8<|page|>1<|box|>386 140 404 513<|content|>CLIENT: ... Harrowgate Private Equity Fund IV LP\n<|id|>9<|page|>1<|box|>412 140 429 408<|content|>Right-click to update Table of Contents\n<|id|>94<|page|>11<|box|>816 140 910 857<|content|>Phase I Environmental Site Assessments were not pe... generally the responsibility of the landlord, and\n<|id|>95<|page|>12<|box|>90 140 181 854<|content|>Pennfield relies on: ... and (ii) the Company's ow...ations do not give rise to environmental liability\n<|id|>110<|page|>13<|box|>845 140 902 857<|content|>As discussed in Section IV. ... No Treatment, Stor... Facility (\"TSDF\") permits are required or held by\n<|id|>111<|page|>14<|box|>90 140 162 854<|content|>Pennfield, as the Company does not treat, store (b...tors for treatment and disposal at permitted TSDFs\n<|id|>149<|page|>18<|box|>820 174 875 854<|content|>(e) Absence of any outstanding notices of violatio...mental authority under Environmental Laws; ... and\n<|id|>151<|page|>19<|box|>152 140 262 856<|content|>These representations are consistent with market p...bstances Control Act, EPCRA, and state equivalents\n<|id|>167<|page|>20<|box|>705 140 723 320<|content|>Respectfully submitted,\n<|id|>168<|page|>20<|box|>723 140 739 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>169<|page|>20<|box|>741 142 758 254<|content|>By: ... By\n<|id|>170<|page|>20<|box|>758 142 775 287<|content|>Name: ... Megan Chu\n<|id|>171<|page|>20<|box|>775 140 792 513<|content|>Title: ... Working Associate, Mergers & Acquisitions\n<|id|>172<|page|>20<|box|>792 140 809 308<|content|>Date: ... March 26, 2025\n<|id|>198<|page|>27<|box|>356 140 386 854<|content|>Calderwood & Harkness LLP | Environmental Diligenc...ummit | Matter No. ... 1003-00004 | March 26, 2025\n<|id|>199<|page|>27<|box|>393 140 409 624<|content|>ATTORNEY-CLIENT PRIVILEGED & CONFIDENTIAL WORK PRODUCT",
+    "raw_response": "<|src_id|>94<|tgt_id|>95\n<|src_id|>110<|tgt_id|>111",
+    "parsed": [
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        }
+    ]
+}

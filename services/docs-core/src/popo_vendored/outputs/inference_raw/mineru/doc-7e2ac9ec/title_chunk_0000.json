@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 212 159 782<|content|>MEMORANDUM PRIVILEGED & CONFIDENTIAL — ATTORNEY WO\n<|id|>10<|page|>1<|box|>489 142 507 310<|content|>I. Purpose and Scope\n<|id|>23<|page|>3<|box|>90 140 108 419<|content|>II. Executive Summary of Findings\n<|id|>31<|page|>4<|box|>304 140 321 519<|content|>III. Detailed Analysis of Identified Relationships\n<|id|>32<|page|>4<|box|>334 140 369 854<|content|>A. Dr. Marcus Hale — Chairman & Chief Executive Of\n<|id|>97<|page|>11<|box|>176 140 194 790<|content|>C. Raymond Tusk — Director (Non-Independent), Pent\n<|id|>103<|page|>11<|box|>786 140 803 553<|content|>IV. Review of Other Penterra Directors and Officer\n<|id|>104<|page|>11<|box|>816 140 834 583<|content|>A. Independent Directors (Special Committee Member\n<|id|>113<|page|>13<|box|>138 140 157 611<|content|>B. Other Independent Directors (Not on Special Com\n<|id|>116<|page|>13<|box|>383 140 402 372<|content|>C. Named Executive Officers\n<|id|>121<|page|>14<|box|>90 140 107 710<|content|>V. Review of Caliston Stakeholders and Advisors fo\n<|id|>122<|page|>14<|box|>121 142 138 411<|content|>A. Caliston Major Equity Holders\n<|id|>128<|page|>14<|box|>705 142 720 416<|content|>B. Caliston's Professional Advisors\n<|id|>133<|page|>15<|box|>275 140 292 526<|content|>C. Penterra's Professional Advisors Cross-Check\n<|id|>139<|page|>15<|box|>718 140 734 629<|content|>VI. Analysis of Potential Indirect or Undisclosed\n<|id|>146<|page|>16<|box|>556 140 574 547<|content|>VII. Implications for the Special Committee Proces\n<|id|>147<|page|>16<|box|>587 140 604 411<|content|>A. Entire Fairness Considerations\n<|id|>151<|page|>17<|box|>239 140 256 413<|content|>B. Procedural Safeguards in Place\n<|id|>166<|page|>19<|box|>90 142 107 488<|content|>VIII. Relationship Matrix (Summary Table)\n<|id|>169<|page|>19<|box|>758 143 775 354<|content|>IX. Exhibits / Attachments\n<|id|>176<|page|>21<|box|>89 140 107 406<|content|>Certification and Signature block\n<|id|>178<|page|>21<|box|>234 142 251 250<|content|>Prepared by:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>23<|level|>2\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>97<|level|>3\n<|id|>103<|level|>2\n<|id|>104<|level|>3\n<|id|>113<|level|>3\n<|id|>116<|level|>3\n<|id|>121<|level|>2\n<|id|>122<|level|>3\n<|id|>128<|level|>3\n<|id|>133<|level|>3\n<|id|>139<|level|>2\n<|id|>146<|level|>2\n<|id|>147<|level|>3\n<|id|>151<|level|>3\n<|id|>166<|level|>2\n<|id|>169<|level|>2\n<|id|>176<|level|>2\n<|id|>178<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        }
+    ]
+}

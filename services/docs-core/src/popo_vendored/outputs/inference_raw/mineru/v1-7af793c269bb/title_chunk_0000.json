@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 415<|content|>【4691649#5】中華人民共和國醫療衛生\n<|id|>2<|page|>1<|box|>312 107 328 231<|content|>【543#84】法国\n<|id|>4<|page|>1<|box|>395 107 412 300<|content|>【3114412#23】大埃唐日\n<|id|>6<|page|>1<|box|>462 105 478 425<|content|>【6941765#48】2019冠狀病毒病法國疫情\n<|id|>8<|page|>1<|box|>650 107 665 231<|content|>【543#85】法国\n<|id|>10<|page|>1<|box|>715 107 731 354<|content|>【270#10】中华人民共和国历史\n<|id|>12<|page|>1<|box|>800 107 815 248<|content|>【21908#69】老挝\n<|id|>14<|page|>1<|box|>866 107 882 282<|content|>【547233#5】预期寿命\n<|id|>16<|page|>2<|box|>204 107 219 240<|content|>【4285#63】波兰",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        }
+    ]
+}

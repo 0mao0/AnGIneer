@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 143 195 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>11<|type|>title<|page|>1<|box|>491 385 510 611<|content|>I. Executive Summary\n<|id|>20<|type|>title<|page|>2<|box|>617 240 636 756<|content|>II. Investigation Activity Since Interim Report No\n<|id|>21<|type|>title<|page|>2<|box|>661 140 679 687<|content|>A. Witness Interview: Nicole Prescott — Session 2\n<|id|>34<|type|>title<|page|>4<|box|>611 140 628 723<|content|>B. Cooperation Agreement with Ryan Mateo Serrano (\n<|id|>45<|type|>title<|page|>6<|box|>186 140 204 413<|content|>C. Daskine — Status of Follow-Up\n<|id|>52<|type|>title<|page|>7<|box|>198 274 218 722<|content|>III. Shell-Entity Analysis — Progress Report\n<|id|>55<|type|>title<|page|>7<|box|>430 140 446 473<|content|>Gulf Standard Contracting LLC (\"GSC\")\n<|id|>58<|type|>title<|page|>7<|box|>816 140 834 483<|content|>Clearwater Design Collective Inc. (\"CDC\")\n<|id|>62<|type|>title<|page|>8<|box|>285 140 301 468<|content|>Suncoast Property Services LLC (\"SPS\")\n<|id|>65<|type|>title<|page|>8<|box|>580 142 597 300<|content|>Aggregate Findings\n<|id|>67<|type|>table<|page|>8<|box|>684 143 834 852<|content|>None\n<|id|>74<|type|>title<|page|>9<|box|>404 274 424 722<|content|>IV. Revenue-Recognition Analysis — Update\n<|id|>75<|type|>table<|page|>9<|box|>503 143 626 852<|content|>None\n<|id|>85<|type|>title<|page|>10<|box|>756 305 775 691<|content|>V. Document Review — Status Update\n<|id|>91<|type|>title<|page|>11<|box|>506 238 526 758<|content|>VI. Coordination with SEC Division of Enforcement\n<|id|>100<|type|>title<|page|>12<|box|>488 238 508 759<|content|>VII. Coordination with HSA and Disclosure Matters\n<|id|>105<|type|>title<|page|>13<|box|>172 300 191 696<|content|>VIII. Upcoming Activities and Timeline\n<|id|>118<|type|>title<|page|>14<|box|>506 277 526 720<|content|>IX. Investigation Costs — Interim Summary\n<|id|>120<|type|>title<|page|>14<|box|>603 140 619 380<|content|>Calderwood & Harkness LLP\n<|id|>122<|type|>table<|page|>14<|box|>689 143 801 852<|content|>None\n<|id|>123<|type|>title<|page|>15<|box|>90 140 107 406<|content|>Crestline Forensic Advisory LLC\n<|id|>125<|type|>title<|page|>15<|box|>231 140 247 385<|content|>Triton discovery Solutions Inc.\n<|id|>127<|type|>title<|page|>15<|box|>334 140 351 416<|content|>Total Estimated Investigation Cost\n<|id|>129<|type|>table<|page|>15<|box|>402 143 497 852<|content|>None\n<|id|>131<|type|>title<|page|>15<|box|>613 163 632 833<|content|>X. Recommendations and Items Requiring Audit Commi\n<|id|>136<|type|>title<|page|>16<|box|>290 282 309 714<|content|>XI. Privilege and Confidentiality Reminder",
+    "raw_response": "<|src_id|>67<|tgt_id|>65\n<|src_id|>75<|tgt_id|>74\n<|src_id|>122<|tgt_id|>118\n<|src_id|>129<|tgt_id|>127",
+    "parsed": [
+        {
+            "src_id": 67,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 118
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 127
+        }
+    ]
+}

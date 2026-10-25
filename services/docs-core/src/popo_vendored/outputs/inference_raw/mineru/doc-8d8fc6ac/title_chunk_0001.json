@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        51,
+        82
+    ],
+    "pages": [
+        52,
+        54,
+        58,
+        59,
+        61,
+        64,
+        65,
+        67,
+        69,
+        70,
+        71,
+        72,
+        74,
+        75,
+        76,
+        77,
+        82
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>163<|page|>52<|box|>87 170 99 822<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>165<|page|>52<|box|>410 65 424 944<|content|>Section II - Securities Issued by Federal Agencies\n<|id|>168<|page|>54<|box|>47 331 62 712<|content|>YIELDS OF TREASURY AND CORPORATE BONDS\n<|id|>178<|page|>58<|box|>47 381 63 662<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>180<|page|>59<|box|>53 345 68 625<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>185<|page|>61<|box|>50 385 63 577<|content|>MONETARY STATISTICS\n<|id|>196<|page|>64<|box|>450 375 466 646<|content|>Section I - Historical Summary\n<|id|>198<|page|>65<|box|>79 363 92 631<|content|>Section I - Historical Summary\n<|id|>199<|page|>65<|box|>96 231 112 761<|content|>Table 2.- Short-Term Claims on and Liabilities to\n<|id|>204<|page|>67<|box|>82 330 96 629<|content|>Section II - Summary by Countries\n<|id|>207<|page|>69<|box|>52 406 66 579<|content|>CAPITAL MOVEMENTS\n<|id|>208<|page|>69<|box|>84 337 100 636<|content|>Section II - Summary by Countries\n<|id|>209<|page|>69<|box|>105 224 120 757<|content|>Table 3.- Short-Term Claims on and Liabilities to\n<|id|>211<|page|>70<|box|>50 436 65 608<|content|>CAPITAL MOVEMENTS\n<|id|>212<|page|>70<|box|>83 367 98 660<|content|>Section II - Summary by Countries\n<|id|>213<|page|>70<|box|>103 237 118 806<|content|>Table 4.- Foreign Debit and Credit Balances in Bro\n<|id|>215<|page|>71<|box|>76 278 91 697<|content|>Section III - Details for Month of October 1949\n<|id|>217<|page|>72<|box|>71 305 105 721<|content|>Section III - Details for Month of October 1949 Ta\n<|id|>220<|page|>74<|box|>74 244 89 793<|content|>Section III A - Preliminary Details for Month of D\n<|id|>222<|page|>75<|box|>76 211 91 757<|content|>Section III A - Preliminary Details for Month of D\n<|id|>224<|page|>76<|box|>70 256 86 805<|content|>Section III A - Preliminary Details for Month of D\n<|id|>226<|page|>77<|box|>47 403 60 574<|content|>CAPITAL MOVEMENTS\n<|id|>231<|page|>82<|box|>369 530 449 656<|content|>BUY AND HOLD",
+    "raw_response": "<|id|>163<|level|>1\n<|id|>165<|level|>1\n<|id|>168<|level|>1\n<|id|>178<|level|>1\n<|id|>180<|level|>1\n<|id|>185<|level|>1\n<|id|>196<|level|>1\n<|id|>198<|level|>1\n<|id|>199<|level|>2\n<|id|>204<|level|>1\n<|id|>207<|level|>1\n<|id|>208<|level|>1\n<|id|>209<|level|>2\n<|id|>211<|level|>1\n<|id|>212<|level|>1\n<|id|>213<|level|>2\n<|id|>215<|level|>1\n<|id|>217<|level|>1\n<|id|>220<|level|>2\n<|id|>222<|level|>2\n<|id|>224<|level|>2\n<|id|>226<|level|>1\n<|id|>231<|level|>1",
+    "parsed": [
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 180,
+            "level": 1
+        },
+        {
+            "id": 185,
+            "level": 1
+        },
+        {
+            "id": 196,
+            "level": 1
+        },
+        {
+            "id": 198,
+            "level": 1
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 1
+        },
+        {
+            "id": 207,
+            "level": 1
+        },
+        {
+            "id": 208,
+            "level": 1
+        },
+        {
+            "id": 209,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 1
+        },
+        {
+            "id": 212,
+            "level": 1
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 1
+        },
+        {
+            "id": 217,
+            "level": 1
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 224,
+            "level": 2
+        },
+        {
+            "id": 226,
+            "level": 1
+        },
+        {
+            "id": 231,
+            "level": 1
+        }
+    ]
+}

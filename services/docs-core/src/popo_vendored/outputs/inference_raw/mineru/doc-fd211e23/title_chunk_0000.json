@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 169 125 828<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>10<|page|>1<|box|>449 385 469 611<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>388 361 409 635<|content|>II. Background and Parties\n<|id|>17<|page|>2<|box|>434 140 450 408<|content|>A. Brightfield Cloud Services Inc.\n<|id|>26<|page|>3<|box|>263 140 280 354<|content|>B. Nexilis Innovations Ltd.\n<|id|>37<|page|>4<|box|>169 140 186 545<|content|>C. The Licensed Technology — DeltaSync Platform\n<|id|>41<|page|>4<|box|>599 140 616 522<|content|>D. Engagement of Calderwood & Harkness LLP\n<|id|>48<|page|>5<|box|>135 370 155 627<|content|>III. Proposed Deal Terms\n<|id|>50<|page|>5<|box|>268 140 286 341<|content|>A. License Fee Structure\n<|id|>55<|page|>5<|box|>638 140 656 277<|content|>B. License Term\n<|id|>57<|page|>5<|box|>779 140 796 258<|content|>C. Exclusivity\n<|id|>60<|page|>6<|box|>250 140 266 292<|content|>D. Governing Law\n<|id|>62<|page|>6<|box|>356 372 376 624<|content|>IV. Negotiation Timeline\n<|id|>77<|page|>8<|box|>513 356 534 640<|content|>V. The Field-of-Use Impasse\n<|id|>79<|page|>8<|box|>684 142 700 302<|content|>A. Nexilis's Position\n<|id|>85<|page|>9<|box|>383 140 402 333<|content|>B. Brightfield's Position\n<|id|>91<|page|>10<|box|>90 140 107 718<|content|>C. Brightfield's Tiered-Unlock Compromise Proposal\n<|id|>96<|page|>10<|box|>588 140 604 480<|content|>D. Nexilis's Rejection (September 10, 2023)\n<|id|>100<|page|>11<|box|>90 336 111 660<|content|>VI. Legal and Strategic Analysis\n<|id|>101<|page|>11<|box|>136 140 154 504<|content|>A. Commercial Impact of Narrow Field of Use\n<|id|>106<|page|>11<|box|>702 142 719 609<|content|>B. Delaware Law Enforceability of Field-of-Use Res\n<|id|>112<|page|>12<|box|>348 140 364 648<|content|>C. Risk of Nexilis's Ridgeline Ventures Exclusivit\n<|id|>117<|page|>12<|box|>821 140 839 400<|content|>D. Alternative Technology Paths\n<|id|>123<|page|>13<|box|>428 197 448 800<|content|>VII. Scheduled Final Negotiation Call — September\n<|id|>131<|page|>13<|box|>676 142 691 339<|content|>Nexilis Innovations Ltd.:\n<|id|>137<|page|>14<|box|>90 380 111 614<|content|>VIII. Recommendation\n<|id|>149<|page|>15<|box|>90 352 111 643<|content|>IX. Requested Board Actions\n<|id|>155<|page|>15<|box|>607 380 626 617<|content|>X. Contact Information",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>26<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>1\n<|id|>50<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>1\n<|id|>77<|level|>1\n<|id|>79<|level|>2\n<|id|>85<|level|>2\n<|id|>91<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>1\n<|id|>101<|level|>2\n<|id|>106<|level|>2\n<|id|>112<|level|>2\n<|id|>117<|level|>2\n<|id|>123<|level|>1\n<|id|>131<|level|>2\n<|id|>137<|level|>1\n<|id|>149<|level|>1\n<|id|>155<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        51
+    ],
+    "pages": [
+        3,
+        9,
+        10,
+        11,
+        12,
+        17,
+        28,
+        50
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>3<|box|>507 343 529 653<|content|>treasury. ... gov\n<|id|>6<|page|>3<|box|>544 120 582 875<|content|>Internet service subscribers can access the Treasu...rough the Financial Management Service's home page\n<|id|>21<|page|>9<|box|>167 578 190 913<|content|>OPERATIONS\n<|id|>22<|page|>9<|box|>199 656 462 915<|content|>Profile of the Economy Federal Fiscal Operations A.... Currency and Coin Outstanding and in Circulation\n<|id|>30<|page|>10<|box|>727 81 919 491<|content|>Since the current expansion began in mid-2009, the economy has grown by about 8. ... Consensus\n<|id|>31<|page|>10<|box|>181 513 198 681<|content|>Growth of Real GDP\n<|id|>32<|page|>10<|box|>438 504 468 913<|content|>forecasts currently put real GDP growth in the second quarter of 2013 at a 1. ... 7 percent annual rate\n<|id|>42<|page|>11<|box|>704 504 909 916<|content|>Job losses during the recession were spread broadl...on, but the State and local sectors have since cut\n<|id|>43<|page|>12<|box|>97 109 113 274<|content|>Payroll Employment\n<|id|>45<|page|>12<|box|>409 81 483 490<|content|>employment considerably. ... From February 2010 th...nt jobs (of which 295,000 were in local education)\n<|id|>44<|page|>12<|box|>114 111 138 323<|content|>(Average monthly change in thousands from end of quarter to end of quarter)\n<|id|>48<|page|>12<|box|>746 81 909 491<|content|>Headline inflation, as well as core inflation (exc..., core consumer prices (excluding food and energy)\n<|id|>49<|page|>12<|box|>409 504 468 913<|content|>rose 1. ... Labor market slack should continue to ...core inflation in check for the foreseeable future\n<|id|>90<|page|>17<|box|>515 380 527 616<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>91<|page|>17<|box|>535 83 551 287<|content|>Second-Quarter Receipts\n<|id|>92<|page|>17<|box|>554 81 657 491<|content|>The following capsule analysis of budget receipts,... to adequately analyze collections for the quarter\n<|id|>141<|page|>28<|box|>685 81 717 491<|content|>• Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>143<|page|>28<|box|>250 504 397 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>290<|page|>50<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>291<|page|>50<|box|>198 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund",
+    "raw_response": "<|src_id|>30<|tgt_id|>32\n<|src_id|>42<|tgt_id|>45\n<|src_id|>48<|tgt_id|>49",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        18
+    ],
+    "pages": [
+        2,
+        3,
+        10,
+        11,
+        12,
+        13,
+        14,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>14<|page|>2<|box|>867 140 902 857<|content|>Elaine Briggs co-founded Calloway-Briggs Renewable...ident, Development and as a member of the Board of\n<|id|>15<|page|>3<|box|>90 140 200 856<|content|>Directors since the Company's founding. ... Briggs...age greenfield origination through financial close\n<|id|>83<|page|>10<|box|>299 147 315 403<|content|>• Warren Okoro — Independent\n<|id|>86<|page|>10<|box|>357 140 393 854<|content|>Our Board has determined that the following four d...e not independent under the NYSE listing standards\n<|id|>84<|page|>10<|box|>319 147 335 415<|content|>• Catherine Liang — Independent\n<|id|>85<|page|>10<|box|>338 145 354 415<|content|>• Richard Estavez — Independent\n<|id|>96<|page|>11<|box|>382 147 416 854<|content|>• the requirement that the compensation committee ...omposed entirely of independent directors; ... and\n<|id|>98<|page|>11<|box|>457 140 549 856<|content|>If the Company qualifies as a \"controlled company\"... the corporate governance requirements of the NYSE\n<|id|>113<|page|>12<|box|>785 147 801 573<|content|>• Oversight of the Company's internal audit function; ... and\n<|id|>115<|page|>12<|box|>843 140 897 854<|content|>Charter. ... A copy of the Audit Committee charter will be available on the Company's website\n<|id|>124<|page|>13<|box|>544 147 560 586<|content|>• Review and assessment of compensation-related risk; ... and\n<|id|>126<|page|>13<|box|>601 140 656 854<|content|>Charter. ... A copy of the Compensation Committee charter will be available on the Company's website\n<|id|>131<|page|>13<|box|>915 140 930 413<|content|>CONFIDENTIAL DRAFT — Subject to Revision\n<|id|>139<|page|>14<|box|>354 140 426 856<|content|>Charter. ... A copy of the Nominating and Corporat...charter will be available on the Company's website\n<|id|>137<|page|>14<|box|>261 147 296 854<|content|>• Oversight of compliance with the board-designati...nded and Restated Stockholders' Agreement; ... and\n<|id|>167<|page|>17<|box|>90 174 126 854<|content|>(iii) under Section 174 of the DGCL, relating to u...or unlawful stock purchases or redemptions; ... or\n<|id|>169<|page|>17<|box|>165 140 273 856<|content|>Indemnification. ... The Company's Amended and Res...by the DGCL, subject to certain limited exceptions\n<|id|>175<|page|>17<|box|>594 183 611 580<|content|>• Excess Layer 1: ... and\n<|id|>177<|page|>17<|box|>633 140 724 856<|content|>The annual premium for the D&O program is approxim... unable or unwilling to indemnify such individuals\n<|id|>179<|page|>17<|box|>760 140 888 857<|content|>The limitation of liability and indemnification pr...y may be adversely affected to the extent that the\n<|id|>180<|page|>18<|box|>90 140 127 854<|content|>Company pays the costs of settlement and damage aw...emnification provisions and insurance arrangements",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>179<|tgt_id|>180",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 180
+        }
+    ]
+}

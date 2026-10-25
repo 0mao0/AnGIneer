@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>449 142 465 364<|content|>I. Introduction and Purpose\n<|id|>14<|page|>2<|box|>90 140 107 545<|content|>II. Background and Context of TMC's Cooperation\n<|id|>22<|page|>3<|box|>340 140 357 264<|content|>III. Enclosures\n<|id|>27<|page|>3<|box|>564 140 580 491<|content|>IV. Summary of Key Points of Disagreement\n<|id|>29<|page|>3<|box|>638 140 656 321<|content|>A. Monetary Payment\n<|id|>42<|page|>5<|box|>138 140 157 323<|content|>B. Cooperation Period\n<|id|>48<|page|>5<|box|>645 140 662 380<|content|>C. Compliance Monitor Term\n<|id|>54<|page|>6<|box|>367 140 383 424<|content|>D. Gavin Holt Carve-Out Language\n<|id|>61<|page|>7<|box|>238 140 255 374<|content|>E. Material Breach Standard\n<|id|>69<|page|>8<|box|>90 140 107 450<|content|>F. Scope of Non-Prosecution Protection\n<|id|>76<|page|>9<|box|>90 140 108 483<|content|>G. Agreed Statement of Facts (Appendix B)\n<|id|>79<|page|>9<|box|>382 140 398 330<|content|>V. Proposed Next Steps\n<|id|>83<|page|>9<|box|>720 140 737 344<|content|>VI. Reservation of Rights\n<|id|>101<|page|>10<|box|>633 142 648 238<|content|>Enclosures:",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>22<|level|>1\n<|id|>27<|level|>1\n<|id|>29<|level|>2\n<|id|>42<|level|>2\n<|id|>48<|level|>2\n<|id|>54<|level|>2\n<|id|>61<|level|>2\n<|id|>69<|level|>2\n<|id|>76<|level|>2\n<|id|>79<|level|>1\n<|id|>83<|level|>1\n<|id|>101<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        }
+    ]
+}

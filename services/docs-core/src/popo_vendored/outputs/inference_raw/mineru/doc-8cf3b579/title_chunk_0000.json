@@ -1,0 +1,142 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        13,
+        14,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 284 143 712<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>2<|page|>1<|box|>434 361 450 637<|content|>CHILD SUPPORT AGREEMENT\n<|id|>3<|page|>1<|box|>460 191 478 807<|content|>Attachment to Stipulation for Judgment re Custody,\n<|id|>5<|page|>1<|box|>635 449 652 547<|content|>RECITALS\n<|id|>25<|page|>3<|box|>424 447 440 549<|content|>ARTICLE 1\n<|id|>26<|page|>3<|box|>449 379 465 617<|content|>INCOME OF THE PARTIES\n<|id|>35<|page|>4<|box|>515 447 532 550<|content|>ARTICLE 2\n<|id|>36<|page|>4<|box|>541 297 558 697<|content|>GUIDELINE CHILD SUPPORT CALCULATION\n<|id|>45<|page|>5<|box|>244 447 260 550<|content|>ARTICLE 3\n<|id|>46<|page|>5<|box|>268 261 286 735<|content|>AGREED CHILD SUPPORT AMOUNT AND DEVIATION\n<|id|>59<|page|>6<|box|>593 447 609 550<|content|>ARTICLE 4\n<|id|>60<|page|>6<|box|>618 408 635 589<|content|>EDUCATION COSTS\n<|id|>80<|page|>8<|box|>324 447 340 550<|content|>ARTICLE 5\n<|id|>81<|page|>8<|box|>349 259 367 736<|content|>EXTRACURRICULAR AND ENRICHMENT ACTIVITIES\n<|id|>92<|page|>9<|box|>457 447 474 550<|content|>ARTICLE 6\n<|id|>93<|page|>9<|box|>483 313 500 681<|content|>HEALTHCARE AND MEDICAL EXPENSES\n<|id|>110<|page|>11<|box|>214 447 231 550<|content|>ARTICLE 7\n<|id|>111<|page|>11<|box|>239 429 257 568<|content|>TAX MATTERS\n<|id|>117<|page|>11<|box|>781 447 797 550<|content|>ARTICLE 8\n<|id|>118<|page|>11<|box|>806 323 823 674<|content|>ANNUAL REVIEW AND MODIFICATION\n<|id|>130<|page|>13<|box|>89 447 106 550<|content|>ARTICLE 9\n<|id|>131<|page|>13<|box|>114 352 132 645<|content|>ENFORCEMENT AND REMEDIES\n<|id|>142<|page|>13<|box|>785 442 801 555<|content|>ARTICLE 10\n<|id|>143<|page|>13<|box|>810 408 828 588<|content|>CONFIDENTIALITY\n<|id|>151<|page|>14<|box|>483 442 500 555<|content|>ARTICLE 11\n<|id|>152<|page|>14<|box|>508 392 526 604<|content|>GENERAL PROVISIONS\n<|id|>179<|page|>16<|box|>248 434 265 562<|content|>SIGNATURES\n<|id|>185<|page|>16<|box|>544 315 561 681<|content|>APPROVED AS TO FORM AND CONTENT:\n<|id|>186<|page|>17<|box|>89 393 106 604<|content|>ORDER OF THE COURT",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>5<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>92<|level|>2\n<|id|>93<|level|>3\n<|id|>110<|level|>2\n<|id|>111<|level|>3\n<|id|>117<|level|>2\n<|id|>118<|level|>3\n<|id|>130<|level|>2\n<|id|>131<|level|>3\n<|id|>142<|level|>2\n<|id|>143<|level|>3\n<|id|>151<|level|>2\n<|id|>152<|level|>3\n<|id|>179<|level|>2\n<|id|>185<|level|>2\n<|id|>186<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 3
+        }
+    ]
+}

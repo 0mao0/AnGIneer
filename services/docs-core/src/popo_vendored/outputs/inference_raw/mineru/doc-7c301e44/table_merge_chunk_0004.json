@@ -1,0 +1,24 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['19', 'Fairwater', 'Texas', 'Foreign', 'TX Secret', '$25.00', 'Courier', '_/_/ 2025', '_/_/ 2025', '_/_/ 2025', 'Pending', 'Expedited;']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Sun Belt III LLC', '', 'Qualification', 'ary of State', '', '', '', '', '', '', 'Katy property']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 227,
+    "table2_idx": 228
+}

@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>253 635 270 854<|content|>Case No. ... 24-cv-00319-JRG\n<|id|>6<|page|>1<|box|>280 674 297 854<|content|>Judge James R. ... Gilstrap\n<|id|>62<|page|>7<|box|>863 140 898 854<|content|>41. ... The\n<|id|>63<|page|>7<|box|>902 140 929 828<|content|>DECLARATION OF REBECCA TANAKA IN SUPPORT OF PLAINT...OPPOSITION TO DEFENDANT'S MOTION TO TRANSFER VENUE\n<|id|>64<|page|>8<|box|>90 174 181 854<|content|>lead local counsel attorney for OWS is James \"Jim\"...with the procedures and practices of this district\n<|id|>107<|page|>11<|box|>708 174 744 854<|content|>Catherine \"Kate\" Rourke Darren Cho Samantha Briggs...P 600 Congress Avenue, Suite 2400 Austin, TX 78701\n<|id|>108<|page|>11<|box|>751 174 768 795<|content|>Maria Garza Trask Eddington LLP 425 East Front Street, Suite 300 Tyler, TX 75701",
+    "raw_response": "<|src_id|>62<|tgt_id|>63",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        }
+    ]
+}

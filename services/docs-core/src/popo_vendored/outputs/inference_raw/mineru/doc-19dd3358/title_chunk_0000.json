@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 210 118 785<|content|>WRITTEN CONSENT OF THE MANAGING MEMBER\n<|id|>1<|page|>1<|box|>137 480 157 517<|content|>OF\n<|id|>6<|page|>1<|box|>483 142 500 243<|content|>RECITALS\n<|id|>7<|page|>1<|box|>508 140 526 246<|content|>WHEREAS:\n<|id|>11<|page|>2<|box|>391 140 407 609<|content|>D. The proceeds of the Term Loan B will be applied\n<|id|>30<|page|>4<|box|>643 140 662 279<|content|>RESOLUTIONS\n<|id|>31<|page|>4<|box|>676 140 693 598<|content|>Resolution 1 — Approval of the Term Loan B Transac\n<|id|>34<|page|>5<|box|>157 140 174 514<|content|>Resolution 2 — Authorization of the Guarantee\n<|id|>36<|page|>5<|box|>414 140 431 647<|content|>Resolution 3 — Authorization of the Holdings Pledg\n<|id|>38<|page|>5<|box|>761 140 777 586<|content|>Resolution 4 — Authorization of the Security Agree\n<|id|>40<|page|>6<|box|>268 140 285 624<|content|>Resolution 5 — Authorization of the Intercreditor\n<|id|>42<|page|>6<|box|>542 140 559 743<|content|>Resolution 6 — Authorization of UCC Financing Stat\n<|id|>44<|page|>6<|box|>797 140 814 668<|content|>Resolution 7 — Authorization of Dividend Receipt a\n<|id|>46<|page|>7<|box|>250 140 266 687<|content|>Resolution 8 — Authorization of Closing Certificat\n<|id|>54<|page|>7<|box|>789 140 805 537<|content|>Resolution 9 — Designation of Authorized Persons\n<|id|>59<|page|>8<|box|>448 140 464 475<|content|>Resolution 10 — Ratification of Prior Acts\n<|id|>61<|page|>8<|box|>722 140 739 650<|content|>Resolution 11 — General Authorization and Omnibus\n<|id|>64<|page|>9<|box|>210 421 229 576<|content|>CERTIFICATION\n<|id|>75<|page|>10<|box|>89 308 107 689<|content|>SIGNATURE PAGE TO WRITTEN CONSENT\n<|id|>76<|page|>10<|box|>131 348 148 648<|content|>OF THE MANAGING MEMBER OF\n<|id|>77<|page|>10<|box|>171 333 189 665<|content|>GRANITE PEAK NIH HOLDINGS, LLC",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>6<|level|>2\n<|id|>7<|level|>3\n<|id|>11<|level|>3\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>3\n<|id|>38<|level|>3\n<|id|>40<|level|>3\n<|id|>42<|level|>3\n<|id|>44<|level|>3\n<|id|>46<|level|>3\n<|id|>54<|level|>3\n<|id|>59<|level|>3\n<|id|>61<|level|>3\n<|id|>64<|level|>2\n<|id|>75<|level|>1\n<|id|>76<|level|>1\n<|id|>77<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        }
+    ]
+}

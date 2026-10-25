@@ -1,0 +1,237 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-x0hbr1yu\\input\\pdfs\\doc-8a0b6c77.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-x0hbr1yu\\enriched\\doc-8a0b6c77.json",
+    "contd_output": "<|src_id|>240<|tgt_id|>241\n<|src_id|>241<|tgt_id|>242",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>32<|level|>3\n<|id|>44<|level|>3\n<|id|>53<|level|>3\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>79<|level|>3\n<|id|>84<|level|>3\n<|id|>92<|level|>3\n<|id|>101<|level|>2\n<|id|>102<|level|>3\n<|id|>113<|level|>3\n<|id|>129<|level|>3\n<|id|>140<|level|>4\n<|id|>146<|level|>3\n<|id|>160<|level|>4\n<|id|>168<|level|>3\n<|id|>177<|level|>3\n<|id|>183<|level|>4\n<|id|>188<|level|>2\n<|id|>203<|level|>3\n<|id|>208<|level|>3\n<|id|>212<|level|>3\n<|id|>216<|level|>3\n<|id|>220<|level|>2\n<|id|>221<|level|>3\n<|id|>227<|level|>3\n<|id|>230<|level|>3\n<|id|>238<|level|>3\n<|id|>247<|level|>3\n<|id|>252<|level|>2\n<|id|>258<|level|>2\n<|id|>265<|level|>2",
+    "image_output": "<|src_id|>25<|tgt_id|>24\n<|src_id|>144<|tgt_id|>129\n<|src_id|>165<|tgt_id|>146\n<|src_id|>166<|tgt_id|>146\n<|src_id|>254<|tgt_id|>252\n<|src_id|>255<|tgt_id|>252",
+    "contd_label": [
+        {
+            "src_id": 240,
+            "tgt_id": 241
+        },
+        {
+            "src_id": 241,
+            "tgt_id": 242
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 4
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 4
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 4
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 212,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 3
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 227,
+            "level": 3
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 3
+        },
+        {
+            "id": 247,
+            "level": 3
+        },
+        {
+            "id": 252,
+            "level": 2
+        },
+        {
+            "id": 258,
+            "level": 2
+        },
+        {
+            "id": 265,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 25,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 146
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 146
+        },
+        {
+            "src_id": 254,
+            "tgt_id": 252
+        },
+        {
+            "src_id": 255,
+            "tgt_id": 252
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 165,
+            "table2_idx": 166,
+            "upper_row_ss": [
+                [
+                    "Target Bonus",
+                    "$862,500 (2×)",
+                    "$1,078,125 (2.5×)",
+                    "$215,625"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 254,
+            "table2_idx": 255,
+            "upper_row_ss": [
+                [
+                    "Signing Bonus",
+                    "$250,000 (24-mo. clawback)",
+                    "$250,000 (12-mo. clawback)",
+                    "$250,000 (24-mo. clawback; no",
+                    "Negligible"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "clawback on W/O Cause termination)",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

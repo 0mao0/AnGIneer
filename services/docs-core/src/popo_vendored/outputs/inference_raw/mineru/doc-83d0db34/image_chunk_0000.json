@@ -1,0 +1,58 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>133 174 171 823<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>8<|type|>title<|page|>1<|box|>386 142 402 321<|content|>I. Executive Summary\n<|id|>18<|type|>title<|page|>2<|box|>486 142 503 429<|content|>II. Background and Factual Context\n<|id|>19<|type|>title<|page|>2<|box|>517 140 534 455<|content|>A. The Parties and Corporate Structure\n<|id|>27<|type|>title<|page|>3<|box|>590 140 608 354<|content|>B. The Intercompany Note\n<|id|>32<|type|>title<|page|>4<|box|>138 140 157 341<|content|>C. The Capital Structure\n<|id|>40<|type|>table<|page|>4<|box|>532 143 738 852<|content|>None\n<|id|>48<|type|>title<|page|>5<|box|>590 140 608 429<|content|>D. Liquidity Crisis and Forbearance\n<|id|>54<|type|>title<|page|>6<|box|>421 140 439 617<|content|>III. Analysis of the Intercompany Claim in a TAI C\n<|id|>55<|type|>title<|page|>6<|box|>452 140 469 570<|content|>A. Nature and Allowability of the Intercompany Cla\n<|id|>59<|type|>title<|page|>7<|box|>90 140 108 477<|content|>B. Equitable Subordination Risk (§ 510(c))\n<|id|>69<|type|>title<|page|>8<|box|>539 140 556 359<|content|>C. Recharacterization Risk\n<|id|>85<|type|>title<|page|>10<|box|>756 142 773 338<|content|>D. Impact on Recoveries\n<|id|>95<|type|>title<|page|>11<|box|>726 140 743 488<|content|>IV. Substantive Consolidation Risk Analysis\n<|id|>96<|type|>title<|page|>11<|box|>758 142 773 310<|content|>A. Legal Framework\n<|id|>104<|type|>title<|page|>12<|box|>763 140 780 581<|content|>B. Who Might Seek Substantive Consolidation and Wh\n<|id|>112<|type|>title<|page|>14<|box|>311 140 329 375<|content|>C. Factor-by-Factor Analysis\n<|id|>146<|type|>title<|page|>18<|box|>554 140 571 537<|content|>D. Jurisdictional and Cross-Border Complications\n<|id|>153<|type|>title<|page|>19<|box|>601 140 619 622<|content|>E. Impact of Substantive Consolidation on Lender R\n<|id|>162<|type|>table<|page|>20<|box|>619 143 696 852<|content|>None\n<|id|>166<|type|>title<|page|>21<|box|>204 140 222 472<|content|>V. Recommendations and Risk Mitigation\n<|id|>168<|type|>title<|page|>21<|box|>297 140 316 447<|content|>A. Pre-Filing Corporate Housekeeping\n<|id|>176<|type|>title<|page|>22<|box|>484 140 502 401<|content|>B. Intercompany Claim Strategy\n<|id|>183<|type|>title<|page|>23<|box|>338 140 354 535<|content|>C. Substantive Consolidation Defense Preparation\n<|id|>188<|type|>title<|page|>24<|box|>90 140 107 493<|content|>D. Coordination with Ongoing Workstreams\n<|id|>195<|type|>title<|page|>24<|box|>742 140 758 264<|content|>VI. Conclusion\n<|id|>203<|type|>title<|page|>25<|box|>777 142 794 238<|content|>Appendices\n<|id|>204<|type|>table<|page|>26<|box|>111 143 486 852<|content|>None\n<|id|>205<|type|>table<|page|>27<|box|>112 143 675 852<|content|>None\n<|id|>206<|type|>table<|page|>28<|box|>111 143 686 852<|content|>None\n<|id|>208<|type|>title<|page|>29<|box|>90 142 107 395<|content|>Appendix D — Key Cases Cited",
+    "raw_response": "<|src_id|>40<|tgt_id|>32\n<|src_id|>162<|tgt_id|>153\n<|src_id|>204<|tgt_id|>203\n<|src_id|>205<|tgt_id|>203\n<|src_id|>206<|tgt_id|>203",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 204,
+            "tgt_id": 203
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 203
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 203
+        }
+    ]
+}

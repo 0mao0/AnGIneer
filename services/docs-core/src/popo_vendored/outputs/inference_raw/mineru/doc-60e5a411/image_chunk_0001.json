@@ -1,0 +1,53 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        50,
+        62
+    ],
+    "pages": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>695<|type|>title<|page|>51<|box|>90 163 109 834<|content|>APPENDIX A: PRO FORMA POLICY SPECIMEN (TEMPLATE)\n<|id|>699<|type|>title<|page|>51<|box|>260 236 279 759<|content|>ALTA OWNER'S POLICY OF TITLE INSURANCE (2021 Form)\n<|id|>700<|type|>title<|page|>52<|box|>89 140 107 267<|content|>SCHEDULE A\n<|id|>706<|type|>title<|page|>53<|box|>89 140 106 511<|content|>SCHEDULE B — PART I: REQUIREMENTS\n<|id|>708<|type|>title<|page|>54<|box|>89 140 107 653<|content|>SCHEDULE B — PART II: EXCEPTIONS FROM COVERAGE\n<|id|>715<|type|>title<|page|>54<|box|>414 140 431 447<|content|>CONDITIONS AND STIPULATIONS\n<|id|>734<|type|>title<|page|>55<|box|>619 142 637 434<|content|>EXCLUSIONS FROM COVERAGE\n<|id|>742<|type|>title<|page|>57<|box|>90 245 109 751<|content|>APPENDIX B: ENDORSEMENT FORMS INDEX\n<|id|>744<|type|>table<|page|>57<|box|>250 143 571 852<|content|>None\n<|id|>745<|type|>table<|page|>57<|box|>643 143 858 852<|content|>None\n<|id|>747<|type|>table<|page|>58<|box|>181 143 470 852<|content|>None\n<|id|>749<|type|>table<|page|>58<|box|>582 143 869 852<|content|>None\n<|id|>750<|type|>table<|page|>59<|box|>151 143 411 852<|content|>None\n<|id|>753<|type|>title<|page|>60<|box|>90 158 136 838<|content|>APPENDIX C: CROSS-REFERENCE TO RELATED C&H WORK PR\n<|id|>755<|type|>table<|page|>60<|box|>250 143 893 852<|content|>None\n<|id|>756<|type|>table<|page|>61<|box|>89 143 791 852<|content|>None\n<|id|>758<|type|>title<|page|>62<|box|>90 274 106 723<|content|>— End of Pro Forma ALTA Owner's Policies Compilati",
+    "raw_response": "<|src_id|>744<|tgt_id|>742\n<|src_id|>745<|tgt_id|>742\n<|src_id|>747<|tgt_id|>742\n<|src_id|>749<|tgt_id|>742\n<|src_id|>750<|tgt_id|>742\n<|src_id|>755<|tgt_id|>753\n<|src_id|>756<|tgt_id|>753",
+    "parsed": [
+        {
+            "src_id": 744,
+            "tgt_id": 742
+        },
+        {
+            "src_id": 745,
+            "tgt_id": 742
+        },
+        {
+            "src_id": 747,
+            "tgt_id": 742
+        },
+        {
+            "src_id": 749,
+            "tgt_id": 742
+        },
+        {
+            "src_id": 750,
+            "tgt_id": 742
+        },
+        {
+            "src_id": 755,
+            "tgt_id": 753
+        },
+        {
+            "src_id": 756,
+            "tgt_id": 753
+        }
+    ]
+}

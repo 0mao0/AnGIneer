@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>2<|type|>title<|page|>1<|box|>138 277 155 720<|content|>225 West Wacker Drive, Suite 4000 Chicago, Illinoi\n<|id|>10<|type|>title<|page|>1<|box|>407 142 424 470<|content|>1. Purpose and Confirmation of Dismissal\n<|id|>15<|type|>title<|page|>2<|box|>90 140 107 351<|content|>2. Summary of the Matter\n<|id|>17<|type|>title<|page|>2<|box|>166 140 183 436<|content|>2(a). Engagement and Pre-Suit Phase\n<|id|>20<|type|>table<|page|>2<|box|>465 143 609 852<|content|>None\n<|id|>23<|type|>title<|page|>2<|box|>845 140 863 390<|content|>2(b). Filing and Pleading Phase\n<|id|>33<|type|>title<|page|>3<|box|>797 140 814 312<|content|>2(c). Motion Practice\n<|id|>37<|type|>title<|page|>4<|box|>411 140 429 316<|content|>2(d). Discovery Phase\n<|id|>41<|type|>title<|page|>4<|box|>792 140 809 413<|content|>2(e). Defense Counsel Withdrawal\n<|id|>45<|type|>title<|page|>5<|box|>294 140 311 442<|content|>2(f). Receivership and Automatic Stay\n<|id|>50<|type|>title<|page|>5<|box|>829 140 845 462<|content|>2(g). Assertion of Claims in Receivership\n<|id|>53<|type|>table<|page|>6<|box|>214 143 353 852<|content|>None\n<|id|>55<|type|>title<|page|>6<|box|>518 140 537 455<|content|>3. Current Status and Preserved Claims\n<|id|>56<|type|>title<|page|>6<|box|>550 140 568 339<|content|>3(a). Receivership Claim\n<|id|>61<|type|>title<|page|>7<|box|>184 140 200 398<|content|>3(b). Musgrave Guaranty Claim\n<|id|>65<|type|>title<|page|>7<|box|>546 140 563 490<|content|>3(c). Right to Refile the Cook County Action\n<|id|>68<|type|>title<|page|>7<|box|>801 140 818 380<|content|>4. Summary of Fees and Costs\n<|id|>70<|type|>table<|page|>7<|box|>887 143 906 852<|content|>None\n<|id|>71<|type|>table<|page|>8<|box|>88 143 174 852<|content|>None\n<|id|>74<|type|>title<|page|>8<|box|>440 140 457 483<|content|>5. Document Retention and File Disposition\n<|id|>78<|type|>title<|page|>8<|box|>815 140 832 493<|content|>6. Recommendation for Ongoing Monitoring\n<|id|>88<|type|>title<|page|>9<|box|>531 140 549 227<|content|>7. Closing\n<|id|>99<|type|>title<|page|>10<|box|>133 143 151 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>20<|tgt_id|>17\n<|src_id|>53<|tgt_id|>50\n<|src_id|>70<|tgt_id|>68\n<|src_id|>71<|tgt_id|>68",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 68
+        }
+    ]
+}

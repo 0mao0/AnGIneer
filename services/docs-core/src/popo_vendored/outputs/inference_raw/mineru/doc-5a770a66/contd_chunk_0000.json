@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>1<|box|>369 151 441 844<|content|>CALDERWOOD & HARKNESS LLP Bernard Crawford (Del. ... (202) 555-7101\n<|id|>9<|page|>1<|box|>450 313 469 681<|content|>Counsel for Plaintiff Cascade Retail Holdings Inc.... Counsel for Plaintiff Cascade Retail Holdings Inc\n<|id|>27<|page|>3<|box|>779 140 888 856<|content|>As a condition of the entry of the TRO, and consis...ssued from Broadview's office at 175 Water Street,\n<|id|>28<|page|>4<|box|>89 140 126 854<|content|>Suite 2400, New York, NY 10038. ... 9)\n<|id|>43<|page|>5<|box|>775 174 904 857<|content|>(1) Priya Rathore — Modified Non-Competition. ... (i) home goods, (ii)\n<|id|>44<|page|>6<|box|>90 174 145 854<|content|>seasonal décor, and (iii) private-label apparel. ....g activities within these three product categories\n<|id|>55<|page|>7<|box|>791 174 900 857<|content|>(4) Monetary Settlement. ... In addition, the eigh...ve agreed to forfeit aggregate equity interests in\n<|id|>56<|page|>8<|box|>90 174 200 854<|content|>CRH valued at $849,500, consisting of $362,500 in ...rsuant to the terms of CRH's equity incentive plan\n<|id|>83<|page|>10<|box|>425 174 462 856<|content|>2. ... and\n<|id|>85<|page|>10<|box|>483 140 500 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>86<|page|>10<|box|>502 143 518 253<|content|>By: ... By\n<|id|>87<|page|>10<|box|>518 140 550 852<|content|>Bernard Crawford (Del. ... com\n<|id|>88<|page|>10<|box|>551 140 599 852<|content|>Renata Vasquez (Del. ... com\n<|id|>89<|page|>10<|box|>599 140 648 852<|content|>James Underwood (Del. ... com\n<|id|>90<|page|>10<|box|>650 142 667 511<|content|>Counsel for Plaintiff Cascade Retail Holdings Inc.... Counsel for Plaintiff Cascade Retail Holdings Inc\n<|id|>94<|page|>10<|box|>811 174 885 854<|content|>Catherine Nygaard, Esquire Whitfield, Nygaard & Do...ia Fernandez-Gill, Nathan Tsao, and Kira Johansson\n<|id|>95<|page|>11<|box|>89 176 143 856<|content|>Gavin Blackhall, Esquire Blackhall & Soren LLP 300... Counsel for Defendant Verdana Commerce Group, Inc\n<|id|>100<|page|>11<|box|>291 462 309 534<|content|>Plaintiff,\n<|id|>102<|page|>11<|box|>343 161 398 834<|content|>PRIYA RATHORE, DEREK LINDEN, SONIA KACZMAREK, AMAR...COMMERCE GROUP, INC. ... , a Delaware corporation,\n<|id|>103<|page|>11<|box|>406 452 422 544<|content|>Defendants. ... Defendants\n<|id|>110<|page|>11<|box|>805 142 821 467<|content|>WHITFIELD, NYGAARD & DOYLE LLP\n<|id|>111<|page|>11<|box|>824 143 840 253<|content|>By: ... By\n<|id|>112<|page|>11<|box|>840 140 875 854<|content|>Catherine Nygaard (Del. ... com\n<|id|>113<|page|>11<|box|>875 140 907 854<|content|>Counsel for Defendants Priya Rathore, Derek Linden...ia Fernandez-Gill, Nathan Tsao, and Kira Johansson\n<|id|>114<|page|>11<|box|>915 142 929 243<|content|>CONFIDENTIAL\n<|id|>115<|page|>12<|box|>89 142 125 377<|content|>Dated: ... April 14, 2025 BLACKHALL & SOREN LLP\n<|id|>116<|page|>12<|box|>141 142 209 852<|content|>Gavin Blackhall (Del. ... April 14, 2025\n<|id|>119<|page|>12<|box|>321 462 339 534<|content|>Plaintiff,\n<|id|>121<|page|>12<|box|>375 163 429 834<|content|>PRIYA RATHORE, DEREK LINDEN, SONIA KACZMAREK, AMAR...COMMERCE GROUP, INC. ... , a Delaware corporation,\n<|id|>122<|page|>12<|box|>436 452 454 544<|content|>Defendants. ... Defendants\n<|id|>130<|page|>13<|box|>152 140 224 854<|content|>WHEREAS, all parties — through their respective co...scharge and release of Injunction Bond No. ... and\n<|id|>131<|page|>13<|box|>233 140 270 854<|content|>WHEREAS, no party has asserted or intends to asser...st Injunction Bond No. ... in connection therewith",
+    "raw_response": "<|src_id|>27<|tgt_id|>28\n<|src_id|>43<|tgt_id|>44\n<|src_id|>55<|tgt_id|>56",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        }
+    ]
+}

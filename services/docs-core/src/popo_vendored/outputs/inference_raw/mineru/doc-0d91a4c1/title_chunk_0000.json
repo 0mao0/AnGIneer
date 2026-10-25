@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 181 170 815<|content|>CONFIDENTIAL / ATTORNEY-CLIENT PRIVILEGED / ATTORN\n<|id|>4<|page|>1<|box|>573 142 590 429<|content|>I. PURPOSE OF THIS REMINDER\n<|id|>10<|page|>2<|box|>457 140 474 562<|content|>II. BACKGROUND — THE DOJ INVESTIGATION\n<|id|>20<|page|>3<|box|>664 140 680 766<|content|>III. SCOPE OF THE LITIGATION HOLD — WHAT MUST BE P\n<|id|>22<|page|>3<|box|>811 140 829 357<|content|>A. Covered Subject Matter\n<|id|>35<|page|>5<|box|>473 140 489 267<|content|>B. Time Period\n<|id|>38<|page|>5<|box|>736 140 753 464<|content|>C. Types of Documents and ESI Covered\n<|id|>56<|page|>7<|box|>373 140 388 514<|content|>IV. ENTITIES AND LOCATIONS COVERED\n<|id|>71<|page|>8<|box|>339 140 354 581<|content|>V. SPECIFIC OBLIGATIONS OF ALL CUSTODIANS\n<|id|>73<|page|>8<|box|>450 140 468 545<|content|>A. Do Not Destroy, Delete, or Alter Any Documents\n<|id|>88<|page|>9<|box|>214 140 231 395<|content|>B. Suspend Routine Destruction\n<|id|>92<|page|>9<|box|>503 140 520 410<|content|>C. Affirmative Preservation Steps\n<|id|>98<|page|>10<|box|>214 140 231 480<|content|>D. New Documents Created After the Hold\n<|id|>101<|page|>10<|box|>431 140 449 637<|content|>VI. UPDATES SINCE THE INITIAL HOLD (APRIL 20, 2022\n<|id|>111<|page|>11<|box|>599 140 618 539<|content|>VII. CONSEQUENCES OF NON-COMPLIANCE\n<|id|>121<|page|>12<|box|>594 140 611 364<|content|>VIII. CONFIDENTIALITY\n<|id|>129<|page|>13<|box|>501 140 518 511<|content|>IX. ACKNOWLEDGMENT REQUIREMENT\n<|id|>143<|page|>14<|box|>316 142 333 550<|content|>X. CONTACT INFORMATION FOR QUESTIONS\n<|id|>151<|page|>15<|box|>297 142 314 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>161<|page|>15<|box|>477 401 497 596<|content|>ATTACHMENT A\n<|id|>162<|page|>15<|box|>521 274 539 723<|content|>ACKNOWLEDGMENT AND CERTIFICATION FORM\n<|id|>163<|page|>15<|box|>553 142 571 475<|content|>Litigation Hold Reminder — July 15, 2022\n<|id|>164<|page|>15<|box|>584 140 599 560<|content|>Calderwood & Harkness LLP Matter No. 1016-00009\n<|id|>165<|page|>15<|box|>607 264 625 733<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED\n<|id|>169<|page|>16<|box|>123 142 140 419<|content|>Additional Repositories Disclosure:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>3\n<|id|>35<|level|>3\n<|id|>38<|level|>3\n<|id|>56<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>3\n<|id|>88<|level|>3\n<|id|>92<|level|>3\n<|id|>98<|level|>3\n<|id|>101<|level|>2\n<|id|>111<|level|>2\n<|id|>121<|level|>2\n<|id|>129<|level|>2\n<|id|>143<|level|>2\n<|id|>151<|level|>-1\n<|id|>161<|level|>1\n<|id|>162<|level|>2\n<|id|>163<|level|>3\n<|id|>164<|level|>3\n<|id|>165<|level|>-1\n<|id|>169<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        }
+    ]
+}

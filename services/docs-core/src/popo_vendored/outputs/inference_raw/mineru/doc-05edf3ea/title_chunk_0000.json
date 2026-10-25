@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 104 653<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>1<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>5<|page|>1<|box|>234 140 251 357<|content|>VIA EMAIL AND FEDEX\n<|id|>11<|page|>1<|box|>515 142 532 362<|content|>1. Background and Recitals\n<|id|>17<|page|>2<|box|>359 140 376 415<|content|>2. Expanded Scope of Engagement\n<|id|>19<|page|>2<|box|>434 140 450 411<|content|>2.1 intellectual Property Diligence\n<|id|>28<|page|>3<|box|>700 140 718 364<|content|>2.2 Export Control Analysis\n<|id|>36<|page|>4<|box|>646 140 662 423<|content|>2.3 Government Contracts Support\n<|id|>41<|page|>5<|box|>311 142 329 410<|content|>2.4 Clarification Regarding Scope\n<|id|>43<|page|>5<|box|>541 140 558 475<|content|>3. Additional Engagement Team Members\n<|id|>44<|page|>5<|box|>571 140 588 336<|content|>3.1 New Team Members\n<|id|>48<|page|>6<|box|>90 140 107 390<|content|>3.2 Continuing Team Members\n<|id|>56<|page|>6<|box|>501 142 518 328<|content|>3.3 Team Coordination\n<|id|>59<|page|>6<|box|>738 142 753 310<|content|>4. Fee Arrangements\n<|id|>60<|page|>6<|box|>768 140 786 470<|content|>4.1 Hourly Rates for New Team Members\n<|id|>64<|page|>7<|box|>244 140 263 300<|content|>4.2 CFIUS Fee Cap\n<|id|>68<|page|>7<|box|>662 140 679 339<|content|>4.3 Estimated Total Fees\n<|id|>71<|page|>8<|box|>194 140 212 403<|content|>4.5 Billing Partner and Invoicing\n<|id|>73<|page|>8<|box|>351 140 368 401<|content|>5. Relationship to Other Counsel\n<|id|>77<|page|>8<|box|>762 140 779 390<|content|>6. Confidentiality and Privilege\n<|id|>81<|page|>9<|box|>450 140 467 547<|content|>7. Continuing Effect of Original Engagement Letter\n<|id|>85<|page|>9<|box|>770 140 787 277<|content|>8. Effective Date\n<|id|>89<|page|>10<|box|>196 140 213 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>96<|page|>10<|box|>334 140 351 602<|content|>HALCYON SEMICONDUCTOR AKTIENGESELLSCHAFT\n<|id|>102<|page|>10<|box|>506 142 520 222<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>5<|level|>-1\n<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>19<|level|>2\n<|id|>28<|level|>2\n<|id|>36<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>1\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>56<|level|>2\n<|id|>59<|level|>1\n<|id|>60<|level|>2\n<|id|>64<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>1\n<|id|>77<|level|>1\n<|id|>81<|level|>1\n<|id|>85<|level|>1\n<|id|>89<|level|>-1\n<|id|>96<|level|>-1\n<|id|>102<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        }
+    ]
+}

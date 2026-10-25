@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 176 152 821<|content|>70 West Madison Street, Suite 5000 Chicago, Illinois 60602 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 715 178 854<|content|>February 20, 2023\n<|id|>3<|page|>1<|box|>186 140 222 854<|content|>Constance M. ... General Counsel Metropolitan Tran...t Adams Street, Suite 2400 Chicago, Illinois 60606\n<|id|>18<|page|>2<|box|>674 210 710 854<|content|>(ii) West Garage — 1200 South Cicero Avenue, Chica...llinois 60804 — fifteen megawatts (15 MW); ... and\n<|id|>21<|page|>2<|box|>849 140 885 856<|content|>Scope Exclusions. ... This engagement does not ext...ly excluded from the scope of C&H's representation\n<|id|>39<|page|>4<|box|>479 181 497 570<|content|>• Harold J. ... Greenway, Executive Director, MTDC\n<|id|>42<|page|>4<|box|>537 140 630 857<|content|>Notwithstanding the foregoing, all formal instruct...ll material decisions affecting the representation\n<|id|>40<|page|>4<|box|>500 183 517 604<|content|>• Sandra R. ... Pellegrino, Chief Financial Officer, MTDC\n<|id|>41<|page|>4<|box|>518 184 536 643<|content|>• Raymond K. ... Mosley, Director of Capital Programs, MTDC\n<|id|>46<|page|>4<|box|>806 140 898 856<|content|>The Fee Cap covers all professional time of C&H at...ditional charges for professional time, subject to\n<|id|>47<|page|>5<|box|>90 140 125 854<|content|>MTDC's continued obligation to reimburse disbursem...pocket costs as provided in Section 4. ... 3 below\n<|id|>60<|page|>5<|box|>814 183 830 450<|content|>• Postage and delivery charges; ... and\n<|id|>62<|page|>6<|box|>90 140 145 854<|content|>C&H will endeavor to notify MTDC in advance of any...ministrative expenses, or standard office supplies\n<|id|>66<|page|>6<|box|>343 174 378 854<|content|>Constance M. ... General Counsel Metropolitan Tran...t Adams Street, Suite 2400 Chicago, Illinois 60606\n<|id|>67<|page|>6<|box|>387 140 460 854<|content|>If MTDC has any questions or disputes regarding an...ithheld pending resolution of any disputed charges\n<|id|>112<|page|>10<|box|>239 142 255 315<|content|>Title: ... General Counsel\n<|id|>113<|page|>10<|box|>257 142 273 264<|content|>Date: ... Date\n<|id|>114<|page|>10<|box|>273 140 328 854<|content|>cc: ... George Trujillo, Partner, Calderwood & Harkness LLP\n<|id|>115<|page|>10<|box|>335 140 354 669<|content|>Encl. ... C&H Standard Terms of Engagement (incorporated by reference)",
+    "raw_response": "<|src_id|>46<|tgt_id|>47",
+    "parsed": [
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        }
+    ]
+}

@@ -1,0 +1,146 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 194 118 803<|content|>AMENDED AND RESTATED OPERATING AGREEMENT\n<|id|>2<|page|>1<|box|>175 294 195 704<|content|>PALMETTO GRAND VENTURES LLC\n<|id|>12<|page|>1<|box|>604 142 623 241<|content|>RECITALS\n<|id|>23<|page|>2<|box|>724 140 743 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>45<|page|>4<|box|>678 140 695 423<|content|>ARTICLE II — ORGANIZATION\n<|id|>48<|page|>5<|box|>133 140 152 566<|content|>Section 2.3 — Registered Office and Registered Age\n<|id|>58<|page|>5<|box|>814 140 832 472<|content|>Section 2.7 — EIN and Tax Classification.\n<|id|>63<|page|>6<|box|>229 142 247 367<|content|>ARTICLE III — MEMBER\n<|id|>69<|page|>6<|box|>785 140 801 521<|content|>ARTICLE IV — CAPITAL CONTRIBUTIONS\n<|id|>79<|page|>8<|box|>347 140 364 599<|content|>ARTICLE V — ALLOCATIONS AND DISTRIBUTIONS\n<|id|>81<|page|>8<|box|>546 140 563 364<|content|>Section 5.2 — Distributions.\n<|id|>86<|page|>9<|box|>258 140 276 419<|content|>ARTICLE VI — MANAGEMENT\n<|id|>106<|page|>11<|box|>380 140 397 374<|content|>Section 6.5 — Compensation.\n<|id|>109<|page|>11<|box|>604 140 621 527<|content|>Section 6.6 — Standard of Care and Exculpation.\n<|id|>113<|page|>12<|box|>190 140 205 387<|content|>Section 6.7 — Indemnification.\n<|id|>118<|page|>12<|box|>773 142 789 635<|content|>ARTICLE VII — BOOKS, RECORDS, AND TAX MATTERS\n<|id|>129<|page|>13<|box|>462 140 479 359<|content|>Section 7.3 — Tax Matters.\n<|id|>136<|page|>14<|box|>186 140 203 583<|content|>ARTICLE VIII — PROPERTY AND INDEBTEDNESS\n<|id|>162<|page|>15<|box|>839 140 857 715<|content|>ARTICLE IX — DISSOLUTION, WINDING UP, AND TERMINAT\n<|id|>175<|page|>17<|box|>89 140 107 627<|content|>ARTICLE X — TRANSFER OF MEMBERSHIP INTEREST\n<|id|>178<|page|>17<|box|>549 140 565 485<|content|>ARTICLE XI — DISPUTE RESOLUTION\n<|id|>183<|page|>18<|box|>383 140 401 495<|content|>ARTICLE XII — GENERAL PROVISIONS\n<|id|>203<|page|>20<|box|>90 400 107 596<|content|>[Signature Page Follows]\n<|id|>205<|page|>20<|box|>178 176 194 468<|content|>SOLE MEMBER AND MANAGER:\n<|id|>206<|page|>20<|box|>204 142 220 720<|content|>PELLEGRINO CAPITAL GROUP LLC a Florida limited lia\n<|id|>211<|page|>20<|box|>290 450 306 547<|content|>EXHIBIT A\n<|id|>212<|page|>20<|box|>316 385 332 612<|content|>MEMBER INFORMATION\n<|id|>215<|page|>20<|box|>532 142 549 295<|content|>Notes to Exhibit A:\n<|id|>219<|page|>20<|box|>800 450 816 549<|content|>EXHIBIT B\n<|id|>220<|page|>20<|box|>825 318 842 679<|content|>DESCRIPTION OF COMPANY PROPERTY\n<|id|>221<|page|>20<|box|>852 143 869 416<|content|>The Palmetto Grand Resort & Spa\n<|id|>238<|page|>21<|box|>724 315 741 683<|content|>SUMMARY OF EXISTING INDEBTEDNESS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>12<|level|>2\n<|id|>23<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>3\n<|id|>58<|level|>3\n<|id|>63<|level|>2\n<|id|>69<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>3\n<|id|>86<|level|>2\n<|id|>106<|level|>3\n<|id|>109<|level|>3\n<|id|>113<|level|>3\n<|id|>118<|level|>2\n<|id|>129<|level|>3\n<|id|>136<|level|>2\n<|id|>162<|level|>2\n<|id|>175<|level|>2\n<|id|>178<|level|>2\n<|id|>183<|level|>2\n<|id|>203<|level|>-1\n<|id|>205<|level|>-1\n<|id|>206<|level|>-1\n<|id|>211<|level|>2\n<|id|>212<|level|>3\n<|id|>215<|level|>3\n<|id|>219<|level|>2\n<|id|>220<|level|>3\n<|id|>221<|level|>4\n<|id|>238<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 4
+        },
+        {
+            "id": 238,
+            "level": 2
+        }
+    ]
+}

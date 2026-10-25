@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>114 282 132 714<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>2<|type|>title<|page|>1<|box|>143 160 162 836<|content|>ORAL ARGUMENT OUTLINE — FINAL APPROVAL HEARING\n<|id|>3<|type|>title<|page|>1<|box|>181 563 196 854<|content|>Date of Preparation: January 31, 2024\n<|id|>4<|type|>table<|page|>1<|box|>204 143 398 852<|content|>None\n<|id|>6<|type|>title<|page|>1<|box|>531 142 547 366<|content|>I. OPENING STATEMENT\n<|id|>12<|type|>title<|page|>2<|box|>229 140 247 622<|content|>II. SETTLEMENT FAIRNESS — THE CORE ARGUMENT\n<|id|>14<|type|>title<|page|>2<|box|>287 140 304 437<|content|>A. Arm's-Length Negotiation Process\n<|id|>18<|type|>title<|page|>2<|box|>686 140 704 602<|content|>B. Extensive Investigation and discovery Before Se\n<|id|>28<|type|>title<|page|>3<|box|>741 140 758 589<|content|>C. Settlement Amount Is Fair, Adequate, and Reason\n<|id|>32<|type|>title<|page|>4<|box|>484 140 501 558<|content|>D. Scope of Release Provides Comprehensive Finalit\n<|id|>36<|type|>title<|page|>4<|box|>801 140 818 496<|content|>III. CLASS SUPPORT FOR SETTLEMENT\n<|id|>38<|type|>title<|page|>5<|box|>90 140 106 266<|content|>A. Claims Rate\n<|id|>41<|type|>title<|page|>5<|box|>431 140 449 343<|content|>C. Notice Administration\n<|id|>45<|type|>title<|page|>5<|box|>785 142 801 447<|content|>IV. FINANCIAL TERMS SUMMARY\n<|id|>46<|type|>title<|page|>5<|box|>811 142 829 348<|content|>(Estimated time: 2 minutes)\n<|id|>48<|type|>table<|page|>5<|box|>878 143 901 852<|content|>None\n<|id|>49<|type|>table<|page|>6<|box|>88 143 250 852<|content|>None\n<|id|>53<|type|>title<|page|>6<|box|>595 140 613 416<|content|>V. RESPONSE TO OBJECTIONS\n<|id|>54<|type|>title<|page|>6<|box|>622 142 638 349<|content|>(Estimated time: 3 minutes)\n<|id|>56<|type|>title<|page|>6<|box|>715 140 734 485<|content|>A. Carlos Vega — Attorneys' Fee Objection\n<|id|>61<|type|>title<|page|>7<|box|>330 140 347 547<|content|>B. Rachel Kimura — Allocation Formula Objection\n<|id|>65<|type|>title<|page|>7<|box|>729 140 746 584<|content|>C. Samuel Torres — \"Settlement Is Too Low\" Objecti\n<|id|>69<|type|>title<|page|>8<|box|>349 140 366 501<|content|>D. Dawn Prescott — Broad Release Objection\n<|id|>73<|type|>title<|page|>8<|box|>720 140 738 452<|content|>VI. ATTORNEYS' FEES AND COSTS\n<|id|>74<|type|>title<|page|>8<|box|>747 140 763 341<|content|>(Estimated time: 1 minute)\n<|id|>82<|type|>title<|page|>9<|box|>460 140 478 434<|content|>VII. AMA'S READINESS TO FUND\n<|id|>83<|type|>title<|page|>9<|box|>487 140 505 341<|content|>(Estimated time: 1 minute)\n<|id|>90<|type|>title<|page|>10<|box|>89 140 106 274<|content|>VIII. CLOSING\n<|id|>91<|type|>title<|page|>10<|box|>116 142 133 341<|content|>(Estimated time: 1 minute)\n<|id|>102<|type|>title<|page|>10<|box|>585 140 603 839<|content|>IX. ANTICIPATED QUESTIONS FROM THE COURT AND PROPO\n<|id|>104<|type|>title<|page|>10<|box|>674 140 691 678<|content|>Q: \"Why is the fee percentage 33.33% rather than a\n<|id|>108<|type|>title<|page|>11<|box|>244 140 261 555<|content|>Q: \"What happens to funds from uncashed checks?\"\n<|id|>110<|type|>title<|page|>11<|box|>351 140 368 655<|content|>Q: \"Is AMA confident it can fund the settlement wi\n<|id|>112<|type|>title<|page|>11<|box|>531 140 547 691<|content|>Q: \"Why should the Court approve service awards at\n<|id|>114<|type|>title<|page|>11<|box|>710 140 728 557<|content|>Q: \"What is the estimated timeline for distributio\n<|id|>116<|type|>title<|page|>12<|box|>89 140 106 689<|content|>X. SUPPORTING DECLARATIONS AND FILINGS REFERENCED",
+    "raw_response": "<|src_id|>4<|tgt_id|>2\n<|src_id|>48<|tgt_id|>45\n<|src_id|>49<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 45
+        }
+    ]
+}

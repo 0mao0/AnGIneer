@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        13,
+        14,
+        20,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>152 424 169 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>179 568 196 854<|content|>April 12, 2023 Matter No. ... 1012-00002\n<|id|>4<|page|>1<|box|>205 140 222 555<|content|>TO: ... Board of Directors, Stonefield Logistics Group Inc\n<|id|>5<|page|>1<|box|>231 174 286 854<|content|>Marcus Delano, Chief Executive Officer and Directo...LC; ... Board Designee All Other Current Directors\n<|id|>6<|page|>1<|box|>294 140 311 655<|content|>FROM: ... Nathan Ikeda, Associate, Bankruptcy & Restructuring Group\n<|id|>7<|page|>1<|box|>319 142 337 736<|content|>REVIEWED BY: ... Nathaniel Bower, Partner, Bankruptcy & Restructuring Group\n<|id|>8<|page|>1<|box|>345 140 398 854<|content|>RE: ... in the Zone of Insolvency — Analysis and G...ction with Contemplated Restructuring Alternatives\n<|id|>9<|page|>1<|box|>407 142 424 408<|content|>Right-click to update Table of Contents\n<|id|>25<|page|>2<|box|>837 140 910 856<|content|>Stonefield is the direct subsidiary of Stonefield ...ng company in the organizational structure. ... (a\n<|id|>26<|page|>3<|box|>89 140 162 854<|content|>Delaware corporation), and Stonefield Warehousing ...rators, and corporate and administrative personnel\n<|id|>43<|page|>4<|box|>869 140 907 854<|content|>An ad hoc group of mezzanine holders formed inform...... The ad hoc group comprises Graystone Mezzanine\n<|id|>44<|page|>5<|box|>89 140 218 854<|content|>Capital Fund II LP (holding $52. ... The first lie...estlake Harden & Cole LLP (partner Ramona Quelibo)\n<|id|>116<|page|>13<|box|>811 138 904 857<|content|>Independent Advisors. ... At a minimum, the Board ...visors are providing advice that is independent of\n<|id|>117<|page|>14<|box|>89 140 127 854<|content|>Ridgeline's influence and that their engagement le... the special committee) rather than to the Sponsor\n<|id|>184<|page|>20<|box|>729 183 746 767<|content|>• Transactions from which the director derived an improper personal benefit; ... or\n<|id|>186<|page|>20<|box|>786 140 859 854<|content|>Accordingly, while § 102(b)(7) provides significan...nder both the duty of care and the duty of loyalty\n<|id|>230<|page|>25<|box|>486 174 522 854<|content|>Nathaniel Bower, Partner Calderwood & Harkness LLP...y & Restructuring Group Direct: ... (212) 558-4000\n<|id|>231<|page|>25<|box|>531 176 547 490<|content|>Email: ... com\n<|id|>232<|page|>25<|box|>547 174 583 854<|content|>Nathan Ikeda, Associate Calderwood & Harkness LLP ...y & Restructuring Group Direct: ... (212) 558-4127\n<|id|>233<|page|>25<|box|>592 176 609 483<|content|>Email: ... com\n<|id|>234<|page|>25<|box|>637 140 728 854<|content|>This memorandum is a privileged and confidential a...ard of Directors of Stonefield Logistics Group Inc",
+    "raw_response": "<|src_id|>25<|tgt_id|>26\n<|src_id|>43<|tgt_id|>44\n<|src_id|>116<|tgt_id|>117",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 117
+        }
+    ]
+}

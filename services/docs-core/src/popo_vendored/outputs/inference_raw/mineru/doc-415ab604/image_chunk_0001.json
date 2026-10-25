@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>415<|type|>title<|page|>45<|box|>140 465 156 556<|content|>附 录 F\n<|id|>424<|type|>table<|page|>45<|box|>583 105 683 912<|content|>None\n<|id|>426<|type|>table<|page|>45<|box|>778 105 898 914<|content|>None\n<|id|>428<|type|>table<|page|>46<|box|>116 82 197 890<|content|>None\n<|id|>429<|type|>table<|page|>46<|box|>269 78 527 887<|content|>None\n<|id|>430<|type|>table<|page|>46<|box|>602 82 741 890<|content|>None\n<|id|>431<|type|>table<|page|>46<|box|>815 82 896 890<|content|>None\n<|id|>432<|type|>table<|page|>47<|box|>116 107 275 914<|content|>None\n<|id|>433<|type|>title<|page|>48<|box|>137 420 156 554<|content|>参 考 文 献",
+    "raw_response": "<|src_id|>424<|tgt_id|>415\n<|src_id|>426<|tgt_id|>415\n<|src_id|>428<|tgt_id|>415\n<|src_id|>429<|tgt_id|>415\n<|src_id|>430<|tgt_id|>415\n<|src_id|>431<|tgt_id|>415\n<|src_id|>432<|tgt_id|>415",
+    "parsed": [
+        {
+            "src_id": 424,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 426,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 428,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 429,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 430,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 431,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 432,
+            "tgt_id": 415
+        }
+    ]
+}

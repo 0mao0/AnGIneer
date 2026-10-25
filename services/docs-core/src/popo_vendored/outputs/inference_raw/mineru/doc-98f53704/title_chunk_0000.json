@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 147 142 849<|content|>WRITTEN CONSENT OF STOCKHOLDERS IN LIEU OF SPECIAL\n<|id|>4<|page|>1<|box|>263 179 280 815<|content|>DRAFT — FOR DISCUSSION PURPOSES ONLY — SUBJECT TO\n<|id|>5<|page|>1<|box|>304 140 321 390<|content|>PREAMBLE AND RECITALS\n<|id|>21<|page|>3<|box|>420 140 457 754<|content|>SECTION 1: APPROVAL OF THE NOTE PURCHASE AGREEMENT\n<|id|>34<|page|>4<|box|>712 140 729 707<|content|>SECTION 2: APPROVAL OF THE SUBORDINATION AGREEMENT\n<|id|>36<|page|>5<|box|>167 140 203 776<|content|>SECTION 3: APPROVAL OF AMENDMENT NO. 1 TO THE AMEN\n<|id|>39<|page|>5<|box|>608 140 643 787<|content|>SECTION 4: APPROVAL OF AMENDMENT NO. 1 TO THE RIGH\n<|id|>42<|page|>6<|box|>89 140 125 751<|content|>SECTION 5: WAIVER OF PREEMPTIVE RIGHTS AND ANTI-DI\n<|id|>45<|page|>6<|box|>621 140 657 790<|content|>SECTION 6: AUTHORIZATION OF OFFICERS TO EXECUTE AN\n<|id|>48<|page|>7<|box|>314 140 330 568<|content|>SECTION 7: RATIFICATION OF PRIOR ACTIONS\n<|id|>50<|page|>7<|box|>564 140 580 464<|content|>SECTION 8: OMNIBUS RESOLUTION\n<|id|>54<|page|>8<|box|>148 140 166 674<|content|>SECTION 9: EFFECTIVENESS AND DGCL § 228 COMPLIANCE\n<|id|>60<|page|>8<|box|>652 158 686 836<|content|>SIGNATURE PAGES TO WRITTEN CONSENT OF STOCKHOLDERS\n<|id|>62<|page|>8<|box|>739 142 757 715<|content|>RIDGELINE VENTURES FUND III, L.P. (Series C Prefer\n<|id|>104<|page|>10<|box|>89 433 107 565<|content|>EXHIBIT LIST",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>-1\n<|id|>5<|level|>2\n<|id|>21<|level|>2\n<|id|>34<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>54<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>3\n<|id|>104<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        }
+    ]
+}

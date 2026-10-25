@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>135 110 173 936<|content|>中华人民共和国国家标准\n<|id|>2<|type|>title<|page|>1<|box|>382 179 420 865<|content|>中国海区视觉航标表面色规定\n<|id|>3<|type|>title<|page|>1<|box|>447 243 495 801<|content|>The regulation for surface colours of the visual a\n<|id|>7<|type|>title<|page|>2<|box|>199 445 221 584<|content|>前言\n<|id|>19<|type|>title<|page|>3<|box|>118 275 141 600<|content|>中华人民共和国国家标准\n<|id|>20<|type|>title<|page|>3<|box|>168 240 193 633<|content|>中国海区视觉航标表面色规定\n<|id|>22<|type|>title<|page|>3<|box|>205 252 241 620<|content|>The regulation for surface colours of the visual a\n<|id|>23<|type|>title<|page|>3<|box|>296 119 312 189<|content|>1 范围\n<|id|>27<|type|>title<|page|>3<|box|>388 119 406 223<|content|>2 引用标准\n<|id|>31<|type|>title<|page|>3<|box|>502 117 518 186<|content|>3 定义\n<|id|>38<|type|>title<|page|>3<|box|>668 115 684 327<|content|>4 表面色构成及涂色方法\n<|id|>41<|type|>title<|page|>3<|box|>741 115 759 203<|content|>5 表面色\n<|id|>44<|type|>table<|page|>4<|box|>139 104 605 877<|content|>None\n<|id|>45<|type|>table<|page|>4<|box|>646 102 912 877<|content|>None\n<|id|>46<|type|>table<|page|>5<|box|>164 119 530 897<|content|>None\n<|id|>47<|type|>title<|page|>6<|box|>146 433 162 527<|content|>附录A\n<|id|>49<|type|>title<|page|>6<|box|>183 327 200 635<|content|>海区视觉航标表面色在色品图上的标示",
+    "raw_response": "<|src_id|>44<|tgt_id|>41\n<|src_id|>45<|tgt_id|>41\n<|src_id|>46<|tgt_id|>41",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 41
+        }
+    ]
+}

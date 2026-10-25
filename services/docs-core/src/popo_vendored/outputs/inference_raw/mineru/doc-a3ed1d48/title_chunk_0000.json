@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>558 140 574 547<|content|>I. Background of Blakemore & Stern's Engagement\n<|id|>20<|page|>2<|box|>736 140 753 493<|content|>II. Inventory of Materials Being Transferred\n<|id|>22<|page|>2<|box|>829 142 845 385<|content|>A. Court Filings and Pleadings\n<|id|>34<|page|>3<|box|>474 142 493 388<|content|>B. Pre-Litigation Workout File\n<|id|>41<|page|>4<|box|>138 140 157 423<|content|>C. Credit and Loan Documentation\n<|id|>52<|page|>4<|box|>585 176 603 441<|content|>4. Security documents, including:\n<|id|>66<|page|>5<|box|>503 142 518 534<|content|>D. Internal BRB Documents Received from Client\n<|id|>69<|page|>5<|box|>645 176 662 513<|content|>2. Borrower financial reporting, including:\n<|id|>72<|page|>5<|box|>789 176 806 660<|content|>3. Outstanding balance records as of March 8, 2023\n<|id|>76<|page|>5<|box|>887 176 904 697<|content|>4. Ridgeline Appraisal Group, Inc. appraisal repor\n<|id|>86<|page|>6<|box|>626 140 643 395<|content|>E. Third-Party Correspondence\n<|id|>91<|page|>7<|box|>148 140 167 575<|content|>III. Key Issues and Observations for Successor Cou\n<|id|>102<|page|>8<|box|>439 140 457 455<|content|>IV. Method and Timing of File Delivery\n<|id|>107<|page|>8<|box|>753 140 772 352<|content|>V. Substitution of Counsel\n<|id|>110<|page|>9<|box|>204 140 222 549<|content|>VI. Outstanding Billing and Administrative Matters\n<|id|>113<|page|>9<|box|>369 140 387 406<|content|>VII. Availability for Consultation\n<|id|>130<|page|>10<|box|>213 142 229 240<|content|>Enclosures:",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>2\n<|id|>34<|level|>2\n<|id|>41<|level|>2\n<|id|>52<|level|>3\n<|id|>66<|level|>2\n<|id|>69<|level|>3\n<|id|>72<|level|>3\n<|id|>76<|level|>3\n<|id|>86<|level|>2\n<|id|>91<|level|>1\n<|id|>102<|level|>1\n<|id|>107<|level|>1\n<|id|>110<|level|>1\n<|id|>113<|level|>1\n<|id|>130<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        }
+    ]
+}

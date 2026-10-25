@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 202 137 795<|content|>ATTORNEY WORK PRODUCT — PRIVILEGED AND CONFIDENTIA\n<|id|>6<|type|>title<|page|>1<|box|>316 142 334 321<|content|>I. Executive Summary\n<|id|>12<|type|>table<|page|>1<|box|>875 145 893 851<|content|>None\n<|id|>13<|type|>table<|page|>2<|box|>88 143 217 852<|content|>None\n<|id|>16<|type|>title<|page|>2<|box|>500 142 518 267<|content|>II. Background\n<|id|>17<|type|>title<|page|>2<|box|>531 140 549 406<|content|>A. The IPO Lock-Up Agreements\n<|id|>33<|type|>title<|page|>3<|box|>684 140 700 434<|content|>B. The Proposed Secondary Offering\n<|id|>40<|type|>table<|page|>4<|box|>393 143 506 852<|content|>None\n<|id|>41<|type|>title<|page|>4<|box|>546 140 561 348<|content|>C. Need for Early Release\n<|id|>45<|type|>title<|page|>5<|box|>186 140 204 395<|content|>III. Lock-Up Waiver Mechanics\n<|id|>46<|type|>title<|page|>5<|box|>217 140 234 341<|content|>A. Consent Requirement\n<|id|>55<|type|>title<|page|>6<|box|>294 142 311 297<|content|>B. Scope of Waiver\n<|id|>59<|type|>table<|page|>6<|box|>546 143 689 852<|content|>None\n<|id|>60<|type|>title<|page|>6<|box|>724 176 739 565<|content|>(iii) Effective date of the release: October 12, 2\n<|id|>62<|type|>title<|page|>7<|box|>90 140 107 464<|content|>C. Form of Waiver Request and Consent\n<|id|>70<|type|>title<|page|>7<|box|>657 140 674 558<|content|>IV. 14-Day Advance Notice Requirement and Waiver\n<|id|>71<|type|>title<|page|>7<|box|>689 140 705 333<|content|>A. The Notice Provision\n<|id|>75<|type|>title<|page|>8<|box|>250 142 267 475<|content|>B. Applicability to the Secondary Offering\n<|id|>77<|type|>table<|page|>8<|box|>377 143 491 852<|content|>None\n<|id|>79<|type|>title<|page|>8<|box|>757 140 773 436<|content|>C. Waiver of the Notice Requirement\n<|id|>86<|type|>title<|page|>9<|box|>637 140 655 385<|content|>V. SEC Disclosure Obligations\n<|id|>87<|type|>title<|page|>9<|box|>669 140 686 436<|content|>A. Prospectus Supplement Disclosure\n<|id|>98<|type|>title<|page|>10<|box|>643 140 659 367<|content|>B. Form 8-K Considerations\n<|id|>101<|type|>title<|page|>11<|box|>90 140 107 405<|content|>C. Regulation FD Considerations\n<|id|>105<|type|>title<|page|>11<|box|>489 140 506 352<|content|>D. Section 16 Implications\n<|id|>110<|type|>title<|page|>12<|box|>258 140 277 676<|content|>VI. New 90-Day Lock-Up Considerations for the Seco\n<|id|>113<|type|>title<|page|>12<|box|>527 142 545 256<|content|>B. Key Terms\n<|id|>120<|type|>title<|page|>13<|box|>273 140 292 475<|content|>C. Interaction with Original IPO Lock-Up\n<|id|>125<|type|>title<|page|>13<|box|>755 140 773 434<|content|>D. Form of New Lock-Up Agreement\n<|id|>131<|type|>title<|page|>14<|box|>402 140 420 524<|content|>VII. Procedural Recommendations and Timeline\n<|id|>132<|type|>title<|page|>14<|box|>434 140 450 537<|content|>A. Recommended Actions and Responsible Parties\n<|id|>141<|type|>title<|page|>15<|box|>232 140 250 269<|content|>B. Risk Factors\n<|id|>146<|type|>title<|page|>15<|box|>795 140 811 279<|content|>VIII. Conclusion",
+    "raw_response": "<|src_id|>12<|tgt_id|>6\n<|src_id|>13<|tgt_id|>6\n<|src_id|>40<|tgt_id|>33\n<|src_id|>59<|tgt_id|>55\n<|src_id|>77<|tgt_id|>75",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        }
+    ]
+}

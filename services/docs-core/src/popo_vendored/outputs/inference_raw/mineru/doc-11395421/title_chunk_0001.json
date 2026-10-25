@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        63,
+        114
+    ],
+    "pages": [
+        64,
+        68,
+        75,
+        90,
+        91,
+        92,
+        95,
+        98,
+        102,
+        104,
+        112,
+        113,
+        114
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>289<|page|>64<|box|>86 348 101 663<|content|>Footnotes to Table 6.- (Continued)\n<|id|>306<|page|>68<|box|>52 386 66 616<|content|>UNITED STATES SAVINGS BONDS\n<|id|>323<|page|>75<|box|>55 244 71 727<|content|>MARKET QUOTATIONS ON TREASURY SECURITIES, MARCH 30\n<|id|>359<|page|>90<|box|>513 364 528 651<|content|>Section I - Summary by Periods\n<|id|>361<|page|>91<|box|>94 169 109 800<|content|>Table 2.- Short-Term Banking Liabilities to and Cl\n<|id|>364<|page|>92<|box|>99 354 114 638<|content|>Section I - Summary by Periods\n<|id|>369<|page|>95<|box|>81 329 96 638<|content|>Section II - Summary by Countries\n<|id|>376<|page|>98<|box|>77 286 93 714<|content|>Section III - Preliminary Details by Countries\n<|id|>382<|page|>102<|box|>52 276 69 747<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>392<|page|>104<|box|>49 276 69 751<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>404<|page|>112<|box|>46 271 59 746<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>406<|page|>113<|box|>50 252 65 725<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>407<|page|>113<|box|>84 153 115 830<|content|>Section II - Income and Expense for the Six Months\n<|id|>409<|page|>114<|box|>47 262 62 739<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV",
+    "raw_response": "<|id|>289<|level|>2\n<|id|>306<|level|>1\n<|id|>323<|level|>1\n<|id|>359<|level|>1\n<|id|>361<|level|>2\n<|id|>364<|level|>3\n<|id|>369<|level|>3\n<|id|>376<|level|>3\n<|id|>382<|level|>1\n<|id|>392<|level|>1\n<|id|>404<|level|>1\n<|id|>406<|level|>1\n<|id|>407<|level|>2\n<|id|>409<|level|>1",
+    "parsed": [
+        {
+            "id": 289,
+            "level": 2
+        },
+        {
+            "id": 306,
+            "level": 1
+        },
+        {
+            "id": 323,
+            "level": 1
+        },
+        {
+            "id": 359,
+            "level": 1
+        },
+        {
+            "id": 361,
+            "level": 2
+        },
+        {
+            "id": 364,
+            "level": 3
+        },
+        {
+            "id": 369,
+            "level": 3
+        },
+        {
+            "id": 376,
+            "level": 3
+        },
+        {
+            "id": 382,
+            "level": 1
+        },
+        {
+            "id": 392,
+            "level": 1
+        },
+        {
+            "id": 404,
+            "level": 1
+        },
+        {
+            "id": 406,
+            "level": 1
+        },
+        {
+            "id": 407,
+            "level": 2
+        },
+        {
+            "id": 409,
+            "level": 1
+        }
+    ]
+}

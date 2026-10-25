@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        14
+    ],
+    "pages": [
+        4,
+        8,
+        9,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>38<|page|>4<|box|>339 84 626 477<|content|>Relational data typically uses a fixed field order...tial cold miss, and the length of each hit ism - 1\n<|id|>39<|page|>4<|box|>633 84 907 477<|content|>Now consider a scenario where the table contains g...ulting in a 3 times higher hit rate of3 ( x - 1 ))\n<|id|>89<|page|>8<|box|>785 495 907 888<|content|>LLM aggregation. ... The results of this query typ...similar to filtering query results, as the average\n<|id|>90<|page|>9<|box|>250 84 265 246<|content|>output length is similar. ... output length is similar\n<|id|>94<|page|>9<|box|>679 84 832 477<|content|>This section evaluates the cost efficiency of our ...els that support prompt caching. ... <sup>23</sup>\n<|id|>97<|page|>9<|box|>404 495 541 888<|content|>Since both OpenAI and Anthropic require a minimum ...hropic does not support automatic prefix detection\n<|id|>169<|page|>14<|box|>123 111 138 364<|content|>Body, PostDate, PostId, Text\n<|id|>170<|page|>14<|box|>148 111 162 153<|content|>FDs: ... FDs\n<|id|>174<|page|>14<|box|>242 109 508 467<|content|>artistname, bestarrangement, bestpath, bestuniquea...ated, subtitle, tags, text, title, tracks, version\n<|id|>175<|page|>14<|box|>530 111 544 151<|content|>FDs: ... FDs\n<|id|>178<|page|>14<|box|>547 112 595 450<|content|>[metadata, path], [hasannotations, hasmetadata, isdraft, isofficial, isuserpublisher, subsetall ]\n<|id|>179<|page|>14<|box|>672 111 724 421<|content|>beer/beerId, beer/name, beer/style, review/appeara...ate, review/profileName, review/taste, review/time\n<|id|>180<|page|>14<|box|>734 111 750 151<|content|>FDs: ... FDs\n<|id|>184<|page|>14<|box|>111 521 180 784<|content|>columns: ... []\n<|id|>186<|page|>14<|box|>878 111 893 178<|content|>FDs: ... []\n<|id|>185<|page|>14<|box|>816 109 868 362<|content|>-- FEVER -- columns: ... claim, evidence1, evidence2, evidence3, evidence4\n<|id|>191<|page|>14<|box|>340 522 364 687<|content|>Answer the below query: ... {QUERY}\n<|id|>192<|page|>14<|box|>371 522 395 700<|content|>Given the following data: ... {fields}",
+    "raw_response": "<|src_id|>89<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        }
+    ]
+}

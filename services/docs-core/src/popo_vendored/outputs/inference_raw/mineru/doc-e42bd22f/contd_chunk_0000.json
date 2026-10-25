@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        8
+    ],
+    "pages": [
+        3,
+        4,
+        5,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>30<|page|>3<|box|>862 140 898 856<|content|>4. ... 3 If Tenant fails to deliver a valid ROFO A... to Landlord declining to lease the Available ROFO\n<|id|>31<|page|>4<|box|>90 140 200 856<|content|>Space, Tenant shall be deemed to have waived its R... case subject to the provisions of Section 7 below\n<|id|>44<|page|>4<|box|>719 176 737 442<|content|>(i) Casualty and condemnation; ... and\n<|id|>46<|page|>4<|box|>771 140 900 857<|content|>5. ... The recalculated Proportionate Share shall be applicable to Tenant's obligations for\n<|id|>47<|page|>5<|box|>90 140 126 854<|content|>Operating Expenses, Tax Expenses, and all other it...ted on a proportionate share basis under the Lease\n<|id|>82<|page|>8<|box|>479 140 497 790<|content|>GREYSTONE METROPOLITAN REALTY LLC, a Delaware limited liability company\n<|id|>83<|page|>8<|box|>500 143 515 253<|content|>By: ... By\n<|id|>84<|page|>8<|box|>515 142 531 361<|content|>Name: ... Whitfield\n<|id|>85<|page|>8<|box|>532 142 549 434<|content|>Title: ... Senior Vice President — Leasing\n<|id|>86<|page|>8<|box|>550 143 566 264<|content|>Date: ... Date\n<|id|>88<|page|>8<|box|>592 142 609 614<|content|>AURELIUS MEDIA HOLDINGS INC. ... , a Delaware corporation\n<|id|>89<|page|>8<|box|>611 143 627 251<|content|>By: ... By\n<|id|>90<|page|>8<|box|>627 143 642 328<|content|>Name: ... Park\n<|id|>91<|page|>8<|box|>643 142 660 529<|content|>Title: ... Executive Vice President and General Counsel\n<|id|>92<|page|>8<|box|>662 143 679 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>30<|tgt_id|>31\n<|src_id|>46<|tgt_id|>47",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        }
+    ]
+}

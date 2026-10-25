@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        10,
+        13,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>262 239 283 756<|content|>Benjamin J. ... Byrne<sup>2</sup>\n<|id|>2<|page|>1<|box|>292 179 334 815<|content|><sup>1*</sup>Department of Mathematics, University...n, Gordon Street, London, WC1H 0AY, United Kingdom\n<|id|>22<|page|>4<|box|>424 107 534 886<|content|>As a generalisation of the classical logistic mode...} We writeu _ { j }for the subpopulation in statej\n<|id|>23<|page|>4<|box|>533 109 570 883<|content|>Motivated by the original logistic model, it seems...l to pose a model that is abstractly structured as\n<|id|>38<|page|>6<|box|>330 107 421 886<|content|>forj \\in \\{ 0 , \\ldots , N - 1 \\}, wherewis a stat...main, so that\\textstyle \\sum _ { j } J _ { j } = 0\n<|id|>39<|page|>6<|box|>421 107 564 888<|content|>The simple forms adopted here enable populations t...ugh we revisit bi directional fluxes in appendix A\n<|id|>68<|page|>10<|box|>46 179 64 767<|content|>On discretely structured growth models and their moments\n<|id|>69<|page|>10<|box|>391 107 519 888<|content|>As expected, this did not eliminate the explicit d...ics of this weighted sum can be found by computing\n<|id|>96<|page|>13<|box|>352 109 426 883<|content|>valid for all admissiblew ( j ). ... Hence, recall... j ^ { k - 1 }and the leading order term ofw ( j )\n<|id|>97<|page|>13<|box|>424 107 660 886<|content|>Notably, this term vanishes fork = 0, independent ...if and only ifw \\equiv C ( N - j )for any C \\geq 0\n<|id|>130<|page|>16<|box|>231 107 358 886<|content|>for\\alpha \\in \\left\\{ 1 , \\ldots , \\deg \\left( n \\... _ { l , l + \\alpha }for somel \\neq Kand all\\alpha\n<|id|>131<|page|>16<|box|>357 107 484 888<|content|>This observation proves to be restrictive beyond j... such guarantees for the other evolution equations\n<|id|>132<|page|>16<|box|>484 107 663 888<|content|>To see the impact of this, note that the moment\\mu...ficient for guaranteeing closure when deg( n ) = 1\n<|id|>133<|page|>16<|box|>663 107 752 888<|content|>However, for deg( n ) > 1, the provided conditions...nt. ... To see this, note that we necessarily have\n<|id|>137<|page|>16<|box|>872 107 909 883<|content|>Though this seems like a straightforward condition to impose, we note that eq. ... (36)\n<|id|>138<|page|>17<|box|>84 109 100 202<|content|>becomes\n<|id|>148<|page|>17<|box|>855 107 911 886<|content|>Both of the examples considered in section 3. ... ...volution equations for the first- and second-order\n<|id|>149<|page|>18<|box|>388 109 406 273<|content|>moments yields\n<|id|>171<|page|>19<|box|>821 107 911 888<|content|>noting that the\\mu _ { 2 } \\mathrm { - t e r m }ge...ates with\\mu _ { 1 } = N \\mu _ { 0 } when\\beta = N\n<|id|>172<|page|>20<|box|>405 107 657 888<|content|>Before we move on to a final example, it is worth ... the shaded regions are infeasible and unreachable\n<|id|>177<|page|>20<|box|>873 109 909 886<|content|>To verify this prediction, we now seek a closure of orderK = 2. ... (32) and (34), so that deg( w ) = 3\n<|id|>178<|page|>21<|box|>82 109 100 373<|content|>and its coeficients satisfy\n<|id|>198<|page|>22<|box|>674 107 746 886<|content|>Here and throughout, superscripts ofPand R corresp...to difer between populations, we must have\\rho = r\n<|id|>199<|page|>22<|box|>746 107 819 886<|content|>Together, these constraints have a practically unf...tions for\\mu _ { 0 } ^ { P }and\\mu _ { 0 } ^ { R }\n<|id|>210<|page|>23<|box|>855 107 912 886<|content|>In this introductory article, we have explored the...ngly, even generalising the principles of logistic\n<|id|>211<|page|>24<|box|>46 179 64 767<|content|>On discretely structured growth models and their moments\n<|id|>212<|page|>24<|box|>549 107 729 886<|content|>growth led to some ambiguity in the mechanism of r...-level information to discern details of mechanism",
+    "raw_response": "<|src_id|>137<|tgt_id|>138\n<|src_id|>148<|tgt_id|>149\n<|src_id|>177<|tgt_id|>178\n<|src_id|>210<|tgt_id|>212",
+    "parsed": [
+        {
+            "src_id": 137,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 212
+        }
+    ]
+}

@@ -1,0 +1,167 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-i_j9eg76\\input\\pdfs\\doc-5f4c2891.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-i_j9eg76\\enriched\\doc-5f4c2891.json",
+    "contd_output": "<|src_id|>87<|tgt_id|>88",
+    "title_output": "<|id|>22<|level|>1\n<|id|>28<|level|>1\n<|id|>35<|level|>1\n<|id|>36<|level|>2\n<|id|>43<|level|>2\n<|id|>48<|level|>1\n<|id|>49<|level|>2\n<|id|>51<|level|>2\n<|id|>59<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>2\n<|id|>77<|level|>1\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>2\n<|id|>92<|level|>2\n<|id|>98<|level|>1\n<|id|>99<|level|>2\n<|id|>103<|level|>2\n<|id|>105<|level|>2\n<|id|>108<|level|>1\n<|id|>135<|level|>1\n<|id|>144<|level|>1\n<|id|>148<|level|>1\n<|id|>149<|level|>2\n<|id|>154<|level|>2\n<|id|>159<|level|>2\n<|id|>163<|level|>1\n<|id|>167<|level|>2",
+    "image_output": "<|src_id|>94<|tgt_id|>92\n<|src_id|>145<|tgt_id|>144\n<|src_id|>146<|tgt_id|>144",
+    "contd_label": [
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        }
+    ],
+    "title_label": [
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 167,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 94,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 144
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 145,
+            "table2_idx": 146,
+            "upper_row_ss": [
+                [
+                    "Referral letter",
+                    "Terrence Whitfield,",
+                    "May 20, 2024",
+                    "Email with attachment"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "General Counsel, MTDC",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

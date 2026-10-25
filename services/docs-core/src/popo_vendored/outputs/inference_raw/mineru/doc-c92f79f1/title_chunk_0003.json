@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        143,
+        146
+    ],
+    "pages": [
+        143,
+        144,
+        145,
+        146
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1547<|page|>143<|box|>220 370 240 611<|content|>8.8 电源、接地和防雷\n<|id|>1550<|page|>143<|box|>510 399 532 584<|content|>8.9 建筑物\n<|id|>1552<|page|>144<|box|>147 375 174 609<|content|>9 环境保护\n<|id|>1553<|page|>144<|box|>216 401 238 584<|content|>9.1 一般规定\n<|id|>1555<|page|>144<|box|>322 355 344 631<|content|>9.2 生产废水和生活污水\n<|id|>1558<|page|>144<|box|>455 415 477 573<|content|>9.3 粉尘\n<|id|>1561<|page|>144<|box|>586 412 608 573<|content|>9.4 废气\n<|id|>1563<|page|>144<|box|>692 403 715 584<|content|>9.5 固体废物\n<|id|>1566<|page|>145<|box|>87 419 109 578<|content|>9.7 绿化\n<|id|>1569<|page|>145<|box|>247 408 268 591<|content|>9.8 应急措施\n<|id|>1571<|page|>146<|box|>147 240 213 766<|content|>附录 B 油船最大着火油舱面积和冷却范围计算",
+    "raw_response": "<|id|>1547<|level|>2\n<|id|>1550<|level|>2\n<|id|>1552<|level|>1\n<|id|>1553<|level|>2\n<|id|>1555<|level|>2\n<|id|>1558<|level|>2\n<|id|>1561<|level|>2\n<|id|>1563<|level|>2\n<|id|>1566<|level|>2\n<|id|>1569<|level|>2\n<|id|>1571<|level|>1",
+    "parsed": [
+        {
+            "id": 1547,
+            "level": 2
+        },
+        {
+            "id": 1550,
+            "level": 2
+        },
+        {
+            "id": 1552,
+            "level": 1
+        },
+        {
+            "id": 1553,
+            "level": 2
+        },
+        {
+            "id": 1555,
+            "level": 2
+        },
+        {
+            "id": 1558,
+            "level": 2
+        },
+        {
+            "id": 1561,
+            "level": 2
+        },
+        {
+            "id": 1563,
+            "level": 2
+        },
+        {
+            "id": 1566,
+            "level": 2
+        },
+        {
+            "id": 1569,
+            "level": 2
+        },
+        {
+            "id": 1571,
+            "level": 1
+        }
+    ]
+}

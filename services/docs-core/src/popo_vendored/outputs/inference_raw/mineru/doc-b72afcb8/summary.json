@@ -1,0 +1,179 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-g7wit9qj\\input\\pdfs\\doc-b72afcb8.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-g7wit9qj\\enriched\\doc-b72afcb8.json",
+    "contd_output": "<|src_id|>13<|tgt_id|>14\n<|src_id|>78<|tgt_id|>79\n<|src_id|>165<|tgt_id|>166",
+    "title_output": "<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>28<|level|>3\n<|id|>35<|level|>3\n<|id|>40<|level|>2\n<|id|>42<|level|>3\n<|id|>51<|level|>3\n<|id|>56<|level|>3\n<|id|>66<|level|>3\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>90<|level|>3\n<|id|>109<|level|>3\n<|id|>111<|level|>4\n<|id|>114<|level|>4\n<|id|>117<|level|>4\n<|id|>121<|level|>3\n<|id|>123<|level|>3\n<|id|>127<|level|>3\n<|id|>133<|level|>2\n<|id|>134<|level|>3\n<|id|>142<|level|>3\n<|id|>148<|level|>3\n<|id|>154<|level|>2\n<|id|>159<|level|>2\n<|id|>168<|level|>2",
+    "image_output": "<|src_id|>36<|tgt_id|>35\n<|src_id|>37<|tgt_id|>35\n<|src_id|>43<|tgt_id|>42\n<|src_id|>47<|tgt_id|>42\n<|src_id|>52<|tgt_id|>51\n<|src_id|>155<|tgt_id|>154",
+    "contd_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 166
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 4
+        },
+        {
+            "id": 114,
+            "level": 4
+        },
+        {
+            "id": 117,
+            "level": 4
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 36,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 154
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 36,
+            "table2_idx": 37,
+            "upper_row_ss": [
+                [
+                    "Registered Address of Owner",
+                    "80 Robinson Road, #14-02, Singapore 068898"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Classification Society",
+                    "Meridian Industries"
+                ]
+            ]
+        }
+    ]
+}

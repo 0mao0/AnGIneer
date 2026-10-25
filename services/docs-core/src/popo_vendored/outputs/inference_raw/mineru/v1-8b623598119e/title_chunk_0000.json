@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 369<|content|>【1486607#1】總統 (韓國電視劇)\n<|id|>2<|page|>1<|box|>140 105 156 267<|content|>【148975#2】鼠鸟科\n<|id|>4<|page|>1<|box|>241 105 256 292<|content|>【149844#11】五家渠市\n<|id|>6<|page|>1<|box|>325 105 341 275<|content|>【1500318#0】性革命\n<|id|>8<|page|>1<|box|>442 107 458 275<|content|>【1500318#4】性革命\n<|id|>10<|page|>1<|box|>544 107 560 275<|content|>【1500318#5】性革命\n<|id|>12<|page|>1<|box|>627 107 643 275<|content|>【1500318#7】性革命\n<|id|>14<|page|>1<|box|>763 107 778 329<|content|>【1514649#3】中国电影报道\n<|id|>16<|page|>1<|box|>863 105 879 292<|content|>【1518383#3】T-26坦克\n<|id|>18<|page|>2<|box|>168 105 185 292<|content|>【1519595#0】中原大佛\n<|id|>20<|page|>2<|box|>287 105 303 381<|content|>【1521047#0】争取文化与民主联盟\n<|id|>22<|page|>2<|box|>370 105 387 364<|content|>【152205#20】中国人民保险集团\n<|id|>24<|page|>2<|box|>454 105 470 284<|content|>【152509#109】肥城市\n<|id|>26<|page|>2<|box|>573 107 589 275<|content|>【152509#67】肥城市\n<|id|>28<|page|>3<|box|>73 107 89 275<|content|>【152509#69】肥城市\n<|id|>30<|page|>3<|box|>175 105 191 329<|content|>【1527096#0】中国戏曲音乐\n<|id|>32<|page|>3<|box|>275 107 291 319<|content|>【1528052#12】小瓮猪笼草\n<|id|>34<|page|>3<|box|>376 105 392 292<|content|>【1530954#0】台州银行\n<|id|>36<|page|>3<|box|>494 107 510 302<|content|>【1533375#18】唐朝文化\n<|id|>38<|page|>3<|box|>888 107 904 275<|content|>【1538192#4】唐良智\n<|id|>40<|page|>4<|box|>117 105 133 329<|content|>【1540415#1】妮娜·维达尔\n<|id|>42<|page|>4<|box|>200 105 217 248<|content|>【154238#4】繁殖\n<|id|>44<|page|>4<|box|>302 105 318 347<|content|>【1544755#1】菲律賓師範大學\n<|id|>46<|page|>5<|box|>73 105 89 468<|content|>【1545798#7】中国共产主义青年团中央委员会\n<|id|>48<|page|>5<|box|>175 105 191 329<|content|>【1545841#0】香港電視娛樂\n<|id|>50<|page|>5<|box|>241 105 256 337<|content|>【1545841#12】香港電視娛樂\n<|id|>52<|page|>5<|box|>394 107 409 329<|content|>【1545841#8】香港電視娛樂\n<|id|>54<|page|>5<|box|>512 107 527 310<|content|>【1547288#0】中國星集團\n<|id|>56<|page|>5<|box|>613 107 629 310<|content|>【1547288#1】中國星集團\n<|id|>58<|page|>5<|box|>662 105 677 337<|content|>【154904#8】第一次长沙战役",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>1\n<|id|>58<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ]
+}

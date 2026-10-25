@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        141,
+        152
+    ],
+    "pages": [
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        151,
+        152
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>457<|type|>title<|page|>141<|box|>87 272 101 695<|content|>Section I - Statements of Financial Condition\n<|id|>458<|type|>table<|page|>141<|box|>146 6 534 961<|content|>None\n<|id|>465<|type|>title<|page|>142<|box|>46 261 60 741<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>466<|type|>title<|page|>142<|box|>73 284 88 709<|content|>Section I - Statements of Financial Condition\n<|id|>467<|type|>title<|page|>142<|box|>89 156 135 819<|content|>Table 8.- Loans Outstanding by Periods for All Bus\n<|id|>469<|type|>table<|page|>142<|box|>147 16 515 984<|content|>None\n<|id|>470<|type|>table<|page|>142<|box|>525 16 891 981<|content|>None\n<|id|>471<|type|>title<|page|>143<|box|>71 281 85 703<|content|>Section I - Statements of Financial Condition\n<|id|>474<|type|>table<|page|>143<|box|>143 8 948 974<|content|>None\n<|id|>475<|type|>title<|page|>144<|box|>36 264 50 753<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>476<|type|>title<|page|>144<|box|>69 413 83 605<|content|>Footnotes to Table 1\n<|id|>481<|type|>title<|page|>144<|box|>228 414 242 608<|content|>Footnotes to Table 2\n<|id|>502<|type|>title<|page|>144<|box|>629 416 643 610<|content|>Footnotes to Table 3\n<|id|>506<|type|>title<|page|>144<|box|>724 421 738 615<|content|>Footnotes to Table 4\n<|id|>520<|type|>title<|page|>145<|box|>44 242 58 723<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>521<|type|>title<|page|>145<|box|>79 385 93 577<|content|>Footnotes to Table 8\n<|id|>538<|type|>table<|page|>146<|box|>84 18 955 991<|content|>None\n<|id|>539<|type|>table<|page|>147<|box|>101 0 888 959<|content|>None\n<|id|>540<|type|>table<|page|>151<|box|>455 314 770 654<|content|>None\n<|id|>542<|type|>image<|page|>152<|box|>9 805 40 932<|content|>None",
+    "raw_response": "<|src_id|>458<|tgt_id|>457\n<|src_id|>469<|tgt_id|>467\n<|src_id|>470<|tgt_id|>467\n<|src_id|>474<|tgt_id|>471",
+    "parsed": [
+        {
+            "src_id": 458,
+            "tgt_id": 457
+        },
+        {
+            "src_id": 469,
+            "tgt_id": 467
+        },
+        {
+            "src_id": 470,
+            "tgt_id": 467
+        },
+        {
+            "src_id": 474,
+            "tgt_id": 471
+        }
+    ]
+}

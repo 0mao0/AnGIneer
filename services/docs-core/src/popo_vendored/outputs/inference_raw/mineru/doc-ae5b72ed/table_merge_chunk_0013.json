@@ -1,0 +1,24 @@
+{
+    "task": "table_merge",
+    "chunk_index": 13,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['65', 'Music City Distrib', 'Bldg 1, Units', '06/01/2019', '120,000', '$1,560,000', '$130,000', '400 South Mount', 'William Foster', 'First-Class Mail +', '-', '-']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'ution Corp.', '100-103', '', '', '', '', 'Juliet Road, Unit 100, Mount Juliet, TN 37122', '/wfoster@musiccity dist.com', 'Email', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 141,
+    "table2_idx": 142
+}

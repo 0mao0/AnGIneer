@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>143 212 186 784<|content|>CONFIDENTIAL / ATTORNEY-CLIENT PRIVILEGED INTERNAL\n<|id|>8<|type|>title<|page|>1<|box|>402 140 419 532<|content|>I. PURPOSE AND SCOPE OF MEMORANDUM\n<|id|>12<|type|>title<|page|>2<|box|>89 140 106 599<|content|>II. PROPOSED CLIENT AND MATTER DESCRIPTION\n<|id|>13<|type|>title<|page|>2<|box|>121 142 138 316<|content|>A. Client Information\n<|id|>15<|type|>table<|page|>2<|box|>186 143 478 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>708 142 724 318<|content|>B. Matter Description\n<|id|>28<|type|>title<|page|>3<|box|>496 140 513 393<|content|>C. Proposed Engagement Team\n<|id|>30<|type|>table<|page|>3<|box|>561 143 674 852<|content|>None\n<|id|>32<|type|>title<|page|>4<|box|>89 140 106 362<|content|>III. PARTIES SEARCHED\n<|id|>34<|type|>title<|page|>4<|box|>239 140 255 403<|content|>A. Proposed Client and Affiliates\n<|id|>43<|type|>title<|page|>4<|box|>491 140 508 385<|content|>B. Counterparty and Affiliates\n<|id|>55<|type|>title<|page|>4<|box|>839 140 856 416<|content|>C. Counterparty's Known Counsel\n<|id|>60<|type|>title<|page|>5<|box|>160 140 176 442<|content|>D. Known Advisors and Third Parties\n<|id|>71<|type|>title<|page|>5<|box|>626 140 643 496<|content|>IV. CONFLICT CHECK METHODOLOGY\n<|id|>82<|type|>title<|page|>6<|box|>633 140 651 452<|content|>V. RESULTS OF CONFLICT CHECK\n<|id|>84<|type|>title<|page|>6<|box|>728 140 744 421<|content|>A. Penterra Pharmaceuticals Corp.\n<|id|>89<|type|>title<|page|>7<|box|>202 140 219 552<|content|>B. Meridian Bio Therapeutics Limited and Affiliate\n<|id|>95<|type|>title<|page|>7<|box|>633 140 652 558<|content|>C. Meridian's Counsel — Lam, Cheung & Firth LLP\n<|id|>100<|type|>title<|page|>8<|box|>202 142 218 316<|content|>D. Financial Advisors\n<|id|>105<|type|>title<|page|>8<|box|>571 140 589 532<|content|>E. Escrow Agent — Velthorn National Bank, N.A.\n<|id|>109<|type|>title<|page|>9<|box|>90 140 107 323<|content|>F. Other Third Parties\n<|id|>113<|type|>title<|page|>9<|box|>375 142 391 410<|content|>Conclusion: No conflict identified.\n<|id|>120<|type|>title<|page|>9<|box|>670 142 688 460<|content|>G. Engagement Team Personal Conflicts\n<|id|>122<|type|>table<|page|>9<|box|>773 143 885 852<|content|>None\n<|id|>125<|type|>title<|page|>10<|box|>318 140 335 460<|content|>VI. CONCLUSION AND CLEARANCE\n<|id|>132<|type|>title<|page|>10<|box|>843 142 859 295<|content|>VII. APPROVALS\n<|id|>133<|type|>title<|page|>10<|box|>869 143 887 250<|content|>Prepared by:\n<|id|>141<|type|>title<|page|>11<|box|>351 142 369 325<|content|>VIII. DISTRIBUTION",
+    "raw_response": "<|src_id|>15<|tgt_id|>13\n<|src_id|>30<|tgt_id|>28\n<|src_id|>122<|tgt_id|>120",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 120
+        }
+    ]
+}

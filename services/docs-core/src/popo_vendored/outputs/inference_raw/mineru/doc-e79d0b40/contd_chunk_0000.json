@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>156 140 174 550<|content|>Telephone: ... (212) 554-7801\n<|id|>3<|page|>1<|box|>183 733 200 854<|content|>March __, 2025\n<|id|>4<|page|>1<|box|>209 142 226 681<|content|>Via Email (sgillespie@harborlinelending. ... com) and Sundial Data Systems\n<|id|>5<|page|>1<|box|>234 140 270 854<|content|>Sean P. ... Gillespie Relationship Manager Harborl...lin Street, 12th Floor Boston, Massachusetts 02110\n<|id|>6<|page|>1<|box|>277 174 333 854<|content|>Re: ... P\n<|id|>20<|page|>2<|box|>789 140 898 857<|content|>Since approximately mid-2024, the partners of Grey...position of any property with a value in excess of\n<|id|>21<|page|>3<|box|>89 140 164 854<|content|>Five Million Dollars ($5,000,000)—require the affi...s consent of both partners is effectively required\n<|id|>38<|page|>5<|box|>277 210 314 854<|content|>(4) Fourth, return of unreturned capital contribut...tion to their respective capital accounts; ... and\n<|id|>40<|page|>5<|box|>383 174 531 854<|content|>Loan Repayment Is First Priority. ... The partners...re any proceeds are distributed to any other party\n<|id|>51<|page|>6<|box|>843 176 878 857<|content|>1. ... on the terms and subject to the conditions ...the Wind-Down Agreement, including the filing of a\n<|id|>52<|page|>7<|box|>89 210 126 854<|content|>Certificate of Cancellation with the Delaware Secr...ompletion of the winding up of Partnership affairs\n<|id|>53<|page|>7<|box|>128 174 219 854<|content|>2. ... and\n<|id|>55<|page|>7<|box|>349 140 516 854<|content|>To memorialize Harborline's consent and to establi...ication that Harborline is amenable to the request\n<|id|>64<|page|>8<|box|>474 176 508 854<|content|>2. ... and\n<|id|>66<|page|>8<|box|>550 140 659 854<|content|>Please note that the Wind-Down Agreement and the K...ection with the evaluation of this consent request\n<|id|>70<|page|>9<|box|>89 174 125 854<|content|>Linda Osei, Partner Calderwood & Harkness LLP 599 ...York, New York 10022 Telephone: ... (212) 554-7812\n<|id|>71<|page|>9<|box|>133 176 151 470<|content|>Email: ... com\n<|id|>72<|page|>9<|box|>152 176 169 854<|content|>Yuki Nakamura, Associate Calderwood & Harkness LLP 599 Lexington Avenue New York,\n<|id|>73<|page|>9<|box|>169 176 186 514<|content|>New York 10022 Telephone: ... (212) 554-7834\n<|id|>74<|page|>9<|box|>196 176 213 517<|content|>Email: ... com\n<|id|>75<|page|>9<|box|>214 142 229 478<|content|>With a courtesy copy to counsel for Pinnacle: ... With a courtesy copy to counsel for Pinnacle\n<|id|>76<|page|>9<|box|>239 176 273 852<|content|>Raymond T. ... (302) 651-2200\n<|id|>77<|page|>9<|box|>282 176 299 444<|content|>Email: ... com\n<|id|>78<|page|>9<|box|>300 140 391 854<|content|>Calderwood & Harkness and Ashford & Crane are join...iligence requests that Harborline may wish to make\n<|id|>86<|page|>9<|box|>844 143 859 290<|content|>Linda Osei, Partner\n<|id|>87<|page|>9<|box|>862 143 878 253<|content|>By: ... By\n<|id|>93<|page|>10<|box|>231 142 248 343<|content|>Name: ... Sandoval\n<|id|>94<|page|>10<|box|>250 143 266 334<|content|>Title: ... Managing Member\n<|id|>95<|page|>10<|box|>266 143 282 264<|content|>Date: ... Date\n<|id|>96<|page|>10<|box|>282 142 299 457<|content|>BRIARWOOD FAMILY OFFICE LLC\n<|id|>97<|page|>10<|box|>301 143 318 253<|content|>By: ... By\n<|id|>98<|page|>10<|box|>318 142 334 346<|content|>Name: ... Briarwood\n<|id|>99<|page|>10<|box|>335 143 352 367<|content|>Title: ... Sole Managing Member\n<|id|>100<|page|>10<|box|>352 143 369 267<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>51<|tgt_id|>52\n<|src_id|>72<|tgt_id|>73",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        }
+    ]
+}

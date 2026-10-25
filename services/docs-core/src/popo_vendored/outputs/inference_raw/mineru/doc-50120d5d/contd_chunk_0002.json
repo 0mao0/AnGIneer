@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        119,
+        125
+    ],
+    "pages": [
+        120,
+        121,
+        124,
+        125
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>348<|page|>120<|box|>80 145 111 864<|content|>Table 7. ... - Loans Outstanding, September 30, 19...ng Interagency Loans, Classified by Types of Loans\n<|id|>350<|page|>121<|box|>71 136 119 843<|content|>Section I - Statements of Financial Condition Tabl...y Loans Classified by Types of Loans - (Continued)\n<|id|>352<|page|>121<|box|>106 904 121 948<|content|>HH-2\n<|id|>351<|page|>121<|box|>123 415 136 574<|content|>(In thousands of dollars)\n<|id|>368<|page|>124<|box|>162 29 221 488<|content|>2/ Includes foreign currency assets, representing ... the Agricultural Trada Development and Assistance\n<|id|>369<|page|>124<|box|>96 550 219 987<|content|>Act of 1954, as amended, and the Mutual Security A...reasury sells such currency to Government agencies\n<|id|>387<|page|>124<|box|>628 27 639 474<|content|>1/ Consists of Administrative expenses, foreign aid procurements; ... con-\n<|id|>389<|page|>124<|box|>639 29 650 451<|content|>structiona servicea, public buildings; ... end working capital fund\n<|id|>393<|page|>124<|box|>711 27 723 456<|content|>1/ Consists of certain activities that are reporting on a quarterly\n<|id|>406<|page|>124<|box|>839 528 851 651<|content|>* Less than \\$500. ... * Less than \\$500\n<|id|>425<|page|>125<|box|>586 4 634 471<|content|>12/ Figure for June 30, 1950, consists of Alaska h...ce Corporation), and urban renewal loans authoriz-\n<|id|>426<|page|>125<|box|>106 535 275 965<|content|>ed by the Housing Act of 1949, as amended (42 U. ... 10657 of February 14, 1956",
+    "raw_response": "<|src_id|>368<|tgt_id|>369\n<|src_id|>387<|tgt_id|>389\n<|src_id|>425<|tgt_id|>426",
+    "parsed": [
+        {
+            "src_id": 368,
+            "tgt_id": 369
+        },
+        {
+            "src_id": 387,
+            "tgt_id": 389
+        },
+        {
+            "src_id": 425,
+            "tgt_id": 426
+        }
+    ]
+}

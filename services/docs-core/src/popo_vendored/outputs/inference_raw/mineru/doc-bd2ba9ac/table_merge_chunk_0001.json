@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['No.', 'Counterparty / Lessor', 'Agreement Date', 'Description', 'Location', 'Consent Required', 'Consent Status']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['1', 'Marquette Capital Leasing, LLC', 'April 1, 2022', 'Lease — BHS Corrugator (Model 2.5m, 2022 vintage)', 'Butler', 'Yes', 'Obtained']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 178,
+    "table2_idx": 179
+}

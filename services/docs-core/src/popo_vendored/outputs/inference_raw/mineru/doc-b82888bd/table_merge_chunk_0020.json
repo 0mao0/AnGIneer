@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 20,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['7.2.7', \"Describe the vendor's approach to false positive rate management. (Reference: BRB CY 2024 baseline: 99.9% false positive rate on 14,320 OFAC screening hits, with only 12 true matches.) Does the vendor's platform include functionality for: (a) tuning matching algorithms and thresholds to reduce false positives; (b)\", '', '', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'building and maintaining a \"good guy\" or whitelisting database; (c) machine-learning-assisted false positive reduction; and (d) reporting and analytics on false positive trends?', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 187,
+    "table2_idx": 188
+}

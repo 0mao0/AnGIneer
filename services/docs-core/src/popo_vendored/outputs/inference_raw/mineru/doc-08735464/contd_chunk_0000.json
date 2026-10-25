@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 107 846<|content|>CALDERWOOD & HARKNESS LLP 1900 K Street NW, Suite 1100 Washington, DC 20006\n<|id|>1<|page|>1<|box|>116 704 133 854<|content|>September 22, 2025\n<|id|>2<|page|>1<|box|>141 140 157 452<|content|>VIA EMAIL AND FIRST-CLASS MAIL\n<|id|>3<|page|>1<|box|>167 140 204 854<|content|>Alicia Brennan, Esq. ... Assistant Attorney Genera...itol Avenue, Suite 300 Baxter City, Meridian 39201\n<|id|>4<|page|>1<|box|>212 174 248 852<|content|>Re: ... Request for Extension of Time\n<|id|>12<|page|>2<|box|>90 174 162 854<|content|>(d) Patricia Aldridge, Senior Vice President & General Counsel, DEH — Ms. ... and\n<|id|>14<|page|>2<|box|>234 140 454 856<|content|>In total, the custodial data identified to date am...xes that have exceeded the active-retention window\n<|id|>26<|page|>3<|box|>857 174 893 854<|content|>(b) Issuance of Litigation-Hold Notices. ... Writt...t information-technology personnel at both DEH and\n<|id|>27<|page|>4<|box|>90 174 200 856<|content|>DFS on September 5, 2025. ... Recipients were inst...s and to confirm receipt and compliance in writing\n<|id|>43<|page|>5<|box|>664 142 681 717<|content|>Howard Bellamy Partner, Antitrust & Competition Telephone: ... (202) 555-0132\n<|id|>44<|page|>5<|box|>681 142 698 468<|content|>Email: ... com\n<|id|>45<|page|>5<|box|>699 140 752 854<|content|>cc: ... (via email) Derek Montague, Senior Assista...vision, Office of the Attorney General (via email)",
+    "raw_response": "<|src_id|>26<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        }
+    ]
+}

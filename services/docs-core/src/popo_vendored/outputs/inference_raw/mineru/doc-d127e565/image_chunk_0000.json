@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 271 133 725<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>140 143 273 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>349 140 366 393<|content|>NOTICE OF RELATED CASE\n<|id|>6<|type|>title<|page|>1<|box|>589 142 604 535<|content|>I. IDENTIFICATION OF THE RELATED CASE\n<|id|>14<|type|>title<|page|>2<|box|>89 140 107 460<|content|>II. PARTIES IN THE RELATED CASE\n<|id|>17<|type|>title<|page|>2<|box|>402 140 419 401<|content|>C. Counsel for Plaintiff Halloran\n<|id|>19<|type|>title<|page|>2<|box|>566 142 583 393<|content|>D. Counsel for Defendant AMA\n<|id|>21<|type|>title<|page|>2<|box|>686 140 703 470<|content|>III. NATURE OF THE RELATED CASE\n<|id|>23<|type|>title<|page|>2<|box|>821 140 838 516<|content|>B. Claims Asserted in Halloran (22STCV39501)\n<|id|>33<|type|>title<|page|>3<|box|>825 140 842 362<|content|>C. Putative Class Definition\n<|id|>37<|type|>title<|page|>4<|box|>248 140 284 823<|content|>IV. BASIS FOR RELATEDNESS UNDER CALIFORNIA RULES O\n<|id|>44<|type|>title<|page|>4<|box|>489 140 507 632<|content|>A. Same Parties and Same or Similar Claims (Rule 3\n<|id|>49<|type|>title<|page|>5<|box|>90 140 126 854<|content|>B. Same or Substantially Identical Transactions an\n<|id|>65<|type|>title<|page|>6<|box|>327 140 344 658<|content|>C. Substantial Duplication of Judicial Resources (\n<|id|>75<|type|>title<|page|>7<|box|>229 140 247 370<|content|>V. REQUEST FOR RELIEF\n<|id|>82<|type|>title<|page|>7<|box|>638 212 654 501<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>85<|type|>title<|page|>7<|box|>750 406 765 591<|content|>PROOF OF SERVICE\n<|id|>86<|type|>title<|page|>7<|box|>773 140 791 604<|content|>STATE OF CALIFORNIA, COUNTY OF LOS ANGELES",
+    "raw_response": "<|src_id|>1<|tgt_id|>3",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 3
+        }
+    ]
+}

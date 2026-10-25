@@ -1,0 +1,363 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gvbwusb8\\input\\pdfs\\doc-d8fe8d8a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gvbwusb8\\enriched\\doc-d8fe8d8a.json",
+    "contd_output": "<|src_id|>42<|tgt_id|>43",
+    "title_output": "<|id|>4<|level|>1\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>14<|level|>3\n<|id|>19<|level|>3\n<|id|>28<|level|>3\n<|id|>40<|level|>3\n<|id|>47<|level|>3\n<|id|>52<|level|>2\n<|id|>62<|level|>3\n<|id|>65<|level|>3\n<|id|>73<|level|>3\n<|id|>84<|level|>3\n<|id|>87<|level|>3\n<|id|>98<|level|>3\n<|id|>104<|level|>3\n<|id|>112<|level|>3\n<|id|>118<|level|>3\n<|id|>128<|level|>2\n<|id|>130<|level|>2\n<|id|>144<|level|>2\n<|id|>150<|level|>2\n<|id|>152<|level|>2",
+    "image_output": "<|src_id|>16<|tgt_id|>14\n<|src_id|>17<|tgt_id|>14\n<|src_id|>133<|tgt_id|>130\n<|src_id|>134<|tgt_id|>130\n<|src_id|>135<|tgt_id|>130\n<|src_id|>137<|tgt_id|>130\n<|src_id|>138<|tgt_id|>130\n<|src_id|>139<|tgt_id|>130\n<|src_id|>140<|tgt_id|>130\n<|src_id|>141<|tgt_id|>130\n<|src_id|>147<|tgt_id|>144\n<|src_id|>148<|tgt_id|>144\n<|src_id|>149<|tgt_id|>144\n<|src_id|>154<|tgt_id|>152\n<|src_id|>155<|tgt_id|>152",
+    "contd_label": [
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ],
+    "title_label": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 152
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 152
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 16,
+            "table2_idx": 17,
+            "upper_row_ss": [
+                [
+                    "Connecticut — Insurance Department",
+                    "August 14, 2023",
+                    "Connecticut Insurance Department, Legal and",
+                    "Filed and confirmed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Enforcement Division",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 133,
+            "table2_idx": 134,
+            "upper_row_ss": [
+                [
+                    "New Jersey",
+                    "N.J. Stat. Ann. § 56:8-163",
+                    "14,388",
+                    "NJ Division of Law, Office of the",
+                    "Portal (AG); Mail (State Police)",
+                    "Aug. 17, 2023",
+                    "N",
+                    "Y — NJ State Police",
+                    "Must notify both AG and State Police;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "Attorney General; NJ State Police, Cyber Crimes Unit",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "notification must occur before consumer notice"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 134,
+            "table2_idx": 135,
+            "upper_row_ss": [
+                [
+                    "Florida",
+                    "Fla. Stat. § 501.171",
+                    "22,913",
+                    "FL Office of the",
+                    "Portal (AG);",
+                    "Aug. 18,",
+                    "Y",
+                    "Y — FL",
+                    "FL requires"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "Attorney General, Department of Legal Affairs; FL Department of Agriculture & Consumer Services",
+                    "Portal (DACS)",
+                    "2023",
+                    "",
+                    "DACS",
+                    "notification within 30 days; must include specific information per § 501.171(3); notification to DACS also required"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 139,
+            "table2_idx": 140,
+            "upper_row_ss": [
+                [
+                    "Missouri",
+                    "Mo. Rev. Stat. § 407.1500",
+                    "2,188",
+                    "MO Office of the Attorney General, Consumer Protection",
+                    "Email & Mail",
+                    "Aug. 24, 2023",
+                    "N",
+                    "N",
+                    "Must notify AG; no specific form but must include"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "Division",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "required statutory content"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 140,
+            "table2_idx": 141,
+            "upper_row_ss": [
+                [
+                    "New Hampshire",
+                    "N.H. Rev. Stat. Ann. § 359-C:20",
+                    "1,761",
+                    "NH Office of the Attorney General, Consumer Protection and Antitrust Bureau",
+                    "Mail",
+                    "Aug. 25, 2023",
+                    "N",
+                    "N",
+                    "Must notify AG \"as soon as possible\" and prior to consumer notice; resident count subject to final reconcilia"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "tion"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 147,
+            "table2_idx": 148,
+            "upper_row_ss": [
+                [
+                    "2.",
+                    "Insert the correct number of affected residents for the filing state. Verify the figure against the master data mining report (finalized August 4, 2023) and the State-by-State Notification Timeline & Content Requirements Matrix.",
+                    "___"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "3.",
+                    "Insert the correct addressee name, title, office/division name, street address, city, state, and ZIP code. Confirm current information by checking the state AG's website or calling the office to verify mailing address and point of contact.",
+                    "—"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 148,
+            "table2_idx": 149,
+            "upper_row_ss": [
+                [
+                    "9.",
+                    "Obtain confirmation of receipt for the filing. For electronic portal submissions, retain the confirmation number and screenshot. For email submissions, request and retain a read receipt. For U.S. mail",
+                    "—"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "submissions, retain the certified mail receipt and USPS tracking number.",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 154,
+            "table2_idx": 155,
+            "upper_row_ss": [
+                [
+                    "Notes / Special Circumstances:",
+                    "____"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

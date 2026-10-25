@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        13,
+        14,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>229 142 244 331<|content|>Matter No. ... 1012-00005\n<|id|>5<|page|>1<|box|>253 700 272 854<|content|>Date: ... June 20, 2023\n<|id|>6<|page|>1<|box|>280 140 299 777<|content|>From: ... Simone Laroche, Associate, Litigation (General), Calderwood & Harkness LLP\n<|id|>7<|page|>1<|box|>306 140 324 803<|content|>To: ... Patrick Gallagher, Lead Associate, Litigation (General), Calderwood & Harkness LLP\n<|id|>8<|page|>1<|box|>332 140 349 826<|content|>CC: ... Samuel Eklund, Responsible Partner, Litigation (General), Calderwood & Harkness LLP\n<|id|>9<|page|>1<|box|>357 140 393 854<|content|>Re: ... Analysis of Vantor's Challenge to Privileg... (Hess–Beckwith Communications During Cure Period)\n<|id|>105<|page|>13<|box|>872 140 909 857<|content|>The crime-fraud exception to the attorney-client p...purpose of furthering a crime or fraud. ... United\n<|id|>106<|page|>14<|box|>89 140 181 854<|content|>States, 289 U. ... 2d at 1038\n<|id|>138<|page|>17<|box|>619 176 656 854<|content|>3. ... and\n<|id|>140<|page|>17<|box|>678 140 768 854<|content|>The tone of the response should be firm but measur...ort of a formal motion that is unlikely to succeed\n<|id|>151<|page|>18<|box|>800 140 910 857<|content|>Entries 312 through 318 on Stonefield's Privilege ...dvice regarding the interpretation and exercise of\n<|id|>152<|page|>19<|box|>90 140 127 854<|content|>Stonefield's contractual rights under the TSA duri...ion process spanning January through February 2022\n<|id|>158<|page|>19<|box|>479 140 561 852<|content|>Simone Laroche Associate, Litigation (General) Cal...RIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>159<|page|>19<|box|>569 140 630 854<|content|>This memorandum is protected by the attorney-clien...itten consent of the author is strictly prohibited",
+    "raw_response": "<|src_id|>105<|tgt_id|>106\n<|src_id|>151<|tgt_id|>152",
+    "parsed": [
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 152
+        }
+    ]
+}

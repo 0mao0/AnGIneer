@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>8<|type|>title<|page|>1<|box|>455 142 472 485<|content|>1. Introduction and Identification of Clients\n<|id|>13<|type|>title<|page|>2<|box|>204 140 222 334<|content|>2. Scope of Engagement\n<|id|>15<|type|>title<|page|>2<|box|>316 140 334 514<|content|>2(a). Chapter 11 Contingency Planning for TAI\n<|id|>29<|type|>title<|page|>3<|box|>661 140 678 478<|content|>2(b). Out-of-Court Restructuring Advisory\n<|id|>37<|type|>title<|page|>4<|box|>536 140 553 400<|content|>2(c). Cross-Border Coordination\n<|id|>43<|type|>title<|page|>5<|box|>176 140 194 372<|content|>2(d). Tax Structuring Advice\n<|id|>48<|type|>title<|page|>5<|box|>628 142 647 313<|content|>3. Engagement Team\n<|id|>50<|type|>table<|page|>5<|box|>679 143 792 852<|content|>None\n<|id|>56<|type|>title<|page|>6<|box|>473 142 489 338<|content|>4. Fees and Billing Rates\n<|id|>58<|type|>table<|page|>6<|box|>541 143 635 852<|content|>None\n<|id|>62<|type|>title<|page|>7<|box|>150 140 167 235<|content|>5. Retainer\n<|id|>67<|type|>title<|page|>7<|box|>532 140 549 390<|content|>6. Disbursements and Expenses\n<|id|>77<|type|>title<|page|>8<|box|>150 140 167 455<|content|>7. Joint Engagement; Allocation of Fees\n<|id|>82<|type|>title<|page|>8<|box|>569 140 585 388<|content|>8. Conflicts of Interest; Waiver\n<|id|>95<|type|>title<|page|>9<|box|>551 140 566 602<|content|>9. Joint Representation — Potential for Divergent\n<|id|>105<|type|>title<|page|>10<|box|>619 142 636 292<|content|>10. Confidentiality\n<|id|>112<|type|>title<|page|>11<|box|>282 142 299 334<|content|>11. Document Retention\n<|id|>116<|type|>title<|page|>11<|box|>602 142 619 274<|content|>12. Termination\n<|id|>121<|type|>title<|page|>12<|box|>204 142 222 380<|content|>13. Limitation of Engagement\n<|id|>125<|type|>title<|page|>12<|box|>579 142 597 297<|content|>14. Governing Law\n<|id|>127<|type|>title<|page|>12<|box|>738 142 753 264<|content|>15. Acceptance\n<|id|>132<|type|>title<|page|>13<|box|>222 140 239 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>138<|type|>title<|page|>13<|box|>441 277 457 720<|content|>CLIENT ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>140<|type|>title<|page|>13<|box|>529 142 546 439<|content|>ACKNOWLEDGED AND AGREED:\n<|id|>141<|type|>title<|page|>13<|box|>554 142 571 643<|content|>THALASSA SHIPPING & LOGISTICS SOCIÉTÉ ANONYME",
+    "raw_response": "<|src_id|>50<|tgt_id|>48\n<|src_id|>58<|tgt_id|>56",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 56
+        }
+    ]
+}

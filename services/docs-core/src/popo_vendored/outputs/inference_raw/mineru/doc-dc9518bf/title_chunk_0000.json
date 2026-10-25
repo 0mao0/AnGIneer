@@ -1,0 +1,110 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 310 107 686<|content|>MUTUAL NON-DISCLOSURE AGREEMENT\n<|id|>3<|page|>1<|box|>167 310 184 686<|content|>MUTUAL NON-DISCLOSURE AGREEMENT\n<|id|>8<|page|>1<|box|>443 447 459 549<|content|>RECITALS\n<|id|>13<|page|>1<|box|>753 140 770 524<|content|>Section 1: Definition of Confidential Information\n<|id|>27<|page|>2<|box|>756 140 773 553<|content|>Section 2: Exclusions from Confidential Informatio\n<|id|>34<|page|>3<|box|>465 140 482 588<|content|>Section 3: Permitted Use and Non-Disclosure Obliga\n<|id|>39<|page|>4<|box|>167 140 184 398<|content|>Section 4: Permitted Disclosures\n<|id|>54<|page|>5<|box|>710 140 728 403<|content|>Section 5: Compelled Disclosures\n<|id|>61<|page|>6<|box|>491 140 508 619<|content|>Section 6: Return or Destruction of Confidential I\n<|id|>68<|page|>7<|box|>421 140 438 705<|content|>Section 7: No Obligation to Transact; No Represent\n<|id|>72<|page|>8<|box|>90 140 107 460<|content|>Section 8: Non-Solicitation of Employees\n<|id|>75<|page|>8<|box|>402 140 420 390<|content|>Section 9: Intellectual Property\n<|id|>81<|page|>9<|box|>90 142 107 313<|content|>Section 10: Remedies\n<|id|>85<|page|>9<|box|>465 140 482 416<|content|>Section 11: Term and Termination\n<|id|>89<|page|>9<|box|>821 140 839 542<|content|>Section 12: Governing Law and Dispute Resolution\n<|id|>93<|page|>10<|box|>604 140 621 295<|content|>Section 13: Notices\n<|id|>95<|page|>10<|box|>784 142 801 258<|content|>If to Quorum:\n<|id|>104<|page|>11<|box|>186 142 202 264<|content|>If to Meridian:\n<|id|>114<|page|>11<|box|>454 140 470 385<|content|>Section 14: General Provisions\n<|id|>122<|page|>12<|box|>542 230 559 767<|content|>[Remainder of this page intentionally left blank.\n<|id|>123<|page|>12<|box|>566 166 602 828<|content|>SIGNATURE PAGE TO MUTUAL NON-DISCLOSURE AGREEMENT\n<|id|>125<|page|>12<|box|>674 140 690 504<|content|>QUORUM INSURANCE HOLDINGS CORP.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>2\n<|id|>54<|level|>2\n<|id|>61<|level|>2\n<|id|>68<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>2\n<|id|>81<|level|>2\n<|id|>85<|level|>2\n<|id|>89<|level|>2\n<|id|>93<|level|>2\n<|id|>95<|level|>3\n<|id|>104<|level|>3\n<|id|>114<|level|>2\n<|id|>122<|level|>-1\n<|id|>123<|level|>1\n<|id|>125<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 2
+        }
+    ]
+}

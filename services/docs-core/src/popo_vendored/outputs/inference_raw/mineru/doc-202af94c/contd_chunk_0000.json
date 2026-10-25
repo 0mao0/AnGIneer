@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        10,
+        11,
+        13,
+        14,
+        15,
+        18,
+        19,
+        20,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 155 133 839<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>2<|page|>1<|box|>141 140 179 854<|content|>TO: ... Priya Ramanathan, General Counsel, Skybridge Fintech Ltd\n<|id|>3<|page|>1<|box|>186 140 239 854<|content|>FROM: ... Leonard Ashford, Of Counsel, Emerging Co...anies & Venture Capital, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>248 140 265 343<|content|>DATE: ... December 1, 2023\n<|id|>5<|page|>1<|box|>273 140 329 854<|content|>RE: ... Review of Existing Charter, Bylaws, and Am...osed $60,000,000 Convertible Note Bridge Financing\n<|id|>6<|page|>1<|box|>335 140 354 331<|content|>Matter No. ... 1009-00001\n<|id|>10<|page|>1<|box|>727 140 875 856<|content|>By way of background, Skybridge is a Delaware corp... Wilmington, DE 19801. ... and Beacon Hill Capital\n<|id|>11<|page|>2<|box|>90 140 126 854<|content|>Partners, LLC, which closed in July 2021 at a post...ost-money valuation of approximately $620,000,000)\n<|id|>68<|page|>7<|box|>517 174 554 854<|content|>(viii) Redeem, repurchase, or otherwise acquire an...to equity incentive plan repurchase rights; ... or\n<|id|>70<|page|>7<|box|>604 140 642 854<|content|>Application to the Proposed Transaction. ... The i...t least two of the foregoing protective provisions\n<|id|>102<|page|>10<|box|>830 174 886 854<|content|>(h) Authorization of the officers of the Company t... of the transactions contemplated thereby; ... and\n<|id|>104<|page|>11<|box|>133 140 224 854<|content|>Based on the anticipated timeline for the transact...024, to allow adequate time for review and comment\n<|id|>109<|page|>11<|box|>492 183 508 562<|content|>• David Lindstrom, Chief Financial Officer; ... and/or\n<|id|>111<|page|>11<|box|>531 140 623 854<|content|>The Board Consent should provide that any one of t...o consummate the transactions contemplated thereby\n<|id|>128<|page|>13<|box|>366 174 402 854<|content|>(v) shares issued upon exercise of warrants or con...nts outstanding as of the date of the IRA; ... and\n<|id|>130<|page|>13<|box|>436 140 529 856<|content|>Analysis. ... If the IRA's definition of \"New Secu...f \"New Securities\" triggering the preemptive right\n<|id|>133<|page|>13<|box|>843 140 880 857<|content|>Major Investor Identification. ... The IRA defines...rities (or securities convertible into Registrable\n<|id|>134<|page|>14<|box|>89 140 126 854<|content|>Securities). ... Based on the IRA and the Company'...the following investors qualify as Major Investors\n<|id|>135<|page|>14<|box|>133 181 151 550<|content|>• Crestpoint Seed Partners, L. ... (Series A holder)\n<|id|>139<|page|>14<|box|>212 140 250 854<|content|>Three of the four Purchasers in the proposed bridg...ates of existing Major Investors. ... Specifically\n<|id|>136<|page|>14<|box|>154 183 171 547<|content|>• Halcyon Growth Equity, L. ... (Series B holder)\n<|id|>137<|page|>14<|box|>174 183 190 576<|content|>• Ridgeline Ventures Fund III, L. ... (Series C holder)\n<|id|>138<|page|>14<|box|>193 183 210 583<|content|>• Beacon Hill Capital Partners, LLC (Series C holder)\n<|id|>154<|page|>15<|box|>315 183 332 501<|content|>• Annual budgets and operating plans; ... and\n<|id|>156<|page|>15<|box|>354 140 426 854<|content|>The Company's audited financial statements for fis... financial statements are as of September 30, 2023\n<|id|>194<|page|>18<|box|>684 181 718 854<|content|>• One or more independent seats designated by mutu...greement of the other designating parties; ... and\n<|id|>196<|page|>18<|box|>739 140 832 854<|content|>The Voting Agreement is primarily relevant in the ...to the Voting Agreement is necessary at this stage\n<|id|>205<|page|>19<|box|>834 140 907 857<|content|>Recommendation: ... The terms of the\n<|id|>206<|page|>20<|box|>90 140 126 854<|content|>Kelvantis consent and the Subordination Agreement ...he separate Kelvantis Covenant Analysis Memorandum\n<|id|>229<|page|>23<|box|>512 140 529 699<|content|>Calderwood & Harkness LLP 600 Lexington Avenue New York, NY 10022\n<|id|>230<|page|>23<|box|>529 140 561 852<|content|>Leonard Ashford Of Counsel, Emerging Companies & Venture Capital Direct: ... com\n<|id|>231<|page|>23<|box|>563 140 595 852<|content|>Nina Reyes Senior Associate, Emerging Companies & Venture Capital Direct: ... com\n<|id|>232<|page|>23<|box|>595 140 625 854<|content|>Matter No. ... 1009-00001 | PRIVILEGED AND CONFIDE...ess LLP | 600 Lexington Avenue, New York, NY 10022",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>133<|tgt_id|>134\n<|src_id|>205<|tgt_id|>206",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 206
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        10,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>297 174 332 852<|content|>(1) Application for permission to enforce LCIA Award No. ... and\n<|id|>6<|page|>1<|box|>367 140 402 359<|content|>Date: ... 15 July 2024 Solicitors for the Claimant\n<|id|>7<|page|>1<|box|>410 140 428 733<|content|>Calderwood & Harkness LLP 45 Moorgate London EC2R 6AR United Kingdom\n<|id|>8<|page|>1<|box|>435 142 452 361<|content|>Ref: ... SC/NP/TSL-KMH/2024\n<|id|>13<|page|>1<|box|>779 140 907 856<|content|>4. ... Certain financial and operational details are within the knowledge of TSL's\n<|id|>14<|page|>2<|box|>89 174 143 854<|content|>Chief Financial Officer, Elena Stavridis, and TSL'... connection with the preparation of this statement\n<|id|>24<|page|>2<|box|>823 142 896 856<|content|>11. ... The fleet is deployed across TSL's core tr...lack Sea, the Arabian Gulf, and, increasingly, the\n<|id|>25<|page|>3<|box|>89 174 143 854<|content|>Indian Ocean and Southeast Asian regions. ... TSL ...hartering, ship management, and freight forwarding\n<|id|>89<|page|>8<|box|>837 140 909 857<|content|>50. ... This finding was based on a comprehensive ...al documentation which demonstrated that M/V Volga\n<|id|>90<|page|>9<|box|>90 174 162 854<|content|>Spirit was fully operational and performing its se...consistent with the off-hire events claimed by KMH\n<|id|>104<|page|>9<|box|>853 140 907 854<|content|>58. ... (12\n<|id|>105<|page|>10<|box|>90 174 125 854<|content|>Fetter Lane, London EC4A 1JP; ... Catherine Whitford serving as lead counsel for KMH\n<|id|>233<|page|>22<|box|>359 142 376 403<|content|>Full name: ... Nikolaos Papadimitriou\n<|id|>234<|page|>22<|box|>377 143 393 281<|content|>Signed: ... Signed\n<|id|>240<|page|>22<|box|>625 142 640 627<|content|>Calderwood & Harkness LLP 45 Moorgate London EC2R 6AR United Kingdom\n<|id|>241<|page|>22<|box|>646 142 662 478<|content|>Tel: ... SC/NP/TSL-KMH/2024\n<|id|>242<|page|>22<|box|>669 142 684 307<|content|>Solicitors for the Claimant",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>24<|tgt_id|>25\n<|src_id|>89<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        }
+    ]
+}

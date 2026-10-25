@@ -1,0 +1,116 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-tbuj0fmi\\input\\pdfs\\doc-0af7eff5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-tbuj0fmi\\enriched\\doc-0af7eff5.json",
+    "contd_output": "",
+    "title_output": "<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>2\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>2\n<|id|>28<|level|>1\n<|id|>30<|level|>2\n<|id|>38<|level|>2\n<|id|>46<|level|>2\n<|id|>59<|level|>2\n<|id|>65<|level|>1\n<|id|>69<|level|>1\n<|id|>74<|level|>1\n<|id|>79<|level|>1\n<|id|>84<|level|>1",
+    "image_output": "<|src_id|>20<|tgt_id|>18\n<|src_id|>70<|tgt_id|>69\n<|src_id|>71<|tgt_id|>69",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 69
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 70,
+            "table2_idx": 71,
+            "upper_row_ss": [
+                [
+                    "Clearwater Commercial Lending LLC",
+                    "Syndicate lender ($35M commitment)",
+                    "Serve as replacement lead arranger and administrative agent with increased",
+                    "Declined (July 31 / August 2, 2023)",
+                    "No arranger or agency capability; limited infrastructure; participation-level"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "commitment",
+                    "",
+                    "mandate only"
+                ]
+            ]
+        }
+    ]
+}

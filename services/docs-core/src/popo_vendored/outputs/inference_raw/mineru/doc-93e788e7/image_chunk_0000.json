@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 331 106 665<|content|>VOTING AND SUPPORT AGREEMENT\n<|id|>4<|type|>title<|page|>1<|box|>193 277 236 718<|content|>SOLARA DIGITAL INFRASTRUCTURE FUND VI LP STRATOS M\n<|id|>6<|type|>title<|page|>1<|box|>296 331 314 665<|content|>VOTING AND SUPPORT AGREEMENT\n<|id|>8<|type|>title<|page|>1<|box|>440 142 455 243<|content|>RECITALS\n<|id|>16<|type|>title<|page|>2<|box|>446 142 464 243<|content|>ARTICLE I\n<|id|>17<|type|>title<|page|>2<|box|>487 142 503 269<|content|>DEFINITIONS\n<|id|>38<|type|>title<|page|>4<|box|>89 142 107 251<|content|>ARTICLE II\n<|id|>39<|type|>title<|page|>4<|box|>131 140 148 344<|content|>VOTING AGREEMENT\n<|id|>52<|type|>title<|page|>5<|box|>351 140 368 372<|content|>Section 2.3 Irrevocable Proxy.\n<|id|>57<|type|>title<|page|>6<|box|>89 142 107 256<|content|>ARTICLE III\n<|id|>58<|type|>title<|page|>6<|box|>131 140 148 387<|content|>TRANSFER RESTRICTIONS\n<|id|>68<|type|>title<|page|>7<|box|>90 142 106 256<|content|>ARTICLE IV\n<|id|>69<|type|>title<|page|>7<|box|>131 140 148 715<|content|>REPRESENTATIONS AND WARRANTIES OF THE STOCKHOLDER\n<|id|>71<|type|>title<|page|>7<|box|>184 140 200 439<|content|>Section 4.1 Organization and Authority.\n<|id|>74<|type|>title<|page|>7<|box|>426 140 443 318<|content|>Section 4.2 Ownership.\n<|id|>86<|type|>title<|page|>9<|box|>90 142 107 250<|content|>ARTICLE V\n<|id|>87<|type|>title<|page|>9<|box|>131 142 148 383<|content|>ADDITIONAL COVENANTS\n<|id|>88<|type|>title<|page|>9<|box|>157 140 174 349<|content|>Section 5.1 No Solicitation.\n<|id|>100<|type|>title<|page|>11<|box|>222 140 239 256<|content|>ARTICLE VI\n<|id|>101<|type|>title<|page|>11<|box|>263 140 280 282<|content|>TERMINATION\n<|id|>111<|type|>title<|page|>12<|box|>148 142 166 263<|content|>ARTICLE VII\n<|id|>112<|type|>title<|page|>12<|box|>190 140 207 308<|content|>MISCELLANEOUS\n<|id|>114<|type|>title<|page|>12<|box|>352 140 369 362<|content|>If to Parent or Merger Sub:\n<|id|>136<|type|>title<|page|>13<|box|>705 140 723 565<|content|>Section 7.7 Jurisdiction and Venue; Waiver of Jury\n<|id|>169<|type|>title<|page|>16<|box|>193 437 209 560<|content|>SCHEDULE A\n<|id|>170<|type|>title<|page|>16<|box|>219 421 234 575<|content|>OWNED SHARES\n<|id|>172<|type|>table<|page|>16<|box|>287 143 402 852<|content|>None\n<|id|>173<|type|>title<|page|>16<|box|>436 143 452 334<|content|>Additional Information:\n<|id|>177<|type|>title<|page|>16<|box|>630 437 646 560<|content|>SCHEDULE B\n<|id|>178<|type|>title<|page|>16<|box|>655 297 672 700<|content|>ROLLOVER SUMMARY (CROSS-REFERENCE)\n<|id|>180<|type|>title<|page|>16<|box|>763 143 779 277<|content|>Rollover Shares:\n<|id|>182<|type|>title<|page|>16<|box|>888 142 904 285<|content|>Cash-Out Shares:\n<|id|>185<|type|>title<|page|>17<|box|>189 142 205 379<|content|>Covered Shares Clarification:\n<|id|>187<|type|>table<|page|>17<|box|>349 143 425 852<|content|>None",
+    "raw_response": "<|src_id|>172<|tgt_id|>170\n<|src_id|>187<|tgt_id|>185",
+    "parsed": [
+        {
+            "src_id": 172,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 185
+        }
+    ]
+}

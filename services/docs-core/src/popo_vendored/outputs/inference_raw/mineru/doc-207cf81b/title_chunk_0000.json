@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 287 133 710<|content|>600 Superior Avenue, Suite 2200 Cleveland, Ohio 44\n<|id|>10<|page|>1<|box|>392 140 409 477<|content|>I. Introduction and Identification of Client\n<|id|>16<|page|>2<|box|>267 140 284 450<|content|>II. The Toll Manufacturing Agreement\n<|id|>22<|page|>3<|box|>90 140 107 491<|content|>III. Contractual Protections and Obligations\n<|id|>29<|page|>3<|box|>816 140 834 759<|content|>IV. Harlow's Wrongful Conduct — Reverse Engineerin\n<|id|>36<|page|>5<|box|>148 140 167 586<|content|>V. Harlow's Wrongful Conduct — Customer Solicitati\n<|id|>41<|page|>5<|box|>642 140 659 547<|content|>VI. Legal Claims — Trade Secret Misappropriation\n<|id|>47<|page|>6<|box|>758 140 775 604<|content|>VII. Legal Claims — Breach of Contract and Other C\n<|id|>55<|page|>7<|box|>565 140 582 264<|content|>VIII. Demands\n<|id|>61<|page|>8<|box|>426 140 444 370<|content|>IX. Preservation of Evidence\n<|id|>65<|page|>8<|box|>838 142 854 339<|content|>X. Warning of Litigation\n<|id|>75<|page|>9<|box|>494 140 511 344<|content|>XI. Reservation of Rights",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>10<|level|>1\n<|id|>16<|level|>1\n<|id|>22<|level|>1\n<|id|>29<|level|>1\n<|id|>36<|level|>1\n<|id|>41<|level|>1\n<|id|>47<|level|>1\n<|id|>55<|level|>1\n<|id|>61<|level|>1\n<|id|>65<|level|>1\n<|id|>75<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        }
+    ]
+}

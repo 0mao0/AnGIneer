@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 166 126 856<|content|>CALDERWOOD & HARKNESS LLP One Liberty Plaza, 55th\n<|id|>8<|page|>1<|box|>696 142 714 800<|content|>1. FIRPTA Certificate of Non-Foreign Status (Treas\n<|id|>9<|page|>1<|box|>727 142 744 388<|content|>1.1 Legal Basis for the Request\n<|id|>13<|page|>2<|box|>385 142 402 303<|content|>1.2 Specific Request\n<|id|>21<|page|>3<|box|>90 140 107 444<|content|>1.3 Consequences of Failure to Deliver\n<|id|>24<|page|>3<|box|>382 140 398 792<|content|>2. Notice to the IRS Regarding USRPHC Status (Trea\n<|id|>25<|page|>3<|box|>412 140 430 387<|content|>2.1 Legal Basis for the Request\n<|id|>29<|page|>3<|box|>830 140 848 303<|content|>2.2 Specific Request\n<|id|>40<|page|>4<|box|>511 140 529 620<|content|>2.3 Alternative — If the Company Is or Has Been a\n<|id|>45<|page|>5<|box|>223 140 239 393<|content|>3. Form and Timing of Delivery\n<|id|>54<|page|>5<|box|>746 140 763 395<|content|>4. Merger Agreement Reference\n<|id|>58<|page|>6<|box|>377 140 393 416<|content|>5. Coordination with Tax Advisors\n<|id|>64<|page|>7<|box|>89 142 104 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>74<|page|>7<|box|>349 143 364 238<|content|>Enclosures:\n<|id|>77<|page|>7<|box|>426 447 443 550<|content|>EXHIBIT A\n<|id|>78<|page|>7<|box|>452 194 513 800<|content|>DRAFT FORM OF FIRPTA CERTIFICATE (Non-Foreign Affi\n<|id|>93<|page|>8<|box|>282 447 299 550<|content|>EXHIBIT B\n<|id|>94<|page|>8<|box|>308 166 344 828<|content|>DRAFT FORM OF IRS NOTICE UNDER TREASURY REGULATION\n<|id|>95<|page|>8<|box|>352 166 388 828<|content|>NOTICE TO THE INTERNAL REVENUE SERVICE PURSUANT TO\n<|id|>103<|page|>9<|box|>152 140 169 401<|content|>PENNFIELD HOLDINGS, INC.",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>21<|level|>2\n<|id|>24<|level|>1\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>1\n<|id|>54<|level|>1\n<|id|>58<|level|>1\n<|id|>64<|level|>-1\n<|id|>74<|level|>1\n<|id|>77<|level|>2\n<|id|>78<|level|>2\n<|id|>93<|level|>2\n<|id|>94<|level|>2\n<|id|>95<|level|>2\n<|id|>103<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        }
+    ]
+}

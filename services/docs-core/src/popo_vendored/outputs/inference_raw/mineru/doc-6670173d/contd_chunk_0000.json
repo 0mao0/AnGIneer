@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        17
+    ],
+    "pages": [
+        5,
+        7,
+        8,
+        12,
+        13,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>20<|page|>5<|box|>152 174 244 854<|content|>(a) Osprey Cloud Infrastructure, Inc. ... and\n<|id|>22<|page|>5<|box|>351 140 498 856<|content|>Processor represents and warrants that the existin...edule D without Controller's prior written consent\n<|id|>44<|page|>7<|box|>720 174 794 854<|content|>(i) Osprey Cloud Infrastructure, Inc. ... and\n<|id|>46<|page|>8<|box|>90 140 143 854<|content|>Processor shall ensure that its sub-processors pro...its notification obligations under this Schedule D\n<|id|>90<|page|>12<|box|>696 174 733 854<|content|>(c) Assisting Controller in preparing and deliveri...ons under GDPR Article 34, where required; ... and\n<|id|>92<|page|>12<|box|>840 140 895 856<|content|>The parties acknowledge that the Standard Contract...le 2 (Controller to Processor: ... to Osprey Cloud\n<|id|>93<|page|>13<|box|>90 140 200 856<|content|>Infrastructure, Inc. ... To the extent that the St... D, the Standard Contractual Clauses shall prevail\n<|id|>126<|page|>16<|box|>806 142 824 581<|content|>MERIDIAN FEDERAL SAVINGS BANK (\"Controller\")\n<|id|>127<|page|>16<|box|>825 143 840 253<|content|>By: ... By\n<|id|>128<|page|>16<|box|>840 142 858 357<|content|>Name: ... Driscoll\n<|id|>129<|page|>16<|box|>859 142 875 366<|content|>Title: ... Chief Executive Officer\n<|id|>130<|page|>16<|box|>877 143 893 264<|content|>Date: ... Date\n<|id|>133<|page|>17<|box|>125 140 141 323<|content|>Name: ... Nadia Karimova\n<|id|>134<|page|>17<|box|>142 140 157 367<|content|>Title: ... Chief Executive Officer\n<|id|>135<|page|>17<|box|>159 142 176 267<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>44<|tgt_id|>46\n<|src_id|>92<|tgt_id|>93",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 93
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        117,
+        121
+    ],
+    "pages": [
+        118,
+        121
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>538<|page|>118<|box|>242 423 260 578<|content|>Highway Account\n<|id|>540<|page|>118<|box|>454 91 477 486<|content|>* The changes in cash balances are due to the actu... differed from DOT's projected end-of-year balance\n<|id|>539<|page|>118<|box|>270 89 441 911<|content|>[In billions of dollars. ... Cash balance (fiscal ...mate (fiscal years 2013, 2014, 2015, and 2016) 141\n<|id|>571<|page|>121<|box|>148 364 166 630<|content|>Source: ... Financial Management Service\n<|id|>572<|page|>121<|box|>186 81 262 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>580<|page|>121<|box|>842 81 904 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>581<|page|>121<|box|>186 504 262 915<|content|>Second Liberty Loan Act of 1917, the nature of the...l debt. ... the limit may change from year to year",
+    "raw_response": "<|src_id|>580<|tgt_id|>581",
+    "parsed": [
+        {
+            "src_id": 580,
+            "tgt_id": 581
+        }
+    ]
+}

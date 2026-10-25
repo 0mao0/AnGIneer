@@ -1,0 +1,414 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gs39uyzz\\input\\pdfs\\doc-238d3918.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gs39uyzz\\enriched\\doc-238d3918.json",
+    "contd_output": "",
+    "title_output": "<|id|>2<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>84<|level|>2\n<|id|>86<|level|>2\n<|id|>103<|level|>2\n<|id|>106<|level|>3\n<|id|>111<|level|>3\n<|id|>113<|level|>3\n<|id|>120<|level|>2",
+    "image_output": "<|src_id|>85<|tgt_id|>84\n<|src_id|>88<|tgt_id|>86\n<|src_id|>104<|tgt_id|>103\n<|src_id|>108<|tgt_id|>106\n<|src_id|>110<|tgt_id|>106\n<|src_id|>112<|tgt_id|>111\n<|src_id|>114<|tgt_id|>113\n<|src_id|>115<|tgt_id|>103\n<|src_id|>116<|tgt_id|>103\n<|src_id|>117<|tgt_id|>103\n<|src_id|>118<|tgt_id|>103\n<|src_id|>119<|tgt_id|>103\n<|src_id|>121<|tgt_id|>120\n<|src_id|>122<|tgt_id|>103\n<|src_id|>123<|tgt_id|>103\n<|src_id|>124<|tgt_id|>103\n<|src_id|>125<|tgt_id|>103\n<|src_id|>126<|tgt_id|>103\n<|src_id|>127<|tgt_id|>103\n<|src_id|>128<|tgt_id|>103\n<|src_id|>129<|tgt_id|>103\n<|src_id|>130<|tgt_id|>103\n<|src_id|>131<|tgt_id|>103\n<|src_id|>134<|tgt_id|>103",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 85,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 103
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 30,
+            "table2_idx": 31,
+            "upper_row_ss": [
+                [
+                    "December",
+                    "740",
+                    "692",
+                    "429",
+                    "263",
+                    "30",
+                    "18",
+                    "1,187",
+                    "1,172",
+                    "-",
+                    "-",
+                    "15",
+                    "447"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Fiscal year or month",
+                    "Total",
+                    "Depart-mental",
+                    "National defense",
+                    "Veterans' Adminis-tratica",
+                    "FEMA and CVA",
+                    "WPA 2/",
+                    "Public Works 3/",
+                    "Agricultural Ad-justment program",
+                    "Civilian Conservation Corps",
+                    "Social Security and Railroad Retirement Acts",
+                    "Interest on the public debt",
+                    "Other"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 38,
+            "table2_idx": 39,
+            "upper_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Country from which importe originated",
+                    "colspan=2, Fiscal year",
+                    "colspan=2, 1939",
+                    "colspan=11, 1940"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 44,
+            "table2_idx": 45,
+            "upper_row_ss": [
+                [
+                    "December..",
+                    "3,346.2",
+                    "3,151.6",
+                    "74.4",
+                    "15.0",
+                    "105.2",
+                    "1,388.2",
+                    "1,352.5",
+                    "20.7",
+                    "15.0",
+                    "1,958.0",
+                    "1,945.3",
+                    "7.4",
+                    "5.3"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, ",
+                    "1939",
+                    "colspan=12, 1940"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 77,
+            "table2_idx": 78,
+            "upper_row_ss": [
+                [
+                    "Total",
+                    "$ 18,085,623",
+                    "$86,706,212",
+                    "$51,684,120",
+                    "$10,642,937",
+                    "$1,159,480,853"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Corporation or agency",
+                    "Appropriations from general fund 1/",
+                    "Allocations, redie-counts, and loans from other govern-mental corporations and agencies (net)",
+                    "Sale of obligations to Treasury (net)",
+                    "Sale of obli-gations in the market (net)",
+                    "Sale of stock to other agencies"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 79,
+            "table2_idx": 80,
+            "upper_row_ss": [
+                [
+                    "Total....",
+                    "$186,989,141",
+                    "$8,294,961,350",
+                    "$2,209,100,630",
+                    "$192,071,470",
+                    "$19,814,509,897"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Corporation or agency",
+                    "colspan=2, Expenses",
+                    "rowspan=2, Purchase and improvement of property owned",
+                    "rowspan=2, Loans",
+                    "rowspan=2, Retirement of obligations issued in exchange for mortgages 1/"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 95,
+            "table2_idx": 96,
+            "upper_row_ss": [
+                [
+                    "Oct. 30......",
+                    "49,578",
+                    "3,017",
+                    "6,400",
+                    "639",
+                    "71",
+                    "72",
+                    "6,819",
+                    "150",
+                    "14,062",
+                    "1,513",
+                    "32,743",
+                    "2,136",
+                    "11,516",
+                    "177",
+                    "1,994",
+                    "2,171",
+                    "1,012"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Transactions during week ended:",
+                    "Grand total",
+                    "United Kingdom",
+                    "France",
+                    "Belgium",
+                    "Germany",
+                    "Italy",
+                    "Netherlands",
+                    "Sweden",
+                    "Switzerland",
+                    "Other Europe",
+                    "Total Europe",
+                    "Canada",
+                    "Latin America",
+                    "Japan, Korea and Manchuria",
+                    "Other Asia",
+                    "Total Asia",
+                    "All other"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 114,
+            "table2_idx": 115,
+            "upper_row_ss": [
+                [
+                    "Total administrative expenses",
+                    "$1,199,077.83",
+                    "$1,262,106.78"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, End of calendar year or month",
+                    "rowspan=2, Gold Assets",
+                    "colspan=4, Liabilities"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 127,
+            "table2_idx": 128,
+            "upper_row_ss": [
+                [
+                    "Other flags",
+                    "659",
+                    "883",
+                    "111",
+                    "131",
+                    "131",
+                    "123",
+                    "142",
+                    "109",
+                    "132",
+                    "156",
+                    "159",
+                    "170",
+                    "128",
+                    "156",
+                    "177"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Ashtabula",
+                    "242",
+                    "236",
+                    "45",
+                    "8",
+                    "-",
+                    "-",
+                    "-",
+                    "22",
+                    "65",
+                    "45",
+                    "46",
+                    "34",
+                    "28",
+                    "29",
+                    "28"
+                ]
+            ]
+        }
+    ]
+}

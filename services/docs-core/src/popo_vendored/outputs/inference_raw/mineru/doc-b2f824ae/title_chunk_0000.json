@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>306 142 323 367<|content|>1. Introduction and Purpose\n<|id|>11<|page|>1<|box|>564 140 580 403<|content|>2. Description of the Transaction\n<|id|>17<|page|>2<|box|>304 140 321 354<|content|>3. Scope of Representation\n<|id|>19<|page|>2<|box|>378 140 396 364<|content|>3.1 Offering Documentation\n<|id|>21<|page|>2<|box|>633 140 651 450<|content|>3.2 Indenture and Note Documentation\n<|id|>23<|page|>3<|box|>90 140 107 338<|content|>3.3 Purchase Agreement\n<|id|>25<|page|>3<|box|>291 140 308 395<|content|>3.4 Capped Call Documentation\n<|id|>27<|page|>3<|box|>474 140 489 377<|content|>3.5 Corporate Authorizations\n<|id|>29<|page|>3<|box|>656 140 674 295<|content|>3.6 Legal Opinions\n<|id|>35<|page|>4<|box|>338 140 354 457<|content|>3.7 Regulatory and Compliance Matters\n<|id|>41<|page|>4<|box|>679 140 696 334<|content|>3.8 Closing Deliverables\n<|id|>43<|page|>4<|box|>853 140 869 313<|content|>4. Engagement Team\n<|id|>48<|page|>5<|box|>541 140 556 320<|content|>5. Matter Information\n<|id|>53<|page|>5<|box|>739 140 757 406<|content|>6. Fees and Billing Arrangements\n<|id|>54<|page|>5<|box|>771 140 787 241<|content|>6.1 Fee Cap\n<|id|>57<|page|>6<|box|>286 140 303 400<|content|>6.2 Disbursements and Expenses\n<|id|>67<|page|>6<|box|>785 140 803 334<|content|>6.3 Billing and Payment\n<|id|>70<|page|>7<|box|>239 140 255 424<|content|>6.4 Initial Purchasers' Counsel Fees\n<|id|>72<|page|>7<|box|>358 140 375 339<|content|>7. Client Responsibilities\n<|id|>80<|page|>8<|box|>90 140 107 397<|content|>8. Limitations of Representation\n<|id|>86<|page|>8<|box|>681 140 699 284<|content|>9. Confidentiality\n<|id|>88<|page|>9<|box|>90 142 107 330<|content|>10. Conflicts of Interest\n<|id|>92<|page|>9<|box|>484 140 500 334<|content|>11. Document Retention\n<|id|>95<|page|>9<|box|>758 142 777 274<|content|>12. Termination\n<|id|>98<|page|>10<|box|>204 142 222 297<|content|>13. Governing Law\n<|id|>100<|page|>10<|box|>309 142 325 388<|content|>14. Agreement and Acceptance",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>19<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>2\n<|id|>35<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>1\n<|id|>48<|level|>1\n<|id|>53<|level|>1\n<|id|>54<|level|>2\n<|id|>57<|level|>2\n<|id|>67<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>1\n<|id|>80<|level|>1\n<|id|>86<|level|>1\n<|id|>88<|level|>1\n<|id|>92<|level|>1\n<|id|>95<|level|>1\n<|id|>98<|level|>1\n<|id|>100<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        52,
+        68
+    ],
+    "pages": [
+        52,
+        53,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        62,
+        63,
+        64,
+        65,
+        66,
+        68
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>598<|type|>table<|page|>52<|box|>116 110 364 877<|content|>None\n<|id|>605<|type|>image<|page|>52<|box|>570 302 652 685<|content|>None\n<|id|>609<|type|>title<|page|>52<|box|>800 147 817 236<|content|>条文说明\n<|id|>611<|type|>title<|page|>52<|box|>892 124 911 515<|content|>9.2.5 沟和管的允许流速应符合以下规定：\n<|id|>615<|type|>table<|page|>53<|box|>229 117 276 885<|content|>None\n<|id|>616<|type|>table<|page|>53<|box|>304 117 349 885<|content|>None\n<|id|>617<|type|>title<|page|>53<|box|>381 112 400 315<|content|>9.3 泄水口水力计算\n<|id|>620<|type|>image<|page|>53<|box|>604 263 774 739<|content|>None\n<|id|>621<|type|>title<|page|>53<|box|>844 115 861 203<|content|>条文说明\n<|id|>629<|type|>title<|page|>55<|box|>170 107 187 194<|content|>条文说明\n<|id|>634<|type|>image<|page|>55<|box|>378 589 470 860<|content|>None\n<|id|>639<|type|>title<|page|>55<|box|>527 107 543 194<|content|>条文说明\n<|id|>650<|type|>title<|page|>56<|box|>165 114 183 201<|content|>条文说明\n<|id|>655<|type|>title<|page|>56<|box|>569 110 587 371<|content|>9.4 地下排水设施水力计算\n<|id|>663<|type|>image<|page|>57<|box|>148 142 844 858<|content|>None\n<|id|>664<|type|>image<|page|>58<|box|>239 183 335 803<|content|>None\n<|id|>673<|type|>image<|page|>58<|box|>560 228 626 757<|content|>None\n<|id|>682<|type|>image<|page|>59<|box|>145 290 291 717<|content|>None\n<|id|>687<|type|>table<|page|>59<|box|>508 121 708 887<|content|>None\n<|id|>698<|type|>image<|page|>60<|box|>194 236 356 752<|content|>None\n<|id|>699<|type|>title<|page|>60<|box|>425 127 444 436<|content|>9.4.6 渗井计算应符合以下规定：\n<|id|>707<|type|>image<|page|>60<|box|>552 610 721 863<|content|>None\n<|id|>721<|type|>title<|page|>62<|box|>171 117 195 724<|content|>附录 A 各种排水构造物用圬工材料强度要求\n<|id|>722<|type|>table<|page|>62<|box|>281 121 414 885<|content|>None\n<|id|>723<|type|>title<|page|>63<|box|>173 124 198 821<|content|>附录 B 各种沟管的水力半径和过水断面面积计算表\n<|id|>724<|type|>table<|page|>63<|box|>283 126 892 894<|content|>None\n<|id|>725<|type|>table<|page|>64<|box|>138 105 361 872<|content|>None\n<|id|>726<|type|>title<|page|>65<|box|>175 114 200 658<|content|>附录 C 开口式泄水口截流率计算诺谟图\n<|id|>727<|type|>image<|page|>65<|box|>256 200 535 793<|content|>None\n<|id|>729<|type|>image<|page|>65<|box|>594 200 866 793<|content|>None\n<|id|>730<|type|>image<|page|>66<|box|>190 186 450 801<|content|>None\n<|id|>731<|type|>image<|page|>66<|box|>560 184 847 803<|content|>None\n<|id|>732<|type|>title<|page|>68<|box|>172 105 195 381<|content|>本规范用词用语说明",
+    "raw_response": "<|src_id|>615<|tgt_id|>611\n<|src_id|>616<|tgt_id|>611\n<|src_id|>620<|tgt_id|>617\n<|src_id|>634<|tgt_id|>621\n<|src_id|>663<|tgt_id|>655\n<|src_id|>664<|tgt_id|>655\n<|src_id|>673<|tgt_id|>655\n<|src_id|>682<|tgt_id|>655\n<|src_id|>687<|tgt_id|>655\n<|src_id|>698<|tgt_id|>655\n<|src_id|>707<|tgt_id|>699\n<|src_id|>722<|tgt_id|>721\n<|src_id|>724<|tgt_id|>723\n<|src_id|>725<|tgt_id|>723\n<|src_id|>727<|tgt_id|>726\n<|src_id|>729<|tgt_id|>726\n<|src_id|>730<|tgt_id|>726\n<|src_id|>731<|tgt_id|>726",
+    "parsed": [
+        {
+            "src_id": 615,
+            "tgt_id": 611
+        },
+        {
+            "src_id": 616,
+            "tgt_id": 611
+        },
+        {
+            "src_id": 620,
+            "tgt_id": 617
+        },
+        {
+            "src_id": 634,
+            "tgt_id": 621
+        },
+        {
+            "src_id": 663,
+            "tgt_id": 655
+        },
+        {
+            "src_id": 664,
+            "tgt_id": 655
+        },
+        {
+            "src_id": 673,
+            "tgt_id": 655
+        },
+        {
+            "src_id": 682,
+            "tgt_id": 655
+        },
+        {
+            "src_id": 687,
+            "tgt_id": 655
+        },
+        {
+            "src_id": 698,
+            "tgt_id": 655
+        },
+        {
+            "src_id": 707,
+            "tgt_id": 699
+        },
+        {
+            "src_id": 722,
+            "tgt_id": 721
+        },
+        {
+            "src_id": 724,
+            "tgt_id": 723
+        },
+        {
+            "src_id": 725,
+            "tgt_id": 723
+        },
+        {
+            "src_id": 727,
+            "tgt_id": 726
+        },
+        {
+            "src_id": 729,
+            "tgt_id": 726
+        },
+        {
+            "src_id": 730,
+            "tgt_id": 726
+        },
+        {
+            "src_id": 731,
+            "tgt_id": 726
+        }
+    ]
+}

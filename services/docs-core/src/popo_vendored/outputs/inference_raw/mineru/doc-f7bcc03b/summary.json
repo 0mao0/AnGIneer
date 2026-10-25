@@ -1,0 +1,401 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-r3dhfs64\\input\\pdfs\\doc-f7bcc03b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-r3dhfs64\\enriched\\doc-f7bcc03b.json",
+    "contd_output": "<|src_id|>5<|tgt_id|>6\n<|src_id|>20<|tgt_id|>21",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>8<|level|>2\n<|id|>26<|level|>3\n<|id|>41<|level|>3\n<|id|>74<|level|>3\n<|id|>79<|level|>3\n<|id|>80<|level|>4\n<|id|>89<|level|>3\n<|id|>96<|level|>2\n<|id|>116<|level|>3\n<|id|>121<|level|>2\n<|id|>125<|level|>2\n<|id|>131<|level|>3\n<|id|>136<|level|>3",
+    "image_output": "<|src_id|>1<|tgt_id|>2\n<|src_id|>101<|tgt_id|>96\n<|src_id|>102<|tgt_id|>96\n<|src_id|>103<|tgt_id|>96\n<|src_id|>104<|tgt_id|>96\n<|src_id|>105<|tgt_id|>96\n<|src_id|>106<|tgt_id|>96\n<|src_id|>107<|tgt_id|>96\n<|src_id|>108<|tgt_id|>96\n<|src_id|>109<|tgt_id|>96\n<|src_id|>110<|tgt_id|>96\n<|src_id|>111<|tgt_id|>96\n<|src_id|>112<|tgt_id|>96\n<|src_id|>113<|tgt_id|>96\n<|src_id|>114<|tgt_id|>96\n<|src_id|>115<|tgt_id|>96\n<|src_id|>117<|tgt_id|>116\n<|src_id|>118<|tgt_id|>116\n<|src_id|>119<|tgt_id|>116\n<|src_id|>120<|tgt_id|>116",
+    "contd_label": [
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 116
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 101,
+            "table2_idx": 102,
+            "upper_row_ss": [
+                [
+                    "DX-002",
+                    "Commitment Letter from Whitmore National Bank, N.A. to Cascade Retail Holdings Inc., dated March 12, 2025, for a $2.8 billion senior",
+                    "Highly Confidential — AEO"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "secured term loan B facility and a $500 million revolving credit facility (Reference: CRH-WNB-2025-TLB)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 102,
+            "table2_idx": 103,
+            "upper_row_ss": [
+                [
+                    "DX-010",
+                    "Minutes of the meeting of the Board of Directors of Cascade Retail Holdings Inc., held March 13, 2025, approving the Agreement and Plan of Merger (redacted to protect information subject to attorney-client privilege and work product protection)",
+                    "Highly Confidential — AEO"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Exhibit No.",
+                    "Description",
+                    "Confidentiality Designation"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 103,
+            "table2_idx": 104,
+            "upper_row_ss": [
+                [
+                    "DX-018",
+                    "Cascade fulfillment network overview — description and geographic map of the 22-",
+                    "Confidential"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "warehouse nationwide fulfillment network, including capacity data and throughput metrics",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 104,
+            "table2_idx": 105,
+            "upper_row_ss": [
+                [
+                    "DX-025",
+                    "Independent auditor's report of Aldrich & Warwick CPAs LLP on",
+                    "Public"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "the consolidated financial statements of Cascade Retail Holdings Inc. for the fiscal year ended December 31, 2024",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 106,
+            "table2_idx": 107,
+            "upper_row_ss": [
+                [
+                    "DX-031",
+                    "Minutes of the meeting of the Board of Directors of Pinnacle Market Group Inc., January 2025 — discussing strategic alternatives available to Pinnacle, including a",
+                    "Highly Confidential — AEO"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "potential sale of the company, a capital raise through equity or debt issuance, and a standalone operating plan",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 107,
+            "table2_idx": 108,
+            "upper_row_ss": [
+                [
+                    "DX-037",
+                    "Pinnacle capital expenditure analysis, FY2022–FY2024 — showing constrained investment capacity in logistics infrastructure and technology development, with comparison to capital expenditure",
+                    "Confidential"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "levels of Vertex Commerce and other competitors",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 109,
+            "table2_idx": 110,
+            "upper_row_ss": [
+                [
+                    "DX-042",
+                    "Defendants' market share analysis — broader \"all e-commerce retail\" market, showing the combined entity's share at approximately 7.3% of total U.S. e-commerce GMV (including Cascade's direct-to-consumer e-commerce operations), and approximately 1.9% on a marketplace-only GMV basis ($14.5 billion combined Cascade and Pinnacle marketplace GMV / $757",
+                    "Confidential"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "billion total U.S. e-commerce GMV)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 110,
+            "table2_idx": 111,
+            "upper_row_ss": [
+                [
+                    "DX-048",
+                    "Trove Marketplace Inc. launch announcement and press coverage (launched 2024) — demonstrating",
+                    "Public"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "recent entry into and expansion of the competitive landscape for online marketplace and e-commerce services",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 111,
+            "table2_idx": 112,
+            "upper_row_ss": [
+                [
+                    "DX-054",
+                    "Academic and industry literature on two-sided platform markets — excerpts relevant to market definition in the context of platform markets, including references to",
+                    "Public"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Ohio v. Halcyon Corporation, 138 S. Ct. 2274 (2018), and economic scholarship on the competitive dynamics of multi-sided platforms",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 113,
+            "table2_idx": 114,
+            "upper_row_ss": [
+                [
+                    "DX-059",
+                    "Technology platform consolidation plan — analysis of technology and platform synergies, including engineering workforce optimization,",
+                    "Highly Confidential — AEO"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "infrastructure consolidation, cloud computing cost savings, shared services implementation, and the integration of search, discovery, and recommendation algorithms",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 114,
+            "table2_idx": 115,
+            "upper_row_ss": [
+                [
+                    "DX-065",
+                    "Cascade-Pinnacle combined fulfillment network map and timeline for integration milestones — visual depiction of the planned post-merger fulfillment network and a detailed schedule of key",
+                    "Confidential"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "integration activities and target completion dates",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 118,
+            "table2_idx": 119,
+            "upper_row_ss": [
+                [
+                    "DX-071",
+                    "Declaration of Margaret Thornberry, Chief Executive Officer and Chairwoman of the Board, Cascade Retail Holdings Inc., regarding harm",
+                    "Confidential"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "to Cascade from the entry of a preliminary injunction — including testimony on the impact on the merger timeline, the risk of deal termination in light of the March 14, 2026 outside date, Cascade's potential exposure to the $282 million reverse termination fee, employee uncertainty and the effect on retention and morale, competitive harm from prolonged regulatory overhang, and disruption to business partner relationships",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 119,
+            "table2_idx": 120,
+            "upper_row_ss": [
+                [
+                    "DX-075",
+                    "Summary of the FTC Commission",
+                    "Public"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "vote (3–2) authorizing the filing of the Complaint in this action — demonstrating the existence of internal division within the Commission on the merits of the challenge to the proposed transaction",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

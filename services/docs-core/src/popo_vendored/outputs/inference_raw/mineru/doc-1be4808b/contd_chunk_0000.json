@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        21,
+        22,
+        29,
+        30
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>112 155 128 839<|content|>CALDERWOOD & HARKNESS LLP 425 Park Avenue, 33rd Floor New York, NY 10022\n<|id|>2<|page|>1<|box|>138 423 155 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>164 140 181 419<|content|>TO: ... Linda Osei, Responsible Partner\n<|id|>4<|page|>1<|box|>190 140 207 411<|content|>FROM: ... Yuki Nakamura, Associate\n<|id|>5<|page|>1<|box|>215 140 233 336<|content|>DATE: ... October 28, 2024\n<|id|>6<|page|>1<|box|>242 140 279 854<|content|>RE: ... Analysis of Meridian's Force Majeure Defen...fects on Labor Supply and Supply Chain Disruptions\n<|id|>7<|page|>1<|box|>286 140 321 854<|content|>MATTER: ... Northgate Telecommunications PLC — Def...n Infrastructure Partners LLC Construction Dispute\n<|id|>8<|page|>1<|box|>329 140 347 362<|content|>MATTER NO. ... 1022-00005\n<|id|>9<|page|>1<|box|>354 140 393 854<|content|>COURT: ... )\n<|id|>24<|page|>2<|box|>824 140 898 856<|content|>The total Contract Price under the MCA is $1. ... ... fourteen (14) defined milestones, as set forth in\n<|id|>25<|page|>3<|box|>89 140 145 854<|content|>MCA § 8. ... Each milestone has a defined scope of...rget completion date, and milestone payment amount\n<|id|>48<|page|>4<|box|>810 174 864 854<|content|>(b) Fourteen (14) alleged Owner-directed scope cha...ormalized as Change Orders under MCA § 16. ... and\n<|id|>50<|page|>5<|box|>152 140 281 854<|content|>Meridian's Corrective Action Plan (\"CAP\"), submitt...nly and does not authorize additional compensation\n<|id|>69<|page|>6<|box|>858 174 893 854<|content|>\"[A]n event or circumstance beyond the reasonable ... the time of execution of this Agreement, and (ii)\n<|id|>70<|page|>7<|box|>90 174 200 854<|content|>could not have been avoided or overcome through th...nable efforts, including but not limited to: ... \"\n<|id|>182<|page|>21<|box|>825 140 898 857<|content|>No Evidence of Alternative Sourcing for Fiber-Opti...e Partners LLC, Ridgeline Partners LLC, Strathmore\n<|id|>183<|page|>22<|box|>90 140 145 854<|content|>Group, Cascade Corporation, and others — and alter...egy or implemented emergency procurement protocols\n<|id|>254<|page|>29<|box|>854 145 873 565<|content|>• Counterclaim I — Liquidated Damages: ... $49,000,000\n<|id|>255<|page|>29<|box|>875 145 893 606<|content|>• Counterclaim II — Excess Completion Costs: ... $81,700,000\n<|id|>258<|page|>30<|box|>128 140 220 854<|content|>I recommend continued aggressive development of th...ld be fully deployed at trial to ensure its defeat\n<|id|>256<|page|>30<|box|>89 147 106 565<|content|>• Counterclaim III — Remediation Costs: ... $18,300,000\n<|id|>257<|page|>30<|box|>109 147 126 612<|content|>• Total Counterclaim Exposure for Meridian: ... $149,000,000\n<|id|>260<|page|>30<|box|>272 142 289 320<|content|>Respectfully submitted,\n<|id|>261<|page|>30<|box|>289 142 306 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>262<|page|>30<|box|>308 143 324 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>24<|tgt_id|>25\n<|src_id|>48<|tgt_id|>50\n<|src_id|>69<|tgt_id|>70\n<|src_id|>182<|tgt_id|>183",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 183
+        }
+    ]
+}

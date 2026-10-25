@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        16,
+        17,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>159 403 178 591<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>421 142 438 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>16<|type|>title<|page|>2<|box|>402 140 419 395<|content|>II. FACTUAL BACKGROUND\n<|id|>17<|type|>title<|page|>2<|box|>434 140 450 447<|content|>A. The Joint Venture and Its Structure\n<|id|>21<|type|>table<|page|>3<|box|>159 143 250 852<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>578 142 595 589<|content|>B. Capital Contribution Structure and Pinnacle's D\n<|id|>26<|type|>table<|page|>3<|box|>705 143 782 852<|content|>None\n<|id|>28<|type|>title<|page|>3<|box|>878 140 896 557<|content|>Second Tranche (Capital Call Issued March 1, 2023)\n<|id|>29<|type|>table<|page|>4<|box|>186 143 244 852<|content|>None\n<|id|>33<|type|>title<|page|>4<|box|>599 140 617 338<|content|>C. The Permitting Delay\n<|id|>41<|type|>title<|page|>5<|box|>619 140 637 419<|content|>D. Pinnacle's Force Majeure Claim\n<|id|>46<|type|>title<|page|>6<|box|>157 140 174 540<|content|>III. RELEVANT CONTRACTUAL PROVISIONS\n<|id|>48<|type|>title<|page|>6<|box|>251 143 267 405<|content|>A. Section 11.4 — Force Majeure\n<|id|>58<|type|>title<|page|>7<|box|>638 140 655 488<|content|>B. Section 4.3 — Permitting Responsibilities\n<|id|>63<|type|>title<|page|>8<|box|>294 140 311 537<|content|>C. Section 5.2 — Capital Contribution Obligations\n<|id|>65<|type|>title<|page|>8<|box|>343 176 359 450<|content|>Section 5.2. Capital Contributions.\n<|id|>70<|type|>title<|page|>8<|box|>806 142 823 450<|content|>D. Section 8.2 — Default and Remedies\n<|id|>77<|type|>title<|page|>9<|box|>619 140 637 557<|content|>E. Section 11.4 in Relation to Section 5.2 — Inter\n<|id|>82<|type|>title<|page|>10<|box|>339 140 357 269<|content|>IV. ANALYSIS\n<|id|>83<|type|>title<|page|>10<|box|>371 140 388 753<|content|>A. The Contractual Exclusion of Governmental Appro\n<|id|>91<|type|>title<|page|>11<|box|>601 140 619 774<|content|>B. Pinnacle, as Manager, Cannot Invoke Its Own Per\n<|id|>100<|type|>title<|page|>13<|box|>239 140 273 854<|content|>C. Capital Contribution Obligations Are Unconditio\n<|id|>109<|type|>title<|page|>14<|box|>583 140 599 702<|content|>D. Washington Case Law on Force Majeure in Public-\n<|id|>118<|type|>title<|page|>16<|box|>294 140 310 718<|content|>E. Pinnacle's Claim That CSIA Committed a Material\n<|id|>126<|type|>title<|page|>17<|box|>530 140 547 594<|content|>V. RISK ASSESSMENT AND COUNTERARGUMENTS\n<|id|>127<|type|>title<|page|>17<|box|>561 142 579 483<|content|>A. Potential Counterarguments by Pinnacle\n<|id|>142<|type|>title<|page|>19<|box|>455 140 472 491<|content|>B. Assessment of Litigation/Arbitration Risk\n<|id|>151<|type|>title<|page|>20<|box|>354 140 372 550<|content|>VI. CONCLUSIONS AND RECOMMENDATIONS\n<|id|>152<|type|>title<|page|>20<|box|>381 140 398 810<|content|>Based on the foregoing analysis, we reach the foll\n<|id|>172<|type|>title<|page|>21<|box|>814 142 830 529<|content|>VII. APPENDICES / EXHIBITS REFERENCED",
+    "raw_response": "<|src_id|>21<|tgt_id|>17\n<|src_id|>26<|tgt_id|>24\n<|src_id|>29<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 28
+        }
+    ]
+}

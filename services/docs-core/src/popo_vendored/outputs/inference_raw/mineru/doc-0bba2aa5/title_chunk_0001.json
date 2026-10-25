@@ -1,0 +1,45 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        49
+    ],
+    "pages": [
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>395<|page|>47<|box|>89 437 107 560<|content|>SCHEDULE E\n<|id|>396<|page|>47<|box|>131 290 148 707<|content|>FORM OF BUSINESS ASSOCIATE AGREEMENT\n<|id|>409<|page|>47<|box|>750 140 767 468<|content|>2. Permitted Uses and Disclosures of PHI.\n<|id|>414<|page|>48<|box|>228 140 244 426<|content|>3. Obligations of Business Associate.\n<|id|>425<|page|>48<|box|>789 140 806 349<|content|>4. Term and Termination.\n<|id|>429<|page|>49<|box|>349 140 364 321<|content|>5. Breach Notification.\n<|id|>433<|page|>49<|box|>638 140 655 408<|content|>6. Compliance with HITECH Act.",
+    "raw_response": "<|id|>395<|level|>1\n<|id|>396<|level|>2\n<|id|>409<|level|>3\n<|id|>414<|level|>3\n<|id|>425<|level|>3\n<|id|>429<|level|>3\n<|id|>433<|level|>3",
+    "parsed": [
+        {
+            "id": 395,
+            "level": 1
+        },
+        {
+            "id": 396,
+            "level": 2
+        },
+        {
+            "id": 409,
+            "level": 3
+        },
+        {
+            "id": 414,
+            "level": 3
+        },
+        {
+            "id": 425,
+            "level": 3
+        },
+        {
+            "id": 429,
+            "level": 3
+        },
+        {
+            "id": 433,
+            "level": 3
+        }
+    ]
+}

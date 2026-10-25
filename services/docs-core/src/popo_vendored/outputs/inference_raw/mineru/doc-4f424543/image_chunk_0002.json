@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        96,
+        102
+    ],
+    "pages": [
+        96,
+        97,
+        98,
+        100,
+        102
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>260<|type|>table<|page|>96<|box|>108 81 688 914<|content|>None\n<|id|>262<|type|>title<|page|>96<|box|>781 455 796 549<|content|>Schedule 1\n<|id|>263<|type|>table<|page|>96<|box|>819 83 918 914<|content|>None\n<|id|>265<|type|>table<|page|>97<|box|>110 83 268 911<|content|>None\n<|id|>266<|type|>title<|page|>97<|box|>342 448 355 544<|content|>Schedule 3\n<|id|>267<|type|>table<|page|>97<|box|>376 81 613 911<|content|>None\n<|id|>268<|type|>table<|page|>97<|box|>727 83 891 913<|content|>None\n<|id|>269<|type|>table<|page|>98<|box|>89 95 545 926<|content|>None\n<|id|>270<|type|>image<|page|>100<|box|>328 351 674 546<|content|>None\n<|id|>273<|type|>image<|page|>102<|box|>8 803 41 931<|content|>None",
+    "raw_response": "<|src_id|>263<|tgt_id|>262\n<|src_id|>267<|tgt_id|>266\n<|src_id|>268<|tgt_id|>266\n<|src_id|>269<|tgt_id|>266",
+    "parsed": [
+        {
+            "src_id": 263,
+            "tgt_id": 262
+        },
+        {
+            "src_id": 267,
+            "tgt_id": 266
+        },
+        {
+            "src_id": 268,
+            "tgt_id": 266
+        },
+        {
+            "src_id": 269,
+            "tgt_id": 266
+        }
+    ]
+}

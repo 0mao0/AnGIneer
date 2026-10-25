@@ -1,0 +1,23 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['15', 'Brooklyn Waterfront Inn, 60 Furman Street, Brooklyn, NY', 'NY', 'Verimark Resort Properties LLC', 'Mortgage', 'Pending', 'To be updated', 'Pending', 'Pending', 'N/A (C&H handling)', '8/5/2022']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '11201', '', '', '', '', '', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 164,
+    "table2_idx": 165
+}

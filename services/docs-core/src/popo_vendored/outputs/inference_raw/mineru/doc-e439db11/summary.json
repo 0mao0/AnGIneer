@@ -1,0 +1,1273 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-18xjgva5\\input\\pdfs\\doc-e439db11.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-18xjgva5\\enriched\\doc-e439db11.json",
+    "contd_output": "<|src_id|>50<|tgt_id|>51\n<|src_id|>172<|tgt_id|>173\n<|src_id|>225<|tgt_id|>226\n<|src_id|>319<|tgt_id|>320\n<|src_id|>434<|tgt_id|>435\n<|src_id|>514<|tgt_id|>515",
+    "title_output": "<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>11<|level|>1\n<|id|>20<|level|>2\n<|id|>24<|level|>1\n<|id|>25<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>1\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>52<|level|>1\n<|id|>55<|level|>1\n<|id|>57<|level|>2\n<|id|>75<|level|>2\n<|id|>89<|level|>1\n<|id|>90<|level|>1\n<|id|>102<|level|>1\n<|id|>119<|level|>1\n<|id|>145<|level|>1\n<|id|>165<|level|>1\n<|id|>174<|level|>1\n<|id|>177<|level|>1\n<|id|>287<|level|>2\n<|id|>317<|level|>1\n<|id|>372<|level|>2\n<|id|>375<|level|>2\n<|id|>376<|level|>3\n<|id|>390<|level|>2\n<|id|>393<|level|>2\n<|id|>395<|level|>2\n<|id|>396<|level|>3\n<|id|>399<|level|>2\n<|id|>411<|level|>2\n<|id|>414<|level|>2\n<|id|>419<|level|>2\n<|id|>428<|level|>2\n<|id|>431<|level|>2\n<|id|>437<|level|>1\n<|id|>439<|level|>1\n<|id|>442<|level|>1\n<|id|>447<|level|>2\n<|id|>449<|level|>2\n<|id|>454<|level|>2\n<|id|>457<|level|>2\n<|id|>460<|level|>1\n<|id|>467<|level|>2\n<|id|>469<|level|>1\n<|id|>471<|level|>1\n<|id|>473<|level|>1\n<|id|>475<|level|>2\n<|id|>477<|level|>1\n<|id|>479<|level|>2",
+    "image_output": "<|src_id|>3<|tgt_id|>4\n<|src_id|>7<|tgt_id|>6\n<|src_id|>45<|tgt_id|>43\n<|src_id|>48<|tgt_id|>46\n<|src_id|>53<|tgt_id|>52\n<|src_id|>54<|tgt_id|>52\n<|src_id|>56<|tgt_id|>55\n<|src_id|>91<|tgt_id|>90\n<|src_id|>92<|tgt_id|>90\n<|src_id|>101<|tgt_id|>89\n<|src_id|>103<|tgt_id|>102\n<|src_id|>114<|tgt_id|>102\n<|src_id|>120<|tgt_id|>119\n<|src_id|>125<|tgt_id|>119\n<|src_id|>126<|tgt_id|>119\n<|src_id|>127<|tgt_id|>119\n<|src_id|>128<|tgt_id|>119\n<|src_id|>129<|tgt_id|>119\n<|src_id|>133<|tgt_id|>119\n<|src_id|>134<|tgt_id|>119\n<|src_id|>135<|tgt_id|>119\n<|src_id|>136<|tgt_id|>119\n<|src_id|>138<|tgt_id|>119\n<|src_id|>139<|tgt_id|>119\n<|src_id|>140<|tgt_id|>119\n<|src_id|>141<|tgt_id|>119\n<|src_id|>151<|tgt_id|>145\n<|src_id|>154<|tgt_id|>145\n<|src_id|>159<|tgt_id|>145\n<|src_id|>160<|tgt_id|>145\n<|src_id|>161<|tgt_id|>145\n<|src_id|>162<|tgt_id|>145\n<|src_id|>163<|tgt_id|>145\n<|src_id|>167<|tgt_id|>165\n<|src_id|>169<|tgt_id|>165\n<|src_id|>175<|tgt_id|>174\n<|src_id|>176<|tgt_id|>174\n<|src_id|>180<|tgt_id|>177\n<|src_id|>181<|tgt_id|>177\n<|src_id|>182<|tgt_id|>177\n<|src_id|>183<|tgt_id|>177\n<|src_id|>197<|tgt_id|>177\n<|src_id|>198<|tgt_id|>177\n<|src_id|>199<|tgt_id|>177\n<|src_id|>200<|tgt_id|>177\n<|src_id|>201<|tgt_id|>177\n<|src_id|>202<|tgt_id|>177\n<|src_id|>276<|tgt_id|>177\n<|src_id|>278<|tgt_id|>177\n<|src_id|>281<|tgt_id|>177\n<|src_id|>282<|tgt_id|>177\n<|src_id|>283<|tgt_id|>177\n<|src_id|>284<|tgt_id|>177\n<|src_id|>285<|tgt_id|>177\n<|src_id|>286<|tgt_id|>177\n<|src_id|>315<|tgt_id|>287\n<|src_id|>316<|tgt_id|>287\n<|src_id|>318<|tgt_id|>317\n<|src_id|>321<|tgt_id|>317\n<|src_id|>322<|tgt_id|>317\n<|src_id|>323<|tgt_id|>317\n<|src_id|>324<|tgt_id|>317\n<|src_id|>326<|tgt_id|>317\n<|src_id|>329<|tgt_id|>317\n<|src_id|>330<|tgt_id|>317\n<|src_id|>331<|tgt_id|>317\n<|src_id|>335<|tgt_id|>317\n<|src_id|>336<|tgt_id|>317\n<|src_id|>337<|tgt_id|>317\n<|src_id|>339<|tgt_id|>317\n<|src_id|>340<|tgt_id|>317\n<|src_id|>343<|tgt_id|>317\n<|src_id|>345<|tgt_id|>317\n<|src_id|>346<|tgt_id|>317\n<|src_id|>347<|tgt_id|>317\n<|src_id|>348<|tgt_id|>317\n<|src_id|>349<|tgt_id|>317\n<|src_id|>350<|tgt_id|>317\n<|src_id|>351<|tgt_id|>317\n<|src_id|>354<|tgt_id|>317\n<|src_id|>355<|tgt_id|>317\n<|src_id|>356<|tgt_id|>317\n<|src_id|>357<|tgt_id|>317\n<|src_id|>361<|tgt_id|>317\n<|src_id|>362<|tgt_id|>317\n<|src_id|>363<|tgt_id|>317\n<|src_id|>364<|tgt_id|>317\n<|src_id|>365<|tgt_id|>317\n<|src_id|>366<|tgt_id|>317\n<|src_id|>367<|tgt_id|>317\n<|src_id|>373<|tgt_id|>372\n<|src_id|>377<|tgt_id|>376\n<|src_id|>383<|tgt_id|>376\n<|src_id|>387<|tgt_id|>376\n<|src_id|>388<|tgt_id|>376\n<|src_id|>391<|tgt_id|>390\n<|src_id|>394<|tgt_id|>393\n<|src_id|>398<|tgt_id|>396\n<|src_id|>401<|tgt_id|>399\n<|src_id|>402<|tgt_id|>399\n<|src_id|>403<|tgt_id|>399\n<|src_id|>404<|tgt_id|>399\n<|src_id|>412<|tgt_id|>411\n<|src_id|>415<|tgt_id|>414\n<|src_id|>417<|tgt_id|>414\n<|src_id|>420<|tgt_id|>419\n<|src_id|>423<|tgt_id|>422\n<|src_id|>424<|tgt_id|>422\n<|src_id|>426<|tgt_id|>425\n<|src_id|>429<|tgt_id|>428\n<|src_id|>430<|tgt_id|>428\n<|src_id|>432<|tgt_id|>431\n<|src_id|>433<|tgt_id|>431\n<|src_id|>436<|tgt_id|>431\n<|src_id|>438<|tgt_id|>437\n<|src_id|>440<|tgt_id|>439\n<|src_id|>443<|tgt_id|>442\n<|src_id|>445<|tgt_id|>442\n<|src_id|>446<|tgt_id|>442\n<|src_id|>448<|tgt_id|>447\n<|src_id|>450<|tgt_id|>449\n<|src_id|>452<|tgt_id|>449\n<|src_id|>453<|tgt_id|>449\n<|src_id|>455<|tgt_id|>454\n<|src_id|>456<|tgt_id|>454\n<|src_id|>458<|tgt_id|>457\n<|src_id|>459<|tgt_id|>457\n<|src_id|>461<|tgt_id|>460\n<|src_id|>462<|tgt_id|>460\n<|src_id|>463<|tgt_id|>460\n<|src_id|>464<|tgt_id|>460\n<|src_id|>465<|tgt_id|>460\n<|src_id|>466<|tgt_id|>460\n<|src_id|>468<|tgt_id|>467\n<|src_id|>470<|tgt_id|>469\n<|src_id|>472<|tgt_id|>471\n<|src_id|>474<|tgt_id|>473\n<|src_id|>476<|tgt_id|>475\n<|src_id|>478<|tgt_id|>477\n<|src_id|>480<|tgt_id|>479\n<|src_id|>482<|tgt_id|>479\n<|src_id|>484<|tgt_id|>479\n<|src_id|>512<|tgt_id|>479\n<|src_id|>513<|tgt_id|>479",
+    "contd_label": [
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 173
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 226
+        },
+        {
+            "src_id": 319,
+            "tgt_id": 320
+        },
+        {
+            "src_id": 434,
+            "tgt_id": 435
+        },
+        {
+            "src_id": 514,
+            "tgt_id": 515
+        }
+    ],
+    "title_label": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 177,
+            "level": 1
+        },
+        {
+            "id": 287,
+            "level": 2
+        },
+        {
+            "id": 317,
+            "level": 1
+        },
+        {
+            "id": 372,
+            "level": 2
+        },
+        {
+            "id": 375,
+            "level": 2
+        },
+        {
+            "id": 376,
+            "level": 3
+        },
+        {
+            "id": 390,
+            "level": 2
+        },
+        {
+            "id": 393,
+            "level": 2
+        },
+        {
+            "id": 395,
+            "level": 2
+        },
+        {
+            "id": 396,
+            "level": 3
+        },
+        {
+            "id": 399,
+            "level": 2
+        },
+        {
+            "id": 411,
+            "level": 2
+        },
+        {
+            "id": 414,
+            "level": 2
+        },
+        {
+            "id": 419,
+            "level": 2
+        },
+        {
+            "id": 428,
+            "level": 2
+        },
+        {
+            "id": 431,
+            "level": 2
+        },
+        {
+            "id": 437,
+            "level": 1
+        },
+        {
+            "id": 439,
+            "level": 1
+        },
+        {
+            "id": 442,
+            "level": 1
+        },
+        {
+            "id": 447,
+            "level": 2
+        },
+        {
+            "id": 449,
+            "level": 2
+        },
+        {
+            "id": 454,
+            "level": 2
+        },
+        {
+            "id": 457,
+            "level": 2
+        },
+        {
+            "id": 460,
+            "level": 1
+        },
+        {
+            "id": 467,
+            "level": 2
+        },
+        {
+            "id": 469,
+            "level": 1
+        },
+        {
+            "id": 471,
+            "level": 1
+        },
+        {
+            "id": 473,
+            "level": 1
+        },
+        {
+            "id": 475,
+            "level": 2
+        },
+        {
+            "id": 477,
+            "level": 1
+        },
+        {
+            "id": 479,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 165
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 165
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 197,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 200,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 276,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 278,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 281,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 282,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 283,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 284,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 285,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 286,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 315,
+            "tgt_id": 287
+        },
+        {
+            "src_id": 316,
+            "tgt_id": 287
+        },
+        {
+            "src_id": 318,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 321,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 322,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 323,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 324,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 326,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 329,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 330,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 331,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 335,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 336,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 337,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 339,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 340,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 343,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 345,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 346,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 347,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 348,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 349,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 350,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 351,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 354,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 355,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 356,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 357,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 361,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 362,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 363,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 364,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 365,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 366,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 367,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 373,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 377,
+            "tgt_id": 376
+        },
+        {
+            "src_id": 383,
+            "tgt_id": 376
+        },
+        {
+            "src_id": 387,
+            "tgt_id": 376
+        },
+        {
+            "src_id": 388,
+            "tgt_id": 376
+        },
+        {
+            "src_id": 391,
+            "tgt_id": 390
+        },
+        {
+            "src_id": 394,
+            "tgt_id": 393
+        },
+        {
+            "src_id": 398,
+            "tgt_id": 396
+        },
+        {
+            "src_id": 401,
+            "tgt_id": 399
+        },
+        {
+            "src_id": 402,
+            "tgt_id": 399
+        },
+        {
+            "src_id": 403,
+            "tgt_id": 399
+        },
+        {
+            "src_id": 404,
+            "tgt_id": 399
+        },
+        {
+            "src_id": 412,
+            "tgt_id": 411
+        },
+        {
+            "src_id": 415,
+            "tgt_id": 414
+        },
+        {
+            "src_id": 417,
+            "tgt_id": 414
+        },
+        {
+            "src_id": 420,
+            "tgt_id": 419
+        },
+        {
+            "src_id": 423,
+            "tgt_id": 422
+        },
+        {
+            "src_id": 424,
+            "tgt_id": 422
+        },
+        {
+            "src_id": 426,
+            "tgt_id": 425
+        },
+        {
+            "src_id": 429,
+            "tgt_id": 428
+        },
+        {
+            "src_id": 430,
+            "tgt_id": 428
+        },
+        {
+            "src_id": 432,
+            "tgt_id": 431
+        },
+        {
+            "src_id": 433,
+            "tgt_id": 431
+        },
+        {
+            "src_id": 436,
+            "tgt_id": 431
+        },
+        {
+            "src_id": 438,
+            "tgt_id": 437
+        },
+        {
+            "src_id": 440,
+            "tgt_id": 439
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 442
+        },
+        {
+            "src_id": 445,
+            "tgt_id": 442
+        },
+        {
+            "src_id": 446,
+            "tgt_id": 442
+        },
+        {
+            "src_id": 448,
+            "tgt_id": 447
+        },
+        {
+            "src_id": 450,
+            "tgt_id": 449
+        },
+        {
+            "src_id": 452,
+            "tgt_id": 449
+        },
+        {
+            "src_id": 453,
+            "tgt_id": 449
+        },
+        {
+            "src_id": 455,
+            "tgt_id": 454
+        },
+        {
+            "src_id": 456,
+            "tgt_id": 454
+        },
+        {
+            "src_id": 458,
+            "tgt_id": 457
+        },
+        {
+            "src_id": 459,
+            "tgt_id": 457
+        },
+        {
+            "src_id": 461,
+            "tgt_id": 460
+        },
+        {
+            "src_id": 462,
+            "tgt_id": 460
+        },
+        {
+            "src_id": 463,
+            "tgt_id": 460
+        },
+        {
+            "src_id": 464,
+            "tgt_id": 460
+        },
+        {
+            "src_id": 465,
+            "tgt_id": 460
+        },
+        {
+            "src_id": 466,
+            "tgt_id": 460
+        },
+        {
+            "src_id": 468,
+            "tgt_id": 467
+        },
+        {
+            "src_id": 470,
+            "tgt_id": 469
+        },
+        {
+            "src_id": 472,
+            "tgt_id": 471
+        },
+        {
+            "src_id": 474,
+            "tgt_id": 473
+        },
+        {
+            "src_id": 476,
+            "tgt_id": 475
+        },
+        {
+            "src_id": 478,
+            "tgt_id": 477
+        },
+        {
+            "src_id": 480,
+            "tgt_id": 479
+        },
+        {
+            "src_id": 482,
+            "tgt_id": 479
+        },
+        {
+            "src_id": 484,
+            "tgt_id": 479
+        },
+        {
+            "src_id": 512,
+            "tgt_id": 479
+        },
+        {
+            "src_id": 513,
+            "tgt_id": 479
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 160,
+            "table2_idx": 161,
+            "upper_row_ss": [
+                [
+                    "March",
+                    "299,525",
+                    "298,978",
+                    "9,955",
+                    "9,935",
+                    "3.332",
+                    "3.332",
+                    "3.399",
+                    "3.024",
+                    "3.283",
+                    "3.892",
+                    "3.325",
+                    "3.404",
+                    "2.918",
+                    "3.625"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, End offiscalyear ormonth",
+                    "rowspan=3, Totalinterest-bearingpublicdebt",
+                    "colspan=12, Public issues",
+                    "rowspan=2, Specialissues"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 198,
+            "table2_idx": 199,
+            "upper_row_ss": [
+                [
+                    "July",
+                    "26......",
+                    "{1962-October 25 1963-January 24",
+                    "91 182",
+                    "2,127 1,362",
+                    "1,298 703",
+                    "2.892 3.103",
+                    "} 200"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1962-August",
+                    "2......",
+                    "{1962-November 11963-January 31",
+                    "91182",
+                    "$2,1611,576",
+                    "$1,301700",
+                    "2.8743.075}",
+                    "$199"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 200,
+            "table2_idx": 201,
+            "upper_row_ss": [
+                [
+                    "rowspan=2, 7/20/59",
+                    "{8/1/59",
+                    "4-3/4% Note",
+                    "-",
+                    "8/15/60-C",
+                    "",
+                    "123m",
+                    "-",
+                    "9,561",
+                    "-",
+                    "9,561",
+                    "rowspan=2, 100"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Date subscription books opened or bill tenders received",
+                    "rowspan=2, Date of issue",
+                    "rowspan=2,colspan=3, Description of security 1/",
+                    "rowspan=2,colspan=2, Period to final maturity (years, months, days) 2/",
+                    "colspan=2, Amount of subscriptions tendered",
+                    "colspan=2, Amount Issued",
+                    "rowspan=2, Allot-ment ratio"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 284,
+            "table2_idx": 285,
+            "upper_row_ss": [
+                [
+                    "10/16/61",
+                    "colspan=2, 3.131% Bill - 10/16/61",
+                    "10/17/60",
+                    "1,502",
+                    "1,502 9/",
+                    "-",
+                    "-",
+                    "-",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Date of refunding of retirement",
+                    "colspan=4, Called or maturing security 1/",
+                    "colspan=2, Disposition offers by Treasury",
+                    "colspan=2, Results of exchange offers",
+                    "rowspan=2, Description of new security offered (See also Table 4)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 285,
+            "table2_idx": 286,
+            "upper_row_ss": [
+                [
+                    "rowspan=9, 8/15/62",
+                    "colspan=4, Total......",
+                    "26,820",
+                    "- 25/",
+                    "{6,0003,000}7,860",
+                    "-",
+                    "{5,282 of 3-3/4% Note2,579 of 4% Bond"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "colspan=5, (In millions of dollars)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 322,
+            "table2_idx": 323,
+            "upper_row_ss": [
+                [
+                    "March......",
+                    "397",
+                    "112",
+                    "509",
+                    "405",
+                    "345",
+                    "60",
+                    "48,021",
+                    "191"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Period",
+                    "rowspan=2, Sales 1/",
+                    "rowspan=2, Accrued discount",
+                    "rowspan=2, Sales plus accrued discount",
+                    "Total",
+                    "Sales price 2/",
+                    "Accrued discount 3/",
+                    "Interest-bearing debt",
+                    "Matured noninterest-bearing debt"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 323,
+            "table2_idx": 324,
+            "upper_row_ss": [
+                [
+                    "March......",
+                    "-",
+                    "2",
+                    "2",
+                    "40 10/",
+                    "38",
+                    "3",
+                    "2,019",
+                    "177"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Period",
+                    "rowspan=2, Sales 1/",
+                    "rowspan=2, Accrued discount",
+                    "rowspan=2, Sales plus accrued discount",
+                    "colspan=3, Redemptions 1/",
+                    "rowspan=2, Exchanges of E bonds for H bonds",
+                    "rowspan=2, Amount outstanding (interest-bearing debt)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 347,
+            "table2_idx": 348,
+            "upper_row_ss": [
+                [
+                    "254",
+                    "1-1/2",
+                    "-",
+                    "10/1/67-EO",
+                    "93.00",
+                    "-.01",
+                    "3.18",
+                    "+.03",
+                    "10/1/62",
+                    "93.12",
+                    "2/20/63",
+                    "92.00",
+                    "10/1/62"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, Amountout-standing(millions)",
+                    "rowspan=3,colspan=3, Description",
+                    "colspan=2, Price",
+                    "colspan=2, Yield",
+                    "rowspan=3, Issue date",
+                    "colspan=4, Price range since first traded 2/"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 356,
+            "table2_idx": 357,
+            "upper_row_ss": [
+                [
+                    "February",
+                    "15,877.9",
+                    "15,750.8",
+                    "127.1"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, End of calendar year or month",
+                    "colspan=4, Silver held in Treasury",
+                    "rowspan=2,colspan=2, Silver outside Treasury",
+                    "rowspan=3, Total silver at $1.29+ per fine ounce"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 403,
+            "table2_idx": 404,
+            "upper_row_ss": [
+                [
+                    "All other... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ...",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Austria",
+                    "11,950",
+                    "8",
+                    "26",
+                    "623",
+                    "11,287",
+                    "6",
+                    "17,424",
+                    "3,201",
+                    "35",
+                    "825",
+                    "13,338",
+                    "25"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 423,
+            "table2_idx": 424,
+            "upper_row_ss": [
+                [
+                    "Balance at end of reporting period....",
+                    "1,297",
+                    "-4,160",
+                    "-105",
+                    "26",
+                    "1,472",
+                    "15,445",
+                    "14"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=4, Account",
+                    "colspan=5, Interior Department - (Continued)",
+                    "colspan=2, Labor Department"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 429,
+            "table2_idx": 430,
+            "upper_row_ss": [
+                [
+                    "Balance at end of reporting period....",
+                    "-11,117",
+                    "5,125",
+                    "-476,825",
+                    "6,265",
+                    "-1,716",
+                    "-5,006",
+                    "-9,106"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, Account",
+                    "colspan=7, Housing and Home Finance Agency - (Continued)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 432,
+            "table2_idx": 433,
+            "upper_row_ss": [
+                [
+                    "Balance at end of reporting period....",
+                    "-*,445,181",
+                    "12,182",
+                    "7,580",
+                    "-11,597",
+                    "19",
+                    "-23,715",
+                    "-1,881"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Account",
+                    "colspan=2, Veterans' Administration - (Continued)",
+                    "colspan=3, Export-Import Bank of Washington",
+                    "colspan=2, Federal Home Loan Bank Board 15/"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 455,
+            "table2_idx": 456,
+            "upper_row_ss": [
+                [
+                    "Net effect of financing (excess of funds applied (-), or provided).",
+                    "3,381,117",
+                    "630",
+                    "185,492",
+                    "176,780",
+                    "-1,640",
+                    "2,193,855",
+                    "-85"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, Account",
+                    "colspan=4, Agriculture Department - (Continued)",
+                    "colspan=3, Commerce Department"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 461,
+            "table2_idx": 462,
+            "upper_row_ss": [
+                [
+                    "Net effect of financing (excess of funds applied (-), or provided)......",
+                    "-10",
+                    "-640",
+                    "549",
+                    "61,050",
+                    "-190",
+                    "1,354",
+                    "134,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=4, Account",
+                    "rowspan=2, Labor Dept. -(Continued)",
+                    "rowspan=3, Post Office Department",
+                    "colspan=5, Treasury Department"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 462,
+            "table2_idx": 463,
+            "upper_row_ss": [
+                [
+                    "Net effect of financing (excess of funds applied (-), or provided)......",
+                    "-465",
+                    "368,512",
+                    "-362",
+                    "-397",
+                    "-29",
+                    "509",
+                    "-3"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, Account",
+                    "rowspan=2, Treasury Department - (Continued)",
+                    "colspan=3, General Services Administration 28/",
+                    "colspan=3, Housing and Home Finance Agency"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 463,
+            "table2_idx": 464,
+            "upper_row_ss": [
+                [
+                    "Net effect of financing (excess of funds applied (-), or provided)....",
+                    "-6,494",
+                    "-81",
+                    "8,473",
+                    "*",
+                    "152,218",
+                    "14,687",
+                    "3,685"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, Account",
+                    "colspan=7, Housing and Home Finance Agency - (Continued)"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>128 191 172 805<|content|>CALDERWOOD & HARKNESS LLP — MATTER STATUS SUMMARY\n<|id|>2<|type|>table<|page|>1<|box|>220 143 491 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>693 142 710 356<|content|>ENGAGEMENT STATUS\n<|id|>11<|type|>table<|page|>2<|box|>481 143 790 852<|content|>None\n<|id|>16<|type|>title<|page|>3<|box|>494 140 510 326<|content|>RELATED ENTITIES\n<|id|>18<|type|>title<|page|>3<|box|>583 142 599 498<|content|>1. Thalassa Shipping & Logistics SA (\"TSL\")\n<|id|>23<|type|>title<|page|>3<|box|>760 140 776 464<|content|>2. Thalassa West Africa SARL (\"TWA\")\n<|id|>28<|type|>title<|page|>4<|box|>164 140 181 436<|content|>3. Thalassa Nigeria Limited (\"TNL\")\n<|id|>33<|type|>title<|page|>4<|box|>342 140 359 611<|content|>4. Goldenshore Maritime Consultants Ltd. (\"Goldens\n<|id|>38<|type|>title<|page|>4<|box|>648 140 664 781<|content|>5. Meridian Atlantic Bank, National Association (\"\n<|id|>44<|type|>title<|page|>5<|box|>146 140 164 534<|content|>6. Banque Equatoriale de Commerce SA (\"BEC\")\n<|id|>49<|type|>title<|page|>5<|box|>343 142 359 442<|content|>7. Ashanti Continental Bank (\"ACB\")\n<|id|>54<|type|>title<|page|>5<|box|>537 140 555 560<|content|>8. Northpoint Forensic Advisors LLC (\"Northpoint\")\n<|id|>59<|type|>title<|page|>5<|box|>806 140 824 460<|content|>9. Kouvalis & Demopoulos SA (\"K&D\")\n<|id|>63<|type|>title<|page|>6<|box|>219 143 236 450<|content|>10. Papadakis & Lekkas LLP (\"P&L\")\n<|id|>68<|type|>title<|page|>6<|box|>415 143 431 468<|content|>11. Okafor Bassey & Partners (\"OB&P\")\n<|id|>73<|type|>title<|page|>6<|box|>593 143 609 383<|content|>12. Dossou & Mensah Avocats\n<|id|>78<|type|>title<|page|>6<|box|>806 143 824 447<|content|>13. Hartwell & Crane PLLC (\"H&C\")\n<|id|>82<|type|>title<|page|>7<|box|>258 142 276 418<|content|>KEY INDIVIDUALS (NON-C&H)\n<|id|>83<|type|>table<|page|>7<|box|>327 143 765 852<|content|>None\n<|id|>84<|type|>title<|page|>7<|box|>799 142 816 348<|content|>Notes on Key Individuals:\n<|id|>89<|type|>title<|page|>8<|box|>483 140 500 328<|content|>KEY RISK FACTORS\n<|id|>104<|type|>table<|page|>11<|box|>181 143 332 852<|content|>None\n<|id|>108<|type|>title<|page|>11<|box|>780 140 797 321<|content|>CONFLICTS NOTES\n<|id|>112<|type|>title<|page|>12<|box|>431 143 448 318<|content|>DOCUMENT INDEX\n<|id|>113<|type|>table<|page|>12<|box|>500 143 818 852<|content|>None\n<|id|>114<|type|>title<|page|>12<|box|>853 143 868 352<|content|>Notes on Document Index:\n<|id|>121<|type|>title<|page|>13<|box|>662 142 680 310<|content|>ADMINISTRATIVE",
+    "raw_response": "<|src_id|>2<|tgt_id|>1\n<|src_id|>11<|tgt_id|>4\n<|src_id|>83<|tgt_id|>82\n<|src_id|>104<|tgt_id|>89\n<|src_id|>113<|tgt_id|>112",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 112
+        }
+    ]
+}

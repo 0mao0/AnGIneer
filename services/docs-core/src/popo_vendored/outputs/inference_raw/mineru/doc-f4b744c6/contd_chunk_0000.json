@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>174 323 191 674<|content|>Adopted by the Board of Directors on __, 2022\n<|id|>3<|page|>1<|box|>200 205 219 790<|content|>Approved by the Stockholders of the Company by Written Consent on __, 2022\n<|id|>4<|page|>1<|box|>224 160 262 836<|content|>Effective as of the date of the closing of the Com...the New York Stock Exchange (the \"Effective Date\")\n<|id|>5<|page|>1<|box|>270 142 287 408<|content|>Right-click to update Table of Contents\n<|id|>51<|page|>6<|box|>179 174 196 745<|content|>(c) the Exercise Price per share applicable to outstanding purchase rights; ... and\n<|id|>53<|page|>6<|box|>250 140 431 857<|content|>All such adjustments shall be made by the Committe...the extent consistent with Section 423 of the Code\n<|id|>76<|page|>8<|box|>589 174 626 852<|content|>(a) the Fair Market Value of one (1) share of Common Stock on the Enrollment Date (i. ... and\n<|id|>78<|page|>8<|box|>678 140 751 856<|content|>The foregoing formula results in a fifteen percent...the benefit intended under Section 423 of the Code\n<|id|>99<|page|>10<|box|>866 140 902 854<|content|>No Participant may purchase more than such number ... Period during any single Offering Period. ... The\n<|id|>100<|page|>11<|box|>90 140 145 854<|content|>Committee shall communicate the applicable per-Par...er that is consistent with Section 423 of the Code\n<|id|>117<|page|>12<|box|>851 140 906 856<|content|>If a Participant transfers employment from the Com...Plan Account shall carry over to the new employing\n<|id|>118<|page|>13<|box|>90 140 164 854<|content|>Designated Subsidiary without interruption, and th... the transfer that is administratively practicable\n<|id|>175<|page|>18<|box|>544 143 560 331<|content|>Name: ... Sandra Haverford\n<|id|>176<|page|>18<|box|>561 143 578 480<|content|>Title: ... General Counsel & Corporate Secretary\n<|id|>177<|page|>18<|box|>579 143 595 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>99<|tgt_id|>100\n<|src_id|>117<|tgt_id|>118",
+    "parsed": [
+        {
+            "src_id": 99,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 118
+        }
+    ]
+}

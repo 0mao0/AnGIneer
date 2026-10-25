@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 341 119 656<|content|>SIDE LETTER AGREEMENT\n<|id|>1<|page|>1<|box|>136 320 154 676<|content|>Enhanced Information and Inspection Rights\n<|id|>8<|page|>1<|box|>422 140 441 243<|content|>RECITALS\n<|id|>15<|page|>2<|box|>212 140 229 712<|content|>SECTION 1 — ENHANCED QUARTERLY FINANCIAL REPORTING\n<|id|>27<|page|>3<|box|>655 140 672 674<|content|>SECTION 2 — ENHANCED ANNUAL FINANCIAL REPORTING\n<|id|>31<|page|>4<|box|>486 140 503 565<|content|>SECTION 3 — ENHANCED INSPECTION RIGHTS\n<|id|>35<|page|>5<|box|>541 140 558 442<|content|>SECTION 4 — CONFIDENTIALITY\n<|id|>42<|page|>6<|box|>391 140 409 849<|content|>SECTION 5 — RELATIONSHIP TO IRA AND OTHER TRANSACT\n<|id|>50<|page|>7<|box|>292 140 309 352<|content|>SECTION 6 — NOTICES\n<|id|>68<|page|>7<|box|>796 140 813 475<|content|>SECTION 7 — GENERAL PROVISIONS\n<|id|>76<|page|>9<|box|>152 359 169 637<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>77<|page|>9<|box|>178 168 215 828<|content|>SIGNATURE PAGE TO SIDE LETTER AGREEMENT Enhanced I",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>8<|level|>2\n<|id|>15<|level|>2\n<|id|>27<|level|>2\n<|id|>31<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>50<|level|>2\n<|id|>68<|level|>2\n<|id|>76<|level|>-1\n<|id|>77<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        }
+    ]
+}

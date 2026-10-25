@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 261 125 735<|content|>UNITED STATES PATENT AND TRADEMARK OFFICE BEFORE T\n<|id|>2<|page|>1<|box|>481 145 518 851<|content|>OPPOSER MERIDIAN CONSUMER BRANDS LLC'S WITHDRAWAL\n<|id|>3<|page|>1<|box|>575 142 592 622<|content|>I. INTRODUCTION AND IDENTIFICATION OF PARTIES\n<|id|>7<|page|>2<|box|>148 140 166 493<|content|>II. BACKGROUND OF THE OPPOSITION\n<|id|>15<|page|>2<|box|>829 140 845 604<|content|>III. SETTLEMENT AND COEXISTENCE AGREEMENT\n<|id|>25<|page|>4<|box|>89 140 106 457<|content|>IV. WITHDRAWAL OF OPPOSITION\n<|id|>33<|page|>4<|box|>768 140 787 517<|content|>V. REQUEST FOR ACTION BY THE BOARD\n<|id|>40<|page|>5<|box|>287 212 304 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>42<|page|>5<|box|>424 173 441 823<|content|>CONSENT OF APPLICANT TO WITHDRAWAL OF NOTICE OF OP\n<|id|>43<|page|>5<|box|>484 261 518 735<|content|>UNITED STATES PATENT AND TRADEMARK OFFICE BEFORE T\n<|id|>45<|page|>6<|box|>89 153 125 841<|content|>CONSENT OF APPLICANT BRINDOVAL HOME GOODS INC. TO\n<|id|>55<|page|>6<|box|>820 212 835 534<|content|>HALVERSON McKAY & PRUITT LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>7<|level|>2\n<|id|>15<|level|>2\n<|id|>25<|level|>2\n<|id|>33<|level|>2\n<|id|>40<|level|>-1\n<|id|>42<|level|>1\n<|id|>43<|level|>-1\n<|id|>45<|level|>1\n<|id|>55<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>128 403 148 593<|content|>MEMORANDUM\n<|id|>7<|type|>title<|page|>1<|box|>348 140 364 362<|content|>I. Purpose and Background\n<|id|>16<|type|>title<|page|>2<|box|>574 140 592 344<|content|>II. Status Check Protocol\n<|id|>25<|type|>title<|page|>3<|box|>446 140 464 503<|content|>III. Findings — January 5, 2024 Status Check\n<|id|>27<|type|>title<|page|>3<|box|>521 140 537 552<|content|>A. Government Contact — Calderwood & Harkness\n<|id|>30<|type|>title<|page|>3<|box|>803 142 820 408<|content|>B. Government Contact — Client\n<|id|>33<|type|>title<|page|>4<|box|>273 140 291 410<|content|>C. PACER / Court Docket Search\n<|id|>43<|type|>title<|page|>4<|box|>786 140 803 473<|content|>D. Public Filings and Regulatory Searches\n<|id|>48<|type|>title<|page|>5<|box|>411 142 428 431<|content|>E. Media and News Database Search\n<|id|>57<|type|>title<|page|>6<|box|>90 140 107 359<|content|>F. Status of Related Parties\n<|id|>63<|type|>title<|page|>6<|box|>698 140 714 436<|content|>IV. Billing and Administrative Status\n<|id|>66<|type|>table<|page|>6<|box|>853 143 893 852<|content|>None\n<|id|>67<|type|>table<|page|>7<|box|>88 143 164 852<|content|>None\n<|id|>76<|type|>title<|page|>7<|box|>768 140 785 313<|content|>V. Recommendations\n<|id|>84<|type|>title<|page|>8<|box|>833 142 849 264<|content|>VI. Conclusion\n<|id|>89<|type|>title<|page|>9<|box|>296 142 313 320<|content|>Respectfully submitted,\n<|id|>93<|type|>title<|page|>9<|box|>388 176 406 356<|content|>Matter File 1034-00001",
+    "raw_response": "<|src_id|>66<|tgt_id|>63\n<|src_id|>67<|tgt_id|>63",
+    "parsed": [
+        {
+            "src_id": 66,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 63
+        }
+    ]
+}

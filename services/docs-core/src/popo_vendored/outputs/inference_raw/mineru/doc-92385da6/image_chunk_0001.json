@@ -1,0 +1,66 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        52,
+        62
+    ],
+    "pages": [
+        53,
+        55,
+        56,
+        58,
+        59,
+        60,
+        61,
+        62
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>633<|type|>title<|page|>53<|box|>90 142 107 516<|content|>EXHIBIT C — Form of Compliance Certificate\n<|id|>634<|type|>title<|page|>53<|box|>114 367 132 629<|content|>COMPLIANCE CERTIFICATE\n<|id|>638<|type|>title<|page|>53<|box|>329 143 345 315<|content|>1. DSCR Calculation:\n<|id|>639<|type|>table<|page|>53<|box|>354 143 467 852<|content|>None\n<|id|>640<|type|>title<|page|>53<|box|>501 143 516 348<|content|>2. Debt Yield Calculation:\n<|id|>641<|type|>table<|page|>53<|box|>523 143 637 852<|content|>None\n<|id|>642<|type|>title<|page|>53<|box|>671 142 689 544<|content|>3. LTV Calculation (if updated appraisal obtained)\n<|id|>643<|type|>table<|page|>53<|box|>695 143 808 852<|content|>None\n<|id|>651<|type|>title<|page|>55<|box|>90 142 107 467<|content|>EXHIBIT D — Permitted Encumbrances\n<|id|>663<|type|>title<|page|>56<|box|>90 142 107 506<|content|>EXHIBIT E — Required Insurance Coverages\n<|id|>664<|type|>table<|page|>56<|box|>176 143 679 852<|content|>None\n<|id|>665<|type|>title<|page|>56<|box|>713 143 729 287<|content|>Current Carriers:\n<|id|>669<|type|>title<|page|>56<|box|>797 143 814 330<|content|>General Requirements:\n<|id|>673<|type|>title<|page|>58<|box|>90 142 107 434<|content|>EXHIBIT F — Organizational Chart\n<|id|>674<|type|>title<|page|>58<|box|>116 413 133 584<|content|>Ownership Structure\n<|id|>678<|type|>table<|page|>58<|box|>291 143 348 852<|content|>None\n<|id|>680<|type|>title<|page|>59<|box|>90 142 107 503<|content|>SCHEDULE 1 — Rent Roll / Occupancy Data\n<|id|>681<|type|>table<|page|>59<|box|>176 143 438 852<|content|>None\n<|id|>682<|type|>table<|page|>59<|box|>496 143 571 852<|content|>None\n<|id|>683<|type|>title<|page|>60<|box|>90 142 107 457<|content|>SCHEDULE 2 — Existing Indebtedness\n<|id|>684<|type|>table<|page|>60<|box|>138 143 354 852<|content|>None\n<|id|>685<|type|>title<|page|>60<|box|>388 143 405 364<|content|>Action Required at Closing:\n<|id|>691<|type|>title<|page|>61<|box|>90 142 107 485<|content|>SCHEDULE 3 — Reserve Fund Allocations\n<|id|>692<|type|>title<|page|>61<|box|>114 142 133 498<|content|>Total Upfront Reserve Deposit: $4,800,000.00\n<|id|>694<|type|>table<|page|>61<|box|>184 143 315 852<|content|>None\n<|id|>696<|type|>table<|page|>61<|box|>455 143 580 852<|content|>None\n<|id|>697<|type|>title<|page|>62<|box|>90 142 107 486<|content|>SCHEDULE 4 — Approved Annual Budget\n<|id|>700<|type|>table<|page|>62<|box|>272 143 757 852<|content|>None",
+    "raw_response": "<|src_id|>639<|tgt_id|>638\n<|src_id|>641<|tgt_id|>640\n<|src_id|>643<|tgt_id|>642\n<|src_id|>664<|tgt_id|>663\n<|src_id|>678<|tgt_id|>674\n<|src_id|>681<|tgt_id|>680\n<|src_id|>682<|tgt_id|>680\n<|src_id|>684<|tgt_id|>683\n<|src_id|>694<|tgt_id|>691\n<|src_id|>696<|tgt_id|>691\n<|src_id|>700<|tgt_id|>697",
+    "parsed": [
+        {
+            "src_id": 639,
+            "tgt_id": 638
+        },
+        {
+            "src_id": 641,
+            "tgt_id": 640
+        },
+        {
+            "src_id": 643,
+            "tgt_id": 642
+        },
+        {
+            "src_id": 664,
+            "tgt_id": 663
+        },
+        {
+            "src_id": 678,
+            "tgt_id": 674
+        },
+        {
+            "src_id": 681,
+            "tgt_id": 680
+        },
+        {
+            "src_id": 682,
+            "tgt_id": 680
+        },
+        {
+            "src_id": 684,
+            "tgt_id": 683
+        },
+        {
+            "src_id": 694,
+            "tgt_id": 691
+        },
+        {
+            "src_id": 696,
+            "tgt_id": 691
+        },
+        {
+            "src_id": 700,
+            "tgt_id": 697
+        }
+    ]
+}

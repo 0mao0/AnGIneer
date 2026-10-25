@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        17,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 140 159 390<|content|>TO: ... Theodore Langston, Partner\n<|id|>3<|page|>1<|box|>167 140 184 464<|content|>FROM: ... Simone Laroche, Senior Associate\n<|id|>4<|page|>1<|box|>193 140 210 352<|content|>DATE: ... December 18, 2022\n<|id|>5<|page|>1<|box|>219 140 255 852<|content|>RE: ... 27914/MHM\n<|id|>6<|page|>1<|box|>263 140 280 413<|content|>ENGAGEMENT NO. ... 1019-00001\n<|id|>44<|page|>6<|box|>869 140 906 856<|content|>WAL's decision to engage Valkyr was a commercially...e urgent need to maintain continuity of supply for\n<|id|>45<|page|>7<|box|>90 140 162 854<|content|>WAL's propulsion assembly operations. ... B below,...hat WAL sought to replace Kestrel for cost reasons\n<|id|>121<|page|>17<|box|>342 181 359 575<|content|>• Number of replacement units procured: ... 1,680 units\n<|id|>128<|page|>17<|box|>498 140 681 857<|content|>Characterization as Direct Damages. ... they are t...f Kestrel's failure to deliver conforming products\n<|id|>122<|page|>17<|box|>362 183 378 411<|content|>• Valkyr unit price: ... 92\n<|id|>123<|page|>17<|box|>381 183 398 450<|content|>• Kestrel CY4 unit price: ... 92\n<|id|>124<|page|>17<|box|>400 183 417 653<|content|>• Per-unit price differential: ... 00\n<|id|>125<|page|>17<|box|>420 183 436 707<|content|>• Gross replacement cost premium: ... 00\n<|id|>126<|page|>17<|box|>439 183 474 854<|content|>• Less Valkyr introductory discount (4. ... 40\n<|id|>127<|page|>17<|box|>478 183 494 655<|content|>• Counterclaim amount (rounded): ... 17 million\n<|id|>157<|page|>20<|box|>507 145 523 754<|content|>• Kestrel Request for Arbitration (November 7, 2022), ICC Case No. ... 27914/MHM\n<|id|>159<|page|>20<|box|>547 143 564 397<|content|>Testing and Inspection Records: ... Testing and Inspection Records\n<|id|>158<|page|>20<|box|>527 145 544 753<|content|>• ICC Rules of Arbitration (2021 edition); ... English\n<|id|>163<|page|>20<|box|>674 145 690 483<|content|>• State of New York (per § 22. ... 1 of the MSA)\n<|id|>164<|page|>20<|box|>693 140 739 854<|content|>This memorandum is protected by the attorney-clien...thout the prior written consent of the undersigned",
+    "raw_response": "<|src_id|>44<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        }
+    ]
+}

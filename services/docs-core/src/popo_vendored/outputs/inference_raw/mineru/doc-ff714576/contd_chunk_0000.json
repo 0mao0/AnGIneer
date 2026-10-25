@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        8,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 140 174 854<|content|>TO: ... Whitfield, General Counsel, Briarwood Family Office LLC\n<|id|>3<|page|>1<|box|>181 140 219 854<|content|>FROM: ... Owen Fischer, Associate — Funds & Asset Management, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>227 140 244 316<|content|>DATE: ... March 6, 2024\n<|id|>5<|page|>1<|box|>253 140 289 854<|content|>RE: ... Side Letter Negotiation\n<|id|>6<|page|>1<|box|>296 140 314 361<|content|>MATTER NO. ... 1026-00001\n<|id|>7<|page|>1<|box|>321 140 339 408<|content|>Right-click to update Table of Contents\n<|id|>11<|page|>1<|box|>729 140 877 856<|content|>The GP's outside counsel, Ashford Crane & Hewitt L... Letter, dated February 28, 2024, was delivered to\n<|id|>12<|page|>2<|box|>90 140 127 854<|content|>Ashford Crane with the excuse cap bracketed at [15...p of the first draft, maintaining the 15% position\n<|id|>67<|page|>7<|box|>833 140 888 854<|content|>BFO seeks the right to be excused from investments... and the regulations promulgated thereunder by the\n<|id|>69<|page|>8<|box|>133 138 318 856<|content|>While BFO is not itself an ERISA plan, a \"benefit ...d prohibited transaction rules (ERISA §§ 404, 406)\n<|id|>188<|page|>21<|box|>133 140 148 758<|content|>Calderwood & Harkness LLP 425 Lexington Avenue, New York, NY 10017 Matter No. ... 1026-0000\n<|id|>189<|page|>21<|box|>155 240 171 756<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION",
+    "raw_response": "<|src_id|>11<|tgt_id|>12",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        }
+    ]
+}

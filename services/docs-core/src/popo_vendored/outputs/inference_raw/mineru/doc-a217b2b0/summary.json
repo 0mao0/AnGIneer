@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7jljri7s\\input\\pdfs\\doc-a217b2b0.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7jljri7s\\enriched\\doc-a217b2b0.json",
+    "contd_output": "<|src_id|>49<|tgt_id|>50",
+    "title_output": "<|id|>12<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>2\n<|id|>31<|level|>2\n<|id|>39<|level|>2\n<|id|>45<|level|>2\n<|id|>53<|level|>2\n<|id|>59<|level|>2\n<|id|>70<|level|>2\n<|id|>79<|level|>2\n<|id|>85<|level|>2\n<|id|>91<|level|>1\n<|id|>93<|level|>2\n<|id|>95<|level|>2\n<|id|>97<|level|>2\n<|id|>99<|level|>2\n<|id|>101<|level|>2\n<|id|>104<|level|>2\n<|id|>106<|level|>1\n<|id|>107<|level|>2\n<|id|>110<|level|>2\n<|id|>114<|level|>2\n<|id|>124<|level|>2\n<|id|>129<|level|>1\n<|id|>130<|level|>2\n<|id|>135<|level|>2\n<|id|>138<|level|>1\n<|id|>142<|level|>1\n<|id|>146<|level|>1\n<|id|>150<|level|>1\n<|id|>154<|level|>1\n<|id|>157<|level|>1\n<|id|>172<|level|>1\n<|id|>196<|level|>1\n<|id|>200<|level|>1",
+    "image_output": "<|src_id|>202<|tgt_id|>200\n<|src_id|>203<|tgt_id|>200",
+    "contd_label": [
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        }
+    ],
+    "title_label": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 154,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 196,
+            "level": 1
+        },
+        {
+            "id": 200,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 202,
+            "tgt_id": 200
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 200
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 202,
+            "table2_idx": 203,
+            "upper_row_ss": [
+                [
+                    "Ryan Kowalski",
+                    "Associate, Mergers &",
+                    "(212) 506-7388",
+                    "rkowalski@calderwoodha"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Acquisitions",
+                    "",
+                    "rkness.com"
+                ]
+            ]
+        }
+    ]
+}

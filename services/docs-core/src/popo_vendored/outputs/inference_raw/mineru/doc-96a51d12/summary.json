@@ -1,0 +1,443 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-he95e35h\\input\\pdfs\\doc-96a51d12.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-he95e35h\\enriched\\doc-96a51d12.json",
+    "contd_output": "<|src_id|>49<|tgt_id|>50\n<|src_id|>59<|tgt_id|>60\n<|src_id|>94<|tgt_id|>95\n<|src_id|>224<|tgt_id|>225\n<|src_id|>244<|tgt_id|>245",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>23<|level|>2\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>47<|level|>3\n<|id|>52<|level|>3\n<|id|>56<|level|>3\n<|id|>61<|level|>3\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>71<|level|>3\n<|id|>76<|level|>3\n<|id|>78<|level|>3\n<|id|>87<|level|>2\n<|id|>88<|level|>3\n<|id|>92<|level|>3\n<|id|>98<|level|>3\n<|id|>102<|level|>2\n<|id|>103<|level|>3\n<|id|>105<|level|>3\n<|id|>109<|level|>3\n<|id|>115<|level|>3\n<|id|>118<|level|>2\n<|id|>119<|level|>3\n<|id|>124<|level|>3\n<|id|>128<|level|>3\n<|id|>132<|level|>3\n<|id|>138<|level|>2\n<|id|>139<|level|>3\n<|id|>142<|level|>3\n<|id|>146<|level|>3\n<|id|>150<|level|>3\n<|id|>154<|level|>2\n<|id|>155<|level|>3\n<|id|>160<|level|>3\n<|id|>162<|level|>2\n<|id|>163<|level|>3\n<|id|>175<|level|>3\n<|id|>185<|level|>3\n<|id|>187<|level|>3\n<|id|>189<|level|>2\n<|id|>190<|level|>3\n<|id|>198<|level|>3\n<|id|>206<|level|>2\n<|id|>207<|level|>3\n<|id|>211<|level|>3\n<|id|>214<|level|>2\n<|id|>215<|level|>3\n<|id|>219<|level|>3\n<|id|>223<|level|>3\n<|id|>229<|level|>2\n<|id|>230<|level|>3\n<|id|>234<|level|>3\n<|id|>238<|level|>3\n<|id|>240<|level|>2\n<|id|>241<|level|>3\n<|id|>243<|level|>3\n<|id|>248<|level|>3\n<|id|>250<|level|>3\n<|id|>252<|level|>3\n<|id|>254<|level|>3\n<|id|>256<|level|>3\n<|id|>272<|level|>3\n<|id|>274<|level|>3\n<|id|>277<|level|>3\n<|id|>279<|level|>3\n<|id|>281<|level|>3\n<|id|>298<|level|>2\n<|id|>299<|level|>3\n<|id|>307<|level|>2\n<|id|>308<|level|>3\n<|id|>311<|level|>4\n<|id|>316<|level|>2\n<|id|>317<|level|>3\n<|id|>321<|level|>4\n<|id|>326<|level|>2\n<|id|>327<|level|>3\n<|id|>332<|level|>2\n<|id|>333<|level|>3",
+    "image_output": "<|src_id|>111<|tgt_id|>109\n<|src_id|>236<|tgt_id|>234\n<|src_id|>301<|tgt_id|>299\n<|src_id|>310<|tgt_id|>308\n<|src_id|>313<|tgt_id|>311\n<|src_id|>319<|tgt_id|>317\n<|src_id|>320<|tgt_id|>317\n<|src_id|>329<|tgt_id|>327\n<|src_id|>330<|tgt_id|>327\n<|src_id|>335<|tgt_id|>333",
+    "contd_label": [
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 225
+        },
+        {
+            "src_id": 244,
+            "tgt_id": 245
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 198,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 219,
+            "level": 3
+        },
+        {
+            "id": 223,
+            "level": 3
+        },
+        {
+            "id": 229,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 3
+        },
+        {
+            "id": 240,
+            "level": 2
+        },
+        {
+            "id": 241,
+            "level": 3
+        },
+        {
+            "id": 243,
+            "level": 3
+        },
+        {
+            "id": 248,
+            "level": 3
+        },
+        {
+            "id": 250,
+            "level": 3
+        },
+        {
+            "id": 252,
+            "level": 3
+        },
+        {
+            "id": 254,
+            "level": 3
+        },
+        {
+            "id": 256,
+            "level": 3
+        },
+        {
+            "id": 272,
+            "level": 3
+        },
+        {
+            "id": 274,
+            "level": 3
+        },
+        {
+            "id": 277,
+            "level": 3
+        },
+        {
+            "id": 279,
+            "level": 3
+        },
+        {
+            "id": 281,
+            "level": 3
+        },
+        {
+            "id": 298,
+            "level": 2
+        },
+        {
+            "id": 299,
+            "level": 3
+        },
+        {
+            "id": 307,
+            "level": 2
+        },
+        {
+            "id": 308,
+            "level": 3
+        },
+        {
+            "id": 311,
+            "level": 4
+        },
+        {
+            "id": 316,
+            "level": 2
+        },
+        {
+            "id": 317,
+            "level": 3
+        },
+        {
+            "id": 321,
+            "level": 4
+        },
+        {
+            "id": 326,
+            "level": 2
+        },
+        {
+            "id": 327,
+            "level": 3
+        },
+        {
+            "id": 332,
+            "level": 2
+        },
+        {
+            "id": 333,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 236,
+            "tgt_id": 234
+        },
+        {
+            "src_id": 301,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 310,
+            "tgt_id": 308
+        },
+        {
+            "src_id": 313,
+            "tgt_id": 311
+        },
+        {
+            "src_id": 319,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 320,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 329,
+            "tgt_id": 327
+        },
+        {
+            "src_id": 330,
+            "tgt_id": 327
+        },
+        {
+            "src_id": 335,
+            "tgt_id": 333
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 319,
+            "table2_idx": 320,
+            "upper_row_ss": [
+                [
+                    "Non-Solicitation of",
+                    "24 months",
+                    "March 31, 2026",
+                    "All 62 professionals"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Employees (Section 6.2)",
+                    "",
+                    "",
+                    "employed by the Management Company and its Affiliates"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 329,
+            "table2_idx": 330,
+            "upper_row_ss": [
+                [
+                    "Scope of Services",
+                    "Advisory and consulting services relating to the Fund's existing portfolio investments, strategic planning, and"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "other matters as reasonably requested"
+                ]
+            ]
+        }
+    ]
+}

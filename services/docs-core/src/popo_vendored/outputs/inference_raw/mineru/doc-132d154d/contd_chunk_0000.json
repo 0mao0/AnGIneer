@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        15,
+        16,
+        28,
+        29,
+        30
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>152 140 189 854<|content|>FROM: ... Elinor Chazen Lakeview Consulting Group ...h Wacker Drive, Suite 1400 Chicago, Illinois 60606\n<|id|>3<|page|>1<|box|>196 140 233 854<|content|>TO: ... Responsible Partner Calderwood & Harkness ...5 Park Avenue, 33rd Floor New York, New York 10022\n<|id|>4<|page|>1<|box|>242 140 258 352<|content|>DATE: ... December 20, 2024\n<|id|>5<|page|>1<|box|>268 140 321 854<|content|>RE: ... 654321/2024\n<|id|>6<|page|>1<|box|>329 140 347 408<|content|>C&H MATTER NO. ... 1022-00005\n<|id|>7<|page|>1<|box|>354 140 375 702<|content|>STATUS: ... Not Final Expert Opinion\n<|id|>8<|page|>1<|box|>382 142 398 408<|content|>Right-click to update Table of Contents\n<|id|>18<|page|>2<|box|>329 174 364 854<|content|>(d) Assessment of the schedule impact of quality d... rework requirements on the critical path; ... and\n<|id|>20<|page|>2<|box|>436 140 584 856<|content|>I am qualified to render these opinions based on m...e appended to my final expert report as Appendix A\n<|id|>31<|page|>3<|box|>345 210 364 614<|content|>(c) Marcus Henley, deposed December 3–4, 2024; ... and\n<|id|>40<|page|>3<|box|>829 140 864 854<|content|>A comprehensive list of all materials reviewed wil...d included as Appendix B to my final expert report\n<|id|>85<|page|>8<|box|>863 140 900 854<|content|>Window 3: ... This window covers the approximately nine-month period between Meridian's initial\n<|id|>86<|page|>9<|box|>90 140 143 854<|content|>Phase 3 mobilization and the date of termination. ...asis rather than on a milestone-by-milestone basis\n<|id|>144<|page|>15<|box|>867 140 904 856<|content|>Preliminary Conclusion. ... The\n<|id|>145<|page|>16<|box|>90 140 143 854<|content|>Milestone 8 delays are the product of the cumulati...rsion, and failure to cure documented deficiencies\n<|id|>154<|page|>16<|box|>709 181 726 704<|content|>• Total route miles completed: ... 4%)\n<|id|>157<|page|>16<|box|>786 140 897 857<|content|>NFA engaged a replacement contractor, Crestline Co...llion is a component of NFA's counterclaim damages\n<|id|>155<|page|>16<|box|>729 181 763 852<|content|>• Total contract value earned (per NFA's assessment): ... 5%)\n<|id|>156<|page|>16<|box|>767 183 784 712<|content|>• Remaining unperformed contract value: ... 3 million\n<|id|>258<|page|>28<|box|>839 181 854 478<|content|>• Expert reports due: ... March 31, 2025\n<|id|>259<|page|>28<|box|>858 183 875 477<|content|>• Rebuttal reports due: ... May 15, 2025\n<|id|>260<|page|>28<|box|>877 183 893 581<|content|>• Expert depositions: ... To be scheduled for June 2025\n<|id|>261<|page|>29<|box|>90 140 219 854<|content|>Between now and the March 31, 2025 deadline, I wil..., and the finalized NCR summary table (Appendix D)\n<|id|>271<|page|>30<|box|>296 142 313 321<|content|>Respectfully submitted,\n<|id|>272<|page|>30<|box|>313 142 329 468<|content|>LAKEVIEW CONSULTING GROUP LLC\n<|id|>273<|page|>30<|box|>330 143 348 253<|content|>By: ... By\n<|id|>274<|page|>30<|box|>347 140 378 852<|content|>Dr. ... Managing Director 200 South Wacker Drive, Suite 1400 Chicago, Illinois 60606\n<|id|>275<|page|>30<|box|>380 142 398 334<|content|>Date: ... December 20, 2024",
+    "raw_response": "<|src_id|>85<|tgt_id|>86\n<|src_id|>144<|tgt_id|>145",
+    "parsed": [
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 145
+        }
+    ]
+}

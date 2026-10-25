@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        36
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        13,
+        14,
+        15,
+        19,
+        20,
+        28,
+        34,
+        36
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>112 153 128 843<|content|>CALDERWOOD & HARKNESS LLP 599 Lexington Avenue New York, New York 10022\n<|id|>2<|page|>1<|box|>138 743 155 854<|content|>April 12, 2024\n<|id|>17<|page|>2<|box|>660 217 695 856<|content|>• Stratos Merger Sub Inc. ... and\n<|id|>19<|page|>2<|box|>717 174 809 856<|content|>The April 9 Draft occasionally refers to Fund VI s...s \"Fund VI,\" \"Merger Sub,\" and \"Solara\" throughout\n<|id|>20<|page|>2<|box|>816 174 907 857<|content|>(f) Transaction Structure. ... We note that on pag...s described as \"a merger of Cloudium with and into\n<|id|>21<|page|>3<|box|>89 174 164 854<|content|>Merger Sub,\" which reverses the correct direction ...nt and must be accurately stated in every instance\n<|id|>40<|page|>4<|box|>772 174 825 854<|content|>Cloudium Technologies plc Company No. ... 600 Town...Street, Suite 800, San Francisco, California 94103\n<|id|>41<|page|>4<|box|>834 140 890 854<|content|>The cover page should also confirm that the Compan...cker symbol \"CLDM. ... \" Because the Global Select\n<|id|>42<|page|>5<|box|>89 140 126 854<|content|>Market is a distinct tier of the Nasdaq Stock Mark... requirements, the full designation should be used\n<|id|>85<|page|>8<|box|>696 176 715 609<|content|>(f) Compliance with covenants in all material respects; ... and\n<|id|>87<|page|>8<|box|>750 140 896 856<|content|>Importantly, two of these regulatory conditions ha...he path to closing and reduces closing uncertainty\n<|id|>132<|page|>13<|box|>796 174 888 857<|content|>(a) Cloudium's Financial Advisor: ... The Proxy Statement should disclose the fees payable to\n<|id|>133<|page|>14<|box|>90 174 127 854<|content|>Veridian, including any portion of the fees that i...5 of Regulation M-A and Item 14(b) of Schedule 14A\n<|id|>142<|page|>14<|box|>796 140 907 857<|content|>We note that the April 9 Draft does not indicate t...s is not reflected in the April 9 Draft, the Proxy\n<|id|>143<|page|>15<|box|>90 140 125 854<|content|>Statement should be corrected to include a descrip...ommittee's composition, mandate, and deliberations\n<|id|>152<|page|>15<|box|>513 218 568 854<|content|>• No-shop and fiduciary-out provisions (including ...structure of the matching- rights period); ... and\n<|id|>154<|page|>15<|box|>627 140 700 854<|content|>The Background of the Merger section should presen...f any appraisal proceeding or fiduciary duty claim\n<|id|>195<|page|>19<|box|>306 218 340 854<|content|>• Fund VI's and Merger Sub's compliance with their...Merger Agreement in all material respects; ... and\n<|id|>197<|page|>19<|box|>381 140 508 854<|content|>As noted above, the HSR Act clearance was obtained...section, are updated to reflect the current status\n<|id|>209<|page|>20<|box|>229 217 282 854<|content|>• If Fund VI or Merger Sub materially breaches its...e the applicable closing condition to fail; ... or\n<|id|>214<|page|>20<|box|>601 140 674 856<|content|>We request that Ridgeway Phelps verify the accurac... alter the substance of the termination provisions\n<|id|>298<|page|>28<|box|>638 174 694 854<|content|>(b) FOR or AGAINST any proposal to adjourn the Spe...pecial Meeting, or to ABSTAIN from voting; ... and\n<|id|>300<|page|>28<|box|>744 140 782 854<|content|>The proxy card should be reviewed by the Company's...h applicable SEC rules regarding the form of proxy\n<|id|>360<|page|>34<|box|>590 218 627 852<|content|>• Jonathan Hargrove (as a rollover participant who... equity interest in the surviving entity); ... and\n<|id|>362<|page|>34<|box|>667 174 722 854<|content|>Each filing person must sign the Schedule 13E-3. .... the necessary signatures and authorize the filing\n<|id|>389<|page|>36<|box|>496 174 532 852<|content|>(e) The status of the Aegis Federal Solutions and ...Data Systems consents has been determined; ... and\n<|id|>391<|page|>36<|box|>594 140 631 854<|content|>We are available to discuss any of the foregoing c... contact me directly at (212) 558-4000 or by email\n<|id|>394<|page|>36<|box|>672 140 705 854<|content|>Tiffany Rosenthal Partner 599 Lexington Avenue New York, New York 10022 Telephone: ... (212) 558-4000\n<|id|>395<|page|>36<|box|>707 142 723 473<|content|>Email: ... com\n<|id|>396<|page|>36<|box|>723 140 784 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...ew, use, disclosure, or distribution is prohibited",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>41<|tgt_id|>42\n<|src_id|>132<|tgt_id|>133\n<|src_id|>142<|tgt_id|>143",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 143
+        }
+    ]
+}

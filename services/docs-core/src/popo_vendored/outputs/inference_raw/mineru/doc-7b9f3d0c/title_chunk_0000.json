@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 575<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|page|>1<|box|>224 140 241 390<|content|>Via Email and First-Class Mail\n<|id|>10<|page|>1<|box|>416 140 433 364<|content|>I. Purpose and Introduction\n<|id|>15<|page|>2<|box|>90 140 107 395<|content|>II. Background of the Litigation\n<|id|>21<|page|>2<|box|>570 140 587 308<|content|>B. Accused Products\n<|id|>27<|page|>2<|box|>782 140 799 336<|content|>C. Responsive Pleadings\n<|id|>29<|page|>3<|box|>148 140 167 452<|content|>III. Summary of Litigation Proceedings\n<|id|>30<|page|>3<|box|>180 142 198 367<|content|>A. Scheduling and discovery\n<|id|>34<|page|>3<|box|>488 140 503 323<|content|>B. Claim Construction\n<|id|>37<|page|>3<|box|>733 140 750 303<|content|>C. Expert discovery\n<|id|>39<|page|>3<|box|>801 176 818 325<|content|>Solstice's Experts:\n<|id|>43<|page|>4<|box|>222 176 239 307<|content|>Apex's Experts:\n<|id|>47<|page|>4<|box|>500 140 517 501<|content|>D. Settlement Efforts and Dispositive Motions\n<|id|>53<|page|>5<|box|>90 140 107 316<|content|>IV. Settlement Terms\n<|id|>54<|page|>5<|box|>121 140 138 444<|content|>A. Execution of Settlement Documents\n<|id|>56<|page|>5<|box|>250 140 266 297<|content|>B. Principal Terms\n<|id|>72<|page|>6<|box|>481 140 498 537<|content|>V. Insurance Coverage Analysis and Confirmation\n<|id|>79<|page|>6<|box|>829 140 845 457<|content|>VI. Summary of Defense Fees and Costs\n<|id|>87<|page|>7<|box|>710 142 728 504<|content|>VII. Confirmation of Billing Rate Information\n<|id|>96<|page|>8<|box|>272 140 289 511<|content|>VIII. Request for Confirmation and Next Steps\n<|id|>103<|page|>8<|box|>662 140 679 344<|content|>IX. Reservation of Rights\n<|id|>113<|page|>9<|box|>268 143 280 171<|content|>cc:\n<|id|>115<|page|>9<|box|>354 143 369 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>-1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>1\n<|id|>30<|level|>2\n<|id|>34<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>3\n<|id|>43<|level|>3\n<|id|>47<|level|>2\n<|id|>53<|level|>1\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>72<|level|>1\n<|id|>79<|level|>1\n<|id|>87<|level|>1\n<|id|>96<|level|>1\n<|id|>103<|level|>1\n<|id|>113<|level|>1\n<|id|>115<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        }
+    ]
+}

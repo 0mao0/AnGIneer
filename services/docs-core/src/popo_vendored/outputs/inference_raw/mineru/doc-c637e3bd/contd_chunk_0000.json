@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        13,
+        16,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>112 148 147 848<|content|>CALDERWOOD & HARKNESS LLP 200 South Wacker Drive, Suite 4400 Chicago, Illinois 60606\n<|id|>2<|page|>1<|box|>157 712 174 854<|content|>September 8, 2022\n<|id|>4<|page|>1<|box|>208 142 226 339<|content|>TO: ... Priya Anand, Partner\n<|id|>5<|page|>1<|box|>234 142 252 380<|content|>FROM: ... Jeffrey Park, Associate\n<|id|>6<|page|>1<|box|>260 140 315 854<|content|>RE: ... 2022-L-008471, Circuit Court of Cook County, Illinois, County Department, Law Division\n<|id|>7<|page|>1<|box|>323 142 339 362<|content|>MATTER NO. ... 1005-00005\n<|id|>8<|page|>1<|box|>349 140 366 464<|content|>CLIENT: ... Nexford Industrial Holdings Inc\n<|id|>15<|page|>1<|box|>845 174 901 856<|content|>2. ... Whether Cardinal Peak's deviation from the ...ied Ferrous Scrap Index and Industrial Energy Cost\n<|id|>16<|page|>2<|box|>90 210 143 854<|content|>Index — constitutes a breach of the MSA that relie...rges attributable to the non-compliant methodology\n<|id|>39<|page|>4<|box|>837 174 909 857<|content|>2. ... Across multiple months during the disputed ...al sources — rather than referencing the published\n<|id|>40<|page|>5<|box|>90 210 161 854<|content|>Ferrous Scrap Index and Industrial Energy Cost Ind...ied in Exhibit C. ... 47 million in excess charges\n<|id|>102<|page|>13<|box|>513 181 531 684<|content|>• HRC: ... 40/ton maximum monthly surcharge\n<|id|>104<|page|>13<|box|>554 140 664 854<|content|>The cap serves an important commercial purpose: ... But absent such consent, the cap is a hard ceiling\n<|id|>103<|page|>13<|box|>534 183 551 684<|content|>• CRC: ... 80/ton maximum monthly surcharge\n<|id|>123<|page|>16<|box|>248 174 301 854<|content|>(i) The Ferrous Scrap Index, as reported by Platts...data in the North American steel industry; ... and\n<|id|>125<|page|>16<|box|>354 140 390 854<|content|>The methodology further prescribes agreed baseline...inst which the published index values are compared\n<|id|>126<|page|>16<|box|>398 183 416 454<|content|>• Scrap cost baseline: ... $340 per ton\n<|id|>128<|page|>16<|box|>438 140 549 854<|content|>Under the Exhibit C methodology, the surcharge for...applicable alloy surcharge, calculated separately)\n<|id|>127<|page|>16<|box|>419 184 435 455<|content|>• Energy cost baseline: ... $48 per ton\n<|id|>177<|page|>24<|box|>152 142 169 320<|content|>Respectfully submitted,\n<|id|>178<|page|>24<|box|>169 142 186 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>179<|page|>24<|box|>188 142 204 254<|content|>By: ... By\n<|id|>180<|page|>24<|box|>204 140 237 852<|content|>Jeffrey Park, Associate 200 South Wacker Drive, Su... (312) 555- 7200 jpark@calderwoodharkness. ... com\n<|id|>181<|page|>24<|box|>237 140 297 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...e, distribution, or copying is strictly prohibited",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>39<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ]
+}

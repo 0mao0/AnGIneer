@@ -1,0 +1,108 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 357 118 640<|content|>CLOSING DELIVERABLE\n<|id|>1<|page|>1<|box|>136 290 156 707<|content|>CERTIFICATES OF GOOD STANDING\n<|id|>8<|page|>1<|box|>458 142 474 382<|content|>Contents of This Compilation:\n<|id|>14<|page|>1<|box|>683 426 700 571<|content|>CERTIFICATE I\n<|id|>15<|page|>1<|box|>724 339 741 658<|content|>CERTIFICATE OF GOOD STANDING\n<|id|>16<|page|>1<|box|>766 321 886 674<|content|>STATE OF DELAWARE STATE OF DELAWARE OFFICE OF THE\n<|id|>18<|page|>2<|box|>340 142 357 374<|content|>Good Standing Confirmation\n<|id|>24<|page|>2<|box|>607 142 625 338<|content|>Date and Authentication\n<|id|>27<|page|>2<|box|>683 176 699 593<|content|>Authentication/Verification Number: 9217-4835-6021\n<|id|>30<|page|>3<|box|>90 142 107 362<|content|>Note on Scope of Certificate\n<|id|>32<|page|>3<|box|>256 424 272 573<|content|>CERTIFICATE II\n<|id|>33<|page|>3<|box|>297 339 314 658<|content|>CERTIFICATE OF GOOD STANDING\n<|id|>34<|page|>3<|box|>338 230 484 767<|content|>COMMONWEALTH OF MASSACHUSETTS THE COMMONWEALTH OF\n<|id|>35<|page|>3<|box|>494 140 547 854<|content|>I, WILLIAM FRANCIS GALVIN, SECRETARY OF THE COMMON\n<|id|>37<|page|>3<|box|>722 143 739 372<|content|>Good Standing Confirmation\n<|id|>43<|page|>4<|box|>338 143 354 338<|content|>Date and Authentication\n<|id|>50<|page|>4<|box|>647 143 662 364<|content|>Note on Scope of Certificate\n<|id|>52<|page|>4<|box|>813 346 829 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>53<|page|>4<|box|>854 215 869 781<|content|>TRANSMITTAL NOTATION / INTERNAL COVER MEMORANDUM\n<|id|>54<|page|>4<|box|>878 143 893 584<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>56<|page|>5<|box|>114 143 132 290<|content|>MEMORANDUM\n<|id|>59<|page|>5<|box|>455 140 473 398<|content|>2. Transaction Reference Details\n<|id|>62<|page|>5<|box|>816 142 833 333<|content|>3. Certificates Obtained\n<|id|>66<|page|>6<|box|>429 140 446 609<|content|>4. Compliance with Underwriting Agreement Requirem\n<|id|>69<|page|>6<|box|>656 140 672 266<|content|>5. Distribution.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>16<|level|>3\n<|id|>18<|level|>4\n<|id|>24<|level|>4\n<|id|>27<|level|>-1\n<|id|>30<|level|>4\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>34<|level|>3\n<|id|>35<|level|>-1\n<|id|>37<|level|>4\n<|id|>43<|level|>4\n<|id|>50<|level|>4\n<|id|>52<|level|>-1\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>56<|level|>3\n<|id|>59<|level|>4\n<|id|>62<|level|>4\n<|id|>66<|level|>4\n<|id|>69<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 4
+        },
+        {
+            "id": 24,
+            "level": 4
+        },
+        {
+            "id": 30,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 4
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 50,
+            "level": 4
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 4
+        }
+    ]
+}

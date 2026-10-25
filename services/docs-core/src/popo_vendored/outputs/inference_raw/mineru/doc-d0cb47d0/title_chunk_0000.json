@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 612<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>111 163 147 833<|content|>CALDERWOOD & HARKNESS LLP 7 Times Square, 38th Flo\n<|id|>2<|page|>1<|box|>157 405 176 593<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>395 140 412 321<|content|>I. Executive Summary\n<|id|>20<|page|>2<|box|>599 140 617 267<|content|>II. Background\n<|id|>40<|page|>4<|box|>148 140 167 431<|content|>III. Comment-by-Comment Analysis\n<|id|>41<|page|>4<|box|>181 142 196 408<|content|>A. Comment 1 — Use of Proceeds\n<|id|>56<|page|>5<|box|>688 140 723 854<|content|>3. Recommended Response Strategy. We recommend the\n<|id|>62<|page|>6<|box|>492 142 508 643<|content|>B. Comment 2 — Risk Factors (Nevada Revenue Concen\n<|id|>79<|page|>8<|box|>642 140 660 400<|content|>C. Comment 3 — Dilution Table\n<|id|>104<|page|>10<|box|>632 140 648 620<|content|>D. Comment 4 — Incorporation by Reference (Form 10\n<|id|>117<|page|>12<|box|>89 140 127 854<|content|>E. Comment 5 — Plan of Distribution (Stabilization\n<|id|>130<|page|>13<|box|>588 140 623 854<|content|>3. Recommended Response Strategy. We recommend the\n<|id|>136<|page|>15<|box|>90 140 108 496<|content|>F. Comment 6 — Legal Opinion (Exhibit 5.1)\n<|id|>159<|page|>16<|box|>787 140 804 418<|content|>IV. Coordination and Action Items\n<|id|>161<|page|>17<|box|>90 140 106 326<|content|>A. Client Coordination\n<|id|>165<|page|>17<|box|>550 140 566 454<|content|>B. Underwriters' Counsel Coordination\n<|id|>168<|page|>17<|box|>806 140 823 341<|content|>C. Auditor Coordination\n<|id|>170<|page|>18<|box|>157 142 175 406<|content|>D. Internal Drafting Assignments\n<|id|>172<|page|>18<|box|>207 176 224 442<|content|>Brendan Walsh (Lead Associate):\n<|id|>186<|page|>18<|box|>750 143 766 281<|content|>E. Key Deadlines\n<|id|>190<|page|>19<|box|>415 140 431 483<|content|>V. Overall Assessment and Risk Evaluation\n<|id|>204<|page|>21<|box|>186 140 203 277<|content|>VI. Attachments",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>2<|level|>1\n<|id|>8<|level|>2\n<|id|>20<|level|>2\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>56<|level|>4\n<|id|>62<|level|>3\n<|id|>79<|level|>3\n<|id|>104<|level|>3\n<|id|>117<|level|>3\n<|id|>130<|level|>4\n<|id|>136<|level|>3\n<|id|>159<|level|>2\n<|id|>161<|level|>3\n<|id|>165<|level|>3\n<|id|>168<|level|>3\n<|id|>170<|level|>3\n<|id|>172<|level|>-1\n<|id|>186<|level|>3\n<|id|>190<|level|>2\n<|id|>204<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 4
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 2
+        }
+    ]
+}

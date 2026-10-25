@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        90,
+        105
+    ],
+    "pages": [
+        90,
+        91,
+        95,
+        96,
+        98,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>879<|type|>table<|page|>90<|box|>391 153 481 843<|content|>None\n<|id|>884<|type|>title<|page|>91<|box|>79 313 117 684<|content|>ULTA BEAUTY, INC. AMENDED AND RESTATED 2011 INCENT\n<|id|>886<|type|>table<|page|>91<|box|>184 166 311 831<|content|>None\n<|id|>890<|type|>title<|page|>91<|box|>433 183 446 356<|content|>[ADD VESTING SCHEDULE]\n<|id|>891<|type|>title<|page|>91<|box|>458 88 472 258<|content|>Notwithstanding the foregoing:\n<|id|>915<|type|>title<|page|>95<|box|>79 313 117 684<|content|>ULTA BEAUTY, INC. AMENDED AND RESTATED 2011 INCENT\n<|id|>917<|type|>table<|page|>95<|box|>200 168 273 831<|content|>None\n<|id|>927<|type|>title<|page|>96<|box|>138 88 150 202<|content|>4.Forfeiture.\n<|id|>944<|type|>title<|page|>98<|box|>309 183 321 617<|content|>14. Severability, Waiver, Modification, Assignment\n<|id|>955<|type|>table<|page|>100<|box|>123 143 200 851<|content|>None\n<|id|>956<|type|>title<|page|>101<|box|>77 267 89 728<|content|>CONSENT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTIN\n<|id|>964<|type|>title<|page|>102<|box|>77 321 125 674<|content|>CERTIFICATION PURSUANT TO RULES 13a-14(a) AND 15d-\n<|id|>978<|type|>title<|page|>103<|box|>77 321 125 674<|content|>CERTIFICATION PURSUANT TO RULES 13a-14(a) AND 15d-\n<|id|>993<|type|>title<|page|>104<|box|>75 326 126 669<|content|>CERTIFICATION PURSUANT TO 18 U.S.C. SECTION 1350,\n<|id|>1000<|type|>title<|page|>105<|box|>75 326 126 669<|content|>CERTIFICATION PURSUANT TO 18 U.S.C. SECTION 1350,",
+    "raw_response": "<|src_id|>886<|tgt_id|>884\n<|src_id|>917<|tgt_id|>915\n<|src_id|>955<|tgt_id|>944",
+    "parsed": [
+        {
+            "src_id": 886,
+            "tgt_id": 884
+        },
+        {
+            "src_id": 917,
+            "tgt_id": 915
+        },
+        {
+            "src_id": 955,
+            "tgt_id": 944
+        }
+    ]
+}

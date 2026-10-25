@@ -1,0 +1,77 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>157 302 174 694<|content|>SUBJECT TO COMPLETION, DATED [●], 2022\n<|id|>2<|type|>title<|page|>1<|box|>183 367 199 630<|content|>PRELIMINARY PROSPECTUS\n<|id|>3<|type|>title<|page|>1<|box|>210 267 229 728<|content|>CALLOWAY-BRIGGS RENEWABLES INC.\n<|id|>4<|type|>title<|page|>1<|box|>248 354 265 643<|content|>23,713,636 Shares of Common Stock\n<|id|>5<|type|>title<|page|>1<|box|>273 398 290 601<|content|>Par Value $0.01 Per Share\n<|id|>9<|type|>table<|page|>1<|box|>603 143 750 852<|content|>None\n<|id|>11<|type|>title<|page|>2<|box|>135 143 151 429<|content|>Underwriting discount and Proceeds\n<|id|>12<|type|>table<|page|>2<|box|>159 143 328 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>667 377 684 620<|content|>Joint Book-Running Managers\n<|id|>21<|type|>title<|page|>2<|box|>719 444 734 553<|content|>Co-Managers\n<|id|>26<|type|>title<|page|>2<|box|>821 357 840 640<|content|>PROSPECTUS SUMMARY\n<|id|>29<|type|>title<|page|>3<|box|>321 140 339 261<|content|>Our Company\n<|id|>33<|type|>title<|page|>3<|box|>763 140 780 401<|content|>Operating Portfolio and Pipeline\n<|id|>39<|type|>title<|page|>4<|box|>289 142 306 331<|content|>Key Operating Projects\n<|id|>40<|type|>table<|page|>4<|box|>335 143 659 852<|content|>None\n<|id|>56<|type|>title<|page|>6<|box|>648 140 666 519<|content|>Our Sponsor — Pinnacle Vista Capital Partners\n<|id|>62<|type|>title<|page|>7<|box|>366 140 383 344<|content|>Our Corporate Structure\n<|id|>78<|type|>title<|page|>8<|box|>150 140 167 328<|content|>Summary Risk Factors\n<|id|>88<|type|>title<|page|>9<|box|>832 142 849 250<|content|>The Offering\n<|id|>90<|type|>table<|page|>9<|box|>881 143 902 852<|content|>None\n<|id|>91<|type|>table<|page|>10<|box|>89 143 489 852<|content|>None\n<|id|>92<|type|>title<|page|>10<|box|>529 142 545 269<|content|>Use of Proceeds\n<|id|>109<|type|>title<|page|>12<|box|>138 140 157 364<|content|>Controlled Company Status\n<|id|>115<|type|>title<|page|>12<|box|>498 142 516 423<|content|>Emerging Growth Company Status\n<|id|>124<|type|>title<|page|>13<|box|>253 140 270 547<|content|>Summary Historical and Pro Forma Financial Data\n<|id|>127<|type|>table<|page|>13<|box|>577 143 684 852<|content|>None\n<|id|>129<|type|>table<|page|>14<|box|>111 143 232 852<|content|>None\n<|id|>131<|type|>table<|page|>14<|box|>388 143 521 852<|content|>None\n<|id|>132<|type|>title<|page|>14<|box|>570 142 587 334<|content|>Our Management Team\n<|id|>134<|type|>table<|page|>14<|box|>710 143 878 852<|content|>None\n<|id|>136<|type|>title<|page|>15<|box|>150 142 166 330<|content|>Our Board of Directors\n<|id|>137<|type|>table<|page|>15<|box|>217 143 398 852<|content|>None\n<|id|>139<|type|>title<|page|>15<|box|>564 142 582 434<|content|>Our Principal and Registered Offices\n<|id|>145<|type|>title<|page|>15<|box|>789 142 806 416<|content|>Summary of Existing Indebtedness\n<|id|>147<|type|>table<|page|>15<|box|>858 143 893 852<|content|>None\n<|id|>148<|type|>table<|page|>16<|box|>88 143 362 852<|content|>None\n<|id|>151<|type|>title<|page|>16<|box|>609 142 626 323<|content|>Equity Incentive Plans\n<|id|>156<|type|>title<|page|>17<|box|>366 140 383 330<|content|>Additional Information",
+    "raw_response": "<|src_id|>9<|tgt_id|>4\n<|src_id|>12<|tgt_id|>11\n<|src_id|>40<|tgt_id|>39\n<|src_id|>90<|tgt_id|>88\n<|src_id|>91<|tgt_id|>88\n<|src_id|>127<|tgt_id|>124\n<|src_id|>129<|tgt_id|>124\n<|src_id|>131<|tgt_id|>124\n<|src_id|>134<|tgt_id|>132\n<|src_id|>137<|tgt_id|>136\n<|src_id|>147<|tgt_id|>145\n<|src_id|>148<|tgt_id|>145",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 136
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 145
+        }
+    ]
+}

@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        52
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        49,
+        50,
+        51,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>478<|page|>45<|box|>425 447 441 549<|content|>EXHIBIT C\n<|id|>479<|page|>45<|box|>450 254 468 741<|content|>FORM OF ASSIGNMENT AND ASSUMPTION OF LEASES\n<|id|>482<|page|>45<|box|>636 447 652 549<|content|>EXHIBIT D\n<|id|>483<|page|>45<|box|>662 388 678 607<|content|>FORM OF BILL OF SALE\n<|id|>487<|page|>46<|box|>89 246 133 750<|content|>EXHIBIT E FORM OF FIRPTA NON-FOREIGN PERSON CERTIF\n<|id|>495<|page|>46<|box|>422 447 439 547<|content|>EXHIBIT F\n<|id|>496<|page|>46<|box|>449 299 465 697<|content|>FORM OF TENANT ESTOPPEL CERTIFICATE\n<|id|>509<|page|>46<|box|>875 447 891 550<|content|>EXHIBIT G\n<|id|>510<|page|>47<|box|>89 370 106 625<|content|>FORM OF TITLE AFFIDAVIT\n<|id|>520<|page|>47<|box|>566 431 582 563<|content|>SCHEDULE 5.1\n<|id|>521<|page|>47<|box|>592 413 609 583<|content|>LEASE SCHEDULE\n<|id|>530<|page|>49<|box|>602 143 618 434<|content|>AGGREGATE LEASE SUMMARY:\n<|id|>533<|page|>49<|box|>886 431 902 566<|content|>SCHEDULE 6.4\n<|id|>534<|page|>50<|box|>89 243 106 753<|content|>SERVICE CONTRACTS AND MANAGEMENT AGREEMENT\n<|id|>536<|page|>50<|box|>265 143 281 411<|content|>MANAGEMENT AGREEMENT:\n<|id|>538<|page|>50<|box|>532 143 547 351<|content|>SERVICE CONTRACTS:\n<|id|>541<|page|>51<|box|>435 143 452 591<|content|>Total Estimated Annual Service Contract Costs: $49\n<|id|>543<|page|>51<|box|>630 431 647 565<|content|>SCHEDULE 6.8\n<|id|>544<|page|>51<|box|>656 401 672 596<|content|>KNOWN VIOLATIONS\n<|id|>548<|page|>52<|box|>551 142 568 594<|content|>Total Estimated Cure Cost for Known Violations: $1\n<|id|>550<|page|>52<|box|>729 423 744 573<|content|>SCHEDULE 16.11\n<|id|>551<|page|>52<|box|>753 450 771 545<|content|>BROKERS",
+    "raw_response": "<|id|>478<|level|>1\n<|id|>479<|level|>2\n<|id|>482<|level|>1\n<|id|>483<|level|>2\n<|id|>487<|level|>1\n<|id|>495<|level|>1\n<|id|>496<|level|>2\n<|id|>509<|level|>1\n<|id|>510<|level|>2\n<|id|>520<|level|>1\n<|id|>521<|level|>2\n<|id|>530<|level|>3\n<|id|>533<|level|>1\n<|id|>534<|level|>2\n<|id|>536<|level|>3\n<|id|>538<|level|>3\n<|id|>541<|level|>-1\n<|id|>543<|level|>1\n<|id|>544<|level|>2\n<|id|>548<|level|>-1\n<|id|>550<|level|>1\n<|id|>551<|level|>2",
+    "parsed": [
+        {
+            "id": 478,
+            "level": 1
+        },
+        {
+            "id": 479,
+            "level": 2
+        },
+        {
+            "id": 482,
+            "level": 1
+        },
+        {
+            "id": 483,
+            "level": 2
+        },
+        {
+            "id": 487,
+            "level": 1
+        },
+        {
+            "id": 495,
+            "level": 1
+        },
+        {
+            "id": 496,
+            "level": 2
+        },
+        {
+            "id": 509,
+            "level": 1
+        },
+        {
+            "id": 510,
+            "level": 2
+        },
+        {
+            "id": 520,
+            "level": 1
+        },
+        {
+            "id": 521,
+            "level": 2
+        },
+        {
+            "id": 530,
+            "level": 3
+        },
+        {
+            "id": 533,
+            "level": 1
+        },
+        {
+            "id": 534,
+            "level": 2
+        },
+        {
+            "id": 536,
+            "level": 3
+        },
+        {
+            "id": 538,
+            "level": 3
+        },
+        {
+            "id": 543,
+            "level": 1
+        },
+        {
+            "id": 544,
+            "level": 2
+        },
+        {
+            "id": 550,
+            "level": 1
+        },
+        {
+            "id": 551,
+            "level": 2
+        }
+    ]
+}

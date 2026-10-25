@@ -1,0 +1,156 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 148 142 848<|content|>SECRETARY'S AND OFFICER'S CERTIFICATE OF IRONHAVEN\n<|id|>6<|page|>1<|box|>508 140 527 243<|content|>RECITALS\n<|id|>11<|page|>2<|box|>167 140 184 754<|content|>SECTION 1: CERTIFICATION AS TO ORGANIZATIONAL DOCU\n<|id|>13<|page|>2<|box|>261 140 277 424<|content|>Section 1.1 Certificate of Formation\n<|id|>15<|page|>2<|box|>463 140 479 537<|content|>Section 1.2 Limited Liability Company Agreement\n<|id|>17<|page|>2<|box|>718 140 734 370<|content|>Section 1.3 Registered Agent\n<|id|>19<|page|>3<|box|>90 140 106 416<|content|>Section 1.4 No Other Amendments\n<|id|>21<|page|>3<|box|>300 140 318 790<|content|>SECTION 2: CERTIFICATION AS TO MEMBER / MANAGER RE\n<|id|>22<|page|>3<|box|>332 140 348 439<|content|>Section 2.1 Authorization Resolutions\n<|id|>32<|page|>5<|box|>90 142 107 348<|content|>Section 2.2 No Revocation\n<|id|>34<|page|>5<|box|>236 140 253 442<|content|>Section 2.3 No Conflicting Resolutions\n<|id|>36<|page|>5<|box|>410 140 426 509<|content|>SECTION 3: INCUMBENCY CERTIFICATE\n<|id|>37<|page|>5<|box|>441 142 458 390<|content|>Section 3.1 Authorized Officers\n<|id|>40<|page|>5<|box|>766 142 782 397<|content|>Section 3.2 Specimen Signatures\n<|id|>43<|page|>6<|box|>213 140 229 442<|content|>Section 3.3 Confirmation of Authority\n<|id|>45<|page|>6<|box|>405 140 422 813<|content|>SECTION 4: CERTIFICATION AS TO GOOD STANDING AND Q\n<|id|>46<|page|>6<|box|>436 140 454 452<|content|>Section 4.1 Good Standing — Delaware\n<|id|>48<|page|>6<|box|>582 140 599 444<|content|>Section 4.2 Good Standing — Virginia\n<|id|>50<|page|>6<|box|>746 140 763 483<|content|>Section 4.3 Subsistence and No Proceedings\n<|id|>52<|page|>7<|box|>222 140 239 730<|content|>SECTION 5: REPRESENTATIONS AND WARRANTIES BRING-DO\n<|id|>53<|page|>7<|box|>253 140 271 457<|content|>Section 5.1 Accuracy of Representations\n<|id|>55<|page|>7<|box|>473 140 489 321<|content|>Section 5.2 No Default\n<|id|>57<|page|>7<|box|>674 140 690 434<|content|>Section 5.3 Material Adverse Change\n<|id|>59<|page|>8<|box|>90 140 107 303<|content|>Section 5.4 Solvency\n<|id|>61<|page|>8<|box|>337 140 354 532<|content|>SECTION 6: ADDITIONAL CERTIFICATIONS\n<|id|>62<|page|>8<|box|>369 140 386 339<|content|>Section 6.1 No Litigation\n<|id|>64<|page|>8<|box|>625 140 641 413<|content|>Section 6.2 Compliance with Laws\n<|id|>71<|page|>9<|box|>364 140 380 375<|content|>Section 6.3 Tax Identification\n<|id|>78<|page|>9<|box|>621 140 637 403<|content|>Section 6.4 Beneficial Ownership\n<|id|>80<|page|>9<|box|>803 140 820 509<|content|>Section 6.5 Ownership Structure Confirmation\n<|id|>86<|page|>10<|box|>354 140 372 416<|content|>SECTION 7: LIST OF EXHIBITS\n<|id|>93<|page|>11<|box|>89 142 106 256<|content|>SIGNATURE\n<|id|>100<|page|>11<|box|>359 140 376 392<|content|>COUNTER-CERTIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>11<|level|>2\n<|id|>13<|level|>3\n<|id|>15<|level|>3\n<|id|>17<|level|>3\n<|id|>19<|level|>3\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>32<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>43<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>55<|level|>3\n<|id|>57<|level|>3\n<|id|>59<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>64<|level|>3\n<|id|>71<|level|>3\n<|id|>78<|level|>3\n<|id|>80<|level|>3\n<|id|>86<|level|>2\n<|id|>93<|level|>2\n<|id|>100<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        15
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>10<|page|>2<|box|>233 210 306 854<|content|>(b) a limited partnership interest in Caldwell Rid...n applied for gift tax reporting purposes; ... and\n<|id|>12<|page|>2<|box|>377 174 468 856<|content|>resulting in a total pre-discount fair market valu...detail on Schedule A to the GRAT C Trust Agreement\n<|id|>17<|page|>3<|box|>171 181 205 854<|content|>• Victoria Chambers, Partner — Trusts, Estates & Private Wealth Group (Responsible Partner)\n<|id|>21<|page|>3<|box|>329 140 385 854<|content|>NOW, THEREFORE, in consideration of the premises a...utes this Acknowledgment and Acceptance as follows\n<|id|>18<|page|>3<|box|>209 181 226 676<|content|>• Sylvia Hartwell, Partner — Tax Specialty Group (Tax Specialist)\n<|id|>19<|page|>3<|box|>229 181 263 854<|content|>• Monica Reyes, Senior Associate — Trusts, Estates & Private Wealth Group (Lead Associate)\n<|id|>32<|page|>5<|box|>152 174 208 854<|content|>(b) Fund V LP Interest: ... and\n<|id|>34<|page|>5<|box|>277 140 498 857<|content|>The aggregate pre-discount fair market value of th...l LLC, shall serve as the primary point of contact\n<|id|>37<|page|>5<|box|>739 174 794 857<|content|>(b) Caldwell Ridgeline Fund IV LP and Fund V LP interests (GRAT C): ... and\n<|id|>39<|page|>5<|box|>845 174 901 856<|content|>resulting in a post-discount fair market value for...ousand Dollars ($25,300,000) for gift tax purposes\n<|id|>108<|page|>14<|box|>892 176 907 830<|content|>Calderwood & Harkness LLP 375 Park Avenue, 42nd Floor New York, New York 10152\n<|id|>109<|page|>15<|box|>89 174 125 480<|content|>Attn: ... 1034-00004\n<|id|>115<|page|>15<|box|>484 140 589 854<|content|>Jonathan Robert Caldwell In his capacity as Trustee of: ... 14A New York, New York 10021\n<|id|>116<|page|>15<|box|>598 140 616 846<|content|>NOTARY ACKNOWLEDGMENT. ... STATE OF NEW YORK COUNTY OF NEW YORK\n<|id|>117<|page|>15<|box|>622 140 751 856<|content|>On this 1st day of June, 2023, before me, the unde...of which the person acted, executed the instrument",
+    "raw_response": "<|src_id|>10<|tgt_id|>12\n<|src_id|>37<|tgt_id|>39",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 39
+        }
+    ]
+}

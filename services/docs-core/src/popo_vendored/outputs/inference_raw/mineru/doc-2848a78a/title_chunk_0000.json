@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>13<|page|>1<|box|>753 143 770 370<|content|>1. Identification of the Policy\n<|id|>18<|page|>2<|box|>330 140 348 454<|content|>2. Description of the Underlying Matter\n<|id|>19<|page|>2<|box|>361 140 378 388<|content|>2.1 Background on the Insured\n<|id|>27<|page|>3<|box|>89 140 108 310<|content|>2.2 The DOJ Inquiry\n<|id|>46<|page|>4<|box|>373 140 390 478<|content|>2.3 Nature of Conduct Under Investigation\n<|id|>51<|page|>5<|box|>90 140 107 439<|content|>2.4 Individuals Potentially Implicated\n<|id|>64<|page|>6<|box|>354 140 371 415<|content|>3. Engagement of Defense Counsel\n<|id|>83<|page|>7<|box|>704 140 720 524<|content|>4. Retention of Additional Advisors and Vendors\n<|id|>90<|page|>8<|box|>703 140 720 462<|content|>5. Anticipated Defense Costs and Budget\n<|id|>95<|page|>9<|box|>476 140 493 444<|content|>6. Request for Coverage Confirmation\n<|id|>103<|page|>10<|box|>371 140 388 334<|content|>7. Reservation of Rights\n<|id|>111<|page|>10<|box|>811 140 829 390<|content|>8. Privilege and Confidentiality\n<|id|>115<|page|>11<|box|>476 140 493 464<|content|>9. Compliance with Notice Requirements\n<|id|>122<|page|>12<|box|>90 142 107 558<|content|>10. Contact Information and Future Correspondence\n<|id|>142<|page|>13<|box|>89 176 125 852<|content|>Enclosure C: Relevant Policy Excerpt — Notice Prov",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>27<|level|>3\n<|id|>46<|level|>3\n<|id|>51<|level|>3\n<|id|>64<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>2\n<|id|>95<|level|>2\n<|id|>103<|level|>2\n<|id|>111<|level|>2\n<|id|>115<|level|>2\n<|id|>122<|level|>2\n<|id|>142<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        }
+    ]
+}

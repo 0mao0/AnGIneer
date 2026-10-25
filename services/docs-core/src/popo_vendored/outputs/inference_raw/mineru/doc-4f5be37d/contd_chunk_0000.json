@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        8,
+        9,
+        12,
+        13,
+        17,
+        18,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 140 198 854<|content|>TO: ... Victoria Chambers, Responsible Partner, Wh...Collar & Investigations, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>205 140 241 854<|content|>FROM: ... Conrad Reeves, Senior Counsel, Export Controls & Sanctions, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>250 140 268 302<|content|>DATE: ... May 1, 2023\n<|id|>5<|page|>1<|box|>275 140 311 854<|content|>RE: ... BIS Considerations — Dunmore Energy Holdings Ltd\n<|id|>6<|page|>1<|box|>319 140 337 362<|content|>MATTER NO. ... 1016-00009\n<|id|>7<|page|>1<|box|>345 140 364 632<|content|>CLIENT: ... (\"Dunmore\" or \"DEH\")\n<|id|>12<|page|>1<|box|>820 140 893 856<|content|>Timing Considerations. ... Filing the\n<|id|>13<|page|>2<|box|>90 140 181 854<|content|>OFAC VSD promptly after the DOJ submission — with ... Enforcement Policy (as updated in September 2022)\n<|id|>20<|page|>2<|box|>508 181 544 854<|content|>• Petronova Trading FZE — managed by Sergei Volkov; ... and\n<|id|>22<|page|>2<|box|>603 140 768 856<|content|>The forensic accounting analysis performed by Ridg... to Executive Order 14024, effective April 6, 2022\n<|id|>49<|page|>5<|box|>782 140 875 856<|content|>OFAC administers and enforces comprehensive econom...nctions programs are implemented through Executive\n<|id|>50<|page|>6<|box|>90 140 126 854<|content|>Orders issued by the President and corresponding r...ted by OFAC within the Code of Federal Regulations\n<|id|>76<|page|>8<|box|>867 140 931 856<|content|>Export controls on dual-use items, technology, and... and Security (\"BIS\") within the U. ... 1016-00009\n<|id|>77<|page|>9<|box|>89 140 181 854<|content|>principally from the Export Control Reform Act of 2018 (\"ECRA\"), 50 U. ... Parts 730–774\n<|id|>112<|page|>12<|box|>847 140 901 857<|content|>3. ... Findings of\n<|id|>113<|page|>13<|box|>90 138 181 856<|content|>Violation, however, are publicly released and post...from public disclosure of the sanctions violations\n<|id|>150<|page|>17<|box|>454 183 470 591<|content|>• Notional value of tainted transactions: ... 3 million\n<|id|>153<|page|>17<|box|>513 140 625 856<|content|>This disgorgement offer, to be paid to the U. ... ...-gotten gains\" as a prerequisite for a declination\n<|id|>151<|page|>17<|box|>474 184 489 408<|content|>• Estimated net margin: ... 6%\n<|id|>152<|page|>17<|box|>494 183 510 571<|content|>• Estimated net profits: ... 75 million\n<|id|>156<|page|>17<|box|>794 140 887 857<|content|>2. ... While we believe this conclusion is well supported by the Policy's text and\n<|id|>157<|page|>18<|box|>90 140 127 854<|content|>DOJ's guidance, obtaining express confirmation fro...s Dunmore with a clear record for future reference\n<|id|>202<|page|>23<|box|>566 142 584 320<|content|>Respectfully submitted,\n<|id|>203<|page|>23<|box|>584 142 599 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>204<|page|>23<|box|>603 143 619 251<|content|>By: ... By\n<|id|>205<|page|>23<|box|>619 140 651 852<|content|>Conrad Reeves Senior Counsel, Export Controls & Sa...sylvania Avenue NW, Suite 800 Washington, DC 20006\n<|id|>206<|page|>23<|box|>652 140 688 852<|content|>cc: ... ) Liam Donahue, Counsel (New York)",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>49<|tgt_id|>50\n<|src_id|>76<|tgt_id|>77\n<|src_id|>112<|tgt_id|>113\n<|src_id|>156<|tgt_id|>157",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 157
+        }
+    ]
+}

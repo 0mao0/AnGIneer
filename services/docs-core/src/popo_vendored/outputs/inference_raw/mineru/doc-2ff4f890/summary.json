@@ -1,0 +1,120 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ihky4msc\\input\\pdfs\\doc-2ff4f890.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ihky4msc\\enriched\\doc-2ff4f890.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>5<|level|>2\n<|id|>23<|level|>1\n<|id|>24<|level|>1\n<|id|>25<|level|>1\n<|id|>26<|level|>2\n<|id|>31<|level|>3\n<|id|>33<|level|>3\n<|id|>35<|level|>3\n<|id|>37<|level|>3\n<|id|>39<|level|>3\n<|id|>44<|level|>2\n<|id|>48<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>3",
+    "image_output": "<|src_id|>4<|tgt_id|>3\n<|src_id|>27<|tgt_id|>26\n<|src_id|>28<|tgt_id|>26\n<|src_id|>50<|tgt_id|>49",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 49
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 27,
+            "table2_idx": 28,
+            "upper_row_ss": [
+                [
+                    "LUMOS PHOTONICS, INC.,",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "<!-- indent:4 -->Defendant.<--/indent -->",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

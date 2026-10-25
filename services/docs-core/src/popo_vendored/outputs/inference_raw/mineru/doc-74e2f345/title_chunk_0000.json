@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>99 251 118 745<|content|>APPEALS CONFERENCE — ATTENDEE LIST\n<|id|>1<|page|>1<|box|>136 192 154 805<|content|>Penterra Pharmaceuticals Corp. — IRS Transfer Pric\n<|id|>5<|page|>1<|box|>565 140 602 834<|content|>SECTION 1: TAXPAYER'S REPRESENTATIVES — CALDERWOOD\n<|id|>7<|page|>1<|box|>734 143 750 290<|content|>1.1 Leonard Cross\n<|id|>11<|page|>2<|box|>463 143 479 297<|content|>1.2 Sylvia Hartwell\n<|id|>14<|page|>3<|box|>140 143 156 310<|content|>1.3 Garrett Simmons\n<|id|>17<|page|>3<|box|>565 140 601 676<|content|>SECTION 2: TAXPAYER'S REPRESENTATIVES — PENTERRA P\n<|id|>19<|page|>3<|box|>714 143 729 312<|content|>2.1 Marcus Whitfield\n<|id|>22<|page|>4<|box|>359 142 375 303<|content|>2.2 Deborah Staines\n<|id|>25<|page|>4<|box|>729 140 765 841<|content|>SECTION 3: TAXPAYER'S REPRESENTATIVES — WHITMORE V\n<|id|>34<|page|>6<|box|>303 140 320 669<|content|>SECTION 4: INTERNAL REVENUE SERVICE — IRS APPEALS\n<|id|>36<|page|>6<|box|>397 142 412 316<|content|>4.1 Noreen Castañeda\n<|id|>40<|page|>6<|box|>758 140 776 437<|content|>SECTION 5: ADDITIONAL NOTES\n<|id|>41<|page|>6<|box|>791 142 808 498<|content|>5.1 Attendees Not Present — Taxpayer's Side\n<|id|>47<|page|>7<|box|>527 140 545 566<|content|>5.2 IRS Examination Team — Not Expected to Attend\n<|id|>51<|page|>8<|box|>194 142 210 336<|content|>5.3 Conference Logistics\n<|id|>53<|page|>8<|box|>344 142 362 452<|content|>Materials to Be Brought to Conference:\n<|id|>65<|page|>8<|box|>780 142 797 393<|content|>5.4 Background Case Reference\n<|id|>69<|page|>9<|box|>161 142 178 338<|content|>Adjustment Breakdown:\n<|id|>76<|page|>9<|box|>559 140 575 753<|content|>DOCUMENT CLASSIFICATION: ATTORNEY-CLIENT PRIVILEGE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>3\n<|id|>7<|level|>4\n<|id|>11<|level|>4\n<|id|>14<|level|>4\n<|id|>17<|level|>3\n<|id|>19<|level|>4\n<|id|>22<|level|>4\n<|id|>25<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>4\n<|id|>40<|level|>3\n<|id|>41<|level|>4\n<|id|>47<|level|>4\n<|id|>51<|level|>4\n<|id|>53<|level|>5\n<|id|>65<|level|>4\n<|id|>69<|level|>5\n<|id|>76<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 3
+        },
+        {
+            "id": 7,
+            "level": 4
+        },
+        {
+            "id": 11,
+            "level": 4
+        },
+        {
+            "id": 14,
+            "level": 4
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 4
+        },
+        {
+            "id": 22,
+            "level": 4
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 4
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 4
+        },
+        {
+            "id": 47,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 53,
+            "level": 5
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 5
+        },
+        {
+            "id": 76,
+            "level": 4
+        }
+    ]
+}

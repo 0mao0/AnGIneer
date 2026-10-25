@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        12
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>89 434 111 563<|content|>EXHIBIT K\n<|id|>1<|type|>title<|page|>2<|box|>136 259 154 738<|content|>Approved Subcontractors and Third-Party Service Pr\n<|id|>3<|type|>title<|page|>2<|box|>207 140 224 346<|content|>Parties to the Agreement:\n<|id|>10<|type|>title<|page|>2<|box|>513 140 530 393<|content|>Section 1 — Purpose and Scope\n<|id|>17<|type|>title<|page|>3<|box|>494 140 511 480<|content|>Section 2 — Approved Subcontractors List\n<|id|>19<|type|>table<|page|>3<|box|>608 143 750 852<|content|>None\n<|id|>34<|type|>table<|page|>5<|box|>377 143 468 852<|content|>None\n<|id|>49<|type|>title<|page|>7<|box|>294 140 311 349<|content|>2.3 — Central Laboratory\n<|id|>50<|type|>table<|page|>7<|box|>315 143 421 852<|content|>None\n<|id|>66<|type|>title<|page|>9<|box|>231 140 248 522<|content|>Section 3 — Data Protection and Confidentiality\n<|id|>71<|type|>title<|page|>10<|box|>90 140 108 522<|content|>Section 4 — Regulatory Compliance Obligations\n<|id|>83<|type|>title<|page|>10<|box|>800 140 818 611<|content|>Section 5 — Modifications to Approved Subcontracto\n<|id|>87<|type|>title<|page|>11<|box|>494 140 511 405<|content|>Section 6 — Contact Information\n<|id|>90<|type|>title<|page|>11<|box|>719 140 734 284<|content|>Sponsor Contact:\n<|id|>92<|type|>title<|page|>11<|box|>789 140 805 321<|content|>Site Network Contact:\n<|id|>94<|type|>title<|page|>12<|box|>90 142 107 284<|content|>Acknowledgment",
+    "raw_response": "<|src_id|>19<|tgt_id|>17\n<|src_id|>34<|tgt_id|>17\n<|src_id|>50<|tgt_id|>49",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 49
+        }
+    ]
+}

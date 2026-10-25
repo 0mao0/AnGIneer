@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        96,
+        99
+    ],
+    "pages": [
+        96,
+        97,
+        98,
+        99
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>900<|type|>title<|page|>96<|box|>89 428 106 570<|content|>SCHEDULE 3.16\n<|id|>901<|type|>title<|page|>96<|box|>114 442 132 555<|content|>INSURANCE\n<|id|>902<|type|>table<|page|>96<|box|>184 143 751 852<|content|>None\n<|id|>903<|type|>title<|page|>97<|box|>90 428 106 570<|content|>SCHEDULE 3.17\n<|id|>904<|type|>title<|page|>97<|box|>116 366 132 630<|content|>CUSTOMERS AND SUPPLIERS\n<|id|>905<|type|>title<|page|>97<|box|>142 143 159 485<|content|>1. Top 10 Customers (by Revenue, FY2023).\n<|id|>906<|type|>table<|page|>97<|box|>166 143 387 852<|content|>None\n<|id|>907<|type|>title<|page|>97<|box|>421 142 438 504<|content|>2. Top 10 Suppliers (by Expenditure, FY2023).\n<|id|>908<|type|>table<|page|>97<|box|>445 143 680 852<|content|>None\n<|id|>909<|type|>title<|page|>98<|box|>89 428 106 570<|content|>SCHEDULE 3.18\n<|id|>910<|type|>title<|page|>98<|box|>114 339 132 656<|content|>INTERCOMPANY ARRANGEMENTS\n<|id|>918<|type|>title<|page|>98<|box|>712 225 729 771<|content|>REQUIRED THIRD-PARTY CONSENTS (CLOSING CONDITION)\n<|id|>919<|type|>title<|page|>98<|box|>739 147 773 851<|content|>[To be agreed between Buyer and Seller. Buyer prop\n<|id|>922<|type|>title<|page|>99<|box|>89 431 107 565<|content|>SCHEDULE 8.2\n<|id|>923<|type|>title<|page|>99<|box|>114 388 132 607<|content|>SPECIFIC INDEMNITIES",
+    "raw_response": "<|src_id|>902<|tgt_id|>901\n<|src_id|>906<|tgt_id|>905\n<|src_id|>908<|tgt_id|>907",
+    "parsed": [
+        {
+            "src_id": 902,
+            "tgt_id": 901
+        },
+        {
+            "src_id": 906,
+            "tgt_id": 905
+        },
+        {
+            "src_id": 908,
+            "tgt_id": 907
+        }
+    ]
+}

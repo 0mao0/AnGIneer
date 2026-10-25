@@ -1,0 +1,50 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 413 107 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>193 140 210 331<|content|>Matter No.: 1018-00009\n<|id|>5<|page|>1<|box|>219 140 237 377<|content|>Via Hand Delivery and Email\n<|id|>8<|page|>1<|box|>369 140 388 380<|content|>Dear Revenue Agent Dunleavy:\n<|id|>10<|page|>1<|box|>602 140 619 349<|content|>Description of IDR No. 14\n<|id|>13<|page|>2<|box|>90 140 107 393<|content|>Basis for the Extension Request\n<|id|>26<|page|>3<|box|>604 140 621 310<|content|>Requested Extension\n<|id|>28<|page|>3<|box|>781 140 797 457<|content|>Commitment to Continued Cooperation\n<|id|>34<|page|>4<|box|>429 140 446 310<|content|>Contact Information",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>5<|level|>3\n<|id|>8<|level|>-1\n<|id|>10<|level|>2\n<|id|>13<|level|>2\n<|id|>26<|level|>2\n<|id|>28<|level|>2\n<|id|>34<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        }
+    ]
+}

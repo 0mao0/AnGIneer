@@ -1,0 +1,47 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        33
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        8,
+        9,
+        14,
+        15,
+        16,
+        17,
+        28,
+        29,
+        32,
+        33
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>151 140 169 364<|content|>TO: ... Renata Vasquez, Partner\n<|id|>3<|page|>1<|box|>176 140 194 428<|content|>FROM: ... James Underwood, Associate\n<|id|>4<|page|>1<|box|>203 140 220 321<|content|>DATE: ... August 7, 2024\n<|id|>5<|page|>1<|box|>228 140 284 856<|content|>RE: ... and Marcus Elliot Harding — Issue-by-Issue Response Recommendation\n<|id|>6<|page|>1<|box|>290 140 308 333<|content|>Matter No. ... 1022-00004\n<|id|>7<|page|>1<|box|>316 142 334 408<|content|>Right-click to update Table of Contents\n<|id|>44<|page|>5<|box|>742 138 907 857<|content|>Comment 4 — Definition of \"Good Reason\" — Notice Trigger. ... , the\n<|id|>45<|page|>6<|box|>90 140 145 854<|content|>Executive will be deemed to have become aware of a...t with the approach taken in comparable agreements\n<|id|>65<|page|>8<|box|>732 138 898 857<|content|>Category (a) — Acceptable / Non-Material: ... We r... accepting this change with a conforming note that\n<|id|>66<|page|>9<|box|>89 138 125 857<|content|>Harding will also hold the title of CEO of NTP US ...capacity as the employing entity's chief executive\n<|id|>104<|page|>14<|box|>839 140 893 856<|content|>A review of market data indicates that a 0%–200% p...ons sector. ... Accepting the 0%–200% range aligns\n<|id|>105<|page|>15<|box|>89 140 145 854<|content|>Harding's PSU economics with both market practice ...d executive officers have included a 200% maximum)\n<|id|>121<|page|>16<|box|>825 140 881 857<|content|>Comment 44 — Payment Timing. ... H&L proposes that...ion 409A(a)(2)(B)(i) of the Internal Revenue Code)\n<|id|>122<|page|>17<|box|>89 140 127 854<|content|>if applicable. ... We recommend accepting\n<|id|>227<|page|>28<|box|>792 138 902 857<|content|>This is the central restrictive covenant dispute. ... Hirshberg, 93\n<|id|>229<|page|>29<|box|>133 140 227 854<|content|>Additionally, pending New York legislation (Assemb...egal challenges if the law changes during the Term\n<|id|>264<|page|>32<|box|>820 140 893 857<|content|>Category (a) — Acceptable / Non-Material: ... H&L ... and the Treasury Regulations thereunder, (ii) the\n<|id|>265<|page|>33<|box|>90 138 255 856<|content|>Agreement will be interpreted and administered con...ive under Section 409A. ... We recommend accepting",
+    "raw_response": "<|src_id|>44<|tgt_id|>45\n<|src_id|>65<|tgt_id|>66\n<|src_id|>104<|tgt_id|>105\n<|src_id|>121<|tgt_id|>122\n<|src_id|>264<|tgt_id|>265",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 264,
+            "tgt_id": 265
+        }
+    ]
+}

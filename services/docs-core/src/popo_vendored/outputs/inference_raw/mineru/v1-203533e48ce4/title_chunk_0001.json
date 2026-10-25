@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        49
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>532<|page|>45<|box|>656 112 674 854<|content|>Q2D. What are the risks and benefits associated wi\n<|id|>543<|page|>46<|box|>138 112 156 658<|content|>Q2D.1. Multifaceted infection control/quality impr\n<|id|>550<|page|>46<|box|>414 114 431 269<|content|>Q2D.2. Reminders\n<|id|>552<|page|>46<|box|>542 114 560 375<|content|>Q2D.3. Bacteriologic monitoring\n<|id|>554<|page|>46<|box|>652 114 671 294<|content|>Q2D.4. Hand hygiene\n<|id|>556<|page|>46<|box|>781 114 799 328<|content|>Q2D.5. Patient placement\n<|id|>558<|page|>47<|box|>90 114 107 509<|content|>Q2D.6. Catheter team versus self-catheterization\n<|id|>560<|page|>47<|box|>202 114 219 263<|content|>Q2D.7. Feedback\n<|id|>562<|page|>47<|box|>297 114 314 441<|content|>Q2D.8. Nurse-directed catheter removal\n<|id|>568<|page|>48<|box|>265 112 306 843<|content|>Q3: What are the best practices for preventing UTI\n<|id|>573<|page|>48<|box|>482 112 500 629<|content|>Q3.1. Methods to prevent/reduce encrustations or b\n<|id|>575<|page|>48<|box|>579 114 595 506<|content|>Q3.2. Catheter materials preventing blockage\n<|id|>580<|page|>49<|box|>79 53 102 189<|content|>References",
+    "raw_response": "<|id|>532<|level|>1\n<|id|>543<|level|>2\n<|id|>550<|level|>2\n<|id|>552<|level|>2\n<|id|>554<|level|>2\n<|id|>556<|level|>2\n<|id|>558<|level|>2\n<|id|>560<|level|>2\n<|id|>562<|level|>2\n<|id|>568<|level|>1\n<|id|>573<|level|>2\n<|id|>575<|level|>2\n<|id|>580<|level|>1",
+    "parsed": [
+        {
+            "id": 532,
+            "level": 1
+        },
+        {
+            "id": 543,
+            "level": 2
+        },
+        {
+            "id": 550,
+            "level": 2
+        },
+        {
+            "id": 552,
+            "level": 2
+        },
+        {
+            "id": 554,
+            "level": 2
+        },
+        {
+            "id": 556,
+            "level": 2
+        },
+        {
+            "id": 558,
+            "level": 2
+        },
+        {
+            "id": 560,
+            "level": 2
+        },
+        {
+            "id": 562,
+            "level": 2
+        },
+        {
+            "id": 568,
+            "level": 1
+        },
+        {
+            "id": 573,
+            "level": 2
+        },
+        {
+            "id": 575,
+            "level": 2
+        },
+        {
+            "id": 580,
+            "level": 1
+        }
+    ]
+}

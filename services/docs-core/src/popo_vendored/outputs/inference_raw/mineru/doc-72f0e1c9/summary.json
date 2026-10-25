@@ -1,0 +1,139 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gdf4vzww\\input\\pdfs\\doc-72f0e1c9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gdf4vzww\\enriched\\doc-72f0e1c9.json",
+    "contd_output": "<|src_id|>13<|tgt_id|>14\n<|src_id|>103<|tgt_id|>104\n<|src_id|>124<|tgt_id|>125",
+    "title_output": "<|id|>9<|level|>1\n<|id|>18<|level|>1\n<|id|>27<|level|>1\n<|id|>49<|level|>1\n<|id|>62<|level|>1\n<|id|>77<|level|>1\n<|id|>85<|level|>1\n<|id|>89<|level|>1\n<|id|>94<|level|>1\n<|id|>105<|level|>1\n<|id|>115<|level|>1\n<|id|>123<|level|>1\n<|id|>130<|level|>1\n<|id|>141<|level|>1\n<|id|>153<|level|>1\n<|id|>197<|level|>1\n<|id|>203<|level|>2\n<|id|>205<|level|>2",
+    "image_output": "<|src_id|>200<|tgt_id|>197\n<|src_id|>201<|tgt_id|>197\n<|src_id|>202<|tgt_id|>197\n<|src_id|>204<|tgt_id|>203",
+    "contd_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 125
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 197,
+            "level": 1
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 200,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 204,
+            "tgt_id": 203
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 200,
+            "table2_idx": 201,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "Section 10.1",
+                    "Schedule K-1 Delivery Timeline",
+                    "90 days following fiscal year-end",
+                    "75 days following fiscal year-end",
+                    "Open standard—LPA provides — 120 days; — both parties agree to shorten GP resolved bracket at 90 days in Second GP"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Markup; still 30-day improvement over 120-day LPA standard; obligation qualified by \"commercially reasonable efforts\" — recommend accepting GP position"
+                ]
+            ]
+        }
+    ]
+}

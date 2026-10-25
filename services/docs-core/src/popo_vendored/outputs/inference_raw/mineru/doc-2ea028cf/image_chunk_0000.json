@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>327 142 344 367<|content|>1. Introduction and Purpose\n<|id|>11<|type|>title<|page|>2<|box|>90 140 107 401<|content|>2. Description of the Transaction\n<|id|>24<|type|>title<|page|>3<|box|>90 140 107 594<|content|>3. Confirmation of Clearfield's Role as Municipal\n<|id|>34<|type|>title<|page|>4<|box|>90 140 107 725<|content|>4. Coordination Protocols Between Calderwood & Har\n<|id|>35<|type|>title<|page|>4<|box|>121 140 138 346<|content|>4.1 General Coordination\n<|id|>44<|type|>title<|page|>4<|box|>575 140 594 452<|content|>4.2 Information-Sharing Arrangements\n<|id|>59<|type|>title<|page|>5<|box|>755 140 772 661<|content|>5. Clearfield's Review of Bond Purchase Agreement\n<|id|>73<|type|>title<|page|>7<|box|>90 140 107 550<|content|>6. Key Transaction Parties and Contact Information\n<|id|>74<|type|>table<|page|>7<|box|>159 143 732 852<|content|>None\n<|id|>76<|type|>title<|page|>7<|box|>844 140 861 428<|content|>7. Anticipated Transaction Timeline\n<|id|>78<|type|>table<|page|>8<|box|>133 143 357 852<|content|>None\n<|id|>80<|type|>title<|page|>8<|box|>487 140 503 673<|content|>8. Financial Covenant Overview (for Clearfield's A\n<|id|>93<|type|>title<|page|>9<|box|>484 140 501 607<|content|>9. Clarification of Roles — No Attorney-Client Rel\n<|id|>96<|type|>title<|page|>9<|box|>796 142 813 405<|content|>10. Request for Acknowledgment\n<|id|>109<|type|>title<|page|>10<|box|>478 277 494 718<|content|>ACKNOWLEDGMENT AND COUNTERSIGNATURE",
+    "raw_response": "<|src_id|>74<|tgt_id|>73\n<|src_id|>78<|tgt_id|>76",
+    "parsed": [
+        {
+            "src_id": 74,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        }
+    ]
+}

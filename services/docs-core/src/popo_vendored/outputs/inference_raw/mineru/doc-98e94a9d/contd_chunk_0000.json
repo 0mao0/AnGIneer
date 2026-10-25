@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 148 176 846<|content|>600 Lexington Avenue New York, NY 10022 Telephone: ... com\n<|id|>3<|page|>1<|box|>186 267 204 730<|content|>New York · Houston · Washington, D. ... · London · Hong Kong\n<|id|>4<|page|>1<|box|>212 235 229 761<|content|>Houston Office: ... 1000 Louisiana Street, Suite 3800, Houston, TX 77002\n<|id|>5<|page|>1<|box|>237 704 253 854<|content|>November 27, 2023\n<|id|>7<|page|>1<|box|>289 140 325 854<|content|>Patricia Whitfield, Esq. ... Senior Partner Whitfi...& Ayers LLP 51 West 52nd Street New York, NY 10019\n<|id|>8<|page|>1<|box|>334 140 369 854<|content|>Roland Thornberry, Esq. ... Partner Thornberry Mac...280 Trumbull Street, Suite 1200 Hartford, CT 06103\n<|id|>9<|page|>1<|box|>378 174 414 854<|content|>Re: ... Solstice Portfolio Tax-Equity and Transferable Credit Financing — Extension of Closing Date\n<|id|>10<|page|>1<|box|>422 174 477 854<|content|>Amended and Restated Limited Liability Company Agr...C and Ridgeline Capital Partners, LLC (the \"LLCA\")\n<|id|>11<|page|>1<|box|>484 176 521 854<|content|>Tax Credit Purchase Agreement, dated September 21,...n Calloway-Briggs Renewables Inc. ... (the \"TCPA\")\n<|id|>12<|page|>1<|box|>529 174 565 852<|content|>Capital Contribution Agreement, dated September 21...ldings, LLC (the \"Capital Contribution Agreement\")\n<|id|>13<|page|>1<|box|>573 174 609 854<|content|>Related ancillary transaction documents (collectiv...ntribution Agreement, the \"Transaction Documents\")\n<|id|>14<|page|>1<|box|>616 176 633 398<|content|>C&H Matter No. ... 1015-00005\n<|id|>15<|page|>1<|box|>643 142 660 334<|content|>Dear Patricia and Roland: ... Dear Patricia and Roland\n<|id|>38<|page|>4<|box|>824 174 897 857<|content|>(j) Escrow. ... Pinehurst's credit purchase price ...escrow account five (5) business days prior to the\n<|id|>39<|page|>5<|box|>89 174 145 854<|content|>Revised Closing Date (as further discussed in Sect... satisfaction of the release conditions at Closing\n<|id|>46<|page|>5<|box|>863 140 898 854<|content|>With respect to the Pinehurst escrow deposit, we n...3 falls on either November 30, 2023 or December 1,\n<|id|>47<|page|>6<|box|>90 140 181 856<|content|>2023, depending on whether the Thanksgiving holida...clear funds in advance of the Revised Closing Date\n<|id|>67<|page|>8<|box|>128 217 162 856<|content|>• Calderwood & Harkness LLP: ... com\n<|id|>70<|page|>8<|box|>205 174 260 856<|content|>We ask that each firm provide prompt written confi...provisions of the applicable Transaction Documents\n<|id|>68<|page|>8<|box|>166 218 183 687<|content|>• Whitfield & Ayers LLP: ... Kenji Watanabe (Senior Associate)\n<|id|>69<|page|>8<|box|>185 218 202 630<|content|>• Thornberry Mack LLP: ... Gwen Schaefer (Associate)\n<|id|>75<|page|>8<|box|>679 140 696 274<|content|>Very truly yours,\n<|id|>76<|page|>8<|box|>696 140 712 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>77<|page|>8<|box|>714 142 729 253<|content|>By: ... By\n<|id|>78<|page|>8<|box|>731 142 747 313<|content|>Leonard Cross Partner\n<|id|>79<|page|>8<|box|>748 142 763 352<|content|>Direct Dial: ... (212) 558-4185\n<|id|>80<|page|>8<|box|>765 142 782 442<|content|>Email: ... com\n<|id|>81<|page|>8<|box|>785 142 797 171<|content|>cc: ... cc\n<|id|>82<|page|>8<|box|>809 174 881 856<|content|>Marcus Calloway, Chairman & CEO, Calloway-Briggs R...ess LLP Monica Chu, Partner, Calderwood & Harkness\n<|id|>83<|page|>9<|box|>89 174 126 854<|content|>LLP Nathan Ayers, Partner, Whitfield & Ayers LLP K... LLP Gwen Schaefer, Associate, Thornberry Mack LLP\n<|id|>84<|page|>9<|box|>133 140 151 284<|content|>Enclosures: ... None",
+    "raw_response": "<|src_id|>38<|tgt_id|>39\n<|src_id|>46<|tgt_id|>47\n<|src_id|>82<|tgt_id|>83",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        }
+    ]
+}

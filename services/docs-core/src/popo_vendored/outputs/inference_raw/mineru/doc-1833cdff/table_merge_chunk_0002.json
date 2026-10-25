@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Reno Distribution Center', '7400 Industrial Way, Reno, NV 89506', 'Distribution', 'Leased', 'Y', 'Sept. 2022', 'No RECs; minor BER (surface staining near loading dock)', 'NDEP General Stormwater Permit (NVR05XXXX); RCRA SQG/CE SQG (EPA ID NVD123456789', 'Diesel fuel (2,500-gal. AST); lubricants; maintenance chemicals; small qty. consume', 'Minor surface staining (BER); SPCC plan update needed post-closing']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', '', ')', 'r products', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 189,
+    "table2_idx": 190
+}

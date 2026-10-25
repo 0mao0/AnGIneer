@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 723 151 854<|content|>October 20, 2022\n<|id|>2<|page|>1<|box|>160 142 178 393<|content|>Via Email and Overnight Courier\n<|id|>3<|page|>1<|box|>186 140 220 854<|content|>Franklin Speer, Esq. ... Hargrove, Dalton & Speer LLP 500 Grant Street, Suite 3800 Pittsburgh, PA 15219\n<|id|>4<|page|>1<|box|>229 174 284 854<|content|>Re: ... by Crestline Packaging Solutions LLC — Env...nce Findings and Purchase Price Adjustment Request\n<|id|>5<|page|>1<|box|>292 176 309 413<|content|>C&H Matter No. ... 1006-00003\n<|id|>6<|page|>1<|box|>319 140 335 266<|content|>Dear Mr. ... Speer\n<|id|>44<|page|>5<|box|>838 140 893 856<|content|>Based on the RECs identified during the Phase I ES...eld sampling activities completed on September 26,\n<|id|>46<|page|>6<|box|>152 140 280 856<|content|>The Phase II scope of work included the installati... identified as REC-1 during the Phase I assessment\n<|id|>54<|page|>6<|box|>801 140 893 856<|content|>These groundwater results indicate that an active ...er, which addressed soil conditions only under the\n<|id|>55<|page|>7<|box|>90 140 162 854<|content|>Statewide Health Standard, did not characterize or... DEP notification and engagement will be necessary\n<|id|>111<|page|>13<|box|>787 174 824 854<|content|>(i) all pending or threatened environmental claims... decrees, or investigations involving ACC; ... and\n<|id|>113<|page|>14<|box|>90 138 292 857<|content|>Crestline objects to the knowledge qualifiers and ...markup of the SPA or during in-person negotiations\n<|id|>120<|page|>14<|box|>832 140 888 856<|content|>Crestline is evaluating Pollution Legal Liability ...rm sheet has been received from Ironclad Specialty\n<|id|>121<|page|>15<|box|>90 140 126 854<|content|>Insurance Company (Hartford, Connecticut), placed ...er. ... The indicative terms include the following\n<|id|>122<|page|>15<|box|>133 181 152 697<|content|>• Policy Limits: ... $15,000,000 aggregate / $10,000,000 per occurrence\n<|id|>126<|page|>15<|box|>213 140 450 856<|content|>However, Crestline wishes to be clear on the follo...rotection as an uncapped indemnity from the Seller\n<|id|>123<|page|>15<|box|>154 183 171 418<|content|>• Policy Term: ... Ten (10) years\n<|id|>124<|page|>15<|box|>174 183 190 460<|content|>• Self-Insured Retention: ... $250,000\n<|id|>125<|page|>15<|box|>193 183 210 581<|content|>• Indicative Premium: ... $187,500 (one-time, prepaid)\n<|id|>132<|page|>15<|box|>773 174 827 854<|content|>3. ... and\n<|id|>134<|page|>16<|box|>90 140 126 857<|content|>Crestline requests that the Seller provide its res...etter — that is, by no later than November 3, 2022\n<|id|>143<|page|>17<|box|>135 142 152 272<|content|>Very truly yours,\n<|id|>144<|page|>17<|box|>160 140 176 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>145<|page|>17<|box|>178 143 195 253<|content|>By: ... By\n<|id|>146<|page|>17<|box|>194 142 210 596<|content|>Beatrice Holloway, Partner Direct Telephone: ... (216) 555-8140\n<|id|>147<|page|>17<|box|>212 142 229 478<|content|>Email: ... com",
+    "raw_response": "<|src_id|>44<|tgt_id|>46\n<|src_id|>54<|tgt_id|>55\n<|src_id|>120<|tgt_id|>121\n<|src_id|>132<|tgt_id|>134",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 134
+        }
+    ]
+}

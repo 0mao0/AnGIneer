@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 140 128 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|type|>title<|page|>1<|box|>277 140 295 531<|content|>VIA SECURE E-MAIL AND FIRST-CLASS MAIL\n<|id|>12<|type|>title<|page|>1<|box|>797 140 814 423<|content|>I. Description of IDR No. 7 Request\n<|id|>17<|type|>title<|page|>2<|box|>279 140 296 609<|content|>II. Identification of Penterra Biopharma Internati\n<|id|>28<|type|>title<|page|>3<|box|>148 140 167 457<|content|>III. Description of Documents Produced\n<|id|>30<|type|>title<|page|>3<|box|>224 140 242 736<|content|>A. Tab 1: PBI Irish Statutory Financial Statements\n<|id|>41<|type|>table<|page|>3<|box|>607 143 702 852<|content|>None\n<|id|>45<|type|>title<|page|>4<|box|>183 140 200 694<|content|>B. Tab 2: PBI Irish Corporation Tax Returns (Fisca\n<|id|>50<|type|>title<|page|>4<|box|>517 140 534 393<|content|>C. Tab 3: Supporting Schedules\n<|id|>57<|type|>title<|page|>5<|box|>390 140 407 468<|content|>IV. Coordination with Irish Tax Advisors\n<|id|>59<|type|>title<|page|>5<|box|>566 140 584 336<|content|>V. Privilege Reservation\n<|id|>63<|type|>title<|page|>6<|box|>204 140 222 397<|content|>VI. Document Inventory / Index\n<|id|>64<|type|>table<|page|>6<|box|>272 143 625 852<|content|>None\n<|id|>65<|type|>title<|page|>6<|box|>659 142 676 352<|content|>Total pages produced: 862\n<|id|>66<|type|>title<|page|>6<|box|>700 140 717 348<|content|>VII. Offer of Cooperation\n<|id|>73<|type|>title<|page|>7<|box|>439 140 455 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>78<|type|>title<|page|>7<|box|>667 142 683 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>41<|tgt_id|>30\n<|src_id|>64<|tgt_id|>63",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 63
+        }
+    ]
+}

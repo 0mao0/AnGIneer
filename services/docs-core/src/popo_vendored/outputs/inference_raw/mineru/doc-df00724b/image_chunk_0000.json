@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        4,
+        27
+    ],
+    "pages": [
+        4,
+        7,
+        8,
+        11,
+        18,
+        19,
+        22,
+        27
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>33<|type|>title<|page|>4<|box|>86 87 102 218<|content|>Funding DeNotes\n<|id|>43<|type|>table<|page|>7<|box|>85 95 300 873<|content|>None\n<|id|>44<|type|>title<|page|>8<|box|>86 87 99 139<|content|>Notes\n<|id|>51<|type|>table<|page|>11<|box|>82 82 354 875<|content|>None\n<|id|>60<|type|>table<|page|>18<|box|>85 85 246 880<|content|>None\n<|id|>61<|type|>title<|page|>19<|box|>86 87 99 139<|content|>Notes\n<|id|>65<|type|>table<|page|>22<|box|>86 87 388 878<|content|>None\n<|id|>66<|type|>table<|page|>27<|box|>86 85 495 863<|content|>None",
+    "raw_response": "<|src_id|>43<|tgt_id|>33\n<|src_id|>51<|tgt_id|>44\n<|src_id|>60<|tgt_id|>44\n<|src_id|>65<|tgt_id|>61\n<|src_id|>66<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 61
+        }
+    ]
+}

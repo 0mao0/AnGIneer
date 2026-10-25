@@ -1,0 +1,144 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 189 122 807<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>2<|page|>1<|box|>315 169 349 826<|content|>DECLARATION OF DR. HENRIK SØRENSEN IN SUPPORT OF D\n<|id|>5<|page|>1<|box|>500 142 516 514<|content|>I. INTRODUCTION AND QUALIFICATIONS\n<|id|>6<|page|>1<|box|>530 143 547 464<|content|>A. Identity and Professional Background\n<|id|>10<|page|>2<|box|>90 140 107 377<|content|>B. Education and Credentials\n<|id|>15<|page|>2<|box|>661 140 678 488<|content|>C. Prior Expert Testimony and Publications\n<|id|>19<|page|>3<|box|>378 142 396 287<|content|>D. Compensation.\n<|id|>22<|page|>3<|box|>609 140 625 387<|content|>II. SCOPE OF ASSIGNMENT\n<|id|>23<|page|>3<|box|>640 142 657 316<|content|>A. Engagement Scope\n<|id|>29<|page|>4<|box|>202 143 218 323<|content|>B. Materials Reviewed\n<|id|>47<|page|>5<|box|>462 140 479 699<|content|>III. VESSEL BACKGROUND AND MAINTENANCE FRAMEWORK\n<|id|>48<|page|>5<|box|>493 142 510 310<|content|>A. Vessel Particulars\n<|id|>52<|page|>6<|box|>90 140 107 560<|content|>B. Maintenance Obligations Under the Charter-Party\n<|id|>56<|page|>6<|box|>513 140 530 385<|content|>C. TSL's Maintenance Regime\n<|id|>61<|page|>7<|box|>314 140 349 800<|content|>IV. INCIDENT 1 — MAIN ENGINE TURBOCHARGER FAILURE\n<|id|>62<|page|>7<|box|>364 142 381 310<|content|>A. Factual Summary\n<|id|>66<|page|>7<|box|>786 142 804 501<|content|>B. Physical Examination and Failure Analysis\n<|id|>73<|page|>9<|box|>378 140 395 403<|content|>C. Classification Society Records\n<|id|>78<|page|>10<|box|>138 140 157 388<|content|>D. Due Diligence by the Owner\n<|id|>83<|page|>11<|box|>90 140 107 397<|content|>E. Expert Opinion on Incident 1\n<|id|>89<|page|>11<|box|>554 140 571 544<|content|>F. Response to Opposing Expert (Capt. Blackmore)\n<|id|>96<|page|>13<|box|>167 140 184 836<|content|>V. THALASSA'S OVERALL COMPLIANCE WITH MAINTENANCE\n<|id|>97<|page|>13<|box|>199 140 215 681<|content|>A. Assessment of the Maintenance Regime Across the\n<|id|>102<|page|>13<|box|>659 140 695 854<|content|>B. Incident 2 — Ballast Water Treatment System and\n<|id|>107<|page|>14<|box|>415 140 433 733<|content|>C. Incident 3 — Cylinder Liner Failure (November 1\n<|id|>111<|page|>15<|box|>90 140 107 521<|content|>D. Overall Opinion on Maintenance Compliance\n<|id|>115<|page|>15<|box|>486 140 503 398<|content|>VI. SUMMARY OF OPINIONS\n<|id|>122<|page|>16<|box|>284 140 301 578<|content|>VII. RESERVATION OF RIGHTS TO SUPPLEMENT\n<|id|>125<|page|>16<|box|>554 140 571 339<|content|>VIII. CERTIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>6<|level|>3\n<|id|>10<|level|>3\n<|id|>15<|level|>3\n<|id|>19<|level|>3\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>29<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>52<|level|>3\n<|id|>56<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>66<|level|>3\n<|id|>73<|level|>3\n<|id|>78<|level|>3\n<|id|>83<|level|>3\n<|id|>89<|level|>3\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>102<|level|>3\n<|id|>107<|level|>3\n<|id|>111<|level|>3\n<|id|>115<|level|>2\n<|id|>122<|level|>2\n<|id|>125<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        }
+    ]
+}

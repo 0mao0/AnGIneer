@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>126 80 167 908<|content|>A review of chronic wasting disease (CWD) spread,\n<|id|>5<|page|>1<|box|>260 101 272 170<|content|>ABSTRACT\n<|id|>9<|page|>1<|box|>534 80 549 190<|content|>Introduction\n<|id|>18<|page|>3<|box|>792 80 808 161<|content|>Methods\n<|id|>23<|page|>4<|box|>464 510 481 578<|content|>Results\n<|id|>26<|page|>5<|box|>136 80 152 274<|content|>Spread and surveillance\n<|id|>27<|page|>5<|box|>161 80 176 210<|content|>Risk assessment\n<|id|>36<|page|>6<|box|>407 509 424 794<|content|>Deer movement and contact tracing\n<|id|>43<|page|>7<|box|>588 509 604 576<|content|>Control\n<|id|>56<|page|>9<|box|>833 509 849 605<|content|>Discussion\n<|id|>57<|page|>9<|box|>858 507 876 741<|content|>Potential gaps in knowledge\n<|id|>59<|page|>10<|box|>61 509 79 693<|content|>Key points to consider\n<|id|>65<|page|>11<|box|>61 507 95 905<|content|>The future of CWD management and surveillance for\n<|id|>70<|page|>12<|box|>527 79 560 463<|content|>Best practices for CWD management on captive cervi\n<|id|>77<|page|>12<|box|>169 510 185 608<|content|>Conclusion\n<|id|>79<|page|>12<|box|>449 509 465 672<|content|>Acknowledgments\n<|id|>81<|page|>12<|box|>571 509 587 694<|content|>Disclosure statement\n<|id|>83<|page|>12<|box|>635 509 652 586<|content|>Funding\n<|id|>85<|page|>12<|box|>715 510 731 571<|content|>ORCID\n<|id|>87<|page|>12<|box|>779 510 796 608<|content|>References",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>9<|level|>2\n<|id|>18<|level|>2\n<|id|>23<|level|>2\n<|id|>26<|level|>2\n<|id|>27<|level|>3\n<|id|>36<|level|>3\n<|id|>43<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>59<|level|>3\n<|id|>65<|level|>2\n<|id|>70<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>2\n<|id|>85<|level|>2\n<|id|>87<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        }
+    ]
+}

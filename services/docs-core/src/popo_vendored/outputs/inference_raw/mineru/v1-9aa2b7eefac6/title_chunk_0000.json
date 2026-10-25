@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 460<|content|>【512811#4】2006年中华人民共和国对外贸易\n<|id|>2<|page|>1<|box|>174 105 191 460<|content|>【512811#5】2006年中华人民共和国对外贸易\n<|id|>4<|page|>1<|box|>275 107 291 284<|content|>【630340#6】香港貿易\n<|id|>6<|page|>1<|box|>359 105 375 460<|content|>【512811#2】2006年中华人民共和国对外贸易\n<|id|>8<|page|>1<|box|>425 107 441 381<|content|>【6821218#3】香港与马来西亚关系\n<|id|>10<|page|>1<|box|>508 107 525 292<|content|>【5479353#1】港深关系\n<|id|>12<|page|>1<|box|>593 107 609 364<|content|>【7297#30】中华人民共和国外交\n<|id|>14<|page|>1<|box|>728 107 745 391<|content|>【7083162#67】2020年中印邊境衝突\n<|id|>16<|page|>1<|box|>846 107 863 248<|content|>【486#97】深圳市\n<|id|>19<|page|>2<|box|>83 107 99 433<|content|>【5715010#7】中華人民共和國與海地關係",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>19<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        }
+    ]
+}

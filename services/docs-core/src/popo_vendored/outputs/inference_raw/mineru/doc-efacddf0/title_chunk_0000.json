@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>513 140 531 627<|content|>1. Confirmation of Engagement and Appointment of M\n<|id|>13<|page|>2<|box|>89 142 106 218<|content|>Plaintiff:\n<|id|>15<|page|>2<|box|>179 142 195 243<|content|>Defendants:\n<|id|>20<|page|>2<|box|>378 140 395 542<|content|>2. Mediation Sessions — Dates, Time, and Location\n<|id|>26<|page|>2<|box|>805 140 821 482<|content|>3. Attendance and Authority Requirements\n<|id|>35<|page|>4<|box|>90 140 107 663<|content|>4. Pre-Mediation Submissions (Confidential Mediati\n<|id|>54<|page|>5<|box|>354 140 373 393<|content|>5. Mediation Fees and Expenses\n<|id|>67<|page|>6<|box|>383 140 402 369<|content|>6. Confidentiality Provisions\n<|id|>86<|page|>8<|box|>148 140 167 419<|content|>7. Mediator's Role and Limitations\n<|id|>92<|page|>8<|box|>704 140 722 339<|content|>8. Settlement Agreement\n<|id|>97<|page|>9<|box|>383 140 402 274<|content|>9. No Recording\n<|id|>100<|page|>9<|box|>604 140 623 297<|content|>10. Governing Law\n<|id|>102<|page|>9<|box|>746 140 763 434<|content|>11. Acknowledgment and Agreement\n<|id|>110<|page|>10<|box|>228 316 244 679<|content|>ACKNOWLEDGMENT AND AGREEMENT\n<|id|>118<|page|>10<|box|>535 434 551 563<|content|>ENCLOSURES",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>20<|level|>1\n<|id|>26<|level|>1\n<|id|>35<|level|>1\n<|id|>54<|level|>1\n<|id|>67<|level|>1\n<|id|>86<|level|>1\n<|id|>92<|level|>1\n<|id|>97<|level|>1\n<|id|>100<|level|>1\n<|id|>102<|level|>1\n<|id|>110<|level|>1\n<|id|>118<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        }
+    ]
+}

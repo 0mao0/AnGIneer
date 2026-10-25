@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Claim 1 — waveguide multiplexer', 'Benchmark 400G-ZR+Teardown (Dec. 12, 2022), pp. 14–22 (SEM images of arrayed waveguide structures)', 'GDS-II mask layout files, LTC-SC-004288 et seq. (waveguide multiplexer mask layers); RTL schematics, LTC-SC-000001 et seq.', 'Dr. Sandra Michaud Dep. (Nov. 19, 2024), 87:4–89:12; Kevin Ng Dep. (Jan. 7, 2025), 42:8–45:3']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '(photonic control logic)', '']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 68,
+    "table2_idx": 69
+}

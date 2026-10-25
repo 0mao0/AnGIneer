@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>164 434 181 560<|content|>EXHIBIT [___]\n<|id|>4<|page|>1<|box|>191 243 210 754<|content|>FORM OF CLOSING CERTIFICATE OF BUYER\n<|id|>5<|page|>1<|box|>229 267 246 730<|content|>Pursuant to Section [___] of the Stock Purchase Ag\n<|id|>6<|page|>1<|box|>253 228 271 767<|content|>[FORM — TO BE COMPLETED AND EXECUTED AT CLOSING]\n<|id|>8<|page|>1<|box|>378 140 395 457<|content|>CLOSING CERTIFICATE OF BUYER\n<|id|>13<|page|>1<|box|>787 140 805 477<|content|>Section 1. Representations and Warranties\n<|id|>19<|page|>2<|box|>492 140 508 439<|content|>Section 2. Covenants and Agreements\n<|id|>23<|page|>2<|box|>835 140 854 395<|content|>Section 3. No Legal Proceedings\n<|id|>27<|page|>3<|box|>393 140 410 424<|content|>Section 4. Governmental Approvals\n<|id|>33<|page|>4<|box|>90 140 107 473<|content|>Section 5. Delivery of Closing Deliverables\n<|id|>44<|page|>4<|box|>835 140 852 712<|content|>Section 6. No Other Representations; Limitation on\n<|id|>48<|page|>5<|box|>349 140 366 406<|content|>Section 7. Reliance and Authority\n<|id|>52<|page|>5<|box|>724 143 741 416<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>53<|page|>5<|box|>750 236 767 759<|content|>[SIGNATURE PAGE TO CLOSING CERTIFICATE OF BUYER]\n<|id|>55<|page|>5<|box|>819 143 835 374<|content|>[INSERT NAME OF BUYER]",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>5<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>1\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>23<|level|>2\n<|id|>27<|level|>2\n<|id|>33<|level|>2\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>1\n<|id|>53<|level|>1\n<|id|>55<|level|>-1",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        }
+    ]
+}

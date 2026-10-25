@@ -1,0 +1,124 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-dheiryxv\\input\\pdfs\\doc-518c9aa6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-dheiryxv\\enriched\\doc-518c9aa6.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>42<|level|>2\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>64<|level|>4\n<|id|>71<|level|>4\n<|id|>75<|level|>4\n<|id|>80<|level|>4\n<|id|>83<|level|>4\n<|id|>85<|level|>4\n<|id|>87<|level|>4\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>123<|level|>2\n<|id|>124<|level|>3",
+    "image_output": "<|src_id|>27<|tgt_id|>24\n<|src_id|>28<|tgt_id|>24\n<|src_id|>127<|tgt_id|>124",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 80,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 4
+        },
+        {
+            "id": 85,
+            "level": 4
+        },
+        {
+            "id": 87,
+            "level": 4
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 27,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 124
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 27,
+            "table2_idx": 28,
+            "upper_row_ss": [
+                [
+                    "Derek Tanaka",
+                    "General Counsel & Corporate Secretary of CRH (authorized",
+                    "____"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "representative of CROC)",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

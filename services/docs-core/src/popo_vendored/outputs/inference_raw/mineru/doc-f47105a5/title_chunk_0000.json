@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 194 108 803<|content|>UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF\n<|id|>3<|page|>1<|box|>590 142 607 390<|content|>I. NATURE OF THE ACTION\n<|id|>7<|page|>2<|box|>260 142 277 292<|content|>II. THE PARTIES\n<|id|>8<|page|>2<|box|>292 140 308 444<|content|>A. Plaintiff Whitmore Aerospace LLC\n<|id|>14<|page|>2<|box|>845 142 862 555<|content|>B. Defendant Hargrove-Dalton Defense Systems, Inc.\n<|id|>19<|page|>3<|box|>371 142 388 421<|content|>III. JURISDICTION AND VENUE\n<|id|>23<|page|>4<|box|>89 140 106 401<|content|>IV. FACTUAL ALLEGATIONS\n<|id|>24<|page|>4<|box|>121 142 138 328<|content|>A. The Prime Contract\n<|id|>30<|page|>4<|box|>804 142 820 364<|content|>B. The Teaming Agreement\n<|id|>36<|page|>5<|box|>508 140 527 493<|content|>C. The Indemnification Clause (Section 11.4)\n<|id|>42<|page|>6<|box|>231 140 248 645<|content|>D. The DCMA Contracting Officer's Preliminary Dete\n<|id|>53<|page|>7<|box|>404 140 421 754<|content|>E. The Causes of the WP-4 Cost Overruns Were Not W\n<|id|>59<|page|>9<|box|>90 140 106 428<|content|>F. HDDS's Indemnification Demand\n<|id|>65<|page|>9<|box|>766 140 782 490<|content|>G. Pre-Litigation Dispute Resolution Efforts\n<|id|>71<|page|>10<|box|>501 140 518 392<|content|>V. ACTUAL CONTROVERSY\n<|id|>79<|page|>11<|box|>611 140 628 725<|content|>VI. COUNT I — DECLARATORY JUDGMENT (28 U.S.C. §§ 2\n<|id|>86<|page|>12<|box|>549 140 565 375<|content|>VII. PRAYER FOR RELIEF\n<|id|>91<|page|>13<|box|>89 140 106 429<|content|>VIII. DEMAND FOR JURY TRIAL\n<|id|>93<|page|>13<|box|>193 140 210 285<|content|>VERIFICATION\n<|id|>94<|page|>13<|box|>218 140 236 527<|content|>STATE OF VIRGINIA COUNTY OF FAIRFAX",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>14<|level|>3\n<|id|>19<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>30<|level|>3\n<|id|>36<|level|>3\n<|id|>42<|level|>3\n<|id|>53<|level|>3\n<|id|>59<|level|>3\n<|id|>65<|level|>3\n<|id|>71<|level|>2\n<|id|>79<|level|>2\n<|id|>86<|level|>2\n<|id|>91<|level|>2\n<|id|>93<|level|>2\n<|id|>94<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        }
+    ]
+}

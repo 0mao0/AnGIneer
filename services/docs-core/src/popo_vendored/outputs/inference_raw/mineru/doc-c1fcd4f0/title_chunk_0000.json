@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>401 140 417 364<|content|>I. Introduction and Purpose\n<|id|>12<|page|>2<|box|>90 140 107 470<|content|>II. Background on the FERC Proceedings\n<|id|>13<|page|>2<|box|>121 140 138 496<|content|>A. Overview of the Ridgeline Pipeline System\n<|id|>16<|page|>2<|box|>402 140 420 424<|content|>B. Nature of the FERC Proceedings\n<|id|>21<|page|>2<|box|>699 140 717 563<|content|>C. Filed Rate and Cost of Service (as Originally F\n<|id|>30<|page|>3<|box|>371 140 388 385<|content|>D. Interconnection with ATPC\n<|id|>33<|page|>3<|box|>681 140 698 480<|content|>III. Procedural History and Current Status\n<|id|>34<|page|>3<|box|>712 140 729 380<|content|>A. Key Procedural Milestones\n<|id|>44<|page|>4<|box|>388 140 407 545<|content|>B. FERC Deficiency Letter and Stay of Proceedings\n<|id|>61<|page|>5<|box|>416 140 431 415<|content|>C. Extensions and Dormant Status\n<|id|>66<|page|>5<|box|>785 142 803 410<|content|>D. Quarterly Status Reports Filed\n<|id|>71<|page|>6<|box|>166 140 183 377<|content|>E. Current Proceeding Status\n<|id|>73<|page|>6<|box|>303 140 320 441<|content|>IV. Tariff Redesign — Current Status\n<|id|>74<|page|>6<|box|>334 140 352 563<|content|>A. Engagement of Braswell Energy Consulting Group\n<|id|>76<|page|>6<|box|>554 142 570 421<|content|>B. Revised Rate Design Parameters\n<|id|>94<|page|>7<|box|>496 140 513 359<|content|>C. Tariff Drafting Progress\n<|id|>101<|page|>8<|box|>267 140 284 346<|content|>V. Settlement Discussions\n<|id|>112<|page|>9<|box|>90 140 107 352<|content|>VI. Relevance to the Notes\n<|id|>113<|page|>9<|box|>121 140 138 292<|content|>A. Notes Overview\n<|id|>115<|page|>9<|box|>359 140 376 388<|content|>B. Impact of Proceeding Status\n<|id|>120<|page|>9<|box|>782 142 799 310<|content|>C. Financial Position\n<|id|>127<|page|>10<|box|>300 140 318 467<|content|>VII. Anticipated Next Steps and Timeline\n<|id|>134<|page|>10<|box|>789 140 806 403<|content|>VIII. Disclaimer and Limitations",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>16<|level|>2\n<|id|>21<|level|>2\n<|id|>30<|level|>2\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>44<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>1\n<|id|>74<|level|>2\n<|id|>76<|level|>2\n<|id|>94<|level|>2\n<|id|>101<|level|>1\n<|id|>112<|level|>1\n<|id|>113<|level|>2\n<|id|>115<|level|>2\n<|id|>120<|level|>2\n<|id|>127<|level|>1\n<|id|>134<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        }
+    ]
+}

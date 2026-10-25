@@ -1,0 +1,217 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-p6ix9oip\\input\\pdfs\\doc-71b7e4eb.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-p6ix9oip\\enriched\\doc-71b7e4eb.json",
+    "contd_output": "<|src_id|>181<|tgt_id|>182",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>9<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>3\n<|id|>31<|level|>3\n<|id|>34<|level|>3\n<|id|>38<|level|>3\n<|id|>46<|level|>3\n<|id|>56<|level|>2\n<|id|>58<|level|>3\n<|id|>64<|level|>3\n<|id|>74<|level|>3\n<|id|>88<|level|>3\n<|id|>95<|level|>3\n<|id|>111<|level|>3\n<|id|>120<|level|>3\n<|id|>136<|level|>2\n<|id|>137<|level|>3\n<|id|>139<|level|>4\n<|id|>147<|level|>4\n<|id|>149<|level|>5\n<|id|>154<|level|>4\n<|id|>157<|level|>4\n<|id|>159<|level|>5\n<|id|>165<|level|>4\n<|id|>167<|level|>5\n<|id|>172<|level|>4\n<|id|>175<|level|>4\n<|id|>178<|level|>2\n<|id|>190<|level|>2\n<|id|>196<|level|>2\n<|id|>202<|level|>2\n<|id|>221<|level|>2",
+    "image_output": "<|src_id|>32<|tgt_id|>31\n<|src_id|>36<|tgt_id|>34\n<|src_id|>61<|tgt_id|>58\n<|src_id|>198<|tgt_id|>196\n<|src_id|>199<|tgt_id|>196\n<|src_id|>228<|tgt_id|>221\n<|src_id|>229<|tgt_id|>221",
+    "contd_label": [
+        {
+            "src_id": 181,
+            "tgt_id": 182
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 4
+        },
+        {
+            "id": 147,
+            "level": 4
+        },
+        {
+            "id": 149,
+            "level": 5
+        },
+        {
+            "id": 154,
+            "level": 4
+        },
+        {
+            "id": 157,
+            "level": 4
+        },
+        {
+            "id": 159,
+            "level": 5
+        },
+        {
+            "id": 165,
+            "level": 4
+        },
+        {
+            "id": 167,
+            "level": 5
+        },
+        {
+            "id": 172,
+            "level": 4
+        },
+        {
+            "id": 175,
+            "level": 4
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 32,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 196
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 196
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 221
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 198,
+            "table2_idx": 199,
+            "upper_row_ss": [
+                [
+                    "Insurer",
+                    "Northfield Assurance Ltd."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Insured",
+                    "Solara Digital Infrastructure Fund VI LP"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 228,
+            "table2_idx": 229,
+            "upper_row_ss": [
+                [
+                    "Special Indemnities",
+                    "Uncapped",
+                    "Fraud, willful breach, tax, specified"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "litigation"
+                ]
+            ]
+        }
+    ]
+}

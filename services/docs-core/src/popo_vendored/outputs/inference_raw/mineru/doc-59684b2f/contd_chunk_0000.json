@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 153 152 843<|content|>700 Louisiana Street, Suite 3400 Houston, Texas 77002 Telephone: ... (713) 458-7201\n<|id|>2<|page|>1<|box|>160 212 176 854<|content|>Writer's Direct Dial: ... com\n<|id|>3<|page|>1<|box|>186 712 204 854<|content|>September 5, 2023\n<|id|>5<|page|>1<|box|>237 140 273 854<|content|>Joanna Whitmore, Esq. ... Managing Partner Whitmor...LP 100 Federal Street, 28th Floor Boston, MA 02110\n<|id|>6<|page|>1<|box|>282 174 335 854<|content|>Re: ... (\"Brightfield\") — DeltaSync Platform — Tiered Field-of-Use Proposal\n<|id|>7<|page|>1<|box|>344 142 361 297<|content|>Dear Ms. ... Whitmore\n<|id|>17<|page|>1<|box|>875 140 909 854<|content|>Despite these good-faith exchanges, the parties re...posed license. ... All other material terms of the\n<|id|>18<|page|>2<|box|>90 140 127 854<|content|>Technology License Agreement have been substantial... we believe can be resolved in the ordinary course\n<|id|>40<|page|>4<|box|>554 174 625 856<|content|>(d) use the DeltaSync Platform technology for inte...ivities within the permitted field of use; ... and\n<|id|>42<|page|>4<|box|>696 140 787 856<|content|>The Tier 1 license would be exclusive within the p...uring the term of the license. ... 1(b) of Draft 3\n<|id|>95<|page|>11<|box|>90 140 107 274<|content|>Very truly yours,\n<|id|>96<|page|>11<|box|>107 140 125 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>97<|page|>11<|box|>125 142 142 254<|content|>By: ... By\n<|id|>98<|page|>11<|box|>142 140 159 486<|content|>Catherine Bloom Partner, intellectual Property\n<|id|>99<|page|>11<|box|>157 140 204 854<|content|>cc: ... Alan Ngo, Partner, Calderwood & Harkness L... Derek Sung, Senior Associate, Whitmore & Falk LLP\n<|id|>100<|page|>11<|box|>210 140 227 482<|content|>Encl. ... Summary Term Sheet — Tiered-Unlock Proposal",
+    "raw_response": "<|src_id|>17<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        }
+    ]
+}

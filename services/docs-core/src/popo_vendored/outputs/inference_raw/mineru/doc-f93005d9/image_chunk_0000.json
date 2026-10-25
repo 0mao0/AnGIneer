@@ -1,0 +1,21 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        4,
+        12
+    ],
+    "pages": [
+        4,
+        10,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>48<|type|>title<|page|>4<|box|>86 87 101 236<|content|>Notes / Comments\n<|id|>54<|type|>table<|page|>10<|box|>86 87 281 875<|content|>None\n<|id|>56<|type|>title<|page|>12<|box|>86 87 102 529<|content|>Line Item Payee / VeDescriptioAmount ($RefundablNo",
+    "raw_response": "<|src_id|>54<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 54,
+            "tgt_id": 48
+        }
+    ]
+}

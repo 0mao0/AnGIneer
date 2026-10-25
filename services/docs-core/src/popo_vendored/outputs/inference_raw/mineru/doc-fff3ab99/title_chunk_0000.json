@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 153 125 841<|content|>QUORUM INSURANCE HOLDINGS CORP. 400 Constitution P\n<|id|>4<|page|>1<|box|>227 140 244 751<|content|>Notice of Data Security Incident Involving Your Pr\n<|id|>7<|page|>1<|box|>558 140 575 277<|content|>What Happened\n<|id|>14<|page|>2<|box|>439 140 457 401<|content|>What Information Was Involved\n<|id|>20<|page|>3<|box|>90 142 107 307<|content|>What We Are Doing\n<|id|>29<|page|>3<|box|>776 142 792 292<|content|>What You Can Do\n<|id|>31<|page|>3<|box|>864 140 883 787<|content|>Enroll in Complimentary Credit Monitoring and Iden\n<|id|>36<|page|>4<|box|>328 140 345 764<|content|>Monitor Your Health Insurance Statements and Expla\n<|id|>38<|page|>4<|box|>508 140 525 560<|content|>Review Your Account Statements and Credit Reports\n<|id|>46<|page|>5<|box|>179 142 196 354<|content|>Report Suspicious Activity\n<|id|>51<|page|>5<|box|>473 140 489 465<|content|>Request Copies of Your Medical Records\n<|id|>54<|page|>5<|box|>729 140 747 308<|content|>Contact Information\n<|id|>61<|page|>6<|box|>248 176 266 728<|content|>U.S. Department of Health and Human Services Offic\n<|id|>64<|page|>6<|box|>393 140 410 209<|content|>Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>7<|level|>3\n<|id|>14<|level|>3\n<|id|>20<|level|>3\n<|id|>29<|level|>3\n<|id|>31<|level|>4\n<|id|>36<|level|>4\n<|id|>38<|level|>4\n<|id|>46<|level|>4\n<|id|>51<|level|>4\n<|id|>54<|level|>3\n<|id|>61<|level|>4\n<|id|>64<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 4
+        },
+        {
+            "id": 36,
+            "level": 4
+        },
+        {
+            "id": 38,
+            "level": 4
+        },
+        {
+            "id": 46,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 64,
+            "level": 3
+        }
+    ]
+}

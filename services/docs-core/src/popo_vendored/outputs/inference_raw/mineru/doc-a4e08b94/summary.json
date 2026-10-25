@@ -1,0 +1,173 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gh68gt70\\input\\pdfs\\doc-a4e08b94.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gh68gt70\\enriched\\doc-a4e08b94.json",
+    "contd_output": "<|src_id|>13<|tgt_id|>14\n<|src_id|>112<|tgt_id|>113",
+    "title_output": "<|id|>9<|level|>1\n<|id|>21<|level|>1\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>29<|level|>3\n<|id|>38<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>48<|level|>3\n<|id|>52<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>60<|level|>3\n<|id|>92<|level|>3\n<|id|>100<|level|>2\n<|id|>101<|level|>3\n<|id|>105<|level|>3\n<|id|>110<|level|>2\n<|id|>114<|level|>2\n<|id|>120<|level|>2\n<|id|>123<|level|>2",
+    "image_output": "<|src_id|>22<|tgt_id|>21\n<|src_id|>23<|tgt_id|>21\n<|src_id|>111<|tgt_id|>110\n<|src_id|>121<|tgt_id|>120\n<|src_id|>122<|tgt_id|>120",
+    "contd_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 120
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 22,
+            "table2_idx": 23,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "Compilation and Binding of Closing",
+                    "Calderwood & Harkness LLP (Claire",
+                    "July 8, 2024",
+                    "In Progress — Closing index",
+                    "COMPLETE — Three copies",
+                    "Copies delivered to VHG,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Binder",
+                    "Dempsey, Audrey Zhou); Meridian Document Services Inc.",
+                    "",
+                    "finalized; awaiting completion of Items 1 and 2",
+                    "prepared and distributed",
+                    "Calderwood & Harkness, and Kensington Barrow"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 121,
+            "table2_idx": 122,
+            "upper_row_ss": [
+                [
+                    "Audrey Zhou",
+                    "Calderwood & Harkness LLP",
+                    "Working Associate, Capital Markets",
+                    "One Liberty Plaza, 45th Floor, New York, NY 10006"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Theodore Langston",
+                    "Calderwood & Harkness LLP",
+                    "Responsible Partner, Capital Markets",
+                    "One Liberty Plaza, 45th Floor, New York, NY 10006"
+                ]
+            ]
+        }
+    ]
+}

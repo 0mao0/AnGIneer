@@ -1,0 +1,56 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        54,
+        63
+    ],
+    "pages": [
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>628<|type|>table<|page|>54<|box|>88 143 753 852<|content|>None\n<|id|>629<|type|>title<|page|>54<|box|>803 140 819 607<|content|>Section V.C: Assignment and Chain of Title Documen\n<|id|>632<|type|>title<|page|>55<|box|>89 143 107 460<|content|>'847 Patent (U.S. Patent No. 10,234,847):\n<|id|>637<|type|>title<|page|>55<|box|>194 143 210 460<|content|>'193 Patent (U.S. Patent No. 10,891,193):\n<|id|>642<|type|>title<|page|>55<|box|>297 143 315 452<|content|>'562 Patent (U.S. Patent No. 9,678,562):\n<|id|>649<|type|>title<|page|>55<|box|>459 143 477 460<|content|>'015 Patent (U.S. Patent No. 11,402,015):\n<|id|>654<|type|>title<|page|>55<|box|>575 142 593 408<|content|>Relevance of Assignment Records\n<|id|>656<|type|>title<|page|>55<|box|>713 140 729 450<|content|>Section V.D: Maintenance Fee Records\n<|id|>657<|type|>title<|page|>55<|box|>737 140 753 318<|content|>Tab KKK (AIE-1469–1480)\n<|id|>659<|type|>title<|page|>55<|box|>824 143 840 460<|content|>'847 Patent (U.S. Patent No. 10,234,847):\n<|id|>667<|type|>title<|page|>56<|box|>194 143 210 450<|content|>'562 Patent (U.S. Patent No. 9,678,562):\n<|id|>678<|type|>title<|page|>56<|box|>503 328 521 669<|content|>PART VI: INDEX OF EXHIBITS\n<|id|>680<|type|>title<|page|>56<|box|>578 142 595 359<|content|>Complete Index of Exhibits\n<|id|>682<|type|>table<|page|>56<|box|>645 143 905 852<|content|>None\n<|id|>683<|type|>table<|page|>57<|box|>89 143 896 854<|content|>None\n<|id|>684<|type|>table<|page|>58<|box|>89 143 907 854<|content|>None\n<|id|>685<|type|>table<|page|>59<|box|>89 143 896 854<|content|>None\n<|id|>686<|type|>table<|page|>60<|box|>89 143 907 854<|content|>None\n<|id|>687<|type|>table<|page|>61<|box|>89 143 907 854<|content|>None\n<|id|>688<|type|>table<|page|>62<|box|>89 143 772 854<|content|>None\n<|id|>689<|type|>title<|page|>62<|box|>805 142 824 651<|content|>Total Appendix Pages: AIE-0001 through AIE-1492 (1\n<|id|>690<|type|>title<|page|>62<|box|>832 343 851 653<|content|>CERTIFICATE OF SERVICE\n<|id|>694<|type|>title<|page|>63<|box|>196 140 214 550<|content|>Counsel for Defendant Lumicore Technologies, Inc.:",
+    "raw_response": "<|src_id|>628<|tgt_id|>629\n<|src_id|>682<|tgt_id|>680\n<|src_id|>683<|tgt_id|>680\n<|src_id|>684<|tgt_id|>680\n<|src_id|>685<|tgt_id|>680\n<|src_id|>686<|tgt_id|>680\n<|src_id|>687<|tgt_id|>680\n<|src_id|>688<|tgt_id|>680",
+    "parsed": [
+        {
+            "src_id": 628,
+            "tgt_id": 629
+        },
+        {
+            "src_id": 682,
+            "tgt_id": 680
+        },
+        {
+            "src_id": 683,
+            "tgt_id": 680
+        },
+        {
+            "src_id": 684,
+            "tgt_id": 680
+        },
+        {
+            "src_id": 685,
+            "tgt_id": 680
+        },
+        {
+            "src_id": 686,
+            "tgt_id": 680
+        },
+        {
+            "src_id": 687,
+            "tgt_id": 680
+        },
+        {
+            "src_id": 688,
+            "tgt_id": 680
+        }
+    ]
+}

@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 292 118 704<|content|>CLOSING CERTIFICATE OF SELLER\n<|id|>1<|page|>1<|box|>136 207 179 790<|content|>Pursuant to Section 8.2(c) of the Membership Inter\n<|id|>3<|page|>1<|box|>214 142 231 253<|content|>Delivered by:\n<|id|>5<|page|>1<|box|>284 143 300 250<|content|>Delivered to:\n<|id|>7<|page|>1<|box|>354 143 371 315<|content|>Reference Document:\n<|id|>9<|page|>1<|box|>553 143 569 248<|content|>Transaction:\n<|id|>11<|page|>1<|box|>691 140 709 557<|content|>RECITALS AND INTRODUCTORY STATEMENT\n<|id|>16<|page|>2<|box|>292 140 309 596<|content|>Section 1. Bring-Down of Representations and Warra\n<|id|>38<|page|>5<|box|>645 140 662 433<|content|>Section 2. Performance of Covenants\n<|id|>49<|page|>7<|box|>359 140 375 439<|content|>Section 3. No Material Adverse Effect\n<|id|>61<|page|>8<|box|>429 140 446 555<|content|>Section 4. Governmental and Third-Party Approvals\n<|id|>68<|page|>9<|box|>250 140 266 348<|content|>Section 5. No Proceedings\n<|id|>71<|page|>9<|box|>561 140 578 437<|content|>Section 6. Seller Disclosure Schedules\n<|id|>74<|page|>10<|box|>90 142 107 504<|content|>Section 7. Reliance; No Other Representations\n<|id|>78<|page|>10<|box|>429 140 445 465<|content|>Section 8. Agreement Definitions Control\n<|id|>81<|page|>10<|box|>597 232 614 764<|content|>[SIGNATURE PAGE TO CLOSING CERTIFICATE OF SELLER]\n<|id|>83<|page|>10<|box|>667 143 684 450<|content|>AURELIUS MEDIA HOLDINGS INC.\n<|id|>88<|page|>10<|box|>753 143 771 709<|content|>Address for notices to Seller (pursuant to Section",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>2\n<|id|>5<|level|>2\n<|id|>7<|level|>2\n<|id|>9<|level|>2\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>38<|level|>2\n<|id|>49<|level|>2\n<|id|>61<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>74<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>3\n<|id|>88<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        }
+    ]
+}

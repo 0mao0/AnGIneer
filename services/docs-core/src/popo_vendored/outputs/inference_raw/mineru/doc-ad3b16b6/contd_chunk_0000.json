@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        8,
+        9,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>167 754 185 854<|content|>[____, 2024]\n<|id|>4<|page|>1<|box|>194 140 339 856<|content|>This Bring-Down Certificate (this \"Certificate\") i...n the Final Offering Memorandum (as defined below)\n<|id|>12<|page|>1<|box|>854 174 910 856<|content|>(ii) Receivables Purchase Agreement, dated as of [...LC, a Delaware limited liability company (Employer\n<|id|>13<|page|>2<|box|>89 174 143 854<|content|>Identification Number: ... 93-4187620) and wholly ...otherwise conveys the Receivables to the Depositor\n<|id|>72<|page|>8<|box|>479 174 516 854<|content|>(b) the business, properties, operations, or condi...se) of the Depositor (SkyLend Funding LLC); ... or\n<|id|>74<|page|>8<|box|>604 140 715 856<|content|>For the avoidance of doubt, the foregoing certific...terest on the Notes in accordance with their terms\n<|id|>76<|page|>8<|box|>750 140 878 856<|content|>The undersigned certifies that no Default, Event o...f in accordance with the Transaction Documents, no\n<|id|>77<|page|>9<|box|>90 140 126 854<|content|>Default, Event of Default, Servicer Termination Ev...on Event will exist under any Transaction Document\n<|id|>80<|page|>9<|box|>277 174 314 854<|content|>(a) materially and adversely affect the Receivable... any party under the Transaction Documents; ... or\n<|id|>82<|page|>9<|box|>421 140 512 854<|content|>The undersigned further confirms that, to the know...ser and reflected in the Final Offering Memorandum\n<|id|>94<|page|>10<|box|>763 138 891 857<|content|>The undersigned certifies that the Final Offering ...Servicer,\" \"The Sub-Servicer,\" \"Description of the\n<|id|>95<|page|>11<|box|>89 140 126 854<|content|>Notes,\" \"Credit Enhancement,\" and \"Legal Proceedin...nexes, exhibits, schedules, and appendices thereto\n<|id|>117<|page|>13<|box|>534 143 550 266<|content|>Name: ... [__]\n<|id|>118<|page|>13<|box|>551 143 566 259<|content|>Title: ... [____]\n<|id|>119<|page|>13<|box|>568 143 585 285<|content|>Date: ... [____, 2024]",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>76<|tgt_id|>77\n<|src_id|>94<|tgt_id|>95",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        }
+    ]
+}

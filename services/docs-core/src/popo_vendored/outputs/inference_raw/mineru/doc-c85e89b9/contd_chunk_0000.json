@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        12
+    ],
+    "pages": [
+        2,
+        3,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>14<|page|>2<|box|>325 174 342 764<|content|>(i) a cash payment equal to the Purchase Amount (the \"Cash-Out Amount\"); ... or\n<|id|>16<|page|>2<|box|>393 140 431 854<|content|>The \"Liquidity Price\" means the price per share eq...uation Cap divided by the Liquidity Capitalization\n<|id|>19<|page|>2<|box|>747 140 876 857<|content|>Notwithstanding the foregoing, in connection with ...ship percentages, determined as if all outstanding\n<|id|>20<|page|>3<|box|>89 140 125 854<|content|>SAFEs had been converted into shares of Common Sto...on Stock immediately prior to such Liquidity Event\n<|id|>26<|page|>3<|box|>452 174 489 854<|content|>(ii) the payment of the Cash-Out Amount or the iss...pursuant to Section 1(b) (Liquidity Event); ... or\n<|id|>28<|page|>3<|box|>522 140 595 854<|content|>For the avoidance of doubt, upon termination of th...h of this SAFE occurring prior to such termination\n<|id|>102<|page|>10<|box|>729 143 744 308<|content|>Name: ... Devin Mallory\n<|id|>103<|page|>10<|box|>746 143 761 366<|content|>Title: ... Chief Executive Officer\n<|id|>104<|page|>10<|box|>763 143 779 622<|content|>Address: ... 4710 East Riverside Drive, Suite 210, Austin, TX 78741\n<|id|>105<|page|>10<|box|>781 143 797 439<|content|>Email: ... com\n<|id|>132<|page|>12<|box|>426 174 500 854<|content|>Bank Name: ... SAFE — [Investor Name]\n<|id|>133<|page|>12<|box|>507 140 561 854<|content|>The Investor shall provide the Company with writte...ase Amount within two (2) business days of receipt",
+    "raw_response": "<|src_id|>19<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        }
+    ]
+}

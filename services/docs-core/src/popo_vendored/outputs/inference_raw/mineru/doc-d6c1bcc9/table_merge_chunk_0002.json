@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['OH-2019-1202-12893', 'December 2, 2019', 'Ohio Secretary of State', 'Great Lakes Equipment Leasing Corp.', 'Specific equipment — (1) BHS 98\" corrugator, S/N', 'Active; equipment financing for Canton Plant']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'BHS-2019-4472; (2) Bobst DRO 1628 NT rotary die cutter, S/N BOB-2019-7311', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 88,
+    "table2_idx": 89
+}

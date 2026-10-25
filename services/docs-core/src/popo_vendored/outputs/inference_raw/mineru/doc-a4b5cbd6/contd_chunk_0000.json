@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>234 140 251 800<|content|>FROM: ... Cynthia Ho, Lead Associate (Real Estate Practice), Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>258 140 296 854<|content|>TO: ... Devon Archer, Working Associate\n<|id|>4<|page|>1<|box|>303 140 321 308<|content|>DATE: ... July 14, 2025\n<|id|>5<|page|>1<|box|>329 140 383 854<|content|>RE: ... ENV-BIC-2024-07821) — Dunmore Wharton Term..., 14200 FM 1301, Wharton, Wharton County, TX 77488\n<|id|>6<|page|>1<|box|>391 140 409 362<|content|>MATTER NO. ... 1016-00006\n<|id|>7<|page|>1<|box|>417 140 436 457<|content|>CLIENT: ... Dunmore Energy Holdings Ltd\n<|id|>11<|page|>1<|box|>646 140 886 857<|content|>Key Conclusions. ... No meaningful recovery is exp...rom Piedmont Mutual's historic CGL policies due to\n<|id|>12<|page|>2<|box|>89 140 126 854<|content|>Piedmont Mutual's entry into receivership in 2012 ...d the likely exhaustion of its receivership estate\n<|id|>159<|page|>19<|box|>753 140 883 857<|content|>3. ... Do not accept or counter RCFD's $750,000 offer without\n<|id|>160<|page|>20<|box|>90 174 125 854<|content|>Bridgemont's prior written consent or a written co...mont that the settlement would not affect coverage",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>159<|tgt_id|>160",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 160
+        }
+    ]
+}

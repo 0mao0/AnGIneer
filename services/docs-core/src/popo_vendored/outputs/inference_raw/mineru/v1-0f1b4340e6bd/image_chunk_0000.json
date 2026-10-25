@@ -1,0 +1,81 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>image<|page|>1<|box|>547 38 897 235<|content|>None\n<|id|>1<|type|>title<|page|>1<|box|>42 27 133 258<|content|>M A R K E T B E AT UNITED STATES RETAIL Q4 2025\n<|id|>2<|type|>title<|page|>1<|box|>191 40 213 198<|content|>MARKET FUNDAMENTALS\n<|id|>7<|type|>image<|page|>1<|box|>220 146 465 233<|content|>None\n<|id|>8<|type|>title<|page|>1<|box|>589 41 618 113<|content|>159.4M\n<|id|>14<|type|>title<|page|>1<|box|>205 263 224 367<|content|>KEY TAKEAWAYS\n<|id|>17<|type|>title<|page|>1<|box|>558 262 599 575<|content|>VACANCY REMAINED NEAR HISTORIC LOWS DESPITE REGION\n<|id|>21<|type|>title<|page|>2<|box|>409 351 449 647<|content|>SUPPLY CONSTRAINTS PERSIST BUT THE PIPELINE SLOWLY\n<|id|>24<|type|>title<|page|>2<|box|>12 777 66 948<|content|>UNITED STATES RETAIL Q4 2025\n<|id|>25<|type|>title<|page|>2<|box|>114 728 133 790<|content|>OUTLOOK\n<|id|>28<|type|>title<|page|>3<|box|>61 19 80 177<|content|>NET ABSORPTION Q4 2025\n<|id|>29<|type|>table<|page|>3<|box|>83 19 203 977<|content|>None\n<|id|>30<|type|>table<|page|>3<|box|>233 18 919 487<|content|>None\n<|id|>31<|type|>table<|page|>3<|box|>233 508 902 978<|content|>None\n<|id|>32<|type|>title<|page|>4<|box|>61 19 79 170<|content|>VACANCY RATES Q4 2025\n<|id|>33<|type|>table<|page|>4<|box|>83 19 203 977<|content|>None\n<|id|>34<|type|>table<|page|>4<|box|>233 19 919 487<|content|>None\n<|id|>35<|type|>table<|page|>4<|box|>232 508 902 979<|content|>None\n<|id|>36<|type|>title<|page|>5<|box|>61 19 80 159<|content|>ASKING RENTS Q4 2025\n<|id|>37<|type|>table<|page|>5<|box|>85 19 200 977<|content|>None\n<|id|>38<|type|>table<|page|>5<|box|>231 19 919 487<|content|>None\n<|id|>39<|type|>table<|page|>5<|box|>224 508 904 979<|content|>None\n<|id|>40<|type|>title<|page|>6<|box|>61 20 79 141<|content|>INVENTORY Q4 2025\n<|id|>41<|type|>table<|page|>6<|box|>83 19 184 977<|content|>None\n<|id|>42<|type|>table<|page|>6<|box|>212 19 921 489<|content|>None\n<|id|>43<|type|>table<|page|>6<|box|>212 508 905 979<|content|>None\n<|id|>44<|type|>title<|page|>7<|box|>127 19 143 105<|content|>METHODOLOGY\n<|id|>47<|type|>title<|page|>7<|box|>349 18 366 293<|content|>A CUSHMAN & WAKEFIELD RESEARCH PUBLICATION\n<|id|>52<|type|>image<|page|>7<|box|>167 654 479 959<|content|>None",
+    "raw_response": "<|src_id|>0<|tgt_id|>1\n<|src_id|>7<|tgt_id|>2\n<|src_id|>29<|tgt_id|>28\n<|src_id|>30<|tgt_id|>28\n<|src_id|>31<|tgt_id|>28\n<|src_id|>33<|tgt_id|>32\n<|src_id|>34<|tgt_id|>32\n<|src_id|>35<|tgt_id|>32\n<|src_id|>37<|tgt_id|>36\n<|src_id|>38<|tgt_id|>36\n<|src_id|>39<|tgt_id|>36\n<|src_id|>41<|tgt_id|>40\n<|src_id|>42<|tgt_id|>40\n<|src_id|>43<|tgt_id|>40\n<|src_id|>52<|tgt_id|>44",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 44
+        }
+    ]
+}

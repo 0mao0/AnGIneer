@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>167 462 184 534<|content|>Plaintiff,\n<|id|>2<|page|>1<|box|>194 460 210 537<|content|>–against–\n<|id|>7<|page|>1<|box|>340 651 358 854<|content|>Dated: ... November 26, 2024\n<|id|>8<|page|>1<|box|>367 140 402 854<|content|>It is hereby stipulated and agreed, by and between...ned counsel for the respective parties, as follows\n<|id|>23<|page|>3<|box|>816 140 907 857<|content|>7. ... To the extent the Court endorses this Stipu...is Stipulation shall also be deemed to comply with\n<|id|>24<|page|>4<|box|>90 140 237 854<|content|>CPLR § 3217(b). ... The parties further represent ...hird party prior to the filing of this Stipulation\n<|id|>29<|page|>4<|box|>604 142 619 478<|content|>HARGROVE, DELACROIX & STERN LLP\n<|id|>30<|page|>4<|box|>622 143 638 251<|content|>By: ... By\n<|id|>31<|page|>4<|box|>638 140 671 854<|content|>Margaret Delacroix, Partner 600 Lexington Avenue, ...York, New York 10022 Telephone: ... (212) 554-7801\n<|id|>32<|page|>4<|box|>672 143 688 553<|content|>Attorneys for Plaintiff Northwind Maritime Corporation\n<|id|>33<|page|>4<|box|>689 140 723 852<|content|>FOR DEFENDANTS THALASSA SHIPPING & LOGISTICS SA AN... & LOGISTICS SA AND AEGEAN FORTUNA SHIPHOLDING LTD\n<|id|>34<|page|>4<|box|>733 142 750 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>35<|page|>4<|box|>751 143 768 251<|content|>By: ... By\n<|id|>36<|page|>4<|box|>767 140 800 852<|content|>Douglas Carmichael, Partner One Liberty Plaza, 50t...York, New York 10006 Telephone: ... (212) 403-6001\n<|id|>37<|page|>4<|box|>801 140 832 854<|content|>Attorneys for Defendants Thalassa Shipping & Logis... & Logistics SA and Aegean Fortuna Shipholding Ltd\n<|id|>39<|page|>4<|box|>859 142 877 429<|content|>Dated: ... New York, New York ____, 20\n<|id|>40<|page|>5<|box|>89 140 122 843<|content|>Hon. ... 1044-00006 Prepared by Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>23<|tgt_id|>24",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        }
+    ]
+}

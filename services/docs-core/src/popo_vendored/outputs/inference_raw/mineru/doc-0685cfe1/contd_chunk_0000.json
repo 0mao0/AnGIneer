@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>214 398 229 599<|content|>(a Delaware corporation)\n<|id|>4<|page|>1<|box|>239 143 275 854<|content|>Action by Written Consent in Lieu of a Special Mee...ection 228 of the Delaware General Corporation Law\n<|id|>5<|page|>1<|box|>282 390 300 607<|content|>Effective as of April 7, 2025\n<|id|>6<|page|>1<|box|>309 140 436 857<|content|>The undersigned, Harrowgate Private Equity Fund IV...elaware (as amended from time to time, the \"DGCL\")\n<|id|>22<|page|>3<|box|>801 174 876 857<|content|>(f) that certain Escrow Agreement, dated as of Apr...llion Three Hundred Thousand Dollars ($34,300,000)\n<|id|>23<|page|>4<|box|>90 174 126 854<|content|>to secure the payment of the termination fee and c...er obligations under the Merger Agreement; ... and\n<|id|>25<|page|>4<|box|>268 140 344 854<|content|>NOW, THEREFORE, the undersigned Sole Stockholder, ...dopts the following resolutions by written consent\n<|id|>33<|page|>5<|box|>424 174 608 856<|content|>(b) execute and deliver any and all certificates, ... local, or foreign governmental authority; ... and\n<|id|>35<|page|>5<|box|>733 140 806 857<|content|>in each case, as any such Authorized Person may de...cate, filing, or payment by such Authorized Person\n<|id|>46<|page|>7<|box|>266 142 282 553<|content|>HARROWGATE PRIVATE EQUITY FUND IV LP\n<|id|>47<|page|>7<|box|>284 142 301 478<|content|>By: ... Harrowgate Capital Partners IV GP LLC,\n<|id|>48<|page|>7<|box|>301 142 318 287<|content|>its General Partner\n<|id|>49<|page|>7<|box|>319 143 335 253<|content|>By: ... By\n<|id|>50<|page|>7<|box|>335 142 353 318<|content|>Name: ... Nathaniel Cross\n<|id|>51<|page|>7<|box|>353 140 386 848<|content|>Title: ... Authorized Signatory of Harrowgate Capital Partners IV GP LLC\n<|id|>52<|page|>7<|box|>387 142 404 290<|content|>Date: ... April 7, 2025",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>47<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        }
+    ]
+}

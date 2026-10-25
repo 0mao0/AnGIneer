@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 140 174 854<|content|>101 Montgomery Street, Suite 3500 San Francisco, CA 94104 Telephone: ... com\n<|id|>3<|page|>1<|box|>183 704 200 854<|content|>September 19, 2022\n<|id|>4<|page|>1<|box|>209 142 226 393<|content|>Via Email and Overnight Courier\n<|id|>5<|page|>1<|box|>234 140 270 854<|content|>Mr. ... 1175 NW Couch Street, Suite 800 Portland, OR 97209\n<|id|>6<|page|>1<|box|>277 174 315 854<|content|>Re: ... — Revised Valuation Proposal\n<|id|>7<|page|>1<|box|>324 142 340 272<|content|>Dear Mr. ... Anand\n<|id|>17<|page|>2<|box|>861 140 898 854<|content|>By contrast, Pinnacle's Initial Term Sheet contemp...ng a per-share price of $3. ... 25 ($260,000,000 ÷\n<|id|>18<|page|>3<|box|>89 140 181 854<|content|>80,000,000 existing fully-diluted shares) and the ...), consistent with Pinnacle's investment objective\n<|id|>43<|page|>6<|box|>864 140 902 856<|content|>Liquidation Preference. ... 5x non-participating l...ch would entitle the holders of Series D Preferred\n<|id|>44<|page|>7<|box|>90 138 256 857<|content|>Stock to receive a return of $90,000,000 (1. ... 5...ted at earlier stages of the Company's development\n<|id|>49<|page|>7<|box|>768 140 898 857<|content|>Drag-Along Rights. ... Among the Company's existin...d stockholders, Ridgeline Ventures Fund III LP and\n<|id|>50<|page|>8<|box|>89 140 162 854<|content|>Brindoval Capital Group LLC have indicated support...m that is not subject to a minimum valuation floor\n<|id|>65<|page|>9<|box|>410 176 428 754<|content|>(iv) Amended and Restated Right of First Refusal and Co-Sale Agreement; ... and\n<|id|>67<|page|>9<|box|>462 140 498 854<|content|>Pinnacle's objective remains to complete the Serie...he Company and the mutual interests of the parties\n<|id|>77<|page|>10<|box|>431 142 449 272<|content|>Very truly yours,\n<|id|>78<|page|>10<|box|>457 140 473 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>79<|page|>10<|box|>474 142 492 251<|content|>By: ... By\n<|id|>80<|page|>10<|box|>493 142 508 339<|content|>Harrison Wexford Partner\n<|id|>81<|page|>10<|box|>508 142 526 797<|content|>101 Montgomery Street, Suite 3500 San Francisco, CA 94104 Telephone: ... (415) 772-8047\n<|id|>82<|page|>10<|box|>527 142 542 470<|content|>Email: ... com\n<|id|>83<|page|>10<|box|>544 142 560 455<|content|>On behalf of Pinnacle Venture Fund II LP\n<|id|>84<|page|>10<|box|>560 140 575 854<|content|>cc: ... Marcus Trejo, Partner, Pinnacle Capital Ma...00 Sand Hill Road, Suite 310, Menlo Park, CA 94025\n<|id|>85<|page|>10<|box|>583 140 598 784<|content|>cc: ... Jonathan Hale, Langford Price & Associates..., 1000 SW Broadway, Suite 1600, Portland, OR 97205\n<|id|>86<|page|>10<|box|>604 140 619 777<|content|>cc: ... Nathan Callister, Hargrove Securities LLC, 600 Lexington Avenue, 22nd Floor, New York, NY 10022\n<|id|>87<|page|>10<|box|>628 140 643 277<|content|>Enclosures: ... None",
+    "raw_response": "<|src_id|>17<|tgt_id|>18\n<|src_id|>43<|tgt_id|>44\n<|src_id|>49<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        }
+    ]
+}

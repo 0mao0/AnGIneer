@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['U.S. tax-exempt (Meridian, Ashford)', 'UBTI at up to 37% on debt-financed income and unrelated trade or business income; jeopardy to tax-', 'Corporate tax at 21% federal + state; dividends excluded from UBTI', 'Blocker strongly preferable']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'exempt status', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 314,
+    "table2_idx": 315
+}

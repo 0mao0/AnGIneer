@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        6,
+        8,
+        9,
+        10,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>228 140 244 328<|content|>TO: ... Linda Osei, Partner\n<|id|>4<|page|>1<|box|>253 140 270 411<|content|>FROM: ... Carlos Espinoza, Associate\n<|id|>5<|page|>1<|box|>279 142 296 343<|content|>DATE: ... December 3, 2024\n<|id|>6<|page|>1<|box|>305 140 359 854<|content|>RE: ... , Commercial Division)\n<|id|>7<|page|>1<|box|>367 142 385 362<|content|>MATTER NO. ... 1022-00005\n<|id|>8<|page|>1<|box|>393 142 409 408<|content|>Right-click to update Table of Contents\n<|id|>54<|page|>6<|box|>559 174 631 854<|content|>(i) The defendant's conduct was aimed at the publi...ngle bilateral dispute between the parties; ... or\n<|id|>56<|page|>6<|box|>702 140 775 854<|content|>See Walker v. ... This two-pronged framework has r...urts sitting in New York and applying New York law\n<|id|>72<|page|>8<|box|>787 140 898 857<|content|>Application to the Present Case. ... (ii) approxim...Reeves made oral and written statements suggesting\n<|id|>73<|page|>9<|box|>89 140 143 854<|content|>BRB was willing to consider future credit extensio...bor failed to cure its financial covenant defaults\n<|id|>79<|page|>9<|box|>773 138 902 857<|content|>Application to the Present Case. ... Triton\n<|id|>80<|page|>10<|box|>90 140 181 856<|content|>Harbor's fraud claim thus functions as a contract ...o consider doing so — constitutes actionable fraud\n<|id|>183<|page|>20<|box|>891 181 907 660<|content|>• Mfrs. ... 1993)\n<|id|>184<|page|>20<|box|>915 140 930 439<|content|>Calderwood & Harkness LLP | Matter No. ... 1022-00005\n<|id|>205<|page|>21<|box|>657 181 674 785<|content|>• Hartford Accident & Indem. ... 2d 218 (1979)\n<|id|>206<|page|>21<|box|>676 140 722 854<|content|>This memorandum is prepared for internal use only ...ease do not distribute without prior authorization",
+    "raw_response": "<|src_id|>72<|tgt_id|>73\n<|src_id|>79<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        }
+    ]
+}

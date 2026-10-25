@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Total sales......', '14,000', '21,621', '154', '5,000', '5,882', '118', '9,000', '15,739', '175', '2,500', '2,868', '115']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, State', 'rowspan=3, Total sales', 'colspan=4, Sales to individuals 1/(Classified by securities)', 'colspan=7, Sales to corporations and other investors (Classified by investor classese)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 90,
+    "table2_idx": 91
+}

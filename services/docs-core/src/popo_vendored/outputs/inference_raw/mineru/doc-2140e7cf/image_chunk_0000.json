@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        10
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>11<|type|>title<|page|>2<|box|>90 140 107 594<|content|>I. Background and Summary of the Disputed Chargeba\n<|id|>16<|type|>table<|page|>2<|box|>657 143 785 852<|content|>None\n<|id|>19<|type|>title<|page|>3<|box|>321 140 339 607<|content|>II. Procedural Non-Compliance Under LTSA Section 9\n<|id|>21<|type|>title<|page|>3<|box|>470 140 488 656<|content|>A. Failure to Tender Parts Within the 30-Day Inspe\n<|id|>26<|type|>title<|page|>4<|box|>250 140 266 398<|content|>B. Failure to Tender 2,108 Units\n<|id|>31<|type|>title<|page|>4<|box|>801 140 819 509<|content|>C. Legal Effect of Procedural Non-Compliance\n<|id|>36<|type|>title<|page|>5<|box|>484 140 501 573<|content|>III. Substantive Challenge — Specification Complia\n<|id|>38<|type|>title<|page|>5<|box|>595 140 613 684<|content|>A. Vantage's Parts Conform to Meridian's Engineeri\n<|id|>47<|type|>title<|page|>6<|box|>566 140 584 602<|content|>B. Alternative Root Cause — Meridian's Assembly Pr\n<|id|>53<|type|>title<|page|>7<|box|>566 140 584 566<|content|>IV. Challenge to the Per-Unit Chargeback Calculati\n<|id|>55<|type|>title<|page|>7<|box|>661 140 678 599<|content|>A. The $48.00 Administrative Fee Lacks Contractual\n<|id|>61<|type|>title<|page|>8<|box|>513 140 529 694<|content|>V. Demand for Immediate Reversal of Accounts Recei\n<|id|>71<|type|>title<|page|>9<|box|>406 140 424 344<|content|>VI. Reservation of Rights\n<|id|>79<|type|>title<|page|>10<|box|>148 140 167 344<|content|>VII. Proposed Next Steps",
+    "raw_response": "<|src_id|>16<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 11
+        }
+    ]
+}

@@ -1,0 +1,84 @@
+{
+    "task": "title",
+    "chunk_index": 6,
+    "range": [
+        291,
+        339
+    ],
+    "pages": [
+        292,
+        293,
+        303,
+        309,
+        327,
+        330,
+        331,
+        334,
+        336,
+        338
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2004<|page|>292<|box|>80 432 99 563<|content|>ARTICLE PBG\n<|id|>2005<|page|>292<|box|>105 442 124 535<|content|>Pre-409A\n<|id|>2008<|page|>293<|box|>145 400 159 594<|content|>ARTICLE I – Foreword\n<|id|>2011<|page|>293<|box|>577 324 594 671<|content|>ARTICLE II – Definitions and Construction\n<|id|>2083<|page|>303<|box|>447 328 463 666<|content|>ARTICLE IV – Requirements for Benefits\n<|id|>2107<|page|>309<|box|>92 311 108 683<|content|>ARTICLE V – Amount of Retirement Pension\n<|id|>2109<|page|>309<|box|>209 75 225 242<|content|>5.1 PEP Pension:\n<|id|>2216<|page|>327<|box|>388 75 405 412<|content|>6.4 Special Rules for Survivor Options:\n<|id|>2224<|page|>330<|box|>82 370 98 624<|content|>APPENDIX TO ARTICLE PBG\n<|id|>2225<|page|>330<|box|>110 441 126 555<|content|>FOREWARD\n<|id|>2228<|page|>331<|box|>92 405 107 644<|content|>ARTICLE A – 1993 Accruals\n<|id|>2238<|page|>334<|box|>92 247 108 728<|content|>ARTICLE P98 – PepsiCo Special Early Retirement Ben\n<|id|>2250<|page|>336<|box|>92 287 108 708<|content|>Article IPO – Transferred and Transition Individua\n<|id|>2260<|page|>338<|box|>91 434 107 560<|content|>ARTICLE PAC\n<|id|>2261<|page|>338<|box|>121 208 137 765<|content|>Guiding Principles Regarding Benefit Plan Committe",
+    "raw_response": "<|id|>2004<|level|>1\n<|id|>2005<|level|>1\n<|id|>2008<|level|>2\n<|id|>2011<|level|>2\n<|id|>2083<|level|>2\n<|id|>2107<|level|>2\n<|id|>2109<|level|>3\n<|id|>2216<|level|>3\n<|id|>2224<|level|>1\n<|id|>2225<|level|>2\n<|id|>2228<|level|>2\n<|id|>2238<|level|>2\n<|id|>2250<|level|>2\n<|id|>2260<|level|>2\n<|id|>2261<|level|>3",
+    "parsed": [
+        {
+            "id": 2004,
+            "level": 1
+        },
+        {
+            "id": 2005,
+            "level": 1
+        },
+        {
+            "id": 2008,
+            "level": 2
+        },
+        {
+            "id": 2011,
+            "level": 2
+        },
+        {
+            "id": 2083,
+            "level": 2
+        },
+        {
+            "id": 2107,
+            "level": 2
+        },
+        {
+            "id": 2109,
+            "level": 3
+        },
+        {
+            "id": 2216,
+            "level": 3
+        },
+        {
+            "id": 2224,
+            "level": 1
+        },
+        {
+            "id": 2225,
+            "level": 2
+        },
+        {
+            "id": 2228,
+            "level": 2
+        },
+        {
+            "id": 2238,
+            "level": 2
+        },
+        {
+            "id": 2250,
+            "level": 2
+        },
+        {
+            "id": 2260,
+            "level": 2
+        },
+        {
+            "id": 2261,
+            "level": 3
+        }
+    ]
+}

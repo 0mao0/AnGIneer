@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        95,
+        103
+    ],
+    "pages": [
+        96,
+        103
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>215<|page|>96<|box|>55 340 71 661<|content|>Bulletin of the Treasury Department\n<|id|>216<|page|>96<|box|>79 313 94 688<|content|>Cumulative Index for July - December 1941\n<|id|>220<|page|>103<|box|>216 397 245 569<|content|>- LURAI",
+    "raw_response": "<|id|>215<|level|>1\n<|id|>216<|level|>2\n<|id|>220<|level|>-1",
+    "parsed": [
+        {
+            "id": 215,
+            "level": 1
+        },
+        {
+            "id": 216,
+            "level": 2
+        }
+    ]
+}

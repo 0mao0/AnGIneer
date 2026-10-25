@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 214 137 782<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>7<|page|>1<|box|>343 142 359 321<|content|>I. Executive Summary\n<|id|>13<|page|>2<|box|>258 140 277 267<|content|>II. Background\n<|id|>14<|page|>2<|box|>290 140 306 565<|content|>A. The FTA Grant and Phase 1 Electrification Proje\n<|id|>26<|page|>3<|box|>311 140 329 560<|content|>B. ICC Regulatory Proceeding — Docket No. 23-0214\n<|id|>36<|page|>4<|box|>289 140 306 563<|content|>C. The Congressional Funding Lapse and FTA Action\n<|id|>41<|page|>4<|box|>777 140 795 660<|content|>III. Legal and Practical Consequences for ICC Dock\n<|id|>42<|page|>4<|box|>809 142 825 410<|content|>A. Impact on the Verified Petition\n<|id|>47<|page|>5<|box|>619 140 638 635<|content|>B. Impact on the Draft Infrastructure Cost-Sharing\n<|id|>51<|page|>7<|box|>89 140 107 370<|content|>C. Impact on Schedule EV-T\n<|id|>55<|page|>7<|box|>434 142 450 395<|content|>D. Procedural Timing Concerns\n<|id|>60<|page|>8<|box|>89 140 107 395<|content|>IV. Options Available to MTDC\n<|id|>62<|page|>8<|box|>183 140 218 854<|content|>A. Option 1: Withdraw the Verified Petition Withou\n<|id|>70<|page|>9<|box|>154 142 170 245<|content|>Advantages:\n<|id|>78<|page|>9<|box|>481 143 498 267<|content|>Disadvantages:\n<|id|>82<|page|>9<|box|>648 140 667 787<|content|>B. Option 2: Proceed with the ICC Application on t\n<|id|>87<|page|>10<|box|>425 142 441 245<|content|>Advantages:\n<|id|>90<|page|>10<|box|>526 142 542 266<|content|>Disadvantages:\n<|id|>96<|page|>10<|box|>771 140 789 454<|content|>C. Option 3: Seek a Stay of Proceedings\n<|id|>101<|page|>11<|box|>425 143 441 245<|content|>Advantages:\n<|id|>105<|page|>11<|box|>546 143 563 266<|content|>Disadvantages:\n<|id|>112<|page|>12<|box|>90 140 107 307<|content|>V. Recommendation\n<|id|>125<|page|>13<|box|>340 140 357 261<|content|>VI. Next Steps",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>26<|level|>2\n<|id|>36<|level|>2\n<|id|>41<|level|>1\n<|id|>42<|level|>2\n<|id|>47<|level|>2\n<|id|>51<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>1\n<|id|>62<|level|>2\n<|id|>70<|level|>3\n<|id|>78<|level|>3\n<|id|>82<|level|>2\n<|id|>87<|level|>3\n<|id|>90<|level|>3\n<|id|>96<|level|>2\n<|id|>101<|level|>3\n<|id|>105<|level|>3\n<|id|>112<|level|>1\n<|id|>125<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        }
+    ]
+}

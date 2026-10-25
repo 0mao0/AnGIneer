@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 326 133 671<|content|>125 Broad Street New York, New York 10004\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 715 184 854<|content|>February 13, 2024\n<|id|>5<|page|>1<|box|>219 140 255 854<|content|>Whitfield Barrow & Co. ... , LLC 383 Madison Avenu...0179 As Representative of the Several Underwriters\n<|id|>6<|page|>1<|box|>263 140 281 810<|content|>Calloway Pierce Securities LLC 200 Park Avenue, 40th Floor New York, New York 10166\n<|id|>7<|page|>1<|box|>289 140 306 844<|content|>Velthorn Capital Partners Inc. ... 555 California Street, Suite 3000 San Francisco, California 94104\n<|id|>8<|page|>1<|box|>315 140 332 758<|content|>Pemberton Wallis LLC 100 Federal Street, 28th Floor Boston, Massachusetts 02110\n<|id|>9<|page|>1<|box|>340 143 402 854<|content|>Re: ... — Initial Public Offering of Common Stock ...of the Underwriting Agreement Ladies and Gentlemen\n<|id|>22<|page|>2<|box|>770 174 898 857<|content|>(e) reviewed the confidential submission of the dr...e Company's response letter to the SEC staff dated\n<|id|>23<|page|>3<|box|>89 174 164 856<|content|>December 22, 2023; ... and the Company's response ..., 2024, which resolved all remaining open comments\n<|id|>38<|page|>5<|box|>234 174 306 854<|content|>(a) the Registration Statement (File No. ... or\n<|id|>40<|page|>5<|box|>395 140 431 854<|content|>The foregoing negative assurance does not extend t...nd we express no opinion or belief with respect to\n<|id|>55<|page|>6<|box|>449 142 465 563<|content|>Theodore Langston Responsible Partner, Capital Markets\n<|id|>56<|page|>6<|box|>465 143 482 486<|content|>125 Broad Street New York, New York 10004\n<|id|>57<|page|>6<|box|>483 140 513 852<|content|>cc: ... 275 Kendall Avenue, Suite 1400 Cambridge, Massachusetts 02142\n<|id|>58<|page|>6<|box|>520 140 535 782<|content|>cc: ... Meridian Hale & Quivorn LLP 51 West 52nd Street New York, New York 10019",
+    "raw_response": "<|src_id|>22<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ]
+}

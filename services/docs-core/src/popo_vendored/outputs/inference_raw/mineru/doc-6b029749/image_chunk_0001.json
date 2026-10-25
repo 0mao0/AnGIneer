@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>439<|type|>title<|page|>46<|box|>90 142 107 483<|content|>Appendix D — List of Prior Art References\n<|id|>441<|type|>table<|page|>46<|box|>194 143 358 852<|content|>None\n<|id|>442<|type|>table<|page|>46<|box|>434 143 905 852<|content|>None\n<|id|>443<|type|>table<|page|>47<|box|>88 143 232 852<|content|>None\n<|id|>445<|type|>title<|page|>48<|box|>90 140 107 490<|content|>Appendix E — Glossary of Technical Terms",
+    "raw_response": "<|src_id|>441<|tgt_id|>439\n<|src_id|>442<|tgt_id|>439\n<|src_id|>443<|tgt_id|>439",
+    "parsed": [
+        {
+            "src_id": 441,
+            "tgt_id": 439
+        },
+        {
+            "src_id": 442,
+            "tgt_id": 439
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 439
+        }
+    ]
+}

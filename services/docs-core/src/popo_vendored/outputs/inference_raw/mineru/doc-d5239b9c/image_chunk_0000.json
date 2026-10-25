@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>152 423 170 573<|content|>MEMORANDUM\n<|id|>6<|type|>title<|page|>1<|box|>334 140 353 230<|content|>I. Purpose\n<|id|>10<|type|>title<|page|>1<|box|>728 140 744 267<|content|>II. Background\n<|id|>11<|type|>title<|page|>1<|box|>758 140 776 307<|content|>A. The Investigation\n<|id|>20<|type|>title<|page|>2<|box|>771 140 787 303<|content|>B. The Respondents\n<|id|>28<|type|>title<|page|>3<|box|>604 140 622 344<|content|>C. The Contracts at Issue\n<|id|>30<|type|>table<|page|>3<|box|>763 143 890 852<|content|>None\n<|id|>31<|type|>table<|page|>4<|box|>89 143 125 852<|content|>None\n<|id|>33<|type|>title<|page|>4<|box|>327 140 344 349<|content|>III. Statutory Framework\n<|id|>41<|type|>title<|page|>5<|box|>267 140 284 357<|content|>IV. Categories of Exposure\n<|id|>42<|type|>title<|page|>5<|box|>297 140 315 377<|content|>A. Civil Penalties (§ 75-21-37)\n<|id|>50<|type|>title<|page|>6<|box|>212 140 229 589<|content|>B. Treble Damages — Follow-On Civil Action (§ 75-2\n<|id|>56<|type|>title<|page|>6<|box|>695 140 712 433<|content|>Low-End Estimate (8% overcharge):\n<|id|>58<|type|>title<|page|>6<|box|>765 140 782 446<|content|>High-End Estimate (12% overcharge):\n<|id|>62<|type|>title<|page|>7<|box|>329 140 348 517<|content|>C. Debarment (Meridian Code Ann. § 31-7-211)\n<|id|>72<|type|>title<|page|>8<|box|>311 140 329 411<|content|>D. Credit Agreement Implications\n<|id|>80<|type|>title<|page|>9<|box|>402 140 421 514<|content|>E. Reputational and Operational Consequences\n<|id|>88<|type|>title<|page|>10<|box|>531 140 549 374<|content|>V. Exposure Summary Table\n<|id|>90<|type|>table<|page|>10<|box|>599 143 787 852<|content|>None\n<|id|>92<|type|>title<|page|>11<|box|>186 140 204 429<|content|>VI. Preliminary Defense Assessment\n<|id|>94<|type|>title<|page|>11<|box|>297 142 316 330<|content|>A. Independent Pricing\n<|id|>98<|type|>title<|page|>11<|box|>696 142 714 397<|content|>B. Legitimate Business Contacts\n<|id|>106<|type|>title<|page|>12<|box|>381 140 398 462<|content|>C. Statistical Flaws in the AG's Evidence\n<|id|>115<|type|>title<|page|>13<|box|>157 140 175 531<|content|>D. No Agreement / Conscious Parallelism Defense\n<|id|>120<|type|>title<|page|>13<|box|>729 140 746 462<|content|>E. Preliminary Assessment of Risk Level\n<|id|>126<|type|>title<|page|>14<|box|>439 140 457 267<|content|>VII. Next Steps\n<|id|>137<|type|>title<|page|>16<|box|>89 140 107 279<|content|>VIII. Conclusion",
+    "raw_response": "<|src_id|>30<|tgt_id|>28\n<|src_id|>31<|tgt_id|>28\n<|src_id|>90<|tgt_id|>88",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 88
+        }
+    ]
+}

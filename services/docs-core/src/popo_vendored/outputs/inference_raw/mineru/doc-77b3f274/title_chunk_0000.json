@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>375 140 391 357<|content|>1. Purpose and Acceptance\n<|id|>11<|page|>1<|box|>631 140 648 334<|content|>2. Scope of Engagement\n<|id|>22<|page|>2<|box|>763 140 780 313<|content|>3. Engagement Team\n<|id|>28<|page|>3<|box|>577 140 594 375<|content|>4. Fees and Fee Arrangement\n<|id|>29<|page|>3<|box|>607 140 625 375<|content|>4.1 Fee Cap Through Closing\n<|id|>34<|page|>4<|box|>294 140 311 388<|content|>4.2 Hourly Billing Post-Closing\n<|id|>39<|page|>4<|box|>691 140 708 388<|content|>4.3 Billing and Payment Terms\n<|id|>43<|page|>5<|box|>167 140 185 390<|content|>5. Expenses and Disbursements\n<|id|>55<|page|>6<|box|>90 140 107 321<|content|>6. Conflicts of Interest\n<|id|>60<|page|>6<|box|>601 140 618 284<|content|>7. Confidentiality\n<|id|>64<|page|>7<|box|>204 140 222 326<|content|>8. Document Retention\n<|id|>67<|page|>7<|box|>479 140 498 264<|content|>9. Termination\n<|id|>71<|page|>7<|box|>819 142 835 349<|content|>10. Limitation of Liability\n<|id|>74<|page|>8<|box|>231 142 247 297<|content|>11. Governing Law\n<|id|>77<|page|>8<|box|>434 142 450 428<|content|>12. Entire Agreement; Amendments\n<|id|>80<|page|>8<|box|>654 142 671 285<|content|>13. Miscellaneous\n<|id|>87<|page|>9<|box|>90 176 106 467<|content|>Email: mdelaney@lumosanalytics.com\n<|id|>92<|page|>9<|box|>393 140 410 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>99<|page|>9<|box|>575 142 594 366<|content|>LUMOS ANALYTICS INC.",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>11<|level|>1\n<|id|>22<|level|>1\n<|id|>28<|level|>1\n<|id|>29<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>2\n<|id|>43<|level|>1\n<|id|>55<|level|>1\n<|id|>60<|level|>1\n<|id|>64<|level|>1\n<|id|>67<|level|>1\n<|id|>71<|level|>1\n<|id|>74<|level|>1\n<|id|>77<|level|>1\n<|id|>80<|level|>1\n<|id|>87<|level|>-1\n<|id|>92<|level|>1\n<|id|>99<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        }
+    ]
+}

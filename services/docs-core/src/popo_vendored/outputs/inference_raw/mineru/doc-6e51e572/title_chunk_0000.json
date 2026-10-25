@@ -1,0 +1,166 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        6,
+        56
+    ],
+    "pages": [
+        6,
+        7,
+        9,
+        11,
+        15,
+        16,
+        17,
+        18,
+        19,
+        25,
+        26,
+        27,
+        28,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        41,
+        44,
+        46,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>6<|box|>585 315 730 761<|content|>Take stock in America.\n<|id|>8<|page|>7<|box|>14 11 118 965<|content|>Treasury Bulletin\n<|id|>13<|page|>9<|box|>35 13 122 931<|content|>Treasury Bulletin\n<|id|>15<|page|>9<|box|>741 272 807 676<|content|>DEPARTMENT OF THE TREASURY OFFICE OF THE SECRETARY\n<|id|>17<|page|>11<|box|>341 372 360 557<|content|>ANNOUNCEMENT\n<|id|>22<|page|>15<|box|>50 331 67 634<|content|>TREASURY FINANCING OPERATIONS\n<|id|>23<|page|>15<|box|>83 30 95 168<|content|>Auction of 2-Year Notes\n<|id|>28<|page|>15<|box|>404 30 416 198<|content|>November Quarterly Financing\n<|id|>41<|page|>15<|box|>420 484 433 568<|content|>52-Week Bills\n<|id|>43<|page|>15<|box|>558 486 570 632<|content|>13-Week and 26-Week Bills\n<|id|>46<|page|>15<|box|>779 486 791 814<|content|>Treasury Bills (Other than Cash Management Bills)-\n<|id|>49<|page|>16<|box|>41 373 54 657<|content|>TREASURY FINANCING OPERATIONS\n<|id|>55<|page|>17<|box|>39 369 54 639<|content|>FEDERAL FISCAL OPERATIONS\n<|id|>58<|page|>18<|box|>61 315 76 684<|content|>Table FFO-2. - Budget Receipts by Source\n<|id|>61<|page|>19<|box|>70 255 88 719<|content|>Table FFO-2. - Budget Receipts by Source-Continued\n<|id|>76<|page|>25<|box|>44 358 58 613<|content|>FEDERAL FISCAL OPERATIONS\n<|id|>77<|page|>25<|box|>64 261 83 705<|content|>Table FFO-5. - Budget Outlays by Function-Continue\n<|id|>80<|page|>26<|box|>63 125 79 919<|content|>Table FFO-6. - Investment Transactions of Governme\n<|id|>83<|page|>27<|box|>66 311 96 678<|content|>Table FFO-7. - Trust Funds Transactions October 1,\n<|id|>91<|page|>28<|box|>353 128 368 876<|content|>Table FO-1. - Gross Obligations Incurred Within an\n<|id|>96<|page|>31<|box|>43 341 56 654<|content|>ACCOUNT OF THE U.S. TREASURY\n<|id|>103<|page|>32<|box|>63 141 78 904<|content|>Table UST-2. - Elements of Changes in Federal Rese\n<|id|>106<|page|>33<|box|>67 267 83 729<|content|>Table UST-3. - Gold Assets and Liabilities of the\n<|id|>108<|page|>34<|box|>62 328 76 697<|content|>Table MS-1. - Currency and Coin in Circulation\n<|id|>118<|page|>35<|box|>65 328 81 642<|content|>Table FD-1. - Summary of Federal Debt\n<|id|>127<|page|>36<|box|>58 343 74 672<|content|>Table FD-3. - Interest-Bearing Public Debt\n<|id|>130<|page|>37<|box|>43 418 56 554<|content|>FEDERAL DEBT\n<|id|>131<|page|>37<|box|>79 328 95 654<|content|>Table FD-4. - Government Account Series\n<|id|>144<|page|>41<|box|>66 173 85 782<|content|>Table FD-9. - Status and Application of Statutory\n<|id|>154<|page|>44<|box|>62 365 76 649<|content|>Table PDO-2. - Offerings of Bills\n<|id|>157<|page|>46<|box|>60 172 76 853<|content|>Table PDO-3. - New Money Financing through Regular\n<|id|>170<|page|>55<|box|>46 380 60 569<|content|>PUBLIC DEBT OPERATIONS",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>2\n<|id|>17<|level|>3\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>28<|level|>3\n<|id|>41<|level|>4\n<|id|>43<|level|>4\n<|id|>46<|level|>4\n<|id|>49<|level|>2\n<|id|>55<|level|>2\n<|id|>58<|level|>3\n<|id|>61<|level|>3\n<|id|>76<|level|>2\n<|id|>77<|level|>3\n<|id|>80<|level|>3\n<|id|>83<|level|>3\n<|id|>91<|level|>3\n<|id|>96<|level|>2\n<|id|>103<|level|>3\n<|id|>106<|level|>3\n<|id|>108<|level|>3\n<|id|>118<|level|>3\n<|id|>127<|level|>3\n<|id|>130<|level|>2\n<|id|>131<|level|>3\n<|id|>144<|level|>3\n<|id|>154<|level|>3\n<|id|>157<|level|>3\n<|id|>170<|level|>2",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 4
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 46,
+            "level": 4
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 2
+        }
+    ]
+}

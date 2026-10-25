@@ -1,0 +1,58 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        50
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>446<|page|>46<|box|>89 142 107 795<|content|>Appendix B: Organizational Chart — TMC Corporate S\n<|id|>447<|page|>46<|box|>114 140 151 852<|content|>The following chart depicts the corporate ownershi\n<|id|>452<|page|>46<|box|>375 142 390 197<|content|>Notes:\n<|id|>457<|page|>47<|box|>90 140 107 401<|content|>Appendix C: Site Location Maps\n<|id|>459<|page|>47<|box|>179 140 196 547<|content|>Exhibit C-1: Ridgecrest Copper-Molybdenum Mine\n<|id|>471<|page|>47<|box|>544 143 560 491<|content|>Exhibit C-4: Kanawha Bend Chemical Plant\n<|id|>475<|page|>48<|box|>90 142 108 772<|content|>Appendix D: Summary of Contaminant Concentrations\n<|id|>478<|page|>48<|box|>750 142 766 197<|content|>Notes:\n<|id|>484<|page|>50<|box|>90 142 107 452<|content|>Appendix E: Financial Summary Table\n<|id|>489<|page|>50<|box|>878 143 896 426<|content|>Panel 4: Reserve Adequacy Analysis",
+    "raw_response": "<|id|>446<|level|>1\n<|id|>447<|level|>2\n<|id|>452<|level|>3\n<|id|>457<|level|>1\n<|id|>459<|level|>2\n<|id|>471<|level|>2\n<|id|>475<|level|>1\n<|id|>478<|level|>2\n<|id|>484<|level|>1\n<|id|>489<|level|>2",
+    "parsed": [
+        {
+            "id": 446,
+            "level": 1
+        },
+        {
+            "id": 447,
+            "level": 2
+        },
+        {
+            "id": 452,
+            "level": 3
+        },
+        {
+            "id": 457,
+            "level": 1
+        },
+        {
+            "id": 459,
+            "level": 2
+        },
+        {
+            "id": 471,
+            "level": 2
+        },
+        {
+            "id": 475,
+            "level": 1
+        },
+        {
+            "id": 478,
+            "level": 2
+        },
+        {
+            "id": 484,
+            "level": 1
+        },
+        {
+            "id": 489,
+            "level": 2
+        }
+    ]
+}

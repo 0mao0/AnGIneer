@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Total notional amount', '5,603,703', '5,652,515', '5,515,402', '5,752,203', '6,797,570', '-17.6', '0', '4,733', '162,305', '1,417,534', '4,019,131']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, (dollar figures in millions)', 'rowspan=2, 2nd Quarter 2024', 'rowspan=2, 1st Quarter 2024', 'rowspan=2, 4th Quarter 2023', 'rowspan=2, 3rd Quarter 2023', 'rowspan=2, 2nd Quarter 2023', 'rowspan=2, % Change 23Q2-24Q2', 'colspan=5, Asset Size Distribution']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 52,
+    "table2_idx": 53
+}

@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['CUT-03', 'Exclusive license of semiconductor manufacturing know-how for power', 'Power semiconductor company', 'Industrial electronics company', '7.2%', '-2.0% (exclusivity); +0.3% (geographic scope)', '5.5%', 'Exclusive license required significant downward adjustment; power semiconductor']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'management IC fabrication; global scope; 12-year term; executed 2016', '', '', '', '', '', 'tor know-how less specialized than advanced-node logic']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 457,
+    "table2_idx": 458
+}

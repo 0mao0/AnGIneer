@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        50
+    ],
+    "pages": [
+        1,
+        26,
+        27,
+        30,
+        32,
+        33,
+        35,
+        36,
+        41,
+        49
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>163 438 186 563<|content|>April 1974\n<|id|>3<|page|>1<|box|>858 147 898 615<|content|>DEPARTMENT OF THE TREASURY WASHINGTON, D. ... C\n<|id|>97<|page|>26<|box|>244 82 351 483<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>98<|page|>26<|box|>149 506 210 906<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>107<|page|>27<|box|>571 90 589 475<|content|>4/ Taxes eligible for credit consist of those depo...s, as follows: ... Withheld income taxes beginning\n<|id|>114<|page|>30<|box|>64 446 77 564<|content|>FEDERAL DEBT\n<|id|>123<|page|>32<|box|>834 80 880 475<|content|>1/ Consists of Federal Housing Administration fund; ... Employees health\n<|id|>124<|page|>33<|box|>131 429 143 561<|content|>(In millions of dollars)\n<|id|>129<|page|>35<|box|>456 88 467 385<|content|>Source: ... Daily Statement of the United States Treasury\n<|id|>131<|page|>35<|box|>598 413 611 576<|content|>Footnotes to Table FD-2\n<|id|>132<|page|>35<|box|>636 78 719 487<|content|>Source: ... The average\n<|id|>133<|page|>35<|box|>634 524 684 896<|content|>annual interest rate is computed by dividing the c...ate it was based on the coupon rate for all issues\n<|id|>135<|page|>36<|box|>86 279 101 717<|content|>Table FD-9. ... - Status and Application of Statutory Limitation\n<|id|>136<|page|>36<|box|>116 78 203 478<|content|>The Second Liberty Bond Act (31 U. ... 7 billion\n<|id|>158<|page|>41<|box|>222 93 231 458<|content|>8/ Except \\$1,000,000 at 96. ... 481, \\$3,200,000 at\n<|id|>174<|page|>41<|box|>172 538 180 679<|content|>Except \\$15,000 at 96. ... 127\n<|id|>237<|page|>49<|box|>770 81 788 443<|content|>31/ Sold at auction through competitive and noncompetitive bidding. ... 20\n<|id|>255<|page|>49<|box|>509 515 528 901<|content|>. ... 00%)\n<|id|>245<|page|>49<|box|>311 513 337 906<|content|>38/ Sold at auction through competitive and noncompetitive bidding. ... 83%",
+    "raw_response": "<|src_id|>97<|tgt_id|>98\n<|src_id|>132<|tgt_id|>133",
+    "parsed": [
+        {
+            "src_id": 97,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        }
+    ]
+}

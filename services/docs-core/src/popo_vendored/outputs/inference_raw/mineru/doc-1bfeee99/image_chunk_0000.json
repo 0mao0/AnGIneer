@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>113 282 133 712<|content|>INTERCOMPANY PROMISSORY NOTE\n<|id|>1<|type|>title<|page|>1<|box|>150 421 169 576<|content|>Up to $500,000,000\n<|id|>4<|type|>title<|page|>1<|box|>300 140 318 243<|content|>RECITALS\n<|id|>12<|type|>title<|page|>2<|box|>250 140 266 344<|content|>Section 1. Promise to Pay\n<|id|>16<|type|>title<|page|>2<|box|>770 140 787 289<|content|>Section 2. Interest\n<|id|>22<|type|>title<|page|>3<|box|>520 140 537 397<|content|>Section 3. Repayment; Maturity\n<|id|>30<|type|>title<|page|>4<|box|>267 140 284 323<|content|>Section 4. Prepayment\n<|id|>34<|type|>title<|page|>4<|box|>551 140 568 431<|content|>Section 5. Pledge to Collateral Agent\n<|id|>43<|type|>title<|page|>5<|box|>664 140 681 339<|content|>Section 6. Subordination\n<|id|>50<|type|>title<|page|>6<|box|>776 140 794 478<|content|>Section 7. Representations and Warranties\n<|id|>57<|type|>title<|page|>7<|box|>656 140 672 493<|content|>Section 8. Events of Default Under This Note\n<|id|>66<|type|>title<|page|>8<|box|>556 140 574 292<|content|>Section 9. Waivers\n<|id|>75<|type|>title<|page|>9<|box|>167 140 184 483<|content|>Section 10. Amendments and Modifications\n<|id|>78<|type|>title<|page|>9<|box|>462 140 479 294<|content|>Section 11. Notices\n<|id|>80<|type|>title<|page|>9<|box|>642 140 659 290<|content|>(b) If to the Maker:\n<|id|>92<|type|>title<|page|>10<|box|>191 140 207 357<|content|>Section 12. Governing Law\n<|id|>94<|type|>title<|page|>10<|box|>349 140 364 501<|content|>Section 13. Jurisdiction; Waiver of Jury Trial\n<|id|>98<|type|>title<|page|>11<|box|>89 140 126 854<|content|>NOTE BY, AMONG OTHER THINGS, THE MUTUAL WAIVERS AN\n<|id|>99<|type|>title<|page|>11<|box|>148 140 167 344<|content|>Section 14. Miscellaneous\n<|id|>109<|type|>title<|page|>12<|box|>214 424 229 571<|content|>ENDORSEMENT\n<|id|>111<|type|>title<|page|>12<|box|>266 140 282 661<|content|>CRESCENT HARBOR BANK, N.A., AS COLLATERAL AGENT\n<|id|>118<|type|>title<|page|>12<|box|>478 230 494 766<|content|>SIGNATURE PAGE TO INTERCOMPANY PROMISSORY NOTE\n<|id|>120<|type|>title<|page|>12<|box|>553 143 569 227<|content|>MAKER:.\n<|id|>125<|type|>title<|page|>12<|box|>656 142 672 344<|content|>SUBSIDIARY PAYEES:.\n<|id|>171<|type|>title<|page|>13<|box|>635 140 652 668<|content|>ACKNOWLEDGED AND AGREED BY COLLATERAL AGENT:\n<|id|>176<|type|>table<|page|>14<|box|>141 143 782 852<|content|>None\n<|id|>178<|type|>table<|page|>15<|box|>140 143 220 852<|content|>None",
+    "raw_response": "<|src_id|>176<|tgt_id|>171\n<|src_id|>178<|tgt_id|>171",
+    "parsed": [
+        {
+            "src_id": 176,
+            "tgt_id": 171
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 171
+        }
+    ]
+}

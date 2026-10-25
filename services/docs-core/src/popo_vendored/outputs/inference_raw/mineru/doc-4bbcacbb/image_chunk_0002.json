@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        95,
+        99
+    ],
+    "pages": [
+        95,
+        96,
+        97,
+        98,
+        99
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>937<|type|>table<|page|>95<|box|>111 143 213 852<|content|>None\n<|id|>938<|type|>table<|page|>95<|box|>273 143 672 852<|content|>None\n<|id|>939<|type|>table<|page|>95<|box|>731 143 900 852<|content|>None\n<|id|>940<|type|>table<|page|>96<|box|>88 143 142 852<|content|>None\n<|id|>941<|type|>title<|page|>96<|box|>181 140 199 483<|content|>Notes to Consolidated Financial Statements\n<|id|>948<|type|>title<|page|>96<|box|>739 142 757 519<|content|>PINNACLE GROWTH ACQUISITION CORP.\n<|id|>949<|type|>title<|page|>96<|box|>771 142 789 599<|content|>Report of Independent Registered Public Accounting\n<|id|>951<|type|>title<|page|>96<|box|>821 142 838 413<|content|>Opinion on the Financial Statements\n<|id|>953<|type|>title<|page|>97<|box|>207 142 224 277<|content|>Basis for Opinion\n<|id|>957<|type|>title<|page|>97<|box|>494 142 508 339<|content|>/s/ Brindoval Tarvick LLP\n<|id|>961<|type|>table<|page|>97<|box|>595 143 729 852<|content|>None\n<|id|>962<|type|>table<|page|>97<|box|>761 143 895 852<|content|>None\n<|id|>963<|type|>table<|page|>98<|box|>89 143 247 852<|content|>None\n<|id|>965<|type|>title<|page|>98<|box|>324 143 340 344<|content|>Statements of Operations\n<|id|>966<|type|>table<|page|>98<|box|>344 143 503 852<|content|>None\n<|id|>967<|type|>title<|page|>98<|box|>542 143 559 509<|content|>Statements of Changes in Shareholders' Equity\n<|id|>968<|type|>table<|page|>98<|box|>564 143 830 852<|content|>None\n<|id|>969<|type|>table<|page|>99<|box|>111 143 273 852<|content|>None\n<|id|>970<|type|>title<|page|>99<|box|>311 140 329 377<|content|>Notes to Financial Statements\n<|id|>977<|type|>title<|page|>99<|box|>780 331 797 666<|content|>END OF REGISTRATION STATEMENT",
+    "raw_response": "<|src_id|>961<|tgt_id|>957\n<|src_id|>962<|tgt_id|>957\n<|src_id|>966<|tgt_id|>965\n<|src_id|>968<|tgt_id|>967\n<|src_id|>969<|tgt_id|>970",
+    "parsed": [
+        {
+            "src_id": 961,
+            "tgt_id": 957
+        },
+        {
+            "src_id": 962,
+            "tgt_id": 957
+        },
+        {
+            "src_id": 966,
+            "tgt_id": 965
+        },
+        {
+            "src_id": 968,
+            "tgt_id": 967
+        },
+        {
+            "src_id": 969,
+            "tgt_id": 970
+        }
+    ]
+}

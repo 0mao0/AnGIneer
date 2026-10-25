@@ -1,0 +1,153 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-brjev5gv\\input\\pdfs\\doc-675816f2.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-brjev5gv\\enriched\\doc-675816f2.json",
+    "contd_output": "<|src_id|>112<|tgt_id|>113\n<|src_id|>119<|tgt_id|>120\n<|src_id|>120<|tgt_id|>121",
+    "title_output": "<|id|>0<|level|>1\n<|id|>5<|level|>1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>18<|level|>1\n<|id|>19<|level|>2\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>1\n<|id|>55<|level|>1\n<|id|>67<|level|>1\n<|id|>69<|level|>2\n<|id|>71<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>2\n<|id|>85<|level|>2\n<|id|>87<|level|>1\n<|id|>97<|level|>1\n<|id|>107<|level|>1",
+    "image_output": "<|src_id|>23<|tgt_id|>19\n<|src_id|>32<|tgt_id|>30\n<|src_id|>57<|tgt_id|>55\n<|src_id|>58<|tgt_id|>55",
+    "contd_label": [
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 121
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 23,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 55
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 57,
+            "table2_idx": 58,
+            "upper_row_ss": [
+                [
+                    "Attorney",
+                    "Role",
+                    "Practice Group"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Francesca Morano",
+                    "Responsible Partner",
+                    "Litigation (General)"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 125 852<|content|>WRITTEN CONSENT OF THE HOLDERS OF A MAJORITY OF TH\n<|id|>5<|page|>1<|box|>325 140 343 243<|content|>RECITALS\n<|id|>18<|page|>2<|box|>814 140 830 413<|content|>CONSENT AND RESOLUTIONS\n<|id|>20<|page|>3<|box|>138 142 156 464<|content|>1. Consent to Incurrence of Indebtedness\n<|id|>23<|page|>3<|box|>402 140 419 362<|content|>2. Authorization of Officers\n<|id|>26<|page|>3<|box|>694 140 710 354<|content|>GENERAL PROVISIONS\n<|id|>28<|page|>4<|box|>90 140 106 277<|content|>No Other Action\n<|id|>31<|page|>4<|box|>321 142 338 339<|content|>Relation to Series A IRA\n<|id|>33<|page|>4<|box|>481 400 500 596<|content|>[Signature Page Follows]\n<|id|>35<|page|>4<|box|>550 142 566 470<|content|>WHITEPINE VENTURES FUND II, L.P.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>18<|level|>2\n<|id|>20<|level|>3\n<|id|>23<|level|>3\n<|id|>26<|level|>2\n<|id|>28<|level|>3\n<|id|>31<|level|>3\n<|id|>33<|level|>-1\n<|id|>35<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        }
+    ]
+}

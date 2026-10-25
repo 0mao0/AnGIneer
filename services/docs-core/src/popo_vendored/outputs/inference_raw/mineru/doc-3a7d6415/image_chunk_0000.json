@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 143 125 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>7<|type|>title<|page|>1<|box|>323 140 340 321<|content|>I. Interview Summary\n<|id|>12<|type|>title<|page|>1<|box|>760 142 777 310<|content|>II. Upjohn Warnings\n<|id|>20<|type|>title<|page|>2<|box|>540 140 558 348<|content|>III. Background and Role\n<|id|>21<|type|>title<|page|>2<|box|>571 140 589 364<|content|>A. Professional Background\n<|id|>25<|type|>title<|page|>3<|box|>90 140 107 483<|content|>B. Relationship to West African Operations\n<|id|>29<|type|>title<|page|>3<|box|>508 140 523 441<|content|>C. Interaction with External Auditors\n<|id|>33<|type|>title<|page|>4<|box|>90 140 107 547<|content|>IV. Knowledge of Crestfield Advisory Partners Ltd.\n<|id|>34<|type|>title<|page|>4<|box|>122 140 138 307<|content|>A. Initial Awareness\n<|id|>39<|type|>title<|page|>4<|box|>619 140 636 643<|content|>B. Awareness of the Government Relations Advisory\n<|id|>49<|type|>title<|page|>5<|box|>375 140 391 508<|content|>C. Awareness of Crestfield's Corporate Profile\n<|id|>53<|type|>title<|page|>5<|box|>765 140 782 504<|content|>V. Crestfield Invoice Processing and Approval\n<|id|>54<|type|>title<|page|>5<|box|>796 140 813 433<|content|>A. Invoice Flow and Approval Chain\n<|id|>62<|type|>title<|page|>6<|box|>500 140 518 380<|content|>B. Single-Approval Violations\n<|id|>68<|type|>title<|page|>7<|box|>311 140 329 566<|content|>C. Invoice Amounts Exceeding Contractual Maximum\n<|id|>70<|type|>table<|page|>7<|box|>421 143 571 852<|content|>None\n<|id|>71<|type|>table<|page|>7<|box|>604 143 694 852<|content|>None\n<|id|>75<|type|>title<|page|>8<|box|>268 140 285 575<|content|>D. Invoice Descriptions and Supporting Documentati\n<|id|>78<|type|>title<|page|>8<|box|>614 140 631 535<|content|>VI. GL 7450 — \"Community Relations Expenses\"\n<|id|>79<|type|>title<|page|>8<|box|>645 140 662 377<|content|>A. Nature of GL 7450 Entries\n<|id|>84<|type|>title<|page|>9<|box|>176 140 193 398<|content|>B. Cash Withdrawal Procedures\n<|id|>90<|type|>title<|page|>9<|box|>753 140 772 486<|content|>C. In-Kind Benefits (GL 7200 and GL 7310)\n<|id|>94<|type|>title<|page|>10<|box|>321 140 339 586<|content|>VII. Timing Correlation — Invoices and Permit Issu\n<|id|>96<|type|>table<|page|>10<|box|>508 143 621 852<|content|>None\n<|id|>99<|type|>title<|page|>11<|box|>90 140 107 444<|content|>VIII. Knowledge of Alleged Recipients\n<|id|>107<|type|>title<|page|>11<|box|>734 140 751 418<|content|>IX. Relationship with Key Subjects\n<|id|>108<|type|>title<|page|>11<|box|>763 140 781 310<|content|>A. Marcus Delacroix\n<|id|>113<|type|>title<|page|>12<|box|>484 142 501 338<|content|>B. Raymond Osei-Bonsu\n<|id|>117<|type|>title<|page|>12<|box|>782 140 800 604<|content|>X. Interaction with External Auditors Regarding Cr\n<|id|>124<|type|>title<|page|>13<|box|>465 140 482 620<|content|>XI. Awareness of Whistleblower Complaint and Inves\n<|id|>132<|type|>title<|page|>14<|box|>186 140 204 501<|content|>XII. Document Preservation and Cooperation\n<|id|>136<|type|>title<|page|>14<|box|>523 140 542 506<|content|>XIII. Assessment of Credibility and Demeanor\n<|id|>141<|type|>title<|page|>15<|box|>340 140 357 321<|content|>XIV. Follow-Up Items\n<|id|>150<|type|>title<|page|>16<|box|>407 142 425 279<|content|>XV. Distribution",
+    "raw_response": "<|src_id|>70<|tgt_id|>68\n<|src_id|>71<|tgt_id|>68\n<|src_id|>96<|tgt_id|>94",
+    "parsed": [
+        {
+            "src_id": 70,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        }
+    ]
+}

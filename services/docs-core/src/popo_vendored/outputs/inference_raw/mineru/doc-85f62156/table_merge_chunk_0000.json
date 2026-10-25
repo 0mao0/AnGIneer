@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Robert Jansen', 'Lead Associate, Tax', '$1,050/hour', 'Day-to-day engagement management, drafting of all primary memoranda (preliminary structure']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'memo, 338(h)(10) vs. 754 analysis, rollover equity analysis, earnout characterization, purchase price allocation memo), LLC agreement tax provisions markup, tax indemnity provisions markup, post-closing integration memo, and coordination with counterparty counsel']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 20,
+    "table2_idx": 21
+}

@@ -1,0 +1,63 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>546 140 563 447<|content|>I. Background and Procedural Posture\n<|id|>14<|page|>2<|box|>148 140 167 630<|content|>II. Summary of Mr. Caldwell's Claims and Damages E\n<|id|>22<|page|>3<|box|>267 140 284 482<|content|>III. Response to the January 10, 2024 Offer\n<|id|>26<|page|>3<|box|>715 140 732 571<|content|>IV. Mr. Caldwell's Revised and Final Counterpropos\n<|id|>29<|page|>4<|box|>167 140 184 383<|content|>V. Proposed Structural Terms\n<|id|>32<|page|>4<|box|>329 140 345 426<|content|>B. Transfer of Membership Interest\n<|id|>34<|page|>4<|box|>511 140 527 364<|content|>C. Mutual General Releases\n<|id|>36<|page|>4<|box|>712 140 729 480<|content|>D. Confidentiality and Non-Disparagement\n<|id|>38<|page|>5<|box|>90 140 107 393<|content|>E. Stipulation of discontinuance\n<|id|>41<|page|>5<|box|>314 140 330 630<|content|>VI. The Gap Between the Parties and Finality of Th\n<|id|>44<|page|>5<|box|>643 140 662 352<|content|>VII. Reservation of Rights",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>14<|level|>1\n<|id|>22<|level|>1\n<|id|>26<|level|>1\n<|id|>29<|level|>1\n<|id|>32<|level|>2\n<|id|>34<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>1\n<|id|>44<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        }
+    ]
+}

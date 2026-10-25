@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>469 142 487 310<|content|>1. Cessation of Work\n<|id|>14<|type|>title<|page|>2<|box|>90 142 107 297<|content|>2. File Preservation\n<|id|>29<|type|>title<|page|>2<|box|>699 140 715 354<|content|>3. Financial Reconciliation\n<|id|>31<|type|>table<|page|>2<|box|>804 143 898 852<|content|>None\n<|id|>32<|type|>table<|page|>3<|box|>88 143 164 852<|content|>None\n<|id|>35<|type|>title<|page|>3<|box|>449 140 465 357<|content|>4. Reactivation Procedures\n<|id|>44<|type|>title<|page|>4<|box|>796 140 813 488<|content|>5. Continued Availability During Dormancy\n<|id|>47<|type|>title<|page|>5<|box|>304 140 321 370<|content|>6. Annual Dormancy Review\n<|id|>50<|type|>title<|page|>5<|box|>561 140 579 300<|content|>7. Scope Limitation\n<|id|>56<|type|>title<|page|>6<|box|>258 142 275 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>31<|tgt_id|>29\n<|src_id|>32<|tgt_id|>29",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 29
+        }
+    ]
+}

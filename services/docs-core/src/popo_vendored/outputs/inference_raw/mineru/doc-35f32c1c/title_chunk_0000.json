@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>4<|page|>1<|box|>233 142 250 290<|content|>FILING OFFICE:\n<|id|>9<|page|>1<|box|>733 142 750 495<|content|>Box 2 — ADDITIONAL DEBTOR (IF ANY)\n<|id|>14<|page|>2<|box|>296 142 311 475<|content|>Box 4 — COLLATERAL DESCRIPTION\n<|id|>15<|page|>2<|box|>321 142 339 694<|content|>The collateral covered by this financing statement\n<|id|>34<|page|>4<|box|>89 140 107 630<|content|>Box 5 — CHECK BOXES / ALTERNATIVE DESIGNATION\n<|id|>41<|page|>4<|box|>263 140 280 545<|content|>Box 6 — OPTIONAL FILER REFERENCE DATA\n<|id|>47<|page|>4<|box|>525 142 542 493<|content|>Box 7 — SEND ACKNOWLEDGMENT TO\n<|id|>53<|page|>4<|box|>732 142 750 253<|content|>FILING FEE\n<|id|>55<|page|>5<|box|>89 142 106 426<|content|>SIGNATURE / AUTHORIZATION\n<|id|>58<|page|>5<|box|>405 143 421 238<|content|>FILED BY:\n<|id|>67<|page|>5<|box|>633 323 650 674<|content|>FILING JURISDICTION MEMORANDUM\n<|id|>68<|page|>5<|box|>665 142 681 387<|content|>(For Internal Use — Not Filed)\n<|id|>70<|page|>5<|box|>710 142 728 364<|content|>Filing Jurisdiction Analysis:\n<|id|>72<|page|>5<|box|>891 142 907 284<|content|>Context of Filing:\n<|id|>83<|page|>6<|box|>676 140 694 308<|content|>Lien Search Results:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>34<|level|>2\n<|id|>41<|level|>2\n<|id|>47<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>58<|level|>2\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>70<|level|>3\n<|id|>72<|level|>3\n<|id|>83<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        }
+    ]
+}

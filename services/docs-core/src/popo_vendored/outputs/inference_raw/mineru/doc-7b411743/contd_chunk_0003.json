@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 3,
+    "range": [
+        143,
+        156
+    ],
+    "pages": [
+        144,
+        146,
+        148,
+        149,
+        156
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>718<|page|>144<|box|>813 96 848 481<|content|>51/ This figure represents the amount of participa...ate entities in partially guaranteed U. ... Amount\n<|id|>732<|page|>144<|box|>839 518 850 761<|content|>ST Statutory. ... Not available\n<|id|>740<|page|>146<|box|>934 75 954 464<|content|>3/ Includes unappropriated receipts from January 1... of States and their political subdivisions, under\n<|id|>741<|page|>146<|box|>743 509 824 927<|content|>the Social Security Act Amendments of 1950 (42 U. ... 254))\n<|id|>751<|page|>148<|box|>84 407 97 590<|content|>Section III - Trust Funds\n<|id|>753<|page|>148<|box|>538 94 589 464<|content|>1/ Includes nominal amounts of other receipts. ... Estimate for FY 1976 is \\$145 million\n<|id|>764<|page|>149<|box|>942 87 952 478<|content|>3/ Payments are made between the Railroad Retirement Account and Federal\n<|id|>765<|page|>149<|box|>818 513 918 919<|content|>old-age and survivors and Federal disability so as...1972, \\$6 million FY 1973, and \\$5 million FY 1974\n<|id|>808<|page|>156<|box|>79 120 152 372<|content|>UNITED STATES GOVERNMENT PRINTING OFFICE DIVISION ...CUMENTS WASHINGTON, D. ... 20402 OFFICIAL BUSINESS\n<|id|>809<|page|>156<|box|>79 657 108 876<|content|>PENALTY FOR PRIVATE USE TO AVOID PAYMENT OF POSTAGE, \\$300 (GPO)",
+    "raw_response": "<|src_id|>740<|tgt_id|>741\n<|src_id|>764<|tgt_id|>765",
+    "parsed": [
+        {
+            "src_id": 740,
+            "tgt_id": 741
+        },
+        {
+            "src_id": 764,
+            "tgt_id": 765
+        }
+    ]
+}

@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 285 125 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>3<|page|>1<|box|>479 143 496 450<|content|>Introduction and Personal Background\n<|id|>9<|page|>2<|box|>444 140 460 506<|content|>Lumos's Business and Proprietary Technology\n<|id|>16<|page|>4<|box|>90 140 107 604<|content|>Category 1: LumosEdge Ensemble ML Model Architectu\n<|id|>21<|page|>5<|box|>150 140 167 576<|content|>Category 2: Proprietary Feature-Engineering Librar\n<|id|>26<|page|>6<|box|>90 142 107 522<|content|>Category 3: DataStream ETL Pipeline Codebase\n<|id|>31<|page|>6<|box|>784 140 800 544<|content|>Category 4: Curated and Labeled Training Dataset\n<|id|>37<|page|>7<|box|>555 140 571 633<|content|>Category 5: Confidential Product Roadmap — LumosEd\n<|id|>42<|page|>8<|box|>353 142 369 477<|content|>Defendants' Roles, Access, and Departures\n<|id|>43<|page|>8<|box|>383 143 400 253<|content|>Rajiv Anand.\n<|id|>47<|page|>9<|box|>157 142 174 269<|content|>Serena Mallick.\n<|id|>51<|page|>9<|box|>580 143 597 238<|content|>Derek Yun.\n<|id|>55<|page|>10<|box|>186 140 203 374<|content|>NovaSpark Technologies Inc.\n<|id|>59<|page|>10<|box|>676 142 694 540<|content|>IT Security Investigation and Exfiltration Finding\n<|id|>60<|page|>10<|box|>708 142 724 401<|content|>Discovery of Anomalous Activity\n<|id|>63<|page|>11<|box|>359 142 376 367<|content|>Exfiltration by Rajiv Anand\n<|id|>68<|page|>12<|box|>286 140 303 385<|content|>Exfiltration by Serena Mallick\n<|id|>71<|page|>12<|box|>652 142 669 352<|content|>Exfiltration by Derek Yun\n<|id|>75<|page|>13<|box|>324 140 340 450<|content|>Conclusion of IT Security Investigation\n<|id|>77<|page|>13<|box|>626 140 643 480<|content|>Irreparable Harm and Competitive Impact\n<|id|>84<|page|>14<|box|>720 140 738 413<|content|>Conclusion and Request for Relief",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>9<|level|>2\n<|id|>16<|level|>3\n<|id|>21<|level|>3\n<|id|>26<|level|>3\n<|id|>31<|level|>3\n<|id|>37<|level|>3\n<|id|>42<|level|>2\n<|id|>43<|level|>3\n<|id|>47<|level|>3\n<|id|>51<|level|>3\n<|id|>55<|level|>3\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>63<|level|>3\n<|id|>68<|level|>3\n<|id|>71<|level|>3\n<|id|>75<|level|>3\n<|id|>77<|level|>2\n<|id|>84<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        }
+    ]
+}

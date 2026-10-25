@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        10,
+        12,
+        13,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>305 140 321 362<|content|>I. Purpose and Background\n<|id|>15<|page|>2<|box|>476 140 493 506<|content|>II. Summary Table of All Four PWD Requests\n<|id|>20<|page|>3<|box|>387 142 404 403<|content|>III. Position-by-Position Analysis\n<|id|>21<|page|>3<|box|>417 142 435 674<|content|>A. Beneficiary 1: Rajan Mehta — VP, Engineering —\n<|id|>30<|page|>3<|box|>744 140 760 357<|content|>2. Beneficiary Background.\n<|id|>47<|page|>5<|box|>465 140 484 790<|content|>B. Beneficiary 2: Lina Varga — Senior Director, Da\n<|id|>56<|page|>5<|box|>792 142 809 359<|content|>2. Beneficiary Background.\n<|id|>73<|page|>7<|box|>622 140 638 730<|content|>C. Beneficiary 3: Tomás Aguilar-Reyes — VP, Produc\n<|id|>82<|page|>8<|box|>156 140 172 359<|content|>2. Beneficiary Background.\n<|id|>103<|page|>10<|box|>367 142 383 787<|content|>D. Beneficiary 4: Yumiko Tanaka — Director, Inform\n<|id|>112<|page|>10<|box|>691 142 709 359<|content|>2. Beneficiary Background.\n<|id|>128<|page|>12<|box|>595 140 613 464<|content|>IV. Prevailing Wage Area and OES Data\n<|id|>134<|page|>13<|box|>619 140 637 424<|content|>V. Procedural Notes and Next Steps\n<|id|>149<|page|>15<|box|>414 140 430 336<|content|>VI. Document Retention\n<|id|>153<|page|>15<|box|>806 140 824 697<|content|>VII. Post-Filing Annotations — Prevailing Wage Det\n<|id|>155<|page|>15<|box|>871 142 886 331<|content|>PWD Results Received:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>15<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>30<|level|>4\n<|id|>47<|level|>3\n<|id|>56<|level|>4\n<|id|>73<|level|>3\n<|id|>82<|level|>4\n<|id|>103<|level|>3\n<|id|>112<|level|>4\n<|id|>128<|level|>2\n<|id|>134<|level|>2\n<|id|>149<|level|>2\n<|id|>153<|level|>2\n<|id|>155<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 4
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 4
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 4
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 3
+        }
+    ]
+}

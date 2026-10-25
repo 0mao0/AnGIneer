@@ -1,0 +1,830 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_wxkh9__\\input\\pdfs\\doc-f95baad4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_wxkh9__\\enriched\\doc-f95baad4.json",
+    "contd_output": "",
+    "title_output": "<|id|>2<|level|>1\n<|id|>12<|level|>1\n<|id|>20<|level|>1\n<|id|>23<|level|>1\n<|id|>28<|level|>1\n<|id|>36<|level|>1\n<|id|>42<|level|>1\n<|id|>51<|level|>1\n<|id|>62<|level|>1\n<|id|>70<|level|>1\n<|id|>71<|level|>1\n<|id|>76<|level|>1\n<|id|>79<|level|>1\n<|id|>88<|level|>1\n<|id|>91<|level|>1\n<|id|>95<|level|>1\n<|id|>96<|level|>2\n<|id|>98<|level|>1\n<|id|>102<|level|>2\n<|id|>104<|level|>1\n<|id|>105<|level|>2\n<|id|>108<|level|>1\n<|id|>113<|level|>1\n<|id|>116<|level|>1\n<|id|>117<|level|>2\n<|id|>123<|level|>1\n<|id|>139<|level|>1\n<|id|>142<|level|>1\n<|id|>144<|level|>1\n<|id|>146<|level|>2\n<|id|>151<|level|>1\n<|id|>152<|level|>2\n<|id|>154<|level|>1\n<|id|>168<|level|>1\n<|id|>182<|level|>1",
+    "image_output": "<|src_id|>4<|tgt_id|>2\n<|src_id|>21<|tgt_id|>20\n<|src_id|>22<|tgt_id|>20\n<|src_id|>24<|tgt_id|>23\n<|src_id|>25<|tgt_id|>23\n<|src_id|>26<|tgt_id|>23\n<|src_id|>27<|tgt_id|>23\n<|src_id|>29<|tgt_id|>28\n<|src_id|>35<|tgt_id|>28\n<|src_id|>37<|tgt_id|>36\n<|src_id|>38<|tgt_id|>36\n<|src_id|>39<|tgt_id|>36\n<|src_id|>40<|tgt_id|>36\n<|src_id|>41<|tgt_id|>36\n<|src_id|>45<|tgt_id|>42\n<|src_id|>46<|tgt_id|>42\n<|src_id|>47<|tgt_id|>42\n<|src_id|>48<|tgt_id|>42\n<|src_id|>49<|tgt_id|>42\n<|src_id|>52<|tgt_id|>51\n<|src_id|>53<|tgt_id|>51\n<|src_id|>54<|tgt_id|>51\n<|src_id|>55<|tgt_id|>51\n<|src_id|>56<|tgt_id|>51\n<|src_id|>57<|tgt_id|>51\n<|src_id|>58<|tgt_id|>51\n<|src_id|>61<|tgt_id|>51\n<|src_id|>63<|tgt_id|>62\n<|src_id|>64<|tgt_id|>62\n<|src_id|>65<|tgt_id|>62\n<|src_id|>66<|tgt_id|>62\n<|src_id|>67<|tgt_id|>62\n<|src_id|>69<|tgt_id|>62\n<|src_id|>72<|tgt_id|>71\n<|src_id|>73<|tgt_id|>71\n<|src_id|>75<|tgt_id|>71\n<|src_id|>77<|tgt_id|>76\n<|src_id|>78<|tgt_id|>76\n<|src_id|>80<|tgt_id|>79\n<|src_id|>81<|tgt_id|>79\n<|src_id|>82<|tgt_id|>79\n<|src_id|>83<|tgt_id|>79\n<|src_id|>85<|tgt_id|>79\n<|src_id|>86<|tgt_id|>79\n<|src_id|>87<|tgt_id|>79\n<|src_id|>90<|tgt_id|>88\n<|src_id|>93<|tgt_id|>91\n<|src_id|>94<|tgt_id|>91\n<|src_id|>97<|tgt_id|>96\n<|src_id|>100<|tgt_id|>98\n<|src_id|>103<|tgt_id|>102\n<|src_id|>106<|tgt_id|>105\n<|src_id|>111<|tgt_id|>108\n<|src_id|>114<|tgt_id|>113\n<|src_id|>115<|tgt_id|>113\n<|src_id|>118<|tgt_id|>117\n<|src_id|>119<|tgt_id|>117\n<|src_id|>120<|tgt_id|>116\n<|src_id|>122<|tgt_id|>116\n<|src_id|>124<|tgt_id|>123\n<|src_id|>125<|tgt_id|>123\n<|src_id|>126<|tgt_id|>123\n<|src_id|>127<|tgt_id|>123\n<|src_id|>128<|tgt_id|>123\n<|src_id|>129<|tgt_id|>123\n<|src_id|>130<|tgt_id|>123\n<|src_id|>131<|tgt_id|>123\n<|src_id|>132<|tgt_id|>123\n<|src_id|>133<|tgt_id|>123\n<|src_id|>134<|tgt_id|>123\n<|src_id|>136<|tgt_id|>123\n<|src_id|>140<|tgt_id|>139\n<|src_id|>141<|tgt_id|>139\n<|src_id|>143<|tgt_id|>144\n<|src_id|>147<|tgt_id|>146\n<|src_id|>150<|tgt_id|>146\n<|src_id|>153<|tgt_id|>152\n<|src_id|>155<|tgt_id|>154\n<|src_id|>156<|tgt_id|>154\n<|src_id|>158<|tgt_id|>154\n<|src_id|>159<|tgt_id|>154\n<|src_id|>161<|tgt_id|>154\n<|src_id|>162<|tgt_id|>154\n<|src_id|>164<|tgt_id|>154\n<|src_id|>166<|tgt_id|>154\n<|src_id|>167<|tgt_id|>154\n<|src_id|>169<|tgt_id|>168\n<|src_id|>170<|tgt_id|>168\n<|src_id|>171<|tgt_id|>168\n<|src_id|>173<|tgt_id|>168\n<|src_id|>174<|tgt_id|>168\n<|src_id|>175<|tgt_id|>168\n<|src_id|>176<|tgt_id|>168\n<|src_id|>177<|tgt_id|>168\n<|src_id|>178<|tgt_id|>168\n<|src_id|>179<|tgt_id|>168\n<|src_id|>180<|tgt_id|>168\n<|src_id|>181<|tgt_id|>168\n<|src_id|>183<|tgt_id|>182\n<|src_id|>184<|tgt_id|>182\n<|src_id|>186<|tgt_id|>182",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 182,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 146
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 146
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 152
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 182
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 25,
+            "table2_idx": 26,
+            "upper_row_ss": [
+                [
+                    "Net budget deficit 5/......",
+                    "2,402",
+                    "2,987",
+                    "9,367",
+                    "+6,380",
+                    "1,384",
+                    "3,542",
+                    "3,611",
+                    "5,103",
+                    "18,632",
+                    "42,441 14/",
+                    "+1,492",
+                    "+13,529"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, ",
+                    "colspan=4, End of first 7 months, fiscal years 1940 to 1942",
+                    "colspan=8, End of fiscal years, 1938 to 1943"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 103,
+            "table2_idx": 106,
+            "upper_row_ss": [
+                [
+                    "Total Treasury bonds",
+                    "100.0",
+                    "65.6",
+                    "45.1",
+                    "38.0",
+                    "7.1",
+                    "20.5",
+                    "16.3",
+                    "4.2",
+                    "11.4",
+                    "22.9"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=4, Issue, classified by tax-exemption provision",
+                    "colspan=10, Public marketable interest-bearing securities 1/"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 126,
+            "table2_idx": 127,
+            "upper_row_ss": [
+                [
+                    "Total....",
+                    "$387,385,126",
+                    "$657,952,530",
+                    "$182,317,055",
+                    "$84,775,436",
+                    "$2,834,842,390"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Corporation or agency",
+                    "colspan=2, Expenses",
+                    "rowspan=2, Purchase and improvement of property owned",
+                    "rowspan=2, Loans",
+                    "rowspan=2, Retirement of obligations issued in exchange for mortgages 1/"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 128,
+            "table2_idx": 129,
+            "upper_row_ss": [
+                [
+                    "Total",
+                    "$50,273,596",
+                    "$575,601,817",
+                    "$64,252,864",
+                    "$80,147,062",
+                    "$2,727,828,615"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Corporation or agency",
+                    "Appropriationefrom GeneralFund of theTreasury 1/",
+                    "Allocatione, radis-counts, and loans fromother governmental corporations and creditagencies (net)",
+                    "Sale ofobligationato Treasury(net)",
+                    "Sale of obli-gations inthe market(net)",
+                    "Sale of stockto otheragencies"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 130,
+            "table2_idx": 131,
+            "upper_row_ss": [
+                [
+                    "Total....",
+                    "$674,714,489",
+                    "$9,799,786,785",
+                    "$2,587,514,410",
+                    "$284,582,846",
+                    "$24,756,747,637"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Corporation or agency",
+                    "colspan=2, Expenses",
+                    "rowspan=2, Purchase and improvement of property owned",
+                    "rowspan=2, Loans",
+                    "rowspan=2, Retirement of obligations issued in exchange for mortgages 1/"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 161,
+            "table2_idx": 162,
+            "upper_row_ss": [
+                [
+                    "Dec. 3......",
+                    "11",
+                    "-",
+                    "-",
+                    "-",
+                    "241",
+                    "14",
+                    "4",
+                    "270",
+                    "3",
+                    "33",
+                    "614",
+                    "3",
+                    "8",
+                    "661",
+                    "167"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Asset as of following dates",
+                    "Grand total",
+                    "United Kingdom",
+                    "France",
+                    "Belgium",
+                    "Denmark",
+                    "Finland",
+                    "Germany",
+                    "Italy",
+                    "Netherlands",
+                    "Norway",
+                    "Sweden",
+                    "Switzerland",
+                    "Other Europe",
+                    "Total Europe",
+                    "Canada"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 169,
+            "table2_idx": 170,
+            "upper_row_ss": [
+                [
+                    "Dec. 3......",
+                    "45,469",
+                    "1,888",
+                    "6,874",
+                    "1,239",
+                    "35",
+                    "54",
+                    "9,898",
+                    "283",
+                    "9,784",
+                    "1,493",
+                    "31,548",
+                    "1,613",
+                    "9,162",
+                    "134",
+                    "2,428",
+                    "2,562",
+                    "584"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Transactions during week ended:",
+                    "Grand total",
+                    "United Kingdom",
+                    "France",
+                    "Belgium",
+                    "Germany",
+                    "Italy",
+                    "Netherlands",
+                    "Sweden",
+                    "Switzerland",
+                    "Other Europe",
+                    "Total Europe",
+                    "Canada",
+                    "Latin America",
+                    "Japan, Korea and Manchuria",
+                    "Other Asia",
+                    "Total Asia",
+                    "All other"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 173,
+            "table2_idx": 174,
+            "upper_row_ss": [
+                [
+                    "Dec. 3 Forward....",
+                    "298",
+                    "97",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "97",
+                    "201",
+                    "-",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Contracts as of following datee",
+                    "colspan=17, Currency of:"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 180,
+            "table2_idx": 181,
+            "upper_row_ss": [
+                [
+                    "1942-January",
+                    "6.0",
+                    "4.3",
+                    "-",
+                    "-",
+                    "3.3",
+                    "1.4",
+                    "9.3",
+                    "5.7"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, End of calendar year or month",
+                    "rowspan=2, Seigniorage on silver and minor coins",
+                    "colspan=6, Sourcee of seigniorage on silver bullion revalued 1/",
+                    "rowspan=2, Potential seigniorage on silver bullion et cost in General Fund 2/"
+                ]
+            ]
+        }
+    ]
+}

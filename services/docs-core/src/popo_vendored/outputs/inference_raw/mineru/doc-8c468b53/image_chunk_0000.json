@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>319 142 335 274<|content|>Dear Mr. Nassar:\n<|id|>9<|type|>title<|page|>1<|box|>648 143 667 400<|content|>1. Introduction and Engagement\n<|id|>14<|type|>title<|page|>2<|box|>231 140 248 354<|content|>2. Scope of Representation\n<|id|>50<|type|>title<|page|>5<|box|>150 140 167 313<|content|>3. Engagement Team\n<|id|>57<|type|>title<|page|>5<|box|>712 140 729 419<|content|>4. Estimated Fees and Billing Rates\n<|id|>60<|type|>table<|page|>6<|box|>305 143 417 852<|content|>None\n<|id|>64<|type|>title<|page|>6<|box|>727 140 744 323<|content|>5. Client Identification\n<|id|>70<|type|>title<|page|>7<|box|>329 140 345 468<|content|>6. Opposing Parties and Adverse Counsel\n<|id|>77<|type|>title<|page|>7<|box|>708 140 724 284<|content|>7. Confidentiality\n<|id|>82<|type|>title<|page|>8<|box|>285 140 301 326<|content|>8. Document Retention\n<|id|>86<|type|>title<|page|>8<|box|>625 140 640 470<|content|>9. Governing Law and Dispute Resolution\n<|id|>88<|type|>title<|page|>8<|box|>800 142 818 274<|content|>10. Termination\n<|id|>92<|type|>title<|page|>9<|box|>348 142 364 379<|content|>11. Acceptance and Execution\n<|id|>97<|type|>title<|page|>9<|box|>642 212 657 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>98<|type|>title<|page|>9<|box|>667 140 683 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>103<|type|>title<|page|>9<|box|>753 143 770 377<|content|>AGREED AND ACCEPTED:",
+    "raw_response": "<|src_id|>60<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 60,
+            "tgt_id": 57
+        }
+    ]
+}

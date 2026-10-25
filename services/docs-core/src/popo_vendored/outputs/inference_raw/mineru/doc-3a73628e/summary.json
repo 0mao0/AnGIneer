@@ -1,0 +1,276 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nqvqmixs\\input\\pdfs\\doc-3a73628e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nqvqmixs\\enriched\\doc-3a73628e.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>13<|level|>2\n<|id|>15<|level|>3\n<|id|>17<|level|>3\n<|id|>22<|level|>3\n<|id|>36<|level|>3\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>55<|level|>3\n<|id|>58<|level|>4\n<|id|>68<|level|>3\n<|id|>75<|level|>3\n<|id|>87<|level|>3\n<|id|>96<|level|>3\n<|id|>105<|level|>2\n<|id|>106<|level|>3\n<|id|>109<|level|>3\n<|id|>116<|level|>3\n<|id|>118<|level|>3\n<|id|>124<|level|>3\n<|id|>138<|level|>3\n<|id|>142<|level|>2\n<|id|>143<|level|>3\n<|id|>149<|level|>3\n<|id|>151<|level|>2\n<|id|>152<|level|>3\n<|id|>162<|level|>3\n<|id|>172<|level|>3\n<|id|>176<|level|>3\n<|id|>184<|level|>2\n<|id|>202<|level|>2",
+    "image_output": "<|src_id|>111<|tgt_id|>109\n<|src_id|>112<|tgt_id|>109\n<|src_id|>113<|tgt_id|>109\n<|src_id|>114<|tgt_id|>109\n<|src_id|>145<|tgt_id|>143\n<|src_id|>146<|tgt_id|>143",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 143
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 111,
+            "table2_idx": 112,
+            "upper_row_ss": [
+                [
+                    "State/Jurisdiction",
+                    "Statute Citation",
+                    "Affected Residents",
+                    "Trigger Met",
+                    "Statutory Timing Requirement",
+                    "Mailing Date(s)",
+                    "Timing Compliant",
+                    "Letter Version(s)",
+                    "Content Req. Met",
+                    "Delivery Method",
+                    "AG/ Regulator Notif. Req.",
+                    "AG/ Regulator Notif. Date",
+                    "AG Notif. Compliant"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Connecticut",
+                    "Conn.Gen.Stat.§36a-701b",
+                    "52,114",
+                    "Y",
+                    "Without unreasonable delay (no more than 60 days)",
+                    "Aug 18 - Sep 15, 2023",
+                    "Y",
+                    "1, 2, 3 as applicable",
+                    "Y",
+                    "First-class mail",
+                    "Y",
+                    "Aug 14, 2023",
+                    "Y"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 112,
+            "table2_idx": 113,
+            "upper_row_ss": [
+                [
+                    "Florida",
+                    "Fla. Stat.",
+                    "22,913",
+                    "Y",
+                    "No later",
+                    "Aug 18 -",
+                    "Y",
+                    "1, 2, 3 as",
+                    "Y",
+                    "First-class",
+                    "Y",
+                    "Aug 17,",
+                    "Y"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "§ 501.171",
+                    "",
+                    "",
+                    "than 30 days after determination",
+                    "Sep 3, 2023",
+                    "",
+                    "applicable",
+                    "",
+                    "mail",
+                    "",
+                    "2023",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 113,
+            "table2_idx": 114,
+            "upper_row_ss": [
+                [
+                    "Massachusetts",
+                    "Mass. Gen. Lawsch. 93H, § 3",
+                    "10,217",
+                    "Y",
+                    "As soon as practicable without unreasonable delay",
+                    "Aug 18 – Sep 15, 2023",
+                    "Y",
+                    "5 (MA-specific)",
+                    "Y (including statutory language re: police reports and",
+                    "First-class mail",
+                    "Y (AG and Director of Consumer Affairs)",
+                    "Aug 17, 2023",
+                    "Y"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "security freeze s)",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

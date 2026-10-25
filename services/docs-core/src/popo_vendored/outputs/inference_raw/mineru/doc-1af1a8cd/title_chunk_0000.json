@@ -1,0 +1,65 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 586<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>112 346 128 651<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>2<|page|>1<|box|>138 423 155 573<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>510 142 527 300<|content|>I. PARTICIPANTS\n<|id|>21<|page|>2<|box|>167 140 184 346<|content|>II. TOPICS DISCUSSED\n<|id|>23<|page|>2<|box|>297 140 315 560<|content|>A. Confirmation of Extended CID Response Deadline\n<|id|>27<|page|>2<|box|>770 140 787 604<|content|>B. Scope of Document Requests 7–12 — Agreed Narrow\n<|id|>40<|page|>4<|box|>429 140 446 483<|content|>C. Privilege Log Format and Requirements\n<|id|>49<|page|>5<|box|>492 143 508 321<|content|>D. Production Format\n<|id|>60<|page|>6<|box|>275 140 292 557<|content|>E. Confidentiality Designations and Protective Ord\n<|id|>68<|page|>7<|box|>448 140 465 540<|content|>F. Oral Examination of Corporate Representatives\n<|id|>75<|page|>8<|box|>257 140 273 464<|content|>G. Cooperation Credit and AG's Posture\n<|id|>80<|page|>8<|box|>728 140 744 315<|content|>III. ACTION ITEMS",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>2<|level|>1\n<|id|>8<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>27<|level|>3\n<|id|>40<|level|>3\n<|id|>49<|level|>3\n<|id|>60<|level|>3\n<|id|>68<|level|>3\n<|id|>75<|level|>3\n<|id|>80<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        }
+    ]
+}

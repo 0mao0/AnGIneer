@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        41
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        11,
+        14,
+        18,
+        23,
+        28,
+        29,
+        30,
+        32,
+        41
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>169 299 186 697<|content|>CONDITIONAL RANK-RANK REGRESSION<sup>∗</sup>\n<|id|>3<|page|>2<|box|>130 429 146 568<|content|>1<sub>.</sub> I<sub>ntroduction</sub>\n<|id|>15<|page|>6<|box|>130 339 146 656<|content|>2<sub>.</sub> C<sub>onditional</sub> R<sub>ank-</s\n<|id|>72<|page|>11<|box|>633 331 650 663<|content|>3<sub>.</sub> CRRR <sub>vs</sub> RRR<sub>:</sub> A\n<|id|>90<|page|>14<|box|>675 308 691 687<|content|>4<sub>.</sub> D<sub>istribution</sub> R<sub>egress\n<|id|>136<|page|>18<|box|>279 112 297 462<|content|>Algorithm 3 (Inference on\\rho _ { C }b<sub>ase</su\n<|id|>145<|page|>18<|box|>574 393 590 602<|content|>5<sub>.</sub> E<sub>mpirical</sub> A<sub>pplicatio\n<|id|>161<|page|>23<|box|>565 406 580 589<|content|>6<sub>.</sub> A<sub>symptotic</sub> T<sub>heory</s\n<|id|>230<|page|>28<|box|>604 437 621 558<|content|>7<sub>.</sub> <sub>conclusion</sub>\n<|id|>234<|page|>29<|box|>430 450 446 547<|content|>R<sub>eferences</sub>\n<|id|>262<|page|>30<|box|>786 326 803 669<|content|>A<sub>ppendix</sub> A<sub>.</sub> R<sub>egression-\n<|id|>284<|page|>32<|box|>130 367 146 630<|content|>A<sub>ppendix</sub> B<sub>.</sub> P<sub>roofs of</\n<|id|>413<|page|>41<|box|>330 393 347 602<|content|>A<sub>ppendix</sub> C<sub>.</sub> S<sub>imulations",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>15<|level|>2\n<|id|>72<|level|>2\n<|id|>90<|level|>2\n<|id|>136<|level|>-1\n<|id|>145<|level|>2\n<|id|>161<|level|>2\n<|id|>230<|level|>2\n<|id|>234<|level|>2\n<|id|>262<|level|>2\n<|id|>284<|level|>2\n<|id|>413<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 234,
+            "level": 2
+        },
+        {
+            "id": 262,
+            "level": 2
+        },
+        {
+            "id": 284,
+            "level": 2
+        },
+        {
+            "id": 413,
+            "level": 2
+        }
+    ]
+}

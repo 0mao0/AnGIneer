@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 155 107 841<|content|>WHITMORE & LATHROP, P.C. Certified Public Accounta\n<|id|>4<|type|>title<|page|>1<|box|>193 140 229 854<|content|>DRAFT — FOR REVIEW AND COMMENT BY CALDERWOOD & HAR\n<|id|>6<|type|>title<|page|>1<|box|>291 142 308 251<|content|>I. Addressees\n<|id|>12<|type|>title<|page|>1<|box|>516 140 532 361<|content|>II. Introductory Paragraph\n<|id|>19<|type|>title<|page|>2<|box|>476 140 493 287<|content|>III. Independence\n<|id|>22<|type|>title<|page|>2<|box|>789 140 805 517<|content|>IV. Financial Statements and Auditors' Reports\n<|id|>33<|type|>title<|page|>3<|box|>704 140 722 490<|content|>V. Unaudited Interim Financial Information\n<|id|>37<|type|>title<|page|>4<|box|>359 140 376 818<|content|>VI. Procedures and Findings — Specified Financial\n<|id|>39<|type|>title<|page|>4<|box|>470 142 487 547<|content|>A. Selected Financial Data and Capitalization Tabl\n<|id|>49<|type|>title<|page|>5<|box|>534 142 551 429<|content|>B. Pro Forma Financial Information\n<|id|>61<|type|>title<|page|>6<|box|>531 140 547 689<|content|>C. Statistical and Financial Information in the Of\n<|id|>70<|type|>title<|page|>7<|box|>779 140 795 723<|content|>VII. Agreed-Upon Cut-Off Date and Subsequent Chang\n<|id|>86<|type|>title<|page|>9<|box|>366 140 383 428<|content|>VIII. Limitations and Qualifications\n<|id|>91<|type|>title<|page|>10<|box|>90 140 107 431<|content|>IX. Restrictions on Use and Reliance\n<|id|>95<|type|>title<|page|>10<|box|>446 140 464 532<|content|>X. Subsequent Events and Bring-Down at Closing\n<|id|>102<|type|>title<|page|>12<|box|>89 140 107 254<|content|>XI. Signature\n<|id|>110<|type|>title<|page|>13<|box|>89 140 107 267<|content|>SCHEDULE A\n<|id|>111<|type|>title<|page|>14<|box|>90 142 107 477<|content|>Schedule of Specified Financial Data Items\n<|id|>113<|type|>table<|page|>14<|box|>196 143 897 852<|content|>None\n<|id|>114<|type|>table<|page|>15<|box|>90 143 904 852<|content|>None\n<|id|>116<|type|>table<|page|>16<|box|>88 143 371 852<|content|>None",
+    "raw_response": "<|src_id|>113<|tgt_id|>111\n<|src_id|>114<|tgt_id|>111\n<|src_id|>116<|tgt_id|>111",
+    "parsed": [
+        {
+            "src_id": 113,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 111
+        }
+    ]
+}

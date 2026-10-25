@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        62
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        43,
+        44,
+        61,
+        62
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>176 377 194 619<|content|>A Delaware Limited Partnership\n<|id|>5<|page|>1<|box|>229 390 246 607<|content|>Limited Partnership Interests\n<|id|>4<|page|>1<|box|>203 439 219 558<|content|>$2,000,000,000\n<|id|>6<|page|>1<|box|>253 359 272 638<|content|>May 1, 2025 Revised: ... May 28, 2025\n<|id|>7<|page|>1<|box|>280 325 297 673<|content|>Target Fund Size: ... $2,000,000,000 (Hard Cap)\n<|id|>8<|page|>1<|box|>306 187 324 810<|content|>Minimum LP Commitment: ... $10,000,000 (subject to waiver by the General Partner)\n<|id|>9<|page|>1<|box|>332 140 349 772<|content|>General Partner: ... Harrowgate Fund V GP LLC, a Delaware limited liability company\n<|id|>10<|page|>1<|box|>358 140 430 854<|content|>Sponsor / Investment Adviser: ... 298417)\n<|id|>11<|page|>1<|box|>439 140 474 852<|content|>Fund Counsel: ... Calderwood & Harkness LLP, 400 S...y Asset Advisors, Suite 3000, Wilmington, DE 19801\n<|id|>12<|page|>1<|box|>483 140 518 852<|content|>Placement Agent: ... Osprey Capital Markets LLC, 599 Lexington Avenue, 35th Floor, New York, NY 10022\n<|id|>13<|page|>1<|box|>527 140 655 854<|content|>The limited partnership interests (the \"Interests\"... in Section 2(a)(51) of the Investment Company Act\n<|id|>71<|page|>7<|box|>837 140 892 854<|content|>HCP is registered with the U. ... The firm's Form ...s available on the SEC's Investment Adviser Public\n<|id|>72<|page|>8<|box|>90 140 126 854<|content|>Disclosure website (www. ... gov) and is incorporated by reference into this Memorandum\n<|id|>456<|page|>43<|box|>862 140 900 856<|content|>One hundred percent (100%) of net fees received by...pplied to offset the management fee payable by the\n<|id|>457<|page|>44<|box|>89 140 164 856<|content|>Limited Partners. ... This 100% fee offset is inte...rtfolio companies by the Sponsor or its affiliates\n<|id|>652<|page|>61<|box|>842 140 878 854<|content|>Calderwood & Harkness LLP, 400 South Ashbury Asset...el to Harrowgate Capital Partners LLC, the General\n<|id|>653<|page|>62<|box|>90 140 127 854<|content|>Partner, and the Fund entities. ... Calderwood & H...t on behalf of the Sponsor and the General Partner\n<|id|>664<|page|>62<|box|>792 176 828 854<|content|>Rachel M. ... (302) 555-7400\n<|id|>665<|page|>62<|box|>835 142 871 535<|content|>Email: ... com Osprey Capital Markets LLC — Placement Agent",
+    "raw_response": "<|src_id|>71<|tgt_id|>72\n<|src_id|>456<|tgt_id|>457\n<|src_id|>652<|tgt_id|>653",
+    "parsed": [
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 456,
+            "tgt_id": 457
+        },
+        {
+            "src_id": 652,
+            "tgt_id": 653
+        }
+    ]
+}

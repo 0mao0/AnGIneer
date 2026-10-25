@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 447 106 547<|content|>EXHIBIT C\n<|id|>1<|type|>title<|page|>1<|box|>114 248 175 748<|content|>To Settlement Agreement and Mutual Release dated J\n<|id|>2<|type|>table<|page|>1<|box|>209 143 462 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>530 187 547 807<|content|>STIPULATION FOR DISMISSAL OF ENTIRE ACTION WITH PR\n<|id|>26<|type|>title<|page|>4<|box|>422 377 439 619<|content|>[Signatures on Following Page]\n<|id|>27<|type|>title<|page|>4<|box|>446 202 489 794<|content|>SIGNATURES TO STIPULATION FOR DISMISSAL WITH PREJU\n<|id|>28<|type|>title<|page|>4<|box|>532 140 550 539<|content|>FOR PLAINTIFF REDSTONE GAMING CORP.:\n<|id|>34<|type|>title<|page|>4<|box|>738 140 773 852<|content|>FOR DEFENDANTS GRIZZLY PEAK RESEARCH LLC, GRIZZLY\n<|id|>40<|type|>title<|page|>5<|box|>107 160 125 834<|content|>[PROPOSED] ORDER FOR DISMISSAL OF ENTIRE ACTION WI\n<|id|>42<|type|>title<|page|>5<|box|>268 140 285 447<|content|>IT IS HEREBY ORDERED as follows:\n<|id|>48<|type|>title<|page|>5<|box|>733 142 750 315<|content|>IT IS SO ORDERED.\n<|id|>50<|type|>title<|page|>6<|box|>89 264 104 732<|content|>EXHIBIT C TO SETTLEMENT AGREEMENT AND MUTUAL RELEA",
+    "raw_response": "<|src_id|>2<|tgt_id|>1",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 1
+        }
+    ]
+}

@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 104 571<|content|>CONFIDENTIAL — DRAFT FOR DISCUSSION PURPOSES ONLY\n<|id|>1<|page|>1<|box|>112 254 128 741<|content|>FORM OF SELLING SHAREHOLDER LOCK-UP LETTER\n<|id|>14<|page|>2<|box|>241 140 258 313<|content|>Section 1. Definitions\n<|id|>31<|page|>3<|box|>542 140 560 393<|content|>Section 2. Lock-Up Restrictions\n<|id|>39<|page|>4<|box|>421 140 438 393<|content|>Section 3. Permitted Exceptions\n<|id|>48<|page|>6<|box|>90 140 107 490<|content|>Section 4. Representative's Consent; Waiver\n<|id|>52<|page|>6<|box|>446 140 464 433<|content|>Section 5. Stop Transfer Instructions\n<|id|>54<|page|>6<|box|>715 140 732 627<|content|>Section 6. Representations and Warranties of the U\n<|id|>57<|page|>6<|box|>866 176 883 352<|content|>(b) Due Organization.\n<|id|>63<|page|>7<|box|>839 140 856 393<|content|>Section 7. No Additional Shares\n<|id|>65<|page|>8<|box|>258 140 277 477<|content|>Section 8. Specific Performance; Remedies\n<|id|>67<|page|>8<|box|>546 140 563 478<|content|>Section 9. Governing Law and Jurisdiction\n<|id|>72<|page|>9<|box|>148 140 167 334<|content|>Section 10. Termination\n<|id|>79<|page|>9<|box|>529 140 546 429<|content|>Section 11. Miscellaneous Provisions\n<|id|>94<|page|>11<|box|>89 316 106 679<|content|>SIGNATURE PAGE TO LOCK-UP LETTER\n<|id|>116<|page|>11<|box|>554 395 571 599<|content|>LOCK-UP SECURITIES\n<|id|>127<|page|>12<|box|>763 447 780 550<|content|>EXHIBIT A\n<|id|>128<|page|>12<|box|>789 308 806 689<|content|>FORM OF TRANSFEREE LOCK-UP LETTER\n<|id|>132<|page|>13<|box|>90 174 126 854<|content|>Re: Lock-Up Letter — Permitted Transferee Joinder\n<|id|>133<|page|>13<|box|>133 140 151 316<|content|>Ladies and Gentlemen:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>14<|level|>2\n<|id|>31<|level|>2\n<|id|>39<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>57<|level|>3\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>94<|level|>1\n<|id|>116<|level|>2\n<|id|>127<|level|>1\n<|id|>128<|level|>1\n<|id|>132<|level|>-1\n<|id|>133<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        }
+    ]
+}

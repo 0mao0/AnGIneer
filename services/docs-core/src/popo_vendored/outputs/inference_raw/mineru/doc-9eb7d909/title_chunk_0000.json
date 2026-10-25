@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 207 118 790<|content|>STATEMENT OF WORK — E-DISCOVERY SERVICES\n<|id|>3<|page|>1<|box|>188 388 204 607<|content|>C&H Matter No. 1016-00001\n<|id|>4<|page|>1<|box|>229 142 244 369<|content|>CONTRACTING PARTIES\n<|id|>10<|page|>1<|box|>564 140 580 444<|content|>SECTION 1: PROJECT OVERVIEW\n<|id|>16<|page|>2<|box|>410 140 426 437<|content|>SECTION 2: SCOPE OF SERVICES\n<|id|>18<|page|>2<|box|>540 140 556 393<|content|>2.1 Phase 1: Forensic Collection\n<|id|>45<|page|>5<|box|>90 140 107 473<|content|>2.2 Phase 2: Processing and Deduplication\n<|id|>52<|page|>5<|box|>786 140 804 473<|content|>2.3 Phase 3: Hosting and Review Platform\n<|id|>64<|page|>6<|box|>590 140 608 517<|content|>2.4 Phase 4: Technology-Assisted Review (TAR)\n<|id|>78<|page|>7<|box|>686 140 703 331<|content|>2.5 Phase 5: Production\n<|id|>90<|page|>8<|box|>775 140 792 478<|content|>SECTION 3: TIMELINE / MILESTONES\n<|id|>94<|page|>9<|box|>551 140 569 333<|content|>SECTION 4: PRICING\n<|id|>102<|page|>10<|box|>613 140 628 403<|content|>SECTION 5: DATA SECURITY\n<|id|>109<|page|>11<|box|>556 140 573 426<|content|>SECTION 6: CONFIDENTIALITY\n<|id|>114<|page|>12<|box|>285 140 301 446<|content|>SECTION 7: POINTS OF CONTACT\n<|id|>127<|page|>12<|box|>844 140 861 488<|content|>SECTION 8: TERM AND TERMINATION\n<|id|>133<|page|>13<|box|>556 140 573 683<|content|>SECTION 9: LIMITATION OF LIABILITY / INDEMNIFICATI\n<|id|>137<|page|>14<|box|>258 140 276 468<|content|>SECTION 10: GENERAL PROVISIONS\n<|id|>146<|page|>16<|box|>89 413 107 583<|content|>SIGNATURE PAGE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>-1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>3\n<|id|>45<|level|>3\n<|id|>52<|level|>3\n<|id|>64<|level|>3\n<|id|>78<|level|>3\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>102<|level|>2\n<|id|>109<|level|>2\n<|id|>114<|level|>2\n<|id|>127<|level|>2\n<|id|>133<|level|>2\n<|id|>137<|level|>2\n<|id|>146<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        }
+    ]
+}

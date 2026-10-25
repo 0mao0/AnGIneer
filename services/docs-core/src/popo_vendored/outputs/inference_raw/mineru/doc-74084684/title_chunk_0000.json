@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 133 717<|content|>ATTORNEY WORK PRODUCT — PRIVILEGED AND CONFIDENTIA\n<|id|>12<|page|>1<|box|>450 142 469 392<|content|>1. Purpose and Scope of Report\n<|id|>18<|page|>2<|box|>212 140 229 338<|content|>2. Case Status Summary\n<|id|>22<|page|>2<|box|>824 140 842 372<|content|>3. Docket Review — Q2 2024\n<|id|>25<|page|>3<|box|>179 142 196 223<|content|>Findings:\n<|id|>33<|page|>3<|box|>804 140 820 535<|content|>4. Summary of Key Prior Docket Events (Context)\n<|id|>39<|page|>5<|box|>459 140 477 303<|content|>5. Days of Inactivity\n<|id|>45<|page|>6<|box|>150 140 167 397<|content|>6. Assessment and Observations\n<|id|>51<|page|>7<|box|>148 140 167 367<|content|>7. Recommended Next Steps\n<|id|>57<|page|>8<|box|>90 140 107 344<|content|>8. Distribution and Filing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>2\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>25<|level|>3\n<|id|>33<|level|>2\n<|id|>39<|level|>2\n<|id|>45<|level|>2\n<|id|>51<|level|>2\n<|id|>57<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        }
+    ]
+}

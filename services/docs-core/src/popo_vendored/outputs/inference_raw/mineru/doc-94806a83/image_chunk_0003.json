@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        148,
+        152
+    ],
+    "pages": [
+        148,
+        149,
+        150,
+        152
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2181<|type|>title<|page|>148<|box|>165 396 191 631<|content|>9 监测和检测\n<|id|>2182<|type|>title<|page|>148<|box|>222 445 239 588<|content|>9.2 监测\n<|id|>2186<|type|>title<|page|>148<|box|>416 445 434 588<|content|>9.3 检测\n<|id|>2189<|type|>title<|page|>149<|box|>205 213 264 742<|content|>附录 A 岩土基本变量的概率分布及统计参数的近似确定方法\n<|id|>2193<|type|>title<|page|>149<|box|>593 292 611 660<|content|>A.2 岩土基本变量统计参数的确定方法\n<|id|>2195<|type|>title<|page|>149<|box|>679 240 697 710<|content|>A.3 可靠指标计算时基本变量统计参数的确定方法\n<|id|>2196<|type|>title<|page|>149<|box|>711 87 729 579<|content|>A.3.2 相关距离的定义见 A3.3.5 条文说明相关部分。\n<|id|>2202<|type|>title<|page|>150<|box|>387 166 404 290<|content|>(1) 相关函数\n<|id|>2205<|type|>title<|page|>150<|box|>495 166 511 287<|content|>(2) 相关距离\n<|id|>2209<|type|>title<|page|>150<|box|>732 166 750 329<|content|>(3) 方差折减函数\n<|id|>2224<|type|>image<|page|>152<|box|>129 305 181 731<|content|>None\n<|id|>2228<|type|>table<|page|>152<|box|>422 129 543 904<|content|>None\n<|id|>2232<|type|>title<|page|>152<|box|>751 147 768 495<|content|>A.3.4.1 按随机场统计的简化相关法",
+    "raw_response": "<|src_id|>2224<|tgt_id|>2209\n<|src_id|>2228<|tgt_id|>2209",
+    "parsed": [
+        {
+            "src_id": 2224,
+            "tgt_id": 2209
+        },
+        {
+            "src_id": 2228,
+            "tgt_id": 2209
+        }
+    ]
+}

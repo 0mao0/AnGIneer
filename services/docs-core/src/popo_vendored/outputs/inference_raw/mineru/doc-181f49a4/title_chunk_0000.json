@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>359 140 377 341<|content|>1. Purpose of This Letter\n<|id|>11<|page|>1<|box|>789 140 806 504<|content|>2. Engagement Team and Staffing Obligations\n<|id|>21<|page|>2<|box|>771 140 789 488<|content|>3. Billing and Fee Arrangement Compliance\n<|id|>39<|page|>4<|box|>429 140 446 534<|content|>4. Coordination with Co-Counsel and Consultants\n<|id|>46<|page|>5<|box|>421 140 438 465<|content|>5. Privilege and Confidentiality Protocols\n<|id|>54<|page|>6<|box|>476 140 493 527<|content|>6. Document Retention and Information Security\n<|id|>61<|page|>7<|box|>531 140 547 321<|content|>7. Conflicts of Interest\n<|id|>67<|page|>8<|box|>340 140 357 408<|content|>8. Reporting and Communication\n<|id|>74<|page|>9<|box|>186 140 204 483<|content|>9. Limited Clarifications and Qualifications\n<|id|>79<|page|>9<|box|>714 142 732 236<|content|>10. Closing",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>21<|level|>1\n<|id|>39<|level|>1\n<|id|>46<|level|>1\n<|id|>54<|level|>1\n<|id|>61<|level|>1\n<|id|>67<|level|>1\n<|id|>74<|level|>1\n<|id|>79<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        }
+    ]
+}

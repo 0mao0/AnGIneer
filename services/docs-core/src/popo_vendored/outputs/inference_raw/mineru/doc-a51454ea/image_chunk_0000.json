@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 125 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law One Lib\n<|id|>9<|type|>title<|page|>1<|box|>458 140 474 377<|content|>1. Engagement and Retention\n<|id|>15<|type|>title<|page|>2<|box|>250 140 266 354<|content|>2. Scope of Representation\n<|id|>37<|type|>title<|page|>6<|box|>150 140 167 529<|content|>3. Matters Outside the Scope of This Engagement\n<|id|>45<|type|>title<|page|>6<|box|>848 140 864 230<|content|>4. Staffing\n<|id|>52<|type|>title<|page|>7<|box|>691 140 709 303<|content|>5. Fee Arrangement\n<|id|>64<|type|>table<|page|>8<|box|>603 143 801 852<|content|>None\n<|id|>66<|type|>title<|page|>9<|box|>90 140 107 321<|content|>6. Conflicts of Interest\n<|id|>70<|type|>title<|page|>9<|box|>446 140 464 449<|content|>7. Client Identity and Communications\n<|id|>74<|type|>title<|page|>10<|box|>90 142 107 331<|content|>8. Anticipated Timeline\n<|id|>76<|type|>table<|page|>10<|box|>176 143 525 852<|content|>None\n<|id|>78<|type|>title<|page|>10<|box|>691 140 709 326<|content|>9. Document Retention\n<|id|>80<|type|>title<|page|>11<|box|>90 142 107 297<|content|>10. Governing Law\n<|id|>82<|type|>title<|page|>11<|box|>250 142 266 274<|content|>11. Termination\n<|id|>85<|type|>title<|page|>11<|box|>488 142 503 379<|content|>12. Acceptance and Execution\n<|id|>94<|type|>title<|page|>11<|box|>851 383 867 614<|content|>ACCEPTED AND AGREED\n<|id|>102<|type|>title<|page|>12<|box|>250 140 262 171<|content|>cc:",
+    "raw_response": "<|src_id|>64<|tgt_id|>52\n<|src_id|>76<|tgt_id|>74",
+    "parsed": [
+        {
+            "src_id": 64,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 74
+        }
+    ]
+}

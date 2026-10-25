@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 128 846<|content|>CONFIDENTIAL — SETTLEMENT COMMUNICATION PURSUANT T\n<|id|>12<|type|>title<|page|>2<|box|>89 140 106 565<|content|>I. BACKGROUND AND PROCEDURAL CONTEXT\n<|id|>17<|type|>title<|page|>3<|box|>89 140 106 607<|content|>II. SUMMARY OF PRINCIPAL PROPOSED REVISIONS\n<|id|>19<|type|>title<|page|>3<|box|>220 140 238 717<|content|>A. Remediation Cost and Scope — Ridgecrest Copper-\n<|id|>24<|type|>title<|page|>4<|box|>138 140 175 854<|content|>B. Remediation Schedules — Gallatin Chemical Works\n<|id|>29<|type|>title<|page|>6<|box|>90 140 107 517<|content|>C. Civil Penalty Amount and Payment Schedule\n<|id|>31<|type|>table<|page|>6<|box|>193 143 305 852<|content|>None\n<|id|>34<|type|>title<|page|>6<|box|>633 140 652 557<|content|>D. EPA Past-Costs Reimbursement (CERCLA § 107)\n<|id|>37<|type|>title<|page|>7<|box|>138 140 157 521<|content|>E. Supplemental Environmental Projects (SEPs)\n<|id|>43<|type|>title<|page|>7<|box|>828 140 845 395<|content|>F. Stipulated Penalty Provisions\n<|id|>47<|type|>title<|page|>8<|box|>429 140 446 450<|content|>G. Force Majeure and Excusable Delay\n<|id|>51<|type|>title<|page|>9<|box|>90 140 107 411<|content|>H. Dispute Resolution Mechanism\n<|id|>57<|type|>title<|page|>9<|box|>651 140 667 323<|content|>I. Financial Assurance\n<|id|>63<|type|>title<|page|>10<|box|>367 140 383 418<|content|>J. Independent Monitor Provisions\n<|id|>70<|type|>title<|page|>11<|box|>157 140 174 354<|content|>K. Termination Provisions\n<|id|>74<|type|>title<|page|>11<|box|>556 140 574 513<|content|>L. Migratory Bird Treaty Act (Bonanza Creek)\n<|id|>77<|type|>title<|page|>12<|box|>89 142 107 503<|content|>III. AGGREGATE FINANCIAL SUMMARY\n<|id|>78<|type|>table<|page|>12<|box|>159 143 454 852<|content|>None\n<|id|>83<|type|>title<|page|>13<|box|>148 140 166 522<|content|>IV. STATE CO-PLAINTIFF COORDINATION\n<|id|>87<|type|>title<|page|>13<|box|>652 140 669 294<|content|>V. ENCLOSURES\n<|id|>91<|type|>title<|page|>13<|box|>844 140 861 398<|content|>VI. REQUEST FOR MEETING\n<|id|>95<|type|>title<|page|>14<|box|>457 140 474 421<|content|>VII. RESERVATION OF RIGHTS",
+    "raw_response": "<|src_id|>31<|tgt_id|>29\n<|src_id|>78<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 77
+        }
+    ]
+}

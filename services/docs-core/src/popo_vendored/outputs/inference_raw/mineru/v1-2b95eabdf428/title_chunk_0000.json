@@ -1,0 +1,48 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        17
+    ],
+    "pages": [
+        2,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>2<|box|>104 419 142 568<|content|>NOTICE\n<|id|>33<|page|>17<|box|>104 303 126 692<|content|>SECTION 3. PARTS INFORMATION\n<|id|>36<|page|>17<|box|>200 81 220 300<|content|>3-2. GENUINE PARTS\n<|id|>38<|page|>17<|box|>273 81 292 383<|content|>3-3. WHEN ORDERING PARTS\n<|id|>45<|page|>17<|box|>559 83 579 214<|content|>3-4. PRICES\n<|id|>47<|page|>17<|box|>614 83 633 245<|content|>3-5. DELIVERY\n<|id|>49<|page|>17<|box|>723 83 742 256<|content|>3-6. WARRANTY\n<|id|>51<|page|>17<|box|>832 81 888 380<|content|>3-7. RECOMMENDED SPARE PARTS FOR DISTRIBUTORS",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>33<|level|>1\n<|id|>36<|level|>2\n<|id|>38<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>2\n<|id|>51<|level|>2",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        }
+    ]
+}

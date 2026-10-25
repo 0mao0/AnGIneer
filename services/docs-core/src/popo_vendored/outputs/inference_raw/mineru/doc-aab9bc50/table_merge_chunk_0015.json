@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 15,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['岩滩', 'A)洲滩的几何类型为线或面;当洲滩没有具体范围,但又必须标注洲滩名称时,几何类型为点;B)当洲滩在陆域时,洲滩的名称用LNDRGN(地面地带)进行编码;C)当洲滩在深度区时,洲滩的名称用SEAARE(命名水域)编码;D)这些地形是沿岸线的,应建立物标COALNE(岸线)。需要对高度编码时,则应建立物标LN-DELV(地面高程)', 'LNDRGN(地面地带)(O)NATSUR(表面性质) = [1(泥),2(黏土),3(泥沙),4(沙),5(石),6(砾石),7(卵石),8(中石),9(岩石),11(熔岩),14(珊瑚),17(贝壳),18(圆石),999(其他)](O)NOBJNM(中文名称) = [洲滩中文名称](O)OBJNAM(英文名称) = [洲滩英文名称](O)INFORM(英文信息) = [洲滩英文信息](O)NINFOM(中文信息) = [洲滩中文信息]SEAARE(命名水域)(O)CATSEA(命名水域类) = [2(沙滩),8(泥滩),100(岩滩),101(干出滩),102(沙砾滩),103(乱石滩),104(从草滩),105(贝类养殖滩),106(红树滩),999(其他)](O)NOBJNM(中文名称) = [洲滩中文名称](O)OBJNAM(英文名称) = [洲滩英文名称]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '(O)INFORM(英文信息) = [洲滩英文信息](O)NINFOM(中文信息) = [洲滩中文信息]']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 2723,
+    "table2_idx": 2724
+}

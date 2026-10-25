@@ -1,0 +1,46 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        37
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        8,
+        9,
+        10,
+        16,
+        17,
+        35,
+        36,
+        37
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>171 424 188 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>196 140 234 852<|content|>TO: ... Victoria Chambers, Responsible Partner Jas...eeves, Senior Counsel, Export Controls & Sanctions\n<|id|>4<|page|>1<|box|>242 140 258 787<|content|>FROM: ... Liam Donahue, Working Associate, White Collar & Investigations (New York)\n<|id|>5<|page|>1<|box|>268 142 285 308<|content|>DATE: ... July 20, 2022\n<|id|>6<|page|>1<|box|>294 140 311 808<|content|>RE: ... Caspian Logistik GmbH — Export Shipment Analysis & End-User Certificate Review\n<|id|>7<|page|>1<|box|>319 140 354 852<|content|>MATTER: ... 1016-00009)\n<|id|>8<|page|>1<|box|>363 140 424 854<|content|>CONFIDENTIALITY LEGEND: ... Do not distribute without authorization of Victoria Chambers\n<|id|>13<|page|>1<|box|>784 140 895 854<|content|>Our analysis of the end-user certifications (\"EUCs... for a substantial majority of these shipments was\n<|id|>14<|page|>2<|box|>90 140 181 854<|content|>Volkhov Industrial Group JSC (\"Volkhov\" or \"VIG\"),... subjecting it to comprehensive blocking sanctions\n<|id|>39<|page|>5<|box|>859 140 896 857<|content|>The distinction between the Directive 2 sectoral s...ysis in Section VIII of this memorandum. ... Under\n<|id|>40<|page|>6<|box|>90 140 219 856<|content|>Directive 2, the prohibitions were limited to spec... OFAC framework applicable to the conduct at issue\n<|id|>58<|page|>8<|box|>864 140 902 856<|content|>Criminal Penalties under IEEPA. ... §§ 1701–1706, ...s the statutory authority underlying the Executive\n<|id|>59<|page|>9<|box|>90 138 200 857<|content|>Orders and OFAC regulations governing Russia sanct...though willful blindness may satisfy this standard\n<|id|>66<|page|>9<|box|>869 140 906 856<|content|>The applicability of the EAR and OFAC sanctions to... existence of a sufficient U. ... Both the EAR and\n<|id|>67<|page|>10<|box|>90 140 143 854<|content|>OFAC regulations apply to \"U. ... jurisdiction, bu...l nexus vary between the two regulatory frameworks\n<|id|>116<|page|>16<|box|>835 140 910 857<|content|>Financial tracing. ... The payment routing pattern... identified for the \"Central Asia Energy Services\"\n<|id|>117<|page|>17<|box|>90 140 126 854<|content|>shipments, involving multiple layers of intermedia...s designed to obscure the ultimate source of funds\n<|id|>263<|page|>35<|box|>834 181 887 854<|content|>• Equipment purchase orders, invoices, and end-use...ction, specific references provided in Appendix A)\n<|id|>267<|page|>36<|box|>222 183 275 854<|content|>Email correspondence between Natasha Sorokin and S...ements (Bates ranges within responsive production)\n<|id|>264<|page|>36<|box|>90 181 125 854<|content|>• Freight forwarding agreements between DTI and Ca...k GmbH (Bates ranges within responsive production)\n<|id|>265<|page|>36<|box|>128 181 162 854<|content|>• Bills of lading and customs declarations for Shi...ough 7 (Bates ranges within responsive production)\n<|id|>266<|page|>36<|box|>166 183 220 854<|content|>• Email correspondence between Yves Leclerc and Kl...es within responsive production, first production)\n<|id|>293<|page|>37<|box|>722 140 739 320<|content|>Respectfully submitted,\n<|id|>294<|page|>37<|box|>739 142 755 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>295<|page|>37<|box|>758 143 773 254<|content|>By: ... By\n<|id|>296<|page|>37<|box|>773 142 790 310<|content|>Name: ... Liam Donahue\n<|id|>297<|page|>37<|box|>791 140 808 557<|content|>Title: ... Working Associate, White Collar & Investigations\n<|id|>298<|page|>37<|box|>809 142 824 282<|content|>Office: ... New York\n<|id|>299<|page|>37<|box|>825 142 842 290<|content|>Date: ... July 20, 2022\n<|id|>300<|page|>37<|box|>840 140 888 856<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV...rs, Responsible Partner, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>39<|tgt_id|>40\n<|src_id|>58<|tgt_id|>59\n<|src_id|>66<|tgt_id|>67\n<|src_id|>116<|tgt_id|>117",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 117
+        }
+    ]
+}

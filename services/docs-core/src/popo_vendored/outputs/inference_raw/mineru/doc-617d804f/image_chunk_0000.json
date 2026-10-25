@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        5,
+        17
+    ],
+    "pages": [
+        5,
+        7,
+        12,
+        14,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>27<|type|>table<|page|>5<|box|>96 87 297 875<|content|>None\n<|id|>29<|type|>title<|page|>7<|box|>86 87 101 450<|content|>Line Item Account R Estimated FY2024 YeaNotes\n<|id|>30<|type|>table<|page|>7<|box|>120 85 282 878<|content|>None\n<|id|>31<|type|>table<|page|>7<|box|>313 87 388 875<|content|>None\n<|id|>46<|type|>table<|page|>12<|box|>86 85 192 877<|content|>None\n<|id|>47<|type|>table<|page|>14<|box|>85 85 210 700<|content|>None\n<|id|>60<|type|>title<|page|>17<|box|>86 87 101 337<|content|>Item # Topic Description",
+    "raw_response": "<|src_id|>30<|tgt_id|>29\n<|src_id|>31<|tgt_id|>29",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        }
+    ]
+}

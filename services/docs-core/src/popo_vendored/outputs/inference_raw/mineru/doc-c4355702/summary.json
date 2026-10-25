@@ -1,0 +1,194 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-o5g94vmh\\input\\pdfs\\doc-c4355702.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-o5g94vmh\\enriched\\doc-c4355702.json",
+    "contd_output": "",
+    "title_output": "<|id|>7<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>25<|level|>2\n<|id|>41<|level|>1\n<|id|>43<|level|>2\n<|id|>55<|level|>2\n<|id|>66<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>3\n<|id|>87<|level|>3\n<|id|>91<|level|>2\n<|id|>94<|level|>2\n<|id|>97<|level|>1\n<|id|>99<|level|>2\n<|id|>107<|level|>2\n<|id|>116<|level|>2\n<|id|>125<|level|>2\n<|id|>131<|level|>2\n<|id|>134<|level|>1\n<|id|>136<|level|>2\n<|id|>140<|level|>2\n<|id|>144<|level|>2\n<|id|>148<|level|>1\n<|id|>150<|level|>2\n<|id|>159<|level|>2\n<|id|>164<|level|>2\n<|id|>169<|level|>2\n<|id|>175<|level|>1\n<|id|>189<|level|>1\n<|id|>194<|level|>1\n<|id|>201<|level|>1\n<|id|>204<|level|>1",
+    "image_output": "<|src_id|>45<|tgt_id|>43\n<|src_id|>47<|tgt_id|>43\n<|src_id|>95<|tgt_id|>94\n<|src_id|>138<|tgt_id|>136\n<|src_id|>142<|tgt_id|>140\n<|src_id|>178<|tgt_id|>175\n<|src_id|>179<|tgt_id|>175\n<|src_id|>202<|tgt_id|>201",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 189,
+            "level": 1
+        },
+        {
+            "id": 194,
+            "level": 1
+        },
+        {
+            "id": 201,
+            "level": 1
+        },
+        {
+            "id": 204,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 45,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 136
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 201
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 178,
+            "table2_idx": 179,
+            "upper_row_ss": [
+                [
+                    "Damages Component",
+                    "Amount"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Underpaid Royalties (5% of $197.8M underreported GRR)",
+                    "$9,890,000"
+                ]
+            ]
+        }
+    ]
+}

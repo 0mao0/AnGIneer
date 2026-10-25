@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 4,
+    "range": [
+        195,
+        210
+    ],
+    "pages": [
+        195,
+        196,
+        197,
+        200,
+        201,
+        207,
+        208,
+        210
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2437<|page|>195<|box|>360 113 379 223<|content|>(6) 拉毛。\n<|id|>2440<|page|>195<|box|>428 115 448 245<|content|>① 纵缝施工\n<|id|>2453<|page|>196<|box|>233 157 253 254<|content|>⑤ 灌缝。\n<|id|>2456<|page|>196<|box|>396 157 415 340<|content|>⑥ 抗滑构造施工。\n<|id|>2458<|page|>196<|box|>488 157 507 254<|content|>⑦ 养生。\n<|id|>2461<|page|>196<|box|>603 118 622 358<|content|>6.10.3 复合式隧道路面\n<|id|>2470<|page|>197<|box|>813 371 833 572<|content|>6.11 安全施工\n<|id|>2522<|page|>200<|box|>709 421 732 626<|content|>6.12 环境保护\n<|id|>2523<|page|>200<|box|>783 128 801 304<|content|>6.12.1 一般规定\n<|id|>2527<|page|>201<|box|>152 66 171 284<|content|>6.12.2 组织管理机构\n<|id|>2530<|page|>201<|box|>313 68 332 286<|content|>6.12.3 环境保护原则\n<|id|>2534<|page|>201<|box|>543 68 560 286<|content|>6.12.4 环境保护措施\n<|id|>2637<|page|>207<|box|>176 109 194 317<|content|>(2) 废弃物处理方案\n<|id|>2648<|page|>208<|box|>240 462 266 576<|content|>附录 A\n<|id|>2651<|page|>210<|box|>240 466 267 576<|content|>附录 B",
+    "raw_response": "<|id|>2437<|level|>4\n<|id|>2440<|level|>3\n<|id|>2453<|level|>3\n<|id|>2456<|level|>3\n<|id|>2458<|level|>3\n<|id|>2461<|level|>2\n<|id|>2470<|level|>1\n<|id|>2522<|level|>1\n<|id|>2523<|level|>2\n<|id|>2527<|level|>2\n<|id|>2530<|level|>2\n<|id|>2534<|level|>2\n<|id|>2637<|level|>3\n<|id|>2648<|level|>1\n<|id|>2651<|level|>1",
+    "parsed": [
+        {
+            "id": 2437,
+            "level": 4
+        },
+        {
+            "id": 2440,
+            "level": 3
+        },
+        {
+            "id": 2453,
+            "level": 3
+        },
+        {
+            "id": 2456,
+            "level": 3
+        },
+        {
+            "id": 2458,
+            "level": 3
+        },
+        {
+            "id": 2461,
+            "level": 2
+        },
+        {
+            "id": 2470,
+            "level": 1
+        },
+        {
+            "id": 2522,
+            "level": 1
+        },
+        {
+            "id": 2523,
+            "level": 2
+        },
+        {
+            "id": 2527,
+            "level": 2
+        },
+        {
+            "id": 2530,
+            "level": 2
+        },
+        {
+            "id": 2534,
+            "level": 2
+        },
+        {
+            "id": 2637,
+            "level": 3
+        },
+        {
+            "id": 2648,
+            "level": 1
+        },
+        {
+            "id": 2651,
+            "level": 1
+        }
+    ]
+}

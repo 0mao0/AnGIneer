@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Type of pooling filter (mean or maximum)', 'Maximum', 'Maximum-pooling adds more non-linearity to the NN than the alternative (mean-pooling), which is a linear operation. Also, maximum-pooling better emphasizes sharp gradients, such as those associated with deep convection (cold cloud tops) around the TC center (typically warmer cloud tops).']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['AF for hidden layers', 'Leaky ReLU (Maas et al. 2013) with slope of 0.2', 'Defined asf(x) = \\\\max(x, 0.2x), wherexis a feature value. This leaves positive values untouched and multiplies negative values by 0.2. Leaky ReLU combines the best properties of strict ReLU and the identity function (Chapter 4 of Lagerquist 2020). We choose a slope of 0.2 based on prior experience.']]\n",
+    "raw_response": "",
+    "parsed": [],
+    "table1_idx": 269,
+    "table2_idx": 270
+}

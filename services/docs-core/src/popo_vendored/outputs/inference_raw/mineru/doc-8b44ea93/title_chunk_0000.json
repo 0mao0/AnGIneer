@@ -1,0 +1,58 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 295 118 700<|content|>OFFICER'S CLOSING CERTIFICATE\n<|id|>7<|page|>1<|box|>479 142 494 418<|content|>1. Representations and Warranties\n<|id|>10<|page|>2<|box|>148 142 167 251<|content|>2. No Default\n<|id|>12<|page|>2<|box|>289 140 306 380<|content|>3. No Material Adverse Effect\n<|id|>15<|page|>2<|box|>547 140 564 413<|content|>4. Financial Covenant Compliance\n<|id|>17<|page|>2<|box|>659 140 676 437<|content|>(a) Minimum Liquidity (Section 9.01)\n<|id|>22<|page|>3<|box|>209 140 227 517<|content|>(b) Maximum Net Leverage Ratio (Section 9.02)\n<|id|>27<|page|>3<|box|>645 140 662 591<|content|>(c) Minimum Fixed Charge Coverage Ratio (Section 9\n<|id|>33<|page|>4<|box|>361 140 378 236<|content|>5. Solvency\n<|id|>39<|page|>4<|box|>734 140 750 341<|content|>6. No Material Litigation",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>3\n<|id|>22<|level|>3\n<|id|>27<|level|>3\n<|id|>33<|level|>2\n<|id|>39<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        }
+    ]
+}

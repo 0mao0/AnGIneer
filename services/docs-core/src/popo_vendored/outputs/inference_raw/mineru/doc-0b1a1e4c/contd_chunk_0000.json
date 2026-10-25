@@ -1,0 +1,47 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        28
+    ],
+    "pages": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        27,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>10<|page|>2<|box|>369 147 422 854<|content|>• The U. ... and\n<|id|>11<|page|>2<|box|>426 147 516 854<|content|>The Internal Revenue Service (\"IRS\"), which admini...ical to the economics of renewable energy projects\n<|id|>25<|page|>4<|box|>90 147 143 856<|content|>• Brazos Energy Storage LLC (200 MW/800 MWh batter...interconnected with ERCOT through DC ties; ... and\n<|id|>27<|page|>4<|box|>220 140 368 856<|content|>The issuance and maintenance of MBR authority requ...e revenues and operations of the affected projects\n<|id|>46<|page|>6<|box|>861 145 896 856<|content|>• California development pipeline project — Copper...ed to the CAISO-controlled grid within the Western\n<|id|>47<|page|>7<|box|>90 174 125 854<|content|>Interconnection and will be subject to the complia...ce monitoring and enforcement jurisdiction of WECC\n<|id|>53<|page|>7<|box|>251 183 285 852<|content|>• Event analysis and reporting requirements for system disturbances and reliability events; ... and\n<|id|>54<|page|>7<|box|>289 183 361 854<|content|>Critical Infrastructure Protection (\"CIP\") cyberse...awareness training, and incident response planning\n<|id|>61<|page|>7<|box|>869 140 904 854<|content|>Texas operates a competitive, deregulated wholesal...ale electricity market in Texas is administered by\n<|id|>62<|page|>8<|box|>90 138 219 856<|content|>ERCOT, a membership-based, independent system oper...on, responsive reserves, and non-spinning reserves\n<|id|>71<|page|>8<|box|>830 140 905 856<|content|>CBR's Red Mesa Wind project (380 MW, Custer County...h the major investor-owned utilities — principally\n<|id|>72<|page|>9<|box|>90 140 143 854<|content|>Penrose Corporation and Tidewater Enterprises — ow...end-use customers under rates regulated by the OCC\n<|id|>80<|page|>9<|box|>851 140 907 856<|content|>CBR's Cimarron Solar project (350 MW, Doña Ana Cou...tric utilities in the State of New Mexico. ... The\n<|id|>81<|page|>10<|box|>90 140 127 854<|content|>NMPRC exercises jurisdiction over the rates, servi...al of power purchase agreements and resource plans\n<|id|>96<|page|>11<|box|>786 181 859 857<|content|>• The Investment Tax Credit (\"ITC\"), codified in S...ently, standalone energy storage property; ... and\n<|id|>98<|page|>12<|box|>128 140 256 856<|content|>These federal tax incentives have been the princip...ss, financial condition, and results of operations\n<|id|>104<|page|>12<|box|>799 181 834 854<|content|>• The Physical Work Test, which requires that phys... manufactured or produced for the project; ... and\n<|id|>106<|page|>13<|box|>90 140 236 857<|content|>These safe harbors were established and elaborated...ect to extensions for certain force majeure events\n<|id|>128<|page|>15<|box|>791 181 825 854<|content|>• Projects involving the construction of transmiss...ral lands or across federal rights-of-way; ... and\n<|id|>130<|page|>15<|box|>867 140 902 856<|content|>When NEPA is triggered, the responsible federal ag...ction from the requirement to prepare an EA or EIS\n<|id|>222<|page|>27<|box|>709 181 744 854<|content|>• Excess Layer 1: ... and\n<|id|>224<|page|>27<|box|>784 138 895 857<|content|>The D&O insurance program is designed to provide c...ram on commercially reasonable terms in the future\n<|id|>233<|page|>28<|box|>672 181 724 854<|content|>• The ability to elect an extended transition peri...on the same timeline as private companies; ... and\n<|id|>235<|page|>28<|box|>766 140 839 856<|content|>CBR's registration statement on Form S-1 was initi...ration statement in response to SEC Staff comments",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>46<|tgt_id|>47\n<|src_id|>61<|tgt_id|>62\n<|src_id|>71<|tgt_id|>72\n<|src_id|>80<|tgt_id|>81",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        }
+    ]
+}

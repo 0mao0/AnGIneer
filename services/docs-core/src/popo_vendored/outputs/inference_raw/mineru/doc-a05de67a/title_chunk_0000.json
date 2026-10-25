@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 506<|content|>CONFIDENTIAL — DRAFT — SUBJECT TO REVISION\n<|id|>1<|page|>1<|box|>111 346 128 651<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>5<|page|>1<|box|>215 380 233 616<|content|>www.calderwoodharkness.com\n<|id|>15<|page|>1<|box|>523 140 540 264<|content|>I. Introduction\n<|id|>20<|page|>2<|box|>212 140 229 364<|content|>II. Scope and Qualifications\n<|id|>21<|page|>2<|box|>243 140 258 447<|content|>A. Documents and Materials Reviewed\n<|id|>45<|page|>4<|box|>138 140 157 406<|content|>C. Qualifications and Limitations\n<|id|>67<|page|>5<|box|>756 140 773 480<|content|>III. Opinion — Tax Status of the Company\n<|id|>76<|page|>7<|box|>258 140 277 694<|content|>IV. Opinion — U.S. Federal Income Tax Consequences\n<|id|>78<|page|>7<|box|>371 140 388 419<|content|>A. Distributions on Common Stock\n<|id|>84<|page|>8<|box|>194 140 212 663<|content|>B. Sale, Exchange, or Other Taxable Disposition of\n<|id|>87<|page|>8<|box|>494 140 511 385<|content|>C. Net Investment Income Tax\n<|id|>89<|page|>8<|box|>686 140 704 725<|content|>V. Opinion — U.S. Federal Income Tax Consequences\n<|id|>91<|page|>8<|box|>799 140 815 419<|content|>A. Distributions on Common Stock\n<|id|>95<|page|>9<|box|>648 140 666 663<|content|>B. Sale, Exchange, or Other Taxable Disposition of\n<|id|>103<|page|>10<|box|>810 140 828 336<|content|>C. FATCA Withholding\n<|id|>107<|page|>11<|box|>513 140 530 553<|content|>VI. Information Reporting and Backup Withholding\n<|id|>112<|page|>12<|box|>204 140 222 728<|content|>VII. Tax Consequences Related to Tax-Equity Struct\n<|id|>117<|page|>13<|box|>90 140 107 434<|content|>VIII. Confirmation of Tax Disclosure\n<|id|>119<|page|>13<|box|>303 140 320 370<|content|>IX. Reliance and Limitations\n<|id|>126<|page|>13<|box|>777 140 792 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>131<|page|>13<|box|>864 352 878 643<|content|>DRAFT — NOT FOR EXECUTION",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>5<|level|>-1\n<|id|>15<|level|>1\n<|id|>20<|level|>1\n<|id|>21<|level|>2\n<|id|>45<|level|>2\n<|id|>67<|level|>1\n<|id|>76<|level|>1\n<|id|>78<|level|>2\n<|id|>84<|level|>2\n<|id|>87<|level|>2\n<|id|>89<|level|>1\n<|id|>91<|level|>2\n<|id|>95<|level|>2\n<|id|>103<|level|>2\n<|id|>107<|level|>1\n<|id|>112<|level|>1\n<|id|>117<|level|>1\n<|id|>119<|level|>1\n<|id|>126<|level|>-1\n<|id|>131<|level|>-1",
+    "parsed": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        }
+    ]
+}

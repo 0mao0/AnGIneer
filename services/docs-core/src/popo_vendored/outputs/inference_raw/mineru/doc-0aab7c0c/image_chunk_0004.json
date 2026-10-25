@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        197,
+        206
+    ],
+    "pages": [
+        198,
+        199,
+        203,
+        206
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1095<|type|>title<|page|>198<|box|>49 200 68 760<|content|>U.S. CURRENCY AND COIN OUTSTANDING AND IN CIRCULAT\n<|id|>1096<|type|>title<|page|>198<|box|>86 413 100 547<|content|>INTRODUCTION\n<|id|>1097<|type|>title<|page|>198<|box|>128 36 142 157<|content|>Purpose and Scope\n<|id|>1100<|type|>title<|page|>198<|box|>337 36 352 89<|content|>History\n<|id|>1102<|type|>title<|page|>198<|box|>126 493 140 617<|content|>Definition of Terms\n<|id|>1109<|type|>title<|page|>198<|box|>523 495 537 614<|content|>Reporting Sources\n<|id|>1111<|type|>title<|page|>199<|box|>28 282 45 746<|content|>U.S. Currency and Coin Outstanding and in Circulat\n<|id|>1112<|type|>table<|page|>199<|box|>82 68 224 957<|content|>None\n<|id|>1113<|type|>table<|page|>199<|box|>279 68 487 957<|content|>None\n<|id|>1114<|type|>title<|page|>203<|box|>62 29 78 182<|content|>Current Subscribers\n<|id|>1122<|type|>title<|page|>203<|box|>549 214 568 745<|content|>Superintendent of Documents Subscriptions Order Fo\n<|id|>1125<|type|>image<|page|>203<|box|>572 762 598 815<|content|>None\n<|id|>1143<|type|>image<|page|>206<|box|>1 760 34 897<|content|>None",
+    "raw_response": "<|src_id|>1112<|tgt_id|>1111\n<|src_id|>1113<|tgt_id|>1111\n<|src_id|>1125<|tgt_id|>1122\n<|src_id|>1143<|tgt_id|>1122",
+    "parsed": [
+        {
+            "src_id": 1112,
+            "tgt_id": 1111
+        },
+        {
+            "src_id": 1113,
+            "tgt_id": 1111
+        },
+        {
+            "src_id": 1125,
+            "tgt_id": 1122
+        },
+        {
+            "src_id": 1143,
+            "tgt_id": 1122
+        }
+    ]
+}

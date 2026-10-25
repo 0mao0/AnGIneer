@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        11
+    ],
+    "pages": [
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>26<|page|>3<|box|>814 140 886 857<|content|>4. ... To the extent Apex identifies additional re...sive Documents after its initial response to these\n<|id|>27<|page|>4<|box|>90 174 125 854<|content|>Requests, such Documents shall be produced promptl...r than thirty (30) days after their identification\n<|id|>53<|page|>6<|box|>684 138 886 857<|content|>All Documents constituting, reflecting, or relatin...ussing \"third-party licensing opportunities\"), and\n<|id|>54<|page|>7<|box|>89 140 127 854<|content|>APEX-022691 (presentation slide referencing \"licen...nd identifying five prospective licensees by name)\n<|id|>82<|page|>9<|box|>838 140 893 856<|content|>All internal Apex Communications (including but no...to Solstice Biomedical Devices Ltd. ... , Solstice\n<|id|>83<|page|>10<|box|>90 140 218 856<|content|>Biomedical, Inc. ... This Request is intended to c...r about Solstice that were not themselves produced\n<|id|>96<|page|>11<|box|>407 676 426 854<|content|>Respectfully submitted,\n<|id|>97<|page|>11<|box|>433 565 450 856<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>98<|page|>11<|box|>494 142 512 253<|content|>By: ... By\n<|id|>99<|page|>11<|box|>512 140 529 707<|content|>Marcus J. ... com\n<|id|>100<|page|>11<|box|>529 140 546 674<|content|>Christy A. ... com\n<|id|>101<|page|>11<|box|>546 140 563 705<|content|>Peter D. ... com\n<|id|>102<|page|>11<|box|>563 140 595 854<|content|>CALDERWOOD & HARKNESS LLP 1201 Market Street, Suit...gton, Delaware 19801 Telephone: ... (302) 555-4101\n<|id|>103<|page|>11<|box|>597 140 614 504<|content|>Attorneys for Defendant Solstice Biomedical, Inc. ... Attorneys for Defendant Solstice Biomedical, Inc\n<|id|>107<|page|>11<|box|>780 176 797 532<|content|>Victoria R. ... com\n<|id|>108<|page|>11<|box|>805 176 823 517<|content|>Derek M. ... com\n<|id|>109<|page|>11<|box|>830 176 868 854<|content|>HARGROVE, TATE & BENNINGTON LLP 900 North King Str...gton, Delaware 19801 Telephone: ... (302) 555-7801\n<|id|>110<|page|>11<|box|>876 176 893 563<|content|>Counsel for Plaintiff Apex Surgical Innovations, I...unsel for Plaintiff Apex Surgical Innovations, Inc",
+    "raw_response": "<|src_id|>26<|tgt_id|>27\n<|src_id|>53<|tgt_id|>54\n<|src_id|>82<|tgt_id|>83",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        }
+    ]
+}

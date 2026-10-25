@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        149,
+        151
+    ],
+    "pages": [
+        149,
+        150,
+        151
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1250<|page|>149<|box|>83 282 114 715<|content|>CERTIFICATION OF CHIEF FINANCIAL OFFICER PURSUANT\n<|id|>1251<|page|>149<|box|>120 23 134 207<|content|>I, Joseph J. Wolk certify that:\n<|id|>1264<|page|>150<|box|>83 313 97 683<|content|>CERTIFICATION OF CHIEF EXECUTIVE OFFICER\n<|id|>1265<|page|>150<|box|>101 271 114 725<|content|>PURSUANT TO SECTION 906 OF THE SARBANES-OXLEY ACT\n<|id|>1269<|page|>150<|box|>323 23 336 185<|content|>Dated: February 16, 2023\n<|id|>1271<|page|>151<|box|>90 314 103 681<|content|>CERTIFICATION OF CHIEF FINANCIAL OFFICER\n<|id|>1272<|page|>151<|box|>107 272 120 725<|content|>PURSUANT TO SECTION 906 OF THE SARBANES-OXLEY ACT\n<|id|>1277<|page|>151<|box|>315 23 329 185<|content|>Dated: February 16, 2023",
+    "raw_response": "<|id|>1250<|level|>1\n<|id|>1251<|level|>2\n<|id|>1264<|level|>1\n<|id|>1265<|level|>1\n<|id|>1269<|level|>2\n<|id|>1271<|level|>1\n<|id|>1272<|level|>1\n<|id|>1277<|level|>2",
+    "parsed": [
+        {
+            "id": 1250,
+            "level": 1
+        },
+        {
+            "id": 1251,
+            "level": 2
+        },
+        {
+            "id": 1264,
+            "level": 1
+        },
+        {
+            "id": 1265,
+            "level": 1
+        },
+        {
+            "id": 1269,
+            "level": 2
+        },
+        {
+            "id": 1271,
+            "level": 1
+        },
+        {
+            "id": 1272,
+            "level": 1
+        },
+        {
+            "id": 1277,
+            "level": 2
+        }
+    ]
+}

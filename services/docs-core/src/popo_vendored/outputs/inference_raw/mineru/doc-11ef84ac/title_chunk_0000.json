@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>113 156 133 839<|content|>PROPRIETARY INFORMATION & INVENTIONS AGREEMENT\n<|id|>1<|page|>1<|box|>151 243 172 753<|content|>(SENIOR ENGINEER / DATA SCIENTIST TIER)\n<|id|>5<|page|>1<|box|>277 189 314 807<|content|>PROPRIETARY INFORMATION & INVENTIONS AGREEMENT (SE\n<|id|>10<|page|>1<|box|>530 140 547 352<|content|>RECITALS. WHEREAS:\n<|id|>16<|page|>2<|box|>148 140 166 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>43<|page|>4<|box|>439 140 457 576<|content|>ARTICLE 2 — CONFIDENTIALITY OBLIGATIONS\n<|id|>63<|page|>6<|box|>516 140 534 501<|content|>ARTICLE 3 — INVENTION ASSIGNMENT\n<|id|>88<|page|>9<|box|>439 140 457 620<|content|>ARTICLE 4 — RESTRICTIVE COVENANT PROVISIONS\n<|id|>92<|page|>10<|box|>204 140 239 841<|content|>ARTICLE 5 — DEFEND TRADE SECRETS ACT — WHISTLEBLOW\n<|id|>97<|page|>10<|box|>604 140 622 547<|content|>ARTICLE 6 — EMPLOYMENT RELATIONSHIP\n<|id|>101<|page|>11<|box|>393 140 412 478<|content|>ARTICLE 7 — GENERAL PROVISIONS\n<|id|>110<|page|>12<|box|>689 176 705 331<|content|>If to the Company:\n<|id|>119<|page|>13<|box|>460 367 478 629<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>120<|page|>13<|box|>486 192 522 803<|content|>SIGNATURE PAGE TO PROPRIETARY INFORMATION & INVENT\n<|id|>122<|page|>13<|box|>574 142 590 367<|content|>LUMOS ANALYTICS INC.\n<|id|>132<|page|>14<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>133<|page|>14<|box|>114 295 132 702<|content|>PRIOR INVENTIONS DISCLOSURE SCHEDULE\n<|id|>143<|page|>15<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>144<|page|>15<|box|>114 243 133 754<|content|>NOTICE PURSUANT TO CALIFORNIA LABOR CODE § 2872\n<|id|>146<|page|>15<|box|>222 176 258 820<|content|>CALIFORNIA LABOR CODE § 2870 Invention on Own Time\n<|id|>151<|page|>15<|box|>516 153 551 844<|content|>CALIFORNIA LABOR CODE § 2872 Employment Agreements\n<|id|>154<|page|>15<|box|>758 142 775 447<|content|>EMPLOYEE ACKNOWLEDGMENT",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>1\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>43<|level|>2\n<|id|>63<|level|>2\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>97<|level|>2\n<|id|>101<|level|>2\n<|id|>110<|level|>-1\n<|id|>119<|level|>-1\n<|id|>120<|level|>1\n<|id|>122<|level|>2\n<|id|>132<|level|>1\n<|id|>133<|level|>1\n<|id|>143<|level|>1\n<|id|>144<|level|>1\n<|id|>146<|level|>2\n<|id|>151<|level|>2\n<|id|>154<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 9,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['EB-008', 'Written', 'C&H (T.', 'April 22,', 'May 9,', 'Lakewood', 'Outstanding', 'May 23,']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'confirmation of no IRS Letter 226-J received or pending (all open tax years)', 'Rosenthal)', '2025', '2025 (to C. Greer, WAG)', 'Management / WAG', 'g — oral representation received; awaiting written confirmation', '2025']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 417,
+    "table2_idx": 418
+}

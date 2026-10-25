@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 194 108 802<|content|>UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF\n<|id|>2<|page|>1<|box|>383 165 417 830<|content|>[PROPOSED] ORDER GRANTING PLAINTIFF'S MOTION FOR P\n<|id|>8<|page|>2<|box|>175 140 191 563<|content|>I. FINDINGS SUPPORTING INJUNCTIVE RELIEF\n<|id|>23<|page|>4<|box|>535 140 553 593<|content|>II. INJUNCTIVE RELIEF — PROHIBITED CONDUCT\n<|id|>25<|page|>4<|box|>685 142 702 267<|content|>A. Mark Usage\n<|id|>27<|page|>5<|box|>90 142 106 264<|content|>B. Trade Dress\n<|id|>32<|page|>5<|box|>424 140 440 375<|content|>C. Internet and E-Commerce\n<|id|>34<|page|>5<|box|>661 140 678 354<|content|>D. Trademark Application\n<|id|>36<|page|>6<|box|>89 140 107 400<|content|>III. COMPLIANCE TIMELINE\n<|id|>43<|page|>6<|box|>724 142 743 416<|content|>IV. COMPLIANCE REPORTING\n<|id|>50<|page|>7<|box|>391 142 409 366<|content|>V. BOND REQUIREMENT\n<|id|>54<|page|>7<|box|>712 140 729 413<|content|>VI. RESERVATION OF RIGHTS\n<|id|>58<|page|>8<|box|>229 142 246 390<|content|>VII. SCOPE AND DURATION\n<|id|>60<|page|>8<|box|>352 142 369 272<|content|>VIII. SERVICE\n<|id|>64<|page|>8<|box|>544 142 560 524<|content|>IX. CONSEQUENCES OF NONCOMPLIANCE\n<|id|>66<|page|>8<|box|>722 434 737 560<|content|>SO ORDERED.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>8<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>3\n<|id|>27<|level|>3\n<|id|>32<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>2\n<|id|>43<|level|>2\n<|id|>50<|level|>2\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>2\n<|id|>66<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        }
+    ]
+}

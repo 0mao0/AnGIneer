@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        9,
+        10
+    ],
+    "pages": [
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>48<|page|>9<|box|>560 174 744 854<|content|>(ii) to reflect in the prospectus any facts or eve...n set forth in the Registration Statement; ... and\n<|id|>50<|page|>9<|box|>813 140 887 854<|content|>provided, however, that paragraphs (a)(1)(i), (a)(... of 1934 that are incorporated by reference in the\n<|id|>51<|page|>10<|box|>90 140 127 854<|content|>Registration Statement, or is contained in a form ...b) that forms a part of the Registration Statement\n<|id|>63<|page|>10<|box|>875 143 890 326<|content|>Name: ... Garrett Calloway\n<|id|>64<|page|>10<|box|>891 142 907 566<|content|>Title: ... Chairman of the Board and Chief Executive Officer",
+    "raw_response": "<|src_id|>50<|tgt_id|>51",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        10
+    ],
+    "pages": [
+        2,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>2<|box|>86 87 101 393<|content|>Status Status DatNotes / Comments\n<|id|>11<|page|>10<|box|>512 87 527 218<|content|>STATUS LEGEND",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>11<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        }
+    ]
+}

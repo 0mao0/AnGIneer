@@ -1,0 +1,51 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 174 133 820<|content|>One World Financial Center 200 Liberty Street, 40th Floor New York, New York 10281\n<|id|>2<|page|>1<|box|>142 181 159 815<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 746 184 854<|content|>June 30, 2024\n<|id|>4<|page|>1<|box|>194 140 229 854<|content|>Pinnacle National Bank, N. ... as Administrative A...d below) 300 Vesey Street New York, New York 10281\n<|id|>5<|page|>1<|box|>238 140 255 656<|content|>Attention: ... Laura Fitzgibbons, Managing Director, Healthcare Lending\n<|id|>6<|page|>1<|box|>256 140 272 547<|content|>and each of the Lenders party to the Credit Agreem... each of the Lenders party to the Credit Agreement\n<|id|>7<|page|>1<|box|>281 174 316 854<|content|>Horizon Commercial Lending Corp. ... Great Plains Capital Partners LLC\n<|id|>9<|page|>1<|box|>369 140 386 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>8<|page|>1<|box|>325 140 361 854<|content|>(each, individually, a \"Lender\" and, collectively ... N. ... as Administrative Agent, the \"Addressees\")\n<|id|>15<|page|>2<|box|>135 174 208 856<|content|>(e) the Earnout Agreement, dated as of June 30, 20...ds during the earnout measurement periods; ... and\n<|id|>17<|page|>2<|box|>388 140 422 852<|content|>The transactions contemplated by the Transaction D... to herein collectively as the \"Transaction. ... \"\n<|id|>44<|page|>4<|box|>276 174 348 856<|content|>23. ... and\n<|id|>46<|page|>4<|box|>406 140 553 856<|content|>In our examination of the foregoing documents and ...from the rendering of the opinions set forth below\n<|id|>61<|page|>5<|box|>816 140 929 856<|content|>Ardent Healthcare Acquisition Corp. ... The Borrow...mployer Identification Number 93-2184720 by Page 5\n<|id|>62<|page|>6<|box|>90 140 236 856<|content|>the Internal Revenue Service. ... We have no reaso... June 27, 2024 and the date of this opinion letter\n<|id|>69<|page|>6<|box|>758 174 851 854<|content|>(c) borrow under the Credit Agreement, including t...reement and the other Financing Documents; ... and\n<|id|>71<|page|>7<|box|>90 140 183 856<|content|>The Parent (Ardent Capital Partners III LP) has th...ng the Security Agreement and the Pledge Agreement\n<|id|>89<|page|>8<|box|>782 138 929 856<|content|>We note that this opinion with respect to applicab...tory matters, including change-of-ownership Page 8\n<|id|>90<|page|>9<|box|>90 140 127 854<|content|>requirements and regulatory approvals, are being a...y as healthcare regulatory counsel to the Borrower\n<|id|>131<|page|>13<|box|>647 142 664 272<|content|>Very truly yours,\n<|id|>132<|page|>13<|box|>672 140 688 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>133<|page|>13<|box|>691 142 707 251<|content|>By: ... By\n<|id|>134<|page|>13<|box|>708 142 724 336<|content|>Name: ... Beatrice Holloway\n<|id|>135<|page|>13<|box|>724 143 739 246<|content|>Title: ... Partner\n<|id|>136<|page|>13<|box|>742 143 758 397<|content|>Enclosures: ... As referenced herein\n<|id|>139<|page|>13<|box|>820 176 835 498<|content|>Attention: ... Connor Briggs, General Counsel\n<|id|>140<|page|>13<|box|>837 176 854 429<|content|>Ardent Capital Management LLC\n<|id|>141<|page|>13<|box|>863 176 878 537<|content|>Attention: ... Marcus Ainsworth, Managing Partner\n<|id|>142<|page|>13<|box|>880 176 897 566<|content|>Attention: ... Priya Mehta-Sullivan, Chief Legal Officer",
+    "raw_response": "<|src_id|>4<|tgt_id|>5\n<|src_id|>5<|tgt_id|>6\n<|src_id|>6<|tgt_id|>8\n<|src_id|>8<|tgt_id|>7\n<|src_id|>61<|tgt_id|>62\n<|src_id|>69<|tgt_id|>71\n<|src_id|>89<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>188 140 224 856<|content|>Document Title: ... (Commonwealth of Massachusetts)\n<|id|>4<|page|>1<|box|>232 140 250 764<|content|>Matter: ... Cobalt Ventures LP — Series Seed Investment in Meridian Diagnostics, Inc\n<|id|>5<|page|>1<|box|>258 142 275 369<|content|>Matter Number: ... 1004-00001\n<|id|>6<|page|>1<|box|>284 140 301 740<|content|>Closing Deliverable Item Reference: ... Good Standing Certificate (Massachusetts)\n<|id|>7<|page|>1<|box|>309 140 327 383<|content|>Closing Date: ... February 9, 2026\n<|id|>8<|page|>1<|box|>335 140 354 733<|content|>Prepared / Obtained By: ... Leila Nazari, Associate, Calderwood & Harkness LLP\n<|id|>20<|page|>2<|box|>205 266 223 730<|content|>One Ashburton Place, 17th Floor Boston, Massachusetts 02108\n<|id|>21<|page|>2<|box|>247 330 263 666<|content|>CERTIFICATE OF LEGAL EXISTENCE\n<|id|>23<|page|>2<|box|>299 140 354 854<|content|>I, William Francis Galvin, Secretary of the Common...of the Office of the Secretary of the Commonwealth\n<|id|>22<|page|>2<|box|>273 338 290 658<|content|>(Foreign Corporation — Good Standing)\n<|id|>33<|page|>3<|box|>167 140 183 656<|content|>Certificate Identification / Confirmation Number: ... MA-CERT-2026-0205-4738291\n<|id|>34<|page|>3<|box|>191 140 220 852<|content|>This certificate may be verified online through th...the authenticity of this certificate, please visit\n<|id|>35<|page|>3<|box|>229 140 244 570<|content|>https: ... aspx\n<|id|>36<|page|>3<|box|>251 140 280 852<|content|>and reference the Certificate Identification Numbe...e Corporations Division directly at (617) 727-9640",
+    "raw_response": "<|src_id|>34<|tgt_id|>35\n<|src_id|>35<|tgt_id|>36",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        }
+    ]
+}

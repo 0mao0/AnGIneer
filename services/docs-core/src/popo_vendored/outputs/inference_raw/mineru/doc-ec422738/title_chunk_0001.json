@@ -1,0 +1,59 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        50
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>504<|page|>46<|box|>267 140 284 501<|content|>Section 11.10 — No Third-Party Beneficiaries\n<|id|>506<|page|>46<|box|>426 140 441 442<|content|>Section 11.11 — Specific Performance\n<|id|>508<|page|>46<|box|>621 140 637 437<|content|>Section 11.12 — Waiver of Jury Trial\n<|id|>511<|page|>47<|box|>114 254 132 741<|content|>SIGNATURE PAGE TO ASSET PURCHASE AGREEMENT\n<|id|>513<|page|>47<|box|>186 143 200 218<|content|>BUYER:\n<|id|>519<|page|>47<|box|>289 254 306 741<|content|>SIGNATURE PAGE TO ASSET PURCHASE AGREEMENT\n<|id|>525<|page|>47<|box|>419 403 434 594<|content|>LIST OF SCHEDULES\n<|id|>530<|page|>48<|box|>494 413 510 583<|content|>LIST OF EXHIBITS\n<|id|>535<|page|>49<|box|>89 187 125 808<|content|>DRAFTING / REVISION NOTES Second Revised Draft — S\n<|id|>546<|page|>50<|box|>805 142 821 439<|content|>10. Additional Matters for Discussion.",
+    "raw_response": "<|id|>504<|level|>3\n<|id|>506<|level|>3\n<|id|>508<|level|>3\n<|id|>511<|level|>1\n<|id|>513<|level|>2\n<|id|>519<|level|>1\n<|id|>525<|level|>1\n<|id|>530<|level|>1\n<|id|>535<|level|>1\n<|id|>546<|level|>2",
+    "parsed": [
+        {
+            "id": 504,
+            "level": 3
+        },
+        {
+            "id": 506,
+            "level": 3
+        },
+        {
+            "id": 508,
+            "level": 3
+        },
+        {
+            "id": 511,
+            "level": 1
+        },
+        {
+            "id": 513,
+            "level": 2
+        },
+        {
+            "id": 519,
+            "level": 1
+        },
+        {
+            "id": 525,
+            "level": 1
+        },
+        {
+            "id": 530,
+            "level": 1
+        },
+        {
+            "id": 535,
+            "level": 1
+        },
+        {
+            "id": 546,
+            "level": 2
+        }
+    ]
+}

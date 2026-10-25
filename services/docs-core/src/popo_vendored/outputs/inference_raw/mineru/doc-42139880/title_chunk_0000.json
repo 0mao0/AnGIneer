@@ -1,0 +1,141 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>398 142 415 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>14<|page|>2<|box|>393 140 412 743<|content|>II. SCOPE OF ENGAGEMENT AND INVESTIGATIVE METHODOL\n<|id|>15<|page|>2<|box|>426 140 444 361<|content|>A. Engagement Parameters\n<|id|>19<|page|>2<|box|>825 140 843 423<|content|>B. Investigative Methods Employed\n<|id|>31<|page|>4<|box|>705 140 723 712<|content|>III. BACKGROUND: THE PARTIES AND COMPETITIVE CONTE\n<|id|>32<|page|>4<|box|>737 140 753 393<|content|>A. Cascade Retail Holdings Inc.\n<|id|>37<|page|>5<|box|>594 140 611 419<|content|>B. Verdana Commerce Group, Inc.\n<|id|>42<|page|>6<|box|>440 140 458 563<|content|>C. The Rathore Group — Eight Departing Employees\n<|id|>54<|page|>7<|box|>599 140 617 540<|content|>IV. DETAILED TIMELINE OF RECRUITMENT\n<|id|>56<|page|>7<|box|>712 140 729 687<|content|>A. Pre-Contact Period: Background and Context (Q3\n<|id|>62<|page|>8<|box|>729 140 747 709<|content|>B. Initial Contact: The January 6, 2025 Dinner Mee\n<|id|>66<|page|>9<|box|>90 140 106 320<|content|>Confirmed Attendees:\n<|id|>81<|page|>10<|box|>429 140 446 851<|content|>C. Rathore's Internal Communications with the Merc\n<|id|>88<|page|>11<|box|>385 140 402 568<|content|>D. Encrypted Messaging Period (January 13–24, 2025\n<|id|>96<|page|>12<|box|>273 140 292 596<|content|>E. Rathore Signs Verdana Offer Letter (January 27,\n<|id|>105<|page|>12<|box|>790 142 808 785<|content|>F. Remaining Seven Employees Sign Offer Letters (J\n<|id|>113<|page|>13<|box|>689 140 707 612<|content|>G. Data Exfiltration Period (January 10 – February\n<|id|>125<|page|>14<|box|>710 140 729 527<|content|>H. Simultaneous Resignations (February 7, 2025)\n<|id|>130<|page|>15<|box|>354 140 375 704<|content|>I. Post-Resignation: Verdana Public Announcement (\n<|id|>135<|page|>16<|box|>89 140 106 428<|content|>V. ANALYSIS OF KEY FINDINGS\n<|id|>136<|page|>16<|box|>121 140 138 565<|content|>A. Evidence of Pre-Planned Coordinated Recruitment\n<|id|>147<|page|>17<|box|>157 140 175 514<|content|>B. Implications for Tortious Interference Claim\n<|id|>151<|page|>17<|box|>612 140 628 480<|content|>C. Implications for Civil Conspiracy Claim\n<|id|>155<|page|>18<|box|>250 140 267 482<|content|>D. Significance of Data Exfiltration Timing\n<|id|>162<|page|>19<|box|>89 140 106 656<|content|>VI. REMAINING INVESTIGATIVE STEPS AND OPEN ITEMS\n<|id|>168<|page|>19<|box|>662 140 679 589<|content|>VII. EXHIBITS AND ATTACHMENTS REFERENCED\n<|id|>172<|page|>20<|box|>318 140 335 553<|content|>VIII. CONCLUSION AND RECOMMENDATIONS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>19<|level|>3\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>37<|level|>3\n<|id|>42<|level|>3\n<|id|>54<|level|>2\n<|id|>56<|level|>3\n<|id|>62<|level|>3\n<|id|>66<|level|>-1\n<|id|>81<|level|>3\n<|id|>88<|level|>3\n<|id|>96<|level|>3\n<|id|>105<|level|>3\n<|id|>113<|level|>3\n<|id|>125<|level|>3\n<|id|>130<|level|>3\n<|id|>135<|level|>2\n<|id|>136<|level|>3\n<|id|>147<|level|>3\n<|id|>151<|level|>3\n<|id|>155<|level|>3\n<|id|>162<|level|>2\n<|id|>168<|level|>2\n<|id|>172<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        }
+    ]
+}

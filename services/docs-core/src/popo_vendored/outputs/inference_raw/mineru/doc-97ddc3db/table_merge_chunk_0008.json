@@ -1,0 +1,26 @@
+{
+    "task": "table_merge",
+    "chunk_index": 8,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['62', 'Peachtree Corners', 'GMP Peachtree LLC', 'Argyle Preferred Parking', 'Parking Lot Maint.', '7/1/2023', '6/30/2024', 'Y-M2M', '30 days', 'Y-30 days', 'None', 'Freely Assignable', '$32,000', 'Terminate']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'LLC', '', '', '', '', '', '', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 82,
+    "table2_idx": 83
+}

@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        10,
+        11,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>172 702 190 854<|content|>September 15, 2023\n<|id|>2<|page|>1<|box|>198 140 234 854<|content|>FROM: ... Howard Quinn, Responsible Partner, and L...uth Biscayne Boulevard, Suite 4400 Miami, FL 33131\n<|id|>3<|page|>1<|box|>243 140 279 854<|content|>TO: ... Diane Kowalski (Chair) Reginald Faulkner Sandra Yeung\n<|id|>4<|page|>1<|box|>286 140 323 857<|content|>RE: ... HO-14237\n<|id|>5<|page|>1<|box|>330 140 348 362<|content|>MATTER NO. ... 1021-00008\n<|id|>19<|page|>2<|box|>872 140 907 854<|content|>Workstream 1 — Premature Revenue Recognition. ... ...are-interest deposits as completed-sale revenue at\n<|id|>20<|page|>3<|box|>89 140 311 856<|content|>VCR properties, including the Coral Dune Resort & ...reported revenue across multiple reporting periods\n<|id|>35<|page|>4<|box|>818 140 910 857<|content|>In September 2023, the SEC Division of Enforcement...at the preliminary stage, which means that the SEC\n<|id|>36<|page|>5<|box|>90 140 145 856<|content|>Staff does not yet have subpoena power with respec...the SEC Commissioners to obtain compulsory process\n<|id|>82<|page|>10<|box|>864 140 902 857<|content|>The Audit Committee, as the body directing the inv... full Board of Directors, acting through the Audit\n<|id|>83<|page|>11<|box|>90 140 127 854<|content|>Committee, retains ultimate authority over privile...ee has standing to assert or waive VHG's privilege\n<|id|>139<|page|>17<|box|>872 140 909 856<|content|>Ongoing Forensic Analysis. ... 4 million aggregate across Q3\n<|id|>140<|page|>18<|box|>89 140 253 856<|content|>2022 through Q2 2023) and expense irregularities (...ations between Crestline and Calderwood & Harkness\n<|id|>147<|page|>18<|box|>854 140 907 856<|content|>4. ... final log to be completed by Steven Hollander and Liam\n<|id|>148<|page|>19<|box|>89 174 162 854<|content|>Donahue). ... Continue Crestline's forensic accounting analysis\n<|id|>158<|page|>20<|box|>289 140 305 320<|content|>Respectfully submitted,\n<|id|>159<|page|>20<|box|>305 140 321 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>160<|page|>20<|box|>324 143 339 253<|content|>By: ... By\n<|id|>161<|page|>20<|box|>340 143 356 313<|content|>Howard Quinn Partner\n<|id|>162<|page|>20<|box|>358 143 375 254<|content|>By: ... By\n<|id|>165<|page|>20<|box|>414 140 444 852<|content|>cc: ... Steven Hollander, Associate, Calderwood & Harkness LLP (for file)\n<|id|>166<|page|>20<|box|>450 140 527 854<|content|>This memorandum is a privileged and confidential a...nformation contained herein is strictly prohibited",
+    "raw_response": "<|src_id|>19<|tgt_id|>20\n<|src_id|>35<|tgt_id|>36\n<|src_id|>82<|tgt_id|>83\n<|src_id|>139<|tgt_id|>140\n<|src_id|>147<|tgt_id|>148",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 148
+        }
+    ]
+}

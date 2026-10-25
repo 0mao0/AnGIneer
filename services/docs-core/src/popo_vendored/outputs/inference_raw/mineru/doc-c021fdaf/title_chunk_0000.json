@@ -1,0 +1,122 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 230 118 767<|content|>ASSIGNMENT AND ASSUMPTION OF SUBLEASE\n<|id|>1<|page|>1<|box|>136 307 152 691<|content|>925 Industrial Court, Carlsbad, California 92010\n<|id|>5<|page|>1<|box|>438 142 455 243<|content|>RECITALS\n<|id|>10<|page|>2<|box|>167 142 184 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>21<|page|>2<|box|>779 142 795 393<|content|>ARTICLE 2 — ASSIGNMENT\n<|id|>29<|page|>3<|box|>589 142 607 392<|content|>ARTICLE 3 — ASSUMPTION\n<|id|>40<|page|>4<|box|>781 140 797 748<|content|>ARTICLE 4 — REPRESENTATIONS AND WARRANTIES OF ASSI\n<|id|>41<|page|>4<|box|>806 142 824 787<|content|>Assignor hereby represents and warrants to Assigne\n<|id|>47<|page|>5<|box|>739 140 757 745<|content|>ARTICLE 5 — REPRESENTATIONS AND WARRANTIES OF ASSI\n<|id|>48<|page|>5<|box|>766 140 784 787<|content|>Assignee hereby represents and warrants to Assigno\n<|id|>51<|page|>6<|box|>412 140 430 444<|content|>ARTICLE 6 — INDEMNIFICATION\n<|id|>63<|page|>7<|box|>535 140 551 666<|content|>ARTICLE 7 — RELATIONSHIP TO PURCHASE AGREEMENT\n<|id|>66<|page|>7<|box|>847 140 864 480<|content|>ARTICLE 8 — TRANSITION SERVICES\n<|id|>70<|page|>8<|box|>449 140 467 429<|content|>ARTICLE 9 — MISCELLANEOUS\n<|id|>77<|page|>9<|box|>479 176 496 295<|content|>If to Assignor:\n<|id|>89<|page|>10<|box|>405 173 441 823<|content|>SIGNATURE PAGE TO ASSIGNMENT AND ASSUMPTION OF SUB\n<|id|>91<|page|>10<|box|>494 143 508 248<|content|>ASSIGNOR:\n<|id|>103<|page|>11<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>104<|page|>11<|box|>114 405 132 591<|content|>COPY OF SUBLEASE\n<|id|>106<|page|>11<|box|>241 143 258 339<|content|>Summary of Key Terms:\n<|id|>109<|page|>12<|box|>89 370 133 627<|content|>EXHIBIT B DESCRIPTION OF PREMISES\n<|id|>111<|page|>12<|box|>186 143 203 285<|content|>1. Street Address:\n<|id|>113<|page|>12<|box|>238 142 253 313<|content|>2. Description of Use:\n<|id|>115<|page|>12<|box|>363 140 378 504<|content|>3. Distinction from Other OncuPath Facilities:\n<|id|>117<|page|>12<|box|>523 142 541 310<|content|>4. Site Identification:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>21<|level|>2\n<|id|>29<|level|>2\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>51<|level|>2\n<|id|>63<|level|>2\n<|id|>66<|level|>2\n<|id|>70<|level|>2\n<|id|>77<|level|>-1\n<|id|>89<|level|>2\n<|id|>91<|level|>3\n<|id|>103<|level|>2\n<|id|>104<|level|>3\n<|id|>106<|level|>4\n<|id|>109<|level|>2\n<|id|>111<|level|>3\n<|id|>113<|level|>3\n<|id|>115<|level|>3\n<|id|>117<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 4
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        }
+    ]
+}

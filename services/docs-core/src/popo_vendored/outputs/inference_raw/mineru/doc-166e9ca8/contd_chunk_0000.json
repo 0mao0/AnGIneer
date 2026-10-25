@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 155 152 841<|content|>400 Brickell Avenue, Suite 3200 Miami, Florida 33131 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 750 178 854<|content|>July 22, 2025\n<|id|>3<|page|>1<|box|>186 671 203 854<|content|>Matter No. ... 1021-00004\n<|id|>4<|page|>1<|box|>210 140 229 437<|content|>VIA EMAIL AND HAND DELIVERY\n<|id|>5<|page|>1<|box|>237 140 273 854<|content|>Sonia M. ... 2200 Bayshore Boulevard, Suite 1400 Tampa, Florida 33629\n<|id|>6<|page|>1<|box|>280 140 297 674<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>7<|page|>1<|box|>304 140 321 282<|content|>Dear Ms. ... Trevino\n<|id|>17<|page|>2<|box|>152 174 208 854<|content|>(4) Florida common law trademark infringement, bas...throughout the southeastern United States; ... and\n<|id|>19<|page|>2<|box|>296 140 443 856<|content|>The relief to be sought in the action will include... further relief as the Court deems just and proper\n<|id|>52<|page|>5<|box|>871 181 907 856<|content|>• Expert witness fees and costs, including fees ch...ey design, administration, and analysis), Drummond\n<|id|>53<|page|>6<|box|>90 210 125 854<|content|>Appraisal Group Inc. ... (damages and economic ana...and any other experts retained with VHG's approval\n<|id|>60<|page|>6<|box|>244 181 281 854<|content|>• Online legal research charges (Westmark Data Sys...specifically allocable to this engagement; ... and\n<|id|>62<|page|>6<|box|>321 140 377 854<|content|>Third-party expert and investigation costs will be...rring any single disbursement in excess of $10,000\n<|id|>68<|page|>6<|box|>842 140 897 856<|content|>Payment of each invoice is due within thirty (30) ...or to such other person, department, or address as\n<|id|>69<|page|>7<|box|>90 140 145 854<|content|>VHG may designate in writing from time to time. .....tablish any necessary electronic billing protocols\n<|id|>107<|page|>11<|box|>229 140 262 852<|content|>Marcus Delgado, Partner 400 Brickell Avenue, Suite...ami, Florida 33131 Direct Dial: ... (305) 814-7024\n<|id|>108<|page|>11<|box|>263 142 280 470<|content|>Email: ... com\n<|id|>115<|page|>11<|box|>438 143 454 313<|content|>Title: ... General Counsel\n<|id|>116<|page|>11<|box|>455 143 472 264<|content|>Date: ... Date\n<|id|>117<|page|>11<|box|>472 142 489 588<|content|>2200 Bayshore Boulevard, Suite 1400 Tampa, Florida 33629\n<|id|>118<|page|>11<|box|>489 140 507 517<|content|>Enclosure: ... Duplicate original for countersignature\n<|id|>119<|page|>11<|box|>515 140 569 854<|content|>cc: ... Catherine Bloom, Partner, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>52<|tgt_id|>53\n<|src_id|>68<|tgt_id|>69",
+    "parsed": [
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 69
+        }
+    ]
+}

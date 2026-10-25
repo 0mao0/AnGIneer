@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>116 277 133 718<|content|>One Liberty Plaza, 52nd Floor New York, New York 1\n<|id|>2<|type|>title<|page|>1<|box|>141 151 176 846<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>3<|type|>title<|page|>1<|box|>186 143 202 290<|content|>MEMORANDUM\n<|id|>4<|type|>table<|page|>1<|box|>210 143 412 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>460 142 478 321<|content|>I. Executive Summary\n<|id|>7<|type|>title<|page|>1<|box|>676 142 695 444<|content|>Our principal conclusions are as follows:\n<|id|>12<|type|>title<|page|>2<|box|>242 140 258 467<|content|>II. Background — Transaction Summary\n<|id|>13<|type|>title<|page|>2<|box|>273 140 289 281<|content|>A. The New TLB\n<|id|>15<|type|>table<|page|>2<|box|>438 143 676 852<|content|>None\n<|id|>16<|type|>title<|page|>2<|box|>715 140 734 447<|content|>B. The Existing TLB Being Refinanced\n<|id|>21<|type|>title<|page|>3<|box|>121 140 138 292<|content|>C. Use of Proceeds\n<|id|>23<|type|>title<|page|>3<|box|>303 140 321 553<|content|>D. VHG Financial Profile (Relevant to Tax Analysis\n<|id|>25<|type|>title<|page|>3<|box|>478 140 494 570<|content|>III. Original Issue Discount — General Tax Treatme\n<|id|>26<|type|>title<|page|>3<|box|>508 140 526 465<|content|>A. Statutory and Regulatory Framework\n<|id|>34<|type|>title<|page|>4<|box|>229 140 248 336<|content|>B. De Minimis OID Test\n<|id|>41<|type|>title<|page|>4<|box|>505 140 523 617<|content|>C. Treatment of De Minimis OID by VHG (Issuer/Borr\n<|id|>47<|type|>title<|page|>5<|box|>148 140 167 570<|content|>IV. AHYDO Analysis — Code Section 163(i) and (e)(5\n<|id|>48<|type|>title<|page|>5<|box|>180 142 196 413<|content|>A. Overview of the AHYDO Rules\n<|id|>55<|type|>title<|page|>5<|box|>601 140 619 635<|content|>B. Application of the Three-Part AHYDO Test to the\n<|id|>70<|type|>title<|page|>6<|box|>588 140 604 354<|content|>C. Conclusion on AHYDO\n<|id|>73<|type|>title<|page|>7<|box|>90 140 107 648<|content|>V. Code Section 163(j) — Business Interest Deducti\n<|id|>80<|type|>title<|page|>7<|box|>622 140 638 678<|content|>VI. Tax Treatment of the Prepayment Premium on the\n<|id|>83<|type|>title<|page|>8<|box|>90 140 107 730<|content|>VII. Treatment of Unamortized Debt Issuance Costs\n<|id|>88<|type|>title<|page|>8<|box|>601 140 618 447<|content|>VIII. Debt Issuance Costs — New TLB\n<|id|>96<|type|>title<|page|>9<|box|>223 140 239 509<|content|>IX. State and Local Tax Considerations (Brief)\n<|id|>99<|type|>title<|page|>9<|box|>479 140 498 545<|content|>X. Summary of Conclusions and Recommendations\n<|id|>105<|type|>title<|page|>11<|box|>90 142 107 563<|content|>Appendix A — AHYDO Yield Calculation Worksheet\n<|id|>107<|type|>table<|page|>11<|box|>159 143 565 852<|content|>None\n<|id|>109<|type|>title<|page|>12<|box|>90 142 107 573<|content|>Appendix B — De Minimis OID Threshold Calculation\n<|id|>110<|type|>table<|page|>12<|box|>157 143 335 852<|content|>None\n<|id|>112<|type|>title<|page|>13<|box|>90 142 107 831<|content|>Appendix C — Comparison Table: Constant-Yield vs.\n<|id|>113<|type|>table<|page|>13<|box|>195 143 364 852<|content|>None\n<|id|>114<|type|>title<|page|>13<|box|>398 142 415 633<|content|>Present value comparison (at 6.14% discount rate,",
+    "raw_response": "<|src_id|>4<|tgt_id|>3\n<|src_id|>15<|tgt_id|>13\n<|src_id|>107<|tgt_id|>105\n<|src_id|>110<|tgt_id|>109\n<|src_id|>113<|tgt_id|>112",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 112
+        }
+    ]
+}

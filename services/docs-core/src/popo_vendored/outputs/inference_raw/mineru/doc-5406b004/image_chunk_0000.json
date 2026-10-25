@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>108 145 232 852<|content|>None\n<|id|>1<|type|>title<|page|>1<|box|>265 145 327 849<|content|>AO 88A — SUBPOENA TO PRODUCE DOCUMENTS, INFORMATIO\n<|id|>5<|type|>title<|page|>1<|box|>454 142 470 452<|content|>I. IDENTIFICATION OF RECIPIENT\n<|id|>9<|type|>title<|page|>1<|box|>590 142 608 272<|content|>II. COMMAND\n<|id|>11<|type|>title<|page|>1<|box|>699 143 715 305<|content|>Place of Production:\n<|id|>15<|type|>title<|page|>1<|box|>857 143 873 377<|content|>Date and Time of Production:\n<|id|>17<|type|>title<|page|>2<|box|>90 142 107 403<|content|>Alternative Production Location:\n<|id|>19<|type|>title<|page|>2<|box|>210 140 229 642<|content|>III. IDENTIFICATION OF ISSUING PARTY AND COUNSEL\n<|id|>27<|type|>title<|page|>2<|box|>489 142 505 362<|content|>IV. CASE BACKGROUND\n<|id|>34<|type|>title<|page|>3<|box|>376 140 393 290<|content|>V. DEFINITIONS\n<|id|>35<|type|>title<|page|>3<|box|>407 142 424 287<|content|>A. Defined Terms\n<|id|>47<|type|>title<|page|>4<|box|>473 140 489 339<|content|>B. Rules of Construction\n<|id|>57<|type|>title<|page|>5<|box|>89 140 106 315<|content|>VI. INSTRUCTIONS\n<|id|>58<|type|>title<|page|>5<|box|>121 142 138 331<|content|>A. General Instructions\n<|id|>72<|type|>title<|page|>6<|box|>157 142 174 297<|content|>B. ESI Instructions\n<|id|>79<|type|>title<|page|>6<|box|>554 140 571 547<|content|>C. Cooperation and Rights Under Fed. R. Civ. P. 45\n<|id|>83<|type|>title<|page|>8<|box|>89 140 107 728<|content|>VII. SCHEDULE A — DOCUMENTS AND CATEGORIES REQUEST\n<|id|>84<|type|>title<|page|>8<|box|>121 142 138 254<|content|>Request No. 1\n<|id|>86<|type|>title<|page|>8<|box|>285 142 303 256<|content|>Request No. 2\n<|id|>88<|type|>title<|page|>8<|box|>431 142 448 256<|content|>Request No. 3\n<|id|>95<|type|>title<|page|>8<|box|>834 142 852 256<|content|>Request No. 4\n<|id|>98<|type|>title<|page|>9<|box|>176 142 193 258<|content|>Request No. 5\n<|id|>105<|type|>title<|page|>9<|box|>488 142 505 256<|content|>Request No. 6\n<|id|>112<|type|>title<|page|>9<|box|>818 143 835 256<|content|>Request No. 7\n<|id|>120<|type|>title<|page|>10<|box|>287 140 304 258<|content|>Request No. 8\n<|id|>122<|type|>title<|page|>10<|box|>487 142 505 256<|content|>Request No. 9\n<|id|>129<|type|>title<|page|>10<|box|>799 140 816 266<|content|>Request No. 10\n<|id|>136<|type|>title<|page|>11<|box|>308 140 324 692<|content|>VIII. COMPLIANCE AND RETURN OF SERVICE INFORMATION\n<|id|>137<|type|>table<|page|>11<|box|>376 143 560 852<|content|>None\n<|id|>141<|type|>title<|page|>11<|box|>758 140 777 841<|content|>IX. DUTIES IN RESPONDING TO SUBPOENA — FED. R. CIV\n<|id|>149<|type|>title<|page|>13<|box|>89 142 106 277<|content|>X. SIGNATURE\n<|id|>158<|type|>title<|page|>13<|box|>314 449 330 549<|content|>EXHIBIT A\n<|id|>159<|type|>title<|page|>13<|box|>340 316 357 679<|content|>NOTICE OF SUBPOENA TO ALL PARTIES\n<|id|>160<|type|>title<|page|>13<|box|>366 194 383 800<|content|>UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF\n<|id|>161<|type|>table<|page|>13<|box|>391 143 515 852<|content|>None\n<|id|>162<|type|>title<|page|>13<|box|>549 161 585 834<|content|>NOTICE OF SUBPOENA DUCES TECUM Pursuant to Federal\n<|id|>168<|type|>title<|page|>13<|box|>806 142 824 250<|content|>Served upon:\n<|id|>178<|type|>title<|page|>14<|box|>262 375 277 620<|content|>CERTIFICATE OF SERVICE\n<|id|>184<|type|>title<|page|>14<|box|>494 140 511 416<|content|>2. Caldwell Royce & Shapiro LLP",
+    "raw_response": "<|src_id|>0<|tgt_id|>1\n<|src_id|>137<|tgt_id|>136\n<|src_id|>161<|tgt_id|>159",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 136
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 159
+        }
+    ]
+}

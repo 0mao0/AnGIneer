@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 436 106 560<|content|>SCHEDULE II\n<|id|>1<|type|>title<|page|>1<|box|>114 377 132 619<|content|>SELLING SHAREHOLDERS\n<|id|>5<|type|>title<|page|>1<|box|>400 142 416 514<|content|>Section 1. Identification of Selling Shareholders\n<|id|>7<|type|>title<|page|>1<|box|>455 142 473 656<|content|>1.1 Selling Shareholder No. 1 — Rheintal Industrie\n<|id|>16<|type|>title<|page|>1<|box|>838 143 854 619<|content|>1.2 Selling Shareholder No. 2 — Kestrel Capital Pa\n<|id|>27<|type|>title<|page|>2<|box|>450 140 469 598<|content|>Section 2. Shares Beneficially Owned Prior to the\n<|id|>29<|type|>table<|page|>2<|box|>599 143 705 852<|content|>None\n<|id|>32<|type|>title<|page|>3<|box|>148 140 167 583<|content|>Section 3. Shares to be Sold in the Offering (Firm\n<|id|>33<|type|>title<|page|>3<|box|>180 140 198 779<|content|>3.1 Number of Firm Shares and Firm ADSs to be Sold\n<|id|>35<|type|>table<|page|>3<|box|>309 143 398 852<|content|>None\n<|id|>37<|type|>title<|page|>3<|box|>536 140 554 637<|content|>3.2 Allocation of Selling Shareholder ADSs Within\n<|id|>42<|type|>title<|page|>3<|box|>815 140 832 661<|content|>3.3 Estimated Net Proceeds to the Selling Sharehol\n<|id|>44<|type|>table<|page|>4<|box|>159 143 309 852<|content|>None\n<|id|>48<|type|>title<|page|>4<|box|>638 140 657 544<|content|>Section 4. Overallotment Option (Additional ADSs)\n<|id|>53<|type|>title<|page|>5<|box|>321 140 339 578<|content|>Section 5. Shares Beneficially Owned After the Off\n<|id|>54<|type|>title<|page|>5<|box|>353 140 369 843<|content|>5.1 Post-Offering Beneficial Ownership — Assuming\n<|id|>56<|type|>table<|page|>5<|box|>518 143 654 852<|content|>None\n<|id|>59<|type|>title<|page|>6<|box|>162 140 180 457<|content|>5.2 Post-Offering Voting Considerations\n<|id|>61<|type|>title<|page|>6<|box|>375 140 391 588<|content|>Section 6. Lock-Up Undertakings of Selling Shareho\n<|id|>74<|type|>title<|page|>7<|box|>527 140 544 787<|content|>Section 7. Selling Shareholder Representations and\n<|id|>83<|type|>title<|page|>8<|box|>710 140 728 586<|content|>Section 8. Custody Arrangements and Power of Attor\n<|id|>84<|type|>title<|page|>8<|box|>742 140 758 602<|content|>8.1 Custody Agreement and Irrevocable Power of Att\n<|id|>90<|type|>title<|page|>9<|box|>407 140 424 344<|content|>8.2 Settlement Mechanics\n<|id|>95<|type|>title<|page|>10<|box|>90 140 108 331<|content|>8.3 Target Closing Date\n<|id|>97<|type|>title<|page|>10<|box|>301 140 318 550<|content|>Section 9. Tax Withholding and Payment Mechanics\n<|id|>98<|type|>title<|page|>10<|box|>332 140 349 369<|content|>9.1 Payment of Net Proceeds\n<|id|>100<|type|>title<|page|>10<|box|>496 140 513 308<|content|>9.2 Tax Withholding\n<|id|>102<|type|>title<|page|>10<|box|>696 140 714 513<|content|>9.3 Tax Responsibilities of Selling Shareholders\n<|id|>104<|type|>title<|page|>11<|box|>90 140 107 292<|content|>Section 10. Notices\n<|id|>120<|type|>title<|page|>12<|box|>90 142 107 277<|content|>Signature blocks",
+    "raw_response": "<|src_id|>29<|tgt_id|>27\n<|src_id|>35<|tgt_id|>33\n<|src_id|>44<|tgt_id|>42\n<|src_id|>56<|tgt_id|>54",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        }
+    ]
+}

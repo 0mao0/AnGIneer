@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 380 106 617<|content|>SOLVENCY CERTIFICATE\n<|id|>6<|type|>title<|page|>1<|box|>417 142 434 421<|content|>Section 1. Recitals and Background\n<|id|>15<|type|>title<|page|>2<|box|>421 140 438 313<|content|>Section 2. Definitions\n<|id|>22<|type|>title<|page|>3<|box|>487 140 503 397<|content|>Section 3. Basis for Certification\n<|id|>36<|type|>table<|page|>4<|box|>426 143 636 852<|content|>None\n<|id|>43<|type|>table<|page|>5<|box|>150 143 289 852<|content|>None\n<|id|>53<|type|>title<|page|>6<|box|>90 142 107 405<|content|>Section 4. Solvency Certifications\n<|id|>55<|type|>title<|page|>6<|box|>166 140 181 457<|content|>(a) Fair Value Exceeds Stated Liabilities\n<|id|>57<|type|>title<|page|>6<|box|>402 140 419 527<|content|>(b) Fair Saleable Value Exceeds Stated Liabilities\n<|id|>59<|type|>title<|page|>6<|box|>585 140 602 493<|content|>(c) Ability to Pay Debts as They Become Due\n<|id|>69<|type|>title<|page|>7<|box|>415 140 431 571<|content|>(d) Adequate Capital; Not Unreasonably Small Capit\n<|id|>78<|type|>title<|page|>8<|box|>349 140 366 475<|content|>(e) No Intent to Hinder, Delay, or Defraud\n<|id|>81<|type|>title<|page|>8<|box|>640 140 657 473<|content|>Section 5. Assumptions and Qualifications\n<|id|>89<|type|>title<|page|>9<|box|>784 142 801 348<|content|>Section 6. Governing Law\n<|id|>91<|type|>title<|page|>9<|box|>891 143 909 341<|content|>[Signature Page Follows]\n<|id|>93<|type|>title<|page|>10<|box|>90 341 108 655<|content|>[Signature Page to Solvency Certificate]\n<|id|>100<|type|>title<|page|>10<|box|>268 143 284 285<|content|>Delivery Notation\n<|id|>101<|type|>title<|page|>10<|box|>292 143 308 230<|content|>Delivered to:",
+    "raw_response": "<|src_id|>36<|tgt_id|>22\n<|src_id|>43<|tgt_id|>22",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 22
+        }
+    ]
+}

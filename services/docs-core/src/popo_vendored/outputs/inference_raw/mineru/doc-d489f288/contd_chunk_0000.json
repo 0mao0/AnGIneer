@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        35
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        34,
+        35
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>253 635 270 854<|content|>Case No. ... 22-cv-03417-EJD\n<|id|>6<|page|>1<|box|>279 671 296 854<|content|>Hon. ... Torvelis\n<|id|>58<|page|>5<|box|>828 174 883 854<|content|>(c) U. ... Amara\n<|id|>59<|page|>6<|box|>89 174 126 854<|content|>Osei, and Liwei Zhang. ... The '678 Patent contain...claims, including independent Claims 1, 10, and 17\n<|id|>395<|page|>34<|box|>915 142 930 570<|content|>DECLARATION OF DR. ... — CONFIDENTIAL\n<|id|>396<|page|>35<|box|>89 140 145 854<|content|>The following is a complete itemized list of all d...forming the opinions expressed in this declaration",
+    "raw_response": "<|src_id|>58<|tgt_id|>59\n<|src_id|>395<|tgt_id|>396",
+    "parsed": [
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 395,
+            "tgt_id": 396
+        }
+    ]
+}

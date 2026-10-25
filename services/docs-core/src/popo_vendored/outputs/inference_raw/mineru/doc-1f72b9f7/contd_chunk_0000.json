@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>184 140 200 684<|content|>FROM: ... Yuki Nakamura, Senior Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>209 140 226 617<|content|>TO: ... Douglas Carmichael, Partner, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>234 142 252 354<|content|>DATE: ... September 15, 2022\n<|id|>5<|page|>1<|box|>261 140 297 854<|content|>RE: ... Vivian Ostrowski, Archer & Colvin Consulting Group\n<|id|>6<|page|>1<|box|>305 140 340 854<|content|>MATTER: ... 21STCV-34872, Superior Court of California, County of Los Angeles\n<|id|>7<|page|>1<|box|>349 140 367 437<|content|>CLIENT: ... Cascade Retail Holdings Inc\n<|id|>44<|page|>5<|box|>525 176 542 297<|content|>Title: ... Principal\n<|id|>45<|page|>5<|box|>551 176 569 490<|content|>Firm: ... Archer & Colvin Consulting Group\n<|id|>46<|page|>5<|box|>577 176 594 674<|content|>Address: ... 701 Fifth Avenue, Suite 4100, Seattle, Washington 98104\n<|id|>47<|page|>5<|box|>604 176 621 815<|content|>Entity Type: ... General Partnership, organized under the laws of the State of Washington\n<|id|>48<|page|>5<|box|>628 140 720 854<|content|>Archer & Colvin is a well-regarded forensic econom...lead on a significant number of high-profile cases\n<|id|>58<|page|>6<|box|>816 140 891 856<|content|>We have conducted a thorough conflicts check, and ...p. ... and Meridian Forensic Economics LLC and its\n<|id|>59<|page|>7<|box|>90 140 127 854<|content|>Managing Director, Dr. ... Ostrowski and Archer & ...ce of any conflicting engagements or relationships\n<|id|>141<|page|>15<|box|>464 142 481 320<|content|>Respectfully submitted,\n<|id|>142<|page|>15<|box|>481 142 497 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>143<|page|>15<|box|>500 143 516 253<|content|>By: ... By\n<|id|>147<|page|>15<|box|>604 140 640 852<|content|>Attachment A: ... Vivian Ostrowski, Principal, Archer & Colvin Consulting Group\n<|id|>148<|page|>15<|box|>648 140 684 854<|content|>Attachment B: ... Archer & Colvin Consulting Group — Firm Overview and Representative Engagements\n<|id|>149<|page|>15<|box|>691 140 729 854<|content|>Attachment C: ... Proposed Retention Agreement (Dr... Harkness LLP and Archer & Colvin Consulting Group\n<|id|>150<|page|>15<|box|>736 140 773 854<|content|>Attachment D: ... Cascade's Preliminary Damages Assessment by Supplier\n<|id|>151<|page|>15<|box|>779 140 825 854<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT ...ney-client privilege and the work product doctrine",
+    "raw_response": "<|src_id|>58<|tgt_id|>59",
+    "parsed": [
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        }
+    ]
+}

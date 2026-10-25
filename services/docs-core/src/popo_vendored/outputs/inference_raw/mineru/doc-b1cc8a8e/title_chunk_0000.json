@@ -1,0 +1,108 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>111 151 148 854<|content|>VERIMARK HOSPITALITY GROUP INC. 8200 West Palmetto\n<|id|>13<|page|>1<|box|>821 142 839 344<|content|>1. Request for Borrowing\n<|id|>19<|page|>2<|box|>366 140 383 367<|content|>2. Proposed Borrowing Date\n<|id|>21<|page|>2<|box|>542 140 559 334<|content|>3. Interest Rate Election\n<|id|>32<|page|>3<|box|>592 140 609 477<|content|>4. Funds Flow / Disbursement Instructions\n<|id|>34<|page|>3<|box|>685 140 703 692<|content|>(a) Payoff of Existing Term Loan B — Greystone Fed\n<|id|>39<|page|>4<|box|>357 140 375 558<|content|>(b) Arrangement Fee — Crescent Harbor Bank, N.A.\n<|id|>41<|page|>4<|box|>521 140 539 550<|content|>(c) Advisory Fee — Meridian Strauss Advisory LLC\n<|id|>43<|page|>4<|box|>685 140 703 444<|content|>(d) Estimated Legal and Closing Costs\n<|id|>46<|page|>5<|box|>140 142 157 490<|content|>(e) Remaining Net Proceeds to the Borrower\n<|id|>51<|page|>5<|box|>777 142 794 408<|content|>5. Borrower Account Information\n<|id|>56<|page|>6<|box|>330 140 348 434<|content|>6. Representations and Certifications\n<|id|>72<|page|>9<|box|>205 142 222 258<|content|>7. Guarantors\n<|id|>77<|page|>9<|box|>684 140 702 450<|content|>8. Post-Closing Items Acknowledgment\n<|id|>83<|page|>10<|box|>465 140 482 401<|content|>9. Execution; Authorized Officer\n<|id|>86<|page|>10<|box|>671 140 689 336<|content|>[Signature Page Follows]\n<|id|>87<|page|>10<|box|>696 292 713 704<|content|>SIGNATURE PAGE TO BORROWING REQUEST\n<|id|>89<|page|>10<|box|>767 142 782 491<|content|>VERIMARK HOSPITALITY GROUP INC.\n<|id|>97<|page|>11<|box|>174 143 190 323<|content|>10. Notice Information\n<|id|>99<|page|>11<|box|>262 142 277 295<|content|>If to the Borrower:\n<|id|>105<|page|>11<|box|>462 143 477 424<|content|>With a copy to Borrower's Counsel:\n<|id|>111<|page|>11<|box|>667 143 684 385<|content|>If to the Administrative Agent:\n<|id|>117<|page|>12<|box|>90 142 107 349<|content|>Exhibits and Attachments",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>2\n<|id|>32<|level|>2\n<|id|>34<|level|>3\n<|id|>39<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>3\n<|id|>46<|level|>3\n<|id|>51<|level|>2\n<|id|>56<|level|>2\n<|id|>72<|level|>2\n<|id|>77<|level|>2\n<|id|>83<|level|>2\n<|id|>86<|level|>-1\n<|id|>87<|level|>2\n<|id|>89<|level|>-1\n<|id|>97<|level|>2\n<|id|>99<|level|>3\n<|id|>105<|level|>3\n<|id|>111<|level|>3\n<|id|>117<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        }
+    ]
+}

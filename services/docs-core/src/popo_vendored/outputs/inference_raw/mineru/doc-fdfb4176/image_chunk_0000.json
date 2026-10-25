@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 284 160 714<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law One Fou\n<|id|>8<|type|>title<|page|>1<|box|>392 142 409 341<|content|>1. Purpose of This Letter\n<|id|>12<|type|>title<|page|>2<|box|>90 142 107 398<|content|>2. Summary of Final Disposition\n<|id|>13<|type|>title<|page|>2<|box|>121 140 138 429<|content|>2.1 Settlement Agreement Execution\n<|id|>24<|type|>title<|page|>2<|box|>840 142 857 331<|content|>2.2 Settlement Payment\n<|id|>30<|type|>title<|page|>3<|box|>369 140 386 352<|content|>2.3 Dismissal of the Action\n<|id|>37<|type|>title<|page|>3<|box|>710 140 729 460<|content|>2.4 Ridgeline Capital Partners Approval\n<|id|>39<|type|>title<|page|>4<|box|>90 142 107 361<|content|>2.5 Insurance Coordination\n<|id|>46<|type|>title<|page|>4<|box|>643 140 660 364<|content|>3. Final Financial Summary\n<|id|>48<|type|>table<|page|>4<|box|>776 143 900 852<|content|>None\n<|id|>49<|type|>table<|page|>5<|box|>88 143 137 852<|content|>None\n<|id|>52<|type|>title<|page|>5<|box|>448 142 464 331<|content|>3.2 Settlement Payment\n<|id|>53<|type|>table<|page|>5<|box|>469 143 508 852<|content|>None\n<|id|>54<|type|>title<|page|>5<|box|>547 140 564 617<|content|>3.3 Grand Total Litigation Spend (C&H Engagement P\n<|id|>55<|type|>table<|page|>5<|box|>569 143 643 852<|content|>None\n<|id|>56<|type|>title<|page|>5<|box|>684 142 700 475<|content|>3.4 VMS Total Out-of-Pocket Expenditure\n<|id|>58<|type|>table<|page|>5<|box|>750 143 825 852<|content|>None\n<|id|>60<|type|>title<|page|>6<|box|>186 140 204 428<|content|>4. Final Invoice and Retainer Credit\n<|id|>64<|type|>title<|page|>6<|box|>506 140 523 364<|content|>5. Confidentiality Reminder\n<|id|>69<|type|>title<|page|>7<|box|>148 140 167 529<|content|>6. Document Retention and Return of Client Files\n<|id|>70<|type|>title<|page|>7<|box|>180 140 196 480<|content|>6.1 Client Document-Retention Obligations\n<|id|>81<|type|>title<|page|>7<|box|>715 140 733 380<|content|>6.2 Return of Client Materials\n<|id|>83<|type|>title<|page|>8<|box|>90 140 107 508<|content|>6.3 Firm File-Retention and Destruction Policy\n<|id|>90<|type|>title<|page|>8<|box|>607 140 625 514<|content|>7. Engagement Team and Post-Closure Contact\n<|id|>98<|type|>title<|page|>9<|box|>231 140 247 405<|content|>8. Acknowledgments and Closing\n<|id|>108<|type|>title<|page|>9<|box|>700 143 715 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>48<|tgt_id|>46\n<|src_id|>49<|tgt_id|>46\n<|src_id|>53<|tgt_id|>52\n<|src_id|>55<|tgt_id|>54\n<|src_id|>58<|tgt_id|>56",
+    "parsed": [
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 56
+        }
+    ]
+}

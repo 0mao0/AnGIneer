@@ -1,0 +1,65 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 140 130 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>411 140 429 380<|content|>Dear Revenue Agent Dunleavy:\n<|id|>13<|page|>2<|box|>90 339 111 658<|content|>Section 1: Documents Produced\n<|id|>14<|page|>2<|box|>136 140 154 545<|content|>1.1 Glenmore Bank Ireland plc Account Statements\n<|id|>20<|page|>2<|box|>710 142 727 568<|content|>1.2 Account Opening and Relationship Documentation\n<|id|>27<|page|>3<|box|>484 140 501 437<|content|>1.3 Summary of Treasury Operations\n<|id|>37<|page|>4<|box|>532 181 577 815<|content|>Section 2: Relevance of Produced Documents to PBI'\n<|id|>57<|page|>6<|box|>741 259 761 738<|content|>Section 3: Coordination with Irish Tax Advisors\n<|id|>61<|page|>7<|box|>271 233 291 763<|content|>Section 4: Privilege Reservation and Document Inde\n<|id|>62<|page|>7<|box|>316 140 333 341<|content|>4.1 Privilege Reservation\n<|id|>66<|page|>7<|box|>782 140 799 439<|content|>4.2 Document Index / Production Log\n<|id|>70<|page|>8<|box|>405 142 422 617<|content|>Total pages produced in response to IDR No. 22: 1,\n<|id|>72<|page|>8<|box|>550 338 569 658<|content|>Section 5: Supplementary Notes",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>9<|level|>-1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>20<|level|>2\n<|id|>27<|level|>2\n<|id|>37<|level|>1\n<|id|>57<|level|>1\n<|id|>61<|level|>1\n<|id|>62<|level|>2\n<|id|>66<|level|>2\n<|id|>70<|level|>-1\n<|id|>72<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 181 125 815<|content|>UNITED STATES DISTRICT COURT FOR THE EASTERN DISTR\n<|id|>2<|page|>1<|box|>436 161 492 834<|content|>PLAINTIFF/COUNTERCLAIM-DEFENDANT OPTIWAVE SEMICOND\n<|id|>5<|page|>1<|box|>784 142 801 593<|content|>I. RESPONSES TO COUNTERCLAIM ALLEGATIONS\n<|id|>6<|page|>1<|box|>815 143 833 550<|content|>A. Response to Jurisdictional and Venue Allegation\n<|id|>13<|page|>2<|box|>565 140 583 599<|content|>B. Response to Allegations Regarding the Asserted\n<|id|>21<|page|>3<|box|>436 140 454 604<|content|>C. Response to Allegations Regarding Lumicore's Pr\n<|id|>27<|page|>4<|box|>90 140 107 658<|content|>D. Response to Allegations Regarding Pre-Suit Lice\n<|id|>35<|page|>4<|box|>803 142 819 563<|content|>II. RESPONSES TO SPECIFIC COUNTERCLAIMS\n<|id|>36<|page|>4<|box|>834 140 852 849<|content|>Response to Counterclaim I: Declaratory Judgment o\n<|id|>41<|page|>5<|box|>378 140 415 854<|content|>Response to Counterclaim II: Declaratory Judgment\n<|id|>46<|page|>5<|box|>785 140 820 854<|content|>Response to Counterclaim III: Declaratory Judgment\n<|id|>51<|page|>6<|box|>324 140 359 854<|content|>Response to Counterclaim IV: Declaratory Judgment\n<|id|>56<|page|>6<|box|>712 140 747 854<|content|>Response to Counterclaim V: Invalidity of the Asse\n<|id|>74<|page|>8<|box|>720 140 739 687<|content|>Response to Counterclaim VI: Unenforceability / In\n<|id|>83<|page|>9<|box|>705 140 723 602<|content|>III. AFFIRMATIVE DEFENSES TO COUNTERCLAIMS\n<|id|>85<|page|>9<|box|>799 140 816 540<|content|>First Affirmative Defense: Failure to State a Clai\n<|id|>87<|page|>10<|box|>138 140 157 635<|content|>Second Affirmative Defense: Statutory Presumption\n<|id|>89<|page|>10<|box|>285 140 321 854<|content|>Third Affirmative Defense: Prosecution History Est\n<|id|>91<|page|>10<|box|>503 140 521 429<|content|>Fourth Affirmative Defense: Waiver\n<|id|>93<|page|>10<|box|>760 140 777 555<|content|>Fifth Affirmative Defense: Estoppel / Unclean Hand\n<|id|>95<|page|>11<|box|>213 140 229 581<|content|>Sixth Affirmative Defense: Laches (as to Countercl\n<|id|>97<|page|>11<|box|>395 140 430 854<|content|>Seventh Affirmative Defense: No Inequitable Conduc\n<|id|>99<|page|>11<|box|>651 140 667 553<|content|>Eighth Affirmative Defense: Reservation of Defense\n<|id|>101<|page|>11<|box|>824 140 842 367<|content|>IV. PRAYER FOR RELIEF\n<|id|>108<|page|>12<|box|>392 142 409 305<|content|>V. JURY DEMAND\n<|id|>112<|page|>12<|box|>550 140 566 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>122<|page|>12<|box|>828 142 844 424<|content|>WHITMORE & CALLAHAN LLP\n<|id|>125<|page|>13<|box|>131 140 148 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>6<|level|>3\n<|id|>13<|level|>3\n<|id|>21<|level|>3\n<|id|>27<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>41<|level|>3\n<|id|>46<|level|>3\n<|id|>51<|level|>3\n<|id|>56<|level|>3\n<|id|>74<|level|>3\n<|id|>83<|level|>2\n<|id|>85<|level|>3\n<|id|>87<|level|>3\n<|id|>89<|level|>3\n<|id|>91<|level|>3\n<|id|>93<|level|>3\n<|id|>95<|level|>3\n<|id|>97<|level|>3\n<|id|>99<|level|>3\n<|id|>101<|level|>2\n<|id|>108<|level|>2\n<|id|>112<|level|>-1\n<|id|>122<|level|>-1\n<|id|>125<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        }
+    ]
+}

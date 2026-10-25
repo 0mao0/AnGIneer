@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        4,
+        10
+    ],
+    "pages": [
+        4,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>37<|page|>4<|box|>202 140 220 638<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>118<|page|>10<|box|>890 142 907 210<|content|>Hannah",
+    "raw_response": "<|id|>37<|level|>1\n<|id|>118<|level|>1",
+    "parsed": [
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        }
+    ]
+}

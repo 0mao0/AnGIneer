@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 143 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1200 Mc...Suite 4100 Houston, Texas 77010 Telephone: ... com\n<|id|>1<|page|>1<|box|>152 746 169 854<|content|>June 25, 2025\n<|id|>2<|page|>1<|box|>178 140 213 854<|content|>VIA CERTIFIED MAIL — RETURN RECEIPT REQUESTED AND OVERNIGHT DELIVERY\n<|id|>3<|page|>1<|box|>222 140 258 854<|content|>Texas Commission on Environmental Quality Voluntar..., MC-221 P. ... Box 13087 Austin, Texas 78711-3087\n<|id|>4<|page|>1<|box|>266 174 303 854<|content|>Re: ... Tax Parcel ID WC-0241-0034\n<|id|>5<|page|>1<|box|>311 176 328 411<|content|>Firm Matter No. ... 1016-00006\n<|id|>6<|page|>1<|box|>337 140 354 401<|content|>Dear VCP Program Administrator: ... Dear VCP Program Administrator\n<|id|>11<|page|>1<|box|>847 140 902 857<|content|>DEH is the successor-in-interest to Dunmore Termin...TS formerly owned and operated the Dunmore Wharton\n<|id|>12<|page|>2<|box|>90 140 162 854<|content|>Terminal from 1974 through 2015, during which time...he winding down and dissolution of the corporation\n<|id|>15<|page|>2<|box|>441 174 478 854<|content|>Cynthia Ho Calderwood & Harkness LLP 1200 McKinney...Houston, Texas 77010 Telephone: ... (713) 554-8200\n<|id|>16<|page|>2<|box|>487 176 503 462<|content|>Email: ... com\n<|id|>19<|page|>2<|box|>577 176 594 522<|content|>Common Name: ... Dunmore Wharton Terminal\n<|id|>20<|page|>2<|box|>603 176 619 743<|content|>Physical Address: ... 14200 FM 1301, Wharton, Wharton County, Texas 77488\n<|id|>21<|page|>2<|box|>628 176 645 570<|content|>Tax Parcel Identification Number: ... WC-0241-0034\n<|id|>22<|page|>2<|box|>655 174 726 854<|content|>Legal Description: ... 241, Wharton County, Texas,..., Official Public Records of Wharton County, Texas\n<|id|>26<|page|>2<|box|>868 181 904 854<|content|>• Northern Tank Farm: ... Twelve (12) aboveground ...a combined total storage capacity of approximately\n<|id|>27<|page|>3<|box|>89 210 126 854<|content|>420,000 barrels. ... These tanks were formerly use... diesel fuel, and other refined petroleum products\n<|id|>37<|page|>3<|box|>827 140 900 856<|content|>In 1991, DTS entered into a Joint Operating Agreem...e southern tank farm, comprising Tanks S-1 through\n<|id|>38<|page|>4<|box|>90 140 200 856<|content|>S-12 and occupying approximately 18 acres of the s...ons at the Site and vacated the southern tank farm\n<|id|>98<|page|>9<|box|>858 140 893 854<|content|>DEH notes that Rowan Creek Fuel Distributors, Inc....0 under the Joint Operating Agreement described in\n<|id|>99<|page|>10<|box|>90 140 200 854<|content|>Section 3 above. ... RCFD's operations at the sout...ignificant source of the contamination at the Site\n<|id|>122<|page|>11<|box|>683 140 699 321<|content|>Respectfully submitted,\n<|id|>123<|page|>11<|box|>700 140 715 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>124<|page|>11<|box|>718 142 734 253<|content|>By: ... By\n<|id|>125<|page|>11<|box|>734 140 767 854<|content|>Cynthia Ho Associate, Real Estate Practice 1200 Mc...Houston, Texas 77010 Telephone: ... (713) 554-8200\n<|id|>126<|page|>11<|box|>768 140 784 428<|content|>Email: ... com\n<|id|>127<|page|>11<|box|>785 140 801 473<|content|>On behalf of Dunmore Energy Holdings Ltd. ... On behalf of Dunmore Energy Holdings Ltd\n<|id|>128<|page|>11<|box|>801 140 856 854<|content|>cc: ... , Principal-in-Charge, Pinehill Environmental Consulting LLC\n<|id|>129<|page|>11<|box|>864 140 882 501<|content|>Enclosures (11) — as listed in Section 10 above",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>26<|tgt_id|>27\n<|src_id|>37<|tgt_id|>38\n<|src_id|>98<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        }
+    ]
+}

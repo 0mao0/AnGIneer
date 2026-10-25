@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        16,
+        17,
+        19,
+        20,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 292 157 702<|content|>CALDERWOOD & HARKNESS LLP CONFIDENTIAL — ATTORNEY\n<|id|>5<|type|>title<|page|>1<|box|>290 336 309 661<|content|>I. PURPOSE AND OVERVIEW\n<|id|>10<|type|>title<|page|>2<|box|>90 290 109 707<|content|>II. DEFENSE-BY-DEFENSE ANALYSIS\n<|id|>11<|type|>title<|page|>2<|box|>136 140 152 578<|content|>A. First Affirmative Defense — Failure to State a\n<|id|>17<|type|>title<|page|>2<|box|>763 140 782 578<|content|>B. Second Affirmative Defense — Statute of Limitat\n<|id|>32<|type|>title<|page|>4<|box|>383 140 402 571<|content|>C. Third Affirmative Defense — Compliance with Law\n<|id|>48<|type|>title<|page|>6<|box|>494 140 511 500<|content|>D. Fourth Affirmative Defense — Good Faith\n<|id|>61<|type|>title<|page|>8<|box|>90 140 107 532<|content|>E. Fifth Affirmative Defense — Waiver / Estoppel\n<|id|>73<|type|>title<|page|>9<|box|>556 140 574 578<|content|>F. Sixth Affirmative Defense — Offset and Recoupme\n<|id|>82<|type|>title<|page|>10<|box|>508 140 525 509<|content|>G. Seventh Affirmative Defense — De Minimis\n<|id|>91<|type|>title<|page|>11<|box|>698 140 715 596<|content|>H. Eighth Affirmative Defense — Lack of Standing (\n<|id|>98<|type|>title<|page|>12<|box|>710 140 728 565<|content|>I. Ninth Affirmative Defense — No Class Certificat\n<|id|>110<|type|>title<|page|>14<|box|>366 140 383 558<|content|>J. Tenth Affirmative Defense — Individual Variatio\n<|id|>131<|type|>title<|page|>16<|box|>366 140 383 576<|content|>K. Eleventh Affirmative Defense — No PAGA Standing\n<|id|>141<|type|>title<|page|>17<|box|>402 140 419 612<|content|>L. Twelfth Affirmative Defense — PAGA Penalty Redu\n<|id|>145<|type|>title<|page|>17<|box|>689 140 707 799<|content|>Evidentiary Basis. The factual record supporting a\n<|id|>154<|type|>title<|page|>19<|box|>148 140 167 611<|content|>M. Thirteenth Affirmative Defense — Reservation of\n<|id|>162<|type|>title<|page|>19<|box|>741 210 760 785<|content|>III. STRATEGIC OVERVIEW AND PRIORITIZATION\n<|id|>164<|type|>title<|page|>20<|box|>90 140 107 580<|content|>A. Tier 1 — Primary Defenses (Highest Strategic Va\n<|id|>170<|type|>title<|page|>20<|box|>718 142 734 490<|content|>B. Tier 2 — Significant Supporting Defenses\n<|id|>176<|type|>title<|page|>21<|box|>366 140 383 620<|content|>C. Tier 3 — Preservation Defenses (Lower Standalon\n<|id|>183<|type|>title<|page|>21<|box|>713 150 732 846<|content|>IV. RECOMMENDATIONS FOR EVIDENTIARY DEVELOPMENT\n<|id|>185<|type|>table<|page|>21<|box|>829 143 895 852<|content|>None\n<|id|>186<|type|>table<|page|>22<|box|>89 143 909 852<|content|>None\n<|id|>187<|type|>table<|page|>23<|box|>89 143 262 852<|content|>None\n<|id|>189<|type|>title<|page|>23<|box|>359 403 378 594<|content|>V. CONCLUSION",
+    "raw_response": "<|src_id|>185<|tgt_id|>183\n<|src_id|>186<|tgt_id|>183\n<|src_id|>187<|tgt_id|>183",
+    "parsed": [
+        {
+            "src_id": 185,
+            "tgt_id": 183
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 183
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 183
+        }
+    ]
+}

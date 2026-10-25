@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|type|>title<|page|>1<|box|>114 282 133 715<|content|>450 Park Avenue, 30th Floor New York, New York 100\n<|id|>10<|type|>title<|page|>1<|box|>511 142 527 333<|content|>1. Scope of Engagement\n<|id|>23<|type|>title<|page|>2<|box|>724 140 744 313<|content|>2. Engagement Team\n<|id|>30<|type|>title<|page|>3<|box|>465 140 482 439<|content|>3. Billing Rates and Fee Arrangement\n<|id|>32<|type|>table<|page|>3<|box|>551 143 664 852<|content|>None\n<|id|>37<|type|>title<|page|>4<|box|>231 140 247 235<|content|>4. Retainer\n<|id|>42<|type|>title<|page|>4<|box|>648 140 667 362<|content|>5. Costs and Disbursements\n<|id|>54<|type|>title<|page|>5<|box|>381 140 398 514<|content|>6. Confidentiality and Attorney-Client Privilege\n<|id|>59<|type|>title<|page|>5<|box|>819 140 835 321<|content|>7. Conflicts of Interest\n<|id|>62<|type|>title<|page|>6<|box|>321 140 339 370<|content|>8. No Guarantee of Outcome\n<|id|>65<|type|>title<|page|>6<|box|>598 140 614 408<|content|>9. Communication and Reporting\n<|id|>72<|type|>title<|page|>7<|box|>267 142 284 450<|content|>10. Document Preservation Obligations\n<|id|>77<|type|>title<|page|>7<|box|>704 142 722 393<|content|>11. Termination of Engagement\n<|id|>83<|type|>title<|page|>8<|box|>402 142 420 480<|content|>12. Governing Law and Dispute Resolution\n<|id|>86<|type|>title<|page|>8<|box|>696 142 714 428<|content|>13. Entire Agreement; Amendments\n<|id|>93<|type|>title<|page|>9<|box|>358 212 375 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>98<|type|>title<|page|>9<|box|>484 313 502 684<|content|>ACKNOWLEDGMENT AND ACCEPTANCE",
+    "raw_response": "<|src_id|>32<|tgt_id|>30",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        }
+    ]
+}

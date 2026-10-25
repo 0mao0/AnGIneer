@@ -1,0 +1,200 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xlmrlj8i\\input\\pdfs\\doc-81ae949e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xlmrlj8i\\enriched\\doc-81ae949e.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>18<|level|>2\n<|id|>20<|level|>3\n<|id|>25<|level|>3\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>37<|level|>3\n<|id|>41<|level|>3\n<|id|>45<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>3\n<|id|>65<|level|>3\n<|id|>73<|level|>3\n<|id|>80<|level|>3\n<|id|>87<|level|>3\n<|id|>95<|level|>3\n<|id|>102<|level|>2\n<|id|>106<|level|>2\n<|id|>109<|level|>3\n<|id|>112<|level|>3\n<|id|>114<|level|>3\n<|id|>117<|level|>2\n<|id|>122<|level|>2\n<|id|>126<|level|>2\n<|id|>131<|level|>2\n<|id|>145<|level|>2",
+    "image_output": "<|src_id|>24<|tgt_id|>20\n<|src_id|>28<|tgt_id|>25\n<|src_id|>104<|tgt_id|>102\n<|src_id|>108<|tgt_id|>106\n<|src_id|>110<|tgt_id|>109\n<|src_id|>111<|tgt_id|>109\n<|src_id|>113<|tgt_id|>112\n<|src_id|>115<|tgt_id|>114\n<|src_id|>116<|tgt_id|>114\n<|src_id|>146<|tgt_id|>145\n<|src_id|>147<|tgt_id|>145",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 24,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 145
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 110,
+            "table2_idx": 111,
+            "upper_row_ss": [
+                [
+                    "Name",
+                    "Title / Capacity",
+                    "Signature"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Marcus Delvecchio",
+                    "President and Director",
+                    "/s/ Marcus Delvecchio"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 146,
+            "table2_idx": 147,
+            "upper_row_ss": [
+                [
+                    "Exhibit E-1",
+                    "Articles of Organization — Palmetto Beachfront Hotels LLC"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Exhibit E-2",
+                    "Operating Agreement — Palmetto Beachfront Hotels LLC"
+                ]
+            ]
+        }
+    ]
+}

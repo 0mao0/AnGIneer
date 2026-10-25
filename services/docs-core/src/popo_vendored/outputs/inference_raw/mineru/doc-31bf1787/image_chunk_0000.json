@@ -1,0 +1,54 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        16,
+        17,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>135 151 171 844<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>10<|type|>title<|page|>1<|box|>433 321 452 674<|content|>I. Purpose and Executive Summary\n<|id|>17<|type|>title<|page|>2<|box|>689 370 709 625<|content|>II. Transaction Overview\n<|id|>18<|type|>title<|page|>2<|box|>734 142 751 259<|content|>A. The Parties\n<|id|>19<|type|>title<|page|>2<|box|>763 140 782 326<|content|>Skybridge Fintech Ltd.\n<|id|>24<|type|>title<|page|>3<|box|>564 140 582 380<|content|>Meridian National Bank, N.A.\n<|id|>29<|type|>title<|page|>4<|box|>340 140 357 334<|content|>B. Agreement Structure\n<|id|>39<|type|>title<|page|>5<|box|>465 140 483 401<|content|>C. Commercial Terms Summary\n<|id|>44<|type|>table<|page|>5<|box|>765 143 869 852<|content|>None\n<|id|>45<|type|>table<|page|>6<|box|>132 143 263 852<|content|>None\n<|id|>51<|type|>title<|page|>6<|box|>734 140 753 429<|content|>D. Term, Renewal, and Termination\n<|id|>57<|type|>title<|page|>7<|box|>556 140 574 408<|content|>E. Key Third-Party Relationships\n<|id|>64<|type|>title<|page|>8<|box|>594 140 609 344<|content|>F. Regulatory Landscape\n<|id|>71<|type|>title<|page|>9<|box|>739 140 757 423<|content|>G. Representations and Warranties\n<|id|>76<|type|>title<|page|>10<|box|>366 140 383 362<|content|>H. Insurance Requirements\n<|id|>77<|type|>table<|page|>10<|box|>434 143 549 852<|content|>None\n<|id|>80<|type|>title<|page|>10<|box|>801 241 821 754<|content|>III. Summary of Eight Key Open Negotiation Issues\n<|id|>92<|type|>title<|page|>11<|box|>729 163 750 833<|content|>IV. Detailed Analysis and Negotiation Strategy for\n<|id|>93<|type|>title<|page|>11<|box|>773 142 790 385<|content|>Issue 1: SLA Uptime Standard\n<|id|>103<|type|>title<|page|>13<|box|>421 140 439 339<|content|>Issue 2: SLA Credit Cap\n<|id|>114<|type|>title<|page|>14<|box|>590 140 609 473<|content|>Issue 3: Data Breach Indemnification Cap\n<|id|>125<|type|>title<|page|>16<|box|>277 140 295 647<|content|>Issue 4: Consequential Damages Carve-Out for Regul\n<|id|>134<|type|>title<|page|>17<|box|>732 140 750 509<|content|>Issue 5: Security Incident Notification Window\n<|id|>141<|type|>title<|page|>19<|box|>90 140 107 413<|content|>Issue 6: Penetration Testing Scope\n<|id|>148<|type|>title<|page|>20<|box|>267 140 284 527<|content|>Issue 7: Confidentiality/Data Security Super-Cap\n<|id|>158<|type|>title<|page|>21<|box|>648 142 665 539<|content|>Issue 8: Additional Insured Status on Cyber Policy\n<|id|>167<|type|>title<|page|>22<|box|>829 218 849 777<|content|>V. Indemnification and Liability Architecture Summ\n<|id|>169<|type|>title<|page|>23<|box|>204 142 222 428<|content|>Mutual Indemnification Obligations\n<|id|>173<|type|>title<|page|>23<|box|>506 142 523 354<|content|>Liability Cap Architecture\n<|id|>174<|type|>table<|page|>23<|box|>556 143 887 852<|content|>None\n<|id|>181<|type|>title<|page|>24<|box|>734 140 750 334<|content|>Consequential Damages\n<|id|>187<|type|>title<|page|>25<|box|>148 140 167 434<|content|>Interrelationship of Issues 3, 4, and 7\n<|id|>189<|type|>title<|page|>25<|box|>367 320 387 676<|content|>VI. Pinnacle Ridge Consent Process\n<|id|>198<|type|>title<|page|>26<|box|>401 212 421 784<|content|>VII. Recommended Negotiation Timeline and Sequenci\n<|id|>209<|type|>title<|page|>27<|box|>613 339 633 656<|content|>VIII. Recommended Next Steps",
+    "raw_response": "<|src_id|>44<|tgt_id|>39\n<|src_id|>45<|tgt_id|>39\n<|src_id|>77<|tgt_id|>76\n<|src_id|>174<|tgt_id|>173",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 173
+        }
+    ]
+}

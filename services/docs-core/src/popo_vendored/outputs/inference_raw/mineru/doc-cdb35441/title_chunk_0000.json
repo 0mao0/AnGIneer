@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 176 125 820<|content|>SIDE LETTER RE: POST-CLOSING DELIVERY OF SUBORDINA\n<|id|>9<|page|>1<|box|>537 140 554 243<|content|>RECITALS\n<|id|>19<|page|>2<|box|>714 140 732 637<|content|>SECTION 1: IDENTIFICATION OF OUTSTANDING SNDAs\n<|id|>27<|page|>3<|box|>564 140 580 612<|content|>SECTION 2: POST-CLOSING DELIVERY OBLIGATION\n<|id|>33<|page|>4<|box|>676 140 694 596<|content|>SECTION 3: HOLDBACK FROM SELLER PROCEEDS\n<|id|>37<|page|>5<|box|>376 140 393 477<|content|>SECTION 4: RELEASE OF HOLDBACK\n<|id|>38<|page|>5<|box|>407 140 425 418<|content|>4.1 Release to Seller Upon Delivery\n<|id|>42<|page|>6<|box|>90 140 107 349<|content|>4.2 Extended Cure Period\n<|id|>46<|page|>6<|box|>470 140 488 413<|content|>4.3 Release to Buyer Upon Failure\n<|id|>50<|page|>7<|box|>332 140 349 519<|content|>SECTION 5: ESCROW AGENT PROVISIONS\n<|id|>57<|page|>8<|box|>339 140 357 460<|content|>SECTION 6: RELATIONSHIP TO PSA\n<|id|>65<|page|>9<|box|>193 140 210 334<|content|>SECTION 7: NOTICES\n<|id|>84<|page|>10<|box|>215 140 233 527<|content|>SECTION 8: MISCELLANEOUS PROVISIONS\n<|id|>85<|page|>10<|box|>247 140 263 297<|content|>8.1 Governing Law\n<|id|>88<|page|>10<|box|>643 140 661 315<|content|>8.3 Entire Agreement\n<|id|>91<|page|>11<|box|>90 142 107 287<|content|>8.5 Binding Effect\n<|id|>94<|page|>11<|box|>359 140 375 328<|content|>8.7 Further Assurances\n<|id|>96<|page|>11<|box|>445 230 462 766<|content|>[Remainder of this page intentionally left blank.\n<|id|>98<|page|>11<|box|>513 142 530 217<|content|>BUYER:\n<|id|>99<|page|>11<|box|>540 142 571 854<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST, a Maryland\n<|id|>106<|page|>11<|box|>797 142 813 687<|content|>COMMONWEALTH NATIONAL TITLE INSURANCE COMPANY\n<|id|>108<|page|>11<|box|>883 449 898 549<|content|>EXHIBIT A\n<|id|>109<|page|>12<|box|>89 331 106 666<|content|>SCHEDULE OF OUTSTANDING SNDAs\n<|id|>111<|page|>12<|box|>771 142 789 601<|content|>Aggregate ABR of Outstanding SNDA Tenants: $9,890,\n<|id|>112<|page|>12<|box|>797 143 813 197<|content|>Notes:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>19<|level|>2\n<|id|>27<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>38<|level|>3\n<|id|>42<|level|>3\n<|id|>46<|level|>3\n<|id|>50<|level|>2\n<|id|>57<|level|>2\n<|id|>65<|level|>2\n<|id|>84<|level|>2\n<|id|>85<|level|>3\n<|id|>88<|level|>3\n<|id|>91<|level|>3\n<|id|>94<|level|>3\n<|id|>96<|level|>-1\n<|id|>98<|level|>-1\n<|id|>99<|level|>-1\n<|id|>106<|level|>-1\n<|id|>108<|level|>-1\n<|id|>109<|level|>2\n<|id|>111<|level|>-1\n<|id|>112<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 3
+        }
+    ]
+}

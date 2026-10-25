@@ -1,0 +1,54 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>2<|type|>title<|page|>1<|box|>174 415 191 583<|content|>ORIGINAL FILING\n<|id|>9<|type|>title<|page|>1<|box|>443 143 459 437<|content|>Box A — DEBTOR INFORMATION\n<|id|>10<|type|>title<|page|>1<|box|>474 143 491 493<|content|>1. DEBTOR'S NAME (Organization Debtor)\n<|id|>11<|type|>table<|page|>1<|box|>494 143 619 852<|content|>None\n<|id|>13<|type|>title<|page|>1<|box|>776 143 792 442<|content|>1b. DEBTOR'S MAILING ADDRESS\n<|id|>14<|type|>table<|page|>1<|box|>797 143 893 852<|content|>None\n<|id|>15<|type|>table<|page|>2<|box|>88 143 109 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>200 142 219 514<|content|>Box B — SECURED PARTY INFORMATION\n<|id|>18<|type|>table<|page|>2<|box|>253 143 292 852<|content|>None\n<|id|>21<|type|>title<|page|>2<|box|>566 142 583 519<|content|>2b. SECURED PARTY'S MAILING ADDRESS\n<|id|>22<|type|>table<|page|>2<|box|>588 143 702 852<|content|>None\n<|id|>23<|type|>title<|page|>2<|box|>750 142 767 419<|content|>Box 3 — ADDITIONAL PARTIES\n<|id|>27<|type|>title<|page|>3<|box|>90 140 107 475<|content|>Box 4 — COLLATERAL DESCRIPTION\n<|id|>59<|type|>table<|page|>5<|box|>270 143 422 852<|content|>None\n<|id|>61<|type|>table<|page|>5<|box|>648 143 777 852<|content|>None\n<|id|>63<|type|>title<|page|>6<|box|>89 200 109 795<|content|>FILING INSTRUCTIONS AND COVER LETTER NOTES\n<|id|>65<|type|>title<|page|>6<|box|>188 142 205 267<|content|>I. Filing Details\n<|id|>66<|type|>title<|page|>6<|box|>214 142 232 251<|content|>Filing Office:\n<|id|>72<|type|>title<|page|>6<|box|>516 142 534 374<|content|>Return Acknowledgment To:\n<|id|>77<|type|>title<|page|>6<|box|>648 142 667 344<|content|>II. Timing and Reporting\n<|id|>85<|type|>title<|page|>7<|box|>238 140 253 457<|content|>III. Related Filings for This Transaction\n<|id|>87<|type|>table<|page|>7<|box|>405 143 595 852<|content|>None\n<|id|>90<|type|>title<|page|>8<|box|>90 140 107 470<|content|>IV. Context — Debtor Entity Information\n<|id|>91<|type|>title<|page|>8<|box|>116 142 133 284<|content|>Entity Summary:\n<|id|>93<|type|>title<|page|>8<|box|>314 142 332 334<|content|>Role in the Transaction:\n<|id|>95<|type|>title<|page|>8<|box|>458 142 476 383<|content|>Applicable Filing Jurisdiction:\n<|id|>97<|type|>title<|page|>8<|box|>652 140 669 341<|content|>V. Verification Checklist\n<|id|>108<|type|>title<|page|>9<|box|>678 168 694 826<|content|>— END OF UCC-1 FINANCING STATEMENT AND FILING INST\n<|id|>109<|type|>title<|page|>9<|box|>704 156 739 841<|content|>Ridgepoint Specialty Coatings, LLC (Debtor) Cresce",
+    "raw_response": "<|src_id|>11<|tgt_id|>10\n<|src_id|>14<|tgt_id|>13\n<|src_id|>15<|tgt_id|>13\n<|src_id|>18<|tgt_id|>17\n<|src_id|>22<|tgt_id|>21\n<|src_id|>59<|tgt_id|>27\n<|src_id|>61<|tgt_id|>27\n<|src_id|>87<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 85
+        }
+    ]
+}

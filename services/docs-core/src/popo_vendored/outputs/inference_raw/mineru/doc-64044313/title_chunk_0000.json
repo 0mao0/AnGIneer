@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>113 171 180 823<|content|>UNANIMOUS WRITTEN CONSENT OF THE BOARD OF DIRECTOR\n<|id|>3<|page|>1<|box|>465 140 483 243<|content|>RECITALS\n<|id|>33<|page|>4<|box|>542 140 559 279<|content|>RESOLUTIONS\n<|id|>34<|page|>4<|box|>568 140 585 563<|content|>NOW, THEREFORE, BE IT RESOLVED, as follows:\n<|id|>35<|page|>4<|box|>599 142 617 562<|content|>Resolution 1 — Approval of the Guaranty Agreement\n<|id|>37<|page|>5<|box|>90 140 107 687<|content|>Resolution 2 — Approval of the Environmental Indem\n<|id|>39<|page|>5<|box|>273 140 290 550<|content|>Resolution 3 — Approval of Other Loan Documents\n<|id|>41<|page|>5<|box|>510 140 527 563<|content|>Resolution 4 — Designation of Authorized Signatori\n<|id|>46<|page|>5<|box|>806 142 824 537<|content|>Resolution 5 — Authorization of Ancillary Actions\n<|id|>54<|page|>6<|box|>643 140 659 467<|content|>Resolution 6 — Ratification of Prior Acts\n<|id|>61<|page|>7<|box|>202 140 219 480<|content|>Resolution 7 — Effectiveness and Duration\n<|id|>63<|page|>7<|box|>412 140 429 354<|content|>GENERAL PROVISIONS\n<|id|>87<|page|>8<|box|>625 367 642 630<|content|>SECRETARY'S CERTIFICATE\n<|id|>100<|page|>10<|box|>89 447 107 552<|content|>EXHIBIT A\n<|id|>101<|page|>10<|box|>114 148 151 848<|content|>LIST OF LOAN DOCUMENTS TO WHICH THE COMPANY IS OR",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>35<|level|>4\n<|id|>37<|level|>4\n<|id|>39<|level|>4\n<|id|>41<|level|>4\n<|id|>46<|level|>4\n<|id|>54<|level|>4\n<|id|>61<|level|>4\n<|id|>63<|level|>2\n<|id|>87<|level|>2\n<|id|>100<|level|>2\n<|id|>101<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 4
+        },
+        {
+            "id": 37,
+            "level": 4
+        },
+        {
+            "id": 39,
+            "level": 4
+        },
+        {
+            "id": 41,
+            "level": 4
+        },
+        {
+            "id": 46,
+            "level": 4
+        },
+        {
+            "id": 54,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        }
+    ]
+}

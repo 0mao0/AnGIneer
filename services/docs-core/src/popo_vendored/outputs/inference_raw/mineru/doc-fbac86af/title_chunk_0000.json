@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>411 140 428 364<|content|>I. Introduction and Purpose\n<|id|>19<|page|>2<|box|>267 140 284 419<|content|>II. Proposed Document Custodians\n<|id|>32<|page|>3<|box|>773 140 790 346<|content|>III. Proposed Date Range\n<|id|>39<|page|>4<|box|>612 140 628 501<|content|>IV. Proposed Search Terms and Methodology\n<|id|>40<|page|>4<|box|>643 140 659 374<|content|>A. Electronic Data Collection\n<|id|>48<|page|>5<|box|>404 140 422 354<|content|>B. Keyword Search Terms\n<|id|>67<|page|>6<|box|>492 140 508 406<|content|>C. Privilege Review Methodology\n<|id|>77<|page|>7<|box|>544 140 561 397<|content|>V. Proposed Production Format\n<|id|>78<|page|>7<|box|>575 140 592 313<|content|>A. Document Format\n<|id|>87<|page|>9<|box|>90 142 106 310<|content|>B. Production Media\n<|id|>92<|page|>10<|box|>90 140 107 594<|content|>VI. Proposed Production Schedule — Rolling Product\n<|id|>95<|page|>10<|box|>258 142 276 513<|content|>Production 1 — On or about November 1, 2023\n<|id|>97<|page|>10<|box|>402 140 419 519<|content|>Production 2 — On or about December 15, 2023\n<|id|>99<|page|>10<|box|>546 140 563 496<|content|>Production 3 — On or about January 8, 2024\n<|id|>101<|page|>10<|box|>689 142 707 506<|content|>Production 4 — On or about February 1, 2024\n<|id|>103<|page|>10<|box|>851 142 868 514<|content|>Production 5 — On or about February 15, 2024\n<|id|>105<|page|>11<|box|>189 142 205 485<|content|>Production 6 — On or about March 1, 2024\n<|id|>109<|page|>11<|box|>508 140 527 655<|content|>VII. Request for Confidential Treatment of Proprie\n<|id|>110<|page|>11<|box|>540 142 558 419<|content|>A. Nature of Proprietary Materials\n<|id|>122<|page|>12<|box|>368 142 385 473<|content|>B. Legal Basis for Confidential Treatment\n<|id|>128<|page|>13<|box|>90 142 107 299<|content|>C. Specific Request\n<|id|>134<|page|>13<|box|>642 142 659 357<|content|>VIII. Privilege Log Format\n<|id|>140<|page|>14<|box|>457 142 474 397<|content|>IX. Bank-Examination Privilege\n<|id|>145<|page|>15<|box|>186 140 204 459<|content|>X. Cooperation and Further Discussions\n<|id|>153<|page|>15<|box|>574 140 590 344<|content|>XI. Reservation of Rights\n<|id|>162<|page|>16<|box|>234 408 250 586<|content|>Respectfully submitted,\n<|id|>163<|page|>16<|box|>258 140 275 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>1\n<|id|>19<|level|>1\n<|id|>32<|level|>1\n<|id|>39<|level|>1\n<|id|>40<|level|>2\n<|id|>48<|level|>2\n<|id|>67<|level|>2\n<|id|>77<|level|>1\n<|id|>78<|level|>2\n<|id|>87<|level|>2\n<|id|>92<|level|>1\n<|id|>95<|level|>2\n<|id|>97<|level|>2\n<|id|>99<|level|>2\n<|id|>101<|level|>2\n<|id|>103<|level|>2\n<|id|>105<|level|>2\n<|id|>109<|level|>1\n<|id|>110<|level|>2\n<|id|>122<|level|>2\n<|id|>128<|level|>2\n<|id|>134<|level|>1\n<|id|>140<|level|>1\n<|id|>145<|level|>1\n<|id|>153<|level|>1\n<|id|>162<|level|>-1\n<|id|>163<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 1
+        }
+    ]
+}

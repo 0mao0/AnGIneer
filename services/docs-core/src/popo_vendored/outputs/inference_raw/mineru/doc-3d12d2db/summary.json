@@ -1,0 +1,179 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ww60zw7l\\input\\pdfs\\doc-3d12d2db.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ww60zw7l\\enriched\\doc-3d12d2db.json",
+    "contd_output": "<|src_id|>109<|tgt_id|>110",
+    "title_output": "<|id|>1<|level|>1\n<|id|>6<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>3\n<|id|>36<|level|>4\n<|id|>38<|level|>4\n<|id|>49<|level|>3\n<|id|>52<|level|>4\n<|id|>54<|level|>4\n<|id|>63<|level|>3\n<|id|>66<|level|>4\n<|id|>68<|level|>4\n<|id|>83<|level|>3\n<|id|>86<|level|>4\n<|id|>88<|level|>4\n<|id|>102<|level|>2\n<|id|>104<|level|>3\n<|id|>122<|level|>3\n<|id|>156<|level|>3\n<|id|>178<|level|>3\n<|id|>184<|level|>3\n<|id|>199<|level|>3\n<|id|>204<|level|>2\n<|id|>208<|level|>2\n<|id|>211<|level|>2\n<|id|>217<|level|>3\n<|id|>237<|level|>2\n<|id|>246<|level|>2\n<|id|>251<|level|>2",
+    "image_output": "<|src_id|>205<|tgt_id|>204\n<|src_id|>206<|tgt_id|>204\n<|src_id|>209<|tgt_id|>208\n<|src_id|>240<|tgt_id|>237\n<|src_id|>248<|tgt_id|>246\n<|src_id|>249<|tgt_id|>246",
+    "contd_label": [
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 4
+        },
+        {
+            "id": 38,
+            "level": 4
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 4
+        },
+        {
+            "id": 54,
+            "level": 4
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 68,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 4
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 3
+        },
+        {
+            "id": 237,
+            "level": 2
+        },
+        {
+            "id": 246,
+            "level": 2
+        },
+        {
+            "id": 251,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 205,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 240,
+            "tgt_id": 237
+        },
+        {
+            "src_id": 248,
+            "tgt_id": 246
+        },
+        {
+            "src_id": 249,
+            "tgt_id": 246
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 205,
+            "table2_idx": 206,
+            "upper_row_ss": [
+                [
+                    "Derek Huang",
+                    "SVP — Capital Markets & Treasury, VHG",
+                    "Day-to-day deal management, term sheet",
+                    "Nakamura, Dominguez"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "and commitment letter negotiations, coordination of due diligence deliverables from VHG's side",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

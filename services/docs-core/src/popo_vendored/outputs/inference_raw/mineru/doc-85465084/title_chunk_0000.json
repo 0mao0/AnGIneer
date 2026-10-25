@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        16,
+        17,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 194 125 802<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>8<|page|>1<|box|>426 142 444 339<|content|>I. Purpose and Overview\n<|id|>12<|page|>1<|box|>857 142 875 303<|content|>II. Call Participants\n<|id|>14<|page|>2<|box|>89 140 107 527<|content|>Calderwood & Harkness LLP (Counsel to VMS):\n<|id|>31<|page|>2<|box|>604 140 621 375<|content|>III. Background and Context\n<|id|>33<|page|>2<|box|>679 142 696 403<|content|>A. The Commercial Relationship\n<|id|>37<|page|>3<|box|>239 140 255 321<|content|>B. Commercial Terms\n<|id|>43<|page|>3<|box|>542 140 559 364<|content|>C. DPA Negotiation History\n<|id|>50<|page|>4<|box|>90 140 108 447<|content|>D. Applicable Regulatory Frameworks\n<|id|>56<|page|>4<|box|>459 140 476 366<|content|>IV. Resolved Issues (7 of 11)\n<|id|>58<|page|>4<|box|>570 140 587 661<|content|>A. Issue 1: Definition of \"Personal Data\" / \"Perso\n<|id|>67<|page|>6<|box|>90 140 107 633<|content|>B. Issue 2: Purpose Limitation / Permitted Process\n<|id|>71<|page|>6<|box|>631 142 648 566<|content|>Resolution: The parties reached the following agre\n<|id|>77<|page|>7<|box|>356 140 375 545<|content|>C. Issue 3: Data Minimization and Collection Scope\n<|id|>83<|page|>8<|box|>304 140 321 473<|content|>D. Issue 4: Data Subject Rights Assistance\n<|id|>91<|page|>9<|box|>411 140 428 622<|content|>E. Issue 5: Return and Destruction of Data upon Te\n<|id|>100<|page|>10<|box|>617 140 633 598<|content|>F. Issue 6: Confidentiality Obligations and Non-Di\n<|id|>108<|page|>11<|box|>652 140 670 539<|content|>G. Issue 7: Governing Law and Dispute Resolution\n<|id|>119<|page|>13<|box|>167 140 184 377<|content|>V. Unresolved Issues (4 of 11)\n<|id|>121<|page|>13<|box|>297 140 314 408<|content|>A. Issue 8: Data Retention Period\n<|id|>128<|page|>14<|box|>502 140 520 477<|content|>B. Issue 9: Sub-Processor Approval Rights\n<|id|>139<|page|>16<|box|>213 140 229 467<|content|>C. Issue 10: Breach Notification Timeline\n<|id|>151<|page|>17<|box|>752 140 770 720<|content|>D. Issue 11: Liability Cap for Data Breaches and U\n<|id|>165<|page|>19<|box|>416 140 433 259<|content|>VI. Next Steps\n<|id|>174<|page|>20<|box|>611 140 628 455<|content|>VII. Attachments and Cross-References\n<|id|>181<|page|>21<|box|>353 140 369 287<|content|>VIII. Distribution\n<|id|>183<|page|>21<|box|>566 143 580 333<|content|>Matter File: 1007-00007\n<|id|>185<|page|>21<|box|>659 143 675 241<|content|>Prepared by:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>-1\n<|id|>31<|level|>1\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>43<|level|>2\n<|id|>50<|level|>2\n<|id|>56<|level|>1\n<|id|>58<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>-1\n<|id|>77<|level|>2\n<|id|>83<|level|>2\n<|id|>91<|level|>2\n<|id|>100<|level|>2\n<|id|>108<|level|>2\n<|id|>119<|level|>1\n<|id|>121<|level|>2\n<|id|>128<|level|>2\n<|id|>139<|level|>2\n<|id|>151<|level|>2\n<|id|>165<|level|>1\n<|id|>174<|level|>1\n<|id|>181<|level|>1\n<|id|>183<|level|>-1\n<|id|>185<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 181,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 246 118 750<|content|>WRITTEN CONSENT OF THE SOLE MEMBER\n<|id|>2<|page|>1<|box|>175 331 195 665<|content|>DRIFTWOOD CLO 2023-I, LLC\n<|id|>10<|page|>1<|box|>647 140 664 241<|content|>RECITALS\n<|id|>20<|page|>2<|box|>782 140 800 643<|content|>SECTION 1: APPROVAL OF TRANSACTION DOCUMENTS\n<|id|>30<|page|>3<|box|>813 142 829 359<|content|>1.2 Co-Issuance Agreement\n<|id|>32<|page|>4<|box|>195 142 212 377<|content|>1.3 Note Purchase Agreement\n<|id|>34<|page|>4<|box|>431 142 449 411<|content|>1.4 Other Transaction Documents\n<|id|>44<|page|>5<|box|>148 140 166 673<|content|>SECTION 2: AUTHORIZATION OF ISSUANCE OF THE NOTES\n<|id|>49<|page|>5<|box|>736 140 753 808<|content|>SECTION 3: DESIGNATION OF AUTHORIZED OFFICERS AND\n<|id|>56<|page|>6<|box|>428 140 445 614<|content|>SECTION 4: AUTHORIZATION OF CLOSING ACTIONS\n<|id|>65<|page|>7<|box|>329 140 345 568<|content|>SECTION 5: RATIFICATION OF PRIOR ACTIONS\n<|id|>67<|page|>7<|box|>579 140 595 457<|content|>SECTION 6: GENERAL AUTHORITY\n<|id|>73<|page|>8<|box|>258 184 294 808<|content|>SIGNATURE PAGE TO WRITTEN CONSENT OF THE SOLE MEMB",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>10<|level|>2\n<|id|>20<|level|>2\n<|id|>30<|level|>3\n<|id|>32<|level|>3\n<|id|>34<|level|>3\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>56<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2\n<|id|>73<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        }
+    ]
+}

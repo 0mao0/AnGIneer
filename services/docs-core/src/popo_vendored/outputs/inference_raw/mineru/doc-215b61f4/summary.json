@@ -1,0 +1,203 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qzi_7fuw\\input\\pdfs\\doc-215b61f4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qzi_7fuw\\enriched\\doc-215b61f4.json",
+    "contd_output": "<|src_id|>195<|tgt_id|>196",
+    "title_output": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>25<|level|>4\n<|id|>32<|level|>3\n<|id|>43<|level|>3\n<|id|>51<|level|>3\n<|id|>57<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>76<|level|>3\n<|id|>79<|level|>4\n<|id|>89<|level|>3\n<|id|>95<|level|>2\n<|id|>105<|level|>2\n<|id|>106<|level|>3\n<|id|>115<|level|>3\n<|id|>133<|level|>3\n<|id|>147<|level|>3\n<|id|>152<|level|>2\n<|id|>157<|level|>2\n<|id|>167<|level|>2\n<|id|>168<|level|>3\n<|id|>173<|level|>3\n<|id|>179<|level|>3\n<|id|>185<|level|>2\n<|id|>188<|level|>2\n<|id|>189<|level|>3\n<|id|>197<|level|>3\n<|id|>204<|level|>3\n<|id|>208<|level|>2\n<|id|>209<|level|>3\n<|id|>214<|level|>3\n<|id|>221<|level|>2",
+    "image_output": "<|src_id|>58<|tgt_id|>57\n<|src_id|>159<|tgt_id|>157\n<|src_id|>160<|tgt_id|>157\n<|src_id|>171<|tgt_id|>168\n<|src_id|>172<|tgt_id|>168\n<|src_id|>186<|tgt_id|>185",
+    "contd_label": [
+        {
+            "src_id": 195,
+            "tgt_id": 196
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 58,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 185
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 159,
+            "table2_idx": 160,
+            "upper_row_ss": [
+                [
+                    "Priya Anand",
+                    "Responsible Partner",
+                    "0087451",
+                    "$975/hour"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Douglas Carmichael",
+                    "Billing Partner",
+                    "0093217",
+                    "$925/hour"
+                ]
+            ]
+        }
+    ]
+}

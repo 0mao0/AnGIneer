@@ -1,0 +1,124 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>128 351 148 645<|content|>OFFICER'S CERTIFICATE\n<|id|>2<|page|>1<|box|>166 346 183 648<|content|>Greenfield Agricultural Partners LLC\n<|id|>3<|page|>1<|box|>191 161 209 834<|content|>$30,000,000 Aggregate Principal Amount of Senior U\n<|id|>10<|page|>1<|box|>753 140 771 655<|content|>SECTION I: BOARD RESOLUTIONS AND AUTHORIZATION\n<|id|>11<|page|>1<|box|>786 142 801 383<|content|>A. Certification of Resolutions\n<|id|>15<|page|>2<|box|>239 140 255 362<|content|>B. Substance of Resolutions\n<|id|>33<|page|>3<|box|>527 140 545 434<|content|>C. Ownership Authorization Context\n<|id|>36<|page|>4<|box|>89 140 106 550<|content|>SECTION II: ORGANIZATIONAL DOCUMENTS\n<|id|>37<|page|>4<|box|>121 140 138 380<|content|>A. Certificate of Organization\n<|id|>40<|page|>4<|box|>329 142 347 339<|content|>B. Operating Agreement\n<|id|>43<|page|>4<|box|>518 142 537 305<|content|>C. Registered Agent\n<|id|>45<|page|>4<|box|>619 140 637 419<|content|>SECTION III: GOOD STANDING\n<|id|>48<|page|>5<|box|>148 140 166 653<|content|>SECTION IV: INCUMBENCY AND SPECIMEN SIGNATURES\n<|id|>51<|page|>6<|box|>90 140 107 364<|content|>B. Signature Authentication\n<|id|>54<|page|>6<|box|>345 140 362 640<|content|>SECTION V: REPRESENTATIONS AND CONFIRMATIONS\n<|id|>55<|page|>6<|box|>376 140 393 346<|content|>A. No Conflict; Authority\n<|id|>60<|page|>7<|box|>176 140 193 576<|content|>B. Accuracy of Offering Memorandum Representations\n<|id|>63<|page|>7<|box|>513 140 529 256<|content|>C. No Default\n<|id|>65<|page|>7<|box|>648 140 666 468<|content|>SECTION VI: CLOSING; EXECUTION\n<|id|>67<|page|>7<|box|>720 140 736 540<|content|>GREENFIELD AGRICULTURAL PARTNERS LLC\n<|id|>86<|page|>8<|box|>390 142 407 236<|content|>EXHIBITS\n<|id|>87<|page|>9<|box|>89 142 106 248<|content|>EXHIBIT A.\n<|id|>88<|page|>9<|box|>114 189 131 807<|content|>Resolutions of the Board of Managers of Greenfield\n<|id|>115<|page|>13<|box|>89 140 106 248<|content|>EXHIBIT D.\n<|id|>116<|page|>13<|box|>114 383 131 614<|content|>Certificate of Good Standing",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>2\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>15<|level|>3\n<|id|>33<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>43<|level|>3\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>51<|level|>3\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>3\n<|id|>65<|level|>2\n<|id|>67<|level|>3\n<|id|>86<|level|>2\n<|id|>87<|level|>3\n<|id|>88<|level|>4\n<|id|>115<|level|>3\n<|id|>116<|level|>4",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 4
+        }
+    ]
+}

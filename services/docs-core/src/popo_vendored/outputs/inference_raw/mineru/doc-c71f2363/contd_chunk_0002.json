@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        99,
+        123
+    ],
+    "pages": [
+        100,
+        120,
+        122,
+        123
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>456<|page|>100<|box|>835 93 845 468<|content|>Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Ireland, Italy, Latvia,\n<|id|>457<|page|>100<|box|>825 93 838 506<|content|>^{2} As of May 2004, the European Union includes Austria, Belgium, Cyprus, the Czech Republic,\n<|id|>552<|page|>120<|box|>148 364 166 630<|content|>Source: ... Financial Management Service\n<|id|>553<|page|>120<|box|>186 81 262 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>561<|page|>120<|box|>842 81 904 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>562<|page|>120<|box|>186 504 262 915<|content|>Second Liberty Loan Act of 1917, the nature of the...l debt. ... the limit may change from year to year\n<|id|>594<|page|>122<|box|>439 81 484 491<|content|>Statutory debt limit (FD-6)—By Act of Congress the...ay be outstanding. ... When this limit is reached,\n<|id|>595<|page|>122<|box|>89 504 150 915<|content|>Treasury may not sell new debt issues until Congress increases or extends the limit. ... )\n<|id|>604<|page|>123<|box|>134 116 162 270<|content|>Order Processing Code 3264\n<|id|>605<|page|>123<|box|>134 286 160 426<|content|>Easy Secure Internet: ... gov\n<|id|>606<|page|>123<|box|>133 448 168 600<|content|>Toll Free: ... 202 512-2250\n<|id|>607<|page|>123<|box|>133 650 168 871<|content|>Mail: ... Superintendent of Documents PO Box 371954 Pittsburgh, PA 15250-7954",
+    "raw_response": "<|src_id|>561<|tgt_id|>562\n<|src_id|>594<|tgt_id|>595",
+    "parsed": [
+        {
+            "src_id": 561,
+            "tgt_id": 562
+        },
+        {
+            "src_id": 594,
+            "tgt_id": 595
+        }
+    ]
+}

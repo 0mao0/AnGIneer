@@ -1,0 +1,42 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>219 596 236 854<|content|>Date of Resolution: ... May 14, 2024\n<|id|>4<|page|>1<|box|>244 140 258 681<|content|>Calderwood & Harkness LLP 600 Lexington Avenue, 38th Floor New York, NY 10022\n<|id|>5<|page|>1<|box|>266 140 282 607<|content|>Originating Office: ... One North Wacker Drive, Suite 4200 Chicago, IL 60606\n<|id|>17<|page|>2<|box|>109 183 127 501<|content|>• Rule 1. ... and\n<|id|>19<|page|>2<|box|>148 140 277 854<|content|>Having reviewed all materials submitted in connect...unanimously by all voting members of the Committee\n<|id|>25<|page|>2<|box|>535 183 551 699<|content|>• Lucia Marchetti, Chief Information Security Officer (\"CISO\"); ... and\n<|id|>27<|page|>2<|box|>574 140 702 854<|content|>MTDC operates bus, commuter rail, and paratransit ...structure of the greater Chicago metropolitan area\n<|id|>30<|page|>2<|box|>819 140 893 856<|content|>1. ... The AG CID alleges potential violations of ...is Biometric Information Privacy Act (\"BIPA\"), 740\n<|id|>31<|page|>3<|box|>90 140 200 854<|content|>ILCS 14/1 et seq. ... The Illinois Attorney Genera...o assist the Bureau of Civil Rights in this matter\n<|id|>45<|page|>4<|box|>449 181 467 810<|content|>• Negligent violation floor: ... 12,400 class members × $1,000/violation = $12,400,000\n<|id|>47<|page|>4<|box|>507 140 636 856<|content|>This exposure estimate was prepared and validated ...sed in connection with the AG's enforcement action\n<|id|>46<|page|>4<|box|>469 183 503 854<|content|>• Intentional/reckless violation ceiling: ... 12,400 class members × $5,000/violation = $62,000,000\n<|id|>60<|page|>5<|box|>699 183 715 558<|content|>• Gregory Harmon, Chief Executive Officer; ... and\n<|id|>62<|page|>5<|box|>737 140 883 856<|content|>Pinnacle is a technology company that develops, li...e's annual revenues are approximately $485 million\n<|id|>78<|page|>7<|box|>260 181 311 854<|content|>• Patent-prosecution correspondence with the Unite...tion arguments, and inventor declarations; ... and\n<|id|>80<|page|>7<|box|>354 140 428 856<|content|>This information is subject to the Firm's duties o...data practices at issue in the Proposed Engagement\n<|id|>85<|page|>7<|box|>797 138 888 857<|content|>3. ... These cross-claims would seek to shift liab...olations alleged in the AG CID and Class Action to\n<|id|>86<|page|>8<|box|>90 140 126 854<|content|>Pinnacle as the developer, licensor, and deployer ...yer of the biometric workforce-management platform\n<|id|>101<|page|>9<|box|>805 174 897 857<|content|>Third, the legal positions required in each matter...his positional conflict would materially limit the\n<|id|>102<|page|>10<|box|>90 174 143 854<|content|>Firm's ability to advocate zealously for either cl...t would undermine the Firm's advocacy in the other\n<|id|>132<|page|>12<|box|>849 140 886 854<|content|>The Committee further notes that no fees were gene...s for Matter No. ... The conflicts review and this\n<|id|>133<|page|>13<|box|>90 140 127 854<|content|>Resolution are internal administrative matters of ...e been billed to any client. ... 1031-00001 are $0\n<|id|>138<|page|>13<|box|>377 174 412 854<|content|>2. ... and\n<|id|>145<|page|>13<|box|>816 140 853 854<|content|>Rachel Bernstein may identify additional qualified...f any known conflicts before making such referrals\n<|id|>143<|page|>13<|box|>777 181 795 843<|content|>• Aldridge, Paulson & Cho LLP (Victoria Aldridge, lead partner), Chicago, Illinois; ... and\n<|id|>166<|page|>16<|box|>141 140 157 645<|content|>CALDERWOOD & HARKNESS LLP CONFLICTS COMMITTEE\n<|id|>167<|page|>16<|box|>160 143 176 253<|content|>By: ... By\n<|id|>168<|page|>16<|box|>176 142 193 334<|content|>Name: ... Lawrence Keating\n<|id|>169<|page|>16<|box|>194 142 210 529<|content|>Title: ... Senior Partner and Chair, Conflicts Committee\n<|id|>170<|page|>16<|box|>210 142 227 294<|content|>Date: ... May 14, 2024\n<|id|>171<|page|>16<|box|>227 140 318 854<|content|>NOTICE: ... This Resolution shall not be disclosed...f the General Counsel of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>30<|tgt_id|>31\n<|src_id|>85<|tgt_id|>86\n<|src_id|>101<|tgt_id|>102\n<|src_id|>132<|tgt_id|>133",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        }
+    ]
+}

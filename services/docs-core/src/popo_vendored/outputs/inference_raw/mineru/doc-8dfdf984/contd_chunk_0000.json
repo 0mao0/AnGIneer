@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 133 848<|content|>Calderwood & Harkness LLP 600 Lexington Avenue, 38th Floor New York, New York 10022\n<|id|>2<|page|>1<|box|>142 738 159 854<|content|>August 8, 2022\n<|id|>3<|page|>1<|box|>167 140 185 442<|content|>VIA EMAIL (d. ... gr)\n<|id|>4<|page|>1<|box|>194 140 229 854<|content|>Ms. ... Dimitra Karavelis-Stavrou General Counsel ...ics SA 14 Poseidonos Avenue Piraeus 185 31, Greece\n<|id|>22<|page|>3<|box|>845 140 883 854<|content|>2. ... As with\n<|id|>23<|page|>4<|box|>90 140 127 854<|content|>Request 2. ... 4, this request includes any docume...ot made through or at the direction of Goldenshore\n<|id|>59<|page|>7<|box|>645 140 678 852<|content|>Victoria Chambers Partner, White Collar & Investig...bers@calderwoodharkness. ... com +1 (212) 555-0147\n<|id|>60<|page|>7<|box|>679 142 696 253<|content|>cc (via email): ... cc (via email)",
+    "raw_response": "<|src_id|>22<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ]
+}

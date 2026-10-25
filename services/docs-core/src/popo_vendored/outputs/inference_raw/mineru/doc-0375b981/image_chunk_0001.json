@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        55,
+        58
+    ],
+    "pages": [
+        55,
+        56,
+        57,
+        58
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>705<|type|>title<|page|>55<|box|>125 143 138 300<|content|>III. Title Insurance:\n<|id|>706<|type|>table<|page|>55<|box|>147 143 234 852<|content|>None\n<|id|>707<|type|>title<|page|>55<|box|>268 142 285 442<|content|>IV. Additional Insured Requirements:\n<|id|>714<|type|>title<|page|>55<|box|>436 143 453 431<|content|>V. General Insurance Requirements:\n<|id|>719<|type|>title<|page|>55<|box|>632 447 648 550<|content|>EXHIBIT G\n<|id|>720<|type|>title<|page|>55<|box|>657 346 674 651<|content|>FORM OF CAPITAL CALL NOTICE\n<|id|>721<|type|>title<|page|>55<|box|>684 390 700 607<|content|>CAPITAL CALL NOTICE\n<|id|>722<|type|>title<|page|>55<|box|>709 316 726 679<|content|>HARBOR POINT DEVELOPMENT JV, LLC\n<|id|>728<|type|>title<|page|>56<|box|>90 140 108 478<|content|>1. Aggregate Capital Call Amount: $[____]\n<|id|>729<|type|>title<|page|>56<|box|>116 140 133 344<|content|>2. Allocation by Member:\n<|id|>730<|type|>table<|page|>56<|box|>140 143 215 852<|content|>None\n<|id|>731<|type|>title<|page|>56<|box|>250 140 267 354<|content|>3. Purpose of Capital Call:\n<|id|>733<|type|>title<|page|>56<|box|>320 142 337 310<|content|>4. Funding Deadline:\n<|id|>735<|type|>title<|page|>56<|box|>409 140 425 380<|content|>5. Wire Transfer Instructions:\n<|id|>737<|type|>table<|page|>56<|box|>503 143 604 852<|content|>None\n<|id|>746<|type|>title<|page|>56<|box|>803 447 819 550<|content|>EXHIBIT H\n<|id|>747<|type|>title<|page|>56<|box|>829 433 845 565<|content|>KEY PERSONS\n<|id|>749<|type|>title<|page|>57<|box|>90 142 107 316<|content|>1. Harold K. Brennan\n<|id|>753<|type|>title<|page|>57<|box|>258 142 273 328<|content|>2. Marcus D. Okonkwo\n<|id|>758<|type|>title<|page|>57<|box|>525 450 541 547<|content|>EXHIBIT I\n<|id|>759<|type|>title<|page|>57<|box|>550 349 568 647<|content|>FORM OF JOINDER AGREEMENT\n<|id|>760<|type|>title<|page|>57<|box|>575 393 594 604<|content|>JOINDER AGREEMENT\n<|id|>762<|type|>title<|page|>57<|box|>665 142 681 241<|content|>RECITALS\n<|id|>765<|type|>title<|page|>57<|box|>834 142 851 267<|content|>AGREEMENT\n<|id|>782<|type|>title<|page|>58<|box|>575 439 592 558<|content|>SCHEDULE 1\n<|id|>783<|type|>title<|page|>58<|box|>599 341 617 655<|content|>LIST OF ANCILLARY DOCUMENTS",
+    "raw_response": "<|src_id|>706<|tgt_id|>705\n<|src_id|>730<|tgt_id|>729\n<|src_id|>737<|tgt_id|>735",
+    "parsed": [
+        {
+            "src_id": 706,
+            "tgt_id": 705
+        },
+        {
+            "src_id": 730,
+            "tgt_id": 729
+        },
+        {
+            "src_id": 737,
+            "tgt_id": 735
+        }
+    ]
+}

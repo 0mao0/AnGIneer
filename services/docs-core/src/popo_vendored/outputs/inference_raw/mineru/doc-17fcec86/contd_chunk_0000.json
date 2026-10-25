@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>1<|box|>789 138 898 857<|content|>The Company intends to use a portion of the net pr...any's Corporate Term Loan B with Veltrano National\n<|id|>7<|page|>2<|box|>90 138 199 857<|content|>Bank, as administrative agent (the \"Term Loan B\"),...y assets—rather than distributions to stockholders",
+    "raw_response": "<|src_id|>6<|tgt_id|>7",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        }
+    ]
+}

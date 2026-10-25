@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        9,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 174 123 821<|content|>UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF\n<|id|>2<|page|>1<|box|>354 147 409 848<|content|>DECLARATION OF KAREN LUND IN SUPPORT OF DEFENDANT\n<|id|>10<|page|>2<|box|>570 153 604 841<|content|>OVERVIEW OF THE INDEPENDENT CONTRACTOR OPERATING A\n<|id|>41<|page|>5<|box|>750 207 767 790<|content|>SUBCONTRACTING PROVISIONS AND PRACTICAL APPLICATIO\n<|id|>50<|page|>7<|box|>772 173 787 823<|content|>ARBITRATION CLAUSE AND COLLECTIVE ACTION WAIVER IN\n<|id|>57<|page|>9<|box|>343 199 359 797<|content|>RANGE OF DRIVER INDEPENDENCE REFLECTED IN SLG RECO\n<|id|>73<|page|>13<|box|>470 434 487 563<|content|>CONCLUSION\n<|id|>78<|page|>14<|box|>143 374 159 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>10<|level|>2\n<|id|>41<|level|>2\n<|id|>50<|level|>2\n<|id|>57<|level|>2\n<|id|>73<|level|>2\n<|id|>78<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        }
+    ]
+}

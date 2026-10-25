@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>388 140 406 511<|content|>I. Identification of Representation and Purpose\n<|id|>9<|page|>1<|box|>646 140 664 483<|content|>II. Background — The Commitment Letter\n<|id|>14<|page|>2<|box|>476 140 493 477<|content|>III. Termination of the Merger Agreement\n<|id|>23<|page|>3<|box|>594 140 609 617<|content|>IV. Formal Notice of Termination of the Commitment\n<|id|>28<|page|>4<|box|>148 140 167 349<|content|>V. Ticking Fee Settlement\n<|id|>31<|page|>4<|box|>444 140 460 473<|content|>VI. Request for Confirmation and Release\n<|id|>38<|page|>5<|box|>90 140 107 388<|content|>VII. Dissolution of Merger Sub\n<|id|>40<|page|>5<|box|>285 140 301 575<|content|>VIII. Contact Information for Further Corresponden\n<|id|>48<|page|>5<|box|>598 142 614 236<|content|>IX. Closing",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>23<|level|>1\n<|id|>28<|level|>1\n<|id|>31<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>48<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        }
+    ]
+}

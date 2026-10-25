@@ -1,0 +1,215 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-s410h7pz\\input\\pdfs\\doc-47e339f0.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-s410h7pz\\enriched\\doc-47e339f0.json",
+    "contd_output": "<|src_id|>139<|tgt_id|>140\n<|src_id|>170<|tgt_id|>171",
+    "title_output": "<|id|>13<|level|>1\n<|id|>23<|level|>1\n<|id|>24<|level|>2\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>42<|level|>2\n<|id|>48<|level|>1\n<|id|>49<|level|>2\n<|id|>51<|level|>3\n<|id|>56<|level|>3\n<|id|>62<|level|>2\n<|id|>72<|level|>2\n<|id|>80<|level|>1\n<|id|>81<|level|>2\n<|id|>83<|level|>3\n<|id|>92<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>2\n<|id|>104<|level|>2\n<|id|>108<|level|>1\n<|id|>110<|level|>2\n<|id|>111<|level|>3\n<|id|>117<|level|>3\n<|id|>120<|level|>3\n<|id|>125<|level|>3\n<|id|>127<|level|>2\n<|id|>134<|level|>1\n<|id|>141<|level|>1\n<|id|>142<|level|>2\n<|id|>146<|level|>2\n<|id|>150<|level|>1\n<|id|>158<|level|>1\n<|id|>164<|level|>1\n<|id|>178<|level|>1",
+    "image_output": "<|src_id|>107<|tgt_id|>80\n<|src_id|>160<|tgt_id|>158\n<|src_id|>161<|tgt_id|>158\n<|src_id|>162<|tgt_id|>158",
+    "contd_label": [
+        {
+            "src_id": 139,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 171
+        }
+    ],
+    "title_label": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 164,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 107,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 158
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 158
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 158
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 160,
+            "table2_idx": 161,
+            "upper_row_ss": [
+                [
+                    "\"adiabatically coupled\"",
+                    "\"Coupled through a gradual, continuous taper designed and configured to prevent excitation of higher-order modes over the entire transition length.\" Markman Order at 12.",
+                    "Lumos's accused products use a segmented taper coupler architecture employing a series of discrete coupling sections (segments) rather than a single gradual, continuous taper. Each segment is a distinct",
+                    "NOT MET. DISPOSITIVE. The segmented taper is neither \"gradual\" nor \"continuous\" as required by the Court's construction. The discontinuities between segments defeat the requirement of continuity"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "waveguide section with its own width and length parameters, separated by transition discontinuities.See LMPH-000148201 throughLMPH-000148367(coupler design specifications); Lumos 2021 OFC Paper (Dr. Petrov describing the \"segmented mode converter\"); Chen & Liu, J. Photonic Integration, Vol. 14, No. 3, pp. 217-229 (2016) (describing the segmented taper coupler methodology).",
+                    "\"over the entire transition length.\""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 161,
+            "table2_idx": 162,
+            "upper_row_ss": [
+                [
+                    "\"for coupling between an optical fiber and a photonic integrated",
+                    "No construction disputed; plain and ordinary meaning.",
+                    "Both accused products couple light between external optical fibers and",
+                    "Met. Both products couple light between an optical fiber and a PIC."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "circuit\"",
+                    "",
+                    "the on-chip photonic integrated circuit. The LumosBridgeTM 800G uses an edge-coupled fiber array; the LumosEdgeTM 400ZR+ uses a similar edge-coupling arrangement. See Lumos Product Datasheets.",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

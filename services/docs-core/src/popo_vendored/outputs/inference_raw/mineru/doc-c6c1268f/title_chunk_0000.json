@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 415 119 581<|content|>BILL OF SALE\n<|id|>1<|page|>1<|box|>135 400 154 598<|content|>Dated as of July 31, 2025\n<|id|>9<|page|>1<|box|>484 140 503 243<|content|>RECITALS\n<|id|>13<|page|>2<|box|>89 140 126 779<|content|>SECTION 1 — TRANSFER AND CONVEYANCE OF TANGIBLE PE\n<|id|>36<|page|>4<|box|>454 140 470 498<|content|>SECTION 2 — TERMS OF CONVEYANCE\n<|id|>41<|page|>5<|box|>449 140 467 483<|content|>SECTION 3 — FURTHER ASSURANCES\n<|id|>43<|page|>5<|box|>753 140 771 514<|content|>SECTION 4 — SUCCESSORS AND ASSIGNS\n<|id|>45<|page|>6<|box|>89 142 106 431<|content|>SECTION 5 — GOVERNING LAW\n<|id|>47<|page|>6<|box|>248 140 265 419<|content|>SECTION 6 — COUNTERPARTS\n<|id|>49<|page|>6<|box|>425 140 441 393<|content|>SECTION 7 — AMENDMENT\n<|id|>51<|page|>6<|box|>532 400 550 596<|content|>[Signature Page Follows]\n<|id|>52<|page|>6<|box|>558 334 574 661<|content|>SIGNATURE PAGE TO BILL OF SALE\n<|id|>54<|page|>6<|box|>628 140 643 331<|content|>SELLER / GRANTOR:\n<|id|>61<|page|>6<|box|>765 142 782 320<|content|>BUYER / GRANTEE:\n<|id|>67<|page|>6<|box|>878 437 893 560<|content|>SCHEDULE A\n<|id|>68<|page|>7<|box|>89 227 106 769<|content|>DESCRIPTION OF MATERIAL MACHINERY AND EQUIPMENT",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>36<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>2\n<|id|>51<|level|>-1\n<|id|>52<|level|>2\n<|id|>54<|level|>3\n<|id|>61<|level|>3\n<|id|>67<|level|>2\n<|id|>68<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        }
+    ]
+}

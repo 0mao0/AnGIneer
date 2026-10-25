@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 143 125 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>1<|type|>title<|page|>1<|box|>133 352 151 643<|content|>MEMORANDUM OF INTERVIEW\n<|id|>6<|type|>table<|page|>1<|box|>280 143 498 852<|content|>None\n<|id|>8<|type|>title<|page|>1<|box|>609 142 627 503<|content|>1. Preliminary Matters and Upjohn Warnings\n<|id|>18<|type|>title<|page|>2<|box|>491 140 508 462<|content|>2. Background and Employment History\n<|id|>32<|type|>title<|page|>3<|box|>498 140 515 468<|content|>3. Revenue-Recognition Practices at VCR\n<|id|>33<|type|>title<|page|>3<|box|>529 140 546 527<|content|>3.1 Overview of Timeshare-Interest Sales Process\n<|id|>37<|type|>title<|page|>4<|box|>176 140 194 509<|content|>3.2 Premature Booking of Deposits as Revenue\n<|id|>44<|type|>table<|page|>5<|box|>195 143 308 852<|content|>None\n<|id|>48<|type|>title<|page|>5<|box|>736 140 753 398<|content|>3.3 Awareness of HSA Concerns\n<|id|>53<|type|>title<|page|>6<|box|>383 140 402 594<|content|>4. Expense-Reporting Practices and Vendor Relation\n<|id|>54<|type|>title<|page|>6<|box|>415 140 433 485<|content|>4.1 Capital-Improvement Approval Process\n<|id|>57<|type|>title<|page|>6<|box|>715 140 733 460<|content|>4.2 Questioning Regarding Shell Entities\n<|id|>69<|type|>table<|page|>7<|box|>703 143 797 852<|content|>None\n<|id|>71<|type|>title<|page|>8<|box|>138 140 157 534<|content|>4.3 Questioning Regarding Personal Expenditures\n<|id|>79<|type|>title<|page|>8<|box|>513 140 531 500<|content|>4.4 Approval of GSC, CDC, and SPS Invoices\n<|id|>83<|type|>title<|page|>9<|box|>90 140 107 568<|content|>5. Relationship with Nicole Prescott and Ryan Serr\n<|id|>88<|type|>title<|page|>9<|box|>601 140 618 535<|content|>6. Interactions with VHG Corporate Management\n<|id|>93<|type|>title<|page|>10<|box|>359 140 376 486<|content|>7. SOX Certifications and Internal Controls\n<|id|>97<|type|>title<|page|>10<|box|>734 140 751 488<|content|>8. Administrative Leave and Current Status\n<|id|>102<|type|>title<|page|>11<|box|>359 140 376 408<|content|>9. Refusal of Follow-Up Interview\n<|id|>107<|type|>title<|page|>11<|box|>723 142 739 405<|content|>10. Assessment and Observations",
+    "raw_response": "<|src_id|>6<|tgt_id|>1\n<|src_id|>44<|tgt_id|>37\n<|src_id|>69<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 57
+        }
+    ]
+}

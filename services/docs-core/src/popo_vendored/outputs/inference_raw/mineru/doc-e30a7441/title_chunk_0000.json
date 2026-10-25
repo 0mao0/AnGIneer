@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        19
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        6,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>89 145 157 852<|content|>EXHIBIT LIST AND SUPPORTING DOCUMENTS IN SUPPORT O\n<|id|>8<|page|>2<|box|>405 142 422 416<|content|>INTRODUCTORY STATEMENT\n<|id|>12<|page|>3<|box|>89 143 106 287<|content|>EXHIBIT INDEX\n<|id|>14<|page|>3<|box|>835 143 852 393<|content|>DESCRIPTION OF EXHIBITS\n<|id|>15<|page|>4<|box|>89 140 107 630<|content|>Exhibit A — Master Grain Purchase and Off-Take Agr\n<|id|>29<|page|>6<|box|>89 140 108 645<|content|>Exhibit B — Limited Personal Guaranty of Darren K.\n<|id|>86<|page|>12<|box|>89 140 108 689<|content|>Exhibit H — Written Demand from GAP to PBGC (Janua\n<|id|>93<|page|>13<|box|>89 140 108 810<|content|>Exhibit I — Email from Darren K. Musgrave Acknowle\n<|id|>97<|page|>14<|box|>89 140 108 790<|content|>Exhibit J — Forbearance Correspondence from GAP to\n<|id|>101<|page|>15<|box|>89 140 107 637<|content|>Exhibit K — Notice of Suspension of Deliveries (Ma\n<|id|>109<|page|>16<|box|>89 140 107 836<|content|>Exhibit L — Pre-Suit Demand Letter from Calderwood\n<|id|>116<|page|>17<|box|>90 140 107 576<|content|>Exhibit M — Accrued Interest Calculation Spreadshe\n<|id|>122<|page|>18<|box|>89 140 107 784<|content|>Exhibit N — Summary of Calderwood & Harkness LLP A\n<|id|>129<|page|>18<|box|>416 143 433 326<|content|>Timekeeper Summary:\n<|id|>132<|page|>18<|box|>719 140 736 643<|content|>SUMMARY OF TOTAL CLAIM SUPPORTED BY EXHIBITS\n<|id|>136<|page|>19<|box|>266 140 282 478<|content|>CERTIFICATION AND VERIFICATION\n<|id|>139<|page|>19<|box|>491 142 508 250<|content|>Prepared by:\n<|id|>147<|page|>19<|box|>672 142 691 535<|content|>Reviewed and Approved by Supervising Attorney:\n<|id|>153<|page|>19<|box|>806 140 823 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>2\n<|id|>29<|level|>2\n<|id|>86<|level|>2\n<|id|>93<|level|>2\n<|id|>97<|level|>2\n<|id|>101<|level|>2\n<|id|>109<|level|>2\n<|id|>116<|level|>2\n<|id|>122<|level|>2\n<|id|>129<|level|>2\n<|id|>132<|level|>2\n<|id|>136<|level|>2\n<|id|>139<|level|>3\n<|id|>147<|level|>3\n<|id|>153<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 2
+        }
+    ]
+}

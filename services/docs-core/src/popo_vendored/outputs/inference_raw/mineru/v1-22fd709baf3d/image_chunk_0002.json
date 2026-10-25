@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        94,
+        103
+    ],
+    "pages": [
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        101,
+        102,
+        103
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>797<|type|>title<|page|>94<|box|>89 24 114 238<|content|>SIGNATURES\n<|id|>799<|type|>title<|page|>94<|box|>162 24 175 91<|content|>NIKE, INC.\n<|id|>800<|type|>table<|page|>94<|box|>172 24 229 970<|content|>None\n<|id|>802<|type|>table<|page|>94<|box|>266 24 715 970<|content|>None\n<|id|>803<|type|>title<|page|>95<|box|>51 295 68 699<|content|>DESCRIPTION OF NIKE, INC. CAPITAL STOCK\n<|id|>805<|type|>title<|page|>95<|box|>165 22 181 94<|content|>General\n<|id|>807<|type|>title<|page|>95<|box|>294 22 311 218<|content|>Voting and Other Rights\n<|id|>808<|type|>title<|page|>95<|box|>327 22 343 91<|content|>General\n<|id|>812<|type|>title<|page|>95<|box|>632 24 648 282<|content|>Voting for the Election of Directors\n<|id|>817<|type|>title<|page|>96<|box|>234 22 252 279<|content|>Dividend and Liquidation Rights\n<|id|>821<|type|>title<|page|>96<|box|>478 22 494 722<|content|>Anti-takeover Effects of Certain Provisions of the\n<|id|>823<|type|>title<|page|>96<|box|>559 24 575 161<|content|>Voting Thresholds\n<|id|>827<|type|>title<|page|>97<|box|>119 22 135 316<|content|>Authorized but Unissued Common Stock\n<|id|>829<|type|>title<|page|>97<|box|>250 22 265 189<|content|>No Cumulative Voting\n<|id|>831<|type|>title<|page|>97<|box|>314 22 330 509<|content|>Notice Provisions Relating to Stockholder Proposal\n<|id|>833<|type|>title<|page|>97<|box|>411 24 428 145<|content|>Market Listing\n<|id|>835<|type|>title<|page|>97<|box|>476 24 492 263<|content|>Transfer Agents and Registrar\n<|id|>837<|type|>title<|page|>98<|box|>29 364 45 630<|content|>SUBSIDIARIES OF THE REGISTRANT\n<|id|>838<|type|>table<|page|>98<|box|>54 22 893 779<|content|>None\n<|id|>839<|type|>table<|page|>99<|box|>49 22 926 774<|content|>None\n<|id|>842<|type|>title<|page|>101<|box|>44 316 71 679<|content|>Certification of Chief Executive Officer Pursuant\n<|id|>856<|type|>title<|page|>102<|box|>70 316 98 679<|content|>Certification of Chief Financial Officer Pursuant\n<|id|>871<|type|>title<|page|>103<|box|>106 22 119 261<|content|>Certification of Chief Executive Officer",
+    "raw_response": "<|src_id|>800<|tgt_id|>799\n<|src_id|>802<|tgt_id|>799\n<|src_id|>838<|tgt_id|>837\n<|src_id|>839<|tgt_id|>837",
+    "parsed": [
+        {
+            "src_id": 800,
+            "tgt_id": 799
+        },
+        {
+            "src_id": 802,
+            "tgt_id": 799
+        },
+        {
+            "src_id": 838,
+            "tgt_id": 837
+        },
+        {
+            "src_id": 839,
+            "tgt_id": 837
+        }
+    ]
+}

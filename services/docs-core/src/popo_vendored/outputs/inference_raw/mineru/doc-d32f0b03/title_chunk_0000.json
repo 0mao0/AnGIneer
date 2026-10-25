@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>1<|box|>207 140 226 779<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>9<|page|>1<|box|>426 140 443 300<|content|>I. Purpose of Letter\n<|id|>13<|page|>2<|box|>90 140 107 485<|content|>II. Summary of Protest Proceedings to Date\n<|id|>14<|page|>2<|box|>121 140 138 400<|content|>A. Filing and Initial Proceedings\n<|id|>19<|page|>2<|box|>729 140 746 393<|content|>B. Briefing and Oral Argument\n<|id|>24<|page|>3<|box|>446 140 464 338<|content|>C. Five Protest Grounds\n<|id|>31<|page|>4<|box|>622 140 638 370<|content|>III. Current Dormant Status\n<|id|>32<|page|>4<|box|>652 140 670 429<|content|>A. Extended Delay Without Decision\n<|id|>35<|page|>5<|box|>138 140 157 294<|content|>B. Status Inquiries\n<|id|>42<|page|>5<|box|>652 140 670 377<|content|>C. Impact of Delay on MTDC\n<|id|>49<|page|>6<|box|>575 140 592 352<|content|>IV. Options for Escalation\n<|id|>51<|page|>6<|box|>669 140 686 500<|content|>Option 1: Continue to Await Agency Decision\n<|id|>57<|page|>7<|box|>429 140 446 825<|content|>Option 2: File a Complaint in the Illinois Court o\n<|id|>70<|page|>9<|box|>393 140 410 743<|content|>Option 3: Seek Mandamus or Other Judicial Relief t\n<|id|>84<|page|>10<|box|>645 140 662 468<|content|>V. Financial Summary and Fee Estimates\n<|id|>85<|page|>10<|box|>676 140 693 339<|content|>A. Fees Incurred to Date\n<|id|>92<|page|>11<|box|>369 140 388 565<|content|>B. Estimated Additional Fees for Litigation Escala\n<|id|>97<|page|>12<|box|>90 140 107 576<|content|>C. MTDC's Financial Exposure and Recovery Potentia\n<|id|>104<|page|>12<|box|>570 140 587 313<|content|>VI. Recommendation\n<|id|>110<|page|>13<|box|>340 140 357 419<|content|>VII. Request for Client Conference\n<|id|>119<|page|>13<|box|>720 140 738 251<|content|>VIII. Closing\n<|id|>129<|page|>14<|box|>339 142 352 171<|content|>cc:\n<|id|>131<|page|>14<|box|>407 143 422 233<|content|>Enclosure:",
+    "raw_response": "<|id|>4<|level|>-1\n<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>1\n<|id|>32<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>49<|level|>1\n<|id|>51<|level|>2\n<|id|>57<|level|>2\n<|id|>70<|level|>2\n<|id|>84<|level|>1\n<|id|>85<|level|>2\n<|id|>92<|level|>2\n<|id|>97<|level|>2\n<|id|>104<|level|>1\n<|id|>110<|level|>1\n<|id|>119<|level|>1\n<|id|>129<|level|>-1\n<|id|>131<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        }
+    ]
+}

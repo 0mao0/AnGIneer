@@ -1,0 +1,161 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 449 106 549<|content|>EXHIBIT B\n<|id|>1<|page|>1<|box|>114 158 151 839<|content|>FORM OF AMENDED AND RESTATED CERTIFICATE OF INCORP\n<|id|>4<|page|>1<|box|>268 148 304 848<|content|>AMENDED AND RESTATED CERTIFICATE OF INCORPORATION\n<|id|>11<|page|>1<|box|>852 449 869 549<|content|>ARTICLE I\n<|id|>12<|page|>1<|box|>878 467 893 529<|content|>NAME\n<|id|>14<|page|>2<|box|>280 444 297 553<|content|>ARTICLE II\n<|id|>15<|page|>2<|box|>306 282 323 714<|content|>REGISTERED OFFICE AND REGISTERED AGENT\n<|id|>17<|page|>2<|box|>468 441 484 557<|content|>ARTICLE III\n<|id|>18<|page|>2<|box|>494 452 510 544<|content|>PURPOSE\n<|id|>20<|page|>2<|box|>619 442 635 555<|content|>ARTICLE IV\n<|id|>21<|page|>2<|box|>643 357 661 640<|content|>AUTHORIZED CAPITAL STOCK\n<|id|>27<|page|>3<|box|>263 140 279 364<|content|>Section 4.2. Common Stock.\n<|id|>32<|page|>3<|box|>868 140 885 367<|content|>Section 4.3. Preferred Stock.\n<|id|>43<|page|>5<|box|>133 444 151 553<|content|>ARTICLE V\n<|id|>44<|page|>5<|box|>160 390 176 604<|content|>BOARD OF DIRECTORS\n<|id|>45<|page|>5<|box|>186 140 204 411<|content|>Section 5.1. Number and Election.\n<|id|>53<|page|>6<|box|>262 442 279 555<|content|>ARTICLE VI\n<|id|>54<|page|>6<|box|>287 455 305 542<|content|>BYLAWS\n<|id|>56<|page|>6<|box|>468 437 484 558<|content|>ARTICLE VII\n<|id|>57<|page|>6<|box|>493 323 510 674<|content|>LIMITATION OF DIRECTOR LIABILITY\n<|id|>65<|page|>7<|box|>244 434 260 563<|content|>ARTICLE VIII\n<|id|>66<|page|>7<|box|>268 408 286 588<|content|>INDEMNIFICATION\n<|id|>73<|page|>8<|box|>816 441 832 557<|content|>ARTICLE IX\n<|id|>74<|page|>8<|box|>840 385 858 611<|content|>STOCKHOLDER ACTION\n<|id|>78<|page|>9<|box|>606 444 625 553<|content|>ARTICLE X\n<|id|>79<|page|>9<|box|>632 361 648 635<|content|>CORPORATE OPPORTUNITIES\n<|id|>88<|page|>10<|box|>743 441 758 557<|content|>ARTICLE XI\n<|id|>89<|page|>10<|box|>768 434 785 563<|content|>AMENDMENT\n<|id|>92<|page|>11<|box|>224 437 242 560<|content|>ARTICLE XII\n<|id|>93<|page|>11<|box|>251 406 268 589<|content|>EXCLUSIVE FORUM\n<|id|>102<|page|>12<|box|>306 434 323 563<|content|>ARTICLE XIII\n<|id|>103<|page|>12<|box|>330 424 349 570<|content|>SEVERABILITY\n<|id|>105<|page|>12<|box|>585 434 602 563<|content|>ARTICLE XIV\n<|id|>106<|page|>12<|box|>611 419 628 576<|content|>INCORPORATOR",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>1\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>27<|level|>5\n<|id|>32<|level|>5\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>45<|level|>5\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>73<|level|>2\n<|id|>74<|level|>3\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>88<|level|>2\n<|id|>89<|level|>3\n<|id|>92<|level|>2\n<|id|>93<|level|>3\n<|id|>102<|level|>2\n<|id|>103<|level|>3\n<|id|>105<|level|>2\n<|id|>106<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 5
+        },
+        {
+            "id": 32,
+            "level": 5
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 5
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>113 140 128 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>5<|type|>title<|page|>1<|box|>215 140 233 748<|content|>VIA HAND DELIVERY AND ELECTRONIC SUBMISSION (OCC C\n<|id|>10<|type|>title<|page|>1<|box|>617 140 633 637<|content|>I. Background — The Consent Order and Engagement C\n<|id|>20<|type|>title<|page|>3<|box|>431 140 449 638<|content|>II. Summary of Interim Compliance Actions Complete\n<|id|>29<|type|>title<|page|>4<|box|>779 140 795 638<|content|>III. Description of the Comprehensive Remediation\n<|id|>38<|type|>title<|page|>6<|box|>531 142 549 416<|content|>IV. Remediation Budget Summary\n<|id|>40<|type|>table<|page|>6<|box|>654 143 901 852<|content|>None\n<|id|>41<|type|>table<|page|>7<|box|>88 143 171 852<|content|>None\n<|id|>43<|type|>title<|page|>7<|box|>282 142 299 401<|content|>V. Key Milestones and Deadlines\n<|id|>44<|type|>table<|page|>7<|box|>349 143 657 852<|content|>None\n<|id|>46<|type|>title<|page|>7<|box|>751 142 768 263<|content|>VI. Enclosures\n<|id|>58<|type|>title<|page|>8<|box|>266 140 282 408<|content|>VII. Cooperation and Availability",
+    "raw_response": "<|src_id|>40<|tgt_id|>38\n<|src_id|>41<|tgt_id|>38\n<|src_id|>44<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 43
+        }
+    ]
+}

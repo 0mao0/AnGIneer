@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        48
+    ],
+    "pages": [
+        47,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>505<|page|>47<|box|>89 383 106 612<|content|>DISCLOSURE SCHEDULE\n<|id|>509<|page|>47<|box|>319 140 335 380<|content|>Schedule 4.4 — Capitalization\n<|id|>511<|page|>47<|box|>462 140 479 367<|content|>Schedule 4.5 — Subsidiaries\n<|id|>513<|page|>47<|box|>551 140 568 349<|content|>Schedule 4.8 — Litigation\n<|id|>515<|page|>47<|box|>657 140 675 431<|content|>Schedule 4.9 — Intellectual Property\n<|id|>517<|page|>47<|box|>801 140 818 542<|content|>Schedule 4.10 — Regulatory Compliance / Licenses\n<|id|>519<|page|>48<|box|>90 140 107 423<|content|>Schedule 4.12 — Employee Matters\n<|id|>521<|page|>48<|box|>196 140 214 429<|content|>Schedule 4.14 — Material Contracts\n<|id|>523<|page|>48<|box|>286 140 303 450<|content|>Schedule 4.15 — Existing Indebtedness\n<|id|>525<|page|>48<|box|>392 387 409 609<|content|>[End of Disclosure Schedule]\n<|id|>526<|page|>48<|box|>416 155 434 839<|content|>**SUMMARY OF OPEN ISSUES / BRACKETED ITEMS REMAINI",
+    "raw_response": "<|id|>505<|level|>1\n<|id|>509<|level|>2\n<|id|>511<|level|>2\n<|id|>513<|level|>2\n<|id|>515<|level|>2\n<|id|>517<|level|>2\n<|id|>519<|level|>2\n<|id|>521<|level|>2\n<|id|>523<|level|>2\n<|id|>525<|level|>2\n<|id|>526<|level|>1",
+    "parsed": [
+        {
+            "id": 505,
+            "level": 1
+        },
+        {
+            "id": 509,
+            "level": 2
+        },
+        {
+            "id": 511,
+            "level": 2
+        },
+        {
+            "id": 513,
+            "level": 2
+        },
+        {
+            "id": 515,
+            "level": 2
+        },
+        {
+            "id": 517,
+            "level": 2
+        },
+        {
+            "id": 519,
+            "level": 2
+        },
+        {
+            "id": 521,
+            "level": 2
+        },
+        {
+            "id": 523,
+            "level": 2
+        },
+        {
+            "id": 525,
+            "level": 2
+        },
+        {
+            "id": 526,
+            "level": 1
+        }
+    ]
+}

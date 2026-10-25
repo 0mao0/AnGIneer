@@ -1,0 +1,167 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bbq2a6a8\\input\\pdfs\\doc-dfa484e2.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bbq2a6a8\\enriched\\doc-dfa484e2.json",
+    "contd_output": "<|src_id|>66<|tgt_id|>67",
+    "title_output": "<|id|>3<|level|>1\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>28<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>3\n<|id|>44<|level|>3\n<|id|>53<|level|>3\n<|id|>61<|level|>3\n<|id|>65<|level|>2\n<|id|>82<|level|>2\n<|id|>84<|level|>3\n<|id|>89<|level|>3\n<|id|>94<|level|>2\n<|id|>99<|level|>2\n<|id|>100<|level|>3\n<|id|>107<|level|>2",
+    "image_output": "<|src_id|>4<|tgt_id|>3\n<|src_id|>35<|tgt_id|>28\n<|src_id|>41<|tgt_id|>39\n<|src_id|>46<|tgt_id|>44\n<|src_id|>47<|tgt_id|>44\n<|src_id|>54<|tgt_id|>53\n<|src_id|>58<|tgt_id|>53\n<|src_id|>62<|tgt_id|>61\n<|src_id|>108<|tgt_id|>107\n<|src_id|>109<|tgt_id|>107",
+    "contd_label": [
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        }
+    ],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 107
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 46,
+            "table2_idx": 47,
+            "upper_row_ss": [
+                [
+                    "Entity / Person",
+                    "Role",
+                    "Details"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Ridgeline Ventures Fund IV, L.P.",
+                    "Lead Series C investor",
+                    "Delaware limited partnership; growth-stage venture capital fund"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 108,
+            "table2_idx": 109,
+            "upper_row_ss": [
+                [
+                    "13",
+                    "Orion Talent",
+                    "Consultant — HR",
+                    "March 11–12, 2024",
+                    "Clear"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Advisors, Inc.",
+                    "Consulting Firm",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

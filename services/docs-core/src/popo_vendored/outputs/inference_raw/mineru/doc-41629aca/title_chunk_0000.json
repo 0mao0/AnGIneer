@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>585 140 603 513<|content|>I. SUMMARY OF APPARENT VIOLATIONS\n<|id|>14<|page|>2<|box|>376 142 393 251<|content|>II. PARTIES\n<|id|>15<|page|>2<|box|>407 142 425 308<|content|>A. Reporting Parties\n<|id|>16<|page|>2<|box|>430 140 449 468<|content|>Dunmore Energy Holdings Ltd. (\"DEH\")\n<|id|>24<|page|>2<|box|>784 142 801 501<|content|>Dunmore Trading International Ltd. (\"DTI\")\n<|id|>28<|page|>3<|box|>184 140 200 366<|content|>B. Sanctioned Counterparty\n<|id|>29<|page|>3<|box|>205 140 224 555<|content|>Caspian Star Commodities DMCC (\"Caspian Star\")\n<|id|>34<|page|>3<|box|>689 140 707 367<|content|>C. U.S. Financial Institution\n<|id|>35<|page|>3<|box|>712 140 731 491<|content|>Ridgeline National Bank, N.A. (\"Ridgeline\")\n<|id|>38<|page|>4<|box|>167 140 184 480<|content|>III. DETAILED NARRATIVE OF FACTS\n<|id|>39<|page|>4<|box|>199 140 215 377<|content|>A. Counterparty Onboarding\n<|id|>52<|page|>5<|box|>157 140 175 408<|content|>B. OFAC Designation of Kadyrov\n<|id|>57<|page|>5<|box|>674 140 691 369<|content|>C. The Subject Transactions\n<|id|>63<|page|>6<|box|>421 140 439 336<|content|>D. Re-Screening Failure\n<|id|>70<|page|>7<|box|>250 140 266 383<|content|>E. Discovery and Remediation\n<|id|>78<|page|>8<|box|>176 140 193 339<|content|>F. Root Cause Summary\n<|id|>83<|page|>8<|box|>724 140 743 385<|content|>IV. MITIGATING FACTORS\n<|id|>101<|page|>11<|box|>222 140 239 460<|content|>V. SUPPORTING DOCUMENTATION\n<|id|>113<|page|>12<|box|>148 140 166 300<|content|>VI. CONCLUSION",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>24<|level|>3\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>38<|level|>1\n<|id|>39<|level|>2\n<|id|>52<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>1\n<|id|>101<|level|>1\n<|id|>113<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        }
+    ]
+}

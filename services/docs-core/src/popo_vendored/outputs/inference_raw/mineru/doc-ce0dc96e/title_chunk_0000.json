@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|page|>1<|box|>319 140 335 316<|content|>Ladies and Gentlemen:\n<|id|>9<|page|>1<|box|>631 140 648 334<|content|>I. Documents Examined\n<|id|>21<|page|>2<|box|>651 140 669 272<|content|>II. Assumptions\n<|id|>33<|page|>3<|box|>777 140 795 341<|content|>III. Limitations on Scope\n<|id|>44<|page|>4<|box|>712 142 729 250<|content|>IV. Opinions\n<|id|>46<|page|>4<|box|>787 140 805 676<|content|>Opinion 1 — Due Organization, Valid Existence, and\n<|id|>48<|page|>5<|box|>194 140 212 416<|content|>Opinion 2 — Power and Authority\n<|id|>50<|page|>5<|box|>505 140 522 589<|content|>Opinion 3 — Due Authorization, Execution, and Deli\n<|id|>52<|page|>5<|box|>724 140 742 364<|content|>Opinion 4 — Enforceability\n<|id|>54<|page|>5<|box|>814 140 832 454<|content|>Opinion 5 — No Violation / No Conflict\n<|id|>59<|page|>6<|box|>402 142 420 370<|content|>V. Enforceability Exceptions\n<|id|>69<|page|>7<|box|>795 142 811 393<|content|>VI. Reliance and Other Matters\n<|id|>78<|page|>8<|box|>765 212 782 516<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>-1\n<|id|>9<|level|>1\n<|id|>21<|level|>1\n<|id|>33<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>59<|level|>1\n<|id|>69<|level|>1\n<|id|>78<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>392 140 409 228<|content|>Dear Kate:\n<|id|>15<|page|>2<|box|>223 140 239 669<|content|>I. Overview of the Proposed Three-Tier Confidentia\n<|id|>17<|page|>2<|box|>334 140 351 387<|content|>A. Tier 1: \"CONFIDENTIAL\"\n<|id|>27<|page|>3<|box|>194 140 210 772<|content|>B. Tier 2: \"HIGHLY CONFIDENTIAL — ATTORNEYS' EYES\n<|id|>41<|page|>4<|box|>352 140 369 624<|content|>C. Tier 3: \"HIGHLY CONFIDENTIAL — SOURCE CODE\"\n<|id|>56<|page|>5<|box|>444 140 462 673<|content|>II. Key Provisions of the Proposed Order Highlight\n<|id|>58<|page|>5<|box|>537 142 554 354<|content|>A. Designation Procedures\n<|id|>62<|page|>6<|box|>90 140 107 339<|content|>B. Challenge Procedures\n<|id|>69<|page|>6<|box|>494 140 510 294<|content|>C. Use Limitations\n<|id|>72<|page|>6<|box|>720 140 738 506<|content|>D. Expert Access and Acknowledgment Forms\n<|id|>80<|page|>7<|box|>500 140 517 307<|content|>E. Filing Under Seal\n<|id|>82<|page|>7<|box|>681 140 699 437<|content|>F. Return or Destruction of Materials\n<|id|>85<|page|>8<|box|>176 140 193 297<|content|>G. Prosecution Bar\n<|id|>88<|page|>8<|box|>523 140 540 640<|content|>III. Specific Issues Flagged for Hawthorne Vega &\n<|id|>90<|page|>8<|box|>616 140 633 527<|content|>A. In-House Counsel Access Under the AEO Tier\n<|id|>94<|page|>9<|box|>257 142 273 401<|content|>B. Source Code Review Logistics\n<|id|>97<|page|>9<|box|>520 140 537 563<|content|>C. Scope of \"Competitive Decision-Maker\" Definitio\n<|id|>100<|page|>9<|box|>794 140 810 429<|content|>IV. Discovery Timeline and Urgency\n<|id|>105<|page|>10<|box|>494 140 511 256<|content|>V. Enclosures\n<|id|>110<|page|>10<|box|>657 140 674 236<|content|>VI. Closing\n<|id|>118<|page|>11<|box|>282 143 299 258<|content|>Enclosures (3)",
+    "raw_response": "<|id|>10<|level|>-1\n<|id|>15<|level|>1\n<|id|>17<|level|>2\n<|id|>27<|level|>2\n<|id|>41<|level|>2\n<|id|>56<|level|>1\n<|id|>58<|level|>2\n<|id|>62<|level|>2\n<|id|>69<|level|>2\n<|id|>72<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>2\n<|id|>85<|level|>2\n<|id|>88<|level|>1\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>97<|level|>2\n<|id|>100<|level|>1\n<|id|>105<|level|>1\n<|id|>110<|level|>1\n<|id|>118<|level|>1",
+    "parsed": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        }
+    ]
+}

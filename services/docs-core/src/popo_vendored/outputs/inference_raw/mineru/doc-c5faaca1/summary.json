@@ -1,0 +1,171 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-94rxr34s\\input\\pdfs\\doc-c5faaca1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-94rxr34s\\enriched\\doc-c5faaca1.json",
+    "contd_output": "<|src_id|>96<|tgt_id|>97",
+    "title_output": "<|id|>1<|level|>1\n<|id|>6<|level|>2\n<|id|>9<|level|>3\n<|id|>10<|level|>3\n<|id|>12<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>3\n<|id|>28<|level|>3\n<|id|>29<|level|>4\n<|id|>32<|level|>3\n<|id|>33<|level|>4\n<|id|>36<|level|>3\n<|id|>40<|level|>2\n<|id|>55<|level|>2\n<|id|>61<|level|>2\n<|id|>75<|level|>2\n<|id|>82<|level|>2\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>99<|level|>1\n<|id|>107<|level|>1\n<|id|>108<|level|>1\n<|id|>109<|level|>1\n<|id|>114<|level|>1\n<|id|>115<|level|>1\n<|id|>116<|level|>2",
+    "image_output": "<|src_id|>14<|tgt_id|>12\n<|src_id|>112<|tgt_id|>108\n<|src_id|>113<|tgt_id|>108\n<|src_id|>118<|tgt_id|>115",
+    "contd_label": [
+        {
+            "src_id": 96,
+            "tgt_id": 97
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 4
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 115
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 112,
+            "table2_idx": 113,
+            "upper_row_ss": [
+                [
+                    "[Limited Partner",
+                    "[ ]",
+                    "[ ]%",
+                    "[ ]",
+                    "[ ]",
+                    "[ ]",
+                    "[ ]",
+                    "[ ]",
+                    "[ ]",
+                    "[ ]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "5]",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        20,
+        21,
+        22,
+        23,
+        25,
+        26
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 163 106 833<|content|>CALDERWOOD & HARKNESS LLP 777 South Flower Street,\n<|id|>3<|type|>title<|page|>1<|box|>202 424 218 573<|content|>MEMORANDUM\n<|id|>10<|type|>title<|page|>1<|box|>383 375 402 622<|content|>I. Overview and Context\n<|id|>22<|type|>title<|page|>2<|box|>633 374 654 624<|content|>II. Deposition Objectives\n<|id|>24<|type|>title<|page|>2<|box|>786 140 803 697<|content|>A. Lock In Aldrich's Explanation for the Halcyon C\n<|id|>41<|type|>title<|page|>5<|box|>148 140 167 542<|content|>B. Establish the Elements of AMA's CUTSA Claim\n<|id|>53<|type|>title<|page|>6<|box|>383 140 402 519<|content|>C. Undermine Aldrich's \"For Cause\" Challenge\n<|id|>83<|type|>title<|page|>8<|box|>647 140 664 627<|content|>D. Probe Restrictive Covenant Compliance Since Ter\n<|id|>99<|type|>title<|page|>10<|box|>377 142 393 294<|content|>E. Assess Damages\n<|id|>101<|type|>table<|page|>10<|box|>464 143 651 852<|content|>None\n<|id|>109<|type|>title<|page|>11<|box|>598 267 617 730<|content|>III. Key Topic Areas and Anticipated Answers\n<|id|>111<|type|>table<|page|>11<|box|>714 143 900 851<|content|>None\n<|id|>112<|type|>table<|page|>12<|box|>89 143 902 852<|content|>None\n<|id|>113<|type|>table<|page|>13<|box|>90 143 902 851<|content|>None\n<|id|>114<|type|>table<|page|>14<|box|>89 143 383 852<|content|>None\n<|id|>115<|type|>title<|page|>14<|box|>417 321 438 674<|content|>IV. Documents to Use at Deposition\n<|id|>133<|type|>title<|page|>16<|box|>450 369 470 627<|content|>V. Examination Sequence\n<|id|>135<|type|>title<|page|>16<|box|>694 140 712 589<|content|>A. Background and Employment History (15-20 minute\n<|id|>146<|type|>title<|page|>17<|box|>357 140 375 727<|content|>B. Confidentiality Obligations and Policy Acknowle\n<|id|>148<|type|>title<|page|>17<|box|>482 142 500 467<|content|>The examination should proceed as follows:\n<|id|>154<|type|>title<|page|>18<|box|>148 140 167 655<|content|>C. Personal Email Forwarding — The 340 Emails (30-\n<|id|>160<|type|>title<|page|>18<|box|>667 140 684 653<|content|>D. Halcyon Creek Transmissions — The 7 Emails (40-\n<|id|>201<|type|>title<|page|>20<|box|>306 140 323 643<|content|>E. The Termination — Insubordination Context (20-2\n<|id|>214<|type|>title<|page|>21<|box|>315 140 332 450<|content|>F. DLP Audit Timeline (10-15 minutes)\n<|id|>222<|type|>title<|page|>21<|box|>726 140 743 831<|content|>G. Post-Termination Employment and Restrictive Cov\n<|id|>230<|type|>title<|page|>22<|box|>484 142 501 366<|content|>H. Damages (15-20 minutes)\n<|id|>242<|type|>title<|page|>23<|box|>414 290 434 705<|content|>VI. Sensitive Issues and Cautionary Notes\n<|id|>254<|type|>title<|page|>25<|box|>352 428 372 568<|content|>VII. Logistics\n<|id|>270<|type|>title<|page|>26<|box|>412 282 431 714<|content|>VIII. Pre-Deposition Preparation Checklist",
+    "raw_response": "<|src_id|>101<|tgt_id|>99\n<|src_id|>111<|tgt_id|>109\n<|src_id|>112<|tgt_id|>109\n<|src_id|>113<|tgt_id|>109\n<|src_id|>114<|tgt_id|>109",
+    "parsed": [
+        {
+            "src_id": 101,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 109
+        }
+    ]
+}

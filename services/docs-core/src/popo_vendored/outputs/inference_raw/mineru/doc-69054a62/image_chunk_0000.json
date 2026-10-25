@@ -1,0 +1,52 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        20
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>89 434 112 563<|content|>EXHIBIT A\n<|id|>1<|type|>title<|page|>2<|box|>135 290 154 705<|content|>Incident Timeline and Remedial Measures Summary\n<|id|>2<|type|>title<|page|>2<|box|>161 285 180 710<|content|>Submitted on behalf of Quorum Insurance Holdings C\n<|id|>15<|type|>title<|page|>2<|box|>571 359 590 638<|content|>I. Introduction and Purpose\n<|id|>24<|type|>title<|page|>3<|box|>575 171 595 825<|content|>II. Background — Quorum and the Palomar Vendor Rel\n<|id|>25<|type|>title<|page|>3<|box|>621 142 638 539<|content|>A. Overview of Quorum Insurance Holdings Corp.\n<|id|>28<|type|>title<|page|>4<|box|>90 140 107 434<|content|>B. The Palomar Vendor Relationship\n<|id|>34<|type|>title<|page|>4<|box|>608 140 626 580<|content|>C. Palomar's Data Security Obligations Under the M\n<|id|>41<|type|>title<|page|>5<|box|>250 140 266 537<|content|>D. Quorum's Vendor Risk Management Oversight\n<|id|>43<|type|>title<|page|>5<|box|>429 241 450 754<|content|>III. Detailed Chronological Timeline of the Incide\n<|id|>45<|type|>title<|page|>5<|box|>544 140 561 766<|content|>Phase 1: Unauthorized Access and Data Exfiltration\n<|id|>50<|type|>title<|page|>6<|box|>267 140 284 513<|content|>Phase 2: Discovery by Palomar (April 18, 2023)\n<|id|>53<|type|>title<|page|>6<|box|>523 140 542 637<|content|>Phase 3: Notification from Palomar to Quorum (Apri\n<|id|>57<|type|>title<|page|>7<|box|>89 140 126 818<|content|>Phase 4: Quorum's Immediate Response and Engagemen\n<|id|>76<|type|>title<|page|>8<|box|>517 140 534 571<|content|>Phase 5: Forensic Investigation (May 5 – July 14,\n<|id|>86<|type|>table<|page|>9<|box|>481 143 648 852<|content|>None\n<|id|>88<|type|>title<|page|>9<|box|>814 140 830 815<|content|>Phase 6: Affected Individual Identification and Da\n<|id|>90<|type|>table<|page|>10<|box|>214 143 470 852<|content|>None\n<|id|>99<|type|>title<|page|>11<|box|>321 142 338 277<|content|>August 16, 2023:\n<|id|>109<|type|>table<|page|>11<|box|>842 143 900 852<|content|>None\n<|id|>110<|type|>table<|page|>12<|box|>88 143 142 852<|content|>None\n<|id|>127<|type|>title<|page|>13<|box|>366 140 383 816<|content|>Phase 9: Multistate Attorney General Engagement (S\n<|id|>133<|type|>title<|page|>14<|box|>148 140 167 709<|content|>Phase 10: Other Regulatory Engagements (September\n<|id|>134<|type|>title<|page|>14<|box|>180 140 198 423<|content|>Connecticut Insurance Department\n<|id|>139<|type|>title<|page|>14<|box|>459 140 476 362<|content|>HHS Office for Civil Rights\n<|id|>143<|type|>title<|page|>14<|box|>720 140 739 785<|content|>Phase 11: Vendor Accountability — Palomar Data Sol\n<|id|>165<|type|>title<|page|>16<|box|>797 222 816 774<|content|>IV. Summary of Remedial Measures Taken by Quorum\n<|id|>167<|type|>title<|page|>17<|box|>90 140 107 410<|content|>A. Immediate Response Measures\n<|id|>175<|type|>title<|page|>17<|box|>628 140 646 542<|content|>B. Notification and Consumer Protection Measures\n<|id|>182<|type|>title<|page|>18<|box|>281 140 297 424<|content|>C. Vendor Accountability Measures\n<|id|>192<|type|>title<|page|>18<|box|>710 140 747 797<|content|>D. Enhancements to Quorum's Information Security a\n<|id|>198<|type|>title<|page|>19<|box|>377 267 398 728<|content|>V. Summary of Total Incident Response Costs\n<|id|>199<|type|>table<|page|>19<|box|>457 143 710 852<|content|>None\n<|id|>202<|type|>title<|page|>20<|box|>90 421 111 575<|content|>VI. Conclusion",
+    "raw_response": "<|src_id|>86<|tgt_id|>76\n<|src_id|>90<|tgt_id|>88\n<|src_id|>109<|tgt_id|>99\n<|src_id|>110<|tgt_id|>99\n<|src_id|>199<|tgt_id|>198",
+    "parsed": [
+        {
+            "src_id": 86,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 198
+        }
+    ]
+}

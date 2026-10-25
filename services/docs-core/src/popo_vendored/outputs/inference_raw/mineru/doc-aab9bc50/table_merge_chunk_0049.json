@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 49,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['A)等高线的几何类型为线;B)物标 LNDELV(地面高程)用于编码陆地等高线;C)空间要素与近似等高线有关联时编码为 QUAPOS(位置性质)=4', 'LNDELV(地面高程)(O)ELEVAT(高度/海拔) = [xx.x](m)(O)NOBJNM(中文名称) = [等高线中文名称]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '(O)OBJNAM(英文名称) = [等高线英文名称](O)INFORM(英文信息) = [等高线英文信息](O)NINFOM(中文信息) = [等高线中文信息]']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 2968,
+    "table2_idx": 2969
+}

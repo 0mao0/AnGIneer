@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>154 181 199 816<|content|>FORM OF NON-COMPETITION AND NON-SOLICITATION AGREE\n<|id|>3<|page|>1<|box|>277 230 294 766<|content|>NON-COMPETITION AND NON-SOLICITATION AGREEMENT\n<|id|>8<|page|>1<|box|>477 140 494 243<|content|>RECITALS\n<|id|>16<|page|>2<|box|>428 140 445 390<|content|>ARTICLE I — DEFINITIONS\n<|id|>33<|page|>4<|box|>637 140 654 563<|content|>ARTICLE II — NON-COMPETITION COVENANT\n<|id|>39<|page|>5<|box|>270 140 287 834<|content|>Section 2.2 — Scope and Reasonableness. The Key Em\n<|id|>45<|page|>5<|box|>787 140 805 581<|content|>ARTICLE III — NON-SOLICITATION COVENANTS\n<|id|>54<|page|>7<|box|>167 140 184 455<|content|>ARTICLE IV — CONFIDENTIALITY\n<|id|>69<|page|>8<|box|>724 140 743 648<|content|>ARTICLE V — INTELLECTUAL PROPERTY ASSIGNMENT\n<|id|>78<|page|>10<|box|>167 142 184 380<|content|>ARTICLE VI — REMEDIES\n<|id|>87<|page|>11<|box|>204 140 222 715<|content|>ARTICLE VII — REPRESENTATIONS AND ACKNOWLEDGMENTS\n<|id|>88<|page|>11<|box|>229 140 266 854<|content|>Section 7.1 — Key Employee's Representations. The\n<|id|>96<|page|>12<|box|>222 140 239 503<|content|>ARTICLE VIII — GENERAL PROVISIONS\n<|id|>124<|page|>15<|box|>662 228 680 766<|content|>[Remainder of this page intentionally left blank.\n<|id|>125<|page|>15<|box|>686 194 722 803<|content|>SIGNATURE PAGE TO NON-COMPETITION AND NON-SOLICITA\n<|id|>127<|page|>15<|box|>776 142 792 217<|content|>BUYER:\n<|id|>137<|page|>16<|box|>161 436 178 560<|content|>SCHEDULE A\n<|id|>138<|page|>16<|box|>186 352 204 643<|content|>KEY EMPLOYEE INFORMATION",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>33<|level|>2\n<|id|>39<|level|>3\n<|id|>45<|level|>2\n<|id|>54<|level|>2\n<|id|>69<|level|>2\n<|id|>78<|level|>2\n<|id|>87<|level|>2\n<|id|>88<|level|>3\n<|id|>96<|level|>2\n<|id|>124<|level|>-1\n<|id|>125<|level|>1\n<|id|>127<|level|>2\n<|id|>137<|level|>1\n<|id|>138<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 2
+        }
+    ]
+}

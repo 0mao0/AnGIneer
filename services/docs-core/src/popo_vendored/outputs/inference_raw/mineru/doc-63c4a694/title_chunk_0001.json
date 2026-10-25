@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        49,
+        52
+    ],
+    "pages": [
+        50,
+        51,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>445<|page|>50<|box|>90 323 111 674<|content|>Appendix G: Organizational Chart\n<|id|>446<|page|>50<|box|>136 142 154 573<|content|>Halcyon Group — Simplified Organizational Structur\n<|id|>447<|page|>50<|box|>161 165 196 831<|content|>HALCYON SEMICONDUCTOR AG (HSAG — Germany) Ultimate\n<|id|>450<|page|>50<|box|>363 142 380 531<|content|>Intercompany Transaction Flows (HSI ↔ HSAG)\n<|id|>453<|page|>51<|box|>90 297 111 700<|content|>Appendix H: Professional Qualifications\n<|id|>454<|page|>51<|box|>136 140 154 552<|content|>Calderwood & Harkness LLP — Engagement Team\n<|id|>459<|page|>51<|box|>611 140 628 586<|content|>Meridian Economics GmbH — Economic Analysis Team\n<|id|>462<|page|>52<|box|>90 140 107 410<|content|>Professional Standards Statement\n<|id|>467<|page|>52<|box|>340 142 354 630<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC",
+    "raw_response": "<|id|>445<|level|>1\n<|id|>446<|level|>2\n<|id|>447<|level|>3\n<|id|>450<|level|>2\n<|id|>453<|level|>1\n<|id|>454<|level|>2\n<|id|>459<|level|>2\n<|id|>462<|level|>2\n<|id|>467<|level|>-1",
+    "parsed": [
+        {
+            "id": 445,
+            "level": 1
+        },
+        {
+            "id": 446,
+            "level": 2
+        },
+        {
+            "id": 447,
+            "level": 3
+        },
+        {
+            "id": 450,
+            "level": 2
+        },
+        {
+            "id": 453,
+            "level": 1
+        },
+        {
+            "id": 454,
+            "level": 2
+        },
+        {
+            "id": 459,
+            "level": 2
+        },
+        {
+            "id": 462,
+            "level": 2
+        }
+    ]
+}

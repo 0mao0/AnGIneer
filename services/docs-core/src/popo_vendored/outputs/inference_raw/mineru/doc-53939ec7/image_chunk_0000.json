@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>5<|type|>title<|page|>1<|box|>352 140 369 364<|content|>I. Introduction and Purpose\n<|id|>10<|type|>title<|page|>2<|box|>90 140 107 601<|content|>II. The Defense Position on the Proper Restitution\n<|id|>11<|type|>title<|page|>2<|box|>121 140 138 707<|content|>A. Overview of the Government's Loss Figure and th\n<|id|>17<|type|>title<|page|>2<|box|>443 140 460 504<|content|>B. The $4.3 Million Double-Counting Problem\n<|id|>22<|type|>title<|page|>3<|box|>157 140 174 550<|content|>C. The $2.1 Million in Reinvested Production Funds\n<|id|>26<|type|>title<|page|>3<|box|>502 142 518 401<|content|>D. Proposed Restitution Amount\n<|id|>30<|type|>title<|page|>4<|box|>90 140 107 542<|content|>III. Identified Victims and Allocation of Restitut\n<|id|>31<|type|>title<|page|>4<|box|>121 140 138 406<|content|>A. Brindoval Investors Group LP\n<|id|>35<|type|>title<|page|>4<|box|>556 142 574 426<|content|>B. Lakeshore Capital Partners LLC\n<|id|>38<|type|>title<|page|>4<|box|>747 140 763 390<|content|>C. California Film Commission\n<|id|>41<|type|>title<|page|>5<|box|>213 140 229 328<|content|>D. Individual Investors\n<|id|>44<|type|>title<|page|>5<|box|>439 140 457 431<|content|>E. Proposed Allocation Methodology\n<|id|>48<|type|>title<|page|>6<|box|>90 140 107 691<|content|>IV. Ms. Fonseca's Financial Capacity and Proposed\n<|id|>49<|type|>title<|page|>6<|box|>121 142 138 380<|content|>A. Current Identifiable Assets\n<|id|>55<|type|>table<|page|>6<|box|>756 143 868 852<|content|>None\n<|id|>57<|type|>title<|page|>7<|box|>138 140 157 357<|content|>B. Receivership Recoveries\n<|id|>61<|type|>title<|page|>7<|box|>575 140 592 395<|content|>C. Proposed Payment Structure\n<|id|>70<|type|>title<|page|>9<|box|>90 140 107 480<|content|>D. Acknowledgment of the Restitution Gap\n<|id|>74<|type|>title<|page|>9<|box|>536 140 553 400<|content|>V. Request for Meet-and-Confer\n<|id|>85<|type|>title<|page|>10<|box|>364 140 383 344<|content|>VI. Reservation of Rights\n<|id|>88<|type|>title<|page|>10<|box|>642 140 659 245<|content|>VII. Closing",
+    "raw_response": "<|src_id|>55<|tgt_id|>49",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 49
+        }
+    ]
+}

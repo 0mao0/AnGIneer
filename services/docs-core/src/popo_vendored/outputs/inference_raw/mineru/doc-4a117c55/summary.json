@@ -1,0 +1,171 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1qw90d85\\input\\pdfs\\doc-4a117c55.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1qw90d85\\enriched\\doc-4a117c55.json",
+    "contd_output": "<|src_id|>41<|tgt_id|>42\n<|src_id|>58<|tgt_id|>59",
+    "title_output": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>14<|level|>2\n<|id|>26<|level|>2\n<|id|>31<|level|>2\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>72<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>87<|level|>2\n<|id|>90<|level|>2\n<|id|>99<|level|>2\n<|id|>119<|level|>2\n<|id|>120<|level|>3\n<|id|>125<|level|>2\n<|id|>126<|level|>3",
+    "image_output": "<|src_id|>74<|tgt_id|>72\n<|src_id|>80<|tgt_id|>78\n<|src_id|>121<|tgt_id|>120\n<|src_id|>122<|tgt_id|>120\n<|src_id|>128<|tgt_id|>126\n<|src_id|>129<|tgt_id|>126",
+    "contd_label": [
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 74,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 126
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 121,
+            "table2_idx": 122,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Philadelphia BIRT — estimated tax",
+                    "$78,500",
+                    "City of Philadelphia Department of",
+                    "June 17, 2024"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "payment for the period January 1, 2024 through May 31, 2024 (ordinary course)",
+                    "",
+                    "Revenue",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 128,
+            "table2_idx": 129,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "Dr. Thomas",
+                    "3301",
+                    "2.0%",
+                    "6,788,000",
+                    "—",
+                    "6,788,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Beckett",
+                    "Glenwood Avenue, Raleigh, NC 27612",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

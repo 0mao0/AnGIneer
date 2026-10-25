@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 133 599<|content|>TO: ... Ian Blackwood, Responsible Partner, Banking & Finance\n<|id|>2<|page|>1<|box|>141 140 159 607<|content|>FROM: ... Sophie Tremblay, Lead Associate, Banking & Finance\n<|id|>3<|page|>1<|box|>167 140 184 343<|content|>DATE: ... December 9, 2022\n<|id|>4<|page|>1<|box|>193 140 229 854<|content|>RE: ... GAPABF-2022)\n<|id|>5<|page|>1<|box|>237 140 255 429<|content|>APPROVED BY: ... Ian Blackwood ___\n<|id|>6<|page|>1<|box|>263 140 297 854<|content|>DISTRIBUTION: ... Firm File\n<|id|>7<|page|>1<|box|>306 140 369 854<|content|>This memorandum constitutes attorney work product ...e prior written consent of the Responsible Partner\n<|id|>40<|page|>5<|box|>825 140 881 856<|content|>On November 18, 2022, Patricia Calloway contacted ...C&H pause all drafting and negotiation work on the\n<|id|>41<|page|>6<|box|>89 140 127 854<|content|>HCB ABL Facility while GAP evaluated its alternati...ction and informed the engagement team accordingly\n<|id|>108<|page|>16<|box|>599 183 614 380<|content|>• Matter No. ... 1020-00001\n<|id|>115<|page|>16<|box|>734 140 771 854<|content|>Transfer to offsite storage should be completed no...sfer with the Firm's records management department\n<|id|>109<|page|>16<|box|>618 183 633 578<|content|>• Client Name: ... Greenfield Agricultural Partners LLC\n<|id|>110<|page|>16<|box|>638 183 654 421<|content|>• Billing Code: ... GAPABF-2022\n<|id|>111<|page|>16<|box|>657 183 674 723<|content|>• Matter Description: ... $80,000,000 Asset-Based Revolving Credit Facility\n<|id|>112<|page|>16<|box|>676 183 693 462<|content|>• Dormancy Date: ... December 9, 2022\n<|id|>113<|page|>16<|box|>696 183 713 604<|content|>• Retention Period: ... Through December 2029 (minimum)\n<|id|>114<|page|>16<|box|>715 183 732 470<|content|>• Responsible Partner: ... Ian Blackwood",
+    "raw_response": "<|src_id|>40<|tgt_id|>41",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        }
+    ]
+}

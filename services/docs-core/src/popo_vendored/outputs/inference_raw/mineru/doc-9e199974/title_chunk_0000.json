@@ -1,0 +1,115 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 168 125 828<|content|>CALDERWOOD & HARKNESS LLP 1301 K Street NW, Suite\n<|id|>2<|page|>1<|box|>196 290 214 707<|content|>ADMINISTRATIVE SETTLEMENT AGREEMENT\n<|id|>4<|page|>1<|box|>248 179 284 816<|content|>THE UNITED STATES DEPARTMENT OF JUSTICE, NATIONAL\n<|id|>10<|page|>1<|box|>489 142 508 243<|content|>RECITALS\n<|id|>22<|page|>2<|box|>719 142 734 176<|content|>and\n<|id|>33<|page|>4<|box|>90 140 107 390<|content|>ARTICLE I — DEFINITIONS\n<|id|>43<|page|>4<|box|>565 140 582 531<|content|>ARTICLE II — CIVIL MONETARY PENALTY\n<|id|>56<|page|>5<|box|>704 140 739 769<|content|>ARTICLE III — NO CRIMINAL PROSECUTION; NO DENIAL O\n<|id|>61<|page|>6<|box|>402 140 419 558<|content|>ARTICLE IV — COMPLIANCE UNDERTAKINGS\n<|id|>62<|page|>6<|box|>434 140 450 524<|content|>Section 4.1 — Independent Compliance Monitor.\n<|id|>71<|page|>7<|box|>726 140 744 529<|content|>Section 4.2 — Annual Export Compliance Audits.\n<|id|>73<|page|>8<|box|>90 140 107 560<|content|>Section 4.3 — Automated Restricted-Party Screening\n<|id|>76<|page|>8<|box|>463 140 481 331<|content|>Section 4.4 — Training.\n<|id|>78<|page|>8<|box|>681 140 700 410<|content|>Section 4.5 — Periodic Reporting.\n<|id|>85<|page|>9<|box|>229 140 247 573<|content|>ARTICLE V — ADMISSIONS AND COOPERATION\n<|id|>94<|page|>10<|box|>89 140 107 504<|content|>ARTICLE VI — BREACH AND REMEDIES\n<|id|>102<|page|>10<|box|>733 140 750 374<|content|>ARTICLE VII — RELEASE\n<|id|>105<|page|>11<|box|>226 140 243 810<|content|>Section 7.2 — Release Carve-Outs. The release set\n<|id|>110<|page|>11<|box|>553 140 570 503<|content|>ARTICLE VIII — GENERAL PROVISIONS\n<|id|>125<|page|>12<|box|>824 413 840 583<|content|>SIGNATURE PAGE\n<|id|>127<|page|>13<|box|>89 140 106 787<|content|>UNITED STATES DEPARTMENT OF JUSTICE NATIONAL SECUR\n<|id|>148<|page|>13<|box|>452 163 469 831<|content|>INTERNAL C&H REDLINE SUMMARY For DOJ Discussion —\n<|id|>150<|page|>13<|box|>506 142 523 416<|content|>Priority Redlines (Non-Negotiable)\n<|id|>155<|page|>14<|box|>138 140 157 562<|content|>Priority Redlines (Strongly Preferred But Negotiab\n<|id|>160<|page|>14<|box|>435 142 453 377<|content|>Expect DOJ to Push Back On\n<|id|>165<|page|>14<|box|>859 140 877 228<|content|>Next Step.",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>4<|level|>-1\n<|id|>10<|level|>2\n<|id|>22<|level|>-1\n<|id|>33<|level|>2\n<|id|>43<|level|>2\n<|id|>56<|level|>2\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>71<|level|>3\n<|id|>73<|level|>3\n<|id|>76<|level|>3\n<|id|>78<|level|>3\n<|id|>85<|level|>2\n<|id|>94<|level|>2\n<|id|>102<|level|>2\n<|id|>105<|level|>3\n<|id|>110<|level|>2\n<|id|>125<|level|>2\n<|id|>127<|level|>-1\n<|id|>148<|level|>2\n<|id|>150<|level|>3\n<|id|>155<|level|>3\n<|id|>160<|level|>3\n<|id|>165<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 2
+        }
+    ]
+}

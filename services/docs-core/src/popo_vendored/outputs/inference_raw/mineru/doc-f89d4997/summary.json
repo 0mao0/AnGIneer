@@ -1,0 +1,623 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vfnff690\\input\\pdfs\\doc-f89d4997.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-vfnff690\\enriched\\doc-f89d4997.json",
+    "contd_output": "<|src_id|>108<|tgt_id|>109",
+    "title_output": "<|id|>5<|level|>1\n<|id|>17<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>1\n<|id|>47<|level|>2\n<|id|>54<|level|>1\n<|id|>66<|level|>1\n<|id|>94<|level|>1\n<|id|>105<|level|>1\n<|id|>129<|level|>1",
+    "image_output": "<|src_id|>7<|tgt_id|>5\n<|src_id|>45<|tgt_id|>43\n<|src_id|>46<|tgt_id|>43\n<|src_id|>48<|tgt_id|>47\n<|src_id|>49<|tgt_id|>43\n<|src_id|>50<|tgt_id|>43\n<|src_id|>53<|tgt_id|>43\n<|src_id|>55<|tgt_id|>54\n<|src_id|>56<|tgt_id|>54\n<|src_id|>57<|tgt_id|>54\n<|src_id|>58<|tgt_id|>54\n<|src_id|>59<|tgt_id|>54\n<|src_id|>60<|tgt_id|>54\n<|src_id|>61<|tgt_id|>54\n<|src_id|>62<|tgt_id|>54\n<|src_id|>63<|tgt_id|>54\n<|src_id|>64<|tgt_id|>54\n<|src_id|>65<|tgt_id|>54\n<|src_id|>67<|tgt_id|>66\n<|src_id|>68<|tgt_id|>66\n<|src_id|>69<|tgt_id|>66\n<|src_id|>70<|tgt_id|>66\n<|src_id|>71<|tgt_id|>66\n<|src_id|>73<|tgt_id|>66\n<|src_id|>74<|tgt_id|>66\n<|src_id|>75<|tgt_id|>66\n<|src_id|>77<|tgt_id|>66\n<|src_id|>79<|tgt_id|>66\n<|src_id|>80<|tgt_id|>66\n<|src_id|>81<|tgt_id|>66\n<|src_id|>83<|tgt_id|>66\n<|src_id|>84<|tgt_id|>66\n<|src_id|>85<|tgt_id|>66\n<|src_id|>86<|tgt_id|>66\n<|src_id|>87<|tgt_id|>66\n<|src_id|>88<|tgt_id|>66\n<|src_id|>89<|tgt_id|>66\n<|src_id|>90<|tgt_id|>66\n<|src_id|>91<|tgt_id|>66\n<|src_id|>92<|tgt_id|>66\n<|src_id|>93<|tgt_id|>66\n<|src_id|>95<|tgt_id|>94\n<|src_id|>97<|tgt_id|>94\n<|src_id|>98<|tgt_id|>94\n<|src_id|>99<|tgt_id|>94\n<|src_id|>100<|tgt_id|>94\n<|src_id|>106<|tgt_id|>105\n<|src_id|>130<|tgt_id|>129\n<|src_id|>131<|tgt_id|>129",
+    "contd_label": [
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        }
+    ],
+    "title_label": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 7,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 129
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 45,
+            "table2_idx": 46,
+            "upper_row_ss": [
+                [
+                    "Total",
+                    "42,943",
+                    "27,602",
+                    "20,891",
+                    "17,596",
+                    "3,295",
+                    "6,711",
+                    "5,376",
+                    "1,335",
+                    "15,341"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=4, Issue, classified by tax-exemption provision",
+                    "colspan=9, Public marketable interest-bearing securities 1/"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 56,
+            "table2_idx": 57,
+            "upper_row_ss": [
+                [
+                    "April",
+                    "565",
+                    "325",
+                    "75",
+                    "250",
+                    "49",
+                    "191",
+                    "1,316",
+                    "1,295",
+                    "2",
+                    "18",
+                    "1",
+                    "751"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Fiscal year or month",
+                    "Total",
+                    "Departmental",
+                    "National defense",
+                    "Veterans' Administration",
+                    "FEBA and CWA",
+                    "WPA 2/",
+                    "Public Works 3/",
+                    "Agricultural Adjustment program",
+                    "Civilian Conservation Corps",
+                    "Social Security and Railroad Retirement Acts",
+                    "Interest on the public debt",
+                    "Other"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 85,
+            "table2_idx": 86,
+            "upper_row_ss": [
+                [
+                    "Total....",
+                    "$67,754,742",
+                    "$954,346,320",
+                    "$268,503,323",
+                    "$33,676,874",
+                    "$2,384,778,885"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Corporation or agency",
+                    "colspan=2, Expenses",
+                    "rowspan=2, Purchase and improvement of property owned",
+                    "rowspan=2, Loans",
+                    "rowspan=2, Retirement of obligations issued in exchange for mortgages 1/"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 87,
+            "table2_idx": 88,
+            "upper_row_ss": [
+                [
+                    "Total",
+                    "$275,035,791",
+                    "$205,344,899",
+                    "$84,448,622",
+                    "$12,323,271",
+                    "$2,159,542,969"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Corporation or agency",
+                    "Appropriations from General Fund of the Treasury 1/",
+                    "Allocations, redis- counts, and loans from other governmental corporations and credit agencies (net)",
+                    "Sale of obligations to Treasury (net)",
+                    "Sale of obli- gations in the market (net)",
+                    "Sale of stock to other agencies"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 89,
+            "table2_idx": 90,
+            "upper_row_ss": [
+                [
+                    "Total....",
+                    "$214,395,306",
+                    "$8,685,686,977",
+                    "$2,332,194,342",
+                    "$217,019,016",
+                    "$20,919,371,300"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Corporation or agency",
+                    "colspan=2, Expenses",
+                    "rowspan=2, Purchase and improvement of property owned",
+                    "rowspan=2, Loans",
+                    "rowspan=2, Retirement of obligations issued in exchange for mortgagee 1/"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 102,
+            "table2_idx": 103,
+            "upper_row_ss": [
+                [
+                    "Total value of dutiable and taxable imports....",
+                    "878,050",
+                    "891,835",
+                    "78,950",
+                    "71,698",
+                    "76,758",
+                    "77,011",
+                    "69,106",
+                    "64,858",
+                    "64,663",
+                    "78,151",
+                    "75,559",
+                    "82,791",
+                    "79,682",
+                    "80,881",
+                    "98,519"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Country from which imports originated",
+                    "colspan=2, Calendar year",
+                    "colspan=10, 1940",
+                    "colspan=3, 1941"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 113,
+            "table2_idx": 114,
+            "upper_row_ss": [
+                [
+                    "Feb. 26......",
+                    "7",
+                    "-",
+                    "-",
+                    "-",
+                    "342",
+                    "-",
+                    "100",
+                    "449",
+                    "4",
+                    "59",
+                    "2,469",
+                    "-",
+                    "12",
+                    "2,544",
+                    "217"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Assets as of following dates",
+                    "Grand total",
+                    "United Kingdom",
+                    "France",
+                    "Belgium",
+                    "Denmark",
+                    "Finland",
+                    "Germany",
+                    "Italy",
+                    "Netherlands",
+                    "Norway",
+                    "Sweden",
+                    "Switzerland",
+                    "Other Europe",
+                    "Total Europe",
+                    "Canada"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 119,
+            "table2_idx": 120,
+            "upper_row_ss": [
+                [
+                    "Feb. 26......",
+                    "46,004",
+                    "2,716",
+                    "6,625",
+                    "1,242",
+                    "49",
+                    "41",
+                    "7,774",
+                    "119",
+                    "10,277",
+                    "2,143",
+                    "30,986",
+                    "1,675",
+                    "10,443",
+                    "166",
+                    "1,988",
+                    "2,154",
+                    "746"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Transactions during week ended:",
+                    "Grand total",
+                    "United Kingdom",
+                    "France",
+                    "Belgium",
+                    "Germany",
+                    "Italy",
+                    "Netherlands",
+                    "Sweden",
+                    "Switzerland",
+                    "Other Europe",
+                    "Total Europe",
+                    "Canada",
+                    "Latin America",
+                    "Japan, Korea and Manchuria",
+                    "Other Asia",
+                    "Total Asia",
+                    "All other"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 122,
+            "table2_idx": 123,
+            "upper_row_ss": [
+                [
+                    "Feb. 12 Forward...",
+                    "194",
+                    "109",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Contracts as of following dates",
+                    "colspan=17, Currency of:"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 136,
+            "table2_idx": 137,
+            "upper_row_ss": [
+                [
+                    "Other flage",
+                    "883",
+                    "1,782",
+                    "142",
+                    "119",
+                    "132",
+                    "156",
+                    "159",
+                    "171",
+                    "128",
+                    "156",
+                    "180",
+                    "185",
+                    "189",
+                    "140",
+                    "196"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Ashtabula",
+                    "236",
+                    "297",
+                    "-",
+                    "22",
+                    "65",
+                    "45",
+                    "46",
+                    "34",
+                    "28",
+                    "29",
+                    "28",
+                    "-",
+                    "-",
+                    "-",
+                    "-"
+                ]
+            ]
+        }
+    ]
+}

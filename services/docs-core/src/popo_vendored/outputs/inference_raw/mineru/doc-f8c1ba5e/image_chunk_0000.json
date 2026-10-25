@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 147 161 849<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>5<|type|>table<|page|>1<|box|>291 145 328 851<|content|>None\n<|id|>6<|type|>title<|page|>1<|box|>362 158 416 836<|content|>DECLARATION OF DEVON ARCHER IN SUPPORT OF DEFENDAN\n<|id|>7<|type|>table<|page|>1<|box|>424 143 500 852<|content|>None\n<|id|>8<|type|>title<|page|>1<|box|>534 142 549 408<|content|>I, Devon Archer, declare as follows:\n<|id|>11<|type|>title<|page|>2<|box|>90 140 107 638<|content|>Exhibit A — AMA Employee Handbook (March 2021 Revi\n<|id|>13<|type|>title<|page|>2<|box|>411 142 428 663<|content|>Exhibit B — AMA Meal and Rest Break Policy (Standa\n<|id|>15<|type|>title<|page|>2<|box|>603 142 619 609<|content|>Exhibit C — TimeTrack Pro System Configuration Rec\n<|id|>17<|type|>title<|page|>2<|box|>886 143 902 714<|content|>Exhibit D — Missed Meal Attestation Feature Activa\n<|id|>28<|type|>title<|page|>3<|box|>599 140 617 655<|content|>Exhibit E — Missed Meal Attestation Usage Rate Dat\n<|id|>35<|type|>title<|page|>4<|box|>89 140 126 854<|content|>Exhibit F — NovaPay TimeTrack Pro Data Summary — S\n<|id|>37<|type|>title<|page|>4<|box|>410 140 445 854<|content|>Exhibit G — NovaPay TimeTrack Pro Data Summary — O\n<|id|>39<|type|>title<|page|>4<|box|>621 142 637 705<|content|>Exhibit H — AMA Production Schedules for Represent\n<|id|>46<|type|>title<|page|>5<|box|>152 140 170 764<|content|>Exhibit I — Deposition Transcript Excerpts — Named\n<|id|>53<|type|>title<|page|>5<|box|>529 140 546 763<|content|>Exhibit J — Deposition Transcript Excerpts — Named\n<|id|>59<|type|>title<|page|>5<|box|>861 140 878 764<|content|>Exhibit K — Deposition Transcript Excerpts — Named\n<|id|>65<|type|>title<|page|>6<|box|>459 140 494 854<|content|>Exhibit L — Deposition Transcript Excerpts — Lorra\n<|id|>72<|type|>title<|page|>7<|box|>234 140 268 854<|content|>Exhibit M — Deposition Transcript Excerpts — Celin\n<|id|>79<|type|>title<|page|>7<|box|>773 140 792 751<|content|>Exhibit N — Deposition Transcript Excerpts — Karen\n<|id|>86<|type|>title<|page|>8<|box|>476 142 494 540<|content|>Exhibit O — Expert Report of Dr. Rajesh Makhija\n<|id|>88<|type|>title<|page|>8<|box|>723 142 739 578<|content|>Exhibit P — Expert Report of Dr. Catherine Lindstr\n<|id|>90<|type|>title<|page|>9<|box|>184 142 200 609<|content|>Exhibit Q — AMA Employee Complaint Records Summary\n<|id|>92<|type|>title<|page|>9<|box|>467 142 484 509<|content|>Document Production and discovery Summary\n<|id|>96<|type|>title<|page|>9<|box|>782 140 799 274<|content|>/s/ Devon Archer\n<|id|>98<|type|>table<|page|>10<|box|>89 143 664 852<|content|>None",
+    "raw_response": "<|src_id|>5<|tgt_id|>0\n<|src_id|>7<|tgt_id|>6\n<|src_id|>98<|tgt_id|>6",
+    "parsed": [
+        {
+            "src_id": 5,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 6
+        }
+    ]
+}

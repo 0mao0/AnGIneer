@@ -1,0 +1,39 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        147,
+        152
+    ],
+    "pages": [
+        148,
+        149,
+        150,
+        151,
+        152
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1284<|page|>148<|box|>74 410 87 585<|content|>POWER OF ATTORNEY\n<|id|>1288<|page|>149<|box|>60 15 74 208<|content|>I, Miguel Patricio, certify that:\n<|id|>1300<|page|>150<|box|>60 15 74 193<|content|>I, Paulo Basilio, certify that:\n<|id|>1312<|page|>151<|box|>60 350 73 649<|content|>18 U.S.C. SECTION 1350 CERTIFICATION\n<|id|>1322<|page|>152<|box|>60 350 73 649<|content|>18 U.S.C. SECTION 1350 CERTIFICATION",
+    "raw_response": "<|id|>1284<|level|>1\n<|id|>1288<|level|>2\n<|id|>1300<|level|>2\n<|id|>1312<|level|>1\n<|id|>1322<|level|>1",
+    "parsed": [
+        {
+            "id": 1284,
+            "level": 1
+        },
+        {
+            "id": 1288,
+            "level": 2
+        },
+        {
+            "id": 1300,
+            "level": 2
+        },
+        {
+            "id": 1312,
+            "level": 1
+        },
+        {
+            "id": 1322,
+            "level": 1
+        }
+    ]
+}

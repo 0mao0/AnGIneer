@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 34,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=11, 2', 'rowspan=11, 电抗器以及消弧线圈', 'rowspan=3, 油浸式电抗器', '2.11 绕组连同套管的交流耐压', '符合GB 50150-2016中第9.0.6条的规定', '交流耐压试验仪测量']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 2', 'rowspan=3, 电抗器以及消弧线圈', 'rowspan=3, 油浸式电抗器', '2.12 与铁心绝缘的各紧固件的绝缘电阻', '符合GB 50150-2016中第9.0.7条的规定', '直流绝缘电阻测试仪测量']]\n",
+    "raw_response": "[1, 1, 1, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 480,
+    "table2_idx": 481
+}

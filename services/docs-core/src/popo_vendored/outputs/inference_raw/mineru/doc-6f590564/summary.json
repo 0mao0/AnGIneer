@@ -1,0 +1,157 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ef7klmzw\\input\\pdfs\\doc-6f590564.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ef7klmzw\\enriched\\doc-6f590564.json",
+    "contd_output": "<|src_id|>129<|tgt_id|>130",
+    "title_output": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>10<|level|>3\n<|id|>24<|level|>3\n<|id|>30<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>45<|level|>3\n<|id|>53<|level|>3\n<|id|>58<|level|>2\n<|id|>59<|level|>3\n<|id|>66<|level|>3\n<|id|>84<|level|>3\n<|id|>92<|level|>3\n<|id|>99<|level|>2\n<|id|>100<|level|>3\n<|id|>106<|level|>3\n<|id|>110<|level|>2\n<|id|>125<|level|>2\n<|id|>131<|level|>2\n<|id|>135<|level|>2\n<|id|>144<|level|>2\n<|id|>153<|level|>2\n<|id|>173<|level|>2",
+    "image_output": "<|src_id|>3<|tgt_id|>4\n<|src_id|>14<|tgt_id|>10\n<|src_id|>15<|tgt_id|>10\n<|src_id|>69<|tgt_id|>66\n<|src_id|>70<|tgt_id|>66",
+    "contd_label": [
+        {
+            "src_id": 129,
+            "tgt_id": 130
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 66
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 69,
+            "table2_idx": 70,
+            "upper_row_ss": [
+                [
+                    "IRAs and Keogh plans",
+                    "4.3%",
+                    "Benefit plan investors (subject to"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Code § 4975)"
+                ]
+            ]
+        }
+    ]
+}

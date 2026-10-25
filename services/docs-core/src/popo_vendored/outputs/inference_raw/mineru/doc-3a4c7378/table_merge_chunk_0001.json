@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Preamble: \"A multi-channel silicon photonic waveguide multiplexer comprising:\"', \"Accused Product: LumiLink 800G-DR8 optical transceiver module, manufactured and sold by Lumicore Technologies, Inc. The LumiLink 800G-DR8 is an 800-gigabit intensity-modulated optical transceiver module utilizing eight lanes of 100G-per-lane PAM4 signaling. The module incorporates a silicon photonic integrated circuit that includes a multi-channel waveguide multiplexer for combining eight optical channels onto a reduced number of output waveguides for transmission over parallel single-mode fibers.Evidentiary Support: Benchmark teardown report for the LumiLink 800G-DR8 (June 2023) (Exhibit OWS-2001); annotated teardown photographs (Exhibits OWS-2002 through OWS-2058); Lumicore product datasheet for the LumiLink 800G-DR8 (LC-00005100 through LC-00005122); Dr. Michaud deposition testimony (November 19, 2024) at 71:5–73:14 (confirming the 800G-DR8 incorporates a silicon photonic IC with waveguide multiplexing functionality).Dr.Ashford's Explanation:The LumiLink 800G-DR8 contains a silicon photonic integrated circuit that includes a multi-channel waveguide multiplexer. Although the 800G-\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'DR8 employs eight wavelength channels (compared to four in the 400G-ZR+), the multiplexer architecture is functionally and structurally similar. The Benchmark teardown identifies two four-channel AWG multiplexers on the 800G-DR8 PIC, each combining four wavelength channels onto a single output waveguide, for a total of two output fibers carrying the aggregated 800G signal. To the extent the preamble is limiting, the LumiLink 800G-DR8 satisfies it.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 79,
+    "table2_idx": 80
+}

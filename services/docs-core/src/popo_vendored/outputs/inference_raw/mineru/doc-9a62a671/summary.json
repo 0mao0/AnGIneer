@@ -1,0 +1,181 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mrldga3j\\input\\pdfs\\doc-9a62a671.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mrldga3j\\enriched\\doc-9a62a671.json",
+    "contd_output": "<|src_id|>149<|tgt_id|>150",
+    "title_output": "<|id|>0<|level|>1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>46<|level|>1\n<|id|>56<|level|>1\n<|id|>70<|level|>1\n<|id|>89<|level|>1\n<|id|>91<|level|>2\n<|id|>99<|level|>2\n<|id|>104<|level|>2\n<|id|>106<|level|>2\n<|id|>111<|level|>2\n<|id|>117<|level|>2\n<|id|>123<|level|>1\n<|id|>135<|level|>1\n<|id|>138<|level|>1\n<|id|>142<|level|>1\n<|id|>146<|level|>1\n<|id|>152<|level|>1",
+    "image_output": "<|src_id|>16<|tgt_id|>14\n<|src_id|>20<|tgt_id|>18\n<|src_id|>28<|tgt_id|>22\n<|src_id|>32<|tgt_id|>30\n<|src_id|>33<|tgt_id|>30\n<|src_id|>140<|tgt_id|>138\n<|src_id|>141<|tgt_id|>138\n<|src_id|>148<|tgt_id|>146",
+    "contd_label": [
+        {
+            "src_id": 149,
+            "tgt_id": 150
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 146
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 32,
+            "table2_idx": 33,
+            "upper_row_ss": [
+                [
+                    "Common Stock",
+                    "8,000,000",
+                    "Founders and employees"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "— Dr. Amara Osei (Co-Founder, CEO)",
+                    "3,200,000",
+                    "Subject to founder vesting (see Section 6.7)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 140,
+            "table2_idx": 141,
+            "upper_row_ss": [
+                [
+                    "Chief Executive Officer",
+                    "Dr. Amara Osei"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Chief Technology Officer",
+                    "Julian Voss"
+                ]
+            ]
+        }
+    ]
+}

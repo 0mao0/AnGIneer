@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        131
+    ],
+    "pages": [
+        45,
+        46,
+        59,
+        61,
+        63,
+        70,
+        78,
+        81,
+        89,
+        90,
+        130
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>210<|page|>45<|box|>152 421 181 586<|content|>2-1 路面垫层\n<|id|>214<|page|>46<|box|>154 416 181 574<|content|>2-2 稳定土基层\n<|id|>249<|page|>59<|box|>147 418 174 591<|content|>2-3 其他路面基层\n<|id|>256<|page|>61<|box|>141 421 169 578<|content|>2-4 冷再生基层\n<|id|>265<|page|>63<|box|>141 415 169 589<|content|>2-5 沥青路面面层\n<|id|>285<|page|>70<|box|>134 431 158 542<|content|>II. 二级公路\n<|id|>305<|page|>78<|box|>141 374 169 605<|content|>2-6 水泥混凝土路面面层\n<|id|>315<|page|>81<|box|>139 413 169 589<|content|>2-7 其他路面面层\n<|id|>338<|page|>89<|box|>222 376 264 638<|content|>第三章 隧道工程\n<|id|>339<|page|>89<|box|>311 462 346 554<|content|>说明\n<|id|>354<|page|>90<|box|>333 90 362 250<|content|>8. 工程量计算规则：\n<|id|>461<|page|>130<|box|>163 425 189 563<|content|>3-5 竖井",
+    "raw_response": "<|id|>210<|level|>3\n<|id|>214<|level|>3\n<|id|>249<|level|>3\n<|id|>256<|level|>3\n<|id|>265<|level|>3\n<|id|>285<|level|>2\n<|id|>305<|level|>3\n<|id|>315<|level|>3\n<|id|>338<|level|>1\n<|id|>339<|level|>2\n<|id|>354<|level|>2\n<|id|>461<|level|>3",
+    "parsed": [
+        {
+            "id": 210,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 3
+        },
+        {
+            "id": 249,
+            "level": 3
+        },
+        {
+            "id": 256,
+            "level": 3
+        },
+        {
+            "id": 265,
+            "level": 3
+        },
+        {
+            "id": 285,
+            "level": 2
+        },
+        {
+            "id": 305,
+            "level": 3
+        },
+        {
+            "id": 315,
+            "level": 3
+        },
+        {
+            "id": 338,
+            "level": 1
+        },
+        {
+            "id": 339,
+            "level": 2
+        },
+        {
+            "id": 354,
+            "level": 2
+        },
+        {
+            "id": 461,
+            "level": 3
+        }
+    ]
+}

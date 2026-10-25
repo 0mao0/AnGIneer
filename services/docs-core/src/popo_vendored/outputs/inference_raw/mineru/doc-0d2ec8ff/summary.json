@@ -1,0 +1,57 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ypai8w39\\input\\pdfs\\doc-0d2ec8ff.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ypai8w39\\enriched\\doc-0d2ec8ff.json",
+    "contd_output": "<|src_id|>58<|tgt_id|>59",
+    "title_output": "<|id|>0<|level|>1\n<|id|>4<|level|>2",
+    "image_output": "<|src_id|>79<|tgt_id|>0\n<|src_id|>95<|tgt_id|>0\n<|src_id|>96<|tgt_id|>0",
+    "contd_label": [
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 79,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 0
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 95,
+            "table2_idx": 96,
+            "upper_row_ss": [
+                [
+                    "8",
+                    "Paragraph 4 (Substantive Response)",
+                    "\"This signals we intend to engage on the merits, not just send another holding letter.\""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "9",
+                    "New Paragraph 4A (Compliance Commitment)",
+                    "\"I want to plant a flag on our compliance posture without making specific factual representations about system capabilities. Carla [Whitfield] and I discussed this — we should signal good faith but avoid giving GLO anything they can use to contradict us later if we discover issues in the audit. Bernard — please review the language carefully to make sure we are not making representations we cannot support.\""
+                ]
+            ]
+        }
+    ]
+}

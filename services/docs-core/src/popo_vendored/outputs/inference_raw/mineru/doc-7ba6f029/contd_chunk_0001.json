@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        88,
+        100
+    ],
+    "pages": [
+        89,
+        99,
+        100
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>269<|page|>89<|box|>656 118 676 377<|content|>\\Delta \\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>270<|page|>89<|box|>682 120 711 367<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>272<|page|>89<|box|>427 529 440 731<|content|>(EQ2) E_x = \\Sigma(\\Delta f c_i / \\$ * X_i / \\Sigma X)\n<|id|>273<|page|>89<|box|>444 549 474 844<|content|>Where: ... E_{x} is the weighted average of percentage changes in the foreign currency cost of dollars\n<|id|>274<|page|>89<|box|>479 599 501 838<|content|>\\Delta f c_{i}/\\$ is the percent change in the foreign currency 1 cost of dollars; ... and\n<|id|>275<|page|>89<|box|>507 599 536 833<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>278<|page|>89<|box|>586 551 614 844<|content|>Where: ... and\n<|id|>279<|page|>89<|box|>621 597 649 849<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>328<|page|>99<|box|>73 67 87 910<|content|>Section III - Supplementary Liabilities and Claims Data Reported by Banks in the United States\n<|id|>330<|page|>100<|box|>71 205 106 794<|content|>Section IV - Liabilities to, and Claims on, Foreig...M-IV-1. ... - Total Liabilities and Claims by Type",
+    "raw_response": "<|src_id|>269<|tgt_id|>270\n<|src_id|>274<|tgt_id|>275\n<|src_id|>278<|tgt_id|>279",
+    "parsed": [
+        {
+            "src_id": 269,
+            "tgt_id": 270
+        },
+        {
+            "src_id": 274,
+            "tgt_id": 275
+        },
+        {
+            "src_id": 278,
+            "tgt_id": 279
+        }
+    ]
+}

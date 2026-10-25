@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 158 118 838<|content|>NON-COMPETITION AND NON-SOLICITATION AGREEMENT\n<|id|>9<|page|>1<|box|>486 140 503 243<|content|>RECITALS\n<|id|>18<|page|>2<|box|>564 140 580 390<|content|>SECTION 1 — DEFINITIONS\n<|id|>33<|page|>4<|box|>599 140 618 555<|content|>SECTION 2 — NON-COMPETITION COVENANT\n<|id|>44<|page|>5<|box|>681 140 698 785<|content|>SECTION 3 — NON-SOLICITATION OF EMPLOYEES AND CONT\n<|id|>53<|page|>6<|box|>508 140 526 723<|content|>SECTION 4 — NON-SOLICITATION OF BUSINESS RELATIONS\n<|id|>60<|page|>7<|box|>204 140 220 549<|content|>SECTION 5 — CONFIDENTIAL INFORMATION\n<|id|>82<|page|>9<|box|>89 142 106 477<|content|>SECTION 6 — NON-DISPARAGEMENT\n<|id|>89<|page|>9<|box|>652 140 669 555<|content|>SECTION 7 — ENFORCEMENT AND REMEDIES\n<|id|>95<|page|>10<|box|>720 140 738 720<|content|>SECTION 8 — REASONABLENESS; SEVERABILITY; BLUE-PEN\n<|id|>100<|page|>11<|box|>494 140 530 815<|content|>SECTION 9 — REPRESENTATIONS AND WARRANTIES OF THE\n<|id|>106<|page|>12<|box|>339 140 356 475<|content|>SECTION 10 — TERM AND SURVIVAL\n<|id|>109<|page|>12<|box|>614 140 633 810<|content|>SECTION 11 — GOVERNING LAW; JURISDICTION; WAIVER O\n<|id|>113<|page|>13<|box|>503 140 521 437<|content|>SECTION 12 — MISCELLANEOUS\n<|id|>137<|page|>15<|box|>651 400 669 596<|content|>[Signature Page Follows]\n<|id|>138<|page|>15<|box|>676 194 712 802<|content|>SIGNATURE PAGE TO NON-COMPETITION AND NON-SOLICITA\n<|id|>140<|page|>15<|box|>765 142 782 354<|content|>RESTRICTED PARTIES:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>18<|level|>2\n<|id|>33<|level|>2\n<|id|>44<|level|>2\n<|id|>53<|level|>2\n<|id|>60<|level|>2\n<|id|>82<|level|>2\n<|id|>89<|level|>2\n<|id|>95<|level|>2\n<|id|>100<|level|>2\n<|id|>106<|level|>2\n<|id|>109<|level|>2\n<|id|>113<|level|>2\n<|id|>137<|level|>-1\n<|id|>138<|level|>1\n<|id|>140<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 2
+        }
+    ]
+}

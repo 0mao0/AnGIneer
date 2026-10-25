@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 106 594<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>6<|page|>1<|box|>262 140 279 647<|content|>VIA OVERNIGHT COURIER AND ELECTRONIC SUBMISSION\n<|id|>10<|page|>1<|box|>436 140 453 545<|content|>I. Introduction and Identification of Representati\n<|id|>15<|page|>2<|box|>150 140 167 517<|content|>II. Acknowledgment of Consent Order Findings\n<|id|>25<|page|>3<|box|>544 140 561 493<|content|>III. Acknowledgment of Civil Money Penalty\n<|id|>29<|page|>4<|box|>90 140 107 694<|content|>IV. Commitment to Compliance with Key Deadlines an\n<|id|>44<|page|>6<|box|>186 140 204 483<|content|>V. Remediation Governance and Resources\n<|id|>55<|page|>7<|box|>340 140 357 426<|content|>VI. Designation of Points of Contact\n<|id|>64<|page|>7<|box|>744 140 763 411<|content|>VII. Reservation and Cooperation\n<|id|>68<|page|>8<|box|>267 140 284 251<|content|>VIII. Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>-1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>25<|level|>1\n<|id|>29<|level|>1\n<|id|>44<|level|>1\n<|id|>55<|level|>1\n<|id|>64<|level|>1\n<|id|>68<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>309 183 325 699<|content|>• all of the Company's directors and executive officers as a group; ... and\n<|id|>7<|page|>1<|box|>348 140 623 857<|content|>Beneficial ownership is determined in accordance w...f common stock shown as beneficially owned by them\n<|id|>22<|page|>4<|box|>681 138 902 857<|content|>(b) Following the completion of this offering, Pin...bed under \"Certain Relationships and Related-Party\n<|id|>23<|page|>5<|box|>89 140 143 854<|content|>Transactions — Registration Rights Agreement,\" whi...ject to the terms and conditions set forth therein\n<|id|>44<|page|>7<|box|>839 181 893 856<|content|>• Registration Rights Agreement. ... In connection...tration rights, piggyback registration rights, and\n<|id|>45<|page|>8<|box|>90 210 162 854<|content|>S-3 shelf registration rights with respect to the ... the terms and conditions set forth therein. ... \"\n<|id|>52<|page|>8<|box|>646 174 700 854<|content|>(iii) make any demand for, or exercise any right w...ercisable or exchangeable for common stock; ... or\n<|id|>54<|page|>8<|box|>771 140 806 854<|content|>Carve-Outs. ... The lock-up agreements provide for...xceptions to the foregoing restrictions, including\n<|id|>59<|page|>9<|box|>258 181 295 854<|content|>• pledges of shares to lending institutions as col...und by the terms of the lock-up agreement; ... and\n<|id|>61<|page|>9<|box|>371 140 518 857<|content|>Early Release. ... or (ii) upon the occurrence of ... or substantially all of the assets of the Company\n<|id|>76<|page|>11<|box|>148 183 166 800<|content|>• Tomás Quintero, Senior Vice President, Project Development: ... and\n<|id|>78<|page|>11<|box|>188 140 262 854<|content|>Each of the foregoing RSU grants is expected to ve...ompany through each applicable vesting date. ... \"",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>44<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        }
+    ]
+}

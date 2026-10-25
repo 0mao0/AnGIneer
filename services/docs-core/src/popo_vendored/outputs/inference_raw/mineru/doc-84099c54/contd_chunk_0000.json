@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 297 133 700<|content|>1700 K Street NW, Suite 900 Washington, D. ... 20006\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 704 185 854<|content|>September 10, 2023\n<|id|>5<|page|>1<|box|>219 140 255 854<|content|>Thomas R. ... 400 Constitution Plaza, Suite 2200 Hartford, CT 06103\n<|id|>6<|page|>1<|box|>263 140 318 854<|content|>Re: ... Vendor-Originated Data Security Incident Involving Palomar Data Solutions, Inc\n<|id|>12<|page|>1<|box|>801 140 910 854<|content|>By way of brief factual background, and to provide... for a period of approximately 35 days until April\n<|id|>13<|page|>2<|box|>90 140 164 854<|content|>18, 2023, when Palomar's Security Operations Cente...tual notification window by approximately 24 hours\n<|id|>46<|page|>5<|box|>830 174 902 854<|content|>(b) Late Breach Notification. ... Palomar's SOC de...fers on April 18, 2023, but Palomar did not notify\n<|id|>47<|page|>6<|box|>90 174 143 854<|content|>Quorum until April 21, 2023 — approximately 72 hou... past the contractual notification deadline. ... 4\n<|id|>98<|page|>12<|box|>171 142 188 272<|content|>Very truly yours,\n<|id|>99<|page|>12<|box|>196 140 212 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>100<|page|>12<|box|>214 143 231 251<|content|>By: ... By\n<|id|>101<|page|>12<|box|>231 142 248 513<|content|>Kevin Ostrowski Partner, Privacy & Data Security\n<|id|>102<|page|>12<|box|>250 143 263 316<|content|>Direct: ... (202) 555-4127\n<|id|>103<|page|>12<|box|>266 142 282 480<|content|>Email: ... com\n<|id|>110<|page|>12<|box|>486 142 501 313<|content|>Title: ... General Counsel\n<|id|>111<|page|>12<|box|>503 143 520 266<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>46<|tgt_id|>47",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        }
+    ]
+}

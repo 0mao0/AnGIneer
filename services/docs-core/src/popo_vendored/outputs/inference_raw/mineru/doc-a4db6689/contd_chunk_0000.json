@@ -1,0 +1,46 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        9,
+        10,
+        14,
+        15,
+        27,
+        28,
+        30
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>136 341 154 656<|content|>Exhibit [____] to the Merger Agreement\n<|id|>3<|page|>1<|box|>224 142 239 408<|content|>Right-click to update Table of Contents\n<|id|>13<|page|>2<|box|>90 140 145 854<|content|>WHEREAS, this Agreement is being entered into purs...y the form attached as an exhibit thereto; ... and\n<|id|>14<|page|>2<|box|>152 140 208 854<|content|>WHEREAS, certain of the Transition Services (as de...ject to the terms and conditions of this Agreement\n<|id|>23<|page|>2<|box|>734 140 901 857<|content|>\"Confidential Information\" means all proprietary, ...formance of this Agreement, including: ... and (g)\n<|id|>24<|page|>3<|box|>90 140 291 856<|content|>any analyses, compilations, studies, notes, or oth...to the disclosing Party's Confidential Information\n<|id|>61<|page|>5<|box|>869 140 905 854<|content|>(a) Subject to the terms and conditions of this Ag...ecipient the Transition Services described in each\n<|id|>62<|page|>6<|box|>90 140 218 856<|content|>Service Schedule during the applicable Service Per...te infrastructure, to meet the Historical Standard\n<|id|>99<|page|>9<|box|>753 140 900 856<|content|>(b) Upon the early termination of any Transition Service pursuant to this Section 3. ... The Service\n<|id|>100<|page|>10<|box|>90 140 143 854<|content|>Provider shall use commercially reasonable efforts...umentation supporting any Wind-Down Costs invoiced\n<|id|>147<|page|>14<|box|>744 140 797 854<|content|>(b) such changes do not materially degrade the app...ce as compared to the Historical Standard; ... and\n<|id|>149<|page|>14<|box|>868 140 904 854<|content|>In the event that any change implemented by the Se...ervice Recipient shall promptly notify the Service\n<|id|>150<|page|>15<|box|>90 140 127 854<|content|>Provider, and the Service Provider shall use comme...to a level consistent with the Historical Standard\n<|id|>277<|page|>27<|box|>580 174 616 854<|content|>[Insert name of Service Provider] [Insert street address] [Insert city, state/country, postal code]\n<|id|>278<|page|>27<|box|>626 176 642 421<|content|>Attention: ... [Insert name and title]\n<|id|>279<|page|>27<|box|>643 176 659 393<|content|>Email: ... [Insert email address]\n<|id|>280<|page|>27<|box|>661 142 676 504<|content|>with a copy (which shall not constitute notice) to...with a copy (which shall not constitute notice) to\n<|id|>281<|page|>27<|box|>686 174 719 854<|content|>[Insert counsel name and firm — e. ... , Calderwoo...LLP] 599 Lexington Avenue New York, New York 10022\n<|id|>282<|page|>27<|box|>729 176 746 441<|content|>Attention: ... [Insert name of attorney]\n<|id|>283<|page|>27<|box|>748 176 763 393<|content|>Email: ... [Insert email address]\n<|id|>284<|page|>27<|box|>765 142 781 341<|content|>If to the Service Recipient: ... If to the Service Recipient\n<|id|>285<|page|>27<|box|>790 176 825 852<|content|>[Insert name of Service Recipient] [Insert street address] [Insert city, state/country, postal code]\n<|id|>286<|page|>27<|box|>835 176 851 421<|content|>Attention: ... [Insert name and title]\n<|id|>287<|page|>27<|box|>853 178 868 393<|content|>Email: ... [Insert email address]\n<|id|>288<|page|>27<|box|>869 142 886 504<|content|>with a copy (which shall not constitute notice) to...with a copy (which shall not constitute notice) to\n<|id|>289<|page|>28<|box|>90 176 108 844<|content|>[Insert counsel name and firm] [Insert street address] [Insert city, state/country, postal code]\n<|id|>290<|page|>28<|box|>116 176 133 442<|content|>Attention: ... [Insert name of attorney]\n<|id|>291<|page|>28<|box|>133 176 150 393<|content|>Email: ... [Insert email address]\n<|id|>292<|page|>28<|box|>150 140 186 856<|content|>Either Party may change its address for purposes of this Section 13. ... 2\n<|id|>313<|page|>30<|box|>589 142 604 545<|content|>[INSERT LEGAL NAME OF SERVICE PROVIDER]\n<|id|>314<|page|>30<|box|>607 143 625 251<|content|>By: ... By\n<|id|>315<|page|>30<|box|>625 143 640 232<|content|>Name: ... [__]\n<|id|>316<|page|>30<|box|>641 143 657 222<|content|>Title: ... [__]\n<|id|>317<|page|>30<|box|>659 143 674 264<|content|>Date: ... Date\n<|id|>319<|page|>30<|box|>691 143 709 547<|content|>[INSERT LEGAL NAME OF SERVICE RECIPIENT]\n<|id|>320<|page|>30<|box|>710 143 727 251<|content|>By: ... By\n<|id|>321<|page|>30<|box|>727 143 744 232<|content|>Name: ... [__]\n<|id|>322<|page|>30<|box|>744 143 761 222<|content|>Title: ... [__]\n<|id|>323<|page|>30<|box|>762 143 779 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>23<|tgt_id|>24\n<|src_id|>61<|tgt_id|>62\n<|src_id|>99<|tgt_id|>100\n<|src_id|>149<|tgt_id|>150\n<|src_id|>288<|tgt_id|>289",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 150
+        },
+        {
+            "src_id": 288,
+            "tgt_id": 289
+        }
+    ]
+}

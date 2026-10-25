@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=10, 1', 'rowspan=10, 排水沟砌筑', '高处作业随意投掷物料、工具。', 'rowspan=10, 物体打击']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=23, 1', 'rowspan=23, 排水沟砌筑', '人工挖基作业时,基坑上边缘堆放的土方距坑边小于0.8m,堆放高度超过1.5m。', 'rowspan=9, 坍塌']]\n",
+    "raw_response": "[1, 1, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0
+    ],
+    "table1_idx": 164,
+    "table2_idx": 165
+}

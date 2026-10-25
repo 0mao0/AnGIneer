@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 44,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['系船设施', 'A)系泊绞缆设施的几何类型为点、线、面;B)BOYSHP(浮标形状):只当CATMOR(系泊绞缆设施类)=7(系泊浮筒)时为必备属性;', 'MORFAC(系泊绞缆设施)(M)CATMOR(系泊绞缆设施类)=[1(系船墩),2(系船桩),3(系缆桩),4(系船坝),5(桩或柱),7(系船浮筒),100(绞车),101(绞关),102(过河缆),103(船闸靠船墩),104(单锚系泊平台),105(系泊平台),106(系船设施),107(绞滩设施),999(其他)](C)CONDTN(状态)=[1(建造中),2(废弃的),5(计划建造的),999(其他)](C)BOYSHP(浮标形状)=[附录A中允许的属性值]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['系船浮筒', 'rowspan=3, C)妨碍航行的柱或桩的残留部分用OBSTRN(障碍物)编码,其CATOBS(障碍物类)=1(水中隐树/桩墩)。对航行无危险时用MORFAC(系泊绞缆设施)编码,其CATMOR(系泊绞缆设施类)=5(桩或柱),CONDTN(状态)=2(废弃的)。一个柱或桩已确认为系缆桩时,用MORFAC(系泊绞缆设施)编码,其CATMOR(系泊绞缆设施类)=5(桩或柱),否则编码为PILPNT(桩)', 'rowspan=3, (O)OBJNAM(英文名称)=[系泊绞缆设施英文名称](O)NOBJNM(中文名称)=[系泊绞缆设施中文名称](O)INFORM(英文信息)=[系泊绞缆设施英文信息](O)NINFOM(中文信息)=[系泊绞缆设施中文信息]']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 2945,
+    "table2_idx": 2946
+}

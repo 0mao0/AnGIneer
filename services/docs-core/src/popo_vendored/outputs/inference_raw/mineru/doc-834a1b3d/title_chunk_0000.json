@@ -1,0 +1,122 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 212 133 782<|content|>MEMORANDUM PRIVILEGED & CONFIDENTIAL — ATTORNEY WO\n<|id|>8<|page|>1<|box|>417 140 434 228<|content|>I. Purpose\n<|id|>12<|page|>2<|box|>90 140 107 517<|content|>II. Procedural History and Judgment Summary\n<|id|>13<|page|>2<|box|>121 140 138 553<|content|>A. The Court's Memorandum of Decision and Order\n<|id|>21<|page|>3<|box|>232 140 250 362<|content|>B. Entry of Final Judgment\n<|id|>25<|page|>3<|box|>513 140 530 377<|content|>III. Applicable Appeal Period\n<|id|>26<|page|>3<|box|>544 140 561 295<|content|>A. Governing Rule\n<|id|>29<|page|>3<|box|>789 140 806 411<|content|>B. Calculation of Appeal Deadline\n<|id|>35<|page|>4<|box|>508 140 527 348<|content|>C. Extensions and Tolling\n<|id|>40<|page|>5<|box|>186 140 204 446<|content|>IV. Calendar and Monitoring Protocol\n<|id|>41<|page|>5<|box|>217 140 234 250<|content|>A. Key Dates\n<|id|>44<|page|>6<|box|>90 140 107 383<|content|>B. Monitoring Responsibilities\n<|id|>50<|page|>6<|box|>540 140 558 334<|content|>C. Notification to Client\n<|id|>53<|page|>7<|box|>90 140 107 547<|content|>V. Contingency: If Vantage Files a Notice of Appea\n<|id|>55<|page|>7<|box|>184 140 200 300<|content|>A. Immediate Steps\n<|id|>60<|page|>7<|box|>633 142 650 341<|content|>B. Appellate Preparation\n<|id|>65<|page|>8<|box|>417 140 434 305<|content|>C. Record Assembly\n<|id|>85<|page|>9<|box|>416 140 434 478<|content|>VI. Judgment Preservation Considerations\n<|id|>86<|page|>9<|box|>446 140 464 583<|content|>A. Ensuring Enforceability of the Declaratory Judg\n<|id|>90<|page|>10<|box|>176 140 193 452<|content|>B. EDA Expiration and Renewal Status\n<|id|>94<|page|>10<|box|>575 140 592 285<|content|>C. Costs and Fees\n<|id|>97<|page|>10<|box|>775 140 792 344<|content|>VII. Document Retention\n<|id|>106<|page|>11<|box|>426 142 444 282<|content|>VIII. Update Log\n<|id|>109<|page|>11<|box|>823 142 839 501<|content|>Post-Deadline Notation — September 6, 2022:\n<|id|>112<|page|>12<|box|>223 140 239 437<|content|>IX. Conclusion and Recommendation\n<|id|>119<|page|>12<|box|>787 142 805 251<|content|>Prepared by:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>21<|level|>2\n<|id|>25<|level|>1\n<|id|>26<|level|>2\n<|id|>29<|level|>2\n<|id|>35<|level|>2\n<|id|>40<|level|>1\n<|id|>41<|level|>2\n<|id|>44<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>1\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>65<|level|>2\n<|id|>85<|level|>1\n<|id|>86<|level|>2\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>97<|level|>1\n<|id|>106<|level|>1\n<|id|>109<|level|>2\n<|id|>112<|level|>1\n<|id|>119<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 1
+        }
+    ]
+}

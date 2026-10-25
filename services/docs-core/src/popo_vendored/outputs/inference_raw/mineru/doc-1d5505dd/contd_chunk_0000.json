@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>222 140 258 854<|content|>TO: ... Alan Ngo, Responsible Partner, intellectua...diqui, Lead Associate, intellectual Property Group\n<|id|>4<|page|>1<|box|>266 140 284 599<|content|>FROM: ... Christy Bauer, Associate, intellectual Property Group\n<|id|>5<|page|>1<|box|>291 140 309 352<|content|>DATE: ... December 12, 2022\n<|id|>6<|page|>1<|box|>318 140 354 852<|content|>RE: ... 10,234,567 (\"'567 Patent\") and 11,045,678 (\"'678 Patent\")\n<|id|>7<|page|>1<|box|>361 140 398 854<|content|>MATTER: ... )\n<|id|>8<|page|>1<|box|>406 140 424 408<|content|>C&H MATTER NO. ... 1014-00003\n<|id|>9<|page|>1<|box|>431 140 450 635<|content|>CLIENT: ... (\"OWS\" or \"Optiwave\")\n<|id|>43<|page|>5<|box|>849 140 904 856<|content|>The '567 Patent is entitled \"Integrated Waveguide ...nverter for Silicon Photonics Platforms. ... Priya\n<|id|>44<|page|>6<|box|>89 140 162 854<|content|>Ramanathan, and Hideo Tanaka, all of whom were emp...oupling through a tapered waveguide mode converter\n<|id|>73<|page|>9<|box|>805 140 878 857<|content|>Strength assessment: ... A court may find that the...implementation used by Lumos was not yet available\n<|id|>74<|page|>10<|box|>133 140 209 856<|content|>Recommendation: ... However, this exception should not bear the primary weight of the argument",
+    "raw_response": "<|src_id|>43<|tgt_id|>44",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        }
+    ]
+}

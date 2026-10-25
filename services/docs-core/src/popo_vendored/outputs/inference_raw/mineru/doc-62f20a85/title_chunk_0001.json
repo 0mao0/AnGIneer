@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        53,
+        73
+    ],
+    "pages": [
+        54,
+        57,
+        60,
+        61,
+        64,
+        65,
+        66,
+        69,
+        70,
+        72,
+        73
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>305<|page|>54<|box|>656 148 672 422<|content|>机电设备安装工程(编码 101003)\n<|id|>311<|page|>57<|box|>469 150 486 465<|content|>安全监测设备安装工程(编码 101004)\n<|id|>317<|page|>60<|box|>183 235 214 804<|content|>附录 D 水运工程工程量计算规则\n<|id|>318<|page|>60<|box|>243 429 264 610<|content|>D.1 一般规定\n<|id|>331<|page|>60<|box|>642 434 661 614<|content|>D.2 疏浚工程\n<|id|>338<|page|>60<|box|>863 436 883 614<|content|>D.3 测量工程\n<|id|>340<|page|>61<|box|>107 394 126 637<|content|>D.4 导航助航设施工程\n<|id|>342<|page|>61<|box|>174 425 192 603<|content|>D.5 土石方工程\n<|id|>344<|page|>61<|box|>252 99 270 572<|content|>D.5.2 水下挖泥土类的划分可按表 D.5.2 确定。\n<|id|>385<|page|>64<|box|>170 394 189 619<|content|>D.6 地基与基础工程\n<|id|>406<|page|>65<|box|>409 132 427 561<|content|>D.6.9 地下连续墙土类应按表 D.6.9 划分。\n<|id|>423<|page|>66<|box|>639 436 656 610<|content|>D.7 混凝土工程\n<|id|>505<|page|>69<|box|>634 452 653 626<|content|>D.8 钢筋工程\n<|id|>509<|page|>69<|box|>769 396 786 682<|content|>D.9 金属结构制作安装工程\n<|id|>515<|page|>70<|box|>188 418 205 626<|content|>D.10 设备安装工程\n<|id|>525<|page|>70<|box|>675 432 692 619<|content|>D.11 其他工程\n<|id|>538<|page|>72<|box|>181 282 212 778<|content|>附录 E 本规范用词用语说明\n<|id|>550<|page|>73<|box|>161 262 215 771<|content|>本规范主编单位、参加单位、主要起草人、总校人员和管理组人员名单",
+    "raw_response": "<|id|>305<|level|>1\n<|id|>311<|level|>1\n<|id|>317<|level|>1\n<|id|>318<|level|>2\n<|id|>331<|level|>2\n<|id|>338<|level|>2\n<|id|>340<|level|>2\n<|id|>342<|level|>2\n<|id|>344<|level|>3\n<|id|>385<|level|>2\n<|id|>406<|level|>3\n<|id|>423<|level|>2\n<|id|>505<|level|>2\n<|id|>509<|level|>2\n<|id|>515<|level|>2\n<|id|>525<|level|>2\n<|id|>538<|level|>1\n<|id|>550<|level|>1",
+    "parsed": [
+        {
+            "id": 305,
+            "level": 1
+        },
+        {
+            "id": 311,
+            "level": 1
+        },
+        {
+            "id": 317,
+            "level": 1
+        },
+        {
+            "id": 318,
+            "level": 2
+        },
+        {
+            "id": 331,
+            "level": 2
+        },
+        {
+            "id": 338,
+            "level": 2
+        },
+        {
+            "id": 340,
+            "level": 2
+        },
+        {
+            "id": 342,
+            "level": 2
+        },
+        {
+            "id": 344,
+            "level": 3
+        },
+        {
+            "id": 385,
+            "level": 2
+        },
+        {
+            "id": 406,
+            "level": 3
+        },
+        {
+            "id": 423,
+            "level": 2
+        },
+        {
+            "id": 505,
+            "level": 2
+        },
+        {
+            "id": 509,
+            "level": 2
+        },
+        {
+            "id": 515,
+            "level": 2
+        },
+        {
+            "id": 525,
+            "level": 2
+        },
+        {
+            "id": 538,
+            "level": 1
+        },
+        {
+            "id": 550,
+            "level": 1
+        }
+    ]
+}

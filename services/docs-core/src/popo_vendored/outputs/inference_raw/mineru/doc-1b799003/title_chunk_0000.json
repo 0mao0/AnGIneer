@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>1<|page|>1<|box|>114 346 132 650<|content|>FORM OF BORROWING REQUEST\n<|id|>8<|page|>1<|box|>390 142 407 408<|content|>Section 1. Request for Borrowing.\n<|id|>10<|page|>1<|box|>497 176 513 423<|content|>(a) Requested Borrowing Date:\n<|id|>13<|page|>1<|box|>601 176 619 627<|content|>(b) Aggregate Principal Amount of Requested Borrow\n<|id|>17<|page|>1<|box|>773 176 791 359<|content|>(c) Type of Borrowing:\n<|id|>28<|page|>2<|box|>332 176 349 612<|content|>(e) Purpose of Borrowing / Tooling Capex Certifica\n<|id|>30<|page|>2<|box|>383 178 402 401<|content|>[Insert purpose of Borrowing]\n<|id|>32<|page|>2<|box|>491 176 508 303<|content|>$[Insert amount]\n<|id|>34<|page|>2<|box|>614 176 632 348<|content|>(f) Wire Instructions:\n<|id|>37<|page|>2<|box|>811 142 828 336<|content|>Section 2. Certifications.\n<|id|>44<|page|>3<|box|>878 140 896 434<|content|>Section 3. Delivery and Effectiveness.\n<|id|>50<|page|>4<|box|>595 140 613 640<|content|>[Remainder of page intentionally left blank; signa\n<|id|>57<|page|>4<|box|>751 171 786 825<|content|>ANNEX — INTERNAL DRAFTING INSTRUCTIONS (To Be Remo",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>10<|level|>3\n<|id|>13<|level|>3\n<|id|>17<|level|>3\n<|id|>28<|level|>3\n<|id|>30<|level|>-1\n<|id|>32<|level|>-1\n<|id|>34<|level|>3\n<|id|>37<|level|>2\n<|id|>44<|level|>2\n<|id|>50<|level|>-1\n<|id|>57<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        }
+    ]
+}

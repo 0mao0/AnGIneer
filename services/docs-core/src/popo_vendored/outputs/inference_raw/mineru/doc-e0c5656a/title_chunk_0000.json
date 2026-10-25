@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>393 143 410 344<|content|>1. Purpose and Authority\n<|id|>13<|page|>2<|box|>90 140 107 343<|content|>2. Litigation Background\n<|id|>14<|page|>2<|box|>121 140 138 454<|content|>2.1 The Parties and the Asserted Patent\n<|id|>19<|page|>2<|box|>729 142 744 315<|content|>2.2 Accused Products\n<|id|>24<|page|>3<|box|>311 142 329 326<|content|>2.3 Procedural History\n<|id|>29<|page|>4<|box|>90 140 106 318<|content|>2.4 Plaintiff's Counsel\n<|id|>31<|page|>4<|box|>282 140 299 462<|content|>3. Defense Assessment and Risk Analysis\n<|id|>33<|page|>4<|box|>541 140 558 318<|content|>3.1 Invalidity Position\n<|id|>38<|page|>5<|box|>257 140 273 383<|content|>3.2 Non-Infringement Position\n<|id|>42<|page|>5<|box|>710 142 728 348<|content|>3.3 Cost-to-Trial Analysis\n<|id|>52<|page|>6<|box|>375 140 391 380<|content|>4. Proposed Settlement Terms\n<|id|>63<|page|>7<|box|>375 140 391 465<|content|>5. Insurance Coverage and Funding Split\n<|id|>70<|page|>8<|box|>186 140 204 514<|content|>6. Cost-Benefit Rationale and Recommendation\n<|id|>80<|page|>9<|box|>411 142 428 354<|content|>7. Defense Costs Summary\n<|id|>86<|page|>10<|box|>223 140 239 303<|content|>8. Action Requested\n<|id|>93<|page|>10<|box|>766 140 782 253<|content|>9. Enclosures\n<|id|>98<|page|>11<|box|>90 174 125 854<|content|>Enclosure 4: Invalidity and Non-Infringement Asses",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>24<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>1\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>52<|level|>1\n<|id|>63<|level|>1\n<|id|>70<|level|>1\n<|id|>80<|level|>1\n<|id|>86<|level|>1\n<|id|>93<|level|>1\n<|id|>98<|level|>2",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 2
+        }
+    ]
+}

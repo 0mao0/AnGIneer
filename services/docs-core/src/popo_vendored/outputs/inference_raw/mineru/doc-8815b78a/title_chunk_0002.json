@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        117,
+        140
+    ],
+    "pages": [
+        118,
+        120,
+        121,
+        124,
+        126,
+        127,
+        128,
+        129,
+        130,
+        135,
+        136,
+        140
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>418<|page|>118<|box|>53 263 68 748<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>419<|page|>118<|box|>89 300 103 726<|content|>Section I - Statements of Financial Condition\n<|id|>423<|page|>120<|box|>82 293 95 721<|content|>Section I - Statements of Financial Condition\n<|id|>425<|page|>121<|box|>77 291 93 715<|content|>Section I - Statements of Financial Condition\n<|id|>429<|page|>124<|box|>69 286 83 713<|content|>Section I - Statements of Financial Condition\n<|id|>433<|page|>126<|box|>68 283 82 709<|content|>Section I - Statements of Financial Condition\n<|id|>435<|page|>127<|box|>74 260 106 756<|content|>Section I - Statements of Financial Condition Tabl\n<|id|>437<|page|>128<|box|>73 192 104 817<|content|>Section I - Statements of Financial Condition Tabl\n<|id|>439<|page|>129<|box|>74 196 107 813<|content|>Section I - Statements of Financial Condition Tabl\n<|id|>441<|page|>130<|box|>80 295 94 721<|content|>Section 1 - Statements of Financial Condition\n<|id|>442<|page|>130<|box|>95 196 111 820<|content|>Table 4.- Certain Other Activities, December 31, 1\n<|id|>449<|page|>135<|box|>81 283 96 706<|content|>Section I - Statements of Financial Condition\n<|id|>451<|page|>136<|box|>80 300 95 729<|content|>Section I - Statements of Financial Condition\n<|id|>464<|page|>140<|box|>46 273 61 756<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>465<|page|>140<|box|>79 419 94 612<|content|>Footnotes to Table 1\n<|id|>469<|page|>140<|box|>244 417 258 612<|content|>Footnotes to Table 2\n<|id|>485<|page|>140<|box|>609 416 622 610<|content|>Footnotes to Table 3\n<|id|>492<|page|>140<|box|>709 416 722 610<|content|>Footnotes to Table 4",
+    "raw_response": "<|id|>418<|level|>1\n<|id|>419<|level|>2\n<|id|>423<|level|>2\n<|id|>425<|level|>2\n<|id|>429<|level|>2\n<|id|>433<|level|>2\n<|id|>435<|level|>2\n<|id|>437<|level|>2\n<|id|>439<|level|>2\n<|id|>441<|level|>2\n<|id|>442<|level|>3\n<|id|>449<|level|>2\n<|id|>451<|level|>2\n<|id|>464<|level|>1\n<|id|>465<|level|>2\n<|id|>469<|level|>2\n<|id|>485<|level|>2\n<|id|>492<|level|>2",
+    "parsed": [
+        {
+            "id": 418,
+            "level": 1
+        },
+        {
+            "id": 419,
+            "level": 2
+        },
+        {
+            "id": 423,
+            "level": 2
+        },
+        {
+            "id": 425,
+            "level": 2
+        },
+        {
+            "id": 429,
+            "level": 2
+        },
+        {
+            "id": 433,
+            "level": 2
+        },
+        {
+            "id": 435,
+            "level": 2
+        },
+        {
+            "id": 437,
+            "level": 2
+        },
+        {
+            "id": 439,
+            "level": 2
+        },
+        {
+            "id": 441,
+            "level": 2
+        },
+        {
+            "id": 442,
+            "level": 3
+        },
+        {
+            "id": 449,
+            "level": 2
+        },
+        {
+            "id": 451,
+            "level": 2
+        },
+        {
+            "id": 464,
+            "level": 1
+        },
+        {
+            "id": 465,
+            "level": 2
+        },
+        {
+            "id": 469,
+            "level": 2
+        },
+        {
+            "id": 485,
+            "level": 2
+        },
+        {
+            "id": 492,
+            "level": 2
+        }
+    ]
+}

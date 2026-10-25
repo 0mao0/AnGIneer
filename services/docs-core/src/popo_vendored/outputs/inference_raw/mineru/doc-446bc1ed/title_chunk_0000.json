@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>193 140 210 733<|content|>VIA EMAIL AND CERTIFIED MAIL, RETURN RECEIPT REQUE\n<|id|>9<|page|>1<|box|>393 140 410 437<|content|>I. Introduction and Purpose of Letter\n<|id|>13<|page|>1<|box|>804 140 821 390<|content|>II. Identification of the Insured\n<|id|>17<|page|>2<|box|>340 140 357 325<|content|>III. Policy Information\n<|id|>20<|page|>2<|box|>703 140 720 393<|content|>IV. Description of the Claimant\n<|id|>28<|page|>3<|box|>243 140 261 367<|content|>V. The Underlying Contract\n<|id|>43<|page|>4<|box|>392 140 409 483<|content|>VI. Nature and Circumstances of the Claim\n<|id|>44<|page|>4<|box|>422 140 440 419<|content|>A. The Alleged Service Disruptions\n<|id|>51<|page|>5<|box|>138 140 157 468<|content|>B. Pinnacle's Additional Damages Claims\n<|id|>57<|page|>5<|box|>627 140 643 323<|content|>C. The Demand Letter\n<|id|>59<|page|>5<|box|>782 140 800 689<|content|>VII. Lumos's Preliminary Defenses (Summary for Cla\n<|id|>68<|page|>7<|box|>439 140 457 393<|content|>VIII. Applicability of the Policy\n<|id|>75<|page|>8<|box|>194 140 210 362<|content|>IX. Formal Tender Request\n<|id|>82<|page|>8<|box|>792 140 810 418<|content|>X. Engagement of Defense Counsel\n<|id|>88<|page|>9<|box|>412 140 429 344<|content|>XI. Reservation of Rights\n<|id|>91<|page|>9<|box|>669 142 686 344<|content|>XII. Enclosed Documents\n<|id|>98<|page|>10<|box|>148 140 167 521<|content|>XIII. Contact Information and Communications\n<|id|>105<|page|>10<|box|>383 140 400 250<|content|>XIV. Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>1\n<|id|>9<|level|>2\n<|id|>13<|level|>2\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>28<|level|>2\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>51<|level|>3\n<|id|>57<|level|>3\n<|id|>59<|level|>2\n<|id|>68<|level|>2\n<|id|>75<|level|>2\n<|id|>82<|level|>2\n<|id|>88<|level|>2\n<|id|>91<|level|>2\n<|id|>98<|level|>2\n<|id|>105<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        }
+    ]
+}

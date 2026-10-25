@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 104 506<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED\n<|id|>1<|page|>1<|box|>112 419 130 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>2<|page|>1<|box|>137 375 156 854<|content|>3960 Howard Hughes Parkway Suite 1400 Las Vegas, NV 89169\n<|id|>3<|page|>1<|box|>164 223 181 854<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>190 704 207 854<|content|>November 15, 2022\n<|id|>5<|page|>1<|box|>215 140 233 560<|content|>VIA HAND DELIVERY AND ELECTRONIC MAIL\n<|id|>6<|page|>1<|box|>242 140 279 852<|content|>Patricia \"Trish\" Nakamura, Esq. ... 8700 Las Vegas Boulevard South, Suite 2200 Las Vegas, NV 89123\n<|id|>7<|page|>1<|box|>286 174 340 856<|content|>Re: ... 1033-00003 Defense Against Activist Board-Seat Campaign by Pinnacle Harbor Capital Partners, LP\n<|id|>8<|page|>1<|box|>349 142 366 300<|content|>Dear Ms. ... Nakamura\n<|id|>24<|page|>2<|box|>838 174 893 857<|content|>(f) Coordination with Other Advisors. ... Denise Cavanaugh, Senior Vice\n<|id|>25<|page|>3<|box|>90 174 143 854<|content|>President), and its investor relations advisor, Ha...lly sound strategy across all advisory workstreams\n<|id|>48<|page|>4<|box|>845 140 900 857<|content|>Given the Delaware corporate law issues inherent i...vice on Delaware General Corporation Law, Court of\n<|id|>49<|page|>5<|box|>89 140 126 854<|content|>Chancery procedural matters, and related subjects. ... Fairchild\n<|id|>68<|page|>6<|box|>368 174 422 854<|content|>(g) Overtime charges for support staff (secretaria...adlines in connection with the engagement; ... and\n<|id|>70<|page|>6<|box|>474 140 547 854<|content|>With respect to air travel, the Firm's policy is t...he Client otherwise agrees or instructs in writing\n<|id|>120<|page|>12<|box|>244 140 262 488<|content|>Douglas Fairchild, Partner Responsible Partner\n<|id|>121<|page|>12<|box|>263 142 279 266<|content|>Date: ... Date\n<|id|>125<|page|>12<|box|>349 140 364 395<|content|>Name: ... Patricia \"Trish\" Nakamura\n<|id|>126<|page|>12<|box|>366 140 383 480<|content|>Title: ... General Counsel & Corporate Secretary\n<|id|>127<|page|>12<|box|>383 142 400 328<|content|>Date: ... November _, 2022\n<|id|>128<|page|>12<|box|>400 140 417 573<|content|>Enclosure: ... Wire transfer instructions for retainer payment\n<|id|>129<|page|>12<|box|>426 174 479 856<|content|>cc: ... Angela Fontaine, Billing Partner, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>24<|tgt_id|>25\n<|src_id|>48<|tgt_id|>49",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        }
+    ]
+}

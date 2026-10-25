@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        12
+    ],
+    "pages": [
+        4,
+        5,
+        6,
+        8,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>29<|page|>4<|box|>739 140 888 857<|content|>Basis of Estimate: ... The Independent\n<|id|>30<|page|>5<|box|>90 140 126 854<|content|>Resource Assessment report is dated March 28, 2025...n provided to the Buyer and its technical advisors\n<|id|>49<|page|>6<|box|>672 176 689 666<|content|>Permit: ... CUP-2025-012\n<|id|>50<|page|>6<|box|>699 176 715 593<|content|>Issuing Authority: ... Pecos County Commissioners Court\n<|id|>51<|page|>6<|box|>724 176 742 460<|content|>Date of Approval: ... February 10, 2025\n<|id|>52<|page|>6<|box|>750 174 878 856<|content|>Scope: ... The permit includes conditions relating...uirements, and notification to adjacent landowners\n<|id|>68<|page|>8<|box|>304 176 321 604<|content|>(f) registration with ERCOT as a generation resource; ... and\n<|id|>70<|page|>8<|box|>354 140 429 854<|content|>The Seller shall deliver to the Buyer, promptly up...n-renewal of any such permit, license, or approval\n<|id|>75<|page|>8<|box|>575 176 593 434<|content|>Interconnection Voltage: ... 345 kV\n<|id|>76<|page|>8<|box|>601 174 657 854<|content|>Metering Point: ... Revenue-grade metering equipme... of the Large Generation Interconnection Agreement\n<|id|>79<|page|>8<|box|>792 176 809 653<|content|>Transmission Service Provider (TSP): ... West Texas Wires LLC\n<|id|>80<|page|>8<|box|>816 174 872 854<|content|>Service Territory: ... Stockton 345 kV Substation ...nd associated high-voltage transmission facilities\n<|id|>107<|page|>12<|box|>285 174 321 854<|content|>(f) assessment of the bankability and risk profile...ment and other material project contracts; ... and\n<|id|>109<|page|>12<|box|>392 140 446 854<|content|>The Seller has agreed, pursuant to the Agreement, ... subject to customary confidentiality restrictions",
+    "raw_response": "<|src_id|>29<|tgt_id|>30",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        }
+    ]
+}

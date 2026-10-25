@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 104 256<|content|>CONFIDENTIAL\n<|id|>1<|page|>1<|box|>112 140 128 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>2<|page|>1<|box|>138 140 174 854<|content|>555 South Hope Street, Suite 4400 Los Angeles, California 90071 Telephone: ... com\n<|id|>3<|page|>1<|box|>183 728 200 854<|content|>August 14, 2023\n<|id|>4<|page|>1<|box|>208 140 244 854<|content|>David Pruitt, Esq. ... 2400 Meridian Parkway, Suite 300 Durham, North Carolina 27713\n<|id|>5<|page|>1<|box|>253 140 324 854<|content|>Re: ... August 8, 2023\n<|id|>6<|page|>1<|box|>333 140 349 441<|content|>C&H Matter No. ... 1013-00006&A-4471\n<|id|>7<|page|>1<|box|>359 142 376 264<|content|>Dear Mr. ... Pruitt\n<|id|>28<|page|>3<|box|>849 140 885 854<|content|>Seller hereby confirms its commitment to cooperate...out Period, as required by Section 3. ... 4 of the\n<|id|>29<|page|>4<|box|>90 140 127 854<|content|>Earnout Agreement. ... Without limiting the genera...er's cooperation obligations include the following\n<|id|>51<|page|>6<|box|>786 181 821 854<|content|>• Legal and Contractual Matters: ... com)\n<|id|>53<|page|>7<|box|>89 140 127 854<|content|>Centralizing communications through designated con...k of miscommunication during the transition period\n<|id|>71<|page|>8<|box|>757 138 904 857<|content|>Seller notes for the record that Buyer has obtaine...ims against the Escrow Account or directly against\n<|id|>72<|page|>9<|box|>90 140 127 854<|content|>Seller, except with respect to claims arising from..., in each case as provided in Article X of the APA\n<|id|>80<|page|>9<|box|>657 174 693 854<|content|>Rebecca Chiang, General Counsel Genome Dx Therapeutics Inc. ... (858) 555-3200\n<|id|>81<|page|>9<|box|>700 176 718 419<|content|>Email: ... com\n<|id|>82<|page|>9<|box|>719 140 736 529<|content|>With a copy to (which shall not constitute notice)...With a copy to (which shall not constitute notice)\n<|id|>83<|page|>9<|box|>744 174 780 854<|content|>James Prentice, Partner Calderwood & Harkness LLP ...es, California 90071 Telephone: ... (213) 555-8212\n<|id|>84<|page|>9<|box|>789 176 805 500<|content|>Email: ... com\n<|id|>85<|page|>9<|box|>804 140 859 854<|content|>Seller requests that Buyer confirm its correspondi...r persons to whom copies of notices should be sent\n<|id|>93<|page|>10<|box|>766 142 782 272<|content|>Very truly yours,\n<|id|>94<|page|>10<|box|>782 140 799 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>95<|page|>10<|box|>801 142 816 251<|content|>By: ... By\n<|id|>97<|page|>10<|box|>835 140 851 423<|content|>cc: ... (via email unless otherwise noted)\n<|id|>98<|page|>10<|box|>859 174 896 854<|content|>Dr. ... Rebecca Chiang, General\n<|id|>99<|page|>11<|box|>89 174 181 856<|content|>Counsel, Genome Dx Therapeutics Inc. ... Sandra Tu...Whitfield, Whitfield Sayer & Gregg LLP (via email)",
+    "raw_response": "<|src_id|>28<|tgt_id|>29\n<|src_id|>71<|tgt_id|>72\n<|src_id|>98<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        }
+    ]
+}

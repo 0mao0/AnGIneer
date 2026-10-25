@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Exhibit A', 'Legal Descriptions — 14 Properties (Fairfield Distribution Center I & II, Fairburn, GA; Buckhead Place, Atlanta, GA; Peachtree Corners Logistics Center, Peachtree Corners, GA; Westlake Commerce Park, Houston, TX; Katy Freeway Logistics Center, Katy, TX; Alliance Industrial Park, Fort Worth, TX; Lakeland']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Crossings Distribution Center, Lakeland, FL; Southport Commerce Center, Jacksonville, FL; Brickell Bay Office Tower, Miami, FL; Murfreesboro Distribution Center, Murfreesboro, TN; Cool Springs Commerce Park, Brentwood, TN; Mount Juliet Commerce Park, Mount Juliet, TN; SouthPark Office Centre, Charlotte, NC)']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 570,
+    "table2_idx": 571
+}

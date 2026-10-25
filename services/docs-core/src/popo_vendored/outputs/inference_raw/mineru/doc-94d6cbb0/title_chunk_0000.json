@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>128 147 172 849<|content|>RESOLUTIONS OF THE PRICING COMMITTEE OF THE BOARD\n<|id|>2<|page|>1<|box|>188 277 207 720<|content|>DRAFT — FOR ADOPTION ON [OCTOBER 28], 2025\n<|id|>3<|page|>1<|box|>229 140 248 243<|content|>RECITALS\n<|id|>31<|page|>3<|box|>587 142 604 651<|content|>RESOLUTION 1: APPROVAL OF FINAL OFFERING TERMS\n<|id|>35<|page|>4<|box|>185 140 203 678<|content|>RESOLUTION 2: APPROVAL OF OVER-ALLOTMENT OPTION\n<|id|>38<|page|>4<|box|>462 140 479 660<|content|>RESOLUTION 3: APPROVAL OF SYNDICATE ALLOCATION\n<|id|>41<|page|>4<|box|>753 140 790 777<|content|>RESOLUTION 4: APPROVAL AND EXECUTION OF THE UNDERW\n<|id|>46<|page|>5<|box|>464 140 482 838<|content|>RESOLUTION 5: AUTHORIZATION TO FILE FINAL PROSPECT\n<|id|>50<|page|>5<|box|>821 142 839 614<|content|>RESOLUTION 6: AUTHORIZATION TO ISSUE SHARES\n<|id|>55<|page|>6<|box|>464 140 482 501<|content|>RESOLUTION 7: USE OF NET PROCEEDS\n<|id|>62<|page|>7<|box|>239 140 277 849<|content|>RESOLUTION 8: AUTHORIZATION OF CLOSING DELIVERABLE\n<|id|>70<|page|>8<|box|>248 140 265 607<|content|>RESOLUTION 9: RATIFICATION OF PRIOR ACTIONS\n<|id|>80<|page|>8<|box|>742 140 758 553<|content|>RESOLUTION 10: GENERAL AUTHORIZATION\n<|id|>84<|page|>9<|box|>256 142 273 246<|content|>ADOPTION\n<|id|>99<|page|>9<|box|>652 142 669 424<|content|>EXHIBITS AND ATTACHMENTS",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>-1\n<|id|>3<|level|>2\n<|id|>31<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>2\n<|id|>55<|level|>2\n<|id|>62<|level|>2\n<|id|>70<|level|>2\n<|id|>80<|level|>2\n<|id|>84<|level|>2\n<|id|>99<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        }
+    ]
+}

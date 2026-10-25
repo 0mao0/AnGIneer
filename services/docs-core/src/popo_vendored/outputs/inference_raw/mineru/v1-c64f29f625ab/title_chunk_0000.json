@@ -1,0 +1,47 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>196 83 218 501<|content|>PACKING LIST / SHIPPING MANIFEST\n<|id|>2<|page|>1<|box|>450 84 470 348<|content|>CONTAINER SUMMARY\n<|id|>4<|page|>2<|box|>199 84 220 305<|content|>LINE ITEM DETAILS\n<|id|>10<|page|>6<|box|>402 83 422 509<|content|>FOOTNOTES & SHIPPING NOTATIONS\n<|id|>17<|page|>7<|box|>90 83 116 602<|content|>MERIDIAN INDUSTRIAL SUPPLY CO.\n<|id|>21<|page|>7<|box|>358 83 378 344<|content|>CERTIFIED LINE ITEMS\n<|id|>28<|page|>12<|box|>515 84 534 169<|content|>NOTES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>17<|level|>1\n<|id|>21<|level|>2\n<|id|>28<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        }
+    ]
+}

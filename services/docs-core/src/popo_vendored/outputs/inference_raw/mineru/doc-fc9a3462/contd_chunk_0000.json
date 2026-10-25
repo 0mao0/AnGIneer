@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        11
+    ],
+    "pages": [
+        3,
+        4,
+        5,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>23<|page|>3<|box|>710 138 893 857<|content|>4. ... If\n<|id|>24<|page|>4<|box|>89 140 164 856<|content|>Tenant fails to deliver such rescission notice wit...described in Section 4. ... 3 continuing to apply)\n<|id|>33<|page|>5<|box|>306 174 361 854<|content|>Revised Tenant's Proportionate Share = (185,000 RS...rounded to the nearest one-hundredth of a percent)\n<|id|>34<|page|>5<|box|>369 140 460 854<|content|>The base year for operating expenses and real esta...on Space component of Tenant's Proportionate Share\n<|id|>83<|page|>10<|box|>851 140 906 856<|content|>14. ... Landlord shall not be liable to\n<|id|>84<|page|>11<|box|>90 140 125 852<|content|>Tenant for any failure to include a termination or...right in any lease entered into prior to such date",
+    "raw_response": "<|src_id|>23<|tgt_id|>24\n<|src_id|>83<|tgt_id|>84",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 84
+        }
+    ]
+}

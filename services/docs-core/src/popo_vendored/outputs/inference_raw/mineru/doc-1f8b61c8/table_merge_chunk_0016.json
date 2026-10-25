@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 16,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['33', 'Promissory', 'Ironhaven Data', 'Authorized', 'C&H', 'Seven separate']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Notes — one for each Lender (seven (7) notes in total), each dated as of May 15, 2024', 'Centers LLC (as maker); each Lender (as payee)', 'officer of IHDC; each note to bear the original executed signature of an authorized officer', '', 'promissory notes, each evidencing the obligation of the Borrower to pay to the applicable Lender the principal amount of its commitment, together with accrued and unpaid interest, in accordance with the terms of the Credit Agreement.Note amounts:(i) Crescent Harbor Bank, N.A. — $200,000,000;(ii) Ridgeline National Bank — $175,000,000;(iii) Marlowe Asset Management Meridian Capital, LLC — $150,000,000;(iv) Atlas Peak Credit Partners, LP — $125,000,000;(v) NordBrücke AG — $150,000,000;(vi) Pacific Rim Institutional Lending Corp. — $75,000,000; and (vii) Osprey Insurance Capital, Ltd. — $75,000,000.']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 121,
+    "table2_idx": 122
+}

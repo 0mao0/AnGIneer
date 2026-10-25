@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 143 104 611<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|type|>title<|page|>1<|box|>114 406 132 591<|content|>MEMORANDUM\n<|id|>2<|type|>title<|page|>1<|box|>151 143 167 444<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>3<|type|>table<|page|>1<|box|>176 143 352 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>402 142 417 421<|content|>I. Purpose and Executive Summary\n<|id|>10<|type|>title<|page|>2<|box|>150 140 167 627<|content|>II. Background on Rathore's Employment and Equity\n<|id|>11<|type|>title<|page|>2<|box|>181 143 198 333<|content|>A. Employment History\n<|id|>15<|type|>title<|page|>2<|box|>689 142 707 426<|content|>B. FY2024 Compensation Summary\n<|id|>27<|type|>title<|page|>3<|box|>234 140 251 313<|content|>C. RSU Grant Terms\n<|id|>37<|type|>title<|page|>3<|box|>643 140 662 482<|content|>III. Vesting Analysis as of Resignation Date\n<|id|>38<|type|>title<|page|>4<|box|>90 140 107 468<|content|>A. Tranche-by-Tranche Vesting Schedule\n<|id|>40<|type|>table<|page|>4<|box|>155 143 279 852<|content|>None\n<|id|>42<|type|>title<|page|>4<|box|>380 142 398 584<|content|>B. Vested vs. Unvested at Resignation (February 7,\n<|id|>47<|type|>title<|page|>4<|box|>787 140 804 478<|content|>C. Automatic Forfeiture of Unvested RSUs\n<|id|>51<|type|>title<|page|>5<|box|>348 140 364 607<|content|>IV. For-Cause Clawback Analysis — Third Vested Tra\n<|id|>52<|type|>title<|page|>5<|box|>378 140 396 612<|content|>A. Clawback Provision in the A&R Employment Agreem\n<|id|>56<|type|>title<|page|>6<|box|>90 140 107 478<|content|>B. Application to Rathore's Circumstances\n<|id|>62<|type|>title<|page|>6<|box|>779 140 796 410<|content|>C. Clawback Amount Calculation\n<|id|>68<|type|>title<|page|>7<|box|>377 142 393 468<|content|>V. Total Forfeiture Calculation Summary\n<|id|>69<|type|>title<|page|>7<|box|>407 143 424 295<|content|>A. Summary Table\n<|id|>70<|type|>table<|page|>7<|box|>455 143 676 852<|content|>None\n<|id|>71<|type|>title<|page|>7<|box|>715 143 732 459<|content|>B. Reconciliation with Settlement Terms\n<|id|>74<|type|>table<|page|>7<|box|>861 143 901 852<|content|>None\n<|id|>75<|type|>table<|page|>8<|box|>88 143 198 852<|content|>None\n<|id|>77<|type|>title<|page|>8<|box|>328 140 344 542<|content|>VI. Implementation Steps and Closing Deliverables\n<|id|>78<|type|>title<|page|>8<|box|>359 140 376 325<|content|>A. Equity Cancellation\n<|id|>82<|type|>title<|page|>8<|box|>813 142 829 472<|content|>B. Coordination with Other Workstreams\n<|id|>89<|type|>title<|page|>9<|box|>529 140 546 424<|content|>C. Hargrove & Tillett Coordination\n<|id|>91<|type|>title<|page|>9<|box|>739 140 757 406<|content|>VII. Open Questions and Caveats\n<|id|>97<|type|>title<|page|>10<|box|>574 140 592 279<|content|>VIII. Conclusion\n<|id|>103<|type|>title<|page|>11<|box|>133 142 148 230<|content|>Distribution:\n<|id|>105<|type|>title<|page|>11<|box|>179 142 194 297<|content|>Enclosures Referenced:",
+    "raw_response": "<|src_id|>3<|tgt_id|>4\n<|src_id|>40<|tgt_id|>38\n<|src_id|>70<|tgt_id|>69\n<|src_id|>74<|tgt_id|>71\n<|src_id|>75<|tgt_id|>71",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 71
+        }
+    ]
+}

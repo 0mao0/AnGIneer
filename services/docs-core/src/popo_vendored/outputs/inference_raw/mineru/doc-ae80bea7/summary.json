@@ -1,0 +1,206 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zqzvon_0\\input\\pdfs\\doc-ae80bea7.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zqzvon_0\\enriched\\doc-ae80bea7.json",
+    "contd_output": "<|src_id|>139<|tgt_id|>140",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>7<|level|>1\n<|id|>14<|level|>1\n<|id|>21<|level|>1\n<|id|>23<|level|>1\n<|id|>35<|level|>1\n<|id|>36<|level|>2\n<|id|>66<|level|>2\n<|id|>82<|level|>2\n<|id|>92<|level|>2\n<|id|>117<|level|>1\n<|id|>118<|level|>2\n<|id|>137<|level|>2\n<|id|>157<|level|>2\n<|id|>165<|level|>2\n<|id|>176<|level|>2\n<|id|>188<|level|>2\n<|id|>196<|level|>2\n<|id|>200<|level|>1\n<|id|>203<|level|>1\n<|id|>207<|level|>1\n<|id|>216<|level|>1\n<|id|>225<|level|>1\n<|id|>226<|level|>2\n<|id|>230<|level|>1\n<|id|>234<|level|>1\n<|id|>237<|level|>1\n<|id|>239<|level|>2\n<|id|>246<|level|>2",
+    "image_output": "<|src_id|>208<|tgt_id|>207\n<|src_id|>218<|tgt_id|>216\n<|src_id|>227<|tgt_id|>226\n<|src_id|>229<|tgt_id|>226\n<|src_id|>231<|tgt_id|>230\n<|src_id|>232<|tgt_id|>230\n<|src_id|>233<|tgt_id|>230\n<|src_id|>235<|tgt_id|>234\n<|src_id|>236<|tgt_id|>234",
+    "contd_label": [
+        {
+            "src_id": 139,
+            "tgt_id": 140
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 1
+        },
+        {
+            "id": 203,
+            "level": 1
+        },
+        {
+            "id": 207,
+            "level": 1
+        },
+        {
+            "id": 216,
+            "level": 1
+        },
+        {
+            "id": 225,
+            "level": 1
+        },
+        {
+            "id": 226,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 1
+        },
+        {
+            "id": 234,
+            "level": 1
+        },
+        {
+            "id": 237,
+            "level": 1
+        },
+        {
+            "id": 239,
+            "level": 2
+        },
+        {
+            "id": 246,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 208,
+            "tgt_id": 207
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 226
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 226
+        },
+        {
+            "src_id": 231,
+            "tgt_id": 230
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 230
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 230
+        },
+        {
+            "src_id": 235,
+            "tgt_id": 234
+        },
+        {
+            "src_id": 236,
+            "tgt_id": 234
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 235,
+            "table2_idx": 236,
+            "upper_row_ss": [
+                [
+                    "",
+                    "",
+                    "基价",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "colspan=8, "
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "colspan=15, 每艘(台)班"
+                ],
+                [
+                    "rowspan=3, 顺序号",
+                    "colspan=3, 项目",
+                    "colspan=5, 一类费用",
+                    "colspan=5, 二类费用",
+                    "定额基价"
+                ]
+            ]
+        }
+    ]
+}

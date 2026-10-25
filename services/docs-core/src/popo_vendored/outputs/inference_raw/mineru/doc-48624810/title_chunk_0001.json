@@ -1,0 +1,38 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        55
+    ],
+    "pages": [
+        50,
+        51,
+        53,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>460<|page|>50<|box|>90 140 107 439<|content|>Appendix A — Pool Statistical Tables\n<|id|>474<|page|>51<|box|>90 140 107 498<|content|>Appendix B — Static-Pool Performance Data\n<|id|>477<|page|>51<|box|>277 142 295 447<|content|>Key Notes Regarding Static-Pool Data:\n<|id|>502<|page|>53<|box|>592 174 626 823<|content|>SKYLEND RECEIVABLES TRUST 2024-1 CLASS B FLOATING\n<|id|>521<|page|>55<|box|>90 142 107 594<|content|>Appendix D — Index of Principal Transaction Docume",
+    "raw_response": "<|id|>460<|level|>1\n<|id|>474<|level|>1\n<|id|>477<|level|>2\n<|id|>502<|level|>1\n<|id|>521<|level|>1",
+    "parsed": [
+        {
+            "id": 460,
+            "level": 1
+        },
+        {
+            "id": 474,
+            "level": 1
+        },
+        {
+            "id": 477,
+            "level": 2
+        },
+        {
+            "id": 502,
+            "level": 1
+        },
+        {
+            "id": 521,
+            "level": 1
+        }
+    ]
+}

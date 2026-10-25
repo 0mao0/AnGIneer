@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 173 126 823<|content|>PRYOR CRESTFIELD LLP 999 Third Avenue, Suite 4800\n<|id|>12<|type|>title<|page|>1<|box|>508 142 525 338<|content|>1. Introduction and Role\n<|id|>16<|type|>title<|page|>2<|box|>90 140 107 336<|content|>2. Documents Examined\n<|id|>33<|type|>title<|page|>3<|box|>90 140 107 357<|content|>3. Description of the Bonds\n<|id|>39<|type|>title<|page|>3<|box|>645 140 662 478<|content|>4. Purpose of the Bonds — Use of Proceeds\n<|id|>42<|type|>table<|page|>4<|box|>195 143 308 852<|content|>None\n<|id|>43<|type|>table<|page|>4<|box|>340 143 453 852<|content|>None\n<|id|>45<|type|>title<|page|>4<|box|>601 140 619 370<|content|>5. Assumptions and Reliance\n<|id|>59<|type|>title<|page|>5<|box|>758 140 777 336<|content|>6. Federal Tax Opinions\n<|id|>61<|type|>title<|page|>6<|box|>90 140 107 583<|content|>6.1 Exclusion of Interest from Gross Income (IRC §\n<|id|>65<|type|>title<|page|>6<|box|>508 140 525 478<|content|>6.2 Not Private Activity Bonds (IRC § 141)\n<|id|>71<|type|>title<|page|>7<|box|>275 140 292 535<|content|>6.3 Arbitrage and Rebate Compliance (IRC § 148)\n<|id|>78<|type|>title<|page|>8<|box|>294 140 311 526<|content|>6.4 Registered Form Requirement (IRC § 149(a))\n<|id|>81<|type|>title<|page|>8<|box|>575 140 593 467<|content|>6.5 Information Reporting (IRC § 149(e))\n<|id|>83<|type|>title<|page|>8<|box|>776 140 792 531<|content|>6.6 Federal Guarantee Prohibition (IRC § 149(b))\n<|id|>85<|type|>title<|page|>9<|box|>138 140 157 434<|content|>6.7 Hedge Bond Rules (IRC § 149(g))\n<|id|>87<|type|>title<|page|>9<|box|>351 140 368 346<|content|>7. Original Issue discount\n<|id|>92<|type|>title<|page|>9<|box|>768 140 787 433<|content|>8. Continuing Compliance Condition\n<|id|>102<|type|>title<|page|>10<|box|>734 140 750 434<|content|>9. Scope Limitations and Disclaimers\n<|id|>112<|type|>title<|page|>11<|box|>726 142 743 375<|content|>10. Reliance and Distribution",
+    "raw_response": "<|src_id|>42<|tgt_id|>39\n<|src_id|>43<|tgt_id|>39",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 39
+        }
+    ]
+}

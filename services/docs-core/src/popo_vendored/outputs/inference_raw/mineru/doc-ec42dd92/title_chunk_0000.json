@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>8<|page|>1<|box|>349 142 364 437<|content|>I. Introduction and Purpose of Letter\n<|id|>13<|page|>2<|box|>186 140 204 542<|content|>II. Background — The Pellegrino Family and PCG\n<|id|>20<|page|>2<|box|>729 140 747 351<|content|>III. Transaction Overview\n<|id|>21<|page|>2<|box|>761 140 777 250<|content|>3.1 Seed Gift\n<|id|>25<|page|>3<|box|>393 140 410 478<|content|>3.2 Proposed Sale of Membership Interests\n<|id|>30<|page|>4<|box|>89 140 107 491<|content|>3.3 Grantor Trust Status — IRC § 675(4)(C)\n<|id|>36<|page|>4<|box|>606 142 623 473<|content|>IV. Subject Assets — Hospitality Portfolio\n<|id|>37<|page|>4<|box|>637 140 654 300<|content|>4.1 Summary Table\n<|id|>42<|page|>5<|box|>236 140 253 436<|content|>4.2 Meridian Shores Hospitality LLC\n<|id|>46<|page|>5<|box|>598 140 614 442<|content|>4.3 Costa Luma Resort Holdings LLC\n<|id|>49<|page|>6<|box|>90 140 106 362<|content|>4.4 Azulia Beach Club LLC\n<|id|>52<|page|>6<|box|>335 140 352 393<|content|>4.5 Combined Portfolio Metrics\n<|id|>55<|page|>6<|box|>590 140 607 529<|content|>V. Valuation — Independent Qualified Appraisal\n<|id|>63<|page|>7<|box|>619 140 636 480<|content|>VI. Material Terms of the Promissory Note\n<|id|>76<|page|>8<|box|>616 140 633 428<|content|>VII. Pledge and Security Agreement\n<|id|>86<|page|>9<|box|>520 140 537 609<|content|>VIII. Fiduciary Considerations for the Independent\n<|id|>88<|page|>9<|box|>705 140 722 428<|content|>8.1 Arm's-Length Nature of the Sale\n<|id|>92<|page|>10<|box|>275 140 292 460<|content|>8.2 Economic Viability and Debt Service\n<|id|>98<|page|>10<|box|>726 140 742 341<|content|>8.3 Grantor Trust Status\n<|id|>101<|page|>11<|box|>349 140 366 500<|content|>8.4 Independent Review by Trustee's Counsel\n<|id|>104<|page|>11<|box|>640 140 657 426<|content|>IX. Enclosed Documents for Review\n<|id|>110<|page|>12<|box|>260 140 277 455<|content|>X. Request for Comments and Timeline\n<|id|>117<|page|>12<|box|>755 142 772 465<|content|>XI. Availability and Contact Information\n<|id|>126<|page|>13<|box|>300 142 318 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>134<|page|>13<|box|>511 143 526 238<|content|>Enclosures:\n<|id|>140<|page|>13<|box|>684 388 703 607<|content|>Hargrove & Lindquist LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>20<|level|>1\n<|id|>21<|level|>2\n<|id|>25<|level|>2\n<|id|>30<|level|>2\n<|id|>36<|level|>1\n<|id|>37<|level|>2\n<|id|>42<|level|>2\n<|id|>46<|level|>2\n<|id|>49<|level|>2\n<|id|>52<|level|>2\n<|id|>55<|level|>1\n<|id|>63<|level|>1\n<|id|>76<|level|>1\n<|id|>86<|level|>1\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>98<|level|>2\n<|id|>101<|level|>2\n<|id|>104<|level|>1\n<|id|>110<|level|>1\n<|id|>117<|level|>1\n<|id|>126<|level|>-1\n<|id|>134<|level|>1\n<|id|>140<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        }
+    ]
+}

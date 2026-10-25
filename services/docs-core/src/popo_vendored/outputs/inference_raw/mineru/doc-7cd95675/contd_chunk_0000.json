@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        54
+    ],
+    "pages": [
+        2,
+        4,
+        11,
+        12,
+        13,
+        18,
+        29,
+        38,
+        53
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>2<|box|>304 171 338 782<|content|>Sold on a subscription basis only (exceptions noted) by the Superintendent of Documents, U. ... †\n<|id|>5<|page|>2<|box|>383 171 441 797<|content|>Financial Report of the United States Government. ... 40 (foreign)\n<|id|>10<|page|>4<|box|>507 343 529 653<|content|>treasury. ... gov\n<|id|>11<|page|>4<|box|>544 120 582 875<|content|>Internet service subscribers can access the Treasu...rough the Financial Management Service's home page\n<|id|>35<|page|>11<|box|>194 517 209 751<|content|>(Quarterly percent change at annual rate)\n<|id|>36<|page|>11<|box|>467 504 598 915<|content|>second quarter of 2009—after growing by 3. ... 6 percent annual rate\n<|id|>39<|page|>11<|box|>873 504 919 915<|content|>There has been noteworthy progress made in the hou... as captured by several measures. ... 1 percent in\n<|id|>40<|page|>12<|box|>90 81 614 491<|content|>December 2012 to 616,000 units at an annual rate, the highest level since June 2008. ... 6 percent\n<|id|>47<|page|>12<|box|>805 504 909 916<|content|>Job losses during the recession were spread broadl...ectors have added jobs. ... Manufacturing payrolls\n<|id|>48<|page|>13<|box|>87 109 103 272<|content|>Payroll Employment\n<|id|>50<|page|>13<|box|>409 81 584 491<|content|>have retraced somewhat in recent months, but have ...nt jobs (of which 293,000 were in local education)\n<|id|>49<|page|>13<|box|>104 111 127 320<|content|>(Average monthly change in thousands from end of quarter to end of quarter)\n<|id|>93<|page|>18<|box|>515 380 527 617<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>94<|page|>18<|box|>535 83 551 264<|content|>First-Quarter Receipts\n<|id|>95<|page|>18<|box|>554 81 657 491<|content|>The following capsule analysis of budget receipts,... to adequately analyze collections for the quarter\n<|id|>145<|page|>29<|box|>685 81 717 491<|content|>• Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>147<|page|>29<|box|>250 504 397 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>177<|page|>38<|box|>424 374 436 622<|content|>[Source: ... Bureau of the Public Debt, Office of Financing]\n<|id|>178<|page|>38<|box|>444 83 460 220<|content|>OCTOBER\n<|id|>183<|page|>38<|box|>450 506 467 697<|content|>Auction of 5-Year Notes\n<|id|>184<|page|>38<|box|>474 504 532 913<|content|>On September 20, 2012, Treasury announced it would...o raise new cash of approximately \\$46,822 million\n<|id|>321<|page|>53<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>322<|page|>53<|box|>198 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund",
+    "raw_response": "<|src_id|>39<|tgt_id|>40\n<|src_id|>47<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 50
+        }
+    ]
+}

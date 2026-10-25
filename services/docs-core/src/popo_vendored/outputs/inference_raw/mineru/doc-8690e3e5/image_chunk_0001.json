@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        49
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>167<|type|>title<|page|>45<|box|>119 438 142 564<|content|>七、沉箱半潜驳运输\n<|id|>170<|type|>table<|page|>45<|box|>191 86 376 915<|content|>None\n<|id|>171<|type|>title<|page|>46<|box|>127 391 152 590<|content|>八、沉箱卸船储存(3000t内/个)\n<|id|>174<|type|>table<|page|>46<|box|>200 76 598 907<|content|>None\n<|id|>175<|type|>title<|page|>47<|box|>132 416 156 586<|content|>九、综合物资后方基地装船\n<|id|>178<|type|>table<|page|>47<|box|>203 87 510 916<|content|>None\n<|id|>179<|type|>title<|page|>48<|box|>114 439 137 549<|content|>十、综合物资运输\n<|id|>182<|type|>table<|page|>48<|box|>186 80 310 907<|content|>None\n<|id|>183<|type|>title<|page|>49<|box|>201 277 287 720<|content|>本定额主编单位、参编单位、主要起草人、主要审查人、总校人员和管理组人员名单",
+    "raw_response": "<|src_id|>170<|tgt_id|>167\n<|src_id|>174<|tgt_id|>171\n<|src_id|>178<|tgt_id|>175\n<|src_id|>182<|tgt_id|>179",
+    "parsed": [
+        {
+            "src_id": 170,
+            "tgt_id": 167
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 171
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 179
+        }
+    ]
+}

@@ -1,0 +1,151 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-efvfmuqb\\input\\pdfs\\doc-1f91d482.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-efvfmuqb\\enriched\\doc-1f91d482.json",
+    "contd_output": "<|src_id|>82<|tgt_id|>83",
+    "title_output": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>7<|level|>1\n<|id|>28<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>2\n<|id|>43<|level|>1\n<|id|>53<|level|>1\n<|id|>54<|level|>1\n<|id|>55<|level|>1\n<|id|>80<|level|>2\n<|id|>89<|level|>2\n<|id|>95<|level|>2\n<|id|>106<|level|>2\n<|id|>115<|level|>2\n<|id|>121<|level|>2\n<|id|>136<|level|>2\n<|id|>152<|level|>2\n<|id|>156<|level|>2\n<|id|>165<|level|>2\n<|id|>172<|level|>2\n<|id|>174<|level|>2\n<|id|>183<|level|>2\n<|id|>187<|level|>1\n<|id|>203<|level|>1",
+    "image_output": "<|src_id|>167<|tgt_id|>165\n<|src_id|>168<|tgt_id|>165",
+    "contd_label": [
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 1
+        },
+        {
+            "id": 203,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 167,
+            "tgt_id": 165
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 165
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 167,
+            "table2_idx": 168,
+            "upper_row_ss": [
+                [
+                    "D&O insurance premium — Terrace Hill Insurance (to be bound upon IPO closing)",
+                    "$2,400,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Total estimated expenses (including D&O insurance)",
+                    "Approximately $6,550,394"
+                ]
+            ]
+        }
+    ]
+}

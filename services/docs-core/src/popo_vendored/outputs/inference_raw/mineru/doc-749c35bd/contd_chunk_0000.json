@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 145 196 851<|content|>Certification of Non-Foreign Status pursuant to Se...d Treasury Regulations Section 1. ... 1445-2(b)(2)\n<|id|>2<|page|>1<|box|>204 148 277 848<|content|>Delivered in connection with the Asset Purchase Ag..., Inc. ... , a Pennsylvania corporation (\"Seller\")\n<|id|>14<|page|>2<|box|>595 176 614 813<|content|>Allegheny Valley Packaging, Inc. ... 250 Industrial Boulevard Butler, Pennsylvania 16001\n<|id|>15<|page|>2<|box|>622 140 659 854<|content|>This address serves as the Transferor's principal ...at which Seller's books and records are maintained\n<|id|>17<|page|>2<|box|>710 176 728 315<|content|>EIN: ... 25-1784632\n<|id|>21<|page|>2<|box|>869 140 905 854<|content|>in each case, together with all improvements, fixt... of June 15, 2025, by and between Buyer and Seller\n<|id|>19<|page|>2<|box|>816 176 835 633<|content|>(a) 250 Industrial Boulevard, Butler, Pennsylvania 16001; ... and\n<|id|>20<|page|>2<|box|>843 176 859 643<|content|>(b) 1480 Conneaut Lake Road, Meadville, Pennsylvania 16335,\n<|id|>33<|page|>3<|box|>840 140 893 710<|content|>ALLEGHENY VALLEY PACKAGING, INC. ... Horvath\n<|id|>34<|page|>4<|box|>90 142 106 261<|content|>Title: ... President\n<|id|>35<|page|>4<|box|>108 142 125 264<|content|>Date: ... Date\n<|id|>43<|page|>4<|box|>483 142 500 377<|content|>[NOTARIAL SEAL / STAMP]\n<|id|>44<|page|>4<|box|>507 140 569 854<|content|>This Non-Foreign Affidavit is delivered pursuant t...5 of the Internal Revenue Code of 1986, as amended",
+    "raw_response": "<|src_id|>19<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        }
+    ]
+}

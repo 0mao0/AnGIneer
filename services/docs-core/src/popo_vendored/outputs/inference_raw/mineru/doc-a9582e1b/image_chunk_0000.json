@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>594 142 612 333<|content|>1. Scope of Engagement\n<|id|>23<|type|>title<|page|>2<|box|>652 140 670 313<|content|>2. Engagement Team\n<|id|>24<|type|>table<|page|>2<|box|>702 143 797 852<|content|>None\n<|id|>30<|type|>title<|page|>3<|box|>491 142 508 290<|content|>3. Fees and Billing\n<|id|>31<|type|>title<|page|>3<|box|>522 142 539 349<|content|>(a) Hourly Rate Structure\n<|id|>33<|type|>table<|page|>3<|box|>625 143 719 852<|content|>None\n<|id|>36<|type|>title<|page|>4<|box|>138 140 157 316<|content|>(b) Courtesy discount\n<|id|>42<|type|>table<|page|>4<|box|>455 143 564 852<|content|>None\n<|id|>43<|type|>title<|page|>4<|box|>604 142 621 397<|content|>(c) Disbursements and Expenses\n<|id|>56<|type|>title<|page|>5<|box|>344 140 362 236<|content|>4. Retainer\n<|id|>62<|type|>title<|page|>5<|box|>789 140 806 325<|content|>5. Billing and Payment\n<|id|>68<|type|>title<|page|>6<|box|>446 140 464 339<|content|>6. Client Responsibilities\n<|id|>75<|type|>title<|page|>7<|box|>329 140 347 321<|content|>7. Conflicts of Interest\n<|id|>80<|type|>title<|page|>7<|box|>767 140 784 264<|content|>8. Termination\n<|id|>86<|type|>title<|page|>8<|box|>429 140 445 287<|content|>9. Governing Law\n<|id|>88<|type|>title<|page|>8<|box|>587 142 604 369<|content|>10. Miscellaneous Provisions\n<|id|>97<|type|>title<|page|>9<|box|>457 140 474 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>101<|type|>title<|page|>9<|box|>526 160 561 836<|content|>COUNTERSIGNATURE PAGE Engagement Letter dated June\n<|id|>102<|type|>title<|page|>9<|box|>570 140 587 379<|content|>AGREED AND ACCEPTED:\n<|id|>104<|type|>title<|page|>9<|box|>676 140 694 521<|content|>CRESTLINE PACKAGING SOLUTIONS LLC",
+    "raw_response": "<|src_id|>24<|tgt_id|>23\n<|src_id|>33<|tgt_id|>31\n<|src_id|>42<|tgt_id|>36",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 36
+        }
+    ]
+}

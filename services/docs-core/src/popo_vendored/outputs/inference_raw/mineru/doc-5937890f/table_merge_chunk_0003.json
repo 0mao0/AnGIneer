@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['装卸车作业(卸车)', '翻车机', '5400', '3台', '电力']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 环节编号', 'rowspan=2, 环节名称', 'rowspan=2, 吞吐量(10^4t)', 'colspan=4, 能源实物消耗量', 'rowspan=2, 能源消耗量(tce)']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 354,
+    "table2_idx": 355
+}

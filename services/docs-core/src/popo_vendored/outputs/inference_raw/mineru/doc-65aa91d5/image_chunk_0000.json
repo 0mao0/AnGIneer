@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 160 195 836<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION W\n<|id|>4<|type|>table<|page|>1<|box|>324 143 452 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>486 140 503 537<|content|>Names and Addresses of Filing Persons (Offerors):\n<|id|>12<|type|>title<|page|>1<|box|>777 362 794 635<|content|>INTRODUCTORY STATEMENT\n<|id|>20<|type|>title<|page|>2<|box|>720 416 737 580<|content|>ITEMS AMENDED\n<|id|>22<|type|>title<|page|>2<|box|>806 140 824 383<|content|>Item 1. Summary Term Sheet.\n<|id|>25<|type|>title<|page|>3<|box|>260 140 277 408<|content|>Item 4. Terms of the Transaction.\n<|id|>26<|type|>title<|page|>3<|box|>290 140 308 419<|content|>(a) Material Changes to the Terms.\n<|id|>35<|type|>title<|page|>4<|box|>239 140 255 433<|content|>Non-Withdrawal / Non-Termination.\n<|id|>39<|type|>title<|page|>4<|box|>537 140 554 622<|content|>Item 7. Source and Amount of Funds or Other Consid\n<|id|>40<|type|>title<|page|>4<|box|>564 140 580 697<|content|>Item 7 of the Schedule TO is hereby amended and su\n<|id|>52<|type|>title<|page|>5<|box|>340 140 359 560<|content|>Item 8. Interest in Securities of the Subject Comp\n<|id|>53<|type|>title<|page|>5<|box|>367 140 385 697<|content|>Item 8 of the Schedule TO is hereby amended and su\n<|id|>58<|type|>title<|page|>6<|box|>90 140 107 668<|content|>Item 9. Persons/Assets, Retained, Employed, Compen\n<|id|>68<|type|>title<|page|>7<|box|>212 140 229 383<|content|>Item 10. Financial Statements.\n<|id|>70<|type|>title<|page|>7<|box|>407 140 424 401<|content|>Item 11. Additional Information.\n<|id|>72<|type|>title<|page|>7<|box|>464 142 479 303<|content|>HSR Act Clearance.\n<|id|>75<|type|>title<|page|>7<|box|>727 140 744 498<|content|>SEC Comment Letter and Amendment No. 1.\n<|id|>82<|type|>title<|page|>8<|box|>492 140 508 638<|content|>Pinnacle Board Recommendation and Shareholder Righ\n<|id|>93<|type|>title<|page|>9<|box|>392 140 410 415<|content|>Expiration and Lapse of the Offer.\n<|id|>100<|type|>title<|page|>10<|box|>223 142 239 285<|content|>Item 12. Exhibits.\n<|id|>101<|type|>table<|page|>10<|box|>290 143 558 852<|content|>None\n<|id|>103<|type|>title<|page|>11<|box|>89 140 107 537<|content|>Item 13. Information Required by Schedule 13E-3.\n<|id|>105<|type|>title<|page|>11<|box|>160 436 176 560<|content|>SIGNATURES\n<|id|>120<|type|>table<|page|>11<|box|>486 143 724 852<|content|>None\n<|id|>121<|type|>title<|page|>11<|box|>757 421 775 576<|content|>EXHIBIT (a)(1)(C)\n<|id|>122<|type|>title<|page|>11<|box|>782 423 799 573<|content|>PRESS RELEASE\n<|id|>123<|type|>title<|page|>11<|box|>809 156 845 839<|content|>Aurelius Media Holdings LLC Announces Lapse of Ten\n<|id|>131<|type|>title<|page|>12<|box|>513 140 530 594<|content|>Cautionary Note Regarding Forward-Looking Statemen\n<|id|>133<|type|>title<|page|>12<|box|>821 142 837 223<|content|>Contacts:\n<|id|>136<|type|>title<|page|>13<|box|>89 176 126 854<|content|>Investor Contact: Hugh Pemberton General Counsel A\n<|id|>138<|type|>title<|page|>13<|box|>179 176 195 387<|content|>Attention: Martin Cheswick",
+    "raw_response": "<|src_id|>4<|tgt_id|>0\n<|src_id|>101<|tgt_id|>100\n<|src_id|>120<|tgt_id|>105",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 105
+        }
+    ]
+}

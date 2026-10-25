@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        154,
+        158
+    ],
+    "pages": [
+        155,
+        157,
+        158
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>759<|type|>image<|page|>155<|box|>587 854 619 962<|content|>None\n<|id|>760<|type|>title<|page|>155<|box|>22 129 43 816<|content|>Information about the Superintendent of Documents\n<|id|>761<|type|>title<|page|>155<|box|>59 17 76 175<|content|>Current Subscribers\n<|id|>767<|type|>title<|page|>155<|box|>485 19 501 150<|content|>New Subscribers\n<|id|>769<|type|>title<|page|>155<|box|>566 236 586 752<|content|>Superintendent of Documents Subscriptions Order Fo\n<|id|>793<|type|>image<|page|>157<|box|>928 16 998 107<|content|>None\n<|id|>794<|type|>image<|page|>158<|box|>70 0 996 1000<|content|>None",
+    "raw_response": "<|src_id|>759<|tgt_id|>760\n<|src_id|>793<|tgt_id|>760\n<|src_id|>794<|tgt_id|>760",
+    "parsed": [
+        {
+            "src_id": 759,
+            "tgt_id": 760
+        },
+        {
+            "src_id": 793,
+            "tgt_id": 760
+        },
+        {
+            "src_id": 794,
+            "tgt_id": 760
+        }
+    ]
+}

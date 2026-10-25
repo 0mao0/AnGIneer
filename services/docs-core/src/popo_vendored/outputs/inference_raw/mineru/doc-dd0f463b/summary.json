@@ -1,0 +1,265 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lf6tqfq2\\input\\pdfs\\doc-dd0f463b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lf6tqfq2\\enriched\\doc-dd0f463b.json",
+    "contd_output": "<|src_id|>48<|tgt_id|>49",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>5<|level|>2\n<|id|>12<|level|>2\n<|id|>15<|level|>3\n<|id|>19<|level|>3\n<|id|>23<|level|>3\n<|id|>25<|level|>3\n<|id|>27<|level|>3\n<|id|>29<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>3\n<|id|>67<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>3\n<|id|>78<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>3\n<|id|>84<|level|>3",
+    "image_output": "<|src_id|>71<|tgt_id|>70\n<|src_id|>72<|tgt_id|>70\n<|src_id|>73<|tgt_id|>70\n<|src_id|>74<|tgt_id|>70\n<|src_id|>75<|tgt_id|>70\n<|src_id|>76<|tgt_id|>70\n<|src_id|>82<|tgt_id|>81\n<|src_id|>83<|tgt_id|>81\n<|src_id|>85<|tgt_id|>84\n<|src_id|>86<|tgt_id|>84",
+    "contd_label": [
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 71,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 84
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 71,
+            "table2_idx": 72,
+            "upper_row_ss": [
+                [
+                    "A-011",
+                    "CNC CO2 Laser Cutting System, 5' x",
+                    "Penmark Corporation",
+                    "Optiplex 3015",
+                    "MO-OP-2018-",
+                    "2018",
+                    "Bay 4 — Laser Cutting"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "10'",
+                    "",
+                    "",
+                    "55439",
+                    "",
+                    "Center"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 74,
+            "table2_idx": 75,
+            "upper_row_ss": [
+                [
+                    "A-019",
+                    "Hydraulic Press Brake, 175-ton, 10' bed",
+                    "Dunmore Corporation",
+                    "7175010",
+                    "AP-717-2015-29884",
+                    "2015",
+                    "Bay 3 — Forming Area"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "A-020",
+                    "Hydraulic Plate Shear, 3/4\" x 12'",
+                    "Larkspur Corporation",
+                    "750H-12",
+                    "CI-750H-2016-32776",
+                    "2016",
+                    "Bay 3 — Forming Area"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 75,
+            "table2_idx": 76,
+            "upper_row_ss": [
+                [
+                    "A-034",
+                    "Paint Booth, 20' x 40'",
+                    "Sterling Reach",
+                    "Ultra XP1",
+                    "GFS-UXP-2018-",
+                    "2018",
+                    "Bay 6 —"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Downdraft",
+                    "Enterprises",
+                    "",
+                    "09332",
+                    "",
+                    "Blast & Paint"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 82,
+            "table2_idx": 83,
+            "upper_row_ss": [
+                [
+                    "B-008",
+                    "Flatbed Truck, 48' bed, tractor-trailer",
+                    "Pemberton Holdings",
+                    "T680",
+                    "2018",
+                    "1XKYD49X7JJ187731",
+                    "Indiana",
+                    "PMF-1028"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "combination",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

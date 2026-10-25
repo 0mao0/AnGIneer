@@ -1,0 +1,52 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        64
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        61,
+        62,
+        63,
+        64
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>525<|type|>title<|page|>46<|box|>241 140 258 437<|content|>Section 11.18 — Electronic Execution\n<|id|>527<|type|>title<|page|>46<|box|>436 140 454 668<|content|>Section 11.19 — Acknowledgment Regarding Any Suppo\n<|id|>532<|type|>title<|page|>47<|box|>89 361 107 635<|content|>[SIGNATURE PAGES FOLLOW]\n<|id|>533<|type|>title<|page|>47<|box|>114 218 132 777<|content|>SIGNATURE PAGE TO SENIOR SECURED CREDIT AGREEMENT\n<|id|>535<|type|>title<|page|>47<|box|>186 143 202 263<|content|>BORROWER:\n<|id|>553<|type|>title<|page|>47<|box|>527 370 544 627<|content|>LENDER SIGNATURE PAGES\n<|id|>575<|type|>title<|page|>48<|box|>166 424 186 573<|content|>SCHEDULES\n<|id|>576<|type|>table<|page|>49<|box|>114 143 301 852<|content|>None\n<|id|>577<|type|>table<|page|>50<|box|>176 143 542 852<|content|>None\n<|id|>578<|type|>title<|page|>51<|box|>90 140 107 504<|content|>Schedule 5.01 — Jurisdictions of Qualification\n<|id|>585<|type|>title<|page|>52<|box|>90 140 107 424<|content|>Schedule 5.06 — Existing Litigation\n<|id|>587<|type|>title<|page|>53<|box|>90 140 107 390<|content|>Schedule 5.08 — Existing Liens\n<|id|>592<|type|>title<|page|>54<|box|>90 140 107 375<|content|>Schedule 5.13 — Subsidiaries\n<|id|>594<|type|>title<|page|>55<|box|>90 140 107 405<|content|>Schedule 7.01 — Permitted Liens\n<|id|>596<|type|>title<|page|>56<|box|>90 140 107 464<|content|>Schedule 7.02 — Permitted Indebtedness\n<|id|>602<|type|>title<|page|>57<|box|>90 140 107 423<|content|>Schedule 11.02 — Notice Addresses\n<|id|>604<|type|>title<|page|>57<|box|>198 439 217 558<|content|>EXHIBITS\n<|id|>605<|type|>title<|page|>58<|box|>90 140 107 411<|content|>Exhibit A — Form of Loan Notice\n<|id|>606<|type|>title<|page|>58<|box|>114 387 132 609<|content|>FORM OF LOAN NOTICE\n<|id|>623<|type|>title<|page|>59<|box|>90 142 107 495<|content|>Exhibit B — Form of Compliance Certificate\n<|id|>624<|type|>title<|page|>59<|box|>114 323 132 673<|content|>FORM OF COMPLIANCE CERTIFICATE\n<|id|>631<|type|>table<|page|>59<|box|>349 143 482 852<|content|>None\n<|id|>632<|type|>title<|page|>59<|box|>516 143 532 493<|content|>(b) Interest Coverage Ratio (Section 7.11(b)):\n<|id|>633<|type|>table<|page|>59<|box|>539 143 633 852<|content|>None\n<|id|>634<|type|>title<|page|>59<|box|>667 143 685 460<|content|>(c) Minimum Liquidity (Section 7.11(c)):\n<|id|>635<|type|>table<|page|>59<|box|>691 143 785 852<|content|>None\n<|id|>636<|type|>title<|page|>59<|box|>820 140 875 852<|content|>4. The Applicable Rate and Commitment Fee Rate as\n<|id|>639<|type|>title<|page|>61<|box|>90 140 107 537<|content|>Exhibit C — Form of Assignment and Assumption\n<|id|>640<|type|>title<|page|>61<|box|>114 305 132 691<|content|>FORM OF ASSIGNMENT AND ASSUMPTION\n<|id|>652<|type|>title<|page|>62<|box|>90 142 107 446<|content|>Exhibit D — Form of Promissory Note\n<|id|>653<|type|>title<|page|>62<|box|>114 362 132 633<|content|>FORM OF PROMISSORY NOTE\n<|id|>654<|type|>title<|page|>62<|box|>142 367 157 627<|content|>[TERM LOAN A / REVOLVING]\n<|id|>663<|type|>title<|page|>63<|box|>90 142 107 470<|content|>Exhibit E — Form of Solvency Certificate\n<|id|>664<|type|>title<|page|>63<|box|>114 334 132 661<|content|>FORM OF SOLVENCY CERTIFICATE\n<|id|>677<|type|>title<|page|>64<|box|>90 142 107 542<|content|>Exhibit F — Form of Officer's Certificate (Closing\n<|id|>678<|type|>title<|page|>64<|box|>114 287 132 707<|content|>FORM OF OFFICER'S CERTIFICATE (CLOSING)",
+    "raw_response": "<|src_id|>576<|tgt_id|>575\n<|src_id|>577<|tgt_id|>575\n<|src_id|>631<|tgt_id|>624\n<|src_id|>633<|tgt_id|>632\n<|src_id|>635<|tgt_id|>634",
+    "parsed": [
+        {
+            "src_id": 576,
+            "tgt_id": 575
+        },
+        {
+            "src_id": 577,
+            "tgt_id": 575
+        },
+        {
+            "src_id": 631,
+            "tgt_id": 624
+        },
+        {
+            "src_id": 633,
+            "tgt_id": 632
+        },
+        {
+            "src_id": 635,
+            "tgt_id": 634
+        }
+    ]
+}

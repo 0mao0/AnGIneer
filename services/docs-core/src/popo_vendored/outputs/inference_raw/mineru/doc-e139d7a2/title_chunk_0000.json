@@ -1,0 +1,46 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 214 142 782<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF CALLOWAY-\n<|id|>1<|page|>1<|box|>159 161 176 834<|content|>Approval and Recommendation of Amended and Restate\n<|id|>5<|page|>1<|box|>369 140 387 243<|content|>RECITALS\n<|id|>25<|page|>3<|box|>828 142 844 279<|content|>RESOLUTIONS\n<|id|>39<|page|>6<|box|>88 142 107 245<|content|>EXHIBIT A\n<|id|>42<|page|>6<|box|>270 142 287 259<|content|>EXECUTION\n<|id|>58<|page|>7<|box|>89 140 106 426<|content|>SECRETARY'S CERTIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>2\n<|id|>25<|level|>2\n<|id|>39<|level|>2\n<|id|>42<|level|>2\n<|id|>58<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        }
+    ]
+}

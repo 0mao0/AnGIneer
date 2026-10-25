@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 104 718<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED / ATTORN\n<|id|>1<|page|>1<|box|>112 140 128 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>208 140 224 478<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>8<|page|>1<|box|>382 140 398 465<|content|>1. Introduction and Purpose of Retention\n<|id|>12<|page|>1<|box|>794 140 811 380<|content|>2. Background of the Incident\n<|id|>19<|page|>3<|box|>90 140 107 333<|content|>3. Scope of Engagement\n<|id|>21<|page|>3<|box|>220 140 238 426<|content|>3.1 Technical Forensic Investigation\n<|id|>27<|page|>3<|box|>763 140 779 385<|content|>3.2 Data Exposure Assessment\n<|id|>32<|page|>4<|box|>484 140 500 370<|content|>3.3 Threat Actor Assessment\n<|id|>37<|page|>5<|box|>90 140 107 352<|content|>3.4 Remediation Guidance\n<|id|>41<|page|>5<|box|>390 140 407 379<|content|>4. Reporting and Deliverables\n<|id|>48<|page|>6<|box|>214 174 268 854<|content|>\"PRIVILEGED AND CONFIDENTIAL — PREPARED AT THE DIR\n<|id|>50<|page|>6<|box|>375 140 391 596<|content|>5. Attorney-Client Privilege and Work Product Prot\n<|id|>60<|page|>7<|box|>556 140 574 312<|content|>6. Engagement Team\n<|id|>61<|page|>7<|box|>588 140 604 480<|content|>6.1 Calderwood & Harkness LLP Contacts\n<|id|>72<|page|>8<|box|>238 140 255 524<|content|>6.2 Graystone Forensics LLC Engagement Team\n<|id|>77<|page|>8<|box|>526 140 542 460<|content|>7. Coordination with Quorum Personnel\n<|id|>81<|page|>9<|box|>90 140 107 290<|content|>8. Fees and Billing\n<|id|>86<|page|>9<|box|>637 140 655 284<|content|>9. Confidentiality\n<|id|>91<|page|>10<|box|>321 142 339 465<|content|>10. Document and Evidence Preservation\n<|id|>95<|page|>10<|box|>696 142 714 447<|content|>11. No Testimony or Public Statements\n<|id|>99<|page|>11<|box|>267 142 284 354<|content|>12. Term and Termination\n<|id|>103<|page|>11<|box|>604 140 623 509<|content|>13. Limitation of Liability and Indemnification\n<|id|>107<|page|>12<|box|>90 142 107 297<|content|>14. Governing Law\n<|id|>109<|page|>12<|box|>213 142 229 264<|content|>15. Acceptance\n<|id|>118<|page|>12<|box|>529 352 546 643<|content|>ACKNOWLEDGED AND AGREED",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>4<|level|>-1\n<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>19<|level|>1\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>1\n<|id|>48<|level|>-1\n<|id|>50<|level|>1\n<|id|>60<|level|>1\n<|id|>61<|level|>2\n<|id|>72<|level|>2\n<|id|>77<|level|>1\n<|id|>81<|level|>1\n<|id|>86<|level|>1\n<|id|>91<|level|>1\n<|id|>95<|level|>1\n<|id|>99<|level|>1\n<|id|>103<|level|>1\n<|id|>107<|level|>1\n<|id|>109<|level|>1\n<|id|>118<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        }
+    ]
+}

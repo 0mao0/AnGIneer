@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 168 151 831<|content|>100 Southeast Second Street, Suite 3800 Miami, Flo\n<|id|>7<|page|>1<|box|>378 140 395 501<|content|>I. Introduction and Representation Statement\n<|id|>11<|page|>1<|box|>789 142 806 437<|content|>II. Identification of the Existing Loan\n<|id|>14<|page|>2<|box|>393 142 409 316<|content|>Security Instruments:\n<|id|>17<|page|>2<|box|>561 142 579 223<|content|>Property:\n<|id|>19<|page|>2<|box|>719 142 737 379<|content|>III. Payoff Statement Request\n<|id|>29<|page|>4<|box|>340 140 357 568<|content|>IV. Request for Satisfaction and Discharge Documen\n<|id|>35<|page|>5<|box|>90 140 107 503<|content|>V. Request for UCC-3 Termination Statement\n<|id|>39<|page|>5<|box|>446 140 464 388<|content|>VI. Wire Transfer Instructions\n<|id|>47<|page|>5<|box|>801 140 819 419<|content|>VII. Notice and Consent Provisions\n<|id|>51<|page|>6<|box|>321 140 339 552<|content|>VIII. Delivery Instructions and Contact Informatio\n<|id|>64<|page|>6<|box|>712 140 729 344<|content|>IX. Reservation of Rights\n<|id|>66<|page|>7<|box|>90 140 107 328<|content|>X. Contact and Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>14<|level|>3\n<|id|>17<|level|>3\n<|id|>19<|level|>2\n<|id|>29<|level|>2\n<|id|>35<|level|>2\n<|id|>39<|level|>2\n<|id|>47<|level|>2\n<|id|>51<|level|>2\n<|id|>64<|level|>2\n<|id|>66<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        }
+    ]
+}

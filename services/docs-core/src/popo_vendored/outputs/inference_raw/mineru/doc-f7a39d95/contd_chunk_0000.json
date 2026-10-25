@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>172 712 189 854<|content|>November 6, 2023\n<|id|>3<|page|>1<|box|>198 140 234 854<|content|>FROM: ... Jeffrey Park, Lead Associate, and Audrey...rkness LLP 600 Lexington Avenue New York, NY 10022\n<|id|>4<|page|>1<|box|>243 140 297 854<|content|>TO: ... 480 Overlook Drive, Suite 700 Summit, NJ 07901\n<|id|>5<|page|>1<|box|>305 140 340 854<|content|>RE: ... Preliminary Assessment of FDA Office of Pr...motional Materials for Zelvara® (trepivant sodium)\n<|id|>6<|page|>1<|box|>349 142 366 377<|content|>C&H Matter No. ... 1018-00002\n<|id|>7<|page|>1<|box|>375 140 436 854<|content|>This memorandum constitutes a privileged and confi...without the prior written authorization of counsel\n<|id|>99<|page|>11<|box|>777 174 905 857<|content|>Lack of Peer-Reviewed Publication. ... The use of ...support promotional claims is a recognized area of\n<|id|>100<|page|>12<|box|>90 174 126 854<|content|>OPDP enforcement concern, particularly when the da...cation as to its preliminary or unvalidated nature\n<|id|>128<|page|>14<|box|>863 181 898 854<|content|>• Warning Letters: ... Warning\n<|id|>129<|page|>15<|box|>90 210 126 854<|content|>Letters are publicly posted on the FDA's website, ...ercial, and financial consequences for the company\n<|id|>153<|page|>16<|box|>792 140 902 857<|content|>Securities Disclosure Considerations. ... Addition...ceedings disclosure requirements applicable to the\n<|id|>154<|page|>17<|box|>90 140 126 854<|content|>Company's fiscal year 2023 Annual Report on Form 1...ns will be prepared and circulated to Margaret Tan\n<|id|>175<|page|>18<|box|>864 174 900 856<|content|>4. ... Witness interviews of key Penterra personne...gn materials, including Derek Foss (VP, Commercial\n<|id|>176<|page|>19<|box|>90 210 181 854<|content|>Operations & Marketing), Alan Renwick (Director, P... including Monica Chu, the Ridgeline account lead)\n<|id|>185<|page|>19<|box|>655 181 690 854<|content|>• All correspondence and communications between Penterra and Keswick Bioanalytics Inc. ... and\n<|id|>187<|page|>19<|box|>729 140 821 856<|content|>The legal hold should be communicated to all relev...tant messages, voicemails, and hard-copy documents\n<|id|>193<|page|>20<|box|>319 183 354 852<|content|>• The engagement of outside counsel and the time r...ounsel to conduct its review and analysis; ... and\n<|id|>195<|page|>20<|box|>395 140 449 854<|content|>As a demonstration of good faith, the extension re...nd without waiting for OPDP to require such action\n<|id|>257<|page|>24<|box|>734 174 770 854<|content|>Jeffrey Park, Lead Associate Calderwood & Harkness...enue New York, NY 10022 Direct: ... (212) 555-4837\n<|id|>258<|page|>24<|box|>779 176 796 521<|content|>Email: ... com\n<|id|>259<|page|>24<|box|>797 174 832 854<|content|>Audrey Zhou, Working Associate Calderwood & Harkne...enue New York, NY 10022 Direct: ... (212) 555-4912\n<|id|>260<|page|>24<|box|>840 140 875 524<|content|>Email: ... 1018-00002",
+    "raw_response": "<|src_id|>99<|tgt_id|>100\n<|src_id|>128<|tgt_id|>129\n<|src_id|>153<|tgt_id|>154\n<|src_id|>175<|tgt_id|>176",
+    "parsed": [
+        {
+            "src_id": 99,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 176
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 38,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 18', 'rowspan=3, UPS和EPS功能及性能', '18.3 总谐波畸变率', 'UPS输出和EPS逆变应急输出总谐波畸变率≤5%', '电能质量分析仪测量10min']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 18', 'rowspan=2, UPS和EPS功能及性能', '18.4 市电与备用电源切换时间', '符合设计要求', '示波器测量']]\n",
+    "raw_response": "[1, 1, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 513,
+    "table2_idx": 514
+}

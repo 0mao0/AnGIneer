@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        11,
+        12,
+        13,
+        19,
+        27,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 140 180 555<|content|>To: ... Douglas Fairchild, Responsible Partner, Real Estate\n<|id|>3<|page|>1<|box|>188 140 205 550<|content|>From: ... Rafael Dominguez, Lead Associate, Real Estate\n<|id|>4<|page|>1<|box|>214 142 231 302<|content|>Date: ... April 20, 2023\n<|id|>5<|page|>1<|box|>239 140 276 854<|content|>Re: ... / Greystone Metropolitan Realty LLC — 787 Seventh Avenue, Floors 34–38, New York, NY 10019\n<|id|>6<|page|>1<|box|>282 140 301 333<|content|>Matter No. ... 1017-00009\n<|id|>7<|page|>1<|box|>309 140 328 687<|content|>Client: ... Aurelius Global Media Group PLC / Aurelius Media Holdings Inc\n<|id|>13<|page|>1<|box|>808 140 882 856<|content|>This memorandum is organized by topic. ... Each se...g Tariq Nassar, General Counsel of Aurelius Global\n<|id|>14<|page|>2<|box|>89 140 125 854<|content|>Media Group PLC, and Vivienne Caldwell, Senior Vic...or Vice President, Global Real Estate & Facilities\n<|id|>48<|page|>4<|box|>638 183 655 689<|content|>• Costs of environmental remediation of pre-existing conditions; ... and\n<|id|>50<|page|>4<|box|>695 140 731 854<|content|>A detailed markup of the Operating Expenses defini...tion will be prepared as part of the first redline\n<|id|>76<|page|>7<|box|>359 174 431 854<|content|>(iii) Tenant provides Landlord with not less than ... the most recently completed fiscal year); ... and\n<|id|>78<|page|>7<|box|>484 140 575 856<|content|>Further Recommendation: ... Permitting the Landlor...er the change of control assignment right illusory\n<|id|>105<|page|>11<|box|>377 174 431 854<|content|>(b) Upon delivery of the replacement guaranty, Aur... date of the change of control assignment; ... and\n<|id|>107<|page|>11<|box|>502 140 575 854<|content|>The guaranty form will be negotiated as a separate... be a condition precedent to the Commencement Date\n<|id|>113<|page|>11<|box|>858 140 893 856<|content|>Issue Identified: ... 00 per RSF, yielding a total TI\n<|id|>114<|page|>12<|box|>89 140 127 854<|content|>Allowance of $15,725,000. ... 00 per RSF, or $1,850,000 in the aggregate\n<|id|>123<|page|>12<|box|>823 140 896 856<|content|>Recommendation: ... Each requisition should be acc...e with the approved plans and specifications, (ii)\n<|id|>124<|page|>13<|box|>90 140 143 854<|content|>partial lien waivers from all contractors, subcont...r documentation as Landlord may reasonably require\n<|id|>197<|page|>19<|box|>531 183 547 756<|content|>• Limitation of successor landlord's liability to its interest in the Building; ... and\n<|id|>199<|page|>19<|box|>589 140 662 856<|content|>Recommendation: ... The following key provisions must be addressed\n<|id|>289<|page|>27<|box|>799 176 814 612<|content|>Douglas Fairchild, Partner, Real Estate — Calderwood & Harkness LLP\n<|id|>290<|page|>27<|box|>824 142 835 168<|content|>cc: ... cc\n<|id|>291<|page|>27<|box|>844 176 859 767<|content|>Cynthia Ho, Associate, Real Estate — Calderwood & Harkness LLP File (Matter No. ... 1017-00009)\n<|id|>292<|page|>27<|box|>866 140 896 854<|content|>Prepared by: ... (212) 555-4800\n<|id|>293<|page|>28<|box|>89 142 104 424<|content|>Email: ... com",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>113<|tgt_id|>114\n<|src_id|>123<|tgt_id|>124",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 124
+        }
+    ]
+}

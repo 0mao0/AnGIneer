@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        21
+    ],
+    "pages": [
+        3,
+        4,
+        5,
+        6,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>28<|page|>3<|box|>830 140 902 856<|content|>20. ... As the sole shareholder and controlling pr...orris exercised complete dominion and control over\n<|id|>29<|page|>4<|box|>90 174 126 854<|content|>Harlow's business decisions and operations and is ...r the tortious conduct described in this Complaint\n<|id|>50<|page|>5<|box|>830 140 904 856<|content|>34. ... In addition to the specific chemical ident...tuents are introduced during the blending process)\n<|id|>51<|page|>6<|box|>90 174 143 854<|content|>and defined processing temperatures and shear rate...sults in measurably diminished barrier performance\n<|id|>193<|page|>19<|box|>708 663 724 854<|content|>Dated: ... February 26, 2024\n<|id|>194<|page|>20<|box|>90 140 127 854<|content|>executed the same in his authorized capacity, and ...of which the person acted, executed the instrument\n<|id|>197<|page|>21<|box|>114 140 133 321<|content|>Respectfully submitted,\n<|id|>198<|page|>21<|box|>141 140 157 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>199<|page|>21<|box|>175 140 209 854<|content|>Catherine Bloom, Esq. ... com\n<|id|>200<|page|>21<|box|>209 140 258 852<|content|>Alan Ngo, Esq. ... com\n<|id|>201<|page|>21<|box|>258 140 277 797<|content|>Christy Bauer, Esq. ... com\n<|id|>202<|page|>21<|box|>276 140 310 854<|content|>Calderwood & Harkness LLP 250 Civic Center Drive, ...Columbus, Ohio 43215 Telephone: ... (614) 555-7801\n<|id|>203<|page|>21<|box|>310 142 327 570<|content|>Attorneys for Plaintiff Crestline Packaging Solutions LLC\n<|id|>204<|page|>21<|box|>327 140 344 321<|content|>Matter No. ... 1006-00004\n<|id|>209<|page|>21<|box|>592 174 628 852<|content|>Gerald W. ... 1120 Commerce Boulevard Terre Haute, Indiana 47802\n<|id|>210<|page|>21<|box|>636 174 672 852<|content|>Kenneth Fielding c/o Harlow Chemical Supply Inc. ... 1120 Commerce Boulevard Terre Haute, Indiana 47802\n<|id|>211<|page|>21<|box|>680 174 717 852<|content|>Indiana Registered Agents Inc. ... ) 201 North Illinois Street, Suite 1600 Indianapolis, Indiana 46204",
+    "raw_response": "<|src_id|>28<|tgt_id|>29\n<|src_id|>50<|tgt_id|>51",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        }
+    ]
+}

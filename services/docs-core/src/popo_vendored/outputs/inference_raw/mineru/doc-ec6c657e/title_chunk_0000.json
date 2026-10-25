@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        13,
+        16,
+        18,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 367 118 630<|content|>ESCROW AGREEMENT\n<|id|>3<|page|>1<|box|>186 160 232 836<|content|>MERIDIAN CONSUMER BRANDS LLC a Delaware limited li\n<|id|>8<|page|>1<|box|>518 142 534 351<|content|>ESCROW AGREEMENT\n<|id|>14<|page|>1<|box|>816 142 833 243<|content|>RECITALS\n<|id|>21<|page|>2<|box|>498 142 515 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>38<|page|>3<|box|>494 142 512 635<|content|>ARTICLE II — ESTABLISHMENT OF ESCROW; DEPOSIT\n<|id|>44<|page|>4<|box|>393 140 412 553<|content|>ARTICLE III — DISBURSEMENTS — GENERAL\n<|id|>48<|page|>5<|box|>89 140 107 473<|content|>ARTICLE IV — CLAIM PROCEDURES\n<|id|>65<|page|>7<|box|>186 140 203 565<|content|>ARTICLE V — INVESTMENT OF ESCROW FUND\n<|id|>75<|page|>8<|box|>431 140 448 607<|content|>ARTICLE VI — TERMINATION AND FINAL RELEASE\n<|id|>83<|page|>9<|box|>494 140 511 555<|content|>ARTICLE VII — ESCROW AGENT PROVISIONS\n<|id|>93<|page|>11<|box|>776 140 792 645<|content|>ARTICLE VIII — REPRESENTATIONS AND WARRANTIES\n<|id|>107<|page|>13<|box|>266 140 282 488<|content|>ARTICLE IX — GENERAL PROVISIONS\n<|id|>139<|page|>16<|box|>171 140 354 854<|content|>Section 9.12 Waiver of Jury Trial. EACH PARTY HERE\n<|id|>140<|page|>16<|box|>362 400 378 596<|content|>[Signature Pages Follow]\n<|id|>142<|page|>16<|box|>465 142 481 217<|content|>BUYER:\n<|id|>160<|page|>18<|box|>114 349 132 648<|content|>WIRE TRANSFER INSTRUCTIONS\n<|id|>161<|page|>18<|box|>181 142 198 397<|content|>Escrow Agent Wire Instructions\n<|id|>164<|page|>18<|box|>452 143 469 336<|content|>Buyer Wire Instructions\n<|id|>167<|page|>18<|box|>722 142 739 334<|content|>Seller Wire Instructions\n<|id|>172<|page|>20<|box|>89 143 106 243<|content|>EXHIBIT B\n<|id|>173<|page|>20<|box|>114 349 132 647<|content|>ESCROW AGENT FEE SCHEDULE\n<|id|>176<|page|>20<|box|>564 140 580 197<|content|>Notes:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>-1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>38<|level|>2\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>65<|level|>2\n<|id|>75<|level|>2\n<|id|>83<|level|>2\n<|id|>93<|level|>2\n<|id|>107<|level|>2\n<|id|>139<|level|>-1\n<|id|>140<|level|>-1\n<|id|>142<|level|>2\n<|id|>160<|level|>1\n<|id|>161<|level|>2\n<|id|>164<|level|>2\n<|id|>167<|level|>2\n<|id|>172<|level|>1\n<|id|>173<|level|>2\n<|id|>176<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        }
+    ]
+}

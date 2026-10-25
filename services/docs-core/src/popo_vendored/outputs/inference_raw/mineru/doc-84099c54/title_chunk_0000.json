@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>194 142 210 388<|content|>Via Email and First Class Mail\n<|id|>8<|page|>1<|box|>367 142 383 398<|content|>1. Introduction and Background\n<|id|>16<|page|>2<|box|>494 140 511 341<|content|>2. Purpose of This Letter\n<|id|>22<|page|>3<|box|>167 140 185 782<|content|>3. Expanded Workstream 1 — Defense of the Multista\n<|id|>26<|page|>3<|box|>627 140 643 493<|content|>3.2 Scope of Work — Multistate AG Defense\n<|id|>39<|page|>5<|box|>138 140 157 437<|content|>3.3 Staffing and Anticipated Timeline\n<|id|>51<|page|>6<|box|>619 140 637 503<|content|>4.2 Scope of Work — Vendor Indemnification\n<|id|>59<|page|>7<|box|>681 140 699 437<|content|>4.3 Staffing and Anticipated Timeline\n<|id|>62<|page|>8<|box|>90 140 126 823<|content|>5. Expanded Workstream 3 — Regulatory Engagement w\n<|id|>63<|page|>8<|box|>138 140 157 449<|content|>5.1 Connecticut Insurance Department\n<|id|>67<|page|>8<|box|>574 140 592 390<|content|>5.2 HHS Office for Civil Rights\n<|id|>72<|page|>9<|box|>345 140 363 550<|content|>6. Engagement Terms — Confirmation and Updates\n<|id|>73<|page|>9<|box|>376 142 393 274<|content|>6.1 Billing Rates\n<|id|>77<|page|>9<|box|>693 140 710 334<|content|>6.2 Billing and Payment\n<|id|>80<|page|>10<|box|>176 140 194 398<|content|>6.3 Privilege and Confidentiality\n<|id|>84<|page|>10<|box|>556 140 574 315<|content|>6.4 Scope Limitations\n<|id|>90<|page|>11<|box|>204 140 222 524<|content|>7. Estimated Budget for Expanded Workstreams\n<|id|>95<|page|>11<|box|>776 140 792 300<|content|>8. Acknowledgment\n<|id|>104<|page|>12<|box|>282 313 299 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>106<|page|>12<|box|>407 142 424 379<|content|>AGREED AND ACCEPTED:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>2\n<|id|>8<|level|>1\n<|id|>16<|level|>1\n<|id|>22<|level|>1\n<|id|>26<|level|>2\n<|id|>39<|level|>2\n<|id|>51<|level|>2\n<|id|>59<|level|>2\n<|id|>62<|level|>1\n<|id|>63<|level|>2\n<|id|>67<|level|>2\n<|id|>72<|level|>1\n<|id|>73<|level|>2\n<|id|>77<|level|>2\n<|id|>80<|level|>2\n<|id|>84<|level|>2\n<|id|>90<|level|>1\n<|id|>95<|level|>1\n<|id|>104<|level|>1\n<|id|>106<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 2
+        }
+    ]
+}

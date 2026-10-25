@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>372 140 388 483<|content|>1. Reference to Existing Engagement Letter\n<|id|>11<|type|>title<|page|>1<|box|>827 140 844 439<|content|>2. Current Fee Cap and Billing Status\n<|id|>14<|type|>table<|page|>2<|box|>159 143 234 852<|content|>None\n<|id|>23<|type|>title<|page|>2<|box|>667 140 684 718<|content|>3. Increased Scope and Complexity — Rationale for\n<|id|>25<|type|>title<|page|>2<|box|>779 140 796 584<|content|>(a) Security Document Package — 18 Mortgaged Vesse\n<|id|>32<|type|>title<|page|>3<|box|>744 140 762 488<|content|>(b) Multi-Jurisdictional Guarantor Analysis\n<|id|>42<|type|>title<|page|>4<|box|>561 140 579 521<|content|>(c) Collateral Agent / Security Trustee Structure\n<|id|>44<|type|>table<|page|>4<|box|>762 143 875 852<|content|>None\n<|id|>46<|type|>title<|page|>5<|box|>231 140 250 493<|content|>(d) Extended Credit Agreement Negotiations\n<|id|>70<|type|>title<|page|>6<|box|>768 140 785 410<|content|>4. Proposed Fee Cap Modification\n<|id|>78<|type|>title<|page|>7<|box|>546 140 564 694<|content|>5. Alternative — Time-Based Monitoring Without For\n<|id|>85<|type|>title<|page|>8<|box|>267 140 284 418<|content|>6. Anticipated Remaining Timeline\n<|id|>94<|type|>title<|page|>8<|box|>625 140 640 303<|content|>7. Requested Action\n<|id|>97<|type|>title<|page|>8<|box|>829 142 845 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>103<|type|>title<|page|>9<|box|>133 142 148 486<|content|>THALASSA SHIPPING & LOGISTICS SA\n<|id|>109<|type|>title<|page|>9<|box|>257 142 273 225<|content|>8. Closing\n<|id|>118<|type|>title<|page|>9<|box|>564 142 580 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>14<|tgt_id|>11\n<|src_id|>44<|tgt_id|>42",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        }
+    ]
+}

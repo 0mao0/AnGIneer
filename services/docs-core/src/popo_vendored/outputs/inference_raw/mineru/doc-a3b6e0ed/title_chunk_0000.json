@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 274 118 723<|content|>REVOLVING LOAN PROMISSORY NOTE\n<|id|>3<|page|>1<|box|>188 411 204 584<|content|>New York, New York\n<|id|>6<|page|>1<|box|>445 140 463 348<|content|>Section 1. Promise to Pay.\n<|id|>9<|page|>2<|box|>90 140 107 292<|content|>Section 2. Interest.\n<|id|>18<|page|>3<|box|>258 140 277 308<|content|>Section 3. Payments.\n<|id|>22<|page|>3<|box|>726 140 743 326<|content|>Section 4. Prepayment.\n<|id|>26<|page|>4<|box|>414 140 431 480<|content|>Section 5. Revolving Nature; Reborrowing.\n<|id|>29<|page|>5<|box|>90 140 107 442<|content|>Section 6. Credit Agreement Controls.\n<|id|>34<|page|>5<|box|>674 140 691 473<|content|>Section 7. Events of Default; Acceleration.\n<|id|>37<|page|>6<|box|>321 140 339 295<|content|>Section 8. Waivers.\n<|id|>41<|page|>6<|box|>752 140 768 352<|content|>Section 9. Governing Law.\n<|id|>43<|page|>7<|box|>90 140 107 504<|content|>Section 10. Submission to Jurisdiction; Venue.\n<|id|>47<|page|>7<|box|>556 140 574 401<|content|>Section 11. Waiver of Jury Trial.\n<|id|>49<|page|>7<|box|>844 140 859 419<|content|>Section 12. Successors and Assigns.\n<|id|>53<|page|>8<|box|>421 142 438 343<|content|>Section 13. Amendments.\n<|id|>55<|page|>8<|box|>579 140 597 333<|content|>Section 14. Severability.\n<|id|>57<|page|>8<|box|>760 245 777 751<|content|>[Remainder of page intentionally left blank; signa\n<|id|>59<|page|>8<|box|>829 433 845 563<|content|>BORROWERS:\n<|id|>60<|page|>8<|box|>854 140 871 450<|content|>CASCADE RETAIL HOLDINGS INC.\n<|id|>76<|page|>9<|box|>296 380 311 614<|content|>ACCEPTED AND AGREED:\n<|id|>77<|page|>9<|box|>321 142 338 517<|content|>BRIDGEVALE FINANCIAL CORPORATION\n<|id|>83<|page|>9<|box|>426 264 441 730<|content|>SCHEDULE OF REVOLVING LOANS AND PAYMENTS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>2\n<|id|>9<|level|>2\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>26<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>-1\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>76<|level|>2\n<|id|>77<|level|>3\n<|id|>83<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 230 142 766<|content|>POWER OF ATTORNEY AND DECLARATION OF REPRESENTATIV\n<|id|>1<|type|>title<|page|>1<|box|>159 163 195 833<|content|>IRS Form 2848 (Rev. January 2021) OMB No. 1545-015\n<|id|>4<|type|>title<|page|>1<|box|>267 142 284 439<|content|>PART I — POWER OF ATTORNEY\n<|id|>6<|type|>title<|page|>1<|box|>343 142 359 400<|content|>Section 1. Taxpayer Information\n<|id|>13<|type|>title<|page|>1<|box|>526 142 542 361<|content|>Section 2. Representative(s)\n<|id|>56<|type|>title<|page|>3<|box|>90 142 106 323<|content|>Section 3. Tax Matters\n<|id|>57<|type|>table<|page|>3<|box|>156 143 369 852<|content|>None\n<|id|>59<|type|>title<|page|>3<|box|>545 140 563 748<|content|>Section 4. Specific Use Not Recorded on Centralize\n<|id|>62<|type|>title<|page|>3<|box|>626 142 642 352<|content|>Section 5. Acts Authorized\n<|id|>72<|type|>title<|page|>4<|box|>429 142 446 366<|content|>Exceptions and Limitations:\n<|id|>74<|type|>title<|page|>4<|box|>559 140 575 632<|content|>Section 6. Retention / Revocation of Prior Power(s\n<|id|>79<|type|>title<|page|>5<|box|>90 140 108 382<|content|>Section 7. Taxpayer Signature\n<|id|>80<|type|>title<|page|>5<|box|>113 140 130 846<|content|>IF NOT SIGNED AND DATED, THIS POWER OF ATTORNEY WI\n<|id|>82<|type|>title<|page|>5<|box|>200 140 236 852<|content|>IF THIS POWER OF ATTORNEY IS NOT SIGNED AND DATED,\n<|id|>89<|type|>title<|page|>5<|box|>419 142 435 578<|content|>PART II — DECLARATION OF REPRESENTATIVE\n<|id|>106<|type|>table<|page|>6<|box|>250 143 359 852<|content|>None\n<|id|>111<|type|>table<|page|>6<|box|>575 143 670 852<|content|>None\n<|id|>116<|type|>table<|page|>6<|box|>888 143 907 852<|content|>None\n<|id|>117<|type|>table<|page|>7<|box|>88 143 193 852<|content|>None\n<|id|>122<|type|>table<|page|>7<|box|>410 143 503 852<|content|>None\n<|id|>128<|type|>title<|page|>7<|box|>834 316 852 679<|content|>TRANSMITTAL COVER LETTER\n<|id|>129<|type|>title<|page|>7<|box|>871 421 888 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>151<|type|>title<|page|>9<|box|>364 140 381 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>57<|tgt_id|>56\n<|src_id|>106<|tgt_id|>89\n<|src_id|>111<|tgt_id|>89\n<|src_id|>116<|tgt_id|>89\n<|src_id|>117<|tgt_id|>89\n<|src_id|>122<|tgt_id|>89",
+    "parsed": [
+        {
+            "src_id": 57,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 89
+        }
+    ]
+}

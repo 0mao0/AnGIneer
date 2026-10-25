@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        12,
+        13,
+        16,
+        17,
+        22,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>253 635 270 854<|content|>Case No. ... 22-cv-03417-EJD\n<|id|>6<|page|>1<|box|>279 552 297 854<|content|>Before the Honorable Edward J. ... Torvelis\n<|id|>8<|page|>1<|box|>349 687 367 854<|content|>Filed: ... January 9, 2023\n<|id|>9<|page|>1<|box|>376 140 412 854<|content|>Alan Ngo (USPTO Reg. ... 52,871), Responsible Part...iddiqui, Senior Associate Christy Bauer, Associate\n<|id|>10<|page|>1<|box|>419 140 455 854<|content|>CALDERWOOD & HARKNESS LLP One Embarcadero Center, ... Francisco, CA 94111 Telephone: ... (415) 555-7201\n<|id|>11<|page|>1<|box|>464 140 482 535<|content|>Attorneys for Plaintiff Optiwave Semiconductor Cor...ttorneys for Plaintiff Optiwave Semiconductor Corp\n<|id|>89<|page|>12<|box|>872 140 930 856<|content|>2. ... Lumos argues that the specification of the ...adient for the \"continuously varying\" CONFIDENTIAL\n<|id|>90<|page|>13<|box|>90 140 126 854<|content|>germanium concentration. ... This argument is contradicted by the specification itself\n<|id|>119<|page|>16<|box|>708 140 931 857<|content|>Second, Lumos's proposed construction extends the ...flates the exclusion of heterogeneous CONFIDENTIAL\n<|id|>120<|page|>17<|box|>90 140 127 854<|content|>integration of the WDM element itself with a blank...verbroad and unsupported by the prosecution record\n<|id|>162<|page|>22<|box|>428 174 502 854<|content|>\"[E]xtrinsic evidence is less significant than the...egally operative meaning of claim language. ... '\"\n<|id|>163<|page|>22<|box|>508 140 545 854<|content|>415 F. ... 1998))\n<|id|>180<|page|>24<|box|>258 174 296 854<|content|>(b) overextend prosecution history estoppel argume...tion, in violation of the Festo framework; ... and\n<|id|>182<|page|>24<|box|>383 140 457 854<|content|>If adopted, Lumos's constructions would effectivel...he patentee chose and that the law does not permit\n<|id|>181<|page|>24<|box|>304 174 376 854<|content|>(c) rely on the extrinsic expert testimony of Dr. ... Conceptronic, Inc\n<|id|>187<|page|>24<|box|>569 142 587 565<|content|>Alan Ngo (USPTO Reg. ... 52,871) Responsible Partner\n<|id|>188<|page|>24<|box|>587 143 603 326<|content|>Marcus Delgado Partner\n<|id|>189<|page|>24<|box|>604 142 619 382<|content|>Omar Siddiqui Senior Associate\n<|id|>190<|page|>24<|box|>621 142 638 325<|content|>Christy Bauer Associate\n<|id|>191<|page|>24<|box|>638 140 671 854<|content|>One Embarcadero Center, 34th Floor San Francisco, CA 94111 Telephone: ... (415) 555-7201\n<|id|>192<|page|>24<|box|>672 140 689 535<|content|>Attorneys for Plaintiff Optiwave Semiconductor Cor...ttorneys for Plaintiff Optiwave Semiconductor Corp\n<|id|>196<|page|>24<|box|>849 174 902 854<|content|>Victoria \"Tori\" Ashworth, Partner Daniel Kowalski,... Francisco, CA 94104 Telephone: ... (415) 555-4400\n<|id|>197<|page|>24<|box|>915 142 929 243<|content|>CONFIDENTIAL\n<|id|>198<|page|>25<|box|>90 176 106 411<|content|>Email: ... com\n<|id|>199<|page|>25<|box|>107 176 125 413<|content|>Email: ... com\n<|id|>200<|page|>25<|box|>125 143 142 251<|content|>By: ... By",
+    "raw_response": "<|src_id|>89<|tgt_id|>90\n<|src_id|>119<|tgt_id|>120",
+    "parsed": [
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        }
+    ]
+}

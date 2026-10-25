@@ -1,0 +1,28 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        56,
+        59
+    ],
+    "pages": [
+        57,
+        59
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>263<|page|>57<|box|>126 453 142 544<|content|>附 录 H\n<|id|>265<|page|>57<|box|>170 406 186 589<|content|>安全管理评估指标体系\n<|id|>270<|page|>59<|box|>133 445 149 552<|content|>参 考 文 献",
+    "raw_response": "<|id|>263<|level|>1\n<|id|>265<|level|>2\n<|id|>270<|level|>1",
+    "parsed": [
+        {
+            "id": 263,
+            "level": 1
+        },
+        {
+            "id": 265,
+            "level": 2
+        },
+        {
+            "id": 270,
+            "level": 1
+        }
+    ]
+}

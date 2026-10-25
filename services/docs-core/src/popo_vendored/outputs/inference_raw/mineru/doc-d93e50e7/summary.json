@@ -1,0 +1,75 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-jbgez5w5\\input\\pdfs\\doc-d93e50e7.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-jbgez5w5\\enriched\\doc-d93e50e7.json",
+    "contd_output": "<|src_id|>38<|tgt_id|>39",
+    "title_output": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>20<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>2\n<|id|>31<|level|>2\n<|id|>41<|level|>1",
+    "image_output": "<|src_id|>42<|tgt_id|>0\n<|src_id|>43<|tgt_id|>0",
+    "contd_label": [
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 42,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 0
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 42,
+            "table2_idx": 43,
+            "upper_row_ss": [
+                [
+                    "Registered Agent:",
+                    "Cascade Systems"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Registered Agent Address:",
+                    "160 Greentree Drive, Suite 101, Dover, Delaware 19904"
+                ]
+            ]
+        }
+    ]
+}

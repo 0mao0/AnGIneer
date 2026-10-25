@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        40
+    ],
+    "pages": [
+        1,
+        30,
+        31,
+        35,
+        36,
+        40
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 339 152 658<|content|>Healthcare & Life Sciences Practice Group\n<|id|>2<|page|>1<|box|>160 748 176 854<|content|>May 28, 2025\n<|id|>3<|page|>1<|box|>184 140 200 836<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT PRIVILEGED ATTORNEY WORK PRODUCT\n<|id|>4<|page|>1<|box|>208 140 224 292<|content|>MEMORANDUM\n<|id|>5<|page|>1<|box|>234 140 270 854<|content|>TO: ... Miriam Calloway, Responsible Partner, Healthcare & Life Sciences, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>277 140 315 852<|content|>CC: ... Amy Whitfield, Lead Associate, Healthcare ...lthcare & Life Sciences, Calderwood & Harkness LLP\n<|id|>7<|page|>1<|box|>323 140 358 854<|content|>FROM: ... Sean Morrissey, Working Associate, Healthcare & Life Sciences, Calderwood & Harkness LLP\n<|id|>8<|page|>1<|box|>367 140 404 854<|content|>RE: ... Software Documentation Gap Analysis — Sols...uminaPredict Algorithm, Lumina Mobile Application)\n<|id|>9<|page|>1<|box|>411 140 429 658<|content|>CLIENT: ... / Solstice Biomedical Inc\n<|id|>10<|page|>1<|box|>436 140 454 531<|content|>ENGAGEMENT REFERENCE NO. ... 1037-00002\n<|id|>11<|page|>1<|box|>463 142 479 408<|content|>Right-click to update Table of Contents\n<|id|>233<|page|>30<|box|>845 174 902 857<|content|>(e) Known Vulnerabilities: ... For each identified...ude the CVE identifier, severity rating (using the\n<|id|>234<|page|>31<|box|>90 174 127 854<|content|>Common Vulnerability Scoring System, \"CVSS\"), and ...text of the device's architecture and intended use\n<|id|>286<|page|>35<|box|>824 140 898 857<|content|>Pinnacle Regulatory Consulting Group LLC (\"Pinnacl...nacle's offices are located at 9500 Medical Center\n<|id|>287<|page|>36<|box|>89 140 127 854<|content|>Drive, Suite 210, Rockville, MD 20850, and the fir... and Toxicology Devices from prior CGM submissions\n<|id|>331<|page|>40<|box|>89 140 108 321<|content|>Respectfully submitted,\n<|id|>332<|page|>40<|box|>114 140 132 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>333<|page|>40<|box|>133 142 151 254<|content|>By: ... By\n<|id|>334<|page|>40<|box|>148 140 181 854<|content|>Sean Morrissey Working Associate Healthcare & Life... Calderwood & Harkness LLP Tel: ... (202) 555-4100\n<|id|>335<|page|>40<|box|>184 140 200 480<|content|>Email: ... com\n<|id|>336<|page|>40<|box|>200 140 218 295<|content|>Date: ... May 28, 2025",
+    "raw_response": "<|src_id|>233<|tgt_id|>234\n<|src_id|>286<|tgt_id|>287",
+    "parsed": [
+        {
+            "src_id": 233,
+            "tgt_id": 234
+        },
+        {
+            "src_id": 286,
+            "tgt_id": 287
+        }
+    ]
+}

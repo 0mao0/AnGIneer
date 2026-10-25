@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 321 176 674<|content|>In re Estate of Teodoro R. ... Fonseca, Deceased\n<|id|>2<|page|>1<|box|>185 207 202 787<|content|>Los Angeles County Superior Court, Probate Division Case No. ... 22STPB09714\n<|id|>3<|page|>1<|box|>210 627 228 854<|content|>Effective Date: ... April 28, 2024\n<|id|>4<|page|>1<|box|>237 140 273 854<|content|>This Second Amendment to Settlement Standstill Agr...April 28, 2024, by and among the following parties\n<|id|>8<|page|>1<|box|>412 140 449 854<|content|>ISABELA C. ... and\n<|id|>9<|page|>1<|box|>457 140 494 854<|content|>NICOLÁS R. ... 4B, Palo Alto, California 94301\n<|id|>11<|page|>1<|box|>546 140 582 854<|content|>Petitioner and Contestants are collectively referr... the \"Parties\" and individually as a \"Party. ... \"\n<|id|>14<|page|>1<|box|>840 140 896 856<|content|>B. ... The Parties executed the First Amendment to...on date of October 28, 2023, through and including\n<|id|>15<|page|>2<|box|>90 140 127 854<|content|>April 28, 2024. ... All other terms and conditions...l force and effect pursuant to the First Amendment\n<|id|>45<|page|>5<|box|>325 140 343 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>46<|page|>5<|box|>344 142 361 253<|content|>By: ... By\n<|id|>47<|page|>5<|box|>359 140 378 312<|content|>Name: ... Howard Quinn\n<|id|>48<|page|>5<|box|>378 140 395 400<|content|>Title: ... Partner, Responsible Partner\n<|id|>49<|page|>5<|box|>393 140 412 643<|content|>350 South Grand Avenue, Suite 4800 Los Angeles, California 90071\n<|id|>50<|page|>5<|box|>412 142 429 300<|content|>Date: ... April 28, 2024\n<|id|>51<|page|>5<|box|>429 140 446 424<|content|>COUNSEL FOR CONTESTANTS: ... COUNSEL FOR CONTESTANTS\n<|id|>52<|page|>5<|box|>454 140 473 468<|content|>BRENNAN, ORTEGA & SALDÍVAR LLP\n<|id|>53<|page|>5<|box|>474 142 491 254<|content|>By: ... By\n<|id|>54<|page|>5<|box|>489 140 508 336<|content|>Name: ... Ortega\n<|id|>55<|page|>5<|box|>507 142 523 359<|content|>Title: ... Partner, Lead Attorney\n<|id|>56<|page|>5<|box|>523 143 542 645<|content|>1900 Avenue of the Stars, Suite 2100 Los Angeles, California 90067\n<|id|>57<|page|>5<|box|>542 142 559 300<|content|>Date: ... April 28, 2024",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>14<|tgt_id|>15",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        }
+    ]
+}

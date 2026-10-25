@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>154 748 170 854<|content|>June 20, 2025\n<|id|>4<|page|>1<|box|>397 140 489 854<|content|>PRIVILEGE LEGEND: ... Do not distribute, copy, or ...proval of the responsible partner, Kevin Ostrowski\n<|id|>11<|page|>2<|box|>234 174 289 854<|content|>(c) Materials provided by Cascade's Associate Gene...quest logs, and internal policy documents; ... and\n<|id|>13<|page|>2<|box|>340 140 614 856<|content|>As background, Cascade Retail Holdings Inc. ... Th...nform the regulatory risk analysis set forth below\n<|id|>17<|page|>2<|box|>791 140 901 857<|content|>The CID was issued in connection with an FTC inves...w of the complaint data referenced in the CID, the\n<|id|>18<|page|>3<|box|>89 140 143 854<|content|>FTC received at least 247 consumer complaints duri...romotional push notifications and marketing emails\n<|id|>46<|page|>5<|box|>866 140 902 854<|content|>The inquiry did not take the form of a formal inve...'s formal investigative authority under California\n<|id|>47<|page|>6<|box|>90 138 200 856<|content|>Civil Code § 1798. ... \" The letter stated that th...rovide responsive information on a voluntary basis\n<|id|>66<|page|>7<|box|>439 174 474 854<|content|>(c) Sample vendor agreements (three agreements were provided as representative examples); ... and\n<|id|>68<|page|>7<|box|>545 140 619 854<|content|>The response was prepared under the supervision of...onse was prepared entirely by in-house legal staff\n<|id|>81<|page|>9<|box|>215 174 287 856<|content|>(d) Loyalty-program enrollment and account-creation flows: ... and\n<|id|>83<|page|>9<|box|>359 140 523 857<|content|>The FTC's continued and intensifying focus on dark... free of manipulative or deceptive design elements\n<|id|>95<|page|>10<|box|>857 140 893 856<|content|>As of May 2025, 23 of Cascade's 47 third-party adv...ntaining the contractual provisions required under\n<|id|>96<|page|>11<|box|>90 140 145 854<|content|>CCPA/CPRA to qualify the data recipient as a \"serv..., or terms-of-service acceptances — do not include\n<|id|>100<|page|>11<|box|>285 174 321 854<|content|>(d) A certification by the data recipient that it ...posed by the agreement and applicable law; ... and\n<|id|>102<|page|>11<|box|>392 140 539 856<|content|>The absence of these required contractual provisio...Iowa, Tennessee, Montana, and Oregon, among others\n<|id|>105<|page|>11<|box|>744 138 909 857<|content|>Cascade's current online privacy policy, published... Texas Data Privacy and Security Act, the Delaware\n<|id|>106<|page|>12<|box|>90 140 199 856<|content|>Personal Data Privacy Act, the New Hampshire Priva...c right to correct inaccurate personal information\n<|id|>153<|page|>19<|box|>393 140 411 320<|content|>Respectfully submitted,\n<|id|>154<|page|>19<|box|>412 140 428 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>155<|page|>19<|box|>430 143 446 253<|content|>By: ... By\n<|id|>156<|page|>19<|box|>446 140 479 854<|content|>Alan Burke Senior Associate, Privacy & Data Securi...r New York, NY 10022 Telephone: ... (212) 555-4100\n<|id|>157<|page|>19<|box|>479 140 497 450<|content|>Email: ... com\n<|id|>158<|page|>19<|box|>497 142 513 295<|content|>Date: ... June 20, 2025\n<|id|>159<|page|>19<|box|>513 140 532 390<|content|>cc: ... 1038-00010)",
+    "raw_response": "<|src_id|>17<|tgt_id|>18\n<|src_id|>46<|tgt_id|>47\n<|src_id|>95<|tgt_id|>96\n<|src_id|>105<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        }
+    ]
+}

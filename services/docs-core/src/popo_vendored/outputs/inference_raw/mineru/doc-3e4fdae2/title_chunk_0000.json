@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 276 107 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>393 140 410 343<|content|>I. Purpose and Authority\n<|id|>13<|page|>1<|box|>840 140 858 375<|content|>II. Identification of the Policy\n<|id|>17<|page|>2<|box|>472 140 489 473<|content|>III. Description of the Underlying Matters\n<|id|>18<|page|>2<|box|>503 142 520 310<|content|>A. SEC Investigation\n<|id|>22<|page|>3<|box|>90 140 108 269<|content|>B. DOJ Inquiry\n<|id|>25<|page|>3<|box|>390 140 407 455<|content|>C. Nature of the Underlying Allegations\n<|id|>37<|page|>4<|box|>693 142 710 486<|content|>D. Individuals Potentially Subject to Claims\n<|id|>50<|page|>5<|box|>782 140 800 537<|content|>IV. Whistleblower Complaint and Internal Review\n<|id|>57<|page|>6<|box|>810 140 827 511<|content|>V. Financial Impact and Market Consequences\n<|id|>66<|page|>8<|box|>90 140 107 508<|content|>VI. Estimated Potential Government Exposure\n<|id|>76<|page|>8<|box|>842 142 859 393<|content|>VII. Defense Costs and Counsel\n<|id|>98<|page|>10<|box|>186 140 204 372<|content|>VIII. Requests to the Insurer\n<|id|>109<|page|>11<|box|>148 140 167 421<|content|>IX. Reservation of Insured's Rights\n<|id|>113<|page|>11<|box|>487 140 505 287<|content|>X. Confidentiality\n<|id|>116<|page|>11<|box|>819 140 835 434<|content|>XI. Contact Information and Closing\n<|id|>130<|page|>12<|box|>666 142 681 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>25<|level|>2\n<|id|>37<|level|>2\n<|id|>50<|level|>1\n<|id|>57<|level|>1\n<|id|>66<|level|>1\n<|id|>76<|level|>1\n<|id|>98<|level|>1\n<|id|>109<|level|>1\n<|id|>113<|level|>1\n<|id|>116<|level|>1\n<|id|>130<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        }
+    ]
+}

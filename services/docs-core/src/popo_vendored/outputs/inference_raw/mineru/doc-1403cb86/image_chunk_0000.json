@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>9<|type|>title<|page|>1<|box|>518 142 535 483<|content|>1. Purpose and Background of Engagement\n<|id|>19<|type|>title<|page|>2<|box|>407 140 425 421<|content|>2. Description of the OPDP Inquiry\n<|id|>21<|type|>title<|page|>2<|box|>518 140 537 413<|content|>2.1 Promotional Materials at Issue\n<|id|>26<|type|>title<|page|>3<|box|>231 140 250 408<|content|>2.2 Alleged Regulatory Violations\n<|id|>31<|type|>title<|page|>3<|box|>497 140 513 434<|content|>2.3 Response Deadline and Extension\n<|id|>33<|type|>title<|page|>3<|box|>625 140 641 498<|content|>2.4 Voluntary Withdrawal of Cited Materials\n<|id|>35<|type|>title<|page|>3<|box|>781 140 797 473<|content|>3. Scope of Whitfield Bauer's Engagement\n<|id|>37<|type|>title<|page|>4<|box|>89 140 108 372<|content|>3.1 OPDP Response Strategy\n<|id|>42<|type|>title<|page|>4<|box|>405 140 422 513<|content|>3.2 Promotional-Labeling Compliance Analysis\n<|id|>50<|type|>title<|page|>5<|box|>375 140 391 418<|content|>3.3 Review of Corrective Materials\n<|id|>55<|type|>title<|page|>5<|box|>708 140 724 312<|content|>3.4 Drafting Support\n<|id|>59<|type|>title<|page|>6<|box|>157 140 174 385<|content|>3.5 Exclusions and Limitations\n<|id|>65<|type|>title<|page|>6<|box|>546 140 563 230<|content|>4. Staffing\n<|id|>66<|type|>table<|page|>6<|box|>595 143 683 852<|content|>None\n<|id|>68<|type|>title<|page|>7<|box|>90 140 107 398<|content|>5. Billing and Fee Arrangements\n<|id|>69<|type|>title<|page|>7<|box|>121 140 138 279<|content|>5.1 Hourly Rates\n<|id|>71<|type|>table<|page|>7<|box|>186 143 244 852<|content|>None\n<|id|>73<|type|>title<|page|>7<|box|>400 140 417 320<|content|>5.2 Billing Procedures\n<|id|>80<|type|>title<|page|>8<|box|>186 140 204 390<|content|>6. Privilege and Confidentiality\n<|id|>85<|type|>title<|page|>8<|box|>715 140 732 321<|content|>7. Conflicts of Interest\n<|id|>92<|type|>title<|page|>9<|box|>429 140 445 323<|content|>8. Key Client Contacts\n<|id|>98<|type|>title<|page|>9<|box|>690 140 707 372<|content|>9. Duration and Termination\n<|id|>101<|type|>title<|page|>10<|box|>204 142 222 297<|content|>10. Governing Law\n<|id|>103<|type|>title<|page|>10<|box|>344 142 362 264<|content|>11. Acceptance\n<|id|>112<|type|>title<|page|>10<|box|>681 382 696 614<|content|>ACCEPTED AND AGREED",
+    "raw_response": "<|src_id|>66<|tgt_id|>65\n<|src_id|>71<|tgt_id|>69",
+    "parsed": [
+        {
+            "src_id": 66,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 69
+        }
+    ]
+}

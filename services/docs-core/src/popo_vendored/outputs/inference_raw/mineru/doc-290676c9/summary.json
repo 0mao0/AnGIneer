@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-h2dmgb4e\\input\\pdfs\\doc-290676c9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-h2dmgb4e\\enriched\\doc-290676c9.json",
+    "contd_output": "<|src_id|>101<|tgt_id|>102",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>32<|level|>3\n<|id|>39<|level|>3\n<|id|>59<|level|>3\n<|id|>70<|level|>3\n<|id|>78<|level|>3\n<|id|>83<|level|>2\n<|id|>85<|level|>3\n<|id|>98<|level|>3\n<|id|>104<|level|>3\n<|id|>115<|level|>3\n<|id|>120<|level|>2\n<|id|>121<|level|>3\n<|id|>125<|level|>3\n<|id|>127<|level|>4\n<|id|>129<|level|>4\n<|id|>137<|level|>2\n<|id|>156<|level|>2",
+    "image_output": "<|src_id|>3<|tgt_id|>2\n<|src_id|>18<|tgt_id|>17\n<|src_id|>19<|tgt_id|>17\n<|src_id|>20<|tgt_id|>17\n<|src_id|>123<|tgt_id|>121\n<|src_id|>128<|tgt_id|>125\n<|src_id|>130<|tgt_id|>125\n<|src_id|>131<|tgt_id|>125\n<|src_id|>132<|tgt_id|>125",
+    "contd_label": [
+        {
+            "src_id": 101,
+            "tgt_id": 102
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 4
+        },
+        {
+            "id": 129,
+            "level": 4
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 3,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 125
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 125
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 125
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 125
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 18,
+            "table2_idx": 19,
+            "upper_row_ss": [
+                [
+                    "Guarantors",
+                    "(i) Arbor Health Holdings LLC, a Delaware limited liability company (EIN: 88-4271835), which is a wholly-owned subsidiary of AHT holding equity interests in the Company's operating subsidiaries; and (ii) Arbor Health Platform Services Inc., a Delaware corporation (EIN: 92-1058467), which is a wholly-owned subsidiary of Arbor Health Holdings LLC and operates AHT's core SaaS platform, generating"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "substantially all of the Company's subscription revenue."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 19,
+            "table2_idx": 20,
+            "upper_row_ss": [
+                [
+                    "Financial Covenants",
+                    "(i) Minimum Liquidity: $15,000,000 in unrestricted cash"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "and cash equivalents, tested monthly; (ii) Maximum Net Leverage Ratio: 3.50x, tested quarterly; (iii) Minimum Fixed Charge Coverage Ratio: 1.25x, tested quarterly."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 130,
+            "table2_idx": 131,
+            "upper_row_ss": [
+                [
+                    "Sophie Tremblay (Working Associate)",
+                    "68.0",
+                    "$725/hr",
+                    "$49,300"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Subtotal — Associates",
+                    "170.5",
+                    "",
+                    "$123,613"
+                ]
+            ]
+        }
+    ]
+}

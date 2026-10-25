@@ -1,0 +1,124 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>172 395 189 601<|content|>STATE OF DELAWARE\n<|id|>2<|page|>1<|box|>198 393 214 604<|content|>SECRETARY OF STATE\n<|id|>3<|page|>1<|box|>224 364 239 633<|content|>DIVISION OF CORPORATIONS\n<|id|>4<|page|>1<|box|>251 323 270 674<|content|>CERTIFICATE OF FORMATION\n<|id|>6<|page|>1<|box|>328 223 348 774<|content|>SOLARA DIGITAL ACQUISITION HOLDINGS LLC\n<|id|>8<|page|>1<|box|>462 142 479 243<|content|>ARTICLE I\n<|id|>9<|page|>1<|box|>503 143 518 205<|content|>NAME\n<|id|>11<|page|>1<|box|>555 338 571 658<|content|>Solara Digital Acquisition Holdings LLC\n<|id|>13<|page|>1<|box|>732 143 748 250<|content|>ARTICLE II\n<|id|>14<|page|>1<|box|>772 142 789 573<|content|>REGISTERED OFFICE AND REGISTERED AGENT\n<|id|>18<|page|>2<|box|>90 176 108 426<|content|>Capitol Registered Agents LLC\n<|id|>23<|page|>2<|box|>381 142 398 256<|content|>ARTICLE III\n<|id|>24<|page|>2<|box|>422 142 439 233<|content|>PURPOSE\n<|id|>27<|page|>2<|box|>794 143 810 256<|content|>ARTICLE IV\n<|id|>28<|page|>2<|box|>834 142 851 349<|content|>AUTHORIZED PERSON\n<|id|>33<|page|>3<|box|>421 142 436 248<|content|>ARTICLE V\n<|id|>34<|page|>3<|box|>462 142 478 307<|content|>EFFECTIVE DATE\n<|id|>45<|page|>3<|box|>830 220 875 774<|content|>CALDERWOOD & HARKNESS LLP — INTERNAL ANNOTATION NO\n<|id|>49<|page|>4<|box|>232 142 250 269<|content|>I. Filing Details\n<|id|>50<|page|>4<|box|>255 143 273 253<|content|>Filing Office:\n<|id|>55<|page|>4<|box|>590 142 608 310<|content|>II. Tax Identification\n<|id|>56<|page|>4<|box|>614 140 632 547<|content|>Employer Identification Number (EIN): 93-4718206\n<|id|>58<|page|>4<|box|>763 140 780 364<|content|>III. Post-Filing Deliverables\n<|id|>63<|page|>5<|box|>287 140 304 428<|content|>IV. Entity Structure and Ownership\n<|id|>65<|page|>5<|box|>487 140 505 305<|content|>V. Collateral Filings\n<|id|>67<|page|>5<|box|>652 140 669 480<|content|>VI. Coordination with Acquisition Counsel\n<|id|>69<|page|>5<|box|>834 140 852 313<|content|>VII. LLC Agreement\n<|id|>71<|page|>6<|box|>250 143 266 364<|content|>VIII. Responsible Attorneys",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>11<|level|>-1\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>18<|level|>-1\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>45<|level|>1\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>58<|level|>2\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        }
+    ]
+}

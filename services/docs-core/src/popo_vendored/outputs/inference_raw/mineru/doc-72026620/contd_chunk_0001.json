@@ -1,0 +1,47 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        45,
+        95
+    ],
+    "pages": [
+        46,
+        47,
+        54,
+        60,
+        72,
+        92,
+        93,
+        94,
+        95
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>200<|page|>46<|box|>512 339 523 658<|content|>[Source: ... Bureau of the Fiscal Service, Division of Financing Operations]\n<|id|>201<|page|>46<|box|>530 112 547 169<|content|>JULY\n<|id|>218<|page|>47<|box|>845 111 905 473<|content|>In addition to the \\$46,000 million of tenders acc...inimum par amount required for Separate Trading of\n<|id|>219<|page|>47<|box|>89 522 121 883<|content|>Registered Interest and Principal Securities (STRI...ities (STRIPS) of notes of Series AP-2023 is \\$100\n<|id|>340<|page|>54<|box|>875 111 905 475<|content|>The 29-year 6-month 0-1/4 percent TIPS of February 2050 were dated August 15 and issued\n<|id|>341<|page|>54<|box|>89 522 133 885<|content|>August 31. ... They are due February 15, 2050, wit...ayable on February 15 and August 15 until maturity\n<|id|>444<|page|>60<|box|>859 111 905 473<|content|>The 7-year notes of Series Q-2027 were dated and i...er 30, 2027, with interest payable on March 31 and\n<|id|>445<|page|>60<|box|>90 522 133 883<|content|>September 30 until maturity. ... Treasury set an i...ich tenders were accepted on a yield auction basis\n<|id|>486<|page|>72<|box|>85 421 167 913<|content|>INTERNATIONAL\n<|id|>487<|page|>72<|box|>200 710 252 919<|content|>Foreign Currency Positions Exchange Stabilization Fund\n<|id|>488<|page|>72<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>553<|page|>92<|box|>449 91 584 496<|content|>The Highway Trust Fund's Mass Transit Account is f...ry (TEA-21), SAFETEA-LU, Moving Ahead for Progress\n<|id|>554<|page|>92<|box|>114 504 203 910<|content|>in the 21st Century Act (MAP-21) and as amended by...g to the provisions of various transportation acts\n<|id|>561<|page|>93<|box|>455 91 625 911<|content|>[In billions of dollars. ... 25\n<|id|>562<|page|>93<|box|>640 93 652 282<|content|>Note—Detail may not add due to rounding. ... Note—Detail may not add due to rounding\n<|id|>566<|page|>94<|box|>148 388 164 609<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>567<|page|>94<|box|>184 81 258 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>575<|page|>94<|box|>839 81 901 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>576<|page|>94<|box|>184 504 229 915<|content|>Second Liberty Loan Act of 1917, the nature of the...o an overall limit on the outstanding Federal debt\n<|id|>585<|page|>94<|box|>840 504 902 916<|content|>Government account series (FD-2)—Certain trust fun...urities. ... These securities are sold directly by\n<|id|>586<|page|>95<|box|>90 81 209 491<|content|>Treasury to a specific Government agency, trust fund, or account. ... and the Unemployment Trust Fund",
+    "raw_response": "<|src_id|>218<|tgt_id|>219\n<|src_id|>340<|tgt_id|>341\n<|src_id|>444<|tgt_id|>445\n<|src_id|>553<|tgt_id|>554\n<|src_id|>575<|tgt_id|>576\n<|src_id|>585<|tgt_id|>586",
+    "parsed": [
+        {
+            "src_id": 218,
+            "tgt_id": 219
+        },
+        {
+            "src_id": 340,
+            "tgt_id": 341
+        },
+        {
+            "src_id": 444,
+            "tgt_id": 445
+        },
+        {
+            "src_id": 553,
+            "tgt_id": 554
+        },
+        {
+            "src_id": 575,
+            "tgt_id": 576
+        },
+        {
+            "src_id": 585,
+            "tgt_id": 586
+        }
+    ]
+}

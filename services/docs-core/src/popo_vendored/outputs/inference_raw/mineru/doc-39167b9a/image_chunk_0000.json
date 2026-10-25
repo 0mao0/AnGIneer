@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 187 141 808<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>7<|type|>title<|page|>1<|box|>304 147 395 851<|content|>DEFENDANT NORTHGATE FIBER AMERICAS INC.'S MEMORAND\n<|id|>10<|type|>title<|page|>1<|box|>493 398 508 599<|content|>TABLE OF CONTENTS\n<|id|>12<|type|>title<|page|>1<|box|>542 385 559 612<|content|>TABLE OF AUTHORITIES\n<|id|>13<|type|>title<|page|>1<|box|>570 143 585 192<|content|>Cases\n<|id|>14<|type|>table<|page|>1<|box|>593 143 852 852<|content|>None\n<|id|>15<|type|>title<|page|>1<|box|>887 142 902 290<|content|>Statutes and Rules\n<|id|>17<|type|>table<|page|>2<|box|>88 143 183 852<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>232 142 248 397<|content|>PRELIMINARY STATEMENT\n<|id|>26<|type|>title<|page|>3<|box|>266 140 282 354<|content|>STATEMENT OF FACTS\n<|id|>27<|type|>title<|page|>3<|box|>297 142 315 477<|content|>A. The Parties and the Underlying Dispute\n<|id|>34<|type|>title<|page|>4<|box|>349 140 366 609<|content|>B. Ridgepoint Capital Group LP's Relationship to M\n<|id|>40<|type|>title<|page|>5<|box|>138 140 157 771<|content|>C. Meridian's Document Production and Assertion of\n<|id|>52<|type|>title<|page|>6<|box|>90 140 106 364<|content|>D. Meet-and-Confer Efforts\n<|id|>57<|type|>title<|page|>6<|box|>532 142 550 320<|content|>E. Procedural Posture\n<|id|>60<|type|>title<|page|>6<|box|>787 142 805 256<|content|>ARGUMENT\n<|id|>99<|type|>title<|page|>11<|box|>583 140 618 854<|content|>POINT II: IN THE ALTERNATIVE, THE COURT SHOULD CON\n<|id|>107<|type|>title<|page|>12<|box|>590 140 626 854<|content|>POINT III: THE WITHHELD DOCUMENTS ARE HIGHLY RELEV\n<|id|>118<|type|>title<|page|>14<|box|>222 140 239 272<|content|>CONCLUSION\n<|id|>132<|type|>title<|page|>14<|box|>648 140 665 596<|content|>CERTIFICATION OF WORD COUNT / COMPLIANCE",
+    "raw_response": "<|src_id|>14<|tgt_id|>13\n<|src_id|>17<|tgt_id|>15",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 15
+        }
+    ]
+}

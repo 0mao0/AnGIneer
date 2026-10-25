@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>186 140 204 826<|content|>FROM: ... Devon Archer, Lead Associate, Labor & Employment, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>212 142 229 321<|content|>DATE: ... August 1, 2022\n<|id|>5<|page|>1<|box|>237 140 273 852<|content|>RE: ... Elliston, Prospective COO, Arbor Health Technologies Inc\n<|id|>6<|page|>1<|box|>282 142 299 333<|content|>Matter No. ... 1010-00004\n<|id|>7<|page|>1<|box|>308 142 324 308<|content|>Client No. ... 81-30294\n<|id|>164<|page|>17<|box|>859 140 896 857<|content|>Section 280G / \"Golden Parachute\" Analysis. ... Th...within the meaning of Section 280G of the Internal\n<|id|>165<|page|>18<|box|>90 138 273 857<|content|>Revenue Code, triggering a 20% excise tax on Execu...verance and non-wage components of the CIC package",
+    "raw_response": "<|src_id|>164<|tgt_id|>165",
+    "parsed": [
+        {
+            "src_id": 164,
+            "tgt_id": 165
+        }
+    ]
+}

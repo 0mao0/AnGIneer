@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 5,
+    "range": [
+        248,
+        305
+    ],
+    "pages": [
+        249,
+        251,
+        274,
+        276,
+        278,
+        286,
+        296,
+        304
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1959<|type|>title<|page|>249<|box|>91 380 137 617<|content|>ARTICLE II Definitions and Construction\n<|id|>1966<|type|>table<|page|>251<|box|>233 141 428 835<|content|>None\n<|id|>2073<|type|>title<|page|>274<|box|>91 444 108 550<|content|>ARTICLE III\n<|id|>2074<|type|>title<|page|>274<|box|>120 393 137 602<|content|>Participation and Service\n<|id|>2086<|type|>title<|page|>276<|box|>91 388 137 607<|content|>ARTICLE IV Requirements for Benefits\n<|id|>2098<|type|>table<|page|>278<|box|>502 265 648 673<|content|>None\n<|id|>2121<|type|>title<|page|>286<|box|>91 370 137 626<|content|>ARTICLE V Amount of Retirement Pension\n<|id|>2181<|type|>title<|page|>296<|box|>210 75 225 180<|content|>Section 5.2.\n<|id|>2218<|type|>title<|page|>304<|box|>91 442 108 553<|content|>ARTICLE VI\n<|id|>2219<|type|>title<|page|>304<|box|>120 402 137 594<|content|>Distribution of Benefits",
+    "raw_response": "<|src_id|>1966<|tgt_id|>1959\n<|src_id|>2098<|tgt_id|>2086",
+    "parsed": [
+        {
+            "src_id": 1966,
+            "tgt_id": 1959
+        },
+        {
+            "src_id": 2098,
+            "tgt_id": 2086
+        }
+    ]
+}

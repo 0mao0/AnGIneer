@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>181 115 215 888<|content|>中华人民共和国交通行业标准\n<|id|>3<|page|>1<|box|>424 128 460 877<|content|>港口码头劳动定员 第7部分:客运码头\n<|id|>4<|page|>1<|box|>484 214 505 788<|content|>Port terminal labour manning—Part 7: Passenger ter\n<|id|>8<|page|>2<|box|>134 434 157 539<|content|>目次\n<|id|>10<|page|>3<|box|>136 444 158 550<|content|>前言\n<|id|>29<|page|>4<|box|>136 267 157 729<|content|>港口码头劳动定员 第7部分:客运码头\n<|id|>30<|page|>4<|box|>193 114 209 182<|content|>1 范围\n<|id|>33<|page|>4<|box|>269 113 285 269<|content|>2 规范性引用文件\n<|id|>36<|page|>4<|box|>382 113 397 216<|content|>3 单项定员\n<|id|>37<|page|>4<|box|>410 113 425 250<|content|>3.1 港口装卸工\n<|id|>46<|page|>5<|box|>119 128 134 361<|content|>3.3.2 客运(滚装)值班调度员\n<|id|>48<|page|>5<|box|>157 128 172 344<|content|>3.4 客运(滚装)调度计划员\n<|id|>50<|page|>5<|box|>195 128 210 345<|content|>3.5 客运(滚装)调度统计员\n<|id|>52<|page|>5<|box|>234 128 248 263<|content|>3.6 港口客运员\n<|id|>55<|page|>5<|box|>290 129 305 278<|content|>3.6.2 滚装业务员\n<|id|>57<|page|>5<|box|>328 130 342 246<|content|>3.6.3 安检员\n<|id|>60<|page|>5<|box|>384 130 398 295<|content|>3.6.3.2 滚装安检员\n<|id|>62<|page|>5<|box|>421 130 436 263<|content|>3.7 港口行李员\n<|id|>64<|page|>5<|box|>478 130 493 263<|content|>3.8 港口售票员\n<|id|>66<|page|>5<|box|>516 130 530 263<|content|>3.9 港口广播员\n<|id|>73<|page|>5<|box|>803 129 818 424<|content|>3.10.2 非客运专用装卸机械修理人员\n<|id|>86<|page|>6<|box|>273 130 289 299<|content|>4 全部定员计算方法\n<|id|>87<|page|>6<|box|>301 131 316 266<|content|>4.1 港口装卸工\n<|id|>89<|page|>6<|box|>338 131 353 283<|content|>4.2 装卸机械司机\n<|id|>91<|page|>6<|box|>375 131 389 250<|content|>4.3 其他岗位",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>2\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>29<|level|>1\n<|id|>30<|level|>2\n<|id|>33<|level|>2\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>46<|level|>4\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>3\n<|id|>55<|level|>4\n<|id|>57<|level|>4\n<|id|>60<|level|>5\n<|id|>62<|level|>3\n<|id|>64<|level|>3\n<|id|>66<|level|>3\n<|id|>73<|level|>4\n<|id|>86<|level|>2\n<|id|>87<|level|>3\n<|id|>89<|level|>3\n<|id|>91<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 4
+        },
+        {
+            "id": 57,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 5
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 4
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        }
+    ]
+}

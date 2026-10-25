@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        69
+    ],
+    "pages": [
+        3,
+        5,
+        7,
+        8,
+        13,
+        19,
+        20,
+        34,
+        40,
+        42,
+        44,
+        46,
+        68
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>3<|box|>241 679 312 811<|content|>LIBRARY ROOM 5025 AUG 9 1966\n<|id|>2<|page|>3<|box|>328 637 353 845<|content|>TREASURY DEPARTMENT\n<|id|>3<|page|>5<|box|>7 0 1000 996<|content|>The image is too blurry to recognize any text cont... image is too blurry to recognize any text content\n<|id|>7<|page|>7<|box|>171 339 192 568<|content|>MARCH 1965\n<|id|>9<|page|>7<|box|>948 301 966 618<|content|>OFFICE OF THE SECRETARY\n<|id|>10<|page|>8<|box|>443 268 520 826<|content|>The Treasury Bulletin is for sale by the Superinte...uments, U. ... 00 foreign Single copy price varies\n<|id|>33<|page|>13<|box|>777 6 880 472<|content|>Issues of regular weekly Treasury bills in Februar...aled \\$8. ... The February bills consisted of four\n<|id|>34<|page|>13<|box|>192 487 261 953<|content|>13-week issues of \\$1. ... Average rates of discou...or the new issues are shown in the table following\n<|id|>36<|page|>13<|box|>517 495 531 822<|content|>Foreign Series and Foreign Currency Series\n<|id|>37<|page|>13<|box|>533 492 601 958<|content|>In February the Treasury issued one 3-month certif...and 18 months, respectively, totaling \\$75 million\n<|id|>60<|page|>19<|box|>825 6 945 470<|content|>Note: ... \" beginning 1959, Federal Civil Defense ...cutive Office of the President,\" Civil Aeronautics\n<|id|>61<|page|>19<|box|>787 512 879 951<|content|>Board from \"Commerce Department\" to \"Independent a...tional Aeronautics and Space Administration; ... \"\n<|id|>70<|page|>20<|box|>777 33 799 466<|content|>8/ Established pursuant to the National Aeronautic... 9/ Corrieta of Federal government approval of the\n<|id|>73<|page|>20<|box|>635 553 727 986<|content|>Effective January 1, 1957, the production credit c...funds and were included net in budget expenditures\n<|id|>118<|page|>34<|box|>375 423 387 576<|content|>(In millions of dollars)\n<|id|>119<|page|>34<|box|>87 198 103 802<|content|>Source and Availability of the Balance in the Treasurer's Account\n<|id|>120<|page|>34<|box|>116 26 161 484<|content|>The account of the Treasurer of the United States ... trust, deposit fund, and public debt transactions\n<|id|>139<|page|>40<|box|>113 429 124 583<|content|>(In millions of dollars)\n<|id|>141<|page|>40<|box|>485 516 532 986<|content|>5/ Consists of liabilities taken over by the Assoc...ferred from the Reconstruction Finance Corporation\n<|id|>143<|page|>42<|box|>78 36 233 500<|content|>The Second Liberty Bond Act (31 U. ... \\$8 billion from July 1, 1960, through June 30,\n<|id|>144<|page|>42<|box|>78 521 222 991<|content|>1961 (act of June 30, 1960); ... and \\$39 billion ... 1964 through June 30, 1965 (act of June 29, 1964)\n<|id|>150<|page|>44<|box|>52 424 67 617<|content|>PUBLIC DEBT OPERATIONS\n<|id|>151<|page|>44<|box|>78 168 110 871<|content|>Table 1. ... - Maturity Schedule of Interest-Beari...arketable Securities Outstanding February 28, 1965\n<|id|>152<|page|>44<|box|>110 217 126 817<|content|>Other Than Regular Weekly and Annual Treasury Bills - (Continued)\n<|id|>155<|page|>46<|box|>944 536 954 645<|content|>p Preliminary. ... p Preliminary\n<|id|>268<|page|>68<|box|>109 411 121 576<|content|>(Payable in U. ... Dollars)",
+    "raw_response": "<|src_id|>33<|tgt_id|>34\n<|src_id|>60<|tgt_id|>61\n<|src_id|>143<|tgt_id|>144",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 144
+        }
+    ]
+}

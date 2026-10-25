@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>14<|page|>1<|box|>621 140 637 486<|content|>1. Reference to Primary Engagement Letter\n<|id|>18<|page|>2<|box|>304 140 321 338<|content|>2. Tax Advisory Staffing\n<|id|>23<|page|>3<|box|>90 140 107 408<|content|>3. Scope of Tax Advisory Services\n<|id|>25<|page|>3<|box|>220 140 237 475<|content|>3.1 Transaction Structure — Tax Analysis\n<|id|>35<|page|>4<|box|>138 140 157 397<|content|>3.2 REIT Qualification Analysis\n<|id|>42<|page|>4<|box|>816 140 834 459<|content|>3.3 Transfer Tax Analysis — Five States\n<|id|>59<|page|>6<|box|>176 140 193 313<|content|>3.4 FIRPTA Analysis\n<|id|>65<|page|>6<|box|>590 140 607 500<|content|>3.5 Purchase Price Allocation — Section 1060\n<|id|>71<|page|>7<|box|>239 140 256 519<|content|>3.6 State Income and Franchise Tax Obligations\n<|id|>77<|page|>7<|box|>616 140 633 424<|content|>3.7 Depreciation and Cost Recovery\n<|id|>81<|page|>8<|box|>138 140 156 359<|content|>3.8 Additional Tax Matters\n<|id|>86<|page|>8<|box|>537 140 555 341<|content|>4. Exclusions from Scope\n<|id|>95<|page|>9<|box|>167 140 185 263<|content|>5. Deliverables\n<|id|>107<|page|>10<|box|>90 140 107 310<|content|>6. Fee Arrangements\n<|id|>113<|page|>10<|box|>664 140 681 431<|content|>7. Coordination with Other Advisors\n<|id|>120<|page|>11<|box|>458 140 474 423<|content|>8. Conflicts and Ethical Obligations\n<|id|>125<|page|>12<|box|>148 140 167 344<|content|>9. Term and Termination\n<|id|>129<|page|>12<|box|>523 143 542 264<|content|>10. Acceptance\n<|id|>133<|page|>12<|box|>700 142 717 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>139<|page|>12<|box|>821 142 837 580<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST",
+    "raw_response": "<|id|>14<|level|>1\n<|id|>18<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>59<|level|>2\n<|id|>65<|level|>2\n<|id|>71<|level|>2\n<|id|>77<|level|>2\n<|id|>81<|level|>2\n<|id|>86<|level|>1\n<|id|>95<|level|>1\n<|id|>107<|level|>1\n<|id|>113<|level|>1\n<|id|>120<|level|>1\n<|id|>125<|level|>1\n<|id|>129<|level|>1\n<|id|>133<|level|>-1\n<|id|>139<|level|>-1",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 1
+        }
+    ]
+}

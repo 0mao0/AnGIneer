@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        9,
+        10,
+        12,
+        13,
+        14,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>160 756 176 854<|content|>June 3, 2024\n<|id|>3<|page|>1<|box|>186 676 203 854<|content|>Matter No. ... 1043-00001\n<|id|>4<|page|>1<|box|>212 140 247 854<|content|>Crescent Harbor Bank, N. ... as Administrative Agent 1200 Harbor Point Drive Charlotte, NC 28202\n<|id|>5<|page|>1<|box|>256 140 273 651<|content|>Each of the Lenders party to the Credit Agreement (as defined below)\n<|id|>6<|page|>1<|box|>282 174 316 854<|content|>Re: ... Senior Secured Term Loan B Credit Agreemen...n Data Centers LLC — US Federal Income Tax Opinion\n<|id|>7<|page|>1<|box|>325 140 343 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>12<|page|>1<|box|>709 174 744 854<|content|>(a) a US Dollar-denominated tranche in the aggrega...mount of $675,000,000 (the \"USD Tranche\"); ... and\n<|id|>14<|page|>1<|box|>815 142 833 524<|content|>The Term Loan bears interest at the following rate...he Term Loan bears interest at the following rates\n<|id|>15<|page|>1<|box|>840 174 895 854<|content|>(i) with respect to the USD Tranche, at a rate per...points, subject to a Term SOFR floor of 0. ... and\n<|id|>17<|page|>2<|box|>152 140 226 856<|content|>The Term Loan was issued at an original issue pric...31, which is seven (7) years from the Closing Date\n<|id|>87<|page|>9<|box|>840 140 897 856<|content|>Ticking Fee. ... representing the ticking fee accr...nstitutes a cost of securing the commitment of the\n<|id|>88<|page|>10<|box|>90 140 126 854<|content|>Lenders during the pre-closing period. ... 312\n<|id|>97<|page|>10<|box|>621 174 676 854<|content|>(e) the recipient does not own (directly, indirect...ts, of the obligor (Section 881(c)(3)(B)); ... and\n<|id|>99<|page|>10<|box|>746 140 782 854<|content|>We apply the foregoing framework to each of the tw...S Lenders participating in the Term Loan syndicate\n<|id|>118<|page|>12<|box|>872 174 909 854<|content|>(d) 10% Shareholder Exclusion — Not Applicable. .....izational documents of the Borrower and the Parent\n<|id|>119<|page|>13<|box|>90 174 181 854<|content|>Guarantor, Osprey Insurance Capital, Ltd. ... Acco...xclusion under Section 881(c)(3)(B) does not apply\n<|id|>130<|page|>14<|box|>342 174 359 810<|content|>(b) 30% of the taxpayer's \"adjusted taxable income\" (\"ATI\") for such taxable year; ... and\n<|id|>132<|page|>14<|box|>412 140 540 857<|content|>For taxable years beginning before January 1, 2026...intensive businesses such as data center operators\n<|id|>181<|page|>20<|box|>330 143 345 315<|content|>Name: ... Sylvia Hartwell\n<|id|>182<|page|>20<|box|>348 142 364 282<|content|>Title: ... Partner, Tax\n<|id|>183<|page|>20<|box|>364 140 381 653<|content|>Calderwood & Harkness LLP 125 Broad Street New York, NY 10004",
+    "raw_response": "<|src_id|>87<|tgt_id|>88\n<|src_id|>118<|tgt_id|>119",
+    "parsed": [
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 119
+        }
+    ]
+}

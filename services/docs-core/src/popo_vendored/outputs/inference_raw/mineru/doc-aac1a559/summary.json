@@ -1,0 +1,115 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-x6s2s5xf\\input\\pdfs\\doc-aac1a559.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-x6s2s5xf\\enriched\\doc-aac1a559.json",
+    "contd_output": "<|src_id|>25<|tgt_id|>26",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>13<|level|>2\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>29<|level|>3\n<|id|>36<|level|>3\n<|id|>45<|level|>3\n<|id|>51<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>58<|level|>3\n<|id|>93<|level|>3\n<|id|>94<|level|>3\n<|id|>113<|level|>3\n<|id|>114<|level|>3\n<|id|>131<|level|>2\n<|id|>143<|level|>2",
+    "image_output": "<|src_id|>11<|tgt_id|>7\n<|src_id|>12<|tgt_id|>7",
+    "contd_label": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 11,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 7
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 11,
+            "table2_idx": 12,
+            "upper_row_ss": [
+                [
+                    "POINT II: THE COURT SHOULD DENY RESPONDENT'S REQUEST FOR EXCLUSIVE USE AND OCCUPANCY OF THE MARITAL RESIDENCE",
+                    "27"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "A. Respondent Voluntarily Vacated the Marital Residence",
+                    "27"
+                ]
+            ]
+        }
+    ]
+}

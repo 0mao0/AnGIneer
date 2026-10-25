@@ -1,0 +1,134 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>170 110 203 902<|content|>中华人民共和国交通行业标准\n<|id|>2<|page|>1<|box|>414 273 450 741<|content|>海区航标效能验收规范\n<|id|>3<|page|>1<|box|>476 154 499 860<|content|>Specification for acceptance of the marine aids to\n<|id|>6<|page|>2<|box|>134 445 155 552<|content|>目次\n<|id|>8<|page|>3<|box|>129 452 151 566<|content|>前言\n<|id|>14<|page|>4<|box|>130 371 151 642<|content|>海区航标效能验收规范\n<|id|>15<|page|>4<|box|>184 112 200 184<|content|>1 范围\n<|id|>18<|page|>4<|box|>278 112 294 273<|content|>2 规范性引用文件\n<|id|>28<|page|>4<|box|>521 112 536 236<|content|>3 术语和定义\n<|id|>30<|page|>4<|box|>568 112 582 147<|content|>3.1\n<|id|>31<|page|>4<|box|>587 149 602 438<|content|>航标用户 user of aids to navigation\n<|id|>33<|page|>4<|box|>662 112 677 149<|content|>3.2\n<|id|>34<|page|>4<|box|>681 147 696 507<|content|>航标技术测定 field test of aids to navigation\n<|id|>36<|page|>4<|box|>737 112 751 149<|content|>3.3\n<|id|>37<|page|>4<|box|>756 147 771 463<|content|>航标效能 efficacy of aids to navigation\n<|id|>39<|page|>4<|box|>821 110 837 324<|content|>4 海区航标效能验收条件\n<|id|>45<|page|>5<|box|>211 97 227 364<|content|>5 海区航标效能验收方法和要求\n<|id|>46<|page|>5<|box|>239 97 255 260<|content|>5.1 效能验收方法\n<|id|>48<|page|>5<|box|>313 97 329 223<|content|>5.2 技术测定\n<|id|>49<|page|>5<|box|>332 97 348 295<|content|>5.2.1 技术测定的内容\n<|id|>50<|page|>5<|box|>351 97 366 260<|content|>5.2.1.1 视觉航标\n<|id|>54<|page|>6<|box|>105 115 121 647<|content|>5.2.1.2 沿海无线电指向标—差分全球定位系统(RBN-DGPS)台站\n<|id|>57<|page|>6<|box|>414 115 430 448<|content|>5.2.1.3 船舶自动识别系统(AIS)岸基站\n<|id|>60<|page|>6<|box|>669 115 684 295<|content|>5.2.1.4 雷达应答器\n<|id|>63<|page|>6<|box|>871 114 885 346<|content|>5.2.2 技术测定的实施程序\n<|id|>70<|page|>7<|box|>221 95 236 184<|content|>5.3 评估\n<|id|>72<|page|>8<|box|>126 480 142 541<|content|>附录A\n<|id|>77<|page|>8<|box|>222 374 237 645<|content|>表 A.1 视觉航标技术测定记录表",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>18<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>3\n<|id|>31<|level|>3\n<|id|>33<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>3\n<|id|>37<|level|>3\n<|id|>39<|level|>2\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>49<|level|>4\n<|id|>50<|level|>5\n<|id|>54<|level|>5\n<|id|>57<|level|>5\n<|id|>60<|level|>5\n<|id|>63<|level|>4\n<|id|>70<|level|>3\n<|id|>72<|level|>2\n<|id|>77<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 4
+        },
+        {
+            "id": 50,
+            "level": 5
+        },
+        {
+            "id": 54,
+            "level": 5
+        },
+        {
+            "id": 57,
+            "level": 5
+        },
+        {
+            "id": 60,
+            "level": 5
+        },
+        {
+            "id": 63,
+            "level": 4
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        }
+    ]
+}

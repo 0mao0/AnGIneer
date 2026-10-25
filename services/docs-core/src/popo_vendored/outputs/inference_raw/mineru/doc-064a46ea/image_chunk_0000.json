@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 163 133 833<|content|>CALDERWOOD & HARKNESS LLP 333 SE 2nd Avenue, Suite\n<|id|>9<|type|>title<|page|>1<|box|>367 316 386 679<|content|>I. PURPOSE AND BACKGROUND\n<|id|>17<|type|>title<|page|>2<|box|>689 333 709 665<|content|>II. DEPOSITION OBJECTIVES\n<|id|>28<|type|>title<|page|>4<|box|>135 246 154 750<|content|>III. EXAMINATION TOPICS AND QUESTIONS\n<|id|>30<|type|>title<|page|>4<|box|>287 140 304 413<|content|>A. Background and Qualifications\n<|id|>49<|type|>title<|page|>5<|box|>204 142 222 352<|content|>B. Relationship with VHG\n<|id|>71<|type|>title<|page|>6<|box|>338 140 354 627<|content|>C. Structure of VHG's Insurance Tower — July 2022\n<|id|>85<|type|>table<|page|>6<|box|>868 143 902 852<|content|>None\n<|id|>86<|type|>table<|page|>7<|box|>88 143 253 852<|content|>None\n<|id|>92<|type|>title<|page|>7<|box|>516 140 532 599<|content|>D. The Named-Windstorm Sub-Limit — Prior Policy Ye\n<|id|>107<|type|>title<|page|>8<|box|>340 140 357 558<|content|>E. July 2022 Renewal Negotiations — The Core Issue\n<|id|>109<|type|>title<|page|>8<|box|>489 142 506 426<|content|>1. Timeline of Renewal Negotiations\n<|id|>116<|type|>title<|page|>8<|box|>732 142 750 442<|content|>2. Ironclad Underwriter Identification\n<|id|>122<|type|>title<|page|>9<|box|>138 140 157 563<|content|>3. Substance of Negotiations Regarding the Sub-Lim\n<|id|>134<|type|>title<|page|>9<|box|>463 142 479 352<|content|>4. Premium Consideration\n<|id|>142<|type|>title<|page|>9<|box|>763 140 780 511<|content|>5. Form of Agreement — Documentary Record\n<|id|>158<|type|>title<|page|>10<|box|>547 140 564 617<|content|>F. Communications with VHG About the Sub-Limit Del\n<|id|>171<|type|>title<|page|>11<|box|>300 140 316 468<|content|>G. Communications with Excess Carriers\n<|id|>179<|type|>title<|page|>11<|box|>655 140 672 383<|content|>H. Post-Loss Communications\n<|id|>197<|type|>title<|page|>12<|box|>527 140 545 483<|content|>I. Documents to Reference / Use as Exhibits\n<|id|>211<|type|>title<|page|>13<|box|>450 140 467 537<|content|>J. Orde's Understanding of Other Coverage Issues\n<|id|>220<|type|>title<|page|>14<|box|>90 142 107 362<|content|>K. Prior Claims Experience\n<|id|>228<|type|>title<|page|>14<|box|>391 140 407 697<|content|>L. Potential Adverse Areas / Defense Lines of Ques\n<|id|>237<|type|>title<|page|>15<|box|>433 197 452 797<|content|>IV. KEY TESTIMONY WE NEED FROM THIS WITNESS\n<|id|>245<|type|>title<|page|>16<|box|>308 367 327 630<|content|>V. LOGISTICAL NOTES\n<|id|>255<|type|>title<|page|>17<|box|>90 218 109 777<|content|>VI. CROSS-REFERENCE TO OTHER DEPOSITIONS",
+    "raw_response": "<|src_id|>85<|tgt_id|>71\n<|src_id|>86<|tgt_id|>71",
+    "parsed": [
+        {
+            "src_id": 85,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 71
+        }
+    ]
+}

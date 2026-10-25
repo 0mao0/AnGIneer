@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>356 140 375 367<|content|>1. Introduction and Purpose\n<|id|>11<|type|>title<|page|>1<|box|>840 140 859 341<|content|>2. Transaction Summary\n<|id|>13<|type|>table<|page|>2<|box|>195 143 464 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>676 140 694 318<|content|>3. Surety Bond Terms\n<|id|>26<|type|>title<|page|>3<|box|>417 140 435 594<|content|>4. Required Closing Deliverables from Olympia Guar\n<|id|>46<|type|>title<|page|>5<|box|>747 140 763 540<|content|>5. Wire Instructions for Annual Premium Payment\n<|id|>55<|type|>title<|page|>6<|box|>362 140 378 473<|content|>6. Coordination of Execution and Delivery\n<|id|>67<|type|>title<|page|>7<|box|>314 140 332 362<|content|>7. Key Contact Information\n<|id|>83<|type|>title<|page|>8<|box|>152 140 167 290<|content|>Co-Bond Counsel:\n<|id|>86<|type|>title<|page|>8<|box|>260 140 277 253<|content|>8. Enclosures\n<|id|>94<|type|>title<|page|>8<|box|>523 140 541 367<|content|>9. Request for Confirmation\n<|id|>103<|type|>title<|page|>9<|box|>178 140 194 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>13<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        }
+    ]
+}

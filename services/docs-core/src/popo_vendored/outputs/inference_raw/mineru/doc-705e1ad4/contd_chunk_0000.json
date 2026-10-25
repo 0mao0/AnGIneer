@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        10,
+        11,
+        15,
+        16,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>142 140 157 421<|content|>TO: ... Yuki Nakamura, Lead Associate\n<|id|>3<|page|>1<|box|>167 140 185 413<|content|>FROM: ... Carlos Espinoza, Associate\n<|id|>4<|page|>1<|box|>193 140 210 330<|content|>DATE: ... August 18, 2023\n<|id|>5<|page|>1<|box|>219 140 256 854<|content|>RE: ... Survey of Florida Law on Franchise Revenue...nd Material Breach Standards in Franchise Disputes\n<|id|>6<|page|>1<|box|>263 140 300 854<|content|>MATTER: ... 1021-00006 (Circuit Court of the 17th Judicial Circuit, Broward County, Florida)\n<|id|>7<|page|>1<|box|>308 140 325 599<|content|>CLIENT: ... VHMK)\n<|id|>11<|page|>1<|box|>516 174 551 854<|content|>(2) Franchisor audit rights and the legal conseque...atic underreporting of franchise revenues; ... and\n<|id|>13<|page|>1<|box|>622 140 859 856<|content|>These three issues are inextricably linked in the ...ing Verimark to the remedies specified in the FLAs\n<|id|>19<|page|>2<|box|>457 181 511 854<|content|>• The deposition testimony of Janet Kerrigan, form...matic nature of the underreporting scheme; ... and\n<|id|>21<|page|>2<|box|>569 140 679 856<|content|>This memorandum is organized as follows: ... Part VIII provides an appendix of key authorities\n<|id|>31<|page|>3<|box|>811 140 902 856<|content|>Verimark and Coastal Palms are parties to a series...nd 4 Verimark Select properties located across the\n<|id|>32<|page|>4<|box|>90 140 145 854<|content|>State of Florida and the State of Georgia, encompa...ded hotel portfolio in the Southeast United States\n<|id|>84<|page|>10<|box|>779 140 907 857<|content|>Fourth, Randall Brecker's dual role as Managing Me...icular purpose — here, the reduction of reportable\n<|id|>85<|page|>11<|box|>90 140 164 854<|content|>GRR — the court will look through the corporate fo...s used to defeat contractual or legal obligations)\n<|id|>121<|page|>15<|box|>571 174 608 854<|content|>(d) The likelihood that the party failing to perfo...ances including any reasonable assurances; ... and\n<|id|>123<|page|>15<|box|>659 140 714 854<|content|>See MeterLogic, Inc. ... 4th DCA 2008)\n<|id|>125<|page|>15<|box|>766 174 895 857<|content|>Factor (a) — Deprivation of Expected Benefit. ... ...ss, the underreporting undermines the integrity of\n<|id|>126<|page|>16<|box|>90 174 128 854<|content|>Verimark's revenue-projection and brand-valuation ...ctor weighs overwhelmingly in favor of materiality\n<|id|>152<|page|>19<|box|>315 183 349 854<|content|>• The concealment of the Suncoast arrangement from...ations and franchise-compliance personnel; ... and\n<|id|>154<|page|>19<|box|>372 140 464 854<|content|>Dr. ... No reasonable trier of fact could conclude...s conduct was isolated, inadvertent, or immaterial\n<|id|>167<|page|>20<|box|>590 181 625 854<|content|>• Janet Kerrigan's testimony confirming instructio...e Suncoast revenues from GRR calculations; ... and\n<|id|>169<|page|>20<|box|>666 140 757 854<|content|>No genuine dispute of material fact exists on the question of liability. ... 5 and Part VI below",
+    "raw_response": "<|src_id|>31<|tgt_id|>32\n<|src_id|>84<|tgt_id|>85\n<|src_id|>125<|tgt_id|>126",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 126
+        }
+    ]
+}

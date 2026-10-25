@@ -1,0 +1,47 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 140 106 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>5<|page|>1<|box|>210 140 227 496<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>10<|page|>1<|box|>392 140 409 339<|content|>I. Purpose of This Letter\n<|id|>14<|page|>1<|box|>767 140 784 529<|content|>II. Background on the Transaction and the Policy\n<|id|>23<|page|>2<|box|>599 140 616 715<|content|>III. Notice of Termination of the SPA and Non-Clos\n<|id|>29<|page|>3<|box|>513 140 529 581<|content|>IV. Confirmation That the Policy Will Not Be Trigg\n<|id|>34<|page|>4<|box|>186 140 204 550<|content|>V. Inquiry Regarding Status of Policy and Premium\n<|id|>41<|page|>5<|box|>90 140 107 529<|content|>VI. Request to Coordinate with Broker of Record\n<|id|>45<|page|>5<|box|>337 140 354 620<|content|>VII. Contact Information, Reservation of Rights, a",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>5<|level|>-1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>23<|level|>1\n<|id|>29<|level|>1\n<|id|>34<|level|>1\n<|id|>41<|level|>1\n<|id|>45<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        }
+    ]
+}

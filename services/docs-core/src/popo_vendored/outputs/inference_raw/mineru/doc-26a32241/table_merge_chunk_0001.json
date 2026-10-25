@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Year-One Bonus Guarantee', 'No guarantee; full Compensation Committee discretion; target 85% of base ($552,500); max 170% ($1,105,000)', 'Guaranteed minimum bonus of 75% of target ($414,375) for full first year', 'Reject full-year guarantee; offer pro-rated Year One bonus at no less than target for partial year (~$482,187.50 for 10.5 months); alternatively, increase signing bonus to $400,000–$500,000 in lieu']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'of guarantee (requires Compensation Committee approval)']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 163,
+    "table2_idx": 164
+}

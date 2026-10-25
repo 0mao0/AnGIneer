@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        43
+    ],
+    "pages": [
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        35,
+        37,
+        38,
+        42,
+        43
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>16<|page|>2<|box|>333 140 388 854<|content|>WHEREAS, the Parties have entered into that certai... and the transactions contemplated hereby; ... and\n<|id|>17<|page|>2<|box|>395 140 450 854<|content|>NOW, THEREFORE, in consideration of the mutual cov...by each Party, the Parties hereby agree as follows\n<|id|>26<|page|>2<|box|>848 140 883 854<|content|>\"ArcMesh Platform\" means Service Provider's propri...version 4. ... 2 as of the Effective Date) and all\n<|id|>27<|page|>3<|box|>90 140 126 854<|content|>Updates and Upgrades thereto provided by Service P... the Term, together with all related documentation\n<|id|>95<|page|>7<|box|>688 140 724 854<|content|>(d) Incident management, problem management, and r...ance with ITIL best practices and the SLA; ... and\n<|id|>97<|page|>7<|box|>758 140 886 856<|content|>Service Provider shall provide twenty-four hours p...ns in the event of a disruption at the primary NOC\n<|id|>109<|page|>8<|box|>573 140 609 854<|content|>(c) Incident response services, including containm...ting the Managed Network or Customer Data; ... and\n<|id|>111<|page|>8<|box|>661 140 734 854<|content|>Service Provider shall maintain and regularly upda...fication procedures set forth in Section 13. ... 2\n<|id|>124<|page|>9<|box|>869 140 906 856<|content|>(b) Parallel-Run Requirements. ... During each pha...e Legacy Infrastructure and the new SD-WAN/ArcMesh\n<|id|>125<|page|>10<|box|>89 140 143 856<|content|>Platform infrastructure for a period of not less t...ermit verification of performance prior to cutover\n<|id|>409<|page|>35<|box|>641 140 714 854<|content|>(b) Technology Errors and Omissions Insurance: ... and\n<|id|>411<|page|>35<|box|>801 140 893 854<|content|>Service Provider's current insurance carrier is Br... the requirements of this Article 16 and Exhibit F\n<|id|>431<|page|>37<|box|>842 140 897 854<|content|>(a) Neither Party shall be liable for any failure ... the other Party with prompt written notice of the\n<|id|>432<|page|>38<|box|>90 140 181 854<|content|>Force Majeure Event, including a description of th...he Force Majeure Event and its efforts to mitigate\n<|id|>479<|page|>42<|box|>710 142 726 303<|content|>Name: ... Warren Liang\n<|id|>480<|page|>42<|box|>728 143 743 259<|content|>Title: ... President\n<|id|>481<|page|>42<|box|>744 143 760 264<|content|>Date: ... Date\n<|id|>484<|page|>42<|box|>797 142 811 318<|content|>Name: ... Rajiv Sundaram\n<|id|>485<|page|>42<|box|>814 143 829 366<|content|>Title: ... Chief Executive Officer\n<|id|>486<|page|>42<|box|>830 143 845 264<|content|>Date: ... Date\n<|id|>496<|page|>43<|box|>726 142 743 534<|content|>Escrow Account Reference: ... FNB-ESC-2023-07742\n<|id|>497<|page|>43<|box|>752 143 768 555<|content|>Escrow Agent Relationship Manager: ... Brian Caulfield\n<|id|>498<|page|>43<|box|>777 140 869 856<|content|>The Escrow Agreement shall govern the establishmen...d concurrently with this Master Services Agreement",
+    "raw_response": "<|src_id|>26<|tgt_id|>27\n<|src_id|>124<|tgt_id|>125\n<|src_id|>431<|tgt_id|>432",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 125
+        },
+        {
+            "src_id": 431,
+            "tgt_id": 432
+        }
+    ]
+}

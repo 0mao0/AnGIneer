@@ -1,0 +1,673 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bmun_gyk\\input\\pdfs\\doc-4e2828fe.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bmun_gyk\\enriched\\doc-4e2828fe.json",
+    "contd_output": "<|src_id|>146<|tgt_id|>147\n<|src_id|>216<|tgt_id|>217\n<|src_id|>257<|tgt_id|>258\n<|src_id|>290<|tgt_id|>291\n<|src_id|>333<|tgt_id|>334\n<|src_id|>446<|tgt_id|>447\n<|src_id|>445<|tgt_id|>446",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>6<|level|>1\n<|id|>13<|level|>1\n<|id|>20<|level|>1\n<|id|>27<|level|>1\n<|id|>30<|level|>1\n<|id|>36<|level|>1\n<|id|>59<|level|>1\n<|id|>60<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>80<|level|>2\n<|id|>100<|level|>1\n<|id|>101<|level|>2\n<|id|>104<|level|>2\n<|id|>108<|level|>2\n<|id|>127<|level|>1\n<|id|>128<|level|>2\n<|id|>130<|level|>2\n<|id|>136<|level|>1\n<|id|>137<|level|>2\n<|id|>140<|level|>2\n<|id|>157<|level|>2\n<|id|>195<|level|>2\n<|id|>203<|level|>2\n<|id|>207<|level|>2\n<|id|>213<|level|>2\n<|id|>254<|level|>2\n<|id|>280<|level|>1\n<|id|>300<|level|>1\n<|id|>310<|level|>1\n<|id|>317<|level|>1\n<|id|>336<|level|>1\n<|id|>342<|level|>3\n<|id|>375<|level|>1\n<|id|>383<|level|>1\n<|id|>432<|level|>1\n<|id|>442<|level|>1\n<|id|>449<|level|>1\n<|id|>452<|level|>1\n<|id|>462<|level|>1\n<|id|>464<|level|>1\n<|id|>467<|level|>1\n<|id|>468<|level|>2\n<|id|>472<|level|>2\n<|id|>474<|level|>2\n<|id|>476<|level|>2\n<|id|>478<|level|>1\n<|id|>479<|level|>2\n<|id|>483<|level|>2\n<|id|>504<|level|>1\n<|id|>505<|level|>2\n<|id|>508<|level|>2\n<|id|>511<|level|>1\n<|id|>514<|level|>2\n<|id|>516<|level|>2\n<|id|>522<|level|>2\n<|id|>526<|level|>2\n<|id|>528<|level|>2\n<|id|>530<|level|>2\n<|id|>538<|level|>2",
+    "image_output": "<|src_id|>74<|tgt_id|>59\n<|src_id|>112<|tgt_id|>108\n<|src_id|>114<|tgt_id|>108\n<|src_id|>134<|tgt_id|>130\n<|src_id|>135<|tgt_id|>130\n<|src_id|>171<|tgt_id|>157\n<|src_id|>174<|tgt_id|>157\n<|src_id|>192<|tgt_id|>157\n<|src_id|>218<|tgt_id|>213\n<|src_id|>220<|tgt_id|>213\n<|src_id|>221<|tgt_id|>213\n<|src_id|>222<|tgt_id|>213\n<|src_id|>223<|tgt_id|>213\n<|src_id|>292<|tgt_id|>280\n<|src_id|>293<|tgt_id|>280\n<|src_id|>294<|tgt_id|>280\n<|src_id|>296<|tgt_id|>280\n<|src_id|>297<|tgt_id|>280\n<|src_id|>299<|tgt_id|>280\n<|src_id|>335<|tgt_id|>317\n<|src_id|>361<|tgt_id|>336\n<|src_id|>384<|tgt_id|>383\n<|src_id|>385<|tgt_id|>383\n<|src_id|>386<|tgt_id|>383\n<|src_id|>387<|tgt_id|>383\n<|src_id|>388<|tgt_id|>383\n<|src_id|>389<|tgt_id|>383\n<|src_id|>390<|tgt_id|>383\n<|src_id|>391<|tgt_id|>383\n<|src_id|>392<|tgt_id|>383\n<|src_id|>393<|tgt_id|>383\n<|src_id|>394<|tgt_id|>383\n<|src_id|>395<|tgt_id|>383\n<|src_id|>396<|tgt_id|>383\n<|src_id|>397<|tgt_id|>383\n<|src_id|>398<|tgt_id|>383\n<|src_id|>399<|tgt_id|>383\n<|src_id|>400<|tgt_id|>383\n<|src_id|>401<|tgt_id|>383\n<|src_id|>402<|tgt_id|>383\n<|src_id|>403<|tgt_id|>383\n<|src_id|>404<|tgt_id|>383\n<|src_id|>405<|tgt_id|>383\n<|src_id|>406<|tgt_id|>383\n<|src_id|>407<|tgt_id|>383\n<|src_id|>408<|tgt_id|>383\n<|src_id|>409<|tgt_id|>383\n<|src_id|>410<|tgt_id|>383\n<|src_id|>411<|tgt_id|>383\n<|src_id|>412<|tgt_id|>383\n<|src_id|>413<|tgt_id|>383\n<|src_id|>414<|tgt_id|>383\n<|src_id|>415<|tgt_id|>383\n<|src_id|>416<|tgt_id|>383\n<|src_id|>417<|tgt_id|>383\n<|src_id|>418<|tgt_id|>383\n<|src_id|>419<|tgt_id|>383\n<|src_id|>420<|tgt_id|>383\n<|src_id|>421<|tgt_id|>383\n<|src_id|>422<|tgt_id|>383\n<|src_id|>423<|tgt_id|>383\n<|src_id|>424<|tgt_id|>383\n<|src_id|>425<|tgt_id|>383\n<|src_id|>426<|tgt_id|>383\n<|src_id|>427<|tgt_id|>383\n<|src_id|>428<|tgt_id|>383\n<|src_id|>429<|tgt_id|>383\n<|src_id|>430<|tgt_id|>383\n<|src_id|>431<|tgt_id|>383\n<|src_id|>496<|tgt_id|>483\n<|src_id|>497<|tgt_id|>483",
+    "contd_label": [
+        {
+            "src_id": 146,
+            "tgt_id": 147
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 217
+        },
+        {
+            "src_id": 257,
+            "tgt_id": 258
+        },
+        {
+            "src_id": 290,
+            "tgt_id": 291
+        },
+        {
+            "src_id": 333,
+            "tgt_id": 334
+        },
+        {
+            "src_id": 446,
+            "tgt_id": 447
+        },
+        {
+            "src_id": 445,
+            "tgt_id": 446
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 2
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 254,
+            "level": 2
+        },
+        {
+            "id": 280,
+            "level": 1
+        },
+        {
+            "id": 300,
+            "level": 1
+        },
+        {
+            "id": 310,
+            "level": 1
+        },
+        {
+            "id": 317,
+            "level": 1
+        },
+        {
+            "id": 336,
+            "level": 1
+        },
+        {
+            "id": 342,
+            "level": 3
+        },
+        {
+            "id": 375,
+            "level": 1
+        },
+        {
+            "id": 383,
+            "level": 1
+        },
+        {
+            "id": 432,
+            "level": 1
+        },
+        {
+            "id": 442,
+            "level": 1
+        },
+        {
+            "id": 449,
+            "level": 1
+        },
+        {
+            "id": 452,
+            "level": 1
+        },
+        {
+            "id": 462,
+            "level": 1
+        },
+        {
+            "id": 464,
+            "level": 1
+        },
+        {
+            "id": 467,
+            "level": 1
+        },
+        {
+            "id": 468,
+            "level": 2
+        },
+        {
+            "id": 472,
+            "level": 2
+        },
+        {
+            "id": 474,
+            "level": 2
+        },
+        {
+            "id": 476,
+            "level": 2
+        },
+        {
+            "id": 478,
+            "level": 1
+        },
+        {
+            "id": 479,
+            "level": 2
+        },
+        {
+            "id": 483,
+            "level": 2
+        },
+        {
+            "id": 504,
+            "level": 1
+        },
+        {
+            "id": 505,
+            "level": 2
+        },
+        {
+            "id": 508,
+            "level": 2
+        },
+        {
+            "id": 511,
+            "level": 1
+        },
+        {
+            "id": 514,
+            "level": 2
+        },
+        {
+            "id": 516,
+            "level": 2
+        },
+        {
+            "id": 522,
+            "level": 2
+        },
+        {
+            "id": 526,
+            "level": 2
+        },
+        {
+            "id": 528,
+            "level": 2
+        },
+        {
+            "id": 530,
+            "level": 2
+        },
+        {
+            "id": 538,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 74,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 221,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 222,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 292,
+            "tgt_id": 280
+        },
+        {
+            "src_id": 293,
+            "tgt_id": 280
+        },
+        {
+            "src_id": 294,
+            "tgt_id": 280
+        },
+        {
+            "src_id": 296,
+            "tgt_id": 280
+        },
+        {
+            "src_id": 297,
+            "tgt_id": 280
+        },
+        {
+            "src_id": 299,
+            "tgt_id": 280
+        },
+        {
+            "src_id": 335,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 361,
+            "tgt_id": 336
+        },
+        {
+            "src_id": 384,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 385,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 386,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 387,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 388,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 389,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 390,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 391,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 392,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 393,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 394,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 395,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 396,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 397,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 398,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 399,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 400,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 401,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 402,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 403,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 404,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 405,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 406,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 407,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 408,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 409,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 410,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 411,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 412,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 413,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 414,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 415,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 416,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 417,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 418,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 419,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 420,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 421,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 422,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 423,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 424,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 425,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 426,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 427,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 428,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 429,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 430,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 431,
+            "tgt_id": 383
+        },
+        {
+            "src_id": 496,
+            "tgt_id": 483
+        },
+        {
+            "src_id": 497,
+            "tgt_id": 483
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 222,
+            "table2_idx": 223,
+            "upper_row_ss": [
+                [
+                    "rowspan=2, 粉土类",
+                    "砂质粉土",
+                    "刀切面粗糙、无光泽",
+                    "有粗糙感、无粘滞感",
+                    "稍晃出水、消失很快",
+                    "搓条较难、易裂散",
+                    "rowspan=5, 粉土、粘性土须描写颜色、状态、湿度、包含物等。"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "岩土类别",
+                    "土名",
+                    "colspan=5, 现场描述及鉴别",
+                    "说明",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 292,
+            "table2_idx": 293,
+            "upper_row_ss": [
+                [
+                    "rowspan=2, 粉土类",
+                    "砂质粉土",
+                    "\\Delta",
+                    "\\Delta",
+                    "\\Delta",
+                    "",
+                    "\\checkmark",
+                    "\\Delta",
+                    "\\Delta",
+                    "\\Delta",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "\\checkmark",
+                    "\\checkmark",
+                    "rowspan=9, 1\\Delta——必须做√——根据情况分别选用2岩石的强风化、全风化带宜尽量采用标准贯入试验"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=5, 砂土类",
+                    "粉砂",
+                    "△",
+                    "△",
+                    "△",
+                    "",
+                    "✓",
+                    "✓",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "△",
+                    "",
+                    "✓",
+                    "",
+                    "rowspan=10, 1\\Delta——必须做√——根据情况分别选用2岩石的强风化、全风化带宜尽量采用标准贯入试验"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 296,
+            "table2_idx": 297,
+            "upper_row_ss": [
+                [
+                    "14",
+                    "十字板剪切试验",
+                    "原位测试",
+                    "不适用",
+                    "适合软粘土中进行试验",
+                    "",
+                    "",
+                    "水利电力部《土工试验规程》SD128-022-86"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "15",
+                    "标准贯入试验",
+                    "原位测试",
+                    "不适用",
+                    "",
+                    "",
+                    "",
+                    "水利电力部《土工试验规程》SD128-022-86"
+                ]
+            ]
+        }
+    ]
+}

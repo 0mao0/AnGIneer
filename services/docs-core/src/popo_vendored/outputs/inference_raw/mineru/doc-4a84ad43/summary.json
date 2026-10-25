@@ -1,0 +1,178 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ibqy3pve\\input\\pdfs\\doc-4a84ad43.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ibqy3pve\\enriched\\doc-4a84ad43.json",
+    "contd_output": "",
+    "title_output": "<|id|>15<|level|>1\n<|id|>26<|level|>1\n<|id|>68<|level|>1\n<|id|>81<|level|>1\n<|id|>83<|level|>2\n<|id|>87<|level|>2\n<|id|>95<|level|>2\n<|id|>102<|level|>2\n<|id|>108<|level|>2\n<|id|>111<|level|>2\n<|id|>119<|level|>2\n<|id|>127<|level|>2\n<|id|>135<|level|>1\n<|id|>157<|level|>1\n<|id|>175<|level|>1\n<|id|>176<|level|>2\n<|id|>186<|level|>1\n<|id|>187<|level|>2\n<|id|>189<|level|>3\n<|id|>197<|level|>3\n<|id|>220<|level|>3\n<|id|>231<|level|>3\n<|id|>240<|level|>3\n<|id|>259<|level|>2\n<|id|>270<|level|>1",
+    "image_output": "<|src_id|>178<|tgt_id|>176\n<|src_id|>179<|tgt_id|>176\n<|src_id|>261<|tgt_id|>259\n<|src_id|>262<|tgt_id|>259",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 1
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 220,
+            "level": 3
+        },
+        {
+            "id": 231,
+            "level": 3
+        },
+        {
+            "id": 240,
+            "level": 3
+        },
+        {
+            "id": 259,
+            "level": 2
+        },
+        {
+            "id": 270,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 178,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 261,
+            "tgt_id": 259
+        },
+        {
+            "src_id": 262,
+            "tgt_id": 259
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 178,
+            "table2_idx": 179,
+            "upper_row_ss": [
+                [
+                    "GMP Fairfield I",
+                    "84-2310561",
+                    "4200 Fairfield",
+                    "Logistics/",
+                    "412,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "LLC",
+                    "",
+                    "Industrial Blvd, Fairburn, GA 30213",
+                    "Warehouse",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 261,
+            "table2_idx": 262,
+            "upper_row_ss": [
+                [
+                    "Fairfield Logistics Center I",
+                    "GMP Fairfield I LLC",
+                    "$342,000,000",
+                    "($94,500,000)",
+                    "$247,500,000",
+                    "$1.00 / $1,000",
+                    "$247,500"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Fairfield Logistics Center II",
+                    "GMP Fairfield II LLC",
+                    "$318,000,000",
+                    "($87,000,000)",
+                    "$231,000,000",
+                    "$1.00 / $1,000",
+                    "$231,000"
+                ]
+            ]
+        }
+    ]
+}

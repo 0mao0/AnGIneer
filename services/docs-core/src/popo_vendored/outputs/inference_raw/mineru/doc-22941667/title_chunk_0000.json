@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        8,
+        11,
+        14,
+        16,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>128 326 148 669<|content|>TABLE OF KEY AUTHORITIES\n<|id|>2<|page|>1<|box|>174 169 209 826<|content|>IN SUPPORT OF PLAINTIFF'S MEMORANDUM OF LAW IN OPP\n<|id|>3<|page|>1<|box|>217 153 261 843<|content|>NEW YORK SUPREME COURT, COMMERCIAL DIVISION, NEW Y\n<|id|>5<|page|>1<|box|>546 142 563 354<|content|>INTRODUCTORY NOTE\n<|id|>16<|page|>2<|box|>292 140 309 581<|content|>I. FRAUD PARTICULARITY UNDER CPLR § 3016(b)\n<|id|>17<|page|>2<|box|>319 140 335 269<|content|>Authorities 1–6\n<|id|>23<|page|>5<|box|>426 140 463 743<|content|>II. DISTINCTION BETWEEN FRAUD AND CONTRACT CLAIMS\n<|id|>24<|page|>5<|box|>472 140 489 276<|content|>Authorities 7–11\n<|id|>30<|page|>8<|box|>337 140 373 852<|content|>III. ENFORCEABILITY OF CONTRACTUAL LIABILITY CAPS\n<|id|>31<|page|>8<|box|>382 140 398 287<|content|>Authorities 12–17\n<|id|>37<|page|>11<|box|>551 142 568 795<|content|>IV. FIDUCIARY DUTY OF SERVICE PROVIDERS / FUND ADM\n<|id|>38<|page|>11<|box|>577 143 594 285<|content|>Authorities 18–22\n<|id|>44<|page|>14<|box|>323 142 339 426<|content|>V. ECONOMIC LOSS DOCTRINE\n<|id|>45<|page|>14<|box|>349 143 364 287<|content|>Authorities 23–26\n<|id|>50<|page|>16<|box|>686 140 704 638<|content|>VI. UNJUST ENRICHMENT AS AN ALTERNATIVE CLAIM\n<|id|>51<|page|>16<|box|>713 142 729 287<|content|>Authorities 27–28\n<|id|>56<|page|>18<|box|>247 303 263 692<|content|>— END OF TABLE OF KEY AUTHORITIES —\n<|id|>57<|page|>18<|box|>273 142 291 250<|content|>Prepared by:\n<|id|>59<|page|>18<|box|>343 142 359 310<|content|>Date: March 15, 2025",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>5<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>37<|level|>2\n<|id|>38<|level|>3\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>56<|level|>1\n<|id|>57<|level|>-1\n<|id|>59<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 1
+        }
+    ]
+}

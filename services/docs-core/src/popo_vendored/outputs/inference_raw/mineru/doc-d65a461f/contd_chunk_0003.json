@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 3,
+    "range": [
+        167,
+        201
+    ],
+    "pages": [
+        168,
+        172,
+        173,
+        174,
+        178,
+        184,
+        194,
+        201
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>797<|page|>168<|box|>573 41 588 492<|content|>Accounts payable and accruals of Government agencies--Both the\n<|id|>798<|page|>168<|box|>69 512 108 961<|content|>Annual Report Appendix and table FA-1, Report on F...ties for accounts payable and related transactions\n<|id|>806<|page|>172<|box|>59 461 69 521<|content|>[In millions]\n<|id|>809<|page|>173<|box|>583 30 626 473<|content|>^{1} Public Law 95-595 requires annual reporting 6...ed on the most recent Public Law 95-595 submission\n<|id|>817<|page|>174<|box|>64 480 76 541<|content|>[In millions]\n<|id|>821<|page|>178<|box|>839 449 858 608<|content|>TRUST FUNDS\n<|id|>850<|page|>184<|box|>168 62 186 504<|content|>Amounts available in the fund in excess of current...ry of the Treasury in interest-bearing public debt\n<|id|>851<|page|>184<|box|>59 526 85 968<|content|>securities, and any interest earned is credited to...utlay requirements in excess of available revenues\n<|id|>898<|page|>194<|box|>222 495 297 946<|content|>The term \"Federal Reserve notes\" refers to issues ...ote is the only class of currency currently issued\n<|id|>899<|page|>194<|box|>304 495 367 946<|content|>\"U. ... namely, (a) First Issue--1862 (\\$5 to \\$1,...000 notes), and (e) Fifth Issue--1901 (\\$10 notes)\n<|id|>912<|page|>201<|box|>188 0 216 68<|content|>ter Processing Code : ... 6191\n<|id|>913<|page|>201<|box|>188 559 216 725<|content|>Charge your order. ... It's easy\n<|id|>926<|page|>201<|box|>343 485 363 902<|content|>☐ Check payable to the Superintendent of Documents\n<|id|>927<|page|>201<|box|>365 488 382 691<|content|>GPO Deposit Account\n<|id|>929<|page|>201<|box|>384 488 403 824<|content|>☐ VISA, CHOICE or MasterCard Account\n<|id|>930<|page|>201<|box|>405 488 423 914<|content|>□□□□□□□□□□□□□□□□□□□□□□□□□□□\n<|id|>931<|page|>201<|box|>435 710 449 914<|content|>Thank you for your order! ... Thank you for your order\n<|id|>932<|page|>201<|box|>444 488 458 682<|content|>(Credit card expiration date)\n<|id|>934<|page|>201<|box|>477 869 492 914<|content|>month/year of printing\n<|id|>933<|page|>201<|box|>476 488 492 566<|content|>(Signature)\n<|id|>935<|page|>201<|box|>495 0 511 755<|content|>. ... 20402-9371",
+    "raw_response": "<|src_id|>797<|tgt_id|>798\n<|src_id|>850<|tgt_id|>851",
+    "parsed": [
+        {
+            "src_id": 797,
+            "tgt_id": 798
+        },
+        {
+            "src_id": 850,
+            "tgt_id": 851
+        }
+    ]
+}

@@ -1,0 +1,815 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-of98nyxo\\input\\pdfs\\doc-3db9beb3.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-of98nyxo\\enriched\\doc-3db9beb3.json",
+    "contd_output": "<|src_id|>20<|tgt_id|>21\n<|src_id|>89<|tgt_id|>90\n<|src_id|>171<|tgt_id|>172\n<|src_id|>188<|tgt_id|>189\n<|src_id|>221<|tgt_id|>222\n<|src_id|>272<|tgt_id|>273",
+    "title_output": "<|id|>5<|level|>1\n<|id|>12<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>2\n<|id|>45<|level|>1\n<|id|>49<|level|>1\n<|id|>62<|level|>1\n<|id|>65<|level|>1\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>70<|level|>1\n<|id|>71<|level|>2\n<|id|>72<|level|>3\n<|id|>77<|level|>1\n<|id|>94<|level|>1\n<|id|>99<|level|>1\n<|id|>101<|level|>1\n<|id|>106<|level|>1\n<|id|>109<|level|>1\n<|id|>124<|level|>1\n<|id|>126<|level|>1\n<|id|>134<|level|>1\n<|id|>156<|level|>2\n<|id|>160<|level|>2\n<|id|>177<|level|>1\n<|id|>191<|level|>2\n<|id|>280<|level|>1\n<|id|>281<|level|>2\n<|id|>282<|level|>3\n<|id|>286<|level|>2\n<|id|>289<|level|>3\n<|id|>296<|level|>1\n<|id|>297<|level|>2\n<|id|>321<|level|>2\n<|id|>322<|level|>3\n<|id|>326<|level|>3\n<|id|>346<|level|>1",
+    "image_output": "<|src_id|>0<|tgt_id|>5\n<|src_id|>6<|tgt_id|>5\n<|src_id|>14<|tgt_id|>12\n<|src_id|>15<|tgt_id|>12\n<|src_id|>16<|tgt_id|>12\n<|src_id|>17<|tgt_id|>12\n<|src_id|>39<|tgt_id|>32\n<|src_id|>42<|tgt_id|>30\n<|src_id|>43<|tgt_id|>30\n<|src_id|>44<|tgt_id|>30\n<|src_id|>46<|tgt_id|>45\n<|src_id|>47<|tgt_id|>45\n<|src_id|>50<|tgt_id|>49\n<|src_id|>53<|tgt_id|>49\n<|src_id|>54<|tgt_id|>49\n<|src_id|>55<|tgt_id|>49\n<|src_id|>57<|tgt_id|>49\n<|src_id|>58<|tgt_id|>49\n<|src_id|>59<|tgt_id|>49\n<|src_id|>60<|tgt_id|>49\n<|src_id|>63<|tgt_id|>62\n<|src_id|>64<|tgt_id|>62\n<|src_id|>68<|tgt_id|>67\n<|src_id|>69<|tgt_id|>67\n<|src_id|>73<|tgt_id|>72\n<|src_id|>74<|tgt_id|>72\n<|src_id|>75<|tgt_id|>72\n<|src_id|>78<|tgt_id|>77\n<|src_id|>79<|tgt_id|>77\n<|src_id|>80<|tgt_id|>77\n<|src_id|>81<|tgt_id|>77\n<|src_id|>82<|tgt_id|>77\n<|src_id|>83<|tgt_id|>77\n<|src_id|>85<|tgt_id|>77\n<|src_id|>86<|tgt_id|>77\n<|src_id|>87<|tgt_id|>77\n<|src_id|>88<|tgt_id|>77\n<|src_id|>93<|tgt_id|>77\n<|src_id|>95<|tgt_id|>94\n<|src_id|>96<|tgt_id|>94\n<|src_id|>97<|tgt_id|>94\n<|src_id|>98<|tgt_id|>94\n<|src_id|>100<|tgt_id|>99\n<|src_id|>102<|tgt_id|>101\n<|src_id|>103<|tgt_id|>101\n<|src_id|>104<|tgt_id|>101\n<|src_id|>107<|tgt_id|>106\n<|src_id|>108<|tgt_id|>106\n<|src_id|>115<|tgt_id|>109\n<|src_id|>116<|tgt_id|>109\n<|src_id|>118<|tgt_id|>109\n<|src_id|>119<|tgt_id|>109\n<|src_id|>120<|tgt_id|>109\n<|src_id|>121<|tgt_id|>109\n<|src_id|>122<|tgt_id|>109\n<|src_id|>123<|tgt_id|>109\n<|src_id|>125<|tgt_id|>124\n<|src_id|>130<|tgt_id|>126\n<|src_id|>131<|tgt_id|>126\n<|src_id|>132<|tgt_id|>126\n<|src_id|>133<|tgt_id|>126\n<|src_id|>135<|tgt_id|>134\n<|src_id|>136<|tgt_id|>134\n<|src_id|>137<|tgt_id|>134\n<|src_id|>139<|tgt_id|>134\n<|src_id|>140<|tgt_id|>134\n<|src_id|>147<|tgt_id|>134\n<|src_id|>149<|tgt_id|>134\n<|src_id|>153<|tgt_id|>134\n<|src_id|>157<|tgt_id|>156\n<|src_id|>161<|tgt_id|>160\n<|src_id|>167<|tgt_id|>160\n<|src_id|>168<|tgt_id|>160\n<|src_id|>170<|tgt_id|>160\n<|src_id|>175<|tgt_id|>160\n<|src_id|>176<|tgt_id|>160\n<|src_id|>178<|tgt_id|>177\n<|src_id|>179<|tgt_id|>177\n<|src_id|>192<|tgt_id|>191\n<|src_id|>195<|tgt_id|>191\n<|src_id|>198<|tgt_id|>191\n<|src_id|>202<|tgt_id|>191\n<|src_id|>204<|tgt_id|>191\n<|src_id|>206<|tgt_id|>191\n<|src_id|>208<|tgt_id|>191\n<|src_id|>210<|tgt_id|>191\n<|src_id|>212<|tgt_id|>191\n<|src_id|>257<|tgt_id|>191\n<|src_id|>258<|tgt_id|>191\n<|src_id|>259<|tgt_id|>191\n<|src_id|>260<|tgt_id|>191\n<|src_id|>261<|tgt_id|>191\n<|src_id|>262<|tgt_id|>191\n<|src_id|>263<|tgt_id|>191\n<|src_id|>264<|tgt_id|>191\n<|src_id|>265<|tgt_id|>191\n<|src_id|>266<|tgt_id|>191\n<|src_id|>267<|tgt_id|>191\n<|src_id|>279<|tgt_id|>191\n<|src_id|>283<|tgt_id|>282\n<|src_id|>284<|tgt_id|>282\n<|src_id|>288<|tgt_id|>286\n<|src_id|>290<|tgt_id|>289\n<|src_id|>279<|tgt_id|>280\n<|src_id|>295<|tgt_id|>289\n<|src_id|>298<|tgt_id|>297\n<|src_id|>302<|tgt_id|>297\n<|src_id|>307<|tgt_id|>297\n<|src_id|>311<|tgt_id|>297\n<|src_id|>315<|tgt_id|>297\n<|src_id|>319<|tgt_id|>297\n<|src_id|>323<|tgt_id|>322\n<|src_id|>328<|tgt_id|>326\n<|src_id|>331<|tgt_id|>326\n<|src_id|>334<|tgt_id|>326\n<|src_id|>336<|tgt_id|>326\n<|src_id|>338<|tgt_id|>326\n<|src_id|>339<|tgt_id|>326\n<|src_id|>340<|tgt_id|>326\n<|src_id|>341<|tgt_id|>326\n<|src_id|>343<|tgt_id|>326\n<|src_id|>344<|tgt_id|>326\n<|src_id|>345<|tgt_id|>346\n<|src_id|>348<|tgt_id|>346",
+    "contd_label": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 172
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 189
+        },
+        {
+            "src_id": 221,
+            "tgt_id": 222
+        },
+        {
+            "src_id": 272,
+            "tgt_id": 273
+        }
+    ],
+    "title_label": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 1
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 280,
+            "level": 1
+        },
+        {
+            "id": 281,
+            "level": 2
+        },
+        {
+            "id": 282,
+            "level": 3
+        },
+        {
+            "id": 286,
+            "level": 2
+        },
+        {
+            "id": 289,
+            "level": 3
+        },
+        {
+            "id": 296,
+            "level": 1
+        },
+        {
+            "id": 297,
+            "level": 2
+        },
+        {
+            "id": 321,
+            "level": 2
+        },
+        {
+            "id": 322,
+            "level": 3
+        },
+        {
+            "id": 326,
+            "level": 3
+        },
+        {
+            "id": 346,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 0,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 157,
+            "tgt_id": 156
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 204,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 208,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 257,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 258,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 259,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 260,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 261,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 262,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 263,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 264,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 265,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 266,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 267,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 279,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 283,
+            "tgt_id": 282
+        },
+        {
+            "src_id": 284,
+            "tgt_id": 282
+        },
+        {
+            "src_id": 288,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 290,
+            "tgt_id": 289
+        },
+        {
+            "src_id": 279,
+            "tgt_id": 280
+        },
+        {
+            "src_id": 295,
+            "tgt_id": 289
+        },
+        {
+            "src_id": 298,
+            "tgt_id": 297
+        },
+        {
+            "src_id": 302,
+            "tgt_id": 297
+        },
+        {
+            "src_id": 307,
+            "tgt_id": 297
+        },
+        {
+            "src_id": 311,
+            "tgt_id": 297
+        },
+        {
+            "src_id": 315,
+            "tgt_id": 297
+        },
+        {
+            "src_id": 319,
+            "tgt_id": 297
+        },
+        {
+            "src_id": 323,
+            "tgt_id": 322
+        },
+        {
+            "src_id": 328,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 331,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 334,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 336,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 338,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 339,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 340,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 341,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 343,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 344,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 345,
+            "tgt_id": 346
+        },
+        {
+            "src_id": 348,
+            "tgt_id": 346
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 42,
+            "table2_idx": 43,
+            "upper_row_ss": [
+                [
+                    "Net budgetary deficit (-) or surplus (+)....",
+                    "-36,730",
+                    "-18,983",
+                    "+1,150",
+                    "-20,133",
+                    "-53,941",
+                    "-20,676",
+                    "-2,293",
+                    "+202",
+                    "-18,383",
+                    "-2,495"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, ",
+                    "colspan=4, End of first 8 months, fiscal years 1945 to 1947",
+                    "colspan=6, End of fiscal years, 1945 to 1948"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 57,
+            "table2_idx": 58,
+            "upper_row_ss": [
+                [
+                    "1947",
+                    "-706",
+                    "-464",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Fiscal year or month",
+                    "rowspan=2, Total trust funds, etc. [net receipts (+) or nat expendi-tures (-)]",
+                    "colspan=3, Federal Old-Age and Survivors Insurance Trust Fund",
+                    "colspan=3, National Service Life Insurance Fund",
+                    "colspan=3, Unemployment Trust Fund",
+                    "colspan=3, Railroad Retire-ment Account"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 102,
+            "table2_idx": 103,
+            "upper_row_ss": [
+                [
+                    "",
+                    "colspan=2, Total......",
+                    "",
+                    "......",
+                    "22,372",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, Date terms of offering were announced",
+                    "rowspan=3, Date subscription books opened",
+                    "rowspan=3, Description of security(Date of issue is shown in parentheses)",
+                    "rowspan=3, Period to maturity(Period to first call shown in parentheses) 1/",
+                    "rowspan=2,colspan=2, Amount of subscriptions tendered",
+                    "colspan=2, Amount issued",
+                    "rowspan=3, Allot-ment ratio"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 103,
+            "table2_idx": 104,
+            "upper_row_ss": [
+                [
+                    "3/19/47",
+                    "3/19/47",
+                    "7/8% Certificate - 4/1/48/ ... (4/1/47)",
+                    "1 yr ......",
+                    "-",
+                    "a.a.",
+                    "-",
+                    "o.a.",
+                    "n.e."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Date of re-funding for exchange transection, or of retirement for cash transection",
+                    "rowspan=2, Description of called or maturing security 1/ (Date of issue is shown in parentheses)",
+                    "rowspan=2, Amount out-standing",
+                    "colspan=2, Disposition offers by Treasury",
+                    "colspan=3, Results of exchange offers",
+                    "rowspan=2, Description of new security offered"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 262,
+            "table2_idx": 263,
+            "upper_row_ss": [
+                [
+                    "February p.",
+                    "20,329.9",
+                    "3,519.1",
+                    "14.8"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, End of calendar year or month",
+                    "colspan=5, Silver held in Treasury",
+                    "rowspan=2,colspan=2, Silver outside Treasury",
+                    "rowspan=3, Total silver at $1.29 per ounce"
+                ]
+            ]
+        }
+    ]
+}

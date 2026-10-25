@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        12,
+        13
+    ],
+    "pages": [
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>175<|page|>12<|box|>845 147 901 856<|content|>• Was the $2,450 per day spread between the sub-ch...address commissions, operational expenses borne by\n<|id|>176<|page|>13<|box|>90 174 125 854<|content|>Northwind, or administrative overhead — that would...t would reduce the net profit below $2,450 per day",
+    "raw_response": "<|src_id|>175<|tgt_id|>176",
+    "parsed": [
+        {
+            "src_id": 175,
+            "tgt_id": 176
+        }
+    ]
+}

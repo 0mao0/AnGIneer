@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['23', 'Ossining Union Free Sch. Dist. v. Anderson LaRocca Anderson, 73 N.Y.2d 417, 424 (1989)', \"The Court of Appeals articulated the general rule that the economic loss doctrine bars recovery in tort for purely economic losses arising from a contractual relationship, but recognized significant exceptions. Most relevant here, the Court held that the doctrine does not apply where the defendant owes a duty independent of the contract, including in cases involving fraud and intentional misrepresentation. The Court reasoned that where the defendant's tortious conduct is distinct from and independent of its contractual obligations, the policies underlying the economic loss doctrine—which are principally concerned with maintaining the boundary between tort and contract and preventing parties from circumventing contractual risk allocations—are not implicated. The Court observed that fraud, by its nature, involves a breach of a\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'societal duty that exists independently of any contractual relationship.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 47,
+    "table2_idx": 48
+}

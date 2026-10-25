@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        2,
+        10,
+        11,
+        15,
+        16,
+        29
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>191 140 228 854<|content|>TO: ... Douglas Fairchild, Partner, Real Estate An...tate Grace Nakamura, Senior Associate, Real Estate\n<|id|>3<|page|>1<|box|>234 140 253 426<|content|>FROM: ... Sylvia Hartwell, Partner, Tax\n<|id|>4<|page|>1<|box|>261 140 280 316<|content|>DATE: ... April 29, 2025\n<|id|>5<|page|>1<|box|>287 140 324 854<|content|>RE: ... 1031-00004\n<|id|>10<|page|>1<|box|>670 174 726 854<|content|>(b) whether the Senior Mortgage Loan and/or the Me...rk Tax Law § 252 or any related provision; ... and\n<|id|>12<|page|>1<|box|>814 140 849 854<|content|>Our bottom-line conclusions, each of which is disc...length in the sections that follow, are as follows\n<|id|>13<|page|>1<|box|>858 140 895 857<|content|>Government Instrumentality Status. ... However, the\n<|id|>14<|page|>2<|box|>90 140 181 856<|content|>Borrower SPEs — HYW Mortgage LLC and HYW Mezzanine... by the lenders may undercut such an agency theory\n<|id|>102<|page|>10<|box|>804 140 897 857<|content|>FATCA Compliance. ... We note that the actual payors of interest are HYW Mortgage LLC and\n<|id|>103<|page|>11<|box|>89 140 126 854<|content|>HYW Mezzanine LLC, not MTDC; ... MTDC's status as ...FATCA withholding obligations of the SPE borrowers\n<|id|>144<|page|>15<|box|>869 140 906 854<|content|>Applicability to MTDC. ... MTDC is not a New York public benefit corporation — it is an\n<|id|>145<|page|>16<|box|>89 140 183 854<|content|>Illinois government instrumentality. ... While pri...e are not aware of any authority directly on point\n<|id|>260<|page|>29<|box|>647 140 664 616<|content|>Sylvia Hartwell Partner, Tax Department Direct: ... (212) 555-4718\n<|id|>261<|page|>29<|box|>664 142 680 468<|content|>Email: ... com\n<|id|>262<|page|>29<|box|>680 140 695 442<|content|>cc: ... 1031-00004",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>102<|tgt_id|>103\n<|src_id|>144<|tgt_id|>145",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 145
+        }
+    ]
+}

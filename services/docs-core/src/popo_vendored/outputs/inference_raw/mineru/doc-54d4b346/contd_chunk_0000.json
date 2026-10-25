@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 704 132 854<|content|>November 18, 2022\n<|id|>2<|page|>1<|box|>140 140 156 674<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>3<|page|>1<|box|>164 140 200 854<|content|>Mr. ... Nikolaos Andreadis Chairman & Chief Execut...ogistics SA 47 Akti Miaouli 185 35 Piraeus, Greece\n<|id|>4<|page|>1<|box|>208 140 244 854<|content|>Ms. ... Elena Papadimitriou Chief Financial Office...ogistics SA 47 Akti Miaouli 185 35 Piraeus, Greece\n<|id|>5<|page|>1<|box|>253 140 287 856<|content|>Re: ... C&H-2022-ITS-04781\n<|id|>6<|page|>1<|box|>297 140 314 467<|content|>Dear Mr. ... Papadimitriou,\n<|id|>7<|page|>1<|box|>324 140 544 856<|content|>We write to provide you with a comprehensive updat...nder notification, and the ongoing expert analyses\n<|id|>36<|page|>4<|box|>829 174 902 857<|content|>Annex F — German BTI Ruling DE-BTI-2020-05678 with...orting the reclassification of the equipment to CN\n<|id|>37<|page|>5<|box|>90 174 255 856<|content|>8428 90 90. ... Our rebuttal argues, inter alia, t...dence on the classification of automated machinery\n<|id|>59<|page|>7<|box|>858 174 893 854<|content|>Objection to Assessment Notice AADE/ADAN/2022/0073...of the twenty (20) STS cranes and ASC systems from\n<|id|>60<|page|>8<|box|>90 174 181 857<|content|>CN 8426 to CN 8428 90 90 and the resulting additio... expert opinion submitted with the BTI application\n<|id|>79<|page|>10<|box|>325 140 343 222<|content|>Sincerely,\n<|id|>80<|page|>10<|box|>352 140 368 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>81<|page|>10<|box|>369 142 387 254<|content|>By: ... By\n<|id|>82<|page|>10<|box|>387 140 402 377<|content|>Christy Bauer Senior Associate\n<|id|>83<|page|>10<|box|>407 142 419 171<|content|>cc: ... cc\n<|id|>84<|page|>10<|box|>430 174 464 852<|content|>James Prentice, Partner, Calderwood & Harkness LLP...rett Simmons, Associate, Calderwood & Harkness LLP\n<|id|>85<|page|>10<|box|>473 140 518 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...tify the sender immediately and destroy all copies",
+    "raw_response": "<|src_id|>36<|tgt_id|>37\n<|src_id|>59<|tgt_id|>60",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 60
+        }
+    ]
+}

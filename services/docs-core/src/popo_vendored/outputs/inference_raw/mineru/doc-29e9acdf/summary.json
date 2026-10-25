@@ -1,0 +1,221 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3co34k0p\\input\\pdfs\\doc-29e9acdf.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3co34k0p\\enriched\\doc-29e9acdf.json",
+    "contd_output": "<|src_id|>48<|tgt_id|>49",
+    "title_output": "<|id|>1<|level|>1\n<|id|>10<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>23<|level|>2\n<|id|>30<|level|>2\n<|id|>42<|level|>1\n<|id|>46<|level|>2\n<|id|>51<|level|>1\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>60<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>1\n<|id|>72<|level|>2\n<|id|>84<|level|>2\n<|id|>89<|level|>2\n<|id|>104<|level|>2\n<|id|>109<|level|>2\n<|id|>114<|level|>1\n<|id|>126<|level|>1\n<|id|>130<|level|>1\n<|id|>147<|level|>1\n<|id|>149<|level|>2\n<|id|>151<|level|>2",
+    "image_output": "<|src_id|>44<|tgt_id|>42\n<|src_id|>45<|tgt_id|>42\n<|src_id|>57<|tgt_id|>56\n<|src_id|>58<|tgt_id|>56\n<|src_id|>85<|tgt_id|>84\n<|src_id|>86<|tgt_id|>84\n<|src_id|>127<|tgt_id|>126",
+    "contd_label": [
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 126
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 44,
+            "table2_idx": 45,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Nexford Properties, LLC",
+                    "Limited Liability Company",
+                    "Delaware",
+                    "—",
+                    "Subsidiary Guarantor",
+                    "RA: c/o Penmark Industries, 1209 Orange Street,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Wilmington, DE 19801"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 57,
+            "table2_idx": 58,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Nexford Engineered",
+                    "Delaware",
+                    "Delaware Secretary of",
+                    "March 24, 2025",
+                    "Good Standing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Systems, LLC",
+                    "",
+                    "State",
+                    "",
+                    "Confirmed"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 85,
+            "table2_idx": 86,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "Clearfield Tool & Die, Inc.",
+                    "Pennsylvania Department of State",
+                    "March 24, 2025",
+                    "Existing UCC-1 filing(s) — Atlas Meridian Bank, N.A.",
+                    "No intervening filings; to be terminated"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "10",
+                    "Summit Industrial Fabrication Co.",
+                    "South Carolina Secretary of State",
+                    "March 24, 2025",
+                    "Existing UCC-1 filing(s) — Atlas Meridian Bank, N.A.",
+                    "No intervening filings; to be terminated"
+                ]
+            ]
+        }
+    ]
+}

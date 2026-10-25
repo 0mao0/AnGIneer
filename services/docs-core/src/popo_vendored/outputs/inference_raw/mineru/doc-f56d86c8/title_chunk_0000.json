@@ -1,0 +1,146 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>99 307 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>136 282 152 714<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>176 279 194 718<|content|>INTERNAL MEMORANDUM — CONFLICT CHECK\n<|id|>4<|page|>1<|box|>407 272 425 723<|content|>STATUS: CLEARED — NO CONFLICTS IDENTIFIED\n<|id|>5<|page|>1<|box|>449 143 465 424<|content|>I. PURPOSE OF MEMORANDUM\n<|id|>9<|page|>2<|box|>89 140 106 506<|content|>II. PROPOSED ENGAGEMENT SUMMARY\n<|id|>22<|page|>3<|box|>239 140 258 537<|content|>III. ENTITIES AND INDIVIDUALS SEARCHED\n<|id|>24<|page|>3<|box|>388 140 406 379<|content|>A. Client and Client Affiliates\n<|id|>37<|page|>4<|box|>157 140 174 504<|content|>B. Adverse Party and Adverse-Party Affiliates\n<|id|>45<|page|>4<|box|>500 140 518 313<|content|>C. Opposing Counsel\n<|id|>50<|page|>4<|box|>693 142 709 339<|content|>D. Related Third Parties\n<|id|>56<|page|>5<|box|>205 142 222 406<|content|>IV. SEARCH METHODOLOGY\n<|id|>67<|page|>6<|box|>204 140 220 462<|content|>V. RESULTS OF CONFLICT SEARCH\n<|id|>68<|page|>6<|box|>234 140 253 527<|content|>A. Penterra Pharmaceuticals Corp. and Affiliates\n<|id|>75<|page|>7<|box|>90 140 107 553<|content|>B. Vantage Medical Distribution, LLC and Affiliate\n<|id|>81<|page|>7<|box|>431 140 448 527<|content|>C. Hargrove, Sinclair & Polk LLP and Personnel\n<|id|>85<|page|>7<|box|>794 140 810 620<|content|>D. Meridian National Distributors, Inc. and Thomas\n<|id|>89<|page|>8<|box|>303 140 320 565<|content|>VI. ENGAGEMENT TEAM INDIVIDUAL CHECKS\n<|id|>91<|page|>8<|box|>416 142 431 439<|content|>A. Linda Osei — Responsible Partner\n<|id|>93<|page|>8<|box|>616 140 633 411<|content|>B. Priya Anand — Billing Partner\n<|id|>95<|page|>8<|box|>762 140 779 447<|content|>C. Hannah Brinkley — Lead Associate\n<|id|>97<|page|>9<|box|>90 140 107 482<|content|>D. Patrick Gallagher — Working Associate\n<|id|>99<|page|>9<|box|>246 140 263 452<|content|>VII. JUDICIAL CONFLICTS CHECK\n<|id|>104<|page|>9<|box|>628 140 645 490<|content|>VIII. ANALYSIS OF POTENTIAL ISSUES\n<|id|>106<|page|>9<|box|>722 140 739 764<|content|>A. No Current-Client Conflict (Massachusetts Rule\n<|id|>111<|page|>10<|box|>220 140 237 758<|content|>B. No Former-Client Conflict (Massachusetts Rule o\n<|id|>116<|page|>10<|box|>609 140 626 730<|content|>C. No Imputed Conflicts (Massachusetts Rule of Pro\n<|id|>120<|page|>11<|box|>90 140 107 374<|content|>D. Positional / Issue Conflicts\n<|id|>125<|page|>11<|box|>523 140 542 462<|content|>IX. CONCLUSION AND CLEARANCE\n<|id|>127<|page|>11<|box|>705 140 723 444<|content|>This matter is cleared for engagement.\n<|id|>134<|page|>12<|box|>297 142 316 271<|content|>X. APPROVAL",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>5<|level|>2\n<|id|>9<|level|>2\n<|id|>22<|level|>2\n<|id|>24<|level|>3\n<|id|>37<|level|>3\n<|id|>45<|level|>3\n<|id|>50<|level|>3\n<|id|>56<|level|>2\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>75<|level|>3\n<|id|>81<|level|>3\n<|id|>85<|level|>3\n<|id|>89<|level|>2\n<|id|>91<|level|>3\n<|id|>93<|level|>3\n<|id|>95<|level|>3\n<|id|>97<|level|>3\n<|id|>99<|level|>2\n<|id|>104<|level|>2\n<|id|>106<|level|>3\n<|id|>111<|level|>3\n<|id|>116<|level|>3\n<|id|>120<|level|>3\n<|id|>125<|level|>2\n<|id|>127<|level|>-1\n<|id|>134<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 45,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['', 'A)渠道的几何类型为线、面;B)渠道可供航行时,应编码为DEPARE(深度范围)或DRGARE(疏浚区),渠道的岸应编码为COALNE(岸线)或SLCONS(岸线建筑物);要求给出渠道名称时,则渠道应编码为SEAARE(命名水域),属性CATSEA(命名水域类)为51(运河);渠道名称编码在OBJNAM(英文名称)和NOBJNM(中文名称)中;', 'CANALS(渠道)(O) CONDTN(状态) = [1(建造中),2(废弃的),3(改造中),5(计划建造的),999(其他)](O) OBJNAM(英文名称) = [渠道英文名称](O) NOBJNM(中文名称) = [渠道中文名称](O) INFORM(英文信息) = [渠道英文信息]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'C)渠道是不可航行的时,应在LNDARE(陆域)上编码为CA-NALS(渠道);D)渠道描述渠道所占地域,渠堤则定义渠道的堤坝', '(O)NINFOM(中文信息) = [渠道中文信息](C)SORDAT(数据来源日期) =[YYYYMMDD](C)SORIND(数据来源表示) =[cc,cc,cccc,c⋯]']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 2953,
+    "table2_idx": 2954
+}

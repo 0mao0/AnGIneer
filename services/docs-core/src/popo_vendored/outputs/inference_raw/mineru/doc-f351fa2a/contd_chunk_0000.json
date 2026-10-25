@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        9,
+        14,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>172 140 209 854<|content|>FROM: ... James Underwood, Lead Associate, and Dev... LLP 2200 Ross Avenue, Suite 3600 Dallas, TX 75201\n<|id|>3<|page|>1<|box|>217 140 253 854<|content|>TO: ... Bernard Crawford, Responsible Partner, Lab...tner, Labor & Employment Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>261 140 279 310<|content|>DATE: ... May 22, 2025\n<|id|>5<|page|>1<|box|>287 140 323 854<|content|>RE: ... Texas Payday Law and Texas Labor Code Claims\n<|id|>6<|page|>1<|box|>330 140 349 454<|content|>CLIENT: ... Stonefield Logistics Group Inc\n<|id|>64<|page|>7<|box|>782 140 893 857<|content|>No Statutory Liquidated Damages. ... The\n<|id|>65<|page|>8<|box|>90 140 145 854<|content|>TPL does not provide this doubling mechanism. ... ...nt without the additional liquidated damages layer\n<|id|>81<|page|>9<|box|>506 174 542 854<|content|>(8) Whether the work is part of the regular busine...o the employer's core business operations; ... and\n<|id|>83<|page|>9<|box|>612 138 760 856<|content|>Importantly, the contractual label assigned to the...e capacity to negotiate the terms of the agreement\n<|id|>112<|page|>14<|box|>42 174 71 823<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>113<|page|>14<|box|>90 140 183 854<|content|>Risk Assessment: ... A true independent contractor...to set or negotiate prices for his or her services\n<|id|>224<|page|>27<|box|>457 142 472 632<|content|>Prepared by: ... James Underwood and Devon Archer, Calderwood & Harkness LLP\n<|id|>225<|page|>27<|box|>479 142 494 468<|content|>Reviewed by: ... Bernard Crawford, Responsible Partner\n<|id|>226<|page|>27<|box|>502 140 532 852<|content|>Distribution restricted to: ... ), Nathan Okonkwo (Ridgepoint Capital Management LLC)\n<|id|>227<|page|>27<|box|>539 140 599 854<|content|>This memorandum is protected by the attorney-clien...sure may result in waiver of applicable privileges",
+    "raw_response": "<|src_id|>64<|tgt_id|>65",
+    "parsed": [
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        }
+    ]
+}

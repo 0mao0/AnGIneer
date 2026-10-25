@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        18
+    ],
+    "pages": [
+        3,
+        4,
+        5,
+        13,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>34<|page|>3<|box|>799 140 909 856<|content|>Consequences of Breach (After Cure Period): ... an...nder the Credit Agreement and the related Security\n<|id|>35<|page|>4<|box|>90 140 126 854<|content|>Agreement, including foreclosure on and dispositio...T's intellectual property and accounts receivable)\n<|id|>43<|page|>4<|box|>867 181 902 856<|content|>• The draft Proprietary Laboratory Analyses (\"PLA\"...ed but was never submitted to the American Medical\n<|id|>44<|page|>5<|box|>90 210 126 854<|content|>Association (\"AMA\"). ... that deadline will pass without a submission\n<|id|>115<|page|>13<|box|>304 181 339 854<|content|>• A reduced availability under the revolving facility (e. ... and/or\n<|id|>117<|page|>13<|box|>362 140 416 854<|content|>The specific terms of any waiver or amendment woul...LP as GDT's corporate and credit agreement counsel\n<|id|>147<|page|>16<|box|>799 140 909 857<|content|>Summit Ridge Accounting Group, LLP (Brian Castella... GDT's financial statements or addressed in Summit\n<|id|>148<|page|>17<|box|>90 140 127 854<|content|>Ridge's auditor's report. ... Brian Castellano sho...es are identified and addressed in a timely manner\n<|id|>160<|page|>18<|box|>89 140 107 602<|content|>Miriam Calloway Partner, Healthcare & Life Sciences Practice\n<|id|>161<|page|>18<|box|>108 142 125 254<|content|>By: ... By\n<|id|>162<|page|>18<|box|>125 142 142 656<|content|>Sean Morrissey Senior Associate, Healthcare & Life Sciences Practice\n<|id|>163<|page|>18<|box|>142 143 159 295<|content|>Date: ... May 28, 2024",
+    "raw_response": "<|src_id|>34<|tgt_id|>35\n<|src_id|>43<|tgt_id|>44\n<|src_id|>147<|tgt_id|>148",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 148
+        }
+    ]
+}

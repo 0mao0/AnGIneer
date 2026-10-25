@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 236 263 759<|content|>EXHIBIT J TO PURCHASE AND SALE AGREEMENT DATED AS\n<|id|>1<|type|>title<|page|>1<|box|>305 271 321 725<|content|>LIST OF PENDING AND THREATENED LITIGATION\n<|id|>14<|type|>title<|page|>1<|box|>840 142 857 691<|content|>PART I — PENDING LITIGATION AGAINST TARGET ENTITIE\n<|id|>53<|type|>title<|page|>5<|box|>593 140 609 741<|content|>PART II — THREATENED LITIGATION AGAINST TARGET ENT\n<|id|>55<|type|>title<|page|>5<|box|>742 140 758 681<|content|>Item 4: Environmental Demand Letter — Westlake Dis\n<|id|>63<|type|>title<|page|>6<|box|>847 140 864 668<|content|>Item 5: Tenant Lease Renewal Dispute — Cool Spring\n<|id|>70<|type|>title<|page|>8<|box|>89 140 125 756<|content|>PART III — PENDING LITIGATION AGAINST SELLER (GMP\n<|id|>73<|type|>title<|page|>8<|box|>439 140 474 764<|content|>PART IV — PENDING LITIGATION AGAINST PROPERTIES (I\n<|id|>76<|type|>title<|page|>8<|box|>768 140 805 779<|content|>PART V — PROPERTIES AND TARGET ENTITIES WITH NO PE\n<|id|>78<|type|>table<|page|>9<|box|>88 143 441 852<|content|>None\n<|id|>79<|type|>title<|page|>9<|box|>489 140 507 676<|content|>PART VI — GENERAL DISCLAIMERS AND QUALIFICATIONS\n<|id|>87<|type|>title<|page|>10<|box|>571 401 587 594<|content|>ACKNOWLEDGMENT\n<|id|>89<|type|>title<|page|>10<|box|>623 140 638 225<|content|>SELLER:\n<|id|>97<|type|>title<|page|>10<|box|>770 143 785 217<|content|>BUYER:",
+    "raw_response": "<|src_id|>78<|tgt_id|>76",
+    "parsed": [
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        }
+    ]
+}

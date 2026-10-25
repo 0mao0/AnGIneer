@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 300 118 697<|content|>DESCRIPTION OF CAPITAL STOCK\n<|id|>4<|page|>1<|box|>449 140 465 212<|content|>General\n<|id|>7<|page|>1<|box|>705 140 724 346<|content|>Authorized Capital Stock\n<|id|>19<|page|>3<|box|>299 140 315 267<|content|>Common Stock\n<|id|>29<|page|>4<|box|>744 140 762 524<|content|>Preemptive Rights, Conversion, and Redemption\n<|id|>32<|page|>5<|box|>90 140 107 272<|content|>Preferred Stock\n<|id|>36<|page|>5<|box|>520 140 537 346<|content|>Anti-Takeover Provisions\n<|id|>38<|page|>5<|box|>833 142 849 315<|content|>Delaware Section 203\n<|id|>46<|page|>6<|box|>806 140 824 372<|content|>Classified Board of Directors\n<|id|>54<|page|>7<|box|>840 140 858 764<|content|>Advance-Notice Provisions for Stockholder Proposal\n<|id|>61<|page|>9<|box|>90 140 107 357<|content|>Exclusive Forum Provision\n<|id|>70<|page|>9<|box|>765 140 782 568<|content|>No Stockholder Action by Written Consent (Post-IPO\n<|id|>75<|page|>10<|box|>489 140 507 403<|content|>Special Meetings of Stockholders\n<|id|>78<|page|>10<|box|>771 140 789 431<|content|>Supermajority Voting Requirements\n<|id|>88<|page|>11<|box|>349 140 364 377<|content|>Blank-Check Preferred Stock\n<|id|>90<|page|>11<|box|>633 140 648 344<|content|>Stockholders' Agreement\n<|id|>98<|page|>12<|box|>659 142 676 299<|content|>Registration Rights\n<|id|>107<|page|>14<|box|>150 140 167 493<|content|>Shares Eligible for Future Sale and Lock-Up\n<|id|>118<|page|>15<|box|>487 140 503 379<|content|>Transfer Agent and Registrar\n<|id|>120<|page|>15<|box|>626 140 643 205<|content|>Listing\n<|id|>122<|page|>15<|box|>785 140 803 678<|content|>Limitation of Liability and Indemnification of Dir\n<|id|>149<|page|>17<|box|>698 140 714 364<|content|>Controlled Company Status\n<|id|>159<|page|>18<|box|>816 140 834 423<|content|>Emerging Growth Company Status",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>7<|level|>2\n<|id|>19<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>3\n<|id|>46<|level|>2\n<|id|>54<|level|>2\n<|id|>61<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>88<|level|>2\n<|id|>90<|level|>2\n<|id|>98<|level|>2\n<|id|>107<|level|>2\n<|id|>118<|level|>2\n<|id|>120<|level|>2\n<|id|>122<|level|>2\n<|id|>149<|level|>2\n<|id|>159<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        }
+    ]
+}

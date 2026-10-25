@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        152,
+        166
+    ],
+    "pages": [
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        162,
+        166
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>741<|page|>152<|box|>171 80 183 141<|content|>SECTION I\n<|id|>748<|page|>152<|box|>559 80 571 218<|content|>SECTIONS II THROUGH IX\n<|id|>772<|page|>153<|box|>64 196 79 781<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>774<|page|>153<|box|>90 340 104 610<|content|>Section II - Federal Credit Programs\n<|id|>775<|page|>153<|box|>114 271 129 680<|content|>Table GA-II-1. - Direct Sales and Repurchases of L\n<|id|>777<|page|>154<|box|>65 201 79 791<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>778<|page|>154<|box|>88 362 103 623<|content|>Section II-Federal Credit Programs\n<|id|>779<|page|>154<|box|>106 215 120 781<|content|>Table GA-II-2. - Direct and Guaranteed Loans Outst\n<|id|>781<|page|>155<|box|>64 211 79 781<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>782<|page|>155<|box|>83 355 98 613<|content|>Section II-Federal Credit Programs\n<|id|>785<|page|>156<|box|>70 208 85 791<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>786<|page|>156<|box|>91 358 106 622<|content|>Section II-Federal Credit Programs\n<|id|>787<|page|>156<|box|>107 167 123 837<|content|>Table GA-II-2. - Direct and Guaranteed Loans Outst\n<|id|>789<|page|>157<|box|>62 205 77 784<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>790<|page|>157<|box|>83 355 100 615<|content|>Section II-Federal Credit Programs\n<|id|>791<|page|>157<|box|>101 165 116 830<|content|>Table GA-II-2. - Direct and Guaranteed Loans Outst\n<|id|>793<|page|>158<|box|>56 215 72 789<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>794<|page|>158<|box|>82 362 95 622<|content|>Section II-Federal Credit Programs\n<|id|>795<|page|>158<|box|>100 177 114 835<|content|>Table GA-II-2. - Direct and Guaranteed Loans Outst\n<|id|>800<|page|>159<|box|>65 211 79 781<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>801<|page|>159<|box|>86 357 100 615<|content|>Section II-Federal Credit Programs\n<|id|>802<|page|>159<|box|>102 172 114 832<|content|>Table GA-II-2. - Direct and Guaranteed Loans Outst\n<|id|>817<|page|>160<|box|>56 215 71 793<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>860<|page|>162<|box|>91 350 104 668<|content|>July 1979 through June 1980—Continued\n<|id|>867<|page|>166<|box|>572 305 720 707<|content|>Take stock in America.\n<|id|>868<|page|>166<|box|>725 331 751 678<|content|>Buy U.S. Savings Bonds",
+    "raw_response": "<|id|>741<|level|>1\n<|id|>748<|level|>1\n<|id|>772<|level|>1\n<|id|>774<|level|>2\n<|id|>775<|level|>3\n<|id|>777<|level|>1\n<|id|>778<|level|>2\n<|id|>779<|level|>3\n<|id|>781<|level|>1\n<|id|>782<|level|>2\n<|id|>785<|level|>1\n<|id|>786<|level|>2\n<|id|>787<|level|>3\n<|id|>789<|level|>1\n<|id|>790<|level|>2\n<|id|>791<|level|>3\n<|id|>793<|level|>1\n<|id|>794<|level|>2\n<|id|>795<|level|>3\n<|id|>800<|level|>1\n<|id|>801<|level|>2\n<|id|>802<|level|>3\n<|id|>817<|level|>1\n<|id|>860<|level|>2\n<|id|>867<|level|>1\n<|id|>868<|level|>2",
+    "parsed": [
+        {
+            "id": 741,
+            "level": 1
+        },
+        {
+            "id": 748,
+            "level": 1
+        },
+        {
+            "id": 772,
+            "level": 1
+        },
+        {
+            "id": 774,
+            "level": 2
+        },
+        {
+            "id": 775,
+            "level": 3
+        },
+        {
+            "id": 777,
+            "level": 1
+        },
+        {
+            "id": 778,
+            "level": 2
+        },
+        {
+            "id": 779,
+            "level": 3
+        },
+        {
+            "id": 781,
+            "level": 1
+        },
+        {
+            "id": 782,
+            "level": 2
+        },
+        {
+            "id": 785,
+            "level": 1
+        },
+        {
+            "id": 786,
+            "level": 2
+        },
+        {
+            "id": 787,
+            "level": 3
+        },
+        {
+            "id": 789,
+            "level": 1
+        },
+        {
+            "id": 790,
+            "level": 2
+        },
+        {
+            "id": 791,
+            "level": 3
+        },
+        {
+            "id": 793,
+            "level": 1
+        },
+        {
+            "id": 794,
+            "level": 2
+        },
+        {
+            "id": 795,
+            "level": 3
+        },
+        {
+            "id": 800,
+            "level": 1
+        },
+        {
+            "id": 801,
+            "level": 2
+        },
+        {
+            "id": 802,
+            "level": 3
+        },
+        {
+            "id": 817,
+            "level": 1
+        },
+        {
+            "id": 860,
+            "level": 2
+        },
+        {
+            "id": 867,
+            "level": 1
+        },
+        {
+            "id": 868,
+            "level": 2
+        }
+    ]
+}

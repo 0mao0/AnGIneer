@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        33
+    ],
+    "pages": [
+        1,
+        13,
+        14,
+        28,
+        29,
+        32,
+        33
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>150 464 166 532<|content|>Plaintiff,\n<|id|>3<|page|>1<|box|>202 343 219 653<|content|>LUMICORE TECHNOLOGIES, INC. ... ,\n<|id|>4<|page|>1<|box|>228 455 244 540<|content|>Defendant. ... Defendant\n<|id|>5<|page|>1<|box|>253 357 270 638<|content|>Civil Action No. ... 24-cv-00319-JRG\n<|id|>6<|page|>1<|box|>280 405 297 591<|content|>Hon. ... Gilstrap\n<|id|>126<|page|>13<|box|>825 140 900 857<|content|>OBJECTIONS: ... OWS further objects to this\n<|id|>127<|page|>14<|box|>90 140 143 854<|content|>Request as overbroad to the extent it is not limit..., 400G-ZR, 800G-DR, and 1600G transceiver modules)\n<|id|>285<|page|>28<|box|>530 140 547 424<|content|>Requests for Production Nos. ... 51–60\n<|id|>286<|page|>28<|box|>553 140 664 854<|content|>REQUEST: ... 3 specifications and OIF implementati...thermal management in photonic integrated circuits\n<|id|>288<|page|>28<|box|>843 140 898 856<|content|>RESPONSE: ... OWS will produce documents reference...cluding references cited in Information Disclosure\n<|id|>289<|page|>29<|box|>90 140 200 854<|content|>Statements) and documents that OWS specifically re...ive documents are produced at various Bates ranges\n<|id|>333<|page|>32<|box|>852 410 869 586<|content|>Respectfully submitted,\n<|id|>334<|page|>32<|box|>877 143 895 346<|content|>Dated: ... September 30, 2024\n<|id|>336<|page|>33<|box|>125 140 189 854<|content|>Alan Ngo (CA Bar No. ... (213) 443-7201\n<|id|>337<|page|>33<|box|>190 142 205 424<|content|>WHITMORE & CALLAHAN LLP\n<|id|>338<|page|>33<|box|>207 140 258 854<|content|>James \"Jim\" Callahan (TX Bar No. ... (903) 597-4101 Attorneys for Plaintiff Optiwave Semiconductor Corp\n<|id|>341<|page|>33<|box|>391 174 426 854<|content|>Catherine \"Kate\" Rourke Darren Cho Samantha Briggs...P 600 Congress Avenue, Suite 2400 Austin, TX 78701\n<|id|>342<|page|>33<|box|>435 176 453 808<|content|>Maria Garza Trask Eddington LLP 425 East Front Street, Suite 300 Tyler, TX 75701\n<|id|>343<|page|>33<|box|>460 176 479 566<|content|>Attorneys for Defendant Lumicore Technologies, Inc...Attorneys for Defendant Lumicore Technologies, Inc",
+    "raw_response": "<|src_id|>126<|tgt_id|>127\n<|src_id|>288<|tgt_id|>289",
+    "parsed": [
+        {
+            "src_id": 126,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 288,
+            "tgt_id": 289
+        }
+    ]
+}

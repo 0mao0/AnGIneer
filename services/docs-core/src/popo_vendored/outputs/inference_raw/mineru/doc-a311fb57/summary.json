@@ -1,0 +1,78 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ifuhhpx1\\input\\pdfs\\doc-a311fb57.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ifuhhpx1\\enriched\\doc-a311fb57.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>3\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>85<|level|>2\n<|id|>95<|level|>2\n<|id|>101<|level|>2",
+    "image_output": "<|src_id|>18<|tgt_id|>16\n<|src_id|>55<|tgt_id|>16\n<|src_id|>56<|tgt_id|>16",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 18,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 16
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 55,
+            "table2_idx": 56,
+            "upper_row_ss": [
+                [
+                    "Address (Registered Office)",
+                    "Keizersgracht 482, 1017 EG Amsterdam, Netherlands"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "KvK Number",
+                    "82104593"
+                ]
+            ]
+        }
+    ]
+}

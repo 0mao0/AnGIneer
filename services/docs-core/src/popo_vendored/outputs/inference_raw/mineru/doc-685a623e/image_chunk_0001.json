@@ -1,0 +1,61 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        47,
+        58
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>461<|type|>table<|page|>47<|box|>89 143 138 852<|content|>None\n<|id|>462<|type|>title<|page|>48<|box|>90 316 109 681<|content|>Exhibit C — Endorsement Checklist\n<|id|>464<|type|>table<|page|>48<|box|>229 143 871 852<|content|>None\n<|id|>465<|type|>table<|page|>49<|box|>114 143 656 852<|content|>None\n<|id|>466<|type|>table<|page|>49<|box|>727 143 905 852<|content|>None\n<|id|>467<|type|>table<|page|>50<|box|>88 143 472 852<|content|>None\n<|id|>469<|type|>title<|page|>51<|box|>90 343 111 653<|content|>Exhibit D — Legal Description\n<|id|>484<|type|>title<|page|>53<|box|>90 310 109 687<|content|>Exhibit E — Curative Action Tracker\n<|id|>485<|type|>table<|page|>53<|box|>189 143 900 852<|content|>None\n<|id|>486<|type|>table<|page|>54<|box|>89 143 905 852<|content|>None\n<|id|>487<|type|>table<|page|>55<|box|>89 143 904 852<|content|>None\n<|id|>488<|type|>table<|page|>56<|box|>89 143 905 852<|content|>None\n<|id|>489<|type|>table<|page|>57<|box|>89 143 888 852<|content|>None\n<|id|>491<|type|>title<|page|>58<|box|>207 398 223 599<|content|>— End of Memorandum —",
+    "raw_response": "<|src_id|>464<|tgt_id|>462\n<|src_id|>465<|tgt_id|>462\n<|src_id|>466<|tgt_id|>462\n<|src_id|>467<|tgt_id|>462\n<|src_id|>485<|tgt_id|>484\n<|src_id|>486<|tgt_id|>484\n<|src_id|>487<|tgt_id|>484\n<|src_id|>488<|tgt_id|>484\n<|src_id|>489<|tgt_id|>484",
+    "parsed": [
+        {
+            "src_id": 464,
+            "tgt_id": 462
+        },
+        {
+            "src_id": 465,
+            "tgt_id": 462
+        },
+        {
+            "src_id": 466,
+            "tgt_id": 462
+        },
+        {
+            "src_id": 467,
+            "tgt_id": 462
+        },
+        {
+            "src_id": 485,
+            "tgt_id": 484
+        },
+        {
+            "src_id": 486,
+            "tgt_id": 484
+        },
+        {
+            "src_id": 487,
+            "tgt_id": 484
+        },
+        {
+            "src_id": 488,
+            "tgt_id": 484
+        },
+        {
+            "src_id": 489,
+            "tgt_id": 484
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 36,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['', 'A)传送装置的几何类型为线、面;B)在可航水域上方时应编码VERCLR(竖向净空)属性;C)VERACC(垂直精度):仅与VERCLR(竖向净空)(非HEIGHT)一起使用;D)VERDAT(垂直基准面):仅与VERCLR(竖向净空)(非HEIGHT)一起使用;', 'CONVYR(传送装置)(M)CATCON(传送装置类)=[1(架空缆索(架空索道)),2(输送带),999(其他)](C)CONDTN(状态)=[1(建造中),2(废弃的),5(计划建造的),999(其他)](O)OBJNAM(英文名称)=[传送装置英文名称]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'E) VERCLR(竖向净空)、VER-COP(开放竖向净空)、VERCSA(安全竖向净空)、VERCCL(封闭竖向净空))的精度由属性 VER-ACC(垂直精度)给出。一个物标给出几个竖向净空时,则取最低精度', '(O)NOBJNM(中文名称) = [传送装置中文名称](C) VERCLR(竖向净空) =[ (xx.x)单位:m](O) VERACC(垂直精度) =[ (xx.x)单位:m](O)INFORM(英文信息) = [传送装置英文信息](O) NINFOM(中文信息) = [传送装置中文信息](O) VERDAT(垂直基准面) =[24(当地基准面),100(黄海基准面),101(吴淞基准面),102(理论最低潮面),103(1985国家高程基准),999(其他)]']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 2911,
+    "table2_idx": 2912
+}

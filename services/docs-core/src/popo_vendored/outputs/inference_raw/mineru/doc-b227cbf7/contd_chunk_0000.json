@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        20,
+        21,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>176 728 194 854<|content|>August 10, 2023\n<|id|>4<|page|>1<|box|>203 140 239 854<|content|>Prepared by: ... Managing Director Kensington Anal...treet, Suite 2800 Philadelphia, Pennsylvania 19103\n<|id|>5<|page|>1<|box|>247 140 265 720<|content|>Assisted by: ... Michael Chung Senior Analyst Kensington Analytics Group LLC\n<|id|>6<|page|>1<|box|>273 140 308 854<|content|>Submitted to: ... Patrick Gallagher, Senior Associ...0 Park Avenue, 38th Floor New York, New York 10166\n<|id|>7<|page|>1<|box|>315 140 332 779<|content|>DRAFT FOR ATTORNEY REVIEW — NOT FOR SERVICE — PRIVILEGED AND CONFIDENTIAL\n<|id|>8<|page|>1<|box|>339 140 376 854<|content|>Retention: ... pursuant to an engagement letter dated October 28, 2022\n<|id|>85<|page|>7<|box|>811 142 885 856<|content|>30. ... These fleet redeployment records show a sy... transfer of equipment and driver assignments from\n<|id|>86<|page|>8<|box|>90 174 125 854<|content|>SLG-designated lanes to Northwind lanes over the c...ourse of approximately three weeks in October 2021\n<|id|>209<|page|>20<|box|>801 143 875 854<|content|>104. ... According to this theory, SLG's failure t...ain drivers, and sustain the operational intensity\n<|id|>210<|page|>21<|box|>89 145 145 852<|content|>required to meet SLO thresholds. ... My economic a...support this causation theory, for several reasons\n<|id|>250<|page|>27<|box|>196 142 214 321<|content|>Respectfully submitted,\n<|id|>252<|page|>27<|box|>272 140 324 854<|content|>Dr. ... Managing Director Kensington Analytics Gro..., Suite 2800 Philadelphia, Pennsylvania 19103 Date\n<|id|>251<|page|>27<|box|>220 140 237 478<|content|>[DRAFT — SIGNATURE BLOCK TO BE FINALIZED]",
+    "raw_response": "<|src_id|>85<|tgt_id|>86\n<|src_id|>209<|tgt_id|>210",
+    "parsed": [
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 210
+        }
+    ]
+}

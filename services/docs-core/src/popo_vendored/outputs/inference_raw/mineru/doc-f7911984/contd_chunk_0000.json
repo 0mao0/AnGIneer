@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>152 707 169 854<|content|>December 15, 2025\n<|id|>2<|page|>1<|box|>178 140 195 611<|content|>VIA ELECTRONIC MAIL AND OVERNIGHT COURIER\n<|id|>3<|page|>1<|box|>204 140 222 800<|content|>Skybridge Fintech Ltd. ... 400 North Market Street, Suite 1200 Wilmington, Delaware 19801\n<|id|>4<|page|>1<|box|>231 140 284 854<|content|>Attention: ... 1009-00006\n<|id|>5<|page|>1<|box|>292 142 308 266<|content|>Dear Ms. ... Knox\n<|id|>11<|page|>1<|box|>847 174 883 854<|content|>(a) Drafting, reviewing, and negotiating the Maste...y definitions) between the SPE, as seller, and the\n<|id|>12<|page|>2<|box|>90 174 126 854<|content|>Administrative Agent and the Buyers, as purchasers...ll ancillary transaction documents related thereto\n<|id|>22<|page|>3<|box|>90 174 143 854<|content|>(k) Reviewing and commenting on documents drafted ...he Buyers in connection with the Facility; ... and\n<|id|>24<|page|>3<|box|>215 140 362 856<|content|>The parties have established a target signing and ... to execute and deliver the required documentation\n<|id|>48<|page|>5<|box|>648 174 684 854<|content|>(e) Conference call and videoconference charges, t...e extent charged by third-party providers; ... and\n<|id|>50<|page|>5<|box|>717 140 808 856<|content|>Third-party charges, including fees payable to UCC...urring any single disbursement in excess of $5,000\n<|id|>62<|page|>6<|box|>785 174 804 846<|content|>(e) Ironclad Trust Company, in its capacity as Custodian under the Custodial Agreement; ... or\n<|id|>64<|page|>6<|box|>854 140 892 854<|content|>The Firm's duties of loyalty, confidentiality, and...erson or entity other than the Company and the SPE\n<|id|>80<|page|>8<|box|>844 140 900 856<|content|>The Company acknowledges that this limitation of l...der. ... The Company further acknowledges that the\n<|id|>81<|page|>9<|box|>90 140 126 854<|content|>Firm's willingness to accept this engagement at th...nclusion of this limitation of liability provision\n<|id|>90<|page|>9<|box|>830 212 847 344<|content|>Very truly yours,\n<|id|>91<|page|>9<|box|>854 140 871 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>92<|page|>9<|box|>875 143 890 251<|content|>By: ... By\n<|id|>93<|page|>9<|box|>890 140 907 343<|content|>Name: ... Theodore Langston\n<|id|>94<|page|>9<|box|>916 142 929 274<|content|>Matter No. ... 1009-00006\n<|id|>95<|page|>10<|box|>89 142 106 370<|content|>Title: ... Partner, Capital Markets\n<|id|>101<|page|>10<|box|>265 142 281 300<|content|>Name: ... Deirdre Knox\n<|id|>102<|page|>10<|box|>282 142 299 480<|content|>Title: ... General Counsel & Corporate Secretary\n<|id|>103<|page|>10<|box|>299 143 316 264<|content|>Date: ... Date\n<|id|>104<|page|>10<|box|>316 142 334 517<|content|>Enclosure: ... Duplicate original for countersignature\n<|id|>105<|page|>10<|box|>342 140 414 854<|content|>cc: ... Claire, Partner, Calderwood & Harkness LLP\n<|id|>106<|page|>10<|box|>422 140 484 854<|content|>CONFIDENTIAL — This engagement letter and the info...tify the sender immediately and destroy all copies",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>80<|tgt_id|>81",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        }
+    ]
+}

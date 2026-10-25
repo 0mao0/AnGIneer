@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 183 125 813<|content|>KEYPOINT NATIONAL BANK, NATIONAL ASSOCIATION 200 P\n<|id|>5<|type|>title<|page|>1<|box|>309 142 325 315<|content|>Section 1: Addressees\n<|id|>14<|type|>title<|page|>1<|box|>536 142 553 423<|content|>Section 2: Recitals and Background\n<|id|>15<|type|>title<|page|>1<|box|>561 140 579 316<|content|>Ladies and Gentlemen:\n<|id|>21<|type|>title<|page|>2<|box|>494 142 511 348<|content|>Section 3: Payoff Amount\n<|id|>22<|type|>table<|page|>2<|box|>561 143 724 852<|content|>None\n<|id|>29<|type|>title<|page|>3<|box|>616 140 633 437<|content|>Section 4: Wire Transfer Instructions\n<|id|>36<|type|>title<|page|>4<|box|>204 140 222 442<|content|>Section 5: Agreement to Release Liens\n<|id|>44<|type|>title<|page|>5<|box|>304 140 321 658<|content|>Section 6: Termination of Credit Agreement and Loa\n<|id|>51<|type|>title<|page|>6<|box|>260 140 277 694<|content|>Section 7: Representations and Confirmations of Ad\n<|id|>59<|type|>title<|page|>7<|box|>167 140 184 372<|content|>Section 8: Consent of Lender\n<|id|>65<|type|>title<|page|>7<|box|>503 140 520 423<|content|>Section 9: Miscellaneous Provisions\n<|id|>72<|type|>title<|page|>9<|box|>90 140 107 367<|content|>Section 10: Signature blocks\n<|id|>92<|type|>title<|page|>10<|box|>89 142 107 245<|content|>EXHIBIT A\n<|id|>93<|type|>table<|page|>10<|box|>204 143 806 852<|content|>None\n<|id|>96<|type|>title<|page|>12<|box|>89 143 106 243<|content|>EXHIBIT B\n<|id|>97<|type|>table<|page|>12<|box|>165 143 494 852<|content|>None\n<|id|>99<|type|>title<|page|>13<|box|>89 140 107 243<|content|>EXHIBIT C\n<|id|>100<|type|>title<|page|>13<|box|>114 271 133 725<|content|>Wire Transfer Instructions (Formatted for Operatio\n<|id|>102<|type|>title<|page|>13<|box|>204 142 220 390<|content|>WIRE TRANSFER DETAILS:\n<|id|>106<|type|>title<|page|>13<|box|>453 142 470 450<|content|>WIRE CONFIRMATION CONTACT:",
+    "raw_response": "<|src_id|>22<|tgt_id|>21\n<|src_id|>93<|tgt_id|>92\n<|src_id|>97<|tgt_id|>96",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 96
+        }
+    ]
+}

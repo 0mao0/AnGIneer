@@ -1,0 +1,140 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>421 140 438 398<|content|>1. Introduction and Background\n<|id|>18<|page|>2<|box|>556 140 574 513<|content|>2. Identification of Insured and Named Insured\n<|id|>36<|page|>3<|box|>414 140 431 331<|content|>3. Amount of Insurance\n<|id|>41<|page|>4<|box|>90 140 107 650<|content|>4. Identification of Mortgaged Properties and Mort\n<|id|>57<|page|>5<|box|>90 140 107 344<|content|>4.2 Schedule A Reference\n<|id|>82<|page|>7<|box|>90 140 107 578<|content|>5. Required Form of Mortgagee Title Insurance Poli\n<|id|>87<|page|>7<|box|>710 140 728 354<|content|>6. Required Endorsements\n<|id|>89<|page|>8<|box|>90 140 107 452<|content|>6.1 Standard Endorsements (All States)\n<|id|>112<|page|>10<|box|>566 140 582 395<|content|>6.2 State-Specific Endorsements\n<|id|>114<|page|>10<|box|>633 142 650 611<|content|>Florida (12 properties — Palmetto Beachfront Hotel\n<|id|>119<|page|>10<|box|>829 140 845 625<|content|>New York (6 properties — Verimark Resort Propertie\n<|id|>123<|page|>11<|box|>203 140 220 627<|content|>California (5 properties — Verimark Resort Propert\n<|id|>128<|page|>11<|box|>398 142 415 593<|content|>Texas (4 properties — Verimark Resort Properties L\n<|id|>134<|page|>11<|box|>577 140 594 851<|content|>Other States (Georgia, Colorado, Arizona, Illinois\n<|id|>136<|page|>11<|box|>744 140 760 462<|content|>6.3 Additional Endorsement Instructions\n<|id|>145<|page|>12<|box|>517 140 534 534<|content|>7. Release / Discharge of Existing Greystone Liens\n<|id|>158<|page|>13<|box|>534 140 551 334<|content|>8. Survey Requirements\n<|id|>188<|page|>14<|box|>717 140 734 379<|content|>9. Flood Zone Determinations\n<|id|>195<|page|>15<|box|>491 142 508 408<|content|>10. Title Searches and Exceptions\n<|id|>207<|page|>16<|box|>517 142 534 336<|content|>11. Delivery and Timing\n<|id|>221<|page|>17<|box|>422 142 439 411<|content|>12. Premium and Fee Instructions\n<|id|>235<|page|>18<|box|>212 140 229 470<|content|>13. Contact Information for Coordination\n<|id|>254<|page|>18<|box|>741 142 757 488<|content|>14. Authorization and Reservation of Rights\n<|id|>261<|page|>19<|box|>420 140 436 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>265<|page|>19<|box|>518 140 536 426<|content|>ENCLOSURES / ATTACHMENTS\n<|id|>267<|page|>19<|box|>590 140 607 506<|content|>Schedule A — Property Schedule (42 Properties)\n<|id|>284<|page|>20<|box|>242 140 257 290<|content|>cc: (via electronic mail)",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>18<|level|>2\n<|id|>36<|level|>2\n<|id|>41<|level|>2\n<|id|>57<|level|>3\n<|id|>82<|level|>2\n<|id|>87<|level|>2\n<|id|>89<|level|>3\n<|id|>112<|level|>3\n<|id|>114<|level|>4\n<|id|>119<|level|>4\n<|id|>123<|level|>4\n<|id|>128<|level|>4\n<|id|>134<|level|>4\n<|id|>136<|level|>3\n<|id|>145<|level|>2\n<|id|>158<|level|>2\n<|id|>188<|level|>2\n<|id|>195<|level|>2\n<|id|>207<|level|>2\n<|id|>221<|level|>2\n<|id|>235<|level|>2\n<|id|>254<|level|>2\n<|id|>261<|level|>1\n<|id|>265<|level|>1\n<|id|>267<|level|>2\n<|id|>284<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 4
+        },
+        {
+            "id": 119,
+            "level": 4
+        },
+        {
+            "id": 123,
+            "level": 4
+        },
+        {
+            "id": 128,
+            "level": 4
+        },
+        {
+            "id": 134,
+            "level": 4
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 235,
+            "level": 2
+        },
+        {
+            "id": 254,
+            "level": 2
+        },
+        {
+            "id": 261,
+            "level": 1
+        },
+        {
+            "id": 265,
+            "level": 1
+        },
+        {
+            "id": 267,
+            "level": 2
+        }
+    ]
+}

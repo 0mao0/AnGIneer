@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['2', '\"sealing member in continuous contact with\"', \"'237\", '1, 7', 'A sealing component that maintains contact with the instrument', 'A sealing component that maintains uninterrupted physical contact with', 'Disputed']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'shaft during use of the device.', 'the outer surface of the instrument shaft at all times when the instrument is positioned within the trocar, including during insertion, use, and removal.', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 462,
+    "table2_idx": 463
+}

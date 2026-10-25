@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 151 171 844<|content|>Filed in connection with the Original Complaint, Docket Entry No. ... April 22, 2024\n<|id|>2<|page|>1<|box|>178 140 209 852<|content|>Counsel of Record: ... Whitmore & Callahan LLP (James Callahan, local counsel)\n<|id|>12<|page|>1<|box|>631 143 648 230<|content|>15/482,937\n<|id|>14<|page|>1<|box|>699 142 718 245<|content|>April 7, 2017\n<|id|>20<|page|>2<|box|>114 140 133 810<|content|>H04B 10/40 (2013. ... 01)\n<|id|>22<|page|>2<|box|>181 140 219 854<|content|>CPC: ... 01)\n<|id|>23<|page|>2<|box|>226 140 244 532<|content|>USPC: ... 1\n<|id|>25<|page|>2<|box|>292 140 329 854<|content|>CPC: ... H04J 14/02\n<|id|>26<|page|>2<|box|>337 142 354 465<|content|>USPC: ... 1\n<|id|>27<|page|>2<|box|>364 142 382 491<|content|>See application file for complete search history. ... See application file for complete search history\n<|id|>163<|page|>17<|box|>575 174 612 854<|content|>a local oscillator interface configured to couple ...oscillator laser to the silicon substrate; ... and\n<|id|>164<|page|>17<|box|>619 174 656 854<|content|>a digital signal processing unit operatively conne... coherent detection module and the modulator array\n<|id|>175<|page|>18<|box|>375 174 409 854<|content|>processing the detected electrical signals using a...ocessing unit to recover transmitted data; ... and\n<|id|>176<|page|>18<|box|>417 174 454 854<|content|>modulating a carrier optical signal using a modula...tegrated on the silicon substrate for transmission\n<|id|>182<|page|>18<|box|>709 174 744 854<|content|>a waveguide network formed on the substrate connec...nd at least one optical input/output port; ... and\n<|id|>183<|page|>18<|box|>753 174 789 854<|content|>wherein the silicon photonic integrated circuit is...te of at least 400 gigabits per second per channel\n<|id|>192<|page|>19<|box|>282 176 299 707<|content|>a local oscillator laser optically coupled to the silicon photonic chip; ... and\n<|id|>193<|page|>19<|box|>308 174 344 854<|content|>a digital signal processing integrated circuit ele...lectrically connected to the silicon photonic chip\n<|id|>206<|page|>19<|box|>890 176 907 738<|content|>forming metal interconnects and traveling-wave electrodes on the wafer; ... and\n<|id|>207<|page|>20<|box|>89 176 108 611<|content|>integrating a local oscillator laser with the sili... local oscillator laser with the silicon substrate\n<|id|>215<|page|>20<|box|>371 143 388 318<|content|>Name: ... Katherine Vidal\n<|id|>216<|page|>20<|box|>388 140 421 830<|content|>Title: ... Under Secretary of Commerce for intelle...r of the United States Patent and Trademark Office\n<|id|>217<|page|>20<|box|>422 143 439 264<|content|>Date: ... Date\n<|id|>221<|page|>20<|box|>551 158 589 838<|content|>Optiwave Semiconductor Corp. ... 24-cv-00319-JRG U...or the Eastern District of Texas Marshall Division\n<|id|>222<|page|>20<|box|>595 142 614 460<|content|>Docket Entry No. ... 1 (Original Complaint)\n<|id|>223<|page|>20<|box|>621 142 638 344<|content|>Date Filed: ... April 22, 2024\n<|id|>224<|page|>20<|box|>648 140 666 638<|content|>Counsel of Record for Plaintiff Optiwave Semicondu...f Record for Plaintiff Optiwave Semiconductor Corp\n<|id|>225<|page|>20<|box|>674 174 729 854<|content|>Calderwood & Harkness LLP Alan Ngo (Lead Counsel) ...600 Dallas, TX 75201 Telephone: ... (214) 555-0101\n<|id|>226<|page|>20<|box|>736 176 773 854<|content|>Whitmore & Callahan LLP (Local Counsel) James Call...0 Marshall, TX 75670 Telephone: ... (903) 555-0201",
+    "raw_response": "<|src_id|>163<|tgt_id|>164\n<|src_id|>175<|tgt_id|>176\n<|src_id|>182<|tgt_id|>183\n<|src_id|>192<|tgt_id|>193\n<|src_id|>206<|tgt_id|>207",
+    "parsed": [
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 183
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 207
+        }
+    ]
+}

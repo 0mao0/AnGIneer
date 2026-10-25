@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 142 104 395<|content|>PRIVILEGED AND CONFIDENTIAL\n<|id|>1<|page|>1<|box|>112 236 128 857<|content|>CALDERWOOD & HARKNESS LLP 1750 Pennsylvania Avenue NW, Suite 800\n<|id|>2<|page|>1<|box|>130 676 148 856<|content|>Washington, DC 20006\n<|id|>3<|page|>1<|box|>156 223 174 854<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>181 746 199 854<|content|>June 15, 2022\n<|id|>5<|page|>1<|box|>208 140 224 380<|content|>VIA EMAIL AND U. ... MAIL\n<|id|>6<|page|>1<|box|>234 140 270 854<|content|>Catherine Blackthorn, Esq. ... Blackthorn & Associ...700 Louisiana Street, Suite 4300 Houston, TX 77002\n<|id|>7<|page|>1<|box|>277 174 332 854<|content|>Re: ... 1016-00009\n<|id|>8<|page|>1<|box|>340 142 358 305<|content|>Dear Ms. ... Blackthorn\n<|id|>12<|page|>1<|box|>734 138 881 857<|content|>By way of brief background, and to ensure that the...istrict of Columbia (Grand Jury 22-2) on April 19,\n<|id|>13<|page|>2<|box|>90 140 126 852<|content|>2022, directing the production of documents and re...more Energy Holdings Ltd. ... and its subsidiaries\n<|id|>22<|page|>3<|box|>133 174 208 854<|content|>(b) The attorney-client privilege attaching to the...ew belongs to Dunmore Energy Holdings Ltd. ... and\n<|id|>24<|page|>3<|box|>258 140 333 854<|content|>Mr. ... Fisk, and those records confirm the foregoing\n<|id|>38<|page|>4<|box|>525 174 561 854<|content|>(v) Any draft or final versions of internal invest...ether in written, oral, or any other form; ... and\n<|id|>40<|page|>4<|box|>632 140 760 856<|content|>We wish to emphasize that the comprehensive intern... sole discretion, subject to the advice of counsel\n<|id|>52<|page|>5<|box|>859 176 895 854<|content|>1. ... Fisk's former role at Dunmore\n<|id|>53<|page|>6<|box|>90 210 181 854<|content|>Energy Holdings Ltd. ... com)\n<|id|>61<|page|>6<|box|>768 140 898 857<|content|>Based on our analysis to date, and subject to the ... will be circulated to Blackthorn & Associates for\n<|id|>62<|page|>7<|box|>90 140 126 854<|content|>Mr. ... Fisk's execution in the near term, and we ...ding such undertaking at your earliest convenience\n<|id|>72<|page|>8<|box|>90 176 106 367<|content|>Attn: ... Claims Department\n<|id|>73<|page|>8<|box|>107 176 125 617<|content|>Cedar House, 41 Cedar Avenue Hamilton HM 12, Bermuda\n<|id|>74<|page|>8<|box|>133 140 189 854<|content|>Calderwood & Harkness does not represent Mr. ... W...ide the foregoing information solely as a courtesy\n<|id|>83<|page|>8<|box|>622 176 729 854<|content|>3. ... and\n<|id|>85<|page|>8<|box|>789 140 825 854<|content|>A written response within ten (10) business days o...f your receipt of this letter would be appreciated\n<|id|>90<|page|>9<|box|>321 212 339 343<|content|>Very truly yours,\n<|id|>91<|page|>9<|box|>347 140 363 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>92<|page|>9<|box|>364 143 382 251<|content|>By: ... By\n<|id|>93<|page|>9<|box|>382 140 415 852<|content|>Victoria Chambers Partner, White Collar & Investig...Washington, DC 20006 Telephone: ... (202) 555-7100\n<|id|>94<|page|>9<|box|>416 142 431 478<|content|>Email: ... com\n<|id|>95<|page|>9<|box|>434 142 449 254<|content|>cc: ... (via email)\n<|id|>96<|page|>9<|box|>458 174 476 733<|content|>Marcus Wellbourne, Esq. ... , General Counsel, Dunmore Energy Holdings Ltd\n<|id|>97<|page|>9<|box|>484 176 502 700<|content|>Howard Quinn, Partner, Calderwood & Harkness LLP (Billing Partner)\n<|id|>98<|page|>9<|box|>510 176 527 743<|content|>Jasmine Thornton, Associate, Calderwood & Harkness LLP (Lead Associate)",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>52<|tgt_id|>53\n<|src_id|>61<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        }
+    ]
+}

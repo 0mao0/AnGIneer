@@ -1,0 +1,417 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-55pugm59\\input\\pdfs\\doc-d505a0bb.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-55pugm59\\enriched\\doc-d505a0bb.json",
+    "contd_output": "<|src_id|>33<|tgt_id|>34\n<|src_id|>34<|tgt_id|>35\n<|src_id|>48<|tgt_id|>49\n<|src_id|>50<|tgt_id|>51\n<|src_id|>51<|tgt_id|>52",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>2\n<|id|>5<|level|>3\n<|id|>8<|level|>3\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>20<|level|>1\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>27<|level|>3\n<|id|>29<|level|>3\n<|id|>56<|level|>3\n<|id|>70<|level|>3\n<|id|>72<|level|>1\n<|id|>73<|level|>2\n<|id|>74<|level|>3\n<|id|>85<|level|>3\n<|id|>99<|level|>3\n<|id|>101<|level|>3\n<|id|>104<|level|>3\n<|id|>114<|level|>2\n<|id|>115<|level|>3\n<|id|>117<|level|>3\n<|id|>133<|level|>3\n<|id|>139<|level|>3\n<|id|>146<|level|>2\n<|id|>147<|level|>3\n<|id|>149<|level|>3\n<|id|>156<|level|>3\n<|id|>162<|level|>2\n<|id|>171<|level|>2\n<|id|>172<|level|>3\n<|id|>178<|level|>3\n<|id|>183<|level|>2\n<|id|>184<|level|>3\n<|id|>190<|level|>3\n<|id|>195<|level|>2\n<|id|>196<|level|>3\n<|id|>198<|level|>2\n<|id|>199<|level|>3\n<|id|>203<|level|>1\n<|id|>211<|level|>1\n<|id|>214<|level|>2\n<|id|>217<|level|>2\n<|id|>221<|level|>2\n<|id|>224<|level|>2\n<|id|>227<|level|>2\n<|id|>230<|level|>2\n<|id|>234<|level|>2\n<|id|>242<|level|>1\n<|id|>244<|level|>2\n<|id|>246<|level|>2\n<|id|>251<|level|>2\n<|id|>253<|level|>2\n<|id|>255<|level|>2\n<|id|>261<|level|>2\n<|id|>263<|level|>2\n<|id|>269<|level|>1\n<|id|>272<|level|>1\n<|id|>276<|level|>1\n<|id|>280<|level|>1\n<|id|>285<|level|>1",
+    "image_output": "<|src_id|>216<|tgt_id|>214\n<|src_id|>219<|tgt_id|>217\n<|src_id|>220<|tgt_id|>217\n<|src_id|>223<|tgt_id|>221\n<|src_id|>226<|tgt_id|>224\n<|src_id|>229<|tgt_id|>227\n<|src_id|>232<|tgt_id|>230\n<|src_id|>233<|tgt_id|>230\n<|src_id|>236<|tgt_id|>234\n<|src_id|>271<|tgt_id|>269\n<|src_id|>274<|tgt_id|>272\n<|src_id|>275<|tgt_id|>272",
+    "contd_label": [
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 3
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 1
+        },
+        {
+            "id": 211,
+            "level": 1
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 224,
+            "level": 2
+        },
+        {
+            "id": 227,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 234,
+            "level": 2
+        },
+        {
+            "id": 242,
+            "level": 1
+        },
+        {
+            "id": 244,
+            "level": 2
+        },
+        {
+            "id": 246,
+            "level": 2
+        },
+        {
+            "id": 251,
+            "level": 2
+        },
+        {
+            "id": 253,
+            "level": 2
+        },
+        {
+            "id": 255,
+            "level": 2
+        },
+        {
+            "id": 261,
+            "level": 2
+        },
+        {
+            "id": 263,
+            "level": 2
+        },
+        {
+            "id": 269,
+            "level": 1
+        },
+        {
+            "id": 272,
+            "level": 1
+        },
+        {
+            "id": 276,
+            "level": 1
+        },
+        {
+            "id": 280,
+            "level": 1
+        },
+        {
+            "id": 285,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 216,
+            "tgt_id": 214
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 217
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 217
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 224
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 227
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 230
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 230
+        },
+        {
+            "src_id": 236,
+            "tgt_id": 234
+        },
+        {
+            "src_id": 271,
+            "tgt_id": 269
+        },
+        {
+            "src_id": 274,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 275,
+            "tgt_id": 272
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 219,
+            "table2_idx": 220,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "3",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 232,
+            "table2_idx": 233,
+            "upper_row_ss": [
+                [
+                    "No.",
+                    "Date",
+                    "Description of",
+                    "Transferee /",
+                    "Consideration",
+                    "Nature of"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Asset",
+                    "Counterparty",
+                    "",
+                    "Dealing"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 274,
+            "table2_idx": 275,
+            "upper_row_ss": [
+                [
+                    "M/VAegeanFortuna",
+                    "9784521",
+                    "Supramax Bulk Carrier",
+                    "58,200",
+                    "Republic of the marshall Islands",
+                    "Majuro",
+                    "Dnepr Shipholdi ng Inc.(BVI Co.No. 2014876)",
+                    "2018",
+                    "Meridian Industries"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "M/VCrimsonHorizon",
+                    "9801334",
+                    "Handymax Bulk Carrier",
+                    "37,500",
+                    "Republic of Liberia",
+                    "Monrovia",
+                    "Korinthian Bulkers (Singapore) Pte. Ltd.",
+                    "2019",
+                    "Bureau Veritas"
+                ]
+            ]
+        }
+    ]
+}

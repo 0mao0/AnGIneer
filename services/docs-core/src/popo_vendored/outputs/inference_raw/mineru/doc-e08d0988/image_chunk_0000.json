@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>411 140 429 264<|content|>I. Introduction\n<|id|>15<|type|>title<|page|>2<|box|>250 140 266 808<|content|>II. Response to Comment No. 1: AERMOD Receptor Gri\n<|id|>16<|type|>title<|page|>2<|box|>279 140 297 398<|content|>A. Summary of IDNR Comment\n<|id|>18<|type|>title<|page|>2<|box|>500 140 516 285<|content|>B. GAP Response\n<|id|>30<|type|>title<|page|>4<|box|>377 140 412 852<|content|>III. Response to Comment No. 2: Startup and Shutdo\n<|id|>31<|type|>title<|page|>4<|box|>426 140 443 398<|content|>A. Summary of IDNR Comment\n<|id|>33<|type|>title<|page|>4<|box|>664 140 681 285<|content|>B. GAP Response\n<|id|>48<|type|>table<|page|>6<|box|>883 143 905 852<|content|>None\n<|id|>49<|type|>table<|page|>7<|box|>88 143 220 852<|content|>None\n<|id|>51<|type|>title<|page|>7<|box|>330 140 349 797<|content|>IV. Response to Comment No. 3: Baghouse Filter PM\n<|id|>52<|type|>title<|page|>7<|box|>363 142 378 398<|content|>A. Summary of IDNR Comment\n<|id|>54<|type|>title<|page|>7<|box|>599 140 617 285<|content|>B. GAP Response\n<|id|>76<|type|>table<|page|>9<|box|>224 143 359 852<|content|>None\n<|id|>81<|type|>title<|page|>10<|box|>204 140 222 472<|content|>V. Enclosures and Attachments Summary\n<|id|>87<|type|>title<|page|>10<|box|>758 140 777 495<|content|>VI. Request for Completeness Determination\n<|id|>92<|type|>title<|page|>11<|box|>421 140 438 473<|content|>VII. Availability and Contact Information\n<|id|>103<|type|>title<|page|>11<|box|>829 140 845 251<|content|>VIII. Closing\n<|id|>113<|type|>title<|page|>12<|box|>398 143 414 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>48<|tgt_id|>33\n<|src_id|>49<|tgt_id|>33\n<|src_id|>76<|tgt_id|>54",
+    "parsed": [
+        {
+            "src_id": 48,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 54
+        }
+    ]
+}

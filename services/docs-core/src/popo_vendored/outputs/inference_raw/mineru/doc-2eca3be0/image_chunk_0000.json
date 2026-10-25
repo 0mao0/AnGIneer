@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 313 133 683<|content|>EXHIBIT A-2 TO THE INDENTURE FORM OF REGULATION S\n<|id|>1<|type|>title<|page|>1<|box|>142 156 176 844<|content|>THALASSA SHIPPING & LOGISTICS SA a société anonyme\n<|id|>5<|type|>title<|page|>1<|box|>282 310 297 686<|content|>8.750% SENIOR SECURED NOTES DUE 2029\n<|id|>6<|type|>title<|page|>1<|box|>308 359 324 638<|content|>REGULATION S GLOBAL NOTE\n<|id|>8<|type|>table<|page|>1<|box|>460 143 516 852<|content|>None\n<|id|>9<|type|>table<|page|>1<|box|>549 143 773 852<|content|>None\n<|id|>10<|type|>title<|page|>1<|box|>824 142 840 361<|content|>Section 1 — Promise to Pay\n<|id|>16<|type|>title<|page|>2<|box|>667 140 684 398<|content|>Section 2 — Method of Payment\n<|id|>19<|type|>title<|page|>3<|box|>204 140 222 447<|content|>Section 3 — Indenture; Defined Terms\n<|id|>24<|type|>title<|page|>3<|box|>789 140 806 334<|content|>Section 4 — Guarantees\n<|id|>33<|type|>title<|page|>4<|box|>633 140 652 310<|content|>Section 5 — Security\n<|id|>40<|type|>title<|page|>5<|box|>546 140 564 413<|content|>Section 6 — Optional Redemption\n<|id|>46<|type|>table<|page|>6<|box|>224 143 330 852<|content|>None\n<|id|>52<|type|>title<|page|>7<|box|>90 140 107 584<|content|>Section 7 — Mandatory Redemption; Offers to Purcha\n<|id|>56<|type|>title<|page|>7<|box|>539 140 556 526<|content|>Section 8 — Denominations; Transfer; Exchange\n<|id|>61<|type|>title<|page|>8<|box|>431 140 449 313<|content|>Section 9 — Ranking\n<|id|>68<|type|>title<|page|>8<|box|>792 140 810 509<|content|>Section 10 — Covenants (Summary Reference)\n<|id|>78<|type|>title<|page|>10<|box|>186 140 204 500<|content|>Section 11 — Events of Default and Remedies\n<|id|>82<|type|>title<|page|>10<|box|>579 140 597 537<|content|>Section 12 — Trustee Dealings with the Co-Issuers\n<|id|>84<|type|>title<|page|>10<|box|>756 140 773 473<|content|>Section 13 — No Recourse Against Others\n<|id|>86<|type|>title<|page|>11<|box|>150 140 167 370<|content|>Section 14 — Authentication\n<|id|>88<|type|>title<|page|>11<|box|>308 140 325 410<|content|>Section 15 — Global Note Legend\n<|id|>98<|type|>title<|page|>12<|box|>676 140 694 375<|content|>Section 16 — Governing Law\n<|id|>101<|type|>title<|page|>13<|box|>223 140 239 308<|content|>Section 17 — Agents\n<|id|>105<|type|>title<|page|>13<|box|>435 253 453 743<|content|>[SIGNATURE PAGE TO REGULATION S GLOBAL NOTE]\n<|id|>107<|type|>title<|page|>13<|box|>505 142 522 486<|content|>THALASSA SHIPPING & LOGISTICS SA\n<|id|>119<|type|>title<|page|>13<|box|>713 279 729 717<|content|>TRUSTEE'S CERTIFICATE OF AUTHENTICATION\n<|id|>121<|type|>title<|page|>13<|box|>765 140 781 839<|content|>Marlowe Asset Management TRUST COMPANY OF SINGAPOR\n<|id|>126<|type|>title<|page|>13<|box|>851 437 867 560<|content|>SCHEDULE A\n<|id|>129<|type|>table<|page|>14<|box|>188 143 316 852<|content|>None\n<|id|>131<|type|>title<|page|>14<|box|>417 437 434 560<|content|>SCHEDULE B\n<|id|>132<|type|>title<|page|>14<|box|>444 328 460 669<|content|>FORM OF NOTATION OF GUARANTEE",
+    "raw_response": "<|src_id|>8<|tgt_id|>5\n<|src_id|>9<|tgt_id|>5\n<|src_id|>46<|tgt_id|>40\n<|src_id|>129<|tgt_id|>126",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 126
+        }
+    ]
+}

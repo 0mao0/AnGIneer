@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        5,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 290 132 709<|content|>1585 Broadway, 34th Floor New York, New York 10036\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 748 184 854<|content|>June 11, 2024\n<|id|>4<|page|>1<|box|>193 140 229 854<|content|>Elaine R. ... Sato Deputy Chief Investment Officer...80 Lexington Avenue, 31st Floor New York, NY 10022\n<|id|>5<|page|>1<|box|>237 176 273 854<|content|>Re: ... Engagement of Calderwood & Harkness LLP — ...- Person Event, Driftwood Absolute Return Fund Ltd\n<|id|>6<|page|>1<|box|>282 176 299 367<|content|>Matter No. ... 1024-00002\n<|id|>7<|page|>1<|box|>309 143 324 256<|content|>Dear Ms. ... Sato\n<|id|>49<|page|>5<|box|>666 174 702 854<|content|>(c) Section 14. ... and\n<|id|>51<|page|>5<|box|>753 140 845 857<|content|>All LPA Amendments will be subject to the consent ...ble consent thresholds for each proposed amendment\n<|id|>77<|page|>8<|box|>329 183 345 398<|content|>• Partners: ... $1,650 per hour\n<|id|>79<|page|>8<|box|>369 140 441 854<|content|>The foregoing rates are effective as of the date o...ed at rates communicated to the Clients in advance\n<|id|>78<|page|>8<|box|>349 184 364 398<|content|>• Associates: ... $895 per hour\n<|id|>108<|page|>10<|box|>830 142 845 343<|content|>Name: ... Graham Sutherland\n<|id|>109<|page|>10<|box|>847 142 864 459<|content|>Title: ... Partner, Funds & Asset Management\n<|id|>111<|page|>10<|box|>883 143 898 253<|content|>By: ... By\n<|id|>110<|page|>10<|box|>864 143 881 305<|content|>(Responsible Partner)\n<|id|>115<|page|>11<|box|>229 140 244 307<|content|>Name: ... Sato\n<|id|>116<|page|>11<|box|>246 140 263 433<|content|>Title: ... Deputy Chief Investment Officer\n<|id|>117<|page|>11<|box|>263 142 280 266<|content|>Date: ... Date\n<|id|>118<|page|>11<|box|>281 140 295 258<|content|>Enclosures: ... None\n<|id|>119<|page|>11<|box|>303 140 319 740<|content|>cc: ... Graham Sutherland, Stephen Adler, Theresa Kim (Calderwood & Harkness LLP — internal file)",
+    "raw_response": "<|src_id|>109<|tgt_id|>110\n<|src_id|>111<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 110
+        }
+    ]
+}

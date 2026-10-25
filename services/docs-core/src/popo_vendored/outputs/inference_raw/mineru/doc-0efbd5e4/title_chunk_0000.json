@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 107 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>212 142 229 723<|content|>VIA USPS EXPRESS MAIL / USCIS ONLINE ACCOUNT (as a\n<|id|>22<|page|>1<|box|>757 142 773 441<|content|>I. INTRODUCTION AND PURPOSE\n<|id|>29<|page|>2<|box|>564 140 580 421<|content|>II. PETITIONER BACKGROUND\n<|id|>41<|page|>3<|box|>763 142 779 406<|content|>III. BENEFICIARY SUMMARY\n<|id|>53<|page|>4<|box|>560 140 578 468<|content|>IV. IDENTIFICATION OF RFE ISSUES\n<|id|>68<|page|>5<|box|>795 140 811 550<|content|>V. SUMMARY OF RESPONSE AND ARGUMENT\n<|id|>71<|page|>6<|box|>220 142 239 501<|content|>A. [RFE Issue 1 — e.g., Specialty Occupation]\n<|id|>90<|page|>7<|box|>584 140 602 403<|content|>B. [RFE Issue 2 — If Applicable]\n<|id|>94<|page|>7<|box|>763 140 781 464<|content|>C. [Additional RFE Issues — As Needed]\n<|id|>96<|page|>8<|box|>89 140 106 643<|content|>VI. SUMMARY OF ENCLOSED EVIDENCE / EXHIBIT LIST\n<|id|>101<|page|>9<|box|>234 140 252 457<|content|>VII. PETITIONER'S ATTESTATIONS\n<|id|>109<|page|>10<|box|>89 140 106 506<|content|>VIII. LEGAL AUTHORITY RESERVATION\n<|id|>113<|page|>10<|box|>428 140 445 581<|content|>IX. CONCLUSION AND REQUEST FOR APPROVAL\n<|id|>127<|page|>11<|box|>263 143 299 852<|content|>INTERNAL USAGE NOTES — FOR TEMPLATE USERS ONLY REM\n<|id|>128<|page|>11<|box|>308 140 338 854<|content|>Template: RFE Response Cover Letter — Optiwave Sem",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>-1\n<|id|>22<|level|>1\n<|id|>29<|level|>1\n<|id|>41<|level|>1\n<|id|>53<|level|>1\n<|id|>68<|level|>1\n<|id|>71<|level|>2\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>96<|level|>1\n<|id|>101<|level|>1\n<|id|>109<|level|>1\n<|id|>113<|level|>1\n<|id|>127<|level|>1\n<|id|>128<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 2
+        }
+    ]
+}

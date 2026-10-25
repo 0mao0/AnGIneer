@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 143 126 854<|content|>BORROWER'S CERTIFICATE — USE OF PROCEEDS COMPLIANC\n<|id|>6<|type|>title<|page|>1<|box|>444 140 460 450<|content|>Section 1. Identity of Certifying Officer\n<|id|>11<|type|>title<|page|>1<|box|>753 140 770 553<|content|>Section 2. Certification of Permitted Use of Proce\n<|id|>22<|type|>table<|page|>3<|box|>510 143 702 852<|content|>None\n<|id|>24<|type|>title<|page|>4<|box|>90 140 107 501<|content|>Section 3. Sanctions Compliance Certification\n<|id|>51<|type|>title<|page|>5<|box|>497 140 513 555<|content|>Section 4. Anti-Corruption Compliance Certificatio\n<|id|>56<|type|>title<|page|>6<|box|>167 140 185 614<|content|>Section 5. Anti-Money Laundering Compliance Certif\n<|id|>59<|type|>title<|page|>6<|box|>535 140 553 661<|content|>Section 6. Representations Regarding Knowledge and\n<|id|>67<|type|>title<|page|>7<|box|>439 140 457 388<|content|>Section 7. Reliance and Benefit\n<|id|>71<|type|>title<|page|>7<|box|>814 140 832 349<|content|>Section 8. Governing Law\n<|id|>73<|type|>title<|page|>8<|box|>90 140 108 338<|content|>[Signature Page Follows]",
+    "raw_response": "<|src_id|>22<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 11
+        }
+    ]
+}

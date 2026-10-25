@@ -1,0 +1,61 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>119 192 162 803<|content|>More than Memes: A Multimodal Topic Modeling Appro\n<|id|>3<|type|>title<|page|>1<|box|>273 250 287 315<|content|>Abstract\n<|id|>6<|type|>title<|page|>1<|box|>640 225 655 336<|content|>Introduction\n<|id|>14<|type|>title<|page|>2<|box|>607 220 623 344<|content|>Related Work\n<|id|>17<|type|>title<|page|>2<|box|>564 516 580 717<|content|>Image-based Approaches\n<|id|>19<|type|>title<|page|>2<|box|>842 517 859 710<|content|>Multimodal Approaches\n<|id|>21<|type|>title<|page|>3<|box|>373 200 388 362<|content|>Data and Methods\n<|id|>23<|type|>title<|page|>3<|box|>559 83 574 209<|content|>Data Collection\n<|id|>26<|type|>table<|page|>3<|box|>64 519 179 924<|content|>None\n<|id|>28<|type|>title<|page|>3<|box|>441 516 459 643<|content|>Topic Modeling\n<|id|>31<|type|>table<|page|>4<|box|>64 94 125 465<|content|>None\n<|id|>38<|type|>table<|page|>4<|box|>575 517 633 911<|content|>None\n<|id|>41<|type|>title<|page|>5<|box|>338 248 353 316<|content|>Results\n<|id|>42<|type|>title<|page|>5<|box|>356 83 373 267<|content|>Topic and Image Types\n<|id|>44<|type|>title<|page|>5<|box|>758 81 775 274<|content|>Dominant Topic Groups\n<|id|>48<|type|>title<|page|>5<|box|>400 516 417 836<|content|>Topic Relations Across Modality Settings\n<|id|>53<|type|>table<|page|>6<|box|>64 202 250 795<|content|>None\n<|id|>54<|type|>table<|page|>6<|box|>287 104 446 890<|content|>None\n<|id|>55<|type|>table<|page|>6<|box|>508 107 569 454<|content|>None\n<|id|>56<|type|>title<|page|>6<|box|>779 534 814 897<|content|>Textual and Visual Discursive Strategies in Conspi\n<|id|>59<|type|>title<|page|>7<|box|>756 83 772 271<|content|>Conceptual Framework\n<|id|>67<|type|>title<|page|>8<|box|>594 83 609 406<|content|>Case Study: The Topic Group Israel Gaza\n<|id|>73<|type|>title<|page|>8<|box|>614 537 672 893<|content|>THAT ISRAEL AND THE ZIONISTS THEN OWN THE GAZA STR\n<|id|>76<|type|>table<|page|>9<|box|>64 88 335 908<|content|>None\n<|id|>80<|type|>image<|page|>10<|box|>64 94 516 468<|content|>None\n<|id|>81<|type|>title<|page|>10<|box|>714 232 729 331<|content|>Conclusion\n<|id|>83<|type|>image<|page|>10<|box|>64 527 342 901<|content|>None\n<|id|>84<|type|>title<|page|>10<|box|>772 668 787 763<|content|>Discussion\n<|id|>88<|type|>title<|page|>11<|box|>66 581 83 849<|content|>Ethics and Broader Perspective\n<|id|>90<|type|>title<|page|>11<|box|>277 666 292 764<|content|>References",
+    "raw_response": "<|src_id|>26<|tgt_id|>23\n<|src_id|>31<|tgt_id|>28\n<|src_id|>38<|tgt_id|>28\n<|src_id|>53<|tgt_id|>48\n<|src_id|>54<|tgt_id|>48\n<|src_id|>55<|tgt_id|>48\n<|src_id|>76<|tgt_id|>67\n<|src_id|>80<|tgt_id|>67\n<|src_id|>83<|tgt_id|>67",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 67
+        }
+    ]
+}

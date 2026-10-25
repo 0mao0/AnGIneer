@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        25
+    ],
+    "pages": [
+        2,
+        4,
+        6,
+        7,
+        21,
+        22,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>2<|box|>494 112 516 643<|content|>Thomas A. ... Timlin*\n<|id|>4<|page|>2<|box|>555 112 575 240<|content|>January 2026\n<|id|>5<|page|>2<|box|>801 547 821 885<|content|>*Corresponding author, jatimli@sandia. ... gov\n<|id|>9<|page|>4<|box|>239 140 273 803<|content|>- Optimize automated analysis methods that enabled feedback for pond automation strategies\n<|id|>12<|page|>4<|box|>347 112 383 825<|content|>This report fulfills the deliverable requirement f...ecommendations for technology deployment at scale”\n<|id|>10<|page|>4<|box|>276 140 311 813<|content|>- Identify pond crash indicators from primary (pes...ls with potential for early treatment/intervention\n<|id|>18<|page|>6<|box|>589 112 901 887<|content|>Figure 1: ... 18\n<|id|>19<|page|>7<|box|>89 112 210 883<|content|>Figure 5: ... 23\n<|id|>87<|page|>21<|box|>840 109 893 885<|content|>An inversion of the relative intensities of the pe... ... While we acknowledge that Figure 4 and Figure\n<|id|>88<|page|>22<|box|>90 109 246 887<|content|>6 are measuring the reflectance spectra of differe...accurate concentrations under saturated conditions\n<|id|>89<|page|>22<|box|>251 109 527 887<|content|>A comparison of the estimated biomass was made bet...ough improved calibration and/or adjustment to the\n<|id|>91<|page|>22<|box|>523 535 609 885<|content|>prediction parameters to better represent the geom... scope of the current project funding and timeline\n<|id|>104<|page|>25<|box|>348 109 537 887<|content|>For FOV = 15 deg and b = 10 m, the required 0. ......required to cover the entire circular area will be\n<|id|>105<|page|>25<|box|>551 109 589 885<|content|>5 rotations × (24 angular positions / rotation) × ...acquisitions + 1 sec position-to-position) = 3 min",
+    "raw_response": "<|src_id|>87<|tgt_id|>88\n<|src_id|>89<|tgt_id|>91\n<|src_id|>104<|tgt_id|>105",
+    "parsed": [
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        }
+    ]
+}

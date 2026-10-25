@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=12, 8', 'rowspan=12, 传输通道指标', 'rowspan=7, 8.2 高清Y、C_R(P_R)、C_B(P_B)视频信号', '8.2.7 Y/C_B(Y/P_B)、Y/C_R(Y/P_R)信号时延差', '±10ns', '数字信号发生器发送高清晰度彩条信号,用数字视频测试仪测量']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=9, 8', 'rowspan=9, 传输通道指标', '8.2 高清Y、C_R(P_R)、C_B(P_B)视频信号', '\\\\triangle 8.2.8 Y,C_B(P_B)、C_R(P_R)信号的信噪比(加权)', '≥56dB', '数字信号发生器发送静默行信号,用数字视频测试仪测量']]\n",
+    "raw_response": "[1, 1, 1, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 147,
+    "table2_idx": 148
+}

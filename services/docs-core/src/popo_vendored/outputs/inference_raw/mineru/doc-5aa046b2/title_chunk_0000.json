@@ -1,0 +1,138 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 637<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED COMMUNIC\n<|id|>9<|page|>1<|box|>646 140 662 369<|content|>I. Litigation Hold — Release\n<|id|>10<|page|>1<|box|>676 140 694 408<|content|>A. General Release Authorization\n<|id|>21<|page|>2<|box|>357 142 375 401<|content|>B. Notification to IT Department\n<|id|>23<|page|>2<|box|>575 140 593 576<|content|>C. NovaPay Solutions Inc. — Third-Party Hold Relea\n<|id|>25<|page|>3<|box|>90 140 107 549<|content|>II. Class Settlement Documents — 5-Year Retention\n<|id|>26<|page|>3<|box|>121 142 138 302<|content|>A. Retention Period\n<|id|>28<|page|>3<|box|>286 142 301 437<|content|>B. Categories of Documents to Retain\n<|id|>42<|page|>4<|box|>676 140 693 380<|content|>C. Insurance-Related Records\n<|id|>53<|page|>5<|box|>607 140 625 573<|content|>III. Aldrich Settlement Documents — 7-Year Retenti\n<|id|>54<|page|>5<|box|>638 142 655 303<|content|>A. Retention Period\n<|id|>56<|page|>5<|box|>784 142 801 437<|content|>B. Categories of Documents to Retain\n<|id|>77<|page|>7<|box|>766 140 782 375<|content|>D. Coordination with AGMG\n<|id|>80<|page|>8<|box|>186 140 203 418<|content|>IV. TimeTrack Pro Data Retention\n<|id|>81<|page|>8<|box|>217 140 234 303<|content|>A. Retention Period\n<|id|>83<|page|>8<|box|>417 142 434 346<|content|>B. Specific Data to Retain\n<|id|>90<|page|>9<|box|>194 140 210 495<|content|>C. Coordination with NovaPay Solutions Inc.\n<|id|>92<|page|>9<|box|>369 140 385 602<|content|>V. Return of Materials — Aldrich Compliance Verifi\n<|id|>93<|page|>9<|box|>398 142 417 328<|content|>A. Aldrich's Obligation\n<|id|>95<|page|>9<|box|>582 142 599 426<|content|>B. Recommended Verification Steps\n<|id|>102<|page|>10<|box|>257 140 273 426<|content|>C. Halcyon Creek Productions LLC\n<|id|>104<|page|>10<|box|>523 140 540 503<|content|>VI. Ongoing Restrictive Covenant Monitoring\n<|id|>105<|page|>10<|box|>554 140 570 460<|content|>A. Modified Restrictive Covenant Terms\n<|id|>111<|page|>11<|box|>90 140 107 405<|content|>B. Monitoring Recommendations\n<|id|>118<|page|>11<|box|>705 140 723 573<|content|>C. New California Law Compliance (AB 1076 / SB 699\n<|id|>121<|page|>12<|box|>204 140 222 542<|content|>VII. E-discovery Vendor and Expert File Retention\n<|id|>122<|page|>12<|box|>236 140 253 598<|content|>A. Marlowe Asset Management Litigation Technology\n<|id|>126<|page|>12<|box|>598 142 614 439<|content|>B. Expert Reports and Work Product\n<|id|>132<|page|>13<|box|>90 140 106 346<|content|>VIII. C&H File Retention",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>10<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>1\n<|id|>26<|level|>2\n<|id|>28<|level|>2\n<|id|>42<|level|>2\n<|id|>53<|level|>1\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>77<|level|>2\n<|id|>80<|level|>1\n<|id|>81<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>2\n<|id|>92<|level|>1\n<|id|>93<|level|>2\n<|id|>95<|level|>2\n<|id|>102<|level|>2\n<|id|>104<|level|>1\n<|id|>105<|level|>2\n<|id|>111<|level|>2\n<|id|>118<|level|>2\n<|id|>121<|level|>1\n<|id|>122<|level|>2\n<|id|>126<|level|>2\n<|id|>132<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 1
+        }
+    ]
+}

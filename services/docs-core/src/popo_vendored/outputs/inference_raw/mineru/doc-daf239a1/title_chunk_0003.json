@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        140,
+        147
+    ],
+    "pages": [
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>600<|page|>141<|box|>135 328 156 633<|content|>Recent Reports and Studies\n<|id|>603<|page|>141<|box|>283 193 307 768<|content|>Report on the Taxation of Americans Working Overse\n<|id|>605<|page|>141<|box|>433 319 456 645<|content|>Foreign Sales Corporation Report ^{1}\n<|id|>607<|page|>141<|box|>595 335 618 631<|content|>The Sales Source Rules Report ^{1}\n<|id|>609<|page|>141<|box|>757 322 780 647<|content|>Fraternal Benefit Societies Report ^{1}\n<|id|>613<|page|>142<|box|>299 212 320 801<|content|>Social Security and Railroad Retirement Benefits T\n<|id|>615<|page|>142<|box|>474 196 497 819<|content|>Assessment of Bank-Reported Data in the U.S. Balan\n<|id|>617<|page|>142<|box|>623 344 646 675<|content|>Treasury Reviews Insurance Issues ^{2}\n<|id|>620<|page|>143<|box|>141 352 163 600<|content|>Research Paper Series\n<|id|>634<|page|>144<|box|>128 421 163 589<|content|>Glossary\n<|id|>635<|page|>144<|box|>179 187 202 825<|content|>Expanded, With References to Applicable Sections a\n<|id|>662<|page|>145<|box|>121 392 155 563<|content|>Glossary\n<|id|>693<|page|>146<|box|>63 933 350 985<|content|>Zhang 7/2001 JUL 2 199?\n<|id|>695<|page|>146<|box|>242 33 721 73<|content|>THE DEPARTMENT OF THE TREASURY\n<|id|>696<|page|>147<|box|>14 142 34 843<|content|>Information about the Superintendent of Documents\n<|id|>697<|page|>147<|box|>50 29 66 191<|content|>Current Subscribers\n<|id|>703<|page|>147<|box|>472 31 488 164<|content|>New Subscribers\n<|id|>717<|page|>147<|box|>930 21 951 306<|content|>Form can be photocopied",
+    "raw_response": "<|id|>600<|level|>1\n<|id|>603<|level|>2\n<|id|>605<|level|>2\n<|id|>607<|level|>2\n<|id|>609<|level|>2\n<|id|>613<|level|>2\n<|id|>615<|level|>2\n<|id|>617<|level|>2\n<|id|>620<|level|>1\n<|id|>634<|level|>1\n<|id|>635<|level|>2\n<|id|>662<|level|>1\n<|id|>693<|level|>-1\n<|id|>695<|level|>1\n<|id|>696<|level|>2\n<|id|>697<|level|>2\n<|id|>703<|level|>2\n<|id|>717<|level|>-1",
+    "parsed": [
+        {
+            "id": 600,
+            "level": 1
+        },
+        {
+            "id": 603,
+            "level": 2
+        },
+        {
+            "id": 605,
+            "level": 2
+        },
+        {
+            "id": 607,
+            "level": 2
+        },
+        {
+            "id": 609,
+            "level": 2
+        },
+        {
+            "id": 613,
+            "level": 2
+        },
+        {
+            "id": 615,
+            "level": 2
+        },
+        {
+            "id": 617,
+            "level": 2
+        },
+        {
+            "id": 620,
+            "level": 1
+        },
+        {
+            "id": 634,
+            "level": 1
+        },
+        {
+            "id": 635,
+            "level": 2
+        },
+        {
+            "id": 662,
+            "level": 1
+        },
+        {
+            "id": 695,
+            "level": 1
+        },
+        {
+            "id": 696,
+            "level": 2
+        },
+        {
+            "id": 697,
+            "level": 2
+        },
+        {
+            "id": 703,
+            "level": 2
+        }
+    ]
+}

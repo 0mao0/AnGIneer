@@ -1,0 +1,334 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8pnqqydn\\input\\pdfs\\doc-bb890903.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8pnqqydn\\enriched\\doc-bb890903.json",
+    "contd_output": "<|src_id|>210<|tgt_id|>211",
+    "title_output": "<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>19<|level|>2\n<|id|>42<|level|>2\n<|id|>43<|level|>3\n<|id|>46<|level|>3\n<|id|>49<|level|>3\n<|id|>52<|level|>3\n<|id|>55<|level|>3\n<|id|>58<|level|>3\n<|id|>61<|level|>3\n<|id|>64<|level|>3\n<|id|>67<|level|>3\n<|id|>70<|level|>3\n<|id|>73<|level|>3\n<|id|>77<|level|>2\n<|id|>78<|level|>3\n<|id|>79<|level|>4\n<|id|>82<|level|>4\n<|id|>84<|level|>4\n<|id|>90<|level|>4\n<|id|>97<|level|>3\n<|id|>101<|level|>2\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>127<|level|>3\n<|id|>141<|level|>3\n<|id|>147<|level|>2\n<|id|>148<|level|>3\n<|id|>155<|level|>3\n<|id|>160<|level|>3\n<|id|>165<|level|>3\n<|id|>189<|level|>3\n<|id|>192<|level|>1\n<|id|>193<|level|>2\n<|id|>194<|level|>3\n<|id|>199<|level|>3\n<|id|>202<|level|>2\n<|id|>203<|level|>3\n<|id|>215<|level|>3\n<|id|>217<|level|>3\n<|id|>222<|level|>2\n<|id|>223<|level|>3\n<|id|>243<|level|>3\n<|id|>262<|level|>3\n<|id|>266<|level|>3",
+    "image_output": "<|src_id|>81<|tgt_id|>79\n<|src_id|>87<|tgt_id|>84\n<|src_id|>89<|tgt_id|>84\n<|src_id|>93<|tgt_id|>90\n<|src_id|>111<|tgt_id|>109\n<|src_id|>114<|tgt_id|>109\n<|src_id|>116<|tgt_id|>109\n<|src_id|>117<|tgt_id|>109\n<|src_id|>118<|tgt_id|>109\n<|src_id|>120<|tgt_id|>109\n<|src_id|>121<|tgt_id|>109\n<|src_id|>122<|tgt_id|>109\n<|src_id|>124<|tgt_id|>109\n<|src_id|>125<|tgt_id|>109\n<|src_id|>168<|tgt_id|>165\n<|src_id|>196<|tgt_id|>194\n<|src_id|>205<|tgt_id|>203\n<|src_id|>208<|tgt_id|>203\n<|src_id|>226<|tgt_id|>223\n<|src_id|>229<|tgt_id|>223\n<|src_id|>231<|tgt_id|>223\n<|src_id|>232<|tgt_id|>223\n<|src_id|>234<|tgt_id|>223\n<|src_id|>239<|tgt_id|>223\n<|src_id|>242<|tgt_id|>223\n<|src_id|>249<|tgt_id|>243\n<|src_id|>250<|tgt_id|>243\n<|src_id|>268<|tgt_id|>266",
+    "contd_label": [
+        {
+            "src_id": 210,
+            "tgt_id": 211
+        }
+    ],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 4
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 84,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 1
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 217,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 3
+        },
+        {
+            "id": 243,
+            "level": 3
+        },
+        {
+            "id": 262,
+            "level": 3
+        },
+        {
+            "id": 266,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 81,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 165
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 194
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 203
+        },
+        {
+            "src_id": 208,
+            "tgt_id": 203
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 223
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 223
+        },
+        {
+            "src_id": 231,
+            "tgt_id": 223
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 223
+        },
+        {
+            "src_id": 234,
+            "tgt_id": 223
+        },
+        {
+            "src_id": 239,
+            "tgt_id": 223
+        },
+        {
+            "src_id": 242,
+            "tgt_id": 223
+        },
+        {
+            "src_id": 249,
+            "tgt_id": 243
+        },
+        {
+            "src_id": 250,
+            "tgt_id": 243
+        },
+        {
+            "src_id": 268,
+            "tgt_id": 266
+        }
+    ],
+    "table_merge_candidates": []
+}

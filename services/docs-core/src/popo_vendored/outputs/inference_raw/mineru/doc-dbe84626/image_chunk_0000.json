@@ -1,0 +1,80 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 142 104 658<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGE — DRAFT F\n<|id|>1<|type|>title<|page|>1<|box|>114 297 132 697<|content|>INTERNAL COVER MEMORANDUM\n<|id|>2<|type|>title<|page|>1<|box|>159 307 175 691<|content|>Filing and Submission Notes — Not Part of Form\n<|id|>16<|type|>title<|page|>1<|box|>796 442 815 555<|content|>Form 2848\n<|id|>17<|type|>title<|page|>1<|box|>840 290 883 705<|content|>Power of Attorney and Declaration of Representativ\n<|id|>19<|type|>table<|page|>2<|box|>136 143 175 852<|content|>None\n<|id|>20<|type|>title<|page|>2<|box|>224 388 241 609<|content|>Part I — Power of Attorney\n<|id|>22<|type|>title<|page|>2<|box|>373 142 390 397<|content|>Line 1 — Taxpayer Information\n<|id|>24<|type|>table<|page|>2<|box|>446 143 559 852<|content|>None\n<|id|>25<|type|>table<|page|>2<|box|>617 143 729 852<|content|>None\n<|id|>27<|type|>title<|page|>2<|box|>796 142 813 357<|content|>Line 2 — Representative(s)\n<|id|>29<|type|>table<|page|>3<|box|>113 143 327 852<|content|>None\n<|id|>30<|type|>title<|page|>3<|box|>366 140 382 351<|content|>Line 3 — Acts Authorized\n<|id|>36<|type|>title<|page|>4<|box|>157 140 174 321<|content|>Line 4 — Tax Matters\n<|id|>37<|type|>table<|page|>4<|box|>204 143 518 852<|content|>None\n<|id|>39<|type|>title<|page|>5<|box|>90 140 107 620<|content|>Line 5 — Retention/Revocation of Prior Power(s) of\n<|id|>43<|type|>title<|page|>6<|box|>90 140 107 397<|content|>Line 6 — Taxpayer Signature(s)\n<|id|>45<|type|>title<|page|>6<|box|>231 140 248 576<|content|>For Solara Digital Infrastructure LP (EIN 82-49173\n<|id|>89<|type|>title<|page|>7<|box|>306 341 324 656<|content|>Part II — Declaration of Representative\n<|id|>94<|type|>table<|page|>7<|box|>541 143 875 852<|content|>None\n<|id|>95<|type|>title<|page|>8<|box|>90 140 107 367<|content|>Designation: (a) — Attorney\n<|id|>98<|type|>title<|page|>8<|box|>277 142 295 395<|content|>Representative Signature block:\n<|id|>103<|type|>title<|page|>8<|box|>380 331 398 665<|content|>Continuation Sheet to Form 2848\n<|id|>104<|type|>title<|page|>8<|box|>425 290 441 707<|content|>Power of Attorney and Declaration of Representativ\n<|id|>105<|type|>title<|page|>8<|box|>450 277 468 720<|content|>Department of the Treasury — Internal Revenue Serv\n<|id|>108<|type|>title<|page|>8<|box|>698 142 715 580<|content|>Additional Taxpayer Information (Line 1 — Continue\n<|id|>109<|type|>table<|page|>8<|box|>744 143 907 852<|content|>None\n<|id|>110<|type|>table<|page|>9<|box|>88 143 109 852<|content|>None\n<|id|>111<|type|>table<|page|>9<|box|>167 143 390 852<|content|>None\n<|id|>112<|type|>table<|page|>9<|box|>449 143 672 852<|content|>None\n<|id|>113<|type|>table<|page|>9<|box|>732 143 893 852<|content|>None\n<|id|>114<|type|>table<|page|>10<|box|>88 143 109 852<|content|>None\n<|id|>115<|type|>table<|page|>10<|box|>166 143 390 852<|content|>None\n<|id|>116<|type|>table<|page|>10<|box|>449 143 672 852<|content|>None\n<|id|>117<|type|>title<|page|>10<|box|>713 142 729 323<|content|>Confirmation of Scope",
+    "raw_response": "<|src_id|>19<|tgt_id|>17\n<|src_id|>24<|tgt_id|>22\n<|src_id|>25<|tgt_id|>22\n<|src_id|>29<|tgt_id|>27\n<|src_id|>37<|tgt_id|>36\n<|src_id|>94<|tgt_id|>89\n<|src_id|>109<|tgt_id|>108\n<|src_id|>110<|tgt_id|>104\n<|src_id|>111<|tgt_id|>104\n<|src_id|>112<|tgt_id|>104\n<|src_id|>113<|tgt_id|>104\n<|src_id|>114<|tgt_id|>104\n<|src_id|>115<|tgt_id|>104\n<|src_id|>116<|tgt_id|>104",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 104
+        }
+    ]
+}

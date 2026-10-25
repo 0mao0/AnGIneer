@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>8<|type|>title<|page|>1<|box|>422 142 439 264<|content|>1. Introduction\n<|id|>13<|type|>title<|page|>2<|box|>148 140 167 364<|content|>2. Post-Closing Deliverables\n<|id|>15<|type|>title<|page|>2<|box|>243 140 261 496<|content|>Item 1: Deposit Account Control Agreements\n<|id|>24<|type|>title<|page|>3<|box|>157 140 175 450<|content|>Item 2: Updated Insurance Certificates\n<|id|>35<|type|>title<|page|>4<|box|>90 140 107 390<|content|>Item 3: Landlord Lien Waivers\n<|id|>42<|type|>title<|page|>4<|box|>742 142 758 524<|content|>3. Summary Table of Deliverables and Deadlines\n<|id|>44<|type|>table<|page|>4<|box|>810 143 906 852<|content|>None\n<|id|>45<|type|>table<|page|>5<|box|>88 143 311 852<|content|>None\n<|id|>46<|type|>title<|page|>5<|box|>359 140 377 401<|content|>4. Consequences of Non-Delivery\n<|id|>50<|type|>title<|page|>6<|box|>90 140 107 388<|content|>5. Coordination and Assistance\n<|id|>60<|type|>title<|page|>7<|box|>90 140 107 326<|content|>6. Contact Information\n<|id|>68<|type|>title<|page|>7<|box|>416 140 433 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>44<|tgt_id|>42\n<|src_id|>45<|tgt_id|>42",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 42
+        }
+    ]
+}

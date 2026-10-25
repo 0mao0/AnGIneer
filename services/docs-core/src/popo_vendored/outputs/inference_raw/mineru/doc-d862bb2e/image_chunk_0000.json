@@ -1,0 +1,51 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 155 133 843<|content|>CALDERWOOD & HARKNESS LLP One Liberty Plaza, 50th\n<|id|>1<|type|>title<|page|>1<|box|>167 169 203 826<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>3<|type|>table<|page|>1<|box|>237 143 484 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>532 142 550 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>12<|type|>title<|page|>2<|box|>542 140 559 566<|content|>II. BACKGROUND AND PROCEDURAL HISTORY\n<|id|>13<|type|>title<|page|>2<|box|>573 140 590 282<|content|>A. The Litigation\n<|id|>18<|type|>title<|page|>3<|box|>329 140 347 344<|content|>B. The Motion to Dismiss\n<|id|>26<|type|>title<|page|>4<|box|>89 140 107 550<|content|>III. SUMMARY OF JUSTICE CHEN'S DECISION\n<|id|>27<|type|>title<|page|>4<|box|>121 140 138 522<|content|>A. Count V — Unjust Enrichment: DISMISSED\n<|id|>34<|type|>title<|page|>5<|box|>89 140 107 607<|content|>B. Count III — Third-Party Shipper Claims: NARROWE\n<|id|>42<|type|>title<|page|>6<|box|>239 142 258 669<|content|>IV. IMPACT ON OVERALL CASE AND DAMAGES EXPOSURE\n<|id|>43<|type|>title<|page|>6<|box|>272 142 289 413<|content|>A. Reduction in Claimed Damages\n<|id|>44<|type|>table<|page|>6<|box|>337 143 498 852<|content|>None\n<|id|>46<|type|>title<|page|>6<|box|>672 142 690 447<|content|>B. Remaining Claims Against Thalassa\n<|id|>47<|type|>table<|page|>6<|box|>739 143 893 852<|content|>None\n<|id|>48<|type|>table<|page|>7<|box|>89 143 277 852<|content|>None\n<|id|>50<|type|>title<|page|>7<|box|>359 140 377 411<|content|>C. Thalassa's Remaining Defenses\n<|id|>60<|type|>title<|page|>8<|box|>741 140 758 565<|content|>V. IMPLICATIONS FOR DISCOVERY STRATEGY\n<|id|>61<|type|>title<|page|>8<|box|>773 140 789 303<|content|>A. Discovery Period\n<|id|>64<|type|>title<|page|>9<|box|>138 140 157 395<|content|>B. Adjusted discovery Priorities\n<|id|>68<|type|>table<|page|>9<|box|>630 143 906 852<|content|>None\n<|id|>69<|type|>table<|page|>10<|box|>88 143 125 852<|content|>None\n<|id|>72<|type|>title<|page|>10<|box|>434 140 452 326<|content|>C. Expert Engagement\n<|id|>77<|type|>title<|page|>11<|box|>89 140 107 754<|content|>VI. SUMMARY JUDGMENT CONSIDERATIONS (FORWARD-LOOKI\n<|id|>82<|type|>title<|page|>11<|box|>582 140 599 772<|content|>VII. COORDINATION WITH LOCAL COUNSEL, INSURERS, AN\n<|id|>83<|type|>title<|page|>11<|box|>613 140 630 334<|content|>A. Greek Local Counsel\n<|id|>88<|type|>title<|page|>12<|box|>422 140 440 483<|content|>VIII. NEXT STEPS AND ACTION ITEMS\n<|id|>98<|type|>title<|page|>13<|box|>353 140 369 300<|content|>IX. CONCLUSION",
+    "raw_response": "<|src_id|>3<|tgt_id|>4\n<|src_id|>44<|tgt_id|>43\n<|src_id|>47<|tgt_id|>46\n<|src_id|>48<|tgt_id|>46\n<|src_id|>68<|tgt_id|>64\n<|src_id|>69<|tgt_id|>64",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 64
+        }
+    ]
+}

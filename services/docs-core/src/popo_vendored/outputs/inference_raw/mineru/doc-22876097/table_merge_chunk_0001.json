@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Whitmore Avionics Holdings LLC', 'Membership Interests', 'Delaware', 'DE SOS 6329017', '85-6723901', '100% membership interest', 'Uncertificated', '100%', 'c/o Whitmore Aerospace LLC, 2400']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', '', '', 'Centennial Tower Dr., Suite 800, Herndon, VA 20170']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 313,
+    "table2_idx": 314
+}

@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 424 151 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>160 140 196 854<|content|>TO: ... Steven Hollander, Lead Associate, White Collar & Investigations, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>204 140 239 854<|content|>FROM: ... Jasmine Thornton, Working Associate, White Collar & Investigations, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>248 140 266 316<|content|>DATE: ... April 10, 2025\n<|id|>5<|page|>1<|box|>273 140 310 854<|content|>RE: ... Corporate Records — Coordinated with Hargrove Whitfield LLP\n<|id|>6<|page|>1<|box|>318 140 335 362<|content|>MATTER NO. ... 1039-00005\n<|id|>13<|page|>2<|box|>89 174 145 854<|content|>(3) To identify authorized signatories and delegat...rent-level Delegation of Authority Policy; ... and\n<|id|>15<|page|>2<|box|>234 138 359 856<|content|>Catherine Whitfield of Hargrove Whitfield LLP, Tri...ated her observations on BVI law where noted below\n<|id|>33<|page|>3<|box|>809 174 900 857<|content|>(i) Marcus Delacroix — Director. ... Delacroix is a French-\n<|id|>34<|page|>4<|box|>90 174 200 854<|content|>Canadian dual citizen, age 47. ... , personally in...transfers to Crestfield during the relevant period\n<|id|>48<|page|>5<|box|>364 174 398 854<|content|>(b) Success fees of $100,000 per mining permit, ex...val obtained with Crestfield's assistance; ... and\n<|id|>50<|page|>5<|box|>452 140 506 856<|content|>The resolution was signed by Marcus Delacroix and ...nted as a director at the time of this resolution)\n<|id|>70<|page|>7<|box|>405 181 440 852<|content|>• Monthly retainers: ... $15,000 × 66 months (Apri... Delacroix's departure from Torchlight) = $990,000\n<|id|>74<|page|>7<|box|>539 178 555 321<|content|>Actual Payments: ... Actual Payments\n<|id|>71<|page|>7<|box|>443 183 479 854<|content|>• Success fees: ... $100,000 × 5 permits (the tota... obtained during the engagement period) = $500,000\n<|id|>72<|page|>7<|box|>481 181 516 854<|content|>• Expense reimbursement: ... $25,000 × 22 quarters...um possible over the engagement period) = $550,000\n<|id|>73<|page|>7<|box|>518 181 536 513<|content|>• Total contractual maximum: ... $2,040,000\n<|id|>75<|page|>7<|box|>564 181 599 854<|content|>• Total payments to Crestfield from TGH Meridian Account No. ... $3,210,000\n<|id|>76<|page|>7<|box|>602 176 619 540<|content|>Excess over contractual maximum: ... $1,170,000\n<|id|>77<|page|>7<|box|>628 140 738 854<|content|>The excess of $1,170,000 — representing payments m... being conducted by Pinnacle Forensic Advisory LLC\n<|id|>100<|page|>9<|box|>349 218 385 854<|content|>• Source-of-funds declaration referencing intercom...contributions from Torchlight Mining Corp. ... and\n<|id|>102<|page|>9<|box|>407 140 444 854<|content|>The KYC documentation appears facially complete an...lies were noted in the account opening file itself\n<|id|>106<|page|>9<|box|>806 140 898 856<|content|>Preliminary review of Meridian wire transfer recor...nvoices, is set forth in the separate Payment Flow\n<|id|>107<|page|>10<|box|>90 140 126 854<|content|>Analysis Workbook prepared by the Pinnacle engagem...incorporated into the interim investigation report\n<|id|>143<|page|>13<|box|>872 140 907 856<|content|>4. ... Total payments to Crestfield from TGH's Mer...0,000, exceeding the contractual maximum under the\n<|id|>144<|page|>14<|box|>90 174 180 854<|content|>Crestfield Advisory Agreement of $2,040,000 by $1,...ted corporate authorization at the TGH board level\n<|id|>158<|page|>15<|box|>587 140 603 689<|content|>Calderwood & Harkness LLP 825 Eighth Avenue, 42nd Floor New York, New York 10019\n<|id|>159<|page|>15<|box|>609 140 626 578<|content|>Matter No. ... FCPA Investigation",
+    "raw_response": "<|src_id|>33<|tgt_id|>34\n<|src_id|>106<|tgt_id|>107\n<|src_id|>143<|tgt_id|>144",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 144
+        }
+    ]
+}

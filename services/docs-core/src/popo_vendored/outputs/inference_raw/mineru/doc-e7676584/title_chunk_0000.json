@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>12<|page|>1<|box|>632 140 648 537<|content|>Confirmation of Deposit into Client Trust Account\n<|id|>15<|page|>2<|box|>150 142 167 547<|content|>Retainer Terms — Reference to Engagement Letter\n<|id|>21<|page|>2<|box|>667 142 684 357<|content|>Billing Rates Confirmation\n<|id|>26<|page|>3<|box|>321 140 339 292<|content|>Billing Procedures\n<|id|>29<|page|>3<|box|>561 140 579 403<|content|>Engagement Team Confirmation\n<|id|>36<|page|>4<|box|>204 142 222 334<|content|>Matter Scope Reminder\n<|id|>43<|page|>4<|box|>559 140 575 423<|content|>Contact Information and Questions\n<|id|>53<|page|>5<|box|>135 142 151 233<|content|>Enclosure:",
+    "raw_response": "<|id|>12<|level|>1\n<|id|>15<|level|>1\n<|id|>21<|level|>1\n<|id|>26<|level|>1\n<|id|>29<|level|>1\n<|id|>36<|level|>1\n<|id|>43<|level|>1\n<|id|>53<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        }
+    ]
+}

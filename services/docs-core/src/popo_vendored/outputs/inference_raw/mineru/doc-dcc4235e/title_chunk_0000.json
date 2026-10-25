@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 238 108 759<|content|>IN THE COURT OF CHANCERY OF THE STATE OF DELAWARE\n<|id|>2<|page|>1<|box|>393 165 429 831<|content|>DECLARATION OF SANDRA FIELDING IN SUPPORT OF PLAIN\n<|id|>3<|page|>1<|box|>473 142 489 475<|content|>I, Sandra Fielding, hereby declare as follows:\n<|id|>6<|page|>1<|box|>760 142 777 651<|content|>I. QUALIFICATIONS AND BACKGROUND OF DECLARANT\n<|id|>14<|page|>2<|box|>612 140 628 553<|content|>II. RETENTION AND SCOPE OF ENGAGEMENT\n<|id|>24<|page|>3<|box|>565 142 582 576<|content|>III. THE DEPARTING EMPLOYEES — OVERVIEW\n<|id|>36<|page|>5<|box|>89 140 106 782<|content|>IV. INVESTIGATION FINDINGS: THE JANUARY 6, 2025 DI\n<|id|>45<|page|>6<|box|>185 140 220 820<|content|>V. INVESTIGATION FINDINGS: PRE-RESIGNATION COORDIN\n<|id|>51<|page|>7<|box|>89 142 106 663<|content|>VI. INVESTIGATION FINDINGS: OFFER LETTER TIMELINE\n<|id|>59<|page|>8<|box|>89 140 106 769<|content|>VII. INVESTIGATION FINDINGS: DATA EXFILTRATION COR\n<|id|>69<|page|>9<|box|>89 142 106 781<|content|>VIII. INVESTIGATION FINDINGS: VERDANA'S PUBLIC ANN\n<|id|>74<|page|>9<|box|>655 142 672 650<|content|>IX. INVESTIGATION FINDINGS: COMPETITIVE OVERLAP\n<|id|>84<|page|>10<|box|>621 142 638 584<|content|>X. SUMMARY OF INVESTIGATION CONCLUSIONS\n<|id|>91<|page|>11<|box|>574 140 592 661<|content|>XI. DOCUMENTS REVIEWED AND SOURCES RELIED UPON\n<|id|>104<|page|>12<|box|>505 142 523 320<|content|>XII. VERIFICATION\n<|id|>108<|page|>12<|box|>683 375 700 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>-1\n<|id|>6<|level|>2\n<|id|>14<|level|>2\n<|id|>24<|level|>2\n<|id|>36<|level|>2\n<|id|>45<|level|>2\n<|id|>51<|level|>2\n<|id|>59<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>2\n<|id|>84<|level|>2\n<|id|>91<|level|>2\n<|id|>104<|level|>2\n<|id|>108<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 1
+        }
+    ]
+}

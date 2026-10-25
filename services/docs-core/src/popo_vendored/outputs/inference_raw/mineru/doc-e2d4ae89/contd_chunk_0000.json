@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        45
+    ],
+    "pages": [
+        1,
+        2,
+        9,
+        10,
+        14,
+        25,
+        26,
+        38,
+        39,
+        42,
+        45
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>234 140 268 852<|content|>CALDERWOOD & HARKNESS LLP 555 California Street, Suite 4200 San Francisco, California 94104\n<|id|>6<|page|>1<|box|>724 143 742 408<|content|>Right-click to update Table of Contents\n<|id|>12<|page|>2<|box|>297 147 314 624<|content|>• ClearArc Software Inc. ... and\n<|id|>14<|page|>2<|box|>335 140 392 854<|content|>The aggregate FMV of the three stakes is approximately $1. ... 71×\n<|id|>80<|page|>9<|box|>801 140 876 857<|content|>Proposed GP Entity. ... The GP entity will have customary general partner authority under the\n<|id|>81<|page|>10<|box|>90 140 126 854<|content|>CV LPA, including authority over investment decisi... fund operations, and portfolio company management\n<|id|>119<|page|>14<|box|>387 174 424 854<|content|>(i) The Rolling LPs are contributing appreciated p...CV (property transfer to the partnership); ... and\n<|id|>121<|page|>14<|box|>476 140 566 856<|content|>The critical question is whether the cash distribu...received, and the Rolling LPs would recognize gain\n<|id|>243<|page|>25<|box|>830 140 904 856<|content|>UBTI blocking Mechanics. ... Distributions from the\n<|id|>244<|page|>26<|box|>90 140 126 854<|content|>Domestic blocker to the tax-exempt LPs will take t...ds, which are generally not UBTI under Section 512\n<|id|>374<|page|>38<|box|>849 176 904 854<|content|>1. ... 's aggregate gross assets at the time of th...ss assets exceeded the $50 million threshold under\n<|id|>375<|page|>39<|box|>90 210 181 854<|content|>Section 1202(d)(1). ... We recommend requesting a ...Andover & Strauss LLP or the company's own auditor\n<|id|>394<|page|>42<|box|>152 140 169 320<|content|>Respectfully submitted,\n<|id|>395<|page|>42<|box|>169 140 186 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>396<|page|>42<|box|>188 143 204 253<|content|>By: ... By\n<|id|>397<|page|>42<|box|>204 142 220 450<|content|>Sylvia Hartwell Responsible Partner, Tax\n<|id|>398<|page|>42<|box|>223 143 239 253<|content|>By: ... By\n<|id|>399<|page|>42<|box|>239 142 255 424<|content|>Garrett Simmons Lead Associate, Tax\n<|id|>400<|page|>42<|box|>257 143 273 253<|content|>By: ... By\n<|id|>401<|page|>42<|box|>273 140 290 421<|content|>Leila Nazari Working Associate, Tax\n<|id|>402<|page|>42<|box|>290 140 308 826<|content|>555 California Street, Suite 4200 San Francisco, California 94104 Telephone: ... (415) 555-4200\n<|id|>424<|page|>45<|box|>521 181 537 630<|content|>• Meridian Public Employees' Retirement System — $125M\n<|id|>427<|page|>45<|box|>580 176 616 854<|content|>Through PCV International Holdings Ltd. ... tax purposes via Form 8832 election)\n<|id|>425<|page|>45<|box|>541 183 556 508<|content|>• Ashford University Endowment — $50M\n<|id|>426<|page|>45<|box|>560 181 577 496<|content|>• Total through Domestic blocker: ... $175M\n<|id|>432<|page|>45<|box|>734 183 750 375<|content|>• Marcus Aldren — 62%\n<|id|>435<|page|>45<|box|>792 140 827 854<|content|>The GP entity holds both the carried interest (bif... tranches) and the $14M co-invest capital interest\n<|id|>433<|page|>45<|box|>753 183 768 349<|content|>• Diana Tsao — 28%\n<|id|>434<|page|>45<|box|>773 183 789 382<|content|>• Rafael Montoya — 10%",
+    "raw_response": "<|src_id|>80<|tgt_id|>81\n<|src_id|>243<|tgt_id|>244\n<|src_id|>374<|tgt_id|>375",
+    "parsed": [
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 243,
+            "tgt_id": 244
+        },
+        {
+            "src_id": 374,
+            "tgt_id": 375
+        }
+    ]
+}

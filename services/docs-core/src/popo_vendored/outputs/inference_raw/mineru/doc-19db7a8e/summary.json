@@ -1,0 +1,859 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3qmh2ilm\\input\\pdfs\\doc-19db7a8e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3qmh2ilm\\enriched\\doc-19db7a8e.json",
+    "contd_output": "<|src_id|>8<|tgt_id|>10\n<|src_id|>109<|tgt_id|>111\n<|src_id|>134<|tgt_id|>136",
+    "title_output": "<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>26<|level|>2\n<|id|>34<|level|>3\n<|id|>50<|level|>3\n<|id|>55<|level|>2\n<|id|>57<|level|>3\n<|id|>62<|level|>3\n<|id|>73<|level|>3\n<|id|>85<|level|>3\n<|id|>89<|level|>3\n<|id|>91<|level|>3\n<|id|>93<|level|>3\n<|id|>95<|level|>2\n<|id|>98<|level|>3\n<|id|>104<|level|>3\n<|id|>112<|level|>2\n<|id|>113<|level|>3\n<|id|>116<|level|>3\n<|id|>119<|level|>3\n<|id|>127<|level|>3\n<|id|>137<|level|>2\n<|id|>139<|level|>3\n<|id|>155<|level|>3\n<|id|>164<|level|>3\n<|id|>171<|level|>3\n<|id|>174<|level|>2\n<|id|>187<|level|>2\n<|id|>188<|level|>3\n<|id|>190<|level|>4\n<|id|>193<|level|>3\n<|id|>199<|level|>2\n<|id|>210<|level|>2\n<|id|>212<|level|>3\n<|id|>216<|level|>3\n<|id|>221<|level|>2\n<|id|>222<|level|>3\n<|id|>225<|level|>3\n<|id|>234<|level|>3\n<|id|>236<|level|>3\n<|id|>239<|level|>2\n<|id|>240<|level|>3\n<|id|>246<|level|>3\n<|id|>250<|level|>3\n<|id|>253<|level|>2\n<|id|>257<|level|>2\n<|id|>259<|level|>3\n<|id|>261<|level|>3\n<|id|>264<|level|>3\n<|id|>266<|level|>3\n<|id|>269<|level|>3\n<|id|>276<|level|>2\n<|id|>278<|level|>3\n<|id|>286<|level|>3\n<|id|>294<|level|>3\n<|id|>300<|level|>2\n<|id|>302<|level|>3\n<|id|>303<|level|>2\n<|id|>306<|level|>2\n<|id|>309<|level|>3\n<|id|>312<|level|>3\n<|id|>317<|level|>3\n<|id|>332<|level|>2\n<|id|>333<|level|>3",
+    "image_output": "<|src_id|>2<|tgt_id|>1\n<|src_id|>35<|tgt_id|>34\n<|src_id|>36<|tgt_id|>34\n<|src_id|>38<|tgt_id|>34\n<|src_id|>39<|tgt_id|>34\n<|src_id|>40<|tgt_id|>34\n<|src_id|>41<|tgt_id|>34\n<|src_id|>42<|tgt_id|>34\n<|src_id|>43<|tgt_id|>34\n<|src_id|>44<|tgt_id|>34\n<|src_id|>45<|tgt_id|>34\n<|src_id|>46<|tgt_id|>34\n<|src_id|>47<|tgt_id|>34\n<|src_id|>48<|tgt_id|>34\n<|src_id|>49<|tgt_id|>34\n<|src_id|>51<|tgt_id|>50\n<|src_id|>52<|tgt_id|>50\n<|src_id|>53<|tgt_id|>50\n<|src_id|>54<|tgt_id|>50\n<|src_id|>76<|tgt_id|>73\n<|src_id|>77<|tgt_id|>73\n<|src_id|>100<|tgt_id|>98\n<|src_id|>101<|tgt_id|>98\n<|src_id|>102<|tgt_id|>98\n<|src_id|>103<|tgt_id|>98\n<|src_id|>106<|tgt_id|>104\n<|src_id|>114<|tgt_id|>113\n<|src_id|>115<|tgt_id|>113\n<|src_id|>129<|tgt_id|>127\n<|src_id|>191<|tgt_id|>188\n<|src_id|>242<|tgt_id|>240\n<|src_id|>243<|tgt_id|>240\n<|src_id|>248<|tgt_id|>246\n<|src_id|>255<|tgt_id|>253\n<|src_id|>304<|tgt_id|>303\n<|src_id|>308<|tgt_id|>306\n<|src_id|>310<|tgt_id|>309\n<|src_id|>311<|tgt_id|>309\n<|src_id|>313<|tgt_id|>312\n<|src_id|>315<|tgt_id|>312\n<|src_id|>316<|tgt_id|>312\n<|src_id|>318<|tgt_id|>317\n<|src_id|>320<|tgt_id|>317\n<|src_id|>322<|tgt_id|>317\n<|src_id|>323<|tgt_id|>317\n<|src_id|>324<|tgt_id|>317\n<|src_id|>326<|tgt_id|>317\n<|src_id|>327<|tgt_id|>317\n<|src_id|>329<|tgt_id|>317\n<|src_id|>330<|tgt_id|>317\n<|src_id|>316<|tgt_id|>317\n<|src_id|>334<|tgt_id|>332\n<|src_id|>335<|tgt_id|>332\n<|src_id|>337<|tgt_id|>332",
+    "contd_label": [
+        {
+            "src_id": 8,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 136
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 4
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 3
+        },
+        {
+            "id": 236,
+            "level": 3
+        },
+        {
+            "id": 239,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 3
+        },
+        {
+            "id": 246,
+            "level": 3
+        },
+        {
+            "id": 250,
+            "level": 3
+        },
+        {
+            "id": 253,
+            "level": 2
+        },
+        {
+            "id": 257,
+            "level": 2
+        },
+        {
+            "id": 259,
+            "level": 3
+        },
+        {
+            "id": 261,
+            "level": 3
+        },
+        {
+            "id": 264,
+            "level": 3
+        },
+        {
+            "id": 266,
+            "level": 3
+        },
+        {
+            "id": 269,
+            "level": 3
+        },
+        {
+            "id": 276,
+            "level": 2
+        },
+        {
+            "id": 278,
+            "level": 3
+        },
+        {
+            "id": 286,
+            "level": 3
+        },
+        {
+            "id": 294,
+            "level": 3
+        },
+        {
+            "id": 300,
+            "level": 2
+        },
+        {
+            "id": 302,
+            "level": 3
+        },
+        {
+            "id": 303,
+            "level": 2
+        },
+        {
+            "id": 306,
+            "level": 2
+        },
+        {
+            "id": 309,
+            "level": 3
+        },
+        {
+            "id": 312,
+            "level": 3
+        },
+        {
+            "id": 317,
+            "level": 3
+        },
+        {
+            "id": 332,
+            "level": 2
+        },
+        {
+            "id": 333,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 2,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 242,
+            "tgt_id": 240
+        },
+        {
+            "src_id": 243,
+            "tgt_id": 240
+        },
+        {
+            "src_id": 248,
+            "tgt_id": 246
+        },
+        {
+            "src_id": 255,
+            "tgt_id": 253
+        },
+        {
+            "src_id": 304,
+            "tgt_id": 303
+        },
+        {
+            "src_id": 308,
+            "tgt_id": 306
+        },
+        {
+            "src_id": 310,
+            "tgt_id": 309
+        },
+        {
+            "src_id": 311,
+            "tgt_id": 309
+        },
+        {
+            "src_id": 313,
+            "tgt_id": 312
+        },
+        {
+            "src_id": 315,
+            "tgt_id": 312
+        },
+        {
+            "src_id": 316,
+            "tgt_id": 312
+        },
+        {
+            "src_id": 318,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 320,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 322,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 323,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 324,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 326,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 327,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 329,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 330,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 316,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 334,
+            "tgt_id": 332
+        },
+        {
+            "src_id": 335,
+            "tgt_id": 332
+        },
+        {
+            "src_id": 337,
+            "tgt_id": 332
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 38,
+            "table2_idx": 39,
+            "upper_row_ss": [
+                [
+                    "7.02(a)",
+                    "Accuracy of NovaMart's and Selling Stockholders' Representations and Warranties (bring-down)",
+                    "Buyer",
+                    "NovaMart / Selling Stockholders",
+                    "GREEN",
+                    "Closing",
+                    "No known breach as of this update.NovaMart's representations and warranties are required to be true and correct in all material respects(subject to materiality qualifiers and the MAE standard specified in the SPA) as of the date of the SPA and as of the closing date (with exceptions for representations made as of a specific"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "date). Bring-down due diligence searches (updated litigation, lien, UCC, judgment, and bankruptcy searches — Document 70) to be conducted immediately prior to closing. Officer's Certificate of NovaMart (form prepared — Document 62) to be delivered by Julian Reeves (CEO) or Doug Whitfield (CFO) at closing, certifying the accuracy of representations and warranties as of the closing date."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 39,
+            "table2_idx": 40,
+            "upper_row_ss": [
+                [
+                    "7.02(b)",
+                    "Performance of NovaMart's and Selling Stockholders' Covenants",
+                    "Buyer",
+                    "NovaMart / Selling Stockholders",
+                    "GREEN",
+                    "Closing",
+                    "NovaMart and the Selling Stockholders are required to have performed and complied in all material respects with all covenants and agreements required to be performed by them under"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "the SPA on or prior to the closing date.Interim operating covenant compliance (SPA Section 6.01) is being monitored pursuant to the protocol described in Section VII below. No material deviations from ordinary course operations have been reported as of this update date."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 40,
+            "table2_idx": 41,
+            "upper_row_ss": [
+                [
+                    "7.02(c)",
+                    "No Material Adverse Effect on NovaMart",
+                    "Buyer",
+                    "NovaMart",
+                    "GREEN",
+                    "Closing",
+                    "No event, change, occurrence, circumstance, development, condition, or effect constituting or reasonably expected to constitute a Material Adverse Effect (as defined in SPA Section 1.01) on NovaMart or any of its subsidiaries has been identified as of this update date. See Section IX below for detailed assessment.MAE certificate to"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "be delivered at closing as part of the Officer's Certificate (Document 62)."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 43,
+            "table2_idx": 44,
+            "upper_row_ss": [
+                [
+                    "7.02(h)",
+                    "Delivery of FIRPTA Non-Foreign Person Certificate",
+                    "Buyer",
+                    "NovaMart",
+                    "PENDING",
+                    "Closing",
+                    "Form prepared (Document 66). NovaMart (EIN: 84-3291547) to certify that it is not a \"foreign"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "person\" within the meaning of Section 1445 of the Internal Revenue Code of 1986, as amended (the \"Code\"), and Treasury Regulations Section 1.1445-2(b) (2). To be executed by an authorized officer of NovaMart and delivered to Cascade at closing."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 44,
+            "table2_idx": 45,
+            "upper_row_ss": [
+                [
+                    "7.02(i)",
+                    "Payoff of NovaMart Existing Indebtedness (Ashford Savings Bank, N.A.)",
+                    "Buyer",
+                    "NovaMart / Ashford Savings Bank",
+                    "IN PROGRESS",
+                    "Closing",
+                    "NovaMart maintains a $150,000,000 revolving credit facility (the \"Existing Credit Facility\") with Ashford Savings Bank, N.A., as administrative agent and sole lender. The Existing Credit Facility is required to be repaid in full and terminated at closing, with all liens securing the facility released simultaneously. Draft payoff letter circulated to"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Ashford Savings Bank (Document 59). Estimated outstanding principal plus accrued and unpaid interest as of the anticipated closing date is approximately $143,200,000. UCC-3 termination statements and related lien release documentation are being prepared by Ashford Savings Bank's counsel for delivery at closing."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 45,
+            "table2_idx": 46,
+            "upper_row_ss": [
+                [
+                    "7.02(j)",
+                    "Delivery of Executed Employment Agreements (Reeves, Narasimhan)",
+                    "Buyer",
+                    "NovaMart / Cascade",
+                    "IN PROGRESS",
+                    "Sept.-Oct. 2025",
+                    "The SPA conditions Cascade's obligation to close on the execution and delivery of post-closing employment agreements with Julian Reeves (CEO) and Priya Narasimhan (CTO). Drafts have been circulated (Documents 49 and 50, respectively) and are under"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "active negotiation. See Section VI below for detailed status, including key open negotiation points."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 46,
+            "table2_idx": 47,
+            "upper_row_ss": [
+                [
+                    "7.02(l)",
+                    "Escrow Agreement Execution",
+                    "Buyer",
+                    "Cascade / Stockholder Representative / Escrow Agent",
+                    "PENDING",
+                    "Closing",
+                    "Form of Escrow Agreement finalized (Document 21). The Escrow Agreement is a tri-party"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "agreement among Cascade, Ridgeline Equity Partners, LP (in its capacity as Stockholder Representative, acting through Franklin Osei), and Marlowe Asset Management Trust Company, N.A. (Patricia Keane, VP, Escrow Services), providing for the deposit, administration, and release of the $96,000,000 escrow amount. The escrow is subject to release 24 months after the closing date, net of any amounts retained for pending indemnification claims. The Escrow Agreement is to be executed at or immediately prior to closing."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 47,
+            "table2_idx": 48,
+            "upper_row_ss": [
+                [
+                    "7.02(m)",
+                    "Stockholder Written Consent",
+                    "Buyer",
+                    "Selling Stockholders / NovaMart",
+                    "IN PROGRESS",
+                    "End of July 2025",
+                    "The SPA requires that the transaction be approved by"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "the holders of a majority of the outstanding shares of NovaMart capital stock by written consent in lieu of a stockholder meeting. The form of written consent has been prepared (Document 24) and the solicitation package has been distributed to all NovaMart stockholders (Document 73). Ridgeline Equity Partners, LP (41.2% of outstanding NovaMart stock) and Brindoval Growth Capital LLC (22.8% of outstanding NovaMart stock) together hold 64.0% of outstanding NovaMart stock, which is sufficient to satisfy the majority approval requirement. C&H and CBL anticipate receipt of all"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 51,
+            "table2_idx": 52,
+            "upper_row_ss": [
+                [
+                    "7.03(b)",
+                    "Performance of Cascade's Covenants",
+                    "Seller",
+                    "Cascade",
+                    "GREEN",
+                    "Closing",
+                    "All covenants and agreements required to be"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "performed by Cascade under the SPA on or prior to the closing date are on track. Cascade has been cooperating with NovaMart on the HSR process, has obtained committed financing consistent with its SPA obligations, and has not taken any action that would impede the satisfaction of any condition to closing."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 52,
+            "table2_idx": 53,
+            "upper_row_ss": [
+                [
+                    "7.03(c)",
+                    "Delivery of Cascade Officer's Certificate",
+                    "Seller",
+                    "Cascade",
+                    "PENDING",
+                    "Closing",
+                    "Form prepared (Document 61). To be executed by an authorized officer of Cascade (anticipated signatory: Elena Vasquez-Bright or Rajiv Sundaram) and delivered to the Stockholder Representative at closing. Certificate will certify satisfaction of Sections 7.03(a) and"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "7.03(b)."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 53,
+            "table2_idx": 54,
+            "upper_row_ss": [
+                [
+                    "7.03(e)",
+                    "Delivery of Purchase Price (Net of Escrow)",
+                    "Seller",
+                    "Cascade",
+                    "PENDING",
+                    "Closing",
+                    "The aggregate purchase price of $1,200,000,000 is to be paid entirely in cash at closing. Net cash to the Selling Stockholders"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "at closing (net of the $96,000,000 escrow deposit and subject to the working capital adjustment mechanism) is $1,104,000,000. Financing has been confirmed (see Section V). The Funds Flow Memorandum is in preparation (Documents 34 and 68)."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 100,
+            "table2_idx": 101,
+            "upper_row_ss": [
+                [
+                    "Master Services Agreement — Pinnacle Cloud Solutions Inc.(enterprise cloud hosting and data infrastructure)",
+                    "Consent Required",
+                    "IN PROGRESS",
+                    "Draft consent letter circulated by NovaMart (Document 56). Pinnacle Cloud review is pending; initial response from Pinnacle's legal department expected within two weeks. This is a critical contract — NovaMart's entire marketplace platform is hosted on Pinnacle Cloud infrastructure. The MSA"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "has a remaining term of approximately 4 years with annual fees of approximately $28,000,000. C&H has flagged this consent for priority follow-up."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 114,
+            "table2_idx": 115,
+            "upper_row_ss": [
+                [
+                    "Revolving Credit Facility Draw",
+                    "$200,000,000",
+                    "COMMITTED",
+                    "Draw under Cascade's existing $500,000,000 revolving credit facility with Cornerstone National Bank, N.A., as Administrative Agent (interest rate of Adjusted Term SOFR plus 200 basis points; maturity date: March 2029). An amendment to the existing credit agreement"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "(Document 33) is in advanced draft stage, which will (i) permit the incurrence of the new Term Loan B, (ii) permit the acquisition and related transactions, (iii) authorize the $200,000,000 draw for purposes of funding the acquisition, and (iv) include updated financial covenant levels and cross-default provisions reflecting the new Term Loan B."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 242,
+            "table2_idx": 243,
+            "upper_row_ss": [
+                [
+                    "Carrier",
+                    "Meridian Specialty Insurance Company"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Policy Number",
+                    "MSI-RWI-2025-07832"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 322,
+            "table2_idx": 323,
+            "upper_row_ss": [
+                [
+                    "Vivian Hong",
+                    "Pemberton Strauss Advisory LLC",
+                    "NovaMart's financial advisor"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Sandra Chiu",
+                    "Whitmore & Paige LLP",
+                    "Cascade's accounting and tax advisor; working capital analysis"
+                ]
+            ]
+        }
+    ]
+}

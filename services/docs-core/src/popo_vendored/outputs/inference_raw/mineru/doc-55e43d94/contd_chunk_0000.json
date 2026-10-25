@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>176 142 191 364<|content|>CASE NO. ... 2022-CA-031547\n<|id|>2<|page|>1<|box|>236 140 253 673<|content|>VERIMARK HOSPITALITY GROUP INC. ... , a Delaware corporation,\n<|id|>3<|page|>1<|box|>262 210 279 282<|content|>Plaintiff,\n<|id|>5<|page|>1<|box|>314 140 368 856<|content|>IRONCLAD INDEMNITY CORPORATION, a Connecticut corporation; ... , a Bermuda corporation,\n<|id|>6<|page|>1<|box|>376 212 392 305<|content|>Defendants. ... Defendants\n<|id|>8<|page|>1<|box|>472 142 489 454<|content|>Before the Honorable Catherine Embry\n<|id|>9<|page|>1<|box|>532 140 715 854<|content|>Plaintiff Verimark Hospitality Group Inc. ... Each...be deemed admitted for all purposes of this action\n<|id|>65<|page|>5<|box|>852 140 888 854<|content|>REQUEST FOR ADMISSION NO. ... Admit that the Verim... unable to conduct normal business operations from\n<|id|>66<|page|>6<|box|>89 140 127 854<|content|>September 18, 2022 through January 31, 2023, a per...rect result of damage caused by Hurricane Callista\n<|id|>104<|page|>8<|box|>852 140 890 854<|content|>REQUEST FOR ADMISSION NO. ... Admit the authentici...opy of the declarations page of Policy Number IIC-\n<|id|>105<|page|>9<|box|>89 140 125 852<|content|>PRP-2022-07541 issued by Ironclad to VHG for the p...he policy period July 1, 2022 through July 1, 2023\n<|id|>112<|page|>9<|box|>489 140 539 852<|content|>CALDERWOOD & HARKNESS LLP Counsel for Plaintiff Verimark Hospitality Group Inc. ... (305) 779-2201\n<|id|>113<|page|>9<|box|>541 143 558 253<|content|>By: ... By\n<|id|>114<|page|>9<|box|>556 143 574 486<|content|>Elaine Forsythe, Esq. ... 0847261\n<|id|>115<|page|>9<|box|>575 143 590 468<|content|>Email: ... com\n<|id|>116<|page|>9<|box|>593 143 609 251<|content|>By: ... By\n<|id|>117<|page|>9<|box|>609 142 625 504<|content|>Tiffany Rosenthal, Esq. ... 1023489\n<|id|>118<|page|>9<|box|>626 142 643 473<|content|>Email: ... com\n<|id|>121<|page|>9<|box|>750 176 786 854<|content|>Gregory Stanton, Esq. ... (860) 524-3100\n<|id|>122<|page|>9<|box|>794 176 811 517<|content|>Email: ... com\n<|id|>123<|page|>9<|box|>811 176 829 511<|content|>Email: ... com\n<|id|>124<|page|>9<|box|>830 178 844 212<|content|>and\n<|id|>125<|page|>9<|box|>854 178 872 599<|content|>101 E. ... Kennedy Boulevard, Suite 3900 Tampa, FL 33602\n<|id|>126<|page|>9<|box|>880 178 898 823<|content|>Counsel for Defendants Ironclad Indemnity Corporat...demnity Corporation and Pinnacle Surplus Lines Inc\n<|id|>127<|page|>10<|box|>89 174 126 854<|content|>Patricia Kraus, Esq. ... (212) 688-4500\n<|id|>128<|page|>10<|box|>133 176 152 455<|content|>Email: ... com\n<|id|>129<|page|>10<|box|>152 176 169 441<|content|>Email: ... com\n<|id|>130<|page|>10<|box|>169 176 186 746<|content|>Counsel for Defendants Montclair Assurance Company...s Montclair Assurance Company and Sovereign Re Ltd",
+    "raw_response": "<|src_id|>65<|tgt_id|>66\n<|src_id|>104<|tgt_id|>105\n<|src_id|>123<|tgt_id|>124",
+    "parsed": [
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 124
+        }
+    ]
+}

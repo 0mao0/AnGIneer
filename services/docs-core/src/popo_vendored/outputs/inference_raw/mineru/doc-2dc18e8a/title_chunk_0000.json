@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>723 140 739 611<|content|>I. Deficiencies Regarding the Alleged Premarital A\n<|id|>11<|page|>2<|box|>90 140 107 498<|content|>A. Failure to Produce the Original Document\n<|id|>14<|page|>2<|box|>426 140 444 382<|content|>B. Authentication Deficiencies\n<|id|>18<|page|>2<|box|>825 140 843 496<|content|>C. Signs of Alteration and Forensic Concerns\n<|id|>22<|page|>3<|box|>411 140 428 803<|content|>D. Failure to Satisfy the Requirements of Californ\n<|id|>31<|page|>4<|box|>383 140 420 816<|content|>II. Deficiencies Regarding the Separate Property C\n<|id|>32<|page|>4<|box|>434 140 450 367<|content|>A. Insufficient Factual Basis\n<|id|>36<|page|>4<|box|>758 140 777 545<|content|>B. Burden of Proof on the Separate Property Claim\n<|id|>39<|page|>5<|box|>250 140 266 545<|content|>C. Enterprise Value and Community Contributions\n<|id|>42<|page|>5<|box|>578 140 595 614<|content|>III. Additional Deficiencies in Other Asset Charac\n<|id|>43<|page|>5<|box|>608 140 625 454<|content|>A. Pacific Rim Narrative Partners LLC\n<|id|>46<|page|>6<|box|>89 140 107 764<|content|>B. The Malibu Beach House — 27100 Pacific Coast Hi\n<|id|>53<|page|>6<|box|>777 140 814 807<|content|>IV. Isabela C. Fonseca-Greer's Promissory Note Cla\n<|id|>57<|page|>7<|box|>267 140 284 364<|content|>V. Demands and Next Steps\n<|id|>63<|page|>7<|box|>784 140 801 344<|content|>VI. Reservation of Rights",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>31<|level|>1\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>53<|level|>1\n<|id|>57<|level|>1\n<|id|>63<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        }
+    ]
+}

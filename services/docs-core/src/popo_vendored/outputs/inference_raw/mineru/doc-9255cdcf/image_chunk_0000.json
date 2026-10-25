@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 207 133 789<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY WORK PRODUCT CA\n<|id|>7<|type|>title<|page|>1<|box|>390 385 409 611<|content|>I. Executive Summary\n<|id|>15<|type|>title<|page|>2<|box|>561 310 580 687<|content|>II. Investors and Jurisdictional Nexus\n<|id|>17<|type|>title<|page|>2<|box|>713 142 729 419<|content|>A. Primary Investors (New Money)\n<|id|>18<|type|>table<|page|>2<|box|>736 143 902 852<|content|>None\n<|id|>19<|type|>table<|page|>3<|box|>88 143 205 852<|content|>None\n<|id|>20<|type|>table<|page|>3<|box|>279 143 491 852<|content|>None\n<|id|>22<|type|>title<|page|>3<|box|>565 140 582 398<|content|>C. Jurisdictional Nexus Analysis\n<|id|>30<|type|>title<|page|>4<|box|>513 181 534 816<|content|>III. Federal Preemption Framework — NSMIA and Rule\n<|id|>32<|type|>title<|page|>4<|box|>609 142 627 434<|content|>A. NSMIA and \"Covered Securities\"\n<|id|>35<|type|>title<|page|>5<|box|>90 140 107 535<|content|>B. Preemption of State Registration Requirements\n<|id|>38<|type|>title<|page|>5<|box|>329 140 347 516<|content|>C. Preservation of State Notice Filing Authority\n<|id|>44<|type|>title<|page|>5<|box|>628 142 645 333<|content|>D. Issuer Responsibility\n<|id|>47<|type|>title<|page|>6<|box|>90 303 111 692<|content|>IV. State-by-State Filing Requirements\n<|id|>49<|type|>title<|page|>6<|box|>205 140 224 251<|content|>A. California\n<|id|>62<|type|>title<|page|>7<|box|>359 142 375 282<|content|>B. Massachusetts\n<|id|>76<|type|>title<|page|>8<|box|>512 140 530 251<|content|>C. New York\n<|id|>94<|type|>title<|page|>9<|box|>840 140 859 218<|content|>D. Texas\n<|id|>109<|type|>title<|page|>11<|box|>90 267 111 730<|content|>V. Summary Filing Schedule and Fee Estimate\n<|id|>110<|type|>table<|page|>11<|box|>189 143 724 852<|content|>None\n<|id|>112<|type|>title<|page|>12<|box|>90 287 111 709<|content|>VI. Coordination with SEC Form D Filing\n<|id|>113<|type|>title<|page|>12<|box|>136 140 152 408<|content|>A. Federal Form D Requirements\n<|id|>121<|type|>title<|page|>12<|box|>571 140 588 277<|content|>B. Form D Draft\n<|id|>123<|type|>title<|page|>12<|box|>675 140 691 491<|content|>C. Coordination of Federal and State Filings\n<|id|>129<|type|>title<|page|>13<|box|>229 341 248 653<|content|>VII. Additional Considerations\n<|id|>130<|type|>title<|page|>13<|box|>273 142 290 330<|content|>A. Late Filing Penalties\n<|id|>133<|type|>title<|page|>13<|box|>531 142 549 344<|content|>B. Ongoing Amendments\n<|id|>135<|type|>title<|page|>13<|box|>708 140 724 245<|content|>C. Delaware\n<|id|>137<|type|>title<|page|>13<|box|>848 140 864 267<|content|>D. Other States\n<|id|>139<|type|>title<|page|>14<|box|>204 140 222 395<|content|>E. Convertible Note Conversion\n<|id|>145<|type|>title<|page|>14<|box|>637 140 654 328<|content|>F. Filing Responsibility\n<|id|>148<|type|>title<|page|>15<|box|>90 328 111 668<|content|>VIII. Recommended Action Items\n<|id|>163<|type|>title<|page|>16<|box|>135 421 155 575<|content|>IX. Conclusion\n<|id|>168<|type|>title<|page|>17<|box|>90 235 111 763<|content|>Appendix A — Filing Authority Contact Information\n<|id|>184<|type|>title<|page|>18<|box|>90 284 111 712<|content|>Appendix B — Investor Address Reference",
+    "raw_response": "<|src_id|>18<|tgt_id|>17\n<|src_id|>19<|tgt_id|>17\n<|src_id|>20<|tgt_id|>17\n<|src_id|>110<|tgt_id|>109",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 109
+        }
+    ]
+}

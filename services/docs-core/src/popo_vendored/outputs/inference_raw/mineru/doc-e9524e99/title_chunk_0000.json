@@ -1,0 +1,41 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        4
+    ],
+    "pages": [
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>13<|page|>2<|box|>208 142 226 441<|content|>EXISTING INDEBTEDNESS — PAYOFF\n<|id|>15<|page|>2<|box|>407 142 425 295<|content|>ESCROW FUNDING\n<|id|>20<|page|>2<|box|>765 142 782 354<|content|>MERGER CONSIDERATION\n<|id|>32<|page|>3<|box|>709 143 726 366<|content|>REGULATORY CLEARANCES\n<|id|>38<|page|>4<|box|>301 140 320 460<|content|>NASDAQ DELISTING AND SEC MATTERS\n<|id|>40<|page|>4<|box|>484 142 501 418<|content|>IMMEDIATE POST-CLOSING STEPS",
+    "raw_response": "<|id|>13<|level|>1\n<|id|>15<|level|>1\n<|id|>20<|level|>1\n<|id|>32<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        }
+    ]
+}

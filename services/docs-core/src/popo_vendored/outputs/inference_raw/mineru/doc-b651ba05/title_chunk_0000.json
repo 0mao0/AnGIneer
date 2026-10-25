@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        56
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        8,
+        9,
+        12,
+        32,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>343 379 403 657<|content|>疏浚工程预算定额\n<|id|>3<|page|>1<|box|>436 320 474 716<|content|>Budget Quota for Dredging Engineering\n<|id|>7<|page|>2<|box|>234 384 267 600<|content|>中华人民共和国行业标准\n<|id|>8<|page|>2<|box|>300 368 346 614<|content|>疏浚工程预算定额\n<|id|>15<|page|>3<|box|>199 187 313 783<|content|>交通运输部关于发布《水运建设工程概算预算编制规定》及其配套定额的公告\n<|id|>22<|page|>5<|box|>211 390 263 577<|content|>修订说明\n<|id|>44<|page|>8<|box|>211 421 265 555<|content|>目 次\n<|id|>46<|page|>9<|box|>213 404 265 572<|content|>总说明\n<|id|>64<|page|>12<|box|>474 299 527 670<|content|>第一章 自航耙吸挖泥船\n<|id|>106<|page|>32<|box|>166 186 191 286<|content|>五、其他说明：\n<|id|>147<|page|>55<|box|>193 187 218 283<|content|>五、其他说明",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>7<|level|>1\n<|id|>8<|level|>1\n<|id|>15<|level|>1\n<|id|>22<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>64<|level|>2\n<|id|>106<|level|>3\n<|id|>147<|level|>3",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        }
+    ]
+}

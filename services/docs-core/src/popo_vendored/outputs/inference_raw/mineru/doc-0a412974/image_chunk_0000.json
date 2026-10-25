@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>2<|type|>title<|page|>1<|box|>167 424 184 573<|content|>MEMORANDUM\n<|id|>7<|type|>title<|page|>1<|box|>330 142 348 250<|content|>I. PURPOSE\n<|id|>16<|type|>title<|page|>2<|box|>285 142 301 387<|content|>II. RSV INVOICE ANALYSIS\n<|id|>17<|type|>title<|page|>2<|box|>316 140 333 364<|content|>A. Invoice Total: $2,694,500\n<|id|>22<|type|>table<|page|>2<|box|>680 143 821 852<|content|>None\n<|id|>25<|type|>title<|page|>3<|box|>220 142 238 328<|content|>B. Categories of Excess\n<|id|>27<|type|>title<|page|>3<|box|>306 142 324 674<|content|>1. Duplicative Post-Production Supervision — $814,\n<|id|>32<|type|>title<|page|>3<|box|>782 140 801 727<|content|>2. Unsupported Festival and Distribution Services\n<|id|>36<|type|>title<|page|>4<|box|>325 140 343 620<|content|>3. Miscellaneous Overcharges — $306,000 (remaining\n<|id|>39<|type|>title<|page|>4<|box|>609 140 627 307<|content|>C. Invoice Approval\n<|id|>43<|type|>title<|page|>5<|box|>167 140 184 547<|content|>III. REVENUE RECLASSIFICATION ANALYSIS\n<|id|>45<|type|>title<|page|>5<|box|>297 140 314 344<|content|>A. Salt Wind — $538,200\n<|id|>48<|type|>title<|page|>5<|box|>579 140 597 364<|content|>B. Iron Lullaby — $309,000\n<|id|>50<|type|>title<|page|>5<|box|>724 140 742 387<|content|>C. Total Reclassified: $847,200\n<|id|>52<|type|>title<|page|>5<|box|>797 140 815 511<|content|>D. Recoupment Status of Underlying Advances\n<|id|>58<|type|>title<|page|>6<|box|>537 140 555 462<|content|>IV. RECONSTRUCTED WATERFALL\n<|id|>64<|type|>table<|page|>6<|box|>875 143 896 852<|content|>None\n<|id|>65<|type|>table<|page|>7<|box|>88 143 176 852<|content|>None\n<|id|>71<|type|>title<|page|>7<|box|>426 140 443 364<|content|>V. RECOMMENDATIONS\n<|id|>73<|type|>title<|page|>7<|box|>539 142 555 320<|content|>1. Discovery Priorities\n<|id|>76<|type|>title<|page|>8<|box|>90 140 107 426<|content|>2. Deposition of Howard Moss, CPA\n<|id|>84<|type|>title<|page|>8<|box|>648 140 665 307<|content|>3. Expert Testimony\n<|id|>88<|type|>title<|page|>9<|box|>138 140 157 343<|content|>4. Pre-Judgment Interest\n<|id|>93<|type|>title<|page|>9<|box|>454 140 472 380<|content|>5. Coordination with Pleading",
+    "raw_response": "<|src_id|>22<|tgt_id|>17\n<|src_id|>64<|tgt_id|>58\n<|src_id|>65<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 58
+        }
+    ]
+}

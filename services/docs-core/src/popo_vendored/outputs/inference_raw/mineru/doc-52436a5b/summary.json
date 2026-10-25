@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6z336u5i\\input\\pdfs\\doc-52436a5b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6z336u5i\\enriched\\doc-52436a5b.json",
+    "contd_output": "<|src_id|>6<|tgt_id|>7\n<|src_id|>19<|tgt_id|>20\n<|src_id|>60<|tgt_id|>61",
+    "title_output": "<|id|>2<|level|>1\n<|id|>9<|level|>1\n<|id|>10<|level|>2\n<|id|>15<|level|>2\n<|id|>21<|level|>2\n<|id|>24<|level|>1\n<|id|>38<|level|>1\n<|id|>39<|level|>2\n<|id|>89<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>2\n<|id|>111<|level|>1\n<|id|>112<|level|>2\n<|id|>118<|level|>2\n<|id|>122<|level|>2\n<|id|>128<|level|>2\n<|id|>132<|level|>1\n<|id|>134<|level|>2\n<|id|>138<|level|>2\n<|id|>141<|level|>2\n<|id|>148<|level|>2\n<|id|>150<|level|>2\n<|id|>158<|level|>2\n<|id|>161<|level|>2\n<|id|>168<|level|>2\n<|id|>174<|level|>1\n<|id|>180<|level|>1",
+    "image_output": "<|src_id|>1<|tgt_id|>2\n<|src_id|>17<|tgt_id|>15\n<|src_id|>176<|tgt_id|>174\n<|src_id|>177<|tgt_id|>174\n<|src_id|>178<|tgt_id|>174",
+    "contd_label": [
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 180,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 174
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 176,
+            "table2_idx": 177,
+            "upper_row_ss": [
+                [
+                    "1",
+                    "Obtain additional insured endorsements adding CBR and Lumen Ridge as additional insureds",
+                    "Blackthorn / Ironclad Mutual",
+                    "High",
+                    "Prior to JV closing (Feb. 20, 2024)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "on Policy No.BRX-2024-SP-00412",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 177,
+            "table2_idx": 178,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "Confirm BLM lease additional insured requirements for",
+                    "Blackthorn / C&H",
+                    "Medium",
+                    "Prior to construction commencement at NM sites"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Sangre del Sol I and Sangre del Sol II and obtain necessary endorsements",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

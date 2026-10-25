@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 220 136 777<|content|>STATE OF DELAWARE OFFICE OF THE SECRETARY OF STATE\n<|id|>2<|page|>1<|box|>194 272 213 725<|content|>ARDENT HEALTHCARE HOLDINGS LLC\n<|id|>4<|page|>1<|box|>258 205 273 790<|content|>Pursuant to Section 18-201 of the Delaware Limited\n<|id|>7<|page|>1<|box|>334 359 351 637<|content|>CERTIFICATE OF FORMATION\n<|id|>9<|page|>1<|box|>386 320 402 676<|content|>ARDENT HEALTHCARE HOLDINGS LLC\n<|id|>11<|page|>1<|box|>545 143 561 243<|content|>ARTICLE I\n<|id|>13<|page|>1<|box|>599 364 617 632<|content|>Ardent Healthcare Holdings LLC\n<|id|>15<|page|>1<|box|>720 143 738 250<|content|>ARTICLE II\n<|id|>16<|page|>1<|box|>752 142 768 452<|content|>Registered Office and Registered Agent\n<|id|>22<|page|>2<|box|>185 140 204 258<|content|>ARTICLE III\n<|id|>29<|page|>2<|box|>530 140 549 256<|content|>ARTICLE IV\n<|id|>31<|page|>2<|box|>638 140 657 250<|content|>ARTICLE V\n<|id|>33<|page|>2<|box|>803 140 821 256<|content|>ARTICLE VI\n<|id|>35<|page|>3<|box|>90 400 107 596<|content|>[Signature Page Follows]\n<|id|>41<|page|>3<|box|>229 143 263 795<|content|>Calderwood & Harkness LLP One Liberty Plaza, 45th\n<|id|>47<|page|>3<|box|>443 142 479 854<|content|>PREPARER'S NOTATION — FOR INTERNAL REFERENCE ONLY\n<|id|>56<|page|>3<|box|>883 143 898 318<|content|>Federal Tax Classification:\n<|id|>59<|page|>4<|box|>157 140 172 354<|content|>Structure and Ownership Notes:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>-1\n<|id|>7<|level|>1\n<|id|>9<|level|>2\n<|id|>11<|level|>3\n<|id|>13<|level|>-1\n<|id|>15<|level|>3\n<|id|>16<|level|>4\n<|id|>22<|level|>3\n<|id|>29<|level|>3\n<|id|>31<|level|>3\n<|id|>33<|level|>3\n<|id|>35<|level|>1\n<|id|>41<|level|>1\n<|id|>47<|level|>1\n<|id|>56<|level|>2\n<|id|>59<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 4
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        }
+    ]
+}

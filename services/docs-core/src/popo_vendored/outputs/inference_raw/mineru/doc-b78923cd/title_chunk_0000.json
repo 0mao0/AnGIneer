@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        53
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        11,
+        13,
+        23,
+        28,
+        29,
+        37,
+        43,
+        45,
+        47,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>5<|box|>87 90 242 858<|content|>TREASURY BULLETIN\n<|id|>9<|page|>7<|box|>113 394 133 608<|content|>Table of Contents\n<|id|>12<|page|>9<|box|>152 320 172 677<|content|>Treasury Financing Operations\n<|id|>13<|page|>9<|box|>212 56 228 369<|content|>February Certificate Maturity\n<|id|>18<|page|>9<|box|>369 520 386 897<|content|>Treasury Bills Refunded and Retired\n<|id|>22<|page|>11<|box|>51 318 67 686<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>26<|page|>13<|box|>51 334 65 658<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>47<|page|>23<|box|>46 357 59 640<|content|>GENERAL FUND OF THE TREASURY\n<|id|>60<|page|>28<|box|>78 160 123 834<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>62<|page|>29<|box|>82 161 127 835<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>78<|page|>37<|box|>51 390 66 616<|content|>TREASURY SAVINGS NOTES\n<|id|>96<|page|>43<|box|>90 315 104 676<|content|>Section II - Interest-Bearing Securities\n<|id|>97<|page|>43<|box|>108 159 124 840<|content|>Issued by Federal Agencies but not Guaranteed by t\n<|id|>103<|page|>45<|box|>87 159 100 823<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>107<|page|>47<|box|>51 308 66 693<|content|>YIELDS ON TREASURY AND CORPORATE BONDS\n<|id|>115<|page|>52<|box|>39 362 54 647<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>116<|page|>52<|box|>71 233 90 775<|content|>Table 2.- Detail of Collections by Type of Tax^{y}",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>9<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>22<|level|>1\n<|id|>26<|level|>1\n<|id|>47<|level|>1\n<|id|>60<|level|>1\n<|id|>62<|level|>1\n<|id|>78<|level|>1\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>103<|level|>2\n<|id|>107<|level|>1\n<|id|>115<|level|>1\n<|id|>116<|level|>1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        }
+    ]
+}

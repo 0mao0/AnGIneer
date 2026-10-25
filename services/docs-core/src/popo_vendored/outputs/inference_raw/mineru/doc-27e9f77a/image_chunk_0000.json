@@ -1,0 +1,54 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 292 119 705<|content|>DRAFT — For Discussion Purposes Only\n<|id|>12<|type|>title<|page|>1<|box|>623 189 659 805<|content|>NOTE [X] — ENVIRONMENTAL CONTINGENCIES AND REMEDIA\n<|id|>13<|type|>title<|page|>1<|box|>672 140 689 382<|content|>(a) Overview and Background\n<|id|>20<|type|>title<|page|>2<|box|>627 140 643 397<|content|>(b) Description of the Four Sites\n<|id|>42<|type|>title<|page|>5<|box|>448 140 465 542<|content|>(c) Consent Decree — Summary of Material Terms\n<|id|>47<|type|>title<|page|>6<|box|>194 140 212 367<|content|>(d) Remediation Obligations\n<|id|>49<|type|>table<|page|>6<|box|>362 143 540 852<|content|>None\n<|id|>60<|type|>title<|page|>7<|box|>598 142 614 285<|content|>(e) Civil Penalties\n<|id|>62<|type|>table<|page|>7<|box|>681 143 794 852<|content|>None\n<|id|>65<|type|>title<|page|>8<|box|>213 140 229 421<|content|>(f) EPA Past-Costs Reimbursement\n<|id|>67<|type|>table<|page|>8<|box|>296 143 534 852<|content|>None\n<|id|>69<|type|>title<|page|>8<|box|>671 140 689 524<|content|>(g) Supplemental Environmental Projects (SEPs)\n<|id|>71<|type|>table<|page|>8<|box|>791 143 902 852<|content|>None\n<|id|>72<|type|>table<|page|>9<|box|>88 143 492 851<|content|>None\n<|id|>74<|type|>title<|page|>9<|box|>593 142 611 498<|content|>(h) Aggregate Financial Obligation Summary\n<|id|>76<|type|>table<|page|>9<|box|>659 143 835 852<|content|>None\n<|id|>78<|type|>title<|page|>10<|box|>176 140 194 718<|content|>(i) Environmental Remediation Reserve — Accrual an\n<|id|>85<|type|>title<|page|>11<|box|>90 140 108 444<|content|>(j) Financial Assurance Arrangements\n<|id|>87<|type|>table<|page|>11<|box|>193 143 359 852<|content|>None\n<|id|>92<|type|>title<|page|>11<|box|>830 142 849 331<|content|>(k) Insurance Coverage\n<|id|>108<|type|>title<|page|>13<|box|>387 140 405 367<|content|>(l) Impact on Credit Facility\n<|id|>115<|type|>title<|page|>14<|box|>90 140 107 429<|content|>(m) Uncertainties and Contingencies\n<|id|>129<|type|>title<|page|>15<|box|>195 140 212 323<|content|>(n) Subsequent Events\n<|id|>137<|type|>title<|page|>15<|box|>679 187 695 810<|content|>REVIEWER NOTES / INSTRUCTIONS Internal — Not for P",
+    "raw_response": "<|src_id|>49<|tgt_id|>47\n<|src_id|>62<|tgt_id|>60\n<|src_id|>67<|tgt_id|>65\n<|src_id|>71<|tgt_id|>69\n<|src_id|>72<|tgt_id|>69\n<|src_id|>76<|tgt_id|>74\n<|src_id|>87<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 49,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 85
+        }
+    ]
+}

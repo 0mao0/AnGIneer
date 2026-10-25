@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Cloudvault Infrastructure, Inc.', 'Corporation', 'Nevada', '200 Mill Street, Suite 100, Reno, NV 89501', 'Data Center: 7400 Crossroads Boulevard,', 'Cloud hosting and data storage on the \"AutoCloud\"', 'All 14 Data Categories (as transmitted']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'Columbus, OH 43219', 'platform; provision of compute resources for analytics processing', 'by Processor for hosting, storage, and compute)']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 467,
+    "table2_idx": 468
+}

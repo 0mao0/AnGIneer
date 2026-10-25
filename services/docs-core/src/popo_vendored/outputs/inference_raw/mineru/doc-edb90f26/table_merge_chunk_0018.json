@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 18,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=22, 一般桥梁工程', 'rowspan=22, 上部结构预制和安装', 'rowspan=8, 转体施工梁', 'rowspan=8, 梁(转体施工)', '同一横断面两侧或相邻上部构件高差', '○', '△', '▲', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=21, 一般桥梁工程', 'rowspan=21, 上部结构预制和安装', 'rowspan=9, 悬臂施工梁', 'rowspan=9, 梁(悬臂拼装)', '设计信息', '▲', '▲', '▲', '继承L3.0模型的设计信息']]\n",
+    "raw_response": "[1, 1, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 263,
+    "table2_idx": 264
+}

@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3<|type|>title<|page|>1<|box|>527 140 545 383<|content|>Description of the Transaction\n<|id|>10<|type|>title<|page|>2<|box|>252 140 268 372<|content|>Treatment of Equity Awards\n<|id|>16<|type|>title<|page|>3<|box|>90 140 107 477<|content|>Stockholder Approval by Written Consent\n<|id|>19<|type|>table<|page|>3<|box|>376 143 518 852<|content|>None\n<|id|>22<|type|>title<|page|>3<|box|>782 142 800 462<|content|>Notice Pursuant to DGCL Section 228(e)\n<|id|>25<|type|>title<|page|>4<|box|>170 151 205 844<|content|>WE ARE NOT ASKING YOU FOR A PROXY AND YOU ARE REQU\n<|id|>27<|type|>title<|page|>4<|box|>311 140 329 282<|content|>Fairness Opinion\n<|id|>29<|type|>title<|page|>4<|box|>635 142 652 336<|content|>Board Recommendation\n<|id|>39<|type|>title<|page|>5<|box|>228 140 244 486<|content|>Transaction Timeline and Expected Closing\n<|id|>48<|type|>title<|page|>6<|box|>304 140 321 527<|content|>Key Terms of the Merger Agreement (Summary)\n<|id|>56<|type|>title<|page|>7<|box|>345 140 363 367<|content|>Indemnification and Escrow\n<|id|>59<|type|>title<|page|>7<|box|>664 142 680 334<|content|>Material Adverse Effect\n<|id|>63<|type|>title<|page|>8<|box|>223 142 239 227<|content|>Financing\n<|id|>64<|type|>table<|page|>8<|box|>291 143 436 852<|content|>None\n<|id|>68<|type|>title<|page|>8<|box|>801 142 819 281<|content|>Appraisal Rights\n<|id|>72<|type|>title<|page|>9<|box|>402 140 419 446<|content|>Where to Find Additional Information\n<|id|>81<|type|>title<|page|>9<|box|>751 143 763 165<|content|>or",
+    "raw_response": "<|src_id|>19<|tgt_id|>16\n<|src_id|>64<|tgt_id|>63",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 63
+        }
+    ]
+}

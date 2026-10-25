@@ -1,0 +1,138 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>419 142 435 264<|content|>Dear Katherine:\n<|id|>11<|page|>1<|box|>619 374 638 622<|content|>I. Purpose of This Letter\n<|id|>19<|page|>2<|box|>648 308 669 687<|content|>II. Background Summary for Context\n<|id|>21<|page|>2<|box|>782 140 799 462<|content|>A. Discovery and Independent Valuation\n<|id|>24<|page|>3<|box|>250 140 265 418<|content|>B. Magnitude of the Overvaluation\n<|id|>27<|page|>3<|box|>559 140 577 433<|content|>C. Consequences of the Misvaluation\n<|id|>38<|page|>4<|box|>532 238 551 758<|content|>III. Legal Framework for LP Disclosure Obligations\n<|id|>40<|page|>4<|box|>666 140 683 503<|content|>A. Limited Partnership Agreement Provisions\n<|id|>45<|page|>5<|box|>476 140 493 366<|content|>B. Regulation D Obligations\n<|id|>50<|page|>6<|box|>277 140 294 576<|content|>C. Investment Advisers Act of 1940 — Fiduciary Dut\n<|id|>55<|page|>6<|box|>806 140 824 429<|content|>D. Form ADV Item 11 and Form PF\n<|id|>61<|page|>7<|box|>542 267 563 728<|content|>IV. Key Investors Requiring Special Attention\n<|id|>63<|page|>7<|box|>676 140 693 431<|content|>A. Ashford Endowment Partners LP\n<|id|>68<|page|>8<|box|>487 140 503 470<|content|>B. Other Institutional and Significant LPs\n<|id|>71<|page|>9<|box|>90 233 111 761<|content|>V. Recommended Disclosure Approach and Timeline\n<|id|>72<|page|>9<|box|>136 140 154 316<|content|>A. General Principles\n<|id|>79<|page|>10<|box|>90 140 107 361<|content|>B. Recommended Sequence\n<|id|>86<|page|>11<|box|>90 140 107 462<|content|>C. Coordination with Litigation Strategy\n<|id|>91<|page|>11<|box|>532 274 551 722<|content|>VI. Recommended Investor Notice Language\n<|id|>92<|page|>11<|box|>577 142 594 426<|content|>A. Key Elements of the Draft Notice\n<|id|>103<|page|>12<|box|>542 142 559 424<|content|>B. What to Exclude from the Notice\n<|id|>110<|page|>13<|box|>229 372 248 624<|content|>VII. Risk Considerations\n<|id|>112<|page|>13<|box|>343 142 359 315<|content|>A. LP Litigation Risk\n<|id|>116<|page|>13<|box|>718 142 734 297<|content|>B. Regulatory Risk\n<|id|>120<|page|>14<|box|>358 140 376 312<|content|>C. Reputational Risk\n<|id|>127<|page|>15<|box|>154 328 174 669<|content|>VIII. Next Steps and Action Items\n<|id|>137<|page|>15<|box|>784 297 804 700<|content|>IX. Limitations and Scope of This Letter\n<|id|>142<|page|>16<|box|>579 426 599 571<|content|>X. Conclusion",
+    "raw_response": "<|id|>9<|level|>-1\n<|id|>11<|level|>1\n<|id|>19<|level|>1\n<|id|>21<|level|>2\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>38<|level|>1\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>55<|level|>2\n<|id|>61<|level|>1\n<|id|>63<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>1\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>86<|level|>2\n<|id|>91<|level|>1\n<|id|>92<|level|>2\n<|id|>103<|level|>2\n<|id|>110<|level|>1\n<|id|>112<|level|>2\n<|id|>116<|level|>2\n<|id|>120<|level|>2\n<|id|>127<|level|>1\n<|id|>137<|level|>1\n<|id|>142<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        }
+    ]
+}

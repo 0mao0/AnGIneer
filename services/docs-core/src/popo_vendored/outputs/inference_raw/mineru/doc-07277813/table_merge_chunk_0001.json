@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Events of Default', 'Risk of default if consent not obtained', 'Risk of default if consent not obtained', 'N/A (consent eliminates risk)', 'N/A (amendment eliminates ongoing']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'before Steps 2, 3, and 5', 'before Steps 4 and 5; cross-default risk from Fund IV', '', 'risk)']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 190,
+    "table2_idx": 191
+}

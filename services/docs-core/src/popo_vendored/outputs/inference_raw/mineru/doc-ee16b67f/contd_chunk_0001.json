@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        47,
+        93
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        65,
+        80,
+        83,
+        84,
+        85,
+        86,
+        87,
+        91,
+        92,
+        93
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>115<|page|>47<|box|>103 198 119 781<|content|>Table II. ... - Distribution of Ownership for Each Issue Outstanding\n<|id|>117<|page|>48<|box|>57 94 96 894<|content|>Summary Data from Treasury Survey of Ownership of ...y the United States, August 31, 1941 - (Continued)\n<|id|>118<|page|>48<|box|>107 146 124 849<|content|>Table II. ... - Distribution of Ownership for Each Issue Outstanding - (Continued)\n<|id|>120<|page|>49<|box|>57 84 95 881<|content|>Summary Data from Treasury Survey of Ownership of ...y the United States, August 31, 1941 - (Continued)\n<|id|>121<|page|>49<|box|>106 132 122 833<|content|>Table II. ... - Distribution of Ownership for Each Issue Outstanding - (Continued)\n<|id|>124<|page|>50<|box|>102 137 116 836<|content|>Table II. ... - Distribution of Ownership for Each Issue Outstanding - (Continued)\n<|id|>126<|page|>51<|box|>461 109 512 851<|content|>GOVERNMENTAL CORPORATIONS AND CREDIT AGENCIES OF THE UNITED STATES\n<|id|>155<|page|>65<|box|>641 66 716 879<|content|>As in the case of number of returns, the amount of...g represented only a small proportion (3. ... ) 2/\n<|id|>156<|page|>65<|box|>728 66 830 881<|content|>The practice of classifying individual income tax ...ted on returns of residents filing in other States\n<|id|>176<|page|>80<|box|>89 324 106 720<|content|>In thousands of dollars. ... Capital inflow or capital outflow (-)\n<|id|>179<|page|>83<|box|>56 211 87 783<|content|>Short-Term Foreign Liabilities as Reported by Bank...s in the United States for July 1941 - (Continued)\n<|id|>181<|page|>84<|box|>49 222 81 754<|content|>Short-Term Foreign Assets as Reported by Banks and Bankers in the United States for July 1941\n<|id|>183<|page|>85<|box|>63 222 95 750<|content|>Short-Term Foreign Assets as Reported by Banks and...s in the United States for July 1941 - (Continued)\n<|id|>184<|page|>85<|box|>104 405 116 559<|content|>(In thousands of dollars)\n<|id|>186<|page|>86<|box|>49 166 80 829<|content|>Security Transactions as Reported by Banks, Banker...ers and Dealers in the United States for July 1941\n<|id|>191<|page|>87<|box|>587 431 600 587<|content|>(In thousands of dollars)\n<|id|>195<|page|>91<|box|>59 168 92 802<|content|>Purchases and Sales of Foreign Exchange, Spot and ...nks and Bankers in the United States for July 1941\n<|id|>198<|page|>92<|box|>91 437 103 591<|content|>(In thousands of dollars)\n<|id|>201<|page|>93<|box|>473 557 493 758<|content|>STATISTICS",
+    "raw_response": "<|src_id|>183<|tgt_id|>184\n<|src_id|>186<|tgt_id|>191\n<|src_id|>195<|tgt_id|>198",
+    "parsed": [
+        {
+            "src_id": 183,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 198
+        }
+    ]
+}

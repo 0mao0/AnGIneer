@@ -1,0 +1,28 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        3,
+        4
+    ],
+    "pages": [
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>27<|page|>3<|box|>327 142 344 344<|content|>OUR RECOMMENDATION\n<|id|>34<|page|>4<|box|>208 142 226 630<|content|>FINANCIAL REPORTING AND COLLATERAL CONSIDERATIONS\n<|id|>36<|page|>4<|box|>445 142 463 367<|content|>NEXT STEPS AND TIMELINE",
+    "raw_response": "<|id|>27<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>1",
+    "parsed": [
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        }
+    ]
+}

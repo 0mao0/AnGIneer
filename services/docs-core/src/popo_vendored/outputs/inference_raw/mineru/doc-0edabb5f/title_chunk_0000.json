@@ -1,0 +1,162 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>127 424 143 573<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>364 385 383 611<|content|>I. Executive Summary\n<|id|>18<|page|>2<|box|>606 325 625 671<|content|>II. Background on the Transaction\n<|id|>19<|page|>2<|box|>651 142 667 343<|content|>A. Transaction Structure\n<|id|>30<|page|>3<|box|>753 142 768 470<|content|>B. Cascadia's FERC-Jurisdictional Assets\n<|id|>35<|page|>4<|box|>513 140 529 326<|content|>C. Parties and Counsel\n<|id|>43<|page|>5<|box|>525 290 544 707<|content|>III. Statutory and Regulatory Framework\n<|id|>44<|page|>5<|box|>570 142 587 455<|content|>A. Section 203 of the Federal Power Act\n<|id|>51<|page|>6<|box|>575 140 592 374<|content|>B. FERC Approval Standard\n<|id|>59<|page|>7<|box|>654 140 671 503<|content|>C. Blanket Authorization vs. Individual Filing\n<|id|>66<|page|>8<|box|>227 375 247 620<|content|>IV. Filing Requirements\n<|id|>67<|page|>8<|box|>272 142 289 428<|content|>A. Form and Content of Application\n<|id|>74<|page|>9<|box|>431 142 449 310<|content|>B. Required Exhibits\n<|id|>86<|page|>11<|box|>358 140 376 250<|content|>C. Filing Fee\n<|id|>88<|page|>11<|box|>500 140 515 354<|content|>D. Service and Publication\n<|id|>94<|page|>12<|box|>90 290 111 707<|content|>V. Review Process and Expected Timeline\n<|id|>95<|page|>12<|box|>136 142 152 377<|content|>A. Standard Review Timeline\n<|id|>102<|page|>12<|box|>845 140 863 485<|content|>B. Anticipated Timeline for Cascadia Filing\n<|id|>109<|page|>13<|box|>794 140 811 411<|content|>C. Potential for Expedited Review\n<|id|>117<|page|>14<|box|>405 243 424 754<|content|>VI. Substantive Analysis — Likelihood of Approval\n<|id|>118<|page|>14<|box|>450 142 467 341<|content|>A. Effect on Competition\n<|id|>124<|page|>15<|box|>194 142 210 287<|content|>B. Effect on Rates\n<|id|>129<|page|>15<|box|>594 140 612 328<|content|>C. Effect on Regulation\n<|id|>136<|page|>16<|box|>348 140 364 325<|content|>D. Cross-Subsidization\n<|id|>141<|page|>16<|box|>734 305 753 689<|content|>VII. Conditions That May Be Imposed\n<|id|>149<|page|>17<|box|>760 233 779 763<|content|>VIII. Coordination with Other Regulatory Approvals\n<|id|>150<|page|>17<|box|>804 142 821 504<|content|>A. Oregon Public Utility Commission (OPUC)\n<|id|>154<|page|>18<|box|>339 140 357 225<|content|>B. CFIUS\n<|id|>156<|page|>18<|box|>535 140 553 424<|content|>C. Interaction Between Proceedings\n<|id|>160<|page|>19<|box|>90 281 111 715<|content|>IX. ICM Co-Invest–Specific Considerations\n<|id|>167<|page|>20<|box|>172 313 191 683<|content|>X. Recommendations and Next Steps\n<|id|>177<|page|>21<|box|>468 421 487 576<|content|>XI. Conclusion",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>30<|level|>3\n<|id|>35<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>51<|level|>3\n<|id|>59<|level|>3\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>74<|level|>3\n<|id|>86<|level|>3\n<|id|>88<|level|>3\n<|id|>94<|level|>2\n<|id|>95<|level|>3\n<|id|>102<|level|>3\n<|id|>109<|level|>3\n<|id|>117<|level|>2\n<|id|>118<|level|>3\n<|id|>124<|level|>3\n<|id|>129<|level|>3\n<|id|>136<|level|>3\n<|id|>141<|level|>2\n<|id|>149<|level|>2\n<|id|>150<|level|>3\n<|id|>154<|level|>3\n<|id|>156<|level|>3\n<|id|>160<|level|>2\n<|id|>167<|level|>2\n<|id|>177<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        }
+    ]
+}

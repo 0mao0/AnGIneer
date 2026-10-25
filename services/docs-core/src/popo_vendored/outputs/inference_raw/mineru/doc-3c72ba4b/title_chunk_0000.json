@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|page|>1<|box|>263 174 316 854<|content|>Re: Executive Employment Agreement and Related Doc\n<|id|>13<|page|>1<|box|>723 140 739 326<|content|>Summary of Approach\n<|id|>21<|page|>2<|box|>382 140 398 544<|content|>Enclosed Documents — Summary of Key Revisions\n<|id|>23<|page|>2<|box|>474 140 492 562<|content|>I. Executive Employment Agreement — Second Draft\n<|id|>49<|page|>4<|box|>311 140 329 606<|content|>II. Employee Non-Competition Agreement — Second Dr\n<|id|>57<|page|>5<|box|>186 140 204 232<|content|>Issues List\n<|id|>59<|page|>5<|box|>297 140 316 375<|content|>Category A: Agreed Changes\n<|id|>67<|page|>6<|box|>135 140 152 805<|content|>A-4: Good Reason — Office Relocation (Employment A\n<|id|>69<|page|>6<|box|>260 140 277 622<|content|>A-5: Paid Time Off (Employment Agreement, Section\n<|id|>71<|page|>6<|box|>421 140 439 800<|content|>A-6: Professional Development Allowance (Employmen\n<|id|>73<|page|>6<|box|>625 140 642 581<|content|>Category B: Partially Resolved / Compromise Langua\n<|id|>75<|page|>6<|box|>710 140 746 852<|content|>B-1: Good Reason — Expanded Definition (Remaining\n<|id|>89<|page|>8<|box|>190 140 226 852<|content|>B-3: Equity Acceleration — Non-CIC Termination (Em\n<|id|>93<|page|>8<|box|>550 140 585 854<|content|>B-4: COBRA Continuation — Non-CIC Termination (Emp\n<|id|>97<|page|>9<|box|>90 142 108 426<|content|>Category C: Remaining Open Items\n<|id|>107<|page|>9<|box|>785 140 821 852<|content|>C-2: Bonus Clawback Mechanics — Annual Bonus (Empl\n<|id|>125<|page|>12<|box|>150 142 167 434<|content|>Request for Response and Next Steps\n<|id|>130<|page|>12<|box|>463 176 478 490<|content|>Email: darcher@calderwoodharkness.com\n<|id|>140<|page|>12<|box|>784 142 799 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>1\n<|id|>13<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>49<|level|>3\n<|id|>57<|level|>2\n<|id|>59<|level|>3\n<|id|>67<|level|>4\n<|id|>69<|level|>4\n<|id|>71<|level|>4\n<|id|>73<|level|>3\n<|id|>75<|level|>4\n<|id|>89<|level|>4\n<|id|>93<|level|>4\n<|id|>97<|level|>3\n<|id|>107<|level|>4\n<|id|>125<|level|>2\n<|id|>130<|level|>-1\n<|id|>140<|level|>-1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 4
+        },
+        {
+            "id": 93,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 4
+        },
+        {
+            "id": 125,
+            "level": 2
+        }
+    ]
+}

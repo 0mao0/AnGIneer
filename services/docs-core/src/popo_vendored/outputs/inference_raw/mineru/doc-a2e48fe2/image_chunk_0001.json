@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        52,
+        55
+    ],
+    "pages": [
+        52,
+        53,
+        54,
+        55
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>575<|type|>title<|page|>52<|box|>90 230 171 767<|content|>EXHIBIT B — FORM OF CAPITAL CALL NOTICE COBALT LIF\n<|id|>580<|type|>table<|page|>52<|box|>310 143 438 852<|content|>None\n<|id|>595<|type|>title<|page|>53<|box|>90 230 109 767<|content|>EXHIBIT C — FORM OF DISTRIBUTION NOTICE\n<|id|>596<|type|>title<|page|>53<|box|>127 261 171 736<|content|>COBALT LIFE SCIENCES OPPORTUNITIES FUND I, LP DIST\n<|id|>601<|type|>table<|page|>53<|box|>310 143 367 852<|content|>None\n<|id|>604<|type|>table<|page|>53<|box|>513 143 627 852<|content|>None\n<|id|>614<|type|>title<|page|>54<|box|>90 222 172 774<|content|>EXHIBIT D — FORM OF TRANSFER AGREEMENT COBALT LIFE\n<|id|>619<|type|>title<|page|>54<|box|>320 140 337 243<|content|>RECITALS\n<|id|>653<|type|>title<|page|>55<|box|>551 408 566 588<|content|>SIGNATURE PAGES\n<|id|>654<|type|>title<|page|>55<|box|>575 187 612 810<|content|>AGREEMENT OF LIMITED PARTNERSHIP OF COBALT LIFE SC\n<|id|>656<|type|>title<|page|>55<|box|>665 142 681 334<|content|>GENERAL PARTNER:\n<|id|>666<|type|>title<|page|>55<|box|>880 143 897 334<|content|>LIMITED PARTNERS:",
+    "raw_response": "<|src_id|>580<|tgt_id|>575\n<|src_id|>601<|tgt_id|>595\n<|src_id|>604<|tgt_id|>595",
+    "parsed": [
+        {
+            "src_id": 580,
+            "tgt_id": 575
+        },
+        {
+            "src_id": 601,
+            "tgt_id": 595
+        },
+        {
+            "src_id": 604,
+            "tgt_id": 595
+        }
+    ]
+}

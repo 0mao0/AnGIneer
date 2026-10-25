@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>87 143 156 851<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>6<|page|>1<|box|>324 444 344 553<|content|>I. Purpose\n<|id|>8<|page|>2<|box|>154 362 174 633<|content|>II. Preservation Obligation\n<|id|>27<|page|>3<|box|>289 388 310 607<|content|>III. Scope of the Hold\n<|id|>29<|page|>3<|box|>386 140 404 297<|content|>A. Temporal Scope\n<|id|>33<|page|>3<|box|>834 142 852 338<|content|>B. Subject-Matter Scope\n<|id|>49<|page|>5<|box|>494 140 511 294<|content|>C. Key Custodians\n<|id|>60<|page|>7<|box|>258 140 277 390<|content|>D. Non-Custodial Data Sources\n<|id|>69<|page|>8<|box|>369 259 390 736<|content|>IV. Litigation Hold Notices — Distribution Plan\n<|id|>81<|page|>9<|box|>550 344 570 653<|content|>V. IT Department Instructions\n<|id|>95<|page|>10<|box|>833 313 852 683<|content|>VI. E-discovery Vendor Engagement\n<|id|>108<|page|>12<|box|>154 312 174 684<|content|>VII. Coordination with Third Parties\n<|id|>116<|page|>13<|box|>209 310 229 687<|content|>VIII. Key Deadlines and Action Items\n<|id|>120<|page|>14<|box|>220 308 241 687<|content|>IX. Consequences of Non-Compliance\n<|id|>128<|page|>15<|box|>172 379 191 617<|content|>X. Contact Information\n<|id|>135<|page|>15<|box|>421 142 438 388<|content|>Email: paldridge@dunmore.com",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>27<|level|>1\n<|id|>29<|level|>2\n<|id|>33<|level|>2\n<|id|>49<|level|>2\n<|id|>60<|level|>2\n<|id|>69<|level|>1\n<|id|>81<|level|>1\n<|id|>95<|level|>1\n<|id|>108<|level|>1\n<|id|>116<|level|>1\n<|id|>120<|level|>1\n<|id|>128<|level|>1\n<|id|>135<|level|>-1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        }
+    ]
+}

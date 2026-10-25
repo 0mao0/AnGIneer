@@ -1,0 +1,156 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>114 156 151 838<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>4<|page|>1<|box|>406 385 426 611<|content|>I. Executive Summary\n<|id|>15<|page|>2<|box|>340 292 361 702<|content|>II. Current Corporate and Tax Structure\n<|id|>16<|page|>2<|box|>387 140 402 529<|content|>A. Aurelius Group Structure — Relevant Entities\n<|id|>27<|page|>3<|box|>462 140 479 375<|content|>B. Tax Classification of MPH\n<|id|>34<|page|>4<|box|>479 140 497 483<|content|>C. Business Overview and Financial Profile\n<|id|>43<|page|>5<|box|>136 163 155 833<|content|>III. US Federal Income Tax Treatment of the Propos\n<|id|>44<|page|>5<|box|>181 140 196 581<|content|>A. Sale of Membership Interests in a Disregarded E\n<|id|>49<|page|>5<|box|>838 140 854 578<|content|>B. Section 338(h)(10) Election — Overview and Bene\n<|id|>53<|page|>6<|box|>424 143 441 366<|content|>For Buyer (Pinnacle Ridge):\n<|id|>56<|page|>6<|box|>758 142 775 292<|content|>For Seller (AMH):\n<|id|>64<|page|>7<|box|>571 140 589 513<|content|>C. Mechanics of the Section 338(h)(10) Election\n<|id|>77<|page|>8<|box|>664 299 684 697<|content|>IV. Estimated US Tax Liability to Seller\n<|id|>78<|page|>8<|box|>710 142 727 357<|content|>A. Estimated Taxable Gain\n<|id|>93<|page|>9<|box|>717 142 734 428<|content|>B. Estimated Tax Rate and Liability\n<|id|>102<|page|>10<|box|>578 140 595 408<|content|>C. Intercompany Note Treatment\n<|id|>106<|page|>11<|box|>136 364 155 633<|content|>V. UK Tax Considerations\n<|id|>107<|page|>11<|box|>181 140 198 573<|content|>A. Substantial Shareholding Exemption (SSE) Analys\n<|id|>127<|page|>13<|box|>90 142 107 423<|content|>B. Withholding Tax Considerations\n<|id|>131<|page|>13<|box|>488 313 508 683<|content|>VI. State and Local Tax Implications\n<|id|>132<|page|>13<|box|>532 140 550 426<|content|>A. Nexus States and Apportionment\n<|id|>142<|page|>15<|box|>204 140 222 447<|content|>B. Section 338(h)(10) State Conformity\n<|id|>150<|page|>15<|box|>761 140 779 388<|content|>C. Estimated State Tax Impact\n<|id|>153<|page|>16<|box|>190 325 210 671<|content|>VII. Canadian Tax Considerations\n<|id|>154<|page|>16<|box|>234 140 252 397<|content|>A. Meridian Press Canada ULC\n<|id|>165<|page|>17<|box|>386 393 405 604<|content|>VIII. Transfer Taxes\n<|id|>166<|page|>17<|box|>431 142 446 246<|content|>A. Overview\n<|id|>176<|page|>18<|box|>771 303 790 692<|content|>IX. Tax Structuring Recommendations\n<|id|>177<|page|>18<|box|>816 142 832 413<|content|>A. Summary of Recommendations\n<|id|>187<|page|>20<|box|>352 140 369 380<|content|>B. Open Items and Next Steps\n<|id|>197<|page|>21<|box|>321 346 340 650<|content|>X. Disclaimer and Limitations",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>4<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>27<|level|>3\n<|id|>34<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>49<|level|>3\n<|id|>53<|level|>4\n<|id|>56<|level|>4\n<|id|>64<|level|>3\n<|id|>77<|level|>2\n<|id|>78<|level|>3\n<|id|>93<|level|>3\n<|id|>102<|level|>3\n<|id|>106<|level|>2\n<|id|>107<|level|>3\n<|id|>127<|level|>3\n<|id|>131<|level|>2\n<|id|>132<|level|>3\n<|id|>142<|level|>3\n<|id|>150<|level|>3\n<|id|>153<|level|>2\n<|id|>154<|level|>3\n<|id|>165<|level|>2\n<|id|>166<|level|>3\n<|id|>176<|level|>2\n<|id|>177<|level|>3\n<|id|>187<|level|>3\n<|id|>197<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 4
+        },
+        {
+            "id": 56,
+            "level": 4
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 2
+        }
+    ]
+}

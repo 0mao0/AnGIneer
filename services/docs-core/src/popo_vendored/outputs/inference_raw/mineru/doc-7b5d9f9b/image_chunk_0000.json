@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        13
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>89 436 111 562<|content|>EXHIBIT F\n<|id|>1<|type|>title<|page|>2<|box|>135 364 152 633<|content|>INSURANCE REQUIREMENTS\n<|id|>4<|type|>title<|page|>2<|box|>320 142 338 405<|content|>1. General Insurance Obligations\n<|id|>12<|type|>title<|page|>3<|box|>285 140 303 323<|content|>2. Required Coverages\n<|id|>14<|type|>title<|page|>3<|box|>397 140 414 377<|content|>2.1 Cyber Liability Insurance\n<|id|>16<|type|>table<|page|>3<|box|>580 143 637 852<|content|>None\n<|id|>24<|type|>title<|page|>4<|box|>400 140 417 506<|content|>2.2 Technology Errors & Omissions Insurance\n<|id|>26<|type|>table<|page|>4<|box|>546 143 604 852<|content|>None\n<|id|>32<|type|>title<|page|>5<|box|>220 140 238 490<|content|>2.3 Commercial General Liability Insurance\n<|id|>34<|type|>table<|page|>5<|box|>349 143 406 852<|content|>None\n<|id|>41<|type|>title<|page|>5<|box|>801 140 819 643<|content|>2.4 Workers' Compensation and Employers' Liability\n<|id|>43<|type|>table<|page|>6<|box|>176 143 253 852<|content|>None\n<|id|>45<|type|>title<|page|>6<|box|>372 140 388 465<|content|>2.5 Umbrella / Excess Liability Insurance\n<|id|>49<|type|>title<|page|>6<|box|>588 142 604 418<|content|>2.6 Automobile Liability Insurance\n<|id|>52<|type|>title<|page|>6<|box|>770 140 787 326<|content|>3. Policy Requirements\n<|id|>53<|type|>title<|page|>6<|box|>801 142 818 323<|content|>3.1 Additional Insured\n<|id|>61<|type|>title<|page|>7<|box|>407 140 425 352<|content|>3.2 Waiver of Subrogation\n<|id|>64<|type|>title<|page|>7<|box|>616 140 633 486<|content|>3.3 Deductibles and Self-Insured Retentions\n<|id|>68<|type|>title<|page|>8<|box|>138 140 156 344<|content|>3.4 Claims-Made Policies\n<|id|>74<|type|>title<|page|>8<|box|>619 140 636 357<|content|>4. Certificates of Insurance\n<|id|>75<|type|>title<|page|>8<|box|>648 140 667 292<|content|>4.1 Initial Delivery\n<|id|>86<|type|>title<|page|>9<|box|>296 140 313 305<|content|>4.2 Annual Renewal\n<|id|>89<|type|>title<|page|>9<|box|>486 140 503 326<|content|>4.3 Certificate Content\n<|id|>97<|type|>title<|page|>10<|box|>90 140 107 611<|content|>5. Notice of Cancellation, Non-Renewal, or Materia\n<|id|>102<|type|>title<|page|>10<|box|>564 140 582 370<|content|>6. No Limitation on Liability\n<|id|>108<|type|>title<|page|>11<|box|>241 140 258 361<|content|>7. Subcontractor Insurance\n<|id|>113<|type|>title<|page|>11<|box|>715 140 732 290<|content|>8. Right to Review\n<|id|>117<|type|>title<|page|>12<|box|>267 140 284 393<|content|>9. Current Carrier Information\n<|id|>118<|type|>table<|page|>12<|box|>335 143 556 852<|content|>None\n<|id|>120<|type|>title<|page|>12<|box|>705 142 722 413<|content|>10. Remedies for Non-Compliance\n<|id|>127<|type|>title<|page|>13<|box|>440 230 458 767<|content|>[Remainder of this page intentionally left blank.\n<|id|>128<|type|>title<|page|>13<|box|>464 316 481 679<|content|>ACKNOWLEDGMENT AND AGREEMENT\n<|id|>131<|type|>title<|page|>13<|box|>614 142 632 413<|content|>NORTHGATE AMERICAS, INC.",
+    "raw_response": "<|src_id|>16<|tgt_id|>14\n<|src_id|>26<|tgt_id|>24\n<|src_id|>34<|tgt_id|>32\n<|src_id|>43<|tgt_id|>41\n<|src_id|>118<|tgt_id|>117",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 117
+        }
+    ]
+}

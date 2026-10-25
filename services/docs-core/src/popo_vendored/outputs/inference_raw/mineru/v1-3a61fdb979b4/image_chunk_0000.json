@@ -1,0 +1,62 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>164 93 229 828<|content|>Ulta Beauty Announces Fourth Quarter Fiscal 2022 R\n<|id|>3<|type|>table<|page|>1<|box|>439 91 595 903<|content|>None\n<|id|>6<|type|>title<|page|>1<|box|>838 91 858 444<|content|>For the Fourth Quarter of Fiscal 2022\n<|id|>15<|type|>title<|page|>2<|box|>532 91 550 388<|content|>For the Full Year of Fiscal 2022\n<|id|>24<|type|>title<|page|>3<|box|>154 93 172 235<|content|>Balance Sheet\n<|id|>27<|type|>title<|page|>3<|box|>344 91 364 357<|content|>Share Repurchase Program\n<|id|>29<|type|>title<|page|>3<|box|>482 91 501 223<|content|>Store Update\n<|id|>32<|type|>title<|page|>3<|box|>689 91 708 285<|content|>Fiscal 2023 Outlook\n<|id|>34<|type|>table<|page|>3<|box|>771 91 926 903<|content|>None\n<|id|>35<|type|>title<|page|>4<|box|>66 93 85 362<|content|>Conference Call Information\n<|id|>37<|type|>title<|page|>4<|box|>242 91 260 269<|content|>About Ulta Beauty\n<|id|>39<|type|>title<|page|>4<|box|>419 91 436 370<|content|>Forward‑Looking Statements\n<|id|>61<|type|>title<|page|>6<|box|>80 377 121 620<|content|>Ulta Beauty, Inc. Consolidated Statements of Incom\n<|id|>62<|type|>table<|page|>6<|box|>143 93 470 903<|content|>None\n<|id|>63<|type|>table<|page|>6<|box|>542 93 869 903<|content|>None\n<|id|>64<|type|>table<|page|>7<|box|>125 93 690 901<|content|>None\n<|id|>65<|type|>table<|page|>8<|box|>125 93 684 903<|content|>None\n<|id|>66<|type|>table<|page|>8<|box|>744 91 859 901<|content|>None\n<|id|>67<|type|>table<|page|>9<|box|>84 91 209 901<|content|>None\n<|id|>69<|type|>title<|page|>9<|box|>229 436 258 560<|content|>Ulta Beauty, Inc. Sales by Category\n<|id|>71<|type|>table<|page|>9<|box|>287 93 435 903<|content|>None\n<|id|>72<|type|>table<|page|>9<|box|>459 93 607 903<|content|>None",
+    "raw_response": "<|src_id|>3<|tgt_id|>0\n<|src_id|>34<|tgt_id|>32\n<|src_id|>62<|tgt_id|>61\n<|src_id|>63<|tgt_id|>61\n<|src_id|>64<|tgt_id|>61\n<|src_id|>65<|tgt_id|>61\n<|src_id|>66<|tgt_id|>61\n<|src_id|>67<|tgt_id|>61\n<|src_id|>71<|tgt_id|>69\n<|src_id|>72<|tgt_id|>69",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 69
+        }
+    ]
+}

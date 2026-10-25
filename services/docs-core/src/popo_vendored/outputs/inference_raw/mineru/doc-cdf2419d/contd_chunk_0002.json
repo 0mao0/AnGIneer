@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        107,
+        113
+    ],
+    "pages": [
+        108,
+        111,
+        113
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>501<|page|>108<|box|>693 228 744 772<|content|>Reforestation Trust Fund Expected Condition and Re...ousands of dollars. ... Department of Agriculture]\n<|id|>503<|page|>108<|box|>880 106 896 800<|content|>Correction page included due to an error in the Fi...Year as previously reported in the June 2013 issue\n<|id|>532<|page|>111<|box|>148 374 165 622<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>533<|page|>111<|box|>186 81 262 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>541<|page|>111<|box|>843 81 904 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>542<|page|>111<|box|>186 504 248 915<|content|>Second Liberty Loan Act of 1917, the nature of the...l debt. ... the limit may change from year to year\n<|id|>574<|page|>113<|box|>439 81 484 491<|content|>Statutory debt limit (FD-6)—By Act of Congress the...ay be outstanding. ... When this limit is reached,\n<|id|>575<|page|>113<|box|>89 504 150 915<|content|>Treasury may not sell new debt issues until Congress increases or extends the limit. ... )",
+    "raw_response": "<|src_id|>541<|tgt_id|>542\n<|src_id|>574<|tgt_id|>575",
+    "parsed": [
+        {
+            "src_id": 541,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 574,
+            "tgt_id": 575
+        }
+    ]
+}

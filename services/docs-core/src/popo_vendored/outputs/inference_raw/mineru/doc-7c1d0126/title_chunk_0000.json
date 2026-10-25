@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 161 140 834<|content|>IN THE CIRCUIT COURT OF THE SEVENTEENTH JUDICIAL C\n<|id|>7<|page|>1<|box|>334 313 354 684<|content|>SUMMONS / NOTICE TO APPEAR\n<|id|>8<|page|>1<|box|>372 155 416 841<|content|>Directed to Defendant: SUNCOAST ROOM MANAGEMENT IN\n<|id|>9<|page|>1<|box|>439 142 455 465<|content|>I. IDENTIFICATION OF DEFENDANT\n<|id|>14<|page|>1<|box|>710 142 729 426<|content|>II. NOTIFICATION OF LAWSUIT\n<|id|>18<|page|>2<|box|>239 140 258 398<|content|>III. COMPLAINT ATTACHED\n<|id|>21<|page|>2<|box|>443 140 460 437<|content|>IV. REQUIREMENT TO RESPOND\n<|id|>25<|page|>2<|box|>744 140 762 375<|content|>V. WARNING — DEFAULT\n<|id|>29<|page|>3<|box|>285 140 301 751<|content|>VI. COUNTS APPLICABLE TO SUNCOAST ROOM MANAGEMENT\n<|id|>31<|page|>3<|box|>415 140 433 508<|content|>Count VII — Unjust Enrichment (Alternative)\n<|id|>33<|page|>3<|box|>652 140 670 372<|content|>Count X — Civil Conspiracy\n<|id|>35<|page|>4<|box|>148 142 166 415<|content|>VII. CLERK'S CERTIFICATION\n<|id|>41<|page|>4<|box|>304 467 321 529<|content|>[SEAL]\n<|id|>43<|page|>4<|box|>371 142 388 383<|content|>VIII. RETURN OF SERVICE\n<|id|>51<|page|>4<|box|>686 142 702 297<|content|>Manner of Service:\n<|id|>63<|page|>5<|box|>345 142 363 375<|content|>Plaintiff's Counsel of Record:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>14<|level|>3\n<|id|>18<|level|>3\n<|id|>21<|level|>3\n<|id|>25<|level|>3\n<|id|>29<|level|>3\n<|id|>31<|level|>4\n<|id|>33<|level|>4\n<|id|>35<|level|>3\n<|id|>41<|level|>-1\n<|id|>43<|level|>3\n<|id|>51<|level|>4\n<|id|>63<|level|>4",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 4
+        },
+        {
+            "id": 33,
+            "level": 4
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 63,
+            "level": 4
+        }
+    ]
+}

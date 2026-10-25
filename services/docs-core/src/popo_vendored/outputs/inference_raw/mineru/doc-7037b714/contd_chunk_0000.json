@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>829 140 901 856<|content|>4. ... WAL retained Calderwood & Harkness LLP in connection with the indemnity dispute with Defendant\n<|id|>8<|page|>2<|box|>90 174 142 854<|content|>Hargrove-Dalton Defense Systems, Inc. ... (\"HDDS\")...on Boulevard, Suite 2200, Bethesda, Maryland 20817\n<|id|>27<|page|>3<|box|>867 142 902 856<|content|>16. ... FA8620-19-C-0337 is a cost-plus-incentive-... the United States Air Force, Air Force Life Cycle\n<|id|>28<|page|>3<|box|>915 142 929 245<|content|>CONFIDENTIAL\n<|id|>29<|page|>4<|box|>89 174 162 856<|content|>Management Center (\"AFLCMC\"), Wright-Patterson Air...ct, as relevant to this proceeding, are as follows\n<|id|>34<|page|>4<|box|>268 174 286 758<|content|>(e) Share Ratio for Cost Underruns: ... and\n<|id|>44<|page|>4<|box|>915 142 930 245<|content|>CONFIDENTIAL\n<|id|>40<|page|>4<|box|>575 174 631 857<|content|>(c) Schedule delays causing idle-labor charges: ... and\n<|id|>43<|page|>4<|box|>773 140 904 856<|content|>20. ... Cheng have informed me that, based on thei...parable scope and complexity, the review is likely\n<|id|>45<|page|>5<|box|>90 174 162 854<|content|>to require several additional months to complete. ...ch category of cost overrun identified in the COPD\n<|id|>72<|page|>8<|box|>286 140 373 852<|content|>Priya Anand Partner, Calderwood & Harkness LLP 600...tiff Whitmore Aerospace LLC CERTIFICATE OF SERVICE\n<|id|>73<|page|>8<|box|>380 140 473 854<|content|>I, Priya Anand, hereby certify that on February 10...c filing to all registered participants, including\n<|id|>74<|page|>8<|box|>479 174 517 854<|content|>Leonard Trager, Esq. ... (202) 555-4400\n<|id|>75<|page|>8<|box|>523 176 560 637<|content|>Email: ... com Counsel for Defendant Hargrove-Dalton Defense Systems, Inc",
+    "raw_response": "<|src_id|>7<|tgt_id|>8\n<|src_id|>27<|tgt_id|>29\n<|src_id|>43<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 45
+        }
+    ]
+}

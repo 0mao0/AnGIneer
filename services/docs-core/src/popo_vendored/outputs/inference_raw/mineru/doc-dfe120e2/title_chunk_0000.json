@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 197 142 797<|content|>MUTUAL CONFIDENTIALITY AND NON-DISCLOSURE AGREEMEN\n<|id|>7<|page|>1<|box|>513 142 530 243<|content|>RECITALS\n<|id|>13<|page|>2<|box|>89 140 107 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>45<|page|>4<|box|>464 140 482 730<|content|>ARTICLE 2 — EXCLUSIONS FROM CONFIDENTIAL INFORMATI\n<|id|>57<|page|>5<|box|>564 140 582 604<|content|>ARTICLE 3 — OBLIGATIONS OF RECEIVING PARTY\n<|id|>63<|page|>6<|box|>483 140 500 460<|content|>ARTICLE 4 — DATA ROOM ACCESS\n<|id|>68<|page|>7<|box|>332 140 349 839<|content|>ARTICLE 5 — RETURN AND DESTRUCTION OF CONFIDENTIAL\n<|id|>78<|page|>8<|box|>321 140 339 730<|content|>ARTICLE 6 — NON-SOLICITATION OF EMPLOYEES AND TENA\n<|id|>85<|page|>9<|box|>89 140 107 720<|content|>ARTICLE 7 — STANDSTILL (APPLICABLE TO FAIRWATER ON\n<|id|>92<|page|>9<|box|>597 140 614 763<|content|>ARTICLE 8 — NO OBLIGATION TO PROCEED; NO REPRESENT\n<|id|>97<|page|>10<|box|>393 140 412 367<|content|>ARTICLE 9 — REMEDIES\n<|id|>100<|page|>10<|box|>780 140 797 334<|content|>ARTICLE 10 — TERM\n<|id|>104<|page|>11<|box|>303 140 320 486<|content|>ARTICLE 11 — GENERAL PROVISIONS\n<|id|>130<|page|>13<|box|>638 163 672 831<|content|>SIGNATURE PAGE TO MUTUAL CONFIDENTIALITY AND NON-D\n<|id|>132<|page|>13<|box|>744 140 777 854<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST, a Maryland",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>45<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>68<|level|>2\n<|id|>78<|level|>2\n<|id|>85<|level|>2\n<|id|>92<|level|>2\n<|id|>97<|level|>2\n<|id|>100<|level|>2\n<|id|>104<|level|>2\n<|id|>130<|level|>1\n<|id|>132<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>327 140 344 452<|content|>I. Purpose and Summary of This Letter\n<|id|>12<|page|>2<|box|>186 140 204 553<|content|>II. Summary of the April 12, 2023 Mediation Sessio\n<|id|>13<|page|>2<|box|>217 140 234 547<|content|>A. Opening Statements and Procedural Framework\n<|id|>17<|page|>2<|box|>799 142 816 591<|content|>B. Contestants' Principal Positions as Stated at M\n<|id|>19<|page|>2<|box|>885 142 902 437<|content|>1. The Alleged Premarital Agreement\n<|id|>24<|page|>3<|box|>570 140 587 401<|content|>2. Lumiére Canyon Studios LLC\n<|id|>27<|page|>4<|box|>133 140 151 449<|content|>3. Pacific Rim Narrative Partners LLC\n<|id|>30<|page|>4<|box|>359 140 376 568<|content|>4. Malibu Beach House (27100 Pacific Coast Highway\n<|id|>33<|page|>4<|box|>729 140 746 598<|content|>5. Beverly Hills Residence (1847 Coldwater Canyon\n<|id|>35<|page|>5<|box|>90 140 107 558<|content|>6. Isabela C. Fonseca-Greer's Promissory Note Clai\n<|id|>38<|page|>5<|box|>388 140 405 542<|content|>7. Nicolás R. Fonseca's Educational Expense Claim\n<|id|>41<|page|>5<|box|>672 140 689 540<|content|>C. Our Presentation of Key Evidence and Positions\n<|id|>48<|page|>6<|box|>619 140 638 367<|content|>D. Negotiations and Impasse\n<|id|>54<|page|>7<|box|>458 140 474 526<|content|>III. Assessment of Litigation Risks and Strengths\n<|id|>56<|page|>7<|box|>532 142 550 367<|content|>A. Strengths of Our Position\n<|id|>65<|page|>8<|box|>215 140 231 348<|content|>B. Areas of Potential Risk\n<|id|>72<|page|>8<|box|>739 140 756 323<|content|>C. Overall Assessment\n<|id|>74<|page|>9<|box|>148 140 167 589<|content|>IV. Recommendation — Settlement Standstill Agreeme\n<|id|>75<|page|>9<|box|>180 142 196 375<|content|>A. Proposed Standstill Terms\n<|id|>84<|page|>9<|box|>781 142 797 359<|content|>B. Benefits of the Standstill\n<|id|>92<|page|>10<|box|>439 140 455 339<|content|>C. Risks of the Standstill\n<|id|>98<|page|>11<|box|>90 140 107 343<|content|>D. Our Recommendation\n<|id|>101<|page|>11<|box|>345 140 362 444<|content|>V. Financial Status of the Engagement\n<|id|>111<|page|>12<|box|>90 140 107 397<|content|>VI. Next Steps and Action Items\n<|id|>120<|page|>12<|box|>720 142 739 473<|content|>VII. Availability and Contact Information",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>3\n<|id|>24<|level|>3\n<|id|>27<|level|>3\n<|id|>30<|level|>3\n<|id|>33<|level|>3\n<|id|>35<|level|>3\n<|id|>38<|level|>3\n<|id|>41<|level|>2\n<|id|>48<|level|>2\n<|id|>54<|level|>1\n<|id|>56<|level|>2\n<|id|>65<|level|>2\n<|id|>72<|level|>2\n<|id|>74<|level|>1\n<|id|>75<|level|>2\n<|id|>84<|level|>2\n<|id|>92<|level|>2\n<|id|>98<|level|>2\n<|id|>101<|level|>1\n<|id|>111<|level|>1\n<|id|>120<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        }
+    ]
+}

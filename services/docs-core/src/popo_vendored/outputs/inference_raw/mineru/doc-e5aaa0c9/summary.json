@@ -1,0 +1,185 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-dvqq8irc\\input\\pdfs\\doc-e5aaa0c9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-dvqq8irc\\enriched\\doc-e5aaa0c9.json",
+    "contd_output": "<|src_id|>11<|tgt_id|>12\n<|src_id|>21<|tgt_id|>22\n<|src_id|>162<|tgt_id|>164",
+    "title_output": "<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>26<|level|>2\n<|id|>33<|level|>2\n<|id|>52<|level|>2\n<|id|>59<|level|>1\n<|id|>60<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>2\n<|id|>79<|level|>1\n<|id|>80<|level|>2\n<|id|>85<|level|>2\n<|id|>95<|level|>2\n<|id|>108<|level|>2\n<|id|>112<|level|>1\n<|id|>113<|level|>2\n<|id|>117<|level|>2\n<|id|>126<|level|>2\n<|id|>130<|level|>1\n<|id|>131<|level|>2\n<|id|>141<|level|>2\n<|id|>145<|level|>1\n<|id|>147<|level|>2\n<|id|>155<|level|>2\n<|id|>165<|level|>2\n<|id|>171<|level|>2\n<|id|>178<|level|>2\n<|id|>188<|level|>2\n<|id|>195<|level|>2\n<|id|>200<|level|>1\n<|id|>208<|level|>1",
+    "image_output": "<|src_id|>133<|tgt_id|>131\n<|src_id|>134<|tgt_id|>131",
+    "contd_label": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 164
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 1
+        },
+        {
+            "id": 208,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 133,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 131
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 133,
+            "table2_idx": 134,
+            "upper_row_ss": [
+                [
+                    "Risk 1 — GDPR",
+                    "Processing VMS",
+                    "Medium-High",
+                    "High",
+                    "Medium-High"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Applicability",
+                    "data at a Cloudvault establishment in Dublin could bring the arrangement within GDPR scope under Article 3(1), even without EU data subjects",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

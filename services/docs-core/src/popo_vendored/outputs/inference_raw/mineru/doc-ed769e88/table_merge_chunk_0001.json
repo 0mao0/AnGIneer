@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['7', \"Pinnacle's Post-Close Ownership (Fully Diluted)\", '18.75% (18,461,538 ÷ 98,461,538 total shares)', '15.79% without ESOP expansion (15,000,000 ÷ 95,000,000); 15.00% with proposed ESOP expansion (15,000,000 ÷', 'Material Divergence']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '100,000,000)', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 56,
+    "table2_idx": 57
+}

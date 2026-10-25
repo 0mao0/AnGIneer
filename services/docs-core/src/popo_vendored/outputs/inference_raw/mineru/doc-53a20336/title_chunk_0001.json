@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        57,
+        81
+    ],
+    "pages": [
+        58,
+        63,
+        64,
+        66,
+        67,
+        68,
+        69,
+        70,
+        73,
+        76,
+        78,
+        80,
+        81
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>175<|page|>58<|box|>50 347 64 633<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>176<|page|>58<|box|>83 215 100 765<|content|>Table 2.- Detail of Collections by Type of Tax^{y}\n<|id|>194<|page|>63<|box|>436 355 449 632<|content|>Section I - Historical Summary\n<|id|>196<|page|>64<|box|>81 354 95 631<|content|>Section I - Historical Summary\n<|id|>197<|page|>64<|box|>95 220 109 765<|content|>Table 2.- Short-Term Claims on and Liabilities to\n<|id|>202<|page|>66<|box|>100 197 114 784<|content|>Table 1.- Net Movement of Capital and of Short-Ter\n<|id|>203<|page|>66<|box|>85 340 98 640<|content|>Section II - Summary by Countries\n<|id|>205<|page|>67<|box|>85 339 101 637<|content|>Section II - Summary by Countries\n<|id|>207<|page|>68<|box|>52 401 65 575<|content|>CAPITAL MOVEMENTS\n<|id|>208<|page|>68<|box|>86 340 100 640<|content|>Section II - Summary by Countries\n<|id|>210<|page|>69<|box|>71 339 87 634<|content|>Section II - Summary by Countries\n<|id|>212<|page|>70<|box|>81 262 112 697<|content|>Section III - Details for Month of November 1950 T\n<|id|>216<|page|>73<|box|>71 225 106 769<|content|>Section III A - Preliminary Details for Month of J\n<|id|>221<|page|>76<|box|>78 279 93 680<|content|>Section IV - Supplementary Data by Countries\n<|id|>222<|page|>76<|box|>98 154 128 814<|content|>Table 3.- Short-Term Liabilities to Foreigners in\n<|id|>230<|page|>78<|box|>45 218 60 772<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>233<|page|>80<|box|>43 213 57 772<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>234<|page|>80<|box|>78 213 93 769<|content|>Table 2.- Balance Sheets as of December 31, 1950 -\n<|id|>236<|page|>81<|box|>45 201 59 753<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>237<|page|>81<|box|>78 384 92 570<|content|>Footnotes to Table 2",
+    "raw_response": "<|id|>175<|level|>1\n<|id|>176<|level|>2\n<|id|>194<|level|>3\n<|id|>196<|level|>3\n<|id|>197<|level|>4\n<|id|>202<|level|>4\n<|id|>203<|level|>3\n<|id|>205<|level|>3\n<|id|>207<|level|>2\n<|id|>208<|level|>3\n<|id|>210<|level|>3\n<|id|>212<|level|>3\n<|id|>216<|level|>4\n<|id|>221<|level|>3\n<|id|>222<|level|>4\n<|id|>230<|level|>2\n<|id|>233<|level|>2\n<|id|>234<|level|>4\n<|id|>236<|level|>2\n<|id|>237<|level|>5",
+    "parsed": [
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 4
+        },
+        {
+            "id": 202,
+            "level": 4
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 207,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 210,
+            "level": 3
+        },
+        {
+            "id": 212,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 4
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 4
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 233,
+            "level": 2
+        },
+        {
+            "id": 234,
+            "level": 4
+        },
+        {
+            "id": 236,
+            "level": 2
+        },
+        {
+            "id": 237,
+            "level": 5
+        }
+    ]
+}

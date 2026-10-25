@@ -1,0 +1,38 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>367 351 382 647<|content|>FOURTH JOINT STATUS REPORT\n<|id|>4<|page|>1<|box|>679 142 696 558<|content|>I. BACKGROUND AND PROCEDURAL HISTORY\n<|id|>13<|page|>2<|box|>809 140 827 620<|content|>II. STATUS OF THE DCMA ADMINISTRATIVE REVIEW\n<|id|>20<|page|>3<|box|>464 140 481 437<|content|>III. STATUS OF THE LITIGATION\n<|id|>22<|page|>3<|box|>604 140 622 411<|content|>IV. PARTIES' JOINT REQUEST\n<|id|>28<|page|>4<|box|>231 140 250 459<|content|>For Plaintiff Whitmore Aerospace LLC:\n<|id|>34<|page|>4<|box|>643 140 661 297<|content|>/s/ Patrick Gallagher",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>13<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>2\n<|id|>28<|level|>-1\n<|id|>34<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        }
+    ]
+}

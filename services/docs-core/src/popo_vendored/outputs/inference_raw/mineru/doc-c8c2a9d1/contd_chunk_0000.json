@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 287 133 710<|content|>7 Times Square, 38th Floor New York, New York 10036\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 723 184 854<|content|>October 31, 2025\n<|id|>4<|page|>1<|box|>193 140 237 849<|content|>Redstone Gaming Corp. ... 280 Park Avenue New York, New York 10017\n<|id|>5<|page|>1<|box|>244 140 280 854<|content|>Hargrove Williams Securities LLC 600 Lexington Avenue, Suite 2200 New York, New York 10022\n<|id|>6<|page|>1<|box|>289 140 306 852<|content|>Clearwater Capital Markets Inc. ... 100 South Charles Street, Suite 1400 Baltimore, Maryland 21201\n<|id|>7<|page|>1<|box|>316 210 349 854<|content|>As Representatives of the several Underwriters named in the Underwriting Agreement referred to below\n<|id|>8<|page|>1<|box|>359 140 395 854<|content|>Re: ... — Offering of Shares of Common Stock\n<|id|>23<|page|>2<|box|>651 178 796 856<|content|>10. ... and\n<|id|>25<|page|>2<|box|>835 140 888 854<|content|>In addition, we have reviewed such matters of law ...priate as a basis for the opinions set forth below\n<|id|>46<|page|>4<|box|>875 174 909 854<|content|>(b) We express no opinion regarding the compliance...ws, including the Securities Act or the Securities\n<|id|>47<|page|>5<|box|>89 174 164 854<|content|>Exchange Act of 1934, as amended, or the rules and... with the regulations of any other regulatory body\n<|id|>52<|page|>5<|box|>491 210 508 344<|content|>Very truly yours,\n<|id|>53<|page|>5<|box|>516 140 532 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>54<|page|>5<|box|>534 142 551 253<|content|>By: ... By\n<|id|>55<|page|>5<|box|>551 142 568 346<|content|>Vivienne St. ... Claire Partner\n<|id|>56<|page|>5<|box|>568 140 601 846<|content|>CALDERWOOD & HARKNESS LLP 7 Times Square, 38th Flo...York, New York 10019 (Counsel to the Underwriters)",
+    "raw_response": "<|src_id|>46<|tgt_id|>47",
+    "parsed": [
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        }
+    ]
+}

@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2bcak1rn\\input\\pdfs\\doc-013dd3fd.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2bcak1rn\\enriched\\doc-013dd3fd.json",
+    "contd_output": "<|src_id|>103<|tgt_id|>104",
+    "title_output": "<|id|>1<|level|>1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>21<|level|>1\n<|id|>27<|level|>1\n<|id|>28<|level|>2\n<|id|>37<|level|>2\n<|id|>47<|level|>2\n<|id|>60<|level|>2\n<|id|>67<|level|>2\n<|id|>75<|level|>1\n<|id|>76<|level|>2\n<|id|>77<|level|>3\n<|id|>84<|level|>3\n<|id|>97<|level|>3\n<|id|>106<|level|>3\n<|id|>114<|level|>2\n<|id|>115<|level|>3\n<|id|>122<|level|>3\n<|id|>127<|level|>3\n<|id|>133<|level|>2\n<|id|>134<|level|>3\n<|id|>138<|level|>3\n<|id|>144<|level|>3\n<|id|>156<|level|>3\n<|id|>161<|level|>2\n<|id|>162<|level|>3\n<|id|>166<|level|>3\n<|id|>170<|level|>3\n<|id|>176<|level|>3\n<|id|>180<|level|>1\n<|id|>181<|level|>2\n<|id|>189<|level|>2\n<|id|>196<|level|>1",
+    "image_output": "<|src_id|>39<|tgt_id|>37\n<|src_id|>62<|tgt_id|>60\n<|src_id|>63<|tgt_id|>60",
+    "contd_label": [
+        {
+            "src_id": 103,
+            "tgt_id": 104
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 1
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 60
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 62,
+            "table2_idx": 63,
+            "upper_row_ss": [
+                [
+                    "Newhall-Sievert",
+                    "$1,000,000",
+                    "Held by EF",
+                    "Consents to reallocation"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Foundation",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

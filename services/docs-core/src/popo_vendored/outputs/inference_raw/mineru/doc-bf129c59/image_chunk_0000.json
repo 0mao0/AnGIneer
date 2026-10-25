@@ -1,0 +1,52 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        13,
+        16,
+        19,
+        21,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 202 108 794<|content|>UNITED STATES DISTRICT COURT FOR THE DISTRICT OF D\n<|id|>1<|type|>table<|page|>1<|box|>141 143 300 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>368 145 424 852<|content|>DEFENDANT SOLSTICE BIOMEDICAL, INC.'S MEMORANDUM O\n<|id|>6<|type|>table<|page|>1<|box|>604 143 898 852<|content|>None\n<|id|>7<|type|>table<|page|>2<|box|>90 143 873 852<|content|>None\n<|id|>8<|type|>title<|page|>3<|box|>89 385 106 612<|content|>TABLE OF AUTHORITIES\n<|id|>10<|type|>table<|page|>3<|box|>138 143 781 852<|content|>None\n<|id|>11<|type|>title<|page|>3<|box|>816 143 832 290<|content|>Statutes and Rules\n<|id|>12<|type|>table<|page|>3<|box|>839 143 905 852<|content|>None\n<|id|>13<|type|>table<|page|>4<|box|>88 143 174 852<|content|>None\n<|id|>14<|type|>title<|page|>4<|box|>223 140 239 413<|content|>I. PRELIMINARY STATEMENT\n<|id|>20<|type|>title<|page|>5<|box|>229 140 247 377<|content|>II. STATEMENT OF FACTS\n<|id|>21<|type|>title<|page|>5<|box|>261 142 277 261<|content|>A. The Parties\n<|id|>25<|type|>title<|page|>5<|box|>715 140 732 334<|content|>B. The Asserted Patents\n<|id|>31<|type|>title<|page|>6<|box|>656 140 672 400<|content|>C. The Accused PE-12000 Series\n<|id|>35<|type|>title<|page|>7<|box|>231 140 248 511<|content|>D. Procedural History Relevant to This Motion\n<|id|>41<|type|>title<|page|>7<|box|>763 140 782 346<|content|>III. LEGAL STANDARD\n<|id|>42<|type|>title<|page|>7<|box|>796 140 813 653<|content|>A. Summary Judgment Under Federal Rule of Civil Pr\n<|id|>46<|type|>title<|page|>8<|box|>411 140 428 557<|content|>B. Summary Judgment in Patent Infringement Cases\n<|id|>50<|type|>title<|page|>9<|box|>90 140 107 578<|content|>C. Literal Infringement and the Doctrine of Equiva\n<|id|>56<|type|>title<|page|>9<|box|>660 140 678 285<|content|>IV. ARGUMENT\n<|id|>77<|type|>title<|page|>13<|box|>275 140 311 854<|content|>B. Genuine Disputes of Material Fact Preclude Summ\n<|id|>101<|type|>title<|page|>16<|box|>797 140 833 854<|content|>C. Genuine Disputes of Material Fact Preclude Summ\n<|id|>117<|type|>title<|page|>19<|box|>294 140 329 852<|content|>D. Apex Fails to Establish Infringement Under the\n<|id|>133<|type|>title<|page|>21<|box|>257 140 273 763<|content|>E. Solstice's Invalidity Defenses Further Demonstr\n<|id|>137<|type|>title<|page|>21<|box|>647 140 664 294<|content|>V. CONCLUSION\n<|id|>153<|type|>title<|page|>22<|box|>515 375 531 622<|content|>CERTIFICATE OF SERVICE\n<|id|>157<|type|>title<|page|>22<|box|>790 142 824 668<|content|>Marcus Delgado (Bar No. 4817) CALDERWOOD & HARKNES",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>6<|tgt_id|>2\n<|src_id|>7<|tgt_id|>2\n<|src_id|>10<|tgt_id|>8\n<|src_id|>12<|tgt_id|>11\n<|src_id|>13<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        }
+    ]
+}

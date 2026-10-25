@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|page|>1<|box|>462 140 479 264<|content|>I. Introduction\n<|id|>17<|page|>2<|box|>285 140 303 433<|content|>II. Background on the Proposed IPO\n<|id|>32<|page|>3<|box|>609 140 625 573<|content|>III. Intended Use of IPO Proceeds Relevant to Velt\n<|id|>39<|page|>4<|box|>539 140 556 403<|content|>IV. Consent and Waiver Request\n<|id|>41<|page|>4<|box|>650 140 667 316<|content|>A. Change of Control\n<|id|>45<|page|>5<|box|>286 140 303 496<|content|>B. Restricted Payments and Equity Issuances\n<|id|>48<|page|>5<|box|>566 140 584 454<|content|>C. Reporting and Disclosure Covenants\n<|id|>50<|page|>6<|box|>90 140 107 542<|content|>D. Additional Shares Under Equity Incentive Plans\n<|id|>55<|page|>6<|box|>424 140 440 446<|content|>E. Circulation to the Lender Syndicate\n<|id|>57<|page|>6<|box|>598 140 614 444<|content|>V. Description of Enclosed Documents\n<|id|>62<|page|>7<|box|>248 140 266 352<|content|>VI. Key Contacts for CBR\n<|id|>69<|page|>7<|box|>537 140 555 361<|content|>VII. Timing and Next Steps\n<|id|>74<|page|>8<|box|>250 140 265 362<|content|>VIII. Confidentiality Notice\n<|id|>86<|page|>9<|box|>232 142 248 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>32<|level|>1\n<|id|>39<|level|>1\n<|id|>41<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>1\n<|id|>62<|level|>1\n<|id|>69<|level|>1\n<|id|>74<|level|>1\n<|id|>86<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        }
+    ]
+}

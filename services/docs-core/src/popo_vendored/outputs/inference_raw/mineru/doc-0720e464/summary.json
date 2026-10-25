@@ -1,0 +1,173 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-s63_8cfe\\input\\pdfs\\doc-0720e464.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-s63_8cfe\\enriched\\doc-0720e464.json",
+    "contd_output": "<|src_id|>13<|tgt_id|>14",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>7<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>62<|level|>2\n<|id|>76<|level|>2\n<|id|>84<|level|>2\n<|id|>89<|level|>1\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>102<|level|>2\n<|id|>108<|level|>2\n<|id|>112<|level|>2\n<|id|>115<|level|>1\n<|id|>116<|level|>2\n<|id|>121<|level|>2\n<|id|>129<|level|>2\n<|id|>135<|level|>2\n<|id|>141<|level|>2\n<|id|>146<|level|>1\n<|id|>147<|level|>2\n<|id|>151<|level|>2\n<|id|>159<|level|>2\n<|id|>165<|level|>1\n<|id|>172<|level|>1",
+    "image_output": "<|src_id|>34<|tgt_id|>32\n<|src_id|>35<|tgt_id|>32\n<|src_id|>92<|tgt_id|>90\n<|src_id|>149<|tgt_id|>147",
+    "contd_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 34,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 147
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 34,
+            "table2_idx": 35,
+            "upper_row_ss": [
+                [
+                    "Nightjars",
+                    "2021",
+                    "$3,950,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Total",
+                    "",
+                    "$23,220,000"
+                ]
+            ]
+        }
+    ]
+}

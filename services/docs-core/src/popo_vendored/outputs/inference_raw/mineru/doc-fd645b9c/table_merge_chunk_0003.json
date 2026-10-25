@@ -1,0 +1,23 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['12', 'Destin', 'FL', 'Palmett', 'Mortga', 'Commi', 'To be', 'Pendin', 'Pendin', 'Rosen', '8/5/202']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Emerald Shores Resort, 4100 Legendary Drive, Destin, FL 32541', '', 'o Beachfront Hotels LLC', 'ge', 'tted', 'updated', 'g', 'g', 'Levine PA (Miami)', '2']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 162,
+    "table2_idx": 163
+}

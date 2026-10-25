@@ -1,0 +1,198 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_8dm9fk0\\input\\pdfs\\doc-4babc596.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_8dm9fk0\\enriched\\doc-4babc596.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>5<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>45<|level|>3\n<|id|>50<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>3\n<|id|>67<|level|>3\n<|id|>74<|level|>3\n<|id|>82<|level|>2\n<|id|>88<|level|>3\n<|id|>99<|level|>3\n<|id|>110<|level|>3\n<|id|>116<|level|>3\n<|id|>119<|level|>2\n<|id|>120<|level|>3\n<|id|>132<|level|>3\n<|id|>138<|level|>3\n<|id|>144<|level|>3\n<|id|>150<|level|>3\n<|id|>159<|level|>3\n<|id|>171<|level|>3\n<|id|>183<|level|>2\n<|id|>186<|level|>2\n<|id|>194<|level|>2\n<|id|>202<|level|>2\n<|id|>207<|level|>2",
+    "image_output": "<|src_id|>6<|tgt_id|>5\n<|src_id|>43<|tgt_id|>42\n<|src_id|>100<|tgt_id|>99\n<|src_id|>152<|tgt_id|>150\n<|src_id|>153<|tgt_id|>150\n<|src_id|>184<|tgt_id|>183\n<|src_id|>185<|tgt_id|>183",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 6,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 150
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 150
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 183
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 183
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 184,
+            "table2_idx": 185,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "Letter — C&H (Graham Sutherland) to Wexford Crane & Albright LLP",
+                    "August 5, 2024",
+                    "1024-00002-009"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "(Helen M. Calloway) responding to IAC counsel comments",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

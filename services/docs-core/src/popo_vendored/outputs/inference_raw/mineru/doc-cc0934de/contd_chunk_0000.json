@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        4,
+        9,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>156 140 174 338<|content|>Tel: ... +44 (0)20 7946 0100\n<|id|>3<|page|>1<|box|>181 140 199 339<|content|>Fax: ... +44 (0)20 7946 0199\n<|id|>4<|page|>1<|box|>200 140 217 534<|content|>DX: ... com\n<|id|>5<|page|>1<|box|>226 728 242 854<|content|>14 October 2024\n<|id|>7<|page|>1<|box|>277 140 314 854<|content|>Ms. ... Ioanna Christodoulou General Counsel Thala...A 14 Akti Miaouli, 4th Floor Piraeus 185 35 Greece\n<|id|>8<|page|>1<|box|>321 140 358 852<|content|>Matter: ... CL-2024-000487\n<|id|>39<|page|>4<|box|>424 174 478 854<|content|>(c) the purported sale of M/V Volga Spirit to Dnepr Shipholding Inc. ... and\n<|id|>41<|page|>4<|box|>549 140 585 854<|content|>These matters were set out in the witness statemen...ore Mr. ... Justice Ashworth in support of the WFO\n<|id|>100<|page|>9<|box|>763 174 819 854<|content|>(a) KMH's entire shareholding in Oceangate Ventures Ltd. ... and\n<|id|>102<|page|>9<|box|>869 140 906 856<|content|>KMH filed opposition to the enforcement applicatio...tion which it declined to exercise in KMH's favour\n<|id|>111<|page|>10<|box|>838 140 875 857<|content|>TSL's local counsel in Singapore is Straits Meridi...ting through David Teo Wei Lin (Partner) and Priya\n<|id|>112<|page|>11<|box|>90 140 127 854<|content|>Subramaniam (Senior Associate). ... We have worked...hich the Singapore proceedings have been conducted\n<|id|>136<|page|>13<|box|>234 142 251 267<|content|>Yours sincerely,\n<|id|>137<|page|>13<|box|>258 140 292 854<|content|>Samuel Eklund Partner Calderwood & Harkness LLP 45 Moorgate, London EC2R 6AR, United Kingdom\n<|id|>138<|page|>13<|box|>292 143 309 336<|content|>Tel: ... +44 (0)20 7946 0127\n<|id|>139<|page|>13<|box|>310 142 327 460<|content|>Email: ... com",
+    "raw_response": "<|src_id|>111<|tgt_id|>112",
+    "parsed": [
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        }
+    ]
+}

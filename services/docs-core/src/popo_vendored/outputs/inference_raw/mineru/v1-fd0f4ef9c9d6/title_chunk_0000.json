@@ -1,0 +1,146 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        45
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        8,
+        9,
+        10,
+        12,
+        14,
+        18,
+        20,
+        21,
+        24,
+        26,
+        27,
+        28,
+        29,
+        32,
+        33,
+        35,
+        38,
+        40,
+        41,
+        44,
+        45
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>150 112 172 892<|content|>Bounds on the Distribution of a Sum of Two Random\n<|id|>7<|page|>1<|box|>429 457 446 550<|content|>Abst<sub>r</sub>act\n<|id|>10<|page|>2<|box|>80 112 99 303<|content|>1 Introduction\n<|id|>27<|page|>4<|box|>670 112 690 669<|content|>2 Bounds on the sum of two random variables\n<|id|>72<|page|>8<|box|>191 112 212 441<|content|>3 Sharpness of the bounds\n<|id|>79<|page|>9<|box|>82 112 99 547<|content|>3.1 Prior results on achievability of bounds\n<|id|>92<|page|>10<|box|>640 112 655 491<|content|>3.2 When are the bounds achievable?\n<|id|>109<|page|>12<|box|>80 112 99 573<|content|>3.3 Special case: at least one discrete variable\n<|id|>135<|page|>14<|box|>689 112 707 859<|content|>3.4C _ { t }not achieving the bound implies no oth\n<|id|>147<|page|>18<|box|>156 112 174 785<|content|>3.5 Suficient conditions for achievability of the\n<|id|>165<|page|>20<|box|>82 112 99 743<|content|>3.6 Characterization of achievability of the lower\n<|id|>176<|page|>21<|box|>603 112 619 671<|content|>3.7 Summary Theorems on Achievability and Sharpnes\n<|id|>209<|page|>24<|box|>285 112 301 357<|content|>3.8 Examples Revisited\n<|id|>219<|page|>26<|box|>165 112 184 519<|content|>4 Sharp bounds on the diference\n<|id|>228<|page|>27<|box|>82 112 99 370<|content|>4.1 Proof of Theorem 25\n<|id|>236<|page|>27<|box|>811 112 829 473<|content|>4.2 Implications of the new bounds\n<|id|>241<|page|>28<|box|>638 112 659 395<|content|>5 A causal perspective\n<|id|>249<|page|>29<|box|>635 112 652 640<|content|>5.1 Application of Theorem 29 on cdf bounds of ITE\n<|id|>266<|page|>32<|box|>193 112 212 364<|content|>6 Acknowledgments\n<|id|>268<|page|>33<|box|>79 112 99 243<|content|>References\n<|id|>299<|page|>35<|box|>79 112 99 700<|content|>A Table on prior work and relation to this paper\n<|id|>302<|page|>35<|box|>465 111 523 892<|content|>B Relationship between bounds defined using left o\n<|id|>350<|page|>38<|box|>661 111 681 792<|content|>C R¨uschendorf ’s approach to achievability of the\n<|id|>375<|page|>40<|box|>704 111 724 764<|content|>D Revisit Theorem 2 in Williamson and Downs (1990)\n<|id|>382<|page|>41<|box|>699 111 719 668<|content|>E Relating R¨uschendorf and Makarov Bounds\n<|id|>414<|page|>44<|box|>79 111 99 403<|content|>F Proof of Theorem 27\n<|id|>428<|page|>45<|box|>136 111 157 580<|content|>G Simulation under the special copula",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>10<|level|>2\n<|id|>27<|level|>2\n<|id|>72<|level|>2\n<|id|>79<|level|>3\n<|id|>92<|level|>3\n<|id|>109<|level|>3\n<|id|>135<|level|>3\n<|id|>147<|level|>3\n<|id|>165<|level|>3\n<|id|>176<|level|>3\n<|id|>209<|level|>3\n<|id|>219<|level|>2\n<|id|>228<|level|>3\n<|id|>236<|level|>3\n<|id|>241<|level|>2\n<|id|>249<|level|>3\n<|id|>266<|level|>2\n<|id|>268<|level|>2\n<|id|>299<|level|>2\n<|id|>302<|level|>2\n<|id|>350<|level|>2\n<|id|>375<|level|>2\n<|id|>382<|level|>2\n<|id|>414<|level|>2\n<|id|>428<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 3
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 228,
+            "level": 3
+        },
+        {
+            "id": 236,
+            "level": 3
+        },
+        {
+            "id": 241,
+            "level": 2
+        },
+        {
+            "id": 249,
+            "level": 3
+        },
+        {
+            "id": 266,
+            "level": 2
+        },
+        {
+            "id": 268,
+            "level": 2
+        },
+        {
+            "id": 299,
+            "level": 2
+        },
+        {
+            "id": 302,
+            "level": 2
+        },
+        {
+            "id": 350,
+            "level": 2
+        },
+        {
+            "id": 375,
+            "level": 2
+        },
+        {
+            "id": 382,
+            "level": 2
+        },
+        {
+            "id": 414,
+            "level": 2
+        },
+        {
+            "id": 428,
+            "level": 2
+        }
+    ]
+}

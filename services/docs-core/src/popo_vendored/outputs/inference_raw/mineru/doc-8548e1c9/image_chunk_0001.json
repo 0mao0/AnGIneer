@@ -1,0 +1,50 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>429<|type|>title<|page|>45<|box|>385 140 401 346<|content|>4. Required Attachments:\n<|id|>442<|type|>title<|page|>46<|box|>89 449 106 549<|content|>EXHIBIT D\n<|id|>443<|type|>title<|page|>46<|box|>131 253 148 745<|content|>FORM OF MONTHLY RESERVE ACCOUNT STATEMENT\n<|id|>444<|type|>title<|page|>46<|box|>156 147 191 851<|content|>IRONCLAD NATIONAL BANK, N.A. Real Estate Finance —\n<|id|>445<|type|>title<|page|>46<|box|>200 297 217 700<|content|>MONTHLY RESERVE ACCOUNT STATEMENT\n<|id|>446<|type|>table<|page|>46<|box|>224 143 319 852<|content|>None\n<|id|>447<|type|>title<|page|>46<|box|>359 143 375 359<|content|>1. Interest Reserve Account\n<|id|>448<|type|>table<|page|>46<|box|>380 143 547 852<|content|>None\n<|id|>449<|type|>title<|page|>46<|box|>585 143 603 441<|content|>2. Tax and Insurance Escrow Account\n<|id|>450<|type|>title<|page|>46<|box|>609 143 626 339<|content|>Tax Escrow Subaccount:\n<|id|>451<|type|>table<|page|>46<|box|>633 145 785 852<|content|>None\n<|id|>452<|type|>title<|page|>46<|box|>820 143 835 385<|content|>Insurance Escrow Subaccount:\n<|id|>453<|type|>table<|page|>46<|box|>844 145 907 852<|content|>None\n<|id|>454<|type|>table<|page|>47<|box|>88 143 203 852<|content|>None\n<|id|>455<|type|>title<|page|>47<|box|>243 142 258 400<|content|>3. Replacement Reserve Account\n<|id|>456<|type|>table<|page|>47<|box|>263 143 431 852<|content|>None\n<|id|>457<|type|>title<|page|>47<|box|>470 143 486 349<|content|>4. TI/LC Reserve Account\n<|id|>458<|type|>table<|page|>47<|box|>491 143 657 852<|content|>None\n<|id|>459<|type|>title<|page|>47<|box|>698 143 714 338<|content|>5. Compliance Summary\n<|id|>460<|type|>table<|page|>47<|box|>719 143 861 852<|content|>None\n<|id|>461<|type|>title<|page|>48<|box|>90 140 107 470<|content|>6. Deficiencies / Required Replenishments\n<|id|>464<|type|>title<|page|>48<|box|>165 142 181 313<|content|>Contact Information:",
+    "raw_response": "<|src_id|>446<|tgt_id|>445\n<|src_id|>448<|tgt_id|>447\n<|src_id|>451<|tgt_id|>450\n<|src_id|>453<|tgt_id|>452\n<|src_id|>454<|tgt_id|>452\n<|src_id|>456<|tgt_id|>455\n<|src_id|>458<|tgt_id|>457\n<|src_id|>460<|tgt_id|>459",
+    "parsed": [
+        {
+            "src_id": 446,
+            "tgt_id": 445
+        },
+        {
+            "src_id": 448,
+            "tgt_id": 447
+        },
+        {
+            "src_id": 451,
+            "tgt_id": 450
+        },
+        {
+            "src_id": 453,
+            "tgt_id": 452
+        },
+        {
+            "src_id": 454,
+            "tgt_id": 452
+        },
+        {
+            "src_id": 456,
+            "tgt_id": 455
+        },
+        {
+            "src_id": 458,
+            "tgt_id": 457
+        },
+        {
+            "src_id": 460,
+            "tgt_id": 459
+        }
+    ]
+}

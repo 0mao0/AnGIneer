@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 202 118 794<|content|>WRITTEN CONSENT OF THE BOARD OF DIRECTORS\n<|id|>2<|type|>title<|page|>1<|box|>175 357 195 640<|content|>LUMOS ANALYTICS INC.\n<|id|>6<|type|>title<|page|>1<|box|>483 142 500 241<|content|>RECITALS\n<|id|>17<|type|>table<|page|>2<|box|>292 143 385 852<|content|>None\n<|id|>20<|type|>table<|page|>2<|box|>616 143 729 852<|content|>None\n<|id|>23<|type|>table<|page|>3<|box|>169 143 292 852<|content|>None\n<|id|>29<|type|>title<|page|>4<|box|>204 142 220 279<|content|>RESOLUTIONS\n<|id|>31<|type|>title<|page|>4<|box|>256 140 273 674<|content|>Resolution 1 — Authorization and Approval of the S\n<|id|>34<|type|>title<|page|>4<|box|>590 140 607 620<|content|>Resolution 2 — Authorization of Pro Rata Rights Si\n<|id|>36<|type|>title<|page|>4<|box|>752 142 768 555<|content|>Resolution 3 — Authorization of Information Rights\n<|id|>38<|type|>title<|page|>5<|box|>90 140 107 539<|content|>Resolution 4 — Delegation of Execution Authority.\n<|id|>45<|type|>title<|page|>5<|box|>527 140 545 513<|content|>Resolution 5 — Authorization to Accept Funds.\n<|id|>47<|type|>title<|page|>5<|box|>708 140 724 651<|content|>Resolution 6 — Authorization of Filings and Compli\n<|id|>50<|type|>title<|page|>6<|box|>133 140 151 493<|content|>Resolution 7 — Ratification of Prior Actions.\n<|id|>52<|type|>title<|page|>6<|box|>351 140 368 418<|content|>Resolution 8 — General Authority.\n<|id|>54<|type|>title<|page|>6<|box|>564 140 580 493<|content|>EFFECTIVENESS AND COUNTERPARTS",
+    "raw_response": "<|src_id|>17<|tgt_id|>6\n<|src_id|>20<|tgt_id|>6\n<|src_id|>23<|tgt_id|>6",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 6
+        }
+    ]
+}

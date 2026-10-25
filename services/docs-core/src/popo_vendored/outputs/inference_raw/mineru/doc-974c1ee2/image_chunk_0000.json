@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 143 104 844<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>1<|type|>title<|page|>1<|box|>112 145 128 846<|content|>CALDERWOOD & HARKNESS LLP 333 SE 2nd Avenue, Suite\n<|id|>2<|type|>title<|page|>1<|box|>138 374 155 624<|content|>INTERNAL MEMORANDUM\n<|id|>11<|type|>title<|page|>1<|box|>409 316 428 679<|content|>I. PURPOSE AND BACKGROUND\n<|id|>19<|type|>table<|page|>2<|box|>133 143 287 852<|content|>None\n<|id|>23<|type|>title<|page|>2<|box|>729 218 750 777<|content|>II. SUMMARY OF ORIGINAL FEE ARRANGEMENT\n<|id|>26<|type|>table<|page|>2<|box|>890 143 909 852<|content|>None\n<|id|>27<|type|>table<|page|>3<|box|>88 143 193 852<|content|>None\n<|id|>33<|type|>title<|page|>3<|box|>631 200 675 795<|content|>III. REVISED FEE ARRANGEMENT — CONTINGENCY ENHANCE\n<|id|>34<|type|>title<|page|>3<|box|>700 142 717 485<|content|>A. Rationale for Contingency Enhancement\n<|id|>38<|type|>title<|page|>4<|box|>340 140 357 480<|content|>B. Terms of the Contingency Enhancement\n<|id|>43<|type|>table<|page|>4<|box|>768 143 863 852<|content|>None\n<|id|>47<|type|>title<|page|>5<|box|>383 140 402 441<|content|>C. Client Consent and Documentation\n<|id|>51<|type|>title<|page|>5<|box|>744 184 763 812<|content|>IV. UPDATED STAFFING PLAN FOR LITIGATION PHASE\n<|id|>52<|type|>title<|page|>5<|box|>791 142 806 385<|content|>A. Current Team Composition\n<|id|>58<|type|>title<|page|>6<|box|>739 140 757 517<|content|>B. Projected Staffing Needs for Litigation Phase\n<|id|>72<|type|>title<|page|>8<|box|>619 140 636 452<|content|>C. Consideration of Additional Staffing\n<|id|>75<|type|>title<|page|>9<|box|>90 292 109 704<|content|>V. EXPENSE BUDGET PROJECTIONS\n<|id|>84<|type|>title<|page|>10<|box|>208 161 229 834<|content|>VI. DEFENDANTS' COUNSEL AND LITIGATION LANDSCAPE\n<|id|>95<|type|>title<|page|>11<|box|>505 168 525 826<|content|>VII. CLIENT COMMUNICATION AND APPROVAL PROCESS\n<|id|>100<|type|>title<|page|>12<|box|>152 388 172 607<|content|>VIII. CONCLUSION",
+    "raw_response": "<|src_id|>19<|tgt_id|>11\n<|src_id|>26<|tgt_id|>23\n<|src_id|>27<|tgt_id|>23\n<|src_id|>43<|tgt_id|>38",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 38
+        }
+    ]
+}

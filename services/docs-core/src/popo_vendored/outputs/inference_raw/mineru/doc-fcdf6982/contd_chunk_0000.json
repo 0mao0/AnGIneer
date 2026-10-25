@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        17,
+        18,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 140 179 452<|content|>TO: ... Claudia Merritt, Responsible Partner\n<|id|>3<|page|>1<|box|>188 140 224 854<|content|>FROM: ... Alan Burke, Lead Associate, Privacy & Data Security\n<|id|>4<|page|>1<|box|>231 140 250 354<|content|>DATE: ... September 24, 2023\n<|id|>5<|page|>1<|box|>258 140 311 854<|content|>RE: ... )\n<|id|>6<|page|>1<|box|>319 140 337 379<|content|>ENGAGEMENT: ... 1019-00003\n<|id|>7<|page|>1<|box|>345 140 383 854<|content|>CLASSIFICATION: ... Attorney-Client Privileged / A...roduct — Do Not Distribute Outside Engagement Team\n<|id|>8<|page|>1<|box|>390 142 407 408<|content|>Right-click to update Table of Contents\n<|id|>62<|page|>6<|box|>875 142 910 854<|content|>First, Halcyon's primary advantage over Whitmore i...lcyon received an \"Outstanding\" rating compared to\n<|id|>63<|page|>7<|box|>90 140 143 854<|content|>Whitmore's \"Acceptable. ... \" This two-step rating...ff decision to award to the higher- priced offeror\n<|id|>141<|page|>17<|box|>869 140 906 854<|content|>The stay takes effect on the day after GAO notifie...inistrative processing, if the protest is filed on\n<|id|>142<|page|>18<|box|>89 140 162 854<|content|>September 26, 2023, GAO will likely issue its noti...ed under the IDIQ vehicle must be held in abeyance\n<|id|>229<|page|>27<|box|>511 140 527 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>230<|page|>27<|box|>529 142 545 253<|content|>By: ... By\n<|id|>231<|page|>27<|box|>546 140 563 741<|content|>Lt. ... ) Nathan Yardley Of Counsel, Government Contracts Practice Group\n<|id|>232<|page|>27<|box|>564 143 580 253<|content|>By: ... By\n<|id|>233<|page|>27<|box|>580 142 595 532<|content|>Alan Burke Lead Associate, Privacy & Data Security\n<|id|>234<|page|>27<|box|>597 140 688 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...e may constitute a waiver of applicable privileges",
+    "raw_response": "<|src_id|>62<|tgt_id|>63\n<|src_id|>141<|tgt_id|>142",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 142
+        }
+    ]
+}

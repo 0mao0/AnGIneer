@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        31
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        8,
+        9,
+        24,
+        31
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 166 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>174 140 210 854<|content|>TO: ... , Associate General Counsel, Clinical Affairs, Penterra Pharmaceuticals Corp\n<|id|>3<|page|>1<|box|>218 140 253 854<|content|>FROM: ... Sean Morrissey, Associate, Calderwood & ...topher Aiken, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>261 140 280 307<|content|>DATE: ... April 3, 2023\n<|id|>5<|page|>1<|box|>287 140 324 854<|content|>RE: ... Master Clinical Trial Agreement with Veridian Health Research Network, Inc\n<|id|>6<|page|>1<|box|>330 140 349 362<|content|>MATTER NO. ... 1018-00004\n<|id|>7<|page|>1<|box|>358 140 375 408<|content|>Right-click to update Table of Contents\n<|id|>11<|page|>1<|box|>750 140 878 857<|content|>The MCTA between Penterra and Veridian Health Rese...acebo (800 treatment arm, 400 placebo arm), over a\n<|id|>12<|page|>2<|box|>90 140 127 854<|content|>42-month enrollment period, with total study durat...) to database lock and final clinical study report\n<|id|>54<|page|>7<|box|>234 147 251 836<|content|>• Demographic information (name, date of birth, age, sex, race, ethnicity, contact information)\n<|id|>64<|page|>7<|box|>465 140 575 854<|content|>Each of these data elements constitutes PHI when a...individually identifiable information. ... Part 50\n<|id|>55<|page|>7<|box|>253 147 268 500<|content|>• Medical history and concomitant medications\n<|id|>56<|page|>7<|box|>273 147 289 498<|content|>• Physical examination findings and vital signs\n<|id|>57<|page|>7<|box|>292 147 309 750<|content|>• Screening and eligibility assessments, including prior treatment history for HCC\n<|id|>58<|page|>7<|box|>313 147 345 854<|content|>• Treatment administration records (study drug dosing, dose modifications, treatment discontinuations)\n<|id|>59<|page|>7<|box|>349 147 385 854<|content|>• Laboratory results (hematology, chemistry, coagu...site and at Northbridge Bioanalytical Laboratories\n<|id|>60<|page|>7<|box|>388 147 404 710<|content|>• Imaging data (CT, MRI) for tumor assessment under RECIST v1. ... 1 criteria\n<|id|>61<|page|>7<|box|>407 147 424 712<|content|>• Adverse events and serious adverse events, including causality assessments\n<|id|>62<|page|>7<|box|>426 147 443 570<|content|>• Biomarker and PK/PD data from biospecimen analyses\n<|id|>63<|page|>7<|box|>446 145 463 516<|content|>• Survival data, including date and cause of death\n<|id|>72<|page|>8<|box|>441 181 459 509<|content|>• Penterra Pharmaceuticals Corp. ... (Sponsor)\n<|id|>80<|page|>8<|box|>654 174 726 856<|content|>The authorization may identify recipients by name ...ng the primary recipients by name for transparency\n<|id|>73<|page|>8<|box|>460 183 478 596<|content|>• Meridian Contract Research Organization, Inc. ... (CRO)\n<|id|>74<|page|>8<|box|>481 181 515 854<|content|>• The U. ... Food and Drug Administration and other regulatory authorities as required by law\n<|id|>75<|page|>8<|box|>518 181 571 854<|content|>• Institutional Review Boards, including the Grays...as well as any other IRBs with oversight authority\n<|id|>76<|page|>8<|box|>575 183 590 522<|content|>• Pinnacle Data Solutions, Inc. ... (EDC vendor)\n<|id|>77<|page|>8<|box|>594 183 612 669<|content|>• Northbridge Bioanalytical Laboratories, Inc. ... (central laboratory)\n<|id|>78<|page|>8<|box|>614 183 630 496<|content|>• Data Safety Monitoring Board members\n<|id|>79<|page|>8<|box|>633 181 650 534<|content|>• Other parties as required by law or regulation\n<|id|>82<|page|>8<|box|>864 140 898 857<|content|>5. ... The\n<|id|>83<|page|>9<|box|>90 174 255 854<|content|>Privacy Rule permits the use of the statement \"end...ay be necessary for regulatory compliance purposes\n<|id|>223<|page|>24<|box|>452 140 488 854<|content|>1. ... and\n<|id|>225<|page|>24<|box|>527 140 675 856<|content|>Application to the CLARION Trial. ... if subjects ...omised, potentially invalidating the trial results\n<|id|>290<|page|>31<|box|>428 174 465 854<|content|>(a) Clinical SAE reporting (within 24 hours of awa...ursuant to Protocol PPC-4871-III and 21 C. ... and\n<|id|>292<|page|>31<|box|>535 174 571 854<|content|>These are distinct reporting obligations governed ... and the MCTA should ensure they are not conflated",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>82<|tgt_id|>83",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        }
+    ]
+}

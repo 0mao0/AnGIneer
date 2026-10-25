@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>165 323 184 673<|content|>ARTICLES OF ORGANIZATION\n<|id|>2<|type|>title<|page|>1<|box|>242 269 261 728<|content|>STONEBRIDGE CAMPUS HOLDINGS LLC\n<|id|>3<|type|>title<|page|>1<|box|>280 348 297 650<|content|>A Virginia Limited Liability Company\n<|id|>7<|type|>title<|page|>1<|box|>401 250 419 745<|content|>DOCUMENT STATUS: DRAFT — PREPARED FOR FILING\n<|id|>8<|type|>title<|page|>1<|box|>426 165 444 831<|content|>ARTICLES OF ORGANIZATION OF STONEBRIDGE CAMPUS HOL\n<|id|>10<|type|>title<|page|>1<|box|>568 143 584 323<|content|>ARTICLE I — NAME\n<|id|>12<|type|>title<|page|>1<|box|>619 357 637 640<|content|>Stonebridge Campus Holdings LLC\n<|id|>15<|type|>title<|page|>2<|box|>89 140 107 372<|content|>ARTICLE II — PURPOSES\n<|id|>32<|type|>title<|page|>3<|box|>376 140 393 707<|content|>ARTICLE III — REGISTERED OFFICE AND REGISTERED AGE\n<|id|>44<|type|>title<|page|>4<|box|>167 140 184 455<|content|>ARTICLE IV — PRINCIPAL OFFICE\n<|id|>46<|type|>title<|page|>4<|box|>219 176 237 620<|content|>44680 Prentice Drive, Suite 200 Ashburn, Virginia\n<|id|>49<|type|>title<|page|>4<|box|>404 142 420 387<|content|>ARTICLE V — ORGANIZER\n<|id|>54<|type|>title<|page|>4<|box|>686 140 703 418<|content|>ARTICLE VI — MANAGEMENT\n<|id|>65<|type|>title<|page|>5<|box|>513 142 530 447<|content|>ARTICLE VII — INITIAL MEMBER\n<|id|>67<|type|>table<|page|>5<|box|>582 143 651 852<|content|>None\n<|id|>73<|type|>title<|page|>6<|box|>229 142 247 496<|content|>ARTICLE VIII — TERM AND DURATION\n<|id|>75<|type|>title<|page|>6<|box|>369 142 387 439<|content|>ARTICLE IX — EFFECTIVE DATE\n<|id|>80<|type|>title<|page|>6<|box|>715 142 733 509<|content|>ARTICLE X — ADDITIONAL PROVISIONS\n<|id|>81<|type|>title<|page|>6<|box|>747 140 765 694<|content|>Section 10.1 — Single-Purpose Entity Covenants (Su\n<|id|>95<|type|>title<|page|>8<|box|>239 140 256 650<|content|>Section 10.2 — Restrictions on Transfer of Members\n<|id|>99<|type|>title<|page|>8<|box|>619 140 636 385<|content|>Section 10.3 — Tax Treatment\n<|id|>103<|type|>title<|page|>9<|box|>133 413 151 583<|content|>SIGNATURE PAGE\n<|id|>105<|type|>title<|page|>9<|box|>222 142 238 264<|content|>ORGANIZER:\n<|id|>116<|type|>title<|page|>9<|box|>420 150 455 844<|content|>FILING INFORMATION — FOR VIRGINIA STATE CORPORATIO\n<|id|>117<|type|>table<|page|>9<|box|>463 143 579 852<|content|>None\n<|id|>119<|type|>title<|page|>9<|box|>694 143 710 323<|content|>Return Filed Copy To:\n<|id|>125<|type|>title<|page|>9<|box|>832 449 849 549<|content|>EXHIBIT A\n<|id|>126<|type|>title<|page|>9<|box|>858 267 875 728<|content|>STATEMENT OF CONSENT OF REGISTERED AGENT\n<|id|>128<|type|>title<|page|>10<|box|>171 140 189 377<|content|>I am (check one, as applicable):\n<|id|>136<|type|>title<|page|>10<|box|>561 142 578 341<|content|>REGISTERED AGENT:",
+    "raw_response": "<|src_id|>67<|tgt_id|>65\n<|src_id|>117<|tgt_id|>116",
+    "parsed": [
+        {
+            "src_id": 67,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 116
+        }
+    ]
+}

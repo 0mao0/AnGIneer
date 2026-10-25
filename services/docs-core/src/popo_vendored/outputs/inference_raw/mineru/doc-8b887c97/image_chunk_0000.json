@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 259 118 736<|content|>PRO FORMA COMPLIANCE CERTIFICATE\n<|id|>4<|type|>title<|page|>1<|box|>305 142 321 250<|content|>Delivered to:\n<|id|>11<|type|>title<|page|>1<|box|>628 140 646 457<|content|>Section 1 — Certification and Authority\n<|id|>19<|type|>title<|page|>2<|box|>465 140 484 398<|content|>Section 2 — Basis of Calculation\n<|id|>20<|type|>title<|page|>2<|box|>497 140 513 339<|content|>2.1 Measurement Period\n<|id|>22<|type|>title<|page|>2<|box|>715 140 733 419<|content|>2.2 Reference Financial Statements\n<|id|>27<|type|>table<|page|>3<|box|>150 143 301 852<|content|>None\n<|id|>29<|type|>title<|page|>3<|box|>421 140 438 364<|content|>2.3 Pro Forma Adjustments\n<|id|>36<|type|>title<|page|>4<|box|>148 140 167 586<|content|>Section 3 — Pro Forma Financial Covenant Calculati\n<|id|>38<|type|>title<|page|>4<|box|>243 140 261 782<|content|>3.1 Maximum Total Leverage Ratio (Section 7.01(a)\n<|id|>41<|type|>table<|page|>4<|box|>378 143 503 852<|content|>None\n<|id|>49<|type|>title<|page|>5<|box|>90 140 108 800<|content|>3.2 Minimum Interest Coverage Ratio (Section 7.01(\n<|id|>54<|type|>table<|page|>5<|box|>277 143 473 852<|content|>None\n<|id|>56<|type|>title<|page|>5<|box|>696 140 715 459<|content|>(iii) Pro Forma Interest Coverage Ratio:\n<|id|>61<|type|>title<|page|>6<|box|>138 140 157 687<|content|>3.3 Minimum Liquidity (Section 7.01(c) of the Term\n<|id|>63<|type|>title<|page|>6<|box|>207 142 224 243<|content|>Calculation:\n<|id|>64<|type|>table<|page|>6<|box|>275 143 441 852<|content|>None\n<|id|>66<|type|>title<|page|>6<|box|>574 140 592 421<|content|>(ii) Minimum Required: $5,000,000\n<|id|>68<|type|>title<|page|>6<|box|>648 140 667 784<|content|>3.4 Maximum Capital Expenditures (Section 7.01(d)\n<|id|>70<|type|>title<|page|>6<|box|>772 140 789 374<|content|>Status as of the Closing Date:\n<|id|>78<|type|>title<|page|>7<|box|>534 140 551 467<|content|>Section 4 — Summary Compliance Table\n<|id|>79<|type|>table<|page|>7<|box|>622 143 805 852<|content|>None\n<|id|>82<|type|>title<|page|>8<|box|>148 140 167 477<|content|>Section 5 — Use of Proceeds Confirmation\n<|id|>84<|type|>table<|page|>8<|box|>237 143 507 852<|content|>None\n<|id|>86<|type|>title<|page|>8<|box|>636 140 654 457<|content|>Section 6 — Additional Representations\n<|id|>93<|type|>title<|page|>9<|box|>556 140 574 537<|content|>Section 7 — Supporting Documentation Reference\n<|id|>100<|type|>title<|page|>11<|box|>90 140 107 457<|content|>Section 8 — Certification and Signature\n<|id|>103<|type|>title<|page|>11<|box|>295 140 311 480<|content|>BRIGHTFIELD CLOUD SERVICES INC.\n<|id|>108<|type|>title<|page|>12<|box|>87 444 108 553<|content|>EXHIBIT A\n<|id|>109<|type|>title<|page|>12<|box|>114 370 133 625<|content|>Definitions (For Reference Only)",
+    "raw_response": "<|src_id|>27<|tgt_id|>22\n<|src_id|>41<|tgt_id|>38\n<|src_id|>54<|tgt_id|>49\n<|src_id|>64<|tgt_id|>61\n<|src_id|>79<|tgt_id|>78\n<|src_id|>84<|tgt_id|>82",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 82
+        }
+    ]
+}

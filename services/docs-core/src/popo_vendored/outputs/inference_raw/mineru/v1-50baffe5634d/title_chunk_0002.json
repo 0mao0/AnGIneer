@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        99,
+        150
+    ],
+    "pages": [
+        100,
+        111,
+        115,
+        120,
+        124,
+        125,
+        127,
+        128,
+        130,
+        131,
+        134,
+        139,
+        141,
+        143,
+        144,
+        149
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>979<|page|>100<|box|>333 442 349 552<|content|>ARTICLE II.\n<|id|>980<|page|>100<|box|>368 313 385 681<|content|>TRANSFER AND ACQUISITION OF ASSETS\n<|id|>1093<|page|>111<|box|>568 75 585 580<|content|>Section 2.09. Adjustment to Initial Transfer Amoun\n<|id|>1108<|page|>115<|box|>318 439 334 555<|content|>ARTICLE III.\n<|id|>1109<|page|>115<|box|>354 271 369 723<|content|>REPRESENTATIONS AND WARRANTIES OF SELLER\n<|id|>1142<|page|>120<|box|>287 75 306 341<|content|>Section 3.10. Employee Matters.\n<|id|>1171<|page|>124<|box|>642 75 659 390<|content|>Section 3.14. Producers; Sale Practices.\n<|id|>1176<|page|>125<|box|>502 75 518 421<|content|>Section 3.16. Ceded Reinsurance Contracts.\n<|id|>1193<|page|>127<|box|>276 75 292 504<|content|>Section 3.18. Financial Statements; Books and Reco\n<|id|>1200<|page|>128<|box|>441 75 459 344<|content|>Section 3.19. Specified Portfolio.\n<|id|>1213<|page|>130<|box|>388 75 406 511<|content|>Section 3.25. Distribution of Group Insurance Cont\n<|id|>1217<|page|>131<|box|>220 442 236 550<|content|>ARTICLE IV.\n<|id|>1218<|page|>131<|box|>255 263 272 730<|content|>REPRESENTATIONS AND WARRANTIES OF PURCHASER\n<|id|>1240<|page|>134<|box|>505 441 522 553<|content|>ARTICLE V.\n<|id|>1241<|page|>134<|box|>541 437 556 557<|content|>COVENANTS\n<|id|>1275<|page|>139<|box|>321 76 338 557<|content|>Section 5.05. Maintenance and Transfer of Books an\n<|id|>1282<|page|>141<|box|>337 76 354 346<|content|>Section 5.07. Further Assurances.\n<|id|>1296<|page|>143<|box|>438 75 455 544<|content|>(a) Monthly Asset Value Statements and Related Adj\n<|id|>1305<|page|>144<|box|>618 76 636 377<|content|>(b) Discretionary Turnover Allowance.\n<|id|>1333<|page|>149<|box|>70 439 87 555<|content|>ARTICLE VI.\n<|id|>1334<|page|>149<|box|>106 398 123 598<|content|>EMPLOYEE MATTERS",
+    "raw_response": "<|id|>979<|level|>1\n<|id|>980<|level|>1\n<|id|>1093<|level|>2\n<|id|>1108<|level|>1\n<|id|>1109<|level|>1\n<|id|>1142<|level|>2\n<|id|>1171<|level|>2\n<|id|>1176<|level|>2\n<|id|>1193<|level|>2\n<|id|>1200<|level|>2\n<|id|>1213<|level|>2\n<|id|>1217<|level|>1\n<|id|>1218<|level|>1\n<|id|>1240<|level|>1\n<|id|>1241<|level|>1\n<|id|>1275<|level|>2\n<|id|>1282<|level|>2\n<|id|>1296<|level|>3\n<|id|>1305<|level|>3\n<|id|>1333<|level|>1\n<|id|>1334<|level|>1",
+    "parsed": [
+        {
+            "id": 979,
+            "level": 1
+        },
+        {
+            "id": 980,
+            "level": 1
+        },
+        {
+            "id": 1093,
+            "level": 2
+        },
+        {
+            "id": 1108,
+            "level": 1
+        },
+        {
+            "id": 1109,
+            "level": 1
+        },
+        {
+            "id": 1142,
+            "level": 2
+        },
+        {
+            "id": 1171,
+            "level": 2
+        },
+        {
+            "id": 1176,
+            "level": 2
+        },
+        {
+            "id": 1193,
+            "level": 2
+        },
+        {
+            "id": 1200,
+            "level": 2
+        },
+        {
+            "id": 1213,
+            "level": 2
+        },
+        {
+            "id": 1217,
+            "level": 1
+        },
+        {
+            "id": 1218,
+            "level": 1
+        },
+        {
+            "id": 1240,
+            "level": 1
+        },
+        {
+            "id": 1241,
+            "level": 1
+        },
+        {
+            "id": 1275,
+            "level": 2
+        },
+        {
+            "id": 1282,
+            "level": 2
+        },
+        {
+            "id": 1296,
+            "level": 3
+        },
+        {
+            "id": 1305,
+            "level": 3
+        },
+        {
+            "id": 1333,
+            "level": 1
+        },
+        {
+            "id": 1334,
+            "level": 1
+        }
+    ]
+}

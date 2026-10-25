@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>1<|box|>210 352 229 645<|content|>LETTER OF REPRESENTATIONS\n<|id|>6<|page|>1<|box|>319 142 335 316<|content|>Ladies and Gentlemen:\n<|id|>8<|page|>1<|box|>516 142 532 243<|content|>RECITALS\n<|id|>17<|page|>2<|box|>411 140 426 413<|content|>Section 1. Description of the Notes\n<|id|>31<|page|>3<|box|>89 142 107 532<|content|>ISIN (Regulation S Global Note): USU92384AA83\n<|id|>40<|page|>3<|box|>840 142 859 450<|content|>Section 2. Representations of the Issuer\n<|id|>57<|page|>5<|box|>575 140 593 818<|content|>Section 3. Representations of the Trustee, Registr\n<|id|>72<|page|>7<|box|>513 140 530 607<|content|>Section 4. Agreement Regarding DTC's Book-Entry Sy\n<|id|>79<|page|>8<|box|>704 140 720 387<|content|>Section 5. Contact Information\n<|id|>81<|page|>8<|box|>773 142 789 267<|content|>Issuer Contact:\n<|id|>100<|page|>9<|box|>419 140 435 419<|content|>Section 6. Miscellaneous Provisions\n<|id|>110<|page|>10<|box|>502 460 517 535<|content|>ISSUER:\n<|id|>111<|page|>10<|box|>527 142 542 491<|content|>VERIMARK HOSPITALITY GROUP INC.\n<|id|>122<|page|>10<|box|>784 143 800 473<|content|>THE DEPOSITORY TRUST COMPANY\n<|id|>127<|page|>10<|box|>871 455 887 542<|content|>ANNEX A\n<|id|>128<|page|>10<|box|>916 142 929 243<|content|>CONFIDENTIAL\n<|id|>129<|page|>11<|box|>89 359 106 637<|content|>GLOBAL NOTE INFORMATION\n<|id|>132<|page|>11<|box|>512 140 527 197<|content|>Notes:",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>6<|level|>-1\n<|id|>8<|level|>2\n<|id|>17<|level|>2\n<|id|>31<|level|>-1\n<|id|>40<|level|>2\n<|id|>57<|level|>2\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>3\n<|id|>100<|level|>2\n<|id|>110<|level|>2\n<|id|>111<|level|>3\n<|id|>122<|level|>3\n<|id|>127<|level|>2\n<|id|>128<|level|>-1\n<|id|>129<|level|>2\n<|id|>132<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        }
+    ]
+}

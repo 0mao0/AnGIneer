@@ -1,0 +1,34 @@
+{
+    "task": "title",
+    "chunk_index": 4,
+    "range": [
+        194,
+        197
+    ],
+    "pages": [
+        194,
+        195,
+        196,
+        197
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1816<|page|>194<|box|>40 398 55 581<|content|>POWER OF ATTORNEY\n<|id|>1820<|page|>195<|box|>79 431 90 547<|content|>CERTIFICATIONS\n<|id|>1836<|page|>196<|box|>78 431 90 547<|content|>CERTIFICATIONS\n<|id|>1851<|page|>197<|box|>78 321 126 658<|content|>CERTIFICATION PURSUANT TO 18 U.S.C. SECTION 1350,",
+    "raw_response": "<|id|>1816<|level|>1\n<|id|>1820<|level|>2\n<|id|>1836<|level|>2\n<|id|>1851<|level|>2",
+    "parsed": [
+        {
+            "id": 1816,
+            "level": 1
+        },
+        {
+            "id": 1820,
+            "level": 2
+        },
+        {
+            "id": 1836,
+            "level": 2
+        },
+        {
+            "id": 1851,
+            "level": 2
+        }
+    ]
+}

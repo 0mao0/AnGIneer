@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 171 107 826<|content|>CALDERWOOD & HARKNESS LLP 780 Third Avenue New York, New York 10017\n<|id|>1<|page|>1<|box|>114 183 133 815<|content|>Telephone: ... com\n<|id|>2<|page|>1<|box|>142 712 157 854<|content|>November 5, 2022\n<|id|>4<|page|>1<|box|>194 140 229 854<|content|>Georgios Andreadis Chief Executive Officer Thalass...iété Anonyme 42 Akti Miaouli Piraeus 18538, Greece\n<|id|>5<|page|>1<|box|>237 140 273 854<|content|>Marcus Hale President Thalassa Americas Inc. ... 1400 McKinney Street, Suite 2200 Houston, Texas 77010\n<|id|>6<|page|>1<|box|>282 671 299 854<|content|>Matter No. ... 1044-00003\n<|id|>7<|page|>1<|box|>308 142 325 398<|content|>Dear Mr. ... Hale\n<|id|>20<|page|>2<|box|>637 174 674 854<|content|>(d) Intercompany Note: ... and\n<|id|>22<|page|>2<|box|>726 140 835 856<|content|>C&H is currently pursuing a dual-track approach on... Unsecured Notes, and the trade creditor community\n<|id|>51<|page|>6<|box|>849 174 904 857<|content|>(b) Equity Contribution by KFO Holdings. ... Coord...into TSL, including the potential applicability of\n<|id|>52<|page|>7<|box|>90 174 127 854<|content|>Greek stamp duty (telos chartosimou), capital cont...Greek law on capital increases or equity infusions\n<|id|>91<|page|>11<|box|>398 174 434 854<|content|>PRIVILEGEDANDCONFIDENTIAL—ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>92<|page|>11<|box|>444 138 554 857<|content|>The Clients are advised that the protections affor...itors, creditor committees, or potential investors\n<|id|>97<|page|>11<|box|>844 174 900 854<|content|>(b) C&H's tax advice does not extend to state and ...ted by the Clients and agreed in writing by Sylvia\n<|id|>98<|page|>12<|box|>90 174 126 852<|content|>Hartwell. ... 7 above\n<|id|>108<|page|>12<|box|>700 142 715 325<|content|>Name: ... Nathaniel Bower\n<|id|>109<|page|>12<|box|>717 143 734 457<|content|>Title: ... Partner, Bankruptcy & Restructuring\n<|id|>110<|page|>12<|box|>734 143 751 295<|content|>Responsible Partner\n<|id|>111<|page|>12<|box|>753 143 768 251<|content|>By: ... By\n<|id|>112<|page|>12<|box|>768 143 785 315<|content|>Name: ... Sylvia Hartwell\n<|id|>113<|page|>12<|box|>787 143 803 393<|content|>Title: ... Partner, Tax Practice Group\n<|id|>114<|page|>12<|box|>804 143 820 277<|content|>Specialist Partner\n<|id|>119<|page|>13<|box|>178 142 194 348<|content|>Name: ... Georgios Andreadis\n<|id|>120<|page|>13<|box|>194 142 210 366<|content|>Title: ... Chief Executive Officer\n<|id|>121<|page|>13<|box|>212 143 229 266<|content|>Date: ... Date\n<|id|>124<|page|>13<|box|>273 142 289 295<|content|>Name: ... Marcus Hale\n<|id|>125<|page|>13<|box|>290 142 306 263<|content|>Title: ... President\n<|id|>126<|page|>13<|box|>306 142 325 264<|content|>Date: ... Date\n<|id|>128<|page|>13<|box|>349 174 368 834<|content|>Irini Dalakoura, Chief Financial Officer, Thalassa Shipping & Logistics Société Anonyme\n<|id|>129<|page|>13<|box|>375 174 393 671<|content|>Diana Restrepo, Vice President — Finance, Thalassa...o, Vice President — Finance, Thalassa Americas Inc\n<|id|>130<|page|>13<|box|>401 174 438 854<|content|>Stavros Papageorgiou, General Counsel (Greece), Thalassa Shipping & Logistics Société Anonyme\n<|id|>131<|page|>13<|box|>445 174 464 648<|content|>Colette Whitman, Billing Partner, Calderwood & Harkness LLP\n<|id|>132<|page|>13<|box|>470 176 489 647<|content|>Amy Chesterton, Lead Associate, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>51<|tgt_id|>52\n<|src_id|>97<|tgt_id|>98",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 98
+        }
+    ]
+}

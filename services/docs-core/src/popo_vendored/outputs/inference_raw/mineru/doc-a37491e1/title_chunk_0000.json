@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        8,
+        10,
+        11,
+        12,
+        14,
+        16,
+        17,
+        19,
+        21,
+        22,
+        23,
+        24,
+        26
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 142 104 604<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|page|>1<|box|>113 405 133 591<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>375 140 392 321<|content|>I. Executive Summary\n<|id|>25<|page|>2<|box|>530 140 547 267<|content|>II. Background\n<|id|>33<|page|>3<|box|>630 140 647 580<|content|>III. Detailed Analysis of Northwind's Proposed Cha\n<|id|>34<|page|>3<|box|>661 140 679 660<|content|>A. Recitals and Definitions (Sections 1–2 of Settl\n<|id|>53<|page|>6<|box|>294 142 311 379<|content|>B. Payment Terms (Section 3)\n<|id|>69<|page|>8<|box|>502 140 518 442<|content|>C. Mutual General Release (Section 4)\n<|id|>84<|page|>10<|box|>398 140 415 464<|content|>D. TSL Counterclaim Release (Section 5)\n<|id|>90<|page|>11<|box|>157 140 175 372<|content|>E. Confidentiality (Section 6)\n<|id|>95<|page|>11<|box|>452 142 469 220<|content|>Analysis:\n<|id|>109<|page|>12<|box|>799 142 816 400<|content|>F. Consent Judgment (Section 7)\n<|id|>127<|page|>14<|box|>726 140 744 508<|content|>G. Representations and Warranties (Section 8)\n<|id|>143<|page|>16<|box|>648 140 667 504<|content|>H. Withdrawal of Pending Motions (Section 9)\n<|id|>148<|page|>17<|box|>220 140 238 594<|content|>I. Return / Destruction of discovery Materials (Se\n<|id|>155<|page|>17<|box|>736 140 753 454<|content|>J. Miscellaneous Provisions (Section 11)\n<|id|>180<|page|>19<|box|>369 142 387 468<|content|>IV. Summary Table of Recommendations\n<|id|>185<|page|>21<|box|>352 142 368 202<|content|>Totals:\n<|id|>189<|page|>21<|box|>494 140 512 594<|content|>V. Priority Issues for Discussion with Doug and Fr\n<|id|>195<|page|>22<|box|>359 140 375 328<|content|>VI. Coordination Items\n<|id|>197<|page|>22<|box|>434 140 450 617<|content|>A. Greek Local Counsel (Konstantinou & Rizos Law O\n<|id|>199<|page|>22<|box|>484 142 500 202<|content|>Issues:\n<|id|>202<|page|>22<|box|>779 142 796 527<|content|>B. Oceanus Mutual Protection & Indemnity Club\n<|id|>205<|page|>23<|box|>231 140 248 383<|content|>C. Meridian Capital Bank AG\n<|id|>206<|page|>23<|box|>253 140 272 599<|content|>Contact: Lukas Brandt, Managing Director, Shipping\n<|id|>208<|page|>23<|box|>458 140 474 439<|content|>D. Atlantic Fiduciary Trust Company\n<|id|>209<|page|>23<|box|>481 140 498 637<|content|>Contact: Martin Schreiber, Senior Vice President,\n<|id|>211<|page|>23<|box|>703 140 719 423<|content|>E. Fortis Marine Underwriters Ltd.\n<|id|>212<|page|>23<|box|>726 140 743 496<|content|>Contact: Catherine Allsworth, Claims Manager\n<|id|>214<|page|>24<|box|>90 142 107 491<|content|>VII. Recommended Next Steps and Timeline\n<|id|>217<|page|>26<|box|>90 140 107 614<|content|>VIII. Appendix: Side-by-Side Comparison of Key Pro",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>25<|level|>2\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>53<|level|>3\n<|id|>69<|level|>3\n<|id|>84<|level|>3\n<|id|>90<|level|>3\n<|id|>95<|level|>4\n<|id|>109<|level|>3\n<|id|>127<|level|>3\n<|id|>143<|level|>3\n<|id|>148<|level|>3\n<|id|>155<|level|>3\n<|id|>180<|level|>2\n<|id|>185<|level|>3\n<|id|>189<|level|>2\n<|id|>195<|level|>2\n<|id|>197<|level|>3\n<|id|>199<|level|>4\n<|id|>202<|level|>3\n<|id|>205<|level|>3\n<|id|>206<|level|>-1\n<|id|>208<|level|>3\n<|id|>209<|level|>-1\n<|id|>211<|level|>3\n<|id|>212<|level|>-1\n<|id|>214<|level|>2\n<|id|>217<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 4
+        },
+        {
+            "id": 202,
+            "level": 3
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 2
+        }
+    ]
+}

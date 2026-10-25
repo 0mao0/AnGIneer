@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 12,
+    "range": [
+        608,
+        664
+    ],
+    "pages": [
+        609,
+        639,
+        643,
+        644,
+        646,
+        648,
+        651,
+        653,
+        655,
+        661,
+        663
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1958<|page|>609<|box|>136 402 165 595<|content|>4-4-6 旋挖钻机钻孔\n<|id|>2044<|page|>639<|box|>139 399 169 593<|content|>4-4-8 灌注桩混凝土\n<|id|>2058<|page|>643<|box|>123 431 147 556<|content|>II. 钢筋及检测钢管\n<|id|>2061<|page|>644<|box|>161 370 189 617<|content|>4-4-9 护筒制作、埋设、拆除\n<|id|>2067<|page|>646<|box|>147 449 169 548<|content|>II. 钢护筒\n<|id|>2073<|page|>648<|box|>187 386 216 606<|content|>4-4-10 灌注桩工作平台\n<|id|>2087<|page|>651<|box|>158 391 192 603<|content|>第五节 砌筑工程\n<|id|>2088<|page|>651<|box|>247 454 278 540<|content|>说明\n<|id|>2097<|page|>653<|box|>139 404 169 589<|content|>4-5-2 浆砌片石\n<|id|>2104<|page|>655<|box|>132 402 158 589<|content|>4-5-3 浆砌块石\n<|id|>2119<|page|>661<|box|>139 393 169 593<|content|>4-5-6 干、浆砌盖板石\n<|id|>2124<|page|>663<|box|>165 330 200 661<|content|>第六节 现浇混凝土及钢筋混凝土\n<|id|>2125<|page|>663<|box|>253 455 286 539<|content|>说明",
+    "raw_response": "<|id|>1958<|level|>4\n<|id|>2044<|level|>4\n<|id|>2058<|level|>5\n<|id|>2061<|level|>4\n<|id|>2067<|level|>5\n<|id|>2073<|level|>4\n<|id|>2087<|level|>1\n<|id|>2088<|level|>2\n<|id|>2097<|level|>4\n<|id|>2104<|level|>4\n<|id|>2119<|level|>4\n<|id|>2124<|level|>1\n<|id|>2125<|level|>2",
+    "parsed": [
+        {
+            "id": 1958,
+            "level": 4
+        },
+        {
+            "id": 2044,
+            "level": 4
+        },
+        {
+            "id": 2058,
+            "level": 5
+        },
+        {
+            "id": 2061,
+            "level": 4
+        },
+        {
+            "id": 2067,
+            "level": 5
+        },
+        {
+            "id": 2073,
+            "level": 4
+        },
+        {
+            "id": 2087,
+            "level": 1
+        },
+        {
+            "id": 2088,
+            "level": 2
+        },
+        {
+            "id": 2097,
+            "level": 4
+        },
+        {
+            "id": 2104,
+            "level": 4
+        },
+        {
+            "id": 2119,
+            "level": 4
+        },
+        {
+            "id": 2124,
+            "level": 1
+        },
+        {
+            "id": 2125,
+            "level": 2
+        }
+    ]
+}

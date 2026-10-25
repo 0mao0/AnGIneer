@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>363 140 380 462<|content|>I. Introduction and Engagement Context\n<|id|>14<|page|>2<|box|>329 142 347 491<|content|>II. Summary of the Proposed Notes Offering\n<|id|>24<|page|>3<|box|>311 142 327 269<|content|>III. Guarantors\n<|id|>33<|page|>4<|box|>167 142 184 622<|content|>IV. Use of Proceeds and Impact on Existing Capital\n<|id|>45<|page|>5<|box|>242 140 258 428<|content|>V. Collateral and Security Structure\n<|id|>62<|page|>6<|box|>256 140 273 437<|content|>VI. Request for ABL Lender Consent\n<|id|>75<|page|>7<|box|>527 140 544 537<|content|>VII. Transmittal of Draft Intercreditor Agreement\n<|id|>91<|page|>9<|box|>539 140 555 352<|content|>VIII. Enclosed Documents\n<|id|>97<|page|>10<|box|>90 142 107 480<|content|>IX. Timeline and Requested Response Date\n<|id|>104<|page|>10<|box|>626 142 643 331<|content|>X. Contact Information\n<|id|>114<|page|>11<|box|>89 140 107 348<|content|>XI. Confidentiality Notice",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>24<|level|>1\n<|id|>33<|level|>1\n<|id|>45<|level|>1\n<|id|>62<|level|>1\n<|id|>75<|level|>1\n<|id|>91<|level|>1\n<|id|>97<|level|>1\n<|id|>104<|level|>1\n<|id|>114<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        }
+    ]
+}

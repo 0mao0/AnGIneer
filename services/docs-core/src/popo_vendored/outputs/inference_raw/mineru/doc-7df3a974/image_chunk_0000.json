@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>484 140 502 493<|content|>1. Purpose and Confirmation of Engagement\n<|id|>15<|type|>title<|page|>2<|box|>273 140 292 334<|content|>2. Scope of Engagement\n<|id|>30<|type|>title<|page|>3<|box|>500 140 516 313<|content|>3. Engagement Team\n<|id|>37<|type|>title<|page|>4<|box|>321 140 339 447<|content|>4. Billing Rates and Fee Arrangements\n<|id|>39<|type|>table<|page|>4<|box|>390 143 484 852<|content|>None\n<|id|>45<|type|>title<|page|>5<|box|>250 140 266 483<|content|>5. Third-Party Vendors and Disbursements\n<|id|>52<|type|>title<|page|>6<|box|>90 140 107 429<|content|>6. Insurance Coverage Coordination\n<|id|>57<|type|>title<|page|>6<|box|>583 140 599 385<|content|>7. Conflicts Check and Waiver\n<|id|>66<|type|>title<|page|>7<|box|>304 140 321 516<|content|>8. Confidentiality and Attorney-Client Privilege\n<|id|>70<|type|>title<|page|>7<|box|>696 140 714 339<|content|>9. Client Responsibilities\n<|id|>77<|type|>title<|page|>8<|box|>446 142 464 357<|content|>10. Document Preservation\n<|id|>82<|type|>title<|page|>9<|box|>90 142 107 393<|content|>11. Termination of Engagement\n<|id|>87<|type|>title<|page|>9<|box|>454 142 472 462<|content|>12. Limitation on Guarantee of Outcome\n<|id|>90<|type|>title<|page|>9<|box|>731 142 747 480<|content|>13. Governing Law and Dispute Resolution\n<|id|>93<|type|>title<|page|>10<|box|>186 140 204 264<|content|>14. Acceptance\n<|id|>98<|type|>title<|page|>10<|box|>425 212 441 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>107<|type|>title<|page|>10<|box|>625 140 641 452<|content|>CASCADE RETAIL HOLDINGS INC.",
+    "raw_response": "<|src_id|>39<|tgt_id|>37",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        }
+    ]
+}

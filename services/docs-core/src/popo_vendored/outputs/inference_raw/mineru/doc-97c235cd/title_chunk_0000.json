@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        9
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>13<|page|>2<|box|>630 142 647 318<|content|>1. Consent to Priming\n<|id|>20<|page|>3<|box|>383 140 402 473<|content|>2. Acknowledgment of DIP Facility Terms\n<|id|>39<|page|>5<|box|>186 140 204 339<|content|>3. Conditions to Consent\n<|id|>41<|page|>5<|box|>279 140 297 480<|content|>(a) Entry of Interim and Final DIP Orders.\n<|id|>43<|page|>5<|box|>481 140 498 338<|content|>(b) Adequate Protection.\n<|id|>50<|page|>6<|box|>503 140 518 424<|content|>(c) Adequate Protection Stipulation.\n<|id|>52<|page|>6<|box|>777 140 794 370<|content|>(d) Intercreditor Agreement.\n<|id|>54<|page|>7<|box|>138 140 157 491<|content|>(e) Roll-Up of Pre-Petition ABL Obligations.\n<|id|>57<|page|>7<|box|>436 140 454 393<|content|>4. Reservations and Limitations\n<|id|>66<|page|>8<|box|>383 140 402 490<|content|>5. Direction of Pre-Petition Secured Lenders\n<|id|>68<|page|>8<|box|>671 140 688 398<|content|>6. Counsel and Communications\n<|id|>75<|page|>9<|box|>229 142 246 287<|content|>7. Governing Law\n<|id|>77<|page|>9<|box|>369 140 387 374<|content|>8. Counterparts and Delivery\n<|id|>79<|page|>9<|box|>494 400 512 596<|content|>[Signature Page Follows]",
+    "raw_response": "<|id|>13<|level|>1\n<|id|>20<|level|>1\n<|id|>39<|level|>1\n<|id|>41<|level|>2\n<|id|>43<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>57<|level|>1\n<|id|>66<|level|>1\n<|id|>68<|level|>1\n<|id|>75<|level|>1\n<|id|>77<|level|>1\n<|id|>79<|level|>-1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        }
+    ]
+}

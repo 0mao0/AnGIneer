@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>334 140 351 367<|content|>1. Introduction and Purpose\n<|id|>12<|page|>2<|box|>90 140 107 468<|content|>2. Representations Regarding the Entities\n<|id|>13<|page|>2<|box|>121 140 138 424<|content|>2.1 Solstice Biomedical Devices Ltd.\n<|id|>29<|page|>3<|box|>319 140 337 439<|content|>2.2 Solstice Medical Technologies Inc.\n<|id|>42<|page|>4<|box|>220 140 237 375<|content|>2.3 Solstice IP Holdings DAC\n<|id|>53<|page|>4<|box|>810 140 828 500<|content|>3. Representations Regarding the IP Portfolio\n<|id|>54<|page|>4<|box|>840 140 859 336<|content|>3.1 Description of the IP\n<|id|>66<|page|>5<|box|>503 140 520 323<|content|>3.2 Valuation of the IP\n<|id|>73<|page|>6<|box|>138 140 157 351<|content|>3.3 Remaining Useful Life\n<|id|>76<|page|>6<|box|>311 140 328 279<|content|>3.4 US Tax Basis\n<|id|>80<|page|>6<|box|>556 140 573 581<|content|>4. Representations Regarding the Transaction Struc\n<|id|>81<|page|>6<|box|>585 140 603 341<|content|>4.1 IP Purchase and Sale\n<|id|>85<|page|>6<|box|>839 140 856 410<|content|>4.2 Funding of the Purchase Price\n<|id|>90<|page|>7<|box|>375 140 391 501<|content|>4.3 License-Back Agreement (North America)\n<|id|>96<|page|>7<|box|>752 140 768 447<|content|>4.4 Rest-of-World License Agreements\n<|id|>100<|page|>8<|box|>202 140 219 454<|content|>4.5 Cost-Plus R&D Services Agreement\n<|id|>105<|page|>8<|box|>508 140 526 563<|content|>5. Representations Regarding the Intercompany Loan\n<|id|>117<|page|>9<|box|>354 140 391 792<|content|>6. Representations Regarding Irish Substance and M\n<|id|>127<|page|>10<|box|>250 140 266 772<|content|>7. Representations Regarding Section 291A TCA 1997\n<|id|>135<|page|>11<|box|>90 140 107 648<|content|>8. Representations Regarding the US-Ireland Income\n<|id|>141<|page|>11<|box|>517 140 534 612<|content|>9. Representations Regarding GILTI, Subpart F, and\n<|id|>148<|page|>12<|box|>267 140 284 614<|content|>10. Representations Regarding Transfer Pricing Com\n<|id|>154<|page|>12<|box|>786 140 801 367<|content|>11. General Representations\n<|id|>162<|page|>13<|box|>564 140 582 415<|content|>12. Acknowledgment and Reliance\n<|id|>166<|page|>14<|box|>90 142 107 263<|content|>13. Signatories\n<|id|>178<|page|>14<|box|>409 142 426 233<|content|>Enclosures",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>29<|level|>2\n<|id|>42<|level|>2\n<|id|>53<|level|>1\n<|id|>54<|level|>2\n<|id|>66<|level|>2\n<|id|>73<|level|>2\n<|id|>76<|level|>2\n<|id|>80<|level|>1\n<|id|>81<|level|>2\n<|id|>85<|level|>2\n<|id|>90<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>2\n<|id|>105<|level|>1\n<|id|>117<|level|>1\n<|id|>127<|level|>1\n<|id|>135<|level|>1\n<|id|>141<|level|>1\n<|id|>148<|level|>1\n<|id|>154<|level|>1\n<|id|>162<|level|>1\n<|id|>166<|level|>1\n<|id|>178<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 154,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 166,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 1
+        }
+    ]
+}

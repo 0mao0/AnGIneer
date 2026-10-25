@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>327 140 344 339<|content|>I. Engagement Overview\n<|id|>18<|type|>title<|page|>2<|box|>773 142 790 504<|content|>II. Matter Complexity and Anticipated Phases\n<|id|>20<|type|>title<|page|>3<|box|>89 140 125 854<|content|>A. Phase 1: Investigation and Factual Development\n<|id|>29<|type|>title<|page|>4<|box|>484 140 518 854<|content|>B. Phase 2: Emergency Litigation — TRO/PI (Weeks 2\n<|id|>38<|type|>title<|page|>5<|box|>773 140 792 843<|content|>C. Phase 3: Settlement / Resolution (Weeks 4–8, ap\n<|id|>46<|type|>title<|page|>7<|box|>176 140 194 666<|content|>D. Phase 4: Post-Settlement Compliance Monitoring\n<|id|>48<|type|>title<|page|>7<|box|>387 140 404 357<|content|>III. Proposed Staffing Plan\n<|id|>50<|type|>title<|page|>7<|box|>554 140 570 501<|content|>A. Bernard Crawford — Responsible Partner\n<|id|>73<|type|>table<|page|>9<|box|>359 143 487 852<|content|>None\n<|id|>75<|type|>title<|page|>9<|box|>635 140 652 483<|content|>IV. Estimated Expenses and Disbursements\n<|id|>77<|type|>title<|page|>9<|box|>747 140 763 450<|content|>A. Forensic Technology and eDiscovery\n<|id|>80<|type|>title<|page|>10<|box|>220 140 238 339<|content|>B. Private Investigations\n<|id|>82<|type|>title<|page|>10<|box|>383 140 402 300<|content|>C. Damages Expert\n<|id|>84<|type|>title<|page|>10<|box|>549 140 566 375<|content|>D. Injunction Bond Premium\n<|id|>86<|type|>title<|page|>10<|box|>676 140 693 454<|content|>E. Court Costs, Filing Fees, and Service\n<|id|>88<|type|>title<|page|>10<|box|>804 140 820 318<|content|>F. Travel and Related\n<|id|>90<|type|>title<|page|>11<|box|>138 140 156 290<|content|>G. Mediation Fees\n<|id|>92<|type|>title<|page|>11<|box|>285 140 303 575<|content|>H. Other (Copying, Couriers, Research Databases, e\n<|id|>94<|type|>title<|page|>11<|box|>393 142 412 364<|content|>I. Expenses Summary Table\n<|id|>95<|type|>table<|page|>11<|box|>416 143 662 852<|content|>None\n<|id|>97<|type|>title<|page|>11<|box|>757 142 773 442<|content|>V. Total Preliminary Budget Estimate\n<|id|>99<|type|>table<|page|>11<|box|>825 143 900 852<|content|>None\n<|id|>104<|type|>title<|page|>12<|box|>535 140 551 431<|content|>VI. Billing and Administrative Notes\n<|id|>112<|type|>title<|page|>13<|box|>223 140 239 419<|content|>VII. Anticipated Opposing Counsel\n<|id|>117<|type|>title<|page|>13<|box|>593 140 609 498<|content|>VIII. Immediate Next Steps and Action Items\n<|id|>127<|type|>title<|page|>14<|box|>502 140 518 207<|content|>Closing",
+    "raw_response": "<|src_id|>73<|tgt_id|>48\n<|src_id|>95<|tgt_id|>94\n<|src_id|>99<|tgt_id|>97",
+    "parsed": [
+        {
+            "src_id": 73,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 97
+        }
+    ]
+}

@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>193 140 210 663<|content|>VIA HAND DELIVERY, OVERNIGHT COURIER, AND EMAIL\n<|id|>14<|page|>1<|box|>523 140 540 437<|content|>I. Introduction and Purpose of Notice\n<|id|>18<|page|>1<|box|>844 140 859 367<|content|>II. Background and Recitals\n<|id|>22<|page|>2<|box|>439 140 457 617<|content|>III. Basis for Termination — Section 8.1(d) of the\n<|id|>23<|page|>2<|box|>470 142 488 478<|content|>A. Termination Right Under Section 8.1(d)\n<|id|>27<|page|>2<|box|>758 140 794 854<|content|>B. Failure of Closing Condition Under Section 7.2(\n<|id|>37<|page|>3<|box|>731 140 748 792<|content|>C. Failure of Closing Condition Under Section 7.2(\n<|id|>40<|page|>4<|box|>148 140 167 550<|content|>IV. Events Constituting the Material Adverse Effec\n<|id|>41<|page|>4<|box|>180 140 198 763<|content|>A. Marlowe Asset Management-2 Phase II Clinical Tr\n<|id|>49<|page|>5<|box|>329 140 347 511<|content|>B. FDA Partial Clinical Hold (August 22, 2024)\n<|id|>53<|page|>5<|box|>801 140 819 633<|content|>C. Protocol Amendment and Dose Reduction (August 2\n<|id|>61<|page|>6<|box|>643 140 659 534<|content|>D. Cumulative Impact — Material Adverse Effect\n<|id|>66<|page|>7<|box|>458 140 474 514<|content|>V. Inapplicability of MAE Definition Carveouts\n<|id|>81<|page|>8<|box|>664 140 681 468<|content|>VI. Incurability Prior to the Outside Date\n<|id|>88<|page|>9<|box|>674 140 691 343<|content|>VII. No Breach by Buyer\n<|id|>92<|page|>10<|box|>148 140 167 485<|content|>VIII. Prior Notice and Opportunity to Cure\n<|id|>97<|page|>10<|box|>679 140 696 534<|content|>IX. Termination Effective Date and Consequences\n<|id|>105<|page|>11<|box|>319 140 335 503<|content|>X. Inapplicability of Reverse Termination Fee\n<|id|>109<|page|>11<|box|>638 140 655 344<|content|>XI. Reservation of Rights\n<|id|>116<|page|>12<|box|>250 140 265 413<|content|>XII. Notices Under the Agreement",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>-1\n<|id|>14<|level|>1\n<|id|>18<|level|>1\n<|id|>22<|level|>1\n<|id|>23<|level|>2\n<|id|>27<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>1\n<|id|>41<|level|>2\n<|id|>49<|level|>2\n<|id|>53<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>1\n<|id|>81<|level|>1\n<|id|>88<|level|>1\n<|id|>92<|level|>1\n<|id|>97<|level|>1\n<|id|>105<|level|>1\n<|id|>109<|level|>1\n<|id|>116<|level|>1",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,203 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-e17vuaaa\\input\\pdfs\\doc-e52d839f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-e17vuaaa\\enriched\\doc-e52d839f.json",
+    "contd_output": "<|src_id|>39<|tgt_id|>40\n<|src_id|>147<|tgt_id|>148",
+    "title_output": "<|id|>4<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>1\n<|id|>30<|level|>2\n<|id|>41<|level|>2\n<|id|>53<|level|>2\n<|id|>70<|level|>2\n<|id|>92<|level|>2\n<|id|>102<|level|>2\n<|id|>127<|level|>2\n<|id|>140<|level|>2\n<|id|>143<|level|>3\n<|id|>151<|level|>2\n<|id|>159<|level|>2\n<|id|>169<|level|>2\n<|id|>178<|level|>3\n<|id|>182<|level|>1\n<|id|>184<|level|>2\n<|id|>195<|level|>2\n<|id|>206<|level|>2\n<|id|>214<|level|>2\n<|id|>217<|level|>2\n<|id|>227<|level|>1\n<|id|>231<|level|>1",
+    "image_output": "<|src_id|>2<|tgt_id|>1\n<|src_id|>63<|tgt_id|>53\n<|src_id|>128<|tgt_id|>127\n<|src_id|>228<|tgt_id|>227\n<|src_id|>229<|tgt_id|>227\n<|src_id|>230<|tgt_id|>227",
+    "contd_label": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 148
+        }
+    ],
+    "title_label": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 1
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 2
+        },
+        {
+            "id": 227,
+            "level": 1
+        },
+        {
+            "id": 231,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 2,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 227
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 227
+        },
+        {
+            "src_id": 230,
+            "tgt_id": 227
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 228,
+            "table2_idx": 229,
+            "upper_row_ss": [
+                [
+                    "10-13",
+                    "Stonefield's alleged volume shortfalls (CY2 and CY3)",
+                    "Adequate",
+                    "Monthly tender data consistent with our records; force majeure dispute is legal, not factual; CY2/CY3 shortfall",
+                    "No supplementation needed; transmit data to Dr. Rosser"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "calculations contain mathematical errors favorable to our position",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 229,
+            "table2_idx": 230,
+            "upper_row_ss": [
+                [
+                    "23",
+                    "Force majeure position",
+                    "Adequate",
+                    "Restates \"economic condition\" argument; legally unpersuasive; to be addressed in summary judgment briefing",
+                    "No supplementation needed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "24",
+                    "Insurance coverage",
+                    "Adequate",
+                    "No business interruption or contract-specific insurance maintained; unfavorable to Vantor (bears on reasonableness of liquidated damages and risk allocation)",
+                    "No supplementation needed"
+                ]
+            ]
+        }
+    ]
+}

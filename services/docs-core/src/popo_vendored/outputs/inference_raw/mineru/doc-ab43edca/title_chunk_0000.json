@@ -1,0 +1,48 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        6,
+        10
+    ],
+    "pages": [
+        6,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>14<|page|>6<|box|>85 87 102 423<|content|>Line Item ReferenceAmount ($Rate / Notes\n<|id|>21<|page|>6<|box|>227 87 244 272<|content|>SECTION B: INVENTORY\n<|id|>28<|page|>6<|box|>370 87 386 379<|content|>SECTION C: GROSS BORROWING BASE\n<|id|>30<|page|>6<|box|>424 87 439 364<|content|>SECTION D: AVAILABILITY RESERVES\n<|id|>37<|page|>6<|box|>565 87 582 578<|content|>SECTION E: NET BORROWING BASE & AVAILABLE COMMITME\n<|id|>41<|page|>6<|box|>655 87 671 413<|content|>SECTION F: USAGE & EXCESS AVAILABILITY\n<|id|>47<|page|>6<|box|>780 87 796 416<|content|>SECTION G: COVENANT TRIGGER ANALYSIS\n<|id|>85<|page|>10<|box|>263 87 280 304<|content|>B-2: INELIGIBLE INVENTORY",
+    "raw_response": "<|id|>14<|level|>2\n<|id|>21<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>37<|level|>1\n<|id|>41<|level|>1\n<|id|>47<|level|>1\n<|id|>85<|level|>2",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 2
+        }
+    ]
+}

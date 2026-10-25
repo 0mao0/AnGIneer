@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 261 125 735<|content|>UNITED STATES PATENT AND TRADEMARK OFFICE BEFORE T\n<|id|>1<|type|>table<|page|>1<|box|>159 143 414 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>481 145 518 851<|content|>OPPOSER MERIDIAN CONSUMER BRANDS LLC'S WITHDRAWAL\n<|id|>3<|type|>title<|page|>1<|box|>575 142 592 622<|content|>I. INTRODUCTION AND IDENTIFICATION OF PARTIES\n<|id|>7<|type|>title<|page|>2<|box|>148 140 166 493<|content|>II. BACKGROUND OF THE OPPOSITION\n<|id|>15<|type|>title<|page|>2<|box|>829 140 845 604<|content|>III. SETTLEMENT AND COEXISTENCE AGREEMENT\n<|id|>25<|type|>title<|page|>4<|box|>89 140 106 457<|content|>IV. WITHDRAWAL OF OPPOSITION\n<|id|>33<|type|>title<|page|>4<|box|>768 140 787 517<|content|>V. REQUEST FOR ACTION BY THE BOARD\n<|id|>40<|type|>title<|page|>5<|box|>287 212 304 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>42<|type|>title<|page|>5<|box|>424 173 441 823<|content|>CONSENT OF APPLICANT TO WITHDRAWAL OF NOTICE OF OP\n<|id|>43<|type|>title<|page|>5<|box|>484 261 518 735<|content|>UNITED STATES PATENT AND TRADEMARK OFFICE BEFORE T\n<|id|>44<|type|>table<|page|>5<|box|>551 143 808 852<|content|>None\n<|id|>45<|type|>title<|page|>6<|box|>89 153 125 841<|content|>CONSENT OF APPLICANT BRINDOVAL HOME GOODS INC. TO\n<|id|>55<|type|>title<|page|>6<|box|>820 212 835 534<|content|>HALVERSON McKAY & PRUITT LLP",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>44<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 43
+        }
+    ]
+}

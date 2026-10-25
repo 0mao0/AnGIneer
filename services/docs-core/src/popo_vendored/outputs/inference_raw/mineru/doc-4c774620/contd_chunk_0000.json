@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 271 155 727<|content|>787 Seventh Avenue, 38th Floor New York, New York 10019\n<|id|>3<|page|>1<|box|>164 183 181 813<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>190 730 205 854<|content|>October 7, 2024\n<|id|>5<|page|>1<|box|>215 140 252 854<|content|>Priya Deshmukh Managing Partner, Fund IV Harrowgat...King Street, Suite 4200 Wilmington, Delaware 19801\n<|id|>6<|page|>1<|box|>260 176 296 854<|content|>Re: ... Engagement of Calderwood & Harkness LLP — Potential Acquisition of VeloPay Systems, Inc\n<|id|>7<|page|>1<|box|>304 176 321 403<|content|>Matter Number: ... 1003-00003\n<|id|>8<|page|>1<|box|>330 142 347 303<|content|>Dear Ms. ... Deshmukh\n<|id|>51<|page|>6<|box|>859 140 896 856<|content|>Aggregate expenses and disbursements shall not exc...en approval of the Client. ... For purposes of the\n<|id|>52<|page|>7<|box|>90 138 181 854<|content|>Expense Cap, filing fees paid directly to governme...be communicated to the Client in advance of filing\n<|id|>77<|page|>9<|box|>513 174 568 854<|content|>Priya Deshmukh Managing Partner, Fund IV Harrowgat...King Street, Suite 4200 Wilmington, Delaware 19801\n<|id|>78<|page|>9<|box|>575 176 594 501<|content|>Email: ... com\n<|id|>79<|page|>9<|box|>594 176 611 383<|content|>Telephone: ... (302) 555-4100\n<|id|>80<|page|>9<|box|>619 142 637 261<|content|>With a copy to: ... With a copy to\n<|id|>81<|page|>9<|box|>645 174 681 854<|content|>Thomas Eriksen Partner, Head of Financial Technolo...King Street, Suite 4200 Wilmington, Delaware 19801\n<|id|>82<|page|>9<|box|>689 176 705 475<|content|>Email: ... com\n<|id|>83<|page|>9<|box|>707 176 724 383<|content|>Telephone: ... (302) 555-4125\n<|id|>84<|page|>9<|box|>732 140 787 854<|content|>The Client may designate additional or substitute ...o rely on the contact designations set forth above\n<|id|>100<|page|>11<|box|>125 142 142 295<|content|>Name: ... Sandra Tung\n<|id|>101<|page|>11<|box|>142 142 157 246<|content|>Title: ... Partner\n<|id|>105<|page|>11<|box|>263 140 279 532<|content|>HARROWGATE PRIVATE EQUITY FUND IV LP\n<|id|>106<|page|>11<|box|>281 142 297 485<|content|>By: ... Harrowgate Capital Management IV LLC,\n<|id|>107<|page|>11<|box|>299 143 314 285<|content|>its General Partner\n<|id|>108<|page|>11<|box|>316 143 333 253<|content|>By: ... By\n<|id|>109<|page|>11<|box|>333 143 349 323<|content|>Name: ... Priya Deshmukh\n<|id|>110<|page|>11<|box|>349 143 367 390<|content|>Title: ... Managing Partner, Fund IV\n<|id|>111<|page|>11<|box|>368 143 383 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>51<|tgt_id|>52\n<|src_id|>106<|tgt_id|>107",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 107
+        }
+    ]
+}

@@ -1,0 +1,145 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 405 119 591<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 212 152 784<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>9<|page|>1<|box|>377 142 393 542<|content|>1. Transaction Overview and Scope of Engagement\n<|id|>43<|page|>3<|box|>690 142 708 267<|content|>2. Staffing Plan\n<|id|>44<|page|>3<|box|>720 140 739 398<|content|>2.1 Engagement Team Members\n<|id|>46<|page|>3<|box|>810 140 827 493<|content|>Douglas Carmichael — Responsible Partner.\n<|id|>51<|page|>4<|box|>354 142 371 439<|content|>Francesca Morano — Billing Partner.\n<|id|>61<|page|>5<|box|>119 142 136 452<|content|>Carlos Espinoza — Working Associate.\n<|id|>66<|page|>5<|box|>449 142 467 483<|content|>Sylvia Hartwell — Specialist Partner (Tax).\n<|id|>71<|page|>5<|box|>763 142 782 397<|content|>2.2 Support Staff and Resources\n<|id|>74<|page|>6<|box|>90 176 108 468<|content|>Paralegal Billing Rate: $350 per hour.\n<|id|>77<|page|>6<|box|>319 142 337 367<|content|>2.3 Staffing Summary Table\n<|id|>80<|page|>6<|box|>597 142 614 295<|content|>3. Budget Estimate\n<|id|>81<|page|>6<|box|>628 140 645 385<|content|>3.1 Total Estimated Legal Fees\n<|id|>86<|page|>7<|box|>250 140 266 398<|content|>3.2 Budget Breakdown by Phase\n<|id|>88<|page|>7<|box|>338 140 354 764<|content|>Phase 1: Structuring and SPV Formation (July 2022)\n<|id|>90<|page|>7<|box|>460 140 477 285<|content|>Key Deliverables:\n<|id|>103<|page|>8<|box|>565 140 599 854<|content|>Phase 2: Rating Agency Engagement and Due Diligenc\n<|id|>105<|page|>8<|box|>669 142 686 285<|content|>Key Deliverables:\n<|id|>117<|page|>9<|box|>714 140 750 852<|content|>Phase 3: Transaction Document Drafting and Negotia\n<|id|>119<|page|>9<|box|>837 143 854 285<|content|>Key Deliverables:\n<|id|>133<|page|>11<|box|>409 143 425 398<|content|>Additional Phase 3 Deliverables:\n<|id|>145<|page|>12<|box|>316 143 333 285<|content|>Key Deliverables:\n<|id|>163<|page|>13<|box|>623 140 657 852<|content|>Phase 5: Closing and Post-Closing (November 2022,\n<|id|>165<|page|>13<|box|>763 142 780 285<|content|>Key Deliverables:\n<|id|>174<|page|>14<|box|>390 142 407 359<|content|>3.3 Budget Summary Table\n<|id|>176<|page|>14<|box|>652 140 669 468<|content|>3.4 Disbursements and Third-Party Costs\n<|id|>186<|page|>15<|box|>376 140 392 424<|content|>4. Budget Assumptions and Caveats\n<|id|>196<|page|>16<|box|>390 140 407 516<|content|>5. Key Counterparty Counsel and Coordination\n<|id|>205<|page|>17<|box|>273 140 292 372<|content|>6. Approval and Distribution\n<|id|>209<|page|>17<|box|>523 142 540 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>9<|level|>2\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>46<|level|>4\n<|id|>51<|level|>4\n<|id|>61<|level|>4\n<|id|>66<|level|>4\n<|id|>71<|level|>3\n<|id|>74<|level|>4\n<|id|>77<|level|>3\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>86<|level|>3\n<|id|>88<|level|>4\n<|id|>90<|level|>5\n<|id|>103<|level|>4\n<|id|>105<|level|>5\n<|id|>117<|level|>4\n<|id|>119<|level|>5\n<|id|>133<|level|>5\n<|id|>145<|level|>5\n<|id|>163<|level|>4\n<|id|>165<|level|>5\n<|id|>174<|level|>3\n<|id|>176<|level|>3\n<|id|>186<|level|>2\n<|id|>196<|level|>2\n<|id|>205<|level|>2\n<|id|>209<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 5
+        },
+        {
+            "id": 103,
+            "level": 4
+        },
+        {
+            "id": 105,
+            "level": 5
+        },
+        {
+            "id": 117,
+            "level": 4
+        },
+        {
+            "id": 119,
+            "level": 5
+        },
+        {
+            "id": 133,
+            "level": 5
+        },
+        {
+            "id": 145,
+            "level": 5
+        },
+        {
+            "id": 163,
+            "level": 4
+        },
+        {
+            "id": 165,
+            "level": 5
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 2
+        }
+    ]
+}

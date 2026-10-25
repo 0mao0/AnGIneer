@@ -1,0 +1,53 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>8<|type|>title<|page|>1<|box|>416 352 435 643<|content|>I. EXECUTIVE SUMMARY\n<|id|>18<|type|>title<|page|>2<|box|>667 397 686 599<|content|>II. BACKGROUND\n<|id|>19<|type|>title<|page|>2<|box|>712 140 729 261<|content|>A. The Parties\n<|id|>25<|type|>title<|page|>3<|box|>539 140 555 514<|content|>B. The Prime Contract and the ATAP Program\n<|id|>29<|type|>table<|page|>3<|box|>805 143 898 852<|content|>None\n<|id|>30<|type|>table<|page|>4<|box|>89 143 145 852<|content|>None\n<|id|>33<|type|>title<|page|>4<|box|>411 140 429 364<|content|>C. The Teaming Agreement\n<|id|>47<|type|>title<|page|>6<|box|>90 140 107 491<|content|>D. The DCMA Cost-Overrun Determination\n<|id|>49<|type|>table<|page|>6<|box|>257 143 348 852<|content|>None\n<|id|>50<|type|>table<|page|>6<|box|>425 143 553 852<|content|>None\n<|id|>54<|type|>title<|page|>7<|box|>148 140 167 429<|content|>E. HDDS's Indemnification Demand\n<|id|>58<|type|>title<|page|>7<|box|>523 140 542 428<|content|>F. Pre-Litigation Dispute Resolution\n<|id|>65<|type|>title<|page|>8<|box|>270 202 291 794<|content|>III. DECLARATORY JUDGMENT ACTION STRATEGY\n<|id|>66<|type|>title<|page|>8<|box|>316 140 334 290<|content|>A. Statutory Basis\n<|id|>70<|type|>title<|page|>9<|box|>90 140 108 354<|content|>B. Forum and Jurisdiction\n<|id|>76<|type|>title<|page|>10<|box|>89 140 107 303<|content|>C. Proposed Claims\n<|id|>83<|type|>title<|page|>10<|box|>614 140 633 230<|content|>D. Timing\n<|id|>89<|type|>title<|page|>11<|box|>260 212 280 784<|content|>IV. ASSESSMENT OF WAL'S PRINCIPAL DEFENSES\n<|id|>90<|type|>title<|page|>11<|box|>305 140 323 683<|content|>A. Defense One: Section 11.4(b) Causation Requirem\n<|id|>108<|type|>title<|page|>14<|box|>148 140 167 803<|content|>B. Defense Two: Overbreadth — Demand Includes Non-\n<|id|>115<|type|>title<|page|>14<|box|>729 140 748 743<|content|>C. Defense Three: DCMA Finding Is Preliminary — No\n<|id|>122<|type|>title<|page|>15<|box|>604 374 625 622<|content|>V. RISK ASSESSMENT\n<|id|>123<|type|>title<|page|>15<|box|>650 140 667 398<|content|>A. HDDS's Likely Counterclaim\n<|id|>128<|type|>title<|page|>16<|box|>304 142 321 313<|content|>B. Exposure Analysis\n<|id|>129<|type|>table<|page|>16<|box|>354 143 500 852<|content|>None\n<|id|>136<|type|>title<|page|>17<|box|>285 140 303 488<|content|>C. Impact of DCMA Administrative Review\n<|id|>143<|type|>title<|page|>18<|box|>90 140 107 413<|content|>D. Governing Law Considerations\n<|id|>149<|type|>title<|page|>18<|box|>667 287 686 707<|content|>VI. COLLATERAL CONSIDERATIONS\n<|id|>150<|type|>title<|page|>18<|box|>713 142 729 326<|content|>A. Insurance Coverage\n<|id|>158<|type|>title<|page|>19<|box|>476 140 493 323<|content|>B. Lender Notification\n<|id|>163<|type|>title<|page|>20<|box|>90 140 107 385<|content|>C. Financial Statement Impact\n<|id|>168<|type|>title<|page|>20<|box|>546 140 564 468<|content|>D. Government Contracting Relationship\n<|id|>174<|type|>title<|page|>21<|box|>172 303 191 692<|content|>VII. RECOMMENDED NEXT STEPS\n<|id|>188<|type|>title<|page|>22<|box|>393 390 412 607<|content|>VIII. CONCLUSION",
+    "raw_response": "<|src_id|>29<|tgt_id|>25\n<|src_id|>30<|tgt_id|>25\n<|src_id|>49<|tgt_id|>47\n<|src_id|>50<|tgt_id|>47\n<|src_id|>129<|tgt_id|>128",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 128
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        8,
+        9,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>872 140 930 854<|content|>3. ... Over the course of my career, I have been r...y-five matters involving trade secret CONFIDENTIAL\n<|id|>8<|page|>2<|box|>90 174 162 854<|content|>and restrictive covenant enforcement disputes. ......ial services, manufacturing, and consumer products\n<|id|>68<|page|>8<|box|>835 140 930 854<|content|>33. ... Even a modest erosion of market share in these CONFIDENTIAL\n<|id|>69<|page|>9<|box|>90 174 217 856<|content|>overlapping categories — on the order of 2% to 5% ...isclosed in detail in this preliminary declaration\n<|id|>115<|page|>13<|box|>915 142 929 243<|content|>CONFIDENTIAL\n<|id|>116<|page|>14<|box|>109 140 143 852<|content|>Dr. ... Franklin Oberg, PhD Principal and Lead Exp...0 South Wacker Drive, Suite 3100 Chicago, IL 60606\n<|id|>119<|page|>14<|box|>252 174 325 854<|content|>Catherine Nygaard, Esq. ... Whitfield, Nygaard & D...ia Fernandez-Gill, Nathan Tsao, and Kira Johansson\n<|id|>120<|page|>14<|box|>333 174 369 854<|content|>Gavin Blackhall, Esq. ... Blackhall & Soren LLP 30... Counsel for Defendant Verdana Commerce Group, Inc",
+    "raw_response": "<|src_id|>7<|tgt_id|>8\n<|src_id|>68<|tgt_id|>69",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 69
+        }
+    ]
+}

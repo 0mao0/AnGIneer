@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        10,
+        12,
+        14,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 352 118 645<|content|>GUARANTY AGREEMENT\n<|id|>12<|page|>1<|box|>527 142 544 241<|content|>RECITALS\n<|id|>17<|page|>2<|box|>229 142 247 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>26<|page|>3<|box|>321 140 338 375<|content|>ARTICLE 2 — GUARANTY\n<|id|>32<|page|>4<|box|>823 142 840 357<|content|>ARTICLE 3 — WAIVERS\n<|id|>60<|page|>7<|box|>347 140 364 620<|content|>ARTICLE 4 — REPRESENTATIONS AND WARRANTIES\n<|id|>62<|page|>7<|box|>436 142 454 434<|content|>(a) Organization and Good Standing.\n<|id|>87<|page|>10<|box|>263 140 280 343<|content|>(k) Ownership Structure.\n<|id|>92<|page|>10<|box|>608 140 625 385<|content|>ARTICLE 5 — COVENANTS\n<|id|>102<|page|>12<|box|>148 140 166 426<|content|>ARTICLE 6 — SUBORDINATION\n<|id|>106<|page|>12<|box|>780 140 797 607<|content|>ARTICLE 7 — EVENTS OF DEFAULT AND REMEDIES\n<|id|>118<|page|>14<|box|>303 140 320 429<|content|>ARTICLE 8 — MISCELLANEOUS\n<|id|>120<|page|>14<|box|>503 143 518 295<|content|>If to the Guarantors:\n<|id|>147<|page|>17<|box|>595 400 614 596<|content|>[Signature Pages Follow]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>2\n<|id|>17<|level|>2\n<|id|>26<|level|>2\n<|id|>32<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>3\n<|id|>87<|level|>3\n<|id|>92<|level|>2\n<|id|>102<|level|>2\n<|id|>106<|level|>2\n<|id|>118<|level|>2\n<|id|>120<|level|>3\n<|id|>147<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        }
+    ]
+}

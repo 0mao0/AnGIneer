@@ -1,0 +1,62 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        62
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        58,
+        59,
+        60,
+        61,
+        62
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>338<|type|>title<|page|>46<|box|>696 140 714 519<|content|>B. States with Independent Filing Requirements\n<|id|>343<|type|>title<|page|>47<|box|>215 147 234 848<|content|>VIII. FOLLOW-UP AND DEFICIENCY RESPONSE PROCEDURES\n<|id|>344<|type|>title<|page|>47<|box|>261 142 279 369<|content|>A. Tracking and Monitoring\n<|id|>349<|type|>title<|page|>47<|box|>681 142 696 449<|content|>B. Deficiency Letter Response Protocol\n<|id|>356<|type|>title<|page|>48<|box|>90 218 106 714<|content|>• Rebecca Thornton-Hayes, Partner, Whitford Jessup\n<|id|>363<|type|>title<|page|>48<|box|>518 140 535 348<|content|>C. Conditional Approvals\n<|id|>369<|type|>title<|page|>49<|box|>90 294 109 702<|content|>IX. POST-CLOSING NOTIFICATIONS\n<|id|>370<|type|>title<|page|>49<|box|>136 140 154 563<|content|>A. Jurisdictions Requiring Post-Closing Confirmati\n<|id|>393<|type|>title<|page|>50<|box|>243 142 260 504<|content|>B. Jurisdictions Requiring Ongoing Reporting\n<|id|>401<|type|>title<|page|>50<|box|>670 408 690 589<|content|>X. APPENDICES\n<|id|>402<|type|>title<|page|>51<|box|>90 142 108 825<|content|>Appendix 1 — Complete List of VeloPay Money Transm\n<|id|>403<|type|>table<|page|>51<|box|>160 143 898 852<|content|>None\n<|id|>404<|type|>table<|page|>52<|box|>89 143 900 854<|content|>None\n<|id|>405<|type|>table<|page|>53<|box|>88 143 209 852<|content|>None\n<|id|>406<|type|>title<|page|>54<|box|>89 140 108 815<|content|>Appendix 2 — Form of NMLS MU1 (Company Form) — Com\n<|id|>428<|type|>title<|page|>55<|box|>90 140 107 671<|content|>Appendix 3 — Form of NMLS MU2 (Individual Form) —\n<|id|>435<|type|>title<|page|>56<|box|>90 142 107 535<|content|>Appendix 4 — Sample Deficiency Response Letter\n<|id|>463<|type|>table<|page|>58<|box|>140 143 897 852<|content|>None\n<|id|>464<|type|>table<|page|>59<|box|>89 143 434 852<|content|>None\n<|id|>465<|type|>title<|page|>60<|box|>90 142 107 663<|content|>Appendix 6 — Record of All Filings Made and Approv\n<|id|>466<|type|>table<|page|>60<|box|>176 143 900 852<|content|>None\n<|id|>467<|type|>table<|page|>61<|box|>89 143 907 854<|content|>None\n<|id|>468<|type|>table<|page|>62<|box|>88 143 142 852<|content|>None",
+    "raw_response": "<|src_id|>403<|tgt_id|>402\n<|src_id|>404<|tgt_id|>402\n<|src_id|>405<|tgt_id|>402\n<|src_id|>463<|tgt_id|>435\n<|src_id|>464<|tgt_id|>435\n<|src_id|>466<|tgt_id|>465\n<|src_id|>467<|tgt_id|>465\n<|src_id|>468<|tgt_id|>465",
+    "parsed": [
+        {
+            "src_id": 403,
+            "tgt_id": 402
+        },
+        {
+            "src_id": 404,
+            "tgt_id": 402
+        },
+        {
+            "src_id": 405,
+            "tgt_id": 402
+        },
+        {
+            "src_id": 463,
+            "tgt_id": 435
+        },
+        {
+            "src_id": 464,
+            "tgt_id": 435
+        },
+        {
+            "src_id": 466,
+            "tgt_id": 465
+        },
+        {
+            "src_id": 467,
+            "tgt_id": 465
+        },
+        {
+            "src_id": 468,
+            "tgt_id": 465
+        }
+    ]
+}

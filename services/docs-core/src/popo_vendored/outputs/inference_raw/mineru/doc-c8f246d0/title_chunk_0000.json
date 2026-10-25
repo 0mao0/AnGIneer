@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        54
+    ],
+    "pages": [
+        5,
+        7,
+        13,
+        17,
+        18,
+        33,
+        34,
+        40,
+        41,
+        42,
+        43,
+        49,
+        53
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>5<|box|>0 79 242 840<|content|>TREASURY BULLETIN\n<|id|>12<|page|>7<|box|>139 386 157 581<|content|>Table of Contents\n<|id|>19<|page|>13<|box|>59 330 78 627<|content|>Treasury Market Financing\n<|id|>21<|page|>13<|box|>149 45 165 312<|content|>Refunding During December\n<|id|>27<|page|>13<|box|>665 40 681 362<|content|>Payment of 3% Conversion Bonds\n<|id|>29<|page|>13<|box|>775 40 791 321<|content|>Calender Year 1946 Summary\n<|id|>55<|page|>17<|box|>241 133 274 827<|content|>Table 1.- Comparison of Effective Rate of Individu\n<|id|>58<|page|>18<|box|>56 163 89 859<|content|>Table 1.- Comparison of Effective Rate of Individu\n<|id|>59<|page|>18<|box|>97 312 113 710<|content|>Part B - Married Person - No Dependents\n<|id|>91<|page|>33<|box|>67 338 81 637<|content|>Budgetary Receipts and Expenditures\n<|id|>94<|page|>34<|box|>58 291 73 731<|content|>Budgetary Receipts and Expenditures - (Continued)\n<|id|>104<|page|>40<|box|>54 219 68 822<|content|>Social Security Program: Section I.- Budgetary Rec\n<|id|>114<|page|>41<|box|>62 304 77 626<|content|>Social Security Program - (Continued)\n<|id|>115<|page|>41<|box|>83 202 97 730<|content|>Section I - Budgetary Receipts and Expenditures -\n<|id|>118<|page|>42<|box|>62 349 76 668<|content|>Social Security Program - (Continued)\n<|id|>119<|page|>42<|box|>85 333 99 692<|content|>Section II - Statements of Trust Accounts\n<|id|>123<|page|>43<|box|>54 304 68 628<|content|>Cash Income and Outgo of the Treasury\n<|id|>131<|page|>49<|box|>56 193 89 750<|content|>Detailed Statement of the Public Debt and Guarante\n<|id|>141<|page|>53<|box|>393 49 425 929<|content|>Table 2.- Analysis of U. S. Government Securities",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>12<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>3\n<|id|>27<|level|>3\n<|id|>29<|level|>3\n<|id|>55<|level|>3\n<|id|>58<|level|>3\n<|id|>59<|level|>4\n<|id|>91<|level|>2\n<|id|>94<|level|>2\n<|id|>104<|level|>2\n<|id|>114<|level|>2\n<|id|>115<|level|>3\n<|id|>118<|level|>2\n<|id|>119<|level|>3\n<|id|>123<|level|>2\n<|id|>131<|level|>2\n<|id|>141<|level|>3",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 3
+        }
+    ]
+}

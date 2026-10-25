@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 566<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>112 274 128 722<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>11<|page|>1<|box|>625 140 642 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>16<|page|>2<|box|>329 140 347 375<|content|>2. Background of the Dispute\n<|id|>18<|page|>2<|box|>441 140 459 415<|content|>2.1 The Master Supply Agreement\n<|id|>24<|page|>3<|box|>194 140 212 468<|content|>2.2 The Quality Dispute and Termination\n<|id|>27<|page|>3<|box|>476 140 493 465<|content|>2.3 Procedural History of the Arbitration\n<|id|>35<|page|>4<|box|>90 140 107 333<|content|>3. Scope of Engagement\n<|id|>37<|page|>4<|box|>184 140 200 671<|content|>3.1 Primary Assignment — Rebuttal of Claimant's Da\n<|id|>50<|page|>5<|box|>584 140 599 663<|content|>3.2 Affirmative Analysis — Quantification of WAL's\n<|id|>60<|page|>6<|box|>268 140 286 442<|content|>3.3 Forensic Accounting Coordination\n<|id|>63<|page|>6<|box|>532 140 549 406<|content|>3.4 Expert Report and Testimony\n<|id|>68<|page|>7<|box|>204 140 222 361<|content|>4. Materials to Be Provided\n<|id|>82<|page|>8<|box|>90 140 107 406<|content|>5. Independence and Impartiality\n<|id|>93<|page|>8<|box|>590 140 607 284<|content|>6. Confidentiality\n<|id|>99<|page|>9<|box|>311 140 329 400<|content|>7. Fee Arrangements and Billing\n<|id|>104<|page|>9<|box|>821 140 839 344<|content|>8. Term and Termination\n<|id|>108<|page|>10<|box|>383 140 402 470<|content|>9. Communications and Points of Contact\n<|id|>116<|page|>10<|box|>736 142 753 297<|content|>10. Governing Law\n<|id|>118<|page|>11<|box|>90 142 107 380<|content|>11. Acceptance and Execution\n<|id|>122<|page|>11<|box|>303 140 319 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>127<|page|>11<|box|>406 142 422 524<|content|>RIDGELINE ECONOMIC CONSULTING LLC",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>2\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>35<|level|>1\n<|id|>37<|level|>2\n<|id|>50<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>68<|level|>1\n<|id|>82<|level|>1\n<|id|>93<|level|>1\n<|id|>99<|level|>1\n<|id|>104<|level|>1\n<|id|>108<|level|>1\n<|id|>116<|level|>1\n<|id|>118<|level|>1\n<|id|>122<|level|>-1\n<|id|>127<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        }
+    ]
+}

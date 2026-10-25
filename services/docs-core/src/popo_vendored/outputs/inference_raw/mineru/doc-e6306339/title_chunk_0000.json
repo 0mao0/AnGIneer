@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>334 140 351 524<|content|>1. Introduction and Identification of Transaction\n<|id|>12<|page|>2<|box|>148 140 167 346<|content|>2. Purpose of the Request\n<|id|>23<|page|>3<|box|>148 140 167 539<|content|>3. Financial Statements and Periods to Be Covered\n<|id|>34<|page|>4<|box|>329 140 347 553<|content|>4. Financial Data and Other Numbers to Be Covered\n<|id|>65<|page|>6<|box|>789 140 806 495<|content|>5. Negative Assurance (Subsequent Changes)\n<|id|>72<|page|>7<|box|>700 140 717 377<|content|>6. Bringdown Comfort Letter\n<|id|>77<|page|>8<|box|>273 140 292 424<|content|>7. Timing and Delivery Instructions\n<|id|>92<|page|>8<|box|>799 140 816 364<|content|>8. Request for Draft Review\n<|id|>96<|page|>9<|box|>348 142 364 251<|content|>9. Enclosures\n<|id|>101<|page|>9<|box|>638 143 656 235<|content|>10. Closing",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>12<|level|>1\n<|id|>23<|level|>1\n<|id|>34<|level|>1\n<|id|>65<|level|>1\n<|id|>72<|level|>1\n<|id|>77<|level|>1\n<|id|>92<|level|>1\n<|id|>96<|level|>1\n<|id|>101<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        }
+    ]
+}

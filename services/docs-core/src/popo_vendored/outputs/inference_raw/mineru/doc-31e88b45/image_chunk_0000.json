@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>99 406 118 591<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>135 148 189 849<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>2<|type|>table<|page|>1<|box|>196 143 720 852<|content|>None\n<|id|>4<|type|>title<|page|>2<|box|>89 140 106 483<|content|>I. PURPOSE AND LEGAL OBLIGATION\n<|id|>10<|type|>title<|page|>2<|box|>773 142 789 558<|content|>II. BACKGROUND SUMMARY OF THE DISPUTE\n<|id|>12<|type|>title<|page|>3<|box|>90 140 107 459<|content|>A. The Fund Administration Agreement\n<|id|>17<|type|>title<|page|>3<|box|>417 142 434 428<|content|>B. The Three Fund Vehicles at Issue\n<|id|>19<|type|>table<|page|>3<|box|>483 143 604 852<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>705 140 722 307<|content|>C. The Misvaluation\n<|id|>30<|type|>title<|page|>4<|box|>310 142 327 351<|content|>D. Key Timeline of Events\n<|id|>39<|type|>title<|page|>4<|box|>856 142 873 393<|content|>E. Anticipated Causes of Action\n<|id|>49<|type|>title<|page|>5<|box|>304 140 321 831<|content|>III. SCOPE OF THE HOLD — CATEGORIES OF MATERIALS T\n<|id|>52<|type|>title<|page|>5<|box|>534 140 551 743<|content|>A. Documents Relating to the Fund Administration R\n<|id|>67<|type|>title<|page|>6<|box|>487 176 503 573<|content|>B. Internal Ironside Communications and Records\n<|id|>86<|type|>title<|page|>7<|box|>402 176 420 490<|content|>C. Documents Relating to Third Parties\n<|id|>99<|type|>title<|page|>8<|box|>715 176 733 517<|content|>D. Financial Records and Fund Accounting\n<|id|>106<|type|>title<|page|>9<|box|>638 176 656 753<|content|>E. Electronically Stored Information — Specific Sy\n<|id|>116<|type|>title<|page|>10<|box|>797 176 814 661<|content|>IV. PRESERVATION OBLIGATIONS AND PROCEDURES\n<|id|>117<|type|>title<|page|>10<|box|>829 176 845 560<|content|>A. Immediate Suspension of Routine Destruction\n<|id|>121<|type|>title<|page|>11<|box|>356 176 373 421<|content|>B. Notification of IT Personnel\n<|id|>128<|type|>title<|page|>11<|box|>752 176 768 380<|content|>C. Custodian Notification\n<|id|>134<|type|>title<|page|>12<|box|>90 181 107 544<|content|>• Marcus Threadgill, Portfolio Manager, Fund II\n<|id|>138<|type|>title<|page|>12<|box|>375 176 392 674<|content|>D. Preservation of Third-Party Records in Ironside\n<|id|>147<|type|>title<|page|>12<|box|>792 176 810 357<|content|>E. Ongoing Obligation\n<|id|>151<|type|>title<|page|>13<|box|>376 176 393 560<|content|>V. CONSEQUENCES OF NON-COMPLIANCE\n<|id|>161<|type|>title<|page|>14<|box|>89 176 106 395<|content|>VI. POINT OF CONTACT\n<|id|>168<|type|>title<|page|>14<|box|>470 176 487 604<|content|>VII. ACKNOWLEDGMENT AND CONFIRMATION\n<|id|>171<|type|>title<|page|>14<|box|>621 264 637 767<|content|>ACKNOWLEDGMENT AND CONFIRMATION OF RECEIPT\n<|id|>179<|type|>title<|page|>15<|box|>128 176 145 310<|content|>VIII. CLOSING\n<|id|>182<|type|>title<|page|>15<|box|>260 176 277 468<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>2<|tgt_id|>1\n<|src_id|>19<|tgt_id|>17",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        }
+    ]
+}

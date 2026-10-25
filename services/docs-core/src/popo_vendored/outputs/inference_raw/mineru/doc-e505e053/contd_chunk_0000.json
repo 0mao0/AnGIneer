@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 258 133 740<|content|>One International Place, Suite 3400 Boston, Massachusetts 02110\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 751 184 854<|content|>July 13, 2022\n<|id|>4<|page|>1<|box|>193 140 210 542<|content|>VIA ELECTRONIC MAIL AND HAND DELIVERY\n<|id|>5<|page|>1<|box|>219 140 255 854<|content|>Aaron Whitfield, Esq. ... 400 Brattle Commerce Park, Suite 1200 Cambridge, MA 02138\n<|id|>6<|page|>1<|box|>263 176 300 854<|content|>Re: ... Elliston, Prospective Chief Operating Officer\n<|id|>7<|page|>1<|box|>308 176 325 584<|content|>Our Matter No. ... 81-30294\n<|id|>8<|page|>1<|box|>334 142 349 292<|content|>Dear Mr. ... Whitfield\n<|id|>20<|page|>2<|box|>868 174 905 857<|content|>(h) Coordination with Tax/Accounting Advisors. ......advisors, Hargrove & Sinclair CPAs, represented by\n<|id|>21<|page|>3<|box|>89 174 162 854<|content|>Malcolm R. ... Sinclair, CPA, regarding the quanti...and the modeling of various compensation scenarios\n<|id|>75<|page|>9<|box|>455 140 488 854<|content|>Bernard Crawford Partner, Labor & Employment Calde...400 Boston, MA 02110 Telephone: ... (617) 555-8217\n<|id|>76<|page|>9<|box|>489 142 506 475<|content|>Email: ... com\n<|id|>81<|page|>9<|box|>651 143 666 321<|content|>Name: ... Aaron Whitfield\n<|id|>82<|page|>9<|box|>667 143 684 315<|content|>Title: ... General Counsel\n<|id|>83<|page|>9<|box|>685 143 700 264<|content|>Date: ... Date\n<|id|>84<|page|>9<|box|>702 142 719 535<|content|>Enclosure: ... Duplicate original for Company's records\n<|id|>85<|page|>9<|box|>727 140 757 854<|content|>cc: ... Lisa Murakami, Chief Human Resources Officer, Arbor Health Technologies Inc",
+    "raw_response": "<|src_id|>20<|tgt_id|>21",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        }
+    ]
+}

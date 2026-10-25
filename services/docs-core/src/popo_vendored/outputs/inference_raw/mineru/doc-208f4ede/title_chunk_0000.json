@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 310 107 686<|content|>[NOVAMART GLOBAL INC. LETTERHEAD]\n<|id|>11<|page|>1<|box|>464 143 479 366<|content|>1. Introduction and Purpose\n<|id|>15<|page|>1<|box|>755 142 772 401<|content|>2. Description of the Transaction\n<|id|>20<|page|>2<|box|>338 140 354 375<|content|>3. Continuity of Performance\n<|id|>26<|page|>2<|box|>672 140 690 325<|content|>4. Request for Consent\n<|id|>29<|page|>3<|box|>174 140 190 364<|content|>5. Requested Response Date\n<|id|>32<|page|>3<|box|>376 140 393 284<|content|>6. Confidentiality\n<|id|>35<|page|>3<|box|>633 142 650 527<|content|>7. Contact Information and Delivery Instructions\n<|id|>37<|page|>3<|box|>704 142 719 318<|content|>NovaMart Global Inc.\n<|id|>48<|page|>4<|box|>184 140 202 225<|content|>8. Closing\n<|id|>66<|page|>4<|box|>633 142 651 535<|content|>Drafter's Instructional Notes — Internal Use Only",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>1\n<|id|>15<|level|>1\n<|id|>20<|level|>1\n<|id|>26<|level|>1\n<|id|>29<|level|>1\n<|id|>32<|level|>1\n<|id|>35<|level|>1\n<|id|>37<|level|>2\n<|id|>48<|level|>1\n<|id|>66<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        }
+    ]
+}

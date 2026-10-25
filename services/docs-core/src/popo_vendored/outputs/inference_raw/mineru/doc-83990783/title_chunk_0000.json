@@ -1,0 +1,155 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20,
+        21,
+        22,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 153 151 841<|content|>MEMORANDUM PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIE\n<|id|>8<|page|>1<|box|>450 387 469 611<|content|>I. Executive Summary\n<|id|>18<|page|>2<|box|>529 419 547 576<|content|>II. Background\n<|id|>19<|page|>2<|box|>573 142 590 656<|content|>A. Derek Hargrave — Biographical and Employment In\n<|id|>26<|page|>3<|box|>383 140 402 674<|content|>B. Dunmore Trading International Ltd. — Organizati\n<|id|>36<|page|>4<|box|>508 140 525 473<|content|>C. The Suspect Transactions — Summary\n<|id|>45<|page|>5<|box|>508 334 527 663<|content|>III. Scope of Review and Sources\n<|id|>46<|page|>5<|box|>554 140 571 352<|content|>A. Documentary Evidence\n<|id|>61<|page|>6<|box|>580 140 598 318<|content|>B. Witness Interviews\n<|id|>71<|page|>8<|box|>204 140 222 400<|content|>C. Forensic Accounting Analysis\n<|id|>74<|page|>8<|box|>503 295 522 700<|content|>IV. Detailed Analysis of Hargrave's Role\n<|id|>75<|page|>8<|box|>547 140 565 524<|content|>A. Transaction Approval Authority and Exercise\n<|id|>82<|page|>9<|box|>458 140 474 588<|content|>B. Counterparty Onboarding — Petronova Trading FZE\n<|id|>89<|page|>10<|box|>714 140 731 599<|content|>C. Counterparty Onboarding — Zenith Petroleum DMCC\n<|id|>95<|page|>11<|box|>539 140 556 606<|content|>D. Oilfield Equipment Exports via Caspian Logistik\n<|id|>103<|page|>12<|box|>830 140 849 669<|content|>E. Payment Structuring Through Crescent Commercial\n<|id|>110<|page|>14<|box|>241 140 258 736<|content|>F. Hargrave's Relationship with Sergei Volkov — Pe\n<|id|>116<|page|>15<|box|>345 297 364 700<|content|>V. Assessment of Hargrave's Knowledge\n<|id|>118<|page|>15<|box|>496 140 513 393<|content|>A. Direct Knowledge Indicators\n<|id|>126<|page|>16<|box|>729 140 746 589<|content|>B. Constructive Knowledge / Willful Blindness Indi\n<|id|>133<|page|>18<|box|>204 140 222 447<|content|>C. Hargrave's Exculpatory Statements\n<|id|>140<|page|>19<|box|>241 140 258 341<|content|>D. Assessment Summary\n<|id|>154<|page|>20<|box|>154 186 174 810<|content|>VI. Implications for DOJ Cooperation and Dunmore's\n<|id|>155<|page|>20<|box|>199 140 215 398<|content|>A. Hargrave as a Central Figure\n<|id|>159<|page|>20<|box|>647 140 664 447<|content|>B. Interaction with Individual Counsel\n<|id|>165<|page|>21<|box|>458 140 474 403<|content|>C. Potential Individual Exposure\n<|id|>170<|page|>22<|box|>148 140 167 495<|content|>D. Impact on Dunmore's Cooperation Credit\n<|id|>179<|page|>22<|box|>719 261 739 735<|content|>VII. Open Issues and Recommended Next Steps\n<|id|>188<|page|>24<|box|>154 411 174 584<|content|>VIII. Conclusion\n<|id|>194<|page|>24<|box|>780 437 799 558<|content|>Appendices\n<|id|>199<|page|>25<|box|>179 140 195 542<|content|>Appendix D: Cross-Reference to Related Memoranda",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>18<|level|>1\n<|id|>19<|level|>2\n<|id|>26<|level|>2\n<|id|>36<|level|>2\n<|id|>45<|level|>1\n<|id|>46<|level|>2\n<|id|>61<|level|>2\n<|id|>71<|level|>2\n<|id|>74<|level|>1\n<|id|>75<|level|>2\n<|id|>82<|level|>2\n<|id|>89<|level|>2\n<|id|>95<|level|>2\n<|id|>103<|level|>2\n<|id|>110<|level|>2\n<|id|>116<|level|>1\n<|id|>118<|level|>2\n<|id|>126<|level|>2\n<|id|>133<|level|>2\n<|id|>140<|level|>2\n<|id|>154<|level|>1\n<|id|>155<|level|>2\n<|id|>159<|level|>2\n<|id|>165<|level|>2\n<|id|>170<|level|>2\n<|id|>179<|level|>1\n<|id|>188<|level|>1\n<|id|>194<|level|>1\n<|id|>199<|level|>2",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 1
+        },
+        {
+            "id": 188,
+            "level": 1
+        },
+        {
+            "id": 194,
+            "level": 1
+        },
+        {
+            "id": 199,
+            "level": 2
+        }
+    ]
+}

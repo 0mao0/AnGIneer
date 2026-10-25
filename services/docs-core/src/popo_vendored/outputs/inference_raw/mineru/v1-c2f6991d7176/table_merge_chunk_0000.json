@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['colspan=2, ', 'Patient Placement/Accommodation√ Use a single room for a client/patient/resident who contaminates the environment.√ Perform hand hygiene on leaving the room.']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=2, ', 'Hand Hygiene as per Routine PracticesHand hygiene is performed:√ Before and after each patient contact√ Before performing invasive procedures√ Before preparing, handling, serving or eating food√ After care involving body fluids and before moving to another activity√ Before putting on and after taking off gloves and other PPE√ After personal body functions (e.g., blowing one’s nose)√ Whenever hands come into contact with secretions, excretions, blood and body fluids√ After contact with items in the patient’s environment√ Whenever there is doubt about the necessity for doing so']]\n",
+    "raw_response": "[1, 0]",
+    "parsed": [
+        1,
+        0
+    ],
+    "table1_idx": 1147,
+    "table2_idx": 1148
+}

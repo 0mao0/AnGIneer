@@ -1,0 +1,54 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        14
+    ],
+    "pages": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>89 434 111 563<|content|>EXHIBIT A\n<|id|>1<|type|>title<|page|>2<|box|>135 341 152 656<|content|>FACILITY DESCRIPTION AND SITE\n<|id|>4<|type|>title<|page|>2<|box|>339 140 356 462<|content|>Section 1. Project Name and Designation\n<|id|>9<|type|>title<|page|>2<|box|>776 140 794 486<|content|>Section 2. Facility Technology and Capacity\n<|id|>10<|type|>title<|page|>2<|box|>806 140 824 359<|content|>2.1 Technology Description\n<|id|>21<|type|>title<|page|>4<|box|>194 142 212 334<|content|>2.2 Nameplate Capacity\n<|id|>23<|type|>table<|page|>4<|box|>241 143 318 852<|content|>None\n<|id|>26<|type|>title<|page|>4<|box|>555 140 571 405<|content|>2.3 Estimated Energy Production\n<|id|>27<|type|>title<|page|>4<|box|>578 140 595 722<|content|>P50 Estimated Annual Net Generation: 350,000 MWh p\n<|id|>32<|type|>title<|page|>5<|box|>285 140 303 410<|content|>Section 3. Project Site Description\n<|id|>33<|type|>title<|page|>5<|box|>316 140 333 277<|content|>3.1 Site Location\n<|id|>35<|type|>table<|page|>5<|box|>419 143 617 852<|content|>None\n<|id|>37<|type|>title<|page|>5<|box|>737 140 753 272<|content|>3.2 Land Rights\n<|id|>43<|type|>title<|page|>6<|box|>393 140 409 299<|content|>3.3 Site Boundaries\n<|id|>46<|type|>title<|page|>6<|box|>574 140 592 310<|content|>Section 4. Permitting\n<|id|>47<|type|>title<|page|>6<|box|>604 140 622 370<|content|>4.1 County Land Use Permit\n<|id|>54<|type|>title<|page|>7<|box|>157 140 175 390<|content|>4.2 Environmental Compliance\n<|id|>61<|type|>title<|page|>7<|box|>726 140 743 287<|content|>4.3 Other Permits\n<|id|>71<|type|>title<|page|>8<|box|>450 140 469 349<|content|>Section 5. Interconnection\n<|id|>72<|type|>title<|page|>8<|box|>482 140 500 344<|content|>5.1 Interconnection Point\n<|id|>78<|type|>title<|page|>8<|box|>768 140 785 413<|content|>5.2 Transmission Service Provider\n<|id|>82<|type|>title<|page|>9<|box|>195 140 212 388<|content|>5.3 Interconnection Agreement\n<|id|>84<|type|>table<|page|>9<|box|>260 143 484 852<|content|>None\n<|id|>87<|type|>title<|page|>9<|box|>686 140 703 297<|content|>5.4 Settlement Hub\n<|id|>88<|type|>title<|page|>9<|box|>709 176 726 519<|content|>ERCOT Settlement Hub: ERCOT West Hub\n<|id|>90<|type|>title<|page|>10<|box|>90 142 107 354<|content|>Section 6. EPC Contractor\n<|id|>91<|type|>table<|page|>10<|box|>159 143 287 852<|content|>None\n<|id|>95<|type|>table<|page|>10<|box|>821 143 897 852<|content|>None\n<|id|>99<|type|>title<|page|>11<|box|>546 140 563 400<|content|>Section 8. Independent Engineer\n<|id|>100<|type|>table<|page|>11<|box|>614 143 738 852<|content|>None\n<|id|>110<|type|>title<|page|>12<|box|>469 140 487 305<|content|>Section 9. Insurance\n<|id|>112<|type|>table<|page|>12<|box|>556 143 654 852<|content|>None\n<|id|>117<|type|>title<|page|>13<|box|>366 140 383 383<|content|>Section 10. Project Useful Life\n<|id|>121<|type|>title<|page|>14<|box|>89 357 107 640<|content|>ATTACHMENT 1 TO EXHIBIT A\n<|id|>122<|type|>title<|page|>14<|box|>121 140 138 485<|content|>LEGAL DESCRIPTION AND SITE PLAN",
+    "raw_response": "<|src_id|>23<|tgt_id|>21\n<|src_id|>35<|tgt_id|>33\n<|src_id|>84<|tgt_id|>82\n<|src_id|>91<|tgt_id|>90\n<|src_id|>95<|tgt_id|>90\n<|src_id|>100<|tgt_id|>99\n<|src_id|>112<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 110
+        }
+    ]
+}

@@ -1,0 +1,241 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ytvz3h9o\\input\\pdfs\\doc-09d250fd.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ytvz3h9o\\enriched\\doc-09d250fd.json",
+    "contd_output": "<|src_id|>166<|tgt_id|>167",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>9<|level|>2\n<|id|>31<|level|>2\n<|id|>38<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>3\n<|id|>78<|level|>3\n<|id|>87<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>2\n<|id|>105<|level|>2\n<|id|>106<|level|>3\n<|id|>111<|level|>3\n<|id|>116<|level|>3\n<|id|>118<|level|>3\n<|id|>120<|level|>3\n<|id|>127<|level|>2\n<|id|>129<|level|>3\n<|id|>139<|level|>3\n<|id|>152<|level|>3\n<|id|>155<|level|>3\n<|id|>165<|level|>3\n<|id|>168<|level|>3\n<|id|>176<|level|>2\n<|id|>197<|level|>2\n<|id|>216<|level|>2\n<|id|>218<|level|>2\n<|id|>223<|level|>2\n<|id|>233<|level|>2\n<|id|>252<|level|>2\n<|id|>258<|level|>2\n<|id|>261<|level|>2",
+    "image_output": "<|src_id|>33<|tgt_id|>31\n<|src_id|>34<|tgt_id|>31\n<|src_id|>35<|tgt_id|>31\n<|src_id|>36<|tgt_id|>31\n<|src_id|>90<|tgt_id|>87\n<|src_id|>98<|tgt_id|>96\n<|src_id|>102<|tgt_id|>100\n<|src_id|>103<|tgt_id|>100\n<|src_id|>217<|tgt_id|>216",
+    "contd_label": [
+        {
+            "src_id": 166,
+            "tgt_id": 167
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 2
+        },
+        {
+            "id": 233,
+            "level": 2
+        },
+        {
+            "id": 252,
+            "level": 2
+        },
+        {
+            "id": 258,
+            "level": 2
+        },
+        {
+            "id": 261,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 216
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 33,
+            "table2_idx": 34,
+            "upper_row_ss": [
+                [
+                    "A. Identifiers",
+                    "Yes",
+                    "Full name, email address, postal address (shipping and billing), telephone number, Cascade Rewards account number, online account credentials (username), IP address, device identifiers (including mobile advertising IDs), cookie identifiers, unique session IDs, and other online identifiers assigned by Cascade or third-party tracking technologies deployed on cascade.com and the Cascade mobile application."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "B. Personal information categories listed in Cal. Civ. Code § 1798.80(e)",
+                    "Yes",
+                    "Payment-card data, including credit card and debit card numbers, cardholder name, expiration date, and card verification value (CVV); billing address; purchase history; account balances; and other financial information necessary to process transactions through cascade.com, the mobile application, or in-store point-of-sale systems."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 34,
+            "table2_idx": 35,
+            "upper_row_ss": [
+                [
+                    "F. Internet or other similar network activity",
+                    "Yes",
+                    "Browsing history on cascade.com and in the Cascade mobile application; search queries entered on Cascade's platforms; interaction with advertisements served by or on behalf of Cascade (including click-through, impression, and conversion data); click-stream data; page-view history; session duration; referral URLs; and data collected through twelve (12) categories of cookies and tracking technologies deployed on cascade.com and the Cascade"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "mobile application (including strictly necessary cookies, performance cookies, functional cookies, advertising cookies, social-media cookies, analytics cookies, session-replay cookies, personalization cookies, consent-management cookies, A/B testing cookies, cart-persistence cookies, and fraud-detection cookies). Peakview Analytics Inc. processes approximately 2.1 billion consumer-event data records per month in connection with analytics services provided to Cascade."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 35,
+            "table2_idx": 36,
+            "upper_row_ss": [
+                [
+                    "K. Inferences drawn from other personal information",
+                    "Yes",
+                    "Consumer profiles reflecting preferences, characteristics, psychological trends, predispositions, behaviors, attitudes, intelligence, abilities, aptitudes, and purchasing propensities, created by Peakview Analytics Inc. using algorithmic modeling and drawn from the categories of personal information described above. Inferences are used for personalization, product"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "recommendations, marketing segmentation, and analytics."
+                ]
+            ]
+        }
+    ]
+}

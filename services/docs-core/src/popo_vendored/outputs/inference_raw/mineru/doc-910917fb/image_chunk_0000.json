@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|type|>title<|page|>1<|box|>367 140 383 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>14<|type|>title<|page|>2<|box|>167 140 185 334<|content|>2. Scope of Engagement\n<|id|>16<|type|>title<|page|>2<|box|>279 140 297 415<|content|>2.1 Delaware Law Entity Opinions\n<|id|>24<|type|>title<|page|>3<|box|>138 140 156 509<|content|>2.2 Delaware-Organized Loan Parties Covered\n<|id|>26<|type|>table<|page|>3<|box|>205 143 611 852<|content|>None\n<|id|>38<|type|>title<|page|>4<|box|>378 140 396 439<|content|>2.3 Additional Delaware Law Matters\n<|id|>44<|type|>title<|page|>5<|box|>90 140 107 651<|content|>2.4 Good Standing Certificates and Certified Docum\n<|id|>49<|type|>title<|page|>5<|box|>489 140 506 339<|content|>3. Transaction Overview\n<|id|>64<|type|>title<|page|>6<|box|>444 140 460 387<|content|>4. Key Transaction Documents\n<|id|>77<|type|>title<|page|>8<|box|>90 140 107 441<|content|>5. Timeline and Deliverables Schedule\n<|id|>79<|type|>table<|page|>8<|box|>176 143 469 852<|content|>None\n<|id|>82<|type|>title<|page|>8<|box|>699 140 715 387<|content|>6. Coordination and Reporting\n<|id|>91<|type|>title<|page|>9<|box|>619 140 636 310<|content|>7. Fee Arrangements\n<|id|>97<|type|>title<|page|>10<|box|>383 140 402 236<|content|>8. Conflicts\n<|id|>120<|type|>title<|page|>11<|box|>258 140 277 284<|content|>9. Confidentiality\n<|id|>124<|type|>title<|page|>11<|box|>598 142 614 354<|content|>10. Term and Termination\n<|id|>127<|type|>title<|page|>12<|box|>90 142 107 264<|content|>11. Acceptance\n<|id|>137<|type|>title<|page|>12<|box|>425 313 441 684<|content|>ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>145<|type|>title<|page|>12<|box|>702 142 714 171<|content|>cc:",
+    "raw_response": "<|src_id|>26<|tgt_id|>24\n<|src_id|>79<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        }
+    ]
+}

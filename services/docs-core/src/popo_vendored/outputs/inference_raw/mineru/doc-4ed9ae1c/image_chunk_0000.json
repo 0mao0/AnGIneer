@@ -1,0 +1,63 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 403 119 593<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>407 140 424 364<|content|>1. Purpose and Background\n<|id|>16<|type|>title<|page|>2<|box|>439 140 457 470<|content|>2. NovaMart Global Inc. — Entity Details\n<|id|>28<|type|>title<|page|>3<|box|>286 140 303 562<|content|>3. Jurisdictions Requiring Good Standing Certifica\n<|id|>29<|type|>title<|page|>3<|box|>316 140 334 346<|content|>3.1 State of Incorporation\n<|id|>31<|type|>table<|page|>3<|box|>400 143 484 852<|content|>None\n<|id|>33<|type|>title<|page|>3<|box|>732 140 750 346<|content|>3.2 State of Headquarters\n<|id|>35<|type|>table<|page|>3<|box|>871 143 907 852<|content|>None\n<|id|>36<|type|>table<|page|>4<|box|>88 143 125 852<|content|>None\n<|id|>38<|type|>title<|page|>4<|box|>316 140 334 668<|content|>3.3 States of Fulfillment Center Operations (Forei\n<|id|>40<|type|>table<|page|>4<|box|>455 143 902 852<|content|>None\n<|id|>41<|type|>table<|page|>5<|box|>89 143 404 852<|content|>None\n<|id|>44<|type|>title<|page|>5<|box|>715 140 732 354<|content|>3.4 NovaMart Subsidiaries\n<|id|>52<|type|>title<|page|>6<|box|>571 140 589 433<|content|>4. Ordering Instructions and Process\n<|id|>53<|type|>title<|page|>6<|box|>603 140 619 421<|content|>4.1 Responsible Party for Ordering\n<|id|>60<|type|>title<|page|>7<|box|>502 140 520 354<|content|>4.2 Timing and Expediting\n<|id|>62<|type|>title<|page|>7<|box|>607 142 625 346<|content|>Key Dates and Deadlines:\n<|id|>66<|type|>title<|page|>7<|box|>801 140 818 580<|content|>Jurisdiction-by-Jurisdiction Processing Time Estim\n<|id|>81<|type|>title<|page|>9<|box|>268 140 284 292<|content|>4.3 Cost Estimates\n<|id|>88<|type|>title<|page|>9<|box|>699 140 715 364<|content|>5. Delivery and Distribution\n<|id|>98<|type|>title<|page|>10<|box|>606 140 622 562<|content|>6. Summary Table — Master Certificate Request List\n<|id|>100<|type|>table<|page|>10<|box|>729 143 905 852<|content|>None\n<|id|>101<|type|>table<|page|>11<|box|>89 143 893 852<|content|>None\n<|id|>102<|type|>table<|page|>12<|box|>88 143 109 854<|content|>None\n<|id|>103<|type|>title<|page|>12<|box|>143 140 160 609<|content|>Total Certificates Required for NovaMart Parent En\n<|id|>105<|type|>title<|page|>12<|box|>209 142 227 313<|content|>7. Open Action Items\n<|id|>107<|type|>title<|page|>12<|box|>297 142 315 531<|content|>Action Item 1: Confirm Complete Subsidiary List\n<|id|>111<|type|>title<|page|>12<|box|>530 142 547 638<|content|>Action Item 2: Confirm Delaware Registered Agent A\n<|id|>115<|type|>title<|page|>12<|box|>761 142 777 519<|content|>Action Item 3: Update Master Closing Checklist\n<|id|>119<|type|>title<|page|>13<|box|>114 142 133 669<|content|>Action Item 4: Monitor Closing Date and Adjust Ord\n<|id|>123<|type|>title<|page|>13<|box|>402 143 420 676<|content|>Action Item 5: Confirm Original vs. Copy Requireme\n<|id|>130<|type|>title<|page|>14<|box|>89 143 107 243<|content|>EXHIBIT A\n<|id|>131<|type|>title<|page|>14<|box|>114 289 133 707<|content|>NovaMart Subsidiary List and Foreign Qualification\n<|id|>132<|type|>title<|page|>14<|box|>141 158 176 838<|content|>[PLACEHOLDER — TO BE COMPLETED UPON CONFIRMATION F\n<|id|>134<|type|>table<|page|>14<|box|>265 143 635 852<|content|>None",
+    "raw_response": "<|src_id|>31<|tgt_id|>29\n<|src_id|>35<|tgt_id|>33\n<|src_id|>36<|tgt_id|>33\n<|src_id|>40<|tgt_id|>38\n<|src_id|>41<|tgt_id|>38\n<|src_id|>100<|tgt_id|>98\n<|src_id|>101<|tgt_id|>98\n<|src_id|>102<|tgt_id|>98\n<|src_id|>134<|tgt_id|>131",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 131
+        }
+    ]
+}

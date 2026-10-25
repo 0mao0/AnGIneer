@@ -1,0 +1,47 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        98,
+        184
+    ],
+    "pages": [
+        98,
+        99,
+        100,
+        104,
+        105,
+        108,
+        116,
+        126,
+        128,
+        129,
+        130,
+        131,
+        183
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>524<|page|>98<|box|>774 508 835 719<|content|>1977-Jan. ... 3\n<|id|>525<|page|>98<|box|>837 506 855 625<|content|>* Less than \\$500,000. ... r Revised\n<|id|>533<|page|>99<|box|>587 135 598 311<|content|>(EQ1) E_m \\Rightarrow \\Sigma(\\Delta\\$/fC_i * M_i/\\Sigma M)\n<|id|>534<|page|>99<|box|>603 155 628 439<|content|>Where: ... E_{m} is the weighted average of percen...n the dollar cost of individual foreign currencies\n<|id|>535<|page|>99<|box|>633 200 651 451<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>536<|page|>99<|box|>655 200 680 439<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>540<|page|>99<|box|>469 583 487 816<|content|>\\Delta f c_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>541<|page|>99<|box|>491 583 516 812<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>544<|page|>99<|box|>568 542 593 828<|content|>Where: ... and\n<|id|>545<|page|>99<|box|>598 589 622 832<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>551<|page|>100<|box|>266 120 325 487<|content|>The report forms and instructions used in the coll...istics have been revised a number of times. ... 1/\n<|id|>552<|page|>100<|box|>327 122 423 490<|content|>The present form of the published presentation of ...rt-term liquid claims of large nonbanking concerns\n<|id|>577<|page|>104<|box|>702 572 711 628<|content|>July. ... 6\n<|id|>578<|page|>104<|box|>711 573 719 628<|content|>Aug. ... 8\n<|id|>579<|page|>104<|box|>719 573 726 628<|content|>Sept. ... 4\n<|id|>580<|page|>104<|box|>726 573 734 628<|content|>Oct. ... 4\n<|id|>583<|page|>104<|box|>750 548 760 628<|content|>1977-Jan. ... 4\n<|id|>584<|page|>104<|box|>760 573 769 628<|content|>Feb. ... 6\n<|id|>586<|page|>104<|box|>783 573 793 628<|content|>May. ... 6 June 13\n<|id|>587<|page|>104<|box|>797 545 806 625<|content|>p Preliminary. ... p Preliminary\n<|id|>590<|page|>105<|box|>100 375 111 611<|content|>(Position at end of period in millions of dollars)\n<|id|>594<|page|>108<|box|>505 122 541 491<|content|>1/ Dollar-foreign currency breakdown not available...6; ... Figures on the first line are comparable in\n<|id|>604<|page|>116<|box|>689 509 728 868<|content|>for earlier quarter ends when the reporting covera...e comparable to those shown for the following date\n<|id|>620<|page|>126<|box|>107 222 120 780<|content|>Table CM-V-1. ... - Foreign Purchases and Sales of Long-Term Domestic Securities by Type\n<|id|>624<|page|>128<|box|>71 206 108 804<|content|>Section V - Transactions in Long-Term Securities b... of Marketable Treasury Bonds and Notes by Country\n<|id|>626<|page|>129<|box|>74 308 87 708<|content|>Sections V - Transactions in Long-Term Securities by Foreigners\n<|id|>627<|page|>129<|box|>86 343 97 673<|content|>Reported by Banks and Brokers in the United States\n<|id|>628<|page|>129<|box|>96 283 107 733<|content|>Table CM-V-5. ... - Net Foreign Transactions in Long-Term Domestic Bonds,\n<|id|>629<|page|>129<|box|>107 349 119 663<|content|>Other than Treasury Bonds and Notes, by Country\n<|id|>631<|page|>130<|box|>75 267 116 729<|content|>Section V - Transactions in Long-Term Securities b...Foreign Transactions in Domestic Stocks by Country\n<|id|>633<|page|>131<|box|>844 145 854 256<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>825<|page|>183<|box|>100 401 112 590<|content|>Footnotes to Table GA-I-2\n<|id|>826<|page|>183<|box|>143 133 151 224<|content|>* Less than \\$500. ... * Less than \\$500",
+    "raw_response": "<|src_id|>535<|tgt_id|>536\n<|src_id|>540<|tgt_id|>541\n<|src_id|>544<|tgt_id|>545\n<|src_id|>594<|tgt_id|>604\n<|src_id|>628<|tgt_id|>629",
+    "parsed": [
+        {
+            "src_id": 535,
+            "tgt_id": 536
+        },
+        {
+            "src_id": 540,
+            "tgt_id": 541
+        },
+        {
+            "src_id": 544,
+            "tgt_id": 545
+        },
+        {
+            "src_id": 594,
+            "tgt_id": 604
+        },
+        {
+            "src_id": 628,
+            "tgt_id": 629
+        }
+    ]
+}

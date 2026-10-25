@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>12<|type|>title<|page|>1<|box|>686 140 704 563<|content|>Section 1. Defined Terms and Transaction Documents\n<|id|>28<|type|>title<|page|>2<|box|>819 140 835 540<|content|>Section 2. Documents Examined and Investigations\n<|id|>48<|type|>title<|page|>4<|box|>267 140 284 328<|content|>Section 3. Assumptions\n<|id|>62<|type|>title<|page|>5<|box|>410 140 428 299<|content|>Section 4. Opinions\n<|id|>64<|type|>title<|page|>5<|box|>484 140 503 601<|content|>4.1 Due Organization, Valid Existence, and Good St\n<|id|>66<|type|>title<|page|>5<|box|>704 140 722 424<|content|>4.2 Corporate Power and Authority\n<|id|>72<|type|>title<|page|>6<|box|>575 140 592 357<|content|>4.4 Execution and Delivery\n<|id|>75<|type|>title<|page|>6<|box|>806 140 823 357<|content|>4.6 Valid Issuance of Notes\n<|id|>77<|type|>table<|page|>7<|box|>133 143 244 852<|content|>None\n<|id|>79<|type|>title<|page|>7<|box|>383 140 400 321<|content|>4.7 Conversion Shares\n<|id|>84<|type|>title<|page|>7<|box|>844 140 862 272<|content|>4.8 No Conflicts\n<|id|>92<|type|>title<|page|>8<|box|>580 140 597 372<|content|>4.9 Governmental Approvals\n<|id|>97<|type|>title<|page|>9<|box|>157 140 175 387<|content|>4.10 Securities Law Exemption\n<|id|>104<|type|>title<|page|>9<|box|>643 140 662 462<|content|>Section 5. Qualifications and Limitations\n<|id|>106<|type|>title<|page|>9<|box|>719 140 737 375<|content|>5.1 Enforceability Exceptions\n<|id|>114<|type|>title<|page|>10<|box|>500 140 516 316<|content|>5.2 Scope Limitations\n<|id|>121<|type|>title<|page|>11<|box|>231 140 248 581<|content|>5.3 Reliance on Certificates and Third-Party Docum\n<|id|>129<|type|>title<|page|>12<|box|>167 140 184 339<|content|>Section 6. Other Matters",
+    "raw_response": "<|src_id|>77<|tgt_id|>75",
+    "parsed": [
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        }
+    ]
+}

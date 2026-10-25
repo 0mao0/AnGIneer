@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 254 142 741<|content|>OFFICER'S CERTIFICATE OF NORTHGATE TELECOMMUNICATI\n<|id|>1<|page|>1<|box|>159 205 176 790<|content|>Delivered Pursuant to Section 7.03(c) of the Agree\n<|id|>4<|page|>1<|box|>416 140 434 243<|content|>RECITALS\n<|id|>10<|page|>2<|box|>148 140 166 297<|content|>CERTIFICATION\n<|id|>12<|page|>2<|box|>224 140 242 568<|content|>Section 1. Identity and Authority of Certifying Of\n<|id|>16<|page|>2<|box|>642 140 659 705<|content|>Section 2. Representations and Warranties — Bring-\n<|id|>30<|page|>5<|box|>194 140 212 542<|content|>Section 3. Covenants — Performance Certification.\n<|id|>44<|page|>7<|box|>385 140 402 442<|content|>Section 4. No Material Adverse Effect.\n<|id|>48<|page|>8<|box|>90 140 108 604<|content|>Section 5. No Litigation or Proceedings Preventing\n<|id|>51<|page|>8<|box|>445 140 462 418<|content|>Section 6. Financing Confirmation.\n<|id|>61<|page|>9<|box|>583 140 601 535<|content|>Section 7. Organizational Standing and Authority.\n<|id|>62<|page|>9<|box|>607 140 625 468<|content|>The undersigned hereby certifies as follows:\n<|id|>66<|page|>10<|box|>268 140 286 403<|content|>Section 8. Regulatory Approvals.\n<|id|>78<|page|>11<|box|>345 140 362 416<|content|>Section 9. Disclaimer / Limitations.\n<|id|>82<|page|>11<|box|>758 400 775 596<|content|>[Signature Page Follows]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>3\n<|id|>16<|level|>3\n<|id|>30<|level|>3\n<|id|>44<|level|>3\n<|id|>48<|level|>3\n<|id|>51<|level|>3\n<|id|>61<|level|>3\n<|id|>62<|level|>-1\n<|id|>66<|level|>3\n<|id|>78<|level|>3\n<|id|>82<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        }
+    ]
+}

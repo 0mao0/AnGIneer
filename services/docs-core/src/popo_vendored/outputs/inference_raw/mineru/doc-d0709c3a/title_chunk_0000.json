@@ -1,0 +1,142 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 119 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>1<|page|>1<|box|>127 282 143 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>5<|page|>1<|box|>231 140 248 545<|content|>VIA E-MAIL AND INTERNATIONAL COURIER\n<|id|>15<|page|>2<|box|>167 142 184 403<|content|>1. Summary of Settlement Terms\n<|id|>16<|page|>3<|box|>90 142 107 504<|content|>1.1 Settlement Amount and Payment Schedule\n<|id|>22<|page|>3<|box|>613 143 631 307<|content|>1.2 Funding Sources\n<|id|>26<|page|>4<|box|>90 142 107 379<|content|>1.3 Key Settlement Provisions\n<|id|>34<|page|>5<|box|>90 140 107 398<|content|>2. Court Filings and Case Status\n<|id|>35<|page|>5<|box|>121 140 138 424<|content|>2.1 Withdrawal of Pending Motions\n<|id|>38<|page|>5<|box|>366 140 383 367<|content|>2.2 Notification to the Court\n<|id|>40<|page|>5<|box|>549 140 566 524<|content|>2.3 Stipulation and Order Retaining Jurisdiction\n<|id|>42<|page|>5<|box|>750 140 766 401<|content|>2.4 Stipulation of discontinuance\n<|id|>45<|page|>6<|box|>186 140 204 689<|content|>3. Insurance and Lender Notifications — Confirmati\n<|id|>47<|page|>6<|box|>261 140 277 535<|content|>3.1 Oceanus Mutual Protection & Indemnity Club\n<|id|>50<|page|>6<|box|>542 140 559 428<|content|>3.2 Fortis Marine Underwriters Ltd.\n<|id|>52<|page|>6<|box|>689 140 705 388<|content|>3.3 Meridian Capital Bank AG\n<|id|>55<|page|>7<|box|>250 140 266 522<|content|>3.4 Castellan Professional Liability Insurers Ltd.\n<|id|>57<|page|>7<|box|>406 140 422 367<|content|>4. Outstanding Action Items\n<|id|>59<|page|>7<|box|>500 140 515 339<|content|>4.1 Settlement Payments\n<|id|>66<|page|>8<|box|>90 140 107 501<|content|>4.2 Return/Destruction of discovery Materials\n<|id|>70<|page|>8<|box|>356 174 375 846<|content|>Lighthouse Data Analytics Inc. 200 Park Avenue Sou\n<|id|>72<|page|>8<|box|>484 140 503 372<|content|>4.3 Lifting of Litigation Hold\n<|id|>76<|page|>8<|box|>830 140 848 450<|content|>4.4 Stipulation of discontinuance Filing\n<|id|>79<|page|>9<|box|>231 140 248 380<|content|>5. Summary of Fees and Costs\n<|id|>80<|page|>9<|box|>261 140 279 259<|content|>5.1 Legal Fees\n<|id|>84<|page|>9<|box|>578 142 594 370<|content|>5.2 Costs and Disbursements\n<|id|>88<|page|>10<|box|>90 140 107 339<|content|>5.3 Greek Local Counsel\n<|id|>92<|page|>10<|box|>297 140 314 519<|content|>6. Key Takeaways and Case Outcome Summary\n<|id|>109<|page|>11<|box|>691 140 709 285<|content|>7. Matter Closing\n<|id|>117<|page|>12<|box|>348 140 364 547<|content|>8. Expression of Appreciation and Closing Remarks",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>2\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>22<|level|>2\n<|id|>26<|level|>2\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>1\n<|id|>47<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>1\n<|id|>59<|level|>2\n<|id|>66<|level|>2\n<|id|>70<|level|>-1\n<|id|>72<|level|>2\n<|id|>76<|level|>2\n<|id|>79<|level|>1\n<|id|>80<|level|>2\n<|id|>84<|level|>2\n<|id|>88<|level|>2\n<|id|>92<|level|>1\n<|id|>109<|level|>1\n<|id|>117<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        }
+    ]
+}

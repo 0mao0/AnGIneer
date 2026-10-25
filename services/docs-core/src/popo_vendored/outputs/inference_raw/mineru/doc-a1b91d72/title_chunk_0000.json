@@ -1,0 +1,47 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>363 158 398 836<|content|>SIXTH JOINT STATUS REPORT PURSUANT TO THE COURT'S\n<|id|>4<|page|>1<|box|>621 142 637 261<|content|>I. Background\n<|id|>13<|page|>2<|box|>691 140 709 509<|content|>II. Status of the DCMA Administrative Review\n<|id|>19<|page|>3<|box|>458 140 474 366<|content|>III. Status of This Litigation\n<|id|>22<|page|>3<|box|>714 140 732 382<|content|>IV. The Parties' Joint Position\n<|id|>27<|page|>4<|box|>439 140 457 318<|content|>V. Next Status Report\n<|id|>30<|page|>4<|box|>696 140 714 318<|content|>VI. Request for Relief\n<|id|>36<|page|>4<|box|>876 140 893 562<|content|>FOR PLAINTIFF WHITMORE AEROSPACE LLC:\n<|id|>37<|page|>5<|box|>89 140 125 431<|content|>CALDERWOOD & HARKNESS LLP By: /s/ Priya Anand",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>22<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>36<|level|>-1\n<|id|>37<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        }
+    ]
+}

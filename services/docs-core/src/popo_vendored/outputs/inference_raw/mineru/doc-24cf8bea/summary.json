@@ -1,0 +1,201 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4uaztp6p\\input\\pdfs\\doc-24cf8bea.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4uaztp6p\\enriched\\doc-24cf8bea.json",
+    "contd_output": "<|src_id|>59<|tgt_id|>60",
+    "title_output": "<|id|>2<|level|>1\n<|id|>6<|level|>2\n<|id|>12<|level|>2\n<|id|>27<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>2\n<|id|>54<|level|>2\n<|id|>66<|level|>2\n<|id|>81<|level|>2\n<|id|>96<|level|>2\n<|id|>110<|level|>2\n<|id|>124<|level|>2\n<|id|>137<|level|>2\n<|id|>145<|level|>2\n<|id|>146<|level|>3\n<|id|>154<|level|>3\n<|id|>158<|level|>2\n<|id|>168<|level|>2\n<|id|>180<|level|>2\n<|id|>193<|level|>2\n<|id|>205<|level|>2\n<|id|>206<|level|>3\n<|id|>208<|level|>4\n<|id|>210<|level|>4\n<|id|>212<|level|>4\n<|id|>214<|level|>4\n<|id|>219<|level|>4\n<|id|>221<|level|>4\n<|id|>223<|level|>2\n<|id|>224<|level|>3\n<|id|>228<|level|>2\n<|id|>229<|level|>3\n<|id|>251<|level|>4\n<|id|>257<|level|>4\n<|id|>263<|level|>2\n<|id|>264<|level|>3\n<|id|>286<|level|>2",
+    "image_output": "<|src_id|>216<|tgt_id|>206\n<|src_id|>217<|tgt_id|>206\n<|src_id|>226<|tgt_id|>224\n<|src_id|>284<|tgt_id|>264",
+    "contd_label": [
+        {
+            "src_id": 59,
+            "tgt_id": 60
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 4
+        },
+        {
+            "id": 210,
+            "level": 4
+        },
+        {
+            "id": 212,
+            "level": 4
+        },
+        {
+            "id": 214,
+            "level": 4
+        },
+        {
+            "id": 219,
+            "level": 4
+        },
+        {
+            "id": 221,
+            "level": 4
+        },
+        {
+            "id": 223,
+            "level": 2
+        },
+        {
+            "id": 224,
+            "level": 3
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 251,
+            "level": 4
+        },
+        {
+            "id": 257,
+            "level": 4
+        },
+        {
+            "id": 263,
+            "level": 2
+        },
+        {
+            "id": 264,
+            "level": 3
+        },
+        {
+            "id": 286,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 216,
+            "tgt_id": 206
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 206
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 224
+        },
+        {
+            "src_id": 284,
+            "tgt_id": 264
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 216,
+            "table2_idx": 217,
+            "upper_row_ss": [
+                [
+                    "[e.g., Commercial Information]",
+                    "[e.g., Purchase history, transaction records, products/services purchased,",
+                    "[N]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "return history, loyalty-program points balance]",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

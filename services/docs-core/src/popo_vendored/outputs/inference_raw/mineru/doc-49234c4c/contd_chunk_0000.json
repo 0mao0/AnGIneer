@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        29
+    ],
+    "pages": [
+        2,
+        14,
+        15,
+        20,
+        24,
+        25,
+        27,
+        29
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>9<|page|>2<|box|>89 174 145 856<|content|>(d) multi-state compliance considerations applicab...action with federal regulatory frameworks; ... and\n<|id|>11<|page|>2<|box|>252 138 435 856<|content|>The transaction contemplates that Quorum will inge...'s first-party claims, policy, and telematics data\n<|id|>98<|page|>14<|box|>816 140 891 857<|content|>Quorum's Certifications. ... We understand from di...ions with Priya Nair that Quorum intends to ingest\n<|id|>99<|page|>15<|box|>89 140 127 854<|content|>Meridian data into its enterprise data lake, which...audit scope should cover this cloud infrastructure\n<|id|>150<|page|>20<|box|>42 163 71 833<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>151<|page|>20<|box|>90 140 200 856<|content|>Section 500. ... The MDLA and DSA should specify m...for all access points between the parties' systems\n<|id|>204<|page|>24<|box|>848 140 885 854<|content|>The regulatory framework analyzed in the preceding...ues currently under negotiation between Quorum and\n<|id|>205<|page|>25<|box|>89 140 127 854<|content|>Meridian. ... This section discusses the regulator...the three most significant open negotiation points\n<|id|>228<|page|>27<|box|>856 140 893 854<|content|>The following table consolidates all recommended c...rce. ... For each recommended provision, the table\n<|id|>231<|page|>29<|box|>819 140 893 854<|content|>The foregoing table is intended as a working check...ting revised proposals for each disputed provision",
+    "raw_response": "<|src_id|>98<|tgt_id|>99\n<|src_id|>204<|tgt_id|>205",
+    "parsed": [
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 204,
+            "tgt_id": 205
+        }
+    ]
+}

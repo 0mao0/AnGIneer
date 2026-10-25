@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        100,
+        106
+    ],
+    "pages": [
+        101,
+        106
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>339<|page|>101<|box|>81 234 98 769<|content|>Table 5. ... - Net Transactions in Long-Term Domestic Bonds,\n<|id|>340<|page|>101<|box|>98 223 112 778<|content|>Other Than U. ... Government Bonds and Notes by Foreigners\n<|id|>355<|page|>106<|box|>53 307 69 681<|content|>Section III - Preliminary Details by Countries\n<|id|>356<|page|>106<|box|>71 195 88 868<|content|>Table 1. ... - Short-Term Banking Liabilities to Foreigners as of November 30, 1968 1/",
+    "raw_response": "<|src_id|>339<|tgt_id|>340",
+    "parsed": [
+        {
+            "src_id": 339,
+            "tgt_id": 340
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        20
+    ],
+    "pages": [
+        4,
+        6,
+        7,
+        9,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>30<|page|>4<|box|>483 210 537 854<|content|>a polarization rotator optically coupled to the po...ation state with the other waveguide mode; ... and\n<|id|>31<|page|>4<|box|>546 210 580 854<|content|>a coherent detection module configured to process ...ecover data encoded in the incident optical signal\n<|id|>50<|page|>6<|box|>840 181 897 856<|content|>• If the Court adopts OWS's broader construction o...laim 12's \"two-dimensional sub-wavelength grating\"\n<|id|>51<|page|>7<|box|>89 210 143 854<|content|>limitation becomes more focused. ... Under this sc...tion for the specific \"two-dimensional\" limitation\n<|id|>77<|page|>9<|box|>636 181 690 856<|content|>• \"a sub-wavelength grating having a plurality of ... of periodically arranged sub-wavelength features\"\n<|id|>79<|page|>9<|box|>731 140 785 854<|content|>No other changes were made to the claim language. ...ring only a two-dimensional sub-wavelength grating\n<|id|>78<|page|>9<|box|>691 181 728 854<|content|>• \"wherein the sub-wavelength grating is configure... sub-wavelength grating is configured to diffract\"\n<|id|>164<|page|>19<|box|>875 140 909 856<|content|>Assessment of Foreseeability. ... The relevant question is whether a\n<|id|>165<|page|>20<|box|>90 140 127 854<|content|>POSITA, at that time, would have foreseen the spec...med \"two-dimensional sub-wavelength grating. ... \"",
+    "raw_response": "<|src_id|>30<|tgt_id|>31\n<|src_id|>50<|tgt_id|>51\n<|src_id|>164<|tgt_id|>165",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 165
+        }
+    ]
+}

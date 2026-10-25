@@ -1,0 +1,188 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-t3dyi4ma\\input\\pdfs\\doc-bdd9f6f9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-t3dyi4ma\\enriched\\doc-bdd9f6f9.json",
+    "contd_output": "",
+    "title_output": "<|id|>7<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>23<|level|>3\n<|id|>32<|level|>3\n<|id|>37<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>51<|level|>3\n<|id|>63<|level|>3\n<|id|>69<|level|>2\n<|id|>70<|level|>3\n<|id|>76<|level|>3\n<|id|>80<|level|>3\n<|id|>85<|level|>3\n<|id|>90<|level|>2\n<|id|>96<|level|>2\n<|id|>108<|level|>2\n<|id|>123<|level|>1\n<|id|>124<|level|>2\n<|id|>131<|level|>2\n<|id|>135<|level|>2\n<|id|>140<|level|>2\n<|id|>143<|level|>2\n<|id|>148<|level|>2\n<|id|>151<|level|>2\n<|id|>157<|level|>2\n<|id|>166<|level|>1\n<|id|>167<|level|>2\n<|id|>174<|level|>2",
+    "image_output": "<|src_id|>68<|tgt_id|>63\n<|src_id|>160<|tgt_id|>157\n<|src_id|>161<|tgt_id|>157\n<|src_id|>163<|tgt_id|>157\n<|src_id|>164<|tgt_id|>157",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 1
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 68,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 157
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 160,
+            "table2_idx": 161,
+            "upper_row_ss": [
+                [
+                    "MCB-094953",
+                    "10/02/2025",
+                    "Household Cleaning",
+                    "10/02/2025",
+                    "10/04/2025",
+                    "Cascadia DC — Cranbury,",
+                    "137,900.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Products — Specialty Surface Cleaners, Laundry Care",
+                    "",
+                    "",
+                    "NJ",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

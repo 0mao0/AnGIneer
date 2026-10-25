@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 140 180 694<|content|>TO: ... Miriam Calloway, Partner, Healthcare & Life Sciences Practice Group\n<|id|>3<|page|>1<|box|>188 142 205 746<|content|>FROM: ... Christopher Aiken, Associate, Healthcare & Life Sciences Practice Group\n<|id|>4<|page|>1<|box|>214 142 231 325<|content|>DATE: ... March 20, 2023\n<|id|>5<|page|>1<|box|>239 140 276 852<|content|>RE: ... Master Clinical Trial Agreement Matter\n<|id|>6<|page|>1<|box|>284 142 301 331<|content|>Matter No. ... 1018-00004\n<|id|>7<|page|>1<|box|>309 140 327 295<|content|>Status: ... CLEARED\n<|id|>26<|page|>3<|box|>152 174 189 854<|content|>(f) Preparation of closing deliverables, including...s, and conditions precedent documentation; ... and\n<|id|>28<|page|>3<|box|>241 140 258 823<|content|>Responsible Partner: ... Miriam Calloway, Partner, Healthcare & Life Sciences Practice Group\n<|id|>29<|page|>3<|box|>267 140 284 743<|content|>Billing Partner: ... Joel Strauss, Partner, Healthcare & Life Sciences Practice Group\n<|id|>30<|page|>3<|box|>292 140 310 836<|content|>Lead Associate: ... Sean Morrissey, Senior Associate, Healthcare & Life Sciences Practice Group\n<|id|>31<|page|>3<|box|>318 140 335 836<|content|>Working Associate: ... Christopher Aiken, Associate, Healthcare & Life Sciences Practice Group\n<|id|>32<|page|>3<|box|>344 140 417 854<|content|>Governing Law (anticipated): ... Forum selection p...ed in the Borough of Manhattan, New York, New York\n<|id|>60<|page|>4<|box|>849 174 885 854<|content|>2. ... 4400 North Michigan Drive, Chicago,\n<|id|>61<|page|>5<|box|>90 210 125 854<|content|>Illinois 60611. ... Lakemont is a major academic m...nstitution of the Veridian Health Research Network\n<|id|>84<|page|>6<|box|>862 174 898 854<|content|>(a) Entity name searches: ... All entity names lis... names, known trade names, and \"doing business as\"\n<|id|>89<|page|>7<|box|>414 140 503 856<|content|>Active and Closed Matter Review. ... This review e...on, DC, Los Angeles, London, and Hong Kong offices\n<|id|>138<|page|>11<|box|>148 181 165 303<|content|>• Jennifer Holt\n<|id|>156<|page|>11<|box|>500 138 556 854<|content|>No individual listed above appears in the firm's c...ubstantial relationship to the proposed engagement\n<|id|>141<|page|>11<|box|>208 181 224 331<|content|>• Samantha Novak\n<|id|>143<|page|>11<|box|>246 181 263 313<|content|>• Diane Prescott\n<|id|>146<|page|>11<|box|>305 181 321 316<|content|>• Patricia Dunne\n<|id|>150<|page|>11<|box|>383 181 400 338<|content|>• Allison Whitmore\n<|id|>151<|page|>11<|box|>402 181 420 336<|content|>• David Kesselman\n<|id|>152<|page|>11<|box|>422 181 439 334<|content|>• Thomas Hartwell\n<|id|>153<|page|>11<|box|>441 181 459 326<|content|>• Karen Tremblay\n<|id|>155<|page|>11<|box|>481 183 498 343<|content|>• Robert Chen, CPA\n<|id|>160<|page|>11<|box|>729 138 896 857<|content|>Sponsor-vs. ... The firm is not currently engaged ...d be expected to take, a legal position adverse to\n<|id|>161<|page|>12<|box|>90 140 126 852<|content|>Veridian or any known Veridian Network member inst...f the type likely to arise in the MCTA negotiation\n<|id|>178<|page|>13<|box|>690 174 724 852<|content|>Miriam Calloway, Partner Healthcare & Life Sciences Practice Group Calderwood & Harkness LLP\n<|id|>179<|page|>13<|box|>734 140 751 411<|content|>Date of Clearance: ... March 20, 2023\n<|id|>180<|page|>13<|box|>760 142 775 274<|content|>PREPARED BY: ... PREPARED BY\n<|id|>182<|page|>13<|box|>795 142 811 334<|content|>Name: ... Christopher Aiken\n<|id|>183<|page|>13<|box|>811 142 829 581<|content|>Title: ... Associate, Healthcare & Life Sciences Practice Group\n<|id|>184<|page|>13<|box|>829 143 845 307<|content|>Date: ... March 20, 2023\n<|id|>185<|page|>13<|box|>847 143 862 419<|content|>REVIEWED AND APPROVED BY: ... REVIEWED AND APPROVED BY\n<|id|>187<|page|>13<|box|>882 142 898 328<|content|>Name: ... Miriam Calloway\n<|id|>188<|page|>14<|box|>89 140 125 563<|content|>Title: ... Partner, Healthcare & Life Sciences Practice Group Date",
+    "raw_response": "<|src_id|>60<|tgt_id|>61\n<|src_id|>160<|tgt_id|>161",
+    "parsed": [
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 161
+        }
+    ]
+}

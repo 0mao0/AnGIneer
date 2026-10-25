@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        14,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>239 140 256 684<|content|>FROM: ... Yuki Nakamura, Senior Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>265 140 282 617<|content|>TO: ... Douglas Carmichael, Partner, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>291 140 308 334<|content|>DATE: ... October 25, 2021\n<|id|>6<|page|>1<|box|>316 140 352 854<|content|>RE: ... Analysis of Vantor Exclusive Supply Agreements — Termination-for-Convenience Provisions\n<|id|>7<|page|>1<|box|>361 140 378 758<|content|>MATTER: ... — Defense of Tortious Interference Claim\n<|id|>8<|page|>1<|box|>386 140 404 362<|content|>MATTER NO. ... 1038-00007\n<|id|>9<|page|>1<|box|>412 140 449 854<|content|>CASE: ... 21STCV-34872, Superior Court of California, County of Los Angeles\n<|id|>14<|page|>1<|box|>824 140 878 854<|content|>2. ... Based on the timeline of events, all three ... prior to entering into new supply agreements with\n<|id|>15<|page|>2<|box|>90 174 126 854<|content|>Cascade. ... The chronology of termination notice ...y termination of the existing Vantor relationships\n<|id|>23<|page|>2<|box|>848 140 902 856<|content|>Vantor filed its complaint in the Superior Court o...Calderwood & Harkness LLP was engaged to represent\n<|id|>24<|page|>3<|box|>90 138 181 856<|content|>Cascade in this matter on September 13, 2021, with...in this memorandum (discussed in Section VI below)\n<|id|>85<|page|>8<|box|>830 140 885 856<|content|>The 60-day notice period applicable to the Tridale...e in the process — for example, not until mid-June\n<|id|>86<|page|>9<|box|>90 140 126 854<|content|>2021 — it would still have been able to terminate ...o execute the Cascade agreement on August 15, 2021\n<|id|>141<|page|>14<|box|>607 217 641 854<|content|>• Hemsworth Consumer Products LLC, 4720 NW Yeon Av..., Portland, OR 97210 (Attn: ... Janet Kohler, CEO)\n<|id|>145<|page|>14<|box|>801 140 892 856<|content|>I recommend that we pursue all three channels simu...vant documents are already in Cascade's possession\n<|id|>142<|page|>14<|box|>643 218 679 854<|content|>• Tridale Manufacturing Inc. ... Gregory Fontaine, President)\n<|id|>143<|page|>14<|box|>681 218 718 852<|content|>• Orion Lifestyle Brands Corp. ... Simone Alvarez, CEO)\n<|id|>201<|page|>20<|box|>652 143 669 318<|content|>Respectfully submitted,\n<|id|>202<|page|>20<|box|>670 142 686 648<|content|>YUKI NAKAMURA Senior Associate Calderwood & Harkness LLP\n<|id|>203<|page|>20<|box|>688 143 705 256<|content|>By: ... By\n<|id|>204<|page|>20<|box|>705 143 720 264<|content|>Yuki Nakamura\n<|id|>205<|page|>20<|box|>722 142 739 316<|content|>Date: ... October 25, 2021",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>23<|tgt_id|>24\n<|src_id|>85<|tgt_id|>86",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        }
+    ]
+}

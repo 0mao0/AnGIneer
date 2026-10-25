@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 295 118 700<|content|>FORM OF OFFICERS' CERTIFICATE\n<|id|>1<|type|>title<|page|>1<|box|>135 220 154 777<|content|>Officers' Certificate Pursuant to Section [●] of t\n<|id|>7<|type|>title<|page|>1<|box|>342 140 359 243<|content|>RECITALS\n<|id|>19<|type|>title<|page|>2<|box|>354 140 372 524<|content|>SECTION 1 — CAPACITY AND AUTHORITY\n<|id|>23<|type|>title<|page|>3<|box|>89 140 107 758<|content|>SECTION 2 — ACCURACY OF REPRESENTATIONS AND WARRAN\n<|id|>24<|type|>title<|page|>3<|box|>121 140 138 465<|content|>2.1 Purchase Agreement Representations\n<|id|>39<|type|>title<|page|>5<|box|>448 140 465 486<|content|>2.2 Offering Memorandum Representations\n<|id|>53<|type|>title<|page|>6<|box|>733 140 750 534<|content|>SECTION 3 — FINANCIAL CERTIFICATIONS\n<|id|>55<|type|>table<|page|>6<|box|>839 143 895 852<|content|>None\n<|id|>56<|type|>table<|page|>7<|box|>88 143 220 852<|content|>None\n<|id|>59<|type|>title<|page|>7<|box|>577 140 594 575<|content|>SECTION 4 — NO MATERIAL ADVERSE CHANGE\n<|id|>66<|type|>title<|page|>8<|box|>393 140 412 687<|content|>SECTION 5 — COMPLIANCE WITH CONDITIONS PRECEDENT\n<|id|>88<|type|>title<|page|>10<|box|>501 140 518 434<|content|>SECTION 6 — NO PROCEEDINGS\n<|id|>96<|type|>title<|page|>11<|box|>186 140 203 697<|content|>SECTION 7 — ORGANIZATIONAL AND CORPORATE MATTERS\n<|id|>101<|type|>title<|page|>11<|box|>824 140 842 589<|content|>SECTION 8 — USE OF PROCEEDS CONFIRMATION\n<|id|>103<|type|>table<|page|>12<|box|>133 143 291 852<|content|>None\n<|id|>106<|type|>title<|page|>12<|box|>628 140 646 388<|content|>SECTION 9 — NO DEFAULT\n<|id|>112<|type|>title<|page|>13<|box|>292 140 309 653<|content|>SECTION 10 — INSURANCE AND COLLATERAL MATTERS\n<|id|>116<|type|>title<|page|>13<|box|>739 140 758 558<|content|>SECTION 11 — ADDITIONAL CERTIFICATIONS\n<|id|>119<|type|>table<|page|>14<|box|>250 143 340 852<|content|>None\n<|id|>121<|type|>title<|page|>14<|box|>452 140 469 375<|content|>SECTION 12 — RELIANCE\n<|id|>125<|type|>title<|page|>14<|box|>809 140 825 441<|content|>SECTION 13 — GOVERNING LAW\n<|id|>127<|type|>title<|page|>15<|box|>133 398 152 596<|content|>[Signature Page Follows]\n<|id|>140<|type|>title<|page|>16<|box|>89 140 107 622<|content|>SCHEDULE A — DEFINED TERMS CROSS-REFERENCE\n<|id|>141<|type|>table<|page|>16<|box|>176 143 568 852<|content|>None\n<|id|>142<|type|>title<|page|>17<|box|>89 140 106 620<|content|>SCHEDULE B — LIST OF TRANSACTION DOCUMENTS\n<|id|>157<|type|>title<|page|>17<|box|>729 192 744 803<|content|>FORM — PREPARED FOR EXECUTION AT CLOSING — UNEXECU",
+    "raw_response": "<|src_id|>55<|tgt_id|>53\n<|src_id|>56<|tgt_id|>53\n<|src_id|>103<|tgt_id|>101\n<|src_id|>119<|tgt_id|>116\n<|src_id|>141<|tgt_id|>140",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 140
+        }
+    ]
+}

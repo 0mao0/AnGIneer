@@ -1,0 +1,106 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-z319l9a_\\input\\pdfs\\doc-fe923e69.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-z319l9a_\\enriched\\doc-fe923e69.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>22<|level|>2\n<|id|>36<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>3\n<|id|>52<|level|>3\n<|id|>55<|level|>2\n<|id|>59<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>2\n<|id|>77<|level|>2",
+    "image_output": "<|src_id|>11<|tgt_id|>9\n<|src_id|>12<|tgt_id|>9\n<|src_id|>34<|tgt_id|>22\n<|src_id|>57<|tgt_id|>55\n<|src_id|>61<|tgt_id|>59",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 11,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 59
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 11,
+            "table2_idx": 12,
+            "upper_row_ss": [
+                [
+                    "Omar Siddiqui",
+                    "Senior Associate",
+                    "$785/hr",
+                    "$706.50/hr"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Christy Bauer",
+                    "Associate",
+                    "$625/hr",
+                    "$562.50/hr"
+                ]
+            ]
+        }
+    ]
+}

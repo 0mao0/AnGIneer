@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 169 143 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 110 SE\n<|id|>12<|page|>1<|box|>809 140 827 614<|content|>I. BACKGROUND — THE FRANCHISE RELATIONSHIP\n<|id|>17<|page|>2<|box|>439 140 457 813<|content|>II. CONTRACTUAL OBLIGATIONS — REVENUE REPORTING AN\n<|id|>25<|page|>3<|box|>321 140 339 640<|content|>III. DISCOVERY OF THE REVENUE DIVERSION SCHEME\n<|id|>32<|page|>4<|box|>303 140 320 328<|content|>IV. AUDIT FINDINGS\n<|id|>41<|page|>5<|box|>167 140 184 671<|content|>V. QUANTIFICATION OF UNDERPAYMENTS AND DAMAGES\n<|id|>43<|page|>5<|box|>257 142 273 346<|content|>A. Direct Underpayments\n<|id|>46<|page|>5<|box|>553 140 570 442<|content|>B. Contractual Late-Payment Interest\n<|id|>48<|page|>5<|box|>696 140 714 478<|content|>C. Liquidated Damages Upon Termination\n<|id|>50<|page|>5<|box|>839 143 857 359<|content|>D. Total Potential Damages\n<|id|>55<|page|>6<|box|>338 140 354 586<|content|>VI. MATERIAL BREACH AND DEMAND FOR CURE\n<|id|>65<|page|>7<|box|>373 140 390 841<|content|>VII. RESERVATION OF RIGHTS — LIQUIDATED DAMAGES AN\n<|id|>74<|page|>8<|box|>89 140 106 377<|content|>VIII. LITIGATION NOTICE\n<|id|>77<|page|>8<|box|>402 140 419 406<|content|>IX. PRESERVATION DEMAND\n<|id|>94<|page|>9<|box|>565 140 583 398<|content|>X. REQUEST FOR RESPONSE\n<|id|>98<|page|>9<|box|>816 176 833 488<|content|>Email: panand@calderwoodharkness.com",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>2\n<|id|>17<|level|>2\n<|id|>25<|level|>2\n<|id|>32<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>55<|level|>2\n<|id|>65<|level|>2\n<|id|>74<|level|>2\n<|id|>77<|level|>2\n<|id|>94<|level|>2\n<|id|>98<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        }
+    ]
+}

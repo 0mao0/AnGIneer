@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        51
+    ],
+    "pages": [
+        2,
+        5,
+        10,
+        14,
+        18,
+        22,
+        26,
+        31,
+        36,
+        40,
+        46,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>15<|page|>2<|box|>86 557 101 650<|content|>Description\n<|id|>18<|page|>5<|box|>86 557 101 650<|content|>Description\n<|id|>21<|page|>10<|box|>86 557 101 650<|content|>Description\n<|id|>24<|page|>14<|box|>86 557 101 650<|content|>Description\n<|id|>27<|page|>18<|box|>86 557 101 650<|content|>Description\n<|id|>30<|page|>22<|box|>86 556 101 650<|content|>Description\n<|id|>33<|page|>26<|box|>86 557 101 650<|content|>Description\n<|id|>36<|page|>31<|box|>86 557 101 650<|content|>Description\n<|id|>39<|page|>36<|box|>86 557 101 650<|content|>Description\n<|id|>42<|page|>40<|box|>86 557 101 650<|content|>Description\n<|id|>45<|page|>46<|box|>86 556 101 650<|content|>Description\n<|id|>49<|page|>50<|box|>86 557 101 650<|content|>Description",
+    "raw_response": "<|id|>15<|level|>1\n<|id|>18<|level|>1\n<|id|>21<|level|>1\n<|id|>24<|level|>1\n<|id|>27<|level|>1\n<|id|>30<|level|>1\n<|id|>33<|level|>1\n<|id|>36<|level|>1\n<|id|>39<|level|>1\n<|id|>42<|level|>1\n<|id|>45<|level|>1\n<|id|>49<|level|>1",
+    "parsed": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        }
+    ]
+}

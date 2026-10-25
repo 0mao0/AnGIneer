@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        6,
+        21
+    ],
+    "pages": [
+        6,
+        12,
+        16,
+        17,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>33<|type|>table<|page|>6<|box|>102 87 228 877<|content|>None\n<|id|>36<|type|>title<|page|>12<|box|>86 87 101 139<|content|>Notes\n<|id|>38<|type|>table<|page|>16<|box|>85 85 351 877<|content|>None\n<|id|>39<|type|>title<|page|>17<|box|>86 87 101 536<|content|>Result Su Enhanced Enhanced RCross-Reference Docum\n<|id|>40<|type|>table<|page|>17<|box|>96 85 354 878<|content|>None\n<|id|>42<|type|>table<|page|>21<|box|>85 85 567 878<|content|>None",
+    "raw_response": "<|src_id|>40<|tgt_id|>39",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 39
+        }
+    ]
+}

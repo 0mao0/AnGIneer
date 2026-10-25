@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 246 142 750<|content|>SECRETARY'S CERTIFICATE OF OPTIWAVE SEMICONDUCTOR\n<|id|>1<|page|>1<|box|>159 158 195 839<|content|>Delivered in connection with the offering of $287,\n<|id|>13<|page|>2<|box|>292 142 310 380<|content|>1. Certificate of Incorporation\n<|id|>15<|page|>2<|box|>542 140 560 223<|content|>2. Bylaws\n<|id|>17<|page|>2<|box|>738 140 753 308<|content|>3. Board Resolutions\n<|id|>28<|page|>3<|box|>825 140 842 406<|content|>4. Pricing Committee Resolutions\n<|id|>43<|page|>4<|box|>808 140 825 263<|content|>5. Incumbency\n<|id|>48<|page|>5<|box|>518 140 535 359<|content|>6. Additional Certifications\n<|id|>58<|page|>6<|box|>648 142 665 392<|content|>COUNTER-CERTIFICATION\n<|id|>61<|page|>7<|box|>89 142 107 236<|content|>EXHIBITS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>13<|level|>3\n<|id|>15<|level|>3\n<|id|>17<|level|>3\n<|id|>28<|level|>3\n<|id|>43<|level|>3\n<|id|>48<|level|>3\n<|id|>58<|level|>2\n<|id|>61<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        }
+    ]
+}

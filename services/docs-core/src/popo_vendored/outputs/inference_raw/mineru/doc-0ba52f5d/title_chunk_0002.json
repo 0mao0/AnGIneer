@@ -1,0 +1,125 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        221,
+        231
+    ],
+    "pages": [
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>807<|page|>221<|box|>182 386 209 621<|content|>3 基本规定\n<|id|>810<|page|>222<|box|>219 315 247 658<|content|>4 设计阶段信息模型\n<|id|>811<|page|>222<|box|>279 406 296 569<|content|>4.1 一般规定\n<|id|>814<|page|>222<|box|>472 408 490 569<|content|>4.2 模型层级\n<|id|>818<|page|>222<|box|>795 406 813 569<|content|>4.3 模型内容\n<|id|>821<|page|>223<|box|>112 420 131 579<|content|>4.4 模型应用\n<|id|>824<|page|>224<|box|>216 374 243 611<|content|>5 协同设计\n<|id|>825<|page|>224<|box|>275 411 292 574<|content|>5.1 一般规定\n<|id|>828<|page|>224<|box|>404 403 422 584<|content|>5.2 协同设计内容\n<|id|>831<|page|>225<|box|>184 384 211 621<|content|>6 分类与编码\n<|id|>832<|page|>225<|box|>242 423 260 586<|content|>6.1 一般规定\n<|id|>835<|page|>225<|box|>414 411 432 596<|content|>6.2 编码应用方法\n<|id|>838<|page|>225<|box|>796 115 815 408<|content|>6.2.3 顺序码的应用示例如下：\n<|id|>841<|page|>226<|box|>219 391 247 591<|content|>7 存储\n<|id|>842<|page|>226<|box|>277 411 295 573<|content|>7.1 一般规定\n<|id|>846<|page|>226<|box|>494 391 511 591<|content|>7.2 项目级信息模型\n<|id|>848<|page|>226<|box|>579 391 597 591<|content|>7.3 单体级信息模型\n<|id|>850<|page|>227<|box|>186 394 213 596<|content|>8 交 付\n<|id|>851<|page|>227<|box|>245 415 262 576<|content|>8.1 一般规定\n<|id|>854<|page|>227<|box|>482 406 500 589<|content|>8.2 模型深度等级\n<|id|>856<|page|>227<|box|>546 418 564 579<|content|>8.3 交付物\n<|id|>860<|page|>228<|box|>219 179 245 818<|content|>附录 A 港口工程模型粒度和信息细度表\n<|id|>863<|page|>229<|box|>182 181 210 818<|content|>附录 B 航道工程模型粒度和信息细度表\n<|id|>866<|page|>230<|box|>214 131 242 872<|content|>附录 C 通航建筑物工程模型粒度和信息细度表\n<|id|>869<|page|>231<|box|>179 132 207 875<|content|>附录 D 修造船水工工程模型粒度和信息细度表",
+    "raw_response": "<|id|>807<|level|>1\n<|id|>810<|level|>1\n<|id|>811<|level|>2\n<|id|>814<|level|>2\n<|id|>818<|level|>2\n<|id|>821<|level|>2\n<|id|>824<|level|>1\n<|id|>825<|level|>2\n<|id|>828<|level|>2\n<|id|>831<|level|>1\n<|id|>832<|level|>2\n<|id|>835<|level|>2\n<|id|>838<|level|>3\n<|id|>841<|level|>1\n<|id|>842<|level|>2\n<|id|>846<|level|>2\n<|id|>848<|level|>2\n<|id|>850<|level|>1\n<|id|>851<|level|>2\n<|id|>854<|level|>2\n<|id|>856<|level|>2\n<|id|>860<|level|>1\n<|id|>863<|level|>1\n<|id|>866<|level|>1\n<|id|>869<|level|>1",
+    "parsed": [
+        {
+            "id": 807,
+            "level": 1
+        },
+        {
+            "id": 810,
+            "level": 1
+        },
+        {
+            "id": 811,
+            "level": 2
+        },
+        {
+            "id": 814,
+            "level": 2
+        },
+        {
+            "id": 818,
+            "level": 2
+        },
+        {
+            "id": 821,
+            "level": 2
+        },
+        {
+            "id": 824,
+            "level": 1
+        },
+        {
+            "id": 825,
+            "level": 2
+        },
+        {
+            "id": 828,
+            "level": 2
+        },
+        {
+            "id": 831,
+            "level": 1
+        },
+        {
+            "id": 832,
+            "level": 2
+        },
+        {
+            "id": 835,
+            "level": 2
+        },
+        {
+            "id": 838,
+            "level": 3
+        },
+        {
+            "id": 841,
+            "level": 1
+        },
+        {
+            "id": 842,
+            "level": 2
+        },
+        {
+            "id": 846,
+            "level": 2
+        },
+        {
+            "id": 848,
+            "level": 2
+        },
+        {
+            "id": 850,
+            "level": 1
+        },
+        {
+            "id": 851,
+            "level": 2
+        },
+        {
+            "id": 854,
+            "level": 2
+        },
+        {
+            "id": 856,
+            "level": 2
+        },
+        {
+            "id": 860,
+            "level": 1
+        },
+        {
+            "id": 863,
+            "level": 1
+        },
+        {
+            "id": 866,
+            "level": 1
+        },
+        {
+            "id": 869,
+            "level": 1
+        }
+    ]
+}

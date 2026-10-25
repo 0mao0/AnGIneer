@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['FR', 'Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre site en collectant des informations sur les pages visitées, la durée de la session et les sources de trafic. Toutes les informations sont']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'agrégées et utilisées pour améliorer les performances du site.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 459,
+    "table2_idx": 460
+}

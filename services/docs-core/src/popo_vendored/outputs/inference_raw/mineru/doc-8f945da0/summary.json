@@ -1,0 +1,148 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cq_1gplb\\input\\pdfs\\doc-8f945da0.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cq_1gplb\\enriched\\doc-8f945da0.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>10<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>28<|level|>3\n<|id|>43<|level|>3\n<|id|>48<|level|>2\n<|id|>50<|level|>3\n<|id|>57<|level|>3\n<|id|>66<|level|>3\n<|id|>70<|level|>3\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>86<|level|>3\n<|id|>105<|level|>3\n<|id|>110<|level|>2\n<|id|>111<|level|>3\n<|id|>116<|level|>3\n<|id|>121<|level|>2\n<|id|>125<|level|>2\n<|id|>126<|level|>3\n<|id|>133<|level|>3\n<|id|>135<|level|>2\n<|id|>140<|level|>2",
+    "image_output": "<|src_id|>123<|tgt_id|>121\n<|src_id|>124<|tgt_id|>121\n<|src_id|>128<|tgt_id|>126",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 123,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 126
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 123,
+            "table2_idx": 124,
+            "upper_row_ss": [
+                [
+                    "Availability for Class Certification Hearing Testimony",
+                    "Week of July 28, 2023",
+                    "The class certification hearing is currently set for July 28, 2023,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "before the Honorable Raymond Escobedo, Department 34, Los Angeles Superior Court. Dr. Lindstrom should hold the entire week of July 24–28, 2023 available, as the hearing may extend beyond a single day."
+                ]
+            ]
+        }
+    ]
+}

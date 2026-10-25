@@ -1,0 +1,53 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 169 125 826<|content|>MEMORANDUM — PRIVILEGED AND CONFIDENTIAL / ATTORNE\n<|id|>9<|type|>title<|page|>1<|box|>436 385 457 611<|content|>I. Executive Summary\n<|id|>16<|type|>title<|page|>2<|box|>297 419 316 576<|content|>II. Background\n<|id|>17<|type|>title<|page|>2<|box|>342 140 359 261<|content|>A. The Parties\n<|id|>20<|type|>title<|page|>2<|box|>691 140 708 334<|content|>B. The CLARION Trial\n<|id|>24<|type|>title<|page|>3<|box|>250 140 266 333<|content|>C. Negotiation Timeline\n<|id|>34<|type|>title<|page|>3<|box|>789 142 806 439<|content|>D. Outside Counsel and Key Contacts\n<|id|>37<|type|>title<|page|>4<|box|>227 272 247 723<|content|>III. Conditions Precedent — Summary Table\n<|id|>38<|type|>table<|page|>4<|box|>325 143 895 852<|content|>None\n<|id|>39<|type|>table<|page|>5<|box|>88 143 250 852<|content|>None\n<|id|>40<|type|>title<|page|>5<|box|>286 248 305 750<|content|>IV. Detailed Analysis of Each Condition Precedent\n<|id|>41<|type|>title<|page|>6<|box|>90 140 107 620<|content|>A. Execution and Delivery of the MCTA and Signatur\n<|id|>49<|type|>title<|page|>6<|box|>752 142 768 496<|content|>B. Delivery of Sponsor Insurance Certificates\n<|id|>62<|type|>title<|page|>7<|box|>728 140 744 307<|content|>Condition: Satisfied.\n<|id|>63<|type|>title<|page|>7<|box|>768 140 786 535<|content|>C. Delivery of Site Network Insurance Certificates\n<|id|>71<|type|>title<|page|>8<|box|>744 140 761 400<|content|>D. IRB Approvals for Lead Sites\n<|id|>82<|type|>title<|page|>10<|box|>90 140 107 609<|content|>E. Executed Investigator Signature Pages and Under\n<|id|>91<|type|>title<|page|>10<|box|>792 140 809 307<|content|>Condition: Satisfied.\n<|id|>92<|type|>title<|page|>10<|box|>833 140 849 584<|content|>F. Financial Disclosure Certifications (21 C.F.R.\n<|id|>99<|type|>title<|page|>11<|box|>566 140 584 307<|content|>Condition: Satisfied.\n<|id|>100<|type|>title<|page|>11<|box|>609 140 626 583<|content|>G. Secretary's Certificates and Corporate Authoriz\n<|id|>114<|type|>title<|page|>12<|box|>575 140 593 323<|content|>H. Closing Certificates\n<|id|>122<|type|>title<|page|>13<|box|>484 140 501 537<|content|>I. Execution and Delivery of Ancillary Agreements\n<|id|>139<|type|>title<|page|>14<|box|>604 140 621 493<|content|>J. Delivery of MCTA Exhibits and Schedules\n<|id|>174<|type|>title<|page|>16<|box|>659 142 676 307<|content|>Condition: Satisfied.\n<|id|>175<|type|>title<|page|>16<|box|>686 218 707 777<|content|>V. Post-Closing Obligations and Remaining Delivera\n<|id|>183<|type|>title<|page|>17<|box|>704 212 724 782<|content|>VI. Governing Law and Dispute Resolution Confirmat\n<|id|>191<|type|>title<|page|>18<|box|>506 305 526 689<|content|>VII. Conclusion and Recommendation\n<|id|>204<|type|>title<|page|>20<|box|>90 156 111 839<|content|>Appendix: Conditions Precedent Checklist — Summary\n<|id|>206<|type|>table<|page|>20<|box|>190 143 907 852<|content|>None\n<|id|>207<|type|>table<|page|>21<|box|>89 143 902 852<|content|>None\n<|id|>208<|type|>table<|page|>22<|box|>89 143 674 852<|content|>None\n<|id|>209<|type|>title<|page|>22<|box|>708 161 742 836<|content|>ALL CONDITIONS PRECEDENT SATISFIED — CLOSING CONFI",
+    "raw_response": "<|src_id|>38<|tgt_id|>37\n<|src_id|>39<|tgt_id|>37\n<|src_id|>206<|tgt_id|>204\n<|src_id|>207<|tgt_id|>204\n<|src_id|>208<|tgt_id|>204",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 208,
+            "tgt_id": 204
+        }
+    ]
+}

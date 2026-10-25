@@ -1,0 +1,175 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l8t56mzv\\input\\pdfs\\doc-3c8ef821.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l8t56mzv\\enriched\\doc-3c8ef821.json",
+    "contd_output": "<|src_id|>13<|tgt_id|>14\n<|src_id|>219<|tgt_id|>220",
+    "title_output": "<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>18<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>3\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>81<|level|>3\n<|id|>115<|level|>3\n<|id|>159<|level|>3\n<|id|>208<|level|>2\n<|id|>221<|level|>2\n<|id|>222<|level|>3\n<|id|>228<|level|>2\n<|id|>230<|level|>3\n<|id|>232<|level|>3\n<|id|>234<|level|>3\n<|id|>236<|level|>3\n<|id|>238<|level|>3\n<|id|>240<|level|>2\n<|id|>248<|level|>2\n<|id|>254<|level|>2\n<|id|>271<|level|>2",
+    "image_output": "<|src_id|>30<|tgt_id|>29\n<|src_id|>225<|tgt_id|>222\n<|src_id|>250<|tgt_id|>248\n<|src_id|>251<|tgt_id|>248\n<|src_id|>252<|tgt_id|>248",
+    "contd_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 220
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 3
+        },
+        {
+            "id": 236,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 3
+        },
+        {
+            "id": 240,
+            "level": 2
+        },
+        {
+            "id": 248,
+            "level": 2
+        },
+        {
+            "id": 254,
+            "level": 2
+        },
+        {
+            "id": 271,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 30,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 222
+        },
+        {
+            "src_id": 250,
+            "tgt_id": 248
+        },
+        {
+            "src_id": 251,
+            "tgt_id": 248
+        },
+        {
+            "src_id": 252,
+            "tgt_id": 248
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 250,
+            "table2_idx": 251,
+            "upper_row_ss": [
+                [
+                    "1",
+                    "Confirm record ownership of Houston Property (NCST vs. Ridgepoint) and document the inter-",
+                    "Sophie Tremblay / Priya Mehta (Nexford)",
+                    "As soon as practicable"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "entity occupancy arrangement for Ridgepoint Specialty Coatings, LLC at 9100 Westpark Industrial Blvd.",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 251,
+            "table2_idx": 252,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Confirm flood insurance status for Greenville Property (Zone AE portion of southern boundary); coordinate",
+                    "Sophie Tremblay / Vantage Risk Advisors (Rachel Sorensen)",
+                    "Pre-closing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "with Vantage Risk Advisors, LLC (Rachel Sorensen) and Continental Shield Underwriters, Inc.",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

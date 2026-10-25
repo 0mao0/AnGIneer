@@ -1,0 +1,121 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        51
+    ],
+    "pages": [
+        5,
+        7,
+        13,
+        14,
+        17,
+        23,
+        25,
+        26,
+        30,
+        31,
+        32,
+        35,
+        43,
+        47,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>5<|box|>98 99 256 857<|content|>TREASURY BULLETIN\n<|id|>10<|page|>7<|box|>94 391 112 585<|content|>Table of Contents\n<|id|>17<|page|>13<|box|>58 196 98 804<|content|>Financial Operations of the United States Governme\n<|id|>30<|page|>14<|box|>234 53 250 241<|content|>Reduction in debt\n<|id|>35<|page|>14<|box|>104 514 120 673<|content|>Budget results\n<|id|>40<|page|>14<|box|>849 514 865 641<|content|>Public debt\n<|id|>57<|page|>17<|box|>121 515 138 651<|content|>General fund\n<|id|>59<|page|>17<|box|>380 332 399 641<|content|>Treasury Market Financing\n<|id|>61<|page|>17<|box|>457 52 476 322<|content|>July certificate maturity\n<|id|>66<|page|>17<|box|>586 510 604 855<|content|>Treasury bill retirement in June\n<|id|>72<|page|>23<|box|>52 360 66 627<|content|>Budget Receipts and Expenditures\n<|id|>73<|page|>23<|box|>74 320 88 667<|content|>Table 1.- Summary by Major Classifications\n<|id|>77<|page|>25<|box|>54 285 70 682<|content|>Budget Receipts and Expenditures - (Continued)\n<|id|>80<|page|>26<|box|>52 304 68 707<|content|>Budget Receipts and Expenditures - (Continued)\n<|id|>91<|page|>30<|box|>53 227 68 789<|content|>Social Security Program: Section I - Budget Receip\n<|id|>92<|page|>30<|box|>72 391 86 631<|content|>Table 1.- Social Security Act\n<|id|>101<|page|>31<|box|>78 228 94 733<|content|>Section I - Budget Receipts and Expenditures - (Co\n<|id|>108<|page|>32<|box|>57 349 70 671<|content|>Social Security Program - (Continued)\n<|id|>109<|page|>32<|box|>77 333 92 690<|content|>Section II - Statements of Trust Accounts\n<|id|>116<|page|>35<|box|>457 306 473 684<|content|>Balance in the General Fund of the Treasury\n<|id|>126<|page|>43<|box|>54 317 69 668<|content|>Statutory Limitation on the Public Debt\n<|id|>135<|page|>47<|box|>57 203 102 771<|content|>Maturity Schedule of Interest-Bearing Public Marke\n<|id|>139<|page|>50<|box|>54 307 68 681<|content|>Offerings and Maturities of Treasury Bills",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>30<|level|>3\n<|id|>35<|level|>3\n<|id|>40<|level|>3\n<|id|>57<|level|>3\n<|id|>59<|level|>2\n<|id|>61<|level|>3\n<|id|>66<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>77<|level|>3\n<|id|>80<|level|>3\n<|id|>91<|level|>2\n<|id|>92<|level|>3\n<|id|>101<|level|>3\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>116<|level|>2\n<|id|>126<|level|>2\n<|id|>135<|level|>2\n<|id|>139<|level|>2",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        }
+    ]
+}

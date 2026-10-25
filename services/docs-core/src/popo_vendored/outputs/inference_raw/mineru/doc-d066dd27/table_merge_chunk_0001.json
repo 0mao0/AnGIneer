@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Functional Description', 'DW-003 is a cross-platform hardware abstraction layer and diagnostic interface module applicable to multiple Argonaut configurations. The XPHADIM module']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'provides a unified hardware abstraction interface that enables the ATLAS-RT operating system and VMS application software to operate across different Argonaut hardware variants (including the Argonaut-A and Argonaut-C target platforms) without requiring platform-specific source-code modifications at the application layer. DW-003 includes a portable driver framework supporting GPIO, SPI, I2C, CAN, and Ethernet interfaces, a standardized diagnostic data logging and reporting system compliant with ISO 14229 (Unified Diagnostic Services), and a remote diagnostics communication interface enabling over-the-air (OTA) diagnostic queries and firmware status reporting. The module also implements VMS-originated self-test routines for adaptive mobility hardware verification during vehicle startup sequences.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 118,
+    "table2_idx": 119
+}

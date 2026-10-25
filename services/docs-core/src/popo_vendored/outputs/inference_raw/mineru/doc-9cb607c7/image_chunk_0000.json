@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>107 143 333 852<|content|>None\n<|id|>1<|type|>title<|page|>1<|box|>366 362 383 635<|content|>FIFTH JOINT STATUS REPORT\n<|id|>4<|type|>title<|page|>1<|box|>642 140 659 558<|content|>I. BACKGROUND AND PROCEDURAL HISTORY\n<|id|>16<|type|>title<|page|>2<|box|>696 140 714 620<|content|>II. STATUS OF THE DCMA ADMINISTRATIVE REVIEW\n<|id|>23<|type|>title<|page|>3<|box|>501 140 518 393<|content|>III. STATUS OF LITIGATION\n<|id|>27<|type|>title<|page|>3<|box|>729 140 747 411<|content|>IV. PARTIES' JOINT REQUEST\n<|id|>31<|type|>title<|page|>4<|box|>306 364 323 632<|content|>RESPECTFULLY SUBMITTED,\n<|id|>32<|type|>title<|page|>4<|box|>332 140 349 459<|content|>For Plaintiff Whitmore Aerospace LLC:\n<|id|>40<|type|>title<|page|>4<|box|>518 142 535 421<|content|>VOSS, TRAGER & KENDALL LLP\n<|id|>47<|type|>title<|page|>4<|box|>664 375 681 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>0<|tgt_id|>1",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        }
+    ]
+}

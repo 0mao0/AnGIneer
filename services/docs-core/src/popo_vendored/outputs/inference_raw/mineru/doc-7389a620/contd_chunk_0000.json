@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        34
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        22,
+        23,
+        29,
+        30,
+        34
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>151 140 186 854<|content|>TO: ... James Prentice, Responsible Partner, Merge... Mergers & Acquisitions, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>195 140 229 854<|content|>FROM: ... Derek Okonkwo, Working Associate, Mergers & Acquisitions, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>239 142 256 334<|content|>DATE: ... October 25, 2023\n<|id|>5<|page|>1<|box|>265 140 338 854<|content|>RE: ... 001\n<|id|>6<|page|>1<|box|>345 140 383 854<|content|>CC: ... Daniel Estrada, SVP — Corporate Development, Calloway-Briggs Renewables Inc\n<|id|>28<|page|>3<|box|>376 181 393 586<|content|>• Pecos County: ... Red Mesa Solar II\n<|id|>32<|page|>3<|box|>455 142 472 454<|content|>New Mexico (two projects; ... one county)\n<|id|>29<|page|>3<|box|>396 183 412 455<|content|>• Crockett County: ... Cimarron Flats\n<|id|>30<|page|>3<|box|>416 183 431 447<|content|>• Webb County: ... Lone Star Prairie\n<|id|>31<|page|>3<|box|>435 183 450 442<|content|>• Wharton County: ... Brazos Point\n<|id|>33<|page|>3<|box|>479 181 513 854<|content|>• Doña Ana County: ... Sangre del Sol II (both on BLM-administered federal land)\n<|id|>34<|page|>3<|box|>518 142 536 413<|content|>Arizona (one project; ... one county)\n<|id|>49<|page|>4<|box|>767 140 895 856<|content|>Meridian Land Title Company issued a commitment fo... Official Public Records of Pecos County, Texas on\n<|id|>50<|page|>5<|box|>89 140 143 854<|content|>March 22, 2021, at Document No. ... The insurable ...the leasehold estate of CBR under the ground lease\n<|id|>216<|page|>22<|box|>872 174 907 854<|content|>(b) Arizona-Specific Title Endorsements. ... 1 (Leasehold)\n<|id|>217<|page|>23<|box|>90 174 127 854<|content|>endorsement, an ALTA 9-series endorsement addressi...zona Department of Insurance-mandated endorsements\n<|id|>258<|page|>29<|box|>662 217 696 852<|content|>• ALTA 9. ... Restrictions endorsement (for sites with deed restrictions or use limitations)\n<|id|>259<|page|>29<|box|>700 217 734 854<|content|>• ALTA 9. ... Minerals endorsement (for sites with severed mineral estates and surface waivers)\n<|id|>260<|page|>29<|box|>738 218 753 681<|content|>• ALTA 9. ... Encroachment endorsement (as applicable)\n<|id|>269<|page|>30<|box|>464 140 592 854<|content|>Meridian Land Title Company Coordination: ... Any ...n writing and incorporated into the final policies\n<|id|>286<|page|>34<|box|>152 140 169 320<|content|>Respectfully submitted,\n<|id|>287<|page|>34<|box|>169 140 186 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>288<|page|>34<|box|>188 142 204 253<|content|>By: ... By\n<|id|>289<|page|>34<|box|>204 140 237 854<|content|>Derek Okonkwo Working Associate, Mergers & Acquisi...lderwood & Harkness LLP Direct: ... (212) 555-4891\n<|id|>290<|page|>34<|box|>238 140 255 477<|content|>Email: ... com",
+    "raw_response": "<|src_id|>49<|tgt_id|>50\n<|src_id|>216<|tgt_id|>217",
+    "parsed": [
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 217
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 176 161 820<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>6<|page|>1<|box|>397 449 414 547<|content|>PART ONE\n<|id|>7<|page|>1<|box|>422 325 440 671<|content|>FULL TEXT OF THE HHS-OCR LETTER\n<|id|>8<|page|>1<|box|>449 295 465 700<|content|>(with Embedded Calderwood & Harkness Annotations)\n<|id|>9<|page|>1<|box|>474 251 491 745<|content|>U.S. DEPARTMENT OF HEALTH AND HUMAN SERVICES\n<|id|>23<|page|>2<|box|>435 140 453 410<|content|>Summary of the Reported Breach\n<|id|>29<|page|>3<|box|>335 140 353 367<|content|>OCR's Review and Findings\n<|id|>54<|page|>5<|box|>748 140 763 250<|content|>Reservations\n<|id|>62<|page|>6<|box|>667 140 684 209<|content|>Closing\n<|id|>66<|page|>6<|box|>848 447 864 550<|content|>PART TWO\n<|id|>67<|page|>6<|box|>875 246 890 750<|content|>CALDERWOOD & HARKNESS SUMMARY ANNOTATIONS\n<|id|>68<|page|>7<|box|>90 328 107 669<|content|>(Attorney Work Product — Do Not Distribute)\n<|id|>69<|page|>7<|box|>122 140 138 486<|content|>Annotation Block 1: Significance of Closure\n<|id|>78<|page|>7<|box|>796 140 813 509<|content|>Annotation Block 2: Key Takeaways for Client\n<|id|>87<|page|>9<|box|>140 140 156 571<|content|>Annotation Block 3: Recommended Follow-Up Actions\n<|id|>100<|page|>10<|box|>406 140 422 566<|content|>Insurance Claim — Atlas Mutual Insurance Company\n<|id|>102<|page|>10<|box|>604 140 619 419<|content|>Palomar Data Solutions Settlement\n<|id|>104<|page|>10<|box|>765 140 781 388<|content|>SEC Disclosure Considerations\n<|id|>108<|page|>11<|box|>441 437 458 560<|content|>PART THREE\n<|id|>109<|page|>11<|box|>468 300 484 694<|content|>DISTRIBUTION AND FILING INSTRUCTIONS\n<|id|>110<|page|>11<|box|>494 140 511 666<|content|>[Instructions — Alan Burke to Sara Hendricks, Dece\n<|id|>119<|page|>12<|box|>284 140 299 256<|content|>— Alan Burke\n<|id|>120<|page|>12<|box|>309 380 324 614<|content|>— END OF DOCUMENT —\n<|id|>121<|page|>12<|box|>334 277 349 720<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>1\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>9<|level|>4\n<|id|>23<|level|>4\n<|id|>29<|level|>4\n<|id|>54<|level|>4\n<|id|>62<|level|>4\n<|id|>66<|level|>1\n<|id|>67<|level|>2\n<|id|>68<|level|>-1\n<|id|>69<|level|>4\n<|id|>78<|level|>4\n<|id|>87<|level|>4\n<|id|>100<|level|>5\n<|id|>102<|level|>5\n<|id|>104<|level|>5\n<|id|>108<|level|>1\n<|id|>109<|level|>2\n<|id|>110<|level|>3\n<|id|>119<|level|>-1\n<|id|>120<|level|>-1\n<|id|>121<|level|>-1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 9,
+            "level": 4
+        },
+        {
+            "id": 23,
+            "level": 4
+        },
+        {
+            "id": 29,
+            "level": 4
+        },
+        {
+            "id": 54,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 4
+        },
+        {
+            "id": 78,
+            "level": 4
+        },
+        {
+            "id": 87,
+            "level": 4
+        },
+        {
+            "id": 100,
+            "level": 5
+        },
+        {
+            "id": 102,
+            "level": 5
+        },
+        {
+            "id": 104,
+            "level": 5
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        }
+    ]
+}

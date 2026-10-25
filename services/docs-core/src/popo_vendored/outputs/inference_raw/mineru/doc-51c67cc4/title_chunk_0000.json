@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>465 140 483 316<|content|>Ladies and Gentlemen:\n<|id|>15<|page|>2<|box|>90 142 107 383<|content|>1. Description of the Securities\n<|id|>26<|page|>2<|box|>792 142 809 372<|content|>2. CUSIP and ISIN Numbers\n<|id|>31<|page|>3<|box|>435 140 452 395<|content|>3. DTC Eligibility Confirmation\n<|id|>37<|page|>4<|box|>285 140 301 318<|content|>4. Global Note Details\n<|id|>41<|page|>5<|box|>148 140 167 470<|content|>5. Role of Beacon Fiduciary Services LLC\n<|id|>45<|page|>5<|box|>690 140 707 292<|content|>6. Representations\n<|id|>50<|page|>6<|box|>267 142 284 326<|content|>7. Contact Information\n<|id|>55<|page|>6<|box|>476 140 493 434<|content|>8. Governing Law and Miscellaneous",
+    "raw_response": "<|id|>11<|level|>-1\n<|id|>15<|level|>1\n<|id|>26<|level|>1\n<|id|>31<|level|>1\n<|id|>37<|level|>1\n<|id|>41<|level|>1\n<|id|>45<|level|>1\n<|id|>50<|level|>1\n<|id|>55<|level|>1",
+    "parsed": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        }
+    ]
+}

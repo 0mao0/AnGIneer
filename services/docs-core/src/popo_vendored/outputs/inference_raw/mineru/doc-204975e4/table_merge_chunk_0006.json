@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['6-3/4', 'June', '1981-J', '2,514', '80', '560', '27', '5', '55', '72', '210', '100', '3']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3,colspan=2, Issue', 'rowspan=3, Total amount outstanding 1/', 'rowspan=2, U.S. Government accounts and Federal Reserve banks', 'rowspan=2, 5,375 commercial banks 2/', 'rowspan=2, 460 mutual savings banks 2/', 'colspan=2, Insurance companies', 'rowspan=2, 482 savings and loan association', 'rowspan=2, 420 corporations', 'colspan=2, State and local governments', 'rowspan=3, 7,955 Held by all other investors 3/']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 489,
+    "table2_idx": 490
+}

@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>430 140 446 437<|content|>I. Introduction and Purpose of Notice\n<|id|>14<|page|>2<|box|>148 140 167 607<|content|>II. Identification of the Insured and the Schedule\n<|id|>19<|page|>2<|box|>752 140 768 501<|content|>III. Site Background and Operational History\n<|id|>29<|page|>3<|box|>638 140 657 658<|content|>IV. Description of Pollution Conditions — Known Re\n<|id|>37<|page|>4<|box|>521 140 537 710<|content|>V. Description of Pollution Conditions — Current C\n<|id|>51<|page|>6<|box|>148 140 167 584<|content|>VI. Potential Third-Party Exposure — Nearest Recep\n<|id|>56<|page|>6<|box|>661 140 676 395<|content|>VII. Remediation Cost Estimate\n<|id|>63<|page|>7<|box|>599 140 617 563<|content|>VIII. TCEQ Voluntary Cleanup Program Enrollment\n<|id|>75<|page|>8<|box|>584 140 602 473<|content|>IX. Coverage Implicated Under the Policy\n<|id|>82<|page|>9<|box|>450 140 469 338<|content|>X. Reservation of Rights\n<|id|>90<|page|>9<|box|>843 142 859 321<|content|>XI. Requested Actions\n<|id|>101<|page|>10<|box|>523 140 541 269<|content|>XII. Enclosures",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>19<|level|>1\n<|id|>29<|level|>1\n<|id|>37<|level|>1\n<|id|>51<|level|>1\n<|id|>56<|level|>1\n<|id|>63<|level|>1\n<|id|>75<|level|>1\n<|id|>82<|level|>1\n<|id|>90<|level|>1\n<|id|>101<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        }
+    ]
+}

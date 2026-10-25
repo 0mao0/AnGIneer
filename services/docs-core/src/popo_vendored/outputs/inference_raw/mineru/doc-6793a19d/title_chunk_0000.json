@@ -1,0 +1,170 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 447 106 550<|content|>EXHIBIT D\n<|id|>1<|page|>1<|box|>114 248 132 748<|content|>FORM OF IRREVOCABLE STANDBY LETTER OF CREDIT\n<|id|>3<|page|>1<|box|>219 142 236 354<|content|>INTRODUCTORY NOTE\n<|id|>8<|page|>1<|box|>751 241 768 754<|content|>[FORM OF IRREVOCABLE STANDBY LETTER OF CREDIT]\n<|id|>9<|page|>1<|box|>782 142 799 635<|content|>IRREVOCABLE STANDBY LETTER OF CREDIT HEADER\n<|id|>11<|page|>1<|box|>832 143 849 254<|content|>Issuing Bank:\n<|id|>18<|page|>2<|box|>202 142 219 243<|content|>Beneficiary:\n<|id|>21<|page|>2<|box|>272 142 289 230<|content|>Applicant:\n<|id|>26<|page|>2<|box|>434 140 450 442<|content|>Section 1. Establishment and Issuance\n<|id|>30<|page|>2<|box|>777 140 795 380<|content|>Section 2. Drawing Provisions\n<|id|>40<|page|>3<|box|>777 140 795 351<|content|>Section 3. Payment Terms\n<|id|>44<|page|>4<|box|>330 140 347 537<|content|>Section 4. Stated Amount; Burn-Down Reductions\n<|id|>51<|page|>5<|box|>176 140 194 558<|content|>Section 5. Expiration Date; Evergreen Auto-Renewal\n<|id|>56<|page|>5<|box|>583 140 599 344<|content|>Section 6. Transferability\n<|id|>63<|page|>6<|box|>294 140 310 331<|content|>Section 7. Amendments\n<|id|>66<|page|>6<|box|>539 140 556 439<|content|>Section 8. Independence; No Defenses\n<|id|>70<|page|>7<|box|>90 140 107 488<|content|>Section 9. Governing Rules; Applicable Law\n<|id|>73<|page|>7<|box|>316 140 333 460<|content|>Section 10. Communications and Notices\n<|id|>75<|page|>7<|box|>385 143 401 320<|content|>If to the Issuing Bank:\n<|id|>80<|page|>7<|box|>515 142 531 307<|content|>If to the Beneficiary:\n<|id|>85<|page|>7<|box|>628 143 643 295<|content|>If to the Applicant:\n<|id|>91<|page|>7<|box|>782 334 799 663<|content|>[ISSUING BANK SIGNATURE BLOCK]\n<|id|>102<|page|>8<|box|>184 388 253 607<|content|>ANNEX A TO EXHIBIT D FORM OF SIGHT DRAFT SIGHT DRA\n<|id|>114<|page|>8<|box|>549 341 566 656<|content|>FORM OF DRAWING CERTIFICATE\n<|id|>115<|page|>8<|box|>575 383 593 612<|content|>DRAWING CERTIFICATE\n<|id|>130<|page|>9<|box|>593 142 609 362<|content|>Wire Transfer Instructions:\n<|id|>138<|page|>9<|box|>830 390 845 607<|content|>ANNEX C TO EXHIBIT D\n<|id|>139<|page|>9<|box|>856 331 872 665<|content|>FORM OF REDUCTION CERTIFICATE\n<|id|>140<|page|>9<|box|>882 375 898 620<|content|>REDUCTION CERTIFICATE\n<|id|>146<|page|>10<|box|>194 142 212 658<|content|>Re: Irrevocable Standby Letter of Credit No. [Inse\n<|id|>153<|page|>10<|box|>632 143 647 279<|content|>BENEFICIARY:\n<|id|>165<|page|>10<|box|>838 390 854 607<|content|>ANNEX D TO EXHIBIT D\n<|id|>166<|page|>10<|box|>864 357 880 640<|content|>FORM OF TRANSFER REQUEST\n<|id|>167<|page|>10<|box|>888 401 906 594<|content|>TRANSFER REQUEST\n<|id|>173<|page|>11<|box|>194 142 212 660<|content|>Re: Irrevocable Standby Letter of Credit No. [Inse\n<|id|>189<|page|>12<|box|>89 405 107 591<|content|>[END OF EXHIBIT D]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>8<|level|>1\n<|id|>9<|level|>2\n<|id|>11<|level|>3\n<|id|>18<|level|>3\n<|id|>21<|level|>3\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>2\n<|id|>63<|level|>2\n<|id|>66<|level|>2\n<|id|>70<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>3\n<|id|>80<|level|>3\n<|id|>85<|level|>3\n<|id|>91<|level|>2\n<|id|>102<|level|>1\n<|id|>114<|level|>1\n<|id|>115<|level|>2\n<|id|>130<|level|>2\n<|id|>138<|level|>1\n<|id|>139<|level|>2\n<|id|>140<|level|>2\n<|id|>146<|level|>1\n<|id|>153<|level|>2\n<|id|>165<|level|>1\n<|id|>166<|level|>2\n<|id|>167<|level|>2\n<|id|>173<|level|>1\n<|id|>189<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 1
+        },
+        {
+            "id": 189,
+            "level": 1
+        }
+    ]
+}

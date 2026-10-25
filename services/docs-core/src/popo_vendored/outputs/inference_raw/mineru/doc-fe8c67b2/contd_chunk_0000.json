@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        17
+    ],
+    "pages": [
+        2,
+        3,
+        7,
+        8,
+        15,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>21<|page|>2<|box|>830 174 885 856<|content|>(c) Genotoxicity study reports, including: ... (ii...l blood lymphocytes or Chinese hamster ovary (CHO)\n<|id|>22<|page|>3<|box|>90 174 127 854<|content|>cells; ... and (iii) in vivo micronucleus assay in...ance with GLP and applicable ICH S2(R1) guidelines\n<|id|>76<|page|>7<|box|>827 174 902 856<|content|>(b) Detailed manufacturing process descriptions fo... including the following unit operations: ... (vi)\n<|id|>77<|page|>8<|box|>90 174 126 854<|content|>tablet compression; ... and (vii) aqueous film-coa...with process flow diagrams for each unit operation\n<|id|>159<|page|>15<|box|>376 174 412 854<|content|>Meridian Bio Therapeutics Limited 18/F, Blossom Tower 88 Queen's Road Central Hong Kong SAR\n<|id|>160<|page|>15<|box|>420 176 438 576<|content|>Attention: ... Kenji Morimoto, Chief Medical Officer\n<|id|>161<|page|>15<|box|>438 176 455 470<|content|>and David R. ... Cheung, General Counsel\n<|id|>162<|page|>15<|box|>464 176 479 710<|content|>Email: ... hk\n<|id|>163<|page|>15<|box|>481 140 517 852<|content|>Hard-copy deliveries shall be addressed to the sam...sed Know-How,\" with tracking confirmation required\n<|id|>182<|page|>17<|box|>250 142 266 375<|content|>Name: ... Harrington\n<|id|>183<|page|>17<|box|>267 142 282 468<|content|>Title: ... President and Chief Executive Officer\n<|id|>184<|page|>17<|box|>285 143 301 264<|content|>Date: ... Date\n<|id|>186<|page|>17<|box|>325 140 343 491<|content|>MERIDIAN BIO THERAPEUTICS LIMITED\n<|id|>187<|page|>17<|box|>345 143 362 253<|content|>By: ... By\n<|id|>188<|page|>17<|box|>362 143 378 330<|content|>Name: ... Kwok\n<|id|>189<|page|>17<|box|>378 140 395 537<|content|>Title: ... Chief Executive Officer and Executive Director\n<|id|>190<|page|>17<|box|>397 142 414 266<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>76<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        }
+    ]
+}

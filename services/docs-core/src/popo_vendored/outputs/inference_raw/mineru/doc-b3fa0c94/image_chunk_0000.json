@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|type|>title<|page|>1<|box|>114 297 133 700<|content|>1401 K Street NW, Suite 900 Washington, D.C. 20005\n<|id|>10<|type|>title<|page|>1<|box|>515 142 532 372<|content|>1. Identification of Applicant\n<|id|>14<|type|>title<|page|>1<|box|>747 140 763 553<|content|>Contact Person for FDA Correspondence (Primary):\n<|id|>24<|type|>title<|page|>2<|box|>335 142 352 326<|content|>2. Device Identification\n<|id|>26<|type|>title<|page|>2<|box|>387 140 404 619<|content|>Common/Usual Name: Continuous Glucose Monitoring S\n<|id|>29<|type|>title<|page|>2<|box|>537 140 555 691<|content|>a. Lumina C14 — Implantable Continuous Glucose Mon\n<|id|>31<|type|>title<|page|>2<|box|>772 140 789 517<|content|>b. Lumina R7 — Wearable Reader/Transmitter\n<|id|>33<|type|>table<|page|>3<|box|>231 143 363 852<|content|>None\n<|id|>35<|type|>title<|page|>3<|box|>474 142 492 326<|content|>3. Device Classification\n<|id|>36<|type|>table<|page|>3<|box|>525 143 657 852<|content|>None\n<|id|>38<|type|>title<|page|>4<|box|>90 140 107 303<|content|>4. Predicate Devices\n<|id|>39<|type|>title<|page|>4<|box|>121 140 138 375<|content|>4.1 Primary Predicate Device\n<|id|>43<|type|>title<|page|>4<|box|>484 140 501 483<|content|>4.2 Secondary Predicate (Reference Device)\n<|id|>47<|type|>title<|page|>4<|box|>791 140 809 506<|content|>4.3 Additional Reference (Corporate Pedigree)\n<|id|>50<|type|>title<|page|>5<|box|>241 140 258 429<|content|>5. Intended Use / Indications for Use\n<|id|>56<|type|>title<|page|>5<|box|>631 140 648 537<|content|>6. Summary of Substantial Equivalence Argument\n<|id|>66<|type|>title<|page|>7<|box|>90 140 107 429<|content|>7. Summary of Submission Contents\n<|id|>87<|type|>title<|page|>8<|box|>556 140 574 565<|content|>8. Regulatory History and International Certificat\n<|id|>91<|type|>title<|page|>9<|box|>223 140 239 333<|content|>9. User Fee Information\n<|id|>98<|type|>title<|page|>9<|box|>565 142 582 385<|content|>10. Establishment Registration\n<|id|>104<|type|>title<|page|>9<|box|>828 142 844 359<|content|>11. Pre-Submission History\n<|id|>113<|type|>title<|page|>10<|box|>450 143 468 408<|content|>12. Software Version Information\n<|id|>115<|type|>table<|page|>10<|box|>500 143 595 852<|content|>None\n<|id|>117<|type|>title<|page|>10<|box|>743 142 760 656<|content|>13. Authorized Representative / Contact for FDA Co\n<|id|>119<|type|>title<|page|>10<|box|>832 143 849 285<|content|>Primary Contact:\n<|id|>125<|type|>title<|page|>11<|box|>195 142 210 207<|content|>And to:\n<|id|>129<|type|>title<|page|>11<|box|>396 140 412 434<|content|>14. Truthful and Accurate Statement\n<|id|>131<|type|>title<|page|>12<|box|>90 142 107 297<|content|>15. Signature block\n<|id|>144<|type|>title<|page|>12<|box|>435 143 452 261<|content|>16. Enclosures\n<|id|>146<|type|>table<|page|>12<|box|>503 143 893 852<|content|>None\n<|id|>147<|type|>table<|page|>13<|box|>88 143 401 852<|content|>None\n<|id|>148<|type|>title<|page|>13<|box|>434 142 450 349<|content|>Total Physical Volumes: 4",
+    "raw_response": "<|src_id|>33<|tgt_id|>31\n<|src_id|>36<|tgt_id|>35\n<|src_id|>115<|tgt_id|>113\n<|src_id|>146<|tgt_id|>144\n<|src_id|>147<|tgt_id|>144",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 144
+        }
+    ]
+}

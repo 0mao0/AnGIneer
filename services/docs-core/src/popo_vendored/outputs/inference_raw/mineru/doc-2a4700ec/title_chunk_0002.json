@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        100,
+        108
+    ],
+    "pages": [
+        101,
+        106,
+        108
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1601<|page|>101<|box|>153 443 170 532<|content|>附 录 C\n<|id|>1605<|page|>101<|box|>253 268 269 702<|content|>表C 主要材料试验和现场检验抽样组批原则及检验项目\n<|id|>1611<|page|>106<|box|>153 465 170 556<|content|>附 录 D\n<|id|>1613<|page|>106<|box|>190 312 206 707<|content|>内河航道工程混凝土结构实体质量验证性检测要求\n<|id|>1614<|page|>106<|box|>228 112 244 263<|content|>D.1 一 般 规 定\n<|id|>1620<|page|>106<|box|>432 112 448 290<|content|>D.2 混凝土强度检测\n<|id|>1623<|page|>106<|box|>684 112 701 324<|content|>D.3 钢筋保护层厚度检测\n<|id|>1634<|page|>108<|box|>151 445 168 576<|content|>参 考 文 献",
+    "raw_response": "<|id|>1601<|level|>1\n<|id|>1605<|level|>2\n<|id|>1611<|level|>1\n<|id|>1613<|level|>2\n<|id|>1614<|level|>3\n<|id|>1620<|level|>3\n<|id|>1623<|level|>3\n<|id|>1634<|level|>1",
+    "parsed": [
+        {
+            "id": 1601,
+            "level": 1
+        },
+        {
+            "id": 1605,
+            "level": 2
+        },
+        {
+            "id": 1611,
+            "level": 1
+        },
+        {
+            "id": 1613,
+            "level": 2
+        },
+        {
+            "id": 1614,
+            "level": 3
+        },
+        {
+            "id": 1620,
+            "level": 3
+        },
+        {
+            "id": 1623,
+            "level": 3
+        },
+        {
+            "id": 1634,
+            "level": 1
+        }
+    ]
+}

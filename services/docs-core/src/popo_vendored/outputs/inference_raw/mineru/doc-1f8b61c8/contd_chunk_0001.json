@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        55,
+        77
+    ],
+    "pages": [
+        56,
+        57,
+        77
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>189<|page|>56<|box|>843 140 897 856<|content|>3. ... , Loan Operations & Agency Services) shall ...le) to Calderwood & Harkness LLP and IHDC (Natasha\n<|id|>190<|page|>57<|box|>90 174 143 854<|content|>Greenfeld, VP, Treasury & Capital Markets) promptl... the Closing Memorandum (Post- Closing Item PC-10)\n<|id|>291<|page|>77<|box|>420 390 438 607<|content|>— End of Closing Agenda —\n<|id|>292<|page|>77<|box|>446 143 481 854<|content|>Prepared by Calderwood & Harkness LLP 125 Broad St...New York, New York 10004 Matter No. ... 1043-00001\n<|id|>293<|page|>77<|box|>489 444 508 555<|content|>May 10, 2024\n<|id|>294<|page|>77<|box|>513 140 530 718<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT — ATTORNEY-CLIENT PRIVILEGE",
+    "raw_response": "<|src_id|>189<|tgt_id|>190",
+    "parsed": [
+        {
+            "src_id": 189,
+            "tgt_id": 190
+        }
+    ]
+}

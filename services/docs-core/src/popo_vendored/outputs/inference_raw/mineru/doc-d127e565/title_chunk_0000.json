@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 271 133 725<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>3<|page|>1<|box|>349 140 366 393<|content|>NOTICE OF RELATED CASE\n<|id|>6<|page|>1<|box|>589 142 604 535<|content|>I. IDENTIFICATION OF THE RELATED CASE\n<|id|>14<|page|>2<|box|>89 140 107 460<|content|>II. PARTIES IN THE RELATED CASE\n<|id|>17<|page|>2<|box|>402 140 419 401<|content|>C. Counsel for Plaintiff Halloran\n<|id|>19<|page|>2<|box|>566 142 583 393<|content|>D. Counsel for Defendant AMA\n<|id|>21<|page|>2<|box|>686 140 703 470<|content|>III. NATURE OF THE RELATED CASE\n<|id|>23<|page|>2<|box|>821 140 838 516<|content|>B. Claims Asserted in Halloran (22STCV39501)\n<|id|>33<|page|>3<|box|>825 140 842 362<|content|>C. Putative Class Definition\n<|id|>37<|page|>4<|box|>248 140 284 823<|content|>IV. BASIS FOR RELATEDNESS UNDER CALIFORNIA RULES O\n<|id|>44<|page|>4<|box|>489 140 507 632<|content|>A. Same Parties and Same or Similar Claims (Rule 3\n<|id|>49<|page|>5<|box|>90 140 126 854<|content|>B. Same or Substantially Identical Transactions an\n<|id|>65<|page|>6<|box|>327 140 344 658<|content|>C. Substantial Duplication of Judicial Resources (\n<|id|>75<|page|>7<|box|>229 140 247 370<|content|>V. REQUEST FOR RELIEF\n<|id|>82<|page|>7<|box|>638 212 654 501<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>85<|page|>7<|box|>750 406 765 591<|content|>PROOF OF SERVICE\n<|id|>86<|page|>7<|box|>773 140 791 604<|content|>STATE OF CALIFORNIA, COUNTY OF LOS ANGELES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>6<|level|>2\n<|id|>14<|level|>2\n<|id|>17<|level|>3\n<|id|>19<|level|>3\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>33<|level|>3\n<|id|>37<|level|>2\n<|id|>44<|level|>3\n<|id|>49<|level|>3\n<|id|>65<|level|>3\n<|id|>75<|level|>2\n<|id|>82<|level|>-1\n<|id|>85<|level|>1\n<|id|>86<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        5,
+        16
+    ],
+    "pages": [
+        5,
+        6,
+        11,
+        12,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>21<|type|>title<|page|>5<|box|>262 87 280 248<|content|>Federal Tax Liability:\n<|id|>23<|type|>title<|page|>5<|box|>387 87 405 357<|content|>Estimated Underpayment Interest:\n<|id|>24<|type|>table<|page|>5<|box|>404 89 497 719<|content|>None\n<|id|>25<|type|>title<|page|>5<|box|>512 87 530 221<|content|>Penalty Analysis:\n<|id|>26<|type|>table<|page|>5<|box|>529 90 585 719<|content|>None\n<|id|>31<|type|>table<|page|>6<|box|>85 87 191 875<|content|>None\n<|id|>35<|type|>table<|page|>11<|box|>84 85 424 781<|content|>None\n<|id|>36<|type|>table<|page|>12<|box|>85 84 211 761<|content|>None\n<|id|>38<|type|>title<|page|>12<|box|>228 87 244 144<|content|>Notes:\n<|id|>51<|type|>table<|page|>16<|box|>85 85 370 761<|content|>None\n<|id|>52<|type|>title<|page|>16<|box|>388 87 404 233<|content|>Recommendation:",
+    "raw_response": "<|src_id|>24<|tgt_id|>23\n<|src_id|>26<|tgt_id|>25\n<|src_id|>31<|tgt_id|>21\n<|src_id|>35<|tgt_id|>21\n<|src_id|>36<|tgt_id|>21\n<|src_id|>51<|tgt_id|>21",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 21
+        }
+    ]
+}

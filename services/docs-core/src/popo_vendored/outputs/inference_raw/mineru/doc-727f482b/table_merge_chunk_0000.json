@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Likely Case', 'QC&S prevails on Grounds 1, 3, and 4; partial concession or adverse finding on Ground 2 (IBNR allocation), resulting in reallocation of $22.3M from TY 2022 to TY 2021; total recoverable reduced', '~$22.3M – $25.2M']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'from $78.4M to $56.1M; QC&S may owe return of $22.3M plus some portion of interest; potential premium adjustment of up to $2.856M', '']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 155,
+    "table2_idx": 156
+}

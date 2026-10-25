@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        11
+    ],
+    "pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>22<|page|>3<|box|>744 174 907 857<|content|>(iv) the authorization and direction of the office...Northern Development, Mines, Natural Resources and\n<|id|>23<|page|>4<|box|>90 174 200 856<|content|>Forestry, or any successor ministry or agency, in ...r the Canadian General Security Agreement; ... and\n<|id|>25<|page|>4<|box|>344 140 453 856<|content|>The Board Resolutions were duly adopted in complia... quorum of directors existed at all relevant times\n<|id|>30<|page|>4<|box|>825 140 898 857<|content|>Attached hereto as Exhibit D is a true, correct, a...pany, the Guarantee, the Canadian General Security\n<|id|>31<|page|>5<|box|>90 140 162 854<|content|>Agreement, the Collateral Agency Agreement, and al...rewith. ... The authorized officers are as follows\n<|id|>49<|page|>6<|box|>686 174 722 854<|content|>(e) Pendleton Ross LLP, as Canadian counsel to the...n Place, Toronto, Ontario M5X 1A4, Canada; ... and\n<|id|>51<|page|>6<|box|>775 140 883 856<|content|>Each of the foregoing parties and their respective...y without the prior written consent of the Company\n<|id|>55<|page|>7<|box|>178 142 194 349<|content|>Name: ... Anselm\n<|id|>56<|page|>7<|box|>195 143 210 261<|content|>Title: ... Secretary\n<|id|>57<|page|>7<|box|>212 143 229 356<|content|>Wolverine Lake Mining Ltd. ... Wolverine Lake Mining Ltd\n<|id|>61<|page|>7<|box|>393 142 409 323<|content|>Name: ... Stavros Katsaros\n<|id|>62<|page|>7<|box|>409 142 426 447<|content|>Title: ... General Manager, Mine Operations\n<|id|>63<|page|>7<|box|>426 142 444 356<|content|>Wolverine Lake Mining Ltd. ... Wolverine Lake Mining Ltd\n<|id|>134<|page|>11<|box|>279 140 295 349<|content|>Name: ... Anselm\n<|id|>135<|page|>11<|box|>296 142 313 263<|content|>Title: ... Secretary\n<|id|>136<|page|>11<|box|>313 142 329 300<|content|>Date: ... April 19, 2022\n<|id|>137<|page|>11<|box|>330 140 404 856<|content|>Confirmation: ... Anselm is the duly appointed and acting Secretary of the Company\n<|id|>139<|page|>11<|box|>429 140 445 325<|content|>Name: ... Stavros Katsaros\n<|id|>140<|page|>11<|box|>446 140 463 447<|content|>Title: ... General Manager, Mine Operations\n<|id|>141<|page|>11<|box|>463 142 479 357<|content|>Wolverine Lake Mining Ltd. ... Wolverine Lake Mining Ltd",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>30<|tgt_id|>31",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        }
+    ]
+}

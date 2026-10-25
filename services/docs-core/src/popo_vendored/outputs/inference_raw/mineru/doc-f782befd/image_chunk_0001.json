@@ -1,0 +1,75 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        52,
+        75
+    ],
+    "pages": [
+        53,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>172<|type|>table<|page|>53<|box|>95 17 377 943<|content|>None\n<|id|>173<|type|>table<|page|>53<|box|>392 17 669 943<|content|>None\n<|id|>181<|type|>table<|page|>55<|box|>98 31 910 953<|content|>None\n<|id|>182<|type|>table<|page|>56<|box|>103 37 598 971<|content|>None\n<|id|>190<|type|>table<|page|>57<|box|>110 15 425 950<|content|>None\n<|id|>191<|type|>table<|page|>57<|box|>450 15 742 953<|content|>None\n<|id|>192<|type|>table<|page|>58<|box|>104 32 406 973<|content|>None\n<|id|>194<|type|>table<|page|>58<|box|>469 30 759 969<|content|>None\n<|id|>197<|type|>table<|page|>59<|box|>99 21 415 950<|content|>None\n<|id|>198<|type|>table<|page|>60<|box|>106 35 516 973<|content|>None\n<|id|>208<|type|>table<|page|>62<|box|>124 43 446 980<|content|>None\n<|id|>211<|type|>table<|page|>62<|box|>546 43 873 976<|content|>None\n<|id|>212<|type|>table<|page|>63<|box|>118 23 442 943<|content|>None\n<|id|>213<|type|>table<|page|>63<|box|>520 23 834 943<|content|>None\n<|id|>215<|type|>table<|page|>64<|box|>116 35 856 965<|content|>None\n<|id|>216<|type|>table<|page|>65<|box|>120 10 875 944<|content|>None\n<|id|>217<|type|>title<|page|>66<|box|>77 366 93 673<|content|>Section II - Summary by Countries\n<|id|>218<|type|>table<|page|>66<|box|>127 43 876 983<|content|>None\n<|id|>219<|type|>title<|page|>67<|box|>67 337 82 639<|content|>Section II - Summary by Countries\n<|id|>220<|type|>table<|page|>67<|box|>116 17 865 948<|content|>None\n<|id|>221<|type|>title<|page|>68<|box|>75 285 89 714<|content|>Section III - Preliminary Details by Countries\n<|id|>223<|type|>table<|page|>68<|box|>120 35 910 978<|content|>None\n<|id|>224<|type|>table<|page|>69<|box|>113 17 902 941<|content|>None\n<|id|>225<|type|>table<|page|>70<|box|>112 35 897 967<|content|>None\n<|id|>226<|type|>table<|page|>71<|box|>118 19 705 941<|content|>None\n<|id|>227<|type|>table<|page|>72<|box|>119 35 800 973<|content|>None\n<|id|>228<|type|>table<|page|>73<|box|>109 21 902 948<|content|>None\n<|id|>229<|type|>table<|page|>74<|box|>100 35 824 980<|content|>None\n<|id|>230<|type|>table<|page|>75<|box|>90 35 820 955<|content|>None",
+    "raw_response": "<|src_id|>218<|tgt_id|>217\n<|src_id|>220<|tgt_id|>219\n<|src_id|>223<|tgt_id|>221\n<|src_id|>224<|tgt_id|>221\n<|src_id|>225<|tgt_id|>221\n<|src_id|>226<|tgt_id|>221\n<|src_id|>227<|tgt_id|>221\n<|src_id|>228<|tgt_id|>221\n<|src_id|>229<|tgt_id|>221\n<|src_id|>230<|tgt_id|>221",
+    "parsed": [
+        {
+            "src_id": 218,
+            "tgt_id": 217
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 219
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 224,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 230,
+            "tgt_id": 221
+        }
+    ]
+}

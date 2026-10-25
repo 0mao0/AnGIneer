@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 330 131 666<|content|>CALDERWOOD & HARKNESS LLP CONFIDENTIAL — ATTORNEY\n<|id|>6<|page|>1<|box|>282 142 300 245<|content|>1. Summary\n<|id|>20<|page|>2<|box|>806 140 824 281<|content|>2. Search Results\n<|id|>25<|page|>4<|box|>560 142 577 323<|content|>3. Additional Searches\n<|id|>27<|page|>4<|box|>708 140 724 341<|content|>3.1 Key AMA Executives\n<|id|>36<|page|>5<|box|>234 140 252 433<|content|>3.2 Payroll and Timekeeping Vendor\n<|id|>38<|page|>5<|box|>380 140 398 555<|content|>3.3 Employment Practices Liability (\"EPL\") Insurer\n<|id|>40<|page|>5<|box|>618 140 635 642<|content|>3.4 Directors and Officers (\"D&O\") Insurer and Exc\n<|id|>45<|page|>6<|box|>90 140 106 313<|content|>3.5 Insurance Broker\n<|id|>47<|page|>6<|box|>181 140 198 310<|content|>3.6 External Auditor\n<|id|>49<|page|>6<|box|>345 140 363 393<|content|>3.7 California Registered Agent\n<|id|>51<|page|>6<|box|>446 140 464 457<|content|>4. Matters Within Scope of Engagement\n<|id|>58<|page|>7<|box|>659 140 676 313<|content|>5. Engagement Team\n<|id|>73<|page|>8<|box|>540 140 556 254<|content|>6. Conclusion\n<|id|>78<|page|>9<|box|>167 142 185 241<|content|>7. Approval",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>1\n<|id|>20<|level|>1\n<|id|>25<|level|>1\n<|id|>27<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>2\n<|id|>51<|level|>1\n<|id|>58<|level|>1\n<|id|>73<|level|>1\n<|id|>78<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        }
+    ]
+}

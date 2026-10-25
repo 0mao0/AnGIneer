@@ -1,0 +1,135 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>157 178 174 818<|content|>CALDERWOOD & HARKNESS LLP 600 Lexington Avenue New\n<|id|>2<|page|>1<|box|>184 341 204 655<|content|>INTERNAL MEMORANDUM\n<|id|>12<|page|>1<|box|>523 140 542 251<|content|>I. PURPOSE\n<|id|>16<|page|>2<|box|>89 140 106 352<|content|>II. MATTER SUMMARY\n<|id|>17<|page|>2<|box|>121 140 138 346<|content|>A. Engagement Overview\n<|id|>22<|page|>2<|box|>674 142 691 318<|content|>B. The OPDP Inquiry\n<|id|>30<|page|>4<|box|>90 140 107 444<|content|>C. Engagement Team and Co-Counsel\n<|id|>40<|page|>4<|box|>763 142 779 482<|content|>III. KEY MILESTONES AND TIMELINE\n<|id|>46<|page|>6<|box|>473 142 489 338<|content|>IV. FDA DISPOSITION\n<|id|>53<|page|>7<|box|>285 140 301 651<|content|>V. SUMMARY OF CORRECTIVE ACTIONS IMPLEMENTED\n<|id|>63<|page|>8<|box|>796 140 813 524<|content|>VI. INTERNAL INVESTIGATION SUMMARY\n<|id|>82<|page|>10<|box|>630 142 647 415<|content|>VII. SECURITIES DISCLOSURE\n<|id|>89<|page|>11<|box|>420 140 438 429<|content|>VIII. FINAL BILLING SUMMARY\n<|id|>90<|page|>11<|box|>452 140 468 403<|content|>A. Calderwood & Harkness LLP\n<|id|>94<|page|>11<|box|>589 176 607 424<|content|>Amount under fee cap: $62,760\n<|id|>96<|page|>11<|box|>700 142 718 544<|content|>B. Whitfield Bauer & Associates LLP (Co-Counsel)\n<|id|>100<|page|>12<|box|>90 140 107 643<|content|>C. Tavrenis Stern Consulting Group LLC (Forensic C\n<|id|>104<|page|>12<|box|>268 142 286 323<|content|>D. Total Outside Costs\n<|id|>108<|page|>12<|box|>523 140 540 735<|content|>IX. DOCUMENT RETENTION AND PRIVILEGE-LOG MAINTENAN\n<|id|>109<|page|>12<|box|>554 142 571 424<|content|>A. Document-Retention Obligations\n<|id|>114<|page|>13<|box|>157 140 175 380<|content|>B. Privilege-Log Maintenance\n<|id|>118<|page|>13<|box|>502 140 518 442<|content|>C. Key Privileged Documents Indexed\n<|id|>135<|page|>14<|box|>224 140 242 593<|content|>X. RESIDUAL CONSIDERATIONS AND OPEN ITEMS\n<|id|>136<|page|>14<|box|>256 140 273 403<|content|>A. Ongoing Penterra Obligations\n<|id|>142<|page|>14<|box|>731 142 748 421<|content|>B. Risk Assessment Going Forward\n<|id|>147<|page|>15<|box|>378 140 397 313<|content|>C. Client Notification\n<|id|>150<|page|>15<|box|>542 140 560 361<|content|>XI. RECOMMENDATION\n<|id|>154<|page|>16<|box|>89 142 107 361<|content|>XII. SIGNATURE BLOCK\n<|id|>155<|page|>16<|box|>114 143 133 282<|content|>PREPARED BY:",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>2<|level|>1\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>22<|level|>3\n<|id|>30<|level|>3\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>53<|level|>2\n<|id|>63<|level|>2\n<|id|>82<|level|>2\n<|id|>89<|level|>2\n<|id|>90<|level|>3\n<|id|>94<|level|>-1\n<|id|>96<|level|>3\n<|id|>100<|level|>3\n<|id|>104<|level|>3\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>114<|level|>3\n<|id|>118<|level|>3\n<|id|>135<|level|>2\n<|id|>136<|level|>3\n<|id|>142<|level|>3\n<|id|>147<|level|>3\n<|id|>150<|level|>2\n<|id|>154<|level|>2\n<|id|>155<|level|>3",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 3
+        }
+    ]
+}

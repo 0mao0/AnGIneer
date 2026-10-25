@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        6,
+        9,
+        10,
+        12,
+        23,
+        24,
+        25,
+        26,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 142 119 852<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGE / ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>127 155 162 841<|content|>CALDERWOOD & HARKNESS LLP 200 Park Avenue, 42nd Floor New York, New York 10166\n<|id|>2<|page|>1<|box|>172 712 189 854<|content|>September 2, 2024\n<|id|>47<|page|>6<|box|>612 174 648 854<|content|>(vi) changes in the financial or securities market...redit availability, or investor sentiment; ... and\n<|id|>49<|page|>6<|box|>738 140 867 856<|content|>Importantly, the SPA contains a \"disproportionate-...imply because they have some general applicability\n<|id|>71<|page|>9<|box|>813 174 905 857<|content|>Competitive Landscape Erosion. ... Each month of d...d potentially achieve first-mover advantage in the\n<|id|>72<|page|>10<|box|>89 174 127 854<|content|>DLL3-SCLC space, diminishing the commercial opport...even if it ultimately achieves regulatory approval\n<|id|>88<|page|>12<|box|>501 174 611 857<|content|>Durational Significance. ... *\n<|id|>89<|page|>12<|box|>619 174 710 857<|content|>Quantitative and Qualitative Analysis. ... *\n<|id|>90<|page|>12<|box|>718 174 790 856<|content|>Buyer's Burden of Proof. ... at *83\n<|id|>179<|page|>23<|box|>829 140 902 854<|content|>Counter. ... If a\n<|id|>180<|page|>24<|box|>89 140 145 854<|content|>Material Adverse Effect has occurred and the closi... Buyer is not contractually required to consummate\n<|id|>194<|page|>25<|box|>768 140 897 856<|content|>We recommend that Penterra promptly send a formal ...ting the Material Adverse Effect—the Marlowe Asset\n<|id|>195<|page|>26<|box|>90 140 145 854<|content|>Management-2 interim data readout, the FDA partial clinical hold, and the Protocol v4. ... 1(d)\n<|id|>215<|page|>28<|box|>530 140 547 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>216<|page|>28<|box|>549 143 565 253<|content|>By: ... By\n<|id|>217<|page|>28<|box|>565 142 583 517<|content|>Oliver Mackenzie Partner, Mergers & Acquisitions\n<|id|>218<|page|>28<|box|>614 142 633 490<|content|>Megan Chu Associate, Mergers & Acquisitions\n<|id|>219<|page|>28<|box|>666 140 700 524<|content|>Derek Okonkwo Associate, Mergers & Acquisitions Di...kwo Associate, Mergers & Acquisitions Distribution\n<|id|>221<|page|>28<|box|>736 174 752 625<|content|>cc: ... Harrison Wexford, Partner, Calderwood & Harkness LLP\n<|id|>222<|page|>28<|box|>762 176 777 643<|content|>cc: ... Leonard Cross, Partner (Tax), Calderwood & Harkness LLP\n<|id|>223<|page|>28<|box|>786 140 907 854<|content|>CONFIDENTIALITY NOTICE: ... If you have received t... & Harkness LLP immediately and destroy all copies",
+    "raw_response": "<|src_id|>71<|tgt_id|>72\n<|src_id|>179<|tgt_id|>180\n<|src_id|>194<|tgt_id|>195",
+    "parsed": [
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 180
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 195
+        }
+    ]
+}

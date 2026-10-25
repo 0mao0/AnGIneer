@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        50,
+        52
+    ],
+    "pages": [
+        50,
+        51,
+        52
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>663<|page|>50<|box|>855 218 871 874<|content|>N_{eff} ——结合部截面钢梁顶、底板区域的单位宽度等效轴力； ... 对顶板区域，式\n<|id|>665<|page|>51<|box|>162 216 178 757<|content|>F_{c} ——承压板与混凝土接触面位置混凝土结构所承担作用效应； ... F_{c} ——承压板与混凝土接触面位置混凝土结构所承担作用效应\n<|id|>676<|page|>51<|box|>783 327 798 664<|content|>(焊钉与开孔板连接件剪力按刚度分配)\n<|id|>677<|page|>51<|box|>804 126 837 629<|content|>式中： ... V_{eq} ——抗剪连接件等效剪力， V_{eq}=\\frac{EA_{se}F_{c}-E_{c}A_{ce}F_{s}}{E_{c}A_{ce}+EA_{se}}\n<|id|>690<|page|>52<|box|>493 202 508 479<|content|>L ——剪力传递长度， L = l_{\\mathrm{s}} \\times n\n<|id|>691<|page|>52<|box|>513 200 528 585<|content|>n ——钢梁顶（底）板抗剪连接件纵向数量； ... n ——钢梁顶（底）板抗剪连接件纵向数量",
+    "raw_response": "<|src_id|>663<|tgt_id|>665",
+    "parsed": [
+        {
+            "src_id": 663,
+            "tgt_id": 665
+        }
+    ]
+}

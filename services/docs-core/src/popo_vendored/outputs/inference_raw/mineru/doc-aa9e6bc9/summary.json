@@ -1,0 +1,167 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-j8691h57\\input\\pdfs\\doc-aa9e6bc9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-j8691h57\\enriched\\doc-aa9e6bc9.json",
+    "contd_output": "<|src_id|>213<|tgt_id|>214",
+    "title_output": "<|id|>10<|level|>1\n<|id|>22<|level|>1\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>39<|level|>2\n<|id|>43<|level|>1\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>67<|level|>2\n<|id|>75<|level|>2\n<|id|>91<|level|>2\n<|id|>105<|level|>2\n<|id|>118<|level|>2\n<|id|>129<|level|>2\n<|id|>136<|level|>1\n<|id|>137<|level|>2\n<|id|>152<|level|>2\n<|id|>163<|level|>2\n<|id|>170<|level|>1\n<|id|>171<|level|>2\n<|id|>183<|level|>2\n<|id|>193<|level|>2\n<|id|>202<|level|>1\n<|id|>207<|level|>1\n<|id|>208<|level|>2\n<|id|>223<|level|>2\n<|id|>233<|level|>2\n<|id|>240<|level|>2\n<|id|>243<|level|>1\n<|id|>250<|level|>1",
+    "image_output": "<|src_id|>195<|tgt_id|>193\n<|src_id|>241<|tgt_id|>240\n<|src_id|>242<|tgt_id|>240",
+    "contd_label": [
+        {
+            "src_id": 213,
+            "tgt_id": 214
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 1
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 1
+        },
+        {
+            "id": 207,
+            "level": 1
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 2
+        },
+        {
+            "id": 233,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 2
+        },
+        {
+            "id": 243,
+            "level": 1
+        },
+        {
+            "id": 250,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 195,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 241,
+            "tgt_id": 240
+        },
+        {
+            "src_id": 242,
+            "tgt_id": 240
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 241,
+            "table2_idx": 242,
+            "upper_row_ss": [
+                [
+                    "Consumer notification mailing completed (California",
+                    "September 15, 2023"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "residents)",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

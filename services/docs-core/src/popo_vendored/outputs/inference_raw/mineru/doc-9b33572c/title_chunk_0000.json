@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 343 118 653<|content|>CERTIFICATE OF MERGER\n<|id|>14<|page|>2<|box|>306 176 324 395<|content|>(a) Stratos Merger Sub Inc.\n<|id|>18<|page|>2<|box|>612 176 628 419<|content|>(b) Cloudium Technologies plc\n<|id|>33<|page|>4<|box|>641 401 657 596<|content|>[Signature Page Follows]\n<|id|>35<|page|>4<|box|>710 142 726 398<|content|>STRATOS MERGER SUB INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>33<|level|>-1\n<|id|>35<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>377 142 393 367<|content|>1. Introduction and Purpose\n<|id|>12<|page|>2<|box|>340 140 357 457<|content|>2. Background — Phase I ESA Findings\n<|id|>14<|page|>2<|box|>484 140 501 599<|content|>Controlled Recognized Environmental Condition (CRE\n<|id|>16<|page|>2<|box|>828 142 845 498<|content|>Recognized Environmental Condition (REC):\n<|id|>19<|page|>3<|box|>395 140 412 601<|content|>3. Description of Proposed Phase II Investigation\n<|id|>41<|page|>5<|box|>304 140 321 382<|content|>4. Property Access Agreement\n<|id|>45<|page|>6<|box|>90 140 107 459<|content|>5. Indemnification for Property Damage\n<|id|>56<|page|>7<|box|>150 140 167 357<|content|>6. Insurance Requirements\n<|id|>65<|page|>8<|box|>90 140 107 284<|content|>7. Confidentiality\n<|id|>73<|page|>8<|box|>806 140 824 434<|content|>8. Lease Provisions Acknowledgment\n<|id|>78<|page|>9<|box|>539 140 555 380<|content|>9. Term and Scope of Consent\n<|id|>82<|page|>10<|box|>148 142 167 367<|content|>10. Coordination and Notice\n<|id|>97<|page|>10<|box|>719 142 737 406<|content|>11. Request for Countersignature\n<|id|>105<|page|>11<|box|>311 333 328 663<|content|>CONSENT AND ACKNOWLEDGMENT",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>16<|level|>2\n<|id|>19<|level|>1\n<|id|>41<|level|>1\n<|id|>45<|level|>1\n<|id|>56<|level|>1\n<|id|>65<|level|>1\n<|id|>73<|level|>1\n<|id|>78<|level|>1\n<|id|>82<|level|>1\n<|id|>97<|level|>1\n<|id|>105<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        }
+    ]
+}

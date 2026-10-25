@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        50
+    ],
+    "pages": [
+        46,
+        47,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>406<|page|>46<|box|>248 140 263 285<|content|>Key notes by state:\n<|id|>415<|page|>47<|box|>541 140 556 194<|content|>Notes:\n<|id|>427<|page|>50<|box|>90 140 107 570<|content|>Exhibit H — Summary of Tax-Related SPA Provisions",
+    "raw_response": "<|id|>406<|level|>2\n<|id|>415<|level|>2\n<|id|>427<|level|>1",
+    "parsed": [
+        {
+            "id": 406,
+            "level": 2
+        },
+        {
+            "id": 415,
+            "level": 2
+        },
+        {
+            "id": 427,
+            "level": 1
+        }
+    ]
+}

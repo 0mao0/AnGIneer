@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>558<|page|>45<|box|>790 143 806 591<|content|>XXIII. ATTACHMENTS / REFERENCE DOCUMENTS\n<|id|>564<|page|>46<|box|>542 143 558 357<|content|>Exhibit F — Capital Stack:\n<|id|>567<|page|>46<|box|>780 143 797 460<|content|>Exhibit G — Tax and CEMA Summary:\n<|id|>570<|page|>47<|box|>142 148 160 455<|content|>| MRT Savings from CEMA | $803,600 |\n<|id|>576<|page|>47<|box|>714 143 729 426<|content|>Email: cho@calderwoodharkness.com",
+    "raw_response": "<|id|>558<|level|>1\n<|id|>564<|level|>2\n<|id|>567<|level|>2\n<|id|>570<|level|>-1\n<|id|>576<|level|>-1",
+    "parsed": [
+        {
+            "id": 558,
+            "level": 1
+        },
+        {
+            "id": 564,
+            "level": 2
+        },
+        {
+            "id": 567,
+            "level": 2
+        }
+    ]
+}

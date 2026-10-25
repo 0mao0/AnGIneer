@@ -1,0 +1,36 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        47,
+        49
+    ],
+    "pages": [
+        48,
+        49
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>439<|page|>48<|box|>90 142 107 509<|content|>Appendix D: Applicable Regulatory Provisions\n<|id|>441<|page|>48<|box|>161 142 176 333<|content|>Federal Tax Provisions:\n<|id|>453<|page|>48<|box|>824 143 839 326<|content|>Accounting Standards:\n<|id|>457<|page|>49<|box|>220 142 237 269<|content|>SEC Guidance:\n<|id|>461<|page|>49<|box|>452 143 468 413<|content|>Professional Valuation Standards:",
+    "raw_response": "<|id|>439<|level|>1\n<|id|>441<|level|>2\n<|id|>453<|level|>2\n<|id|>457<|level|>2\n<|id|>461<|level|>2",
+    "parsed": [
+        {
+            "id": 439,
+            "level": 1
+        },
+        {
+            "id": 441,
+            "level": 2
+        },
+        {
+            "id": 453,
+            "level": 2
+        },
+        {
+            "id": 457,
+            "level": 2
+        },
+        {
+            "id": 461,
+            "level": 2
+        }
+    ]
+}

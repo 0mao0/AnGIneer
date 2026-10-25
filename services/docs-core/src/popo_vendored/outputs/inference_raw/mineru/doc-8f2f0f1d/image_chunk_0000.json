@@ -1,0 +1,51 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        14,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 403 107 593<|content|>JAMS ARBITRATION\n<|id|>2<|type|>table<|page|>1<|box|>157 145 292 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>325 153 380 841<|content|>RESPONDENT PELLEGRINO CAPITAL GROUP LLC'S MEMORAND\n<|id|>10<|type|>table<|page|>1<|box|>696 143 904 852<|content|>None\n<|id|>11<|type|>table<|page|>2<|box|>89 143 753 854<|content|>None\n<|id|>12<|type|>title<|page|>2<|box|>801 142 819 413<|content|>I. PRELIMINARY STATEMENT\n<|id|>23<|type|>title<|page|>4<|box|>474 142 492 483<|content|>II. STATEMENT OF RELEVANT FACTS\n<|id|>24<|type|>title<|page|>4<|box|>507 142 523 629<|content|>A. Formation and Structure of Palmetto Grand Ventu\n<|id|>28<|type|>title<|page|>5<|box|>231 140 248 674<|content|>B. Acquisition and Renovation of The Palmetto Gran\n<|id|>34<|type|>title<|page|>6<|box|>250 140 266 401<|content|>C. Hotel Operating Performance\n<|id|>36<|type|>table<|page|>6<|box|>431 143 564 852<|content|>None\n<|id|>39<|type|>title<|page|>6<|box|>782 142 800 434<|content|>D. PCG's Exercise of the Call Option\n<|id|>51<|type|>title<|page|>8<|box|>257 142 273 478<|content|>E. Calculation and Tender of Buyout Price\n<|id|>53<|type|>table<|page|>8<|box|>323 143 484 852<|content|>None\n<|id|>57<|type|>title<|page|>9<|box|>90 140 107 470<|content|>F. MSH's Demand and Inflated Valuation\n<|id|>61<|type|>table<|page|>9<|box|>563 143 713 852<|content|>None\n<|id|>64<|type|>title<|page|>10<|box|>295 142 313 287<|content|>III. ARGUMENT\n<|id|>65<|type|>title<|page|>10<|box|>327 140 344 815<|content|>A. PCG Exercised the Call Option in Strict Complia\n<|id|>97<|type|>title<|page|>14<|box|>700 140 718 674<|content|>C. MSH's Bad-Faith Claim Under OA Section 12.7 Is\n<|id|>98<|type|>title<|page|>14<|box|>729 140 763 854<|content|>1. Section 12.7 Requires a Showing of Subjective B\n<|id|>126<|type|>title<|page|>18<|box|>212 140 248 854<|content|>D. MSH's Claim for Breach of OA Section 8.3 (Defer\n<|id|>138<|type|>title<|page|>19<|box|>699 142 715 656<|content|>E. PCG's Counterclaim for Declaratory Relief Shoul\n<|id|>145<|type|>title<|page|>20<|box|>604 140 621 625<|content|>F. The Dispute Resolution Provision Governs This P\n<|id|>148<|type|>title<|page|>21<|box|>89 142 106 300<|content|>IV. CONCLUSION\n<|id|>155<|type|>title<|page|>21<|box|>613 142 628 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>164<|type|>title<|page|>21<|box|>800 375 816 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>2<|tgt_id|>0\n<|src_id|>10<|tgt_id|>3\n<|src_id|>11<|tgt_id|>3\n<|src_id|>36<|tgt_id|>34\n<|src_id|>53<|tgt_id|>51\n<|src_id|>61<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 57
+        }
+    ]
+}

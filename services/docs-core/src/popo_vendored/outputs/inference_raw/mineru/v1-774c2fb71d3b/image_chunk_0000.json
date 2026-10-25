@@ -1,0 +1,22 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>87 117 107 240<|content|>Basic Plans\n<|id|>2<|type|>title<|page|>1<|box|>206 576 219 653<|content|>Information:\n<|id|>11<|type|>image<|page|>2<|box|>102 156 404 500<|content|>None\n<|id|>27<|type|>title<|page|>3<|box|>401 115 418 344<|content|>Conservatory / Outhouse\n<|id|>34<|type|>title<|page|>3<|box|>650 115 665 413<|content|>This requires dedicated 16AMP Supply\n<|id|>35<|type|>title<|page|>3<|box|>678 115 694 213<|content|>Loft Space\n<|id|>39<|type|>title<|page|>3<|box|>829 115 846 225<|content|>Understairs\n<|id|>43<|type|>title<|page|>4<|box|>130 115 146 206<|content|>Outdoors\n<|id|>47<|type|>title<|page|>4<|box|>237 115 254 173<|content|>Porch",
+    "raw_response": "<|src_id|>11<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 0
+        }
+    ]
+}

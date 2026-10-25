@@ -1,0 +1,197 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-izve7wv_\\input\\pdfs\\doc-e05c790f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-izve7wv_\\enriched\\doc-e05c790f.json",
+    "contd_output": "<|src_id|>204<|tgt_id|>205",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>3\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>64<|level|>3\n<|id|>67<|level|>3\n<|id|>73<|level|>3\n<|id|>78<|level|>4\n<|id|>83<|level|>2\n<|id|>84<|level|>3\n<|id|>101<|level|>3\n<|id|>108<|level|>3\n<|id|>112<|level|>3\n<|id|>117<|level|>3\n<|id|>126<|level|>2\n<|id|>127<|level|>3\n<|id|>132<|level|>3\n<|id|>140<|level|>3\n<|id|>143<|level|>2\n<|id|>158<|level|>2\n<|id|>162<|level|>2\n<|id|>163<|level|>3\n<|id|>171<|level|>3\n<|id|>173<|level|>4\n<|id|>176<|level|>4\n<|id|>179<|level|>4\n<|id|>184<|level|>2\n<|id|>192<|level|>2\n<|id|>198<|level|>2\n<|id|>215<|level|>2\n<|id|>217<|level|>3",
+    "image_output": "<|src_id|>7<|tgt_id|>0\n<|src_id|>93<|tgt_id|>84\n<|src_id|>129<|tgt_id|>127\n<|src_id|>130<|tgt_id|>127",
+    "contd_label": [
+        {
+            "src_id": 204,
+            "tgt_id": 205
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 4
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 4
+        },
+        {
+            "id": 176,
+            "level": 4
+        },
+        {
+            "id": 179,
+            "level": 4
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 7,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 127
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 129,
+            "table2_idx": 130,
+            "upper_row_ss": [
+                [
+                    "Investor Redemption Losses (Overpayments to Redeeming LPs at Inflated NAV)",
+                    "$43,200,000",
+                    "217 redemptions processed at overstated NAV during Q1 2021 through Q3 2023; overpayments"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "borne by remaining fund investors"
+                ]
+            ]
+        }
+    ]
+}

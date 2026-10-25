@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>401 421 421 573<|content|>I. Introduction\n<|id|>15<|page|>2<|box|>154 338 174 656<|content|>II. Summary of the Transaction\n<|id|>16<|page|>2<|box|>199 140 215 343<|content|>A. Transaction Overview\n<|id|>19<|page|>2<|box|>474 140 492 259<|content|>B. The Parties\n<|id|>25<|page|>3<|box|>204 140 222 388<|content|>C. Target Business Description\n<|id|>29<|page|>3<|box|>616 140 633 524<|content|>D. Competitive Overlap — Vectis Solutions LLC\n<|id|>34<|page|>4<|box|>345 272 364 723<|content|>III. Proposed Timing Agreement Framework\n<|id|>36<|page|>4<|box|>460 140 477 444<|content|>A. Second Request Compliance Period\n<|id|>42<|page|>5<|box|>321 140 339 488<|content|>B. Custodian and Search Term Negotiations\n<|id|>45<|page|>5<|box|>454 176 472 377<|content|>Ardent Capital Partners:\n<|id|>60<|page|>6<|box|>321 140 339 423<|content|>C. Data and Economic Submissions\n<|id|>70<|page|>7<|box|>296 140 313 465<|content|>D. Investigational Hearings (Depositions)\n<|id|>79<|page|>7<|box|>779 413 799 581<|content|>IV. Certification\n<|id|>80<|page|>7<|box|>824 140 842 477<|content|>A. Certification of Substantial Compliance\n<|id|>83<|page|>8<|box|>359 142 375 429<|content|>B. Post-Certification Waiting Period\n<|id|>86<|page|>8<|box|>694 372 713 625<|content|>V. Pull-and-Refile Rights\n<|id|>87<|page|>8<|box|>739 142 755 452<|content|>A. Reservation of Pull-and-Refile Right\n<|id|>90<|page|>9<|box|>186 140 204 531<|content|>B. Effect of Pull-and-Refile on Timing Agreement\n<|id|>95<|page|>9<|box|>537 294 556 702<|content|>VI. Contractual Timeline Considerations\n<|id|>99<|page|>10<|box|>227 245 247 751<|content|>VII. Parallel International Regulatory Proceedings\n<|id|>106<|page|>11<|box|>154 334 174 663<|content|>VIII. Cooperation Commitments\n<|id|>114<|page|>11<|box|>835 403 856 594<|content|>IX. Confidentiality\n<|id|>118<|page|>12<|box|>407 379 426 617<|content|>X. Contact Information\n<|id|>120<|page|>12<|box|>489 142 505 336<|content|>Lead Antitrust Counsel:\n<|id|>123<|page|>12<|box|>575 142 592 303<|content|>Additional Counsel:\n<|id|>128<|page|>12<|box|>724 143 739 267<|content|>Client Contact:\n<|id|>134<|page|>13<|box|>90 297 111 699<|content|>XI. Conclusion and Request for Meeting\n<|id|>145<|page|>13<|box|>630 143 643 171<|content|>cc:",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>19<|level|>2\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>1\n<|id|>36<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>-1\n<|id|>60<|level|>2\n<|id|>70<|level|>2\n<|id|>79<|level|>1\n<|id|>80<|level|>2\n<|id|>83<|level|>2\n<|id|>86<|level|>1\n<|id|>87<|level|>2\n<|id|>90<|level|>2\n<|id|>95<|level|>1\n<|id|>99<|level|>1\n<|id|>106<|level|>1\n<|id|>114<|level|>1\n<|id|>118<|level|>1\n<|id|>120<|level|>2\n<|id|>123<|level|>2\n<|id|>128<|level|>2\n<|id|>134<|level|>1\n<|id|>145<|level|>-1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 1
+        }
+    ]
+}

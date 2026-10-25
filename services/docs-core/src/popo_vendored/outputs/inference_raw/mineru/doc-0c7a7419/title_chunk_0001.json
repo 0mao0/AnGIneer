@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        58
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        58
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>467<|page|>45<|box|>241 140 258 361<|content|>Relationships and Conflicts\n<|id|>471<|page|>45<|box|>671 140 688 230<|content|>No Listing\n<|id|>473<|page|>45<|box|>829 140 847 246<|content|>Stabilization\n<|id|>480<|page|>46<|box|>354 140 371 207<|content|>Escrow\n<|id|>483<|page|>46<|box|>633 395 654 602<|content|>LEGAL MATTERS\n<|id|>484<|page|>46<|box|>672 142 689 617<|content|>This section has been prepared by Calderwood & Har\n<|id|>495<|page|>47<|box|>757 348 776 648<|content|>INDEPENDENT AUDITORS\n<|id|>498<|page|>48<|box|>253 442 272 553<|content|>RATINGS\n<|id|>503<|page|>48<|box|>719 359 738 638<|content|>REGISTRATION RIGHTS\n<|id|>516<|page|>49<|box|>770 361 789 635<|content|>NOTICE TO INVESTORS\n<|id|>518<|page|>50<|box|>90 142 107 421<|content|>Transfer Restrictions — Rule 144A\n<|id|>524<|page|>50<|box|>554 142 571 439<|content|>Transfer Restrictions — Regulation S\n<|id|>530<|page|>51<|box|>90 142 107 325<|content|>ERISA Considerations\n<|id|>535<|page|>51<|box|>550 236 569 759<|content|>WHERE YOU CAN FIND MORE INFORMATION\n<|id|>548<|page|>53<|box|>90 256 109 740<|content|>ANNEX A: GLOSSARY OF DEFINED TERMS\n<|id|>600<|page|>58<|box|>90 233 109 764<|content|>ANNEX B: INDEX TO FINANCIAL STATEMENTS",
+    "raw_response": "<|id|>467<|level|>1\n<|id|>471<|level|>2\n<|id|>473<|level|>2\n<|id|>480<|level|>2\n<|id|>483<|level|>1\n<|id|>484<|level|>-1\n<|id|>495<|level|>1\n<|id|>498<|level|>1\n<|id|>503<|level|>1\n<|id|>516<|level|>1\n<|id|>518<|level|>2\n<|id|>524<|level|>2\n<|id|>530<|level|>2\n<|id|>535<|level|>1\n<|id|>548<|level|>1\n<|id|>600<|level|>1",
+    "parsed": [
+        {
+            "id": 467,
+            "level": 1
+        },
+        {
+            "id": 471,
+            "level": 2
+        },
+        {
+            "id": 473,
+            "level": 2
+        },
+        {
+            "id": 480,
+            "level": 2
+        },
+        {
+            "id": 483,
+            "level": 1
+        },
+        {
+            "id": 495,
+            "level": 1
+        },
+        {
+            "id": 498,
+            "level": 1
+        },
+        {
+            "id": 503,
+            "level": 1
+        },
+        {
+            "id": 516,
+            "level": 1
+        },
+        {
+            "id": 518,
+            "level": 2
+        },
+        {
+            "id": 524,
+            "level": 2
+        },
+        {
+            "id": 530,
+            "level": 2
+        },
+        {
+            "id": 535,
+            "level": 1
+        },
+        {
+            "id": 548,
+            "level": 1
+        },
+        {
+            "id": 600,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Ridgeway Capital Markets v. NYSDTF', '2005 (Sup. Ct., N.Y. County)', 'Upheld CEMA tax treatment where the parties properly consolidated an existing', 'Confirms the CEMA mechanism as a valid MRT reduction tool; not directly applicable here']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'mortgage with a new mortgage; the court confirmed that MRT was payable only on the spread and not on the total consolidated amount.', 'because no existing mortgage is available.']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 264,
+    "table2_idx": 265
+}

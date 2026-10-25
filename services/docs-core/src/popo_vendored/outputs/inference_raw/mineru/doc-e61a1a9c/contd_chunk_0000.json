@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        8,
+        9,
+        16,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>219 140 255 854<|content|>From: ... Pamela Cross, Partner, and Theresa Kim, ...ness LLP, 425 Lexington Avenue, New York, NY 10017\n<|id|>3<|page|>1<|box|>263 140 318 854<|content|>To: ... Calloway, Director of External Investments...C, 780 Park Avenue, Suite 3200, New York, NY 10021\n<|id|>4<|page|>1<|box|>325 140 343 320<|content|>Date: ... February 5, 2024\n<|id|>5<|page|>1<|box|>349 140 388 854<|content|>Re: ... P\n<|id|>6<|page|>1<|box|>395 140 412 331<|content|>Matter No. ... 1026-00001\n<|id|>7<|page|>1<|box|>420 140 438 408<|content|>Right-click to update Table of Contents\n<|id|>12<|page|>1<|box|>765 174 839 854<|content|>(ii) C&H's PPM Summary & Risk Assessment Memorandu...s applicable to BFO's proposed investment; ... and\n<|id|>14<|page|>2<|box|>90 140 145 854<|content|>Together, these memoranda identified a number of k...nto a prioritized, actionable negotiation strategy\n<|id|>48<|page|>5<|box|>763 138 875 857<|content|>MFN Mechanics. ... , fee reduction, co-investment right, reporting enhancement, governance right), (ii)\n<|id|>49<|page|>6<|box|>90 140 127 854<|content|>the substance of the provision, and (iii) the comm... of the LP receiving the provision may be redacted\n<|id|>75<|page|>8<|box|>864 140 902 857<|content|>Sanctions Exclusion. ... The sanctions exclusion i...vestments that could expose BFO to liability under\n<|id|>76<|page|>9<|box|>90 140 143 854<|content|>OFAC-administered sanctions programs. ... Given Fu...ortant protection against unforeseen circumstances\n<|id|>85<|page|>9<|box|>462 181 479 846<|content|>• Standard annual management fee at 1. ... 75% = $1,312,500 per year\n<|id|>89<|page|>9<|box|>540 140 632 854<|content|>Post-Investment Period Savings: ... However, the 2...ar fund term with two 1-year extensions) or longer\n<|id|>86<|page|>9<|box|>482 183 500 846<|content|>• Reduced annual management fee at 1. ... 50% = $1,125,000 per year\n<|id|>87<|page|>9<|box|>501 183 518 638<|content|>• Annual savings: ... 25% = $187,500 per year\n<|id|>88<|page|>9<|box|>521 183 537 787<|content|>• Cumulative savings over the 4-year investment period: ... $187,500 × 4 = $750,000\n<|id|>157<|page|>16<|box|>89 174 126 854<|content|>(vi) Applicable regulatory authorities, in connect...xamination, audit, inquiry, or proceeding; ... and\n<|id|>159<|page|>16<|box|>178 140 252 854<|content|>This is a standard market request for sophisticate...ticipate significant GP pushback on this provision\n<|id|>186<|page|>19<|box|>539 183 556 736<|content|>• W-9 (Request for Taxpayer Identification Number and Certification); ... and\n<|id|>188<|page|>19<|box|>597 140 633 854<|content|>C&H will provide BFO with a detailed checklist of ...ment and investor questionnaire from Ashford Crane\n<|id|>195<|page|>20<|box|>90 183 106 385<|content|>• Form of Side Letter; ... and\n<|id|>197<|page|>20<|box|>128 140 184 854<|content|>Our analysis is also informed by market data, comp...y office investors in comparable fund transactions\n<|id|>199<|page|>20<|box|>328 140 344 320<|content|>Respectfully submitted,\n<|id|>200<|page|>20<|box|>344 140 359 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>201<|page|>20<|box|>363 143 378 253<|content|>By: ... By\n<|id|>202<|page|>20<|box|>378 140 396 519<|content|>Pamela Cross Partner, Funds & Asset Management\n<|id|>203<|page|>20<|box|>397 143 414 254<|content|>By: ... By\n<|id|>204<|page|>20<|box|>414 140 430 584<|content|>Theresa Kim Senior Associate, Funds & Asset Management\n<|id|>205<|page|>20<|box|>431 140 465 854<|content|>cc: ... Nicholas Stern, Billing Partner, Calderwoo...cher, Working Associate, Calderwood & Harkness LLP\n<|id|>206<|page|>20<|box|>474 140 503 854<|content|>Calderwood & Harkness LLP | 425 Lexington Avenue, ...ork, NY 10017 | Matter No. ... All rights reserved",
+    "raw_response": "<|src_id|>48<|tgt_id|>49\n<|src_id|>75<|tgt_id|>76",
+    "parsed": [
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 76
+        }
+    ]
+}

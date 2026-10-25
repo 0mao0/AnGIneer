@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        106,
+        123
+    ],
+    "pages": [
+        106,
+        107,
+        108,
+        109,
+        110,
+        117,
+        121,
+        122,
+        123
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>354<|page|>106<|box|>106 138 122 874<|content|>Table 4.- Net Transactions in U. S. Government Bon\n<|id|>356<|page|>107<|box|>90 341 106 651<|content|>Section II - Summary by Countries\n<|id|>357<|page|>107<|box|>104 223 137 760<|content|>Table 5.- Net Transactions in Long-Term Domestic B\n<|id|>360<|page|>108<|box|>88 345 101 659<|content|>Section II - Summary by Countries\n<|id|>361<|page|>108<|box|>103 233 118 790<|content|>Table 6.- Net Transactions in Domestic Stocks by F\n<|id|>363<|page|>109<|box|>91 340 106 646<|content|>Section II - Summary by Countries\n<|id|>364<|page|>109<|box|>104 181 122 801<|content|>Table 7.- Net Transactions in Long-Term Foreign Bo\n<|id|>366<|page|>110<|box|>93 219 121 774<|content|>Section II - Summary by Countries Table 8. - Net T\n<|id|>380<|page|>117<|box|>84 144 113 816<|content|>Section IV - Supplementary Data by Countries Table\n<|id|>392<|page|>121<|box|>72 183 101 782<|content|>Section IV - Supplementary Data by Countries Table\n<|id|>395<|page|>122<|box|>72 138 118 871<|content|>Section IV - Supplementary Data by Countries Table\n<|id|>398<|page|>123<|box|>70 287 88 693<|content|>Section IV - Supplementary Data by Countries",
+    "raw_response": "<|id|>354<|level|>1\n<|id|>356<|level|>2\n<|id|>357<|level|>3\n<|id|>360<|level|>2\n<|id|>361<|level|>3\n<|id|>363<|level|>2\n<|id|>364<|level|>3\n<|id|>366<|level|>2\n<|id|>380<|level|>2\n<|id|>392<|level|>2\n<|id|>395<|level|>2\n<|id|>398<|level|>2",
+    "parsed": [
+        {
+            "id": 354,
+            "level": 1
+        },
+        {
+            "id": 356,
+            "level": 2
+        },
+        {
+            "id": 357,
+            "level": 3
+        },
+        {
+            "id": 360,
+            "level": 2
+        },
+        {
+            "id": 361,
+            "level": 3
+        },
+        {
+            "id": 363,
+            "level": 2
+        },
+        {
+            "id": 364,
+            "level": 3
+        },
+        {
+            "id": 366,
+            "level": 2
+        },
+        {
+            "id": 380,
+            "level": 2
+        },
+        {
+            "id": 392,
+            "level": 2
+        },
+        {
+            "id": 395,
+            "level": 2
+        },
+        {
+            "id": 398,
+            "level": 2
+        }
+    ]
+}

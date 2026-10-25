@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        143,
+        156
+    ],
+    "pages": [
+        143,
+        144,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>762<|type|>table<|page|>143<|box|>197 147 865 870<|content|>None\n<|id|>764<|type|>table<|page|>144<|box|>149 263 865 815<|content|>None\n<|id|>772<|type|>table<|page|>146<|box|>220 112 874 855<|content|>None\n<|id|>773<|type|>table<|page|>147<|box|>205 134 865 877<|content|>None\n<|id|>780<|type|>table<|page|>148<|box|>200 124 872 850<|content|>None\n<|id|>784<|type|>table<|page|>149<|box|>185 141 855 865<|content|>None\n<|id|>786<|type|>table<|page|>150<|box|>145 243 863 714<|content|>None\n<|id|>788<|type|>table<|page|>151<|box|>191 136 860 858<|content|>None\n<|id|>789<|type|>table<|page|>152<|box|>115 114 875 877<|content|>None\n<|id|>791<|type|>table<|page|>153<|box|>194 131 862 857<|content|>None\n<|id|>795<|type|>table<|page|>154<|box|>205 131 857 848<|content|>None\n<|id|>799<|type|>title<|page|>155<|box|>178 110 195 549<|content|>G.1 试验检测机构基础信息数据元定义示例见表 G.1。\n<|id|>800<|type|>table<|page|>155<|box|>241 114 412 892<|content|>None\n<|id|>801<|type|>table<|page|>155<|box|>498 114 860 894<|content|>None\n<|id|>802<|type|>title<|page|>156<|box|>145 440 160 546<|content|>参考文献",
+    "raw_response": "<|src_id|>800<|tgt_id|>799\n<|src_id|>801<|tgt_id|>799",
+    "parsed": [
+        {
+            "src_id": 800,
+            "tgt_id": 799
+        },
+        {
+            "src_id": 801,
+            "tgt_id": 799
+        }
+    ]
+}

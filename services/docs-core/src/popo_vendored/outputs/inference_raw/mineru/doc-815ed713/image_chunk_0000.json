@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 147 162 849<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>8<|type|>title<|page|>1<|box|>412 143 448 852<|content|>DECLARATION OF KAREN FONG IN OPPOSITION TO PLAINTI\n<|id|>39<|type|>table<|page|>5<|box|>686 143 854 852<|content|>None",
+    "raw_response": "<|src_id|>39<|tgt_id|>8",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 8
+        }
+    ]
+}

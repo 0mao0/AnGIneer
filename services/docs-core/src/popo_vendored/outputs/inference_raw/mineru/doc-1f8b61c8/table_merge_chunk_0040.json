@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 40,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['69', 'Escrow Agreement — Frankfurt Campus Construction (€253,571,429), dated as of June 3, 2024', 'Ironhaven Frankfurt GmbH, Crescent Harbor Bank, N.A. (as Administrative Agent), NordBrücke AG (as Frankfurt Escrow Bank)', 'Governs the controlled disbursement of €253,571,429 (approximately $275,000,000 at the reference exchange rate of EUR/USD 1.0846) in proceeds allocated to the construction and buildout']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'of the Frankfurt campus data center facility. Disbursements from the Frankfurt escrow account shall be made upon satisfaction of draw conditions substantially equivalent to those applicable to the Virginia escrow, adapted for German construction practices and legal requirements. The Frankfurt escrow account shall be maintained at NordBrücke AG in Frankfurt am Main and denominated in EUR. Governed by German law.']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 166,
+    "table2_idx": 167
+}

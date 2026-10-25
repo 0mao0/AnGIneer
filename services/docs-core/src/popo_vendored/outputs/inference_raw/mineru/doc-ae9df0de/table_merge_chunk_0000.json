@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['5', 'Garrett', 'MFW-', 'Effective', 'Garrett', '$425,000', 'CoC triggers']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Holliday — Employment Agreement', 'VDR-011.01', 'January 1, 2023', 'Holliday (Co-Founder, CEO & Director)', 'base salary; 75% bonus target ($318,750); 3,200,000 shares (~32.0% FD); 24-month CoC severance ($850,000)', 'contingent severance; rollover ~$25M; negotiate new employment terms and 3-year RCA; conduct 280G analysis']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 238,
+    "table2_idx": 239
+}

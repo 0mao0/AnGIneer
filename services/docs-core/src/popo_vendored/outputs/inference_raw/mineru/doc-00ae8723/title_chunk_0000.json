@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 207 126 856<|content|>OPTIWAVE SEMICONDUCTOR CORP. 2775 Augustine Drive,\n<|id|>4<|page|>1<|box|>203 140 220 496<|content|>VIA OVERNIGHT COURIER AND EMAIL\n<|id|>8<|page|>1<|box|>378 142 396 294<|content|>Dear Sir or Madam:\n<|id|>10<|page|>1<|box|>518 140 536 382<|content|>I. Purpose of This Notification\n<|id|>14<|page|>2<|box|>90 140 107 390<|content|>II. Description of the Litigation\n<|id|>25<|page|>2<|box|>419 142 436 364<|content|>B. Identity of the Defendant\n<|id|>27<|page|>2<|box|>638 140 655 333<|content|>C. Nature of the Claims\n<|id|>37<|page|>3<|box|>508 142 525 276<|content|>D. Relief Sought\n<|id|>44<|page|>4<|box|>90 174 107 653<|content|>6. Such Other Relief as the Court Deems Just and E\n<|id|>45<|page|>4<|box|>121 140 138 321<|content|>E. Jurisdictional Basis\n<|id|>47<|page|>4<|box|>314 140 330 424<|content|>III. Current Status of the Litigation\n<|id|>54<|page|>4<|box|>686 140 704 387<|content|>IV. Pre-Litigation Background\n<|id|>60<|page|>5<|box|>390 140 407 557<|content|>V. Assessment of Impact on Collateral and Borrower\n<|id|>67<|page|>6<|box|>395 140 412 416<|content|>VI. Litigation Budget and Funding\n<|id|>71<|page|>6<|box|>752 140 768 454<|content|>VII. Ongoing Notification Commitment\n<|id|>83<|page|>7<|box|>465 140 484 519<|content|>VIII. Contact Information for Further Inquiries\n<|id|>90<|page|>7<|box|>737 140 753 236<|content|>IX. Closing\n<|id|>102<|page|>8<|box|>482 143 494 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>-1\n<|id|>8<|level|>-1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>25<|level|>2\n<|id|>27<|level|>2\n<|id|>37<|level|>2\n<|id|>44<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>1\n<|id|>54<|level|>1\n<|id|>60<|level|>1\n<|id|>67<|level|>1\n<|id|>71<|level|>1\n<|id|>83<|level|>1\n<|id|>90<|level|>1\n<|id|>102<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        }
+    ]
+}

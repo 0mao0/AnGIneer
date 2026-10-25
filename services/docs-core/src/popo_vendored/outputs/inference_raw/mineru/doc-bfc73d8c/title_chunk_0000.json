@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 465 119 532<|content|>SAFE\n<|id|>1<|page|>1<|box|>136 307 159 691<|content|>(Simple Agreement for Future Equity)\n<|id|>2<|page|>1<|box|>174 339 193 660<|content|>Post-Money Valuation Cap; No discount\n<|id|>10<|page|>1<|box|>488 140 506 243<|content|>RECITALS\n<|id|>18<|page|>2<|box|>167 140 184 326<|content|>SECTION 1: EVENTS\n<|id|>19<|page|>2<|box|>199 142 215 318<|content|>1(a) Equity Financing\n<|id|>24<|page|>2<|box|>435 176 452 576<|content|>Number of Shares = $1,200,000 ÷ Conversion Price\n<|id|>26<|page|>2<|box|>487 176 505 633<|content|>Conversion Price = $28,000,000 ÷ Company Capitaliz\n<|id|>30<|page|>3<|box|>138 143 157 308<|content|>1(b) Liquidity Event\n<|id|>36<|page|>3<|box|>383 176 401 614<|content|>Liquidity Price = $28,000,000 ÷ Liquidity Capitali\n<|id|>41<|page|>4<|box|>90 142 107 320<|content|>1(c) Dissolution Event\n<|id|>48<|page|>4<|box|>686 140 704 374<|content|>SECTION 2: DEFINITIONS\n<|id|>50<|page|>4<|box|>811 140 829 403<|content|>2(b) \"Change of Control\" means:\n<|id|>60<|page|>5<|box|>780 140 797 390<|content|>2(f) \"Dissolution Event\" means:\n<|id|>74<|page|>7<|box|>295 140 313 529<|content|>SECTION 3: COMPANY REPRESENTATIONS\n<|id|>80<|page|>8<|box|>303 140 320 529<|content|>SECTION 4: INVESTOR REPRESENTATIONS\n<|id|>87<|page|>9<|box|>439 140 455 640<|content|>SECTION 5: MFN PROVISION (MOST FAVORED NATION)\n<|id|>96<|page|>10<|box|>285 140 301 413<|content|>SECTION 6: MISCELLANEOUS\n<|id|>97<|page|>10<|box|>316 140 334 333<|content|>6(a) Information Rights\n<|id|>104<|page|>11<|box|>138 140 157 349<|content|>6(b) Transfer Restrictions\n<|id|>110<|page|>11<|box|>481 140 497 374<|content|>6(c) Amendment and Waiver\n<|id|>112<|page|>11<|box|>608 140 625 359<|content|>6(d) No Stockholder Rights\n<|id|>114<|page|>11<|box|>827 140 844 303<|content|>6(e) Governing Law\n<|id|>116<|page|>12<|box|>157 140 175 326<|content|>6(f) Dispute Resolution\n<|id|>120<|page|>12<|box|>688 142 704 295<|content|>If to the Company:\n<|id|>124<|page|>12<|box|>773 142 790 284<|content|>If to the Investor:\n<|id|>128<|page|>13<|box|>90 142 107 318<|content|>6(i) Entire Agreement\n<|id|>131<|page|>13<|box|>377 142 393 362<|content|>6(k) Successors and Assigns\n<|id|>133<|page|>13<|box|>479 361 498 635<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>134<|page|>13<|box|>507 174 542 821<|content|>SIGNATURE PAGE TO SAFE (Simple Agreement for Futur\n<|id|>136<|page|>13<|box|>595 142 611 248<|content|>COMPANY:\n<|id|>137<|page|>13<|box|>621 142 637 366<|content|>LUMOS ANALYTICS INC.\n<|id|>146<|page|>13<|box|>784 143 800 413<|content|>RIDGELINE ANGEL FUND, L.P.\n<|id|>155<|page|>14<|box|>165 348 183 648<|content|>WIRE TRANSFER INSTRUCTIONS",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>10<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>24<|level|>-1\n<|id|>26<|level|>-1\n<|id|>30<|level|>3\n<|id|>36<|level|>-1\n<|id|>41<|level|>3\n<|id|>48<|level|>2\n<|id|>50<|level|>3\n<|id|>60<|level|>3\n<|id|>74<|level|>2\n<|id|>80<|level|>2\n<|id|>87<|level|>2\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>104<|level|>3\n<|id|>110<|level|>3\n<|id|>112<|level|>3\n<|id|>114<|level|>3\n<|id|>116<|level|>3\n<|id|>120<|level|>-1\n<|id|>124<|level|>-1\n<|id|>128<|level|>3\n<|id|>131<|level|>3\n<|id|>133<|level|>-1\n<|id|>134<|level|>-1\n<|id|>136<|level|>2\n<|id|>137<|level|>3\n<|id|>146<|level|>3\n<|id|>155<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 2
+        }
+    ]
+}

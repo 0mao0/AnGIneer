@@ -1,0 +1,144 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        98,
+        146
+    ],
+    "pages": [
+        98,
+        99,
+        100,
+        101,
+        126,
+        132,
+        135,
+        136,
+        137,
+        139,
+        140,
+        143,
+        145,
+        146
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>509<|page|>98<|box|>71 331 85 656<|content|>INTERNATIONAL FINANCIAL STATISTICS\n<|id|>510<|page|>98<|box|>97 286 111 700<|content|>Table IFS-5. - U.S. Position in the International\n<|id|>526<|page|>99<|box|>74 347 87 631<|content|>INTERNATIONAL FINANCIAL STATISTICS.\n<|id|>527<|page|>99<|box|>106 262 120 717<|content|>Table IFS-6. - Weighted-Average of Exchange Rate C\n<|id|>531<|page|>99<|box|>556 133 565 302<|content|>The equations used are as follows:\n<|id|>538<|page|>99<|box|>423 516 435 694<|content|>(EQ2) E_{x} = \\Sigma(\\Delta f c_{i}/\\$ * X_{i}/\\Si\n<|id|>543<|page|>99<|box|>552 522 563 784<|content|>(EQ3) \\mathbf{E} = [(E_{\\mathrm{m}} * \\mathrm{m /\n<|id|>549<|page|>100<|box|>105 123 116 193<|content|>Background\n<|id|>553<|page|>100<|box|>429 123 440 235<|content|>Basic definitions\n<|id|>558<|page|>100<|box|>195 513 206 630<|content|>Reporting coverage\n<|id|>562<|page|>100<|box|>512 510 524 669<|content|>Description of statistics\n<|id|>567<|page|>101<|box|>82 407 94 580<|content|>_CAPITAL MOVEMENTS.\n<|id|>619<|page|>126<|box|>67 407 79 577<|content|>CAPITAL MOVEMENTS.\n<|id|>635<|page|>132<|box|>62 419 74 582<|content|>CAPITAL MOVEMENTS.\n<|id|>636<|page|>132<|box|>77 289 112 720<|content|>Section V - Transactions in Long-Term Securities b\n<|id|>643<|page|>135<|box|>70 382 82 622<|content|>FOREIGN CURRENCY POSITIONS\n<|id|>644<|page|>135<|box|>148 174 159 232<|content|>Background\n<|id|>647<|page|>135<|box|>421 176 432 333<|content|>Common Definitions and Concepts\n<|id|>653<|page|>135<|box|>364 518 375 617<|content|>Reporting Threshold\n<|id|>656<|page|>135<|box|>648 518 658 647<|content|>Description of Statistics\n<|id|>658<|page|>136<|box|>65 395 78 622<|content|>FOREIGN CURRENCY POSITIONS.\n<|id|>663<|page|>137<|box|>65 381 78 606<|content|>FOREIGN CURRENCY POSITIONS\n<|id|>665<|page|>137<|box|>97 350 109 653<|content|>Table FCP-II-1. - Nonbanking Firms' Positions 1/\n<|id|>667<|page|>137<|box|>297 366 309 641<|content|>Table FCP-II-2. - Weekly Bank Positions 11/\n<|id|>670<|page|>139<|box|>68 377 79 604<|content|>FOREIGN CURRENCY POSITIONS\n<|id|>671<|page|>139<|box|>86 369 98 612<|content|>Section III - Canadian Dollar Positions\n<|id|>675<|page|>140<|box|>128 427 145 622<|content|>Section III - Canadian Dollar Positions\n<|id|>680<|page|>143<|box|>67 385 79 611<|content|>FOREIGN CURRENCY POSITIONS\n<|id|>684<|page|>145<|box|>65 388 79 614<|content|>FOREIGN CURRENCY POSITIONS\n<|id|>685<|page|>145<|box|>83 390 94 604<|content|>Section VI - Italian Lira Positions\n<|id|>689<|page|>146<|box|>64 382 76 606<|content|>FOREIGN CURRENCY POSITIONS\n<|id|>690<|page|>146<|box|>82 382 94 612<|content|>Section VII - Japanese Yen Positions",
+    "raw_response": "<|id|>509<|level|>1\n<|id|>510<|level|>2\n<|id|>526<|level|>1\n<|id|>527<|level|>2\n<|id|>531<|level|>-1\n<|id|>538<|level|>-1\n<|id|>543<|level|>-1\n<|id|>549<|level|>2\n<|id|>553<|level|>2\n<|id|>558<|level|>2\n<|id|>562<|level|>2\n<|id|>567<|level|>1\n<|id|>619<|level|>1\n<|id|>635<|level|>1\n<|id|>636<|level|>2\n<|id|>643<|level|>1\n<|id|>644<|level|>2\n<|id|>647<|level|>2\n<|id|>653<|level|>2\n<|id|>656<|level|>2\n<|id|>658<|level|>1\n<|id|>663<|level|>1\n<|id|>665<|level|>2\n<|id|>667<|level|>2\n<|id|>670<|level|>1\n<|id|>671<|level|>2\n<|id|>675<|level|>2\n<|id|>680<|level|>1\n<|id|>684<|level|>1\n<|id|>685<|level|>2\n<|id|>689<|level|>1\n<|id|>690<|level|>2",
+    "parsed": [
+        {
+            "id": 509,
+            "level": 1
+        },
+        {
+            "id": 510,
+            "level": 2
+        },
+        {
+            "id": 526,
+            "level": 1
+        },
+        {
+            "id": 527,
+            "level": 2
+        },
+        {
+            "id": 549,
+            "level": 2
+        },
+        {
+            "id": 553,
+            "level": 2
+        },
+        {
+            "id": 558,
+            "level": 2
+        },
+        {
+            "id": 562,
+            "level": 2
+        },
+        {
+            "id": 567,
+            "level": 1
+        },
+        {
+            "id": 619,
+            "level": 1
+        },
+        {
+            "id": 635,
+            "level": 1
+        },
+        {
+            "id": 636,
+            "level": 2
+        },
+        {
+            "id": 643,
+            "level": 1
+        },
+        {
+            "id": 644,
+            "level": 2
+        },
+        {
+            "id": 647,
+            "level": 2
+        },
+        {
+            "id": 653,
+            "level": 2
+        },
+        {
+            "id": 656,
+            "level": 2
+        },
+        {
+            "id": 658,
+            "level": 1
+        },
+        {
+            "id": 663,
+            "level": 1
+        },
+        {
+            "id": 665,
+            "level": 2
+        },
+        {
+            "id": 667,
+            "level": 2
+        },
+        {
+            "id": 670,
+            "level": 1
+        },
+        {
+            "id": 671,
+            "level": 2
+        },
+        {
+            "id": 675,
+            "level": 2
+        },
+        {
+            "id": 680,
+            "level": 1
+        },
+        {
+            "id": 684,
+            "level": 1
+        },
+        {
+            "id": 685,
+            "level": 2
+        },
+        {
+            "id": 689,
+            "level": 1
+        },
+        {
+            "id": 690,
+            "level": 2
+        }
+    ]
+}

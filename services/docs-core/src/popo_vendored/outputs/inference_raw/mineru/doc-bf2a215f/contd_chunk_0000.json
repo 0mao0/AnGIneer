@@ -1,0 +1,51 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        61
+    ],
+    "pages": [
+        5,
+        6,
+        7,
+        8,
+        17,
+        20,
+        29,
+        31,
+        32,
+        36,
+        40,
+        46,
+        60
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>5<|box|>43 223 85 767<|content|>T: ... July - 2017\n<|id|>6<|page|>5<|box|>713 557 744 695<|content|>LIBRARY\n<|id|>9<|page|>5<|box|>796 509 826 737<|content|>TREASURY DEPARTMENT\n<|id|>10<|page|>6<|box|>166 851 178 959<|content|>FIRST CLASS\n<|id|>15<|page|>7<|box|>174 403 201 557<|content|>August 1980\n<|id|>16<|page|>7<|box|>139 686 166 785<|content|>SEP 8'80\n<|id|>17<|page|>7<|box|>169 639 191 834<|content|>TREASURI DEPARTMENT\n<|id|>18<|page|>7<|box|>936 130 986 854<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>19<|page|>8<|box|>307 122 443 863<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents, U. ... )\n<|id|>55<|page|>17<|box|>316 101 469 448<|content|>Tenders were received in all of the auctions at Fe... the Public Debt, Washington, D. ... 52-Week Bills\n<|id|>56<|page|>17<|box|>472 101 661 450<|content|>On July 10 tenders were invited for approximately ...ly 22, 1980, and to mature July 16, 1981. ... 669%\n<|id|>66<|page|>17<|box|>805 481 817 836<|content|>Nonmarketable Foreign Series Securities - Foreign Governments\n<|id|>67<|page|>17<|box|>822 481 922 827<|content|>Dollar denominated foreign series securities issue...es and 2 notes. ... (Details are shown on page 69)\n<|id|>74<|page|>20<|box|>170 41 180 476<|content|>Note: ... Budget estimates are based on the Current Budget Estimates, March\n<|id|>75<|page|>20<|box|>177 41 197 502<|content|>1980, released on March 31, 1980, by the Office of...ment and Budget. ... 1/ For detail see Table FFO-2\n<|id|>76<|page|>20<|box|>204 44 242 504<|content|>3/ The joint Treasury-Office of Management and Bud... of the Exchange Stabilization Fund. ... 6 billion\n<|id|>77<|page|>20<|box|>197 44 206 241<|content|>// For detail see Table FFO-3. ... // For detail see Table FFO-3\n<|id|>80<|page|>20<|box|>273 44 284 504<|content|>6/ Represents holdings of special drawing rights, less certificates issued\n<|id|>81<|page|>20<|box|>154 560 164 718<|content|>to Federal Reserve banks. ... to Federal Reserve banks\n<|id|>107<|page|>29<|box|>95 415 105 560<|content|>(In millions of dollars)\n<|id|>108<|page|>29<|box|>865 498 886 754<|content|>Note: ... * Less than \\$500,000\n<|id|>116<|page|>31<|box|>120 181 135 750<|content|>Table FFO-8. ... - Selected Accrual Data Reported by Federal Agencies\n<|id|>117<|page|>31<|box|>194 50 314 406<|content|>EFFECTIVE WITH THE BEGINNING OF FY '80, TREASURY A...AYABLE AND OTHER LIABILITIES (INCLUDING OFF-BUDGET\n<|id|>118<|page|>31<|box|>192 529 294 883<|content|>FROM TABLE J OF THE COMBINED STATEMENT) PLUS THE P...T FROM TABLE J OF THE TREASURY COMBINED STATEMENT)\n<|id|>126<|page|>32<|box|>894 57 964 479<|content|>Source: ... (This data is on the basis of Reports ...the agencies prior to reports submitted for Budget\n<|id|>127<|page|>32<|box|>896 537 916 905<|content|>presentation and therefore may differ somewhat from the Budget document. ... )\n<|id|>141<|page|>36<|box|>884 57 954 481<|content|>Source: ... (This data is on the basis of Reports ...the agencies prior to reports submitted for Budget\n<|id|>142<|page|>36<|box|>884 541 904 905<|content|>presentation and therefore may differ somewhat from the Budget document. ... )\n<|id|>151<|page|>40<|box|>95 222 110 814<|content|>Source and Availability of the Balance in the Account of the U. ... Treasury\n<|id|>152<|page|>40<|box|>154 115 219 486<|content|>The operating cash of the Treasury is maintained i...untry authorized to maintain tax and loan accounts\n<|id|>181<|page|>46<|box|>817 53 845 479<|content|>Source: ... Prior to July 1974 title of this table was \"Special Public Debt Issues\"\n<|id|>182<|page|>46<|box|>842 50 966 511<|content|>1/ Consists of Government National Mortgage Associ... Overseas Private Investment Corporation beginning\n<|id|>183<|page|>46<|box|>817 555 951 1000<|content|>February 1975. ... Black Lung Disability Trust Fund Less than \\$500,000\n<|id|>230<|page|>60<|box|>95 433 107 608<|content|>(Dollar Amounts in millions)",
+    "raw_response": "<|src_id|>74<|tgt_id|>75\n<|src_id|>80<|tgt_id|>81\n<|src_id|>117<|tgt_id|>118\n<|src_id|>126<|tgt_id|>127\n<|src_id|>141<|tgt_id|>142\n<|src_id|>182<|tgt_id|>183",
+    "parsed": [
+        {
+            "src_id": 74,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 118
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 183
+        }
+    ]
+}

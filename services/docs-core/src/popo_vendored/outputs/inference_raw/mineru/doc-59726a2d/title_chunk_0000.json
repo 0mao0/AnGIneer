@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>422 142 439 264<|content|>1. Introduction\n<|id|>13<|page|>2<|box|>148 140 167 364<|content|>2. Post-Closing Deliverables\n<|id|>15<|page|>2<|box|>243 140 261 496<|content|>Item 1: Deposit Account Control Agreements\n<|id|>24<|page|>3<|box|>157 140 175 450<|content|>Item 2: Updated Insurance Certificates\n<|id|>35<|page|>4<|box|>90 140 107 390<|content|>Item 3: Landlord Lien Waivers\n<|id|>42<|page|>4<|box|>742 142 758 524<|content|>3. Summary Table of Deliverables and Deadlines\n<|id|>46<|page|>5<|box|>359 140 377 401<|content|>4. Consequences of Non-Delivery\n<|id|>50<|page|>6<|box|>90 140 107 388<|content|>5. Coordination and Assistance\n<|id|>60<|page|>7<|box|>90 140 107 326<|content|>6. Contact Information\n<|id|>68<|page|>7<|box|>416 140 433 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>1\n<|id|>46<|level|>1\n<|id|>50<|level|>1\n<|id|>60<|level|>1\n<|id|>68<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        }
+    ]
+}

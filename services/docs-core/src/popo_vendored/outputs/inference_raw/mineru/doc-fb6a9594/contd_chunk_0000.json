@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>393 140 465 854<|content|>Pinnacle Vista Capital Partners III, LP, a Delawar...rk Avenue, 38th Floor, New York, NY 10021; ... and\n<|id|>5<|page|>1<|box|>474 140 529 854<|content|>The several Underwriters named in Schedule I heret...al office at 383 Madison Place, New York, NY 10017\n<|id|>11<|page|>1<|box|>845 140 901 856<|content|>1. ... Insert Public Offering\n<|id|>12<|page|>2<|box|>89 140 127 856<|content|>Price minus Underwriting Discount per share. ... ]\n<|id|>56<|page|>5<|box|>380 143 396 215<|content|>Title: ... [●]\n<|id|>58<|page|>5<|box|>430 143 446 421<|content|>THE SELLING STOCKHOLDER: ... THE SELLING STOCKHOLDER\n<|id|>59<|page|>5<|box|>446 143 464 547<|content|>PINNACLE VISTA CAPITAL PARTNERS III, LP\n<|id|>60<|page|>5<|box|>465 143 482 480<|content|>By: ... Pinnacle Vista Capital Management LLC,\n<|id|>61<|page|>5<|box|>483 143 500 285<|content|>its General Partner\n<|id|>62<|page|>5<|box|>500 143 517 251<|content|>By: ... By\n<|id|>64<|page|>5<|box|>534 143 551 215<|content|>Title: ... [●]\n<|id|>66<|page|>5<|box|>584 142 599 790<|content|>THE REPRESENTATIVE, ON BEHALF OF THE SEVERAL UNDER...RESENTATIVE, ON BEHALF OF THE SEVERAL UNDERWRITERS\n<|id|>67<|page|>5<|box|>602 142 633 854<|content|>HARGROVE KEATING & CO. ... , as Representative of the several Underwriters named in Schedule I hereto\n<|id|>68<|page|>5<|box|>636 143 652 251<|content|>By: ... By",
+    "raw_response": "<|src_id|>4<|tgt_id|>5\n<|src_id|>11<|tgt_id|>12\n<|src_id|>58<|tgt_id|>59\n<|src_id|>60<|tgt_id|>61\n<|src_id|>66<|tgt_id|>67\n<|src_id|>68<|tgt_id|>69",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 69
+        }
+    ]
+}

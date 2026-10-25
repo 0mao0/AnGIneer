@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 163 125 833<|content|>CALDERWOOD & HARKNESS LLP 777 South Flower Street,\n<|id|>2<|type|>title<|page|>1<|box|>217 424 234 573<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>460 140 478 493<|content|>I. Executive Summary and Recommendation\n<|id|>11<|type|>table<|page|>1<|box|>700 143 811 852<|content|>None\n<|id|>15<|type|>title<|page|>2<|box|>348 140 364 447<|content|>II. Current Posture of the Class Action\n<|id|>16<|type|>title<|page|>2<|box|>378 140 396 460<|content|>A. Certification Order (August 11, 2023)\n<|id|>34<|type|>title<|page|>3<|box|>867 142 883 444<|content|>B. Implications of Partial Certification\n<|id|>39<|type|>title<|page|>4<|box|>556 140 574 437<|content|>C. Discovery and Evidentiary Record\n<|id|>49<|type|>title<|page|>5<|box|>398 142 416 442<|content|>III. Damages Analysis — Class Action\n<|id|>50<|type|>title<|page|>5<|box|>430 142 448 401<|content|>A. Competing Expert Valuations\n<|id|>52<|type|>table<|page|>5<|box|>513 143 705 852<|content|>None\n<|id|>54<|type|>title<|page|>6<|box|>138 140 157 527<|content|>B. Key Assumptions Underlying Our Assessment\n<|id|>60<|type|>title<|page|>7<|box|>90 140 107 385<|content|>C. Settlement Range Rationale\n<|id|>65<|type|>title<|page|>7<|box|>652 142 670 472<|content|>IV. Trial Risk Assessment — Class Action\n<|id|>66<|type|>title<|page|>7<|box|>684 142 700 369<|content|>A. AMA's Strengths at Trial\n<|id|>74<|type|>title<|page|>8<|box|>601 140 618 408<|content|>B. AMA's Vulnerabilities at Trial\n<|id|>82<|type|>title<|page|>9<|box|>645 140 662 313<|content|>C. Overall Trial Risk\n<|id|>89<|type|>title<|page|>10<|box|>396 140 414 763<|content|>V. Aldrich Individual Action — Current Posture and\n<|id|>90<|type|>title<|page|>10<|box|>426 140 444 261<|content|>A. Case Status\n<|id|>107<|type|>title<|page|>12<|box|>90 142 107 377<|content|>B. Aldrich Exposure Analysis\n<|id|>108<|type|>table<|page|>12<|box|>156 143 467 852<|content|>None\n<|id|>110<|type|>title<|page|>12<|box|>751 140 768 390<|content|>C. \"For Cause\" Litigation Risk\n<|id|>116<|type|>title<|page|>14<|box|>138 140 157 454<|content|>D. Restrictive Covenant Considerations\n<|id|>126<|type|>title<|page|>14<|box|>809 142 825 470<|content|>E. Settlement Range Rationale — Aldrich\n<|id|>136<|type|>title<|page|>15<|box|>570 140 587 334<|content|>F. Insurance — Aldrich\n<|id|>139<|type|>title<|page|>16<|box|>90 140 107 486<|content|>VI. Insurance Coordination — Class Action\n<|id|>140<|type|>title<|page|>16<|box|>121 140 138 535<|content|>A. EPL Policy (Pemberton Mutual Assurance Co.)\n<|id|>155<|type|>title<|page|>17<|box|>90 140 107 529<|content|>B. Funding Analysis at Various Settlement Levels\n<|id|>156<|type|>table<|page|>17<|box|>156 143 250 852<|content|>None\n<|id|>158<|type|>title<|page|>17<|box|>462 140 479 426<|content|>C. Combined Self-Funded Exposure\n<|id|>165<|type|>title<|page|>17<|box|>633 142 650 589<|content|>At Midpoint Authority ($12.5M Class + $2.25M Aldri\n<|id|>171<|type|>title<|page|>18<|box|>90 140 107 334<|content|>VII. Mediation Strategy\n<|id|>172<|type|>title<|page|>18<|box|>121 140 138 563<|content|>A. Session #1 (August 25, 2023) — Class Action Foc\n<|id|>184<|type|>title<|page|>19<|box|>292 140 311 470<|content|>B. Combined Mediation (Class + Aldrich)\n<|id|>188<|type|>title<|page|>19<|box|>647 140 665 328<|content|>VIII. Approval Process\n<|id|>195<|type|>title<|page|>20<|box|>321 142 339 264<|content|>IX. Conclusion",
+    "raw_response": "<|src_id|>11<|tgt_id|>8\n<|src_id|>52<|tgt_id|>50\n<|src_id|>108<|tgt_id|>107\n<|src_id|>156<|tgt_id|>155",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 155
+        }
+    ]
+}

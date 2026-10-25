@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 331 118 663<|content|>SECRETARY'S CERTIFICATE\n<|id|>1<|type|>title<|page|>1<|box|>136 287 154 710<|content|>Arbor Health Technologies Inc. a Delaware corporat\n<|id|>4<|type|>title<|page|>1<|box|>284 140 300 385<|content|>INTRODUCTORY RECITAL\n<|id|>9<|type|>title<|page|>1<|box|>776 140 794 382<|content|>1. Certificate of Incorporation\n<|id|>15<|type|>title<|page|>2<|box|>446 140 464 223<|content|>2. Bylaws\n<|id|>19<|type|>title<|page|>2<|box|>767 140 784 310<|content|>3. Board Resolutions\n<|id|>34<|type|>title<|page|>4<|box|>536 140 553 377<|content|>4. Good Standing Certificates\n<|id|>39<|type|>title<|page|>5<|box|>212 140 229 349<|content|>5. Incumbency Certificate\n<|id|>41<|type|>table<|page|>5<|box|>390 143 481 852<|content|>None\n<|id|>44<|type|>title<|page|>5<|box|>710 140 727 359<|content|>6. Additional Certifications\n<|id|>50<|type|>title<|page|>6<|box|>358 142 375 259<|content|>EXECUTION\n<|id|>57<|type|>title<|page|>6<|box|>554 140 571 392<|content|>COUNTER-CERTIFICATION\n<|id|>67<|type|>title<|page|>7<|box|>89 142 107 310<|content|>LIST OF EXHIBITS",
+    "raw_response": "<|src_id|>41<|tgt_id|>39",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 39
+        }
+    ]
+}

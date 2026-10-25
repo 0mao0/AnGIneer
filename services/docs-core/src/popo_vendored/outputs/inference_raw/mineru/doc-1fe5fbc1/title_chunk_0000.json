@@ -1,0 +1,70 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>12<|page|>1<|box|>459 142 474 264<|content|>I. Introduction\n<|id|>16<|page|>2<|box|>90 140 107 676<|content|>II. Background of TMC's Engagement with the Invest\n<|id|>23<|page|>3<|box|>167 140 184 545<|content|>III. Summary of Document Production Compliance\n<|id|>28<|page|>3<|box|>734 140 750 495<|content|>IV. TMC's Commitment to Full Cooperation\n<|id|>31<|page|>4<|box|>176 140 193 542<|content|>A. Continued and Expanded Document Production\n<|id|>35<|page|>4<|box|>556 140 574 663<|content|>B. Making Witnesses Available for Interviews and P\n<|id|>43<|page|>5<|box|>516 140 534 547<|content|>C. Internal Investigation and Disclosure of Findin\n<|id|>47<|page|>6<|box|>157 140 175 366<|content|>D. Compliance Remediation\n<|id|>50<|page|>6<|box|>468 140 484 408<|content|>V. Matters Regarding Gavin Holt\n<|id|>55<|page|>7<|box|>90 140 107 351<|content|>VI. Scope and Limitations\n<|id|>60<|page|>7<|box|>619 140 636 348<|content|>VII. Request for Dialogue\n<|id|>68<|page|>8<|box|>262 140 279 279<|content|>VIII. Conclusion\n<|id|>71<|page|>8<|box|>449 176 465 539<|content|>Elaine Forsythe, Partner Direct: (415) 773-6124",
+    "raw_response": "<|id|>12<|level|>1\n<|id|>16<|level|>1\n<|id|>23<|level|>1\n<|id|>28<|level|>1\n<|id|>31<|level|>2\n<|id|>35<|level|>2\n<|id|>43<|level|>2\n<|id|>47<|level|>2\n<|id|>50<|level|>1\n<|id|>55<|level|>1\n<|id|>60<|level|>1\n<|id|>68<|level|>1\n<|id|>71<|level|>-1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        }
+    ]
+}

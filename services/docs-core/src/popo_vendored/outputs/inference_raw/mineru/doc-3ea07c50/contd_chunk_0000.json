@@ -1,0 +1,42 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        61
+    ],
+    "pages": [
+        5,
+        6,
+        7,
+        8,
+        18,
+        20,
+        32,
+        36,
+        39,
+        40,
+        42,
+        60
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>5<|box|>0 1 1000 1000<|content|>Treas. ... 1\n<|id|>4<|page|>6<|box|>69 63 167 421<|content|>DEPARTMENT OF THE TREASURY FISCAL SERVICE, BUREAU ...6 OFFICIAL BUSINESS PENALTY FOR PRIVATE USE, \\$300\n<|id|>5<|page|>6<|box|>165 880 177 980<|content|>FIRST CLASS\n<|id|>9<|page|>7<|box|>174 371 200 539<|content|>April 1981\n<|id|>11<|page|>8<|box|>428 312 476 810<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents,\n<|id|>84<|page|>18<|box|>238 227 248 522<|content|>Treasury Bills (other than Cash Management Bills) - General\n<|id|>85<|page|>18<|box|>251 227 330 527<|content|>Treasury bills are sold on a discount basis under ...and branches, or of the Department of the Treasury\n<|id|>96<|page|>20<|box|>70 429 83 638<|content|>Footnotes to Table FFO-1\n<|id|>98<|page|>20<|box|>155 127 171 509<|content|>Source: ... Monthly Treasury Statement of Receipts and Outlays of the United States Government\n<|id|>104<|page|>20<|box|>254 130 279 539<|content|>7/ The joint Treasury-Office of Management and Bud...ing expenses and interest receipts of the Exchange\n<|id|>106<|page|>20<|box|>146 571 156 882<|content|>Stabilization Fund. ... The totals in the oress release are\n<|id|>107<|page|>20<|box|>162 553 188 949<|content|>8/ Includes: ... public debt accrued interest paya...ty accounts, and as of July 1974, the gold balance\n<|id|>164<|page|>32<|box|>879 93 947 497<|content|>Source: ... (This data is on the basis of Reports ...the agencies prior to reports submitted for Budget\n<|id|>165<|page|>32<|box|>879 555 954 953<|content|>presentation and therefore may differ somewhat from the Budget document. ... 531,658\n<|id|>174<|page|>36<|box|>98 271 111 816<|content|>Source and Availability of the Balance in the Account of the U. ... Treasury\n<|id|>175<|page|>36<|box|>153 173 212 514<|content|>The operating cash of the Treasury is maintained i...untry authorized to maintain tax and loan accounts\n<|id|>189<|page|>39<|box|>815 22 825 418<|content|>4/ Excludes Currency and Coin held by the Treasury and Currency and\n<|id|>190<|page|>39<|box|>823 27 834 461<|content|>Coin held by or for the account of the Federal Res...he account of the Federal Reserve banks and agents\n<|id|>195<|page|>40<|box|>868 124 968 547<|content|>Note: ... Beginning with data for December 31, 1958, the computation is based on\n<|id|>196<|page|>40<|box|>884 572 894 778<|content|>2/ Excludes Federal Financing Bank. ... 2/ Excludes Federal Financing Bank\n<|id|>203<|page|>42<|box|>774 139 800 527<|content|>Source: ... Prior to July 1974 title of this table was \"Special Public Debt Issues\"\n<|id|>204<|page|>42<|box|>798 138 915 557<|content|>1/ Consists of Government National Mortgage Associ... Overseas Private Investment Corporation beginning\n<|id|>205<|page|>42<|box|>774 597 901 1000<|content|>February 1975. ... Black Lung Disability Trust Fund Less than \\$500,000\n<|id|>247<|page|>60<|box|>81 469 94 640<|content|>Footnotes to Table PDO-4\n<|id|>248<|page|>60<|box|>163 188 776 525<|content|>Note Bureau of the Public Debt No. ... $ - $ - $ -...- $ - $ - $ - $ - $ - $ - $ - $ - $ - $ - $ - $ -$\n<|id|>249<|page|>60<|box|>162 572 762 920<|content|>Yields accepted ranged from 1. ... Yields accepted...frac{3}{4} =\\) (yields ranged from \\( \\frac{<ecel>",
+    "raw_response": "<|src_id|>104<|tgt_id|>106\n<|src_id|>164<|tgt_id|>165\n<|src_id|>189<|tgt_id|>190\n<|src_id|>204<|tgt_id|>205",
+    "parsed": [
+        {
+            "src_id": 104,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 165
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 204,
+            "tgt_id": 205
+        }
+    ]
+}

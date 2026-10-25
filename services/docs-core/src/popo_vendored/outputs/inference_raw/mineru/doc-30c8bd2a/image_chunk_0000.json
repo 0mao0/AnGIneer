@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 165 142 833<|content|>CERTIFICATION DECLARATIONS PURSUANT TO 31 C.F.R. §\n<|id|>6<|type|>title<|page|>1<|box|>377 328 393 669<|content|>CERTIFICATION DECLARATION NO. 1\n<|id|>7<|type|>title<|page|>1<|box|>417 254 435 741<|content|>HALCYON SEMICONDUCTOR AKTIENGESELLSCHAFT\n<|id|>8<|type|>title<|page|>1<|box|>449 143 465 370<|content|>1. Identification of Declarant\n<|id|>12<|type|>title<|page|>2<|box|>90 140 107 328<|content|>2. Authority to Execute\n<|id|>16<|type|>title<|page|>2<|box|>453 140 469 416<|content|>3. Identification of the Transaction\n<|id|>26<|type|>title<|page|>3<|box|>690 140 707 357<|content|>4. Identification of Counsel\n<|id|>28<|type|>title<|page|>3<|box|>758 140 773 380<|content|>Calderwood & Harkness LLP\n<|id|>37<|type|>title<|page|>4<|box|>272 140 289 349<|content|>5. Certification Statement\n<|id|>44<|type|>title<|page|>4<|box|>786 140 803 400<|content|>6. Ongoing Obligation to Update\n<|id|>55<|type|>title<|page|>5<|box|>402 326 420 669<|content|>CERTIFICATION DECLARATION NO. 2\n<|id|>56<|type|>title<|page|>5<|box|>444 307 462 689<|content|>Marlowe Asset Management PHOTONICS INC.\n<|id|>57<|type|>title<|page|>5<|box|>476 142 493 372<|content|>1. Identification of Declarant\n<|id|>61<|type|>title<|page|>6<|box|>90 140 107 328<|content|>2. Authority to Execute\n<|id|>70<|type|>title<|page|>6<|box|>582 140 598 416<|content|>3. Identification of the Transaction\n<|id|>73<|type|>table<|page|>6<|box|>746 143 895 852<|content|>None\n<|id|>74<|type|>table<|page|>7<|box|>89 143 299 852<|content|>None\n<|id|>76<|type|>title<|page|>7<|box|>474 140 491 566<|content|>4. Description of VPI's Government-Related Activit\n<|id|>92<|type|>title<|page|>9<|box|>176 140 193 359<|content|>5. Identification of Counsel\n<|id|>94<|type|>title<|page|>9<|box|>224 142 242 349<|content|>Wethersfield & Gale LLP\n<|id|>98<|type|>title<|page|>9<|box|>371 140 387 349<|content|>6. Certification Statement\n<|id|>106<|type|>title<|page|>10<|box|>194 140 212 400<|content|>7. Ongoing Obligation to Update\n<|id|>116<|type|>title<|page|>10<|box|>569 238 585 758<|content|>JOINT ACKNOWLEDGMENT AND FILING CONFIRMATION\n<|id|>142<|type|>title<|page|>13<|box|>89 447 108 550<|content|>APPENDIX\n<|id|>143<|type|>title<|page|>13<|box|>130 256 148 740<|content|>CONTACT INFORMATION FOR COUNSEL OF RECORD\n<|id|>145<|type|>title<|page|>13<|box|>243 140 261 450<|content|>For HSAG / Halcyon US Holdings Inc.:\n<|id|>146<|type|>title<|page|>13<|box|>266 140 282 380<|content|>Calderwood & Harkness LLP\n<|id|>149<|type|>title<|page|>13<|box|>385 140 402 637<|content|>For Marlowe Asset Management Photonics Inc. and th\n<|id|>150<|type|>title<|page|>13<|box|>409 142 426 349<|content|>Wethersfield & Gale LLP",
+    "raw_response": "<|src_id|>73<|tgt_id|>70\n<|src_id|>74<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 73,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 70
+        }
+    ]
+}

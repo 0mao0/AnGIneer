@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>13<|type|>title<|page|>1<|box|>750 140 767 573<|content|>I. Status of the Aldrich Matter — Resolution Summa\n<|id|>27<|type|>table<|page|>2<|box|>597 143 784 852<|content|>None\n<|id|>31<|type|>title<|page|>3<|box|>229 140 247 478<|content|>II. Pemberton's Stated Grounds for Denial\n<|id|>33<|type|>title<|page|>3<|box|>342 140 359 513<|content|>A. Insured v. Insured Exclusion (Policy § IV.C)\n<|id|>35<|type|>title<|page|>3<|box|>542 140 559 486<|content|>B. Offensive Litigation / Affirmative Claims\n<|id|>37<|type|>title<|page|>3<|box|>724 140 743 433<|content|>C. Scope of \"Employment Practices\"\n<|id|>40<|type|>title<|page|>4<|box|>90 140 107 622<|content|>III. AMA's Response — Challenging Each Ground for\n<|id|>42<|type|>title<|page|>4<|box|>202 140 219 547<|content|>A. The Insured v. Insured Exclusion Is Inapplicabl\n<|id|>50<|type|>title<|page|>5<|box|>484 140 501 537<|content|>B. AMA's Cross-Claims Were Defensive in Nature\n<|id|>56<|type|>title<|page|>6<|box|>465 140 483 694<|content|>C. The Aldrich Dispute Falls squarely Within \"Empl\n<|id|>70<|type|>title<|page|>8<|box|>321 140 339 563<|content|>IV. Financial Impact of Pemberton's Coverage Denia\n<|id|>78<|type|>title<|page|>9<|box|>204 140 222 614<|content|>V. Contrast with Pemberton's Treatment of the Clas\n<|id|>83<|type|>title<|page|>9<|box|>734 140 751 344<|content|>VI. Reservation of Rights\n<|id|>92<|type|>title<|page|>10<|box|>491 140 508 684<|content|>VII. AMA's Current Position — No Coverage Litigati\n<|id|>96<|type|>title<|page|>10<|box|>829 140 847 209<|content|>Closing",
+    "raw_response": "<|src_id|>27<|tgt_id|>13",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 13
+        }
+    ]
+}

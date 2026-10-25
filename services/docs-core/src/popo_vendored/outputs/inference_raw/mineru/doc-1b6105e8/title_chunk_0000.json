@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>393 168 428 828<|content|>PLAINTIFF/COUNTERCLAIM-DEFENDANT WHITMORE AEROSPAC\n<|id|>3<|page|>1<|box|>627 192 643 803<|content|>RESPONSES TO NUMBERED PARAGRAPHS OF THE COUNTERCLA\n<|id|>4<|page|>1<|box|>654 140 671 442<|content|>I. Jurisdictional and Party Allegations\n<|id|>17<|page|>3<|box|>534 140 551 702<|content|>II. Factual Allegations Regarding the DCMA COPD an\n<|id|>35<|page|>5<|box|>814 142 832 614<|content|>III. Allegations Regarding Pre-Litigation Dispute\n<|id|>41<|page|>6<|box|>627 140 643 648<|content|>IV. Count I — Breach of Contract / Contractual Ind\n<|id|>52<|page|>7<|box|>686 382 702 614<|content|>AFFIRMATIVE DEFENSES\n<|id|>54<|page|>7<|box|>779 142 795 423<|content|>FIRST AFFIRMATIVE DEFENSE\n<|id|>55<|page|>7<|box|>804 142 820 635<|content|>Failure to Satisfy the Causation Requirement of Se\n<|id|>58<|page|>8<|box|>395 140 412 444<|content|>SECOND AFFIRMATIVE DEFENSE\n<|id|>59<|page|>8<|box|>419 142 436 264<|content|>Force Majeure\n<|id|>61<|page|>8<|box|>640 140 657 429<|content|>THIRD AFFIRMATIVE DEFENSE\n<|id|>62<|page|>8<|box|>664 140 681 526<|content|>Overbreadth of Demand — Non-WP-4 Overruns\n<|id|>64<|page|>9<|box|>89 140 106 447<|content|>FOURTH AFFIRMATIVE DEFENSE\n<|id|>65<|page|>9<|box|>114 140 130 531<|content|>No Formal Disallowance — COPD Is Preliminary\n<|id|>67<|page|>9<|box|>388 140 406 424<|content|>FIFTH AFFIRMATIVE DEFENSE\n<|id|>68<|page|>9<|box|>414 140 430 557<|content|>Comparative Fault / Contributory Conduct of HDDS\n<|id|>74<|page|>9<|box|>773 140 791 424<|content|>SIXTH AFFIRMATIVE DEFENSE\n<|id|>75<|page|>9<|box|>799 142 816 295<|content|>Failure to Mitigate\n<|id|>77<|page|>10<|box|>194 140 210 457<|content|>SEVENTH AFFIRMATIVE DEFENSE\n<|id|>78<|page|>10<|box|>218 140 234 527<|content|>Contractual Limitation of Liability (Section 11.5)\n<|id|>80<|page|>10<|box|>439 140 455 442<|content|>EIGHTH AFFIRMATIVE DEFENSE\n<|id|>81<|page|>10<|box|>463 142 479 419<|content|>Reservation of Additional Defenses\n<|id|>83<|page|>10<|box|>625 400 640 596<|content|>PRAYER FOR RELIEF\n<|id|>90<|page|>11<|box|>89 428 106 568<|content|>JURY DEMAND\n<|id|>94<|page|>11<|box|>248 212 263 517<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>2\n<|id|>17<|level|>2\n<|id|>35<|level|>2\n<|id|>41<|level|>2\n<|id|>52<|level|>1\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>58<|level|>2\n<|id|>59<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>74<|level|>2\n<|id|>75<|level|>3\n<|id|>77<|level|>2\n<|id|>78<|level|>3\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>83<|level|>1\n<|id|>90<|level|>1\n<|id|>94<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        }
+    ]
+}

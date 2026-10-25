@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Comparable 5', 'Fraud, bankruptcy, and post-closing deliverables', 'Aggregate cap of $30M', '~12x Debt/EBITDA', 'Highest leverage among comparables; high-growth SaaS']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'target with >30% ARR growth; sponsor guaranty scope consistent with our recommendations']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 183,
+    "table2_idx": 184
+}

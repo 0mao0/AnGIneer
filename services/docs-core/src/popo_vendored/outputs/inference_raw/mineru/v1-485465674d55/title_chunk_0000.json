@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 275<|content|>【7034588#3】央视频\n<|id|>2<|page|>1<|box|>140 105 156 425<|content|>【6308020#37】中国中央电视台电视文化\n<|id|>4<|page|>1<|box|>310 107 326 336<|content|>【13324#12】中国中央电视台\n<|id|>6<|page|>1<|box|>393 107 409 319<|content|>【7201078#1】同心战“疫”\n<|id|>8<|page|>1<|box|>494 107 510 406<|content|>【26079#37】中国中央电视台新闻频道\n<|id|>10<|page|>1<|box|>595 107 612 386<|content|>【6173370#0】港珠澳大橋 (紀錄片)\n<|id|>12<|page|>1<|box|>678 105 695 522<|content|>【6816782#2】2020年中央广播电视总台春节联欢晚会\n<|id|>14<|page|>1<|box|>797 105 813 416<|content|>【132558#35】中国中央电视台综艺频道\n<|id|>16<|page|>1<|box|>898 107 914 400<|content|>【66857#9】中国中央电视台少儿频道\n<|id|>18<|page|>2<|box|>152 107 168 346<|content|>【6368844#8】人民交通出版社",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,411 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-d081e37v\\input\\pdfs\\doc-629fe0d0.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-d081e37v\\enriched\\doc-629fe0d0.json",
+    "contd_output": "<|src_id|>0<|tgt_id|>1\n<|src_id|>16<|tgt_id|>17\n<|src_id|>27<|tgt_id|>28\n<|src_id|>43<|tgt_id|>44",
+    "title_output": "<|id|>13<|level|>1\n<|id|>38<|level|>1\n<|id|>39<|level|>2\n<|id|>53<|level|>2\n<|id|>62<|level|>1\n<|id|>63<|level|>2\n<|id|>67<|level|>2\n<|id|>81<|level|>2\n<|id|>90<|level|>2\n<|id|>106<|level|>2\n<|id|>112<|level|>2\n<|id|>115<|level|>1\n<|id|>116<|level|>2\n<|id|>120<|level|>2\n<|id|>127<|level|>2\n<|id|>130<|level|>2\n<|id|>138<|level|>2\n<|id|>145<|level|>2\n<|id|>150<|level|>1\n<|id|>151<|level|>2\n<|id|>154<|level|>2\n<|id|>156<|level|>2\n<|id|>165<|level|>2\n<|id|>170<|level|>2\n<|id|>175<|level|>3\n<|id|>177<|level|>1\n<|id|>178<|level|>2\n<|id|>182<|level|>2\n<|id|>184<|level|>2\n<|id|>186<|level|>2\n<|id|>188<|level|>2\n<|id|>190<|level|>1\n<|id|>191<|level|>2\n<|id|>194<|level|>2\n<|id|>196<|level|>2\n<|id|>198<|level|>2\n<|id|>204<|level|>2\n<|id|>207<|level|>1\n<|id|>208<|level|>2\n<|id|>211<|level|>2\n<|id|>213<|level|>2\n<|id|>215<|level|>2\n<|id|>217<|level|>2\n<|id|>220<|level|>1\n<|id|>222<|level|>2\n<|id|>226<|level|>2\n<|id|>231<|level|>2\n<|id|>235<|level|>3\n<|id|>252<|level|>1\n<|id|>254<|level|>2\n<|id|>259<|level|>2\n<|id|>266<|level|>2\n<|id|>269<|level|>2\n<|id|>275<|level|>2\n<|id|>277<|level|>2\n<|id|>284<|level|>1\n<|id|>313<|level|>1\n<|id|>315<|level|>2\n<|id|>319<|level|>2\n<|id|>321<|level|>2\n<|id|>325<|level|>2\n<|id|>333<|level|>1\n<|id|>336<|level|>1\n<|id|>339<|level|>2\n<|id|>345<|level|>1\n<|id|>347<|level|>2\n<|id|>367<|level|>2\n<|id|>377<|level|>2\n<|id|>385<|level|>2\n<|id|>391<|level|>2\n<|id|>399<|level|>2\n<|id|>405<|level|>2\n<|id|>412<|level|>2",
+    "image_output": "<|src_id|>65<|tgt_id|>63\n<|src_id|>85<|tgt_id|>81\n<|src_id|>117<|tgt_id|>116\n<|src_id|>152<|tgt_id|>151\n<|src_id|>179<|tgt_id|>178\n<|src_id|>192<|tgt_id|>191\n<|src_id|>209<|tgt_id|>208\n<|src_id|>223<|tgt_id|>222\n<|src_id|>227<|tgt_id|>226\n<|src_id|>232<|tgt_id|>231\n<|src_id|>233<|tgt_id|>231\n<|src_id|>312<|tgt_id|>284\n<|src_id|>334<|tgt_id|>333\n<|src_id|>335<|tgt_id|>333\n<|src_id|>338<|tgt_id|>336",
+    "contd_label": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        }
+    ],
+    "title_label": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 1
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 1
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 213,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 1
+        },
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 226,
+            "level": 2
+        },
+        {
+            "id": 231,
+            "level": 2
+        },
+        {
+            "id": 235,
+            "level": 3
+        },
+        {
+            "id": 252,
+            "level": 1
+        },
+        {
+            "id": 254,
+            "level": 2
+        },
+        {
+            "id": 259,
+            "level": 2
+        },
+        {
+            "id": 266,
+            "level": 2
+        },
+        {
+            "id": 269,
+            "level": 2
+        },
+        {
+            "id": 275,
+            "level": 2
+        },
+        {
+            "id": 277,
+            "level": 2
+        },
+        {
+            "id": 284,
+            "level": 1
+        },
+        {
+            "id": 313,
+            "level": 1
+        },
+        {
+            "id": 315,
+            "level": 2
+        },
+        {
+            "id": 319,
+            "level": 2
+        },
+        {
+            "id": 321,
+            "level": 2
+        },
+        {
+            "id": 325,
+            "level": 2
+        },
+        {
+            "id": 333,
+            "level": 1
+        },
+        {
+            "id": 336,
+            "level": 1
+        },
+        {
+            "id": 339,
+            "level": 2
+        },
+        {
+            "id": 345,
+            "level": 1
+        },
+        {
+            "id": 347,
+            "level": 2
+        },
+        {
+            "id": 367,
+            "level": 2
+        },
+        {
+            "id": 377,
+            "level": 2
+        },
+        {
+            "id": 385,
+            "level": 2
+        },
+        {
+            "id": 391,
+            "level": 2
+        },
+        {
+            "id": 399,
+            "level": 2
+        },
+        {
+            "id": 405,
+            "level": 2
+        },
+        {
+            "id": 412,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 65,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 222
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 226
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 231
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 231
+        },
+        {
+            "src_id": 312,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 334,
+            "tgt_id": 333
+        },
+        {
+            "src_id": 335,
+            "tgt_id": 333
+        },
+        {
+            "src_id": 338,
+            "tgt_id": 336
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 334,
+            "table2_idx": 335,
+            "upper_row_ss": [
+                [
+                    "Ardent Apex Holdings",
+                    "Apex Holdings",
+                    "Delaware corporation",
+                    "Delaware, USA",
+                    "EIN: 93-2178435",
+                    "National Registered Agents of",
+                    "100% Ardent Capital",
+                    "Confirmed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Inc.",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Delaware, Inc., Dover, DE (registered agent)",
+                    "Partners III LP",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

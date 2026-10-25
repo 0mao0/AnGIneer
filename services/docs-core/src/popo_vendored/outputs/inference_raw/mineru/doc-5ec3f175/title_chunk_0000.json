@@ -1,0 +1,115 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 125 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>2<|page|>1<|box|>217 352 233 643<|content|>MEMORANDUM OF INTERVIEW\n<|id|>10<|page|>1<|box|>494 142 511 241<|content|>I. Attendees\n<|id|>12<|page|>1<|box|>546 142 563 245<|content|>Interviewee:\n<|id|>14<|page|>1<|box|>616 142 633 338<|content|>Counsel for Interviewee:\n<|id|>21<|page|>2<|box|>90 140 107 491<|content|>II. Upjohn Warnings and Acknowledgments\n<|id|>29<|page|>2<|box|>672 140 689 473<|content|>III. Background and Employment History\n<|id|>38<|page|>3<|box|>674 140 691 480<|content|>IV. Revenue-Recognition Practices at VCR\n<|id|>39<|page|>3<|box|>705 140 722 589<|content|>A. General Overview of Timeshare-Interest Sales Pr\n<|id|>44<|page|>4<|box|>429 140 446 581<|content|>B. Departure from Proper Revenue-Recognition Timin\n<|id|>50<|page|>5<|box|>275 140 292 421<|content|>C. Quantification of Overstatement\n<|id|>56<|page|>6<|box|>157 140 175 423<|content|>D. Prescott's Knowledge and Intent\n<|id|>63<|page|>7<|box|>90 140 107 537<|content|>E. Coordination with HSA and Corporate Finance\n<|id|>68<|page|>7<|box|>561 140 579 611<|content|>V. Expense-Reimbursement Irregularities and Shell\n<|id|>69<|page|>7<|box|>593 140 609 586<|content|>A. Prescott's Knowledge of the Fictitious Vendor S\n<|id|>72<|page|>8<|box|>90 140 107 426<|content|>B. Clearwater Design Collective Inc.\n<|id|>80<|page|>9<|box|>89 140 108 821<|content|>C. Knowledge of Gulf Standard Contracting LLC and\n<|id|>88<|page|>9<|box|>830 140 848 434<|content|>D. Purchase Order Approval Process\n<|id|>95<|page|>10<|box|>545 140 563 700<|content|>VI. Prescott's Understanding of Internal Controls\n<|id|>101<|page|>11<|box|>285 140 301 441<|content|>VII. Relationship with Other Subjects\n<|id|>106<|page|>11<|box|>796 140 813 508<|content|>VIII. Document Preservation and Cooperation\n<|id|>111<|page|>12<|box|>439 140 457 416<|content|>IX. Areas Identified for Follow-Up\n<|id|>119<|page|>13<|box|>90 140 107 377<|content|>X. Conclusion and Next Steps\n<|id|>128<|page|>13<|box|>603 184 638 813<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>10<|level|>2\n<|id|>12<|level|>3\n<|id|>14<|level|>3\n<|id|>21<|level|>2\n<|id|>29<|level|>2\n<|id|>38<|level|>2\n<|id|>39<|level|>3\n<|id|>44<|level|>3\n<|id|>50<|level|>3\n<|id|>56<|level|>3\n<|id|>63<|level|>3\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>72<|level|>3\n<|id|>80<|level|>3\n<|id|>88<|level|>3\n<|id|>95<|level|>2\n<|id|>101<|level|>2\n<|id|>106<|level|>2\n<|id|>111<|level|>2\n<|id|>119<|level|>2\n<|id|>128<|level|>-1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        }
+    ]
+}

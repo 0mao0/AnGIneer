@@ -1,0 +1,47 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>251 349 268 645<|content|>IN LIEU OF A SPECIAL MEETING\n<|id|>5<|page|>1<|box|>277 390 295 607<|content|>Adopted as of July 13, 2023\n<|id|>6<|page|>1<|box|>304 230 320 766<|content|>Pursuant to Section 141(f) of the Delaware General Corporation Law\n<|id|>7<|page|>1<|box|>329 140 458 856<|content|>The undersigned, being all of the members of the B...mended and Restated Bylaws, as currently in effect\n<|id|>10<|page|>1<|box|>696 140 881 857<|content|>B. ... The landlord under the proposed lease is Greystone Metropolitan Realty\n<|id|>11<|page|>2<|box|>89 140 126 854<|content|>LLC, a Delaware limited liability company (\"Landlo...ngton Avenue, 32nd Floor, New York, New York 10022\n<|id|>24<|page|>2<|box|>864 176 902 854<|content|>(iii) Exhibit C — Work Letter Agreement, setting f...(a) a base tenant improvement allowance of Eighty-\n<|id|>25<|page|>3<|box|>89 174 200 857<|content|>Five Dollars ($85. ... 5%) per annum and repaid as additional rent\n<|id|>28<|page|>3<|box|>369 174 424 854<|content|>(vi) Exhibit F — Right of First Offer Terms, grant... rights of Kestrel Insurance Holdings Inc. ... and\n<|id|>30<|page|>3<|box|>512 140 549 854<|content|>In addition to the foregoing exhibits, the Board h...d of the following ancillary transaction documents\n<|id|>32<|page|>3<|box|>637 174 729 857<|content|>(ix) A Subordination, Non-Disturbance and Attornme...ered into among Atlas Continental Bank, N. ... and\n<|id|>34<|page|>3<|box|>781 140 816 854<|content|>The Lease, the Guaranty, the SNDA, and all other d...tively herein as the \"Transaction Documents. ... \"\n<|id|>46<|page|>5<|box|>133 174 171 854<|content|>(d) the Commencement Date Confirmation Letter and ...tes required or contemplated by the Lease; ... and\n<|id|>48<|page|>5<|box|>241 140 277 854<|content|>and the execution and delivery of any such documen... officer's approval thereof; ... and be it further\n<|id|>55<|page|>5<|box|>869 143 930 854<|content|>(a) Commercial General Liability Insurance: ... Co...llars ($5,000,000) per occurrence and CONFIDENTIAL\n<|id|>56<|page|>6<|box|>90 174 181 856<|content|>Ten Million Dollars ($10,000,000) in the annual ag...es as additional insureds as required by the Lease\n<|id|>57<|page|>6<|box|>189 174 263 856<|content|>(b) Property Insurance: ... and\n<|id|>59<|page|>6<|box|>388 140 441 854<|content|>and the officers of the Company are further author...red in connection therewith; ... and be it further\n<|id|>63<|page|>6<|box|>622 174 657 854<|content|>(b) Vivienne Caldwell, Senior Vice President, Glob...a Group PLC and an officer of the Company; ... and\n<|id|>65<|page|>6<|box|>710 140 801 854<|content|>and each such Authorized Officer is further author...e evidence of such approval; ... and be it further\n<|id|>69<|page|>7<|box|>236 140 382 857<|content|>RESOLVED, that the engagement of Calderwood & Hark...ed April 6, 2023 (Matter No. ... and be it further\n<|id|>70<|page|>7<|box|>390 140 501 856<|content|>RESOLVED, that the engagement of Blackmoor Advisor... and one-quarter percent (2. ... and be it further\n<|id|>71<|page|>7<|box|>507 140 618 857<|content|>RESOLVED, that the engagement of Ashworth Patel De...nd approved in all respects; ... and be it further\n<|id|>73<|page|>7<|box|>654 138 875 857<|content|>RESOLVED, that each Authorized Officer is hereby a..., appropriate, or advisable; ... and be it further\n<|id|>74<|page|>8<|box|>90 140 218 854<|content|>RESOLVED, that all actions heretofore taken by any...ts and deeds of the Company; ... and be it further\n<|id|>81<|page|>9<|box|>89 142 108 290<|content|>Date: ... July 13, 2023\n<|id|>82<|page|>9<|box|>140 140 159 426<|content|>Name: ... Margaux Delacroix-Harrington\n<|id|>83<|page|>9<|box|>157 143 175 254<|content|>Title: ... Director\n<|id|>84<|page|>9<|box|>175 143 193 290<|content|>Date: ... July 13, 2023\n<|id|>85<|page|>9<|box|>224 140 243 357<|content|>Name: ... Whitfield\n<|id|>86<|page|>9<|box|>243 143 260 254<|content|>Title: ... Director\n<|id|>87<|page|>9<|box|>260 142 277 290<|content|>Date: ... July 13, 2023\n<|id|>99<|page|>9<|box|>915 142 930 245<|content|>CONFIDENTIAL\n<|id|>104<|page|>10<|box|>465 140 503 854<|content|>IN WITNESS WHEREOF, I have hereunto set my hand an...l of the Company as of this 13th day of July, 2023",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>24<|tgt_id|>25\n<|src_id|>32<|tgt_id|>34\n<|src_id|>46<|tgt_id|>48\n<|src_id|>55<|tgt_id|>56\n<|src_id|>73<|tgt_id|>74",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 74
+        }
+    ]
+}

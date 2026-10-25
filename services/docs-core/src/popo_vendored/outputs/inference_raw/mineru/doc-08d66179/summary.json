@@ -1,0 +1,413 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-eqnsv7kp\\input\\pdfs\\doc-08d66179.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-eqnsv7kp\\enriched\\doc-08d66179.json",
+    "contd_output": "<|src_id|>35<|tgt_id|>36\n<|src_id|>80<|tgt_id|>81",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>15<|level|>4\n<|id|>19<|level|>4\n<|id|>24<|level|>4\n<|id|>27<|level|>4\n<|id|>30<|level|>3\n<|id|>33<|level|>3\n<|id|>38<|level|>2\n<|id|>39<|level|>3\n<|id|>43<|level|>3\n<|id|>48<|level|>3\n<|id|>53<|level|>3\n<|id|>55<|level|>4\n<|id|>57<|level|>4\n<|id|>59<|level|>4\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>68<|level|>4\n<|id|>75<|level|>3\n<|id|>77<|level|>4\n<|id|>84<|level|>4\n<|id|>88<|level|>3\n<|id|>92<|level|>2\n<|id|>93<|level|>3\n<|id|>94<|level|>4\n<|id|>97<|level|>4\n<|id|>106<|level|>4\n<|id|>113<|level|>3\n<|id|>114<|level|>4\n<|id|>124<|level|>4\n<|id|>131<|level|>3\n<|id|>142<|level|>3\n<|id|>145<|level|>2\n<|id|>146<|level|>3\n<|id|>153<|level|>3\n<|id|>159<|level|>3\n<|id|>165<|level|>2\n<|id|>166<|level|>3\n<|id|>170<|level|>3\n<|id|>173<|level|>2\n<|id|>174<|level|>3\n<|id|>180<|level|>3\n<|id|>187<|level|>2\n<|id|>197<|level|>2\n<|id|>199<|level|>3\n<|id|>209<|level|>3\n<|id|>211<|level|>3\n<|id|>221<|level|>3\n<|id|>230<|level|>2",
+    "image_output": "<|src_id|>7<|tgt_id|>2\n<|src_id|>13<|tgt_id|>12\n<|src_id|>23<|tgt_id|>19\n<|src_id|>31<|tgt_id|>30\n<|src_id|>34<|tgt_id|>33\n<|src_id|>44<|tgt_id|>43\n<|src_id|>50<|tgt_id|>48\n<|src_id|>62<|tgt_id|>59\n<|src_id|>79<|tgt_id|>77\n<|src_id|>82<|tgt_id|>77\n<|src_id|>103<|tgt_id|>97\n<|src_id|>105<|tgt_id|>97\n<|src_id|>112<|tgt_id|>106\n<|src_id|>126<|tgt_id|>124\n<|src_id|>127<|tgt_id|>124\n<|src_id|>128<|tgt_id|>124\n<|src_id|>129<|tgt_id|>124\n<|src_id|>134<|tgt_id|>131\n<|src_id|>135<|tgt_id|>131\n<|src_id|>148<|tgt_id|>146\n<|src_id|>155<|tgt_id|>153\n<|src_id|>156<|tgt_id|>153\n<|src_id|>229<|tgt_id|>221\n<|src_id|>232<|tgt_id|>230\n<|src_id|>233<|tgt_id|>230\n<|src_id|>234<|tgt_id|>230",
+    "contd_label": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 4
+        },
+        {
+            "id": 19,
+            "level": 4
+        },
+        {
+            "id": 24,
+            "level": 4
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 4
+        },
+        {
+            "id": 57,
+            "level": 4
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 4
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 84,
+            "level": 4
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 106,
+            "level": 4
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 4
+        },
+        {
+            "id": 124,
+            "level": 4
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 230,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 7,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 146
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 230
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 230
+        },
+        {
+            "src_id": 234,
+            "tgt_id": 230
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 128,
+            "table2_idx": 129,
+            "upper_row_ss": [
+                [
+                    "Second Lien Term Loan (Atlas Credit)",
+                    "$95,000,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 155,
+            "table2_idx": 156,
+            "upper_row_ss": [
+                [
+                    "621111",
+                    "Offices of Physicians (Except Mental Health Specialists)",
+                    "31 affiliated physician practice management entities providing administrative and management services to physician practices"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "621493",
+                    "Freestanding Ambulatory Surgical and Emergency Centers",
+                    "42 ambulatory surgical centers providing same-day outpatient surgical procedures"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 232,
+            "table2_idx": 233,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "Complete privilege review of all 7 Item 4(c)/4(d) responsive documents. Finalize",
+                    "M. Reyes / E. Nguyen",
+                    "Feb. 15, 2024",
+                    "In progress"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "redaction log and privilege log as applicable.",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 233,
+            "table2_idx": 234,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Final review and sign-off by Howard Bellamy before",
+                    "H. Bellamy",
+                    "Feb. 15, 2024",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "conversion of this draft to execution version.",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

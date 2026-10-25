@@ -1,0 +1,155 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>202 374 219 622<|content|>INTERNAL MEMORANDUM\n<|id|>10<|page|>1<|box|>464 272 484 723<|content|>I. Introduction and Purpose of Memorandum\n<|id|>15<|page|>2<|box|>289 303 310 692<|content|>II. Statutory Framework: G.L. c. 231A\n<|id|>16<|page|>2<|box|>335 142 352 315<|content|>A. Text of the Statute\n<|id|>30<|page|>3<|box|>763 140 780 333<|content|>B. Scope and Discretion\n<|id|>34<|page|>4<|box|>472 277 492 718<|content|>III. The \"Actual Controversy\" Requirement\n<|id|>35<|page|>4<|box|>518 142 534 290<|content|>A. Legal Standard\n<|id|>41<|page|>5<|box|>395 140 412 377<|content|>B. Application to This Matter\n<|id|>56<|page|>7<|box|>308 433 328 565<|content|>IV. Ripeness\n<|id|>57<|page|>7<|box|>353 140 369 292<|content|>A. Legal Standard\n<|id|>64<|page|>8<|box|>304 140 321 377<|content|>B. Application to This Matter\n<|id|>65<|page|>8<|box|>334 142 351 401<|content|>1. Fitness for Judicial Resolution\n<|id|>69<|page|>9<|box|>90 140 107 527<|content|>2. Hardship to the Parties of Withholding Review\n<|id|>75<|page|>10<|box|>90 140 107 349<|content|>3. Conclusion on Ripeness\n<|id|>77<|page|>10<|box|>214 436 234 560<|content|>V. Standing\n<|id|>78<|page|>10<|box|>258 140 276 292<|content|>A. Legal Standard\n<|id|>82<|page|>10<|box|>652 140 669 377<|content|>B. Application to This Matter\n<|id|>88<|page|>11<|box|>388 243 409 754<|content|>VI. Potential Challenges by Vantage and Responses\n<|id|>90<|page|>11<|box|>484 140 521 810<|content|>A. Argument That Declaratory Judgment Is Inappropr\n<|id|>95<|page|>12<|box|>277 140 294 777<|content|>B. Argument That the Dispute Is Not Ripe Because t\n<|id|>97<|page|>12<|box|>421 140 439 522<|content|>Response. This argument fails for multiple reasons\n<|id|>102<|page|>13<|box|>148 140 167 679<|content|>C. Argument That the Business Litigation Session L\n<|id|>107<|page|>13<|box|>569 140 585 795<|content|>D. Argument That the Matter Should Be Resolved in\n<|id|>111<|page|>13<|box|>801 318 821 679<|content|>VII. Governing Law Considerations\n<|id|>118<|page|>14<|box|>696 336 715 661<|content|>VIII. Procedural Considerations\n<|id|>119<|page|>14<|box|>742 140 758 222<|content|>A. Venue\n<|id|>122<|page|>15<|box|>223 140 239 284<|content|>B. Counterclaims\n<|id|>129<|page|>15<|box|>710 140 729 532<|content|>C. Standard of Review on Any Dispositive Motion\n<|id|>134<|page|>16<|box|>234 310 255 684<|content|>IX. Conclusion and Recommendation\n<|id|>147<|page|>17<|box|>323 382 342 614<|content|>X. Table of Authorities\n<|id|>151<|page|>18<|box|>325 143 340 285<|content|>Other Authorities",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>30<|level|>2\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>41<|level|>2\n<|id|>56<|level|>1\n<|id|>57<|level|>2\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>69<|level|>3\n<|id|>75<|level|>3\n<|id|>77<|level|>1\n<|id|>78<|level|>2\n<|id|>82<|level|>2\n<|id|>88<|level|>1\n<|id|>90<|level|>2\n<|id|>95<|level|>2\n<|id|>97<|level|>3\n<|id|>102<|level|>2\n<|id|>107<|level|>2\n<|id|>111<|level|>1\n<|id|>118<|level|>1\n<|id|>119<|level|>2\n<|id|>122<|level|>2\n<|id|>129<|level|>2\n<|id|>134<|level|>1\n<|id|>147<|level|>1\n<|id|>151<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 2
+        }
+    ]
+}

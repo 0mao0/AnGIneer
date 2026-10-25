@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 140 174 854<|content|>1735 Market Street, Suite 3100 Philadelphia, PA 19103 Telephone: ... (215) 496-7201\n<|id|>4<|page|>1<|box|>208 723 226 854<|content|>January 20, 2023\n<|id|>3<|page|>1<|box|>181 140 200 683<|content|>600 Lexington Avenue New York, NY 10022 Telephone: ... (212) 848-4000\n<|id|>5<|page|>1<|box|>234 671 251 854<|content|>Matter No. ... 1018-00009\n<|id|>6<|page|>1<|box|>260 140 277 584<|content|>VIA SECURE FILE TRANSFER AND CERTIFIED MAIL\n<|id|>7<|page|>1<|box|>286 140 321 854<|content|>Revenue Agent Patricia Dunleavy Internal Revenue S...vision Examination Team: ... LB&I-NE-TP-2022-00641\n<|id|>8<|page|>1<|box|>330 174 402 856<|content|>Re: ... 22 — Banking Records and Bank Account Statements for Penterra Biopharma International DAC\n<|id|>22<|page|>2<|box|>816 174 890 857<|content|>(a) Account Opening Forms and Corporate Resolutions. ... This documentation reflects that\n<|id|>23<|page|>3<|box|>89 174 127 854<|content|>PBI, acting through its own board of directors and...tained its banking relationship with Glenmore Bank\n<|id|>41<|page|>4<|box|>829 181 864 854<|content|>• Imvara, PPC's immunology platform product, which...les of approximately $790 million in 2020; ... and\n<|id|>43<|page|>5<|box|>90 140 145 854<|content|>The account statements further reflect a broad ran...with PPC. ... These payments include, among others\n<|id|>50<|page|>5<|box|>857 174 893 856<|content|>(d) Regulatory Expenditure Payments. ... 2 million... sixty-eight (68) country markets during the 2017–\n<|id|>51<|page|>6<|box|>89 174 199 856<|content|>2020 period. ... The Glenmore Bank statements refl...managed by PBI's regulatory affairs team in Dublin\n<|id|>79<|page|>9<|box|>566 176 584 356<|content|>Respectfully submitted,\n<|id|>80<|page|>9<|box|>593 140 609 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>81<|page|>9<|box|>611 143 628 253<|content|>By: ... By\n<|id|>82<|page|>9<|box|>627 140 660 852<|content|>Leonard Cross Partner, Tax Department Calderwood &... Philadelphia, PA 19103 Direct: ... (215) 496-7218\n<|id|>83<|page|>9<|box|>661 140 678 442<|content|>Email: ... com\n<|id|>84<|page|>9<|box|>679 142 695 253<|content|>cc (via email): ... cc (via email)\n<|id|>85<|page|>9<|box|>704 174 739 854<|content|>Marcus Whitfield, Vice President, Global Tax Pente...ndependence Boulevard Princeton Junction, NJ 08550\n<|id|>86<|page|>9<|box|>748 176 782 854<|content|>Deborah Staines, General Counsel Penterra Pharmace...ndependence Boulevard Princeton Junction, NJ 08550\n<|id|>87<|page|>9<|box|>792 176 809 588<|content|>Garrett Simmons, Partner Calderwood & Harkness LLP\n<|id|>88<|page|>9<|box|>818 176 835 562<|content|>Leila Nazari, Counsel Calderwood & Harkness LLP\n<|id|>89<|page|>9<|box|>844 140 880 854<|content|>Enclosures: ... PPC-IDR22-000001 through PPC-IDR22-001338)",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>50<|tgt_id|>51",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>87 87 99 147<|content|>Issue #\n<|id|>28<|page|>2<|box|>86 87 101 285<|content|>Notes / Cross-References",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>28<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        }
+    ]
+}

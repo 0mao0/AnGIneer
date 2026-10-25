@@ -1,0 +1,81 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        52
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>599<|type|>table<|page|>46<|box|>89 143 142 852<|content|>None\n<|id|>600<|type|>title<|page|>47<|box|>90 155 135 841<|content|>APPENDIX B: KEY DOCUMENT EXEMPLARS FOR REVIEWER CA\n<|id|>603<|type|>title<|page|>47<|box|>300 140 318 547<|content|>Selected Exemplar Documents and Correct Coding:\n<|id|>604<|type|>table<|page|>47<|box|>347 143 513 852<|content|>None\n<|id|>605<|type|>table<|page|>47<|box|>571 143 734 852<|content|>None\n<|id|>606<|type|>table<|page|>47<|box|>794 143 907 852<|content|>None\n<|id|>607<|type|>table<|page|>48<|box|>89 143 265 852<|content|>None\n<|id|>608<|type|>table<|page|>48<|box|>321 143 503 852<|content|>None\n<|id|>609<|type|>table<|page|>48<|box|>561 143 710 852<|content|>None\n<|id|>610<|type|>table<|page|>48<|box|>768 143 893 852<|content|>None\n<|id|>611<|type|>table<|page|>49<|box|>89 143 127 852<|content|>None\n<|id|>612<|type|>table<|page|>49<|box|>184 143 335 852<|content|>None\n<|id|>613<|type|>table<|page|>49<|box|>393 143 648 852<|content|>None\n<|id|>614<|type|>table<|page|>49<|box|>705 143 800 852<|content|>None\n<|id|>615<|type|>table<|page|>49<|box|>857 143 897 852<|content|>None\n<|id|>616<|type|>table<|page|>50<|box|>89 143 215 852<|content|>None\n<|id|>618<|type|>title<|page|>51<|box|>90 166 109 830<|content|>APPENDIX C: GLOSSARY OF KEY TERMS AND ACRONYMS\n<|id|>619<|type|>table<|page|>51<|box|>189 143 901 852<|content|>None\n<|id|>620<|type|>table<|page|>52<|box|>89 143 224 852<|content|>None\n<|id|>621<|type|>title<|page|>52<|box|>258 385 273 612<|content|>— END OF PROTOCOL —",
+    "raw_response": "<|src_id|>604<|tgt_id|>603\n<|src_id|>605<|tgt_id|>603\n<|src_id|>606<|tgt_id|>603\n<|src_id|>607<|tgt_id|>603\n<|src_id|>608<|tgt_id|>603\n<|src_id|>609<|tgt_id|>603\n<|src_id|>610<|tgt_id|>603\n<|src_id|>611<|tgt_id|>603\n<|src_id|>612<|tgt_id|>603\n<|src_id|>613<|tgt_id|>603\n<|src_id|>614<|tgt_id|>603\n<|src_id|>615<|tgt_id|>603\n<|src_id|>616<|tgt_id|>603\n<|src_id|>619<|tgt_id|>618\n<|src_id|>620<|tgt_id|>618",
+    "parsed": [
+        {
+            "src_id": 604,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 605,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 606,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 607,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 608,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 609,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 610,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 611,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 612,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 613,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 614,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 615,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 616,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 619,
+            "tgt_id": 618
+        },
+        {
+            "src_id": 620,
+            "tgt_id": 618
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>561 142 579 397<|content|>1. Purpose and Legal Obligation\n<|id|>17<|page|>2<|box|>502 142 518 421<|content|>2. Scope of Preservation Obligation\n<|id|>19<|page|>2<|box|>650 142 667 292<|content|>2.1 Subject Matter\n<|id|>40<|page|>4<|box|>522 142 539 452<|content|>2.2 Key Personnel and Correspondence\n<|id|>48<|page|>4<|box|>883 218 901 609<|content|>• Marcus J. Whitmore III, Chief Executive Officer\n<|id|>53<|page|>5<|box|>253 142 270 321<|content|>2.3 Types of Materials\n<|id|>66<|page|>5<|box|>821 142 838 272<|content|>2.4 Time Period\n<|id|>68<|page|>6<|box|>186 140 204 362<|content|>3. Preservation Instructions\n<|id|>76<|page|>7<|box|>90 140 107 367<|content|>4. Distribution of this Notice\n<|id|>87<|page|>7<|box|>609 140 626 294<|content|>5. Point of Contact\n<|id|>95<|page|>8<|box|>150 140 167 238<|content|>6. Duration\n<|id|>98<|page|>8<|box|>334 140 352 429<|content|>7. Consequences of Non-Compliance\n<|id|>106<|page|>8<|box|>744 140 762 209<|content|>Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>17<|level|>1\n<|id|>19<|level|>2\n<|id|>40<|level|>2\n<|id|>48<|level|>-1\n<|id|>53<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>1\n<|id|>76<|level|>1\n<|id|>87<|level|>1\n<|id|>95<|level|>1\n<|id|>98<|level|>1\n<|id|>106<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        }
+    ]
+}

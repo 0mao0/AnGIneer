@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        60
+    ],
+    "pages": [
+        3,
+        5,
+        7,
+        8,
+        16,
+        18,
+        22,
+        27,
+        36,
+        37,
+        46,
+        59,
+        60
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>3<|box|>268 593 396 877<|content|>LIBRARY DORIANS 3 OCT29 853 TREASUR 1410117\n<|id|>4<|page|>3<|box|>491 278 531 558<|content|>OCTOBER-1953\n<|id|>5<|page|>3<|box|>820 55 884 874<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>7<|page|>5<|box|>149 170 758 862<|content|>Treasury financing operations. ... 73\n<|id|>8<|page|>5<|box|>769 167 822 771<|content|>Note: ... Where calculations have been made from u...res, the details may not check to the totals shown\n<|id|>17<|page|>7<|box|>850 115 864 487<|content|>1/ Not acceptable in payment of taxes until after\n<|id|>18<|page|>8<|box|>146 48 298 470<|content|>The new notes, Series C, are similar to the discon...es with such interest accruals as he may prescribe\n<|id|>60<|page|>16<|box|>482 235 496 754<|content|>Table 4. ... - Derivation of Cash Trust Account Transactions\n<|id|>65<|page|>18<|box|>881 497 899 963<|content|>2/ Consists of postal savings and Panama Canal bon...nal bonds, and also conversion bonds prior to 1947\n<|id|>77<|page|>22<|box|>123 421 135 571<|content|>(In millions of dollars)\n<|id|>85<|page|>27<|box|>78 21 310 480<|content|>United States savings bonds were first offered in ...red to matured debt upon which interest has ceased\n<|id|>84<|page|>27<|box|>335 417 348 596<|content|>(Dollar amounts in millions)\n<|id|>105<|page|>36<|box|>103 368 116 595<|content|>(Par values - in millions of dollars)\n<|id|>108<|page|>37<|box|>596 21 607 330<|content|>5/ Holdings by reporting agencies not available. ... 5/ Holdings by reporting agencies not available\n<|id|>110<|page|>37<|box|>635 21 655 500<|content|>8/ Federal securities fall into three broad classe...me taxes on income derived from them. ... \"Wholly\"\n<|id|>111<|page|>37<|box|>503 538 567 975<|content|>tax-exempt securities are those with the income ex...e with the income subject to normal tax and surtax\n<|id|>132<|page|>46<|box|>690 44 702 486<|content|>3/ Includes old-age insurance tax on self-employment income, imposed by\n<|id|>134<|page|>46<|box|>681 536 691 659<|content|>* Less than \\$500. ... * Less than \\$500\n<|id|>169<|page|>59<|box|>107 347 120 654<|content|>(Position at end of month in thousands of dollars)\n<|id|>171<|page|>60<|box|>40 430 52 579<|content|>CAPITAL MOVEMENTS\n<|id|>172<|page|>60<|box|>61 304 75 699<|content|>Section III - Details for Month of May 1953",
+    "raw_response": "<|src_id|>110<|tgt_id|>111",
+    "parsed": [
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        }
+    ]
+}

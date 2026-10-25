@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        51,
+        65
+    ],
+    "pages": [
+        51,
+        52,
+        54,
+        55,
+        57,
+        60,
+        62,
+        65
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>572<|page|>51<|box|>89 418 106 578<|content|>RENT SCHEDULE\n<|id|>576<|page|>52<|box|>89 447 107 550<|content|>EXHIBIT D\n<|id|>577<|page|>52<|box|>131 287 148 709<|content|>TENANT IMPROVEMENT ALLOWANCE TERMS\n<|id|>578<|page|>52<|box|>157 140 174 339<|content|>1. TI Allowance Amount\n<|id|>580<|page|>52<|box|>263 140 280 411<|content|>2. Permitted Uses of TI Allowance\n<|id|>590<|page|>52<|box|>614 140 631 367<|content|>3. Disbursement Procedures\n<|id|>592<|page|>52<|box|>684 140 702 245<|content|>4. Retainage\n<|id|>594<|page|>52<|box|>753 140 771 295<|content|>5. Deadline for Use\n<|id|>596<|page|>52<|box|>843 140 859 354<|content|>6. Plans and Specifications\n<|id|>598<|page|>54<|box|>89 447 107 549<|content|>EXHIBIT E\n<|id|>599<|page|>54<|box|>131 313 148 684<|content|>COMMENCEMENT DATE MEMORANDUM\n<|id|>622<|page|>55<|box|>89 447 108 550<|content|>EXHIBIT F\n<|id|>623<|page|>55<|box|>130 361 148 635<|content|>FORM OF LETTER OF CREDIT\n<|id|>624<|page|>55<|box|>156 140 174 555<|content|>IRREVOCABLE STANDBY LETTER OF CREDIT\n<|id|>650<|page|>57<|box|>89 447 107 550<|content|>EXHIBIT G\n<|id|>651<|page|>57<|box|>130 356 148 640<|content|>FORM OF LIMITED GUARANTY\n<|id|>652<|page|>57<|box|>157 140 174 338<|content|>LIMITED GUARANTY\n<|id|>654<|page|>57<|box|>244 142 262 243<|content|>RECITALS\n<|id|>658<|page|>57<|box|>459 140 474 267<|content|>AGREEMENT\n<|id|>696<|page|>60<|box|>89 447 108 550<|content|>EXHIBIT H\n<|id|>697<|page|>60<|box|>130 374 148 624<|content|>RULES AND REGULATIONS\n<|id|>711<|page|>62<|box|>89 450 108 547<|content|>EXHIBIT I\n<|id|>712<|page|>62<|box|>130 424 148 573<|content|>FORM OF SNDA\n<|id|>713<|page|>62<|box|>156 140 174 794<|content|>SUBORDINATION, NON-DISTURBANCE, AND ATTORNMENT AGR\n<|id|>718<|page|>62<|box|>323 140 339 243<|content|>RECITALS\n<|id|>723<|page|>62<|box|>561 140 579 267<|content|>AGREEMENT\n<|id|>760<|page|>65<|box|>89 408 107 589<|content|>SIGNATURE PAGES",
+    "raw_response": "<|id|>572<|level|>1\n<|id|>576<|level|>1\n<|id|>577<|level|>2\n<|id|>578<|level|>3\n<|id|>580<|level|>3\n<|id|>590<|level|>3\n<|id|>592<|level|>3\n<|id|>594<|level|>3\n<|id|>596<|level|>3\n<|id|>598<|level|>1\n<|id|>599<|level|>2\n<|id|>622<|level|>1\n<|id|>623<|level|>2\n<|id|>624<|level|>3\n<|id|>650<|level|>1\n<|id|>651<|level|>2\n<|id|>652<|level|>3\n<|id|>654<|level|>4\n<|id|>658<|level|>4\n<|id|>696<|level|>1\n<|id|>697<|level|>2\n<|id|>711<|level|>1\n<|id|>712<|level|>2\n<|id|>713<|level|>3\n<|id|>718<|level|>4\n<|id|>723<|level|>4\n<|id|>760<|level|>1",
+    "parsed": [
+        {
+            "id": 572,
+            "level": 1
+        },
+        {
+            "id": 576,
+            "level": 1
+        },
+        {
+            "id": 577,
+            "level": 2
+        },
+        {
+            "id": 578,
+            "level": 3
+        },
+        {
+            "id": 580,
+            "level": 3
+        },
+        {
+            "id": 590,
+            "level": 3
+        },
+        {
+            "id": 592,
+            "level": 3
+        },
+        {
+            "id": 594,
+            "level": 3
+        },
+        {
+            "id": 596,
+            "level": 3
+        },
+        {
+            "id": 598,
+            "level": 1
+        },
+        {
+            "id": 599,
+            "level": 2
+        },
+        {
+            "id": 622,
+            "level": 1
+        },
+        {
+            "id": 623,
+            "level": 2
+        },
+        {
+            "id": 624,
+            "level": 3
+        },
+        {
+            "id": 650,
+            "level": 1
+        },
+        {
+            "id": 651,
+            "level": 2
+        },
+        {
+            "id": 652,
+            "level": 3
+        },
+        {
+            "id": 654,
+            "level": 4
+        },
+        {
+            "id": 658,
+            "level": 4
+        },
+        {
+            "id": 696,
+            "level": 1
+        },
+        {
+            "id": 697,
+            "level": 2
+        },
+        {
+            "id": 711,
+            "level": 1
+        },
+        {
+            "id": 712,
+            "level": 2
+        },
+        {
+            "id": 713,
+            "level": 3
+        },
+        {
+            "id": 718,
+            "level": 4
+        },
+        {
+            "id": 723,
+            "level": 4
+        },
+        {
+            "id": 760,
+            "level": 1
+        }
+    ]
+}

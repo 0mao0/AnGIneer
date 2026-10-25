@@ -1,0 +1,40 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>298 220 364 724<|content|>公路工程机械台班费用定额\n<|id|>4<|page|>2<|box|>138 332 176 667<|content|>中华人民共和国行业推荐性标准\n<|id|>5<|page|>2<|box|>209 298 258 701<|content|>公路工程机械台班费用定额\n<|id|>11<|page|>3<|box|>251 198 324 813<|content|>中华人民共和国交通运输部公告\n<|id|>24<|page|>5<|box|>148 438 195 556<|content|>目次\n<|id|>26<|page|>6<|box|>174 297 218 707<|content|>《公路工程机械台班费用定额》编委会\n<|id|>41<|page|>7<|box|>207 443 249 562<|content|>说明",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>-1\n<|id|>5<|level|>1\n<|id|>11<|level|>-1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>41<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        }
+    ]
+}

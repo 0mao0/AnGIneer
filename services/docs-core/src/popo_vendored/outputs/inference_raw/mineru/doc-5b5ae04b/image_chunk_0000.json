@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 233 118 764<|content|>ASSIGNMENT AND ASSUMPTION AGREEMENT\n<|id|>1<|type|>title<|page|>1<|box|>137 356 157 640<|content|>(ASSUMED CONTRACTS)\n<|id|>8<|type|>title<|page|>1<|box|>439 447 455 549<|content|>RECITALS\n<|id|>15<|type|>title<|page|>2<|box|>90 142 106 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>23<|type|>title<|page|>2<|box|>623 140 640 398<|content|>ARTICLE II — ASSIGNMENT\n<|id|>31<|type|>title<|page|>3<|box|>691 140 709 403<|content|>ARTICLE III — ASSUMPTION\n<|id|>38<|type|>title<|page|>4<|box|>672 140 691 676<|content|>ARTICLE IV — RELATIONSHIP TO PURCHASE AGREEMENT\n<|id|>48<|type|>title<|page|>6<|box|>248 140 265 434<|content|>ARTICLE V — MISCELLANEOUS\n<|id|>57<|type|>title<|page|>7<|box|>750 401 768 596<|content|>[Signature Page Follows]\n<|id|>58<|type|>title<|page|>7<|box|>776 140 811 854<|content|>SIGNATURE PAGE TO ASSIGNMENT AND ASSUMPTION AGREEM\n<|id|>60<|type|>title<|page|>7<|box|>883 142 898 248<|content|>ASSIGNOR:\n<|id|>73<|type|>title<|page|>8<|box|>287 434 305 562<|content|>SCHEDULE A\n<|id|>74<|type|>title<|page|>8<|box|>313 390 330 606<|content|>ASSUMED CONTRACTS\n<|id|>76<|type|>title<|page|>8<|box|>536 142 553 375<|content|>I. Managed Care Agreements\n<|id|>77<|type|>table<|page|>8<|box|>556 143 795 851<|content|>None\n<|id|>79<|type|>table<|page|>9<|box|>111 143 270 852<|content|>None\n<|id|>80<|type|>table<|page|>9<|box|>330 143 474 852<|content|>None\n<|id|>81<|type|>title<|page|>9<|box|>513 143 531 405<|content|>IV. Equipment Leases (Assumed)\n<|id|>82<|type|>table<|page|>9<|box|>535 143 762 852<|content|>None\n<|id|>84<|type|>title<|page|>10<|box|>90 140 107 421<|content|>V. Real Property Leases (Assumed)\n<|id|>86<|type|>table<|page|>10<|box|>210 143 294 851<|content|>None\n<|id|>88<|type|>title<|page|>10<|box|>401 142 417 380<|content|>VI. Other Assumed Contracts",
+    "raw_response": "<|src_id|>77<|tgt_id|>76\n<|src_id|>79<|tgt_id|>76\n<|src_id|>80<|tgt_id|>76\n<|src_id|>82<|tgt_id|>81\n<|src_id|>86<|tgt_id|>84",
+    "parsed": [
+        {
+            "src_id": 77,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 84
+        }
+    ]
+}

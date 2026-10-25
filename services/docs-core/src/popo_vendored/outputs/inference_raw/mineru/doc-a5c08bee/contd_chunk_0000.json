@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 153 152 844<|content|>101 California Street, Suite 3200 San Francisco, California 94111 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 746 178 854<|content|>May 15, 2023\n<|id|>3<|page|>1<|box|>186 140 220 854<|content|>Adriana Voss, Esq. ... 580 Howard Street, Suite 400 San Francisco, CA 94105\n<|id|>4<|page|>1<|box|>229 140 247 263<|content|>Dear Ms. ... Voss\n<|id|>12<|page|>1<|box|>797 174 888 856<|content|>(a) Defense of Pinnacle's Claims. ... Pinnacle's c...tified in the Demand Letter as Incidents INC-4471,\n<|id|>13<|page|>2<|box|>89 174 126 854<|content|>INC-4602, INC-4815, and INC-5033, which allegedly ...ng the period from October 2022 through March 2023\n<|id|>23<|page|>2<|box|>789 174 824 854<|content|>(iii) negotiation of any renewal, extension, or am...ment or resolution of the Pinnacle dispute; ... or\n<|id|>25<|page|>3<|box|>90 140 145 854<|content|>Any expansion of the scope of this engagement shal...r a supplemental engagement letter, as appropriate\n<|id|>52<|page|>5<|box|>130 183 147 655<|content|>• Third-party vendor charges for litigation support services; ... and\n<|id|>54<|page|>5<|box|>186 140 242 854<|content|>Mediation fees charged by the mediator or mediatio...reement of the parties or by order of the mediator\n<|id|>64<|page|>6<|box|>133 181 152 560<|content|>• Policy Period: ... July 1, 2022 through July 1, 2023\n<|id|>69<|page|>6<|box|>250 140 378 856<|content|>With the Client's authorization, the Firm will ten... engagement are expected to erode the $250,000 SIR\n<|id|>65<|page|>6<|box|>154 183 170 470<|content|>• Per-Occurrence Limit: ... $5,000,000\n<|id|>66<|page|>6<|box|>174 183 190 434<|content|>• Aggregate Limit: ... $10,000,000\n<|id|>67<|page|>6<|box|>193 183 209 526<|content|>• Self-Insured Retention (\"SIR\"): ... $250,000\n<|id|>68<|page|>6<|box|>213 181 247 854<|content|>• Insurance Broker: ... Neil Frazier, Account Executive)\n<|id|>74<|page|>6<|box|>599 174 654 854<|content|>(c) If a conflict arises between the Client's inte...subject to the Firm's ethical obligations; ... and\n<|id|>76<|page|>6<|box|>724 140 779 856<|content|>The Client is encouraged to keep Velthorn Risk Adv...any communications received directly from Meridian\n<|id|>81<|page|>7<|box|>154 181 207 854<|content|>• Thomas Kwan, Vice President of Engineering / Sit...itoring data, and SLA performance metrics; ... and\n<|id|>83<|page|>7<|box|>266 138 376 856<|content|>The Client will also coordinate the Firm's access ...n to Sentinel in the event litigation is commenced\n<|id|>96<|page|>8<|box|>566 183 583 493<|content|>• Brindoval Cloud Infrastructure LLC; ... or\n<|id|>98<|page|>8<|box|>625 140 698 854<|content|>If at any point during the engagement the Firm ide...s not consentable, withdrawing from the engagement\n<|id|>104<|page|>9<|box|>179 174 234 854<|content|>(b) The Firm will take all reasonable steps to pro...uccessor counsel designated by the Client; ... and\n<|id|>106<|page|>9<|box|>304 140 395 854<|content|>The Firm's obligation to continue the representati...all applicable ethical and procedural requirements\n<|id|>124<|page|>10<|box|>818 176 835 501<|content|>Linda Osei, Partner Direct: ... (415) 772-8042\n<|id|>125<|page|>10<|box|>844 176 861 470<|content|>Email: ... com\n<|id|>126<|page|>10<|box|>862 176 878 611<|content|>Simone Laroche, Senior Associate Direct: ... (415) 772-8187\n<|id|>127<|page|>10<|box|>888 176 904 496<|content|>Email: ... com\n<|id|>128<|page|>11<|box|>90 140 108 274<|content|>Very truly yours,\n<|id|>129<|page|>11<|box|>114 140 132 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>130<|page|>11<|box|>133 143 150 253<|content|>By: ... By\n<|id|>131<|page|>11<|box|>151 142 166 287<|content|>Linda Osei Partner\n<|id|>132<|page|>11<|box|>167 142 184 292<|content|>Date: ... May 15, 2023\n<|id|>137<|page|>11<|box|>308 142 324 302<|content|>Name: ... Adriana Voss\n<|id|>138<|page|>11<|box|>325 143 340 313<|content|>Title: ... General Counsel\n<|id|>139<|page|>11<|box|>343 142 359 266<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>23<|tgt_id|>25",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 25
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>469 176 487 611<|content|>1100 Garrison Boulevard, Suite 2200 Bethesda, MD 20817\n<|id|>6<|page|>1<|box|>529 140 547 413<|content|>A lawsuit has been filed against you. ... A lawsuit has been filed against you\n<|id|>9<|page|>1<|box|>680 174 715 854<|content|>Priya Anand CALDERWOOD & HARKNESS LLP 600 Lexingto...r New York, NY 10022 Telephone: ... (212) 506-7400\n<|id|>10<|page|>1<|box|>724 176 741 488<|content|>Email: ... com\n<|id|>11<|page|>1<|box|>741 140 777 854<|content|>If you fail to respond, judgment by default will b...lso must file your answer or motion with the court\n<|id|>12<|page|>1<|box|>820 658 837 854<|content|>Date: ... November 28, 2022\n<|id|>13<|page|>2<|box|>89 143 104 300<|content|>CLERK OF COURT\n<|id|>14<|page|>2<|box|>108 143 125 253<|content|>By: ... ____\n<|id|>15<|page|>2<|box|>125 212 142 475<|content|>Signature of Clerk or Deputy Clerk\n<|id|>17<|page|>2<|box|>200 142 215 439<|content|>AO 440 (Rev. ... 06/12) Summons in a Civil Action\n<|id|>16<|page|>2<|box|>176 140 194 718<|content|>[Seal of the United States District Court for the Southern District of New York]\n<|id|>21<|page|>2<|box|>523 142 541 767<|content|>(This section should not be filed with the court unless required by Fed. ... 4(l))\n<|id|>22<|page|>2<|box|>584 140 627 854<|content|>This summons for (name of individual and title, if any): ... ____\n<|id|>23<|page|>2<|box|>670 176 686 643<|content|>☐ I personally served the summons on the individua...ly served the summons on the individual at (place)\n<|id|>24<|page|>2<|box|>739 212 757 392<|content|>on (date): ... or\n<|id|>25<|page|>2<|box|>799 178 816 808<|content|>☐ I left the summons at the individual's residence...al's residence or usual place of abode with (name)\n<|id|>26<|page|>2<|box|>869 212 887 785<|content|>a person of suitable age and discretion who resides there, on (date): ... ____,\n<|id|>27<|page|>3<|box|>90 212 107 650<|content|>and mailed a copy to the individual's last known address; ... or\n<|id|>28<|page|>3<|box|>150 178 167 539<|content|>☐ I served the summons on (name of individual): ... ☐ I served the summons on (name of individual)\n<|id|>31<|page|>3<|box|>290 212 308 392<|content|>on (date): ... or\n<|id|>32<|page|>3<|box|>349 176 367 526<|content|>☐ I returned the summons unexecuted because: ... ☐ I returned the summons unexecuted because\n<|id|>37<|page|>3<|box|>753 142 768 264<|content|>Date: ... ____\n<|id|>38<|page|>3<|box|>830 143 848 290<|content|>Signature of Server\n<|id|>39<|page|>3<|box|>882 143 898 318<|content|>Printed Name and Title\n<|id|>40<|page|>4<|box|>109 143 126 269<|content|>Server's Address",
+    "raw_response": "<|src_id|>25<|tgt_id|>26\n<|src_id|>26<|tgt_id|>27\n<|src_id|>28<|tgt_id|>31",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 31
+        }
+    ]
+}

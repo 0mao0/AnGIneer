@@ -1,0 +1,26 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 151 143 844<|content|>REDLINE — Draft Response to Demand Letter of Garza\n<|id|>2<|page|>1<|box|>214 143 251 852<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>4<|page|>1<|box|>329 142 345 279<|content|>COVER EMAIL\n<|id|>6<|page|>1<|box|>436 142 454 230<|content|>Bernard\n<|id|>18<|page|>2<|box|>373 277 391 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>21<|page|>2<|box|>450 181 486 815<|content|>DRAFT — PRIVILEGED & CONFIDENTIAL — FOR CLIENT REV\n<|id|>80<|page|>8<|box|>606 142 623 236<|content|>Dear Devin:\n<|id|>90<|page|>9<|box|>734 143 750 243<|content|>Best regards,",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>-1\n<|id|>4<|level|>2\n<|id|>6<|level|>-1\n<|id|>18<|level|>-1\n<|id|>21<|level|>-1\n<|id|>80<|level|>-1\n<|id|>90<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        }
+    ]
+}

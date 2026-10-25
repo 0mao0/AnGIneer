@@ -1,0 +1,56 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 235 118 761<|content|>SELECTED CONSOLIDATED FINANCIAL DATA\n<|id|>5<|type|>title<|page|>1<|box|>786 140 803 558<|content|>Selected Consolidated Statements of Operations Dat\n<|id|>7<|type|>table<|page|>1<|box|>854 143 904 852<|content|>None\n<|id|>8<|type|>table<|page|>2<|box|>89 143 893 854<|content|>None\n<|id|>9<|type|>table<|page|>3<|box|>88 143 375 852<|content|>None\n<|id|>10<|type|>title<|page|>3<|box|>424 142 440 470<|content|>Selected Consolidated Balance Sheet Data\n<|id|>12<|type|>table<|page|>3<|box|>492 143 906 852<|content|>None\n<|id|>13<|type|>table<|page|>4<|box|>88 143 415 854<|content|>None\n<|id|>14<|type|>title<|page|>4<|box|>464 142 482 336<|content|>Selected Operating Data\n<|id|>16<|type|>table<|page|>4<|box|>550 143 864 852<|content|>None\n<|id|>18<|type|>title<|page|>5<|box|>277 140 294 225<|content|>Footnotes\n<|id|>19<|type|>title<|page|>5<|box|>303 140 320 433<|content|>(1) Adjusted EBITDA Reconciliation\n<|id|>22<|type|>table<|page|>5<|box|>771 143 898 852<|content|>None\n<|id|>23<|type|>table<|page|>6<|box|>88 143 419 854<|content|>None\n<|id|>25<|type|>title<|page|>6<|box|>534 140 551 439<|content|>(2) Pro Forma Per Share Information\n<|id|>29<|type|>title<|page|>7<|box|>189 140 207 413<|content|>(3) Pro Forma Balance Sheet Data\n<|id|>37<|type|>title<|page|>7<|box|>816 142 834 264<|content|>(4) Debt Detail\n<|id|>42<|type|>title<|page|>8<|box|>417 142 434 308<|content|>Project-Finance Debt\n<|id|>45<|type|>title<|page|>8<|box|>824 143 840 310<|content|>Tax-Equity Financing\n<|id|>48<|type|>title<|page|>9<|box|>321 142 339 326<|content|>Key Valuation Context\n<|id|>56<|type|>title<|page|>10<|box|>487 140 503 284<|content|>Cross-References",
+    "raw_response": "<|src_id|>7<|tgt_id|>5\n<|src_id|>8<|tgt_id|>5\n<|src_id|>9<|tgt_id|>5\n<|src_id|>12<|tgt_id|>10\n<|src_id|>13<|tgt_id|>10\n<|src_id|>16<|tgt_id|>14\n<|src_id|>22<|tgt_id|>19\n<|src_id|>23<|tgt_id|>19",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 19
+        }
+    ]
+}

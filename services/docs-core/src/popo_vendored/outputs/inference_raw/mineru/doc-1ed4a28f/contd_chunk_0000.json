@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>167 140 186 700<|content|>TO: ... Patricia Dunmore, Billing Partner\n<|id|>3<|page|>1<|box|>194 140 212 437<|content|>FROM: ... Elliot Nguyen, Lead Associate\n<|id|>4<|page|>1<|box|>220 140 237 336<|content|>DATE: ... October 15, 2024\n<|id|>5<|page|>1<|box|>246 140 282 854<|content|>RE: ... 22STPB09714\n<|id|>6<|page|>1<|box|>289 140 306 362<|content|>MATTER NO. ... 1035-00005\n<|id|>7<|page|>1<|box|>316 140 334 395<|content|>CLIENT: ... Fonseca\n<|id|>14<|page|>1<|box|>824 140 878 854<|content|>Teodoro R. ... At the time of his death, Decedent ...led at 1847 Coldwater Canyon Drive, Beverly Hills,\n<|id|>15<|page|>2<|box|>90 140 126 854<|content|>California 90210. ... Decedent was a prominent fig...nterests in film production and content investment\n<|id|>85<|page|>10<|box|>747 176 763 393<|content|>Total Fees Billed: ... $487,250\n<|id|>86<|page|>10<|box|>773 176 789 423<|content|>Total Costs Advanced: ... $62,340\n<|id|>87<|page|>10<|box|>799 174 907 856<|content|>The costs advanced include fees paid to Pinnacle W...C (Dr. ... ) at Westside Dispute Resolution Center\n<|id|>88<|page|>11<|box|>89 176 107 465<|content|>Total Billed (Fees + Costs): ... $549,590\n<|id|>89<|page|>11<|box|>114 176 133 800<|content|>Evergreen Retainer Received: ... $150,000 (paid upon engagement, October 12, 2022)\n<|id|>90<|page|>11<|box|>142 176 159 831<|content|>Total Payments Received: ... $510,000 (inclusive of the retainer and subsequent payments)\n<|id|>91<|page|>11<|box|>167 176 185 609<|content|>Outstanding Balance as of September 30, 2024: ... $38,590\n<|id|>109<|page|>12<|box|>368 183 383 640<|content|>• Terminability on 30 days' written notice by either party; ... and\n<|id|>111<|page|>12<|box|>425 140 535 856<|content|>Calderwood & Harkness has already taken a prelimin...mal response within the next several business days",
+    "raw_response": "<|src_id|>14<|tgt_id|>15",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        }
+    ]
+}

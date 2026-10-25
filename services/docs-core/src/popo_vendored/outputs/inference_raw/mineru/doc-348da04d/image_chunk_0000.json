@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        10,
+        11,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>107 143 242 852<|content|>None\n<|id|>1<|type|>title<|page|>1<|box|>275 147 310 849<|content|>AFFIDAVIT OF DR. ANNIKA JOHANSSON IN SUPPORT OF PL\n<|id|>2<|type|>title<|page|>1<|box|>320 140 337 666<|content|>I, Dr. Annika Johansson, being duly sworn, depose\n<|id|>4<|type|>title<|page|>1<|box|>569 140 587 797<|content|>I. BACKGROUND OF AFFIANT AND ARBOR HEALTH TECHNOLO\n<|id|>10<|type|>title<|page|>2<|box|>775 140 811 807<|content|>II. DESMOND R. FARRIS'S EMPLOYMENT AND ACCESS TO C\n<|id|>33<|type|>title<|page|>5<|box|>89 140 107 772<|content|>III. FARRIS'S DISPARAGING AND DEFAMATORY PUBLIC ST\n<|id|>45<|type|>title<|page|>7<|box|>844 140 861 782<|content|>IV. HARM FROM DISPARAGEMENT — PIPELINE CONVERSION\n<|id|>49<|type|>title<|page|>8<|box|>755 140 792 813<|content|>V. HARM FROM CLIENT SOLICITATION — LOSS OF SPECIFI\n<|id|>57<|type|>title<|page|>10<|box|>573 140 589 540<|content|>VI. HARM FROM EMPLOYEE SOLICITATION\n<|id|>61<|type|>title<|page|>11<|box|>295 140 311 531<|content|>VII. REPUTATIONAL REMEDIATION COSTS\n<|id|>63<|type|>title<|page|>11<|box|>655 140 672 630<|content|>VIII. ONGOING AND IRREPARABLE NATURE OF HARM\n<|id|>74<|type|>title<|page|>13<|box|>89 140 107 540<|content|>IX. URGENT NEED FOR INJUNCTIVE RELIEF\n<|id|>83<|type|>title<|page|>13<|box|>789 140 806 285<|content|>VERIFICATION\n<|id|>86<|type|>title<|page|>14<|box|>148 140 166 346<|content|>COUNTY OF SUFFOLK\n<|id|>88<|type|>title<|page|>15<|box|>89 143 106 271<|content|>EXHIBIT LIST\n<|id|>89<|type|>table<|page|>15<|box|>159 143 683 852<|content|>None",
+    "raw_response": "<|src_id|>0<|tgt_id|>1\n<|src_id|>89<|tgt_id|>88",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 88
+        }
+    ]
+}

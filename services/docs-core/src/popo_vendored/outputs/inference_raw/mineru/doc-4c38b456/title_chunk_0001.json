@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        51
+    ],
+    "pages": [
+        45,
+        46,
+        48,
+        49,
+        51
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>380<|page|>45<|box|>474 416 491 581<|content|>LEGAL MATTERS\n<|id|>383<|page|>45<|box|>731 380 748 617<|content|>INDEPENDENT AUDITORS\n<|id|>386<|page|>46<|box|>167 372 184 625<|content|>AVAILABLE INFORMATION\n<|id|>394<|page|>46<|box|>825 344 842 653<|content|>INCORPORATION BY REFERENCE\n<|id|>404<|page|>48<|box|>89 316 106 681<|content|>APPENDIX A — FORM OF GLOBAL NOTE\n<|id|>411<|page|>49<|box|>89 305 106 691<|content|>APPENDIX B — INDEX OF DEFINED TERMS\n<|id|>415<|page|>51<|box|>492 406 508 589<|content|>BACK COVER PAGE\n<|id|>416<|page|>51<|box|>517 271 535 725<|content|>BELMONT RIDGE BANK, NATIONAL ASSOCIATION",
+    "raw_response": "<|id|>380<|level|>1\n<|id|>383<|level|>1\n<|id|>386<|level|>1\n<|id|>394<|level|>1\n<|id|>404<|level|>1\n<|id|>411<|level|>1\n<|id|>415<|level|>1\n<|id|>416<|level|>2",
+    "parsed": [
+        {
+            "id": 380,
+            "level": 1
+        },
+        {
+            "id": 383,
+            "level": 1
+        },
+        {
+            "id": 386,
+            "level": 1
+        },
+        {
+            "id": 394,
+            "level": 1
+        },
+        {
+            "id": 404,
+            "level": 1
+        },
+        {
+            "id": 411,
+            "level": 1
+        },
+        {
+            "id": 415,
+            "level": 1
+        },
+        {
+            "id": 416,
+            "level": 2
+        }
+    ]
+}

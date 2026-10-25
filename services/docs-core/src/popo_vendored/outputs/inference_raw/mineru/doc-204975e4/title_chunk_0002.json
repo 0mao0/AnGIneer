@@ -1,0 +1,154 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        101,
+        152
+    ],
+    "pages": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        110,
+        117,
+        118,
+        133,
+        134,
+        145,
+        150,
+        151,
+        152
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>561<|page|>101<|box|>64 337 76 653<|content|>INTERNATIONAL FINANCIAL STATISTICS.\n<|id|>562<|page|>101<|box|>90 248 105 743<|content|>Table IFS-5. - U.S. Position in the International\n<|id|>573<|page|>102<|box|>77 344 90 640<|content|>INTERNATIONAL FINANCIAL STATISTICS.\n<|id|>574<|page|>102<|box|>109 254 125 730<|content|>Table IFS-6. - Weighted-Average of Exchange Rate C\n<|id|>578<|page|>102<|box|>594 110 605 286<|content|>The equations used are as follows:\n<|id|>596<|page|>103<|box|>123 382 138 602<|content|>CAPITAL MOVEMENTS.\n<|id|>597<|page|>103<|box|>175 100 188 171<|content|>Background\n<|id|>601<|page|>103<|box|>531 103 542 218<|content|>Basic Definitions\n<|id|>605<|page|>103<|box|>875 104 885 280<|content|>Geographical Classification\n<|id|>608<|page|>103<|box|>306 519 318 641<|content|>Reporting Coverage\n<|id|>613<|page|>103<|box|>656 519 666 685<|content|>Description of Statistics\n<|id|>616<|page|>104<|box|>106 385 122 606<|content|>CAPITAL MOVEMENTS.\n<|id|>627<|page|>105<|box|>68 414 82 583<|content|>CAPITAL MOVEMENTS\n<|id|>631<|page|>106<|box|>69 404 82 582<|content|>CAPITAL MOVEMENTS.\n<|id|>636<|page|>107<|box|>71 406 84 583<|content|>_CAPITAL MOVEMENTS.\n<|id|>640<|page|>110<|box|>61 398 74 574<|content|>CAPITAL MOVEMENTS\n<|id|>641<|page|>110<|box|>79 254 93 739<|content|>Section II - Claims on Foreigners Reported by Bank\n<|id|>654<|page|>117<|box|>71 409 84 590<|content|>CAPITAL MOVEMENTS.\n<|id|>655<|page|>117<|box|>92 196 125 825<|content|>Section III - Supplementary Liabilities and Claims\n<|id|>657<|page|>118<|box|>67 404 79 582<|content|>CAPITAL MOVEMENTS\n<|id|>680<|page|>133<|box|>130 139 141 197<|content|>Background\n<|id|>683<|page|>133<|box|>438 139 447 304<|content|>Common Definitions and Concepts\n<|id|>689<|page|>133<|box|>307 580 317 682<|content|>Reporting Threshold\n<|id|>692<|page|>133<|box|>672 580 682 714<|content|>Description of Statistics\n<|id|>694<|page|>134<|box|>77 385 91 620<|content|>FOREIGN CURRENCY POSITIONS.\n<|id|>695<|page|>134<|box|>105 388 118 593<|content|>Section I - Summary Positions\n<|id|>696<|page|>134<|box|>125 339 137 640<|content|>Table FCP-I-1. - Nonbanking Firms, Positions\n<|id|>719<|page|>145<|box|>72 382 86 620<|content|>_FOREIGN CURRENCY POSITIONS.\n<|id|>727<|page|>150<|box|>170 141 181 193<|content|>SECTION I\n<|id|>758<|page|>151<|box|>75 257 90 887<|content|>__FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND\n<|id|>759<|page|>151<|box|>119 365 131 676<|content|>Government Corporations and Other Activities\n<|id|>764<|page|>152<|box|>74 245 89 752<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU",
+    "raw_response": "<|id|>561<|level|>1\n<|id|>562<|level|>2\n<|id|>573<|level|>1\n<|id|>574<|level|>2\n<|id|>578<|level|>-1\n<|id|>596<|level|>1\n<|id|>597<|level|>2\n<|id|>601<|level|>2\n<|id|>605<|level|>2\n<|id|>608<|level|>2\n<|id|>613<|level|>2\n<|id|>616<|level|>1\n<|id|>627<|level|>1\n<|id|>631<|level|>1\n<|id|>636<|level|>1\n<|id|>640<|level|>1\n<|id|>641<|level|>2\n<|id|>654<|level|>1\n<|id|>655<|level|>2\n<|id|>657<|level|>1\n<|id|>680<|level|>2\n<|id|>683<|level|>2\n<|id|>689<|level|>2\n<|id|>692<|level|>2\n<|id|>694<|level|>1\n<|id|>695<|level|>2\n<|id|>696<|level|>3\n<|id|>719<|level|>1\n<|id|>727<|level|>2\n<|id|>758<|level|>1\n<|id|>759<|level|>2\n<|id|>764<|level|>1",
+    "parsed": [
+        {
+            "id": 561,
+            "level": 1
+        },
+        {
+            "id": 562,
+            "level": 2
+        },
+        {
+            "id": 573,
+            "level": 1
+        },
+        {
+            "id": 574,
+            "level": 2
+        },
+        {
+            "id": 596,
+            "level": 1
+        },
+        {
+            "id": 597,
+            "level": 2
+        },
+        {
+            "id": 601,
+            "level": 2
+        },
+        {
+            "id": 605,
+            "level": 2
+        },
+        {
+            "id": 608,
+            "level": 2
+        },
+        {
+            "id": 613,
+            "level": 2
+        },
+        {
+            "id": 616,
+            "level": 1
+        },
+        {
+            "id": 627,
+            "level": 1
+        },
+        {
+            "id": 631,
+            "level": 1
+        },
+        {
+            "id": 636,
+            "level": 1
+        },
+        {
+            "id": 640,
+            "level": 1
+        },
+        {
+            "id": 641,
+            "level": 2
+        },
+        {
+            "id": 654,
+            "level": 1
+        },
+        {
+            "id": 655,
+            "level": 2
+        },
+        {
+            "id": 657,
+            "level": 1
+        },
+        {
+            "id": 680,
+            "level": 2
+        },
+        {
+            "id": 683,
+            "level": 2
+        },
+        {
+            "id": 689,
+            "level": 2
+        },
+        {
+            "id": 692,
+            "level": 2
+        },
+        {
+            "id": 694,
+            "level": 1
+        },
+        {
+            "id": 695,
+            "level": 2
+        },
+        {
+            "id": 696,
+            "level": 3
+        },
+        {
+            "id": 719,
+            "level": 1
+        },
+        {
+            "id": 727,
+            "level": 2
+        },
+        {
+            "id": 758,
+            "level": 1
+        },
+        {
+            "id": 759,
+            "level": 2
+        },
+        {
+            "id": 764,
+            "level": 1
+        }
+    ]
+}

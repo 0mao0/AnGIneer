@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 142 104 846<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>112 158 128 839<|content|>CALDERWOOD & HARKNESS LLP 125 Broad Street, 44th Floor New York, NY 10004\n<|id|>2<|page|>1<|box|>138 733 155 854<|content|>March 15, 2023\n<|id|>4<|page|>1<|box|>190 140 207 367<|content|>Matter Number: ... 1023-00001\n<|id|>5<|page|>1<|box|>215 140 253 854<|content|>To: ... Calloway, Founder & Chief Investment Offic...or, Infrastructure, Ironside Capital Management LP\n<|id|>6<|page|>1<|box|>260 140 277 571<|content|>CC: ... Ironside Capital Management LP — Tax Department\n<|id|>7<|page|>1<|box|>286 140 304 805<|content|>From: ... Sylvia Hartwell, Partner, Tax Theresa Kim, Associate, Funds & Asset Management\n<|id|>8<|page|>1<|box|>311 140 367 854<|content|>Re: ... 99% Interest)\n<|id|>13<|page|>1<|box|>784 140 876 857<|content|>The Vehicle has been dormant since January 9, 2023...2 to extend the outside closing date from December\n<|id|>14<|page|>2<|box|>90 140 126 854<|content|>31, 2022 to March 31, 2023, but as of the date of ... memorandum, the acquisition remains unconsummated\n<|id|>32<|page|>3<|box|>791 140 883 857<|content|>The Equity Purchase Agreement (the \"EPA\") was exec...senior secured credit facilities to be provided by\n<|id|>33<|page|>4<|box|>90 140 127 854<|content|>Atlas National Bank, N. ... and Pinnacle Credit Pa...mitted, subject to customary conditions precedent)\n<|id|>214<|page|>21<|box|>587 140 619 854<|content|>Sylvia Hartwell Partner, Tax Calderwood & Harkness...Street, 44th Floor New York, NY 10004 Tel: ... com\n<|id|>215<|page|>21<|box|>621 140 683 854<|content|>Theresa Kim Associate, Funds & Asset Management Ca...ORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>216<|page|>21<|box|>691 140 767 854<|content|>This memorandum has been prepared by Calderwood & ...tify the sender immediately and destroy all copies",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>32<|tgt_id|>33",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        }
+    ]
+}

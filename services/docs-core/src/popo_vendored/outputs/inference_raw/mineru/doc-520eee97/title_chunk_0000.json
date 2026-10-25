@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 153 155 843<|content|>CALDERWOOD & HARKNESS LLP One Liberty Plaza, 48th\n<|id|>9<|page|>1<|box|>383 359 402 637<|content|>I. Purpose and Background\n<|id|>19<|page|>2<|box|>502 423 522 573<|content|>II. Call Details\n<|id|>20<|page|>2<|box|>547 142 564 285<|content|>A. Date and Time\n<|id|>22<|page|>2<|box|>633 142 650 264<|content|>B. Participants\n<|id|>25<|page|>2<|box|>845 143 862 611<|content|>Granite Peak Capital Partners, LP (Private Equity\n<|id|>30<|page|>3<|box|>512 194 531 803<|content|>III. Summary of Topics Covered and Management Resp\n<|id|>32<|page|>3<|box|>719 142 734 645<|content|>A. No Material Adverse Change Since Last Financial\n<|id|>38<|page|>4<|box|>348 140 364 635<|content|>B. Status of the Kessler Precision Components, Inc\n<|id|>46<|page|>5<|box|>366 140 383 609<|content|>C. Representations and Warranties — Purchase Agree\n<|id|>51<|page|>5<|box|>804 140 821 648<|content|>D. Litigation — No Pending or Threatened Material\n<|id|>55<|page|>6<|box|>366 140 383 442<|content|>E. No Undisclosed Material Liabilities\n<|id|>59<|page|>6<|box|>667 140 684 514<|content|>F. ABL Facility — Availability and Compliance\n<|id|>67<|page|>7<|box|>492 140 508 580<|content|>G. Indenture Covenant Compliance — Pro Forma Basis\n<|id|>78<|page|>8<|box|>424 140 441 539<|content|>H. Environmental, Regulatory, and Labor Matters\n<|id|>87<|page|>9<|box|>167 140 184 483<|content|>I. Material Customer and Supplier Matters\n<|id|>95<|page|>9<|box|>566 140 584 586<|content|>J. Additional Questions from Initial Purchasers' C\n<|id|>102<|page|>10<|box|>297 272 316 725<|content|>IV. Management Confirmations — Summary\n<|id|>115<|page|>11<|box|>323 158 342 838<|content|>V. Offering Memorandum Supplement — Confirmation o\n<|id|>121<|page|>11<|box|>765 357 784 640<|content|>VI. Next Steps and Timeline\n<|id|>127<|page|>12<|box|>453 349 472 648<|content|>VII. Conclusion and File Note\n<|id|>132<|page|>12<|box|>814 142 830 251<|content|>Prepared by:\n<|id|>133<|page|>13<|box|>90 140 107 253<|content|>Reviewed by:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>9<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>22<|level|>2\n<|id|>25<|level|>-1\n<|id|>30<|level|>1\n<|id|>32<|level|>2\n<|id|>38<|level|>2\n<|id|>46<|level|>2\n<|id|>51<|level|>2\n<|id|>55<|level|>2\n<|id|>59<|level|>2\n<|id|>67<|level|>2\n<|id|>78<|level|>2\n<|id|>87<|level|>2\n<|id|>95<|level|>2\n<|id|>102<|level|>1\n<|id|>115<|level|>1\n<|id|>121<|level|>1\n<|id|>127<|level|>1\n<|id|>132<|level|>-1\n<|id|>133<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        }
+    ]
+}

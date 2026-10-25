@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>152 486 170 854<|content|>Priya Anand Partner Direct Dial: ... (954) 555-7218\n<|id|>2<|page|>1<|box|>179 140 196 452<|content|>Email: ... com\n<|id|>3<|page|>1<|box|>195 697 213 854<|content|>FL Bar No. ... 0087451\n<|id|>4<|page|>1<|box|>222 723 239 854<|content|>February 4, 2022\n<|id|>5<|page|>1<|box|>247 140 284 854<|content|>VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED AND ELECTRONIC MAIL (nwhitfield@wbclaw. ... com)\n<|id|>6<|page|>1<|box|>292 140 327 854<|content|>Nathan Whitfield III, Esq. ... Senior Partner Whit...1 Brickell Avenue, Suite 3000 Miami, Florida 33131\n<|id|>7<|page|>1<|box|>335 174 391 854<|content|>Re: ... — Demand for Cure of Material Breach by Co...ing Partners LLC, and Suncoast Room Management Inc\n<|id|>29<|page|>3<|box|>792 174 902 857<|content|>(b) Improper Netting of OTA Revenue. ... Under thi...property after retaining a $15 commission, Coastal\n<|id|>30<|page|>4<|box|>90 174 199 854<|content|>Palms reported only $85 as GRR rather than the ful...ting of commissions, fees, or any other deductions\n<|id|>86<|page|>8<|box|>873 181 909 854<|content|>• All bank statements, deposit records, wire trans...tal Palms, each property-level entity, Gulf Breeze\n<|id|>87<|page|>9<|box|>90 209 125 854<|content|>Hospitality LLC, Savannah Lodging Partners LLC, an...ing Partners LLC, and Suncoast Room Management Inc\n<|id|>100<|page|>10<|box|>133 140 152 274<|content|>Very truly yours,\n<|id|>101<|page|>10<|box|>159 140 176 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>102<|page|>10<|box|>178 142 195 254<|content|>By: ... By\n<|id|>103<|page|>10<|box|>194 140 212 656<|content|>Priya Anand Partner FL Bar No. ... (954) 555-7218\n<|id|>104<|page|>10<|box|>212 142 229 454<|content|>Email: ... com\n<|id|>105<|page|>10<|box|>229 140 246 397<|content|>cc: ... (via email and first-class mail)\n<|id|>106<|page|>10<|box|>253 174 291 854<|content|>Renata Solis-Vega, SVP & General Counsel, Verimark...s Boulevard, Suite 3100, Fort Lauderdale, FL 33301\n<|id|>107<|page|>10<|box|>297 174 335 854<|content|>Douglas Carmichael, Partner, Calderwood & Harkness... 6th Street, Suite 2800, Fort Lauderdale, FL 33301\n<|id|>108<|page|>10<|box|>343 174 378 854<|content|>Coastal Palms Franchise Holdings LLC (via certifie...9500 Gulf Shore Drive, Suite 450, Naples, FL 34108\n<|id|>109<|page|>10<|box|>387 174 406 810<|content|>Randall \"Randy\" Brecker (via certified mail, return receipt requested, personal service)\n<|id|>110<|page|>10<|box|>412 140 431 598<|content|>Enclosure: ... Notice of Material Breach dated February 4, 2022",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>86<|tgt_id|>87",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 87
+        }
+    ]
+}

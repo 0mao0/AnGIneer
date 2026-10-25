@@ -1,0 +1,243 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wq4niss2\\input\\pdfs\\doc-ca99d8c9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-wq4niss2\\enriched\\doc-ca99d8c9.json",
+    "contd_output": "<|src_id|>128<|tgt_id|>129\n<|src_id|>292<|tgt_id|>293\n<|src_id|>371<|tgt_id|>372",
+    "title_output": "<|id|>13<|level|>1\n<|id|>23<|level|>1\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>56<|level|>2\n<|id|>87<|level|>2\n<|id|>91<|level|>3\n<|id|>98<|level|>2\n<|id|>115<|level|>2\n<|id|>143<|level|>2\n<|id|>156<|level|>2\n<|id|>178<|level|>2\n<|id|>182<|level|>2\n<|id|>205<|level|>2\n<|id|>222<|level|>2\n<|id|>236<|level|>2\n<|id|>253<|level|>2\n<|id|>261<|level|>2\n<|id|>264<|level|>2\n<|id|>267<|level|>2\n<|id|>283<|level|>2\n<|id|>302<|level|>2\n<|id|>304<|level|>3\n<|id|>311<|level|>3\n<|id|>323<|level|>3\n<|id|>328<|level|>3\n<|id|>333<|level|>4\n<|id|>343<|level|>4\n<|id|>349<|level|>4\n<|id|>354<|level|>4\n<|id|>361<|level|>2\n<|id|>363<|level|>3",
+    "image_output": "<|src_id|>326<|tgt_id|>323\n<|src_id|>334<|tgt_id|>333\n<|src_id|>356<|tgt_id|>354\n<|src_id|>357<|tgt_id|>354\n<|src_id|>358<|tgt_id|>354\n<|src_id|>359<|tgt_id|>354\n<|src_id|>360<|tgt_id|>354",
+    "contd_label": [
+        {
+            "src_id": 128,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 292,
+            "tgt_id": 293
+        },
+        {
+            "src_id": 371,
+            "tgt_id": 372
+        }
+    ],
+    "title_label": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 236,
+            "level": 2
+        },
+        {
+            "id": 253,
+            "level": 2
+        },
+        {
+            "id": 261,
+            "level": 2
+        },
+        {
+            "id": 264,
+            "level": 2
+        },
+        {
+            "id": 267,
+            "level": 2
+        },
+        {
+            "id": 283,
+            "level": 2
+        },
+        {
+            "id": 302,
+            "level": 2
+        },
+        {
+            "id": 304,
+            "level": 3
+        },
+        {
+            "id": 311,
+            "level": 3
+        },
+        {
+            "id": 323,
+            "level": 3
+        },
+        {
+            "id": 328,
+            "level": 3
+        },
+        {
+            "id": 333,
+            "level": 4
+        },
+        {
+            "id": 343,
+            "level": 4
+        },
+        {
+            "id": 349,
+            "level": 4
+        },
+        {
+            "id": 354,
+            "level": 4
+        },
+        {
+            "id": 361,
+            "level": 2
+        },
+        {
+            "id": 363,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 326,
+            "tgt_id": 323
+        },
+        {
+            "src_id": 334,
+            "tgt_id": 333
+        },
+        {
+            "src_id": 356,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 357,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 358,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 359,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 360,
+            "tgt_id": 354
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 356,
+            "table2_idx": 357,
+            "upper_row_ss": [
+                [
+                    "5.3 (Sub-processor Notice)",
+                    "Clean text (settled)",
+                    "30-day notice period retained; BRS accepted Skybridge's position during"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "January 8 key issues call"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 357,
+            "table2_idx": 358,
+            "upper_row_ss": [
+                [
+                    "11.2 (Post-Termination)",
+                    "Clean text (settled)",
+                    "\"Format reasonably specified by Controller\" accepted in Second Redline; agreed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "11.3 (Wind-Down Period)",
+                    "Clean text (settled)",
+                    "90-day period retained; BRS accepted during January 8 key issues call"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 359,
+            "table2_idx": 360,
+            "upper_row_ss": [
+                [
+                    "1",
+                    "Section 5.4(Sub-processor)",
+                    "Whether Controller may",
+                    "Affected portion only;",
+                    "Entire Subscription",
+                    "January 30"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Objection — Termination Scope)",
+                    "terminate entire Subscription Agreement or only \"affected portion\" upon unresolved sub-processor objection",
+                    "compromise: full termination if affected portion > 50% of fees",
+                    "Agreement",
+                    "resolution call"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 140 104 522<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL\n<|id|>1<|page|>1<|box|>112 140 167 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 200 Sou...te 4400 Chicago, Illinois 60606 Telephone: ... com\n<|id|>2<|page|>1<|box|>175 707 191 854<|content|>December 20, 2022\n<|id|>3<|page|>1<|box|>200 140 218 580<|content|>VIA ELECTRONIC MAIL AND FIRST-CLASS MAIL\n<|id|>4<|page|>1<|box|>227 140 263 854<|content|>Deborah Whitfield, Esq. ... 4200 West Lakeshore Industrial Parkway, Suite 300 Waukegan, Illinois 60085\n<|id|>5<|page|>1<|box|>271 140 308 854<|content|>Martin Schaeffer Chief Executive Officer Nexford I...strial Parkway, Suite 300 Waukegan, Illinois 60085\n<|id|>6<|page|>1<|box|>315 174 369 854<|content|>Re: ... 1005-00005\n<|id|>7<|page|>1<|box|>378 140 431 854<|content|>cc: ... Diana Calloway, Principal, Marlowe Asset M...ichael, Billing Partner, Calderwood & Harkness LLP\n<|id|>8<|page|>1<|box|>440 142 457 339<|content|>Dear Deborah and Martin: ... Dear Deborah and Martin\n<|id|>36<|page|>4<|box|>828 174 901 857<|content|>Third Affirmative Defense — Breach by Cardinal Pea...dex (as reported by Platts/SPI) and the Industrial\n<|id|>37<|page|>5<|box|>90 174 200 856<|content|>Energy Cost Index, and instead used an internal \"b... that departs from its own contractual obligations\n<|id|>45<|page|>5<|box|>849 174 904 857<|content|>Count II — Declaratory Judgment. ... 4 are limited...culated in accordance with the Exhibit C Surcharge\n<|id|>46<|page|>6<|box|>90 174 181 854<|content|>Methodology, (b) supported by timely Surcharge Not...e parties continue to transact business thereunder\n<|id|>54<|page|>6<|box|>757 174 813 857<|content|>(iii) Illinois courts have repeatedly held that a ...the counterclaims duplicative or improper; ... and\n<|id|>56<|page|>6<|box|>864 140 900 856<|content|>On November 14, 2022, the Honorable Judge Patricia...e Counterclaim. ... The Court found that Nexford's\n<|id|>57<|page|>7<|box|>90 140 162 854<|content|>Counterclaim adequately states claims that are dis...s for the parties' ongoing commercial relationship\n<|id|>67<|page|>7<|box|>671 181 724 854<|content|>• The factual basis for each of Cardinal Peak's th...o dismissal) and the account stated claim; ... and\n<|id|>69<|page|>7<|box|>765 142 782 803<|content|>The Requests for Production are designed to obtain...ed to obtain the following categories of documents\n<|id|>74<|page|>8<|box|>203 181 256 854<|content|>• All correspondence between Cardinal Peak and Nex...rd's objections to the surcharge invoices; ... and\n<|id|>76<|page|>8<|box|>315 140 388 856<|content|>Under the applicable Illinois Supreme Court Rules,...dinal Peak's responses prove deficient or untimely\n<|id|>136<|page|>14<|box|>775 142 791 297<|content|>Priya Anand Partner\n<|id|>137<|page|>14<|box|>792 142 809 640<|content|>Direct Telephone: ... (312) 555-7219\n<|id|>138<|page|>14<|box|>810 142 825 452<|content|>Email: ... com\n<|id|>139<|page|>14<|box|>825 140 856 852<|content|>cc: ... Diana Calloway, Principal, Marlowe Asset M...ichael, Billing Partner, Calderwood & Harkness LLP\n<|id|>140<|page|>15<|box|>89 140 133 854<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL This l...e, copying, or distribution is strictly prohibited",
+    "raw_response": "<|src_id|>36<|tgt_id|>37\n<|src_id|>45<|tgt_id|>46\n<|src_id|>56<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        }
+    ]
+}

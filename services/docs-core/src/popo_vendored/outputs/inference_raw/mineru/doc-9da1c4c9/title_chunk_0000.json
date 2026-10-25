@@ -1,0 +1,50 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        4,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 202 118 794<|content|>WRITTEN CONSENT OF THE BOARD OF DIRECTORS\n<|id|>1<|page|>1<|box|>137 336 157 658<|content|>OF LUMOS ANALYTICS INC.\n<|id|>2<|page|>1<|box|>175 310 195 684<|content|>IN LIEU OF A SPECIAL MEETING\n<|id|>6<|page|>1<|box|>415 142 433 243<|content|>RECITALS\n<|id|>35<|page|>4<|box|>762 140 779 279<|content|>RESOLUTIONS\n<|id|>36<|page|>4<|box|>787 140 805 364<|content|>NOW, THEREFORE, BE IT:\n<|id|>66<|page|>7<|box|>839 140 856 393<|content|>CONSENT AND EXECUTION\n<|id|>69<|page|>8<|box|>233 142 250 246<|content|>DIRECTOR",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>6<|level|>2\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>66<|level|>2\n<|id|>69<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        }
+    ]
+}

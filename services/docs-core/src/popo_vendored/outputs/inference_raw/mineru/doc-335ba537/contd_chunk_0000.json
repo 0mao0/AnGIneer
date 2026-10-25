@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        9
+    ],
+    "pages": [
+        5,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>46<|page|>5<|box|>794 181 811 704<|content|>• Angela Reeves, Managing Director, FairPoint Licensing Group, LLC\n<|id|>48<|page|>5<|box|>834 178 849 366<|content|>On behalf of Lumicore: ... On behalf of Lumicore\n<|id|>75<|page|>8<|box|>844 140 898 854<|content|>42. ... It did not propose a design-around or any modification to\n<|id|>76<|page|>9<|box|>90 174 143 854<|content|>Lumicore's products that might address OWS's infri... between FairPoint (on behalf of OWS) and Lumicore",
+    "raw_response": "<|src_id|>75<|tgt_id|>76",
+    "parsed": [
+        {
+            "src_id": 75,
+            "tgt_id": 76
+        }
+    ]
+}

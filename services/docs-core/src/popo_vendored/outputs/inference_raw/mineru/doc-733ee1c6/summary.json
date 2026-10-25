@@ -1,0 +1,178 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2zn3bpqb\\input\\pdfs\\doc-733ee1c6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2zn3bpqb\\enriched\\doc-733ee1c6.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>25<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>43<|level|>3\n<|id|>53<|level|>3\n<|id|>58<|level|>2\n<|id|>59<|level|>3\n<|id|>64<|level|>3\n<|id|>71<|level|>3\n<|id|>76<|level|>3\n<|id|>83<|level|>2\n<|id|>95<|level|>2\n<|id|>101<|level|>2\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>114<|level|>3\n<|id|>118<|level|>3\n<|id|>124<|level|>2\n<|id|>130<|level|>2\n<|id|>131<|level|>3\n<|id|>138<|level|>3\n<|id|>150<|level|>2\n<|id|>158<|level|>2",
+    "image_output": "<|src_id|>28<|tgt_id|>25\n<|src_id|>29<|tgt_id|>25\n<|src_id|>73<|tgt_id|>71\n<|src_id|>126<|tgt_id|>124\n<|src_id|>127<|tgt_id|>124",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 28,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 124
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 28,
+            "table2_idx": 29,
+            "upper_row_ss": [
+                [
+                    "Year 5",
+                    "April 1, 2028 – March 31, 2029",
+                    "$6,900,000",
+                    "0.00% (flat)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Total",
+                    "",
+                    "$30,000,000",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 126,
+            "table2_idx": 127,
+            "upper_row_ss": [
+                [
+                    "Early February 2024",
+                    "Initial engagement and scoping discussions between Calderwood & Harkness and Caldwell & Pryce; definition of engagement scope, methodology, and deliverables"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "February 2024",
+                    "Caldwell & Pryce commenced the CUP benchmarking analysis, including identification and screening of comparable EMEA SaaS distribution arrangements"
+                ]
+            ]
+        }
+    ]
+}

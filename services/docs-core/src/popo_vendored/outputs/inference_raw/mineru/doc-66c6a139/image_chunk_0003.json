@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        149,
+        160
+    ],
+    "pages": [
+        150,
+        152,
+        153,
+        154,
+        155,
+        157,
+        158,
+        159,
+        160
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1914<|type|>title<|page|>150<|box|>186 392 214 654<|content|>14 原位测试\n<|id|>1915<|type|>title<|page|>150<|box|>247 433 265 612<|content|>14.1 一般规定\n<|id|>1919<|type|>title<|page|>150<|box|>471 401 490 644<|content|>14.2 浅层平板载荷试验\n<|id|>1924<|type|>title<|page|>150<|box|>764 410 783 631<|content|>14.3 十字板剪切试验\n<|id|>1937<|type|>title<|page|>152<|box|>400 405 419 605<|content|>14.4 静力触探试验\n<|id|>1940<|type|>title<|page|>152<|box|>760 405 780 605<|content|>14.5 标准贯入试验\n<|id|>1947<|type|>title<|page|>153<|box|>504 350 523 594<|content|>14.6 圆锥动力触探试验\n<|id|>1953<|type|>title<|page|>153<|box|>841 382 860 561<|content|>14.7 旁压试验\n<|id|>1956<|type|>title<|page|>154<|box|>194 431 212 610<|content|>14.8 波速测试\n<|id|>1962<|type|>title<|page|>155<|box|>171 343 198 605<|content|>15 室内试验\n<|id|>1963<|type|>title<|page|>155<|box|>230 385 247 564<|content|>15.1 一般规定\n<|id|>1965<|type|>title<|page|>155<|box|>341 385 359 564<|content|>15.2 土工试验\n<|id|>1970<|type|>table<|page|>155<|box|>618 70 778 879<|content|>None\n<|id|>1981<|type|>title<|page|>157<|box|>140 382 158 564<|content|>15.3 岩石试验\n<|id|>1986<|type|>title<|page|>157<|box|>410 357 428 589<|content|>15.4 水、土腐蚀性试验\n<|id|>1988<|type|>title<|page|>158<|box|>181 277 210 762<|content|>16 岩土工程评价和勘察报告\n<|id|>1991<|type|>title<|page|>158<|box|>354 389 373 651<|content|>16.2 岩土参数统计与分析\n<|id|>1993<|type|>title<|page|>158<|box|>580 419 597 619<|content|>16.3 岩土工程评价\n<|id|>1998<|type|>title<|page|>159<|box|>212 352 231 592<|content|>16.4 岩土工程勘察报告\n<|id|>2005<|type|>title<|page|>160<|box|>181 284 210 769<|content|>附录 D 常用地质符号与色标",
+    "raw_response": "<|src_id|>1970<|tgt_id|>1965",
+    "parsed": [
+        {
+            "src_id": 1970,
+            "tgt_id": 1965
+        }
+    ]
+}

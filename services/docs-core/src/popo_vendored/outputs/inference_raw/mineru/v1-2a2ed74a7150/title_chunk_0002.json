@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        96,
+        108
+    ],
+    "pages": [
+        96,
+        97,
+        98,
+        102,
+        104,
+        105,
+        106,
+        107,
+        108
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>828<|page|>96<|box|>107 24 181 803<|content|>ITEM 9. CHANGES IN AND DISAGREEMENTS WITH ACCOUNTA\n<|id|>830<|page|>96<|box|>237 24 262 660<|content|>ITEM 9A. CONTROLS AND PROCEDURES\n<|id|>836<|page|>96<|box|>500 24 523 516<|content|>ITEM 9B. OTHER INFORMATION\n<|id|>839<|page|>97<|box|>89 24 125 215<|content|>PART III\n<|id|>840<|page|>97<|box|>148 22 200 803<|content|>ITEM 10. DIRECTORS, EXECUTIVE OFFICERS AND CORPORA\n<|id|>842<|page|>97<|box|>310 24 335 617<|content|>ITEM 11. EXECUTIVE COMPENSATION\n<|id|>844<|page|>97<|box|>397 22 473 933<|content|>ITEM 12. SECURITY OWNERSHIP OF CERTAIN BENEFICIAL\n<|id|>846<|page|>97<|box|>547 22 598 805<|content|>ITEM 13. CERTAIN RELATIONSHIPS AND RELATED TRANSAC\n<|id|>848<|page|>97<|box|>659 24 685 908<|content|>ITEM 14. PRINCIPAL ACCOUNTANT FEES AND SERVICES\n<|id|>850<|page|>98<|box|>148 24 199 769<|content|>ITEM 15. EXHIBITS AND FINANCIAL STATEMENT SCHEDULE\n<|id|>876<|page|>102<|box|>107 24 133 513<|content|>ITEM 16. FORM 10-K SUMMARY\n<|id|>879<|page|>104<|box|>108 24 133 236<|content|>SIGNATURES\n<|id|>886<|page|>105<|box|>71 366 85 630<|content|>SUBSIDIARIES OF THE REGISTRANT\n<|id|>889<|page|>106<|box|>92 315 119 679<|content|>Certification of Chief Executive Officer Pursuant\n<|id|>903<|page|>107<|box|>92 315 119 679<|content|>Certification of Chief Financial Officer Pursuant\n<|id|>918<|page|>108<|box|>128 22 143 261<|content|>Certification of Chief Executive Officer",
+    "raw_response": "<|id|>828<|level|>1\n<|id|>830<|level|>2\n<|id|>836<|level|>2\n<|id|>839<|level|>1\n<|id|>840<|level|>1\n<|id|>842<|level|>1\n<|id|>844<|level|>1\n<|id|>846<|level|>1\n<|id|>848<|level|>1\n<|id|>850<|level|>1\n<|id|>876<|level|>1\n<|id|>879<|level|>1\n<|id|>886<|level|>1\n<|id|>889<|level|>1\n<|id|>903<|level|>1\n<|id|>918<|level|>1",
+    "parsed": [
+        {
+            "id": 828,
+            "level": 1
+        },
+        {
+            "id": 830,
+            "level": 2
+        },
+        {
+            "id": 836,
+            "level": 2
+        },
+        {
+            "id": 839,
+            "level": 1
+        },
+        {
+            "id": 840,
+            "level": 1
+        },
+        {
+            "id": 842,
+            "level": 1
+        },
+        {
+            "id": 844,
+            "level": 1
+        },
+        {
+            "id": 846,
+            "level": 1
+        },
+        {
+            "id": 848,
+            "level": 1
+        },
+        {
+            "id": 850,
+            "level": 1
+        },
+        {
+            "id": 876,
+            "level": 1
+        },
+        {
+            "id": 879,
+            "level": 1
+        },
+        {
+            "id": 886,
+            "level": 1
+        },
+        {
+            "id": 889,
+            "level": 1
+        },
+        {
+            "id": 903,
+            "level": 1
+        },
+        {
+            "id": 918,
+            "level": 1
+        }
+    ]
+}

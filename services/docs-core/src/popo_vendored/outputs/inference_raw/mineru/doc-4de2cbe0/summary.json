@@ -1,0 +1,918 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ee0wsyp3\\input\\pdfs\\doc-4de2cbe0.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ee0wsyp3\\enriched\\doc-4de2cbe0.json",
+    "contd_output": "<|src_id|>78<|tgt_id|>80\n<|src_id|>133<|tgt_id|>134",
+    "title_output": "<|id|>4<|level|>1\n<|id|>10<|level|>1\n<|id|>13<|level|>1\n<|id|>72<|level|>2\n<|id|>102<|level|>2\n<|id|>103<|level|>3\n<|id|>106<|level|>2\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>112<|level|>2\n<|id|>120<|level|>2\n<|id|>140<|level|>3\n<|id|>161<|level|>3\n<|id|>167<|level|>2\n<|id|>168<|level|>3\n<|id|>170<|level|>2\n<|id|>175<|level|>2\n<|id|>176<|level|>3\n<|id|>180<|level|>2\n<|id|>181<|level|>3\n<|id|>183<|level|>2\n<|id|>184<|level|>3\n<|id|>186<|level|>2\n<|id|>190<|level|>3\n<|id|>193<|level|>2\n<|id|>196<|level|>3\n<|id|>197<|level|>4\n<|id|>199<|level|>3\n<|id|>200<|level|>4",
+    "image_output": "<|src_id|>5<|tgt_id|>4\n<|src_id|>14<|tgt_id|>13\n<|src_id|>15<|tgt_id|>13\n<|src_id|>16<|tgt_id|>13\n<|src_id|>17<|tgt_id|>13\n<|src_id|>18<|tgt_id|>13\n<|src_id|>21<|tgt_id|>13\n<|src_id|>22<|tgt_id|>13\n<|src_id|>24<|tgt_id|>13\n<|src_id|>25<|tgt_id|>13\n<|src_id|>27<|tgt_id|>13\n<|src_id|>28<|tgt_id|>13\n<|src_id|>33<|tgt_id|>13\n<|src_id|>34<|tgt_id|>13\n<|src_id|>35<|tgt_id|>13\n<|src_id|>38<|tgt_id|>13\n<|src_id|>39<|tgt_id|>13\n<|src_id|>40<|tgt_id|>13\n<|src_id|>41<|tgt_id|>13\n<|src_id|>42<|tgt_id|>13\n<|src_id|>43<|tgt_id|>13\n<|src_id|>44<|tgt_id|>13\n<|src_id|>45<|tgt_id|>13\n<|src_id|>47<|tgt_id|>13\n<|src_id|>50<|tgt_id|>13\n<|src_id|>51<|tgt_id|>13\n<|src_id|>52<|tgt_id|>13\n<|src_id|>53<|tgt_id|>13\n<|src_id|>54<|tgt_id|>13\n<|src_id|>57<|tgt_id|>13\n<|src_id|>58<|tgt_id|>13\n<|src_id|>59<|tgt_id|>13\n<|src_id|>60<|tgt_id|>13\n<|src_id|>61<|tgt_id|>13\n<|src_id|>62<|tgt_id|>13\n<|src_id|>65<|tgt_id|>13\n<|src_id|>69<|tgt_id|>13\n<|src_id|>70<|tgt_id|>13\n<|src_id|>73<|tgt_id|>72\n<|src_id|>74<|tgt_id|>13\n<|src_id|>75<|tgt_id|>13\n<|src_id|>76<|tgt_id|>13\n<|src_id|>77<|tgt_id|>13\n<|src_id|>79<|tgt_id|>13\n<|src_id|>82<|tgt_id|>13\n<|src_id|>83<|tgt_id|>13\n<|src_id|>84<|tgt_id|>13\n<|src_id|>85<|tgt_id|>13\n<|src_id|>86<|tgt_id|>13\n<|src_id|>87<|tgt_id|>13\n<|src_id|>88<|tgt_id|>13\n<|src_id|>92<|tgt_id|>13\n<|src_id|>93<|tgt_id|>13\n<|src_id|>94<|tgt_id|>13\n<|src_id|>95<|tgt_id|>13\n<|src_id|>96<|tgt_id|>13\n<|src_id|>104<|tgt_id|>103\n<|src_id|>105<|tgt_id|>102\n<|src_id|>107<|tgt_id|>106\n<|src_id|>105<|tgt_id|>103\n<|src_id|>110<|tgt_id|>109\n<|src_id|>111<|tgt_id|>109\n<|src_id|>113<|tgt_id|>112\n<|src_id|>117<|tgt_id|>112\n<|src_id|>118<|tgt_id|>112\n<|src_id|>119<|tgt_id|>112\n<|src_id|>121<|tgt_id|>120\n<|src_id|>122<|tgt_id|>120\n<|src_id|>123<|tgt_id|>120\n<|src_id|>125<|tgt_id|>120\n<|src_id|>126<|tgt_id|>120\n<|src_id|>127<|tgt_id|>120\n<|src_id|>128<|tgt_id|>120\n<|src_id|>129<|tgt_id|>120\n<|src_id|>130<|tgt_id|>120\n<|src_id|>131<|tgt_id|>120\n<|src_id|>132<|tgt_id|>120\n<|src_id|>141<|tgt_id|>140\n<|src_id|>142<|tgt_id|>140\n<|src_id|>145<|tgt_id|>140\n<|src_id|>148<|tgt_id|>140\n<|src_id|>154<|tgt_id|>140\n<|src_id|>155<|tgt_id|>140\n<|src_id|>157<|tgt_id|>140\n<|src_id|>158<|tgt_id|>140\n<|src_id|>159<|tgt_id|>140\n<|src_id|>160<|tgt_id|>140\n<|src_id|>162<|tgt_id|>161\n<|src_id|>163<|tgt_id|>161\n<|src_id|>169<|tgt_id|>168\n<|src_id|>171<|tgt_id|>170\n<|src_id|>172<|tgt_id|>170\n<|src_id|>173<|tgt_id|>170\n<|src_id|>174<|tgt_id|>170\n<|src_id|>178<|tgt_id|>176\n<|src_id|>179<|tgt_id|>176\n<|src_id|>182<|tgt_id|>181\n<|src_id|>185<|tgt_id|>184\n<|src_id|>187<|tgt_id|>186\n<|src_id|>192<|tgt_id|>190\n<|src_id|>194<|tgt_id|>193\n<|src_id|>198<|tgt_id|>197\n<|src_id|>202<|tgt_id|>200\n<|src_id|>203<|tgt_id|>200\n<|src_id|>204<|tgt_id|>200\n<|src_id|>205<|tgt_id|>200\n<|src_id|>206<|tgt_id|>200\n<|src_id|>210<|tgt_id|>200",
+    "contd_label": [
+        {
+            "src_id": 78,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        }
+    ],
+    "title_label": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 4
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 5,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 157,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 181
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 200
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 200
+        },
+        {
+            "src_id": 204,
+            "tgt_id": 200
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 200
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 200
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 200
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 53,
+            "table2_idx": 54,
+            "upper_row_ss": [
+                [
+                    "1953",
+                    "5,689",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, End offiscalyear ormonth",
+                    "colspan=3, Total outstanding",
+                    "colspan=3, Interest-bearing debt",
+                    "colspan=6, Matured debt and debt bearing no interest"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 73,
+            "table2_idx": 74,
+            "upper_row_ss": [
+                [
+                    "rowspan=3, Dec..",
+                    "Total......",
+                    "12,219",
+                    "2,611",
+                    "2,736",
+                    "",
+                    "rowspan=3, Dec..",
+                    "Total......",
+                    "-",
+                    "1,485",
+                    "2,611",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, Year and month",
+                    "rowspan=3, Description of security 2/",
+                    "rowspan=2, Fixed maturity issuee",
+                    "colspan=2, Callable issue classified by year of:",
+                    "rowspan=3, Date bank re-stricted issue become bank eligible 3/",
+                    "rowspan=3, Year and month",
+                    "rowspan=3, Description of security 2/",
+                    "rowspan=2, Fixed maturity issuee",
+                    "colspan=2, Callable issue classified by year of:",
+                    "rowspan=3, Date bank re-stricted issue become bank eligible 3/"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 76,
+            "table2_idx": 77,
+            "upper_row_ss": [
+                [
+                    "Nov. 21",
+                    "98.923",
+                    "1.846",
+                    "99.000 8/",
+                    "1.714",
+                    "98.915",
+                    "1.860"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Date subscription books were opened",
+                    "rowspan=2, Issue date",
+                    "rowspan=2,colspan=2, Description of security",
+                    "colspan=2, Period from issue date to -",
+                    "colspan=2, Amount of subscriptions tendered",
+                    "colspan=2, Amount issued",
+                    "rowspan=2, Allotment ratio"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 83,
+            "table2_idx": 84,
+            "upper_row_ss": [
+                [
+                    "1953-January",
+                    "504",
+                    "122",
+                    "627",
+                    "435",
+                    "392",
+                    "43",
+                    "103",
+                    "58,134"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Period",
+                    "rowspan=2, Sales",
+                    "rowspan=2, Accrued discount",
+                    "rowspan=2, Sales plus accrued discount",
+                    "colspan=3, Redemptions 3/",
+                    "rowspan=2, Amount outstanding (interest-bearing debt)",
+                    "rowspan=2, Monthly redemptions as percent of amount outstanding"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 85,
+            "table2_idx": 86,
+            "upper_row_ss": [
+                [
+                    "1953-January",
+                    "43",
+                    "-",
+                    "43",
+                    "*",
+                    "*",
+                    "-",
+                    "224"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Period",
+                    "rowspan=2, Salee",
+                    "rowspan=2, Accrued discount",
+                    "rowspan=2, Sales plus accrued discount",
+                    "colspan=3, Redemptions",
+                    "rowspan=2, Amount outstanding (interest-bearing debt)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 86,
+            "table2_idx": 87,
+            "upper_row_ss": [
+                [
+                    "1953-January",
+                    "16",
+                    "*",
+                    "16",
+                    "*",
+                    "*",
+                    "*",
+                    "98"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Period",
+                    "rowspan=2, Sales 2/",
+                    "rowspan=2, Accrued discount",
+                    "rowspan=2, Sales plus accrued discount",
+                    "colspan=3, Redemptions",
+                    "rowspan=2, Amount outstanding (interest-bearing debt)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 122,
+            "table2_idx": 123,
+            "upper_row_ss": [
+                [
+                    "Total public nonmarketable securities 3/......",
+                    "2,214 8/",
+                    "1,626",
+                    "88",
+                    "72",
+                    "16",
+                    "320",
+                    "1,217",
+                    "516"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, Issue(Tax status 5/ is shown in parentheses)",
+                    "rowspan=3, Held by7,092commercial banks1/",
+                    "colspan=6, Fedsral Reserve member banks",
+                    "rowspan=3, 2,479nonmember banks"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 127,
+            "table2_idx": 128,
+            "upper_row_ss": [
+                [
+                    "2,716",
+                    "2-1/2 - 9/15/67-72 8/",
+                    "95.15",
+                    "95.19",
+                    "95.17",
+                    "-.03",
+                    "2.80 7/",
+                    "+.01",
+                    "10/20/41",
+                    "109.18",
+                    "4/6/46",
+                    "95.10",
+                    "12/30/52",
+                    "99.14",
+                    "5/12/52",
+                    "95.10",
+                    "12/30/52"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "colspan=3, Treasury bonds - bank restricted: 2/",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 172,
+            "table2_idx": 173,
+            "upper_row_ss": [
+                [
+                    "December p.",
+                    "-26,687",
+                    "-10,561",
+                    "-1,704",
+                    "-14,422",
+                    "-170,407",
+                    "-105,544",
+                    "-62,819",
+                    "-2,044",
+                    "-197,094"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, Calendar year or month",
+                    "colspan=3, Domestic stocks",
+                    "colspan=3, Domestic bonds",
+                    "rowspan=2, Total purchases",
+                    "rowspan=2, Total sales",
+                    "rowspan=2, Net purchases of domestic securities"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 178,
+            "table2_idx": 179,
+            "upper_row_ss": [
+                [
+                    "Grand total",
+                    "189,905",
+                    "233,593",
+                    "82,614",
+                    "137,463r",
+                    "-211,767",
+                    "130,036",
+                    "223,373",
+                    "-114,497",
+                    "87,974r",
+                    "-197,094"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, Country",
+                    "colspan=5, Movement in brokerage balances",
+                    "colspan=5, Transactions in long-term securities, domestic and foreign"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 202,
+            "table2_idx": 203,
+            "upper_row_ss": [
+                [
+                    "Grand total",
+                    "10,501,621",
+                    "8,786,884",
+                    "4,418,742",
+                    "3,903,805",
+                    "464,337",
+                    "1,655,829",
+                    "1,405,542",
+                    "197,520",
+                    "52,767",
+                    "58,908",
+                    "57,684",
+                    "1,224"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=4, Country",
+                    "colspan=6, Purchases by foreigners",
+                    "colspan=6, Sales by foreigners"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 203,
+            "table2_idx": 204,
+            "upper_row_ss": [
+                [
+                    "Grand total.",
+                    "135,589",
+                    "43,222",
+                    "18,150",
+                    "75,530",
+                    "25,926",
+                    "22,761",
+                    "205,061",
+                    "19,516",
+                    "20,496",
+                    "68,641",
+                    "75,476",
+                    "20,932"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, ",
+                    "colspan=12, Issue and page number"
+                ]
+            ]
+        }
+    ]
+}

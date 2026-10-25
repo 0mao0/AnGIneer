@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 183 148 856<|content|>CALDERWOOD & HARKNESS LLP 150 North Michigan Avenu\n<|id|>8<|type|>title<|page|>1<|box|>393 142 409 245<|content|>Dear Lauren:\n<|id|>12<|type|>title<|page|>1<|box|>768 140 785 478<|content|>I. Borrowing Base — Availability Reserves\n<|id|>13<|type|>title<|page|>1<|box|>799 142 816 488<|content|>1.1 Quantum of Initial Availability Reserves\n<|id|>22<|type|>title<|page|>2<|box|>607 142 625 490<|content|>1.2 Agent's Discretionary Reserve Authority\n<|id|>30<|type|>title<|page|>3<|box|>656 140 674 635<|content|>II. Borrowing Base — Advance Rates on Crop-Input I\n<|id|>31<|type|>title<|page|>3<|box|>686 140 704 638<|content|>2.1 Crop-Input Inventory Advance Rate and Eligibil\n<|id|>40<|type|>title<|page|>5<|box|>257 140 273 560<|content|>2.2 Valuation Methodology for Crop-Input Inventory\n<|id|>43<|type|>title<|page|>5<|box|>604 140 621 560<|content|>III. Borrowing Base — Warehouse Receipt Valuation\n<|id|>44<|type|>title<|page|>5<|box|>633 140 651 633<|content|>3.1 CBOT Settlement Price Reference and Basis Dete\n<|id|>50<|type|>title<|page|>6<|box|>476 140 493 566<|content|>IV. Field Examination Scheduling and Cost Allocati\n<|id|>51<|type|>title<|page|>6<|box|>507 140 523 367<|content|>4.1 Frequency and Cost Cap\n<|id|>58<|type|>title<|page|>7<|box|>250 140 266 602<|content|>4.2 Coordination with Borrowing Base Certificate D\n<|id|>62<|type|>title<|page|>7<|box|>630 140 647 390<|content|>4.3 Selection of Field Examiner\n<|id|>65<|type|>title<|page|>8<|box|>148 140 167 459<|content|>V. Commodity Hedging Negative Pledge\n<|id|>66<|type|>title<|page|>8<|box|>180 140 198 331<|content|>5.1 Scope of Restriction\n<|id|>72<|type|>title<|page|>9<|box|>250 140 266 383<|content|>5.2 Interaction with Collateral\n<|id|>75<|type|>title<|page|>9<|box|>595 140 613 423<|content|>VI. Anti-Cash-Hoarding Provisions\n<|id|>76<|type|>title<|page|>9<|box|>627 140 643 483<|content|>6.1 Minimum Excess Availability Covenant\n<|id|>83<|type|>title<|page|>10<|box|>375 140 392 529<|content|>6.2 Cash Dominion / Springing Dominion Trigger\n<|id|>90<|type|>title<|page|>11<|box|>268 140 285 416<|content|>6.3 Deposit Account Requirements\n<|id|>95<|type|>title<|page|>11<|box|>720 140 738 555<|content|>VII. Reporting Requirements During Trigger Period\n<|id|>101<|type|>title<|page|>12<|box|>458 140 474 333<|content|>VIII. Other Open Items\n<|id|>102<|type|>title<|page|>12<|box|>489 140 506 506<|content|>8.1 Material Adverse Change/Effect Definition\n<|id|>113<|type|>title<|page|>13<|box|>444 140 462 421<|content|>8.2 Insurance Endorsement Timing\n<|id|>120<|type|>title<|page|>14<|box|>157 140 175 509<|content|>8.3 Representations — Bring-Down Mechanics\n<|id|>124<|type|>title<|page|>14<|box|>659 142 675 464<|content|>IX. Summary of Key Requested Changes\n<|id|>126<|type|>table<|page|>14<|box|>726 143 901 852<|content|>None\n<|id|>127<|type|>table<|page|>15<|box|>90 143 900 852<|content|>None\n<|id|>128<|type|>table<|page|>16<|box|>89 143 232 851<|content|>None\n<|id|>129<|type|>title<|page|>16<|box|>265 140 281 200<|content|>\\* \\* \\*\n<|id|>142<|type|>title<|page|>16<|box|>887 143 902 232<|content|>Enclosure:",
+    "raw_response": "<|src_id|>126<|tgt_id|>124\n<|src_id|>127<|tgt_id|>124\n<|src_id|>128<|tgt_id|>124",
+    "parsed": [
+        {
+            "src_id": 126,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 124
+        }
+    ]
+}

@@ -1,0 +1,183 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-q1sb5euh\\input\\pdfs\\doc-f4676d84.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-q1sb5euh\\enriched\\doc-f4676d84.json",
+    "contd_output": "<|src_id|>15<|tgt_id|>16\n<|src_id|>146<|tgt_id|>147",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>11<|level|>2\n<|id|>24<|level|>2\n<|id|>34<|level|>2\n<|id|>36<|level|>3\n<|id|>46<|level|>3\n<|id|>56<|level|>3\n<|id|>60<|level|>3\n<|id|>65<|level|>3\n<|id|>82<|level|>3\n<|id|>102<|level|>3\n<|id|>119<|level|>3\n<|id|>131<|level|>3\n<|id|>142<|level|>2\n<|id|>156<|level|>2\n<|id|>169<|level|>2\n<|id|>172<|level|>3\n<|id|>175<|level|>2\n<|id|>176<|level|>3\n<|id|>180<|level|>3\n<|id|>186<|level|>3\n<|id|>191<|level|>3\n<|id|>194<|level|>2\n<|id|>204<|level|>2\n<|id|>214<|level|>2",
+    "image_output": "<|src_id|>62<|tgt_id|>60\n<|src_id|>63<|tgt_id|>60\n<|src_id|>171<|tgt_id|>169\n<|src_id|>173<|tgt_id|>172\n<|src_id|>178<|tgt_id|>176\n<|src_id|>188<|tgt_id|>186\n<|src_id|>189<|tgt_id|>186",
+    "contd_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 147
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 191,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 214,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 172
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 186
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 188,
+            "table2_idx": 189,
+            "upper_row_ss": [
+                [
+                    "Legal Fees",
+                    "$385,000",
+                    "$87,400",
+                    "$297,600"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Expert Preliminary Analysis",
+                    "$90,000",
+                    "~$32,000",
+                    "~$58,000"
+                ]
+            ]
+        }
+    ]
+}

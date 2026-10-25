@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        91,
+        99
+    ],
+    "pages": [
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1043<|type|>title<|page|>91<|box|>128 75 145 223<|content|>Critical Audit Matter\n<|id|>1045<|type|>title<|page|>91<|box|>265 133 281 570<|content|>Performance obligations in cloud-enabled software\n<|id|>1049<|type|>title<|page|>91<|box|>625 444 638 552<|content|>/s/ KPMG LLP\n<|id|>1052<|type|>title<|page|>92<|box|>49 75 79 903<|content|>ITEM 9. CHANGES IN AND DISAGREEMENTS WITH ACCOUNTA\n<|id|>1054<|type|>title<|page|>92<|box|>114 75 128 410<|content|>ITEM 9A. CONTROLS AND PROCEDURES\n<|id|>1055<|type|>title<|page|>92<|box|>141 76 156 334<|content|>Disclosure Controls and Procedures\n<|id|>1058<|type|>title<|page|>92<|box|>402 76 419 614<|content|>Management’s Annual Report on Internal Control ove\n<|id|>1061<|type|>title<|page|>92<|box|>588 75 604 460<|content|>Changes in Internal Control over Financial Reporti\n<|id|>1063<|type|>title<|page|>92<|box|>655 76 671 346<|content|>ITEM 9B. OTHER INFORMATION\n<|id|>1065<|type|>title<|page|>92<|box|>709 75 724 834<|content|>ITEM 9C. DISCLOSURE REGARDING FOREIGN JURISDICTION\n<|id|>1067<|type|>title<|page|>93<|box|>50 76 64 150<|content|>PART III\n<|id|>1068<|type|>title<|page|>93<|box|>75 75 90 718<|content|>ITEM 10. DIRECTORS, EXECUTIVE OFFICERS AND CORPORA\n<|id|>1070<|type|>title<|page|>93<|box|>189 75 205 395<|content|>ITEM 11. EXECUTIVE COMPENSATION\n<|id|>1072<|type|>title<|page|>93<|box|>243 75 273 919<|content|>ITEM 12. SECURITY OWNERSHIP OF CERTAIN BENEFICIAL\n<|id|>1074<|type|>title<|page|>93<|box|>311 75 327 900<|content|>ITEM 13. CERTAIN RELATIONSHIPS AND RELATED TRANSAC\n<|id|>1076<|type|>title<|page|>93<|box|>364 75 378 539<|content|>ITEM 14. PRINCIPAL ACCOUNTING FEES AND SERVICES\n<|id|>1078<|type|>title<|page|>94<|box|>49 76 64 150<|content|>PART IV\n<|id|>1079<|type|>title<|page|>94<|box|>75 75 90 545<|content|>ITEM 15. EXHIBITS, FINANCIAL STATEMENT SCHEDULES\n<|id|>1081<|type|>table<|page|>94<|box|>138 83 912 915<|content|>None\n<|id|>1082<|type|>table<|page|>95<|box|>63 81 904 913<|content|>None\n<|id|>1083<|type|>table<|page|>96<|box|>60 78 559 913<|content|>None\n<|id|>1084<|type|>title<|page|>97<|box|>49 441 65 555<|content|>SIGNATURES\n<|id|>1087<|type|>table<|page|>97<|box|>152 75 248 919<|content|>None\n<|id|>1089<|type|>title<|page|>97<|box|>329 400 345 593<|content|>POWER OF ATTORNEY\n<|id|>1092<|type|>table<|page|>97<|box|>484 75 938 916<|content|>None\n<|id|>1093<|type|>table<|page|>98<|box|>51 73 526 915<|content|>None\n<|id|>1094<|type|>title<|page|>99<|box|>49 374 64 617<|content|>SUMMARY OF TRADEMARKS",
+    "raw_response": "<|src_id|>1081<|tgt_id|>1079\n<|src_id|>1082<|tgt_id|>1079\n<|src_id|>1083<|tgt_id|>1079\n<|src_id|>1087<|tgt_id|>1084\n<|src_id|>1092<|tgt_id|>1089\n<|src_id|>1093<|tgt_id|>1089",
+    "parsed": [
+        {
+            "src_id": 1081,
+            "tgt_id": 1079
+        },
+        {
+            "src_id": 1082,
+            "tgt_id": 1079
+        },
+        {
+            "src_id": 1083,
+            "tgt_id": 1079
+        },
+        {
+            "src_id": 1087,
+            "tgt_id": 1084
+        },
+        {
+            "src_id": 1092,
+            "tgt_id": 1089
+        },
+        {
+            "src_id": 1093,
+            "tgt_id": 1089
+        }
+    ]
+}

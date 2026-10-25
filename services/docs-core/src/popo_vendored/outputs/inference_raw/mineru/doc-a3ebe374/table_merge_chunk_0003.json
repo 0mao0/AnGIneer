@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['CUT-09', 'License of late-stage (Phase III) oncology compound; higher royalty reflecting development-stage risk premium;', 'Oct. 2013', 'Global ex-U.S.', '4.8% of net sales', 'Late-stage clinical compound; higher risk profile; adjusted downward for development-stage differential', 'Commercial Database (Vireo Health IT)', 'PPC-IDR25-000482 - 000534']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'licensee to complete Phase III and file for regulatory approval', '', '', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 66,
+    "table2_idx": 67
+}

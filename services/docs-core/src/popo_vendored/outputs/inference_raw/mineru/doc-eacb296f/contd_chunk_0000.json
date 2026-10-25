@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        12,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>174 622 190 854<|content|>www. ... com\n<|id|>1<|page|>1<|box|>199 741 217 854<|content|>March 1, 2023\n<|id|>3<|page|>1<|box|>287 166 324 830<|content|>Reference: ... 78412-JRC\n<|id|>4<|page|>1<|box|>332 140 515 857<|content|>This Addendum to Engagement Letter — Tax Advisory ...e Firm in connection with the Client's estate plan\n<|id|>9<|page|>1<|box|>842 140 878 854<|content|>WHEREAS, the responsible partner for the engagemen...ing partner is Howard Quinn, Partner, Calderwood &\n<|id|>10<|page|>2<|box|>90 140 126 854<|content|>Harkness LLP, both of the Firm's White Collar & In...ctice, as designated in the Base Engagement Letter\n<|id|>11<|page|>2<|box|>133 140 208 854<|content|>WHEREAS, Sylvia Hartwell, Partner, Tax Practice Gr...matters within the scope of this Addendum; ... and\n<|id|>12<|page|>2<|box|>215 140 306 854<|content|>WHEREAS, the Client's accountants and tax advisors... and state tax returns referenced in this Addendum\n<|id|>20<|page|>2<|box|>659 174 696 854<|content|>(e) the Caldwell Revocable Trust (the \"Revocable T...erty (\"QTIP\") trust provisions thereunder; ... and\n<|id|>22<|page|>2<|box|>750 140 875 856<|content|>The Tax Advisory Services described in this Addend...ifications set forth in Section 8 of this Addendum\n<|id|>39<|page|>3<|box|>694 253 710 727<|content|>• Caldwell Ridgeline Capital Fund IV LP interests: ... $12,000,000\n<|id|>40<|page|>3<|box|>714 254 731 722<|content|>• Caldwell Ridgeline Capital Fund V LP interests: ... $14,000,000\n<|id|>41<|page|>3<|box|>734 254 750 748<|content|>• Caldwell Ridgeline Capital Fund VI carried interest: ... $12,000,000\n<|id|>50<|page|>4<|box|>321 140 414 856<|content|>The foregoing amounts are preliminary and will be ...tes, and payment-in-kind provisions, if applicable\n<|id|>105<|page|>9<|box|>834 140 907 857<|content|>2. ... The Firm will calculate the estimated excis...l coordinate with Strathmore Corporation & Greaves\n<|id|>106<|page|>10<|box|>89 140 126 854<|content|>LLP on the reporting of the excise tax on the Foun...ndation's annual information return (Form 990- PF)\n<|id|>108<|page|>10<|box|>196 174 214 696<|content|>(a) Jonathan R. ... foundation manager)\n<|id|>117<|page|>10<|box|>465 140 558 856<|content|>C&H will advise on the prohibition against compens...rnance documents from a tax compliance perspective\n<|id|>109<|page|>10<|box|>222 174 241 761<|content|>(b) Eleanor V. ... foundation manager)\n<|id|>110<|page|>10<|box|>248 174 266 586<|content|>(c) Thomas R. ... Caldwell (son of substantial contributor)\n<|id|>111<|page|>10<|box|>273 174 292 637<|content|>(d) Katherine C. ... Hartfield (daughter of substantial contributor)\n<|id|>112<|page|>10<|box|>300 174 318 611<|content|>(e) Olivia G. ... Caldwell (daughter of substantial contributor)\n<|id|>113<|page|>10<|box|>325 174 362 854<|content|>(f) Family members and spouses of the foregoing individuals, as defined under IRC § 4946(d)\n<|id|>114<|page|>10<|box|>369 174 388 838<|content|>(g) Caldwell Ridgeline Capital LLC (entity in which the Client holds a substantial interest)\n<|id|>115<|page|>10<|box|>396 174 414 839<|content|>(h) Stonecrest Realty Holdings LLC (entity in which the Client holds a substantial interest)\n<|id|>116<|page|>10<|box|>422 174 459 854<|content|>(i) Any other entities in which the foregoing indi...erest, as determined under IRC § 4946(a)(1)(E)–(G)\n<|id|>131<|page|>12<|box|>178 174 196 612<|content|>(a) Thomas R. ... Caldwell — $5,000 annual withdrawal right\n<|id|>134<|page|>12<|box|>256 140 330 854<|content|>The annual gift tax exclusion under IRC § 2503(b) ...the Client's remaining lifetime gift tax exemption\n<|id|>132<|page|>12<|box|>204 174 222 625<|content|>(b) Katherine C. ... Hartfield — $5,000 annual withdrawal right\n<|id|>133<|page|>12<|box|>229 176 248 601<|content|>(c) Olivia G. ... Caldwell — $5,000 annual withdrawal right\n<|id|>238<|page|>21<|box|>772 142 789 338<|content|>Name: ... Victoria Chambers\n<|id|>239<|page|>21<|box|>790 143 805 246<|content|>Title: ... Partner\n<|id|>240<|page|>21<|box|>806 140 823 745<|content|>Calderwood & Harkness LLP 375 Park Avenue, 42nd Floor New York, NY 10152\n<|id|>241<|page|>21<|box|>824 143 840 266<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>9<|tgt_id|>10\n<|src_id|>105<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        }
+    ]
+}

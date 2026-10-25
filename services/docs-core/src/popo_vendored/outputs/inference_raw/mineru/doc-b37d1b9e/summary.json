@@ -1,0 +1,145 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-yjz1w_f8\\input\\pdfs\\doc-b37d1b9e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-yjz1w_f8\\enriched\\doc-b37d1b9e.json",
+    "contd_output": "<|src_id|>39<|tgt_id|>40",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>11<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>3\n<|id|>37<|level|>3\n<|id|>41<|level|>3\n<|id|>47<|level|>3\n<|id|>56<|level|>3\n<|id|>60<|level|>3\n<|id|>65<|level|>2\n<|id|>67<|level|>3\n<|id|>70<|level|>3\n<|id|>72<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>3\n<|id|>84<|level|>2\n<|id|>92<|level|>2",
+    "image_output": "<|src_id|>2<|tgt_id|>1\n<|src_id|>13<|tgt_id|>11\n<|src_id|>19<|tgt_id|>17\n<|src_id|>24<|tgt_id|>21\n<|src_id|>25<|tgt_id|>21",
+    "contd_label": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 2,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 21
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 24,
+            "table2_idx": 25,
+            "upper_row_ss": [
+                [
+                    "11",
+                    "FDA Type B Pre-sNDA Meeting Briefing Document (C&H review",
+                    "April 18, 2022",
+                    "C&H review/markup of PPC/CBG-prepared document",
+                    "Final"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "comments)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>234 174 287 854<|content|>Attention: ... Sheridan, Board Chair James Delacro...tee Member Randall Morse, Special Committee Member\n<|id|>5<|page|>1<|box|>295 140 314 674<|content|>CC: ... Patricia \"Trish\" Nakamura, General Counsel & Corporate Secretary\n<|id|>6<|page|>1<|box|>321 140 357 854<|content|>FROM: ... Douglas Fairchild, Engagement Partner Cl... Dempsey, Lead Associate Calderwood & Harkness LLP\n<|id|>7<|page|>1<|box|>366 140 402 854<|content|>RE: ... Analysis of Potential Adoption of a Limite...t Campaign by Pinnacle Harbor Capital Partners, LP\n<|id|>8<|page|>1<|box|>410 142 426 331<|content|>Matter No. ... 1033-00003\n<|id|>9<|page|>1<|box|>435 142 452 408<|content|>Right-click to update Table of Contents\n<|id|>19<|page|>2<|box|>797 140 907 857<|content|>Pinnacle Harbor accumulated its position in RGC co...time Calderwood & Harkness was formally engaged on\n<|id|>20<|page|>3<|box|>89 140 145 854<|content|>November 15, 2022, RGC common stock was trading at approximately $30. ... 5%\n<|id|>28<|page|>3<|box|>864 140 900 856<|content|>The foregoing timeline establishes a pattern of es...vist fund. ... Pinnacle Harbor's counsel, Hargrove\n<|id|>29<|page|>4<|box|>90 140 181 854<|content|>Sloane & Birch LLP, is a nationally recognized fir...meeting if a negotiated resolution is not achieved\n<|id|>36<|page|>4<|box|>726 145 761 854<|content|>• Calderwood & Harkness LLP — Outside legal counse...ment Partner; ... Marcus Leung, Working Associate)\n<|id|>40<|page|>4<|box|>840 140 895 856<|content|>Corporate Charter. ... Calderwood & Harkness deliv...charter defensive review memorandum on December 5,\n<|id|>37<|page|>4<|box|>763 147 799 854<|content|>• Calloway Pinnacle Trust Bank — Financial advisor..., Managing Director, Activism & Corporate Defense)\n<|id|>38<|page|>4<|box|>801 145 819 715<|content|>• Whitfield Morrow Partners, LLC — Proxy solicitor (Denise Cavanaugh)\n<|id|>39<|page|>4<|box|>821 145 839 800<|content|>• Harlan Ridge Communications, LLC — Investor relations advisor (Philip Navarette)\n<|id|>41<|page|>5<|box|>89 140 127 854<|content|>2022, analyzing the Company's existing governance ...ential vulnerabilities, and recommended amendments\n<|id|>56<|page|>6<|box|>872 140 909 854<|content|>Moran v. ... In Moran, the Delaware Supreme Court ...lan adopted by the board of directors of Household\n<|id|>57<|page|>7<|box|>90 140 237 856<|content|>International as a preventive defensive measure. .... satisfies the applicable fiduciary duty standards\n<|id|>198<|page|>25<|box|>359 174 393 854<|content|>Douglas Fairchild — Engagement Partner Claire Demp...ciate Marcus Leung — Working Associate (assisting)\n<|id|>199<|page|>25<|box|>402 140 419 843<|content|>Calderwood & Harkness LLP 3960 Howard Hughes Parkway, Suite 1400 Las Vegas, NV 89169",
+    "raw_response": "<|src_id|>19<|tgt_id|>20\n<|src_id|>28<|tgt_id|>29\n<|src_id|>40<|tgt_id|>41\n<|src_id|>56<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        }
+    ]
+}

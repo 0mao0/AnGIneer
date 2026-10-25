@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>1<|page|>1<|box|>143 441 161 557<|content|>(Form UCC1)\n<|id|>2<|page|>1<|box|>169 413 186 584<|content|>ORIGINAL FILING\n<|id|>5<|page|>1<|box|>247 142 265 251<|content|>Filing Office:\n<|id|>8<|page|>1<|box|>376 142 393 594<|content|>Box 1 — DEBTOR INFORMATION (ORGANIZATION)\n<|id|>9<|page|>1<|box|>407 143 425 434<|content|>1a. Organization's Exact Legal Name\n<|id|>10<|page|>1<|box|>431 176 448 377<|content|>Nexford Properties, LLC\n<|id|>12<|page|>1<|box|>579 143 597 305<|content|>1b. Mailing Address\n<|id|>15<|page|>1<|box|>816 143 833 339<|content|>1c. Type of Organization\n<|id|>17<|page|>2<|box|>90 142 107 393<|content|>1d. Jurisdiction of Organization\n<|id|>18<|page|>2<|box|>114 176 130 254<|content|>Delaware\n<|id|>20<|page|>2<|box|>262 142 279 468<|content|>1e. Organizational Identification Number\n<|id|>23<|page|>2<|box|>415 143 431 413<|content|>1f. Additional Debtor Information\n<|id|>24<|page|>2<|box|>439 176 455 629<|content|>Tax Identification / EIN: [To be inserted per enti\n<|id|>27<|page|>2<|box|>623 142 640 416<|content|>Box 2 — ADDITIONAL DEBTOR\n<|id|>28<|page|>2<|box|>648 176 667 303<|content|>Not Applicable.\n<|id|>35<|page|>3<|box|>167 140 184 511<|content|>Box 3 — SECURED PARTY INFORMATION\n<|id|>36<|page|>3<|box|>199 140 215 339<|content|>3a. Organization's Name\n<|id|>37<|page|>3<|box|>222 176 239 560<|content|>Crescent Harbor Bank, N.A., as Collateral Agent\n<|id|>39<|page|>3<|box|>352 142 369 305<|content|>3b. Mailing Address\n<|id|>41<|page|>3<|box|>535 142 553 475<|content|>Box 4 — COLLATERAL DESCRIPTION\n<|id|>64<|page|>5<|box|>681 140 699 653<|content|>Box 5 — CHECK BOXES AND ADDITIONAL INFORMATION\n<|id|>65<|page|>5<|box|>713 140 729 285<|content|>5a. Type of Filing\n<|id|>77<|page|>6<|box|>404 142 422 359<|content|>5b. Alternative Designation\n<|id|>83<|page|>6<|box|>789 140 825 826<|content|>Box 6 — OPTIONAL FILER INFORMATION / SEND ACKNOWLE\n<|id|>87<|page|>7<|box|>90 176 107 563<|content|>425 Lexington Avenue New York, New York 10017\n<|id|>93<|page|>7<|box|>340 142 358 602<|content|>ADDITIONAL FILING DETAILS AND INSTRUCTIONS\n<|id|>97<|page|>7<|box|>787 143 804 397<|content|>Related Transaction Documents\n<|id|>104<|page|>8<|box|>419 142 436 392<|content|>Context Within Filing Program\n<|id|>110<|page|>9<|box|>484 142 502 334<|content|>Nature of Debtor Entity\n<|id|>120<|page|>10<|box|>138 140 157 333<|content|>Secured Party Capacity\n<|id|>129<|page|>10<|box|>659 294 676 702<|content|>CERTIFICATION AND FILING INSTRUCTIONS\n<|id|>132<|page|>10<|box|>829 140 845 383<|content|>Prepaid Account Information:\n<|id|>134<|page|>11<|box|>89 140 106 437<|content|>PREPARED AND SUBMITTED BY:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>5<|level|>2\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>10<|level|>-1\n<|id|>12<|level|>3\n<|id|>15<|level|>3\n<|id|>17<|level|>3\n<|id|>18<|level|>-1\n<|id|>20<|level|>3\n<|id|>23<|level|>3\n<|id|>24<|level|>-1\n<|id|>27<|level|>2\n<|id|>28<|level|>-1\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>37<|level|>-1\n<|id|>39<|level|>3\n<|id|>41<|level|>2\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>77<|level|>3\n<|id|>83<|level|>2\n<|id|>87<|level|>-1\n<|id|>93<|level|>2\n<|id|>97<|level|>3\n<|id|>104<|level|>3\n<|id|>110<|level|>3\n<|id|>120<|level|>3\n<|id|>129<|level|>2\n<|id|>132<|level|>3\n<|id|>134<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 2
+        }
+    ]
+}

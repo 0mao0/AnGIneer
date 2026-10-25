@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>4<|type|>title<|page|>1<|box|>207 140 226 779<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>9<|type|>title<|page|>1<|box|>426 140 443 300<|content|>I. Purpose of Letter\n<|id|>13<|type|>title<|page|>2<|box|>90 140 107 485<|content|>II. Summary of Protest Proceedings to Date\n<|id|>14<|type|>title<|page|>2<|box|>121 140 138 400<|content|>A. Filing and Initial Proceedings\n<|id|>19<|type|>title<|page|>2<|box|>729 140 746 393<|content|>B. Briefing and Oral Argument\n<|id|>24<|type|>title<|page|>3<|box|>446 140 464 338<|content|>C. Five Protest Grounds\n<|id|>31<|type|>title<|page|>4<|box|>622 140 638 370<|content|>III. Current Dormant Status\n<|id|>32<|type|>title<|page|>4<|box|>652 140 670 429<|content|>A. Extended Delay Without Decision\n<|id|>35<|type|>title<|page|>5<|box|>138 140 157 294<|content|>B. Status Inquiries\n<|id|>42<|type|>title<|page|>5<|box|>652 140 670 377<|content|>C. Impact of Delay on MTDC\n<|id|>49<|type|>title<|page|>6<|box|>575 140 592 352<|content|>IV. Options for Escalation\n<|id|>51<|type|>title<|page|>6<|box|>669 140 686 500<|content|>Option 1: Continue to Await Agency Decision\n<|id|>57<|type|>title<|page|>7<|box|>429 140 446 825<|content|>Option 2: File a Complaint in the Illinois Court o\n<|id|>70<|type|>title<|page|>9<|box|>393 140 410 743<|content|>Option 3: Seek Mandamus or Other Judicial Relief t\n<|id|>84<|type|>title<|page|>10<|box|>645 140 662 468<|content|>V. Financial Summary and Fee Estimates\n<|id|>85<|type|>title<|page|>10<|box|>676 140 693 339<|content|>A. Fees Incurred to Date\n<|id|>88<|type|>table<|page|>10<|box|>840 143 898 852<|content|>None\n<|id|>89<|type|>table<|page|>11<|box|>88 143 152 852<|content|>None\n<|id|>92<|type|>title<|page|>11<|box|>369 140 388 565<|content|>B. Estimated Additional Fees for Litigation Escala\n<|id|>95<|type|>table<|page|>11<|box|>633 143 765 852<|content|>None\n<|id|>97<|type|>title<|page|>12<|box|>90 140 107 576<|content|>C. MTDC's Financial Exposure and Recovery Potentia\n<|id|>104<|type|>title<|page|>12<|box|>570 140 587 313<|content|>VI. Recommendation\n<|id|>110<|type|>title<|page|>13<|box|>340 140 357 419<|content|>VII. Request for Client Conference\n<|id|>119<|type|>title<|page|>13<|box|>720 140 738 251<|content|>VIII. Closing\n<|id|>129<|type|>title<|page|>14<|box|>339 142 352 171<|content|>cc:\n<|id|>131<|type|>title<|page|>14<|box|>407 143 422 233<|content|>Enclosure:",
+    "raw_response": "<|src_id|>88<|tgt_id|>85\n<|src_id|>89<|tgt_id|>85\n<|src_id|>95<|tgt_id|>92",
+    "parsed": [
+        {
+            "src_id": 88,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 92
+        }
+    ]
+}

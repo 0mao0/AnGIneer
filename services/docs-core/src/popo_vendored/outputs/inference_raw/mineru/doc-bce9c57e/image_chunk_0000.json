@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 209 142 787<|content|>SECRETARY'S CERTIFICATE OF TORCHLIGHT U.S. HOLDING\n<|id|>3<|type|>title<|page|>1<|box|>244 140 262 367<|content|>I. Introductory Certification\n<|id|>13<|type|>title<|page|>2<|box|>356 140 372 521<|content|>II. Certification as to Organizational Documents\n<|id|>14<|type|>title<|page|>2<|box|>386 140 402 385<|content|>A. Certificate of Incorporation\n<|id|>17<|type|>title<|page|>2<|box|>792 140 809 462<|content|>III. Certification as to Board Resolutions\n<|id|>19<|type|>title<|page|>3<|box|>138 140 156 413<|content|>A. Authorization of the Guarantee\n<|id|>21<|type|>title<|page|>3<|box|>340 140 357 521<|content|>B. Authorization of the U.S. Security Agreement\n<|id|>23<|type|>title<|page|>3<|box|>578 140 595 560<|content|>C. Authorization of the Collateral Agency Agreemen\n<|id|>25<|type|>title<|page|>3<|box|>760 140 777 550<|content|>D. Authorization of Related Transaction Documents\n<|id|>28<|type|>title<|page|>4<|box|>231 142 248 406<|content|>E. Confirmation of Due Adoption\n<|id|>34<|type|>title<|page|>4<|box|>545 142 561 359<|content|>IV. Incumbency Certificate\n<|id|>36<|type|>table<|page|>4<|box|>686 143 782 852<|content|>None\n<|id|>38<|type|>title<|page|>5<|box|>148 140 167 287<|content|>V. Good Standing\n<|id|>40<|type|>title<|page|>5<|box|>381 140 398 410<|content|>VI. No Dissolution or Proceedings\n<|id|>42<|type|>title<|page|>5<|box|>594 140 612 357<|content|>VII. General Certifications\n<|id|>49<|type|>title<|page|>6<|box|>229 142 247 269<|content|>VIII. Execution\n<|id|>61<|type|>title<|page|>7<|box|>87 446 108 553<|content|>EXHIBIT A\n<|id|>62<|type|>title<|page|>7<|box|>130 259 148 738<|content|>Certificate of Incorporation of Torchlight U.S. Ho\n<|id|>66<|type|>title<|page|>8<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>67<|type|>title<|page|>8<|box|>131 339 148 656<|content|>Bylaws of Torchlight U.S. Holdings, Inc.\n<|id|>70<|type|>title<|page|>9<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>71<|type|>title<|page|>9<|box|>131 191 193 805<|content|>Resolutions of the Board of Directors of Torchligh\n<|id|>74<|type|>title<|page|>9<|box|>344 142 361 241<|content|>RECITALS\n<|id|>80<|type|>title<|page|>10<|box|>89 140 107 379<|content|>NOW, THEREFORE, BE IT:\n<|id|>89<|type|>title<|page|>12<|box|>89 447 107 550<|content|>EXHIBIT D\n<|id|>90<|type|>title<|page|>12<|box|>131 194 175 800<|content|>Incumbency Certificate INCUMBENCY CERTIFICATE OF T\n<|id|>91<|type|>title<|page|>12<|box|>183 418 200 578<|content|>As of April 19, 2022\n<|id|>93<|type|>table<|page|>12<|box|>416 143 511 852<|content|>None\n<|id|>99<|type|>title<|page|>13<|box|>89 447 108 550<|content|>EXHIBIT E\n<|id|>100<|type|>title<|page|>13<|box|>131 383 148 614<|content|>Certificate of Good Standing",
+    "raw_response": "<|src_id|>36<|tgt_id|>34\n<|src_id|>93<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 90
+        }
+    ]
+}

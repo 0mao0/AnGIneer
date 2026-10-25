@@ -1,0 +1,255 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ahiggo2d\\input\\pdfs\\doc-4c12fe2d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ahiggo2d\\enriched\\doc-4c12fe2d.json",
+    "contd_output": "<|src_id|>90<|tgt_id|>91\n<|src_id|>110<|tgt_id|>111",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>14<|level|>3\n<|id|>16<|level|>3\n<|id|>18<|level|>3\n<|id|>25<|level|>3\n<|id|>33<|level|>2\n<|id|>35<|level|>3\n<|id|>42<|level|>3\n<|id|>50<|level|>3\n<|id|>59<|level|>3\n<|id|>69<|level|>3\n<|id|>79<|level|>3\n<|id|>87<|level|>3\n<|id|>95<|level|>2\n<|id|>96<|level|>3\n<|id|>103<|level|>3\n<|id|>108<|level|>3\n<|id|>115<|level|>3\n<|id|>119<|level|>3\n<|id|>123<|level|>2\n<|id|>130<|level|>2\n<|id|>135<|level|>2\n<|id|>136<|level|>3\n<|id|>138<|level|>2",
+    "image_output": "<|src_id|>129<|tgt_id|>123\n<|src_id|>139<|tgt_id|>138\n<|src_id|>140<|tgt_id|>138\n<|src_id|>141<|tgt_id|>138\n<|src_id|>142<|tgt_id|>138\n<|src_id|>143<|tgt_id|>138",
+    "contd_label": [
+        {
+            "src_id": 90,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 129,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 138
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 139,
+            "table2_idx": 140,
+            "upper_row_ss": [
+                [
+                    "13",
+                    "Ridgeline Ventures",
+                    "Investor — Short name (umbrella)",
+                    "11/01/2023",
+                    "Glenrock Health ITCONFLICTS",
+                    "Hit — See Note 1"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "14",
+                    "Ridgeline",
+                    "Investor — Short name",
+                    "11/01/2023",
+                    "Glenrock Health ITCONFLICTS",
+                    "Hit — See Note 1"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 140,
+            "table2_idx": 141,
+            "upper_row_ss": [
+                [
+                    "32",
+                    "Northstar",
+                    "New Investor —",
+                    "11/01/2023",
+                    "Glenrock Health",
+                    "Clear — No hits"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Short name",
+                    "",
+                    "ITCONFLICTS",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 141,
+            "table2_idx": 142,
+            "upper_row_ss": [
+                [
+                    "50",
+                    "Ted Marsh",
+                    "Existing Lender",
+                    "11/02/2023",
+                    "Glenrock Health",
+                    "Clear — No hits"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "— Individual (alternate name)",
+                    "",
+                    "ITCONFLICTS",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 142,
+            "table2_idx": 143,
+            "upper_row_ss": [
+                [
+                    "67",
+                    "Granite Trust",
+                    "Escrow Agent",
+                    "11/02/2023",
+                    "Glenrock Health",
+                    "Clear — No hits"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Company, N.A.",
+                    "— Entity",
+                    "",
+                    "ITCONFLICTS",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

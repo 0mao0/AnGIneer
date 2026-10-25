@@ -1,0 +1,157 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 178 125 820<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV\n<|id|>2<|page|>1<|box|>178 423 195 573<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>465 140 482 328<|content|>I. Purpose and Context\n<|id|>15<|page|>2<|box|>321 140 339 328<|content|>II. Executive Summary\n<|id|>27<|page|>3<|box|>476 142 493 403<|content|>III. Detailed Incident Description\n<|id|>28<|page|>3<|box|>507 142 523 367<|content|>A. Attack Vector and Origin\n<|id|>33<|page|>4<|box|>367 142 383 295<|content|>B. Attack Timeline\n<|id|>42<|page|>5<|box|>656 140 672 401<|content|>C. Scope of Unauthorized Access\n<|id|>54<|page|>6<|box|>388 140 406 364<|content|>D. Data Categories Exposed\n<|id|>62<|page|>7<|box|>458 142 474 349<|content|>IV. Forensic Investigation\n<|id|>63<|page|>7<|box|>489 140 506 352<|content|>A. Retention and Privilege\n<|id|>66<|page|>7<|box|>843 142 859 310<|content|>B. Findings Timeline\n<|id|>71<|page|>8<|box|>465 140 483 370<|content|>C. Key Forensic Conclusions\n<|id|>79<|page|>9<|box|>593 140 609 333<|content|>V. Remediation Actions\n<|id|>80<|page|>9<|box|>625 140 641 460<|content|>A. Immediate Containment (Completed)\n<|id|>85<|page|>10<|box|>220 140 238 452<|content|>B. Security Enhancements (Completed)\n<|id|>91<|page|>11<|box|>138 140 157 316<|content|>C. Ongoing Measures\n<|id|>95<|page|>11<|box|>549 140 566 468<|content|>VI. Notification Obligations and Timeline\n<|id|>96<|page|>11<|box|>579 140 597 433<|content|>A. U.S. Multi-Jurisdictional Analysis\n<|id|>107<|page|>12<|box|>758 142 773 375<|content|>B. Most Restrictive Deadlines\n<|id|>114<|page|>13<|box|>215 140 232 393<|content|>C. Planned Notification Actions\n<|id|>118<|page|>13<|box|>614 140 631 364<|content|>D. UK and EU Notifications\n<|id|>123<|page|>14<|box|>439 140 457 313<|content|>E. Credit Monitoring\n<|id|>129<|page|>14<|box|>828 140 845 339<|content|>VII. Insurance Coverage\n<|id|>142<|page|>16<|box|>231 140 248 455<|content|>VIII. Litigation and Regulatory Posture\n<|id|>143<|page|>16<|box|>261 140 279 310<|content|>A. Regulatory Status\n<|id|>147<|page|>16<|box|>532 140 549 300<|content|>B. Litigation Status\n<|id|>150<|page|>16<|box|>814 140 830 413<|content|>C. Pre-Litigation Risk Assessment\n<|id|>156<|page|>17<|box|>784 140 801 568<|content|>IX. Enterprise Customer Impact and Communications\n<|id|>161<|page|>18<|box|>556 142 573 354<|content|>X. Key Personnel Involved\n<|id|>182<|page|>19<|box|>294 140 311 441<|content|>XI. Recommendations and Next Steps\n<|id|>190<|page|>20<|box|>315 142 332 271<|content|>XII. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>33<|level|>3\n<|id|>42<|level|>3\n<|id|>54<|level|>3\n<|id|>62<|level|>2\n<|id|>63<|level|>3\n<|id|>66<|level|>3\n<|id|>71<|level|>3\n<|id|>79<|level|>2\n<|id|>80<|level|>3\n<|id|>85<|level|>3\n<|id|>91<|level|>3\n<|id|>95<|level|>2\n<|id|>96<|level|>3\n<|id|>107<|level|>3\n<|id|>114<|level|>3\n<|id|>118<|level|>3\n<|id|>123<|level|>3\n<|id|>129<|level|>2\n<|id|>142<|level|>2\n<|id|>143<|level|>3\n<|id|>147<|level|>3\n<|id|>150<|level|>3\n<|id|>156<|level|>2\n<|id|>161<|level|>2\n<|id|>182<|level|>2\n<|id|>190<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        }
+    ]
+}

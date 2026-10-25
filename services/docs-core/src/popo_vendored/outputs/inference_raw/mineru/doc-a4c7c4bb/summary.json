@@ -1,0 +1,389 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-iogpo98m\\input\\pdfs\\doc-a4c7c4bb.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-iogpo98m\\enriched\\doc-a4c7c4bb.json",
+    "contd_output": "<|src_id|>12<|tgt_id|>14\n<|src_id|>22<|tgt_id|>24\n<|src_id|>42<|tgt_id|>44\n<|src_id|>85<|tgt_id|>86\n<|src_id|>350<|tgt_id|>351",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>16<|level|>3\n<|id|>26<|level|>3\n<|id|>33<|level|>3\n<|id|>34<|level|>4\n<|id|>38<|level|>4\n<|id|>45<|level|>2\n<|id|>47<|level|>3\n<|id|>53<|level|>3\n<|id|>61<|level|>3\n<|id|>75<|level|>4\n<|id|>89<|level|>4\n<|id|>91<|level|>3\n<|id|>96<|level|>3\n<|id|>98<|level|>4\n<|id|>100<|level|>5\n<|id|>102<|level|>5\n<|id|>104<|level|>5\n<|id|>106<|level|>4\n<|id|>108<|level|>5\n<|id|>110<|level|>5\n<|id|>112<|level|>4\n<|id|>114<|level|>2\n<|id|>116<|level|>3\n<|id|>127<|level|>3\n<|id|>133<|level|>3\n<|id|>141<|level|>3\n<|id|>151<|level|>3\n<|id|>163<|level|>3\n<|id|>170<|level|>3\n<|id|>177<|level|>3\n<|id|>187<|level|>3\n<|id|>197<|level|>3\n<|id|>209<|level|>3\n<|id|>221<|level|>3\n<|id|>227<|level|>3\n<|id|>238<|level|>3\n<|id|>241<|level|>4\n<|id|>243<|level|>4\n<|id|>245<|level|>4\n<|id|>251<|level|>3\n<|id|>264<|level|>2\n<|id|>266<|level|>3\n<|id|>277<|level|>3\n<|id|>286<|level|>3\n<|id|>296<|level|>3\n<|id|>313<|level|>3\n<|id|>325<|level|>2\n<|id|>326<|level|>3\n<|id|>334<|level|>3\n<|id|>342<|level|>3\n<|id|>346<|level|>2\n<|id|>347<|level|>3\n<|id|>360<|level|>3\n<|id|>362<|level|>4\n<|id|>366<|level|>4\n<|id|>369<|level|>4\n<|id|>372<|level|>4\n<|id|>375<|level|>4\n<|id|>378<|level|>3\n<|id|>391<|level|>2\n<|id|>393<|level|>3\n<|id|>399<|level|>3\n<|id|>402<|level|>4\n<|id|>406<|level|>3\n<|id|>407<|level|>4\n<|id|>413<|level|>4",
+    "image_output": "<|src_id|>4<|tgt_id|>2\n<|src_id|>93<|tgt_id|>91\n<|src_id|>172<|tgt_id|>170\n<|src_id|>217<|tgt_id|>209\n<|src_id|>303<|tgt_id|>296\n<|src_id|>344<|tgt_id|>342\n<|src_id|>392<|tgt_id|>391\n<|src_id|>394<|tgt_id|>393\n<|src_id|>395<|tgt_id|>393\n<|src_id|>397<|tgt_id|>393\n<|src_id|>398<|tgt_id|>393\n<|src_id|>401<|tgt_id|>399\n<|src_id|>412<|tgt_id|>407",
+    "contd_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 350,
+            "tgt_id": 351
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 4
+        },
+        {
+            "id": 38,
+            "level": 4
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 4
+        },
+        {
+            "id": 100,
+            "level": 5
+        },
+        {
+            "id": 102,
+            "level": 5
+        },
+        {
+            "id": 104,
+            "level": 5
+        },
+        {
+            "id": 106,
+            "level": 4
+        },
+        {
+            "id": 108,
+            "level": 5
+        },
+        {
+            "id": 110,
+            "level": 5
+        },
+        {
+            "id": 112,
+            "level": 4
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 227,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 3
+        },
+        {
+            "id": 241,
+            "level": 4
+        },
+        {
+            "id": 243,
+            "level": 4
+        },
+        {
+            "id": 245,
+            "level": 4
+        },
+        {
+            "id": 251,
+            "level": 3
+        },
+        {
+            "id": 264,
+            "level": 2
+        },
+        {
+            "id": 266,
+            "level": 3
+        },
+        {
+            "id": 277,
+            "level": 3
+        },
+        {
+            "id": 286,
+            "level": 3
+        },
+        {
+            "id": 296,
+            "level": 3
+        },
+        {
+            "id": 313,
+            "level": 3
+        },
+        {
+            "id": 325,
+            "level": 2
+        },
+        {
+            "id": 326,
+            "level": 3
+        },
+        {
+            "id": 334,
+            "level": 3
+        },
+        {
+            "id": 342,
+            "level": 3
+        },
+        {
+            "id": 346,
+            "level": 2
+        },
+        {
+            "id": 347,
+            "level": 3
+        },
+        {
+            "id": 360,
+            "level": 3
+        },
+        {
+            "id": 362,
+            "level": 4
+        },
+        {
+            "id": 366,
+            "level": 4
+        },
+        {
+            "id": 369,
+            "level": 4
+        },
+        {
+            "id": 372,
+            "level": 4
+        },
+        {
+            "id": 375,
+            "level": 4
+        },
+        {
+            "id": 378,
+            "level": 3
+        },
+        {
+            "id": 391,
+            "level": 2
+        },
+        {
+            "id": 393,
+            "level": 3
+        },
+        {
+            "id": 399,
+            "level": 3
+        },
+        {
+            "id": 402,
+            "level": 4
+        },
+        {
+            "id": 406,
+            "level": 3
+        },
+        {
+            "id": 407,
+            "level": 4
+        },
+        {
+            "id": 413,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 303,
+            "tgt_id": 296
+        },
+        {
+            "src_id": 344,
+            "tgt_id": 342
+        },
+        {
+            "src_id": 392,
+            "tgt_id": 391
+        },
+        {
+            "src_id": 394,
+            "tgt_id": 393
+        },
+        {
+            "src_id": 395,
+            "tgt_id": 393
+        },
+        {
+            "src_id": 397,
+            "tgt_id": 393
+        },
+        {
+            "src_id": 398,
+            "tgt_id": 393
+        },
+        {
+            "src_id": 401,
+            "tgt_id": 399
+        },
+        {
+            "src_id": 412,
+            "tgt_id": 407
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 397,
+            "table2_idx": 398,
+            "upper_row_ss": [
+                [
+                    "12",
+                    "Customary portion",
+                    "Industry: 4.0%–12.5%; median 8.0%; OWS avg. 7.5%–8.0%",
+                    "Supports 8.0%–8.5%",
+                    "Lower-end rates applicable"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "13",
+                    "Profit creditable to invention",
+                    "Patented tech is primary value driver; 80%+ of PIC value",
+                    "Neutral to upward",
+                    "Apportionment reduces base"
+                ]
+            ]
+        }
+    ]
+}

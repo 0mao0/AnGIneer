@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        20
+    ],
+    "pages": [
+        3,
+        4,
+        13,
+        14,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>20<|page|>3<|box|>777 142 906 857<|content|>13. ... These revenue declines are directly attrib...lobal dry-bulk charter rates, which saw the Baltic\n<|id|>21<|page|>4<|box|>89 174 181 854<|content|>Dry Index (the \"BDI\") decline by approximately fif...sa Group's ability to service its debt obligations\n<|id|>120<|page|>13<|box|>667 174 739 856<|content|>(d) Contractual defaults. ... and\n<|id|>123<|page|>14<|box|>89 174 126 854<|content|>30336 (DRJ) (Bankr. ... 12, 2017)\n<|id|>168<|page|>18<|box|>214 174 251 854<|content|>(iv) Waiving the requirements of Bankruptcy Rules 6004(a) and 6004(h) to the extent applicable; ... and\n<|id|>170<|page|>18<|box|>285 676 303 854<|content|>Respectfully submitted,\n<|id|>171<|page|>18<|box|>311 673 328 854<|content|>Dated: ... January 17, 2023\n<|id|>172<|page|>18<|box|>337 142 352 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>173<|page|>18<|box|>354 143 371 251<|content|>By: ... By\n<|id|>174<|page|>18<|box|>371 140 404 854<|content|>Nathaniel Bower (SBN __) Colette Whitman (SBN __) Amy Chesterton (SBN __) Nathan Ikeda (SBN __)\n<|id|>175<|page|>18<|box|>404 142 436 852<|content|>780 Third Avenue New York, New York 10017 Telephone: ... (212) 555-7801\n<|id|>176<|page|>18<|box|>438 143 454 455<|content|>Email: ... com\n<|id|>177<|page|>18<|box|>455 142 470 472<|content|>Email: ... com\n<|id|>178<|page|>18<|box|>473 143 489 483<|content|>Email: ... com\n<|id|>179<|page|>18<|box|>489 143 505 450<|content|>Email: ... com\n<|id|>180<|page|>18<|box|>507 143 523 565<|content|>Proposed Counsel for the Debtor, Thalassa Americas...osed Counsel for the Debtor, Thalassa Americas Inc\n<|id|>183<|page|>18<|box|>864 140 901 854<|content|>Upon the Motion (the \"Motion\") of Thalassa America... an order pursuant to Sections 105(a), 363(b), and\n<|id|>184<|page|>19<|box|>89 138 382 857<|content|>365 of title 11 of the United States Code (the \"Ba...iberation and sufficient cause appearing therefor,\n<|id|>195<|page|>19<|box|>717 176 734 514<|content|>(i) Excess / Umbrella Liability Insurance; ... and\n<|id|>206<|page|>20<|box|>686 455 704 542<|content|>Dated: ... ___",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>183<|tgt_id|>184",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 184
+        }
+    ]
+}

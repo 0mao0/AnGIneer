@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['5', 'June 8, 2023', 'Scheduled', 'Cumulative safety data reviewed (~295 patients enrolled). Two additional cases of Grade 3 hepatotoxicity (ALT > 5x ULN) since prior meeting reviewed in detail; both events resolved upon dose interruption. DSMB concluded no new safety signal and hepatotoxicity rate remained consistent with class effect. Grade 3/4 neutropenia rate approximately 27% (cumulative) in CLT-4019 arm. Two thromboembolic events reviewed; DSMB concluded causal relationship to CLT-4019 not established. Overall benefit-risk profile assessed as', 'Continue without modification']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'favorable.', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 222,
+    "table2_idx": 223
+}

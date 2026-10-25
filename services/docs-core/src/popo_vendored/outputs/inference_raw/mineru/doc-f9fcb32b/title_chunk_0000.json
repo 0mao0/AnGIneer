@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>455 140 473 475<|content|>I. Introduction and Purpose of This Letter\n<|id|>14<|page|>2<|box|>89 140 107 454<|content|>II. The Insured Property and the Policy\n<|id|>21<|page|>3<|box|>204 140 222 673<|content|>III. Background — The Cross-Parcel Easement and th\n<|id|>23<|page|>3<|box|>292 140 310 522<|content|>A. Creation of the Cross-Parcel Easement (1998)\n<|id|>26<|page|>3<|box|>627 140 643 575<|content|>B. Thurmond Family Common Ownership (2012–2014)\n<|id|>28<|page|>3<|box|>862 140 878 297<|content|>C. The 2014 Replat\n<|id|>33<|page|>4<|box|>502 140 518 442<|content|>IV. The Declaratory Judgment Action\n<|id|>43<|page|>5<|box|>436 140 453 429<|content|>V. Fairwater's Answer and Defenses\n<|id|>51<|page|>6<|box|>329 140 347 540<|content|>VI. Basis for Tender — Coverage Under the Policy\n<|id|>53<|page|>6<|box|>417 140 435 571<|content|>A. The Action Challenges Title to the Insured Prop\n<|id|>55<|page|>6<|box|>579 140 597 650<|content|>B. The Cross-Parcel Easement Was Not Excepted from\n<|id|>57<|page|>6<|box|>777 140 795 602<|content|>C. The Policy Obligates Meridian to Defend and Ind\n<|id|>61<|page|>7<|box|>325 140 342 493<|content|>D. No Exclusion or Exception Bars Coverage\n<|id|>67<|page|>7<|box|>638 142 655 433<|content|>E. Fairwater's Reliance on the Policy\n<|id|>69<|page|>7<|box|>779 142 795 380<|content|>VII. Demands Upon Meridian\n<|id|>70<|page|>7<|box|>809 142 825 348<|content|>A. Assumption of Defense\n<|id|>84<|page|>9<|box|>214 140 231 344<|content|>C. Preservation of Rights\n<|id|>92<|page|>9<|box|>690 140 708 421<|content|>VIII. Request for Prompt Response\n<|id|>105<|page|>10<|box|>435 142 452 263<|content|>IX. Enclosures",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>21<|level|>1\n<|id|>23<|level|>2\n<|id|>26<|level|>2\n<|id|>28<|level|>2\n<|id|>33<|level|>1\n<|id|>43<|level|>1\n<|id|>51<|level|>1\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>61<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>1\n<|id|>70<|level|>2\n<|id|>84<|level|>2\n<|id|>92<|level|>1\n<|id|>105<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        }
+    ]
+}

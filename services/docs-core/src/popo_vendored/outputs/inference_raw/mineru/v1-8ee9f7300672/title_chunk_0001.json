@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        85
+    ],
+    "pages": [
+        46,
+        50,
+        54,
+        62,
+        65,
+        73,
+        76,
+        80,
+        81,
+        85
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>166<|page|>46<|box|>474 101 493 339<|content|>3.4. Extreme Temperature\n<|id|>175<|page|>50<|box|>507 101 525 397<|content|>3.5. Other Temperature Variables\n<|id|>186<|page|>54<|box|>488 101 506 305<|content|>3.6. Mean Precipitation\n<|id|>197<|page|>62<|box|>80 101 99 336<|content|>3.7. Extreme Precipitation\n<|id|>203<|page|>65<|box|>80 101 99 645<|content|>3.8. Comparison Between Model Simulations and Obse\n<|id|>212<|page|>73<|box|>82 99 101 259<|content|>4. SUMMARY\n<|id|>240<|page|>76<|box|>80 99 101 292<|content|>5. REFERENCES\n<|id|>296<|page|>80<|box|>82 99 101 406<|content|>6. ACKNOWLEDGEMENTS\n<|id|>297<|page|>80<|box|>117 99 135 627<|content|>6.1. National Climate Trends and Important Climate\n<|id|>307<|page|>81<|box|>176 99 194 444<|content|>6.2. Future National Climate Scenarios\n<|id|>349<|page|>85<|box|>89 142 108 648<|content|>NOAA SCIENTIFIC AND TECHNICAL PUBLICATIONS",
+    "raw_response": "<|id|>166<|level|>2\n<|id|>175<|level|>2\n<|id|>186<|level|>2\n<|id|>197<|level|>2\n<|id|>203<|level|>2\n<|id|>212<|level|>1\n<|id|>240<|level|>1\n<|id|>296<|level|>1\n<|id|>297<|level|>2\n<|id|>307<|level|>2\n<|id|>349<|level|>-1",
+    "parsed": [
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 1
+        },
+        {
+            "id": 240,
+            "level": 1
+        },
+        {
+            "id": 296,
+            "level": 1
+        },
+        {
+            "id": 297,
+            "level": 2
+        },
+        {
+            "id": 307,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        50,
+        52
+    ],
+    "pages": [
+        50,
+        51,
+        52
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>570<|type|>title<|page|>50<|box|>90 140 107 653<|content|>Appendix E: State-Specific Requirements Quick-Refe\n<|id|>601<|type|>title<|page|>51<|box|>90 140 107 800<|content|>Appendix F: DSR Automation Tool — System Architect\n<|id|>603<|type|>title<|page|>51<|box|>161 142 178 470<|content|>High-Level System Architecture Diagram\n<|id|>608<|type|>title<|page|>51<|box|>422 140 440 439<|content|>Workflow Diagrams by Request Type\n<|id|>617<|type|>title<|page|>52<|box|>90 143 107 433<|content|>Appendix G: Escalation Contact List\n<|id|>618<|type|>table<|page|>52<|box|>159 143 555 852<|content|>None\n<|id|>620<|type|>title<|page|>52<|box|>628 326 643 669<|content|>ACKNOWLEDGMENT AND APPROVAL",
+    "raw_response": "<|src_id|>618<|tgt_id|>617",
+    "parsed": [
+        {
+            "src_id": 618,
+            "tgt_id": 617
+        }
+    ]
+}

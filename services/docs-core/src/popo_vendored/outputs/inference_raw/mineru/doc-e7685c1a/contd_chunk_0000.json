@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        6,
+        52
+    ],
+    "pages": [
+        6,
+        7,
+        9,
+        11,
+        31,
+        41,
+        42,
+        51
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>13<|page|>6<|box|>199 746 224 913<|content|>Profile of the Economy\n<|id|>14<|page|>6<|box|>224 727 251 913<|content|>Federal Fiscal Operations\n<|id|>15<|page|>6<|box|>251 707 277 913<|content|>Account of the U. ... Treasury\n<|id|>16<|page|>6<|box|>277 813 301 913<|content|>Federal Debt\n<|id|>17<|page|>6<|box|>301 745 329 913<|content|>Public Debt Operations\n<|id|>19<|page|>6<|box|>354 681 382 913<|content|>Ownership of Federal Securities\n<|id|>18<|page|>6<|box|>329 704 354 913<|content|>U. ... Savings Bonds and Notes\n<|id|>20<|page|>6<|box|>381 807 407 913<|content|>Market Yields\n<|id|>22<|page|>6<|box|>434 779 460 913<|content|>and in Circulation\n<|id|>21<|page|>6<|box|>406 658 435 913<|content|>U. ... Currency and Coin Outstanding\n<|id|>34<|page|>7<|box|>321 517 337 818<|content|>(Percent change, fourth quarter to fourth quarter)\n<|id|>35<|page|>7<|box|>646 504 689 913<|content|>year. ... If the current pace continues for the re... result in the smallest annual increase since 1999\n<|id|>47<|page|>9<|box|>830 81 905 491<|content|>After-tax income adjusted for inflation continued ...sable income was boosted by reduced withholding in\n<|id|>48<|page|>9<|box|>453 504 483 913<|content|>January that was legislated in the Economic Growth...owth and Tax Relief and Reconciliation Act of 2001\n<|id|>66<|page|>11<|box|>659 81 893 491<|content|>As a result of these easing moves, from the beginn...3-month Treasury bill has fallen over the past two\n<|id|>67<|page|>11<|box|>89 504 176 913<|content|>Over the 8 months ending in October, the nominal e...nt between December 1999 and February of this year\n<|id|>171<|page|>31<|box|>188 504 291 915<|content|>- Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>173<|page|>31<|box|>340 504 489 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>200<|page|>41<|box|>383 81 412 491<|content|>- Table PDO-2 presents the results of weekly aucti... and 26-week bills. ... Treasury bills mature each\n<|id|>201<|page|>41<|box|>125 504 199 915<|content|>Thursday. ... High yields on accepted tenders and ... made on both competitive and noncompetitive bases\n<|id|>206<|page|>41<|box|>464 374 476 622<|content|>[Source: ... Bureau of the Public Debt, Office of Financing]\n<|id|>207<|page|>41<|box|>483 83 500 158<|content|>JULY\n<|id|>227<|page|>42<|box|>885 81 917 491<|content|>In addition to the \\$18,000 million of tenders acc...on process, Treasury accepted \\$1,645 million from\n<|id|>228<|page|>42<|box|>122 504 152 915<|content|>FRBs for their own accounts. ... The minimum par a...ed for STRIPS of notes of Series D-2012 is \\$1,000\n<|id|>257<|page|>51<|box|>125 81 287 493<|content|>Series EE bonds, on sale since July 1, 1980, and s...for cash from January 1, 1980, through October 31,\n<|id|>259<|page|>51<|box|>200 504 276 916<|content|>The principal terms and conditions for purchase an...t of the Secretary of the Treasury for fiscal 1974",
+    "raw_response": "<|src_id|>47<|tgt_id|>48\n<|src_id|>200<|tgt_id|>201\n<|src_id|>227<|tgt_id|>228",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 200,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 228
+        }
+    ]
+}

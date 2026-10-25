@@ -1,0 +1,171 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rr8mdf_i\\input\\pdfs\\doc-3339c1bd.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rr8mdf_i\\enriched\\doc-3339c1bd.json",
+    "contd_output": "<|src_id|>53<|tgt_id|>54",
+    "title_output": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>25<|level|>3\n<|id|>27<|level|>4\n<|id|>34<|level|>4\n<|id|>37<|level|>4\n<|id|>42<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>67<|level|>3\n<|id|>73<|level|>2\n<|id|>74<|level|>3\n<|id|>76<|level|>4\n<|id|>85<|level|>4\n<|id|>91<|level|>4\n<|id|>97<|level|>4\n<|id|>102<|level|>3\n<|id|>107<|level|>3\n<|id|>117<|level|>2\n<|id|>119<|level|>3\n<|id|>124<|level|>3\n<|id|>132<|level|>2\n<|id|>134<|level|>3\n<|id|>141<|level|>3\n<|id|>146<|level|>3\n<|id|>150<|level|>2\n<|id|>168<|level|>2\n<|id|>178<|level|>2",
+    "image_output": "<|src_id|>87<|tgt_id|>85\n<|src_id|>179<|tgt_id|>178\n<|src_id|>180<|tgt_id|>178",
+    "contd_label": [
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 34,
+            "level": 4
+        },
+        {
+            "id": 37,
+            "level": 4
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 4
+        },
+        {
+            "id": 85,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 87,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 178
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 179,
+            "table2_idx": 180,
+            "upper_row_ss": [
+                [
+                    "Mitigation Costs",
+                    "$1,400,000",
+                    "Low-Moderate — Calculation methodology is relatively straightforward; primary vulnerability is Section",
+                    "Address via TSA Section 15.1 waiver (Pillar 3)."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "15.1 waiver, not expert reliability.",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

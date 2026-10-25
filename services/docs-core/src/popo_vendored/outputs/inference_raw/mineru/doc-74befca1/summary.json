@@ -1,0 +1,453 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-apx2haqv\\input\\pdfs\\doc-74befca1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-apx2haqv\\enriched\\doc-74befca1.json",
+    "contd_output": "<|src_id|>189<|tgt_id|>190\n<|src_id|>226<|tgt_id|>227\n<|src_id|>308<|tgt_id|>309\n<|src_id|>390<|tgt_id|>391",
+    "title_output": "<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>19<|level|>1\n<|id|>21<|level|>1\n<|id|>25<|level|>1\n<|id|>43<|level|>1\n<|id|>45<|level|>1\n<|id|>49<|level|>1\n<|id|>56<|level|>1\n<|id|>57<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>1\n<|id|>94<|level|>1\n<|id|>95<|level|>2\n<|id|>118<|level|>2\n<|id|>120<|level|>3\n<|id|>127<|level|>2\n<|id|>133<|level|>1\n<|id|>134<|level|>2\n<|id|>149<|level|>3\n<|id|>155<|level|>2\n<|id|>177<|level|>2\n<|id|>181<|level|>2\n<|id|>196<|level|>2\n<|id|>201<|level|>1\n<|id|>202<|level|>2\n<|id|>209<|level|>2\n<|id|>223<|level|>2\n<|id|>232<|level|>2\n<|id|>253<|level|>1\n<|id|>254<|level|>2\n<|id|>263<|level|>2\n<|id|>289<|level|>1\n<|id|>317<|level|>1\n<|id|>337<|level|>1\n<|id|>348<|level|>1\n<|id|>358<|level|>1\n<|id|>369<|level|>1\n<|id|>372<|level|>2\n<|id|>379<|level|>2\n<|id|>395<|level|>2\n<|id|>396<|level|>3\n<|id|>407<|level|>3\n<|id|>410<|level|>3\n<|id|>412<|level|>2\n<|id|>413<|level|>3\n<|id|>422<|level|>3\n<|id|>432<|level|>3\n<|id|>436<|level|>3\n<|id|>442<|level|>3\n<|id|>448<|level|>2\n<|id|>449<|level|>3\n<|id|>453<|level|>3\n<|id|>458<|level|>3\n<|id|>462<|level|>3",
+    "image_output": "<|src_id|>74<|tgt_id|>72\n<|src_id|>76<|tgt_id|>72\n<|src_id|>77<|tgt_id|>72\n<|src_id|>78<|tgt_id|>72\n<|src_id|>80<|tgt_id|>72\n<|src_id|>81<|tgt_id|>72\n<|src_id|>83<|tgt_id|>72\n<|src_id|>84<|tgt_id|>72\n<|src_id|>97<|tgt_id|>95\n<|src_id|>114<|tgt_id|>95\n<|src_id|>115<|tgt_id|>95\n<|src_id|>130<|tgt_id|>127\n<|src_id|>163<|tgt_id|>155\n<|src_id|>166<|tgt_id|>155\n<|src_id|>167<|tgt_id|>155\n<|src_id|>168<|tgt_id|>155\n<|src_id|>170<|tgt_id|>155\n<|src_id|>212<|tgt_id|>209\n<|src_id|>217<|tgt_id|>209\n<|src_id|>218<|tgt_id|>209\n<|src_id|>236<|tgt_id|>232\n<|src_id|>259<|tgt_id|>254\n<|src_id|>332<|tgt_id|>317\n<|src_id|>335<|tgt_id|>317",
+    "contd_label": [
+        {
+            "src_id": 189,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 227
+        },
+        {
+            "src_id": 308,
+            "tgt_id": 309
+        },
+        {
+            "src_id": 390,
+            "tgt_id": 391
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 1
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 2
+        },
+        {
+            "id": 232,
+            "level": 2
+        },
+        {
+            "id": 253,
+            "level": 1
+        },
+        {
+            "id": 254,
+            "level": 2
+        },
+        {
+            "id": 263,
+            "level": 2
+        },
+        {
+            "id": 289,
+            "level": 1
+        },
+        {
+            "id": 317,
+            "level": 1
+        },
+        {
+            "id": 337,
+            "level": 1
+        },
+        {
+            "id": 348,
+            "level": 1
+        },
+        {
+            "id": 358,
+            "level": 1
+        },
+        {
+            "id": 369,
+            "level": 1
+        },
+        {
+            "id": 372,
+            "level": 2
+        },
+        {
+            "id": 379,
+            "level": 2
+        },
+        {
+            "id": 395,
+            "level": 2
+        },
+        {
+            "id": 396,
+            "level": 3
+        },
+        {
+            "id": 407,
+            "level": 3
+        },
+        {
+            "id": 410,
+            "level": 3
+        },
+        {
+            "id": 412,
+            "level": 2
+        },
+        {
+            "id": 413,
+            "level": 3
+        },
+        {
+            "id": 422,
+            "level": 3
+        },
+        {
+            "id": 432,
+            "level": 3
+        },
+        {
+            "id": 436,
+            "level": 3
+        },
+        {
+            "id": 442,
+            "level": 3
+        },
+        {
+            "id": 448,
+            "level": 2
+        },
+        {
+            "id": 449,
+            "level": 3
+        },
+        {
+            "id": 453,
+            "level": 3
+        },
+        {
+            "id": 458,
+            "level": 3
+        },
+        {
+            "id": 462,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 74,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 236,
+            "tgt_id": 232
+        },
+        {
+            "src_id": 259,
+            "tgt_id": 254
+        },
+        {
+            "src_id": 332,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 335,
+            "tgt_id": 317
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 77,
+            "table2_idx": 78,
+            "upper_row_ss": [
+                [
+                    "rowspan=3, I",
+                    "rowspan=3, 3000",
+                    "rowspan=3, 驳船90.0×16.2×3.5货船95.0×16.2×3.2",
+                    "(3) =",
+                    "223.0×32.4×3.5",
+                    "rowspan=3, 3.5~4.0",
+                    "70",
+                    "135",
+                    "670"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, II",
+                    "rowspan=3, 2000",
+                    "rowspan=3, 驳船 75.0×16.2×2.6货船 90.0×14.8×2.6",
+                    "(1)",
+                    "270.0×48.6×2.6",
+                    "rowspan=3, 2.6~3.0",
+                    "100",
+                    "190",
+                    "810"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 114,
+            "table2_idx": 115,
+            "upper_row_ss": [
+                [
+                    "rowspan=2, III",
+                    "(3)2排1列",
+                    "180",
+                    "18或1612",
+                    "3.5",
+                    "(1)2排1列",
+                    "180",
+                    "18或1612",
+                    "3.5"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, IV",
+                    "(1)3排2列",
+                    "180",
+                    "23",
+                    "3.0",
+                    "—",
+                    "—",
+                    "—",
+                    "—"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 166,
+            "table2_idx": 167,
+            "upper_row_ss": [
+                [
+                    "rowspan=2, VII",
+                    "(2)货船",
+                    "4.5",
+                    "rowspan=2, 20",
+                    "rowspan=2, 15",
+                    "rowspan=2, 2.8",
+                    "rowspan=2, 32",
+                    "rowspan=2, 27",
+                    "rowspan=2, 2.8"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, 航道等级",
+                    "rowspan=2, 代表船队",
+                    "rowspan=2, 净高",
+                    "colspan=3, 单向通航孔",
+                    "colspan=3, 双向通航孔"
+                ]
+            ]
+        }
+    ]
+}

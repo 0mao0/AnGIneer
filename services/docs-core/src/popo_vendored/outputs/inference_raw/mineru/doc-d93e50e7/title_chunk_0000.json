@@ -1,0 +1,48 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 321 133 674<|content|>STATE OF DELAWARE OFFICE OF THE SECRETARY OF STATE\n<|id|>10<|page|>1<|box|>445 142 462 285<|content|>Article I — Name\n<|id|>14<|page|>1<|box|>564 142 580 550<|content|>Article II — Registered Office and Registered Agen\n<|id|>20<|page|>1<|box|>771 142 787 398<|content|>Article III — Authorized Person\n<|id|>23<|page|>2<|box|>90 143 107 362<|content|>Article IV — Effective Date\n<|id|>25<|page|>2<|box|>175 143 191 310<|content|>Article V — Purpose\n<|id|>31<|page|>2<|box|>436 142 454 356<|content|>Article VI — Sole Member\n<|id|>33<|page|>2<|box|>525 359 542 637<|content|>[EXECUTION PAGE FOLLOWS]\n<|id|>41<|page|>2<|box|>724 321 741 674<|content|>OFFICE OF THE SECRETARY OF STATE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>20<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>-1\n<|id|>41<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        }
+    ]
+}

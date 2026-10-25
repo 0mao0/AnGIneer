@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>406 140 441 854<|content|>[Insert name and title of certifying officer — e. ...Officer or Chief Financial Officer of the Company]\n<|id|>6<|page|>1<|box|>450 140 560 854<|content|>The undersigned, [____], [Insert Title] of the Com... the Merger as a wholly owned subsidiary of Parent\n<|id|>29<|page|>3<|box|>325 174 344 540<|content|>(f) Section [__] (Brokers' and Finders' Fees); ... and\n<|id|>31<|page|>3<|box|>378 140 452 857<|content|>The undersigned acknowledges that, pursuant to the... a period of eighteen (18) months from the Closing\n<|id|>43<|page|>4<|box|>856 174 892 856<|content|>(b) Capital Expenditures. ... ] Neither the Company nor any of its\n<|id|>44<|page|>5<|box|>90 174 181 856<|content|>Subsidiaries has made or committed to make any cap...n Section [__] of the Company Disclosure Schedules\n<|id|>100<|page|>10<|box|>470 142 487 450<|content|>Name: ... [Insert name of authorized officer]\n<|id|>101<|page|>10<|box|>488 142 503 694<|content|>Title: ... , Chief Executive Officer / Chief Financial Officer]",
+    "raw_response": "<|src_id|>43<|tgt_id|>44",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        }
+    ]
+}

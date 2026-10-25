@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION — ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>127 173 145 823<|content|>CALDERWOOD & HARKNESS LLP 425 Park Avenue New York, New York 10022\n<|id|>2<|page|>1<|box|>152 633 170 854<|content|>C&H Matter No. ... 1025-00008\n<|id|>5<|page|>1<|box|>261 140 280 784<|content|>FROM: ... Wendy Schultz, Associate, intellectual Property, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>287 140 343 854<|content|>CC: ... Leonard Cross, Responsible Partner, Calder..., intellectual Property, Calderwood & Harkness LLP\n<|id|>7<|page|>1<|box|>349 140 369 325<|content|>DATE: ... March 13, 2023\n<|id|>8<|page|>1<|box|>375 140 431 854<|content|>RE: ... and Meridian Credit intelligence, Inc\n<|id|>51<|page|>7<|box|>729 138 896 857<|content|>Lena Vasquez, Meridian's Chief Privacy Officer, ad...downstream use and sublicensing of Derived Data by\n<|id|>52<|page|>8<|box|>90 140 143 854<|content|>Quorum could expose Meridian to FCRA enforcement r...t information, even in derived or transformed form\n<|id|>151<|page|>19<|box|>818 142 834 320<|content|>Respectfully submitted,\n<|id|>152<|page|>19<|box|>835 142 851 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>153<|page|>19<|box|>854 143 869 251<|content|>By: ... By\n<|id|>156<|page|>20<|box|>107 140 123 366<|content|>C&H Matter No. ... 1025-00008\n<|id|>157<|page|>20<|box|>123 140 186 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM... to any unauthorized person is strictly prohibited",
+    "raw_response": "<|src_id|>51<|tgt_id|>52",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        }
+    ]
+}

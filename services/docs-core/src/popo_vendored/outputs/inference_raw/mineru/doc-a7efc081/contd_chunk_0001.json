@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        56,
+        74
+    ],
+    "pages": [
+        57,
+        73,
+        74
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>147<|page|>57<|box|>403 26 414 489<|content|>Source: ... Daily Treasury Statement for\n<|id|>149<|page|>57<|box|>403 551 416 651<|content|>p Preliminary. ... p Preliminary\n<|id|>192<|page|>73<|box|>636 11 705 496<|content|>Note: ... Reports have been requested only from ba...es have been omitted or grouped to avoid revealing\n<|id|>193<|page|>73<|box|>636 527 696 952<|content|>individual accounts or the foreign position of any...0 and April 1951 issues of the \"Treasury Bulletin\"\n<|id|>195<|page|>74<|box|>64 4 185 460<|content|>Data relating to corporations in which the United ...les 1 and 2 are compiled from the mid-month \"Daily\n<|id|>196<|page|>74<|box|>61 510 167 968<|content|>Treasury Statement\", which contains greater detail...or the same date will appear in a subsequent issue",
+    "raw_response": "<|src_id|>147<|tgt_id|>149\n<|src_id|>192<|tgt_id|>193\n<|src_id|>195<|tgt_id|>196",
+    "parsed": [
+        {
+            "src_id": 147,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 196
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 373<|content|>【342781#9】中華人民共和國媒體\n<|id|>2<|page|>1<|box|>209 107 225 310<|content|>【343295#58】香港教育史\n<|id|>4<|page|>1<|box|>275 107 291 310<|content|>【3435559#0】中国照相馆\n<|id|>6<|page|>1<|box|>341 107 357 292<|content|>【34435#1】韓國電視劇\n<|id|>8<|page|>1<|box|>460 107 476 292<|content|>【34435#3】韓國電視劇\n<|id|>10<|page|>1<|box|>595 105 611 292<|content|>【34435#4】韓國電視劇\n<|id|>12<|page|>1<|box|>747 107 764 292<|content|>【34435#5】韓國電視劇\n<|id|>14<|page|>2<|box|>73 107 89 292<|content|>【34435#9】韓國電視劇\n<|id|>16<|page|>2<|box|>244 107 259 389<|content|>【3466363#52】中華民國與法國關係\n<|id|>18<|page|>2<|box|>362 107 376 373<|content|>【346717#4】大中華地區島嶼列表\n<|id|>20<|page|>2<|box|>462 107 478 284<|content|>【34729#47】同济大学\n<|id|>22<|page|>3<|box|>73 107 89 275<|content|>【3476100#2】袁美云\n<|id|>24<|page|>3<|box|>175 105 191 327<|content|>【3481790#0】纽约梅隆银行\n<|id|>26<|page|>3<|box|>241 105 256 327<|content|>【3481790#3】纽约梅隆银行\n<|id|>28<|page|>3<|box|>376 105 392 284<|content|>【349107#0】太合麦田\n<|id|>30<|page|>3<|box|>460 107 476 267<|content|>【349529#0】抚仙湖\n<|id|>32<|page|>3<|box|>595 105 611 369<|content|>【3495706#0】张丹 (台湾教育家)\n<|id|>34<|page|>3<|box|>662 105 677 364<|content|>【3495758#2】美国州立大学列表\n<|id|>36<|page|>3<|box|>763 107 778 292<|content|>【3500737#0】法華禪寺\n<|id|>38<|page|>3<|box|>881 107 897 302<|content|>【3506940#47】中华文化\n<|id|>40<|page|>4<|box|>134 107 149 231<|content|>【351028#6】簋\n<|id|>42<|page|>4<|box|>269 107 286 258<|content|>【3514671#0】管狐\n<|id|>44<|page|>4<|box|>353 107 370 373<|content|>【3521910#13】香港大学深圳医院\n<|id|>46<|page|>4<|box|>403 107 419 373<|content|>【3521910#24】香港大学深圳医院\n<|id|>48<|page|>4<|box|>470 107 485 292<|content|>【3523755#0】T-18坦克\n<|id|>50<|page|>4<|box|>536 107 552 354<|content|>【3531084#66】布魯塞爾法語化\n<|id|>52<|page|>4<|box|>653 107 670 310<|content|>【3534330#1】中國星力量\n<|id|>54<|page|>5<|box|>73 107 89 292<|content|>【3564891#1】彼得·罗\n<|id|>56<|page|>5<|box|>191 105 208 354<|content|>【3568751#15】奥拉夫·朔尔茨\n<|id|>59<|page|>5<|box|>326 107 343 248<|content|>【3569#0】怀圣寺",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>1\n<|id|>59<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Deepak Rathore', 'General Counsel and Corporate Secretary', '52', 'Called to the Ontario Bar in 1998. Mr. Rathore has over 20 years of experience in mining law, securities law, and corporate governance. Prior to joining Torchlight, he was a partner at a leading']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'Canadian business law firm where he advised mining and resource companies on a wide range of transactional and regulatory matters. He holds a Bachelor of Laws (LL.B.) from Osgoode Hall Law School, York University, and a Bachelor of Arts from the University of Toronto.']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 312,
+    "table2_idx": 313
+}

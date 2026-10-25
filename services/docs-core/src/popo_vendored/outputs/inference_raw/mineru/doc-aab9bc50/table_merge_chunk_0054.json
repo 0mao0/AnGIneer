@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 54,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['无', 'A)盐井、石油井、天然气井的几何类型为点;B)只有和装货运输有关联,或者视觉显见的生产仓储区域需要编码;C)区域内有可识别的建筑或设备时,应编码为 BUISGL(单体建筑)、CRANES(起重机)、LNDMRK(陆地位物)、SILTNK(筒仓/罐)', 'PRDARE(生产/仓储区)(M)CATPRA(生产作业区域)=[104(盐井),105(石油井),106(天然气井)](O)CONDTN(状态)=[1(建造中),2(废弃的),3(改造中),5(计划建造的),999(其他)](O)NOBJNM(中文名称)=[盐井、石油井、天然气井中文名称](O)OBJNAM(英文名称)=[盐井、石油井、天然气井英文名称]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=3, 盐井、石油井、天然气井'], ['图 像', '编码说明', '对应物标属性编码']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 2986,
+    "table2_idx": 2987
+}

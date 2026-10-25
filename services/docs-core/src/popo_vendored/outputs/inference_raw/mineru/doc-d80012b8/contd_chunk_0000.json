@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        22
+    ],
+    "pages": [
+        2,
+        6,
+        7,
+        8,
+        18,
+        19,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>2<|box|>205 233 224 763<|content|>Penterra Pharmaceuticals Corp. ... , a Delaware corporation (\"Sponsor\")\n<|id|>4<|page|>2<|box|>233 482 250 516<|content|>and\n<|id|>5<|page|>2<|box|>258 148 276 848<|content|>Veridian Health Research Network, Inc. ... , a Delaware 501(c)(3) corporation (\"Site Network\")\n<|id|>6<|page|>2<|box|>284 140 319 852<|content|>Protocol: ... PPC-4871-III (CLARION — Clinical Ass...ponse with Longitudinal Investigation in ONcology)\n<|id|>7<|page|>2<|box|>328 140 345 521<|content|>Investigational Product: ... Penterafenib (PPC-4871)\n<|id|>8<|page|>2<|box|>354 142 371 352<|content|>IND Number: ... IND 157823\n<|id|>9<|page|>2<|box|>378 140 397 483<|content|>ClinicalTrials. ... NCT05928174\n<|id|>10<|page|>2<|box|>405 140 441 854<|content|>Capitalized terms used but not defined herein shal...e meanings ascribed to such terms in the Agreement\n<|id|>49<|page|>6<|box|>263 174 301 854<|content|>(c) Interactive response technology (\"IRT\") system...investigational product supply management; ... and\n<|id|>51<|page|>6<|box|>353 140 482 856<|content|>Sponsor shall maintain validated systems with appr...ed and documented throughout the term of the Study\n<|id|>64<|page|>7<|box|>691 174 728 854<|content|>(d) Educational materials, reference texts, and ot...nvestigators in connection with the Study; ... and\n<|id|>66<|page|>7<|box|>780 140 872 856<|content|>Sponsor shall maintain internal systems, processes...consistent with the CMS dispute resolution process\n<|id|>73<|page|>8<|box|>426 174 462 854<|content|>(d) Geographic considerations, including regional ...physician compensation and cost of living; ... and\n<|id|>75<|page|>8<|box|>496 140 588 854<|content|>Sponsor shall maintain all documentation supportin... Anti-Kickback Statute and related Applicable Laws\n<|id|>185<|page|>18<|box|>794 174 829 854<|content|>(c) Electronic communications between the Parties ...ol deviations, and regulatory submissions; ... and\n<|id|>187<|page|>19<|box|>90 140 181 854<|content|>Site Network shall ensure that all site personnel ...or inspection by Sponsor, Meridian CRO, or the FDA\n<|id|>196<|page|>19<|box|>782 174 856 856<|content|>(i) Sponsor's subject-injury indemnification oblig...m product defects attributable to Sponsor; ... and\n<|id|>198<|page|>20<|box|>152 140 189 854<|content|>The remedies set forth in this Section 5. ... 2 ar...ng Party under the Agreement, at law, or in equity\n<|id|>218<|page|>21<|box|>835 140 890 856<|content|>This Exhibit H (Regulatory Compliance Representati...nd between Penterra Pharmaceuticals Corp. ... This\n<|id|>219<|page|>22<|box|>90 140 126 854<|content|>Exhibit shall be binding upon the Parties and thei...signs as of the date of execution of the Agreement\n<|id|>224<|page|>22<|box|>229 142 246 442<|content|>Title: ... Vice President & General Counsel\n<|id|>225<|page|>22<|box|>248 142 263 294<|content|>Date: ... June 28, 2023\n<|id|>226<|page|>22<|box|>263 142 281 571<|content|>VERIDIAN HEALTH RESEARCH NETWORK, INC. ... VERIDIAN HEALTH RESEARCH NETWORK, INC\n<|id|>229<|page|>22<|box|>316 140 333 457<|content|>Title: ... President & Chief Executive Officer\n<|id|>230<|page|>22<|box|>334 142 349 295<|content|>Date: ... June 28, 2023",
+    "raw_response": "<|src_id|>3<|tgt_id|>4\n<|src_id|>4<|tgt_id|>5\n<|src_id|>218<|tgt_id|>219",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 219
+        }
+    ]
+}

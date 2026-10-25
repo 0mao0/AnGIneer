@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        51,
+        54
+    ],
+    "pages": [
+        52,
+        53,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>354<|page|>52<|box|>90 166 109 831<|content|>APPENDIX C — ORGANIZATIONAL STRUCTURE DIAGRAM\n<|id|>356<|page|>52<|box|>205 143 243 854<|content|>ORGANIZATIONAL STRUCTURE AND COLLATERAL DIAGRAM Hu\n<|id|>357<|page|>52<|box|>285 142 301 467<|content|>LEVEL 1 — SPONSOR / GUARANTOR\n<|id|>361<|page|>52<|box|>443 143 460 473<|content|>LEVEL 2 — MEZZANINE BORROWER\n<|id|>365<|page|>52<|box|>602 142 619 550<|content|>Ostrander Holdings — MORTGAGE BORROWER\n<|id|>369<|page|>52<|box|>760 143 777 349<|content|>LEVEL 4 — PROPERTY\n<|id|>372<|page|>53<|box|>89 142 106 444<|content|>INTERCREDITOR RELATIONSHIP\n<|id|>375<|page|>53<|box|>257 143 273 285<|content|>KEY ADVISORS\n<|id|>377<|page|>54<|box|>90 236 109 761<|content|>APPENDIX D — KEY DATES AND MILESTONES",
+    "raw_response": "<|id|>354<|level|>1\n<|id|>356<|level|>2\n<|id|>357<|level|>3\n<|id|>361<|level|>3\n<|id|>365<|level|>3\n<|id|>369<|level|>3\n<|id|>372<|level|>3\n<|id|>375<|level|>3\n<|id|>377<|level|>1",
+    "parsed": [
+        {
+            "id": 354,
+            "level": 1
+        },
+        {
+            "id": 356,
+            "level": 2
+        },
+        {
+            "id": 357,
+            "level": 3
+        },
+        {
+            "id": 361,
+            "level": 3
+        },
+        {
+            "id": 365,
+            "level": 3
+        },
+        {
+            "id": 369,
+            "level": 3
+        },
+        {
+            "id": 372,
+            "level": 3
+        },
+        {
+            "id": 375,
+            "level": 3
+        },
+        {
+            "id": 377,
+            "level": 1
+        }
+    ]
+}

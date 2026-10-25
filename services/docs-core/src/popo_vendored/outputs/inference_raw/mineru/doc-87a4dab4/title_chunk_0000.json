@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        59
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        14,
+        20,
+        24,
+        25,
+        26,
+        27,
+        34,
+        37,
+        38,
+        58
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>5<|box|>292 168 330 792<|content|>TREASURY DEPARTMENT\n<|id|>15<|page|>7<|box|>292 175 325 801<|content|>TREASURY DEPARTMENT\n<|id|>24<|page|>9<|box|>161 400 178 595<|content|>Table of Contents\n<|id|>39<|page|>14<|box|>447 339 463 670<|content|>Summary of Receipts and Expenditures\n<|id|>48<|page|>20<|box|>86 272 117 729<|content|>COLLECTIONS OF INTERNAL REVENUE\n<|id|>53<|page|>24<|box|>52 271 67 739<|content|>Receipts and Expenditures under Social Security Ac\n<|id|>57<|page|>25<|box|>61 263 88 724<|content|>Receipts and Expenditures Under Railroad Retiremen\n<|id|>59<|page|>25<|box|>459 374 472 623<|content|>Railroad Retirement Account\n<|id|>61<|page|>26<|box|>52 334 67 674<|content|>Cash Income and Outgo of the Treasury\n<|id|>65<|page|>27<|box|>65 98 106 875<|content|>CASH INCOME AND OUTGO AND NET CASH OUTGO January 1\n<|id|>74<|page|>34<|box|>626 369 640 647<|content|>Composition of the Public Debt\n<|id|>79<|page|>37<|box|>50 201 103 782<|content|>COMPARATIVE YIELDS OF AVERAGE OF ALL LONG TERM U S\n<|id|>82<|page|>38<|box|>88 196 114 815<|content|>YIELDS OF TREASURY BONDS AND NOTES NOV. 15, 1939\n<|id|>118<|page|>58<|box|>55 241 85 778<|content|>Outstanding Forward Exchange Contracts as Reported\n<|id|>120<|page|>58<|box|>702 214 731 806<|content|>Net Position in Foreign Currencies of Reporting Ba",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>15<|level|>1\n<|id|>24<|level|>1\n<|id|>39<|level|>1\n<|id|>48<|level|>1\n<|id|>53<|level|>1\n<|id|>57<|level|>1\n<|id|>59<|level|>2\n<|id|>61<|level|>1\n<|id|>65<|level|>1\n<|id|>74<|level|>1\n<|id|>79<|level|>1\n<|id|>82<|level|>1\n<|id|>118<|level|>1\n<|id|>120<|level|>1",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        }
+    ]
+}

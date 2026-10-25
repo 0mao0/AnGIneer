@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        49
+    ],
+    "pages": [
+        1,
+        2,
+        16,
+        17,
+        27,
+        28,
+        37,
+        38,
+        48,
+        49
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>98 214 118 782<|content|>EXEMPTED LIMITED PARTNERSHIP AGREEMENT\n<|id|>1<|page|>1<|box|>137 478 157 519<|content|>OF\n<|id|>3<|page|>1<|box|>213 300 231 694<|content|>A Cayman Islands Exempted Limited Partnership\n<|id|>4<|page|>1<|box|>239 418 256 580<|content|>Dated as of [●], 2025\n<|id|>5<|page|>1<|box|>265 331 282 666<|content|>Governed by the Laws of the Cayman Islands\n<|id|>13<|page|>1<|box|>871 140 909 856<|content|>WHEREAS, the investment strategy of the Partnershi... to $250,000,000 per portfolio investment; ... and\n<|id|>14<|page|>2<|box|>133 140 171 854<|content|>WHEREAS, the General Partner targets aggregate cap...ectively, of up to $2,000,000,000 (the \"Hard Cap\")\n<|id|>206<|page|>16<|box|>861 174 898 857<|content|>(vi) Fund-Level Leverage Limit: ... Borrowings und... the aggregate uncalled Capital Commitments of the\n<|id|>207<|page|>17<|box|>90 174 143 854<|content|>Partnership at any time. ... Bridge financing draw...ndred eighty (180) days of the applicable drawdown\n<|id|>350<|page|>27<|box|>837 140 893 857<|content|>(d) The General Partner and HCP have disclosed to ...rms that, to its knowledge, neither Osprey Capital\n<|id|>351<|page|>28<|box|>90 138 181 854<|content|>Markets LLC nor any of its principals, officers, o...including SEC Rule 206(4)-5 under the Advisers Act\n<|id|>499<|page|>37<|box|>866 140 902 856<|content|>(a) All information regarding the Partnership, its... Fund, the Parallel Fund, the General Partner, and\n<|id|>500<|page|>38<|box|>90 140 162 856<|content|>HCP (collectively, \"Confidential Information\") is ...h the prior written consent of the General Partner\n<|id|>559<|page|>48<|box|>181 697 200 854<|content|>Capital Call No. ... [●]\n<|id|>560<|page|>48<|box|>208 140 226 426<|content|>To: ... [Limited Partner Name] [Address]\n<|id|>561<|page|>48<|box|>234 142 251 307<|content|>Dear Limited Partner: ... Dear Limited Partner\n<|id|>564<|page|>48<|box|>467 142 484 354<|content|>Your Pro Rata Share: ... $[●]\n<|id|>565<|page|>48<|box|>493 140 511 792<|content|>Funding Deadline: ... [Date — not less than 10 Business Days from delivery of this notice]\n<|id|>567<|page|>48<|box|>545 176 564 423<|content|>Bank: ... Ridgeway Trust Company\n<|id|>568<|page|>48<|box|>570 176 588 614<|content|>Address: ... 1100 North Market Street, Wilmington, DE 19801\n<|id|>569<|page|>48<|box|>588 176 625 854<|content|>ABA/Routing No. ... [●]\n<|id|>570<|page|>48<|box|>632 140 688 854<|content|>Please ensure that the full amount of your pro rat... than the Funding Deadline. ... 7 of the Agreement\n<|id|>572<|page|>48<|box|>739 140 755 415<|content|>HARROWGATE FUND V GP LLC\n<|id|>573<|page|>48<|box|>756 142 773 545<|content|>By: ... Harrowgate Capital Partners LLC, its sole member\n<|id|>574<|page|>48<|box|>775 143 791 253<|content|>By: ... By\n<|id|>575<|page|>48<|box|>791 142 809 362<|content|>Name: ... Harrowgate\n<|id|>576<|page|>48<|box|>809 143 827 325<|content|>Title: ... Managing Partner\n<|id|>579<|page|>49<|box|>181 697 199 854<|content|>Distribution No. ... [●]\n<|id|>580<|page|>49<|box|>208 142 226 426<|content|>To: ... [Limited Partner Name] [Address]\n<|id|>581<|page|>49<|box|>234 142 251 307<|content|>Dear Limited Partner: ... Dear Limited Partner\n<|id|>584<|page|>49<|box|>467 142 484 354<|content|>Your Pro Rata Share: ... $[●]\n<|id|>585<|page|>49<|box|>493 142 511 455<|content|>Less: ... ($[●])\n<|id|>586<|page|>49<|box|>518 142 537 372<|content|>Net Distribution to You: ... $[●]\n<|id|>587<|page|>49<|box|>545 143 563 316<|content|>Distribution Date: ... [●]\n<|id|>588<|page|>49<|box|>571 140 626 854<|content|>The distribution set forth above relates to [descr...\" or \"current income received from the Main Fund\"]\n<|id|>592<|page|>49<|box|>848 142 864 415<|content|>HARROWGATE FUND V GP LLC\n<|id|>593<|page|>49<|box|>866 143 883 545<|content|>By: ... Harrowgate Capital Partners LLC, its sole member\n<|id|>594<|page|>49<|box|>883 143 901 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>206<|tgt_id|>207\n<|src_id|>350<|tgt_id|>351\n<|src_id|>499<|tgt_id|>500",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 207
+        },
+        {
+            "src_id": 350,
+            "tgt_id": 351
+        },
+        {
+            "src_id": 499,
+            "tgt_id": 500
+        }
+    ]
+}

@@ -1,0 +1,122 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 145 176 852<|content|>CONFIDENTIAL — INTERNAL MEMORANDUM CALDERWOOD & HA\n<|id|>11<|page|>1<|box|>505 398 523 599<|content|>1. Matter Summary\n<|id|>26<|page|>2<|box|>580 390 601 604<|content|>2. Engagement Team\n<|id|>30<|page|>3<|box|>494 142 512 549<|content|>Total hours billed across all timekeepers: 830 hou\n<|id|>32<|page|>3<|box|>585 333 604 663<|content|>3. Background and Client Profile\n<|id|>33<|page|>3<|box|>628 140 647 493<|content|>3.1 Meridian Consumer Brands LLC (MCB)\n<|id|>42<|page|>4<|box|>541 142 558 485<|content|>3.2 Brindoval Home Goods Inc. (Brindoval)\n<|id|>48<|page|>5<|box|>215 388 236 609<|content|>4. Procedural History\n<|id|>50<|page|>5<|box|>313 140 330 563<|content|>4.1 Pre-Litigation Phase (September–November 2022)\n<|id|>57<|page|>6<|box|>531 140 549 553<|content|>4.2 Litigation Phase (November 2022–January 2023)\n<|id|>79<|page|>9<|box|>90 140 107 692<|content|>4.3 Mediation and Settlement Negotiation Phase (Fe\n<|id|>94<|page|>10<|box|>806 140 824 486<|content|>4.4 Closing and Dismissal Phase (May 2023)\n<|id|>100<|page|>11<|box|>569 166 589 830<|content|>5. Final Outcome — Trademark Coexistence Agreement\n<|id|>116<|page|>13<|box|>90 385 111 611<|content|>6. Financial Summary\n<|id|>117<|page|>13<|box|>137 142 152 284<|content|>6.1 Attorney Fees\n<|id|>120<|page|>13<|box|>426 142 443 290<|content|>6.2 Disbursements\n<|id|>122<|page|>13<|box|>739 142 756 380<|content|>6.3 Total Matter Cost to MCB\n<|id|>127<|page|>14<|box|>90 142 107 354<|content|>6.4 Net Financial Outcome\n<|id|>133<|page|>14<|box|>412 297 431 699<|content|>7. Third Parties and Expert Consultants\n<|id|>135<|page|>15<|box|>90 370 111 625<|content|>8. Key Documents in File\n<|id|>175<|page|>16<|box|>575 217 595 779<|content|>9. Continuing Obligations and Post-Closing Action\n<|id|>183<|page|>17<|box|>734 315 753 683<|content|>10. Document Retention Instructions\n<|id|>189<|page|>18<|box|>542 364 561 632<|content|>11. Conflict-Check Update\n<|id|>201<|page|>19<|box|>90 183 107 741<|content|>• Gregory T. Halverson / Halverson McKay & Pruitt\n<|id|>204<|page|>19<|box|>291 346 311 650<|content|>12. Approval and Distribution\n<|id|>206<|page|>19<|box|>391 142 409 251<|content|>Prepared by:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>11<|level|>1\n<|id|>26<|level|>1\n<|id|>30<|level|>-1\n<|id|>32<|level|>1\n<|id|>33<|level|>2\n<|id|>42<|level|>2\n<|id|>48<|level|>1\n<|id|>50<|level|>2\n<|id|>57<|level|>2\n<|id|>79<|level|>2\n<|id|>94<|level|>2\n<|id|>100<|level|>1\n<|id|>116<|level|>1\n<|id|>117<|level|>2\n<|id|>120<|level|>2\n<|id|>122<|level|>2\n<|id|>127<|level|>2\n<|id|>133<|level|>1\n<|id|>135<|level|>1\n<|id|>175<|level|>1\n<|id|>183<|level|>1\n<|id|>189<|level|>1\n<|id|>201<|level|>-1\n<|id|>204<|level|>1\n<|id|>206<|level|>2",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 183,
+            "level": 1
+        },
+        {
+            "id": 189,
+            "level": 1
+        },
+        {
+            "id": 204,
+            "level": 1
+        },
+        {
+            "id": 206,
+            "level": 2
+        }
+    ]
+}

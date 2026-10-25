@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        6
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 437 109 560<|content|>EXHIBIT F\n<|id|>1<|page|>2<|box|>128 156 162 838<|content|>CERTIFICATION OF NON-FOREIGN STATUS PURSUANT TO SE\n<|id|>3<|page|>2<|box|>323 142 340 241<|content|>RECITALS\n<|id|>9<|page|>2<|box|>731 140 750 650<|content|>SECTION 1: IDENTIFICATION OF TRANSFEROR / SELLER\n<|id|>16<|page|>3<|box|>185 140 203 640<|content|>SECTION 2: CERTIFICATION OF NON-FOREIGN STATUS\n<|id|>26<|page|>3<|box|>660 140 678 683<|content|>SECTION 3: CLASSIFICATION FOR FEDERAL TAX PURPOSES\n<|id|>29<|page|>4<|box|>148 140 166 777<|content|>SECTION 4: DESCRIPTION OF THE TRANSACTION AND THE\n<|id|>33<|page|>4<|box|>450 140 468 508<|content|>SECTION 5: AUTHORITY OF SIGNATORY\n<|id|>35<|page|>4<|box|>664 140 681 661<|content|>SECTION 6: UNDERSTANDING AND ACKNOWLEDGMENTS\n<|id|>40<|page|>5<|box|>258 140 276 426<|content|>SECTION 7: INDEMNIFICATION\n<|id|>43<|page|>5<|box|>681 140 698 527<|content|>SECTION 8: MISCELLANEOUS PROVISIONS\n<|id|>49<|page|>6<|box|>277 441 294 557<|content|>EXECUTION\n<|id|>56<|page|>6<|box|>434 359 450 637<|content|>NOTARY ACKNOWLEDGMENT\n<|id|>57<|page|>6<|box|>459 140 476 560<|content|>STATE OF NEW YORK COUNTY OF NEW YORK",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>9<|level|>2\n<|id|>16<|level|>2\n<|id|>26<|level|>2\n<|id|>29<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>43<|level|>2\n<|id|>49<|level|>2\n<|id|>56<|level|>2\n<|id|>57<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        }
+    ]
+}

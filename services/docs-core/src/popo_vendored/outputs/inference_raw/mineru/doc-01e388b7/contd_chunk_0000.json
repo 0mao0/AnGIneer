@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        12,
+        13,
+        15,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>156 223 174 854<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>181 140 200 807<|content|>Conrad Reeves Senior Counsel, Export Controls & Sanctions Direct Dial: ... (202) 555-7148\n<|id|>4<|page|>1<|box|>209 140 243 455<|content|>Email: ... (202) 555-7152\n<|id|>5<|page|>1<|box|>252 728 268 854<|content|>August 30, 2023\n<|id|>6<|page|>1<|box|>277 140 295 493<|content|>Via OFAC Electronic Filing System and FedEx\n<|id|>7<|page|>1<|box|>303 140 339 854<|content|>Office of Foreign Assets Control Compliance & Enforcement Division U. ... 20220\n<|id|>8<|page|>1<|box|>348 176 364 522<|content|>Attention: ... Erin Matsuda, Compliance Analyst\n<|id|>9<|page|>1<|box|>373 174 410 854<|content|>Re: ... OFAC Voluntary Self-Disclosure Filed June 1, 2023\n<|id|>10<|page|>1<|box|>417 176 434 684<|content|>Matter Reference: ... 1016-00009\n<|id|>11<|page|>1<|box|>443 174 479 854<|content|>Client: ... MC-334821)\n<|id|>12<|page|>1<|box|>488 142 505 287<|content|>Dear Ms. ... Matsuda\n<|id|>37<|page|>5<|box|>806 140 898 854<|content|>KYC Documentation. ... Qureshi or Zenith\n<|id|>38<|page|>6<|box|>90 140 164 857<|content|>Petroleum against the OFAC SDN List, Consolidated ...during the investigation are enclosed as Exhibit C\n<|id|>48<|page|>7<|box|>805 174 898 857<|content|>(c) Payment Flow Analysis. ... As detailed more fu...land), VIG Logistics LLC (Dubai, UAE), and Volkhov\n<|id|>49<|page|>8<|box|>89 174 145 854<|content|>Neftegaz OOO (Moscow, Russia). ... The rapidity an...or for the benefit of, Volkhov-controlled entities\n<|id|>83<|page|>12<|box|>763 176 909 857<|content|>1. ... Hargrave was placed on administrative leave...1, 2022 and was formally separated from Dunmore on\n<|id|>84<|page|>13<|box|>90 209 125 854<|content|>October 1, 2022. ... His personal counsel is James...reet & McClain PLLC, Dallas, Texas, as noted above\n<|id|>104<|page|>15<|box|>625 181 640 684<|content|>• Aggregate notional value of tainted transactions: ... $156,300,000\n<|id|>107<|page|>15<|box|>756 140 828 856<|content|>Dunmore anticipates making the voluntary disgorgem...ll promptly notify OFAC of any material adjustment\n<|id|>105<|page|>15<|box|>643 181 714 854<|content|>• Estimated net margin: ... 6% (determined by Ridg...nsurance, financing costs, and allocated overhead)\n<|id|>106<|page|>15<|box|>718 183 753 854<|content|>• Estimated net profits: ... 75 million)\n<|id|>130<|page|>18<|box|>133 408 152 586<|content|>Respectfully submitted,\n<|id|>131<|page|>18<|box|>160 140 176 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>132<|page|>18<|box|>178 142 195 253<|content|>By: ... By\n<|id|>133<|page|>18<|box|>194 140 229 852<|content|>Conrad Reeves Senior Counsel, Export Controls & Sa...Washington, DC 20006 Telephone: ... (202) 555-7148\n<|id|>134<|page|>18<|box|>229 140 244 455<|content|>Email: ... com",
+    "raw_response": "<|src_id|>37<|tgt_id|>38\n<|src_id|>48<|tgt_id|>49\n<|src_id|>83<|tgt_id|>84",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 84
+        }
+    ]
+}

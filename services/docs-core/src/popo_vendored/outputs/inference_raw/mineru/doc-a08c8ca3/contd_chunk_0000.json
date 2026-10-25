@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>200 259 218 740<|content|>Adopted by Unanimous Written Consent Effective as of __, 2022\n<|id|>4<|page|>1<|box|>226 140 318 856<|content|>The undersigned, being all of the members of the B...ereby adopt the following recitals and resolutions\n<|id|>10<|page|>2<|box|>270 140 416 857<|content|>WHEREAS, the Company, Pinnacle Vista, Garrett Call...icable to the Founders and Pinnacle Vista; ... and\n<|id|>11<|page|>2<|box|>424 140 515 856<|content|>WHEREAS, the Board has reviewed the independence q... extent applicable), and has determined as follows\n<|id|>25<|page|>3<|box|>859 140 897 854<|content|>RESOLVED FURTHER, that, following the IPO Closing,...rd, is hereby authorized and directed to cause the\n<|id|>26<|page|>4<|box|>90 140 164 856<|content|>Charter to be posted on the Company's corporate we...by applicable NYSE listing standards and SEC rules\n<|id|>46<|page|>6<|box|>343 174 398 854<|content|>(b) Any nomination, standstill, or voting provisio... the nomination and election of directors; ... and\n<|id|>48<|page|>6<|box|>467 140 523 856<|content|>RESOLVED FURTHER, that nothing in the foregoing re...tockholders under the DGCL or other applicable law\n<|id|>68<|page|>7<|box|>787 174 842 854<|content|>(ii) developing, recommending, and maintaining sou...Company's Corporate Governance Guidelines; ... and\n<|id|>70<|page|>8<|box|>90 140 145 854<|content|>The Committee shall carry out its purpose in a man...g the DGCL), and the listing standards of the NYSE\n<|id|>108<|page|>11<|box|>169 143 185 331<|content|>Name: ... Sandra Haverford\n<|id|>109<|page|>11<|box|>186 142 203 480<|content|>Title: ... General Counsel & Corporate Secretary\n<|id|>110<|page|>11<|box|>204 143 220 264<|content|>Date: ... Date\n<|id|>115<|page|>11<|box|>625 143 672 640<|content|>Garrett Calloway Co-Founder, Chairman & Chief Executive Officer\n<|id|>116<|page|>11<|box|>676 143 724 534<|content|>Elaine Briggs Co-Founder & President, Development\n<|id|>117<|page|>11<|box|>727 143 773 645<|content|>Hugh Pemberton Director (Pinnacle Vista Capital Partners Designee)\n<|id|>118<|page|>11<|box|>777 143 827 617<|content|>Diane Kovac Director (Pinnacle Vista Capital Partners Designee)\n<|id|>119<|page|>11<|box|>829 143 878 508<|content|>Warren Okoro Director\n<|id|>120<|page|>11<|box|>880 143 896 330<|content|>Catherine Liang Director\n<|id|>121<|page|>12<|box|>109 142 126 331<|content|>Richard Estavez Director",
+    "raw_response": "<|src_id|>25<|tgt_id|>26\n<|src_id|>68<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 70
+        }
+    ]
+}

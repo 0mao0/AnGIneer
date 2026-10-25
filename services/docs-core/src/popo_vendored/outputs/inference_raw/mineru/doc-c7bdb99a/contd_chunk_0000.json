@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>330 341 349 655<|content|>a Delaware limited partnership\n<|id|>6<|page|>1<|box|>367 377 383 620<|content|>Effective as of August 14, 2023\n<|id|>7<|page|>1<|box|>393 140 614 856<|content|>The undersigned, constituting all of the members o...P LLC Agreement or the LP Agreement, as applicable\n<|id|>15<|page|>2<|box|>412 174 450 854<|content|>(iii) last-twelve-months (\"LTM\") revenue of approx...the fiscal year ending September 30, 2023; ... and\n<|id|>17<|page|>2<|box|>518 140 631 856<|content|>The Proposed Transaction is expected to be structu... Dollars ($6,800,000,000) (the \"Enterprise Value\")\n<|id|>19<|page|>2<|box|>737 138 883 857<|content|>C. ... The engagement would be led by Harrison Wex...ers & Acquisitions) and Beatrice Holloway (Billing\n<|id|>20<|page|>3<|box|>90 140 126 854<|content|>Partner, Mergers & Acquisitions), with the firm's ... matter number for the engagement being 1041-00003\n<|id|>29<|page|>3<|box|>469 176 487 671<|content|>(h) employment, benefits, and executive compensation matters; ... and\n<|id|>32<|page|>3<|box|>693 140 750 854<|content|>NOW, THEREFORE, BE IT RESOLVED, that the members o...ructure LP, hereby adopt the following resolutions\n<|id|>35<|page|>3<|box|>825 140 898 856<|content|>RESOLVED, that the Partnership is hereby authorize...are set forth in the engagement letter between the\n<|id|>36<|page|>4<|box|>90 140 181 856<|content|>Partnership and Calderwood & Harkness LLP, dated a...ng Partner, under Matter No. ... and it is further\n<|id|>37<|page|>4<|box|>189 140 318 856<|content|>RESOLVED, that each of Marcus Elliston and Priya N...dence of such Authorized Person's approval thereof\n<|id|>39<|page|>4<|box|>354 140 518 856<|content|>RESOLVED, that the Partnership is hereby authorize...of the Proposed Transaction; ... and it is further\n<|id|>40<|page|>4<|box|>526 140 672 856<|content|>RESOLVED, that each Authorized Person is hereby au... Authorized Person's approval of the terms thereof\n<|id|>52<|page|>5<|box|>820 174 893 857<|content|>(c) authorizing and directing the conduct of compr...td. ... (a company incorporated in the Republic of\n<|id|>53<|page|>6<|box|>90 174 162 856<|content|>India), and Cloudium Solutions GmbH (a company org...nmental, real estate, insurance, and other matters\n<|id|>61<|page|>6<|box|>777 140 907 857<|content|>RESOLVED, that notwithstanding any provision of th...r (iv) any other binding commitment obligating the\n<|id|>62<|page|>7<|box|>90 140 253 854<|content|>Partnership, Fund VI, or any affiliate thereof to ...sed Transaction absent such further authorizations\n<|id|>69<|page|>7<|box|>703 142 737 743<|content|>Marcus Elliston Founder & Managing Partner Member of Solara Digital GP LLC Date: ... August 14, 2023\n<|id|>70<|page|>7<|box|>770 140 821 851<|content|>Priya Narasimhan Co-Managing Partner & Chief Inves...of Solara Digital GP LLC Date: ... August 14, 2023",
+    "raw_response": "<|src_id|>19<|tgt_id|>20\n<|src_id|>35<|tgt_id|>36\n<|src_id|>52<|tgt_id|>53\n<|src_id|>61<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        }
+    ]
+}

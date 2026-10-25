@@ -1,0 +1,179 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ojnkzaba\\input\\pdfs\\doc-515e1174.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ojnkzaba\\enriched\\doc-515e1174.json",
+    "contd_output": "<|src_id|>65<|tgt_id|>66",
+    "title_output": "<|id|>1<|level|>1\n<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>26<|level|>2\n<|id|>44<|level|>2\n<|id|>53<|level|>1\n<|id|>54<|level|>2\n<|id|>63<|level|>2\n<|id|>69<|level|>1\n<|id|>70<|level|>2\n<|id|>74<|level|>2\n<|id|>81<|level|>1\n<|id|>82<|level|>2\n<|id|>85<|level|>2\n<|id|>89<|level|>2\n<|id|>95<|level|>2\n<|id|>99<|level|>2\n<|id|>107<|level|>1\n<|id|>108<|level|>2\n<|id|>112<|level|>2\n<|id|>115<|level|>2\n<|id|>122<|level|>1\n<|id|>134<|level|>1\n<|id|>135<|level|>2\n<|id|>141<|level|>3\n<|id|>155<|level|>2\n<|id|>162<|level|>1",
+    "image_output": "<|src_id|>15<|tgt_id|>14\n<|src_id|>56<|tgt_id|>54\n<|src_id|>57<|tgt_id|>54\n<|src_id|>71<|tgt_id|>70\n<|src_id|>83<|tgt_id|>82\n<|src_id|>110<|tgt_id|>108\n<|src_id|>113<|tgt_id|>112",
+    "contd_label": [
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 108
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 112
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 56,
+            "table2_idx": 57,
+            "upper_row_ss": [
+                [
+                    "— Diana Padilla",
+                    "$10,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Settlement Administration (Meridian Settlement Services LLC)",
+                    "~$385,000"
+                ]
+            ]
+        }
+    ]
+}

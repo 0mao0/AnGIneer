@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 145 123 852<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>2<|page|>1<|box|>369 235 386 761<|content|>ORDER OF VOLUNTARY DISMISSAL WITHOUT PREJUDICE\n<|id|>4<|page|>1<|box|>565 142 582 493<|content|>IT IS HEREBY ORDERED AS FOLLOWS:\n<|id|>18<|page|>2<|box|>371 375 388 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>3\n<|id|>18<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 2
+        }
+    ]
+}

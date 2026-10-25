@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 150 126 856<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law One Va\n<|id|>9<|page|>1<|box|>422 140 439 364<|content|>1. Purpose and Engagement\n<|id|>12<|page|>1<|box|>734 140 751 354<|content|>2. Scope of Representation\n<|id|>14<|page|>1<|box|>845 140 863 338<|content|>2.1 Entity Restructuring\n<|id|>22<|page|>2<|box|>599 140 616 362<|content|>2.2 Economics Realignment\n<|id|>28<|page|>3<|box|>138 140 157 419<|content|>2.3 Departing Principal Separation\n<|id|>37<|page|>3<|box|>594 142 612 488<|content|>2.4 LP Consent and Side-Letter Compliance\n<|id|>44<|page|>4<|box|>202 140 219 303<|content|>2.5 Tax Structuring\n<|id|>52<|page|>4<|box|>648 140 667 339<|content|>2.6 Limitations on Scope\n<|id|>59<|page|>5<|box|>292 140 310 313<|content|>3. Engagement Team\n<|id|>62<|page|>6<|box|>90 140 107 390<|content|>4. Fee Arrangement and Billing\n<|id|>63<|page|>6<|box|>121 140 138 279<|content|>4.1 Hourly Rates\n<|id|>67<|page|>6<|box|>401 140 419 339<|content|>4.2 Estimated Fee Range\n<|id|>71<|page|>7<|box|>90 140 107 318<|content|>4.4 Billing Procedures\n<|id|>74<|page|>7<|box|>202 176 218 411<|content|>Attention: Finance Department\n<|id|>76<|page|>7<|box|>334 140 349 387<|content|>5. Client Identity and Conflicts\n<|id|>79<|page|>7<|box|>683 140 700 284<|content|>6. Confidentiality\n<|id|>82<|page|>8<|box|>167 140 184 326<|content|>7. Document Retention\n<|id|>84<|page|>8<|box|>363 140 380 287<|content|>8. Governing Law\n<|id|>86<|page|>8<|box|>465 140 484 264<|content|>9. Termination\n<|id|>89<|page|>8<|box|>705 142 724 406<|content|>10. Acceptance and Counterparts\n<|id|>95<|page|>9<|box|>222 140 239 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>100<|page|>9<|box|>318 313 334 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>102<|page|>9<|box|>387 142 404 491<|content|>ARDENT CAPITAL MANAGEMENT LLC",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>3\n<|id|>22<|level|>3\n<|id|>28<|level|>3\n<|id|>37<|level|>3\n<|id|>44<|level|>3\n<|id|>52<|level|>3\n<|id|>59<|level|>2\n<|id|>62<|level|>2\n<|id|>63<|level|>3\n<|id|>67<|level|>3\n<|id|>71<|level|>3\n<|id|>74<|level|>-1\n<|id|>76<|level|>2\n<|id|>79<|level|>2\n<|id|>82<|level|>2\n<|id|>84<|level|>2\n<|id|>86<|level|>2\n<|id|>89<|level|>2\n<|id|>95<|level|>-1\n<|id|>100<|level|>2\n<|id|>102<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        }
+    ]
+}

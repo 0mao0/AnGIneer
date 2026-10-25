@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 287 118 710<|content|>VOTING AND SUPPORT AGREEMENT\n<|id|>9<|type|>title<|page|>1<|box|>449 142 465 241<|content|>RECITALS\n<|id|>17<|type|>title<|page|>2<|box|>354 143 372 243<|content|>ARTICLE I\n<|id|>18<|type|>title<|page|>2<|box|>396 142 412 269<|content|>DEFINITIONS\n<|id|>28<|type|>title<|page|>3<|box|>157 142 174 251<|content|>ARTICLE II\n<|id|>29<|type|>title<|page|>3<|box|>198 140 214 594<|content|>VOTING AGREEMENT AND IRREVOCABLE PROXY\n<|id|>40<|type|>title<|page|>5<|box|>148 142 166 256<|content|>ARTICLE III\n<|id|>41<|type|>title<|page|>5<|box|>190 142 207 387<|content|>TRANSFER RESTRICTIONS\n<|id|>52<|type|>title<|page|>6<|box|>258 142 276 256<|content|>ARTICLE IV\n<|id|>53<|type|>title<|page|>6<|box|>300 142 316 714<|content|>REPRESENTATIONS AND WARRANTIES OF THE STOCKHOLDER\n<|id|>62<|type|>title<|page|>7<|box|>747 142 763 250<|content|>ARTICLE V\n<|id|>63<|type|>title<|page|>7<|box|>787 140 805 607<|content|>REPRESENTATIONS AND WARRANTIES OF PARENT\n<|id|>69<|type|>title<|page|>8<|box|>476 142 492 256<|content|>ARTICLE VI\n<|id|>70<|type|>title<|page|>8<|box|>516 140 532 601<|content|>ADDITIONAL COVENANTS OF THE STOCKHOLDER\n<|id|>79<|type|>title<|page|>9<|box|>739 142 757 264<|content|>ARTICLE VII\n<|id|>80<|type|>title<|page|>9<|box|>780 142 797 282<|content|>TERMINATION\n<|id|>87<|type|>title<|page|>10<|box|>454 142 470 269<|content|>ARTICLE VIII\n<|id|>88<|type|>title<|page|>10<|box|>494 142 512 308<|content|>MISCELLANEOUS\n<|id|>90<|type|>title<|page|>10<|box|>694 142 709 235<|content|>If to Parent:\n<|id|>120<|type|>title<|page|>14<|box|>160 233 176 764<|content|>SIGNATURE PAGE TO VOTING AND SUPPORT AGREEMENT\n<|id|>137<|type|>title<|page|>15<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>138<|type|>title<|page|>15<|box|>130 416 148 581<|content|>SUBJECT SHARES\n<|id|>140<|type|>table<|page|>15<|box|>199 143 253 852<|content|>None\n<|id|>141<|type|>title<|page|>15<|box|>287 143 304 334<|content|>Additional Information:\n<|id|>143<|type|>table<|page|>15<|box|>354 143 523 852<|content|>None",
+    "raw_response": "<|src_id|>140<|tgt_id|>138\n<|src_id|>143<|tgt_id|>141",
+    "parsed": [
+        {
+            "src_id": 140,
+            "tgt_id": 138
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 141
+        }
+    ]
+}

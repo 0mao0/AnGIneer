@@ -1,0 +1,60 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>1<|type|>title<|page|>1<|box|>128 403 148 593<|content|>MEMORANDUM\n<|id|>10<|type|>title<|page|>1<|box|>513 140 532 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>22<|type|>title<|page|>2<|box|>633 140 650 805<|content|>II. CONSENT DECREE REQUIREMENTS FOR THE INDEPENDEN\n<|id|>23<|type|>title<|page|>2<|box|>664 140 681 338<|content|>A. Governing Provisions\n<|id|>32<|type|>title<|page|>3<|box|>689 140 707 357<|content|>B. Scope of Monitor Duties\n<|id|>40<|type|>title<|page|>4<|box|>726 140 743 349<|content|>C. Term and Termination\n<|id|>44<|type|>title<|page|>5<|box|>294 140 310 290<|content|>D. Cost Allocation\n<|id|>55<|type|>title<|page|>5<|box|>809 140 825 433<|content|>III. QUALIFICATIONS CRITERIA\n<|id|>57<|type|>title<|page|>6<|box|>157 140 174 359<|content|>A. Technical Qualifications\n<|id|>72<|type|>title<|page|>7<|box|>349 140 366 576<|content|>B. Independence and Conflict-of-Interest Requireme\n<|id|>80<|type|>title<|page|>8<|box|>267 140 285 361<|content|>C. Organizational Capacity\n<|id|>87<|type|>title<|page|>8<|box|>762 142 779 349<|content|>D. Regulatory Acceptance\n<|id|>93<|type|>title<|page|>9<|box|>407 142 425 413<|content|>IV. CANDIDATE EVALUATION\n<|id|>94<|type|>title<|page|>9<|box|>439 140 455 423<|content|>A. Candidate Identification Process\n<|id|>101<|type|>title<|page|>10<|box|>138 140 157 377<|content|>B. Finalist Candidate Profiles\n<|id|>102<|type|>table<|page|>10<|box|>188 143 369 852<|content|>None\n<|id|>117<|type|>table<|page|>11<|box|>792 143 904 852<|content|>None\n<|id|>120<|type|>table<|page|>12<|box|>382 143 529 852<|content|>None\n<|id|>125<|type|>table<|page|>13<|box|>348 143 494 852<|content|>None\n<|id|>131<|type|>title<|page|>14<|box|>356 140 373 423<|content|>C. Comparative Assessment Matrix\n<|id|>132<|type|>table<|page|>14<|box|>422 143 893 852<|content|>None\n<|id|>134<|type|>title<|page|>15<|box|>292 140 309 354<|content|>V. RECOMMENDATION\n<|id|>135<|type|>title<|page|>15<|box|>324 140 340 542<|content|>A. Recommended Monitor: Verdant Analytics, Inc.\n<|id|>145<|type|>title<|page|>16<|box|>411 140 428 532<|content|>B. Coordination with Government on Nomination\n<|id|>155<|type|>title<|page|>17<|box|>294 140 310 323<|content|>C. Fallback Procedure\n<|id|>159<|type|>title<|page|>17<|box|>592 140 609 723<|content|>VI. KEY TERMS FOR THE INDEPENDENT MONITOR AGREEMEN\n<|id|>161<|type|>title<|page|>17<|box|>723 142 739 303<|content|>A. Scope and Duties\n<|id|>171<|type|>title<|page|>18<|box|>523 142 541 343<|content|>B. Reporting Obligations\n<|id|>180<|type|>title<|page|>19<|box|>138 140 157 357<|content|>C. Access and Cooperation\n<|id|>187<|type|>title<|page|>19<|box|>506 142 523 377<|content|>D. Compensation and Budget\n<|id|>192<|type|>title<|page|>19<|box|>771 142 787 362<|content|>E. Independence Provisions\n<|id|>198<|type|>title<|page|>20<|box|>270 142 287 351<|content|>F. Liability and Insurance\n<|id|>202<|type|>title<|page|>20<|box|>534 142 551 379<|content|>G. Removal and Replacement\n<|id|>207<|type|>title<|page|>20<|box|>847 140 864 584<|content|>VII. BUDGET AND FINANCIAL IMPACT ANALYSIS\n<|id|>210<|type|>table<|page|>21<|box|>169 143 301 852<|content|>None\n<|id|>218<|type|>title<|page|>22<|box|>148 140 166 483<|content|>VIII. NEXT STEPS AND ACTION ITEMS",
+    "raw_response": "<|src_id|>102<|tgt_id|>101\n<|src_id|>117<|tgt_id|>101\n<|src_id|>120<|tgt_id|>101\n<|src_id|>125<|tgt_id|>101\n<|src_id|>132<|tgt_id|>131\n<|src_id|>210<|tgt_id|>207",
+    "parsed": [
+        {
+            "src_id": 102,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 210,
+            "tgt_id": 207
+        }
+    ]
+}

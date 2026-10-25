@@ -1,0 +1,141 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-q82qs12x\\input\\pdfs\\doc-1691b996.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-q82qs12x\\enriched\\doc-1691b996.json",
+    "contd_output": "<|src_id|>28<|tgt_id|>29\n<|src_id|>94<|tgt_id|>95",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>5<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>2\n<|id|>50<|level|>2\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>74<|level|>3\n<|id|>83<|level|>3\n<|id|>91<|level|>3\n<|id|>96<|level|>2\n<|id|>123<|level|>2\n<|id|>130<|level|>2\n<|id|>134<|level|>2\n<|id|>146<|level|>2\n<|id|>151<|level|>2\n<|id|>160<|level|>2\n<|id|>162<|level|>2\n<|id|>175<|level|>2",
+    "image_output": "<|src_id|>13<|tgt_id|>5\n<|src_id|>14<|tgt_id|>5\n<|src_id|>16<|tgt_id|>5\n<|src_id|>148<|tgt_id|>146",
+    "contd_label": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 146
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 13,
+            "table2_idx": 14,
+            "upper_row_ss": [
+                [
+                    "Nominee",
+                    "Votes FOR",
+                    "% of Shares Voted",
+                    "Votes",
+                    "Result"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "AGAINST/WITH HELD",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>296 390 313 607<|content|>Dated as of March 24, 2025\n<|id|>6<|page|>1<|box|>321 140 433 857<|content|>The undersigned, Ardent Apex Holdings Inc. ... , a...tificate of Incorporation and Bylaws of Merger Sub\n<|id|>10<|page|>1<|box|>752 140 898 857<|content|>C. ... , 1675 South Ashbury Asset Advisors, Suite ...ith and into Luminex Holdings (the \"Merger\"), with\n<|id|>11<|page|>2<|box|>90 140 127 854<|content|>Luminex Holdings continuing as the surviving corpo...ordance with the applicable provisions of the DGCL\n<|id|>20<|page|>2<|box|>872 140 907 854<|content|>RESOLVED, that the Sole Stockholder hereby approve...nt Apex Holdings Inc. ... , Ardent Apex Merger Sub\n<|id|>21<|page|>3<|box|>90 140 200 856<|content|>Inc. ... , in substantially the form presented to ... approved, ratified, and confirmed in all respects\n<|id|>48<|page|>5<|box|>864 400 882 596<|content|>[Signature Page Follows]\n<|id|>49<|page|>6<|box|>89 140 143 854<|content|>IN WITNESS WHEREOF, the undersigned Sole Stockhold...ting, effective as of the date first written above\n<|id|>51<|page|>6<|box|>186 140 204 346<|content|>Name: ... Thornton\n<|id|>52<|page|>6<|box|>204 142 220 468<|content|>Title: ... President and Chief Executive Officer\n<|id|>53<|page|>6<|box|>222 142 238 310<|content|>Date: ... March 24, 2025",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>20<|tgt_id|>21",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        }
+    ]
+}

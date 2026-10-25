@@ -1,0 +1,21 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>153<|type|>table<|page|>45<|box|>89 143 896 852<|content|>None\n<|id|>154<|type|>table<|page|>46<|box|>89 143 652 852<|content|>None\n<|id|>156<|type|>title<|page|>46<|box|>799 254 819 741<|content|>BACK COVER — CONTACT INFORMATION\n<|id|>157<|type|>title<|page|>46<|box|>837 142 854 380<|content|>Calderwood & Harkness LLP\n<|id|>169<|type|>table<|page|>47<|box|>489 143 565 852<|content|>None",
+    "raw_response": "<|src_id|>169<|tgt_id|>156",
+    "parsed": [
+        {
+            "src_id": 169,
+            "tgt_id": 156
+        }
+    ]
+}

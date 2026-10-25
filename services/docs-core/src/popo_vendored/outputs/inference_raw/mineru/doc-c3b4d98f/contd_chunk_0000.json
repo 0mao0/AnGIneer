@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        10,
+        11,
+        13,
+        22,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>220 140 275 854<|content|>TO: ... 2200 West Commerce Street, Suite 1400 Houston, Texas 77002\n<|id|>5<|page|>1<|box|>284 140 301 828<|content|>FROM: ... George Trujillo, Partner, and David Stanton, Associate Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>309 140 327 326<|content|>DATE: ... November 2022\n<|id|>7<|page|>1<|box|>335 140 372 854<|content|>RE: ... — Lone Star Battery Storage Project\n<|id|>8<|page|>1<|box|>378 140 397 331<|content|>Matter No. ... 1015-00003\n<|id|>9<|page|>1<|box|>405 140 422 408<|content|>Right-click to update Table of Contents\n<|id|>14<|page|>1<|box|>859 140 896 854<|content|>Lender's counsel in the transaction is Archibald, Fenn & Shaw LLP (Robert C. ... Borrower's counsel is\n<|id|>15<|page|>2<|box|>90 140 164 854<|content|>Calderwood & Harkness LLP. ... Montrose has served...ughout the term sheet and credit agreement process\n<|id|>39<|page|>4<|box|>588 174 642 854<|content|>(c) Other development costs, including but not lim... the funding of required reserve accounts; ... and\n<|id|>41<|page|>4<|box|>676 140 768 854<|content|>All draws under the Credit Facility are subject to... and the approved construction budget and schedule\n<|id|>60<|page|>6<|box|>872 140 909 856<|content|>Analysis: ... In particular, insurance proceeds under the builder's risk policy (issued by\n<|id|>61<|page|>7<|box|>90 140 255 856<|content|>Commonwealth Specialty Insurance Company, with a p... Credit Agreement's mandatory prepayment mechanics\n<|id|>66<|page|>7<|box|>561 183 578 544<|content|>• CBR equity: ... $14,000,000 × 65% = $9,100,000\n<|id|>68<|page|>7<|box|>601 140 691 854<|content|>Ridgepoint Capital Partners, LP holds a 35% minori...r existing equity relationship at the parent level\n<|id|>67<|page|>7<|box|>580 183 598 736<|content|>• Ridgepoint Capital Partners, LP equity: ... $14,000,000 × 35% = $4,900,000\n<|id|>95<|page|>10<|box|>804 176 897 857<|content|>11. ... (b) power and authority of the Borrower an...rantor to execute, deliver, and perform the Credit\n<|id|>96<|page|>11<|box|>90 210 309 854<|content|>Agreement and related loan documents; ... and (g) ...the recording of the deed of trust in Ector County\n<|id|>123<|page|>13<|box|>405 174 422 803<|content|>(b) Equipment Supply Agreement — with Harmon-Dietrich Energy Solutions, LLC\n<|id|>127<|page|>13<|box|>545 140 655 856<|content|>Each collateral assignment requires a consent to a...ract and exercise the Borrower's rights thereunder\n<|id|>124<|page|>13<|box|>431 174 448 630<|content|>(c) Ground Lease — with Permian Basin Land Holdings, LP\n<|id|>234<|page|>22<|box|>761 174 815 854<|content|>(b) In the event of a Lessor default or Ground Lea...ts possession and use of the Project site; ... and\n<|id|>236<|page|>22<|box|>868 140 904 854<|content|>Ground lease economics are favorable: ... annual r...the operational period, with a 2% annual escalator\n<|id|>279<|page|>26<|box|>388 142 404 320<|content|>Respectfully submitted,\n<|id|>280<|page|>26<|box|>404 140 421 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>281<|page|>26<|box|>422 143 439 251<|content|>By: ... By\n<|id|>282<|page|>26<|box|>439 142 455 323<|content|>George Trujillo, Partner\n<|id|>283<|page|>26<|box|>457 143 474 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>60<|tgt_id|>61\n<|src_id|>95<|tgt_id|>96",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 96
+        }
+    ]
+}

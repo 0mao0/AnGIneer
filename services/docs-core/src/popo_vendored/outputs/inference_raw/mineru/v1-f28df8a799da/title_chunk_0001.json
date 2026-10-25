@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        62
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        55,
+        59,
+        60,
+        61,
+        62
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>365<|page|>45<|box|>79 447 92 550<|content|>SIGNATURES\n<|id|>368<|page|>46<|box|>99 401 116 596<|content|>AMENDMENT LETTER\n<|id|>369<|page|>46<|box|>127 24 143 406<|content|>From: MGM CHINA HOLDINGS LIMITED as Company\n<|id|>375<|page|>46<|box|>300 24 314 187<|content|>1 INTRODUCTION\n<|id|>380<|page|>46<|box|>448 24 462 250<|content|>2SPECIFIC AMENDMENTS\n<|id|>383<|page|>46<|box|>568 24 583 369<|content|>3 EFFECT OF THE SPECIFIC AMENDMENTS\n<|id|>388<|page|>46<|box|>727 24 742 215<|content|>4REPRESENTATIONS\n<|id|>391<|page|>47<|box|>130 24 145 200<|content|>5MISCELLANEOUS\n<|id|>402<|page|>48<|box|>122 447 137 547<|content|>SCHEDULE 1\n<|id|>403<|page|>48<|box|>152 442 167 555<|content|>AMENDMENTS\n<|id|>421<|page|>49<|box|>181 40 196 205<|content|>“17.3 Leverage Ratio\n<|id|>424<|page|>49<|box|>481 66 494 290<|content|>“17.4 Interest Coverage Ratio\n<|id|>427<|page|>50<|box|>191 401 207 594<|content|>AMENDMENT LETTER\n<|id|>434<|page|>50<|box|>402 24 417 187<|content|>1INTRODUCTION\n<|id|>439<|page|>50<|box|>550 24 565 250<|content|>2SPECIFIC AMENDMENTS\n<|id|>442<|page|>50<|box|>670 24 686 367<|content|>3EFFECT OF THE SPECIFIC AMENDMENTS\n<|id|>447<|page|>51<|box|>106 24 119 215<|content|>4REPRESENTATIONS\n<|id|>464<|page|>52<|box|>135 447 150 547<|content|>SCHEDULE 1\n<|id|>465<|page|>52<|box|>166 442 181 555<|content|>AMENDMENTS\n<|id|>483<|page|>53<|box|>229 40 244 205<|content|>“17.3 Leverage Ratio\n<|id|>487<|page|>53<|box|>512 66 527 290<|content|>“17.4 Interest Coverage Ratio\n<|id|>490<|page|>55<|box|>131 300 143 697<|content|>List of Guarantor Subsidiaries of MGM Resorts Inte\n<|id|>495<|page|>59<|box|>89 437 104 560<|content|>CERTIFICATION\n<|id|>511<|page|>60<|box|>89 437 104 560<|content|>CERTIFICATION\n<|id|>528<|page|>61<|box|>89 300 104 697<|content|>CERTIFICATION PURSUANT TO 18 U.S.C. SECTION 1350\n<|id|>532<|page|>61<|box|>231 26 246 233<|content|>/s/ WILLIAM J. HORNBUCKLE\n<|id|>535<|page|>62<|box|>89 300 104 697<|content|>CERTIFICATION PURSUANT TO 18 U.S.C. SECTION 1350\n<|id|>539<|page|>62<|box|>231 26 246 228<|content|>/s/ JONATHAN S. HALKYARD",
+    "raw_response": "<|id|>365<|level|>1\n<|id|>368<|level|>1\n<|id|>369<|level|>2\n<|id|>375<|level|>2\n<|id|>380<|level|>2\n<|id|>383<|level|>2\n<|id|>388<|level|>2\n<|id|>391<|level|>2\n<|id|>402<|level|>1\n<|id|>403<|level|>2\n<|id|>421<|level|>3\n<|id|>424<|level|>3\n<|id|>427<|level|>1\n<|id|>434<|level|>2\n<|id|>439<|level|>2\n<|id|>442<|level|>2\n<|id|>447<|level|>2\n<|id|>464<|level|>1\n<|id|>465<|level|>2\n<|id|>483<|level|>3\n<|id|>487<|level|>3\n<|id|>490<|level|>1\n<|id|>495<|level|>1\n<|id|>511<|level|>1\n<|id|>528<|level|>1\n<|id|>532<|level|>-1\n<|id|>535<|level|>1\n<|id|>539<|level|>-1",
+    "parsed": [
+        {
+            "id": 365,
+            "level": 1
+        },
+        {
+            "id": 368,
+            "level": 1
+        },
+        {
+            "id": 369,
+            "level": 2
+        },
+        {
+            "id": 375,
+            "level": 2
+        },
+        {
+            "id": 380,
+            "level": 2
+        },
+        {
+            "id": 383,
+            "level": 2
+        },
+        {
+            "id": 388,
+            "level": 2
+        },
+        {
+            "id": 391,
+            "level": 2
+        },
+        {
+            "id": 402,
+            "level": 1
+        },
+        {
+            "id": 403,
+            "level": 2
+        },
+        {
+            "id": 421,
+            "level": 3
+        },
+        {
+            "id": 424,
+            "level": 3
+        },
+        {
+            "id": 427,
+            "level": 1
+        },
+        {
+            "id": 434,
+            "level": 2
+        },
+        {
+            "id": 439,
+            "level": 2
+        },
+        {
+            "id": 442,
+            "level": 2
+        },
+        {
+            "id": 447,
+            "level": 2
+        },
+        {
+            "id": 464,
+            "level": 1
+        },
+        {
+            "id": 465,
+            "level": 2
+        },
+        {
+            "id": 483,
+            "level": 3
+        },
+        {
+            "id": 487,
+            "level": 3
+        },
+        {
+            "id": 490,
+            "level": 1
+        },
+        {
+            "id": 495,
+            "level": 1
+        },
+        {
+            "id": 511,
+            "level": 1
+        },
+        {
+            "id": 528,
+            "level": 1
+        },
+        {
+            "id": 535,
+            "level": 1
+        }
+    ]
+}

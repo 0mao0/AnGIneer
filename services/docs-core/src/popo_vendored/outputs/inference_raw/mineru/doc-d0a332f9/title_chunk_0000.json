@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 148 143 848<|content|>SECRETARY'S CERTIFICATE OF ARDENT APEX MERGER SUB\n<|id|>1<|page|>1<|box|>159 205 176 790<|content|>Delivered Pursuant to Section 7.02(c) of the Agree\n<|id|>3<|page|>1<|box|>318 142 334 428<|content|>INTRODUCTORY CERTIFICATE\n<|id|>6<|page|>1<|box|>521 142 537 423<|content|>1. Organization and Good Standing\n<|id|>9<|page|>1<|box|>779 140 795 380<|content|>2. Certificate of Incorporation\n<|id|>12<|page|>2<|box|>241 140 258 223<|content|>3. Bylaws\n<|id|>14<|page|>2<|box|>417 140 434 308<|content|>4. Board Resolutions\n<|id|>24<|page|>3<|box|>250 140 266 354<|content|>5. Stockholder Resolutions\n<|id|>30<|page|>3<|box|>750 140 766 263<|content|>6. Incumbency\n<|id|>34<|page|>4<|box|>349 140 367 388<|content|>7. No Dissolution or Insolvency\n<|id|>36<|page|>4<|box|>526 140 542 256<|content|>8. No Conflict\n<|id|>38<|page|>4<|box|>720 140 739 339<|content|>9. General Certifications\n<|id|>45<|page|>5<|box|>324 140 340 390<|content|>COUNTER-CERTIFICATION\n<|id|>49<|page|>6<|box|>89 446 107 553<|content|>EXHIBIT A\n<|id|>50<|page|>6<|box|>114 328 133 668<|content|>Certificate of Incorporation of Merger Sub\n<|id|>52<|page|>7<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>53<|page|>7<|box|>116 408 133 588<|content|>Bylaws of Merger Sub\n<|id|>55<|page|>8<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>56<|page|>8<|box|>116 207 133 790<|content|>Board Resolutions (Unanimous Written Consent of th\n<|id|>58<|page|>9<|box|>89 447 107 550<|content|>EXHIBIT D\n<|id|>59<|page|>9<|box|>116 251 133 743<|content|>Stockholder Resolutions (Written Consent of Sole S\n<|id|>61<|page|>10<|box|>89 447 107 550<|content|>EXHIBIT E\n<|id|>62<|page|>10<|box|>114 393 133 604<|content|>Good Standing Certificate",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>3<|level|>2\n<|id|>6<|level|>3\n<|id|>9<|level|>3\n<|id|>12<|level|>3\n<|id|>14<|level|>3\n<|id|>24<|level|>3\n<|id|>30<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>3\n<|id|>38<|level|>3\n<|id|>45<|level|>2\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>58<|level|>2\n<|id|>59<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        }
+    ]
+}

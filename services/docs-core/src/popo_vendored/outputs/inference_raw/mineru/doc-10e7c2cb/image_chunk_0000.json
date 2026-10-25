@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 236 118 759<|content|>WRITTEN CONSENT OF THE STOCKHOLDERS\n<|id|>1<|type|>title<|page|>1<|box|>137 303 156 692<|content|>OF MERIDIAN DIAGNOSTICS, INC.\n<|id|>2<|type|>title<|page|>1<|box|>176 310 195 684<|content|>IN LIEU OF A SPECIAL MEETING\n<|id|>3<|type|>title<|page|>1<|box|>213 158 250 839<|content|>Action by Written Consent in Lieu of a Special Mee\n<|id|>6<|type|>title<|page|>1<|box|>507 142 523 241<|content|>RECITALS\n<|id|>16<|type|>title<|page|>2<|box|>436 140 472 852<|content|>RESOLUTION 1: APPROVAL AND ADOPTION OF THE AMENDED\n<|id|>34<|type|>title<|page|>4<|box|>483 140 518 769<|content|>RESOLUTION 2: APPROVAL OF THE SERIES SEED PREFERRE\n<|id|>37<|type|>table<|page|>4<|box|>651 143 779 852<|content|>None\n<|id|>48<|type|>title<|page|>5<|box|>601 140 637 759<|content|>RESOLUTION 3: APPROVAL OF THE CONVERSION OF CONVER\n<|id|>51<|type|>table<|page|>5<|box|>843 143 900 852<|content|>None\n<|id|>52<|type|>table<|page|>6<|box|>88 143 109 852<|content|>None\n<|id|>55<|type|>title<|page|>6<|box|>373 140 410 836<|content|>RESOLUTION 4: APPROVAL OF INCREASE IN SHARES RESER\n<|id|>59<|type|>title<|page|>6<|box|>767 140 803 777<|content|>RESOLUTION 5: APPROVAL OF BOARD COMPOSITION UNDER\n<|id|>66<|type|>title<|page|>7<|box|>564 142 582 846<|content|>RESOLUTION 6: APPROVAL OF FOUNDER STOCK RESTRICTIO\n<|id|>71<|type|>title<|page|>8<|box|>295 140 311 748<|content|>RESOLUTION 7: APPROVAL OF AMENDED AND RESTATED BYL\n<|id|>74<|type|>title<|page|>8<|box|>553 140 570 633<|content|>RESOLUTION 8: APPROVAL OF REGULATORY FILINGS\n<|id|>77<|type|>title<|page|>9<|box|>89 140 106 697<|content|>RESOLUTION 9: APPROVAL OF LEGAL FEE REIMBURSEMENT\n<|id|>79<|type|>title<|page|>9<|box|>266 140 282 478<|content|>GENERAL AUTHORITY RESOLUTION\n<|id|>89<|type|>title<|page|>10<|box|>303 140 320 619<|content|>EFFECTIVENESS AND MISCELLANEOUS PROVISIONS\n<|id|>94<|type|>title<|page|>10<|box|>781 230 799 767<|content|>[Remainder of this page intentionally left blank;\n<|id|>95<|type|>title<|page|>10<|box|>806 174 842 821<|content|>SIGNATURE PAGES TO WRITTEN CONSENT OF THE STOCKHOL\n<|id|>98<|type|>title<|page|>11<|box|>157 174 194 821<|content|>SIGNATURE PAGES TO WRITTEN CONSENT OF THE STOCKHOL\n<|id|>100<|type|>title<|page|>11<|box|>279 174 314 821<|content|>SIGNATURE PAGES TO WRITTEN CONSENT OF THE STOCKHOL\n<|id|>102<|type|>title<|page|>11<|box|>431 307 448 687<|content|>SUMMARY OF STOCKHOLDER APPROVAL\n<|id|>104<|type|>table<|page|>11<|box|>500 143 672 852<|content|>None\n<|id|>106<|type|>title<|page|>11<|box|>805 447 821 550<|content|>EXHIBIT A\n<|id|>107<|type|>title<|page|>11<|box|>830 151 867 844<|content|>AMENDED AND RESTATED CERTIFICATE OF INCORPORATION\n<|id|>108<|type|>title<|page|>11<|box|>876 212 893 784<|content|>[Form of Amended and Restated Certificate of Incor",
+    "raw_response": "<|src_id|>37<|tgt_id|>34\n<|src_id|>51<|tgt_id|>48\n<|src_id|>52<|tgt_id|>48\n<|src_id|>104<|tgt_id|>102",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 102
+        }
+    ]
+}

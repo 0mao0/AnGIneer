@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        11,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 143 118 852<|content|>ASSIGNMENT AND ASSUMPTION OF MEMBERSHIP INTERESTS\n<|id|>1<|page|>1<|box|>143 395 160 602<|content|>GMP SOUTHPORT LLC\n<|id|>2<|page|>1<|box|>185 348 202 648<|content|>(a Delaware limited liability company)\n<|id|>5<|page|>1<|box|>299 218 315 777<|content|>ASSIGNMENT AND ASSUMPTION OF MEMBERSHIP INTERESTS\n<|id|>7<|page|>1<|box|>387 143 404 250<|content|>ASSIGNOR:\n<|id|>9<|page|>1<|box|>549 143 565 189<|content|>AND\n<|id|>10<|page|>1<|box|>574 143 590 245<|content|>ASSIGNEE:\n<|id|>13<|page|>1<|box|>744 143 760 248<|content|>COMPANY:\n<|id|>15<|page|>2<|box|>89 140 107 243<|content|>RECITALS\n<|id|>17<|page|>3<|box|>89 142 107 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>28<|page|>3<|box|>829 140 845 565<|content|>ARTICLE II — ASSIGNMENT AND ASSUMPTION\n<|id|>39<|page|>5<|box|>295 140 313 759<|content|>ARTICLE III — REPRESENTATIONS AND WARRANTIES OF AS\n<|id|>47<|page|>6<|box|>339 140 357 756<|content|>ARTICLE IV — REPRESENTATIONS AND WARRANTIES OF ASS\n<|id|>52<|page|>6<|box|>814 142 830 558<|content|>ARTICLE V — PROPERTY AND LOAN DETAILS\n<|id|>66<|page|>8<|box|>292 142 309 581<|content|>ARTICLE VI — TITLE INSURANCE AND SURVEYS\n<|id|>69<|page|>8<|box|>733 140 750 578<|content|>ARTICLE VII — COVENANTS AND AGREEMENTS\n<|id|>91<|page|>11<|box|>148 140 166 455<|content|>ARTICLE VIII — MISCELLANEOUS\n<|id|>114<|page|>13<|box|>89 361 107 635<|content|>[SIGNATURE PAGES FOLLOW]\n<|id|>116<|page|>13<|box|>179 142 195 250<|content|>ASSIGNOR:\n<|id|>129<|page|>14<|box|>89 447 108 550<|content|>EXHIBIT A\n<|id|>130<|page|>14<|box|>130 331 148 665<|content|>LEGAL DESCRIPTION OF PROPERTY\n<|id|>145<|page|>15<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>146<|page|>15<|box|>130 362 148 635<|content|>EXISTING LOAN DOCUMENTS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>5<|level|>2\n<|id|>7<|level|>3\n<|id|>9<|level|>-1\n<|id|>10<|level|>3\n<|id|>13<|level|>3\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>28<|level|>2\n<|id|>39<|level|>2\n<|id|>47<|level|>2\n<|id|>52<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>2\n<|id|>91<|level|>2\n<|id|>114<|level|>2\n<|id|>116<|level|>3\n<|id|>129<|level|>2\n<|id|>130<|level|>3\n<|id|>145<|level|>2\n<|id|>146<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 3
+        }
+    ]
+}

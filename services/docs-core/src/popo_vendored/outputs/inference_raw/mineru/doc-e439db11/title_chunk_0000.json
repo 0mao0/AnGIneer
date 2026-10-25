@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        6,
+        67
+    ],
+    "pages": [
+        6,
+        7,
+        9,
+        11,
+        13,
+        14,
+        16,
+        17,
+        20,
+        21,
+        23,
+        26,
+        38,
+        43,
+        45,
+        46,
+        66
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>6<|box|>370 558 448 684<|content|>BUY AND HOLD\n<|id|>6<|page|>7<|box|>105 107 250 855<|content|>TREASURY BULLETIN\n<|id|>11<|page|>9<|box|>97 384 118 602<|content|>Table of Contents\n<|id|>20<|page|>11<|box|>47 333 63 637<|content|>Reporting Bases - (Continued)\n<|id|>24<|page|>13<|box|>65 330 81 630<|content|>Treasury Financing Operations\n<|id|>25<|page|>13<|box|>117 9 131 293<|content|>Second 1963 Bond Sale to Syndicate\n<|id|>28<|page|>13<|box|>437 47 450 396<|content|>The two other bidders and their bids were:\n<|id|>37<|page|>13<|box|>773 501 786 707<|content|>One-Year Bills Increased\n<|id|>39<|page|>14<|box|>67 268 84 718<|content|>Treasury Financing Operations - (Continued)\n<|id|>43<|page|>14<|box|>528 11 540 285<|content|>Increase in Weekly Bills Resumed\n<|id|>46<|page|>14<|box|>464 516 477 716<|content|>Foreign Currency Series\n<|id|>52<|page|>16<|box|>55 360 69 642<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>55<|page|>17<|box|>61 349 75 623<|content|>.BUDGET RECEIPTS AND EXPENDITURES\n<|id|>57<|page|>17<|box|>559 321 573 638<|content|>Footnotes to Table 1 - (Continued)\n<|id|>75<|page|>20<|box|>662 338 676 659<|content|>Footnotes to Table 3.- (Continued)\n<|id|>89<|page|>21<|box|>56 344 71 618<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>90<|page|>21<|box|>89 36 119 915<|content|>Table 5.- Summary of Appropriations and Authorizat\n<|id|>102<|page|>23<|box|>56 351 71 625<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>107<|page|>23<|box|>616 13 627 133<|content|>3/ See footnote 4.\n<|id|>109<|page|>23<|box|>682 14 694 136<|content|>5/. See footnote 6.\n<|id|>119<|page|>26<|box|>77 250 93 750<|content|>Table 3.- Trust and Deposit Fund Account Expenditu\n<|id|>145<|page|>38<|box|>83 187 98 802<|content|>Source and Availability of the Balance in the Trea\n<|id|>165<|page|>43<|box|>79 199 112 770<|content|>Table 6.- Treasury Holdings of Securities Issued b\n<|id|>174<|page|>45<|box|>282 275 297 722<|content|>Table 1.- Status Under Limitation March 31, 1963\n<|id|>177<|page|>46<|box|>49 392 62 588<|content|>PUBLIC DEBT OPERATIONS\n<|id|>287<|page|>66<|box|>80 405 94 601<|content|>Footnotes to Table 6",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>11<|level|>1\n<|id|>20<|level|>2\n<|id|>24<|level|>1\n<|id|>25<|level|>2\n<|id|>28<|level|>-1\n<|id|>37<|level|>2\n<|id|>39<|level|>1\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>52<|level|>1\n<|id|>55<|level|>1\n<|id|>57<|level|>2\n<|id|>75<|level|>2\n<|id|>89<|level|>1\n<|id|>90<|level|>1\n<|id|>102<|level|>1\n<|id|>107<|level|>-1\n<|id|>109<|level|>-1\n<|id|>119<|level|>1\n<|id|>145<|level|>1\n<|id|>165<|level|>1\n<|id|>174<|level|>1\n<|id|>177<|level|>1\n<|id|>287<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 177,
+            "level": 1
+        },
+        {
+            "id": 287,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>561 285 579 710<|content|>STIPULATION OF DISMISSAL WITH PREJUDICE\n<|id|>5<|page|>1<|box|>792 140 810 385<|content|>SECTION 1: BACKGROUND\n<|id|>6<|page|>1<|box|>824 143 840 263<|content|>1.1 The Action\n<|id|>13<|page|>2<|box|>426 142 443 468<|content|>1.2 Solstice's Defenses and Counterclaims\n<|id|>16<|page|>2<|box|>758 140 776 377<|content|>SECTION 2: STIPULATION\n<|id|>17<|page|>2<|box|>790 142 806 470<|content|>2.1 Dismissal of All Claims with Prejudice\n<|id|>19<|page|>3<|box|>138 140 157 531<|content|>2.2 Dismissal of All Counterclaims with Prejudice\n<|id|>21<|page|>3<|box|>304 140 320 462<|content|>2.3 Dismissal of All Affirmative Defenses\n<|id|>23<|page|>3<|box|>412 140 429 377<|content|>2.4 Costs and Attorneys' Fees\n<|id|>25<|page|>3<|box|>595 140 612 429<|content|>2.5 Court's Retention of Jurisdiction\n<|id|>28<|page|>3<|box|>811 140 829 390<|content|>SECTION 3: NO ADMISSION\n<|id|>31<|page|>4<|box|>321 140 338 364<|content|>SECTION 4: AUTHORITY\n<|id|>33<|page|>4<|box|>479 140 496 421<|content|>SECTION 5: PROPOSED ORDER\n<|id|>39<|page|>4<|box|>717 143 733 625<|content|>FOR PLAINTIFF APEX SURGICAL INNOVATIONS, INC.:\n<|id|>51<|page|>5<|box|>157 375 174 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>5<|level|>2\n<|id|>6<|level|>3\n<|id|>13<|level|>3\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>19<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>25<|level|>3\n<|id|>28<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>2\n<|id|>39<|level|>3\n<|id|>51<|level|>2",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        }
+    ]
+}

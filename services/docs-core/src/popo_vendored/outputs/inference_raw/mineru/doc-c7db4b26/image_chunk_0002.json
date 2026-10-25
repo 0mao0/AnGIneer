@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        103,
+        105
+    ],
+    "pages": [
+        103,
+        104,
+        105
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>981<|type|>title<|page|>103<|box|>89 142 107 547<|content|>SCHEDULE 5 — SECURITY DOCUMENTS LIST\n<|id|>982<|type|>table<|page|>103<|box|>140 143 651 852<|content|>None\n<|id|>983<|type|>title<|page|>104<|box|>89 140 106 643<|content|>SCHEDULE 6 — MINIMUM INSURANCE REQUIREMENTS\n<|id|>985<|type|>table<|page|>104<|box|>159 143 391 852<|content|>None\n<|id|>987<|type|>title<|page|>104<|box|>469 410 486 586<|content|>SIGNATURE PAGES\n<|id|>989<|type|>title<|page|>104<|box|>540 460 555 535<|content|>ISSUER:\n<|id|>997<|type|>title<|page|>104<|box|>686 444 702 553<|content|>CO-ISSUER:\n<|id|>1002<|type|>title<|page|>104<|box|>781 429 797 566<|content|>GUARANTORS:\n<|id|>1027<|type|>title<|page|>105<|box|>417 330 434 666<|content|>TRUSTEE AND COLLATERAL AGENT:\n<|id|>1028<|type|>title<|page|>105<|box|>443 140 460 694<|content|>NORTHGATE TRUST COMPANY, N.A., as Trustee and Coll\n<|id|>1032<|type|>title<|page|>105<|box|>512 143 549 852<|content|>INTERNAL DRAFTING NOTES (For Calderwood & Harkness",
+    "raw_response": "<|src_id|>982<|tgt_id|>981\n<|src_id|>985<|tgt_id|>983",
+    "parsed": [
+        {
+            "src_id": 982,
+            "tgt_id": 981
+        },
+        {
+            "src_id": 985,
+            "tgt_id": 983
+        }
+    ]
+}

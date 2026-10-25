@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>327 140 344 364<|content|>I. Introduction and Purpose\n<|id|>9<|page|>1<|box|>657 142 675 370<|content|>II. Description of Production\n<|id|>12<|page|>2<|box|>167 140 184 433<|content|>III. Manner and Form of Production\n<|id|>23<|page|>3<|box|>167 140 184 323<|content|>IV. Bates Range Index\n<|id|>34<|page|>3<|box|>741 140 758 274<|content|>V. Privilege Log\n<|id|>42<|page|>4<|box|>571 140 589 532<|content|>VI. Reservation of Rights and General Objections\n<|id|>49<|page|>5<|box|>536 140 554 300<|content|>VII. Confidentiality\n<|id|>52<|page|>5<|box|>830 140 848 521<|content|>VIII. List of Exhibits Accompanying This Letter\n<|id|>56<|page|>6<|box|>229 142 248 338<|content|>IX. Contact Information",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>9<|level|>1\n<|id|>12<|level|>1\n<|id|>23<|level|>1\n<|id|>34<|level|>1\n<|id|>42<|level|>1\n<|id|>49<|level|>1\n<|id|>52<|level|>1\n<|id|>56<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        }
+    ]
+}

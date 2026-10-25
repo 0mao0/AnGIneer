@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        13,
+        14,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>700 174 737 854<|content|>(2) the buyer-side representation and warranty ins...policy issued by Northfield Assurance Ltd. ... and\n<|id|>9<|page|>1<|box|>806 140 900 856<|content|>Key Conclusion. ... This $1,700,000,000 figure rep...for a transaction of this magnitude and complexity\n<|id|>17<|page|>2<|box|>801 140 875 854<|content|>The Merger Agreement is the Agreement and Plan of ...ly owned subsidiary of Fund VI, and Solara Digital\n<|id|>18<|page|>3<|box|>89 140 127 854<|content|>Infrastructure Fund VI LP, as the buyer. ... The key terms are as follows\n<|id|>62<|page|>8<|box|>133 174 170 854<|content|>(c) the loss exceeds the $51,000,000 tipping baske... of contractual indemnification recovery); ... and\n<|id|>64<|page|>8<|box|>204 140 296 854<|content|>It is important to understand that the $1,700,000,...his size, would represent a highly adverse outcome\n<|id|>111<|page|>13<|box|>844 140 898 856<|content|>Coverage Breadth. ... The\n<|id|>112<|page|>14<|box|>89 140 143 854<|content|>NBI from Northfield indicates a willingness to cov...scope should be confirmed in the final policy form\n<|id|>153<|page|>18<|box|>362 174 417 854<|content|>(vi) policy period matching the survival periods i...ions, and 6 years for tax representations; ... and\n<|id|>155<|page|>18<|box|>469 140 505 854<|content|>Any deviations from the NBI terms should be flagge...he undersigned and to the deal team for evaluation\n<|id|>167<|page|>19<|box|>506 174 561 854<|content|>(iv) the sequence of recovery — escrow first, then...layers before accessing subsequent layers; ... and\n<|id|>169<|page|>19<|box|>631 140 686 854<|content|>We further recommend coordination with Peregrine A...er in facilitating claim submissions to Northfield\n<|id|>175<|page|>20<|box|>196 174 215 808<|content|>(iii) purchase price adjustments to account for identified liabilities or contingencies; ... or\n<|id|>177<|page|>20<|box|>267 140 359 856<|content|>We refer the deal team to the due diligence summar...t on the no-claims declaration and the R&WI policy\n<|id|>183<|page|>20<|box|>816 138 890 857<|content|>The three-layer indemnification and insurance fram...ts up to the $1,020,000,000 general cap — provides\n<|id|>184<|page|>21<|box|>90 140 452 856<|content|>Solara with a robust and market-standard protectio...se do not hesitate to reach out with any questions",
+    "raw_response": "<|src_id|>17<|tgt_id|>18\n<|src_id|>111<|tgt_id|>112\n<|src_id|>183<|tgt_id|>184",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 184
+        }
+    ]
+}

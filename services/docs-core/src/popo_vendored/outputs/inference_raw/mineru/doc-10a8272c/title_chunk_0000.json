@@ -1,0 +1,59 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>672 142 689 315<|content|>Nature of the Dispute\n<|id|>20<|page|>2<|box|>710 142 728 307<|content|>Issues for Mediation\n<|id|>32<|page|>3<|box|>726 140 743 470<|content|>Identification of Counsel and Participants\n<|id|>34<|page|>3<|box|>796 142 813 566<|content|>Petitioner's Counsel — Calderwood & Harkness LLP:\n<|id|>38<|page|>4<|box|>133 140 152 607<|content|>Respondent's Counsel — Kwan, Delacroix & Samuels L\n<|id|>41<|page|>4<|box|>250 140 265 282<|content|>Minor's Counsel:\n<|id|>45<|page|>4<|box|>477 140 494 428<|content|>Scheduling Request and Availability\n<|id|>49<|page|>5<|box|>90 140 107 266<|content|>Confidentiality\n<|id|>52<|page|>5<|box|>348 142 364 375<|content|>Mediation Fee Arrangements\n<|id|>57<|page|>5<|box|>595 140 613 207<|content|>Closing",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>20<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>45<|level|>1\n<|id|>49<|level|>1\n<|id|>52<|level|>1\n<|id|>57<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        }
+    ]
+}

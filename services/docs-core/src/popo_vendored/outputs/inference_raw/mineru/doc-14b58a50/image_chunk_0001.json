@@ -1,0 +1,58 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        47,
+        55
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        50,
+        52,
+        53,
+        54,
+        55
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>488<|type|>title<|page|>47<|box|>89 142 107 570<|content|>EXHIBIT B — DESCRIPTION OF THE PROPERTY\n<|id|>494<|type|>title<|page|>47<|box|>244 143 261 223<|content|>Unit Mix:\n<|id|>495<|type|>table<|page|>47<|box|>268 143 393 852<|content|>None\n<|id|>506<|type|>title<|page|>48<|box|>89 142 107 614<|content|>EXHIBIT C — INITIAL ANNUAL BUDGET (SUMMARY)\n<|id|>508<|type|>title<|page|>48<|box|>161 143 176 220<|content|>Revenue:\n<|id|>509<|type|>table<|page|>48<|box|>184 143 330 852<|content|>None\n<|id|>510<|type|>title<|page|>48<|box|>364 143 383 308<|content|>Operating Expenses:\n<|id|>511<|type|>table<|page|>48<|box|>388 143 665 852<|content|>None\n<|id|>515<|type|>title<|page|>48<|box|>777 142 794 197<|content|>Notes:\n<|id|>519<|type|>title<|page|>49<|box|>89 143 107 570<|content|>EXHIBIT D — FORM OF CAPITAL CALL NOTICE\n<|id|>520<|type|>title<|page|>49<|box|>114 390 132 607<|content|>CAPITAL CALL NOTICE\n<|id|>521<|type|>title<|page|>49<|box|>142 392 159 604<|content|>Gramercy Linden JV LLC\n<|id|>528<|type|>table<|page|>49<|box|>367 143 606 852<|content|>None\n<|id|>537<|type|>title<|page|>50<|box|>89 142 107 665<|content|>EXHIBIT E — DISTRIBUTION WATERFALL ILLUSTRATION\n<|id|>539<|type|>title<|page|>50<|box|>179 142 195 253<|content|>Assumptions:\n<|id|>548<|type|>title<|page|>50<|box|>380 143 397 323<|content|>Waterfall Application:\n<|id|>549<|type|>table<|page|>50<|box|>402 143 592 852<|content|>None\n<|id|>551<|type|>table<|page|>50<|box|>675 143 796 852<|content|>None\n<|id|>552<|type|>title<|page|>50<|box|>829 143 845 197<|content|>Notes:\n<|id|>558<|type|>title<|page|>52<|box|>89 140 126 825<|content|>EXHIBIT F — APPROVED FORM OF PROPERTY MANAGEMENT A\n<|id|>560<|type|>table<|page|>52<|box|>215 143 896 852<|content|>None\n<|id|>561<|type|>table<|page|>53<|box|>89 143 250 852<|content|>None\n<|id|>562<|type|>title<|page|>54<|box|>89 143 106 529<|content|>EXHIBIT G — INSURANCE REQUIREMENTS\n<|id|>563<|type|>table<|page|>54<|box|>176 143 669 852<|content|>None\n<|id|>564<|type|>title<|page|>54<|box|>703 142 720 736<|content|>Insurance Broker: Beacon Meridian Insurance Group\n<|id|>565<|type|>title<|page|>54<|box|>729 143 746 607<|content|>Additional Insured / Loss Payee / Mortgagee Requir\n<|id|>568<|type|>title<|page|>54<|box|>868 143 883 328<|content|>General Requirements:\n<|id|>574<|type|>title<|page|>55<|box|>258 361 277 637<|content|>[SIGNATURE PAGES FOLLOW]\n<|id|>575<|type|>title<|page|>55<|box|>285 181 320 813<|content|>SIGNATURE PAGE TO LIMITED LIABILITY COMPANY AGREEM\n<|id|>582<|type|>title<|page|>55<|box|>460 181 494 815<|content|>SIGNATURE PAGE TO LIMITED LIABILITY COMPANY AGREEM\n<|id|>583<|type|>title<|page|>55<|box|>503 140 521 774<|content|>CEDARPOINT CAPITAL PARTNERS LLC, a Delaware limite\n<|id|>588<|type|>title<|page|>55<|box|>590 181 625 813<|content|>SIGNATURE PAGE TO LIMITED LIABILITY COMPANY AGREEM\n<|id|>589<|type|>title<|page|>55<|box|>635 142 651 697<|content|>HALCYON RIDGE INVESTMENTS LP, a Delaware limited p",
+    "raw_response": "<|src_id|>495<|tgt_id|>494\n<|src_id|>509<|tgt_id|>508\n<|src_id|>511<|tgt_id|>510\n<|src_id|>528<|tgt_id|>520\n<|src_id|>549<|tgt_id|>548\n<|src_id|>551<|tgt_id|>537\n<|src_id|>560<|tgt_id|>558\n<|src_id|>561<|tgt_id|>558\n<|src_id|>563<|tgt_id|>562",
+    "parsed": [
+        {
+            "src_id": 495,
+            "tgt_id": 494
+        },
+        {
+            "src_id": 509,
+            "tgt_id": 508
+        },
+        {
+            "src_id": 511,
+            "tgt_id": 510
+        },
+        {
+            "src_id": 528,
+            "tgt_id": 520
+        },
+        {
+            "src_id": 549,
+            "tgt_id": 548
+        },
+        {
+            "src_id": 551,
+            "tgt_id": 537
+        },
+        {
+            "src_id": 560,
+            "tgt_id": 558
+        },
+        {
+            "src_id": 561,
+            "tgt_id": 558
+        },
+        {
+            "src_id": 563,
+            "tgt_id": 562
+        }
+    ]
+}

@@ -1,0 +1,183 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pp183y_0\\input\\pdfs\\doc-c89b39c6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pp183y_0\\enriched\\doc-c89b39c6.json",
+    "contd_output": "<|src_id|>172<|tgt_id|>173",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>3\n<|id|>36<|level|>3\n<|id|>43<|level|>1\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>56<|level|>3\n<|id|>62<|level|>3\n<|id|>69<|level|>2\n<|id|>70<|level|>3\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>88<|level|>2\n<|id|>89<|level|>3\n<|id|>93<|level|>1\n<|id|>95<|level|>2\n<|id|>99<|level|>2\n<|id|>104<|level|>2\n<|id|>107<|level|>2\n<|id|>110<|level|>1\n<|id|>111<|level|>2\n<|id|>115<|level|>2\n<|id|>123<|level|>2\n<|id|>132<|level|>1\n<|id|>135<|level|>2\n<|id|>142<|level|>1\n<|id|>151<|level|>1",
+    "image_output": "<|src_id|>112<|tgt_id|>111\n<|src_id|>113<|tgt_id|>111\n<|src_id|>134<|tgt_id|>132",
+    "contd_label": [
+        {
+            "src_id": 172,
+            "tgt_id": 173
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 112,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 132
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 112,
+            "table2_idx": 113,
+            "upper_row_ss": [
+                [
+                    "RSU Acceleration (15,300 units × ~$21.71/unit)",
+                    "~$332,200"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

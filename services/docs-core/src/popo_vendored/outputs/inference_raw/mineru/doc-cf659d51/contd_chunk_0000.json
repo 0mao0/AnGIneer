@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        27
+    ],
+    "pages": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        17,
+        18,
+        26,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>28<|page|>4<|box|>840 140 897 854<|content|>1. ... Solara intends to file a Form 8832 (Entity\n<|id|>29<|page|>5<|box|>89 140 145 854<|content|>Classification Election) under Treas. ... The Cons...estments will be held following the Reorganization\n<|id|>49<|page|>6<|box|>776 138 886 857<|content|>4. ... To the extent the Grandview Endowment inves...interests to the Solara Tax-Exempt Feeder (Cayman)\n<|id|>50<|page|>7<|box|>89 140 126 854<|content|>LP. ... The primary contact for the Grandview Endowment is Harold Kingsley, Director of Investments\n<|id|>65<|page|>8<|box|>858 174 895 856<|content|>(a) The investment partnership exception under § 7...isfy the definition of an \"investment partnership\"\n<|id|>66<|page|>9<|box|>90 174 200 854<|content|>under § 731(c)(3)(C). ... This conclusion, while r...of interests that § 731(c) was designed to capture\n<|id|>77<|page|>10<|box|>176 176 194 748<|content|>\"For purposes of subsections (a)(1) and (b), and for purposes of section 737—\n<|id|>80<|page|>10<|box|>253 140 455 857<|content|>The legislative history of § 731(c) reveals that C...e partnership gain into a tax-deferred form. ... )\n<|id|>78<|page|>10<|box|>202 174 219 782<|content|>(A) the term 'money' includes the fair market value of any marketable security, and\n<|id|>146<|page|>17<|box|>772 138 883 857<|content|>None of the portfolio companies has shares or inte...ng assets further supports the conclusion that the\n<|id|>147<|page|>18<|box|>90 140 126 854<|content|>Master Fund's interests are not \"readily convertib...ngeable for, money or marketable securities. ... \"\n<|id|>216<|page|>26<|box|>847 140 902 854<|content|>The limited partnership interests in Solara Consol...stitute \"marketable securities\" under IRC § 731(c)\n<|id|>218<|page|>27<|box|>224 140 335 854<|content|>Accordingly, § 731(c) does not apply to the Step 5...e Tax Memorandum — IRC § 731 Distribution Analysis",
+    "raw_response": "<|src_id|>28<|tgt_id|>29\n<|src_id|>49<|tgt_id|>50\n<|src_id|>65<|tgt_id|>66\n<|src_id|>146<|tgt_id|>147",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 147
+        }
+    ]
+}

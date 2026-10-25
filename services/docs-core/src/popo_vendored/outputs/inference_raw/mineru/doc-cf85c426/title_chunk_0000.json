@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 192 126 857<|content|>CALDERWOOD & HARKNESS LLP Solicitors & Internation\n<|id|>14<|page|>1<|box|>642 140 659 485<|content|>1. Acknowledgement of Voluntary Payment\n<|id|>19<|page|>2<|box|>148 142 167 429<|content|>2. Summary of the Award and Costs\n<|id|>21<|page|>2<|box|>224 142 241 308<|content|>2.1 The Final Award\n<|id|>29<|page|>3<|box|>90 140 107 413<|content|>2.3 Grand Total Under the Award\n<|id|>31<|page|>3<|box|>157 176 175 498<|content|>Total Award plus Costs: £108,600,000.00\n<|id|>33<|page|>3<|box|>244 140 260 444<|content|>3. Reconciliation of Recoveries to Date\n<|id|>39<|page|>4<|box|>422 140 439 328<|content|>4. Outstanding Balance\n<|id|>40<|page|>4<|box|>453 140 469 426<|content|>4.1 Post-Award Interest Calculation\n<|id|>45<|page|>4<|box|>713 140 729 607<|content|>4.2 Grand Total Owed (Estimated Through 15 March 2\n<|id|>50<|page|>5<|box|>392 140 409 537<|content|>5. Worldwide Freezing Order — Continued Effect\n<|id|>55<|page|>5<|box|>829 140 845 334<|content|>6. Reservation of Rights\n<|id|>64<|page|>6<|box|>715 142 732 367<|content|>7. Request for Confirmation\n<|id|>71<|page|>7<|box|>311 140 329 287<|content|>8. Contact Details",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>3\n<|id|>29<|level|>3\n<|id|>31<|level|>-1\n<|id|>33<|level|>2\n<|id|>39<|level|>2\n<|id|>40<|level|>3\n<|id|>45<|level|>3\n<|id|>50<|level|>2\n<|id|>55<|level|>2\n<|id|>64<|level|>2\n<|id|>71<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        }
+    ]
+}

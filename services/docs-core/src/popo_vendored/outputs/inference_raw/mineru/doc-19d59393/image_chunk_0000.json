@@ -1,0 +1,53 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>113 405 133 591<|content|>MEMORANDUM\n<|id|>10<|type|>title<|page|>1<|box|>426 142 443 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>15<|type|>title<|page|>2<|box|>222 140 239 428<|content|>II. SCOPE AND METHODOLOGY\n<|id|>16<|type|>title<|page|>2<|box|>253 140 270 295<|content|>A. Scope of Review\n<|id|>25<|type|>title<|page|>2<|box|>598 142 614 334<|content|>B. Documents Reviewed\n<|id|>37<|type|>title<|page|>3<|box|>176 140 194 348<|content|>C. Data Room References\n<|id|>39<|type|>table<|page|>3<|box|>261 143 382 852<|content|>None\n<|id|>42<|type|>title<|page|>3<|box|>633 142 651 483<|content|>III. ENTITY FORMATION AND STATUS\n<|id|>44<|type|>table<|page|>3<|box|>742 143 873 852<|content|>None\n<|id|>52<|type|>title<|page|>4<|box|>532 140 550 287<|content|>B. Good Standing\n<|id|>56<|type|>title<|page|>5<|box|>90 140 107 303<|content|>C. Registered Agent\n<|id|>58<|type|>title<|page|>5<|box|>176 176 193 774<|content|>Ohio Registered Agent Services, Inc. 50 West Broad\n<|id|>60<|type|>title<|page|>5<|box|>324 140 340 377<|content|>D. Principal Place of Business\n<|id|>62<|type|>title<|page|>5<|box|>392 176 407 583<|content|>1175 Creekside Drive, Suite 400 Columbus, OH 43215\n<|id|>65<|type|>title<|page|>5<|box|>648 142 666 496<|content|>IV. CAPITALIZATION AND OWNERSHIP\n<|id|>66<|type|>title<|page|>5<|box|>680 142 696 321<|content|>A. Authorized Capital\n<|id|>69<|type|>title<|page|>6<|box|>90 140 107 446<|content|>B. Outstanding Shares and Ownership\n<|id|>71<|type|>table<|page|>6<|box|>273 143 357 852<|content|>None\n<|id|>74<|type|>title<|page|>6<|box|>558 140 574 364<|content|>C. Shareholder Agreements\n<|id|>77<|type|>title<|page|>6<|box|>748 142 763 419<|content|>D. Implications for the Transaction\n<|id|>83<|type|>title<|page|>7<|box|>383 140 401 514<|content|>V. BOARD OF DIRECTORS AND OFFICERS\n<|id|>84<|type|>title<|page|>7<|box|>415 142 431 316<|content|>A. Board of Directors\n<|id|>89<|type|>table<|page|>7<|box|>835 143 893 852<|content|>None\n<|id|>90<|type|>table<|page|>8<|box|>89 143 127 852<|content|>None\n<|id|>93<|type|>title<|page|>8<|box|>345 140 363 521<|content|>C. Authority to Execute Transaction Documents\n<|id|>100<|type|>title<|page|>9<|box|>339 140 357 550<|content|>VI. SUBSIDIARY AND AFFILIATE STRUCTURE\n<|id|>105<|type|>title<|page|>9<|box|>809 140 825 648<|content|>C. Divisional Structure — Retained Business vs. Ac\n<|id|>120<|type|>title<|page|>11<|box|>637 140 654 753<|content|>VII. REAL PROPERTY AND FACILITIES — ORGANIZATIONAL\n<|id|>126<|type|>title<|page|>12<|box|>439 140 455 648<|content|>VIII. OUTSTANDING ITEMS AND FOLLOW-UP REQUESTS\n<|id|>135<|type|>title<|page|>13<|box|>482 140 500 686<|content|>IX. PRELIMINARY CONCLUSIONS AND RECOMMENDATIONS\n<|id|>137<|type|>title<|page|>13<|box|>554 142 569 248<|content|>Conclusions:\n<|id|>143<|type|>title<|page|>13<|box|>787 143 803 297<|content|>Recommendations:\n<|id|>149<|type|>title<|page|>14<|box|>722 140 739 441<|content|>X. APPENDICES / ATTACHMENTS\n<|id|>150<|type|>title<|page|>15<|box|>90 142 107 470<|content|>Appendix A: List of Reviewed Documents\n<|id|>151<|type|>table<|page|>15<|box|>175 143 824 852<|content|>None\n<|id|>152<|type|>title<|page|>16<|box|>89 140 108 694<|content|>Appendix B: Organizational Chart of Briarwood Home",
+    "raw_response": "<|src_id|>39<|tgt_id|>37\n<|src_id|>44<|tgt_id|>42\n<|src_id|>71<|tgt_id|>69\n<|src_id|>89<|tgt_id|>84\n<|src_id|>90<|tgt_id|>84\n<|src_id|>151<|tgt_id|>150",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 150
+        }
+    ]
+}

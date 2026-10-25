@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 380 179 616<|content|>Closing Date: ... March 21, 2023\n<|id|>3<|page|>1<|box|>188 447 205 549<|content|>Delivered by\n<|id|>4<|page|>1<|box|>214 168 250 831<|content|>Dr. ... Cormac Tierney, Chief Executive Officer & Co-Founder and Ronan McBride, Chief Financial Officer\n<|id|>5<|page|>1<|box|>258 171 319 825<|content|>of SOLSTICE BIOMEDICAL DEVICES LIMITED a private company limited by shares incorporated in Ireland\n<|id|>6<|page|>1<|box|>330 488 344 509<|content|>to\n<|id|>44<|page|>6<|box|>439 218 455 764<|content|>• Cash and cash equivalents of $11,800,000 as of December 31, 2022; ... and\n<|id|>46<|page|>6<|box|>478 176 532 854<|content|>The foregoing financial results are consistent wit...ted since the filing of the Registration Statement\n<|id|>50<|page|>6<|box|>843 217 898 856<|content|>• The NeuroPath™ Guided Navigation System has rece...ovisions under the Medical Devices Regulation (EU)\n<|id|>51<|page|>7<|box|>89 245 143 854<|content|>2017/745. ... Such CE Mark is valid through May 20...ithdraw, suspend, or materially limit such CE Mark\n<|id|>86<|page|>12<|box|>699 174 753 854<|content|>(iii) Approximately 20%, or approximately $15,255,...ware engineering, and preclinical testing; ... and\n<|id|>88<|page|>12<|box|>824 140 897 857<|content|>The foregoing allocations represent the Company's ...er factors described in the Prospectus under \"Risk\n<|id|>89<|page|>13<|box|>90 140 143 854<|content|>Factors. ... \" Pending the use of net proceeds for... interest-bearing instruments and deposit accounts\n<|id|>105<|page|>13<|box|>842 183 857 390<|content|>• Road show expenses; ... and\n<|id|>107<|page|>14<|box|>90 140 164 854<|content|>Such expenses have been paid or will be paid by th...een provided to the Representative and its counsel\n<|id|>119<|page|>15<|box|>604 142 622 336<|content|>[Signature Page Follows]\n<|id|>120<|page|>15<|box|>628 140 684 854<|content|>IN WITNESS WHEREOF, each of the undersigned office... of the Company and not in his individual capacity\n<|id|>123<|page|>15<|box|>728 143 743 348<|content|>Name: ... Cormac Tierney\n<|id|>124<|page|>15<|box|>744 142 760 475<|content|>Title: ... Chief Executive Officer & Co-Founder\n<|id|>125<|page|>15<|box|>761 143 777 307<|content|>Date: ... March 21, 2023\n<|id|>128<|page|>15<|box|>814 143 829 316<|content|>Name: ... Ronan McBride\n<|id|>129<|page|>15<|box|>830 143 845 361<|content|>Title: ... Chief Financial Officer\n<|id|>130<|page|>15<|box|>848 143 863 307<|content|>Date: ... March 21, 2023\n<|id|>131<|page|>15<|box|>864 143 878 227<|content|>Prepared by: ... Prepared by\n<|id|>132<|page|>15<|box|>887 142 901 651<|content|>Calderwood & Harkness LLP 425 Lexington Avenue New York, New York 10174\n<|id|>133<|page|>16<|box|>89 140 119 380<|content|>Attention: ... Theodore Langston, Partner Natasha Forbes, Associate\n<|id|>134<|page|>16<|box|>126 140 142 473<|content|>Telephone: ... (212) 558-3588",
+    "raw_response": "<|src_id|>4<|tgt_id|>5\n<|src_id|>50<|tgt_id|>51\n<|src_id|>88<|tgt_id|>89",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        }
+    ]
+}

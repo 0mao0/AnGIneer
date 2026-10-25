@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        9,
+        10,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 426 156 571<|content|>Attorneys at Law\n<|id|>3<|page|>1<|box|>164 303 181 692<|content|>599 Lexington Avenue New York, New York 10022\n<|id|>4<|page|>1<|box|>189 297 208 699<|content|>Telephone: ... (212) 558-3588\n<|id|>7<|page|>1<|box|>266 140 282 568<|content|>DRAFT — SUBJECT TO REVISION C&H Matter No. ... 1015-00001\n<|id|>8<|page|>1<|box|>290 140 325 854<|content|>To the Several Underwriters Named in Schedule I to...I to the Underwriting Agreement (as defined below)\n<|id|>9<|page|>1<|box|>334 174 371 854<|content|>Hargrove Keating & Co. ... 383 Madison Place New Y...0017 As Representative of the Several Underwriters\n<|id|>10<|page|>1<|box|>378 174 396 813<|content|>Linden Pratt Securities LLC 200 Vesey Street, 40th Floor New York, New York 10281\n<|id|>11<|page|>1<|box|>404 174 422 834<|content|>Graymont Brothers Inc. ... 555 California Street, Suite 3200 San Francisco, California 94104\n<|id|>12<|page|>1<|box|>430 174 448 694<|content|>Barfield Stuart & Co. ... 101 Federal Street Boston, Massachusetts 02110\n<|id|>13<|page|>1<|box|>455 174 474 767<|content|>Crane Whitley Capital LLC 600 Travis Street, Suite 4400 Houston, Texas 77002\n<|id|>14<|page|>1<|box|>483 140 500 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>63<|page|>5<|box|>344 210 380 854<|content|>(L) \"passive foreign investment companies\" within the meaning of Section 1297 of the Code; ... and\n<|id|>65<|page|>5<|box|>433 140 635 856<|content|>For purposes of this opinion, a \"U. ... Holder\n<|id|>74<|page|>6<|box|>792 174 902 857<|content|>6. ... Based on the representations contained in t...ect to any other credits (including Production Tax\n<|id|>75<|page|>7<|box|>90 210 237 857<|content|>Credits (\"PTCs\") under Section 45 of the Code). ..... of the Code) will occur by reason of the Offering\n<|id|>98<|page|>9<|box|>869 174 907 854<|content|>(b) the Non-U. ... or\n<|id|>100<|page|>10<|box|>252 140 470 857<|content|>USRPHC Analysis. ... The Company's interests in re...mpany satisfying the 50% threshold described above\n<|id|>124<|page|>13<|box|>726 246 744 748<|content|>[Remainder of page intentionally left blank; ... signature page follows]\n<|id|>125<|page|>13<|box|>752 212 768 343<|content|>Very truly yours,\n<|id|>128<|page|>13<|box|>813 142 829 307<|content|>Name: ... Leonard Cross\n<|id|>129<|page|>13<|box|>830 143 845 246<|content|>Title: ... Partner\n<|id|>130<|page|>13<|box|>848 143 864 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>74<|tgt_id|>75\n<|src_id|>98<|tgt_id|>100",
+    "parsed": [
+        {
+            "src_id": 74,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 100
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        55,
+        58
+    ],
+    "pages": [
+        56,
+        57,
+        58
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>734<|page|>56<|box|>152 467 168 554<|content|>附 录 C\n<|id|>735<|page|>56<|box|>171 410 206 611<|content|>（资料性附录） 纵向螺栓接缝承载力试验\n<|id|>736<|page|>56<|box|>227 112 242 236<|content|>C.1 一般规定\n<|id|>738<|page|>56<|box|>319 114 335 236<|content|>C.2 试验样本\n<|id|>745<|page|>56<|box|>588 114 604 236<|content|>C.3 试验方法\n<|id|>748<|page|>56<|box|>764 112 780 289<|content|>C.4 公称接缝承载力\n<|id|>754<|page|>57<|box|>168 112 185 236<|content|>C.5 结果报告\n<|id|>767<|page|>57<|box|>456 112 473 236<|content|>C.6 样本保存\n<|id|>771<|page|>58<|box|>190 428 206 593<|content|>常用波纹钢管规格表",
+    "raw_response": "<|id|>734<|level|>1\n<|id|>735<|level|>2\n<|id|>736<|level|>3\n<|id|>738<|level|>3\n<|id|>745<|level|>3\n<|id|>748<|level|>3\n<|id|>754<|level|>3\n<|id|>767<|level|>3\n<|id|>771<|level|>1",
+    "parsed": [
+        {
+            "id": 734,
+            "level": 1
+        },
+        {
+            "id": 735,
+            "level": 2
+        },
+        {
+            "id": 736,
+            "level": 3
+        },
+        {
+            "id": 738,
+            "level": 3
+        },
+        {
+            "id": 745,
+            "level": 3
+        },
+        {
+            "id": 748,
+            "level": 3
+        },
+        {
+            "id": 754,
+            "level": 3
+        },
+        {
+            "id": 767,
+            "level": 3
+        },
+        {
+            "id": 771,
+            "level": 1
+        }
+    ]
+}

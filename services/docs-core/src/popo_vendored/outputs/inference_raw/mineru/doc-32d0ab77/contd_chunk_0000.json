@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        14
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        6,
+        8,
+        10,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>11<|page|>2<|box|>854 140 909 854<|content|>5. ... These devices had been collected by CRH's\n<|id|>12<|page|>3<|box|>90 174 143 854<|content|>Information Technology Department on or about Febr...evices received by Pinnacle included the following\n<|id|>14<|page|>3<|box|>190 174 226 854<|content|>(b) Eight (8) CRH-issued mobile phones (Brightwate...igned to each member of the Rathore Group; ... and\n<|id|>16<|page|>3<|box|>315 140 388 854<|content|>Each device was identified by employee assignment,...receipt, as described further in Section VII below\n<|id|>36<|page|>5<|box|>819 174 909 857<|content|>(e) Pattern of After-Hours and Weekend Activity: ... 00 AM\n<|id|>37<|page|>6<|box|>90 174 143 854<|content|>PT), and on weekends. ... This pattern of after-ho... network monitoring and reduced colleague presence\n<|id|>52<|page|>8<|box|>178 174 233 856<|content|>(c) \"PROJECT RIDGELINE — RESTRICTED DISTRIBUTION\" ...f the exfiltrated files (approximately 18. ... and\n<|id|>54<|page|>8<|box|>304 138 503 857<|content|>I have been provided with and have reviewed CRH's ...cted as necessary to protect trade secret content)\n<|id|>62<|page|>10<|box|>89 174 145 854<|content|>(c) A Adriatic Health IT USB 3. ... and\n<|id|>64<|page|>10<|box|>214 140 378 856<|content|>File system artifacts — including Windows Shellbag...B connection logs are attached hereto as Exhibit 5\n<|id|>88<|page|>13<|box|>825 140 898 857<|content|>22. ... At the time of this declaration, there is ...d to CRH or destroyed by any member of the Rathore\n<|id|>89<|page|>14<|box|>90 174 290 856<|content|>Group. ... and to the irreparable detriment of CRH\n<|id|>94<|page|>14<|box|>518 174 590 854<|content|>(d) Any Verdana Commerce Group, Inc. ... and\n<|id|>96<|page|>14<|box|>643 140 734 856<|content|>Such an audit is necessary, in my professional jud...onfirm that no copies remain in unauthorized hands",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>36<|tgt_id|>37\n<|src_id|>88<|tgt_id|>89",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        }
+    ]
+}

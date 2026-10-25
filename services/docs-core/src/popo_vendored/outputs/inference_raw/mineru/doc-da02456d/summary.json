@@ -1,0 +1,152 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4zwep2ws\\input\\pdfs\\doc-da02456d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4zwep2ws\\enriched\\doc-da02456d.json",
+    "contd_output": "",
+    "title_output": "<|id|>8<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>20<|level|>2\n<|id|>24<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>48<|level|>1\n<|id|>50<|level|>2\n<|id|>59<|level|>2\n<|id|>64<|level|>2\n<|id|>70<|level|>2\n<|id|>71<|level|>2\n<|id|>76<|level|>2\n<|id|>82<|level|>2\n<|id|>99<|level|>2\n<|id|>108<|level|>2\n<|id|>114<|level|>1\n<|id|>116<|level|>2\n<|id|>122<|level|>2\n<|id|>126<|level|>2\n<|id|>129<|level|>2\n<|id|>132<|level|>1\n<|id|>154<|level|>1\n<|id|>163<|level|>1",
+    "image_output": "<|src_id|>161<|tgt_id|>132\n<|src_id|>162<|tgt_id|>132\n<|src_id|>164<|tgt_id|>163",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 154,
+            "level": 1
+        },
+        {
+            "id": 163,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 161,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 163
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 161,
+            "table2_idx": 162,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "$890,000 in cash withdrawals under vague GL 7450; $630,000 in-kind under GL 7200/7310",
+                    "Combined $1,520,000 with minimal or no supporting documentation; GL 7450 lacks subcategories or documentation",
+                    "Osei-Bonsu, Achebe",
+                    "TGM general ledger; Regency International Bank (Acct. GAN-4419-8837) records"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "requirements",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

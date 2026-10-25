@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 35,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['浮桥', 'rowspan=5, D) VERACC(垂直精度):仅与VERCCL(封闭竖向净空)、VER-CLR(竖向净空)或VERCOP(开放竖向净空)一起使用;E) VERDAT(垂直基准面):仅与VERCCL(封闭竖向净空),VERCLR(竖向净空)或VERCOP(开放竖向净空)一起使用;F) VERCCL(封闭竖向净空):对敞空式桥为必备属性;G) VERCLR(竖向净空):对非敞空式桥为必备属性;H) VERCOP(开放竖向净空):对净空高度有限的敞空式桥为必备属性;I)在编辑范围内,桥梁下面有水并且可航行时以普通方法编码为DEPCNT(等深线)和DEPARE(深度范围)或DRGARE(疏浚区);如为不可航水道则编码为LNDARE(陆域);桥上的道路不强制编码;J)桥梁为固定桥梁时VERCLR(竖向净空)属性为必备属性;K)桥梁可以包括其陆地和水面上的部分。桥墩编码为PYLONS(支架/桥墩),其CATPYL(桥塔类)=4(桥梁塔/塔台)或5(桥墩);L) HORCLR(水平净空)精度由属性HORACC(水平精度)给出,属性HORACC(水平精度)只能用于HORCLR(水平净空);M) VERCLR(竖向净空)、VER-COP(开放竖向净空)、VERCSA(安全竖向净空)、VERCCL(封闭竖向净空)的精度由属性VERACC(垂直精度)给出。一个物标给出几个竖向净空时,则取最低精度', 'rowspan=5, (O) PICREP(图示显示)=[外部图形文件的文件名路径](O) UNLOCD(地区编码)=[地区](O) OBJNAM(英文名称)=[桥梁英文名称](O) NOBJNM(中文名称)=[桥梁中文名称](O) INFORM(英文信息)=[桥梁英文信息](O) NINFOM(中文信息)=[桥梁中文信息](O) HORCLR(水平净空)=[(xx.x)单位:m](O) HORACC(水平精度)=[(xx.x)单位:m](O) VERACC(垂直精度)=[(xx.x)单位:m](C) VERCOP(开放竖向净空)=[(xx.x)单位:m](C) VERCCL(封闭竖向净空)=[(xx.x)单位:m](O) TXTDSC(正文描述)=[桥梁正文描述](C) SORIND(数据来源表示)=[cc,cc,cccc,c⋯](C) SORDAT(数据来源日期)=[YYYYMMDD]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=3, 桥墩'], ['示意图', '编码说明', '对应物标属性编码']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 2908,
+    "table2_idx": 2909
+}

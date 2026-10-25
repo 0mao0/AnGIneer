@@ -1,0 +1,146 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 212 107 784<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>9<|page|>1<|box|>339 385 359 611<|content|>I. Executive Summary\n<|id|>18<|page|>2<|box|>303 295 323 702<|content|>II. Background and Transaction Context\n<|id|>27<|page|>3<|box|>369 364 390 633<|content|>III. Fee Structure Analysis\n<|id|>28<|page|>3<|box|>415 142 433 428<|content|>A. Placement-Agent Fee Calculation\n<|id|>33<|page|>3<|box|>705 140 724 328<|content|>B. Market Comparison\n<|id|>40<|page|>4<|box|>501 140 518 282<|content|>C. Fee Allocation\n<|id|>45<|page|>5<|box|>167 140 184 369<|content|>D. Recommendations on Fee\n<|id|>50<|page|>5<|box|>487 362 507 633<|content|>IV. Tail Provision Analysis\n<|id|>51<|page|>5<|box|>532 140 549 393<|content|>A. Description of Tail Provision\n<|id|>54<|page|>5<|box|>789 142 806 245<|content|>B. Concerns\n<|id|>60<|page|>6<|box|>574 140 592 315<|content|>C. Recommendations\n<|id|>66<|page|>7<|box|>229 348 250 648<|content|>V. Indemnification Provisions\n<|id|>67<|page|>7<|box|>273 142 290 364<|content|>A. Scope of Indemnification\n<|id|>72<|page|>7<|box|>691 142 709 245<|content|>B. Concerns\n<|id|>79<|page|>8<|box|>703 140 720 313<|content|>C. Recommendations\n<|id|>90<|page|>9<|box|>761 315 781 681<|content|>VI. Regulatory Compliance Analysis\n<|id|>91<|page|>9<|box|>806 142 823 411<|content|>A. Rivermark's Regulatory Status\n<|id|>98<|page|>10<|box|>536 140 553 506<|content|>B. Anti-Corruption and AML Representations\n<|id|>105<|page|>11<|box|>439 140 457 537<|content|>C. Pay-to-Play / Placement Agent Disclosure Rules\n<|id|>112<|page|>12<|box|>186 140 203 344<|content|>D. Sub-Placement Agents\n<|id|>119<|page|>12<|box|>588 300 608 697<|content|>VII. Other Provisions and Observations\n<|id|>120<|page|>12<|box|>633 142 650 256<|content|>A. Exclusivity\n<|id|>123<|page|>13<|box|>90 140 107 349<|content|>B. Term and Termination\n<|id|>127<|page|>13<|box|>428 140 446 287<|content|>C. Confidentiality\n<|id|>132<|page|>13<|box|>840 140 859 475<|content|>D. Governing Law and Dispute Resolution\n<|id|>136<|page|>14<|box|>402 140 420 261<|content|>E. Assignment\n<|id|>138<|page|>14<|box|>542 140 559 728<|content|>F. Relationship to LP Agreement and Co-Investment\n<|id|>143<|page|>15<|box|>90 313 111 684<|content|>VIII. Summary of Recommendations\n<|id|>162<|page|>16<|box|>210 424 229 573<|content|>IX. Next Steps",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>18<|level|>1\n<|id|>27<|level|>1\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>1\n<|id|>51<|level|>2\n<|id|>54<|level|>2\n<|id|>60<|level|>2\n<|id|>66<|level|>1\n<|id|>67<|level|>2\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>90<|level|>1\n<|id|>91<|level|>2\n<|id|>98<|level|>2\n<|id|>105<|level|>2\n<|id|>112<|level|>2\n<|id|>119<|level|>1\n<|id|>120<|level|>2\n<|id|>123<|level|>2\n<|id|>127<|level|>2\n<|id|>132<|level|>2\n<|id|>136<|level|>2\n<|id|>138<|level|>2\n<|id|>143<|level|>1\n<|id|>162<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        }
+    ]
+}

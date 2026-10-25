@@ -1,0 +1,171 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-e_mvxzig\\input\\pdfs\\doc-85b065a3.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-e_mvxzig\\enriched\\doc-85b065a3.json",
+    "contd_output": "<|src_id|>15<|tgt_id|>16\n<|src_id|>112<|tgt_id|>113\n<|src_id|>167<|tgt_id|>168",
+    "title_output": "<|id|>1<|level|>1\n<|id|>19<|level|>1\n<|id|>47<|level|>1\n<|id|>62<|level|>1\n<|id|>64<|level|>2\n<|id|>68<|level|>2\n<|id|>71<|level|>2\n<|id|>83<|level|>2\n<|id|>89<|level|>2\n<|id|>102<|level|>2\n<|id|>111<|level|>2\n<|id|>115<|level|>2\n<|id|>117<|level|>2\n<|id|>119<|level|>2\n<|id|>124<|level|>1\n<|id|>140<|level|>1\n<|id|>156<|level|>1\n<|id|>160<|level|>1\n<|id|>161<|level|>2\n<|id|>163<|level|>3\n<|id|>166<|level|>3\n<|id|>170<|level|>3\n<|id|>172<|level|>3\n<|id|>174<|level|>3\n<|id|>176<|level|>3\n<|id|>178<|level|>3\n<|id|>181<|level|>1\n<|id|>182<|level|>2",
+    "image_output": "<|src_id|>157<|tgt_id|>156\n<|src_id|>184<|tgt_id|>182\n<|src_id|>185<|tgt_id|>182",
+    "contd_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 168
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 1
+        },
+        {
+            "id": 182,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 157,
+            "tgt_id": 156
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 182
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 184,
+            "table2_idx": 185,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Sandra Haverford",
+                    "General Counsel &",
+                    "Executed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Corporate Secretary",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

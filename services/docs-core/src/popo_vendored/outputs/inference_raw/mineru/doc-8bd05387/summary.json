@@ -1,0 +1,457 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4622i25m\\input\\pdfs\\doc-8bd05387.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4622i25m\\enriched\\doc-8bd05387.json",
+    "contd_output": "<|src_id|>9<|tgt_id|>10\n<|src_id|>104<|tgt_id|>108",
+    "title_output": "<|id|>2<|level|>1\n<|id|>13<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>3\n<|id|>27<|level|>4\n<|id|>35<|level|>4\n<|id|>45<|level|>4\n<|id|>49<|level|>3\n<|id|>52<|level|>4\n<|id|>55<|level|>2\n<|id|>58<|level|>3\n<|id|>59<|level|>4\n<|id|>61<|level|>4\n<|id|>74<|level|>4\n<|id|>80<|level|>4\n<|id|>89<|level|>3\n<|id|>91<|level|>4\n<|id|>95<|level|>4\n<|id|>99<|level|>3\n<|id|>100<|level|>4\n<|id|>102<|level|>4\n<|id|>111<|level|>4\n<|id|>115<|level|>2\n<|id|>120<|level|>3\n<|id|>121<|level|>4\n<|id|>123<|level|>4\n<|id|>147<|level|>3\n<|id|>149<|level|>4\n<|id|>154<|level|>3\n<|id|>156<|level|>4\n<|id|>160<|level|>3\n<|id|>161<|level|>4\n<|id|>163<|level|>4\n<|id|>168<|level|>2\n<|id|>170<|level|>3\n<|id|>177<|level|>3\n<|id|>187<|level|>3\n<|id|>191<|level|>2\n<|id|>193<|level|>3\n<|id|>195<|level|>4\n<|id|>200<|level|>4\n<|id|>205<|level|>3\n<|id|>218<|level|>3\n<|id|>229<|level|>3\n<|id|>234<|level|>2\n<|id|>237<|level|>3\n<|id|>242<|level|>2\n<|id|>246<|level|>3\n<|id|>256<|level|>2\n<|id|>257<|level|>3\n<|id|>262<|level|>3\n<|id|>264<|level|>4\n<|id|>270<|level|>3\n<|id|>276<|level|>3\n<|id|>280<|level|>3\n<|id|>282<|level|>4\n<|id|>288<|level|>2\n<|id|>298<|level|>2\n<|id|>300<|level|>3\n<|id|>303<|level|>3\n<|id|>307<|level|>3\n<|id|>314<|level|>2\n<|id|>331<|level|>3",
+    "image_output": "<|src_id|>19<|tgt_id|>13\n<|src_id|>28<|tgt_id|>26\n<|src_id|>39<|tgt_id|>35\n<|src_id|>56<|tgt_id|>55\n<|src_id|>60<|tgt_id|>59\n<|src_id|>73<|tgt_id|>61\n<|src_id|>79<|tgt_id|>74\n<|src_id|>90<|tgt_id|>89\n<|src_id|>101<|tgt_id|>100\n<|src_id|>117<|tgt_id|>115\n<|src_id|>118<|tgt_id|>115\n<|src_id|>122<|tgt_id|>121\n<|src_id|>148<|tgt_id|>147\n<|src_id|>155<|tgt_id|>154\n<|src_id|>162<|tgt_id|>161\n<|src_id|>175<|tgt_id|>168\n<|src_id|>231<|tgt_id|>229\n<|src_id|>232<|tgt_id|>229\n<|src_id|>236<|tgt_id|>234\n<|src_id|>238<|tgt_id|>237\n<|src_id|>239<|tgt_id|>234\n<|src_id|>240<|tgt_id|>234\n<|src_id|>241<|tgt_id|>234\n<|src_id|>244<|tgt_id|>242\n<|src_id|>259<|tgt_id|>257\n<|src_id|>305<|tgt_id|>303\n<|src_id|>306<|tgt_id|>303",
+    "contd_label": [
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 108
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 35,
+            "level": 4
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 74,
+            "level": 4
+        },
+        {
+            "id": 80,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 4
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 111,
+            "level": 4
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 4
+        },
+        {
+            "id": 123,
+            "level": 4
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 4
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 4
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 4
+        },
+        {
+            "id": 163,
+            "level": 4
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 4
+        },
+        {
+            "id": 200,
+            "level": 4
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 218,
+            "level": 3
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 2
+        },
+        {
+            "id": 237,
+            "level": 3
+        },
+        {
+            "id": 242,
+            "level": 2
+        },
+        {
+            "id": 246,
+            "level": 3
+        },
+        {
+            "id": 256,
+            "level": 2
+        },
+        {
+            "id": 257,
+            "level": 3
+        },
+        {
+            "id": 262,
+            "level": 3
+        },
+        {
+            "id": 264,
+            "level": 4
+        },
+        {
+            "id": 270,
+            "level": 3
+        },
+        {
+            "id": 276,
+            "level": 3
+        },
+        {
+            "id": 280,
+            "level": 3
+        },
+        {
+            "id": 282,
+            "level": 4
+        },
+        {
+            "id": 288,
+            "level": 2
+        },
+        {
+            "id": 298,
+            "level": 2
+        },
+        {
+            "id": 300,
+            "level": 3
+        },
+        {
+            "id": 303,
+            "level": 3
+        },
+        {
+            "id": 307,
+            "level": 3
+        },
+        {
+            "id": 314,
+            "level": 2
+        },
+        {
+            "id": 331,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 19,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 147
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 231,
+            "tgt_id": 229
+        },
+        {
+            "src_id": 232,
+            "tgt_id": 229
+        },
+        {
+            "src_id": 236,
+            "tgt_id": 234
+        },
+        {
+            "src_id": 238,
+            "tgt_id": 237
+        },
+        {
+            "src_id": 239,
+            "tgt_id": 234
+        },
+        {
+            "src_id": 240,
+            "tgt_id": 234
+        },
+        {
+            "src_id": 241,
+            "tgt_id": 234
+        },
+        {
+            "src_id": 244,
+            "tgt_id": 242
+        },
+        {
+            "src_id": 259,
+            "tgt_id": 257
+        },
+        {
+            "src_id": 305,
+            "tgt_id": 303
+        },
+        {
+            "src_id": 306,
+            "tgt_id": 303
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 117,
+            "table2_idx": 118,
+            "upper_row_ss": [
+                [
+                    "2nd Excess",
+                    "Cornerstone Reinsurance",
+                    "$25M xs $35M",
+                    "$35M"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Corp.",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 231,
+            "table2_idx": 232,
+            "upper_row_ss": [
+                [
+                    "PL 2nd Excess",
+                    "Cornerstone Reinsurance Corp.",
+                    "Per policy / concurrent with primary",
+                    "Concurrent with primary; no later than +5 business"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "days"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 238,
+            "table2_idx": 239,
+            "upper_row_ss": [
+                [
+                    "Allegheny Pacific Underwriters, Inc.",
+                    "PL 3rd Excess",
+                    "California domicile — claims department address TBD"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Entity",
+                    "Contact Person(s)",
+                    "Address"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 305,
+            "table2_idx": 306,
+            "upper_row_ss": [
+                [
+                    "Method of Delivery",
+                    "Overnight mail (with tracking number), email (with confirmation), fax (with confirmation), or combination"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Acknowledgment Received",
+                    "Yes / No"
+                ]
+            ]
+        }
+    ]
+}

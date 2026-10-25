@@ -1,0 +1,167 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9xa35pbu\\input\\pdfs\\doc-39a773e7.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9xa35pbu\\enriched\\doc-39a773e7.json",
+    "contd_output": "<|src_id|>28<|tgt_id|>30\n<|src_id|>40<|tgt_id|>42",
+    "title_output": "<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>26<|level|>2\n<|id|>31<|level|>2\n<|id|>35<|level|>1\n<|id|>45<|level|>1\n<|id|>46<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>56<|level|>1\n<|id|>57<|level|>2\n<|id|>65<|level|>2\n<|id|>72<|level|>1\n<|id|>73<|level|>2\n<|id|>83<|level|>2\n<|id|>112<|level|>2\n<|id|>119<|level|>1\n<|id|>125<|level|>1\n<|id|>146<|level|>1\n<|id|>148<|level|>2\n<|id|>150<|level|>2\n<|id|>152<|level|>2\n<|id|>154<|level|>2\n<|id|>161<|level|>1\n<|id|>173<|level|>1\n<|id|>184<|level|>1\n<|id|>201<|level|>1",
+    "image_output": "<|src_id|>23<|tgt_id|>21\n<|src_id|>24<|tgt_id|>21\n<|src_id|>149<|tgt_id|>148",
+    "contd_label": [
+        {
+            "src_id": 28,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 42
+        }
+    ],
+    "title_label": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 1
+        },
+        {
+            "id": 173,
+            "level": 1
+        },
+        {
+            "id": 184,
+            "level": 1
+        },
+        {
+            "id": 201,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 148
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 23,
+            "table2_idx": 24,
+            "upper_row_ss": [
+                [
+                    "ENDBATES",
+                    "Ending Bates number of the document"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "BEGATTACH",
+                    "Beginning Bates number of the attachment range / document family"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,202 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        14
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 436 109 562<|content|>EXHIBIT D\n<|id|>1<|page|>2<|box|>135 248 152 750<|content|>FORM OF IRREVOCABLE STANDBY LETTER OF CREDIT\n<|id|>5<|page|>2<|box|>318 292 334 705<|content|>IRREVOCABLE STANDBY LETTER OF CREDIT\n<|id|>6<|page|>2<|box|>344 143 361 254<|content|>Issuing Bank:\n<|id|>9<|page|>2<|box|>440 142 458 303<|content|>Date of Issuance: __\n<|id|>10<|page|>2<|box|>465 142 484 357<|content|>Applicant (Account Party):\n<|id|>12<|page|>2<|box|>536 143 554 243<|content|>Beneficiary:\n<|id|>14<|page|>2<|box|>619 142 638 611<|content|>1. IRREVOCABLE UNDERTAKING; STATED AMOUNT\n<|id|>18<|page|>2<|box|>840 143 857 397<|content|>1.1 Reduction of Stated Amount\n<|id|>24<|page|>3<|box|>625 140 641 643<|content|>2. EXPIRY DATE; AUTOMATIC RENEWAL (EVERGREEN)\n<|id|>25<|page|>3<|box|>655 140 672 323<|content|>2.1 Initial Expiry Date\n<|id|>27<|page|>3<|box|>746 140 763 434<|content|>2.2 Automatic Extension (Evergreen)\n<|id|>30<|page|>4<|box|>194 140 212 315<|content|>2.3 Final Expiry Date\n<|id|>32<|page|>4<|box|>340 140 357 377<|content|>2.4 Non-Renewal Draw Right\n<|id|>34<|page|>4<|box|>478 140 494 250<|content|>3. [Reserved]\n<|id|>35<|page|>4<|box|>518 140 536 604<|content|>4. CONDITIONS FOR DRAWING; DRAW MECHANICS\n<|id|>36<|page|>4<|box|>550 140 568 323<|content|>4.1 Drawing Generally\n<|id|>39<|page|>4<|box|>680 176 696 568<|content|>Attention: Trade Services — Standby LC Operations\n<|id|>45<|page|>5<|box|>220 140 237 383<|content|>4.2 Permitted Drawing Events\n<|id|>53<|page|>5<|box|>833 140 849 388<|content|>4.3 Partial and Multiple Draws\n<|id|>56<|page|>6<|box|>257 140 273 307<|content|>4.4 Payment Timing\n<|id|>60<|page|>6<|box|>592 140 609 326<|content|>5. REINSTATEMENT\n<|id|>62<|page|>6<|box|>824 140 840 264<|content|>6. TRANSFER\n<|id|>64<|page|>7<|box|>90 140 107 330<|content|>6.2 Transfer Procedure\n<|id|>69<|page|>7<|box|>295 140 311 315<|content|>6.3 Effect of Transfer\n<|id|>71<|page|>7<|box|>469 140 486 795<|content|>7. ISSUING BANK OBLIGATIONS; INDEPENDENCE OF LETTE\n<|id|>72<|page|>7<|box|>500 140 517 343<|content|>7.1 Individual Obligation\n<|id|>80<|page|>8<|box|>138 140 156 359<|content|>7.3 Document Examination\n<|id|>82<|page|>8<|box|>295 140 311 517<|content|>8. GOVERNING RULES; APPLICABLE LAW\n<|id|>84<|page|>8<|box|>412 140 429 297<|content|>8.2 Governing Law\n<|id|>86<|page|>8<|box|>503 140 520 328<|content|>8.3 Venue; Jurisdiction\n<|id|>88<|page|>8<|box|>659 140 675 473<|content|>9. COMMUNICATIONS AND NOTICES\n<|id|>90<|page|>8<|box|>784 142 801 292<|content|>If to Issuing Bank:\n<|id|>93<|page|>9<|box|>90 140 107 279<|content|>If to Beneficiary:\n<|id|>97<|page|>9<|box|>200 142 218 267<|content|>If to Applicant:\n<|id|>102<|page|>9<|box|>388 143 406 334<|content|>10. MISCELLANEOUS\n<|id|>106<|page|>9<|box|>584 192 601 803<|content|>SIGNATURE PAGE TO IRREVOCABLE STANDBY LETTER OF CR\n<|id|>108<|page|>9<|box|>654 142 671 465<|content|>TRALVENDO NATIONAL BANK, N.A.\n<|id|>113<|page|>10<|box|>90 444 111 552<|content|>ANNEX 1\n<|id|>114<|page|>10<|box|>135 388 152 609<|content|>FORM OF SIGHT DRAFT\n<|id|>129<|page|>11<|box|>90 444 111 553<|content|>ANNEX 2\n<|id|>130<|page|>11<|box|>135 339 152 658<|content|>FORM OF DRAWING CERTIFICATE\n<|id|>154<|page|>13<|box|>90 447 111 550<|content|>ANNEX 3\n<|id|>155<|page|>13<|box|>135 357 152 640<|content|>FORM OF TRANSFER REQUEST\n<|id|>156<|page|>13<|box|>162 251 179 743<|content|>(for transfer of Irrevocable Standby Letter of Cre\n<|id|>181<|page|>14<|box|>220 253 236 743<|content|>ACKNOWLEDGMENT OF TRANSFER BY ISSUING BANK",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>5<|level|>1\n<|id|>6<|level|>2\n<|id|>9<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>18<|level|>3\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>27<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>3\n<|id|>34<|level|>2\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>39<|level|>-1\n<|id|>45<|level|>3\n<|id|>53<|level|>3\n<|id|>56<|level|>3\n<|id|>60<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>3\n<|id|>69<|level|>3\n<|id|>71<|level|>2\n<|id|>72<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>2\n<|id|>84<|level|>3\n<|id|>86<|level|>3\n<|id|>88<|level|>2\n<|id|>90<|level|>3\n<|id|>93<|level|>3\n<|id|>97<|level|>3\n<|id|>102<|level|>2\n<|id|>106<|level|>1\n<|id|>108<|level|>-1\n<|id|>113<|level|>1\n<|id|>114<|level|>2\n<|id|>129<|level|>1\n<|id|>130<|level|>2\n<|id|>154<|level|>1\n<|id|>155<|level|>2\n<|id|>156<|level|>3\n<|id|>181<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 2
+        }
+    ]
+}

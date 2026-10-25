@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 148 142 848<|content|>WRITTEN CONSENT IN LIEU OF A SPECIAL MEETING OF TH\n<|id|>4<|type|>title<|page|>1<|box|>362 140 378 243<|content|>RECITALS\n<|id|>9<|type|>table<|page|>2<|box|>359 143 484 852<|content|>None\n<|id|>27<|type|>table<|page|>4<|box|>619 143 744 852<|content|>None\n<|id|>36<|type|>title<|page|>6<|box|>89 142 106 279<|content|>RESOLUTIONS\n<|id|>38<|type|>title<|page|>6<|box|>166 142 183 400<|content|>1. Approval of the Note Offering\n<|id|>40<|type|>title<|page|>6<|box|>292 140 310 493<|content|>2. Approval of the Note Purchase Agreement\n<|id|>42<|type|>title<|page|>6<|box|>439 140 455 336<|content|>3. Approval of the Notes\n<|id|>44<|type|>table<|page|>6<|box|>503 143 580 852<|content|>None\n<|id|>46<|type|>title<|page|>6<|box|>681 140 699 524<|content|>4. Approval of Ancillary Transaction Documents\n<|id|>48<|type|>title<|page|>7<|box|>90 140 107 475<|content|>5. Authorization of Designated Signatories\n<|id|>54<|type|>title<|page|>7<|box|>573 142 589 230<|content|>and further\n<|id|>55<|type|>title<|page|>7<|box|>604 140 621 377<|content|>6. Securities Law Compliance\n<|id|>62<|type|>title<|page|>8<|box|>246 140 263 393<|content|>7. Exemption from Registration\n<|id|>64<|type|>title<|page|>8<|box|>465 140 482 387<|content|>8. Ratification of Prior Actions\n<|id|>66<|type|>title<|page|>8<|box|>703 140 719 290<|content|>9. Use of Proceeds\n<|id|>68<|type|>title<|page|>9<|box|>138 142 156 359<|content|>10. Omnibus Authorization\n<|id|>70<|type|>title<|page|>9<|box|>377 142 393 397<|content|>11. No Further Action Required\n<|id|>72<|type|>title<|page|>9<|box|>550 140 566 493<|content|>EFFECTIVENESS AND COUNTERPARTS\n<|id|>74<|type|>title<|page|>9<|box|>782 140 799 338<|content|>RECUSAL NOTATION\n<|id|>76<|type|>title<|page|>10<|box|>133 400 152 596<|content|>[Signature Pages Follow]\n<|id|>77<|type|>title<|page|>10<|box|>159 145 195 849<|content|>SIGNATURE PAGE TO WRITTEN CONSENT IN LIEU OF A SPE\n<|id|>78<|type|>title<|page|>10<|box|>204 385 222 612<|content|>Effective Date: April 5, 2024\n<|id|>94<|type|>title<|page|>11<|box|>89 344 106 653<|content|>EXHIBIT AND ATTACHMENT LIST",
+    "raw_response": "<|src_id|>9<|tgt_id|>4\n<|src_id|>27<|tgt_id|>4\n<|src_id|>44<|tgt_id|>42",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        }
+    ]
+}

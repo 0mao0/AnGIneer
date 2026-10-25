@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        150,
+        172
+    ],
+    "pages": [
+        150,
+        151,
+        155,
+        156,
+        157,
+        160,
+        162,
+        163,
+        165,
+        168,
+        169,
+        171,
+        172
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1225<|page|>150<|box|>195 75 208 252<|content|>Section 8.16 Judgment.\n<|id|>1229<|page|>151<|box|>53 449 67 545<|content|>ARTICLE IX\n<|id|>1230<|page|>151<|box|>79 447 92 550<|content|>GUARANTEE\n<|id|>1231<|page|>151<|box|>105 77 118 255<|content|>Section 9.01 Guarantee.\n<|id|>1233<|page|>151<|box|>271 75 285 356<|content|>Section 9.02 Obligations Unconditional.\n<|id|>1236<|page|>151<|box|>489 77 502 279<|content|>Section 9.03 Reinstatement.\n<|id|>1260<|page|>155<|box|>53 494 67 597<|content|>BNP PARIBAS\n<|id|>1261<|page|>155<|box|>208 494 223 803<|content|>DEUTSCHE BANK AG NEW YORK BRANCH\n<|id|>1270<|page|>156<|box|>53 494 67 723<|content|>MORGAN STANLEY BANK, N.A.\n<|id|>1295<|page|>157<|box|>53 494 67 774<|content|>BANK OF CHINA, NEW YORK BRANCH\n<|id|>1335<|page|>160<|box|>91 365 105 631<|content|>FORM OF REVOLVING CREDIT NOTE\n<|id|>1351<|page|>162<|box|>53 343 67 651<|content|>ADVANCES AND PAYMENTS OF PRINCIPAL\n<|id|>1353<|page|>163<|box|>91 372 105 622<|content|>FORM OF NOTICE OF BORROWING\n<|id|>1378<|page|>165<|box|>92 338 105 658<|content|>FORM OF ASSIGNMENT AND ASSUMPTION\n<|id|>1397<|page|>168<|box|>53 331 67 663<|content|>ANNEX 1 TO ASSIGNMENT AND ASSUMPTION\n<|id|>1398<|page|>168<|box|>79 343 105 651<|content|>STANDARD TERMS AND CONDITIONS FOR ASSIGNMENT AND A\n<|id|>1399<|page|>168<|box|>117 23 131 287<|content|>1.Representations and Warranties.\n<|id|>1404<|page|>169<|box|>92 380 105 617<|content|>FORM OF DESIGNATION LETTER\n<|id|>1428<|page|>171<|box|>53 23 66 107<|content|>ACCEPTED\n<|id|>1432<|page|>172<|box|>92 378 105 617<|content|>FORM OF TERMINATION LETTER",
+    "raw_response": "<|id|>1225<|level|>2\n<|id|>1229<|level|>1\n<|id|>1230<|level|>1\n<|id|>1231<|level|>2\n<|id|>1233<|level|>2\n<|id|>1236<|level|>2\n<|id|>1260<|level|>2\n<|id|>1261<|level|>2\n<|id|>1270<|level|>2\n<|id|>1295<|level|>2\n<|id|>1335<|level|>1\n<|id|>1351<|level|>1\n<|id|>1353<|level|>1\n<|id|>1378<|level|>1\n<|id|>1397<|level|>1\n<|id|>1398<|level|>1\n<|id|>1399<|level|>2\n<|id|>1404<|level|>1\n<|id|>1428<|level|>-1\n<|id|>1432<|level|>1",
+    "parsed": [
+        {
+            "id": 1225,
+            "level": 2
+        },
+        {
+            "id": 1229,
+            "level": 1
+        },
+        {
+            "id": 1230,
+            "level": 1
+        },
+        {
+            "id": 1231,
+            "level": 2
+        },
+        {
+            "id": 1233,
+            "level": 2
+        },
+        {
+            "id": 1236,
+            "level": 2
+        },
+        {
+            "id": 1260,
+            "level": 2
+        },
+        {
+            "id": 1261,
+            "level": 2
+        },
+        {
+            "id": 1270,
+            "level": 2
+        },
+        {
+            "id": 1295,
+            "level": 2
+        },
+        {
+            "id": 1335,
+            "level": 1
+        },
+        {
+            "id": 1351,
+            "level": 1
+        },
+        {
+            "id": 1353,
+            "level": 1
+        },
+        {
+            "id": 1378,
+            "level": 1
+        },
+        {
+            "id": 1397,
+            "level": 1
+        },
+        {
+            "id": 1398,
+            "level": 1
+        },
+        {
+            "id": 1399,
+            "level": 2
+        },
+        {
+            "id": 1404,
+            "level": 1
+        },
+        {
+            "id": 1432,
+            "level": 1
+        }
+    ]
+}

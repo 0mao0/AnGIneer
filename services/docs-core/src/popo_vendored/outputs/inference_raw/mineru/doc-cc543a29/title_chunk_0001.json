@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        102
+    ],
+    "pages": [
+        46,
+        47,
+        60,
+        61,
+        74,
+        82,
+        101
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>703<|page|>46<|box|>826 362 842 627<|content|>8.4 近岸波浪变形数学模型\n<|id|>705<|page|>47<|box|>187 313 214 654<|content|>9 港内波浪要素计算\n<|id|>706<|page|>47<|box|>248 406 265 566<|content|>9.1 一般规定\n<|id|>719<|page|>47<|box|>646 397 664 578<|content|>9.2 波浪绕射系数\n<|id|>747<|page|>60<|box|>138 301 155 684<|content|>9.3 波浪折射、绕射、反射与港内局部风浪\n<|id|>772<|page|>61<|box|>183 288 210 676<|content|>10 波浪对建筑物的作用\n<|id|>773<|page|>61<|box|>242 325 260 637<|content|>10.1 波浪对直墙式建筑物的作用\n<|id|>1028<|page|>74<|box|>153 340 171 652<|content|>10.2 波浪对斜坡式建筑物的作用\n<|id|>1194<|page|>82<|box|>551 344 568 635<|content|>10.3 波浪对桩基和墩柱的作用\n<|id|>1380<|page|>101<|box|>592 317 609 667<|content|>10.4 波浪和水流对桩基和墩柱的作用",
+    "raw_response": "<|id|>703<|level|>2\n<|id|>705<|level|>1\n<|id|>706<|level|>2\n<|id|>719<|level|>2\n<|id|>747<|level|>2\n<|id|>772<|level|>1\n<|id|>773<|level|>2\n<|id|>1028<|level|>2\n<|id|>1194<|level|>2\n<|id|>1380<|level|>2",
+    "parsed": [
+        {
+            "id": 703,
+            "level": 2
+        },
+        {
+            "id": 705,
+            "level": 1
+        },
+        {
+            "id": 706,
+            "level": 2
+        },
+        {
+            "id": 719,
+            "level": 2
+        },
+        {
+            "id": 747,
+            "level": 2
+        },
+        {
+            "id": 772,
+            "level": 1
+        },
+        {
+            "id": 773,
+            "level": 2
+        },
+        {
+            "id": 1028,
+            "level": 2
+        },
+        {
+            "id": 1194,
+            "level": 2
+        },
+        {
+            "id": 1380,
+            "level": 2
+        }
+    ]
+}

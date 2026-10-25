@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>5<|type|>title<|page|>1<|box|>292 140 310 292<|content|>Dear Ms. Langford:\n<|id|>8<|type|>title<|page|>1<|box|>606 140 622 454<|content|>I. Background — Investigation Context\n<|id|>12<|type|>title<|page|>2<|box|>186 140 204 763<|content|>II. Explanation of Need for Second Interview — Add\n<|id|>14<|type|>title<|page|>2<|box|>279 140 297 596<|content|>A. Evidence Concerning Clearwater Design Collectiv\n<|id|>24<|type|>title<|page|>3<|box|>202 142 219 594<|content|>B. Evidence Concerning the Revenue-Recognition Sch\n<|id|>31<|type|>table<|page|>3<|box|>726 143 839 852<|content|>None\n<|id|>34<|type|>title<|page|>4<|box|>213 140 229 413<|content|>C. Relationship to Other Evidence\n<|id|>37<|type|>title<|page|>4<|box|>541 140 558 323<|content|>III. Proposed Logistics\n<|id|>45<|type|>title<|page|>5<|box|>338 140 354 557<|content|>IV. Document Requests Accompanying the Interview\n<|id|>54<|type|>title<|page|>5<|box|>824 140 840 393<|content|>V. Privilege and Confidentiality\n<|id|>57<|type|>title<|page|>6<|box|>304 140 320 377<|content|>VI. Cooperation Expectations\n<|id|>59<|type|>title<|page|>6<|box|>517 142 534 243<|content|>VII. Closing",
+    "raw_response": "<|src_id|>31<|tgt_id|>24",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 24
+        }
+    ]
+}

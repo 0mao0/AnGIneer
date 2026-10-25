@@ -1,0 +1,62 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        17,
+        19,
+        21,
+        23,
+        24
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 189 141 807<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>5<|type|>title<|page|>1<|box|>304 155 340 841<|content|>MEMORANDUM OF LAW OF COUNTERCLAIM DEFENDANT BELMON\n<|id|>10<|type|>title<|page|>1<|box|>489 398 506 599<|content|>TABLE OF CONTENTS\n<|id|>12<|type|>table<|page|>1<|box|>539 145 892 852<|content|>None\n<|id|>13<|type|>table<|page|>2<|box|>89 143 795 852<|content|>None\n<|id|>14<|type|>title<|page|>2<|box|>830 385 845 612<|content|>TABLE OF AUTHORITIES\n<|id|>16<|type|>table<|page|>2<|box|>880 143 901 852<|content|>None\n<|id|>17<|type|>table<|page|>3<|box|>90 143 907 852<|content|>None\n<|id|>18<|type|>table<|page|>4<|box|>88 143 142 852<|content|>None\n<|id|>19<|type|>title<|page|>4<|box|>176 142 191 290<|content|>Statutes and Rules\n<|id|>20<|type|>table<|page|>4<|box|>200 143 294 852<|content|>None\n<|id|>21<|type|>title<|page|>4<|box|>343 142 359 397<|content|>PRELIMINARY STATEMENT\n<|id|>33<|type|>title<|page|>5<|box|>792 140 808 354<|content|>STATEMENT OF FACTS\n<|id|>34<|type|>title<|page|>5<|box|>823 140 840 387<|content|>A. The Original Credit Facility\n<|id|>46<|type|>title<|page|>6<|box|>775 140 792 557<|content|>B. Loan Deterioration and Transfer to Special Asse\n<|id|>61<|type|>title<|page|>8<|box|>138 140 157 531<|content|>C. The Forbearance and Modification Agreement\n<|id|>75<|type|>title<|page|>9<|box|>314 140 332 818<|content|>Section 12(a) — Integration Clause. Section 12(a)\n<|id|>78<|type|>title<|page|>9<|box|>580 140 597 594<|content|>D. The Kappels' Sophistication and Independent Adv\n<|id|>84<|type|>title<|page|>10<|box|>311 142 329 594<|content|>E. Expiration of the Forbearance Period and Accele\n<|id|>87<|type|>table<|page|>10<|box|>667 143 810 852<|content|>None\n<|id|>90<|type|>table<|page|>11<|box|>213 143 323 852<|content|>None\n<|id|>92<|type|>title<|page|>11<|box|>406 140 422 318<|content|>F. Procedural History\n<|id|>97<|type|>title<|page|>12<|box|>89 140 107 256<|content|>ARGUMENT\n<|id|>98<|type|>title<|page|>12<|box|>119 140 156 854<|content|>I. THE FRAUDULENT INDUCEMENT COUNTERCLAIM FAILS AS\n<|id|>132<|type|>title<|page|>17<|box|>626 140 662 854<|content|>II. THE NEGLIGENT MISREPRESENTATION COUNTERCLAIM F\n<|id|>145<|type|>title<|page|>19<|box|>763 140 799 854<|content|>III. THE BREACH OF THE IMPLIED COVENANT OF GOOD FA\n<|id|>155<|type|>title<|page|>21<|box|>527 140 545 748<|content|>IV. THE RESCISSION COUNTERCLAIM FAILS AS A MATTER\n<|id|>170<|type|>title<|page|>23<|box|>238 140 255 691<|content|>V. THE PUNITIVE DAMAGES DEMAND SHOULD BE STRICKEN\n<|id|>176<|type|>title<|page|>24<|box|>89 142 106 271<|content|>CONCLUSION\n<|id|>190<|type|>title<|page|>24<|box|>750 140 766 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>12<|tgt_id|>10\n<|src_id|>13<|tgt_id|>10\n<|src_id|>16<|tgt_id|>14\n<|src_id|>17<|tgt_id|>14\n<|src_id|>18<|tgt_id|>14\n<|src_id|>20<|tgt_id|>19\n<|src_id|>87<|tgt_id|>84\n<|src_id|>90<|tgt_id|>84",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 84
+        }
+    ]
+}

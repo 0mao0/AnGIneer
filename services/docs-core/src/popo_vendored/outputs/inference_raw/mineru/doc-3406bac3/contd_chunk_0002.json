@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        112,
+        140
+    ],
+    "pages": [
+        113,
+        132,
+        136,
+        140
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>528<|page|>113<|box|>184 81 446 491<|content|>Amounts in the Harbor Maintenance Trust Fund are a...elopment Act of 1986. ... Section 201 of the Water\n<|id|>529<|page|>113<|box|>125 504 199 915<|content|>Resources Development Act of 1996 (Public Law 104-...eral navigation projects for commercial navigation\n<|id|>632<|page|>132<|box|>412 106 441 490<|content|>- Supplemental Revenue Assistance Payments Program (SURE)\n<|id|>637<|page|>132<|box|>186 504 244 915<|content|>The Farm Service Agency shall invest such portions... interest bearing obligations of the United States\n<|id|>633<|page|>132<|box|>444 107 460 418<|content|>• Livestock Forage Disaster Program (LFP)\n<|id|>634<|page|>132<|box|>121 529 137 803<|content|>• Livestock Indemnity Program (LIP)\n<|id|>635<|page|>132<|box|>138 529 154 777<|content|>• Tree Assistance Program (TAP)\n<|id|>636<|page|>132<|box|>157 529 186 913<|content|>- Emergency Assistance for Livestock, Honey Bees, and Farm-Raised Fish Program (ELAP)\n<|id|>672<|page|>136<|box|>148 364 166 630<|content|>Source: ... Financial Management Service\n<|id|>673<|page|>136<|box|>186 81 262 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>681<|page|>136<|box|>843 81 904 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>682<|page|>136<|box|>186 504 291 915<|content|>Second Liberty Loan Act of 1917, the nature of the...inning February 4, 2013 and ending on May 18, 2013\n<|id|>724<|page|>140<|box|>60 75 104 379<|content|>DEPARTMENT OF THE TREASURY FINANCIAL MANAGEMENT SERVICE WASHINGTON, D. ... 20227\n<|id|>725<|page|>140<|box|>118 93 148 361<|content|>OFFICIAL BUSINESS PENALTY FOR PRIVATE USE, \\$300\n<|id|>726<|page|>140<|box|>69 658 131 929<|content|>FIRST CLASS MAIL POSTAGE AND FEES PAID DEPARTMENT OF THE TREASURY PERMIT NO. ... G-4",
+    "raw_response": "<|src_id|>528<|tgt_id|>529\n<|src_id|>681<|tgt_id|>682",
+    "parsed": [
+        {
+            "src_id": 528,
+            "tgt_id": 529
+        },
+        {
+            "src_id": 681,
+            "tgt_id": 682
+        }
+    ]
+}

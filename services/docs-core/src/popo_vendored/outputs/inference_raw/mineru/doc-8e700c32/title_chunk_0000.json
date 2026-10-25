@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 166 107 854<|content|>CALDERWOOD & HARKNESS LLP One Liberty Plaza, 50th\n<|id|>12<|page|>1<|box|>654 140 671 388<|content|>I. Background of the Litigation\n<|id|>22<|page|>2<|box|>726 140 743 439<|content|>II. Summary of Key Litigation Events\n<|id|>35<|page|>4<|box|>90 142 107 348<|content|>III. Settlement Resolution\n<|id|>46<|page|>4<|box|>756 142 772 308<|content|>IV. Funding Sources\n<|id|>52<|page|>5<|box|>186 140 204 472<|content|>V. Conduct of TSL Directors and Officers\n<|id|>60<|page|>6<|box|>90 140 107 522<|content|>VI. Confirmation of No Anticipated D&O Claim\n<|id|>66<|page|>6<|box|>425 142 441 413<|content|>VII. Request for Acknowledgment\n<|id|>72<|page|>6<|box|>657 142 675 357<|content|>VIII. Reservation of Rights",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>12<|level|>1\n<|id|>22<|level|>1\n<|id|>35<|level|>1\n<|id|>46<|level|>1\n<|id|>52<|level|>1\n<|id|>60<|level|>1\n<|id|>66<|level|>1\n<|id|>72<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        }
+    ]
+}

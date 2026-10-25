@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 100,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['122', '\"OBSTRN\",\" CATOBS8\",\" SY(FLTHAZ02);LS(DASH,1,CSTLN)\",\"4\",\"S\",\"DISPLAYBASE\",\"12410\"']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['123', '\"OBSTRN\",\"CATOBS9\",\"SY(ACHARE02);LS(DASH,1,CHMGD)\",\"4\",\"S\",\"DISPLAYBASE\",\"12410\"']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 3238,
+    "table2_idx": 3239
+}

@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        11,
+        14,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>7<|page|>1<|box|>551 142 569 207<|content|>Bill To:\n<|id|>9<|page|>1<|box|>637 140 654 411<|content|>Summary of Professional Services\n<|id|>11<|page|>2<|box|>369 142 386 506<|content|>Detailed Time Entries — Professional Services\n<|id|>12<|page|>2<|box|>398 142 417 354<|content|>Miriam Calloway, Partner\n<|id|>17<|page|>5<|box|>449 143 467 573<|content|>Calloway Subtotal: 18.0 hours × $1,350.00 = $24,30\n<|id|>21<|page|>6<|box|>371 142 388 540<|content|>Strauss Subtotal: 5.5 hours × $1,275.00 = $7,012.5\n<|id|>22<|page|>6<|box|>402 142 419 403<|content|>Sean Morrissey, Senior Associate\n<|id|>29<|page|>11<|box|>311 142 328 565<|content|>Morrissey Subtotal: 35.2 hours × $875.00 = $30,800\n<|id|>36<|page|>14<|box|>825 143 842 532<|content|>Aiken Subtotal: 23.7 hours × $650.00 = $15,405.00\n<|id|>37<|page|>14<|box|>856 143 873 467<|content|>Paralegal Support. Hourly Rate: $375.00\n<|id|>46<|page|>16<|box|>791 143 808 313<|content|>Payment Instructions\n<|id|>48<|page|>16<|box|>842 143 859 264<|content|>Wire Transfer:\n<|id|>52<|page|>17<|box|>276 143 292 300<|content|>Payment by Check:\n<|id|>58<|page|>17<|box|>439 143 455 336<|content|>TERMS AND CONDITIONS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>9<|level|>1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>17<|level|>3\n<|id|>21<|level|>3\n<|id|>22<|level|>2\n<|id|>29<|level|>3\n<|id|>36<|level|>3\n<|id|>37<|level|>2\n<|id|>46<|level|>1\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>58<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ]
+}

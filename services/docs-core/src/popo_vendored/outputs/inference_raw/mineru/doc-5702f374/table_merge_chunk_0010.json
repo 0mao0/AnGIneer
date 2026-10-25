@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['R-007', \"FDA reclassification or change in special controls for iCGM devices. FDA may issue new guidance, proposed rules, or final orders that modify the classification, special controls, or performance criteria applicable to iCGM devices, potentially requiring changes to the Lumina CGM System's regulatory strategy or performance\", 'Low', 'Medium-High', 'Ongoing monitoring of FDA regulatory actions, Federal Register notices, guidance documents, and CDRH announcements. C&H maintains regulatory intelligence tracking for all relevant product codes and device classifications. Engagement with industry associations and FDA stakeholders as appropriate.', 'C&H (Morrissey, Whitfield); Pinnacle (Ellison)']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'testing plan.', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 167,
+    "table2_idx": 168
+}

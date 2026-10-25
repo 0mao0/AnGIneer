@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>3<|page|>1<|box|>185 140 203 851<|content|>VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED, AND\n<|id|>11<|page|>1<|box|>479 142 497 370<|content|>I. Introduction and Capacity\n<|id|>15<|page|>2<|box|>167 140 184 563<|content|>II. Identification of the Franchise License Agreem\n<|id|>20<|page|>2<|box|>715 140 732 372<|content|>III. Relevant FLA Provisions\n<|id|>22<|page|>2<|box|>791 142 806 511<|content|>A. Gross Room Revenue Definition (FLA § 4.1)\n<|id|>26<|page|>3<|box|>311 140 329 418<|content|>B. Royalty Obligations (FLA § 4.1)\n<|id|>28<|page|>3<|box|>458 140 474 500<|content|>C. Marketing-Fund Contribution (FLA § 4.2)\n<|id|>30<|page|>3<|box|>585 140 603 385<|content|>D. Technology Fee (FLA § 4.3)\n<|id|>32<|page|>3<|box|>804 140 821 437<|content|>E. Late-Payment Interest (FLA § 4.6)\n<|id|>34<|page|>4<|box|>138 140 157 361<|content|>F. Audit Rights (FLA § 8.2)\n<|id|>36<|page|>4<|box|>321 140 339 661<|content|>G. Cure Provisions and Material Breach (FLA §§ 14.\n<|id|>41<|page|>4<|box|>655 142 672 434<|content|>H. Liquidated Damages (FLA § 15.3)\n<|id|>43<|page|>5<|box|>90 140 107 491<|content|>IV. Facts Giving Rise to the Material Breach\n<|id|>44<|page|>5<|box|>121 140 138 377<|content|>A. The Whistleblower Report\n<|id|>48<|page|>5<|box|>502 142 518 452<|content|>B. Engagement of Independent Auditor\n<|id|>52<|page|>6<|box|>90 140 107 529<|content|>C. Thornbury & Associates Preliminary Findings\n<|id|>56<|page|>6<|box|>489 140 506 697<|content|>D. The Revenue Diversion Scheme — Suncoast Room Ma\n<|id|>62<|page|>7<|box|>402 140 420 343<|content|>E. OTA Revenue Netting\n<|id|>66<|page|>7<|box|>729 142 746 390<|content|>F. Unreported Room Additions\n<|id|>69<|page|>8<|box|>167 140 185 431<|content|>V. Quantification of Underpayments\n<|id|>74<|page|>9<|box|>90 140 107 419<|content|>VI. Declaration of Material Breach\n<|id|>79<|page|>9<|box|>601 140 618 321<|content|>VII. Demand for Cure\n<|id|>87<|page|>10<|box|>758 140 775 359<|content|>VIII. Reservation of Rights\n<|id|>104<|page|>12<|box|>231 140 247 429<|content|>IX. Consequences of Failure to Cure\n<|id|>110<|page|>12<|box|>710 140 729 348<|content|>X. Direction for Response\n<|id|>127<|page|>13<|box|>531 143 547 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>3<|level|>-1\n<|id|>11<|level|>1\n<|id|>15<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>2\n<|id|>26<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>2\n<|id|>34<|level|>2\n<|id|>36<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>1\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>1\n<|id|>74<|level|>1\n<|id|>79<|level|>1\n<|id|>87<|level|>1\n<|id|>104<|level|>1\n<|id|>110<|level|>1\n<|id|>127<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        }
+    ]
+}

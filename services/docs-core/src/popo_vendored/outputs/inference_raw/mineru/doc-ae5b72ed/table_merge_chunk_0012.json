@@ -1,0 +1,24 @@
+{
+    "task": "table_merge",
+    "chunk_index": 12,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['62', 'Silver Line Electronics Wareh', 'Bldg 2, Unit C', '10/01/2020', '30,000', '$390,000', '$33,000', '5900 Peachtree Industrial', 'Howard Lam /hlam @silv', 'First-Class Mail + Email', '-', '-']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'ouse Inc.', '', '', '', '', '', 'Blvd, Unit 2C, Peach tree Corners, GA 30071', 'erlineew.com', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 138,
+    "table2_idx": 139
+}

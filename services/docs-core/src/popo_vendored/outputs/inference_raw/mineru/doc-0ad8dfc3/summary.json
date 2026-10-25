@@ -1,0 +1,191 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-f1d_oe61\\input\\pdfs\\doc-0ad8dfc3.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-f1d_oe61\\enriched\\doc-0ad8dfc3.json",
+    "contd_output": "<|src_id|>1<|tgt_id|>2\n<|src_id|>181<|tgt_id|>182",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>1\n<|id|>17<|level|>1\n<|id|>22<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>2\n<|id|>37<|level|>2\n<|id|>42<|level|>2\n<|id|>49<|level|>2\n<|id|>57<|level|>2\n<|id|>65<|level|>1\n<|id|>67<|level|>2\n<|id|>75<|level|>2\n<|id|>81<|level|>2\n<|id|>87<|level|>2\n<|id|>90<|level|>2\n<|id|>98<|level|>2\n<|id|>101<|level|>2\n<|id|>105<|level|>1\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>111<|level|>3\n<|id|>114<|level|>3\n<|id|>119<|level|>3\n<|id|>123<|level|>3\n<|id|>128<|level|>3\n<|id|>135<|level|>3\n<|id|>141<|level|>3\n<|id|>146<|level|>3\n<|id|>150<|level|>3\n<|id|>159<|level|>3\n<|id|>162<|level|>1\n<|id|>169<|level|>1",
+    "image_output": "<|src_id|>15<|tgt_id|>9\n<|src_id|>19<|tgt_id|>17\n<|src_id|>20<|tgt_id|>17\n<|src_id|>24<|tgt_id|>22\n<|src_id|>99<|tgt_id|>98",
+    "contd_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 182
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 169,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 98
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 19,
+            "table2_idx": 20,
+            "upper_row_ss": [
+                [
+                    "Guarantee",
+                    "Joint and several senior secured guarantees of the Guarantors"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Security",
+                    "First-priority lien on substantially all tangible and intangible assets of the Issuer and the Guarantors, as more fully described in the Security Agreement (U.S.), the General Security Agreement (Canada), and the Collateral Agency Agreement"
+                ]
+            ]
+        }
+    ]
+}

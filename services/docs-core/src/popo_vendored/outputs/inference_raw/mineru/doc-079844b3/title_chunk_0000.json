@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 142 104 779<|content|>DRAFT — FOR CLIENT REVIEW AND AUTHORIZATION — NOT\n<|id|>1<|page|>1<|box|>113 171 157 825<|content|>PETITION TO REVIVE AN APPLICATION PURSUANT TO 37 C\n<|id|>5<|page|>1<|box|>377 140 393 544<|content|>I. INTRODUCTION AND BASIS FOR PETITION\n<|id|>10<|page|>1<|box|>777 142 794 506<|content|>II. BACKGROUND OF THE APPLICATION\n<|id|>18<|page|>2<|box|>597 140 614 666<|content|>III. PROSECUTION HISTORY LEADING TO ABANDONMENT\n<|id|>24<|page|>3<|box|>329 140 345 614<|content|>IV. STATEMENT OF FACTS EXPLAINING THE DELAY\n<|id|>26<|page|>3<|box|>422 140 439 522<|content|>A. The FROST-AF Pivotal Clinical Trial Failure\n<|id|>32<|page|>4<|box|>239 140 256 519<|content|>B. Board Decision to Shelve CryoNova Program\n<|id|>36<|page|>4<|box|>729 140 746 433<|content|>C. Unintentional Nature of the Delay\n<|id|>42<|page|>5<|box|>648 140 665 611<|content|>V. REQUIRED STATEMENT UNDER 37 C.F.R. § 1.137(a)\n<|id|>45<|page|>6<|box|>89 140 106 483<|content|>VI. REPLY — PAYMENT OF ISSUE FEE\n<|id|>49<|page|>6<|box|>446 140 463 313<|content|>VII. PETITION FEE\n<|id|>52<|page|>6<|box|>612 142 628 465<|content|>VIII. FEE TRANSMITTAL SUMMARY\n<|id|>56<|page|>7<|box|>222 140 239 444<|content|>IX. ENTITY SIZE CONFIRMATION\n<|id|>62<|page|>7<|box|>631 140 648 736<|content|>X. POWER OF ATTORNEY AND CORRESPONDENCE INFORMATIO\n<|id|>68<|page|>8<|box|>148 142 166 377<|content|>XI. REQUEST FOR RELIEF\n<|id|>74<|page|>8<|box|>410 142 428 307<|content|>XII. CONCLUSION\n<|id|>86<|page|>8<|box|>813 256 829 738<|content|>NOTICE TO CLIENT — FOR INTERNAL REVIEW ONLY\n<|id|>89<|page|>9<|box|>142 143 157 272<|content|>Engagement Team:\n<|id|>96<|page|>9<|box|>268 145 304 851<|content|>CERTIFICATE OF ELECTRONIC FILING (PLACEHOLDER — TO\n<|id|>105<|page|>9<|box|>609 174 646 823<|content|>RELATED PENDING APPLICATIONS — CRYONOVA PATENT FAM",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>18<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>3\n<|id|>32<|level|>3\n<|id|>36<|level|>3\n<|id|>42<|level|>2\n<|id|>45<|level|>2\n<|id|>49<|level|>2\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>74<|level|>2\n<|id|>86<|level|>-1\n<|id|>89<|level|>-1\n<|id|>96<|level|>-1\n<|id|>105<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        }
+    ]
+}

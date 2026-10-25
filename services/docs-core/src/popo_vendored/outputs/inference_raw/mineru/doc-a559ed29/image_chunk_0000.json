@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>330 140 347 316<|content|>Ladies and Gentlemen:\n<|id|>10<|type|>title<|page|>1<|box|>797 140 814 614<|content|>Comment 1: Merger Consideration and Premium Disclo\n<|id|>12<|type|>title<|page|>2<|box|>152 142 171 228<|content|>Response:\n<|id|>23<|type|>title<|page|>3<|box|>167 140 185 612<|content|>Comment 2: Background of the Merger — Go-Shop Proc\n<|id|>25<|type|>title<|page|>3<|box|>366 140 383 228<|content|>Response:\n<|id|>37<|type|>title<|page|>5<|box|>186 140 204 619<|content|>Comment 3: Fairness Opinion of Lantern Hill Adviso\n<|id|>39<|type|>title<|page|>5<|box|>439 140 457 228<|content|>Response:\n<|id|>42<|type|>title<|page|>5<|box|>595 140 613 392<|content|>Discounted Cash Flow Analysis\n<|id|>44<|type|>title<|page|>6<|box|>90 140 108 395<|content|>Comparable Company Analysis\n<|id|>53<|type|>title<|page|>6<|box|>561 140 579 393<|content|>Precedent Transaction Analysis\n<|id|>55<|type|>title<|page|>6<|box|>781 140 797 338<|content|>Premiums Paid Analysis\n<|id|>57<|type|>title<|page|>7<|box|>194 140 212 380<|content|>Scope of the Fairness Opinion\n<|id|>59<|type|>title<|page|>7<|box|>377 140 393 473<|content|>Fee Arrangements and Potential Conflicts\n<|id|>67<|type|>title<|page|>8<|box|>204 140 222 598<|content|>Comment 4: Special Committee Process and Deliberat\n<|id|>69<|type|>title<|page|>8<|box|>402 140 420 228<|content|>Response:\n<|id|>96<|type|>title<|page|>11<|box|>325 140 342 388<|content|>Factors in Favor of the Merger\n<|id|>106<|type|>title<|page|>12<|box|>138 140 157 441<|content|>Factors Weighing Against the Merger\n<|id|>117<|type|>title<|page|>13<|box|>90 140 107 614<|content|>Comment 5: Stockholder Approval Requirement and Vo\n<|id|>119<|type|>title<|page|>13<|box|>215 140 233 228<|content|>Response:\n<|id|>130<|type|>title<|page|>14<|box|>508 140 526 602<|content|>Comment 6: Sources of Funding and Financing Condit\n<|id|>132<|type|>title<|page|>14<|box|>652 140 670 227<|content|>Response:\n<|id|>135<|type|>table<|page|>14<|box|>792 143 883 852<|content|>None\n<|id|>136<|type|>table<|page|>15<|box|>148 143 271 852<|content|>None\n<|id|>137<|type|>title<|page|>15<|box|>310 140 327 323<|content|>Debt Financing Terms\n<|id|>147<|type|>title<|page|>15<|box|>691 142 709 395<|content|>Absence of Financing Condition\n<|id|>149<|type|>title<|page|>16<|box|>90 140 107 527<|content|>Limited Guarantee and Reverse Termination Fee\n<|id|>153<|type|>title<|page|>16<|box|>684 140 702 419<|content|>Consequences of Financing Failure",
+    "raw_response": "<|src_id|>135<|tgt_id|>132\n<|src_id|>136<|tgt_id|>132",
+    "parsed": [
+        {
+            "src_id": 135,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 132
+        }
+    ]
+}

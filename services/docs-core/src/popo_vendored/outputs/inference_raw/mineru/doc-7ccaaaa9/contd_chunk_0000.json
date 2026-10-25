@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        6
+    ],
+    "pages": [
+        3,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>17<|page|>3<|box|>397 124 413 319<|content|>JTG C10 公路勘测规范\n<|id|>18<|page|>3<|box|>416 124 432 354<|content|>JTG D30 公路路基设计规范\n<|id|>19<|page|>3<|box|>435 124 450 354<|content|>JTG E40 公路土工试验规程\n<|id|>20<|page|>3<|box|>453 124 467 389<|content|>JTG F10 公路路基施工技术规范\n<|id|>21<|page|>3<|box|>471 124 486 423<|content|>JTG F80 公路工程质量检验评定标准\n<|id|>22<|page|>3<|box|>490 124 505 425<|content|>JTG F90 公路工程施工安全技术规范\n<|id|>23<|page|>3<|box|>509 124 524 556<|content|>JTG/T D31-02 公路软土地基路堤设计与施工技术细则\n<|id|>24<|page|>3<|box|>527 124 543 478<|content|>JTG/T D32 公路土工合成材料应用技术规范\n<|id|>25<|page|>3<|box|>546 124 562 425<|content|>JTG/T L11 高速公路改扩建设计细则\n<|id|>32<|page|>3<|box|>769 124 783 364<|content|>搭接区域 overlapping area\n<|id|>33<|page|>3<|box|>787 124 802 369<|content|>既有路基与加宽路基衔接部位。 ... 既有路基与加宽路基衔接部位\n<|id|>84<|page|>5<|box|>891 122 908 875<|content|>b) 采用沉降差法对分层碾压和补强质量进行控制，待碾压层顶面稳定无明显标高差异时进行沉\n<|id|>85<|page|>6<|box|>114 183 130 852<|content|>降差检测，控制标准为最后振压两遍沉降差不大于3. ... 补强后压实度不小于 91%",
+    "raw_response": "<|src_id|>84<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        }
+    ]
+}

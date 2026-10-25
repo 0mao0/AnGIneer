@@ -1,0 +1,113 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        48,
+        95
+    ],
+    "pages": [
+        49,
+        71,
+        72,
+        76,
+        77,
+        79,
+        82,
+        83,
+        85,
+        87,
+        89,
+        91,
+        93,
+        94,
+        95
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>240<|page|>49<|box|>124 435 152 549<|content|>二、填筑工程\n<|id|>265<|page|>71<|box|>142 408 171 600<|content|>第二节 地基处理工程\n<|id|>266<|page|>71<|box|>196 454 222 553<|content|>一、强夯\n<|id|>269<|page|>72<|box|>99 444 127 555<|content|>二、排水固结法\n<|id|>270<|page|>72<|box|>135 112 158 204<|content|>(一)真空预压\n<|id|>281<|page|>76<|box|>234 125 253 440<|content|>2. 指标中排水板数量为 85 根/100m ^{4} ，实际数量不同时按下表调整。\n<|id|>283<|page|>76<|box|>351 127 371 467<|content|>3. 本指标堆载损耗以山皮土为准，如堆载材料不同时按下表调整消耗量。\n<|id|>285<|page|>77<|box|>114 105 142 254<|content|>(三)真空联合堆载预压\n<|id|>293<|page|>79<|box|>135 431 162 545<|content|>三、堆载预压\n<|id|>298<|page|>82<|box|>139 452 166 524<|content|>说明\n<|id|>299<|page|>82<|box|>173 99 199 326<|content|>一、本章指标包括码头、防波堤工程。\n<|id|>309<|page|>83<|box|>114 445 140 558<|content|>一、集装箱码头\n<|id|>310<|page|>83<|box|>148 112 171 277<|content|>(一) 桩基梁板整片式码头\n<|id|>316<|page|>85<|box|>96 114 119 279<|content|>(二)桩基梁板引桥式码头\n<|id|>319<|page|>87<|box|>99 116 122 223<|content|>(三)重力式码头\n<|id|>325<|page|>89<|box|>117 402 144 600<|content|>二、通用及专业化散货码头\n<|id|>326<|page|>89<|box|>153 114 176 276<|content|>(一)桩基梁板引桥式码头\n<|id|>329<|page|>91<|box|>96 118 119 225<|content|>(二)重力式码头\n<|id|>335<|page|>93<|box|>106 105 129 197<|content|>(三)板桩码头\n<|id|>338<|page|>94<|box|>127 404 153 583<|content|>三、油品及液体化工码头\n<|id|>342<|page|>95<|box|>99 116 124 252<|content|>(二)桩基梁板引桥式",
+    "raw_response": "<|id|>240<|level|>1\n<|id|>265<|level|>1\n<|id|>266<|level|>2\n<|id|>269<|level|>2\n<|id|>270<|level|>3\n<|id|>281<|level|>4\n<|id|>283<|level|>4\n<|id|>285<|level|>3\n<|id|>293<|level|>2\n<|id|>298<|level|>1\n<|id|>299<|level|>2\n<|id|>309<|level|>2\n<|id|>310<|level|>3\n<|id|>316<|level|>3\n<|id|>319<|level|>3\n<|id|>325<|level|>2\n<|id|>326<|level|>3\n<|id|>329<|level|>3\n<|id|>335<|level|>3\n<|id|>338<|level|>2\n<|id|>342<|level|>3",
+    "parsed": [
+        {
+            "id": 240,
+            "level": 1
+        },
+        {
+            "id": 265,
+            "level": 1
+        },
+        {
+            "id": 266,
+            "level": 2
+        },
+        {
+            "id": 269,
+            "level": 2
+        },
+        {
+            "id": 270,
+            "level": 3
+        },
+        {
+            "id": 281,
+            "level": 4
+        },
+        {
+            "id": 283,
+            "level": 4
+        },
+        {
+            "id": 285,
+            "level": 3
+        },
+        {
+            "id": 293,
+            "level": 2
+        },
+        {
+            "id": 298,
+            "level": 1
+        },
+        {
+            "id": 299,
+            "level": 2
+        },
+        {
+            "id": 309,
+            "level": 2
+        },
+        {
+            "id": 310,
+            "level": 3
+        },
+        {
+            "id": 316,
+            "level": 3
+        },
+        {
+            "id": 319,
+            "level": 3
+        },
+        {
+            "id": 325,
+            "level": 2
+        },
+        {
+            "id": 326,
+            "level": 3
+        },
+        {
+            "id": 329,
+            "level": 3
+        },
+        {
+            "id": 335,
+            "level": 3
+        },
+        {
+            "id": 338,
+            "level": 2
+        },
+        {
+            "id": 342,
+            "level": 3
+        }
+    ]
+}

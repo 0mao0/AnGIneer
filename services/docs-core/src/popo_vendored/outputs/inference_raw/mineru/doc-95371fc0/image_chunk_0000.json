@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 145 157 851<|content|>IN THE CIRCUIT COURT OF THE ELEVENTH JUDICIAL CIRC\n<|id|>1<|type|>table<|page|>1<|box|>191 143 392 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>425 143 460 852<|content|>DECLARATION OF FRANKLIN ORDE IN SUPPORT OF PLAINTI\n<|id|>4<|type|>title<|page|>1<|box|>619 142 638 581<|content|>I. IDENTITY AND BACKGROUND OF DECLARANT\n<|id|>12<|type|>title<|page|>2<|box|>555 140 573 678<|content|>II. OVERVIEW OF VHG'S PROPERTY INSURANCE PROGRAM\n<|id|>22<|type|>table<|page|>3<|box|>535 143 659 852<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>768 140 786 790<|content|>III. THE PRIOR POLICY YEAR AND THE NAMED-WINDSTORM\n<|id|>33<|type|>title<|page|>4<|box|>726 140 743 550<|content|>IV. THE JULY 2022 RENEWAL NEGOTIATIONS\n<|id|>44<|type|>title<|page|>6<|box|>371 140 388 625<|content|>V. POLICY ISSUANCE AND THE ENDORSEMENT ISSUE\n<|id|>50<|type|>title<|page|>7<|box|>334 140 349 491<|content|>VI. REPRESENTATIONS MADE TO VHG\n<|id|>55<|type|>title<|page|>7<|box|>844 140 859 616<|content|>VII. HURRICANE CALLISTA AND POST-LOSS EVENTS\n<|id|>64<|type|>title<|page|>9<|box|>239 140 257 357<|content|>VIII. DOCUMENTATION\n<|id|>68<|type|>title<|page|>9<|box|>621 142 638 300<|content|>IX. CONCLUSION\n<|id|>74<|type|>title<|page|>10<|box|>292 142 309 279<|content|>ATTESTATION\n<|id|>78<|type|>title<|page|>10<|box|>470 142 486 421<|content|>NOTARY ACKNOWLEDGMENT\n<|id|>85<|type|>title<|page|>10<|box|>720 142 737 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>22<|tgt_id|>12",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 12
+        }
+    ]
+}

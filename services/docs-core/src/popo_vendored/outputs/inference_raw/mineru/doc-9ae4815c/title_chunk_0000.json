@@ -1,0 +1,157 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 405 119 591<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 212 152 784<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>8<|page|>1<|box|>368 142 383 321<|content|>I. Executive Summary\n<|id|>17<|page|>2<|box|>354 142 371 356<|content|>II. Scope and Methodology\n<|id|>18<|page|>2<|box|>383 142 401 424<|content|>Documents and Materials Reviewed\n<|id|>41<|page|>3<|box|>685 140 700 344<|content|>Data Room Cut-Off Date\n<|id|>43<|page|>3<|box|>786 140 803 503<|content|>III. Intellectual Property — Registered Rights\n<|id|>48<|page|>4<|box|>316 143 333 267<|content|>1. MedVance®\n<|id|>55<|page|>4<|box|>491 142 506 341<|content|>2. MedVance Wellness®\n<|id|>62<|page|>4<|box|>646 142 662 382<|content|>3. QuickCare by MedVance®\n<|id|>81<|page|>6<|box|>213 142 229 290<|content|>D. Domain Names\n<|id|>85<|page|>6<|box|>667 142 684 496<|content|>E. Trade Secrets and Proprietary Know-How\n<|id|>95<|page|>7<|box|>380 140 397 658<|content|>IV. Intellectual Property — Licenses and Third-Par\n<|id|>96<|page|>7<|box|>411 142 428 656<|content|>A. Vertex Health Technologies Inc. — Master Servic\n<|id|>113<|page|>9<|box|>710 142 729 486<|content|>B. Other Software and Technology Licenses\n<|id|>121<|page|>10<|box|>584 140 601 480<|content|>C. Inbound IP Licenses — Summary Table\n<|id|>124<|page|>11<|box|>241 140 258 343<|content|>D. Outbound IP Licenses\n<|id|>126<|page|>11<|box|>378 140 396 406<|content|>V. IT Infrastructure and Systems\n<|id|>144<|page|>12<|box|>787 140 804 562<|content|>VI. Data Privacy and Security — HIPAA Compliance\n<|id|>145<|page|>12<|box|>819 140 835 477<|content|>A. HIPAA Compliance Program Overview\n<|id|>160<|page|>13<|box|>667 140 684 361<|content|>B. HIPAA Risk Assessment\n<|id|>174<|page|>14<|box|>410 140 426 410<|content|>C. Business Associate Agreements\n<|id|>190<|page|>15<|box|>388 142 406 287<|content|>D. Breach History\n<|id|>203<|page|>16<|box|>330 140 349 320<|content|>E. State Privacy Laws\n<|id|>210<|page|>17<|box|>267 140 284 560<|content|>VII. Payor Data and Contractual Privacy Obligation\n<|id|>215<|page|>17<|box|>765 140 782 653<|content|>VIII. Employee and Contractor IP and Confidentiali\n<|id|>227<|page|>19<|box|>277 140 294 547<|content|>IX. Pending or Threatened IP and Privacy Disputes\n<|id|>233<|page|>19<|box|>674 140 691 434<|content|>X. Risk Items and Recommendations\n<|id|>234<|page|>19<|box|>704 140 720 424<|content|>A. Items for Pre-Closing Resolution\n<|id|>239<|page|>20<|box|>453 142 470 444<|content|>B. Items for Post-Closing Remediation\n<|id|>245<|page|>21<|box|>251 140 267 362<|content|>C. Overall Risk Assessment\n<|id|>261<|page|>22<|box|>241 140 258 277<|content|>XI. Attachments",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>8<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>2\n<|id|>48<|level|>3\n<|id|>55<|level|>3\n<|id|>62<|level|>3\n<|id|>81<|level|>4\n<|id|>85<|level|>4\n<|id|>95<|level|>2\n<|id|>96<|level|>3\n<|id|>113<|level|>3\n<|id|>121<|level|>3\n<|id|>124<|level|>3\n<|id|>126<|level|>2\n<|id|>144<|level|>2\n<|id|>145<|level|>3\n<|id|>160<|level|>3\n<|id|>174<|level|>3\n<|id|>190<|level|>3\n<|id|>203<|level|>3\n<|id|>210<|level|>2\n<|id|>215<|level|>2\n<|id|>227<|level|>2\n<|id|>233<|level|>2\n<|id|>234<|level|>3\n<|id|>239<|level|>3\n<|id|>245<|level|>3\n<|id|>261<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 4
+        },
+        {
+            "id": 85,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 2
+        },
+        {
+            "id": 227,
+            "level": 2
+        },
+        {
+            "id": 233,
+            "level": 2
+        },
+        {
+            "id": 234,
+            "level": 3
+        },
+        {
+            "id": 239,
+            "level": 3
+        },
+        {
+            "id": 245,
+            "level": 3
+        },
+        {
+            "id": 261,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        7
+    ],
+    "pages": [
+        3,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>33<|page|>3<|box|>837 140 898 854<|content|>[Insert reference to specific filings if applicabl... of the shares of Series A Preferred Stock, or the\n<|id|>34<|page|>4<|box|>89 140 119 854<|content|>Company has determined, in consultation with its c...g requirements is available and applicable. ... \"]\n<|id|>48<|page|>6<|box|>195 143 212 303<|content|>Name: ... [Insert Name]\n<|id|>49<|page|>6<|box|>212 143 228 284<|content|>Title: ... [Insert Title]\n<|id|>63<|page|>7<|box|>449 140 464 480<|content|>Form prepared by: ... [Insert Investor Counsel Firm Name]\n<|id|>64<|page|>7<|box|>470 140 486 382<|content|>Matter Number: ... [Insert matter number]\n<|id|>65<|page|>7<|box|>494 142 508 411<|content|>Document Version: ... 0]\n<|id|>66<|page|>7<|box|>517 143 532 307<|content|>Date of Form: ... [Insert date]\n<|id|>67<|page|>7<|box|>540 140 614 854<|content|>INSTRUCTION: ... All bracketed fields must be comp...o final execution and delivery of this Certificate",
+    "raw_response": "<|src_id|>33<|tgt_id|>34",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        }
+    ]
+}

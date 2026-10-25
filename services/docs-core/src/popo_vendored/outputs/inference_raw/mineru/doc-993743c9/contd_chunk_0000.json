@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        8
+    ],
+    "pages": [
+        2,
+        3,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>2<|box|>484 174 518 854<|content|>Ridgeline National Bank, National Association 600 Lexington Avenue, 22nd Floor New York, New York 10022\n<|id|>9<|page|>2<|box|>527 176 544 653<|content|>Attention: ... Syndicated Loan Operations — Credit Administration\n<|id|>10<|page|>2<|box|>544 140 674 854<|content|>The undersigned, being a duly authorized Responsib...able and binding upon the Borrower in all respects\n<|id|>14<|page|>2<|box|>795 176 813 405<|content|>Requested Amount: ... $\n<|id|>15<|page|>2<|box|>821 174 893 856<|content|>Instructional Note: ... If the amount requested he...may return the same to the Borrower for correction\n<|id|>17<|page|>3<|box|>181 176 199 483<|content|>Requested Borrowing Date: ... ____, 20__\n<|id|>18<|page|>3<|box|>207 174 372 856<|content|>Instructional Note: ... If the requested borrowing...een requested for the next succeeding Business Day\n<|id|>53<|page|>7<|box|>277 174 311 854<|content|>Ridgeline National Bank, National Association 600 Lexington Avenue, 22nd Floor New York, New York 10022\n<|id|>54<|page|>7<|box|>321 176 338 651<|content|>Attention: ... Syndicated Loan Operations — Credit Administration\n<|id|>55<|page|>7<|box|>339 176 354 468<|content|>Email: ... com\n<|id|>56<|page|>7<|box|>357 176 373 545<|content|>With a copy (which shall not constitute notice) to...With a copy (which shall not constitute notice) to\n<|id|>57<|page|>7<|box|>382 176 398 475<|content|>Attention: ... Portfolio Management Group\n<|id|>58<|page|>7<|box|>400 176 416 517<|content|>Email: ... com\n<|id|>59<|page|>7<|box|>416 140 527 854<|content|>Delivery of this Request may be made by hand deliv...) Business Days after such electronic transmission\n<|id|>70<|page|>8<|box|>159 143 175 269<|content|>Date: ... ____, 20__\n<|id|>71<|page|>8<|box|>176 140 310 854<|content|>Form Note: ... Questions regarding completion or d...e contact information set forth in Section 4 above",
+    "raw_response": "<|src_id|>56<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        }
+    ]
+}

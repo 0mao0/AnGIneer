@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 12,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Revolving Credit Facility Draw', '$200,000,000', 'COMMITTED', \"Draw under Cascade's existing $500,000,000 revolving credit facility with Cornerstone National Bank, N.A., as Administrative Agent (interest rate of Adjusted Term SOFR plus 200 basis points; maturity date: March 2029). An amendment to the existing credit agreement\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '(Document 33) is in advanced draft stage, which will (i) permit the incurrence of the new Term Loan B, (ii) permit the acquisition and related transactions, (iii) authorize the $200,000,000 draw for purposes of funding the acquisition, and (iv) include updated financial covenant levels and cross-default provisions reflecting the new Term Loan B.']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 114,
+    "table2_idx": 115
+}

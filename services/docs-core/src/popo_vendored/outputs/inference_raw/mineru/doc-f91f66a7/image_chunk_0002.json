@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        90,
+        93
+    ],
+    "pages": [
+        90,
+        91,
+        92,
+        93
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>844<|type|>title<|page|>90<|box|>89 428 106 570<|content|>SCHEDULE 3.16\n<|id|>845<|type|>title<|page|>90<|box|>114 442 132 555<|content|>INSURANCE\n<|id|>846<|type|>table<|page|>90<|box|>184 143 751 852<|content|>None\n<|id|>847<|type|>title<|page|>91<|box|>90 428 106 570<|content|>SCHEDULE 3.17\n<|id|>848<|type|>title<|page|>91<|box|>116 364 132 630<|content|>CUSTOMERS AND SUPPLIERS\n<|id|>849<|type|>title<|page|>91<|box|>142 143 159 485<|content|>1. Top 10 Customers (by Revenue, FY2023).\n<|id|>850<|type|>table<|page|>91<|box|>166 143 387 852<|content|>None\n<|id|>851<|type|>title<|page|>91<|box|>421 142 438 504<|content|>2. Top 10 Suppliers (by Expenditure, FY2023).\n<|id|>852<|type|>table<|page|>91<|box|>445 143 680 852<|content|>None\n<|id|>853<|type|>title<|page|>92<|box|>89 426 106 571<|content|>SCHEDULE 3.18\n<|id|>854<|type|>title<|page|>92<|box|>114 339 132 656<|content|>INTERCOMPANY ARRANGEMENTS\n<|id|>861<|type|>title<|page|>93<|box|>89 431 107 565<|content|>SCHEDULE 8.2\n<|id|>862<|type|>title<|page|>93<|box|>114 388 132 607<|content|>SPECIFIC INDEMNITIES",
+    "raw_response": "<|src_id|>846<|tgt_id|>845\n<|src_id|>850<|tgt_id|>849\n<|src_id|>852<|tgt_id|>851",
+    "parsed": [
+        {
+            "src_id": 846,
+            "tgt_id": 845
+        },
+        {
+            "src_id": 850,
+            "tgt_id": 849
+        },
+        {
+            "src_id": 852,
+            "tgt_id": 851
+        }
+    ]
+}

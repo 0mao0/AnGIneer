@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>141 75 180 928<|content|>中华人民共和国国家标准\n<|id|>3<|page|>1<|box|>398 284 433 721<|content|>视觉航标表面色规定\n<|id|>4<|page|>1<|box|>461 200 483 805<|content|>Regulation for surface colours of visual aids to n\n<|id|>7<|page|>2<|box|>141 450 164 561<|content|>目 次\n<|id|>9<|page|>3<|box|>147 436 170 554<|content|>前言\n<|id|>22<|page|>4<|box|>143 373 164 626<|content|>视觉航标表面色规定\n<|id|>23<|page|>4<|box|>207 94 221 164<|content|>1 范围\n<|id|>26<|page|>4<|box|>309 92 324 257<|content|>2 规范性引用文件\n<|id|>31<|page|>4<|box|>469 92 484 219<|content|>3 术语和定义\n<|id|>37<|page|>4<|box|>631 92 644 124<|content|>3.2\n<|id|>42<|page|>4<|box|>793 92 808 201<|content|>4 一般规定\n<|id|>47<|page|>5<|box|>127 91 143 182<|content|>5 表面色\n<|id|>48<|page|>5<|box|>163 91 179 233<|content|>5.1 普通表面色\n<|id|>49<|page|>5<|box|>191 92 207 233<|content|>5.1.1 色品范围\n<|id|>53<|page|>6<|box|>848 80 864 222<|content|>5.1.2 亮度因数\n<|id|>55<|page|>7<|box|>120 96 136 203<|content|>5.2 荧光色\n<|id|>56<|page|>7<|box|>147 96 164 238<|content|>5.2.1 色品范围\n<|id|>60<|page|>8<|box|>613 89 627 229<|content|>5.2.2 亮度因数\n<|id|>62<|page|>8<|box|>669 89 684 215<|content|>5.3 逆反射色\n<|id|>64<|page|>9<|box|>146 456 161 552<|content|>附录A",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>7<|level|>2\n<|id|>9<|level|>2\n<|id|>22<|level|>1\n<|id|>23<|level|>2\n<|id|>26<|level|>2\n<|id|>31<|level|>2\n<|id|>37<|level|>3\n<|id|>42<|level|>2\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>49<|level|>4\n<|id|>53<|level|>4\n<|id|>55<|level|>3\n<|id|>56<|level|>4\n<|id|>60<|level|>4\n<|id|>62<|level|>3\n<|id|>64<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 4
+        },
+        {
+            "id": 53,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        }
+    ]
+}

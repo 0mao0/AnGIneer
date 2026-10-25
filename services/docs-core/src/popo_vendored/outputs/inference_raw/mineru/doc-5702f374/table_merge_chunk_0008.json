@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 8,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['R-004', 'Biocompatibilit', 'Low-Medium', 'High', 'Early risk', 'Whitmore (Dr.']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', \"y testing failures (especially PtIr-4G electrode coating). The Lumina C14 sensor's proprietary PtIr-4G electrode coating may fail one or more biocompatibility tests (e.g., cytotoxicity, sensitization), requiring material reformulation and retesting.\", '', '', 'assessment based on material characterization data. Whitmore Laboratories performing phased testing with interim results. Alternative electrode coating materials identified by SBD engineering team as contingency. Design-around development (Section 3.6) may also address material composition.', 'Haverford); SBD (Dr. Burke, Drennan); C&H (Morrissey)']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 165,
+    "table2_idx": 166
+}

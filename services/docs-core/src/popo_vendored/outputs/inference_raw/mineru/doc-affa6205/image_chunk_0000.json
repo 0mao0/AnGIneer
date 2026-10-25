@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        10,
+        12,
+        13,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>7<|type|>title<|page|>1<|box|>305 140 321 362<|content|>I. Purpose and Background\n<|id|>15<|type|>title<|page|>2<|box|>476 140 493 506<|content|>II. Summary Table of All Four PWD Requests\n<|id|>17<|type|>table<|page|>2<|box|>563 143 893 852<|content|>None\n<|id|>18<|type|>table<|page|>3<|box|>89 143 184 852<|content|>None\n<|id|>20<|type|>title<|page|>3<|box|>387 142 404 403<|content|>III. Position-by-Position Analysis\n<|id|>21<|type|>title<|page|>3<|box|>417 142 435 674<|content|>A. Beneficiary 1: Rajan Mehta — VP, Engineering —\n<|id|>30<|type|>title<|page|>3<|box|>744 140 760 357<|content|>2. Beneficiary Background.\n<|id|>47<|type|>title<|page|>5<|box|>465 140 484 790<|content|>B. Beneficiary 2: Lina Varga — Senior Director, Da\n<|id|>56<|type|>title<|page|>5<|box|>792 142 809 359<|content|>2. Beneficiary Background.\n<|id|>73<|type|>title<|page|>7<|box|>622 140 638 730<|content|>C. Beneficiary 3: Tomás Aguilar-Reyes — VP, Produc\n<|id|>82<|type|>title<|page|>8<|box|>156 140 172 359<|content|>2. Beneficiary Background.\n<|id|>103<|type|>title<|page|>10<|box|>367 142 383 787<|content|>D. Beneficiary 4: Yumiko Tanaka — Director, Inform\n<|id|>112<|type|>title<|page|>10<|box|>691 142 709 359<|content|>2. Beneficiary Background.\n<|id|>128<|type|>title<|page|>12<|box|>595 140 613 464<|content|>IV. Prevailing Wage Area and OES Data\n<|id|>132<|type|>table<|page|>13<|box|>286 143 470 852<|content|>None\n<|id|>134<|type|>title<|page|>13<|box|>619 140 637 424<|content|>V. Procedural Notes and Next Steps\n<|id|>149<|type|>title<|page|>15<|box|>414 140 430 336<|content|>VI. Document Retention\n<|id|>153<|type|>title<|page|>15<|box|>806 140 824 697<|content|>VII. Post-Filing Annotations — Prevailing Wage Det\n<|id|>155<|type|>title<|page|>15<|box|>871 142 886 331<|content|>PWD Results Received:\n<|id|>156<|type|>table<|page|>16<|box|>89 143 287 852<|content|>None",
+    "raw_response": "<|src_id|>17<|tgt_id|>15\n<|src_id|>18<|tgt_id|>15\n<|src_id|>132<|tgt_id|>128\n<|src_id|>156<|tgt_id|>155",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 155
+        }
+    ]
+}

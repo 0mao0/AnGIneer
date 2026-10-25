@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>128 153 172 844<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF AURELIUS\n<|id|>2<|type|>title<|page|>1<|box|>189 287 207 710<|content|>Post-Annual General Meeting Organizational Matters\n<|id|>5<|type|>title<|page|>1<|box|>279 142 295 390<|content|>PREAMBLE AND RECITALS\n<|id|>13<|type|>table<|page|>1<|box|>886 143 907 852<|content|>None\n<|id|>14<|type|>table<|page|>2<|box|>88 143 179 852<|content|>None\n<|id|>16<|type|>table<|page|>2<|box|>237 143 343 852<|content|>None\n<|id|>34<|type|>title<|page|>3<|box|>454 140 470 728<|content|>RESOLUTION 1: CERTIFICATION OF ANNUAL MEETING RESU\n<|id|>39<|type|>title<|page|>4<|box|>89 140 126 807<|content|>RESOLUTION 2: ELECTION OF MALCOLM TRASK AS LEAD IN\n<|id|>50<|type|>title<|page|>5<|box|>89 140 126 818<|content|>RESOLUTION 3: TRANSITIONAL CHAIR ARRANGEMENT — DAM\n<|id|>60<|type|>title<|page|>6<|box|>89 140 126 828<|content|>RESOLUTION 4: COMMITTEE ASSIGNMENTS — RECONSTITUTE\n<|id|>61<|type|>title<|page|>6<|box|>138 140 157 573<|content|>Resolution 4(a): Nominating & Governance Committee\n<|id|>74<|type|>title<|page|>7<|box|>184 142 200 411<|content|>Resolution 4(b): Audit Committee\n<|id|>83<|type|>title<|page|>8<|box|>90 140 107 475<|content|>Resolution 4(c): Compensation Committee\n<|id|>91<|type|>title<|page|>8<|box|>628 140 646 496<|content|>Resolution 4(d): Special Committee — Status\n<|id|>96<|type|>title<|page|>9<|box|>148 140 166 785<|content|>RESOLUTION 5: ONBOARDING AND ORIENTATION OF NEW DI\n<|id|>123<|type|>title<|page|>11<|box|>89 140 126 821<|content|>RESOLUTION 6: D&O INSURANCE — COVERAGE CONFIRMATIO\n<|id|>130<|type|>title<|page|>11<|box|>689 140 724 767<|content|>RESOLUTION 7: ACKNOWLEDGMENT OF CONTINUING INTERIM\n<|id|>134<|type|>title<|page|>12<|box|>239 140 258 813<|content|>RESOLUTION 8: ENGAGEMENT OF OUTSIDE ADVISORS — STA\n<|id|>146<|type|>title<|page|>13<|box|>310 140 347 795<|content|>RESOLUTION 9: SHAREHOLDER COMMUNICATIONS AND ENGAG\n<|id|>148<|type|>table<|page|>13<|box|>589 143 683 852<|content|>None\n<|id|>151<|type|>title<|page|>14<|box|>148 140 166 800<|content|>RESOLUTION 10: AUTHORIZATION FOR GENERAL CORPORATE\n<|id|>160<|type|>title<|page|>14<|box|>800 140 816 614<|content|>RESOLUTION 11: RATIFICATION OF PRIOR ACTIONS\n<|id|>162<|type|>title<|page|>15<|box|>89 140 106 426<|content|>CERTIFICATION AND CLOSING\n<|id|>175<|type|>title<|page|>15<|box|>470 142 488 424<|content|>EXHIBITS AND ATTACHMENTS",
+    "raw_response": "<|src_id|>13<|tgt_id|>5\n<|src_id|>14<|tgt_id|>5\n<|src_id|>16<|tgt_id|>5\n<|src_id|>148<|tgt_id|>146",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 146
+        }
+    ]
+}

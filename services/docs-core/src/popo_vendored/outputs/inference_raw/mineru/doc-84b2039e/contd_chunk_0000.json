@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        9,
+        10,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 321 155 676<|content|>780 Third Avenue New York, New York 10017\n<|id|>3<|page|>1<|box|>164 183 181 813<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>190 723 207 854<|content|>January 30, 2026\n<|id|>5<|page|>1<|box|>215 140 252 854<|content|>Prescott National Bank, N. ... as Administrative A...South Tryon Street Charlotte, North Carolina 28202\n<|id|>6<|page|>1<|box|>260 140 277 640<|content|>Each of the Lenders party to the Credit Agreement ...ders party to the Credit Agreement described below\n<|id|>7<|page|>1<|box|>286 174 321 852<|content|>Prescott National Bank, N. ... (in its capacity as...South Tryon Street Charlotte, North Carolina 28202\n<|id|>8<|page|>1<|box|>330 176 348 738<|content|>Harborview Trust Company 185 Asylum Street Hartford, Connecticut 06103\n<|id|>9<|page|>1<|box|>354 174 391 854<|content|>Meridian Commercial Lending Corp. ... 233 South Wacker Drive, Suite 4100 Chicago, Illinois 60606\n<|id|>10<|page|>1<|box|>400 176 417 738<|content|>Atlas Fidelity Bank 1 Liberty Plaza, 30th Floor New York, New York 10006\n<|id|>11<|page|>1<|box|>426 174 460 854<|content|>Commonwealth Capital Markets, Inc. ... 100 Federal Street, Suite 2200 Boston, Massachusetts 02110\n<|id|>12<|page|>1<|box|>470 140 488 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>31<|page|>3<|box|>347 174 402 854<|content|>(c) Whitmore Defense Solutions, Inc. ... and\n<|id|>33<|page|>3<|box|>473 142 489 736<|content|>\"Loan Parties\" means, collectively, the Borrower a...tively, the Borrower and the Subsidiary Guarantors\n<|id|>62<|page|>4<|box|>849 174 886 857<|content|>(v) resolutions of the Board of Directors of WDS, ...ng the execution, delivery, and performance of the\n<|id|>63<|page|>5<|box|>90 174 126 854<|content|>Guarantee Agreement, the Security Agreement, and t... Loan Documents to which WDS is or will be a party\n<|id|>110<|page|>9<|box|>753 140 900 857<|content|>(a) Organizational Documents. ... (D) in the case of WDS, the Articles of Incorporation of WDS or the\n<|id|>111<|page|>10<|box|>89 140 162 854<|content|>Bylaws of WDS; ... or (ii) result in the creation ...curity interests created under the Loan Documents)\n<|id|>118<|page|>10<|box|>872 174 907 854<|content|>(iii) Whitmore Avionics Holdings LLC (Delaware Secretary of State Filing No. ... and\n<|id|>119<|page|>10<|box|>915 140 929 555<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...retary of State Filing No. ... 6587204), as debtor\n<|id|>174<|page|>17<|box|>253 236 271 758<|content|>[Remainder of Page Intentionally Left Blank; ... Signature Page Follows]\n<|id|>175<|page|>17<|box|>280 212 297 344<|content|>Very truly yours,\n<|id|>176<|page|>17<|box|>304 140 321 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>177<|page|>17<|box|>323 142 340 253<|content|>By: ... By\n<|id|>178<|page|>17<|box|>339 140 373 852<|content|>Philip Hartmann Partner, Banking & Finance Practic...York, New York 10017 Telephone: ... (212) 506-7244\n<|id|>179<|page|>17<|box|>373 142 390 478<|content|>Email: ... com\n<|id|>180<|page|>17<|box|>391 140 407 410<|content|>cc (by email and overnight courier): ... cc (by email and overnight courier)\n<|id|>181<|page|>17<|box|>416 174 452 854<|content|>Gregory Alston, Esq. ... General Counsel & Secreta...ial Tower Drive, Suite 800 Herndon, Virginia 20170\n<|id|>182<|page|>17<|box|>459 174 496 854<|content|>Sandra Petrova Chief Financial Officer Whitmore Ae...ial Tower Drive, Suite 800 Herndon, Virginia 20170\n<|id|>183<|page|>17<|box|>503 174 540 854<|content|>Raymond Okafor, Esq. ... Caldwell Pryor & Shea LLP...adison Avenue, 22nd Floor New York, New York 10017\n<|id|>184<|page|>17<|box|>547 174 584 854<|content|>Victoria Engstrom Prescott National Bank, N. ... 245 Park Avenue, 12th Floor New York, New York 10167",
+    "raw_response": "<|src_id|>62<|tgt_id|>63\n<|src_id|>110<|tgt_id|>111",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        }
+    ]
+}

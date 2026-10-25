@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>111 156 148 839<|content|>CALDERWOOD & HARKNESS LLP 200 Park Avenue, 38th Fl\n<|id|>8<|page|>1<|box|>362 140 381 243<|content|>RECITALS\n<|id|>12<|page|>2<|box|>89 140 106 558<|content|>SECTION 1: ACKNOWLEDGMENT OF RECEIPT\n<|id|>17<|page|>2<|box|>564 140 580 816<|content|>SECTION 2: UNDERSTANDING OF SCOPE OF PRESERVATION\n<|id|>33<|page|>4<|box|>699 140 717 637<|content|>SECTION 3: SPECIFIC PRESERVATION UNDERTAKINGS\n<|id|>43<|page|>6<|box|>167 140 184 800<|content|>SECTION 4: UNDERSTANDING OF CONSEQUENCES OF NON-CO\n<|id|>49<|page|>6<|box|>722 140 739 635<|content|>SECTION 5: CONTACT INFORMATION FOR QUESTIONS\n<|id|>54<|page|>7<|box|>133 176 151 462<|content|>Email: twren@stonefieldlogistics.com\n<|id|>56<|page|>8<|box|>89 142 106 493<|content|>ACKNOWLEDGMENT AND SIGNATURE\n<|id|>63<|page|>8<|box|>321 140 339 529<|content|>CONFIRMATION OF RECEIPT BY COUNSEL",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>17<|level|>2\n<|id|>33<|level|>2\n<|id|>43<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>-1\n<|id|>56<|level|>2\n<|id|>63<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        }
+    ]
+}

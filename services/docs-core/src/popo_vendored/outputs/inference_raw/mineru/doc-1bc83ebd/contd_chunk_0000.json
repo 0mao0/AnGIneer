@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        45
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        14,
+        16,
+        27,
+        33,
+        34,
+        40,
+        41,
+        45
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>287 315 305 683<|content|>Reference: ... SC/NTP/2023-0213/PDS — TIA-002\n<|id|>5<|page|>1<|box|>314 151 332 844<|content|>Classification: ... Privileged and Confidential — Attorney-Client Privileged / Litigation Privilege\n<|id|>6<|page|>1<|box|>340 307 358 691<|content|>Prepared for: ... Northgate Telecommunications PLC\n<|id|>7<|page|>1<|box|>366 143 402 852<|content|>Prepared by: ... Sara Hendricks, Lead Associate, P...One Moorgate Square London EC2R 6AN United Kingdom\n<|id|>8<|page|>1<|box|>410 166 445 828<|content|>Supervised by: ... Rachel Bernstein, Billing Partner, Privacy & Data Security Calderwood & Harkness LLP\n<|id|>9<|page|>1<|box|>454 207 472 787<|content|>Date of Assessment: ... July 2023 (Phase 4 — Transfer Mechanisms workstream)\n<|id|>10<|page|>1<|box|>479 421 498 575<|content|>Version: ... 0)\n<|id|>11<|page|>1<|box|>506 142 523 408<|content|>Right-click to update Table of Contents\n<|id|>55<|page|>6<|box|>241 174 277 854<|content|>(e) Network operations centre (\"NOC\") support, inc... latency, throughput, and security events; ... and\n<|id|>57<|page|>6<|box|>329 140 383 854<|content|>Pinnacle India's operations relevant to this Asses... centre infrastructure remotely from this location\n<|id|>78<|page|>7<|box|>811 140 885 857<|content|>The primary mode of data transfer is remote access: ... Rather,\n<|id|>79<|page|>8<|box|>89 140 127 854<|content|>Pinnacle India personnel view, query, and interact...esktop, SSH, and other remote management protocols\n<|id|>145<|page|>14<|box|>430 174 465 854<|content|>(f) preventing incitement to the commission of any cognisable offence relating to the above; ... or\n<|id|>147<|page|>14<|box|>500 140 592 854<|content|>The subscriber, intermediary, or any person in cha...ch may extend to seven years, together with a fine\n<|id|>163<|page|>16<|box|>250 176 267 323<|content|>(d) public order; ... or\n<|id|>165<|page|>16<|box|>300 140 354 856<|content|>The procedural safeguards for lawful interception ...2007. ... Key requirements under Rule 419A include\n<|id|>270<|page|>27<|box|>178 174 215 854<|content|>(c) considering whether the request can be challen...gh judicial review or other legal process; ... and\n<|id|>272<|page|>27<|box|>267 140 340 854<|content|>Legal counsel: ... Pinnacle India is required to c...nal counsel before complying with any such request\n<|id|>321<|page|>33<|box|>430 174 448 686<|content|>(h) Any personal data breach at Pinnacle India affecting NTP data; ... or\n<|id|>323<|page|>33<|box|>500 140 518 553<|content|>Next scheduled reassessment: ... No later than July 2024\n<|id|>328<|page|>33<|box|>834 140 888 856<|content|>NTP should be prepared to respond to any follow-up...ts. ... NTP should also be prepared to provide the\n<|id|>329<|page|>34<|box|>89 140 126 856<|content|>DPC with copies of the Amended DPA, the Sub-Proces...ent, and any supporting documentation upon request\n<|id|>372<|page|>40<|box|>829 140 902 856<|content|>Data handling and incident response procedures: ... The most recent internal audit of Pinnacle\n<|id|>373<|page|>41<|box|>89 140 127 854<|content|>India's data handling and incident response proced...conducted in March 2023, with no material findings\n<|id|>388<|page|>45<|box|>402 140 470 852<|content|>Kevin Ostrowski Responsible Partner, Privacy & Dat...e Moorgate Square, London EC2R 6AN, United Kingdom\n<|id|>389<|page|>45<|box|>474 140 537 854<|content|>This document has been prepared solely for the use... Harkness LLP and Northgate Telecommunications PLC",
+    "raw_response": "<|src_id|>78<|tgt_id|>79\n<|src_id|>328<|tgt_id|>329\n<|src_id|>372<|tgt_id|>373",
+    "parsed": [
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 328,
+            "tgt_id": 329
+        },
+        {
+            "src_id": 372,
+            "tgt_id": 373
+        }
+    ]
+}

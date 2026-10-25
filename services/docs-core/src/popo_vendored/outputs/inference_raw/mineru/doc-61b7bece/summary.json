@@ -1,0 +1,567 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rf9blq0y\\input\\pdfs\\doc-61b7bece.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rf9blq0y\\enriched\\doc-61b7bece.json",
+    "contd_output": "<|src_id|>84<|tgt_id|>85",
+    "title_output": "<|id|>11<|level|>1\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>47<|level|>2\n<|id|>63<|level|>2\n<|id|>76<|level|>2\n<|id|>80<|level|>1\n<|id|>96<|level|>1\n<|id|>97<|level|>2\n<|id|>101<|level|>2\n<|id|>102<|level|>3\n<|id|>103<|level|>4\n<|id|>106<|level|>4\n<|id|>122<|level|>3\n<|id|>123<|level|>4\n<|id|>126<|level|>4\n<|id|>138<|level|>3\n<|id|>144<|level|>4\n<|id|>145<|level|>4\n<|id|>150<|level|>3\n<|id|>151<|level|>4\n<|id|>155<|level|>4\n<|id|>156<|level|>4\n<|id|>161<|level|>3\n<|id|>162<|level|>4\n<|id|>165<|level|>4\n<|id|>166<|level|>4\n<|id|>172<|level|>3\n<|id|>180<|level|>4\n<|id|>181<|level|>4\n<|id|>192<|level|>2\n<|id|>196<|level|>1\n<|id|>197<|level|>2\n<|id|>201<|level|>2\n<|id|>207<|level|>2\n<|id|>209<|level|>3\n<|id|>215<|level|>3\n<|id|>221<|level|>3\n<|id|>228<|level|>3\n<|id|>234<|level|>3\n<|id|>241<|level|>3\n<|id|>247<|level|>3\n<|id|>253<|level|>3\n<|id|>259<|level|>2\n<|id|>267<|level|>2\n<|id|>280<|level|>1\n<|id|>281<|level|>2\n<|id|>288<|level|>2\n<|id|>290<|level|>3\n<|id|>295<|level|>3\n<|id|>298<|level|>3\n<|id|>300<|level|>3\n<|id|>302<|level|>3\n<|id|>312<|level|>2\n<|id|>314<|level|>3\n<|id|>317<|level|>3\n<|id|>321<|level|>3\n<|id|>325<|level|>3\n<|id|>337<|level|>2\n<|id|>350<|level|>1\n<|id|>351<|level|>2\n<|id|>365<|level|>2\n<|id|>373<|level|>2\n<|id|>378<|level|>1\n<|id|>395<|level|>1\n<|id|>402<|level|>1\n<|id|>419<|level|>1\n<|id|>420<|level|>2\n<|id|>423<|level|>2\n<|id|>433<|level|>2\n<|id|>439<|level|>2\n<|id|>441<|level|>3\n<|id|>453<|level|>3\n<|id|>457<|level|>3\n<|id|>461<|level|>3",
+    "image_output": "<|src_id|>193<|tgt_id|>192\n<|src_id|>194<|tgt_id|>192\n<|src_id|>203<|tgt_id|>201\n<|src_id|>309<|tgt_id|>302\n<|src_id|>310<|tgt_id|>302\n<|src_id|>329<|tgt_id|>325\n<|src_id|>330<|tgt_id|>325\n<|src_id|>421<|tgt_id|>420\n<|src_id|>425<|tgt_id|>423\n<|src_id|>426<|tgt_id|>423\n<|src_id|>427<|tgt_id|>423\n<|src_id|>428<|tgt_id|>423\n<|src_id|>429<|tgt_id|>423\n<|src_id|>430<|tgt_id|>423\n<|src_id|>431<|tgt_id|>423\n<|src_id|>435<|tgt_id|>433\n<|src_id|>436<|tgt_id|>433\n<|src_id|>437<|tgt_id|>433\n<|src_id|>437<|tgt_id|>439",
+    "contd_label": [
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        }
+    ],
+    "title_label": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 4
+        },
+        {
+            "id": 106,
+            "level": 4
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 4
+        },
+        {
+            "id": 126,
+            "level": 4
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 4
+        },
+        {
+            "id": 145,
+            "level": 4
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 4
+        },
+        {
+            "id": 155,
+            "level": 4
+        },
+        {
+            "id": 156,
+            "level": 4
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 4
+        },
+        {
+            "id": 165,
+            "level": 4
+        },
+        {
+            "id": 166,
+            "level": 4
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 4
+        },
+        {
+            "id": 181,
+            "level": 4
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 1
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 228,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 3
+        },
+        {
+            "id": 241,
+            "level": 3
+        },
+        {
+            "id": 247,
+            "level": 3
+        },
+        {
+            "id": 253,
+            "level": 3
+        },
+        {
+            "id": 259,
+            "level": 2
+        },
+        {
+            "id": 267,
+            "level": 2
+        },
+        {
+            "id": 280,
+            "level": 1
+        },
+        {
+            "id": 281,
+            "level": 2
+        },
+        {
+            "id": 288,
+            "level": 2
+        },
+        {
+            "id": 290,
+            "level": 3
+        },
+        {
+            "id": 295,
+            "level": 3
+        },
+        {
+            "id": 298,
+            "level": 3
+        },
+        {
+            "id": 300,
+            "level": 3
+        },
+        {
+            "id": 302,
+            "level": 3
+        },
+        {
+            "id": 312,
+            "level": 2
+        },
+        {
+            "id": 314,
+            "level": 3
+        },
+        {
+            "id": 317,
+            "level": 3
+        },
+        {
+            "id": 321,
+            "level": 3
+        },
+        {
+            "id": 325,
+            "level": 3
+        },
+        {
+            "id": 337,
+            "level": 2
+        },
+        {
+            "id": 350,
+            "level": 1
+        },
+        {
+            "id": 351,
+            "level": 2
+        },
+        {
+            "id": 365,
+            "level": 2
+        },
+        {
+            "id": 373,
+            "level": 2
+        },
+        {
+            "id": 378,
+            "level": 1
+        },
+        {
+            "id": 395,
+            "level": 1
+        },
+        {
+            "id": 402,
+            "level": 1
+        },
+        {
+            "id": 419,
+            "level": 1
+        },
+        {
+            "id": 420,
+            "level": 2
+        },
+        {
+            "id": 423,
+            "level": 2
+        },
+        {
+            "id": 433,
+            "level": 2
+        },
+        {
+            "id": 439,
+            "level": 2
+        },
+        {
+            "id": 441,
+            "level": 3
+        },
+        {
+            "id": 453,
+            "level": 3
+        },
+        {
+            "id": 457,
+            "level": 3
+        },
+        {
+            "id": 461,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 193,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 309,
+            "tgt_id": 302
+        },
+        {
+            "src_id": 310,
+            "tgt_id": 302
+        },
+        {
+            "src_id": 329,
+            "tgt_id": 325
+        },
+        {
+            "src_id": 330,
+            "tgt_id": 325
+        },
+        {
+            "src_id": 421,
+            "tgt_id": 420
+        },
+        {
+            "src_id": 425,
+            "tgt_id": 423
+        },
+        {
+            "src_id": 426,
+            "tgt_id": 423
+        },
+        {
+            "src_id": 427,
+            "tgt_id": 423
+        },
+        {
+            "src_id": 428,
+            "tgt_id": 423
+        },
+        {
+            "src_id": 429,
+            "tgt_id": 423
+        },
+        {
+            "src_id": 430,
+            "tgt_id": 423
+        },
+        {
+            "src_id": 431,
+            "tgt_id": 423
+        },
+        {
+            "src_id": 435,
+            "tgt_id": 433
+        },
+        {
+            "src_id": 436,
+            "tgt_id": 433
+        },
+        {
+            "src_id": 437,
+            "tgt_id": 433
+        },
+        {
+            "src_id": 437,
+            "tgt_id": 439
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 193,
+            "table2_idx": 194,
+            "upper_row_ss": [
+                [
+                    "December 31, 2021",
+                    "$17.25",
+                    "12%",
+                    "FY 2021 results ($487.3M revenue, $41.7M NI); IPO planning begins; 3.8 GW operating"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "March 31, 2022",
+                    "$19.75",
+                    "5%",
+                    "IPO engagement; DRS-1 filed April 11, 2022; Q1 2022 results tracking ahead"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 309,
+            "table2_idx": 310,
+            "upper_row_ss": [
+                [
+                    "Harborline Enterprises",
+                    "16.2x"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Median",
+                    "19.6x"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 425,
+            "table2_idx": 426,
+            "upper_row_ss": [
+                [
+                    "11/20/2020",
+                    "Marcus",
+                    "CFO",
+                    "250,000",
+                    "$11.75",
+                    "4-yr ratable",
+                    "9/30/2020",
+                    "Yes"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Yoon",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 428,
+            "table2_idx": 429,
+            "upper_row_ss": [
+                [
+                    "Grant Date",
+                    "Recipient(s) / Category",
+                    "Shares",
+                    "Grant-Date FMV",
+                    "Vesting",
+                    "409A Valuation",
+                    "Compliant"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Date",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 430,
+            "table2_idx": 431,
+            "upper_row_ss": [
+                [
+                    "Stock Options",
+                    "8,850,000",
+                    "All compliant — exercise price ≥"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "FMV at each grant date"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 435,
+            "table2_idx": 436,
+            "upper_row_ss": [
+                [
+                    "9/30/2020 - 6/30/2021",
+                    "$11.75",
+                    "$15.50",
+                    "+$3.75",
+                    "+31.9%",
+                    "Pronghorn Wind COD (510 MW); Brazos Storage under construction; sector",
+                    "FY 2021 (est.): $487.3 M",
+                    "~3.4 GW operating",
+                    "25% → 18%",
+                    "Major project completions; sector tailwinds; multiple expansion (15.6x →"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "tailwinds (Biden admin, ESG mandates); preliminary exit discussions",
+                    "",
+                    "",
+                    "",
+                    "17.8x); exit probability increase"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 436,
+            "table2_idx": 437,
+            "upper_row_ss": [
+                [
+                    "3/31/202",
+                    "$19.75",
+                    "$22.00",
+                    "+$2.25",
+                    "+11.4%",
+                    "IPO",
+                    "—",
+                    "—",
+                    "5% →",
+                    "Liquidit"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "2 – IPO",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "pricing (assumed); public-market liquidity; book-building process",
+                    "",
+                    "",
+                    "0%",
+                    "y premium;elimination of residual DLOM; book-building dynamics; IPO execution risk resolution"
+                ]
+            ]
+        }
+    ]
+}

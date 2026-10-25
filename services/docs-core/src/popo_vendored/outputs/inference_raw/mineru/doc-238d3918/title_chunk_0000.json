@@ -1,0 +1,65 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        61
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        44,
+        46,
+        60,
+        61
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>5<|box|>296 183 330 786<|content|>TREASURY DEPARTMENT\n<|id|>13<|page|>7<|box|>164 331 202 637<|content|>BULLETIN\n<|id|>15<|page|>7<|box|>296 185 329 788<|content|>TREASURY DEPARTMENT\n<|id|>16<|page|>7<|box|>405 372 429 597<|content|>JANUARY 1941\n<|id|>23<|page|>9<|box|>106 385 123 569<|content|>Table of Contents\n<|id|>84<|page|>44<|box|>55 232 83 798<|content|>Maturity Schedule of Securities Guaranteed by the\n<|id|>86<|page|>46<|box|>52 210 80 805<|content|>Net Capital Movement between the United States and\n<|id|>103<|page|>60<|box|>54 309 85 732<|content|>Balance Sheet of the Exchange Stabilization Fund A\n<|id|>106<|page|>60<|box|>724 473 738 567<|content|>Schedule 1\n<|id|>111<|page|>61<|box|>339 426 352 522<|content|>Schedule 3\n<|id|>113<|page|>61<|box|>682 424 695 520<|content|>Schedule 4",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>84<|level|>2\n<|id|>86<|level|>2\n<|id|>103<|level|>2\n<|id|>106<|level|>3\n<|id|>111<|level|>3\n<|id|>113<|level|>3",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        }
+    ]
+}

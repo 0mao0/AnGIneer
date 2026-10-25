@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        198,
+        211
+    ],
+    "pages": [
+        199,
+        200,
+        201,
+        202,
+        203,
+        206,
+        207,
+        208,
+        210,
+        211
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1742<|type|>title<|page|>199<|box|>92 373 125 655<|content|>8 地下水控制\n<|id|>1743<|type|>title<|page|>199<|box|>168 411 192 617<|content|>8.1 一般规定\n<|id|>1748<|type|>title<|page|>199<|box|>676 408 700 614<|content|>8.2 坑底明排\n<|id|>1751<|type|>title<|page|>200<|box|>192 388 216 594<|content|>8.3 降水\n<|id|>1755<|type|>title<|page|>200<|box|>807 323 831 652<|content|>8.4 地基固结沉降预测\n<|id|>1758<|type|>title<|page|>201<|box|>225 400 249 608<|content|>8.5 截 渗\n<|id|>1761<|type|>title<|page|>201<|box|>487 400 512 605<|content|>8.6 回 灌\n<|id|>1764<|type|>title<|page|>202<|box|>99 379 129 617<|content|>9 基坑开挖\n<|id|>1765<|type|>title<|page|>202<|box|>173 394 195 600<|content|>9.1 一般规定\n<|id|>1771<|type|>title<|page|>203<|box|>454 76 478 535<|content|>9.1.10 基坑开挖形式确定的原则\n<|id|>1775<|type|>title<|page|>203<|box|>726 400 750 605<|content|>9.2 基坑开挖\n<|id|>1776<|type|>title<|page|>203<|box|>787 73 811 897<|content|>9.2.4 除设计另有规定外，软土层的开挖尚应符合下列规定：\n<|id|>1789<|type|>title<|page|>206<|box|>90 335 121 676<|content|>10 基坑工程监测\n<|id|>1790<|type|>title<|page|>206<|box|>160 394 184 614<|content|>10.1 一般规定\n<|id|>1798<|type|>title<|page|>207<|box|>295 385 319 605<|content|>10.2 监测项目\n<|id|>1802<|type|>title<|page|>207<|box|>829 370 853 620<|content|>10.3 监测点布置\n<|id|>1807<|type|>title<|page|>208<|box|>554 355 578 664<|content|>10.4 监测频率和报警\n<|id|>1814<|type|>title<|page|>210<|box|>83 97 114 923<|content|>附录 E 圆形截面混凝土支护桩的承载力计算\n<|id|>1820<|type|>table<|page|>210<|box|>530 67 794 950<|content|>None\n<|id|>1821<|type|>table<|page|>211<|box|>101 41 365 920<|content|>None\n<|id|>1822<|type|>table<|page|>211<|box|>432 38 695 917<|content|>None",
+    "raw_response": "<|src_id|>1820<|tgt_id|>1814\n<|src_id|>1821<|tgt_id|>1814\n<|src_id|>1822<|tgt_id|>1814",
+    "parsed": [
+        {
+            "src_id": 1820,
+            "tgt_id": 1814
+        },
+        {
+            "src_id": 1821,
+            "tgt_id": 1814
+        },
+        {
+            "src_id": 1822,
+            "tgt_id": 1814
+        }
+    ]
+}

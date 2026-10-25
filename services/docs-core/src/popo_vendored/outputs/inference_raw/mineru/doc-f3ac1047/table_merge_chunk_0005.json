@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['500~1000', '2.70', '1000', '15 + (1000 - 500) \\\\times 2.70\\\\% = 28.5']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['1000~5000', '2.55', '5000', '28.5+(5000-1000)×2.55%=130.5']]\n",
+    "raw_response": "[0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 327,
+    "table2_idx": 328
+}

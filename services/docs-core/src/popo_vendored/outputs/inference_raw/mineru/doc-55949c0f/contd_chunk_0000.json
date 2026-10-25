@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        9,
+        10,
+        20,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>125 143 143 549<|content|>LUMOS ANALYTICS INC. ... , a Delaware corporation,\n<|id|>2<|page|>1<|box|>151 212 167 282<|content|>Plaintiff,\n<|id|>4<|page|>1<|box|>203 140 239 854<|content|>NOVASPARK TECHNOLOGIES INC. ... DEREK YUN, an individual,\n<|id|>5<|page|>1<|box|>248 212 263 305<|content|>Defendants. ... Defendants\n<|id|>6<|page|>1<|box|>273 143 290 330<|content|>Case No. ... 23-CV-004871\n<|id|>7<|page|>1<|box|>299 142 316 625<|content|>Assigned for All Purposes to the Honorable David Rutherford\n<|id|>10<|page|>1<|box|>421 147 438 565<|content|>• Ex Parte Application for Temporary Restraining Order\n<|id|>14<|page|>1<|box|>518 215 554 852<|content|>CALDERWOOD & HARKNESS LLP 555 California Street, 4...co, California 94104 Telephone: ... (415) 555-7201\n<|id|>11<|page|>1<|box|>440 148 474 852<|content|>• Declaration of Priya Chandrasekaran in Support of Plaintiff's Motion for Preliminary Injunction\n<|id|>12<|page|>1<|box|>479 148 494 792<|content|>• Declaration of Rachel Fong in Support of Plaintiff's Motion for Preliminary Injunction\n<|id|>13<|page|>1<|box|>500 148 515 532<|content|>• [Proposed] Order Granting Preliminary Injunction\n<|id|>15<|page|>1<|box|>561 156 598 854<|content|>Marcus Delgado (SBN 198472) Catherine Bloom (SBN 2...dy Schultz (SBN 287593) Omar Siddiqui (SBN 312748)\n<|id|>16<|page|>1<|box|>604 491 623 852<|content|>Attorneys for Plaintiff LUMOS ANALYTICS INC. ... Attorneys for Plaintiff LUMOS ANALYTICS INC\n<|id|>31<|page|>3<|box|>864 140 930 854<|content|>Lumos is a Delaware-incorporated, California-headq...T OF PLAINTIFF'S MOTION FOR PRELIMINARY INJUNCTION\n<|id|>32<|page|>4<|box|>90 140 255 856<|content|>approximately 2017 and headquartered at 4700 Orcha... cost of tens of millions of dollars of investment\n<|id|>80<|page|>9<|box|>734 174 898 857<|content|>3. ... Fong\n<|id|>81<|page|>10<|box|>89 174 127 854<|content|>Decl. ... )\n<|id|>162<|page|>20<|box|>830 140 930 854<|content|>Moreover, the individual Defendants assumed the ri...T OF PLAINTIFF'S MOTION FOR PRELIMINARY INJUNCTION\n<|id|>163<|page|>21<|box|>90 140 145 856<|content|>cannot credibly claim hardship from being held to ...s any claim of hardship in the balancing analysis)\n<|id|>177<|page|>22<|box|>215 210 268 854<|content|>(e) the confidential LumosEdge 3. ... and\n<|id|>183<|page|>23<|box|>90 140 181 854<|content|>The relief requested herein is narrowly tailored t...rk is built through legitimate, independent effort\n<|id|>192<|page|>23<|box|>669 142 685 377<|content|>Marcus Delgado (SBN 198472)\n<|id|>193<|page|>23<|box|>685 140 703 828<|content|>Catherine Bloom (SBN 214836) Wendy Schultz (SBN 287593) Omar Siddiqui (SBN 312748)\n<|id|>194<|page|>23<|box|>703 140 734 854<|content|>555 California Street, 40th Floor San Francisco, California 94104 Telephone: ... (415) 555-7201\n<|id|>195<|page|>23<|box|>736 140 753 504<|content|>Attorneys for Plaintiff LUMOS ANALYTICS INC. ... Attorneys for Plaintiff LUMOS ANALYTICS INC",
+    "raw_response": "<|src_id|>31<|tgt_id|>32\n<|src_id|>80<|tgt_id|>81\n<|src_id|>162<|tgt_id|>163",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        }
+    ]
+}

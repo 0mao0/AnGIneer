@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>367 142 383 264<|content|>1. Introduction\n<|id|>17<|page|>2<|box|>90 140 107 336<|content|>2. Documents Examined\n<|id|>38<|page|>3<|box|>481 140 498 267<|content|>3. Assumptions\n<|id|>51<|page|>4<|box|>473 140 489 238<|content|>4. Opinions\n<|id|>53<|page|>4<|box|>547 140 565 468<|content|>4.1 Due Organization and Good Standing\n<|id|>62<|page|>5<|box|>138 140 157 424<|content|>4.2 Corporate Power and Authority\n<|id|>64<|page|>5<|box|>340 140 357 320<|content|>4.3 Due Authorization\n<|id|>67<|page|>5<|box|>640 140 657 356<|content|>4.4 Execution and Delivery\n<|id|>74<|page|>6<|box|>319 140 335 272<|content|>4.6 No Conflicts\n<|id|>80<|page|>6<|box|>806 140 824 568<|content|>4.7 No Registration Required Under the Securities\n<|id|>87<|page|>7<|box|>518 140 535 400<|content|>4.8 No Governmental Approvals\n<|id|>92<|page|>7<|box|>796 140 813 374<|content|>4.9 Investment Company Act\n<|id|>95<|page|>8<|box|>349 140 364 297<|content|>4.10 Choice of Law\n<|id|>97<|page|>8<|box|>523 140 539 403<|content|>5. Qualifications and Limitations\n<|id|>99<|page|>8<|box|>598 140 614 369<|content|>5.1 Jurisdictional Limitation\n<|id|>101<|page|>8<|box|>762 140 779 486<|content|>5.2 Bankruptcy and Equitable Qualification\n<|id|>103<|page|>9<|box|>157 140 175 331<|content|>5.3 Specific Limitations\n<|id|>121<|page|>10<|box|>573 140 589 521<|content|>5.4 Reliance on Certificates and Representations\n<|id|>123<|page|>10<|box|>839 140 854 326<|content|>6. Reliance and Benefit\n<|id|>131<|page|>12<|box|>90 140 107 243<|content|>7. Signature\n<|id|>134<|page|>12<|box|>232 140 248 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>17<|level|>1\n<|id|>38<|level|>1\n<|id|>51<|level|>1\n<|id|>53<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>2\n<|id|>67<|level|>2\n<|id|>74<|level|>2\n<|id|>80<|level|>2\n<|id|>87<|level|>2\n<|id|>92<|level|>2\n<|id|>95<|level|>2\n<|id|>97<|level|>1\n<|id|>99<|level|>2\n<|id|>101<|level|>2\n<|id|>103<|level|>2\n<|id|>121<|level|>2\n<|id|>123<|level|>1\n<|id|>131<|level|>1\n<|id|>134<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 133 789<|content|>CALDERWOOD & HARKNESS LLP 600 Lexington Avenue New\n<|id|>6<|type|>title<|page|>1<|box|>324 142 340 366<|content|>1. Introduction and Purpose\n<|id|>13<|type|>title<|page|>2<|box|>204 140 222 450<|content|>2. Transaction Description Consistency\n<|id|>21<|type|>title<|page|>3<|box|>267 140 284 354<|content|>3. NAICS Code Alignment\n<|id|>32<|type|>title<|page|>4<|box|>262 140 279 385<|content|>4. Revenue and Financial Data\n<|id|>39<|type|>title<|page|>4<|box|>775 140 792 620<|content|>5. Size-of-Transaction and Size-of-Person Threshol\n<|id|>45<|type|>title<|page|>5<|box|>465 140 482 470<|content|>6. Item 4(c) and 4(d) Document Collection\n<|id|>51<|type|>title<|page|>6<|box|>513 140 530 379<|content|>7. Early Termination Request\n<|id|>57<|type|>title<|page|>7<|box|>304 140 320 397<|content|>8. Information Sharing Protocol\n<|id|>65<|type|>title<|page|>8<|box|>148 140 167 284<|content|>9. Confidentiality\n<|id|>71<|type|>title<|page|>8<|box|>758 142 777 462<|content|>10. Communication with FTC/DOJ Staff\n<|id|>75<|type|>title<|page|>9<|box|>383 142 402 401<|content|>11. Proposed Timeline Summary\n<|id|>76<|type|>table<|page|>9<|box|>453 143 845 852<|content|>None\n<|id|>77<|type|>title<|page|>10<|box|>90 142 107 470<|content|>12. Closing and Request for Confirmation",
+    "raw_response": "<|src_id|>76<|tgt_id|>75",
+    "parsed": [
+        {
+            "src_id": 76,
+            "tgt_id": 75
+        }
+    ]
+}

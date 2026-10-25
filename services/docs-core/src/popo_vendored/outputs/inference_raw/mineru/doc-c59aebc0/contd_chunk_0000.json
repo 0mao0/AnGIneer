@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        4
+    ],
+    "pages": [
+        2,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>2<|box|>128 163 164 834<|content|>Master Clinical Trial Agreement by and between Pen...harmaceuticals Corp. ... dated as of June 28, 2023\n<|id|>2<|page|>2<|box|>172 166 209 828<|content|>Protocol PPC-4871-III (CLARION — Clinical Assessme...ponse with Longitudinal Investigation in ONcology)\n<|id|>3<|page|>2<|box|>217 140 253 854<|content|>IN WITNESS WHEREOF, the undersigned has caused thi...ized representative as of the date set forth below\n<|id|>8<|page|>2<|box|>566 217 584 779<|content|>A corporation organized and existing under the laws of the State of Delaware\n<|id|>9<|page|>2<|box|>590 142 608 477<|content|>PENTERRA PHARMACEUTICALS CORP. ... PENTERRA PHARMACEUTICALS CORP\n<|id|>12<|page|>2<|box|>643 142 660 454<|content|>Title: ... Vice President and General Counsel\n<|id|>13<|page|>2<|box|>661 142 676 390<|content|>Date of Execution: ... June 28, 2023\n<|id|>14<|page|>2<|box|>676 163 712 854<|content|>Principal Place of Business: ... 200 Biopharma Boulevard, Suite 1400 Princeton, New Jersey 08540\n<|id|>15<|page|>2<|box|>727 140 911 856<|content|>Attestation. ... with respect to this Agreement an...currently with the delivery of this signature page\n<|id|>20<|page|>4<|box|>175 174 212 854<|content|>(a) Veridian Health Research Network, Inc. ... and\n<|id|>22<|page|>4<|box|>263 140 301 854<|content|>each of which counterpart signature pages has been...ll be delivered promptly following the date hereof\n<|id|>21<|page|>4<|box|>220 174 256 854<|content|>(b) Graystone University Medical Center (Lead Part...n), executed by Dr. ... William Corwin, President,",
+    "raw_response": "<|src_id|>20<|tgt_id|>21",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        }
+    ]
+}

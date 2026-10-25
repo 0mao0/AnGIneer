@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 143 196 852<|content|>Delivered in connection with the offering of $400,.... 750% Senior Secured Notes due 2029 (the \"Notes\")\n<|id|>3<|page|>1<|box|>207 454 223 542<|content|>Co-Issuers: ... Co-Issuers\n<|id|>4<|page|>1<|box|>231 158 267 838<|content|>Thalassa Shipping & Logistics SA (\"TSL\") and Thala... (\"TFPL,\" and together with TSL, the \"Co-Issuers\")\n<|id|>6<|page|>1<|box|>301 727 319 854<|content|>Dated: ... [●], 2022\n<|id|>5<|page|>1<|box|>275 383 294 612<|content|>[FORM — UNEXECUTED]\n<|id|>12<|page|>1<|box|>747 176 765 702<|content|>(c) Kallistratos Maritime Holdings Ltd. ... and\n<|id|>14<|page|>1<|box|>816 140 891 857<|content|>WHEREAS, the Notes will be issued pursuant to an i... agent, the \"Security Agent\"), governing the Notes\n<|id|>16<|page|>2<|box|>189 140 261 854<|content|>WHEREAS, this Officers' Certificate (this \"Certifi...te (as defined in the Purchase Agreement); ... and\n<|id|>17<|page|>2<|box|>268 140 306 854<|content|>WHEREAS, capitalized terms used but not otherwise ...ement or, if not defined therein, in the Indenture\n<|id|>35<|page|>4<|box|>787 174 898 857<|content|>(i) No Required Governmental or Regulatory Consent...te hereof, (ii) the filing of the application with\n<|id|>36<|page|>5<|box|>89 174 145 854<|content|>Singapore Exchange Securities Trading Limited (\"SG...istribution of the Notes by the Initial Purchasers\n<|id|>50<|page|>6<|box|>439 174 493 854<|content|>(i) the section entitled \"Plan of Distribution,\" d...and Regulation S under the Securities Act; ... and\n<|id|>52<|page|>6<|box|>546 140 710 856<|content|>Provided, however, that the certifying officers ma...ating agency methodologies, and rating definitions\n<|id|>73<|page|>9<|box|>189 210 244 854<|content|>(iv) a negative assurance letter of Whitfield & Cr...tice under Rule 10b-5 of the Exchange Act; ... and\n<|id|>81<|page|>9<|box|>744 210 780 854<|content|>(iii) assignments of earnings and insurances with ...l Vessels, in favor of the Security Agent; ... and\n<|id|>83<|page|>9<|box|>833 174 906 857<|content|>(g) Payoff Letters. ... Payoff letters have been r...release of all existing security interests held by\n<|id|>84<|page|>10<|box|>90 174 181 856<|content|>Meridian Maritime Bank AG over the relevant vessel...d. ... over the relevant vessels and other assets)\n<|id|>92<|page|>10<|box|>752 174 787 854<|content|>(c) would, individually or in the aggregate, reaso...nge (as defined in the Purchase Agreement); ... or\n<|id|>94<|page|>10<|box|>859 140 895 856<|content|>The undersigned further confirm that, to their kno...y director, officer, or key employee of any of the\n<|id|>95<|page|>11<|box|>90 140 164 854<|content|>Co-Issuers or the Guarantor Subsidiaries in their ...to perform their respective obligations thereunder\n<|id|>102<|page|>11<|box|>851 140 887 857<|content|>Each of the undersigned hereby certifies that the ... the Offering Memorandum under the caption \"Use of\n<|id|>104<|page|>12<|box|>324 140 470 854<|content|>The Notes will be issued at an issue price of 98. ...issue discount amount to approximately $18,000,000\n<|id|>129<|page|>15<|box|>204 140 220 470<|content|>THALASSA SHIPPING & LOGISTICS SA\n<|id|>130<|page|>15<|box|>223 143 239 254<|content|>By: ... By\n<|id|>131<|page|>15<|box|>239 142 256 321<|content|>Name: ... Spyros Andreou\n<|id|>132<|page|>15<|box|>256 142 273 367<|content|>Title: ... Chief Executive Officer\n<|id|>133<|page|>15<|box|>273 142 290 261<|content|>Date: ... [●], 2022\n<|id|>134<|page|>15<|box|>289 140 306 764<|content|>THALASSA SHIPPING & LOGISTICS SA and THALASSA FINANCE PTE. ... LTD\n<|id|>135<|page|>15<|box|>325 140 340 336<|content|>Name: ... Marina Demetriou\n<|id|>136<|page|>15<|box|>342 140 359 622<|content|>Title: ... Chief Financial Officer, Thalassa Shipping & Logistics SA",
+    "raw_response": "<|src_id|>35<|tgt_id|>36\n<|src_id|>83<|tgt_id|>84\n<|src_id|>94<|tgt_id|>95",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        }
+    ]
+}

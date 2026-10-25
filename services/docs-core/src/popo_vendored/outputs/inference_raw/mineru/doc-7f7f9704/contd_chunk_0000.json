@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 454 152 854<|content|>Telephone: ... (415) 392-8401\n<|id|>2<|page|>1<|box|>160 620 176 854<|content|>www. ... com\n<|id|>3<|page|>1<|box|>186 459 203 854<|content|>Elaine Forsythe Partner Direct Dial: ... (415) 392-8437\n<|id|>4<|page|>1<|box|>213 140 229 468<|content|>Email: ... com\n<|id|>5<|page|>1<|box|>229 715 246 854<|content|>February 22, 2022\n<|id|>6<|page|>1<|box|>255 143 272 366<|content|>Via Hand Delivery and Email\n<|id|>7<|page|>1<|box|>281 140 316 854<|content|>Denise Kowalski, Esq. ... Department of Justice Sa...enue, Room 10-0101 San Francisco, California 94102\n<|id|>8<|page|>1<|box|>325 174 380 854<|content|>Re: ... GJ-22-0194, United States District Court f...a, San Francisco Division — Torchlight Mining Corp\n<|id|>9<|page|>1<|box|>387 176 404 411<|content|>C&H Matter No. ... 1039-00001\n<|id|>10<|page|>1<|box|>414 140 430 294<|content|>Dear Ms. ... Kowalski\n<|id|>15<|page|>1<|box|>848 140 902 856<|content|>TMC hereby acknowledges receipt of Grand Jury Subpoena No. ... The\n<|id|>16<|page|>2<|box|>89 140 126 854<|content|>Subpoena was served on TMC on February 14, 2022, a...fices of Torchlight Mining (U. ... in Reno, Nevada\n<|id|>54<|page|>6<|box|>799 142 816 272<|content|>Very truly yours,\n<|id|>55<|page|>6<|box|>824 140 840 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>56<|page|>6<|box|>843 143 859 253<|content|>By: ... By\n<|id|>57<|page|>6<|box|>859 143 876 321<|content|>Elaine Forsythe Partner\n<|id|>58<|page|>6<|box|>877 143 893 352<|content|>Direct Dial: ... (415) 392-8437\n<|id|>59<|page|>7<|box|>90 140 107 468<|content|>Email: ... com\n<|id|>60<|page|>7<|box|>107 140 125 624<|content|>555 California Street, 40th Floor San Francisco, California 94104\n<|id|>61<|page|>7<|box|>125 140 142 665<|content|>cc: ... (via email)\n<|id|>62<|page|>7<|box|>150 140 185 852<|content|>cc: ... Department of Justice, San Francisco Field Office (via email)\n<|id|>63<|page|>7<|box|>194 140 212 785<|content|>cc: ... Howard Bellamy, Partner, Calderwood & Harkness LLP (via email — internal copy)",
+    "raw_response": "<|src_id|>15<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        }
+    ]
+}

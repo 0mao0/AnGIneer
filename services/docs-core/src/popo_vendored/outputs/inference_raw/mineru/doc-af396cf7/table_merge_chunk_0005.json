@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['8.5', \"IRS's Income-Method Valuation at $852,000,000 — Identification of Methodological Errors. The report critiques the IRS's alternative PCT valuation of $852,000,000, which was prepared by IRS Economist Dr. Alan Washburne. The report identifies the following methodological errors in the IRS's valuation: (i) application of an inappropriately low WACC of 7.2%, which fails to account for the specific risks of pharmaceutical IP in non-Americas markets (see Tab 9 for detailed WACC analysis); (ii) overstated non-Americas revenue growth projections that are inconsistent with contemporaneous market data and industry forecasts; (iii) an excessively long explicit projection period that extends beyond the useful life of the contributed intangible property; (iv) failure to account for generic competition and patent expiry for key legacy compounds; and (v) use of an inappropriate terminal value methodology that inflates the present value of future cash flows.\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Sub-Tab', 'Document Description']]\n",
+    "raw_response": "[0, 0]",
+    "parsed": [
+        0,
+        0
+    ],
+    "table1_idx": 55,
+    "table2_idx": 56
+}

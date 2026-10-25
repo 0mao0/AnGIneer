@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 200 106 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>2<|page|>1<|box|>199 196 219 800<|content|>INTERNAL CONFLICTS CLEARANCE MEMORANDUM\n<|id|>4<|page|>1<|box|>435 142 452 364<|content|>1. Purpose of Memorandum\n<|id|>13<|page|>2<|box|>167 140 185 344<|content|>2. Engagement Summary\n<|id|>25<|page|>3<|box|>406 142 422 369<|content|>Principal Contacts at Client:\n<|id|>29<|page|>3<|box|>566 140 584 400<|content|>3. Entities and Persons Searched\n<|id|>31<|page|>3<|box|>752 142 768 383<|content|>3.1 Client and Client Affiliates\n<|id|>36<|page|>4<|box|>371 142 388 478<|content|>3.2 Key Shareholders and Investor Entities\n<|id|>40<|page|>5<|box|>90 140 107 300<|content|>3.3 Key Individuals\n<|id|>43<|page|>5<|box|>301 140 318 401<|content|>3.4 Adverse and Counter-Parties\n<|id|>51<|page|>5<|box|>821 140 857 854<|content|>3.5 Third-Party Advisors to the Client (Checked fo\n<|id|>54<|page|>6<|box|>827 142 844 473<|content|>4. Conflicts Database Search Methodology\n<|id|>77<|page|>8<|box|>411 140 426 281<|content|>5. Search Results\n<|id|>82<|page|>8<|box|>750 140 766 707<|content|>5.2 Pinnacle Growth Equity Partners Fund III, L.P.\n<|id|>87<|page|>9<|box|>349 140 364 344<|content|>5.3 Third-Party Advisors\n<|id|>90<|page|>9<|box|>648 140 665 300<|content|>5.4 Key Individuals\n<|id|>92<|page|>9<|box|>804 140 821 442<|content|>6. Analysis of Potential Conflict Issues\n<|id|>94<|page|>10<|box|>90 140 107 648<|content|>6.1 Intercompany Transaction — Multiple Entity Rep\n<|id|>102<|page|>10<|box|>720 142 738 313<|content|>6.2 Investor Interests\n<|id|>110<|page|>11<|box|>525 140 542 326<|content|>6.3 Positional Conflicts\n<|id|>112<|page|>11<|box|>703 142 720 429<|content|>The following analysis was conducted:\n<|id|>117<|page|>12<|box|>267 140 284 370<|content|>7. Conclusion and Clearance\n<|id|>122<|page|>13<|box|>89 142 107 289<|content|>8. Signature block\n<|id|>129<|page|>13<|box|>306 140 324 261<|content|>9. Distribution\n<|id|>137<|page|>13<|box|>554 142 571 377<|content|>10. Attachments / Appendices",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>13<|level|>2\n<|id|>25<|level|>3\n<|id|>29<|level|>2\n<|id|>31<|level|>3\n<|id|>36<|level|>3\n<|id|>40<|level|>3\n<|id|>43<|level|>3\n<|id|>51<|level|>3\n<|id|>54<|level|>2\n<|id|>77<|level|>2\n<|id|>82<|level|>3\n<|id|>87<|level|>3\n<|id|>90<|level|>3\n<|id|>92<|level|>2\n<|id|>94<|level|>3\n<|id|>102<|level|>3\n<|id|>110<|level|>3\n<|id|>112<|level|>-1\n<|id|>117<|level|>2\n<|id|>122<|level|>2\n<|id|>129<|level|>2\n<|id|>137<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        }
+    ]
+}

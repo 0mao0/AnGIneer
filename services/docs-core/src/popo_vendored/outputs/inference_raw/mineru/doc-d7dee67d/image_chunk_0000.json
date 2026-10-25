@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 250 118 746<|content|>ASSIGNMENT OF MEMBERSHIP INTERESTS\n<|id|>1<|type|>title<|page|>1<|box|>136 375 152 622<|content|>Dated as of November 15, 2024\n<|id|>7<|type|>title<|page|>1<|box|>561 140 580 243<|content|>RECITALS\n<|id|>8<|type|>title<|page|>1<|box|>588 140 604 248<|content|>WHEREAS:\n<|id|>19<|type|>title<|page|>2<|box|>625 140 641 442<|content|>Section 1 — Assignment and Transfer\n<|id|>24<|type|>title<|page|>3<|box|>321 140 339 354<|content|>Section 2 — Consideration\n<|id|>27<|type|>title<|page|>3<|box|>671 140 689 588<|content|>Section 3 — Representations and Warranties of Assi\n<|id|>34<|type|>title<|page|>4<|box|>630 140 647 586<|content|>Section 4 — Representations and Warranties of Assi\n<|id|>38<|type|>title<|page|>5<|box|>90 140 107 545<|content|>Section 5 — Admission of Assignee as Sole Member\n<|id|>42<|type|>title<|page|>5<|box|>446 140 464 398<|content|>Section 6 — Further Assurances\n<|id|>45<|type|>title<|page|>5<|box|>796 140 813 442<|content|>Section 7 — Relationship to the MIPA\n<|id|>50<|type|>title<|page|>6<|box|>476 140 493 367<|content|>Section 8 — Governing Law\n<|id|>52<|type|>title<|page|>6<|box|>633 140 652 424<|content|>Section 9 — Jurisdiction and Venue\n<|id|>55<|type|>title<|page|>7<|box|>90 140 107 359<|content|>Section 10 — Counterparts\n<|id|>57<|type|>title<|page|>7<|box|>321 140 339 433<|content|>Section 11 — Successors and Assigns\n<|id|>59<|type|>title<|page|>7<|box|>481 140 497 357<|content|>Section 12 — Amendments\n<|id|>61<|type|>title<|page|>7<|box|>621 140 637 393<|content|>Section 13 — Entire Agreement\n<|id|>63<|type|>title<|page|>7<|box|>763 243 781 751<|content|>[Remainder of page intentionally left blank. Signa\n<|id|>64<|type|>title<|page|>7<|box|>789 204 806 792<|content|>SIGNATURE PAGE TO ASSIGNMENT OF MEMBERSHIP INTERES\n<|id|>66<|type|>title<|page|>7<|box|>859 176 876 284<|content|>ASSIGNOR:\n<|id|>72<|type|>title<|page|>8<|box|>184 176 200 281<|content|>ASSIGNEE:\n<|id|>78<|type|>title<|page|>8<|box|>296 246 314 750<|content|>ACKNOWLEDGMENT AND CONSENT OF THE COMPANY\n<|id|>86<|type|>title<|page|>9<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>87<|type|>title<|page|>9<|box|>114 300 132 697<|content|>DESCRIPTION OF MEMBERSHIP INTERESTS\n<|id|>89<|type|>title<|page|>9<|box|>205 143 222 228<|content|>Company:\n<|id|>90<|type|>table<|page|>9<|box|>228 143 390 852<|content|>None\n<|id|>91<|type|>title<|page|>9<|box|>424 143 441 395<|content|>Membership Interests Assigned:\n<|id|>92<|type|>table<|page|>9<|box|>446 143 569 852<|content|>None\n<|id|>93<|type|>title<|page|>9<|box|>604 143 619 248<|content|>Subsidiaries:\n<|id|>95<|type|>table<|page|>9<|box|>671 143 840 852<|content|>None",
+    "raw_response": "<|src_id|>90<|tgt_id|>89\n<|src_id|>92<|tgt_id|>91\n<|src_id|>95<|tgt_id|>93",
+    "parsed": [
+        {
+            "src_id": 90,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 93
+        }
+    ]
+}

@@ -1,0 +1,141 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cfxyxken\\input\\pdfs\\doc-cf1de242.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cfxyxken\\enriched\\doc-cf1de242.json",
+    "contd_output": "<|src_id|>95<|tgt_id|>96\n<|src_id|>121<|tgt_id|>122",
+    "title_output": "<|id|>12<|level|>1\n<|id|>17<|level|>1\n<|id|>37<|level|>1\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>2\n<|id|>56<|level|>1\n<|id|>57<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2\n<|id|>70<|level|>1\n<|id|>72<|level|>2\n<|id|>74<|level|>1\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>80<|level|>1\n<|id|>86<|level|>1\n<|id|>93<|level|>1\n<|id|>97<|level|>1\n<|id|>108<|level|>1\n<|id|>119<|level|>1",
+    "image_output": "<|src_id|>22<|tgt_id|>17\n<|src_id|>23<|tgt_id|>17",
+    "contd_label": [
+        {
+            "src_id": 95,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 122
+        }
+    ],
+    "title_label": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 17
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 22,
+            "table2_idx": 23,
+            "upper_row_ss": [
+                [
+                    "All Other Holders (collectively)",
+                    "1,198,000",
+                    "16.02%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

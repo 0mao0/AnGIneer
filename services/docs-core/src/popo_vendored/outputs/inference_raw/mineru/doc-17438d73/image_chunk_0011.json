@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 11,
+    "range": [
+        523,
+        528
+    ],
+    "pages": [
+        523,
+        524,
+        525,
+        526,
+        527,
+        528
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2136<|type|>table<|page|>523<|box|>191 152 594 834<|content|>None\n<|id|>2137<|type|>title<|page|>524<|box|>164 337 191 666<|content|>五、基础岩石层帷幕灌浆（自下而上灌浆法）\n<|id|>2139<|type|>table<|page|>524<|box|>234 159 637 840<|content|>None\n<|id|>2140<|type|>table<|page|>524<|box|>736 161 823 842<|content|>None\n<|id|>2143<|type|>table<|page|>525<|box|>189 150 594 834<|content|>None\n<|id|>2144<|type|>title<|page|>526<|box|>160 438 189 562<|content|>六、镶铸孔口管\n<|id|>2147<|type|>table<|page|>526<|box|>232 159 666 842<|content|>None\n<|id|>2148<|type|>title<|page|>527<|box|>164 423 191 559<|content|>七、孔口封闭灌浆\n<|id|>2151<|type|>table<|page|>527<|box|>236 150 670 832<|content|>None\n<|id|>2152<|type|>title<|page|>528<|box|>168 438 195 570<|content|>八、压水试验\n<|id|>2155<|type|>table<|page|>528<|box|>240 164 542 846<|content|>None",
+    "raw_response": "<|src_id|>2139<|tgt_id|>2137\n<|src_id|>2140<|tgt_id|>2137\n<|src_id|>2143<|tgt_id|>2137\n<|src_id|>2147<|tgt_id|>2144\n<|src_id|>2151<|tgt_id|>2148\n<|src_id|>2155<|tgt_id|>2152",
+    "parsed": [
+        {
+            "src_id": 2139,
+            "tgt_id": 2137
+        },
+        {
+            "src_id": 2140,
+            "tgt_id": 2137
+        },
+        {
+            "src_id": 2143,
+            "tgt_id": 2137
+        },
+        {
+            "src_id": 2147,
+            "tgt_id": 2144
+        },
+        {
+            "src_id": 2151,
+            "tgt_id": 2148
+        },
+        {
+            "src_id": 2155,
+            "tgt_id": 2152
+        }
+    ]
+}

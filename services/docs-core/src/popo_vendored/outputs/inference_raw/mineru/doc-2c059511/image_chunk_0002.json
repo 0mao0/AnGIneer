@@ -1,0 +1,80 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        105,
+        118
+    ],
+    "pages": [
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>648<|type|>table<|page|>105<|box|>106 114 188 885<|content|>None\n<|id|>652<|type|>table<|page|>105<|box|>359 115 682 887<|content|>None\n<|id|>653<|type|>table<|page|>105<|box|>773 117 877 890<|content|>None\n<|id|>655<|type|>table<|page|>106<|box|>187 104 250 875<|content|>None\n<|id|>656<|type|>title<|page|>106<|box|>264 295 283 685<|content|>D.3 机修及其他辅助生产设备安装工程费\n<|id|>659<|type|>table<|page|>106<|box|>381 105 586 877<|content|>None\n<|id|>661<|type|>table<|page|>106<|box|>666 105 770 875<|content|>None\n<|id|>663<|type|>title<|page|>106<|box|>868 406 885 571<|content|>D.4 临时工程费\n<|id|>671<|type|>table<|page|>107<|box|>439 117 543 890<|content|>None\n<|id|>673<|type|>table<|page|>107<|box|>612 117 878 890<|content|>None\n<|id|>675<|type|>table<|page|>108<|box|>142 99 347 870<|content|>None\n<|id|>676<|type|>title<|page|>109<|box|>168 228 195 791<|content|>附录 E 疏浚工程工程费用计算规则\n<|id|>677<|type|>title<|page|>109<|box|>226 428 244 593<|content|>E.1 建筑工程费\n<|id|>681<|type|>table<|page|>109<|box|>404 124 730 897<|content|>None\n<|id|>684<|type|>table<|page|>110<|box|>143 94 480 865<|content|>None\n<|id|>693<|type|>table<|page|>111<|box|>108 122 220 895<|content|>None\n<|id|>712<|type|>table<|page|>112<|box|>269 102 433 875<|content|>None\n<|id|>721<|type|>title<|page|>112<|box|>773 406 790 571<|content|>E.2 临时工程费\n<|id|>724<|type|>title<|page|>113<|box|>307 233 652 277<|content|>附录 F 工程建设其他费用算例\n<|id|>725<|type|>table<|page|>113<|box|>85 329 872 705<|content|>None\n<|id|>726<|type|>table<|page|>114<|box|>117 319 907 840<|content|>None\n<|id|>727<|type|>table<|page|>115<|box|>83 233 869 749<|content|>None\n<|id|>728<|type|>table<|page|>116<|box|>119 327 907 621<|content|>None\n<|id|>729<|type|>title<|page|>117<|box|>163 295 191 675<|content|>附录 J 本规定用词说明\n<|id|>735<|type|>title<|page|>118<|box|>204 191 266 813<|content|>本规定主编单位、主要起草人、 主要审查人、总校人员和管理组人员名单",
+    "raw_response": "<|src_id|>659<|tgt_id|>656\n<|src_id|>661<|tgt_id|>656\n<|src_id|>671<|tgt_id|>663\n<|src_id|>673<|tgt_id|>663\n<|src_id|>675<|tgt_id|>663\n<|src_id|>681<|tgt_id|>677\n<|src_id|>684<|tgt_id|>677\n<|src_id|>693<|tgt_id|>677\n<|src_id|>712<|tgt_id|>677\n<|src_id|>725<|tgt_id|>724\n<|src_id|>726<|tgt_id|>724\n<|src_id|>727<|tgt_id|>724\n<|src_id|>728<|tgt_id|>724",
+    "parsed": [
+        {
+            "src_id": 659,
+            "tgt_id": 656
+        },
+        {
+            "src_id": 661,
+            "tgt_id": 656
+        },
+        {
+            "src_id": 671,
+            "tgt_id": 663
+        },
+        {
+            "src_id": 673,
+            "tgt_id": 663
+        },
+        {
+            "src_id": 675,
+            "tgt_id": 663
+        },
+        {
+            "src_id": 681,
+            "tgt_id": 677
+        },
+        {
+            "src_id": 684,
+            "tgt_id": 677
+        },
+        {
+            "src_id": 693,
+            "tgt_id": 677
+        },
+        {
+            "src_id": 712,
+            "tgt_id": 677
+        },
+        {
+            "src_id": 725,
+            "tgt_id": 724
+        },
+        {
+            "src_id": 726,
+            "tgt_id": 724
+        },
+        {
+            "src_id": 727,
+            "tgt_id": 724
+        },
+        {
+            "src_id": 728,
+            "tgt_id": 724
+        }
+    ]
+}

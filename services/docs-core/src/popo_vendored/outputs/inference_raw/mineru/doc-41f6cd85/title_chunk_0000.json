@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>9<|page|>1<|box|>430 140 446 475<|content|>I. Introduction and Purpose of This Letter\n<|id|>14<|page|>2<|box|>241 140 258 612<|content|>II. Background on PPC's Cooperation with the Exami\n<|id|>36<|page|>3<|box|>736 140 753 452<|content|>III. Description of IDR No. 26 as Issued\n<|id|>45<|page|>4<|box|>657 140 675 678<|content|>IV. Legal Standards Governing IDR Scope and Taxpay\n<|id|>51<|page|>5<|box|>566 140 585 429<|content|>V. Specific Objections to IDR No. 26\n<|id|>60<|page|>6<|box|>638 140 655 751<|content|>B. Overbreadth: The Temporal Scope Extends Beyond\n<|id|>65<|page|>7<|box|>311 140 329 696<|content|>C. Undue Burden: Volume and Breadth of Requested C\n<|id|>74<|page|>8<|box|>138 140 157 318<|content|>D. Privilege Concerns\n<|id|>78<|page|>8<|box|>566 140 584 501<|content|>VI. PPC's Proposed Narrowing of IDR No. 26\n<|id|>86<|page|>9<|box|>630 140 647 367<|content|>VII. Request for Conference\n<|id|>91<|page|>10<|box|>250 140 265 359<|content|>VIII. Reservation of Rights",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>36<|level|>2\n<|id|>45<|level|>2\n<|id|>51<|level|>2\n<|id|>60<|level|>3\n<|id|>65<|level|>3\n<|id|>74<|level|>3\n<|id|>78<|level|>2\n<|id|>86<|level|>2\n<|id|>91<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        }
+    ]
+}

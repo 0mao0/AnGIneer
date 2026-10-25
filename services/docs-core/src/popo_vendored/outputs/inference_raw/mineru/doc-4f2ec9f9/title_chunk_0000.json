@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 285 142 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>2<|page|>1<|box|>362 156 429 839<|content|>STIPULATION AND [PROPOSED] ORDER FOR DISMISSAL OF\n<|id|>3<|page|>1<|box|>454 143 470 336<|content|>A. Introductory Recitals\n<|id|>10<|page|>2<|box|>90 140 107 434<|content|>B. Recital of Procedural Background\n<|id|>19<|page|>2<|box|>796 140 813 421<|content|>C. Recital of Settlement Agreement\n<|id|>24<|page|>3<|box|>429 140 446 305<|content|>D. Stipulated Terms\n<|id|>26<|page|>3<|box|>522 142 539 357<|content|>1. Dismissal with Prejudice\n<|id|>33<|page|>4<|box|>90 140 107 790<|content|>2. Retention of Jurisdiction Under California Code\n<|id|>41<|page|>4<|box|>630 140 647 367<|content|>3. Attorneys' Fees and Costs\n<|id|>43<|page|>4<|box|>775 140 792 364<|content|>4. No Admission of Liability\n<|id|>46<|page|>5<|box|>194 140 212 401<|content|>5. Authority to Enter Stipulation\n<|id|>48<|page|>5<|box|>340 140 357 254<|content|>6. Filing Date\n<|id|>50<|page|>6<|box|>90 362 109 633<|content|>II. SIGNATURE BLOCKS\n<|id|>57<|page|>6<|box|>299 142 334 852<|content|>DEFENDANTS GRIZZLY PEAK RESEARCH LLC, GRIZZLY PEAK\n<|id|>62<|page|>6<|box|>450 362 470 633<|content|>III. [PROPOSED] ORDER\n<|id|>63<|page|>6<|box|>489 285 540 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>65<|page|>6<|box|>761 156 796 838<|content|>ORDER GRANTING STIPULATION FOR DISMISSAL OF ENTIRE\n<|id|>67<|page|>6<|box|>886 143 902 447<|content|>IT IS HEREBY ORDERED as follows:\n<|id|>72<|page|>7<|box|>422 410 440 584<|content|>IT IS SO ORDERED.\n<|id|>75<|page|>7<|box|>540 364 559 633<|content|>IV. PROOF OF SERVICE\n<|id|>76<|page|>7<|box|>577 406 594 591<|content|>PROOF OF SERVICE\n<|id|>81<|page|>7<|box|>743 155 779 839<|content|>STIPULATION AND [PROPOSED] ORDER FOR DISMISSAL OF",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>10<|level|>2\n<|id|>19<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>3\n<|id|>33<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>2\n<|id|>57<|level|>-1\n<|id|>62<|level|>2\n<|id|>63<|level|>1\n<|id|>65<|level|>1\n<|id|>67<|level|>-1\n<|id|>72<|level|>-1\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>81<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 1
+        }
+    ]
+}

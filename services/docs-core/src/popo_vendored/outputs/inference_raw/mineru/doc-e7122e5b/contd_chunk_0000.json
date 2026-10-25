@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        10,
+        11,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>180 140 198 464<|content|>TO: ... Howard Bellamy, Responsible Partner\n<|id|>3<|page|>1<|box|>205 140 224 676<|content|>FROM: ... Naomi Petersen, Associate\n<|id|>4<|page|>1<|box|>232 140 250 343<|content|>DATE: ... February 20, 2024\n<|id|>5<|page|>1<|box|>258 140 294 854<|content|>RE: ... IML-TX-0039821-2023\n<|id|>6<|page|>1<|box|>301 140 319 361<|content|>MATTER NO. ... 1012-00003\n<|id|>59<|page|>6<|box|>827 140 900 856<|content|>On January 22, 2024, Meridian issued a formal cove...randt & Howe LLP (\"KBH\"), located at 1401 McKinney\n<|id|>60<|page|>7<|box|>89 140 126 854<|content|>Street, Suite 2800, Houston, TX 77010. ... she is assisted by associate Samuel Okonkwo\n<|id|>78<|page|>8<|box|>710 183 727 504<|content|>• Bays 1–4: ... Casing pipe and tubular goods\n<|id|>81<|page|>8<|box|>786 140 859 854<|content|>This layout is designed to maintain physical separ...eral principle of segregating dissimilar materials\n<|id|>79<|page|>8<|box|>729 183 763 854<|content|>• Bays 5–8: ... Tools, equipment, and miscellaneou...e pipe storage bays and the chemical storage bays)\n<|id|>80<|page|>8<|box|>767 184 784 601<|content|>• Bays 9–12: ... Chemical pallets and containerized liquids\n<|id|>97<|page|>10<|box|>782 140 875 856<|content|>NFPA 25 § 5. ... Meridian's position is that the 14-month interval between the\n<|id|>98<|page|>11<|box|>89 140 126 854<|content|>September 14, 2022 test and the date of the fire (...on-compliance with this annual testing requirement\n<|id|>103<|page|>11<|box|>368 183 385 348<|content|>• December 15, 2022\n<|id|>107<|page|>11<|box|>446 140 537 854<|content|>All four quarterly inspections during the relevant...not neglect or abandon its maintenance obligations\n<|id|>104<|page|>11<|box|>388 183 404 321<|content|>• March 20, 2023\n<|id|>105<|page|>11<|box|>407 183 424 307<|content|>• June 12, 2023\n<|id|>106<|page|>11<|box|>426 184 444 341<|content|>• September 8, 2023\n<|id|>187<|page|>20<|box|>425 142 441 320<|content|>Respectfully submitted,\n<|id|>188<|page|>20<|box|>441 142 459 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>189<|page|>20<|box|>460 143 477 253<|content|>By: ... By\n<|id|>190<|page|>20<|box|>478 142 494 405<|content|>Andrew Fitzpatrick Lead Associate\n<|id|>191<|page|>20<|box|>494 143 512 253<|content|>By: ... By\n<|id|>192<|page|>20<|box|>512 143 527 339<|content|>Naomi Petersen Associate\n<|id|>193<|page|>20<|box|>527 142 542 509<|content|>Distribution: ... Douglas Fairchild, Billing Partner (for file)",
+    "raw_response": "<|src_id|>59<|tgt_id|>60\n<|src_id|>97<|tgt_id|>98",
+    "parsed": [
+        {
+            "src_id": 59,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 98
+        }
+    ]
+}

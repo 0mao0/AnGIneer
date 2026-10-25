@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['TMC-008', 'Marcus', 'Former VP,', 'Torchlight', 'Resigned', 'Executive /', 'Current']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Delacroix', 'Africa Operations', 'Mining Corp.', 'November 15, 2024', 'Operations', 'residence: 47 Rue de la République, 69002 Lyon, France.Represented by Whitmore & Sharpe LLP (Helen Whitmore).']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 203,
+    "table2_idx": 204
+}

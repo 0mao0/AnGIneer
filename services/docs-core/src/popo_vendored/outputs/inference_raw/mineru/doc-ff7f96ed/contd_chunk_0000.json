@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        8
+    ],
+    "pages": [
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>36<|page|>5<|box|>133 174 208 854<|content|>(f) the authorization of each of the officers named in Section 1. ... and\n<|id|>38<|page|>5<|box|>258 140 314 854<|content|>The IPO Resolutions have not been amended, modifie...modify or be inconsistent with the IPO Resolutions\n<|id|>55<|page|>6<|box|>786 174 896 857<|content|>(a) Audit Committee. ... Each member of the Audit ...s been determined by the Board to be \"independent\"\n<|id|>56<|page|>7<|box|>90 174 127 854<|content|>within the meaning of Rule 10A-3 under the Securit..., and the applicable listing standards of the NYSE\n<|id|>66<|page|>7<|box|>751 174 805 854<|content|>(b) the approval and adoption of the Calloway-Briggs Renewables Inc. ... and\n<|id|>68<|page|>8<|box|>90 138 200 856<|content|>The Written Consent was duly executed and delivere...ed, modified, rescinded, or revoked in any respect\n<|id|>75<|page|>8<|box|>723 174 739 643<|content|>(a) [●] shares of Common Stock, par value $0. ... and\n<|id|>77<|page|>8<|box|>773 140 864 857<|content|>As of immediately prior to the closing of the IPO ...ng effect to such reclassification and conversion)",
+    "raw_response": "<|src_id|>55<|tgt_id|>56",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        }
+    ]
+}

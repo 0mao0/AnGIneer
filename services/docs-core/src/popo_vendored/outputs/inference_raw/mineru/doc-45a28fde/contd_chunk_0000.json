@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        27,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>204 142 220 336<|content|>Date: ... December 20, 2023\n<|id|>2<|page|>1<|box|>229 142 246 176<|content|>To: ... To\n<|id|>3<|page|>1<|box|>256 176 273 666<|content|>Leonard Cross, Responsible Partner, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>282 174 300 851<|content|>Margaret Tan, Executive Vice President & General C...t & General Counsel, Penterra Pharmaceuticals Corp\n<|id|>7<|page|>1<|box|>359 174 395 852<|content|>Jeffrey Park, Lead Associate, Calderwood & Harknes...th assistance from Audrey Zhou, Working Associate)\n<|id|>8<|page|>1<|box|>405 143 419 174<|content|>Re: ... Re\n<|id|>9<|page|>1<|box|>429 174 465 854<|content|>Internal Investigation Findings — FDA OPDP Inquiry...motional Materials for Zelvara® (trepivant sodium)\n<|id|>10<|page|>1<|box|>474 143 489 331<|content|>Matter No. ... 1018-00002\n<|id|>11<|page|>1<|box|>500 140 575 854<|content|>PRIVILEGE STATEMENT: ... Recipients should take al...eged and confidential nature of this communication\n<|id|>15<|page|>1<|box|>799 140 909 856<|content|>The investigation was prompted by an inquiry lette...ed as part of the Company's \"Clarity Campaign\" for\n<|id|>16<|page|>2<|box|>89 140 145 854<|content|>Zelvara® that OPDP contends contain potentially vi...ity claims, and misleading graphical presentations\n<|id|>42<|page|>4<|box|>854 140 909 854<|content|>C&H obtained and reviewed the minutes from all nin...nd October 2023. ... During the review period, the\n<|id|>43<|page|>5<|box|>89 140 126 854<|content|>PRC was chaired by Alan Renwick (Director, Promoti...epresentatives from the following functional areas\n<|id|>268<|page|>27<|box|>724 140 741 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>269<|page|>28<|box|>89 140 106 303<|content|>In coordination with: ... In coordination with\n<|id|>270<|page|>28<|box|>107 140 125 483<|content|>WHITFIELD BAUER & ASSOCIATES LLP\n<|id|>271<|page|>28<|box|>125 140 141 493<|content|>Dr. ... Lead Partner\n<|id|>272<|page|>28<|box|>142 140 157 383<|content|>Thomas Crane Senior Associate\n<|id|>273<|page|>28<|box|>159 140 190 854<|content|>Whitfield Bauer & Associates LLP 1330 Connecticut Avenue NW, Suite 500 Washington, DC 20036",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>42<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ]
+}

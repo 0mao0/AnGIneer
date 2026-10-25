@@ -1,0 +1,121 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>366 140 383 367<|content|>1. Introduction and Purpose\n<|id|>21<|page|>2<|box|>436 140 454 473<|content|>2. Underwriting Agreement Requirements\n<|id|>30<|page|>3<|box|>258 140 277 535<|content|>3. Financial Statements and Periods to be Covered\n<|id|>31<|page|>3<|box|>290 140 306 405<|content|>3.1 Audited Financial Statements\n<|id|>39<|page|>3<|box|>719 140 736 486<|content|>3.2 Unaudited Interim Financial Statements\n<|id|>42<|page|>4<|box|>89 140 107 473<|content|>3.3 Specific Identification of Form 10-K/A\n<|id|>44<|page|>4<|box|>282 140 300 522<|content|>4. Cut-Off Date and Subsequent Changes Period\n<|id|>57<|page|>5<|box|>292 140 310 653<|content|>5. Circle-Up Procedures — Specific Financial and S\n<|id|>59<|page|>5<|box|>441 140 459 398<|content|>5.1 Prospectus Supplement Data\n<|id|>71<|page|>5<|box|>771 142 787 339<|content|>5.2 Use of Proceeds Data\n<|id|>78<|page|>6<|box|>196 140 214 375<|content|>5.3 Capitalization Table Data\n<|id|>88<|page|>6<|box|>450 140 468 527<|content|>5.4 Financial Highlights / Selected Financial Data\n<|id|>95<|page|>6<|box|>645 140 662 330<|content|>5.5 Dilution Table Data\n<|id|>97<|page|>6<|box|>810 140 827 318<|content|>5.6 Indebtedness Data\n<|id|>102<|page|>7<|box|>234 140 250 341<|content|>5.7 Other Financial Data\n<|id|>107<|page|>7<|box|>527 140 544 485<|content|>6. Procedures for the Initial Comfort Letter\n<|id|>115<|page|>8<|box|>439 140 457 532<|content|>7. Procedures for the Bring-Down Comfort Letter\n<|id|>121<|page|>9<|box|>90 140 107 473<|content|>8. Draft Comfort Letter and Coordination\n<|id|>129<|page|>9<|box|>507 140 523 352<|content|>9. Form of Comfort Letter\n<|id|>132<|page|>9<|box|>856 142 873 338<|content|>10. Delivery Instructions\n<|id|>143<|page|>10<|box|>424 142 440 325<|content|>11. Timeline Summary\n<|id|>147<|page|>10<|box|>728 142 744 362<|content|>12. Engagement and Billing\n<|id|>153<|page|>11<|box|>268 143 287 235<|content|>13. Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>21<|level|>2\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>39<|level|>3\n<|id|>42<|level|>3\n<|id|>44<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>3\n<|id|>71<|level|>3\n<|id|>78<|level|>3\n<|id|>88<|level|>3\n<|id|>95<|level|>3\n<|id|>97<|level|>3\n<|id|>102<|level|>3\n<|id|>107<|level|>2\n<|id|>115<|level|>2\n<|id|>121<|level|>2\n<|id|>129<|level|>2\n<|id|>132<|level|>2\n<|id|>143<|level|>2\n<|id|>147<|level|>2\n<|id|>153<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        }
+    ]
+}

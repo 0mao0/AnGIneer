@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>458<|page|>45<|box|>90 142 107 702<|content|>Appendix B: Veridian TMS v.10.0 Feature Comparison\n<|id|>461<|page|>46<|box|>90 142 107 483<|content|>Appendix C: Model Validation History Log\n<|id|>463<|page|>47<|box|>90 142 108 663<|content|>Appendix D: Scenario Inventory and Threshold Matri",
+    "raw_response": "<|id|>458<|level|>1\n<|id|>461<|level|>1\n<|id|>463<|level|>1",
+    "parsed": [
+        {
+            "id": 458,
+            "level": 1
+        },
+        {
+            "id": 461,
+            "level": 1
+        },
+        {
+            "id": 463,
+            "level": 1
+        }
+    ]
+}

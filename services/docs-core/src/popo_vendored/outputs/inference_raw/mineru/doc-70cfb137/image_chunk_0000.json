@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 336 157 660<|content|>STATE OF DELAWARE CERTIFICATE OF INCORPORATION A S\n<|id|>6<|type|>title<|page|>1<|box|>323 294 339 702<|content|>HARROWGATE VELOCITY MERGER SUB INC.\n<|id|>8<|type|>title<|page|>1<|box|>444 142 460 354<|content|>ARTICLE FIRST: NAME\n<|id|>10<|type|>title<|page|>1<|box|>511 142 527 745<|content|>ARTICLE SECOND: REGISTERED OFFICE AND REGISTERED A\n<|id|>12<|type|>title<|page|>1<|box|>652 142 669 388<|content|>ARTICLE THIRD: PURPOSE\n<|id|>14<|type|>title<|page|>2<|box|>89 142 106 599<|content|>ARTICLE FOURTH: AUTHORIZED CAPITAL STOCK\n<|id|>17<|type|>title<|page|>2<|box|>420 140 438 450<|content|>ARTICLE FIFTH: INCORPORATOR\n<|id|>22<|type|>title<|page|>2<|box|>619 142 637 508<|content|>ARTICLE SIXTH: BOARD OF DIRECTORS\n<|id|>27<|type|>title<|page|>3<|box|>89 142 106 818<|content|>ARTICLE SEVENTH: LIMITATION OF PERSONAL LIABILITY\n<|id|>31<|type|>title<|page|>3<|box|>518 142 536 491<|content|>ARTICLE EIGHTH: INDEMNIFICATION\n<|id|>37<|type|>title<|page|>4<|box|>703 140 719 777<|content|>ARTICLE NINTH: AMENDMENT OF CERTIFICATE OF INCORPO\n<|id|>39<|type|>title<|page|>5<|box|>89 142 106 542<|content|>ARTICLE TENTH: AMENDMENT OF BYLAWS\n<|id|>41<|type|>title<|page|>5<|box|>285 142 301 539<|content|>ARTICLE ELEVENTH: SOLE STOCKHOLDER\n<|id|>43<|type|>title<|page|>5<|box|>464 361 482 635<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>51<|type|>title<|page|>5<|box|>700 393 717 604<|content|>SECRETARY OF STATE\n<|id|>52<|type|>title<|page|>5<|box|>726 362 744 633<|content|>DIVISION OF CORPORATIONS\n<|id|>53<|type|>title<|page|>5<|box|>753 390 768 607<|content|>FILING ENDORSEMENT\n<|id|>55<|type|>table<|page|>5<|box|>839 143 896 852<|content|>None\n<|id|>57<|type|>table<|page|>6<|box|>88 143 145 852<|content|>None\n<|id|>58<|type|>title<|page|>6<|box|>179 147 215 849<|content|>IN TESTIMONY WHEREOF, I have hereunto set my hand",
+    "raw_response": "<|src_id|>55<|tgt_id|>53\n<|src_id|>57<|tgt_id|>53",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 53
+        }
+    ]
+}

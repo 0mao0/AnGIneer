@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ilod9vol\\input\\pdfs\\doc-7dd7cb07.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ilod9vol\\enriched\\doc-7dd7cb07.json",
+    "contd_output": "<|src_id|>12<|tgt_id|>13",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>25<|level|>3\n<|id|>27<|level|>4\n<|id|>34<|level|>4\n<|id|>55<|level|>3\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>66<|level|>3\n<|id|>73<|level|>3\n<|id|>82<|level|>2\n<|id|>108<|level|>3\n<|id|>132<|level|>3\n<|id|>142<|level|>3\n<|id|>146<|level|>2\n<|id|>148<|level|>3\n<|id|>151<|level|>3\n<|id|>155<|level|>3\n<|id|>158<|level|>3\n<|id|>162<|level|>3\n<|id|>171<|level|>2\n<|id|>185<|level|>2\n<|id|>189<|level|>2\n<|id|>197<|level|>2\n<|id|>205<|level|>2\n<|id|>209<|level|>2",
+    "image_output": "<|src_id|>186<|tgt_id|>185\n<|src_id|>187<|tgt_id|>185\n<|src_id|>188<|tgt_id|>185\n<|src_id|>207<|tgt_id|>205\n<|src_id|>211<|tgt_id|>209",
+    "contd_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 34,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 205,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 186,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 205
+        },
+        {
+            "src_id": 211,
+            "tgt_id": 209
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 186,
+            "table2_idx": 187,
+            "upper_row_ss": [
+                [
+                    "California",
+                    "N",
+                    "Y",
+                    "N",
+                    "Y",
+                    "NovaMart operates 3 fulfillment centers; franchise tax and combined reporting"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "analysis post-closing; AG monitoring recommended; CCPA/CPRA compliance ongoing."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 187,
+            "table2_idx": 188,
+            "upper_row_ss": [
+                [
+                    "New York",
+                    "N",
+                    "Y",
+                    "N",
+                    "N",
+                    "Key transaction"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "participants based in NY; AG monitoring recommended; no NovaMart operational presence."
+                ]
+            ]
+        }
+    ]
+}

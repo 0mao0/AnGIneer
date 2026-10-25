@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        146,
+        152
+    ],
+    "pages": [
+        146,
+        147,
+        151,
+        152
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>693<|type|>title<|page|>146<|box|>63 933 350 985<|content|>Zhang 7/2001 JUL 2 199?\n<|id|>694<|type|>image<|page|>146<|box|>16 125 943 860<|content|>None\n<|id|>695<|type|>title<|page|>146<|box|>242 33 721 73<|content|>THE DEPARTMENT OF THE TREASURY\n<|id|>696<|type|>title<|page|>147<|box|>14 142 34 843<|content|>Information about the Superintendent of Documents\n<|id|>697<|type|>title<|page|>147<|box|>50 29 66 191<|content|>Current Subscribers\n<|id|>703<|type|>title<|page|>147<|box|>472 31 488 164<|content|>New Subscribers\n<|id|>710<|type|>image<|page|>147<|box|>582 857 611 919<|content|>None\n<|id|>716<|type|>table<|page|>147<|box|>728 23 908 468<|content|>None\n<|id|>717<|type|>title<|page|>147<|box|>930 21 951 306<|content|>Form can be photocopied\n<|id|>731<|type|>image<|page|>151<|box|>902 34 969 125<|content|>None\n<|id|>733<|type|>image<|page|>152<|box|>9 812 43 951<|content|>None",
+    "raw_response": "<|src_id|>694<|tgt_id|>695\n<|src_id|>710<|tgt_id|>703\n<|src_id|>716<|tgt_id|>703\n<|src_id|>731<|tgt_id|>695\n<|src_id|>733<|tgt_id|>695",
+    "parsed": [
+        {
+            "src_id": 694,
+            "tgt_id": 695
+        },
+        {
+            "src_id": 710,
+            "tgt_id": 703
+        },
+        {
+            "src_id": 716,
+            "tgt_id": 703
+        },
+        {
+            "src_id": 731,
+            "tgt_id": 695
+        },
+        {
+            "src_id": 733,
+            "tgt_id": 695
+        }
+    ]
+}

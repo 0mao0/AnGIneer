@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 179 142 816<|content|>SECRETARY'S CERTIFICATE OF NEXFORD INDUSTRIAL HOLD\n<|id|>3<|type|>title<|page|>1<|box|>229 142 246 323<|content|>Reference Documents:\n<|id|>10<|type|>title<|page|>2<|box|>90 140 107 509<|content|>Section 1 — Certification of Board Resolutions\n<|id|>19<|type|>title<|page|>2<|box|>667 140 684 462<|content|>Section 2 — Certification of Incumbency\n<|id|>21<|type|>table<|page|>2<|box|>827 143 902 852<|content|>None\n<|id|>22<|type|>table<|page|>3<|box|>88 143 109 852<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>239 140 256 575<|content|>Section 3 — Certification of Organizational Docume\n<|id|>29<|type|>title<|page|>3<|box|>621 140 638 483<|content|>Section 4 — Certification of Good Standing\n<|id|>32<|type|>title<|page|>3<|box|>806 140 821 437<|content|>Section 5 — Additional Certifications\n<|id|>38<|type|>title<|page|>4<|box|>549 140 566 313<|content|>Section 6 — Reliance\n<|id|>52<|type|>title<|page|>6<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>53<|type|>title<|page|>6<|box|>135 289 154 707<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS\n<|id|>54<|type|>title<|page|>6<|box|>176 303 194 692<|content|>OF NEXFORD INDUSTRIAL HOLDINGS INC.\n<|id|>55<|type|>title<|page|>6<|box|>203 254 220 741<|content|>Adopted at a Meeting Duly Called and Held on Novem\n<|id|>57<|type|>title<|page|>6<|box|>315 140 332 323<|content|>Preamble and Recitals\n<|id|>65<|type|>title<|page|>7<|box|>441 140 459 379<|content|>NOW, THEREFORE, BE IT:\n<|id|>66<|type|>title<|page|>7<|box|>474 140 491 584<|content|>Resolution 1 — Authorization of Add-On Notes Offer\n<|id|>70<|type|>title<|page|>7<|box|>816 140 834 565<|content|>Resolution 2 — Authorization of Purchase Agreement\n<|id|>73<|type|>title<|page|>8<|box|>311 140 329 553<|content|>Resolution 3 — Authorization of Kessler Acquisitio\n<|id|>76<|type|>title<|page|>8<|box|>594 140 609 553<|content|>Resolution 4 — Authorization of Related Documents\n<|id|>85<|type|>title<|page|>9<|box|>345 142 362 540<|content|>Resolution 5 — Designation of Authorized Officers\n<|id|>87<|type|>title<|page|>9<|box|>510 142 526 362<|content|>Resolution 6 — Ratification\n<|id|>89<|type|>title<|page|>9<|box|>674 142 690 446<|content|>Resolution 7 — General Authorization\n<|id|>93<|type|>title<|page|>11<|box|>90 434 111 563<|content|>EXHIBIT B\n<|id|>94<|type|>title<|page|>11<|box|>135 336 152 660<|content|>CERTIFICATE OF INCORPORATION\n<|id|>95<|type|>title<|page|>11<|box|>162 143 196 852<|content|>Certificate of Incorporation of Nexford Industrial\n<|id|>99<|type|>title<|page|>12<|box|>89 434 111 563<|content|>EXHIBIT C\n<|id|>100<|type|>title<|page|>12<|box|>135 454 154 542<|content|>BYLAWS\n<|id|>101<|type|>title<|page|>12<|box|>162 184 180 810<|content|>Bylaws of Nexford Industrial Holdings Inc. As Amen\n<|id|>104<|type|>title<|page|>13<|box|>90 434 111 563<|content|>EXHIBIT D\n<|id|>105<|type|>title<|page|>13<|box|>135 338 152 658<|content|>CERTIFICATE OF GOOD STANDING\n<|id|>106<|type|>title<|page|>13<|box|>162 143 198 854<|content|>Certificate of Good Standing of Nexford Industrial",
+    "raw_response": "<|src_id|>21<|tgt_id|>19\n<|src_id|>22<|tgt_id|>19",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        }
+    ]
+}

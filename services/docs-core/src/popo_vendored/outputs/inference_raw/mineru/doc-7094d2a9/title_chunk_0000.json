@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 434 106 562<|content|>SCHEDULE A\n<|id|>1<|page|>1<|box|>114 397 133 601<|content|>Description of Processing\n<|id|>4<|page|>1<|box|>392 142 409 357<|content|>1. Parties to the Processing\n<|id|>22<|page|>2<|box|>205 140 224 482<|content|>2. Subject Matter and Nature of Processing\n<|id|>32<|page|>3<|box|>229 140 248 338<|content|>3. Purpose of Processing\n<|id|>34<|page|>3<|box|>324 140 340 331<|content|>3.1 Payment Processing\n<|id|>41<|page|>3<|box|>744 140 763 341<|content|>3.2 Anti-Fraud Analytics\n<|id|>49<|page|>4<|box|>426 140 444 346<|content|>3.3 Regulatory Reporting\n<|id|>56<|page|>5<|box|>90 140 107 380<|content|>4. Categories of Data Subjects\n<|id|>64<|page|>5<|box|>789 140 806 383<|content|>5. Categories of Personal Data\n<|id|>66<|page|>6<|box|>90 140 107 377<|content|>5.1 Identity and Contact Data\n<|id|>71<|page|>6<|box|>277 140 294 413<|content|>5.2 Government-Issued Identifiers\n<|id|>75<|page|>6<|box|>547 140 564 359<|content|>5.3 Financial Account Data\n<|id|>81<|page|>6<|box|>779 140 796 383<|content|>5.4 Technical and Device Data\n<|id|>86<|page|>7<|box|>239 140 255 383<|content|>5.5 Behavioral Biometric Data\n<|id|>90<|page|>7<|box|>518 140 537 277<|content|>6. Sensitive Data\n<|id|>96<|page|>8<|box|>204 140 222 328<|content|>7. Processing Locations\n<|id|>99<|page|>9<|box|>90 140 107 344<|content|>8. Duration of Processing\n<|id|>100<|page|>9<|box|>121 140 138 326<|content|>8.1 Term of Processing\n<|id|>102<|page|>9<|box|>321 140 338 447<|content|>8.2 Post-Termination Retention Period\n<|id|>106<|page|>9<|box|>739 140 757 344<|content|>8.3 Legal Hold Exception\n<|id|>112<|page|>10<|box|>337 140 354 287<|content|>9. Sub-Processors\n<|id|>118<|page|>10<|box|>782 140 799 354<|content|>10. Controller Instructions\n<|id|>122<|page|>11<|box|>421 140 438 431<|content|>11. Applicable Data Protection Laws\n<|id|>132<|page|>12<|box|>311 140 329 372<|content|>Incorporation and Execution\n<|id|>135<|page|>12<|box|>500 316 516 679<|content|>[Remainder of this page intentionally left blank.]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>3\n<|id|>22<|level|>3\n<|id|>32<|level|>3\n<|id|>34<|level|>4\n<|id|>41<|level|>4\n<|id|>49<|level|>4\n<|id|>56<|level|>3\n<|id|>64<|level|>3\n<|id|>66<|level|>4\n<|id|>71<|level|>4\n<|id|>75<|level|>4\n<|id|>81<|level|>4\n<|id|>86<|level|>4\n<|id|>90<|level|>3\n<|id|>96<|level|>3\n<|id|>99<|level|>3\n<|id|>100<|level|>4\n<|id|>102<|level|>4\n<|id|>106<|level|>4\n<|id|>112<|level|>3\n<|id|>118<|level|>3\n<|id|>122<|level|>3\n<|id|>132<|level|>3\n<|id|>135<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 4
+        },
+        {
+            "id": 41,
+            "level": 4
+        },
+        {
+            "id": 49,
+            "level": 4
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 81,
+            "level": 4
+        },
+        {
+            "id": 86,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 4
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 106,
+            "level": 4
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        49
+    ],
+    "pages": [
+        2,
+        4,
+        7,
+        8,
+        12,
+        13,
+        20,
+        39,
+        48
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>2<|box|>303 171 338 782<|content|>Sold on a subscription basis only (exceptions noted) by the Superintendent of Documents, U. ... †\n<|id|>4<|page|>2<|box|>383 165 474 813<|content|>Monthly Treasury Statement of Receipts and Outlays of the United States Government. ... 20 (foreign)\n<|id|>10<|page|>4<|box|>507 343 529 651<|content|>treasury. ... gov\n<|id|>11<|page|>4<|box|>544 122 580 874<|content|>Internet service subscribers can access the Treasu...rough the Financial Management Service's home page\n<|id|>21<|page|>7<|box|>133 81 799 892<|content|>SECTION V. ... 109\n<|id|>22<|page|>8<|box|>169 80 316 908<|content|>TRUST FUNDS Introduction. ... r = Revised\n<|id|>40<|page|>12<|box|>114 81 378 491<|content|>Fluctuations in energy prices, as well as rising p...cent in the 12 months through October 2007, slower\n<|id|>41<|page|>12<|box|>133 504 339 915<|content|>More recent increases in energy prices at the prod... for finished goods, which was up 6. ... 0 percent\n<|id|>45<|page|>13<|box|>217 81 393 491<|content|>Growth of nonfarm payroll employment averaged 112,... of 2007. ... In the 4 months through October, the\n<|id|>46<|page|>13<|box|>407 68 426 264<|content|>Payroll Employment\n<|id|>48<|page|>13<|box|>89 504 133 915<|content|>private service-providing industries added 123,000...rage compared to 128,000 in the first half of 2007\n<|id|>47<|page|>13<|box|>430 80 459 316<|content|>(Average monthly change in thousands from end of quarter to end of quarter)\n<|id|>117<|page|>20<|box|>515 380 527 616<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>118<|page|>20<|box|>535 83 551 279<|content|>Fourth-Quarter Receipts\n<|id|>119<|page|>20<|box|>554 81 657 491<|content|>The following capsule analysis of budget receipts,... to analyze adequately collections for the quarter\n<|id|>190<|page|>39<|box|>685 81 717 491<|content|>• Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>192<|page|>39<|box|>250 504 397 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>218<|page|>48<|box|>467 374 479 622<|content|>[Source: ... Bureau of the Public Debt, Office of Financing]\n<|id|>219<|page|>48<|box|>486 83 503 156<|content|>JULY",
+    "raw_response": "<|src_id|>40<|tgt_id|>41\n<|src_id|>45<|tgt_id|>46\n<|src_id|>46<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 48
+        }
+    ]
+}

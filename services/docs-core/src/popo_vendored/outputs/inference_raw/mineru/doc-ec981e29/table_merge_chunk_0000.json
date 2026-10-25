@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Severity 2 (High)', 'Significant degradation of platform performance or a core function is', 'Fraud detection module returning errors for one deployment location;']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'materially impaired, affecting a substantial number of authorized users. A workaround may or may not be available, but normal business operations are materially disrupted.', 'response times exceeding three times (3×) normal baseline; claims triage module experiencing intermittent failures for a majority of users at one location.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 83,
+    "table2_idx": 84
+}

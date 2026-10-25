@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 140 119 852<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>1<|type|>title<|page|>1<|box|>127 153 162 843<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law 51 Wes\n<|id|>3<|type|>title<|page|>1<|box|>196 142 214 292<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>390 142 407 290<|content|>Policy References:\n<|id|>12<|type|>title<|page|>1<|box|>487 372 507 625<|content|>I. Purpose and Summary\n<|id|>22<|type|>title<|page|>2<|box|>286 223 305 772<|content|>II. Background — Incident and Insurance Claim Fili\n<|id|>23<|type|>title<|page|>2<|box|>330 142 348 315<|content|>A. Incident Overview\n<|id|>34<|type|>title<|page|>3<|box|>429 140 446 267<|content|>B. Claim Filing\n<|id|>39<|type|>title<|page|>4<|box|>90 197 111 797<|content|>III. Overview of Quorum's Cyber-Liability Insuranc\n<|id|>41<|type|>table<|page|>4<|box|>229 143 395 852<|content|>None\n<|id|>49<|type|>table<|page|>5<|box|>172 143 354 852<|content|>None\n<|id|>51<|type|>title<|page|>5<|box|>506 279 526 715<|content|>IV. Atlas Mutual's Coverage Determination\n<|id|>52<|type|>title<|page|>5<|box|>551 142 569 431<|content|>A. Acknowledgment and Acceptance\n<|id|>63<|type|>title<|page|>6<|box|>799 140 816 480<|content|>B. Consent and Cooperation Requirements\n<|id|>71<|type|>title<|page|>7<|box|>481 140 498 338<|content|>C. Reservation of Rights\n<|id|>77<|type|>title<|page|>8<|box|>290 285 309 710<|content|>V. Estimated Costs and Coverage Analysis\n<|id|>78<|type|>title<|page|>8<|box|>334 142 352 486<|content|>A. Total Estimated Incident Response Costs\n<|id|>79<|type|>table<|page|>8<|box|>402 143 710 852<|content|>None\n<|id|>82<|type|>table<|page|>9<|box|>214 143 308 852<|content|>None\n<|id|>86<|type|>title<|page|>9<|box|>636 140 652 457<|content|>B. Application of Self-Insured Retention\n<|id|>90<|type|>title<|page|>10<|box|>167 140 185 493<|content|>C. Amount Covered by Atlas Primary Policy\n<|id|>95<|type|>title<|page|>10<|box|>477 140 494 580<|content|>D. Excess Layer (Pinnacle) — Unlikely to Be Implic\n<|id|>103<|type|>title<|page|>11<|box|>154 236 174 758<|content|>VI. Interaction with Palomar Indemnification Claim\n<|id|>112<|type|>title<|page|>12<|box|>334 168 354 828<|content|>VII. Status of Regulatory Engagements and Coverage\n<|id|>114<|type|>title<|page|>12<|box|>467 140 484 454<|content|>A. Multistate Attorney General Inquiry\n<|id|>118<|type|>title<|page|>13<|box|>90 140 107 442<|content|>B. Connecticut Insurance Department\n<|id|>121<|type|>title<|page|>13<|box|>311 140 328 330<|content|>C. HHS-OCR (HIPAA)\n<|id|>124<|type|>title<|page|>13<|box|>569 140 585 259<|content|>D. Assessment\n<|id|>127<|type|>title<|page|>13<|box|>830 295 849 700<|content|>VIII. Open Items and Recommendations\n<|id|>129<|type|>title<|page|>14<|box|>90 140 107 490<|content|>A. Ongoing Coordination with Atlas Mutual\n<|id|>132<|type|>title<|page|>14<|box|>348 140 364 318<|content|>B. Final Proof of Loss\n<|id|>134<|type|>title<|page|>14<|box|>506 140 523 444<|content|>C. Palomar Subrogation Coordination\n<|id|>136<|type|>title<|page|>14<|box|>683 140 700 473<|content|>D. Pinnacle Excess — No Action Required\n<|id|>138<|type|>title<|page|>15<|box|>90 140 107 439<|content|>E. Monitoring for Potential Litigation\n<|id|>141<|type|>title<|page|>15<|box|>352 421 372 575<|content|>IX. Conclusion",
+    "raw_response": "<|src_id|>41<|tgt_id|>39\n<|src_id|>49<|tgt_id|>39\n<|src_id|>79<|tgt_id|>78\n<|src_id|>82<|tgt_id|>78",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 78
+        }
+    ]
+}

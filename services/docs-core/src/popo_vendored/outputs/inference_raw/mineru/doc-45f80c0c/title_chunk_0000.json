@@ -1,0 +1,36 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>87 87 99 233<|content|>Section Content\n<|id|>21<|page|>7<|box|>104 87 118 322<|content|>SECTION F: PAYMENT DETAILS\n<|id|>27<|page|>7<|box|>228 87 244 477<|content|>SECTION G: CURRENCY CONVERSION (if applicable)\n<|id|>32<|page|>7<|box|>335 87 350 299<|content|>SECTION H: CERTIFICATION\n<|id|>37<|page|>7<|box|>458 87 475 458<|content|>SECTION I: ADDITIONAL NOTES / EXPLANATIONS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        }
+    ]
+}

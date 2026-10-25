@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 140 179 604<|content|>TO: ... Francesca Morano, Partner, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>188 140 205 622<|content|>FROM: ... Hannah Brinkley, Associate\n<|id|>4<|page|>1<|box|>214 140 231 344<|content|>DATE: ... February 12, 2024\n<|id|>5<|page|>1<|box|>239 140 275 852<|content|>RE: ... Actual-Malice Standard\n<|id|>6<|page|>1<|box|>284 140 301 403<|content|>CLIENT: ... Redstone Gaming Corp\n<|id|>7<|page|>1<|box|>309 140 345 854<|content|>MATTER: ... 24STCV-01892, Superior Court of California, County of Los Angeles\n<|id|>8<|page|>1<|box|>354 140 369 408<|content|>Right-click to update Table of Contents\n<|id|>22<|page|>2<|box|>840 140 893 854<|content|>In addition to its brick-and-mortar gaming operati...a and entertainment arm known as \"Crimson Studios\"\n<|id|>23<|page|>3<|box|>90 140 127 854<|content|>that produces original programming and live entert...or RGC's resort properties and streaming platforms\n<|id|>77<|page|>8<|box|>803 140 895 856<|content|>GPR's reports present their allegations as factual...s and individuals by name (Vermilion Holdings LLC,\n<|id|>78<|page|>9<|box|>90 140 181 854<|content|>Marcus J. ... Each of these propositions is capabl...d each has, in fact, been demonstrated to be false\n<|id|>250<|page|>27<|box|>815 142 830 318<|content|>Respectfully submitted,\n<|id|>251<|page|>27<|box|>832 142 848 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>252<|page|>27<|box|>849 143 867 251<|content|>By: ... By\n<|id|>253<|page|>27<|box|>867 142 883 344<|content|>Carlos Espinoza, Associate\n<|id|>254<|page|>27<|box|>885 143 902 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>77<|tgt_id|>78",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        }
+    ]
+}

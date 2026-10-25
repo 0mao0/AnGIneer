@@ -1,0 +1,111 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        61
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        13,
+        25,
+        29,
+        30,
+        31,
+        32,
+        41,
+        43,
+        48,
+        50,
+        52,
+        59,
+        60,
+        61
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>7<|box|>85 112 237 863<|content|>TREASURY BULLETIN\n<|id|>15<|page|>9<|box|>158 395 175 599<|content|>Table of Contents\n<|id|>18<|page|>11<|box|>125 306 145 660<|content|>Treasury Financing Operations\n<|id|>27<|page|>11<|box|>571 504 603 745<|content|>Treasury Bills Retired and Refunded\n<|id|>29<|page|>13<|box|>44 317 60 679<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>83<|page|>25<|box|>48 344 62 644<|content|>TREASURY CASH INCOME AND OUTGO\n<|id|>92<|page|>29<|box|>51 410 64 573<|content|>DEBT OUTSTANDING\n<|id|>97<|page|>30<|box|>360 161 393 826<|content|>Table 2.- Application of Limitation to Public Debt\n<|id|>99<|page|>31<|box|>77 157 108 823<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>102<|page|>32<|box|>81 159 127 829<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>127<|page|>41<|box|>36 336 51 646<|content|>OWNERSHIP OF FEDERAL SECURITIES\n<|id|>131<|page|>43<|box|>43 270 58 726<|content|>TREASURY SURVEY OF OWNERSHIP, OCTOBER 31, 1948\n<|id|>134<|page|>43<|box|>188 171 203 831<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>153<|page|>48<|box|>76 164 91 823<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>157<|page|>50<|box|>52 300 67 683<|content|>YIELDS OF TREASURY AND CORPORATE BONDS\n<|id|>164<|page|>52<|box|>47 360 60 642<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>177<|page|>59<|box|>73 355 87 630<|content|>Table 6.- Seigniorage on Silver\n<|id|>179<|page|>60<|box|>48 420 62 594<|content|>CAPITAL MOVEMENTS\n<|id|>187<|page|>60<|box|>420 374 435 644<|content|>Section I - Historical Summary\n<|id|>190<|page|>61<|box|>73 357 87 625<|content|>Section I - Historical Summary",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>15<|level|>2\n<|id|>18<|level|>2\n<|id|>27<|level|>3\n<|id|>29<|level|>2\n<|id|>83<|level|>2\n<|id|>92<|level|>2\n<|id|>97<|level|>3\n<|id|>99<|level|>3\n<|id|>102<|level|>3\n<|id|>127<|level|>2\n<|id|>131<|level|>2\n<|id|>134<|level|>3\n<|id|>153<|level|>3\n<|id|>157<|level|>2\n<|id|>164<|level|>2\n<|id|>177<|level|>3\n<|id|>179<|level|>2\n<|id|>187<|level|>3\n<|id|>190<|level|>3",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 3
+        }
+    ]
+}

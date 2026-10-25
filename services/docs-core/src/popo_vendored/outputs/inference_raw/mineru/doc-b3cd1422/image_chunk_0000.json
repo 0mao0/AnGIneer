@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        6,
+        7,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3<|type|>table<|page|>1<|box|>369 87 442 789<|content|>None\n<|id|>9<|type|>title<|page|>3<|box|>85 87 102 364<|content|>ItemAmount Source / Notes\n<|id|>17<|type|>table<|page|>6<|box|>85 84 353 833<|content|>None\n<|id|>18<|type|>title<|page|>7<|box|>85 85 102 455<|content|>ItemBase OferOverallot Total (Full Notes\n<|id|>22<|type|>title<|page|>7<|box|>174 85 191 347<|content|>Allocation — Primary (Company):\n<|id|>27<|type|>title<|page|>7<|box|>280 85 298 400<|content|>Allocation — Secondary (Pinnacle Vista):\n<|id|>31<|type|>title<|page|>7<|box|>370 85 387 310<|content|>Allocation — Overallotment:\n<|id|>35<|type|>title<|page|>7<|box|>458 85 476 465<|content|>Underwriting discount Breakdown (Full Exercise):\n<|id|>41<|type|>title<|page|>7<|box|>583 87 601 349<|content|>Use of Net Proceeds to Company:\n<|id|>54<|type|>table<|page|>10<|box|>136 87 407 878<|content|>None",
+    "raw_response": "<|src_id|>17<|tgt_id|>9",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 9
+        }
+    ]
+}

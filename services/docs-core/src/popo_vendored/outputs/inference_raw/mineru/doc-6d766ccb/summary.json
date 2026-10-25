@@ -1,0 +1,144 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3x8cb7l9\\input\\pdfs\\doc-6d766ccb.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3x8cb7l9\\enriched\\doc-6d766ccb.json",
+    "contd_output": "",
+    "title_output": "<|id|>10<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>2\n<|id|>56<|level|>2\n<|id|>71<|level|>1\n<|id|>73<|level|>2\n<|id|>81<|level|>2\n<|id|>94<|level|>2\n<|id|>109<|level|>1\n<|id|>111<|level|>2\n<|id|>125<|level|>2\n<|id|>145<|level|>2\n<|id|>163<|level|>2\n<|id|>172<|level|>1\n<|id|>174<|level|>2\n<|id|>181<|level|>2\n<|id|>187<|level|>2\n<|id|>194<|level|>1\n<|id|>195<|level|>2\n<|id|>201<|level|>2\n<|id|>207<|level|>2\n<|id|>221<|level|>2\n<|id|>234<|level|>1\n<|id|>237<|level|>1",
+    "image_output": "<|src_id|>15<|tgt_id|>10\n<|src_id|>235<|tgt_id|>234\n<|src_id|>236<|tgt_id|>234",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 1
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 2
+        },
+        {
+            "id": 234,
+            "level": 1
+        },
+        {
+            "id": 237,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 235,
+            "tgt_id": 234
+        },
+        {
+            "src_id": 236,
+            "tgt_id": 234
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 235,
+            "table2_idx": 236,
+            "upper_row_ss": [
+                [
+                    "Incremental Facility Capacity",
+                    "Greater of $30M and 100% LTM",
+                    "Greater of $20M and 75% LTM",
+                    "B (Tradeable)",
+                    "Greater of $25M and 100% LTM"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "EBITDA",
+                    "EBITDA; 12-month MFN with 50 bps threshold",
+                    "",
+                    "EBITDA; accept MFN terms as proposed"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['10', 'Confirm the four required LCA attestations on each filing: (1) wages — the employer will pay the H-1B', 'Derek Okonkwo', 'June 10, 2025', 'Pending']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', \"worker the higher of the actual wage or the prevailing wage; (2) working conditions — employment of the H-1B worker will not adversely affect the working conditions of workers similarly employed; (3) no strike/lockout — there is no strike, lockout, or work stoppage in the named occupation at the place of employment; (4) notice — the employer has provided notice of the filing to workers in the occupational classification, or to the workers' bargaining representative\", '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 145,
+    "table2_idx": 146
+}

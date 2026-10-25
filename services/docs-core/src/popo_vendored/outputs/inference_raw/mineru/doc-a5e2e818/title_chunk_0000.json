@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 575<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>2<|box|>90 140 126 854<|content|>I. Discrepancy No. 1: Vandermeer National Insuranc\n<|id|>11<|page|>2<|box|>138 142 157 375<|content|>A. Identification of the Policy\n<|id|>14<|page|>2<|box|>458 142 474 406<|content|>B. Description of the Discrepancy\n<|id|>20<|page|>3<|box|>446 140 465 393<|content|>C. Requested Corrective Action\n<|id|>26<|page|>4<|box|>90 140 126 810<|content|>II. Discrepancy No. 2: Midland Casualty & Surety C\n<|id|>27<|page|>4<|box|>138 142 157 375<|content|>A. Identification of the Policy\n<|id|>30<|page|>4<|box|>428 142 445 406<|content|>B. Description of the Discrepancy\n<|id|>38<|page|>5<|box|>540 140 556 393<|content|>C. Requested Corrective Action\n<|id|>45<|page|>6<|box|>148 140 167 434<|content|>III. Response Deadline and Tracking\n<|id|>51<|page|>6<|box|>704 140 720 428<|content|>IV. Contact Information and Copies",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>14<|level|>3\n<|id|>20<|level|>3\n<|id|>26<|level|>2\n<|id|>27<|level|>3\n<|id|>30<|level|>3\n<|id|>38<|level|>3\n<|id|>45<|level|>2\n<|id|>51<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        }
+    ]
+}

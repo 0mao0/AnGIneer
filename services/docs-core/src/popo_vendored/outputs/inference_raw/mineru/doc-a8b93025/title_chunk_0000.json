@@ -1,0 +1,122 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 145 142 849<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF VERIMARK\n<|id|>1<|page|>1<|box|>159 210 176 787<|content|>Adopted at a Special Meeting of the Board of Direc\n<|id|>5<|page|>1<|box|>553 142 570 241<|content|>RECITALS\n<|id|>6<|page|>1<|box|>584 142 602 372<|content|>Background of the Company\n<|id|>12<|page|>2<|box|>194 140 212 437<|content|>Background of Existing Indebtedness\n<|id|>24<|page|>3<|box|>382 142 398 272<|content|>Use of Proceeds\n<|id|>32<|page|>3<|box|>719 142 737 310<|content|>Advisors and Parties\n<|id|>43<|page|>4<|box|>790 142 808 279<|content|>RESOLUTIONS\n<|id|>44<|page|>4<|box|>821 142 839 529<|content|>Resolution 1: Authorization of the Notes Offering\n<|id|>50<|page|>5<|box|>463 142 479 493<|content|>Resolution 2: Authorization of the Indenture\n<|id|>66<|page|>7<|box|>275 140 292 576<|content|>Resolution 3: Authorization of the Purchase Agreem\n<|id|>69<|page|>7<|box|>630 140 648 656<|content|>Resolution 4: Authorization of the Registration Ri\n<|id|>77<|page|>8<|box|>327 142 344 563<|content|>Resolution 5: Authorization of the Escrow Agreemen\n<|id|>80<|page|>8<|box|>609 140 626 563<|content|>Resolution 6: Authorization of Subsidiary Guarante\n<|id|>89<|page|>9<|box|>338 140 354 568<|content|>Resolution 7: Authorization of Offering Memorandum\n<|id|>94<|page|>9<|box|>799 140 816 838<|content|>Resolution 8: Authorization of Use of Proceeds and\n<|id|>102<|page|>10<|box|>489 140 506 625<|content|>Resolution 9: Authorization of DTC Letter of Repre\n<|id|>104<|page|>10<|box|>652 140 669 640<|content|>Resolution 10: Authorization of Related Documents\n<|id|>115<|page|>11<|box|>484 140 503 532<|content|>Resolution 11: Designation of Authorized Officers\n<|id|>123<|page|>12<|box|>202 140 219 356<|content|>Resolution 12: Ratification\n<|id|>125<|page|>12<|box|>402 140 420 406<|content|>Resolution 13: General Authority\n<|id|>135<|page|>12<|box|>829 142 845 364<|content|>Resolution 14: Effectiveness\n<|id|>138<|page|>13<|box|>212 140 229 410<|content|>CLOSING AND ATTESTATION\n<|id|>147<|page|>13<|box|>569 140 585 426<|content|>SECRETARY'S CERTIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>2\n<|id|>6<|level|>3\n<|id|>12<|level|>3\n<|id|>24<|level|>3\n<|id|>32<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>50<|level|>3\n<|id|>66<|level|>3\n<|id|>69<|level|>3\n<|id|>77<|level|>3\n<|id|>80<|level|>3\n<|id|>89<|level|>3\n<|id|>94<|level|>3\n<|id|>102<|level|>3\n<|id|>104<|level|>3\n<|id|>115<|level|>3\n<|id|>123<|level|>3\n<|id|>125<|level|>3\n<|id|>135<|level|>3\n<|id|>138<|level|>2\n<|id|>147<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        }
+    ]
+}

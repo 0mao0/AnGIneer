@@ -1,0 +1,157 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fm476tey\\input\\pdfs\\doc-cc3ee77b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fm476tey\\enriched\\doc-cc3ee77b.json",
+    "contd_output": "<|src_id|>36<|tgt_id|>37\n<|src_id|>102<|tgt_id|>103",
+    "title_output": "<|id|>3<|level|>1\n<|id|>10<|level|>1\n<|id|>11<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>1\n<|id|>41<|level|>1\n<|id|>43<|level|>2\n<|id|>47<|level|>2\n<|id|>53<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>74<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>1\n<|id|>83<|level|>2\n<|id|>88<|level|>2\n<|id|>91<|level|>1\n<|id|>92<|level|>2\n<|id|>121<|level|>2\n<|id|>146<|level|>1\n<|id|>162<|level|>1\n<|id|>168<|level|>1\n<|id|>178<|level|>1\n<|id|>182<|level|>1",
+    "image_output": "<|src_id|>2<|tgt_id|>3\n<|src_id|>76<|tgt_id|>74\n<|src_id|>77<|tgt_id|>74\n<|src_id|>175<|tgt_id|>168\n<|src_id|>176<|tgt_id|>168",
+    "contd_label": [
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 103
+        }
+    ],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 182,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 168
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 168
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 175,
+            "table2_idx": 176,
+            "upper_row_ss": [
+                [
+                    "Liquidated—damages—(penalty)",
+                    "Moderate",
+                    "NY courts' deference to freely"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Liquidated damages argument (Argument I)",
+                    "",
+                    "negotiated commercial terms between sophisticated parties; risk that Court credits contractual recital and declines to second-guess the 75% figure at the pleading stage. However, the magnitude of the disproportion ($67.23M vs. ~$10.7M estimated actual loss; 6.3:1 ratio) is significant and may persuade. The refined three-step analysis in v2 is more persuasive than v1."
+                ]
+            ]
+        }
+    ]
+}

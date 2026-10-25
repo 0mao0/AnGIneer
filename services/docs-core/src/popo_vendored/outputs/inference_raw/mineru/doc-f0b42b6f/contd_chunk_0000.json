@@ -1,0 +1,46 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        15,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>1<|box|>856 140 910 854<|content|>Second, the AR further reveals, through the unreda...cted materially unequal discussions by issuing two\n<|id|>7<|page|>2<|box|>90 140 200 854<|content|>Evaluation Notices (\"ENs\") to Whitmore addressing ...at this Office has repeatedly found to be improper\n<|id|>14<|page|>2<|box|>731 140 878 857<|content|>Three amendments to the Solicitation were issued p...23, revised the Contract Line Item Number (\"CLIN\")\n<|id|>15<|page|>3<|box|>90 140 126 854<|content|>structure to separate spare parts and repair kits ...ase production CLIN. ... AR Tab 5 (Amendment 0003)\n<|id|>43<|page|>5<|box|>811 140 886 854<|content|>As is readily apparent from the table above, the s...ctor 3(c)) — Whitmore received higher ratings than\n<|id|>44<|page|>6<|box|>89 140 127 854<|content|>Halcyon. ... These areas of Whitmore superiority a...owledged in the SSDD's purported tradeoff analysis\n<|id|>61<|page|>7<|box|>805 138 897 857<|content|>This passage reveals, with unmistakable clarity, t...o the Government flow from Halcyon's Manufacturing\n<|id|>62<|page|>8<|box|>90 140 200 854<|content|>Readiness approach versus Whitmore's approach. ... 4 million\n<|id|>80<|page|>9<|box|>809 140 901 857<|content|>The COSF's characterization of Halcyon's manufactu...s. ... To the contrary, the COSF confirms that the\n<|id|>81<|page|>10<|box|>90 140 126 854<|content|>SSA \"relied on the evaluation ratings\" — that is, ...nalysis of the underlying technical discriminators\n<|id|>128<|page|>15<|box|>90 174 143 854<|content|>(c) Cost and schedule data for alternative approac...nts that informed the AoA recommendations; ... and\n<|id|>130<|page|>15<|box|>215 140 343 856<|content|>This information was competitively useful because ...y on the publicly available solicitation documents\n<|id|>171<|page|>19<|box|>594 142 609 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>172<|page|>19<|box|>612 143 628 251<|content|>By: ... By\n<|id|>173<|page|>19<|box|>628 142 645 411<|content|>Claudia Merritt Responsible Partner\n<|id|>174<|page|>19<|box|>646 142 662 457<|content|>Lt. ... ) Nathan Yardley Of Counsel\n<|id|>175<|page|>19<|box|>662 143 679 367<|content|>Megan Zhao Senior Associate\n<|id|>176<|page|>19<|box|>679 142 712 852<|content|>1750 K Street NW, Suite 1100 Washington, D. ... (202) 555-4801\n<|id|>177<|page|>19<|box|>713 142 729 459<|content|>Email: ... com\n<|id|>178<|page|>19<|box|>729 142 747 503<|content|>Counsel for Protester, Whitmore Aerospace LLC\n<|id|>179<|page|>19<|box|>748 142 763 344<|content|>Dated: ... November 17, 2023\n<|id|>183<|page|>20<|box|>89 176 143 854<|content|>Capt. ... 20330- 1740\n<|id|>184<|page|>20<|box|>152 176 205 854<|content|>Email: ... 20330-1740\n<|id|>185<|page|>20<|box|>214 140 250 566<|content|>Email: ... mil Counsel for Intervenor Halcyon Defense Systems Inc\n<|id|>186<|page|>20<|box|>256 174 292 852<|content|>Theodore J. ... Kessler, Pratt & Dunaway LLP 8300 Greensboro Drive, Suite 950 Tysons, Virginia 22102\n<|id|>187<|page|>20<|box|>301 176 319 607<|content|>Email: ... com\n<|id|>188<|page|>20<|box|>351 140 369 743<|content|>Megan Zhao Senior Associate Calderwood & Harkness LLP Counsel for Protester",
+    "raw_response": "<|src_id|>6<|tgt_id|>7\n<|src_id|>14<|tgt_id|>15\n<|src_id|>43<|tgt_id|>44\n<|src_id|>61<|tgt_id|>62\n<|src_id|>80<|tgt_id|>81",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>204 140 239 854<|content|>TO: ... Derek Huang, General Counsel, Crestline Pa...Health & Safety, Crestline Packaging Solutions LLC\n<|id|>3<|page|>1<|box|>248 140 282 856<|content|>FROM: ... Rafael Dominguez, Calderwood & Harkness ...on Caldwell, Of Counsel, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>291 140 309 336<|content|>DATE: ... October 14, 2022\n<|id|>5<|page|>1<|box|>316 140 354 854<|content|>RE: ... — McKeesport Main Plant, 2200 Iron Works Boulevard, McKeesport, PA 15132\n<|id|>6<|page|>1<|box|>361 140 378 362<|content|>MATTER NO. ... 1006-00003\n<|id|>7<|page|>1<|box|>387 140 406 779<|content|>FACILITY: ... McKeesport Main Plant (Headquarters), Allegheny County, Pennsylvania\n<|id|>8<|page|>1<|box|>412 140 431 388<|content|>EPA ID No. ... PAD-098-721-445\n<|id|>9<|page|>1<|box|>439 140 457 410<|content|>Parcel ID: ... 0383-M-00125-0000-00\n<|id|>20<|page|>2<|box|>531 147 547 545<|content|>• Phase I ESA Review Memorandum — McKeesport\n<|id|>26<|page|>2<|box|>667 140 739 854<|content|>Each of these memoranda addresses a distinct compo...regulatory compliance at the McKeesport Main Plant\n<|id|>21<|page|>2<|box|>551 147 568 576<|content|>• Phase II Results Analysis Memorandum — McKeesport\n<|id|>22<|page|>2<|box|>571 147 587 478<|content|>• RCRA Compliance Review Memorandum\n<|id|>23<|page|>2<|box|>590 147 606 529<|content|>• Clean Air Act Compliance Review Memorandum\n<|id|>24<|page|>2<|box|>609 147 627 557<|content|>• Spill History and Enforcement Review Memorandum\n<|id|>25<|page|>2<|box|>628 145 664 852<|content|>• Comprehensive Environmental Diligence Summary Memorandum (draft dated October 22, 2022)\n<|id|>39<|page|>3<|box|>838 176 892 857<|content|>1. ... Tier II Emergency and Hazardous Chemical In... the PA DEP electronic submission system), and the\n<|id|>40<|page|>4<|box|>90 209 125 854<|content|>McKeesport Fire Department. ... These reports were...ed documents ACC-ENV-001247 through ACC-ENV-001386\n<|id|>83<|page|>7<|box|>849 174 905 854<|content|>Approximately 120 gallons of epoxy resin hardener ...reported to PA DEP and the Allegheny County Health\n<|id|>84<|page|>8<|box|>90 174 162 854<|content|>Department. ... LEPC notification was made in connection with this incident",
+    "raw_response": "<|src_id|>39<|tgt_id|>40\n<|src_id|>83<|tgt_id|>84",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 84
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        9,
+        10,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>1<|box|>858 140 895 854<|content|>Lumicore's Patent Rule 3-3 Invalidity Contentions,...t certain internal Lumicore design documents dated\n<|id|>9<|page|>2<|box|>89 140 145 854<|content|>2016–2017 demonstrate prior conception by Lumicore...cient, standing alone, to warrant summary judgment\n<|id|>78<|page|>9<|box|>864 140 902 854<|content|>Lumicore's document productions do include certain...s dated from mid-2016 through early 2017 appear in\n<|id|>79<|page|>10<|box|>90 140 162 854<|content|>Lumicore's invalidity contentions. ... However, a ...ating coupler invention claimed in the '015 Patent\n<|id|>179<|page|>20<|box|>703 140 734 854<|content|>350 South Grand Avenue, 48th Floor Los Angeles, California 90071 Telephone: ... (213) 457-8201\n<|id|>180<|page|>20<|box|>736 142 753 527<|content|>Counsel for Plaintiff Optiwave Semiconductor Corp.... Counsel for Plaintiff Optiwave Semiconductor Corp",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>78<|tgt_id|>79",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        }
+    ]
+}

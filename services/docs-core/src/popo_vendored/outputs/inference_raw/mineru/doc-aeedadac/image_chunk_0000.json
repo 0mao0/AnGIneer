@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 285 142 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>150 143 508 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>561 279 578 718<|content|>STIPULATION FOR DISMISSAL WITH PREJUDICE\n<|id|>17<|type|>title<|page|>4<|box|>172 328 189 666<|content|>[SIGNATURES ON FOLLOWING PAGE]\n<|id|>19<|type|>title<|page|>4<|box|>223 142 239 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>26<|type|>title<|page|>4<|box|>369 142 385 470<|content|>WHITFIELD, RAINES & GERBER LLP\n<|id|>32<|type|>table<|page|>4<|box|>537 143 804 852<|content|>None\n<|id|>33<|type|>title<|page|>4<|box|>858 315 875 681<|content|>ORDER OF DISMISSAL WITH PREJUDICE\n<|id|>37<|type|>title<|page|>5<|box|>268 140 286 493<|content|>IT IS HEREBY ORDERED AS FOLLOWS:\n<|id|>43<|type|>title<|page|>5<|box|>845 411 862 584<|content|>IT IS SO ORDERED.",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>32<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 2
+        }
+    ]
+}

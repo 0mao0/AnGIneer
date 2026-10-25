@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        16
+    ],
+    "pages": [
+        5,
+        12,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>21<|page|>5<|box|>262 87 280 248<|content|>Federal Tax Liability:\n<|id|>23<|page|>5<|box|>387 87 405 357<|content|>Estimated Underpayment Interest:\n<|id|>25<|page|>5<|box|>512 87 530 221<|content|>Penalty Analysis:\n<|id|>38<|page|>12<|box|>228 87 244 144<|content|>Notes:\n<|id|>52<|page|>16<|box|>388 87 404 233<|content|>Recommendation:",
+    "raw_response": "<|id|>21<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>1\n<|id|>38<|level|>1\n<|id|>52<|level|>1",
+    "parsed": [
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        }
+    ]
+}

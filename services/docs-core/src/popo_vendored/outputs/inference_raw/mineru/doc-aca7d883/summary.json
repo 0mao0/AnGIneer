@@ -1,0 +1,147 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1hw7w3pe\\input\\pdfs\\doc-aca7d883.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1hw7w3pe\\enriched\\doc-aca7d883.json",
+    "contd_output": "<|src_id|>145<|tgt_id|>146",
+    "title_output": "<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>11<|level|>3\n<|id|>13<|level|>3\n<|id|>15<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>27<|level|>3\n<|id|>46<|level|>3\n<|id|>57<|level|>3\n<|id|>61<|level|>3\n<|id|>67<|level|>3\n<|id|>76<|level|>2\n<|id|>77<|level|>3\n<|id|>87<|level|>3\n<|id|>118<|level|>3\n<|id|>133<|level|>3\n<|id|>139<|level|>3\n<|id|>150<|level|>3\n<|id|>157<|level|>2\n<|id|>168<|level|>2",
+    "image_output": "<|src_id|>0<|tgt_id|>1\n<|src_id|>5<|tgt_id|>1\n<|src_id|>6<|tgt_id|>1\n<|src_id|>9<|tgt_id|>7\n<|src_id|>10<|tgt_id|>1\n<|src_id|>12<|tgt_id|>11\n<|src_id|>14<|tgt_id|>13",
+    "contd_label": [
+        {
+            "src_id": 145,
+            "tgt_id": 146
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 13
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 5,
+            "table2_idx": 6,
+            "upper_row_ss": [
+                [
+                    "<!-- indent:2 -->B. DCMA Has Specialized Expertise in",
+                    "17"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Government Contract Cost Determinations<!-- /indent -->",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

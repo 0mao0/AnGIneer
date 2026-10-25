@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>148 40 185 945<|content|>中华人民共和国交通行业标准\n<|id|>2<|type|>title<|page|>1<|box|>403 222 481 754<|content|>公路工程土工合成材料 短纤针刺非织造土工布\n<|id|>3<|type|>title<|page|>1<|box|>518 188 568 788<|content|>Geosynthetics in the highway engineerings—Syntheti\n<|id|>6<|type|>title<|page|>1<|box|>959 157 992 814<|content|>中华人民共和国交通部 发布\n<|id|>7<|type|>title<|page|>2<|box|>133 436 157 560<|content|>目次\n<|id|>9<|type|>title<|page|>3<|box|>138 439 161 569<|content|>前言\n<|id|>25<|type|>title<|page|>4<|box|>126 337 174 645<|content|>公路工程土工合成材料短纤针刺非织造土工布\n<|id|>26<|type|>title<|page|>4<|box|>217 45 234 125<|content|>1 范围\n<|id|>29<|type|>title<|page|>4<|box|>332 45 349 225<|content|>2 规范性引用文件\n<|id|>41<|type|>title<|page|>4<|box|>624 42 641 185<|content|>3 术语和定义\n<|id|>43<|type|>title<|page|>4<|box|>682 42 700 165<|content|>4 产品分类\n<|id|>44<|type|>title<|page|>4<|box|>713 42 728 145<|content|>4.1 分类\n<|id|>47<|type|>table<|page|>4<|box|>789 45 890 931<|content|>None\n<|id|>48<|type|>title<|page|>4<|box|>897 42 912 142<|content|>4.2 型号\n<|id|>50<|type|>image<|page|>5<|box|>98 265 258 742<|content|>None\n<|id|>51<|type|>title<|page|>5<|box|>295 54 310 320<|content|>5 产品规格系列与尺寸偏差\n<|id|>53<|type|>table<|page|>5<|box|>364 60 544 942<|content|>None\n<|id|>54<|type|>title<|page|>5<|box|>561 54 579 177<|content|>6 技术要求\n<|id|>55<|type|>title<|page|>5<|box|>592 57 607 197<|content|>6.1 性能要求\n<|id|>58<|type|>table<|page|>5<|box|>671 57 873 942<|content|>None\n<|id|>61<|type|>title<|page|>6<|box|>139 45 156 145<|content|>6.2 外观\n<|id|>63<|type|>table<|page|>6<|box|>195 45 332 931<|content|>None\n<|id|>64<|type|>title<|page|>6<|box|>347 45 364 162<|content|>7 试验方法\n<|id|>66<|type|>table<|page|>6<|box|>416 45 910 931<|content|>None\n<|id|>67<|type|>title<|page|>7<|box|>111 51 126 171<|content|>8 检验规则\n<|id|>68<|type|>title<|page|>7<|box|>139 51 156 151<|content|>8.1 组批\n<|id|>70<|type|>title<|page|>7<|box|>217 51 234 154<|content|>8.2 抽样\n<|id|>72<|type|>title<|page|>7<|box|>276 51 293 191<|content|>8.3 检验项目\n<|id|>82<|type|>title<|page|>7<|box|>470 51 488 254<|content|>8.4 检验结果的判定\n<|id|>83<|type|>title<|page|>7<|box|>490 51 507 254<|content|>8.4.1 性能检验规定\n<|id|>85<|type|>title<|page|>7<|box|>550 51 566 294<|content|>8.4.2 外观质量检验规定\n<|id|>87<|type|>title<|page|>7<|box|>587 54 604 400<|content|>8.4.2.2 幅宽超过 4m 至少两人检验。\n<|id|>90<|type|>title<|page|>7<|box|>667 57 682 200<|content|>8.5 复检规定\n<|id|>91<|type|>title<|page|>7<|box|>685 60 702 277<|content|>8.5.1 外观质量的复检\n<|id|>93<|type|>title<|page|>7<|box|>743 60 760 220<|content|>8.5.2 性能复检\n<|id|>95<|type|>title<|page|>7<|box|>832 60 849 300<|content|>9 标志、包装、运输和贮存\n<|id|>96<|type|>title<|page|>7<|box|>860 60 877 160<|content|>9.1 标志\n<|id|>100<|type|>title<|page|>8<|box|>122 60 137 160<|content|>9.2 包装\n<|id|>105<|type|>title<|page|>8<|box|>239 62 254 222<|content|>9.3 运输与贮存",
+    "raw_response": "<|src_id|>47<|tgt_id|>44\n<|src_id|>50<|tgt_id|>48\n<|src_id|>53<|tgt_id|>51\n<|src_id|>58<|tgt_id|>55\n<|src_id|>63<|tgt_id|>61\n<|src_id|>66<|tgt_id|>64",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 64
+        }
+    ]
+}

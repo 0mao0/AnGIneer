@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 3,
+    "range": [
+        160,
+        207
+    ],
+    "pages": [
+        161,
+        162,
+        191,
+        192,
+        196,
+        201,
+        205,
+        207
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>686<|page|>161<|box|>567 67 579 203<|content|>SECTIONS II THROUGH IX\n<|id|>687<|page|>161<|box|>601 65 664 427<|content|>1/ Positions of nonbanking business concerns in th... majority-owned partnerships and subsidiaries only\n<|id|>714<|page|>162<|box|>505 75 530 441<|content|>Two basic kinds of financial statements are called...Department Circular No. ... and they are published\n<|id|>715<|page|>162<|box|>165 565 215 931<|content|>in the Treasury Bulletin. ... Statements of income...ngs are required for business-type activities only\n<|id|>816<|page|>191<|box|>93 260 108 693<|content|>Table GA-1-2. ... - Statements of Income and Retained Earnings\n<|id|>818<|page|>192<|box|>46 267 60 775<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FUNDS\n<|id|>834<|page|>196<|box|>330 38 340 439<|content|>3/ Represents the Cooley loan program established pursuant to the\n<|id|>838<|page|>196<|box|>400 50 410 439<|content|>to partially reimburse the Corporation for net realized losses\n<|id|>837<|page|>196<|box|>390 38 402 455<|content|>8/ Includes restoration of capital by the Department of the Treasury\n<|id|>839<|page|>196<|box|>210 540 228 963<|content|>sustained but not previously reimbursed as provided by an act approved Nov. ... 829)\n<|id|>847<|page|>196<|box|>315 519 323 917<|content|>15/ Represents interest expense on public debt borrowings from the\n<|id|>851<|page|>196<|box|>383 524 409 956<|content|>Source: ... 966, Revised\n<|id|>872<|page|>201<|box|>85 362 98 594<|content|>Section III - Trust Funds\n<|id|>873<|page|>201<|box|>113 439 125 523<|content|>Footnotes\n<|id|>905<|page|>205<|box|>72 369 85 600<|content|>Section III - Trust Funds\n<|id|>906<|page|>205<|box|>98 294 112 634<|content|>Table GA-III-7. ... - Unemployment Trust Fund\n<|id|>919<|page|>207<|box|>500 24 510 448<|content|>Note: ... This fund was established by the National Service Life Insurance\n<|id|>921<|page|>207<|box|>492 501 502 641<|content|>* Less than \\$500,000. ... * Less than \\$500,000",
+    "raw_response": "<|src_id|>714<|tgt_id|>715\n<|src_id|>834<|tgt_id|>838\n<|src_id|>837<|tgt_id|>839",
+    "parsed": [
+        {
+            "src_id": 714,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 834,
+            "tgt_id": 838
+        },
+        {
+            "src_id": 837,
+            "tgt_id": 839
+        }
+    ]
+}

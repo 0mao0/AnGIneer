@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 166 123 830<|content|>UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF\n<|id|>2<|page|>1<|box|>358 145 412 851<|content|>DECLARATION OF PETER VASSILIEV IN SUPPORT OF PLAIN\n<|id|>5<|page|>1<|box|>513 140 530 629<|content|>I. INTRODUCTION AND DECLARANT IDENTIFICATION\n<|id|>11<|page|>2<|box|>186 140 203 491<|content|>II. BACKGROUND OF THE LITIGATION\n<|id|>17<|page|>3<|box|>89 140 106 591<|content|>III. THE RELEVANT REQUESTS FOR PRODUCTION\n<|id|>18<|page|>3<|box|>121 142 138 406<|content|>A. Request for Production No. 22\n<|id|>21<|page|>3<|box|>422 142 439 403<|content|>B. Request for Production No. 23\n<|id|>24<|page|>3<|box|>669 140 685 405<|content|>C. Request for Production No. 31\n<|id|>27<|page|>4<|box|>148 142 166 542<|content|>IV. HELIOS'S RESPONSES AND PRODUCTION\n<|id|>28<|page|>4<|box|>181 143 198 303<|content|>A. Initial Responses\n<|id|>31<|page|>4<|box|>436 142 455 308<|content|>B. The Privilege Log\n<|id|>41<|page|>5<|box|>347 140 364 439<|content|>V. MEET-AND-CONFER EFFORTS\n<|id|>42<|page|>5<|box|>378 140 395 521<|content|>A. Initial Correspondence — December 12, 2025\n<|id|>46<|page|>5<|box|>782 142 800 514<|content|>B. Telephone Conference — December 19, 2025\n<|id|>52<|page|>6<|box|>637 140 655 455<|content|>C. Follow-Up Letter — January 8, 2026\n<|id|>56<|page|>7<|box|>138 140 157 467<|content|>D. Helios's Response — January 15, 2026\n<|id|>63<|page|>7<|box|>585 140 602 416<|content|>E. Exhaustion of Meet-and-Confer\n<|id|>66<|page|>8<|box|>89 140 106 594<|content|>VI. ANALYSIS OF THE CHALLENGED DOCUMENTS\n<|id|>67<|page|>8<|box|>121 140 138 679<|content|>A. The 34 Challenged Documents Are Primarily Busin\n<|id|>71<|page|>8<|box|>709 142 726 527<|content|>B. Documents Shared with Third-Party Investors\n<|id|>76<|page|>9<|box|>526 140 542 638<|content|>C. Board Presentations with Mixed Business and Leg\n<|id|>79<|page|>9<|box|>838 142 854 480<|content|>D. Internal Emails Shared Beyond Counsel\n<|id|>82<|page|>10<|box|>277 140 294 647<|content|>VII. RELEVANCE OF THE 34 CHALLENGED DOCUMENTS\n<|id|>89<|page|>11<|box|>186 140 203 754<|content|>VIII. THE PROTECTIVE ORDER PROVIDES ADEQUATE SAFEG\n<|id|>93<|page|>11<|box|>638 140 657 341<|content|>IX. LIST OF EXHIBITS\n<|id|>101<|page|>12<|box|>318 140 335 294<|content|>X. CONCLUSION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>21<|level|>3\n<|id|>24<|level|>3\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>31<|level|>3\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>46<|level|>3\n<|id|>52<|level|>3\n<|id|>56<|level|>3\n<|id|>63<|level|>3\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>71<|level|>3\n<|id|>76<|level|>3\n<|id|>79<|level|>3\n<|id|>82<|level|>2\n<|id|>89<|level|>2\n<|id|>93<|level|>2\n<|id|>101<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        }
+    ]
+}

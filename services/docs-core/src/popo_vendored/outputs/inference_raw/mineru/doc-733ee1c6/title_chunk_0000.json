@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 405 119 593<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 212 152 784<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>9<|page|>1<|box|>434 140 450 321<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>304 140 321 477<|content|>II. Background and Transaction Structure\n<|id|>15<|page|>2<|box|>334 140 352 361<|content|>A. Parties and Relationship\n<|id|>25<|page|>3<|box|>489 140 506 558<|content|>B. Key Financial Terms Relevant to Transfer Pricin\n<|id|>35<|page|>4<|box|>664 140 681 491<|content|>III. Applicable Transfer Pricing Framework\n<|id|>36<|page|>4<|box|>694 140 712 383<|content|>A. U.S. Transfer Pricing Rules\n<|id|>43<|page|>5<|box|>609 140 626 442<|content|>B. OECD Transfer Pricing Guidelines\n<|id|>53<|page|>6<|box|>390 140 407 480<|content|>C. German Transfer Pricing Requirements\n<|id|>58<|page|>7<|box|>90 140 107 785<|content|>IV. Transfer Pricing Methodology: Comparable Uncon\n<|id|>59<|page|>7<|box|>121 140 138 395<|content|>A. Selection of the CUP Method\n<|id|>64<|page|>7<|box|>619 140 637 354<|content|>B. Comparability Analysis\n<|id|>71<|page|>8<|box|>565 140 582 346<|content|>C. Benchmarking Results\n<|id|>76<|page|>9<|box|>90 140 107 403<|content|>D. Adjustments and Refinements\n<|id|>83<|page|>10<|box|>90 140 107 583<|content|>V. MAC Schedule and Ramp-Up Pricing Considerations\n<|id|>95<|page|>11<|box|>223 140 239 477<|content|>VI. Consistency with EU Competition Law\n<|id|>101<|page|>11<|box|>833 140 849 483<|content|>VII. Withholding Tax and VAT Interaction\n<|id|>108<|page|>13<|box|>90 140 107 553<|content|>VIII. Documentation Requirements and Compliance\n<|id|>109<|page|>13<|box|>121 140 138 326<|content|>A. U.S. Documentation\n<|id|>114<|page|>13<|box|>710 140 728 357<|content|>B. German Documentation\n<|id|>118<|page|>14<|box|>257 142 273 331<|content|>C. Ongoing Monitoring\n<|id|>124<|page|>14<|box|>717 142 734 576<|content|>IX. Coordination with Caldwell & Pryce Advisory LL\n<|id|>130<|page|>15<|box|>580 140 598 478<|content|>X. Risk Assessment and Recommendations\n<|id|>131<|page|>15<|box|>612 142 628 339<|content|>A. Transfer Pricing Risk\n<|id|>132<|page|>15<|box|>635 142 652 397<|content|>Overall Risk Assessment: LOW.\n<|id|>138<|page|>16<|box|>157 140 175 330<|content|>B. Potential Challenges\n<|id|>150<|page|>17<|box|>669 140 686 264<|content|>XI. Conclusion\n<|id|>158<|page|>18<|box|>377 142 392 233<|content|>Enclosure:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>25<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>43<|level|>3\n<|id|>53<|level|>3\n<|id|>58<|level|>2\n<|id|>59<|level|>3\n<|id|>64<|level|>3\n<|id|>71<|level|>3\n<|id|>76<|level|>3\n<|id|>83<|level|>2\n<|id|>95<|level|>2\n<|id|>101<|level|>2\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>114<|level|>3\n<|id|>118<|level|>3\n<|id|>124<|level|>2\n<|id|>130<|level|>2\n<|id|>131<|level|>3\n<|id|>132<|level|>-1\n<|id|>138<|level|>3\n<|id|>150<|level|>2\n<|id|>158<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        }
+    ]
+}

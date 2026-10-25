@@ -1,0 +1,231 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1k2g33hh\\input\\pdfs\\doc-c9a9839b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-1k2g33hh\\enriched\\doc-c9a9839b.json",
+    "contd_output": "<|src_id|>79<|tgt_id|>80\n<|src_id|>162<|tgt_id|>163",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>10<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>27<|level|>3\n<|id|>35<|level|>3\n<|id|>39<|level|>3\n<|id|>42<|level|>2\n<|id|>43<|level|>3\n<|id|>49<|level|>3\n<|id|>56<|level|>3\n<|id|>65<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>90<|level|>3\n<|id|>91<|level|>4\n<|id|>110<|level|>5\n<|id|>133<|level|>5\n<|id|>137<|level|>4\n<|id|>144<|level|>4\n<|id|>160<|level|>3\n<|id|>175<|level|>2\n<|id|>176<|level|>3\n<|id|>181<|level|>3\n<|id|>185<|level|>2\n<|id|>186<|level|>3\n<|id|>195<|level|>3\n<|id|>200<|level|>3\n<|id|>208<|level|>3\n<|id|>216<|level|>2\n<|id|>220<|level|>2\n<|id|>222<|level|>3\n<|id|>224<|level|>3\n<|id|>226<|level|>3\n<|id|>234<|level|>3",
+    "image_output": "<|src_id|>33<|tgt_id|>27\n<|src_id|>178<|tgt_id|>176\n<|src_id|>179<|tgt_id|>176\n<|src_id|>217<|tgt_id|>216\n<|src_id|>218<|tgt_id|>216",
+    "contd_label": [
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 110,
+            "level": 5
+        },
+        {
+            "id": 133,
+            "level": 5
+        },
+        {
+            "id": 137,
+            "level": 4
+        },
+        {
+            "id": 144,
+            "level": 4
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 224,
+            "level": 3
+        },
+        {
+            "id": 226,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 33,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 216
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 178,
+            "table2_idx": 179,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "\"Substantially zero leakage\"",
+                    "No measurable gas leak under",
+                    "References Apex's proposed",
+                    "Yes",
+                    "Moderate — combined with"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "('105, Cl. 4)",
+                    "standard clinical operating pressures up to the specified threshold",
+                    "numerical boundary",
+                    "",
+                    "pressure discrepancy, undermines Cl. 4"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 217,
+            "table2_idx": 218,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Receive and review internal working draft of",
+                    "February 25, 2025",
+                    "Bauer / Vassiliev / Delgado"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Dr. Ostrowski's rebuttal report; provide substantive comments and revisions",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

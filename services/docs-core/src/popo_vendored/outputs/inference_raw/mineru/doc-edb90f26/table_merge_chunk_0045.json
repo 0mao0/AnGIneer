@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 45,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=23, 涵洞、通道', 'rowspan=5, 混凝土涵管预制、安装', 'rowspan=5, 混凝土涵管节段', '混凝土强度', '△', '▲', '▲', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=23, 涵洞、通道', 'rowspan=12, 混凝土涵管预制、安装', 'rowspan=5, 混凝土涵管节段', '内径', '△', '▲', '▲', '']]\n",
+    "raw_response": "[1, 1, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 310,
+    "table2_idx": 311
+}

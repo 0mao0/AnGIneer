@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        46,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>439<|page|>46<|box|>90 142 107 483<|content|>Appendix D — List of Prior Art References\n<|id|>445<|page|>48<|box|>90 140 107 490<|content|>Appendix E — Glossary of Technical Terms",
+    "raw_response": "<|id|>439<|level|>1\n<|id|>445<|level|>1",
+    "parsed": [
+        {
+            "id": 439,
+            "level": 1
+        },
+        {
+            "id": 445,
+            "level": 1
+        }
+    ]
+}

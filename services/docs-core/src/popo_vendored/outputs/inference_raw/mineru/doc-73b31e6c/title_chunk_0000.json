@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 104 784<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>1<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|page|>1<|box|>242 140 258 504<|content|>Via Sundial Data Systems and Electronic Mail\n<|id|>13<|page|>1<|box|>804 140 821 704<|content|>I. EXECUTIVE SUMMARY OF THE MANAGEMENT FEE WAIVER\n<|id|>19<|page|>2<|box|>648 142 665 470<|content|>II. DETAILED FACTUAL NARRATIVE\n<|id|>20<|page|>2<|box|>679 142 696 557<|content|>A. Fund Structure and Management Fee Framework\n<|id|>30<|page|>3<|box|>685 140 702 545<|content|>B. The Waiver Election Mechanism Under the LPA\n<|id|>41<|page|>5<|box|>286 140 303 553<|content|>C. Economic Substance and Genuine Downside Risk\n<|id|>48<|page|>6<|box|>109 183 126 442<|content|>• Priya Venkatesh: $48.6 million\n<|id|>56<|page|>6<|box|>718 140 734 434<|content|>D. Contemporaneous Documentation\n<|id|>62<|page|>7<|box|>575 140 593 364<|content|>E. Calculation Methodology\n<|id|>68<|page|>8<|box|>489 140 506 808<|content|>III. LEGAL FRAMEWORK AND DISTINCTION FROM ABUSIVE\n<|id|>69<|page|>8<|box|>520 142 537 591<|content|>A. IRC § 707(a)(2)(A) — Disguised Payments for Ser\n<|id|>80<|page|>9<|box|>457 142 474 531<|content|>B. Application to Ironside's Waiver Arrangement\n<|id|>89<|page|>10<|box|>646 140 662 674<|content|>C. Distinction from Abusive Fee Waiver / Conversio\n<|id|>100<|page|>12<|box|>258 140 276 491<|content|>IV. INDEX OF ENCLOSED DOCUMENTS\n<|id|>121<|page|>13<|box|>737 140 753 408<|content|>V. RESERVATION OF RIGHTS\n<|id|>131<|page|>14<|box|>597 140 614 261<|content|>VI. CLOSING",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>6<|level|>-1\n<|id|>13<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>30<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>-1\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>1\n<|id|>69<|level|>2\n<|id|>80<|level|>2\n<|id|>89<|level|>2\n<|id|>100<|level|>1\n<|id|>121<|level|>1\n<|id|>131<|level|>1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        }
+    ]
+}

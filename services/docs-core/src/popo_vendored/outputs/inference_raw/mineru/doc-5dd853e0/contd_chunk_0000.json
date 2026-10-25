@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        3,
+        7,
+        8,
+        9,
+        12,
+        13,
+        14,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 733 152 854<|content|>March 28, 2023\n<|id|>2<|page|>1<|box|>159 155 176 841<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>3<|page|>1<|box|>186 142 204 462<|content|>Via Personal Delivery and Electronic Mail\n<|id|>4<|page|>1<|box|>212 140 229 805<|content|>Ms. ... Fonseca 1847 Coldwater Canyon Drive Beverly Hills, California 90210\n<|id|>5<|page|>1<|box|>237 174 292 854<|content|>Re: ... 1035-00005 Mediation Preparation — Session Scheduled April 12, 2023\n<|id|>6<|page|>1<|box|>300 142 318 274<|content|>Dear Marguerite,\n<|id|>22<|page|>3<|box|>89 181 125 854<|content|>• Meridian Mutual Life Insurance Co. ... and\n<|id|>24<|page|>3<|box|>166 140 222 856<|content|>The contestants have not formally contested your e...u directly as the named beneficiary on each policy\n<|id|>73<|page|>7<|box|>801 140 893 857<|content|>The legal framework governing this estate is extre...perty — as we contend they should be — you inherit\n<|id|>74<|page|>8<|box|>90 140 127 854<|content|>Teodoro's entire community property share, and the...from community assets under the intestacy statutes\n<|id|>85<|page|>8<|box|>872 174 907 854<|content|>(c) There must have been adequate financial disclo..., or an express waiver of such disclosure; ... and\n<|id|>87<|page|>9<|box|>152 140 244 857<|content|>The photocopy produced by the contestants fails ev...ot do so based on the evidence currently available\n<|id|>127<|page|>12<|box|>849 174 886 857<|content|>4. ... 200906410337), Pacific Rim Narrative Partners LLC (Filing\n<|id|>128<|page|>13<|box|>89 210 125 854<|content|>No. ... 201912360185)\n<|id|>150<|page|>14<|box|>782 174 801 727<|content|>(c) Securing the bulk of the investment accounts and financial assets; ... and\n<|id|>152<|page|>14<|box|>872 140 907 854<|content|>A settlement that achieves these objectives while ... and emotional burden should not be underestimated\n<|id|>177<|page|>17<|box|>277 210 314 852<|content|>Calderwood & Harkness LLP 350 South Grand Avenue, ...es, California 90071 Telephone: ... (213) 555-7200\n<|id|>178<|page|>17<|box|>323 140 431 854<|content|>Marguerite, I want to close this letter by express...g of both the strengths and the risks of your case",
+    "raw_response": "<|src_id|>73<|tgt_id|>74\n<|src_id|>127<|tgt_id|>128",
+    "parsed": [
+        {
+            "src_id": 73,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 128
+        }
+    ]
+}

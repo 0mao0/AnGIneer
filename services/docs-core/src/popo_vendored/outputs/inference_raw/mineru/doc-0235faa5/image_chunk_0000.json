@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 403 119 591<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>135 212 152 784<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>8<|type|>title<|page|>1<|box|>369 140 386 343<|content|>I. Purpose and Summary\n<|id|>13<|type|>title<|page|>2<|box|>90 140 107 403<|content|>II. Proposed Client Identification\n<|id|>14<|type|>title<|page|>2<|box|>121 140 138 290<|content|>A. Primary Client\n<|id|>18<|type|>title<|page|>2<|box|>556 142 574 375<|content|>B. Controlling Equity Holder\n<|id|>20<|type|>title<|page|>2<|box|>768 140 784 607<|content|>III. Search Parameters — Entities and Individuals\n<|id|>22<|type|>title<|page|>3<|box|>90 140 106 326<|content|>A. Client and Affiliates\n<|id|>27<|type|>title<|page|>3<|box|>441 140 459 295<|content|>B. Acquired Entity\n<|id|>29<|type|>title<|page|>3<|box|>625 140 641 722<|content|>C. Entities with Arrangements Under Review (Potent\n<|id|>33<|type|>title<|page|>4<|box|>231 140 248 529<|content|>D. Other Law Firms, Advisors, and Third Parties\n<|id|>39<|type|>title<|page|>4<|box|>583 143 599 330<|content|>E. Individuals Checked\n<|id|>54<|type|>title<|page|>5<|box|>450 140 468 434<|content|>IV. Conflict Database Search Results\n<|id|>56<|type|>title<|page|>5<|box|>580 140 598 328<|content|>A. Entity-Level Results\n<|id|>57<|type|>table<|page|>5<|box|>628 143 902 852<|content|>None\n<|id|>58<|type|>table<|page|>6<|box|>89 143 897 852<|content|>None\n<|id|>59<|type|>table<|page|>7<|box|>89 143 791 852<|content|>None\n<|id|>60<|type|>title<|page|>7<|box|>830 142 845 357<|content|>B. Individual-Level Results\n<|id|>62<|type|>table<|page|>7<|box|>877 143 898 854<|content|>None\n<|id|>63<|type|>table<|page|>8<|box|>89 143 858 854<|content|>None\n<|id|>65<|type|>title<|page|>9<|box|>167 140 184 781<|content|>V. Relationship with Westbrook Hale LLP — Co-Couns\n<|id|>72<|type|>title<|page|>10<|box|>90 140 107 480<|content|>VI. Potential Issues Identified and Analysis\n<|id|>74<|type|>title<|page|>10<|box|>184 140 200 607<|content|>A. Covenant Health Plans Inc. — Historical Represe\n<|id|>80<|type|>title<|page|>10<|box|>763 140 779 643<|content|>B. Meridian Diagnostics LLC — Adverse Interest Con\n<|id|>85<|type|>title<|page|>11<|box|>338 140 354 700<|content|>C. Pinnacle Laboratory Services Inc. — Adverse Int\n<|id|>92<|type|>title<|page|>12<|box|>138 140 157 535<|content|>D. Ridgeline Capital — Dual Client Consideration\n<|id|>99<|type|>title<|page|>13<|box|>167 140 184 413<|content|>VII. Engagement Team Clearance\n<|id|>106<|type|>title<|page|>13<|box|>632 140 648 395<|content|>VIII. Conclusion and Clearance\n<|id|>115<|type|>title<|page|>14<|box|>356 140 373 377<|content|>IX. Document Retention Note",
+    "raw_response": "<|src_id|>57<|tgt_id|>56\n<|src_id|>58<|tgt_id|>56\n<|src_id|>59<|tgt_id|>56\n<|src_id|>62<|tgt_id|>60\n<|src_id|>63<|tgt_id|>60",
+    "parsed": [
+        {
+            "src_id": 57,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 60
+        }
+    ]
+}

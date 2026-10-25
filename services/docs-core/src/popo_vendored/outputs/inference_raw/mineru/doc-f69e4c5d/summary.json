@@ -1,0 +1,85 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4u5uc_7g\\input\\pdfs\\doc-f69e4c5d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4u5uc_7g\\enriched\\doc-f69e4c5d.json",
+    "contd_output": "<|src_id|>35<|tgt_id|>36",
+    "title_output": "<|id|>28<|level|>1\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>49<|level|>1\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>59<|level|>1\n<|id|>62<|level|>1",
+    "image_output": "<|src_id|>10<|tgt_id|>3\n<|src_id|>23<|tgt_id|>3\n<|src_id|>24<|tgt_id|>3\n<|src_id|>61<|tgt_id|>59",
+    "contd_label": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        }
+    ],
+    "title_label": [
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 10,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 59
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 23,
+            "table2_idx": 24,
+            "upper_row_ss": [
+                [
+                    "Common Stock, par value $0.01 per",
+                    "RGC",
+                    "The Nasdaq Stock Market LLC"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "share",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

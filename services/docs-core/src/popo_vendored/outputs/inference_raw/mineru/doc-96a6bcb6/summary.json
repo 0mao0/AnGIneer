@@ -1,0 +1,175 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_febqwu3\\input\\pdfs\\doc-96a6bcb6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_febqwu3\\enriched\\doc-96a6bcb6.json",
+    "contd_output": "<|src_id|>62<|tgt_id|>63\n<|src_id|>89<|tgt_id|>90",
+    "title_output": "<|id|>9<|level|>1\n<|id|>17<|level|>1\n<|id|>28<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>2\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>49<|level|>2\n<|id|>53<|level|>2\n<|id|>59<|level|>1\n<|id|>61<|level|>2\n<|id|>64<|level|>2\n<|id|>74<|level|>1\n<|id|>84<|level|>1\n<|id|>88<|level|>1\n<|id|>94<|level|>1\n<|id|>100<|level|>1",
+    "image_output": "<|src_id|>14<|tgt_id|>9\n<|src_id|>15<|tgt_id|>9\n<|src_id|>41<|tgt_id|>40\n<|src_id|>44<|tgt_id|>43\n<|src_id|>47<|tgt_id|>46\n<|src_id|>51<|tgt_id|>49\n<|src_id|>54<|tgt_id|>53\n<|src_id|>86<|tgt_id|>84\n<|src_id|>122<|tgt_id|>100\n<|src_id|>123<|tgt_id|>100",
+    "contd_label": [
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 14,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 100
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 14,
+            "table2_idx": 15,
+            "upper_row_ss": [
+                [
+                    "Lender",
+                    "Commitment",
+                    "Pro Rata Share"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Kensington National Bank, N.A.",
+                    "$96,000,000",
+                    "40%"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 122,
+            "table2_idx": 123,
+            "upper_row_ss": [
+                [
+                    "6",
+                    "Fairwater Sun Belt VI LLC",
+                    "Peachtree Crossings",
+                    "Alpharetta",
+                    "GA",
+                    "Security Deed",
+                    "Cancellation of Security"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Deed"
+                ]
+            ]
+        }
+    ]
+}

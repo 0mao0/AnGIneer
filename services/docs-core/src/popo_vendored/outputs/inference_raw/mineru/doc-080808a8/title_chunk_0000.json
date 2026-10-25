@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>430 184 467 813<|content|>PLAINTIFF'S SUR-REPLY LETTER BRIEF IN FURTHER OPPO\n<|id|>7<|page|>1<|box|>651 142 667 312<|content|>Dear Justice Torrance:\n<|id|>12<|page|>2<|box|>439 140 474 843<|content|>I. Vantor's Martin Act Argument Was Improperly Rai\n<|id|>25<|page|>3<|box|>638 140 654 743<|content|>II. The Martin Act Does Not Preempt Ironside's Com\n<|id|>26<|page|>3<|box|>669 140 685 480<|content|>A. Overview of the Martin Act Framework\n<|id|>31<|page|>4<|box|>393 140 410 694<|content|>B. The Governing Standard: The Post-*Assured Guara\n<|id|>37<|page|>5<|box|>422 140 439 841<|content|>C. Ironside's Claims Are Classic Common-Law Fraud\n<|id|>45<|page|>6<|box|>811 140 827 665<|content|>D. This Dispute Does Not Arise in a Securities-Tra\n<|id|>51<|page|>7<|box|>784 140 801 532<|content|>E. Vantor's Cited Authorities Are Distinguishable\n<|id|>54<|page|>8<|box|>263 140 280 424<|content|>None of those features is present here:\n<|id|>60<|page|>8<|box|>799 140 835 823<|content|>III. Even if the Martin Act Had Any Relevance, It\n<|id|>65<|page|>9<|box|>659 140 676 442<|content|>IV. Conclusion and Request for Relief\n<|id|>75<|page|>10<|box|>520 408 537 586<|content|>Respectfully submitted,\n<|id|>76<|page|>10<|box|>545 140 561 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>82<|page|>10<|box|>681 375 696 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>7<|level|>-1\n<|id|>12<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>31<|level|>3\n<|id|>37<|level|>3\n<|id|>45<|level|>3\n<|id|>51<|level|>3\n<|id|>54<|level|>-1\n<|id|>60<|level|>2\n<|id|>65<|level|>2\n<|id|>75<|level|>-1\n<|id|>76<|level|>-1\n<|id|>82<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        }
+    ]
+}

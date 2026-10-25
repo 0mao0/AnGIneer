@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>213 730 229 854<|content|>August 18, 2024\n<|id|>4<|page|>1<|box|>238 140 275 854<|content|>TO: ... Natalie Reiner, SVP, Corporate Development, Penterra Pharmaceuticals Corp\n<|id|>5<|page|>1<|box|>282 140 318 852<|content|>FROM: ... Megan Chu, Associate, Calderwood & Harkn...erek Okonkwo, Associate, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>327 140 344 702<|content|>REVIEWED BY: ... Oliver Mackenzie, Partner, Calderwood & Harkness LLP\n<|id|>7<|page|>1<|box|>353 140 388 854<|content|>RE: ... 1(b) of the Stock Purchase Agreement dated June 10, 2024\n<|id|>8<|page|>1<|box|>397 142 412 361<|content|>MATTER NO. ... 1018-00008\n<|id|>9<|page|>1<|box|>422 140 500 854<|content|>This memorandum is a privileged and confidential a...re may result in a waiver of applicable privileges\n<|id|>25<|page|>3<|box|>828 140 902 856<|content|>As is standard for a Phase II trial of this nature...eviews and pre-specified interim analyses. ... The\n<|id|>26<|page|>4<|box|>90 140 143 856<|content|>DMC's charter authorizes it to recommend, among ot...n of enrollment, or early termination of the trial\n<|id|>35<|page|>4<|box|>752 138 898 857<|content|>August 14, 2024 (Wednesday): ... Priya Chandrasekaran (Chief\n<|id|>36<|page|>5<|box|>90 140 162 854<|content|>Scientific Officer), and Dr. ... We understand, ba...st instance, who then escalates to the CEO and CSO\n<|id|>49<|page|>6<|box|>321 210 377 854<|content|>(v) any litigation, investigation, or proceeding c...red to be disclosed pursuant to Section 3. ... and\n<|id|>51<|page|>6<|box|>446 140 464 375<|content|>Section 5. ... 1(b) further provides\n<|id|>165<|page|>21<|box|>342 181 359 504<|content|>• Section 5. ... 1(b) — Notification Covenants\n<|id|>170<|page|>21<|box|>439 140 494 854<|content|>Appendix C: ... Holbrook (General Counsel, Penterr...alie Reiner (SVP, Corporate Development, Penterra)\n<|id|>166<|page|>21<|box|>362 183 378 601<|content|>• Section 1. ... 1 — Definition of \"Material Adverse Effect\"\n<|id|>167<|page|>21<|box|>381 183 398 699<|content|>• Section 7. ... 2(a) — Representations and Warranties Closing Condition\n<|id|>168<|page|>21<|box|>401 183 417 673<|content|>• Section 7. ... 2(b) — No Material Adverse Effect Closing Condition\n<|id|>169<|page|>21<|box|>420 183 436 529<|content|>• Section 8. ... 1(d) — Buyer's Termination Right",
+    "raw_response": "<|src_id|>25<|tgt_id|>26\n<|src_id|>35<|tgt_id|>36\n<|src_id|>49<|tgt_id|>51",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 51
+        }
+    ]
+}

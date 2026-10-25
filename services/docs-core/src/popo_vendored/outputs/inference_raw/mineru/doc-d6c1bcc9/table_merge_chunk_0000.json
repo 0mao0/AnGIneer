@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Butler Plant', '250 Industrial Boulevard, Butler, PA 16001', '285,000 sq. ft. on 22.5 acres', 'Owned (being acquired from AVP)', 'Full-line corrugated packaging manufacturing facility; includes corrugator, flexo-folder gluers, rotary die cutters, specialty gluers, unitizers, and ancillary equipment; raw materials inventory (containerboard, inks, adhesives, starch); finished']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'goods inventory; office furnishings']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 50,
+    "table2_idx": 51
+}

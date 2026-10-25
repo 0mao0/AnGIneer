@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        19
+    ],
+    "pages": [
+        3,
+        4,
+        6,
+        7,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>29<|page|>3<|box|>833 179 906 856<|content|>• Dunmore Trading International Ltd. ... CL-4827, ... trading operations out of the Dubai International\n<|id|>30<|page|>4<|box|>89 210 125 854<|content|>Financial Centre. ... DTI engages in physical and ...ng of crude oil, refined products, and natural gas\n<|id|>57<|page|>6<|box|>828 140 902 857<|content|>Mr. ... Renshaw stated that he could not recall precisely when the Company first began transacting with\n<|id|>58<|page|>7<|box|>90 140 164 854<|content|>Petronova, but he believed it was sometime around ...nal scrutiny based on what he saw in those reports\n<|id|>168<|page|>19<|box|>541 183 558 496<|content|>• Victoria Chambers, Responsible Partner\n<|id|>174<|page|>19<|box|>659 140 713 854<|content|>This memorandum is not to be shared with the inter...ut the prior written approval of Victoria Chambers\n<|id|>169<|page|>19<|box|>561 183 577 429<|content|>• Howard Quinn, Billing Partner\n<|id|>170<|page|>19<|box|>580 183 595 377<|content|>• Conrad Reeves, Partner\n<|id|>171<|page|>19<|box|>599 183 614 393<|content|>• Liam Donahue, Associate\n<|id|>172<|page|>19<|box|>619 183 635 517<|content|>• Jasmine Thornton, Lead Associate (author)\n<|id|>173<|page|>19<|box|>638 183 655 531<|content|>• Nicholas Ferreira, Associate (co-interviewer)",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>57<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        }
+    ]
+}

@@ -1,0 +1,210 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-hjd719fg\\input\\pdfs\\doc-0579ed65.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-hjd719fg\\enriched\\doc-0579ed65.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>23<|level|>3\n<|id|>28<|level|>3\n<|id|>34<|level|>3\n<|id|>39<|level|>2\n<|id|>41<|level|>3\n<|id|>43<|level|>4\n<|id|>56<|level|>4\n<|id|>62<|level|>3\n<|id|>66<|level|>3\n<|id|>71<|level|>2\n<|id|>72<|level|>3\n<|id|>77<|level|>3\n<|id|>81<|level|>3\n<|id|>85<|level|>2\n<|id|>86<|level|>3\n<|id|>90<|level|>3\n<|id|>92<|level|>4\n<|id|>96<|level|>4\n<|id|>98<|level|>3\n<|id|>102<|level|>3\n<|id|>110<|level|>3\n<|id|>116<|level|>2\n<|id|>118<|level|>3\n<|id|>120<|level|>3\n<|id|>125<|level|>3\n<|id|>127<|level|>3\n<|id|>136<|level|>2\n<|id|>146<|level|>2\n<|id|>159<|level|>2\n<|id|>166<|level|>2\n<|id|>177<|level|>2\n<|id|>196<|level|>2",
+    "image_output": "<|src_id|>74<|tgt_id|>72\n<|src_id|>78<|tgt_id|>77\n<|src_id|>93<|tgt_id|>92\n<|src_id|>94<|tgt_id|>92\n<|src_id|>95<|tgt_id|>92\n<|src_id|>112<|tgt_id|>110",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 56,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 4
+        },
+        {
+            "id": 96,
+            "level": 4
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 74,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 110
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 93,
+            "table2_idx": 94,
+            "upper_row_ss": [
+                [
+                    "Timekeeper",
+                    "Hours",
+                    "Rate",
+                    "Total"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Douglas Carmichael (Partner)",
+                    "312",
+                    "$1,150/hr",
+                    "$358,800"
+                ]
+            ]
+        }
+    ]
+}

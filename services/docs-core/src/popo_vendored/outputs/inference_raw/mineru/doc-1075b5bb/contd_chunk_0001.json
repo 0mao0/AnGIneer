@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        52,
+        99
+    ],
+    "pages": [
+        53,
+        85,
+        95,
+        98
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>194<|page|>53<|box|>497 0 525 451<|content|>Includes \\$2,421 million of the 7-3/4% notes and \\...subscriptions allotted could be made in cash or in\n<|id|>195<|page|>53<|box|>524 0 550 458<|content|>Treasury bonds or notes maturing on the issue date...ds or notes maturing on issue date of new security\n<|id|>206<|page|>53<|box|>366 482 384 945<|content|>25/ Includes \\$1,457 million of the 5% notes and \\...ed to Federal Reserve banks and Government account\n<|id|>219<|page|>53<|box|>649 482 659 689<|content|>p Preliminary. ... r Revised\n<|id|>207<|page|>53<|box|>378 482 394 970<|content|>5-3/4% notes allotted to Federal Reserve banks and...f Treasury bills consisting of an additional \\$201\n<|id|>302<|page|>85<|box|>123 0 319 432<|content|>The monthly Treasury Survey of Ownership covers se...ished for banks and insurance companies in the May\n<|id|>303<|page|>85<|box|>123 503 180 970<|content|>1941 Treasury Bulletin, for corporations and savin...nd local governments in the February 1962 Bulletin\n<|id|>338<|page|>95<|box|>802 0 831 424<|content|>Treasury series based on reoffering yields of new ...s Investors Service. ... Currently 5 years of call\n<|id|>339<|page|>95<|box|>766 472 794 953<|content|>3/ Index of new issue reoffering yields on Aa 20 y...kly series are not available prior to January 1970\n<|id|>361<|page|>98<|box|>904 0 916 450<|content|>5/ Principally the International Bank for Reconstruction and Develop-\n<|id|>362<|page|>98<|box|>714 516 726 827<|content|>ment and the Inter-American Development Bank. ... ment and the Inter-American Development Bank",
+    "raw_response": "<|src_id|>194<|tgt_id|>195\n<|src_id|>302<|tgt_id|>303\n<|src_id|>361<|tgt_id|>362",
+    "parsed": [
+        {
+            "src_id": 194,
+            "tgt_id": 195
+        },
+        {
+            "src_id": 302,
+            "tgt_id": 303
+        },
+        {
+            "src_id": 361,
+            "tgt_id": 362
+        }
+    ]
+}

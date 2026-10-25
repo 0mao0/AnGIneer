@@ -1,0 +1,84 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        49,
+        68
+    ],
+    "pages": [
+        50,
+        52,
+        53,
+        55,
+        56,
+        60,
+        62,
+        63,
+        65,
+        68
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>579<|page|>50<|box|>493 107 510 194<|content|>条文说明\n<|id|>582<|page|>50<|box|>704 104 722 324<|content|>9.2 沟和管的水力计算\n<|id|>609<|page|>52<|box|>800 147 817 236<|content|>条文说明\n<|id|>611<|page|>52<|box|>892 124 911 515<|content|>9.2.5 沟和管的允许流速应符合以下规定：\n<|id|>617<|page|>53<|box|>381 112 400 315<|content|>9.3 泄水口水力计算\n<|id|>621<|page|>53<|box|>844 115 861 203<|content|>条文说明\n<|id|>629<|page|>55<|box|>170 107 187 194<|content|>条文说明\n<|id|>639<|page|>55<|box|>527 107 543 194<|content|>条文说明\n<|id|>650<|page|>56<|box|>165 114 183 201<|content|>条文说明\n<|id|>655<|page|>56<|box|>569 110 587 371<|content|>9.4 地下排水设施水力计算\n<|id|>699<|page|>60<|box|>425 127 444 436<|content|>9.4.6 渗井计算应符合以下规定：\n<|id|>721<|page|>62<|box|>171 117 195 724<|content|>附录 A 各种排水构造物用圬工材料强度要求\n<|id|>723<|page|>63<|box|>173 124 198 821<|content|>附录 B 各种沟管的水力半径和过水断面面积计算表\n<|id|>726<|page|>65<|box|>175 114 200 658<|content|>附录 C 开口式泄水口截流率计算诺谟图\n<|id|>732<|page|>68<|box|>172 105 195 381<|content|>本规范用词用语说明",
+    "raw_response": "<|id|>579<|level|>3\n<|id|>582<|level|>2\n<|id|>609<|level|>3\n<|id|>611<|level|>3\n<|id|>617<|level|>2\n<|id|>621<|level|>3\n<|id|>629<|level|>3\n<|id|>639<|level|>3\n<|id|>650<|level|>3\n<|id|>655<|level|>2\n<|id|>699<|level|>3\n<|id|>721<|level|>1\n<|id|>723<|level|>1\n<|id|>726<|level|>1\n<|id|>732<|level|>1",
+    "parsed": [
+        {
+            "id": 579,
+            "level": 3
+        },
+        {
+            "id": 582,
+            "level": 2
+        },
+        {
+            "id": 609,
+            "level": 3
+        },
+        {
+            "id": 611,
+            "level": 3
+        },
+        {
+            "id": 617,
+            "level": 2
+        },
+        {
+            "id": 621,
+            "level": 3
+        },
+        {
+            "id": 629,
+            "level": 3
+        },
+        {
+            "id": 639,
+            "level": 3
+        },
+        {
+            "id": 650,
+            "level": 3
+        },
+        {
+            "id": 655,
+            "level": 2
+        },
+        {
+            "id": 699,
+            "level": 3
+        },
+        {
+            "id": 721,
+            "level": 1
+        },
+        {
+            "id": 723,
+            "level": 1
+        },
+        {
+            "id": 726,
+            "level": 1
+        },
+        {
+            "id": 732,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        27
+    ],
+    "pages": [
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        14,
+        16,
+        17,
+        24,
+        25,
+        26,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>12<|page|>2<|box|>794 174 887 857<|content|>(3) Potentially, a Bureau of Industry and Security...trol Classification Number (\"ECCN\") 6A003. ... and\n<|id|>14<|page|>3<|box|>171 140 281 856<|content|>This memorandum should be read in conjunction with...dreou, which is expected on or about June 16, 2025\n<|id|>60<|page|>7<|box|>859 174 895 856<|content|>Scenario 1 — USML Classification Confirmed (Primar...in its entirety, is controlled under USML Category\n<|id|>61<|page|>8<|box|>90 174 181 854<|content|>XII(d), the licensing pathway described in Section...morandum and is considered the most likely outcome\n<|id|>82<|page|>9<|box|>824 140 898 857<|content|>Intermediary Disclosure. ... as WAL's exclusive in...ion number, and the identity of its CEO, Theodoros\n<|id|>83<|page|>10<|box|>90 140 143 854<|content|>Papadimitriou. ... 5% commission rate and the esti...000 based on the net contract value of $74,600,000\n<|id|>129<|page|>14<|box|>638 174 674 854<|content|>(e) Drakon's agreement to submit to screening agai... periodic basis and prior to each payment; ... and\n<|id|>131<|page|>14<|box|>744 140 781 854<|content|>Calderwood & Harkness LLP is prepared to coordinat...iance provisions within the intermediary agreement\n<|id|>150<|page|>16<|box|>752 138 898 857<|content|>The Castellan/Andreou/Semichastny Red Flag. ... Th...nd WAL engaged Northbridge Forensic Advisory Group\n<|id|>151<|page|>17<|box|>89 140 127 854<|content|>LLC (Senior Director Samuel Kreindler) to conduct ...... The Northbridge report is due on June 16, 2025\n<|id|>215<|page|>24<|box|>852 140 907 856<|content|>2. ... until the Northbridge Forensic Advisory Gro...nced Due Diligence report on Castellan and Yiannis\n<|id|>216<|page|>25<|box|>90 174 126 854<|content|>Andreou has been received (due June 16, 2025) and ...AL's compliance team and Calderwood & Harkness LLP\n<|id|>225<|page|>25<|box|>816 140 907 857<|content|>11. ... DSP-5 and\n<|id|>226<|page|>26<|box|>89 174 145 854<|content|>TAA filing, license receipt, each shipment, and ea...iance procedures and documented for audit purposes\n<|id|>231<|page|>26<|box|>362 174 417 854<|content|>(3) A potential BIS individual validated license f...DDTC Commodity Jurisdiction determination; ... and\n<|id|>233<|page|>26<|box|>487 140 599 856<|content|>The regulatory timeline is achievable for a Q2 202...necessitate an adjustment to the delivery schedule\n<|id|>237<|page|>26<|box|>829 174 864 854<|content|>Sandra Tung, Partner (Responsible Partner) Calderw...Washington, DC 20004 Telephone: ... (202) 555-7112\n<|id|>238<|page|>26<|box|>875 176 891 475<|content|>Email: ... com\n<|id|>239<|page|>27<|box|>90 174 126 854<|content|>Garrett Simmons, Lead Associate Calderwood & Harkn...Washington, DC 20004 Telephone: ... (202) 555-7148\n<|id|>240<|page|>27<|box|>133 176 152 509<|content|>Email: ... com\n<|id|>243<|page|>27<|box|>261 181 279 851<|content|>• Janet Pfeiffer, General Counsel & Chief Compliance Officer, Whitmore Aerospace LLC\n<|id|>248<|page|>27<|box|>395 140 440 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...the work-product doctrine. ... All rights reserved\n<|id|>244<|page|>27<|box|>281 181 315 852<|content|>• David Sung, Director, Export Controls & Trade Co...nce and Empowered Official, Whitmore Aerospace LLC\n<|id|>245<|page|>27<|box|>319 183 353 854<|content|>• Raymond Ochoa, Vice President, International Business Development, Whitmore Aerospace LLC\n<|id|>246<|page|>27<|box|>357 183 375 671<|content|>• Sandra Tung, Partner, Calderwood & Harkness LLP (file copy)\n<|id|>247<|page|>27<|box|>376 183 393 813<|content|>• Oliver Mackenzie, Partner, Calderwood & Harkness LLP (billing partner file copy)",
+    "raw_response": "<|src_id|>60<|tgt_id|>61\n<|src_id|>82<|tgt_id|>83\n<|src_id|>150<|tgt_id|>151\n<|src_id|>215<|tgt_id|>216\n<|src_id|>225<|tgt_id|>226",
+    "parsed": [
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 215,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 225,
+            "tgt_id": 226
+        }
+    ]
+}

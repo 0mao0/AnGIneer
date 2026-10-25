@@ -1,0 +1,51 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 405 119 593<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>135 212 152 784<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>9<|type|>title<|page|>1<|box|>434 140 450 321<|content|>I. Executive Summary\n<|id|>14<|type|>title<|page|>2<|box|>304 140 321 477<|content|>II. Background and Transaction Structure\n<|id|>15<|type|>title<|page|>2<|box|>334 140 352 361<|content|>A. Parties and Relationship\n<|id|>25<|type|>title<|page|>3<|box|>489 140 506 558<|content|>B. Key Financial Terms Relevant to Transfer Pricin\n<|id|>28<|type|>table<|page|>3<|box|>698 143 900 852<|content|>None\n<|id|>29<|type|>table<|page|>4<|box|>88 143 119 852<|content|>None\n<|id|>35<|type|>title<|page|>4<|box|>664 140 681 491<|content|>III. Applicable Transfer Pricing Framework\n<|id|>36<|type|>title<|page|>4<|box|>694 140 712 383<|content|>A. U.S. Transfer Pricing Rules\n<|id|>43<|type|>title<|page|>5<|box|>609 140 626 442<|content|>B. OECD Transfer Pricing Guidelines\n<|id|>53<|type|>title<|page|>6<|box|>390 140 407 480<|content|>C. German Transfer Pricing Requirements\n<|id|>58<|type|>title<|page|>7<|box|>90 140 107 785<|content|>IV. Transfer Pricing Methodology: Comparable Uncon\n<|id|>59<|type|>title<|page|>7<|box|>121 140 138 395<|content|>A. Selection of the CUP Method\n<|id|>64<|type|>title<|page|>7<|box|>619 140 637 354<|content|>B. Comparability Analysis\n<|id|>71<|type|>title<|page|>8<|box|>565 140 582 346<|content|>C. Benchmarking Results\n<|id|>73<|type|>table<|page|>8<|box|>667 143 743 852<|content|>None\n<|id|>76<|type|>title<|page|>9<|box|>90 140 107 403<|content|>D. Adjustments and Refinements\n<|id|>83<|type|>title<|page|>10<|box|>90 140 107 583<|content|>V. MAC Schedule and Ramp-Up Pricing Considerations\n<|id|>95<|type|>title<|page|>11<|box|>223 140 239 477<|content|>VI. Consistency with EU Competition Law\n<|id|>101<|type|>title<|page|>11<|box|>833 140 849 483<|content|>VII. Withholding Tax and VAT Interaction\n<|id|>108<|type|>title<|page|>13<|box|>90 140 107 553<|content|>VIII. Documentation Requirements and Compliance\n<|id|>109<|type|>title<|page|>13<|box|>121 140 138 326<|content|>A. U.S. Documentation\n<|id|>114<|type|>title<|page|>13<|box|>710 140 728 357<|content|>B. German Documentation\n<|id|>118<|type|>title<|page|>14<|box|>257 142 273 331<|content|>C. Ongoing Monitoring\n<|id|>124<|type|>title<|page|>14<|box|>717 142 734 576<|content|>IX. Coordination with Caldwell & Pryce Advisory LL\n<|id|>126<|type|>table<|page|>14<|box|>821 145 905 852<|content|>None\n<|id|>127<|type|>table<|page|>15<|box|>89 143 369 852<|content|>None\n<|id|>130<|type|>title<|page|>15<|box|>580 140 598 478<|content|>X. Risk Assessment and Recommendations\n<|id|>131<|type|>title<|page|>15<|box|>612 142 628 339<|content|>A. Transfer Pricing Risk\n<|id|>132<|type|>title<|page|>15<|box|>635 142 652 397<|content|>Overall Risk Assessment: LOW.\n<|id|>138<|type|>title<|page|>16<|box|>157 140 175 330<|content|>B. Potential Challenges\n<|id|>150<|type|>title<|page|>17<|box|>669 140 686 264<|content|>XI. Conclusion\n<|id|>158<|type|>title<|page|>18<|box|>377 142 392 233<|content|>Enclosure:",
+    "raw_response": "<|src_id|>28<|tgt_id|>25\n<|src_id|>29<|tgt_id|>25\n<|src_id|>73<|tgt_id|>71\n<|src_id|>126<|tgt_id|>124\n<|src_id|>127<|tgt_id|>124",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 124
+        }
+    ]
+}

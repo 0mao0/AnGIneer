@@ -1,0 +1,159 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rj4vtcqy\\input\\pdfs\\doc-45aad960.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rj4vtcqy\\enriched\\doc-45aad960.json",
+    "contd_output": "<|src_id|>60<|tgt_id|>61\n<|src_id|>120<|tgt_id|>121",
+    "title_output": "<|id|>2<|level|>1\n<|id|>10<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>25<|level|>4\n<|id|>35<|level|>4\n<|id|>41<|level|>3\n<|id|>42<|level|>4\n<|id|>48<|level|>4\n<|id|>57<|level|>3\n<|id|>58<|level|>4\n<|id|>64<|level|>4\n<|id|>70<|level|>3\n<|id|>71<|level|>4\n<|id|>78<|level|>4\n<|id|>86<|level|>2\n<|id|>87<|level|>3\n<|id|>97<|level|>3\n<|id|>101<|level|>3\n<|id|>104<|level|>2\n<|id|>107<|level|>3\n<|id|>114<|level|>2\n<|id|>115<|level|>3\n<|id|>123<|level|>3\n<|id|>127<|level|>3\n<|id|>133<|level|>2\n<|id|>142<|level|>2",
+    "image_output": "<|src_id|>105<|tgt_id|>104\n<|src_id|>125<|tgt_id|>123\n<|src_id|>126<|tgt_id|>123",
+    "contd_label": [
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 121
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 4
+        },
+        {
+            "id": 35,
+            "level": 4
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 4
+        },
+        {
+            "id": 78,
+            "level": 4
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 105,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 123
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 125,
+            "table2_idx": 126,
+            "upper_row_ss": [
+                [
+                    "\"Doesn't the low attestation usage rate suggest employees were deterred from reporting?\"",
+                    "\"Not necessarily, Your Honor. The low usage rate is equally consistent with employees actually taking compliant breaks and having no reason to report. The Okafor declaration confirms that only 14 formal complaints regarding meal periods were filed during the entire class period — which suggests that employees who had genuine concerns did come forward through available channels. The low attestation rate more likely reflects that most employees had compliant meal periods and had no occasion to use the feature. Drawing the inference that employees were deterred requires exactly the kind of individualized inquiry into each employee's"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "subjective experience that defeats class treatment.\""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 133 836<|content|>CALDERWOOD & HARKNESS LLP 55 Bishopsgate London EC...LLP 12 Essex Street London WC2R 3AA United Kingdom\n<|id|>1<|page|>1<|box|>142 748 157 854<|content|>June 17, 2022\n<|id|>2<|page|>1<|box|>167 140 204 854<|content|>The Secretary-General International Centre for Set...18 H Street, N. ... 20433 United States of America\n<|id|>3<|page|>1<|box|>212 140 248 852<|content|>Re: ... ARB/22/11) — Joint Request for Suspension of Proceedings\n<|id|>4<|page|>1<|box|>256 140 273 415<|content|>Dear Madam/Mr. ... Secretary-General,\n<|id|>19<|page|>2<|box|>753 174 828 857<|content|>(d) Ministerial Resolution No. ... and\n<|id|>21<|page|>3<|box|>90 140 199 857<|content|>Prior to the filing of the Request for Arbitration...eriod expired on April 14, 2022 without resolution\n<|id|>24<|page|>3<|box|>332 174 387 854<|content|>(ii) USD 312 million in lost future profits, calcu...for the remainder of its thirty-year term; ... and\n<|id|>26<|page|>3<|box|>458 140 532 854<|content|>The foregoing quantum is subject to further refine...uantum at any appropriate stage of the proceedings\n<|id|>36<|page|>4<|box|>535 174 571 854<|content|>(b) reactivate the proceedings and resume the proc...the establishment of a procedural calendar; ... or\n<|id|>38<|page|>4<|box|>604 140 660 854<|content|>In the event that the Parties are unable to agree ...ly and request the reactivation of the proceedings\n<|id|>45<|page|>5<|box|>179 176 196 593<|content|>(d) the quantum of damages claimed by the Claimant; ... or\n<|id|>47<|page|>5<|box|>229 140 340 856<|content|>Without limiting the generality of the foregoing, ...he Centre or of any tribunal constituted hereunder\n<|id|>54<|page|>5<|box|>789 174 825 854<|content|>Vivienne St. ... Claire Partner Calderwood & Harkness LLP 55 Bishopsgate London EC2N 3AH United Kingdom\n<|id|>55<|page|>5<|box|>834 176 851 295<|content|>With copies to: ... With copies to\n<|id|>58<|page|>6<|box|>114 174 133 854<|content|>Charles Winterbottom QC Partner Harcastle Fenton LLP 12 Essex Street London WC2R\n<|id|>59<|page|>6<|box|>135 176 151 346<|content|>3AA United Kingdom\n<|id|>60<|page|>6<|box|>160 176 178 295<|content|>With copies to: ... With copies to\n<|id|>61<|page|>6<|box|>186 174 222 854<|content|>Dr. ... Alejandro Bernal Quiroga Ortega & Bernal, ...ión 310 Edificio República Puerto Valdés, Valderia\n<|id|>62<|page|>6<|box|>229 140 265 854<|content|>The Parties will notify the Secretary-General prom...e event of any change to the above contact details\n<|id|>67<|page|>6<|box|>503 142 520 267<|content|>Yours faithfully,\n<|id|>68<|page|>6<|box|>529 140 546 540<|content|>For the Claimant, Dunmore Energy Holdings Ltd. ... For the Claimant, Dunmore Energy Holdings Ltd\n<|id|>69<|page|>6<|box|>554 140 570 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>70<|page|>6<|box|>573 143 589 251<|content|>By: ... By\n<|id|>71<|page|>6<|box|>590 142 604 339<|content|>Name: ... Claire\n<|id|>72<|page|>6<|box|>607 143 622 246<|content|>Title: ... Partner\n<|id|>73<|page|>6<|box|>625 142 638 294<|content|>Date: ... June 17, 2022\n<|id|>74<|page|>6<|box|>641 142 657 503<|content|>For the Respondent, the Republic of Valderia: ... For the Respondent, the Republic of Valderia\n<|id|>75<|page|>6<|box|>666 143 681 367<|content|>HARCASTLE FENTON LLP\n<|id|>76<|page|>6<|box|>685 143 700 253<|content|>By: ... By\n<|id|>77<|page|>6<|box|>700 142 718 392<|content|>Name: ... Charles Winterbottom QC\n<|id|>78<|page|>6<|box|>719 143 734 246<|content|>Title: ... Partner\n<|id|>79<|page|>6<|box|>736 143 752 294<|content|>Date: ... June 17, 2022\n<|id|>80<|page|>6<|box|>756 142 768 171<|content|>cc: ... cc\n<|id|>83<|page|>6<|box|>830 176 848 689<|content|>Dr. ... Renata Villamizar Ochoa, Attorney General, Republic of Valderia\n<|id|>84<|page|>6<|box|>856 176 875 808<|content|>Ambassador Diego Fuentes Castillo, Minister of Foreign Affairs, Republic of Valderia\n<|id|>85<|page|>6<|box|>882 176 898 794<|content|>Dr. ... Gabriel Castaño Herrera, Castaño Herrera & Asociados, Puerto Valdés, Valderia\n<|id|>86<|page|>7<|box|>90 176 107 792<|content|>Dr. ... Alejandro Bernal Quiroga, Ortega & Bernal, Abogados, Puerto Valdés, Valderia",
+    "raw_response": "<|src_id|>19<|tgt_id|>21\n<|src_id|>58<|tgt_id|>59\n<|src_id|>85<|tgt_id|>86",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        }
+    ]
+}

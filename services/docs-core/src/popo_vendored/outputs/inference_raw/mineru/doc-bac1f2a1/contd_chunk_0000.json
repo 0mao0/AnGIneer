@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>136 200 154 797<|content|>Certificate Delivered Pursuant to Section [●] of the Underwriting Agreement\n<|id|>2<|page|>1<|box|>162 143 234 852<|content|>Underwriting Agreement dated as of [●], 2026 (the ...tbridge Securities LLC is acting as Representative\n<|id|>3<|page|>1<|box|>242 140 319 854<|content|>NOTE: ... Bracketed references to section numbers ...ed upon finalization of the Underwriting Agreement\n<|id|>11<|page|>1<|box|>866 174 904 857<|content|>[If Kestrel Capital Partners AG: ... ] Kestrel Cap...stered in Glenrock Assurance, Switzerland, selling\n<|id|>12<|page|>2<|box|>90 174 126 854<|content|>4,300,000 Ordinary Shares of the Company, correspo...d on the ADS Ratio of two Ordinary Shares per ADS)\n<|id|>39<|page|>3<|box|>834 140 907 857<|content|>The Selling Shareholder has full right, power, and...contemplated by the Transaction Documents. ... The\n<|id|>40<|page|>4<|box|>90 140 164 856<|content|>Selling Shareholder has all requisite corporate or...ral Underwriters or the Depositary on their behalf\n<|id|>48<|page|>4<|box|>835 174 891 857<|content|>(b) If Kestrel Capital Partners AG: ... 7% of the ...anding Ordinary Shares of the Company prior to the\n<|id|>49<|page|>5<|box|>89 174 126 854<|content|>Offering). ... Following the sale of the Selling S...Shareholder will retain 16,555,000 Ordinary Shares\n<|id|>92<|page|>9<|box|>436 174 508 854<|content|>(c) any forms, certifications, or other documentat...ederal Republic of Germany, as applicable; ... and\n<|id|>94<|page|>9<|box|>561 140 633 854<|content|>The Selling Shareholder is aware of, and has consu... the German Income Tax Act (Einkommensteuergesetz)\n<|id|>104<|page|>10<|box|>378 176 396 696<|content|>(e) Bähr Stein Rechtsanwälte, as German counsel to the Company; ... and\n<|id|>106<|page|>10<|box|>429 140 503 854<|content|>This Certificate and the certifications, represent... made by or on behalf of any such person or entity\n<|id|>114<|page|>10<|box|>779 142 795 339<|content|>Name: ... Margarethe Wendt\n<|id|>115<|page|>10<|box|>796 142 814 477<|content|>Title: ... Managing Director (Geschäftsführerin)\n<|id|>116<|page|>10<|box|>814 143 830 261<|content|>Date: ... [●], 2026\n<|id|>117<|page|>10<|box|>830 143 845 214<|content|>Address: ... Address\n<|id|>118<|page|>10<|box|>847 142 883 797<|content|>Königsallee 60 40212 Düsseldorf Federal Republic o...NATURE PAGE — KESTREL CAPITAL PARTNERS AG VERSION]\n<|id|>119<|page|>11<|box|>89 140 126 854<|content|>IN WITNESS WHEREOF, the undersigned has duly execu...eholder Certificate as of the date set forth below\n<|id|>120<|page|>11<|box|>133 140 151 642<|content|>KESTREL CAPITAL PARTNERS AKTIENGESELLSCHAFT\n<|id|>121<|page|>11<|box|>152 143 169 254<|content|>By: ... By\n<|id|>122<|page|>11<|box|>169 142 186 323<|content|>Name: ... Henrik Sørensen\n<|id|>123<|page|>11<|box|>186 142 203 323<|content|>Title: ... Managing Partner\n<|id|>124<|page|>11<|box|>204 142 220 264<|content|>Date: ... [●], 2026\n<|id|>125<|page|>11<|box|>220 142 236 215<|content|>Address: ... Address\n<|id|>136<|page|>12<|box|>878 140 910 854<|content|>3. ... Executed originals of this Certificate shal... United States counsel to the Company) at or prior\n<|id|>137<|page|>12<|box|>916 143 930 385<|content|>Draft — Subject to Attorney-Client Privilege\n<|id|>138<|page|>13<|box|>90 176 119 852<|content|>to the Closing Date (target: ... Delivery may be m...DF), with originals to follow by overnight courier",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>39<|tgt_id|>40\n<|src_id|>48<|tgt_id|>49\n<|src_id|>136<|tgt_id|>138",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 138
+        }
+    ]
+}

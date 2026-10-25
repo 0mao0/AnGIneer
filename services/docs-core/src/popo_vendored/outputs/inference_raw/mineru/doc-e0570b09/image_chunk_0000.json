@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>352 140 369 341<|content|>I. Purpose and Authority\n<|id|>9<|type|>title<|page|>1<|box|>773 140 792 787<|content|>II. Background — The Underlying Government Contrac\n<|id|>13<|type|>table<|page|>2<|box|>231 143 382 852<|content|>None\n<|id|>16<|type|>title<|page|>2<|box|>666 140 683 553<|content|>III. Description of the DCMA Cost-Overrun Finding\n<|id|>25<|type|>title<|page|>3<|box|>755 140 772 566<|content|>IV. Description of the HDDS Indemnification Demand\n<|id|>34<|type|>title<|page|>4<|box|>554 140 571 477<|content|>V. WAL's Position Regarding the Demand\n<|id|>44<|type|>title<|page|>5<|box|>737 142 753 565<|content|>VI. Pre-Litigation Status and Anticipated Proceedi\n<|id|>53<|type|>title<|page|>6<|box|>619 140 636 429<|content|>VII. Assessment of Financial Impact\n<|id|>57<|type|>title<|page|>7<|box|>204 140 222 330<|content|>VIII. Insurance Tender\n<|id|>62<|type|>title<|page|>7<|box|>477 140 494 320<|content|>IX. Counsel Retention\n<|id|>65<|type|>title<|page|>7<|box|>715 140 734 338<|content|>X. Reservation of Rights\n<|id|>67<|type|>title<|page|>8<|box|>90 140 107 622<|content|>XI. Availability for Further Discussion; Supplemen\n<|id|>72<|type|>title<|page|>8<|box|>457 140 473 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>13<|tgt_id|>9",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 9
+        }
+    ]
+}

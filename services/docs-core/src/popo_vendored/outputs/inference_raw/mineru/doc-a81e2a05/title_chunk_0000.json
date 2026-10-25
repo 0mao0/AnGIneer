@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>178 140 195 480<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>7<|page|>1<|box|>334 140 351 364<|content|>I. Introduction and Purpose\n<|id|>12<|page|>2<|box|>148 140 167 573<|content|>II. Acknowledgment of the Servicing-Data Discrepan\n<|id|>21<|page|>3<|box|>285 140 303 640<|content|>III. Root Cause Identification — Clearview Loan Se\n<|id|>29<|page|>4<|box|>612 140 628 442<|content|>IV. Clearview's Preliminary Response\n<|id|>40<|page|>5<|box|>752 140 768 447<|content|>V. SBF's Ongoing Remediation Efforts\n<|id|>51<|page|>7<|box|>90 140 107 465<|content|>VI. Response to Suspension of Marketing\n<|id|>56<|page|>7<|box|>784 140 801 351<|content|>VII. Reservation of Rights\n<|id|>64<|page|>8<|box|>590 140 607 439<|content|>VIII. Request for Continued Dialogue",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>21<|level|>1\n<|id|>29<|level|>1\n<|id|>40<|level|>1\n<|id|>51<|level|>1\n<|id|>56<|level|>1\n<|id|>64<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        }
+    ]
+}

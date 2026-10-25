@@ -1,0 +1,43 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        41
+    ],
+    "pages": [
+        1,
+        12,
+        15,
+        16,
+        20,
+        22,
+        23,
+        29,
+        30,
+        34,
+        35,
+        40,
+        41
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 119 854<|content|>PRELIMINARY CONFIDENTIAL OFFERING MEMORANDUM — SUBJECT TO COMPLETION — DATED FEBRUARY 14, 2026\n<|id|>1<|page|>1<|box|>127 140 188 854<|content|>The information in this Preliminary Confidential O...ring Memorandum and the related Pricing Term Sheet\n<|id|>6<|page|>1<|box|>402 142 420 627<|content|>Expected CUSIP: ... US082651AB73\n<|id|>7<|page|>1<|box|>429 142 446 377<|content|>Maturity Date: ... March 1, 2036\n<|id|>8<|page|>1<|box|>454 140 510 854<|content|>Fixed Rate Period: ... From the issue date to but ...ember 1 of each year, commencing September 1, 2026\n<|id|>93<|page|>12<|box|>224 147 260 854<|content|>• funding the continued development and expansion ... is a key strategic priority for the Bank; ... and\n<|id|>95<|page|>12<|box|>409 140 501 856<|content|>Pending the application of the net proceeds as des... broad discretion over the use of the net proceeds\n<|id|>124<|page|>15<|box|>857 140 893 854<|content|>BRB operates a network of 82 full-service banking ...branches in Connecticut, New Jersey, Pennsylvania,\n<|id|>125<|page|>16<|box|>89 140 145 854<|content|>Massachusetts, and the greater Washington, D. ... ...ne banking portal, and mobile banking applications\n<|id|>133<|page|>16<|box|>662 150 698 844<|content|>Belmont Ridge Bank, National Association (National...king association; ... 18742) (ISSUER OF THE NOTES)\n<|id|>134<|page|>16<|box|>712 140 729 777<|content|>Management. ... The following is a summary of the principal executive officers of BRB\n<|id|>165<|page|>20<|box|>455 174 493 854<|content|>(d) not be redeemable at the option of the issuer ...ate without the prior approval of the OCC; ... and\n<|id|>167<|page|>20<|box|>561 140 655 856<|content|>The Notes have been structured to satisfy each of these eligibility criteria. ... \"\n<|id|>188<|page|>22<|box|>746 138 875 857<|content|>Floating Rate Period. ... If any Floating Rate Int...nt of interest will be made on the next succeeding\n<|id|>189<|page|>23<|box|>89 140 126 854<|content|>Business Day, and additional interest will accrue ...to but excluding such next succeeding Business Day\n<|id|>249<|page|>29<|box|>820 140 893 854<|content|>The determination of whether an instrument constitutes debt or equity for U. ... (ii) whether the\n<|id|>250<|page|>30<|box|>90 138 162 854<|content|>Notes bear a fixed or determinable rate of interes..... and (vi) the debt-to-equity ratio of the issuer\n<|id|>288<|page|>34<|box|>724 174 907 857<|content|>\"THIS NOTE HAS NOT BEEN REGISTERED UNDER THE SECUR...WHICH IT HAS PURCHASED THIS NOTE, THAT IT WILL NOT\n<|id|>289<|page|>35<|box|>89 174 345 857<|content|>OFFER, SELL, OR OTHERWISE TRANSFER THIS NOTE, EXCE...E WITH ANY APPLICABLE STATE SECURITIES LAWS. ... \"\n<|id|>291<|page|>35<|box|>419 174 547 854<|content|>(a) file with the SEC either (i) a registration st...se within 365 days after the Closing Date; ... and\n<|id|>293<|page|>35<|box|>617 140 746 856<|content|>If BRB fails to meet the applicable filing or effe...es become freely tradable under the Securities Act\n<|id|>332<|page|>40<|box|>89 176 143 854<|content|>Diane K. ... (212) 555-7400\n<|id|>333<|page|>40<|box|>152 176 205 854<|content|>Email: ... (212) 555-7425\n<|id|>334<|page|>40<|box|>213 176 232 472<|content|>Email: ... com\n<|id|>349<|page|>41<|box|>474 183 491 593<|content|>• Consolidated Balance Sheet as of December 31, 2024\n<|id|>355<|page|>41<|box|>628 140 720 854<|content|>The financial statements listed above have been au...OCC or through the FFIEC's Central Data Repository\n<|id|>350<|page|>41<|box|>494 183 510 790<|content|>• Consolidated Statement of Income for the Fiscal Year Ended December 31, 2024\n<|id|>351<|page|>41<|box|>513 183 549 854<|content|>• Consolidated Statement of Comprehensive Income for the Fiscal Year Ended December 31, 2024\n<|id|>352<|page|>41<|box|>551 183 585 852<|content|>• Consolidated Statement of Changes in Equity for the Fiscal Year Ended December 31, 2024\n<|id|>353<|page|>41<|box|>589 183 606 820<|content|>• Consolidated Statement of Cash Flows for the Fiscal Year Ended December 31, 2024\n<|id|>354<|page|>41<|box|>609 183 625 522<|content|>• Notes to Consolidated Financial Statements",
+    "raw_response": "<|src_id|>124<|tgt_id|>125\n<|src_id|>188<|tgt_id|>189\n<|src_id|>249<|tgt_id|>250\n<|src_id|>288<|tgt_id|>289",
+    "parsed": [
+        {
+            "src_id": 124,
+            "tgt_id": 125
+        },
+        {
+            "src_id": 188,
+            "tgt_id": 189
+        },
+        {
+            "src_id": 249,
+            "tgt_id": 250
+        },
+        {
+            "src_id": 288,
+            "tgt_id": 289
+        }
+    ]
+}

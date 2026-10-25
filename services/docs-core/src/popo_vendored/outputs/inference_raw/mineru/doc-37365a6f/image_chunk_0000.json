@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        6
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>2<|box|>90 140 107 475<|content|>Enclosure of Counterpart Signature Pages\n<|id|>9<|type|>title<|page|>3<|box|>90 140 107 643<|content|>Confirmation of Financial Commitments and Payment\n<|id|>11<|type|>title<|page|>3<|box|>165 140 183 323<|content|>Civil Penalty Payment\n<|id|>13<|type|>title<|page|>3<|box|>311 140 329 423<|content|>Investigative Costs Reimbursement\n<|id|>15<|type|>title<|page|>3<|box|>494 140 510 364<|content|>Consumer Restitution Fund\n<|id|>17<|type|>title<|page|>3<|box|>750 142 766 375<|content|>Total Financial Commitment\n<|id|>19<|type|>table<|page|>3<|box|>815 143 906 852<|content|>None\n<|id|>20<|type|>table<|page|>4<|box|>88 143 119 852<|content|>None\n<|id|>22<|type|>title<|page|>4<|box|>212 140 229 540<|content|>Commencement of Compliance-Monitoring Period\n<|id|>25<|type|>title<|page|>4<|box|>598 140 614 419<|content|>Independent Compliance Reviewer\n<|id|>29<|type|>title<|page|>5<|box|>167 140 184 348<|content|>No Admission of Liability\n<|id|>31<|type|>title<|page|>5<|box|>325 140 344 380<|content|>Acknowledgment and Thanks\n<|id|>33<|type|>title<|page|>5<|box|>613 140 628 437<|content|>Contact Information and Availability\n<|id|>45<|type|>title<|page|>6<|box|>310 142 325 233<|content|>Enclosure:",
+    "raw_response": "<|src_id|>19<|tgt_id|>17\n<|src_id|>20<|tgt_id|>17",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        }
+    ]
+}

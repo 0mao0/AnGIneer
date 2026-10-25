@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>267 140 284 344<|content|>Closing Date: ... June 6, 2024\n<|id|>5<|page|>1<|box|>292 140 329 854<|content|>Capitalized terms used but not otherwise defined i...e meanings ascribed to such terms in the Agreement\n<|id|>19<|page|>2<|box|>734 174 825 856<|content|>(c) result in a breach of, constitute a default un...r any of its properties or assets is bound; ... or\n<|id|>21<|page|>3<|box|>90 138 200 856<|content|>No consent, approval, authorization, license, perm...have been obtained as set forth in Section 3 below\n<|id|>34<|page|>4<|box|>651 174 686 854<|content|>(a) minimum tangible net worth of not less than Five Hundred Million Dollars ($500,000,000); ... and\n<|id|>36<|page|>4<|box|>720 140 849 857<|content|>in each case, determined in accordance with genera...of the dates and for the periods indicated therein\n<|id|>35<|page|>4<|box|>694 176 713 751<|content|>(b) minimum liquid assets of not less than Fifty Million Dollars ($50,000,000),\n<|id|>50<|page|>6<|box|>832 176 849 663<|content|>(b) Leah Torrance, Senior Vice President, Asset Management; ... and\n<|id|>52<|page|>7<|box|>89 140 181 856<|content|>Each of the foregoing individuals is an employee o... for purposes of this Certificate or the Agreement\n<|id|>67<|page|>8<|box|>433 140 449 844<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST, a Maryland real estate investment trust\n<|id|>68<|page|>8<|box|>468 142 484 338<|content|>Name: ... Marcus Devereaux\n<|id|>69<|page|>8<|box|>484 142 501 473<|content|>Title: ... Executive Vice President, Acquisitions\n<|id|>70<|page|>8<|box|>502 143 518 287<|content|>Date: ... June 6, 2024\n<|id|>71<|page|>8<|box|>518 143 535 297<|content|>Address for Notices: ... Address for Notices\n<|id|>72<|page|>8<|box|>544 174 580 852<|content|>Fairwater Real Estate Investment Trust 7200 Chesapeake Parkway, Suite 1100 Columbia, Maryland 21044\n<|id|>73<|page|>8<|box|>589 176 604 516<|content|>Attention: ... David Elgin Park, General Counsel\n<|id|>74<|page|>8<|box|>606 176 623 383<|content|>Telephone: ... (410) 555-8200\n<|id|>75<|page|>8<|box|>632 176 648 419<|content|>Email: ... com\n<|id|>76<|page|>8<|box|>650 142 666 509<|content|>With a copy to (which shall not constitute notice)...With a copy to (which shall not constitute notice)\n<|id|>77<|page|>8<|box|>675 174 691 825<|content|>Calderwood & Harkness LLP 450 Park Avenue, 28th Floor New York, New York 10022\n<|id|>78<|page|>8<|box|>700 176 718 393<|content|>Attention: ... Douglas Fairchild\n<|id|>79<|page|>8<|box|>719 176 736 385<|content|>Telephone: ... (212) 555-4700\n<|id|>80<|page|>8<|box|>744 176 761 506<|content|>Email: ... com",
+    "raw_response": "<|src_id|>19<|tgt_id|>21\n<|src_id|>34<|tgt_id|>35",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        }
+    ]
+}

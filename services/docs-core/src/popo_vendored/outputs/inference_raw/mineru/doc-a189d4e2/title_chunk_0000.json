@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 361 133 635<|content|>CONSENT AND WAIVER\n<|id|>3<|page|>1<|box|>180 267 299 728<|content|>among CALLOWAY-BRIGGS RENEWABLES INC., as Borrower\n<|id|>10<|page|>1<|box|>753 447 771 547<|content|>RECITALS\n<|id|>11<|page|>1<|box|>780 140 797 246<|content|>WHEREAS:\n<|id|>17<|page|>2<|box|>849 140 866 330<|content|>Section 1 — Definitions\n<|id|>26<|page|>3<|box|>763 140 779 310<|content|>Section 2 — Consent\n<|id|>31<|page|>5<|box|>395 140 412 303<|content|>Section 3 — Waiver\n<|id|>34<|page|>6<|box|>150 140 167 454<|content|>Section 4 — Conditions to Effectiveness\n<|id|>43<|page|>7<|box|>250 140 265 624<|content|>Section 5 — Representations and Warranties of the\n<|id|>51<|page|>8<|box|>402 140 419 328<|content|>Section 6 — Covenants\n<|id|>58<|page|>9<|box|>359 140 376 460<|content|>Section 7 — Effect on Credit Agreement\n<|id|>63<|page|>10<|box|>90 140 107 473<|content|>Section 8 — Reaffirmation by Guarantors\n<|id|>70<|page|>10<|box|>598 140 614 354<|content|>Section 9 — Miscellaneous\n<|id|>89<|page|>12<|box|>203 380 219 617<|content|>ADMINISTRATIVE AGENT\n<|id|>94<|page|>12<|box|>299 441 314 555<|content|>BORROWER\n<|id|>99<|page|>12<|box|>393 344 409 651<|content|>GUARANTORS (REAFFIRMATION)\n<|id|>160<|page|>13<|box|>661 437 679 560<|content|>SCHEDULE A\n<|id|>161<|page|>13<|box|>688 370 705 625<|content|>Description of IPO Transactions\n<|id|>166<|page|>14<|box|>638 421 656 576<|content|>[End of Schedule A]",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>1\n<|id|>10<|level|>2\n<|id|>11<|level|>-1\n<|id|>17<|level|>2\n<|id|>26<|level|>2\n<|id|>31<|level|>2\n<|id|>34<|level|>2\n<|id|>43<|level|>2\n<|id|>51<|level|>2\n<|id|>58<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>89<|level|>2\n<|id|>94<|level|>2\n<|id|>99<|level|>2\n<|id|>160<|level|>2\n<|id|>161<|level|>3\n<|id|>166<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 3
+        }
+    ]
+}

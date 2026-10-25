@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        27
+    ],
+    "pages": [
+        5,
+        9,
+        10,
+        15,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>36<|page|>5<|box|>729 174 782 854<|content|>(b) Capitalized transaction costs (including due-d... upon closing of the Cascadia acquisition; ... and\n<|id|>38<|page|>5<|box|>835 140 907 854<|content|>Ironside's outside basis in its partnership intere... preparation of the Vehicle's tax year 2024 return\n<|id|>71<|page|>9<|box|>856 140 893 854<|content|>Organizational Expenses ($285,000). ... Organizati... incident to the creation of the partnership, (ii)\n<|id|>72<|page|>10<|box|>90 140 200 856<|content|>chargeable to a capital account, and (iii) of a ch...the month in which the partnership begins business\n<|id|>118<|page|>15<|box|>738 174 773 854<|content|>(b) Filing of a Certificate of Cancellation with t...rtificate of Limited Partnership (File No. ... and\n<|id|>120<|page|>15<|box|>827 140 882 856<|content|>In the Reactivation Scenario, the Vehicle would co...ss activities in other states (as discussed below)\n<|id|>232<|page|>27<|box|>763 142 779 419<|content|>Sylvia Hartwell Partner, Tax Practice\n<|id|>233<|page|>27<|box|>779 140 811 854<|content|>125 Broad Street, 44th Floor New York, NY 10004 Telephone: ... (212) 558-4127\n<|id|>234<|page|>27<|box|>813 142 829 467<|content|>Email: ... com\n<|id|>235<|page|>27<|box|>829 140 859 852<|content|>Prepared with the assistance of Theresa Kim, Lead ...Associate, Tax Practice, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>71<|tgt_id|>72",
+    "parsed": [
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        }
+    ]
+}

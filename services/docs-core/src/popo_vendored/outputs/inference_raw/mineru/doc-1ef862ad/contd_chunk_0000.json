@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>191 140 207 679<|content|>Calderwood & Harkness LLP 2000 McKinney Avenue, Suite 3400 Dallas, Texas 75201\n<|id|>4<|page|>1<|box|>214 143 229 294<|content|>Matter No. ... 1042-00004\n<|id|>5<|page|>1<|box|>237 148 273 848<|content|>This form is to be completed separately for each o...arnout Participants: ... [Insert Name of Employee]\n<|id|>11<|page|>1<|box|>631 140 723 854<|content|>WHEREAS, as a material condition and inducement to...Merger without such agreement by Employee; ... and\n<|id|>12<|page|>1<|box|>729 140 823 856<|content|>WHEREAS, Employee acknowledges and agrees that a p...t forth in the Merger Agreement and this Agreement\n<|id|>40<|page|>5<|box|>864 174 901 857<|content|>(b) Milestone 2 (representing fifty percent (50%) ... be deemed achieved, and the corresponding Earnout\n<|id|>41<|page|>6<|box|>90 174 273 857<|content|>Payments shall become payable to the eligible Foun...t modifications, and revenue recognition standards\n<|id|>46<|page|>6<|box|>867 174 902 854<|content|>(a) If Employee's employment terminates after the ...hether by voluntary resignation or termination for\n<|id|>47<|page|>7<|box|>89 174 143 856<|content|>Cause), Employee shall retain the right to receive...feit all rights to the Milestone 2 Earnout Payment\n<|id|>59<|page|>8<|box|>862 140 898 854<|content|>7. ... In the event of such a termination,\n<|id|>60<|page|>9<|box|>90 138 421 857<|content|>Employee shall be entitled to receive the followin...on agreement entered into between BCS and Employee\n<|id|>69<|page|>10<|box|>575 174 648 854<|content|>(e) Employee's continued refusal or failure to per...ness days) to cure such refusal or failure; ... or\n<|id|>71<|page|>10<|box|>700 140 810 856<|content|>For the avoidance of doubt, the determination of w...ate Employee's employment for Cause on such ground\n<|id|>110<|page|>17<|box|>787 138 898 857<|content|>14. ... BCS may freely assign this Agreement and a... or otherwise) or to any affiliate of BCS, without\n<|id|>111<|page|>18<|box|>90 140 162 854<|content|>Employee's consent; ... This Agreement shall inure...representatives, successors, and permitted assigns\n<|id|>114<|page|>18<|box|>332 174 349 846<|content|>Brightfield Cloud Services Inc. ... 4200 Westgrove Boulevard, Suite 1100 Irving, Texas 75038\n<|id|>115<|page|>18<|box|>359 176 375 480<|content|>Attn: ... Harold Ostrander, General Counsel\n<|id|>116<|page|>18<|box|>376 176 393 480<|content|>Email: ... com\n<|id|>117<|page|>18<|box|>393 176 410 303<|content|>If to Employee: ... If to Employee\n<|id|>118<|page|>18<|box|>419 176 436 604<|content|>[Insert Employee's Address] [Insert City, State, ZIP Code]\n<|id|>119<|page|>18<|box|>444 176 460 401<|content|>Email: ... [Insert Email Address]\n<|id|>120<|page|>18<|box|>462 176 479 571<|content|>With a copy to (during the transition period only)...With a copy to (during the transition period only)\n<|id|>121<|page|>18<|box|>487 176 503 816<|content|>Calderwood & Harkness LLP 2000 McKinney Avenue, Suite 3400 Dallas, Texas 75201\n<|id|>122<|page|>18<|box|>513 176 530 361<|content|>Attn: ... Beatrice Holloway\n<|id|>123<|page|>18<|box|>531 176 547 513<|content|>Email: ... com\n<|id|>124<|page|>18<|box|>547 140 584 854<|content|>Either party may change its address for notice pur...er party in accordance with this Section 14. ... 7\n<|id|>126<|page|>18<|box|>763 140 875 856<|content|>14. ... Employee shall be solely responsible for E... the compensation and payments received under this\n<|id|>127<|page|>19<|box|>90 140 126 854<|content|>Agreement, and BCS makes no representations or war... tax treatment of any such compensation or payment\n<|id|>134<|page|>19<|box|>566 142 580 323<|content|>Name: ... Dominic Ferraro\n<|id|>135<|page|>19<|box|>582 142 599 367<|content|>Title: ... Chief Executive Officer\n<|id|>136<|page|>19<|box|>599 142 616 290<|content|>Date: ... July 22, 2023\n<|id|>137<|page|>19<|box|>617 143 633 258<|content|>EMPLOYEE: ... EMPLOYEE",
+    "raw_response": "<|src_id|>40<|tgt_id|>41\n<|src_id|>46<|tgt_id|>47\n<|src_id|>59<|tgt_id|>60\n<|src_id|>110<|tgt_id|>111\n<|src_id|>126<|tgt_id|>127",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 127
+        }
+    ]
+}

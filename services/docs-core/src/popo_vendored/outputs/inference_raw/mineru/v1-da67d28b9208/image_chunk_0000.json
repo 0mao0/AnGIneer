@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>34 250 79 746<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION W\n<|id|>16<|type|>table<|page|>1<|box|>538 26 592 973<|content|>None\n<|id|>22<|type|>table<|page|>2<|box|>385 13 628 973<|content|>None\n<|id|>23<|type|>title<|page|>3<|box|>42 442 54 555<|content|>SIGNATURES\n<|id|>25<|type|>title<|page|>3<|box|>101 496 114 604<|content|>AMCOR PLC\n<|id|>28<|type|>title<|page|>4<|box|>36 348 48 648<|content|>SECOND SUPPLEMENTAL INDENTURE\n<|id|>30<|type|>title<|page|>4<|box|>119 457 132 540<|content|>RECITALS\n<|id|>36<|type|>title<|page|>4<|box|>381 442 394 555<|content|>ARTICLE ONE\n<|id|>41<|type|>title<|page|>5<|box|>328 17 341 189<|content|>Section 103. The Trustee.\n<|id|>43<|type|>title<|page|>5<|box|>387 439 400 557<|content|>ARTICLE TWO\n<|id|>44<|type|>title<|page|>5<|box|>411 383 424 612<|content|>Provisions of General Application\n<|id|>50<|type|>title<|page|>5<|box|>626 17 639 233<|content|>Section 203. Ef ect of Headings.\n<|id|>53<|type|>title<|page|>6<|box|>77 17 90 256<|content|>AMCOR FINANCE (USA), INC.\n<|id|>54<|type|>table<|page|>6<|box|>111 17 323 978<|content|>None\n<|id|>55<|type|>title<|page|>7<|box|>36 359 48 637<|content|>FIRST SUPPLEMENTAL INDENTURE\n<|id|>57<|type|>title<|page|>7<|box|>119 457 132 540<|content|>RECITALS\n<|id|>63<|type|>title<|page|>7<|box|>394 442 406 553<|content|>ARTICLE ONE\n<|id|>64<|type|>title<|page|>7<|box|>418 17 430 408<|content|>Section 101. Substitution ofthe Issuer under the I\n<|id|>68<|type|>title<|page|>8<|box|>328 17 341 189<|content|>Section 103. The Trustee.\n<|id|>70<|type|>title<|page|>8<|box|>387 439 400 557<|content|>ARTICLE TWO\n<|id|>71<|type|>title<|page|>8<|box|>411 383 424 612<|content|>Provisions of General Application\n<|id|>77<|type|>title<|page|>8<|box|>626 17 639 233<|content|>Section 203. Ef ect of Headings.\n<|id|>80<|type|>title<|page|>9<|box|>77 17 90 256<|content|>AMCOR FINANCE (USA), INC.\n<|id|>81<|type|>table<|page|>9<|box|>111 17 324 978<|content|>None",
+    "raw_response": "<|src_id|>16<|tgt_id|>0\n<|src_id|>22<|tgt_id|>0\n<|src_id|>54<|tgt_id|>53\n<|src_id|>81<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 80
+        }
+    ]
+}

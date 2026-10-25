@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        97,
+        109
+    ],
+    "pages": [
+        98,
+        107,
+        108,
+        109
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>497<|page|>98<|box|>196 410 215 593<|content|>(In billions of dollars)\n<|id|>501<|page|>98<|box|>691 504 809 849<|content|>Although total purchases remain strong, net purcha...surpassed the record pace of net purchases in 1993\n<|id|>543<|page|>107<|box|>334 323 362 694<|content|>Page Intentionally Left Blank\n<|id|>544<|page|>108<|box|>334 323 362 694<|content|>Page Intentionally Left Blank\n<|id|>546<|page|>109<|box|>119 81 209 488<|content|>The following information is released according to... concerning the Highway Trust Fund. ... The 24-and\n<|id|>547<|page|>109<|box|>121 508 195 913<|content|>12-month revenue estimates for the highway and mas...hose periods beginning at the close of fiscal 1995",
+    "raw_response": "<|src_id|>546<|tgt_id|>547",
+    "parsed": [
+        {
+            "src_id": 546,
+            "tgt_id": 547
+        }
+    ]
+}

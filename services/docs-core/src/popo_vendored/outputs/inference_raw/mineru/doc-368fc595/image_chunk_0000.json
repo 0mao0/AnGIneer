@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 199 142 797<|content|>UNANIMOUS WRITTEN CONSENT OF THE BOARD OF DIRECTOR\n<|id|>7<|type|>title<|page|>1<|box|>648 142 666 243<|content|>RECITALS\n<|id|>35<|type|>title<|page|>4<|box|>175 142 191 279<|content|>RESOLUTIONS\n<|id|>36<|type|>title<|page|>4<|box|>205 140 224 560<|content|>Resolution 1: Approval of the Transactions General\n<|id|>39<|type|>title<|page|>4<|box|>507 140 523 588<|content|>Resolution 2: Authorization of the Guarantee Agree\n<|id|>42<|type|>title<|page|>5<|box|>90 140 107 676<|content|>Resolution 3: Authorization of the Equity Interest\n<|id|>45<|type|>title<|page|>5<|box|>445 140 462 686<|content|>Resolution 4: Authorization of the US Pledge and S\n<|id|>56<|type|>title<|page|>6<|box|>157 142 174 633<|content|>Resolution 5: Authorization of Related Transaction\n<|id|>67<|type|>title<|page|>6<|box|>792 142 809 524<|content|>Resolution 6: Designation of Authorized Officers\n<|id|>73<|type|>title<|page|>7<|box|>325 140 344 566<|content|>Resolution 7: Authority to Take All Necessary Acti\n<|id|>83<|type|>title<|page|>8<|box|>327 142 344 450<|content|>Resolution 8: Ratification of Prior Acts\n<|id|>91<|type|>title<|page|>8<|box|>738 142 753 462<|content|>Resolution 9: Effectiveness and Duration\n<|id|>96<|type|>title<|page|>9<|box|>222 163 258 833<|content|>SIGNATURE PAGE TO UNANIMOUS WRITTEN CONSENT OF THE\n<|id|>104<|type|>title<|page|>10<|box|>90 403 107 593<|content|>a Delaware corporation\n<|id|>105<|type|>title<|page|>10<|box|>116 140 133 504<|content|>I, Jonathan Pryce-Williams, hereby certify that:\n<|id|>112<|type|>table<|page|>10<|box|>606 143 681 852<|content|>None",
+    "raw_response": "<|src_id|>112<|tgt_id|>96",
+    "parsed": [
+        {
+            "src_id": 112,
+            "tgt_id": 96
+        }
+    ]
+}

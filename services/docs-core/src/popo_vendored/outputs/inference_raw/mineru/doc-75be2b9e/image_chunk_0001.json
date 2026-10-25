@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        49,
+        53
+    ],
+    "pages": [
+        49,
+        50,
+        51,
+        53
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>614<|type|>title<|page|>49<|box|>222 140 239 803<|content|>SECTION 24: OPEN ISSUES SUMMARY / C&H RECOMMENDED\n<|id|>615<|type|>title<|page|>49<|box|>253 142 271 503<|content|>24.1 Summary of C&H Comments by Priority\n<|id|>617<|type|>title<|page|>49<|box|>321 142 338 354<|content|>HIGH PRIORITY ITEMS\n<|id|>618<|type|>table<|page|>49<|box|>345 143 897 852<|content|>None\n<|id|>619<|type|>table<|page|>50<|box|>88 143 344 852<|content|>None\n<|id|>620<|type|>title<|page|>50<|box|>378 143 393 383<|content|>MEDIUM PRIORITY ITEMS\n<|id|>621<|type|>table<|page|>50<|box|>402 143 792 852<|content|>None\n<|id|>622<|type|>title<|page|>50<|box|>827 143 843 349<|content|>LOW PRIORITY ITEMS\n<|id|>623<|type|>table<|page|>50<|box|>851 143 902 852<|content|>None\n<|id|>624<|type|>table<|page|>51<|box|>88 143 268 852<|content|>None\n<|id|>625<|type|>title<|page|>51<|box|>309 140 325 385<|content|>24.2 Recommended Next Steps\n<|id|>636<|type|>title<|page|>53<|box|>89 140 107 473<|content|>SIGNATURE / DISTRIBUTION BLOCK\n<|id|>638<|type|>title<|page|>53<|box|>215 142 233 251<|content|>Prepared by:\n<|id|>646<|type|>title<|page|>53<|box|>452 143 468 250<|content|>Distribution:",
+    "raw_response": "<|src_id|>618<|tgt_id|>617\n<|src_id|>619<|tgt_id|>617\n<|src_id|>621<|tgt_id|>620\n<|src_id|>623<|tgt_id|>622\n<|src_id|>624<|tgt_id|>622",
+    "parsed": [
+        {
+            "src_id": 618,
+            "tgt_id": 617
+        },
+        {
+            "src_id": 619,
+            "tgt_id": 617
+        },
+        {
+            "src_id": 621,
+            "tgt_id": 620
+        },
+        {
+            "src_id": 623,
+            "tgt_id": 622
+        },
+        {
+            "src_id": 624,
+            "tgt_id": 622
+        }
+    ]
+}

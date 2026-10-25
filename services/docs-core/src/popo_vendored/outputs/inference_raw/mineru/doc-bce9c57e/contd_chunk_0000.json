@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        9,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>1<|box|>777 174 868 856<|content|>(b) the Security Agreement (U. ... and\n<|id|>10<|page|>2<|box|>171 140 243 854<|content|>The Purchase Agreement, the Indenture, the U. ... \"\n<|id|>51<|page|>6<|box|>300 140 316 614<|content|>TORCHLIGHT U. ... a Delaware corporation\n<|id|>52<|page|>6<|box|>319 142 335 254<|content|>By: ... By\n<|id|>53<|page|>6<|box|>335 140 352 364<|content|>Name: ... Chisholm\n<|id|>54<|page|>6<|box|>352 143 369 261<|content|>Title: ... Secretary\n<|id|>55<|page|>6<|box|>369 142 386 299<|content|>Date: ... April 19, 2022\n<|id|>56<|page|>6<|box|>386 140 441 857<|content|>The undersigned, David J. ... and that the signature set forth above is her genuine signature\n<|id|>58<|page|>6<|box|>467 140 484 344<|content|>Name: ... Harrington\n<|id|>59<|page|>6<|box|>484 142 500 263<|content|>Title: ... President\n<|id|>60<|page|>6<|box|>501 140 518 300<|content|>Date: ... April 19, 2022\n<|id|>72<|page|>9<|box|>200 379 218 617<|content|>Effective as of March 28, 2022\n<|id|>73<|page|>9<|box|>227 140 337 856<|content|>The undersigned, being all of the members of the B...et forth above, without the necessity of a meeting\n<|id|>78<|page|>9<|box|>704 140 796 854<|content|>WHEREAS, the Board has reviewed and considered the...itions of the Notes, the Indenture, the U. ... and\n<|id|>79<|page|>9<|box|>803 140 893 854<|content|>WHEREAS, the Board has determined, after careful d...in the best interests of TUSHI and its stockholder\n<|id|>85<|page|>10<|box|>585 140 787 856<|content|>RESOLVED FURTHER, that each of the following offic...pany, the Indenture (as Guarantor), the U. ... and\n<|id|>86<|page|>10<|box|>794 140 868 857<|content|>RESOLVED FURTHER, that any and all actions heretof... all respects as the acts and deeds of the Company\n<|id|>97<|page|>12<|box|>623 142 640 362<|content|>Name: ... Chisholm\n<|id|>98<|page|>12<|box|>641 143 657 261<|content|>Title: ... Secretary",
+    "raw_response": "<|src_id|>8<|tgt_id|>10",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 10
+        }
+    ]
+}

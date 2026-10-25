@@ -1,0 +1,119 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-hgarki2q\\input\\pdfs\\doc-a0dbd875.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-hgarki2q\\enriched\\doc-a0dbd875.json",
+    "contd_output": "<|src_id|>43<|tgt_id|>44\n<|src_id|>56<|tgt_id|>57",
+    "title_output": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>3\n<|id|>29<|level|>3\n<|id|>31<|level|>3\n<|id|>37<|level|>3\n<|id|>46<|level|>3\n<|id|>55<|level|>3\n<|id|>58<|level|>3\n<|id|>61<|level|>3\n<|id|>63<|level|>3\n<|id|>65<|level|>3\n<|id|>67<|level|>3\n<|id|>69<|level|>3\n<|id|>71<|level|>2\n<|id|>84<|level|>2\n<|id|>85<|level|>3",
+    "image_output": "<|src_id|>87<|tgt_id|>85\n<|src_id|>88<|tgt_id|>85",
+    "contd_label": [
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 87,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 85
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 87,
+            "table2_idx": 88,
+            "upper_row_ss": [
+                [
+                    "Expense Reimbursement",
+                    "Reasonable, documented, out-of-pocket expenses incurred by Stonebridge in connection with the engagement, subject to itemized monthly reporting; expenses in excess of $25,000 per item require prior"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "written approval of the General Counsel or the Chair of the Special Committee"
+                ]
+            ]
+        }
+    ]
+}

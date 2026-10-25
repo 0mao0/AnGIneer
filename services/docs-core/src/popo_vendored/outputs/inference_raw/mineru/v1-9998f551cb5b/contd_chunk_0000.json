@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        8,
+        9,
+        12,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>1<|box|>511 109 546 416<|content|>FOR UNDERWRITING INFORMATION CALL: ... (800) 554-0595\n<|id|>9<|page|>1<|box|>558 65 611 460<|content|>THESE POLICY PROVISIONS WITH THE DECLARATIONS PAGE...SSUED TO FORM A PART THEREOF, COMPLETE THIS POLICY\n<|id|>16<|page|>1<|box|>60 524 125 777<|content|>Your Name and Address Your Auto or Trailer Policy Period Coverages and Amounts of Insurance\n<|id|>17<|page|>1<|box|>137 524 248 942<|content|>AGREEMENT. ... 1\n<|id|>27<|page|>1<|box|>835 524 898 942<|content|>Insuring Agreement . ... 15\n<|id|>28<|page|>2<|box|>45 52 575 475<|content|>TOWING AN LABOR Insuring Agreement . ... 22\n<|id|>44<|page|>2<|box|>781 521 815 944<|content|>Accident – means a sudden, unexpected, and unintended occurrence\n<|id|>45<|page|>2<|box|>825 521 921 944<|content|>Actual Cash Value – means the fair market value of...h the value of similar property in the marketplace\n<|id|>196<|page|>7<|box|>835 527 880 937<|content|>You only have those portions of this coverage show...en only up to the limits shown on the Declarations\n<|id|>197<|page|>8<|box|>45 52 122 473<|content|>Subject to all provisions in this policy including...ions, Exclusions, and Coverage Limits, we will pay\n<|id|>251<|page|>9<|box|>847 53 907 473<|content|>2. ... Unless otherwise provided by law, we will n... paid under LIABILITY COVERAGE, UNINSURED MOTORIST\n<|id|>252<|page|>9<|box|>44 552 75 942<|content|>COVERAGE, or UNDERINSURED MOTORIST COVERAGE of any...any policy we issued to you or a resident relative\n<|id|>319<|page|>12<|box|>199 524 306 944<|content|>4. ... and\n<|id|>321<|page|>12<|box|>383 521 555 944<|content|>If the insured fails to comply with this subsectio...ll not be bound by any such judgment or settlement\n<|id|>554<|page|>20<|box|>369 550 614 944<|content|>A. ... By accepting the terms of this policy, the ... was amended without your approval to reflect what\n<|id|>559<|page|>21<|box|>400 111 537 473<|content|>If this policy is cancelled, you may be entitled t...make the refund is not a condition of cancellation",
+    "raw_response": "<|src_id|>251<|tgt_id|>252",
+    "parsed": [
+        {
+            "src_id": 251,
+            "tgt_id": 252
+        }
+    ]
+}

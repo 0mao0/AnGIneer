@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>316 142 332 465<|content|>1. Introduction and Purpose of Retention\n<|id|>11<|page|>1<|box|>825 140 844 370<|content|>2. Background of the Matter\n<|id|>22<|page|>3<|box|>311 140 329 334<|content|>3. Scope of Engagement\n<|id|>23<|page|>3<|box|>342 140 359 383<|content|>3.1 Document to Be Examined\n<|id|>28<|page|>3<|box|>767 140 784 447<|content|>3.2 Specific Questions for Examination\n<|id|>38<|page|>5<|box|>90 140 107 383<|content|>3.3 Limitations Acknowledged\n<|id|>43<|page|>5<|box|>525 140 542 359<|content|>4. Materials to Be Provided\n<|id|>54<|page|>6<|box|>472 140 489 263<|content|>5. Deliverables\n<|id|>55<|page|>6<|box|>503 140 520 328<|content|>5.1 Preliminary Report\n<|id|>59<|page|>6<|box|>829 140 845 274<|content|>5.2 Final Report\n<|id|>69<|page|>7<|box|>511 140 529 315<|content|>5.3 Expert Testimony\n<|id|>73<|page|>7<|box|>811 140 828 303<|content|>6. Fee Arrangement\n<|id|>84<|page|>8<|box|>758 140 775 390<|content|>7. Confidentiality and Privilege\n<|id|>91<|page|>9<|box|>502 140 518 382<|content|>8. Conflicts and Independence\n<|id|>107<|page|>10<|box|>224 140 241 295<|content|>9. Point of Contact\n<|id|>115<|page|>10<|box|>539 142 556 437<|content|>10. Acceptance and Countersignature\n<|id|>126<|page|>11<|box|>157 380 175 617<|content|>ACCEPTED AND AGREED:",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>11<|level|>1\n<|id|>22<|level|>1\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>38<|level|>2\n<|id|>43<|level|>1\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>59<|level|>2\n<|id|>69<|level|>2\n<|id|>73<|level|>1\n<|id|>84<|level|>1\n<|id|>91<|level|>1\n<|id|>107<|level|>1\n<|id|>115<|level|>1\n<|id|>126<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        }
+    ]
+}

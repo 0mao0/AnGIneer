@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        5
+    ],
+    "pages": [
+        3,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>17<|page|>3<|box|>397 147 413 352<|content|>GB 175 通用硅酸盐水泥\n<|id|>18<|page|>3<|box|>416 147 432 465<|content|>JTG/T F20 公路路面基层施工技术细则\n<|id|>22<|page|>3<|box|>546 147 562 826<|content|>大厚度水泥稳定碎石基层 large thickness cement-stabilized aggregate basement\n<|id|>23<|page|>3<|box|>574 147 589 781<|content|>厚度在 20 cm～40 cm 之间，一次性全厚度摊铺、碾压完成的水泥稳定碎石基层。 ... 厚度在 20 cm～40 cm 之间，一次性全厚度摊铺、碾压完成的水泥稳定碎石基层\n<|id|>25<|page|>3<|box|>630 147 644 517<|content|>垂直振动压路机 vertical vibration roller\n<|id|>26<|page|>3<|box|>657 149 673 499<|content|>只产生纯垂直方向的线性振动的钢轮压路机。 ... 只产生纯垂直方向的线性振动的钢轮压路机\n<|id|>63<|page|>5<|box|>530 112 546 894<|content|>6. ... 1 基层施工时采用钢丝引导的高程控制方式，钢丝支架直线段每 10 m 设一处、曲线段宜每 5 m\n<|id|>64<|page|>5<|box|>549 112 564 389<|content|>设一处。 ... 钢丝拉力应不小于 800 N",
+    "raw_response": "<|src_id|>63<|tgt_id|>64",
+    "parsed": [
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        }
+    ]
+}

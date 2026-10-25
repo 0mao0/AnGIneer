@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        39
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        12,
+        16,
+        19,
+        20,
+        29,
+        31,
+        33,
+        34,
+        35,
+        39
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>137 55 167 759<|content|>INSURED INSTITUTION PERFORMANCE\n<|id|>13<|page|>2<|box|>156 53 228 351<|content|>THE NET INTEREST MARGIN INCREASED QUARTER OVER QUA\n<|id|>15<|page|>2<|box|>321 53 377 344<|content|>NET OPERATING REVENUE INCREASED FROM THE PREVIOUS\n<|id|>17<|page|>2<|box|>455 53 493 357<|content|>NONINTEREST EXPENSE DECLINED FROM THE PREVIOUS QUA\n<|id|>19<|page|>2<|box|>632 53 646 107<|content|>Chart 3\n<|id|>20<|page|>2<|box|>632 513 646 566<|content|>Chart 4\n<|id|>21<|page|>3<|box|>156 55 191 344<|content|>PROVISION EXPENSE INCREASED FROM THE PREVIOUS QUAR\n<|id|>23<|page|>3<|box|>371 55 422 370<|content|>ASSET QUALITY METRICS REMAINED GENERALLY FAVORABLE\n<|id|>26<|page|>4<|box|>156 53 210 364<|content|>UNREALIZED LOSSES ON SECURITIES DECREASED FROM THE\n<|id|>27<|page|>4<|box|>287 53 342 359<|content|>BANKING INDUSTRY ASSETS DECREASED FROM FIRST QUART\n<|id|>30<|page|>4<|box|>436 53 491 308<|content|>LOAN BALANCES INCREASED MODESTLY FROM THE PRIOR QU\n<|id|>33<|page|>6<|box|>154 53 207 367<|content|>THE DEPOSIT INSURANCE FUND RESERVE RATIO INCREASED\n<|id|>35<|page|>6<|box|>242 53 277 344<|content|>THE TOTAL NUMBER OF INSURED INSTITUTIONS DECLINED\n<|id|>45<|page|>12<|box|>106 53 119 400<|content|>TABLE IV-A. First Half 2024, All FDIC-Insured Inst\n<|id|>51<|page|>16<|box|>106 53 119 416<|content|>TABLE VI-A. Derivatives, All FDIC-Insured Call Rep\n<|id|>55<|page|>19<|box|>138 53 167 684<|content|>COMMUNITY BANK PERFORMANCE\n<|id|>67<|page|>19<|box|>709 53 724 107<|content|>Chart 1\n<|id|>68<|page|>20<|box|>156 52 210 344<|content|>THE NET INTEREST MARGIN INCREASED FROM THE PREVIOU\n<|id|>70<|page|>20<|box|>291 52 328 383<|content|>NET OPERATING REVENUE INCREASED IN THE SECOND QUAR\n<|id|>84<|page|>29<|box|>41 53 65 289<|content|>QUARTERLY\n<|id|>87<|page|>31<|box|>137 53 167 620<|content|>INSURANCE FUND INDICATORS\n<|id|>101<|page|>33<|box|>40 53 65 289<|content|>QUARTERLY\n<|id|>105<|page|>34<|box|>138 55 167 372<|content|>NOTES TO USERS\n<|id|>108<|page|>35<|box|>811 55 828 297<|content|>TABLES I-C THROUGH IV-C.\n<|id|>127<|page|>39<|box|>715 406 729 612<|content|>Derivatives transaction types:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>-1\n<|id|>20<|level|>-1\n<|id|>21<|level|>2\n<|id|>23<|level|>2\n<|id|>26<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>2\n<|id|>45<|level|>2\n<|id|>51<|level|>2\n<|id|>55<|level|>1\n<|id|>67<|level|>-1\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>84<|level|>-1\n<|id|>87<|level|>1\n<|id|>101<|level|>-1\n<|id|>105<|level|>1\n<|id|>108<|level|>2\n<|id|>127<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        }
+    ]
+}

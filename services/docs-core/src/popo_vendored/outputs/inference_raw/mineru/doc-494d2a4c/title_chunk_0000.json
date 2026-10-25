@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>144 97 182 915<|content|>中华人民共和国国家标准\n<|id|>3<|page|>1<|box|>395 226 429 783<|content|>江海直达货船船型尺度系列\n<|id|>4<|page|>1<|box|>458 278 478 732<|content|>Dimensions series of river/coastal cargo ship\n<|id|>7<|page|>2<|box|>134 438 157 546<|content|>目次\n<|id|>9<|page|>3<|box|>137 435 157 547<|content|>前言\n<|id|>27<|page|>4<|box|>136 329 157 652<|content|>江海直达货船船型尺度系列\n<|id|>28<|page|>4<|box|>191 100 207 169<|content|>1 范围\n<|id|>31<|page|>4<|box|>296 99 312 258<|content|>2 规范性引用文件\n<|id|>33<|page|>4<|box|>366 99 383 221<|content|>3 术语和定义\n<|id|>35<|page|>4<|box|>420 100 433 129<|content|>3.1\n<|id|>40<|page|>4<|box|>535 100 549 129<|content|>3.2\n<|id|>45<|page|>4<|box|>634 99 647 129<|content|>3.3\n<|id|>49<|page|>4<|box|>714 99 731 203<|content|>4 船型编号\n<|id|>53<|page|>5<|box|>131 124 147 263<|content|>5 总体技术要求\n<|id|>56<|page|>5<|box|>263 122 277 228<|content|>6 主要参数\n<|id|>57<|page|>5<|box|>296 122 313 401<|content|>6.1 江海直达散货船船型尺度系列\n<|id|>60<|page|>5<|box|>509 122 524 418<|content|>6.2 江海直达集装箱船船型尺度系列\n<|id|>63<|page|>5<|box|>785 119 800 468<|content|>6.3 江海直达商品汽车滚装船船型尺度系列\n<|id|>66<|page|>7<|box|>140 452 155 583<|content|>参考文献",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>2\n<|id|>7<|level|>2\n<|id|>9<|level|>2\n<|id|>27<|level|>1\n<|id|>28<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>3\n<|id|>40<|level|>3\n<|id|>45<|level|>3\n<|id|>49<|level|>2\n<|id|>53<|level|>2\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>3\n<|id|>66<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        }
+    ]
+}

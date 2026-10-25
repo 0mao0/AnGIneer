@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>238 140 255 766<|content|>Each of the Lenders party to the Senior Secured Credit Agreement (as defined below)\n<|id|>6<|page|>1<|box|>263 140 354 856<|content|>The undersigned, Elena M. ... , a corporation orga...y the RSA Transaction Documents (as defined below)\n<|id|>20<|page|>2<|box|>864 174 901 856<|content|>(d) the authorization of each officer of TAI, incl...ent, Finance), and Jonathan Kurtz (Vice President,\n<|id|>21<|page|>3<|box|>90 174 181 854<|content|>Operations), acting individually and in his or her...enced by such officer's execution thereof; ... and\n<|id|>23<|page|>3<|box|>252 140 343 854<|content|>The Resolutions have not been amended, modified, r...he Resolutions or the authority granted thereunder\n<|id|>39<|page|>4<|box|>737 183 753 387<|content|>• Aegean Capital Bank SA\n<|id|>40<|page|>4<|box|>757 183 773 364<|content|>• Harborstone Bank plc\n<|id|>42<|page|>4<|box|>795 183 811 478<|content|>• Continental Maritime Lending GmbH\n<|id|>43<|page|>4<|box|>815 183 830 390<|content|>• Triton Credit Partners LP\n<|id|>44<|page|>4<|box|>834 183 851 413<|content|>• Laurentian Shipping Fund II\n<|id|>46<|page|>4<|box|>875 183 890 444<|content|>• Pelagos Institutional Credit Fund\n<|id|>47<|page|>5<|box|>90 140 143 854<|content|>and by Dralvecen Mezzanine Capital LLC, and by the... Transaction Documents on this date, June 30, 2023\n<|id|>51<|page|>5<|box|>304 142 321 346<|content|>Name: ... Vassilakis\n<|id|>52<|page|>5<|box|>321 143 338 261<|content|>Title: ... Secretary\n<|id|>53<|page|>5<|box|>339 143 354 294<|content|>Date: ... June 30, 2023\n<|id|>58<|page|>5<|box|>551 143 569 294<|content|>Name: ... Marcus Hale\n<|id|>59<|page|>5<|box|>570 143 585 261<|content|>Title: ... President\n<|id|>60<|page|>5<|box|>587 143 603 292<|content|>Date: ... June 30, 2023",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>46<|tgt_id|>47",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        }
+    ]
+}

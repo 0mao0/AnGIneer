@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        174,
+        291
+    ],
+    "pages": [
+        175,
+        182,
+        290
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>632<|page|>175<|box|>150 389 178 625<|content|>4-8 钢筋混凝土T形梁桥\n<|id|>654<|page|>182<|box|>147 342 176 653<|content|>4-9 预制安装预应力混凝土T形梁\n<|id|>924<|page|>290<|box|>169 413 200 561<|content|>4-12 拱 桥",
+    "raw_response": "<|id|>632<|level|>2\n<|id|>654<|level|>2\n<|id|>924<|level|>2",
+    "parsed": [
+        {
+            "id": 632,
+            "level": 2
+        },
+        {
+            "id": 654,
+            "level": 2
+        },
+        {
+            "id": 924,
+            "level": 2
+        }
+    ]
+}

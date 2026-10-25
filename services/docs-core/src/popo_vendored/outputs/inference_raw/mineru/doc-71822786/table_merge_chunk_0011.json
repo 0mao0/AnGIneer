@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 11,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Asset', 'Not a', 'Not a', 'Not', 'Not a', 'Not a', 'Not a', 'Potentiall', 'Financiall']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['allocation summary', 'triggering element', 'triggering element', 'independently triggering', 'triggering element', 'triggering element', 'triggering element', 'y relevant in combination', 'y sensitive but not independently enumerated']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 394,
+    "table2_idx": 395
+}

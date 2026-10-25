@@ -1,0 +1,52 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 370 128 625<|content|>NON-BINDING TERM SHEET\n<|id|>2<|type|>title<|page|>1<|box|>138 416 155 580<|content|>SAFE FINANCING\n<|id|>5<|type|>title<|page|>1<|box|>359 143 377 222<|content|>1. Parties\n<|id|>6<|type|>table<|page|>1<|box|>412 143 540 852<|content|>None\n<|id|>8<|type|>title<|page|>1<|box|>715 143 731 243<|content|>1.2 Investor.\n<|id|>9<|type|>table<|page|>1<|box|>736 143 842 852<|content|>None\n<|id|>10<|type|>title<|page|>2<|box|>90 140 108 308<|content|>2. Investment Terms\n<|id|>11<|type|>title<|page|>2<|box|>121 140 138 303<|content|>2.1 Type of Security\n<|id|>13<|type|>title<|page|>2<|box|>285 140 301 316<|content|>2.2 Purchase Amount\n<|id|>15<|type|>title<|page|>2<|box|>393 140 411 310<|content|>2.3 Total Round Size\n<|id|>17<|type|>title<|page|>2<|box|>595 140 613 387<|content|>2.4 Post-Money Valuation Cap\n<|id|>19<|type|>title<|page|>2<|box|>796 140 813 282<|content|>2.5 discount Rate\n<|id|>21<|type|>title<|page|>3<|box|>90 140 107 462<|content|>2.6 Pro Forma Ownership at Conversion\n<|id|>23<|type|>title<|page|>3<|box|>282 140 300 313<|content|>3. Conversion Events\n<|id|>24<|type|>title<|page|>3<|box|>313 140 330 310<|content|>3.1 Equity Financing\n<|id|>26<|type|>title<|page|>3<|box|>604 140 625 300<|content|>3.2 Liquidity Event\n<|id|>31<|type|>title<|page|>4<|box|>157 140 174 313<|content|>3.3 Dissolution Event\n<|id|>33<|type|>title<|page|>4<|box|>387 140 404 465<|content|>4. Most Favored Nation (MFN) Provision\n<|id|>35<|type|>title<|page|>4<|box|>674 140 691 292<|content|>5. Pro Rata Rights\n<|id|>38<|type|>title<|page|>5<|box|>90 140 107 316<|content|>6. Information Rights\n<|id|>44<|type|>title<|page|>5<|box|>517 140 534 418<|content|>7. Representations and Warranties\n<|id|>55<|type|>title<|page|>6<|box|>223 140 239 457<|content|>8. Capitalization Summary (Pre-Round)\n<|id|>57<|type|>table<|page|>6<|box|>371 143 411 852<|content|>None\n<|id|>58<|type|>table<|page|>6<|box|>468 143 578 852<|content|>None\n<|id|>59<|type|>table<|page|>6<|box|>636 143 722 852<|content|>None\n<|id|>60<|type|>title<|page|>6<|box|>756 142 773 568<|content|>Outstanding Convertible Securities (Pre-Seed SAFEs\n<|id|>62<|type|>table<|page|>6<|box|>843 143 900 852<|content|>None\n<|id|>63<|type|>table<|page|>7<|box|>88 143 138 852<|content|>None\n<|id|>65<|type|>title<|page|>7<|box|>267 140 284 290<|content|>9. Use of Proceeds\n<|id|>67<|type|>title<|page|>7<|box|>426 142 443 318<|content|>10. Company Counsel\n<|id|>72<|type|>title<|page|>7<|box|>598 142 614 308<|content|>11. Investor Counsel\n<|id|>74<|type|>title<|page|>7<|box|>719 140 737 452<|content|>12. Governing Law (Binding Provision)\n<|id|>76<|type|>title<|page|>8<|box|>90 142 107 447<|content|>13. Confidentiality (Binding Provision)\n<|id|>82<|type|>title<|page|>8<|box|>500 142 516 261<|content|>14. Exclusivity\n<|id|>84<|type|>title<|page|>8<|box|>675 142 693 334<|content|>15. Non-Binding Nature\n<|id|>87<|type|>title<|page|>9<|box|>150 142 167 259<|content|>16. Expiration\n<|id|>89<|type|>title<|page|>10<|box|>90 140 107 279<|content|>Signature blocks\n<|id|>91<|type|>title<|page|>10<|box|>178 142 194 248<|content|>COMPANY:",
+    "raw_response": "<|src_id|>6<|tgt_id|>5\n<|src_id|>9<|tgt_id|>8\n<|src_id|>57<|tgt_id|>55\n<|src_id|>58<|tgt_id|>55\n<|src_id|>59<|tgt_id|>55\n<|src_id|>62<|tgt_id|>60\n<|src_id|>63<|tgt_id|>60",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 60
+        }
+    ]
+}

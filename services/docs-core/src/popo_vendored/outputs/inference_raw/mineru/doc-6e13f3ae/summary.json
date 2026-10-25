@@ -1,0 +1,166 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qbvlrszc\\input\\pdfs\\doc-6e13f3ae.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qbvlrszc\\enriched\\doc-6e13f3ae.json",
+    "contd_output": "",
+    "title_output": "<|id|>7<|level|>1\n<|id|>14<|level|>1\n<|id|>25<|level|>1\n<|id|>27<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>42<|level|>2\n<|id|>46<|level|>1\n<|id|>48<|level|>2\n<|id|>57<|level|>2\n<|id|>61<|level|>2\n<|id|>70<|level|>2\n<|id|>78<|level|>2\n<|id|>91<|level|>2\n<|id|>98<|level|>1\n<|id|>109<|level|>1\n<|id|>110<|level|>2\n<|id|>115<|level|>2\n<|id|>119<|level|>2\n<|id|>129<|level|>1\n<|id|>136<|level|>1\n<|id|>141<|level|>1\n<|id|>145<|level|>1\n<|id|>149<|level|>1\n<|id|>151<|level|>1\n<|id|>153<|level|>1\n<|id|>156<|level|>1\n<|id|>163<|level|>2\n<|id|>165<|level|>2",
+    "image_output": "<|src_id|>43<|tgt_id|>42\n<|src_id|>44<|tgt_id|>42\n<|src_id|>112<|tgt_id|>110\n<|src_id|>113<|tgt_id|>110\n<|src_id|>117<|tgt_id|>115",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 43,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 115
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 112,
+            "table2_idx": 113,
+            "upper_row_ss": [
+                [
+                    "Senior Engineer / Analyst",
+                    "$325.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Junior Engineer / Analyst",
+                    "$225.00"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cpvrr5wb\\input\\pdfs\\doc-60f20931.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cpvrr5wb\\enriched\\doc-60f20931.json",
+    "contd_output": "<|src_id|>165<|tgt_id|>166\n<|src_id|>296<|tgt_id|>297",
+    "title_output": "<|id|>8<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>22<|level|>2\n<|id|>29<|level|>2\n<|id|>44<|level|>1\n<|id|>45<|level|>2\n<|id|>47<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>3\n<|id|>53<|level|>3\n<|id|>55<|level|>3\n<|id|>57<|level|>3\n<|id|>60<|level|>2\n<|id|>173<|level|>1\n<|id|>183<|level|>1\n<|id|>211<|level|>1\n<|id|>219<|level|>1\n<|id|>230<|level|>1\n<|id|>247<|level|>1\n<|id|>251<|level|>1\n<|id|>263<|level|>1\n<|id|>274<|level|>1\n<|id|>300<|level|>1\n<|id|>323<|level|>1",
+    "image_output": "<|src_id|>18<|tgt_id|>16\n<|src_id|>19<|tgt_id|>16\n<|src_id|>214<|tgt_id|>213\n<|src_id|>233<|tgt_id|>230\n<|src_id|>248<|tgt_id|>247\n<|src_id|>249<|tgt_id|>247",
+    "contd_label": [
+        {
+            "src_id": 165,
+            "tgt_id": 166
+        },
+        {
+            "src_id": 296,
+            "tgt_id": 297
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 1
+        },
+        {
+            "id": 183,
+            "level": 1
+        },
+        {
+            "id": 211,
+            "level": 1
+        },
+        {
+            "id": 219,
+            "level": 1
+        },
+        {
+            "id": 230,
+            "level": 1
+        },
+        {
+            "id": 247,
+            "level": 1
+        },
+        {
+            "id": 251,
+            "level": 1
+        },
+        {
+            "id": 263,
+            "level": 1
+        },
+        {
+            "id": 274,
+            "level": 1
+        },
+        {
+            "id": 300,
+            "level": 1
+        },
+        {
+            "id": 323,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 18,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 230
+        },
+        {
+            "src_id": 248,
+            "tgt_id": 247
+        },
+        {
+            "src_id": 249,
+            "tgt_id": 247
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 18,
+            "table2_idx": 19,
+            "upper_row_ss": [
+                [
+                    "Policy Type",
+                    "ALTA Owner's Policy of Title Insurance (2021 form)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Estate or Interest to be Insured",
+                    "Fee Simple"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 248,
+            "table2_idx": 249,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "Drainage/ Stormwater Easement (Oakbridge POA — Inst.",
+                    "Potentially Objectionable",
+                    "Evaluate against Building D footprint; negotiate relocation if",
+                    "C&H / Cornerstone",
+                    "Before DD expiration (July 14, 2025)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "No. 20050901-0024133)",
+                    "",
+                    "conflict exists",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

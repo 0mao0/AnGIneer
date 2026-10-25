@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        36
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        8,
+        9,
+        12,
+        13,
+        14,
+        15,
+        16,
+        28,
+        29,
+        30,
+        32,
+        34,
+        35,
+        36
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>263 267 281 710<|content|>Xavier Brouty<sup>a</sup>, Matthieu Garcin<sup>b,c,∗</sup>, Hugo Roccaro<sup>a</sup>\n<|id|>2<|page|>1<|box|>300 421 318 558<|content|>January 7, 2025\n<|id|>8<|page|>1<|box|>741 137 803 841<|content|>Thanks to limit order books, the bid-ask spread is...k spread estimators based on time series of prices\n<|id|>9<|page|>2<|box|>224 135 392 841<|content|>The literature on the estimation of bid-ask spread...a bias for all the existing estimators cited above\n<|id|>32<|page|>4<|box|>470 161 487 589<|content|>▷p _ { t } ^ { \\star }is a Brownian motion with volatility parameter\\sigma > 0\n<|id|>33<|page|>4<|box|>497 161 512 589<|content|>▷\\eta _ { s }and\\eta _ { t }are independent of eac... }are independent of each other as soon as s\\neq t\n<|id|>79<|page|>8<|box|>612 161 628 705<|content|>▷p _ { t } ^ { \\star } = \\sigma B _ { t } ^ { H },...^ { H }is an fBm of Hurst exponentH \\in ( 0 , 1 ),\n<|id|>80<|page|>8<|box|>638 161 654 591<|content|>▷\\eta _ { s }and\\eta _ { t }are independent of eac... }are independent of each other as soon as s\\neq t\n<|id|>93<|page|>9<|box|>604 138 628 730<|content|>where V is defined in equation (8) and\\begin{array...eft| x \\right| } ^ { 2 H } } \\right) } \\end{array}\n<|id|>94<|page|>9<|box|>635 138 664 839<|content|>Proposition 4. ... Under the market model introduc...) and Assumptions 1 and{ \\mathcal { B } } ,we have\n<|id|>128<|page|>12<|box|>638 161 654 589<|content|>▷p _ { t } ^ { \\star }is a Brownian motion with volatility parameter\\sigma > 0\n<|id|>130<|page|>12<|box|>702 137 733 839<|content|>Using Assumptions 1 and 4, the theoretical varianc...e price log-returns becomes, whatever \\tau \\geq 04\n<|id|>129<|page|>12<|box|>662 160 686 686<|content|>\\triangleright \\ \\eta _ { s }and\\eta _ { t }are co... t - s | } { \\lambda } } \\right), where\\lambda > 0\n<|id|>134<|page|>12<|box|>878 137 915 839<|content|>Like in Section 2. ... We will see in the simulati...ted estimator that does not underestimateS ^ { 2 }\n<|id|>135<|page|>13<|box|>215 137 232 612<|content|>In practice however, λ and thus\\rhoare unknown. ... Considering that\n<|id|>166<|page|>14<|box|>897 160 914 707<|content|>▷p _ { t } ^ { \\star } = \\sigma B _ { t } ^ { H },...^ { H }is an fBm of Hurst exponentH \\in ( 0 , 1 ),\n<|id|>167<|page|>15<|box|>138 160 162 687<|content|>▷\\eta _ { s }and\\eta _ { t }are correlated, with a... t - s | } { \\lambda } } \\right), where\\lambda > 0\n<|id|>168<|page|>15<|box|>178 138 194 764<|content|>Using Assumptions 1 and 5, we obtain the theoretical variance of the price log-returns,\n<|id|>179<|page|>15<|box|>868 137 914 839<|content|>Adding the Gaussian hypothesis, that is working ex...[28]. ... The diference between this estimator and\n<|id|>180<|page|>16<|box|>141 137 218 839<|content|>Roll’s is of the same kind, in the most common fra... squared high-low diference for two time intervals\n<|id|>305<|page|>28<|box|>866 137 897 838<|content|>Before proving Lemma 1, it is worth noting that th... Z _ { i } ^ { 2 k } ] = 1, fork \\in \\mathbb { Z }\n<|id|>306<|page|>29<|box|>138 137 272 839<|content|>Proof. ... This last product is equal to\\rho _ { j...sely the correlation betweenY _ { i }andY _ { j }□\n<|id|>307<|page|>29<|box|>287 137 349 839<|content|>In the next lemma, we will use the decomposition o...s in the four specifications studied in this paper\n<|id|>333<|page|>30<|box|>685 138 731 839<|content|>When\\delta = 0, increments do not overlap but have...s we still have K ( u , \\delta ) = V ( u ) ^ { 2 }\n<|id|>334<|page|>30<|box|>737 138 777 838<|content|>When\\delta \\in ( 0 , u ), we have strictly overlap... } ^ { 4 } + 4 \\sigma _ { G } ^ { 2 } + 4, so that\n<|id|>357<|page|>32<|box|>232 137 303 839<|content|>Regarding the convergence of\\widehat { S _ { 1 , v...\\prime } )converges in probability towardS ^ { 2 }\n<|id|>358<|page|>32<|box|>308 137 386 839<|content|>For the convergence in distribution, we first note...y large, so that the central limit theorem applies\n<|id|>404<|page|>34<|box|>755 137 805 839<|content|>Proof. ... \\begin{array} { r } { \\sigma _ { G } ^ ... } } \\end{array}and\\rho _ { G } = c ( \\delta / u )\n<|id|>405<|page|>34<|box|>809 137 856 839<|content|>Like in the proof of Proposition 1, we study four ... G } ^ { 4 } + 4 \\sigma _ { G } ^ { 2 } + 4so that\n<|id|>409<|page|>35<|box|>234 137 266 838<|content|>When\\delta \\in ( 0 , u ), we have, for alli \\neq j...u ^ { \\overline { { { 4 H } } } } \\sigma ^ { 4 } ,\n<|id|>410<|page|>35<|box|>272 137 304 838<|content|>Finally, when\\delta = u . ... Then,K ^ { + } = 3 \\... { G } ^ { 4 } + 1 2 \\sigma _ { G } ^ { 2 } + 8and\n<|id|>418<|page|>35<|box|>672 138 719 839<|content|>which, noting thatc ( - k ) = \\mathcal { O } ( k ^... to the result displayed in Proposition 4 forv = 2\n<|id|>419<|page|>35<|box|>724 137 771 839<|content|>Forv = 3, using equation (21), we only have to mod...isappears because increments are strictly disjoint\n<|id|>422<|page|>35<|box|>876 137 907 839<|content|>Forv = 1, sinceK ( u , \\delta )is not a constant i...on-overlapping increments: ... we thus incorporate\n<|id|>423<|page|>36<|box|>141 138 157 839<|content|>2 ( k _ { 1 } ( n , L ) - L - lpairs of increments...au + l \\tau } \\right), withl \\geq 0. ... Therefore\n<|id|>429<|page|>36<|box|>422 138 454 836<|content|>Proof. ... The absence of bias in the case where H... ) / ( L ^ { \\prime 2 \\hat { H } } - L ^ { 2 H } )\n<|id|>430<|page|>36<|box|>462 138 527 839<|content|>We prove the consistency of\\widehat { S _ { 2 , v ..... then, the continuous mapping theorem con cludes",
+    "raw_response": "",
+    "parsed": []
+}

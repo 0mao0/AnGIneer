@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        91,
+        94
+    ],
+    "pages": [
+        91,
+        92,
+        94
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>466<|type|>title<|page|>91<|box|>854 107 870 270<|content|>G.6 未确知测度法\n<|id|>470<|type|>table<|page|>92<|box|>342 109 474 885<|content|>None\n<|id|>477<|type|>image<|page|>92<|box|>772 255 879 746<|content|>None\n<|id|>490<|type|>title<|page|>94<|box|>129 445 146 552<|content|>参 考 文 献\n<|id|>511<|type|>image<|page|>94<|box|>717 591 810 761<|content|>None",
+    "raw_response": "<|src_id|>470<|tgt_id|>466\n<|src_id|>477<|tgt_id|>466\n<|src_id|>511<|tgt_id|>490",
+    "parsed": [
+        {
+            "src_id": 470,
+            "tgt_id": 466
+        },
+        {
+            "src_id": 477,
+            "tgt_id": 466
+        },
+        {
+            "src_id": 511,
+            "tgt_id": 490
+        }
+    ]
+}

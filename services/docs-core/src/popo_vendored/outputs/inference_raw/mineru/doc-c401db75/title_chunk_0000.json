@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 202 118 794<|content|>WRITTEN CONSENT OF THE BOARD OF DIRECTORS\n<|id|>1<|page|>1<|box|>137 302 157 694<|content|>OF ARDENT APEX HOLDINGS INC.\n<|id|>5<|page|>1<|box|>426 142 443 243<|content|>RECITALS\n<|id|>6<|page|>1<|box|>452 142 469 246<|content|>WHEREAS:\n<|id|>37<|page|>5<|box|>436 142 453 279<|content|>RESOLUTIONS\n<|id|>38<|page|>5<|box|>467 142 484 439<|content|>1. Approval of the Merger Agreement\n<|id|>49<|page|>6<|box|>652 140 670 480<|content|>2. Authorization of Execution and Delivery\n<|id|>52<|page|>7<|box|>90 140 108 433<|content|>3. Approval of Ancillary Agreements\n<|id|>78<|page|>9<|box|>599 140 616 424<|content|>4. Approval of Equity Commitment\n<|id|>81<|page|>10<|box|>90 140 108 393<|content|>5. Capitalization of Merger Sub\n<|id|>84<|page|>10<|box|>354 140 371 457<|content|>6. Approval of Financing Arrangements\n<|id|>87<|page|>10<|box|>727 140 744 457<|content|>7. Approval of Insurance Arrangements\n<|id|>91<|page|>11<|box|>311 140 348 854<|content|>8. Approval of Amended and Restated Organizational\n<|id|>94<|page|>11<|box|>575 140 593 428<|content|>9. Regulatory Filings and Approvals\n<|id|>105<|page|>12<|box|>599 142 616 341<|content|>10. Certificate of Merger\n<|id|>107<|page|>12<|box|>763 142 780 504<|content|>11. Appointment and Engagement of Advisors\n<|id|>117<|page|>13<|box|>404 142 422 428<|content|>12. Estimated Transaction Expenses\n<|id|>120<|page|>13<|box|>686 142 703 282<|content|>13. Tax Elections\n<|id|>122<|page|>14<|box|>138 142 157 522<|content|>14. Authorization of Officers; General Authority\n<|id|>125<|page|>14<|box|>549 142 566 395<|content|>15. Ratification of Prior Actions\n<|id|>134<|page|>15<|box|>200 140 218 297<|content|>EFFECTIVENESS\n<|id|>149<|page|>17<|box|>90 330 157 666<|content|>EXHIBIT A AGREEMENT AND PLAN OF MERGER dated as of\n<|id|>151<|page|>17<|box|>194 348 236 648<|content|>ARDENT APEX HOLDINGS INC. ARDENT APEX MERGER SUB I",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>6<|level|>-1\n<|id|>37<|level|>2\n<|id|>38<|level|>3\n<|id|>49<|level|>3\n<|id|>52<|level|>3\n<|id|>78<|level|>3\n<|id|>81<|level|>3\n<|id|>84<|level|>3\n<|id|>87<|level|>3\n<|id|>91<|level|>3\n<|id|>94<|level|>3\n<|id|>105<|level|>3\n<|id|>107<|level|>3\n<|id|>117<|level|>3\n<|id|>120<|level|>3\n<|id|>122<|level|>3\n<|id|>125<|level|>3\n<|id|>134<|level|>2\n<|id|>149<|level|>1\n<|id|>151<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 2
+        }
+    ]
+}

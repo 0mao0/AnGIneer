@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        113,
+        128
+    ],
+    "pages": [
+        114,
+        115,
+        116,
+        122,
+        128
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>573<|page|>114<|box|>334 323 362 694<|content|>Page Intentionally Left Blank\n<|id|>574<|page|>115<|box|>334 323 362 694<|content|>Page Intentionally Left Blank\n<|id|>575<|page|>116<|box|>334 323 362 694<|content|>Page Intentionally Left Blank\n<|id|>613<|page|>122<|box|>137 81 195 584<|content|>United States Government Consolidated Statement of...Net Position for the year ended September 30, 1997\n<|id|>615<|page|>122<|box|>252 83 907 893<|content|>Net cost of Government operations 1,603. ... 0 The...are an integral part of these financial statements\n<|id|>614<|page|>122<|box|>196 83 214 233<|content|>(In billions of dollars)\n<|id|>650<|page|>128<|box|>154 364 169 629<|content|>Source: ... Financial Management Service\n<|id|>651<|page|>128<|box|>176 81 282 488<|content|>Accrued discount (SBN-1, -2, -3)—Interest that acc... their holders is not included in accrued discount\n<|id|>662<|page|>128<|box|>883 83 912 488<|content|>Debt outstanding subject to limitation (FD-6)—The ...the Treasury subject to the statutory limit set by\n<|id|>663<|page|>128<|box|>176 506 268 916<|content|>Congress. ... the limit may change from year to year",
+    "raw_response": "<|src_id|>662<|tgt_id|>663",
+    "parsed": [
+        {
+            "src_id": 662,
+            "tgt_id": 663
+        }
+    ]
+}

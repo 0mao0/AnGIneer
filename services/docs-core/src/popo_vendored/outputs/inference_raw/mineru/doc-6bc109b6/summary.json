@@ -1,0 +1,251 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-dcfhpnj3\\input\\pdfs\\doc-6bc109b6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-dcfhpnj3\\enriched\\doc-6bc109b6.json",
+    "contd_output": "<|src_id|>89<|tgt_id|>90\n<|src_id|>98<|tgt_id|>99",
+    "title_output": "<|id|>3<|level|>1\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>10<|level|>3\n<|id|>19<|level|>3\n<|id|>22<|level|>3\n<|id|>30<|level|>2\n<|id|>36<|level|>2\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>78<|level|>3\n<|id|>86<|level|>3\n<|id|>92<|level|>3\n<|id|>94<|level|>2\n<|id|>96<|level|>3\n<|id|>101<|level|>3\n<|id|>107<|level|>2\n<|id|>121<|level|>2\n<|id|>122<|level|>3",
+    "image_output": "<|src_id|>4<|tgt_id|>3\n<|src_id|>32<|tgt_id|>30\n<|src_id|>33<|tgt_id|>30\n<|src_id|>38<|tgt_id|>36\n<|src_id|>39<|tgt_id|>36\n<|src_id|>41<|tgt_id|>36\n<|src_id|>43<|tgt_id|>36\n<|src_id|>44<|tgt_id|>36\n<|src_id|>46<|tgt_id|>36\n<|src_id|>48<|tgt_id|>36\n<|src_id|>49<|tgt_id|>36\n<|src_id|>51<|tgt_id|>36\n<|src_id|>54<|tgt_id|>36\n<|src_id|>55<|tgt_id|>36\n<|src_id|>57<|tgt_id|>36\n<|src_id|>60<|tgt_id|>36\n<|src_id|>62<|tgt_id|>36\n<|src_id|>64<|tgt_id|>36\n<|src_id|>66<|tgt_id|>36",
+    "contd_label": [
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        }
+    ],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 36
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 32,
+            "table2_idx": 33,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Nexford",
+                    "NP LLC",
+                    "LLC",
+                    "Delaware",
+                    "DE",
+                    "March 24,",
+                    "Good"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Properties, LLC",
+                    "",
+                    "",
+                    "",
+                    "Secretary of State",
+                    "2025",
+                    "Standing"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 38,
+            "table2_idx": 39,
+            "upper_row_ss": [
+                [
+                    "Registered Agent:",
+                    "Penmark Industries, 1209 Orange Street, Wilmington,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Delaware 19801"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 43,
+            "table2_idx": 44,
+            "upper_row_ss": [
+                [
+                    "Filing Authority:",
+                    "Delaware Secretary of State, Division of Corporations"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Certificate Date:",
+                    "March 24, 2025"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 54,
+            "table2_idx": 55,
+            "upper_row_ss": [
+                [
+                    "Filing Authority:",
+                    "Delaware Secretary of State, Division of Corporations"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Certificate Date:",
+                    "March 24, 2025"
+                ]
+            ]
+        }
+    ]
+}

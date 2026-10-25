@@ -1,0 +1,119 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 125 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>1<|page|>1<|box|>133 423 151 573<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>502 140 518 401<|content|>I. Purpose of This Memorandum\n<|id|>14<|page|>2<|box|>321 140 339 382<|content|>II. Background on Gavin Holt\n<|id|>15<|page|>2<|box|>353 140 369 470<|content|>A. Role and Employment History at TMC\n<|id|>22<|page|>3<|box|>273 140 292 339<|content|>B. Departure from TMC\n<|id|>27<|page|>3<|box|>828 140 845 503<|content|>C. Holt's Central Role in the Alleged Conduct\n<|id|>34<|page|>5<|box|>194 140 210 656<|content|>D. Retention of Personal Counsel and Fifth Amendme\n<|id|>38<|page|>5<|box|>622 140 638 531<|content|>III. Chronology of Interview Request and Refusal\n<|id|>39<|page|>5<|box|>652 140 670 537<|content|>A. Initial Outreach to Holt (Pre-Separate Counsel)\n<|id|>44<|page|>6<|box|>385 140 402 454<|content|>B. Outreach Through Personal Counsel\n<|id|>55<|page|>7<|box|>363 140 380 281<|content|>C. Holt's Refusal\n<|id|>63<|page|>8<|box|>90 140 107 421<|content|>D. Assessment of Further Outreach\n<|id|>71<|page|>8<|box|>804 140 821 501<|content|>IV. Implications for the Internal Investigation\n<|id|>72<|page|>8<|box|>835 140 852 300<|content|>A. Evidentiary Gap\n<|id|>80<|page|>10<|box|>90 140 108 434<|content|>B. Mitigating Sources of Information\n<|id|>89<|page|>11<|box|>729 140 748 460<|content|>C. Impact on Key Investigation Findings\n<|id|>95<|page|>12<|box|>676 140 694 661<|content|>V. Implications for TMC's Defense Strategy and DOJ\n<|id|>96<|page|>12<|box|>708 140 724 331<|content|>A. Cooperation Posture\n<|id|>100<|page|>13<|box|>440 140 457 447<|content|>B. Holt Carve-Out in Any Future NPA\n<|id|>104<|page|>14<|box|>157 140 174 411<|content|>C. Potential Future Developments\n<|id|>110<|page|>14<|box|>820 140 837 321<|content|>VI. Recommendations\n<|id|>117<|page|>16<|box|>90 140 107 545<|content|>VII. Document Retention and Privilege Designation\n<|id|>122<|page|>16<|box|>527 140 544 393<|content|>VIII. Attachments (Referenced)",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>22<|level|>3\n<|id|>27<|level|>3\n<|id|>34<|level|>3\n<|id|>38<|level|>2\n<|id|>39<|level|>3\n<|id|>44<|level|>3\n<|id|>55<|level|>3\n<|id|>63<|level|>3\n<|id|>71<|level|>2\n<|id|>72<|level|>3\n<|id|>80<|level|>3\n<|id|>89<|level|>3\n<|id|>95<|level|>2\n<|id|>96<|level|>3\n<|id|>100<|level|>3\n<|id|>104<|level|>3\n<|id|>110<|level|>2\n<|id|>117<|level|>2\n<|id|>122<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        }
+    ]
+}

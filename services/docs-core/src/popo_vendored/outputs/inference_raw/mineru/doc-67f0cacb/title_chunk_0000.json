@@ -1,0 +1,145 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 586<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>113 403 133 591<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>357 142 375 321<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>502 140 518 228<|content|>II. Parties\n<|id|>27<|page|>3<|box|>220 142 237 424<|content|>B. Noteholders (Insider Purchasers)\n<|id|>33<|page|>4<|box|>138 140 157 408<|content|>C. Non-Participating Stakeholder\n<|id|>43<|page|>4<|box|>816 140 834 452<|content|>III. Capitalization Overview (Pre-Note)\n<|id|>51<|page|>6<|box|>90 142 106 292<|content|>Board of Directors\n<|id|>54<|page|>6<|box|>429 140 446 535<|content|>IV. Key Economic Terms of the Convertible Notes\n<|id|>56<|page|>6<|box|>523 140 539 341<|content|>A. Principal and Interest\n<|id|>67<|page|>7<|box|>554 142 571 315<|content|>D. Conversion Terms\n<|id|>92<|page|>9<|box|>819 142 837 383<|content|>E. Subordination and Security\n<|id|>96<|page|>10<|box|>311 140 329 468<|content|>F. Most Favored Nation (MFN) Provision\n<|id|>100<|page|>10<|box|>691 140 709 321<|content|>G. Information Rights\n<|id|>105<|page|>11<|box|>304 140 320 354<|content|>V. Securities Law Analysis\n<|id|>114<|page|>12<|box|>340 140 357 485<|content|>VI. Consent and Governance Requirements\n<|id|>115<|page|>12<|box|>371 140 388 297<|content|>A. Board Approval\n<|id|>125<|page|>13<|box|>429 140 446 475<|content|>B. Stockholder / Preferred Stock Consents\n<|id|>138<|page|>14<|box|>816 140 834 403<|content|>VII. Conflict-of-Interest Analysis\n<|id|>139<|page|>14<|box|>849 140 864 346<|content|>A. Nature of the Conflicts\n<|id|>146<|page|>15<|box|>554 142 571 348<|content|>B. Procedural Safeguards\n<|id|>157<|page|>17<|box|>90 140 107 460<|content|>C. Stonebridge Dual-Role Consideration\n<|id|>161<|page|>17<|box|>453 142 470 357<|content|>D. Remaining Risk Factors\n<|id|>167<|page|>18<|box|>148 140 167 411<|content|>VIII. Key Transaction Documents\n<|id|>180<|page|>19<|box|>722 142 739 349<|content|>IX. Timeline of Key Dates\n<|id|>184<|page|>20<|box|>584 142 601 411<|content|>X. Engagement and Fee Summary\n<|id|>196<|page|>21<|box|>294 140 311 388<|content|>XI. Open Items and Next Steps\n<|id|>198<|page|>21<|box|>364 142 382 434<|content|>Pre-Closing (by September 12, 2025):\n<|id|>205<|page|>21<|box|>801 142 818 380<|content|>Closing (September 12, 2025):\n<|id|>208<|page|>22<|box|>90 142 107 253<|content|>Post-Closing:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>27<|level|>3\n<|id|>33<|level|>3\n<|id|>43<|level|>2\n<|id|>51<|level|>-1\n<|id|>54<|level|>2\n<|id|>56<|level|>3\n<|id|>67<|level|>3\n<|id|>92<|level|>3\n<|id|>96<|level|>3\n<|id|>100<|level|>3\n<|id|>105<|level|>2\n<|id|>114<|level|>2\n<|id|>115<|level|>3\n<|id|>125<|level|>3\n<|id|>138<|level|>2\n<|id|>139<|level|>3\n<|id|>146<|level|>3\n<|id|>157<|level|>3\n<|id|>161<|level|>3\n<|id|>167<|level|>2\n<|id|>180<|level|>2\n<|id|>184<|level|>2\n<|id|>196<|level|>2\n<|id|>198<|level|>3\n<|id|>205<|level|>3\n<|id|>208<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 3
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 3
+        }
+    ]
+}

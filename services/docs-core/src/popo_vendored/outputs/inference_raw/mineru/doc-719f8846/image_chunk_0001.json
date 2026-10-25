@@ -1,0 +1,59 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        54
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>540<|type|>table<|page|>46<|box|>140 88 267 904<|content|>None\n<|id|>542<|type|>table<|page|>46<|box|>316 88 408 904<|content|>None\n<|id|>544<|type|>table<|page|>46<|box|>501 87 554 903<|content|>None\n<|id|>548<|type|>title<|page|>47<|box|>108 125 126 318<|content|>(2)粒化高炉矿渣粉\n<|id|>550<|type|>table<|page|>47<|box|>195 83 413 900<|content|>None\n<|id|>552<|type|>table<|page|>47<|box|>506 83 622 900<|content|>None\n<|id|>554<|type|>table<|page|>47<|box|>692 84 764 898<|content|>None\n<|id|>556<|type|>table<|page|>47<|box|>855 83 916 898<|content|>None\n<|id|>558<|type|>title<|page|>48<|box|>447 130 465 455<|content|>(3) 粉煤灰和粒化高炉矿渣粉复合\n<|id|>560<|type|>table<|page|>48<|box|>538 90 671 904<|content|>None\n<|id|>561<|type|>table<|page|>48<|box|>747 88 909 903<|content|>None\n<|id|>563<|type|>table<|page|>49<|box|>149 96 265 909<|content|>None\n<|id|>565<|type|>title<|page|>50<|box|>187 201 215 794<|content|>附录 C 混凝土温度及温度应力计算\n<|id|>566<|type|>title<|page|>50<|box|>248 348 266 650<|content|>C.1 混凝土内部最高温度计算\n<|id|>570<|type|>title<|page|>50<|box|>853 365 871 623<|content|>C.2 混凝土弹性模量计算\n<|id|>573<|type|>table<|page|>51<|box|>228 93 357 908<|content|>None\n<|id|>574<|type|>title<|page|>51<|box|>373 368 391 630<|content|>C.3 混凝土温度应力计算\n<|id|>578<|type|>image<|page|>52<|box|>133 176 872 766<|content|>None\n<|id|>580<|type|>title<|page|>53<|box|>199 346 217 626<|content|>C.4 混凝土抗裂安全性评价\n<|id|>582<|type|>title<|page|>54<|box|>179 154 208 844<|content|>附录 D 混凝土出机口温度、浇筑温度计算\n<|id|>583<|type|>title<|page|>54<|box|>240 369 258 631<|content|>D.2 混凝土浇筑温度计算",
+    "raw_response": "<|src_id|>550<|tgt_id|>548\n<|src_id|>552<|tgt_id|>548\n<|src_id|>554<|tgt_id|>548\n<|src_id|>556<|tgt_id|>548\n<|src_id|>560<|tgt_id|>558\n<|src_id|>561<|tgt_id|>558\n<|src_id|>563<|tgt_id|>558\n<|src_id|>573<|tgt_id|>570\n<|src_id|>578<|tgt_id|>574",
+    "parsed": [
+        {
+            "src_id": 550,
+            "tgt_id": 548
+        },
+        {
+            "src_id": 552,
+            "tgt_id": 548
+        },
+        {
+            "src_id": 554,
+            "tgt_id": 548
+        },
+        {
+            "src_id": 556,
+            "tgt_id": 548
+        },
+        {
+            "src_id": 560,
+            "tgt_id": 558
+        },
+        {
+            "src_id": 561,
+            "tgt_id": 558
+        },
+        {
+            "src_id": 563,
+            "tgt_id": 558
+        },
+        {
+            "src_id": 573,
+            "tgt_id": 570
+        },
+        {
+            "src_id": 578,
+            "tgt_id": 574
+        }
+    ]
+}

@@ -1,0 +1,151 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-s77fz8kn\\input\\pdfs\\doc-89d6e9a1.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-s77fz8kn\\enriched\\doc-89d6e9a1.json",
+    "contd_output": "<|src_id|>52<|tgt_id|>53",
+    "title_output": "<|id|>9<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>35<|level|>2\n<|id|>49<|level|>2\n<|id|>59<|level|>1\n<|id|>61<|level|>2\n<|id|>78<|level|>2\n<|id|>94<|level|>2\n<|id|>111<|level|>2\n<|id|>128<|level|>2\n<|id|>132<|level|>3\n<|id|>145<|level|>2\n<|id|>161<|level|>1\n<|id|>164<|level|>1\n<|id|>165<|level|>2\n<|id|>169<|level|>2\n<|id|>173<|level|>2\n<|id|>179<|level|>2\n<|id|>185<|level|>1\n<|id|>196<|level|>1\n<|id|>210<|level|>1",
+    "image_output": "<|src_id|>162<|tgt_id|>161\n<|src_id|>163<|tgt_id|>161\n<|src_id|>167<|tgt_id|>165",
+    "contd_label": [
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 1
+        },
+        {
+            "id": 164,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 1
+        },
+        {
+            "id": 196,
+            "level": 1
+        },
+        {
+            "id": 210,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 162,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 165
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 162,
+            "table2_idx": 163,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Southport Logistics Park, Jackson",
+                    "GMP Southport LLC",
+                    "Atlas Freight Logistics Corp.",
+                    "Rent Amount",
+                    "ABR: $5,330,000 ($13.00/",
+                    "ABR: $5,190,000 ($12.66/",
+                    "-$140,000 (-2.6%)",
+                    "Undisclosed rent abatement,",
+                    "Pending Seller confirmation"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "ville, FL",
+                    "",
+                    "",
+                    "",
+                    "RSF)",
+                    "RSF)",
+                    "",
+                    "credit, or projected escalation not yet effective",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

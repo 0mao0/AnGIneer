@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        101,
+        150
+    ],
+    "pages": [
+        101,
+        102,
+        103,
+        106,
+        135,
+        138,
+        139,
+        140,
+        150
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>378<|page|>101<|box|>698 0 971 461<|content|>Table is based on Treasury Department data and on ...g-term liabilities reported by banks in the United\n<|id|>379<|page|>101<|box|>705 512 723 937<|content|>States and debt securities of U. ... corporations\n<|id|>383<|page|>102<|box|>542 35 639 504<|content|>Note: ... 1/ Includes Bank for International Settlements and European Fund\n<|id|>384<|page|>102<|box|>631 38 642 453<|content|>1/ Includes Bank for International Settlements and...nk for International Settlements and European Fund\n<|id|>386<|page|>102<|box|>660 37 671 504<|content|>3/ Data on the two lines shown for this date differ because of changes in\n<|id|>388<|page|>102<|box|>650 527 662 736<|content|>p Preliminary. ... r Revised\n<|id|>395<|page|>103<|box|>939 6 952 453<|content|>3/ In addition, nonmarketable Treasury notes amounting to \\$125 million\n<|id|>396<|page|>103<|box|>922 500 942 961<|content|>€/ Dollar equivalents not revalued to reflect end-...eflect end-February 1973 de facto conversion rates\n<|id|>412<|page|>106<|box|>288 32 336 505<|content|>The report forms and instructions used in the coll...istics have been revised a number of times. ... 1/\n<|id|>413<|page|>106<|box|>344 30 458 502<|content|>The present form of the published presentation of ...rt-term liquid claims of large nonbanking concerns\n<|id|>492<|page|>135<|box|>53 231 68 746<|content|>Section V - Transactions in Long-Term Securities by Foreigners\n<|id|>493<|page|>135<|box|>68 270 82 702<|content|>Reported by Banks and Brokers in the United States\n<|id|>494<|page|>135<|box|>82 187 96 781<|content|>Table CM-V-5. ... - Net Foreign Transactions in Long-Term Domestic Bonds,\n<|id|>495<|page|>135<|box|>96 275 109 705<|content|>Other than Treasury Bonds and Notes, by Country\n<|id|>500<|page|>138<|box|>106 121 117 906<|content|>(In millions of dollars; ... negative figures indi...r a net outflow of capital from the United States)\n<|id|>502<|page|>139<|box|>45 365 58 578<|content|>CAPITAL MOVEMENTS\n<|id|>503<|page|>139<|box|>60 204 121 768<|content|>Section V - Transactions in Long-Term Securities b... January 1973 Preliminary (In millions of dollars)\n<|id|>505<|page|>140<|box|>47 236 109 812<|content|>CAPITAL MOVEMENTS Section V - Transactions in Long...es, by Type and Country, During Calendar Year 1971\n<|id|>519<|page|>150<|box|>139 155 155 351<|content|>OFFICIAL BUSINESS\n<|id|>521<|page|>150<|box|>363 534 561 663<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS",
+    "raw_response": "<|src_id|>378<|tgt_id|>379\n<|src_id|>494<|tgt_id|>495",
+    "parsed": [
+        {
+            "src_id": 378,
+            "tgt_id": 379
+        },
+        {
+            "src_id": 494,
+            "tgt_id": 495
+        }
+    ]
+}

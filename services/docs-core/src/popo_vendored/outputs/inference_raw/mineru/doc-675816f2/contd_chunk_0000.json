@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 294 133 700<|content|>801 Brickell Avenue, Suite 2800 Miami, Florida 33131\n<|id|>2<|page|>1<|box|>141 178 159 818<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 173 184 854<|content|>Francesca Morano Partner Direct Dial: ... com\n<|id|>4<|page|>1<|box|>193 743 210 854<|content|>April 18, 2023\n<|id|>6<|page|>1<|box|>244 140 281 854<|content|>Atlantic Omnivrel Insurance Company Claims Departm...n 275 Asylum Street, Suite 2400 Hartford, CT 06103\n<|id|>7<|page|>1<|box|>289 142 306 602<|content|>Attention: ... Claims Manager, Professional Liability Division\n<|id|>8<|page|>1<|box|>315 140 388 854<|content|>Re: ... December 31, 2022\n<|id|>9<|page|>1<|box|>396 142 414 313<|content|>Dear Claims Manager: ... Dear Claims Manager\n<|id|>64<|page|>7<|box|>468 183 501 854<|content|>• Deposition costs, including court reporter fees, videographer fees, and transcript costs; ... and\n<|id|>66<|page|>7<|box|>542 140 633 856<|content|>PCG further reserves the right to seek reimburseme...connection with the initial coverage determination\n<|id|>94<|page|>8<|box|>814 176 849 854<|content|>6. ... and\n<|id|>96<|page|>9<|box|>90 140 164 854<|content|>We note that certain of these documents, including...erials, we will promptly provide them upon request\n<|id|>103<|page|>9<|box|>512 181 547 854<|content|>• The right to challenge any denial or limitation ...reservation of rights letter or otherwise; ... and\n<|id|>105<|page|>9<|box|>587 140 660 854<|content|>To the extent that Atlantic Fidelity issues a rese...y untimely or insufficient response to this tender\n<|id|>109<|page|>9<|box|>797 174 834 854<|content|>Francesca Morano, Partner Calderwood & Harkness LL...2800 Miami, FL 33131 Telephone: ... (305) 814-7201\n<|id|>110<|page|>9<|box|>842 176 859 498<|content|>Email: ... com\n<|id|>111<|page|>9<|box|>859 176 876 828<|content|>Reference: ... 1440032871\n<|id|>112<|page|>9<|box|>886 142 902 261<|content|>With a copy to: ... With a copy to\n<|id|>113<|page|>10<|box|>89 174 126 854<|content|>Marcus Thiel, Chief Financial Officer Pellegrino C...1400 Tampa, FL 33606 Telephone: ... (813) 725-4400\n<|id|>114<|page|>10<|box|>133 176 151 457<|content|>Email: ... com\n<|id|>115<|page|>10<|box|>152 140 207 854<|content|>We respectfully request that Atlantic Fidelity ack...ble options to protect its rights under the Policy\n<|id|>117<|page|>10<|box|>295 140 313 272<|content|>Very truly yours,\n<|id|>118<|page|>10<|box|>320 140 337 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>119<|page|>10<|box|>339 142 354 254<|content|>By: ... By\n<|id|>120<|page|>10<|box|>356 142 371 341<|content|>Francesca Morano Partner\n<|id|>121<|page|>10<|box|>372 140 388 547<|content|>801 Brickell Avenue, Suite 2800 Miami, Florida 33131\n<|id|>122<|page|>10<|box|>388 140 444 854<|content|>cc: ... Samuel Eklund, Partner, Calderwood & Harkness LLP\n<|id|>123<|page|>10<|box|>452 140 469 259<|content|>Enclosures (7): ... Enclosures (7)",
+    "raw_response": "<|src_id|>112<|tgt_id|>113\n<|src_id|>119<|tgt_id|>120\n<|src_id|>120<|tgt_id|>121",
+    "parsed": [
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 121
+        }
+    ]
+}

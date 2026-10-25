@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 148 854<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC...ington Avenue, 38th Floor New York, New York 10022\n<|id|>1<|page|>1<|box|>157 704 174 854<|content|>September 30, 2022\n<|id|>2<|page|>1<|box|>181 140 200 442<|content|>VIA EMAIL (d. ... gr)\n<|id|>3<|page|>1<|box|>208 140 244 854<|content|>Ms. ... Dimitra Karavelis-Stavrou General Counsel ...tics SA 14 Poseidonos Avenue Piraeus 185 31 Greece\n<|id|>4<|page|>1<|box|>253 140 270 658<|content|>Re: ... 1044-00007\n<|id|>5<|page|>1<|box|>279 140 295 357<|content|>Dear Ms. ... Karavelis-Stavrou\n<|id|>14<|page|>2<|box|>167 174 186 717<|content|>(e) Yves Kouadio, Finance Manager, TWA (Abidjan, Côte d'Ivoire); ... and\n<|id|>16<|page|>2<|box|>219 140 330 856<|content|>Each of these individuals has been identified as a...jurisdiction in which TWA or TNL conducts business\n<|id|>21<|page|>2<|box|>861 140 898 854<|content|>We take this opportunity to strongly reiterate our... that TWA immediately suspend all \"expediting fee\"\n<|id|>22<|page|>3<|box|>90 140 181 854<|content|>payments to Goldenshore Maritime Consultants Ltd. ...ate destination of these funds remain under review\n<|id|>59<|page|>8<|box|>89 174 127 854<|content|>(g) Vessel-call logs and customs-clearance records...s during the period March 2018 to present; ... and\n<|id|>61<|page|>8<|box|>214 140 270 854<|content|>We stress that the completeness and quality of the...voluntary self-disclosure, should one be warranted\n<|id|>75<|page|>10<|box|>252 142 268 274<|content|>Very truly yours,\n<|id|>76<|page|>10<|box|>277 140 294 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>77<|page|>10<|box|>295 142 311 253<|content|>By: ... By\n<|id|>78<|page|>10<|box|>311 142 329 568<|content|>Victoria Chambers Partner, White Collar & Investigations\n<|id|>79<|page|>10<|box|>329 140 345 480<|content|>Email: ... com\n<|id|>80<|page|>10<|box|>347 142 363 341<|content|>Phone: ... +1 (212) 555-0147\n<|id|>81<|page|>10<|box|>364 140 381 508<|content|>cc: ... Howard Quinn, Calderwood & Harkness LLP\n<|id|>82<|page|>10<|box|>388 174 407 537<|content|>Jasmine Thornton, Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>21<|tgt_id|>22",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        }
+    ]
+}

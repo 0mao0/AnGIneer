@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>162 444 179 553<|content|>by and among\n<|id|>2<|page|>1<|box|>310 483 325 514<|content|>and\n<|id|>11<|page|>1<|box|>686 174 723 854<|content|>(iv) Cascadia Renewables Holdings, Inc. ... and\n<|id|>13<|page|>1<|box|>811 140 847 854<|content|>Each of the Sellers, the Company, and Buyer is som... a \"Party\" and collectively as the \"Parties. ... \"\n<|id|>22<|page|>2<|box|>582 140 674 856<|content|>WHEREAS, the Parties desire to amend the Purchase ...cations, in each case as set forth herein; ... and\n<|id|>23<|page|>2<|box|>681 140 736 857<|content|>WHEREAS, Section 11. ... 5 of the Purchase Agreeme...ument duly executed by each of the Parties thereto\n<|id|>40<|page|>3<|box|>872 140 907 854<|content|>(a) Any and all provisions of the Purchase Agreeme... of any Party, (ii) the lapse or expiration of the\n<|id|>41<|page|>4<|box|>90 140 143 854<|content|>Parties' obligations under the Purchase Agreement,...nded to reference \"March 31, 2023\" in lieu thereof\n<|id|>60<|page|>5<|box|>830 174 902 856<|content|>(a) Power and Authority. ... In the case of Timber...been duly authorized by Timberline Growth Partners\n<|id|>61<|page|>6<|box|>90 174 200 856<|content|>LLC, as general partner of Timberline. ... In the ...duly authorized by the board of directors of Buyer\n<|id|>89<|page|>9<|box|>310 142 327 565<|content|>By: ... Timberline Growth Partners LLC, its General Partner\n<|id|>90<|page|>9<|box|>328 143 344 253<|content|>By: ... By\n<|id|>91<|page|>9<|box|>345 143 361 308<|content|>Name: ... Hugh Callister\n<|id|>92<|page|>9<|box|>362 143 378 323<|content|>Title: ... Managing Partner\n<|id|>93<|page|>9<|box|>378 143 395 336<|content|>Date: ... November 22, 2022\n<|id|>96<|page|>9<|box|>431 143 446 331<|content|>Name: ... Weir\n<|id|>97<|page|>9<|box|>449 143 464 248<|content|>Title: ... Trustee\n<|id|>98<|page|>9<|box|>464 143 481 336<|content|>Date: ... November 22, 2022\n<|id|>101<|page|>9<|box|>532 143 549 331<|content|>Name: ... Weir\n<|id|>102<|page|>9<|box|>550 143 566 454<|content|>Title: ... Management Sellers' Representative\n<|id|>103<|page|>9<|box|>566 143 583 336<|content|>Date: ... November 22, 2022\n<|id|>104<|page|>9<|box|>584 143 601 248<|content|>COMPANY: ... COMPANY\n<|id|>107<|page|>9<|box|>645 143 661 333<|content|>Name: ... Weir\n<|id|>108<|page|>9<|box|>662 143 679 366<|content|>Title: ... Chief Executive Officer\n<|id|>109<|page|>9<|box|>679 143 695 336<|content|>Date: ... November 22, 2022\n<|id|>113<|page|>9<|box|>757 143 773 354<|content|>Name: ... Hargreaves\n<|id|>114<|page|>9<|box|>773 143 790 261<|content|>Title: ... President\n<|id|>115<|page|>9<|box|>791 143 806 336<|content|>Date: ... November 22, 2022\n<|id|>116<|page|>9<|box|>808 140 844 854<|content|>ACKNOWLEDGED AND AGREED (solely for purposes of Sections 2. ... 4 of this First Amendment)\n<|id|>118<|page|>9<|box|>869 142 887 583<|content|>By: ... Meridian Infrastructure GP IV LLC, its General Partner\n<|id|>119<|page|>9<|box|>888 143 905 251<|content|>By: ... By\n<|id|>120<|page|>10<|box|>90 140 107 354<|content|>Name: ... Hargreaves\n<|id|>121<|page|>10<|box|>107 140 125 326<|content|>Title: ... Managing Partner\n<|id|>122<|page|>10<|box|>125 140 141 338<|content|>Date: ... November 22, 2022\n<|id|>123<|page|>10<|box|>141 142 157 424<|content|>ICM CASCADIA CO-INVEST, LP\n<|id|>124<|page|>10<|box|>159 140 176 581<|content|>By: ... Meridian Infrastructure GP IV LLC, its General Partner\n<|id|>125<|page|>10<|box|>176 142 194 254<|content|>By: ... By\n<|id|>126<|page|>10<|box|>194 140 210 354<|content|>Name: ... Hargreaves\n<|id|>127<|page|>10<|box|>210 142 228 326<|content|>Title: ... Managing Partner\n<|id|>128<|page|>10<|box|>228 142 244 338<|content|>Date: ... November 22, 2022",
+    "raw_response": "<|src_id|>40<|tgt_id|>41\n<|src_id|>60<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        }
+    ]
+}

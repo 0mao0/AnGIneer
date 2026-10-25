@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        3,
+        10,
+        11,
+        14,
+        15,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>176 751 194 854<|content|>April 3, 2023\n<|id|>4<|page|>1<|box|>203 140 239 854<|content|>FROM: ... Leonard Cross, Responsible Partner, and ... Partner Calderwood & Harkness LLP, Tax Department\n<|id|>5<|page|>1<|box|>247 140 301 854<|content|>TO: ... Rajesh Iyer, Chief Financial Officer, Penterra Pharmaceuticals Corp\n<|id|>6<|page|>1<|box|>309 140 345 854<|content|>RE: ... (TY 2017– 2020)\n<|id|>7<|page|>1<|box|>354 142 369 369<|content|>Matter Number: ... 1018-00009\n<|id|>8<|page|>1<|box|>378 140 396 503<|content|>IRS Exam Team ID: ... LB&I-NE-TP-2022-00641\n<|id|>9<|page|>1<|box|>405 142 422 539<|content|>Reporting Period: ... January 1, 2023 – March 31, 2023\n<|id|>10<|page|>1<|box|>431 140 507 854<|content|>This memorandum constitutes a privileged and confi...ot constitute a waiver of any applicable privilege\n<|id|>30<|page|>3<|box|>280 145 297 643<|content|>• Gerald Meskill — Supervisory Revenue Agent (Team Manager)\n<|id|>33<|page|>3<|box|>375 140 393 671<|content|>The examination was assigned IRS Team ID LB&I-NE-T...ion was assigned IRS Team ID LB&I-NE-TP-2022-00641\n<|id|>31<|page|>3<|box|>300 147 335 854<|content|>• Patricia Dunleavy — Lead Revenue Agent (primary ...tact for IDRs and day- to-day examination matters)\n<|id|>32<|page|>3<|box|>338 145 373 854<|content|>• Dr. ... 3 below)\n<|id|>100<|page|>10<|box|>824 181 896 857<|content|>• Notice of Proposed Adjustment (NOPA): ... The NOPA will set forth the IRS's proposed adjustments to\n<|id|>101<|page|>11<|box|>90 210 126 854<|content|>PPC's transfer pricing for the years at issue, the...stments, and the amount of any proposed deficiency\n<|id|>149<|page|>14<|box|>839 140 895 856<|content|>PPC's management should be aware that Ridgeview Ca...at approximately 8. ... Any material change to the\n<|id|>150<|page|>15<|box|>89 140 162 854<|content|>FIN 48 reserve will be reflected in PPC's financia...ments are appropriately disclosed and communicated\n<|id|>200<|page|>19<|box|>414 408 430 586<|content|>Respectfully submitted,\n<|id|>201<|page|>19<|box|>439 140 455 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>202<|page|>19<|box|>457 142 474 254<|content|>By: ... By\n<|id|>204<|page|>19<|box|>508 140 541 779<|content|>Sylvia Hartwell Partner, Tax Department 600 Lexington Avenue New York, NY 10022 Date: ... April 3, 2023\n<|id|>205<|page|>19<|box|>541 140 556 735<|content|>Calderwood & Harkness LLP — Privileged and Confidential Matter No. ... 1018-00009 April 3, 2023",
+    "raw_response": "<|src_id|>100<|tgt_id|>101\n<|src_id|>149<|tgt_id|>150",
+    "parsed": [
+        {
+            "src_id": 100,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 149,
+            "tgt_id": 150
+        }
+    ]
+}

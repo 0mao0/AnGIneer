@@ -1,0 +1,34 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        50
+    ],
+    "pages": [
+        46,
+        47,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>474<|page|>46<|box|>89 383 106 614<|content|>INSTRUCTION APPENDIX\n<|id|>475<|page|>46<|box|>116 336 133 660<|content|>(Internal Use Only — Not for Recording)\n<|id|>477<|page|>47<|box|>90 140 108 450<|content|>Appendix I — Completion Instructions\n<|id|>498<|page|>49<|box|>90 142 108 612<|content|>Appendix II — Table of Jurisdictions and Instrumen\n<|id|>501<|page|>50<|box|>90 142 108 522<|content|>Appendix III — Recording and Tax Information\n<|id|>505<|page|>50<|box|>625 436 641 563<|content|>END OF FORM",
+    "raw_response": "<|id|>474<|level|>1\n<|id|>475<|level|>-1\n<|id|>477<|level|>2\n<|id|>498<|level|>2\n<|id|>501<|level|>2\n<|id|>505<|level|>-1",
+    "parsed": [
+        {
+            "id": 474,
+            "level": 1
+        },
+        {
+            "id": 477,
+            "level": 2
+        },
+        {
+            "id": 498,
+            "level": 2
+        },
+        {
+            "id": 501,
+            "level": 2
+        }
+    ]
+}

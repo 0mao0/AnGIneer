@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>99 334 118 663<|content|>BRING-DOWN CERTIFICATE\n<|id|>1<|page|>1<|box|>136 168 152 828<|content|>Delivered Pursuant to Section [____] of the Master\n<|id|>3<|page|>1<|box|>368 140 383 346<|content|>SECTION 1: RECITALS\n<|id|>7<|page|>2<|box|>148 140 166 374<|content|>SECTION 2: DEFINITIONS\n<|id|>13<|page|>2<|box|>448 140 464 411<|content|>SECTION 3: CERTIFICATIONS\n<|id|>15<|page|>2<|box|>542 140 559 545<|content|>3.1 Bring-Down of Representations and Warranties\n<|id|>24<|page|>3<|box|>681 140 699 330<|content|>3.2 No Material Breach\n<|id|>27<|page|>4<|box|>90 140 107 351<|content|>3.3 Security Certifications\n<|id|>32<|page|>4<|box|>698 140 715 331<|content|>3.4 Insurance Coverage\n<|id|>42<|page|>5<|box|>632 140 648 433<|content|>3.5 Compliance with Applicable Law\n<|id|>51<|page|>6<|box|>381 140 398 398<|content|>3.6 No Litigation or Proceedings\n<|id|>57<|page|>6<|box|>777 140 794 282<|content|>3.7 Data Security\n<|id|>63<|page|>7<|box|>734 140 751 349<|content|>SECTION 4: RELIANCE\n<|id|>66<|page|>8<|box|>258 140 276 415<|content|>SECTION 5: GOVERNING LAW\n<|id|>68<|page|>8<|box|>436 140 452 362<|content|>SECTION 6: EXECUTION\n<|id|>76<|page|>9<|box|>89 142 106 423<|content|>SCHEDULE OF ATTACHMENTS\n<|id|>80<|page|>9<|box|>590 330 606 668<|content|>[END OF BRING-DOWN CERTIFICATE]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>2\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>3\n<|id|>24<|level|>3\n<|id|>27<|level|>3\n<|id|>32<|level|>3\n<|id|>42<|level|>3\n<|id|>51<|level|>3\n<|id|>57<|level|>3\n<|id|>63<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>2\n<|id|>76<|level|>2\n<|id|>80<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        }
+    ]
+}

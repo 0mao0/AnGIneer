@@ -1,0 +1,21 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>146 87 184 907<|content|>中华人民共和国国家标准\n<|id|>3<|type|>title<|page|>1<|box|>395 218 430 774<|content|>江海直达货船船型尺度系列\n<|id|>4<|type|>title<|page|>1<|box|>458 270 479 726<|content|>Dimensions series of river/coastal cargo ship\n<|id|>7<|type|>title<|page|>2<|box|>135 442 156 554<|content|>前言\n<|id|>20<|type|>title<|page|>3<|box|>135 337 156 658<|content|>江海直达货船船型尺度系列\n<|id|>21<|type|>title<|page|>3<|box|>193 107 206 176<|content|>1 范围\n<|id|>23<|type|>title<|page|>3<|box|>249 107 263 228<|content|>2 术语和定义\n<|id|>25<|type|>title<|page|>3<|box|>296 107 309 139<|content|>2.1\n<|id|>28<|type|>title<|page|>3<|box|>361 107 376 211<|content|>3 主要参数\n<|id|>30<|type|>table<|page|>3<|box|>425 110 683 887<|content|>None",
+    "raw_response": "<|src_id|>30<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        }
+    ]
+}

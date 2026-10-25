@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 282 130 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>2<|type|>title<|page|>1<|box|>138 263 156 735<|content|>599 Lexington Avenue, 38th Floor New York, New Yor\n<|id|>19<|type|>title<|page|>2<|box|>231 140 248 410<|content|>1. Payment Amount and Deadline\n<|id|>23<|type|>title<|page|>2<|box|>604 140 622 684<|content|>2. Wire Transfer Instructions for Beneficiary (Vec\n<|id|>25<|type|>table<|page|>2<|box|>791 143 904 852<|content|>None\n<|id|>26<|type|>table<|page|>3<|box|>88 143 161 852<|content|>None\n<|id|>29<|type|>title<|page|>3<|box|>463 140 479 522<|content|>3. Instructions to Halcyon Treasury Department\n<|id|>38<|type|>title<|page|>4<|box|>375 140 391 633<|content|>4. Instructions to Ironclad National Bank, N.A. (E\n<|id|>42<|type|>title<|page|>4<|box|>840 140 858 403<|content|>5. Confirmation and Compliance\n<|id|>47<|type|>title<|page|>5<|box|>531 140 547 357<|content|>6. Fraud Prevention Notice\n<|id|>48<|type|>title<|page|>5<|box|>556 140 573 630<|content|>IMPORTANT — WIRE FRAUD PREVENTION ADVISORY\n<|id|>54<|type|>title<|page|>6<|box|>223 140 239 209<|content|>Closing",
+    "raw_response": "<|src_id|>25<|tgt_id|>23\n<|src_id|>26<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 23
+        }
+    ]
+}

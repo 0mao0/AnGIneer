@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 151 176 844<|content|>COLUMBIA BASIN WATER TREATMENT PARTNERS, LLC 1100\n<|id|>16<|type|>title<|page|>1<|box|>617 140 633 539<|content|>Section 1. Authorization and Basis for Capital Cal\n<|id|>21<|type|>title<|page|>2<|box|>90 176 108 834<|content|>(c) Patricia Huang, Governing Board Member (Deputy\n<|id|>25<|type|>title<|page|>2<|box|>502 140 518 397<|content|>Section 2. Capital Call Amounts\n<|id|>27<|type|>title<|page|>2<|box|>614 140 631 607<|content|>2.1 Cascadia State Infrastructure Authority (55% M\n<|id|>28<|type|>title<|page|>2<|box|>637 174 654 575<|content|>Second Tranche Contribution Amount: $4,950,000\n<|id|>31<|type|>title<|page|>2<|box|>866 140 883 540<|content|>2.2 Pinnacle Water Solutions, LLC (45% Member)\n<|id|>32<|type|>title<|page|>2<|box|>888 176 906 573<|content|>Second Tranche Contribution Amount: $4,050,000\n<|id|>36<|type|>title<|page|>3<|box|>294 140 311 393<|content|>2.3 Aggregate Equity Summary\n<|id|>38<|type|>table<|page|>3<|box|>378 143 527 852<|content|>None\n<|id|>40<|type|>title<|page|>3<|box|>659 140 676 372<|content|>Section 3. Payment Due Date\n<|id|>43<|type|>title<|page|>3<|box|>772 434 789 562<|content|>March 31, 2023\n<|id|>46<|type|>title<|page|>4<|box|>223 140 239 393<|content|>Section 4. Payment Instructions\n<|id|>59<|type|>title<|page|>5<|box|>90 140 107 480<|content|>Section 5. Consequences of Failure to Fund\n<|id|>68<|type|>title<|page|>6<|box|>90 140 107 408<|content|>Section 6. Purpose of Capital Call\n<|id|>76<|type|>table<|page|>6<|box|>845 143 902 852<|content|>None\n<|id|>77<|type|>table<|page|>7<|box|>88 143 127 852<|content|>None\n<|id|>79<|type|>title<|page|>7<|box|>294 140 310 594<|content|>Section 7. Governing Law and LLC Agreement Referen\n<|id|>83<|type|>title<|page|>7<|box|>614 140 631 388<|content|>Section 8. Contact Information\n<|id|>85<|type|>title<|page|>7<|box|>702 142 719 439<|content|>For the Company / Governing Board:\n<|id|>92<|type|>title<|page|>8<|box|>152 359 169 637<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>93<|type|>title<|page|>8<|box|>178 166 214 830<|content|>SIGNATURE PAGE TO NOTICE OF CAPITAL CALL — SECOND\n<|id|>95<|type|>title<|page|>8<|box|>285 140 301 650<|content|>COLUMBIA BASIN WATER TREATMENT PARTNERS, LLC\n<|id|>103<|type|>title<|page|>8<|box|>604 142 621 233<|content|>Enclosures",
+    "raw_response": "<|src_id|>38<|tgt_id|>36\n<|src_id|>76<|tgt_id|>68\n<|src_id|>77<|tgt_id|>68",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 68
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        59,
+        140
+    ],
+    "pages": [
+        60,
+        62,
+        71,
+        140
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>323<|page|>60<|box|>140 326 157 687<|content|>Based on closing bid quotations (in percentages)\n<|id|>325<|page|>62<|box|>89 93 125 903<|content|>TABLE MY-2. ... Office of Market Finance, Office of the Under Secretary for Domestic Finance]\n<|id|>365<|page|>71<|box|>484 81 544 488<|content|>- Section V contains information on transactions w...The data cover transactions executed in the United\n<|id|>366<|page|>71<|box|>89 508 178 915<|content|>States for the accounts of foreigners and transact...able Treasury bonds and notes shown in table IFS-3\n<|id|>611<|page|>140<|box|>154 364 169 629<|content|>Source: ... Financial Management Service\n<|id|>612<|page|>140<|box|>186 81 290 488<|content|>Accrued discount (SBN-1, -2, -3)—Interest that acc... their holders is not included in accrued discount",
+    "raw_response": "<|src_id|>365<|tgt_id|>366",
+    "parsed": [
+        {
+            "src_id": 365,
+            "tgt_id": 366
+        }
+    ]
+}

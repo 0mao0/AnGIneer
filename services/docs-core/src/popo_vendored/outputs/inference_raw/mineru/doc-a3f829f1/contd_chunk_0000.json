@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        14,
+        19,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 145 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>152 140 170 838<|content|>TO: ... Yuki Nakamura, Associate — Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>179 140 196 653<|content|>FROM: ... Carlos Espinoza, Associate — Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>205 140 222 331<|content|>DATE: ... August 10, 2022\n<|id|>5<|page|>1<|box|>231 140 266 854<|content|>RE: ... Securitization-Related Considerations\n<|id|>6<|page|>1<|box|>275 142 292 331<|content|>Matter No. ... 1025-00007\n<|id|>7<|page|>1<|box|>301 140 319 455<|content|>Client: ... Quorum Insurance Holdings Corp\n<|id|>13<|page|>1<|box|>797 140 907 856<|content|>The initial securitized pool, as of the cut-off da... Receivables Sale Agreement between QPF and Quorum\n<|id|>14<|page|>2<|box|>90 140 125 854<|content|>Receivables Holding LLC (\"QRH\") and the Receivable...bles Transfer Agreement between QRH and QRF 2022-1\n<|id|>33<|page|>3<|box|>864 147 902 854<|content|>• Ongoing Compliance. ... The loss of a license in a\n<|id|>34<|page|>4<|box|>90 140 146 854<|content|>state with a material concentration of receivables...analyzed in detail in Sections V through VII below\n<|id|>133<|page|>14<|box|>338 147 354 527<|content|>• Collection of installment payments from obligors\n<|id|>139<|page|>14<|box|>473 140 527 854<|content|>Because QPF — a fully licensed premium finance com...ng in the business of premium financing is minimal\n<|id|>134<|page|>14<|box|>357 147 375 738<|content|>• Issuance of cancellation notices in compliance with state-specific requirements\n<|id|>135<|page|>14<|box|>377 147 393 568<|content|>• Processing of unearned premium refunds from insurers\n<|id|>136<|page|>14<|box|>396 147 412 683<|content|>• Communication with insureds, insurance agents, and insurance carriers\n<|id|>137<|page|>14<|box|>415 147 433 833<|content|>• Enforcement of rights under the premium finance agreements in the event of obligor default\n<|id|>138<|page|>14<|box|>435 145 469 854<|content|>• Compliance with all applicable state premium finance laws in the performance of servicing duties\n<|id|>191<|page|>19<|box|>234 174 287 854<|content|>(b) Each receivable being sold was originated in c...ments, and cancellation notice provisions; ... and\n<|id|>193<|page|>19<|box|>359 140 412 854<|content|>These representations would supplement, not replac...the repurchase obligation in the event of a breach\n<|id|>216<|page|>21<|box|>789 140 862 854<|content|>Notice to Insurer and Agent. ... This notice enabl...ellation and calculate the unearned premium refund\n<|id|>217<|page|>22<|box|>90 140 143 854<|content|>Cure Period. ... Some states provide the insured w...red cures the default before the cancellation date\n<|id|>229<|page|>22<|box|>857 140 893 854<|content|>New York Insurance Law Article 95 (Sections 9501 t...ew York Department of Financial Services (\"NYDFS\")\n<|id|>230<|page|>23<|box|>89 140 126 854<|content|>is the licensing authority. ... PFC-2013-11847)",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>33<|tgt_id|>34\n<|src_id|>229<|tgt_id|>230",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 229,
+            "tgt_id": 230
+        }
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>411 140 429 436<|content|>I. Introduction and Purpose of Letter\n<|id|>14<|page|>2<|box|>148 140 167 367<|content|>II. Background and Context\n<|id|>24<|page|>3<|box|>348 140 364 535<|content|>III. Updated BridgeFin Credit Metrics — Q4 2023\n<|id|>26<|page|>3<|box|>478 142 494 377<|content|>A. 90+ Day Delinquency Rate\n<|id|>33<|page|>4<|box|>311 142 329 333<|content|>B. Net Charge-Off Rate\n<|id|>38<|page|>4<|box|>801 140 818 470<|content|>C. Re-Aged / Modified Loan Performance\n<|id|>49<|page|>5<|box|>628 140 647 468<|content|>IV. Updated ACL — FY 2023 Form 10-K\n<|id|>50<|page|>5<|box|>661 140 678 344<|content|>A. Increased ACL Figure\n<|id|>54<|page|>6<|box|>250 140 266 490<|content|>B. Nature of Enhanced Qualitative Overlays\n<|id|>62<|page|>7<|box|>440 140 457 387<|content|>C. Audit Committee Oversight\n<|id|>65<|page|>7<|box|>768 140 785 442<|content|>V. Significance for the Staff's Analysis\n<|id|>66<|page|>7<|box|>799 140 816 423<|content|>A. Reasonableness of Original ACL\n<|id|>73<|page|>8<|box|>500 140 517 377<|content|>B. Materiality Considerations\n<|id|>77<|page|>9<|box|>90 140 107 370<|content|>C. No Restatement Required\n<|id|>81<|page|>9<|box|>463 140 479 264<|content|>VI. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>2\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>49<|level|>1\n<|id|>50<|level|>2\n<|id|>54<|level|>2\n<|id|>62<|level|>2\n<|id|>65<|level|>1\n<|id|>66<|level|>2\n<|id|>73<|level|>2\n<|id|>77<|level|>2\n<|id|>81<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 1
+        }
+    ]
+}

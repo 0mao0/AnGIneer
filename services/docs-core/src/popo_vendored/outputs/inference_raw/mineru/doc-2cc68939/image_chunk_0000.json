@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 181 125 815<|content|>REQUEST FOR EXTENSION OF TIME UNDER 37 C.F.R. § 1.\n<|id|>3<|type|>title<|page|>1<|box|>204 142 222 496<|content|>Via Electronic Filing (USPTO Patent Center)\n<|id|>4<|type|>table<|page|>1<|box|>253 143 520 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>554 143 570 308<|content|>Dear Commissioner:\n<|id|>6<|type|>title<|page|>1<|box|>595 142 612 401<|content|>1. Request for Extension of Time\n<|id|>11<|type|>title<|page|>2<|box|>267 140 284 362<|content|>2. Entity Status Declaration\n<|id|>16<|type|>title<|page|>2<|box|>723 140 739 395<|content|>3. Fee Calculation and Payment\n<|id|>19<|type|>table<|page|>2<|box|>861 143 898 852<|content|>None\n<|id|>20<|type|>table<|page|>3<|box|>88 143 142 852<|content|>None\n<|id|>23<|type|>title<|page|>4<|box|>90 140 107 388<|content|>4. Authorization and Signature\n<|id|>26<|type|>title<|page|>4<|box|>258 140 276 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>28<|type|>title<|page|>4<|box|>392 140 409 401<|content|>5. Certificate of Electronic Filing\n<|id|>31<|type|>title<|page|>4<|box|>532 303 549 694<|content|>FEE TRANSMITTAL (Equivalent to PTO/SB/17)\n<|id|>32<|type|>table<|page|>4<|box|>626 143 810 852<|content|>None\n<|id|>33<|type|>table<|page|>4<|box|>871 143 907 852<|content|>None\n<|id|>34<|type|>table<|page|>5<|box|>88 143 152 852<|content|>None\n<|id|>35<|type|>title<|page|>5<|box|>191 142 208 303<|content|>Method of Payment\n<|id|>42<|type|>title<|page|>5<|box|>398 142 415 346<|content|>Correspondence Address.\n<|id|>53<|type|>title<|page|>5<|box|>715 143 733 431<|content|>Authorization and Budget Exception\n<|id|>56<|type|>title<|page|>6<|box|>138 140 157 272<|content|>Billing and Fees\n<|id|>58<|type|>title<|page|>6<|box|>267 142 284 398<|content|>Deadline and Prosecution Status\n<|id|>60<|type|>title<|page|>6<|box|>431 140 449 395<|content|>Divisional Application Planning\n<|id|>62<|type|>table<|page|>6<|box|>616 143 710 852<|content|>None\n<|id|>63<|type|>title<|page|>6<|box|>750 142 768 383<|content|>Docketing Service Notification\n<|id|>72<|type|>title<|page|>7<|box|>161 142 176 413<|content|>Attachments to Internal File Copy",
+    "raw_response": "<|src_id|>4<|tgt_id|>3\n<|src_id|>19<|tgt_id|>16\n<|src_id|>20<|tgt_id|>16\n<|src_id|>32<|tgt_id|>31\n<|src_id|>33<|tgt_id|>31\n<|src_id|>34<|tgt_id|>31\n<|src_id|>62<|tgt_id|>60",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        }
+    ]
+}

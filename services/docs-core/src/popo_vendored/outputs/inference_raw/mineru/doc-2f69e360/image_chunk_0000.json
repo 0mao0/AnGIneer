@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>114 174 151 821<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED / ATTORN\n<|id|>9<|type|>title<|page|>1<|box|>468 424 487 571<|content|>I. Background\n<|id|>18<|type|>title<|page|>2<|box|>388 220 409 774<|content|>II. Key Provisions of Pemberton's Reservation of R\n<|id|>20<|type|>title<|page|>2<|box|>467 140 484 501<|content|>A. Self-Insured Retention (SIR) — $5,000,000\n<|id|>26<|type|>title<|page|>3<|box|>304 140 321 295<|content|>B. PAGA Penalties\n<|id|>39<|type|>title<|page|>4<|box|>419 140 436 308<|content|>C. Willful Violations\n<|id|>48<|type|>title<|page|>5<|box|>619 140 636 532<|content|>D. Aldrich Executive Dispute — Coverage Denied\n<|id|>49<|type|>title<|page|>5<|box|>650 142 667 320<|content|>1. Pemberton's Denial\n<|id|>56<|type|>title<|page|>6<|box|>484 140 501 588<|content|>2. Context on Aldrich's Claims and AMA's Cross-Cla\n<|id|>66<|type|>table<|page|>7<|box|>159 143 364 852<|content|>None\n<|id|>73<|type|>title<|page|>7<|box|>760 140 777 428<|content|>3. Assessment and Recommendation\n<|id|>82<|type|>title<|page|>8<|box|>794 140 811 375<|content|>E. Defense Counsel Approval\n<|id|>84<|type|>table<|page|>9<|box|>133 143 227 852<|content|>None\n<|id|>87<|type|>title<|page|>9<|box|>515 385 534 611<|content|>III. Recommendations\n<|id|>89<|type|>title<|page|>9<|box|>594 142 611 338<|content|>1. SIR Erosion Tracking\n<|id|>93<|type|>title<|page|>10<|box|>186 140 204 344<|content|>2. Settlement Structuring\n<|id|>99<|type|>title<|page|>10<|box|>723 140 739 331<|content|>3. Aldrich Self-Funding\n<|id|>105<|type|>title<|page|>11<|box|>90 140 107 354<|content|>4. D&O Policy Monitoring\n<|id|>113<|type|>title<|page|>11<|box|>481 421 501 576<|content|>IV. Conclusion",
+    "raw_response": "<|src_id|>66<|tgt_id|>56\n<|src_id|>84<|tgt_id|>82",
+    "parsed": [
+        {
+            "src_id": 66,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 82
+        }
+    ]
+}

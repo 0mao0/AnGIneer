@@ -1,0 +1,58 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        16,
+        19,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>132 143 277 852<|content|>None\n<|id|>1<|type|>title<|page|>1<|box|>311 147 347 849<|content|>PLAINTIFF GENOME DX THERAPEUTICS INC.'S OPPOSITION\n<|id|>6<|type|>table<|page|>1<|box|>539 143 905 852<|content|>None\n<|id|>7<|type|>table<|page|>2<|box|>89 143 380 852<|content|>None\n<|id|>8<|type|>title<|page|>2<|box|>415 385 431 612<|content|>TABLE OF AUTHORITIES\n<|id|>10<|type|>table<|page|>2<|box|>465 143 901 852<|content|>None\n<|id|>11<|type|>table<|page|>3<|box|>89 143 157 852<|content|>None\n<|id|>12<|type|>title<|page|>3<|box|>191 143 207 290<|content|>Statutes and Rules\n<|id|>13<|type|>table<|page|>3<|box|>214 143 338 852<|content|>None\n<|id|>14<|type|>title<|page|>3<|box|>373 143 388 285<|content|>Other Authorities\n<|id|>15<|type|>table<|page|>3<|box|>396 143 479 852<|content|>None\n<|id|>16<|type|>title<|page|>3<|box|>527 143 544 308<|content|>I. INTRODUCTION\n<|id|>24<|type|>title<|page|>5<|box|>89 140 106 377<|content|>II. STATEMENT OF FACTS\n<|id|>25<|type|>title<|page|>5<|box|>121 140 138 442<|content|>A. GenomeDx and Its Patent Portfolio\n<|id|>31<|type|>title<|page|>6<|box|>90 140 107 468<|content|>B. The Patents-in-Suit (Counts II and III)\n<|id|>48<|type|>title<|page|>7<|box|>477 140 494 553<|content|>C. Prosecution Histories of the '893 and '647 Pate\n<|id|>55<|type|>title<|page|>8<|box|>502 140 518 508<|content|>D. Helios and the Accused ProstaSignal™ Test\n<|id|>60<|type|>title<|page|>9<|box|>292 140 311 357<|content|>E. Procedural Background\n<|id|>66<|type|>title<|page|>10<|box|>90 140 106 346<|content|>III. LEGAL STANDARD\n<|id|>67<|type|>title<|page|>10<|box|>121 140 138 349<|content|>A. Rule 12(b)(6) Standard\n<|id|>71<|type|>title<|page|>10<|box|>556 142 574 483<|content|>B. The *Alice/Mayo* Two-Step Framework\n<|id|>77<|type|>title<|page|>11<|box|>448 140 465 630<|content|>C. Prematurity of § 101 Challenges Before Claim Co\n<|id|>81<|type|>title<|page|>12<|box|>148 142 166 285<|content|>IV. ARGUMENT\n<|id|>105<|type|>title<|page|>16<|box|>239 140 273 854<|content|>B. The Asserted Claims of the '647 Patent Are Dire\n<|id|>127<|type|>title<|page|>19<|box|>275 140 292 674<|content|>C. Helios's § 101 Challenge Is Premature Before Cl\n<|id|>141<|type|>title<|page|>21<|box|>157 140 175 542<|content|>D. The Complaint Adequately Pleads Infringement\n<|id|>153<|type|>title<|page|>22<|box|>148 140 166 294<|content|>V. CONCLUSION\n<|id|>160<|type|>title<|page|>22<|box|>733 140 750 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>167<|type|>title<|page|>23<|box|>89 375 106 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>0<|tgt_id|>1\n<|src_id|>6<|tgt_id|>1\n<|src_id|>7<|tgt_id|>1\n<|src_id|>10<|tgt_id|>8\n<|src_id|>11<|tgt_id|>1\n<|src_id|>13<|tgt_id|>12\n<|src_id|>15<|tgt_id|>14",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 14
+        }
+    ]
+}

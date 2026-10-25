@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>434 140 450 364<|content|>I. Introduction and Purpose\n<|id|>16<|page|>2<|box|>304 140 320 573<|content|>II. Summary of TMC's Position on Penalty Calculati\n<|id|>23<|page|>3<|box|>285 140 301 450<|content|>III. TMC's Extraordinary Cooperation\n<|id|>25<|page|>3<|box|>397 140 414 562<|content|>A. Prompt and Comprehensive Document Production\n<|id|>43<|page|>4<|box|>726 140 744 416<|content|>B. Voluntary Witness Cooperation\n<|id|>49<|page|>5<|box|>510 140 527 419<|content|>C. Thorough Internal Investigation\n<|id|>64<|page|>7<|box|>349 140 366 616<|content|>D. Voluntary Disclosures Beyond Compulsory Require\n<|id|>70<|page|>8<|box|>167 140 184 508<|content|>IV. TMC's Proactive Compliance Remediation\n<|id|>72<|page|>8<|box|>261 140 279 555<|content|>A. Deficiencies in TMC's Prior Compliance Program\n<|id|>79<|page|>8<|box|>664 142 681 493<|content|>B. Enhanced Antitrust Compliance Program\n<|id|>92<|page|>10<|box|>294 140 310 310<|content|>C. Personnel Actions\n<|id|>96<|page|>10<|box|>666 140 683 620<|content|>V. Applicable Precedent and Cooperation-Credit Fra\n<|id|>112<|page|>12<|box|>204 140 222 403<|content|>VI. Proposed Monetary Payment\n<|id|>119<|page|>13<|box|>90 140 107 372<|content|>VII. Conclusion and Request",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>16<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>2\n<|id|>43<|level|>2\n<|id|>49<|level|>2\n<|id|>64<|level|>2\n<|id|>70<|level|>1\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>92<|level|>2\n<|id|>96<|level|>1\n<|id|>112<|level|>1\n<|id|>119<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        }
+    ]
+}

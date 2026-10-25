@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        34
+    ],
+    "pages": [
+        1,
+        11,
+        12,
+        15,
+        29,
+        30,
+        34
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>142 759 159 854<|content|>July 5, 2024\n<|id|>2<|page|>1<|box|>167 140 184 331<|content|>Matter No. ... 1041-00003\n<|id|>3<|page|>1<|box|>193 142 210 274<|content|>To: ... Opinion File\n<|id|>4<|page|>1<|box|>219 140 255 854<|content|>From: ... Tiffany Rosenthal, Lead Associate, Merge...patrick, Working Associate, Mergers & Acquisitions\n<|id|>5<|page|>1<|box|>263 140 281 725<|content|>Reviewed by: ... Harrison Wexford, Responsible Partner, Mergers & Acquisitions\n<|id|>6<|page|>1<|box|>289 140 343 854<|content|>Re: ... Legal Opinion Backup Memorandum — Closing ...es plc by Solara Digital Infrastructure Fund VI LP\n<|id|>7<|page|>1<|box|>351 140 590 854<|content|>Purpose: ... It is protected by the attorney-clien...e prior written consent of the Responsible Partner\n<|id|>115<|page|>11<|box|>768 140 897 857<|content|>Investment Parameters. ... the equity check for th...the co-investment by Solara Digital Co-Invest VI-A\n<|id|>116<|page|>12<|box|>89 140 127 854<|content|>LP ($425,000,000) and the rollover equity ($616,05...,791,832,144, well within the concentration limit)\n<|id|>150<|page|>15<|box|>250 176 266 653<|content|>(iii) the agreement was supported by adequate consideration; ... and\n<|id|>152<|page|>15<|box|>300 140 375 854<|content|>In addition, under both New York and Delaware law,...d here for purposes of the enforceability analysis\n<|id|>287<|page|>29<|box|>868 140 904 856<|content|>4. ... The\n<|id|>288<|page|>30<|box|>90 174 143 854<|content|>UCC-3 termination statements are to be filed concu...e payoff letter from Atlas Commercial Lending Corp\n<|id|>314<|page|>34<|box|>385 143 402 794<|content|>Tiffany Rosenthal Lead Associate, Mergers & Acquisitions Calderwood & Harkness LLP\n<|id|>315<|page|>34<|box|>435 142 470 831<|content|>Andrew Fitzpatrick Working Associate, Mergers & Ac...Calderwood & Harkness LLP Reviewed and Approved by",
+    "raw_response": "<|src_id|>115<|tgt_id|>116\n<|src_id|>287<|tgt_id|>288",
+    "parsed": [
+        {
+            "src_id": 115,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 287,
+            "tgt_id": 288
+        }
+    ]
+}

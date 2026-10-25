@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 388 107 607<|content|>CLOSING CERTIFICATE\n<|id|>1<|page|>1<|box|>114 310 133 687<|content|>Bring-Down of Representations and Warranties\n<|id|>5<|page|>1<|box|>234 140 252 251<|content|>PREAMBLE\n<|id|>21<|page|>2<|box|>311 140 328 480<|content|>SECTION 1 — CERTIFYING OFFICERS\n<|id|>26<|page|>2<|box|>785 140 801 777<|content|>SECTION 2 — BRING-DOWN OF REPRESENTATIONS AND WARR\n<|id|>30<|page|>3<|box|>714 140 731 745<|content|>SECTION 3 — COMPLIANCE WITH COVENANTS AND AGREEMEN\n<|id|>46<|page|>5<|box|>229 176 247 640<|content|>SECTION 4 — NO DEFAULT OR EVENT OF DEFAULT\n<|id|>48<|page|>5<|box|>479 176 497 609<|content|>SECTION 5 — NO MATERIAL ADVERSE CHANGE\n<|id|>54<|page|>6<|box|>167 176 184 624<|content|>SECTION 6 — USE OF PROCEEDS CONFIRMATION\n<|id|>58<|page|>6<|box|>648 176 666 740<|content|>SECTION 7 — CONFIRMATION OF PAYOFF AND LIEN RELEAS\n<|id|>61<|page|>7<|box|>167 176 184 540<|content|>SECTION 8 — RATINGS CONFIRMATION\n<|id|>66<|page|>7<|box|>476 176 494 707<|content|>SECTION 9 — DELIVERY OF OTHER CLOSING CONDITIONS\n<|id|>82<|page|>9<|box|>222 176 239 535<|content|>SECTION 10 — NO LEGAL IMPEDIMENT\n<|id|>86<|page|>9<|box|>633 176 651 475<|content|>SECTION 11 — GOVERNING LAW\n<|id|>88<|page|>9<|box|>758 377 776 653<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>89<|page|>9<|box|>785 183 820 848<|content|>SIGNATURE PAGE TO CLOSING CERTIFICATE Bring-Down o\n<|id|>91<|page|>10<|box|>89 176 106 812<|content|>TORCHLIGHT MINING CORP. (as Issuer and on behalf o\n<|id|>101<|page|>10<|box|>262 318 279 714<|content|>APPENDIX — INCORPORATED DOCUMENTS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>21<|level|>2\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>54<|level|>2\n<|id|>58<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>82<|level|>2\n<|id|>86<|level|>2\n<|id|>88<|level|>-1\n<|id|>89<|level|>-1\n<|id|>91<|level|>-1\n<|id|>101<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        }
+    ]
+}

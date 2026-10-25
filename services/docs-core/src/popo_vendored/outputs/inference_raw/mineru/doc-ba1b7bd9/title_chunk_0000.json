@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 179 142 816<|content|>SECRETARY'S CERTIFICATE OF NEXFORD INDUSTRIAL HOLD\n<|id|>2<|page|>1<|box|>313 411 330 586<|content|>Date: March 28, 2025\n<|id|>7<|page|>1<|box|>714 142 732 439<|content|>1. Incumbency of Authorized Officers\n<|id|>12<|page|>2<|box|>361 140 378 310<|content|>2. Board Resolutions\n<|id|>16<|page|>3<|box|>90 140 108 375<|content|>3. Organizational Documents\n<|id|>17<|page|>3<|box|>121 140 138 388<|content|>(a) Certificate of Incorporation\n<|id|>20<|page|>3<|box|>436 140 454 284<|content|>4. Good Standing\n<|id|>22<|page|>3<|box|>648 140 667 439<|content|>5. No Conflict; No Further Approvals\n<|id|>28<|page|>4<|box|>248 140 265 331<|content|>6. Full Force and Effect\n<|id|>30<|page|>4<|box|>444 140 460 235<|content|>7. Reliance\n<|id|>37<|page|>4<|box|>768 140 785 287<|content|>8. Governing Law\n<|id|>50<|page|>6<|box|>89 434 112 563<|content|>EXHIBIT A\n<|id|>51<|page|>6<|box|>135 287 154 707<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS\n<|id|>52<|page|>6<|box|>176 305 194 691<|content|>OF NEXFORD INDUSTRIAL HOLDINGS INC.\n<|id|>53<|page|>6<|box|>203 397 220 601<|content|>Adopted: January 13, 2025\n<|id|>63<|page|>7<|box|>446 140 464 480<|content|>Resolutions. NOW, THEREFORE, BE IT:\n<|id|>79<|page|>10<|box|>90 434 111 562<|content|>EXHIBIT B\n<|id|>80<|page|>10<|box|>136 388 154 609<|content|>Certificate of Incorporation\n<|id|>81<|page|>10<|box|>176 359 194 638<|content|>of Nexford Industrial Holdings Inc.\n<|id|>82<|page|>10<|box|>203 279 220 718<|content|>As filed with the Secretary of State of the State\n<|id|>88<|page|>11<|box|>89 434 111 562<|content|>EXHIBIT C\n<|id|>89<|page|>11<|box|>136 467 154 531<|content|>Bylaws\n<|id|>90<|page|>11<|box|>176 359 194 637<|content|>of Nexford Industrial Holdings Inc.\n<|id|>91<|page|>11<|box|>203 413 220 584<|content|>As Currently in Effect",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>-1\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>20<|level|>2\n<|id|>22<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>2\n<|id|>37<|level|>2\n<|id|>50<|level|>1\n<|id|>51<|level|>2\n<|id|>52<|level|>2\n<|id|>53<|level|>-1\n<|id|>63<|level|>-1\n<|id|>79<|level|>1\n<|id|>80<|level|>2\n<|id|>81<|level|>2\n<|id|>82<|level|>-1\n<|id|>88<|level|>1\n<|id|>89<|level|>2\n<|id|>90<|level|>2\n<|id|>91<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        }
+    ]
+}

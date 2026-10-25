@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11,
+        13,
+        15,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>180 444 196 553<|content|>July 22, 2025\n<|id|>3<|page|>1<|box|>205 140 371 856<|content|>The undersigned, Danielle Moreau, hereby certifies...adopted by its Board of Directors and stockholders\n<|id|>29<|page|>4<|box|>806 174 880 856<|content|>(iii) Approval of the Merger. ... The Board resolv...ement, at an aggregate merger consideration of One\n<|id|>30<|page|>5<|box|>89 174 127 854<|content|>Billion Nine Hundred Million Dollars ($1,900,000,0...ommon Stock on a fully diluted, as-converted basis\n<|id|>36<|page|>5<|box|>849 210 904 856<|content|>(D) Warrants. ... All outstanding warrants to purc... the product of (x) the number of shares of Common\n<|id|>37<|page|>6<|box|>90 210 183 854<|content|>Stock subject to such warrant and (y) the excess o...out interest and less applicable withholding taxes\n<|id|>42<|page|>6<|box|>859 174 897 857<|content|>(x) Non-Competition and Non-Solicitation Agreement...ation Agreements to be entered into by and between\n<|id|>43<|page|>7<|box|>89 174 127 854<|content|>Parent and each of Nathan Aldridge and Sonia Reyes...riod of three (3) years following the Closing Date\n<|id|>73<|page|>10<|box|>858 142 875 323<|content|>Name: ... Danielle Moreau\n<|id|>74<|page|>10<|box|>875 143 891 415<|content|>Title: ... Secretary and General Counsel\n<|id|>75<|page|>10<|box|>892 143 907 290<|content|>Date: ... July 22, 2025\n<|id|>76<|page|>11<|box|>89 140 181 857<|content|>This Secretary's Certificate is delivered pursuant... transactions contemplated by the Merger Agreement\n<|id|>80<|page|>13<|box|>142 307 159 689<|content|>(as currently in effect, with all amendments thereto)\n<|id|>81<|page|>13<|box|>167 163 185 833<|content|>True, correct, and complete copy certified by the Secretary of State of the State of Delaware\n<|id|>88<|page|>15<|box|>167 292 185 705<|content|>Issued by the Secretary of State of the State of Delaware\n<|id|>89<|page|>15<|box|>194 307 210 691<|content|>Dated within five (5) business days of July 22, 2025\n<|id|>95<|page|>17<|box|>167 411 184 586<|content|>Dated March 18, 2025\n<|id|>96<|page|>17<|box|>194 158 229 838<|content|>Executed in Lieu of a Meeting Pursuant to Section 228 of the Delaware General Corporation Law",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>36<|tgt_id|>37\n<|src_id|>42<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ]
+}

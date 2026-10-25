@@ -1,0 +1,238 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-w7v_hqdj\\input\\pdfs\\v1-d96da76d9fd7.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-w7v_hqdj\\enriched\\v1-d96da76d9fd7.json",
+    "contd_output": "",
+    "title_output": "<|id|>8<|level|>2\n<|id|>11<|level|>1\n<|id|>15<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>2\n<|id|>21<|level|>1\n<|id|>25<|level|>2\n<|id|>27<|level|>1\n<|id|>37<|level|>1\n<|id|>39<|level|>1\n<|id|>41<|level|>2\n<|id|>43<|level|>2",
+    "image_output": "<|src_id|>9<|tgt_id|>8\n<|src_id|>12<|tgt_id|>11\n<|src_id|>13<|tgt_id|>11\n<|src_id|>14<|tgt_id|>11\n<|src_id|>16<|tgt_id|>15\n<|src_id|>17<|tgt_id|>15\n<|src_id|>19<|tgt_id|>18\n<|src_id|>22<|tgt_id|>21\n<|src_id|>23<|tgt_id|>21\n<|src_id|>24<|tgt_id|>21\n<|src_id|>26<|tgt_id|>25\n<|src_id|>28<|tgt_id|>27\n<|src_id|>29<|tgt_id|>27\n<|src_id|>30<|tgt_id|>27\n<|src_id|>31<|tgt_id|>27\n<|src_id|>32<|tgt_id|>27\n<|src_id|>33<|tgt_id|>27\n<|src_id|>34<|tgt_id|>27\n<|src_id|>35<|tgt_id|>27\n<|src_id|>36<|tgt_id|>27\n<|src_id|>38<|tgt_id|>37\n<|src_id|>40<|tgt_id|>39\n<|src_id|>42<|tgt_id|>41\n<|src_id|>44<|tgt_id|>43",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 9,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 43
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 5,
+            "table2_idx": 6,
+            "upper_row_ss": [
+                [
+                    "61020 - ADM_Contracted Services",
+                    "4,144.56",
+                    "4,583.33",
+                    "438.77",
+                    "4,144.56",
+                    "4,583.33",
+                    "438.77",
+                    "55,000.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, ",
+                    "colspan=3, Current Period",
+                    "colspan=3, Year To Date",
+                    "rowspan=2, Annual Budget"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 6,
+            "table2_idx": 7,
+            "upper_row_ss": [
+                [
+                    "62630 - OF_Real Property Tax",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "1,500.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "62631 - OF_Personal Property Tax",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "-",
+                    "1,059.00"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 28,
+            "table2_idx": 29,
+            "upper_row_ss": [
+                [
+                    "Net Reserve Income (Loss)",
+                    "(50,511.53)",
+                    "(125,493.32)",
+                    "74,981.79",
+                    "(50,511.53)",
+                    "(125,493.32)",
+                    "74,981.79",
+                    "587,080.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, ",
+                    "Actual",
+                    "Budget",
+                    "Variance",
+                    "Actual",
+                    "Budget",
+                    "Variance",
+                    "rowspan=2, Annual Budget"
+                ]
+            ]
+        }
+    ]
+}

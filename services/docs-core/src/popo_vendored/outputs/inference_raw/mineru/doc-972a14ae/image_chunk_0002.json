@@ -1,0 +1,114 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        100,
+        124
+    ],
+    "pages": [
+        100,
+        101,
+        103,
+        105,
+        107,
+        109,
+        111,
+        113,
+        115,
+        117,
+        123,
+        124
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>146<|type|>image<|page|>100<|box|>0 0 1000 996<|content|>None\n<|id|>147<|type|>table<|page|>101<|box|>102 69 326 625<|content|>None\n<|id|>148<|type|>title<|page|>101<|box|>67 676 96 889<|content|>Monetary Stocks of Gold and Silver\n<|id|>150<|type|>table<|page|>101<|box|>122 643 361 919<|content|>None\n<|id|>151<|type|>table<|page|>101<|box|>438 143 673 849<|content|>None\n<|id|>152<|type|>table<|page|>101<|box|>684 145 923 851<|content|>None\n<|id|>153<|type|>title<|page|>103<|box|>104 253 134 776<|content|>MONETARY STOCKS OF GOLD AND SILVER IN U.S.\n<|id|>156<|type|>table<|page|>105<|box|>104 76 421 545<|content|>None\n<|id|>157<|type|>title<|page|>105<|box|>66 583 93 905<|content|>Silver of Specified Classifications Acquired by Mi\n<|id|>158<|type|>table<|page|>105<|box|>119 552 402 942<|content|>None\n<|id|>159<|type|>table<|page|>105<|box|>553 120 816 903<|content|>None\n<|id|>160<|type|>table<|page|>107<|box|>110 138 348 900<|content|>None\n<|id|>161<|type|>table<|page|>107<|box|>356 136 591 900<|content|>None\n<|id|>162<|type|>table<|page|>107<|box|>701 143 942 895<|content|>None\n<|id|>163<|type|>table<|page|>109<|box|>102 148 371 865<|content|>None\n<|id|>164<|type|>title<|page|>109<|box|>438 120 468 400<|content|>Indexes of Prices of 40 Foreign Currencies in New\n<|id|>165<|type|>table<|page|>109<|box|>490 76 769 444<|content|>None\n<|id|>166<|type|>table<|page|>109<|box|>490 456 769 938<|content|>None\n<|id|>167<|type|>table<|page|>111<|box|>128 71 375 433<|content|>None\n<|id|>168<|type|>table<|page|>111<|box|>128 445 376 933<|content|>None\n<|id|>169<|type|>table<|page|>111<|box|>518 71 759 433<|content|>None\n<|id|>170<|type|>table<|page|>111<|box|>519 445 760 933<|content|>None\n<|id|>171<|type|>title<|page|>113<|box|>468 382 486 631<|content|>MISCELLANEOUS\n<|id|>172<|type|>title<|page|>115<|box|>55 319 70 709<|content|>Commodities Imported under Quota Provisions\n<|id|>173<|type|>table<|page|>115<|box|>93 104 537 917<|content|>None\n<|id|>174<|type|>title<|page|>117<|box|>67 76 93 496<|content|>Summary of Criminal Cases in the United States Dis\n<|id|>176<|type|>table<|page|>117<|box|>147 66 270 501<|content|>None\n<|id|>177<|type|>table<|page|>117<|box|>298 66 442 503<|content|>None\n<|id|>178<|type|>table<|page|>117<|box|>477 64 606 500<|content|>None\n<|id|>179<|type|>title<|page|>117<|box|>70 578 85 889<|content|>Treasury Criminal Cases, by Months\n<|id|>181<|type|>table<|page|>117<|box|>127 519 248 951<|content|>None\n<|id|>182<|type|>table<|page|>117<|box|>277 517 417 952<|content|>None\n<|id|>183<|type|>table<|page|>117<|box|>447 517 582 951<|content|>None\n<|id|>184<|type|>table<|page|>123<|box|>223 389 559 746<|content|>None\n<|id|>185<|type|>table<|page|>124<|box|>7 0 998 996<|content|>None",
+    "raw_response": "<|src_id|>150<|tgt_id|>148\n<|src_id|>156<|tgt_id|>153\n<|src_id|>158<|tgt_id|>157\n<|src_id|>159<|tgt_id|>157\n<|src_id|>160<|tgt_id|>157\n<|src_id|>161<|tgt_id|>157\n<|src_id|>162<|tgt_id|>157\n<|src_id|>163<|tgt_id|>157\n<|src_id|>165<|tgt_id|>164\n<|src_id|>166<|tgt_id|>164\n<|src_id|>167<|tgt_id|>164\n<|src_id|>168<|tgt_id|>164\n<|src_id|>169<|tgt_id|>164\n<|src_id|>170<|tgt_id|>164\n<|src_id|>173<|tgt_id|>172\n<|src_id|>176<|tgt_id|>174\n<|src_id|>177<|tgt_id|>174\n<|src_id|>178<|tgt_id|>174\n<|src_id|>181<|tgt_id|>179\n<|src_id|>182<|tgt_id|>179\n<|src_id|>183<|tgt_id|>179\n<|src_id|>184<|tgt_id|>171",
+    "parsed": [
+        {
+            "src_id": 150,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 156,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 157
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 173,
+            "tgt_id": 172
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 174
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 179
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 179
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 179
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 171
+        }
+    ]
+}

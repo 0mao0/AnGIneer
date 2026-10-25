@@ -1,0 +1,23 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Clark County Public Utility District, Revenue', '$268,000,000', 'Sep. 2022', 'Tax-Exempt', '2051 (29 yr)', '3.40%', '99.25%', '0.40%', '1.40x', '10-year par call', 'AA / AA-']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Bonds Series 2022D', '', '', '', '', '', '', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 304,
+    "table2_idx": 305
+}

@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        53,
+        95
+    ],
+    "pages": [
+        53,
+        54,
+        77,
+        79,
+        82,
+        85,
+        90,
+        95
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>123<|page|>53<|box|>113 401 124 564<|content|>(Price decimals are 32nds)\n<|id|>128<|page|>54<|box|>46 351 60 647<|content|>MARKET QUOTATIONS, OCTOBER 31, 1952\n<|id|>130<|page|>54<|box|>392 42 447 489<|content|>Prices are the mean of closing bid and ask quotati... lows, in case of recurrence, are the latest dates\n<|id|>133<|page|>54<|box|>464 42 485 508<|content|>5/ Yield to maturity. ... the yield to\n<|id|>134<|page|>54<|box|>385 515 414 960<|content|>maturity as more significant when an issue is sell...own under \"Yields of Treasury and Corporate Bonds\"\n<|id|>195<|page|>77<|box|>115 336 127 676<|content|>(Position at end of month in thousands of dollars)\n<|id|>198<|page|>79<|box|>88 30 148 479<|content|>Data relating to corporations in which the United ...ted States Government are presented in four tables\n<|id|>204<|page|>82<|box|>82 105 113 856<|content|>Table 4. ... - Source and Application of Funds for...nths Ended June 30, 1952 (In thousands of dollars)\n<|id|>208<|page|>85<|box|>101 25 112 394<|content|>1/ Includes \\$1,875 thousand interest paid on capi...es \\$1,875 thousand interest paid on capital stock\n<|id|>218<|page|>85<|box|>164 515 313 963<|content|>13/ Consists of Agricultural Marketing Act Revolvi... establish National Defense Housing Insurance Fund\n<|id|>228<|page|>85<|box|>435 518 443 600<|content|>r Revised. ... r Revised\n<|id|>231<|page|>90<|box|>378 500 595 635<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>232<|page|>95<|box|>227 339 325 407<|content|>Treas. ... 2\n<|id|>233<|page|>95<|box|>259 490 279 681<|content|>Treasury Bulletin",
+    "raw_response": "<|src_id|>133<|tgt_id|>134",
+    "parsed": [
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        }
+    ]
+}

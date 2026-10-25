@@ -1,0 +1,54 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        52
+    ],
+    "pages": [
+        1,
+        2,
+        10,
+        11,
+        25,
+        26,
+        27,
+        37,
+        38,
+        39,
+        40,
+        41,
+        43,
+        44,
+        51,
+        52
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>186 168 223 828<|content|>HUDSON YARDS WEST MORTGAGE LLC, a Delaware limited liability company, as Borrower,\n<|id|>4<|page|>1<|box|>231 258 250 738<|content|>THE LENDERS FROM TIME TO TIME PARTY HERETO,\n<|id|>5<|page|>1<|box|>258 480 275 517<|content|>and\n<|id|>6<|page|>1<|box|>282 165 320 833<|content|>IRONCLAD NATIONAL BANK, N. ... , a national bankin...ciation, as Administrative Agent and Lead Arranger\n<|id|>7<|page|>1<|box|>328 183 371 813<|content|>Senior Secured Mortgage Loan in the Original Princ...... 450 West 34th Street, New York, New York 10001\n<|id|>15<|page|>2<|box|>226 140 335 856<|content|>WHEREAS, the Loan is evidenced by the Note (as def...e to Administrative Agent and the Lenders; ... and\n<|id|>16<|page|>2<|box|>343 140 398 854<|content|>WHEREAS, Metropolitan Transit Development Corp. .....th the Loan, as more particularly described herein\n<|id|>107<|page|>10<|box|>916 140 930 385<|content|>Draft — Subject to Attorney-Client Privilege\n<|id|>108<|page|>11<|box|>89 140 162 856<|content|>\"Losses\" means any and all claims, demands, liabil...nd expenses), whether foreseeable or unforeseeable\n<|id|>265<|page|>25<|box|>842 174 897 854<|content|>(iii) Written approval of the Draw Request by the ... completed, that the costs are consistent with the\n<|id|>266<|page|>26<|box|>90 174 126 854<|content|>Budget, and that construction is proceeding in acc...s and Specifications and the construction schedule\n<|id|>276<|page|>26<|box|>830 140 904 856<|content|>If at any time Administrative Agent determines (ba...ngency reserves), are insufficient to complete the\n<|id|>277<|page|>27<|box|>90 140 219 856<|content|>Improvements in accordance with the Budget, Admini...ime specified shall constitute an Event of Default\n<|id|>396<|page|>37<|box|>340 140 412 854<|content|>(h) Administrative Agent shall have received evide...r written consent of Administrative Agent; ... and\n<|id|>398<|page|>37<|box|>465 140 518 856<|content|>The submission of each Draw Request by Borrower sh...h Draw Request and the date of the related Advance\n<|id|>415<|page|>38<|box|>856 140 892 856<|content|>(a) Commencing on the Closing Date and continuing ...tained with Administrative Agent (the \"Ground Rent\n<|id|>416<|page|>39<|box|>90 140 127 854<|content|>Reserve Account\") an amount equal to one-twelfth (..., as reasonably determined by Administrative Agent\n<|id|>441<|page|>40<|box|>859 174 897 856<|content|>(ii) With respect to a Cash Management Period trig...shall terminate on the date on which such Event of\n<|id|>442<|page|>41<|box|>90 174 127 854<|content|>Default has been cured to the satisfaction of Admi...gent (acting at the direction of Required Lenders)\n<|id|>475<|page|>43<|box|>744 140 909 857<|content|>Borrower shall promptly notify Administrative Agen...grade, withdrawal, or placement on credit watch of\n<|id|>476<|page|>44<|box|>90 140 127 854<|content|>Guarantor's credit rating by any nationally recogn...trative Agent under the terms of any Loan Document\n<|id|>561<|page|>51<|box|>864 140 901 856<|content|>(a) Debt Service Coverage Ratio (DSCR). ... The co... months' Net Operating Income relative to combined\n<|id|>562<|page|>52<|box|>89 140 127 856<|content|>Debt Service on the Loan and the Mezzanine Loan) s...quarter following the achievement of Stabilization",
+    "raw_response": "<|src_id|>265<|tgt_id|>266\n<|src_id|>276<|tgt_id|>277\n<|src_id|>415<|tgt_id|>416\n<|src_id|>441<|tgt_id|>442\n<|src_id|>475<|tgt_id|>476\n<|src_id|>561<|tgt_id|>562",
+    "parsed": [
+        {
+            "src_id": 265,
+            "tgt_id": 266
+        },
+        {
+            "src_id": 276,
+            "tgt_id": 277
+        },
+        {
+            "src_id": 415,
+            "tgt_id": 416
+        },
+        {
+            "src_id": 441,
+            "tgt_id": 442
+        },
+        {
+            "src_id": 475,
+            "tgt_id": 476
+        },
+        {
+            "src_id": 561,
+            "tgt_id": 562
+        }
+    ]
+}

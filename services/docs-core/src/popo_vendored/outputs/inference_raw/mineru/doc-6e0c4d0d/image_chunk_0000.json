@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 285 125 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>159 143 371 852<|content|>None\n<|id|>3<|type|>title<|page|>1<|box|>479 143 496 450<|content|>Introduction and Personal Background\n<|id|>9<|type|>title<|page|>2<|box|>444 140 460 506<|content|>Lumos's Business and Proprietary Technology\n<|id|>16<|type|>title<|page|>4<|box|>90 140 107 604<|content|>Category 1: LumosEdge Ensemble ML Model Architectu\n<|id|>21<|type|>title<|page|>5<|box|>150 140 167 576<|content|>Category 2: Proprietary Feature-Engineering Librar\n<|id|>26<|type|>title<|page|>6<|box|>90 142 107 522<|content|>Category 3: DataStream ETL Pipeline Codebase\n<|id|>31<|type|>title<|page|>6<|box|>784 140 800 544<|content|>Category 4: Curated and Labeled Training Dataset\n<|id|>37<|type|>title<|page|>7<|box|>555 140 571 633<|content|>Category 5: Confidential Product Roadmap — LumosEd\n<|id|>42<|type|>title<|page|>8<|box|>353 142 369 477<|content|>Defendants' Roles, Access, and Departures\n<|id|>43<|type|>title<|page|>8<|box|>383 143 400 253<|content|>Rajiv Anand.\n<|id|>47<|type|>title<|page|>9<|box|>157 142 174 269<|content|>Serena Mallick.\n<|id|>51<|type|>title<|page|>9<|box|>580 143 597 238<|content|>Derek Yun.\n<|id|>55<|type|>title<|page|>10<|box|>186 140 203 374<|content|>NovaSpark Technologies Inc.\n<|id|>59<|type|>title<|page|>10<|box|>676 142 694 540<|content|>IT Security Investigation and Exfiltration Finding\n<|id|>60<|type|>title<|page|>10<|box|>708 142 724 401<|content|>Discovery of Anomalous Activity\n<|id|>63<|type|>title<|page|>11<|box|>359 142 376 367<|content|>Exfiltration by Rajiv Anand\n<|id|>68<|type|>title<|page|>12<|box|>286 140 303 385<|content|>Exfiltration by Serena Mallick\n<|id|>71<|type|>title<|page|>12<|box|>652 142 669 352<|content|>Exfiltration by Derek Yun\n<|id|>75<|type|>title<|page|>13<|box|>324 140 340 450<|content|>Conclusion of IT Security Investigation\n<|id|>77<|type|>title<|page|>13<|box|>626 140 643 480<|content|>Irreparable Harm and Competitive Impact\n<|id|>84<|type|>title<|page|>14<|box|>720 140 738 413<|content|>Conclusion and Request for Relief",
+    "raw_response": "<|src_id|>1<|tgt_id|>3",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 3
+        }
+    ]
+}

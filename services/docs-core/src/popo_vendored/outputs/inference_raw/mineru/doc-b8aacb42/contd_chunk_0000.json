@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        7,
+        13
+    ],
+    "pages": [
+        7,
+        8,
+        9,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>55<|page|>7<|box|>760 174 814 854<|content|>(b) encourage, induce, or cause, or attempt to enc...oyment with CRH or any of its subsidiaries; ... or\n<|id|>57<|page|>8<|box|>90 140 310 856<|content|>Exception for General Solicitations. ... 1, provid...ee during the Non- Solicitation Period (Employees)\n<|id|>70<|page|>9<|box|>287 174 361 856<|content|>(b) solicit, contact, or communicate with any Top ...ion playbooks, or Confidential Information; ... or\n<|id|>72<|page|>9<|box|>449 140 651 857<|content|>Exception for Pre-Existing VCG Vendor Relationship...e-existing vendor relationship shall rest with VCG\n<|id|>108<|page|>12<|box|>856 140 892 856<|content|>The Delaware Court of Chancery shall retain contin... of enforcing the terms hereof through the Consent\n<|id|>109<|page|>13<|box|>90 140 164 854<|content|>Order, including without limitation through contem... the Consent Order and the terms of this Exhibit A",
+    "raw_response": "<|src_id|>108<|tgt_id|>109",
+    "parsed": [
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        }
+    ]
+}

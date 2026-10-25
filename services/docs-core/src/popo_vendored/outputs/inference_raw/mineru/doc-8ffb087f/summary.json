@@ -1,0 +1,175 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8x_x_ob1\\input\\pdfs\\doc-8ffb087f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8x_x_ob1\\enriched\\doc-8ffb087f.json",
+    "contd_output": "<|src_id|>31<|tgt_id|>32",
+    "title_output": "<|id|>10<|level|>1\n<|id|>21<|level|>1\n<|id|>22<|level|>2\n<|id|>28<|level|>2\n<|id|>34<|level|>2\n<|id|>38<|level|>1\n<|id|>39<|level|>2\n<|id|>44<|level|>2\n<|id|>58<|level|>2\n<|id|>66<|level|>2\n<|id|>72<|level|>2\n<|id|>87<|level|>1\n<|id|>88<|level|>2\n<|id|>95<|level|>2\n<|id|>102<|level|>2\n<|id|>113<|level|>2\n<|id|>119<|level|>1\n<|id|>120<|level|>2\n<|id|>126<|level|>2\n<|id|>137<|level|>2\n<|id|>145<|level|>2\n<|id|>152<|level|>1\n<|id|>153<|level|>2\n<|id|>158<|level|>2\n<|id|>170<|level|>2\n<|id|>177<|level|>1\n<|id|>178<|level|>2\n<|id|>185<|level|>2\n<|id|>195<|level|>2\n<|id|>200<|level|>1\n<|id|>210<|level|>1",
+    "image_output": "<|src_id|>30<|tgt_id|>28\n<|src_id|>36<|tgt_id|>34\n<|src_id|>154<|tgt_id|>153\n<|src_id|>155<|tgt_id|>153",
+    "contd_label": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 1
+        },
+        {
+            "id": 210,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 153
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 154,
+            "table2_idx": 155,
+            "upper_row_ss": [
+                [
+                    "July 15, 2023",
+                    "Expected energization — energization of gen-tie and interconnection facilities; initial synchronization with ERCOT grid"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "August 15, 2023",
+                    "Expected COD — completion of performance testing; achievement of 50 MW / 200 MWh capacity"
+                ]
+            ]
+        }
+    ]
+}

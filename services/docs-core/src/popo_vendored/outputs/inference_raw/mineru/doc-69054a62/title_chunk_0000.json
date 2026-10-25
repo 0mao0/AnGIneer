@@ -1,0 +1,142 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        20
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>89 434 112 563<|content|>EXHIBIT A\n<|id|>1<|page|>2<|box|>135 290 154 705<|content|>Incident Timeline and Remedial Measures Summary\n<|id|>2<|page|>2<|box|>161 285 180 710<|content|>Submitted on behalf of Quorum Insurance Holdings C\n<|id|>15<|page|>2<|box|>571 359 590 638<|content|>I. Introduction and Purpose\n<|id|>24<|page|>3<|box|>575 171 595 825<|content|>II. Background — Quorum and the Palomar Vendor Rel\n<|id|>25<|page|>3<|box|>621 142 638 539<|content|>A. Overview of Quorum Insurance Holdings Corp.\n<|id|>28<|page|>4<|box|>90 140 107 434<|content|>B. The Palomar Vendor Relationship\n<|id|>34<|page|>4<|box|>608 140 626 580<|content|>C. Palomar's Data Security Obligations Under the M\n<|id|>41<|page|>5<|box|>250 140 266 537<|content|>D. Quorum's Vendor Risk Management Oversight\n<|id|>43<|page|>5<|box|>429 241 450 754<|content|>III. Detailed Chronological Timeline of the Incide\n<|id|>45<|page|>5<|box|>544 140 561 766<|content|>Phase 1: Unauthorized Access and Data Exfiltration\n<|id|>50<|page|>6<|box|>267 140 284 513<|content|>Phase 2: Discovery by Palomar (April 18, 2023)\n<|id|>53<|page|>6<|box|>523 140 542 637<|content|>Phase 3: Notification from Palomar to Quorum (Apri\n<|id|>57<|page|>7<|box|>89 140 126 818<|content|>Phase 4: Quorum's Immediate Response and Engagemen\n<|id|>76<|page|>8<|box|>517 140 534 571<|content|>Phase 5: Forensic Investigation (May 5 – July 14,\n<|id|>88<|page|>9<|box|>814 140 830 815<|content|>Phase 6: Affected Individual Identification and Da\n<|id|>99<|page|>11<|box|>321 142 338 277<|content|>August 16, 2023:\n<|id|>127<|page|>13<|box|>366 140 383 816<|content|>Phase 9: Multistate Attorney General Engagement (S\n<|id|>133<|page|>14<|box|>148 140 167 709<|content|>Phase 10: Other Regulatory Engagements (September\n<|id|>134<|page|>14<|box|>180 140 198 423<|content|>Connecticut Insurance Department\n<|id|>139<|page|>14<|box|>459 140 476 362<|content|>HHS Office for Civil Rights\n<|id|>143<|page|>14<|box|>720 140 739 785<|content|>Phase 11: Vendor Accountability — Palomar Data Sol\n<|id|>165<|page|>16<|box|>797 222 816 774<|content|>IV. Summary of Remedial Measures Taken by Quorum\n<|id|>167<|page|>17<|box|>90 140 107 410<|content|>A. Immediate Response Measures\n<|id|>175<|page|>17<|box|>628 140 646 542<|content|>B. Notification and Consumer Protection Measures\n<|id|>182<|page|>18<|box|>281 140 297 424<|content|>C. Vendor Accountability Measures\n<|id|>192<|page|>18<|box|>710 140 747 797<|content|>D. Enhancements to Quorum's Information Security a\n<|id|>198<|page|>19<|box|>377 267 398 728<|content|>V. Summary of Total Incident Response Costs\n<|id|>202<|page|>20<|box|>90 421 111 575<|content|>VI. Conclusion",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>-1\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>28<|level|>3\n<|id|>34<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>2\n<|id|>45<|level|>3\n<|id|>50<|level|>3\n<|id|>53<|level|>3\n<|id|>57<|level|>3\n<|id|>76<|level|>3\n<|id|>88<|level|>3\n<|id|>99<|level|>4\n<|id|>127<|level|>3\n<|id|>133<|level|>3\n<|id|>134<|level|>4\n<|id|>139<|level|>4\n<|id|>143<|level|>3\n<|id|>165<|level|>2\n<|id|>167<|level|>3\n<|id|>175<|level|>3\n<|id|>182<|level|>3\n<|id|>192<|level|>3\n<|id|>198<|level|>2\n<|id|>202<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 4
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 4
+        },
+        {
+            "id": 139,
+            "level": 4
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        }
+    ]
+}

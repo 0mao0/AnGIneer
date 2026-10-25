@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        15
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>22<|page|>2<|box|>845 140 900 857<|content|>1. ... These records include Certificates of\n<|id|>23<|page|>3<|box|>90 174 126 854<|content|>Registration (Form PA), supplementary registration..., and other documents pertaining to the 217 titles\n<|id|>45<|page|>4<|box|>625 140 643 542<|content|>Full Legal Name: ... Aurelius Global Media Group PLC\n<|id|>46<|page|>4<|box|>651 140 669 681<|content|>Entity Type: ... Public limited company incorporated in England and Wales\n<|id|>47<|page|>4<|box|>676 140 694 500<|content|>Companies House Registration No. ... 08724561\n<|id|>48<|page|>4<|box|>703 140 720 823<|content|>Registered and Principal Office: ... 45 Clarewood Place, London W1K 6TH, United Kingdom\n<|id|>49<|page|>4<|box|>729 140 784 854<|content|>Stock Exchange Listing: ... American Depositary Re...ounter in the United States under the symbol AGLMY\n<|id|>56<|page|>5<|box|>417 140 435 794<|content|>Entity Type: ... Corporation organized and existing under the laws of the State of Delaware\n<|id|>57<|page|>5<|box|>443 140 460 843<|content|>Ownership: ... Wholly-owned subsidiary of AGMG (100% of outstanding shares held by AGMG)\n<|id|>58<|page|>5<|box|>469 140 487 782<|content|>Principal Office: ... 1900 Avenue of the Stars, Suite 2200, Los Angeles, California 90067\n<|id|>59<|page|>5<|box|>494 140 587 854<|content|>Functional Role: ... copyright registrations for Aurelius content\n<|id|>165<|page|>15<|box|>348 174 364 594<|content|>(i) Brindoval Channel Networks, Inc. ... — Dallas, Texas\n<|id|>169<|page|>15<|box|>452 140 561 854<|content|>None of these entities appears in any Aurelius lic...ed infringement of Aurelius's exclusive copyrights\n<|id|>166<|page|>15<|box|>373 174 391 537<|content|>(ii) BrightLoop Media, LLC — Miami, Florida\n<|id|>167<|page|>15<|box|>398 174 417 640<|content|>(iii) Velvet Stream Partners, LP — Toronto, Ontario, Canada\n<|id|>168<|page|>15<|box|>425 176 443 750<|content|>(iv) Pacific Lantern Digital Pty Ltd — Sydney, New South Wales, Australia",
+    "raw_response": "<|src_id|>22<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ]
+}

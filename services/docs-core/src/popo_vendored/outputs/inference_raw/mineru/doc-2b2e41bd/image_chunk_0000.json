@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>152 140 170 568<|content|>BY ELECTRONIC MAIL AND FIRST CLASS MAIL\n<|id|>7<|type|>title<|page|>1<|box|>335 142 352 367<|content|>1. Introduction and Purpose\n<|id|>11<|type|>title<|page|>1<|box|>710 142 728 333<|content|>2. Scope of Engagement\n<|id|>12<|type|>title<|page|>1<|box|>741 140 758 362<|content|>2.1 Transaction Description\n<|id|>14<|type|>table<|page|>1<|box|>806 143 900 852<|content|>None\n<|id|>15<|type|>table<|page|>2<|box|>88 143 127 852<|content|>None\n<|id|>19<|type|>title<|page|>2<|box|>482 142 500 357<|content|>2.2 Scope of Legal Services\n<|id|>54<|type|>title<|page|>5<|box|>737 140 753 339<|content|>2.3 Limitations on Scope\n<|id|>59<|type|>title<|page|>6<|box|>383 140 402 323<|content|>3. Client Identification\n<|id|>62<|type|>title<|page|>6<|box|>714 140 733 230<|content|>4. Staffing\n<|id|>63<|type|>title<|page|>6<|box|>746 140 763 321<|content|>4.1 Engagement Team\n<|id|>70<|type|>title<|page|>7<|box|>590 140 608 341<|content|>4.2 Additional Resources\n<|id|>72<|type|>title<|page|>7<|box|>747 140 763 488<|content|>5. Estimated Fees and Billing Arrangements\n<|id|>73<|type|>title<|page|>7<|box|>777 140 794 277<|content|>5.1 Fee Estimate\n<|id|>77<|type|>title<|page|>8<|box|>385 140 402 486<|content|>5.2 Fee Estimate Breakdown (Approximate)\n<|id|>79<|type|>table<|page|>8<|box|>469 143 686 852<|content|>None\n<|id|>81<|type|>title<|page|>8<|box|>768 142 787 279<|content|>5.3 Hourly Rates\n<|id|>83<|type|>table<|page|>8<|box|>872 143 907 852<|content|>None\n<|id|>84<|type|>table<|page|>9<|box|>88 143 155 852<|content|>None\n<|id|>86<|type|>title<|page|>9<|box|>257 140 273 400<|content|>5.4 Disbursements and Expenses\n<|id|>89<|type|>title<|page|>9<|box|>520 140 537 334<|content|>5.5 Billing and Payment\n<|id|>93<|type|>title<|page|>9<|box|>765 140 782 321<|content|>6. Conflicts of Interest\n<|id|>97<|type|>title<|page|>10<|box|>395 140 412 284<|content|>7. Confidentiality\n<|id|>101<|type|>title<|page|>10<|box|>825 140 842 326<|content|>8. Document Retention\n<|id|>105<|type|>title<|page|>11<|box|>311 140 329 264<|content|>9. Termination\n<|id|>109<|type|>title<|page|>11<|box|>631 142 648 297<|content|>10. Governing Law\n<|id|>111<|type|>title<|page|>11<|box|>753 142 770 285<|content|>11. Miscellaneous\n<|id|>115<|type|>title<|page|>12<|box|>213 142 229 264<|content|>12. Acceptance\n<|id|>119<|type|>title<|page|>12<|box|>407 140 422 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>124<|type|>title<|page|>12<|box|>540 142 556 439<|content|>ACKNOWLEDGED AND AGREED:",
+    "raw_response": "<|src_id|>14<|tgt_id|>12\n<|src_id|>15<|tgt_id|>12\n<|src_id|>79<|tgt_id|>77\n<|src_id|>83<|tgt_id|>81\n<|src_id|>84<|tgt_id|>81",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 81
+        }
+    ]
+}

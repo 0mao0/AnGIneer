@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 351 118 645<|content|>OFFICER'S CERTIFICATE\n<|id|>1<|type|>title<|page|>1<|box|>137 266 152 730<|content|>Delivered Pursuant to Section 4.02 of the Credit A\n<|id|>5<|type|>title<|page|>1<|box|>438 140 455 513<|content|>Section 1 — Identification of Certifying Officer\n<|id|>9<|type|>title<|page|>1<|box|>794 140 811 617<|content|>Section 2 — Certification of Representations and W\n<|id|>27<|type|>title<|page|>4<|box|>148 140 167 604<|content|>Section 3 — Certification of No Default or Event o\n<|id|>32<|type|>title<|page|>4<|box|>661 140 676 647<|content|>Section 4 — Certification of Satisfaction of Condi\n<|id|>39<|type|>table<|page|>5<|box|>595 143 689 852<|content|>None\n<|id|>43<|type|>table<|page|>6<|box|>231 143 321 852<|content|>None\n<|id|>64<|type|>table<|page|>9<|box|>88 143 327 852<|content|>None\n<|id|>66<|type|>title<|page|>9<|box|>457 140 474 557<|content|>Section 5 — Certification Regarding Borrowing Base\n<|id|>68<|type|>table<|page|>9<|box|>662 143 863 852<|content|>None\n<|id|>72<|type|>table<|page|>10<|box|>275 143 414 852<|content|>None\n<|id|>73<|type|>title<|page|>10<|box|>464 142 479 553<|content|>Section 6 — Certification Regarding Use of Proceed\n<|id|>75<|type|>table<|page|>10<|box|>531 143 700 852<|content|>None\n<|id|>77<|type|>title<|page|>11<|box|>90 140 107 619<|content|>Section 7 — Certification Regarding Material Adver\n<|id|>85<|type|>title<|page|>11<|box|>551 140 566 501<|content|>Section 8 — Certification Regarding Solvency\n<|id|>90<|type|>title<|page|>12<|box|>260 140 277 336<|content|>[Signature Page Follows]\n<|id|>91<|type|>title<|page|>12<|box|>285 284 301 712<|content|>SIGNATURE PAGE TO OFFICER'S CERTIFICATE\n<|id|>98<|type|>title<|page|>12<|box|>457 401 474 596<|content|>ACKNOWLEDGMENT",
+    "raw_response": "<|src_id|>39<|tgt_id|>32\n<|src_id|>43<|tgt_id|>32\n<|src_id|>64<|tgt_id|>32\n<|src_id|>68<|tgt_id|>66\n<|src_id|>72<|tgt_id|>66\n<|src_id|>75<|tgt_id|>73",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 73
+        }
+    ]
+}

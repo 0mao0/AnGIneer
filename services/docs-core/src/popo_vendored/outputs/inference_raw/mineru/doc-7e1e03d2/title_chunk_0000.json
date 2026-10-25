@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>375 140 392 364<|content|>1. Purpose and Engagement\n<|id|>14<|page|>2<|box|>148 140 167 354<|content|>2. Scope of Representation\n<|id|>27<|page|>4<|box|>167 140 185 323<|content|>3. Client Identification\n<|id|>34<|page|>4<|box|>571 140 589 411<|content|>4. Engagement Team and Staffing\n<|id|>43<|page|>5<|box|>638 140 655 303<|content|>5. Fee Arrangement\n<|id|>44<|page|>5<|box|>667 140 686 401<|content|>5.1 Billing Basis — Hourly Rates\n<|id|>49<|page|>6<|box|>329 140 348 241<|content|>5.2 Fee Cap\n<|id|>57<|page|>7<|box|>89 140 108 313<|content|>5.3 Billing Frequency\n<|id|>65<|page|>7<|box|>770 140 787 390<|content|>6. Disbursements and Expenses\n<|id|>78<|page|>8<|box|>607 140 625 321<|content|>7. Conflicts of Interest\n<|id|>83<|page|>9<|box|>340 140 357 284<|content|>8. Confidentiality\n<|id|>88<|page|>9<|box|>833 140 849 326<|content|>9. Document Retention\n<|id|>92<|page|>10<|box|>348 142 364 274<|content|>10. Termination\n<|id|>97<|page|>10<|box|>712 142 729 349<|content|>11. Limitation of Liability\n<|id|>101<|page|>11<|box|>204 142 222 480<|content|>12. Governing Law and Dispute Resolution\n<|id|>105<|page|>11<|box|>561 142 578 285<|content|>13. Miscellaneous\n<|id|>119<|page|>12<|box|>424 142 441 379<|content|>14. Acceptance and Execution\n<|id|>123<|page|>12<|box|>655 140 672 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>130<|page|>12<|box|>785 315 801 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE\n<|id|>132<|page|>12<|box|>873 142 888 377<|content|>ACCEPTED AND AGREED:\n<|id|>133<|page|>13<|box|>89 140 106 506<|content|>SOLARA DIGITAL INFRASTRUCTURE LP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>49<|level|>3\n<|id|>57<|level|>3\n<|id|>65<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>97<|level|>2\n<|id|>101<|level|>2\n<|id|>105<|level|>2\n<|id|>119<|level|>2\n<|id|>123<|level|>-1\n<|id|>130<|level|>2\n<|id|>132<|level|>3\n<|id|>133<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>9<|page|>1<|box|>595 142 613 473<|content|>Full Legal Name: ... Jonathan Robert Caldwell\n<|id|>10<|page|>1<|box|>622 142 638 375<|content|>Date of Birth: ... March 14, 1956\n<|id|>11<|page|>1<|box|>648 140 665 745<|content|>Residence Address: ... 14A, New York, New York 10021\n<|id|>12<|page|>1<|box|>674 140 784 856<|content|>The Testator is of legal age, being sixty-seven (6...derstanding of its contents and legal consequences\n<|id|>16<|page|>1<|box|>883 176 902 377<|content|>Full Name: ... Monica Reyes\n<|id|>17<|page|>2<|box|>90 176 107 343<|content|>Title: ... Lead Associate\n<|id|>18<|page|>2<|box|>114 176 133 488<|content|>Affiliation: ... Calderwood & Harkness LLP\n<|id|>19<|page|>2<|box|>142 176 159 759<|content|>Business Address: ... 375 Park Avenue, 42nd Floor, New York, New York 10152\n<|id|>20<|page|>2<|box|>167 174 258 854<|content|>Monica Reyes is over the age of eighteen (18) year...d disqualify her as a witness under applicable law\n<|id|>22<|page|>2<|box|>292 176 310 377<|content|>Full Name: ... Elliot Nguyen\n<|id|>23<|page|>2<|box|>318 176 335 370<|content|>Title: ... Working Associate\n<|id|>24<|page|>2<|box|>344 176 361 488<|content|>Affiliation: ... Calderwood & Harkness LLP\n<|id|>25<|page|>2<|box|>369 176 387 759<|content|>Business Address: ... 375 Park Avenue, 42nd Floor, New York, New York 10152\n<|id|>26<|page|>2<|box|>396 174 489 854<|content|>Elliot Nguyen is over the age of eighteen (18) yea...d disqualify him as a witness under applicable law\n<|id|>27<|page|>2<|box|>510 140 527 740<|content|>SECTION 3: ... SWORN STATEMENTS OF THE ATTESTING WITNESSES\n<|id|>28<|page|>2<|box|>536 140 571 854<|content|>Each of the undersigned attesting witnesses, being...ly sworn, deposes and states under oath as follows\n<|id|>53<|page|>6<|box|>143 140 160 423<|content|>Jonathan Robert Caldwell, Testator\n<|id|>54<|page|>6<|box|>160 142 176 444<|content|>Printed Name: ... Jonathan Robert Caldwell\n<|id|>55<|page|>6<|box|>176 142 194 290<|content|>Date: ... April 1, 2023\n<|id|>56<|page|>6<|box|>195 140 212 442<|content|>Address: ... 14A\n<|id|>57<|page|>6<|box|>212 140 229 359<|content|>New York, New York 10021\n<|id|>59<|page|>7<|box|>143 142 160 395<|content|>Monica Reyes, Attesting Witness\n<|id|>60<|page|>7<|box|>160 140 176 364<|content|>Printed Name: ... Monica Reyes\n<|id|>61<|page|>7<|box|>176 140 194 527<|content|>Title: ... Lead Associate, Calderwood & Harkness LLP\n<|id|>62<|page|>7<|box|>194 140 212 292<|content|>Date: ... April 1, 2023\n<|id|>63<|page|>7<|box|>212 140 229 433<|content|>Address: ... 375 Park Avenue, 42nd Floor\n<|id|>64<|page|>7<|box|>229 140 246 361<|content|>New York, New York 10152\n<|id|>66<|page|>8<|box|>143 142 160 393<|content|>Elliot Nguyen, Attesting Witness\n<|id|>67<|page|>8<|box|>161 140 176 362<|content|>Printed Name: ... Elliot Nguyen\n<|id|>68<|page|>8<|box|>176 140 194 553<|content|>Title: ... Working Associate, Calderwood & Harkness LLP\n<|id|>69<|page|>8<|box|>195 140 212 290<|content|>Date: ... April 1, 2023\n<|id|>70<|page|>8<|box|>212 140 229 433<|content|>Address: ... 375 Park Avenue, 42nd Floor\n<|id|>71<|page|>8<|box|>229 140 244 362<|content|>New York, New York 10152\n<|id|>72<|page|>8<|box|>246 140 261 367<|content|>DOCUMENT IDENTIFICATION\n<|id|>73<|page|>8<|box|>268 140 284 622<|content|>Calderwood & Harkness LLP Matter No. ... 78412-JRC\n<|id|>74<|page|>8<|box|>291 140 352 854<|content|>This Self-Proving Affidavit is to be annexed to an...ld take appropriate steps to reunite the documents",
+    "raw_response": "<|src_id|>56<|tgt_id|>57\n<|src_id|>63<|tgt_id|>64\n<|src_id|>70<|tgt_id|>71",
+    "parsed": [
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        }
+    ]
+}

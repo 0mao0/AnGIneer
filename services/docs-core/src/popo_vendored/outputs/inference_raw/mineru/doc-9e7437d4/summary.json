@@ -1,0 +1,610 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_u2eoptu\\input\\pdfs\\doc-9e7437d4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_u2eoptu\\enriched\\doc-9e7437d4.json",
+    "contd_output": "<|src_id|>103<|tgt_id|>104\n<|src_id|>214<|tgt_id|>215\n<|src_id|>401<|tgt_id|>402\n<|src_id|>459<|tgt_id|>460\n<|src_id|>472<|tgt_id|>473\n<|src_id|>598<|tgt_id|>600\n<|src_id|>642<|tgt_id|>643\n<|src_id|>663<|tgt_id|>665",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>6<|level|>1\n<|id|>7<|level|>1\n<|id|>8<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>2\n<|id|>25<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>3\n<|id|>54<|level|>3\n<|id|>56<|level|>3\n<|id|>58<|level|>3\n<|id|>60<|level|>3\n<|id|>62<|level|>3\n<|id|>64<|level|>2\n<|id|>89<|level|>2\n<|id|>90<|level|>3\n<|id|>107<|level|>3\n<|id|>149<|level|>3\n<|id|>187<|level|>3\n<|id|>199<|level|>2\n<|id|>200<|level|>3\n<|id|>208<|level|>3\n<|id|>247<|level|>3\n<|id|>253<|level|>2\n<|id|>254<|level|>3\n<|id|>261<|level|>3\n<|id|>378<|level|>3\n<|id|>416<|level|>2\n<|id|>448<|level|>2\n<|id|>483<|level|>2\n<|id|>492<|level|>3\n<|id|>493<|level|>4\n<|id|>498<|level|>4\n<|id|>504<|level|>4\n<|id|>505<|level|>4\n<|id|>506<|level|>4\n<|id|>510<|level|>4\n<|id|>513<|level|>3\n<|id|>524<|level|>3\n<|id|>526<|level|>2\n<|id|>531<|level|>3\n<|id|>533<|level|>3\n<|id|>535<|level|>3\n<|id|>542<|level|>3\n<|id|>550<|level|>3\n<|id|>551<|level|>4\n<|id|>553<|level|>4\n<|id|>560<|level|>4\n<|id|>574<|level|>4\n<|id|>576<|level|>3\n<|id|>577<|level|>4\n<|id|>579<|level|>4\n<|id|>615<|level|>4\n<|id|>667<|level|>3\n<|id|>668<|level|>4\n<|id|>673<|level|>4\n<|id|>679<|level|>3\n<|id|>685<|level|>3",
+    "image_output": "<|src_id|>44<|tgt_id|>40\n<|src_id|>109<|tgt_id|>107\n<|src_id|>110<|tgt_id|>107\n<|src_id|>115<|tgt_id|>107\n<|src_id|>116<|tgt_id|>107\n<|src_id|>119<|tgt_id|>107\n<|src_id|>120<|tgt_id|>107\n<|src_id|>152<|tgt_id|>149\n<|src_id|>153<|tgt_id|>149\n<|src_id|>154<|tgt_id|>149\n<|src_id|>155<|tgt_id|>149\n<|src_id|>175<|tgt_id|>149\n<|src_id|>178<|tgt_id|>149\n<|src_id|>211<|tgt_id|>208\n<|src_id|>212<|tgt_id|>208\n<|src_id|>213<|tgt_id|>208\n<|src_id|>222<|tgt_id|>208\n<|src_id|>227<|tgt_id|>208\n<|src_id|>239<|tgt_id|>208\n<|src_id|>240<|tgt_id|>208\n<|src_id|>241<|tgt_id|>208\n<|src_id|>242<|tgt_id|>208\n<|src_id|>245<|tgt_id|>208\n<|src_id|>311<|tgt_id|>261\n<|src_id|>313<|tgt_id|>261\n<|src_id|>424<|tgt_id|>416\n<|src_id|>426<|tgt_id|>416\n<|src_id|>427<|tgt_id|>416\n<|src_id|>429<|tgt_id|>416\n<|src_id|>430<|tgt_id|>416\n<|src_id|>445<|tgt_id|>416\n<|src_id|>587<|tgt_id|>579\n<|src_id|>588<|tgt_id|>579\n<|src_id|>593<|tgt_id|>579\n<|src_id|>594<|tgt_id|>579\n<|src_id|>601<|tgt_id|>579\n<|src_id|>602<|tgt_id|>579\n<|src_id|>611<|tgt_id|>579\n<|src_id|>614<|tgt_id|>579\n<|src_id|>619<|tgt_id|>615\n<|src_id|>620<|tgt_id|>615\n<|src_id|>625<|tgt_id|>615\n<|src_id|>630<|tgt_id|>615\n<|src_id|>631<|tgt_id|>615\n<|src_id|>635<|tgt_id|>615\n<|src_id|>636<|tgt_id|>615\n<|src_id|>639<|tgt_id|>615\n<|src_id|>640<|tgt_id|>615\n<|src_id|>641<|tgt_id|>615\n<|src_id|>649<|tgt_id|>615\n<|src_id|>650<|tgt_id|>615\n<|src_id|>655<|tgt_id|>615\n<|src_id|>659<|tgt_id|>615\n<|src_id|>660<|tgt_id|>615\n<|src_id|>664<|tgt_id|>615",
+    "contd_label": [
+        {
+            "src_id": 103,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 215
+        },
+        {
+            "src_id": 401,
+            "tgt_id": 402
+        },
+        {
+            "src_id": 459,
+            "tgt_id": 460
+        },
+        {
+            "src_id": 472,
+            "tgt_id": 473
+        },
+        {
+            "src_id": 598,
+            "tgt_id": 600
+        },
+        {
+            "src_id": 642,
+            "tgt_id": 643
+        },
+        {
+            "src_id": 663,
+            "tgt_id": 665
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 247,
+            "level": 3
+        },
+        {
+            "id": 253,
+            "level": 2
+        },
+        {
+            "id": 254,
+            "level": 3
+        },
+        {
+            "id": 261,
+            "level": 3
+        },
+        {
+            "id": 378,
+            "level": 3
+        },
+        {
+            "id": 416,
+            "level": 2
+        },
+        {
+            "id": 448,
+            "level": 2
+        },
+        {
+            "id": 483,
+            "level": 2
+        },
+        {
+            "id": 492,
+            "level": 3
+        },
+        {
+            "id": 493,
+            "level": 4
+        },
+        {
+            "id": 498,
+            "level": 4
+        },
+        {
+            "id": 504,
+            "level": 4
+        },
+        {
+            "id": 505,
+            "level": 4
+        },
+        {
+            "id": 506,
+            "level": 4
+        },
+        {
+            "id": 510,
+            "level": 4
+        },
+        {
+            "id": 513,
+            "level": 3
+        },
+        {
+            "id": 524,
+            "level": 3
+        },
+        {
+            "id": 526,
+            "level": 2
+        },
+        {
+            "id": 531,
+            "level": 3
+        },
+        {
+            "id": 533,
+            "level": 3
+        },
+        {
+            "id": 535,
+            "level": 3
+        },
+        {
+            "id": 542,
+            "level": 3
+        },
+        {
+            "id": 550,
+            "level": 3
+        },
+        {
+            "id": 551,
+            "level": 4
+        },
+        {
+            "id": 553,
+            "level": 4
+        },
+        {
+            "id": 560,
+            "level": 4
+        },
+        {
+            "id": 574,
+            "level": 4
+        },
+        {
+            "id": 576,
+            "level": 3
+        },
+        {
+            "id": 577,
+            "level": 4
+        },
+        {
+            "id": 579,
+            "level": 4
+        },
+        {
+            "id": 615,
+            "level": 4
+        },
+        {
+            "id": 667,
+            "level": 3
+        },
+        {
+            "id": 668,
+            "level": 4
+        },
+        {
+            "id": 673,
+            "level": 4
+        },
+        {
+            "id": 679,
+            "level": 3
+        },
+        {
+            "id": 685,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 44,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 211,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 222,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 239,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 240,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 241,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 242,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 245,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 311,
+            "tgt_id": 261
+        },
+        {
+            "src_id": 313,
+            "tgt_id": 261
+        },
+        {
+            "src_id": 424,
+            "tgt_id": 416
+        },
+        {
+            "src_id": 426,
+            "tgt_id": 416
+        },
+        {
+            "src_id": 427,
+            "tgt_id": 416
+        },
+        {
+            "src_id": 429,
+            "tgt_id": 416
+        },
+        {
+            "src_id": 430,
+            "tgt_id": 416
+        },
+        {
+            "src_id": 445,
+            "tgt_id": 416
+        },
+        {
+            "src_id": 587,
+            "tgt_id": 579
+        },
+        {
+            "src_id": 588,
+            "tgt_id": 579
+        },
+        {
+            "src_id": 593,
+            "tgt_id": 579
+        },
+        {
+            "src_id": 594,
+            "tgt_id": 579
+        },
+        {
+            "src_id": 601,
+            "tgt_id": 579
+        },
+        {
+            "src_id": 602,
+            "tgt_id": 579
+        },
+        {
+            "src_id": 611,
+            "tgt_id": 579
+        },
+        {
+            "src_id": 614,
+            "tgt_id": 579
+        },
+        {
+            "src_id": 619,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 620,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 625,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 630,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 631,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 635,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 636,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 639,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 640,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 641,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 649,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 650,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 655,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 659,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 660,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 664,
+            "tgt_id": 615
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 109,
+            "table2_idx": 110,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "colspan=2, 钢结构检测",
+                    "检测结构构件的锈蚀状况、变形、连接和防腐措施状况"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=5, 5",
+                    "rowspan=5, 地基及基础检测",
+                    "基桩桩身外观及倾斜检测",
+                    "检查桩身泥面以上部分的桩身裂缝开展及破损情况,检查桩的位移并测量桩的倾斜程度"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 115,
+            "table2_idx": 116,
+            "upper_row_ss": [
+                [
+                    "rowspan=3, 板",
+                    "剥离剥落",
+                    "无",
+                    "局部小面积空鼓",
+                    "局部有剥落,空鼓和剥落面积小于区域面积的30%",
+                    "大面积剥落,空鼓和剥落面积达区域面积的30%以上"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, 梁",
+                    "钢筋锈蚀",
+                    "无",
+                    "混凝土表面可见局部锈迹",
+                    "锈迹较多,钢筋锈蚀范围较广",
+                    "锈迹普遍,钢筋表面大部分或全部锈蚀,钢筋截面面积明显减少"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 119,
+            "table2_idx": 120,
+            "upper_row_ss": [
+                [
+                    "氯离子含量测定",
+                    "现场取样-室内试验法",
+                    "《港口水工建筑物检测与评估技术规范》JTJ 302,钻芯取样要求不同区域应各抽取构件数量的5%且不少于10个构件进行检测"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "钢筋保护层厚度检测",
+                    "混凝土保护层测定仪检测",
+                    "《港口水工建筑物检测与评估技术规范》JTJ 302,要求每类混凝土构件各抽取构件数量的2%且不少于5个构件进行检测"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 154,
+            "table2_idx": 155,
+            "upper_row_ss": [
+                [
+                    "D",
+                    "外观劣化度符合D级标准规定,耐久性不满足设计年限要求,结构严重损坏",
+                    "立即采取修复、补强措施,或报废"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "A",
+                    "具有足够的承载能力,耐久性满足设计年限要求",
+                    "不采取措施"
+                ]
+            ]
+        }
+    ]
+}

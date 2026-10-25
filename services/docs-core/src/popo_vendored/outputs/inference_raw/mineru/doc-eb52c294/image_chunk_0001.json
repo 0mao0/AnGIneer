@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        49
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>448<|type|>table<|page|>46<|box|>199 143 313 852<|content|>None\n<|id|>450<|type|>title<|page|>47<|box|>89 142 107 841<|content|>APPENDIX E: INDUSTRY BENCHMARKS — EARLY TERMINATIO\n<|id|>458<|type|>title<|page|>47<|box|>431 140 448 555<|content|>Summary of Early Termination Provision Structures\n<|id|>460<|type|>title<|page|>47<|box|>500 140 516 712<|content|>Category 1: Percentage of Estimated Lost Profits (\n<|id|>466<|type|>title<|page|>47<|box|>720 142 738 750<|content|>Category 2: Declining Balance Over Remaining Term\n<|id|>477<|type|>title<|page|>48<|box|>286 142 303 359<|content|>Comparison to Section 14.2\n<|id|>479<|type|>table<|page|>48<|box|>352 143 541 852<|content|>None\n<|id|>481<|type|>title<|page|>49<|box|>89 316 106 679<|content|>CERTIFICATION AND SIGNATURE PAGE",
+    "raw_response": "<|src_id|>448<|tgt_id|>450\n<|src_id|>479<|tgt_id|>477",
+    "parsed": [
+        {
+            "src_id": 448,
+            "tgt_id": 450
+        },
+        {
+            "src_id": 479,
+            "tgt_id": 477
+        }
+    ]
+}

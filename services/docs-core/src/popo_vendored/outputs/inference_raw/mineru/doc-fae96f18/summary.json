@@ -1,0 +1,141 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3l_smyi_\\input\\pdfs\\doc-fae96f18.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3l_smyi_\\enriched\\doc-fae96f18.json",
+    "contd_output": "<|src_id|>47<|tgt_id|>48",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>6<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>23<|level|>3\n<|id|>31<|level|>3\n<|id|>46<|level|>3\n<|id|>56<|level|>3\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>73<|level|>3\n<|id|>77<|level|>4\n<|id|>82<|level|>4\n<|id|>90<|level|>3\n<|id|>98<|level|>3\n<|id|>102<|level|>3\n<|id|>106<|level|>2\n<|id|>108<|level|>2\n<|id|>119<|level|>2",
+    "image_output": "<|src_id|>58<|tgt_id|>56\n<|src_id|>59<|tgt_id|>56\n<|src_id|>70<|tgt_id|>68\n<|src_id|>71<|tgt_id|>68\n<|src_id|>75<|tgt_id|>73\n<|src_id|>121<|tgt_id|>119",
+    "contd_label": [
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 58,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 119
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 58,
+            "table2_idx": 59,
+            "upper_row_ss": [
+                [
+                    "Ridgeline Growth Equity Fund III, LLC",
+                    "16,000,000",
+                    "20.0%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Dr. Nathaniel Rourke",
+                    "12,800,000",
+                    "16.0%"
+                ]
+            ]
+        }
+    ]
+}

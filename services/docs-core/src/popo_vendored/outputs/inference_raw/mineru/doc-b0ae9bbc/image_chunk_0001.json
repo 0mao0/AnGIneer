@@ -1,0 +1,55 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        54,
+        64
+    ],
+    "pages": [
+        55,
+        56,
+        57,
+        58,
+        60,
+        61,
+        62,
+        63,
+        64
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>680<|type|>title<|page|>55<|box|>186 327 214 647<|content|>4 原材料质量控制\n<|id|>681<|type|>title<|page|>55<|box|>246 415 264 563<|content|>4.2 水泥\n<|id|>686<|type|>title<|page|>55<|box|>601 401 621 572<|content|>4.3 掺合料\n<|id|>688<|type|>title<|page|>55<|box|>735 401 755 572<|content|>4.4 细骨料\n<|id|>691<|type|>title<|page|>56<|box|>130 415 148 586<|content|>4.5 粗骨料\n<|id|>694<|type|>title<|page|>56<|box|>331 415 348 586<|content|>4.6 拌和用水\n<|id|>696<|type|>title<|page|>56<|box|>442 415 460 586<|content|>4.7 外加剂\n<|id|>698<|type|>title<|page|>57<|box|>190 362 217 607<|content|>5 配合比控制\n<|id|>699<|type|>title<|page|>57<|box|>251 401 267 572<|content|>5.1 一般规定\n<|id|>702<|type|>title<|page|>57<|box|>406 336 423 633<|content|>5.2 高性能混凝土配合比设计\n<|id|>704<|type|>title<|page|>57<|box|>539 304 558 665<|content|>5.3 大体积高性能混凝土配合比设计\n<|id|>707<|type|>title<|page|>58<|box|>203 316 230 672<|content|>6 施工过程质量控制\n<|id|>708<|type|>title<|page|>58<|box|>262 422 281 572<|content|>6.1 配料\n<|id|>710<|type|>title<|page|>58<|box|>374 422 393 572<|content|>6.3 运输\n<|id|>712<|type|>title<|page|>58<|box|>464 420 482 572<|content|>6.4 浇筑\n<|id|>714<|type|>title<|page|>58<|box|>552 359 571 635<|content|>6.6 高性能混凝土防裂措施\n<|id|>720<|type|>title<|page|>60<|box|>205 353 233 635<|content|>7 质量合格控制\n<|id|>721<|type|>title<|page|>60<|box|>265 369 283 625<|content|>7.3 高性能混凝土耐久性\n<|id|>727<|type|>title<|page|>61<|box|>190 214 219 771<|content|>附录 D 混凝土结构使用年限计算\n<|id|>734<|type|>table<|page|>61<|box|>690 86 804 896<|content|>None\n<|id|>735<|type|>table<|page|>61<|box|>831 86 923 897<|content|>None\n<|id|>740<|type|>table<|page|>62<|box|>363 91 411 901<|content|>None\n<|id|>748<|type|>table<|page|>62<|box|>859 93 939 901<|content|>None\n<|id|>749<|type|>table<|page|>63<|box|>122 95 192 904<|content|>None\n<|id|>750<|type|>table<|page|>63<|box|>240 95 310 904<|content|>None\n<|id|>751<|type|>table<|page|>63<|box|>337 95 423 904<|content|>None\n<|id|>756<|type|>table<|page|>64<|box|>121 89 259 899<|content|>None",
+    "raw_response": "<|src_id|>734<|tgt_id|>727\n<|src_id|>735<|tgt_id|>727\n<|src_id|>740<|tgt_id|>727\n<|src_id|>748<|tgt_id|>727\n<|src_id|>749<|tgt_id|>727\n<|src_id|>750<|tgt_id|>727\n<|src_id|>751<|tgt_id|>727\n<|src_id|>756<|tgt_id|>727",
+    "parsed": [
+        {
+            "src_id": 734,
+            "tgt_id": 727
+        },
+        {
+            "src_id": 735,
+            "tgt_id": 727
+        },
+        {
+            "src_id": 740,
+            "tgt_id": 727
+        },
+        {
+            "src_id": 748,
+            "tgt_id": 727
+        },
+        {
+            "src_id": 749,
+            "tgt_id": 727
+        },
+        {
+            "src_id": 750,
+            "tgt_id": 727
+        },
+        {
+            "src_id": 751,
+            "tgt_id": 727
+        },
+        {
+            "src_id": 756,
+            "tgt_id": 727
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 423 106 573<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>375 140 392 362<|content|>I. Purpose and Background\n<|id|>14<|type|>title<|page|>2<|box|>285 140 301 535<|content|>II. Identification of the Environmental Consultant\n<|id|>16<|type|>table<|page|>2<|box|>354 143 530 852<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>733 142 750 341<|content|>III. Property Description\n<|id|>20<|type|>table<|page|>2<|box|>801 143 907 852<|content|>None\n<|id|>21<|type|>table<|page|>3<|box|>88 143 290 852<|content|>None\n<|id|>23<|type|>title<|page|>3<|box|>512 142 529 372<|content|>IV. Scope of the Phase I ESA\n<|id|>56<|type|>title<|page|>5<|box|>167 140 185 339<|content|>V. Summary of Findings\n<|id|>58<|type|>title<|page|>5<|box|>243 140 260 529<|content|>A. Recognized Environmental Conditions (RECs)\n<|id|>62<|type|>title<|page|>5<|box|>642 140 659 423<|content|>B. Environmental Database Review\n<|id|>65<|type|>title<|page|>6<|box|>138 140 156 281<|content|>C. Historical Use\n<|id|>69<|type|>title<|page|>6<|box|>539 140 555 334<|content|>D. Hazardous Materials\n<|id|>72<|type|>title<|page|>7<|box|>90 140 107 408<|content|>E. Asbestos-Containing Materials\n<|id|>78<|type|>title<|page|>7<|box|>742 140 758 370<|content|>F. Indoor Air Quality / Mold\n<|id|>81<|type|>title<|page|>8<|box|>213 140 229 297<|content|>G. Vapor Intrusion\n<|id|>83<|type|>title<|page|>8<|box|>406 140 422 846<|content|>VI. Relevant Lease Provisions — Landlord Environme\n<|id|>93<|type|>title<|page|>9<|box|>473 140 489 459<|content|>VII. Conclusions and Recommendations\n<|id|>103<|type|>title<|page|>10<|box|>411 140 428 388<|content|>VIII. Attachments / Enclosures",
+    "raw_response": "<|src_id|>16<|tgt_id|>14\n<|src_id|>20<|tgt_id|>18\n<|src_id|>21<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 18
+        }
+    ]
+}

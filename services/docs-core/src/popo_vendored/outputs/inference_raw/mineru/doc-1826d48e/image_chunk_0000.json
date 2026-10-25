@@ -1,0 +1,50 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        19,
+        20,
+        26,
+        27
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 189 141 807<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>8<|type|>title<|page|>1<|box|>349 183 393 815<|content|>MEMORANDUM OF LAW IN SUPPORT OF DEFENDANTS' MOTION\n<|id|>13<|type|>title<|page|>1<|box|>584 385 602 612<|content|>TABLE OF AUTHORITIES\n<|id|>15<|type|>table<|page|>1<|box|>627 145 897 852<|content|>None\n<|id|>16<|type|>table<|page|>2<|box|>89 143 751 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>785 143 799 290<|content|>Statutes and Rules\n<|id|>18<|type|>table<|page|>2<|box|>800 143 905 852<|content|>None\n<|id|>19<|type|>table<|page|>3<|box|>88 143 127 852<|content|>None\n<|id|>20<|type|>table<|page|>3<|box|>178 143 349 852<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>398 142 415 397<|content|>PRELIMINARY STATEMENT\n<|id|>30<|type|>title<|page|>4<|box|>710 140 728 356<|content|>STATEMENT OF FACTS\n<|id|>32<|type|>title<|page|>4<|box|>823 140 839 261<|content|>A. The Parties\n<|id|>37<|type|>title<|page|>5<|box|>674 140 691 254<|content|>B. The Vessel\n<|id|>40<|type|>title<|page|>6<|box|>138 140 157 316<|content|>C. The Charter-Party\n<|id|>52<|type|>title<|page|>7<|box|>436 140 454 424<|content|>D. The Alleged Mechanical Failures\n<|id|>61<|type|>title<|page|>8<|box|>681 140 700 480<|content|>E. The Alleged Deviation (September 2022)\n<|id|>69<|type|>title<|page|>9<|box|>810 140 828 411<|content|>F. Northwind's Claimed Damages\n<|id|>81<|type|>title<|page|>10<|box|>684 140 700 321<|content|>G. Procedural History\n<|id|>92<|type|>title<|page|>11<|box|>431 142 449 250<|content|>(SUMF ¶ 75.)\n<|id|>95<|type|>title<|page|>11<|box|>633 142 652 256<|content|>ARGUMENT\n<|id|>96<|type|>title<|page|>11<|box|>664 140 681 583<|content|>I. LEGAL STANDARD FOR SUMMARY JUDGMENT\n<|id|>102<|type|>title<|page|>12<|box|>619 140 654 854<|content|>II. THE LIQUIDATED DAMAGES CAP UNDER CLAUSE 28 APP\n<|id|>153<|type|>title<|page|>19<|box|>614 140 632 344<|content|>(Sørensen Decl. ¶¶ 35–38.)\n<|id|>158<|type|>title<|page|>20<|box|>327 140 344 750<|content|>III. NORTHWIND'S DEVIATION CLAIM FAILS AS A MATTER\n<|id|>224<|type|>title<|page|>26<|box|>167 140 184 272<|content|>CONCLUSION\n<|id|>236<|type|>title<|page|>26<|box|>607 140 625 388<|content|>CERTIFICATE OF SERVICE\n<|id|>240<|type|>title<|page|>27<|box|>89 142 106 428<|content|>WORD COUNT CERTIFICATION",
+    "raw_response": "<|src_id|>15<|tgt_id|>13\n<|src_id|>16<|tgt_id|>13\n<|src_id|>18<|tgt_id|>17\n<|src_id|>19<|tgt_id|>17\n<|src_id|>20<|tgt_id|>17",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        }
+    ]
+}

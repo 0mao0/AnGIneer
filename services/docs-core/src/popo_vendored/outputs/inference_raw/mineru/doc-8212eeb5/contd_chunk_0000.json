@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>136 143 172 854<|content|>Delivered pursuant to Section 4. ... 01(h) of the ...nted, or otherwise modified from time to time, the\n<|id|>2<|page|>1<|box|>172 143 228 852<|content|>\"Mezzanine Credit Agreement\"), among Stonefield Lo...zzanine Lender\"), and the guarantors party thereto\n<|id|>3<|page|>1<|box|>234 142 252 338<|content|>Date: ... September 29, 2023\n<|id|>4<|page|>1<|box|>253 142 268 250<|content|>Delivered to: ... Delivered to\n<|id|>5<|page|>1<|box|>277 140 314 852<|content|>Ridgeline Mezzanine Capital Fund III, LP 767 Lexington Avenue, 22nd Floor New York, New York 10065\n<|id|>6<|page|>1<|box|>321 140 340 522<|content|>Attention: ... Stroud, Managing Director\n<|id|>30<|page|>3<|box|>842 174 897 857<|content|>(c) Mezzanine Term Loan: ... and\n<|id|>32<|page|>4<|box|>179 140 268 856<|content|>Total Liabilities also include all trade payables,...ted balance sheet prepared in accordance with GAAP\n<|id|>71<|page|>9<|box|>196 174 252 854<|content|>(c) Working capital needs, including trade payable...rdinary course of the Borrower's business; ... and\n<|id|>73<|page|>9<|box|>303 140 431 856<|content|>The Minimum Fixed Charge Coverage Ratio of 1. ... ...they become due in the ordinary course of business\n<|id|>91<|page|>11<|box|>404 142 420 323<|content|>Name: ... Prescott\n<|id|>92<|page|>11<|box|>421 142 438 361<|content|>Title: ... Chief Financial Officer\n<|id|>93<|page|>11<|box|>438 142 455 338<|content|>Date: ... September 29, 2023",
+    "raw_response": "<|src_id|>1<|tgt_id|>2",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        }
+    ]
+}

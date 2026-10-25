@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        49
+    ],
+    "pages": [
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>558<|page|>47<|box|>178 142 194 225<|content|>LESSOR:\n<|id|>572<|page|>47<|box|>436 271 454 723<|content|>ACKNOWLEDGMENT — LESSOR (MEMORANDUM)\n<|id|>573<|page|>47<|box|>463 140 479 295<|content|>STATE OF TEXAS\n<|id|>574<|page|>47<|box|>488 140 505 315<|content|>COUNTY OF ECTOR\n<|id|>581<|page|>47<|box|>780 272 797 723<|content|>ACKNOWLEDGMENT — LESSEE (MEMORANDUM)\n<|id|>588<|page|>48<|box|>337 259 354 735<|content|>[SPACE RESERVED FOR COUNTY RECORDING STAMPS]\n<|id|>589<|page|>48<|box|>363 140 378 727<|content|>Prepared by: Calderwood & Harkness LLP 1000 Louisi\n<|id|>590<|page|>48<|box|>386 287 402 710<|content|>ATTACHMENT 1 TO MEMORANDUM OF LEASE\n<|id|>591<|page|>48<|box|>412 334 429 661<|content|>LEGAL DESCRIPTION OF PREMISES\n<|id|>601<|page|>48<|box|>872 447 888 550<|content|>EXHIBIT E\n<|id|>602<|page|>49<|box|>89 338 106 658<|content|>FORM OF ESTOPPEL CERTIFICATE\n<|id|>603<|page|>49<|box|>114 140 132 372<|content|>ESTOPPEL CERTIFICATE",
+    "raw_response": "<|id|>558<|level|>2\n<|id|>572<|level|>1\n<|id|>573<|level|>2\n<|id|>574<|level|>2\n<|id|>581<|level|>1\n<|id|>588<|level|>-1\n<|id|>589<|level|>-1\n<|id|>590<|level|>1\n<|id|>591<|level|>2\n<|id|>601<|level|>1\n<|id|>602<|level|>1\n<|id|>603<|level|>2",
+    "parsed": [
+        {
+            "id": 558,
+            "level": 2
+        },
+        {
+            "id": 572,
+            "level": 1
+        },
+        {
+            "id": 573,
+            "level": 2
+        },
+        {
+            "id": 574,
+            "level": 2
+        },
+        {
+            "id": 581,
+            "level": 1
+        },
+        {
+            "id": 590,
+            "level": 1
+        },
+        {
+            "id": 591,
+            "level": 2
+        },
+        {
+            "id": 601,
+            "level": 1
+        },
+        {
+            "id": 602,
+            "level": 1
+        },
+        {
+            "id": 603,
+            "level": 2
+        }
+    ]
+}

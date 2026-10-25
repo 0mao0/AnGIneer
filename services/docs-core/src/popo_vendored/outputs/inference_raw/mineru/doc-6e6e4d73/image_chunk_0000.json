@@ -1,0 +1,50 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 153 172 854<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>8<|type|>title<|page|>1<|box|>421 385 440 611<|content|>I. Executive Summary\n<|id|>14<|type|>title<|page|>2<|box|>308 184 352 812<|content|>II. Background — The Incident and Quorum's Indemni\n<|id|>15<|type|>title<|page|>2<|box|>376 142 393 316<|content|>A. Incident Summary\n<|id|>25<|type|>title<|page|>3<|box|>454 142 470 271<|content|>B. The Demand\n<|id|>28<|type|>table<|page|>3<|box|>638 143 883 852<|content|>None\n<|id|>29<|type|>table<|page|>4<|box|>88 143 119 852<|content|>None\n<|id|>31<|type|>title<|page|>4<|box|>321 140 339 326<|content|>C. Palomar's Response\n<|id|>36<|type|>title<|page|>5<|box|>90 232 111 764<|content|>III. Analysis of Quorum's Legal Position — Strengt\n<|id|>38<|type|>title<|page|>6<|box|>90 140 107 803<|content|>A. Breach of Data Security Exhibit (Exhibit D, as\n<|id|>45<|type|>title<|page|>6<|box|>768 140 785 504<|content|>B. Late Breach Notification (MSA Section 9.4)\n<|id|>49<|type|>title<|page|>7<|box|>412 140 431 524<|content|>C. Indemnification Provision (MSA Section 12.2)\n<|id|>53<|type|>title<|page|>8<|box|>90 140 107 313<|content|>D. Forensic Evidence\n<|id|>60<|type|>title<|page|>8<|box|>689 140 707 428<|content|>E. SOC 2 Type II Audit Deficiencies\n<|id|>63<|type|>title<|page|>9<|box|>209 158 253 836<|content|>IV. Analysis of Palomar's Potential Defenses — Wea\n<|id|>65<|type|>title<|page|>9<|box|>347 140 364 508<|content|>A. \"Sophisticated Attack\" / Causation Defense\n<|id|>69<|type|>title<|page|>9<|box|>795 142 813 374<|content|>B. Scope of Damages Defense\n<|id|>74<|type|>title<|page|>10<|box|>512 140 530 527<|content|>C. Contributory Conduct / Shared Responsibility\n<|id|>80<|type|>title<|page|>11<|box|>267 140 284 473<|content|>D. Limitation of Liability / Cap Argument\n<|id|>84<|type|>title<|page|>11<|box|>646 359 666 638<|content|>V. Strategic Considerations\n<|id|>86<|type|>title<|page|>11<|box|>780 140 797 447<|content|>A. Preserving the Vendor Relationship\n<|id|>91<|type|>title<|page|>12<|box|>494 140 511 457<|content|>B. Relationship Dynamics and Leverage\n<|id|>95<|type|>title<|page|>13<|box|>90 140 107 370<|content|>C. Insurance Considerations\n<|id|>106<|type|>title<|page|>13<|box|>768 140 785 321<|content|>D. Regulatory Posture\n<|id|>110<|type|>title<|page|>14<|box|>494 140 511 359<|content|>E. Potential Litigation Risk\n<|id|>118<|type|>title<|page|>15<|box|>339 300 359 697<|content|>VI. Recommended Negotiation Strategy\n<|id|>120<|type|>title<|page|>15<|box|>436 140 454 364<|content|>A. Target Settlement Range\n<|id|>126<|type|>title<|page|>16<|box|>186 140 204 403<|content|>B. Recommended Deal Structure\n<|id|>146<|type|>title<|page|>17<|box|>829 140 847 321<|content|>C. Negotiation Tactics\n<|id|>154<|type|>title<|page|>19<|box|>90 140 107 388<|content|>D. Coordination Requirements\n<|id|>161<|type|>title<|page|>19<|box|>686 339 705 656<|content|>VII. Risk Assessment Summary\n<|id|>162<|type|>table<|page|>19<|box|>766 143 896 852<|content|>None\n<|id|>163<|type|>table<|page|>20<|box|>88 143 550 852<|content|>None\n<|id|>164<|type|>title<|page|>20<|box|>585 341 604 656<|content|>VIII. Recommended Next Steps\n<|id|>178<|type|>title<|page|>21<|box|>585 421 604 575<|content|>IX. Conclusion",
+    "raw_response": "<|src_id|>28<|tgt_id|>25\n<|src_id|>29<|tgt_id|>25\n<|src_id|>162<|tgt_id|>161\n<|src_id|>163<|tgt_id|>161",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 161
+        }
+    ]
+}

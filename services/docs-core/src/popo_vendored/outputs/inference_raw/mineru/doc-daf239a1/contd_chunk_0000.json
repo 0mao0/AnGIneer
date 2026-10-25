@@ -1,0 +1,60 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        49
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        14,
+        15,
+        27,
+        38,
+        48
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>2<|box|>871 524 893 951<|content|>Name: ... ____\n<|id|>9<|page|>2<|box|>894 526 915 951<|content|>Address ____ ____ ____\n<|id|>10<|page|>2<|box|>935 526 958 951<|content|>Telephone: ... ____ ____ ____ ____\n<|id|>11<|page|>3<|box|>204 514 328 960<|content|>TREASURY BULLETIN\n<|id|>14<|page|>4<|box|>298 63 338 927<|content|>Sold on a subscription basis only (exceptions noted) by the Superintendent of Documents, U. ... †\n<|id|>19<|page|>4<|box|>781 67 801 562<|content|>† Subscription order form on inside back cover of ...tion order form on inside back cover of this issue\n<|id|>23<|page|>6<|box|>852 189 868 512<|content|>Editor-In-Chief: ... Dennis-Downing\n<|id|>24<|page|>6<|box|>852 587 868 855<|content|>Managing Editor: ... Shepard\n<|id|>25<|page|>6<|box|>868 394 883 651<|content|>Assistant Editor: ... Wiley\n<|id|>26<|page|>6<|box|>882 306 898 739<|content|>Editorial Assistants: ... James\n<|id|>27<|page|>7<|box|>167 27 914 908<|content|>FINANCIAL OPERATIONS PROFILE OF THE ECONOMY POE-A. ... 64\n<|id|>45<|page|>14<|box|>263 109 345 439<|content|>The Administration's budget for fiscal 1995 propos... be held to only 2. ... 4 percent of GDP, assuming\n<|id|>46<|page|>14<|box|>342 107 394 437<|content|>the President's health care package passes. ... 5 percent of GDP\n<|id|>48<|page|>14<|box|>469 118 497 437<|content|>The Administration's proposals cut the deficit/GDP ratio in half over 3 years from\n<|id|>49<|page|>14<|box|>497 124 576 437<|content|>1992 to 1995. ... Cuts hold the debt/GDP ratio constant at about 52 percent\n<|id|>52<|page|>15<|box|>230 12 283 381<|content|>National saving (net of depreciation), although still low, rose to 1. ... The saving rate averaged 8\n<|id|>53<|page|>15<|box|>282 12 334 381<|content|>percent or more in the 1960's and 1970's. ... A ma...P by 1993 from less than the 1 percent averaged in\n<|id|>54<|page|>15<|box|>334 16 374 379<|content|>the 1960's. ... Private saving was at\n<|id|>55<|page|>15<|box|>398 12 427 379<|content|>percent or higher in the 1960's and 1970's. ... 2 percent of NNP\n<|id|>56<|page|>15<|box|>425 9 465 379<|content|>in 1993 from 1. ... Net investment had averaged mo...until the 1980's, when it slipped to an average of\n<|id|>57<|page|>15<|box|>464 12 504 379<|content|>about 4 percent. ... 1 percent from near 8 percent in\n<|id|>58<|page|>15<|box|>502 14 543 381<|content|>the prior decades. ... 9 percent of NNP in 1993\n<|id|>134<|page|>27<|box|>706 200 724 354<|content|>(In billions of dollars)\n<|id|>135<|page|>27<|box|>730 96 775 355<|content|>Source: ... \"Monthly Treasury Statement of Receipts and Outlays of the United States Government\"\n<|id|>163<|page|>38<|box|>291 61 379 506<|content|>Under authority of Public Law 95-147, Treasury imp...est-bearing obligations participate under the Note\n<|id|>164<|page|>38<|box|>183 527 285 974<|content|>Option. ... Likewise, those institutions wishing t... account at FRBs do so under the Remittance Option\n<|id|>199<|page|>48<|box|>279 430 298 585<|content|>(In billions of dollars)\n<|id|>200<|page|>48<|box|>756 416 777 603<|content|>As of December 31",
+    "raw_response": "<|src_id|>45<|tgt_id|>46\n<|src_id|>48<|tgt_id|>49\n<|src_id|>52<|tgt_id|>53\n<|src_id|>53<|tgt_id|>54\n<|src_id|>54<|tgt_id|>55\n<|src_id|>55<|tgt_id|>56\n<|src_id|>56<|tgt_id|>57\n<|src_id|>57<|tgt_id|>58\n<|src_id|>163<|tgt_id|>164",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        }
+    ]
+}

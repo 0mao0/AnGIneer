@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>393 143 410 264<|content|>1. Introduction\n<|id|>11<|type|>title<|page|>1<|box|>714 142 729 367<|content|>2. Background to the Award\n<|id|>25<|type|>table<|page|>2<|box|>470 143 632 852<|content|>None\n<|id|>28<|type|>title<|page|>2<|box|>843 140 859 715<|content|>3. Response to the Threatened Section 68 Challenge\n<|id|>32<|type|>title<|page|>3<|box|>330 140 348 549<|content|>3.1 Alleged Procedural Unfairness (Section 68(2)(a\n<|id|>37<|type|>title<|page|>3<|box|>810 140 827 607<|content|>3.2 Alleged Failure to Deal with All Issues (Secti\n<|id|>42<|type|>title<|page|>4<|box|>502 140 518 393<|content|>3.3 Other Alleged Irregularities\n<|id|>44<|type|>title<|page|>4<|box|>659 140 675 743<|content|>4. Response to the Threatened Section 69 Challenge\n<|id|>61<|type|>title<|page|>6<|box|>212 140 229 478<|content|>5. Enforcement Proceedings Will Continue\n<|id|>62<|type|>title<|page|>6<|box|>237 142 255 341<|content|>We confirm the following:\n<|id|>67<|type|>title<|page|>6<|box|>657 140 674 323<|content|>6. Costs Consequences\n<|id|>72<|type|>title<|page|>7<|box|>250 140 265 540<|content|>7. Compliance with the Worldwide Freezing Order\n<|id|>76<|type|>title<|page|>7<|box|>532 140 549 333<|content|>8. Demand for Payment\n<|id|>80<|type|>title<|page|>7<|box|>816 140 832 254<|content|>9. Conclusion\n<|id|>86<|type|>title<|page|>8<|box|>329 142 345 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>25<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 11
+        }
+    ]
+}

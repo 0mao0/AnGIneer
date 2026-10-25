@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>9<|type|>title<|page|>1<|box|>426 140 443 475<|content|>I. Introduction and Purpose of This Letter\n<|id|>16<|type|>title<|page|>2<|box|>340 140 357 583<|content|>II. Summary of Agreed and Substantially Agreed Ter\n<|id|>18<|type|>title<|page|>2<|box|>452 142 468 321<|content|>A. Premises and Term\n<|id|>22<|type|>title<|page|>2<|box|>814 142 830 250<|content|>B. Base Rent\n<|id|>24<|type|>table<|page|>2<|box|>862 145 897 852<|content|>None\n<|id|>25<|type|>table<|page|>3<|box|>89 143 176 852<|content|>None\n<|id|>27<|type|>title<|page|>3<|box|>332 140 349 478<|content|>C. Operating Expense and Tax Escalations\n<|id|>31<|type|>title<|page|>3<|box|>773 140 790 419<|content|>E. Tenant Improvement Allowance\n<|id|>37<|type|>title<|page|>4<|box|>448 142 465 297<|content|>F. Security Deposit\n<|id|>39<|type|>table<|page|>4<|box|>613 143 724 852<|content|>None\n<|id|>41<|type|>title<|page|>4<|box|>827 140 844 312<|content|>G. Expansion Option\n<|id|>46<|type|>title<|page|>5<|box|>474 140 489 303<|content|>H. Renewal Options\n<|id|>50<|type|>title<|page|>5<|box|>859 140 876 357<|content|>J. Insurance Requirements\n<|id|>55<|type|>title<|page|>6<|box|>167 145 184 607<|content|>• Carrier Rating Minimum: A.M. Best A-VIII or equi\n<|id|>57<|type|>title<|page|>6<|box|>356 140 373 537<|content|>III. Terms Under Active Negotiation / Open Issues\n<|id|>59<|type|>title<|page|>6<|box|>450 140 467 457<|content|>A. Change of Control Assignment Right\n<|id|>72<|type|>title<|page|>7<|box|>800 140 816 527<|content|>B. Right of First Offer (ROFO) — Subordination\n<|id|>78<|type|>title<|page|>8<|box|>455 140 472 303<|content|>C. Parent Guaranty\n<|id|>81<|type|>title<|page|>9<|box|>90 140 107 601<|content|>D. Fair Market Rent Determination Procedure (Exhib\n<|id|>83<|type|>title<|page|>9<|box|>213 142 229 333<|content|>Remaining Open Items:\n<|id|>87<|type|>title<|page|>9<|box|>468 142 484 455<|content|>E. Assignment and Subletting (General)\n<|id|>92<|type|>title<|page|>9<|box|>848 140 864 666<|content|>IV. Status of SNDA Negotiations with Atlas Contine\n<|id|>103<|type|>title<|page|>10<|box|>758 140 777 346<|content|>V. Due Diligence Updates\n<|id|>109<|type|>title<|page|>11<|box|>439 142 457 320<|content|>C. Survey and Zoning\n<|id|>111<|type|>title<|page|>11<|box|>614 140 630 300<|content|>VI. Broker Matters\n<|id|>115<|type|>title<|page|>12<|box|>90 142 107 450<|content|>VII. Projected Timeline and Next Steps\n<|id|>117<|type|>table<|page|>12<|box|>159 143 531 852<|content|>None\n<|id|>119<|type|>title<|page|>12<|box|>679 140 695 364<|content|>VIII. Budget and Fee Status\n<|id|>122<|type|>title<|page|>13<|box|>90 142 107 395<|content|>IX. Request for Client Direction",
+    "raw_response": "<|src_id|>24<|tgt_id|>22\n<|src_id|>25<|tgt_id|>22\n<|src_id|>39<|tgt_id|>37\n<|src_id|>117<|tgt_id|>115",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 115
+        }
+    ]
+}

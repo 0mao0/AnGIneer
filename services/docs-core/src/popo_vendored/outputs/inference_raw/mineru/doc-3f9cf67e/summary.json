@@ -1,0 +1,208 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pf_ierwa\\input\\pdfs\\doc-3f9cf67e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pf_ierwa\\enriched\\doc-3f9cf67e.json",
+    "contd_output": "",
+    "title_output": "<|id|>2<|level|>1\n<|id|>9<|level|>1\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>1\n<|id|>25<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>3\n<|id|>41<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>1\n<|id|>58<|level|>2\n<|id|>62<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>1\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>91<|level|>2\n<|id|>103<|level|>2\n<|id|>115<|level|>2\n<|id|>122<|level|>1\n<|id|>123<|level|>2\n<|id|>125<|level|>2\n<|id|>131<|level|>2\n<|id|>137<|level|>2\n<|id|>139<|level|>1\n<|id|>146<|level|>1\n<|id|>160<|level|>1",
+    "image_output": "<|src_id|>1<|tgt_id|>2\n<|src_id|>7<|tgt_id|>9\n<|src_id|>38<|tgt_id|>36\n<|src_id|>39<|tgt_id|>36",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 36
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 38,
+            "table2_idx": 39,
+            "upper_row_ss": [
+                [
+                    "Minimum Monthly Revenue Commitment",
+                    "Per § 3.2",
+                    "$325,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Remaining unpaid Minimum Monthly Revenue Commitment",
+                    "17 × $325,000",
+                    "$5,525,000"
+                ]
+            ]
+        }
+    ]
+}

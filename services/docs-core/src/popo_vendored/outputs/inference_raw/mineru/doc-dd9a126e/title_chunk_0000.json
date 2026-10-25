@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 143 123 851<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>8<|page|>1<|box|>383 212 401 785<|content|>AFFIDAVIT OF SERVICE — DEFENDANT DARREN K. MUSGRAV\n<|id|>9<|page|>1<|box|>425 140 441 459<|content|>I. AFFIDAVIT OF PROCESS SERVER\n<|id|>10<|page|>1<|box|>450 140 468 614<|content|>STATE OF ILLINOIS ) ) SS. COUNTY OF CHAMPAIGN )\n<|id|>14<|page|>1<|box|>698 142 714 367<|content|>II. DOCUMENTS SERVED\n<|id|>23<|page|>2<|box|>344 140 361 330<|content|>III. PERSON SERVED\n<|id|>25<|page|>2<|box|>503 142 518 372<|content|>IV. MANNER OF SERVICE\n<|id|>28<|page|>2<|box|>760 140 777 431<|content|>V. DATE AND TIME OF SERVICE\n<|id|>30<|page|>2<|box|>845 140 862 390<|content|>VI. LOCATION OF SERVICE\n<|id|>32<|page|>3<|box|>90 176 108 740<|content|>1188 Windermere Lane Champaign, Illinois 61822 (Ch\n<|id|>34<|page|>3<|box|>212 140 229 558<|content|>VII. ADDITIONAL DETAILS AND COMPLIANCE\n<|id|>38<|page|>3<|box|>477 142 494 326<|content|>VIII. VERIFICATION\n<|id|>42<|page|>4<|box|>183 140 200 374<|content|>X. FILING INFORMATION\n<|id|>45<|page|>4<|box|>297 140 314 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>51<|page|>4<|box|>465 140 484 416<|content|>XI. CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>9<|level|>2\n<|id|>10<|level|>-1\n<|id|>14<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>-1\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>-1\n<|id|>51<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        }
+    ]
+}

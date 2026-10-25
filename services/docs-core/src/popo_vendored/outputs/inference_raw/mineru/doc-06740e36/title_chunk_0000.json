@@ -1,0 +1,119 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 143 167 823<|content|>UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF\n<|id|>5<|page|>1<|box|>279 178 340 854<|content|>Hon. Adrienne M. Castellano United States District\n<|id|>11<|page|>2<|box|>494 385 512 612<|content|>TABLE OF AUTHORITIES\n<|id|>15<|page|>4<|box|>125 143 138 290<|content|>Statutes and Rules\n<|id|>17<|page|>4<|box|>454 143 469 393<|content|>Treatises and Other Authorities\n<|id|>19<|page|>4<|box|>660 370 676 625<|content|>PRELIMINARY STATEMENT\n<|id|>27<|page|>6<|box|>306 390 323 607<|content|>STATEMENT OF FACTS\n<|id|>28<|page|>6<|box|>338 140 354 647<|content|>A. Verimark Hospitality Group Inc. and Its VERIMAR\n<|id|>39<|page|>7<|box|>818 140 835 612<|content|>B. Coral Verimark Resorts LLC and Its Infringing C\n<|id|>49<|page|>9<|box|>385 140 402 653<|content|>C. Cease-and-Desist Correspondence and CVR's Refus\n<|id|>57<|page|>10<|box|>484 140 501 483<|content|>D. Evidence of Actual Consumer Confusion\n<|id|>66<|page|>11<|box|>595 410 612 586<|content|>LEGAL STANDARD\n<|id|>72<|page|>12<|box|>625 442 641 557<|content|>ARGUMENT\n<|id|>73<|page|>12<|box|>666 140 683 785<|content|>I. VHG HAS A SUBSTANTIAL LIKELIHOOD OF SUCCESS ON\n<|id|>75<|page|>12<|box|>833 140 851 743<|content|>A. VHG Holds Valid, Protectable Trademark Rights w\n<|id|>81<|page|>13<|box|>821 140 839 790<|content|>B. Application of the Eleventh Circuit's Seven-Fac\n<|id|>119<|page|>19<|box|>337 140 354 529<|content|>C. Summary of Likelihood-of-Confusion Analysis\n<|id|>124<|page|>20<|box|>90 140 107 575<|content|>D. VHG Is Also Likely to Succeed on Its Dilution C\n<|id|>135<|page|>21<|box|>248 140 265 764<|content|>II. VHG WILL SUFFER IRREPARABLE HARM ABSENT AN INJ\n<|id|>145<|page|>22<|box|>710 140 728 741<|content|>III. THE BALANCE OF EQUITIES TIPS DECIDEDLY IN VHG\n<|id|>152<|page|>23<|box|>655 140 672 730<|content|>IV. A PRELIMINARY INJUNCTION SERVES THE PUBLIC INT\n<|id|>158<|page|>24<|box|>457 140 493 763<|content|>V. THE SCOPE OF THE REQUESTED INJUNCTION IS APPROP\n<|id|>167<|page|>25<|box|>559 434 575 563<|content|>CONCLUSION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>-1\n<|id|>11<|level|>1\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>1\n<|id|>27<|level|>1\n<|id|>28<|level|>2\n<|id|>39<|level|>2\n<|id|>49<|level|>2\n<|id|>57<|level|>2\n<|id|>66<|level|>1\n<|id|>72<|level|>1\n<|id|>73<|level|>2\n<|id|>75<|level|>3\n<|id|>81<|level|>3\n<|id|>119<|level|>3\n<|id|>124<|level|>3\n<|id|>135<|level|>2\n<|id|>145<|level|>2\n<|id|>152<|level|>2\n<|id|>158<|level|>2\n<|id|>167<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 1
+        }
+    ]
+}

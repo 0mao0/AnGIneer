@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>363 163 398 833<|content|>FIRST JOINT STATUS REPORT PURSUANT TO THE COURT'S\n<|id|>3<|page|>1<|box|>594 140 611 519<|content|>I. INTRODUCTION AND BASIS FOR FILING\n<|id|>6<|page|>1<|box|>834 142 849 303<|content|>II. BACKGROUND\n<|id|>14<|page|>2<|box|>845 140 863 627<|content|>III. STATUS OF THE DCMA ADMINISTRATIVE REVIEW\n<|id|>23<|page|>3<|box|>804 140 821 718<|content|>IV. PARTIES' JOINT RECOMMENDATION REGARDING THE ST\n<|id|>28<|page|>4<|box|>428 140 445 408<|content|>V. RESERVATION OF RIGHTS\n<|id|>32<|page|>4<|box|>803 140 820 300<|content|>VI. CONCLUSION\n<|id|>36<|page|>5<|box|>185 140 203 460<|content|>For Plaintiff Whitmore Aerospace LLC:\n<|id|>51<|page|>5<|box|>508 374 526 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>2\n<|id|>14<|level|>2\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>-1\n<|id|>51<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,140 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        50
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        10,
+        13,
+        15,
+        19,
+        22,
+        25,
+        28,
+        29,
+        34,
+        37,
+        40,
+        42,
+        43,
+        45,
+        46,
+        47,
+        49
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>317 243 386 768<|content|>内河航运设备安装工程定额\n<|id|>1<|page|>1<|box|>423 167 505 841<|content|>Quota for Costing of Equipment Installation Works\n<|id|>5<|page|>2<|box|>194 366 229 643<|content|>中华人民共和国行业标准\n<|id|>6<|page|>2<|box|>264 273 317 740<|content|>内河航运设备安装工程定额\n<|id|>13<|page|>3<|box|>150 125 280 892<|content|>交通运输部关于发布《水运建设工程概算预算编制规定》及其配套定额的公告\n<|id|>20<|page|>5<|box|>163 389 222 627<|content|>修订说明\n<|id|>27<|page|>7<|box|>161 428 218 599<|content|>目 次\n<|id|>31<|page|>10<|box|>130 398 189 615<|content|>总说明\n<|id|>49<|page|>13<|box|>136 433 178 555<|content|>说明\n<|id|>64<|page|>15<|box|>136 403 167 580<|content|>一、人字闸门制作\n<|id|>66<|page|>15<|box|>253 84 280 216<|content|>(一) 平面面板\n<|id|>71<|page|>19<|box|>141 54 167 97<|content|>续表\n<|id|>75<|page|>22<|box|>116 98 145 227<|content|>(二) 弧形面板\n<|id|>79<|page|>25<|box|>145 52 169 95<|content|>续表\n<|id|>83<|page|>28<|box|>105 400 139 601<|content|>二、提升平板门制作\n<|id|>86<|page|>29<|box|>134 59 161 100<|content|>续表\n<|id|>92<|page|>34<|box|>116 419 147 597<|content|>三、三角闸门制作\n<|id|>94<|page|>34<|box|>229 102 258 229<|content|>(一) 平面面板\n<|id|>98<|page|>37<|box|>141 82 169 329<|content|>(二) 平面面板（带浮箱结构）\n<|id|>102<|page|>40<|box|>112 98 141 223<|content|>(三) 弧形面板\n<|id|>105<|page|>42<|box|>116 52 143 95<|content|>续表\n<|id|>107<|page|>43<|box|>143 393 174 613<|content|>四、横拉闸门制作安装\n<|id|>112<|page|>45<|box|>136 63 165 107<|content|>续表\n<|id|>114<|page|>46<|box|>108 396 141 617<|content|>五、平板定轮闸门制作\n<|id|>117<|page|>47<|box|>139 54 165 97<|content|>续表\n<|id|>120<|page|>49<|box|>139 405 169 585<|content|>六、检修闸门制作\n<|id|>122<|page|>49<|box|>218 89 247 215<|content|>(一)一般结构",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>5<|level|>-1\n<|id|>6<|level|>1\n<|id|>13<|level|>1\n<|id|>20<|level|>1\n<|id|>27<|level|>1\n<|id|>31<|level|>1\n<|id|>49<|level|>1\n<|id|>64<|level|>1\n<|id|>66<|level|>2\n<|id|>71<|level|>3\n<|id|>75<|level|>2\n<|id|>79<|level|>3\n<|id|>83<|level|>1\n<|id|>86<|level|>2\n<|id|>92<|level|>1\n<|id|>94<|level|>2\n<|id|>98<|level|>2\n<|id|>102<|level|>2\n<|id|>105<|level|>3\n<|id|>107<|level|>1\n<|id|>112<|level|>2\n<|id|>114<|level|>1\n<|id|>117<|level|>2\n<|id|>120<|level|>1\n<|id|>122<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 2
+        }
+    ]
+}

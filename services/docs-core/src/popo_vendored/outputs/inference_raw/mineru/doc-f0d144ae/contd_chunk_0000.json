@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        8,
+        9,
+        24,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>205 174 223 754<|content|>James Whitford, Group General Counsel, Northgate Telecommunications PLC\n<|id|>6<|page|>1<|box|>229 176 250 754<|content|>Patrick Salazar, Chief Regulatory Officer, Northgate Telecommunications PLC\n<|id|>7<|page|>1<|box|>257 142 273 210<|content|>FROM: ... FROM\n<|id|>8<|page|>1<|box|>282 174 316 854<|content|>Elaine Forsythe, Responsible Partner, Antitrust & Competition, Calderwood & Harkness LLP\n<|id|>9<|page|>1<|box|>327 174 344 787<|content|>Aaron Liu, Lead Associate, Antitrust & Competition, Calderwood & Harkness LLP\n<|id|>10<|page|>1<|box|>353 142 369 325<|content|>DATE: ... March 20, 2023\n<|id|>11<|page|>1<|box|>378 140 415 854<|content|>RE: ... )\n<|id|>12<|page|>1<|box|>422 142 440 442<|content|>Reference No. ... C&H-2022-ATR-00419\n<|id|>13<|page|>1<|box|>449 140 465 408<|content|>Right-click to update Table of Contents\n<|id|>16<|page|>1<|box|>739 138 904 856<|content|>By way of background, Ridgepoint filed its antitru...y 7, 2023, alleging that the same conduct violates\n<|id|>17<|page|>2<|box|>90 140 126 854<|content|>Northgate America's interconnection obligations un..., as amended by the Telecommunications Act of 1996\n<|id|>62<|page|>7<|box|>869 140 906 854<|content|>Under this scenario, ALJ Fenwick issues an initial...he fourteen facilities. ... The ALJ finds that the\n<|id|>63<|page|>8<|box|>90 140 164 854<|content|>WAP, as applied to competitive carriers like Ridge...anket refusal to negotiate colocation arrangements\n<|id|>69<|page|>8<|box|>797 138 888 857<|content|>Impact on the District Court Litigation: ... Judge\n<|id|>70<|page|>9<|box|>90 140 127 854<|content|>Wentworth could also lift the stay sua sponte or o...reports reveal that the FCC Proceeding has stalled\n<|id|>199<|page|>24<|box|>665 181 699 852<|content|>• Primary: ... — $50 million per-occurrence / $10 million SIR\n<|id|>203<|page|>24<|box|>762 140 835 854<|content|>The reservation of rights issued by Clarendon Mutu...ance with policy notice and reporting requirements\n<|id|>200<|page|>24<|box|>703 181 720 800<|content|>• First Excess: ... Avalon Specialty Underwriters — $30 million excess of $50 million\n<|id|>201<|page|>24<|box|>723 183 739 717<|content|>• Second Excess: ... — $20 million excess of $80 million\n<|id|>202<|page|>24<|box|>743 183 760 705<|content|>• Total Tower: ... $150 million (including the $50 million primary layer)\n<|id|>221<|page|>26<|box|>674 140 704 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT / ATTORNEY-CLIENT COMMUNICATION\n<|id|>222<|page|>26<|box|>712 187 729 808<|content|>Calderwood & Harkness LLP 1200 K Street NW, Suite 900 Washington, D. ... 20005",
+    "raw_response": "<|src_id|>16<|tgt_id|>17\n<|src_id|>62<|tgt_id|>63\n<|src_id|>69<|tgt_id|>70",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        }
+    ]
+}

@@ -1,0 +1,145 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>133 200 151 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>2<|page|>1<|box|>492 142 508 424<|content|>I. PURPOSE OF MEMORANDUM\n<|id|>10<|page|>2<|box|>364 142 383 305<|content|>II. BACKGROUND\n<|id|>11<|page|>2<|box|>397 142 412 287<|content|>A. Case Overview\n<|id|>20<|page|>3<|box|>521 140 537 493<|content|>B. The Three Supplier Relationships at Issue\n<|id|>27<|page|>4<|box|>773 140 791 444<|content|>C. Relevance of Third-Party discovery\n<|id|>33<|page|>5<|box|>684 140 702 764<|content|>III. SUBPOENA DETAILS — HEMSWORTH CONSUMER PRODUCT\n<|id|>34<|page|>5<|box|>715 140 733 326<|content|>A. Service Information\n<|id|>39<|page|>6<|box|>284 140 301 447<|content|>B. Categories of Documents Requested\n<|id|>49<|page|>7<|box|>737 140 755 437<|content|>C. Objections and Compliance Status\n<|id|>54<|page|>8<|box|>474 140 493 679<|content|>IV. SUBPOENA DETAILS — TRIDALE MANUFACTURING INC.\n<|id|>55<|page|>8<|box|>507 142 523 326<|content|>A. Service Information\n<|id|>59<|page|>9<|box|>90 140 107 447<|content|>B. Categories of Documents Requested\n<|id|>69<|page|>10<|box|>319 140 337 437<|content|>C. Objections and Compliance Status\n<|id|>74<|page|>11<|box|>89 140 107 684<|content|>V. SUBPOENA DETAILS — ORION LIFESTYLE BRANDS CORP.\n<|id|>75<|page|>11<|box|>121 142 138 326<|content|>A. Service Information\n<|id|>79<|page|>11<|box|>560 140 577 447<|content|>B. Categories of Documents Requested\n<|id|>89<|page|>13<|box|>90 140 107 437<|content|>C. Objections and Compliance Status\n<|id|>94<|page|>13<|box|>689 140 707 696<|content|>VI. PRODUCTION SUMMARY AND DOCUMENT MANAGEMENT\n<|id|>95<|page|>13<|box|>720 142 738 405<|content|>A. Aggregate Production Volume\n<|id|>101<|page|>14<|box|>429 140 446 490<|content|>B. Document Handling and Review Protocol\n<|id|>111<|page|>15<|box|>463 140 479 452<|content|>C. Coordination with Overall discovery\n<|id|>118<|page|>16<|box|>167 140 184 694<|content|>VII. STRATEGIC SIGNIFICANCE OF REQUESTED DOCUMENTS\n<|id|>119<|page|>16<|box|>199 140 215 465<|content|>A. Termination-for-Convenience Clauses\n<|id|>129<|page|>17<|box|>275 140 292 473<|content|>B. Independent Supplier Decision-Making\n<|id|>137<|page|>17<|box|>795 140 813 450<|content|>C. Knowledge of Exclusivity Provisions\n<|id|>142<|page|>18<|box|>512 140 529 493<|content|>VIII. NOTICES TO OPPOSING COUNSEL\n<|id|>150<|page|>19<|box|>212 140 229 571<|content|>IX. NEXT STEPS AND RECOMMENDED ACTIONS\n<|id|>159<|page|>20<|box|>566 140 584 447<|content|>X. EXHIBITS AND ATTACHMENTS",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>10<|level|>1\n<|id|>11<|level|>2\n<|id|>20<|level|>2\n<|id|>27<|level|>2\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>39<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>59<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>1\n<|id|>75<|level|>2\n<|id|>79<|level|>2\n<|id|>89<|level|>2\n<|id|>94<|level|>1\n<|id|>95<|level|>2\n<|id|>101<|level|>2\n<|id|>111<|level|>2\n<|id|>118<|level|>1\n<|id|>119<|level|>2\n<|id|>129<|level|>2\n<|id|>137<|level|>2\n<|id|>142<|level|>1\n<|id|>150<|level|>1\n<|id|>159<|level|>1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 1
+        }
+    ]
+}

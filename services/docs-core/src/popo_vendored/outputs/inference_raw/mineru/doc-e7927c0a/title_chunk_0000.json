@@ -1,0 +1,59 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>141 142 157 496<|content|>VIA OVERNIGHT COURIER AND EMAIL\n<|id|>4<|page|>1<|box|>292 176 310 810<|content|>Notice of Material Litigation Pursuant to Section\n<|id|>5<|page|>1<|box|>319 142 335 303<|content|>Dear Ms. Devereaux:\n<|id|>9<|page|>1<|box|>666 142 683 383<|content|>I. Description of the Litigation\n<|id|>11<|page|>1<|box|>787 176 805 851<|content|>Vantor Holdings Corp. v. Stonefield Logistics Grou\n<|id|>17<|page|>2<|box|>510 142 527 496<|content|>II. Damages Claimed and Potential Exposure\n<|id|>21<|page|>3<|box|>90 140 107 566<|content|>III. Stonefield's Position and Assessment of the C\n<|id|>31<|page|>4<|box|>275 140 292 341<|content|>IV. Retention of Counsel\n<|id|>33<|page|>4<|box|>421 140 439 426<|content|>V. Ongoing Reporting Commitment\n<|id|>37<|page|>4<|box|>747 142 763 401<|content|>VI. No Impact on Credit Facility\n<|id|>40<|page|>5<|box|>213 142 229 352<|content|>VII. Reservation of Rights\n<|id|>53<|page|>5<|box|>736 143 751 232<|content|>Enclosure:",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>4<|level|>1\n<|id|>5<|level|>-1\n<|id|>9<|level|>2\n<|id|>11<|level|>3\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>2\n<|id|>53<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        }
+    ]
+}

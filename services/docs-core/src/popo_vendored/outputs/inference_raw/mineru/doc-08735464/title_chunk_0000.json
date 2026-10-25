@@ -1,0 +1,39 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>257 142 273 285<|content|>Dear Ms. Brennan:\n<|id|>7<|page|>1<|box|>473 142 489 504<|content|>1. Volume of Potentially Responsive Materials\n<|id|>16<|page|>2<|box|>633 140 651 441<|content|>2. Complexity of the Review Required\n<|id|>23<|page|>3<|box|>614 140 632 465<|content|>3. Good-Faith Efforts Already Underway\n<|id|>32<|page|>4<|box|>623 140 638 633<|content|>4. Absence of Prejudice to the Attorney General's\n<|id|>36<|page|>5<|box|>208 142 224 281<|content|>Meet and Confer\n<|id|>41<|page|>5<|box|>628 140 645 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>5<|level|>-1\n<|id|>7<|level|>1\n<|id|>16<|level|>1\n<|id|>23<|level|>1\n<|id|>32<|level|>1\n<|id|>36<|level|>1\n<|id|>41<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        }
+    ]
+}

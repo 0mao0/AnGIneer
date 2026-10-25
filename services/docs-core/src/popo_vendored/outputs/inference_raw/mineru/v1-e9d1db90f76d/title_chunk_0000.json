@@ -1,0 +1,138 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 336<|content|>【256472#0】西西伯利亚平原\n<|id|>2<|page|>1<|box|>175 105 191 337<|content|>【256472#1】西西伯利亚平原\n<|id|>4<|page|>1<|box|>241 105 256 337<|content|>【256823#4】佐治亚理工学院\n<|id|>6<|page|>1<|box|>410 107 426 275<|content|>【25820#3】贝加尔湖\n<|id|>8<|page|>1<|box|>529 107 545 329<|content|>【259623#0】波斯特-图灵机\n<|id|>10<|page|>1<|box|>630 107 646 408<|content|>【26079#37】中国中央电视台新闻频道\n<|id|>12<|page|>1<|box|>731 107 747 284<|content|>【26243#12】孟加拉国\n<|id|>14<|page|>1<|box|>866 107 882 258<|content|>【26458#5】安道尔\n<|id|>16<|page|>2<|box|>117 105 133 354<|content|>【270#10】中华人民共和国历史\n<|id|>18<|page|>2<|box|>200 105 217 347<|content|>【270#9】中华人民共和国历史\n<|id|>20<|page|>2<|box|>285 105 300 321<|content|>【270111#2】羅傑·潘洛斯\n<|id|>22<|page|>2<|box|>351 107 367 319<|content|>【270234#7】中部崛起计划\n<|id|>24<|page|>2<|box|>435 107 451 285<|content|>【271556#0】估计理论\n<|id|>26<|page|>2<|box|>501 107 518 292<|content|>【2716291#0】东西溪乡\n<|id|>28<|page|>2<|box|>568 105 583 302<|content|>【273327#1】英格兰国旗\n<|id|>30<|page|>2<|box|>617 105 633 421<|content|>【2743312#0】巧克力情人 (墨西哥电影)\n<|id|>32<|page|>3<|box|>73 107 89 421<|content|>【2743312#1】巧克力情人 (墨西哥电影)\n<|id|>34<|page|>3<|box|>123 107 139 315<|content|>【2743424#3】心术 (小说)\n<|id|>36<|page|>3<|box|>189 107 205 302<|content|>【276173#2】安道尔历史\n<|id|>38<|page|>3<|box|>273 107 288 302<|content|>【276173#3】安道尔历史\n<|id|>40<|page|>3<|box|>356 107 373 302<|content|>【276173#4】安道尔历史\n<|id|>42<|page|>3<|box|>424 107 439 302<|content|>【276173#5】安道尔历史\n<|id|>44<|page|>3<|box|>489 107 505 302<|content|>【276173#6】安道尔历史\n<|id|>46<|page|>3<|box|>557 107 571 258<|content|>【2766834#0】林镕\n<|id|>48<|page|>3<|box|>640 107 656 321<|content|>【2770768#13】天津大剧院\n<|id|>50<|page|>3<|box|>775 107 791 369<|content|>【2779499#2】老城街道 (肥城市)\n<|id|>52<|page|>3<|box|>876 107 892 284<|content|>【2799454#13】奧利韋\n<|id|>54<|page|>4<|box|>117 105 134 487<|content|>【2800000#2】中国共产党宁夏回族自治区委员会\n<|id|>56<|page|>4<|box|>184 107 200 275<|content|>【2809855#0】礁蟾魚\n<|id|>58<|page|>4<|box|>267 107 284 381<|content|>【2820411#1】1890年美国人口普查",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>1\n<|id|>58<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 212 133 782<|content|>MEMORANDUM ATTORNEY WORK PRODUCT — PRIVILEGED & CO\n<|id|>9<|page|>1<|box|>440 142 457 310<|content|>I. Purpose and Scope\n<|id|>19<|page|>2<|box|>484 142 501 316<|content|>II. Building Overview\n<|id|>26<|page|>3<|box|>585 140 603 344<|content|>III. Documents Reviewed\n<|id|>35<|page|>4<|box|>815 140 832 475<|content|>IV. Historical Operating Expense Analysis\n<|id|>36<|page|>4<|box|>845 140 863 522<|content|>A. Total Operating Expenses — Summary Table\n<|id|>44<|page|>6<|box|>90 140 107 570<|content|>B. Controllable vs. Uncontrollable Operating Expen\n<|id|>60<|page|>8<|box|>176 140 193 383<|content|>C. Management Fee Structure\n<|id|>66<|page|>9<|box|>90 140 107 362<|content|>V. Real Estate Tax Analysis\n<|id|>67<|page|>9<|box|>121 140 138 529<|content|>A. Historical Assessment and Tax Levy Summary\n<|id|>75<|page|>10<|box|>138 140 157 468<|content|>B. Real Estate Tax Escalation Projections\n<|id|>80<|page|>10<|box|>705 140 722 370<|content|>C. Base Year Considerations\n<|id|>88<|page|>11<|box|>681 140 698 504<|content|>VI. Building Occupancy and Revenue Context\n<|id|>94<|page|>12<|box|>531 140 547 403<|content|>VII. Capital Expenditure Review\n<|id|>100<|page|>13<|box|>648 142 665 405<|content|>VIII. Insurance Premium Trends\n<|id|>106<|page|>14<|box|>564 140 580 663<|content|>IX. Tenant's Proportionate Share — Financial Expos\n<|id|>109<|page|>14<|box|>734 143 750 254<|content|>Assumptions:\n<|id|>115<|page|>15<|box|>786 140 801 488<|content|>X. Key Observations and Recommendations\n<|id|>125<|page|>17<|box|>641 140 657 264<|content|>XI. Conclusion",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>19<|level|>2\n<|id|>26<|level|>2\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>44<|level|>3\n<|id|>60<|level|>3\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>75<|level|>3\n<|id|>80<|level|>3\n<|id|>88<|level|>2\n<|id|>94<|level|>2\n<|id|>100<|level|>2\n<|id|>106<|level|>2\n<|id|>109<|level|>3\n<|id|>115<|level|>2\n<|id|>125<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        }
+    ]
+}

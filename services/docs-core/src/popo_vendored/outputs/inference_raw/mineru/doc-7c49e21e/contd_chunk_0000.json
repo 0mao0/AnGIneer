@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 145 152 851<|content|>1 Federal Street, 35th Floor Boston, Massachusetts 02110 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 751 178 854<|content|>July 18, 2022\n<|id|>3<|page|>1<|box|>185 140 203 395<|content|>VIA EMAIL AND OVERNIGHT\n<|id|>4<|page|>1<|box|>212 140 247 854<|content|>Jennifer Chao, Esq. ... 400 Carnegie Center Drive, Suite 600 Princeton, NJ 08540\n<|id|>5<|page|>1<|box|>256 174 310 854<|content|>Re: ... 1018-00007\n<|id|>13<|page|>1<|box|>829 140 902 857<|content|>The court squarely resolved this issue in Penterra... the court undertook a careful textual analysis of\n<|id|>14<|page|>2<|box|>90 138 181 854<|content|>Exhibit A and found the language to be \"clear and ...ons, performance thresholds, or any other criteria\n<|id|>22<|page|>2<|box|>794 140 904 857<|content|>With respect to the amendment argument, the court'...of authorized representatives of both Penterra and\n<|id|>23<|page|>3<|box|>90 140 145 854<|content|>Vantage. ... 1 for a valid amendment to the EDA\n<|id|>71<|page|>8<|box|>401 183 454 854<|content|>• The impact of a damages action on the ongoing co...erra wishes to maintain that relationship; ... and\n<|id|>73<|page|>8<|box|>494 140 513 846<|content|>We would be happy to discuss these considerations ...rations with you and your team at your convenience\n<|id|>91<|page|>10<|box|>226 142 243 272<|content|>Very truly yours,\n<|id|>92<|page|>10<|box|>243 140 258 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>93<|page|>10<|box|>261 143 277 253<|content|>By: ... By\n<|id|>94<|page|>10<|box|>277 142 294 287<|content|>Linda Osei Partner\n<|id|>95<|page|>10<|box|>294 143 311 771<|content|>1 Federal Street, 35th Floor Boston, Massachusetts 02110 Direct Dial: ... (617) 555-4237\n<|id|>96<|page|>10<|box|>313 140 329 436<|content|>Email: ... com\n<|id|>97<|page|>10<|box|>329 140 364 854<|content|>cc: ... , Calderwood & Harkness LLP\n<|id|>98<|page|>10<|box|>373 140 390 792<|content|>Enclosure: ... Copy of the Court's Memorandum of Decision and Order dated July 15, 2022\n<|id|>99<|page|>10<|box|>398 140 489 854<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN...mediately at (617) 555-4200 and destroy all copies",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>22<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ]
+}

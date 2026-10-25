@@ -1,0 +1,164 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>128 375 143 622<|content|>INTERNAL MEMORANDUM\n<|id|>5<|page|>1<|box|>631 387 650 611<|content|>I. Executive Summary\n<|id|>11<|page|>2<|box|>554 287 573 710<|content|>II. Background and Transaction Structure\n<|id|>12<|page|>2<|box|>599 142 614 261<|content|>A. The Parties\n<|id|>21<|page|>4<|box|>90 140 107 305<|content|>B. Transaction Flow\n<|id|>28<|page|>4<|box|>652 140 670 307<|content|>C. Capital Structure\n<|id|>31<|page|>5<|box|>311 140 328 328<|content|>D. Pool Characteristics\n<|id|>42<|page|>5<|box|>670 140 686 403<|content|>E. Credit Enhancement Features\n<|id|>48<|page|>6<|box|>242 142 258 316<|content|>F. Payment Waterfal\n<|id|>59<|page|>6<|box|>710 178 756 816<|content|>III. Legal Framework — Trust Classification Under\n<|id|>60<|page|>6<|box|>779 142 797 473<|content|>A. Overview of Entity Classification Rules\n<|id|>68<|page|>7<|box|>792 140 809 537<|content|>B. Grantor Trust Classification — IRC §§671–679\n<|id|>77<|page|>8<|box|>840 140 859 727<|content|>C. Fixed-Investment Trust vs. Business Trust — Tre\n<|id|>86<|page|>9<|box|>825 140 842 638<|content|>D. Multiple-Class Structures and the \"Power to Var\n<|id|>96<|page|>10<|box|>690 287 710 709<|content|>IV. Analysis — Application to SRT 2024-1\n<|id|>97<|page|>10<|box|>736 142 752 361<|content|>A. Fixed-Pool Requirement\n<|id|>104<|page|>11<|box|>656 140 672 369<|content|>B. Reinvestment Limitations\n<|id|>114<|page|>12<|box|>645 140 662 388<|content|>C. Servicer Discretion Analysis\n<|id|>124<|page|>13<|box|>755 140 772 609<|content|>D. Multiple-Class Analysis — Senior/Subordinate St\n<|id|>137<|page|>15<|box|>539 140 555 390<|content|>E. Absence of Business Activity\n<|id|>149<|page|>16<|box|>527 140 545 718<|content|>F. Comparison with Taxable Mortgage Pool (TMP) Rul\n<|id|>156<|page|>17<|box|>212 140 229 477<|content|>G. REMIC Analysis — IRC §§860A–860G\n<|id|>162<|page|>17<|box|>588 250 608 746<|content|>V. Tax Reporting and Compliance Considerations\n<|id|>163<|page|>17<|box|>633 142 650 366<|content|>A. Grantor Trust Reporting\n<|id|>169<|page|>18<|box|>267 140 284 488<|content|>B. FATCA and Withholding Considerations\n<|id|>173<|page|>18<|box|>696 140 714 447<|content|>C. State and Local Tax Considerations\n<|id|>178<|page|>19<|box|>215 320 236 676<|content|>VI. Assumptions and Qualifications\n<|id|>190<|page|>20<|box|>304 416 325 580<|content|>VII. Conclusion\n<|id|>203<|page|>21<|box|>393 411 414 586<|content|>VIII. Appendices\n<|id|>204<|page|>22<|box|>90 142 107 622<|content|>Appendix A — Relevant Statutory and Regulatory Pro\n<|id|>206<|page|>23<|box|>90 140 107 532<|content|>Appendix B — Summary of Key Revenue Rulings\n<|id|>210<|page|>24<|box|>90 142 107 532<|content|>Appendix C — Transaction Document References",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>21<|level|>3\n<|id|>28<|level|>3\n<|id|>31<|level|>3\n<|id|>42<|level|>3\n<|id|>48<|level|>3\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>68<|level|>3\n<|id|>77<|level|>3\n<|id|>86<|level|>3\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>104<|level|>3\n<|id|>114<|level|>3\n<|id|>124<|level|>3\n<|id|>137<|level|>3\n<|id|>149<|level|>3\n<|id|>156<|level|>3\n<|id|>162<|level|>2\n<|id|>163<|level|>3\n<|id|>169<|level|>3\n<|id|>173<|level|>3\n<|id|>178<|level|>2\n<|id|>190<|level|>2\n<|id|>203<|level|>2\n<|id|>204<|level|>3\n<|id|>206<|level|>3\n<|id|>210<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 3
+        },
+        {
+            "id": 210,
+            "level": 3
+        }
+    ]
+}

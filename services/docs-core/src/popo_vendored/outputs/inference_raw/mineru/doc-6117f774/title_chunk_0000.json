@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        4,
+        20
+    ],
+    "pages": [
+        4,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>15<|page|>4<|box|>86 87 101 139<|content|>Notes\n<|id|>105<|page|>20<|box|>86 87 101 218<|content|>Key OutstaNotes",
+    "raw_response": "<|id|>15<|level|>1\n<|id|>105<|level|>1",
+    "parsed": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>574 140 590 331<|content|>I. Documents Reviewed\n<|id|>27<|page|>2<|box|>657 140 674 437<|content|>II. Scope of Review and Participation\n<|id|>39<|page|>4<|box|>395 140 412 413<|content|>III. Limitations and Qualifications\n<|id|>57<|page|>6<|box|>148 142 167 331<|content|>IV. Negative Assurance\n<|id|>62<|page|>6<|box|>752 140 768 303<|content|>V. Reliance and Use\n<|id|>66<|page|>7<|box|>306 210 324 746<|content|>[Remainder of this page intentionally left blank;\n<|id|>67<|page|>7<|box|>333 233 349 761<|content|>Signature Page to 10b-5 Negative Assurance Letter",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>27<|level|>2\n<|id|>39<|level|>2\n<|id|>57<|level|>2\n<|id|>62<|level|>2\n<|id|>66<|level|>-1\n<|id|>67<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        57
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        26,
+        30,
+        36,
+        37,
+        39,
+        42,
+        45,
+        47,
+        50,
+        54,
+        56
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>282 245 341 747<|content|>内河航运水工建筑工程定额\n<|id|>2<|page|>1<|box|>376 105 479 885<|content|>Quota for Water-side Structure Works for Inland Ri\n<|id|>6<|page|>2<|box|>122 366 155 628<|content|>中华人民共和国行业标准\n<|id|>7<|page|>2<|box|>193 275 240 722<|content|>内河航运水工建筑工程定额\n<|id|>15<|page|>3<|box|>96 132 211 863<|content|>交通运输部关于发布《水运建设工程概算预算编制规定》及其配套定额的公告\n<|id|>22<|page|>5<|box|>104 388 157 615<|content|>修订说明\n<|id|>29<|page|>7<|box|>110 423 163 586<|content|>目 次\n<|id|>49<|page|>26<|box|>207 433 244 549<|content|>说明\n<|id|>81<|page|>30<|box|>443 67 467 115<|content|>附表：\n<|id|>90<|page|>36<|box|>272 247 319 736<|content|>第一节 构件预制与安装工程\n<|id|>91<|page|>36<|box|>358 346 386 638<|content|>一、实心方桩、空心方桩、板桩\n<|id|>95<|page|>37<|box|>55 84 80 124<|content|>续表\n<|id|>101<|page|>39<|box|>63 384 92 615<|content|>二、矩形梁、单双出沿梁\n<|id|>110<|page|>42<|box|>211 102 236 223<|content|>(二)水上安装\n<|id|>120<|page|>45<|box|>71 112 94 231<|content|>(三)陆上安装\n<|id|>127<|page|>47<|box|>63 317 92 680<|content|>三、T形梁、T形梁板（带肋）及 \\Pi 形梁\n<|id|>136<|page|>50<|box|>205 107 228 228<|content|>(二)水上安装\n<|id|>149<|page|>54<|box|>197 104 222 223<|content|>(三)陆上安装\n<|id|>154<|page|>56<|box|>205 278 234 704<|content|>四、 \\pi 形梁、带靠船构件梁、靠船构件及箱形梁\n<|id|>155<|page|>56<|box|>246 105 270 189<|content|>(一)预制",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>6<|level|>-1\n<|id|>7<|level|>1\n<|id|>15<|level|>1\n<|id|>22<|level|>1\n<|id|>29<|level|>1\n<|id|>49<|level|>1\n<|id|>81<|level|>1\n<|id|>90<|level|>1\n<|id|>91<|level|>2\n<|id|>95<|level|>-1\n<|id|>101<|level|>2\n<|id|>110<|level|>3\n<|id|>120<|level|>3\n<|id|>127<|level|>2\n<|id|>136<|level|>3\n<|id|>149<|level|>3\n<|id|>154<|level|>2\n<|id|>155<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 3
+        }
+    ]
+}

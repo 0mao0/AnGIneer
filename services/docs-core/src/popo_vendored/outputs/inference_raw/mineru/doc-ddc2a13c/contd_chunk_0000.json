@@ -1,0 +1,48 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        53
+    ],
+    "pages": [
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        14,
+        16,
+        18,
+        27,
+        28,
+        32,
+        36,
+        37,
+        38,
+        42,
+        48,
+        52
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>3<|box|>358 394 384 538<|content|>OCT 3 1976\n<|id|>4<|page|>3<|box|>400 331 430 603<|content|>TREASURY DEPARTMENT\n<|id|>5<|page|>4<|box|>0 0 994 993<|content|>The provided image is completely blank and contain...s. ... Therefore, there is no OCR result to output\n<|id|>11<|page|>7<|box|>114 307 164 569<|content|>April 1976 TREASURIT D. ... CREDIT\n<|id|>12<|page|>8<|box|>395 160 480 801<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents, U. ... Single copy price varies\n<|id|>14<|page|>9<|box|>140 431 164 567<|content|>April 1976\n<|id|>16<|page|>10<|box|>13 0 1000 994<|content|>The quick brown fox jumps over the lazy dog. ... The quick brown fox jumps over the lazy dog\n<|id|>25<|page|>14<|box|>210 41 287 975<|content|>FC-1. ... 139\n<|id|>26<|page|>14<|box|>327 41 426 977<|content|>GOVERNMENT CORPORATIONS AND OTHER BUSINESS-TYPE ACTIVITIES GA-I-1. ... 172\n<|id|>42<|page|>16<|box|>228 23 247 439<|content|>Treasury Bills (Other than Short-dated bills) - General\n<|id|>43<|page|>16<|box|>244 23 362 471<|content|>Treasury bills are sold on a bid basis. ... Tenders over \\$10,000, must be in multiples of \\$5,000\n<|id|>46<|page|>16<|box|>235 534 340 982<|content|>Payment for accepted tenders must be made or compl...te. ... Foreign Series and Foreign Currency Series\n<|id|>47<|page|>16<|box|>337 536 440 986<|content|>Foreign series securities issued in March totaled ...r certificates of indebtedness and one note. ... )\n<|id|>61<|page|>18<|box|>247 44 258 451<|content|>7/ Represents holdings of special drawing rights, less certificates\n<|id|>62<|page|>18<|box|>102 545 110 739<|content|>issued to Federal Reserve banks. ... issued to Federal Reserve banks\n<|id|>83<|page|>27<|box|>259 36 703 58<|content|>Table FFO-7. ... - Trust Funds Transactions July 1, 1975 through February 29, 1976\n<|id|>84<|page|>27<|box|>431 74 539 90<|content|>(in millions of dollars)\n<|id|>86<|page|>28<|box|>108 67 293 514<|content|>\"Obligations\" are the basis on which the use of fu...r transactions requiring the disbursement of money\n<|id|>102<|page|>32<|box|>227 59 340 505<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>103<|page|>32<|box|>128 534 191 981<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>120<|page|>36<|box|>476 93 486 436<|content|>adjusted to exclude issues to IMF and other international\n<|id|>121<|page|>36<|box|>473 546 484 623<|content|>r Revised. ... r Revised\n<|id|>123<|page|>37<|box|>104 399 116 548<|content|>(In millions of dollars)\n<|id|>128<|page|>38<|box|>843 71 968 519<|content|>1/ Consists of Government National Mortgage Associ... Overseas Private Investment Corporation beginning\n<|id|>129<|page|>38<|box|>818 577 953 989<|content|>February 1975. ... Less than \\$500,000\n<|id|>137<|page|>42<|box|>67 293 83 760<|content|>Table FD-9. ... - Status and Application of Statutory Limitation\n<|id|>138<|page|>42<|box|>90 83 217 522<|content|>The Second Liberty Bond Act (31 U. ... Public Law ...it shall be temporarily increased by \\$227 billion\n<|id|>163<|page|>48<|box|>773 76 803 478<|content|>1/ P. ... 89-316 dated 11-2-65, \"Provided, that af...bursed realized losses recorded on the book of the\n<|id|>164<|page|>48<|box|>773 587 811 977<|content|>Corporation after June 30 of the fiscal year in wh...accrued or paid thereon. ... \" Less than \\$500,000\n<|id|>177<|page|>52<|box|>207 30 217 458<|content|>3 For 13-week bills, 26-week tenders for \\$500,000 or less from any one\n<|id|>178<|page|>52<|box|>242 28 252 387<|content|>Includes maturing short-dated bills issued Dec. ... 8, 1975\n<|id|>189<|page|>52<|box|>184 494 196 918<|content|>16 Except \\$2,000,000 at 97. ... 345\n<|id|>197<|page|>52<|box|>278 494 288 682<|content|>Except \\$510,000 at 93,510. ... Except \\$510,000 at 93,510\n<|id|>191<|page|>52<|box|>212 494 222 913<|content|>18 Except \\$96,000 at 94. ... 660,\n<|id|>194<|page|>52<|box|>246 494 255 813<|content|>21 Except \\$500,000 at 93. ... 774,",
+    "raw_response": "<|src_id|>61<|tgt_id|>62\n<|src_id|>102<|tgt_id|>103\n<|src_id|>128<|tgt_id|>129\n<|src_id|>163<|tgt_id|>164",
+    "parsed": [
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        }
+    ]
+}

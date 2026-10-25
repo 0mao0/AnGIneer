@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 227 176 769<|content|>Delivered Pursuant to Section 8. ... 2(d) of the Asset Purchase Agreement\n<|id|>2<|page|>1<|box|>185 439 203 560<|content|>August 8, 2023\n<|id|>3<|page|>1<|box|>210 140 321 856<|content|>This Officer's Certificate (this \"Certificate\") is... under the laws of the State of Delaware (\"Buyer\")\n<|id|>22<|page|>3<|box|>859 210 897 857<|content|>(iv) Assignment of Sublease — 925 Industrial Court...certain Sublease Agreement for premises located at\n<|id|>23<|page|>4<|box|>90 210 162 854<|content|>925 Industrial Court, Carlsbad, California 92010, ...d among the Closing deliverables referenced herein\n<|id|>81<|page|>9<|box|>915 140 930 486<|content|>Calderwood & Harkness LLP | Matter No. ... 1013-00006&A-4471\n<|id|>82<|page|>10<|box|>89 140 210 642<|content|>By: ... 10250 Science Center Drive, Suite 600 San Diego, California 92121 NOTICE AND DELIVERY\n<|id|>83<|page|>10<|box|>219 140 237 424<|content|>This Certificate has been delivered to: ... This Certificate has been delivered to\n<|id|>88<|page|>10<|box|>364 176 383 403<|content|>Whitfield Sayer & Gregg LLP\n<|id|>89<|page|>10<|box|>392 174 426 676<|content|>Attn: ... Jonathan Whitfield 200 South Tryon Street, Suite 2800 Charlotte, North Carolina 28202\n<|id|>91<|page|>10<|box|>460 176 478 400<|content|>Calderwood & Harkness LLP\n<|id|>92<|page|>10<|box|>486 174 539 854<|content|>Attn: ... 1013- 00006&A-4471\n<|id|>93<|page|>10<|box|>547 140 594 854<|content|>CONFIDENTIAL — This Certificate and its contents a...erein, in whole or in part, is strictly prohibited",
+    "raw_response": "<|src_id|>22<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ]
+}

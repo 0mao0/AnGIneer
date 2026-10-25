@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>8<|type|>title<|page|>1<|box|>407 142 425 437<|content|>I. Introduction and Purpose of Letter\n<|id|>12<|type|>title<|page|>2<|box|>90 140 107 647<|content|>II. Background and Market Conditions Precipitating\n<|id|>21<|type|>table<|page|>3<|box|>268 143 359 852<|content|>None\n<|id|>28<|type|>title<|page|>3<|box|>776 142 792 441<|content|>III. Formal Notification of Suspension\n<|id|>35<|type|>title<|page|>4<|box|>619 140 636 434<|content|>IV. Status of Transaction Documents\n<|id|>37<|type|>title<|page|>4<|box|>726 140 744 367<|content|>A. Transaction Agreements:\n<|id|>50<|type|>title<|page|>5<|box|>396 142 414 333<|content|>B. Offering Documents:\n<|id|>53<|type|>title<|page|>5<|box|>474 140 492 295<|content|>C. Legal Opinions:\n<|id|>55<|type|>title<|page|>5<|box|>654 142 672 272<|content|>D. UCC Filings:\n<|id|>57<|type|>title<|page|>5<|box|>797 142 814 334<|content|>E. Closing Deliverables:\n<|id|>60<|type|>title<|page|>6<|box|>223 140 239 580<|content|>V. Preliminary Ratings and Rating Agency Engagemen\n<|id|>65<|type|>table<|page|>6<|box|>589 143 664 852<|content|>None\n<|id|>67<|type|>title<|page|>6<|box|>776 142 792 321<|content|>VI. Fees and Expenses\n<|id|>69<|type|>table<|page|>6<|box|>863 143 901 852<|content|>None\n<|id|>70<|type|>table<|page|>7<|box|>88 143 156 852<|content|>None\n<|id|>78<|type|>title<|page|>7<|box|>642 140 659 302<|content|>VII. Confidentiality\n<|id|>82<|type|>title<|page|>8<|box|>267 140 284 493<|content|>VIII. Reactivation and Reservation of Rights\n<|id|>87<|type|>title<|page|>9<|box|>90 140 107 457<|content|>IX. Contact Information and Next Steps",
+    "raw_response": "<|src_id|>21<|tgt_id|>12\n<|src_id|>65<|tgt_id|>60\n<|src_id|>69<|tgt_id|>67\n<|src_id|>70<|tgt_id|>67",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 67
+        }
+    ]
+}

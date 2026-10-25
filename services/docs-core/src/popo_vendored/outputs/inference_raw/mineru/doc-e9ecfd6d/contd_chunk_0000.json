@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 143 104 383<|content|>PRIVILEGED AND CONFIDENTIAL\n<|id|>1<|page|>1<|box|>112 171 130 854<|content|>CALDERWOOD & HARKNESS LLP 280 Park Avenue, 34th Floor New York, NY 10017\n<|id|>2<|page|>1<|box|>138 223 157 854<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>164 168 199 856<|content|>Additional Office: ... (609) 228- 3400\n<|id|>4<|page|>1<|box|>208 733 224 854<|content|>March 20, 2023\n<|id|>5<|page|>1<|box|>234 140 271 854<|content|>Nathaniel Briggs, Esq. ... 200 Biopharma Boulevard, Suite 1400 Princeton, NJ 08540\n<|id|>6<|page|>1<|box|>277 142 297 272<|content|>Dear Mr. ... Briggs\n<|id|>18<|page|>2<|box|>816 174 907 857<|content|>(e) Regulatory Compliance Analysis. ... § 1320a-7h...th Insurance Portability and Accountability Act of\n<|id|>19<|page|>3<|box|>90 174 219 857<|content|>1996 (\"HIPAA\") and its implementing regulations go...are expressly outside the scope of this engagement\n<|id|>26<|page|>3<|box|>747 174 803 854<|content|>(iii) securities law, capital markets advice, or o...s the Company may engage from time to time; ... or\n<|id|>28<|page|>3<|box|>854 140 890 854<|content|>Any expansion of the scope of this engagement will...y prior to the commencement of any additional work\n<|id|>53<|page|>6<|box|>279 181 314 854<|content|>• Long-distance telephone charges and videoconfere... included in the Firm's standard overhead; ... and\n<|id|>55<|page|>6<|box|>354 140 409 854<|content|>The Firm will endeavor to manage disbursements pru...n excess of Five Thousand Dollars ($5,000. ... 00)\n<|id|>90<|page|>10<|box|>107 140 125 653<|content|>Miriam Calloway Partner, Healthcare & Life Sciences Practice Group\n<|id|>91<|page|>10<|box|>125 142 142 264<|content|>Acknowledged: ... Acknowledged\n<|id|>97<|page|>10<|box|>262 140 279 442<|content|>Title: ... Vice President & General Counsel\n<|id|>98<|page|>10<|box|>280 142 297 266<|content|>Date: ... Date\n<|id|>100<|page|>10<|box|>323 174 359 854<|content|>Miriam Calloway, Partner Calderwood & Harkness LLP...nue, 34th Floor New York, NY 10017 miriam. ... com\n<|id|>101<|page|>10<|box|>367 140 385 707<|content|>Enclosure: ... Duplicate original of this engagement letter for Company records\n<|id|>104<|page|>10<|box|>462 174 481 697<|content|>Joel Strauss — Partner (Billing Partner), Calderwood & Harkness LLP\n<|id|>105<|page|>10<|box|>488 176 507 745<|content|>Sean Morrissey — Associate (Lead Associate), Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>18<|tgt_id|>19",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        }
+    ]
+}

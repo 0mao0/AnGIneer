@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 20,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['U.S. investment excl. interagency items.', '40,221,129', '350,101', '5,134,840', '574,129', '3,952,146', '1,019,062', '3,825']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Account', 'rowspan=2, Defense Department', 'HEW Department', 'colspan=4, Interior Department', 'Justices Department']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 438,
+    "table2_idx": 439
+}

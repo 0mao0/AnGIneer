@@ -1,0 +1,146 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        55
+    ],
+    "pages": [
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21,
+        22,
+        24,
+        28,
+        35,
+        36,
+        40,
+        43,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>7<|box|>0 81 268 873<|content|>TREASURY BULLETIN\n<|id|>11<|page|>9<|box|>133 325 157 603<|content|>Table of Contents\n<|id|>13<|page|>10<|box|>67 458 83 617<|content|>Reporting Bases\n<|id|>20<|page|>11<|box|>78 332 94 631<|content|>Reporting Bases - (Continued)\n<|id|>24<|page|>13<|box|>46 323 62 623<|content|>Treasury Financing Operations\n<|id|>25<|page|>13<|box|>85 45 98 265<|content|>February Advance Refunding\n<|id|>32<|page|>14<|box|>38 311 57 753<|content|>Treasury Financing Operations - (Continued)\n<|id|>39<|page|>15<|box|>45 233 62 674<|content|>Treasury Financing Operations - (Continued)\n<|id|>47<|page|>16<|box|>49 322 67 764<|content|>Treasury Financing Operations - (Continued)\n<|id|>48<|page|>16<|box|>87 119 101 302<|content|>Tax Anticipation Bills\n<|id|>53<|page|>16<|box|>211 557 226 751<|content|>Weekly Bills Increased\n<|id|>56<|page|>17<|box|>41 327 54 643<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>63<|page|>18<|box|>46 373 61 650<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>67<|page|>19<|box|>526 311 538 625<|content|>Footnotes to Table 1 - (Continued)\n<|id|>92<|page|>21<|box|>622 318 637 631<|content|>Footnotes to Table 3.- (Continued)\n<|id|>104<|page|>22<|box|>101 88 128 963<|content|>Table 5.- Summary of Appropriations and Authorizat\n<|id|>121<|page|>24<|box|>424 516 434 648<|content|>13' See footnote 12.\n<|id|>132<|page|>28<|box|>53 383 67 690<|content|>TRUST ACCOUNT AND OTHER TRANSACTIONS.\n<|id|>148<|page|>35<|box|>53 420 66 602<|content|>CASH INCOME AND OUTGO\n<|id|>149<|page|>35<|box|>84 417 99 604<|content|>Footnotes to Table 3\n<|id|>157<|page|>35<|box|>258 424 272 612<|content|>Footnotes to Table 4\n<|id|>165<|page|>35<|box|>405 420 418 608<|content|>Footnotes to Table 5\n<|id|>174<|page|>35<|box|>621 418 634 608<|content|>Footnotes to Table 6\n<|id|>183<|page|>35<|box|>790 420 803 606<|content|>Footnotes to Table 7\n<|id|>191<|page|>36<|box|>49 296 64 681<|content|>ACCOUNT OF THE TREASURER OF THE UNITED STATES\n<|id|>192<|page|>36<|box|>81 194 96 791<|content|>Source and Availability of the Balance in the Trea\n<|id|>206<|page|>40<|box|>59 451 72 589<|content|>DEBT OUTSTANDING\n<|id|>212<|page|>43<|box|>284 238 302 715<|content|>Table 1.- Status under Limitation, February 28, 19\n<|id|>237<|page|>54<|box|>83 352 96 661<|content|>Footnotes to Table 4.- (Continued)",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>11<|level|>2\n<|id|>13<|level|>2\n<|id|>20<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>32<|level|>2\n<|id|>39<|level|>2\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>53<|level|>3\n<|id|>56<|level|>2\n<|id|>63<|level|>2\n<|id|>67<|level|>3\n<|id|>92<|level|>3\n<|id|>104<|level|>2\n<|id|>121<|level|>-1\n<|id|>132<|level|>2\n<|id|>148<|level|>2\n<|id|>149<|level|>3\n<|id|>157<|level|>3\n<|id|>165<|level|>3\n<|id|>174<|level|>3\n<|id|>183<|level|>3\n<|id|>191<|level|>2\n<|id|>192<|level|>3\n<|id|>206<|level|>2\n<|id|>212<|level|>2\n<|id|>237<|level|>3",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 2
+        },
+        {
+            "id": 237,
+            "level": 3
+        }
+    ]
+}

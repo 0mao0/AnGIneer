@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        60
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        49,
+        51,
+        52,
+        54,
+        56,
+        57,
+        59,
+        60
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>441<|page|>45<|box|>90 254 109 743<|content|>XII. DATA PRIVACY AND CYBERSECURITY\n<|id|>442<|page|>45<|box|>136 140 154 401<|content|>XII.A. Data Privacy Compliance\n<|id|>448<|page|>45<|box|>672 140 690 312<|content|>XII.B. Cybersecurity\n<|id|>459<|page|>46<|box|>503 163 522 833<|content|>XIII. SUMMARY OF RISK ITEMS AND RECOMMENDATIONS\n<|id|>460<|page|>46<|box|>547 140 564 361<|content|>XIII.A. High Priority Items\n<|id|>467<|page|>47<|box|>371 140 388 388<|content|>XIII.B. Medium Priority Items\n<|id|>472<|page|>47<|box|>717 140 734 475<|content|>XIII.C. Lower Priority / Monitoring Items\n<|id|>476<|page|>49<|box|>90 140 107 450<|content|>XIII.D. Disclosure Schedule Population\n<|id|>486<|page|>49<|box|>698 276 717 720<|content|>XIV. ASSUMPTIONS AND LIMITATIONS\n<|id|>498<|page|>51<|box|>393 421 412 575<|content|>APPENDICES\n<|id|>499<|page|>52<|box|>89 142 107 694<|content|>APPENDIX A — DILIGENCE REQUEST LIST STATUS TRACKER\n<|id|>509<|page|>54<|box|>89 142 107 735<|content|>APPENDIX B — SUMMARY OF CHANGE OF CONTROL PROVISIO\n<|id|>513<|page|>56<|box|>89 143 107 580<|content|>APPENDIX C — REGULATORY FILING TIMELINE\n<|id|>517<|page|>57<|box|>89 143 106 540<|content|>APPENDIX D — KEY PERSONNEL SUMMARY\n<|id|>521<|page|>59<|box|>89 143 107 617<|content|>APPENDIX E — EXISTING INDEBTEDNESS SUMMARY\n<|id|>525<|page|>60<|box|>205 142 224 498<|content|>Summary of Payoff Requirements at Closing:\n<|id|>530<|page|>60<|box|>670 142 686 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>441<|level|>1\n<|id|>442<|level|>2\n<|id|>448<|level|>2\n<|id|>459<|level|>1\n<|id|>460<|level|>2\n<|id|>467<|level|>2\n<|id|>472<|level|>2\n<|id|>476<|level|>2\n<|id|>486<|level|>1\n<|id|>498<|level|>1\n<|id|>499<|level|>2\n<|id|>509<|level|>2\n<|id|>513<|level|>2\n<|id|>517<|level|>2\n<|id|>521<|level|>2\n<|id|>525<|level|>3\n<|id|>530<|level|>-1",
+    "parsed": [
+        {
+            "id": 441,
+            "level": 1
+        },
+        {
+            "id": 442,
+            "level": 2
+        },
+        {
+            "id": 448,
+            "level": 2
+        },
+        {
+            "id": 459,
+            "level": 1
+        },
+        {
+            "id": 460,
+            "level": 2
+        },
+        {
+            "id": 467,
+            "level": 2
+        },
+        {
+            "id": 472,
+            "level": 2
+        },
+        {
+            "id": 476,
+            "level": 2
+        },
+        {
+            "id": 486,
+            "level": 1
+        },
+        {
+            "id": 498,
+            "level": 1
+        },
+        {
+            "id": 499,
+            "level": 2
+        },
+        {
+            "id": 509,
+            "level": 2
+        },
+        {
+            "id": 513,
+            "level": 2
+        },
+        {
+            "id": 517,
+            "level": 2
+        },
+        {
+            "id": 521,
+            "level": 2
+        },
+        {
+            "id": 525,
+            "level": 3
+        }
+    ]
+}

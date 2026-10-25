@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        10,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>262 171 297 854<|content|>CALDERWOOD & HARKNESS LLP 2200 Ross Avenue, Suite ... Dallas, Texas 75201 Telephone: ... (214) 855-7001\n<|id|>3<|page|>1<|box|>306 751 324 854<|content|>July 25, 2025\n<|id|>6<|page|>1<|box|>383 140 455 854<|content|>ATTENTION: ... Nathan Okonkwo, Managing Director, ...bserver, Ridgepoint Capital Partners Fund III, LP)\n<|id|>7<|page|>1<|box|>464 140 500 852<|content|>CC: ... Renata Vasquez, Calderwood & Harkness LLP\n<|id|>8<|page|>1<|box|>508 140 545 854<|content|>FROM: ... James Underwood, Lead Associate, Labor & Employment Practice Group\n<|id|>9<|page|>1<|box|>553 140 607 854<|content|>RE: ... 25-cv-01847-RBC, United States District Co...or the Northern District of Texas, Dallas Division\n<|id|>10<|page|>1<|box|>614 142 632 408<|content|>Right-click to update Table of Contents\n<|id|>23<|page|>2<|box|>625 176 641 490<|content|>(f) litigation budget and billing status; ... and\n<|id|>25<|page|>2<|box|>675 140 729 854<|content|>We respectfully request the Board's review of this...o the authorization items described in Section XII\n<|id|>65<|page|>6<|box|>575 183 592 509<|content|>• discovery cutoff (merits): ... March 15, 2026\n<|id|>68<|page|>6<|box|>633 140 670 854<|content|>June 23, 2025: ... SLG served its First Set of Int...Production of Documents (30 requests) on plaintiff\n<|id|>66<|page|>6<|box|>594 183 611 522<|content|>• Dispositive motion deadline: ... April 30, 2026\n<|id|>67<|page|>6<|box|>614 183 631 447<|content|>• Trial setting: ... September 14, 2026\n<|id|>117<|page|>10<|box|>363 181 378 656<|content|>• Single damages: ... 50\n<|id|>118<|page|>10<|box|>383 181 417 852<|content|>Liquidated damages (equal amount under FLSA § 216(b) for willful violation): ... 50\n<|id|>315<|page|>28<|box|>431 140 446 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>316<|page|>28<|box|>449 142 465 251<|content|>By: ... By\n<|id|>317<|page|>28<|box|>465 140 500 852<|content|>Bernard Crawford Partner, Labor & Employment Pract... Dallas, Texas 75201 Telephone: ... (214) 855-7000\n<|id|>318<|page|>28<|box|>500 142 516 475<|content|>Email: ... com\n<|id|>319<|page|>28<|box|>517 143 534 251<|content|>By: ... By\n<|id|>320<|page|>28<|box|>534 140 566 852<|content|>James Underwood Associate, Labor & Employment Prac... Dallas, Texas 75201 Telephone: ... (214) 855-7000\n<|id|>321<|page|>28<|box|>568 142 584 486<|content|>Email: ... com",
+    "raw_response": "<|src_id|>316<|tgt_id|>317\n<|src_id|>317<|tgt_id|>318\n<|src_id|>319<|tgt_id|>320\n<|src_id|>320<|tgt_id|>321",
+    "parsed": [
+        {
+            "src_id": 316,
+            "tgt_id": 317
+        },
+        {
+            "src_id": 317,
+            "tgt_id": 318
+        },
+        {
+            "src_id": 319,
+            "tgt_id": 320
+        },
+        {
+            "src_id": 320,
+            "tgt_id": 321
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>3<|page|>1<|box|>186 140 202 478<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>9<|page|>1<|box|>631 142 648 310<|content|>Enclosed Documents\n<|id|>19<|page|>2<|box|>90 140 107 284<|content|>Project Overview\n<|id|>24<|page|>2<|box|>583 140 599 434<|content|>Summary of Key Commercial Terms\n<|id|>26<|page|>2<|box|>676 140 693 305<|content|>Structure and Term\n<|id|>34<|page|>3<|box|>732 140 750 294<|content|>Change of Control\n<|id|>42<|page|>4<|box|>786 140 804 452<|content|>Governing Law and Dispute Resolution\n<|id|>44<|page|>5<|box|>241 140 258 341<|content|>Timeline and Scheduling\n<|id|>48<|page|>5<|box|>652 140 669 310<|content|>Contact Information\n<|id|>59<|page|>6<|box|>321 212 337 517<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>3<|level|>-1\n<|id|>9<|level|>-1\n<|id|>19<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>34<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>48<|level|>1\n<|id|>59<|level|>-1",
+    "parsed": [
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        }
+    ]
+}

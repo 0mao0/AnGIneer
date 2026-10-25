@@ -1,0 +1,52 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>10<|type|>title<|page|>1<|box|>617 140 633 465<|content|>I. IDENTIFICATION OF THE CLIENT\n<|id|>17<|type|>title<|page|>2<|box|>358 140 375 398<|content|>II. SCOPE OF ENGAGEMENT\n<|id|>18<|type|>title<|page|>2<|box|>388 140 407 367<|content|>A. Description of the Matter\n<|id|>23<|type|>title<|page|>3<|box|>90 140 106 352<|content|>B. Services to Be Provided\n<|id|>36<|type|>title<|page|>3<|box|>814 140 830 334<|content|>C. Limitations on Scope\n<|id|>45<|type|>title<|page|>4<|box|>614 142 633 271<|content|>III. STAFFING\n<|id|>47<|type|>table<|page|>4<|box|>684 143 892 852<|content|>None\n<|id|>49<|type|>table<|page|>5<|box|>88 143 393 852<|content|>None\n<|id|>51<|type|>title<|page|>5<|box|>578 142 594 562<|content|>IV. BILLING RATES AND FEE ARRANGEMENTS\n<|id|>52<|type|>title<|page|>5<|box|>609 143 626 351<|content|>A. Standard Hourly Rates\n<|id|>54<|type|>table<|page|>5<|box|>693 143 843 852<|content|>None\n<|id|>56<|type|>title<|page|>6<|box|>138 140 157 387<|content|>B. Ridgeline Portfolio discount\n<|id|>60<|type|>title<|page|>6<|box|>375 140 391 310<|content|>C. Rate Adjustments\n<|id|>63<|type|>title<|page|>6<|box|>592 140 609 433<|content|>V. COSTS AND DISBURSEMENTS\n<|id|>77<|type|>title<|page|>7<|box|>474 140 493 462<|content|>VI. BILLING AND PAYMENT TERMS\n<|id|>85<|type|>title<|page|>8<|box|>335 140 352 269<|content|>D. Fee Disputes\n<|id|>88<|type|>title<|page|>8<|box|>535 140 551 374<|content|>VII. ESTIMATED BUDGET\n<|id|>90<|type|>table<|page|>8<|box|>695 143 771 852<|content|>None\n<|id|>91<|type|>table<|page|>8<|box|>829 143 901 852<|content|>None\n<|id|>92<|type|>table<|page|>9<|box|>89 143 183 852<|content|>None\n<|id|>96<|type|>title<|page|>9<|box|>510 140 527 619<|content|>VIII. CLIENT RESPONSIBILITIES AND COOPERATION\n<|id|>104<|type|>title<|page|>10<|box|>446 140 463 500<|content|>IX. CONFIDENTIALITY AND PRIVILEGE\n<|id|>110<|type|>title<|page|>11<|box|>229 140 247 401<|content|>X. CONFLICTS OF INTEREST\n<|id|>115<|type|>title<|page|>11<|box|>704 140 720 450<|content|>XI. COMMUNICATION PROTOCOL\n<|id|>122<|type|>title<|page|>12<|box|>446 140 464 483<|content|>XII. TERMINATION OF ENGAGEMENT\n<|id|>127<|type|>title<|page|>13<|box|>89 140 106 352<|content|>XIII. GOVERNING LAW\n<|id|>130<|type|>title<|page|>13<|box|>292 140 309 411<|content|>XIV. DOCUMENT RETENTION\n<|id|>133<|type|>title<|page|>13<|box|>494 142 512 465<|content|>XV. ACCEPTANCE AND EXECUTION\n<|id|>139<|type|>title<|page|>13<|box|>775 140 792 313<|content|>XVI. ENCLOSURES\n<|id|>144<|type|>title<|page|>14<|box|>224 140 239 281<|content|>XVII. CLOSING\n<|id|>149<|type|>title<|page|>14<|box|>444 550 460 856<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>150<|type|>title<|page|>14<|box|>470 140 487 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>155<|type|>title<|page|>14<|box|>556 383 573 614<|content|>ACCEPTED AND AGREED",
+    "raw_response": "<|src_id|>47<|tgt_id|>45\n<|src_id|>49<|tgt_id|>45\n<|src_id|>54<|tgt_id|>52\n<|src_id|>90<|tgt_id|>88\n<|src_id|>91<|tgt_id|>88\n<|src_id|>92<|tgt_id|>88",
+    "parsed": [
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 88
+        }
+    ]
+}

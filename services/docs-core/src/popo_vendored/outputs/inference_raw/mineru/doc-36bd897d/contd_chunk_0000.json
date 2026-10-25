@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 128 774<|content|># Calderwood & Harkness LLP — Wyndmere Education T...ta Protection Addendum [Matter No. ... 1040-00001]\n<|id|>5<|page|>1<|box|>297 142 314 235<|content|>Dear Priya,\n<|id|>1<|page|>1<|box|>171 140 189 658<|content|>- From: ... com>\n<|id|>2<|page|>1<|box|>203 140 220 617<|content|>- To: ... org>\n<|id|>3<|page|>1<|box|>234 140 252 573<|content|>- Cc: ... com>\n<|id|>4<|page|>1<|box|>265 140 282 460<|content|>- Date: ... 00 -0000\n<|id|>6<|page|>1<|box|>359 140 470 846<|content|>Thank you for Wyndmere Education Trust's decision ...tter number 1040-00001 under client number C-88214\n<|id|>16<|page|>3<|box|>715 142 732 263<|content|>Warm regards,\n<|id|>17<|page|>3<|box|>777 142 794 310<|content|>**Miriam Calloway**\n<|id|>18<|page|>3<|box|>809 140 825 535<|content|>Partner, Healthcare & Life Sciences Practice Group\n<|id|>19<|page|>3<|box|>839 142 856 370<|content|>Calderwood & Harkness LLP\n<|id|>20<|page|>3<|box|>871 142 888 379<|content|>600 Market Street, Suite 4200\n<|id|>21<|page|>4<|box|>89 142 108 330<|content|>Philadelphia, PA 19106\n<|id|>22<|page|>4<|box|>119 142 138 331<|content|>Phone: ... (215) 555-0174\n<|id|>23<|page|>4<|box|>152 140 171 496<|content|>Email: ... com\n<|id|>24<|page|>4<|box|>277 140 429 841<|content|>*CONFIDENTIALITY NOTICE: ... *",
+    "raw_response": "<|src_id|>20<|tgt_id|>21",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        }
+    ]
+}

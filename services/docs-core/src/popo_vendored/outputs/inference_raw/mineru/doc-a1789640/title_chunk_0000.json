@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>478 142 494 264<|content|>I. Introduction\n<|id|>18<|page|>2<|box|>186 140 204 477<|content|>II. Scope of Engagement and Participation\n<|id|>34<|page|>3<|box|>375 140 391 415<|content|>III. Limitations and Qualifications\n<|id|>46<|page|>4<|box|>640 140 657 326<|content|>IV. Disclosure Package\n<|id|>53<|page|>5<|box|>148 140 167 413<|content|>V. Negative Assurance Statements\n<|id|>55<|page|>5<|box|>262 140 279 349<|content|>A. Registration Statement\n<|id|>57<|page|>5<|box|>426 140 443 320<|content|>B. Disclosure Package\n<|id|>60<|page|>5<|box|>667 140 684 380<|content|>VI. Reliance and Beneficiaries\n<|id|>63<|page|>6<|box|>148 140 166 375<|content|>VII. No Obligation to Update\n<|id|>65<|page|>6<|box|>289 140 306 313<|content|>VIII. Governing Law\n<|id|>67<|page|>6<|box|>396 400 414 596<|content|>[Signature Page Follows]\n<|id|>68<|page|>6<|box|>422 325 439 671<|content|>[Signature Page to Negative Assurance Letter]\n<|id|>70<|page|>6<|box|>474 140 489 447<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>18<|level|>1\n<|id|>34<|level|>1\n<|id|>46<|level|>1\n<|id|>53<|level|>1\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>60<|level|>1\n<|id|>63<|level|>1\n<|id|>65<|level|>1\n<|id|>67<|level|>-1\n<|id|>68<|level|>-1\n<|id|>70<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 1
+        }
+    ]
+}

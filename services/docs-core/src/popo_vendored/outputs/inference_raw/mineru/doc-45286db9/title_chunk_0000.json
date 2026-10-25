@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>460 140 477 436<|content|>I. Introduction and Purpose of Letter\n<|id|>15<|page|>2<|box|>90 140 107 372<|content|>II. Summary of Case Posture\n<|id|>16<|page|>2<|box|>121 140 138 473<|content|>A. Petition to Confirm Arbitration Award\n<|id|>26<|page|>2<|box|>845 142 863 370<|content|>B. Award Breakdown Recap\n<|id|>30<|page|>3<|box|>551 140 569 555<|content|>C. Respondents' Anticipated Cross-Motion to Vacate\n<|id|>35<|page|>4<|box|>231 140 248 455<|content|>D. Our Assessment of Vacatur Grounds\n<|id|>40<|page|>5<|box|>229 142 248 374<|content|>III. Key Upcoming Deadlines\n<|id|>45<|page|>5<|box|>694 142 710 537<|content|>IV. Asset Preservation and Enforcement Concerns\n<|id|>46<|page|>5<|box|>724 142 742 362<|content|>A. Risk of Asset Dissipation\n<|id|>53<|page|>6<|box|>398 140 417 468<|content|>B. Brindoval National Bank Priority Lien\n<|id|>58<|page|>7<|box|>138 140 157 395<|content|>C. Calloway Personal Guaranty\n<|id|>61<|page|>7<|box|>402 140 420 480<|content|>D. Proposed Ex Parte Application for TRO\n<|id|>69<|page|>8<|box|>294 140 311 415<|content|>E. Client Authorization Requested\n<|id|>72<|page|>8<|box|>530 140 547 287<|content|>V. Budget Update\n<|id|>73<|page|>8<|box|>561 140 579 359<|content|>A. Fee Arrangement Recap\n<|id|>80<|page|>9<|box|>90 140 107 418<|content|>B. Fees and Costs Incurred to Date\n<|id|>83<|page|>9<|box|>367 140 383 410<|content|>C. Projected Costs for Next Phase\n<|id|>93<|page|>10<|box|>204 140 222 526<|content|>VI. Commercial and Supply-Chain Coordination\n<|id|>99<|page|>11<|box|>204 140 222 349<|content|>VII. Next Steps Summary\n<|id|>108<|page|>11<|box|>781 140 797 251<|content|>VIII. Closing\n<|id|>118<|page|>12<|box|>670 140 686 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>40<|level|>1\n<|id|>45<|level|>1\n<|id|>46<|level|>2\n<|id|>53<|level|>2\n<|id|>58<|level|>2\n<|id|>61<|level|>2\n<|id|>69<|level|>2\n<|id|>72<|level|>1\n<|id|>73<|level|>2\n<|id|>80<|level|>2\n<|id|>83<|level|>2\n<|id|>93<|level|>1\n<|id|>99<|level|>1\n<|id|>108<|level|>1\n<|id|>118<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        }
+    ]
+}

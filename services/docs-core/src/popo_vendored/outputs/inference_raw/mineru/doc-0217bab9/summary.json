@@ -1,0 +1,215 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-r29ewy17\\input\\pdfs\\doc-0217bab9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-r29ewy17\\enriched\\doc-0217bab9.json",
+    "contd_output": "<|src_id|>11<|tgt_id|>12\n<|src_id|>22<|tgt_id|>23",
+    "title_output": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>26<|level|>3\n<|id|>36<|level|>3\n<|id|>40<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>56<|level|>3\n<|id|>67<|level|>2\n<|id|>69<|level|>3\n<|id|>98<|level|>2\n<|id|>100<|level|>3\n<|id|>113<|level|>3\n<|id|>120<|level|>3\n<|id|>127<|level|>3\n<|id|>147<|level|>3\n<|id|>154<|level|>3\n<|id|>202<|level|>3\n<|id|>216<|level|>3\n<|id|>223<|level|>2\n<|id|>224<|level|>3\n<|id|>234<|level|>3\n<|id|>241<|level|>3\n<|id|>247<|level|>3\n<|id|>252<|level|>2\n<|id|>253<|level|>3\n<|id|>258<|level|>3\n<|id|>264<|level|>3\n<|id|>274<|level|>2\n<|id|>285<|level|>2\n<|id|>289<|level|>2\n<|id|>300<|level|>2",
+    "image_output": "<|src_id|>37<|tgt_id|>36\n<|src_id|>38<|tgt_id|>36\n<|src_id|>50<|tgt_id|>48\n<|src_id|>51<|tgt_id|>48\n<|src_id|>255<|tgt_id|>253\n<|src_id|>286<|tgt_id|>285\n<|src_id|>287<|tgt_id|>285",
+    "contd_label": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 202,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 3
+        },
+        {
+            "id": 223,
+            "level": 2
+        },
+        {
+            "id": 224,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 3
+        },
+        {
+            "id": 241,
+            "level": 3
+        },
+        {
+            "id": 247,
+            "level": 3
+        },
+        {
+            "id": 252,
+            "level": 2
+        },
+        {
+            "id": 253,
+            "level": 3
+        },
+        {
+            "id": 258,
+            "level": 3
+        },
+        {
+            "id": 264,
+            "level": 3
+        },
+        {
+            "id": 274,
+            "level": 2
+        },
+        {
+            "id": 285,
+            "level": 2
+        },
+        {
+            "id": 289,
+            "level": 2
+        },
+        {
+            "id": 300,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 37,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 255,
+            "tgt_id": 253
+        },
+        {
+            "src_id": 286,
+            "tgt_id": 285
+        },
+        {
+            "src_id": 287,
+            "tgt_id": 285
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 286,
+            "table2_idx": 287,
+            "upper_row_ss": [
+                [
+                    "TEG-2024-0205",
+                    "Katy Freeway",
+                    "22600 Katy Fwy, Katy,",
+                    "02/05/2024",
+                    "E1527-21",
+                    "Fairwater Real Estate",
+                    "Rachel",
+                    "No REC"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Logistics Park",
+                    "TX 77449",
+                    "",
+                    "",
+                    "Investment Trust",
+                    "Kwan",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

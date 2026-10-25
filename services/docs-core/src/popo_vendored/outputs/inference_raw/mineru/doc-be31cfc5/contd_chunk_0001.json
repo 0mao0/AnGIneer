@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        55,
+        119
+    ],
+    "pages": [
+        56,
+        61,
+        62,
+        73,
+        74,
+        75,
+        118
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>241<|page|>56<|box|>73 22 148 471<|content|>Series E and H are the only savings bonds now bein... F and G were sold from May 1, 1941, through April\n<|id|>242<|page|>56<|box|>71 542 148 987<|content|>30, 1952. ... Details of the principal changes in ... of May 1951, May 1952, May 1957, and October 1959\n<|id|>259<|page|>61<|box|>94 377 107 615<|content|>(Par values 1/ in billions of dollars)\n<|id|>261<|page|>62<|box|>75 17 183 474<|content|>The Treasury Survey of Ownership covers securities...arch 31, 1941, in the May 1941 \"Treasury Bulletin\"\n<|id|>284<|page|>73<|box|>96 403 109 562<|content|>(In thousands of dollars)\n<|id|>286<|page|>74<|box|>97 417 108 579<|content|>(In thousands of dollars)\n<|id|>288<|page|>75<|box|>750 520 770 948<|content|>3/ Federal Reserves Bank notes and national bank n...s of lawful money and are in process of retirement\n<|id|>375<|page|>118<|box|>743 12 783 469<|content|>2/ The dollar equivalents of these loans are compu...ying rates. ... Loans executed in units of foreign\n<|id|>377<|page|>118<|box|>761 547 772 697<|content|>Certain other activity. ... Certain other activity",
+    "raw_response": "<|src_id|>241<|tgt_id|>242",
+    "parsed": [
+        {
+            "src_id": 241,
+            "tgt_id": 242
+        }
+    ]
+}

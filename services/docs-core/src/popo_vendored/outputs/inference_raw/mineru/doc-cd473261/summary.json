@@ -1,0 +1,485 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3sskvlv5\\input\\pdfs\\doc-cd473261.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3sskvlv5\\enriched\\doc-cd473261.json",
+    "contd_output": "<|src_id|>82<|tgt_id|>83\n<|src_id|>88<|tgt_id|>89\n<|src_id|>162<|tgt_id|>163\n<|src_id|>163<|tgt_id|>164\n<|src_id|>212<|tgt_id|>213\n<|src_id|>356<|tgt_id|>357",
+    "title_output": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>12<|level|>2\n<|id|>14<|level|>3\n<|id|>27<|level|>3\n<|id|>35<|level|>4\n<|id|>44<|level|>3\n<|id|>50<|level|>2\n<|id|>52<|level|>3\n<|id|>60<|level|>3\n<|id|>69<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>74<|level|>4\n<|id|>91<|level|>4\n<|id|>97<|level|>4\n<|id|>101<|level|>3\n<|id|>102<|level|>4\n<|id|>109<|level|>4\n<|id|>113<|level|>3\n<|id|>114<|level|>4\n<|id|>122<|level|>4\n<|id|>130<|level|>4\n<|id|>139<|level|>3\n<|id|>140<|level|>4\n<|id|>146<|level|>4\n<|id|>152<|level|>4\n<|id|>155<|level|>2\n<|id|>156<|level|>3\n<|id|>157<|level|>4\n<|id|>166<|level|>4\n<|id|>173<|level|>3\n<|id|>180<|level|>3\n<|id|>181<|level|>4\n<|id|>185<|level|>4\n<|id|>189<|level|>4\n<|id|>198<|level|>3\n<|id|>203<|level|>2\n<|id|>204<|level|>3\n<|id|>205<|level|>4\n<|id|>217<|level|>4\n<|id|>223<|level|>4\n<|id|>231<|level|>3\n<|id|>232<|level|>4\n<|id|>240<|level|>4\n<|id|>247<|level|>3\n<|id|>248<|level|>4\n<|id|>256<|level|>4\n<|id|>262<|level|>4\n<|id|>267<|level|>3\n<|id|>268<|level|>4\n<|id|>272<|level|>4\n<|id|>277<|level|>4\n<|id|>280<|level|>2\n<|id|>281<|level|>3\n<|id|>287<|level|>3\n<|id|>290<|level|>3\n<|id|>297<|level|>3\n<|id|>302<|level|>2\n<|id|>303<|level|>3\n<|id|>307<|level|>3\n<|id|>313<|level|>3\n<|id|>319<|level|>3\n<|id|>330<|level|>2\n<|id|>331<|level|>3\n<|id|>335<|level|>3\n<|id|>338<|level|>3\n<|id|>342<|level|>3\n<|id|>349<|level|>2\n<|id|>350<|level|>3\n<|id|>353<|level|>2",
+    "image_output": "<|src_id|>46<|tgt_id|>44\n<|src_id|>47<|tgt_id|>44\n<|src_id|>264<|tgt_id|>262\n<|src_id|>283<|tgt_id|>281\n<|src_id|>284<|tgt_id|>281\n<|src_id|>285<|tgt_id|>281\n<|src_id|>286<|tgt_id|>281\n<|src_id|>288<|tgt_id|>287\n<|src_id|>289<|tgt_id|>287\n<|src_id|>351<|tgt_id|>349\n<|src_id|>352<|tgt_id|>349",
+    "contd_label": [
+        {
+            "src_id": 82,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 356,
+            "tgt_id": 357
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 4
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 109,
+            "level": 4
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 4
+        },
+        {
+            "id": 122,
+            "level": 4
+        },
+        {
+            "id": 130,
+            "level": 4
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 4
+        },
+        {
+            "id": 146,
+            "level": 4
+        },
+        {
+            "id": 152,
+            "level": 4
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 4
+        },
+        {
+            "id": 166,
+            "level": 4
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 4
+        },
+        {
+            "id": 185,
+            "level": 4
+        },
+        {
+            "id": 189,
+            "level": 4
+        },
+        {
+            "id": 198,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 205,
+            "level": 4
+        },
+        {
+            "id": 217,
+            "level": 4
+        },
+        {
+            "id": 223,
+            "level": 4
+        },
+        {
+            "id": 231,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 4
+        },
+        {
+            "id": 240,
+            "level": 4
+        },
+        {
+            "id": 247,
+            "level": 3
+        },
+        {
+            "id": 248,
+            "level": 4
+        },
+        {
+            "id": 256,
+            "level": 4
+        },
+        {
+            "id": 262,
+            "level": 4
+        },
+        {
+            "id": 267,
+            "level": 3
+        },
+        {
+            "id": 268,
+            "level": 4
+        },
+        {
+            "id": 272,
+            "level": 4
+        },
+        {
+            "id": 277,
+            "level": 4
+        },
+        {
+            "id": 280,
+            "level": 2
+        },
+        {
+            "id": 281,
+            "level": 3
+        },
+        {
+            "id": 287,
+            "level": 3
+        },
+        {
+            "id": 290,
+            "level": 3
+        },
+        {
+            "id": 297,
+            "level": 3
+        },
+        {
+            "id": 302,
+            "level": 2
+        },
+        {
+            "id": 303,
+            "level": 3
+        },
+        {
+            "id": 307,
+            "level": 3
+        },
+        {
+            "id": 313,
+            "level": 3
+        },
+        {
+            "id": 319,
+            "level": 3
+        },
+        {
+            "id": 330,
+            "level": 2
+        },
+        {
+            "id": 331,
+            "level": 3
+        },
+        {
+            "id": 335,
+            "level": 3
+        },
+        {
+            "id": 338,
+            "level": 3
+        },
+        {
+            "id": 342,
+            "level": 3
+        },
+        {
+            "id": 349,
+            "level": 2
+        },
+        {
+            "id": 350,
+            "level": 3
+        },
+        {
+            "id": 353,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 46,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 264,
+            "tgt_id": 262
+        },
+        {
+            "src_id": 283,
+            "tgt_id": 281
+        },
+        {
+            "src_id": 284,
+            "tgt_id": 281
+        },
+        {
+            "src_id": 285,
+            "tgt_id": 281
+        },
+        {
+            "src_id": 286,
+            "tgt_id": 281
+        },
+        {
+            "src_id": 288,
+            "tgt_id": 287
+        },
+        {
+            "src_id": 289,
+            "tgt_id": 287
+        },
+        {
+            "src_id": 351,
+            "tgt_id": 349
+        },
+        {
+            "src_id": 352,
+            "tgt_id": 349
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 46,
+            "table2_idx": 47,
+            "upper_row_ss": [
+                [
+                    "1",
+                    "U.S. Patent No. 10,891,193",
+                    "Claim 3",
+                    "\"coherent detection module\"",
+                    "LumiLink 400G-ZR+; LumiLink 800G-DR8; LumiEdge 1600G-LR"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "2",
+                    "U.S. Patent No. 10,891,193",
+                    "Claim 7",
+                    "\"coherent detection module\"",
+                    "LumiLink 400G-ZR+; LumiLink 800G-DR8; LumiEdge 1600G-LR"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 283,
+            "table2_idx": 284,
+            "upper_row_ss": [
+                [
+                    "90-degree optical hybrid coupler",
+                    "2×4 MMI structure on Si-PIC ('193 Patent, col. 7,",
+                    "2×4 MMI structure on Si-PIC (Benchmark:",
+                    "Mix signal with LO to produce I/Q components",
+                    "2×4 MMI —Literal",
+                    "Four mixed outputs for I/Q detection",
+                    "Literal"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "ll. 39-48, Fig. 3B)",
+                    "OWS-BENCH-000 84)",
+                    "—Literal",
+                    "",
+                    "—Literal",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 284,
+            "table2_idx": 285,
+            "upper_row_ss": [
+                [
+                    "Claim 7 additional: Dual optical hybrids",
+                    "Two 2×4 MMI hybrids sharing LO ('193 Patent, col. 8, ll. 51-58)",
+                    "Two 2×4 MMI hybrids sharing LO (Benchmark: OWS-BENCH-000",
+                    "Independent pol. processing —Literal",
+                    "Dual MMI hybrids —Literal",
+                    "Full pol.-diverse reception —Literal",
+                    "Literal"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "87-88, 00251-52, 00494-95)",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 288,
+            "table2_idx": 289,
+            "upper_row_ss": [
+                [
+                    "Higher-order diffraction suppression / single-mode",
+                    "Sub-wavelength periods suppress higher orders ('015",
+                    "Sub-wavelength central region suppresses higher",
+                    "Same mechanism with enhanced suppression from",
+                    "Suppress higher-order diffraction —Same",
+                    "Sub-wavelength period control —Same",
+                    "Single-mode coupling confirmed —Same",
+                    "Yes"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "coupling",
+                    "Patent, col. 6, ll. 1–18)",
+                    "orders; edge region contributes minimally to coupling and does not generate significant higher-order modes due to low mode-field intensity (Benchmark far-field: OWS-BENCH-00 305–00308)",
+                    "refined apodization (Benchmark far-field: OWS-BENCH-00 558–00562)",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 351,
+            "table2_idx": 352,
+            "upper_row_ss": [
+                [
+                    "Exhibit B-15",
+                    "Summary table of function-way-result analysis for all"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "three DOE contentions"
+                ]
+            ]
+        }
+    ]
+}

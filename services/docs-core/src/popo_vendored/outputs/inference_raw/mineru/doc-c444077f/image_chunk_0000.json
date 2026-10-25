@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>114 424 132 573<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>395 372 415 624<|content|>I. Purpose and Summary\n<|id|>15<|type|>title<|page|>2<|box|>289 380 310 614<|content|>II. Privilege Log Status\n<|id|>16<|type|>title<|page|>2<|box|>334 140 352 328<|content|>A. Scope and Coverage\n<|id|>22<|type|>title<|page|>3<|box|>304 140 321 444<|content|>B. Categories of Privileged Documents\n<|id|>30<|type|>title<|page|>4<|box|>758 140 775 370<|content|>C. Log Format and Location\n<|id|>41<|type|>title<|page|>5<|box|>417 140 434 387<|content|>D. Completeness Confirmation\n<|id|>44<|type|>title<|page|>5<|box|>642 346 662 651<|content|>III. Litigation Hold — Release\n<|id|>45<|type|>title<|page|>5<|box|>686 140 704 352<|content|>A. Litigation Hold History\n<|id|>54<|type|>title<|page|>6<|box|>455 140 472 290<|content|>B. Release of Hold\n<|id|>58<|type|>title<|page|>7<|box|>90 250 111 746<|content|>IV. Document Retention and Destruction Protocol\n<|id|>59<|type|>title<|page|>7<|box|>136 140 152 421<|content|>A. Firm Standard Retention Period\n<|id|>63<|type|>title<|page|>7<|box|>474 142 492 290<|content|>B. Electronic Files\n<|id|>73<|type|>title<|page|>8<|box|>575 140 593 277<|content|>C. Physical Files\n<|id|>80<|type|>title<|page|>9<|box|>90 140 107 442<|content|>D. Destruction After Retention Period\n<|id|>86<|type|>title<|page|>9<|box|>443 142 460 375<|content|>E. Return of Client Materials\n<|id|>89<|type|>title<|page|>9<|box|>705 225 724 771<|content|>V. Third-Party Vendor and Expert File Consideratio\n<|id|>90<|type|>title<|page|>9<|box|>750 140 767 460<|content|>A. Greystone Technical Consulting LLC\n<|id|>94<|type|>title<|page|>10<|box|>304 140 320 467<|content|>B. Caldwell Barrow LLP (Local Counsel)\n<|id|>98<|type|>title<|page|>10<|box|>587 140 604 612<|content|>C. Meridian Document Solutions LLC (E-discovery Ve\n<|id|>101<|type|>title<|page|>10<|box|>776 153 795 844<|content|>VI. Summary of Key Financial and Matter Data for A\n<|id|>103<|type|>table<|page|>10<|box|>854 143 893 852<|content|>None\n<|id|>104<|type|>table<|page|>11<|box|>89 143 428 852<|content|>None\n<|id|>105<|type|>title<|page|>11<|box|>464 295 483 702<|content|>VII. Action Items and Recommendations\n<|id|>114<|type|>title<|page|>12<|box|>90 411 109 584<|content|>VIII. Conclusion\n<|id|>119<|type|>title<|page|>12<|box|>489 142 505 320<|content|>Respectfully submitted,",
+    "raw_response": "<|src_id|>103<|tgt_id|>101\n<|src_id|>104<|tgt_id|>101",
+    "parsed": [
+        {
+            "src_id": 103,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 101
+        }
+    ]
+}

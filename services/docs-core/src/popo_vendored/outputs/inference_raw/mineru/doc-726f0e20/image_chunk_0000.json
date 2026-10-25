@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>152 140 170 243<|content|>VIA EMAIL\n<|id|>9<|type|>title<|page|>1<|box|>588 142 604 323<|content|>1. Settlement Payment\n<|id|>16<|type|>title<|page|>2<|box|>340 140 357 524<|content|>2. Restated Distribution Waterfall — Key Terms\n<|id|>18<|type|>title<|page|>2<|box|>470 140 488 429<|content|>2.1 Management-Fee Cap Reduction\n<|id|>20<|type|>title<|page|>2<|box|>652 140 669 459<|content|>2.2 Restoration of Reclassified Revenues\n<|id|>25<|type|>title<|page|>3<|box|>90 140 107 529<|content|>2.3 Excess Management Fees — Deemed Satisfied\n<|id|>27<|type|>title<|page|>3<|box|>273 140 289 470<|content|>2.4 Reclassification Consent Requirement\n<|id|>29<|type|>title<|page|>4<|box|>90 140 107 535<|content|>2.5 Dual-Signature Requirement for Expenditures\n<|id|>31<|type|>title<|page|>4<|box|>218 140 234 413<|content|>2.6 Quarterly Financial Reporting\n<|id|>33<|type|>title<|page|>4<|box|>363 140 380 282<|content|>2.7 Annual Audit\n<|id|>35<|type|>title<|page|>4<|box|>491 140 508 490<|content|>2.8 Independent Accountant Administration\n<|id|>39<|type|>title<|page|>4<|box|>827 140 844 287<|content|>3. Mutual Release\n<|id|>43<|type|>title<|page|>5<|box|>348 140 364 326<|content|>4. Dismissal of Lawsuit\n<|id|>46<|type|>title<|page|>5<|box|>625 140 641 475<|content|>5. Non-Disparagement and Confidentiality\n<|id|>52<|type|>title<|page|>6<|box|>212 140 229 326<|content|>6. Document Retention\n<|id|>68<|type|>title<|page|>6<|box|>700 142 717 413<|content|>7. Final Invoice and Fee Summary\n<|id|>70<|type|>table<|page|>6<|box|>786 143 895 852<|content|>None\n<|id|>71<|type|>table<|page|>7<|box|>88 143 157 852<|content|>None\n<|id|>74<|type|>title<|page|>7<|box|>368 140 383 349<|content|>8. Assessment of Outcome\n<|id|>80<|type|>title<|page|>8<|box|>186 140 203 385<|content|>9. Next Steps and Action Items\n<|id|>90<|type|>title<|page|>8<|box|>852 140 869 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>70<|tgt_id|>68\n<|src_id|>71<|tgt_id|>68",
+    "parsed": [
+        {
+            "src_id": 70,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 68
+        }
+    ]
+}

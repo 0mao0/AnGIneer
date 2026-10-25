@@ -1,0 +1,62 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 333 118 663<|content|>SECRETARY'S CERTIFICATE\n<|id|>9<|type|>title<|page|>1<|box|>729 140 746 513<|content|>Section 2. Identification of the Entities Covered\n<|id|>11<|type|>title<|page|>1<|box|>823 140 840 446<|content|>2.1 Torchlight Mining Corp. (\"TMC\")\n<|id|>21<|type|>title<|page|>2<|box|>324 142 340 501<|content|>2.2 Torchlight Mining (U.S.) Inc. (\"TM(US)\")\n<|id|>46<|type|>title<|page|>3<|box|>334 142 351 501<|content|>2.4 Ridgecrest Mine Holdings, LLC (\"RMH\")\n<|id|>66<|type|>title<|page|>4<|box|>241 140 258 828<|content|>Section 3. Incumbency Certificate — Officers Autho\n<|id|>68<|type|>title<|page|>4<|box|>426 140 444 367<|content|>3.1 Torchlight Mining Corp.\n<|id|>69<|type|>table<|page|>4<|box|>474 143 598 852<|content|>None\n<|id|>71<|type|>title<|page|>4<|box|>791 142 809 401<|content|>3.2 Torchlight Mining (U.S.) Inc.\n<|id|>72<|type|>table<|page|>4<|box|>839 143 895 852<|content|>None\n<|id|>73<|type|>table<|page|>5<|box|>88 143 109 852<|content|>None\n<|id|>75<|type|>title<|page|>5<|box|>229 140 246 455<|content|>3.3 Torchlight Specialty Chemicals, Inc.\n<|id|>76<|type|>table<|page|>5<|box|>294 143 369 852<|content|>None\n<|id|>78<|type|>title<|page|>5<|box|>470 142 489 421<|content|>3.4 Ridgecrest Mine Holdings, LLC\n<|id|>80<|type|>table<|page|>5<|box|>592 143 679 852<|content|>None\n<|id|>82<|type|>title<|page|>5<|box|>781 142 797 401<|content|>3.5 Bonanza Creek Mining, LLC\n<|id|>84<|type|>table<|page|>6<|box|>89 143 176 852<|content|>None\n<|id|>86<|type|>title<|page|>6<|box|>287 140 304 452<|content|>Section 4. Good Standing Certifications\n<|id|>89<|type|>table<|page|>6<|box|>556 143 898 852<|content|>None\n<|id|>90<|type|>table<|page|>7<|box|>88 143 251 852<|content|>None\n<|id|>92<|type|>title<|page|>7<|box|>381 140 398 710<|content|>Section 5. Organizational Authority and Board / Me\n<|id|>109<|type|>title<|page|>8<|box|>767 140 784 503<|content|>Section 6. No Proceedings Affecting Authority\n<|id|>116<|type|>title<|page|>9<|box|>446 140 464 401<|content|>Section 7. Governing Documents\n<|id|>125<|type|>title<|page|>10<|box|>304 140 321 352<|content|>Section 8. Representations\n<|id|>131<|type|>title<|page|>10<|box|>656 140 672 294<|content|>Section 9. Reliance\n<|id|>144<|type|>title<|page|>11<|box|>551 142 566 227<|content|>Execution\n<|id|>146<|type|>title<|page|>12<|box|>90 143 106 241<|content|>Exhibit List\n<|id|>147<|type|>table<|page|>12<|box|>140 143 657 852<|content|>None",
+    "raw_response": "<|src_id|>69<|tgt_id|>68\n<|src_id|>72<|tgt_id|>71\n<|src_id|>73<|tgt_id|>71\n<|src_id|>76<|tgt_id|>75\n<|src_id|>80<|tgt_id|>78\n<|src_id|>84<|tgt_id|>82\n<|src_id|>89<|tgt_id|>86\n<|src_id|>90<|tgt_id|>86\n<|src_id|>147<|tgt_id|>146",
+    "parsed": [
+        {
+            "src_id": 69,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 146
+        }
+    ]
+}

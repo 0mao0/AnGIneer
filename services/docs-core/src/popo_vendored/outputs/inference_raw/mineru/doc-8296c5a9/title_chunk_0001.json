@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        66
+    ],
+    "pages": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        58,
+        63,
+        64,
+        66
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>396<|page|>51<|box|>89 140 107 408<|content|>VI.A.3. Claim 5 of the '015 Patent\n<|id|>397<|page|>51<|box|>114 140 130 277<|content|>Full Claim Text:\n<|id|>400<|page|>51<|box|>318 140 335 410<|content|>VI.A.4. Claim 8 of the '015 Patent\n<|id|>401<|page|>51<|box|>340 140 358 277<|content|>Full Claim Text:\n<|id|>404<|page|>51<|box|>545 140 563 418<|content|>VI.A.5. Claim 12 of the '015 Patent\n<|id|>405<|page|>51<|box|>569 140 587 277<|content|>Full Claim Text:\n<|id|>410<|page|>52<|box|>329 140 347 418<|content|>VI.A.6. Claim 16 of the '015 Patent\n<|id|>411<|page|>52<|box|>354 142 369 277<|content|>Full Claim Text:\n<|id|>417<|page|>52<|box|>763 140 799 854<|content|>Summary — Lumicore's Prior-Conception Defense Fail\n<|id|>422<|page|>53<|box|>297 140 333 823<|content|>VI.B. Reference R-20: Taillaert et al., \"Grating C\n<|id|>429<|page|>53<|box|>768 140 804 826<|content|>VI.C. Reference R-21: U.S. Patent App. Pub. No. 20\n<|id|>434<|page|>54<|box|>347 140 364 620<|content|>VI.D. Reference R-22: Roelkens et al. (IEEE PTL, J\n<|id|>439<|page|>54<|box|>729 142 747 647<|content|>VI.E. Reference R-23: Watanabe et al. (OFC 2016) (\n<|id|>442<|page|>55<|box|>90 140 108 374<|content|>Claim 1 Missing Limitations:\n<|id|>447<|page|>55<|box|>531 140 547 539<|content|>Claims 5, 8, 12, 16 Additional Missing Limitations\n<|id|>453<|page|>55<|box|>840 140 858 669<|content|>VI.F. Combination of Bergmann + Simonsen Applied t\n<|id|>463<|page|>56<|box|>784 145 828 851<|content|>VII. SECONDARY CONSIDERATIONS OF NON-OBVIOUSNESS S\n<|id|>477<|page|>58<|box|>556 204 599 792<|content|>VIII. COMPREHENSIVE SUMMARY TABLE — ALL 23 REFEREN\n<|id|>486<|page|>63<|box|>90 348 109 648<|content|>IX. APPENDIX A EXHIBITS\n<|id|>487<|page|>64<|box|>89 142 107 287<|content|>IX.A. Exhibit List\n<|id|>503<|page|>66<|box|>90 287 109 707<|content|>X. CERTIFICATION AND SIGNATURE\n<|id|>504<|page|>66<|box|>128 140 146 532<|content|>I, Dr. Caroline Ashford, hereby certify the follow\n<|id|>511<|page|>66<|box|>803 142 819 434<|content|>CERTIFICATION AND SIGNATURE",
+    "raw_response": "<|id|>396<|level|>2\n<|id|>397<|level|>3\n<|id|>400<|level|>2\n<|id|>401<|level|>3\n<|id|>404<|level|>2\n<|id|>405<|level|>3\n<|id|>410<|level|>2\n<|id|>411<|level|>3\n<|id|>417<|level|>2\n<|id|>422<|level|>2\n<|id|>429<|level|>2\n<|id|>434<|level|>2\n<|id|>439<|level|>2\n<|id|>442<|level|>3\n<|id|>447<|level|>3\n<|id|>453<|level|>2\n<|id|>463<|level|>2\n<|id|>477<|level|>2\n<|id|>486<|level|>2\n<|id|>487<|level|>3\n<|id|>503<|level|>2\n<|id|>504<|level|>3\n<|id|>511<|level|>3",
+    "parsed": [
+        {
+            "id": 396,
+            "level": 2
+        },
+        {
+            "id": 397,
+            "level": 3
+        },
+        {
+            "id": 400,
+            "level": 2
+        },
+        {
+            "id": 401,
+            "level": 3
+        },
+        {
+            "id": 404,
+            "level": 2
+        },
+        {
+            "id": 405,
+            "level": 3
+        },
+        {
+            "id": 410,
+            "level": 2
+        },
+        {
+            "id": 411,
+            "level": 3
+        },
+        {
+            "id": 417,
+            "level": 2
+        },
+        {
+            "id": 422,
+            "level": 2
+        },
+        {
+            "id": 429,
+            "level": 2
+        },
+        {
+            "id": 434,
+            "level": 2
+        },
+        {
+            "id": 439,
+            "level": 2
+        },
+        {
+            "id": 442,
+            "level": 3
+        },
+        {
+            "id": 447,
+            "level": 3
+        },
+        {
+            "id": 453,
+            "level": 2
+        },
+        {
+            "id": 463,
+            "level": 2
+        },
+        {
+            "id": 477,
+            "level": 2
+        },
+        {
+            "id": 486,
+            "level": 2
+        },
+        {
+            "id": 487,
+            "level": 3
+        },
+        {
+            "id": 503,
+            "level": 2
+        },
+        {
+            "id": 504,
+            "level": 3
+        },
+        {
+            "id": 511,
+            "level": 3
+        }
+    ]
+}

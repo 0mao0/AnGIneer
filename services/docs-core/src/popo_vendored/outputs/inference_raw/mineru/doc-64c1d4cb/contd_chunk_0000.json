@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>1<|box|>849 140 906 854<|content|>Plaintiff Derek Halloran is an individual residing... attorneys of record as Plaintiff Fuentes, namely,\n<|id|>9<|page|>2<|box|>89 140 126 854<|content|>Castellano Byrne & Salas LLP (Marco Castellano, St...oulevard, Suite 900, Los Angeles, California 90025\n<|id|>33<|page|>5<|box|>546 673 563 854<|content|>Dated: ... January 27, 2023\n<|id|>34<|page|>5<|box|>571 140 606 852<|content|>FOR PLAINTIFFS MARISOL FUENTES, DEREK HALLORAN, AN...RISOL FUENTES, DEREK HALLORAN, AND YESENIA PADILLA\n<|id|>35<|page|>5<|box|>614 140 632 447<|content|>CASTELLANO BYRNE & SALAS LLP\n<|id|>36<|page|>5<|box|>633 143 650 251<|content|>By: ... By\n<|id|>37<|page|>5<|box|>650 140 698 854<|content|>Marco Castellano (SBN 198422) 11755 Wilshire Boule...risol Fuentes, Derek Halloran, and Yesenia Padilla\n<|id|>38<|page|>5<|box|>699 142 715 617<|content|>FOR DEFENDANT AURELIUS MEDIA AMERICAS INC. ... FOR DEFENDANT AURELIUS MEDIA AMERICAS INC\n<|id|>39<|page|>5<|box|>724 140 739 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>40<|page|>5<|box|>744 143 758 251<|content|>By: ... By\n<|id|>44<|page|>5<|box|>915 140 930 668<|content|>STIPULATION AND [PROPOSED] ORDER RE: ... CONSOLIDATION OF RELATED ACTIONS\n<|id|>45<|page|>6<|box|>90 140 200 856<|content|>The Court has reviewed and considered the Stipulat...n both actions, and good cause appearing therefor,",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>36<|tgt_id|>37\n<|src_id|>38<|tgt_id|>39\n<|src_id|>40<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 45
+        }
+    ]
+}

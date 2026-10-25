@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>554 142 571 429<|content|>Background and Procedural History\n<|id|>13<|page|>2<|box|>406 140 422 415<|content|>Identification of Unresolved Issues\n<|id|>19<|page|>3<|box|>424 142 441 542<|content|>Formal Notification of Termination of Negotiations\n<|id|>22<|page|>3<|box|>720 140 738 522<|content|>Confidential Materials — Return or Destruction\n<|id|>32<|page|>4<|box|>700 140 718 429<|content|>Ongoing Confidentiality Obligations\n<|id|>36<|page|>5<|box|>362 142 378 305<|content|>Non-Disparagement\n<|id|>38<|page|>5<|box|>560 142 577 316<|content|>Reservation of Rights\n<|id|>40<|page|>5<|box|>739 140 757 209<|content|>Closing",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>13<|level|>1\n<|id|>19<|level|>1\n<|id|>22<|level|>1\n<|id|>32<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 668<|content|>CONFIDENTIAL — SETTLEMENT COMMUNICATION PURSUANT T\n<|id|>1<|page|>1<|box|>112 276 130 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>13<|page|>1<|box|>785 140 801 513<|content|>I. Procedural History and Negotiation Timeline\n<|id|>20<|page|>2<|box|>411 140 428 660<|content|>II. Overview of Government Counter-Redline Positio\n<|id|>23<|page|>2<|box|>648 140 667 769<|content|>III. Section-by-Section Summary of TMC's Positions\n<|id|>24<|page|>3<|box|>90 140 107 558<|content|>A. Remediation Cost and Schedule — Ridgecrest Site\n<|id|>32<|page|>3<|box|>628 140 646 800<|content|>B. Remediation Requirements — Gallatin, Bonanza Cr\n<|id|>36<|page|>4<|box|>531 142 547 282<|content|>C. Civil Penalties\n<|id|>45<|page|>5<|box|>176 140 194 558<|content|>D. EPA Past-Costs Reimbursement (CERCLA § 107)\n<|id|>50<|page|>5<|box|>534 140 551 521<|content|>E. Supplemental Environmental Projects (SEPs)\n<|id|>56<|page|>6<|box|>213 140 229 397<|content|>F. Stipulated Penalty Provisions\n<|id|>66<|page|>6<|box|>803 140 820 287<|content|>G. Force Majeure\n<|id|>73<|page|>7<|box|>407 140 424 411<|content|>H. Dispute Resolution Mechanism\n<|id|>81<|page|>7<|box|>886 142 902 581<|content|>Both of these proposed clarifications remain open\n<|id|>82<|page|>8<|box|>90 140 106 323<|content|>I. Financial Assurance\n<|id|>88<|page|>8<|box|>510 140 527 334<|content|>J. Independent Monitor\n<|id|>92<|page|>8<|box|>816 140 834 354<|content|>K. Termination Provisions\n<|id|>95<|page|>9<|box|>231 142 248 460<|content|>IV. Summary of Remaining Open Issues\n<|id|>97<|page|>9<|box|>779 140 796 501<|content|>V. Proposal for In-Person Negotiation Session\n<|id|>107<|page|>10<|box|>580 140 598 401<|content|>VI. Confidentiality and Privilege",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>13<|level|>1\n<|id|>20<|level|>1\n<|id|>23<|level|>1\n<|id|>24<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>56<|level|>2\n<|id|>66<|level|>2\n<|id|>73<|level|>2\n<|id|>81<|level|>-1\n<|id|>82<|level|>2\n<|id|>88<|level|>2\n<|id|>92<|level|>2\n<|id|>95<|level|>1\n<|id|>97<|level|>1\n<|id|>107<|level|>1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        }
+    ]
+}

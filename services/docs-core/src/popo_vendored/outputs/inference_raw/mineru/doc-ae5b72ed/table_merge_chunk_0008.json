@@ -1,0 +1,24 @@
+{
+    "task": "table_merge",
+    "chunk_index": 8,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['40', 'Brindoval Insurance Group LLC', 'Suite 150', '04/15/2020', '22,000', '$660,000', '$55,000', '5000 Virginia Way, Suite 150, Brent', 'Alan McMasters / amcmasters @crestviewi', 'First-Class Mail + Email', '-', '-']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', '', 'wood, TN 37027', 'ns.com', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 128,
+    "table2_idx": 129
+}

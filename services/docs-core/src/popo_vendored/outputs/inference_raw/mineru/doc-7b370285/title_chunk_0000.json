@@ -1,0 +1,147 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>434 140 450 367<|content|>1. Introduction and Purpose\n<|id|>15<|page|>2<|box|>223 140 239 544<|content|>2. Virtual Data Room Platform and Administration\n<|id|>16<|page|>2<|box|>253 140 270 338<|content|>2.1 Data Room Platform\n<|id|>20<|page|>2<|box|>652 142 669 380<|content|>2.2 Data Room Administrator\n<|id|>25<|page|>3<|box|>157 140 174 452<|content|>2.3 Data Room Index and Organization\n<|id|>64<|page|>5<|box|>90 140 107 486<|content|>3. Authorized Users and Access Permissions\n<|id|>65<|page|>5<|box|>121 140 138 375<|content|>3.1 Buyer's Authorized Users\n<|id|>71<|page|>5<|box|>674 140 691 535<|content|>C. Buyer's Third-Party Consultants and Advisors:\n<|id|>88<|page|>6<|box|>266 142 282 287<|content|>D. Local Counsel:\n<|id|>92<|page|>6<|box|>604 142 619 370<|content|>3.2 Seller's Authorized Users\n<|id|>96<|page|>7<|box|>194 140 210 434<|content|>3.3 Tiered Access / Permission Levels\n<|id|>98<|page|>7<|box|>281 142 297 539<|content|>Tier 1 — Full Access (View, Download, and Print):\n<|id|>104<|page|>7<|box|>465 143 481 465<|content|>Tier 2 — View and Download (No Print):\n<|id|>108<|page|>7<|box|>630 142 646 647<|content|>Tier 3 — Limited Folder Access (View and Download,\n<|id|>114<|page|>8<|box|>147 142 162 393<|content|>Tier 4 — Local Counsel Access:\n<|id|>123<|page|>8<|box|>609 140 626 418<|content|>3.4 Addition and Removal of Users\n<|id|>127<|page|>9<|box|>286 140 301 593<|content|>4. Document Handling, Download, and Printing Proto\n<|id|>133<|page|>10<|box|>286 140 303 470<|content|>4.4 Sensitive Materials / Restricted Folder\n<|id|>139<|page|>10<|box|>752 140 768 272<|content|>5. Q&A Process\n<|id|>140<|page|>10<|box|>782 140 800 364<|content|>5.1 Due Diligence Questions\n<|id|>144<|page|>11<|box|>375 140 391 330<|content|>5.2 Document Requests\n<|id|>147<|page|>11<|box|>648 140 665 385<|content|>6. Confidentiality and Security\n<|id|>148<|page|>11<|box|>679 140 695 348<|content|>6.1 Incorporation of NDA\n<|id|>150<|page|>12<|box|>90 140 107 336<|content|>6.2 No Public Disclosure\n<|id|>152<|page|>12<|box|>364 140 381 444<|content|>6.3 Return or Destruction of Materials\n<|id|>155<|page|>12<|box|>773 140 791 316<|content|>6.4 Security Incidents\n<|id|>157<|page|>13<|box|>90 176 106 421<|content|>Calderwood & Harkness LLP:\n<|id|>160<|page|>13<|box|>174 178 190 364<|content|>Blackridge Hayes LLP:\n<|id|>164<|page|>13<|box|>388 140 407 315<|content|>7. General Provisions\n<|id|>165<|page|>13<|box|>420 142 438 348<|content|>7.1 Governing Agreement\n<|id|>168<|page|>13<|box|>689 142 705 303<|content|>7.3 Contact Persons\n<|id|>170<|page|>13<|box|>756 142 773 385<|content|>Calderwood & Harkness LLP:\n<|id|>189<|page|>14<|box|>587 316 603 679<|content|>ACKNOWLEDGMENT AND AGREEMENT",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>20<|level|>2\n<|id|>25<|level|>2\n<|id|>64<|level|>1\n<|id|>65<|level|>2\n<|id|>71<|level|>3\n<|id|>88<|level|>3\n<|id|>92<|level|>2\n<|id|>96<|level|>2\n<|id|>98<|level|>3\n<|id|>104<|level|>3\n<|id|>108<|level|>3\n<|id|>114<|level|>3\n<|id|>123<|level|>2\n<|id|>127<|level|>1\n<|id|>133<|level|>2\n<|id|>139<|level|>1\n<|id|>140<|level|>2\n<|id|>144<|level|>2\n<|id|>147<|level|>1\n<|id|>148<|level|>2\n<|id|>150<|level|>2\n<|id|>152<|level|>2\n<|id|>155<|level|>2\n<|id|>157<|level|>-1\n<|id|>160<|level|>-1\n<|id|>164<|level|>1\n<|id|>165<|level|>2\n<|id|>168<|level|>2\n<|id|>170<|level|>-1\n<|id|>189<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>311 176 328 366<|content|>Internal Revenue Service\n<|id|>6<|page|>1<|box|>338 178 353 295<|content|>Attn: ... INTL\n<|id|>7<|page|>1<|box|>354 178 371 583<|content|>1111 Constitution Avenue NW Washington, DC 20224\n<|id|>8<|page|>1<|box|>381 142 398 464<|content|>Target Submission Date: ... August 15, 2025\n<|id|>9<|page|>1<|box|>406 140 500 854<|content|>Additional Representative: ... That separate Form ... this form as part of the same PLR request package\n<|id|>10<|page|>1<|box|>506 143 523 491<|content|>Engagement Number: ... 20250527-SDILP-PLR\n<|id|>11<|page|>1<|box|>531 140 585 854<|content|>Distribution of Copies: ... and New York offices) ...rovided to the following Solara in-house personnel\n<|id|>12<|page|>1<|box|>594 183 609 741<|content|>• Priya Narasimhan, General Counsel, Solara Digital Infrastructure GP LLC\n<|id|>14<|page|>1<|box|>633 140 760 854<|content|>Signature Coordination: ... however, electronic si...uidance remains in effect at the time of execution\n<|id|>13<|page|>1<|box|>614 184 630 707<|content|>• Stefan Dalmqvist, Head of Tax, Solara Digital Infrastructure GP LLC\n<|id|>47<|page|>6<|box|>273 142 290 343<|content|>Print Name: ... Viktor Raines\n<|id|>48<|page|>6<|box|>291 142 308 810<|content|>Title: ... Managing Partner, Solara Digital Infrastructure GP LLC, as General Partner of Solara\n<|id|>49<|page|>6<|box|>308 143 324 328<|content|>Digital Infrastructure LP\n<|id|>50<|page|>6<|box|>325 143 340 264<|content|>Date: ... Date\n<|id|>53<|page|>6<|box|>385 142 401 341<|content|>Print Name: ... Viktor Raines\n<|id|>54<|page|>6<|box|>402 143 419 534<|content|>Title: ... Manager, Solara Digital Infrastructure GP LLC\n<|id|>55<|page|>6<|box|>420 143 436 264<|content|>Date: ... Date\n<|id|>58<|page|>6<|box|>479 142 494 341<|content|>Print Name: ... Viktor Raines\n<|id|>59<|page|>6<|box|>496 142 513 810<|content|>Title: ... Managing Partner, Solara Digital Infrastructure GP LLC, as General Partner of Solara\n<|id|>60<|page|>6<|box|>513 143 529 354<|content|>Digital Partners Fund IV LP\n<|id|>61<|page|>6<|box|>531 143 546 264<|content|>Date: ... Date\n<|id|>64<|page|>6<|box|>590 143 606 343<|content|>Print Name: ... Viktor Raines\n<|id|>65<|page|>6<|box|>607 142 625 797<|content|>Title: ... , as General Partner of Solara Digital\n<|id|>66<|page|>6<|box|>625 143 640 393<|content|>Partners Fund IV-A (Cayman) LP\n<|id|>67<|page|>6<|box|>642 143 657 264<|content|>Date: ... Date\n<|id|>70<|page|>6<|box|>702 143 717 341<|content|>Print Name: ... Viktor Raines\n<|id|>71<|page|>6<|box|>718 142 734 846<|content|>Title: ... , as General Partner (gérant\n<|id|>72<|page|>6<|box|>734 142 752 669<|content|>commandité) of Solara Digital Partners Fund IV-B (Luxembourg) SCSp\n<|id|>73<|page|>6<|box|>753 143 768 264<|content|>Date: ... Date\n<|id|>76<|page|>6<|box|>813 143 829 341<|content|>Print Name: ... Viktor Raines\n<|id|>77<|page|>6<|box|>829 142 845 810<|content|>Title: ... Managing Partner, Solara Digital Infrastructure GP LLC, as General Partner of Solara\n<|id|>78<|page|>6<|box|>845 143 861 348<|content|>Digital Partners Fund V LP\n<|id|>79<|page|>6<|box|>864 143 878 264<|content|>Date: ... Date\n<|id|>82<|page|>7<|box|>108 142 125 341<|content|>Print Name: ... Viktor Raines\n<|id|>83<|page|>7<|box|>125 142 157 797<|content|>Title: ... , as General Partner of Solara Digital Partners Fund V-A (Cayman) LP\n<|id|>84<|page|>7<|box|>159 143 174 264<|content|>Date: ... Date\n<|id|>87<|page|>7<|box|>218 143 234 341<|content|>Print Name: ... Viktor Raines\n<|id|>88<|page|>7<|box|>234 142 286 846<|content|>Title: ... , as General Partner (gérant commandité...a Digital Partners Fund V-B (Luxembourg) SCSp Date\n<|id|>100<|page|>8<|box|>321 142 337 346<|content|>Print Name: ... Leonard Cross\n<|id|>101<|page|>8<|box|>339 143 354 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>48<|tgt_id|>49\n<|src_id|>59<|tgt_id|>60\n<|src_id|>65<|tgt_id|>66\n<|src_id|>71<|tgt_id|>72\n<|src_id|>77<|tgt_id|>78",
+    "parsed": [
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        }
+    ]
+}

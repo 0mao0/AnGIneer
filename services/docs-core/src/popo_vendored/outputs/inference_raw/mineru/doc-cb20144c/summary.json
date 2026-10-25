@@ -1,0 +1,154 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0f5o7thp\\input\\pdfs\\doc-cb20144c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0f5o7thp\\enriched\\doc-cb20144c.json",
+    "contd_output": "",
+    "title_output": "<|id|>2<|level|>1\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>3\n<|id|>25<|level|>3\n<|id|>29<|level|>3\n<|id|>32<|level|>3\n<|id|>37<|level|>3\n<|id|>39<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>52<|level|>3\n<|id|>57<|level|>2\n<|id|>58<|level|>3\n<|id|>68<|level|>3\n<|id|>70<|level|>4\n<|id|>81<|level|>3\n<|id|>97<|level|>3\n<|id|>107<|level|>3\n<|id|>115<|level|>2\n<|id|>122<|level|>2\n<|id|>123<|level|>3\n<|id|>131<|level|>3\n<|id|>134<|level|>3\n<|id|>139<|level|>2\n<|id|>146<|level|>2",
+    "image_output": "<|src_id|>17<|tgt_id|>16\n<|src_id|>18<|tgt_id|>16",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 4
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 17,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 16
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 17,
+            "table2_idx": 18,
+            "upper_row_ss": [
+                [
+                    "§ 9.4",
+                    "Confidentiality",
+                    "Indefinite (survives termination without limitation)",
+                    "Covers proprietary content, show formats, production methodologies, revenue data, talent agreements, financial"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "projections, strategic plans, and all other information designated as confidential by AMA or AGMG"
+                ]
+            ]
+        }
+    ]
+}

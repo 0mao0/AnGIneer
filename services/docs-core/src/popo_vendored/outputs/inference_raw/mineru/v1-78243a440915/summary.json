@@ -1,0 +1,176 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_icvwd8w\\input\\pdfs\\v1-78243a440915.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_icvwd8w\\enriched\\v1-78243a440915.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>10<|level|>3\n<|id|>17<|level|>3\n<|id|>23<|level|>3\n<|id|>27<|level|>3\n<|id|>30<|level|>3\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>40<|level|>3\n<|id|>46<|level|>3\n<|id|>50<|level|>3\n<|id|>53<|level|>3\n<|id|>57<|level|>3\n<|id|>62<|level|>3\n<|id|>68<|level|>3\n<|id|>71<|level|>2\n<|id|>74<|level|>2\n<|id|>89<|level|>2\n<|id|>92<|level|>2",
+    "image_output": "<|src_id|>32<|tgt_id|>30\n<|src_id|>55<|tgt_id|>53\n<|src_id|>59<|tgt_id|>57\n<|src_id|>61<|tgt_id|>57\n<|src_id|>64<|tgt_id|>62\n<|src_id|>66<|tgt_id|>62\n<|src_id|>70<|tgt_id|>68\n<|src_id|>93<|tgt_id|>92\n<|src_id|>94<|tgt_id|>92\n<|src_id|>95<|tgt_id|>92\n<|src_id|>96<|tgt_id|>92\n<|src_id|>97<|tgt_id|>92\n<|src_id|>98<|tgt_id|>92\n<|src_id|>101<|tgt_id|>92\n<|src_id|>102<|tgt_id|>92\n<|src_id|>106<|tgt_id|>105",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 105
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 96,
+            "table2_idx": 97,
+            "upper_row_ss": [
+                [
+                    "",
+                    "$ 45,692,206",
+                    "$ 40,899,116"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, ",
+                    "colspan=2, Three months ended",
+                    "colspan=2, Twelve months ended"
+                ]
+            ]
+        }
+    ]
+}

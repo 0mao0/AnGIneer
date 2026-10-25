@@ -1,0 +1,57 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>5<|type|>title<|page|>1<|box|>215 140 233 611<|content|>VIA CERTIFIED MAIL AND IRS SECURE MESSAGING\n<|id|>8<|type|>title<|page|>1<|box|>367 140 385 380<|content|>Dear Revenue Agent Dunleavy:\n<|id|>12<|type|>title<|page|>1<|box|>777 140 795 506<|content|>I. DESCRIPTION OF IDR NO. 25 REQUEST\n<|id|>17<|type|>title<|page|>2<|box|>457 140 474 684<|content|>II. SCOPE OF PRODUCTION AND PRIVILEGE RESERVATIONS\n<|id|>24<|type|>title<|page|>3<|box|>483 140 500 638<|content|>III. SUMMARY OF THE CUT ANALYSIS METHODOLOGY\n<|id|>25<|type|>title<|page|>3<|box|>513 140 532 462<|content|>A. Background on the Legacy IP License\n<|id|>29<|type|>table<|page|>3<|box|>869 143 906 852<|content|>None\n<|id|>30<|type|>table<|page|>4<|box|>88 143 174 852<|content|>None\n<|id|>32<|type|>title<|page|>4<|box|>330 140 348 493<|content|>B. CUT Method Under Treas. Reg. § 1.482-4\n<|id|>37<|type|>title<|page|>5<|box|>157 140 175 504<|content|>C. Comparability Criteria and Search Process\n<|id|>56<|type|>title<|page|>6<|box|>672 140 689 388<|content|>D. Results of the CUT Analysis\n<|id|>62<|type|>title<|page|>7<|box|>148 140 166 493<|content|>IV. INDEX OF PRODUCED DOCUMENTS\n<|id|>64<|type|>table<|page|>7<|box|>291 143 905 852<|content|>None\n<|id|>65<|type|>table<|page|>8<|box|>89 143 898 852<|content|>None\n<|id|>66<|type|>table<|page|>9<|box|>89 143 898 852<|content|>None\n<|id|>67<|type|>table<|page|>10<|box|>89 143 904 854<|content|>None\n<|id|>68<|type|>table<|page|>11<|box|>88 143 549 852<|content|>None\n<|id|>70<|type|>title<|page|>11<|box|>732 140 750 580<|content|>V. COMPARABILITY ADJUSTMENTS NARRATIVE\n<|id|>83<|type|>title<|page|>13<|box|>329 140 345 486<|content|>VI. DISTINCTION FROM IRS POSITION\n<|id|>87<|type|>title<|page|>13<|box|>722 140 739 527<|content|>VII. SUPPLEMENTAL PRODUCTION NOTES\n<|id|>94<|type|>title<|page|>14<|box|>426 140 444 429<|content|>VIII. RESERVATION OF RIGHTS\n<|id|>102<|type|>title<|page|>15<|box|>285 140 301 588<|content|>IX. CONTACT INFORMATION AND AVAILABILITY\n<|id|>118<|type|>title<|page|>16<|box|>90 142 106 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>29<|tgt_id|>25\n<|src_id|>30<|tgt_id|>25\n<|src_id|>64<|tgt_id|>62\n<|src_id|>65<|tgt_id|>62\n<|src_id|>66<|tgt_id|>62\n<|src_id|>67<|tgt_id|>62\n<|src_id|>68<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 62
+        }
+    ]
+}

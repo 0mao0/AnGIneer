@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>178 140 195 771<|content|>VIA CERTIFIED MAIL, RETURN RECEIPT REQUESTED AND V\n<|id|>7<|page|>1<|box|>375 140 392 475<|content|>I. Introduction and Purpose of This Letter\n<|id|>11<|page|>1<|box|>823 140 840 500<|content|>II. The Insured — Whitmore Aerospace LLC\n<|id|>19<|page|>2<|box|>470 142 488 406<|content|>III. Applicable Insurance Policies\n<|id|>26<|page|>3<|box|>330 140 348 320<|content|>IV. Background Facts\n<|id|>27<|page|>3<|box|>361 140 378 550<|content|>A. The Prime Contract and the Teaming Agreement\n<|id|>37<|page|>4<|box|>138 140 156 490<|content|>B. The DCMA Cost-Overrun Determination\n<|id|>48<|page|>4<|box|>737 140 753 452<|content|>C. The HDDS Indemnification Demand\n<|id|>55<|page|>5<|box|>371 140 388 470<|content|>D. WAL's Position on the HDDS Demand\n<|id|>65<|page|>6<|box|>448 140 465 321<|content|>E. Potential Litigation\n<|id|>68<|page|>6<|box|>720 140 738 496<|content|>V. Basis for Coverage Under the D&O Policy\n<|id|>73<|page|>7<|box|>383 140 402 501<|content|>VI. Basis for Coverage Under the CGL Policy\n<|id|>77<|page|>7<|box|>814 140 832 614<|content|>VII. Formal Tender and Request for Defense and Ind\n<|id|>89<|page|>8<|box|>589 140 607 364<|content|>VIII. Preservation of Rights\n<|id|>98<|page|>9<|box|>359 140 375 339<|content|>IX. Enclosed Documents\n<|id|>104<|page|>9<|box|>638 140 656 526<|content|>X. Contact Information and Response Requested",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>19<|level|>2\n<|id|>26<|level|>2\n<|id|>27<|level|>3\n<|id|>37<|level|>3\n<|id|>48<|level|>3\n<|id|>55<|level|>3\n<|id|>65<|level|>3\n<|id|>68<|level|>2\n<|id|>73<|level|>2\n<|id|>77<|level|>2\n<|id|>89<|level|>2\n<|id|>98<|level|>2\n<|id|>104<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        }
+    ]
+}

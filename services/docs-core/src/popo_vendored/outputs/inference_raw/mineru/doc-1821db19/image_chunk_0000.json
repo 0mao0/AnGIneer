@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|type|>title<|page|>1<|box|>243 403 263 593<|content|>MEMORANDUM\n<|id|>12<|type|>title<|page|>1<|box|>587 142 604 343<|content|>I. Purpose and Summary\n<|id|>17<|type|>title<|page|>2<|box|>267 140 284 267<|content|>II. Background\n<|id|>18<|type|>title<|page|>2<|box|>297 140 314 343<|content|>A. Transaction Overview\n<|id|>22<|type|>title<|page|>2<|box|>715 140 732 370<|content|>B. PSA SNDA Requirements\n<|id|>32<|type|>title<|page|>3<|box|>715 140 734 303<|content|>C. Status at Closing\n<|id|>36<|type|>title<|page|>4<|box|>157 140 175 446<|content|>D. Post-Closing Carve-Out Side Letter\n<|id|>43<|type|>title<|page|>4<|box|>662 140 679 534<|content|>III. Identification of the Four Outstanding SNDAs\n<|id|>45<|type|>table<|page|>4<|box|>768 143 893 852<|content|>None\n<|id|>46<|type|>table<|page|>5<|box|>88 143 691 852<|content|>None\n<|id|>49<|type|>title<|page|>6<|box|>90 140 107 532<|content|>IV. Review and Confirmation of Executed SNDAs\n<|id|>50<|type|>title<|page|>6<|box|>121 142 138 310<|content|>A. Form Compliance\n<|id|>59<|type|>title<|page|>6<|box|>648 142 667 357<|content|>B. Counterparty Execution\n<|id|>77<|type|>title<|page|>7<|box|>648 140 665 447<|content|>V. Updated SNDA Tracking Summary\n<|id|>87<|type|>title<|page|>8<|box|>431 140 449 406<|content|>VI. Release of $200,000 Holdback\n<|id|>88<|type|>title<|page|>8<|box|>463 140 479 326<|content|>A. Conditions Satisfied\n<|id|>90<|type|>title<|page|>8<|box|>627 142 643 339<|content|>B. Recommended Action\n<|id|>98<|type|>title<|page|>9<|box|>398 140 416 310<|content|>C. Seller Notification\n<|id|>100<|type|>title<|page|>9<|box|>574 140 590 589<|content|>VII. Coordination with Post-Closing Obligations Tr\n<|id|>108<|type|>title<|page|>10<|box|>520 140 537 390<|content|>VIII. Enclosures / Attachments",
+    "raw_response": "<|src_id|>45<|tgt_id|>43\n<|src_id|>46<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 43
+        }
+    ]
+}

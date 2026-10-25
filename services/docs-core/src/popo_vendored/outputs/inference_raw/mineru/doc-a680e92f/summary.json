@@ -1,0 +1,211 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kgxg7r22\\input\\pdfs\\doc-a680e92f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kgxg7r22\\enriched\\doc-a680e92f.json",
+    "contd_output": "<|src_id|>85<|tgt_id|>86",
+    "title_output": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>29<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>45<|level|>3\n<|id|>56<|level|>3\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>73<|level|>3\n<|id|>87<|level|>3\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>114<|level|>3\n<|id|>131<|level|>3\n<|id|>143<|level|>2\n<|id|>144<|level|>3\n<|id|>152<|level|>3\n<|id|>162<|level|>3\n<|id|>168<|level|>2\n<|id|>169<|level|>3\n<|id|>175<|level|>3\n<|id|>178<|level|>3\n<|id|>183<|level|>3\n<|id|>186<|level|>3\n<|id|>189<|level|>2\n<|id|>200<|level|>2\n<|id|>215<|level|>2\n<|id|>225<|level|>2\n<|id|>230<|level|>2",
+    "image_output": "<|src_id|>39<|tgt_id|>37\n<|src_id|>71<|tgt_id|>69\n<|src_id|>99<|tgt_id|>97\n<|src_id|>146<|tgt_id|>144\n<|src_id|>147<|tgt_id|>144\n<|src_id|>171<|tgt_id|>169\n<|src_id|>172<|tgt_id|>169\n<|src_id|>180<|tgt_id|>178",
+    "contd_label": [
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 144
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 172,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 178
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 146,
+            "table2_idx": 147,
+            "upper_row_ss": [
+                [
+                    "Carrier",
+                    "Keystone General Insurance Company"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 171,
+            "table2_idx": 172,
+            "upper_row_ss": [
+                [
+                    "Policy Number",
+                    "CSI-EPLI-2023-091612"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Policy Period",
+                    "July 1, 2023 – July 1, 2024"
+                ]
+            ]
+        }
+    ]
+}

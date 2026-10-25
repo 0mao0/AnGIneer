@@ -1,0 +1,137 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 178 118 820<|content|>AMENDMENT NO. 1 TO MASTER SERVICES AGREEMENT\n<|id|>2<|page|>1<|box|>161 387 179 609<|content|>LUMOS ANALYTICS INC.\n<|id|>5<|page|>1<|box|>239 323 256 673<|content|>PINNACLE FINANCIAL HOLDINGS LLC\n<|id|>15<|page|>1<|box|>641 143 657 241<|content|>RECITALS\n<|id|>23<|page|>2<|box|>429 140 446 313<|content|>Section 1. Definitions\n<|id|>32<|page|>2<|box|>840 142 858 361<|content|>Section 2. Renewal of Term\n<|id|>37<|page|>3<|box|>402 140 420 442<|content|>Section 3. Amended Subscription Fees\n<|id|>45<|page|>5<|box|>90 140 107 763<|content|>Section 4. Amendment and Restatement of Exhibit C\n<|id|>47<|page|>5<|box|>220 140 238 344<|content|>4.1. Uptime Commitment\n<|id|>51<|page|>5<|box|>527 140 544 349<|content|>4.2. SLA Credit Structure\n<|id|>56<|page|>6<|box|>90 140 107 468<|content|>4.3. Real-Time Uptime Dashboard Access\n<|id|>66<|page|>6<|box|>681 140 698 433<|content|>4.4. Quarterly SLA Review Meetings\n<|id|>82<|page|>7<|box|>827 140 844 460<|content|>4.5. Exclusions from Uptime Calculation\n<|id|>89<|page|>8<|box|>297 140 314 421<|content|>4.6. SLA Credit Request Procedure\n<|id|>91<|page|>8<|box|>462 140 479 390<|content|>4.7. P1 Incident Response Time\n<|id|>96<|page|>8<|box|>714 140 731 372<|content|>Section 5. Settlement Credits\n<|id|>100<|page|>9<|box|>285 140 303 400<|content|>Section 6. Limitation of Liability\n<|id|>103<|page|>9<|box|>616 140 633 406<|content|>Section 7. No Other Amendments\n<|id|>107<|page|>10<|box|>90 140 107 348<|content|>Section 8. Governing Law\n<|id|>110<|page|>10<|box|>256 140 273 374<|content|>Section 9. Dispute Resolution\n<|id|>114<|page|>10<|box|>613 140 630 540<|content|>Section 10. Counterparts and Electronic Execution\n<|id|>117<|page|>10<|box|>816 140 832 377<|content|>Section 11. Entire Agreement\n<|id|>120<|page|>11<|box|>196 400 214 596<|content|>[Signature Page Follows]\n<|id|>121<|page|>11<|box|>222 143 239 849<|content|>SIGNATURE PAGE TO AMENDMENT NO. 1 TO MASTER SERVIC\n<|id|>123<|page|>11<|box|>292 142 309 367<|content|>LUMOS ANALYTICS INC.\n<|id|>132<|page|>11<|box|>486 421 503 576<|content|>ATTACHMENT A\n<|id|>133<|page|>12<|box|>89 179 107 816<|content|>AMENDED AND RESTATED EXHIBIT C — SERVICE LEVEL AGR\n<|id|>134<|page|>12<|box|>131 357 148 640<|content|>(Summary of Key Amended Terms)\n<|id|>137<|page|>12<|box|>686 143 703 372<|content|>SLA Credit Tiers (Amended)",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>5<|level|>2\n<|id|>15<|level|>2\n<|id|>23<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>3\n<|id|>51<|level|>3\n<|id|>56<|level|>3\n<|id|>66<|level|>3\n<|id|>82<|level|>3\n<|id|>89<|level|>3\n<|id|>91<|level|>3\n<|id|>96<|level|>2\n<|id|>100<|level|>2\n<|id|>103<|level|>2\n<|id|>107<|level|>2\n<|id|>110<|level|>2\n<|id|>114<|level|>2\n<|id|>117<|level|>2\n<|id|>120<|level|>-1\n<|id|>121<|level|>2\n<|id|>123<|level|>3\n<|id|>132<|level|>2\n<|id|>133<|level|>2\n<|id|>134<|level|>3\n<|id|>137<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        }
+    ]
+}

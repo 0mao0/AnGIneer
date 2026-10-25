@@ -1,0 +1,936 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lydb2w_e\\input\\pdfs\\doc-8296c5a9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lydb2w_e\\enriched\\doc-8296c5a9.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>14<|level|>2\n<|id|>19<|level|>3\n<|id|>24<|level|>3\n<|id|>29<|level|>3\n<|id|>35<|level|>3\n<|id|>48<|level|>3\n<|id|>52<|level|>2\n<|id|>62<|level|>2\n<|id|>63<|level|>3\n<|id|>72<|level|>3\n<|id|>77<|level|>4\n<|id|>88<|level|>4\n<|id|>95<|level|>4\n<|id|>102<|level|>4\n<|id|>115<|level|>4\n<|id|>128<|level|>3\n<|id|>143<|level|>4\n<|id|>149<|level|>4\n<|id|>151<|level|>3\n<|id|>162<|level|>3\n<|id|>166<|level|>4\n<|id|>170<|level|>4\n<|id|>174<|level|>3\n<|id|>178<|level|>4\n<|id|>182<|level|>3\n<|id|>186<|level|>4\n<|id|>190<|level|>3\n<|id|>194<|level|>2\n<|id|>195<|level|>3\n<|id|>206<|level|>3\n<|id|>209<|level|>4\n<|id|>222<|level|>4\n<|id|>228<|level|>4\n<|id|>236<|level|>4\n<|id|>243<|level|>3\n<|id|>245<|level|>4\n<|id|>251<|level|>4\n<|id|>254<|level|>4\n<|id|>258<|level|>4\n<|id|>268<|level|>3\n<|id|>273<|level|>3\n<|id|>277<|level|>2\n<|id|>289<|level|>3\n<|id|>294<|level|>4\n<|id|>307<|level|>4\n<|id|>311<|level|>3\n<|id|>319<|level|>4\n<|id|>322<|level|>3\n<|id|>334<|level|>3\n<|id|>340<|level|>3\n<|id|>346<|level|>3\n<|id|>354<|level|>2\n<|id|>355<|level|>3\n<|id|>365<|level|>3\n<|id|>369<|level|>4\n<|id|>384<|level|>4\n<|id|>396<|level|>4\n<|id|>400<|level|>4\n<|id|>404<|level|>4\n<|id|>410<|level|>4\n<|id|>397<|level|>5\n<|id|>401<|level|>5\n<|id|>405<|level|>5\n<|id|>411<|level|>5\n<|id|>417<|level|>4\n<|id|>422<|level|>4\n<|id|>429<|level|>4\n<|id|>434<|level|>4\n<|id|>439<|level|>4\n<|id|>442<|level|>5\n<|id|>447<|level|>5\n<|id|>453<|level|>4\n<|id|>463<|level|>4\n<|id|>477<|level|>4\n<|id|>486<|level|>4\n<|id|>487<|level|>5\n<|id|>503<|level|>4\n<|id|>504<|level|>5\n<|id|>511<|level|>5",
+    "image_output": "<|src_id|>21<|tgt_id|>19\n<|src_id|>22<|tgt_id|>19\n<|src_id|>32<|tgt_id|>29\n<|src_id|>54<|tgt_id|>52\n<|src_id|>55<|tgt_id|>52\n<|src_id|>56<|tgt_id|>52\n<|src_id|>57<|tgt_id|>52\n<|src_id|>58<|tgt_id|>52\n<|src_id|>59<|tgt_id|>52\n<|src_id|>60<|tgt_id|>52\n<|src_id|>84<|tgt_id|>77\n<|src_id|>85<|tgt_id|>77\n<|src_id|>86<|tgt_id|>77\n<|src_id|>126<|tgt_id|>115\n<|src_id|>133<|tgt_id|>128\n<|src_id|>134<|tgt_id|>128\n<|src_id|>219<|tgt_id|>209\n<|src_id|>220<|tgt_id|>209\n<|src_id|>302<|tgt_id|>294\n<|src_id|>303<|tgt_id|>294\n<|src_id|>304<|tgt_id|>294\n<|src_id|>305<|tgt_id|>294\n<|src_id|>316<|tgt_id|>311\n<|src_id|>317<|tgt_id|>311\n<|src_id|>392<|tgt_id|>384\n<|src_id|>393<|tgt_id|>384\n<|src_id|>394<|tgt_id|>384\n<|src_id|>394<|tgt_id|>396\n<|src_id|>479<|tgt_id|>477\n<|src_id|>480<|tgt_id|>477\n<|src_id|>481<|tgt_id|>477\n<|src_id|>482<|tgt_id|>477\n<|src_id|>483<|tgt_id|>477",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 115,
+            "level": 4
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 4
+        },
+        {
+            "id": 149,
+            "level": 4
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 4
+        },
+        {
+            "id": 170,
+            "level": 4
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 178,
+            "level": 4
+        },
+        {
+            "id": 182,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 4
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 4
+        },
+        {
+            "id": 222,
+            "level": 4
+        },
+        {
+            "id": 228,
+            "level": 4
+        },
+        {
+            "id": 236,
+            "level": 4
+        },
+        {
+            "id": 243,
+            "level": 3
+        },
+        {
+            "id": 245,
+            "level": 4
+        },
+        {
+            "id": 251,
+            "level": 4
+        },
+        {
+            "id": 254,
+            "level": 4
+        },
+        {
+            "id": 258,
+            "level": 4
+        },
+        {
+            "id": 268,
+            "level": 3
+        },
+        {
+            "id": 273,
+            "level": 3
+        },
+        {
+            "id": 277,
+            "level": 2
+        },
+        {
+            "id": 289,
+            "level": 3
+        },
+        {
+            "id": 294,
+            "level": 4
+        },
+        {
+            "id": 307,
+            "level": 4
+        },
+        {
+            "id": 311,
+            "level": 3
+        },
+        {
+            "id": 319,
+            "level": 4
+        },
+        {
+            "id": 322,
+            "level": 3
+        },
+        {
+            "id": 334,
+            "level": 3
+        },
+        {
+            "id": 340,
+            "level": 3
+        },
+        {
+            "id": 346,
+            "level": 3
+        },
+        {
+            "id": 354,
+            "level": 2
+        },
+        {
+            "id": 355,
+            "level": 3
+        },
+        {
+            "id": 365,
+            "level": 3
+        },
+        {
+            "id": 369,
+            "level": 4
+        },
+        {
+            "id": 384,
+            "level": 4
+        },
+        {
+            "id": 396,
+            "level": 4
+        },
+        {
+            "id": 400,
+            "level": 4
+        },
+        {
+            "id": 404,
+            "level": 4
+        },
+        {
+            "id": 410,
+            "level": 4
+        },
+        {
+            "id": 397,
+            "level": 5
+        },
+        {
+            "id": 401,
+            "level": 5
+        },
+        {
+            "id": 405,
+            "level": 5
+        },
+        {
+            "id": 411,
+            "level": 5
+        },
+        {
+            "id": 417,
+            "level": 4
+        },
+        {
+            "id": 422,
+            "level": 4
+        },
+        {
+            "id": 429,
+            "level": 4
+        },
+        {
+            "id": 434,
+            "level": 4
+        },
+        {
+            "id": 439,
+            "level": 4
+        },
+        {
+            "id": 442,
+            "level": 5
+        },
+        {
+            "id": 447,
+            "level": 5
+        },
+        {
+            "id": 453,
+            "level": 4
+        },
+        {
+            "id": 463,
+            "level": 4
+        },
+        {
+            "id": 477,
+            "level": 4
+        },
+        {
+            "id": 486,
+            "level": 4
+        },
+        {
+            "id": 487,
+            "level": 5
+        },
+        {
+            "id": 503,
+            "level": 4
+        },
+        {
+            "id": 504,
+            "level": 5
+        },
+        {
+            "id": 511,
+            "level": 5
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 302,
+            "tgt_id": 294
+        },
+        {
+            "src_id": 303,
+            "tgt_id": 294
+        },
+        {
+            "src_id": 304,
+            "tgt_id": 294
+        },
+        {
+            "src_id": 305,
+            "tgt_id": 294
+        },
+        {
+            "src_id": 316,
+            "tgt_id": 311
+        },
+        {
+            "src_id": 317,
+            "tgt_id": 311
+        },
+        {
+            "src_id": 392,
+            "tgt_id": 384
+        },
+        {
+            "src_id": 393,
+            "tgt_id": 384
+        },
+        {
+            "src_id": 394,
+            "tgt_id": 384
+        },
+        {
+            "src_id": 394,
+            "tgt_id": 396
+        },
+        {
+            "src_id": 479,
+            "tgt_id": 477
+        },
+        {
+            "src_id": 480,
+            "tgt_id": 477
+        },
+        {
+            "src_id": 481,
+            "tgt_id": 477
+        },
+        {
+            "src_id": 482,
+            "tgt_id": 477
+        },
+        {
+            "src_id": 483,
+            "tgt_id": 477
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 21,
+            "table2_idx": 22,
+            "upper_row_ss": [
+                [
+                    "U.S. Patent No.",
+                    "High-Bandwidth",
+                    "April 7, 2017",
+                    "January 12, 2021",
+                    "1, 3, 7, 10, 15, 18"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "10,891,193 (\"193 Patent\")",
+                    "Coherent Optical Transceiver Integrated on Silicon Substrate",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 54,
+            "table2_idx": 55,
+            "upper_row_ss": [
+                [
+                    "R-1",
+                    "Takahashiet al., \"Dense WDM Silicon Photonic MUX with",
+                    "Journal article",
+                    "March 2014",
+                    "'847 Patent; '193 Patent",
+                    "'847: 1, 3, 5, 9, 14; '193: 1, 3, 7, 10, 15, 18",
+                    "Anticipation (§ 102)",
+                    "N/A (standalone anticipation)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Arrayed Waveguide Grating Architecture,\" IEEE Photonics Technology Letters, Vol. 26, No. 5",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 55,
+            "table2_idx": 56,
+            "upper_row_ss": [
+                [
+                    "R-4",
+                    "Dr. Li Wei, \"Thermal Solutions for Photonic Integrated Circuits: A Survey and Outlook,\" Proceedings of the Optical Fiber Communication Conference (OFC 2013), Paper",
+                    "Conference paper",
+                    "March 2013",
+                    "'562 Patent",
+                    "1, 4, 6, 11",
+                    "Anticipation (§ 102)",
+                    "Also combined: R-4 + R-2"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "OTh4A.3",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 56,
+            "table2_idx": 57,
+            "upper_row_ss": [
+                [
+                    "R-8",
+                    "Chang & Patel, \"Broadband Waveguide Coupler Design for",
+                    "Conference paper",
+                    "September 2014",
+                    "'847 Patent",
+                    "1, 9, 14",
+                    "Obviousness (§ 103)",
+                    "R-8 + R-1"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Photonic Integration, \"Proceedings of ECOC 2014, Paper P.2.14",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 57,
+            "table2_idx": 58,
+            "upper_row_ss": [
+                [
+                    "R-12",
+                    "U.S. Patent App. Pub. No. 2016/00479 83 (Nagarajan et al.), \"Integrated Coherent Transceiver\"",
+                    "Published U.S. patent application",
+                    "February 18, 2016",
+                    "'193 Patent",
+                    "1, 3, 7, 10, 15, 18",
+                    "Anticipation (§ 102)",
+                    "N/A"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "R-13",
+                    "Dong et al., \"Monolithic Silicon Photonic Coherent Receiver for 400G Applications,\" Proceedings of OFC 2016, Paper Th3I.2",
+                    "Conference paper",
+                    "March 2016",
+                    "'193 Patent",
+                    "1, 7, 10, 18",
+                    "Obviousness (§ 103)",
+                    "R-13 + R-12"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 58,
+            "table2_idx": 59,
+            "upper_row_ss": [
+                [
+                    "R-16",
+                    "Sacher et al., \"Polarization Rotator-Splitters and Controllers in a Silicon-on-Insulator Platform,\" Optics Express, Vol. 23, No. 17",
+                    "Journal article",
+                    "August 2015",
+                    "'193 Patent",
+                    "3, 7, 15",
+                    "Obviousness (§ 103)",
+                    "R-16 + R-10; R-16 + R-12"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "R-17",
+                    "Dang et al., \"Embedded Liquid Cooling for Semiconductor Packages,\" Proceedings of ITHERM 2014",
+                    "Conference paper",
+                    "May 2014",
+                    "'562 Patent",
+                    "1, 4, 6, 11",
+                    "Obviousness (§ 103)",
+                    "R-17 + R-4; R-17 + R-2"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 59,
+            "table2_idx": 60,
+            "upper_row_ss": [
+                [
+                    "R-20",
+                    "Taillaert et al., \"Grating Couplers for Coupling Between Optical Fibers and Nanophotonic Waveguide",
+                    "Journal article",
+                    "December 2015",
+                    "'015 Patent",
+                    "1, 5, 8, 12, 16",
+                    "Anticipation (§ 102)",
+                    "N/A"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "s,\" Optics Letters, Vol. 40, No. 24",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 84,
+            "table2_idx": 85,
+            "upper_row_ss": [
+                [
+                    "[Preamble] \"A multi-channel silicon photonic waveguide multiplexer...\"",
+                    "Takahashi describes a \"silicon photonic MUX\" using an arrayed waveguide grating architecture. See Takahashi at Abstract, § I (Introduction).",
+                    "Takahashi describes an AWG-based multiplexer that uses star couplers (slab waveguide regions) as its combining mechanism. Under OWS's construction of \"waveguide multiplexer\" — \"an optical device that combines multiple optical signals of different wavelengths onto a single waveguide\" — Takahashi's device uses a slab coupler output region, not a single-mode waveguide output as required. The slab coupler disperses light spatially before collection, which is architecturally distinct from the claimed \"waveguide multiplexer.\" Even under Lumicore's broader proposed construction (\"any device that combines optical signals\"), Takahashi's device may arguably"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "meet the preamble, but the preamble is not limiting in any event. The critical deficiencies are in the body limitations, as discussed below."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 85,
+            "table2_idx": 86,
+            "upper_row_ss": [
+                [
+                    "[Limitation 1c] \"a plurality of",
+                    "Not disclosed.",
+                    "MISSING ENTIRELY. Takahashi"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "adiabatic waveguide tapers disposed at each interface between each of the at least eight optical input waveguides and the waveguide combining region, each adiabatic waveguide taper having a taper ratio of at least 5:1 and a taper length of at least 50 μm, the plurality of adiabatic waveguide tapers providing mode-matching between the optical input waveguides and the waveguide combining region to reduce insertion loss\"",
+                    "",
+                    "does not describe, disclose, or suggest any taper or mode-matching structure at the input/output interfaces of its AWG device. Takahashi's AWG uses conventional abrupt transitions between the access waveguides and the star coupler slab regions. There is no discussion of adiabatic waveguide tapers, no mention of taper ratios or taper lengths, and no disclosure of any mode-matching strategy at the waveguide-to-slab interfaces. This is a critical structural limitation of the '847 Patent claims, as it is the adiabatic taper design — with the specific geometric parameters of a 5:1 taper ratio and 50 μm minimum length — that enables the low insertion loss performance claimed in limitation 1d. Takahashi's omission of this limitation is directly related to the reference's failure to achieve the low insertion loss required by the claim."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 133,
+            "table2_idx": 134,
+            "upper_row_ss": [
+                [
+                    "[Limitation 1c] \"a plurality of adiabatic waveguide tapers... taper ratio of at least 5:1 and a taper length of at least 50 μm...\"",
+                    "Simonsen describes tapered waveguide transitions at the Echelle grating interfaces. See Simonsen at [0035], Fig. 5. The tapers have a reported taper ratio of approximately 3:1 and a length of 30 μm.",
+                    "MISSING. While Simonsen does disclose tapered waveguide transitions, these tapers fail to meet the specific geometric requirements of the claim. Simonsen's tapers have a taper ratio of approximately 3:1 (less than the required 5:1) and a length of approximately 30 μm (less than the required 50 μm minimum). Additionally, Simonsen's tapers are designed for InP waveguides with very different mode-field diameters and refractive index profiles compared to SOI waveguides. The mode-matching function and the adiabaticity criteria for InP-based tapers are not equivalent to those for"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "silicon waveguides, because the higher refractive index contrast in SOI (\\Delta n \\approx 2.0forSi/SiO_{2}) compared to InP/InGaAsP (\\Delta n \\approx 0.3) fundamentally changes the required taper geometry for adiabatic transitions."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 219,
+            "table2_idx": 220,
+            "upper_row_ss": [
+                [
+                    "[Limitation 1c] \"a local oscillator coupling interface... configured to receive a local oscillator signal from an external laser source and distribute the local oscillator signal to the pair of 90-degree optical hybrids\"",
+                    "Not disclosed.",
+                    "MISSING ENTIRELY. Takahashi does not disclose a local oscillator coupling interface. Coherent detection requires a local oscillator for heterodyne or homodyne mixing, a concept entirely absent from Takahashi's IM multiplexer."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "[Limitation 1d] \"wherein all of the coherent modulator section, the coherent detection module, and the local oscillator coupling interface are monolithically integrated on a single silicon substrate... and wherein the transceiver achieves a bandwidth of at least 400 Gb/s per wavelength\"",
+                    "Not disclosed.",
+                    "MISSING ENTIRELY. Takahashi does not disclose monolithic integration of a complete transceiver. Takahashi describes only a single multiplexer component on an SOI chip. The concept of integrating modulator, coherent receiver, and LO interface on a single substrate is not taught. The 400 Gb/s bandwidth requirement is not discussed; Takahashi's 4-channel multiplexer operates at aggregate data rates far below this threshold."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 302,
+            "table2_idx": 303,
+            "upper_row_ss": [
+                [
+                    "[Preamble] \"A method for thermal management of a photonic integrated circuit...\"",
+                    "Bergmann describes a cooling method for \"semiconductor devices.\" See Bergmann at col. 1, ll. 15-25.",
+                    "Bergmann addresses thermal management of electronic semiconductor devices (microprocessors, power amplifiers), not photonic integrated circuits. While both types of devices are semiconductor-based, the thermal management challenges are fundamentally different. Electronic ICs generate heat uniformly across large active areas and can tolerate temperature variations of several degrees without functional impact. PICs, by contrast, require sub-degree temperature uniformity because even small thermal gradients (0.1°C) can shift the"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "effective refractive index of optical waveguides by enough to cause wavelength drift exceeding channel spacing tolerances. A POSITA would recognize that Bergmann's approach — macro-scale air-cooled channels — is inadequate for the precision thermal management required by PICs."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 303,
+            "table2_idx": 304,
+            "upper_row_ss": [
+                [
+                    "[Step (c)] \"sealing the plurality of",
+                    "Bergmann discloses covering the",
+                    "PARTIALLY DISCLOSED but"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "micro-channels with a capping layer bonded to the silicon substrate to form enclosed micro-channel passages\"",
+                    "channels with a \"top plate\" attached by adhesive. See Bergmann at col. 5, ll. 1-15.",
+                    "distinguishable. Bergmann describes sealing channels with a top plate, but Bergmann's top plate is a separate metal plate attached by adhesive, not a \"capping layer bonded to the silicon substrate.\" The '562 Patent specifies bonding techniques (e.g., direct silicon bonding, anodic bonding) that create hermetic, monolithic seals suitable for liquid containment in a micro-channel environment. Bergmann's adhesive attachment is not a \"capping layer bonded to the silicon substrate\" under the ordinary meaning of these terms in the silicon microfabrication field."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 304,
+            "table2_idx": 305,
+            "upper_row_ss": [
+                [
+                    "[Step (e)] \"circulating the liquid coolant through the enclosed micro-channel passages at a flow rate sufficient to maintain a temperature uniformity across the photonic waveguide layer of ±0.5°C or better during operation of the photonic integrated circuit\"",
+                    "Not disclosed.",
+                    "MISSING. Bergmann does not disclose circulating liquid coolant (it uses air), does not address temperature uniformity across a photonic waveguide layer (no such layer exists in its device), and does not specify any temperature uniformity requirement. Bergmann's cooling approach is designed to prevent thermal throttling of a microprocessor — a much coarser thermal management objective (maintaining junction temperature below a maximum threshold) — not"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "the fine-grained temperature uniformity required for PIC operation."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 316,
+            "table2_idx": 317,
+            "upper_row_ss": [
+                [
+                    "[Step (b)] \"forming a plurality of micro-channels in the silicon substrate... hydraulic diameter of less than 1 mm...\"",
+                    "Li Wei mentions micro-channels as a \"promising but as-yet-unrealized approach.\" See Li Wei at § 5 (Future Directions), p. 5.",
+                    "MISSING. Li Wei's two-sentence reference to micro-channels is aspirational and theoretical — it identifies micro-channel cooling as a potential future research direction, not as an approach that has been reduced to practice or that is sufficiently described to enable a POSITA to practice it. Li Wei does not disclose any specific micro-channel dimensions, cross-section geometry, hydraulic diameter, or fabrication approach. The statement that micro-channels \"may eventually be adapted\" is an expression of hope, not a technical disclosure. A POSITA reading Li Wei would understand that the author is identifying an unsolved problem, not providing a solution. Under the enablement requirement for"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "anticipation, a reference must describe the claimed invention with sufficient detail to allow a POSITA to practice it without undue experimentation. Li Wei's passing reference to micro-channels as a \"promising but as-yet-unrealized approach\" does not satisfy this requirement."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 392,
+            "table2_idx": 393,
+            "upper_row_ss": [
+                [
+                    "[Preamble] \"A polarization-diverse grating coupler for silicon photonic",
+                    "The documents reference a \"grating coupler\" concept for \"optical",
+                    "The documents use the general term \"grating coupler\" and reference"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "transceivers...\"",
+                    "interconnect applications.\" See LTC-00045672 (meeting notes, March 2016), LTC-00045790 (Northgate Services Inc. slide, October 2016).",
+                    "\"optical interconnect applications,\" but do not specifically describe a \"polarization-diverse\" grating coupler for \"silicon photonic transceivers.\" The described concept is a conventional grating coupler for single-mode fiber coupling, not a polarization-diverse device."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 393,
+            "table2_idx": 394,
+            "upper_row_ss": [
+                [
+                    "[Limitation 1c] \"the two-dimensional periodic grating pattern configured to simultaneously diffract a TE polarization",
+                    "Not disclosed. The documents describe a single-output grating coupler directing light into one waveguide. See LTC-00045700,",
+                    "MISSING. Because the Lumicore documents describe a one-dimensional grating with a single output waveguide, there is no"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "component... into a first on-chip single-mode waveguide and a TM polarization component... into a second on-chip single-mode waveguide\"",
+                    "LTC-00045810 (simulation setup showing single-waveguide output).",
+                    "disclosure of simultaneously diffracting two polarization components into two separate on-chip waveguides. The polarization-diverse coupling functionality — the core innovation of the '015 Patent — is entirely absent from the Lumicore documents."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 479,
+            "table2_idx": 480,
+            "upper_row_ss": [
+                [
+                    "R-1",
+                    "Takahashi et al.(IEEE PTL, March 2014)",
+                    "'847; '193",
+                    "§ 102",
+                    "'847: ≥8 channels, ≤200 GHz spacing, adiabatic tapers, insertion loss <1.5 dB. '193: coherent modulator, coherent detection module, LO interface,",
+                    "Does not anticipate any claim of either patent."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "monolithic transceiver integration, 400 Gb/s bandwidth.",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 480,
+            "table2_idx": 481,
+            "upper_row_ss": [
+                [
+                    "R-6",
+                    "Ohtani et al. (JJAP, Jan. 2015)",
+                    "'847",
+                    "§ 102",
+                    "Only 4 channels, 800 GHz spacing, no tapers, insertion loss 1.8 dB.",
+                    "Does not anticipate."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "R-7",
+                    "Ranganath (U.S. Pat. 8,947,013, Feb. 2015)",
+                    "'847",
+                    "§ 103",
+                    "Micro-ring architecture (not waveguide combiner), only 4 channels, insertion loss 2.8 dB.",
+                    "Does not render obvious (alone or in combination)."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 481,
+            "table2_idx": 482,
+            "upper_row_ss": [
+                [
+                    "R-14",
+                    "Mazzini (EP 2,998,772, March 2016)",
+                    "'193",
+                    "§ 103",
+                    "Direct-detection (non-coherent) architecture —",
+                    "Does not render obvious (alone or in combination)."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "no coherent detection, no 90° hybrids, no LO interface.",
+                    "combination)."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 482,
+            "table2_idx": 483,
+            "upper_row_ss": [
+                [
+                    "R-20",
+                    "Taillaert et al. (Optics Letters, Dec. 2015)",
+                    "'015",
+                    "§ 102",
+                    "1D grating only — 2D concept only in outlook; no demonstrated 2D grating, no polarization diversity, no",
+                    "Does not anticipate."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "PDL spec, coupling efficiency -4.5 dB (not -3 dB).",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        10,
+        12,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 140 180 826<|content|>FROM: ... Claire Dempsey, Working Associate, Capital Markets, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>188 140 223 854<|content|>TO: ... Claire, Billing Partner Eric Johannsen, Lead Associate\n<|id|>4<|page|>1<|box|>232 140 250 334<|content|>DATE: ... February 6, 2024\n<|id|>5<|page|>1<|box|>258 140 276 836<|content|>RE: ... — Lock-Up Agreement Analysis and Market Comparison\n<|id|>6<|page|>1<|box|>282 140 301 362<|content|>MATTER NO. ... 1010-00002\n<|id|>7<|page|>1<|box|>309 140 327 455<|content|>CLIENT: ... Arbor Health Technologies Inc\n<|id|>43<|page|>4<|box|>713 174 767 854<|content|>(e) entering into any swap, hedge, or other arrang...o be settled in shares, cash, or otherwise; ... or\n<|id|>45<|page|>4<|box|>838 140 875 854<|content|>The restriction described in clause (f) above is c... ... 1(b) of the Amended and Restated Registration\n<|id|>46<|page|>5<|box|>90 140 126 854<|content|>Rights Agreement among AHT, Brindoval Trelvon Part...line Growth Equity, and certain other stockholders\n<|id|>84<|page|>10<|box|>387 174 441 854<|content|>(ii) Companies with large public floats (greater t...l for overhang is correspondingly reduced; ... and\n<|id|>86<|page|>10<|box|>512 140 641 856<|content|>AHT does not fit any of these profiles. ... Given ...y necessary to support aftermarket price stability\n<|id|>101<|page|>12<|box|>565 183 580 756<|content|>• Dr. ... up to 1,280,000 shares\n<|id|>106<|page|>12<|box|>662 140 734 854<|content|>The per-holder calculation methodology is the stan...l's tax obligations can be addressed independently\n<|id|>102<|page|>12<|box|>585 183 601 723<|content|>• Margaret Tsujimoto (9,600,000 locked-up shares): ... up to 960,000 shares\n<|id|>103<|page|>12<|box|>604 183 619 707<|content|>• David Halderman (2,400,000 locked-up shares): ... up to 240,000 shares\n<|id|>104<|page|>12<|box|>625 183 640 707<|content|>• Rachel Moynihan (1,200,000 locked-up shares): ... up to 120,000 shares\n<|id|>105<|page|>12<|box|>643 183 659 743<|content|>• Dr. ... up to 160,000 shares\n<|id|>151<|page|>20<|box|>734 143 753 643<|content|>Prepared by: ... Claire Dempsey, Working Associate, Capital Markets\n<|id|>152<|page|>20<|box|>761 143 777 609<|content|>Reviewed by: ... Eric Johannsen, Lead Associate, Capital Markets\n<|id|>153<|page|>20<|box|>787 235 803 763<|content|>Calderwood & Harkness LLP 125 Broad Street New York, NY 10004",
+    "raw_response": "<|src_id|>45<|tgt_id|>46",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        }
+    ]
+}

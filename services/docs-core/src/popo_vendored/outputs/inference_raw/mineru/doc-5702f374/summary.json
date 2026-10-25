@@ -1,0 +1,648 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kefgp1ls\\input\\pdfs\\doc-5702f374.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kefgp1ls\\enriched\\doc-5702f374.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>3\n<|id|>24<|level|>4\n<|id|>29<|level|>3\n<|id|>39<|level|>3\n<|id|>40<|level|>4\n<|id|>42<|level|>4\n<|id|>44<|level|>4\n<|id|>46<|level|>4\n<|id|>48<|level|>4\n<|id|>51<|level|>3\n<|id|>52<|level|>4\n<|id|>60<|level|>4\n<|id|>63<|level|>3\n<|id|>70<|level|>4\n<|id|>72<|level|>3\n<|id|>81<|level|>3\n<|id|>82<|level|>4\n<|id|>84<|level|>4\n<|id|>86<|level|>4\n<|id|>88<|level|>3\n<|id|>90<|level|>4\n<|id|>92<|level|>4\n<|id|>94<|level|>2\n<|id|>98<|level|>3\n<|id|>109<|level|>2\n<|id|>110<|level|>3\n<|id|>118<|level|>3\n<|id|>122<|level|>3\n<|id|>127<|level|>2\n<|id|>135<|level|>3\n<|id|>137<|level|>3\n<|id|>140<|level|>3\n<|id|>145<|level|>2\n<|id|>155<|level|>3\n<|id|>160<|level|>3\n<|id|>162<|level|>2\n<|id|>169<|level|>2\n<|id|>172<|level|>2\n<|id|>177<|level|>1\n<|id|>180<|level|>2",
+    "image_output": "<|src_id|>5<|tgt_id|>2\n<|src_id|>13<|tgt_id|>12\n<|src_id|>14<|tgt_id|>12\n<|src_id|>74<|tgt_id|>72\n<|src_id|>96<|tgt_id|>94\n<|src_id|>97<|tgt_id|>94\n<|src_id|>105<|tgt_id|>94\n<|src_id|>106<|tgt_id|>94\n<|src_id|>107<|tgt_id|>94\n<|src_id|>108<|tgt_id|>94\n<|src_id|>112<|tgt_id|>110\n<|src_id|>113<|tgt_id|>110\n<|src_id|>114<|tgt_id|>110\n<|src_id|>115<|tgt_id|>110\n<|src_id|>120<|tgt_id|>118\n<|src_id|>121<|tgt_id|>118\n<|src_id|>124<|tgt_id|>122\n<|src_id|>125<|tgt_id|>122\n<|src_id|>129<|tgt_id|>127\n<|src_id|>130<|tgt_id|>127\n<|src_id|>131<|tgt_id|>127\n<|src_id|>133<|tgt_id|>127\n<|src_id|>134<|tgt_id|>127\n<|src_id|>136<|tgt_id|>135\n<|src_id|>138<|tgt_id|>137\n<|src_id|>139<|tgt_id|>137\n<|src_id|>141<|tgt_id|>140\n<|src_id|>143<|tgt_id|>140\n<|src_id|>144<|tgt_id|>140\n<|src_id|>164<|tgt_id|>162\n<|src_id|>165<|tgt_id|>162\n<|src_id|>166<|tgt_id|>162\n<|src_id|>167<|tgt_id|>162\n<|src_id|>168<|tgt_id|>162\n<|src_id|>170<|tgt_id|>169\n<|src_id|>171<|tgt_id|>169\n<|src_id|>174<|tgt_id|>172\n<|src_id|>175<|tgt_id|>172",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 4
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 4
+        },
+        {
+            "id": 42,
+            "level": 4
+        },
+        {
+            "id": 44,
+            "level": 4
+        },
+        {
+            "id": 46,
+            "level": 4
+        },
+        {
+            "id": 48,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 4
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 84,
+            "level": 4
+        },
+        {
+            "id": 86,
+            "level": 4
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 4
+        },
+        {
+            "id": 92,
+            "level": 4
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 1
+        },
+        {
+            "id": 180,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 5,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 118
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 118
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 143,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 140
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 162
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 162
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 162
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 162
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 162
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 171,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 172
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 172
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 13,
+            "table2_idx": 14,
+            "upper_row_ss": [
+                [
+                    "Miriam Calloway",
+                    "Responsible Partner, Healthcare & Life Sciences Practice Group",
+                    "22 years of FDA regulatory law experience; former senior counsel at FDA Center for Devices",
+                    "mcalloway@calderwoodharkness.com; (202) 555-4112"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "and Radiological Health (CDRH), Office of Device Evaluation; extensive experience advising medical device manufacturers on 510(k), PMA, De Novo, and IDE submissions; admitted in the District of Columbia and Maryland",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 96,
+            "table2_idx": 97,
+            "upper_row_ss": [
+                [
+                    "6",
+                    "LUMINA-US",
+                    "September 15, 2025",
+                    "[On Track / At Risk]",
+                    "[Comments — e.g.,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "clinical study commenced (Veltrano CRO; 6 U.S. clinical sites; 350 subjects; Protocol SBD-LUM-CL-001)",
+                    "",
+                    "",
+                    "\"Dependent on IRB approval, clinical site agreements, and CRO agreement finalization.\"]"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 105,
+            "table2_idx": 106,
+            "upper_row_ss": [
+                [
+                    "5.2",
+                    "Completion of Crestline FTO claim chart analysis for U.S. Patent No.",
+                    "Crestline (Dr. Cho); SBD Engineering (Dr. Burke)",
+                    "[Date]",
+                    "High",
+                    "[Open / In Progress]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "10,847,221 and review of SBD design-around proposal for alternative electrode deposition process",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 106,
+            "table2_idx": 107,
+            "upper_row_ss": [
+                [
+                    "5.5",
+                    "Atlas Underwriting Partners product liability insurance policy renewal planning (Policy No. AUP-PL-2024-00893; $25M per occurrence / $50M aggregate; expires September 30, 2025). Current coverage includes U.S. market entry activities and clinical trial operations.",
+                    "SBI (Hale); SBD (Dr. Tierney); Broadleaf Accounting Partners LLP (Murray)",
+                    "Renewal process to be initiated no later than [Date — e.g., August 1, 2025]",
+                    "High",
+                    "[Open]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Renewal must be completed prior to expiration to avoid coverage gap during clinical study.",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 107,
+            "table2_idx": 108,
+            "upper_row_ss": [
+                [
+                    "5.8",
+                    "Confirmation of final sensor functional specifications for the Lumina C14 implantable sensor: sensor functional life of 336 hours (14 days);",
+                    "SBD Engineering (Dr. Burke)",
+                    "[Date]",
+                    "Medium",
+                    "[Open / In Progress]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "measurement range of 40–400 mg/dL; warm-up period ≤ 60 minutes; alert latency ≤ 5 minutes. Any deviations from these specifications may impact the predicate comparison and clinical study design.",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 112,
+            "table2_idx": 113,
+            "upper_row_ss": [
+                [
+                    "Timekeeper",
+                    "Role",
+                    "Hourly Rate",
+                    "Hours This Period",
+                    "Fees This Period",
+                    "Cumulative Hours",
+                    "Cumulative Fees"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Miriam Calloway",
+                    "Responsible Partner",
+                    "$1,150/hr",
+                    "[Hours]",
+                    "[$[Amount]",
+                    "[Hours]",
+                    "[$[Amount]"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 124,
+            "table2_idx": 125,
+            "upper_row_ss": [
+                [
+                    "Crestline IP",
+                    "$215,000",
+                    "[$[Amount]",
+                    "[$[Amount]",
+                    "[Status notes]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Advisory LLC FTO analysis fees",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 164,
+            "table2_idx": 165,
+            "upper_row_ss": [
+                [
+                    "R-001",
+                    "FDA rejection of proposed primary predicate (K211034, NovaSense GlucoTrack NX-500). FDA may determine that the NX-500 is not an appropriate predicate for the Lumina CGM System due to differences in technological characteristics,",
+                    "Medium",
+                    "High",
+                    "Pre-Sub meeting specifically designed to confirm predicate acceptance prior to 510(k) submission. Contingency analysis of alternative predicates (including K230489 as primary and other cleared iCGM devices) is underway.",
+                    "C&H (Calloway, Whitfield); Pinnacle (Ellison)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "intended use, or performance.",
+                    "",
+                    "",
+                    "Robust substantial equivalence argument to be developed in Pre-Sub package.",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 165,
+            "table2_idx": 166,
+            "upper_row_ss": [
+                [
+                    "R-004",
+                    "Biocompatibilit",
+                    "Low-Medium",
+                    "High",
+                    "Early risk",
+                    "Whitmore (Dr."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "y testing failures (especially PtIr-4G electrode coating). The Lumina C14 sensor's proprietary PtIr-4G electrode coating may fail one or more biocompatibility tests (e.g., cytotoxicity, sensitization), requiring material reformulation and retesting.",
+                    "",
+                    "",
+                    "assessment based on material characterization data. Whitmore Laboratories performing phased testing with interim results. Alternative electrode coating materials identified by SBD engineering team as contingency. Design-around development (Section 3.6) may also address material composition.",
+                    "Haverford); SBD (Dr. Burke, Drennan); C&H (Morrissey)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 166,
+            "table2_idx": 167,
+            "upper_row_ss": [
+                [
+                    "R-006",
+                    "Insurance coverage gap (Atlas policy",
+                    "Low (if timely renewal pursued)",
+                    "Critical",
+                    "Timely initiation of policy renewal process",
+                    "SBI (Hale); SBD (Dr. Tierney);"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "expires September 30, 2025 during clinical study). The Atlas Underwriting Partners product liability policy (Policy No. AUP-PL-2024-00893, $25M/$50M) expires during the planned clinical study period. A lapse in coverage could violate clinical site agreement requirements, expose the Client to uninsured liability, and potentially halt clinical operations.",
+                    "",
+                    "",
+                    "(no later than August 1, 2025). Client to coordinate with Atlas Underwriting and broker. Ensure renewed policy coverage is adequate for clinical study and anticipated U.S. commercial launch.",
+                    "Broadleaf (Murray)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 167,
+            "table2_idx": 168,
+            "upper_row_ss": [
+                [
+                    "R-007",
+                    "FDA reclassification or change in special controls for iCGM devices. FDA may issue new guidance, proposed rules, or final orders that modify the classification, special controls, or performance criteria applicable to iCGM devices, potentially requiring changes to the Lumina CGM System's regulatory strategy or performance",
+                    "Low",
+                    "Medium-High",
+                    "Ongoing monitoring of FDA regulatory actions, Federal Register notices, guidance documents, and CDRH announcements. C&H maintains regulatory intelligence tracking for all relevant product codes and device classifications. Engagement with industry associations and FDA stakeholders as appropriate.",
+                    "C&H (Morrissey, Whitfield); Pinnacle (Ellison)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "testing plan.",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 170,
+            "table2_idx": 171,
+            "upper_row_ss": [
+                [
+                    "MDR",
+                    "Medical Device Reporting (21 C.F.R. Part 803); also refers to the EU Medical Device Regulation (Regulation (EU) 2017/745) when used in the EU regulatory context,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "as noted."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 174,
+            "table2_idx": 175,
+            "upper_row_ss": [
+                [
+                    "D-010",
+                    "[e.g., MDUFA Small Business Qualification",
+                    "[C&H (Morrissey)]",
+                    "[Date]",
+                    "[Draft / Final]",
+                    "[SBI (Hale); SBD (Dr. Tierney)]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Analysis Memo]",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

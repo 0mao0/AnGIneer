@@ -1,0 +1,46 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        51,
+        55
+    ],
+    "pages": [
+        51,
+        52,
+        53,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>530<|page|>51<|box|>594 140 611 513<|content|>SECTION 7 — RESTRICTIVE COVENANTS\n<|id|>539<|page|>52<|box|>436 140 453 620<|content|>SECTION 8 — REPRESENTATIONS AND WARRANTIES\n<|id|>541<|page|>52<|box|>539 140 556 442<|content|>SECTION 9 — INDEMNIFICATION\n<|id|>543<|page|>52<|box|>698 140 714 437<|content|>SECTION 10 — MISCELLANEOUS\n<|id|>546<|page|>52<|box|>830 176 848 331<|content|>If to the Company:\n<|id|>564<|page|>53<|box|>487 202 503 792<|content|>EXHIBIT A TO EMPLOYMENT AGREEMENT OF KAREN TOLLIVE\n<|id|>565<|page|>53<|box|>513 308 530 689<|content|>FORM OF GENERAL RELEASE OF CLAIMS\n<|id|>577<|page|>55<|box|>133 142 150 256<|content|>EXECUTIVE",
+    "raw_response": "<|id|>530<|level|>1\n<|id|>539<|level|>1\n<|id|>541<|level|>1\n<|id|>543<|level|>1\n<|id|>546<|level|>-1\n<|id|>564<|level|>1\n<|id|>565<|level|>2\n<|id|>577<|level|>1",
+    "parsed": [
+        {
+            "id": 530,
+            "level": 1
+        },
+        {
+            "id": 539,
+            "level": 1
+        },
+        {
+            "id": 541,
+            "level": 1
+        },
+        {
+            "id": 543,
+            "level": 1
+        },
+        {
+            "id": 564,
+            "level": 1
+        },
+        {
+            "id": 565,
+            "level": 2
+        },
+        {
+            "id": 577,
+            "level": 1
+        }
+    ]
+}

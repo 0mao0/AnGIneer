@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>212 678 229 854<|content|>Filed: ... January 30, 2023\n<|id|>3<|page|>1<|box|>238 140 310 854<|content|>Greenfield Agricultural Partners LLC (\"GAP\" or \"Cl...d, in support thereof, states and avers as follows\n<|id|>51<|page|>5<|box|>847 140 902 854<|content|>36. ... Musgrave individually in the Circuit Court of Cook County, Illinois, County Department,\n<|id|>52<|page|>6<|box|>90 174 143 854<|content|>Law Division, captioned Greenfield Agricultural Pa..... The four counts of the Complaint are as follows\n<|id|>106<|page|>10<|box|>828 140 882 856<|content|>64. ... The filing of this Proof of Claim shall no...available to GAP under the Off-Take Agreement, the\n<|id|>107<|page|>11<|box|>90 174 127 854<|content|>Musgrave Guaranty, applicable law, or any other ag...... GAP reserves all such rights in their entirety\n<|id|>123<|page|>13<|box|>237 140 268 852<|content|>Francesca Morano (ARDC No. ... (312) 555-9401\n<|id|>124<|page|>13<|box|>270 142 286 462<|content|>Email: ... com\n<|id|>125<|page|>13<|box|>287 140 320 852<|content|>Hannah Brinkley (ARDC No. ... (312) 555-9401\n<|id|>126<|page|>13<|box|>321 142 337 470<|content|>Email: ... com\n<|id|>127<|page|>13<|box|>338 142 354 593<|content|>Attorneys for Claimant Greenfield Agricultural Partners LLC\n<|id|>128<|page|>13<|box|>354 142 372 325<|content|>Dated: ... January 30, 2023\n<|id|>131<|page|>13<|box|>500 176 536 854<|content|>Gareth J. ... Whitmore, Receiver Whitmore Strauss ...nroe Street, Suite 300 Springfield, Illinois 62701\n<|id|>132<|page|>13<|box|>544 178 561 720<|content|>Via hand delivery and electronic mail (gwhitmore@whitmorestrauss. ... com)\n<|id|>133<|page|>13<|box|>570 176 606 854<|content|>Joanna M. ... Lockridge Lockridge Payne LLP 120 So...xth Street, Suite 1800 Springfield, Illinois 62701\n<|id|>134<|page|>13<|box|>614 176 652 854<|content|>Via U. ... com)",
+    "raw_response": "<|src_id|>51<|tgt_id|>52\n<|src_id|>106<|tgt_id|>107",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 107
+        }
+    ]
+}

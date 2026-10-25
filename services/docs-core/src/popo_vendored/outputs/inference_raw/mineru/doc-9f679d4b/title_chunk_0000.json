@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 591<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>113 405 133 591<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>333 140 349 362<|content|>I. Purpose and Background\n<|id|>13<|page|>2<|box|>90 142 107 684<|content|>II. Summary of Agreed Terms (No Material Changes B\n<|id|>19<|page|>3<|box|>273 140 291 565<|content|>III. Material Differences and Open Negotiation Poi\n<|id|>21<|page|>3<|box|>386 140 402 393<|content|>A. Change of Control Provision\n<|id|>26<|page|>4<|box|>220 140 238 426<|content|>B. Optional Conversion at Maturity\n<|id|>31<|page|>5<|box|>229 140 248 542<|content|>C. Most Favored Nation (MFN) Provision — Scope\n<|id|>36<|page|>6<|box|>138 140 157 321<|content|>D. Information Rights\n<|id|>41<|page|>7<|box|>285 140 304 588<|content|>E. Qualified Financing Definition — Participation\n<|id|>46<|page|>8<|box|>138 140 157 553<|content|>F. Closing Mechanics — Single vs. Multiple Closing\n<|id|>50<|page|>8<|box|>612 140 628 367<|content|>G. Anti-Dilution Interaction\n<|id|>54<|page|>9<|box|>329 140 348 318<|content|>H. Dispute Resolution\n<|id|>58<|page|>9<|box|>729 142 746 277<|content|>I. Fee Provisions\n<|id|>62<|page|>10<|box|>222 140 239 426<|content|>IV. Minor / Conforming Differences\n<|id|>69<|page|>10<|box|>815 140 832 477<|content|>V. Negotiation Strategy Recommendations\n<|id|>83<|page|>12<|box|>472 140 489 261<|content|>VI. Next Steps\n<|id|>90<|page|>14<|box|>90 142 107 516<|content|>VII. Appendix: Side-by-Side Comparison Table\n<|id|>95<|page|>16<|box|>527 143 544 241<|content|>Prepared by:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>3\n<|id|>26<|level|>3\n<|id|>31<|level|>3\n<|id|>36<|level|>3\n<|id|>41<|level|>3\n<|id|>46<|level|>3\n<|id|>50<|level|>3\n<|id|>54<|level|>3\n<|id|>58<|level|>3\n<|id|>62<|level|>2\n<|id|>69<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>2\n<|id|>95<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 3,
+    "range": [
+        212,
+        236
+    ],
+    "pages": [
+        213,
+        232,
+        236
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>788<|page|>213<|box|>807 30 819 456<|content|>17/ Excludea property such as land, structures, and equipment for Air\n<|id|>789<|page|>213<|box|>112 546 132 900<|content|>Force, \\$7,598 million. ... Amounts excluded for other Defense Department agencies were not identified\n<|id|>790<|page|>213<|box|>131 517 141 812<|content|>18/ Represents inventory in use and in storage,\n<|id|>810<|page|>213<|box|>780 519 807 952<|content|>Source: ... 966, Revised\n<|id|>941<|page|>232<|box|>68 405 80 625<|content|>Section III - Trust Funds\n<|id|>942<|page|>232<|box|>94 479 105 557<|content|>Footnotes\n<|id|>973<|page|>236<|box|>74 418 87 640<|content|>Section III - Trust Funds\n<|id|>974<|page|>236<|box|>97 349 112 670<|content|>Table GA-III-7. ... - Unemployment Trust Fund",
+    "raw_response": "<|src_id|>788<|tgt_id|>789",
+    "parsed": [
+        {
+            "src_id": 788,
+            "tgt_id": 789
+        }
+    ]
+}

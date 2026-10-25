@@ -1,0 +1,41 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        49
+    ],
+    "pages": [
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>450<|page|>47<|box|>89 142 107 841<|content|>APPENDIX E: INDUSTRY BENCHMARKS — EARLY TERMINATIO\n<|id|>458<|page|>47<|box|>431 140 448 555<|content|>Summary of Early Termination Provision Structures\n<|id|>460<|page|>47<|box|>500 140 516 712<|content|>Category 1: Percentage of Estimated Lost Profits (\n<|id|>466<|page|>47<|box|>720 142 738 750<|content|>Category 2: Declining Balance Over Remaining Term\n<|id|>477<|page|>48<|box|>286 142 303 359<|content|>Comparison to Section 14.2\n<|id|>481<|page|>49<|box|>89 316 106 679<|content|>CERTIFICATION AND SIGNATURE PAGE",
+    "raw_response": "<|id|>450<|level|>1\n<|id|>458<|level|>2\n<|id|>460<|level|>3\n<|id|>466<|level|>3\n<|id|>477<|level|>2\n<|id|>481<|level|>1",
+    "parsed": [
+        {
+            "id": 450,
+            "level": 1
+        },
+        {
+            "id": 458,
+            "level": 2
+        },
+        {
+            "id": 460,
+            "level": 3
+        },
+        {
+            "id": 466,
+            "level": 3
+        },
+        {
+            "id": 477,
+            "level": 2
+        },
+        {
+            "id": 481,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        9,
+        10,
+        18,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>150 464 167 534<|content|>Plaintiff,\n<|id|>3<|page|>1<|box|>200 344 219 653<|content|>LUMICORE TECHNOLOGIES, INC. ... ,\n<|id|>4<|page|>1<|box|>228 455 244 540<|content|>Defendant. ... Defendant\n<|id|>5<|page|>1<|box|>253 385 270 611<|content|>Case No. ... 24-cv-00319-JRG\n<|id|>6<|page|>1<|box|>279 405 297 591<|content|>Hon. ... Gilstrap\n<|id|>49<|page|>5<|box|>804 147 877 857<|content|>• November 15, 2024: ... Jian-\n<|id|>50<|page|>6<|box|>89 174 125 854<|content|>Wei Huang, OWS's Chief Technology Officer and a na...med inventor on three of the four asserted patents\n<|id|>88<|page|>9<|box|>828 140 902 856<|content|>OWS has served two sets of Requests for Production...Requests for Admission. ... OWS's Motion to Compel\n<|id|>89<|page|>10<|box|>90 140 145 854<|content|>Production of Opinion-of-Counsel Letters (D. ... 4...oduction and use of sensitive business information\n<|id|>158<|page|>18<|box|>176 140 209 854<|content|>Alan Ngo (CA Bar No. ... (213) 443-7800\n<|id|>159<|page|>18<|box|>210 142 226 462<|content|>Email: ... com\n<|id|>160<|page|>18<|box|>226 140 273 854<|content|>Marcus Delgado (TX Bar No. ... )\n<|id|>164<|page|>18<|box|>327 140 359 852<|content|>James \"Jim\" Callahan (TX Bar No. ... (903) 597-6300\n<|id|>165<|page|>18<|box|>361 142 378 449<|content|>Email: ... com\n<|id|>166<|page|>18<|box|>378 140 396 537<|content|>Attorneys for Plaintiff Optiwave Semiconductor Cor...ttorneys for Plaintiff Optiwave Semiconductor Corp\n<|id|>169<|page|>18<|box|>523 174 559 854<|content|>Catherine \"Kate\" Rourke Darren Cho Samantha Briggs...P 600 Congress Avenue, Suite 2400 Austin, TX 78701\n<|id|>170<|page|>18<|box|>566 176 584 843<|content|>Maria Garza TRASK EDDINGTON LLP 425 East Front Street, Suite 300 Tyler, TX 75701\n<|id|>176<|page|>20<|box|>89 140 108 750<|content|>Exhibit 2. ... 58, January 15, 2025)\n<|id|>177<|page|>20<|box|>113 140 205 854<|content|>This exhibit contains the Joint Claim Construction...ed and awaiting the March 14, 2025 Markman hearing",
+    "raw_response": "<|src_id|>49<|tgt_id|>50\n<|src_id|>88<|tgt_id|>89",
+    "parsed": [
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        }
+    ]
+}

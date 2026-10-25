@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>142 142 159 321<|content|>DATE: ... August 9, 2025\n<|id|>2<|page|>1<|box|>167 140 185 607<|content|>TO: ... Philip Hartmann, Responsible Partner, Banking & Finance\n<|id|>3<|page|>1<|box|>194 140 210 578<|content|>FROM: ... Lisa Morrow, Lead Associate, Banking & Finance\n<|id|>4<|page|>1<|box|>219 140 255 852<|content|>RE: ... 1036-00001)\n<|id|>5<|page|>1<|box|>263 142 281 408<|content|>REVIEWED BY: ... Philip Hartmann\n<|id|>41<|page|>4<|box|>90 145 125 854<|content|>• Garrett W. ... Hollister — Head of CMBS Originations, Clarendon Metropolitan Insurance Company\n<|id|>42<|page|>4<|box|>128 140 219 854<|content|>Ashworth McPhail LLP — New York limited liability ...in the negotiation of the permanent loan documents\n<|id|>51<|page|>4<|box|>559 143 575 758<|content|>• Angela M. ... Forsythe — Director, Institutional Lending, Pinnacle Trust Company\n<|id|>52<|page|>4<|box|>578 140 650 854<|content|>Greystone Commerce Bank — Georgia state-chartered commercial bank; ... 00% of total commitments\n<|id|>54<|page|>4<|box|>684 145 719 854<|content|>• Howard D. ... Crenshaw — Senior Vice President, Commercial Real Estate, Greystone Commerce Bank\n<|id|>55<|page|>4<|box|>722 138 814 856<|content|>Redfield Capital Markets, LLC — Delaware limited l...the parent entity and its other known subsidiaries\n<|id|>57<|page|>4<|box|>847 143 864 699<|content|>• Sarah K. ... Barlow — Managing Director, Redfield Capital Markets, LLC\n<|id|>58<|page|>4<|box|>867 140 902 854<|content|>Halcourt Briggs & Devlin LLP — New York limited li... connection with the closing of the Permanent Loan\n<|id|>64<|page|>5<|box|>376 145 393 852<|content|>• Victor L. ... Castaneda — Managing Member (51% interest), Meridian Sunstone Holdings LLC\n<|id|>66<|page|>5<|box|>405 140 469 854<|content|>Lattimore & Pryce LLP — Texas limited liability pa...LLC in connection with the original portfolio sale\n<|id|>65<|page|>5<|box|>396 145 414 826<|content|>• Brenda K. ... Yung — Managing Member (49% interest), Meridian Sunstone Holdings LLC\n<|id|>68<|page|>5<|box|>503 145 520 604<|content|>• Miguel A. ... Torres — Lead Partner, Lattimore & Pryce LLP\n<|id|>69<|page|>5<|box|>523 140 595 856<|content|>Beacon Ridge Capital Advisors LLC — Delaware limit...the original acquisition of the Sun Belt Portfolio\n<|id|>71<|page|>5<|box|>628 143 647 684<|content|>• Dennis P. ... Nakamura — Partner, Beacon Ridge Capital Advisors LLC\n<|id|>72<|page|>5<|box|>648 140 722 854<|content|>Crestline & Alderman LLP — Maryland limited liabil...nce guidance in connection with the Permanent Loan\n<|id|>74<|page|>5<|box|>756 145 773 627<|content|>• Patricia S. ... Keene — Lead Partner, Crestline & Alderman LLP\n<|id|>75<|page|>5<|box|>776 140 849 856<|content|>Marlowe Asset Management Title Insurance Group, In...iens on the fourteen Sun Belt Portfolio properties\n<|id|>136<|page|>10<|box|>766 138 895 857<|content|>Borrower Representation and Bridge Lender Coordination. ... (b)\n<|id|>137<|page|>11<|box|>90 140 199 856<|content|>the Bridge Facility payoff is a consensual, cooper...onomic or legal terms as between Fairwater and KNB\n<|id|>146<|page|>11<|box|>838 140 893 857<|content|>3. ... (a) the cash management bank or lockbox bank for the\n<|id|>147<|page|>12<|box|>90 174 237 856<|content|>Permanent Loan; ... Supplemental conflicts checks ... supplemental conflicts memorandum, as appropriate\n<|id|>150<|page|>13<|box|>166 143 184 725<|content|>Lisa Morrow Lead Associate, Banking & Finance Calderwood & Harkness LLP\n<|id|>151<|page|>13<|box|>184 143 200 303<|content|>Date: ... August 9, 2025\n<|id|>152<|page|>13<|box|>202 143 219 367<|content|>Reviewed and Approved by: ... Reviewed and Approved by\n<|id|>153<|page|>13<|box|>251 143 268 785<|content|>Philip Hartmann Responsible Partner, Banking & Finance Calderwood & Harkness LLP\n<|id|>154<|page|>13<|box|>268 143 285 303<|content|>Date: ... August 9, 2025\n<|id|>155<|page|>13<|box|>285 140 347 854<|content|>Filing Notation: ... This memorandum constitutes a...ttorney-client privilege, to the extent applicable",
+    "raw_response": "<|src_id|>136<|tgt_id|>137\n<|src_id|>146<|tgt_id|>147",
+    "parsed": [
+        {
+            "src_id": 136,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 147
+        }
+    ]
+}

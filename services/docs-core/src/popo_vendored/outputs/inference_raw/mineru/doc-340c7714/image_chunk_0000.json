@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>8<|type|>title<|page|>1<|box|>414 142 431 457<|content|>1. Introduction and Statutory Authority\n<|id|>14<|type|>title<|page|>2<|box|>285 140 303 316<|content|>2. Project Description\n<|id|>21<|type|>title<|page|>3<|box|>148 140 167 495<|content|>3. Identification of Property Interests Sought\n<|id|>23<|type|>title<|page|>3<|box|>224 140 242 570<|content|>3.1 Permanent Easement — Pump Station No. 3 (PS-3)\n<|id|>27<|type|>title<|page|>3<|box|>661 140 678 450<|content|>3.2 Temporary Construction Easement\n<|id|>33<|type|>title<|page|>4<|box|>656 140 674 475<|content|>3.3 Pipeline Corridor Easement (Separate)\n<|id|>37<|type|>title<|page|>5<|box|>267 140 284 439<|content|>4. Good-Faith Offer — Compensation\n<|id|>38<|type|>title<|page|>5<|box|>297 140 314 282<|content|>4.1 Basis of Offer\n<|id|>42<|type|>title<|page|>5<|box|>696 142 713 294<|content|>4.2 Offer Amounts\n<|id|>44<|type|>table<|page|>5<|box|>763 143 896 852<|content|>None\n<|id|>45<|type|>table<|page|>6<|box|>88 143 157 852<|content|>None\n<|id|>50<|type|>title<|page|>6<|box|>537 140 554 300<|content|>4.3 Payment Terms\n<|id|>54<|type|>title<|page|>7<|box|>90 140 107 527<|content|>5. Statement of Owner's Rights Under RCW 8.25\n<|id|>62<|type|>title<|page|>8<|box|>90 140 107 295<|content|>6. Response Period\n<|id|>71<|type|>title<|page|>8<|box|>650 140 667 328<|content|>7. Enclosed Documents\n<|id|>79<|type|>title<|page|>9<|box|>391 140 409 227<|content|>8. Closing",
+    "raw_response": "<|src_id|>44<|tgt_id|>42\n<|src_id|>45<|tgt_id|>42",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 42
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>202 424 218 573<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>377 385 396 611<|content|>I. Executive Summary\n<|id|>14<|type|>title<|page|>2<|box|>344 419 364 576<|content|>II. Background\n<|id|>15<|type|>title<|page|>2<|box|>388 142 407 352<|content|>A. SAFE Round Structure\n<|id|>23<|type|>title<|page|>2<|box|>672 143 689 313<|content|>B. Investor Syndicate\n<|id|>25<|type|>table<|page|>2<|box|>839 143 893 852<|content|>None\n<|id|>26<|type|>table<|page|>3<|box|>88 143 164 852<|content|>None\n<|id|>28<|type|>title<|page|>3<|box|>294 140 311 359<|content|>C. Company Authorization\n<|id|>30<|type|>title<|page|>3<|box|>434 140 452 341<|content|>D. Counsel and Advisors\n<|id|>33<|type|>title<|page|>3<|box|>710 140 728 240<|content|>E. Timeline\n<|id|>35<|type|>title<|page|>4<|box|>90 277 111 720<|content|>III. Analysis of Material Markup Comments\n<|id|>36<|type|>title<|page|>4<|box|>136 140 154 470<|content|>A. Most Favored Nation (MFN) Provision\n<|id|>37<|type|>title<|page|>4<|box|>167 140 184 449<|content|>1. Whitfield Harte's Proposed Changes\n<|id|>47<|type|>title<|page|>5<|box|>594 140 612 746<|content|>3. Recommendation. Counter-propose. We recommend t\n<|id|>53<|type|>title<|page|>6<|box|>148 142 167 320<|content|>B. Information Rights\n<|id|>54<|type|>title<|page|>6<|box|>180 142 198 449<|content|>1. Whitfield Harte's Proposed Changes\n<|id|>69<|type|>title<|page|>8<|box|>250 140 266 674<|content|>3. Recommendation. Counter-propose. We recommend t\n<|id|>75<|type|>title<|page|>8<|box|>637 140 654 385<|content|>C. Pro Rata Rights Side Letter\n<|id|>76<|type|>title<|page|>8<|box|>667 142 685 449<|content|>1. Whitfield Harte's Proposed Changes\n<|id|>90<|type|>title<|page|>10<|box|>448 140 464 305<|content|>3. Recommendation.\n<|id|>96<|type|>title<|page|>10<|box|>689 140 705 612<|content|>D. Definition of \"Equity Financing\" — Minimum Thre\n<|id|>97<|type|>title<|page|>10<|box|>719 143 737 447<|content|>1. Whitfield Harte's Proposed Changes\n<|id|>104<|type|>title<|page|>11<|box|>640 140 657 514<|content|>E. Dissolution Event — Distribution Preference\n<|id|>105<|type|>title<|page|>11<|box|>671 143 688 447<|content|>1. Whitfield Harte's Proposed Changes\n<|id|>115<|type|>title<|page|>12<|box|>784 142 800 547<|content|>F. Representations and Warranties of the Company\n<|id|>116<|type|>title<|page|>12<|box|>814 142 832 449<|content|>1. Whitfield Harte's Proposed Changes\n<|id|>133<|type|>title<|page|>14<|box|>755 140 773 746<|content|>3. Recommendation. Counter-propose. We recommend t\n<|id|>140<|type|>title<|page|>15<|box|>354 140 373 338<|content|>G. Transfer Restrictions\n<|id|>141<|type|>title<|page|>15<|box|>386 140 404 449<|content|>1. Whitfield Harte's Proposed Changes\n<|id|>147<|type|>title<|page|>16<|box|>90 140 107 305<|content|>H. Notices Provision\n<|id|>148<|type|>title<|page|>16<|box|>121 142 138 449<|content|>1. Whitfield Harte's Proposed Changes\n<|id|>161<|type|>title<|page|>16<|box|>705 142 723 468<|content|>I. Governing Law and Dispute Resolution\n<|id|>162<|type|>title<|page|>16<|box|>737 142 753 447<|content|>1. Whitfield Harte's Proposed Changes\n<|id|>173<|type|>title<|page|>17<|box|>825 140 842 416<|content|>J. Minor / Administrative Changes\n<|id|>182<|type|>title<|page|>18<|box|>356 323 375 674<|content|>IV. Summary of Recommendations\n<|id|>183<|type|>table<|page|>18<|box|>417 143 895 852<|content|>None\n<|id|>184<|type|>table<|page|>19<|box|>89 143 303 852<|content|>None\n<|id|>185<|type|>title<|page|>19<|box|>338 303 358 692<|content|>V. Negotiation Strategy and Next Steps\n<|id|>195<|type|>title<|page|>20<|box|>551 413 569 583<|content|>VI. Attachments",
+    "raw_response": "<|src_id|>25<|tgt_id|>23\n<|src_id|>26<|tgt_id|>23\n<|src_id|>183<|tgt_id|>182\n<|src_id|>184<|tgt_id|>182",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 182
+        }
+    ]
+}

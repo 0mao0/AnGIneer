@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>15<|type|>title<|page|>2<|box|>90 140 107 521<|content|>Section 1. Defined Terms; Documents Examined\n<|id|>16<|type|>title<|page|>2<|box|>121 142 138 344<|content|>1.1 Financing Documents\n<|id|>27<|type|>title<|page|>3<|box|>338 142 354 496<|content|>1.2 Other Documents and Records Examined\n<|id|>40<|type|>title<|page|>4<|box|>544 142 560 326<|content|>1.3 Key Defined Terms\n<|id|>44<|type|>title<|page|>5<|box|>90 140 107 328<|content|>Section 2. Assumptions\n<|id|>52<|type|>title<|page|>5<|box|>696 140 714 297<|content|>Section 3. Opinions\n<|id|>54<|type|>title<|page|>5<|box|>772 140 789 470<|content|>3.1 Due Organization and Valid Existence\n<|id|>56<|type|>title<|page|>6<|box|>176 140 193 483<|content|>3.2 Power and Authority to Issue the Bonds\n<|id|>62<|type|>title<|page|>6<|box|>481 142 497 320<|content|>3.3 Due Authorization\n<|id|>65<|type|>title<|page|>7<|box|>90 140 107 403<|content|>3.4 Valid Execution and Delivery\n<|id|>74<|type|>title<|page|>7<|box|>768 140 785 383<|content|>3.6 Validity of Revenue Pledge\n<|id|>83<|type|>title<|page|>8<|box|>478 140 494 377<|content|>3.7 No Conflicts or Violations\n<|id|>88<|type|>title<|page|>9<|box|>90 142 107 279<|content|>3.8 No Litigation\n<|id|>94<|type|>title<|page|>9<|box|>468 140 484 372<|content|>3.9 Governmental Approvals\n<|id|>100<|type|>title<|page|>9<|box|>845 140 863 454<|content|>3.10 Additional Bonds Test Compliance\n<|id|>102<|type|>table<|page|>10<|box|>176 143 263 852<|content|>None\n<|id|>104<|type|>table<|page|>10<|box|>383 143 455 852<|content|>None\n<|id|>107<|type|>title<|page|>10<|box|>594 142 609 560<|content|>Section 4. Qualifications, Limitations, and Except\n<|id|>109<|type|>title<|page|>10<|box|>669 140 685 493<|content|>4.1 Bankruptcy and Insolvency Qualification\n<|id|>111<|type|>title<|page|>11<|box|>138 140 157 349<|content|>4.2 Scope of Law Covered\n<|id|>113<|type|>title<|page|>11<|box|>321 140 339 300<|content|>4.3 No Tax Opinion\n<|id|>115<|type|>title<|page|>11<|box|>503 140 522 411<|content|>4.4 No Opinion on Certain Parties\n<|id|>117<|type|>title<|page|>11<|box|>686 140 703 359<|content|>4.5 Reliance on Certificates\n<|id|>119<|type|>title<|page|>12<|box|>90 140 107 388<|content|>4.6 Security Interest Perfection\n<|id|>121<|type|>title<|page|>12<|box|>282 140 299 426<|content|>Section 5. Reliance and Distribution",
+    "raw_response": "<|src_id|>102<|tgt_id|>100\n<|src_id|>104<|tgt_id|>100",
+    "parsed": [
+        {
+            "src_id": 102,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 100
+        }
+    ]
+}

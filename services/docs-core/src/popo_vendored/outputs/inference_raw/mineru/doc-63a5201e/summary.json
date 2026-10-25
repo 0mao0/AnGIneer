@@ -1,0 +1,913 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7591wt8m\\input\\pdfs\\doc-63a5201e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7591wt8m\\enriched\\doc-63a5201e.json",
+    "contd_output": "<|src_id|>66<|tgt_id|>67\n<|src_id|>735<|tgt_id|>736",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>45<|level|>3\n<|id|>51<|level|>3\n<|id|>57<|level|>3\n<|id|>64<|level|>2\n<|id|>75<|level|>2\n<|id|>84<|level|>3\n<|id|>96<|level|>4\n<|id|>139<|level|>4\n<|id|>144<|level|>4\n<|id|>155<|level|>4\n<|id|>166<|level|>4\n<|id|>177<|level|>4\n<|id|>188<|level|>4\n<|id|>200<|level|>4\n<|id|>211<|level|>4\n<|id|>222<|level|>4\n<|id|>233<|level|>4\n<|id|>244<|level|>4\n<|id|>255<|level|>4\n<|id|>266<|level|>4\n<|id|>277<|level|>4\n<|id|>288<|level|>4\n<|id|>299<|level|>4\n<|id|>310<|level|>4\n<|id|>321<|level|>4\n<|id|>343<|level|>4\n<|id|>354<|level|>4\n<|id|>365<|level|>3\n<|id|>370<|level|>2\n<|id|>373<|level|>3\n<|id|>387<|level|>3\n<|id|>389<|level|>4\n<|id|>401<|level|>4\n<|id|>411<|level|>3\n<|id|>423<|level|>3\n<|id|>433<|level|>3\n<|id|>444<|level|>3\n<|id|>453<|level|>3\n<|id|>458<|level|>3\n<|id|>460<|level|>2\n<|id|>463<|level|>3\n<|id|>472<|level|>3\n<|id|>481<|level|>3\n<|id|>492<|level|>3\n<|id|>498<|level|>3\n<|id|>505<|level|>3\n<|id|>508<|level|>2\n<|id|>510<|level|>3\n<|id|>521<|level|>3\n<|id|>531<|level|>3\n<|id|>543<|level|>2\n<|id|>546<|level|>3\n<|id|>554<|level|>3\n<|id|>570<|level|>3\n<|id|>579<|level|>3\n<|id|>584<|level|>2\n<|id|>607<|level|>2\n<|id|>608<|level|>3\n<|id|>621<|level|>3\n<|id|>655<|level|>3\n<|id|>659<|level|>3\n<|id|>638<|level|>3\n<|id|>646<|level|>3\n<|id|>653<|level|>3\n<|id|>663<|level|>2\n<|id|>664<|level|>3\n<|id|>669<|level|>3\n<|id|>684<|level|>3\n<|id|>686<|level|>2\n<|id|>694<|level|>2\n<|id|>715<|level|>2\n<|id|>727<|level|>3\n<|id|>729<|level|>4\n<|id|>732<|level|>4\n<|id|>734<|level|>4\n<|id|>737<|level|>4\n<|id|>739<|level|>4\n<|id|>741<|level|>4\n<|id|>743<|level|>4\n<|id|>745<|level|>4\n<|id|>748<|level|>4\n<|id|>750<|level|>4\n<|id|>752<|level|>4\n<|id|>754<|level|>4\n<|id|>757<|level|>4\n<|id|>759<|level|>4\n<|id|>762<|level|>3",
+    "image_output": "<|src_id|>366<|tgt_id|>365\n<|src_id|>367<|tgt_id|>365\n<|src_id|>455<|tgt_id|>453\n<|src_id|>456<|tgt_id|>453\n<|src_id|>459<|tgt_id|>458\n<|src_id|>506<|tgt_id|>505\n<|src_id|>507<|tgt_id|>505\n<|src_id|>541<|tgt_id|>531\n<|src_id|>542<|tgt_id|>531\n<|src_id|>660<|tgt_id|>659\n<|src_id|>661<|tgt_id|>659\n<|src_id|>662<|tgt_id|>659\n<|src_id|>716<|tgt_id|>715\n<|src_id|>717<|tgt_id|>715\n<|src_id|>718<|tgt_id|>715\n<|src_id|>719<|tgt_id|>715\n<|src_id|>720<|tgt_id|>715\n<|src_id|>721<|tgt_id|>715\n<|src_id|>722<|tgt_id|>715\n<|src_id|>723<|tgt_id|>715\n<|src_id|>724<|tgt_id|>715\n<|src_id|>725<|tgt_id|>715\n<|src_id|>726<|tgt_id|>715\n<|src_id|>763<|tgt_id|>762\n<|src_id|>764<|tgt_id|>762",
+    "contd_label": [
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 735,
+            "tgt_id": 736
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 4
+        },
+        {
+            "id": 139,
+            "level": 4
+        },
+        {
+            "id": 144,
+            "level": 4
+        },
+        {
+            "id": 155,
+            "level": 4
+        },
+        {
+            "id": 166,
+            "level": 4
+        },
+        {
+            "id": 177,
+            "level": 4
+        },
+        {
+            "id": 188,
+            "level": 4
+        },
+        {
+            "id": 200,
+            "level": 4
+        },
+        {
+            "id": 211,
+            "level": 4
+        },
+        {
+            "id": 222,
+            "level": 4
+        },
+        {
+            "id": 233,
+            "level": 4
+        },
+        {
+            "id": 244,
+            "level": 4
+        },
+        {
+            "id": 255,
+            "level": 4
+        },
+        {
+            "id": 266,
+            "level": 4
+        },
+        {
+            "id": 277,
+            "level": 4
+        },
+        {
+            "id": 288,
+            "level": 4
+        },
+        {
+            "id": 299,
+            "level": 4
+        },
+        {
+            "id": 310,
+            "level": 4
+        },
+        {
+            "id": 321,
+            "level": 4
+        },
+        {
+            "id": 343,
+            "level": 4
+        },
+        {
+            "id": 354,
+            "level": 4
+        },
+        {
+            "id": 365,
+            "level": 3
+        },
+        {
+            "id": 370,
+            "level": 2
+        },
+        {
+            "id": 373,
+            "level": 3
+        },
+        {
+            "id": 387,
+            "level": 3
+        },
+        {
+            "id": 389,
+            "level": 4
+        },
+        {
+            "id": 401,
+            "level": 4
+        },
+        {
+            "id": 411,
+            "level": 3
+        },
+        {
+            "id": 423,
+            "level": 3
+        },
+        {
+            "id": 433,
+            "level": 3
+        },
+        {
+            "id": 444,
+            "level": 3
+        },
+        {
+            "id": 453,
+            "level": 3
+        },
+        {
+            "id": 458,
+            "level": 3
+        },
+        {
+            "id": 460,
+            "level": 2
+        },
+        {
+            "id": 463,
+            "level": 3
+        },
+        {
+            "id": 472,
+            "level": 3
+        },
+        {
+            "id": 481,
+            "level": 3
+        },
+        {
+            "id": 492,
+            "level": 3
+        },
+        {
+            "id": 498,
+            "level": 3
+        },
+        {
+            "id": 505,
+            "level": 3
+        },
+        {
+            "id": 508,
+            "level": 2
+        },
+        {
+            "id": 510,
+            "level": 3
+        },
+        {
+            "id": 521,
+            "level": 3
+        },
+        {
+            "id": 531,
+            "level": 3
+        },
+        {
+            "id": 543,
+            "level": 2
+        },
+        {
+            "id": 546,
+            "level": 3
+        },
+        {
+            "id": 554,
+            "level": 3
+        },
+        {
+            "id": 570,
+            "level": 3
+        },
+        {
+            "id": 579,
+            "level": 3
+        },
+        {
+            "id": 584,
+            "level": 2
+        },
+        {
+            "id": 607,
+            "level": 2
+        },
+        {
+            "id": 608,
+            "level": 3
+        },
+        {
+            "id": 621,
+            "level": 3
+        },
+        {
+            "id": 655,
+            "level": 3
+        },
+        {
+            "id": 659,
+            "level": 3
+        },
+        {
+            "id": 638,
+            "level": 3
+        },
+        {
+            "id": 646,
+            "level": 3
+        },
+        {
+            "id": 653,
+            "level": 3
+        },
+        {
+            "id": 663,
+            "level": 2
+        },
+        {
+            "id": 664,
+            "level": 3
+        },
+        {
+            "id": 669,
+            "level": 3
+        },
+        {
+            "id": 684,
+            "level": 3
+        },
+        {
+            "id": 686,
+            "level": 2
+        },
+        {
+            "id": 694,
+            "level": 2
+        },
+        {
+            "id": 715,
+            "level": 2
+        },
+        {
+            "id": 727,
+            "level": 3
+        },
+        {
+            "id": 729,
+            "level": 4
+        },
+        {
+            "id": 732,
+            "level": 4
+        },
+        {
+            "id": 734,
+            "level": 4
+        },
+        {
+            "id": 737,
+            "level": 4
+        },
+        {
+            "id": 739,
+            "level": 4
+        },
+        {
+            "id": 741,
+            "level": 4
+        },
+        {
+            "id": 743,
+            "level": 4
+        },
+        {
+            "id": 745,
+            "level": 4
+        },
+        {
+            "id": 748,
+            "level": 4
+        },
+        {
+            "id": 750,
+            "level": 4
+        },
+        {
+            "id": 752,
+            "level": 4
+        },
+        {
+            "id": 754,
+            "level": 4
+        },
+        {
+            "id": 757,
+            "level": 4
+        },
+        {
+            "id": 759,
+            "level": 4
+        },
+        {
+            "id": 762,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 366,
+            "tgt_id": 365
+        },
+        {
+            "src_id": 367,
+            "tgt_id": 365
+        },
+        {
+            "src_id": 455,
+            "tgt_id": 453
+        },
+        {
+            "src_id": 456,
+            "tgt_id": 453
+        },
+        {
+            "src_id": 459,
+            "tgt_id": 458
+        },
+        {
+            "src_id": 506,
+            "tgt_id": 505
+        },
+        {
+            "src_id": 507,
+            "tgt_id": 505
+        },
+        {
+            "src_id": 541,
+            "tgt_id": 531
+        },
+        {
+            "src_id": 542,
+            "tgt_id": 531
+        },
+        {
+            "src_id": 660,
+            "tgt_id": 659
+        },
+        {
+            "src_id": 661,
+            "tgt_id": 659
+        },
+        {
+            "src_id": 662,
+            "tgt_id": 659
+        },
+        {
+            "src_id": 716,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 717,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 718,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 719,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 720,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 721,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 722,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 723,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 724,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 725,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 726,
+            "tgt_id": 715
+        },
+        {
+            "src_id": 763,
+            "tgt_id": 762
+        },
+        {
+            "src_id": 764,
+            "tgt_id": 762
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 366,
+            "table2_idx": 367,
+            "upper_row_ss": [
+                [
+                    "Alderman Digital Media LLC",
+                    "$9.5M",
+                    "None",
+                    "N/A (month-to-month)",
+                    "Recommend formal renewal",
+                    "MODERATE"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Greystone Property Management, Inc.",
+                    "$8.8M",
+                    "Notification (w/competitor termination right)",
+                    "30-day notification; 60-day termination if competitor",
+                    "Pending notification",
+                    "LOW"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 455,
+            "table2_idx": 456,
+            "upper_row_ss": [
+                [
+                    "200 Bay Street, Suite",
+                    "VeloPay Canada Inc.",
+                    "Bay Street Properties",
+                    "3 years (exp. 2026)",
+                    "~1 year",
+                    "CAD 680K",
+                    "None"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1410, Toronto, ON M5J 2J2",
+                    "",
+                    "Ltd.",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 506,
+            "table2_idx": 507,
+            "upper_row_ss": [
+                [
+                    "CipherVault Technologies, Inc.",
+                    "Tokenization Engine; Key Mgmt Service",
+                    "Term license",
+                    "$1.7M",
+                    "5 yr (~3 yr remaining)",
+                    "Non-assignable/sublicensable w/o",
+                    "None (but broad anti-assignment)",
+                    "MODERATE"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "consent",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 541,
+            "table2_idx": 542,
+            "upper_row_ss": [
+                [
+                    "Ledgerpoint Financial Technology, Inc.",
+                    "Non-exclusive referral and integration",
+                    "~$3.2M revenue (FY2024)",
+                    "2 yr / ~7 mo remaining",
+                    "Notification only (30 days)",
+                    "LOW"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "National Digital Payments Alliance",
+                    "Co-marketing / sponsorship",
+                    "$750K cost (annual)",
+                    "1 yr / ~11 mo remaining",
+                    "None",
+                    "LOW"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 660,
+            "table2_idx": 661,
+            "upper_row_ss": [
+                [
+                    "Commonwealth Settlement Bank, N.A.",
+                    "Vendor (Settlement Bank)",
+                    "$6.2M spend",
+                    "Consent Required",
+                    "HIGH",
+                    "Outreach initiated"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Hawthorne Retail Group, Inc.",
+                    "Customer",
+                    "$28.0M revenue",
+                    "Consent Required",
+                    "HIGH",
+                    "Outreach initiated"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 661,
+            "table2_idx": 662,
+            "upper_row_ss": [
+                [
+                    "Verona Luxury Brands, Inc.",
+                    "Customer",
+                    "$4.5M revenue",
+                    "Notification + Competitor",
+                    "LOW",
+                    "Pending notification"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "termination",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 716,
+            "table2_idx": 717,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Pinnacle Software Solutions,",
+                    "1/15/2023",
+                    "3 yr (exp. 1/15/2026)",
+                    "Auto 1-yr; 90-day notice",
+                    "$16.0M",
+                    "Processing, Gateway, API Integr",
+                    "None",
+                    "No assignment w/o consent",
+                    "None",
+                    "Cause (30-day cure); Convenience",
+                    "North Carolina",
+                    "LOW"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Inc.",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "ation",
+                    "",
+                    "",
+                    "",
+                    "ce (90-day notice after initial)",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 717,
+            "table2_idx": 718,
+            "upper_row_ss": [
+                [
+                    "8",
+                    "Sum mit",
+                    "5/1/2 023",
+                    "3 yr (exp.",
+                    "Auto 1-yr;",
+                    "$10.8 M",
+                    "Proces-sing",
+                    "Notifi cation",
+                    "No assig",
+                    "None",
+                    "Cause (30-",
+                    "Mass achus",
+                    "LOW"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Education Corporation",
+                    "",
+                    "5/1/2026)",
+                    "90-day notice",
+                    "",
+                    "(ACH/CC), Tuition Billing, Gateway",
+                    "(20 bus. days)",
+                    "nment w/o consent",
+                    "",
+                    "day cure); Convenience (90-day notice after initial )",
+                    "etts",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 718,
+            "table2_idx": 719,
+            "upper_row_ss": [
+                [
+                    "12",
+                    "Ironwood Sports & Entmt.",
+                    "7/1/2021 (Thackeray & Co..",
+                    "4 yr (exp. 7/1/2025)",
+                    "Auto 2-yr; 120-day notice",
+                    "$8.3M",
+                    "Processing, Real-time Auth., Gate",
+                    "Consent required; 60-day",
+                    "No assignment w/o consent",
+                    "MFN (processing fees only)",
+                    "Cause (30-day cure); Convenien",
+                    "New York",
+                    "MODERA TE"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Holdings",
+                    "1/15/2024)",
+                    "",
+                    "",
+                    "",
+                    "way, Insights",
+                    "term.right",
+                    "",
+                    "",
+                    "ce(120-day notice after initial)",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 719,
+            "table2_idx": 720,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "Pacific Rim Trading Co., Inc.",
+                    "2/1/2023",
+                    "3 yr(exp. 2/1/2026)",
+                    "Auto 1-yr; 90-day notice",
+                    "$6.5M",
+                    "Processing (interchange-plus/intl.",
+                    "Notification (30 days)",
+                    "No assignment w/o consent",
+                    "None",
+                    "Cause (30-day cure); Convenience",
+                    "California",
+                    "LOW"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "wire/ ACH), Gate way",
+                    "",
+                    "",
+                    "",
+                    "(90-day notice after initial)",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 720,
+            "table2_idx": 721,
+            "upper_row_ss": [
+                [
+                    "20",
+                    "Brigh water Energy Solutions Corp.",
+                    "1/1/2024",
+                    "3 yr (exp. 1/1/2027)",
+                    "Auto 1-yr; 90-day notice",
+                    "$5.2M",
+                    "Processing, Gateway",
+                    "None",
+                    "No assignment w/o consent",
+                    "None",
+                    "Cause (30-day cure); Convenience (90-",
+                    "Texas",
+                    "LOW"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "day notice after initial)",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 721,
+            "table2_idx": 722,
+            "upper_row_ss": [
+                [
+                    "24",
+                    "Trailhead Outdoor Equipment Co.",
+                    "11/1/2023",
+                    "3 yr (exp. 11/1/2026)",
+                    "Auto 1-yr; 90-day notice",
+                    "$4.3M",
+                    "Proce ssing, Gate way",
+                    "None",
+                    "No assign nment w/o consen nt",
+                    "None",
+                    "Cause (30-day cure); Convenien ce (90-day",
+                    "Oregon",
+                    "LOW"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "notice after initial)",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 723,
+            "table2_idx": 724,
+            "upper_row_ss": [
+                [
+                    "Broadline Communications Corp.",
+                    "Telecom / Network",
+                    "4/1/2023",
+                    "3 yr / ~1 yr remaining",
+                    "$3.4M",
+                    "None",
+                    "Standard (w/ M&A carve-out)",
+                    "LOW"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Licensor",
+                    "Product",
+                    "License Type",
+                    "Annual Fee (FY2024)",
+                    "Term",
+                    "Assignment / Transfer Restrictions",
+                    "CoC Provision",
+                    "Risk Level"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 763,
+            "table2_idx": 764,
+            "upper_row_ss": [
+                [
+                    "Financing Memorandum",
+                    "Sandra Tung / Oliver Mackenzie",
+                    "In progress",
+                    "Section IX — Meridian payoff and replacement"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "financing by Tralvendo National Bank / Prairie State Bank, N.A."
+                ]
+            ]
+        }
+    ]
+}

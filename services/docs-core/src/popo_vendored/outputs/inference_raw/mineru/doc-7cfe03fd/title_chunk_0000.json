@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>459 140 476 441<|content|>I. INTRODUCTION AND PURPOSE\n<|id|>16<|page|>2<|box|>204 140 220 526<|content|>II. SUMMARY OF DOCUMENTS PRODUCED\n<|id|>18<|page|>2<|box|>353 140 369 611<|content|>A. Capital Expenditure Budgets and Approvals (2017\n<|id|>28<|page|>3<|box|>268 140 285 496<|content|>B. Regulatory Expenditures and Submissions\n<|id|>36<|page|>4<|box|>402 140 420 341<|content|>C. Equipment Purchases\n<|id|>44<|page|>5<|box|>138 140 157 403<|content|>D. IT Infrastructure Investments\n<|id|>52<|page|>6<|box|>138 140 157 364<|content|>E. Leasehold Improvements\n<|id|>54<|page|>6<|box|>280 142 297 393<|content|>The produced documents include:\n<|id|>61<|page|>6<|box|>667 140 685 488<|content|>F. Summary Capital Expenditure Schedules\n<|id|>70<|page|>7<|box|>303 140 320 602<|content|>III. RELEVANCE TO TRANSFER PRICING ANALYSIS\n<|id|>80<|page|>8<|box|>321 140 339 415<|content|>IV. PRIVILEGE RESERVATION\n<|id|>86<|page|>9<|box|>89 140 106 578<|content|>V. GENERAL RESERVATIONS AND LIMITATIONS\n<|id|>94<|page|>10<|box|>89 140 106 475<|content|>VI. DOCUMENT PRODUCTION INDEX\n<|id|>100<|page|>13<|box|>329 142 347 367<|content|>Total Pages Produced: 2,812\n<|id|>102<|page|>13<|box|>450 140 468 233<|content|>CLOSING\n<|id|>119<|page|>14<|box|>375 142 390 238<|content|>Enclosures:",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>2\n<|id|>28<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>-1\n<|id|>61<|level|>2\n<|id|>70<|level|>1\n<|id|>80<|level|>1\n<|id|>86<|level|>1\n<|id|>94<|level|>1\n<|id|>100<|level|>-1\n<|id|>102<|level|>1\n<|id|>119<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        }
+    ]
+}

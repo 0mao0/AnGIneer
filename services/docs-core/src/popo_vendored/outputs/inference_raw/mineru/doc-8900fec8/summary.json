@@ -1,0 +1,129 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lrknlpul\\input\\pdfs\\doc-8900fec8.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lrknlpul\\enriched\\doc-8900fec8.json",
+    "contd_output": "<|src_id|>90<|tgt_id|>91",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>13<|level|>2\n<|id|>21<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>3\n<|id|>55<|level|>3\n<|id|>59<|level|>3\n<|id|>64<|level|>3\n<|id|>72<|level|>3\n<|id|>76<|level|>3\n<|id|>79<|level|>3\n<|id|>86<|level|>3\n<|id|>95<|level|>3\n<|id|>98<|level|>3\n<|id|>101<|level|>2\n<|id|>104<|level|>2\n<|id|>114<|level|>2\n<|id|>125<|level|>2\n<|id|>130<|level|>2",
+    "image_output": "<|src_id|>23<|tgt_id|>21\n<|src_id|>24<|tgt_id|>21\n<|src_id|>102<|tgt_id|>101",
+    "contd_label": [
+        {
+            "src_id": 90,
+            "tgt_id": 91
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 101
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 23,
+            "table2_idx": 24,
+            "upper_row_ss": [
+                [
+                    "Angela Fontaine",
+                    "Billing Partner",
+                    "$1,450"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Rafael Dominguez",
+                    "Lead Associate",
+                    "$895"
+                ]
+            ]
+        }
+    ]
+}

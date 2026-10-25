@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>151 140 167 790<|content|>Firm: ... Calderwood & Harkness LLP 200 Park Avenue, 38th Floor New York, NY 10166\n<|id|>2<|page|>1<|box|>176 140 194 674<|content|>Matter Name: ... Stonefield Logistics Group Inc\n<|id|>4<|page|>1<|box|>229 140 244 684<|content|>Court: ... United States District Court for the Southern District of New York\n<|id|>5<|page|>1<|box|>253 140 272 552<|content|>Presiding Judge: ... J\n<|id|>6<|page|>1<|box|>280 140 297 379<|content|>C&H Matter No. ... 1012-00005\n<|id|>7<|page|>1<|box|>306 140 324 434<|content|>Client: ... Stonefield Logistics Group Inc\n<|id|>8<|page|>1<|box|>332 140 349 344<|content|>Report Date: ... July 8, 2024\n<|id|>9<|page|>1<|box|>358 142 376 467<|content|>Prepared By: ... Helen Tsao, Senior Paralegal\n<|id|>10<|page|>1<|box|>383 140 401 671<|content|>Distributed To: ... Patrick Gallagher, Lead Associate, Litigation (General)\n<|id|>11<|page|>1<|box|>409 140 428 647<|content|>Designation: ... Attorney Work Product — Privileged and Confidential\n<|id|>15<|page|>1<|box|>767 140 877 856<|content|>For context, the matter was placed on dormant/moni...ithout any notice of appearance or other filing by\n<|id|>16<|page|>2<|box|>90 140 127 854<|content|>Vantor Holdings Corp. ... or on its behalf, confir...iggering implementation of the monitoring protocol",
+    "raw_response": "<|src_id|>15<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        }
+    ]
+}

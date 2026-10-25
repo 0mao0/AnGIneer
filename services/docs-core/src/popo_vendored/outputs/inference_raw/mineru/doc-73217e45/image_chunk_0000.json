@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>127 153 162 841<|content|>CALDERWOOD & HARKNESS LLP 200 Park Avenue, 42nd Fl\n<|id|>9<|type|>title<|page|>1<|box|>465 385 486 612<|content|>I. Executive Summary\n<|id|>20<|type|>title<|page|>2<|box|>469 419 488 576<|content|>II. Background\n<|id|>21<|type|>title<|page|>2<|box|>513 142 530 299<|content|>A. The Transaction\n<|id|>26<|type|>title<|page|>3<|box|>304 140 321 473<|content|>B. Requirement for Stockholder Approval\n<|id|>33<|type|>title<|page|>4<|box|>186 140 203 442<|content|>C. Veridian's Capitalization Overview\n<|id|>37<|type|>table<|page|>4<|box|>606 143 905 852<|content|>None\n<|id|>42<|type|>title<|page|>5<|box|>489 174 535 823<|content|>III. Legal Framework — DGCL § 228 Written Consent\n<|id|>43<|type|>title<|page|>5<|box|>558 142 575 478<|content|>A. Statutory Requirements of DGCL § 228\n<|id|>50<|type|>title<|page|>6<|box|>439 140 457 408<|content|>B. Minimum Approval Threshold\n<|id|>59<|type|>title<|page|>7<|box|>383 140 402 648<|content|>C. Veridian's Certificate of Incorporation — Relev\n<|id|>65<|type|>title<|page|>8<|box|>131 140 148 406<|content|>D. Bylaws — Relevant Provisions\n<|id|>69<|type|>title<|page|>8<|box|>455 218 474 779<|content|>IV. Analysis of the Stockholder Written Consent Pr\n<|id|>70<|type|>title<|page|>8<|box|>501 142 518 553<|content|>A. Form of Written Consent and Joinder Agreement\n<|id|>80<|type|>title<|page|>9<|box|>638 140 654 436<|content|>B. Solicitation and Collection Process\n<|id|>92<|type|>title<|page|>10<|box|>806 140 824 470<|content|>C. Results of the Written Consent Process\n<|id|>94<|type|>table<|page|>11<|box|>89 143 354 852<|content|>None\n<|id|>104<|type|>title<|page|>12<|box|>186 140 204 602<|content|>D. Compliance with DGCL § 228 and Notice Requireme\n<|id|>111<|type|>title<|page|>13<|box|>90 140 107 388<|content|>E. Record Date Considerations\n<|id|>115<|type|>title<|page|>13<|box|>450 276 470 720<|content|>V. SPA Condition Satisfaction — Section 7.1\n<|id|>121<|type|>title<|page|>14<|box|>154 310 174 686<|content|>VI. Potential Issues and Observations\n<|id|>122<|type|>title<|page|>14<|box|>199 140 215 401<|content|>A. Non-Consenting Stockholders\n<|id|>129<|type|>title<|page|>15<|box|>204 140 222 343<|content|>B. ESOP/Option Holders\n<|id|>134<|type|>title<|page|>15<|box|>770 140 787 401<|content|>C. Documentation Completeness\n<|id|>139<|type|>title<|page|>16<|box|>340 302 359 694<|content|>VII. Conclusion and Recommendations\n<|id|>140<|type|>title<|page|>16<|box|>377 140 393 560<|content|>Based on the foregoing analysis, we conclude as fo\n<|id|>150<|type|>title<|page|>17<|box|>301 140 316 228<|content|>Prepared by:\n<|id|>153<|type|>title<|page|>17<|box|>398 437 419 560<|content|>Appendices",
+    "raw_response": "<|src_id|>37<|tgt_id|>33\n<|src_id|>94<|tgt_id|>92",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 92
+        }
+    ]
+}

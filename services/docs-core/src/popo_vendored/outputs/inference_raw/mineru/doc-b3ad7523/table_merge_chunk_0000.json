@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Fund Counsel', 'Calderwood & Harkness LLP', 'Pamela Cross, Nicholas Stern, Theresa Kim, Owen Fischer, Leonard Cross', '600 Lexington Avenue, New York, NY 10022; 555 California Street, Suite 3500, San Francisco,']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'CA 94104']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 263,
+    "table2_idx": 264
+}

@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 202 184 794<|content|>CALDERWOOD & HARKNESS LLP INTERNAL MEMORANDUM PRIV\n<|id|>1<|type|>table<|page|>1<|box|>191 143 364 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>414 142 431 343<|content|>I. Purpose and Summary\n<|id|>7<|type|>title<|page|>2<|box|>212 140 229 361<|content|>II. Scope of Conflict Search\n<|id|>8<|type|>title<|page|>2<|box|>243 140 258 302<|content|>A. Parties Searched\n<|id|>10<|type|>title<|page|>2<|box|>383 140 400 328<|content|>Client / Borrower Side:\n<|id|>19<|type|>title<|page|>2<|box|>768 143 785 300<|content|>Acquisition Target:\n<|id|>26<|type|>title<|page|>3<|box|>361 142 378 452<|content|>Lead Arranger / Administrative Agent:\n<|id|>30<|type|>title<|page|>3<|box|>590 140 609 544<|content|>Anticipated Co-Lenders / Syndication Participants:\n<|id|>33<|type|>title<|page|>3<|box|>840 142 856 290<|content|>Lender's Counsel:\n<|id|>37<|type|>title<|page|>4<|box|>223 142 239 437<|content|>Acquisition Counsel (Borrower Side):\n<|id|>39<|type|>title<|page|>4<|box|>340 142 358 354<|content|>Seller's / Target's Counsel:\n<|id|>41<|type|>title<|page|>4<|box|>460 143 477 285<|content|>Target's Auditor:\n<|id|>43<|type|>title<|page|>4<|box|>597 142 613 421<|content|>Financial Advisor (Borrower Side):\n<|id|>45<|type|>title<|page|>4<|box|>715 142 731 232<|content|>Insurance:\n<|id|>47<|type|>title<|page|>4<|box|>864 142 880 424<|content|>B. Databases and Systems Searched\n<|id|>54<|type|>title<|page|>5<|box|>602 140 619 362<|content|>C. Date and Time of Search\n<|id|>59<|type|>title<|page|>5<|box|>780 140 797 379<|content|>III. Results of Conflict Search\n<|id|>61<|type|>title<|page|>6<|box|>90 140 107 681<|content|>A. Solara Digital Infrastructure LP and Related En\n<|id|>65<|type|>title<|page|>6<|box|>416 140 433 617<|content|>B. Brindoval National Bank, N.A. (Adverse Party —\n<|id|>72<|type|>title<|page|>7<|box|>648 140 666 526<|content|>C. Broadwick & Thayer LLP (Lender's Counsel)\n<|id|>76<|type|>title<|page|>8<|box|>184 140 200 565<|content|>D. Meridian Cloud Solutions Inc. (Acquisition Targ\n<|id|>80<|type|>title<|page|>8<|box|>436 140 454 588<|content|>E. Ashford Ventures Partners LLC (Selling Sharehol\n<|id|>91<|type|>title<|page|>9<|box|>847 140 864 643<|content|>G. Kerrigan Ross & Associates LLP (Seller's / Targ\n<|id|>96<|type|>title<|page|>10<|box|>338 140 354 622<|content|>H. Alderton Paige LLP (Co-Counsel to Solara on Acq\n<|id|>100<|type|>title<|page|>10<|box|>681 142 699 490<|content|>I. Whitfield & Sable LLP (Target's Auditor)\n<|id|>103<|type|>title<|page|>10<|box|>816 140 834 643<|content|>J. Velthorn Stanton Advisory LLC (Financial Adviso\n<|id|>106<|type|>title<|page|>11<|box|>165 140 183 687<|content|>K. Northvane Insurance Group Inc. (R&W / D&O Insur\n<|id|>109<|type|>title<|page|>11<|box|>310 142 327 442<|content|>IV. Transaction Overview for Context\n<|id|>116<|type|>table<|page|>11<|box|>790 143 880 852<|content|>None\n<|id|>117<|type|>table<|page|>12<|box|>88 143 198 852<|content|>None\n<|id|>126<|type|>title<|page|>12<|box|>704 140 720 547<|content|>V. Analysis of Potential Issues Requiring Disclosu\n<|id|>128<|type|>title<|page|>12<|box|>815 140 832 594<|content|>A. Prior Representation of Brindoval National Bank\n<|id|>133<|type|>title<|page|>13<|box|>547 140 564 619<|content|>B. Prior Representation of Pinnacle Ridge Credit F\n<|id|>138<|type|>title<|page|>14<|box|>194 140 213 331<|content|>C. Ongoing Monitoring\n<|id|>143<|type|>title<|page|>14<|box|>684 140 700 437<|content|>VI. Conclusion and Recommendation\n<|id|>151<|type|>title<|page|>16<|box|>89 140 107 354<|content|>VII. Signature and Review",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>116<|tgt_id|>109\n<|src_id|>117<|tgt_id|>109",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 109
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        190,
+        198
+    ],
+    "pages": [
+        191,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1770<|type|>title<|page|>191<|box|>382 15 398 168<|content|>12. Indemnification\n<|id|>1772<|type|>title<|page|>191<|box|>482 16 497 112<|content|>13. Notices\n<|id|>1786<|type|>title<|page|>193<|box|>55 259 68 739<|content|>MAJOR SUBSIDIARIES OF THE REGISTRANT AT DECEMBER 3\n<|id|>1787<|type|>table<|page|>193<|box|>87 53 277 942<|content|>None\n<|id|>1788<|type|>title<|page|>194<|box|>55 245 68 752<|content|>CONSENT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTIN\n<|id|>1792<|type|>title<|page|>195<|box|>54 439 68 558<|content|>CERTIFICATION\n<|id|>1807<|type|>title<|page|>196<|box|>54 439 68 558<|content|>CERTIFICATION\n<|id|>1822<|type|>title<|page|>197<|box|>54 309 105 688<|content|>CERTIFICATION PURSUANT TO 18 U.S.C. SECTION 1350,\n<|id|>1833<|type|>title<|page|>198<|box|>54 309 105 688<|content|>CERTIFICATION PURSUANT TO 18 U.S.C. SECTION 1350,\n<|id|>1838<|type|>title<|page|>198<|box|>244 526 259 661<|content|>/s/ DENNIS DURKIN",
+    "raw_response": "<|src_id|>1787<|tgt_id|>1786",
+    "parsed": [
+        {
+            "src_id": 1787,
+            "tgt_id": 1786
+        }
+    ]
+}

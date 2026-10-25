@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>160 707 176 854<|content|>December 20, 2022\n<|id|>2<|page|>1<|box|>186 140 203 395<|content|>TO: ... Douglas Carmichael, Partner\n<|id|>3<|page|>1<|box|>212 140 229 666<|content|>FROM: ... Carlos Espinoza, Associate\n<|id|>4<|page|>1<|box|>237 140 292 854<|content|>RE: ... 21STCV-34872 (Superior Court of California, County of Los Angeles)\n<|id|>5<|page|>1<|box|>300 140 316 361<|content|>MATTER NO. ... 1038-00007\n<|id|>6<|page|>1<|box|>325 140 344 437<|content|>CLIENT: ... Cascade Retail Holdings Inc\n<|id|>31<|page|>3<|box|>847 140 883 857<|content|>Orion Lifestyle Brands Corp. ... Orion's Chief\n<|id|>32<|page|>4<|box|>90 140 127 854<|content|>Executive Officer is Simone Alvarez. ... Orion man...kincare, bath products, and related consumer goods\n<|id|>54<|page|>6<|box|>160 183 176 573<|content|>• Hemsworth Consumer Products LLC: ... $34,200,000\n<|id|>58<|page|>6<|box|>239 140 275 854<|content|>As discussed in detail in Section IV below, Dr. ..... resulting in a dramatically reduced damages range\n<|id|>55<|page|>6<|box|>179 183 196 503<|content|>• Tridale Manufacturing Inc. ... $22,800,000\n<|id|>56<|page|>6<|box|>199 183 215 517<|content|>• Orion Lifestyle Brands Corp. ... $30,400,000\n<|id|>57<|page|>6<|box|>219 184 234 348<|content|>• Total: ... $87,400,000\n<|id|>91<|page|>8<|box|>885 181 902 712<|content|>• High estimate: ... \\ S 4 , 9 0 0 , 0 0 0 + \\ S 2... + \\ S 3 , 7 0 0 , 0 0 0 = \\ S 1 1 , 3 0 0 , 0 0 0\n<|id|>92<|page|>9<|box|>89 140 162 854<|content|>This represents a reduction of approximately 87% (...s to the actual remaining exclusive contract terms\n<|id|>109<|page|>10<|box|>779 183 795 501<|content|>• Hemsworth: ... 90 days' prior written notice\n<|id|>112<|page|>10<|box|>838 140 892 856<|content|>Dr. ... The actual termination-for-convenience not... separate and apart from any inducement by Cascade\n<|id|>110<|page|>10<|box|>799 183 815 470<|content|>• Tridale: ... 60 days' prior written notice\n<|id|>111<|page|>10<|box|>819 183 834 470<|content|>• Orion: ... 120 days' prior written notice",
+    "raw_response": "<|src_id|>31<|tgt_id|>32",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        }
+    ]
+}

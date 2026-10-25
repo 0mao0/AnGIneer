@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        9,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 174 123 821<|content|>UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF\n<|id|>1<|type|>table<|page|>1<|box|>157 143 287 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>354 147 409 848<|content|>DECLARATION OF KAREN LUND IN SUPPORT OF DEFENDANT\n<|id|>10<|type|>title<|page|>2<|box|>570 153 604 841<|content|>OVERVIEW OF THE INDEPENDENT CONTRACTOR OPERATING A\n<|id|>41<|type|>title<|page|>5<|box|>750 207 767 790<|content|>SUBCONTRACTING PROVISIONS AND PRACTICAL APPLICATIO\n<|id|>50<|type|>title<|page|>7<|box|>772 173 787 823<|content|>ARBITRATION CLAUSE AND COLLECTIVE ACTION WAIVER IN\n<|id|>57<|type|>title<|page|>9<|box|>343 199 359 797<|content|>RANGE OF DRIVER INDEPENDENCE REFLECTED IN SLG RECO\n<|id|>69<|type|>table<|page|>12<|box|>232 143 541 852<|content|>None\n<|id|>73<|type|>title<|page|>13<|box|>470 434 487 563<|content|>CONCLUSION\n<|id|>78<|type|>title<|page|>14<|box|>143 374 159 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>69<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 57
+        }
+    ]
+}

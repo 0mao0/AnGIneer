@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['1961 to date', '13,084', '16,195', '-3,111', '1,000', '-2,110']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Fiscal year or month', 'colspan=3, Receipts', 'colspan=4, Less: Deductions from receipts', 'rowspan=2, Equals: Federal receipts from the public 4/', \"colspan=2, Reconciliation to cash transactions in Treasurer's account\", \"rowspan=2, Equals: Cash deposits in the Treasurer's account\"]]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 164,
+    "table2_idx": 165
+}

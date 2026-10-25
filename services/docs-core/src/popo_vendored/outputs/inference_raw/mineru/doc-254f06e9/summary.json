@@ -1,0 +1,194 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gr5133e0\\input\\pdfs\\doc-254f06e9.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gr5133e0\\enriched\\doc-254f06e9.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>10<|level|>3\n<|id|>17<|level|>3\n<|id|>25<|level|>3\n<|id|>31<|level|>3\n<|id|>33<|level|>3\n<|id|>57<|level|>2\n<|id|>59<|level|>3\n<|id|>73<|level|>3\n<|id|>83<|level|>3\n<|id|>91<|level|>3\n<|id|>97<|level|>2\n<|id|>99<|level|>3\n<|id|>109<|level|>3\n<|id|>114<|level|>3\n<|id|>119<|level|>3\n<|id|>129<|level|>3\n<|id|>135<|level|>3\n<|id|>142<|level|>3\n<|id|>158<|level|>2\n<|id|>160<|level|>3\n<|id|>168<|level|>3\n<|id|>177<|level|>3\n<|id|>181<|level|>3\n<|id|>192<|level|>3\n<|id|>199<|level|>3\n<|id|>208<|level|>2\n<|id|>210<|level|>3\n<|id|>217<|level|>3\n<|id|>224<|level|>2\n<|id|>225<|level|>3\n<|id|>229<|level|>2\n<|id|>230<|level|>3\n<|id|>232<|level|>3\n<|id|>234<|level|>3\n<|id|>249<|level|>3",
+    "image_output": "<|src_id|>200<|tgt_id|>199\n<|src_id|>201<|tgt_id|>199",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 3
+        },
+        {
+            "id": 217,
+            "level": 3
+        },
+        {
+            "id": 224,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 229,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 3
+        },
+        {
+            "id": 249,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 200,
+            "tgt_id": 199
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 199
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 200,
+            "table2_idx": 201,
+            "upper_row_ss": [
+                [
+                    "Lost Profits",
+                    "$18,700,000",
+                    "$3,370,000",
+                    "Corrected margin (5.2%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "vs. 12%); adjusted volume projections"
+                ]
+            ]
+        }
+    ]
+}

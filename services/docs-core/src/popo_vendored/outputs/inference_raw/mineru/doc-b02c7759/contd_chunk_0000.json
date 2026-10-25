@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 142 104 256<|content|>CONFIDENTIAL\n<|id|>1<|page|>1<|box|>112 145 128 854<|content|>CRESCENT HARBOR BANK, N. ... 600 Lexington Avenue, 34th Floor New York, NY 10022\n<|id|>2<|page|>1<|box|>138 746 156 854<|content|>May 27, 2022\n<|id|>5<|page|>1<|box|>215 140 251 854<|content|>Verimark Hospitality Group Inc. ... 8200 West Palmetto Park Road, Suite 1500 Boca Raton, FL 33433\n<|id|>6<|page|>1<|box|>260 140 277 753<|content|>Attention: ... and Glenn Fischbach, Treasurer\n<|id|>7<|page|>1<|box|>286 140 304 750<|content|>Copy to: ... Priya Narayanan, General Counsel & Corporate Secretary (same address)\n<|id|>8<|page|>1<|box|>311 140 329 799<|content|>Re: ... Fee Letter in connection with $700,000,000 Senior Secured Term Loan B Facility\n<|id|>9<|page|>1<|box|>338 140 354 413<|content|>Dear Ms. ... Fischbach\n<|id|>31<|page|>4<|box|>739 140 905 857<|content|>Except for (a) the Arrangement Fee described in Se...complete fee and compensation arrangements between\n<|id|>32<|page|>5<|box|>90 140 126 854<|content|>VHG and Crescent Harbor and to ensure that no addi... exist outside of those expressly set forth herein\n<|id|>67<|page|>8<|box|>809 142 824 393<|content|>Name: ... Theodore \"Ted\" Marchetti\n<|id|>68<|page|>8<|box|>825 142 843 477<|content|>Title: ... Managing Director, Leveraged Finance\n<|id|>69<|page|>8<|box|>844 143 859 294<|content|>Date: ... May 27, 2022\n<|id|>70<|page|>8<|box|>861 261 877 733<|content|>ACCEPTED AND AGREED as of the date first written a...PTED AND AGREED as of the date first written above\n<|id|>72<|page|>8<|box|>915 142 929 264<|content|>CHB-LF-2022-07814\n<|id|>73<|page|>9<|box|>90 143 107 251<|content|>By: ... By\n<|id|>74<|page|>9<|box|>107 142 125 307<|content|>Name: ... Renata Haines\n<|id|>75<|page|>9<|box|>125 143 141 359<|content|>Title: ... Chief Financial Officer\n<|id|>76<|page|>9<|box|>141 143 159 294<|content|>Date: ... May 27, 2022\n<|id|>77<|page|>9<|box|>159 143 176 251<|content|>By: ... By\n<|id|>78<|page|>9<|box|>176 143 193 323<|content|>Name: ... Glenn Fischbach\n<|id|>79<|page|>9<|box|>194 143 210 263<|content|>Title: ... Treasurer\n<|id|>80<|page|>9<|box|>210 143 228 292<|content|>Date: ... May 27, 2022",
+    "raw_response": "<|src_id|>31<|tgt_id|>32",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        }
+    ]
+}

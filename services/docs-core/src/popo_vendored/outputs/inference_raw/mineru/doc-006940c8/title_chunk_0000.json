@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>349 140 366 473<|content|>1. Purpose and Confirmation of Retention\n<|id|>11<|page|>2<|box|>90 140 107 390<|content|>2. Background of the Litigation\n<|id|>13<|page|>2<|box|>202 140 218 266<|content|>2.1 The Parties\n<|id|>18<|page|>2<|box|>792 140 809 483<|content|>2.2 The Alleged Revenue-Diversion Scheme\n<|id|>22<|page|>3<|box|>484 140 501 596<|content|>2.3 discovery of the Scheme and Preliminary Invest\n<|id|>25<|page|>3<|box|>820 140 838 604<|content|>2.4 Pre-Litigation Correspondence and Filing of Co\n<|id|>29<|page|>4<|box|>257 140 273 473<|content|>2.5 Defensive Pleadings and Counterclaim\n<|id|>31<|page|>4<|box|>383 140 401 393<|content|>2.6 Current Procedural Posture\n<|id|>34<|page|>4<|box|>713 140 729 334<|content|>3. Scope of Engagement\n<|id|>36<|page|>4<|box|>825 140 840 464<|content|>3.1 Gross Room Revenue Reconstruction\n<|id|>44<|page|>5<|box|>763 140 780 415<|content|>3.2 Underreporting Quantification\n<|id|>49<|page|>6<|box|>411 140 429 387<|content|>3.3 Underpayment Calculation\n<|id|>55<|page|>7<|box|>140 140 157 442<|content|>3.4 Late-Payment Interest Calculation\n<|id|>59<|page|>7<|box|>465 140 483 406<|content|>3.5 Liquidated Damages Analysis\n<|id|>63<|page|>7<|box|>773 140 790 493<|content|>3.6 Review and Rebuttal of Opposing Expert\n<|id|>66<|page|>8<|box|>231 140 250 406<|content|>3.7 Expert Report and Testimony\n<|id|>70<|page|>8<|box|>531 140 547 372<|content|>4. Materials and Data Access\n<|id|>82<|page|>9<|box|>726 140 743 303<|content|>5. Fee Arrangement\n<|id|>91<|page|>10<|box|>835 140 852 462<|content|>6. Privilege and Work-Product Protocols\n<|id|>100<|page|>11<|box|>515 142 551 854<|content|>\"DRAFT — PRIVILEGED AND CONFIDENTIAL — PREPARED AT\n<|id|>105<|page|>12<|box|>167 140 184 284<|content|>7. Confidentiality\n<|id|>109<|page|>12<|box|>616 140 633 321<|content|>8. Conflicts of Interest\n<|id|>122<|page|>13<|box|>250 140 266 398<|content|>9. Independence and Objectivity\n<|id|>126<|page|>13<|box|>569 142 585 274<|content|>10. Termination\n<|id|>130<|page|>14<|box|>90 142 107 380<|content|>11. Key Engagement Contacts\n<|id|>132<|page|>14<|box|>142 142 157 385<|content|>Calderwood & Harkness LLP:\n<|id|>136<|page|>14<|box|>570 143 587 437<|content|>12. Acceptance and Countersignature\n<|id|>143<|page|>14<|box|>797 383 813 614<|content|>AGREED AND ACCEPTED",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>11<|level|>1\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>2\n<|id|>34<|level|>1\n<|id|>36<|level|>2\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>55<|level|>2\n<|id|>59<|level|>2\n<|id|>63<|level|>2\n<|id|>66<|level|>2\n<|id|>70<|level|>1\n<|id|>82<|level|>1\n<|id|>91<|level|>1\n<|id|>100<|level|>-1\n<|id|>105<|level|>1\n<|id|>109<|level|>1\n<|id|>122<|level|>1\n<|id|>126<|level|>1\n<|id|>130<|level|>1\n<|id|>132<|level|>2\n<|id|>136<|level|>1\n<|id|>143<|level|>-1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 1
+        }
+    ]
+}

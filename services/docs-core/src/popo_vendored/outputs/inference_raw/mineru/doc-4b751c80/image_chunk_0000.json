@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 401 119 594<|content|>CROSS-RECEIPT\n<|id|>1<|type|>title<|page|>1<|box|>136 361 154 635<|content|>Delivery of Notes Against Payment\n<|id|>7<|type|>title<|page|>1<|box|>324 140 342 241<|content|>RECITALS\n<|id|>23<|type|>title<|page|>2<|box|>696 140 733 802<|content|>SECTION 1 — ACKNOWLEDGMENT OF DELIVERY OF THE NOTE\n<|id|>28<|type|>title<|page|>3<|box|>420 140 457 736<|content|>SECTION 2 — ACKNOWLEDGMENT OF PAYMENT BY THE INITI\n<|id|>30<|type|>table<|page|>3<|box|>625 143 785 852<|content|>None\n<|id|>32<|type|>table<|page|>4<|box|>88 143 183 852<|content|>None\n<|id|>34<|type|>table<|page|>4<|box|>314 143 407 852<|content|>None\n<|id|>36<|type|>title<|page|>4<|box|>518 140 537 738<|content|>SECTION 3 — MUTUAL ACKNOWLEDGMENT AND CROSS-RECEIP\n<|id|>40<|type|>title<|page|>5<|box|>148 140 166 653<|content|>SECTION 4 — REPRESENTATIONS AND CONFIRMATIONS\n<|id|>44<|type|>title<|page|>5<|box|>707 140 724 545<|content|>SECTION 5 — MISCELLANEOUS PROVISIONS\n<|id|>50<|type|>title<|page|>6<|box|>431 401 449 596<|content|>[Signature Pages Follow]\n<|id|>51<|type|>title<|page|>6<|box|>457 323 474 673<|content|>SIGNATURE PAGE TO CROSS-RECEIPT\n<|id|>53<|type|>title<|page|>6<|box|>527 142 544 218<|content|>ISSUER:\n<|id|>54<|type|>title<|page|>6<|box|>553 142 569 596<|content|>BELMONT RIDGE BANK, NATIONAL ASSOCIATION\n<|id|>64<|type|>title<|page|>6<|box|>787 142 803 352<|content|>INITIAL PURCHASERS:\n<|id|>86<|type|>title<|page|>7<|box|>453 341 470 655<|content|>ACKNOWLEDGMENT OF TRUSTEE\n<|id|>92<|type|>title<|page|>7<|box|>845 142 863 748<|content|>BRINDOVAL TRUST COMPANY, NATIONAL ASSOCIATION (as",
+    "raw_response": "<|src_id|>30<|tgt_id|>28\n<|src_id|>32<|tgt_id|>28\n<|src_id|>34<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 28
+        }
+    ]
+}

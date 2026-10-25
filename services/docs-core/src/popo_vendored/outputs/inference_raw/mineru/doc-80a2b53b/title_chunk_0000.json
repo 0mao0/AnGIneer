@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>193 169 229 826<|content|>DRAFT — FOR DISCUSSION PURPOSES ONLY — NOT FOR EXE\n<|id|>10<|page|>1<|box|>455 140 473 462<|content|>I. Introduction and Engagement Context\n<|id|>19<|page|>2<|box|>267 140 284 508<|content|>II. Defined Terms and Transaction Documents\n<|id|>32<|page|>3<|box|>242 140 258 452<|content|>III. Documents Examined and Reliance\n<|id|>43<|page|>4<|box|>167 142 184 277<|content|>IV. Assumptions\n<|id|>55<|page|>5<|box|>186 140 204 243<|content|>V. Opinions\n<|id|>57<|page|>5<|box|>261 140 277 416<|content|>5.1 Valid Formation and Existence\n<|id|>59<|page|>5<|box|>462 140 479 339<|content|>5.2 Power and Authority\n<|id|>65<|page|>6<|box|>176 140 193 320<|content|>5.3 Due Authorization\n<|id|>68<|page|>6<|box|>585 140 603 357<|content|>5.4 Execution and Delivery\n<|id|>70<|page|>6<|box|>805 140 821 504<|content|>5.5 No Violation of Organizational Documents\n<|id|>75<|page|>7<|box|>349 140 364 408<|content|>5.6 No Violation of Delaware Law\n<|id|>77<|page|>7<|box|>531 140 549 563<|content|>5.7 No Governmental Approvals Required (Delaware)\n<|id|>81<|page|>7<|box|>775 140 792 413<|content|>VI. Qualifications and Limitations\n<|id|>93<|page|>9<|box|>315 142 332 344<|content|>VII. Reliance and Benefit\n<|id|>103<|page|>9<|box|>828 140 844 452<|content|>VIII. Governing Law of Opinion Letter\n<|id|>106<|page|>10<|box|>160 223 176 772<|content|>[SIGNATURE PAGE — DRAFT ONLY — NOT FOR EXECUTION]\n<|id|>112<|page|>10<|box|>297 168 333 826<|content|>DRAFT — FOR DISCUSSION PURPOSES ONLY — NOT FOR EXE\n<|id|>114<|page|>11<|box|>89 142 107 243<|content|>EXHIBIT A\n<|id|>115<|page|>11<|box|>114 233 133 763<|content|>LIST OF TRANSACTION DOCUMENTS (to which QRH is a p\n<|id|>119<|page|>12<|box|>89 142 106 243<|content|>EXHIBIT B\n<|id|>120<|page|>12<|box|>114 259 132 736<|content|>LIST OF ORGANIZATIONAL DOCUMENTS REVIEWED",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>-1\n<|id|>10<|level|>1\n<|id|>19<|level|>1\n<|id|>32<|level|>1\n<|id|>43<|level|>1\n<|id|>55<|level|>1\n<|id|>57<|level|>2\n<|id|>59<|level|>2\n<|id|>65<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>2\n<|id|>81<|level|>1\n<|id|>93<|level|>1\n<|id|>103<|level|>1\n<|id|>106<|level|>-1\n<|id|>112<|level|>-1\n<|id|>114<|level|>1\n<|id|>115<|level|>2\n<|id|>119<|level|>1\n<|id|>120<|level|>2",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 2
+        }
+    ]
+}

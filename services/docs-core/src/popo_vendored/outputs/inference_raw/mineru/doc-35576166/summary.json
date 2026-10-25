@@ -1,0 +1,147 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_yrjdze0\\input\\pdfs\\doc-35576166.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_yrjdze0\\enriched\\doc-35576166.json",
+    "contd_output": "<|src_id|>14<|tgt_id|>15",
+    "title_output": "<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>17<|level|>2\n<|id|>33<|level|>2\n<|id|>36<|level|>1\n<|id|>44<|level|>1\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>2\n<|id|>79<|level|>1\n<|id|>84<|level|>1\n<|id|>87<|level|>1\n<|id|>94<|level|>1\n<|id|>108<|level|>1\n<|id|>112<|level|>1\n<|id|>119<|level|>1\n<|id|>123<|level|>1\n<|id|>127<|level|>1\n<|id|>130<|level|>1\n<|id|>134<|level|>1\n<|id|>137<|level|>1",
+    "image_output": "<|src_id|>57<|tgt_id|>55\n<|src_id|>63<|tgt_id|>61\n<|src_id|>165<|tgt_id|>164\n<|src_id|>166<|tgt_id|>164",
+    "contd_label": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 57,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 164
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 164
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 165,
+            "table2_idx": 166,
+            "upper_row_ss": [
+                [
+                    "Attorney / Professional",
+                    "Practice Group",
+                    "Position",
+                    "2025 Hourly Rate"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Douglas Fairchild",
+                    "Real Estate",
+                    "Partner (Responsible Partner)",
+                    "$985.00"
+                ]
+            ]
+        }
+    ]
+}

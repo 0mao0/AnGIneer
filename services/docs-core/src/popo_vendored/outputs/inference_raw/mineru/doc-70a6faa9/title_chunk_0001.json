@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        52,
+        69
+    ],
+    "pages": [
+        52,
+        53,
+        54,
+        56,
+        60,
+        62,
+        64,
+        66,
+        67,
+        68,
+        69
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>612<|page|>52<|box|>89 142 106 395<|content|>SCHEDULE 6 — INSURANCE\n<|id|>616<|page|>53<|box|>89 140 106 470<|content|>SCHEDULE 7 — NOTICE ADDRESSES\n<|id|>618<|page|>53<|box|>157 142 174 238<|content|>Borrowers:\n<|id|>625<|page|>53<|box|>314 143 329 246<|content|>DIP Lender:\n<|id|>630<|page|>53<|box|>469 450 486 547<|content|>EXHIBITS\n<|id|>631<|page|>54<|box|>89 140 106 552<|content|>EXHIBIT A — FORM OF BORROWING NOTICE\n<|id|>660<|page|>56<|box|>89 142 107 797<|content|>EXHIBIT B — APPROVED DIP BUDGET (13-WEEK CASH FLOW\n<|id|>666<|page|>60<|box|>89 140 106 612<|content|>EXHIBIT C — FORM OF COMPLIANCE CERTIFICATE\n<|id|>688<|page|>62<|box|>89 140 106 584<|content|>EXHIBIT D — FORM OF OFFICER'S CERTIFICATE\n<|id|>709<|page|>64<|box|>89 140 107 504<|content|>EXHIBIT E — FORM OF LEGAL OPINION\n<|id|>730<|page|>66<|box|>89 140 106 380<|content|>EXHIBIT F — DIP ORDERS\n<|id|>731<|page|>66<|box|>114 142 130 393<|content|>Exhibit F-1: Interim DIP Order\n<|id|>733<|page|>66<|box|>202 140 219 416<|content|>[Interim DIP Order attached hereto]\n<|id|>734<|page|>66<|box|>228 142 244 375<|content|>Exhibit F-2: Final DIP Order\n<|id|>737<|page|>67<|box|>89 140 107 627<|content|>EXHIBIT G — ADEQUATE PROTECTION STIPULATION\n<|id|>740<|page|>68<|box|>89 140 106 462<|content|>EXHIBIT H — WIRE INSTRUCTIONS\n<|id|>741<|page|>68<|box|>114 142 131 447<|content|>1. DIP Lender — Repayment Account:\n<|id|>744<|page|>68<|box|>246 140 263 640<|content|>2. Borrowers — Operating Account (DIP Loan Disburs\n<|id|>747<|page|>68<|box|>378 140 396 465<|content|>3. Adequate Protection Reserve Account:\n<|id|>751<|page|>69<|box|>89 140 106 504<|content|>EXHIBIT I — FORM OF PAYOFF LETTER",
+    "raw_response": "<|id|>612<|level|>1\n<|id|>616<|level|>1\n<|id|>618<|level|>2\n<|id|>625<|level|>2\n<|id|>630<|level|>1\n<|id|>631<|level|>1\n<|id|>660<|level|>1\n<|id|>666<|level|>1\n<|id|>688<|level|>1\n<|id|>709<|level|>1\n<|id|>730<|level|>1\n<|id|>731<|level|>2\n<|id|>733<|level|>-1\n<|id|>734<|level|>2\n<|id|>737<|level|>1\n<|id|>740<|level|>1\n<|id|>741<|level|>2\n<|id|>744<|level|>2\n<|id|>747<|level|>2\n<|id|>751<|level|>1",
+    "parsed": [
+        {
+            "id": 612,
+            "level": 1
+        },
+        {
+            "id": 616,
+            "level": 1
+        },
+        {
+            "id": 618,
+            "level": 2
+        },
+        {
+            "id": 625,
+            "level": 2
+        },
+        {
+            "id": 630,
+            "level": 1
+        },
+        {
+            "id": 631,
+            "level": 1
+        },
+        {
+            "id": 660,
+            "level": 1
+        },
+        {
+            "id": 666,
+            "level": 1
+        },
+        {
+            "id": 688,
+            "level": 1
+        },
+        {
+            "id": 709,
+            "level": 1
+        },
+        {
+            "id": 730,
+            "level": 1
+        },
+        {
+            "id": 731,
+            "level": 2
+        },
+        {
+            "id": 734,
+            "level": 2
+        },
+        {
+            "id": 737,
+            "level": 1
+        },
+        {
+            "id": 740,
+            "level": 1
+        },
+        {
+            "id": 741,
+            "level": 2
+        },
+        {
+            "id": 744,
+            "level": 2
+        },
+        {
+            "id": 747,
+            "level": 2
+        },
+        {
+            "id": 751,
+            "level": 1
+        }
+    ]
+}

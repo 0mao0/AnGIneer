@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>650 140 667 380<|content|>Settlement Payment Amounts\n<|id|>13<|page|>2<|box|>241 140 258 359<|content|>Wire Transfer Instructions\n<|id|>23<|page|>2<|box|>790 140 806 535<|content|>Request for Advance Notice of Wire Transmission\n<|id|>33<|page|>3<|box|>414 140 430 403<|content|>Confirmation and Reconciliation\n<|id|>38<|page|>4<|box|>90 140 107 421<|content|>Dismissal Stipulation — Next Steps\n<|id|>41<|page|>4<|box|>383 140 402 346<|content|>Confidentiality Reminder\n<|id|>44<|page|>4<|box|>661 140 676 308<|content|>Contact Information\n<|id|>47<|page|>4<|box|>792 176 809 506<|content|>Email: trosenthal@calderwoodharkness.com\n<|id|>49<|page|>5<|box|>89 140 108 209<|content|>Closing",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>23<|level|>1\n<|id|>33<|level|>1\n<|id|>38<|level|>1\n<|id|>41<|level|>1\n<|id|>44<|level|>1\n<|id|>47<|level|>-1\n<|id|>49<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        }
+    ]
+}

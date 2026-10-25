@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 349 118 648<|content|>SOLVENCY CERTIFICATE\n<|id|>1<|page|>1<|box|>136 357 154 638<|content|>(As of the Petition Date — Limited)\n<|id|>9<|page|>1<|box|>559 140 577 493<|content|>Section 1. Identification of Certifying Officer\n<|id|>16<|page|>2<|box|>204 140 222 390<|content|>Section 2. Basis of Certification\n<|id|>32<|page|>3<|box|>329 140 347 468<|content|>Section 3. Key Financial Data Referenced\n<|id|>34<|page|>3<|box|>441 142 458 410<|content|>3.1 Pre-Petition Capital Structure\n<|id|>36<|page|>3<|box|>851 142 867 282<|content|>3.2 Cash Position\n<|id|>38<|page|>4<|box|>89 140 107 269<|content|>3.3 DIP Facility\n<|id|>47<|page|>4<|box|>380 140 397 433<|content|>3.4 Historical Financial Performance\n<|id|>51<|page|>4<|box|>481 142 497 390<|content|>3.5 Estimated Enterprise Value\n<|id|>53<|page|>4<|box|>626 140 643 349<|content|>3.6 Operational Footprint\n<|id|>62<|page|>5<|box|>90 140 107 552<|content|>Section 4. Pro Forma Adjustments and Assumptions\n<|id|>74<|page|>6<|box|>250 140 266 550<|content|>Section 5. Solvency Certification — Representation\n<|id|>76<|page|>6<|box|>378 140 395 524<|content|>5.1 Fair Value of Assets Exceeds Total Liabilities\n<|id|>83<|page|>7<|box|>90 140 107 584<|content|>5.2 Fair Salable Value of Assets Exceeds Total Lia\n<|id|>86<|page|>7<|box|>316 140 334 480<|content|>5.3 Ability to Pay Debts as They Come Due\n<|id|>94<|page|>7<|box|>763 140 782 501<|content|>5.4 Not Left with Unreasonably Small Capital\n<|id|>104<|page|>8<|box|>579 140 597 464<|content|>Section 6. Qualifications and Limitations\n<|id|>124<|page|>10<|box|>638 140 656 313<|content|>Section 7. Definitions\n<|id|>129<|page|>12<|box|>90 140 107 439<|content|>Section 8. Certification and Signature\n<|id|>141<|page|>13<|box|>88 447 107 550<|content|>EXHIBIT A",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>9<|level|>2\n<|id|>16<|level|>2\n<|id|>32<|level|>2\n<|id|>34<|level|>3\n<|id|>36<|level|>3\n<|id|>38<|level|>3\n<|id|>47<|level|>3\n<|id|>51<|level|>3\n<|id|>53<|level|>3\n<|id|>62<|level|>2\n<|id|>74<|level|>2\n<|id|>76<|level|>3\n<|id|>83<|level|>3\n<|id|>86<|level|>3\n<|id|>94<|level|>3\n<|id|>104<|level|>2\n<|id|>124<|level|>2\n<|id|>129<|level|>2\n<|id|>141<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 1
+        }
+    ]
+}

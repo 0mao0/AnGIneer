@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        56
+    ],
+    "pages": [
+        50,
+        51,
+        52,
+        54,
+        55,
+        56
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>313<|page|>50<|box|>57 17 69 251<|content|>Item 4. Controls and Procedures\n<|id|>314<|page|>50<|box|>82 17 94 364<|content|>Evaluation ofDisclosure Controls and Procedures\n<|id|>316<|page|>50<|box|>264 17 277 395<|content|>Changes in Internal Control Over Financial Reporti\n<|id|>318<|page|>51<|box|>43 17 55 218<|content|>Part II - Other Information\n<|id|>319<|page|>51<|box|>55 17 68 207<|content|>Item 1. Legal Proceedings\n<|id|>321<|page|>51<|box|>117 17 130 178<|content|>Item 1A. Risk Factors\n<|id|>323<|page|>51<|box|>179 17 193 493<|content|>Item 2. Unregistered Sales of Equity Securities an\n<|id|>324<|page|>51<|box|>204 17 218 158<|content|>Share Repurchases\n<|id|>330<|page|>51<|box|>469 17 482 300<|content|>Item 3. Defaults Upon Senior Securities\n<|id|>332<|page|>51<|box|>519 17 533 245<|content|>Item 4. Mine Safety Disclosures\n<|id|>334<|page|>51<|box|>570 17 583 210<|content|>Item 5. Other Information\n<|id|>336<|page|>52<|box|>43 17 55 135<|content|>Item 6. Exhibits\n<|id|>339<|page|>54<|box|>68 104 80 890<|content|>LIST OF GUARANTORS AND SUBSIDIARY ISSUERS OF GUARA\n<|id|>344<|page|>55<|box|>66 17 79 413<|content|>RULE 13a-14(a)/15d-14(a) CERTIFICATION OF CEO\n<|id|>345<|page|>55<|box|>99 17 112 207<|content|>I, Ronald Delia, certify that:\n<|id|>357<|page|>56<|box|>99 17 112 251<|content|>I, Michael Casamento, certify that:",
+    "raw_response": "<|id|>313<|level|>1\n<|id|>314<|level|>2\n<|id|>316<|level|>2\n<|id|>318<|level|>1\n<|id|>319<|level|>2\n<|id|>321<|level|>2\n<|id|>323<|level|>2\n<|id|>324<|level|>3\n<|id|>330<|level|>2\n<|id|>332<|level|>2\n<|id|>334<|level|>2\n<|id|>336<|level|>2\n<|id|>339<|level|>3\n<|id|>344<|level|>3\n<|id|>345<|level|>-1\n<|id|>357<|level|>-1",
+    "parsed": [
+        {
+            "id": 313,
+            "level": 1
+        },
+        {
+            "id": 314,
+            "level": 2
+        },
+        {
+            "id": 316,
+            "level": 2
+        },
+        {
+            "id": 318,
+            "level": 1
+        },
+        {
+            "id": 319,
+            "level": 2
+        },
+        {
+            "id": 321,
+            "level": 2
+        },
+        {
+            "id": 323,
+            "level": 2
+        },
+        {
+            "id": 324,
+            "level": 3
+        },
+        {
+            "id": 330,
+            "level": 2
+        },
+        {
+            "id": 332,
+            "level": 2
+        },
+        {
+            "id": 334,
+            "level": 2
+        },
+        {
+            "id": 336,
+            "level": 2
+        },
+        {
+            "id": 339,
+            "level": 3
+        },
+        {
+            "id": 344,
+            "level": 3
+        }
+    ]
+}

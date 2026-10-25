@@ -1,0 +1,81 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xahzq2c7\\input\\pdfs\\doc-d2d7ca63.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-xahzq2c7\\enriched\\doc-d2d7ca63.json",
+    "contd_output": "<|src_id|>34<|tgt_id|>35",
+    "title_output": "<|id|>1<|level|>1\n<|id|>10<|level|>1\n<|id|>20<|level|>1\n<|id|>29<|level|>1\n<|id|>38<|level|>1\n<|id|>43<|level|>1\n<|id|>46<|level|>1\n<|id|>58<|level|>1",
+    "image_output": "<|src_id|>40<|tgt_id|>38\n<|src_id|>41<|tgt_id|>38\n<|src_id|>44<|tgt_id|>43",
+    "contd_label": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 43
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 40,
+            "table2_idx": 41,
+            "upper_row_ss": [
+                [
+                    "Board / Governance Restructuring",
+                    "Compliance Committee, charter",
+                    "$500,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "development, reporting",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

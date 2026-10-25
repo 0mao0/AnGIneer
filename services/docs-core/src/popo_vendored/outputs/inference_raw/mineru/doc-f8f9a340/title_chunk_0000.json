@@ -1,0 +1,124 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>11<|page|>1<|box|>444 441 462 555<|content|>(Form UCC1)\n<|id|>14<|page|>1<|box|>631 142 648 346<|content|>SECTION 1 — DEBTOR\n<|id|>15<|page|>1<|box|>662 143 679 339<|content|>1a. Organization's Name\n<|id|>16<|page|>1<|box|>686 142 702 415<|content|>Summit Industrial Fabrication Co.\n<|id|>18<|page|>1<|box|>829 143 845 303<|content|>1b. Mailing Address\n<|id|>20<|page|>2<|box|>90 143 108 339<|content|>1c. Type of Organization\n<|id|>22<|page|>2<|box|>143 143 162 393<|content|>1d. Jurisdiction of Organization\n<|id|>24<|page|>2<|box|>199 142 215 467<|content|>1e. Organizational Identification Number\n<|id|>27<|page|>2<|box|>397 140 414 468<|content|>SECTION 2 — ADDITIONAL DEBTOR\n<|id|>29<|page|>2<|box|>518 142 536 423<|content|>SECTION 3 — SECURED PARTY\n<|id|>30<|page|>2<|box|>550 142 568 339<|content|>3a. Organization's Name\n<|id|>31<|page|>2<|box|>574 140 590 526<|content|>Crescent Harbor Bank, N.A., as Collateral Agent\n<|id|>33<|page|>2<|box|>672 142 689 305<|content|>3b. Mailing Address\n<|id|>36<|page|>2<|box|>760 140 777 524<|content|>SECTION 4 — COLLATERAL DESCRIPTION\n<|id|>37<|page|>2<|box|>786 142 803 562<|content|>This Financing Statement covers the following coll\n<|id|>61<|page|>5<|box|>89 142 106 485<|content|>SECTION 5 — CHECK box PROVISIONS\n<|id|>62<|page|>5<|box|>121 142 138 359<|content|>5a. Alternative Designation\n<|id|>64<|page|>5<|box|>212 142 229 362<|content|>5b. Applicable Check boxes\n<|id|>69<|page|>5<|box|>537 140 554 598<|content|>SECTION 6 — OPTIONAL FILER REFERENCE DATA\n<|id|>75<|page|>5<|box|>816 140 834 779<|content|>SECTION 7 — ADDITIONAL INFORMATION AND FILING INST\n<|id|>77<|page|>6<|box|>138 140 157 282<|content|>Number of Pages\n<|id|>79<|page|>6<|box|>267 140 284 517<|content|>Additional Debtors / Additional Secured Parties\n<|id|>81<|page|>6<|box|>404 254 421 743<|content|>ADDITIONAL FILING CONTEXT AND COUNSEL NOTES\n<|id|>83<|page|>6<|box|>489 142 505 356<|content|>Background on the Debtor\n<|id|>85<|page|>6<|box|>652 140 669 362<|content|>Basis for Filing Jurisdiction\n<|id|>89<|page|>7<|box|>344 142 362 367<|content|>Termination of Prior Filings\n<|id|>92<|page|>7<|box|>789 142 806 303<|content|>Lien Search Results\n<|id|>97<|page|>8<|box|>292 377 309 620<|content|>CERTIFICATION OF FILER\n<|id|>99<|page|>8<|box|>436 140 452 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>16<|level|>-1\n<|id|>18<|level|>3\n<|id|>20<|level|>3\n<|id|>22<|level|>3\n<|id|>24<|level|>3\n<|id|>27<|level|>2\n<|id|>29<|level|>2\n<|id|>30<|level|>3\n<|id|>31<|level|>-1\n<|id|>33<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>-1\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>64<|level|>3\n<|id|>69<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>3\n<|id|>79<|level|>3\n<|id|>81<|level|>2\n<|id|>83<|level|>3\n<|id|>85<|level|>3\n<|id|>89<|level|>3\n<|id|>92<|level|>3\n<|id|>97<|level|>2\n<|id|>99<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        }
+    ]
+}

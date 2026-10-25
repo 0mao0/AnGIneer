@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>152 464 169 534<|content|>Plaintiff,\n<|id|>3<|page|>1<|box|>203 173 239 823<|content|>NOVASPARK TECHNOLOGIES INC. ... and DEREK YUN, an individual,\n<|id|>32<|page|>4<|box|>234 174 287 856<|content|>(d) Curated and labeled training datasets of approximately fourteen and six-tenths (14. ... and\n<|id|>34<|page|>4<|box|>377 140 431 854<|content|>In addition to the foregoing categories, Brindoval...e, or file type in which such materials are stored\n<|id|>41<|page|>4<|box|>872 174 907 854<|content|>(e) Secure Preservation. ... Preservation of all f...fices at 1901 Harrison Street, Suite 600, Oakland,\n<|id|>42<|page|>5<|box|>89 174 145 854<|content|>California 94612. ... Brindoval shall maintain bac...access to forensic images and related work product\n<|id|>62<|page|>6<|box|>859 174 895 854<|content|>(c) Meridian Cybersecurity Advisors Inc. ... 's ro...echnical guidance, and subject-matter expertise to\n<|id|>63<|page|>7<|box|>90 174 219 856<|content|>Brindoval regarding the nature, structure, and ide...se and scope of Meridian's anticipated involvement\n<|id|>71<|page|>7<|box|>839 140 877 854<|content|>6. ... , Rajiv Anand, Serena\n<|id|>72<|page|>8<|box|>89 140 126 854<|content|>Mallick, and Derek Yun, jointly and severally) and...ent (40%) to Plaintiff (Lumos Analytics Inc. ... )\n<|id|>77<|page|>8<|box|>436 176 453 673<|content|>For Plaintiff Lumos Analytics Inc. ... Calderwood & Harkness LLP\n<|id|>78<|page|>8<|box|>462 176 479 383<|content|>Attention: ... Marcus Delgado\n<|id|>79<|page|>8<|box|>479 176 494 656<|content|>555 California Street, 40th Floor San Francisco, California 94104\n<|id|>80<|page|>8<|box|>505 176 521 506<|content|>Email: ... com\n<|id|>81<|page|>8<|box|>522 176 558 854<|content|>For Defendants NovaSpark Technologies Inc. ... Whitfield, Raines & Gerber LLP\n<|id|>82<|page|>8<|box|>566 176 583 392<|content|>Attention: ... Patricia Whitfield\n<|id|>83<|page|>8<|box|>583 176 599 679<|content|>235 Montgomery Street, Suite 1800 San Francisco, California 94104\n<|id|>84<|page|>8<|box|>609 176 626 418<|content|>Email: ... com\n<|id|>99<|page|>9<|box|>683 140 699 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>100<|page|>9<|box|>700 143 718 253<|content|>By: ... By\n<|id|>101<|page|>9<|box|>717 142 734 321<|content|>Name: ... Marcus Delgado\n<|id|>102<|page|>9<|box|>734 143 751 338<|content|>Title: ... Responsible Partner\n<|id|>103<|page|>9<|box|>752 143 768 454<|content|>Address: ... 555 California Street, 40th Floor\n<|id|>104<|page|>9<|box|>768 143 785 584<|content|>San Francisco, California 94104 Telephone: ... (415) 555-3200\n<|id|>105<|page|>9<|box|>786 143 803 470<|content|>Email: ... com\n<|id|>106<|page|>9<|box|>804 142 821 462<|content|>Attorneys for Plaintiff Lumos Analytics Inc. ... Attorneys for Plaintiff Lumos Analytics Inc\n<|id|>107<|page|>9<|box|>821 143 838 328<|content|>DATED: ... March 8, 2023\n<|id|>108<|page|>9<|box|>845 143 863 452<|content|>WHITFIELD, RAINES & GERBER LLP\n<|id|>109<|page|>9<|box|>864 143 881 251<|content|>By: ... By\n<|id|>110<|page|>9<|box|>881 142 898 331<|content|>Name: ... Patricia Whitfield\n<|id|>111<|page|>10<|box|>89 140 191 854<|content|>Title: ... , Rajiv Anand, Serena Mallick, and Derek Yun\n<|id|>113<|page|>10<|box|>277 462 295 534<|content|>Plaintiff,\n<|id|>115<|page|>10<|box|>330 173 366 823<|content|>NOVASPARK TECHNOLOGIES INC. ... and DEREK YUN, an individual,",
+    "raw_response": "<|src_id|>41<|tgt_id|>42\n<|src_id|>62<|tgt_id|>63\n<|src_id|>71<|tgt_id|>72",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        }
+    ]
+}

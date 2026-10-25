@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>209 390 226 607<|content|>Dated: ... September 10, 2025\n<|id|>3<|page|>1<|box|>234 140 344 856<|content|>The undersigned is a holder of shares of Series B ...nd remains in good standing under the laws thereof\n<|id|>6<|page|>1<|box|>824 140 898 857<|content|>The Undersigned Holder. ... As such, Stonebridge Fund\n<|id|>7<|page|>2<|box|>90 140 162 856<|content|>III constitutes the holder of a majority of the ou...al of any other holder of Series B Preferred Stock\n<|id|>31<|page|>5<|box|>167 174 203 854<|content|>Stonebridge Capital Partners Fund III, L. ... c/o ...0 Park Avenue, 18th Floor New York, New York 10022\n<|id|>32<|page|>5<|box|>212 176 228 380<|content|>Attention: ... James Calloway\n<|id|>33<|page|>5<|box|>229 176 263 653<|content|>Email: ... com ACKNOWLEDGMENT OF RECEIPT\n<|id|>34<|page|>5<|box|>272 140 382 854<|content|>The undersigned officer of Genome Dx Therapeutics ...ch case in accordance with Section 228 of the DGCL\n<|id|>38<|page|>5<|box|>441 142 458 316<|content|>Name: ... Priya Raghavan\n<|id|>39<|page|>5<|box|>459 143 474 315<|content|>Title: ... General Counsel\n<|id|>40<|page|>5<|box|>476 143 493 264<|content|>Date: ... Date\n<|id|>41<|page|>5<|box|>508 173 545 854<|content|>Genome Dx Therapeutics Inc. ... 4710 Torrey Pines Road, Suite 300 San Diego, California 92130\n<|id|>42<|page|>5<|box|>554 176 590 506<|content|>Attention: ... com",
+    "raw_response": "<|src_id|>6<|tgt_id|>7",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        }
+    ]
+}

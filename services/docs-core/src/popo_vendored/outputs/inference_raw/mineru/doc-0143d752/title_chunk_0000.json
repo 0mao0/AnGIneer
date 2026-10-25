@@ -1,0 +1,146 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>1<|page|>1<|box|>127 173 164 854<|content|>CALDERWOOD & HARKNESS LLP 375 Park Avenue, 40th Fl\n<|id|>13<|page|>1<|box|>585 312 606 684<|content|>I. Introduction and Purpose of Letter\n<|id|>22<|page|>2<|box|>602 321 621 674<|content|>II. Background and Current Status\n<|id|>24<|page|>2<|box|>753 140 770 346<|content|>A. Transaction Summary\n<|id|>31<|page|>3<|box|>583 140 599 501<|content|>B. Purchase Price Dispute and APA Standstill\n<|id|>38<|page|>4<|box|>575 140 592 356<|content|>C. FCC Application Status\n<|id|>46<|page|>5<|box|>715 220 734 774<|content|>III. FCC Application — Options and Recommendations\n<|id|>48<|page|>5<|box|>830 140 847 828<|content|>A. Option 1: Maintain the Application on the Pendi\n<|id|>54<|page|>6<|box|>601 140 618 522<|content|>B. Option 2: Seek Joint Abeyance with Ridgeline\n<|id|>62<|page|>7<|box|>494 140 511 545<|content|>C. Option 3: Voluntarily Withdraw the Application\n<|id|>67<|page|>8<|box|>148 142 167 307<|content|>D. Recommendation\n<|id|>72<|page|>8<|box|>500 297 520 697<|content|>IV. APA Termination Rights and Status\n<|id|>73<|page|>8<|box|>545 142 561 411<|content|>A. Analysis of the Long-Stop Date\n<|id|>78<|page|>9<|box|>204 140 222 361<|content|>B. Strategic Considerations\n<|id|>84<|page|>9<|box|>758 140 777 307<|content|>C. Recommendation\n<|id|>88<|page|>10<|box|>253 241 273 754<|content|>V. Escrow Deposit — Recovery and Forfeiture Risk\n<|id|>89<|page|>10<|box|>297 142 314 287<|content|>A. Current Status\n<|id|>93<|page|>10<|box|>619 140 635 388<|content|>B. Scenarios and Risk Analysis\n<|id|>100<|page|>11<|box|>776 140 794 307<|content|>C. Recommendation\n<|id|>105<|page|>12<|box|>301 290 321 707<|content|>VI. Additional Regulatory Considerations\n<|id|>107<|page|>12<|box|>417 140 434 620<|content|>A. FCC Buildout Compliance Risk — Three Oregon Lic\n<|id|>114<|page|>13<|box|>186 140 204 508<|content|>B. Anti-Trafficking / Unjust Enrichment Rules\n<|id|>118<|page|>13<|box|>598 140 614 367<|content|>C. National Security Review\n<|id|>122<|page|>14<|box|>204 140 222 503<|content|>D. Representations and Warranties Insurance\n<|id|>127<|page|>14<|box|>665 362 684 633<|content|>VII. Budget and Fee Status\n<|id|>129<|page|>14<|box|>762 142 777 401<|content|>A. Calderwood & Harkness Fees\n<|id|>134<|page|>15<|box|>364 142 381 390<|content|>B. Co-Counsel and Other Costs\n<|id|>136<|page|>15<|box|>602 142 619 233<|content|>C. Request\n<|id|>139<|page|>15<|box|>827 279 847 717<|content|>VIII. Proposed Next Steps and Action Items\n<|id|>150<|page|>17<|box|>90 437 112 560<|content|>IX. Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>13<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>38<|level|>2\n<|id|>46<|level|>1\n<|id|>48<|level|>2\n<|id|>54<|level|>2\n<|id|>62<|level|>2\n<|id|>67<|level|>2\n<|id|>72<|level|>1\n<|id|>73<|level|>2\n<|id|>78<|level|>2\n<|id|>84<|level|>2\n<|id|>88<|level|>1\n<|id|>89<|level|>2\n<|id|>93<|level|>2\n<|id|>100<|level|>2\n<|id|>105<|level|>1\n<|id|>107<|level|>2\n<|id|>114<|level|>2\n<|id|>118<|level|>2\n<|id|>122<|level|>2\n<|id|>127<|level|>1\n<|id|>129<|level|>2\n<|id|>134<|level|>2\n<|id|>136<|level|>2\n<|id|>139<|level|>1\n<|id|>150<|level|>1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        }
+    ]
+}

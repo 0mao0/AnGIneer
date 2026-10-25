@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        52,
+        104
+    ],
+    "pages": [
+        53,
+        59,
+        65,
+        71,
+        72,
+        78,
+        79,
+        81,
+        83,
+        86,
+        88,
+        90,
+        93,
+        96,
+        101,
+        103
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>217<|page|>53<|box|>70 397 84 593<|content|>PUBLIC DEBT OPERATIONS\n<|id|>257<|page|>59<|box|>100 337 114 658<|content|>Footnotes to Table 4 - (Continued)\n<|id|>292<|page|>65<|box|>74 395 87 593<|content|>PUBLIC DEBT OPERATIONS\n<|id|>299<|page|>71<|box|>72 392 87 587<|content|>PUBLIC DEBT OPERATIONS\n<|id|>302<|page|>72<|box|>110 360 124 669<|content|>Footnotes to Table 7 -(Continued)\n<|id|>341<|page|>78<|box|>75 382 90 625<|content|>UNITED STATES SAVINGS BONDS.\n<|id|>343<|page|>79<|box|>74 370 87 609<|content|>UNITED STATES SAVINGS BONDS.\n<|id|>346<|page|>81<|box|>72 372 87 614<|content|>UNITED STATES SAVINGS BONDS\n<|id|>350<|page|>83<|box|>562 189 590 802<|content|>Table 2.- Net Market Purchases or Sales of Federal\n<|id|>360<|page|>86<|box|>98 154 130 864<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>365<|page|>88<|box|>97 169 127 837<|content|>Section II - Interest-Bearing Securities Issued by\n<|id|>373<|page|>90<|box|>98 67 132 932<|content|>Section I - Interest-Bearing Securities Issued or\n<|id|>380<|page|>93<|box|>63 234 80 736<|content|>MARKET QUOTATIONS ON TREASURY SECURITIES, JANUARY\n<|id|>388<|page|>96<|box|>97 194 114 825<|content|>Table 1.- Average Yields of Treasury and Corporate\n<|id|>404<|page|>101<|box|>101 395 116 595<|content|>Table 5.- Seigniorage\n<|id|>408<|page|>103<|box|>106 18 119 105<|content|>Background\n<|id|>411<|page|>103<|box|>462 18 477 161<|content|>Basic definitions\n<|id|>415<|page|>103<|box|>856 18 870 104<|content|>Exclusions\n<|id|>419<|page|>103<|box|>537 513 550 729<|content|>Presentation of statistics",
+    "raw_response": "<|id|>217<|level|>-1\n<|id|>257<|level|>2\n<|id|>292<|level|>-1\n<|id|>299<|level|>-1\n<|id|>302<|level|>2\n<|id|>341<|level|>-1\n<|id|>343<|level|>-1\n<|id|>346<|level|>-1\n<|id|>350<|level|>1\n<|id|>360<|level|>2\n<|id|>365<|level|>2\n<|id|>373<|level|>2\n<|id|>380<|level|>1\n<|id|>388<|level|>1\n<|id|>404<|level|>1\n<|id|>408<|level|>2\n<|id|>411<|level|>2\n<|id|>415<|level|>2\n<|id|>419<|level|>2",
+    "parsed": [
+        {
+            "id": 257,
+            "level": 2
+        },
+        {
+            "id": 302,
+            "level": 2
+        },
+        {
+            "id": 350,
+            "level": 1
+        },
+        {
+            "id": 360,
+            "level": 2
+        },
+        {
+            "id": 365,
+            "level": 2
+        },
+        {
+            "id": 373,
+            "level": 2
+        },
+        {
+            "id": 380,
+            "level": 1
+        },
+        {
+            "id": 388,
+            "level": 1
+        },
+        {
+            "id": 404,
+            "level": 1
+        },
+        {
+            "id": 408,
+            "level": 2
+        },
+        {
+            "id": 411,
+            "level": 2
+        },
+        {
+            "id": 415,
+            "level": 2
+        },
+        {
+            "id": 419,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,104 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2mrfvson\\input\\pdfs\\doc-d2ffd4a5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2mrfvson\\enriched\\doc-d2ffd4a5.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>14<|level|>2\n<|id|>70<|level|>2\n<|id|>76<|level|>2\n<|id|>88<|level|>3\n<|id|>91<|level|>3\n<|id|>93<|level|>2\n<|id|>96<|level|>2",
+    "image_output": "<|src_id|>72<|tgt_id|>70\n<|src_id|>73<|tgt_id|>70\n<|src_id|>90<|tgt_id|>88\n<|src_id|>98<|tgt_id|>96\n<|src_id|>99<|tgt_id|>96",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 72,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 96
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 72,
+            "table2_idx": 73,
+            "upper_row_ss": [
+                [
+                    "Atlas Point Angel",
+                    "$600,000",
+                    "223,999",
+                    "5.0%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Syndicate, LLC",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 98,
+            "table2_idx": 99,
+            "upper_row_ss": [
+                [
+                    "Investor",
+                    "Notice Address",
+                    "Attention"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Cobalt Ventures Fund III, LP",
+                    "2400 Sand Hill Road, Suite 310, Menlo Park, CA 94025",
+                    "Morgan Tsai, VP of Legal Affairs"
+                ]
+            ]
+        }
+    ]
+}

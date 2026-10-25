@@ -1,0 +1,121 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 202 137 794<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>9<|page|>1<|box|>474 140 489 321<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>204 140 222 455<|content|>II. Background and Procedural Posture\n<|id|>15<|page|>2<|box|>234 142 252 390<|content|>A. The Site and Contamination\n<|id|>25<|page|>3<|box|>363 140 380 514<|content|>B. Party Relationships and Operational History\n<|id|>30<|page|>4<|box|>157 140 175 292<|content|>C. Release History\n<|id|>39<|page|>5<|box|>90 140 107 486<|content|>D. Pre-Suit Demand and Response Timeline\n<|id|>46<|page|>5<|box|>559 140 575 406<|content|>III. Analysis of RCFD's Response\n<|id|>48<|page|>5<|box|>633 140 651 310<|content|>A. Denial of Liability\n<|id|>61<|page|>6<|box|>689 140 705 403<|content|>B. Statute of Limitations Defense\n<|id|>75<|page|>8<|box|>338 140 354 341<|content|>C. Allocation Arguments\n<|id|>93<|page|>10<|box|>273 140 292 390<|content|>D. The $750,000 Counter-Offer\n<|id|>101<|page|>10<|box|>676 142 694 313<|content|>IV. Strategic Options\n<|id|>103<|page|>10<|box|>771 140 789 596<|content|>Option 1: Counter-Proposal in the Range of $3.0M–$\n<|id|>114<|page|>11<|box|>662 140 680 743<|content|>Option 2: Initiate CERCLA § 107 Litigation in the\n<|id|>119<|page|>12<|box|>380 140 397 442<|content|>Strengths of DEH's litigation position:\n<|id|>126<|page|>12<|box|>652 143 667 290<|content|>Risks of litigation:\n<|id|>133<|page|>13<|box|>176 140 194 638<|content|>Option 3: Continue Negotiation Concurrent with VCP\n<|id|>139<|page|>13<|box|>729 140 746 367<|content|>V. Recommended Approach\n<|id|>151<|page|>15<|box|>241 140 258 377<|content|>VI. Insurance Considerations\n<|id|>157<|page|>15<|box|>814 140 832 398<|content|>VII. RCFD's Financial Capacity\n<|id|>162<|page|>16<|box|>421 140 438 413<|content|>VIII. Budget and Fee Implications\n<|id|>175<|page|>17<|box|>458 140 474 383<|content|>IX. Action Items and Timeline\n<|id|>180<|page|>18<|box|>347 140 364 258<|content|>X. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>25<|level|>2\n<|id|>30<|level|>2\n<|id|>39<|level|>2\n<|id|>46<|level|>1\n<|id|>48<|level|>2\n<|id|>61<|level|>2\n<|id|>75<|level|>2\n<|id|>93<|level|>2\n<|id|>101<|level|>1\n<|id|>103<|level|>2\n<|id|>114<|level|>2\n<|id|>119<|level|>3\n<|id|>126<|level|>3\n<|id|>133<|level|>2\n<|id|>139<|level|>1\n<|id|>151<|level|>1\n<|id|>157<|level|>1\n<|id|>162<|level|>1\n<|id|>175<|level|>1\n<|id|>180<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 180,
+            "level": 1
+        }
+    ]
+}

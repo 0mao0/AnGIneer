@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        52,
+        55
+    ],
+    "pages": [
+        53,
+        54,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>186<|page|>53<|box|>196 259 226 731<|content|>附录A 希腊字母读音和字体\n<|id|>188<|page|>54<|box|>162 299 192 695<|content|>附录B 本标准用词说明\n<|id|>195<|page|>55<|box|>197 158 267 834<|content|>本标准主编单位、参编单位、主要起草人、主要审查人、总校人员和管理组人员名单",
+    "raw_response": "<|id|>186<|level|>1\n<|id|>188<|level|>1\n<|id|>195<|level|>1",
+    "parsed": [
+        {
+            "id": 186,
+            "level": 1
+        },
+        {
+            "id": 188,
+            "level": 1
+        },
+        {
+            "id": 195,
+            "level": 1
+        }
+    ]
+}

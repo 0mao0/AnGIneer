@@ -1,0 +1,163 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cmi2n8f2\\input\\pdfs\\doc-11c9a46a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cmi2n8f2\\enriched\\doc-11c9a46a.json",
+    "contd_output": "<|src_id|>138<|tgt_id|>139",
+    "title_output": "<|id|>9<|level|>1\n<|id|>28<|level|>1\n<|id|>29<|level|>2\n<|id|>53<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>1\n<|id|>214<|level|>2\n<|id|>230<|level|>2\n<|id|>290<|level|>1\n<|id|>295<|level|>1\n<|id|>298<|level|>1\n<|id|>302<|level|>1\n<|id|>306<|level|>1\n<|id|>315<|level|>1\n<|id|>329<|level|>1\n<|id|>336<|level|>1\n<|id|>345<|level|>1",
+    "image_output": "<|src_id|>292<|tgt_id|>290\n<|src_id|>293<|tgt_id|>290\n<|src_id|>296<|tgt_id|>295\n<|src_id|>299<|tgt_id|>298\n<|src_id|>303<|tgt_id|>302\n<|src_id|>304<|tgt_id|>302\n<|src_id|>308<|tgt_id|>306\n<|src_id|>309<|tgt_id|>306",
+    "contd_label": [
+        {
+            "src_id": 138,
+            "tgt_id": 139
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 290,
+            "level": 1
+        },
+        {
+            "id": 295,
+            "level": 1
+        },
+        {
+            "id": 298,
+            "level": 1
+        },
+        {
+            "id": 302,
+            "level": 1
+        },
+        {
+            "id": 306,
+            "level": 1
+        },
+        {
+            "id": 315,
+            "level": 1
+        },
+        {
+            "id": 329,
+            "level": 1
+        },
+        {
+            "id": 336,
+            "level": 1
+        },
+        {
+            "id": 345,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 292,
+            "tgt_id": 290
+        },
+        {
+            "src_id": 293,
+            "tgt_id": 290
+        },
+        {
+            "src_id": 296,
+            "tgt_id": 295
+        },
+        {
+            "src_id": 299,
+            "tgt_id": 298
+        },
+        {
+            "src_id": 303,
+            "tgt_id": 302
+        },
+        {
+            "src_id": 304,
+            "tgt_id": 302
+        },
+        {
+            "src_id": 308,
+            "tgt_id": 306
+        },
+        {
+            "src_id": 309,
+            "tgt_id": 306
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 292,
+            "table2_idx": 293,
+            "upper_row_ss": [
+                [
+                    "Peachtree Corners Logistics Center (Peachtree Corners, GA)",
+                    "Chain-link security fence along western boundary extends onto adjacent property",
+                    "1.1 feet",
+                    "Obtain written neighbor acknowledgment/consent or require Seller to relocate fence; Seller-provided indemnity",
+                    "Included in Title Objection Letter; Seller has indicated willingness to address"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "as alternative",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 303,
+            "table2_idx": 304,
+            "upper_row_ss": [
+                [
+                    "Lakeland Crossings Industrial (FL)",
+                    "Bearing call typographical error in legal description (N 12°14'33\" E",
+                    "March 15, 2024",
+                    "Received",
+                    "Resolved"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "shown instead of N 12°14'33\" W)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

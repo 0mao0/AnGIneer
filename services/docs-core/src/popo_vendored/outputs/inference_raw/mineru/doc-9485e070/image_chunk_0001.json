@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        51,
+        59
+    ],
+    "pages": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>743<|type|>title<|page|>51<|box|>156 139 172 278<|content|>5.6 试验记录\n<|id|>745<|type|>title<|page|>51<|box|>236 119 253 208<|content|>条文说明\n<|id|>755<|type|>title<|page|>52<|box|>196 341 214 648<|content|>T 0226—1994 抗折强度试验\n<|id|>756<|type|>title<|page|>52<|box|>246 105 264 285<|content|>1 目的和适用范围\n<|id|>759<|type|>title<|page|>52<|box|>327 105 345 223<|content|>2 仪器设备\n<|id|>764<|type|>title<|page|>52<|box|>449 105 466 225<|content|>3 试件制备\n<|id|>766<|type|>title<|page|>52<|box|>589 104 607 225<|content|>4 试验步骤\n<|id|>770<|type|>title<|page|>52<|box|>771 104 789 225<|content|>5 结果整理\n<|id|>776<|type|>image<|page|>53<|box|>117 280 292 732<|content|>None\n<|id|>780<|type|>title<|page|>53<|box|>463 139 480 278<|content|>5.3 试验记录\n<|id|>782<|type|>title<|page|>53<|box|>523 121 541 208<|content|>条文说明\n<|id|>784<|type|>title<|page|>54<|box|>238 391 261 596<|content|>5 耐久性试验\n<|id|>785<|type|>title<|page|>54<|box|>322 352 340 636<|content|>T 0241—1994 抗冻性试验\n<|id|>786<|type|>title<|page|>54<|box|>375 105 393 287<|content|>1 目的和适用范围\n<|id|>789<|type|>title<|page|>54<|box|>519 104 537 225<|content|>2 仪器设备\n<|id|>795<|type|>title<|page|>54<|box|>662 102 680 223<|content|>3 试件制备\n<|id|>798<|type|>title<|page|>54<|box|>766 102 784 223<|content|>4 试验步骤\n<|id|>804<|type|>title<|page|>55<|box|>308 105 325 226<|content|>5 结果整理\n<|id|>821<|type|>title<|page|>55<|box|>802 129 818 268<|content|>5.5 试验记录\n<|id|>823<|type|>title<|page|>56<|box|>197 114 214 203<|content|>条文说明\n<|id|>828<|type|>title<|page|>56<|box|>498 359 516 643<|content|>T 0242—1994 坚固性试验\n<|id|>829<|type|>title<|page|>56<|box|>548 112 565 292<|content|>1 目的和适用范围\n<|id|>831<|type|>title<|page|>56<|box|>648 112 666 231<|content|>2 仪器设备\n<|id|>839<|type|>title<|page|>56<|box|>830 110 847 290<|content|>3 试验材料或试剂\n<|id|>841<|type|>title<|page|>57<|box|>201 122 218 329<|content|>3.2 10%氯化钡溶液。\n<|id|>842<|type|>title<|page|>57<|box|>232 102 249 221<|content|>4 试件制备\n<|id|>844<|type|>title<|page|>57<|box|>294 102 311 223<|content|>5 试验步骤\n<|id|>848<|type|>title<|page|>57<|box|>581 104 598 226<|content|>6 结果整理\n<|id|>855<|type|>title<|page|>57<|box|>800 126 817 265<|content|>6.3 试验记录\n<|id|>857<|type|>title<|page|>58<|box|>199 119 215 206<|content|>条文说明\n<|id|>861<|type|>table<|page|>59<|box|>145 107 793 870<|content|>None",
+    "raw_response": "<|src_id|>776<|tgt_id|>770\n<|src_id|>861<|tgt_id|>857",
+    "parsed": [
+        {
+            "src_id": 776,
+            "tgt_id": 770
+        },
+        {
+            "src_id": 861,
+            "tgt_id": 857
+        }
+    ]
+}

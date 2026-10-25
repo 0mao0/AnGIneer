@@ -1,0 +1,211 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-f6xus0al\\input\\pdfs\\doc-cef5324e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-f6xus0al\\enriched\\doc-cef5324e.json",
+    "contd_output": "<|src_id|>43<|tgt_id|>44\n<|src_id|>78<|tgt_id|>79",
+    "title_output": "<|id|>0<|level|>1\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>22<|level|>2\n<|id|>40<|level|>2\n<|id|>65<|level|>2\n<|id|>74<|level|>2\n<|id|>81<|level|>2\n<|id|>99<|level|>2\n<|id|>113<|level|>2\n<|id|>121<|level|>2\n<|id|>126<|level|>2\n<|id|>131<|level|>3\n<|id|>164<|level|>2\n<|id|>192<|level|>2\n<|id|>193<|level|>3\n<|id|>194<|level|>4\n<|id|>201<|level|>3\n<|id|>208<|level|>2\n<|id|>209<|level|>4\n<|id|>210<|level|>3",
+    "image_output": "<|src_id|>196<|tgt_id|>193\n<|src_id|>197<|tgt_id|>193\n<|src_id|>198<|tgt_id|>193\n<|src_id|>199<|tgt_id|>193\n<|src_id|>200<|tgt_id|>193",
+    "contd_label": [
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 4
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 4
+        },
+        {
+            "id": 210,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 196,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 197,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 200,
+            "tgt_id": 193
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 196,
+            "table2_idx": 197,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "2.1(b)",
+                    "PUD application and filing",
+                    "Baltimore City DHCD /",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "fees — Baltimore City",
+                    "Planning Commission",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 197,
+            "table2_idx": 198,
+            "upper_row_ss": [
+                [
+                    "13",
+                    "2.1(e)",
+                    "Supplemental survey / civil",
+                    "Calvert Surveying &",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "engineering services",
+                    "Engineering, Inc.",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 199,
+            "table2_idx": 200,
+            "upper_row_ss": [
+                [
+                    "",
+                    "",
+                    "SUBTOTA",
+                    "",
+                    "",
+                    "$____",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "L",
+                    "",
+                    "",
+                    "—",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

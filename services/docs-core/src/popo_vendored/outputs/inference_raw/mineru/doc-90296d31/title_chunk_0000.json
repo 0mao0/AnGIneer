@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 143 125 852<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>2<|page|>1<|box|>369 171 405 823<|content|>PLAINTIFF'S FIRST SET OF INTERROGATORIES TO DEFEND\n<|id|>4<|page|>1<|box|>599 142 616 284<|content|>I. DEFINITIONS\n<|id|>18<|page|>2<|box|>739 142 757 310<|content|>II. INSTRUCTIONS\n<|id|>26<|page|>3<|box|>520 140 537 359<|content|>III. INTERROGATORIES\n<|id|>27<|page|>3<|box|>547 140 564 645<|content|>INTERROGATORY NO. 1 — Corporate Identity and Struc\n<|id|>38<|page|>4<|box|>133 140 152 816<|content|>INTERROGATORY NO. 2 — Execution and Performance of\n<|id|>47<|page|>4<|box|>604 142 623 671<|content|>INTERROGATORY NO. 3 — Receipt and Acceptance of De\n<|id|>54<|page|>5<|box|>441 140 459 676<|content|>INTERROGATORY NO. 4 — Payment History and Amounts\n<|id|>60<|page|>5<|box|>780 142 797 647<|content|>INTERROGATORY NO. 5 — Financial Condition and Solv\n<|id|>68<|page|>6<|box|>439 140 455 718<|content|>INTERROGATORY NO. 6 — Credit Facilities and Secure\n<|id|>77<|page|>6<|box|>892 142 907 611<|content|>INTERROGATORY NO. 7 — Macon County Elevator Fire\n<|id|>87<|page|>7<|box|>627 140 643 542<|content|>INTERROGATORY NO. 8 — Insurance Coverage\n<|id|>102<|page|>8<|box|>532 140 549 617<|content|>INTERROGATORY NO. 9 — Hedging Activities and Losse\n<|id|>112<|page|>9<|box|>277 140 294 720<|content|>INTERROGATORY NO. 10 — Cessation of Payments to Tr\n<|id|>119<|page|>9<|box|>696 140 714 754<|content|>INTERROGATORY NO. 11 — Communications with Heartla\n<|id|>129<|page|>10<|box|>402 140 419 676<|content|>INTERROGATORY NO. 12 — Forbearance Negotiations wi\n<|id|>138<|page|>11<|box|>133 140 152 707<|content|>INTERROGATORY NO. 13 — Affirmative Defense: Failur\n<|id|>146<|page|>11<|box|>542 140 559 687<|content|>INTERROGATORY NO. 14 — Other Creditor Litigation a\n<|id|>156<|page|>12<|box|>90 140 107 707<|content|>INTERROGATORY NO. 15 — Darren K. Musgrave Personal\n<|id|>162<|page|>12<|box|>410 142 426 665<|content|>INTERROGATORY NO. 16 — Financial Statements and Au\n<|id|>170<|page|>12<|box|>800 142 816 648<|content|>INTERROGATORY NO. 17 — Asset Dispositions and Tran\n<|id|>179<|page|>13<|box|>388 140 405 602<|content|>INTERROGATORY NO. 18 — Identification of Witnesses\n<|id|>190<|page|>13<|box|>782 140 800 531<|content|>INTERROGATORY NO. 19 — Expert Witnesses\n<|id|>197<|page|>14<|box|>250 140 265 588<|content|>INTERROGATORY NO. 20 — Revenue and Operations\n<|id|>204<|page|>14<|box|>585 140 602 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>212<|page|>14<|box|>748 375 763 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>18<|level|>2\n<|id|>26<|level|>2\n<|id|>27<|level|>3\n<|id|>38<|level|>3\n<|id|>47<|level|>3\n<|id|>54<|level|>3\n<|id|>60<|level|>3\n<|id|>68<|level|>3\n<|id|>77<|level|>3\n<|id|>87<|level|>3\n<|id|>102<|level|>3\n<|id|>112<|level|>3\n<|id|>119<|level|>3\n<|id|>129<|level|>3\n<|id|>138<|level|>3\n<|id|>146<|level|>3\n<|id|>156<|level|>3\n<|id|>162<|level|>3\n<|id|>170<|level|>3\n<|id|>179<|level|>3\n<|id|>190<|level|>3\n<|id|>197<|level|>3\n<|id|>204<|level|>-1\n<|id|>212<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 212,
+            "level": 2
+        }
+    ]
+}

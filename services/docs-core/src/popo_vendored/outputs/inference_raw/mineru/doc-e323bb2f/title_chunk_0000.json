@@ -1,0 +1,159 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 156 125 838<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>7<|page|>1<|box|>345 385 364 611<|content|>I. Executive Summary\n<|id|>12<|page|>2<|box|>136 419 155 576<|content|>II. Background\n<|id|>13<|page|>2<|box|>181 140 198 375<|content|>A. The Proposed Transaction\n<|id|>22<|page|>2<|box|>776 142 794 292<|content|>B. Deal Economics\n<|id|>32<|page|>3<|box|>468 140 484 424<|content|>C. The Credit Agreement Covenant\n<|id|>39<|page|>4<|box|>204 140 222 344<|content|>D. Counterparty Context\n<|id|>44<|page|>4<|box|>609 299 630 697<|content|>III. Analysis of Structuring Alternatives\n<|id|>46<|page|>4<|box|>744 142 760 663<|content|>A. Alternative 1: Splitting the License Across Quo\n<|id|>47<|page|>4<|box|>773 142 791 354<|content|>1. Description of Structure\n<|id|>50<|page|>5<|box|>231 140 250 281<|content|>2. Legal Analysis\n<|id|>55<|page|>5<|box|>839 140 856 490<|content|>3. Commercial and Practical Considerations\n<|id|>60<|page|>6<|box|>556 140 574 305<|content|>4. Relationship Risk\n<|id|>63<|page|>7<|box|>90 140 107 521<|content|>B. Alternative 2: Phased Commitment Structure\n<|id|>64<|page|>7<|box|>121 142 138 354<|content|>1. Description of Structure\n<|id|>70<|page|>7<|box|>535 140 553 281<|content|>2. Legal Analysis\n<|id|>75<|page|>8<|box|>275 140 292 490<|content|>3. Commercial and Practical Considerations\n<|id|>80<|page|>9<|box|>90 140 107 558<|content|>C. Alternative 3: Reclassification of the Arrangem\n<|id|>81<|page|>9<|box|>121 140 138 354<|content|>1. Description of Structure\n<|id|>84<|page|>9<|box|>383 140 402 281<|content|>2. Legal Analysis\n<|id|>91<|page|>10<|box|>536 140 553 568<|content|>D. Alternative 4: Amendment to the Credit Agreemen\n<|id|>92<|page|>10<|box|>566 142 584 354<|content|>1. Description of Structure\n<|id|>97<|page|>10<|box|>809 140 825 281<|content|>2. Legal Analysis\n<|id|>101<|page|>11<|box|>393 140 409 490<|content|>3. Commercial and Practical Considerations\n<|id|>107<|page|>12<|box|>136 379 155 617<|content|>IV. Comparison Matrix\n<|id|>110<|page|>12<|box|>709 238 729 759<|content|>V. Recommended Approach: Direct Lender Consent\n<|id|>111<|page|>12<|box|>753 142 772 246<|content|>A. Rationale\n<|id|>118<|page|>13<|box|>539 140 556 323<|content|>B. Process and Timing\n<|id|>128<|page|>14<|box|>378 140 395 478<|content|>C. Considerations for the Consent Request\n<|id|>142<|page|>15<|box|>532 140 549 344<|content|>D. Fallback: Amendment\n<|id|>144<|page|>15<|box|>676 354 696 640<|content|>VI. Risk of Non-Compliance\n<|id|>154<|page|>16<|box|>712 264 732 730<|content|>VII. Conclusion and Recommended Next Steps\n<|id|>165<|page|>17<|box|>638 295 657 700<|content|>VIII. Attachments and Cross-References",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>22<|level|>2\n<|id|>32<|level|>2\n<|id|>39<|level|>2\n<|id|>44<|level|>1\n<|id|>46<|level|>2\n<|id|>47<|level|>3\n<|id|>50<|level|>3\n<|id|>55<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>2\n<|id|>64<|level|>3\n<|id|>70<|level|>3\n<|id|>75<|level|>3\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>84<|level|>3\n<|id|>91<|level|>2\n<|id|>92<|level|>3\n<|id|>97<|level|>3\n<|id|>101<|level|>3\n<|id|>107<|level|>1\n<|id|>110<|level|>1\n<|id|>111<|level|>2\n<|id|>118<|level|>2\n<|id|>128<|level|>2\n<|id|>142<|level|>2\n<|id|>144<|level|>1\n<|id|>154<|level|>1\n<|id|>165<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 154,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        }
+    ]
+}

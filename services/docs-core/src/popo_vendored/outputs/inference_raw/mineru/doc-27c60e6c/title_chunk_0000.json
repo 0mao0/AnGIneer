@@ -1,0 +1,132 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 343 118 653<|content|>CERTIFICATE OF MERGER\n<|id|>9<|page|>1<|box|>376 142 393 202<|content|>FIRST\n<|id|>11<|page|>1<|box|>446 142 464 330<|content|>Surviving Corporation:\n<|id|>13<|page|>1<|box|>627 142 645 691<|content|>Non-Surviving Corporation (merging into the Surviv\n<|id|>15<|page|>1<|box|>821 140 839 225<|content|>SECOND\n<|id|>21<|page|>2<|box|>373 140 390 210<|content|>THIRD\n<|id|>23<|page|>2<|box|>476 140 494 228<|content|>FOURTH\n<|id|>25<|page|>2<|box|>565 142 583 470<|content|>Board Approval — VeloPay Systems, Inc.\n<|id|>27<|page|>2<|box|>744 142 763 591<|content|>Board Approval — Harrowgate Velocity Merger Sub In\n<|id|>30<|page|>3<|box|>133 140 152 514<|content|>Stockholder Approval — VeloPay Systems, Inc.\n<|id|>32<|page|>3<|box|>369 140 387 637<|content|>Stockholder Approval — Harrowgate Velocity Merger\n<|id|>34<|page|>3<|box|>508 140 527 205<|content|>FIFTH\n<|id|>36<|page|>3<|box|>704 140 720 207<|content|>SIXTH\n<|id|>44<|page|>5<|box|>89 142 107 236<|content|>SEVENTH\n<|id|>46<|page|>5<|box|>210 140 229 223<|content|>EIGHTH\n<|id|>59<|page|>6<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>60<|page|>6<|box|>114 155 151 841<|content|>AMENDED AND RESTATED CERTIFICATE OF INCORPORATION\n<|id|>61<|page|>6<|box|>160 401 178 594<|content|>(a Delaware corporation)\n<|id|>63<|page|>6<|box|>248 142 265 323<|content|>ARTICLE I — NAME\n<|id|>65<|page|>6<|box|>300 143 316 700<|content|>ARTICLE II — REGISTERED OFFICE AND REGISTERED AGEN\n<|id|>67<|page|>6<|box|>388 142 405 367<|content|>ARTICLE III — PURPOSE\n<|id|>69<|page|>6<|box|>459 142 474 558<|content|>ARTICLE IV — AUTHORIZED CAPITAL STOCK\n<|id|>71<|page|>6<|box|>565 143 582 424<|content|>ARTICLE V — INCORPORATOR\n<|id|>73<|page|>6<|box|>727 142 744 488<|content|>ARTICLE VI — BOARD OF DIRECTORS\n<|id|>75<|page|>6<|box|>888 142 905 633<|content|>ARTICLE VII — LIMITATION OF DIRECTOR LIABILITY\n<|id|>78<|page|>7<|box|>316 140 334 468<|content|>ARTICLE VIII — INDEMNIFICATION\n<|id|>80<|page|>7<|box|>698 140 715 405<|content|>ARTICLE IX — AMENDMENT\n<|id|>82<|page|>7<|box|>805 142 821 354<|content|>ARTICLE X — BYLAWS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>11<|level|>3\n<|id|>13<|level|>3\n<|id|>15<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>3\n<|id|>27<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>3\n<|id|>34<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>59<|level|>2\n<|id|>60<|level|>1\n<|id|>61<|level|>2\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        }
+    ]
+}

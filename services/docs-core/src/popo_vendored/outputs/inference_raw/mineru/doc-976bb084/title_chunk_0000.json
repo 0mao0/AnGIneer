@@ -1,0 +1,48 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>525 140 542 591<|content|>I. Background — Withdrawal of Plaintiff's Prior Co\n<|id|>17<|page|>2<|box|>318 140 335 540<|content|>II. Expiration of the Deadline Without Compliance\n<|id|>25<|page|>3<|box|>90 140 107 606<|content|>III. Procedural History Demonstrating Failure to P\n<|id|>40<|page|>4<|box|>90 140 107 413<|content|>IV. Request for Status Conference\n<|id|>47<|page|>4<|box|>426 140 443 818<|content|>V. Request for Consideration of Dismissal Under Fe\n<|id|>57<|page|>5<|box|>648 140 665 500<|content|>VI. Preservation of Stonefield's Counterclaim\n<|id|>60<|page|>6<|box|>186 140 203 325<|content|>VII. Service on Vantor",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>17<|level|>1\n<|id|>25<|level|>1\n<|id|>40<|level|>1\n<|id|>47<|level|>1\n<|id|>57<|level|>1\n<|id|>60<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        }
+    ]
+}

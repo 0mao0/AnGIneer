@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 150 152 846<|content|>Houston Office 1001 Fannin Street, Suite 4200 Houston, TX 77002 Telephone: ... com\n<|id|>2<|page|>1<|box|>160 746 176 854<|content|>June 18, 2021\n<|id|>3<|page|>1<|box|>186 140 204 666<|content|>VIA CERTIFIED MAIL AND EMAIL (rcalder@ridgewayfreight. ... com)\n<|id|>4<|page|>1<|box|>212 140 247 854<|content|>Mr. ... 7200 East Lancaster Avenue Fort Worth, TX 76112\n<|id|>5<|page|>1<|box|>256 140 292 854<|content|>Re: ... Demand for Payment — Overcharged Freight I...sportation Services Agreement dated April 15, 2019\n<|id|>6<|page|>1<|box|>300 142 316 272<|content|>Dear Mr. ... Calder\n<|id|>41<|page|>4<|box|>825 140 898 856<|content|>Section 11. ... CPS's February 8, 2021 notice satisfied the written notice requirement, and\n<|id|>42<|page|>5<|box|>90 140 126 854<|content|>CPS has at all times acted in good faith in its ef...o resolve this matter without resort to litigation\n<|id|>56<|page|>6<|box|>304 174 321 854<|content|>Bank: ... Calderwood & Harkness LLP\n<|id|>57<|page|>6<|box|>323 176 340 854<|content|>Client Trust Account ABA Routing Number: ... 7291-038462\n<|id|>58<|page|>6<|box|>340 176 359 625<|content|>Reference: ... CPS / Ridgeway — MTSA Overcharge Recovery\n<|id|>59<|page|>6<|box|>367 140 421 854<|content|>Alternatively, payment may be made by certified or...set forth on the letterhead of this correspondence\n<|id|>78<|page|>7<|box|>748 174 803 854<|content|>(f) All financial records reflecting payments rece...cords, and payment reconciliation reports; ... and\n<|id|>80<|page|>7<|box|>875 140 909 854<|content|>Ridgeway is hereby placed on formal notice of its ...deletion, overwriting, or spoliation of documents,\n<|id|>81<|page|>8<|box|>89 140 181 854<|content|>ESI, or tangible things that are relevant or poten...ructions, default judgment, and monetary sanctions\n<|id|>86<|page|>8<|box|>472 174 508 854<|content|>Francesca Morano, Partner Calderwood & Harkness LL...00 Houston, TX 77002 Telephone: ... (713) 456-8217\n<|id|>87<|page|>8<|box|>517 176 532 496<|content|>Email: ... com\n<|id|>88<|page|>8<|box|>534 140 589 854<|content|>CPS sincerely hopes that this matter can be resolv... demand set forth herein within the time specified\n<|id|>92<|page|>8<|box|>666 140 683 339<|content|>Francesca Morano Partner\n<|id|>93<|page|>8<|box|>683 140 719 852<|content|>cc: ... com)\n<|id|>94<|page|>8<|box|>727 140 744 730<|content|>cc: ... Samuel Eklund, Partner, Calderwood & Harkness LLP (via internal delivery)",
+    "raw_response": "<|src_id|>41<|tgt_id|>42\n<|src_id|>80<|tgt_id|>81",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        }
+    ]
+}

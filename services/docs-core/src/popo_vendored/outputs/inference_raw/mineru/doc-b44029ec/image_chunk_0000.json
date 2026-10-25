@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 163 125 833<|content|>MEMORANDUM — PRIVILEGED AND CONFIDENTIAL — ATTORNE\n<|id|>7<|type|>title<|page|>1<|box|>398 142 415 228<|content|>I. Purpose\n<|id|>22<|type|>title<|page|>2<|box|>310 140 328 348<|content|>II. Background Summary\n<|id|>23<|type|>title<|page|>2<|box|>340 140 359 535<|content|>A. Proposed Engagement (Matter No. 1031-00001)\n<|id|>38<|type|>table<|page|>3<|box|>679 143 773 852<|content|>None\n<|id|>40<|type|>title<|page|>4<|box|>138 140 157 578<|content|>B. Existing Client Engagement (Matter No. 1031-000\n<|id|>50<|type|>title<|page|>5<|box|>194 140 212 462<|content|>C. Conflict Identification and Resolution\n<|id|>70<|type|>title<|page|>7<|box|>491 140 508 424<|content|>III. Database Updates Implemented\n<|id|>72<|type|>title<|page|>7<|box|>603 140 619 665<|content|>A. New Record: Metropolitan Transit Development Co\n<|id|>74<|type|>table<|page|>7<|box|>667 143 897 852<|content|>None\n<|id|>75<|type|>table<|page|>8<|box|>88 143 369 852<|content|>None\n<|id|>77<|type|>title<|page|>8<|box|>489 142 506 534<|content|>B. Related-Party Entries Added to MTDC Record\n<|id|>79<|type|>title<|page|>8<|box|>593 142 609 424<|content|>MTDC Officers and Key Personnel:\n<|id|>83<|type|>title<|page|>8<|box|>733 142 750 419<|content|>MTDC's Existing Outside Counsel:\n<|id|>88<|type|>title<|page|>9<|box|>311 140 329 547<|content|>Vendors / Potential Cross-Claim Targets Identified\n<|id|>90<|type|>title<|page|>9<|box|>412 143 429 321<|content|>Related Third Parties:\n<|id|>93<|type|>title<|page|>9<|box|>635 140 652 774<|content|>C. Cross-Reference to Existing Client Record: Pinn\n<|id|>99<|type|>table<|page|>10<|box|>404 143 676 852<|content|>None\n<|id|>100<|type|>title<|page|>10<|box|>715 140 734 493<|content|>D. Litigation and Regulatory Records Added\n<|id|>106<|type|>title<|page|>11<|box|>502 142 518 362<|content|>E. Referral Counsel Entries\n<|id|>111<|type|>title<|page|>11<|box|>815 140 832 493<|content|>IV. Financial Summary for Database Record\n<|id|>113<|type|>title<|page|>11<|box|>885 140 902 566<|content|>Matter No. 1031-00001 — Financial Status at Closur\n<|id|>115<|type|>table<|page|>12<|box|>88 143 202 852<|content|>None\n<|id|>121<|type|>title<|page|>12<|box|>763 140 782 500<|content|>V. Applicable Ethics Rules Noted in Database\n<|id|>127<|type|>title<|page|>13<|box|>497 142 513 730<|content|>Illinois Rules of Professional Conduct, Rule 1.9 —\n<|id|>129<|type|>title<|page|>13<|box|>604 140 638 852<|content|>Illinois Rules of Professional Conduct, Rule 1.10\n<|id|>131<|type|>title<|page|>13<|box|>816 140 834 503<|content|>VI. Instructions for Future Conflicts Searches\n<|id|>137<|type|>title<|page|>14<|box|>666 140 683 344<|content|>VII. Document Retention\n<|id|>155<|type|>title<|page|>15<|box|>563 140 580 290<|content|>VIII. Certification",
+    "raw_response": "<|src_id|>38<|tgt_id|>23\n<|src_id|>74<|tgt_id|>72\n<|src_id|>75<|tgt_id|>72\n<|src_id|>99<|tgt_id|>93\n<|src_id|>115<|tgt_id|>113",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 113
+        }
+    ]
+}

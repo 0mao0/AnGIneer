@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>372 142 388 367<|content|>1. Introduction and Purpose\n<|id|>15<|page|>1<|box|>835 142 852 333<|content|>2. Scope of Engagement\n<|id|>17<|page|>2<|box|>157 140 175 398<|content|>2.1 Shelf Registration Statement\n<|id|>30<|page|>2<|box|>789 142 806 302<|content|>2.2 Base Prospectus\n<|id|>41<|page|>3<|box|>657 140 675 403<|content|>2.3 ATM Prospectus Supplement\n<|id|>49<|page|>4<|box|>301 140 318 599<|content|>2.4 Amended and Restated Equity Distribution Agree\n<|id|>60<|page|>4<|box|>789 142 806 318<|content|>2.5 Board Resolutions\n<|id|>68<|page|>5<|box|>353 142 369 295<|content|>2.6 Legal Opinions\n<|id|>72<|page|>5<|box|>715 142 732 465<|content|>2.7 Ancillary Documents and Certificates\n<|id|>79<|page|>6<|box|>638 142 655 495<|content|>2.8 SEC Correspondence and EDGAR Filing\n<|id|>82<|page|>7<|box|>90 142 107 300<|content|>2.9 Target Timeline\n<|id|>87<|page|>7<|box|>681 143 699 316<|content|>2.10 Scope Exclusions\n<|id|>95<|page|>8<|box|>392 140 409 313<|content|>3. Engagement Team\n<|id|>103<|page|>9<|box|>231 140 247 287<|content|>4. Client Contacts\n<|id|>109<|page|>9<|box|>621 140 638 303<|content|>5. Fee Arrangement\n<|id|>110<|page|>9<|box|>651 142 667 279<|content|>5.1 Hourly Rates\n<|id|>114<|page|>10<|box|>213 140 229 277<|content|>5.2 Fee Estimate\n<|id|>125<|page|>11<|box|>90 140 107 400<|content|>5.3 Disbursements and Expenses\n<|id|>135<|page|>11<|box|>526 140 544 379<|content|>6. Billing and Payment Terms\n<|id|>139<|page|>11<|box|>810 140 827 284<|content|>7. Confidentiality\n<|id|>143<|page|>12<|box|>329 140 347 321<|content|>8. Conflicts of Interest\n<|id|>147<|page|>12<|box|>667 140 684 326<|content|>9. Document Retention\n<|id|>151<|page|>13<|box|>167 142 184 274<|content|>10. Termination\n<|id|>155<|page|>13<|box|>450 140 469 380<|content|>11. Limitation of Engagement\n<|id|>159<|page|>13<|box|>734 142 752 264<|content|>12. Acceptance\n<|id|>164<|page|>14<|box|>204 140 220 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>167<|page|>14<|box|>290 142 306 580<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>15<|level|>1\n<|id|>17<|level|>2\n<|id|>30<|level|>2\n<|id|>41<|level|>2\n<|id|>49<|level|>2\n<|id|>60<|level|>2\n<|id|>68<|level|>2\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>82<|level|>2\n<|id|>87<|level|>2\n<|id|>95<|level|>1\n<|id|>103<|level|>1\n<|id|>109<|level|>1\n<|id|>110<|level|>2\n<|id|>114<|level|>2\n<|id|>125<|level|>2\n<|id|>135<|level|>1\n<|id|>139<|level|>1\n<|id|>143<|level|>1\n<|id|>147<|level|>1\n<|id|>151<|level|>1\n<|id|>155<|level|>1\n<|id|>159<|level|>1\n<|id|>164<|level|>-1\n<|id|>167<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 1
+        }
+    ]
+}

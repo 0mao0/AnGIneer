@@ -1,0 +1,158 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 202 132 794<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|page|>1<|box|>393 140 410 501<|content|>I. Purpose and Summary of Recommendation\n<|id|>13<|page|>2<|box|>267 140 284 511<|content|>II. Procedural Background and Current Status\n<|id|>14<|page|>2<|box|>297 142 315 326<|content|>A. Litigation Overview\n<|id|>27<|page|>3<|box|>508 140 526 488<|content|>B. Pleadings and Dispositive Motion History\n<|id|>34<|page|>4<|box|>419 140 436 297<|content|>C. Discovery Phase\n<|id|>49<|page|>7<|box|>90 140 107 593<|content|>E. Plaintiff's Counsel Withdrawal and Subsequent E\n<|id|>57<|page|>8<|box|>90 140 107 645<|content|>III. Recommendation: Transition to Dormant/Monitor\n<|id|>58<|page|>8<|box|>121 140 138 419<|content|>A. Basis for Dormancy Designation\n<|id|>66<|page|>9<|box|>176 142 193 316<|content|>B. Staffing Reduction\n<|id|>73<|page|>9<|box|>664 140 681 346<|content|>C. Client Communication\n<|id|>78<|page|>10<|box|>414 140 431 475<|content|>IV. Quarterly Docket Monitoring Protocol\n<|id|>79<|page|>10<|box|>444 140 462 401<|content|>A. Frequency and Responsibility\n<|id|>89<|page|>11<|box|>90 140 107 531<|content|>B. Docket Items Triggering Immediate Escalation\n<|id|>96<|page|>11<|box|>661 140 679 401<|content|>V. Triggers for Full Reactivation\n<|id|>97<|page|>11<|box|>691 140 709 395<|content|>A. Vantor Retains New Counsel\n<|id|>102<|page|>12<|box|>465 140 483 444<|content|>B. Court Orders Dismissal Sua Sponte\n<|id|>106<|page|>12<|box|>845 140 863 504<|content|>C. Stonefield Elects to Seek Affirmative Relief\n<|id|>110<|page|>13<|box|>377 140 393 392<|content|>VI. Work Product Preservation\n<|id|>111<|page|>13<|box|>407 140 425 457<|content|>A. Physical and Electronic File Integrity\n<|id|>122<|page|>14<|box|>344 142 361 429<|content|>B. eDiscovery Platform Preservation\n<|id|>132<|page|>15<|box|>90 140 107 411<|content|>C. Summary Judgment Readiness\n<|id|>145<|page|>16<|box|>792 140 809 503<|content|>VII. Financial Summary and Cost Projections\n<|id|>146<|page|>16<|box|>823 142 839 348<|content|>A. Costs Incurred to Date\n<|id|>153<|page|>17<|box|>571 142 589 383<|content|>B. Projected Monitoring Costs\n<|id|>160<|page|>18<|box|>176 140 193 382<|content|>C. Reactivation Cost Estimate\n<|id|>166<|page|>18<|box|>782 140 800 460<|content|>VIII. Options for Affirmative Resolution\n<|id|>168<|page|>19<|box|>90 140 126 854<|content|>A. Option 1: File Renewed Motion to Dismiss for Fa\n<|id|>179<|page|>20<|box|>375 140 392 599<|content|>B. Option 2: Continue Monitoring (No Affirmative A\n<|id|>184<|page|>21<|box|>89 140 125 854<|content|>C. Option 3: Contact Vantorovich Directly to Explo\n<|id|>190<|page|>21<|box|>806 140 824 467<|content|>IX. Conclusion and Requested Approvals\n<|id|>201<|page|>22<|box|>790 142 806 248<|content|>Attachments",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>49<|level|>2\n<|id|>57<|level|>1\n<|id|>58<|level|>2\n<|id|>66<|level|>2\n<|id|>73<|level|>2\n<|id|>78<|level|>1\n<|id|>79<|level|>2\n<|id|>89<|level|>2\n<|id|>96<|level|>1\n<|id|>97<|level|>2\n<|id|>102<|level|>2\n<|id|>106<|level|>2\n<|id|>110<|level|>1\n<|id|>111<|level|>2\n<|id|>122<|level|>2\n<|id|>132<|level|>2\n<|id|>145<|level|>1\n<|id|>146<|level|>2\n<|id|>153<|level|>2\n<|id|>160<|level|>2\n<|id|>166<|level|>1\n<|id|>168<|level|>2\n<|id|>179<|level|>2\n<|id|>184<|level|>2\n<|id|>190<|level|>1\n<|id|>201<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 1
+        },
+        {
+            "id": 201,
+            "level": 1
+        }
+    ]
+}

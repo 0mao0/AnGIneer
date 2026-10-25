@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>176 142 193 354<|content|>Case No. ... 2022-CA-031547\n<|id|>2<|page|>1<|box|>234 140 253 673<|content|>VERIMARK HOSPITALITY GROUP INC. ... , a Delaware corporation,\n<|id|>3<|page|>1<|box|>262 210 279 282<|content|>Plaintiff,\n<|id|>5<|page|>1<|box|>313 140 369 856<|content|>IRONCLAD INDEMNITY CORPORATION, a Connecticut corporation; ... , a Bermuda corporation,\n<|id|>6<|page|>1<|box|>376 212 393 305<|content|>Defendants. ... Defendants\n<|id|>10<|page|>1<|box|>794 140 930 854<|content|>These requests are narrowly targeted to Ironclad's...UMENTS TO DEFENDANT IRONCLAD INDEMNITY CORPORATION\n<|id|>11<|page|>2<|box|>90 140 143 854<|content|>and whether Ironclad's subsequent assertion of a $...arising from Hurricane Ian losses sustained by VHG\n<|id|>71<|page|>8<|box|>468 176 484 354<|content|>Respectfully submitted,\n<|id|>72<|page|>8<|box|>493 140 530 852<|content|>CALDERWOOD & HARKNESS LLP Counsel for Plaintiff Ve...333 SE 2nd Avenue, Suite 4400 Miami, Florida 33131\n<|id|>73<|page|>8<|box|>573 142 589 251<|content|>By: ... By\n<|id|>74<|page|>8<|box|>589 140 607 665<|content|>Tiffany Rosenthal Florida Bar No. ... (305) 459-2200\n<|id|>75<|page|>8<|box|>608 142 625 473<|content|>Email: ... com\n<|id|>76<|page|>8<|box|>625 142 641 259<|content|>Lead Associate\n<|id|>77<|page|>8<|box|>676 140 691 648<|content|>Elaine Forsythe Florida Bar No. ... (305) 459-2100\n<|id|>78<|page|>8<|box|>694 142 710 468<|content|>Email: ... com\n<|id|>79<|page|>8<|box|>710 143 727 299<|content|>Responsible Partner",
+    "raw_response": "<|src_id|>10<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        }
+    ]
+}

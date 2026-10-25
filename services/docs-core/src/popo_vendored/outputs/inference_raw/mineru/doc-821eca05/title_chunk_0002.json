@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        104,
+        117
+    ],
+    "pages": [
+        105,
+        117
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>147<|page|>105<|box|>59 113 75 434<|content|>Components of Silver Monetary Stock\n<|id|>149<|page|>105<|box|>61 554 89 874<|content|>Silver of Specified Classifications Acquired by Mi\n<|id|>162<|page|>117<|box|>62 38 89 455<|content|>Summary of Criminal Cases in the United States Dis\n<|id|>167<|page|>117<|box|>65 537 80 846<|content|>Treasury Criminal Cases, by Months",
+    "raw_response": "<|id|>147<|level|>1\n<|id|>149<|level|>2\n<|id|>162<|level|>1\n<|id|>167<|level|>2",
+    "parsed": [
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 167,
+            "level": 2
+        }
+    ]
+}

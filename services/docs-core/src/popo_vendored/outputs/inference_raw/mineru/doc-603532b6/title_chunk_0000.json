@@ -1,0 +1,119 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 163 125 834<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>8<|page|>1<|box|>369 385 388 611<|content|>I. Executive Summary\n<|id|>15<|page|>2<|box|>325 419 345 578<|content|>II. Background\n<|id|>16<|page|>2<|box|>371 140 388 455<|content|>A. The Solstice Lumina™ CGM System\n<|id|>24<|page|>3<|box|>474 140 493 655<|content|>B. The LUMINA-US Clinical Study (Protocol SBD-LUM-\n<|id|>35<|page|>4<|box|>508 140 527 362<|content|>C. Purpose of This Analysis\n<|id|>41<|page|>5<|box|>172 205 191 790<|content|>III. Legal Framework: IDE Requirements and Exempti\n<|id|>42<|page|>5<|box|>217 140 234 557<|content|>A. Overview of IDE Regulations (21 C.F.R. Part 812\n<|id|>50<|page|>6<|box|>186 140 204 630<|content|>B. The Diagnostic Device Exemption — 21 C.F.R. § 8\n<|id|>61<|page|>7<|box|>89 140 108 655<|content|>C. Significant Risk vs. Non-Significant Risk Devic\n<|id|>73<|page|>8<|box|>250 140 266 475<|content|>D. Role of the IRB in NSR Determinations\n<|id|>83<|page|>9<|box|>136 287 156 709<|content|>IV. Application to the LUMINA-US Study\n<|id|>84<|page|>9<|box|>180 140 198 661<|content|>A. Analysis of 21 C.F.R. § 812.2(c)(3) Diagnostic\n<|id|>94<|page|>10<|box|>593 140 609 586<|content|>B. Analysis Under the NSR abbreviated IDE Framewor\n<|id|>117<|page|>13<|box|>222 140 239 694<|content|>C. Comparison to Prior FDA Determinations for Simi\n<|id|>126<|page|>14<|box|>390 140 407 511<|content|>D. Remaining Considerations and Risk Factors\n<|id|>145<|page|>16<|box|>154 261 174 735<|content|>V. Obligations Under the NSR abbreviated IDE\n<|id|>155<|page|>17<|box|>579 390 599 606<|content|>VI. Recommendation\n<|id|>156<|page|>17<|box|>625 140 641 375<|content|>A. Primary Recommendation\n<|id|>166<|page|>18<|box|>449 140 465 437<|content|>B. Confirmation via Pre-Sub Meeting\n<|id|>171<|page|>19<|box|>90 140 107 343<|content|>C. Contingency Planning\n<|id|>185<|page|>20<|box|>90 142 107 254<|content|>D. Next Steps\n<|id|>193<|page|>20<|box|>688 334 708 663<|content|>VII. Limitations and Disclaimers",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>24<|level|>2\n<|id|>35<|level|>2\n<|id|>41<|level|>1\n<|id|>42<|level|>2\n<|id|>50<|level|>2\n<|id|>61<|level|>2\n<|id|>73<|level|>2\n<|id|>83<|level|>1\n<|id|>84<|level|>2\n<|id|>94<|level|>2\n<|id|>117<|level|>2\n<|id|>126<|level|>2\n<|id|>145<|level|>1\n<|id|>155<|level|>1\n<|id|>156<|level|>2\n<|id|>166<|level|>2\n<|id|>171<|level|>2\n<|id|>185<|level|>2\n<|id|>193<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 1
+        }
+    ]
+}

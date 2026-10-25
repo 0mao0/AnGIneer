@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        57,
+        109
+    ],
+    "pages": [
+        58,
+        66,
+        95,
+        96,
+        98,
+        102,
+        107,
+        108,
+        109
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>433<|page|>58<|box|>118 418 143 559<|content|>目录\n<|id|>454<|page|>66<|box|>150 59 176 431<|content|>附录 B 概算预算项目表\n<|id|>493<|page|>95<|box|>152 81 177 555<|content|>附录 C 设备与材料的划分标准\n<|id|>495<|page|>95<|box|>356 105 375 297<|content|>C.0.2 适用范围：\n<|id|>497<|page|>95<|box|>424 105 443 431<|content|>C.0.3 设备与材料的划分原则：\n<|id|>501<|page|>95<|box|>606 124 622 403<|content|>2 设备一般包括以下各项:\n<|id|>509<|page|>96<|box|>76 74 95 399<|content|>C.0.4 设备与材料的划分界限：\n<|id|>510<|page|>96<|box|>100 98 119 195<|content|>1 设备:\n<|id|>518<|page|>96<|box|>760 94 779 273<|content|>8) 各种机动车辆。\n<|id|>520<|page|>96<|box|>851 92 868 191<|content|>2 材料：\n<|id|>531<|page|>98<|box|>152 53 177 592<|content|>附录 D 全国冬季施工气温区划分表\n<|id|>536<|page|>102<|box|>152 55 177 728<|content|>附录 E 全国雨季施工雨量区及雨季期划分表\n<|id|>542<|page|>107<|box|>152 74 177 678<|content|>附录 F 全国风沙地区公路施工区划分表\n<|id|>544<|page|>108<|box|>147 53 172 828<|content|>附录 G 涉水项目施工期通航安全保障费用计算方法\n<|id|>545<|page|>108<|box|>235 53 253 215<|content|>G.1 一般规定\n<|id|>551<|page|>108<|box|>759 52 776 280<|content|>G.2 临时设施设备费\n<|id|>558<|page|>109<|box|>332 83 351 265<|content|>G.3 现场保障费",
+    "raw_response": "<|id|>433<|level|>1\n<|id|>454<|level|>1\n<|id|>493<|level|>1\n<|id|>495<|level|>3\n<|id|>497<|level|>3\n<|id|>501<|level|>4\n<|id|>509<|level|>3\n<|id|>510<|level|>4\n<|id|>518<|level|>5\n<|id|>520<|level|>4\n<|id|>531<|level|>1\n<|id|>536<|level|>1\n<|id|>542<|level|>1\n<|id|>544<|level|>1\n<|id|>545<|level|>2\n<|id|>551<|level|>2\n<|id|>558<|level|>2",
+    "parsed": [
+        {
+            "id": 433,
+            "level": 1
+        },
+        {
+            "id": 454,
+            "level": 1
+        },
+        {
+            "id": 493,
+            "level": 1
+        },
+        {
+            "id": 495,
+            "level": 3
+        },
+        {
+            "id": 497,
+            "level": 3
+        },
+        {
+            "id": 501,
+            "level": 4
+        },
+        {
+            "id": 509,
+            "level": 3
+        },
+        {
+            "id": 510,
+            "level": 4
+        },
+        {
+            "id": 518,
+            "level": 5
+        },
+        {
+            "id": 520,
+            "level": 4
+        },
+        {
+            "id": 531,
+            "level": 1
+        },
+        {
+            "id": 536,
+            "level": 1
+        },
+        {
+            "id": 542,
+            "level": 1
+        },
+        {
+            "id": 544,
+            "level": 1
+        },
+        {
+            "id": 545,
+            "level": 2
+        },
+        {
+            "id": 551,
+            "level": 2
+        },
+        {
+            "id": 558,
+            "level": 2
+        }
+    ]
+}

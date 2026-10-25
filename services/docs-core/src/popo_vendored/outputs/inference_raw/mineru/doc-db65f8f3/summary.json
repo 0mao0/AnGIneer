@@ -1,0 +1,161 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-squcfdac\\input\\pdfs\\doc-db65f8f3.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-squcfdac\\enriched\\doc-db65f8f3.json",
+    "contd_output": "<|src_id|>118<|tgt_id|>119",
+    "title_output": "<|id|>8<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>2\n<|id|>36<|level|>3\n<|id|>38<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>2\n<|id|>60<|level|>2\n<|id|>65<|level|>2\n<|id|>69<|level|>2\n<|id|>77<|level|>2\n<|id|>84<|level|>2\n<|id|>108<|level|>1\n<|id|>110<|level|>2\n<|id|>115<|level|>2\n<|id|>120<|level|>2\n<|id|>124<|level|>2\n<|id|>127<|level|>2\n<|id|>131<|level|>2\n<|id|>141<|level|>2\n<|id|>147<|level|>1\n<|id|>155<|level|>1\n<|id|>164<|level|>1\n<|id|>172<|level|>1\n<|id|>177<|level|>1\n<|id|>178<|level|>2\n<|id|>190<|level|>1",
+    "image_output": "<|src_id|>192<|tgt_id|>190\n<|src_id|>193<|tgt_id|>190\n<|src_id|>194<|tgt_id|>190",
+    "contd_label": [
+        {
+            "src_id": 118,
+            "tgt_id": 119
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 1
+        },
+        {
+            "id": 155,
+            "level": 1
+        },
+        {
+            "id": 164,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 177,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 192,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 193,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 190
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 192,
+            "table2_idx": 193,
+            "upper_row_ss": [
+                [
+                    "Erin Nakamura",
+                    "Corvus Peak Portfolio Manager",
+                    "March 10, 2024",
+                    "No Conflict",
+                    "—"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Malcolm Trask",
+                    "Corvus Peak Board Nominee",
+                    "March 10, 2024",
+                    "No Conflict",
+                    "—"
+                ]
+            ]
+        }
+    ]
+}

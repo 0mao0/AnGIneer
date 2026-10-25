@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>68 47 189 950<|content|>None\n<|id|>1<|type|>table<|page|>1<|box|>190 47 824 950<|content|>None\n<|id|>2<|type|>table<|page|>2<|box|>32 53 974 950<|content|>None\n<|id|>3<|type|>table<|page|>3<|box|>31 47 907 950<|content|>None\n<|id|>4<|type|>table<|page|>4<|box|>23 47 529 950<|content|>None\n<|id|>6<|type|>table<|page|>5<|box|>521 47 625 949<|content|>None\n<|id|>7<|type|>table<|page|>5<|box|>628 47 724 950<|content|>None\n<|id|>8<|type|>table<|page|>5<|box|>776 47 816 949<|content|>None\n<|id|>10<|type|>table<|page|>5<|box|>862 47 978 950<|content|>None\n<|id|>11<|type|>title<|page|>6<|box|>42 349 61 604<|content|>FOR YOUR INFORMATION\n<|id|>13<|type|>title<|page|>6<|box|>157 316 195 637<|content|>Privacy Act Statement Collection and Use of Inform\n<|id|>20<|type|>title<|page|>6<|box|>613 303 631 651<|content|>Paperwork Reduction Act Statement\n<|id|>22<|type|>table<|page|>7<|box|>41 47 964 952<|content|>None",
+    "raw_response": "<|src_id|>22<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        30
+    ],
+    "pages": [
+        2,
+        7,
+        8,
+        11,
+        12,
+        17,
+        18,
+        26,
+        27,
+        28,
+        29,
+        30
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>2<|box|>239 334 257 663<|content|>Belmont Ridge Bank National Association\n<|id|>4<|page|>2<|box|>265 331 282 663<|content|>Engagement Reference: ... TCG-BRB-2025-001\n<|id|>5<|page|>2<|box|>292 429 309 568<|content|>February 10, 2025\n<|id|>6<|page|>2<|box|>316 143 333 408<|content|>Right-click to update Table of Contents\n<|id|>50<|page|>7<|box|>859 140 896 856<|content|>Thornfield's outside counsel for this engagement i...... Hargrove & Stein shall provide legal advice to\n<|id|>51<|page|>8<|box|>89 140 143 854<|content|>Thornfield as needed regarding the engagement and ...ntiality Side Letter referenced in Section 8 below\n<|id|>84<|page|>11<|box|>844 174 898 857<|content|>(g) Staffing and Workload Assessment. ... An asses...to alert volumes, case investigation requirements,\n<|id|>85<|page|>12<|box|>90 174 145 854<|content|>SAR filing obligations, and other departmental res... sufficient to prevent future backlog accumulation\n<|id|>150<|page|>17<|box|>845 174 902 857<|content|>(i) Vendor Management and Third-Party Oversight. ... , Pinnacle Compliance Solutions LLC,\n<|id|>151<|page|>18<|box|>90 174 126 854<|content|>Ridgeline Data Systems LLC, and other third-party ... performance is critical to the remediation effort\n<|id|>249<|page|>26<|box|>276 181 311 854<|content|>• BSA Implementing Regulations, 31 C. ... 230, and SAR filing requirements)\n<|id|>257<|page|>26<|box|>614 140 651 854<|content|>Additional regulatory guidance, bulletins, or advi...vant to the scope of work shall also be considered\n<|id|>250<|page|>26<|box|>313 181 349 854<|content|>• OCC Regulations, 12 C. ... Part 21, Subpart B (M...es and Procedures and Bank Secrecy Act Compliance)\n<|id|>251<|page|>26<|box|>351 183 405 854<|content|>• OFAC Regulations, 31 C. ... (including the Forei...ulations, and other applicable sanctions programs)\n<|id|>252<|page|>26<|box|>407 181 425 851<|content|>• FFIEC BSA/AML Examination Manual (including all current appendices and updates)\n<|id|>253<|page|>26<|box|>426 181 463 854<|content|>• OCC Bulletin 2013-29 / OCC Bulletin 2023-17 (Thi...icable to BaaS partnerships and vendor management)\n<|id|>254<|page|>26<|box|>465 183 482 736<|content|>• OCC Consent Order No. ... OCC-2025-003 (all articles and requirements)\n<|id|>255<|page|>26<|box|>484 183 556 854<|content|>• FinCEN Guidance on SAR filing (including FinCEN ...e CDD Rule), and beneficial ownership requirements\n<|id|>256<|page|>26<|box|>559 183 613 854<|content|>• OFAC Enforcement Guidelines and Framework for Vo...cement Guidelines (31 C. ... Part 501, Appendix A)\n<|id|>269<|page|>27<|box|>840 140 896 856<|content|>Thornfield's reports, memoranda, and other deliver...cept as expressly authorized in writing by BRB and\n<|id|>270<|page|>28<|box|>90 140 126 854<|content|>C&H. ... Thornfield shall exercise care in the pre...d the inadvertent inclusion of privileged material\n<|id|>291<|page|>29<|box|>856 140 892 854<|content|>This Appendix A may be amended or modified only by...ont Ridge Bank National Association and Thornfield\n<|id|>292<|page|>30<|box|>90 140 126 852<|content|>Consulting Group LLC, with the written concurrence...ny provision of this Appendix A shall be effective\n<|id|>302<|page|>30<|box|>583 142 598 359<|content|>Name: ... Vivian Castellano\n<|id|>303<|page|>30<|box|>599 143 616 532<|content|>Title: ... Managing Director, Financial Crimes Advisory\n<|id|>304<|page|>30<|box|>618 143 633 264<|content|>Date: ... Date\n<|id|>307<|page|>30<|box|>669 142 685 328<|content|>Name: ... Gregory Nardone\n<|id|>308<|page|>30<|box|>686 143 702 480<|content|>Title: ... General Counsel & Corporate Secretary\n<|id|>309<|page|>30<|box|>704 143 719 264<|content|>Date: ... Date\n<|id|>313<|page|>30<|box|>781 143 796 321<|content|>Name: ... Philip Hartmann\n<|id|>314<|page|>30<|box|>797 142 814 486<|content|>Title: ... Responsible Partner, Banking & Finance\n<|id|>315<|page|>30<|box|>816 143 830 263<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>50<|tgt_id|>51\n<|src_id|>84<|tgt_id|>85\n<|src_id|>150<|tgt_id|>151\n<|src_id|>269<|tgt_id|>270\n<|src_id|>291<|tgt_id|>292",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 269,
+            "tgt_id": 270
+        },
+        {
+            "src_id": 291,
+            "tgt_id": 292
+        }
+    ]
+}

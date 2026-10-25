@@ -1,0 +1,166 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 169 125 828<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL ATTORN\n<|id|>9<|page|>1<|box|>401 385 421 611<|content|>I. Executive Summary\n<|id|>21<|page|>2<|box|>440 356 460 640<|content|>II. Engagement and Staffing\n<|id|>22<|page|>2<|box|>486 142 502 328<|content|>A. Formal Engagement\n<|id|>25<|page|>2<|box|>816 142 833 232<|content|>B. Staffing\n<|id|>29<|page|>3<|box|>294 140 311 323<|content|>C. Conflicts Clearance\n<|id|>34<|page|>3<|box|>523 303 542 694<|content|>III. Background and Factual Summary\n<|id|>35<|page|>3<|box|>568 142 585 370<|content|>A. The Departing Employees\n<|id|>41<|page|>4<|box|>768 142 785 346<|content|>B. CRH Business Context\n<|id|>50<|page|>5<|box|>664 140 681 421<|content|>C. Verdana Commerce Group, Inc.\n<|id|>55<|page|>6<|box|>439 140 457 565<|content|>D. Discovery of Departures and Initial CRH Respons\n<|id|>62<|page|>7<|box|>172 334 191 661<|content|>IV. Restrictive Covenant Review\n<|id|>63<|page|>7<|box|>218 140 234 390<|content|>A. Summary of Review Process\n<|id|>66<|page|>7<|box|>530 140 547 501<|content|>B. Key Covenant Provisions — Priya Rathore\n<|id|>74<|page|>8<|box|>446 140 464 575<|content|>C. Key Covenant Provisions — Other Seven Employees\n<|id|>77<|page|>9<|box|>90 140 107 426<|content|>D. Initial Enforceability Assessment\n<|id|>89<|page|>10<|box|>199 375 218 622<|content|>V. Vendor Engagements\n<|id|>90<|page|>10<|box|>243 140 260 357<|content|>A. Pinnacle Forensics LLC\n<|id|>106<|page|>11<|box|>344 140 361 439<|content|>B. Aurelian Investigations Group Inc.\n<|id|>114<|page|>12<|box|>90 140 107 542<|content|>C. Future Vendor Engagement — Damages Expert\n<|id|>117<|page|>12<|box|>334 323 353 673<|content|>VI. Pre-Litigation Correspondence\n<|id|>118<|page|>12<|box|>378 142 395 362<|content|>A. Cease-and-Desist Letters\n<|id|>124<|page|>13<|box|>536 140 553 532<|content|>B. Responses and Opposing Counsel Appearances\n<|id|>131<|page|>14<|box|>215 395 236 599<|content|>VII. Litigation Hold\n<|id|>141<|page|>15<|box|>90 297 111 697<|content|>VIII. Litigation Strategy and Next Steps\n<|id|>142<|page|>15<|box|>136 142 152 303<|content|>A. Proposed Claims\n<|id|>151<|page|>16<|box|>321 142 339 308<|content|>B. Emergency Relief\n<|id|>161<|page|>17<|box|>224 140 243 334<|content|>C. Anticipated Timeline\n<|id|>168<|page|>17<|box|>585 140 603 413<|content|>D. Key Deliverables — Next Week\n<|id|>177<|page|>18<|box|>321 366 340 630<|content|>IX. Budget and Fee Status\n<|id|>182<|page|>18<|box|>719 215 739 781<|content|>X. Corporate Governance and Disclosure Considerati\n<|id|>188<|page|>19<|box|>635 362 654 635<|content|>XI. CRH Internal Contacts\n<|id|>196<|page|>20<|box|>244 307 263 689<|content|>XII. Conclusion and Recommendation",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>25<|level|>3\n<|id|>29<|level|>3\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>41<|level|>3\n<|id|>50<|level|>3\n<|id|>55<|level|>3\n<|id|>62<|level|>2\n<|id|>63<|level|>3\n<|id|>66<|level|>3\n<|id|>74<|level|>3\n<|id|>77<|level|>3\n<|id|>89<|level|>2\n<|id|>90<|level|>3\n<|id|>106<|level|>3\n<|id|>114<|level|>3\n<|id|>117<|level|>2\n<|id|>118<|level|>3\n<|id|>124<|level|>3\n<|id|>131<|level|>2\n<|id|>141<|level|>2\n<|id|>142<|level|>3\n<|id|>151<|level|>3\n<|id|>161<|level|>3\n<|id|>168<|level|>3\n<|id|>177<|level|>2\n<|id|>182<|level|>2\n<|id|>188<|level|>2\n<|id|>196<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        }
+    ]
+}

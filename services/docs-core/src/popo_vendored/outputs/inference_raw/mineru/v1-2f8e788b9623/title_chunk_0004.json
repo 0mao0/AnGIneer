@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 4,
+    "range": [
+        192,
+        211
+    ],
+    "pages": [
+        192,
+        193,
+        194,
+        195,
+        196,
+        200,
+        203,
+        204,
+        209,
+        210,
+        211
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1793<|page|>192<|box|>77 447 90 549<|content|>SIGNATURES\n<|id|>1801<|page|>193<|box|>103 80 117 916<|content|>DESCRIPTION OF COMMON STOCK REGISTERED UNDER SECTI\n<|id|>1803<|page|>193<|box|>199 24 213 192<|content|>Authorized Capital Stock\n<|id|>1805<|page|>193<|box|>273 24 287 129<|content|>Common Stock\n<|id|>1807<|page|>193<|box|>458 24 473 169<|content|>No Preemptive Rights\n<|id|>1809<|page|>193<|box|>518 24 534 501<|content|>Provisions Relating to Amendments to CVS Health’s\n<|id|>1812<|page|>194<|box|>109 24 125 294<|content|>Certain Statutory and Charter Provisions\n<|id|>1814<|page|>194<|box|>171 24 185 398<|content|>Potential Issuances of Preferred Stock and Prefere\n<|id|>1817<|page|>194<|box|>494 24 508 348<|content|>Potential Issuances of Rights to Purchase Securiti\n<|id|>1820<|page|>195<|box|>164 24 178 267<|content|>Stockholder Action by Written Consent\n<|id|>1822<|page|>195<|box|>267 24 280 493<|content|>Stockholder Vote on Fundamental or Extraordinary C\n<|id|>1825<|page|>195<|box|>440 24 454 218<|content|>State Anti-Takeover Provisions\n<|id|>1827<|page|>196<|box|>114 24 128 310<|content|>Subsidiaries of CVS Health Corporation\n<|id|>2012<|page|>200<|box|>196 24 213 250<|content|>• CVS Pharmacy, Inc. (continued)\n<|id|>2131<|page|>203<|box|>118 130 133 328<|content|>◦ Omnicare, LLC (continued)\n<|id|>2190<|page|>204<|box|>345 50 362 277<|content|>• CVS Pharmacy, Inc. (continued)\n<|id|>2329<|page|>209<|box|>102 308 117 689<|content|>Consent of Independent Registered Public Accountin\n<|id|>2335<|page|>210<|box|>109 455 125 542<|content|>Certification\n<|id|>2348<|page|>211<|box|>109 455 122 542<|content|>Certification",
+    "raw_response": "<|id|>1793<|level|>1\n<|id|>1801<|level|>1\n<|id|>1803<|level|>2\n<|id|>1805<|level|>3\n<|id|>1807<|level|>3\n<|id|>1809<|level|>2\n<|id|>1812<|level|>2\n<|id|>1814<|level|>2\n<|id|>1817<|level|>2\n<|id|>1820<|level|>2\n<|id|>1822<|level|>2\n<|id|>1825<|level|>2\n<|id|>1827<|level|>2\n<|id|>2012<|level|>2\n<|id|>2131<|level|>3\n<|id|>2190<|level|>2\n<|id|>2329<|level|>1\n<|id|>2335<|level|>1\n<|id|>2348<|level|>1",
+    "parsed": [
+        {
+            "id": 1793,
+            "level": 1
+        },
+        {
+            "id": 1801,
+            "level": 1
+        },
+        {
+            "id": 1803,
+            "level": 2
+        },
+        {
+            "id": 1805,
+            "level": 3
+        },
+        {
+            "id": 1807,
+            "level": 3
+        },
+        {
+            "id": 1809,
+            "level": 2
+        },
+        {
+            "id": 1812,
+            "level": 2
+        },
+        {
+            "id": 1814,
+            "level": 2
+        },
+        {
+            "id": 1817,
+            "level": 2
+        },
+        {
+            "id": 1820,
+            "level": 2
+        },
+        {
+            "id": 1822,
+            "level": 2
+        },
+        {
+            "id": 1825,
+            "level": 2
+        },
+        {
+            "id": 1827,
+            "level": 2
+        },
+        {
+            "id": 2012,
+            "level": 2
+        },
+        {
+            "id": 2131,
+            "level": 3
+        },
+        {
+            "id": 2190,
+            "level": 2
+        },
+        {
+            "id": 2329,
+            "level": 1
+        },
+        {
+            "id": 2335,
+            "level": 1
+        },
+        {
+            "id": 2348,
+            "level": 1
+        }
+    ]
+}

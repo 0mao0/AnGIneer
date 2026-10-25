@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 5,
+    "range": [
+        236,
+        298
+    ],
+    "pages": [
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        245,
+        297
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4690<|page|>237<|box|>120 359 138 603<|content|>8.4 强夯法和强夯置换法\n<|id|>4702<|page|>238<|box|>386 406 403 608<|content|>8.5 深层水泥搅拌法\n<|id|>4713<|page|>239<|box|>521 406 540 569<|content|>8.6 砂 桩 法\n<|id|>4727<|page|>240<|box|>688 436 706 600<|content|>8.7 降水强夯法\n<|id|>4737<|page|>241<|box|>906 87 924 663<|content|>8.7.6 试验区加固效果检验应在降水强夯施工结束 7 天后进行。\n<|id|>4738<|page|>242<|box|>108 416 126 620<|content|>8.8 高压喷射注浆法\n<|id|>4748<|page|>243<|box|>369 398 388 561<|content|>8.9 爆炸法\n<|id|>4758<|page|>245<|box|>198 302 225 655<|content|>附录 A 试验记录表格\n<|id|>4861<|page|>297<|box|>127 361 143 606<|content|>表 A.0.56 共振柱试验记录表",
+    "raw_response": "<|id|>4690<|level|>1\n<|id|>4702<|level|>1\n<|id|>4713<|level|>1\n<|id|>4727<|level|>1\n<|id|>4737<|level|>-1\n<|id|>4738<|level|>1\n<|id|>4748<|level|>1\n<|id|>4758<|level|>1\n<|id|>4861<|level|>2",
+    "parsed": [
+        {
+            "id": 4690,
+            "level": 1
+        },
+        {
+            "id": 4702,
+            "level": 1
+        },
+        {
+            "id": 4713,
+            "level": 1
+        },
+        {
+            "id": 4727,
+            "level": 1
+        },
+        {
+            "id": 4738,
+            "level": 1
+        },
+        {
+            "id": 4748,
+            "level": 1
+        },
+        {
+            "id": 4758,
+            "level": 1
+        },
+        {
+            "id": 4861,
+            "level": 2
+        }
+    ]
+}

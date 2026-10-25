@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['colspan=2, 主要材料费', '万元', '0.64', '1.92', '2.49', '4.89', '25.95', '2.54']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=3, 指标编号', '12-015', '12-016', '12-017', '12-018', '12-019', '12-020']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 1019,
+    "table2_idx": 1020
+}

@@ -1,0 +1,58 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 228 107 854<|content|>CALDERWOOD & HARKNESS LLP Avenue Louise 480 1050 B\n<|id|>8<|page|>1<|box|>565 140 583 354<|content|>I. Classification Requested\n<|id|>15<|page|>2<|box|>304 140 321 352<|content|>II. Subheading Correction\n<|id|>20<|page|>3<|box|>90 142 107 388<|content|>III. Supporting Documentation\n<|id|>39<|page|>5<|box|>431 142 449 442<|content|>IV. Key Arguments in the Application\n<|id|>46<|page|>6<|box|>641 140 657 676<|content|>V. Expected Processing Timeline and Potential DG T\n<|id|>57<|page|>7<|box|>733 140 750 383<|content|>VI. Administrative Objections\n<|id|>63<|page|>8<|box|>549 140 566 300<|content|>VII. Other Updates\n<|id|>70<|page|>9<|box|>494 140 513 274<|content|>VIII. Next Steps",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>15<|level|>2\n<|id|>20<|level|>2\n<|id|>39<|level|>2\n<|id|>46<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        }
+    ]
+}

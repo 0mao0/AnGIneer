@@ -1,0 +1,108 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 303 126 692<|content|>CAUSE NO. DC-24-01847 STONEFIELD LOGISTICS GROUP I\n<|id|>1<|page|>1<|box|>142 151 213 844<|content|>RIDGELINE FREIGHT CARRIERS LLC and GERALD \"GERRY\"\n<|id|>2<|page|>1<|box|>220 140 238 303<|content|>STATE OF TEXAS\n<|id|>5<|page|>1<|box|>351 140 369 455<|content|>I. Identification and Capacity of Affiant\n<|id|>10<|page|>2<|box|>90 140 107 503<|content|>II. The Dedicated Freight Services Agreement\n<|id|>14<|page|>2<|box|>441 140 459 357<|content|>A. Key Terms of the DFSA\n<|id|>25<|page|>4<|box|>90 140 107 516<|content|>III. Ridgeline's Progressive Breach of the DFSA\n<|id|>35<|page|>5<|box|>223 142 239 305<|content|>IV. The Cure Notice\n<|id|>40<|page|>5<|box|>751 140 768 513<|content|>V. Failure to Cure and Cessation of Operations\n<|id|>45<|page|>6<|box|>390 140 407 339<|content|>VI. The Formal Demand\n<|id|>50<|page|>6<|box|>790 140 806 367<|content|>VII. Engagement of Counsel\n<|id|>53<|page|>7<|box|>258 140 277 388<|content|>VIII. Computation of Damages\n<|id|>55<|page|>7<|box|>334 140 352 434<|content|>A. Liquidated Damages Under § 14.3\n<|id|>62<|page|>7<|box|>739 142 757 475<|content|>B. Re-Procurement Damages Under § 14.4\n<|id|>70<|page|>8<|box|>585 142 603 287<|content|>C. Total Damages\n<|id|>74<|page|>9<|box|>90 142 107 382<|content|>IX. Authentication of Exhibits\n<|id|>80<|page|>9<|box|>602 140 619 470<|content|>X. Personal Guaranty of Gerald Brashear\n<|id|>84<|page|>10<|box|>148 140 166 506<|content|>XI. No Cure, No Payment, No Communication\n<|id|>90<|page|>10<|box|>532 140 550 240<|content|>XII. Prayer\n<|id|>96<|page|>10<|box|>828 344 844 651<|content|>FURTHER AFFIANT SAYETH NOT.\n<|id|>98<|page|>11<|box|>165 140 183 334<|content|>COUNTY OF DALLAS\n<|id|>104<|page|>11<|box|>340 434 357 563<|content|>EXHIBIT LIST",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>14<|level|>3\n<|id|>25<|level|>2\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>3\n<|id|>62<|level|>3\n<|id|>70<|level|>3\n<|id|>74<|level|>2\n<|id|>80<|level|>2\n<|id|>84<|level|>2\n<|id|>90<|level|>2\n<|id|>96<|level|>-1\n<|id|>98<|level|>1\n<|id|>104<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        }
+    ]
+}

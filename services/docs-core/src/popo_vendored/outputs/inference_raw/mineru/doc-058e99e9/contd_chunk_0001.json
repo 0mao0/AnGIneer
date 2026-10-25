@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        45,
+        81
+    ],
+    "pages": [
+        46,
+        61,
+        81
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>196<|page|>46<|box|>537 338 549 658<|content|>[Source: ... Bureau of the Fiscal Service, Division of Financing Operations]\n<|id|>197<|page|>46<|box|>556 83 575 156<|content|>JULY\n<|id|>346<|page|>61<|box|>85 421 167 913<|content|>INTERNATIONAL\n<|id|>347<|page|>61<|box|>200 710 252 919<|content|>Foreign Currency Positions Exchange Stabilization Fund\n<|id|>348<|page|>61<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>448<|page|>81<|box|>148 388 162 609<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>449<|page|>81<|box|>184 81 258 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included",
+    "raw_response": "<|src_id|>346<|tgt_id|>347\n<|src_id|>347<|tgt_id|>348",
+    "parsed": [
+        {
+            "src_id": 346,
+            "tgt_id": 347
+        },
+        {
+            "src_id": 347,
+            "tgt_id": 348
+        }
+    ]
+}

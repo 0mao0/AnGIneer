@@ -1,0 +1,58 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        147,
+        157
+    ],
+    "pages": [
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        154,
+        157
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>704<|type|>table<|page|>147<|box|>162 89 655 911<|content|>None\n<|id|>705<|type|>table<|page|>147<|box|>748 84 859 913<|content|>None\n<|id|>706<|type|>title<|page|>148<|box|>98 176 118 821<|content|>INTRODUCTION: Vaccine Injury Compensation Trust Fu\n<|id|>709<|type|>title<|page|>148<|box|>295 246 330 754<|content|>TABLE TF-13.—Vaccine Injury Compensation Trust Fun\n<|id|>710<|type|>table<|page|>148<|box|>345 89 560 911<|content|>None\n<|id|>712<|type|>table<|page|>148<|box|>643 83 854 913<|content|>None\n<|id|>714<|type|>title<|page|>149<|box|>97 236 138 759<|content|>INTRODUCTION: Wool Research, Development, and Prom\n<|id|>721<|type|>table<|page|>149<|box|>487 88 659 910<|content|>None\n<|id|>722<|type|>table<|page|>149<|box|>724 88 893 911<|content|>None\n<|id|>723<|type|>title<|page|>150<|box|>90 192 109 803<|content|>INTRODUCTION: Agriculture Disaster Relief Trust Fu\n<|id|>736<|type|>table<|page|>150<|box|>531 89 848 911<|content|>None\n<|id|>737<|type|>table<|page|>151<|box|>138 84 501 913<|content|>None\n<|id|>738<|type|>title<|page|>152<|box|>89 388 109 609<|content|>Research Paper Series\n<|id|>739<|type|>title<|page|>152<|box|>128 143 148 854<|content|>Available through the Office of the Assistant Secr\n<|id|>764<|type|>title<|page|>154<|box|>98 446 119 552<|content|>Glossary\n<|id|>765<|type|>title<|page|>154<|box|>125 258 143 743<|content|>With References to Applicable Sections and Tables\n<|id|>814<|type|>table<|page|>157<|box|>101 55 388 941<|content|>None\n<|id|>815<|type|>table<|page|>157<|box|>419 55 691 941<|content|>None\n<|id|>816<|type|>table<|page|>157<|box|>715 55 910 444<|content|>None\n<|id|>817<|type|>image<|page|>157<|box|>714 529 893 939<|content|>None",
+    "raw_response": "<|src_id|>710<|tgt_id|>709\n<|src_id|>721<|tgt_id|>714\n<|src_id|>722<|tgt_id|>714\n<|src_id|>736<|tgt_id|>723\n<|src_id|>737<|tgt_id|>723\n<|src_id|>814<|tgt_id|>765\n<|src_id|>815<|tgt_id|>765\n<|src_id|>816<|tgt_id|>765\n<|src_id|>817<|tgt_id|>765",
+    "parsed": [
+        {
+            "src_id": 710,
+            "tgt_id": 709
+        },
+        {
+            "src_id": 721,
+            "tgt_id": 714
+        },
+        {
+            "src_id": 722,
+            "tgt_id": 714
+        },
+        {
+            "src_id": 736,
+            "tgt_id": 723
+        },
+        {
+            "src_id": 737,
+            "tgt_id": 723
+        },
+        {
+            "src_id": 814,
+            "tgt_id": 765
+        },
+        {
+            "src_id": 815,
+            "tgt_id": 765
+        },
+        {
+            "src_id": 816,
+            "tgt_id": 765
+        },
+        {
+            "src_id": 817,
+            "tgt_id": 765
+        }
+    ]
+}

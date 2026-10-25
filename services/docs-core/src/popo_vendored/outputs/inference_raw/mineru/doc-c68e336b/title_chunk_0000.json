@@ -1,0 +1,28 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        8
+    ],
+    "pages": [
+        5,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>17<|page|>5<|box|>191 87 208 341<|content|>ALLOCATION OF NET PROCEEDS:\n<|id|>19<|page|>5<|box|>298 85 315 448<|content|>ISSUER USE OF PROCEEDS — DISBURSEMENTS:\n<|id|>26<|page|>8<|box|>227 87 244 426<|content|>GROSS SPREAD BREAKDOWN (Full Exercise):",
+    "raw_response": "<|id|>17<|level|>1\n<|id|>19<|level|>1\n<|id|>26<|level|>1",
+    "parsed": [
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 153 125 841<|content|>CALDERWOOD & HARKNESS LLP INTERNAL MEMORANDUM PRIV\n<|id|>6<|type|>title<|page|>1<|box|>297 140 314 339<|content|>I. Engagement Overview\n<|id|>33<|type|>title<|page|>3<|box|>476 142 493 274<|content|>II. Staffing Plan\n<|id|>34<|type|>title<|page|>3<|box|>507 142 523 318<|content|>A. Team Composition\n<|id|>36<|type|>title<|page|>3<|box|>593 140 609 485<|content|>Leonard Cross — Responsible Partner, Tax\n<|id|>51<|type|>title<|page|>4<|box|>468 140 484 450<|content|>Sylvia Hartwell — Billing Partner, Tax\n<|id|>53<|type|>title<|page|>4<|box|>574 176 592 334<|content|>Hourly Rate: $1,375\n<|id|>56<|type|>title<|page|>4<|box|>670 176 688 336<|content|>Key Responsibilities:\n<|id|>65<|type|>title<|page|>5<|box|>222 140 239 586<|content|>Robert Jansen — Lead Associate (Senior Associate),\n<|id|>70<|type|>title<|page|>5<|box|>479 176 497 336<|content|>Key Responsibilities:\n<|id|>91<|type|>title<|page|>6<|box|>316 140 334 496<|content|>Garrett Simmons — Working Associate, Tax\n<|id|>96<|type|>title<|page|>6<|box|>502 176 518 338<|content|>Key Responsibilities:\n<|id|>112<|type|>title<|page|>7<|box|>268 140 286 310<|content|>B. Staffing Rationale\n<|id|>121<|type|>title<|page|>8<|box|>285 142 303 307<|content|>III. Budget Estimate\n<|id|>122<|type|>title<|page|>8<|box|>316 140 334 493<|content|>A. Estimated Fee Breakdown by Timekeeper\n<|id|>124<|type|>table<|page|>8<|box|>382 143 611 852<|content|>None\n<|id|>126<|type|>title<|page|>8<|box|>729 142 747 413<|content|>B. Estimated Fee by Work Stream\n<|id|>128<|type|>table<|page|>8<|box|>814 143 901 852<|content|>None\n<|id|>129<|type|>table<|page|>9<|box|>88 143 493 852<|content|>None\n<|id|>131<|type|>title<|page|>9<|box|>648 142 666 477<|content|>C. Estimated Disbursements and Expenses\n<|id|>132<|type|>table<|page|>9<|box|>715 143 906 852<|content|>None\n<|id|>134<|type|>title<|page|>10<|box|>246 140 263 436<|content|>D. Total Estimated Engagement Cost\n<|id|>136<|type|>table<|page|>10<|box|>311 143 387 852<|content|>None\n<|id|>145<|type|>title<|page|>11<|box|>250 140 266 433<|content|>IV. Anticipated Deliverable Timeline\n<|id|>147<|type|>table<|page|>11<|box|>372 143 906 852<|content|>None\n<|id|>148<|type|>table<|page|>12<|box|>89 143 142 852<|content|>None\n<|id|>151<|type|>title<|page|>12<|box|>426 140 444 313<|content|>V. Billing Procedures\n<|id|>163<|type|>title<|page|>13<|box|>363 140 380 416<|content|>VI. Risk and Scope Considerations\n<|id|>182<|type|>title<|page|>15<|box|>89 140 107 259<|content|>VII. Approval",
+    "raw_response": "<|src_id|>124<|tgt_id|>122\n<|src_id|>128<|tgt_id|>126\n<|src_id|>129<|tgt_id|>126\n<|src_id|>132<|tgt_id|>131\n<|src_id|>136<|tgt_id|>134\n<|src_id|>147<|tgt_id|>145\n<|src_id|>148<|tgt_id|>145",
+    "parsed": [
+        {
+            "src_id": 124,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 145
+        }
+    ]
+}

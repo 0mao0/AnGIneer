@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 843<|content|>CONFIDENTIAL — SUBJECT TO ATTORNEY-CLIENT PRIVILEG\n<|id|>1<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>12<|page|>1<|box|>834 142 849 323<|content|>1. Scope of Production\n<|id|>19<|page|>2<|box|>619 140 636 509<|content|>2. Description of PBI Board Minutes Produced\n<|id|>20<|page|>2<|box|>648 140 667 553<|content|>2.1 Overview of Board Meeting Activity (2017–2020)\n<|id|>25<|page|>4<|box|>90 140 107 424<|content|>2.2 Year-by-Year Meeting Schedule\n<|id|>31<|page|>4<|box|>724 140 741 602<|content|>2.3 Summary of Key Subjects Addressed in Board Min\n<|id|>47<|page|>7<|box|>138 140 157 419<|content|>2.4 Bates Range for Board Minutes\n<|id|>49<|page|>7<|box|>277 140 294 751<|content|>3. Description of Articles of Association and Gove\n<|id|>50<|page|>7<|box|>308 140 325 496<|content|>3.1 Memorandum and Articles of Association\n<|id|>54<|page|>7<|box|>633 140 650 576<|content|>3.2 Board Charters and Committee Terms of Referenc\n<|id|>60<|page|>8<|box|>239 140 255 436<|content|>3.3 Register of Directors and Officers\n<|id|>63<|page|>8<|box|>429 140 446 570<|content|>3.4 Aggregate Bates Range for Governance Documents\n<|id|>65<|page|>8<|box|>512 142 527 385<|content|>4. Document Production Index\n<|id|>68<|page|>9<|box|>536 142 554 366<|content|>Total pages produced: 1,418\n<|id|>69<|page|>9<|box|>577 140 594 457<|content|>5. Privilege Reservation and Limitations\n<|id|>74<|page|>10<|box|>286 140 303 663<|content|>6. Relevance of Produced Documents to PBI's Econom\n<|id|>80<|page|>11<|box|>167 140 185 354<|content|>7. Continuing Cooperation",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>12<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>25<|level|>2\n<|id|>31<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>1\n<|id|>50<|level|>2\n<|id|>54<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>65<|level|>1\n<|id|>68<|level|>-1\n<|id|>69<|level|>1\n<|id|>74<|level|>1\n<|id|>80<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 403 119 593<|content|>MEMORANDUM\n<|id|>6<|type|>title<|page|>1<|box|>282 168 301 828<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>7<|type|>title<|page|>1<|box|>325 140 342 364<|content|>I. Introduction and Purpose\n<|id|>13<|type|>title<|page|>2<|box|>258 142 277 352<|content|>II. Summary Fee Estimate\n<|id|>21<|type|>title<|page|>2<|box|>792 142 809 277<|content|>III. Billing Rates\n<|id|>23<|type|>table<|page|>2<|box|>842 143 900 852<|content|>None\n<|id|>24<|type|>table<|page|>3<|box|>88 143 127 852<|content|>None\n<|id|>28<|type|>title<|page|>3<|box|>474 140 491 524<|content|>IV. Scope of Work and Fee Breakdown by Phase\n<|id|>30<|type|>title<|page|>3<|box|>585 140 603 674<|content|>A. Lease Negotiation and Drafting — Estimated $225\n<|id|>55<|type|>title<|page|>6<|box|>700 140 718 558<|content|>B. Guaranty of Lease — Estimated $25,000 – $35,000\n<|id|>59<|type|>title<|page|>7<|box|>238 140 256 558<|content|>C. SNDA Negotiation — Estimated $40,000 – $55,000\n<|id|>64<|type|>title<|page|>7<|box|>700 140 717 604<|content|>D. Title and Survey Review — Estimated $30,000 – $\n<|id|>72<|type|>title<|page|>8<|box|>327 140 344 803<|content|>E. Environmental and Physical Due Diligence Review\n<|id|>76<|type|>title<|page|>8<|box|>671 140 688 640<|content|>F. Landlord Financial Diligence — Estimated $10,00\n<|id|>79<|type|>title<|page|>9<|box|>138 140 157 700<|content|>G. Corporate Authorization Documents — Estimated $\n<|id|>86<|type|>title<|page|>9<|box|>506 140 523 730<|content|>H. Closing Deliverables and Administration — Estim\n<|id|>95<|type|>title<|page|>10<|box|>382 140 398 792<|content|>I. Client Communications and Project Management —\n<|id|>98<|type|>title<|page|>10<|box|>609 140 626 683<|content|>J. Contingency / Unanticipated Issues — Estimated\n<|id|>101<|type|>title<|page|>11<|box|>90 140 107 400<|content|>V. Fee Estimate Summary Table\n<|id|>102<|type|>table<|page|>11<|box|>138 143 364 852<|content|>None\n<|id|>104<|type|>title<|page|>11<|box|>452 140 469 504<|content|>VI. Key Assumptions Underlying the Estimate\n<|id|>114<|type|>title<|page|>12<|box|>280 140 297 478<|content|>VII. Disbursements and Third-Party Costs\n<|id|>125<|type|>title<|page|>12<|box|>773 140 791 444<|content|>VIII. Billing and Invoicing Procedures\n<|id|>130<|type|>title<|page|>13<|box|>292 140 309 462<|content|>IX. Conclusion and Contact Information",
+    "raw_response": "<|src_id|>23<|tgt_id|>21\n<|src_id|>24<|tgt_id|>21\n<|src_id|>102<|tgt_id|>101",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 101
+        }
+    ]
+}

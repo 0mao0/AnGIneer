@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 119 854<|content|>CALDERWOOD & HARKNESS LLP 600 Lexington Avenue, 30th Floor New York, New York 10022 Telephone: ... com\n<|id|>1<|page|>1<|box|>127 750 145 854<|content|>July 31, 2025\n<|id|>2<|page|>1<|box|>152 676 170 856<|content|>Matter No. ... 1006-00006\n<|id|>3<|page|>1<|box|>179 140 214 854<|content|>Pinnacle National Bank, N. ... , as Administrative Agent 1200 Euclid Avenue Cleveland, Ohio 44115\n<|id|>4<|page|>1<|box|>223 140 258 560<|content|>Attention: ... Sweeney, Relationship Manager and\n<|id|>5<|page|>1<|box|>267 174 321 854<|content|>Each of the Lenders party to the Credit Agreement ... N. ... as Administrative Agent, the \"Addressees\")\n<|id|>42<|page|>4<|box|>842 140 898 857<|content|>The Borrower is duly qualified to transact busines... qualification, including, without limitation, the\n<|id|>43<|page|>5<|box|>90 140 218 857<|content|>Commonwealth of Pennsylvania. ... This opinion as ...o the qualifications set forth in Section IV below\n<|id|>60<|page|>7<|box|>90 174 126 854<|content|>(b) filings and registrations that have already be...ll force and effect as of the date hereof; ... and\n<|id|>62<|page|>7<|box|>196 140 325 856<|content|>We note that no filing under the Hart-Scott-Rodino...hat would require a pre-merger notification filing\n<|id|>81<|page|>9<|box|>859 233 876 764<|content|>[Remainder of this page intentionally left blank; ... signature page follows]\n<|id|>82<|page|>9<|box|>885 142 902 272<|content|>Very truly yours,\n<|id|>86<|page|>10<|box|>186 174 217 854<|content|>Sandra K. ... Liu, General Counsel Crestline Packa...4100 Commerce Parkway, Suite 800 Akron, Ohio 44308\n<|id|>87<|page|>10<|box|>223 174 253 854<|content|>Megan Chu, Esq. ... Calderwood & Harkness LLP 600 ...e, 30th Floor New York, New York 10022 (file copy)",
+    "raw_response": "<|src_id|>4<|tgt_id|>5\n<|src_id|>42<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ]
+}

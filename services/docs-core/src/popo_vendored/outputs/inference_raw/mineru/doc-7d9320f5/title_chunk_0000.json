@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>373 140 388 316<|content|>Ladies and Gentlemen:\n<|id|>12<|page|>2<|box|>248 140 265 387<|content|>I. DOCUMENTS EXAMINED\n<|id|>29<|page|>3<|box|>806 140 824 303<|content|>II. ASSUMPTIONS\n<|id|>42<|page|>5<|box|>446 140 464 269<|content|>III. OPINIONS\n<|id|>44<|page|>5<|box|>540 140 558 594<|content|>(i) Due Organization, Valid Existence, and Good St\n<|id|>46<|page|>5<|box|>814 140 832 424<|content|>(ii) Corporate Power and Authority\n<|id|>49<|page|>6<|box|>250 140 267 683<|content|>(iii) Due Authorization, Execution, and Delivery;\n<|id|>52<|page|>6<|box|>641 140 657 279<|content|>(iv) No Violation\n<|id|>57<|page|>7<|box|>303 140 320 509<|content|>IV. QUALIFICATIONS AND LIMITATIONS\n<|id|>80<|page|>9<|box|>376 140 393 473<|content|>V. RELIANCE AND OTHER MATTERS",
+    "raw_response": "<|id|>7<|level|>-1\n<|id|>12<|level|>1\n<|id|>29<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>49<|level|>2\n<|id|>52<|level|>2\n<|id|>57<|level|>1\n<|id|>80<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        }
+    ]
+}

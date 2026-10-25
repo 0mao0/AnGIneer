@@ -1,0 +1,128 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7gvnukw_\\input\\pdfs\\doc-c54466b8.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7gvnukw_\\enriched\\doc-c54466b8.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>6<|level|>2\n<|id|>12<|level|>2\n<|id|>21<|level|>2\n<|id|>28<|level|>2\n<|id|>37<|level|>2\n<|id|>49<|level|>2\n<|id|>58<|level|>2\n<|id|>72<|level|>2\n<|id|>77<|level|>2\n<|id|>87<|level|>2\n<|id|>96<|level|>2\n<|id|>108<|level|>2\n<|id|>115<|level|>2",
+    "image_output": "<|src_id|>35<|tgt_id|>28\n<|src_id|>61<|tgt_id|>58\n<|src_id|>63<|tgt_id|>58\n<|src_id|>65<|tgt_id|>58\n<|src_id|>74<|tgt_id|>72\n<|src_id|>89<|tgt_id|>87\n<|src_id|>100<|tgt_id|>96\n<|src_id|>101<|tgt_id|>96",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 35,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 96
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 100,
+            "table2_idx": 101,
+            "upper_row_ss": [
+                [
+                    "Name of Acquired Entity / Assets",
+                    "Date of Acquisition",
+                    "Aggregate Consideration Paid (including assumed indebtedness and deferred",
+                    "Individual Acquisition Limit (Section 7.09(a)(iv))",
+                    "Aggregate Acquisition Limit (Section 7.09(a)(v))"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "consideration)",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

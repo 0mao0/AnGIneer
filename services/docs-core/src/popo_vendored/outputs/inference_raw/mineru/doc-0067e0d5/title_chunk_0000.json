@@ -1,0 +1,134 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>347 140 364 343<|content|>I. Purpose and Summary\n<|id|>11<|page|>1<|box|>830 140 849 393<|content|>II. Existing Loan — Key Terms\n<|id|>13<|page|>2<|box|>194 140 212 364<|content|>A. Loan Origination Details\n<|id|>23<|page|>2<|box|>686 142 703 271<|content|>B. Interest Rate\n<|id|>29<|page|>3<|box|>344 140 359 354<|content|>C. Amortization Structure\n<|id|>34<|page|>3<|box|>755 142 773 408<|content|>D. Outstanding Principal Balance\n<|id|>38<|page|>4<|box|>176 140 193 349<|content|>E. Prepayment Provisions\n<|id|>44<|page|>4<|box|>746 140 763 486<|content|>III. Payoff Calculation — Scenario Analysis\n<|id|>46<|page|>4<|box|>821 140 839 764<|content|>A. Scenario 1: Closing Before March 1, 2023 (Prepa\n<|id|>69<|page|>6<|box|>667 140 684 743<|content|>B. Scenario 2: Closing On or After March 1, 2023 (\n<|id|>77<|page|>7<|box|>488 140 505 493<|content|>C. Recommendation on Closing Date Timing\n<|id|>84<|page|>8<|box|>223 140 239 366<|content|>IV. Per Diem Interest Detail\n<|id|>86<|page|>8<|box|>330 142 345 223<|content|>Formula:\n<|id|>91<|page|>8<|box|>700 143 718 282<|content|>Important Notes:\n<|id|>95<|page|>9<|box|>167 140 184 553<|content|>V. Cross-Reference to Refinancing Sources and Uses\n<|id|>97<|page|>9<|box|>261 142 277 303<|content|>A. Sources of Funds\n<|id|>100<|page|>9<|box|>405 142 421 277<|content|>B. Uses of Funds\n<|id|>106<|page|>10<|box|>157 140 175 439<|content|>C. Adequacy of Refinancing Proceeds\n<|id|>113<|page|>10<|box|>534 140 551 557<|content|>VI. Documents Required from Tidewater for Closing\n<|id|>127<|page|>11<|box|>539 140 556 455<|content|>VII. Open Items and Recommendations\n<|id|>129<|page|>11<|box|>595 140 613 459<|content|>A. Confirm Actual Outstanding Balance\n<|id|>131<|page|>11<|box|>760 140 777 470<|content|>B. Prepayment Premium Timing Strategy\n<|id|>136<|page|>12<|box|>338 140 354 424<|content|>C. Confirm SOFR Rate Convention\n<|id|>142<|page|>12<|box|>604 142 622 359<|content|>D. Reserve Balance Credits\n<|id|>149<|page|>13<|box|>138 140 157 354<|content|>E. Wire Transfer Logistics\n<|id|>154<|page|>13<|box|>391 140 409 279<|content|>VIII. Conclusion",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>13<|level|>3\n<|id|>23<|level|>3\n<|id|>29<|level|>3\n<|id|>34<|level|>3\n<|id|>38<|level|>3\n<|id|>44<|level|>2\n<|id|>46<|level|>3\n<|id|>69<|level|>3\n<|id|>77<|level|>3\n<|id|>84<|level|>2\n<|id|>86<|level|>3\n<|id|>91<|level|>3\n<|id|>95<|level|>2\n<|id|>97<|level|>3\n<|id|>100<|level|>3\n<|id|>106<|level|>3\n<|id|>113<|level|>2\n<|id|>127<|level|>2\n<|id|>129<|level|>3\n<|id|>131<|level|>3\n<|id|>136<|level|>3\n<|id|>142<|level|>3\n<|id|>149<|level|>3\n<|id|>154<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 2
+        }
+    ]
+}

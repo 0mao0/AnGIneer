@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 186 123 810<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>29<|page|>2<|box|>619 176 636 480<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>38<|page|>3<|box|>89 186 122 808<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>47<|page|>3<|box|>335 174 371 821<|content|>AFFIRMATION OF JEFFREY PARK IN SUPPORT OF MOTION T\n<|id|>49<|page|>3<|box|>446 140 464 413<|content|>I. PRELIMINARY STATEMENT\n<|id|>53<|page|>3<|box|>779 140 796 459<|content|>II. BACKGROUND OF THE PARTIES\n<|id|>58<|page|>4<|box|>489 140 506 297<|content|>III. THE TREATY\n<|id|>66<|page|>5<|box|>343 140 359 558<|content|>IV. THE ARBITRATION CLAUSE — ARTICLE 22\n<|id|>75<|page|>6<|box|>430 142 446 292<|content|>V. THE DISPUTE\n<|id|>87<|page|>7<|box|>645 140 662 617<|content|>VI. PINNACLE ATLANTIC'S REFUSAL TO ARBITRATE\n<|id|>93<|page|>8<|box|>380 142 397 277<|content|>VII. EXHIBITS.\n<|id|>101<|page|>8<|box|>712 142 729 318<|content|>VIII. CONCLUSION.\n<|id|>116<|page|>9<|box|>386 383 402 612<|content|>ORDER TO SHOW CAUSE\n<|id|>128<|page|>10<|box|>339 184 372 808<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>137<|page|>10<|box|>585 150 603 846<|content|>[PROPOSED] ORDER COMPELLING ARBITRATION AND STAYIN\n<|id|>139<|page|>11<|box|>89 142 106 321<|content|>ORDERED as follows:\n<|id|>160<|page|>12<|box|>160 169 178 826<|content|>CERTIFICATION OF COMPLIANCE WITH COMMERCIAL DIVISI\n<|id|>161<|page|>12<|box|>191 140 228 854<|content|>I. CERTIFICATION PURSUANT TO RULE 17 — GOOD FAITH\n<|id|>167<|page|>12<|box|>696 140 714 705<|content|>II. STATEMENT OF MATERIAL FACTS PURSUANT TO RULE 1\n<|id|>182<|page|>14<|box|>89 140 106 433<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>29<|level|>-1\n<|id|>38<|level|>1\n<|id|>47<|level|>1\n<|id|>49<|level|>2\n<|id|>53<|level|>2\n<|id|>58<|level|>2\n<|id|>66<|level|>2\n<|id|>75<|level|>2\n<|id|>87<|level|>2\n<|id|>93<|level|>2\n<|id|>101<|level|>2\n<|id|>116<|level|>1\n<|id|>128<|level|>1\n<|id|>137<|level|>1\n<|id|>139<|level|>-1\n<|id|>160<|level|>1\n<|id|>161<|level|>2\n<|id|>167<|level|>2\n<|id|>182<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 2
+        }
+    ]
+}

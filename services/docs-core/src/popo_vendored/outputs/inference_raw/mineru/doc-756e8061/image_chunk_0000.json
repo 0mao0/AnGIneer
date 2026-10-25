@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>5<|type|>title<|page|>1<|box|>271 140 287 457<|content|>1. Purpose and Overview of Notification\n<|id|>10<|type|>title<|page|>1<|box|>801 142 816 372<|content|>2. Description of the Incident\n<|id|>11<|type|>title<|page|>1<|box|>832 142 848 308<|content|>Nature of the Attack\n<|id|>16<|type|>title<|page|>2<|box|>565 140 582 362<|content|>Detection and Containment\n<|id|>23<|type|>title<|page|>3<|box|>343 140 361 413<|content|>Impact to [Customer Legal Name]\n<|id|>26<|type|>title<|page|>3<|box|>561 140 579 410<|content|>3. Forensic Investigation Findings\n<|id|>35<|type|>title<|page|>4<|box|>648 140 666 423<|content|>4. Information Potentially Accessed\n<|id|>42<|type|>title<|page|>5<|box|>453 140 470 478<|content|>5. Remediation Measures Taken by Lumos\n<|id|>44<|type|>title<|page|>5<|box|>564 140 582 442<|content|>Immediate Actions (June 15–16, 2024)\n<|id|>48<|type|>title<|page|>6<|box|>90 140 107 501<|content|>Enhanced Security Controls (June–July 2024)\n<|id|>54<|type|>title<|page|>6<|box|>654 140 671 531<|content|>6. Individual Notifications and Credit Monitoring\n<|id|>63<|type|>title<|page|>7<|box|>534 140 551 486<|content|>7. Regulatory and Compliance Notifications\n<|id|>67<|type|>title<|page|>8<|box|>148 140 167 596<|content|>8. Commitment to Data Security and Ongoing Monitor\n<|id|>72<|type|>title<|page|>8<|box|>625 140 640 375<|content|>9. Dedicated Point of Contact\n<|id|>88<|type|>title<|page|>9<|box|>477 145 531 852<|content|>INTERNAL DRAFTING NOTES — PRIVILEGED AND CONFIDENT\n<|id|>93<|type|>title<|page|>9<|box|>809 143 825 318<|content|>Example Populations:\n<|id|>94<|type|>table<|page|>9<|box|>833 143 906 852<|content|>None\n<|id|>95<|type|>table<|page|>10<|box|>89 143 167 852<|content|>None",
+    "raw_response": "<|src_id|>94<|tgt_id|>93\n<|src_id|>95<|tgt_id|>93",
+    "parsed": [
+        {
+            "src_id": 94,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 93
+        }
+    ]
+}

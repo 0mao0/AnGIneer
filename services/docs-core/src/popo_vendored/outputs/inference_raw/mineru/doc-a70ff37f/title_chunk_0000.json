@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 174 167 821<|content|>UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF\n<|id|>6<|page|>1<|box|>305 187 359 810<|content|>DECLARATION OF DENNIS FAULKNER IN SUPPORT OF DEFEN\n<|id|>8<|page|>1<|box|>410 143 426 504<|content|>I. Introduction and Identification of Declarant\n<|id|>12<|page|>1<|box|>734 142 752 413<|content|>II. Background and Qualifications\n<|id|>18<|page|>2<|box|>445 140 462 555<|content|>III. Fort Worth Hub (HUB-01) Operations Overview\n<|id|>25<|page|>3<|box|>500 140 517 517<|content|>IV. Driver Flexibility and Autonomy at HUB-01\n<|id|>26<|page|>3<|box|>531 142 547 339<|content|>A. Scheduling Flexibility\n<|id|>31<|page|>4<|box|>157 142 174 393<|content|>B. Route and Delivery Selection\n<|id|>38<|page|>5<|box|>232 140 250 294<|content|>C. Subcontracting.\n<|id|>42<|page|>5<|box|>710 140 727 483<|content|>D. Use of Personal Vehicles and Equipment\n<|id|>47<|page|>6<|box|>268 142 286 390<|content|>E. Multi-Platform Engagement\n<|id|>50<|page|>6<|box|>664 140 680 467<|content|>V. ICOA Version Distribution at HUB-01\n<|id|>57<|page|>7<|box|>501 140 518 712<|content|>VI. Marcus Delano's Performance History and Work P\n<|id|>58<|page|>7<|box|>532 140 549 323<|content|>A. Engagement Period\n<|id|>61<|page|>7<|box|>734 142 750 356<|content|>B. Delano's Work Patterns\n<|id|>64<|page|>8<|box|>213 140 229 558<|content|>C. Delano's Delivery Acceptance and Route Behavior\n<|id|>68<|page|>8<|box|>561 140 579 455<|content|>D. Delano's Per-Delivery Compensation\n<|id|>71<|page|>9<|box|>90 140 107 292<|content|>E. Subcontracting.\n<|id|>73<|page|>9<|box|>309 142 327 241<|content|>F. Training.\n<|id|>76<|page|>9<|box|>638 140 657 357<|content|>G. Uniforms and Branding\n<|id|>79<|page|>10<|box|>90 140 107 580<|content|>VII. Differences Between HUB-01 and Other SLG Hubs\n<|id|>88<|page|>11<|box|>393 140 412 370<|content|>VIII. Declarant's Conclusion\n<|id|>93<|page|>12<|box|>90 142 107 383<|content|>IX. Verification and Signature",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>18<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>31<|level|>3\n<|id|>38<|level|>3\n<|id|>42<|level|>3\n<|id|>47<|level|>3\n<|id|>50<|level|>2\n<|id|>57<|level|>2\n<|id|>58<|level|>3\n<|id|>61<|level|>3\n<|id|>64<|level|>3\n<|id|>68<|level|>3\n<|id|>71<|level|>3\n<|id|>73<|level|>3\n<|id|>76<|level|>3\n<|id|>79<|level|>2\n<|id|>88<|level|>2\n<|id|>93<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        }
+    ]
+}

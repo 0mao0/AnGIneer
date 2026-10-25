@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        8,
+        12,
+        17,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>141 140 176 854<|content|>TO: ... Liu, General Counsel, Crestline Packaging ...rrison Wexford, Partner, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>186 140 220 854<|content|>FROM: ... Megan Chu, Associate, Calderwood & Harkn...erek Okonkwo, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>229 140 247 310<|content|>DATE: ... May 28, 2025\n<|id|>5<|page|>1<|box|>256 140 292 856<|content|>RE: ... Employee and Benefits Transition Issues — ...ally All Assets of Allegheny Valley Packaging, Inc\n<|id|>6<|page|>1<|box|>300 142 316 333<|content|>Matter No. ... 1006-00006\n<|id|>7<|page|>1<|box|>325 142 342 408<|content|>Right-click to update Table of Contents\n<|id|>13<|page|>1<|box|>858 142 895 857<|content|>1. ... CPS intends to extend offers of employment ...s approximately 340 employees, effective as of the\n<|id|>14<|page|>2<|box|>90 174 126 854<|content|>Closing Date, and the APA should be drafted to ref... flexibility on terms and conditions of employment\n<|id|>74<|page|>7<|box|>801 140 875 856<|content|>The leading authority on the successorship doctrin... the Supreme Court's decision in NLRB v. ... Under\n<|id|>75<|page|>8<|box|>90 140 127 854<|content|>Burns, a successor employer is free to set initial...with the union in good faith regarding those terms\n<|id|>127<|page|>12<|box|>733 147 786 854<|content|>• The absence of any pending or threatened claims,...mental authority with respect to the plan; ... and\n<|id|>129<|page|>12<|box|>827 140 900 857<|content|>Additionally, the AVP 401(k) Plan is subject to au...t and that all required audits have been completed\n<|id|>177<|page|>17<|box|>489 147 507 650<|content|>• The absence of any multiemployer plan participation by AVP; ... and\n<|id|>179<|page|>17<|box|>566 140 640 856<|content|>The APA should also include broad indemnification ... the responsibility of AVP or its controlled group\n<|id|>198<|page|>19<|box|>250 147 282 854<|content|>• A statement regarding the anticipated closing da... the expected timeline for the transition; ... and\n<|id|>200<|page|>19<|box|>325 140 380 854<|content|>The notice should be carefully drafted to avoid an...ing CBA terms will remain in full force and effect",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>74<|tgt_id|>75",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 75
+        }
+    ]
+}

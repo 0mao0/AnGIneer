@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        50,
+        100
+    ],
+    "pages": [
+        51,
+        56,
+        57,
+        60,
+        80,
+        85,
+        95,
+        96,
+        97,
+        99
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>215<|page|>51<|box|>112 28 876 435<|content|>Source: ... 43/ As a result of correcting an under...nders received and accepted were increased by $100\n<|id|>216<|page|>51<|box|>57 372 70 566<|content|>Footnotes to Table PDO-4\n<|id|>217<|page|>51<|box|>114 490 877 888<|content|>million. ... p Preliminary\n<|id|>222<|page|>56<|box|>74 396 87 582<|content|>Part A. ... - Other than Bills\n<|id|>224<|page|>57<|box|>71 72 105 848<|content|>Table PDO-6. ... - Bills Other than Regular Weekly Series\n<|id|>232<|page|>60<|box|>57 256 71 733<|content|>Table PDO-8. ... - Foreign Series Securities (Nonmarketable)\n<|id|>233<|page|>60<|box|>73 239 89 750<|content|>Issued to Official Institutions of Foreign Countries-Continued\n<|id|>283<|page|>80<|box|>244 452 255 592<|content|>(In millions of dollars)\n<|id|>284<|page|>80<|box|>65 87 101 493<|content|>The tables in this section are designed to provide...e of payments and international financial position\n<|id|>332<|page|>85<|box|>639 114 657 399<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>333<|page|>85<|box|>662 114 690 387<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>337<|page|>85<|box|>470 563 490 827<|content|>\\Delta f c_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>338<|page|>85<|box|>495 561 521 821<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>341<|page|>85<|box|>557 507 584 834<|content|>Where: ... and\n<|id|>342<|page|>85<|box|>589 561 615 839<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>387<|page|>95<|box|>59 298 73 591<|content|>Table CM-II-5. ... - Banks' Own Claims by Type\n<|id|>389<|page|>96<|box|>50 168 81 910<|content|>Table CM-II-6. ... - Banks' Own Claims by Type and...ble in Dollars, as of January 31, 1982 Preliminary\n<|id|>391<|page|>97<|box|>304 26 337 394<|content|>1/ Data on the two lines shown for this date diffe...e comparable to those shown for the following date\n<|id|>397<|page|>99<|box|>375 57 385 399<|content|>in reporting coverage. ... Figures on the first line are comparable in\n<|id|>399<|page|>99<|box|>368 40 377 399<|content|>2/ Data on the two lines shown for this date differ because of changes\n<|id|>400<|page|>99<|box|>361 460 371 544<|content|>p Preliminary. ... p Preliminary\n<|id|>401<|page|>99<|box|>382 60 392 409<|content|>coverage to those shown for the preceding date; ... figures on the second\n<|id|>402<|page|>99<|box|>391 60 400 355<|content|>line are comparable to those shown for the followi...e comparable to those shown for the following date",
+    "raw_response": "<|src_id|>391<|tgt_id|>397\n<|src_id|>397<|tgt_id|>399\n<|src_id|>399<|tgt_id|>401\n<|src_id|>401<|tgt_id|>402",
+    "parsed": [
+        {
+            "src_id": 391,
+            "tgt_id": 397
+        },
+        {
+            "src_id": 397,
+            "tgt_id": 399
+        },
+        {
+            "src_id": 399,
+            "tgt_id": 401
+        },
+        {
+            "src_id": 401,
+            "tgt_id": 402
+        }
+    ]
+}

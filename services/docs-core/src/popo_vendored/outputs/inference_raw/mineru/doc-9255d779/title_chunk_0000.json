@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        9,
+        10
+    ],
+    "pages": [
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>88<|page|>9<|box|>565 142 583 504<|content|>**8. BILLING AND ADMINISTRATIVE NOTES**\n<|id|>101<|page|>10<|box|>503 140 520 328<|content|>A few immediate items:",
+    "raw_response": "<|id|>88<|level|>1\n<|id|>101<|level|>2",
+    "parsed": [
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 2
+        }
+    ]
+}

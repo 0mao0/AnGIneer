@@ -1,0 +1,167 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kspus6w8\\input\\pdfs\\doc-c0852f77.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kspus6w8\\enriched\\doc-c0852f77.json",
+    "contd_output": "<|src_id|>84<|tgt_id|>85",
+    "title_output": "<|id|>2<|level|>1\n<|id|>19<|level|>1\n<|id|>29<|level|>1\n<|id|>30<|level|>2\n<|id|>44<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>1\n<|id|>57<|level|>2\n<|id|>66<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>81<|level|>1\n<|id|>82<|level|>2\n<|id|>103<|level|>2\n<|id|>107<|level|>2\n<|id|>122<|level|>2\n<|id|>126<|level|>3\n<|id|>133<|level|>3\n<|id|>136<|level|>3\n<|id|>139<|level|>3\n<|id|>140<|level|>2\n<|id|>149<|level|>1\n<|id|>159<|level|>1\n<|id|>167<|level|>1\n<|id|>177<|level|>1\n<|id|>179<|level|>2\n<|id|>185<|level|>2\n<|id|>198<|level|>2\n<|id|>203<|level|>1\n<|id|>223<|level|>1",
+    "image_output": "<|src_id|>68<|tgt_id|>66\n<|src_id|>196<|tgt_id|>185\n<|src_id|>197<|tgt_id|>185",
+    "contd_label": [
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 1
+        },
+        {
+            "id": 167,
+            "level": 1
+        },
+        {
+            "id": 177,
+            "level": 1
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 1
+        },
+        {
+            "id": 223,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 68,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 197,
+            "tgt_id": 185
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 196,
+            "table2_idx": 197,
+            "upper_row_ss": [
+                [
+                    "Submit HSR Notification and Report Forms to FTC/DOJ",
+                    "April 22, 2024"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Filing fee payment ($280,500) by Penterra",
+                    "April 22, 2024"
+                ]
+            ]
+        }
+    ]
+}

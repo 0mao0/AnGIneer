@@ -1,0 +1,30 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Oct. 30......', '49,578', '3,017', '6,400', '639', '71', '72', '6,819', '150', '14,062', '1,513', '32,743', '2,136', '11,516', '177', '1,994', '2,171', '1,012']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Transactions during week ended:', 'Grand total', 'United Kingdom', 'France', 'Belgium', 'Germany', 'Italy', 'Netherlands', 'Sweden', 'Switzerland', 'Other Europe', 'Total Europe', 'Canada', 'Latin America', 'Japan, Korea and Manchuria', 'Other Asia', 'Total Asia', 'All other']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 95,
+    "table2_idx": 96
+}

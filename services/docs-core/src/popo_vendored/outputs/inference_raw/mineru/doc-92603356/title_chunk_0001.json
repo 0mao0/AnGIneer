@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        50
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>574<|page|>45<|box|>502 142 518 179<|content|>Tax\n<|id|>579<|page|>45<|box|>681 143 699 186<|content|>ESG\n<|id|>587<|page|>46<|box|>90 140 107 223<|content|>Sanctions\n<|id|>595<|page|>46<|box|>275 142 292 227<|content|>Insurance\n<|id|>602<|page|>46<|box|>439 142 455 218<|content|>Reserves\n<|id|>609<|page|>46<|box|>659 140 676 416<|content|>Opinions and Third-Party Reports\n<|id|>620<|page|>47<|box|>90 140 107 197<|content|>Other\n<|id|>630<|page|>48<|box|>90 210 135 787<|content|>APPENDIX C — SCHEDULE OF MANAGEMENT DUE DILIGENCE\n<|id|>635<|page|>50<|box|>390 364 406 630<|content|>— END OF MEMORANDUM —",
+    "raw_response": "<|id|>574<|level|>2\n<|id|>579<|level|>2\n<|id|>587<|level|>2\n<|id|>595<|level|>2\n<|id|>602<|level|>2\n<|id|>609<|level|>2\n<|id|>620<|level|>2\n<|id|>630<|level|>1\n<|id|>635<|level|>-1",
+    "parsed": [
+        {
+            "id": 574,
+            "level": 2
+        },
+        {
+            "id": 579,
+            "level": 2
+        },
+        {
+            "id": 587,
+            "level": 2
+        },
+        {
+            "id": 595,
+            "level": 2
+        },
+        {
+            "id": 602,
+            "level": 2
+        },
+        {
+            "id": 609,
+            "level": 2
+        },
+        {
+            "id": 620,
+            "level": 2
+        },
+        {
+            "id": 630,
+            "level": 1
+        }
+    ]
+}

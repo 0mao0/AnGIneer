@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>119 192 162 803<|content|>More than Memes: A Multimodal Topic Modeling Appro\n<|id|>3<|page|>1<|box|>273 250 287 315<|content|>Abstract\n<|id|>6<|page|>1<|box|>640 225 655 336<|content|>Introduction\n<|id|>14<|page|>2<|box|>607 220 623 344<|content|>Related Work\n<|id|>17<|page|>2<|box|>564 516 580 717<|content|>Image-based Approaches\n<|id|>19<|page|>2<|box|>842 517 859 710<|content|>Multimodal Approaches\n<|id|>21<|page|>3<|box|>373 200 388 362<|content|>Data and Methods\n<|id|>23<|page|>3<|box|>559 83 574 209<|content|>Data Collection\n<|id|>28<|page|>3<|box|>441 516 459 643<|content|>Topic Modeling\n<|id|>41<|page|>5<|box|>338 248 353 316<|content|>Results\n<|id|>42<|page|>5<|box|>356 83 373 267<|content|>Topic and Image Types\n<|id|>44<|page|>5<|box|>758 81 775 274<|content|>Dominant Topic Groups\n<|id|>48<|page|>5<|box|>400 516 417 836<|content|>Topic Relations Across Modality Settings\n<|id|>56<|page|>6<|box|>779 534 814 897<|content|>Textual and Visual Discursive Strategies in Conspi\n<|id|>59<|page|>7<|box|>756 83 772 271<|content|>Conceptual Framework\n<|id|>67<|page|>8<|box|>594 83 609 406<|content|>Case Study: The Topic Group Israel Gaza\n<|id|>73<|page|>8<|box|>614 537 672 893<|content|>THAT ISRAEL AND THE ZIONISTS THEN OWN THE GAZA STR\n<|id|>81<|page|>10<|box|>714 232 729 331<|content|>Conclusion\n<|id|>84<|page|>10<|box|>772 668 787 763<|content|>Discussion\n<|id|>88<|page|>11<|box|>66 581 83 849<|content|>Ethics and Broader Perspective\n<|id|>90<|page|>11<|box|>277 666 292 764<|content|>References",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>2\n<|id|>14<|level|>2\n<|id|>17<|level|>3\n<|id|>19<|level|>3\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>28<|level|>3\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>44<|level|>3\n<|id|>48<|level|>3\n<|id|>56<|level|>3\n<|id|>59<|level|>3\n<|id|>67<|level|>3\n<|id|>73<|level|>4\n<|id|>81<|level|>2\n<|id|>84<|level|>2\n<|id|>88<|level|>2\n<|id|>90<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 4
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>127 313 143 683<|content|>LITIGATION HOLD ACKNOWLEDGMENT\n<|id|>7<|page|>1<|box|>334 140 351 468<|content|>I. ACKNOWLEDGMENT OF RECEIPT\n<|id|>10<|page|>1<|box|>609 142 628 513<|content|>II. IDENTIFICATION OF THE LITIGATION\n<|id|>14<|page|>2<|box|>186 140 203 648<|content|>III. UNDERSTANDING OF PRESERVATION OBLIGATIONS\n<|id|>27<|page|>3<|box|>337 140 354 486<|content|>IV. SCOPE OF RELEVANT MATERIALS\n<|id|>50<|page|>5<|box|>229 140 247 674<|content|>V. SPECIFIC ACKNOWLEDGMENTS REGARDING CFO ROLE\n<|id|>59<|page|>6<|box|>303 140 320 472<|content|>VI. COMMITMENT TO COMPLIANCE\n<|id|>69<|page|>7<|box|>329 140 345 558<|content|>VII. ACKNOWLEDGMENT OF CONSEQUENCES\n<|id|>74<|page|>7<|box|>712 140 729 573<|content|>VIII. CONTACT INFORMATION FOR QUESTIONS\n<|id|>79<|page|>8<|box|>90 176 106 462<|content|>Email: twren@stonefieldlogistics.com\n<|id|>81<|page|>9<|box|>89 142 106 413<|content|>SIGNATURE AND EXECUTION\n<|id|>83<|page|>9<|box|>178 142 194 426<|content|>ACKNOWLEDGED AND AGREED:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>27<|level|>2\n<|id|>50<|level|>2\n<|id|>59<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>2\n<|id|>79<|level|>-1\n<|id|>81<|level|>2\n<|id|>83<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        }
+    ]
+}

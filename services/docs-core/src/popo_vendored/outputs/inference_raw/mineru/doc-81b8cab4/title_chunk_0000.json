@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 189 167 808<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>2<|page|>1<|box|>200 179 237 816<|content|>TRITON HARBOR INDUSTRIES, LLC, MARCUS J. KAPPEL, a\n<|id|>4<|page|>1<|box|>273 174 359 854<|content|>Index No. 654871/2024 Assigned Justice: Hon. Althe\n<|id|>16<|page|>2<|box|>373 140 390 323<|content|>ORDERED as follows:\n<|id|>17<|page|>2<|box|>404 140 422 385<|content|>Section 1: Document discovery\n<|id|>33<|page|>4<|box|>231 140 250 346<|content|>Section 2: Interrogatories\n<|id|>39<|page|>4<|box|>684 140 700 490<|content|>Section 3: Confidentiality / Protective Order\n<|id|>53<|page|>7<|box|>474 140 491 359<|content|>Section 5: Expert discovery\n<|id|>58<|page|>8<|box|>90 140 107 292<|content|>Section 6: Motions\n<|id|>64<|page|>8<|box|>652 140 670 562<|content|>Section 7: Settlement / Alternative Dispute Resolu\n<|id|>67<|page|>9<|box|>90 140 107 421<|content|>Section 8: Compliance Conferences\n<|id|>71<|page|>9<|box|>378 140 397 336<|content|>Section 9: Modifications\n<|id|>74<|page|>9<|box|>625 140 641 405<|content|>Section 10: Reservation of Rights\n<|id|>77<|page|>9<|box|>827 433 844 563<|content|>SO ORDERED.\n<|id|>80<|page|>10<|box|>140 370 156 625<|content|>STIPULATED AND AGREED:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>3\n<|id|>53<|level|>3\n<|id|>58<|level|>3\n<|id|>64<|level|>3\n<|id|>67<|level|>3\n<|id|>71<|level|>3\n<|id|>74<|level|>3\n<|id|>77<|level|>-1\n<|id|>80<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        }
+    ]
+}

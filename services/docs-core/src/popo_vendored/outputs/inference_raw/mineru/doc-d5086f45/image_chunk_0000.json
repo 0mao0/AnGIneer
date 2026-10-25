@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 418 119 578<|content|>SIDE LETTER\n<|id|>1<|type|>title<|page|>1<|box|>135 143 172 852<|content|>Representations, Warranties, and Covenants of Ridg\n<|id|>10<|type|>table<|page|>1<|box|>659 143 799 852<|content|>None\n<|id|>12<|type|>title<|page|>2<|box|>89 140 106 241<|content|>RECITALS\n<|id|>20<|type|>title<|page|>2<|box|>714 140 732 602<|content|>SECTION 1: REPRESENTATIONS AND WARRANTIES\n<|id|>22<|type|>title<|page|>2<|box|>827 142 844 434<|content|>1.1 Organization and Good Standing.\n<|id|>24<|type|>title<|page|>3<|box|>268 142 284 434<|content|>1.2 Authorization and Enforceability.\n<|id|>26<|type|>title<|page|>3<|box|>542 142 559 442<|content|>1.3 Fund Size and Committed Capital.\n<|id|>28<|type|>title<|page|>3<|box|>779 142 796 339<|content|>1.4 Equity Commitment.\n<|id|>30<|type|>table<|page|>4<|box|>89 143 194 852<|content|>None\n<|id|>34<|type|>title<|page|>4<|box|>531 142 547 344<|content|>1.5 Ownership Structure.\n<|id|>40<|type|>title<|page|>5<|box|>194 142 210 454<|content|>1.6 Net Worth and Financial Condition.\n<|id|>42<|type|>title<|page|>5<|box|>414 142 430 276<|content|>1.7 No Conflicts.\n<|id|>44<|type|>title<|page|>5<|box|>633 143 650 282<|content|>1.8 No Litigation.\n<|id|>46<|type|>title<|page|>5<|box|>815 142 830 264<|content|>1.9 No Default.\n<|id|>50<|type|>title<|page|>6<|box|>487 140 503 465<|content|>1.11 Anti-Money Laundering / Sanctions.\n<|id|>54<|type|>title<|page|>7<|box|>148 140 166 367<|content|>SECTION 2: COVENANTS\n<|id|>56<|type|>title<|page|>7<|box|>224 140 242 560<|content|>2.1 Maintenance of Ownership — Change of Control.\n<|id|>61<|type|>title<|page|>8<|box|>90 140 108 388<|content|>2.2 Equity Funding Obligation.\n<|id|>66<|type|>title<|page|>8<|box|>532 140 550 377<|content|>2.3 Notice of Material Events.\n<|id|>73<|type|>title<|page|>9<|box|>194 140 212 334<|content|>2.4 Financial Reporting.\n<|id|>76<|type|>title<|page|>9<|box|>566 140 584 375<|content|>2.5 Preservation of Existence.\n<|id|>78<|type|>title<|page|>9<|box|>823 140 840 349<|content|>2.6 Compliance with Law.\n<|id|>80<|type|>title<|page|>10<|box|>194 140 212 447<|content|>2.7 Cooperation with Lender Requests.\n<|id|>82<|type|>title<|page|>10<|box|>459 140 476 488<|content|>SECTION 3: TERM AND TERMINATION\n<|id|>85<|type|>title<|page|>10<|box|>772 140 789 351<|content|>SECTION 4: REMEDIES\n<|id|>89<|type|>title<|page|>11<|box|>393 140 411 527<|content|>SECTION 5: MISCELLANEOUS PROVISIONS\n<|id|>90<|type|>title<|page|>11<|box|>426 140 443 300<|content|>5.1 Governing Law.\n<|id|>93<|type|>title<|page|>11<|box|>742 142 758 334<|content|>If to Ridgeline Fund IV:\n<|id|>97<|type|>title<|page|>11<|box|>847 142 863 387<|content|>If to the Administrative Agent:\n<|id|>109<|type|>title<|page|>12<|box|>309 140 325 357<|content|>5.3 Successors and Assigns.\n<|id|>111<|type|>title<|page|>12<|box|>527 140 544 403<|content|>5.4 No Third-Party Beneficiaries.\n<|id|>113<|type|>title<|page|>12<|box|>674 140 690 383<|content|>5.5 Amendments and Waivers.\n<|id|>115<|type|>title<|page|>13<|box|>90 140 108 460<|content|>5.6 Counterparts; Electronic Signatures.\n<|id|>118<|type|>title<|page|>13<|box|>414 140 431 318<|content|>5.8 Entire Agreement.\n<|id|>128<|type|>title<|page|>14<|box|>377 140 395 678<|content|>[Remainder of this page intentionally left blank.\n<|id|>130<|type|>title<|page|>14<|box|>446 142 462 550<|content|>RIDGELINE CAPITAL PARTNERS FUND IV, LP\n<|id|>138<|type|>title<|page|>14<|box|>594 142 609 622<|content|>SUMMIT NATIONAL BANK, N.A., as Administrative Agen",
+    "raw_response": "<|src_id|>10<|tgt_id|>1\n<|src_id|>30<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        }
+    ]
+}

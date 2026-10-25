@@ -1,0 +1,84 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        99,
+        118
+    ],
+    "pages": [
+        100,
+        102,
+        103,
+        104,
+        106,
+        109,
+        112,
+        113,
+        117,
+        118
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>595<|page|>100<|box|>271 124 289 652<|content|>D.1.10.2 外海工程的判别和费用计列应按下列规定执行：\n<|id|>599<|page|>100<|box|>669 440 688 549<|content|>企业管理费\n<|id|>622<|page|>102<|box|>539 445 555 537<|content|>利润\n<|id|>625<|page|>103<|box|>96 455 116 546<|content|>规 费\n<|id|>631<|page|>103<|box|>742 448 762 559<|content|>增值税\n<|id|>636<|page|>104<|box|>153 431 172 542<|content|>专项税费\n<|id|>640<|page|>104<|box|>325 406 343 571<|content|>D.2 设备购置费\n<|id|>656<|page|>106<|box|>264 295 283 685<|content|>D.3 机修及其他辅助生产设备安装工程费\n<|id|>663<|page|>106<|box|>868 406 885 571<|content|>D.4 临时工程费\n<|id|>676<|page|>109<|box|>168 228 195 791<|content|>附录 E 疏浚工程工程费用计算规则\n<|id|>677<|page|>109<|box|>226 428 244 593<|content|>E.1 建筑工程费\n<|id|>721<|page|>112<|box|>773 406 790 571<|content|>E.2 临时工程费\n<|id|>724<|page|>113<|box|>307 233 652 277<|content|>附录 F 工程建设其他费用算例\n<|id|>729<|page|>117<|box|>163 295 191 675<|content|>附录 J 本规定用词说明\n<|id|>735<|page|>118<|box|>204 191 266 813<|content|>本规定主编单位、主要起草人、 主要审查人、总校人员和管理组人员名单",
+    "raw_response": "<|id|>595<|level|>3\n<|id|>599<|level|>4\n<|id|>622<|level|>4\n<|id|>625<|level|>4\n<|id|>631<|level|>4\n<|id|>636<|level|>4\n<|id|>640<|level|>2\n<|id|>656<|level|>2\n<|id|>663<|level|>2\n<|id|>676<|level|>1\n<|id|>677<|level|>2\n<|id|>721<|level|>2\n<|id|>724<|level|>1\n<|id|>729<|level|>1\n<|id|>735<|level|>2",
+    "parsed": [
+        {
+            "id": 595,
+            "level": 3
+        },
+        {
+            "id": 599,
+            "level": 4
+        },
+        {
+            "id": 622,
+            "level": 4
+        },
+        {
+            "id": 625,
+            "level": 4
+        },
+        {
+            "id": 631,
+            "level": 4
+        },
+        {
+            "id": 636,
+            "level": 4
+        },
+        {
+            "id": 640,
+            "level": 2
+        },
+        {
+            "id": 656,
+            "level": 2
+        },
+        {
+            "id": 663,
+            "level": 2
+        },
+        {
+            "id": 676,
+            "level": 1
+        },
+        {
+            "id": 677,
+            "level": 2
+        },
+        {
+            "id": 721,
+            "level": 2
+        },
+        {
+            "id": 724,
+            "level": 1
+        },
+        {
+            "id": 729,
+            "level": 1
+        },
+        {
+            "id": 735,
+            "level": 2
+        }
+    ]
+}

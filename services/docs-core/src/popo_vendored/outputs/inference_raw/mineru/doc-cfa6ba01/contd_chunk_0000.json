@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        65
+    ],
+    "pages": [
+        1,
+        2,
+        9,
+        10,
+        14,
+        15,
+        18,
+        64,
+        65
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>1<|box|>338 429 356 566<|content|>as the Company,\n<|id|>7<|page|>1<|box|>378 266 396 730<|content|>DR. ... NADIA PETROSIAN,\n<|id|>8<|page|>1<|box|>419 245 438 751<|content|>as the Members (and, together with the Company, the \"Sellers\"),\n<|id|>9<|page|>1<|box|>462 480 479 517<|content|>and\n<|id|>10<|page|>1<|box|>501 401 518 594<|content|>CPS HOLDINGS, INC. ... ,\n<|id|>11<|page|>1<|box|>542 326 560 671<|content|>solely for purposes of Sections 6. ... 15\n<|id|>12<|page|>1<|box|>569 415 587 583<|content|>Dated as of [●], 2025\n<|id|>13<|page|>1<|box|>594 153 667 844<|content|>DRAFT — PRIVILEGED & CONFIDENTIAL Attorney Work Pr...25 Initial Buyer's Draft — Circulated May 19, 2025\n<|id|>18<|page|>2<|box|>89 174 199 856<|content|>(c) DR. ... and\n<|id|>20<|page|>2<|box|>252 140 306 854<|content|>The Buyer, the Company, the Members, and, solely f... execution date of this Agreement is June 16, 2025\n<|id|>114<|page|>9<|box|>859 140 895 854<|content|>\"Owned Real Property\" means the two (2) real prope...ster Main facility located at 450 East Ridge Road,\n<|id|>115<|page|>10<|box|>89 140 164 854<|content|>Rochester, NY 14621, with an appraised value of si...llion eight hundred thousand dollars ($11,800,000)\n<|id|>174<|page|>14<|box|>863 174 898 854<|content|>(c) All cash, cash equivalents, checking accounts,...nk or investment accounts of the Company as of the\n<|id|>175<|page|>15<|box|>90 174 127 854<|content|>Closing Date, except to the extent any such amount...included in the calculation of Net Working Capital\n<|id|>216<|page|>18<|box|>689 210 705 648<|content|>(i) one hundred forty million dollars ($140,000,000); ... minus\n<|id|>220<|page|>18<|box|>828 176 864 854<|content|>resulting in a base Closing Cash Consideration of ... or minus the Estimated Working Capital Adjustment\n<|id|>217<|page|>18<|box|>714 210 750 854<|content|>(ii) the Indemnification Escrow Amount of thirty-five million dollars ($35,000,000); ... minus\n<|id|>218<|page|>18<|box|>758 210 794 854<|content|>(iii) the Purchase Price Adjustment Escrow Amount ...d thousand dollars ($3,500,000); ... plus or minus\n<|id|>219<|page|>18<|box|>801 210 820 779<|content|>(iv) the Estimated Working Capital Adjustment (as defined in Section 3. ... 2(c)),\n<|id|>653<|page|>64<|box|>768 174 898 857<|content|>(a) If this Agreement is terminated pursuant to Se...of this Agreement, and (ii) no termination of this\n<|id|>654<|page|>65<|box|>90 174 143 854<|content|>Agreement shall relieve any Party from liability f...this Agreement occurring prior to such termination",
+    "raw_response": "<|src_id|>114<|tgt_id|>115\n<|src_id|>174<|tgt_id|>175\n<|src_id|>653<|tgt_id|>654",
+    "parsed": [
+        {
+            "src_id": 114,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 653,
+            "tgt_id": 654
+        }
+    ]
+}

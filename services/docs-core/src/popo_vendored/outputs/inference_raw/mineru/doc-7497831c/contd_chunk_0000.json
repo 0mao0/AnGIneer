@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        11,
+        12,
+        13,
+        14,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>154 140 172 687<|content|>FROM: ... Tiffany Rosenthal, Lead Associate, Calderwood & Harkness LLP\n<|id|>2<|page|>1<|box|>180 140 196 676<|content|>TO: ... Elaine Forsythe, Responsible Partner, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>205 140 223 344<|content|>DATE: ... September 8, 2023\n<|id|>4<|page|>1<|box|>232 140 286 854<|content|>RE: ... et al\n<|id|>5<|page|>1<|box|>294 140 311 325<|content|>MATTER: ... 1021-00003\n<|id|>6<|page|>1<|box|>320 140 356 854<|content|>CASE: ... Catherine Embry)\n<|id|>7<|page|>1<|box|>364 140 440 854<|content|>PRIVILEGE DESIGNATION: ... This document should no...tten consent of the undersigned or Elaine Forsythe\n<|id|>22<|page|>2<|box|>862 140 897 854<|content|>Dr. ... she holds a CPA license and has obtained t...redential from the American Institute of Certified\n<|id|>23<|page|>3<|box|>89 140 200 854<|content|>Public Accountants. ... Virgin Islands\n<|id|>88<|page|>11<|box|>758 140 930 856<|content|>FY 2021 Baseline Selection. ... 1021-00003 | PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>89<|page|>12<|box|>90 138 164 854<|content|>demand, and capacity restrictions. ... Vasquez avo... representative snapshot of VHG's earning capacity\n<|id|>104<|page|>13<|box|>867 140 929 854<|content|>(b) Building Permit Delays. ... 1021-00003 | PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>105<|page|>14<|box|>90 174 127 854<|content|>applications and the limited capacity of local bui...ubject to processing timelines outside its control\n<|id|>136<|page|>17<|box|>856 140 892 857<|content|>3. ... For each property, cross-reference the conc...s of Jeffrey Caldwell, PE, of Caldwell Engineering\n<|id|>137<|page|>18<|box|>90 174 125 854<|content|>Associates Inc. ... regarding the restoration time...d the reasonableness of the actual closure periods\n<|id|>154<|page|>19<|box|>849 140 930 854<|content|>With the suggested revisions outlined in Section V...RIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>155<|page|>20<|box|>89 140 145 854<|content|>positioned to withstand the anticipated challenges...s reliability under Florida's evidentiary standard\n<|id|>158<|page|>20<|box|>385 140 402 607<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>159<|page|>20<|box|>409 140 444 854<|content|>Tiffany Rosenthal Lead Associate Calderwood & Hark...4400 Miami, FL 33131 Engagement No. ... 1021-00003",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>136<|tgt_id|>137\n<|src_id|>154<|tgt_id|>155",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 155
+        }
+    ]
+}

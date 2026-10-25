@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        22,
+        24,
+        26,
+        31,
+        32
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>138 423 155 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>164 140 226 854<|content|>TO: ... Theodore Langston, Responsible Partner, Ca...f Financial Officer, Arbor Health Technologies Inc\n<|id|>3<|page|>1<|box|>234 140 252 723<|content|>FROM: ... Sylvia Hartwell, Specialist Partner, Tax, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>260 142 277 334<|content|>DATE: ... February 1, 2024\n<|id|>5<|page|>1<|box|>286 140 321 854<|content|>RE: ... Equity Compensation Tax Matters in Connect...l Public Offering of Arbor Health Technologies Inc\n<|id|>20<|page|>2<|box|>777 140 888 856<|content|>Arbor Health Technologies Inc. ... The Company's platform is currently deployed across more than\n<|id|>21<|page|>3<|box|>90 140 127 854<|content|>1,200 healthcare organizations in 42 states, proce...proximately 85 million patient encounters annually\n<|id|>188<|page|>22<|box|>469 174 505 852<|content|>(i) the actual gain on the disposition (the excess...e amount realized over the purchase price); ... or\n<|id|>190<|page|>22<|box|>539 140 611 854<|content|>Any gain in excess of the ordinary income amount i...ess of the purchase price over the amount realized\n<|id|>207<|page|>24<|box|>167 174 241 854<|content|>(iii) the three other most highly compensated offi...er the Securities Exchange Act of 1934 (i. ... and\n<|id|>209<|page|>24<|box|>292 140 385 854<|content|>Importantly, once an individual becomes a covered ...ntly expands the reach of Section 162(m) over time\n<|id|>229<|page|>26<|box|>726 174 762 854<|content|>(iii) the issuance of all employer stock and other...ion that has been allocated under the plan; ... or\n<|id|>231<|page|>26<|box|>849 140 906 854<|content|>For the 2014 Stock Incentive Plan, which was in ex..., and practitioners have expressed differing views\n<|id|>276<|page|>31<|box|>810 140 902 857<|content|>6. ... Establish comprehensive reporting processes for\n<|id|>277<|page|>32<|box|>89 174 143 854<|content|>Forms 3921 (ISO exercises), Forms 3922 (ESPP purch...disposition tracking for both ISOs and ESPP shares\n<|id|>284<|page|>32<|box|>777 176 814 854<|content|>Sylvia Hartwell, Esq. ... (212) 558-4000\n<|id|>285<|page|>32<|box|>823 176 839 501<|content|>Email: ... com",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>276<|tgt_id|>277",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 276,
+            "tgt_id": 277
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 11,
+    "range": [
+        562,
+        610
+    ],
+    "pages": [
+        563,
+        590,
+        609
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1822<|page|>563<|box|>116 434 141 561<|content|>II. 水中平台上钻孔\n<|id|>1903<|page|>590<|box|>178 393 209 585<|content|>4-4-5 潜水钻机钻孔\n<|id|>1958<|page|>609<|box|>136 402 165 595<|content|>4-4-6 旋挖钻机钻孔",
+    "raw_response": "<|id|>1822<|level|>1\n<|id|>1903<|level|>2\n<|id|>1958<|level|>2",
+    "parsed": [
+        {
+            "id": 1822,
+            "level": 1
+        },
+        {
+            "id": 1903,
+            "level": 2
+        },
+        {
+            "id": 1958,
+            "level": 2
+        }
+    ]
+}

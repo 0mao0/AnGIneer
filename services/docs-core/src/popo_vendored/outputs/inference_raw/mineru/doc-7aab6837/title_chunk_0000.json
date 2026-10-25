@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        15,
+        17,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        27,
+        28,
+        29
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>114 151 151 843<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT PRIVILEG\n<|id|>9<|page|>1<|box|>422 385 441 611<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>318 140 334 531<|content|>Key risks identified in this memorandum include:\n<|id|>22<|page|>2<|box|>763 357 784 640<|content|>II. Background and Context\n<|id|>23<|page|>2<|box|>809 142 825 500<|content|>A. The Parties to the Forbearance Agreement\n<|id|>37<|page|>4<|box|>625 140 642 361<|content|>B. The Underlying Defaults\n<|id|>55<|page|>6<|box|>90 140 107 553<|content|>C. The Senior Secured Credit Facility — Key Terms\n<|id|>72<|page|>7<|box|>286 140 301 741<|content|>D. Other Relevant Indebtedness Not Covered by the\n<|id|>80<|page|>8<|box|>507 220 526 774<|content|>III. Detailed Analysis of Forbearance Agreement Te\n<|id|>82<|page|>8<|box|>622 142 638 339<|content|>A. Scope of Forbearance\n<|id|>96<|page|>9<|box|>842 140 859 300<|content|>B. Standstill Period\n<|id|>106<|page|>11<|box|>90 140 107 359<|content|>C. Default Interest Accrual\n<|id|>122<|page|>12<|box|>321 140 339 325<|content|>D. Termination Events\n<|id|>146<|page|>15<|box|>90 140 107 467<|content|>E. Information and Reporting Covenants\n<|id|>161<|page|>17<|box|>431 140 449 488<|content|>F. Negative Covenants During the Standstill\n<|id|>173<|page|>19<|box|>90 140 107 517<|content|>G. Reservation of Rights and Acknowledgments\n<|id|>189<|page|>20<|box|>392 140 409 316<|content|>H. Fees and Expenses\n<|id|>200<|page|>21<|box|>136 218 155 779<|content|>IV. Risks Not Addressed by the Forbearance Agreeme\n<|id|>202<|page|>21<|box|>250 140 268 429<|content|>A. Mezzanine Lender (BMC) Rights\n<|id|>207<|page|>22<|box|>167 140 185 594<|content|>B. Unsecured Note Interest Payment — December 1, 2\n<|id|>225<|page|>23<|box|>737 140 753 627<|content|>C. Vessel Value Decline and Adequate Protection Im\n<|id|>233<|page|>24<|box|>627 140 643 423<|content|>D. Greek Insolvency Law Exposure\n<|id|>238<|page|>25<|box|>325 256 345 738<|content|>V. Recommendations for Extension Negotiations\n<|id|>239<|page|>25<|box|>372 140 388 228<|content|>A. Timing\n<|id|>243<|page|>25<|box|>763 140 782 483<|content|>B. Key Negotiating Points for the Extension\n<|id|>253<|page|>27<|box|>248 140 266 295<|content|>C. Leverage Points\n<|id|>259<|page|>28<|box|>90 411 111 584<|content|>VI. Action Items\n<|id|>271<|page|>29<|box|>614 416 635 580<|content|>VII. Conclusion",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>9<|level|>2\n<|id|>14<|level|>-1\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>37<|level|>3\n<|id|>55<|level|>3\n<|id|>72<|level|>3\n<|id|>80<|level|>2\n<|id|>82<|level|>3\n<|id|>96<|level|>3\n<|id|>106<|level|>3\n<|id|>122<|level|>3\n<|id|>146<|level|>3\n<|id|>161<|level|>3\n<|id|>173<|level|>3\n<|id|>189<|level|>3\n<|id|>200<|level|>2\n<|id|>202<|level|>3\n<|id|>207<|level|>3\n<|id|>225<|level|>3\n<|id|>233<|level|>3\n<|id|>238<|level|>2\n<|id|>239<|level|>3\n<|id|>243<|level|>3\n<|id|>253<|level|>3\n<|id|>259<|level|>2\n<|id|>271<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 3
+        },
+        {
+            "id": 207,
+            "level": 3
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 233,
+            "level": 3
+        },
+        {
+            "id": 238,
+            "level": 2
+        },
+        {
+            "id": 239,
+            "level": 3
+        },
+        {
+            "id": 243,
+            "level": 3
+        },
+        {
+            "id": 253,
+            "level": 3
+        },
+        {
+            "id": 259,
+            "level": 2
+        },
+        {
+            "id": 271,
+            "level": 2
+        }
+    ]
+}

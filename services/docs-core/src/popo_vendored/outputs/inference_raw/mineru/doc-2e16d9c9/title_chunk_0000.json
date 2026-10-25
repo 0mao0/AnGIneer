@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 166 118 831<|content|>MEDIATOR'S TERM SHEET — SETTLEMENT IN PRINCIPLE\n<|id|>1<|page|>1<|box|>135 250 152 746<|content|>CONFIDENTIAL — FOR SETTLEMENT PURPOSES ONLY\n<|id|>8<|page|>1<|box|>497 142 513 223<|content|>1. Parties\n<|id|>10<|page|>1<|box|>604 142 621 243<|content|>Defendants:\n<|id|>16<|page|>2<|box|>90 140 107 318<|content|>2. Settlement Amount\n<|id|>19<|page|>2<|box|>347 140 364 315<|content|>3. Payment Structure\n<|id|>26<|page|>2<|box|>782 140 799 225<|content|>4. Escrow\n<|id|>32<|page|>3<|box|>502 140 518 354<|content|>5. Mutual General Release\n<|id|>40<|page|>4<|box|>411 140 428 366<|content|>6. No Admission of Liability\n<|id|>43<|page|>4<|box|>704 140 722 284<|content|>7. Confidentiality\n<|id|>52<|page|>5<|box|>554 140 571 419<|content|>8. Consent Judgment Upon Default\n<|id|>56<|page|>6<|box|>186 140 204 415<|content|>9. Withdrawal of Pending Motions\n<|id|>59<|page|>6<|box|>407 142 424 401<|content|>10. Stipulation of discontinuance\n<|id|>62<|page|>6<|box|>738 142 753 426<|content|>11. Representations and Warranties\n<|id|>68<|page|>7<|box|>465 140 482 501<|content|>12. Return/Destruction of discovery Materials\n<|id|>72<|page|>8<|box|>90 142 107 374<|content|>13. Definitive Documentation\n<|id|>76<|page|>8<|box|>539 142 555 297<|content|>14. Governing Law\n<|id|>78<|page|>8<|box|>696 142 714 431<|content|>15. Lender and Insurer Notifications\n<|id|>81<|page|>9<|box|>189 359 205 637<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>82<|page|>9<|box|>214 189 250 807<|content|>SIGNATURE PAGE TO MEDIATOR'S TERM SHEET — SETTLEME\n<|id|>84<|page|>9<|box|>321 142 338 658<|content|>FOR PLAINTIFF NORTHWIND MARITIME CORPORATION:\n<|id|>92<|page|>9<|box|>468 140 503 852<|content|>FOR DEFENDANTS THALASSA SHIPPING & LOGISTICS SA AN",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>3\n<|id|>16<|level|>2\n<|id|>19<|level|>2\n<|id|>26<|level|>2\n<|id|>32<|level|>2\n<|id|>40<|level|>2\n<|id|>43<|level|>2\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>59<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>72<|level|>2\n<|id|>76<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>-1\n<|id|>82<|level|>2\n<|id|>84<|level|>3\n<|id|>92<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        }
+    ]
+}

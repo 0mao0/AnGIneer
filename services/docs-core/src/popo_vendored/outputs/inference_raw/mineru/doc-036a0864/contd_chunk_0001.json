@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        48,
+        115
+    ],
+    "pages": [
+        49,
+        62,
+        63,
+        64,
+        68,
+        69,
+        114,
+        115
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>364<|page|>49<|box|>126 81 253 488<|content|>Series EE bonds, on sale since January 1, 1980, ar... currently sold. ... Series J and K were sold from\n<|id|>365<|page|>49<|box|>126 508 180 913<|content|>May 1, 1952, through April 30, 1957. ... The notes...he simultaneous purchase of series E savings bonds\n<|id|>409<|page|>62<|box|>334 323 362 694<|content|>Page Intentionally Left Blank\n<|id|>410<|page|>63<|box|>334 323 362 694<|content|>Page Intentionally Left Blank\n<|id|>411<|page|>64<|box|>334 323 362 694<|content|>Page Intentionally Left Blank\n<|id|>439<|page|>68<|box|>859 506 904 916<|content|>- Section V contains information on transactions w...y banks, brokers, and other entities in the United\n<|id|>440<|page|>69<|box|>89 81 193 488<|content|>States. ... However, the data do not include nonma...able Treasury bonds and notes shown in table IFS-3\n<|id|>573<|page|>114<|box|>334 323 362 694<|content|>Page Intentionally Left Blank\n<|id|>574<|page|>115<|box|>334 323 362 694<|content|>Page Intentionally Left Blank",
+    "raw_response": "<|src_id|>364<|tgt_id|>365\n<|src_id|>439<|tgt_id|>440",
+    "parsed": [
+        {
+            "src_id": 364,
+            "tgt_id": 365
+        },
+        {
+            "src_id": 439,
+            "tgt_id": 440
+        }
+    ]
+}

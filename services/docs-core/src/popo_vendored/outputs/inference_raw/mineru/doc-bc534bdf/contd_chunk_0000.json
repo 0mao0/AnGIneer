@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        13,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>166 349 184 647<|content|>IN LIEU OF A SPECIAL MEETING\n<|id|>2<|page|>1<|box|>193 387 209 611<|content|>Effective as of June 29, 2023\n<|id|>3<|page|>1<|box|>219 140 328 857<|content|>The undersigned, constituting all of the members o...eeting of the Board, effective as of June 29, 2023\n<|id|>10<|page|>1<|box|>820 140 893 856<|content|>The Company is a portfolio company of Ridgeline Ca..., 2017 (the \"LBO Closing Date\"), pursuant to which\n<|id|>11<|page|>2<|box|>90 140 127 854<|content|>Ridgeline, directly and through Holdings, acquired...ed and outstanding equity interests of the Company\n<|id|>17<|page|>2<|box|>632 174 797 857<|content|>(iii) One Hundred Forty Million Dollars (\\$140,000,000) in aggregate principal amount of 11. ... and\n<|id|>19<|page|>2<|box|>867 140 904 856<|content|>The Company's audited fiscal year 2022 revenue was...ccounting firm. ... 9x LTM Q1 2023 Adjusted EBITDA\n<|id|>32<|page|>4<|box|>761 174 907 857<|content|>(i) Amend-and-Extend of the First Lien Term Loan B...Liquidity covenant of not less than Twenty Million\n<|id|>33<|page|>5<|box|>89 174 145 854<|content|>Dollars (\\$20,000,000) at all times; ... and payme... Term Loan B lender that consents to the amendment\n<|id|>40<|page|>6<|box|>252 174 344 856<|content|>(viii) Board Reconstitution. ... and\n<|id|>42<|page|>6<|box|>468 140 633 856<|content|>The Board has been advised by Hargrove that the Re...e and adequate runway to execute its business plan\n<|id|>64<|page|>8<|box|>337 174 410 854<|content|>(e) D&O tail insurance premium — Four Hundred Seve...te Specialty Insurance Company (Policy No. ... and\n<|id|>66<|page|>8<|box|>462 140 500 854<|content|>The Board acknowledges that such estimated transac...ough the closing of the Restructuring Transactions\n<|id|>75<|page|>9<|box|>358 174 503 854<|content|>(a) Calderwood & Harkness LLP (Nathaniel Bower, Responsible Partner; ... and\n<|id|>77<|page|>9<|box|>593 140 609 261<|content|>and it is further\n<|id|>81<|page|>9<|box|>748 183 765 535<|content|>- Priya Sundaram, Chief Financial Officer; ... and\n<|id|>83<|page|>9<|box|>787 140 842 854<|content|>such agreements, instruments, certificates, docume...including without limitation each of the following\n<|id|>103<|page|>11<|box|>694 174 750 854<|content|>(b) Three (3) directors designated by the mezzanin...closing of the Restructuring Transactions; ... and\n<|id|>105<|page|>11<|box|>820 140 875 854<|content|>and the Board further acknowledges that, following...ted Stockholders' Agreement; ... and it is further\n<|id|>115<|page|>13<|box|>89 142 108 411<|content|>Title: ... Director (Ridgeline Designee)\n<|id|>116<|page|>13<|box|>108 142 126 266<|content|>Date: ... ____\n<|id|>117<|page|>13<|box|>157 142 175 287<|content|>Name: ... Serena Chu\n<|id|>118<|page|>13<|box|>175 142 193 411<|content|>Title: ... Director (Ridgeline Designee)\n<|id|>119<|page|>13<|box|>193 142 210 267<|content|>Date: ... ____\n<|id|>120<|page|>13<|box|>243 140 260 313<|content|>Name: ... Marcus Delano\n<|id|>121<|page|>13<|box|>260 142 277 460<|content|>Title: ... Director and Chief Executive Officer\n<|id|>122<|page|>13<|box|>277 142 297 267<|content|>Date: ... ____\n<|id|>123<|page|>13<|box|>328 140 345 333<|content|>Name: ... Richard Calloway\n<|id|>124<|page|>13<|box|>345 142 364 411<|content|>Title: ... Director (Ridgeline Designee)\n<|id|>125<|page|>13<|box|>364 142 381 267<|content|>Date: ... ____\n<|id|>132<|page|>15<|box|>142 264 159 732<|content|>(Substantially Final Form — To Be Executed on June 30, 2023)\n<|id|>134<|page|>15<|box|>320 140 335 820<|content|>CONFIDENTIAL — SUBJECT TO ATTORNEY-CLIENT PRIVILEGE AND WORK PRODUCT DOCTRINE",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>32<|tgt_id|>33",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        }
+    ]
+}

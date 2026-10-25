@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 143 159 856<|content|>CALDERWOOD & HARKNESS LLP 45 Moorgate London EC2R 6AR United Kingdom Telephone: ... com 14 August 2024\n<|id|>1<|page|>1<|box|>167 140 184 454<|content|>BY FIRST CLASS POST AND EMAIL\n<|id|>2<|page|>1<|box|>194 140 229 854<|content|>Richard Harkness Esq. ... 12 Fetter Lane London EC4A 1JP United Kingdom\n<|id|>3<|page|>1<|box|>237 142 253 650<|content|>Your Ref: ... SE/HB/PG/TSL-KMH-ENF\n<|id|>4<|page|>1<|box|>263 142 280 380<|content|>OPEN CORRESPONDENCE\n<|id|>5<|page|>1<|box|>289 140 344 854<|content|>Re: ... CL-2024-000487 — Your Client's Threatened Challenge to the Award\n<|id|>6<|page|>1<|box|>353 142 369 290<|content|>Dear Mr. ... Harkness,\n<|id|>15<|page|>1<|box|>835 176 852 818<|content|>(b) Professor Athena Drakopoulos (co-arbitrator, nominated by the Claimant, TSL); ... and\n<|id|>17<|page|>1<|box|>886 140 904 756<|content|>with Ms. ... Fiona Beckett serving as Tribunal Secretary (collectively, the \"Tribunal\")\n<|id|>16<|page|>1<|box|>861 176 878 751<|content|>(c) Dr. ... Henrik Dalmqvist (co-arbitrator, nominated by the Respondent, KMH),\n<|id|>18<|page|>1<|box|>915 142 929 297<|content|>SE/HB/PG/TSL-KMH-ENF\n<|id|>19<|page|>2<|box|>90 140 143 854<|content|>The arbitration arose from three time charter-part...2019 and 2021, in respect of the following vessels\n<|id|>21<|page|>2<|box|>178 174 214 854<|content|>(ii) M/V Crimson Horizon (IMO 9801334), subject to a time charter dated 4 September 2020; ... and\n<|id|>23<|page|>2<|box|>248 140 284 852<|content|>each governed by English law and containing arbitr...tration with a London seat (the \"Charter-Parties\")\n<|id|>22<|page|>2<|box|>222 176 239 813<|content|>(iii) M/V Volga Spirit (IMO 9756892), subject to a time charter dated 22 January 2021,\n<|id|>51<|page|>5<|box|>116 174 171 854<|content|>(c) on the basis of the findings of fact in the aw... open to serious doubt (section 69(3)(c)); ... and\n<|id|>53<|page|>5<|box|>222 140 369 857<|content|>These are cumulative requirements, and each must b... the Government of Pakistan [2010] UKSC 46 at [30]\n<|id|>88<|page|>8<|box|>364 143 380 326<|content|>Samuel Eklund Partner\n<|id|>89<|page|>8<|box|>381 143 397 393<|content|>Direct Line: ... +44 (0)20 7936 4472\n<|id|>90<|page|>8<|box|>398 142 415 460<|content|>Email: ... com\n<|id|>91<|page|>8<|box|>416 143 429 212<|content|>Copies to: ... Copies to\n<|id|>92<|page|>8<|box|>436 142 453 764<|content|>Catherine Whitford, Partner, Harkness Whitford & Co. ... com)\n<|id|>93<|page|>8<|box|>460 140 491 854<|content|>Ioanna Christodoulou, General Counsel, Thalassa Shipping & Logistics SA — by email (i. ... com)\n<|id|>94<|page|>8<|box|>498 142 513 500<|content|>Hannah Brinkley, Calderwood & Harkness LLP — internal",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>16<|tgt_id|>17\n<|src_id|>21<|tgt_id|>22\n<|src_id|>22<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ]
+}

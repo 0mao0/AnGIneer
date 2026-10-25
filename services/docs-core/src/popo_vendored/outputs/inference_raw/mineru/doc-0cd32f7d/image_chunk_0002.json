@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        95,
+        100
+    ],
+    "pages": [
+        95,
+        96,
+        97,
+        98,
+        99,
+        100
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1048<|type|>title<|page|>95<|box|>184 97 203 410<|content|>9.8.4 桥轴纵断面和引道测量\n<|id|>1053<|type|>title<|page|>95<|box|>394 75 413 295<|content|>9.9 隧道勘测与调查\n<|id|>1060<|type|>title<|page|>96<|box|>115 80 134 356<|content|>9.10 路线交叉勘测与调查\n<|id|>1064<|type|>title<|page|>96<|box|>395 78 415 354<|content|>9.11 沿线设施勘测与调查\n<|id|>1068<|type|>title<|page|>96<|box|>581 78 600 287<|content|>9.14 工程经济调查\n<|id|>1069<|type|>title<|page|>96<|box|>628 100 647 400<|content|>9.14.1 沿线筑路材料的调查\n<|id|>1071<|type|>title<|page|>96<|box|>815 99 834 352<|content|>9.14.2 占地勘测与调查\n<|id|>1075<|type|>title<|page|>97<|box|>178 65 195 230<|content|>9.15 内业工作\n<|id|>1077<|type|>title<|page|>97<|box|>317 65 337 230<|content|>9.16 资料提交\n<|id|>1079<|type|>title<|page|>98<|box|>159 73 184 278<|content|>10. 一次定测\n<|id|>1081<|type|>table<|page|>99<|box|>76 73 965 937<|content|>None\n<|id|>1083<|type|>table<|page|>100<|box|>79 80 805 942<|content|>None",
+    "raw_response": "<|src_id|>1081<|tgt_id|>1079\n<|src_id|>1083<|tgt_id|>1079",
+    "parsed": [
+        {
+            "src_id": 1081,
+            "tgt_id": 1079
+        },
+        {
+            "src_id": 1083,
+            "tgt_id": 1079
+        }
+    ]
+}

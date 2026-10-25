@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 168 142 828<|content|>SECRETARY'S / AUTHORIZED PERSON'S CERTIFICATE OF G\n<|id|>15<|type|>title<|page|>2<|box|>277 140 294 545<|content|>SECTION 1: ORGANIZATIONAL DOCUMENTS\n<|id|>16<|type|>title<|page|>2<|box|>309 140 325 364<|content|>(a) Certificate of Formation\n<|id|>19<|type|>title<|page|>2<|box|>590 140 608 477<|content|>(b) Limited Liability Company Agreement\n<|id|>22<|type|>title<|page|>3<|box|>89 140 107 581<|content|>SECTION 2: MANAGER / MEMBER RESOLUTIONS\n<|id|>33<|type|>title<|page|>4<|box|>574 140 590 380<|content|>SECTION 3: INCUMBENCY\n<|id|>35<|type|>table<|page|>4<|box|>753 143 829 852<|content|>None\n<|id|>37<|type|>title<|page|>5<|box|>239 140 257 408<|content|>SECTION 4: GOOD STANDING\n<|id|>40<|type|>title<|page|>5<|box|>516 140 532 584<|content|>SECTION 5: NO AMENDMENTS; NO DISSOLUTION\n<|id|>47<|type|>title<|page|>6<|box|>186 140 203 532<|content|>SECTION 6: ADDITIONAL CERTIFICATIONS\n<|id|>60<|type|>title<|page|>7<|box|>89 142 106 630<|content|>ACKNOWLEDGMENT AND COUNTER-CERTIFICATION\n<|id|>70<|type|>title<|page|>8<|box|>89 447 107 552<|content|>EXHIBIT A\n<|id|>74<|type|>title<|page|>9<|box|>90 200 186 795<|content|>EXHIBIT B Limited Liability Company Agreement of G\n<|id|>75<|type|>title<|page|>10<|box|>89 447 108 550<|content|>EXHIBIT C\n<|id|>76<|type|>title<|page|>10<|box|>114 192 133 803<|content|>Written Consent of Managing Member(s) of Granite P\n<|id|>77<|type|>title<|page|>10<|box|>141 408 159 589<|content|>dated January 13, 2025",
+    "raw_response": "<|src_id|>35<|tgt_id|>33",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        }
+    ]
+}

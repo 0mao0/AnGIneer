@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        52,
+        103
+    ],
+    "pages": [
+        53,
+        55,
+        56,
+        57,
+        62,
+        70,
+        73,
+        77,
+        80,
+        81,
+        84,
+        85,
+        102
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>141<|page|>53<|box|>393 49 425 929<|content|>Table 2.- Analysis of U. S. Government Securities\n<|id|>146<|page|>55<|box|>55 181 100 755<|content|>Maturity Schedule of Interest-Bearing Public Marke\n<|id|>148<|page|>56<|box|>56 226 101 805<|content|>Maturity Schedule of Interest-Bearing Public Marke\n<|id|>150<|page|>57<|box|>56 186 103 760<|content|>Maturity Schedule of Interest-Bearing Public Marke\n<|id|>160<|page|>62<|box|>48 252 64 771<|content|>Sales and Redemptions of United States Savings Bon\n<|id|>179<|page|>70<|box|>48 215 63 801<|content|>Sales and Redemptions of United States Savings Bon\n<|id|>189<|page|>73<|box|>66 304 80 635<|content|>Sales of United States Savings Stamps\n<|id|>200<|page|>77<|box|>171 130 186 799<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>211<|page|>80<|box|>99 138 116 917<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>219<|page|>81<|box|>558 181 589 767<|content|>Section II - Interest-Bearing Securities Issued by\n<|id|>226<|page|>84<|box|>60 180 92 880<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>230<|page|>85<|box|>59 130 89 834<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>231<|page|>85<|box|>92 341 105 614<|content|>December 31, 1946 - (Continued)\n<|id|>277<|page|>102<|box|>84 403 97 615<|content|>Footnotes to Section II\n<|id|>299<|page|>102<|box|>434 400 446 619<|content|>Footnotes to Section III",
+    "raw_response": "<|id|>141<|level|>1\n<|id|>146<|level|>1\n<|id|>148<|level|>1\n<|id|>150<|level|>1\n<|id|>160<|level|>1\n<|id|>179<|level|>1\n<|id|>189<|level|>1\n<|id|>200<|level|>2\n<|id|>211<|level|>2\n<|id|>219<|level|>2\n<|id|>226<|level|>1\n<|id|>230<|level|>1\n<|id|>231<|level|>2\n<|id|>277<|level|>3\n<|id|>299<|level|>3",
+    "parsed": [
+        {
+            "id": 141,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 179,
+            "level": 1
+        },
+        {
+            "id": 189,
+            "level": 1
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 2
+        },
+        {
+            "id": 226,
+            "level": 1
+        },
+        {
+            "id": 230,
+            "level": 1
+        },
+        {
+            "id": 231,
+            "level": 2
+        },
+        {
+            "id": 277,
+            "level": 3
+        },
+        {
+            "id": 299,
+            "level": 3
+        }
+    ]
+}

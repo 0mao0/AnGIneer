@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['\"What are the possible side effects?\" — Common side effects placeholder', 'No annotation regarding pending CLARION-3 safety data.', 'Added annotation noting that the common side effects list is a placeholder pending integrated safety', 'Calderwood & Harkness — internal decision to add placeholder annotation following client']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'analysis from CLARION-2 and CLARION-3 datasets; identified preliminary adverse reactions of interest (acne, herpes zoster, nasopharyngitis).', 'correspondence regarding anticipated CLARION-3 top-line timeline.']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 167,
+    "table2_idx": 168
+}

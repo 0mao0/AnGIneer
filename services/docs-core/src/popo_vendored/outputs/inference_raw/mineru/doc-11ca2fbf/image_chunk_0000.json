@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 352 118 645<|content|>OFFICER'S CERTIFICATE\n<|id|>2<|type|>title<|page|>1<|box|>175 264 195 733<|content|>MERIDIAN BIO THERAPEUTICS LIMITED\n<|id|>16<|type|>title<|page|>2<|box|>186 140 204 411<|content|>Section 1. Authority and Capacity\n<|id|>19<|type|>title<|page|>2<|box|>481 140 498 483<|content|>Section 2. Organization and Good Standing\n<|id|>22<|type|>table<|page|>2<|box|>784 143 905 852<|content|>None\n<|id|>23<|type|>table<|page|>3<|box|>89 143 109 852<|content|>None\n<|id|>25<|type|>title<|page|>3<|box|>257 140 273 388<|content|>Section 3. Board Authorization\n<|id|>28<|type|>title<|page|>3<|box|>625 140 641 478<|content|>Section 4. Representations and Warranties\n<|id|>31<|type|>title<|page|>4<|box|>90 140 107 433<|content|>Section 5. Performance of Covenants\n<|id|>41<|type|>title<|page|>5<|box|>90 140 107 439<|content|>Section 6. No Material Adverse Effect\n<|id|>43<|type|>title<|page|>5<|box|>304 140 320 449<|content|>Section 7. No Litigation or Proceedings\n<|id|>47<|type|>title<|page|>5<|box|>587 140 604 323<|content|>Section 8. No Conflicts\n<|id|>52<|type|>title<|page|>6<|box|>167 140 184 416<|content|>Section 9. Consents and Approvals\n<|id|>57<|type|>title<|page|>6<|box|>724 140 742 315<|content|>Section 10. Insurance\n<|id|>59<|type|>title<|page|>7<|box|>150 140 166 333<|content|>Section 11. Incumbency\n<|id|>61<|type|>table<|page|>7<|box|>309 143 422 852<|content|>None\n<|id|>63<|type|>title<|page|>7<|box|>551 140 569 550<|content|>Section 12. No Undisclosed Liabilities or Obligati\n<|id|>71<|type|>title<|page|>8<|box|>186 142 203 303<|content|>Section 13. Reliance\n<|id|>74<|type|>title<|page|>8<|box|>462 140 479 357<|content|>Section 14. Governing Law\n<|id|>76<|type|>title<|page|>8<|box|>569 400 585 596<|content|>[Signature Page Follows]\n<|id|>77<|type|>title<|page|>8<|box|>594 200 628 795<|content|>SIGNATURE PAGE TO OFFICER'S CERTIFICATE OF MERIDIA\n<|id|>79<|type|>title<|page|>8<|box|>683 143 699 511<|content|>MERIDIAN BIO THERAPEUTICS LIMITED\n<|id|>84<|type|>title<|page|>8<|box|>791 143 806 295<|content|>Notice Information\n<|id|>90<|type|>title<|page|>9<|box|>133 176 150 362<|content|>(2) Licensor's Counsel:\n<|id|>93<|type|>title<|page|>9<|box|>228 176 244 361<|content|>(3) Licensee's Counsel:",
+    "raw_response": "<|src_id|>22<|tgt_id|>19\n<|src_id|>23<|tgt_id|>19\n<|src_id|>61<|tgt_id|>59",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 59
+        }
+    ]
+}

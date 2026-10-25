@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 282 133 715<|content|>425 Park Avenue, 33rd Floor New York, New York 10022\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 712 184 854<|content|>November 1, 2024\n<|id|>4<|page|>1<|box|>194 142 210 390<|content|>Via Email and First-Class Mail\n<|id|>5<|page|>1<|box|>219 140 253 854<|content|>Thomas Deluca, Esq. ... Hargrove, Deluca & Stein L...t 52nd Street, 40th Floor New York, New York 10019\n<|id|>6<|page|>1<|box|>263 174 316 854<|content|>Re: ... 654321/2024 — Deficiencies in Plaintiff's Document Production\n<|id|>7<|page|>1<|box|>325 142 343 274<|content|>Dear Mr. ... Deluca\n<|id|>12<|page|>1<|box|>875 140 930 854<|content|>We write in the spirit of cooperation and with a g...cial Division Rule 14 and the Court's CONFIDENTIAL\n<|id|>13<|page|>2<|box|>90 140 162 854<|content|>Preliminary Conference Order, without the need for...e deficiencies are not promptly and fully remedied\n<|id|>34<|page|>4<|box|>128 183 164 854<|content|>• No mobilization plans for any of the three Phase...ryland, Virginia, or eastern Pennsylvania; ... and\n<|id|>36<|page|>4<|box|>186 140 352 856<|content|>These documents are directly and indisputably rele...idian's material breach of its Phase 3 obligations\n<|id|>43<|page|>4<|box|>797 174 907 857<|content|>2. ... Northgate is aware, from its own contempora...ntractors, that such correspondence exists and was\n<|id|>44<|page|>4<|box|>916 142 929 243<|content|>CONFIDENTIAL\n<|id|>45<|page|>5<|box|>90 210 143 854<|content|>exchanged on a regular basis throughout the projec...e reasons for schedule delays and quality failures\n<|id|>81<|page|>8<|box|>869 181 906 854<|content|>• March 12, 2024: ... Northgate rejected the Corre...itional critical NCRs issued in February 2024, the\n<|id|>82<|page|>9<|box|>90 210 143 854<|content|>Plan's failure to address the root causes of the q...tension and $87 million in additional compensation\n<|id|>89<|page|>9<|box|>380 181 434 854<|content|>• Documentation of the fourteen (14) alleged Owner...nalyses of their schedule and cost impact; ... and\n<|id|>91<|page|>9<|box|>474 140 583 854<|content|>These documents go to the heart of Meridian's defe...onstitutes a material gap in Meridian's production\n<|id|>95<|page|>9<|box|>776 140 886 857<|content|>This assertion is central to Meridian's case. ... 1(c), Meridian was obligated to submit a written\n<|id|>96<|page|>10<|box|>90 140 126 854<|content|>Change Order Request within ten (10) business days...on that it contended constituted a change in scope\n<|id|>100<|page|>10<|box|>236 181 270 852<|content|>• No contemporaneous documentation of any of the fourteen (14) alleged scope changes; ... and\n<|id|>102<|page|>10<|box|>311 140 367 854<|content|>The complete absence of documentary support for a ...... If they do not exist, Meridian should so state\n<|id|>114<|page|>11<|box|>372 183 424 854<|content|>• Project management software, including whatever ...schedule management, and document control; ... and\n<|id|>121<|page|>11<|box|>676 140 786 857<|content|>In addition, Northgate requests that Meridian conf... be searched and all responsive documents produced\n<|id|>119<|page|>11<|box|>606 176 625 506<|content|>(d) The date range applied to the search; ... and\n<|id|>134<|page|>12<|box|>856 142 872 272<|content|>Very truly yours,\n<|id|>135<|page|>12<|box|>873 140 888 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>136<|page|>12<|box|>891 142 907 253<|content|>By: ... By\n<|id|>138<|page|>13<|box|>107 140 125 745<|content|>425 Park Avenue, 33rd Floor New York, New York 10022 Direct: ... (212) 554-7819\n<|id|>139<|page|>13<|box|>125 140 141 437<|content|>Email: ... com\n<|id|>140<|page|>13<|box|>141 140 172 854<|content|>cc: ... , General Counsel, Northgate Telecommunications PLC (via separate cover, privileged)",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>43<|tgt_id|>45\n<|src_id|>81<|tgt_id|>82\n<|src_id|>95<|tgt_id|>96",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 96
+        }
+    ]
+}

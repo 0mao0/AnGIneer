@@ -1,0 +1,201 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9h5uk4yq\\input\\pdfs\\doc-4f0aaa25.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9h5uk4yq\\enriched\\doc-4f0aaa25.json",
+    "contd_output": "<|src_id|>86<|tgt_id|>87",
+    "title_output": "<|id|>9<|level|>1\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>1\n<|id|>40<|level|>2\n<|id|>42<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>49<|level|>4\n<|id|>62<|level|>4\n<|id|>64<|level|>3\n<|id|>67<|level|>1\n<|id|>74<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>3\n<|id|>89<|level|>3\n<|id|>95<|level|>3\n<|id|>102<|level|>2\n<|id|>103<|level|>3\n<|id|>107<|level|>3\n<|id|>110<|level|>3\n<|id|>112<|level|>2\n<|id|>118<|level|>2\n<|id|>123<|level|>2",
+    "image_output": "<|src_id|>13<|tgt_id|>12\n<|src_id|>17<|tgt_id|>15\n<|src_id|>32<|tgt_id|>19\n<|src_id|>33<|tgt_id|>19\n<|src_id|>34<|tgt_id|>19\n<|src_id|>35<|tgt_id|>19\n<|src_id|>65<|tgt_id|>64\n<|src_id|>105<|tgt_id|>103\n<|src_id|>120<|tgt_id|>118\n<|src_id|>121<|tgt_id|>118",
+    "contd_label": [
+        {
+            "src_id": 86,
+            "tgt_id": 87
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 118
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 118
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 32,
+            "table2_idx": 33,
+            "upper_row_ss": [
+                [
+                    "Type of Debtor:",
+                    "The Debtor is a registered organization organized under the laws of a State."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Debtor's Type of Organization:",
+                    "Limited Liability Company"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 120,
+            "table2_idx": 121,
+            "upper_row_ss": [
+                [
+                    "Douglas Carmichael",
+                    "Responsible Partner",
+                    "dcarmichael@calderwoodharkness.c"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "om"
+                ]
+            ]
+        }
+    ]
+}

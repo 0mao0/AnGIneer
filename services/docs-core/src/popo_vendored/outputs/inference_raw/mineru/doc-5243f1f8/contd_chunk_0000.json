@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        17
+    ],
+    "pages": [
+        2,
+        7,
+        8,
+        12,
+        13,
+        14,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>2<|box|>205 161 241 836<|content|>ISABELA LUZ FONSECA-MEDRANO (DOB: ... August 29, 2019)\n<|id|>4<|page|>2<|box|>250 405 266 591<|content|>Case No. ... 22STFL09847\n<|id|>5<|page|>2<|box|>276 295 292 700<|content|>MARGUERITE DELPHINE FONSECA (\"Mother\")\n<|id|>6<|page|>2<|box|>304 326 345 671<|content|>and RAFAEL JOAQUÍN MEDRANO (\"Father\")\n<|id|>7<|page|>2<|box|>354 143 371 316<|content|>Date: ... January 31, 2024\n<|id|>8<|page|>2<|box|>392 140 409 459<|content|>SECTION 1: ... GENERAL PROVISIONS\n<|id|>57<|page|>7<|box|>829 140 885 856<|content|>2. ... , with\n<|id|>58<|page|>8<|box|>90 140 127 854<|content|>Mother picking up the Children from Ridgeview Acad...en continuously throughout the spring break period\n<|id|>116<|page|>12<|box|>854 174 907 856<|content|>(d) Referral to Parenting Plan Coordinator: ... LMFT 89412), at Ingalls & Cuevas Family\n<|id|>117<|page|>13<|box|>89 174 200 857<|content|>Counseling, 10880 Wilshire Boulevard, Suite 630, L...ater share of the costs to the unreasonable Parent\n<|id|>128<|page|>13<|box|>785 140 877 856<|content|>If a holiday that is designated to a particular Pa...t receives the full allocation of thirty-five (35)\n<|id|>129<|page|>14<|box|>90 140 126 854<|content|>summer overnights. ... The Parents shall cooperate...onvenient and minimally disruptive to the Children\n<|id|>168<|page|>17<|box|>285 142 301 529<|content|>MARGUERITE DELPHINE FONSECA (\"Mother\")\n<|id|>169<|page|>17<|box|>304 143 319 253<|content|>By: ... By\n<|id|>170<|page|>17<|box|>320 143 335 416<|content|>Name: ... Marguerite Delphine Fonseca\n<|id|>171<|page|>17<|box|>338 143 354 264<|content|>Date: ... Date\n<|id|>172<|page|>17<|box|>354 143 369 473<|content|>RAFAEL JOAQUÍN MEDRANO (\"Father\")\n<|id|>173<|page|>17<|box|>372 143 388 251<|content|>By: ... By\n<|id|>174<|page|>17<|box|>388 142 405 377<|content|>Name: ... Rafael Joaquín Medrano\n<|id|>175<|page|>17<|box|>407 143 422 264<|content|>Date: ... Date\n<|id|>177<|page|>17<|box|>449 140 465 689<|content|>CALDERWOOD & HARKNESS LLP Counsel for Marguerite D. ... Fonseca\n<|id|>178<|page|>17<|box|>467 143 484 253<|content|>By: ... By\n<|id|>179<|page|>17<|box|>484 143 500 305<|content|>Name: ... Devon Archer\n<|id|>180<|page|>17<|box|>501 143 517 408<|content|>Firm: ... Calderwood & Harkness LLP\n<|id|>181<|page|>17<|box|>518 143 534 478<|content|>Address: ... 777 South Flower Street, Suite 3400\n<|id|>182<|page|>17<|box|>535 143 551 370<|content|>Los Angeles, California 90017\n<|id|>183<|page|>17<|box|>554 143 569 264<|content|>Date: ... Date\n<|id|>184<|page|>17<|box|>569 143 585 684<|content|>KWAN, DELACROIX & SAMUELS LLP Counsel for Rafael J. ... Medrano\n<|id|>185<|page|>17<|box|>588 143 604 253<|content|>By: ... By\n<|id|>186<|page|>17<|box|>604 143 619 555<|content|>Name: ... 218453)\n<|id|>187<|page|>17<|box|>621 143 637 439<|content|>Firm: ... Kwan, Delacroix & Samuels LLP\n<|id|>188<|page|>17<|box|>638 143 654 450<|content|>Address: ... 4400 Riverside Drive, Suite 700\n<|id|>189<|page|>17<|box|>656 143 672 343<|content|>Burbank, California 91505\n<|id|>190<|page|>17<|box|>674 143 689 264<|content|>Date: ... Date\n<|id|>191<|page|>17<|box|>690 143 705 310<|content|>MINOR'S COUNSEL\n<|id|>192<|page|>17<|box|>709 143 724 253<|content|>By: ... By\n<|id|>193<|page|>17<|box|>724 142 741 583<|content|>Name: ... 267894)\n<|id|>194<|page|>17<|box|>743 142 758 571<|content|>Appointed June 22, 2023, pursuant to Family Code § 3150\n<|id|>195<|page|>17<|box|>758 143 775 460<|content|>Address: ... 6320 Canoga Avenue, Suite 1500\n<|id|>196<|page|>17<|box|>776 143 792 395<|content|>Woodland Hills, California 91367\n<|id|>197<|page|>17<|box|>795 143 810 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>5<|tgt_id|>6\n<|src_id|>57<|tgt_id|>58\n<|src_id|>116<|tgt_id|>117\n<|src_id|>128<|tgt_id|>129",
+    "parsed": [
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 129
+        }
+    ]
+}

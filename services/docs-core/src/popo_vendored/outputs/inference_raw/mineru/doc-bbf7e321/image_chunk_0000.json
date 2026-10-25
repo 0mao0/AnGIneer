@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>table<|page|>1<|box|>196 143 335 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>454 385 473 611<|content|>I. Executive Summary\n<|id|>9<|type|>title<|page|>2<|box|>417 307 438 689<|content|>II. Background and Factual Summary\n<|id|>10<|type|>title<|page|>2<|box|>463 142 479 261<|content|>A. The Parties\n<|id|>13<|type|>title<|page|>3<|box|>90 140 107 467<|content|>B. The Exclusive Distribution Agreement\n<|id|>34<|type|>title<|page|>4<|box|>398 140 417 428<|content|>C. Oncalaris® Revenue Significance\n<|id|>37<|type|>table<|page|>4<|box|>628 143 760 852<|content|>None\n<|id|>39<|type|>title<|page|>5<|box|>90 140 107 264<|content|>D. The Dispute\n<|id|>44<|type|>title<|page|>5<|box|>637 140 655 560<|content|>E. The January 12, 2018 Email (the \"Kapoor Email\")\n<|id|>50<|type|>title<|page|>6<|box|>285 140 303 408<|content|>F. Pre-Litigation Correspondence\n<|id|>54<|type|>title<|page|>6<|box|>719 403 739 594<|content|>III. Legal Analysis\n<|id|>55<|type|>title<|page|>6<|box|>763 140 782 549<|content|>A. Declaratory-Judgment Jurisdiction and Ripeness\n<|id|>61<|type|>title<|page|>8<|box|>90 142 107 387<|content|>1. Plain Language of Exhibit A\n<|id|>68<|type|>title<|page|>8<|box|>768 140 785 810<|content|>2. The Kapoor Email Does Not Constitute \"Prior Wri\n<|id|>74<|type|>title<|page|>9<|box|>527 140 546 785<|content|>3. The Written-Amendment Requirement (Section 13.1\n<|id|>81<|type|>title<|page|>10<|box|>330 140 348 741<|content|>4. The Integration Clause (Section 14.8) Reinforce\n<|id|>87<|type|>title<|page|>10<|box|>791 140 808 571<|content|>C. Vantage's Anticipated Course-of-Dealing Argumen\n<|id|>97<|type|>title<|page|>12<|box|>90 140 107 571<|content|>D. Assessment of Vantage's Threatened Counterclaim\n<|id|>99<|type|>title<|page|>12<|box|>202 142 219 470<|content|>1. Breach of Contract ($35 Million Claim)\n<|id|>104<|type|>title<|page|>12<|box|>792 140 809 632<|content|>2. Breach of Implied Covenant of Good Faith and Fa\n<|id|>109<|type|>title<|page|>13<|box|>392 140 410 328<|content|>3. Promissory Estoppel\n<|id|>116<|type|>title<|page|>14<|box|>212 140 229 447<|content|>E. Potential Defenses to Counterclaims\n<|id|>124<|type|>title<|page|>14<|box|>755 243 775 753<|content|>IV. Recommended Forum and Procedural Strategy\n<|id|>137<|type|>title<|page|>16<|box|>308 398 328 599<|content|>V. Risk Assessment\n<|id|>142<|type|>title<|page|>17<|box|>290 377 309 619<|content|>VI. Budget and Staffing\n<|id|>144<|type|>title<|page|>17<|box|>372 143 388 299<|content|>Engagement Team:\n<|id|>145<|type|>table<|page|>17<|box|>395 143 489 852<|content|>None\n<|id|>149<|type|>title<|page|>17<|box|>748 142 765 346<|content|>Primary Cost Categories:\n<|id|>157<|type|>title<|page|>18<|box|>231 385 250 611<|content|>VII. Recommendation\n<|id|>167<|type|>title<|page|>18<|box|>824 415 845 581<|content|>VIII. Next Steps\n<|id|>181<|type|>title<|page|>20<|box|>90 375 111 620<|content|>Enclosures (Referenced)",
+    "raw_response": "<|src_id|>2<|tgt_id|>4\n<|src_id|>37<|tgt_id|>34\n<|src_id|>145<|tgt_id|>144",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 144
+        }
+    ]
+}

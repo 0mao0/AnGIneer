@@ -1,0 +1,108 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 405 119 591<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 200 152 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>6<|page|>1<|box|>369 142 386 431<|content|>1. Purpose and Summary of Request\n<|id|>12<|page|>2<|box|>90 140 107 452<|content|>2. Description of Proposed Engagement\n<|id|>14<|page|>2<|box|>262 142 277 303<|content|>2.2 General Partner\n<|id|>16<|page|>2<|box|>388 140 407 467<|content|>2.3 Managing Partners of Ardent Capital\n<|id|>21<|page|>2<|box|>527 140 544 305<|content|>2.4 Deal Team Lead\n<|id|>23<|page|>2<|box|>618 140 635 351<|content|>2.5 Transaction Summary\n<|id|>28<|page|>3<|box|>273 140 290 514<|content|>2.7 Scope of Proposed Tax Structuring Services\n<|id|>38<|page|>4<|box|>90 142 107 297<|content|>3. Parties Searched\n<|id|>40<|page|>4<|box|>184 142 200 383<|content|>3.1 Client-Side Parties (Buyer)\n<|id|>44<|page|>5<|box|>148 142 164 377<|content|>3.3 Opposing and Co-Counsel\n<|id|>46<|page|>5<|box|>489 143 506 320<|content|>3.4 Financial Advisors\n<|id|>48<|page|>5<|box|>750 143 767 416<|content|>3.5 Lenders and Financing Sources\n<|id|>52<|page|>6<|box|>455 142 472 325<|content|>4. Search Methodology\n<|id|>59<|page|>7<|box|>383 140 402 374<|content|>5. Results of Conflicts Search\n<|id|>60<|page|>7<|box|>415 140 431 589<|content|>5.1 No Current Client Relationships with Adverse P\n<|id|>71<|page|>7<|box|>781 140 797 439<|content|>5.2 No Prior Adverse Representations\n<|id|>75<|page|>8<|box|>257 140 273 516<|content|>5.3 Existing Client Relationships — No Conflict\n<|id|>84<|page|>9<|box|>436 140 454 411<|content|>5.4 Practice Group Confirmations\n<|id|>88<|page|>9<|box|>782 140 799 370<|content|>6. Conclusion and Clearance\n<|id|>98<|page|>10<|box|>496 142 513 375<|content|>7. Certification and Approval",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>6<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>3\n<|id|>16<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>28<|level|>3\n<|id|>38<|level|>2\n<|id|>40<|level|>3\n<|id|>44<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>52<|level|>2\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>71<|level|>3\n<|id|>75<|level|>3\n<|id|>84<|level|>3\n<|id|>88<|level|>2\n<|id|>98<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,186 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6le89nzh\\input\\pdfs\\doc-e2746319.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6le89nzh\\enriched\\doc-e2746319.json",
+    "contd_output": "",
+    "title_output": "<|id|>2<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>17<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>1\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>47<|level|>2\n<|id|>50<|level|>2\n<|id|>55<|level|>1\n<|id|>56<|level|>2\n<|id|>60<|level|>2\n<|id|>65<|level|>2\n<|id|>72<|level|>2\n<|id|>76<|level|>2\n<|id|>80<|level|>1\n<|id|>81<|level|>2\n<|id|>84<|level|>2\n<|id|>91<|level|>2\n<|id|>95<|level|>2\n<|id|>106<|level|>1\n<|id|>118<|level|>1\n<|id|>128<|level|>1\n<|id|>134<|level|>1\n<|id|>143<|level|>1\n<|id|>151<|level|>1\n<|id|>152<|level|>2\n<|id|>156<|level|>2",
+    "image_output": "<|src_id|>1<|tgt_id|>2\n<|src_id|>87<|tgt_id|>84\n<|src_id|>130<|tgt_id|>128\n<|src_id|>131<|tgt_id|>128\n<|src_id|>136<|tgt_id|>134\n<|src_id|>138<|tgt_id|>134",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 128
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 134
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 130,
+            "table2_idx": 131,
+            "upper_row_ss": [
+                [
+                    "Upfront Fee",
+                    "\"Customary upfront fees\"",
+                    "100 bps ($14,000,000)",
+                    "Consistent"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "per the Fee Letter",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>9<|type|>title<|page|>1<|box|>430 140 446 436<|content|>I. Introduction and Purpose of Letter\n<|id|>13<|type|>title<|page|>2<|box|>90 140 107 452<|content|>II. Confirmation of Intent to Cooperate\n<|id|>19<|type|>title<|page|>2<|box|>686 140 704 521<|content|>III. Overview of Dunmore Energy Holdings Ltd.\n<|id|>21<|type|>title<|page|>2<|box|>781 140 797 459<|content|>A. Corporate Structure and Jurisdiction\n<|id|>24<|type|>title<|page|>3<|box|>250 142 266 326<|content|>B. Business Operations\n<|id|>26<|type|>table<|page|>3<|box|>433 143 551 852<|content|>None\n<|id|>28<|type|>title<|page|>3<|box|>672 142 689 334<|content|>C. Ownership Structure\n<|id|>29<|type|>table<|page|>3<|box|>737 143 905 852<|content|>None\n<|id|>31<|type|>title<|page|>4<|box|>263 140 281 491<|content|>D. Affiliated Entities Relevant to the Inquiry\n<|id|>34<|type|>title<|page|>4<|box|>518 140 536 511<|content|>IV. Overview of Dunmore Power Trading LLC\n<|id|>35<|type|>title<|page|>4<|box|>550 142 566 318<|content|>A. Entity Information\n<|id|>38<|type|>title<|page|>4<|box|>758 140 775 486<|content|>B. FERC Market-Based Rate Authorization\n<|id|>41<|type|>title<|page|>5<|box|>250 140 267 326<|content|>C. Trading Operations\n<|id|>50<|type|>title<|page|>6<|box|>90 140 108 501<|content|>D. Trading Strategy — Preliminary Overview\n<|id|>56<|type|>title<|page|>6<|box|>771 140 787 370<|content|>V. Prior Regulatory Counsel\n<|id|>60<|type|>title<|page|>7<|box|>304 140 320 426<|content|>VI. Proactive Compliance Measures\n<|id|>71<|type|>title<|page|>8<|box|>241 140 258 385<|content|>VII. Requests for Clarification\n<|id|>73<|type|>title<|page|>8<|box|>353 142 369 328<|content|>A. Scope of the Inquiry\n<|id|>79<|type|>title<|page|>9<|box|>194 142 212 446<|content|>B. Document Preservation Obligations\n<|id|>87<|type|>title<|page|>9<|box|>800 140 816 553<|content|>C. Confidentiality and Non-Public Nature of Inquir\n<|id|>95<|type|>title<|page|>10<|box|>561 140 577 444<|content|>VIII. Dunmore's Independent Auditor\n<|id|>98<|type|>title<|page|>10<|box|>800 140 816 424<|content|>IX. Point of Contact and Next Steps\n<|id|>114<|type|>title<|page|>11<|box|>664 410 681 586<|content|>Respectfully submitted,",
+    "raw_response": "<|src_id|>26<|tgt_id|>24\n<|src_id|>29<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 28
+        }
+    ]
+}

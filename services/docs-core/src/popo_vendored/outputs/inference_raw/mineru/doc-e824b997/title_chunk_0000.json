@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 383 106 614<|content|>OFFICER'S CERTIFICATE\n<|id|>9<|page|>1<|box|>566 140 584 241<|content|>RECITALS\n<|id|>17<|page|>2<|box|>508 140 527 532<|content|>Section 1. Certification of Authority and Capacity\n<|id|>21<|page|>2<|box|>848 140 864 599<|content|>Section 2. Certification of Representations and Wa\n<|id|>36<|page|>4<|box|>816 140 834 573<|content|>Section 3. Certification Regarding the Project Por\n<|id|>42<|page|>6<|box|>241 140 258 565<|content|>Section 4. Certification of Compliance with Covena\n<|id|>49<|page|>7<|box|>286 140 301 609<|content|>Section 5. Certification of Satisfaction of Closin\n<|id|>56<|page|>8<|box|>450 140 467 560<|content|>Section 6. Certification of No Material Adverse Ef\n<|id|>62<|page|>8<|box|>785 140 803 645<|content|>Section 7. Certification of Incumbency of Authoriz\n<|id|>66<|page|>9<|box|>497 140 513 330<|content|>Section 8. No Litigation\n<|id|>71<|page|>10<|box|>90 140 107 424<|content|>Section 9. Reliance; Governing Law\n<|id|>75<|page|>10<|box|>523 401 541 596<|content|>[Signature Page Follows]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>36<|level|>2\n<|id|>42<|level|>2\n<|id|>49<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>66<|level|>2\n<|id|>71<|level|>2\n<|id|>75<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        }
+    ]
+}

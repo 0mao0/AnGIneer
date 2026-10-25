@@ -1,0 +1,44 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>11<|type|>title<|page|>1<|box|>459 140 476 441<|content|>I. INTRODUCTION AND PURPOSE\n<|id|>16<|type|>title<|page|>2<|box|>204 140 220 526<|content|>II. SUMMARY OF DOCUMENTS PRODUCED\n<|id|>18<|type|>title<|page|>2<|box|>353 140 369 611<|content|>A. Capital Expenditure Budgets and Approvals (2017\n<|id|>28<|type|>title<|page|>3<|box|>268 140 285 496<|content|>B. Regulatory Expenditures and Submissions\n<|id|>36<|type|>title<|page|>4<|box|>402 140 420 341<|content|>C. Equipment Purchases\n<|id|>44<|type|>title<|page|>5<|box|>138 140 157 403<|content|>D. IT Infrastructure Investments\n<|id|>52<|type|>title<|page|>6<|box|>138 140 157 364<|content|>E. Leasehold Improvements\n<|id|>54<|type|>title<|page|>6<|box|>280 142 297 393<|content|>The produced documents include:\n<|id|>61<|type|>title<|page|>6<|box|>667 140 685 488<|content|>F. Summary Capital Expenditure Schedules\n<|id|>70<|type|>title<|page|>7<|box|>303 140 320 602<|content|>III. RELEVANCE TO TRANSFER PRICING ANALYSIS\n<|id|>80<|type|>title<|page|>8<|box|>321 140 339 415<|content|>IV. PRIVILEGE RESERVATION\n<|id|>86<|type|>title<|page|>9<|box|>89 140 106 578<|content|>V. GENERAL RESERVATIONS AND LIMITATIONS\n<|id|>94<|type|>title<|page|>10<|box|>89 140 106 475<|content|>VI. DOCUMENT PRODUCTION INDEX\n<|id|>96<|type|>table<|page|>10<|box|>214 143 890 852<|content|>None\n<|id|>97<|type|>table<|page|>11<|box|>89 143 898 854<|content|>None\n<|id|>98<|type|>table<|page|>12<|box|>89 143 902 854<|content|>None\n<|id|>99<|type|>table<|page|>13<|box|>88 143 295 852<|content|>None\n<|id|>100<|type|>title<|page|>13<|box|>329 142 347 367<|content|>Total Pages Produced: 2,812\n<|id|>102<|type|>title<|page|>13<|box|>450 140 468 233<|content|>CLOSING\n<|id|>119<|type|>title<|page|>14<|box|>375 142 390 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>96<|tgt_id|>94\n<|src_id|>97<|tgt_id|>94\n<|src_id|>98<|tgt_id|>94\n<|src_id|>99<|tgt_id|>94",
+    "parsed": [
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 94
+        }
+    ]
+}

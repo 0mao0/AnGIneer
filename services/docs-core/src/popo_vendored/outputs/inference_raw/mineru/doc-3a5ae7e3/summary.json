@@ -1,0 +1,186 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ywgv2mcw\\input\\pdfs\\doc-3a5ae7e3.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ywgv2mcw\\enriched\\doc-3a5ae7e3.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>2\n<|id|>9<|level|>2\n<|id|>24<|level|>2\n<|id|>28<|level|>2\n<|id|>39<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>3\n<|id|>63<|level|>2\n<|id|>65<|level|>3\n<|id|>74<|level|>2\n<|id|>75<|level|>3",
+    "image_output": "<|src_id|>25<|tgt_id|>24\n<|src_id|>26<|tgt_id|>24\n<|src_id|>77<|tgt_id|>75\n<|src_id|>78<|tgt_id|>75\n<|src_id|>79<|tgt_id|>75\n<|src_id|>80<|tgt_id|>75",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 25,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 75
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 25,
+            "table2_idx": 26,
+            "upper_row_ss": [
+                [
+                    "11",
+                    "Cool Springs Office Park",
+                    "5000 Virginia Way, Brentwood, TN 37027",
+                    "GMP Cool Springs LLC"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "12",
+                    "Brickell Bay Office Building",
+                    "1450 Brickell Avenue, Miami, FL 33131",
+                    "GMP Brickell LLC"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 77,
+            "table2_idx": 78,
+            "upper_row_ss": [
+                [
+                    "#",
+                    "Target Entity (Full Legal Name)",
+                    "State of Formation",
+                    "EIN",
+                    "Property Name",
+                    "Property Address",
+                    "Property Type",
+                    "State",
+                    "Rentable square Feet"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1",
+                    "GMP Fairfield I LLC",
+                    "Delaware",
+                    "84-2310561",
+                    "Fairfield Logistics Center I",
+                    "4200 Fairfield Industrial Blvd, Fairburn, GA 30213",
+                    "Logistics",
+                    "GA",
+                    "412,000"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 78,
+            "table2_idx": 79,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "GMP Buckhead",
+                    "Delaware",
+                    "84-2639901",
+                    "Buckhead Place",
+                    "3380 Peachtree",
+                    "Office",
+                    "GA",
+                    "285,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "LLC",
+                    "",
+                    "",
+                    "Office Tower",
+                    "Road NE, Atlanta, GA 30326",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

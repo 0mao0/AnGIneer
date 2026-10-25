@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 447 106 550<|content|>EXHIBIT A\n<|id|>1<|page|>1<|box|>114 156 151 839<|content|>CORPORATE STRUCTURE CHART — PENTERRA PHARMACEUTICA\n<|id|>4<|page|>1<|box|>319 140 335 403<|content|>Section 1: Overview and Purpose\n<|id|>6<|page|>1<|box|>587 140 604 669<|content|>Section 2: Organizational Chart — Corporate Owners\n<|id|>21<|page|>3<|box|>484 429 503 568<|content|>100% Ownership\n<|id|>39<|page|>5<|box|>354 429 371 568<|content|>100% Ownership\n<|id|>45<|page|>6<|box|>700 140 719 426<|content|>Section 4: Territory Allocation Note\n<|id|>47<|page|>6<|box|>771 142 789 506<|content|>Americas Territory (Rights Retained by PPC):\n<|id|>49<|page|>7<|box|>90 140 107 508<|content|>Non-Americas Territory (Rights Held by PBI):\n<|id|>51<|page|>7<|box|>252 140 268 470<|content|>Treatment of PHL as Disregarded Entity:\n<|id|>53<|page|>7<|box|>465 140 482 591<|content|>Section 5: Related Parties Not in Direct Ownership\n<|id|>57<|page|>8<|box|>263 140 279 326<|content|>Section 6: Certification",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>21<|level|>-1\n<|id|>39<|level|>-1\n<|id|>45<|level|>2\n<|id|>47<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>3\n<|id|>53<|level|>2\n<|id|>57<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        }
+    ]
+}

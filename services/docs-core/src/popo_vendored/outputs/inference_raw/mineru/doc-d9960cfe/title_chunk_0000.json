@@ -1,0 +1,47 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 125 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 600 Lex\n<|id|>8<|page|>1<|box|>398 140 415 228<|content|>Dear Kate:\n<|id|>11<|page|>1<|box|>768 140 787 364<|content|>I. HSR Act Filing Summary\n<|id|>18<|page|>2<|box|>604 140 622 599<|content|>II. Grant of Early Termination of the HSR Waiting\n<|id|>25<|page|>3<|box|>460 140 478 614<|content|>III. Confirmation of Satisfaction of Section 6.1(c\n<|id|>30<|page|>3<|box|>810 140 828 452<|content|>IV. No Ongoing Antitrust Impediments\n<|id|>33<|page|>4<|box|>362 140 378 398<|content|>V. Coordination Going Forward\n<|id|>37<|page|>4<|box|>758 142 775 338<|content|>VI. Contact Information\n<|id|>47<|page|>5<|box|>412 142 429 233<|content|>Enclosure:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>-1\n<|id|>11<|level|>1\n<|id|>18<|level|>1\n<|id|>25<|level|>1\n<|id|>30<|level|>1\n<|id|>33<|level|>1\n<|id|>37<|level|>1\n<|id|>47<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-sh90fcql\\input\\pdfs\\doc-2a3a78ec.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-sh90fcql\\enriched\\doc-2a3a78ec.json",
+    "contd_output": "<|src_id|>41<|tgt_id|>42\n<|src_id|>48<|tgt_id|>49\n<|src_id|>197<|tgt_id|>198\n<|src_id|>208<|tgt_id|>210",
+    "title_output": "<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>16<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>3\n<|id|>54<|level|>3\n<|id|>62<|level|>3\n<|id|>71<|level|>2\n<|id|>82<|level|>2\n<|id|>93<|level|>2\n<|id|>94<|level|>3\n<|id|>116<|level|>3\n<|id|>125<|level|>2\n<|id|>126<|level|>3\n<|id|>161<|level|>3\n<|id|>185<|level|>3\n<|id|>202<|level|>2\n<|id|>204<|level|>3\n<|id|>206<|level|>3\n<|id|>211<|level|>3\n<|id|>213<|level|>3\n<|id|>215<|level|>3\n<|id|>218<|level|>2\n<|id|>227<|level|>2\n<|id|>243<|level|>2\n<|id|>245<|level|>3",
+    "image_output": "<|src_id|>118<|tgt_id|>116\n<|src_id|>119<|tgt_id|>116\n<|src_id|>192<|tgt_id|>185\n<|src_id|>194<|tgt_id|>185\n<|src_id|>201<|tgt_id|>185\n<|src_id|>205<|tgt_id|>204\n<|src_id|>217<|tgt_id|>215",
+    "contd_label": [
+        {
+            "src_id": 41,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 197,
+            "tgt_id": 198
+        },
+        {
+            "src_id": 208,
+            "tgt_id": 210
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 3
+        },
+        {
+            "id": 213,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 218,
+            "level": 2
+        },
+        {
+            "id": 227,
+            "level": 2
+        },
+        {
+            "id": 243,
+            "level": 2
+        },
+        {
+            "id": 245,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 215
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 118,
+            "table2_idx": 119,
+            "upper_row_ss": [
+                [
+                    "Osprey Insurance Capital, Ltd.",
+                    "$75,000,000",
+                    "Clear",
+                    "Clear",
+                    "Clear",
+                    "Bermuda exempted company.Enhanced due diligence per"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "UK/OFSI screening memorandum; Fiona Abernathy (Head of Credit Investments, UK-person nexus) cleared. Enhanced sanctions representations side letter executed and on file."
+                ]
+            ]
+        }
+    ]
+}

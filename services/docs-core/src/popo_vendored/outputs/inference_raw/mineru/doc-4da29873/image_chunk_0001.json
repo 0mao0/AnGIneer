@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        53
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        50,
+        51,
+        53
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>502<|type|>title<|page|>45<|box|>89 143 106 287<|content|>SCHEDULE 4.10.\n<|id|>503<|type|>table<|page|>45<|box|>137 138 258 852<|content|>None\n<|id|>505<|type|>table<|page|>45<|box|>316 137 419 852<|content|>None\n<|id|>506<|type|>title<|page|>45<|box|>454 143 470 472<|content|>Weighted-Average COD: October 25, 2023\n<|id|>509<|type|>title<|page|>46<|box|>89 140 106 287<|content|>SCHEDULE 4.15.\n<|id|>510<|type|>title<|page|>46<|box|>114 413 131 584<|content|>Material Agreements\n<|id|>512<|type|>title<|page|>46<|box|>165 142 183 496<|content|>1. Power Purchase Agreements (TX Projects)\n<|id|>514<|type|>title<|page|>46<|box|>272 142 289 501<|content|>2. Power Purchase Agreements (NM Projects)\n<|id|>516<|type|>title<|page|>46<|box|>359 140 378 663<|content|>3. Master Engineering, Procurement, and Constructi\n<|id|>520<|type|>title<|page|>46<|box|>473 140 491 851<|content|>4. Amended and Restated Limited Liability Company\n<|id|>523<|type|>title<|page|>46<|box|>561 143 578 385<|content|>5. Construction Credit Facility\n<|id|>525<|type|>title<|page|>46<|box|>631 142 648 307<|content|>6. Insurance Policies\n<|id|>527<|type|>title<|page|>46<|box|>719 142 736 271<|content|>7. Surety Bonds\n<|id|>529<|type|>title<|page|>46<|box|>790 142 806 385<|content|>8. Interconnection Agreements\n<|id|>531<|type|>title<|page|>47<|box|>89 450 107 545<|content|>EXHIBITS\n<|id|>532<|type|>title<|page|>48<|box|>89 140 106 248<|content|>EXHIBIT A.\n<|id|>533<|type|>title<|page|>48<|box|>113 352 131 645<|content|>Form of Transfer Election Statement\n<|id|>537<|type|>title<|page|>48<|box|>327 142 344 403<|content|>1. Eligible Taxpayer Information\n<|id|>541<|type|>title<|page|>48<|box|>440 142 457 428<|content|>2. Transferee Taxpayer Information\n<|id|>545<|type|>title<|page|>48<|box|>553 140 570 316<|content|>3. Credit Information\n<|id|>547<|type|>title<|page|>48<|box|>678 140 695 349<|content|>4. Transfer Consideration\n<|id|>549<|type|>title<|page|>48<|box|>750 140 766 413<|content|>5. Pre-Filing Registration Number\n<|id|>551<|type|>title<|page|>48<|box|>800 142 816 264<|content|>6. Certification\n<|id|>564<|type|>title<|page|>50<|box|>89 142 106 246<|content|>EXHIBIT B.\n<|id|>565<|type|>title<|page|>50<|box|>114 352 130 643<|content|>Form of Officer's Closing Certificate\n<|id|>566<|type|>title<|page|>50<|box|>138 140 156 462<|content|>OFFICER'S CLOSING CERTIFICATE\n<|id|>581<|type|>title<|page|>51<|box|>89 142 106 248<|content|>EXHIBIT C.\n<|id|>582<|type|>title<|page|>51<|box|>114 341 131 655<|content|>Form of Annual Compliance Certificate\n<|id|>583<|type|>title<|page|>51<|box|>138 140 156 485<|content|>ANNUAL COMPLIANCE CERTIFICATE\n<|id|>602<|type|>title<|page|>53<|box|>89 142 106 248<|content|>EXHIBIT D.\n<|id|>603<|type|>title<|page|>53<|box|>113 426 130 570<|content|>Wire Instructions\n<|id|>607<|type|>title<|page|>53<|box|>263 142 281 766<|content|>II. Buyer's Wire Instructions (for Return of Escro\n<|id|>610<|type|>title<|page|>53<|box|>369 143 386 403<|content|>III. Escrow Account Information",
+    "raw_response": "<|src_id|>503<|tgt_id|>502\n<|src_id|>505<|tgt_id|>502",
+    "parsed": [
+        {
+            "src_id": 503,
+            "tgt_id": 502
+        },
+        {
+            "src_id": 505,
+            "tgt_id": 502
+        }
+    ]
+}

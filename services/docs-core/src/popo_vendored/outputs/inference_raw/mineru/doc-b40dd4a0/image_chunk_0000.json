@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 176 118 818<|content|>OFFICER'S CERTIFICATE OF SKYBRIDGE FINTECH LTD.\n<|id|>1<|type|>title<|page|>1<|box|>143 411 160 586<|content|>USE OF PROCEEDS\n<|id|>4<|type|>title<|page|>1<|box|>273 142 289 243<|content|>RECITALS\n<|id|>9<|type|>title<|page|>1<|box|>747 140 763 524<|content|>Section 1. Certification of Identity and Authority\n<|id|>14<|type|>title<|page|>2<|box|>304 140 321 447<|content|>Section 2. Description of the Financing\n<|id|>21<|type|>title<|page|>3<|box|>212 140 229 380<|content|>Section 3. Aggregate Proceeds\n<|id|>23<|type|>title<|page|>3<|box|>305 142 323 287<|content|>3.1 Initial Closing\n<|id|>25<|type|>table<|page|>3<|box|>388 143 484 852<|content|>None\n<|id|>26<|type|>title<|page|>3<|box|>523 142 540 279<|content|>3.2 Final Closing\n<|id|>28<|type|>table<|page|>3<|box|>625 143 700 852<|content|>None\n<|id|>29<|type|>title<|page|>3<|box|>739 142 757 349<|content|>3.3 Escrow Arrangements\n<|id|>31<|type|>title<|page|>4<|box|>138 140 156 359<|content|>3.4 Estimated Net Proceeds\n<|id|>33<|type|>table<|page|>4<|box|>260 143 429 852<|content|>None\n<|id|>35<|type|>title<|page|>4<|box|>560 140 577 423<|content|>Section 4. Intended Use of Proceeds\n<|id|>37<|type|>title<|page|>4<|box|>708 140 726 566<|content|>4.1 General Corporate Purposes and Working Capital\n<|id|>41<|type|>title<|page|>5<|box|>422 140 439 477<|content|>4.2 Product Development and Engineering\n<|id|>44<|type|>title<|page|>6<|box|>90 140 107 517<|content|>4.3 Sales, Marketing, and Customer Acquisition\n<|id|>46<|type|>title<|page|>6<|box|>345 140 364 522<|content|>4.4 Bridge to Planned Series D Equity Financing\n<|id|>50<|type|>title<|page|>6<|box|>708 140 724 568<|content|>4.5 Negative Covenants — Restricted Uses of Procee\n<|id|>57<|type|>title<|page|>7<|box|>411 140 426 434<|content|>Section 5. Current Financial Position\n<|id|>59<|type|>table<|page|>7<|box|>551 143 859 852<|content|>None\n<|id|>61<|type|>title<|page|>8<|box|>186 140 204 352<|content|>Section 6. Representations\n<|id|>67<|type|>title<|page|>8<|box|>648 140 667 348<|content|>Section 7. Governing Law\n<|id|>69<|type|>title<|page|>8<|box|>756 400 773 596<|content|>[Signature Page Follows]\n<|id|>71<|type|>title<|page|>8<|box|>825 140 842 388<|content|>SKYBRIDGE FINTECH LTD.",
+    "raw_response": "<|src_id|>25<|tgt_id|>23\n<|src_id|>28<|tgt_id|>26\n<|src_id|>33<|tgt_id|>31\n<|src_id|>59<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 57
+        }
+    ]
+}

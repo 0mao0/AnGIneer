@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 269 118 727<|content|>SELLING STOCKHOLDER CERTIFICATE\n<|id|>5<|page|>1<|box|>383 142 400 486<|content|>1. Identity of Certifying Party and Capacity\n<|id|>14<|page|>2<|box|>167 140 185 852<|content|>2. Certification Regarding Representations and War\n<|id|>21<|page|>3<|box|>186 140 222 810<|content|>3. Certification Regarding Representations and War\n<|id|>27<|page|>4<|box|>204 140 222 700<|content|>4. Certification Regarding Compliance with Covenan\n<|id|>34<|page|>5<|box|>204 140 222 522<|content|>5. Certification Regarding Conditions to Closing\n<|id|>39<|page|>5<|box|>679 140 696 496<|content|>6. Certification Regarding No Encumbrances\n<|id|>42<|page|>6<|box|>258 140 277 411<|content|>7. Share Ownership Confirmation\n<|id|>46<|page|>7<|box|>90 142 107 233<|content|>8. Reliance\n<|id|>49<|page|>7<|box|>424 140 441 336<|content|>[Signature Page Follows]\n<|id|>50<|page|>7<|box|>449 212 465 782<|content|>[SIGNATURE PAGE TO SELLING STOCKHOLDER CERTIFICATE\n<|id|>52<|page|>7<|box|>518 140 536 390<|content|>SELLING STOCKHOLDERS:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>2\n<|id|>42<|level|>2\n<|id|>46<|level|>2\n<|id|>49<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        }
+    ]
+}

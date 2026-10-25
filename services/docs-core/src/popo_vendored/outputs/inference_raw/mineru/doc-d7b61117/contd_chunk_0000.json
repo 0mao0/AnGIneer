@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>839 140 895 857<|content|>The obligations of CB Operating under the Revolvin...nd punctual payment when due of all obligations of\n<|id|>8<|page|>2<|box|>89 140 126 854<|content|>CB Operating arising under the First Lien Credit A... at stated maturity, by acceleration, or otherwise\n<|id|>35<|page|>4<|box|>364 183 398 854<|content|>• amend or modify the organizational documents of ... manner materially adverse to the lenders; ... and\n<|id|>37<|page|>4<|box|>422 140 458 854<|content|>Affirmative Covenants. ... The First Lien Credit A...its restricted subsidiaries to, among other things\n<|id|>58<|page|>5<|box|>780 174 816 854<|content|>(i) the occurrence of an ERISA event reasonably ex...ed to result in a material adverse effect; ... and\n<|id|>60<|page|>6<|box|>152 138 263 856<|content|>If an event of default occurs and is continuing, t... action by the Administrative Agent or the lenders\n<|id|>84<|page|>8<|box|>862 140 898 854<|content|>The events of default applicable to the Term Loan ...cility, as both tranches are governed by the First\n<|id|>85<|page|>9<|box|>90 140 143 854<|content|>Lien Credit Agreement. ... The occurrence of an ev...Credit Facility and the Term Loan B simultaneously\n<|id|>101<|page|>10<|box|>724 174 758 854<|content|>(d) all permits, licenses, and governmental approvals relating to the Mesquite Wind project; ... and\n<|id|>103<|page|>10<|box|>811 140 904 857<|content|>As noted above, the Mesquite Wind Facility is non-...(other than the equity interests in Mesquite Wind)\n<|id|>104<|page|>11<|box|>90 140 126 854<|content|>are not available to satisfy the claims of Prairie...e Commercial Bank under the Mesquite Wind Facility\n<|id|>121<|page|>12<|box|>527 174 563 854<|content|>(g) the rendering of one or more judgments against...te Wind in excess of specified thresholds; ... and\n<|id|>123<|page|>12<|box|>614 140 779 856<|content|>Upon the occurrence and continuance of an event of...ss, results of operations, and financial condition\n<|id|>140<|page|>14<|box|>569 174 604 854<|content|>(d) all permits, licenses, and governmental approvals relating to the Cimarron Solar project; ... and\n<|id|>142<|page|>14<|box|>657 140 713 854<|content|>The Cimarron Solar Facility is non-recourse to CBR.... ... 5 with respect to the Mesquite Wind Facility\n<|id|>178<|page|>18<|box|>446 174 482 854<|content|>(c) certain reserve accounts established under the...t must be funded to their required levels; ... and\n<|id|>180<|page|>18<|box|>535 140 643 856<|content|>These distribution restrictions may limit the amou...B Operating and, ultimately, to the Company. ... \"",
+    "raw_response": "<|src_id|>7<|tgt_id|>8\n<|src_id|>84<|tgt_id|>85\n<|src_id|>103<|tgt_id|>104",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 103,
+            "tgt_id": 104
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 333 118 663<|content|>TERMINATION AGREEMENT\n<|id|>1<|type|>title<|page|>1<|box|>136 272 154 725<|content|>Termination of Amended and Restated Voting Agreeme\n<|id|>11<|type|>title<|page|>1<|box|>647 142 665 243<|content|>RECITALS\n<|id|>17<|type|>title<|page|>2<|box|>611 142 628 267<|content|>AGREEMENT\n<|id|>18<|type|>title<|page|>2<|box|>642 140 659 316<|content|>Section 1. Definitions.\n<|id|>24<|type|>title<|page|>3<|box|>140 140 156 457<|content|>Section 2. Confirmation of Termination.\n<|id|>37<|type|>title<|page|>4<|box|>157 140 175 403<|content|>Section 3. Release of Obligations.\n<|id|>41<|type|>title<|page|>4<|box|>539 140 556 480<|content|>Section 4. Representations and Warranties.\n<|id|>46<|type|>title<|page|>5<|box|>250 140 266 447<|content|>Section 5. Effect on Other Agreements.\n<|id|>57<|type|>title<|page|>6<|box|>263 140 281 339<|content|>Section 6. Miscellaneous.\n<|id|>103<|type|>title<|page|>9<|box|>89 142 107 470<|content|>DR. NATHANIEL ROURKE, individually\n<|id|>109<|type|>title<|page|>9<|box|>258 187 277 807<|content|>ADDITIONAL STOCKHOLDERS PARTY TO THE VOTING AGREEM\n<|id|>123<|type|>title<|page|>10<|box|>89 436 107 562<|content|>SCHEDULE A\n<|id|>124<|type|>title<|page|>10<|box|>116 253 133 743<|content|>List of Parties to the Amended and Restated Voting\n<|id|>126<|type|>table<|page|>10<|box|>239 143 535 852<|content|>None",
+    "raw_response": "<|src_id|>126<|tgt_id|>124",
+    "parsed": [
+        {
+            "src_id": 126,
+            "tgt_id": 124
+        }
+    ]
+}

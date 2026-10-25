@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>116 140 133 421<|content|>TO: ... Yuki Nakamura, Lead Associate\n<|id|>2<|page|>1<|box|>142 140 159 413<|content|>FROM: ... Carlos Espinoza, Associate\n<|id|>3<|page|>1<|box|>167 140 184 343<|content|>DATE: ... February 17, 2023\n<|id|>4<|page|>1<|box|>193 140 210 620<|content|>RE: ... Deposition Summary — Nolan Prescott (February 10, 2023)\n<|id|>5<|page|>1<|box|>219 140 255 854<|content|>MATTER: ... 1021-00006, Circuit Court of the 17th Judicial Circuit, Broward County, Florida\n<|id|>6<|page|>1<|box|>263 140 324 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...ut the prior written authorization of lead counsel\n<|id|>21<|page|>2<|box|>871 140 907 857<|content|>Prescott confirmed that he does not hold, and has ...ifically, he confirmed that he has no role in Gulf\n<|id|>22<|page|>3<|box|>90 140 200 854<|content|>Breeze Hospitality LLC, the Florida limited liabil...branded hotel properties in coastal Georgia. ... )\n<|id|>106<|page|>11<|box|>858 140 893 854<|content|>Deposition Testimony: ... He was asked to explain what he meant by the phrase \"the\n<|id|>107<|page|>12<|box|>90 140 162 854<|content|>Suncoast stuff. ... )",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>106<|tgt_id|>107",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 107
+        }
+    ]
+}

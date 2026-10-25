@@ -1,0 +1,58 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        9,
+        12,
+        15,
+        17,
+        18,
+        19,
+        21,
+        22,
+        25,
+        26,
+        27
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 104 630<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|type|>title<|page|>1<|box|>345 142 363 343<|content|>I. Purpose and Summary\n<|id|>18<|type|>title<|page|>2<|box|>483 140 501 267<|content|>II. Background\n<|id|>28<|type|>title<|page|>3<|box|>502 140 518 423<|content|>III. Category-by-Category Analysis\n<|id|>29<|type|>title<|page|>3<|box|>532 140 550 534<|content|>A. VTS Q4 2021 Performance Metrics (RFAs 1–8)\n<|id|>61<|type|>title<|page|>6<|box|>825 142 842 220<|content|>Analysis:\n<|id|>66<|type|>title<|page|>7<|box|>594 140 611 545<|content|>B. Receipt and Content of Cure Notice (RFAs 9–13)\n<|id|>85<|type|>title<|page|>9<|box|>470 140 488 573<|content|>C. Failure to Cure Within 30-Day Period (RFAs 14–1\n<|id|>115<|type|>title<|page|>12<|box|>290 140 306 707<|content|>D. VTS's Removal of Tractors from SLG Dedicated La\n<|id|>142<|type|>title<|page|>15<|box|>212 140 229 395<|content|>E. Force Majeure (RFAs 23–26)\n<|id|>162<|type|>title<|page|>17<|box|>273 140 292 619<|content|>F. Miscellaneous — TSA Execution and Terms (RFAs 2\n<|id|>177<|type|>title<|page|>18<|box|>223 140 239 609<|content|>IV. Summary of Admissions Useful for Summary Judgm\n<|id|>179<|type|>table<|page|>18<|box|>337 143 780 852<|content|>None\n<|id|>180<|type|>table<|page|>18<|box|>840 143 862 852<|content|>None\n<|id|>181<|type|>table<|page|>19<|box|>89 143 186 851<|content|>None\n<|id|>182<|type|>title<|page|>19<|box|>226 143 243 495<|content|>C. Force Majeure / Volume Shortfall Defense\n<|id|>183<|type|>table<|page|>19<|box|>247 143 414 852<|content|>None\n<|id|>184<|type|>table<|page|>19<|box|>474 143 643 852<|content|>None\n<|id|>185<|type|>title<|page|>19<|box|>694 140 710 735<|content|>V. Evasive and Non-Responsive Answers — Potential\n<|id|>193<|type|>title<|page|>21<|box|>90 140 107 550<|content|>VI. Denials Contradicted by Documentary Evidence\n<|id|>203<|type|>title<|page|>22<|box|>258 140 277 328<|content|>VII. Recommendations\n<|id|>217<|type|>title<|page|>25<|box|>90 142 107 537<|content|>VIII. Appendix — Complete RFA Response Chart\n<|id|>219<|type|>table<|page|>25<|box|>178 143 907 852<|content|>None\n<|id|>220<|type|>table<|page|>26<|box|>89 143 839 852<|content|>None\n<|id|>223<|type|>title<|page|>27<|box|>152 418 170 580<|content|>End of Memorandum",
+    "raw_response": "<|src_id|>179<|tgt_id|>177\n<|src_id|>180<|tgt_id|>177\n<|src_id|>181<|tgt_id|>177\n<|src_id|>183<|tgt_id|>182\n<|src_id|>184<|tgt_id|>182\n<|src_id|>219<|tgt_id|>217\n<|src_id|>220<|tgt_id|>217",
+    "parsed": [
+        {
+            "src_id": 179,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 180,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 177
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 184,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 217
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 217
+        }
+    ]
+}

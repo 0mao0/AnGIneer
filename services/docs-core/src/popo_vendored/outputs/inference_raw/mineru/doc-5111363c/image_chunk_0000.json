@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|type|>title<|page|>1<|box|>767 142 784 352<|content|>1. Scope of Representation\n<|id|>27<|type|>title<|page|>4<|box|>90 142 107 313<|content|>2. Engagement Team\n<|id|>34<|type|>title<|page|>4<|box|>652 140 670 290<|content|>3. Fees and Billing\n<|id|>37<|type|>table<|page|>4<|box|>819 143 895 852<|content|>None\n<|id|>38<|type|>table<|page|>5<|box|>88 143 109 852<|content|>None\n<|id|>44<|type|>title<|page|>6<|box|>148 140 167 431<|content|>4. Client Identification and Conflicts\n<|id|>48<|type|>title<|page|>6<|box|>671 140 688 284<|content|>5. Confidentiality\n<|id|>51<|type|>title<|page|>7<|box|>167 140 184 326<|content|>6. Document Retention\n<|id|>53<|type|>title<|page|>7<|box|>417 140 434 442<|content|>7. Communication and Client Contact\n<|id|>57<|type|>title<|page|>7<|box|>792 140 809 264<|content|>8. Termination\n<|id|>60<|type|>title<|page|>8<|box|>258 140 277 339<|content|>9. Limitation of Liability\n<|id|>63<|type|>title<|page|>8<|box|>554 142 571 297<|content|>10. Governing Law\n<|id|>65<|type|>title<|page|>8<|box|>731 142 747 431<|content|>11. Entire Agreement / Amendments\n<|id|>71<|type|>title<|page|>9<|box|>376 140 393 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>75<|type|>title<|page|>9<|box|>454 140 488 839<|content|>Calderwood & Harkness LLP 600 California Street, 4\n<|id|>77<|type|>title<|page|>9<|box|>559 140 575 449<|content|>GENOME DX THERAPEUTICS INC.",
+    "raw_response": "<|src_id|>37<|tgt_id|>34\n<|src_id|>38<|tgt_id|>34",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 34
+        }
+    ]
+}

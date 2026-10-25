@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 174 176 820<|content|>DRAFT — Prepared by Calderwood & Harkness LLP C&H Matter No. ... 1025-00001\n<|id|>2<|page|>1<|box|>185 416 202 578<|content|>Adopted June 2, 2021\n<|id|>3<|page|>1<|box|>210 140 340 857<|content|>WHEREAS, Quorum Insurance Holdings Corp. ... 333-2...e Company's common stock, in one or more offerings\n<|id|>8<|page|>1<|box|>854 140 909 857<|content|>WHEREAS, the net proceeds of the Offering are esti...ucting (i) the underwriting discount of 5. ... and\n<|id|>9<|page|>2<|box|>226 140 316 856<|content|>WHEREAS, the Common Stock is currently listed and ...d listing standards of The Nasdaq Stock Market LLC\n<|id|>20<|page|>3<|box|>494 176 512 550<|content|>(ii) Diana L. ... and\n<|id|>22<|page|>3<|box|>547 140 619 854<|content|>RESOLVED FURTHER, that each Authorized Officer, ac... following actions in connection with the Offering\n<|id|>31<|page|>4<|box|>664 138 902 857<|content|>RESOLVED, that the form, terms, and provisions of ... and carve-outs as may be set forth in the Lock-Up\n<|id|>32<|page|>5<|box|>90 140 145 854<|content|>Agreement. ... The Authorized Officers are hereby ...icable person prior to the pricing of the Offering\n<|id|>60<|page|>7<|box|>393 140 409 325<|content|>Name: ... Okafor\n<|id|>61<|page|>7<|box|>411 140 428 493<|content|>Title: ... General Counsel and Corporate Secretary\n<|id|>62<|page|>7<|box|>429 142 444 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>31<|tgt_id|>32",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 333 107 663<|content|>DUNMORE ENERGY HOLDINGS LTD.\n<|id|>1<|type|>title<|page|>1<|box|>116 223 133 772<|content|>(an exempted company incorporated under the laws o\n<|id|>3<|type|>title<|page|>1<|box|>167 248 210 748<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS ADOPTED BY W\n<|id|>7<|type|>title<|page|>1<|box|>327 200 344 795<|content|>Adopted by Written Consent in Lieu of Meeting Effe\n<|id|>9<|type|>title<|page|>1<|box|>522 142 539 333<|content|>DIRECTORS ACTING\n<|id|>17<|type|>title<|page|>1<|box|>767 143 784 261<|content|>AUTHORITY\n<|id|>19<|type|>title<|page|>2<|box|>204 140 222 243<|content|>RECITALS\n<|id|>49<|type|>title<|page|>5<|box|>457 140 494 844<|content|>RESOLUTION 1: APPROVAL OF THE OFFERING AND AUTHORI\n<|id|>69<|type|>title<|page|>7<|box|>229 140 265 767<|content|>RESOLUTION 2: APPROVAL AND AUTHORIZATION OF TRANSA\n<|id|>72<|type|>title<|page|>7<|box|>645 140 662 331<|content|>B. Purchase Agreement\n<|id|>75<|type|>table<|page|>8<|box|>89 143 198 852<|content|>None\n<|id|>81<|type|>title<|page|>8<|box|>402 140 420 411<|content|>C. Registration Rights Agreement\n<|id|>83<|type|>title<|page|>8<|box|>659 140 676 326<|content|>D. Security Documents\n<|id|>90<|type|>title<|page|>9<|box|>609 140 627 362<|content|>E. Intercreditor Agreement\n<|id|>95<|type|>title<|page|>10<|box|>138 140 157 375<|content|>F. Paying Agency Agreement\n<|id|>97<|type|>title<|page|>10<|box|>285 140 303 488<|content|>G. Side Letter — Sanctions Representations\n<|id|>99<|type|>title<|page|>10<|box|>431 140 448 334<|content|>H. Ancillary Documents\n<|id|>109<|type|>title<|page|>11<|box|>89 140 106 710<|content|>RESOLUTION 3: APPROVAL OF THE OFFERING MEMORANDUM\n<|id|>113<|type|>title<|page|>11<|box|>593 142 609 594<|content|>RESOLUTION 4: APPROVAL OF USE OF PROCEEDS\n<|id|>115<|type|>table<|page|>11<|box|>680 143 823 852<|content|>None\n<|id|>118<|type|>title<|page|>12<|box|>358 140 393 816<|content|>RESOLUTION 5: APPROVAL OF ENGAGEMENT OF ADVISORS A\n<|id|>131<|type|>title<|page|>13<|box|>535 142 551 648<|content|>RESOLUTION 6: AUTHORIZATION OF OFFICERS TO ACT\n<|id|>132<|type|>title<|page|>13<|box|>566 140 584 439<|content|>A. Designation of Authorized Officers\n<|id|>137<|type|>title<|page|>13<|box|>808 142 825 315<|content|>B. Scope of Authority\n<|id|>145<|type|>title<|page|>14<|box|>441 140 458 405<|content|>C. Authorization re: Subsidiaries\n<|id|>147<|type|>title<|page|>14<|box|>633 140 650 712<|content|>RESOLUTION 7: APPROVAL OF GUARANTEES BY SUBSIDIARI\n<|id|>159<|type|>title<|page|>16<|box|>89 140 107 787<|content|>RESOLUTION 8: SANCTIONS AND OFAC COMPLIANCE AUTHOR\n<|id|>166<|type|>title<|page|>17<|box|>89 140 107 707<|content|>RESOLUTION 9: ABL FACILITY CONSENT AND COORDINATIO\n<|id|>173<|type|>title<|page|>17<|box|>542 140 559 732<|content|>RESOLUTION 10: RATIFICATION AND OMNIBUS AUTHORIZAT\n<|id|>177<|type|>title<|page|>18<|box|>212 140 229 450<|content|>RESOLUTION 11: EFFECTIVENESS\n<|id|>196<|type|>title<|page|>19<|box|>210 447 229 550<|content|>EXHIBIT A\n<|id|>197<|type|>title<|page|>19<|box|>237 338 255 660<|content|>FORM OF OFFICERS' CERTIFICATE\n<|id|>215<|type|>title<|page|>20<|box|>210 449 227 547<|content|>EXHIBIT B\n<|id|>216<|type|>title<|page|>20<|box|>236 331 253 666<|content|>LIST OF TRANSACTION DOCUMENTS\n<|id|>218<|type|>table<|page|>20<|box|>323 143 901 852<|content|>None\n<|id|>219<|type|>table<|page|>21<|box|>90 143 902 852<|content|>None\n<|id|>220<|type|>table<|page|>22<|box|>88 143 138 852<|content|>None\n<|id|>221<|type|>title<|page|>22<|box|>172 367 189 630<|content|>SECRETARY'S CERTIFICATE",
+    "raw_response": "<|src_id|>75<|tgt_id|>72\n<|src_id|>115<|tgt_id|>113\n<|src_id|>218<|tgt_id|>216\n<|src_id|>219<|tgt_id|>216\n<|src_id|>220<|tgt_id|>216",
+    "parsed": [
+        {
+            "src_id": 75,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 218,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 216
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 216
+        }
+    ]
+}

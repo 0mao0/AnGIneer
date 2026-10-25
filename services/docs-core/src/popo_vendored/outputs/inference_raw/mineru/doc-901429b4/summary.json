@@ -1,0 +1,159 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-tfcsyu47\\input\\pdfs\\doc-901429b4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-tfcsyu47\\enriched\\doc-901429b4.json",
+    "contd_output": "<|src_id|>158<|tgt_id|>159",
+    "title_output": "<|id|>2<|level|>1\n<|id|>8<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>24<|level|>3\n<|id|>31<|level|>3\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>39<|level|>3\n<|id|>55<|level|>3\n<|id|>71<|level|>3\n<|id|>86<|level|>3\n<|id|>100<|level|>3\n<|id|>115<|level|>3\n<|id|>130<|level|>3\n<|id|>144<|level|>2\n<|id|>145<|level|>3\n<|id|>166<|level|>3\n<|id|>175<|level|>2\n<|id|>176<|level|>3\n<|id|>179<|level|>3\n<|id|>183<|level|>3\n<|id|>188<|level|>2\n<|id|>194<|level|>2\n<|id|>200<|level|>2\n<|id|>212<|level|>2",
+    "image_output": "<|src_id|>213<|tgt_id|>212\n<|src_id|>214<|tgt_id|>212",
+    "contd_label": [
+        {
+            "src_id": 158,
+            "tgt_id": 159
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 213,
+            "tgt_id": 212
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 212
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 213,
+            "table2_idx": 214,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Atlas Telecom Installations LLC",
+                    "Subcontractor",
+                    "Oct. 17, 2024",
+                    "Nov. 18, 2024",
+                    "Phases 1-2 / MS2, MS4, MS6, MS7",
+                    "Inside plant records; supply chain; downstream delay",
+                    "Pending compliance"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "8",
+                    "City of Stamford, CT — Dept. of Public Works",
+                    "Permitting Authority",
+                    "Oct. 17, 2024",
+                    "Nov. 25, 2024",
+                    "Phase 2 / MS5–MS7",
+                    "Permit applications; processing timelines; applicant identity",
+                    "Pending compliance"
+                ]
+            ]
+        }
+    ]
+}

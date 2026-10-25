@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 143 125 852<|content|>IN THE CIRCUIT COURT OF COOK COUNTY, ILLINOIS COUN\n<|id|>2<|page|>1<|box|>369 218 386 777<|content|>PLAINTIFF'S CASE MANAGEMENT CONFERENCE STATEMENT\n<|id|>4<|page|>1<|box|>561 140 579 308<|content|>I. INTRODUCTION\n<|id|>7<|page|>2<|box|>148 140 166 374<|content|>II. NATURE OF THE CASE\n<|id|>12<|page|>2<|box|>787 140 805 382<|content|>III. SUMMARY OF CLAIMS\n<|id|>14<|page|>3<|box|>90 140 107 694<|content|>A. Count I — Breach of Contract (Off-Take Agreemen\n<|id|>23<|page|>4<|box|>138 140 157 712<|content|>B. Count II — Breach of Personal Guaranty against\n<|id|>26<|page|>4<|box|>457 140 474 503<|content|>C. Count III — Account Stated against PBGC\n<|id|>29<|page|>4<|box|>666 140 683 637<|content|>D. Count IV — Unjust Enrichment (Alternative) agai\n<|id|>32<|page|>4<|box|>864 142 882 352<|content|>IV. DAMAGES SOUGHT\n<|id|>42<|page|>5<|box|>486 140 503 380<|content|>V. STATUS OF PLEADINGS\n<|id|>44<|page|>5<|box|>566 142 583 308<|content|>B. Service of Process\n<|id|>49<|page|>5<|box|>741 140 758 429<|content|>C. Answer and Affirmative Defenses\n<|id|>51<|page|>6<|box|>157 140 175 681<|content|>D. Motion to Strike Affirmative Defenses and Augus\n<|id|>59<|page|>7<|box|>90 140 107 488<|content|>E. No Counterclaims or Third-Party Claims\n<|id|>61<|page|>7<|box|>172 142 189 390<|content|>VI. PARTIES AND COUNSEL\n<|id|>75<|page|>7<|box|>566 140 583 334<|content|>VII. RELATED CASES\n<|id|>78<|page|>8<|box|>89 140 106 602<|content|>VIII. PROPOSED DISCOVERY PLAN AND SCHEDULE\n<|id|>79<|page|>8<|box|>121 140 138 310<|content|>A. Written discovery\n<|id|>95<|page|>9<|box|>263 140 282 303<|content|>C. Expert discovery\n<|id|>98<|page|>10<|box|>90 142 107 316<|content|>D. Proposed Schedule\n<|id|>101<|page|>10<|box|>474 140 489 687<|content|>IX. SETTLEMENT AND ALTERNATIVE DISPUTE RESOLUTION\n<|id|>110<|page|>11<|box|>339 140 357 450<|content|>X. ESTIMATED LENGTH OF TRIAL\n<|id|>113<|page|>11<|box|>561 140 578 617<|content|>XI. OTHER MATTERS FOR THE COURT'S ATTENTION\n<|id|>122<|page|>12<|box|>637 142 654 307<|content|>XII. CONCLUSION\n<|id|>125<|page|>12<|box|>840 140 858 609<|content|>GREENFIELD AGRICULTURAL PARTNERS LLC, Plaintiff,",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>3\n<|id|>23<|level|>3\n<|id|>26<|level|>3\n<|id|>29<|level|>3\n<|id|>32<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>3\n<|id|>59<|level|>3\n<|id|>61<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>95<|level|>3\n<|id|>98<|level|>3\n<|id|>101<|level|>2\n<|id|>110<|level|>2\n<|id|>113<|level|>2\n<|id|>122<|level|>2\n<|id|>125<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        }
+    ]
+}

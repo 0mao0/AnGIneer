@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 424 128 573<|content|>MEMORANDUM\n<|id|>7<|type|>title<|page|>1<|box|>306 321 325 674<|content|>I. Purpose and Executive Summary\n<|id|>20<|type|>title<|page|>2<|box|>646 267 666 728<|content|>II. Background on the Permitting Proceedings\n<|id|>22<|type|>title<|page|>2<|box|>743 140 760 388<|content|>A. PSD Air Permit Application\n<|id|>30<|type|>title<|page|>3<|box|>828 140 845 380<|content|>B. NPDES Permit Application\n<|id|>37<|type|>table<|page|>4<|box|>550 143 767 852<|content|>None\n<|id|>40<|type|>title<|page|>5<|box|>267 140 284 431<|content|>C. Local Approvals Already in Place\n<|id|>42<|type|>title<|page|>5<|box|>484 163 505 831<|content|>III. Summary and Analysis of Public Comments — PSD\n<|id|>44<|type|>title<|page|>5<|box|>599 140 617 709<|content|>A. Comment 1: Neighboring Landowner — Particulate\n<|id|>52<|type|>title<|page|>6<|box|>801 140 819 604<|content|>B. Comment 2: Neighboring Landowner — Odor Concern\n<|id|>62<|type|>title<|page|>8<|box|>431 140 468 841<|content|>C. Comment 3: Heartland Environmental Alliance (HE\n<|id|>65<|type|>title<|page|>8<|box|>766 140 782 295<|content|>Analysis — BACT.\n<|id|>72<|type|>title<|page|>10<|box|>90 142 107 428<|content|>Analysis — Public Hearing Request.\n<|id|>85<|type|>title<|page|>11<|box|>378 140 414 785<|content|>D. Comment 4: Muscatine County Soil & Water Conser\n<|id|>95<|type|>title<|page|>12<|box|>625 168 643 828<|content|>IV. Summary and Analysis of Public Comments — NPDE\n<|id|>97<|type|>title<|page|>12<|box|>739 140 773 805<|content|>A. Comment 5: Heartland Environmental Alliance (HE\n<|id|>100<|type|>title<|page|>13<|box|>190 140 207 220<|content|>Analysis.\n<|id|>110<|type|>title<|page|>14<|box|>619 140 655 831<|content|>B. Comment 6: Prairie Farmers Coalition (PFC) — Sw\n<|id|>126<|type|>title<|page|>16<|box|>534 248 554 748<|content|>V. Consolidated Recommended Response Strategy\n<|id|>127<|type|>title<|page|>16<|box|>579 142 595 426<|content|>A. Response Priorities and Timeline\n<|id|>128<|type|>table<|page|>16<|box|>646 143 898 852<|content|>None\n<|id|>129<|type|>table<|page|>17<|box|>88 143 243 852<|content|>None\n<|id|>131<|type|>title<|page|>17<|box|>354 142 372 493<|content|>B. Coordination with Client and Consultants\n<|id|>138<|type|>title<|page|>18<|box|>204 140 222 428<|content|>C. Public Hearing Recommendation\n<|id|>145<|type|>title<|page|>19<|box|>167 140 185 325<|content|>D. Tone and Approach\n<|id|>151<|type|>title<|page|>19<|box|>672 336 691 660<|content|>VI. Action Items and Next Steps\n<|id|>162<|type|>title<|page|>20<|box|>563 330 582 668<|content|>VII. Attachments / Reference List",
+    "raw_response": "<|src_id|>37<|tgt_id|>30\n<|src_id|>128<|tgt_id|>127\n<|src_id|>129<|tgt_id|>127",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 127
+        }
+    ]
+}

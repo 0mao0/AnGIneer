@@ -1,0 +1,59 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 104 633<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>1<|type|>title<|page|>1<|box|>112 271 128 725<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>7<|type|>title<|page|>1<|box|>304 142 321 238<|content|>Dear David:\n<|id|>9<|type|>title<|page|>1<|box|>463 142 479 437<|content|>1. Confirmation of Successful Closing\n<|id|>23<|type|>table<|page|>2<|box|>327 143 393 852<|content|>None\n<|id|>26<|type|>title<|page|>2<|box|>660 142 676 560<|content|>2. Use of Proceeds and Existing Credit Facility Pa\n<|id|>28<|type|>table<|page|>2<|box|>746 143 904 852<|content|>None\n<|id|>29<|type|>table<|page|>3<|box|>88 143 161 852<|content|>None\n<|id|>33<|type|>title<|page|>3<|box|>691 140 707 449<|content|>3. Summary of Key Terms of the Notes\n<|id|>44<|type|>title<|page|>5<|box|>90 140 107 416<|content|>3.1 Optional Redemption Schedule\n<|id|>46<|type|>table<|page|>5<|box|>193 143 268 852<|content|>None\n<|id|>48<|type|>title<|page|>5<|box|>388 140 405 310<|content|>3.2 Equity Clawback\n<|id|>53<|type|>title<|page|>5<|box|>684 140 702 321<|content|>3.3 Change of Control\n<|id|>56<|type|>title<|page|>6<|box|>186 140 204 687<|content|>4. Ongoing Obligations Under the Indenture — Incur\n<|id|>59<|type|>title<|page|>6<|box|>434 140 450 405<|content|>4.1 Fixed Charge Coverage Ratio\n<|id|>63<|type|>title<|page|>7<|box|>90 140 107 444<|content|>4.2 Limitation on Restricted Payments\n<|id|>75<|type|>title<|page|>7<|box|>768 140 787 388<|content|>4.3 Limitation on Indebtedness\n<|id|>85<|type|>title<|page|>8<|box|>441 140 458 330<|content|>4.4 Limitation on Liens\n<|id|>88<|type|>title<|page|>8<|box|>667 140 684 334<|content|>4.5 Asset Sale Covenant\n<|id|>95<|type|>title<|page|>9<|box|>220 140 238 348<|content|>4.6 Reporting Obligations\n<|id|>101<|type|>title<|page|>9<|box|>736 140 753 651<|content|>5. Ongoing Obligations Under the Registration Righ\n<|id|>103<|type|>title<|page|>9<|box|>848 140 864 475<|content|>5.1 Registration Statement Filing Deadline\n<|id|>108<|type|>title<|page|>10<|box|>429 140 446 475<|content|>5.2 Exchange Offer Effectiveness Deadline\n<|id|>111<|type|>title<|page|>10<|box|>601 140 618 485<|content|>5.3 Additional Interest for Non-Compliance\n<|id|>116<|type|>table<|page|>10<|box|>844 143 901 852<|content|>None\n<|id|>117<|type|>table<|page|>11<|box|>88 143 109 852<|content|>None\n<|id|>119<|type|>title<|page|>11<|box|>220 142 237 321<|content|>6. Key Dates Calendar\n<|id|>121<|type|>table<|page|>11<|box|>325 143 729 852<|content|>None\n<|id|>122<|type|>title<|page|>11<|box|>779 140 795 465<|content|>7. Trustee and Paying Agent Information\n<|id|>124<|type|>title<|page|>11<|box|>849 140 867 650<|content|>Indenture Trustee, Registrar, Paying Agent, and Tr\n<|id|>129<|type|>title<|page|>12<|box|>347 140 364 357<|content|>8. Enclosed Closing Binder\n<|id|>152<|type|>title<|page|>13<|box|>207 140 224 313<|content|>9. Post-Closing Items\n<|id|>158<|type|>title<|page|>13<|box|>597 143 614 236<|content|>10. Ratings\n<|id|>160<|type|>table<|page|>13<|box|>646 143 704 852<|content|>None\n<|id|>162<|type|>title<|page|>14<|box|>90 140 107 444<|content|>11. Continuing Availability of Counsel",
+    "raw_response": "<|src_id|>23<|tgt_id|>9\n<|src_id|>28<|tgt_id|>26\n<|src_id|>29<|tgt_id|>26\n<|src_id|>46<|tgt_id|>44\n<|src_id|>116<|tgt_id|>111\n<|src_id|>117<|tgt_id|>111\n<|src_id|>121<|tgt_id|>119\n<|src_id|>160<|tgt_id|>158",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 158
+        }
+    ]
+}

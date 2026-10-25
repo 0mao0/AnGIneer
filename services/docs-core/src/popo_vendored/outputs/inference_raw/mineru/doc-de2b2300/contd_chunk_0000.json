@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        55
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        28,
+        29,
+        54
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>176 377 194 619<|content|>A Delaware Limited Partnership\n<|id|>5<|page|>1<|box|>229 390 246 607<|content|>Limited Partnership Interests\n<|id|>4<|page|>1<|box|>203 439 219 558<|content|>$2,000,000,000\n<|id|>6<|page|>1<|box|>253 447 272 550<|content|>May 1, 2025\n<|id|>7<|page|>1<|box|>280 325 299 673<|content|>Target Fund Size: ... $2,000,000,000 (Hard Cap)\n<|id|>8<|page|>1<|box|>306 187 324 810<|content|>Minimum LP Commitment: ... $10,000,000 (subject to waiver by the General Partner)\n<|id|>9<|page|>1<|box|>332 140 349 772<|content|>General Partner: ... Harrowgate Fund V GP LLC, a Delaware limited liability company\n<|id|>10<|page|>1<|box|>358 140 430 854<|content|>Sponsor / Investment Adviser: ... 298417)\n<|id|>11<|page|>1<|box|>439 140 474 852<|content|>Fund Counsel: ... Calderwood & Harkness LLP, 400 S...y Asset Advisors, Suite 3000, Wilmington, DE 19801\n<|id|>12<|page|>1<|box|>483 140 518 852<|content|>Placement Agent: ... Osprey Capital Markets LLC, 599 Lexington Avenue, 35th Floor, New York, NY 10022\n<|id|>13<|page|>1<|box|>527 140 655 854<|content|>The limited partnership interests (the \"Interests\"... in Section 2(a)(51) of the Investment Company Act\n<|id|>70<|page|>7<|box|>837 140 892 854<|content|>HCP is registered with the U. ... The firm's Form ...s available on the SEC's Investment Adviser Public\n<|id|>71<|page|>8<|box|>90 140 126 854<|content|>Disclosure website (www. ... gov) and is incorporated by reference into this Memorandum\n<|id|>304<|page|>28<|box|>847 140 883 857<|content|>Any disputes arising under or in connection with t...ncery. ... In the event that the Delaware Court of\n<|id|>305<|page|>29<|box|>89 140 126 854<|content|>Chancery does not have subject matter jurisdiction... Court of the State of Delaware, New Castle County\n<|id|>603<|page|>54<|box|>282 174 318 854<|content|>Rachel M. ... (302) 555-7400\n<|id|>604<|page|>54<|box|>325 174 343 480<|content|>Email: ... com\n<|id|>605<|page|>54<|box|>344 140 361 535<|content|>Osprey Capital Markets LLC — Placement Agent\n<|id|>606<|page|>54<|box|>369 174 405 854<|content|>Sandra J. ... (212) 555-9210\n<|id|>607<|page|>54<|box|>414 176 431 434<|content|>Email: ... com",
+    "raw_response": "<|src_id|>70<|tgt_id|>71\n<|src_id|>304<|tgt_id|>305",
+    "parsed": [
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 304,
+            "tgt_id": 305
+        }
+    ]
+}

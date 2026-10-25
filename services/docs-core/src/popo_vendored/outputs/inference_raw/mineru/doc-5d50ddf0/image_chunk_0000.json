@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>12<|type|>title<|page|>1<|box|>744 142 762 323<|content|>1. Scope of IDR No. 18\n<|id|>15<|type|>title<|page|>2<|box|>340 140 357 444<|content|>2. Description of Documents Produced\n<|id|>16<|type|>title<|page|>2<|box|>371 140 388 486<|content|>2.1 Overview of PBI's Distribution Network\n<|id|>29<|type|>title<|page|>3<|box|>611 140 628 607<|content|>2.2 Key Product Lines Covered by Distribution Agre\n<|id|>36<|type|>title<|page|>4<|box|>338 140 354 447<|content|>2.3 Categories of Documents Produced\n<|id|>45<|type|>title<|page|>6<|box|>340 140 358 403<|content|>2.4 Document Production Details\n<|id|>50<|type|>title<|page|>7<|box|>90 140 107 743<|content|>3. Relevance to PBI's Economic Substance and Indep\n<|id|>62<|type|>title<|page|>9<|box|>90 140 107 542<|content|>4. Relationship to PPC's Transfer Pricing Position\n<|id|>65<|type|>table<|page|>9<|box|>385 143 479 852<|content|>None\n<|id|>70<|type|>title<|page|>10<|box|>321 140 339 439<|content|>5. Reservation of Rights and Privilege\n<|id|>74<|type|>title<|page|>10<|box|>825 140 842 455<|content|>6. Contact Information and Availability\n<|id|>86<|type|>title<|page|>11<|box|>569 140 585 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>92<|type|>title<|page|>11<|box|>791 142 808 238<|content|>Enclosures:\n<|id|>95<|type|>title<|page|>12<|box|>89 140 107 233<|content|>Reference:",
+    "raw_response": "<|src_id|>65<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 65,
+            "tgt_id": 62
+        }
+    ]
+}

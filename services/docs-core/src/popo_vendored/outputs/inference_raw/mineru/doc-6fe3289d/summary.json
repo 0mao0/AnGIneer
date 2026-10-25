@@ -1,0 +1,115 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ohf03l0j\\input\\pdfs\\doc-6fe3289d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ohf03l0j\\enriched\\doc-6fe3289d.json",
+    "contd_output": "<|src_id|>9<|tgt_id|>10\n<|src_id|>56<|tgt_id|>58",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>6<|level|>1\n<|id|>11<|level|>2\n<|id|>17<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>52<|level|>3\n<|id|>53<|level|>4\n<|id|>66<|level|>5\n<|id|>91<|level|>3\n<|id|>104<|level|>2\n<|id|>116<|level|>2\n<|id|>122<|level|>2",
+    "image_output": "<|src_id|>13<|tgt_id|>11\n<|src_id|>14<|tgt_id|>11\n<|src_id|>15<|tgt_id|>11\n<|src_id|>16<|tgt_id|>11\n<|src_id|>99<|tgt_id|>91",
+    "contd_label": [
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 58
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 5
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 91
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 13,
+            "table2_idx": 14,
+            "upper_row_ss": [
+                [
+                    "EBC I, Inc. v. Pinnacle National Bank, 5 N.Y.3d 11 (2005)",
+                    "27"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Tidewater Systems Enters., Inc. v. Bimbo Foods Bakeries Distrib., LLC, 198 A.D.3d 489 (1st Dep't 2021)",
+                    "10, 12"
+                ]
+            ]
+        }
+    ]
+}

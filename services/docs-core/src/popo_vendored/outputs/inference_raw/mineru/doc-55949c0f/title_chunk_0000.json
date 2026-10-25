@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        18,
+        20,
+        21,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 285 125 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>8<|page|>1<|box|>324 142 359 852<|content|>MEMORANDUM OF POINTS AND AUTHORITIES IN SUPPORT OF\n<|id|>17<|page|>1<|box|>632 398 648 598<|content|>TABLE OF CONTENTS\n<|id|>21<|page|>2<|box|>526 385 542 612<|content|>TABLE OF AUTHORITIES\n<|id|>25<|page|>3<|box|>297 143 311 210<|content|>Statutes\n<|id|>27<|page|>3<|box|>547 143 564 292<|content|>Secondary Sources\n<|id|>29<|page|>3<|box|>720 143 738 308<|content|>I. INTRODUCTION\n<|id|>41<|page|>5<|box|>329 140 345 379<|content|>II. STATEMENT OF FACTS\n<|id|>42<|page|>5<|box|>361 142 378 581<|content|>A. Lumos Analytics Inc. and Its Proprietary Techno\n<|id|>51<|page|>6<|box|>681 140 699 712<|content|>B. The Individual Defendants and Their Access to L\n<|id|>57<|page|>7<|box|>527 140 545 550<|content|>C. The PIIAA and Restrictive Covenant Obligations\n<|id|>65<|page|>8<|box|>356 140 373 625<|content|>D. The Coordinated Departures and Formation of Nov\n<|id|>76<|page|>9<|box|>138 140 156 542<|content|>E. Evidence of Exfiltration of Lumos Trade Secrets\n<|id|>85<|page|>10<|box|>527 140 546 491<|content|>F. NovaSpark's Directly Competing Product\n<|id|>89<|page|>11<|box|>186 140 203 643<|content|>III. LEGAL STANDARD FOR PRELIMINARY INJUNCTION\n<|id|>94<|page|>11<|box|>733 142 750 285<|content|>IV. ARGUMENT\n<|id|>95<|page|>11<|box|>763 140 781 483<|content|>A. Lumos Is Likely to Prevail on the Merits\n<|id|>98<|page|>12<|box|>205 140 222 640<|content|>##### a. Lumos's Information Constitutes Protectab\n<|id|>114<|page|>14<|box|>277 140 295 591<|content|>##### b. Defendants Misappropriated Lumos's Trade\n<|id|>147<|page|>18<|box|>570 140 587 712<|content|>B. Lumos Will Suffer Irreparable Harm Absent a Pre\n<|id|>157<|page|>20<|box|>375 140 391 630<|content|>C. The Balance of Hardships Tips Decidedly in Lumo\n<|id|>165<|page|>21<|box|>184 140 200 679<|content|>D. The Public Interest Supports Issuance of a Prel\n<|id|>170<|page|>21<|box|>655 140 672 513<|content|>V. THE REQUESTED INJUNCTIVE RELIEF\n<|id|>185<|page|>23<|box|>303 140 320 300<|content|>VI. CONCLUSION\n<|id|>190<|page|>23<|box|>633 140 650 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>196<|page|>23<|box|>753 406 768 589<|content|>PROOF OF SERVICE\n<|id|>197<|page|>23<|box|>779 140 796 625<|content|>STATE OF CALIFORNIA, COUNTY OF SAN FRANCISCO\n<|id|>198<|page|>23<|box|>805 140 821 421<|content|>I, the undersigned, declare as follows:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>17<|level|>1\n<|id|>21<|level|>1\n<|id|>25<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>1\n<|id|>41<|level|>1\n<|id|>42<|level|>2\n<|id|>51<|level|>2\n<|id|>57<|level|>2\n<|id|>65<|level|>2\n<|id|>76<|level|>2\n<|id|>85<|level|>2\n<|id|>89<|level|>1\n<|id|>94<|level|>1\n<|id|>95<|level|>2\n<|id|>98<|level|>3\n<|id|>114<|level|>3\n<|id|>147<|level|>2\n<|id|>157<|level|>2\n<|id|>165<|level|>2\n<|id|>170<|level|>1\n<|id|>185<|level|>1\n<|id|>190<|level|>-1\n<|id|>196<|level|>1\n<|id|>197<|level|>-1\n<|id|>198<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 1
+        },
+        {
+            "id": 185,
+            "level": 1
+        },
+        {
+            "id": 196,
+            "level": 1
+        }
+    ]
+}

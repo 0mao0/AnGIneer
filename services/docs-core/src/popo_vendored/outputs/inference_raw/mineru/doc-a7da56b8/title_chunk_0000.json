@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        19
+    ],
+    "pages": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>89 436 111 562<|content|>EXHIBIT E\n<|id|>1<|page|>2<|box|>128 171 164 826<|content|>Declarations of Patricia Navarrete, Chief Financia\n<|id|>9<|page|>2<|box|>387 307 404 689<|content|>DECLARATION OF PATRICIA NAVARRETE\n<|id|>11<|page|>2<|box|>459 142 476 405<|content|>I. Introduction and Identification\n<|id|>15<|page|>2<|box|>753 142 771 500<|content|>II. Professional Background and Role at BRB\n<|id|>23<|page|>4<|box|>90 140 107 573<|content|>III. Overview of BridgeFin Division and Loan Portf\n<|id|>28<|page|>4<|box|>661 140 678 704<|content|>IV. Allowance for Credit Losses — Good-Faith Basis\n<|id|>36<|page|>6<|box|>90 140 107 594<|content|>V. Re-Aged / Modified Loans — Treatment and Ration\n<|id|>43<|page|>7<|box|>251 140 268 517<|content|>VI. Internal Controls Over Financial Reporting\n<|id|>53<|page|>8<|box|>503 140 521 477<|content|>VII. Interaction with Independent Auditor\n<|id|>57<|page|>9<|box|>138 140 157 473<|content|>VIII. Voluntary Disclosure Enhancements\n<|id|>61<|page|>9<|box|>580 140 598 330<|content|>IX. Absence of Scienter\n<|id|>65<|page|>10<|box|>138 140 156 261<|content|>X. Conclusion.\n<|id|>71<|page|>10<|box|>502 346 518 651<|content|>DECLARATION OF RAYMOND HU\n<|id|>72<|page|>10<|box|>527 220 563 774<|content|>In the Matter of: BELMONT RIDGE BANK NATIONAL ASSO\n<|id|>73<|page|>10<|box|>574 140 590 405<|content|>I. Introduction and Identification\n<|id|>77<|page|>11<|box|>90 140 107 500<|content|>II. Professional Background and Role at BRB\n<|id|>83<|page|>11<|box|>753 140 770 549<|content|>III. CECL Model Development and Implementation\n<|id|>89<|page|>12<|box|>766 140 782 633<|content|>IV. Quarterly ACL Estimation Process — Detailed De\n<|id|>98<|page|>14<|box|>239 140 255 480<|content|>V. Treatment of Re-Aged / Modified Loans\n<|id|>106<|page|>15<|box|>470 140 488 459<|content|>VI. Good-Faith Basis for Reported ACL\n<|id|>111<|page|>16<|box|>359 142 377 526<|content|>VII. Communications with Whitfield Keane LLP\n<|id|>116<|page|>17<|box|>90 140 107 529<|content|>VIII. Internal Controls Over Financial Reporting\n<|id|>123<|page|>17<|box|>816 142 834 383<|content|>IX. OCC Supervisory Context\n<|id|>128<|page|>18<|box|>491 140 508 599<|content|>X. Subsequent Developments — Improving Credit Metr\n<|id|>132<|page|>19<|box|>90 142 106 328<|content|>XI. Absence of Scienter\n<|id|>136<|page|>19<|box|>476 142 493 274<|content|>XII. Conclusion.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>11<|level|>3\n<|id|>15<|level|>3\n<|id|>23<|level|>3\n<|id|>28<|level|>3\n<|id|>36<|level|>3\n<|id|>43<|level|>3\n<|id|>53<|level|>3\n<|id|>57<|level|>3\n<|id|>61<|level|>3\n<|id|>65<|level|>3\n<|id|>71<|level|>2\n<|id|>72<|level|>-1\n<|id|>73<|level|>3\n<|id|>77<|level|>3\n<|id|>83<|level|>3\n<|id|>89<|level|>3\n<|id|>98<|level|>3\n<|id|>106<|level|>3\n<|id|>111<|level|>3\n<|id|>116<|level|>3\n<|id|>123<|level|>3\n<|id|>128<|level|>3\n<|id|>132<|level|>3\n<|id|>136<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 6,
+    "range": [
+        300,
+        302
+    ],
+    "pages": [
+        300,
+        301,
+        302
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>5146<|type|>table<|page|>300<|box|>128 99 671 875<|content|>None\n<|id|>5147<|type|>title<|page|>301<|box|>207 410 233 579<|content|>F 分布表\n<|id|>5150<|type|>table<|page|>301<|box|>319 107 916 884<|content|>None\n<|id|>5152<|type|>table<|page|>302<|box|>152 90 844 865<|content|>None",
+    "raw_response": "<|src_id|>5150<|tgt_id|>5147\n<|src_id|>5152<|tgt_id|>5147",
+    "parsed": [
+        {
+            "src_id": 5150,
+            "tgt_id": 5147
+        },
+        {
+            "src_id": 5152,
+            "tgt_id": 5147
+        }
+    ]
+}

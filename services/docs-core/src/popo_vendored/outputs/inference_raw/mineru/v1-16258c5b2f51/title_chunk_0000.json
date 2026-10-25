@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 310<|content|>【754897#24】汶川大地震\n<|id|>2<|page|>1<|box|>175 105 190 275<|content|>【160397#16】汶川县\n<|id|>4<|page|>1<|box|>292 107 309 389<|content|>【937828#2】卧龙国家级自然保护区\n<|id|>6<|page|>1<|box|>428 107 444 292<|content|>【3888409#0】绵阳北站\n<|id|>8<|page|>1<|box|>512 105 527 310<|content|>【754897#25】汶川大地震\n<|id|>10<|page|>1<|box|>613 107 629 284<|content|>【3015#7】特别行政区\n<|id|>14<|page|>1<|box|>797 107 813 265<|content|>【160397#6】汶川县\n<|id|>16<|page|>2<|box|>99 105 117 381<|content|>【7645093#1】业余无线电应急通信\n<|id|>18<|page|>2<|box|>184 107 200 381<|content|>【569816#11】中国铁路成都局集团",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>3\n<|id|>6<|level|>2\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>14<|level|>2\n<|id|>16<|level|>1\n<|id|>18<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        }
+    ]
+}

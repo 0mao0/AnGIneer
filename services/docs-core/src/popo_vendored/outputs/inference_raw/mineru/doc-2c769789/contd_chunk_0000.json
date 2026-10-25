@@ -1,0 +1,43 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>180 143 234 852<|content|>Issued in connection with the Purchase and Sale Ag...cond Amendment dated May 28, 2024), by and between\n<|id|>3<|page|>1<|box|>243 290 260 707<|content|>Greystone Meridian Partners Fund III, L. ... (\"Seller\")\n<|id|>4<|page|>1<|box|>268 483 285 516<|content|>and\n<|id|>5<|page|>1<|box|>294 305 311 692<|content|>Fairwater Real Estate Investment Trust (\"Buyer\")\n<|id|>6<|page|>1<|box|>320 596 337 854<|content|>Date of Declaration: ... June 6, 2024\n<|id|>7<|page|>1<|box|>345 140 363 805<|content|>Declarant: ... Fairwater Real Estate Investment Trust, a Maryland real estate investment trust\n<|id|>8<|page|>1<|box|>372 140 388 792<|content|>Declarant Address: ... 7200 Chesapeake Parkway, Suite 1100, Columbia, Maryland 21044\n<|id|>9<|page|>1<|box|>398 142 416 519<|content|>Addressee: ... Sentinel Specialty Insurance Company\n<|id|>10<|page|>1<|box|>424 140 460 854<|content|>Addressee Address: ... c/o Sentinel Specialty Insu...rplus lines address — to be specified by Sentinel]\n<|id|>11<|page|>1<|box|>468 140 503 852<|content|>Broker: ... Peter Langford, Account Executive\n<|id|>29<|page|>2<|box|>305 178 321 679<|content|>13. ... and\n<|id|>31<|page|>2<|box|>344 140 398 854<|content|>A complete listing of the Target Entities, includi...tached hereto and incorporated herein by reference\n<|id|>35<|page|>2<|box|>612 174 631 836<|content|>(ii) Veltrano Capital Lending Corp. ... and\n<|id|>37<|page|>2<|box|>664 140 720 854<|content|>A summary of the Assumed Debt is set forth on Exhi...before giving effect to the PCA Credit adjustment)\n<|id|>43<|page|>3<|box|>281 176 297 534<|content|>Carrier: ... Sentinel Specialty Insurance Company\n<|id|>44<|page|>3<|box|>306 176 324 661<|content|>Policy Type: ... Buyer-side representations and warranties insurance\n<|id|>45<|page|>3<|box|>332 174 367 856<|content|>Policy Limit: ... Fifty-Five Million Dollars ($55,...presenting five percent (5%) of the Purchase Price\n<|id|>46<|page|>3<|box|>376 174 467 856<|content|>Retention (Self-Insured Retention): ... , June 6, 2025) (the \"Retention Step-Down\")\n<|id|>47<|page|>3<|box|>474 176 512 852<|content|>Premium: ... 55% of the Policy Limit, payable by the Buyer at closing\n<|id|>48<|page|>3<|box|>518 176 555 854<|content|>Broker: ... Peter Langford, Account Executive\n<|id|>49<|page|>3<|box|>563 176 580 705<|content|>Binding Date: ... The Policy is bound as of the Closing Date, June 6, 2024\n<|id|>59<|page|>4<|box|>375 176 391 663<|content|>(b) Leah Torrance, Senior Vice President, Asset Management; ... and\n<|id|>61<|page|>4<|box|>425 140 553 856<|content|>For purposes of this Declaration, \"reasonable inqu...al's duties and responsibilities. ... 1 of the PSA\n<|id|>84<|page|>6<|box|>828 210 845 763<|content|>(iii) Lakeland Crossings Industrial (GMP Lakeland LLC) — $380,000; ... and\n<|id|>86<|page|>7<|box|>89 174 143 854<|content|>A PCA Credit in the amount of One Million Seventy ...Price, as reflected in the Adjusted Purchase Price\n<|id|>102<|page|>8<|box|>828 174 883 854<|content|>(b) Sycamore Life Insurance Company — Consent to T...embership interests in GMP Fairfield I LLC and GMP\n<|id|>103<|page|>9<|box|>90 174 126 854<|content|>Fairfield II LLC (the two logistics property Targe...et Entities subject to the Sycamore Life facility)\n<|id|>138<|page|>12<|box|>107 140 138 854<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST, a Maryland real estate investment trust\n<|id|>139<|page|>12<|box|>142 143 157 253<|content|>By: ... By\n<|id|>140<|page|>12<|box|>157 142 174 338<|content|>Name: ... Marcus Devereaux\n<|id|>141<|page|>12<|box|>174 142 191 473<|content|>Title: ... Executive Vice President, Acquisitions\n<|id|>142<|page|>12<|box|>191 142 209 285<|content|>Date: ... June 6, 2024",
+    "raw_response": "<|src_id|>2<|tgt_id|>3\n<|src_id|>3<|tgt_id|>4\n<|src_id|>4<|tgt_id|>5\n<|src_id|>84<|tgt_id|>86\n<|src_id|>102<|tgt_id|>103",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 103
+        }
+    ]
+}

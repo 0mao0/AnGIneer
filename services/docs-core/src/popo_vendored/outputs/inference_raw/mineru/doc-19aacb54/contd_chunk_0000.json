@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        35
+    ],
+    "pages": [
+        1,
+        13,
+        21,
+        22,
+        23,
+        33,
+        35
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>248 140 266 836<|content|>FROM: ... Sylvia Hartwell, Specialist Partner, Tax Practice Group, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>273 140 327 854<|content|>TO: ... Douglas Fairchild, Responsible Partner, Re..., Lead Associate Grace Nakamura, Working Associate\n<|id|>5<|page|>1<|box|>335 140 354 325<|content|>DATE: ... January 8, 2026\n<|id|>6<|page|>1<|box|>362 140 380 777<|content|>RE: ... Federal and Maryland State Tax Structure — Harbor Point Development JV, LLC\n<|id|>7<|page|>1<|box|>388 140 424 854<|content|>MATTER: ... Fairwater Real Estate Investment Trust — Institutional JV Development (Harbor Point Towers)\n<|id|>8<|page|>1<|box|>431 140 468 854<|content|>OFFICE: ... Calderwood & Harkness LLP, 100 International Drive, Suite 2600, Baltimore, MD 21202\n<|id|>9<|page|>1<|box|>476 142 493 408<|content|>Right-click to update Table of Contents\n<|id|>118<|page|>13<|box|>760 174 796 854<|content|>(c) A distribution of money or other property by t... full redemption of the member's interest; ... and\n<|id|>120<|page|>13<|box|>849 140 902 856<|content|>Upon a revaluation, the JV's capital accounts are ...g built-in gain or built-in loss to another member\n<|id|>191<|page|>21<|box|>742 138 888 857<|content|>Fairwater's interest in HP JV is treated under the...l value of the JV's assets and should not threaten\n<|id|>192<|page|>22<|box|>90 140 126 854<|content|>Fairwater's compliance with the 75% threshold. ......n-real-estate assets should be monitored quarterly\n<|id|>200<|page|>22<|box|>833 140 906 857<|content|>If the JV sells the Harbor Point Towers project (o...Gain from a prohibited transaction is subject to a\n<|id|>201<|page|>23<|box|>90 140 127 854<|content|>100% tax, regardless of whether it is distributed ...revent REITs from operating as real estate dealers\n<|id|>299<|page|>33<|box|>545 140 595 854<|content|>Sylvia Hartwell Specialist Partner, Tax Practice G... Suite 2600 Baltimore, MD 21202 Telephone: ... com\n<|id|>302<|page|>35<|box|>621 140 728 854<|content|>This memorandum is intended solely as a summary of...prior written consent of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>191<|tgt_id|>192\n<|src_id|>200<|tgt_id|>201",
+    "parsed": [
+        {
+            "src_id": 191,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 200,
+            "tgt_id": 201
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>5<|type|>title<|page|>1<|box|>325 140 344 493<|content|>1. Purpose and Confirmation of Engagement\n<|id|>10<|type|>title<|page|>1<|box|>746 140 763 354<|content|>2. Scope of Representation\n<|id|>11<|type|>title<|page|>1<|box|>776 140 792 359<|content|>2.1 Transaction Documents\n<|id|>21<|type|>title<|page|>2<|box|>614 140 631 449<|content|>2.2 Specific Areas of Negotiation Focus\n<|id|>29<|type|>title<|page|>4<|box|>90 140 108 524<|content|>2.3 Coordination and Counterparty Engagement\n<|id|>33<|type|>title<|page|>4<|box|>453 140 470 351<|content|>2.4 Exclusions from Scope\n<|id|>41<|type|>title<|page|>4<|box|>837 140 854 313<|content|>3. Engagement Team\n<|id|>50<|type|>title<|page|>5<|box|>726 140 743 267<|content|>4. Billing Rates\n<|id|>52<|type|>table<|page|>5<|box|>794 143 907 852<|content|>None\n<|id|>56<|type|>title<|page|>6<|box|>325 140 343 267<|content|>5. Fee Estimate\n<|id|>67<|type|>title<|page|>7<|box|>150 140 167 240<|content|>6. Expenses\n<|id|>77<|type|>title<|page|>7<|box|>551 140 569 380<|content|>7. Billing and Payment Terms\n<|id|>87<|type|>title<|page|>8<|box|>148 140 167 431<|content|>8. Client Identification and Conflicts\n<|id|>96<|type|>title<|page|>8<|box|>654 140 671 284<|content|>9. Confidentiality\n<|id|>100<|type|>title<|page|>9<|box|>148 142 167 336<|content|>10. Document Retention\n<|id|>103<|type|>title<|page|>9<|box|>407 140 424 297<|content|>11. Governing Law\n<|id|>105<|type|>title<|page|>9<|box|>565 142 583 349<|content|>12. Limitation of Liability\n<|id|>108<|type|>title<|page|>9<|box|>786 140 804 393<|content|>13. Termination of Engagement\n<|id|>112<|type|>title<|page|>10<|box|>231 142 247 264<|content|>14. Acceptance\n<|id|>118<|type|>title<|page|>10<|box|>513 212 529 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>119<|type|>title<|page|>10<|box|>539 140 555 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>124<|type|>title<|page|>10<|box|>625 352 642 643<|content|>ACKNOWLEDGED AND AGREED",
+    "raw_response": "<|src_id|>52<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 52,
+            "tgt_id": 50
+        }
+    ]
+}

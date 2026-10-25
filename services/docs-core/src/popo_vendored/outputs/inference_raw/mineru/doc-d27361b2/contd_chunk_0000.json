@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        28
+    ],
+    "pages": [
+        5,
+        10,
+        11,
+        19,
+        20,
+        24,
+        26,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>40<|page|>5<|box|>234 174 289 854<|content|>(b) Two (2) pilot sizzle reels for \"Apex Endurance...han AMA's approved file-sharing platform); ... and\n<|id|>42<|page|>5<|box|>395 142 412 522<|content|>AMA contends that these transmissions constituted:... AMA contends that these transmissions constituted\n<|id|>99<|page|>10<|box|>787 174 898 857<|content|>(c) Plaintiff's Acknowledgment: ... \" The acknowledgment form was signed by\n<|id|>100<|page|>11<|box|>90 174 126 854<|content|>Plaintiff and retained in Plaintiff's personnel fi...ile maintained by AMA's Human Resources department\n<|id|>206<|page|>19<|box|>267 174 321 854<|content|>(iii) Identification of external transmissions of ...ding USB drives or other removable media); ... and\n<|id|>208<|page|>19<|box|>392 140 501 854<|content|>AMA will identify the specific IT security team me...AMA declines to disclose such details at this time\n<|id|>216<|page|>19<|box|>858 140 893 854<|content|>AMA contends that Plaintiff had a professional rel..., and that Plaintiff's transmission of proprietary\n<|id|>217<|page|>20<|box|>90 140 181 856<|content|>AMA materials to Halcyon Creek Productions LLC was...s a subject of ongoing investigation and discovery\n<|id|>265<|page|>24<|box|>89 174 143 854<|content|>(ii) AMA's senior leadership, including Plaintiff ...ng), and Jonathan Mercer (President, AMA); ... and\n<|id|>267<|page|>24<|box|>214 140 289 854<|content|>Key individuals with confirmed access to the show ...uested, subject to third-party privacy protections\n<|id|>291<|page|>26<|box|>89 218 106 537<|content|>• Policy Number: ... PMA-EPL-2022-00837\n<|id|>294<|page|>26<|box|>148 218 313 854<|content|>Coverage Status: ... and (iii) the restrictive cov...\"Employment Practices\" as defined under the Policy\n<|id|>292<|page|>26<|box|>109 218 126 508<|content|>• Self-Insured Retention: ... $5,000,000\n<|id|>293<|page|>26<|box|>128 218 147 470<|content|>• Aggregate Limit: ... $15,000,000\n<|id|>297<|page|>26<|box|>359 218 377 602<|content|>• Policy Number (Primary): ... RSI-DO-2022-04419\n<|id|>303<|page|>26<|box|>550 140 588 854<|content|>AMA's insurance broker is Kestrel Risk Advisors Lt..... One Broadgate, London EC2M 2QS, United Kingdom)\n<|id|>298<|page|>26<|box|>380 218 396 455<|content|>• Primary Limit: ... $10,000,000\n<|id|>300<|page|>26<|box|>419 218 435 594<|content|>• Policy Number (Excess): ... ARL-EX-2022-01102\n<|id|>301<|page|>26<|box|>439 218 455 447<|content|>• Excess Tower: ... $25,000,000\n<|id|>322<|page|>28<|box|>564 174 599 854<|content|>Cameron Whitfield, Esq. ... Whitfield & Associates...ulevard, Suite 320 Beverly Hills, California 90212\n<|id|>325<|page|>28<|box|>843 140 878 854<|content|>I declare under penalty of perjury under the laws ...e of California that the above is true and correct",
+    "raw_response": "<|src_id|>99<|tgt_id|>100\n<|src_id|>216<|tgt_id|>217",
+    "parsed": [
+        {
+            "src_id": 99,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 217
+        }
+    ]
+}

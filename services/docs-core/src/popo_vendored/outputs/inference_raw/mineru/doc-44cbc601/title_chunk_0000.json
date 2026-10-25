@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>99 406 118 589<|content|>JS 44 (Rev. 04/21)\n<|id|>1<|page|>1<|box|>137 377 156 620<|content|>CIVIL COVER SHEET\n<|id|>4<|page|>1<|box|>301 143 318 467<|content|>I. (a) PLAINTIFFS AND DEFENDANTS\n<|id|>6<|page|>1<|box|>526 140 542 830<|content|>NOTE: IN LAND CONDEMNATION CASES, USE THE LOCATION\n<|id|>8<|page|>1<|box|>628 142 645 669<|content|>I. (b) ATTORNEYS (Firm Name, Address, and Telephon\n<|id|>17<|page|>2<|box|>89 142 106 388<|content|>II. BASIS OF JURISDICTION\n<|id|>21<|page|>2<|box|>340 140 359 514<|content|>III. CITIZENSHIP OF PRINCIPAL PARTIES\n<|id|>29<|page|>3<|box|>89 142 106 330<|content|>IV. NATURE OF SUIT\n<|id|>30<|page|>3<|box|>114 142 133 379<|content|>(Place an\" X \"in One Box Only)\n<|id|>33<|page|>3<|box|>436 142 453 240<|content|>V. ORIGIN\n<|id|>37<|page|>3<|box|>800 142 816 344<|content|>VI. CAUSE OF ACTION\n<|id|>40<|page|>4<|box|>90 142 107 349<|content|>Brief description of cause:\n<|id|>42<|page|>4<|box|>339 140 356 437<|content|>VII. REQUESTED IN COMPLAINT\n<|id|>43<|page|>4<|box|>364 145 383 700<|content|>CHECK IF THIS IS A CLASS ACTION UNDER RULE 23, F.R\n<|id|>44<|page|>4<|box|>392 140 409 589<|content|>Class action status is not requested. This is not\n<|id|>45<|page|>4<|box|>417 142 434 250<|content|>DEMAND $:\n<|id|>47<|page|>4<|box|>633 140 651 589<|content|>CHECK YES ONLY IF DEMANDED IN COMPLAINT:\n<|id|>48<|page|>4<|box|>660 140 676 326<|content|>JURY DEMAND: Yes\n<|id|>50<|page|>4<|box|>744 142 762 418<|content|>VIII. RELATED CASE(S) IF ANY\n<|id|>55<|page|>6<|box|>89 142 106 504<|content|>SIGNATURE OF ATTORNEY OF RECORD\n<|id|>60<|page|>6<|box|>258 313 277 684<|content|>SUPPLEMENTAL INFORMATION\n<|id|>61<|page|>6<|box|>304 250 320 748<|content|>Northern District of California Local Form — Addit\n<|id|>63<|page|>6<|box|>372 143 388 318<|content|>1. Parties Information\n<|id|>64<|page|>6<|box|>395 142 412 218<|content|>Plaintiff:\n<|id|>66<|page|>6<|box|>612 142 628 235<|content|>Defendant:\n<|id|>68<|page|>6<|box|>834 142 849 261<|content|>2. Venue Basis\n<|id|>75<|page|>7<|box|>656 140 674 333<|content|>3. Nature of Proceeding\n<|id|>84<|page|>8<|box|>290 140 306 411<|content|>4. Identification of Patents-in-Suit\n<|id|>88<|page|>8<|box|>717 140 734 305<|content|>5. Accused Products\n<|id|>93<|page|>9<|box|>294 140 311 514<|content|>6. Assignment Request / Divisional Information\n<|id|>96<|page|>9<|box|>479 292 496 704<|content|>End of Civil Cover Sheet and Supplemental Informat",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>-1\n<|id|>8<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>29<|level|>2\n<|id|>30<|level|>-1\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>-1\n<|id|>42<|level|>2\n<|id|>43<|level|>-1\n<|id|>44<|level|>-1\n<|id|>45<|level|>3\n<|id|>47<|level|>-1\n<|id|>48<|level|>3\n<|id|>50<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>1\n<|id|>61<|level|>2\n<|id|>63<|level|>3\n<|id|>64<|level|>4\n<|id|>66<|level|>4\n<|id|>68<|level|>3\n<|id|>75<|level|>3\n<|id|>84<|level|>3\n<|id|>88<|level|>3\n<|id|>93<|level|>3\n<|id|>96<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 165 126 834<|content|>BELMONT RIDGE BANK NATIONAL ASSOCIATION A wholly o\n<|id|>8<|page|>1<|box|>352 140 369 236<|content|>Dear Philip:\n<|id|>10<|page|>1<|box|>621 140 637 388<|content|>Retainer Deposit Confirmation\n<|id|>13<|page|>2<|box|>186 140 204 295<|content|>Engagement Scope\n<|id|>18<|page|>2<|box|>825 140 842 524<|content|>Confirmation of Engagement Team Billing Rates\n<|id|>22<|page|>3<|box|>368 140 385 473<|content|>Authorized Contacts and Billing Inquiries\n<|id|>29<|page|>3<|box|>729 140 747 349<|content|>Request for Confirmation\n<|id|>31<|page|>4<|box|>89 140 108 209<|content|>Closing\n<|id|>40<|page|>4<|box|>579 140 592 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>-1\n<|id|>10<|level|>2\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>2\n<|id|>40<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        }
+    ]
+}

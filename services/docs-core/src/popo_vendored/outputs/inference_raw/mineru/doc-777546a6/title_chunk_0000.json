@@ -1,0 +1,70 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>329 142 345 477<|content|>1. Introduction and Purpose of This Letter\n<|id|>11<|page|>1<|box|>648 142 665 294<|content|>2. What Happened\n<|id|>17<|page|>2<|box|>476 140 493 419<|content|>3. What Information Was Involved\n<|id|>28<|page|>3<|box|>167 140 184 325<|content|>4. What We Are Doing\n<|id|>39<|page|>4<|box|>335 140 352 310<|content|>5. What You Can Do\n<|id|>66<|page|>6<|box|>473 140 489 733<|content|>6. Complimentary Credit Monitoring and Identity Th\n<|id|>75<|page|>7<|box|>214 140 232 573<|content|>Your Unique Activation Code: [ACTIVATION CODE]\n<|id|>79<|page|>7<|box|>444 140 460 341<|content|>7. For More Information\n<|id|>87<|page|>8<|box|>90 142 107 225<|content|>8. Closing\n<|id|>94<|page|>8<|box|>354 161 407 834<|content|>APPENDIX: INTERNAL DRAFTING NOTES PRIVILEGED & CON\n<|id|>100<|page|>8<|box|>549 140 565 468<|content|>Jurisdictional Customization Instructions\n<|id|>113<|page|>9<|box|>742 140 758 509<|content|>9. International Notifications — Coordination.",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>28<|level|>1\n<|id|>39<|level|>1\n<|id|>66<|level|>1\n<|id|>75<|level|>2\n<|id|>79<|level|>1\n<|id|>87<|level|>1\n<|id|>94<|level|>1\n<|id|>100<|level|>2\n<|id|>113<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 1
+        }
+    ]
+}

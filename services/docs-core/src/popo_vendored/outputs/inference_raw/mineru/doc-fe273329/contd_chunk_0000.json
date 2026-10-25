@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        12,
+        13,
+        17,
+        18,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>196 743 214 854<|content|>March 8, 2026\n<|id|>4<|page|>1<|box|>223 140 260 854<|content|>To: ... Fiona Hartwell, General Counsel, Aurelius ...Executive Officer, Aurelius Global Media Group PLC\n<|id|>5<|page|>1<|box|>268 140 285 761<|content|>From: ... Marcus Delgado, Partner, intellectual Property, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>294 140 329 854<|content|>Re: ... et al\n<|id|>7<|page|>1<|box|>338 142 354 331<|content|>Matter No. ... 1017-00003\n<|id|>8<|page|>1<|box|>363 140 400 854<|content|>Copies: ... Wendy Schultz (Lead Associate, C&H) — each copy marked \"Privileged and Confidential\"\n<|id|>9<|page|>1<|box|>407 140 424 408<|content|>Right-click to update Table of Contents\n<|id|>40<|page|>4<|box|>866 140 902 856<|content|>Contributory Copyright Infringement. ... MDD and O...gly induced, caused, and materially contributed to\n<|id|>41<|page|>5<|box|>90 140 162 854<|content|>StreamNow's direct infringement. ... MDD and Ogilv...t MDD had no authority to license Aurelius content\n<|id|>108<|page|>12<|box|>840 140 896 856<|content|>StreamNow's Potential \"Innocent Infringer\" Defense...ld therefore be treated as an \"innocent infringer\"\n<|id|>109<|page|>13<|box|>90 140 200 854<|content|>under 17 U. ... This factual development adds to the cost and complexity of litigation\n<|id|>150<|page|>17<|box|>859 140 895 856<|content|>StreamNow and Pinnacle Ventures Reputational Exposure. ... 101 California Street, Suite\n<|id|>151<|page|>18<|box|>90 140 237 856<|content|>3500, San Francisco, CA 94111), invested $145 mill... ongoing public attention of protracted litigation\n<|id|>185<|page|>21<|box|>715 142 732 321<|content|>Respectfully submitted,\n<|id|>186<|page|>21<|box|>733 140 750 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>187<|page|>21<|box|>751 143 768 253<|content|>By: ... By\n<|id|>188<|page|>21<|box|>768 140 800 852<|content|>Marcus Delgado Partner, intellectual Property Cald...es, California 90067 Telephone: ... (310) 555-7200\n<|id|>189<|page|>21<|box|>801 142 816 473<|content|>Email: ... com\n<|id|>190<|page|>21<|box|>819 142 834 320<|content|>Matter No. ... 1017-00003\n<|id|>191<|page|>21<|box|>834 140 911 854<|content|>CONFIDENTIALITY NOTICE: ... This memorandum and it...alderwood & Harkness LLP and Aurelius Global Media\n<|id|>192<|page|>22<|box|>89 140 119 854<|content|>Group PLC. ... If you have received this document ... & Harkness LLP immediately and destroy all copies",
+    "raw_response": "<|src_id|>40<|tgt_id|>41\n<|src_id|>108<|tgt_id|>109\n<|src_id|>150<|tgt_id|>151\n<|src_id|>191<|tgt_id|>192",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 191,
+            "tgt_id": 192
+        }
+    ]
+}

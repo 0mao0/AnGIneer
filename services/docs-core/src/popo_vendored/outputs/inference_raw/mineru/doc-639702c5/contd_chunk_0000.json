@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        9,
+        10,
+        26,
+        27,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>215 140 232 452<|content|>TO: ... Claudia Merritt, Responsible Partner\n<|id|>4<|page|>1<|box|>239 140 258 756<|content|>FROM: ... Megan Zhao, Senior Associate\n<|id|>5<|page|>1<|box|>266 140 284 344<|content|>DATE: ... November 3, 2023\n<|id|>6<|page|>1<|box|>292 140 328 854<|content|>RE: ... 2\n<|id|>7<|page|>1<|box|>335 140 354 362<|content|>MATTER NO. ... 1019-00003\n<|id|>8<|page|>1<|box|>362 140 380 421<|content|>CLIENT: ... Whitmore Aerospace LLC\n<|id|>9<|page|>1<|box|>388 142 405 408<|content|>Right-click to update Table of Contents\n<|id|>61<|page|>9<|box|>849 145 904 856<|content|>• Highlight the one-sided nature of the tradeoff analysis. ... The SSDD's failure to address\n<|id|>62<|page|>10<|box|>90 174 143 854<|content|>Whitmore's superiority under Factors 3(b) and 3(c)... — renders the analysis unreasonable and one-sided\n<|id|>200<|page|>26<|box|>739 174 794 854<|content|>(d) If the new source selection results in the sel...e of the Government and award to Whitmore; ... and\n<|id|>202<|page|>26<|box|>845 140 901 854<|content|>Fee Cap Status. ... If the matter proceeds to a he...ntly anticipate the need to request a cap increase\n<|id|>209<|page|>27<|box|>844 140 888 856<|content|>This memorandum reflects the preliminary analysis ... unredacted versions of AR Tabs 22, 23, and 28 (if\n<|id|>210<|page|>28<|box|>89 140 119 852<|content|>produced). ... This memorandum does not constitute...ular outcome and should not be relied upon as such\n<|id|>212<|page|>28<|box|>145 142 176 852<|content|>Lt. ... com\n<|id|>213<|page|>28<|box|>178 143 210 851<|content|>MEGAN ZHAO Senior Associate Calderwood & Harkness LLP Direct: ... com\n<|id|>214<|page|>28<|box|>210 140 239 852<|content|>cc: ... Lindgren, Associate (via secure internal d...icks, Associate (via secure internal distribution)",
+    "raw_response": "<|src_id|>61<|tgt_id|>62\n<|src_id|>209<|tgt_id|>210",
+    "parsed": [
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 209,
+            "tgt_id": 210
+        }
+    ]
+}

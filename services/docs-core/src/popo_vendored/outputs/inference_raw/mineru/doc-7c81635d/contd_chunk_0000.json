@@ -1,0 +1,50 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        29
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        12,
+        13,
+        16,
+        17,
+        23,
+        24,
+        28,
+        29
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>160 751 176 854<|content|>July 28, 2022\n<|id|>2<|page|>1<|box|>185 142 200 535<|content|>Engagement Number: ... HRW-SPIN-001\n<|id|>3<|page|>1<|box|>208 140 226 725<|content|>Prepared by: ... Garrett Simmons and Leila Nazari, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>234 140 268 854<|content|>Reviewed by: ... Leonard Cross, Responsible Partner, Tax Department, Calderwood & Harkness LLP\n<|id|>11<|page|>1<|box|>589 140 606 542<|content|>FROM: ... Leonard Cross, Calderwood & Harkness LLP\n<|id|>12<|page|>1<|box|>614 142 633 799<|content|>TO: ... David Ochoa, Thornapple McCord LLP\n<|id|>13<|page|>1<|box|>640 140 695 854<|content|>RE: ... (\"Controlled\" or \"Meridian\" or \"SpinCo\")\n<|id|>14<|page|>1<|box|>703 140 720 511<|content|>ENGAGEMENT: ... 1003-00005 / HRW-SPIN-001\n<|id|>15<|page|>1<|box|>729 142 747 271<|content|>Priya and David: ... Priya and David\n<|id|>17<|page|>1<|box|>872 140 909 854<|content|>The enclosed provisions have been designed to acco...d tax-free qualification of the Distribution under\n<|id|>18<|page|>2<|box|>90 140 273 856<|content|>Sections 355 and 368(a)(1)(D) of the Internal Reve...e spin-off fails to achieve tax-free qualification\n<|id|>25<|page|>3<|box|>90 140 108 243<|content|>Best regards,\n<|id|>26<|page|>3<|box|>114 140 171 854<|content|>Leonard Cross Partner, Tax Department Calderwood &...cas, 40th Floor New York, NY 10019 Direct: ... com\n<|id|>39<|page|>3<|box|>834 140 888 857<|content|>(i) \"Distribution\" means the pro rata distribution...share of Controlled common stock for each share of\n<|id|>40<|page|>4<|box|>90 140 127 852<|content|>Distributing common stock held on the Record Date.... has 74,500,000 shares of common stock outstanding\n<|id|>121<|page|>12<|box|>819 174 893 856<|content|>(i) Any failure of the Spin-Off to qualify as a ta...orth in this Article [__] or in the Representation\n<|id|>122<|page|>13<|box|>90 174 125 852<|content|>Letter, including any action or failure to act by ...by Controlled that constitutes a Prohibited Action\n<|id|>152<|page|>16<|box|>849 174 883 856<|content|>(i) Federal and state income tax returns of Veldran Industries Holdings, Inc. ... (Employer\n<|id|>153<|page|>17<|box|>89 174 127 854<|content|>Identification Number: ... 58-2847193) for all rel... attachments, elections, and supporting statements\n<|id|>217<|page|>23<|box|>828 174 883 856<|content|>(i) First Lien Term Loan B: ... (100 Federal Street,\n<|id|>218<|page|>24<|box|>90 174 126 854<|content|>Boston, Massachusetts 02110; ... and\n<|id|>247<|page|>28<|box|>794 138 905 857<|content|>5. ... In particular, the allocation methodology f...ties, the treatment of Kestrel Precision Controls,\n<|id|>248<|page|>29<|box|>90 140 145 854<|content|>Inc. ... Calderwood & Harkness will circulate a fi...ment following receipt of comments on this Article",
+    "raw_response": "<|src_id|>17<|tgt_id|>18\n<|src_id|>39<|tgt_id|>40\n<|src_id|>121<|tgt_id|>122\n<|src_id|>152<|tgt_id|>153\n<|src_id|>217<|tgt_id|>218\n<|src_id|>247<|tgt_id|>248",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 218
+        },
+        {
+            "src_id": 247,
+            "tgt_id": 248
+        }
+    ]
+}

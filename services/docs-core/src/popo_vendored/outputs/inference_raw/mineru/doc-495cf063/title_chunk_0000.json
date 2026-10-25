@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 194 108 800<|content|>UNITED STATES DISTRICT COURT CENTRAL DISTRICT OF C\n<|id|>2<|page|>1<|box|>383 393 401 602<|content|>I. INTRODUCTION\n<|id|>10<|page|>2<|box|>516 174 537 821<|content|>II. SUMMARY OF THE PSR'S GUIDELINES CALCULATION\n<|id|>12<|page|>2<|box|>598 176 616 532<|content|>Base Offense Level (U.S.S.G. § 2B1.1(a)(1)): 7\n<|id|>14<|page|>2<|box|>686 174 704 836<|content|>Specific Offense Characteristic — Loss Enhancement\n<|id|>16<|page|>2<|box|>811 174 829 851<|content|>Specific Offense Characteristic — Number of Victim\n<|id|>20<|page|>3<|box|>258 176 277 792<|content|>Chapter Three Adjustment — Abuse of Position of Tr\n<|id|>28<|page|>3<|box|>631 143 676 852<|content|>III. OBJECTION NO. 1: THE PSR'S LOSS CALCULATION O\n<|id|>32<|page|>4<|box|>241 140 258 620<|content|>A. The Government's Loss Figure and Its Three Comp\n<|id|>38<|page|>5<|box|>90 140 107 411<|content|>B. The $4.3 Million Double-Count\n<|id|>49<|page|>6<|box|>520 140 537 549<|content|>C. The $2.1 Million in Reinvested Production Funds\n<|id|>54<|page|>7<|box|>304 140 320 475<|content|>D. The Correct Loss Figure Is $8.3 Million\n<|id|>58<|page|>7<|box|>763 150 809 846<|content|>IV. OBJECTION NO. 2: THE LOSS ENHANCEMENT SHOULD B\n<|id|>63<|page|>8<|box|>460 209 505 787<|content|>V. OBJECTION NO. 3: THE SOPHISTICATED MEANS ENHANC\n<|id|>64<|page|>8<|box|>530 142 547 483<|content|>A. Legal Standard Under § 2B1.1(b)(10)(C)\n<|id|>68<|page|>9<|box|>204 140 222 638<|content|>B. Ms. Fonseca's Conduct Did Not Involve Sophistic\n<|id|>75<|page|>10<|box|>474 140 493 406<|content|>C. Impact on Total Offense Level\n<|id|>77<|page|>10<|box|>583 155 604 841<|content|>VI. OBJECTION NO. 4: FACTUAL INACCURACIES IN THE P\n<|id|>79<|page|>10<|box|>734 140 753 470<|content|>A. Ms. Fonseca's Role in the Transactions\n<|id|>84<|page|>11<|box|>513 140 529 534<|content|>B. Nature and Purpose of Certain Fund Transfers\n<|id|>89<|page|>12<|box|>267 140 284 375<|content|>C. Other Factual Corrections\n<|id|>95<|page|>13<|box|>135 207 155 787<|content|>VII. THE CORRECTED GUIDELINES CALCULATION\n<|id|>99<|page|>13<|box|>717 318 737 678<|content|>VIII. IMPACT ON RESTITUTION\n<|id|>108<|page|>15<|box|>90 253 109 743<|content|>IX. REQUEST FOR EVIDENTIARY HEARING\n<|id|>114<|page|>16<|box|>90 256 109 738<|content|>X. REQUEST FOR ADDENDUM TO THE PSR\n<|id|>117<|page|>16<|box|>400 398 420 598<|content|>XI. CONCLUSION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>3\n<|id|>14<|level|>3\n<|id|>16<|level|>3\n<|id|>20<|level|>3\n<|id|>28<|level|>2\n<|id|>32<|level|>3\n<|id|>38<|level|>3\n<|id|>49<|level|>3\n<|id|>54<|level|>3\n<|id|>58<|level|>2\n<|id|>63<|level|>2\n<|id|>64<|level|>3\n<|id|>68<|level|>3\n<|id|>75<|level|>3\n<|id|>77<|level|>2\n<|id|>79<|level|>3\n<|id|>84<|level|>3\n<|id|>89<|level|>3\n<|id|>95<|level|>2\n<|id|>99<|level|>2\n<|id|>108<|level|>2\n<|id|>114<|level|>2\n<|id|>117<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        }
+    ]
+}

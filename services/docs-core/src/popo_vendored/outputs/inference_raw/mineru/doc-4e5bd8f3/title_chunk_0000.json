@@ -1,0 +1,136 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 436 106 560<|content|>SCHEDULE C\n<|id|>1<|page|>1<|box|>114 303 132 694<|content|>TO THE EXCLUSIVE LICENSE AGREEMENT\n<|id|>2<|page|>1<|box|>141 380 157 616<|content|>LICENSED TRADEMARKS\n<|id|>5<|page|>1<|box|>417 142 435 325<|content|>1. Overview and Scope\n<|id|>10<|page|>2<|box|>90 140 107 519<|content|>2. Table of Registered and Pending Trademarks\n<|id|>12<|page|>2<|box|>220 140 238 562<|content|>2.1 United States of America (Reference Registrati\n<|id|>23<|page|>4<|box|>763 143 779 225<|content|>2.5 Japan.\n<|id|>28<|page|>5<|box|>753 142 770 316<|content|>2.6 Republic of Korea\n<|id|>31<|page|>6<|box|>282 143 297 251<|content|>2.7 Australia.\n<|id|>33<|page|>6<|box|>627 143 642 277<|content|>2.8 New Zealand\n<|id|>36<|page|>7<|box|>181 143 199 346<|content|>2.9 Republic of Singapore\n<|id|>38<|page|>7<|box|>539 143 555 351<|content|>2.10 Kingdom of Thailand\n<|id|>42<|page|>8<|box|>819 143 835 392<|content|>2.13 Republic of the Philippines\n<|id|>45<|page|>9<|box|>369 143 383 411<|content|>2.14 Socialist Republic of Vietnam\n<|id|>47<|page|>9<|box|>739 143 755 246<|content|>2.15 Taiwan.\n<|id|>50<|page|>10<|box|>333 140 349 352<|content|>3. Description of the Mark\n<|id|>60<|page|>11<|box|>212 140 229 285<|content|>4. Domain Names\n<|id|>65<|page|>12<|box|>392 140 409 514<|content|>5. Obligations Regarding Licensed Trademarks\n<|id|>66<|page|>12<|box|>422 140 439 406<|content|>5.1 Prosecution and Maintenance\n<|id|>73<|page|>13<|box|>194 140 210 354<|content|>5.2 Recordation of License\n<|id|>75<|page|>13<|box|>377 140 393 300<|content|>5.3 Quality Control\n<|id|>80<|page|>13<|box|>691 140 709 267<|content|>5.4 New Filings\n<|id|>83<|page|>15<|box|>90 140 107 401<|content|>6. Amendments to This Schedule\n<|id|>92<|page|>15<|box|>631 140 648 258<|content|>7. Disclaimers\n<|id|>97<|page|>16<|box|>222 308 239 687<|content|>SCHEDULE C — LICENSED TRADEMARKS\n<|id|>98<|page|>16<|box|>248 413 265 583<|content|>SIGNATURE PAGE\n<|id|>100<|page|>16<|box|>318 142 334 248<|content|>LICENSOR:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>3\n<|id|>23<|level|>3\n<|id|>28<|level|>3\n<|id|>31<|level|>3\n<|id|>33<|level|>3\n<|id|>36<|level|>3\n<|id|>38<|level|>3\n<|id|>42<|level|>3\n<|id|>45<|level|>3\n<|id|>47<|level|>3\n<|id|>50<|level|>2\n<|id|>60<|level|>2\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>73<|level|>3\n<|id|>75<|level|>3\n<|id|>80<|level|>3\n<|id|>83<|level|>2\n<|id|>92<|level|>2\n<|id|>97<|level|>1\n<|id|>98<|level|>2\n<|id|>100<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        }
+    ]
+}

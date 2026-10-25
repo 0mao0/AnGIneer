@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>136 250 157 746<|content|>SECURITIES AND EXCHANGE COMMISSION\n<|id|>1<|page|>1<|box|>175 377 195 620<|content|>Washington, D.C. 20549\n<|id|>3<|page|>1<|box|>250 156 323 839<|content|>CERTIFICATION AND NOTICE OF TERMINATION OF REGISTR\n<|id|>11<|page|>1<|box|>784 142 800 390<|content|>ITEM 1 — NAME OF ISSUER\n<|id|>14<|page|>2<|box|>239 142 258 421<|content|>ITEM 2 — ADDRESS OF ISSUER\n<|id|>16<|page|>2<|box|>292 142 310 369<|content|>United States Headquarters:\n<|id|>18<|page|>2<|box|>363 142 380 433<|content|>Registered Office (United Kingdom):\n<|id|>23<|page|>2<|box|>542 140 579 748<|content|>ITEM 3 — SECURITIES TO BE DEREGISTERED AND REPORTS\n<|id|>24<|page|>2<|box|>592 140 609 310<|content|>A. Class of Securities\n<|id|>26<|page|>2<|box|>773 140 792 777<|content|>B. Basis for Termination of Registration and Suspe\n<|id|>31<|page|>3<|box|>231 140 250 316<|content|>C. Grounds for Filing\n<|id|>48<|page|>5<|box|>212 140 229 692<|content|>ITEM 4 — APPROXIMATE NUMBER OF HOLDERS OF RECORD\n<|id|>53<|page|>5<|box|>631 140 648 813<|content|>ITEM 5 — TITLE OF EACH CLASS OF SECURITIES COVERED\n<|id|>56<|page|>5<|box|>760 140 796 795<|content|>ITEM 6 — WHETHER THE ISSUER HAS A DUTY TO FILE REP\n<|id|>62<|page|>6<|box|>464 140 482 297<|content|>CERTIFICATION\n<|id|>68<|page|>8<|box|>89 142 106 256<|content|>SIGNATURE\n<|id|>70<|page|>8<|box|>178 142 194 442<|content|>CLOUDIUM TECHNOLOGIES PLC\n<|id|>76<|page|>8<|box|>359 142 378 424<|content|>ATTACHMENTS AND EXHIBITS\n<|id|>80<|page|>9<|box|>151 140 167 748<|content|>CONFIDENTIAL — FOR INTERNAL REFERENCE ONLY — NOT P\n<|id|>81<|page|>9<|box|>174 142 189 367<|content|>DRAFTER / PREPARER NOTES\n<|id|>83<|page|>9<|box|>344 143 358 295<|content|>Transaction Summary:\n<|id|>87<|page|>9<|box|>837 143 851 259<|content|>Additional Notes:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>16<|level|>3\n<|id|>18<|level|>3\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>26<|level|>3\n<|id|>31<|level|>3\n<|id|>48<|level|>2\n<|id|>53<|level|>2\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>-1\n<|id|>76<|level|>2\n<|id|>80<|level|>-1\n<|id|>81<|level|>2\n<|id|>83<|level|>3\n<|id|>87<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        }
+    ]
+}

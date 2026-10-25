@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 318 176 678<|content|>Declaration Made Pursuant to New York Law\n<|id|>2<|page|>1<|box|>185 408 202 589<|content|>Executed April 1, 2023\n<|id|>20<|page|>2<|box|>652 176 689 854<|content|>(f) the administration of antibiotics, antiviral a...olong life rather than to provide comfort; ... and\n<|id|>22<|page|>2<|box|>741 140 888 856<|content|>\"Palliative Care\" shall mean treatment directed at...administration is the relief of pain and suffering\n<|id|>33<|page|>3<|box|>834 174 906 856<|content|>2. ... I wish that a Do Not Resuscitate (DNR)\n<|id|>34<|page|>4<|box|>90 210 125 854<|content|>order be entered in my medical record and honored ... all treating physicians and health care providers\n<|id|>43<|page|>4<|box|>819 174 910 857<|content|>2. ... This observation period shall not exceed fo...ious, unless my attending physician determines, in\n<|id|>44<|page|>4<|box|>917 143 930 174<|content|>Page\n<|id|>66<|page|>6<|box|>849 142 902 854<|content|>1. ... This includes, without limitation, my heart, lungs, liver, kidneys, pancreas,\n<|id|>67<|page|>6<|box|>917 142 930 174<|content|>Page\n<|id|>81<|page|>8<|box|>239 176 258 787<|content|>(c) Katherine C. ... and\n<|id|>83<|page|>8<|box|>292 140 348 854<|content|>I request that my physicians and health care provi...ilitate informed decision-making regarding my care\n<|id|>92<|page|>9<|box|>133 174 170 854<|content|>(c) physically destroying this document or directi...nother person to destroy it in my presence; ... or\n<|id|>94<|page|>9<|box|>223 140 296 854<|content|>A revocation shall be effective upon its communica...l steps necessary to give effect to the revocation\n<|id|>110<|page|>10<|box|>710 140 763 852<|content|>Elliot Nguyen Working Associate, Calderwood & Hark...r New York, New York 10152 Date: ... April 1, 2023\n<|id|>113<|page|>10<|box|>830 140 849 560<|content|>STATE OF NEW YORK COUNTY OF NEW YORK\n<|id|>111<|page|>10<|box|>782 140 801 464<|content|>XIV. ... NOTARY ACKNOWLEDGMENT\n<|id|>112<|page|>10<|box|>808 140 825 325<|content|>(Optional but Recommended)\n<|id|>114<|page|>10<|box|>858 140 895 854<|content|>On this 1st day of April, 2023, before me, the und...roved to me on the basis of satisfactory evidence)\n<|id|>115<|page|>11<|box|>90 140 145 854<|content|>to be the person whose name is subscribed to the w...of which the person acted, executed the instrument\n<|id|>118<|page|>11<|box|>250 140 267 395<|content|>Notary Public, State of New York\n<|id|>119<|page|>11<|box|>268 140 285 334<|content|>Printed Name: ... Printed Name\n<|id|>122<|page|>11<|box|>319 142 335 305<|content|>[NOTARIAL SEAL]\n<|id|>123<|page|>11<|box|>335 388 352 607<|content|>— END OF DOCUMENT —",
+    "raw_response": "<|src_id|>33<|tgt_id|>34\n<|src_id|>114<|tgt_id|>115",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 115
+        }
+    ]
+}

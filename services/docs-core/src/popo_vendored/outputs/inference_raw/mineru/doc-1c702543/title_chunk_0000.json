@@ -1,0 +1,50 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>12<|page|>1<|box|>681 140 699 511<|content|>Identification of Taxpayer and Related Entities\n<|id|>26<|page|>2<|box|>621 142 638 410<|content|>Description of the Ruling Request\n<|id|>39<|page|>3<|box|>378 140 397 506<|content|>User Fee Calculation and Applicable Category\n<|id|>41<|page|>3<|box|>518 140 537 441<|content|>Method of Payment — Wire Transfer\n<|id|>50<|page|>4<|box|>90 140 107 362<|content|>Pre-Submission Conference\n<|id|>53<|page|>4<|box|>383 142 402 233<|content|>Enclosures\n<|id|>57<|page|>4<|box|>588 142 604 308<|content|>Contact Information",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>2\n<|id|>26<|level|>2\n<|id|>39<|level|>2\n<|id|>41<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>57<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        }
+    ]
+}

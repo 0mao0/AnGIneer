@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        5,
+        9,
+        10,
+        12,
+        13,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 140 151 751<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT / ATTORNEY-CLIENT PRIVILEGED\n<|id|>2<|page|>1<|box|>157 140 176 839<|content|>FROM: ... Marcus Leung, Working Associate, Banking & Finance, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>184 140 202 774<|content|>TO: ... Lisa Morrow, Lead Associate, Banking & Finance, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>210 140 227 336<|content|>DATE: ... October 18, 2025\n<|id|>5<|page|>1<|box|>234 140 273 854<|content|>RE: ... UCC Financing Statement Filing Requirement... CMBS Mortgage Loan — Fairwater Sun Belt Portfolio\n<|id|>6<|page|>1<|box|>280 140 297 362<|content|>MATTER NO. ... 1036-00001\n<|id|>7<|page|>1<|box|>306 140 324 511<|content|>CLIENT: ... Fairwater Real Estate Investment Trust\n<|id|>47<|page|>5<|box|>595 181 612 687<|content|>• Secured Party Name: ... Clarendon Metropolitan Insurance Company\n<|id|>49<|page|>5<|box|>633 140 669 854<|content|>Collateral Description: ... The collateral descrip...e UCC-1 financing statement should read as follows\n<|id|>48<|page|>5<|box|>614 183 632 750<|content|>• Secured Party Mailing Address: ... 1 MetroTech Center, Brooklyn, NY 11201\n<|id|>73<|page|>9<|box|>527 142 545 715<|content|>Total Estimated Georgia Fixture Filing Fees: ... 00\n<|id|>75<|page|>9<|box|>732 140 878 856<|content|>In Florida, UCC fixture filings are filed with the...rallel filing with the Florida Department of State\n<|id|>77<|page|>10<|box|>170 140 188 718<|content|>Total Estimated Florida Fixture Filing Fees: ... 00\n<|id|>79<|page|>10<|box|>357 140 412 854<|content|>In North Carolina, UCC fixture filings are filed w...rty recording office in each North Carolina county\n<|id|>81<|page|>10<|box|>500 142 518 779<|content|>Total Estimated North Carolina Fixture Filing Fees: ... 00\n<|id|>83<|page|>10<|box|>638 140 694 854<|content|>In Tennessee, UCC fixture filings are filed with t... accepts filings both in person and electronically\n<|id|>105<|page|>12<|box|>859 140 895 854<|content|>Delaware Equity Pledge Filings. ... At the Bridge ...h the Delaware Secretary of State naming Fairwater\n<|id|>106<|page|>13<|box|>90 140 200 854<|content|>Operating Partnership, L. ... The UCC-3 terminatio...e of the debtor, and the name of the secured party\n<|id|>151<|page|>18<|box|>392 147 409 776<|content|>• Texas: ... 5 counties (Travis, Bexar, Harris or Fort Bend, Fort Bend, Collin or Denton)\n<|id|>156<|page|>18<|box|>489 140 580 854<|content|>In many CMBS transactions, the same local counsel ...en the mortgage recordings and the fixture filings\n<|id|>152<|page|>18<|box|>411 147 428 504<|content|>• Georgia: ... 3 counties (Fulton, Cobb, Gwinnett)\n<|id|>153<|page|>18<|box|>431 147 448 537<|content|>• Florida: ... 3 counties (Hillsborough, Orange, Duval)\n<|id|>154<|page|>18<|box|>450 147 468 537<|content|>• North Carolina: ... 2 counties (Mecklenburg, Wake)\n<|id|>155<|page|>18<|box|>470 147 487 406<|content|>• Tennessee: ... 1 county (Davidson)\n<|id|>166<|page|>19<|box|>844 140 898 857<|content|>6. ... Coordinate with Lisa Morrow on the inclusio...d the Funds Flow Memorandum being prepared for the\n<|id|>167<|page|>20<|box|>90 174 143 854<|content|>Permanent Loan closing. ... 00 in UCC filing fees ...ts are subject to confirmation with filing offices",
+    "raw_response": "<|src_id|>105<|tgt_id|>106\n<|src_id|>166<|tgt_id|>167",
+    "parsed": [
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 167
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['\"a polarization-handling section integrated on the silicon substrate, the polarization-handling section comprising a polarization beam splitter and a polarization rotator configured to process received optical signals in two orthogonal polarization states.\"', \"Accused Element: The Benchmark teardown (Exhibit OWS-1001 at pp. 55–57) identified a polarization-handling section on the LumiLink 400G-ZR+ PIC comprising a polarization beam splitter (PBS) and a polarization rotator (PR). The PBS separates the incoming fiber signal into TE and TM polarization components, and the PR rotates the TM component to the TE mode for on-chip processing. Annotated photographs (Exhibit OWS-1027) show these structures. Lumicore design files (LC-HC-SC-00012420 through LC-HC-SC-00012440) confirm the PBS and PR layout.Dr. Ashford's Explanation: The accused product\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'contains a polarization-handling section integrated on the silicon substrate with a PBS and PR, exactly as claimed. This is the standard approach for dual-polarization coherent receivers in silicon photonics, and the LumiLink 400G-ZR+ employs it as recited.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 137,
+    "table2_idx": 138
+}

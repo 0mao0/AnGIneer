@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 284 125 712<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>159 143 409 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>478 331 494 665<|content|>DECLARATION OF ANGELA TRUONG\n<|id|>3<|type|>title<|page|>1<|box|>503 140 521 470<|content|>I, Angela Truong, hereby declare as follows:\n<|id|>7<|type|>title<|page|>2<|box|>152 140 170 738<|content|>3. The settlement class, as defined in the Prelimi\n<|id|>51<|type|>table<|page|>6<|box|>763 143 902 852<|content|>None\n<|id|>52<|type|>table<|page|>7<|box|>88 143 244 852<|content|>None\n<|id|>72<|type|>title<|page|>9<|box|>90 406 104 589<|content|>INDEX OF EXHIBITS\n<|id|>73<|type|>table<|page|>9<|box|>148 145 328 852<|content|>None",
+    "raw_response": "<|src_id|>1<|tgt_id|>2\n<|src_id|>51<|tgt_id|>7\n<|src_id|>52<|tgt_id|>7\n<|src_id|>73<|tgt_id|>72",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 72
+        }
+    ]
+}

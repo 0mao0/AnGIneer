@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 350 Sou...es, California 90071 Telephone: ... (213) 555-7201\n<|id|>1<|page|>1<|box|>133 140 152 450<|content|>Email: ... com\n<|id|>2<|page|>1<|box|>152 723 167 854<|content|>October 10, 2024\n<|id|>3<|page|>1<|box|>176 140 194 374<|content|>Via Email and First Class Mail\n<|id|>4<|page|>1<|box|>203 140 239 854<|content|>Damian R. ... Brennan, Ortega & Saldívar LLP 1900 ...he Stars, Suite 2100 Los Angeles, California 90067\n<|id|>5<|page|>1<|box|>247 140 301 856<|content|>Re: ... 1035-00005\n<|id|>6<|page|>1<|box|>310 140 327 274<|content|>Dear Mr. ... Ortega\n<|id|>15<|page|>2<|box|>244 174 280 854<|content|>(d) The right of either party to terminate the sta...' prior written notice to the other party; ... and\n<|id|>17<|page|>2<|box|>351 140 387 854<|content|>Since the execution of the original Standstill Agr...o prior amendments extending the standstill period\n<|id|>24<|page|>2<|box|>843 174 880 857<|content|>(b) Continuation of Existing Terms. ... All other ...usly amended by the First Amendment and the Second\n<|id|>25<|page|>3<|box|>90 176 126 852<|content|>Amendment, would remain in full force and effect d...till period. ... Without limitation, this includes\n<|id|>42<|page|>4<|box|>859 140 896 856<|content|>In order to facilitate your review and the timely ...f the Third Amendment to the Settlement Standstill\n<|id|>43<|page|>5<|box|>90 140 143 854<|content|>Agreement. ... The enclosed draft tracks the forma...xpiration date and the other terms described above\n<|id|>50<|page|>6<|box|>289 140 305 222<|content|>Sincerely,\n<|id|>51<|page|>6<|box|>305 140 321 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>52<|page|>6<|box|>324 143 340 253<|content|>By: ... By\n<|id|>53<|page|>6<|box|>340 142 356 315<|content|>Howard Quinn Partner\n<|id|>54<|page|>6<|box|>357 140 391 846<|content|>350 South Grand Avenue, Suite 4800 Los Angeles, California 90071 Telephone: ... com\n<|id|>55<|page|>6<|box|>392 142 409 669<|content|>Enclosure: ... Draft Third Amendment to Settlement Standstill Agreement\n<|id|>56<|page|>6<|box|>417 140 435 424<|content|>cc: ... Fonseca (via email)\n<|id|>57<|page|>6<|box|>443 174 479 854<|content|>Patricia Dunmore, Calderwood & Harkness LLP (via e...a Kwan, Brennan, Ortega & Saldívar LLP (via email)",
+    "raw_response": "<|src_id|>24<|tgt_id|>25\n<|src_id|>42<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ]
+}

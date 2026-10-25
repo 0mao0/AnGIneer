@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 143 104 816<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVILEGED ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>112 161 146 834<|content|>CALDERWOOD & HARKNESS LLP 600 Lexington Avenue, 38th Floor New York, NY 10022\n<|id|>8<|page|>2<|box|>608 142 625 848<|content|>1. ... Cédric Anouma — Managing Director, Thalassa West Africa SARL (Abidjan, Côte d'Ivoire)\n<|id|>12<|page|>2<|box|>704 140 758 854<|content|>This script has been prepared for use in connectio...ther described in the instructions set forth below\n<|id|>9<|page|>2<|box|>627 140 645 754<|content|>2. ... Emeka Obiora — Country Manager, Thalassa Nigeria Limited (Lagos, Nigeria)\n<|id|>10<|page|>2<|box|>647 140 664 821<|content|>3. ... Yves Kouadio — Finance Manager, Thalassa West Africa SARL (Abidjan, Côte d'Ivoire)\n<|id|>11<|page|>2<|box|>667 140 700 854<|content|>4. ... Adama Coulibaly — Operations Coordinator, Thalassa West Africa SARL (Abidjan, Côte d'Ivoire)\n<|id|>24<|page|>4<|box|>176 140 231 854<|content|>\"Calderwood & Harkness LLP represents Thalassa Shi...igeria Limited, as applicable to your role. ... '\"\n<|id|>25<|page|>4<|box|>239 140 330 854<|content|>\"It is important that you understand that Calderwo...kness LLP does not represent you personally. ... \"\n<|id|>35<|page|>4<|box|>809 140 901 856<|content|>\"However — and this is very important — the attorn..., among others, government authorities such as the\n<|id|>36<|page|>5<|box|>90 140 126 854<|content|>United States Department of Justice or the United ...or other regulators or enforcement agencies. ... \"\n<|id|>78<|page|>7<|box|>839 140 893 856<|content|>1. ... The translation is to be prepared by Dossou & Mensah Avocats, located in\n<|id|>79<|page|>8<|box|>90 174 125 854<|content|>Abidjan, Côte d'Ivoire, upon reactivation of the m...al retention of that firm as Ivorian local counsel\n<|id|>89<|page|>8<|box|>747 181 763 434<|content|>• Victoria Chambers — Partner\n<|id|>92<|page|>8<|box|>805 140 840 852<|content|>Assignment of interview team members to specific i...matter considerations, and logistical requirements\n<|id|>90<|page|>8<|box|>767 183 782 485<|content|>• Jasmine Thornton — Lead Associate\n<|id|>91<|page|>8<|box|>786 183 801 486<|content|>• Liam Donahue — Working Associate\n<|id|>122<|page|>10<|box|>739 174 814 856<|content|>(e) Guidance from Dossou & Mensah Avocats on Ivori... 20 juillet 2015 portant Code du Travail); ... and\n<|id|>126<|page|>11<|box|>334 140 426 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV...e, copying, or distribution is strictly prohibited",
+    "raw_response": "<|src_id|>35<|tgt_id|>36\n<|src_id|>78<|tgt_id|>79",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        }
+    ]
+}

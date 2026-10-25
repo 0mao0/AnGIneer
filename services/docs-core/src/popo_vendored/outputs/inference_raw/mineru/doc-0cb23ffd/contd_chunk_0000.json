@@ -1,0 +1,42 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        9,
+        16,
+        17,
+        25,
+        26,
+        27,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 238 132 759<|content|>1301 Avenue of the Americas, 40th Floor New York, New York 10019\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 738 185 854<|content|>August 5, 2022\n<|id|>5<|page|>1<|box|>219 142 234 537<|content|>Engagement Number: ... HRW-SPIN-001\n<|id|>6<|page|>1<|box|>242 140 277 854<|content|>The Board of Directors Veldran Industries Holdings...k Drive, Suite 500 Charlotte, North Carolina 28217\n<|id|>7<|page|>1<|box|>286 140 321 854<|content|>Harrowgate Private Equity Fund IV, L. ... c/o Harr...ington Avenue, 38th Floor New York, New York 10022\n<|id|>8<|page|>1<|box|>330 176 367 854<|content|>Attention: ... , General Counsel, Veldran Industries Holdings, Inc\n<|id|>31<|page|>3<|box|>792 140 904 857<|content|>Precision Flow Solutions Division (to be contributed to Meridian). ... The Precision Flow Solutions\n<|id|>32<|page|>4<|box|>90 140 125 854<|content|>Division operates nine manufacturing facilities in...the United States and two international facilities\n<|id|>74<|page|>7<|box|>856 142 892 857<|content|>12. ... Additional documents and information obtai...igence tracker and information request lists dated\n<|id|>75<|page|>8<|box|>89 174 126 854<|content|>April 25, 2022 and May 16, 2022, including respons...apital Advisors LLC, and their respective advisors\n<|id|>85<|page|>8<|box|>864 140 900 856<|content|>4. ... We assume that Meridian will be duly incorp...tion, and that at the time of the Contribution and\n<|id|>86<|page|>9<|box|>90 174 126 854<|content|>Distribution, Meridian will have no assets, liabil... organizational matters incident to its formation)\n<|id|>144<|page|>16<|box|>845 140 902 857<|content|>The September 20, 2019 acquisition date falls with...h Distributing (Veldran) and Controlled (Meridian)\n<|id|>145<|page|>17<|box|>90 140 127 854<|content|>that constitutes a 50-percent or greater interest ...riod. ... Section 355(d) is accordingly implicated\n<|id|>219<|page|>25<|box|>296 174 333 854<|content|>(iii) The spin-off concept was first raised or dis...sideration of the spin-off are identified; ... and\n<|id|>221<|page|>25<|box|>383 140 458 854<|content|>Supporting documentation — including board minutes...ed to incorporate these additional representations\n<|id|>235<|page|>26<|box|>292 174 329 854<|content|>(iv) Any amendments, supplements, or consents executed under the 6. ... and\n<|id|>237<|page|>26<|box|>381 140 417 854<|content|>The final form of these documents may contain prov... a prerequisite to the delivery of a final Opinion\n<|id|>245<|page|>26<|box|>891 181 907 751<|content|>• Christine Yeung, Esq. ... , Partner, Whitfield & Gage LLP (outside counsel to Harrowgate)\n<|id|>246<|page|>27<|box|>128 140 202 854<|content|>This draft has not been circulated to Veldran's se...prior written consent of Calderwood & Harkness LLP\n<|id|>252<|page|>28<|box|>189 142 205 439<|content|>Leonard Cross Partner, Tax Department\n<|id|>253<|page|>28<|box|>205 140 239 852<|content|>Draft prepared by: ... Garrett Simmons, Senior Ass...Department Leila Nazari, Associate, Tax Department\n<|id|>254<|page|>28<|box|>239 140 257 555<|content|>Reviewed by: ... Sylvia Hartwell, Partner, Tax Department",
+    "raw_response": "<|src_id|>31<|tgt_id|>32\n<|src_id|>74<|tgt_id|>75\n<|src_id|>85<|tgt_id|>86\n<|src_id|>144<|tgt_id|>145",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 145
+        }
+    ]
+}

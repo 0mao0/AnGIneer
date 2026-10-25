@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>395 359 414 638<|content|>I. Introduction and Purpose\n<|id|>18<|type|>title<|page|>2<|box|>450 357 470 640<|content|>II. Background and Context\n<|id|>19<|type|>title<|page|>2<|box|>496 142 513 524<|content|>A. The IRS's Proposed Royalty Rate Adjustment\n<|id|>23<|type|>table<|page|>2<|box|>854 143 905 852<|content|>None\n<|id|>24<|type|>table<|page|>3<|box|>88 143 203 852<|content|>None\n<|id|>27<|type|>title<|page|>3<|box|>579 140 595 400<|content|>B. PPC's Original CUT Analysis\n<|id|>34<|type|>title<|page|>4<|box|>258 140 277 511<|content|>C. Questions Raised at the Appeals Conference\n<|id|>40<|type|>title<|page|>4<|box|>727 254 747 741<|content|>III. Supplemental CUT Comparable Agreements\n<|id|>41<|type|>title<|page|>4<|box|>771 142 789 550<|content|>A. Search Methodology for Additional Comparables\n<|id|>60<|type|>title<|page|>6<|box|>242 140 258 658<|content|>B. Description of Three Newly Identified Comparabl\n<|id|>61<|type|>title<|page|>6<|box|>273 142 290 272<|content|>Comparable 15.\n<|id|>69<|type|>title<|page|>7<|box|>176 142 193 272<|content|>Comparable 16.\n<|id|>77<|type|>title<|page|>7<|box|>768 142 787 272<|content|>Comparable 17.\n<|id|>79<|type|>title<|page|>8<|box|>90 176 107 380<|content|>Date of Agreement: 2013.\n<|id|>85<|type|>title<|page|>8<|box|>645 140 662 604<|content|>C. Summary Table of All 17 CUT Comparable Agreemen\n<|id|>87<|type|>table<|page|>8<|box|>786 143 904 852<|content|>None\n<|id|>88<|type|>table<|page|>9<|box|>89 143 898 852<|content|>None\n<|id|>90<|type|>title<|page|>10<|box|>242 287 262 707<|content|>IV. Updated Interquartile Range Analysis\n<|id|>91<|type|>title<|page|>10<|box|>287 140 304 439<|content|>A. Revised IQR with 17 Comparables\n<|id|>102<|type|>title<|page|>11<|box|>242 140 258 316<|content|>B. Statistical Analysis\n<|id|>107<|type|>title<|page|>12<|box|>90 153 111 843<|content|>V. Comparability Adjustments Addressing Appeals Of\n<|id|>108<|type|>title<|page|>12<|box|>136 140 154 588<|content|>A. Adjustments for Licensee Functions and Risk-Bea\n<|id|>121<|type|>title<|page|>13<|box|>643 140 660 532<|content|>B. Adjustments for Declining Revenue Trajectory\n<|id|>129<|type|>title<|page|>14<|box|>747 140 763 441<|content|>C. Contrast with IRS's Selected CUTs\n<|id|>136<|type|>title<|page|>16<|box|>90 165 136 831<|content|>VI. Implications for CSA Cost-Sharing Ratio and Ov\n<|id|>144<|type|>title<|page|>16<|box|>645 380 664 614<|content|>VII. Penalty Protection\n<|id|>148<|type|>title<|page|>17<|box|>308 411 328 584<|content|>VIII. Conclusion\n<|id|>156<|type|>title<|page|>18<|box|>136 423 155 575<|content|>IX. Enclosures\n<|id|>163<|type|>title<|page|>19<|box|>90 403 111 594<|content|>X. Signature block",
+    "raw_response": "<|src_id|>23<|tgt_id|>19\n<|src_id|>24<|tgt_id|>19\n<|src_id|>87<|tgt_id|>85\n<|src_id|>88<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 85
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        9,
+        10,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>154 712 171 854<|content|>November 7, 2025\n<|id|>2<|page|>1<|box|>180 140 215 854<|content|>FROM: ... Aaron Liu, Calderwood & Harkness LLP, On..., Spear Tower, 42nd Floor, San Francisco, CA 94105\n<|id|>3<|page|>1<|box|>224 140 260 854<|content|>TO: ... , 4850 Great America Parkway, Suite 300, Santa Clara, CA 95054\n<|id|>4<|page|>1<|box|>268 140 304 854<|content|>RE: ... Brindoval PDK License Interoperability Analysis — Meridian PhotonX™ AEPL Qualification Risk\n<|id|>5<|page|>1<|box|>311 140 330 362<|content|>MATTER NO. ... 1014-00006\n<|id|>6<|page|>1<|box|>338 140 375 854<|content|>COPIES: ... Priya Venkatesh (VP of Engineering Operations, OWS)\n<|id|>7<|page|>1<|box|>382 140 444 856<|content|>CONFIDENTIALITY NOTICE: ... If you have received t...tify the sender immediately and destroy all copies\n<|id|>11<|page|>1<|box|>835 140 909 856<|content|>Recommendation. ... (3) a\n<|id|>12<|page|>2<|box|>90 140 218 856<|content|>Meridian cooperation covenant and reporting obliga...idential terms of the Meridian renewal negotiation\n<|id|>87<|page|>9<|box|>856 174 893 854<|content|>(iii) Long-Stop Date. ... We further recommend tha...is one year from the effective date of the Renewal\n<|id|>88<|page|>10<|box|>89 174 181 856<|content|>ELA — by which, if AEPL qualification has still no...mmitment to pay for functionality it cannot deploy\n<|id|>133<|page|>14<|box|>172 140 189 321<|content|>Respectfully submitted,\n<|id|>134<|page|>14<|box|>189 140 205 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>135<|page|>14<|box|>207 143 224 253<|content|>By: ... By\n<|id|>136<|page|>14<|box|>224 140 257 854<|content|>Aaron Liu Lead Associate One Market Plaza, Spear T... Francisco, CA 94105 Telephone: ... (415) 555-7200\n<|id|>137<|page|>14<|box|>257 140 273 434<|content|>Email: ... com\n<|id|>138<|page|>14<|box|>273 140 291 323<|content|>Matter No. ... 1014-00006",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>87<|tgt_id|>88",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        }
+    ]
+}

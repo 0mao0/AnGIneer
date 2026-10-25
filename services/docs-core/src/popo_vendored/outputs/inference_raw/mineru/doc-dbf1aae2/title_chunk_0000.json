@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>625 140 641 415<|content|>I. Board Action and Authorization\n<|id|>17<|page|>2<|box|>280 142 297 408<|content|>II. Scope of Authorized Litigation\n<|id|>30<|page|>3<|box|>204 140 222 405<|content|>III. Budget Authorization Details\n<|id|>40<|page|>4<|box|>299 140 315 552<|content|>IV. Billing Rate and Fee Structure Acknowledgment\n<|id|>45<|page|>4<|box|>744 140 762 545<|content|>Whitmore & Callahan LLP — Local Counsel Rates\n<|id|>48<|page|>5<|box|>167 140 185 477<|content|>V. Reporting and Oversight Requirements\n<|id|>55<|page|>6<|box|>90 140 107 477<|content|>VI. Funding Source and Financial Context\n<|id|>64<|page|>7<|box|>395 140 412 367<|content|>VII. Delegation of Authority\n<|id|>74<|page|>8<|box|>237 142 253 251<|content|>VIII. Closing\n<|id|>80<|page|>8<|box|>594 142 609 450<|content|>RIDGELINE CAPITAL PARTNERS, LP\n<|id|>90<|page|>8<|box|>827 143 842 238<|content|>Enclosures:\n<|id|>93<|page|>9<|box|>90 176 106 736<|content|>3. Calderwood & Harkness LLP Engagement Letter (da",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>17<|level|>1\n<|id|>30<|level|>1\n<|id|>40<|level|>1\n<|id|>45<|level|>2\n<|id|>48<|level|>1\n<|id|>55<|level|>1\n<|id|>64<|level|>1\n<|id|>74<|level|>1\n<|id|>80<|level|>-1\n<|id|>90<|level|>1\n<|id|>93<|level|>2",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 2
+        }
+    ]
+}

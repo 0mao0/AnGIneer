@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>393 140 410 442<|content|>1. Purpose and Engagement Overview\n<|id|>12<|page|>2<|box|>167 140 185 354<|content|>2. Scope of Representation\n<|id|>26<|page|>4<|box|>440 140 457 411<|content|>3. Engagement Team and Staffing\n<|id|>34<|page|>5<|box|>402 140 420 406<|content|>4. Fees and Billing Arrangements\n<|id|>35<|page|>5<|box|>434 140 450 294<|content|>4.1 Estimated Fees\n<|id|>39<|page|>6<|box|>90 140 107 274<|content|>4.2 Billing Rates\n<|id|>44<|page|>6<|box|>506 140 523 400<|content|>4.3 Disbursements and Expenses\n<|id|>46<|page|>6<|box|>762 140 779 354<|content|>4.4 Invoicing and Payment\n<|id|>50<|page|>7<|box|>481 140 498 388<|content|>5. Client Identity and Conflicts\n<|id|>54<|page|>8<|box|>223 140 239 284<|content|>6. Confidentiality\n<|id|>58<|page|>8<|box|>616 140 633 326<|content|>7. Document Retention\n<|id|>62<|page|>9<|box|>148 140 167 264<|content|>8. Termination\n<|id|>66<|page|>9<|box|>450 140 469 339<|content|>9. Limitation of Liability\n<|id|>69<|page|>9<|box|>763 142 781 452<|content|>10. Governing Law; Dispute Resolution\n<|id|>72<|page|>10<|box|>351 140 368 428<|content|>11. Entire Agreement; Amendments\n<|id|>75<|page|>10<|box|>609 142 626 380<|content|>12. Acceptance and Execution\n<|id|>88<|page|>11<|box|>299 313 315 683<|content|>ACCEPTANCE AND ACKNOWLEDGMENT",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>26<|level|>1\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>39<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>1\n<|id|>54<|level|>1\n<|id|>58<|level|>1\n<|id|>62<|level|>1\n<|id|>66<|level|>1\n<|id|>69<|level|>1\n<|id|>72<|level|>1\n<|id|>75<|level|>1\n<|id|>88<|level|>2",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 88,
+            "level": 2
+        }
+    ]
+}

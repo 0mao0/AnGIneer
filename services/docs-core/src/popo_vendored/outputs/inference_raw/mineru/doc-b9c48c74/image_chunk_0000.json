@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 276 128 722<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>2<|type|>title<|page|>1<|box|>138 148 174 848<|content|>1585 Broadway, 34th Floor New York, New York 10036\n<|id|>16<|type|>title<|page|>2<|box|>150 142 167 310<|content|>Enclosed Documents\n<|id|>18<|type|>title<|page|>2<|box|>224 140 242 584<|content|>I. Restated and New Committee Charters (6 Document\n<|id|>21<|type|>title<|page|>2<|box|>739 140 756 854<|content|>3. Amended and Restated Charter of the Nominating\n<|id|>27<|type|>title<|page|>4<|box|>90 140 107 635<|content|>II. Redline Comparisons of Committee Charters (5 D\n<|id|>35<|type|>title<|page|>4<|box|>483 142 500 555<|content|>III. Delegation of Authority Materials (3 Document\n<|id|>36<|type|>table<|page|>4<|box|>585 143 895 852<|content|>None\n<|id|>37<|type|>table<|page|>5<|box|>89 143 109 852<|content|>None\n<|id|>41<|type|>title<|page|>5<|box|>646 140 664 558<|content|>IV. Corporate Governance Guidelines (2 Documents)\n<|id|>50<|type|>title<|page|>6<|box|>529 140 546 442<|content|>V. Bylaw Amendments (2 Documents)\n<|id|>56<|type|>title<|page|>7<|box|>90 140 107 643<|content|>VI. Board Resolutions and Adoption Instruments (2\n<|id|>75<|type|>title<|page|>8<|box|>180 140 196 495<|content|>VII. Board Meeting Materials (2 Documents)\n<|id|>82<|type|>title<|page|>9<|box|>89 140 107 529<|content|>VIII. Committee Reference Exhibit (1 Document)\n<|id|>84<|type|>title<|page|>9<|box|>246 140 263 225<|content|>Summary\n<|id|>85<|type|>table<|page|>9<|box|>314 143 502 852<|content|>None\n<|id|>86<|type|>title<|page|>9<|box|>551 142 568 568<|content|>Post-Adoption Steps and Regulatory Filing Reminder\n<|id|>95<|type|>title<|page|>10<|box|>638 140 655 299<|content|>Engagement Status",
+    "raw_response": "<|src_id|>36<|tgt_id|>35\n<|src_id|>37<|tgt_id|>35\n<|src_id|>85<|tgt_id|>84",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 84
+        }
+    ]
+}

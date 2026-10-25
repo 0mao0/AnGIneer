@@ -1,0 +1,215 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nntwraca\\input\\pdfs\\doc-96dd9de0.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nntwraca\\enriched\\doc-96dd9de0.json",
+    "contd_output": "<|src_id|>71<|tgt_id|>72",
+    "title_output": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>27<|level|>4\n<|id|>29<|level|>4\n<|id|>35<|level|>4\n<|id|>40<|level|>4\n<|id|>42<|level|>4\n<|id|>47<|level|>4\n<|id|>52<|level|>3\n<|id|>69<|level|>3\n<|id|>79<|level|>3\n<|id|>100<|level|>3\n<|id|>102<|level|>4\n<|id|>105<|level|>4\n<|id|>110<|level|>2\n<|id|>112<|level|>3\n<|id|>124<|level|>3\n<|id|>141<|level|>3\n<|id|>145<|level|>3\n<|id|>150<|level|>2\n<|id|>151<|level|>3\n<|id|>155<|level|>3\n<|id|>175<|level|>3\n<|id|>189<|level|>2\n<|id|>195<|level|>2\n<|id|>196<|level|>3\n<|id|>200<|level|>3\n<|id|>204<|level|>3\n<|id|>208<|level|>3\n<|id|>214<|level|>2\n<|id|>227<|level|>2\n<|id|>229<|level|>3\n<|id|>232<|level|>3",
+    "image_output": "<|src_id|>152<|tgt_id|>151\n<|src_id|>153<|tgt_id|>151\n<|src_id|>154<|tgt_id|>151\n<|src_id|>198<|tgt_id|>196\n<|src_id|>202<|tgt_id|>200\n<|src_id|>206<|tgt_id|>204",
+    "contd_label": [
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 29,
+            "level": 4
+        },
+        {
+            "id": 35,
+            "level": 4
+        },
+        {
+            "id": 40,
+            "level": 4
+        },
+        {
+            "id": 42,
+            "level": 4
+        },
+        {
+            "id": 47,
+            "level": 4
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 105,
+            "level": 4
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 227,
+            "level": 2
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 152,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 196
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 200
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 204
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 152,
+            "table2_idx": 153,
+            "upper_row_ss": [
+                [
+                    "April 25, 2022",
+                    "Initial tax diligence information request list circulated to Veldran management (Crundell, Subramanian) and Whitfield & Gage (Chandrasekar). Request included"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "historical tax returns, organizational documents, intercompany agreements, asset schedules, and basis computations."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 153,
+            "table2_idx": 154,
+            "upper_row_ss": [
+                [
+                    "August 15, 2022",
+                    "Conference call regarding business purpose and market"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "timing (attendees as described in Section III.A above)."
+                ]
+            ]
+        }
+    ]
+}

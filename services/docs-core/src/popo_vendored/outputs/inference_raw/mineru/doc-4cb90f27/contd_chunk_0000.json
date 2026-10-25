@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 310 152 687<|content|>Action by Written Consent in Lieu of a Meeting\n<|id|>2<|page|>1<|box|>160 169 195 828<|content|>Pursuant to Section 228 of the Delaware General Co...the Investor Rights Agreement dated March 22, 2021\n<|id|>3<|page|>1<|box|>204 651 220 854<|content|>Date: ... September 10, 2025\n<|id|>4<|page|>1<|box|>229 140 303 854<|content|>The undersigned holder of shares of Series A Prefe...bject to the terms and conditions set forth herein\n<|id|>21<|page|>3<|box|>162 140 327 854<|content|>RESOLVED, that the Undersigned hereby consents to ...the Notes bearing interest at a rate of 7. ... and\n<|id|>22<|page|>3<|box|>334 140 390 854<|content|>RESOLVED FURTHER, that the consent granted hereby ...y future incurrence of indebtedness by the Company\n<|id|>24<|page|>3<|box|>426 140 590 856<|content|>RESOLVED, that the officers of the Company, includ...ced by the execution and delivery thereof; ... and\n<|id|>25<|page|>3<|box|>598 140 671 854<|content|>RESOLVED FURTHER, that any and all actions heretof...d as acts and deeds of the Company in all respects\n<|id|>36<|page|>4<|box|>568 142 585 465<|content|>By: ... Whitepine Ventures Management LLC,\n<|id|>37<|page|>4<|box|>585 142 601 285<|content|>its General Partner\n<|id|>38<|page|>4<|box|>604 143 619 253<|content|>By: ... By\n<|id|>39<|page|>4<|box|>619 140 636 334<|content|>Name: ... Nadia Chowdhury\n<|id|>40<|page|>4<|box|>638 142 654 333<|content|>Title: ... Managing Director\n<|id|>41<|page|>4<|box|>654 142 671 336<|content|>Date: ... September 10, 2025\n<|id|>42<|page|>4<|box|>672 143 688 307<|content|>Address for Notices: ... Address for Notices\n<|id|>43<|page|>4<|box|>696 174 733 854<|content|>Whitepine Ventures Fund II, L. ... c/o Whitepine V...Street, Suite 1400 San Francisco, California 94111\n<|id|>44<|page|>4<|box|>742 176 758 542<|content|>Attention: ... Nadia Chowdhury, Managing Director\n<|id|>45<|page|>4<|box|>758 176 775 513<|content|>Email: ... com\n<|id|>46<|page|>4<|box|>776 140 792 700<|content|>Shares of Series A Preferred Stock held by the Undersigned: ... 15,800,000\n<|id|>47<|page|>4<|box|>801 140 832 852<|content|>This Written Consent has been delivered to the Sec...ngs of the holders of the Series A Preferred Stock",
+    "raw_response": "<|src_id|>36<|tgt_id|>37\n<|src_id|>38<|tgt_id|>39\n<|src_id|>39<|tgt_id|>40\n<|src_id|>40<|tgt_id|>41\n<|src_id|>42<|tgt_id|>43\n<|src_id|>43<|tgt_id|>44\n<|src_id|>44<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        }
+    ]
+}

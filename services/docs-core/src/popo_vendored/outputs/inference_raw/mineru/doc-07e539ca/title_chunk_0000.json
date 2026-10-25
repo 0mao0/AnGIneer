@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 364 118 630<|content|>JOINDER AGREEMENT\n<|id|>1<|page|>1<|box|>136 316 154 681<|content|>Form of Joinder to Stock Purchase Agreement\n<|id|>4<|page|>1<|box|>357 142 375 241<|content|>RECITALS\n<|id|>10<|page|>2<|box|>89 142 107 243<|content|>ARTICLE I\n<|id|>11<|page|>2<|box|>131 140 148 524<|content|>JOINDER AND AGREEMENT TO BE BOUND\n<|id|>15<|page|>3<|box|>314 142 330 250<|content|>ARTICLE II\n<|id|>16<|page|>3<|box|>354 142 372 452<|content|>INDEMNIFICATION OBLIGATIONS\n<|id|>28<|page|>5<|box|>148 142 166 256<|content|>ARTICLE III\n<|id|>29<|page|>5<|box|>190 140 207 797<|content|>REPRESENTATIONS AND WARRANTIES OF THE JOINING STOC\n<|id|>36<|page|>6<|box|>321 142 338 256<|content|>ARTICLE IV\n<|id|>37<|page|>6<|box|>362 142 378 349<|content|>ACKNOWLEDGMENTS\n<|id|>45<|page|>8<|box|>148 140 166 250<|content|>ARTICLE V\n<|id|>46<|page|>8<|box|>190 140 207 354<|content|>GENERAL PROVISIONS\n<|id|>74<|page|>10<|box|>564 401 580 596<|content|>[Signature Pages Follow]\n<|id|>75<|page|>10<|box|>589 295 604 700<|content|>SIGNATURE PAGE TO JOINDER AGREEMENT\n<|id|>77<|page|>10<|box|>657 142 675 377<|content|>JOINING STOCKHOLDER:\n<|id|>82<|page|>11<|box|>354 352 372 643<|content|>ACKNOWLEDGED AND AGREED\n<|id|>95<|page|>12<|box|>89 142 107 245<|content|>EXHIBIT A\n<|id|>96<|page|>12<|box|>114 238 133 758<|content|>STOCK PURCHASE AGREEMENT (Incorporated by Referenc",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>36<|level|>2\n<|id|>37<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>74<|level|>-1\n<|id|>75<|level|>2\n<|id|>77<|level|>3\n<|id|>82<|level|>2\n<|id|>95<|level|>2\n<|id|>96<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        }
+    ]
+}

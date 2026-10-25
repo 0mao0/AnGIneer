@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|page|>1<|box|>686 140 704 439<|content|>I. Background — Negotiation History\n<|id|>22<|page|>2<|box|>773 140 790 640<|content|>II. Change of Control Event — Vaulton Acquisition\n<|id|>26<|page|>3<|box|>441 140 459 377<|content|>III. Grounds for Termination\n<|id|>28<|page|>3<|box|>549 140 566 393<|content|>A. Competitive Overlap Concerns\n<|id|>33<|page|>4<|box|>189 140 207 455<|content|>B. Data Security and Confidentiality Risks\n<|id|>37<|page|>4<|box|>641 142 657 380<|content|>C. Irreconcilability of Concerns\n<|id|>40<|page|>4<|box|>883 142 900 485<|content|>IV. Confirmation of No Binding Agreement\n<|id|>43<|page|>5<|box|>398 140 415 611<|content|>V. Confidential Information — Mutual Destruction R\n<|id|>55<|page|>6<|box|>325 140 342 344<|content|>VI. Reservation of Rights\n<|id|>57<|page|>6<|box|>487 142 503 413<|content|>VII. Request for Acknowledgment\n<|id|>59<|page|>6<|box|>648 142 666 251<|content|>VIII. Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>11<|level|>1\n<|id|>22<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>1\n<|id|>43<|level|>1\n<|id|>55<|level|>1\n<|id|>57<|level|>1\n<|id|>59<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        }
+    ]
+}

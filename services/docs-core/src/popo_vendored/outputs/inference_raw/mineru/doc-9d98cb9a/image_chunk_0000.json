@@ -1,0 +1,23 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>444 142 460 333<|content|>1. Scope of Engagement\n<|id|>15<|type|>title<|page|>2<|box|>539 140 556 313<|content|>2. Engagement Team\n<|id|>17<|type|>table<|page|>2<|box|>606 143 700 852<|content|>None\n<|id|>19<|type|>title<|page|>3<|box|>90 140 107 267<|content|>3. Fee Estimate\n<|id|>21<|type|>title<|page|>3<|box|>340 140 357 325<|content|>4. Billing and Payment\n<|id|>24<|type|>title<|page|>3<|box|>633 140 652 341<|content|>5. Lender's Counsel Fees\n<|id|>26<|type|>title<|page|>4<|box|>90 140 107 236<|content|>6. Conflicts\n<|id|>28<|type|>title<|page|>4<|box|>359 140 375 264<|content|>7. Termination\n<|id|>33<|type|>title<|page|>4<|box|>724 140 741 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>38<|type|>title<|page|>4<|box|>829 142 845 488<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>43<|type|>title<|page|>5<|box|>89 140 106 282<|content|>Date: July 8, 2024",
+    "raw_response": "<|src_id|>17<|tgt_id|>15",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 15
+        }
+    ]
+}

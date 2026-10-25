@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>679 140 695 571<|content|>I. Identification of the Decedent's Membership Int\n<|id|>11<|page|>2<|box|>241 140 258 521<|content|>II. Specific Information and Document Requests\n<|id|>13<|page|>2<|box|>353 142 369 460<|content|>1. Confirmation of Membership Interest\n<|id|>19<|page|>2<|box|>657 140 675 336<|content|>2. Operating Agreement\n<|id|>28<|page|>3<|box|>371 140 388 383<|content|>3. Capital Account Statements\n<|id|>31<|page|>3<|box|>598 142 614 323<|content|>4. Distribution History\n<|id|>38<|page|>4<|box|>90 140 107 540<|content|>5. Financial Statements and Valuation Information\n<|id|>44<|page|>4<|box|>559 142 575 320<|content|>6. Tax Documentation\n<|id|>50<|page|>5<|box|>90 142 107 470<|content|>7. Pending or Contemplated Transactions\n<|id|>59<|page|>5<|box|>501 142 517 475<|content|>III. Legal Authority and Basis for Request\n<|id|>64<|page|>6<|box|>223 140 239 330<|content|>IV. Preservation Notice\n<|id|>68<|page|>6<|box|>671 140 688 513<|content|>V. Response Deadline and Contact Information\n<|id|>76<|page|>7<|box|>199 142 215 295<|content|>VI. Confidentiality",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>11<|level|>1\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>28<|level|>2\n<|id|>31<|level|>2\n<|id|>38<|level|>2\n<|id|>44<|level|>2\n<|id|>50<|level|>2\n<|id|>59<|level|>1\n<|id|>64<|level|>1\n<|id|>68<|level|>1\n<|id|>76<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        }
+    ]
+}

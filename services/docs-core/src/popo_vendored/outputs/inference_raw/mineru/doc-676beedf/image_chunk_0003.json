@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        150,
+        153
+    ],
+    "pages": [
+        150,
+        151,
+        153
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>723<|type|>title<|page|>150<|box|>97 236 138 759<|content|>INTRODUCTION: Wool Research, Development, and Prom\n<|id|>730<|type|>table<|page|>150<|box|>489 88 662 911<|content|>None\n<|id|>732<|type|>table<|page|>150<|box|>742 88 905 911<|content|>None\n<|id|>733<|type|>title<|page|>151<|box|>89 388 109 609<|content|>Research Paper Series\n<|id|>734<|type|>title<|page|>151<|box|>128 143 148 854<|content|>Available through the Office of the Assistant Secr\n<|id|>759<|type|>title<|page|>153<|box|>98 446 119 552<|content|>Glossary\n<|id|>760<|type|>title<|page|>153<|box|>125 258 143 743<|content|>With References to Applicable Sections and Tables",
+    "raw_response": "<|src_id|>730<|tgt_id|>723\n<|src_id|>732<|tgt_id|>723",
+    "parsed": [
+        {
+            "src_id": 730,
+            "tgt_id": 723
+        },
+        {
+            "src_id": 732,
+            "tgt_id": 723
+        }
+    ]
+}

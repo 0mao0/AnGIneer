@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>338 142 354 300<|content|>I. Purpose of Letter\n<|id|>10<|type|>title<|page|>1<|box|>724 140 741 454<|content|>II. Background and Procedural History\n<|id|>12<|type|>title<|page|>1<|box|>816 140 834 437<|content|>A. The FTA Grant and Project Scope\n<|id|>18<|type|>table<|page|>2<|box|>364 143 513 852<|content|>None\n<|id|>21<|type|>title<|page|>2<|box|>696 142 714 419<|content|>B. The ICC Regulatory Proceeding\n<|id|>38<|type|>title<|page|>4<|box|>242 140 258 560<|content|>III. FTA Grant Rescission — Events and Legal Effec\n<|id|>39<|type|>title<|page|>4<|box|>273 140 291 401<|content|>A. Congressional Funding Lapse\n<|id|>43<|type|>title<|page|>4<|box|>672 142 689 406<|content|>B. Impact on the ICC Proceeding\n<|id|>49<|type|>title<|page|>5<|box|>465 140 483 334<|content|>C. MTDC Board Action\n<|id|>52<|type|>title<|page|>5<|box|>684 140 700 406<|content|>IV. Analysis of Available Options\n<|id|>54<|type|>title<|page|>5<|box|>758 140 777 736<|content|>A. Option 1: Withdraw Verified Petition Without Pr\n<|id|>63<|type|>title<|page|>6<|box|>635 140 652 452<|content|>B. Option 2: Seek a Stay of Proceedings\n<|id|>71<|type|>title<|page|>7<|box|>282 140 300 658<|content|>C. Option 3: Proceed with the Application on Alter\n<|id|>78<|type|>title<|page|>7<|box|>806 140 823 460<|content|>V. Procedural Mechanics of Withdrawal\n<|id|>87<|type|>title<|page|>8<|box|>595 140 612 571<|content|>VI. Preservation of MTDC's Rights and Work Product\n<|id|>100<|type|>title<|page|>9<|box|>400 140 417 531<|content|>VII. Impact on Related Agreements and Advisors\n<|id|>107<|type|>title<|page|>10<|box|>229 140 248 429<|content|>VIII. Engagement and Billing Status\n<|id|>112<|type|>table<|page|>10<|box|>541 143 635 852<|content|>None\n<|id|>114<|type|>title<|page|>10<|box|>747 140 763 380<|content|>IX. Request for Authorization\n<|id|>119<|type|>title<|page|>11<|box|>311 140 329 258<|content|>X. Conclusion\n<|id|>131<|type|>title<|page|>11<|box|>881 142 897 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>18<|tgt_id|>12\n<|src_id|>112<|tgt_id|>107",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 107
+        }
+    ]
+}

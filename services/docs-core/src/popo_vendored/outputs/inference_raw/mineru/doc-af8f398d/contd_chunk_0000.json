@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        6,
+        8,
+        9,
+        10,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 251 133 746<|content|>825 Eighth Avenue, 42nd Floor New York, New York 10019, USA\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 733 184 854<|content|>March 12, 2025\n<|id|>4<|page|>1<|box|>191 140 231 846<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL...TTORNEY WORK PRODUCT C&H Matter No. ... 1039-00005\n<|id|>5<|page|>1<|box|>239 140 275 854<|content|>Dr. ... Leonard Strauss, CPA, CFF Engagement Partn..., Suite 1200 Philadelphia, Pennsylvania 19103, USA\n<|id|>6<|page|>1<|box|>282 142 300 274<|content|>Dear Dr. ... Strauss\n<|id|>60<|page|>6<|box|>739 174 794 854<|content|>(d) Dembélé Mining License Upgrade (License No. ... and\n<|id|>62<|page|>6<|box|>847 140 902 854<|content|>Pinnacle's analysis shall focus on identifying pat...activity immediately following such issuance dates\n<|id|>80<|page|>8<|box|>454 174 489 854<|content|>\"PRIVILEGED AND CONFIDENTIAL — PREPARED AT THE DIRECTION OF COUNSEL\"\n<|id|>81<|page|>8<|box|>500 140 571 856<|content|>Pinnacle shall coordinate with C&H with respect to...s or information without C&H's prior authorization\n<|id|>88<|page|>9<|box|>90 174 127 854<|content|>(e) Procurement records, purchase orders, vendor f...in connection with its Ganaran operations; ... and\n<|id|>90<|page|>9<|box|>215 140 325 856<|content|>Pinnacle shall coordinate with VDF as necessary fo...ordinated through, and approved in advance by, C&H\n<|id|>97<|page|>9<|box|>814 174 885 856<|content|>(b) Not produce any documents, data, or work produ...on directing such production or testimony; ... and\n<|id|>99<|page|>10<|box|>133 138 207 856<|content|>Pinnacle shall implement appropriate information s...controls, and secure storage of physical documents\n<|id|>126<|page|>13<|box|>277 212 294 292<|content|>Sincerely,\n<|id|>127<|page|>13<|box|>303 140 319 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>128<|page|>13<|box|>321 143 338 254<|content|>By: ... By\n<|id|>129<|page|>13<|box|>339 142 354 308<|content|>Name: ... Conrad Ashby\n<|id|>130<|page|>13<|box|>354 140 372 563<|content|>Title: ... Responsible Partner, White Collar & Investigations\n<|id|>131<|page|>13<|box|>372 140 388 810<|content|>Calderwood & Harkness LLP 825 Eighth Avenue, 42nd Floor New York, New York 10019\n<|id|>132<|page|>13<|box|>390 142 406 379<|content|>ACCEPTED AND AGREED: ... ACCEPTED AND AGREED\n<|id|>133<|page|>13<|box|>415 140 431 465<|content|>PINNACLE FORENSIC ADVISORY LLC\n<|id|>134<|page|>13<|box|>434 143 449 253<|content|>By: ... By\n<|id|>135<|page|>13<|box|>450 140 465 431<|content|>Name: ... Leonard Strauss, CPA, CFF\n<|id|>136<|page|>13<|box|>467 142 484 341<|content|>Title: ... Engagement Partner\n<|id|>137<|page|>13<|box|>484 140 516 852<|content|>Pinnacle Forensic Advisory LLC 1700 Market Street, Suite 1200 Philadelphia, Pennsylvania 19103\n<|id|>138<|page|>13<|box|>518 142 536 264<|content|>Date: ... Date\n<|id|>141<|page|>13<|box|>626 140 643 761<|content|>1. ... Pinnacle Forensic Advisory LLC — Standard Hourly Rate Schedule\n<|id|>143<|page|>13<|box|>684 140 744 857<|content|>This letter and all enclosures are subject to the ...prior written consent of Calderwood & Harkness LLP\n<|id|>142<|page|>13<|box|>646 140 681 854<|content|>2. ... List of Known Custodians and Data Sources (to be provided separately under cover of privilege)",
+    "raw_response": "<|src_id|>60<|tgt_id|>62\n<|src_id|>88<|tgt_id|>90\n<|src_id|>97<|tgt_id|>99",
+    "parsed": [
+        {
+            "src_id": 60,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 99
+        }
+    ]
+}

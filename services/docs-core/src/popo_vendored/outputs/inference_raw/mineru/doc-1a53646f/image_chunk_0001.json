@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        55,
+        63
+    ],
+    "pages": [
+        55,
+        56,
+        58,
+        59,
+        60,
+        61,
+        63
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>645<|type|>title<|page|>55<|box|>275 413 295 597<|content|>4.5 粗骨料\n<|id|>650<|type|>title<|page|>56<|box|>140 289 169 674<|content|>5 混凝土配合比控制\n<|id|>652<|type|>title<|page|>56<|box|>303 393 322 576<|content|>5.1 一般规定\n<|id|>654<|type|>title<|page|>56<|box|>404 381 422 586<|content|>5.4 大体积混凝土\n<|id|>656<|type|>title<|page|>56<|box|>550 376 570 591<|content|>5.5 水下混凝土\n<|id|>661<|type|>title<|page|>56<|box|>845 357 865 608<|content|>5.6 水下不分散混凝土\n<|id|>666<|type|>title<|page|>58<|box|>138 224 168 727<|content|>6 混凝土施工过程质量控制\n<|id|>667<|type|>title<|page|>58<|box|>202 398 222 559<|content|>6.1 配料\n<|id|>670<|type|>title<|page|>58<|box|>322 398 341 559<|content|>6.2 搅拌\n<|id|>672<|type|>title<|page|>58<|box|>417 398 436 559<|content|>6.3 运输\n<|id|>676<|type|>title<|page|>58<|box|>607 398 627 559<|content|>6.4 浇筑\n<|id|>685<|type|>title<|page|>59<|box|>180 432 198 593<|content|>6.5 养护\n<|id|>687<|type|>title<|page|>60<|box|>137 268 166 691<|content|>7 硬化混凝土质量控制\n<|id|>688<|type|>title<|page|>60<|box|>202 368 221 595<|content|>7.1 混凝土外观质量\n<|id|>691<|type|>title<|page|>60<|box|>368 376 387 587<|content|>7.2 混凝土强度\n<|id|>698<|type|>table<|page|>61<|box|>98 81 243 950<|content|>None\n<|id|>701<|type|>table<|page|>61<|box|>345 81 492 948<|content|>None\n<|id|>705<|type|>title<|page|>61<|box|>657 408 675 614<|content|>7.3 混凝土耐久性\n<|id|>713<|type|>title<|page|>63<|box|>162 151 227 865<|content|>附录 A 混凝土抗氯离子渗透性标准试验方法——电通量法\n<|id|>714<|type|>title<|page|>63<|box|>256 413 277 603<|content|>A.4 结果计算",
+    "raw_response": "<|src_id|>698<|tgt_id|>691\n<|src_id|>701<|tgt_id|>691",
+    "parsed": [
+        {
+            "src_id": 698,
+            "tgt_id": 691
+        },
+        {
+            "src_id": 701,
+            "tgt_id": 691
+        }
+    ]
+}

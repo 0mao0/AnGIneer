@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        6,
+        8
+    ],
+    "pages": [
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>52<|page|>6<|box|>833 174 906 856<|content|>(b) the Board of Directors of Merger Sub (Ardent Apex Merger Sub Inc. ... and\n<|id|>54<|page|>7<|box|>253 140 381 856<|content|>No other corporate or other proceedings on the par...ghts generally and to general principles of equity\n<|id|>61<|page|>8<|box|>133 174 189 854<|content|>(iii) otherwise be materially adverse to Parent, M...r respective rights under such commitments; ... or\n<|id|>63<|page|>8<|box|>241 140 296 854<|content|>in each case, except as expressly permitted under ...greement have been satisfied with respect thereto)\n<|id|>62<|page|>8<|box|>196 174 233 854<|content|>(iv) otherwise materially and adversely affect the...transactions contemplated by the Merger Agreement,\n<|id|>72<|page|>8<|box|>771 143 787 254<|content|>Name: ... [Insert]\n<|id|>73<|page|>8<|box|>787 142 804 730<|content|>Title: ... , President, Chief Executive Officer, or authorized signatory]\n<|id|>74<|page|>8<|box|>805 143 820 444<|content|>ARDENT APEX MERGER SUB INC. ... ARDENT APEX MERGER SUB INC\n<|id|>76<|page|>8<|box|>840 143 856 254<|content|>Name: ... [Insert]\n<|id|>77<|page|>8<|box|>857 142 875 545<|content|>Title: ... ]",
+    "raw_response": "<|src_id|>52<|tgt_id|>54",
+    "parsed": [
+        {
+            "src_id": 52,
+            "tgt_id": 54
+        }
+    ]
+}

@@ -1,0 +1,182 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fqrefb0h\\input\\pdfs\\doc-b34191c0.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fqrefb0h\\enriched\\doc-b34191c0.json",
+    "contd_output": "",
+    "title_output": "<|id|>4<|level|>1\n<|id|>10<|level|>2\n<|id|>18<|level|>2\n<|id|>20<|level|>3\n<|id|>24<|level|>3\n<|id|>53<|level|>2\n<|id|>68<|level|>2\n<|id|>78<|level|>2\n<|id|>81<|level|>3\n<|id|>93<|level|>3\n<|id|>99<|level|>2\n<|id|>112<|level|>2\n<|id|>127<|level|>2\n<|id|>134<|level|>2\n<|id|>140<|level|>2\n<|id|>149<|level|>1\n<|id|>150<|level|>1\n<|id|>151<|level|>2\n<|id|>169<|level|>1\n<|id|>170<|level|>1\n<|id|>171<|level|>1\n<|id|>172<|level|>2\n<|id|>180<|level|>2",
+    "image_output": "<|src_id|>80<|tgt_id|>78\n<|src_id|>87<|tgt_id|>81\n<|src_id|>88<|tgt_id|>81\n<|src_id|>175<|tgt_id|>170\n<|src_id|>176<|tgt_id|>170\n<|src_id|>177<|tgt_id|>170\n<|src_id|>178<|tgt_id|>170\n<|src_id|>179<|tgt_id|>170\n<|src_id|>182<|tgt_id|>180\n<|src_id|>183<|tgt_id|>180",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 1
+        },
+        {
+            "id": 171,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 80,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 170
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 180
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 180
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 87,
+            "table2_idx": 88,
+            "upper_row_ss": [
+                [
+                    "Owen R. Hargrove",
+                    "General Counsel & Secretary, QIH",
+                    "400 Atlantic Street, Suite 3200,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Stamford, CT 06901"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 182,
+            "table2_idx": 183,
+            "upper_row_ss": [
+                [
+                    "Angela F. Delvecchio",
+                    "Member, Audit Committee, QIH",
+                    "Non-Custodian — Preservation"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Board of Directors",
+                    "Requested"
+                ]
+            ]
+        }
+    ]
+}

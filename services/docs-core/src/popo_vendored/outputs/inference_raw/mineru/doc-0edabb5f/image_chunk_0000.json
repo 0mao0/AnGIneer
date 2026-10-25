@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>127 424 143 573<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>364 385 383 611<|content|>I. Executive Summary\n<|id|>18<|type|>title<|page|>2<|box|>606 325 625 671<|content|>II. Background on the Transaction\n<|id|>19<|type|>title<|page|>2<|box|>651 142 667 343<|content|>A. Transaction Structure\n<|id|>25<|type|>table<|page|>3<|box|>239 143 378 852<|content|>None\n<|id|>28<|type|>table<|page|>3<|box|>529 143 604 852<|content|>None\n<|id|>30<|type|>title<|page|>3<|box|>753 142 768 470<|content|>B. Cascadia's FERC-Jurisdictional Assets\n<|id|>35<|type|>title<|page|>4<|box|>513 140 529 326<|content|>C. Parties and Counsel\n<|id|>43<|type|>title<|page|>5<|box|>525 290 544 707<|content|>III. Statutory and Regulatory Framework\n<|id|>44<|type|>title<|page|>5<|box|>570 142 587 455<|content|>A. Section 203 of the Federal Power Act\n<|id|>51<|type|>title<|page|>6<|box|>575 140 592 374<|content|>B. FERC Approval Standard\n<|id|>59<|type|>title<|page|>7<|box|>654 140 671 503<|content|>C. Blanket Authorization vs. Individual Filing\n<|id|>66<|type|>title<|page|>8<|box|>227 375 247 620<|content|>IV. Filing Requirements\n<|id|>67<|type|>title<|page|>8<|box|>272 142 289 428<|content|>A. Form and Content of Application\n<|id|>74<|type|>title<|page|>9<|box|>431 142 449 310<|content|>B. Required Exhibits\n<|id|>86<|type|>title<|page|>11<|box|>358 140 376 250<|content|>C. Filing Fee\n<|id|>88<|type|>title<|page|>11<|box|>500 140 515 354<|content|>D. Service and Publication\n<|id|>94<|type|>title<|page|>12<|box|>90 290 111 707<|content|>V. Review Process and Expected Timeline\n<|id|>95<|type|>title<|page|>12<|box|>136 142 152 377<|content|>A. Standard Review Timeline\n<|id|>102<|type|>title<|page|>12<|box|>845 140 863 485<|content|>B. Anticipated Timeline for Cascadia Filing\n<|id|>104<|type|>table<|page|>13<|box|>89 143 294 852<|content|>None\n<|id|>109<|type|>title<|page|>13<|box|>794 140 811 411<|content|>C. Potential for Expedited Review\n<|id|>117<|type|>title<|page|>14<|box|>405 243 424 754<|content|>VI. Substantive Analysis — Likelihood of Approval\n<|id|>118<|type|>title<|page|>14<|box|>450 142 467 341<|content|>A. Effect on Competition\n<|id|>124<|type|>title<|page|>15<|box|>194 142 210 287<|content|>B. Effect on Rates\n<|id|>129<|type|>title<|page|>15<|box|>594 140 612 328<|content|>C. Effect on Regulation\n<|id|>136<|type|>title<|page|>16<|box|>348 140 364 325<|content|>D. Cross-Subsidization\n<|id|>141<|type|>title<|page|>16<|box|>734 305 753 689<|content|>VII. Conditions That May Be Imposed\n<|id|>149<|type|>title<|page|>17<|box|>760 233 779 763<|content|>VIII. Coordination with Other Regulatory Approvals\n<|id|>150<|type|>title<|page|>17<|box|>804 142 821 504<|content|>A. Oregon Public Utility Commission (OPUC)\n<|id|>154<|type|>title<|page|>18<|box|>339 140 357 225<|content|>B. CFIUS\n<|id|>156<|type|>title<|page|>18<|box|>535 140 553 424<|content|>C. Interaction Between Proceedings\n<|id|>160<|type|>title<|page|>19<|box|>90 281 111 715<|content|>IX. ICM Co-Invest–Specific Considerations\n<|id|>167<|type|>title<|page|>20<|box|>172 313 191 683<|content|>X. Recommendations and Next Steps\n<|id|>177<|type|>title<|page|>21<|box|>468 421 487 576<|content|>XI. Conclusion",
+    "raw_response": "<|src_id|>25<|tgt_id|>19\n<|src_id|>28<|tgt_id|>19\n<|src_id|>104<|tgt_id|>102",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 102
+        }
+    ]
+}

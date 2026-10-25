@@ -1,0 +1,104 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-q540h7m7\\input\\pdfs\\doc-62f0cad4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-q540h7m7\\enriched\\doc-62f0cad4.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>5<|level|>1\n<|id|>6<|level|>2\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>23<|level|>3\n<|id|>29<|level|>1\n<|id|>30<|level|>1\n<|id|>31<|level|>1\n<|id|>32<|level|>1\n<|id|>35<|level|>1",
+    "image_output": "<|src_id|>4<|tgt_id|>3\n<|src_id|>33<|tgt_id|>32\n<|src_id|>34<|tgt_id|>32",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 32
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 33,
+            "table2_idx": 34,
+            "upper_row_ss": [
+                [
+                    "LUMICORE TECHNOLOGIES, INC.,",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Defendant.",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        90
+    ],
+    "pages": [
+        5,
+        6,
+        11,
+        27,
+        28,
+        32,
+        36,
+        37,
+        40,
+        89
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>5<|box|>3 35 187 238<|content|>Tras. ... HJ 10 AH T - Nov 82 C1\n<|id|>2<|page|>5<|box|>526 441 564 825<|content|>TREASURY DEPARTMENT LIBRARY\n<|id|>3<|page|>6<|box|>63 21 163 382<|content|>DEPARTMENT OF THE TREASURY FISCAL SERVICE, BUREAU ...6 OFFICIAL BUSINESS PENALTY FOR PRIVATE USE, \\$300\n<|id|>4<|page|>6<|box|>154 847 167 951<|content|>FIRST CLASS\n<|id|>17<|page|>11<|box|>75 4 902 440<|content|>Article - Treasury financing operations. ... 69\n<|id|>18<|page|>11<|box|>74 478 873 915<|content|>AVERAGE YIELDS OF LONG-TERM BONDS AY-1. ... 112\n<|id|>82<|page|>27<|box|>330 21 347 450<|content|>11/ Rate of 3 percent effective January 1, 1979; ... ) Rate of 2 percent extended through\n<|id|>89<|page|>27<|box|>321 506 330 653<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>88<|page|>27<|box|>278 506 326 937<|content|>16/ Contains, among other items, amounts paid into... from tax returns filed. ... * Less than \\$500,000\n<|id|>98<|page|>28<|box|>702 41 778 473<|content|>Source: ... (Data are on the basis of Reports on O...the agencies prior to reports submitted for budget\n<|id|>99<|page|>28<|box|>701 500 787 970<|content|>presentation and therefore may differ somewhat from the Budget of the U. ... 359,888\n<|id|>106<|page|>32<|box|>472 44 547 475<|content|>Source: ... (Data are on the basis of Reports on O...the agencies prior to reports submitted for budget\n<|id|>107<|page|>32<|box|>471 503 556 971<|content|>presentation and therefore may differ somewhat from the Budget of the U. ... 425,497\n<|id|>116<|page|>36<|box|>72 149 85 837<|content|>Source and Availability of the Balance in the Account of the U. ... Treasury\n<|id|>117<|page|>36<|box|>114 21 165 470<|content|>The operating cash of the Treasury is maintained i...untry authorized to maintain tax and loan accounts\n<|id|>122<|page|>37<|box|>103 443 115 590<|content|>(In millions of dollars)\n<|id|>123<|page|>37<|box|>783 529 793 755<|content|>inviting subscriptions to the issues. ... inviting subscriptions to the issues\n<|id|>135<|page|>40<|box|>830 36 905 468<|content|>Note: ... The average annual rate is computed by d...any group of issues by the corresponding principal\n<|id|>136<|page|>40<|box|>841 521 851 744<|content|>1/ Includes Federal Financing Bank. ... 1/ Includes Federal Financing Bank\n<|id|>269<|page|>89<|box|>656 118 676 377<|content|>\\Delta \\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>270<|page|>89<|box|>682 120 711 367<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>272<|page|>89<|box|>427 529 440 731<|content|>(EQ2) E_x = \\Sigma(\\Delta f c_i / \\$ * X_i / \\Sigma X)\n<|id|>273<|page|>89<|box|>444 549 474 844<|content|>Where: ... E_{x} is the weighted average of percentage changes in the foreign currency cost of dollars\n<|id|>274<|page|>89<|box|>479 599 501 838<|content|>\\Delta f c_{i}/\\$ is the percent change in the foreign currency 1 cost of dollars; ... and\n<|id|>275<|page|>89<|box|>507 599 536 833<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>278<|page|>89<|box|>586 551 614 844<|content|>Where: ... and\n<|id|>279<|page|>89<|box|>621 597 649 849<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set",
+    "raw_response": "<|src_id|>98<|tgt_id|>99\n<|src_id|>106<|tgt_id|>107\n<|src_id|>269<|tgt_id|>270\n<|src_id|>273<|tgt_id|>274\n<|src_id|>274<|tgt_id|>275\n<|src_id|>278<|tgt_id|>279",
+    "parsed": [
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 106,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 269,
+            "tgt_id": 270
+        },
+        {
+            "src_id": 273,
+            "tgt_id": 274
+        },
+        {
+            "src_id": 274,
+            "tgt_id": 275
+        },
+        {
+            "src_id": 278,
+            "tgt_id": 279
+        }
+    ]
+}

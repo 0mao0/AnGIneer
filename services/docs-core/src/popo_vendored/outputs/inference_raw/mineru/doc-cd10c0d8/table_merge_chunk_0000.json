@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['ESA-001', 'Fairfield Logistics Center I', '4200 Fairfield Industrial Blvd, Fairburn, Georgia 30213', 'GMP Fairfield I LLC', 'November 15, 2023', 'Phase I Environmental Site Assessment — Fairfield Logistics Center I, Fairburn, Georgia / TEG Ref. No. 2023-', 'No Recognized Environmental Conditions (RECs) identified. No Controlled Recognized Environmental Conditions (CRECs) or']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', 'ATL-4401', 'Historical Recognized Environmental Conditions (HRECs) identified. No further investigation recommended.']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 7,
+    "table2_idx": 8
+}

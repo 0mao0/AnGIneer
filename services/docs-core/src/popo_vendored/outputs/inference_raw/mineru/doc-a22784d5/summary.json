@@ -1,0 +1,203 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mbjshija\\input\\pdfs\\doc-a22784d5.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mbjshija\\enriched\\doc-a22784d5.json",
+    "contd_output": "<|src_id|>30<|tgt_id|>31\n<|src_id|>170<|tgt_id|>171",
+    "title_output": "<|id|>5<|level|>1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>19<|level|>2\n<|id|>26<|level|>2\n<|id|>32<|level|>1\n<|id|>33<|level|>2\n<|id|>43<|level|>2\n<|id|>59<|level|>2\n<|id|>64<|level|>1\n<|id|>65<|level|>2\n<|id|>73<|level|>2\n<|id|>80<|level|>2\n<|id|>88<|level|>2\n<|id|>93<|level|>1\n<|id|>95<|level|>2\n<|id|>103<|level|>2\n<|id|>115<|level|>2\n<|id|>124<|level|>2\n<|id|>131<|level|>2\n<|id|>143<|level|>2\n<|id|>153<|level|>1\n<|id|>154<|level|>2\n<|id|>162<|level|>2\n<|id|>168<|level|>2\n<|id|>176<|level|>2\n<|id|>182<|level|>1\n<|id|>193<|level|>1\n<|id|>201<|level|>2\n<|id|>204<|level|>3",
+    "image_output": "<|src_id|>23<|tgt_id|>19\n<|src_id|>97<|tgt_id|>95\n<|src_id|>105<|tgt_id|>103\n<|src_id|>194<|tgt_id|>193\n<|src_id|>196<|tgt_id|>193\n<|src_id|>198<|tgt_id|>193\n<|src_id|>199<|tgt_id|>193\n<|src_id|>202<|tgt_id|>201\n<|src_id|>203<|tgt_id|>201\n<|src_id|>205<|tgt_id|>204",
+    "contd_label": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 171
+        }
+    ],
+    "title_label": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 1
+        },
+        {
+            "id": 193,
+            "level": 1
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 23,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 201
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 204
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 198,
+            "table2_idx": 199,
+            "upper_row_ss": [
+                [
+                    "California v. Sutter Health System",
+                    "—",
+                    "—",
+                    "Court applied the failing-firm defense narrowly and found it unsatisfied despite evidence of financial difficulties."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "FTC v. Tronox Ltd.",
+                    "—",
+                    "—",
+                    "Court engaged with weakened-competitor analysis in assessing target's future competitive significance; ultimately credited FTC's challenge but acknowledged analytical validity of the framework."
+                ]
+            ]
+        }
+    ]
+}

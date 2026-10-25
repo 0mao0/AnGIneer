@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        29,
+        30
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>217 140 270 854<|content|>FROM: ... Miriam Calloway, Partner, Calderwood & H...my Whitfield, Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>279 142 297 300<|content|>DATE: ... May 8, 2023\n<|id|>4<|page|>1<|box|>305 140 340 854<|content|>RE: ... Detailed Anti-Kickback Statute and Stark L...an Diagnostics LLC Facility Access Fee Arrangement\n<|id|>5<|page|>1<|box|>349 142 366 361<|content|>MATTER NO. ... 1010-00003\n<|id|>6<|page|>1<|box|>375 142 392 408<|content|>Right-click to update Table of Contents\n<|id|>263<|page|>29<|box|>806 140 898 856<|content|>Prompt restructuring of the arrangement to a fixed...al. ... The restructured arrangement will position\n<|id|>264<|page|>30<|box|>89 140 127 854<|content|>AHT for the Ridgeline Capital anticipated exit pro...Master Arrangement Inventory & Risk Scoring Matrix",
+    "raw_response": "<|src_id|>263<|tgt_id|>264",
+    "parsed": [
+        {
+            "src_id": 263,
+            "tgt_id": 264
+        }
+    ]
+}

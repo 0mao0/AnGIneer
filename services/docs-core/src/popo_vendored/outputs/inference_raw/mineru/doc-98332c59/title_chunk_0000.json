@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 161 141 834<|content|>IN THE CIRCUIT COURT OF THE SEVENTEENTH JUDICIAL C\n<|id|>6<|page|>1<|box|>376 140 393 560<|content|>COASTAL PALMS FRANCHISE HOLDINGS LLC,\n<|id|>11<|page|>1<|box|>505 179 540 816<|content|>COUNTERCLAIM DEFENDANT VERIMARK HOSPITALITY GROUP\n<|id|>14<|page|>1<|box|>744 194 763 803<|content|>RESPONSE TO JURISDICTIONAL AND PRELIMINARY ALLEGAT\n<|id|>19<|page|>2<|box|>651 151 686 844<|content|>RESPONSE TO COUNTERCLAIM COUNT I: BREACH OF CONTRA\n<|id|>28<|page|>5<|box|>133 153 169 841<|content|>RESPONSE TO COUNTERCLAIM COUNT II: BREACH OF CONTR\n<|id|>37<|page|>6<|box|>380 408 396 589<|content|>GENERAL DENIALS\n<|id|>41<|page|>6<|box|>611 287 628 709<|content|>AFFIRMATIVE DEFENSES TO COUNTERCLAIM\n<|id|>43<|page|>6<|box|>704 140 722 617<|content|>FIRST AFFIRMATIVE DEFENSE: Failure to State a Clai\n<|id|>45<|page|>6<|box|>833 140 849 674<|content|>SECOND AFFIRMATIVE DEFENSE: Failure to Mitigate Da\n<|id|>48<|page|>7<|box|>229 140 248 508<|content|>THIRD AFFIRMATIVE DEFENSE: Estoppel\n<|id|>50<|page|>7<|box|>523 140 539 575<|content|>FOURTH AFFIRMATIVE DEFENSE: Unclean Hands\n<|id|>56<|page|>8<|box|>220 140 236 493<|content|>FIFTH AFFIRMATIVE DEFENSE: Waiver\n<|id|>58<|page|>8<|box|>439 140 455 617<|content|>SIXTH AFFIRMATIVE DEFENSE: Setoff and Recoupment\n<|id|>60<|page|>8<|box|>657 140 675 816<|content|>SEVENTH AFFIRMATIVE DEFENSE: Comparative Fault / C\n<|id|>62<|page|>9<|box|>90 140 106 640<|content|>EIGHTH AFFIRMATIVE DEFENSE: Contractual Limitation\n<|id|>64<|page|>9<|box|>309 140 325 580<|content|>NINTH AFFIRMATIVE DEFENSE: Lack of Causation\n<|id|>66<|page|>9<|box|>492 140 508 611<|content|>TENTH AFFIRMATIVE DEFENSE: Statute of Limitations\n<|id|>68<|page|>9<|box|>637 140 654 540<|content|>RESERVATION OF AFFIRMATIVE DEFENSES\n<|id|>70<|page|>9<|box|>758 401 776 596<|content|>PRAYER FOR RELIEF\n<|id|>76<|page|>10<|box|>202 375 219 620<|content|>DEMAND FOR JURY TRIAL\n<|id|>79<|page|>10<|box|>316 140 332 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>87<|page|>10<|box|>470 374 487 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>11<|level|>1\n<|id|>14<|level|>1\n<|id|>19<|level|>1\n<|id|>28<|level|>1\n<|id|>37<|level|>1\n<|id|>41<|level|>1\n<|id|>43<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>1\n<|id|>70<|level|>1\n<|id|>76<|level|>1\n<|id|>79<|level|>1\n<|id|>87<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        }
+    ]
+}

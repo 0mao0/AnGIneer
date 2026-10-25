@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 349 118 647<|content|>SOLVENCY CERTIFICATE\n<|id|>4<|type|>title<|page|>1<|box|>294 142 310 364<|content|>1. Recitals and Introduction\n<|id|>10<|type|>title<|page|>2<|box|>90 140 107 516<|content|>2. Transactions Considered; Basis of Certificate\n<|id|>24<|type|>title<|page|>3<|box|>627 140 643 416<|content|>3. Financial Information Reviewed\n<|id|>32<|type|>title<|page|>5<|box|>90 140 107 398<|content|>4. Definitions of Solvency Terms\n<|id|>38<|type|>title<|page|>5<|box|>737 140 753 344<|content|>5. Solvency Certifications\n<|id|>40<|type|>title<|page|>6<|box|>90 140 107 620<|content|>5.1 Balance Sheet Test (Fair Value Exceeds Stated\n<|id|>48<|type|>title<|page|>6<|box|>758 140 773 366<|content|>5.2 Fair Saleable Value Test\n<|id|>50<|type|>title<|page|>7<|box|>176 140 194 665<|content|>5.3 Ability to Pay Debts as They Become Due (Cash\n<|id|>58<|type|>title<|page|>7<|box|>715 140 733 573<|content|>5.4 Adequate Capital; Not Unreasonably Small Capit\n<|id|>65<|type|>title<|page|>8<|box|>426 140 443 553<|content|>5.5 No Intent to Hinder, Delay, or Defraud Credito\n<|id|>67<|type|>title<|page|>8<|box|>601 140 618 413<|content|>6. Assumptions and Qualifications\n<|id|>78<|type|>title<|page|>9<|box|>645 140 662 245<|content|>7. Execution\n<|id|>85<|type|>title<|page|>10<|box|>90 143 107 236<|content|>Schedule A\n<|id|>86<|type|>table<|page|>10<|box|>159 143 541 852<|content|>None",
+    "raw_response": "<|src_id|>86<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 86,
+            "tgt_id": 85
+        }
+    ]
+}

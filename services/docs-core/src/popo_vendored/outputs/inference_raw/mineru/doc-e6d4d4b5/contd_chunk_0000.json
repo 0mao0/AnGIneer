@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 178 176 818<|content|>Delivered Pursuant to Section 8. ... 02(c) of the Channel Reseller Program Agreement\n<|id|>2<|page|>1<|box|>185 733 202 854<|content|>March 22, 2024\n<|id|>3<|page|>1<|box|>210 140 304 856<|content|>Reference: ... , a corporation organized and exist... Republic of Germany (\"Meridian\" or the \"Company\")\n<|id|>11<|page|>1<|box|>851 174 906 857<|content|>1. ... 2 The undersigned has full power, authority...bits thereto, on behalf of Meridian Data Solutions\n<|id|>12<|page|>2<|box|>90 174 127 854<|content|>GmbH, and no additional consent, approval, or auth...of the Company is required in connection therewith\n<|id|>40<|page|>5<|box|>839 140 893 857<|content|>The undersigned hereby certifies that, since the d...iabilities, results of operations, or prospects of\n<|id|>41<|page|>6<|box|>90 140 143 854<|content|>Meridian Data Solutions GmbH that would reasonably...greement or any of the other Transaction Documents\n<|id|>49<|page|>6<|box|>861 140 898 857<|content|>The undersigned further certifies that all such po...rce and effect for the duration of the term of the\n<|id|>50<|page|>7<|box|>90 138 181 856<|content|>Agreement, subject to Meridian's obligation under Section 11. ... 03(e) of the Agreement\n<|id|>76<|page|>9<|box|>580 143 595 320<|content|>Name: ... Florian Eckstein\n<|id|>77<|page|>9<|box|>598 142 614 460<|content|>Title: ... Geschäftsführer (Managing Director)\n<|id|>78<|page|>9<|box|>614 143 631 307<|content|>Date: ... March 22, 2024\n<|id|>79<|page|>9<|box|>632 142 648 437<|content|>Place of Execution: ... München, Germany\n<|id|>82<|page|>9<|box|>723 142 739 823<|content|>Policyholder: ... Meridian Data Solutions GmbH, Leopoldstraße 78, 80802 München, Germany\n<|id|>83<|page|>9<|box|>748 140 784 854<|content|>Insurance Carrier: ... Rheinland Versicherung AG, ...ltung, Kaiser-Wilhelm-Ring 31, 50672 Köln, Germany\n<|id|>84<|page|>9<|box|>792 142 809 410<|content|>Policy Number: ... RV-2024-1148703\n<|id|>88<|page|>10<|box|>210 140 244 854<|content|>Additional Insured: ... , 401 Congress Avenue, Sui...800, Austin, Texas 78701, United States of America\n<|id|>89<|page|>10<|box|>253 143 271 416<|content|>Policy Effective Date: ... April 1, 2024\n<|id|>90<|page|>10<|box|>280 140 316 854<|content|>Policy Expiration Date: ... March 31, 2025 (subjec...he Agreement term through at least March 31, 2029)\n<|id|>91<|page|>10<|box|>324 142 340 663<|content|>Status: ... In full force and effect as of the Closing Date (March 22, 2024)\n<|id|>92<|page|>10<|box|>349 140 410 854<|content|>Note: ... The summary information set forth above ...cates of insurance and underlying policy documents",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>40<|tgt_id|>41\n<|src_id|>49<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        }
+    ]
+}

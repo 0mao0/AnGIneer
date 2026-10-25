@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 318 107 679<|content|>BARTLEY PREDDING LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>648 142 667 336<|content|>1. Documents Examined\n<|id|>25<|page|>2<|box|>804 140 821 267<|content|>2. Assumptions\n<|id|>39<|page|>4<|box|>223 140 239 238<|content|>3. Opinions\n<|id|>41<|page|>4<|box|>297 140 315 524<|content|>3(a). Qualification and Good Standing in Kansas\n<|id|>43<|page|>4<|box|>500 140 516 352<|content|>3(b). Power and Authority\n<|id|>45<|page|>4<|box|>662 140 680 524<|content|>3(c). Due Authorization, Execution, and Delivery\n<|id|>48<|page|>5<|box|>138 140 157 486<|content|>3(d). Enforceability of the Kansas Mortgage\n<|id|>54<|page|>5<|box|>571 140 589 436<|content|>3(e). No Conflicts Under Kansas Law\n<|id|>59<|page|>6<|box|>157 140 175 550<|content|>3(f). Perfection of Security Interests — Kansas UC\n<|id|>65<|page|>7<|box|>213 140 229 514<|content|>3(g). No Consents Required Under Kansas Law\n<|id|>71<|page|>7<|box|>527 140 544 403<|content|>4. Qualifications and Limitations\n<|id|>83<|page|>9<|box|>321 140 339 233<|content|>5. Reliance",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>25<|level|>1\n<|id|>39<|level|>1\n<|id|>41<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>2\n<|id|>48<|level|>2\n<|id|>54<|level|>2\n<|id|>59<|level|>2\n<|id|>65<|level|>2\n<|id|>71<|level|>1\n<|id|>83<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        }
+    ]
+}

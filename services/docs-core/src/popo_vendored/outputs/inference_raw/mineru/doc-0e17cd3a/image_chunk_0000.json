@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|type|>title<|page|>1<|box|>737 140 753 352<|content|>I. SCOPE OF IDR NO. 40\n<|id|>18<|type|>title<|page|>2<|box|>501 140 518 397<|content|>II. DOCUMENTS PRODUCED\n<|id|>20<|type|>title<|page|>2<|box|>595 140 613 650<|content|>A. Forms 5471 for Penterra Biopharma International\n<|id|>41<|type|>table<|page|>4<|box|>398 143 492 852<|content|>None\n<|id|>44<|type|>table<|page|>4<|box|>723 143 816 852<|content|>None\n<|id|>48<|type|>title<|page|>5<|box|>329 140 348 645<|content|>B. Forms 5471 for Penterra Holdings Luxembourg S.à\n<|id|>60<|type|>title<|page|>6<|box|>138 140 157 517<|content|>C. Related International Informational Returns\n<|id|>66<|type|>title<|page|>6<|box|>700 140 717 305<|content|>D. Production Index\n<|id|>69<|type|>title<|page|>7<|box|>167 140 184 447<|content|>III. NOTES AND QUALIFICATIONS\n<|id|>76<|type|>title<|page|>7<|box|>821 140 839 464<|content|>IV. AVAILABILITY FOR QUESTIONS\n<|id|>88<|type|>title<|page|>8<|box|>503 142 518 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>41<|tgt_id|>20\n<|src_id|>44<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 20
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Level 3 — Senior Management', 'Henrik Dalmqvist, VP, EMEA Sales, Lumos Analytics Inc.', 'A Severity 1 Incident has not been resolved within eight (8) hours; or repeated Severity 2 failures have']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'occurred within a rolling thirty (30)-day period.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 152,
+    "table2_idx": 153
+}

@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        59,
+        76
+    ],
+    "pages": [
+        60,
+        75,
+        76
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>154<|page|>60<|box|>699 22 729 478<|content|>3/ Includes old-age insurance tax on self-employme...... The tax is levied and collected as part of the\n<|id|>155<|page|>60<|box|>556 541 575 948<|content|>individual income tax beginning with the taxable y.... For estimated fiscal year breakdown, see Table 1\n<|id|>201<|page|>75<|box|>123 318 136 628<|content|>(Position at end of month in thousands of dollars)\n<|id|>203<|page|>76<|box|>42 423 55 574<|content|>CAPITAL MOVEMENTS\n<|id|>204<|page|>76<|box|>62 258 77 715<|content|>Section III - Details for Month of September 1953",
+    "raw_response": "<|src_id|>154<|tgt_id|>155",
+    "parsed": [
+        {
+            "src_id": 154,
+            "tgt_id": 155
+        }
+    ]
+}

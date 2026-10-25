@@ -1,0 +1,441 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-r9ly6jyc\\input\\pdfs\\doc-f812e67a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-r9ly6jyc\\enriched\\doc-f812e67a.json",
+    "contd_output": "<|src_id|>12<|tgt_id|>13\n<|src_id|>395<|tgt_id|>396\n<|src_id|>503<|tgt_id|>504",
+    "title_output": "<|id|>7<|level|>1\n<|id|>16<|level|>1\n<|id|>28<|level|>2\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>61<|level|>2\n<|id|>66<|level|>1\n<|id|>67<|level|>2\n<|id|>83<|level|>2\n<|id|>89<|level|>2\n<|id|>100<|level|>2\n<|id|>125<|level|>1\n<|id|>126<|level|>2\n<|id|>151<|level|>2\n<|id|>159<|level|>2\n<|id|>167<|level|>1\n<|id|>168<|level|>2\n<|id|>180<|level|>2\n<|id|>190<|level|>2\n<|id|>202<|level|>2\n<|id|>219<|level|>1\n<|id|>220<|level|>2\n<|id|>245<|level|>2\n<|id|>251<|level|>2\n<|id|>261<|level|>2\n<|id|>269<|level|>1\n<|id|>270<|level|>2\n<|id|>283<|level|>2\n<|id|>302<|level|>1\n<|id|>303<|level|>2\n<|id|>315<|level|>2\n<|id|>320<|level|>2\n<|id|>323<|level|>1\n<|id|>336<|level|>1\n<|id|>347<|level|>1\n<|id|>348<|level|>2\n<|id|>353<|level|>2\n<|id|>356<|level|>3\n<|id|>371<|level|>1\n<|id|>372<|level|>2\n<|id|>379<|level|>2\n<|id|>390<|level|>2\n<|id|>392<|level|>1\n<|id|>393<|level|>2\n<|id|>414<|level|>2\n<|id|>424<|level|>2\n<|id|>428<|level|>1\n<|id|>438<|level|>1\n<|id|>447<|level|>1\n<|id|>462<|level|>1\n<|id|>470<|level|>2\n<|id|>479<|level|>1\n<|id|>480<|level|>2\n<|id|>488<|level|>2\n<|id|>492<|level|>2\n<|id|>498<|level|>1\n<|id|>499<|level|>2\n<|id|>501<|level|>2\n<|id|>535<|level|>2\n<|id|>540<|level|>2\n<|id|>547<|level|>2\n<|id|>549<|level|>1\n<|id|>554<|level|>1\n<|id|>558<|level|>1\n<|id|>564<|level|>2\n<|id|>567<|level|>2",
+    "image_output": "<|src_id|>38<|tgt_id|>35\n<|src_id|>99<|tgt_id|>89\n<|src_id|>131<|tgt_id|>126\n<|src_id|>350<|tgt_id|>348\n<|src_id|>357<|tgt_id|>356\n<|src_id|>391<|tgt_id|>390\n<|src_id|>449<|tgt_id|>447\n<|src_id|>450<|tgt_id|>447\n<|src_id|>490<|tgt_id|>488\n<|src_id|>551<|tgt_id|>549\n<|src_id|>552<|tgt_id|>549\n<|src_id|>556<|tgt_id|>554\n<|src_id|>557<|tgt_id|>554\n<|src_id|>560<|tgt_id|>558\n<|src_id|>561<|tgt_id|>558\n<|src_id|>562<|tgt_id|>558\n<|src_id|>563<|tgt_id|>558\n<|src_id|>565<|tgt_id|>564\n<|src_id|>566<|tgt_id|>564\n<|src_id|>568<|tgt_id|>567\n<|src_id|>569<|tgt_id|>567\n<|src_id|>572<|tgt_id|>570\n<|src_id|>569<|tgt_id|>570",
+    "contd_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 395,
+            "tgt_id": 396
+        },
+        {
+            "src_id": 503,
+            "tgt_id": 504
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 219,
+            "level": 1
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 245,
+            "level": 2
+        },
+        {
+            "id": 251,
+            "level": 2
+        },
+        {
+            "id": 261,
+            "level": 2
+        },
+        {
+            "id": 269,
+            "level": 1
+        },
+        {
+            "id": 270,
+            "level": 2
+        },
+        {
+            "id": 283,
+            "level": 2
+        },
+        {
+            "id": 302,
+            "level": 1
+        },
+        {
+            "id": 303,
+            "level": 2
+        },
+        {
+            "id": 315,
+            "level": 2
+        },
+        {
+            "id": 320,
+            "level": 2
+        },
+        {
+            "id": 323,
+            "level": 1
+        },
+        {
+            "id": 336,
+            "level": 1
+        },
+        {
+            "id": 347,
+            "level": 1
+        },
+        {
+            "id": 348,
+            "level": 2
+        },
+        {
+            "id": 353,
+            "level": 2
+        },
+        {
+            "id": 356,
+            "level": 3
+        },
+        {
+            "id": 371,
+            "level": 1
+        },
+        {
+            "id": 372,
+            "level": 2
+        },
+        {
+            "id": 379,
+            "level": 2
+        },
+        {
+            "id": 390,
+            "level": 2
+        },
+        {
+            "id": 392,
+            "level": 1
+        },
+        {
+            "id": 393,
+            "level": 2
+        },
+        {
+            "id": 414,
+            "level": 2
+        },
+        {
+            "id": 424,
+            "level": 2
+        },
+        {
+            "id": 428,
+            "level": 1
+        },
+        {
+            "id": 438,
+            "level": 1
+        },
+        {
+            "id": 447,
+            "level": 1
+        },
+        {
+            "id": 462,
+            "level": 1
+        },
+        {
+            "id": 470,
+            "level": 2
+        },
+        {
+            "id": 479,
+            "level": 1
+        },
+        {
+            "id": 480,
+            "level": 2
+        },
+        {
+            "id": 488,
+            "level": 2
+        },
+        {
+            "id": 492,
+            "level": 2
+        },
+        {
+            "id": 498,
+            "level": 1
+        },
+        {
+            "id": 499,
+            "level": 2
+        },
+        {
+            "id": 501,
+            "level": 2
+        },
+        {
+            "id": 535,
+            "level": 2
+        },
+        {
+            "id": 540,
+            "level": 2
+        },
+        {
+            "id": 547,
+            "level": 2
+        },
+        {
+            "id": 549,
+            "level": 1
+        },
+        {
+            "id": 554,
+            "level": 1
+        },
+        {
+            "id": 558,
+            "level": 1
+        },
+        {
+            "id": 564,
+            "level": 2
+        },
+        {
+            "id": 567,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 38,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 350,
+            "tgt_id": 348
+        },
+        {
+            "src_id": 357,
+            "tgt_id": 356
+        },
+        {
+            "src_id": 391,
+            "tgt_id": 390
+        },
+        {
+            "src_id": 449,
+            "tgt_id": 447
+        },
+        {
+            "src_id": 450,
+            "tgt_id": 447
+        },
+        {
+            "src_id": 490,
+            "tgt_id": 488
+        },
+        {
+            "src_id": 551,
+            "tgt_id": 549
+        },
+        {
+            "src_id": 552,
+            "tgt_id": 549
+        },
+        {
+            "src_id": 556,
+            "tgt_id": 554
+        },
+        {
+            "src_id": 557,
+            "tgt_id": 554
+        },
+        {
+            "src_id": 560,
+            "tgt_id": 558
+        },
+        {
+            "src_id": 561,
+            "tgt_id": 558
+        },
+        {
+            "src_id": 562,
+            "tgt_id": 558
+        },
+        {
+            "src_id": 563,
+            "tgt_id": 558
+        },
+        {
+            "src_id": 565,
+            "tgt_id": 564
+        },
+        {
+            "src_id": 566,
+            "tgt_id": 564
+        },
+        {
+            "src_id": 568,
+            "tgt_id": 567
+        },
+        {
+            "src_id": 569,
+            "tgt_id": 567
+        },
+        {
+            "src_id": 572,
+            "tgt_id": 570
+        },
+        {
+            "src_id": 569,
+            "tgt_id": 570
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 449,
+            "table2_idx": 450,
+            "upper_row_ss": [
+                [
+                    "Maximum FAR (Commercial / Residential)",
+                    "10.0"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Lot Area",
+                    "20,125 SF"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 551,
+            "table2_idx": 552,
+            "upper_row_ss": [
+                [
+                    "April 11 – May 26, 2026",
+                    "Due Diligence Period (45 calendar days) — engage consultants, conduct inspections, review documents, complete analyses",
+                    "Calderwood & Harkness team / all consultants"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "May 26, 2026",
+                    "Expiration of Due Diligence Period (11:59 PM ET)",
+                    "—"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 556,
+            "table2_idx": 557,
+            "upper_row_ss": [
+                [
+                    "Knowledge Qualifier",
+                    "Actual knowledge of",
+                    "Actual knowledge only;",
+                    "Accept actual knowledge"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Managing Members after reasonable inquiry of Gerald Fitch (property manager)",
+                    "no inquiry obligation; narrow list of knowledge persons",
+                    "standard but include Fitch, Papadopoulos, and Rosenberg in the defined list of knowledge persons"
+                ]
+            ]
+        }
+    ]
+}

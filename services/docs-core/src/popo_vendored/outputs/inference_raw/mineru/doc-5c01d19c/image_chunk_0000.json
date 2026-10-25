@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 150 143 846<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 600 Lex\n<|id|>7<|type|>title<|page|>1<|box|>396 142 414 367<|content|>1. Introduction and Purpose\n<|id|>11<|type|>title<|page|>1<|box|>771 140 789 372<|content|>2. Identification of the Client\n<|id|>15<|type|>title<|page|>2<|box|>487 140 503 333<|content|>3. Scope of Engagement\n<|id|>16<|type|>title<|page|>2<|box|>518 140 534 374<|content|>3.1 Defense of Counterclaims\n<|id|>25<|type|>title<|page|>3<|box|>436 140 454 411<|content|>3.2 Prosecution of Original Action\n<|id|>34<|type|>table<|page|>3<|box|>866 143 905 852<|content|>None\n<|id|>35<|type|>table<|page|>4<|box|>88 143 179 852<|content|>None\n<|id|>37<|type|>title<|page|>4<|box|>263 140 280 468<|content|>3.3 Related Matters Excluded from Scope\n<|id|>45<|type|>title<|page|>5<|box|>90 140 107 348<|content|>4. Substitution of Counsel\n<|id|>50<|type|>title<|page|>5<|box|>583 140 599 313<|content|>5. Engagement Team\n<|id|>52<|type|>table<|page|>5<|box|>650 143 744 852<|content|>None\n<|id|>58<|type|>title<|page|>6<|box|>429 140 446 310<|content|>6. Fee Arrangements\n<|id|>59<|type|>title<|page|>6<|box|>459 142 477 274<|content|>6.1 Billing Rates\n<|id|>61<|type|>table<|page|>6<|box|>544 143 662 852<|content|>None\n<|id|>63<|type|>title<|page|>6<|box|>801 140 818 303<|content|>6.2 Billing Practices\n<|id|>68<|type|>title<|page|>7<|box|>544 140 561 377<|content|>7. Estimated Fees and Budget\n<|id|>72<|type|>title<|page|>8<|box|>186 140 203 362<|content|>8. Costs and Disbursements\n<|id|>84<|type|>title<|page|>8<|box|>803 140 820 390<|content|>9. Confidentiality and Privilege\n<|id|>89<|type|>title<|page|>9<|box|>458 142 474 406<|content|>10. Conflict of Interest Disclosure\n<|id|>96<|type|>title<|page|>10<|box|>90 142 107 357<|content|>11. Document Preservation\n<|id|>107<|type|>title<|page|>10<|box|>719 143 734 416<|content|>12. Communication and Reporting\n<|id|>112<|type|>title<|page|>11<|box|>329 143 347 274<|content|>13. Termination\n<|id|>117<|type|>title<|page|>11<|box|>750 142 766 380<|content|>14. Limitation of Engagement\n<|id|>120<|type|>title<|page|>12<|box|>167 142 184 480<|content|>15. Governing Law and Dispute Resolution\n<|id|>123<|type|>title<|page|>12<|box|>481 142 497 436<|content|>16. Acknowledgment and Acceptance\n<|id|>129<|type|>title<|page|>12<|box|>782 212 797 516<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>34<|tgt_id|>25\n<|src_id|>35<|tgt_id|>25\n<|src_id|>52<|tgt_id|>50\n<|src_id|>61<|tgt_id|>59",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 59
+        }
+    ]
+}

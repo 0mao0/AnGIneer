@@ -1,0 +1,178 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9iet8nz1\\input\\pdfs\\doc-96a8c2cd.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9iet8nz1\\enriched\\doc-96a8c2cd.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>11<|level|>2\n<|id|>13<|level|>3\n<|id|>17<|level|>3\n<|id|>22<|level|>3\n<|id|>25<|level|>3\n<|id|>27<|level|>4\n<|id|>29<|level|>4\n<|id|>31<|level|>4\n<|id|>33<|level|>4\n<|id|>35<|level|>4\n<|id|>37<|level|>4\n<|id|>39<|level|>4\n<|id|>41<|level|>4\n<|id|>43<|level|>3\n<|id|>47<|level|>2\n<|id|>62<|level|>2\n<|id|>63<|level|>3\n<|id|>66<|level|>3\n<|id|>69<|level|>3\n<|id|>72<|level|>3\n<|id|>75<|level|>3\n<|id|>86<|level|>3\n<|id|>89<|level|>3\n<|id|>95<|level|>3\n<|id|>100<|level|>3\n<|id|>106<|level|>2\n<|id|>116<|level|>2\n<|id|>121<|level|>2\n<|id|>123<|level|>3",
+    "image_output": "<|src_id|>15<|tgt_id|>13\n<|src_id|>19<|tgt_id|>17\n<|src_id|>20<|tgt_id|>17\n<|src_id|>23<|tgt_id|>22\n<|src_id|>45<|tgt_id|>43\n<|src_id|>119<|tgt_id|>116",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 29,
+            "level": 4
+        },
+        {
+            "id": 31,
+            "level": 4
+        },
+        {
+            "id": 33,
+            "level": 4
+        },
+        {
+            "id": 35,
+            "level": 4
+        },
+        {
+            "id": 37,
+            "level": 4
+        },
+        {
+            "id": 39,
+            "level": 4
+        },
+        {
+            "id": 41,
+            "level": 4
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 116
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 19,
+            "table2_idx": 20,
+            "upper_row_ss": [
+                [
+                    "Registered Office",
+                    "Industriestraße 88, 70565 Stuttgart, Federal Republic of Germany"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "German Trade Register No.",
+                    "HRB 745621 (Amtsgericht Stuttgart)"
+                ]
+            ]
+        }
+    ]
+}

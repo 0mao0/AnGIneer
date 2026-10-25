@@ -1,0 +1,46 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        37
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        9,
+        10,
+        12,
+        13,
+        15,
+        17,
+        18,
+        26,
+        27,
+        29,
+        30,
+        34,
+        37
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>224 140 261 854<|content|>FROM: ... Harrison Wexford, Partner, Calderwood & ...ny Rosenthal, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>268 140 286 325<|content|>DATE: ... March 28, 2025\n<|id|>5<|page|>1<|box|>294 140 330 854<|content|>RE: ... Non-Competition, Non- Solicitation, and in...roperty Assignment Agreements — Multi-State Survey\n<|id|>6<|page|>1<|box|>338 140 356 743<|content|>MATTER: ... — Acquisition of NovaMart Global Inc\n<|id|>12<|page|>1<|box|>837 140 893 854<|content|>Key Finding. ... Texas, Washington,\n<|id|>13<|page|>2<|box|>90 140 126 854<|content|>Illinois, and each of the other states in which No...eworks, each of which is analyzed in detail herein\n<|id|>17<|page|>2<|box|>352 147 387 854<|content|>• Priya Narasimhan — Co-Founder and Chief Technology Officer, holding approximately 8. ... and\n<|id|>19<|page|>2<|box|>428 140 446 831<|content|>Summary of Recommendations. ... Our principal findings and recommendations are as follows\n<|id|>52<|page|>6<|box|>373 183 407 854<|content|>• Relevant state statutes, regulations, and case l...ins employees, as set forth in Appendix D; ... and\n<|id|>54<|page|>6<|box|>448 140 484 854<|content|>A detailed comparison of the three versions of Nov...oyee headcount by state is set forth in Appendix B\n<|id|>80<|page|>9<|box|>869 140 907 856<|content|>4. ... Texas does not have a statutory equivalent to California Labor Code § 2870 or\n<|id|>81<|page|>10<|box|>90 140 273 857<|content|>Washington RCW § 49. ... As a best practice, NovaM...rther supports the enforceability of the provision\n<|id|>102<|page|>12<|box|>814 174 849 854<|content|>(a) relates at the time of conception or reduction...ed research or development of the employer; ... or\n<|id|>104<|page|>13<|box|>90 140 127 854<|content|>Section 2870 further requires that the employment ...2870 on the employer's right to require assignment\n<|id|>129<|page|>15<|box|>763 176 780 723<|content|>(b) The covenant does not impose an undue hardship on the employee; ... and\n<|id|>131<|page|>15<|box|>815 140 906 856<|content|>In addition, the covenant must be reasonable in it...identia information, and the competitive landscape\n<|id|>152<|page|>17<|box|>877 176 893 718<|content|>(b) The restraint does not impose an undue hardship on the employee; ... and\n<|id|>154<|page|>18<|box|>116 140 170 854<|content|>Ohio courts consider the totality of the circumsta... whether a non-competition agreement is reasonable\n<|id|>236<|page|>26<|box|>833 140 907 857<|content|>Stockholder Exception. ... This substantial econom...ess exception to California's § 16600 (codified at\n<|id|>237<|page|>27<|box|>90 140 127 854<|content|>Cal. ... Reeves, even if California law were to apply\n<|id|>261<|page|>29<|box|>742 140 907 857<|content|>We note that courts in some jurisdictions have bee...d on professional ethics considerations. ... Under\n<|id|>262<|page|>30<|box|>90 140 127 854<|content|>Texas law, courts have not adopted a blanket prohi...forceability on professional ethics grounds as low\n<|id|>303<|page|>34<|box|>566 174 604 854<|content|>(d) Exit interview procedures for departing employ...eturn of company property and information; ... and\n<|id|>305<|page|>34<|box|>655 140 729 856<|content|>These measures are essential to establish and pres...ch of the jurisdictions in which NovaMart operates\n<|id|>326<|page|>37<|box|>494 140 549 854<|content|>Appendix A — Summary Table of NovaMart Executive R...rea, governing law, and enforceability assessment)\n<|id|>327<|page|>37<|box|>556 140 593 854<|content|>Appendix B — NovaMart Employee Headcount by State ...als provided through Calloway, Brandt & Loewe LLP)\n<|id|>328<|page|>37<|box|>601 140 637 854<|content|>Appendix C — Comparison of NovaMart Standard-Form ...rsions, with redline comparison of key provisions)\n<|id|>329<|page|>37<|box|>645 140 680 854<|content|>Appendix D — Applicable State Statutes and Key Case Law Citations (organized by jurisdiction)\n<|id|>330<|page|>37<|box|>688 140 765 857<|content|>This memorandum is a privileged and confidential a...al information and developments in the Transaction\n<|id|>331<|page|>37<|box|>772 142 787 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>332<|page|>37<|box|>790 143 806 251<|content|>By: ... By\n<|id|>333<|page|>37<|box|>806 143 823 343<|content|>Harrison Wexford, Partner\n<|id|>334<|page|>37<|box|>824 143 840 253<|content|>By: ... By\n<|id|>335<|page|>37<|box|>840 143 857 348<|content|>Derek Okonkwo, Associate\n<|id|>336<|page|>37<|box|>859 143 875 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>80<|tgt_id|>81\n<|src_id|>236<|tgt_id|>237\n<|src_id|>261<|tgt_id|>262",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 236,
+            "tgt_id": 237
+        },
+        {
+            "src_id": 261,
+            "tgt_id": 262
+        }
+    ]
+}

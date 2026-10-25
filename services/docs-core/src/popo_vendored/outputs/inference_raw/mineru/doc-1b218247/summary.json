@@ -1,0 +1,226 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-53yluw2l\\input\\pdfs\\doc-1b218247.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-53yluw2l\\enriched\\doc-1b218247.json",
+    "contd_output": "",
+    "title_output": "<|id|>10<|level|>1\n<|id|>18<|level|>1\n<|id|>25<|level|>1\n<|id|>26<|level|>2\n<|id|>31<|level|>2\n<|id|>36<|level|>2\n<|id|>48<|level|>1\n<|id|>49<|level|>2\n<|id|>61<|level|>2\n<|id|>68<|level|>1\n<|id|>69<|level|>2\n<|id|>77<|level|>2\n<|id|>81<|level|>2\n<|id|>88<|level|>1\n<|id|>89<|level|>2\n<|id|>94<|level|>2\n<|id|>102<|level|>1\n<|id|>120<|level|>1\n<|id|>128<|level|>1\n<|id|>135<|level|>1\n<|id|>136<|level|>2\n<|id|>139<|level|>2\n<|id|>144<|level|>1\n<|id|>145<|level|>2\n<|id|>148<|level|>2\n<|id|>151<|level|>2\n<|id|>154<|level|>2\n<|id|>156<|level|>1\n<|id|>160<|level|>1\n<|id|>172<|level|>1",
+    "image_output": "<|src_id|>22<|tgt_id|>18\n<|src_id|>23<|tgt_id|>18\n<|src_id|>64<|tgt_id|>61\n<|src_id|>92<|tgt_id|>89\n<|src_id|>122<|tgt_id|>120\n<|src_id|>123<|tgt_id|>120\n<|src_id|>150<|tgt_id|>148\n<|src_id|>157<|tgt_id|>156\n<|src_id|>158<|tgt_id|>156",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 120
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 157,
+            "tgt_id": 156
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 156
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 22,
+            "table2_idx": 23,
+            "upper_row_ss": [
+                [
+                    "Fact discovery Closes",
+                    "September 29, 2023"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Expert discovery Closes",
+                    "January 12, 2024"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 122,
+            "table2_idx": 123,
+            "upper_row_ss": [
+                [
+                    "Janet Kirkwood",
+                    "VP, Carrier Relations, Stonefield",
+                    "Mid July 2023",
+                    "6–7 hours",
+                    "To be deposed by CRS. Key risk area: September 22, 2021 email to Carlos Medina regarding volume diversion (\"pull the plug on the whole contract\"); rate adjustment awareness and authority. Witness"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "preparation session to be scheduled 3–5 days in advance."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 157,
+            "table2_idx": 158,
+            "upper_row_ss": [
+                [
+                    "Late June 2023",
+                    "Serve third-party subpoenasduces tecumon Cascade Freight Systems",
+                    "Laroche"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Inc. and Briarwood Trucking Co.",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 7,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['4/14/60', '4% Note', '5/15/62-E', '2,211', '-', '27', '1,616', '76', '13', '33', '76', '10', '7', '18', '168', '167']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Date of financing', 'rowspan=2,colspan=2, Description of security', 'colspan=2, Amount issued', 'rowspan=2, U. S. Government investment accounts and Federal Reserve Banks', 'rowspan=2, Commercial banks 2/', 'rowspan=2, Individuals 3/', 'rowspan=2, Insurance companies', 'rowspan=2, Mutual savings banks', 'rowspan=2, Corporations 4/', 'rowspan=2, Private pension and retirement funds', 'colspan=2, State and local governments 5/', 'rowspan=2, Dealers and brokers', 'rowspan=2, All other 6/']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 330,
+    "table2_idx": 331
+}

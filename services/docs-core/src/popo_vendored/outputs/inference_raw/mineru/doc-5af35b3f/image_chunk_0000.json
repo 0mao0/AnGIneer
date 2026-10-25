@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 259 133 736<|content|>CALDERWOOD & HARKNESS LLP MEMORANDUM — PRIVILEGED\n<|id|>7<|type|>title<|page|>1<|box|>316 370 335 625<|content|>1. Purpose and Summary\n<|id|>17<|type|>title<|page|>2<|box|>290 285 309 710<|content|>2. Background — Consent Fee Obligations\n<|id|>18<|type|>title<|page|>2<|box|>334 140 352 406<|content|>2.1 Lender Consent Requirement\n<|id|>29<|type|>title<|page|>3<|box|>608 140 625 364<|content|>2.2 Consent Fee Calculation\n<|id|>31<|type|>table<|page|>3<|box|>739 143 898 852<|content|>None\n<|id|>33<|type|>title<|page|>4<|box|>292 140 309 498<|content|>2.3 Cost Allocation Between Buyer and Seller\n<|id|>44<|type|>title<|page|>4<|box|>797 281 816 715<|content|>3. Wire Transfer Instructions — By Lender\n<|id|>46<|type|>title<|page|>5<|box|>89 140 107 395<|content|>3.1 Pinnacle Federal Bank, N.A.\n<|id|>69<|type|>title<|page|>6<|box|>204 140 222 424<|content|>3.2 Veltrano Capital Lending Corp.\n<|id|>88<|type|>title<|page|>7<|box|>90 140 107 449<|content|>3.3 Sycamore Life Insurance Company\n<|id|>105<|type|>title<|page|>7<|box|>744 259 763 736<|content|>4. Wire Transfer Verification and Confirmation\n<|id|>106<|type|>title<|page|>7<|box|>789 140 805 359<|content|>4.1 Verification Procedures\n<|id|>115<|type|>title<|page|>8<|box|>744 140 760 434<|content|>4.2 Wire Initiation and Confirmation\n<|id|>117<|type|>table<|page|>8<|box|>856 143 907 852<|content|>None\n<|id|>118<|type|>table<|page|>9<|box|>89 143 335 852<|content|>None\n<|id|>121<|type|>title<|page|>9<|box|>564 140 582 364<|content|>4.3 Confirmation of Receipt\n<|id|>127<|type|>title<|page|>10<|box|>174 338 193 658<|content|>5. Closing Statement Treatment\n<|id|>134<|type|>title<|page|>10<|box|>643 250 662 746<|content|>6. Coordination with Related Closing Deliverables\n<|id|>144<|type|>title<|page|>11<|box|>424 176 441 379<|content|>Assumption Agreements:\n<|id|>149<|type|>title<|page|>11<|box|>773 421 792 576<|content|>7. Attachments\n<|id|>161<|type|>title<|page|>12<|box|>449 419 470 576<|content|>8. Prepared By\n<|id|>162<|type|>title<|page|>12<|box|>487 142 503 251<|content|>Prepared by:",
+    "raw_response": "<|src_id|>31<|tgt_id|>29\n<|src_id|>117<|tgt_id|>115\n<|src_id|>118<|tgt_id|>115",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 115
+        }
+    ]
+}

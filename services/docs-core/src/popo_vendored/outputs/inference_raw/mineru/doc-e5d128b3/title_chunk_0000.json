@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 310 107 684<|content|>ELLSWORTH RIDLEY LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 142 152 854<|content|>424 Church Street, Suite 1500 Nashville, Tennessee\n<|id|>3<|page|>1<|box|>186 142 203 496<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>18<|page|>2<|box|>90 142 107 400<|content|>1. Introduction and Engagement\n<|id|>22<|page|>2<|box|>593 140 609 612<|content|>2. Identification of Tennessee Target Entities and\n<|id|>29<|page|>3<|box|>364 140 383 336<|content|>3. Documents Examined\n<|id|>73<|page|>6<|box|>481 140 498 267<|content|>4. Assumptions\n<|id|>84<|page|>7<|box|>436 140 454 403<|content|>5. Qualifications and Limitations\n<|id|>93<|page|>8<|box|>638 140 655 238<|content|>6. Opinions\n<|id|>95<|page|>8<|box|>713 140 729 496<|content|>6.1 Foreign Qualification and Good Standing\n<|id|>99<|page|>9<|box|>239 140 255 465<|content|>6.2 Due Authorization of the Transaction\n<|id|>104<|page|>10<|box|>90 140 107 446<|content|>6.4 No Conflicts Under Tennessee Law\n<|id|>110<|page|>10<|box|>559 140 575 375<|content|>6.5 Transfer Tax Compliance\n<|id|>115<|page|>11<|box|>257 140 273 351<|content|>6.6 Real Property Matters\n<|id|>123<|page|>12<|box|>138 140 157 279<|content|>6.7 No Litigation\n<|id|>129<|page|>12<|box|>508 140 525 326<|content|>7. Reliance and Benefit\n<|id|>139<|page|>13<|box|>171 210 189 718<|content|>[Remainder of page intentionally left blank. Signa\n<|id|>142<|page|>13<|box|>285 176 301 415<|content|>ELLSWORTH RIDLEY LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>3<|level|>-1\n<|id|>18<|level|>1\n<|id|>22<|level|>1\n<|id|>29<|level|>1\n<|id|>73<|level|>1\n<|id|>84<|level|>1\n<|id|>93<|level|>1\n<|id|>95<|level|>2\n<|id|>99<|level|>2\n<|id|>104<|level|>2\n<|id|>110<|level|>2\n<|id|>115<|level|>2\n<|id|>123<|level|>2\n<|id|>129<|level|>1\n<|id|>139<|level|>-1\n<|id|>142<|level|>-1",
+    "parsed": [
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 1
+        }
+    ]
+}

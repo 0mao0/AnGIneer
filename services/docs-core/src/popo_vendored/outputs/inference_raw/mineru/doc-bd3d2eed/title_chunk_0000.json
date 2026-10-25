@@ -1,0 +1,154 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 416 119 581<|content|>ORDER FORM\n<|id|>1<|page|>1<|box|>143 418 161 580<|content|>(Execution Version)\n<|id|>8<|page|>1<|box|>505 140 522 370<|content|>Section 1: Licensed Platform\n<|id|>13<|page|>2<|box|>204 140 222 344<|content|>Section 2: Licensed Users\n<|id|>19<|page|>3<|box|>90 140 107 272<|content|>Section 3: Term\n<|id|>20<|page|>3<|box|>121 140 138 354<|content|>3.1 Implementation Period\n<|id|>22<|page|>3<|box|>359 140 375 272<|content|>3.2 Initial Term\n<|id|>24<|page|>3<|box|>559 140 575 297<|content|>3.3 Renewal Terms\n<|id|>26<|page|>3<|box|>742 140 758 403<|content|>3.4 Termination for Convenience\n<|id|>34<|page|>4<|box|>429 140 446 423<|content|>Section 4: Fees and Payment Terms\n<|id|>35<|page|>4<|box|>459 140 477 284<|content|>4.1 Fee Summary\n<|id|>38<|page|>4<|box|>751 142 768 307<|content|>4.2 Volume discount\n<|id|>42<|page|>5<|box|>176 140 193 467<|content|>4.3 Adjusted Annual Fees (Post-discount)\n<|id|>47<|page|>5<|box|>501 142 518 310<|content|>4.4 Annual Escalator\n<|id|>54<|page|>6<|box|>90 142 107 300<|content|>4.5 Payment Terms\n<|id|>61<|page|>6<|box|>546 140 561 339<|content|>Section 5: Service Levels\n<|id|>63<|page|>6<|box|>722 140 739 504<|content|>Section 6: Exhibits Incorporated by Reference\n<|id|>70<|page|>7<|box|>256 140 273 388<|content|>Section 7: Source Code Escrow\n<|id|>72<|page|>7<|box|>469 140 487 308<|content|>Section 8: Insurance\n<|id|>75<|page|>7<|box|>744 140 763 413<|content|>Section 9: Pinnacle Ridge Consent\n<|id|>77<|page|>8<|box|>148 140 167 359<|content|>Section 10: Governing Law\n<|id|>79<|page|>8<|box|>309 140 325 397<|content|>Section 11: Order of Precedence\n<|id|>81<|page|>8<|box|>484 140 502 377<|content|>Section 12: Entire Agreement\n<|id|>83<|page|>8<|box|>661 140 679 343<|content|>Section 13: Counterparts\n<|id|>85<|page|>8<|box|>823 400 840 596<|content|>[Signature Page Follows]\n<|id|>86<|page|>8<|box|>849 310 864 686<|content|>SIGNATURE PAGE TO ORDER FORM NO. 1\n<|id|>98<|page|>10<|box|>89 333 106 663<|content|>SCHEDULE A TO ORDER FORM NO. 1\n<|id|>99<|page|>10<|box|>131 346 148 650<|content|>IMPLEMENTATION MILESTONES\n<|id|>103<|page|>11<|box|>281 142 299 261<|content|>Project Leads:\n<|id|>109<|page|>12<|box|>90 333 106 663<|content|>SCHEDULE B TO ORDER FORM NO. 1\n<|id|>110<|page|>13<|box|>89 377 106 617<|content|>FEE PAYMENT SCHEDULE\n<|id|>113<|page|>13<|box|>398 142 416 230<|content|>Summary:\n<|id|>115<|page|>13<|box|>469 143 486 277<|content|>Payment Terms:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>22<|level|>3\n<|id|>24<|level|>3\n<|id|>26<|level|>3\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>38<|level|>3\n<|id|>42<|level|>3\n<|id|>47<|level|>3\n<|id|>54<|level|>3\n<|id|>61<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>2\n<|id|>85<|level|>-1\n<|id|>86<|level|>2\n<|id|>98<|level|>2\n<|id|>99<|level|>3\n<|id|>103<|level|>3\n<|id|>109<|level|>2\n<|id|>110<|level|>3\n<|id|>113<|level|>3\n<|id|>115<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>114 135 154 864<|content|>PREDICTING FUTURE STATES WITH SPATIAL POINT PROCES\n<|id|>3<|page|>1<|box|>369 240 385 334<|content|>ABSTRACT\n<|id|>6<|page|>1<|box|>717 207 732 364<|content|>1. INTRODUCTION\n<|id|>8<|page|>2<|box|>547 230 561 343<|content|>2. METHODS\n<|id|>9<|page|>2<|box|>575 83 592 418<|content|>2.1. Experimental set-up for embryo collection\n<|id|>11<|page|>2<|box|>768 84 784 218<|content|>2.2. Live Imaging\n<|id|>14<|page|>2<|box|>143 509 160 692<|content|>2.3. Data Pre-processing\n<|id|>16<|page|>2<|box|>719 509 736 612<|content|>2.4. Training\n<|id|>18<|page|>2<|box|>843 509 858 627<|content|>2.5. Evaluation\n<|id|>23<|page|>3<|box|>799 158 814 413<|content|>3. EXPERIMENT AND RESULTS\n<|id|>24<|page|>3<|box|>829 83 859 488<|content|>3.1. Comprehensive Analysis of super-resolution li\n<|id|>34<|page|>4<|box|>313 509 329 913<|content|>3.2. Comparative Evaluation of sogD and sogD\\Delta\n<|id|>38<|page|>5<|box|>458 223 473 349<|content|>4. DISCUSSION\n<|id|>41<|page|>5<|box|>824 217 839 354<|content|>5. CONCLUSION\n<|id|>43<|page|>5<|box|>170 524 185 898<|content|>6. COMPLIANCE WITH ETHICAL STANDARDS\n<|id|>45<|page|>5<|box|>279 607 292 816<|content|>7. ACKNOWLEDGMENTS\n<|id|>47<|page|>5<|box|>477 643 491 781<|content|>8. REFERENCES\n<|id|>59<|page|>8<|box|>90 372 106 625<|content|>9. SUPPLEMENTAL MATERIAL",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>11<|level|>3\n<|id|>14<|level|>3\n<|id|>16<|level|>3\n<|id|>18<|level|>3\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>34<|level|>3\n<|id|>38<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>2\n<|id|>59<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        }
+    ]
+}

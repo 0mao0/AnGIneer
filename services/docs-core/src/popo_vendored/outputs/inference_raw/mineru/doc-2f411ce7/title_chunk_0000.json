@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 600 Lex\n<|id|>9<|page|>1<|box|>594 140 612 589<|content|>I. Identification of the Inadvertently Produced Do\n<|id|>18<|page|>2<|box|>304 140 320 519<|content|>II. Circumstances of the Inadvertent Production\n<|id|>23<|page|>3<|box|>90 140 107 375<|content|>III. Legal Basis for Clawback\n<|id|>24<|page|>3<|box|>121 140 138 700<|content|>A. Stipulated Confidentiality and Protective Order\n<|id|>28<|page|>3<|box|>556 142 574 274<|content|>B. CPLR § 3103\n<|id|>30<|page|>3<|box|>758 140 775 540<|content|>C. Attorney-Client Privilege Under New York Law\n<|id|>34<|page|>4<|box|>411 140 428 346<|content|>D. No Waiver of Privilege\n<|id|>43<|page|>5<|box|>410 140 428 315<|content|>IV. Specific Demands\n<|id|>50<|page|>6<|box|>377 140 393 338<|content|>V. Reservation of Rights\n<|id|>57<|page|>6<|box|>829 140 847 392<|content|>VI. Supplemental Privilege Log\n<|id|>59<|page|>7<|box|>148 140 167 272<|content|>VII. Conclusion\n<|id|>63<|page|>7<|box|>362 550 378 854<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>18<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>28<|level|>3\n<|id|>30<|level|>3\n<|id|>34<|level|>3\n<|id|>43<|level|>2\n<|id|>50<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>2\n<|id|>63<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        }
+    ]
+}

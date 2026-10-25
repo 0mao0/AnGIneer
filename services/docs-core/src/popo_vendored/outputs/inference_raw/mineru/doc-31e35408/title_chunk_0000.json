@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 423 107 573<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>114 192 133 803<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>7<|page|>1<|box|>340 140 359 321<|content|>I. Executive Summary\n<|id|>12<|page|>2<|box|>90 140 107 267<|content|>II. Background\n<|id|>13<|page|>2<|box|>121 140 138 334<|content|>A. The Applicant Entity\n<|id|>18<|page|>2<|box|>747 140 763 380<|content|>B. Planned 510(k) Submission\n<|id|>26<|page|>3<|box|>638 140 656 416<|content|>C. Relevance of Fee Determination\n<|id|>30<|page|>4<|box|>223 140 239 390<|content|>III. MDUFA Legal Framework\n<|id|>31<|page|>4<|box|>253 140 271 413<|content|>A. Statutory and Regulatory Basis\n<|id|>36<|page|>5<|box|>90 140 107 491<|content|>B. Small Business Definition Under MDUFA\n<|id|>42<|page|>5<|box|>742 140 758 338<|content|>C. FY2025 Fee Amounts\n<|id|>47<|page|>6<|box|>242 140 258 532<|content|>IV. Analysis of SBI's Small Business Qualification\n<|id|>48<|page|>6<|box|>273 140 290 362<|content|>A. SBI Standalone Revenue\n<|id|>52<|page|>6<|box|>617 140 633 486<|content|>B. Affiliate Analysis — Relationship to SBD\n<|id|>57<|page|>7<|box|>275 140 292 437<|content|>C. Consolidated Revenue Calculation\n<|id|>62<|page|>7<|box|>829 140 845 387<|content|>D. Conclusion on Qualification\n<|id|>65<|page|>8<|box|>212 140 229 521<|content|>V. Practical Implications and Recommendations\n<|id|>66<|page|>8<|box|>243 140 261 284<|content|>A. Fee Budgeting\n<|id|>69<|page|>8<|box|>523 140 541 387<|content|>B. Small Business Certification\n<|id|>77<|page|>9<|box|>214 140 231 333<|content|>C. Fee Payment Timing\n<|id|>81<|page|>9<|box|>575 140 593 354<|content|>D. Future Reconsideration\n<|id|>84<|page|>9<|box|>849 142 866 303<|content|>VI. Summary Table\n<|id|>87<|page|>10<|box|>392 142 409 243<|content|>VII. Closing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>18<|level|>3\n<|id|>26<|level|>3\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>36<|level|>3\n<|id|>42<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>52<|level|>3\n<|id|>57<|level|>3\n<|id|>62<|level|>3\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>69<|level|>3\n<|id|>77<|level|>3\n<|id|>81<|level|>3\n<|id|>84<|level|>2\n<|id|>87<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        9,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>160 393 176 602<|content|>JAMS Ref. ... 1440032871\n<|id|>2<|page|>1<|box|>186 316 203 681<|content|>Before Hon. ... ), Arbitrator\n<|id|>5<|page|>1<|box|>477 696 494 854<|content|>Dated: ... May 30, 2023\n<|id|>6<|page|>1<|box|>502 140 723 856<|content|>Claimant Meridian Shores Hospitality LLC (\"MSH\"), ... Partner; ... ), and respectfully state as follows\n<|id|>80<|page|>9<|box|>497 174 532 854<|content|>For Respondent Pellegrino Capital Group LLC: ... F...1 Brickell Avenue, Suite 2800 Miami, Florida 33131\n<|id|>81<|page|>9<|box|>541 176 556 496<|content|>Email: ... com\n<|id|>82<|page|>9<|box|>558 176 594 854<|content|>For Claimant Meridian Shores Hospitality LLC: ... ...5 Brickell Avenue, Suite 3100 Miami, Florida 33131\n<|id|>83<|page|>9<|box|>602 176 619 403<|content|>Email: ... com\n<|id|>84<|page|>9<|box|>619 174 655 854<|content|>For Linden Park Advisory LLC: ... Thomas Carraway,...ast Second Street, Suite 3600 Miami, Florida 33131\n<|id|>85<|page|>9<|box|>664 176 680 500<|content|>Email: ... com\n<|id|>102<|page|>11<|box|>114 140 132 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>103<|page|>11<|box|>133 143 150 253<|content|>By: ... By\n<|id|>104<|page|>11<|box|>150 142 167 745<|content|>Francesca Morano, Partner 801 Brickell Avenue, Suite 2800 Miami, Florida 33131\n<|id|>105<|page|>11<|box|>167 142 185 560<|content|>Attorneys for Respondent Pellegrino Capital Group LLC\n<|id|>106<|page|>11<|box|>185 142 202 294<|content|>Date: ... May 30, 2023",
+    "raw_response": "<|src_id|>103<|tgt_id|>104",
+    "parsed": [
+        {
+            "src_id": 103,
+            "tgt_id": 104
+        }
+    ]
+}

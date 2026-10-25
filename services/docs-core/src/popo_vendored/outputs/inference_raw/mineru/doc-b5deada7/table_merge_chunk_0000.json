@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['3', 'U.S. Patent No. 8,412,007 (Bergmann )', 'U.S. Patent', 'April 2, 2013', \"'562 Patent; '015 Patent\", \"'562: Claims 1, 4, 6; '015: Claims 1, 5, 12 (in\", '§ 103 Obviousness', 'Does not render obvious; non-analogous']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', 'combination)', '', 'art; missing limitations']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 227,
+    "table2_idx": 228
+}

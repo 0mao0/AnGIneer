@@ -1,0 +1,154 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 202 137 794<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|page|>1<|box|>162 405 179 591<|content|>Internal Memorandum\n<|id|>8<|page|>1<|box|>429 142 445 362<|content|>I. Purpose of Memorandum\n<|id|>13<|page|>2<|box|>90 140 107 444<|content|>II. Summary of Proposed Engagement\n<|id|>23<|page|>3<|box|>148 140 167 465<|content|>III. Parties and Related Entities Checked\n<|id|>25<|page|>3<|box|>261 140 277 643<|content|>A. Client Side — Nexford Industrial Holdings Inc.\n<|id|>27<|page|>3<|box|>329 142 345 418<|content|>1. Nexford Industrial Holdings Inc.\n<|id|>33<|page|>3<|box|>569 140 585 594<|content|>2. Marlowe Asset Management Bluff Capital Partners\n<|id|>38<|page|>3<|box|>849 140 868 638<|content|>3. Marlowe Asset Management Bluff Capital Manageme\n<|id|>40<|page|>4<|box|>171 140 188 529<|content|>4. Summary of Key Nexford Individuals Checked\n<|id|>42<|page|>4<|box|>301 140 318 663<|content|>B. Adverse Party — Cardinal Peak Industries and Re\n<|id|>44<|page|>4<|box|>369 142 385 361<|content|>1. Cardinal Peak Industries\n<|id|>50<|page|>4<|box|>609 140 625 478<|content|>2. Key Cardinal Peak Individuals Checked\n<|id|>52<|page|>4<|box|>739 140 756 313<|content|>C. Opposing Counsel\n<|id|>54<|page|>4<|box|>787 142 804 437<|content|>1. Blackwood Stein & Associates LLP\n<|id|>59<|page|>5<|box|>174 140 190 326<|content|>2. Individuals Checked\n<|id|>61<|page|>5<|box|>285 142 301 398<|content|>D. Other Relevant Third Parties\n<|id|>63<|page|>5<|box|>353 143 369 408<|content|>1. Ridgecrest National Bank, N.A.\n<|id|>65<|page|>5<|box|>569 142 587 393<|content|>2. Hargrove Kellner CPAs LLP\n<|id|>67<|page|>5<|box|>731 142 750 426<|content|>3. Meridian Bridge Consulting LLC\n<|id|>69<|page|>6<|box|>90 140 107 470<|content|>4. Great Lakes Dispute Resolution Center\n<|id|>71<|page|>6<|box|>267 140 284 486<|content|>IV. Conflicts Database Search Methodology\n<|id|>94<|page|>7<|box|>837 140 854 370<|content|>V. Results of Conflict Search\n<|id|>96<|page|>8<|box|>90 140 107 423<|content|>A. Nexford Industrial Holdings Inc.\n<|id|>103<|page|>8<|box|>585 140 602 364<|content|>B. Cardinal Peak Industries\n<|id|>108<|page|>9<|box|>90 140 107 442<|content|>C. Blackwood Stein & Associates LLP\n<|id|>113<|page|>9<|box|>387 142 402 276<|content|>D. Third Parties\n<|id|>118<|page|>10<|box|>138 140 157 385<|content|>E. Attorney Personal Conflicts\n<|id|>125<|page|>10<|box|>791 140 808 243<|content|>VI. Analysis\n<|id|>137<|page|>12<|box|>340 140 357 388<|content|>VII. Conclusion and Clearance\n<|id|>138<|page|>12<|box|>364 333 382 663<|content|>CONFLICTS CLEARANCE: GRANTED\n<|id|>143<|page|>12<|box|>840 140 857 272<|content|>VIII. Approvals\n<|id|>145<|page|>13<|box|>90 140 107 403<|content|>Conflicts Department Clearance:\n<|id|>164<|page|>13<|box|>464 142 482 272<|content|>IX. Distribution\n<|id|>170<|page|>13<|box|>821 397 838 602<|content|>END OF MEMORANDUM",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>2\n<|id|>27<|level|>3\n<|id|>33<|level|>3\n<|id|>38<|level|>3\n<|id|>40<|level|>3\n<|id|>42<|level|>2\n<|id|>44<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>2\n<|id|>54<|level|>3\n<|id|>59<|level|>3\n<|id|>61<|level|>2\n<|id|>63<|level|>3\n<|id|>65<|level|>3\n<|id|>67<|level|>3\n<|id|>69<|level|>3\n<|id|>71<|level|>1\n<|id|>94<|level|>1\n<|id|>96<|level|>2\n<|id|>103<|level|>2\n<|id|>108<|level|>2\n<|id|>113<|level|>2\n<|id|>118<|level|>2\n<|id|>125<|level|>1\n<|id|>137<|level|>1\n<|id|>138<|level|>-1\n<|id|>143<|level|>1\n<|id|>145<|level|>2\n<|id|>164<|level|>1\n<|id|>170<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 1
+        },
+        {
+            "id": 143,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 1
+        }
+    ]
+}

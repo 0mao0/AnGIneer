@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['#', 'Target Entity (Full Legal Name)', 'State of Formation', 'EIN', 'Property Name', 'Property Address', 'Property Type', 'State', 'Rentable square Feet']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['1', 'GMP Fairfield I LLC', 'Delaware', '84-2310561', 'Fairfield Logistics Center I', '4200 Fairfield Industrial Blvd, Fairburn, GA 30213', 'Logistics', 'GA', '412,000']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 77,
+    "table2_idx": 78
+}

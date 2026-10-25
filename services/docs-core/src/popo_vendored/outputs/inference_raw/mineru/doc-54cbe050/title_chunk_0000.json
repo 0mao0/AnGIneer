@@ -1,0 +1,149 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 313 133 683<|content|>EXHIBIT E TO THE CREDIT AGREEMENT FORM OF COMPLIAN\n<|id|>2<|page|>1<|box|>167 333 188 663<|content|>COMPLIANCE CERTIFICATE\n<|id|>6<|page|>1<|box|>500 140 518 473<|content|>Section 1. Certifying Officer Identification\n<|id|>8<|page|>1<|box|>604 140 621 362<|content|>Section 2. Reporting Period\n<|id|>11<|page|>1<|box|>844 140 859 390<|content|>Section 3. Financial Statements\n<|id|>16<|page|>2<|box|>476 140 493 475<|content|>Section 4. Financial Covenant Compliance\n<|id|>18<|page|>2<|box|>625 140 641 408<|content|>(a) Maximum Net Leverage Ratio\n<|id|>23<|page|>3<|box|>292 142 309 441<|content|>(b) Minimum Interest Coverage Ratio\n<|id|>27<|page|>3<|box|>714 142 731 423<|content|>(c) Maximum Capital Expenditures\n<|id|>32<|page|>4<|box|>385 140 402 573<|content|>Section 5. Excess Cash Flow Calculation (Annual On\n<|id|>37<|page|>5<|box|>622 143 638 367<|content|>Applicable ECF Percentage:\n<|id|>42<|page|>5<|box|>821 142 837 478<|content|>Section 6. Representations and Warranties\n<|id|>46<|page|>6<|box|>267 140 284 527<|content|>Section 7. Default / Event of Default Certificatio\n<|id|>48<|page|>6<|box|>390 174 409 694<|content|>||||||||||||||||||||||||||||||||||||||||||||||||||\n<|id|>50<|page|>6<|box|>532 140 549 480<|content|>Section 8. Change of Control Confirmation\n<|id|>54<|page|>6<|box|>834 142 851 486<|content|>Section 9. OFAC and Sanctions Compliance\n<|id|>59<|page|>7<|box|>513 140 530 434<|content|>Section 10. Material Adverse Change\n<|id|>62<|page|>7<|box|>714 140 732 424<|content|>Section 11. Insurance Confirmation\n<|id|>65<|page|>8<|box|>167 140 184 537<|content|>Section 12. Currency Matters (EUR Sub-Tranche)\n<|id|>70<|page|>8<|box|>516 142 534 418<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>77<|page|>9<|box|>90 424 111 573<|content|>SCHEDULE I\n<|id|>78<|page|>9<|box|>128 413 145 583<|content|>Financial Statements\n<|id|>86<|page|>10<|box|>90 419 109 576<|content|>SCHEDULE II\n<|id|>87<|page|>10<|box|>128 281 145 717<|content|>Financial Covenant Calculations — Detailed Workshe\n<|id|>88<|page|>10<|box|>159 143 176 570<|content|>Part A — Consolidated Adjusted EBITDA Calculation\n<|id|>92<|page|>11<|box|>246 140 263 540<|content|>Part B — Consolidated Total Net Debt Calculation\n<|id|>97<|page|>12<|box|>239 142 256 598<|content|>Part D — Consolidated Cash Interest Expense Calcul\n<|id|>104<|page|>14<|box|>90 415 111 583<|content|>SCHEDULE III\n<|id|>105<|page|>14<|box|>128 354 146 642<|content|>List of Defaults or Events of Default\n<|id|>114<|page|>15<|box|>90 416 111 581<|content|>SCHEDULE IV\n<|id|>115<|page|>15<|box|>128 279 146 717<|content|>Material Changes to Schedules to the Credit Agreem\n<|id|>127<|page|>15<|box|>732 377 748 620<|content|>DELIVERY INSTRUCTIONS\n<|id|>136<|page|>16<|box|>224 140 239 413<|content|>Email: william.hargrove@pinnacletrust.com",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>6<|level|>3\n<|id|>8<|level|>3\n<|id|>11<|level|>3\n<|id|>16<|level|>3\n<|id|>18<|level|>4\n<|id|>23<|level|>4\n<|id|>27<|level|>4\n<|id|>32<|level|>3\n<|id|>37<|level|>4\n<|id|>42<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>-1\n<|id|>50<|level|>3\n<|id|>54<|level|>3\n<|id|>59<|level|>3\n<|id|>62<|level|>3\n<|id|>65<|level|>3\n<|id|>70<|level|>-1\n<|id|>77<|level|>2\n<|id|>78<|level|>3\n<|id|>86<|level|>2\n<|id|>87<|level|>3\n<|id|>88<|level|>4\n<|id|>92<|level|>4\n<|id|>97<|level|>4\n<|id|>104<|level|>2\n<|id|>105<|level|>3\n<|id|>114<|level|>2\n<|id|>115<|level|>3\n<|id|>127<|level|>2\n<|id|>136<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 4
+        },
+        {
+            "id": 23,
+            "level": 4
+        },
+        {
+            "id": 27,
+            "level": 4
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 4
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 92,
+            "level": 4
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        }
+    ]
+}

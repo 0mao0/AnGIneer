@@ -1,0 +1,125 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 366 118 630<|content|>JOINDER AGREEMENT\n<|id|>5<|page|>1<|box|>400 140 417 243<|content|>RECITALS\n<|id|>14<|page|>2<|box|>599 140 618 501<|content|>SECTION 1: JOINDER AND AGREEMENT\n<|id|>24<|page|>4<|box|>358 140 393 759<|content|>SECTION 2: REPRESENTATIONS AND WARRANTIES OF THE J\n<|id|>33<|page|>6<|box|>258 140 276 774<|content|>SECTION 3: REPRESENTATIONS AND WARRANTIES OF THE C\n<|id|>38<|page|>7<|box|>314 140 330 454<|content|>SECTION 4: CLOSING MECHANICS\n<|id|>43<|page|>8<|box|>167 140 184 727<|content|>SECTION 5: KEY NOTE TERMS (INCORPORATED BY REFEREN\n<|id|>54<|page|>9<|box|>464 140 482 488<|content|>SECTION 6: CONDITIONS TO CLOSING\n<|id|>65<|page|>10<|box|>589 140 607 334<|content|>SECTION 7: NOTICES\n<|id|>67<|page|>10<|box|>752 142 768 361<|content|>If to the Joining Purchaser:\n<|id|>88<|page|>11<|box|>441 140 459 527<|content|>SECTION 8: MISCELLANEOUS PROVISIONS\n<|id|>99<|page|>13<|box|>252 246 268 751<|content|>[Remainder of page intentionally left blank; signa\n<|id|>101<|page|>13<|box|>325 142 343 352<|content|>JOINING PURCHASER:.\n<|id|>102<|page|>13<|box|>349 142 366 500<|content|>NORTHSTAR INNOVATION FUND II, L.P.\n<|id|>108<|page|>13<|box|>465 142 482 470<|content|>COMPANY (Acknowledged and Agreed):\n<|id|>109<|page|>13<|box|>488 143 503 388<|content|>SKYBRIDGE FINTECH LTD.\n<|id|>114<|page|>13<|box|>585 143 603 496<|content|>EXISTING PURCHASERS (Acknowledged):\n<|id|>115<|page|>13<|box|>609 143 625 473<|content|>RIDGELINE VENTURES FUND IV, L.P.\n<|id|>121<|page|>13<|box|>713 143 728 506<|content|>BEACON HILL CAPITAL PARTNERS, LLC\n<|id|>126<|page|>13<|box|>799 143 814 444<|content|>HALCYON GROWTH EQUITY, L.P.\n<|id|>132<|page|>15<|box|>89 143 107 243<|content|>EXHIBIT A\n<|id|>133<|page|>15<|box|>114 148 133 846<|content|>AMENDED AND RESTATED SCHEDULE OF PURCHASERS (As of\n<|id|>136<|page|>15<|box|>488 142 505 357<|content|>Wire Transfer Instructions\n<|id|>138<|page|>15<|box|>555 142 573 406<|content|>Ridgeline Ventures Fund IV, L.P.\n<|id|>140<|page|>15<|box|>643 143 661 418<|content|>Beacon Hill Capital Partners, LLC\n<|id|>142<|page|>15<|box|>733 142 750 418<|content|>Northstar Innovation Fund II, L.P.\n<|id|>144<|page|>15<|box|>821 142 838 375<|content|>Halcyon Growth Equity, L.P.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>14<|level|>2\n<|id|>24<|level|>2\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>43<|level|>2\n<|id|>54<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>-1\n<|id|>88<|level|>2\n<|id|>99<|level|>-1\n<|id|>101<|level|>3\n<|id|>102<|level|>4\n<|id|>108<|level|>3\n<|id|>109<|level|>4\n<|id|>114<|level|>3\n<|id|>115<|level|>4\n<|id|>121<|level|>4\n<|id|>126<|level|>4\n<|id|>132<|level|>2\n<|id|>133<|level|>3\n<|id|>136<|level|>2\n<|id|>138<|level|>3\n<|id|>140<|level|>3\n<|id|>142<|level|>3\n<|id|>144<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 4
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 4
+        },
+        {
+            "id": 121,
+            "level": 4
+        },
+        {
+            "id": 126,
+            "level": 4
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        }
+    ]
+}

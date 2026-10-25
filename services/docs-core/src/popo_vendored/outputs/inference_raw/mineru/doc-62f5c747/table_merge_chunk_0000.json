@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['November', '2,583', '2,859', '-275', '-347', '-623', '317', '-158', '46', '-417', '4,385', '252,506']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Fiscal year or month', 'colspan=6, Internal revenue 1/', 'rowspan=3, Customs', 'rowspan=3, Other receipts 1/', 'rowspan=3, Gross receipts', 'rowspan=3, Less: Appropriations to Federal Old-Age and Survivors Insurance Trust Fund 2/', 'rowspan=3, Net receipts 6/']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 30,
+    "table2_idx": 31
+}

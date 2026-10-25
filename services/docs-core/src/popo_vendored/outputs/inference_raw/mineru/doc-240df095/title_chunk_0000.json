@@ -1,0 +1,66 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 326 106 669<|content|>WHITFIELD GRAVES & MORROW LLP\n<|id|>11<|page|>1<|box|>609 142 627 336<|content|>1. Documents Examined\n<|id|>25<|page|>2<|box|>767 140 784 267<|content|>2. Assumptions\n<|id|>37<|page|>4<|box|>90 140 108 238<|content|>3. Opinions\n<|id|>39<|page|>4<|box|>165 140 183 468<|content|>3.1 Due Organization and Good Standing\n<|id|>42<|page|>4<|box|>465 140 483 424<|content|>3.2 Corporate Power and Authority\n<|id|>47<|page|>5<|box|>90 140 107 320<|content|>3.3 Due Authorization\n<|id|>58<|page|>6<|box|>455 140 472 450<|content|>3.5 No Violation of Charter Documents\n<|id|>63<|page|>6<|box|>825 140 842 419<|content|>3.6 No Violation of Applicable Law\n<|id|>66<|page|>7<|box|>330 140 347 349<|content|>3.7 No Consents Required\n<|id|>68<|page|>7<|box|>523 140 539 403<|content|>4. Limitations and Qualifications\n<|id|>80<|page|>9<|box|>556 140 574 383<|content|>5. Reliance and Other Matters\n<|id|>89<|page|>10<|box|>446 142 463 486<|content|>WHITFIELD GRAVES & MORROW LLP\n<|id|>94<|page|>10<|box|>583 142 595 169<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>11<|level|>1\n<|id|>25<|level|>1\n<|id|>37<|level|>1\n<|id|>39<|level|>2\n<|id|>42<|level|>2\n<|id|>47<|level|>2\n<|id|>58<|level|>2\n<|id|>63<|level|>2\n<|id|>66<|level|>2\n<|id|>68<|level|>1\n<|id|>80<|level|>1\n<|id|>89<|level|>-1\n<|id|>94<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        }
+    ]
+}

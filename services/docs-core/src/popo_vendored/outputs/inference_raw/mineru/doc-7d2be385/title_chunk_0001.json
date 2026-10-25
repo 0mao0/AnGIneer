@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        49,
+        76
+    ],
+    "pages": [
+        50,
+        53,
+        55,
+        60,
+        61,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        75,
+        76
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>145<|page|>50<|box|>83 104 114 912<|content|>Section I - Interest-Bearing Securities Issued or\n<|id|>154<|page|>53<|box|>377 54 392 932<|content|>Section II - Securities Issued by Federal Agencies\n<|id|>158<|page|>55<|box|>54 298 67 676<|content|>YIELDS OF TREASURY AND CORPORATE BONDS\n<|id|>171<|page|>60<|box|>50 360 64 640<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>173<|page|>61<|box|>83 343 98 611<|content|>Table 1.- Money in Circulation\n<|id|>186<|page|>66<|box|>85 367 100 635<|content|>Section I - Historical Summary\n<|id|>189<|page|>67<|box|>88 347 103 614<|content|>Section I - Historical Summary\n<|id|>190<|page|>67<|box|>109 155 122 820<|content|>Table 4.- Purchases and Sales of Long-Term Domesti\n<|id|>193<|page|>68<|box|>90 352 105 644<|content|>Section II - Summary by Countries\n<|id|>195<|page|>69<|box|>91 344 105 641<|content|>Section II - Summary by Countries\n<|id|>197<|page|>70<|box|>85 350 100 642<|content|>Section II - Summary by Countries\n<|id|>199<|page|>71<|box|>73 356 88 653<|content|>Section II - Summary by Countries\n<|id|>204<|page|>75<|box|>75 229 109 779<|content|>Section III A - Preliminary Details for Month of D\n<|id|>206<|page|>76<|box|>76 231 90 773<|content|>Section III A - Preliminary Details for Month of D\n<|id|>207<|page|>76<|box|>93 297 107 701<|content|>Table 2.- Short-Term Liabilities to Foreigners",
+    "raw_response": "<|id|>145<|level|>1\n<|id|>154<|level|>1\n<|id|>158<|level|>1\n<|id|>171<|level|>1\n<|id|>173<|level|>2\n<|id|>186<|level|>2\n<|id|>189<|level|>2\n<|id|>190<|level|>2\n<|id|>193<|level|>2\n<|id|>195<|level|>2\n<|id|>197<|level|>2\n<|id|>199<|level|>2\n<|id|>204<|level|>2\n<|id|>206<|level|>2\n<|id|>207<|level|>2",
+    "parsed": [
+        {
+            "id": 145,
+            "level": 1
+        },
+        {
+            "id": 154,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 171,
+            "level": 1
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 2
+        }
+    ]
+}

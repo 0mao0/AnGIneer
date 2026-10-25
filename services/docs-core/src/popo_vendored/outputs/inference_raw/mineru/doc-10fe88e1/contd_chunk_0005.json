@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 5,
+    "range": [
+        254,
+        256
+    ],
+    "pages": [
+        255,
+        256
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1918<|page|>255<|box|>840 193 860 859<|content|>附表 K. ... 2 的项次 2-6“现拌水泥混凝土(砂浆)配合比试验\n<|id|>1919<|page|>256<|box|>125 106 144 775<|content|>报告和拌和记录”，其中，现拌水泥混凝土仅适用于下列情况： ... 报告和拌和记录”，其中，现拌水泥混凝土仅适用于下列情况",
+    "raw_response": "<|src_id|>1918<|tgt_id|>1919",
+    "parsed": [
+        {
+            "src_id": 1918,
+            "tgt_id": 1919
+        }
+    ]
+}

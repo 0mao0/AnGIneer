@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Syracuse', '1820 South Salina Street,Syracuse,NY 13205', 'NY', 'Owned', '28,600', '1972 / 2017', '33-7024', 'D&TC-4824']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Utica', '310 Genesee Street, Suite 150, Utica, NY 13502', 'NY', 'Leased', '8,400', '1990 / 2018', '33-7025', 'D&TC-4825']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 98,
+    "table2_idx": 99
+}

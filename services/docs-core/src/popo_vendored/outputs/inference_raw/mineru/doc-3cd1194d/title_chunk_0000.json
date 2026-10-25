@@ -1,0 +1,134 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 367 118 630<|content|>ESCROW AGREEMENT\n<|id|>1<|page|>1<|box|>137 372 157 624<|content|>(Earnest Money Deposit)\n<|id|>11<|page|>1<|box|>547 140 566 243<|content|>RECITALS\n<|id|>18<|page|>2<|box|>354 142 372 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>35<|page|>3<|box|>614 140 633 678<|content|>ARTICLE 2 — APPOINTMENT OF ESCROW AGENT; DEPOSIT\n<|id|>42<|page|>4<|box|>765 140 782 504<|content|>ARTICLE 3 — INVESTMENT OF DEPOSIT\n<|id|>51<|page|>6<|box|>89 142 106 645<|content|>ARTICLE 4 — DISBURSEMENT OF DEPOSIT AT CLOSING\n<|id|>59<|page|>7<|box|>277 140 294 705<|content|>ARTICLE 5 — DISBURSEMENT UPON TERMINATION; DEFAULT\n<|id|>64<|page|>8<|box|>816 140 833 684<|content|>ARTICLE 6 — ESCROW AGENT'S DUTIES AND PROTECTIONS\n<|id|>72<|page|>10<|box|>393 140 412 627<|content|>ARTICLE 7 — DISPUTE RESOLUTION; INTERPLEADER\n<|id|>78<|page|>11<|box|>266 140 282 665<|content|>ARTICLE 8 — AUTHORIZED REPRESENTATIVES; NOTICES\n<|id|>80<|page|>11<|box|>392 142 409 535<|content|>Buyer — Fairwater Real Estate Investment Trust:\n<|id|>86<|page|>11<|box|>750 140 784 854<|content|>Seller — Greystone Meridian Partners Fund III, L.P\n<|id|>93<|page|>12<|box|>388 142 404 240<|content|>If to Buyer:\n<|id|>100<|page|>12<|box|>614 143 628 236<|content|>If to Seller:\n<|id|>109<|page|>13<|box|>148 140 166 478<|content|>ARTICLE 9 — GENERAL PROVISIONS\n<|id|>119<|page|>14<|box|>574 142 592 472<|content|>ARTICLE 10 — WIRE INSTRUCTIONS\n<|id|>126<|page|>15<|box|>549 143 564 218<|content|>BUYER:\n<|id|>141<|page|>15<|box|>833 142 849 660<|content|>COMMONWEALTH NATIONAL TITLE INSURANCE COMPANY\n<|id|>146<|page|>17<|box|>89 434 112 563<|content|>EXHIBIT A\n<|id|>147<|page|>17<|box|>135 287 152 710<|content|>WIRE INSTRUCTIONS FOR ESCROW ACCOUNT\n<|id|>160<|page|>18<|box|>89 436 109 560<|content|>EXHIBIT B\n<|id|>161<|page|>18<|box|>135 369 152 627<|content|>FORM OF JOINT DIRECTION\n<|id|>166<|page|>18<|box|>330 143 347 290<|content|>Dear Mr. Stanhope:\n<|id|>169<|page|>18<|box|>463 143 479 346<|content|>1. Disbursement Amount:\n<|id|>177<|page|>18<|box|>724 140 743 524<|content|>5. Additional Instructions (if any): ____\n<|id|>180<|page|>18<|box|>857 143 873 217<|content|>BUYER:\n<|id|>194<|page|>20<|box|>89 434 111 563<|content|>EXHIBIT C\n<|id|>195<|page|>20<|box|>135 194 152 803<|content|>FORM OF BUYER TERMINATION NOTICE (DUE DILIGENCE PE\n<|id|>201<|page|>20<|box|>375 142 392 290<|content|>Dear Mr. Stanhope:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>11<|level|>2\n<|id|>18<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>51<|level|>2\n<|id|>59<|level|>2\n<|id|>64<|level|>2\n<|id|>72<|level|>2\n<|id|>78<|level|>2\n<|id|>80<|level|>3\n<|id|>86<|level|>3\n<|id|>93<|level|>4\n<|id|>100<|level|>4\n<|id|>109<|level|>2\n<|id|>119<|level|>2\n<|id|>126<|level|>3\n<|id|>141<|level|>3\n<|id|>146<|level|>2\n<|id|>147<|level|>3\n<|id|>160<|level|>2\n<|id|>161<|level|>3\n<|id|>166<|level|>-1\n<|id|>169<|level|>-1\n<|id|>177<|level|>-1\n<|id|>180<|level|>4\n<|id|>194<|level|>2\n<|id|>195<|level|>3\n<|id|>201<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 4
+        },
+        {
+            "id": 100,
+            "level": 4
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 4
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 3
+        }
+    ]
+}

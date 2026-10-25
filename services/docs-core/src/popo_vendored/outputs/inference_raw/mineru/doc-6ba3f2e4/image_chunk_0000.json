@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|type|>title<|page|>1<|box|>378 142 395 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>12<|type|>title<|page|>2<|box|>148 140 167 375<|content|>2. Background of the Dispute\n<|id|>17<|type|>table<|page|>2<|box|>614 143 742 852<|content|>None\n<|id|>18<|type|>table<|page|>2<|box|>819 143 905 852<|content|>None\n<|id|>19<|type|>table<|page|>3<|box|>89 143 161 852<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>715 140 734 300<|content|>3. Scope of Services\n<|id|>25<|type|>title<|page|>3<|box|>747 140 763 480<|content|>3.1 Protest-Phase Services (Primary Scope)\n<|id|>36<|type|>title<|page|>5<|box|>375 140 392 522<|content|>3.2 Litigation-Phase Services (Contingent Scope)\n<|id|>44<|type|>title<|page|>6<|box|>150 140 167 362<|content|>4. Fees and Payment Terms\n<|id|>45<|type|>title<|page|>6<|box|>180 140 196 313<|content|>4.1 Protest-Phase Fee\n<|id|>51<|type|>title<|page|>6<|box|>570 140 587 334<|content|>4.2 Litigation-Phase Fee\n<|id|>55<|type|>title<|page|>6<|box|>859 142 876 354<|content|>4.3 Invoicing and Payment\n<|id|>61<|type|>title<|page|>7<|box|>329 140 345 491<|content|>5. Confidentiality and Privilege Preservation\n<|id|>62<|type|>title<|page|>7<|box|>359 140 376 370<|content|>5.1 Confidential Information\n<|id|>71<|type|>title<|page|>8<|box|>138 140 157 547<|content|>5.2 Attorney Work Product and Litigation Privilege\n<|id|>79<|type|>title<|page|>8<|box|>734 140 750 457<|content|>5.3 Return and Destruction of Materials\n<|id|>82<|type|>title<|page|>9<|box|>204 140 222 424<|content|>6. Document Handling and Security\n<|id|>86<|type|>title<|page|>9<|box|>542 140 559 380<|content|>7. Independence and Conflicts\n<|id|>96<|type|>title<|page|>10<|box|>186 140 204 346<|content|>8. Term and Termination\n<|id|>100<|type|>title<|page|>10<|box|>523 140 542 370<|content|>9. Relationship of the Parties\n<|id|>103<|type|>title<|page|>10<|box|>801 142 816 480<|content|>10. Governing Law and Dispute Resolution\n<|id|>106<|type|>title<|page|>11<|box|>277 142 294 348<|content|>11. Limitation of Liability\n<|id|>109<|type|>title<|page|>11<|box|>500 142 515 455<|content|>12. Entire Agreement and Amendments\n<|id|>121<|type|>title<|page|>12<|box|>175 383 193 614<|content|>ACCEPTED AND AGREED",
+    "raw_response": "<|src_id|>17<|tgt_id|>12\n<|src_id|>18<|tgt_id|>12\n<|src_id|>19<|tgt_id|>12",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 12
+        }
+    ]
+}

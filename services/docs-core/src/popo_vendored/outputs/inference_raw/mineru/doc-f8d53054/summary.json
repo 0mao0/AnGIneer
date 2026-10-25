@@ -1,0 +1,173 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8u5wixew\\input\\pdfs\\doc-f8d53054.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8u5wixew\\enriched\\doc-f8d53054.json",
+    "contd_output": "<|src_id|>10<|tgt_id|>11\n<|src_id|>53<|tgt_id|>54\n<|src_id|>185<|tgt_id|>186",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>3\n<|id|>21<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>2\n<|id|>55<|level|>2\n<|id|>65<|level|>2\n<|id|>85<|level|>2\n<|id|>101<|level|>2\n<|id|>123<|level|>2\n<|id|>139<|level|>2\n<|id|>150<|level|>2\n<|id|>165<|level|>2\n<|id|>187<|level|>2\n<|id|>200<|level|>2\n<|id|>211<|level|>2\n<|id|>230<|level|>2\n<|id|>232<|level|>3\n<|id|>241<|level|>3\n<|id|>251<|level|>3\n<|id|>256<|level|>3\n<|id|>258<|level|>2\n<|id|>260<|level|>3\n<|id|>262<|level|>3\n<|id|>266<|level|>3\n<|id|>268<|level|>4\n<|id|>275<|level|>2\n<|id|>283<|level|>3",
+    "image_output": "<|src_id|>264<|tgt_id|>262\n<|src_id|>265<|tgt_id|>262",
+    "contd_label": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 186
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 241,
+            "level": 3
+        },
+        {
+            "id": 251,
+            "level": 3
+        },
+        {
+            "id": 256,
+            "level": 3
+        },
+        {
+            "id": 258,
+            "level": 2
+        },
+        {
+            "id": 260,
+            "level": 3
+        },
+        {
+            "id": 262,
+            "level": 3
+        },
+        {
+            "id": 266,
+            "level": 3
+        },
+        {
+            "id": 268,
+            "level": 4
+        },
+        {
+            "id": 275,
+            "level": 2
+        },
+        {
+            "id": 283,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 264,
+            "tgt_id": 262
+        },
+        {
+            "src_id": 265,
+            "tgt_id": 262
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 264,
+            "table2_idx": 265,
+            "upper_row_ss": [
+                [
+                    "Access Management",
+                    "Prompt deprovisioning of access upon employee termination or role change; background checks for personnel with access to Sensitive",
+                    "Prompt deprovisioning; background checks for data-handling personnel"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Personal Information",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

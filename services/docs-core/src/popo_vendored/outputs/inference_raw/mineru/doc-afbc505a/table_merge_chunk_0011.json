@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 11,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['地面或局部冲刷线以下深度z处基础侧面水平压力', 'p_z = (h - z)z\\\\frac{H}{D_0h}', 'p_z = (h - z)z\\\\frac{M}{D_1h}']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['基础底的竖直压力', 'p_{\\\\max \\\\min} = \\\\frac{N}{A_0} \\\\pm \\\\frac{dH}{2\\\\beta D_0}', 'p_{\\\\max \\\\min} = \\\\frac{N}{A_0} \\\\pm \\\\frac{dM}{2\\\\beta D_1}']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 1330,
+    "table2_idx": 1331
+}

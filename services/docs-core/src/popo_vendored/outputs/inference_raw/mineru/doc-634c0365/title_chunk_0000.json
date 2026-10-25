@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 169 142 826<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF LUMOS ANA\n<|id|>4<|page|>1<|box|>362 140 378 243<|content|>RECITALS\n<|id|>15<|page|>4<|box|>339 140 356 390<|content|>OPERATIVE RESOLUTIONS\n<|id|>16<|page|>4<|box|>371 140 388 697<|content|>Resolution 1 — Authorization of Withdrawal of Regi\n<|id|>18<|page|>4<|box|>664 140 680 633<|content|>Resolution 2 — Authorization of Officers to Execut\n<|id|>20<|page|>5<|box|>90 140 107 521<|content|>Resolution 3 — Termination of Offering Process\n<|id|>22<|page|>5<|box|>253 140 271 491<|content|>Resolution 4 — Notification to Underwriters\n<|id|>24<|page|>5<|box|>565 140 582 718<|content|>Resolution 5 — Notification to Underwriters' Couns\n<|id|>32<|page|>6<|box|>202 142 219 540<|content|>Resolution 6 — Status of Underwriting Agreement\n<|id|>34<|page|>6<|box|>458 140 474 509<|content|>Resolution 7 — Status of Lock-Up Agreements\n<|id|>37<|page|>6<|box|>813 140 829 609<|content|>Resolution 8 — Status of Selling Stockholder Arran\n<|id|>39<|page|>7<|box|>250 142 266 527<|content|>Resolution 9 — Status of Governance Documents\n<|id|>45<|page|>7<|box|>810 140 828 491<|content|>Resolution 10 — Nasdaq Listing Application\n<|id|>47<|page|>8<|box|>157 140 175 580<|content|>Resolution 11 — Status of Issuer's Counsel Engagem\n<|id|>49<|page|>8<|box|>450 140 468 517<|content|>Resolution 12 — Payment of Incurred Expenses\n<|id|>59<|page|>9<|box|>239 140 255 586<|content|>Resolution 13 — Preservation of Confidential Treat\n<|id|>61<|page|>9<|box|>476 140 493 524<|content|>Resolution 14 — Future Offering Considerations\n<|id|>63<|page|>9<|box|>786 140 804 424<|content|>Resolution 15 — General Authority\n<|id|>66<|page|>10<|box|>339 142 356 401<|content|>CONSENT AND SIGNATURES\n<|id|>69<|page|>10<|box|>527 163 563 833<|content|>SIGNATURE PAGE TO UNANIMOUS WRITTEN CONSENT OF THE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>18<|level|>3\n<|id|>20<|level|>3\n<|id|>22<|level|>3\n<|id|>24<|level|>3\n<|id|>32<|level|>3\n<|id|>34<|level|>3\n<|id|>37<|level|>3\n<|id|>39<|level|>3\n<|id|>45<|level|>3\n<|id|>47<|level|>3\n<|id|>49<|level|>3\n<|id|>59<|level|>3\n<|id|>61<|level|>3\n<|id|>63<|level|>3\n<|id|>66<|level|>2\n<|id|>69<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,71 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>136 321 258 918<|content|>Anemia, Micronutrient Deficiencies, and Malaria in\n<|id|>2<|type|>image<|page|>1<|box|>296 58 340 120<|content|>None\n<|id|>6<|type|>title<|page|>1<|box|>415 53 434 171<|content|>OPEN ACCESS\n<|id|>15<|type|>title<|page|>1<|box|>448 323 469 419<|content|>Abstract\n<|id|>20<|type|>title<|page|>2<|box|>94 321 111 442<|content|>Introduction\n<|id|>23<|type|>title<|page|>2<|box|>513 321 531 408<|content|>Methods\n<|id|>24<|type|>title<|page|>2<|box|>537 321 554 491<|content|>Ethics and consent\n<|id|>26<|type|>title<|page|>2<|box|>777 321 795 581<|content|>Study design and participants\n<|id|>28<|type|>title<|page|>3<|box|>219 321 236 557<|content|>Data collection procedures\n<|id|>36<|type|>title<|page|>4<|box|>358 321 375 486<|content|>Deficiency cut-offs\n<|id|>38<|type|>title<|page|>4<|box|>695 321 713 683<|content|>Data management and statistical analysis\n<|id|>42<|type|>title<|page|>5<|box|>339 321 354 400<|content|>Results\n<|id|>43<|type|>title<|page|>5<|box|>361 321 378 431<|content|>Households\n<|id|>45<|type|>title<|page|>5<|box|>564 321 580 401<|content|>Children\n<|id|>47<|type|>table<|page|>6<|box|>123 320 873 942<|content|>None\n<|id|>48<|type|>table<|page|>7<|box|>113 321 546 942<|content|>None\n<|id|>51<|type|>table<|page|>8<|box|>111 53 853 941<|content|>None\n<|id|>52<|type|>table<|page|>9<|box|>113 53 393 941<|content|>None\n<|id|>54<|type|>title<|page|>9<|box|>842 321 861 854<|content|>Women of reproductive age (both pregnant and non-p\n<|id|>59<|type|>table<|page|>11<|box|>123 321 878 941<|content|>None\n<|id|>60<|type|>table<|page|>12<|box|>114 321 169 941<|content|>None\n<|id|>64<|type|>title<|page|>12<|box|>547 321 565 715<|content|>Overlap of anemia, malaria, and inflammation\n<|id|>67<|type|>title<|page|>12<|box|>753 321 771 434<|content|>Discussion\n<|id|>68<|type|>title<|page|>12<|box|>777 321 795 647<|content|>Anemia prevalence and determinants\n<|id|>70<|type|>table<|page|>13<|box|>112 53 857 942<|content|>None\n<|id|>71<|type|>table<|page|>14<|box|>114 53 381 941<|content|>None\n<|id|>72<|type|>table<|page|>14<|box|>592 321 806 941<|content|>None\n<|id|>78<|type|>title<|page|>16<|box|>145 321 162 454<|content|>Iron deficiency\n<|id|>81<|type|>title<|page|>16<|box|>547 321 565 501<|content|>Vitamin A deficiency\n<|id|>85<|type|>title<|page|>17<|box|>145 321 162 565<|content|>Folate and B12 deficiencies\n<|id|>89<|type|>title<|page|>17<|box|>679 321 695 393<|content|>Malaria\n<|id|>93<|type|>title<|page|>18<|box|>250 321 268 676<|content|>Research and programmatic implications\n<|id|>96<|type|>title<|page|>18<|box|>494 321 511 444<|content|>Conclusions\n<|id|>98<|type|>title<|page|>18<|box|>656 321 674 542<|content|>Supporting Information\n<|id|>101<|type|>title<|page|>18<|box|>761 321 779 500<|content|>Acknowledgments\n<|id|>103<|type|>title<|page|>19<|box|>94 321 111 522<|content|>Author Contributions\n<|id|>105<|type|>title<|page|>19<|box|>200 323 217 434<|content|>References",
+    "raw_response": "<|src_id|>2<|tgt_id|>1\n<|src_id|>47<|tgt_id|>45\n<|src_id|>48<|tgt_id|>45\n<|src_id|>51<|tgt_id|>45\n<|src_id|>52<|tgt_id|>45\n<|src_id|>59<|tgt_id|>54\n<|src_id|>60<|tgt_id|>54\n<|src_id|>70<|tgt_id|>64\n<|src_id|>71<|tgt_id|>64\n<|src_id|>72<|tgt_id|>64",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 64
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>6<|page|>1<|box|>281 140 299 671<|content|>VIA FIRST CLASS MAIL AND SECURE ELECTRONIC DELIVER\n<|id|>8<|page|>1<|box|>388 140 424 854<|content|>Re: Request for Mid-Examination Conference — Pente\n<|id|>12<|page|>1<|box|>819 142 835 450<|content|>I. Background and Examination Status\n<|id|>26<|page|>3<|box|>299 140 315 565<|content|>II. Summary of IDR Activity and Cooperation to Dat\n<|id|>48<|page|>5<|box|>395 140 412 534<|content|>III. Request for Conference — Specific Objectives\n<|id|>50<|page|>5<|box|>470 142 488 560<|content|>A. Objective 1: Clarify the Scope of Remaining Iss\n<|id|>59<|page|>6<|box|>429 140 446 723<|content|>B. Objective 2: Narrow Outstanding IDRs and Avoid\n<|id|>63<|page|>6<|box|>828 140 845 496<|content|>C. Objective 3: Establish a Realistic Timeline\n<|id|>71<|page|>7<|box|>532 140 549 547<|content|>D. Objective 4: Present PPC's Affirmative Position\n<|id|>79<|page|>8<|box|>648 140 665 415<|content|>IV. Proposed Conference Logistics\n<|id|>87<|page|>9<|box|>321 140 339 478<|content|>V. Statute of Limitations Acknowledgment\n<|id|>90<|page|>9<|box|>561 140 579 264<|content|>VI. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>-1\n<|id|>8<|level|>1\n<|id|>12<|level|>2\n<|id|>26<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>3\n<|id|>59<|level|>3\n<|id|>63<|level|>3\n<|id|>71<|level|>3\n<|id|>79<|level|>2\n<|id|>87<|level|>2\n<|id|>90<|level|>2",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        }
+    ]
+}

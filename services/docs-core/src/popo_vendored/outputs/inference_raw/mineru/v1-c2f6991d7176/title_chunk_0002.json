@@ -1,0 +1,38 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        92,
+        115
+    ],
+    "pages": [
+        92,
+        93,
+        112,
+        115
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1218<|page|>92<|box|>73 246 89 750<|content|>APPENDIX M: ADVANTAGES AND DISADVANTAGES OF PPE\n<|id|>1221<|page|>93<|box|>73 114 89 348<|content|>MASKS AND N95 RESPIRATORS\n<|id|>1223<|page|>93<|box|>500 114 517 258<|content|>EYE PROTECTION\n<|id|>1248<|page|>112<|box|>428 88 444 312<|content|>References for Appendix N\n<|id|>1275<|page|>115<|box|>80 114 111 325<|content|>References",
+    "raw_response": "<|id|>1218<|level|>1\n<|id|>1221<|level|>2\n<|id|>1223<|level|>2\n<|id|>1248<|level|>1\n<|id|>1275<|level|>1",
+    "parsed": [
+        {
+            "id": 1218,
+            "level": 1
+        },
+        {
+            "id": 1221,
+            "level": 2
+        },
+        {
+            "id": 1223,
+            "level": 2
+        },
+        {
+            "id": 1248,
+            "level": 1
+        },
+        {
+            "id": 1275,
+            "level": 1
+        }
+    ]
+}

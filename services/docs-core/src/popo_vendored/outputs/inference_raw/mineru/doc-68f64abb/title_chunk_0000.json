@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>311 140 329 316<|content|>Dear AUSA Calloway:\n<|id|>9<|page|>1<|box|>661 142 679 400<|content|>1. Background — The Subpoena\n<|id|>26<|page|>3<|box|>359 140 375 496<|content|>2. Agreement on Rolling Production Protocol\n<|id|>34<|page|>4<|box|>304 140 321 359<|content|>3. Bates-Stamping Protocol\n<|id|>39<|page|>4<|box|>777 140 794 483<|content|>4. Privilege Withholdings and Privilege Log\n<|id|>50<|page|>5<|box|>559 140 575 464<|content|>5. Clawback and Inadvertent Production\n<|id|>59<|page|>6<|box|>484 140 501 482<|content|>6. Cooperation and Continuing Obligations\n<|id|>64<|page|>7<|box|>241 140 258 326<|content|>7. Contact Information\n<|id|>66<|page|>7<|box|>311 142 328 313<|content|>For the Government:\n<|id|>70<|page|>7<|box|>523 142 542 431<|content|>For Dunmore Energy Holdings Ltd.:\n<|id|>77<|page|>7<|box|>782 142 799 339<|content|>8. Confirmation Request\n<|id|>86<|page|>8<|box|>417 380 434 616<|content|>AGREED AND ACCEPTED:",
+    "raw_response": "<|id|>6<|level|>-1\n<|id|>9<|level|>1\n<|id|>26<|level|>1\n<|id|>34<|level|>1\n<|id|>39<|level|>1\n<|id|>50<|level|>1\n<|id|>59<|level|>1\n<|id|>64<|level|>1\n<|id|>66<|level|>2\n<|id|>70<|level|>2\n<|id|>77<|level|>1\n<|id|>86<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 1
+        }
+    ]
+}

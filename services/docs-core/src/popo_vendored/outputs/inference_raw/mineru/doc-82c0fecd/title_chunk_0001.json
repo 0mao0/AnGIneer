@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        61,
+        109
+    ],
+    "pages": [
+        62,
+        69,
+        70,
+        82,
+        86,
+        87,
+        88,
+        89,
+        98,
+        99,
+        100,
+        102,
+        103,
+        108,
+        109
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>271<|page|>62<|box|>83 141 116 875<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>290<|page|>69<|box|>53 358 68 604<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>297<|page|>70<|box|>88 217 107 784<|content|>INTERNAL REVENUE COLLECTIONS BY PRINCIPAL SOURCES\n<|id|>330<|page|>82<|box|>75 286 88 718<|content|>Section III - Preliminary Details by Countries\n<|id|>336<|page|>86<|box|>40 268 55 745<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>343<|page|>87<|box|>46 245 59 727<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>344<|page|>87<|box|>77 144 109 830<|content|>Section II - Income and Expense for the Twelve Mon\n<|id|>346<|page|>88<|box|>44 264 57 740<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>348<|page|>89<|box|>46 245 59 727<|content|>.CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTI\n<|id|>362<|page|>98<|box|>73 163 107 838<|content|>Section II - Income and Expense for the Twelve Mon\n<|id|>365<|page|>99<|box|>42 253 57 732<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>366<|page|>99<|box|>75 154 107 840<|content|>Section II - Income and Expense for the Twelve Mon\n<|id|>368<|page|>100<|box|>46 273 60 750<|content|>.CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTI\n<|id|>369<|page|>100<|box|>77 178 110 853<|content|>Section II - Income and Expense for the Twelve Mon\n<|id|>372<|page|>102<|box|>46 278 60 753<|content|>.CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTI\n<|id|>374<|page|>103<|box|>42 245 57 727<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>383<|page|>108<|box|>47 256 62 735<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>386<|page|>109<|box|>46 255 61 732<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV",
+    "raw_response": "<|id|>271<|level|>1\n<|id|>290<|level|>2\n<|id|>297<|level|>2\n<|id|>330<|level|>2\n<|id|>336<|level|>-1\n<|id|>343<|level|>-1\n<|id|>344<|level|>2\n<|id|>346<|level|>-1\n<|id|>348<|level|>-1\n<|id|>362<|level|>2\n<|id|>365<|level|>-1\n<|id|>366<|level|>2\n<|id|>368<|level|>-1\n<|id|>369<|level|>2\n<|id|>372<|level|>-1\n<|id|>374<|level|>-1\n<|id|>383<|level|>-1\n<|id|>386<|level|>-1",
+    "parsed": [
+        {
+            "id": 271,
+            "level": 1
+        },
+        {
+            "id": 290,
+            "level": 2
+        },
+        {
+            "id": 297,
+            "level": 2
+        },
+        {
+            "id": 330,
+            "level": 2
+        },
+        {
+            "id": 344,
+            "level": 2
+        },
+        {
+            "id": 362,
+            "level": 2
+        },
+        {
+            "id": 366,
+            "level": 2
+        },
+        {
+            "id": 369,
+            "level": 2
+        }
+    ]
+}

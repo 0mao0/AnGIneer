@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 145 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGE / ATTORNEY WORK PRODUCT\n<|id|>2<|page|>1<|box|>152 140 171 751<|content|>TO: ... Leonard Cross, Responsible Partner, Tax Sylvia Hartwell, Billing Partner, Tax\n<|id|>3<|page|>1<|box|>179 140 196 473<|content|>FROM: ... Robert Jansen, Lead Associate, Tax\n<|id|>4<|page|>1<|box|>205 142 222 310<|content|>DATE: ... June 12, 2025\n<|id|>5<|page|>1<|box|>231 140 267 854<|content|>RE: ... Credit Facility Implications of Proposed C... Reorganization — Solara Digital Infrastructure LP\n<|id|>6<|page|>1<|box|>273 142 292 493<|content|>ENGAGEMENT NO. ... 20250527-SDILP-PLR\n<|id|>7<|page|>1<|box|>301 140 319 457<|content|>CLIENT: ... Solara Digital Infrastructure LP\n<|id|>8<|page|>1<|box|>327 142 343 408<|content|>Right-click to update Table of Contents\n<|id|>15<|page|>1<|box|>875 140 909 854<|content|>We recommend that consent request letters and draf...al Bank (attention: ... Thomas Greenleaf, Managing\n<|id|>16<|page|>2<|box|>89 140 183 854<|content|>Director, Fund Finance) and Sentinel Capital Marke...citation and the IRS private letter ruling process\n<|id|>95<|page|>10<|box|>821 140 895 856<|content|>The change-of-control analysis for the Fund V faci...wever, the dissolution of Fund V-A (Cayman) LP and\n<|id|>96<|page|>11<|box|>89 140 145 854<|content|>Fund V-B (Luxembourg) SCSp and the subsequent migr...pe of broadly drafted change-of-control provisions",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>95<|tgt_id|>96",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 96
+        }
+    ]
+}

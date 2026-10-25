@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 171 107 854<|content|>CALDERWOOD & HARKNESS LLP 425 Park Avenue, 18th Floor New York, NY 10022\n<|id|>1<|page|>1<|box|>108 702 125 854<|content|>Tel: ... (212) 554-7000\n<|id|>2<|page|>1<|box|>133 140 151 297<|content|>Fax: ... (212) 554-7001\n<|id|>3<|page|>1<|box|>152 620 169 854<|content|>www. ... com\n<|id|>4<|page|>1<|box|>176 217 195 854<|content|>Douglas Fairchild Partner Direct: ... com\n<|id|>5<|page|>1<|box|>204 736 220 854<|content|>August 1, 2023\n<|id|>6<|page|>1<|box|>229 142 244 416<|content|>VIA HAND DELIVERY AND EMAIL\n<|id|>7<|page|>1<|box|>253 140 290 854<|content|>Diane Ashford, Esq. ... , Partner Pemberton Locke ...ld Financial Center, Suite 3800 New York, NY 10281\n<|id|>8<|page|>1<|box|>299 174 371 854<|content|>Re: ... (\"Tenant\") for Floors 34, 35, 36, 37, and ...7 Seventh Avenue, New York, NY 10019 (the \"Lease\")\n<|id|>9<|page|>1<|box|>378 176 397 575<|content|>Calderwood & Harkness Matter Number: ... 1017-00009\n<|id|>10<|page|>1<|box|>406 140 422 284<|content|>Dear Ms. ... Ashford\n<|id|>33<|page|>3<|box|>872 174 907 856<|content|>(a) Subordination, Non-Disturbance and Attornment ...ement dated July 10, 2023, among Atlas Continental\n<|id|>34<|page|>4<|box|>90 174 162 856<|content|>Bank, N. ... (as Tenant), has been fully executed ...inal thereof has been provided to Tenant's counsel\n<|id|>46<|page|>4<|box|>849 140 866 336<|content|>Douglas Fairchild Partner\n<|id|>47<|page|>4<|box|>867 140 902 854<|content|>cc: ... Rafael\n<|id|>48<|page|>5<|box|>90 140 126 854<|content|>Dominguez, Esq. ... , Pemberton Locke & Strauss LLP\n<|id|>51<|page|>5<|box|>222 140 239 537<|content|>GREYSTONE METROPOLITAN REALTY LLC\n<|id|>52<|page|>5<|box|>241 142 257 253<|content|>By: ... By\n<|id|>53<|page|>5<|box|>257 140 273 361<|content|>Name: ... Whitfield\n<|id|>54<|page|>5<|box|>273 142 292 336<|content|>Title: ... Managing Principal\n<|id|>55<|page|>5<|box|>292 143 309 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>33<|tgt_id|>34\n<|src_id|>47<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        }
+    ]
+}

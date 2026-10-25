@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>180 140 215 854<|content|>FROM: ... Naomi Petersen, Lead Associate, Mergers ...00 Lexington Avenue, 30th Floor New York, NY 10022\n<|id|>3<|page|>1<|box|>224 140 260 854<|content|>Yuki Nakamura, Working Associate, Litigation (Gene...5 North Wacker Drive, Suite 4200 Chicago, IL 60606\n<|id|>4<|page|>1<|box|>268 140 287 764<|content|>TO: ... Douglas Fairchild, Responsible Partner Calderwood & Harkness LLP (Chicago)\n<|id|>5<|page|>1<|box|>294 140 368 854<|content|>CC: ... Donna Kowalski, Director of Insurance and Claims, Nexford Industrial Holdings Inc\n<|id|>6<|page|>1<|box|>375 142 393 308<|content|>DATE: ... July 25, 2022\n<|id|>7<|page|>1<|box|>400 140 436 854<|content|>RE: ... July 1, 2022 – July 1, 2023)\n<|id|>8<|page|>1<|box|>444 142 462 361<|content|>MATTER NO. ... 1005-00003\n<|id|>9<|page|>1<|box|>470 140 547 854<|content|>This memorandum is a privileged and confidential a...tify the sender immediately and destroy all copies\n<|id|>16<|page|>2<|box|>89 174 108 566<|content|>(c) 2nd Excess: ... and\n<|id|>18<|page|>2<|box|>142 140 308 856<|content|>In conducting this review, we compared the final i... no inadvertent narrowing of coverage has occurred\n<|id|>22<|page|>2<|box|>446 174 483 854<|content|>(iii) Triton Fastener Corp. ... and\n<|id|>24<|page|>2<|box|>553 140 645 856<|content|>Collectively, these four entities are referred to ...ost-Bind Policy Wording Review dated July 22, 2022\n<|id|>42<|page|>4<|box|>827 140 902 857<|content|>Midland Casualty agreed to the requested increase ...0. ... We have reviewed the wording of Endorsement\n<|id|>43<|page|>5<|box|>89 138 164 854<|content|>No. ... The endorsement correctly states the revis...nception date of the renewal policy (July 1, 2022)\n<|id|>166<|page|>19<|box|>775 140 791 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>167<|page|>19<|box|>794 142 810 253<|content|>By: ... By\n<|id|>168<|page|>19<|box|>809 140 842 852<|content|>Naomi Petersen Lead Associate, Mergers & Acquisiti...00 Lexington Avenue, 30th Floor New York, NY 10022\n<|id|>169<|page|>19<|box|>844 143 859 253<|content|>By: ... By\n<|id|>173<|page|>20<|box|>125 140 157 852<|content|>Douglas Fairchild Responsible Partner Calderwood &...5 North Wacker Drive, Suite 4200 Chicago, IL 60606\n<|id|>174<|page|>20<|box|>157 142 174 333<|content|>Matter No. ... 1005-00003\n<|id|>175<|page|>20<|box|>184 140 200 785<|content|>Distribution: ... As noted in the \"To\" and \"cc\" lines on the first page of this memorandum",
+    "raw_response": "<|src_id|>42<|tgt_id|>43",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>419 140 436 364<|content|>I. Introduction and Purpose\n<|id|>12<|page|>2<|box|>90 140 107 437<|content|>II. Background — The Proposed IPO\n<|id|>13<|page|>2<|box|>121 140 138 380<|content|>A. Description of the Offering\n<|id|>22<|page|>2<|box|>551 142 568 490<|content|>B. Pre-IPO Shares and Post-IPO Ownership\n<|id|>27<|page|>3<|box|>90 140 106 292<|content|>C. Use of Proceeds\n<|id|>33<|page|>3<|box|>449 142 465 382<|content|>D. Underwriters and Advisors\n<|id|>41<|page|>3<|box|>676 142 694 400<|content|>E. Registration Statement Status\n<|id|>51<|page|>4<|box|>392 140 409 692<|content|>III. Description of the Partnership Agreement and\n<|id|>52<|page|>4<|box|>422 140 440 482<|content|>A. Summary of the Partnership Agreement\n<|id|>58<|page|>4<|box|>800 140 816 596<|content|>B. Change-of-Control and Transfer Restriction Prov\n<|id|>62<|page|>5<|box|>484 140 501 385<|content|>C. Recapture Event Provisions\n<|id|>67<|page|>6<|box|>220 140 237 305<|content|>D. Notice Provisions\n<|id|>69<|page|>6<|box|>412 140 430 313<|content|>IV. Specific Requests\n<|id|>70<|page|>6<|box|>444 140 460 320<|content|>A. Consent to the IPO\n<|id|>79<|page|>7<|box|>138 140 157 581<|content|>B. Confirmation That the IPO Is Not a Recapture Ev\n<|id|>88<|page|>8<|box|>176 140 193 549<|content|>C. Confirmation of No Acceleration or Modification\n<|id|>96<|page|>8<|box|>523 140 541 571<|content|>V. Representations and Confirmations by Solaris We\n<|id|>105<|page|>9<|box|>520 140 537 535<|content|>VI. Form of Requested Consent and Confirmation\n<|id|>112<|page|>10<|box|>241 140 258 439<|content|>VII. Timing and Contact Information\n<|id|>121<|page|>10<|box|>670 140 688 308<|content|>VIII. Confidentiality\n<|id|>127<|page|>11<|box|>339 142 354 393<|content|>SOLARIS WEST SOLAR LLC\n<|id|>134<|page|>11<|box|>462 143 477 238<|content|>Enclosures:\n<|id|>138<|page|>11<|box|>659 142 672 171<|content|>cc:\n<|id|>140<|page|>11<|box|>762 171 815 825<|content|>INTERNAL DRAFTING NOTES — CALDERWOOD & HARKNESS LL",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>22<|level|>2\n<|id|>27<|level|>2\n<|id|>33<|level|>2\n<|id|>41<|level|>2\n<|id|>51<|level|>1\n<|id|>52<|level|>2\n<|id|>58<|level|>2\n<|id|>62<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>1\n<|id|>70<|level|>2\n<|id|>79<|level|>2\n<|id|>88<|level|>2\n<|id|>96<|level|>1\n<|id|>105<|level|>1\n<|id|>112<|level|>1\n<|id|>121<|level|>1\n<|id|>127<|level|>-1\n<|id|>134<|level|>1\n<|id|>138<|level|>1\n<|id|>140<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 138,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 1
+        }
+    ]
+}

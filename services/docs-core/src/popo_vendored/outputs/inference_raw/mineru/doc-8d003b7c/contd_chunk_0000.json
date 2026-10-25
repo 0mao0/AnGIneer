@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        10,
+        11,
+        18,
+        19,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 147 151 849<|content|>CALDERWOOD & HARKNESS LLP 1201 Market Street, Suite 2500 Wilmington, Delaware 19801\n<|id|>2<|page|>1<|box|>160 715 176 854<|content|>February 17, 2025\n<|id|>3<|page|>1<|box|>186 140 202 290<|content|>MEMORANDUM\n<|id|>4<|page|>1<|box|>212 140 229 612<|content|>TO: ... Marcus Delgado, Responsible Partner, intellectual Property\n<|id|>5<|page|>1<|box|>237 140 255 589<|content|>FROM: ... Christy Bauer, Lead Associate, intellectual Property\n<|id|>6<|page|>1<|box|>263 140 281 689<|content|>CC: ... Peter Vassiliev, Working Associate\n<|id|>7<|page|>1<|box|>289 140 343 854<|content|>RE: ... )\n<|id|>8<|page|>1<|box|>352 142 369 330<|content|>Matter No. ... 0017\n<|id|>9<|page|>1<|box|>376 140 454 854<|content|>PRIVILEGE DESIGNATION: ... Any inadvertent disclos...ot constitute a waiver of any applicable privilege\n<|id|>22<|page|>2<|box|>867 140 904 857<|content|>Section III: ... United\n<|id|>23<|page|>3<|box|>89 140 145 854<|content|>States Plywood Corp. ... He describes the hypothet...eorgia-Pacific factors in arriving at his opinions\n<|id|>90<|page|>10<|box|>891 145 909 736<|content|>• Solstice's weighted average gross margin on PrecisionEdge™ products: ... 3%\n<|id|>94<|page|>11<|box|>148 140 296 856<|content|>This profit split is economically unreasonable and...... No rational licensee would agree to such terms\n<|id|>91<|page|>11<|box|>89 147 107 635<|content|>• Solstice's total gross profit: ... 3% = $45,729,800\n<|id|>92<|page|>11<|box|>109 147 127 457<|content|>• Royalty payment to Apex: ... $31,800,000\n<|id|>93<|page|>11<|box|>128 145 146 723<|content|>• Apex's share of Solstice's gross profit: ... 5%\n<|id|>152<|page|>18<|box|>806 140 898 856<|content|>The most significant area of overlap involves the ...eries is found non-infringing, the royalty base in\n<|id|>153<|page|>19<|box|>90 140 162 854<|content|>Mr. ... Danaher's analysis must be reduced by the ...te substantial sales throughout the damages period\n<|id|>183<|page|>22<|box|>512 142 529 318<|content|>Respectfully submitted,\n<|id|>184<|page|>22<|box|>529 142 546 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>185<|page|>22<|box|>547 143 564 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>152<|tgt_id|>153",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 196 118 800<|content|>FORM OF SECRETARY'S / DIRECTOR'S CERTIFICATE\n<|id|>4<|type|>title<|page|>1<|box|>243 303 260 692<|content|>SECRETARY'S / DIRECTOR'S CERTIFICATE\n<|id|>7<|type|>title<|page|>1<|box|>431 142 448 243<|content|>RECITALS\n<|id|>17<|type|>title<|page|>2<|box|>89 140 106 727<|content|>SECTION 1: CERTIFICATION OF ORGANIZATIONAL DOCUMEN\n<|id|>19<|type|>title<|page|>2<|box|>189 140 205 517<|content|>1.1 For Exempted Companies (Cayman Islands)\n<|id|>23<|type|>title<|page|>2<|box|>455 142 474 390<|content|>1.2 For Delaware Corporations\n<|id|>28<|type|>title<|page|>2<|box|>782 142 800 508<|content|>1.3 For Delaware Limited Liability Companies\n<|id|>33<|type|>title<|page|>3<|box|>338 142 354 433<|content|>1.4 For Nigerian Limited Companies\n<|id|>38<|type|>title<|page|>3<|box|>683 142 699 442<|content|>1.5 For Senegalese Sociétés Anonymes\n<|id|>43<|type|>title<|page|>4<|box|>138 140 157 570<|content|>1.6 For English and Welsh Private Limited Companie\n<|id|>48<|type|>title<|page|>4<|box|>469 142 486 341<|content|>1.7 General Certification\n<|id|>50<|type|>title<|page|>4<|box|>625 140 642 565<|content|>SECTION 2: CERTIFICATION OF RESOLUTIONS\n<|id|>60<|type|>title<|page|>5<|box|>646 140 662 560<|content|>SECTION 3: CERTIFICATION OF INCUMBENCY\n<|id|>62<|type|>table<|page|>5<|box|>806 143 893 852<|content|>None\n<|id|>64<|type|>table<|page|>6<|box|>89 143 176 852<|content|>None\n<|id|>67<|type|>title<|page|>6<|box|>376 140 412 754<|content|>SECTION 4: CERTIFICATION OF NO DISSOLUTION, WINDIN\n<|id|>73<|type|>title<|page|>6<|box|>784 140 801 738<|content|>SECTION 5: CERTIFICATION OF NO AMENDMENTS OR CONFL\n<|id|>78<|type|>title<|page|>7<|box|>439 140 455 553<|content|>SECTION 6: ADDITIONAL REPRESENTATIONS\n<|id|>80<|type|>title<|page|>7<|box|>532 140 550 511<|content|>For Dunmore Nigeria E&P Ltd. (if applicable):\n<|id|>83<|type|>title<|page|>7<|box|>794 140 811 470<|content|>For Dunmore Senegal S.A. (if applicable):\n<|id|>87<|type|>title<|page|>8<|box|>234 140 251 475<|content|>For Dunmore Trading Ltd. (if applicable):\n<|id|>91<|type|>title<|page|>8<|box|>556 359 574 637<|content|>[SIGNATURE PAGE FOLLOWS]\n<|id|>103<|type|>title<|page|>9<|box|>89 140 108 416<|content|>of [Insert Full Legal Name of Entity]\n<|id|>104<|type|>title<|page|>9<|box|>119 140 135 321<|content|>Counter-Certification.\n<|id|>108<|type|>title<|page|>10<|box|>89 405 106 591<|content|>EXHIBIT SCHEDULE\n<|id|>110<|type|>table<|page|>10<|box|>159 143 414 852<|content|>None\n<|id|>117<|type|>title<|page|>10<|box|>625 259 641 738<|content|>GENERAL INSTRUCTIONS AND NOTES TO PREPARER\n<|id|>118<|type|>title<|page|>10<|box|>650 194 680 802<|content|>[THIS ENTIRE PAGE IS TO BE REMOVED FROM THE EXECUT",
+    "raw_response": "<|src_id|>62<|tgt_id|>60\n<|src_id|>64<|tgt_id|>60\n<|src_id|>110<|tgt_id|>108",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 108
+        }
+    ]
+}

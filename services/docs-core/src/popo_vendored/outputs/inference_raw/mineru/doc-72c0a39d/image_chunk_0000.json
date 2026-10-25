@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>180 315 196 683<|content|>PRELIMINARY PROSPECTUS SUPPLEMENT\n<|id|>7<|type|>title<|page|>1<|box|>311 336 330 660<|content|>Penterra Pharmaceuticals Corp.\n<|id|>8<|type|>title<|page|>1<|box|>356 142 373 419<|content|>6,250,000 Shares of Common Stock\n<|id|>14<|type|>table<|page|>1<|box|>674 143 775 852<|content|>None\n<|id|>26<|type|>title<|page|>2<|box|>382 143 398 531<|content|>PRELIMINARY PROSPECTUS SUPPLEMENT",
+    "raw_response": "<|src_id|>14<|tgt_id|>8",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 8
+        }
+    ]
+}

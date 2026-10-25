@@ -1,0 +1,137 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 403 133 593<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>383 140 400 321<|content|>I. Executive Summary\n<|id|>25<|page|>2<|box|>638 140 656 364<|content|>II. Builder's Risk Insurance\n<|id|>26<|page|>2<|box|>669 140 686 323<|content|>A. Coverage Overview\n<|id|>32<|page|>3<|box|>301 140 318 308<|content|>B. Key Policy Terms\n<|id|>43<|page|>5<|box|>90 140 107 807<|content|>C. Coordination with EPC Agreement (Exhibit D) and\n<|id|>52<|page|>6<|box|>157 140 174 271<|content|>D. Action Items\n<|id|>59<|page|>6<|box|>729 140 746 625<|content|>III. Owner-Controlled Insurance Program (OCIP) Eva\n<|id|>60<|page|>6<|box|>760 140 777 393<|content|>A. Overview of OCIP Structure\n<|id|>69<|page|>7<|box|>477 140 494 352<|content|>B. Estimated Cost Savings\n<|id|>83<|page|>8<|box|>619 140 636 416<|content|>C. OCIP Structure Considerations\n<|id|>98<|page|>10<|box|>157 140 175 633<|content|>D. Interaction with EPC Agreement and Lender Requi\n<|id|>109<|page|>11<|box|>458 140 474 750<|content|>IV. EPC Contractor Insurance — Titan-McAllister Co\n<|id|>110<|page|>11<|box|>489 140 506 459<|content|>A. Commercial General Liability (CGL)\n<|id|>119<|page|>12<|box|>275 140 292 429<|content|>B. Performance and Payment Bonds\n<|id|>127<|page|>14<|box|>89 140 108 692<|content|>C. Other TMCG Insurance Requirements (EPC Agreemen\n<|id|>135<|page|>15<|box|>89 140 107 614<|content|>V. Directors & Officers (D&O) Liability Insurance\n<|id|>145<|page|>16<|box|>267 140 284 790<|content|>VI. Post-Certificate of Occupancy — Operational Pr\n<|id|>147<|page|>16<|box|>397 140 414 418<|content|>A. Property Insurance (Post-COO)\n<|id|>155<|page|>17<|box|>484 140 501 519<|content|>B. Equipment Breakdown / Boiler & Machinery\n<|id|>163<|page|>18<|box|>176 140 194 413<|content|>C. General Liability (Operational)\n<|id|>167<|page|>18<|box|>539 140 556 506<|content|>D. Casualty and Other Operational Coverages\n<|id|>173<|page|>19<|box|>494 140 512 552<|content|>E. Coordination with Construction Loan Agreement\n<|id|>179<|page|>20<|box|>285 140 303 498<|content|>VII. Summary of Insurance Coverage Matrix\n<|id|>182<|page|>21<|box|>559 142 575 555<|content|>VIII. Insurance Broker Coordination and Next Steps\n<|id|>196<|page|>23<|box|>186 140 204 437<|content|>IX. Conclusion and Recommendation",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>32<|level|>3\n<|id|>43<|level|>3\n<|id|>52<|level|>3\n<|id|>59<|level|>2\n<|id|>60<|level|>3\n<|id|>69<|level|>3\n<|id|>83<|level|>3\n<|id|>98<|level|>3\n<|id|>109<|level|>2\n<|id|>110<|level|>3\n<|id|>119<|level|>3\n<|id|>127<|level|>3\n<|id|>135<|level|>2\n<|id|>145<|level|>2\n<|id|>147<|level|>3\n<|id|>155<|level|>3\n<|id|>163<|level|>3\n<|id|>167<|level|>3\n<|id|>173<|level|>3\n<|id|>179<|level|>2\n<|id|>182<|level|>2\n<|id|>196<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 2
+        }
+    ]
+}

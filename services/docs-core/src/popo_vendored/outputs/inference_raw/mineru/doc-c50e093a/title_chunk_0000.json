@@ -1,0 +1,90 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>3<|page|>1<|box|>186 140 203 506<|content|>VIA EMAIL AND OVERNIGHT DELIVERY\n<|id|>8<|page|>1<|box|>386 142 402 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>13<|page|>2<|box|>148 140 167 334<|content|>2. Scope of Engagement\n<|id|>15<|page|>2<|box|>261 140 279 743<|content|>2(a). Variability of Working Conditions Across AMA\n<|id|>25<|page|>2<|box|>816 140 833 338<|content|>2(b). Typicality Analysis\n<|id|>31<|page|>3<|box|>381 140 398 485<|content|>2(c). Commonality / Predominance Opinion\n<|id|>34<|page|>3<|box|>746 140 763 279<|content|>3. Compensation\n<|id|>40<|page|>4<|box|>508 140 526 361<|content|>4. Materials to Be Provided\n<|id|>54<|page|>5<|box|>672 140 689 367<|content|>5. Deliverables and Timeline\n<|id|>60<|page|>6<|box|>366 140 383 488<|content|>6. Coordination with Other Defense Experts\n<|id|>64<|page|>6<|box|>741 140 758 284<|content|>7. Confidentiality\n<|id|>70<|page|>7<|box|>465 140 482 393<|content|>8. Independence and Disclosure\n<|id|>73<|page|>7<|box|>741 140 758 264<|content|>9. Termination\n<|id|>77<|page|>8<|box|>194 142 210 336<|content|>10. Contact Information\n<|id|>89<|page|>8<|box|>566 142 584 264<|content|>11. Acceptance\n<|id|>96<|page|>8<|box|>814 349 829 647<|content|>ACCEPTANCE OF ENGAGEMENT",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>3\n<|id|>25<|level|>3\n<|id|>31<|level|>3\n<|id|>34<|level|>2\n<|id|>40<|level|>2\n<|id|>54<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>2\n<|id|>70<|level|>2\n<|id|>73<|level|>2\n<|id|>77<|level|>2\n<|id|>89<|level|>2\n<|id|>96<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        28
+    ],
+    "pages": [
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        18,
+        19,
+        20,
+        21,
+        27,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>35<|page|>4<|box|>869 174 907 854<|content|>Pipeline Length: ... 0) to the delivery point at the Waynesburg\n<|id|>36<|page|>5<|box|>90 174 145 854<|content|>Compressor Station (Milepost 187. ... The pipeline...n West Virginia and into southwestern Pennsylvania\n<|id|>44<|page|>5<|box|>864 174 902 856<|content|>Receipt Point — Wetzel County Interconnect: ... Th...ounty Interconnect, located in Wetzel County, West\n<|id|>45<|page|>6<|box|>90 174 292 856<|content|>Virginia, at approximate geographic coordinates 39...tly deliver gas into the Ridgeline Pipeline System\n<|id|>64<|page|>8<|box|>843 174 898 856<|content|>First, throughput on the Ridgeline Pipeline System...ransportation agreements for approximately 500,000\n<|id|>65<|page|>9<|box|>90 174 200 856<|content|>Dth/d of capacity. ... Ridgeline is actively marke... projected in Ridgeline's initial rate case filing\n<|id|>73<|page|>9<|box|>824 174 898 854<|content|>Pipeline Installation: ... The pipeline was instal...of 36 inches in Class 1 locations and 36 inches in\n<|id|>74<|page|>10<|box|>90 174 145 854<|content|>Class 2 locations, in accordance with 49 C. ... Al...ing radiographic and/or ultrasonic testing methods\n<|id|>130<|page|>18<|box|>852 174 907 857<|content|>Compliance with Industry Standards. ... 9 (Measure...ic Meters) and API Manual of Petroleum Measurement\n<|id|>131<|page|>19<|box|>90 174 273 857<|content|>Standards, Chapter 21. ... 1-compliant electronic flow measurement and data recording systems\n<|id|>146<|page|>20<|box|>851 174 906 856<|content|>Regulatory Compliance. ... Part 192, including the...ication (Subpart N), and public awareness (Subpart\n<|id|>148<|page|>21<|box|>152 174 299 854<|content|>Emergency Response. ... Ridgeline conducts regular...e preparedness and effective response capabilities\n<|id|>210<|page|>27<|box|>474 142 491 485<|content|>RIDGELINE MIDSTREAM SERVICES LLC\n<|id|>211<|page|>27<|box|>493 143 508 251<|content|>By: ... By\n<|id|>212<|page|>27<|box|>508 142 542 854<|content|>Thomas Greaves Vice President, Engineering & Opera...ha Boulevard East, Suite 1400 Charleston, WV 25301\n<|id|>213<|page|>27<|box|>542 143 559 326<|content|>Date: ... December 5, 2022\n<|id|>214<|page|>27<|box|>560 142 577 637<|content|>Subscribed and sworn to before me this 5th day of ... sworn to before me this 5th day of December, 2022\n<|id|>215<|page|>27<|box|>613 143 628 250<|content|>Notary Public\n<|id|>216<|page|>27<|box|>631 143 648 367<|content|>My commission expires: ... ____\n<|id|>219<|page|>28<|box|>142 140 172 854<|content|>The exhibits listed above are filed separately and...ony of Thomas Greaves as if set forth fully herein",
+    "raw_response": "<|src_id|>35<|tgt_id|>36\n<|src_id|>44<|tgt_id|>45\n<|src_id|>64<|tgt_id|>65\n<|src_id|>73<|tgt_id|>74\n<|src_id|>130<|tgt_id|>131",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 130,
+            "tgt_id": 131
+        }
+    ]
+}

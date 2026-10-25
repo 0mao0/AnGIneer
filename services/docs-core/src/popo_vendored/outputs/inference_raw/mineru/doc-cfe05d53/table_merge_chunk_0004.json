@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Arbor National Bank, N.A. — Revolving Credit Facility', '$5,000,000', 'Commitment Letter Reference No. ANB-CL-2025-0843, dated May 6, 2025, from Arbor National Bank, N.A., committing to provide a senior secured revolving credit facility in the aggregate commitment amount of $5,000,000. Interest rate: SOFR plus 3.00% per annum. Maturity: three (3) years from the Closing Date. Unused commitment fee: 0.50% per annum. Security: pari']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'passu with Term Loan A. Note: Buyer does not anticipate drawing on the Revolving Credit Facility at the Closing. The Revolving Credit Facility will be available for working capital and general corporate purposes following the Closing.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 301,
+    "table2_idx": 302
+}

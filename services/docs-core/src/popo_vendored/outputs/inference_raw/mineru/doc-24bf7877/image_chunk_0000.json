@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        10
+    ],
+    "pages": [
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>14<|type|>title<|page|>2<|box|>90 142 107 524<|content|>1. Outstanding Indebtedness and Payoff Amount\n<|id|>16<|type|>table<|page|>2<|box|>176 143 368 852<|content|>None\n<|id|>19<|type|>title<|page|>3<|box|>90 142 107 377<|content|>2. Wire Transfer Instructions\n<|id|>24<|type|>title<|page|>3<|box|>454 140 472 426<|content|>3. Identification of Loan Documents\n<|id|>51<|type|>title<|page|>6<|box|>90 140 107 465<|content|>4. Release of Liens and Security Interests\n<|id|>67<|type|>title<|page|>7<|box|>729 140 746 398<|content|>5. Termination of Commitments\n<|id|>71<|type|>title<|page|>8<|box|>431 140 449 370<|content|>6. No Other Amounts Owing\n<|id|>79<|type|>title<|page|>9<|box|>148 140 167 552<|content|>7. No Default or Event of Default; Consent to Payo\n<|id|>84<|type|>title<|page|>9<|box|>551 140 566 274<|content|>8. Irrevocability\n<|id|>86<|type|>title<|page|>9<|box|>819 140 835 287<|content|>9. Governing Law\n<|id|>88<|type|>title<|page|>10<|box|>148 142 167 357<|content|>10. Counterparts; Delivery\n<|id|>90<|type|>title<|page|>10<|box|>273 140 292 676<|content|>[Remainder of Page Intentionally Left Blank — Sign\n<|id|>91<|type|>title<|page|>10<|box|>300 320 316 674<|content|>SIGNATURE PAGE TO PAYOFF LETTER",
+    "raw_response": "<|src_id|>16<|tgt_id|>14",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        }
+    ]
+}

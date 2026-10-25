@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 145 125 851<|content|>JAMS ARBITRATION Jacksonville, Florida Resolution\n<|id|>7<|page|>1<|box|>289 450 306 545<|content|>Respondent.\n<|id|>8<|page|>1<|box|>314 192 349 803<|content|>RESPONDENT PELLEGRINO CAPITAL GROUP LLC'S OPPOSITI\n<|id|>11<|page|>1<|box|>481 142 498 413<|content|>I. PRELIMINARY STATEMENT\n<|id|>17<|page|>2<|box|>474 142 493 483<|content|>II. STATEMENT OF RELEVANT FACTS\n<|id|>18<|page|>2<|box|>507 140 523 624<|content|>A. Background of the Joint Venture and Call-Option\n<|id|>31<|page|>4<|box|>247 140 263 385<|content|>B. The Arbitration Proceeding\n<|id|>41<|page|>5<|box|>502 140 518 630<|content|>C. PCG's Document Production and MSH's Motion to C\n<|id|>56<|page|>6<|box|>645 140 662 346<|content|>III. LEGAL STANDARD\n<|id|>62<|page|>7<|box|>621 140 638 285<|content|>IV. ARGUMENT\n<|id|>79<|page|>9<|box|>737 140 753 552<|content|>B. The IC Memoranda Are Protected Work Product\n<|id|>99<|page|>11<|box|>780 140 797 697<|content|>C. MSH's \"Bad Faith\" Theory Does Not Override Priv\n<|id|>101<|page|>12<|box|>89 140 107 419<|content|>OA Section 12.7 provides as follows:\n<|id|>116<|page|>13<|box|>573 140 590 545<|content|>D. PCG's Privilege Log Is Adequate and Compliant\n<|id|>128<|page|>14<|box|>448 140 464 462<|content|>E. Alternative Relief: In Camera Review\n<|id|>134<|page|>15<|box|>167 140 184 294<|content|>V. CONCLUSION\n<|id|>141<|page|>15<|box|>703 405 720 591<|content|>Respectfully submitted,\n<|id|>142<|page|>15<|box|>728 140 744 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>150<|page|>16<|box|>128 140 146 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>-1\n<|id|>8<|level|>1\n<|id|>11<|level|>2\n<|id|>17<|level|>2\n<|id|>18<|level|>3\n<|id|>31<|level|>3\n<|id|>41<|level|>3\n<|id|>56<|level|>2\n<|id|>62<|level|>2\n<|id|>79<|level|>3\n<|id|>99<|level|>3\n<|id|>101<|level|>-1\n<|id|>116<|level|>3\n<|id|>128<|level|>3\n<|id|>134<|level|>2\n<|id|>141<|level|>-1\n<|id|>142<|level|>-1\n<|id|>150<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        }
+    ]
+}

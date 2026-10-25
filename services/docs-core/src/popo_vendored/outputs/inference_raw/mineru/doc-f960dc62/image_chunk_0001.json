@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        50,
+        59
+    ],
+    "pages": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        56,
+        57,
+        58,
+        59
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>629<|type|>table<|page|>50<|box|>89 143 125 852<|content|>None\n<|id|>630<|type|>table<|page|>50<|box|>184 143 345 852<|content|>None\n<|id|>631<|type|>table<|page|>50<|box|>406 143 575 852<|content|>None\n<|id|>632<|type|>table<|page|>50<|box|>636 143 742 852<|content|>None\n<|id|>634<|type|>title<|page|>51<|box|>90 437 111 560<|content|>EXHIBIT F\n<|id|>635<|type|>title<|page|>51<|box|>135 377 179 620<|content|>FORM OF CHANGE ORDER CHANGE ORDER\n<|id|>640<|type|>title<|page|>51<|box|>310 143 327 344<|content|>1. Description of Change:\n<|id|>642<|type|>title<|page|>51<|box|>569 143 585 318<|content|>2. Reason for Change:\n<|id|>643<|type|>title<|page|>51<|box|>686 143 704 367<|content|>3. Impact on Contract Price:\n<|id|>644<|type|>table<|page|>51<|box|>710 143 815 852<|content|>None\n<|id|>645<|type|>title<|page|>51<|box|>849 143 867 393<|content|>4. Impact on Delivery Schedule:\n<|id|>646<|type|>table<|page|>51<|box|>875 143 893 852<|content|>None\n<|id|>648<|type|>title<|page|>52<|box|>123 142 140 465<|content|>5. Impact on Performance Specifications:\n<|id|>650<|type|>title<|page|>52<|box|>310 143 328 393<|content|>7. Other Terms and Conditions:\n<|id|>652<|type|>title<|page|>52<|box|>454 142 470 403<|content|>LONE STAR STORAGE I, LLC\n<|id|>669<|type|>title<|page|>53<|box|>90 434 109 563<|content|>EXHIBIT G\n<|id|>670<|type|>title<|page|>53<|box|>136 364 152 633<|content|>INSURANCE REQUIREMENTS\n<|id|>672<|type|>title<|page|>53<|box|>248 143 265 323<|content|>1. Required Coverages\n<|id|>673<|type|>table<|page|>53<|box|>268 143 563 852<|content|>None\n<|id|>675<|type|>table<|page|>53<|box|>638 143 689 852<|content|>None\n<|id|>676<|type|>title<|page|>53<|box|>729 142 744 424<|content|>2. Additional Insured Requirements\n<|id|>683<|type|>title<|page|>54<|box|>176 140 193 475<|content|>3. Policy Endorsements and Requirements\n<|id|>691<|type|>title<|page|>54<|box|>532 140 549 357<|content|>4. Certificates of Insurance\n<|id|>701<|type|>title<|page|>54<|box|>837 140 854 400<|content|>5. Failure to Maintain Insurance\n<|id|>703<|type|>title<|page|>56<|box|>90 434 111 563<|content|>EXHIBIT H\n<|id|>704<|type|>title<|page|>56<|box|>135 388 152 609<|content|>FORM OF LIEN WAIVER\n<|id|>705<|type|>title<|page|>56<|box|>166 140 202 854<|content|>PART 1 — CONDITIONAL LIEN WAIVER AND RELEASE UPON\n<|id|>706<|type|>title<|page|>56<|box|>209 163 244 834<|content|>CONDITIONAL WAIVER AND RELEASE ON PROGRESS PAYMENT\n<|id|>718<|type|>title<|page|>56<|box|>775 142 792 566<|content|>HARMON-DIETRICH ENERGY SOLUTIONS, LLC\n<|id|>723<|type|>title<|page|>57<|box|>89 140 125 852<|content|>PART 2 — UNCONDITIONAL LIEN WAIVER AND RELEASE UPO\n<|id|>724<|type|>title<|page|>57<|box|>131 150 167 844<|content|>UNCONDITIONAL WAIVER AND RELEASE ON PROGRESS PAYME\n<|id|>734<|type|>title<|page|>57<|box|>680 142 696 566<|content|>HARMON-DIETRICH ENERGY SOLUTIONS, LLC\n<|id|>739<|type|>title<|page|>57<|box|>777 142 838 839<|content|>PART 3 — CONDITIONAL LIEN WAIVER AND RELEASE UPON\n<|id|>753<|type|>title<|page|>58<|box|>588 140 623 852<|content|>PART 4 — UNCONDITIONAL LIEN WAIVER AND RELEASE UPO\n<|id|>764<|type|>title<|page|>59<|box|>349 140 367 566<|content|>HARMON-DIETRICH ENERGY SOLUTIONS, LLC",
+    "raw_response": "<|src_id|>644<|tgt_id|>643\n<|src_id|>646<|tgt_id|>645\n<|src_id|>673<|tgt_id|>672\n<|src_id|>675<|tgt_id|>672",
+    "parsed": [
+        {
+            "src_id": 644,
+            "tgt_id": 643
+        },
+        {
+            "src_id": 646,
+            "tgt_id": 645
+        },
+        {
+            "src_id": 673,
+            "tgt_id": 672
+        },
+        {
+            "src_id": 675,
+            "tgt_id": 672
+        }
+    ]
+}

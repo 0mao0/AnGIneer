@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        55
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        53,
+        54,
+        55
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1212<|page|>45<|box|>128 85 148 371<|content|>5.3.4 第四篇 桥梁、涵洞\n<|id|>1213<|page|>45<|box|>156 85 173 147<|content|>1 说明\n<|id|>1222<|page|>45<|box|>361 85 378 292<|content|>3 特大、大、中桥图纸\n<|id|>1226<|page|>45<|box|>546 85 562 215<|content|>4)结构设计图\n<|id|>1231<|page|>45<|box|>713 85 729 208<|content|>5 小桥设计图\n<|id|>1235<|page|>45<|box|>787 85 802 208<|content|>7 涵洞设计图\n<|id|>1239<|page|>46<|box|>72 85 92 300<|content|>5.3.5 第五篇 隧道\n<|id|>1240<|page|>46<|box|>100 85 118 147<|content|>1 说明\n<|id|>1247<|page|>46<|box|>239 85 258 465<|content|>5.3.6 第七篇 交通工程及沿线设施\n<|id|>1252<|page|>46<|box|>387 85 407 465<|content|>5.3.7 第八篇 环境保护与景观设计\n<|id|>1255<|page|>46<|box|>480 85 500 418<|content|>5.3.8 第十一篇 施工组织计划\n<|id|>1256<|page|>46<|box|>508 85 526 149<|content|>1 说明\n<|id|>1262<|page|>46<|box|>701 85 722 233<|content|>5.4 基础资料\n<|id|>1270<|page|>47<|box|>72 85 92 277<|content|>6 设计成果的提交\n<|id|>1286<|page|>48<|box|>108 85 130 418<|content|>附录 A 设计文件常用符号规定\n<|id|>1292<|page|>53<|box|>66 134 81 176<|content|>续表\n<|id|>1294<|page|>54<|box|>72 85 92 652<|content|>附录 B 交通工程及沿线设施与主体工程设计界面划分\n<|id|>1295<|page|>54<|box|>102 85 118 225<|content|>B.1 一般规定\n<|id|>1299<|page|>54<|box|>287 85 302 509<|content|>B.2 主体工程与交通工程及沿线设施设计界面\n<|id|>1309<|page|>55<|box|>111 132 133 875<|content|>关于《公路工程基本建设项目设计文件编制办法》执行时间的通知",
+    "raw_response": "<|id|>1212<|level|>3\n<|id|>1213<|level|>4\n<|id|>1222<|level|>4\n<|id|>1226<|level|>5\n<|id|>1231<|level|>4\n<|id|>1235<|level|>4\n<|id|>1239<|level|>3\n<|id|>1240<|level|>4\n<|id|>1247<|level|>3\n<|id|>1252<|level|>3\n<|id|>1255<|level|>3\n<|id|>1256<|level|>4\n<|id|>1262<|level|>3\n<|id|>1270<|level|>2\n<|id|>1286<|level|>2\n<|id|>1292<|level|>-1\n<|id|>1294<|level|>2\n<|id|>1295<|level|>3\n<|id|>1299<|level|>3\n<|id|>1309<|level|>2",
+    "parsed": [
+        {
+            "id": 1212,
+            "level": 3
+        },
+        {
+            "id": 1213,
+            "level": 4
+        },
+        {
+            "id": 1222,
+            "level": 4
+        },
+        {
+            "id": 1226,
+            "level": 5
+        },
+        {
+            "id": 1231,
+            "level": 4
+        },
+        {
+            "id": 1235,
+            "level": 4
+        },
+        {
+            "id": 1239,
+            "level": 3
+        },
+        {
+            "id": 1240,
+            "level": 4
+        },
+        {
+            "id": 1247,
+            "level": 3
+        },
+        {
+            "id": 1252,
+            "level": 3
+        },
+        {
+            "id": 1255,
+            "level": 3
+        },
+        {
+            "id": 1256,
+            "level": 4
+        },
+        {
+            "id": 1262,
+            "level": 3
+        },
+        {
+            "id": 1270,
+            "level": 2
+        },
+        {
+            "id": 1286,
+            "level": 2
+        },
+        {
+            "id": 1294,
+            "level": 2
+        },
+        {
+            "id": 1295,
+            "level": 3
+        },
+        {
+            "id": 1299,
+            "level": 3
+        },
+        {
+            "id": 1309,
+            "level": 2
+        }
+    ]
+}

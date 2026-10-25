@@ -1,0 +1,169 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ifpngclc\\input\\pdfs\\doc-67206017.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ifpngclc\\enriched\\doc-67206017.json",
+    "contd_output": "<|src_id|>92<|tgt_id|>93",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>32<|level|>3\n<|id|>51<|level|>3\n<|id|>55<|level|>2\n<|id|>61<|level|>3\n<|id|>65<|level|>3\n<|id|>71<|level|>3\n<|id|>76<|level|>3\n<|id|>82<|level|>3\n<|id|>88<|level|>3\n<|id|>96<|level|>3\n<|id|>100<|level|>2\n<|id|>111<|level|>2\n<|id|>115<|level|>2\n<|id|>123<|level|>2\n<|id|>127<|level|>2",
+    "image_output": "<|src_id|>58<|tgt_id|>55\n<|src_id|>59<|tgt_id|>55\n<|src_id|>63<|tgt_id|>61\n<|src_id|>67<|tgt_id|>65\n<|src_id|>68<|tgt_id|>65\n<|src_id|>73<|tgt_id|>71\n<|src_id|>78<|tgt_id|>76\n<|src_id|>79<|tgt_id|>76\n<|src_id|>84<|tgt_id|>82\n<|src_id|>85<|tgt_id|>82\n<|src_id|>90<|tgt_id|>88\n<|src_id|>98<|tgt_id|>96\n<|src_id|>113<|tgt_id|>111",
+    "contd_label": [
+        {
+            "src_id": 92,
+            "tgt_id": 93
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 58,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 71
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 111
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 58,
+            "table2_idx": 59,
+            "upper_row_ss": [
+                [
+                    "Entity",
+                    "Relationship",
+                    "Result"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

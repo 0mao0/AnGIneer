@@ -1,0 +1,47 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>554 140 571 431<|content|>Scope of Engagement Acknowledged\n<|id|>19<|page|>2<|box|>686 142 704 452<|content|>Acknowledgment of Engagement Team\n<|id|>31<|page|>3<|box|>566 142 583 509<|content|>Acceptance of Fee Structure and Billing Terms\n<|id|>35<|page|>4<|box|>148 142 167 272<|content|>Matter Number\n<|id|>37<|page|>4<|box|>325 140 344 390<|content|>Governing Law of Engagement\n<|id|>39<|page|>4<|box|>430 140 446 568<|content|>Counterparty and Key Third-Party Acknowledgments\n<|id|>48<|page|>5<|box|>186 140 204 258<|content|>Authorization\n<|id|>58<|page|>5<|box|>569 142 582 171<|content|>cc:",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>19<|level|>1\n<|id|>31<|level|>1\n<|id|>35<|level|>1\n<|id|>37<|level|>1\n<|id|>39<|level|>1\n<|id|>48<|level|>1\n<|id|>58<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        }
+    ]
+}

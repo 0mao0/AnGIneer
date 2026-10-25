@@ -1,0 +1,182 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3ditsqfe\\input\\pdfs\\doc-2b8ae669.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3ditsqfe\\enriched\\doc-2b8ae669.json",
+    "contd_output": "",
+    "title_output": "<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>5<|level|>1\n<|id|>6<|level|>2\n<|id|>19<|level|>1\n<|id|>26<|level|>1\n<|id|>51<|level|>1\n<|id|>58<|level|>1\n<|id|>62<|level|>1\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>67<|level|>3\n<|id|>71<|level|>3\n<|id|>75<|level|>3\n<|id|>79<|level|>1\n<|id|>90<|level|>1\n<|id|>91<|level|>2\n<|id|>98<|level|>2\n<|id|>104<|level|>1\n<|id|>117<|level|>1\n<|id|>125<|level|>1\n<|id|>126<|level|>2\n<|id|>129<|level|>2\n<|id|>138<|level|>2\n<|id|>143<|level|>2\n<|id|>148<|level|>2\n<|id|>150<|level|>1\n<|id|>151<|level|>2\n<|id|>155<|level|>2\n<|id|>159<|level|>2\n<|id|>163<|level|>2\n<|id|>174<|level|>1\n<|id|>177<|level|>1\n<|id|>180<|level|>1\n<|id|>183<|level|>1",
+    "image_output": "<|src_id|>60<|tgt_id|>58\n<|src_id|>61<|tgt_id|>58\n<|src_id|>95<|tgt_id|>91",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 177,
+            "level": 1
+        },
+        {
+            "id": 180,
+            "level": 1
+        },
+        {
+            "id": 183,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 60,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 91
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 60,
+            "table2_idx": 61,
+            "upper_row_ss": [
+                [
+                    "Risk Factors",
+                    "Investing in our common shares involves significant risks. See \"Risk Factors\" beginning on page S-12 of this prospectus supplement and the risk factors described in our most recent Annual Report on Form 10-K and subsequent Quarterly Reports on Form 10-Q"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "incorporated by reference herein."
+                ]
+            ]
+        }
+    ]
+}

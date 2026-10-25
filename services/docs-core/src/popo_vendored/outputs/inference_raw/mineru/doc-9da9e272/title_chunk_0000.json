@@ -1,0 +1,135 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        21
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 437 109 562<|content|>EXHIBIT B\n<|id|>1<|page|>2<|box|>135 292 180 705<|content|>SERVICE LEVEL AGREEMENT to the Master Services Agr\n<|id|>10<|page|>2<|box|>549 142 565 313<|content|>Section 1: Definitions\n<|id|>23<|page|>3<|box|>734 140 751 437<|content|>Section 2: Service Level Commitment\n<|id|>29<|page|>4<|box|>685 140 702 485<|content|>Section 3: Uptime Calculation Methodology\n<|id|>37<|page|>5<|box|>667 140 684 346<|content|>Section 4: Service Credits\n<|id|>44<|page|>7<|box|>90 140 107 437<|content|>Section 5: Annual Service Credit Cap\n<|id|>57<|page|>7<|box|>825 140 844 598<|content|>Section 6: Scheduled Maintenance and Excused Downt\n<|id|>63<|page|>8<|box|>784 140 801 545<|content|>Section 7: Material Breach — Chronic SLA Failure\n<|id|>73<|page|>10<|box|>90 140 108 421<|content|>Section 8: Reporting Requirements\n<|id|>87<|page|>11<|box|>321 140 339 393<|content|>Section 9: Exclusions from SLA\n<|id|>97<|page|>12<|box|>439 140 457 589<|content|>Section 10: Incident Response and Escalation Proce\n<|id|>113<|page|>13<|box|>651 140 669 455<|content|>Section 11: Cybersecurity Incident SLA\n<|id|>118<|page|>14<|box|>439 140 457 439<|content|>Section 12: Service Level Governance\n<|id|>128<|page|>15<|box|>414 140 431 557<|content|>Section 13: Remedies and Relationship to Agreement\n<|id|>140<|page|>16<|box|>417 140 434 421<|content|>Section 14: Term and Amendments\n<|id|>144<|page|>16<|box|>719 140 737 385<|content|>Section 15: General Provisions\n<|id|>160<|page|>18<|box|>90 140 107 271<|content|>Signature block\n<|id|>172<|page|>19<|box|>89 142 107 370<|content|>APPENDIX TO EXHIBIT B\n<|id|>173<|page|>19<|box|>121 140 138 433<|content|>Service Credit Calculation Examples\n<|id|>176<|page|>19<|box|>306 142 323 243<|content|>Calculation:\n<|id|>183<|page|>19<|box|>579 142 595 243<|content|>Calculation:\n<|id|>190<|page|>19<|box|>797 142 813 243<|content|>Calculation:\n<|id|>198<|page|>20<|box|>339 142 354 243<|content|>Calculation:\n<|id|>204<|page|>20<|box|>712 143 729 220<|content|>Analysis:\n<|id|>214<|page|>21<|box|>364 143 383 220<|content|>Analysis:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>23<|level|>2\n<|id|>29<|level|>2\n<|id|>37<|level|>2\n<|id|>44<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>73<|level|>2\n<|id|>87<|level|>2\n<|id|>97<|level|>2\n<|id|>113<|level|>2\n<|id|>118<|level|>2\n<|id|>128<|level|>2\n<|id|>140<|level|>2\n<|id|>144<|level|>2\n<|id|>160<|level|>2\n<|id|>172<|level|>1\n<|id|>173<|level|>2\n<|id|>176<|level|>3\n<|id|>183<|level|>3\n<|id|>190<|level|>3\n<|id|>198<|level|>3\n<|id|>204<|level|>3\n<|id|>214<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 198,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 3
+        }
+    ]
+}

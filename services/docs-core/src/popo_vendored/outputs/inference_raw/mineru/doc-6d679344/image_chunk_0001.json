@@ -1,0 +1,62 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        51,
+        63
+    ],
+    "pages": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        62,
+        63
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>445<|type|>table<|page|>51<|box|>89 143 905 852<|content|>None\n<|id|>446<|type|>table<|page|>52<|box|>88 143 627 852<|content|>None\n<|id|>447<|type|>table<|page|>52<|box|>684 143 834 852<|content|>None\n<|id|>448<|type|>title<|page|>52<|box|>869 142 885 604<|content|>Prior Recall Events (Not Included in Claims Count\n<|id|>449<|type|>table<|page|>53<|box|>88 143 204 852<|content|>None\n<|id|>450<|type|>title<|page|>54<|box|>90 140 107 573<|content|>Appendix D — \"Other Insurance\" Clause Comparison\n<|id|>453<|type|>title<|page|>54<|box|>189 140 224 854<|content|>Section IV — Commercial General Liability Conditio\n<|id|>470<|type|>title<|page|>55<|box|>731 140 748 323<|content|>Summary of Conflicts:\n<|id|>472<|type|>title<|page|>56<|box|>90 142 107 534<|content|>Appendix E — Follow-Form Gap Analysis Matrix\n<|id|>473<|type|>table<|page|>56<|box|>160 143 904 852<|content|>None\n<|id|>474<|type|>table<|page|>57<|box|>89 143 575 852<|content|>None\n<|id|>475<|type|>title<|page|>58<|box|>90 140 107 665<|content|>Appendix F — Kessler Quinn Advisory Group Actuaria\n<|id|>492<|type|>table<|page|>59<|box|>250 143 354 852<|content|>None\n<|id|>494<|type|>title<|page|>60<|box|>90 142 108 578<|content|>Appendix G — Completed Operations Tail Comparison\n<|id|>495<|type|>table<|page|>60<|box|>159 143 719 852<|content|>None\n<|id|>497<|type|>title<|page|>60<|box|>833 142 849 292<|content|>Key Observations:\n<|id|>502<|type|>title<|page|>62<|box|>90 143 107 632<|content|>Appendix H — Subsidiary Revenue and Risk Profile S\n<|id|>503<|type|>table<|page|>62<|box|>142 143 525 852<|content|>None\n<|id|>504<|type|>table<|page|>62<|box|>585 143 902 852<|content|>None\n<|id|>505<|type|>table<|page|>63<|box|>88 143 142 852<|content|>None\n<|id|>506<|type|>table<|page|>63<|box|>202 143 675 852<|content|>None",
+    "raw_response": "<|src_id|>449<|tgt_id|>448\n<|src_id|>473<|tgt_id|>472\n<|src_id|>474<|tgt_id|>472\n<|src_id|>492<|tgt_id|>475\n<|src_id|>495<|tgt_id|>494\n<|src_id|>503<|tgt_id|>502\n<|src_id|>504<|tgt_id|>502\n<|src_id|>505<|tgt_id|>502\n<|src_id|>506<|tgt_id|>502",
+    "parsed": [
+        {
+            "src_id": 449,
+            "tgt_id": 448
+        },
+        {
+            "src_id": 473,
+            "tgt_id": 472
+        },
+        {
+            "src_id": 474,
+            "tgt_id": 472
+        },
+        {
+            "src_id": 492,
+            "tgt_id": 475
+        },
+        {
+            "src_id": 495,
+            "tgt_id": 494
+        },
+        {
+            "src_id": 503,
+            "tgt_id": 502
+        },
+        {
+            "src_id": 504,
+            "tgt_id": 502
+        },
+        {
+            "src_id": 505,
+            "tgt_id": 502
+        },
+        {
+            "src_id": 506,
+            "tgt_id": 502
+        }
+    ]
+}

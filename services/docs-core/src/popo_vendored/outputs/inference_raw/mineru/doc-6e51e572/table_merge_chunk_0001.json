@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=8, Oct.', 'rowspan=2, 28', 'Apr.', '28', '182', '14,185', '5,623', '8.472', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Date subscription books closed or tenders received', 'Issue date 1/', 'colspan=3, Description of securities 2/', 'colspan=2, Period to final maturity (years, months, days) 3/', 'Amount tendered', 'Amount issued 4/5/', 'Range of accepted bids for notes and bonds']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 160,
+    "table2_idx": 161
+}

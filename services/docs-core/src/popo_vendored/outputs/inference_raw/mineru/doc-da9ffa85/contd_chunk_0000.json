@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>150 424 167 571<|content|>Plaintiff/Petitioner,\n<|id|>3<|page|>1<|box|>202 302 219 694<|content|>QUORUM CASUALTY & SURETY COMPANY,\n<|id|>4<|page|>1<|box|>229 411 244 584<|content|>Defendant/Respondent. ... Defendant/Respondent\n<|id|>14<|page|>1<|box|>875 140 909 854<|content|>4. ... I hold a Master of Business\n<|id|>15<|page|>2<|box|>90 174 181 856<|content|>Administration degree from the Wharton School of t...wo years of experience in the reinsurance industry\n<|id|>122<|page|>12<|box|>551 140 569 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>123<|page|>12<|box|>570 142 587 251<|content|>By: ... By\n<|id|>124<|page|>12<|box|>585 140 619 854<|content|>Jeffrey Park, Esq. ... (212) 558-3588\n<|id|>125<|page|>12<|box|>619 143 637 321<|content|>Matter No. ... 1025-00005\n<|id|>126<|page|>12<|box|>637 140 656 687<|content|>Attorneys for Defendant/Respondent Quorum Casualty & Surety Company",
+    "raw_response": "<|src_id|>14<|tgt_id|>15",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>table<|page|>1<|box|>108 143 267 852<|content|>None\n<|id|>1<|type|>title<|page|>1<|box|>300 179 335 815<|content|>NOTICE OF APPEARANCE OF COUNSEL FOR DEFENDANT STON\n<|id|>3<|type|>title<|page|>1<|box|>462 142 479 421<|content|>I. IDENTIFICATION OF CLIENT\n<|id|>5<|type|>title<|page|>1<|box|>585 140 604 674<|content|>II. IDENTIFICATION OF COUNSEL ENTERING APPEARANCE\n<|id|>10<|type|>title<|page|>1<|box|>799 142 816 524<|content|>III. ADDITIONAL ATTORNEYS OF RECORD\n<|id|>15<|type|>title<|page|>2<|box|>232 142 250 535<|content|>IV. REQUEST FOR SERVICE OF ALL PAPERS\n<|id|>17<|type|>title<|page|>2<|box|>375 140 392 544<|content|>V. IDENTIFICATION OF OPPOSING COUNSEL\n<|id|>27<|type|>title<|page|>2<|box|>616 375 633 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|src_id|>0<|tgt_id|>1",
+    "parsed": [
+        {
+            "src_id": 0,
+            "tgt_id": 1
+        }
+    ]
+}

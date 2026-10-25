@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 143 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>1<|page|>1<|box|>152 403 174 593<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>409 142 426 434<|content|>1. Interview Summary and Overview\n<|id|>17<|page|>2<|box|>329 140 347 467<|content|>2. Upjohn / Corporate Miranda Warning\n<|id|>28<|page|>3<|box|>348 140 364 457<|content|>3. Background and Role of Yves Leclerc\n<|id|>29<|page|>3<|box|>378 140 396 344<|content|>3.1 Personal Background\n<|id|>33<|page|>3<|box|>667 140 684 452<|content|>3.2 Position and Responsibilities at DTI\n<|id|>45<|page|>4<|box|>659 140 676 710<|content|>4. Leclerc's Knowledge of and Involvement with Cas\n<|id|>46<|page|>4<|box|>690 140 707 486<|content|>4.1 Introduction to Caspian Logistik GmbH\n<|id|>52<|page|>5<|box|>502 140 518 336<|content|>4.2 Nature of Shipments\n<|id|>58<|page|>6<|box|>239 140 256 558<|content|>4.3 End-User Certificates and Export Documentation\n<|id|>66<|page|>7<|box|>286 140 303 596<|content|>4.4 Red Flags Leclerc Observed or Should Have Obse\n<|id|>73<|page|>8<|box|>439 140 457 777<|content|>5. Leclerc's Knowledge of Petronova Trading FZE an\n<|id|>74<|page|>8<|box|>470 140 488 362<|content|>5.1 Petronova Trading FZE\n<|id|>79<|page|>9<|box|>89 140 107 415<|content|>5.2 Volkhov Industrial Group JSC\n<|id|>84<|page|>9<|box|>599 140 616 689<|content|>6. Leclerc's Awareness of Sanctions and Export Con\n<|id|>85<|page|>9<|box|>628 140 648 465<|content|>6.1 Training and Compliance Knowledge\n<|id|>96<|page|>10<|box|>611 140 628 339<|content|>6.2 Export Classification\n<|id|>101<|page|>11<|box|>340 140 357 671<|content|>7. Leclerc's Relationship with Derek Hargrave and\n<|id|>102<|page|>11<|box|>371 140 388 447<|content|>7.1 Reporting Structure and Dynamics\n<|id|>107<|page|>12<|box|>157 140 175 674<|content|>7.2 Specific Instructions from Hargrave Regarding\n<|id|>111<|page|>12<|box|>604 140 619 669<|content|>8. Leclerc's Knowledge of Dunmore Renewables GmbH\n<|id|>117<|page|>13<|box|>340 140 357 718<|content|>9. Leclerc's Knowledge of Payment Flows and Cresce\n<|id|>123<|page|>14<|box|>90 142 107 372<|content|>10. Zenith Petroleum DMCC\n<|id|>128<|page|>14<|box|>454 142 472 357<|content|>11. Document Preservation\n<|id|>134<|page|>15<|box|>167 140 185 571<|content|>12. Credibility Assessment and Counsel's Observati\n<|id|>142<|page|>16<|box|>458 140 474 305<|content|>13. Follow-Up Items\n<|id|>151<|page|>17<|box|>429 142 445 480<|content|>14. Attachments / Appendices (Referenced)\n<|id|>160<|page|>17<|box|>811 147 866 846<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>17<|level|>2\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>52<|level|>3\n<|id|>58<|level|>3\n<|id|>66<|level|>3\n<|id|>73<|level|>2\n<|id|>74<|level|>3\n<|id|>79<|level|>3\n<|id|>84<|level|>2\n<|id|>85<|level|>3\n<|id|>96<|level|>3\n<|id|>101<|level|>2\n<|id|>102<|level|>3\n<|id|>107<|level|>3\n<|id|>111<|level|>2\n<|id|>117<|level|>2\n<|id|>123<|level|>2\n<|id|>128<|level|>2\n<|id|>134<|level|>2\n<|id|>142<|level|>2\n<|id|>151<|level|>2\n<|id|>160<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        }
+    ]
+}

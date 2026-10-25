@@ -1,0 +1,149 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 635<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>10<|page|>1<|box|>416 142 433 439<|content|>1. Introduction and Purpose of Letter\n<|id|>14<|page|>2<|box|>90 142 107 328<|content|>2. Identity of the Client\n<|id|>23<|page|>2<|box|>686 140 704 333<|content|>3. Scope of Engagement\n<|id|>24<|page|>2<|box|>717 140 734 294<|content|>3.1 Subject Matter\n<|id|>37<|page|>4<|box|>176 140 193 313<|content|>3.2 Services Included\n<|id|>46<|page|>5<|box|>220 140 237 316<|content|>3.3 Services Excluded\n<|id|>53<|page|>5<|box|>744 140 761 230<|content|>4. Staffing\n<|id|>54<|page|>5<|box|>773 140 792 321<|content|>4.1 Engagement Team\n<|id|>60<|page|>6<|box|>527 140 545 339<|content|>4.2 Additional Personnel\n<|id|>63<|page|>6<|box|>765 140 782 408<|content|>5. Billing Rates and Fee Structure\n<|id|>64<|page|>6<|box|>796 140 813 279<|content|>5.1 Hourly Rates\n<|id|>70<|page|>7<|box|>364 140 382 303<|content|>5.2 Billing Practices\n<|id|>75<|page|>7<|box|>708 140 724 235<|content|>6. Retainer\n<|id|>81<|page|>8<|box|>383 140 402 390<|content|>7. Expenses and Disbursements\n<|id|>96<|page|>9<|box|>604 140 623 398<|content|>8. Conflict of Interest Disclosure\n<|id|>109<|page|>10<|box|>604 140 623 390<|content|>9. Confidentiality and Privilege\n<|id|>114<|page|>11<|box|>487 142 503 348<|content|>10. Client Responsibilities\n<|id|>122<|page|>12<|box|>421 142 439 393<|content|>11. Termination of Engagement\n<|id|>123<|page|>12<|box|>452 142 469 387<|content|>11.1 Termination by the Client\n<|id|>126<|page|>12<|box|>696 143 714 352<|content|>11.2 Termination by C&H\n<|id|>134<|page|>13<|box|>319 142 335 352<|content|>11.3 Effect of Termination\n<|id|>139<|page|>13<|box|>608 142 625 509<|content|>12. Limitation of Liability and Indemnification\n<|id|>142<|page|>14<|box|>90 142 107 480<|content|>13. Governing Law and Dispute Resolution\n<|id|>145<|page|>14<|box|>368 140 441 854<|content|>BOTH PARTIES HEREBY IRREVOCABLY AND UNCONDITIONALL\n<|id|>146<|page|>14<|box|>465 142 482 367<|content|>14. Miscellaneous Provisions\n<|id|>147<|page|>14<|box|>496 142 513 325<|content|>14.1 Entire Agreement\n<|id|>150<|page|>14<|box|>709 143 726 388<|content|>14.3 No Guarantee of Outcome\n<|id|>152<|page|>15<|box|>138 142 156 400<|content|>14.4 Electronic Communications\n<|id|>155<|page|>15<|box|>527 142 544 380<|content|>15. Acceptance and Execution\n<|id|>159<|page|>15<|box|>758 140 775 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>168<|page|>16<|box|>107 380 125 617<|content|>AGREED AND ACCEPTED:\n<|id|>169<|page|>16<|box|>133 140 148 493<|content|>IRONSIDE CAPITAL MANAGEMENT LP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>23<|level|>1\n<|id|>24<|level|>2\n<|id|>37<|level|>2\n<|id|>46<|level|>2\n<|id|>53<|level|>1\n<|id|>54<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>1\n<|id|>64<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>1\n<|id|>81<|level|>1\n<|id|>96<|level|>1\n<|id|>109<|level|>1\n<|id|>114<|level|>1\n<|id|>122<|level|>1\n<|id|>123<|level|>2\n<|id|>126<|level|>2\n<|id|>134<|level|>2\n<|id|>139<|level|>1\n<|id|>142<|level|>1\n<|id|>145<|level|>-1\n<|id|>146<|level|>1\n<|id|>147<|level|>2\n<|id|>150<|level|>2\n<|id|>152<|level|>2\n<|id|>155<|level|>1\n<|id|>159<|level|>-1\n<|id|>168<|level|>1\n<|id|>169<|level|>2",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 169,
+            "level": 2
+        }
+    ]
+}

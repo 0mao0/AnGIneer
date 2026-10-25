@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>143 100 176 912<|content|>中华人民共和国交通运输行业标准\n<|id|>3<|page|>1<|box|>388 100 423 912<|content|>港口码头水上污染事故应急防备能力要求\n<|id|>4<|page|>1<|box|>448 107 492 902<|content|>Requirements on preparedness capabilities to pollu\n<|id|>7<|page|>2<|box|>118 435 141 542<|content|>目次\n<|id|>9<|page|>3<|box|>117 433 138 544<|content|>前言\n<|id|>20<|page|>4<|box|>119 253 141 734<|content|>港口码头水上污染事故应急防备能力要求\n<|id|>21<|page|>4<|box|>179 104 195 174<|content|>1 范围\n<|id|>24<|page|>4<|box|>311 104 327 263<|content|>2 规范性引用文件\n<|id|>30<|page|>4<|box|>482 105 497 228<|content|>3 术语和定义\n<|id|>32<|page|>4<|box|>538 105 553 141<|content|>3.1\n<|id|>33<|page|>4<|box|>557 142 572 413<|content|>类油物质 analogous oil substance\n<|id|>35<|page|>4<|box|>631 105 648 317<|content|>4 应急防备能力目标要求\n<|id|>46<|page|>5<|box|>603 104 619 378<|content|>5 应急设施、设备和物资配备要求\n<|id|>61<|page|>10<|box|>286 100 302 285<|content|>6 配套设施、设备要求\n<|id|>70<|page|>10<|box|>707 100 723 240<|content|>7 应急管理要求",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>1\n<|id|>7<|level|>1\n<|id|>9<|level|>1\n<|id|>20<|level|>1\n<|id|>21<|level|>2\n<|id|>24<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>3\n<|id|>33<|level|>3\n<|id|>35<|level|>2\n<|id|>46<|level|>2\n<|id|>61<|level|>2\n<|id|>70<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        }
+    ]
+}

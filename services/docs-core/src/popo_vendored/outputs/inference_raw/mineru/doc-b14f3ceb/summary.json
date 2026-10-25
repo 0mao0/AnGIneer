@@ -1,0 +1,667 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9jzqhbdk\\input\\pdfs\\doc-b14f3ceb.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9jzqhbdk\\enriched\\doc-b14f3ceb.json",
+    "contd_output": "<|src_id|>150<|tgt_id|>151\n<|src_id|>376<|tgt_id|>377",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>10<|level|>1\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>26<|level|>2\n<|id|>27<|level|>2\n<|id|>28<|level|>3\n<|id|>55<|level|>3\n<|id|>57<|level|>3\n<|id|>59<|level|>3\n<|id|>66<|level|>2\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>80<|level|>3\n<|id|>87<|level|>3\n<|id|>89<|level|>2\n<|id|>90<|level|>2\n<|id|>92<|level|>3\n<|id|>95<|level|>3\n<|id|>98<|level|>3\n<|id|>104<|level|>3\n<|id|>107<|level|>3\n<|id|>110<|level|>3\n<|id|>113<|level|>3\n<|id|>116<|level|>3\n<|id|>118<|level|>2\n<|id|>119<|level|>2\n<|id|>121<|level|>3\n<|id|>128<|level|>3\n<|id|>134<|level|>3\n<|id|>136<|level|>3\n<|id|>140<|level|>3\n<|id|>145<|level|>3\n<|id|>147<|level|>3\n<|id|>149<|level|>3\n<|id|>152<|level|>3\n<|id|>158<|level|>2\n<|id|>159<|level|>2\n<|id|>160<|level|>3\n<|id|>163<|level|>3\n<|id|>169<|level|>3\n<|id|>176<|level|>2\n<|id|>177<|level|>2\n<|id|>178<|level|>3\n<|id|>186<|level|>3\n<|id|>189<|level|>3\n<|id|>194<|level|>3\n<|id|>201<|level|>2\n<|id|>202<|level|>2\n<|id|>203<|level|>3\n<|id|>205<|level|>3\n<|id|>207<|level|>3\n<|id|>209<|level|>2\n<|id|>210<|level|>2\n<|id|>212<|level|>3\n<|id|>218<|level|>3\n<|id|>220<|level|>3\n<|id|>243<|level|>3\n<|id|>245<|level|>3\n<|id|>247<|level|>3\n<|id|>249<|level|>3\n<|id|>251<|level|>3\n<|id|>253<|level|>3\n<|id|>255<|level|>3\n<|id|>257<|level|>3\n<|id|>260<|level|>3\n<|id|>263<|level|>2\n<|id|>281<|level|>2\n<|id|>282<|level|>2\n<|id|>287<|level|>3\n<|id|>293<|level|>2\n<|id|>294<|level|>2\n<|id|>298<|level|>2\n<|id|>299<|level|>2\n<|id|>304<|level|>2\n<|id|>305<|level|>2\n<|id|>309<|level|>2\n<|id|>310<|level|>2\n<|id|>316<|level|>2\n<|id|>317<|level|>2\n<|id|>318<|level|>3\n<|id|>319<|level|>3\n<|id|>321<|level|>2\n<|id|>324<|level|>2\n<|id|>329<|level|>2\n<|id|>344<|level|>2\n<|id|>345<|level|>2\n<|id|>346<|level|>3\n<|id|>347<|level|>3\n<|id|>349<|level|>2\n<|id|>352<|level|>2\n<|id|>358<|level|>2\n<|id|>372<|level|>2\n<|id|>373<|level|>2\n<|id|>375<|level|>3\n<|id|>378<|level|>2\n<|id|>381<|level|>2\n<|id|>386<|level|>2\n<|id|>387<|level|>3",
+    "image_output": "<|src_id|>284<|tgt_id|>282\n<|src_id|>285<|tgt_id|>282\n<|src_id|>286<|tgt_id|>282\n<|src_id|>296<|tgt_id|>294\n<|src_id|>297<|tgt_id|>294\n<|src_id|>301<|tgt_id|>299\n<|src_id|>302<|tgt_id|>299\n<|src_id|>303<|tgt_id|>299\n<|src_id|>307<|tgt_id|>305\n<|src_id|>308<|tgt_id|>305\n<|src_id|>312<|tgt_id|>310\n<|src_id|>313<|tgt_id|>310\n<|src_id|>314<|tgt_id|>310\n<|src_id|>326<|tgt_id|>324\n<|src_id|>354<|tgt_id|>352\n<|src_id|>355<|tgt_id|>352\n<|src_id|>383<|tgt_id|>381",
+    "contd_label": [
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 376,
+            "tgt_id": 377
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 207,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 3
+        },
+        {
+            "id": 218,
+            "level": 3
+        },
+        {
+            "id": 220,
+            "level": 3
+        },
+        {
+            "id": 243,
+            "level": 3
+        },
+        {
+            "id": 245,
+            "level": 3
+        },
+        {
+            "id": 247,
+            "level": 3
+        },
+        {
+            "id": 249,
+            "level": 3
+        },
+        {
+            "id": 251,
+            "level": 3
+        },
+        {
+            "id": 253,
+            "level": 3
+        },
+        {
+            "id": 255,
+            "level": 3
+        },
+        {
+            "id": 257,
+            "level": 3
+        },
+        {
+            "id": 260,
+            "level": 3
+        },
+        {
+            "id": 263,
+            "level": 2
+        },
+        {
+            "id": 281,
+            "level": 2
+        },
+        {
+            "id": 282,
+            "level": 2
+        },
+        {
+            "id": 287,
+            "level": 3
+        },
+        {
+            "id": 293,
+            "level": 2
+        },
+        {
+            "id": 294,
+            "level": 2
+        },
+        {
+            "id": 298,
+            "level": 2
+        },
+        {
+            "id": 299,
+            "level": 2
+        },
+        {
+            "id": 304,
+            "level": 2
+        },
+        {
+            "id": 305,
+            "level": 2
+        },
+        {
+            "id": 309,
+            "level": 2
+        },
+        {
+            "id": 310,
+            "level": 2
+        },
+        {
+            "id": 316,
+            "level": 2
+        },
+        {
+            "id": 317,
+            "level": 2
+        },
+        {
+            "id": 318,
+            "level": 3
+        },
+        {
+            "id": 319,
+            "level": 3
+        },
+        {
+            "id": 321,
+            "level": 2
+        },
+        {
+            "id": 324,
+            "level": 2
+        },
+        {
+            "id": 329,
+            "level": 2
+        },
+        {
+            "id": 344,
+            "level": 2
+        },
+        {
+            "id": 345,
+            "level": 2
+        },
+        {
+            "id": 346,
+            "level": 3
+        },
+        {
+            "id": 347,
+            "level": 3
+        },
+        {
+            "id": 349,
+            "level": 2
+        },
+        {
+            "id": 352,
+            "level": 2
+        },
+        {
+            "id": 358,
+            "level": 2
+        },
+        {
+            "id": 372,
+            "level": 2
+        },
+        {
+            "id": 373,
+            "level": 2
+        },
+        {
+            "id": 375,
+            "level": 3
+        },
+        {
+            "id": 378,
+            "level": 2
+        },
+        {
+            "id": 381,
+            "level": 2
+        },
+        {
+            "id": 386,
+            "level": 2
+        },
+        {
+            "id": 387,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 284,
+            "tgt_id": 282
+        },
+        {
+            "src_id": 285,
+            "tgt_id": 282
+        },
+        {
+            "src_id": 286,
+            "tgt_id": 282
+        },
+        {
+            "src_id": 296,
+            "tgt_id": 294
+        },
+        {
+            "src_id": 297,
+            "tgt_id": 294
+        },
+        {
+            "src_id": 301,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 302,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 303,
+            "tgt_id": 299
+        },
+        {
+            "src_id": 307,
+            "tgt_id": 305
+        },
+        {
+            "src_id": 308,
+            "tgt_id": 305
+        },
+        {
+            "src_id": 312,
+            "tgt_id": 310
+        },
+        {
+            "src_id": 313,
+            "tgt_id": 310
+        },
+        {
+            "src_id": 314,
+            "tgt_id": 310
+        },
+        {
+            "src_id": 326,
+            "tgt_id": 324
+        },
+        {
+            "src_id": 354,
+            "tgt_id": 352
+        },
+        {
+            "src_id": 355,
+            "tgt_id": 352
+        },
+        {
+            "src_id": 383,
+            "tgt_id": 381
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 284,
+            "table2_idx": 285,
+            "upper_row_ss": [
+                [
+                    "1",
+                    "IRONHAVE",
+                    "Reg. No.",
+                    "August 10,",
+                    "USPTO",
+                    "Registered",
+                    "42"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "N (word mark)",
+                    "6,412,308",
+                    "2021",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 285,
+            "table2_idx": 286,
+            "upper_row_ss": [
+                [
+                    "12",
+                    "IRONHAVEN POWER",
+                    "App. No. 97/305,220",
+                    "March 22, 2024",
+                    "USPTO",
+                    "Pending(Awaiting",
+                    "42, 37, 9"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "SPINE (word mark)",
+                    "",
+                    "",
+                    "",
+                    "Examination)",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 296,
+            "table2_idx": 297,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "AI-Driven Predictive Thermal Management System for",
+                    "U.S. Patent No. 11,588,214",
+                    "Issued: February 21, 2023",
+                    "USPTO",
+                    "Issued",
+                    "Megan T. Sullivan; Chen Wei Liu"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Data Center Operations",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 301,
+            "table2_idx": 302,
+            "upper_row_ss": [
+                [
+                    "No.",
+                    "Title / Description",
+                    "Reg. No.",
+                    "Reg. Date",
+                    "Jurisdiction",
+                    "Author / Claimant",
+                    "Type of Work"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1",
+                    "Ironhaven DCIM Platform — Version 4.2 (software — source and object code)",
+                    "TX 9-114-208",
+                    "October 15, 2022",
+                    "U.S. Copyright Office",
+                    "Ironhaven Data Centers LLC (work made for hire)",
+                    "Computer Program"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 312,
+            "table2_idx": 313,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "Ironhaven Data Centers LLC",
+                    "Cascadia Cloud Holdings, Inc.",
+                    "Non-exclusive trademark license — use of \"IRONHA VEN\" and IHDC logo marks in co-branded marketing for",
+                    "July 1, 2023",
+                    "June 30, 2028",
+                    "Y (with notice)",
+                    "N"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "Ashburn I colocation",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 313,
+            "table2_idx": 314,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Ironhaven Data Centers LLC",
+                    "Ironhaven Frankfurt GmbH",
+                    "Exclusive intra-group IP license — use of all Ironhaven trademarks, patents,",
+                    "May 15, 2024",
+                    "Co-terminus with Credit Agreement",
+                    "Y (affiliate transfer permitted)",
+                    "Y"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "copyrights, and trade secrets in EMEA operations",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 354,
+            "table2_idx": 355,
+            "upper_row_ss": [
+                [
+                    "Automated Cable Management and Routing System for",
+                    "U.S. App. No. 18/104,227"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Dense Computing Environments",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

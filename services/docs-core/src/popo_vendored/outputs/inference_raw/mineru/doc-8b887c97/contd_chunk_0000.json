@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>136 370 154 627<|content|>Closing Date — August 12, 2022\n<|id|>2<|page|>1<|box|>162 140 273 857<|content|>Delivered pursuant to Section 4. ... , as lender (...l agent (in such capacity, the \"Collateral Agent\")\n<|id|>5<|page|>1<|box|>330 174 367 854<|content|>Pinnacle National Bank, N. ... , as Administrative...00 Lexington Avenue, 35th Floor New York, NY 10022\n<|id|>6<|page|>1<|box|>375 140 410 767<|content|>Attention: ... Thomas Whitford, Senior Vice President, Technology Lending Group Delivered by\n<|id|>7<|page|>1<|box|>417 174 436 803<|content|>Brightfield Cloud Services Inc. ... 4200 Lone Star Parkway, Suite 800 Austin, TX 78731\n<|id|>8<|page|>1<|box|>444 140 462 393<|content|>Prepared with the assistance of: ... Prepared with the assistance of\n<|id|>9<|page|>1<|box|>470 174 488 810<|content|>Calderwood & Harkness LLP, counsel to the Borrower (C&H Matter No. ... 1042-00001)\n<|id|>10<|page|>1<|box|>496 140 606 856<|content|>Unless otherwise defined herein, capitalized terms...finitions in the Term Loan Agreement shall control\n<|id|>25<|page|>2<|box|>845 181 881 854<|content|>• Software-as-a-Service (\"SaaS\") Revenue: ... 0% of total revenue)\n<|id|>26<|page|>2<|box|>885 181 902 733<|content|>• Hardware Revenue: ... 0% of total revenue)\n<|id|>28<|page|>3<|box|>334 140 409 854<|content|>The EBITDA figure set forth above is consistent wi... expressly permitted under the Term Loan Agreement\n<|id|>52<|page|>5<|box|>200 140 219 534<|content|>(i) TTM EBITDA (FY 2021, audited): ... $12,800,000\n<|id|>55<|page|>5<|box|>507 140 690 857<|content|>Note regarding conservatism of estimate: ... The u... lower (more conservative) Interest Coverage Ratio\n<|id|>80<|page|>7<|box|>839 140 877 854<|content|>As demonstrated by the foregoing calculations and ...ovenants contained in Article VII of the Term Loan\n<|id|>81<|page|>8<|box|>90 140 127 852<|content|>Agreement as of the Closing Date, after giving eff...erm Loan and the application of proceeds therefrom\n<|id|>105<|page|>11<|box|>330 142 347 334<|content|>Name: ... Priya Ramanathan\n<|id|>106<|page|>11<|box|>347 142 364 361<|content|>Title: ... Chief Financial Officer\n<|id|>107<|page|>11<|box|>364 142 382 313<|content|>Date: ... August 12, 2022\n<|id|>115<|page|>12<|box|>763 138 895 857<|content|>\"Material Adverse Change\" means any event, conditi...an Document, in each case, measured from and after\n<|id|>116<|page|>13<|box|>89 140 127 852<|content|>December 31, 2021 (or such other reference date as...te as may be specified in the Term Loan Agreement)",
+    "raw_response": "<|src_id|>80<|tgt_id|>81\n<|src_id|>115<|tgt_id|>116",
+    "parsed": [
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 116
+        }
+    ]
+}

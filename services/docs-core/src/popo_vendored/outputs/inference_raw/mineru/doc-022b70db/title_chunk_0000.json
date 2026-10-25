@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 176 143 820<|content|>OFFICER'S CERTIFICATE OF AURELIUS GLOBAL MEDIA GRO\n<|id|>7<|page|>1<|box|>393 140 411 243<|content|>RECITALS\n<|id|>12<|page|>2<|box|>90 140 107 681<|content|>Section 1. Representations and Warranties — Truth\n<|id|>15<|page|>2<|box|>402 140 420 560<|content|>Section 2. Performance of Obligations and Covenant\n<|id|>25<|page|>3<|box|>375 140 391 676<|content|>Section 3. Registration Statement and Prospectus S\n<|id|>33<|page|>4<|box|>186 140 204 439<|content|>Section 4. No Material Adverse Effect\n<|id|>37<|page|>4<|box|>598 140 614 431<|content|>Section 5. Absence of Certain Events\n<|id|>42<|page|>5<|box|>359 140 375 495<|content|>Section 6. Accuracy of Disclosure Documents\n<|id|>46<|page|>6<|box|>90 140 107 452<|content|>Section 7. Foreign Private Issuer Status\n<|id|>48<|page|>6<|box|>304 140 320 468<|content|>Section 8. Reliance; No Personal Liability\n<|id|>51<|page|>6<|box|>638 140 655 640<|content|>[Remainder of page intentionally left blank; signa\n<|id|>52<|page|>6<|box|>662 284 679 712<|content|>SIGNATURE PAGE TO OFFICER'S CERTIFICATE\n<|id|>54<|page|>6<|box|>752 143 767 500<|content|>AURELIUS GLOBAL MEDIA GROUP PLC\n<|id|>63<|page|>7<|box|>90 140 108 328<|content|>Company Information:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>15<|level|>2\n<|id|>25<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>42<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>51<|level|>-1\n<|id|>52<|level|>2\n<|id|>54<|level|>3\n<|id|>63<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        }
+    ]
+}

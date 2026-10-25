@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>340 140 358 316<|content|>Ladies and Gentlemen:\n<|id|>19<|type|>title<|page|>2<|box|>244 140 262 594<|content|>Comment 1: HLBV Methodology — Enhanced Disclosure\n<|id|>36<|type|>title<|page|>4<|box|>416 140 434 591<|content|>Comment 2: HLBV Methodology — Reconciliation Table\n<|id|>40<|type|>table<|page|>4<|box|>720 143 824 852<|content|>None\n<|id|>44<|type|>title<|page|>5<|box|>458 140 474 547<|content|>Comment 3: PPA Revenue Detail — Disaggregation\n<|id|>58<|type|>title<|page|>6<|box|>699 140 715 772<|content|>Comment 4: PPA Revenue Detail — Weighted Average R\n<|id|>68<|type|>title<|page|>7<|box|>768 140 785 622<|content|>Comment 5: Non-GAAP Reconciliation — Adjusted EBIT\n<|id|>71<|type|>table<|page|>8<|box|>229 143 316 852<|content|>None\n<|id|>84<|type|>title<|page|>10<|box|>90 140 107 733<|content|>Comment 6: Non-GAAP Reconciliation — Characterizat\n<|id|>92<|type|>title<|page|>11<|box|>212 140 229 490<|content|>Comment 7: Lock-Up Carve-Out Disclosure\n<|id|>96<|type|>title<|page|>11<|box|>502 176 517 259<|content|>Directors:\n<|id|>131<|type|>title<|page|>13<|box|>800 140 818 210<|content|>Closing",
+    "raw_response": "<|src_id|>40<|tgt_id|>36\n<|src_id|>71<|tgt_id|>68",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 68
+        }
+    ]
+}

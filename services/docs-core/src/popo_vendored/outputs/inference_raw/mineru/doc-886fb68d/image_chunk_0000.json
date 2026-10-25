@@ -1,0 +1,24 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 156 148 838<|content|>FORM OF WRITTEN CONSENT OF THE LIMITED PARTNERS OF\n<|id|>2<|type|>title<|page|>1<|box|>157 171 193 823<|content|>In Lieu of a Meeting, Pursuant to Section 14.01 of\n<|id|>4<|type|>title<|page|>1<|box|>369 140 387 243<|content|>RECITALS\n<|id|>11<|type|>title<|page|>3<|box|>89 140 106 413<|content|>RESOLUTIONS AND CONSENT\n<|id|>13<|type|>title<|page|>3<|box|>202 142 219 544<|content|>Resolution 1 — Approval of Successor Key Persons\n<|id|>18<|type|>title<|page|>3<|box|>590 140 608 767<|content|>Resolution 2 — Approval of the First Amendment to\n<|id|>26<|type|>table<|page|>5<|box|>305 143 398 852<|content|>None\n<|id|>29<|type|>title<|page|>5<|box|>819 142 837 593<|content|>Resolution 3 — Authorization of General Partner Ac\n<|id|>31<|type|>title<|page|>6<|box|>314 140 330 573<|content|>REPRESENTATIONS AND ACKNOWLEDGMENTS\n<|id|>39<|type|>title<|page|>8<|box|>89 142 107 256<|content|>SIGNATURE\n<|id|>45<|type|>title<|page|>8<|box|>263 143 281 321<|content|>Authorized Signatory:\n<|id|>53<|type|>title<|page|>8<|box|>568 142 585 385<|content|>DELIVERY INSTRUCTIONS\n<|id|>72<|type|>title<|page|>9<|box|>547 447 564 550<|content|>EXHIBIT A\n<|id|>73<|type|>title<|page|>9<|box|>574 153 609 841<|content|>FORM OF FIRST AMENDMENT TO THE AMENDED & RESTATED",
+    "raw_response": "<|src_id|>26<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 18
+        }
+    ]
+}

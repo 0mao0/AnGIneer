@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        48
+    ],
+    "pages": [
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>375<|type|>title<|page|>46<|box|>90 285 111 712<|content|>XVI. Exhibit D — Auto-Renewal Calendar\n<|id|>378<|type|>table<|page|>46<|box|>292 143 901 852<|content|>None\n<|id|>379<|type|>table<|page|>47<|box|>88 143 521 852<|content|>None\n<|id|>381<|type|>title<|page|>47<|box|>608 140 625 485<|content|>Critical Action Items — Flagged Contracts:\n<|id|>394<|type|>title<|page|>48<|box|>411 143 426 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>378<|tgt_id|>375\n<|src_id|>379<|tgt_id|>375",
+    "parsed": [
+        {
+            "src_id": 378,
+            "tgt_id": 375
+        },
+        {
+            "src_id": 379,
+            "tgt_id": 375
+        }
+    ]
+}

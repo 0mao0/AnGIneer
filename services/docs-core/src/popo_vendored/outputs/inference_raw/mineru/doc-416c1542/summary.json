@@ -1,0 +1,159 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-sxko0qny\\input\\pdfs\\doc-416c1542.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-sxko0qny\\enriched\\doc-416c1542.json",
+    "contd_output": "<|src_id|>12<|tgt_id|>13",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>47<|level|>3\n<|id|>58<|level|>3\n<|id|>67<|level|>3\n<|id|>74<|level|>3\n<|id|>79<|level|>3\n<|id|>83<|level|>3\n<|id|>89<|level|>2\n<|id|>96<|level|>2\n<|id|>102<|level|>2\n<|id|>111<|level|>2\n<|id|>116<|level|>2\n<|id|>124<|level|>2\n<|id|>132<|level|>2",
+    "image_output": "<|src_id|>69<|tgt_id|>67\n<|src_id|>70<|tgt_id|>67\n<|src_id|>127<|tgt_id|>124\n<|src_id|>128<|tgt_id|>124\n<|src_id|>129<|tgt_id|>124",
+    "contd_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 69,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 124
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 127,
+            "table2_idx": 128,
+            "upper_row_ss": [
+                [
+                    "6",
+                    "Kapoor's acknowledgment of Section 13.1 and",
+                    "95:1-97:9",
+                    "Kapoor confirms his understanding that"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "written-amendment requirement",
+                    "",
+                    "amendments must be \"in a written instrument signed by both parties\" and that his email did not satisfy this requirement."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 128,
+            "table2_idx": 129,
+            "upper_row_ss": [
+                [
+                    "12",
+                    "Denial of acquiescence or ratification",
+                    "161:9–163:15",
+                    "Kapoor denies that Penterra's delay constituted acquiescence or ratification, stating: \"Penterra never authorized, approved, or ratified Vantage's distribution of our"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "products outside the six New England states.\""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 9,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['', '', '', '', '', '', '', '', '', '', '', '', '', '', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=5, Country', 'rowspan=3, Total purchases', 'rowspan=2, Market-able Treasury & Federal Financing Bank bonds & notes', \"rowspan=2, Bonds of U.S. Gov't, Corp. and Federally-sponsored agencies\", 'colspan=2, Corporate & other', 'rowspan=2, Bonds', 'rowspan=2, Stocks', 'rowspan=3, Total sales', 'rowspan=2, Market-able Treasury & Federal Financing Bank bonds & notes', \"rowspan=2, Bonds of U.S. Gov't, Corp. and Federally-sponsored agencies\", 'colspan=2, Corporate & other', 'rowspan=2, Bonds', 'rowspan=2, Stocks']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 457,
+    "table2_idx": 458
+}

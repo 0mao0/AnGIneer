@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 44,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=23, 隧道工程(钻爆法)', 'rowspan=3, 防排水', 'rowspan=3, 排水', 'rowspan=3, 纵向排水管、横向排水管、环向排水管', '安全信息', '', '', '', '详见附录B通用施工信息属性组']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=23, 隧道工程(钻爆法)', 'rowspan=23, 防排水', 'rowspan=8, 排水', 'rowspan=8, 纵向排水管、横向排水管、环向排水管', '成本信息', '', '', '', '详见附录B通用施工信息属性组']]\n",
+    "raw_response": "[1, 1, 1, 1, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 307,
+    "table2_idx": 308
+}

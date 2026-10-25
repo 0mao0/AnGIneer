@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        96,
+        108
+    ],
+    "pages": [
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>761<|type|>title<|page|>96<|box|>351 411 374 593<|content|>9.4 涵洞接长\n<|id|>764<|type|>title<|page|>97<|box|>162 411 189 633<|content|>10 路线交叉\n<|id|>765<|type|>title<|page|>97<|box|>247 426 268 621<|content|>10.1 一般规定\n<|id|>769<|type|>title<|page|>97<|box|>584 386 604 661<|content|>10.2 互通式立体交叉\n<|id|>773<|type|>title<|page|>98<|box|>243 292 265 702<|content|>10.3 分离式立体交叉、通道、天桥\n<|id|>775<|type|>title<|page|>98<|box|>466 368 487 626<|content|>10.4 铁路、管线交叉\n<|id|>777<|type|>title<|page|>99<|box|>155 381 181 671<|content|>11 交通安全设施\n<|id|>778<|type|>title<|page|>99<|box|>240 429 261 623<|content|>11.1 一般规定\n<|id|>780<|type|>table<|page|>99<|box|>441 156 584 896<|content|>None\n<|id|>784<|type|>table<|page|>100<|box|>130 118 273 858<|content|>None\n<|id|>790<|type|>title<|page|>100<|box|>717 393 738 585<|content|>11.2 交通标志\n<|id|>797<|type|>title<|page|>101<|box|>632 434 655 628<|content|>11.3 交通标线\n<|id|>802<|type|>title<|page|>102<|box|>217 411 238 578<|content|>11.4 护栏\n<|id|>808<|type|>title<|page|>103<|box|>326 383 348 681<|content|>11.5 隔离栅和桥梁护网\n<|id|>812<|type|>title<|page|>104<|box|>162 325 187 651<|content|>12 管理及服务设施\n<|id|>813<|type|>title<|page|>104<|box|>247 393 268 585<|content|>12.2 监控系统\n<|id|>820<|type|>title<|page|>105<|box|>219 434 240 628<|content|>12.3 收费系统\n<|id|>824<|type|>title<|page|>105<|box|>581 436 602 628<|content|>12.4 通信系统\n<|id|>828<|type|>title<|page|>106<|box|>213 363 234 608<|content|>12.5 供配电与照明\n<|id|>831<|type|>image<|page|>106<|box|>510 335 669 641<|content|>None\n<|id|>832<|type|>title<|page|>107<|box|>164 421 190 643<|content|>13 交通组织\n<|id|>833<|type|>title<|page|>107<|box|>250 436 270 628<|content|>13.1 一般规定\n<|id|>835<|type|>title<|page|>107<|box|>443 381 464 681<|content|>13.2 区域路网交通组织\n<|id|>839<|type|>title<|page|>108<|box|>127 338 150 641<|content|>13.3 施工路段交通组织",
+    "raw_response": "<|src_id|>780<|tgt_id|>778\n<|src_id|>784<|tgt_id|>778\n<|src_id|>831<|tgt_id|>828",
+    "parsed": [
+        {
+            "src_id": 780,
+            "tgt_id": 778
+        },
+        {
+            "src_id": 784,
+            "tgt_id": 778
+        },
+        {
+            "src_id": 831,
+            "tgt_id": 828
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "task": "image",
+    "chunk_index": 5,
+    "range": [
+        238,
+        245
+    ],
+    "pages": [
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3527<|type|>table<|page|>238<|box|>190 67 802 840<|content|>None\n<|id|>3528<|type|>title<|page|>239<|box|>172 152 195 460<|content|>附录 D 施工通风方式\n<|id|>3529<|type|>title<|page|>239<|box|>283 443 296 638<|content|>表 D 施工通风方式\n<|id|>3530<|type|>table<|page|>239<|box|>300 154 890 929<|content|>None\n<|id|>3531<|type|>table<|page|>240<|box|>124 82 864 855<|content|>None\n<|id|>3532<|type|>table<|page|>241<|box|>100 413 893 690<|content|>None\n<|id|>3533<|type|>table<|page|>242<|box|>105 310 897 586<|content|>None\n<|id|>3534<|type|>title<|page|>243<|box|>173 147 198 515<|content|>附录 G 地质预测预报分级\n<|id|>3535<|type|>table<|page|>243<|box|>302 151 891 922<|content|>None\n<|id|>3536<|type|>table<|page|>244<|box|>122 65 404 840<|content|>None\n<|id|>3537<|type|>title<|page|>245<|box|>172 151 195 423<|content|>本规范用词用语说明",
+    "raw_response": "<|src_id|>3527<|tgt_id|>3528\n<|src_id|>3530<|tgt_id|>3529\n<|src_id|>3531<|tgt_id|>3529\n<|src_id|>3532<|tgt_id|>3529\n<|src_id|>3533<|tgt_id|>3529\n<|src_id|>3535<|tgt_id|>3534\n<|src_id|>3536<|tgt_id|>3534",
+    "parsed": [
+        {
+            "src_id": 3527,
+            "tgt_id": 3528
+        },
+        {
+            "src_id": 3530,
+            "tgt_id": 3529
+        },
+        {
+            "src_id": 3531,
+            "tgt_id": 3529
+        },
+        {
+            "src_id": 3532,
+            "tgt_id": 3529
+        },
+        {
+            "src_id": 3533,
+            "tgt_id": 3529
+        },
+        {
+            "src_id": 3535,
+            "tgt_id": 3534
+        },
+        {
+            "src_id": 3536,
+            "tgt_id": 3534
+        }
+    ]
+}

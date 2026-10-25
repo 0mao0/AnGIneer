@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 250 128 854<|content|>CALDERWOOD & HARKNESS LLP 780 Third Avenue New Yor\n<|id|>9<|page|>1<|box|>372 142 388 264<|content|>I. Introduction\n<|id|>15<|page|>2<|box|>186 140 204 442<|content|>II. Background and Current Situation\n<|id|>17<|page|>2<|box|>316 140 334 508<|content|>A. The Liquidity Crisis and Covenant Defaults\n<|id|>25<|page|>3<|box|>349 140 366 385<|content|>B. Capital Structure Summary\n<|id|>39<|page|>4<|box|>690 142 707 320<|content|>C. The Ad Hoc Group\n<|id|>43<|page|>5<|box|>250 140 266 460<|content|>D. Fleet Valuation and Enterprise Value\n<|id|>49<|page|>5<|box|>829 142 847 509<|content|>III. TSL's Proposed Restructuring Framework\n<|id|>51<|page|>6<|box|>194 140 212 504<|content|>A. Senior Secured Credit Facility Amendment\n<|id|>63<|page|>8<|box|>138 140 157 380<|content|>B. Mezzanine Notes Exchange\n<|id|>77<|page|>9<|box|>521 140 537 447<|content|>C. KFO Holdings Equity Contribution\n<|id|>86<|page|>10<|box|>422 142 439 310<|content|>D. Asset Dispositions\n<|id|>93<|page|>11<|box|>220 142 237 406<|content|>E. Treatment of Unsecured Notes\n<|id|>102<|page|>11<|box|>729 142 747 295<|content|>F. Trade Creditors\n<|id|>105<|page|>12<|box|>157 140 175 434<|content|>G. Intercompany Note Restructuring\n<|id|>112<|page|>12<|box|>534 140 551 475<|content|>IV. Comparison to Chapter 11 Alternative\n<|id|>125<|page|>14<|box|>250 140 266 408<|content|>V. Process and Timeline Proposal\n<|id|>133<|page|>15<|box|>204 140 222 295<|content|>VI. Confidentiality\n<|id|>136<|page|>15<|box|>479 140 497 243<|content|>VII. Closing\n<|id|>147<|page|>16<|box|>190 142 205 351<|content|>Enclosures / Attachments:",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>9<|level|>1\n<|id|>15<|level|>1\n<|id|>17<|level|>2\n<|id|>25<|level|>2\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>49<|level|>1\n<|id|>51<|level|>2\n<|id|>63<|level|>2\n<|id|>77<|level|>2\n<|id|>86<|level|>2\n<|id|>93<|level|>2\n<|id|>102<|level|>2\n<|id|>105<|level|>2\n<|id|>112<|level|>1\n<|id|>125<|level|>1\n<|id|>133<|level|>1\n<|id|>136<|level|>1\n<|id|>147<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 1
+        }
+    ]
+}

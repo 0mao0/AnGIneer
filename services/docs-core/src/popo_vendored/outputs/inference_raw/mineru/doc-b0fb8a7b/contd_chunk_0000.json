@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        7,
+        13
+    ],
+    "pages": [
+        7,
+        8,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>64<|page|>7<|box|>851 140 906 857<|content|>35. ... The timing and coordination of these departures, viewed in light of the events described in\n<|id|>65<|page|>8<|box|>90 174 200 854<|content|>Sections IV and V below, strongly suggest a pre-pl...the company's most sensitive proprietary materials\n<|id|>105<|page|>11<|box|>791 140 882 856<|content|>59. ... If NovaSpark possesses this roadmap — whic...nal email account just days before his departure —\n<|id|>106<|page|>12<|box|>90 174 126 854<|content|>NovaSpark will be able to anticipate and preempt L...umos's planned innovations were designed to create\n<|id|>115<|page|>12<|box|>845 174 883 854<|content|>(b) Immediately preserve all electronic devices, s...related to Lumos's proprietary technology; ... and\n<|id|>119<|page|>13<|box|>455 140 491 854<|content|>I declare under penalty of perjury under the laws ... California that the foregoing is true and correct",
+    "raw_response": "<|src_id|>64<|tgt_id|>65\n<|src_id|>105<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 64,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        }
+    ]
+}

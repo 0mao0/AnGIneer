@@ -1,0 +1,127 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        102,
+        131
+    ],
+    "pages": [
+        103,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        112,
+        114,
+        116,
+        118,
+        119,
+        120,
+        121,
+        123,
+        125,
+        131
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>610<|page|>103<|box|>154 219 179 790<|content|>附录 F 普通公路指路标志布置示例\n<|id|>611<|page|>103<|box|>236 277 257 732<|content|>F.1 国道与省道(县道)相交指路标志\n<|id|>614<|page|>105<|box|>157 376 183 633<|content|>本标准用词说明\n<|id|>627<|page|>106<|box|>134 383 161 603<|content|>引用标准名录\n<|id|>639<|page|>107<|box|>132 340 159 664<|content|>上海市工程建设规范\n<|id|>640<|page|>107<|box|>203 270 233 732<|content|>公路指路标志设置标准\n<|id|>645<|page|>108<|box|>131 449 157 555<|content|>目次\n<|id|>647<|page|>109<|box|>152 431 178 580<|content|>Contents\n<|id|>649<|page|>110<|box|>132 416 157 585<|content|>1 总 则\n<|id|>659<|page|>112<|box|>126 406 152 611<|content|>3 基本规定\n<|id|>660<|page|>112<|box|>208 391 228 628<|content|>3.2 标志版面布置\n<|id|>669<|page|>114<|box|>80 131 100 222<|content|>3.2.11\n<|id|>685<|page|>116<|box|>685 123 705 507<|content|>3.2.12 指路标志上箭头的使用\n<|id|>691<|page|>118<|box|>389 388 410 626<|content|>3.4 标志支撑方式\n<|id|>692<|page|>118<|box|>443 131 462 209<|content|>3.4.2\n<|id|>695<|page|>119<|box|>126 404 147 590<|content|>3.5 材料要求\n<|id|>700<|page|>120<|box|>443 366 463 603<|content|>3.6 标志结构设计\n<|id|>702<|page|>121<|box|>151 265 176 752<|content|>4 公路指路标志信息分类分层\n<|id|>703<|page|>121<|box|>231 310 253 707<|content|>4.2 公路指路标志信息分类分层\n<|id|>709<|page|>123<|box|>152 340 178 686<|content|>5 高速公路指路标志\n<|id|>710<|page|>123<|box|>235 421 255 606<|content|>5.1 一般规定\n<|id|>721<|page|>125<|box|>796 383 818 618<|content|>5.2 路径指路标志\n<|id|>733<|page|>131<|box|>149 315 176 664<|content|>6 普通公路指路标志\n<|id|>734<|page|>131<|box|>231 371 253 608<|content|>6.2 路径指引标志",
+    "raw_response": "<|id|>610<|level|>1\n<|id|>611<|level|>2\n<|id|>614<|level|>1\n<|id|>627<|level|>1\n<|id|>639<|level|>1\n<|id|>640<|level|>1\n<|id|>645<|level|>1\n<|id|>647<|level|>1\n<|id|>649<|level|>1\n<|id|>659<|level|>1\n<|id|>660<|level|>2\n<|id|>669<|level|>3\n<|id|>685<|level|>3\n<|id|>691<|level|>2\n<|id|>692<|level|>3\n<|id|>695<|level|>2\n<|id|>700<|level|>2\n<|id|>702<|level|>1\n<|id|>703<|level|>2\n<|id|>709<|level|>1\n<|id|>710<|level|>2\n<|id|>721<|level|>2\n<|id|>733<|level|>1\n<|id|>734<|level|>2",
+    "parsed": [
+        {
+            "id": 610,
+            "level": 1
+        },
+        {
+            "id": 611,
+            "level": 2
+        },
+        {
+            "id": 614,
+            "level": 1
+        },
+        {
+            "id": 627,
+            "level": 1
+        },
+        {
+            "id": 639,
+            "level": 1
+        },
+        {
+            "id": 640,
+            "level": 1
+        },
+        {
+            "id": 645,
+            "level": 1
+        },
+        {
+            "id": 647,
+            "level": 1
+        },
+        {
+            "id": 649,
+            "level": 1
+        },
+        {
+            "id": 659,
+            "level": 1
+        },
+        {
+            "id": 660,
+            "level": 2
+        },
+        {
+            "id": 669,
+            "level": 3
+        },
+        {
+            "id": 685,
+            "level": 3
+        },
+        {
+            "id": 691,
+            "level": 2
+        },
+        {
+            "id": 692,
+            "level": 3
+        },
+        {
+            "id": 695,
+            "level": 2
+        },
+        {
+            "id": 700,
+            "level": 2
+        },
+        {
+            "id": 702,
+            "level": 1
+        },
+        {
+            "id": 703,
+            "level": 2
+        },
+        {
+            "id": 709,
+            "level": 1
+        },
+        {
+            "id": 710,
+            "level": 2
+        },
+        {
+            "id": 721,
+            "level": 2
+        },
+        {
+            "id": 733,
+            "level": 1
+        },
+        {
+            "id": 734,
+            "level": 2
+        }
+    ]
+}

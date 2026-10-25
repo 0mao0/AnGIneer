@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        10,
+        11,
+        17,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>222 140 258 854<|content|>TO: ... Priya Anand, Partner, Litigation (General) Yuki Nakamura, Lead Associate, Litigation (General)\n<|id|>4<|page|>1<|box|>266 140 284 633<|content|>FROM: ... Carlos Espinoza, Working Associate, Litigation (General)\n<|id|>5<|page|>1<|box|>292 140 309 334<|content|>DATE: ... January 25, 2023\n<|id|>6<|page|>1<|box|>318 140 335 797<|content|>RE: ... Deposition Summary — Randall \"Randy\" Brecker (Days 1 & 2), January 9–10, 2023\n<|id|>7<|page|>1<|box|>344 140 380 854<|content|>MATTER: ... 1021-00006, Circuit Court of the 17th Judicial Circuit, Broward County, Florida\n<|id|>8<|page|>1<|box|>388 140 405 464<|content|>CLIENT: ... Verimark Hospitality Group Inc\n<|id|>53<|page|>5<|box|>824 138 898 856<|content|>Brecker confirmed that Suncoast retained a 12% \"ma...venue collected by Suncoast was reported in GRR to\n<|id|>54<|page|>6<|box|>90 140 127 854<|content|>Verimark. ... This means that Verimark received no...utable to any revenue that passed through Suncoast\n<|id|>63<|page|>6<|box|>869 140 906 856<|content|>When confronted with Exhibit 31, Brecker attempted...stating: ... \" However, when asked to identify any\n<|id|>64<|page|>7<|box|>90 140 181 856<|content|>Verimark reservation-system fee that totaled 7. .....oid by diverting bookings to the unbranded website\n<|id|>104<|page|>10<|box|>789 138 880 857<|content|>No Communications Disclosing the Practice. ... Spe...communication with Deidre Langston (SVP, Franchise\n<|id|>105<|page|>11<|box|>90 140 125 854<|content|>Operations), Renata Solis-Vega (SVP & General Coun...), or any franchise compliance officer at Verimark\n<|id|>144<|page|>17<|box|>333 181 349 645<|content|>• § 4. ... 5% royalty rate\n<|id|>152<|page|>17<|box|>508 140 616 856<|content|>Ridgeline Forensic Advisory Reconciliation. ... 8 million\n<|id|>145<|page|>17<|box|>352 183 369 589<|content|>• § 4. ... 5% of GRR)\n<|id|>146<|page|>17<|box|>372 183 388 785<|content|>• § 4. ... 50/room/month, CPI-adjusted, capped at 3%/year)\n<|id|>147<|page|>17<|box|>391 183 409 633<|content|>• § 4. ... 5%/month, compounded)\n<|id|>148<|page|>17<|box|>411 183 446 856<|content|>• § 8. ... franchisee bears costs if underpayment exceeds 2% of reported GRR)\n<|id|>149<|page|>17<|box|>449 183 465 442<|content|>• § 14. ... 1 — Thirty-day cure period\n<|id|>150<|page|>17<|box|>469 183 484 694<|content|>• § 14. ... 2(c) — Systematic underreporting as incurable material breach\n<|id|>151<|page|>17<|box|>488 183 505 779<|content|>• § 15. ... 3 — Liquidated damages (3× trailing-twelve-month royalties per property)\n<|id|>177<|page|>22<|box|>770 142 787 562<|content|>Carlos Espinoza Working Associate, Litigation (General)\n<|id|>178<|page|>22<|box|>787 142 804 316<|content|>Date: ... January 25, 2023",
+    "raw_response": "<|src_id|>53<|tgt_id|>54\n<|src_id|>63<|tgt_id|>64\n<|src_id|>104<|tgt_id|>105",
+    "parsed": [
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        }
+    ]
+}

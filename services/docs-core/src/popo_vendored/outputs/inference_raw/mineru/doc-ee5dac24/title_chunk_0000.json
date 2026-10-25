@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>14<|page|>1<|box|>508 334 527 661<|content|>I. Purpose and Recommendation\n<|id|>20<|page|>2<|box|>253 362 273 635<|content|>II. Procedural Background\n<|id|>32<|page|>3<|box|>777 251 797 745<|content|>III. Summary of Proposed Consent Decree Terms\n<|id|>34<|page|>4<|box|>90 142 107 282<|content|>A. No Divestiture\n<|id|>37<|page|>4<|box|>348 140 364 419<|content|>B. FRAND Licensing Commitment\n<|id|>42<|page|>4<|box|>821 140 839 380<|content|>C. Interoperability Obligation\n<|id|>47<|page|>5<|box|>329 140 347 403<|content|>D. Non-Discrimination in Supply\n<|id|>51<|page|>5<|box|>686 140 704 433<|content|>E. Independent Compliance Monitor\n<|id|>55<|page|>6<|box|>250 140 266 269<|content|>F. Civil Penalty\n<|id|>58<|page|>6<|box|>523 140 542 455<|content|>G. Dispute Resolution and Modification\n<|id|>61<|page|>6<|box|>805 331 824 666<|content|>IV. Assessment of Litigation Risk\n<|id|>63<|page|>7<|box|>90 140 107 300<|content|>A. Merits Exposure\n<|id|>70<|page|>8<|box|>267 140 284 388<|content|>B. Preliminary Injunction Risk\n<|id|>73<|page|>8<|box|>542 140 559 392<|content|>C. Cost of Continued Litigation\n<|id|>82<|page|>9<|box|>179 281 200 715<|content|>V. Why the Proposed Terms Are Favorable\n<|id|>93<|page|>10<|box|>492 354 512 643<|content|>VI. Requested Authorization\n<|id|>101<|page|>11<|box|>279 318 299 678<|content|>VII. Next Steps Upon Authorization\n<|id|>113<|page|>12<|box|>258 142 273 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>14<|level|>1\n<|id|>20<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>2\n<|id|>37<|level|>2\n<|id|>42<|level|>2\n<|id|>47<|level|>2\n<|id|>51<|level|>2\n<|id|>55<|level|>2\n<|id|>58<|level|>2\n<|id|>61<|level|>1\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>73<|level|>2\n<|id|>82<|level|>1\n<|id|>93<|level|>1\n<|id|>101<|level|>1\n<|id|>113<|level|>-1",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        }
+    ]
+}

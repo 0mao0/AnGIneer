@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>10<|page|>1<|box|>556 140 574 454<|content|>Confirmation of Settlement in Principle\n<|id|>14<|page|>2<|box|>148 140 167 352<|content|>Status of Pending Motions\n<|id|>17<|page|>2<|box|>371 140 387 550<|content|>Request to Vacate the December 6, 2024 Conference\n<|id|>19<|page|>2<|box|>547 140 564 468<|content|>Anticipated Stipulation of discontinuance",
+    "raw_response": "<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>17<|level|>1\n<|id|>19<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        }
+    ]
+}

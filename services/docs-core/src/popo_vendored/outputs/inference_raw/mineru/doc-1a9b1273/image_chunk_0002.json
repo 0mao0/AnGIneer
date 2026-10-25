@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        100,
+        104
+    ],
+    "pages": [
+        100,
+        101,
+        103,
+        104
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>989<|type|>title<|page|>100<|box|>195 48 219 581<|content|>附录 D 粒料类材料回弹模量试验方法\n<|id|>991<|type|>title<|page|>101<|box|>188 143 213 615<|content|>附录 G 温度调整系数和等效温度\n<|id|>992<|type|>title<|page|>101<|box|>299 143 317 335<|content|>G.1 温度调整系数\n<|id|>1002<|type|>table<|page|>101<|box|>828 148 908 942<|content|>None\n<|id|>1006<|type|>title<|page|>103<|box|>53 262 71 650<|content|>公路工程现行标准、规范、规程、指南一览表\n<|id|>1008<|type|>table<|page|>103<|box|>100 89 938 820<|content|>None\n<|id|>1009<|type|>table<|page|>104<|box|>77 179 889 908<|content|>None",
+    "raw_response": "<|src_id|>1002<|tgt_id|>992\n<|src_id|>1008<|tgt_id|>1006\n<|src_id|>1009<|tgt_id|>1006",
+    "parsed": [
+        {
+            "src_id": 1002,
+            "tgt_id": 992
+        },
+        {
+            "src_id": 1008,
+            "tgt_id": 1006
+        },
+        {
+            "src_id": 1009,
+            "tgt_id": 1006
+        }
+    ]
+}

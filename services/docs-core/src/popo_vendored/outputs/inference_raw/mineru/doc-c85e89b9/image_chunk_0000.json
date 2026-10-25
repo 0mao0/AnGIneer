@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 248 118 748<|content|>SIMPLE AGREEMENT FOR FUTURE EQUITY\n<|id|>1<|type|>title<|page|>1<|box|>137 331 152 666<|content|>Post-Money Valuation Cap — No discount\n<|id|>5<|type|>title<|page|>1<|box|>500 140 517 281<|content|>Section 1: Events\n<|id|>6<|type|>title<|page|>1<|box|>531 143 549 318<|content|>1(a) Equity Financing\n<|id|>12<|type|>title<|page|>2<|box|>257 143 273 308<|content|>1(b) Liquidity Event\n<|id|>21<|type|>title<|page|>3<|box|>138 142 157 320<|content|>1(c) Dissolution Event\n<|id|>29<|type|>title<|page|>3<|box|>619 140 635 313<|content|>Section 2: Definitions\n<|id|>49<|type|>title<|page|>5<|box|>559 140 575 433<|content|>Section 3: Company Representations\n<|id|>51<|type|>title<|page|>5<|box|>614 140 632 553<|content|>3(a) Organization, Good Standing, and Qualificatio\n<|id|>55<|type|>title<|page|>6<|box|>419 140 436 423<|content|>Section 4: Investor Representations\n<|id|>57<|type|>title<|page|>6<|box|>476 140 492 336<|content|>4(a) Accredited Investor\n<|id|>59<|type|>title<|page|>6<|box|>566 140 583 323<|content|>4(b) Investment Intent\n<|id|>61<|type|>title<|page|>6<|box|>767 140 784 366<|content|>4(c) Sophistication and Risk\n<|id|>63<|type|>title<|page|>7<|box|>140 140 157 354<|content|>4(d) Access to Information\n<|id|>65<|type|>title<|page|>7<|box|>304 140 320 364<|content|>4(e) No General Solicitation\n<|id|>67<|type|>title<|page|>7<|box|>449 140 467 503<|content|>4(f) Residence and Principal Place of Business\n<|id|>69<|type|>title<|page|>7<|box|>569 140 585 470<|content|>Section 5: Most Favored Nation Provision\n<|id|>73<|type|>title<|page|>8<|box|>90 140 107 338<|content|>Section 6: Miscellaneous\n<|id|>74<|type|>title<|page|>8<|box|>121 140 138 374<|content|>6(a) Amendment and Waiver\n<|id|>76<|type|>title<|page|>8<|box|>267 140 284 305<|content|>6(b) Governing Law\n<|id|>78<|type|>title<|page|>8<|box|>358 140 375 328<|content|>6(c) Dispute Resolution\n<|id|>80<|type|>title<|page|>8<|box|>577 140 594 364<|content|>6(d) Successors and Assigns\n<|id|>82<|type|>title<|page|>8<|box|>796 140 814 357<|content|>6(e) No Stockholder Rights\n<|id|>84<|type|>title<|page|>9<|box|>138 140 157 473<|content|>6(f) No Equity Security; Not Indebtedness\n<|id|>86<|type|>title<|page|>9<|box|>286 140 304 297<|content|>6(g) Tax Reporting\n<|id|>90<|type|>title<|page|>9<|box|>804 140 821 321<|content|>6(j) Entire Agreement\n<|id|>92<|type|>title<|page|>10<|box|>138 140 157 465<|content|>6(k) Counterparts; Electronic Signatures\n<|id|>94<|type|>title<|page|>10<|box|>304 142 320 341<|content|>6(l) Waiver of Jury Trial\n<|id|>96<|type|>title<|page|>10<|box|>554 245 571 751<|content|>[Remainder of page intentionally left blank. Signa\n<|id|>97<|type|>title<|page|>10<|box|>579 202 614 792<|content|>SIGNATURE PAGE TO SIMPLE AGREEMENT FOR FUTURE EQUI\n<|id|>99<|type|>title<|page|>10<|box|>667 143 684 248<|content|>COMPANY:\n<|id|>100<|type|>title<|page|>10<|box|>694 142 710 480<|content|>BRIGHTFIELD CLOUD SERVICES INC.\n<|id|>106<|type|>title<|page|>10<|box|>797 143 813 248<|content|>INVESTOR:\n<|id|>107<|type|>title<|page|>10<|box|>824 143 839 331<|content|>[PURCHASER NAME]\n<|id|>120<|type|>title<|page|>11<|box|>405 436 421 560<|content|>SCHEDULE A\n<|id|>121<|type|>title<|page|>11<|box|>431 282 448 714<|content|>PURCHASE AMOUNT AND WIRE INSTRUCTIONS\n<|id|>123<|type|>table<|page|>11<|box|>535 143 752 852<|content|>None\n<|id|>124<|type|>title<|page|>11<|box|>791 142 809 357<|content|>Post-Money Valuation Cap\n<|id|>126<|type|>title<|page|>11<|box|>845 142 863 506<|content|>Aggregate SAFE Ownership Upon Conversion\n<|id|>129<|type|>table<|page|>12<|box|>142 143 319 852<|content|>None\n<|id|>130<|type|>title<|page|>12<|box|>359 142 375 547<|content|>Wire Instructions for Payment of Purchase Amount",
+    "raw_response": "<|src_id|>123<|tgt_id|>121\n<|src_id|>129<|tgt_id|>126",
+    "parsed": [
+        {
+            "src_id": 123,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 126
+        }
+    ]
+}

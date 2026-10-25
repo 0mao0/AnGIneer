@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        36
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        24,
+        25,
+        29,
+        30,
+        35,
+        36
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>351 754 373 916<|content|>Simon Frechette\n<|id|>4<|page|>1<|box|>500 522 537 915<|content|>This publication is available free of charge from: ... 8107\n<|id|>5<|page|>2<|box|>69 720 95 913<|content|>NISTIR 8107\n<|id|>9<|page|>2<|box|>345 774 364 916<|content|>Simon Frechette\n<|id|>10<|page|>2<|box|>363 679 381 916<|content|>Systems integration Division\n<|id|>11<|page|>2<|box|>380 710 400 916<|content|>Engineering Laboratory\n<|id|>12<|page|>2<|box|>465 522 503 915<|content|>This publication is available free of charge from: ... 8107\n<|id|>13<|page|>2<|box|>580 790 601 915<|content|>February 2016\n<|id|>23<|page|>5<|box|>123 81 226 915<|content|>A manufacturer’s sustainable competitiveness depen...es along with intelligent software applications to\n<|id|>26<|page|>5<|box|>291 81 359 915<|content|>Smart manufacturing, different from other technolo...p between SMS and previous manufacturing paradigms\n<|id|>102<|page|>24<|box|>801 81 893 916<|content|>SCADA and Device level: ... PLCs are usually conne... a non-time-critical communications system such as\n<|id|>103<|page|>25<|box|>90 81 181 916<|content|>Ethernet/IP, DeviceNet, ControlNet, PROFINET, and ...n Fieldbus and PROFIBUS are specified in IEC 61158\n<|id|>125<|page|>29<|box|>819 81 892 913<|content|>Existing manufacturing standards are far from bein...em. ... Specifically, new or improved standards in\n<|id|>126<|page|>30<|box|>90 81 199 903<|content|>these areas would improve capabilities associated ...d discussion of the infrastructure of SM standards\n<|id|>164<|page|>35<|box|>797 111 814 506<|content|>• SMS reference model and reference architecture\n<|id|>165<|page|>35<|box|>818 112 834 622<|content|>• Internet of Things (IoT) reference architecture for manufacturing\n<|id|>166<|page|>35<|box|>839 112 854 372<|content|>• Manufacturing service models\n<|id|>167<|page|>35<|box|>859 112 875 418<|content|>• Machine to machine communication\n<|id|>168<|page|>35<|box|>878 112 893 423<|content|>• PLM/MES/ERP/SCM/CRM integration\n<|id|>172<|page|>36<|box|>159 81 231 913<|content|>Finally, the report examined sources of new requir...mergence of sustainable manufacturing requirements\n<|id|>169<|page|>36<|box|>92 112 107 303<|content|>• Cloud manufacturing\n<|id|>170<|page|>36<|box|>112 112 128 357<|content|>• Manufacturing sustainability\n<|id|>171<|page|>36<|box|>133 112 148 359<|content|>• Manufacturing cybersecurity",
+    "raw_response": "<|src_id|>102<|tgt_id|>103\n<|src_id|>125<|tgt_id|>126",
+    "parsed": [
+        {
+            "src_id": 102,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 126
+        }
+    ]
+}

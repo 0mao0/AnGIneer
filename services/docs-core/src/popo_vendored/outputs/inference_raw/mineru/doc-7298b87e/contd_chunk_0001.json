@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        48,
+        96
+    ],
+    "pages": [
+        49,
+        79,
+        82,
+        88,
+        95,
+        96
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>201<|page|>49<|box|>754 0 769 457<|content|>accepted ranged from 100. ... Sale of a \"atrink\" of Treasum bills consisting of an additional \\$201\n<|id|>202<|page|>49<|box|>766 0 791 463<|content|>21/ Sale of a \"strip\" of Treasury bills consisting..., 14, 21, and 28, and February 4, 11, and 18, 1971\n<|id|>277<|page|>79<|box|>234 394 246 546<|content|>(In millions of dollars)\n<|id|>278<|page|>79<|box|>107 8 171 458<|content|>United States savings notes were on sale May 1, 19...he simultaneous purchase of Series E savings bonds\n<|id|>286<|page|>82<|box|>116 48 303 497<|content|>The monthly Treasury Survey of Ownership covers se...ished for banks and insurance companies in the May\n<|id|>287<|page|>82<|box|>113 565 172 1000<|content|>1941 Treasury Bulletin, for corporations and savin...an local governments in the February 1962 Bulletin\n<|id|>305<|page|>88<|box|>547 33 630 495<|content|>4/ Consists of corporate pension trust funds and p...sented as supplemental information in a memorandum\n<|id|>308<|page|>88<|box|>609 537 620 684<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>338<|page|>95<|box|>859 0 916 410<|content|>includes Bank for International Settlements and Eu...International Bank for Reconstruction and Develop-\n<|id|>340<|page|>95<|box|>890 448 900 557<|content|>p Preliminary. ... p Preliminary\n<|id|>343<|page|>96<|box|>600 51 621 497<|content|>4/ Data on the two lines shown for this date diffe...e. ... Figures on the first line are comparable in\n<|id|>344<|page|>96<|box|>539 547 621 1000<|content|>coverage to those shown for the preceding date; ... p Preliminary",
+    "raw_response": "<|src_id|>286<|tgt_id|>287\n<|src_id|>343<|tgt_id|>344",
+    "parsed": [
+        {
+            "src_id": 286,
+            "tgt_id": 287
+        },
+        {
+            "src_id": 343,
+            "tgt_id": 344
+        }
+    ]
+}

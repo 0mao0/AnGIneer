@@ -1,0 +1,20 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 321 159 676<|content|>STATE OF DELAWARE OFFICE OF THE SECRETARY OF STATE\n<|id|>1<|type|>title<|page|>1<|box|>200 338 219 658<|content|>CERTIFICATE OF GOOD STANDING\n<|id|>3<|type|>title<|page|>1<|box|>287 140 305 705<|content|>TO ALL TO WHOM THESE PRESENTS MAY COME, GREETINGS:\n<|id|>5<|type|>title<|page|>1<|box|>392 143 409 305<|content|>Entity Identification\n<|id|>6<|type|>table<|page|>1<|box|>415 143 580 852<|content|>None\n<|id|>7<|type|>title<|page|>1<|box|>630 142 647 246<|content|>Certification\n<|id|>14<|type|>title<|page|>2<|box|>411 142 426 393<|content|>Authentication and Verification\n<|id|>15<|type|>title<|page|>2<|box|>436 377 452 620<|content|>IN TESTIMONY WHEREOF,\n<|id|>21<|type|>title<|page|>2<|box|>575 357 590 638<|content|>Authentication No.: 2024-0703-8291",
+    "raw_response": "<|src_id|>6<|tgt_id|>5",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 5
+        }
+    ]
+}

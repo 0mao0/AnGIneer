@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        17,
+        18,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>161 140 179 413<|content|>TO: ... 1038-00007\n<|id|>3<|page|>1<|box|>188 140 205 627<|content|>FROM: ... Francesca Morano, Partner\n<|id|>4<|page|>1<|box|>213 140 231 310<|content|>DATE: ... June 30, 2023\n<|id|>5<|page|>1<|box|>239 140 294 854<|content|>RE: ... 21STCV-34872, Superior Court of California, County of Los Angeles\n<|id|>6<|page|>1<|box|>301 140 319 637<|content|>CC: ... Carlos Espinoza, Associate\n<|id|>7<|page|>1<|box|>328 140 345 408<|content|>Right-click to update Table of Contents\n<|id|>179<|page|>17<|box|>851 174 888 856<|content|>(a) The 14 Project Atlas emails referencing Vantor...pecific exclusivity terms, could have been used by\n<|id|>180<|page|>18<|box|>90 174 127 854<|content|>Vantor at trial to create an unfavorable impressio...ade was aware of the exclusive supply arrangements\n<|id|>182<|page|>18<|box|>214 174 270 854<|content|>(c) The projected defense costs through trial, inc...ch were projected to add an additional $1. ... and\n<|id|>184<|page|>18<|box|>321 140 450 854<|content|>Settlement Terms. ... The confidentiality and non-...ovisions limit the potential for adverse publicity\n<|id|>206<|page|>20<|box|>553 140 569 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>207<|page|>20<|box|>571 143 588 251<|content|>By: ... By\n<|id|>208<|page|>20<|box|>588 142 604 349<|content|>Name: ... Douglas Carmichael\n<|id|>209<|page|>20<|box|>606 143 621 246<|content|>Title: ... Partner\n<|id|>210<|page|>20<|box|>622 142 638 294<|content|>Date: ... June 30, 2023\n<|id|>211<|page|>20<|box|>638 142 656 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>212<|page|>20<|box|>657 143 674 253<|content|>By: ... By\n<|id|>213<|page|>20<|box|>675 143 690 334<|content|>Name: ... Francesca Morano\n<|id|>214<|page|>20<|box|>691 143 707 246<|content|>Title: ... Partner\n<|id|>215<|page|>20<|box|>709 142 724 292<|content|>Date: ... June 30, 2023",
+    "raw_response": "<|src_id|>179<|tgt_id|>180\n<|src_id|>182<|tgt_id|>184",
+    "parsed": [
+        {
+            "src_id": 179,
+            "tgt_id": 180
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 184
+        }
+    ]
+}

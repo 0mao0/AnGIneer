@@ -1,0 +1,63 @@
+{
+    "task": "title",
+    "chunk_index": 4,
+    "range": [
+        191,
+        196
+    ],
+    "pages": [
+        191,
+        192,
+        193,
+        194,
+        196
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>699<|page|>191<|box|>54 171 72 764<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>700<|page|>191<|box|>79 270 111 661<|content|>Section IV - Trust Funds Table GA-IV-7. - Unemploy\n<|id|>704<|page|>192<|box|>52 225 67 824<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>705<|page|>192<|box|>75 409 89 639<|content|>Section IV - Trust Funds\n<|id|>706<|page|>192<|box|>91 267 108 784<|content|>Table GA-IV-7. - Unemployment Trust Fund - (Contin\n<|id|>708<|page|>193<|box|>57 153 72 747<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>709<|page|>193<|box|>79 351 92 554<|content|>Section IV - Trust Funds\n<|id|>710<|page|>193<|box|>97 237 111 663<|content|>Table GA-IV-8. - National Service Life Insurance F\n<|id|>712<|page|>194<|box|>51 225 66 824<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FU\n<|id|>713<|page|>194<|box|>69 410 84 642<|content|>Section IV - Trust Funds\n<|id|>714<|page|>194<|box|>84 153 112 901<|content|>Table GA-IV-9. - Investments of Specified Trust Ac\n<|id|>717<|page|>196<|box|>82 343 97 687<|content|>June 1971 through May 1972 - (Continued)",
+    "raw_response": "<|id|>699<|level|>1\n<|id|>700<|level|>2\n<|id|>704<|level|>1\n<|id|>705<|level|>2\n<|id|>706<|level|>3\n<|id|>708<|level|>1\n<|id|>709<|level|>2\n<|id|>710<|level|>3\n<|id|>712<|level|>1\n<|id|>713<|level|>2\n<|id|>714<|level|>3\n<|id|>717<|level|>-1",
+    "parsed": [
+        {
+            "id": 699,
+            "level": 1
+        },
+        {
+            "id": 700,
+            "level": 2
+        },
+        {
+            "id": 704,
+            "level": 1
+        },
+        {
+            "id": 705,
+            "level": 2
+        },
+        {
+            "id": 706,
+            "level": 3
+        },
+        {
+            "id": 708,
+            "level": 1
+        },
+        {
+            "id": 709,
+            "level": 2
+        },
+        {
+            "id": 710,
+            "level": 3
+        },
+        {
+            "id": 712,
+            "level": 1
+        },
+        {
+            "id": 713,
+            "level": 2
+        },
+        {
+            "id": 714,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,116 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 285 125 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>2<|page|>1<|box|>477 189 513 805<|content|>STIPULATION AND [PROPOSED] ORDER FOR ENTRY OF PERM\n<|id|>3<|page|>1<|box|>558 406 577 589<|content|>I. STIPULATION\n<|id|>4<|page|>1<|box|>604 142 619 246<|content|>A. Preamble\n<|id|>11<|page|>2<|box|>337 140 354 390<|content|>B. Recital of Background Facts\n<|id|>29<|page|>4<|box|>267 140 284 310<|content|>C. Stipulation Terms\n<|id|>43<|page|>5<|box|>191 140 227 854<|content|>FOR DEFENDANTS GRIZZLY PEAK RESEARCH LLC, GRIZZLY\n<|id|>47<|page|>5<|box|>361 200 405 795<|content|>II. [PROPOSED] ORDER FOR ENTRY OF PERMANENT INJUNC\n<|id|>49<|page|>5<|box|>518 142 535 256<|content|>A. Definitions\n<|id|>61<|page|>6<|box|>633 142 651 529<|content|>B. Injunction Against Republication (Permanent)\n<|id|>62<|page|>6<|box|>659 140 676 803<|content|>7. Defendants, and each of them, are hereby perman\n<|id|>72<|page|>7<|box|>512 140 529 660<|content|>C. Injunction Against Trading in RDGM Securities (\n<|id|>81<|page|>8<|box|>426 142 444 424<|content|>D. Requirement to Remove Reports\n<|id|>89<|page|>9<|box|>148 142 167 401<|content|>E. Compliance and Enforcement\n<|id|>95<|page|>9<|box|>569 142 587 269<|content|>F. Modification\n<|id|>97<|page|>9<|box|>727 140 744 284<|content|>G. Binding Effect\n<|id|>100<|page|>10<|box|>186 140 204 465<|content|>H. Relationship to Settlement Agreement\n<|id|>104<|page|>10<|box|>439 140 455 362<|content|>I. No Admission of Liability\n<|id|>107<|page|>10<|box|>672 142 689 348<|content|>J. Effective Date of Order\n<|id|>109<|page|>10<|box|>768 411 786 584<|content|>IT IS SO ORDERED.\n<|id|>111<|page|>11<|box|>90 362 109 633<|content|>III. PROOF OF SERVICE\n<|id|>112<|page|>11<|box|>128 406 145 591<|content|>PROOF OF SERVICE\n<|id|>113<|page|>11<|box|>154 140 171 604<|content|>STATE OF CALIFORNIA, COUNTY OF LOS ANGELES\n<|id|>116<|page|>11<|box|>268 187 304 807<|content|>STIPULATION AND [PROPOSED] ORDER FOR ENTRY OF PERM",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>4<|level|>3\n<|id|>11<|level|>3\n<|id|>29<|level|>3\n<|id|>43<|level|>4\n<|id|>47<|level|>2\n<|id|>49<|level|>3\n<|id|>61<|level|>3\n<|id|>62<|level|>4\n<|id|>72<|level|>3\n<|id|>81<|level|>3\n<|id|>89<|level|>3\n<|id|>95<|level|>3\n<|id|>97<|level|>3\n<|id|>100<|level|>3\n<|id|>104<|level|>3\n<|id|>107<|level|>3\n<|id|>109<|level|>-1\n<|id|>111<|level|>2\n<|id|>112<|level|>3\n<|id|>113<|level|>4\n<|id|>116<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 4
+        },
+        {
+            "id": 116,
+            "level": 1
+        }
+    ]
+}

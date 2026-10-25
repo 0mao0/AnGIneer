@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['14', 'Romulus-v1', '128', '32', '128', '60', '', '', '1.88', '1.00', '1.30', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=2, No. Variant Name', 'AD Block Size [bits]', 'Cycles per AD Block', 'PT-CT Block Size [bits]', 'Cycles per PT-CT Block', 'Hash Msg. Block Size [bits]', 'Cycles per Hash Msg Block', 'AD Enc Thr PT Enc Thr', 'PT Dec Thr PT Enc Thr', 'AD+PT Enc Thr PT Enc Thr', 'Hash Thr PT Enc Thr']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 42,
+    "table2_idx": 43
+}

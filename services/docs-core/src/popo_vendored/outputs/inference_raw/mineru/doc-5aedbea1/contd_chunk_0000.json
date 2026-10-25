@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 287 133 710<|content|>599 Lexington Avenue, 38th Floor New York, NY 10022\n<|id|>2<|page|>1<|box|>141 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 723 185 854<|content|>January 20, 2025\n<|id|>4<|page|>1<|box|>193 668 210 854<|content|>Via Email and U. ... Mail\n<|id|>5<|page|>1<|box|>219 140 253 854<|content|>Elena Vasquez-Bright, Esq. ... 4500 Elliott Avenue West, Suite 3200 Seattle, WA 98119\n<|id|>6<|page|>1<|box|>263 140 281 339<|content|>Dear Ms. ... Vasquez-Bright\n<|id|>72<|page|>8<|box|>449 174 484 854<|content|>Elena Vasquez-Bright, Esq. ... 4500 Elliott Avenue West, Suite 3200 Seattle, WA 98119\n<|id|>73<|page|>8<|box|>494 174 510 496<|content|>Email: ... com\n<|id|>74<|page|>8<|box|>511 140 546 852<|content|>with a copy to such additional billing contact(s) ...te from time to time by written notice to the Firm\n<|id|>78<|page|>8<|box|>794 140 887 854<|content|>In the event that a potential or actual conflict o...ke such steps as are required under the applicable\n<|id|>79<|page|>9<|box|>90 140 126 854<|content|>Rules of Professional Conduct, which may include w...gagement or declining a conflicting representation\n<|id|>109<|page|>12<|box|>556 142 573 272<|content|>Very truly yours,\n<|id|>110<|page|>12<|box|>574 142 590 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>111<|page|>12<|box|>593 143 609 253<|content|>By: ... By\n<|id|>112<|page|>12<|box|>609 142 625 334<|content|>Name: ... Harrison Wexford\n<|id|>113<|page|>12<|box|>626 143 642 246<|content|>Title: ... Partner\n<|id|>114<|page|>12<|box|>643 140 659 781<|content|>Calderwood & Harkness LLP 599 Lexington Avenue, 38th Floor New York, NY 10022\n<|id|>115<|page|>12<|box|>660 142 676 439<|content|>ACKNOWLEDGED AND AGREED: ... ACKNOWLEDGED AND AGREED\n<|id|>119<|page|>12<|box|>801 142 818 362<|content|>Name: ... Elena Vasquez-Bright\n<|id|>120<|page|>12<|box|>819 143 834 315<|content|>Title: ... General Counsel\n<|id|>121<|page|>12<|box|>837 143 852 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>78<|tgt_id|>79",
+    "parsed": [
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        }
+    ]
+}

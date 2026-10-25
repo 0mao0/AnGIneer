@@ -1,0 +1,28 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        11,
+        15
+    ],
+    "pages": [
+        11,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>18<|page|>11<|box|>225 85 244 374<|content|>--- SERIES SEED PREFERRED STOCK ---\n<|id|>24<|page|>11<|box|>653 85 671 196<|content|>--- TOTALS ---\n<|id|>38<|page|>15<|box|>299 85 315 300<|content|>--- OPERATING METRICS ---",
+    "raw_response": "<|id|>18<|level|>1\n<|id|>24<|level|>1\n<|id|>38<|level|>1",
+    "parsed": [
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        }
+    ]
+}

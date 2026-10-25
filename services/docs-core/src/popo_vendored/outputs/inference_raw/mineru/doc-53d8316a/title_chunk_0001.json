@@ -1,0 +1,144 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        59
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        55,
+        56,
+        57,
+        58,
+        59
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>468<|page|>45<|box|>89 140 272 854<|content|>TRANSACTION DOCUMENT, OR THE TRANSACTIONS CONTEMPL\n<|id|>469<|page|>45<|box|>296 140 313 334<|content|>Section 11.04 — Notices\n<|id|>471<|page|>45<|box|>439 142 455 236<|content|>If to Seller:\n<|id|>485<|page|>46<|box|>89 176 107 527<|content|>Candace Reeves, Director, Warehouse Lending\n<|id|>487<|page|>46<|box|>133 142 151 344<|content|>If to Participating Buyer:\n<|id|>494<|page|>46<|box|>306 143 324 408<|content|>With copies to respective counsel:\n<|id|>501<|page|>46<|box|>511 140 529 480<|content|>Section 11.05 — Amendments and Waivers\n<|id|>511<|page|>47<|box|>90 140 107 455<|content|>Section 11.06 — Successors and Assigns\n<|id|>517<|page|>47<|box|>700 140 717 370<|content|>Section 11.07 — Severability\n<|id|>519<|page|>48<|box|>90 140 107 416<|content|>Section 11.08 — Entire Agreement\n<|id|>521<|page|>48<|box|>250 140 266 383<|content|>Section 11.09 — Counterparts\n<|id|>523<|page|>48<|box|>500 140 515 393<|content|>Section 11.10 — Confidentiality\n<|id|>533<|page|>49<|box|>157 140 174 334<|content|>Section 11.11 — Set-Off\n<|id|>535<|page|>49<|box|>425 140 443 429<|content|>Section 11.12 — Taxes; Withholding\n<|id|>540<|page|>50<|box|>369 140 386 429<|content|>Section 11.13 — Costs and Expenses\n<|id|>550<|page|>51<|box|>90 140 107 501<|content|>Section 11.14 — No Third-Party Beneficiaries\n<|id|>552<|page|>51<|box|>212 140 229 485<|content|>Section 11.15 — USA PATRIOT Act Notice\n<|id|>554<|page|>51<|box|>444 140 460 604<|content|>Section 11.16 — Intent of Parties; Bankruptcy Safe\n<|id|>559<|page|>52<|box|>306 439 323 558<|content|>SCHEDULES\n<|id|>560<|page|>53<|box|>90 246 133 751<|content|>SCHEDULE I — ELIGIBILITY CRITERIA AND CONCENTRATIO\n<|id|>561<|page|>53<|box|>152 142 170 594<|content|>(Incorporated by reference — agreed as of February\n<|id|>562<|page|>53<|box|>193 142 210 370<|content|>Part A — Eligibility Criteria\n<|id|>578<|page|>55<|box|>90 362 109 635<|content|>SCHEDULE II — FORMS\n<|id|>586<|page|>56<|box|>90 245 109 751<|content|>SCHEDULE III — PERFORMANCE TRIGGERS\n<|id|>595<|page|>57<|box|>89 212 109 784<|content|>SCHEDULE IV — WIRE TRANSFER INSTRUCTIONS\n<|id|>596<|page|>57<|box|>136 142 154 457<|content|>Administrative Agent Wire Instructions\n<|id|>599<|page|>57<|box|>263 142 280 297<|content|>Collection Account\n<|id|>602<|page|>57<|box|>390 142 407 334<|content|>Seller Wire Instructions\n<|id|>605<|page|>58<|box|>90 171 109 825<|content|>SCHEDULE V — UNDERWRITING GUIDELINES SUMMARY\n<|id|>609<|page|>58<|box|>714 408 731 588<|content|>SIGNATURE PAGES\n<|id|>610<|page|>58<|box|>739 401 758 596<|content|>[Signature Pages Follow]\n<|id|>629<|page|>59<|box|>313 351 330 645<|content|>ACKNOWLEDGED AND AGREED",
+    "raw_response": "<|id|>468<|level|>1\n<|id|>469<|level|>2\n<|id|>471<|level|>3\n<|id|>485<|level|>-1\n<|id|>487<|level|>3\n<|id|>494<|level|>3\n<|id|>501<|level|>2\n<|id|>511<|level|>2\n<|id|>517<|level|>2\n<|id|>519<|level|>2\n<|id|>521<|level|>2\n<|id|>523<|level|>2\n<|id|>533<|level|>2\n<|id|>535<|level|>2\n<|id|>540<|level|>2\n<|id|>550<|level|>2\n<|id|>552<|level|>2\n<|id|>554<|level|>2\n<|id|>559<|level|>1\n<|id|>560<|level|>1\n<|id|>561<|level|>-1\n<|id|>562<|level|>2\n<|id|>578<|level|>1\n<|id|>586<|level|>1\n<|id|>595<|level|>1\n<|id|>596<|level|>2\n<|id|>599<|level|>2\n<|id|>602<|level|>2\n<|id|>605<|level|>1\n<|id|>609<|level|>1\n<|id|>610<|level|>-1\n<|id|>629<|level|>1",
+    "parsed": [
+        {
+            "id": 468,
+            "level": 1
+        },
+        {
+            "id": 469,
+            "level": 2
+        },
+        {
+            "id": 471,
+            "level": 3
+        },
+        {
+            "id": 487,
+            "level": 3
+        },
+        {
+            "id": 494,
+            "level": 3
+        },
+        {
+            "id": 501,
+            "level": 2
+        },
+        {
+            "id": 511,
+            "level": 2
+        },
+        {
+            "id": 517,
+            "level": 2
+        },
+        {
+            "id": 519,
+            "level": 2
+        },
+        {
+            "id": 521,
+            "level": 2
+        },
+        {
+            "id": 523,
+            "level": 2
+        },
+        {
+            "id": 533,
+            "level": 2
+        },
+        {
+            "id": 535,
+            "level": 2
+        },
+        {
+            "id": 540,
+            "level": 2
+        },
+        {
+            "id": 550,
+            "level": 2
+        },
+        {
+            "id": 552,
+            "level": 2
+        },
+        {
+            "id": 554,
+            "level": 2
+        },
+        {
+            "id": 559,
+            "level": 1
+        },
+        {
+            "id": 560,
+            "level": 1
+        },
+        {
+            "id": 562,
+            "level": 2
+        },
+        {
+            "id": 578,
+            "level": 1
+        },
+        {
+            "id": 586,
+            "level": 1
+        },
+        {
+            "id": 595,
+            "level": 1
+        },
+        {
+            "id": 596,
+            "level": 2
+        },
+        {
+            "id": 599,
+            "level": 2
+        },
+        {
+            "id": 602,
+            "level": 2
+        },
+        {
+            "id": 605,
+            "level": 1
+        },
+        {
+            "id": 609,
+            "level": 1
+        },
+        {
+            "id": 629,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>3<|type|>title<|page|>1<|box|>196 143 213 290<|content|>MEMORANDUM\n<|id|>4<|type|>table<|page|>1<|box|>222 143 497 852<|content|>None\n<|id|>6<|type|>title<|page|>1<|box|>614 289 633 707<|content|>I. PURPOSE OF THIS MEMORANDUM\n<|id|>10<|type|>title<|page|>2<|box|>198 163 217 831<|content|>II. BACKGROUND — THE PROPOSED MTDC ENGAGEMENT\n<|id|>11<|type|>title<|page|>2<|box|>243 140 260 346<|content|>A. The Prospective Client\n<|id|>19<|type|>title<|page|>2<|box|>739 140 756 447<|content|>B. Origin of the Proposed Engagement\n<|id|>22<|type|>title<|page|>3<|box|>231 140 248 527<|content|>C. Underlying Matters Requiring Representation\n<|id|>24<|type|>title<|page|>3<|box|>324 140 340 573<|content|>1. Illinois Attorney General Civil Investigative D\n<|id|>27<|type|>title<|page|>3<|box|>604 140 623 344<|content|>2. Employee Class Action\n<|id|>30<|type|>title<|page|>4<|box|>90 140 107 415<|content|>3. The Biometric Platform at Issue\n<|id|>33<|type|>title<|page|>4<|box|>364 140 381 434<|content|>D. Proposed Scope of Representation\n<|id|>41<|type|>title<|page|>5<|box|>90 140 107 452<|content|>E. Proposed Staffing and Fee Estimates\n<|id|>49<|type|>title<|page|>5<|box|>415 140 431 444<|content|>F. MTDC's Estimated BIPA Exposure\n<|id|>56<|type|>title<|page|>6<|box|>90 187 135 810<|content|>III. THE CONFLICT — EXISTING REPRESENTATION OF PIN\n<|id|>57<|type|>title<|page|>6<|box|>159 142 176 390<|content|>A. Identification of the Conflict\n<|id|>65<|type|>title<|page|>6<|box|>625 140 643 511<|content|>B. Nature of the Existing Pinnacle Engagement\n<|id|>72<|type|>title<|page|>7<|box|>295 140 313 699<|content|>C. Why the Conflict Exists — Direct Adversity and\n<|id|>74<|type|>title<|page|>7<|box|>388 142 406 483<|content|>1. Direct Adversity — Illinois Rule 1.7(a)(1)\n<|id|>78<|type|>title<|page|>7<|box|>787 140 805 509<|content|>2. Material Limitation — Illinois Rule 1.7(a)(2)\n<|id|>83<|type|>title<|page|>8<|box|>492 140 508 362<|content|>3. Confidential Information\n<|id|>92<|type|>title<|page|>9<|box|>223 140 239 354<|content|>D. Waivability Assessment\n<|id|>105<|type|>title<|page|>10<|box|>352 228 371 767<|content|>IV. CONFLICTS COMMITTEE DETERMINATION\n<|id|>127<|type|>title<|page|>11<|box|>439 223 459 772<|content|>V. FINANCIAL IMPACT — FOREGONE REVENUE\n<|id|>132<|type|>title<|page|>12<|box|>171 176 215 818<|content|>VI. PLAN FOR COMMUNICATING THE DECLINATION TO MTDC\n<|id|>133<|type|>title<|page|>12<|box|>241 142 257 313<|content|>A. Declination Letter\n<|id|>144<|type|>title<|page|>12<|box|>795 140 811 413<|content|>B. Referral to Alternative Counsel\n<|id|>146<|type|>title<|page|>13<|box|>133 178 151 437<|content|>1. Aldridge, Paulson & Cho LLP\n<|id|>150<|type|>title<|page|>13<|box|>273 178 290 383<|content|>2. Northfield McKay LLP\n<|id|>156<|type|>title<|page|>13<|box|>575 333 595 663<|content|>VII. RETURN OF MATERIALS\n<|id|>159<|type|>title<|page|>13<|box|>830 225 849 771<|content|>VIII. DIRECTIVES TO THE ENGAGEMENT TEAM\n<|id|>161<|type|>title<|page|>14<|box|>90 142 107 315<|content|>A. Cessation of Work\n<|id|>168<|type|>title<|page|>14<|box|>426 140 443 401<|content|>B. Archiving and Confidentiality\n<|id|>173<|type|>title<|page|>14<|box|>809 140 825 540<|content|>C. Protection of Pinnacle Confidential Information\n<|id|>176<|type|>title<|page|>15<|box|>270 191 291 805<|content|>IX. MATTER CLOSURE — NEXT STEPS AND TIMELINE\n<|id|>177<|type|>table<|page|>15<|box|>351 143 875 852<|content|>None\n<|id|>179<|type|>title<|page|>16<|box|>172 403 191 594<|content|>X. CONCLUSION\n<|id|>184<|type|>title<|page|>16<|box|>660 140 676 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>4<|tgt_id|>3\n<|src_id|>177<|tgt_id|>176",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 176
+        }
+    ]
+}

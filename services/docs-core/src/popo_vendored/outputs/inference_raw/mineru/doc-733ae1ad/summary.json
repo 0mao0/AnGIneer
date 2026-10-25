@@ -1,0 +1,218 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l__rlodl\\input\\pdfs\\doc-733ae1ad.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l__rlodl\\enriched\\doc-733ae1ad.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>8<|level|>3\n<|id|>13<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>3\n<|id|>42<|level|>3\n<|id|>45<|level|>3\n<|id|>52<|level|>2\n<|id|>61<|level|>3\n<|id|>67<|level|>3\n<|id|>69<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>3\n<|id|>84<|level|>2\n<|id|>87<|level|>2\n<|id|>88<|level|>3\n<|id|>90<|level|>3\n<|id|>92<|level|>3\n<|id|>95<|level|>2\n<|id|>101<|level|>3\n<|id|>108<|level|>3\n<|id|>115<|level|>3",
+    "image_output": "<|src_id|>9<|tgt_id|>8\n<|src_id|>10<|tgt_id|>8\n<|src_id|>11<|tgt_id|>8\n<|src_id|>26<|tgt_id|>24\n<|src_id|>32<|tgt_id|>31\n<|src_id|>40<|tgt_id|>38\n<|src_id|>54<|tgt_id|>52\n<|src_id|>55<|tgt_id|>52\n<|src_id|>57<|tgt_id|>52\n<|src_id|>59<|tgt_id|>52\n<|src_id|>78<|tgt_id|>76\n<|src_id|>91<|tgt_id|>90\n<|src_id|>94<|tgt_id|>92",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 9,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 92
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 9,
+            "table2_idx": 10,
+            "upper_row_ss": [
+                [
+                    "Foreign Qualification(s)",
+                    "Commonwealth of Massachusetts (qualified; in good standing)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Exact Legal Name",
+                    "Arbor Health Holdings LLC"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 54,
+            "table2_idx": 55,
+            "upper_row_ss": [
+                [
+                    "Arbor Health Platform",
+                    "ARBORFLOW",
+                    "Trademark (Class 9, Class",
+                    "Reg. No.",
+                    "Registered —",
+                    "March 29, 2022"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Services Inc.",
+                    "(word mark)",
+                    "42)",
+                    "6,592,108",
+                    "Active",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

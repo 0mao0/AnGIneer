@@ -1,0 +1,139 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 258<|content|>【3254#36】青岛市\n<|id|>2<|page|>1<|box|>175 105 190 310<|content|>【326051#11】阿拉伯世界\n<|id|>4<|page|>1<|box|>275 107 291 258<|content|>【3263055#8】BT-7\n<|id|>6<|page|>1<|box|>410 107 426 267<|content|>【328825#0】加賀藩\n<|id|>8<|page|>1<|box|>512 105 527 267<|content|>【328825#2】加賀藩\n<|id|>10<|page|>1<|box|>595 107 611 267<|content|>【328825#6】加賀藩\n<|id|>12<|page|>1<|box|>678 107 695 267<|content|>【328834#1】兼六園\n<|id|>14<|page|>1<|box|>780 105 795 315<|content|>【3290184#5】拉登 (瑞士)\n<|id|>16<|page|>1<|box|>864 107 879 302<|content|>【329972#0】1848年革命\n<|id|>18<|page|>2<|box|>134 107 149 310<|content|>【329972#24】1848年革命\n<|id|>20<|page|>2<|box|>235 107 250 302<|content|>【33117#26】麻薩諸塞州\n<|id|>22<|page|>2<|box|>370 107 387 310<|content|>【3327608#3】意大利國會\n<|id|>24<|page|>2<|box|>437 107 453 292<|content|>【3328840#5】德国交通\n<|id|>26<|page|>2<|box|>504 107 520 381<|content|>【3333402#0】高雄區中小企業銀行\n<|id|>28<|page|>2<|box|>570 107 586 381<|content|>【3333402#4】高雄區中小企業銀行\n<|id|>30<|page|>2<|box|>637 107 653 364<|content|>【3356334#2】2013年意大利大選\n<|id|>32<|page|>3<|box|>73 107 89 403<|content|>【3362491#1】共和国参议院 (意大利)\n<|id|>34<|page|>3<|box|>156 105 173 381<|content|>【3372209#1】达米亚诺·达米亚尼\n<|id|>36<|page|>3<|box|>223 107 240 284<|content|>【337272#0】中港照相\n<|id|>38<|page|>3<|box|>341 107 357 275<|content|>【3382257#2】YUYU式\n<|id|>40<|page|>3<|box|>425 107 441 327<|content|>【3391291#0】种树的牧羊人\n<|id|>42<|page|>3<|box|>492 107 508 319<|content|>【339151#4】福州屏东中学\n<|id|>44<|page|>3<|box|>576 105 592 364<|content|>【3394701#1】中华民族伟大复兴\n<|id|>46<|page|>3<|box|>780 105 796 373<|content|>【3412257#41】爱莉安娜·格兰德\n<|id|>48<|page|>4<|box|>73 107 89 275<|content|>【3418284#1】潘祖尧\n<|id|>50<|page|>4<|box|>140 105 156 408<|content|>【34191#14】中华人民共和国网络审查\n<|id|>52<|page|>4<|box|>241 105 256 400<|content|>【34191#4】中华人民共和国网络审查\n<|id|>54<|page|>4<|box|>341 107 357 381<|content|>【342781#14】中華人民共和國媒體\n<|id|>56<|page|>4<|box|>494 107 510 381<|content|>【342781#33】中華人民共和國媒體\n<|id|>58<|page|>5<|box|>73 107 89 381<|content|>【342781#36】中華人民共和國媒體",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1\n<|id|>40<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>1\n<|id|>52<|level|>1\n<|id|>54<|level|>1\n<|id|>56<|level|>1\n<|id|>58<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ]
+}

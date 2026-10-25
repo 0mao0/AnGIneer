@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        11
+    ],
+    "pages": [
+        5,
+        7,
+        8,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>38<|page|>5<|box|>237 107 253 327<|content|>4. ... 3 通航桥孔左、右侧标志\n<|id|>41<|page|>5<|box|>581 235 595 361<|content|>通航桥孔左侧标志\n<|id|>76<|page|>7<|box|>890 107 906 887<|content|>7. ... 其他通航桥孔的\n<|id|>77<|page|>8<|box|>107 107 121 400<|content|>视觉航标灯光射程应不小于 1 n mile。 ... 视觉航标灯光射程应不小于 1 n mile\n<|id|>107<|page|>11<|box|>172 336 187 660<|content|>海区可航行水域桥梁助航标志设置示意图\n<|id|>108<|page|>11<|box|>200 142 217 524<|content|>海区通航桥梁助航标志的设置见图 B. ... 4",
+    "raw_response": "<|src_id|>76<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        }
+    ]
+}

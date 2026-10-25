@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        50,
+        111
+    ],
+    "pages": [
+        51,
+        89,
+        111
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>316<|page|>51<|box|>167 604 189 915<|content|>STATISTICS\n<|id|>317<|page|>51<|box|>199 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund\n<|id|>439<|page|>89<|box|>130 267 143 728<|content|>[Holdings at end of period in millions of dollars. ... Treasury International Capital Reporting System]\n<|id|>441<|page|>89<|box|>773 91 805 486<|content|>^{1} Includes Austria, Belgium, Cyprus, Finland, F...For data as of January 2011, also includes Estonia\n<|id|>544<|page|>111<|box|>148 364 166 630<|content|>Source: ... Financial Management Service\n<|id|>545<|page|>111<|box|>186 81 262 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>553<|page|>111<|box|>843 81 904 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>554<|page|>111<|box|>186 504 262 915<|content|>Second Liberty Loan Act of 1917, the nature of the...l debt. ... the limit may change from year to year",
+    "raw_response": "<|src_id|>553<|tgt_id|>554",
+    "parsed": [
+        {
+            "src_id": 553,
+            "tgt_id": 554
+        }
+    ]
+}

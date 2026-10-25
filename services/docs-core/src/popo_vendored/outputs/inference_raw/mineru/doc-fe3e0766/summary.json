@@ -1,0 +1,181 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ue_8gb8x\\input\\pdfs\\doc-fe3e0766.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ue_8gb8x\\enriched\\doc-fe3e0766.json",
+    "contd_output": "<|src_id|>160<|tgt_id|>161",
+    "title_output": "<|id|>0<|level|>1\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>16<|level|>3\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>34<|level|>3\n<|id|>36<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>51<|level|>3\n<|id|>57<|level|>2\n<|id|>58<|level|>3\n<|id|>60<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>75<|level|>3\n<|id|>91<|level|>2\n<|id|>92<|level|>3\n<|id|>94<|level|>3\n<|id|>106<|level|>2\n<|id|>107<|level|>3\n<|id|>109<|level|>3\n<|id|>119<|level|>2\n<|id|>120<|level|>3\n<|id|>122<|level|>3\n<|id|>132<|level|>2\n<|id|>133<|level|>3\n<|id|>135<|level|>3\n<|id|>145<|level|>2\n<|id|>146<|level|>3\n<|id|>148<|level|>3\n<|id|>162<|level|>2\n<|id|>183<|level|>2",
+    "image_output": "<|src_id|>79<|tgt_id|>75\n<|src_id|>80<|tgt_id|>75",
+    "contd_label": [
+        {
+            "src_id": 160,
+            "tgt_id": 161
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 79,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 75
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 79,
+            "table2_idx": 80,
+            "upper_row_ss": [
+                [
+                    "Add: Income tax provision",
+                    "$14.9M",
+                    "$8.6M"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Add: Restructuring charges",
+                    "$3.2M",
+                    "$1.4M"
+                ]
+            ]
+        }
+    ]
+}

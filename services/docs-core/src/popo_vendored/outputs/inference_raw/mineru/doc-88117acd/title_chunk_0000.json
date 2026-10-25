@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>412 143 426 553<|content|>ATTORNEY OR PARTY WITHOUT ATTORNEY:\n<|id|>4<|page|>1<|box|>635 143 651 707<|content|>SUPERIOR COURT OF CALIFORNIA, COUNTY OF LOS ANGELE\n<|id|>7<|page|>1<|box|>821 380 837 617<|content|>REQUEST FOR DISMISSAL\n<|id|>9<|page|>2<|box|>89 379 107 617<|content|>REQUEST FOR DISMISSAL\n<|id|>11<|page|>2<|box|>147 140 162 591<|content|>1. TO THE CLERK: Please dismiss this action as fol\n<|id|>12<|page|>2<|box|>171 142 188 354<|content|>a. Party filing this request:\n<|id|>15<|page|>2<|box|>398 142 417 310<|content|>2. Scope of Dismissal\n<|id|>31<|page|>3<|box|>253 140 271 305<|content|>3. Type of Dismissal\n<|id|>32<|page|>3<|box|>277 176 295 303<|content|>With prejudice\n<|id|>35<|page|>3<|box|>414 140 431 316<|content|>4. Terms of Dismissal\n<|id|>40<|page|>3<|box|>766 140 784 511<|content|>5. Identification of All Actions Being Dismissed\n<|id|>50<|page|>4<|box|>691 140 709 560<|content|>6. Reference to Governing Stipulation and Settleme\n<|id|>54<|page|>5<|box|>330 142 347 323<|content|>7. Date and Signatures\n<|id|>56<|page|>5<|box|>416 176 431 382<|content|>DATED: January 29, 2024\n<|id|>70<|page|>5<|box|>699 305 715 691<|content|>CLERK'S CERTIFICATE (For Court Use Only)",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>4<|level|>-1\n<|id|>7<|level|>1\n<|id|>9<|level|>1\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>15<|level|>2\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>50<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>3\n<|id|>70<|level|>2",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        }
+    ]
+}

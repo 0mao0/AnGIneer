@@ -1,0 +1,76 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        181,
+        199
+    ],
+    "pages": [
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>676<|type|>title<|page|>181<|box|>388 342 438 720<|content|>第三章 航道整治建筑物检查\n<|id|>677<|type|>title<|page|>182<|box|>154 500 179 562<|content|>说明\n<|id|>682<|type|>title<|page|>182<|box|>329 141 354 277<|content|>五、工程量计算规则\n<|id|>684<|type|>title<|page|>183<|box|>146 370 176 688<|content|>第一节 水上(护岸、护滩、坝体等)检查\n<|id|>687<|type|>table<|page|>183<|box|>223 114 618 944<|content|>None\n<|id|>688<|type|>title<|page|>184<|box|>159 369 191 687<|content|>第二节 水下(护岸、护滩、坝体等)检测\n<|id|>691<|type|>table<|page|>184<|box|>238 111 712 942<|content|>None\n<|id|>692<|type|>table<|page|>185<|box|>161 116 636 948<|content|>None\n<|id|>693<|type|>title<|page|>186<|box|>157 428 188 628<|content|>第三节 软体排搭接检测\n<|id|>696<|type|>table<|page|>186<|box|>235 111 707 942<|content|>None\n<|id|>697<|type|>table<|page|>187<|box|>157 114 633 946<|content|>None\n<|id|>699<|type|>title<|page|>189<|box|>154 494 179 555<|content|>说明\n<|id|>705<|type|>title<|page|>190<|box|>149 425 178 642<|content|>第一节 瓮船、浮船坞维护\n<|id|>708<|type|>table<|page|>190<|box|>226 118 374 948<|content|>None\n<|id|>709<|type|>title<|page|>191<|box|>391 300 436 763<|content|>第五章 航道养护管理信息系统维护\n<|id|>710<|type|>title<|page|>192<|box|>154 500 181 565<|content|>说明\n<|id|>719<|type|>title<|page|>193<|box|>151 410 179 644<|content|>第一节 电子航道图运行维护\n<|id|>722<|type|>table<|page|>193<|box|>226 112 522 942<|content|>None\n<|id|>723<|type|>title<|page|>194<|box|>154 407 184 659<|content|>第二节 航标遥测遥报系统维护\n<|id|>726<|type|>table<|page|>194<|box|>231 117 557 947<|content|>None\n<|id|>727<|type|>title<|page|>195<|box|>152 439 181 618<|content|>第三节 船载终端维护\n<|id|>730<|type|>table<|page|>195<|box|>228 112 544 942<|content|>None\n<|id|>731<|type|>title<|page|>196<|box|>154 404 183 657<|content|>第四节 水位遥测遥报系统维护\n<|id|>734<|type|>table<|page|>196<|box|>284 115 628 947<|content|>None\n<|id|>735<|type|>title<|page|>197<|box|>151 418 181 636<|content|>附录 A 人工、材料基价表\n<|id|>736<|type|>table<|page|>197<|box|>210 112 800 942<|content|>None\n<|id|>737<|type|>title<|page|>198<|box|>223 302 317 771<|content|>本定额主编单位、参编单位、主要起草人、主要审查人、总校人员和管理组人员名单\n<|id|>748<|type|>title<|page|>199<|box|>430 114 458 273<|content|>主要审查人：徐光",
+    "raw_response": "<|src_id|>687<|tgt_id|>684\n<|src_id|>691<|tgt_id|>688\n<|src_id|>692<|tgt_id|>688\n<|src_id|>696<|tgt_id|>693\n<|src_id|>697<|tgt_id|>693\n<|src_id|>708<|tgt_id|>705\n<|src_id|>722<|tgt_id|>719\n<|src_id|>726<|tgt_id|>723\n<|src_id|>730<|tgt_id|>727\n<|src_id|>734<|tgt_id|>731\n<|src_id|>736<|tgt_id|>735",
+    "parsed": [
+        {
+            "src_id": 687,
+            "tgt_id": 684
+        },
+        {
+            "src_id": 691,
+            "tgt_id": 688
+        },
+        {
+            "src_id": 692,
+            "tgt_id": 688
+        },
+        {
+            "src_id": 696,
+            "tgt_id": 693
+        },
+        {
+            "src_id": 697,
+            "tgt_id": 693
+        },
+        {
+            "src_id": 708,
+            "tgt_id": 705
+        },
+        {
+            "src_id": 722,
+            "tgt_id": 719
+        },
+        {
+            "src_id": 726,
+            "tgt_id": 723
+        },
+        {
+            "src_id": 730,
+            "tgt_id": 727
+        },
+        {
+            "src_id": 734,
+            "tgt_id": 731
+        },
+        {
+            "src_id": 736,
+            "tgt_id": 735
+        }
+    ]
+}

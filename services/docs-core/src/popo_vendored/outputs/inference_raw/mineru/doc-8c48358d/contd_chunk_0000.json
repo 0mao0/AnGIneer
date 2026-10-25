@@ -1,0 +1,43 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        54
+    ],
+    "pages": [
+        4,
+        5,
+        6,
+        13,
+        14,
+        26,
+        32,
+        39,
+        40,
+        41,
+        42,
+        47,
+        53
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>4<|box|>141 158 157 364<|content|>OFFICIAL BUSINESS\n<|id|>4<|page|>4<|box|>365 551 561 688<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>7<|page|>5<|box|>155 404 185 568<|content|>April 1973\n<|id|>8<|page|>6<|box|>425 302 521 730<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents, U. ... Single copy price varies\n<|id|>21<|page|>13<|box|>158 40 180 862<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FUNDS\n<|id|>22<|page|>13<|box|>195 0 269 913<|content|>FEDERAL CREDIT PROGRAMS GA-III-1. ... 130\n<|id|>33<|page|>14<|box|>450 552 499 1000<|content|>Noncompetitive tenders (without stated price), usu...ge price of accepted competitive bids for an issue\n<|id|>34<|page|>14<|box|>504 552 600 1000<|content|>Payment for accepted tenders must be made or compl...e made by credit in Treasury tax and loan accounts\n<|id|>68<|page|>26<|box|>786 3 844 466<|content|>Note: ... The loan balances presented in this tabl...ry and may not agree with the later data published\n<|id|>69<|page|>26<|box|>831 515 842 669<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>88<|page|>32<|box|>231 7 347 489<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>89<|page|>32<|box|>130 519 193 996<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>111<|page|>39<|box|>120 404 132 556<|content|>In millions of dollars\n<|id|>115<|page|>40<|box|>869 552 879 971<|content|>are called \"certificates &' interests\" and are not included in the\n<|id|>114<|page|>40<|box|>115 468 126 723<|content|>(In millions of dollars - face amounts)\n<|id|>120<|page|>41<|box|>653 0 744 480<|content|>Source: ... The average\n<|id|>121<|page|>41<|box|>653 526 709 971<|content|>annual interest rate is computed by dividing the c...ate it was based on the coupon rate for all issues\n<|id|>123<|page|>42<|box|>78 232 94 758<|content|>Table FD-9. ... - Status and Application of Statutory Limitation\n<|id|>124<|page|>42<|box|>116 0 206 494<|content|>The Second Liberty Bond Act (31 U. ... Public Law ...mit shall be temporarily increased by \\$65 billion\n<|id|>148<|page|>47<|box|>219 3 229 434<|content|>7/ Except \\$15,000 at 97. ... 113\n<|id|>149<|page|>47<|box|>229 28 238 179<|content|>and \\$100,000 at 97. ... 099\n<|id|>173<|page|>53<|box|>263 507 274 971<|content|>30/ Sale of a \"strip\" of Treasury bills consisting of an additional \\$204,\n<|id|>174<|page|>53<|box|>256 5 268 427<|content|>§/ Payment for subscriptions allotted could be made in cash or in\n<|id|>175<|page|>53<|box|>273 505 285 989<|content|>million of each weekly series maturing from March ...series maturing from March 30 through July 6, 1972\n<|id|>178<|page|>53<|box|>120 5 155 468<|content|>For bill issues, always sold at auction, the rate ... ... For details of bill offerings see Table PDO-2\n<|id|>179<|page|>53<|box|>157 7 166 369<|content|>2/ From date of additional issue in case of a reop...om date of additional issue in case of a reopening\n<|id|>187<|page|>53<|box|>346 0 357 450<|content|>12 includes \\$342 million of the 7-1/4% notes and \\$311 million of the\n<|id|>197<|page|>53<|box|>111 533 131 984<|content|>accepted range from 107. ... 54)\n<|id|>188<|page|>53<|box|>364 0 377 485<|content|>1 Sold at auction through competitive and noncompetitive bidding. ... Prices\n<|id|>194<|page|>53<|box|>498 0 510 473<|content|>19' Sale of a \"strip\" of Treasury bills consisting of an additional \\$201\n<|id|>196<|page|>53<|box|>584 0 593 485<|content|>23/ Sold at auction through competitive and noncompetitive bidding. ... Prices\n<|id|>198<|page|>53<|box|>130 503 150 987<|content|>24/ sold at rotation through competitive and noncompetitive bidding. ... 02\"\n<|id|>204<|page|>53<|box|>288 503 311 982<|content|>Sold at auction through competitive and noncompetitive bidding. ... 78%)",
+    "raw_response": "<|src_id|>88<|tgt_id|>89\n<|src_id|>120<|tgt_id|>121\n<|src_id|>148<|tgt_id|>149\n<|src_id|>174<|tgt_id|>175",
+    "parsed": [
+        {
+            "src_id": 88,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 149
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 175
+        }
+    ]
+}

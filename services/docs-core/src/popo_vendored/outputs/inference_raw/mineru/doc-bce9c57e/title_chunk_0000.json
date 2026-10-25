@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 209 142 787<|content|>SECRETARY'S CERTIFICATE OF TORCHLIGHT U.S. HOLDING\n<|id|>3<|page|>1<|box|>244 140 262 367<|content|>I. Introductory Certification\n<|id|>13<|page|>2<|box|>356 140 372 521<|content|>II. Certification as to Organizational Documents\n<|id|>14<|page|>2<|box|>386 140 402 385<|content|>A. Certificate of Incorporation\n<|id|>17<|page|>2<|box|>792 140 809 462<|content|>III. Certification as to Board Resolutions\n<|id|>19<|page|>3<|box|>138 140 156 413<|content|>A. Authorization of the Guarantee\n<|id|>21<|page|>3<|box|>340 140 357 521<|content|>B. Authorization of the U.S. Security Agreement\n<|id|>23<|page|>3<|box|>578 140 595 560<|content|>C. Authorization of the Collateral Agency Agreemen\n<|id|>25<|page|>3<|box|>760 140 777 550<|content|>D. Authorization of Related Transaction Documents\n<|id|>28<|page|>4<|box|>231 142 248 406<|content|>E. Confirmation of Due Adoption\n<|id|>34<|page|>4<|box|>545 142 561 359<|content|>IV. Incumbency Certificate\n<|id|>38<|page|>5<|box|>148 140 167 287<|content|>V. Good Standing\n<|id|>40<|page|>5<|box|>381 140 398 410<|content|>VI. No Dissolution or Proceedings\n<|id|>42<|page|>5<|box|>594 140 612 357<|content|>VII. General Certifications\n<|id|>49<|page|>6<|box|>229 142 247 269<|content|>VIII. Execution\n<|id|>61<|page|>7<|box|>87 446 108 553<|content|>EXHIBIT A\n<|id|>62<|page|>7<|box|>130 259 148 738<|content|>Certificate of Incorporation of Torchlight U.S. Ho\n<|id|>66<|page|>8<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>67<|page|>8<|box|>131 339 148 656<|content|>Bylaws of Torchlight U.S. Holdings, Inc.\n<|id|>70<|page|>9<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>71<|page|>9<|box|>131 191 193 805<|content|>Resolutions of the Board of Directors of Torchligh\n<|id|>74<|page|>9<|box|>344 142 361 241<|content|>RECITALS\n<|id|>80<|page|>10<|box|>89 140 107 379<|content|>NOW, THEREFORE, BE IT:\n<|id|>89<|page|>12<|box|>89 447 107 550<|content|>EXHIBIT D\n<|id|>90<|page|>12<|box|>131 194 175 800<|content|>Incumbency Certificate INCUMBENCY CERTIFICATE OF T\n<|id|>91<|page|>12<|box|>183 418 200 578<|content|>As of April 19, 2022\n<|id|>99<|page|>13<|box|>89 447 108 550<|content|>EXHIBIT E\n<|id|>100<|page|>13<|box|>131 383 148 614<|content|>Certificate of Good Standing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>17<|level|>2\n<|id|>19<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>25<|level|>3\n<|id|>28<|level|>3\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>2\n<|id|>49<|level|>2\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>70<|level|>2\n<|id|>71<|level|>3\n<|id|>74<|level|>4\n<|id|>80<|level|>-1\n<|id|>89<|level|>2\n<|id|>90<|level|>3\n<|id|>91<|level|>-1\n<|id|>99<|level|>2\n<|id|>100<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        }
+    ]
+}

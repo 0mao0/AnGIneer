@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>388 140 405 475<|content|>I. Introduction and Purpose of This Letter\n<|id|>9<|page|>1<|box|>756 140 773 405<|content|>II. Background — The Litigation\n<|id|>15<|page|>2<|box|>729 140 746 297<|content|>III. The Settlement\n<|id|>17<|page|>3<|box|>90 142 106 367<|content|>A. Settlement Consideration\n<|id|>22<|page|>3<|box|>429 142 446 555<|content|>B. Additional Settlement Terms Relevant to Ironcla\n<|id|>29<|page|>4<|box|>401 140 419 434<|content|>IV. Ironclad's Existing Loan Position\n<|id|>33<|page|>4<|box|>776 140 794 834<|content|>V. Verimark's Security Interest — First-Priority L\n<|id|>34<|page|>4<|box|>806 140 824 370<|content|>A. Grant of Security Interest\n<|id|>36<|page|>5<|box|>157 140 175 300<|content|>B. Appraised Value\n<|id|>38<|page|>5<|box|>285 140 303 390<|content|>C. UCC-1 Financing Statement\n<|id|>44<|page|>5<|box|>608 142 625 330<|content|>D. Personal Guaranties\n<|id|>46<|page|>5<|box|>753 140 770 529<|content|>E. Non-Interference with Ironclad's Lien Position\n<|id|>49<|page|>6<|box|>223 140 239 663<|content|>VI. Impact on Coastal Palms' Operations and Ironcl\n<|id|>51<|page|>6<|box|>316 140 333 602<|content|>A. Franchise Surrender — Impact on Ironclad's Coll\n<|id|>54<|page|>6<|box|>671 140 688 591<|content|>B. Retained Properties — Continuity of Brand Affil\n<|id|>56<|page|>6<|box|>835 140 852 419<|content|>C. Settlement Payment Obligations\n<|id|>59<|page|>7<|box|>186 140 204 522<|content|>VII. Requests for Acknowledgment and Consent\n<|id|>70<|page|>8<|box|>148 140 166 362<|content|>VIII. Confidentiality Notice\n<|id|>72<|page|>8<|box|>381 140 398 434<|content|>IX. Contact Information and Closing",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>9<|level|>1\n<|id|>15<|level|>1\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>29<|level|>1\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>49<|level|>1\n<|id|>51<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>59<|level|>1\n<|id|>70<|level|>1\n<|id|>72<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        }
+    ]
+}

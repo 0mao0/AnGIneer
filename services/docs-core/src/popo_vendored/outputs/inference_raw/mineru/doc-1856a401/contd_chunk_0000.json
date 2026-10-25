@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>157 140 202 818<|content|>GREENFIELD AGRICULTURAL PARTNERS LLC, a Delaware limited liability company, Plaintiff,\n<|id|>3<|page|>1<|box|>236 140 272 854<|content|>PRAIRIE BASIN GRAIN CO. ... MUSGRAVE, individually,\n<|id|>4<|page|>1<|box|>281 212 297 305<|content|>Defendants. ... Defendants\n<|id|>9<|page|>1<|box|>554 174 590 854<|content|>(a) Summons issued by the Circuit Court of Cook County, Illinois, in Case No. ... and\n<|id|>11<|page|>1<|box|>625 140 660 854<|content|>The documents so served were true and correct copi...lerk of the Circuit Court of Cook County, Illinois\n<|id|>15<|page|>2<|box|>89 176 107 408<|content|>Date of Service: ... May 24, 2022\n<|id|>16<|page|>2<|box|>114 176 133 566<|content|>Time of Service: ... (Central Daylight Time)\n<|id|>17<|page|>2<|box|>141 176 159 797<|content|>Location of Service: ... 77 West Washington Street, Suite 1420, Chicago, Illinois 60602\n<|id|>21<|page|>2<|box|>470 140 522 852<|content|>Derek P. ... May 24, 2022",
+    "raw_response": "<|src_id|>3<|tgt_id|>4",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        }
+    ]
+}

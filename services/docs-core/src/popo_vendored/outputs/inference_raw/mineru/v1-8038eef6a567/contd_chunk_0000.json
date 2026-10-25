@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        31
+    ],
+    "pages": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        13,
+        28,
+        29,
+        30,
+        31
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>15<|page|>5<|box|>232 135 250 346<|content|>□ Read the Handbook\n<|id|>16<|page|>5<|box|>255 135 273 741<|content|>□ Review relevant OPM fact sheets using the links in the Handbook\n<|id|>17<|page|>5<|box|>277 135 318 880<|content|>□ Know your internal agency policies and guideline...sing leave and other work scheduling flexibilities\n<|id|>18<|page|>5<|box|>323 135 362 872<|content|>□ For a need of fixed duration, determine the amount of time off you would like to take\n<|id|>19<|page|>5<|box|>375 183 392 408<|content|>o Hours needed: ... o Hours needed\n<|id|>20<|page|>5<|box|>404 135 444 859<|content|>□ Determine your projected leave/paid time off balances at the time leave will be needed\n<|id|>21<|page|>5<|box|>457 181 474 514<|content|>o Available sick leave hours: ... o Available sick leave hours\n<|id|>25<|page|>5<|box|>553 135 614 880<|content|>□ Determine the gap, if any, between the amount of...ll have available at the time leave will be needed\n<|id|>26<|page|>5<|box|>625 183 665 864<|content|>o Hours of leave/paid time off hours wanted minus ... wanted minus hours of leave/paid time off accrued\n<|id|>28<|page|>5<|box|>713 135 729 624<|content|>□ Advanced Sick Leave and Advanced Annual Leave –\n<|id|>29<|page|>5<|box|>742 181 760 772<|content|>o What options does my agency provide to repay adv...ons does my agency provide to repay advanced leave\n<|id|>33<|page|>5<|box|>839 135 857 722<|content|>□ Voluntary Leave Transfer or Voluntary Leave Bank Programs –\n<|id|>34<|page|>5<|box|>867 181 887 841<|content|>o Will I be eligible to become a leave recipient? ... If so, how/when should I\n<|id|>35<|page|>6<|box|>90 212 109 274<|content|>apply? ... apply\n<|id|>61<|page|>7<|box|>755 140 797 808<|content|>6) Domestic partner and parents thereof, including...ividual in 2 through 5 of this definition; ... and\n<|id|>63<|page|>7<|box|>858 111 900 833<|content|>The agency determines whom it considers to be an “...on with the employee is the equivalent of a family\n<|id|>64<|page|>8<|box|>89 112 109 241<|content|>relationship. ... ”\n<|id|>68<|page|>8<|box|>251 140 315 864<|content|>3) A person who stands in loco parentis to the emp...required someone to stand in loco parentis; ... or\n<|id|>70<|page|>8<|box|>376 112 417 836<|content|>For important associated definitions, please see o...ns Related to Family Member and Immediate Relative\n<|id|>75<|page|>8<|box|>786 109 895 877<|content|>Care of a Family Member with a Serious Health Cond...ical Leave Act (FMLA) of 1993, please see our fact\n<|id|>76<|page|>9<|box|>89 111 287 879<|content|>sheet entitled Sick Leave to Care for a Family Mem...ssionals, but also providing psychological comfort\n<|id|>108<|page|>13<|box|>251 140 270 718<|content|>1. ... Was entered into in a State that recognizes such marriages, or\n<|id|>110<|page|>13<|box|>330 112 373 864<|content|>State means any State of the United States or the ...r any Territory or possession of the United States\n<|id|>243<|page|>28<|box|>803 111 890 874<|content|>Felicia works in Baltimore, Maryland. ... What options\n<|id|>244<|page|>29<|box|>90 112 109 423<|content|>does Felicia use to help her father? ... does Felicia use to help her father\n<|id|>261<|page|>30<|box|>679 109 896 883<|content|>Anna and Fred have two sons and care for Anna's mo...n’s bad attitude at school and at home, and she is\n<|id|>262<|page|>31<|box|>90 112 131 883<|content|>scared that something tragic will happen to her mo...resources does Anna use to help with her situation",
+    "raw_response": "<|src_id|>34<|tgt_id|>35\n<|src_id|>63<|tgt_id|>64\n<|src_id|>75<|tgt_id|>76\n<|src_id|>243<|tgt_id|>244\n<|src_id|>261<|tgt_id|>262",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 243,
+            "tgt_id": 244
+        },
+        {
+            "src_id": 261,
+            "tgt_id": 262
+        }
+    ]
+}

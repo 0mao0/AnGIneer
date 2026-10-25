@@ -1,0 +1,91 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        60,
+        113
+    ],
+    "pages": [
+        61,
+        76,
+        78,
+        79,
+        82,
+        90,
+        100,
+        103,
+        107,
+        110,
+        111,
+        112,
+        113
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>235<|page|>61<|box|>65 385 79 580<|content|>PUBLIC DEBT OPERATIONS\n<|id|>312<|page|>76<|box|>100 358 113 666<|content|>Footnotes to Table 7 -(Continued)\n<|id|>336<|page|>78<|box|>88 197 116 805<|content|>Table 8.- Foreign Series Securities (Nonmarketable\n<|id|>338<|page|>79<|box|>89 250 106 726<|content|>Table 8.- Foreign Series Securities (Nonmarketable\n<|id|>346<|page|>82<|box|>65 384 79 621<|content|>UNITED STATES SAVINGS BONDS.\n<|id|>362<|page|>90<|box|>65 306 81 703<|content|>TREASURY SURVEY OF OWNERSHIP, NOVEMBER 30, 1963\n<|id|>363<|page|>90<|box|>89 177 120 832<|content|>Section II - Interest-Bearing Securities Issued by\n<|id|>388<|page|>100<|box|>51 381 65 618<|content|>.EXCHANGE STABILIZATION FUND.\n<|id|>399<|page|>103<|box|>459 0 473 139<|content|>Basic definitions\n<|id|>417<|page|>107<|box|>92 221 119 734<|content|>Section II - Summary by Countries Table 1.- Short-\n<|id|>423<|page|>110<|box|>100 143 117 861<|content|>Table 4.- Net Transactions in U. S. Government Bon\n<|id|>426<|page|>111<|box|>81 213 123 759<|content|>Section II - Summary by Countries Table 5.- Net Tr\n<|id|>428<|page|>112<|box|>76 351 93 659<|content|>Section II - Summary by Countries\n<|id|>429<|page|>112<|box|>94 241 108 787<|content|>Table 6.- Net Transactions in Domestic Stocks by F\n<|id|>431<|page|>113<|box|>57 423 72 576<|content|>CAPITAL MOVEMENTS\n<|id|>432<|page|>113<|box|>85 184 115 816<|content|>Section II - Summary by Countries Table 7.- Net Tr",
+    "raw_response": "<|id|>235<|level|>1\n<|id|>312<|level|>3\n<|id|>336<|level|>1\n<|id|>338<|level|>1\n<|id|>346<|level|>1\n<|id|>362<|level|>1\n<|id|>363<|level|>2\n<|id|>388<|level|>1\n<|id|>399<|level|>3\n<|id|>417<|level|>2\n<|id|>423<|level|>3\n<|id|>426<|level|>2\n<|id|>428<|level|>2\n<|id|>429<|level|>3\n<|id|>431<|level|>1\n<|id|>432<|level|>2",
+    "parsed": [
+        {
+            "id": 235,
+            "level": 1
+        },
+        {
+            "id": 312,
+            "level": 3
+        },
+        {
+            "id": 336,
+            "level": 1
+        },
+        {
+            "id": 338,
+            "level": 1
+        },
+        {
+            "id": 346,
+            "level": 1
+        },
+        {
+            "id": 362,
+            "level": 1
+        },
+        {
+            "id": 363,
+            "level": 2
+        },
+        {
+            "id": 388,
+            "level": 1
+        },
+        {
+            "id": 399,
+            "level": 3
+        },
+        {
+            "id": 417,
+            "level": 2
+        },
+        {
+            "id": 423,
+            "level": 3
+        },
+        {
+            "id": 426,
+            "level": 2
+        },
+        {
+            "id": 428,
+            "level": 2
+        },
+        {
+            "id": 429,
+            "level": 3
+        },
+        {
+            "id": 431,
+            "level": 1
+        },
+        {
+            "id": 432,
+            "level": 2
+        }
+    ]
+}

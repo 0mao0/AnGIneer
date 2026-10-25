@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        15
+    ],
+    "pages": [
+        2,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>2<|box|>236 142 252 442<|content|>By changing the speed and curvature,\n<|id|>9<|page|>2<|box|>252 140 458 444<|content|>the trajectory bank covers rich enough tracking ta...nter. ... Leveraging the generalization capability\n<|id|>11<|page|>2<|box|>458 140 526 854<|content|>of neural networks, the TPN can possibly infer app... tasks, predicting near-optimal control parameters\n<|id|>33<|page|>5<|box|>428 140 565 854<|content|>We will use speed and curvature as the coordinates...{ n _ { C } } S _ { i } { \\mathcal { C } } _ { j }\n<|id|>34<|page|>5<|box|>566 140 654 854<|content|>To generate the trajectories in\\mathcal { S } _ { ...e a list of waypoints, satisfying two requirements\n<|id|>47<|page|>6<|box|>753 168 772 852<|content|>Denote the task batch by\\boldsymbol { B } _ { p , ... { c = 1 } ^ { C }. ... , s are fixed for a batch,\n<|id|>48<|page|>6<|box|>772 140 891 436<|content|>we will drop them and leave c only in the followin...andomly generated, satisfying certain distribution\n<|id|>63<|page|>8<|box|>376 140 409 854<|content|>Batch auto-tuning over tasks in the trajectory bank: ... Details\n<|id|>64<|page|>8<|box|>411 140 426 854<|content|>of the quadrotor dynamics and geometric control are shown in Appendix 6. ... We first\n<|id|>65<|page|>8<|box|>428 140 734 557<|content|>conduct training for the expert parameters over th... C } _ { 4 }andS _ { 3 } \\mathcal { C } _ { 4 } ))\n<|id|>69<|page|>9<|box|>275 140 511 310<|content|>the TPN’s training. ... In ad- dition, for each pa...he per- formance is evaluated with simulations in-\n<|id|>71<|page|>9<|box|>618 140 652 856<|content|>To answer the second question, we compare TPN-prod...ectory bank and subsequently not used in the TPN’s\n<|id|>72<|page|>9<|box|>669 140 891 450<|content|>training (shown in Table 2). ... When including th...ned pa- rameters in this comparison, the untrained\n<|id|>74<|page|>10<|box|>116 140 165 854<|content|>parameters show much worse tracking performance th...ility to the tasks not seen in the training of TPN\n<|id|>75<|page|>10<|box|>167 140 200 854<|content|>To answer the third question, we introduce traject...se polynomial trajectories during training. ... In\n<|id|>76<|page|>10<|box|>215 140 440 557<|content|>\\operatorname { C i r } ( v )forx ( t ) = 1 - \\cos..., which leads to improved and more consistent per-\n<|id|>78<|page|>10<|box|>440 140 474 854<|content|>formance than the untrained ones. ... The latter’s... increased speed of the trigonometric trajectories\n<|id|>84<|page|>10<|box|>857 143 891 854<|content|>Felix Berkenkamp, Angela P Schoellig, and Andreas ...In Proceedings of IEEE International Conference on\n<|id|>85<|page|>11<|box|>114 160 132 663<|content|>Robotics and Automation, pages 491–496, Stockholm,...Automation, pages 491–496, Stockholm, Sweden, 2016\n<|id|>119<|page|>13<|box|>787 140 823 486<|content|>Remark 2 The TPN’s input is a task in a non-parametric form of time-stamped reference\n<|id|>120<|page|>13<|box|>824 140 892 854<|content|>points, which is the most general form, incorporat...rajectory through finite-difference approximations\n<|id|>125<|page|>14<|box|>686 140 892 486<|content|>To validate batch-tuned expert parameters, we eval...s, indicating the trained parameters have achieved\n<|id|>126<|page|>15<|box|>393 140 426 854<|content|>a similar level of performance over the testing se...ompared with their performance on the training set",
+    "raw_response": "",
+    "parsed": []
+}

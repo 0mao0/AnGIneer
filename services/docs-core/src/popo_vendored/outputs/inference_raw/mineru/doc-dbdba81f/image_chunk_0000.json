@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>111 158 148 856<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1251 Av\n<|id|>10<|type|>title<|page|>1<|box|>407 140 424 367<|content|>1. Introduction and Purpose\n<|id|>14<|type|>title<|page|>1<|box|>744 140 763 334<|content|>2. Scope of Engagement\n<|id|>23<|type|>table<|page|>2<|box|>617 143 753 852<|content|>None\n<|id|>27<|type|>title<|page|>3<|box|>267 140 284 411<|content|>3. Engagement Team and Staffing\n<|id|>35<|type|>title<|page|>4<|box|>90 142 107 338<|content|>4. Fees and Billing Rates\n<|id|>37<|type|>table<|page|>4<|box|>159 143 253 852<|content|>None\n<|id|>38<|type|>table<|page|>4<|box|>311 143 405 852<|content|>None\n<|id|>41<|type|>title<|page|>4<|box|>633 140 652 390<|content|>5. Disbursements and Expenses\n<|id|>55<|type|>title<|page|>5<|box|>521 140 539 380<|content|>6. Billing and Payment Terms\n<|id|>61<|type|>title<|page|>6<|box|>148 140 167 235<|content|>7. Retainer\n<|id|>64<|type|>title<|page|>6<|box|>369 140 388 473<|content|>8. Client Responsibilities and Cooperation\n<|id|>72<|type|>title<|page|>7<|box|>204 140 222 493<|content|>9. Conflict of Interest Disclosure and Waiver\n<|id|>77<|type|>title<|page|>7<|box|>679 140 696 292<|content|>10. Confidentiality\n<|id|>82<|type|>title<|page|>8<|box|>273 142 292 380<|content|>11. No Guarantee of Outcome\n<|id|>85<|type|>title<|page|>8<|box|>551 142 568 274<|content|>12. Termination\n<|id|>90<|type|>title<|page|>9<|box|>148 142 167 334<|content|>13. Document Retention\n<|id|>93<|type|>title<|page|>9<|box|>371 142 388 480<|content|>14. Governing Law and Dispute Resolution\n<|id|>96<|type|>title<|page|>9<|box|>664 142 681 455<|content|>15. Entire Agreement and Amendments\n<|id|>99<|type|>title<|page|>10<|box|>90 142 107 379<|content|>16. Acceptance and Execution\n<|id|>104<|type|>title<|page|>10<|box|>420 140 436 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>110<|type|>title<|page|>10<|box|>532 341 549 656<|content|>ACKNOWLEDGED AND ACCEPTED",
+    "raw_response": "<|src_id|>23<|tgt_id|>14\n<|src_id|>37<|tgt_id|>35\n<|src_id|>38<|tgt_id|>35",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 35
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 276 106 722<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>10<|type|>title<|page|>1<|box|>617 142 633 352<|content|>1. Scope of Representation\n<|id|>26<|type|>title<|page|>3<|box|>428 140 446 313<|content|>2. Engagement Team\n<|id|>34<|type|>title<|page|>4<|box|>321 140 339 323<|content|>3. Client Identification\n<|id|>37<|type|>title<|page|>4<|box|>652 142 670 334<|content|>4. Billing Arrangements\n<|id|>38<|type|>title<|page|>4<|box|>684 142 700 279<|content|>4.1 Hourly Rates\n<|id|>40<|type|>table<|page|>4<|box|>750 143 806 852<|content|>None\n<|id|>43<|type|>title<|page|>5<|box|>275 140 292 400<|content|>4.2 Expenses and Disbursements\n<|id|>53<|type|>title<|page|>5<|box|>621 140 638 356<|content|>4.3 Invoicing and Payment\n<|id|>58<|type|>title<|page|>6<|box|>231 140 248 284<|content|>4.5 Fee Estimates\n<|id|>60<|type|>title<|page|>6<|box|>459 140 478 284<|content|>5. Confidentiality\n<|id|>64<|type|>title<|page|>7<|box|>90 140 107 321<|content|>6. Conflicts of Interest\n<|id|>68<|type|>title<|page|>7<|box|>502 140 518 326<|content|>7. Document Retention\n<|id|>73<|type|>title<|page|>8<|box|>90 140 107 339<|content|>8. Limitation of Liability\n<|id|>77<|type|>title<|page|>8<|box|>375 140 391 385<|content|>9. Termination of Engagement\n<|id|>81<|type|>title<|page|>8<|box|>750 142 765 480<|content|>10. Governing Law and Dispute Resolution\n<|id|>84<|type|>title<|page|>9<|box|>241 142 258 285<|content|>11. Miscellaneous\n<|id|>93<|type|>title<|page|>10<|box|>89 142 106 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>99<|type|>title<|page|>10<|box|>218 308 234 687<|content|>ACCEPTANCE AND COUNTERSIGNATURE\n<|id|>100<|type|>title<|page|>10<|box|>244 142 260 377<|content|>ACCEPTED AND AGREED:\n<|id|>102<|type|>title<|page|>10<|box|>332 142 349 465<|content|>ARDENT CAPITAL PARTNERS III LP",
+    "raw_response": "<|src_id|>40<|tgt_id|>38",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        }
+    ]
+}

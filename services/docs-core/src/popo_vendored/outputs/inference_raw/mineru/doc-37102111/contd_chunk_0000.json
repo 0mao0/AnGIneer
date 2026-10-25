@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        8,
+        9,
+        16,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>188 142 205 830<|content|>FROM: ... Howard Bellamy, Partner, and Leila Nazari, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>213 142 231 325<|content|>DATE: ... March 18, 2024\n<|id|>5<|page|>1<|box|>239 140 276 854<|content|>RE: ... and Meridian Data Solutions GmbH\n<|id|>6<|page|>1<|box|>282 142 301 362<|content|>MATTER NO. ... 1008-00010\n<|id|>7<|page|>1<|box|>309 142 325 408<|content|>Right-click to update Table of Contents\n<|id|>16<|page|>2<|box|>90 174 145 856<|content|>(e) The procedural requirements governing the asse...lement provisions, and cooperation duties; ... and\n<|id|>18<|page|>2<|box|>196 140 287 854<|content|>The Agreement is governed by the laws of the State...l courts located in Santa Clara County, California\n<|id|>65<|page|>7<|box|>321 174 358 854<|content|>(iii) U. ... and\n<|id|>67<|page|>7<|box|>429 140 521 856<|content|>The Agreement identifies the following restricted ...minate the Agreement without notice or cure period\n<|id|>78<|page|>8<|box|>844 140 898 856<|content|>From an industry benchmarking perspective, a cap s...ished industry surveys (including the American Bar\n<|id|>79<|page|>9<|box|>90 140 219 854<|content|>Association's Technology Transactions survey and t...isproportionate financial exposure on both parties\n<|id|>140<|page|>16<|box|>304 176 321 550<|content|>(b) Breaches of confidentiality by either party; ... and\n<|id|>142<|page|>16<|box|>354 140 484 854<|content|>This dual structure — combining an aggregate indem...or the most consequential categories of wrongdoing\n<|id|>182<|page|>20<|box|>750 174 784 854<|content|>Howard Bellamy Partner, Antitrust & Competition Ca...a Street, Suite 4200 Los Angeles, California 90017\n<|id|>183<|page|>20<|box|>792 174 828 854<|content|>Leila Nazari Associate, Tax Calderwood & Harkness ...a Street, Suite 4200 Los Angeles, California 90017\n<|id|>184<|page|>20<|box|>837 176 854 367<|content|>Matter No. ... 1008-00010\n<|id|>185<|page|>20<|box|>862 140 907 854<|content|>This memorandum is protected by the attorney-clien...ndum or any portion thereof is strictly prohibited",
+    "raw_response": "<|src_id|>78<|tgt_id|>79",
+    "parsed": [
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        95,
+        112
+    ],
+    "pages": [
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        105,
+        108,
+        110,
+        111,
+        112
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>859<|type|>image<|page|>95<|box|>298 131 826 816<|content|>None\n<|id|>861<|type|>image<|page|>96<|box|>220 136 340 856<|content|>None\n<|id|>863<|type|>image<|page|>96<|box|>522 138 743 859<|content|>None\n<|id|>864<|type|>title<|page|>96<|box|>827 116 849 868<|content|>10.2.8 钢管混凝土桁式结构的主管与支管相贯焊缝的修磨方位\n<|id|>866<|type|>image<|page|>97<|box|>199 136 538 811<|content|>None\n<|id|>867<|type|>title<|page|>97<|box|>625 350 647 594<|content|>10.3 钢结构安装\n<|id|>871<|type|>image<|page|>98<|box|>199 138 360 856<|content|>None\n<|id|>872<|type|>title<|page|>98<|box|>465 343 488 646<|content|>10.4 管内混凝土灌注\n<|id|>881<|type|>title<|page|>99<|box|>543 346 566 589<|content|>10.5 钢结构涂装\n<|id|>884<|type|>title<|page|>100<|box|>162 178 183 295<|content|>条文说明\n<|id|>886<|type|>title<|page|>101<|box|>220 219 248 718<|content|>附录 A 钢管混凝土徐变系数\n<|id|>896<|type|>title<|page|>102<|box|>217 250 248 749<|content|>附录 B 钢管混凝土本构关系\n<|id|>898<|type|>title<|page|>102<|box|>663 176 683 293<|content|>条文说明\n<|id|>915<|type|>title<|page|>105<|box|>220 176 250 751<|content|>附录 C 钢管混凝土构件应力计算\n<|id|>925<|type|>title<|page|>105<|box|>775 143 795 260<|content|>条文说明\n<|id|>944<|type|>title<|page|>108<|box|>217 248 248 761<|content|>附录 D 钢-混凝土组合桥面板\n<|id|>945<|type|>title<|page|>108<|box|>282 128 303 756<|content|>D.0.1 钢-混凝土组合桥面板的构造应符合下列规定：\n<|id|>948<|type|>image<|page|>108<|box|>491 178 801 825<|content|>None\n<|id|>957<|type|>image<|page|>110<|box|>163 133 308 880<|content|>None\n<|id|>958<|type|>image<|page|>110<|box|>342 133 454 880<|content|>None\n<|id|>959<|type|>image<|page|>110<|box|>488 159 818 868<|content|>None\n<|id|>960<|type|>image<|page|>111<|box|>170 264 376 682<|content|>None\n<|id|>961<|type|>title<|page|>112<|box|>215 322 243 675<|content|>本规程用词用语说明",
+    "raw_response": "<|src_id|>866<|tgt_id|>864\n<|src_id|>871<|tgt_id|>872\n<|src_id|>948<|tgt_id|>945\n<|src_id|>957<|tgt_id|>945\n<|src_id|>958<|tgt_id|>945\n<|src_id|>959<|tgt_id|>945\n<|src_id|>960<|tgt_id|>945",
+    "parsed": [
+        {
+            "src_id": 866,
+            "tgt_id": 864
+        },
+        {
+            "src_id": 871,
+            "tgt_id": 872
+        },
+        {
+            "src_id": 948,
+            "tgt_id": 945
+        },
+        {
+            "src_id": 957,
+            "tgt_id": 945
+        },
+        {
+            "src_id": 958,
+            "tgt_id": 945
+        },
+        {
+            "src_id": 959,
+            "tgt_id": 945
+        },
+        {
+            "src_id": 960,
+            "tgt_id": 945
+        }
+    ]
+}

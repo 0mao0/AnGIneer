@@ -1,0 +1,153 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 163 127 833<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1800 Pa\n<|id|>9<|page|>1<|box|>648 140 667 321<|content|>I. Executive Summary\n<|id|>17<|page|>2<|box|>619 142 636 467<|content|>II. Background — The Convertible Notes\n<|id|>18<|page|>2<|box|>650 142 667 326<|content|>A. Issuance and Terms\n<|id|>22<|page|>3<|box|>194 140 210 349<|content|>B. Noteholder Breakdown\n<|id|>26<|page|>3<|box|>518 140 537 299<|content|>C. Key Note Terms\n<|id|>35<|page|>4<|box|>465 140 482 401<|content|>III. Accrued Interest Calculation\n<|id|>36<|page|>4<|box|>496 140 513 410<|content|>A. Interest Rate and Methodology\n<|id|>39<|page|>4<|box|>796 140 813 287<|content|>B. Accrual Period\n<|id|>42<|page|>5<|box|>275 142 292 408<|content|>C. Aggregate Interest Calculation\n<|id|>48<|page|>5<|box|>450 142 468 428<|content|>D. Interest Allocation by Noteholder\n<|id|>54<|page|>5<|box|>627 142 643 370<|content|>E. Total Conversion Amount\n<|id|>58<|page|>6<|box|>148 140 167 428<|content|>IV. Conversion Price Determination\n<|id|>60<|page|>6<|box|>261 140 277 522<|content|>A. Series Seed Price Per Share (Reference Price)\n<|id|>71<|page|>7<|box|>202 142 218 284<|content|>B. Discount Price\n<|id|>74<|page|>7<|box|>354 140 373 250<|content|>C. Cap Price\n<|id|>77<|page|>7<|box|>527 140 544 392<|content|>D. Applicable Conversion Price\n<|id|>85<|page|>8<|box|>212 140 229 387<|content|>V. Share Issuance Calculations\n<|id|>86<|page|>8<|box|>243 142 261 423<|content|>A. Aggregate Shares on Conversion\n<|id|>92<|page|>8<|box|>474 143 489 421<|content|>B. Per-Noteholder Share Allocation\n<|id|>96<|page|>8<|box|>844 140 861 354<|content|>C. Nature of Shares Issued\n<|id|>104<|page|>9<|box|>748 140 765 491<|content|>VI. Impact on Post-Financing Capitalization\n<|id|>105<|page|>9<|box|>779 140 797 669<|content|>A. Aggregate Series Seed Preferred Stock Outstandi\n<|id|>110<|page|>10<|box|>176 140 195 568<|content|>B. Post-Closing Fully-Diluted Capitalization Summa\n<|id|>113<|page|>10<|box|>450 140 468 684<|content|>Several observations regarding the post-closing ca\n<|id|>117<|page|>10<|box|>833 140 849 459<|content|>C. Major Investor Status of Noteholders\n<|id|>125<|page|>11<|box|>541 140 558 547<|content|>VII. Procedural and Documentation Considerations\n<|id|>126<|page|>11<|box|>571 140 588 346<|content|>A. Conversion Mechanics\n<|id|>131<|page|>12<|box|>138 140 156 387<|content|>B. Transaction Documentation\n<|id|>141<|page|>13<|box|>90 140 107 405<|content|>C. Securities Law Considerations\n<|id|>151<|page|>13<|box|>710 140 728 323<|content|>D. Tax Considerations\n<|id|>157<|page|>14<|box|>575 140 592 385<|content|>VIII. Summary of Key Figures\n<|id|>162<|page|>15<|box|>309 140 327 388<|content|>IX. Open Items and Next Steps",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>26<|level|>2\n<|id|>35<|level|>1\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>42<|level|>2\n<|id|>48<|level|>2\n<|id|>54<|level|>2\n<|id|>58<|level|>1\n<|id|>60<|level|>2\n<|id|>71<|level|>2\n<|id|>74<|level|>2\n<|id|>77<|level|>2\n<|id|>85<|level|>1\n<|id|>86<|level|>2\n<|id|>92<|level|>2\n<|id|>96<|level|>2\n<|id|>104<|level|>1\n<|id|>105<|level|>2\n<|id|>110<|level|>2\n<|id|>113<|level|>-1\n<|id|>117<|level|>2\n<|id|>125<|level|>1\n<|id|>126<|level|>2\n<|id|>131<|level|>2\n<|id|>141<|level|>2\n<|id|>151<|level|>2\n<|id|>157<|level|>1\n<|id|>162<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        }
+    ]
+}

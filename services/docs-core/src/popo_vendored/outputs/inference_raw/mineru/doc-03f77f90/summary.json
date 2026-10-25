@@ -1,0 +1,571 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-s3ivn4rw\\input\\pdfs\\doc-03f77f90.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-s3ivn4rw\\enriched\\doc-03f77f90.json",
+    "contd_output": "<|src_id|>24<|tgt_id|>25",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>12<|level|>2\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>54<|level|>3\n<|id|>61<|level|>3\n<|id|>77<|level|>2\n<|id|>78<|level|>3\n<|id|>85<|level|>3\n<|id|>97<|level|>4\n<|id|>102<|level|>4\n<|id|>112<|level|>3\n<|id|>113<|level|>4\n<|id|>120<|level|>4\n<|id|>124<|level|>4\n<|id|>132<|level|>3\n<|id|>133<|level|>4\n<|id|>139<|level|>4\n<|id|>144<|level|>4\n<|id|>149<|level|>4\n<|id|>160<|level|>3\n<|id|>161<|level|>4\n<|id|>176<|level|>4\n<|id|>185<|level|>3\n<|id|>186<|level|>4\n<|id|>192<|level|>4\n<|id|>195<|level|>4\n<|id|>199<|level|>4\n<|id|>208<|level|>3\n<|id|>218<|level|>4\n<|id|>223<|level|>4\n<|id|>232<|level|>3\n<|id|>233<|level|>4\n<|id|>239<|level|>4\n<|id|>252<|level|>4\n<|id|>264<|level|>3\n<|id|>275<|level|>4\n<|id|>281<|level|>4\n<|id|>294<|level|>3\n<|id|>317<|level|>4\n<|id|>328<|level|>3\n<|id|>344<|level|>4\n<|id|>353<|level|>3\n<|id|>354<|level|>4\n<|id|>363<|level|>4\n<|id|>368<|level|>4\n<|id|>376<|level|>4\n<|id|>390<|level|>2\n<|id|>391<|level|>3\n<|id|>394<|level|>3\n<|id|>397<|level|>4\n<|id|>402<|level|>3\n<|id|>404<|level|>4\n<|id|>406<|level|>4\n<|id|>408<|level|>4\n<|id|>410<|level|>4\n<|id|>412<|level|>4\n<|id|>414<|level|>2\n<|id|>415<|level|>3\n<|id|>418<|level|>4\n<|id|>425<|level|>3\n<|id|>431<|level|>2\n<|id|>432<|level|>3\n<|id|>444<|level|>3\n<|id|>450<|level|>3\n<|id|>455<|level|>2\n<|id|>456<|level|>3\n<|id|>466<|level|>3\n<|id|>473<|level|>3\n<|id|>479<|level|>2\n<|id|>484<|level|>2\n<|id|>488<|level|>2\n<|id|>491<|level|>2\n<|id|>493<|level|>3\n<|id|>495<|level|>3",
+    "image_output": "<|src_id|>69<|tgt_id|>61\n<|src_id|>80<|tgt_id|>78\n<|src_id|>81<|tgt_id|>78\n<|src_id|>83<|tgt_id|>78\n<|src_id|>392<|tgt_id|>391\n<|src_id|>395<|tgt_id|>394\n<|src_id|>396<|tgt_id|>394\n<|src_id|>416<|tgt_id|>415\n<|src_id|>417<|tgt_id|>415\n<|src_id|>480<|tgt_id|>479\n<|src_id|>481<|tgt_id|>479\n<|src_id|>482<|tgt_id|>479\n<|src_id|>483<|tgt_id|>479\n<|src_id|>485<|tgt_id|>484\n<|src_id|>486<|tgt_id|>484\n<|src_id|>489<|tgt_id|>488\n<|src_id|>490<|tgt_id|>488\n<|src_id|>492<|tgt_id|>491\n<|src_id|>494<|tgt_id|>493",
+    "contd_label": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 4
+        },
+        {
+            "id": 120,
+            "level": 4
+        },
+        {
+            "id": 124,
+            "level": 4
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 4
+        },
+        {
+            "id": 139,
+            "level": 4
+        },
+        {
+            "id": 144,
+            "level": 4
+        },
+        {
+            "id": 149,
+            "level": 4
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 4
+        },
+        {
+            "id": 176,
+            "level": 4
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 4
+        },
+        {
+            "id": 192,
+            "level": 4
+        },
+        {
+            "id": 195,
+            "level": 4
+        },
+        {
+            "id": 199,
+            "level": 4
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 218,
+            "level": 4
+        },
+        {
+            "id": 223,
+            "level": 4
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 233,
+            "level": 4
+        },
+        {
+            "id": 239,
+            "level": 4
+        },
+        {
+            "id": 252,
+            "level": 4
+        },
+        {
+            "id": 264,
+            "level": 3
+        },
+        {
+            "id": 275,
+            "level": 4
+        },
+        {
+            "id": 281,
+            "level": 4
+        },
+        {
+            "id": 294,
+            "level": 3
+        },
+        {
+            "id": 317,
+            "level": 4
+        },
+        {
+            "id": 328,
+            "level": 3
+        },
+        {
+            "id": 344,
+            "level": 4
+        },
+        {
+            "id": 353,
+            "level": 3
+        },
+        {
+            "id": 354,
+            "level": 4
+        },
+        {
+            "id": 363,
+            "level": 4
+        },
+        {
+            "id": 368,
+            "level": 4
+        },
+        {
+            "id": 376,
+            "level": 4
+        },
+        {
+            "id": 390,
+            "level": 2
+        },
+        {
+            "id": 391,
+            "level": 3
+        },
+        {
+            "id": 394,
+            "level": 3
+        },
+        {
+            "id": 397,
+            "level": 4
+        },
+        {
+            "id": 402,
+            "level": 3
+        },
+        {
+            "id": 404,
+            "level": 4
+        },
+        {
+            "id": 406,
+            "level": 4
+        },
+        {
+            "id": 408,
+            "level": 4
+        },
+        {
+            "id": 410,
+            "level": 4
+        },
+        {
+            "id": 412,
+            "level": 4
+        },
+        {
+            "id": 414,
+            "level": 2
+        },
+        {
+            "id": 415,
+            "level": 3
+        },
+        {
+            "id": 418,
+            "level": 4
+        },
+        {
+            "id": 425,
+            "level": 3
+        },
+        {
+            "id": 431,
+            "level": 2
+        },
+        {
+            "id": 432,
+            "level": 3
+        },
+        {
+            "id": 444,
+            "level": 3
+        },
+        {
+            "id": 450,
+            "level": 3
+        },
+        {
+            "id": 455,
+            "level": 2
+        },
+        {
+            "id": 456,
+            "level": 3
+        },
+        {
+            "id": 466,
+            "level": 3
+        },
+        {
+            "id": 473,
+            "level": 3
+        },
+        {
+            "id": 479,
+            "level": 2
+        },
+        {
+            "id": 484,
+            "level": 2
+        },
+        {
+            "id": 488,
+            "level": 2
+        },
+        {
+            "id": 491,
+            "level": 2
+        },
+        {
+            "id": 493,
+            "level": 3
+        },
+        {
+            "id": 495,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 69,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 392,
+            "tgt_id": 391
+        },
+        {
+            "src_id": 395,
+            "tgt_id": 394
+        },
+        {
+            "src_id": 396,
+            "tgt_id": 394
+        },
+        {
+            "src_id": 416,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 417,
+            "tgt_id": 415
+        },
+        {
+            "src_id": 480,
+            "tgt_id": 479
+        },
+        {
+            "src_id": 481,
+            "tgt_id": 479
+        },
+        {
+            "src_id": 482,
+            "tgt_id": 479
+        },
+        {
+            "src_id": 483,
+            "tgt_id": 479
+        },
+        {
+            "src_id": 485,
+            "tgt_id": 484
+        },
+        {
+            "src_id": 486,
+            "tgt_id": 484
+        },
+        {
+            "src_id": 489,
+            "tgt_id": 488
+        },
+        {
+            "src_id": 490,
+            "tgt_id": 488
+        },
+        {
+            "src_id": 492,
+            "tgt_id": 491
+        },
+        {
+            "src_id": 494,
+            "tgt_id": 493
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 416,
+            "table2_idx": 417,
+            "upper_row_ss": [
+                [
+                    "DPIA-007",
+                    "Granular consent management platform (CMP)",
+                    "Laura Dearden",
+                    "Q4 2023",
+                    "In Progress"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "DPIA-007",
+                    "Profiling transparency dashboard",
+                    "Laura Dearden",
+                    "Q4 2023",
+                    "In Progress"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 480,
+            "table2_idx": 481,
+            "upper_row_ss": [
+                [
+                    "DPIA-004",
+                    "IoT Telemetry (Birmingham Smart",
+                    "NTP PLC",
+                    "Members of public (thousands)",
+                    "Device IDs, MAC addresses, location,",
+                    "Legitimate interest (Art. 6(1))",
+                    "N",
+                    "Medium",
+                    "Low",
+                    "Implemented",
+                    "26 May 2023",
+                    "May 2024",
+                    "Laura Dearden"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "City)",
+                    "",
+                    "daily)",
+                    "envir onme ntal data",
+                    "(f))",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 481,
+            "table2_idx": 482,
+            "upper_row_ss": [
+                [
+                    "DPIA -008",
+                    "CCT V & Facial",
+                    "NTP PLC",
+                    "~2,500+ empl",
+                    "Facial biometric",
+                    "No viable lawfu",
+                    "N",
+                    "High",
+                    "N/A (Discontinued)",
+                    "Discontinued",
+                    "12 June 2023",
+                    "N/A",
+                    "Thomas Okoy"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Recognition (London HQ)",
+                    "",
+                    "oyees, contractors, visitors",
+                    "(special category), CCTV footage, visitor data, access logs",
+                    "1 basis identified",
+                    "",
+                    "",
+                    "ued)",
+                    "",
+                    "",
+                    "",
+                    "e"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 482,
+            "table2_idx": 483,
+            "upper_row_ss": [
+                [
+                    "DPIA-011",
+                    "Cald well Analytics Trans",
+                    "NTP PLC (exporter) / Cald",
+                    "Significant proportion of",
+                    "Pseudonymised subscriber",
+                    "Legitimate interest (Art.",
+                    "Y — United States (SCC",
+                    "High",
+                    "Medium",
+                    "In Progress",
+                    "7 July 2023",
+                    "January 2024",
+                    "Laura Dearden / Fiona Galla"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "fer (US)",
+                    "well Analytics Inc. (processor)",
+                    "~6.3 M consumers",
+                    "metadata, location, device IDs, network performance, usage patterns",
+                    "6(1) (f))",
+                    "s Module 2, IDTA)",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "gher"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 485,
+            "table2_idx": 486,
+            "upper_row_ss": [
+                [
+                    "DPIA-009",
+                    "Cross-Border HR Analytics",
+                    "ROPA-UK-071, ROPA-EU-041, ROPA-EU-042, ROPA-EU-043, ROPA-EU-044, ROPA-EU-045",
+                    "Centralised HR analytics — UK; HR analytics — Ireland; HR analytics — Germany; HR analytics — Netherlands; HR analytics — France; HR analytics — Spain"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "DPIA-010",
+                    "Lawful Intercept / Data Retention",
+                    "ROPA-UK-014",
+                    "Communications data retention and lawful intercept"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 489,
+            "table2_idx": 490,
+            "upper_row_ss": [
+                [
+                    "Pseudonymisation",
+                    "The processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "information, provided that such additional information is kept separately and is subject to technical and organisational measures to ensure that the personal data are not attributed to an identified or identifiable natural person (Article 4(5) GDPR)."
+                ]
+            ]
+        }
+    ]
+}

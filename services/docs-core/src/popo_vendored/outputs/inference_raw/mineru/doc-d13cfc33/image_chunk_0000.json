@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>14<|type|>title<|page|>1<|box|>506 140 523 364<|content|>I. Introduction and Purpose\n<|id|>17<|type|>title<|page|>1<|box|>854 142 872 375<|content|>II. Identification of the Policy\n<|id|>19<|type|>table<|page|>2<|box|>89 143 253 852<|content|>None\n<|id|>21<|type|>title<|page|>2<|box|>420 140 436 457<|content|>III. Description of the Underlying Claim\n<|id|>22<|type|>title<|page|>2<|box|>450 140 469 352<|content|>A. Filing of the Complaint\n<|id|>26<|type|>title<|page|>2<|box|>722 143 738 334<|content|>B. The Asserted Patents\n<|id|>32<|type|>title<|page|>3<|box|>250 140 267 344<|content|>C. The Accused Products\n<|id|>33<|type|>table<|page|>3<|box|>316 143 391 852<|content|>None\n<|id|>35<|type|>title<|page|>3<|box|>531 142 547 343<|content|>D. Relief Sought by Apex\n<|id|>43<|type|>title<|page|>4<|box|>90 140 107 607<|content|>E. Solstice's Preliminary Assessment and Intended\n<|id|>49<|type|>title<|page|>4<|box|>532 142 549 336<|content|>IV. Coverage Requested\n<|id|>57<|type|>title<|page|>5<|box|>204 140 222 387<|content|>V. Defense Counsel and Billing\n<|id|>58<|type|>table<|page|>5<|box|>273 143 426 852<|content|>None\n<|id|>61<|type|>title<|page|>5<|box|>656 140 674 403<|content|>VI. Preliminary Budget Estimate\n<|id|>66<|type|>title<|page|>6<|box|>304 140 320 397<|content|>VII. Background on the Insured\n<|id|>77<|type|>title<|page|>6<|box|>834 140 852 359<|content|>VIII. Reservation of Rights\n<|id|>81<|type|>title<|page|>7<|box|>366 140 383 263<|content|>IX. Enclosures\n<|id|>87<|type|>title<|page|>7<|box|>646 140 664 598<|content|>X. Request for Prompt Response and Contact Informa",
+    "raw_response": "<|src_id|>19<|tgt_id|>17\n<|src_id|>33<|tgt_id|>32\n<|src_id|>58<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 57
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        11
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>2<|box|>90 178 133 818<|content|>DRAFT UPJOHN WARNING SCRIPT FOR USE IN WITNESS INT\n<|id|>3<|type|>title<|page|>2<|box|>152 393 167 604<|content|>MATTER NO. 1044-00007\n<|id|>4<|type|>table<|page|>2<|box|>210 143 301 852<|content|>None\n<|id|>5<|type|>title<|page|>2<|box|>383 143 401 423<|content|>I. INTRODUCTORY METADATA\n<|id|>6<|type|>table<|page|>2<|box|>407 143 547 852<|content|>None\n<|id|>7<|type|>title<|page|>2<|box|>582 142 599 589<|content|>Intended Interviewees for Which This Script Is Des\n<|id|>13<|type|>title<|page|>2<|box|>782 140 799 717<|content|>II. PREFATORY INSTRUCTIONS TO INTERVIEWING ATTORNE\n<|id|>19<|type|>title<|page|>3<|box|>666 140 683 419<|content|>III. UPJOHN WARNING SCRIPT\n<|id|>22<|type|>title<|page|>4<|box|>90 140 107 648<|content|>Point 1: Representation — We Represent the Company\n<|id|>26<|type|>title<|page|>4<|box|>337 143 354 325<|content|>\"Do you understand?\"\n<|id|>28<|type|>title<|page|>4<|box|>446 140 464 403<|content|>Point 2: Purpose of the Interview\n<|id|>31<|type|>title<|page|>4<|box|>595 143 613 323<|content|>\"Do you understand?\"\n<|id|>33<|type|>title<|page|>4<|box|>705 140 723 599<|content|>Point 3: Attorney-Client Privilege Belongs to the\n<|id|>38<|type|>title<|page|>5<|box|>196 143 214 325<|content|>\"Do you understand?\"\n<|id|>40<|type|>title<|page|>5<|box|>306 140 324 424<|content|>Point 4: Confidentiality Obligations\n<|id|>44<|type|>title<|page|>5<|box|>517 143 534 323<|content|>\"Do you understand?\"\n<|id|>46<|type|>title<|page|>5<|box|>626 140 643 415<|content|>Point 5: Right to Personal Counsel\n<|id|>49<|type|>title<|page|>5<|box|>792 143 810 325<|content|>\"Do you understand?\"\n<|id|>53<|type|>title<|page|>6<|box|>210 140 227 413<|content|>Point 6: Obligation to Be Truthful\n<|id|>56<|type|>title<|page|>6<|box|>377 143 393 325<|content|>\"Do you understand?\"\n<|id|>58<|type|>title<|page|>6<|box|>486 140 503 398<|content|>Point 7: Voluntary Participation\n<|id|>61<|type|>title<|page|>6<|box|>633 143 652 325<|content|>\"Do you understand?\"\n<|id|>63<|type|>title<|page|>6<|box|>744 142 762 330<|content|>Closing of the Warning\n<|id|>65<|type|>title<|page|>6<|box|>811 142 829 506<|content|>\"Do you have any questions before we begin?\"\n<|id|>67<|type|>title<|page|>7<|box|>167 333 185 663<|content|>[END OF UPJOHN WARNING SCRIPT]\n<|id|>68<|type|>title<|page|>7<|box|>209 140 226 544<|content|>IV. NOTES FOR INTERVIEWING ATTORNEYS\n<|id|>70<|type|>title<|page|>7<|box|>321 140 338 442<|content|>A. Personal Counsel Request Protocol\n<|id|>76<|type|>title<|page|>7<|box|>734 140 751 390<|content|>B. French Translation Protocol\n<|id|>84<|type|>title<|page|>8<|box|>436 140 454 351<|content|>C. Two-Attorney Protocol\n<|id|>93<|type|>title<|page|>9<|box|>90 140 107 344<|content|>D. Recording Prohibition\n<|id|>97<|type|>title<|page|>9<|box|>459 142 474 398<|content|>E. Post-Interview Memorandum\n<|id|>113<|type|>title<|page|>10<|box|>253 140 271 259<|content|>F. Status Note\n<|id|>125<|type|>table<|page|>11<|box|>188 143 267 852<|content|>None",
+    "raw_response": "<|src_id|>4<|tgt_id|>2\n<|src_id|>6<|tgt_id|>5\n<|src_id|>125<|tgt_id|>113",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 6,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 125,
+            "tgt_id": 113
+        }
+    ]
+}

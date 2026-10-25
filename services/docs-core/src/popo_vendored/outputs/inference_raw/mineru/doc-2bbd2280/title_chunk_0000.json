@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 160 118 834<|content|>OFFICER'S CERTIFICATE OF NORTHGATE AMERICAS, INC.\n<|id|>5<|page|>1<|box|>419 142 436 241<|content|>RECITALS\n<|id|>16<|page|>2<|box|>330 140 348 307<|content|>CERTIFICATIONS\n<|id|>18<|page|>2<|box|>406 140 424 467<|content|>(a) Due Organization and Good Standing\n<|id|>20<|page|>2<|box|>680 140 696 423<|content|>(b) Corporate Power and Authority\n<|id|>22<|page|>3<|box|>90 140 107 318<|content|>(c) Due Authorization\n<|id|>32<|page|>4<|box|>90 140 107 426<|content|>(d) Representations and Warranties\n<|id|>35<|page|>4<|box|>417 142 435 426<|content|>ADDITIONAL CERTIFICATIONS\n<|id|>36<|page|>4<|box|>449 140 467 277<|content|>(e) No Litigation\n<|id|>38<|page|>4<|box|>724 140 741 346<|content|>(f) No Consents Required\n<|id|>40<|page|>5<|box|>138 140 157 400<|content|>(g) No Material Adverse Change\n<|id|>42<|page|>5<|box|>422 140 440 245<|content|>RELIANCE\n<|id|>44<|page|>5<|box|>709 140 727 310<|content|>GOVERNING LAW\n<|id|>46<|page|>6<|box|>89 142 106 308<|content|>MISCELLANEOUS\n<|id|>49<|page|>6<|box|>277 140 295 336<|content|>[Signature Page Follows]\n<|id|>50<|page|>6<|box|>303 151 339 844<|content|>[SIGNATURE PAGE TO OFFICER'S CERTIFICATE OF NORTHG",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>3\n<|id|>20<|level|>3\n<|id|>22<|level|>3\n<|id|>32<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>38<|level|>3\n<|id|>40<|level|>3\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>49<|level|>-1\n<|id|>50<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        }
+    ]
+}

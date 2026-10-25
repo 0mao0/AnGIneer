@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        31
+    ],
+    "pages": [
+        1,
+        12,
+        13,
+        14,
+        21,
+        30,
+        31
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>180 140 215 854<|content|>TO: ... Douglas Fairchild, Responsible Partner, Real Estate Practice Group, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>224 140 260 854<|content|>FROM: ... Grace Nakamura, Working Associate, Real Estate Practice Group, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>268 140 324 854<|content|>CC: ... Calloway, General Counsel, Fairwater Real Estate Investment Trust\n<|id|>5<|page|>1<|box|>330 140 349 343<|content|>DATE: ... December 2, 2025\n<|id|>6<|page|>1<|box|>356 140 412 854<|content|>RE: ... Environmental Review Memorandum — Phase I ...Baltimore City) — Harbor Point Development JV, LLC\n<|id|>7<|page|>1<|box|>419 142 436 331<|content|>Matter No. ... 1036-00005\n<|id|>95<|page|>12<|box|>270 174 325 856<|content|>(ii) Requirement to maintain an engineered cap (co...esidual contamination in subsurface soils; ... and\n<|id|>97<|page|>12<|box|>414 140 469 854<|content|>The environmental covenant was recorded pursuant t...ding on subsequent owners of the affected property\n<|id|>108<|page|>13<|box|>851 140 907 856<|content|>Lead-Based Paint (\"LBP\"). ... As with ACM,\n<|id|>109<|page|>14<|box|>90 140 162 856<|content|>Bayline recommended that an LBP survey be conducte...requirements will be necessary during construction\n<|id|>166<|page|>21<|box|>178 174 215 856<|content|>(e) Environmental insurance (pollution legal liabi...der's internal risk management guidelines; ... and\n<|id|>168<|page|>21<|box|>248 140 431 856<|content|>Given that the Phase I ESA has identified three RE... and Meridian's environmental risk management team\n<|id|>234<|page|>30<|box|>710 140 893 857<|content|>2. ... , Harbor East Land Holdings, LLC, or any go...l authority — without the prior written consent of\n<|id|>235<|page|>31<|box|>89 174 143 854<|content|>C&H and Fairwater's General Counsel. ... Disclosur...ey-client privilege and/or work product protection",
+    "raw_response": "<|src_id|>108<|tgt_id|>109\n<|src_id|>234<|tgt_id|>235",
+    "parsed": [
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        },
+        {
+            "src_id": 234,
+            "tgt_id": 235
+        }
+    ]
+}

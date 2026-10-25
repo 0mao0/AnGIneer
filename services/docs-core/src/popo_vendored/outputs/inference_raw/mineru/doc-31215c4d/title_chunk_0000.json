@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 187 140 808<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>3<|page|>1<|box|>200 156 236 841<|content|>THALASSA SHIPPING & LOGISTICS SA and AEGEAN FORTUN\n<|id|>7<|page|>1<|box|>323 148 359 849<|content|>DEFENDANTS' STATEMENT OF UNDISPUTED MATERIAL FACTS\n<|id|>10<|page|>1<|box|>544 140 561 397<|content|>PRELIMINARY STATEMENT\n<|id|>14<|page|>2<|box|>148 140 166 287<|content|>I. THE PARTIES\n<|id|>18<|page|>2<|box|>689 140 705 284<|content|>II. THE VESSEL\n<|id|>22<|page|>3<|box|>285 140 301 380<|content|>III. THE CHARTER-PARTY\n<|id|>26<|page|>3<|box|>787 140 805 663<|content|>IV. CLAUSE 28 — THE LIQUIDATED DAMAGES PROVISION\n<|id|>35<|page|>5<|box|>148 140 166 563<|content|>V. NORTHWIND'S APPLICATION OF CLAUSE 28\n<|id|>46<|page|>6<|box|>258 140 276 767<|content|>VI. CLAUSE 6 — MAINTENANCE AND SEAWORTHINESS OBLIG\n<|id|>51<|page|>6<|box|>604 140 622 527<|content|>VII. THE THREE MECHANICAL INCIDENTS\n<|id|>52<|page|>6<|box|>636 140 654 627<|content|>A. Incident 1: Turbocharger Failure (March 12–Apri\n<|id|>57<|page|>7<|box|>612 140 628 681<|content|>B. Incident 2: BWTS / Auxiliary Boiler Failure (Ju\n<|id|>62<|page|>8<|box|>612 140 628 707<|content|>C. Incident 3: Cylinder Liner Failure (November 15\n<|id|>66<|page|>9<|box|>285 140 301 683<|content|>VIII. THE ALLEGED MAPUTO DEVIATION (SEPTEMBER 2022\n<|id|>67<|page|>9<|box|>316 140 334 323<|content|>A. The Agreed Voyage\n<|id|>70<|page|>9<|box|>652 142 670 303<|content|>B. The Maputo Cal\n<|id|>77<|page|>11<|box|>90 140 107 352<|content|>C. The Master's Authority\n<|id|>80<|page|>11<|box|>417 142 435 498<|content|>IX. NORTHWIND'S CLAIMED DAMAGES\n<|id|>84<|page|>12<|box|>185 140 203 377<|content|>X. TSL'S COUNTERCLAIM\n<|id|>87<|page|>12<|box|>460 140 479 521<|content|>XI. PRIOR PROCEEDINGS IN THIS ACTION\n<|id|>100<|page|>13<|box|>501 140 518 697<|content|>XII. EXPERT OPINIONS RELEVANT TO THE PENDING MOTIO\n<|id|>101<|page|>13<|box|>532 140 550 557<|content|>A. TSL's Damages Expert — Dr. Constance Albright\n<|id|>103<|page|>13<|box|>789 140 806 635<|content|>B. TSL's Maritime Engineering Expert — Dr. Henrik\n<|id|>111<|page|>14<|box|>396 375 412 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>7<|level|>1\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>26<|level|>2\n<|id|>35<|level|>2\n<|id|>46<|level|>2\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>57<|level|>3\n<|id|>62<|level|>3\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>70<|level|>3\n<|id|>77<|level|>3\n<|id|>80<|level|>2\n<|id|>84<|level|>2\n<|id|>87<|level|>2\n<|id|>100<|level|>2\n<|id|>101<|level|>3\n<|id|>103<|level|>3\n<|id|>111<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 1
+        }
+    ]
+}

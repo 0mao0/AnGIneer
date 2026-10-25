@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 285 125 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>159 143 443 852<|content|>None\n<|id|>2<|type|>title<|page|>1<|box|>525 143 542 390<|content|>PREAMBLE AND RECITALS\n<|id|>13<|type|>title<|page|>2<|box|>707 142 724 377<|content|>FINDINGS OF THE COURT\n<|id|>14<|type|>title<|page|>2<|box|>738 140 755 547<|content|>I. LIKELIHOOD OF SUCCESS ON THE MERITS\n<|id|>15<|type|>title<|page|>2<|box|>762 142 777 506<|content|>A. Overview of Plaintiff's Claims and Business\n<|id|>19<|type|>title<|page|>3<|box|>256 142 273 370<|content|>B. The Lumos Trade Secrets\n<|id|>27<|type|>title<|page|>4<|box|>417 140 435 705<|content|>C. The Proprietary Information and Inventions Assi\n<|id|>34<|type|>title<|page|>5<|box|>189 140 205 454<|content|>D. The Individual Defendants' Conduct\n<|id|>41<|type|>title<|page|>6<|box|>246 142 263 395<|content|>E. NovaSpark Technologies Inc.\n<|id|>43<|type|>title<|page|>6<|box|>492 140 508 395<|content|>F. The IT Security Investigation\n<|id|>45<|type|>title<|page|>6<|box|>648 140 664 452<|content|>G. Conclusion on Likelihood of Success\n<|id|>47<|type|>title<|page|>7<|box|>90 140 106 364<|content|>II. IRREPARABLE HARM\n<|id|>54<|type|>title<|page|>7<|box|>736 142 753 406<|content|>III. BALANCE OF HARDSHIPS\n<|id|>60<|type|>title<|page|>8<|box|>417 140 434 341<|content|>IV. PUBLIC INTEREST\n<|id|>65<|type|>title<|page|>8<|box|>760 140 776 215<|content|>ORDER\n<|id|>67<|type|>title<|page|>8<|box|>835 142 853 462<|content|>1. Injunction Against Use and Disclosure\n<|id|>77<|type|>title<|page|>9<|box|>694 140 710 455<|content|>2. Preservation of Evidence and Devices\n<|id|>86<|type|>title<|page|>10<|box|>416 140 433 465<|content|>3. Sequestration and Return of Materials\n<|id|>91<|type|>title<|page|>10<|box|>786 140 803 535<|content|>4. Prohibition on Solicitation of Lumos Employees\n<|id|>94<|type|>title<|page|>11<|box|>157 140 176 470<|content|>5. Reporting and Compliance Obligations\n<|id|>100<|type|>title<|page|>11<|box|>705 142 722 321<|content|>7. Duration and Scope\n<|id|>102<|type|>title<|page|>11<|box|>833 140 849 334<|content|>8. Reservation of Rights\n<|id|>105<|type|>title<|page|>12<|box|>327 411 344 584<|content|>IT IS SO ORDERED.\n<|id|>122<|type|>table<|page|>13<|box|>133 143 250 852<|content|>None",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>122<|tgt_id|>105",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 105
+        }
+    ]
+}

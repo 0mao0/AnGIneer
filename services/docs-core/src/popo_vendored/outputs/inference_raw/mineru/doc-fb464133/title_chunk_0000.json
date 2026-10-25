@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 635<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT COMMUNIC\n<|id|>1<|page|>1<|box|>112 271 128 725<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>11<|page|>1<|box|>523 142 542 434<|content|>1. Reference to Original Engagement\n<|id|>21<|page|>2<|box|>506 140 523 576<|content|>2. Expansion of Scope — Tax Structuring and Adviso\n<|id|>23<|page|>2<|box|>617 140 635 547<|content|>2.1 Transaction Structuring — Section 368 Analysis\n<|id|>30<|page|>3<|box|>311 140 329 566<|content|>2.2 Withholding Obligations on Merger Consideratio\n<|id|>36<|page|>4<|box|>90 140 107 339<|content|>2.3 UK Tax Implications\n<|id|>42<|page|>4<|box|>578 140 594 437<|content|>2.4 Cross-Border Tax Considerations\n<|id|>47<|page|>5<|box|>220 140 237 375<|content|>2.5 Purchase Price Allocation\n<|id|>50<|page|>5<|box|>539 140 555 439<|content|>2.6 Deductibility of Transaction Costs\n<|id|>59<|page|>6<|box|>90 140 107 400<|content|>2.7 Post-Closing Tax Integration\n<|id|>64<|page|>6<|box|>441 142 459 395<|content|>2.8 Debt Financing Tax Matters\n<|id|>73<|page|>7<|box|>148 140 167 398<|content|>3. Addition of Specialist Partner\n<|id|>81<|page|>7<|box|>684 140 700 334<|content|>4. Billing Arrangements\n<|id|>85<|page|>8<|box|>231 140 247 514<|content|>5. Coordination with Third-Party Tax Advisors\n<|id|>92<|page|>8<|box|>830 140 847 390<|content|>6. Confidentiality and Privilege\n<|id|>95<|page|>9<|box|>358 140 376 238<|content|>7. Conflicts\n<|id|>98<|page|>9<|box|>652 140 670 258<|content|>8. Limitations\n<|id|>102<|page|>10<|box|>260 140 277 305<|content|>9. Governing Terms\n<|id|>106<|page|>10<|box|>598 142 614 264<|content|>10. Acceptance\n<|id|>109<|page|>10<|box|>748 140 763 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>121<|page|>11<|box|>167 140 184 506<|content|>SOLARA DIGITAL INFRASTRUCTURE LP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>11<|level|>1\n<|id|>21<|level|>1\n<|id|>23<|level|>2\n<|id|>30<|level|>2\n<|id|>36<|level|>2\n<|id|>42<|level|>2\n<|id|>47<|level|>2\n<|id|>50<|level|>2\n<|id|>59<|level|>2\n<|id|>64<|level|>2\n<|id|>73<|level|>1\n<|id|>81<|level|>1\n<|id|>85<|level|>1\n<|id|>92<|level|>1\n<|id|>95<|level|>1\n<|id|>98<|level|>1\n<|id|>102<|level|>1\n<|id|>106<|level|>1\n<|id|>109<|level|>-1\n<|id|>121<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        }
+    ]
+}

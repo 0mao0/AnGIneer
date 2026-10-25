@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21,
+        25
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 403 118 593<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>133 142 171 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>9<|page|>1<|box|>430 140 446 321<|content|>I. Executive Summary\n<|id|>21<|page|>2<|box|>720 140 738 506<|content|>II. Statutory Framework — 29 U.S.C. § 216(b)\n<|id|>22<|page|>2<|box|>751 140 768 710<|content|>A. Opt-In Mechanism Distinguished from Rule 23 Opt\n<|id|>23<|page|>2<|box|>773 140 792 540<|content|>Section 216(b) of the FLSA provides, in relevant p\n<|id|>29<|page|>3<|box|>748 140 765 437<|content|>B. \"Similarly Situated\" Requirement\n<|id|>32<|page|>4<|box|>295 140 333 818<|content|>III. The Two-Stage Certification Process in the El\n<|id|>33<|page|>4<|box|>345 140 363 566<|content|>A. Stage One: Conditional Certification (Notice St\n<|id|>40<|page|>5<|box|>722 140 739 504<|content|>B. Stage Two: Decertification (Post-discovery)\n<|id|>49<|page|>6<|box|>606 140 625 478<|content|>C. Practical Significance of the Two Stages\n<|id|>53<|page|>7<|box|>304 140 321 730<|content|>IV. Application to the Verimark Hospitality Group\n<|id|>54<|page|>7<|box|>334 140 352 616<|content|>A. Plaintiff's Likely Arguments for Conditional Ce\n<|id|>71<|page|>9<|box|>506 140 523 743<|content|>B. VHG's Potential Arguments to Defeat or Narrow C\n<|id|>109<|page|>14<|box|>257 140 273 584<|content|>C. Assessment of Likelihood of Conditional Certifi\n<|id|>118<|page|>15<|box|>90 140 107 434<|content|>V. Strategic Considerations for VHG\n<|id|>119<|page|>15<|box|>121 140 138 622<|content|>A. Pre-Litigation Posture — Impact on Certificatio\n<|id|>123<|page|>15<|box|>556 142 574 581<|content|>B. Evidence to Develop During the Scoping-Phase Au\n<|id|>131<|page|>16<|box|>527 140 546 580<|content|>C. Opt-In Rate Assumptions and Exposure Implicatio\n<|id|>136<|page|>17<|box|>316 142 333 272<|content|>D. Notice Issues\n<|id|>144<|page|>17<|box|>733 140 750 470<|content|>E. Coordination with Insurance Coverage\n<|id|>150<|page|>18<|box|>90 145 106 424<|content|>• Tender Deadline: March 15, 2026\n<|id|>153<|page|>18<|box|>378 140 395 321<|content|>VI. Recommendations\n<|id|>161<|page|>19<|box|>609 140 627 272<|content|>VII. Conclusion\n<|id|>173<|page|>21<|box|>90 142 107 493<|content|>Appendix A: Key Case Law Summary Table\n<|id|>181<|page|>25<|box|>510 388 526 607<|content|>END OF MEMORANDUM",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>9<|level|>2\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>23<|level|>-1\n<|id|>29<|level|>3\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>40<|level|>3\n<|id|>49<|level|>3\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>71<|level|>3\n<|id|>109<|level|>3\n<|id|>118<|level|>2\n<|id|>119<|level|>3\n<|id|>123<|level|>3\n<|id|>131<|level|>3\n<|id|>136<|level|>3\n<|id|>144<|level|>3\n<|id|>150<|level|>-1\n<|id|>153<|level|>2\n<|id|>161<|level|>2\n<|id|>173<|level|>2\n<|id|>181<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        }
+    ]
+}

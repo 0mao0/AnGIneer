@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>191 455 210 540<|content|>[__], 202[]\n<|id|>4<|page|>1<|box|>218 140 327 857<|content|>This BILL OF SALE (this \"Bill of Sale\") is deliver...eptember 15, 2022, by and between Buyer and Seller\n<|id|>6<|page|>1<|box|>434 140 507 856<|content|>WHEREAS, this Bill of Sale is being delivered at t... pursuant to Article III of the Agreement; ... and\n<|id|>7<|page|>1<|box|>515 140 551 854<|content|>WHEREAS, capitalized terms used but not otherwise ...e meanings ascribed to such terms in the Agreement\n<|id|>16<|page|>2<|box|>724 174 890 857<|content|>(e) Real Property. ... and (ii) Seller's leasehold...f such leasehold interest to Buyer pursuant to the\n<|id|>17<|page|>3<|box|>90 174 126 854<|content|>Assignment and Assumption Agreement delivered conc... accordance with Section 2. ... 5 of the Agreement\n<|id|>43<|page|>6<|box|>729 142 744 642<|content|>BRIARWOOD HOME ESSENTIALS, INC. ... , an Ohio corporation\n<|id|>44<|page|>6<|box|>747 143 763 251<|content|>By: ... By\n<|id|>45<|page|>6<|box|>763 142 779 313<|content|>Name: ... Malcolm Greer\n<|id|>46<|page|>6<|box|>781 143 797 261<|content|>Title: ... President\n<|id|>47<|page|>6<|box|>799 143 814 264<|content|>Date: ... Date\n<|id|>49<|page|>6<|box|>840 142 858 748<|content|>MERIDIAN CONSUMER BRANDS LLC, a Delaware limited liability company\n<|id|>50<|page|>6<|box|>859 143 875 251<|content|>By: ... By\n<|id|>51<|page|>6<|box|>876 143 892 326<|content|>Name: ... Gareth Holloway\n<|id|>52<|page|>7<|box|>89 140 125 390<|content|>Title: ... CEO & Managing Member Date",
+    "raw_response": "<|src_id|>16<|tgt_id|>17",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        }
+    ]
+}

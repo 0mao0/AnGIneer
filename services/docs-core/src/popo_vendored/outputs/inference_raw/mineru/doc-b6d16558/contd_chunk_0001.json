@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        53,
+        81
+    ],
+    "pages": [
+        54,
+        55,
+        61,
+        80,
+        81
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>388<|page|>54<|box|>113 325 126 735<|content|>[In millions of dollars. ... Bureau of the Fiscal Service, Division of Financing Operations]\n<|id|>391<|page|>55<|box|>763 526 787 919<|content|>Note—Amounts listed as tendered and accepted are a...ed are amounts tendered and awarded on auction day\n<|id|>418<|page|>61<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>419<|page|>61<|box|>200 710 253 919<|content|>Foreign Currency Positions Exchange Stabilization Fund\n<|id|>490<|page|>80<|box|>148 388 164 609<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>491<|page|>80<|box|>184 81 258 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>499<|page|>80<|box|>839 81 901 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>500<|page|>80<|box|>184 504 229 915<|content|>Second Liberty Loan Act of 1917, the nature of the...o an overall limit on the outstanding Federal debt\n<|id|>509<|page|>80<|box|>840 504 902 916<|content|>Government account series (FD-2)—Certain trust fun...urities. ... These securities are sold directly by\n<|id|>510<|page|>81<|box|>90 81 209 491<|content|>Treasury to a specific Government agency, trust fund, or account. ... and the Unemployment Trust Fund",
+    "raw_response": "<|src_id|>499<|tgt_id|>500\n<|src_id|>509<|tgt_id|>510",
+    "parsed": [
+        {
+            "src_id": 499,
+            "tgt_id": 500
+        },
+        {
+            "src_id": 509,
+            "tgt_id": 510
+        }
+    ]
+}

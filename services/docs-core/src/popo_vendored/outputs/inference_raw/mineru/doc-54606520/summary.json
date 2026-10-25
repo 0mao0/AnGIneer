@@ -1,0 +1,432 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-5b4u61ul\\input\\pdfs\\doc-54606520.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-5b4u61ul\\enriched\\doc-54606520.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>1\n<|id|>9<|level|>1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>17<|level|>3\n<|id|>21<|level|>3\n<|id|>22<|level|>2\n<|id|>29<|level|>3\n<|id|>36<|level|>3\n<|id|>37<|level|>2\n<|id|>46<|level|>1\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>58<|level|>1",
+    "image_output": "<|src_id|>6<|tgt_id|>9\n<|src_id|>13<|tgt_id|>12\n<|src_id|>14<|tgt_id|>12\n<|src_id|>15<|tgt_id|>12\n<|src_id|>16<|tgt_id|>12\n<|src_id|>19<|tgt_id|>17\n<|src_id|>20<|tgt_id|>17\n<|src_id|>23<|tgt_id|>22\n<|src_id|>24<|tgt_id|>22\n<|src_id|>25<|tgt_id|>22\n<|src_id|>26<|tgt_id|>22\n<|src_id|>27<|tgt_id|>22\n<|src_id|>28<|tgt_id|>22\n<|src_id|>32<|tgt_id|>29\n<|src_id|>33<|tgt_id|>29\n<|src_id|>34<|tgt_id|>29\n<|src_id|>35<|tgt_id|>29\n<|src_id|>38<|tgt_id|>37\n<|src_id|>40<|tgt_id|>37\n<|src_id|>41<|tgt_id|>37\n<|src_id|>42<|tgt_id|>37\n<|src_id|>43<|tgt_id|>37\n<|src_id|>44<|tgt_id|>37\n<|src_id|>45<|tgt_id|>37\n<|src_id|>49<|tgt_id|>48\n<|src_id|>50<|tgt_id|>48",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 6,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 41,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 48
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 13,
+            "table2_idx": 14,
+            "upper_row_ss": [
+                [
+                    "03/20/2024",
+                    "1.5",
+                    "Review and revision of PLA code application incorporating feedback received from Janet Carraway on"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "March 19; strategy discussion with J. Strauss (0.5 hrs) regarding crosswalk reimbursement positioning approach and comparative analysis of existing PLA code reimbursement rates for NGS-based oncology diagnostics; direction to S. Morrissey on cover letter revisions."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 14,
+            "table2_idx": 15,
+            "upper_row_ss": [
+                [
+                    "04/03/2024",
+                    "1.3",
+                    "Research on precedent for LCD applications filed with inconclusive or interim clinical validation data;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "review of analogous MolDx technical assessments for molecular diagnostic assays where pivotal trial data did not meet pre-specified primary endpoints at interim analysis; analysis of MAC non-coverage determination precedents in molecular diagnostics space."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 15,
+            "table2_idx": 16,
+            "upper_row_ss": [
+                [
+                    "04/11/2024",
+                    "1.0",
+                    "Commencement of Clinical Evidence Gap Analysis memorandum; review and comment"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "on S. Morrissey's preliminary outline and research compilation; supervision of research direction for analysis of supplemental evidence strategies including retrospective study data, sub-group analyses, and published real-world evidence."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 19,
+            "table2_idx": 20,
+            "upper_row_ss": [
+                [
+                    "03/27/2024",
+                    "1.8",
+                    "Review of GDT's published analytical validation data (Sundaram et al., Journal of Molecular Diagnostics, 2023) and assessment of its sufficiency for MolDx technical assessment dossier; analysis of analytical validation evidence standards under MolDx"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "program requirements and comparison to existing precedent dossiers for NGS-based multi-gene panel tests; correspondence to M. Calloway and S. Morrissey with observations and recommendations."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 23,
+            "table2_idx": 24,
+            "upper_row_ss": [
+                [
+                    "03/17/2024",
+                    "1.0",
+                    "Finalization of initial draft PLA"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "code application sections; internal review and self-editing; preparation of draft for M. Calloway review; compilation of supporting reference documents for application package."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 24,
+            "table2_idx": 25,
+            "upper_row_ss": [
+                [
+                    "03/25/2024",
+                    "1.5",
+                    "Continued compilation of bibliography for MolDx technical assessment dossier; identification and cataloguing of 43 publications relevant to clinical validity, clinical"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "utility, and analytical validation of NGS-based oncology diagnostic assays; research on clinical utility evidence standards under MolDx program requirements."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 25,
+            "table2_idx": 26,
+            "upper_row_ss": [
+                [
+                    "03/31/2024",
+                    "0.8",
+                    "Finalization of preliminary evidence"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "gap summary; research on statistical methodologies for interim analysis interpretation and implications for final data readout projections."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 26,
+            "table2_idx": 27,
+            "upper_row_ss": [
+                [
+                    "04/05/2024",
+                    "0.8",
+                    "Continued analysis of revised CLARITY-LUNG timeline and coverage strategy implications; research on MolDx program procedures for LCD reconsideration following receipt of updated clinical"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "data; analysis of strategic options for phased LCD filing approach."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 27,
+            "table2_idx": 28,
+            "upper_row_ss": [
+                [
+                    "04/13/2024",
+                    "0.8",
+                    "Continued research and drafting for Clinical Evidence Gap Analysis memorandum; review of Ridgeline Diagnostics, Inc. non-coverage"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "determination and analysis of distinguishing factors relative to OncoPrecise GXP-47."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 32,
+            "table2_idx": 33,
+            "upper_row_ss": [
+                [
+                    "03/18/2024",
+                    "1.3",
+                    "Preparation and transmission of email to Janet Carraway (Carraway Regulatory Advisors, Inc.) transmitting draft PLA code application for review and comment; preparation of cover memorandum summarizing outstanding issues and"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "areas where Carraway guidance was specifically requested; coordination on coding mechanics and PLA code numbering procedures."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 33,
+            "table2_idx": 34,
+            "upper_row_ss": [
+                [
+                    "03/26/2024",
+                    "1.3",
+                    "Continued research on MolDx submission requirements; bibliography research for MolDx technical assessment dossier; identification of publications supporting analytical validation, clinical validation, and clinical utility of OncoPrecise GXP-47."
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "03/27/2024",
+                    "1.0",
+                    "Continued bibliography research; review and annotation of identified publications for relevance to MolDx technical assessment evidence categories; coordination with S. Morrissey on bibliography organization and annotation format."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 34,
+            "table2_idx": 35,
+            "upper_row_ss": [
+                [
+                    "04/04/2024",
+                    "1.0",
+                    "Continued Westlaw research on Medicare coverage determination administrative law precedents; review of ALJ decisions and Departmental Appeals Board rulings"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "relevant to molecular diagnostic test coverage disputes; preparation of research memorandum for M. Calloway."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 41,
+            "table2_idx": 42,
+            "upper_row_ss": [
+                [
+                    "Christopher Aiken",
+                    "Associate",
+                    "$650.00",
+                    "23.7",
+                    "$15,405.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 49,
+            "table2_idx": 50,
+            "upper_row_ss": [
+                [
+                    "Bank Address:",
+                    "270 Park Avenue, New York, NY 10017"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "ABA Routing Number:",
+                    "021000021"
+                ]
+            ]
+        }
+    ]
+}

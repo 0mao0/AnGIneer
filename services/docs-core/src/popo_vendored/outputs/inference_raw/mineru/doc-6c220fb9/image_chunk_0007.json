@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 7,
+    "range": [
+        345,
+        351
+    ],
+    "pages": [
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1047<|type|>table<|page|>345<|box|>144 78 384 910<|content|>None\n<|id|>1048<|type|>title<|page|>346<|box|>109 67 130 99<|content|>续表\n<|id|>1049<|type|>table<|page|>346<|box|>135 67 582 899<|content|>None\n<|id|>1050<|type|>table<|page|>347<|box|>140 74 765 910<|content|>None\n<|id|>1052<|type|>table<|page|>348<|box|>150 72 389 903<|content|>None\n<|id|>1053<|type|>title<|page|>349<|box|>114 70 134 100<|content|>续表\n<|id|>1054<|type|>table<|page|>349<|box|>137 68 792 904<|content|>None\n<|id|>1055<|type|>table<|page|>350<|box|>132 79 865 914<|content|>None\n<|id|>1056<|type|>title<|page|>351<|box|>166 244 276 799<|content|>本估算指标主编单位、参编单位、 主要起草人、参加人员、总校人员和管理组人员名单",
+    "raw_response": "<|src_id|>1049<|tgt_id|>1048\n<|src_id|>1054<|tgt_id|>1053\n<|src_id|>1055<|tgt_id|>1053",
+    "parsed": [
+        {
+            "src_id": 1049,
+            "tgt_id": 1048
+        },
+        {
+            "src_id": 1054,
+            "tgt_id": 1053
+        },
+        {
+            "src_id": 1055,
+            "tgt_id": 1053
+        }
+    ]
+}

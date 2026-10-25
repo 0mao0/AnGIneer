@@ -1,0 +1,60 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        98,
+        107
+    ],
+    "pages": [
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1054<|type|>title<|page|>98<|box|>49 76 80 900<|content|>ITEM 9. CHANGES IN AND DISAGREEMENTS WITH ACCOUNTA\n<|id|>1056<|type|>title<|page|>98<|box|>114 76 128 410<|content|>ITEM 9A. CONTROLS AND PROCEDURES\n<|id|>1057<|type|>title<|page|>98<|box|>141 76 156 334<|content|>Disclosure Controls and Procedures\n<|id|>1060<|type|>title<|page|>98<|box|>402 76 419 614<|content|>Management’s Annual Report on Internal Control ove\n<|id|>1064<|type|>title<|page|>98<|box|>702 76 718 460<|content|>Changes in Internal Control over Financial Reporti\n<|id|>1066<|type|>title<|page|>98<|box|>768 76 785 346<|content|>ITEM 9B. OTHER INFORMATION\n<|id|>1071<|type|>title<|page|>99<|box|>92 135 107 313<|content|>Item 8.01. Other Events.\n<|id|>1073<|type|>title<|page|>99<|box|>160 76 174 150<|content|>PART III\n<|id|>1074<|type|>title<|page|>99<|box|>186 76 202 717<|content|>ITEM 10. DIRECTORS, EXECUTIVE OFFICERS AND CORPORA\n<|id|>1076<|type|>title<|page|>99<|box|>300 76 316 393<|content|>ITEM 11. EXECUTIVE COMPENSATION\n<|id|>1078<|type|>title<|page|>99<|box|>353 75 383 919<|content|>ITEM 12. SECURITY OWNERSHIP OF CERTAIN BENEFICIAL\n<|id|>1080<|type|>title<|page|>99<|box|>421 75 436 893<|content|>ITEM 13. CERTAIN RELATIONSHIPS AND RELATED TRANSAC\n<|id|>1082<|type|>title<|page|>99<|box|>474 76 489 535<|content|>ITEM 14. PRINCIPALACCOUNTING FEES AND SERVICES\n<|id|>1084<|type|>title<|page|>99<|box|>527 76 542 148<|content|>PART IV\n<|id|>1085<|type|>title<|page|>99<|box|>554 76 569 542<|content|>ITEM 15. EXHIBITS, FINANCIAL STATEMENT SCHEDULES\n<|id|>1087<|type|>table<|page|>99<|box|>621 80 893 919<|content|>None\n<|id|>1088<|type|>table<|page|>100<|box|>58 86 920 911<|content|>None\n<|id|>1089<|type|>table<|page|>101<|box|>59 81 902 915<|content|>None\n<|id|>1090<|type|>table<|page|>102<|box|>60 86 907 918<|content|>None\n<|id|>1091<|type|>table<|page|>103<|box|>61 83 911 916<|content|>None\n<|id|>1092<|type|>table<|page|>104<|box|>60 78 410 918<|content|>None\n<|id|>1095<|type|>title<|page|>105<|box|>49 442 65 555<|content|>SIGNATURES\n<|id|>1097<|type|>title<|page|>105<|box|>127 526 143 795<|content|>ADOBE SYSTEMS INCORPORATED\n<|id|>1098<|type|>table<|page|>105<|box|>159 76 253 918<|content|>None\n<|id|>1100<|type|>title<|page|>105<|box|>334 403 349 593<|content|>POWER OF ATTORNEY\n<|id|>1103<|type|>table<|page|>105<|box|>489 75 924 915<|content|>None\n<|id|>1104<|type|>table<|page|>106<|box|>55 75 415 913<|content|>None\n<|id|>1105<|type|>title<|page|>107<|box|>49 377 65 617<|content|>SUMMARY OF TRADEMARKS",
+    "raw_response": "<|src_id|>1087<|tgt_id|>1085\n<|src_id|>1088<|tgt_id|>1085\n<|src_id|>1089<|tgt_id|>1085\n<|src_id|>1090<|tgt_id|>1085\n<|src_id|>1091<|tgt_id|>1085\n<|src_id|>1092<|tgt_id|>1085\n<|src_id|>1098<|tgt_id|>1095\n<|src_id|>1103<|tgt_id|>1100\n<|src_id|>1104<|tgt_id|>1100",
+    "parsed": [
+        {
+            "src_id": 1087,
+            "tgt_id": 1085
+        },
+        {
+            "src_id": 1088,
+            "tgt_id": 1085
+        },
+        {
+            "src_id": 1089,
+            "tgt_id": 1085
+        },
+        {
+            "src_id": 1090,
+            "tgt_id": 1085
+        },
+        {
+            "src_id": 1091,
+            "tgt_id": 1085
+        },
+        {
+            "src_id": 1092,
+            "tgt_id": 1085
+        },
+        {
+            "src_id": 1098,
+            "tgt_id": 1095
+        },
+        {
+            "src_id": 1103,
+            "tgt_id": 1100
+        },
+        {
+            "src_id": 1104,
+            "tgt_id": 1100
+        }
+    ]
+}

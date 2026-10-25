@@ -1,0 +1,60 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        53,
+        101
+    ],
+    "pages": [
+        54,
+        55,
+        56,
+        61,
+        71,
+        78,
+        84,
+        93,
+        98,
+        100
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>168<|page|>54<|box|>112 13 144 455<|content|>Source: ... final figures are on \"clearance\" basis in daily Treasury statement\n<|id|>175<|page|>54<|box|>329 0 365 463<|content|>8/ Exchange offering available to owners of nonmar...es B-1975-80, dated April 1, 1951. ... 1, Apr 2016\n<|id|>191<|page|>54<|box|>117 544 185 971<|content|>allotted in full. ... and full payment by April 23, 1959)\n<|id|>178<|page|>54<|box|>405 0 429 429<|content|>11/ Redeemable at the option of the holder on Febr...' advance notice. ... 12/ Subscription information\n<|id|>190<|page|>54<|box|>894 0 962 458<|content|>23/ Subscriptions from savings-type investors tota...cent. ... All other subscriptions for \\$5,000 were\n<|id|>195<|page|>54<|box|>400 507 470 974<|content|>27/ Holders of approximately \\$1,600 million of Se...9, at a price of 99-3/4%. ... 29/ Senior tax rates\n<|id|>201<|page|>54<|box|>717 500 742 935<|content|>34/ Consists of allotments on subscriptions from h...ugust 15, 1960. ... 35/ Subscriptions of the State\n<|id|>204<|page|>54<|box|>885 494 930 930<|content|>37/ In addition to the amounts allotted to the pub...ed to Government investment accounts \\$131. ... 00\n<|id|>206<|page|>55<|box|>106 36 135 470<|content|>of 100\\frac{1}{2} . ... Cash payments amounted to 365,375\n<|id|>228<|page|>55<|box|>919 20 947 485<|content|>60/ Subscriptions from States, political subdivisi...tions in which the United States holds membership,\n<|id|>229<|page|>55<|box|>102 537 168 952<|content|>foreign central banks and foreign States, Governme...more than \\$50,000 allotted not less than \\$50,000\n<|id|>261<|page|>56<|box|>288 3 317 465<|content|>91/ Subscriptions from States, political subdivisi...tions in which the United States holds membership,\n<|id|>262<|page|>56<|box|>108 529 138 979<|content|>foreign central banks and foreign States, Governme...llion and were allotted in full. ... Subscriptions\n<|id|>263<|page|>56<|box|>133 527 166 972<|content|>totaled \\$1,950 million and were allotted in full....tted 15 percent but in no case less than \\$100,000\n<|id|>275<|page|>61<|box|>106 410 121 564<|content|>(In millions of dollars)\n<|id|>286<|page|>71<|box|>116 28 137 448<|content|>were permitted to exchange their holdings on Novem...oldings on November 15, 1959, for the 4-7/8% notes\n<|id|>303<|page|>71<|box|>810 3 848 450<|content|>25/ From September 10 through September 12, 1962, ...e granted the option of exchanging their holdings,\n<|id|>304<|page|>71<|box|>116 529 135 944<|content|>subject to allotment if subscriptions exceeded the...illion for the notes and \\$3 billion for the bonds\n<|id|>326<|page|>78<|box|>85 21 164 480<|content|>Series E and H are the only savings bonds currentl... F and G were sold from May 1, 1941, through April\n<|id|>327<|page|>78<|box|>85 532 165 986<|content|>30, 1952. ... Details of the principal changes in ...ctober and December 1959, and May and October 1961\n<|id|>339<|page|>84<|box|>256 368 269 605<|content|>(Par values - in millions of dollars)\n<|id|>340<|page|>84<|box|>76 13 216 483<|content|>The monthly Treasury Survey of Ownership covers se...nd local governments in the February 1962 Bulletin\n<|id|>357<|page|>93<|box|>799 8 952 482<|content|>2/ The following paper currencies are in process o...ficates, United States notes, Federal Reserve Bank\n<|id|>358<|page|>93<|box|>771 527 864 968<|content|>notes, and national bank notes all issued before July 1, 1929; ... Highest amount to date\n<|id|>376<|page|>98<|box|>937 11 958 483<|content|>3/ Includes holdings of other Western European cou...ents and the European Fund, gold to be distributed\n<|id|>377<|page|>98<|box|>816 534 855 976<|content|>by the Tripartite Commission for the Restitution o...ountries. ... represent the Bank's net gold assets\n<|id|>399<|page|>100<|box|>519 517 532 722<|content|>Presentation of statistics\n<|id|>400<|page|>100<|box|>535 514 635 974<|content|>Data collected monthly on the Treasury Foreign Exc...reakdowns of the latest available preliminary data",
+    "raw_response": "<|src_id|>190<|tgt_id|>191\n<|src_id|>204<|tgt_id|>206\n<|src_id|>228<|tgt_id|>229\n<|src_id|>261<|tgt_id|>262\n<|src_id|>262<|tgt_id|>263\n<|src_id|>303<|tgt_id|>304\n<|src_id|>326<|tgt_id|>327\n<|src_id|>357<|tgt_id|>358\n<|src_id|>376<|tgt_id|>377",
+    "parsed": [
+        {
+            "src_id": 190,
+            "tgt_id": 191
+        },
+        {
+            "src_id": 204,
+            "tgt_id": 206
+        },
+        {
+            "src_id": 228,
+            "tgt_id": 229
+        },
+        {
+            "src_id": 261,
+            "tgt_id": 262
+        },
+        {
+            "src_id": 262,
+            "tgt_id": 263
+        },
+        {
+            "src_id": 303,
+            "tgt_id": 304
+        },
+        {
+            "src_id": 326,
+            "tgt_id": 327
+        },
+        {
+            "src_id": 357,
+            "tgt_id": 358
+        },
+        {
+            "src_id": 376,
+            "tgt_id": 377
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        50
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>548<|page|>45<|box|>200 143 218 338<|content|>B. Trial Team and Roles\n<|id|>550<|page|>45<|box|>496 142 513 383<|content|>C. Billing Rate Considerations\n<|id|>556<|page|>45<|box|>869 142 887 540<|content|>Local Counsel Rates (Whitmore & Callahan LLP):\n<|id|>559<|page|>46<|box|>243 236 263 759<|content|>XII. RISK ASSESSMENT AND CONTINGENCIES\n<|id|>560<|page|>46<|box|>289 142 306 246<|content|>A. Strengths\n<|id|>567<|page|>47<|box|>90 140 107 380<|content|>B. Weaknesses and Mitigation\n<|id|>576<|page|>48<|box|>285 140 301 316<|content|>C. Settlement Posture\n<|id|>592<|page|>49<|box|>90 218 109 777<|content|>XIII. PRE-TRIAL DEADLINES AND ACTION ITEMS\n<|id|>596<|page|>50<|box|>741 163 761 833<|content|>XIV. APPENDICES (CROSS-REFERENCES TO MATTER FILE)",
+    "raw_response": "<|id|>548<|level|>2\n<|id|>550<|level|>2\n<|id|>556<|level|>3\n<|id|>559<|level|>1\n<|id|>560<|level|>2\n<|id|>567<|level|>2\n<|id|>576<|level|>2\n<|id|>592<|level|>1\n<|id|>596<|level|>1",
+    "parsed": [
+        {
+            "id": 548,
+            "level": 2
+        },
+        {
+            "id": 550,
+            "level": 2
+        },
+        {
+            "id": 556,
+            "level": 3
+        },
+        {
+            "id": 559,
+            "level": 1
+        },
+        {
+            "id": 560,
+            "level": 2
+        },
+        {
+            "id": 567,
+            "level": 2
+        },
+        {
+            "id": 576,
+            "level": 2
+        },
+        {
+            "id": 592,
+            "level": 1
+        },
+        {
+            "id": 596,
+            "level": 1
+        }
+    ]
+}

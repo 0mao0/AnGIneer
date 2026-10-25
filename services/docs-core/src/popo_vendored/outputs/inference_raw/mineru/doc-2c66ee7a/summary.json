@@ -1,0 +1,183 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-15pjc3vm\\input\\pdfs\\doc-2c66ee7a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-15pjc3vm\\enriched\\doc-2c66ee7a.json",
+    "contd_output": "<|src_id|>65<|tgt_id|>66",
+    "title_output": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>11<|level|>2\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>22<|level|>2\n<|id|>27<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>47<|level|>3\n<|id|>53<|level|>3\n<|id|>59<|level|>4\n<|id|>64<|level|>4\n<|id|>69<|level|>4\n<|id|>72<|level|>4\n<|id|>77<|level|>3\n<|id|>79<|level|>3\n<|id|>81<|level|>2",
+    "image_output": "<|src_id|>5<|tgt_id|>0\n<|src_id|>10<|tgt_id|>6\n<|src_id|>14<|tgt_id|>11\n<|src_id|>21<|tgt_id|>19\n<|src_id|>25<|tgt_id|>22\n<|src_id|>26<|tgt_id|>22\n<|src_id|>74<|tgt_id|>72\n<|src_id|>75<|tgt_id|>72\n<|src_id|>78<|tgt_id|>77\n<|src_id|>83<|tgt_id|>81\n<|src_id|>84<|tgt_id|>81",
+    "contd_label": [
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 5,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 14,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 77
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 81
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 74,
+            "table2_idx": 75,
+            "upper_row_ss": [
+                [
+                    "38914-0001",
+                    "MTDC — O'Hare TransitHub Ground Lease",
+                    "2021",
+                    "Closed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Advisory",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 83,
+            "table2_idx": 84,
+            "upper_row_ss": [
+                [
+                    "General Counsel / Conflicts Clearance",
+                    "____",
+                    "____",
+                    "____"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "New Business Committee(if required)",
+                    "——",
+                    "——",
+                    "——"
+                ]
+            ]
+        }
+    ]
+}

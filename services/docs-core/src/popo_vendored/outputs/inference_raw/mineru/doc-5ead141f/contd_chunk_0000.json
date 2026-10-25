@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        11,
+        12,
+        20,
+        21,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 168 133 828<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>2<|page|>1<|box|>141 140 178 854<|content|>TO: ... Calloway, Founder & Chief Investment Offic...or, Infrastructure, Ironside Capital Management LP\n<|id|>3<|page|>1<|box|>186 140 220 854<|content|>FROM: ... Pamela Cross, Partner, Calderwood & Hark... Theresa Kim, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>229 140 248 331<|content|>DATE: ... August 31, 2022\n<|id|>5<|page|>1<|box|>256 140 310 854<|content|>RE: ... NSW-RI-2022-09814) — Acquisition of Cascadia Renewables Holdings, Inc\n<|id|>96<|page|>11<|box|>751 138 898 857<|content|>Asbestos and Hazardous Substances Remediation. ...... cross-referencing the Clearwater reports with the\n<|id|>97<|page|>12<|box|>90 140 126 854<|content|>EPA disclosure schedules to ensure consistency and...onmental issues that may fall within the exclusion\n<|id|>181<|page|>20<|box|>871 176 907 854<|content|>1. ... Complete the review of the Policy's exclusi...t with the findings set forth in C&H's Summary Due\n<|id|>182<|page|>21<|box|>89 210 143 854<|content|>Diligence Report and Risk Matrix (expected to be f...e should be raised with Northgate prior to binding\n<|id|>208<|page|>23<|box|>420 140 453 854<|content|>Pamela Cross Partner Calderwood & Harkness LLP 125...h Floor New York, NY 10004 Tel: ... (212) 558-4000\n<|id|>209<|page|>23<|box|>454 142 470 447<|content|>Email: ... com\n<|id|>210<|page|>23<|box|>470 140 503 852<|content|>Theresa Kim Associate Calderwood & Harkness LLP 12...h Floor New York, NY 10004 Tel: ... (212) 558-4000\n<|id|>211<|page|>23<|box|>505 140 521 434<|content|>Email: ... com\n<|id|>212<|page|>23<|box|>521 140 613 854<|content|>CONFIDENTIAL: ... If you have received this memora...tify the sender immediately and destroy all copies",
+    "raw_response": "<|src_id|>96<|tgt_id|>97\n<|src_id|>181<|tgt_id|>182",
+    "parsed": [
+        {
+            "src_id": 96,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 182
+        }
+    ]
+}

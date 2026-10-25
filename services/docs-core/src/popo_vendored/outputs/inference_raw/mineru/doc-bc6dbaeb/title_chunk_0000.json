@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        77
+    ],
+    "pages": [
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        17,
+        19,
+        21,
+        23,
+        24,
+        25,
+        31,
+        32,
+        76
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>7<|box|>0 94 246 885<|content|>TREASURY BULLETIN\n<|id|>11<|page|>9<|box|>70 394 93 648<|content|>Table of Contents\n<|id|>14<|page|>10<|box|>81 434 94 553<|content|>Reporting Bases\n<|id|>23<|page|>11<|box|>46 349 65 659<|content|>Treasury Financing Operations\n<|id|>102<|page|>12<|box|>46 284 62 740<|content|>Treasury Financing Operations - (Continued)\n<|id|>125<|page|>12<|box|>743 535 758 845<|content|>13-Week and 26-Week Bill Cycle Begun\n<|id|>127<|page|>13<|box|>48 266 65 724<|content|>Treasury Financing Operations - (Continued)\n<|id|>136<|page|>17<|box|>44 365 57 634<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>137<|page|>17<|box|>81 344 95 652<|content|>Footnotes to Table 1 - (Continued)\n<|id|>151<|page|>17<|box|>527 344 541 652<|content|>Footnotes to Table 2 - (Continued)\n<|id|>168<|page|>19<|box|>65 55 97 920<|content|>Table 3.- Summary of Appropriations and Authorizat\n<|id|>198<|page|>21<|box|>425 524 436 650<|content|>12/ See footnote 6.\n<|id|>205<|page|>23<|box|>70 248 85 733<|content|>Table 3.- Trust and Deposit Fund Account Expenditu\n<|id|>208<|page|>24<|box|>63 167 78 837<|content|>Table 4.- Net Investment by Government Agencies in\n<|id|>211<|page|>25<|box|>70 106 87 864<|content|>Table 5.- Net Redemption or Sale of Obligations of\n<|id|>226<|page|>31<|box|>40 403 53 585<|content|>CASH INCOME AND OUTGO\n<|id|>227<|page|>31<|box|>78 400 92 587<|content|>Footnotes to Table 3\n<|id|>230<|page|>31<|box|>170 400 183 589<|content|>Footnotes to Table 4\n<|id|>239<|page|>31<|box|>334 405 348 594<|content|>Footnotes to Table 5\n<|id|>249<|page|>31<|box|>568 405 580 594<|content|>Footnotes to Table 6\n<|id|>258<|page|>31<|box|>753 414 765 603<|content|>Footnotes to Table 7\n<|id|>266<|page|>32<|box|>72 214 88 812<|content|>Source and Availability of the Balance in the Trea\n<|id|>402<|page|>76<|box|>73 381 86 659<|content|>Section I - Summary by Periods",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>11<|level|>1\n<|id|>14<|level|>1\n<|id|>23<|level|>1\n<|id|>102<|level|>1\n<|id|>125<|level|>2\n<|id|>127<|level|>1\n<|id|>136<|level|>1\n<|id|>137<|level|>2\n<|id|>151<|level|>2\n<|id|>168<|level|>1\n<|id|>198<|level|>-1\n<|id|>205<|level|>1\n<|id|>208<|level|>1\n<|id|>211<|level|>1\n<|id|>226<|level|>1\n<|id|>227<|level|>2\n<|id|>230<|level|>2\n<|id|>239<|level|>2\n<|id|>249<|level|>2\n<|id|>258<|level|>2\n<|id|>266<|level|>1\n<|id|>402<|level|>1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 136,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 205,
+            "level": 1
+        },
+        {
+            "id": 208,
+            "level": 1
+        },
+        {
+            "id": 211,
+            "level": 1
+        },
+        {
+            "id": 226,
+            "level": 1
+        },
+        {
+            "id": 227,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 239,
+            "level": 2
+        },
+        {
+            "id": 249,
+            "level": 2
+        },
+        {
+            "id": 258,
+            "level": 2
+        },
+        {
+            "id": 266,
+            "level": 1
+        },
+        {
+            "id": 402,
+            "level": 1
+        }
+    ]
+}

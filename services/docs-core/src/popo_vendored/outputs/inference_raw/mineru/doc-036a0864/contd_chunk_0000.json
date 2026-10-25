@@ -1,0 +1,52 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        50
+    ],
+    "pages": [
+        3,
+        6,
+        7,
+        8,
+        19,
+        49
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>3<|box|>133 81 746 915<|content|>FCP-I-2. ... Inside back cover\n<|id|>5<|page|>3<|box|>757 81 791 877<|content|>NOTES: ... r= Revised\n<|id|>20<|page|>6<|box|>199 83 229 490<|content|>Productivity growth in the nonfarm business sector... quarter while hourly compensation continued up at\n<|id|>22<|page|>6<|box|>237 83 521 279<|content|>pushing unit labor costs up at a 3. ... 2 percent\n<|id|>24<|page|>6<|box|>580 83 741 281<|content|>Real disposable (after-tax) personal income soared...ecent growth has been driven by large increases in\n<|id|>25<|page|>6<|box|>739 81 835 488<|content|>wages and salaries, as both employment and wage rates have been on the rise. ... )\n<|id|>27<|page|>6<|box|>90 506 227 916<|content|>Since even the high rate of spending was outpaced ... rising stock prices may have caused households to\n<|id|>28<|page|>6<|box|>226 709 253 915<|content|>feel less need to save out of current income in re...need to save out of current income in recent years\n<|id|>33<|page|>6<|box|>638 710 746 915<|content|>The industrial capacity utilization rate fell to 8...s lowest point since March of 1996, well below the\n<|id|>34<|page|>6<|box|>744 508 775 915<|content|>expansion high of 84. ... 1 percent\n<|id|>47<|page|>7<|box|>816 81 912 490<|content|>The current account deficit totaled \\$166 billion ...negative in 1997 as the inflow of capital into the\n<|id|>48<|page|>7<|box|>90 506 119 915<|content|>United States boosted payments of earnings and int...ed payments of earnings and interest to foreigners\n<|id|>62<|page|>8<|box|>174 506 204 915<|content|>After a very strong year in 1997, housing activity...uarter of 1998. ... Part of that boost was related\n<|id|>63<|page|>8<|box|>205 81 380 294<|content|>mark. ... These low rates have spurred a new wave ...ped stimulate further growth in the housing market\n<|id|>69<|page|>8<|box|>867 83 914 490<|content|>Net domestic investment equaled 8. ... About one-quarter of investment\n<|id|>70<|page|>8<|box|>823 509 839 632<|content|>home furnishings. ... home furnishings\n<|id|>73<|page|>8<|box|>575 723 825 916<|content|>Sales of single-family homes have outpaced starts,... increase in spending for new appliances and other\n<|id|>74<|page|>8<|box|>852 506 912 915<|content|>The rapid growth in home sales pushed the homeowne...ing 65. ... 9 percent in the first quarter of 1998\n<|id|>131<|page|>19<|box|>275 81 393 490<|content|>Under authority of Public Law 95-147, Treasury imp...interest-bearing obligations participate under the\n<|id|>132<|page|>19<|box|>140 508 271 916<|content|>Note Option. ... Likewise, those institutions wish... account at FRBs do so under the Remittance Option\n<|id|>364<|page|>49<|box|>126 81 253 488<|content|>Series EE bonds, on sale since January 1, 1980, ar... currently sold. ... Series J and K were sold from\n<|id|>365<|page|>49<|box|>126 508 180 913<|content|>May 1, 1952, through April 30, 1957. ... The notes...he simultaneous purchase of series E savings bonds",
+    "raw_response": "<|src_id|>20<|tgt_id|>22\n<|src_id|>24<|tgt_id|>25\n<|src_id|>27<|tgt_id|>28\n<|src_id|>33<|tgt_id|>34\n<|src_id|>47<|tgt_id|>48\n<|src_id|>62<|tgt_id|>63\n<|src_id|>131<|tgt_id|>132\n<|src_id|>364<|tgt_id|>365",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 132
+        },
+        {
+            "src_id": 364,
+            "tgt_id": 365
+        }
+    ]
+}

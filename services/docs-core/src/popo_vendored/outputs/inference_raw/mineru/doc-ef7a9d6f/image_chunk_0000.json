@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 140 142 808<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>7<|type|>title<|page|>1<|box|>305 178 359 818<|content|>AFFIRMATION OF YUKI NAKAMURA IN SUPPORT OF PLAINTI\n<|id|>13<|type|>title<|page|>2<|box|>477 397 494 601<|content|>BACKGROUND FACTS\n<|id|>14<|type|>title<|page|>2<|box|>503 454 518 545<|content|>The Parties\n<|id|>18<|type|>title<|page|>3<|box|>478 334 494 663<|content|>The Master Fund Administration Agreement\n<|id|>38<|type|>title<|page|>6<|box|>448 349 464 647<|content|>discovery of the Fraud and Termination\n<|id|>43<|type|>title<|page|>7<|box|>349 331 364 665<|content|>PRE-SUIT DEMAND AND MEDIATION\n<|id|>48<|type|>title<|page|>8<|box|>164 357 181 640<|content|>KESSLER DAMAGES ANALYSIS\n<|id|>59<|type|>title<|page|>8<|box|>777 267 795 730<|content|>THE EXHIBITS WARRANT DENIAL OF THE MOTION\n<|id|>68<|type|>title<|page|>11<|box|>441 434 457 563<|content|>EXHIBIT LIST\n<|id|>69<|type|>table<|page|>11<|box|>503 143 905 852<|content|>None\n<|id|>70<|type|>table<|page|>12<|box|>89 145 704 852<|content|>None\n<|id|>71<|type|>title<|page|>12<|box|>738 401 753 596<|content|>PRAYER FOR RELIEF\n<|id|>79<|type|>title<|page|>13<|box|>229 140 246 433<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>69<|tgt_id|>68\n<|src_id|>70<|tgt_id|>68",
+    "parsed": [
+        {
+            "src_id": 69,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 70,
+            "tgt_id": 68
+        }
+    ]
+}

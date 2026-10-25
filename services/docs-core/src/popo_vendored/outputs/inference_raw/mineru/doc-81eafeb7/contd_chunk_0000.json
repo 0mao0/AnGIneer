@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        9,
+        11,
+        14,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 424 151 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>160 140 196 854<|content|>FROM: ... James Prentice, Partner, and Tiffany Ros... 787 Seventh Avenue, 42nd Floor New York, NY 10019\n<|id|>3<|page|>1<|box|>204 140 239 852<|content|>TO: ... Hugh Pemberton, General Counsel, Aurelius ...orate Development, Aurelius Global Media Group PLC\n<|id|>4<|page|>1<|box|>248 140 265 351<|content|>DATE: ... December 15, 2021\n<|id|>5<|page|>1<|box|>273 140 310 852<|content|>RE: ... PCHL)\n<|id|>6<|page|>1<|box|>318 140 335 362<|content|>MATTER NO. ... 1011-00002\n<|id|>7<|page|>1<|box|>344 140 361 408<|content|>Right-click to update Table of Contents\n<|id|>11<|page|>1<|box|>752 138 898 857<|content|>Current Position. ... 42 per share (as of August 27,\n<|id|>12<|page|>2<|box|>89 140 162 856<|content|>2021, the last trading day prior to public disclos...tely $421,400 relative to the aggregate cost basis\n<|id|>16<|page|>2<|box|>285 174 340 854<|content|>(c) Continued Dormancy with Monitoring — maintaini...innacle and in the regulatory environment; ... and\n<|id|>18<|page|>2<|box|>410 140 594 857<|content|>Recommendation. ... We recommend that Aurelius und...on, commence a proxy contest, or formally withdraw\n<|id|>44<|page|>4<|box|>854 140 909 856<|content|>September 29, 2021. ... 00 per right and Continental Fiduciary\n<|id|>45<|page|>5<|box|>90 140 181 854<|content|>Services, Inc. ... The stated purpose of the Right...efined in Section 382 of the Internal Revenue Code\n<|id|>80<|page|>8<|box|>854 140 909 854<|content|>Rule 14d-7(a)(1) under the Exchange Act permits a ...s somewhat novel, there is no impediment under the\n<|id|>81<|page|>9<|box|>90 140 127 854<|content|>SEC's rules to the formal withdrawal and terminati... ... The appropriate procedure would be as follows\n<|id|>110<|page|>11<|box|>305 145 339 854<|content|>• Loss of optionality — the dormant Offer can be r...amended, whereas a formally withdrawn offer cannot\n<|id|>114<|page|>11<|box|>420 140 494 854<|content|>On balance, we do not recommend formal withdrawal ... any interest in pursuing the Pinnacle opportunity\n<|id|>111<|page|>11<|box|>343 147 359 638<|content|>• Negative market signal suggesting disengagement from Pinnacle\n<|id|>112<|page|>11<|box|>363 147 380 668<|content|>• Requires an amendment to the Schedule 13D reflecting revised plans\n<|id|>113<|page|>11<|box|>382 145 417 854<|content|>• Any future tender offer would need to start from...h (new Schedule TO, new HSR filing, new financing)\n<|id|>147<|page|>14<|box|>601 145 636 854<|content|>• High incremental cost (new financing, SEC filing...likely exceeding $500,000 in incremental expenses)\n<|id|>152<|page|>14<|box|>755 140 882 857<|content|>Timing. ... A relaunch should be considered only i...create a more favorable environment for engagement\n<|id|>148<|page|>14<|box|>640 147 657 674<|content|>• Pinnacle's defenses remain firmly in place for nearly three more years\n<|id|>149<|page|>14<|box|>659 147 694 854<|content|>• Significant risk of a second failed tender, whic...ne Aurelius's credibility and negotiating leverage\n<|id|>150<|page|>14<|box|>696 147 732 854<|content|>• Shareholders who declined to tender in the first...r in a second offer, particularly at a lower price\n<|id|>151<|page|>14<|box|>734 145 752 810<|content|>• Substantial time and resource commitment for Aurelius's management team and advisors\n<|id|>245<|page|>26<|box|>270 140 286 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>246<|page|>26<|box|>287 143 305 251<|content|>By: ... By\n<|id|>247<|page|>26<|box|>305 143 321 313<|content|>James Prentice Partner\n<|id|>248<|page|>26<|box|>323 143 339 251<|content|>By: ... By\n<|id|>249<|page|>26<|box|>339 143 356 354<|content|>Tiffany Rosenthal Associate\n<|id|>250<|page|>26<|box|>359 143 372 171<|content|>cc: ... cc\n<|id|>251<|page|>26<|box|>382 174 436 854<|content|>Sandra Tung, Billing Partner, Calderwood & Harknes...Elena Markov, CFO, Aurelius Global Media Group PLC\n<|id|>252<|page|>26<|box|>444 140 520 854<|content|>This memorandum is protected by the attorney-clien...r other than the specific matters addressed herein",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>44<|tgt_id|>45\n<|src_id|>80<|tgt_id|>81",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        }
+    ]
+}

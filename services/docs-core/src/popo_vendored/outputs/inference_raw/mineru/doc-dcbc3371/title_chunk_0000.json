@@ -1,0 +1,133 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 104 656<|content|>CONFIDENTIAL — SUBJECT TO THE TERMS OF THE CREDIT\n<|id|>1<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|page|>1<|box|>515 142 532 366<|content|>1. Introduction and Purpose\n<|id|>16<|page|>2<|box|>267 140 284 457<|content|>2. Background — Solara Fund Platform\n<|id|>17<|page|>2<|box|>297 140 314 325<|content|>2.1 Overview of Solara\n<|id|>19<|page|>2<|box|>444 140 460 385<|content|>2.2 General Partner of Fund V\n<|id|>21<|page|>2<|box|>571 140 588 517<|content|>2.3 Existing Parallel Fund Structure for Fund V\n<|id|>26<|page|>3<|box|>213 140 229 377<|content|>2.4 Fund IV Parallel Vehicles\n<|id|>28<|page|>3<|box|>339 140 357 480<|content|>2.5 Portfolio Company Holdings in Fund V\n<|id|>33<|page|>3<|box|>702 140 719 503<|content|>3. Description of the Proposed Reorganization\n<|id|>34<|page|>3<|box|>733 140 750 321<|content|>3.1 Business Rationale\n<|id|>41<|page|>4<|box|>547 140 564 382<|content|>3.2 The Five-Step Transaction\n<|id|>62<|page|>6<|box|>661 140 679 599<|content|>3.3 Post-Reorganization Structure (as Relevant to\n<|id|>69<|page|>7<|box|>320 142 337 433<|content|>3.4 Aggregate Transaction Summary\n<|id|>72<|page|>7<|box|>585 140 602 532<|content|>4. Consent Required Under the Credit Agreement\n<|id|>80<|page|>8<|box|>638 140 655 454<|content|>5. Impact on the Fund V Credit Facility\n<|id|>82<|page|>8<|box|>731 140 748 550<|content|>5.1 Preservation of the Unfunded Commitment Base\n<|id|>84<|page|>9<|box|>90 140 107 557<|content|>5.2 Continued Commitment of Key Fund V Investors\n<|id|>87<|page|>9<|box|>400 140 417 550<|content|>5.3 Continuity of General Partner and Management\n<|id|>89<|page|>9<|box|>491 140 508 331<|content|>5.4 Insurance Coverage\n<|id|>91<|page|>9<|box|>628 140 646 400<|content|>6. Private Letter Ruling Request\n<|id|>102<|page|>10<|box|>517 142 534 235<|content|>7. Timeline\n<|id|>106<|page|>11<|box|>90 140 107 570<|content|>8. Related Consent Request — Fund IV Credit Facili\n<|id|>109<|page|>11<|box|>366 140 383 367<|content|>9. Draft Consent Agreement\n<|id|>112<|page|>11<|box|>606 142 622 454<|content|>10. Available Information and Contacts\n<|id|>121<|page|>11<|box|>892 142 907 274<|content|>Client Contacts:\n<|id|>125<|page|>12<|box|>223 142 239 336<|content|>Legal Counsel Contacts:\n<|id|>130<|page|>12<|box|>393 143 410 292<|content|>11. Confidentiality\n<|id|>133<|page|>12<|box|>632 140 648 207<|content|>Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>2\n<|id|>26<|level|>2\n<|id|>28<|level|>2\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>41<|level|>2\n<|id|>62<|level|>2\n<|id|>69<|level|>2\n<|id|>72<|level|>1\n<|id|>80<|level|>1\n<|id|>82<|level|>2\n<|id|>84<|level|>2\n<|id|>87<|level|>2\n<|id|>89<|level|>2\n<|id|>91<|level|>1\n<|id|>102<|level|>1\n<|id|>106<|level|>1\n<|id|>109<|level|>1\n<|id|>112<|level|>1\n<|id|>121<|level|>2\n<|id|>125<|level|>2\n<|id|>130<|level|>1\n<|id|>133<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 1
+        }
+    ]
+}

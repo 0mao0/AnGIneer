@@ -1,0 +1,24 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['6', 'Zynvaro Distribution Holdings LLC', 'Bldg 1, Full Building', '04/01/2019', '538,000', '$7,532,000', '$628,000', '5500 Wayzata Blvd, Suite 700, Minneapolis, MN 55416, Attn: VP', 'Gregory Swanson / gswanson@mercer dist.com', 'Certified Mail + Email', '-', '-']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', '', 'Real Estate', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 103,
+    "table2_idx": 104
+}

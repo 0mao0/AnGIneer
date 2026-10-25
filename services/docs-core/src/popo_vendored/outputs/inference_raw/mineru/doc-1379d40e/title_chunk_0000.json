@@ -1,0 +1,71 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 176 176 818<|content|>PRIVILEGED AND CONFIDENTIAL — PREPARED AT THE DIRE\n<|id|>6<|page|>1<|box|>422 140 439 395<|content|>I. Purpose and Legal Obligation\n<|id|>13<|page|>2<|box|>556 140 574 472<|content|>II. Effective Date and Preservation Period\n<|id|>18<|page|>3<|box|>285 140 303 447<|content|>III. Scope of Materials to Be Preserved\n<|id|>19<|page|>3<|box|>316 140 334 289<|content|>A. Subject Matter\n<|id|>42<|page|>5<|box|>513 142 530 393<|content|>B. Types of Documents and ESI\n<|id|>55<|page|>6<|box|>781 142 797 264<|content|>IV. Custodians\n<|id|>66<|page|>7<|box|>654 140 671 370<|content|>V. Obligations of Custodians\n<|id|>84<|page|>9<|box|>148 140 167 390<|content|>VI. IT Department Obligations\n<|id|>94<|page|>10<|box|>299 140 316 447<|content|>VII. Consequences of Non-Compliance\n<|id|>103<|page|>11<|box|>90 140 107 468<|content|>VIII. Acknowledgment and Confirmation\n<|id|>106<|page|>11<|box|>258 207 276 789<|content|>ACKNOWLEDGMENT OF RECEIPT — LITIGATION HOLD NOTICE\n<|id|>107<|page|>11<|box|>285 387 301 611<|content|>Aurelius Pacific Studios Inc.\n<|id|>108<|page|>11<|box|>311 419 328 576<|content|>Dated: May 2, 2023\n<|id|>114<|page|>11<|box|>589 142 606 444<|content|>IX. Contact Information for Questions",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>1\n<|id|>13<|level|>1\n<|id|>18<|level|>1\n<|id|>19<|level|>2\n<|id|>42<|level|>2\n<|id|>55<|level|>1\n<|id|>66<|level|>1\n<|id|>84<|level|>1\n<|id|>94<|level|>1\n<|id|>103<|level|>1\n<|id|>106<|level|>2\n<|id|>107<|level|>-1\n<|id|>108<|level|>-1\n<|id|>114<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 1
+        }
+    ]
+}

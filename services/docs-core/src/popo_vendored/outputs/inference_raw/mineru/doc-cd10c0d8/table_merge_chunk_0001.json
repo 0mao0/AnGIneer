@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['ESA-003', 'Westlake Distribution Hub', '11500 Westlake Parkway, Houston, Texas 77082', 'GMP Westlake LLC', 'December 4, 2023', 'Phase I Environmental Site Assessment — Westlake Distribution Hub, Houston, Texas / TEG Ref. No. 2023-HOU-4403', 'De minimis Recognized Environmental Condition identified — historical use of adjacent parcel (APN 041-229-007) as a petroleum distribution facility (circa 1978–1996); minor soil staining observed at the southeast loading area of the subject property during site reconnaissance.Environmental Consultant assessed the condition as controlled under current']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', 'site operations and not requiring a Phase II Environmental Site Assessment. No further investigation recommended by Environmental Consultant.']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 8,
+    "table2_idx": 9
+}

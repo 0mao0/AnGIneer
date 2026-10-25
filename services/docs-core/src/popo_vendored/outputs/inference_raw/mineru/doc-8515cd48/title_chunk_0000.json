@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 235 118 761<|content|>CONFIDENTIAL — INTERNAL MEMORANDUM\n<|id|>10<|page|>1<|box|>462 142 479 344<|content|>1. Purpose and Summary\n<|id|>14<|page|>2<|box|>90 140 107 388<|content|>2. Proposed Client Information\n<|id|>15<|page|>2<|box|>121 140 138 331<|content|>2.1 Client Identification\n<|id|>19<|page|>2<|box|>720 142 737 454<|content|>2.2 Key Principals and Contact Persons\n<|id|>32<|page|>3<|box|>614 140 633 346<|content|>2.3 Ownership / Affiliates\n<|id|>40<|page|>4<|box|>320 140 337 380<|content|>2.4 Lender / Secured Creditor\n<|id|>46<|page|>4<|box|>625 140 640 285<|content|>2.5 Prior Counsel\n<|id|>53<|page|>5<|box|>270 140 287 411<|content|>2.6 Third-Party Service Providers\n<|id|>59<|page|>5<|box|>712 140 729 408<|content|>3. Proposed Scope of Engagement\n<|id|>77<|page|>7<|box|>167 140 184 392<|content|>4. Conflict Search Methodology\n<|id|>78<|page|>7<|box|>199 140 215 429<|content|>4.1 Databases and Systems Searched\n<|id|>85<|page|>7<|box|>632 140 648 284<|content|>4.2 Search Terms\n<|id|>87<|page|>7<|box|>718 143 734 259<|content|>Entity Names:\n<|id|>102<|page|>8<|box|>208 142 224 292<|content|>Individual Names:\n<|id|>119<|page|>8<|box|>717 140 734 334<|content|>4.3 Additional Diligence\n<|id|>124<|page|>9<|box|>352 140 369 348<|content|>5. Conflict Search Results\n<|id|>126<|page|>9<|box|>445 140 463 692<|content|>5.1 Pinnacle Optics, Inc. — Potential Adverse Inte\n<|id|>146<|page|>11<|box|>617 140 633 483<|content|>5.2 Harborview Partners — Affiliate Check\n<|id|>152<|page|>12<|box|>319 140 337 545<|content|>5.3 Meridian National Bank, N.A. — Lender Check\n<|id|>160<|page|>13<|box|>257 140 273 534<|content|>5.4 Kessler & Morin LLP — Prior Counsel Check\n<|id|>169<|page|>13<|box|>768 140 787 676<|content|>5.5 Other Semiconductor-Industry Clients — Industr\n<|id|>176<|page|>14<|box|>719 140 736 493<|content|>5.6 Foreign Associates and Service Providers\n<|id|>185<|page|>15<|box|>345 140 362 362<|content|>6. Ethical Rules Considered\n<|id|>192<|page|>16<|box|>377 140 393 508<|content|>7. Conclusion and Clearance Recommendation\n<|id|>193<|page|>16<|box|>402 187 436 808<|content|>CLEARANCE STATUS: APPROVED — NO DISQUALIFYING CONF\n<|id|>197<|page|>17<|box|>90 140 107 473<|content|>8. Ongoing Monitoring Recommendations\n<|id|>208<|page|>17<|box|>859 142 876 367<|content|>9. Signatures and Approvals\n<|id|>209<|page|>17<|box|>885 143 901 282<|content|>PREPARED BY:\n<|id|>220<|page|>19<|box|>90 142 107 658<|content|>Appendix A: Conflict Search Report Summary (Databa\n<|id|>223<|page|>19<|box|>376 142 393 416<|content|>Summary of Hits and Dispositions:\n<|id|>226<|page|>20<|box|>188 142 203 323<|content|>END OF MEMORANDUM",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>32<|level|>2\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>53<|level|>2\n<|id|>59<|level|>1\n<|id|>77<|level|>1\n<|id|>78<|level|>2\n<|id|>85<|level|>2\n<|id|>87<|level|>3\n<|id|>102<|level|>3\n<|id|>119<|level|>2\n<|id|>124<|level|>1\n<|id|>126<|level|>2\n<|id|>146<|level|>2\n<|id|>152<|level|>2\n<|id|>160<|level|>2\n<|id|>169<|level|>2\n<|id|>176<|level|>2\n<|id|>185<|level|>1\n<|id|>192<|level|>1\n<|id|>193<|level|>-1\n<|id|>197<|level|>1\n<|id|>208<|level|>1\n<|id|>209<|level|>-1\n<|id|>220<|level|>1\n<|id|>223<|level|>2\n<|id|>226<|level|>-1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 1
+        },
+        {
+            "id": 192,
+            "level": 1
+        },
+        {
+            "id": 197,
+            "level": 1
+        },
+        {
+            "id": 208,
+            "level": 1
+        },
+        {
+            "id": 220,
+            "level": 1
+        },
+        {
+            "id": 223,
+            "level": 2
+        }
+    ]
+}

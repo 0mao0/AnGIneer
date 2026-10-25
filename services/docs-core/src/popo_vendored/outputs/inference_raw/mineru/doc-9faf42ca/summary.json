@@ -1,0 +1,319 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-z5ks7dy9\\input\\pdfs\\doc-9faf42ca.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-z5ks7dy9\\enriched\\doc-9faf42ca.json",
+    "contd_output": "<|src_id|>1<|tgt_id|>2\n<|src_id|>4<|tgt_id|>5\n<|src_id|>126<|tgt_id|>127\n<|src_id|>150<|tgt_id|>151\n<|src_id|>174<|tgt_id|>175\n<|src_id|>214<|tgt_id|>215",
+    "title_output": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>38<|level|>3\n<|id|>42<|level|>2\n<|id|>105<|level|>3\n<|id|>118<|level|>3\n<|id|>123<|level|>3\n<|id|>144<|level|>2\n<|id|>145<|level|>3\n<|id|>158<|level|>3\n<|id|>166<|level|>2\n<|id|>167<|level|>3\n<|id|>180<|level|>2\n<|id|>181<|level|>3\n<|id|>186<|level|>3\n<|id|>192<|level|>3\n<|id|>196<|level|>2\n<|id|>197<|level|>3\n<|id|>206<|level|>3\n<|id|>208<|level|>2\n<|id|>209<|level|>3\n<|id|>213<|level|>3\n<|id|>217<|level|>3\n<|id|>219<|level|>3\n<|id|>221<|level|>3\n<|id|>223<|level|>3\n<|id|>225<|level|>3\n<|id|>227<|level|>3\n<|id|>229<|level|>3\n<|id|>231<|level|>3\n<|id|>233<|level|>3\n<|id|>235<|level|>3\n<|id|>270<|level|>2\n<|id|>271<|level|>3\n<|id|>272<|level|>4\n<|id|>278<|level|>5\n<|id|>282<|level|>5\n<|id|>284<|level|>5\n<|id|>286<|level|>5\n<|id|>295<|level|>3\n<|id|>296<|level|>4\n<|id|>319<|level|>3\n<|id|>320<|level|>4\n<|id|>322<|level|>2\n<|id|>349<|level|>2\n<|id|>351<|level|>3\n<|id|>354<|level|>2\n<|id|>356<|level|>2",
+    "image_output": "<|src_id|>80<|tgt_id|>42\n<|src_id|>82<|tgt_id|>42\n<|src_id|>279<|tgt_id|>278\n<|src_id|>281<|tgt_id|>278\n<|src_id|>283<|tgt_id|>282\n<|src_id|>285<|tgt_id|>284\n<|src_id|>287<|tgt_id|>286\n<|src_id|>288<|tgt_id|>286\n<|src_id|>350<|tgt_id|>349\n<|src_id|>353<|tgt_id|>351\n<|src_id|>355<|tgt_id|>354\n<|src_id|>359<|tgt_id|>356\n<|src_id|>362<|tgt_id|>356\n<|src_id|>365<|tgt_id|>356",
+    "contd_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 150,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 215
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 2
+        },
+        {
+            "id": 209,
+            "level": 3
+        },
+        {
+            "id": 213,
+            "level": 3
+        },
+        {
+            "id": 217,
+            "level": 3
+        },
+        {
+            "id": 219,
+            "level": 3
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 223,
+            "level": 3
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 227,
+            "level": 3
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 231,
+            "level": 3
+        },
+        {
+            "id": 233,
+            "level": 3
+        },
+        {
+            "id": 235,
+            "level": 3
+        },
+        {
+            "id": 270,
+            "level": 2
+        },
+        {
+            "id": 271,
+            "level": 3
+        },
+        {
+            "id": 272,
+            "level": 4
+        },
+        {
+            "id": 278,
+            "level": 5
+        },
+        {
+            "id": 282,
+            "level": 5
+        },
+        {
+            "id": 284,
+            "level": 5
+        },
+        {
+            "id": 286,
+            "level": 5
+        },
+        {
+            "id": 295,
+            "level": 3
+        },
+        {
+            "id": 296,
+            "level": 4
+        },
+        {
+            "id": 319,
+            "level": 3
+        },
+        {
+            "id": 320,
+            "level": 4
+        },
+        {
+            "id": 322,
+            "level": 2
+        },
+        {
+            "id": 349,
+            "level": 2
+        },
+        {
+            "id": 351,
+            "level": 3
+        },
+        {
+            "id": 354,
+            "level": 2
+        },
+        {
+            "id": 356,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 80,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 279,
+            "tgt_id": 278
+        },
+        {
+            "src_id": 281,
+            "tgt_id": 278
+        },
+        {
+            "src_id": 283,
+            "tgt_id": 282
+        },
+        {
+            "src_id": 285,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 287,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 288,
+            "tgt_id": 286
+        },
+        {
+            "src_id": 350,
+            "tgt_id": 349
+        },
+        {
+            "src_id": 353,
+            "tgt_id": 351
+        },
+        {
+            "src_id": 355,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 359,
+            "tgt_id": 356
+        },
+        {
+            "src_id": 362,
+            "tgt_id": 356
+        },
+        {
+            "src_id": 365,
+            "tgt_id": 356
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 287,
+            "table2_idx": 288,
+            "upper_row_ss": [
+                [
+                    "Consolidated Senior Secured Debt (pro forma)",
+                    "$_"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

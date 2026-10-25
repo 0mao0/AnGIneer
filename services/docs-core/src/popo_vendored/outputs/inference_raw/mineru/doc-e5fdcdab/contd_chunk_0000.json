@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        16
+    ],
+    "pages": [
+        2,
+        3,
+        9,
+        10,
+        12,
+        13,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>16<|page|>2<|box|>842 143 897 854<|content|>10. ... (a) vendor negotiation playbooks containing\n<|id|>17<|page|>3<|box|>90 174 290 856<|content|>CRH's negotiation strategies, pricing thresholds, ... business information of immense competitive value\n<|id|>67<|page|>9<|box|>804 140 895 856<|content|>44. ... Warren Dietrich, Chief Executive Officer o...th Rathore at a private dinner in New York City on\n<|id|>68<|page|>10<|box|>90 174 143 854<|content|>January 6, 2025. ... On information and belief, th...ditional CRH merchandising personnel was discussed\n<|id|>96<|page|>12<|box|>858 174 893 854<|content|>(e) On February 25, 2025, CRH, through counsel, se...erdana Commerce Group, Inc. ... , and to Greystone\n<|id|>97<|page|>13<|box|>90 174 199 854<|content|>Capital Partners, LP, demanding immediate complian...icial relief if those obligations were not honored\n<|id|>121<|page|>15<|box|>693 174 748 854<|content|>Catherine Nygaard, Esquire Whitfield, Nygaard & Do...or the Individual Defendants (the \"Rathore Group\")\n<|id|>122<|page|>15<|box|>755 176 810 854<|content|>Gavin Blackhall, Esquire Blackhall & Soren LLP 300... Counsel for Defendant Verdana Commerce Group, Inc\n<|id|>123<|page|>16<|box|>89 140 138 852<|content|>Bernard Crawford (Bar No. ... com\n<|id|>124<|page|>16<|box|>140 140 156 511<|content|>Counsel for Plaintiff Cascade Retail Holdings Inc.... Counsel for Plaintiff Cascade Retail Holdings Inc",
+    "raw_response": "<|src_id|>16<|tgt_id|>17\n<|src_id|>67<|tgt_id|>68\n<|src_id|>96<|tgt_id|>97",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 67,
+            "tgt_id": 68
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 97
+        }
+    ]
+}

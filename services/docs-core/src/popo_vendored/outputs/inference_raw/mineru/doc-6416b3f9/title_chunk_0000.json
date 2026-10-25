@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>371 140 388 521<|content|>1. Purpose and Summary of Favorable Outcome\n<|id|>12<|page|>1<|box|>845 142 862 406<|content|>2. Summary of the GAO Decision\n<|id|>14<|page|>2<|box|>90 140 107 705<|content|>2.1 Ground 1 — Unreasonable Best-Value Tradeoff An\n<|id|>19<|page|>2<|box|>588 140 606 612<|content|>2.2 Ground 2 — Materially Unequal Discussions (Sus\n<|id|>27<|page|>3<|box|>392 140 410 614<|content|>2.3 Ground 3 — Organizational Conflict of Interest\n<|id|>32<|page|>4<|box|>90 140 107 547<|content|>2.4 Ground 4 — Labor Rate Realism (Not Reached)\n<|id|>35<|page|>4<|box|>327 140 344 480<|content|>3. GAO's Recommended Corrective Action\n<|id|>42<|page|>5<|box|>90 140 107 387<|content|>4. Next Steps and Action Items\n<|id|>44<|page|>5<|box|>184 140 200 526<|content|>4.1 Monitoring the Air Force's Corrective Action\n<|id|>52<|page|>6<|box|>157 140 175 419<|content|>4.2 Protest Cost Claim Preparation\n<|id|>63<|page|>6<|box|>829 140 845 475<|content|>4.3 Preparation for Proposal Reevaluation\n<|id|>71<|page|>7<|box|>801 140 816 393<|content|>4.4 Potential Follow-On Protest\n<|id|>74<|page|>8<|box|>231 140 248 442<|content|>5. Engagement Status and Fee Update\n<|id|>78<|page|>8<|box|>532 140 549 357<|content|>6. Request for Client Input\n<|id|>83<|page|>9<|box|>89 140 107 225<|content|>7. Closing\n<|id|>94<|page|>9<|box|>518 142 530 171<|content|>cc:\n<|id|>96<|page|>9<|box|>622 142 637 233<|content|>Enclosure:",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>27<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>1\n<|id|>42<|level|>1\n<|id|>44<|level|>2\n<|id|>52<|level|>2\n<|id|>63<|level|>2\n<|id|>71<|level|>2\n<|id|>74<|level|>1\n<|id|>78<|level|>1\n<|id|>83<|level|>1\n<|id|>94<|level|>-1\n<|id|>96<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        }
+    ]
+}

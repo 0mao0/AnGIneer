@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        67,
+        112
+    ],
+    "pages": [
+        68,
+        72,
+        73,
+        75,
+        79,
+        80,
+        82,
+        83,
+        86,
+        91,
+        93,
+        107,
+        108,
+        109,
+        112
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>268<|page|>68<|box|>109 411 121 576<|content|>(Payable in U. ... Dollars)\n<|id|>273<|page|>72<|box|>48 413 62 608<|content|>PUBLIC DEBT OPERATIONS\n<|id|>276<|page|>73<|box|>83 5 159 455<|content|>Series E and H are the only savings bonds currentl... F and G were sold from May 1, 1941, through April\n<|id|>277<|page|>73<|box|>83 506 159 955<|content|>30, 1952. ... Details of the principal changes in ...ctober and December 1959, and May and October 1961\n<|id|>281<|page|>75<|box|>103 400 116 551<|content|>(In millions of dollars)\n<|id|>287<|page|>79<|box|>88 6 193 460<|content|>The monthly Treasury Survey of Ownership covers se...nd local governments in the February 1962 Bulletin\n<|id|>291<|page|>80<|box|>51 317 66 710<|content|>TREASURY SURVEY OF OWNERSHIP, JANUARY 31, 1965\n<|id|>295<|page|>82<|box|>46 309 62 702<|content|>TREASURY SURVEY OF OWNERSHIP, JANUARY 31, 1965\n<|id|>297<|page|>83<|box|>77 5 137 456<|content|>Current market quotations shown here are over-the-...e Treasury by the Federal Reserve Bank of New York\n<|id|>306<|page|>86<|box|>900 26 922 485<|content|>1/ Series includes bonds on which the interest inc...ax and which are neither due nor callable before a\n<|id|>307<|page|>86<|box|>846 517 914 984<|content|>given number of years as follows: ... 4/ Market closed\n<|id|>319<|page|>91<|box|>578 21 592 479<|content|>1/ Includes gold sold to the United States by the International Monetary\n<|id|>322<|page|>91<|box|>568 511 581 615<|content|>p Preliminary. ... p Preliminary\n<|id|>329<|page|>93<|box|>912 21 933 491<|content|>3/ Includes holdings of other Western European cou...ents and the European Fund, gold to be distributed\n<|id|>331<|page|>93<|box|>900 518 910 622<|content|>p Preliminary. ... p Preliminary\n<|id|>370<|page|>107<|box|>890 11 980 491<|content|>Note: ... Data for December 31, 1963, also are sho...e basis of a July 31, 1963, survey and the monthly\n<|id|>371<|page|>107<|box|>880 516 907 942<|content|>transactions reports. ... For statistical convenie...cember 31, 1963, rather than as of the survey date\n<|id|>374<|page|>108<|box|>93 153 109 892<|content|>Table 1. ... - Short-Term Banking Liabilities to Foreigners as of January 31, 1965 1/\n<|id|>376<|page|>109<|box|>101 127 117 823<|content|>Table 2. ... - Short-Term Banking Claims on Foreigners as of January 31, 1965 1/\n<|id|>380<|page|>112<|box|>51 421 64 571<|content|>CAPITAL MOVEMENTS",
+    "raw_response": "<|src_id|>276<|tgt_id|>277\n<|src_id|>306<|tgt_id|>307\n<|src_id|>329<|tgt_id|>331\n<|src_id|>370<|tgt_id|>371",
+    "parsed": [
+        {
+            "src_id": 276,
+            "tgt_id": 277
+        },
+        {
+            "src_id": 306,
+            "tgt_id": 307
+        },
+        {
+            "src_id": 329,
+            "tgt_id": 331
+        },
+        {
+            "src_id": 370,
+            "tgt_id": 371
+        }
+    ]
+}

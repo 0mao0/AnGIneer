@@ -1,0 +1,73 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        51,
+        62
+    ],
+    "pages": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        62
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>557<|type|>title<|page|>51<|box|>90 385 109 611<|content|>SIGNATURE PAGES\n<|id|>559<|type|>title<|page|>51<|box|>190 142 207 264<|content|>BORROWER:\n<|id|>573<|type|>title<|page|>51<|box|>459 142 474 272<|content|>GUARANTOR:\n<|id|>580<|type|>title<|page|>52<|box|>90 248 109 750<|content|>EXHIBIT A — APPROVED PROJECT BUDGET\n<|id|>582<|type|>table<|page|>52<|box|>196 143 481 852<|content|>None\n<|id|>583<|type|>title<|page|>52<|box|>515 143 532 426<|content|>SOFT COST DETAIL (Line Item 3)\n<|id|>584<|type|>table<|page|>52<|box|>539 143 800 852<|content|>None\n<|id|>585<|type|>title<|page|>52<|box|>834 143 849 415<|content|>PROJECT SOURCES OF FUNDS\n<|id|>586<|type|>table<|page|>52<|box|>858 143 897 852<|content|>None\n<|id|>588<|type|>table<|page|>53<|box|>88 143 161 852<|content|>None\n<|id|>589<|type|>title<|page|>53<|box|>194 143 210 274<|content|>KEY METRICS\n<|id|>590<|type|>table<|page|>53<|box|>219 143 349 852<|content|>None\n<|id|>591<|type|>title<|page|>54<|box|>90 269 109 728<|content|>EXHIBIT B — FORM OF DRAW REQUEST\n<|id|>599<|type|>title<|page|>54<|box|>421 143 438 290<|content|>1. Draw Summary\n<|id|>600<|type|>table<|page|>54<|box|>445 143 539 852<|content|>None\n<|id|>601<|type|>title<|page|>54<|box|>574 142 590 500<|content|>2. Breakdown by Approved Budget Line Item\n<|id|>602<|type|>table<|page|>54<|box|>597 143 851 852<|content|>None\n<|id|>603<|type|>title<|page|>54<|box|>886 142 902 336<|content|>3. Retainage Calculation\n<|id|>605<|type|>table<|page|>55<|box|>88 143 183 852<|content|>None\n<|id|>606<|type|>title<|page|>55<|box|>217 140 233 272<|content|>4. Certifications\n<|id|>617<|type|>title<|page|>55<|box|>667 140 683 266<|content|>5. Attachments\n<|id|>626<|type|>title<|page|>55<|box|>854 143 872 357<|content|>6. Requested Funding Date\n<|id|>628<|type|>title<|page|>56<|box|>89 140 107 720<|content|>IRONHAVEN LOUDOUN EDGE LLC, a Virginia limited lia\n<|id|>637<|type|>title<|page|>57<|box|>90 200 109 797<|content|>EXHIBIT C — FORM OF COMPLIANCE CERTIFICATE\n<|id|>644<|type|>title<|page|>57<|box|>395 143 412 583<|content|>1. Debt Service Coverage Ratio (DSCR) — Section 7.\n<|id|>645<|type|>table<|page|>57<|box|>419 143 547 852<|content|>None\n<|id|>646<|type|>title<|page|>57<|box|>580 142 598 620<|content|>2. Loan-to-Value Ratio (LTV) — Section 7.1(b) (Ann\n<|id|>647<|type|>table<|page|>57<|box|>604 143 733 852<|content|>None\n<|id|>648<|type|>title<|page|>57<|box|>767 142 784 449<|content|>3. Minimum Liquidity — Section 7.1(c)\n<|id|>649<|type|>table<|page|>57<|box|>791 143 882 852<|content|>None\n<|id|>650<|type|>title<|page|>58<|box|>90 142 107 421<|content|>4. Cash Sweep Status — Section 7.2\n<|id|>651<|type|>table<|page|>58<|box|>114 143 208 852<|content|>None\n<|id|>652<|type|>title<|page|>58<|box|>243 140 260 388<|content|>5. Confirmation of Compliance\n<|id|>666<|type|>title<|page|>59<|box|>90 271 109 725<|content|>EXHIBIT D — PERMITTED EXCEPTIONS\n<|id|>680<|type|>title<|page|>60<|box|>90 181 135 816<|content|>EXHIBIT E — DESCRIPTION OF THE PROPERTY (LEGAL DES\n<|id|>682<|type|>title<|page|>60<|box|>214 142 231 387<|content|>PARCEL IDENTIFICATION:\n<|id|>684<|type|>title<|page|>60<|box|>301 142 320 470<|content|>METES AND BOUNDS DESCRIPTION:\n<|id|>697<|type|>title<|page|>62<|box|>90 261 109 736<|content|>EXHIBIT F — LIST OF LOAN DOCUMENTS",
+    "raw_response": "<|src_id|>582<|tgt_id|>580\n<|src_id|>584<|tgt_id|>583\n<|src_id|>586<|tgt_id|>585\n<|src_id|>588<|tgt_id|>585\n<|src_id|>590<|tgt_id|>589\n<|src_id|>600<|tgt_id|>599\n<|src_id|>602<|tgt_id|>601\n<|src_id|>605<|tgt_id|>603\n<|src_id|>645<|tgt_id|>644\n<|src_id|>647<|tgt_id|>646\n<|src_id|>649<|tgt_id|>648\n<|src_id|>651<|tgt_id|>650",
+    "parsed": [
+        {
+            "src_id": 582,
+            "tgt_id": 580
+        },
+        {
+            "src_id": 584,
+            "tgt_id": 583
+        },
+        {
+            "src_id": 586,
+            "tgt_id": 585
+        },
+        {
+            "src_id": 588,
+            "tgt_id": 585
+        },
+        {
+            "src_id": 590,
+            "tgt_id": 589
+        },
+        {
+            "src_id": 600,
+            "tgt_id": 599
+        },
+        {
+            "src_id": 602,
+            "tgt_id": 601
+        },
+        {
+            "src_id": 605,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 645,
+            "tgt_id": 644
+        },
+        {
+            "src_id": 647,
+            "tgt_id": 646
+        },
+        {
+            "src_id": 649,
+            "tgt_id": 648
+        },
+        {
+            "src_id": 651,
+            "tgt_id": 650
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 148 142 848<|content|>WRITTEN CONSENT OF THE SOLE STOCKHOLDER OF STRATOS\n<|id|>5<|page|>1<|box|>534 140 551 241<|content|>RECITALS\n<|id|>21<|page|>4<|box|>89 142 106 279<|content|>RESOLUTIONS\n<|id|>42<|page|>6<|box|>628 140 646 503<|content|>EFFECTIVENESS AND MISCELLANEOUS\n<|id|>47<|page|>7<|box|>315 400 332 596<|content|>[Signature Page Follows]\n<|id|>49<|page|>7<|box|>383 142 400 586<|content|>SOLARA DIGITAL INFRASTRUCTURE FUND VI LP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>5<|level|>2\n<|id|>21<|level|>2\n<|id|>42<|level|>2\n<|id|>47<|level|>-1\n<|id|>49<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        }
+    ]
+}

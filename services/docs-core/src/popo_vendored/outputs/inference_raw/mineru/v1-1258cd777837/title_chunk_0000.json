@@ -1,0 +1,36 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        4
+    ],
+    "pages": [
+        2,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>14<|page|>2<|box|>74 107 89 312<|content|>【passage 039c3787637d】\n<|id|>16<|page|>2<|box|>175 107 191 312<|content|>【passage b335c1547885】\n<|id|>18<|page|>2<|box|>293 107 309 312<|content|>【passage d184dfc48b6f】\n<|id|>36<|page|>4<|box|>83 107 99 312<|content|>【passage 2b0a79ba30d2】\n<|id|>38<|page|>4<|box|>167 107 181 312<|content|>【passage 56a482392152】",
+    "raw_response": "<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>36<|level|>1\n<|id|>38<|level|>1",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 151 142 846<|content|>WRITTEN CONSENT OF THE MEMBERS OF ARDENT CAPITAL G\n<|id|>4<|type|>title<|page|>1<|box|>424 140 441 241<|content|>RECITALS\n<|id|>6<|type|>table<|page|>1<|box|>720 143 862 852<|content|>None\n<|id|>11<|type|>table<|page|>3<|box|>188 143 412 852<|content|>None\n<|id|>22<|type|>title<|page|>4<|box|>710 140 727 279<|content|>RESOLUTIONS\n<|id|>24<|type|>title<|page|>4<|box|>823 140 858 854<|content|>Resolution 1 — Approval of the Management Company\n<|id|>37<|type|>title<|page|>6<|box|>90 140 108 583<|content|>Resolution 2 — Approval of the Economics Realignme\n<|id|>74<|type|>title<|page|>9<|box|>90 140 107 733<|content|>Resolution 4 — Admission of Ardent GP Intermediate\n<|id|>78<|type|>table<|page|>9<|box|>409 143 555 852<|content|>None\n<|id|>80<|type|>title<|page|>9<|box|>676 142 693 681<|content|>Resolution 5 — Approval and Execution of Restructu\n<|id|>97<|type|>title<|page|>10<|box|>518 142 536 596<|content|>Resolution 6 — Approval of Amendment No. 1 to the\n<|id|>102<|type|>title<|page|>11<|box|>140 140 157 557<|content|>Resolution 7 — Authorization of Officers and Agent\n<|id|>114<|type|>title<|page|>12<|box|>275 140 292 447<|content|>Resolution 8 — General Authorization\n<|id|>116<|type|>title<|page|>13<|box|>89 143 106 271<|content|>EXHIBIT LIST\n<|id|>117<|type|>table<|page|>13<|box|>138 143 484 852<|content|>None\n<|id|>118<|type|>title<|page|>13<|box|>532 142 550 266<|content|>SIGNATURES",
+    "raw_response": "<|src_id|>6<|tgt_id|>4\n<|src_id|>11<|tgt_id|>4\n<|src_id|>78<|tgt_id|>74\n<|src_id|>117<|tgt_id|>116",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 74
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 116
+        }
+    ]
+}

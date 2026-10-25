@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 107 651<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>13<|type|>title<|page|>1<|box|>489 142 506 410<|content|>I. Introduction and Authorization\n<|id|>18<|type|>title<|page|>2<|box|>148 140 167 454<|content|>II. Background and Procedural History\n<|id|>27<|type|>title<|page|>3<|box|>304 140 320 522<|content|>III. Summary of Original Proposed Adjustments\n<|id|>29<|type|>title<|page|>3<|box|>378 140 396 462<|content|>A. CSA Cost-Sharing Ratio Adjustments\n<|id|>31<|type|>table<|page|>3<|box|>518 143 656 852<|content|>None\n<|id|>32<|type|>title<|page|>3<|box|>695 140 713 455<|content|>B. Legacy IP Royalty Rate Adjustments\n<|id|>34<|type|>table<|page|>3<|box|>834 143 906 852<|content|>None\n<|id|>35<|type|>table<|page|>4<|box|>88 143 155 852<|content|>None\n<|id|>36<|type|>title<|page|>4<|box|>194 140 210 310<|content|>C. Correlative Offset\n<|id|>38<|type|>title<|page|>4<|box|>286 140 304 467<|content|>D. Net Proposed Adjustment and Penalty\n<|id|>41<|type|>title<|page|>4<|box|>503 140 521 418<|content|>IV. Acceptance of Settlement Offer\n<|id|>43<|type|>title<|page|>4<|box|>616 140 633 462<|content|>A. Total Settlement Adjustment Amount\n<|id|>45<|type|>title<|page|>4<|box|>762 142 779 550<|content|>B. Allocation of Settlement Adjustment by Tax Year\n<|id|>47<|type|>table<|page|>4<|box|>827 143 902 852<|content|>None\n<|id|>48<|type|>table<|page|>5<|box|>88 143 127 852<|content|>None\n<|id|>50<|type|>title<|page|>5<|box|>229 140 246 478<|content|>C. Tax Liability Resulting from Settlement\n<|id|>53<|type|>title<|page|>5<|box|>474 140 489 320<|content|>D. Penalty Abatement\n<|id|>56<|type|>title<|page|>5<|box|>792 140 809 367<|content|>E. No Admission of Liability\n<|id|>58<|type|>title<|page|>6<|box|>186 140 204 455<|content|>V. Closing Agreement — IRS Form 906\n<|id|>62<|type|>title<|page|>6<|box|>561 140 579 470<|content|>VI. Authorized Signatories and Execution\n<|id|>65<|type|>title<|page|>6<|box|>782 140 799 486<|content|>VII. Next Steps and Administrative Matters\n<|id|>71<|type|>title<|page|>7<|box|>464 140 482 352<|content|>VIII. Contact Information\n<|id|>80<|type|>title<|page|>7<|box|>767 140 784 238<|content|>IX. Closing\n<|id|>85<|type|>title<|page|>8<|box|>277 142 294 318<|content|>Respectfully submitted,",
+    "raw_response": "<|src_id|>31<|tgt_id|>29\n<|src_id|>34<|tgt_id|>32\n<|src_id|>35<|tgt_id|>32\n<|src_id|>47<|tgt_id|>45\n<|src_id|>48<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        }
+    ]
+}

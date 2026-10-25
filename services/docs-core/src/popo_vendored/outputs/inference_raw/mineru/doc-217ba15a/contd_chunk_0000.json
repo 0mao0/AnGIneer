@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        10,
+        18,
+        19,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>210 684 227 854<|content|>Case No. ... 23CV-18274\n<|id|>2<|page|>1<|box|>237 681 253 854<|content|>Hon. ... Robert Castañeda\n<|id|>3<|page|>1<|box|>262 158 297 854<|content|>DECLARATION OF DR. ... , IN SUPPORT OF DEFENDANT'S...N TO PLAINTIFF'S MOTION FOR PRELIMINARY INJUNCTION\n<|id|>4<|page|>1<|box|>306 209 327 787<|content|>DECLARATION OF DR. ... D\n<|id|>87<|page|>10<|box|>352 176 369 722<|content|>Post-Merger HHI: ... 5 8 ^ { 2 } + 2 2 ^ { 2 } + 1... 6 4 + 4 8 4 + 1 2 1 + 8 1 = 4 , \\mathbf { 0 5 0 }\n<|id|>88<|page|>10<|box|>378 176 395 531<|content|>Change in HHI (Delta): ... 4,050 − 2,818 = 1,232\n<|id|>149<|page|>18<|box|>837 140 893 856<|content|>83. ... On\n<|id|>150<|page|>19<|box|>90 174 125 854<|content|>November 14, 2022, early termination of the statut...tory waiting period was granted by the FTC and DOJ\n<|id|>175<|page|>23<|box|>369 174 406 854<|content|>Marcus Trujillo Senior Assistant Attorney General ...nt of Justice 1162 Court Street NE Salem, OR 97301\n<|id|>176<|page|>23<|box|>414 176 450 854<|content|>Constance Yee Derek Holmgren Ashworth & Pendleton ...120 SW Third Avenue, Suite 1500 Portland, OR 97204",
+    "raw_response": "<|src_id|>149<|tgt_id|>150",
+    "parsed": [
+        {
+            "src_id": 149,
+            "tgt_id": 150
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 326 118 669<|content|>UCC FINANCING STATEMENT\n<|id|>2<|type|>title<|page|>1<|box|>169 143 222 854<|content|>FILED WITH THE DELAWARE SECRETARY OF STATE DIVISIO\n<|id|>6<|type|>title<|page|>1<|box|>309 142 325 511<|content|>RETURN ACKNOWLEDGMENT COPY TO:\n<|id|>10<|type|>title<|page|>1<|box|>404 230 422 767<|content|>UCC FINANCING STATEMENT (Form UCC1) Follow Instruc\n<|id|>12<|type|>table<|page|>1<|box|>549 143 756 852<|content|>None\n<|id|>13<|type|>title<|page|>1<|box|>805 143 821 416<|content|>Box 2 — ADDITIONAL DEBTOR\n<|id|>16<|type|>table<|page|>2<|box|>196 143 329 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>378 142 393 475<|content|>Box 4 — COLLATERAL DESCRIPTION\n<|id|>45<|type|>title<|page|>4<|box|>513 142 530 485<|content|>Box 5 — ALTERNATIVE DESIGNATION\n<|id|>46<|type|>table<|page|>4<|box|>539 140 734 854<|content|>None\n<|id|>47<|type|>title<|page|>4<|box|>753 142 771 545<|content|>Box 6 — OPTIONAL FILER REFERENCE DATA\n<|id|>48<|type|>title<|page|>4<|box|>781 143 796 232<|content|>Reference:\n<|id|>50<|type|>title<|page|>4<|box|>869 142 885 318<|content|>Additional Reference:\n<|id|>52<|type|>title<|page|>5<|box|>152 142 169 352<|content|>Filer's Internal Reference:\n<|id|>54<|type|>table<|page|>5<|box|>243 143 353 852<|content|>None\n<|id|>55<|type|>title<|page|>5<|box|>402 173 419 823<|content|>ADDENDUM — UCC FINANCING STATEMENT ADDENDUM (Form\n<|id|>64<|type|>title<|page|>5<|box|>797 344 813 653<|content|>FILING CONTEXT MEMORANDUM\n<|id|>65<|type|>title<|page|>5<|box|>838 356 854 640<|content|>(Internal — Not Part of Filed Form)\n<|id|>66<|type|>title<|page|>5<|box|>863 140 893 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>67<|type|>title<|page|>6<|box|>90 142 107 352<|content|>1. Underlying Transaction\n<|id|>69<|type|>title<|page|>6<|box|>253 140 271 267<|content|>2. Lien Priority\n<|id|>75<|type|>title<|page|>6<|box|>546 140 563 385<|content|>3. Existing Senior UCC Filings\n<|id|>77<|type|>table<|page|>6<|box|>630 143 901 852<|content|>None\n<|id|>78<|type|>table<|page|>7<|box|>88 143 169 852<|content|>None\n<|id|>80<|type|>title<|page|>7<|box|>270 140 287 313<|content|>4. Companion Filings\n<|id|>88<|type|>title<|page|>7<|box|>583 140 599 395<|content|>5. Note on Parent Equity Pledge\n<|id|>90<|type|>title<|page|>7<|box|>820 140 837 424<|content|>6. Continuation Filing Requirement\n<|id|>92<|type|>table<|page|>8<|box|>176 143 308 852<|content|>None\n<|id|>94<|type|>title<|page|>8<|box|>459 205 494 790<|content|>— END OF UCC-1 FINANCING STATEMENT AND FILING CONT",
+    "raw_response": "<|src_id|>12<|tgt_id|>10\n<|src_id|>16<|tgt_id|>13\n<|src_id|>46<|tgt_id|>45\n<|src_id|>54<|tgt_id|>52\n<|src_id|>77<|tgt_id|>75\n<|src_id|>78<|tgt_id|>75\n<|src_id|>92<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 90
+        }
+    ]
+}

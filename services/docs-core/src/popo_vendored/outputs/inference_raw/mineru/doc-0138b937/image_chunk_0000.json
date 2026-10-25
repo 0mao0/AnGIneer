@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>4<|type|>title<|page|>1<|box|>223 140 239 540<|content|>VIA EMAIL AND INTERNATIONAL COURIER\n<|id|>9<|type|>title<|page|>1<|box|>569 140 587 383<|content|>I. Introduction of Engagement\n<|id|>17<|type|>title<|page|>2<|box|>441 140 459 367<|content|>II. Background and Context\n<|id|>27<|type|>title<|page|>3<|box|>348 140 364 535<|content|>III. Identification of Counsel to the Ad Hoc Group\n<|id|>28<|type|>table<|page|>3<|box|>453 143 565 852<|content|>None\n<|id|>35<|type|>title<|page|>4<|box|>131 140 148 331<|content|>IV. Document Requests\n<|id|>37<|type|>title<|page|>4<|box|>261 140 277 527<|content|>A. Senior Secured Credit Facility Documentation\n<|id|>52<|type|>title<|page|>5<|box|>265 142 282 362<|content|>B. Intercreditor Agreement\n<|id|>54<|type|>title<|page|>5<|box|>446 140 464 578<|content|>C. Forbearance Agreement and Related Documentation\n<|id|>58<|type|>title<|page|>5<|box|>718 142 734 439<|content|>D. Syndicate and Lender Information\n<|id|>60<|type|>table<|page|>5<|box|>820 143 895 852<|content|>None\n<|id|>61<|type|>table<|page|>6<|box|>89 143 220 852<|content|>None\n<|id|>65<|type|>title<|page|>6<|box|>483 142 501 455<|content|>E. Financial Reporting and Compliance\n<|id|>69<|type|>title<|page|>6<|box|>827 140 844 526<|content|>F. Other Debt Instruments (for Cross-Reference)\n<|id|>72<|type|>title<|page|>7<|box|>231 140 248 372<|content|>G. Insurance Documentation\n<|id|>79<|type|>title<|page|>7<|box|>542 142 559 377<|content|>H. Vessel-Related Documents\n<|id|>83<|type|>title<|page|>8<|box|>90 140 107 447<|content|>V. Proposed Communication Protocols\n<|id|>99<|type|>title<|page|>8<|box|>603 140 619 294<|content|>VI. Confidentiality\n<|id|>102<|type|>title<|page|>9<|box|>89 142 107 243<|content|>VII. Closing",
+    "raw_response": "<|src_id|>28<|tgt_id|>27\n<|src_id|>60<|tgt_id|>58\n<|src_id|>61<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 58
+        }
+    ]
+}

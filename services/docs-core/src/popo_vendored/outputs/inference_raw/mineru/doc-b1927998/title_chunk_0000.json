@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>193 140 210 584<|content|>VIA ELECTRONIC MAIL AND OVERNIGHT COURIER\n<|id|>6<|page|>1<|box|>263 140 280 777<|content|>Re: In the Matter of Belmont Ridge Bank National A\n<|id|>8<|page|>1<|box|>330 140 348 540<|content|>I. Entry of Appearance and Identification of Clien\n<|id|>20<|page|>2<|box|>340 140 357 638<|content|>II. Acknowledgment of Receipt of the Voluntary Req\n<|id|>28<|page|>3<|box|>90 140 107 521<|content|>III. Confirmation of BRB's Cooperation Posture\n<|id|>35<|page|>3<|box|>744 140 761 635<|content|>IV. Request for Meet-and-Confer Regarding Scope an\n<|id|>46<|page|>5<|box|>539 140 555 562<|content|>V. Preliminary Identification of Key Contacts at B\n<|id|>54<|page|>6<|box|>439 140 457 344<|content|>VI. Reservation of Rights\n<|id|>64<|page|>7<|box|>248 140 266 243<|content|>VII. Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>-1\n<|id|>6<|level|>1\n<|id|>8<|level|>2\n<|id|>20<|level|>2\n<|id|>28<|level|>2\n<|id|>35<|level|>2\n<|id|>46<|level|>2\n<|id|>54<|level|>2\n<|id|>64<|level|>2",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        }
+    ]
+}

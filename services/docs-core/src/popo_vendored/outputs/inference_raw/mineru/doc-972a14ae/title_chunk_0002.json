@@ -1,0 +1,86 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        98,
+        117
+    ],
+    "pages": [
+        99,
+        101,
+        103,
+        105,
+        109,
+        113,
+        115,
+        117
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>118<|page|>99<|box|>108 146 125 384<|content|>June 30, 1938 Schedule #1\n<|id|>122<|page|>99<|box|>108 589 125 863<|content|>December 31, 1938 Schedule #1\n<|id|>126<|page|>99<|box|>317 216 334 321<|content|>Schedule #2\n<|id|>129<|page|>99<|box|>552 234 565 304<|content|>Investments\n<|id|>132<|page|>99<|box|>319 678 335 783<|content|>Schedule #2\n<|id|>135<|page|>99<|box|>750 260 766 367<|content|>Schedule #3\n<|id|>139<|page|>99<|box|>553 702 566 772<|content|>Investments\n<|id|>142<|page|>99<|box|>750 639 766 744<|content|>Schedule #3\n<|id|>148<|page|>101<|box|>67 676 96 889<|content|>Monetary Stocks of Gold and Silver\n<|id|>153<|page|>103<|box|>104 253 134 776<|content|>MONETARY STOCKS OF GOLD AND SILVER IN U.S.\n<|id|>157<|page|>105<|box|>66 583 93 905<|content|>Silver of Specified Classifications Acquired by Mi\n<|id|>164<|page|>109<|box|>438 120 468 400<|content|>Indexes of Prices of 40 Foreign Currencies in New\n<|id|>171<|page|>113<|box|>468 382 486 631<|content|>MISCELLANEOUS\n<|id|>172<|page|>115<|box|>55 319 70 709<|content|>Commodities Imported under Quota Provisions\n<|id|>174<|page|>117<|box|>67 76 93 496<|content|>Summary of Criminal Cases in the United States Dis\n<|id|>179<|page|>117<|box|>70 578 85 889<|content|>Treasury Criminal Cases, by Months",
+    "raw_response": "<|id|>118<|level|>1\n<|id|>122<|level|>1\n<|id|>126<|level|>2\n<|id|>129<|level|>3\n<|id|>132<|level|>2\n<|id|>135<|level|>2\n<|id|>139<|level|>3\n<|id|>142<|level|>2\n<|id|>148<|level|>1\n<|id|>153<|level|>1\n<|id|>157<|level|>1\n<|id|>164<|level|>1\n<|id|>171<|level|>1\n<|id|>172<|level|>1\n<|id|>174<|level|>1\n<|id|>179<|level|>2",
+    "parsed": [
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 1
+        },
+        {
+            "id": 164,
+            "level": 1
+        },
+        {
+            "id": 171,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 179,
+            "level": 2
+        }
+    ]
+}

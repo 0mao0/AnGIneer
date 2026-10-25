@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>258 598 273 854<|content|>Effective Date: ... February 9, 2026\n<|id|>5<|page|>1<|box|>284 140 484 854<|content|>The undersigned stockholders of Meridian Diagnosti...special meeting of the stockholders of the Company\n<|id|>10<|page|>1<|box|>849 140 904 856<|content|>WHEREAS, additionally, in connection with the Fina...interest thereon), issued pursuant to that certain\n<|id|>11<|page|>2<|box|>90 140 181 854<|content|>Convertible Note Purchase Agreement, dated Septemb...e promissory notes issued thereunder (the \"Notes\")\n<|id|>13<|page|>2<|box|>233 140 306 854<|content|>WHEREAS, the undersigned stockholders collectively...mmon Stock, representing approximately 96. ... and\n<|id|>14<|page|>2<|box|>314 140 369 856<|content|>WHEREAS, capitalized terms used but not otherwise ...of Incorporation (as defined below), as applicable\n<|id|>29<|page|>3<|box|>828 210 901 857<|content|>(vi) any acquisition of, or investment in, another... Five Hundred Thousand Dollars ($500,000); ... and\n<|id|>33<|page|>4<|box|>369 140 460 854<|content|>FURTHER RESOLVED, that the officers of the Company...he payment of all filing fees and related expenses\n<|id|>62<|page|>7<|box|>152 176 208 854<|content|>(b) Series Seed Preferred Stock Director. ... and\n<|id|>64<|page|>7<|box|>332 140 388 854<|content|>The undersigned stockholders acknowledge that the ...oting Agreement will be bound by the terms thereof\n<|id|>68<|page|>7<|box|>652 174 763 854<|content|>(a) Dr. ... and\n<|id|>70<|page|>8<|box|>90 140 273 854<|content|>Each Restriction Agreement shall provide that, upo...hs in accordance with the monthly vesting schedule\n<|id|>86<|page|>9<|box|>832 176 887 854<|content|>(f) making all governmental filings, obtaining all...the SEC and all required blue sky filings; ... and\n<|id|>88<|page|>10<|box|>171 140 282 854<|content|>FURTHER RESOLVED, that all actions heretofore take...ts as the authorized acts and deeds of the Company",
+    "raw_response": "<|src_id|>10<|tgt_id|>11",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 23,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['A)港口航道的几何类型为面;B)用DRVAL1(深度范围1)编码最小水深;', 'FAIRWY(航道)(O)DATEND(终止日期) = [YYYYMM-DD]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['C)可以建立聚集物标 C_AGGR(集合)或 C_ASSO(关联)将航道与有关的助航设施、推荐航路、疏浚区以及其他规则建立联系;在标示主航道的信标或浮标偏离实际航道范围,可用 INFORM(英文信息)表示', '(O)DATSTA(开始日期) = [YYYYMM-DD](O)DRVAL1(深度范围值 1) = [(xx.x)单位:m](O)ORIENT(方位) = [(xxx)单位:(°),范围:0~360](O)OBJNAM(英文名称) = [港口航道英文名称](O)NOBJNM(中文名称) = [港口航道中文名称](O)INFORM(英文信息) = [港口航道英文信息](O)NINFOM(中文信息) = [港口航道中文信息]']]\n",
+    "raw_response": "[0, 0]",
+    "parsed": [
+        0,
+        0
+    ],
+    "table1_idx": 2761,
+    "table2_idx": 2762
+}

@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        69,
+        74
+    ],
+    "pages": [
+        70,
+        71,
+        74
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>420<|page|>70<|box|>148 388 162 609<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>421<|page|>70<|box|>184 81 258 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>429<|page|>70<|box|>839 81 901 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>430<|page|>70<|box|>184 504 258 915<|content|>Second Liberty Loan Act of 1917, the nature of the...l debt. ... the limit may change from year to year\n<|id|>449<|page|>71<|box|>819 80 909 491<|content|>Quarterly financing (“Treasury Financing Operation.... ... Treasury sometimes offers additional amounts\n<|id|>450<|page|>71<|box|>89 504 121 915<|content|>Fractional coins (USCC)—Coins minted in denominati...and 10 cents, and minor coins (5 cents and 1 cent)\n<|id|>470<|page|>74<|box|>60 84 104 367<|content|>DEPARTMENT OF THE TREASURY BUREAU OF THE FISCAL SERVICE WASHINGTON, D. ... 20227\n<|id|>471<|page|>74<|box|>118 93 148 361<|content|>OFFICIAL BUSINESS PENALTY FOR PRIVATE USE, $300",
+    "raw_response": "<|src_id|>429<|tgt_id|>430",
+    "parsed": [
+        {
+            "src_id": 429,
+            "tgt_id": 430
+        }
+    ]
+}

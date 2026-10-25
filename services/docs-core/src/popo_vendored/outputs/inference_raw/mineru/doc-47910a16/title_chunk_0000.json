@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 351 118 645<|content|>OFFICER'S CERTIFICATE\n<|id|>1<|page|>1<|box|>136 323 154 673<|content|>Incumbency, Resolutions, and Authorization\n<|id|>7<|page|>1<|box|>361 142 378 243<|content|>RECITALS\n<|id|>25<|page|>2<|box|>811 140 828 547<|content|>SECTION 1 — INCUMBENCY CERTIFICATION\n<|id|>36<|page|>3<|box|>529 140 546 470<|content|>SECTION 2 — BOARD RESOLUTIONS\n<|id|>49<|page|>4<|box|>714 140 732 498<|content|>SECTION 3 — AUTHORITY AND POWER\n<|id|>51<|page|>4<|box|>804 140 821 495<|content|>MTDC has the requisite power and authority to:\n<|id|>59<|page|>5<|box|>608 140 625 524<|content|>SECTION 4 — NO CONFLICT; NO DEFAULT\n<|id|>65<|page|>6<|box|>285 140 301 576<|content|>SECTION 5 — GOOD STANDING AND EXISTENCE\n<|id|>68<|page|>6<|box|>523 140 541 563<|content|>SECTION 6 — ORGANIZATIONAL DOCUMENTS\n<|id|>74<|page|>6<|box|>823 140 839 549<|content|>SECTION 7 — ADDITIONAL CERTIFICATIONS\n<|id|>81<|page|>7<|box|>820 140 837 366<|content|>SECTION 8 — RELIANCE\n<|id|>90<|page|>8<|box|>443 140 460 534<|content|>CERTIFICATION AND ACKNOWLEDGMENT\n<|id|>92<|page|>8<|box|>638 142 655 258<|content|>EXECUTION\n<|id|>93<|page|>8<|box|>664 274 681 720<|content|>METROPOLITAN TRANSIT DEVELOPMENT CORP.\n<|id|>95<|page|>8<|box|>839 140 878 637<|content|>NOTARY ACKNOWLEDGMENT — DAVID HARRINGTON STATE OF\n<|id|>101<|page|>10<|box|>90 436 109 563<|content|>EXHIBIT A\n<|id|>102<|page|>10<|box|>127 274 172 720<|content|>INCUMBENCY SCHEDULE METROPOLITAN TRANSIT DEVELOPME\n<|id|>103<|page|>10<|box|>180 423 196 573<|content|>As of June 15, 2025\n<|id|>109<|page|>11<|box|>90 434 111 563<|content|>EXHIBIT B\n<|id|>110<|page|>11<|box|>128 153 190 841<|content|>CERTIFIED COPY OF BOARD RESOLUTIONS RESOLUTIONS OF\n<|id|>124<|page|>12<|box|>295 140 313 379<|content|>NOW, THEREFORE, BE IT:\n<|id|>145<|page|>13<|box|>809 140 825 267<|content|>and be it further\n<|id|>151<|page|>14<|box|>564 140 580 519<|content|>SECRETARY'S / CLERK'S CERTIFICATION\n<|id|>159<|page|>16<|box|>90 434 111 563<|content|>EXHIBIT C\n<|id|>160<|page|>16<|box|>128 349 145 647<|content|>ORGANIZATIONAL DOCUMENTS\n<|id|>161<|page|>16<|box|>154 483 170 514<|content|>OF\n<|id|>162<|page|>16<|box|>180 277 196 720<|content|>METROPOLITAN TRANSIT DEVELOPMENT CORP.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>25<|level|>2\n<|id|>36<|level|>2\n<|id|>49<|level|>2\n<|id|>51<|level|>-1\n<|id|>59<|level|>2\n<|id|>65<|level|>2\n<|id|>68<|level|>2\n<|id|>74<|level|>2\n<|id|>81<|level|>2\n<|id|>90<|level|>2\n<|id|>92<|level|>2\n<|id|>93<|level|>-1\n<|id|>95<|level|>2\n<|id|>101<|level|>2\n<|id|>102<|level|>2\n<|id|>103<|level|>-1\n<|id|>109<|level|>2\n<|id|>110<|level|>2\n<|id|>124<|level|>-1\n<|id|>145<|level|>-1\n<|id|>151<|level|>2\n<|id|>159<|level|>2\n<|id|>160<|level|>2\n<|id|>161<|level|>-1\n<|id|>162<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        }
+    ]
+}

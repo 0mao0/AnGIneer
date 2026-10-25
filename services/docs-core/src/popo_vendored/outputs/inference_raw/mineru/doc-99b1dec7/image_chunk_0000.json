@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 107 651<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>114 330 130 668<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>2<|type|>title<|page|>1<|box|>138 423 155 573<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>364 140 381 230<|content|>1. Request\n<|id|>11<|type|>table<|page|>1<|box|>742 143 897 852<|content|>None\n<|id|>12<|type|>table<|page|>2<|box|>89 143 731 852<|content|>None\n<|id|>14<|type|>title<|page|>3<|box|>90 142 107 223<|content|>2. Results\n<|id|>16<|type|>title<|page|>3<|box|>220 140 237 416<|content|>2(a). No Active Conflicts Identified\n<|id|>23<|type|>title<|page|>3<|box|>617 142 633 663<|content|>2(b). Informational Hits — Prior Representations (\n<|id|>25<|type|>table<|page|>3<|box|>700 143 901 852<|content|>None\n<|id|>26<|type|>table<|page|>4<|box|>90 143 906 852<|content|>None\n<|id|>27<|type|>table<|page|>5<|box|>89 143 334 852<|content|>None\n<|id|>29<|type|>title<|page|>5<|box|>417 140 434 341<|content|>2(c). Lateral Hire Screen\n<|id|>31<|type|>title<|page|>5<|box|>521 140 539 630<|content|>Christy Bauer, Lead Associate — Intellectual Prope\n<|id|>33<|type|>title<|page|>5<|box|>700 140 719 557<|content|>Garrett Simmons, Working Associate — Tax Group:\n<|id|>35<|type|>title<|page|>5<|box|>823 140 840 254<|content|>3. Conclusion",
+    "raw_response": "<|src_id|>11<|tgt_id|>8\n<|src_id|>12<|tgt_id|>8\n<|src_id|>25<|tgt_id|>23\n<|src_id|>26<|tgt_id|>23\n<|src_id|>27<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 23
+        }
+    ]
+}

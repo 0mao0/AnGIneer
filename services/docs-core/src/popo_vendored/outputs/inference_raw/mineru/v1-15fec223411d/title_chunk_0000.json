@@ -1,0 +1,34 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        5
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>14<|page|>2<|box|>214 543 231 845<|content|>To order J Series products, please specify: Catalo\n<|id|>24<|page|>3<|box|>214 544 231 845<|content|>To order J Series products, please specify: Catalo\n<|id|>35<|page|>4<|box|>214 546 231 846<|content|>To order J Series products, please specify: Catalo\n<|id|>46<|page|>5<|box|>214 546 231 847<|content|>To order J Series products, please specify: Catalo",
+    "raw_response": "<|id|>14<|level|>2\n<|id|>24<|level|>2\n<|id|>35<|level|>2\n<|id|>46<|level|>2",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        7,
+        22,
+        23,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>157 163 194 833<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1401 K Street NW, Suite 1200 Washington, D. ... 20005\n<|id|>2<|page|>1<|box|>202 142 219 390<|content|>INTERNAL MEMORANDUM\n<|id|>3<|page|>1<|box|>228 751 244 854<|content|>July 20, 2025\n<|id|>30<|page|>4<|box|>871 140 907 854<|content|>Pinnacle's independent auditor is Kessler Fong Acc...represented by Whitfield, Greer & Tanaka LLP, with\n<|id|>31<|page|>5<|box|>89 140 126 854<|content|>Diana Whitfield (Lead Partner) and Kenneth Oshiro ...s, leading the defense effort on Pinnacle's behalf\n<|id|>50<|page|>7<|box|>369 181 385 473<|content|>• Declining sales volumes and revenue\n<|id|>57<|page|>7<|box|>523 138 744 856<|content|>The application of the weakened-competitor framewo...e significance of the weakened-competitor evidence\n<|id|>51<|page|>7<|box|>388 181 405 725<|content|>• Loss of customers, suppliers, or — in the marketplace context — sellers\n<|id|>52<|page|>7<|box|>407 181 441 854<|content|>• Departure of key personnel, particularly in technology, engineering, and senior leadership roles\n<|id|>53<|page|>7<|box|>446 183 463 790<|content|>• Technological obsolescence or failure to keep pace with competitors' innovations\n<|id|>54<|page|>7<|box|>465 183 483 676<|content|>• Inability to attract new capital investment or rising cost of capital\n<|id|>55<|page|>7<|box|>486 183 502 609<|content|>• Competitive entry by stronger or more innovative rivals\n<|id|>56<|page|>7<|box|>505 183 522 715<|content|>• Erosion of the firm's competitive advantages or differentiating features\n<|id|>170<|page|>22<|box|>866 181 902 856<|content|>• Thomas Breck (Pinnacle CFO). ... As\n<|id|>171<|page|>23<|box|>89 209 162 854<|content|>CFO, he has direct responsibility for Pinnacle's f...g and can speak authoritatively to the data. ... \"\n<|id|>191<|page|>25<|box|>891 142 909 320<|content|>Respectfully submitted,\n<|id|>192<|page|>26<|box|>89 140 123 852<|content|>Aaron Liu Working Associate, Antitrust & Competition Calderwood & Harkness LLP (San Francisco Office)",
+    "raw_response": "<|src_id|>30<|tgt_id|>31\n<|src_id|>170<|tgt_id|>171",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 171
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|type|>title<|page|>1<|box|>667 344 686 653<|content|>I. DOCUMENTS EXAMINED\n<|id|>35<|type|>title<|page|>3<|box|>433 383 453 612<|content|>II. DEFINED TERMS\n<|id|>47<|type|>title<|page|>4<|box|>414 393 434 604<|content|>III. ASSUMPTIONS\n<|id|>60<|type|>title<|page|>5<|box|>691 419 710 578<|content|>IV. OPINIONS\n<|id|>62<|type|>title<|page|>5<|box|>787 140 804 687<|content|>A. Creation and Attachment — Security Agreement (S\n<|id|>71<|type|>title<|page|>6<|box|>378 142 395 568<|content|>B. Perfection — Security Agreement (Second-Priorit\n<|id|>76<|type|>title<|page|>6<|box|>828 140 844 552<|content|>C. Priority — Security Agreement (Second-Priority)\n<|id|>80<|type|>title<|page|>7<|box|>518 140 535 767<|content|>D. Creation and Attachment — Parent Equity Pledge\n<|id|>83<|type|>title<|page|>7<|box|>714 140 732 650<|content|>E. Perfection — Parent Equity Pledge Agreement (Fi\n<|id|>87<|type|>title<|page|>8<|box|>314 140 332 630<|content|>F. Priority — Parent Equity Pledge Agreement (Firs\n<|id|>90<|type|>title<|page|>8<|box|>588 269 607 727<|content|>V. QUALIFICATIONS AND LIMITATIONS\n<|id|>92<|type|>title<|page|>8<|box|>685 140 702 390<|content|>A. General UCC Qualifications\n<|id|>100<|type|>title<|page|>10<|box|>167 140 185 344<|content|>B. Priority Qualifications\n<|id|>108<|type|>title<|page|>10<|box|>761 140 779 310<|content|>C. Scope Limitations\n<|id|>114<|type|>title<|page|>11<|box|>505 334 523 661<|content|>VI. RELIANCE AND BENEFIT\n<|id|>123<|type|>title<|page|>13<|box|>90 421 109 576<|content|>SCHEDULE A\n<|id|>124<|type|>title<|page|>13<|box|>136 143 154 316<|content|>Financing Statements\n<|id|>126<|type|>table<|page|>13<|box|>204 143 618 852<|content|>None\n<|id|>128<|type|>title<|page|>14<|box|>90 421 109 576<|content|>SCHEDULE B\n<|id|>129<|type|>title<|page|>14<|box|>136 142 152 508<|content|>Existing Senior Facility UCC Filings Identified\n<|id|>131<|type|>table<|page|>14<|box|>258 143 550 852<|content|>None",
+    "raw_response": "<|src_id|>126<|tgt_id|>124\n<|src_id|>131<|tgt_id|>129",
+    "parsed": [
+        {
+            "src_id": 126,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 129
+        }
+    ]
+}

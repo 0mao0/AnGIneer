@@ -1,0 +1,52 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        49,
+        58
+    ],
+    "pages": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>691<|type|>image<|page|>49<|box|>307 164 430 855<|content|>None\n<|id|>692<|type|>title<|page|>49<|box|>485 112 500 255<|content|>9.3.2 回填设备\n<|id|>696<|type|>title<|page|>49<|box|>689 114 703 297<|content|>10 质量检验评定标准\n<|id|>697<|type|>title<|page|>49<|box|>725 114 741 245<|content|>10.1 一般规定\n<|id|>700<|type|>title<|page|>49<|box|>828 114 843 245<|content|>10.2 材料检验\n<|id|>703<|type|>title<|page|>50<|box|>179 114 193 245<|content|>10.3 安装检验\n<|id|>705<|type|>title<|page|>50<|box|>253 114 269 374<|content|>10.3.2 地基应按下表进行实测：\n<|id|>706<|type|>table<|page|>50<|box|>305 131 444 889<|content|>None\n<|id|>710<|type|>table<|page|>50<|box|>563 122 661 897<|content|>None\n<|id|>711<|type|>title<|page|>50<|box|>671 115 688 245<|content|>10.4 形状检验\n<|id|>716<|type|>title<|page|>50<|box|>866 114 882 315<|content|>10.4.5 整体管最终形状\n<|id|>719<|type|>title<|page|>51<|box|>142 114 156 352<|content|>10.4.6 拼装板结构最终形状\n<|id|>722<|type|>title<|page|>52<|box|>154 467 170 556<|content|>附 录 A\n<|id|>731<|type|>image<|page|>53<|box|>240 233 871 771<|content|>None\n<|id|>732<|type|>image<|page|>54<|box|>185 228 686 823<|content|>None\n<|id|>733<|type|>image<|page|>55<|box|>152 243 624 722<|content|>None\n<|id|>734<|type|>title<|page|>56<|box|>152 467 168 554<|content|>附 录 C\n<|id|>735<|type|>title<|page|>56<|box|>171 410 206 611<|content|>（资料性附录） 纵向螺栓接缝承载力试验\n<|id|>736<|type|>title<|page|>56<|box|>227 112 242 236<|content|>C.1 一般规定\n<|id|>738<|type|>title<|page|>56<|box|>319 114 335 236<|content|>C.2 试验样本\n<|id|>745<|type|>title<|page|>56<|box|>588 114 604 236<|content|>C.3 试验方法\n<|id|>748<|type|>title<|page|>56<|box|>764 112 780 289<|content|>C.4 公称接缝承载力\n<|id|>754<|type|>title<|page|>57<|box|>168 112 185 236<|content|>C.5 结果报告\n<|id|>767<|type|>title<|page|>57<|box|>456 112 473 236<|content|>C.6 样本保存\n<|id|>771<|type|>title<|page|>58<|box|>190 428 206 593<|content|>常用波纹钢管规格表\n<|id|>773<|type|>table<|page|>58<|box|>259 134 472 887<|content|>None",
+    "raw_response": "<|src_id|>691<|tgt_id|>692\n<|src_id|>706<|tgt_id|>705\n<|src_id|>710<|tgt_id|>703\n<|src_id|>731<|tgt_id|>722\n<|src_id|>732<|tgt_id|>722\n<|src_id|>733<|tgt_id|>722\n<|src_id|>773<|tgt_id|>771",
+    "parsed": [
+        {
+            "src_id": 691,
+            "tgt_id": 692
+        },
+        {
+            "src_id": 706,
+            "tgt_id": 705
+        },
+        {
+            "src_id": 710,
+            "tgt_id": 703
+        },
+        {
+            "src_id": 731,
+            "tgt_id": 722
+        },
+        {
+            "src_id": 732,
+            "tgt_id": 722
+        },
+        {
+            "src_id": 733,
+            "tgt_id": 722
+        },
+        {
+            "src_id": 773,
+            "tgt_id": 771
+        }
+    ]
+}

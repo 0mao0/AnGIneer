@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 421 107 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>14<|type|>title<|page|>2<|box|>229 142 247 606<|content|>POST-CLOSING OBLIGATIONS — SUMMARY TABLE\n<|id|>15<|type|>table<|page|>2<|box|>316 143 892 852<|content|>None\n<|id|>17<|type|>title<|page|>3<|box|>205 140 223 589<|content|>DETAILED DISCUSSION OF POST-CLOSING ITEMS\n<|id|>18<|type|>title<|page|>3<|box|>237 140 255 483<|content|>Item 1: UCC-1 Financing Statement Filings\n<|id|>27<|type|>title<|page|>4<|box|>138 140 157 470<|content|>Item 2: Second-Lien Mortgage Recording\n<|id|>39<|type|>title<|page|>5<|box|>367 140 383 648<|content|>Item 3: Landlord Consents / Estoppel Certificates\n<|id|>51<|type|>title<|page|>6<|box|>407 140 425 450<|content|>Item 4: Updated Insurance Certificates\n<|id|>68<|type|>title<|page|>7<|box|>479 142 496 380<|content|>ADDITIONAL REMINDERS\n<|id|>69<|type|>title<|page|>7<|box|>510 140 527 361<|content|>Delivery of Closing Binders\n<|id|>85<|type|>title<|page|>8<|box|>329 140 347 643<|content|>Notification to Lender's Counsel and First-Lien Ag\n<|id|>92<|type|>title<|page|>8<|box|>679 140 698 406<|content|>Ongoing Compliance Obligations\n<|id|>102<|type|>title<|page|>9<|box|>450 140 468 529<|content|>CONTACT INFORMATION FOR QUESTIONS\n<|id|>109<|type|>title<|page|>9<|box|>758 140 775 233<|content|>CLOSING",
+    "raw_response": "<|src_id|>15<|tgt_id|>14",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 14
+        }
+    ]
+}

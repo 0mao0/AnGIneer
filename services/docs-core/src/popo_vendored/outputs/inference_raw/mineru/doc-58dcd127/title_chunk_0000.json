@@ -1,0 +1,145 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>265 194 300 803<|content|>DEFENDANT STONEFIELD LOGISTICS GROUP INC.'S RESPON\n<|id|>2<|page|>1<|box|>324 142 340 397<|content|>PRELIMINARY STATEMENT\n<|id|>8<|page|>1<|box|>824 142 840 357<|content|>GENERAL OBJECTIONS\n<|id|>19<|page|>3<|box|>89 140 107 651<|content|>RESPONSES TO INDIVIDUAL REQUESTS FOR ADMISSION\n<|id|>20<|page|>3<|box|>119 140 138 434<|content|>REQUEST FOR ADMISSION NO. 1\n<|id|>23<|page|>3<|box|>292 142 309 436<|content|>REQUEST FOR ADMISSION NO. 2\n<|id|>26<|page|>3<|box|>446 142 463 436<|content|>REQUEST FOR ADMISSION NO. 3\n<|id|>29<|page|>3<|box|>599 142 616 436<|content|>REQUEST FOR ADMISSION NO. 4\n<|id|>32<|page|>3<|box|>808 142 824 437<|content|>REQUEST FOR ADMISSION NO. 5\n<|id|>35<|page|>4<|box|>212 140 229 437<|content|>REQUEST FOR ADMISSION NO. 6\n<|id|>38<|page|>4<|box|>474 140 492 437<|content|>REQUEST FOR ADMISSION NO. 7\n<|id|>41<|page|>4<|box|>702 140 719 437<|content|>REQUEST FOR ADMISSION NO. 8\n<|id|>44<|page|>5<|box|>89 140 106 436<|content|>REQUEST FOR ADMISSION NO. 9\n<|id|>47<|page|>5<|box|>371 142 388 444<|content|>REQUEST FOR ADMISSION NO. 10\n<|id|>50<|page|>5<|box|>561 142 578 444<|content|>REQUEST FOR ADMISSION NO. 11\n<|id|>53<|page|>5<|box|>787 140 805 444<|content|>REQUEST FOR ADMISSION NO. 12\n<|id|>57<|page|>6<|box|>138 140 156 444<|content|>REQUEST FOR ADMISSION NO. 13\n<|id|>60<|page|>6<|box|>292 140 309 444<|content|>REQUEST FOR ADMISSION NO. 14\n<|id|>63<|page|>6<|box|>518 142 536 444<|content|>REQUEST FOR ADMISSION NO. 15\n<|id|>66<|page|>6<|box|>800 142 816 444<|content|>REQUEST FOR ADMISSION NO. 16\n<|id|>69<|page|>7<|box|>229 140 248 444<|content|>REQUEST FOR ADMISSION NO. 17\n<|id|>72<|page|>7<|box|>530 140 547 444<|content|>REQUEST FOR ADMISSION NO. 18\n<|id|>78<|page|>8<|box|>138 140 156 444<|content|>REQUEST FOR ADMISSION NO. 19\n<|id|>84<|page|>8<|box|>681 142 698 444<|content|>REQUEST FOR ADMISSION NO. 20\n<|id|>89<|page|>9<|box|>238 140 255 444<|content|>REQUEST FOR ADMISSION NO. 21\n<|id|>93<|page|>9<|box|>564 140 580 444<|content|>REQUEST FOR ADMISSION NO. 22\n<|id|>97<|page|>10<|box|>89 140 107 444<|content|>REQUEST FOR ADMISSION NO. 23\n<|id|>109<|page|>10<|box|>732 142 750 444<|content|>REQUEST FOR ADMISSION NO. 24\n<|id|>113<|page|>11<|box|>175 140 191 444<|content|>REQUEST FOR ADMISSION NO. 25\n<|id|>126<|page|>12<|box|>224 140 241 444<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>135<|page|>12<|box|>428 140 445 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>8<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>23<|level|>3\n<|id|>26<|level|>3\n<|id|>29<|level|>3\n<|id|>32<|level|>3\n<|id|>35<|level|>3\n<|id|>38<|level|>3\n<|id|>41<|level|>3\n<|id|>44<|level|>3\n<|id|>47<|level|>3\n<|id|>50<|level|>3\n<|id|>53<|level|>3\n<|id|>57<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>3\n<|id|>66<|level|>3\n<|id|>69<|level|>3\n<|id|>72<|level|>3\n<|id|>78<|level|>3\n<|id|>84<|level|>3\n<|id|>89<|level|>3\n<|id|>93<|level|>3\n<|id|>97<|level|>3\n<|id|>109<|level|>3\n<|id|>113<|level|>3\n<|id|>126<|level|>-1\n<|id|>135<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 2
+        }
+    ]
+}

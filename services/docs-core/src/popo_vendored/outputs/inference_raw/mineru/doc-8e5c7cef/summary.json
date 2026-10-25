@@ -1,0 +1,233 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-g5r8bnrq\\input\\pdfs\\doc-8e5c7cef.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-g5r8bnrq\\enriched\\doc-8e5c7cef.json",
+    "contd_output": "<|src_id|>39<|tgt_id|>40\n<|src_id|>40<|tgt_id|>41\n<|src_id|>43<|tgt_id|>44\n<|src_id|>44<|tgt_id|>45\n<|src_id|>45<|tgt_id|>46",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>7<|level|>1\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>35<|level|>2",
+    "image_output": "<|src_id|>28<|tgt_id|>23\n<|src_id|>29<|tgt_id|>23\n<|src_id|>30<|tgt_id|>23\n<|src_id|>31<|tgt_id|>23\n<|src_id|>32<|tgt_id|>23\n<|src_id|>33<|tgt_id|>23\n<|src_id|>34<|tgt_id|>23",
+    "contd_label": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 28,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 23
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 28,
+            "table2_idx": 29,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "colspan=3, 基价",
+                    "元",
+                    "41924",
+                    "85872",
+                    "98627"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, 序号",
+                    "colspan=4, 定额编号",
+                    "010075",
+                    "010078",
+                    "010079"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 29,
+            "table2_idx": 30,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "colspan=3, 基价",
+                    "元",
+                    "41917",
+                    "85190",
+                    "97288"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, 序号",
+                    "colspan=4, 定额编号",
+                    "010085",
+                    "010088",
+                    "010089"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 30,
+            "table2_idx": 31,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "colspan=3, 基价",
+                    "元",
+                    "42110",
+                    "83634",
+                    "96166"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, 序号",
+                    "colspan=4, 定额编号",
+                    "010095",
+                    "010098",
+                    "010099"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 31,
+            "table2_idx": 32,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "colspan=3, 基价",
+                    "元",
+                    "41991",
+                    "83855",
+                    "96430"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, 序号",
+                    "colspan=4, 定额编号",
+                    "010105",
+                    "010108",
+                    "010109"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 32,
+            "table2_idx": 33,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "colspan=3, 基价",
+                    "元",
+                    "41880",
+                    "84822",
+                    "97281"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, 序号",
+                    "colspan=4, 定额编号",
+                    "010115",
+                    "010118",
+                    "010119"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 33,
+            "table2_idx": 34,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "colspan=3, 基价",
+                    "元",
+                    "42185",
+                    "84512",
+                    "97240"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=3, 序号",
+                    "colspan=4, 定额编号",
+                    "010125",
+                    "010128",
+                    "010129"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-jiy374bz\\input\\pdfs\\doc-0efbd5e4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-jiy374bz\\enriched\\doc-0efbd5e4.json",
+    "contd_output": "<|src_id|>23<|tgt_id|>24",
+    "title_output": "<|id|>0<|level|>1\n<|id|>22<|level|>1\n<|id|>29<|level|>1\n<|id|>41<|level|>1\n<|id|>53<|level|>1\n<|id|>68<|level|>1\n<|id|>71<|level|>2\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>96<|level|>1\n<|id|>101<|level|>1\n<|id|>109<|level|>1\n<|id|>113<|level|>1\n<|id|>127<|level|>1\n<|id|>128<|level|>2",
+    "image_output": "<|src_id|>98<|tgt_id|>96\n<|src_id|>99<|tgt_id|>96",
+    "contd_label": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 98,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 96
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 98,
+            "table2_idx": 99,
+            "upper_row_ss": [
+                [
+                    "[M]",
+                    "[As needed]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

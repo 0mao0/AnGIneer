@@ -1,0 +1,47 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>128 415 148 581<|content|>BILL OF SALE\n<|id|>2<|page|>1<|box|>167 308 184 687<|content|>Draft — Exhibit B to Asset Purchase Agreement\n<|id|>9<|page|>1<|box|>655 140 672 746<|content|>ARTICLE I — TRANSFER AND CONVEYANCE OF ACQUIRED AS\n<|id|>30<|page|>4<|box|>597 142 614 504<|content|>ARTICLE II — TERMS AND CONDITIONS\n<|id|>35<|page|>5<|box|>805 140 821 558<|content|>ARTICLE III — MISCELLANEOUS PROVISIONS\n<|id|>42<|page|>6<|box|>703 142 719 225<|content|>SELLER:\n<|id|>53<|page|>8<|box|>90 142 106 563<|content|>SCHEDULE AND EXHIBIT CROSS-REFERENCES",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>9<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>53<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        }
+    ]
+}

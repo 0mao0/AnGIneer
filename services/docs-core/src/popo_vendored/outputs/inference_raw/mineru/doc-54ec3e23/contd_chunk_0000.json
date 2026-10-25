@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>12<|page|>1<|box|>832 140 887 854<|content|>WHEREAS, pursuant to the Merger Agreement, Merger ...n and a wholly-owned subsidiary of Parent; ... and\n<|id|>13<|page|>2<|box|>89 140 126 854<|content|>WHEREAS, the Corporation desires to amend and rest... Incorporation in its entirety as set forth herein\n<|id|>33<|page|>3<|box|>849 140 906 857<|content|>BYLAWS. ... In furtherance and not in limitation o...irmative vote of a majority of the entire Board of\n<|id|>34<|page|>4<|box|>90 140 200 854<|content|>Directors, without the assent or vote of the stock... Amended and Restated Certificate of Incorporation\n<|id|>40<|page|>4<|box|>501 174 537 854<|content|>(iii) in the case of a director, under Section 174...r unlawful stock purchases or redemptions); ... or\n<|id|>42<|page|>4<|box|>589 140 662 857<|content|>If the DGCL is amended after the date of the filin...ullest extent permitted by the DGCL, as so amended\n<|id|>68<|page|>8<|box|>837 140 854 571<|content|>VELOPAY SYSTEMS, INC. ... (as Surviving Corporation)\n<|id|>69<|page|>8<|box|>854 143 871 253<|content|>By: ... By\n<|id|>70<|page|>8<|box|>872 143 888 323<|content|>Name: ... Nathan Aldridge\n<|id|>71<|page|>8<|box|>888 143 905 366<|content|>Title: ... Chief Executive Officer\n<|id|>72<|page|>9<|box|>89 140 122 517<|content|>EIN: ... 5748392 State of Delaware Secretary of State Division of Corporations\n<|id|>73<|page|>9<|box|>128 140 145 413<|content|>Filed: ... July 22, 2025\n<|id|>74<|page|>9<|box|>152 140 166 284<|content|>File Number: ... 5748392",
+    "raw_response": "<|src_id|>33<|tgt_id|>34",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        }
+    ]
+}

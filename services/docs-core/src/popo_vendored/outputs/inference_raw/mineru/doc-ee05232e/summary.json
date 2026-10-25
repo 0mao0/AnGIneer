@@ -1,0 +1,151 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8c44hosj\\input\\pdfs\\doc-ee05232e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-8c44hosj\\enriched\\doc-ee05232e.json",
+    "contd_output": "<|src_id|>60<|tgt_id|>61",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>18<|level|>2\n<|id|>20<|level|>1\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>57<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>2\n<|id|>81<|level|>2\n<|id|>85<|level|>1\n<|id|>86<|level|>2\n<|id|>92<|level|>2\n<|id|>129<|level|>2\n<|id|>143<|level|>2\n<|id|>150<|level|>2\n<|id|>160<|level|>2\n<|id|>164<|level|>1\n<|id|>177<|level|>1",
+    "image_output": "<|src_id|>14<|tgt_id|>12\n<|src_id|>15<|tgt_id|>12\n<|src_id|>16<|tgt_id|>12\n<|src_id|>17<|tgt_id|>12\n<|src_id|>19<|tgt_id|>18\n<|src_id|>68<|tgt_id|>57",
+    "contd_label": [
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 1
+        },
+        {
+            "id": 177,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 14,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 57
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 14,
+            "table2_idx": 15,
+            "upper_row_ss": [
+                [
+                    "Faberge Int'l Inc. v. Di Pino, 109 A.D.2d 235 (1st Dep't",
+                    "39"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1985)",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

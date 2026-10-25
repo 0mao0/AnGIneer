@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        11,
+        12,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>90 142 167 823<|content|>IN THE UNITED STATES DISTRICT COURT FOR THE NORTHE...ehalf of all others similarly situated, Plaintiff,\n<|id|>2<|page|>1<|box|>202 140 219 483<|content|>STONEFIELD LOGISTICS GROUP INC. ... ,\n<|id|>3<|page|>1<|box|>229 212 244 297<|content|>Defendant. ... Defendant\n<|id|>4<|page|>1<|box|>253 625 270 854<|content|>Case No. ... 25-cv-01847-RBC\n<|id|>5<|page|>1<|box|>280 191 297 854<|content|>Hon. ... Magistrate Judge\n<|id|>14<|page|>1<|box|>834 140 907 856<|content|>These provisions are enforceable under the FAA and... claims are brought under the Fair Labor Standards\n<|id|>15<|page|>2<|box|>90 140 164 854<|content|>Act (\"FLSA\"). ... § 216(b) creates a non-waivable ...ms is a congressional command of the highest order\n<|id|>32<|page|>3<|box|>587 183 640 854<|content|>• Imposed a minimum delivery acceptance rate of 85...rmination of the contractual relationship; ... and\n<|id|>34<|page|>3<|box|>700 140 734 854<|content|>Critically for purposes of this Motion, ICOA v1. ... )\n<|id|>95<|page|>11<|box|>806 140 898 857<|content|>More recently, in Southwest Airlines Co. ... In Saxon, the\n<|id|>96<|page|>12<|box|>90 140 162 854<|content|>Court held that airline cargo loaders who physical...perly viewed as transportation workers. ... at 463\n<|id|>131<|page|>16<|box|>125 140 157 854<|content|>Bernard Crawford (TX Bar No. ... 24103582)\n<|id|>132<|page|>16<|box|>157 142 189 852<|content|>2200 Ross Avenue, Suite 3600 Dallas, TX 75201 Telephone: ... (214) 855-4001\n<|id|>133<|page|>16<|box|>191 142 208 475<|content|>Email: ... com\n<|id|>134<|page|>16<|box|>208 143 224 467<|content|>Email: ... com\n<|id|>135<|page|>16<|box|>226 143 242 486<|content|>Email: ... com\n<|id|>136<|page|>16<|box|>243 143 258 455<|content|>Email: ... com\n<|id|>137<|page|>16<|box|>260 142 277 542<|content|>Counsel for Defendant Stonefield Logistics Group I...unsel for Defendant Stonefield Logistics Group Inc\n<|id|>143<|page|>16<|box|>650 174 686 854<|content|>Claudia Hartwell Hartwell & Brashear PLLC 500 N. ... com\n<|id|>144<|page|>16<|box|>695 176 731 852<|content|>Jordan Brashear Hartwell & Brashear PLLC 500 N. ... com\n<|id|>146<|page|>17<|box|>121 140 220 825<|content|>A. ... Proposed Order Compelling Individual Arbitr...ehalf of all others similarly situated, Plaintiff,\n<|id|>148<|page|>17<|box|>255 140 272 483<|content|>STONEFIELD LOGISTICS GROUP INC. ... ,\n<|id|>149<|page|>17<|box|>281 212 297 297<|content|>Defendant. ... Defendant\n<|id|>161<|page|>17<|box|>915 140 930 714<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT — DRAFT — NOT YET FILED\n<|id|>162<|page|>18<|box|>89 140 143 854<|content|>IT IS FURTHER ORDERED that the proposed collective.... ... 0, which did not contain arbitration clauses",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>95<|tgt_id|>96\n<|src_id|>146<|tgt_id|>148\n<|src_id|>148<|tgt_id|>149",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 95,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 149
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        18,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 142 104 674<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>1<|page|>1<|box|>112 165 130 856<|content|>CALDERWOOD & HARKNESS LLP One Liberty Plaza, 45th Floor New York, NY 10006\n<|id|>2<|page|>1<|box|>138 452 156 854<|content|>Telephone: ... (212) 848-6199\n<|id|>3<|page|>1<|box|>164 450 181 856<|content|>Engagement No. ... 1001-00006\n<|id|>4<|page|>1<|box|>190 733 207 854<|content|>March 18, 2024\n<|id|>5<|page|>1<|box|>215 140 252 854<|content|>Marcus Pellegrino, Partner, Healthcare Ardent Capi...00 Lexington Avenue, 38th Floor New York, NY 10022\n<|id|>6<|page|>1<|box|>260 174 296 854<|content|>Re: ... State and Local Tax Structuring Recommenda...(EIN 82-1947632) by Ardent Capital Partners III LP\n<|id|>7<|page|>1<|box|>304 142 321 297<|content|>Dear Mr. ... Pellegrino\n<|id|>14<|page|>2<|box|>90 181 143 854<|content|>• Ardent Healthcare Intermediate Inc. ... and\n<|id|>16<|page|>2<|box|>203 140 330 857<|content|>Pinnacle currently operates thirty-four (34) urgen...analysis conducted by Northmark Advisory Group LLC\n<|id|>24<|page|>2<|box|>803 181 893 856<|content|>• Rollover Equity from Existing Pinnacle Management: ... and\n<|id|>26<|page|>3<|box|>146 140 219 857<|content|>In addition, Cascadia Mezzanine Fund IV LP, which ...the Warrant Agreement dated as of the closing date\n<|id|>35<|page|>3<|box|>797 181 849 854<|content|>The multi-state operating footprint of Pinnacle cr...mize the structure's state tax efficiency; ... and\n<|id|>37<|page|>4<|box|>90 140 143 854<|content|>The three-tier structure, when properly implemente...ch is addressed in the recommendations that follow\n<|id|>164<|page|>18<|box|>489 174 527 852<|content|>Blended Rate = Federal Rate + State Rate × (1 - Federal Rate) Blended Rate = 21. ... 07%\n<|id|>165<|page|>18<|box|>535 174 589 854<|content|>Note: ... the precise rate will be updated annuall...rates and the Pennsylvania rate reduction schedule\n<|id|>193<|page|>21<|box|>340 140 358 769<|content|>Leonard Cross Partner, Tax Calderwood & Harkness LLP Telephone: ... (212) 848-6142\n<|id|>194<|page|>21<|box|>359 142 375 444<|content|>Email: ... com\n<|id|>195<|page|>21<|box|>376 143 393 253<|content|>By: ... By\n<|id|>196<|page|>21<|box|>392 140 409 776<|content|>Sylvia Hartwell Partner, Tax Calderwood & Harkness LLP Telephone: ... (212) 848-6278\n<|id|>197<|page|>21<|box|>410 142 426 467<|content|>Email: ... com\n<|id|>198<|page|>21<|box|>426 140 444 748<|content|>Calderwood & Harkness LLP One Liberty Plaza, 45th Floor New York, NY 10006",
+    "raw_response": "<|src_id|>14<|tgt_id|>16\n<|src_id|>35<|tgt_id|>37",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 37
+        }
+    ]
+}

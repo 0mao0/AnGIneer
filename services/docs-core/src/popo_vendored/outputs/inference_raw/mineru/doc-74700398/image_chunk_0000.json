@@ -1,0 +1,45 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 104 794<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT PRIVILEG\n<|id|>1<|type|>title<|page|>1<|box|>111 156 147 839<|content|>CALDERWOOD & HARKNESS LLP 280 Park Avenue, 34th Fl\n<|id|>2<|type|>title<|page|>1<|box|>157 405 176 591<|content|>MEMORANDUM\n<|id|>10<|type|>title<|page|>1<|box|>537 140 554 421<|content|>I. Purpose and Executive Summary\n<|id|>20<|type|>title<|page|>2<|box|>763 140 780 454<|content|>II. Background and Procedural History\n<|id|>40<|type|>title<|page|>4<|box|>592 140 609 602<|content|>III. Issue 1: Termination Wind-Down Payment Obliga\n<|id|>41<|type|>title<|page|>4<|box|>623 142 640 318<|content|>A. Nature of the Issue\n<|id|>46<|type|>title<|page|>5<|box|>494 140 512 470<|content|>B. Agreed Resolution (June 19, 2023 Call)\n<|id|>57<|type|>title<|page|>7<|box|>375 140 392 393<|content|>C. Conforming Draft Language\n<|id|>59<|type|>title<|page|>7<|box|>549 140 566 671<|content|>IV. Issue 2: Subject Transition Procedures Upon Ea\n<|id|>60<|type|>title<|page|>7<|box|>579 142 597 318<|content|>A. Nature of the Issue\n<|id|>64<|type|>title<|page|>8<|box|>349 140 366 504<|content|>B. Agreed Resolution (June 19–20, 2023 Calls)\n<|id|>78<|type|>title<|page|>10<|box|>693 140 710 393<|content|>C. Conforming Draft Language\n<|id|>80<|type|>title<|page|>11<|box|>89 140 127 797<|content|>V. Issue 3: Medically Necessary Protocol Deviation\n<|id|>81<|type|>title<|page|>11<|box|>138 140 156 318<|content|>A. Nature of the Issue\n<|id|>88<|type|>title<|page|>12<|box|>176 140 194 470<|content|>B. Agreed Resolution (June 20, 2023 Call)\n<|id|>98<|type|>title<|page|>13<|box|>737 140 755 393<|content|>C. Conforming Draft Language\n<|id|>100<|type|>title<|page|>14<|box|>148 140 167 571<|content|>VI. Summary of All Resolved Issues and MCTA Status\n<|id|>101<|type|>title<|page|>14<|box|>180 142 198 470<|content|>A. Comprehensive Issue Resolution Table\n<|id|>103<|type|>table<|page|>14<|box|>282 143 898 852<|content|>None\n<|id|>104<|type|>table<|page|>15<|box|>88 143 491 852<|content|>None\n<|id|>105<|type|>title<|page|>15<|box|>530 142 547 524<|content|>B. Confirmation That All Brackets Are Resolved\n<|id|>108<|type|>title<|page|>15<|box|>750 140 765 473<|content|>VII. Next Steps and Timeline to Execution\n<|id|>135<|type|>title<|page|>17<|box|>500 142 517 290<|content|>VIII. Action Items\n<|id|>137<|type|>table<|page|>17<|box|>568 143 897 852<|content|>None\n<|id|>138<|type|>table<|page|>18<|box|>89 143 809 852<|content|>None\n<|id|>139<|type|>title<|page|>19<|box|>90 140 107 264<|content|>IX. Conclusion",
+    "raw_response": "<|src_id|>103<|tgt_id|>101\n<|src_id|>104<|tgt_id|>101\n<|src_id|>137<|tgt_id|>135\n<|src_id|>138<|tgt_id|>135",
+    "parsed": [
+        {
+            "src_id": 103,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 135
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        13,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 254 118 743<|content|>FORM OF CONSENT OF LIMITED PARTNER\n<|id|>1<|type|>title<|page|>1<|box|>136 166 172 830<|content|>Consent to Cross-Border Fund-Platform Reorganizati\n<|id|>7<|type|>title<|page|>1<|box|>672 142 689 472<|content|>Section 1: Identification of Consenting LP\n<|id|>9<|type|>title<|page|>1<|box|>743 143 761 421<|content|>Full Legal Name of Consenting LP:\n<|id|>12<|type|>title<|page|>2<|box|>127 140 145 454<|content|>Jurisdiction of Organization / Domicile:\n<|id|>13<|type|>title<|page|>2<|box|>196 143 215 380<|content|>Investor Category (check one):\n<|id|>25<|type|>table<|page|>3<|box|>89 143 371 852<|content|>None\n<|id|>28<|type|>title<|page|>3<|box|>570 142 587 488<|content|>Section 3: Description of the Reorganization\n<|id|>35<|type|>title<|page|>4<|box|>455 140 472 382<|content|>3.2 The Five-Step Transaction\n<|id|>37<|type|>title<|page|>4<|box|>523 140 540 656<|content|>Step 1 — Formation of New Entities (Target: Septem\n<|id|>44<|type|>title<|page|>5<|box|>133 140 152 754<|content|>Step 2 — Contribution of Fund IV-A Cayman Assets (\n<|id|>46<|type|>title<|page|>5<|box|>369 140 387 797<|content|>Step 3 — Contribution of Fund IV-B Luxembourg Asse\n<|id|>48<|type|>title<|page|>5<|box|>585 140 604 750<|content|>Step 4 — Contribution of Fund V Offshore Assets (T\n<|id|>51<|type|>title<|page|>6<|box|>89 140 126 854<|content|>Step 5 — Dissolution of Legacy Offshore Vehicles a\n<|id|>57<|type|>title<|page|>6<|box|>507 140 523 460<|content|>3.3 Aggregate Reorganization Financials\n<|id|>59<|type|>table<|page|>6<|box|>573 143 715 852<|content|>None\n<|id|>60<|type|>title<|page|>6<|box|>755 142 771 408<|content|>3.4 Related Amendments to LPAs\n<|id|>66<|type|>title<|page|>7<|box|>392 140 409 460<|content|>Section 4: Private Letter Ruling Request\n<|id|>79<|type|>title<|page|>8<|box|>781 140 799 584<|content|>Section 5: Acknowledgment of Tax Treatment Summary\n<|id|>92<|type|>title<|page|>10<|box|>204 140 222 294<|content|>Section 6: Consent\n<|id|>93<|type|>title<|page|>10<|box|>234 140 252 312<|content|>6.1 Grant of Consent\n<|id|>104<|type|>title<|page|>11<|box|>385 140 402 310<|content|>6.2 Scope of Consent\n<|id|>108<|type|>title<|page|>11<|box|>758 140 775 521<|content|>Section 7: Representations of the Consenting LP\n<|id|>117<|type|>title<|page|>13<|box|>277 140 294 421<|content|>Section 8: Miscellaneous Provisions\n<|id|>118<|type|>title<|page|>13<|box|>309 140 325 297<|content|>8.1 Governing Law\n<|id|>122<|type|>title<|page|>13<|box|>595 142 612 346<|content|>If to the General Partner:\n<|id|>130<|type|>title<|page|>13<|box|>837 140 854 315<|content|>8.3 Entire Agreement\n<|id|>136<|type|>title<|page|>15<|box|>90 142 107 351<|content|>Section 9: Signature block\n<|id|>150<|type|>title<|page|>16<|box|>89 140 107 245<|content|>EXHIBIT A\n<|id|>151<|type|>title<|page|>16<|box|>116 334 133 663<|content|>Summary of LPA Amendment Provisions\n<|id|>153<|type|>title<|page|>16<|box|>258 142 277 576<|content|>1. Solara Digital Partners Fund IV LP — Fund IV LP\n<|id|>159<|type|>title<|page|>16<|box|>724 140 743 563<|content|>2. Solara Digital Partners Fund V LP — Fund V LPA\n<|id|>165<|type|>title<|page|>17<|box|>277 140 314 852<|content|>3. Offshore Parallel Vehicles — Fund IV-A (Cayman)\n<|id|>167<|type|>title<|page|>18<|box|>89 142 106 243<|content|>EXHIBIT B\n<|id|>168<|type|>title<|page|>18<|box|>116 380 133 616<|content|>Investor Category Definitions\n<|id|>170<|type|>title<|page|>18<|box|>167 142 184 316<|content|>U.S. Taxable Investor\n<|id|>173<|type|>title<|page|>18<|box|>392 143 409 351<|content|>U.S. Tax-Exempt Investor\n<|id|>178<|type|>title<|page|>18<|box|>674 142 690 287<|content|>Non-U.S. Investor\n<|id|>183<|type|>title<|page|>18<|box|>881 387 898 611<|content|>RETURN INSTRUCTIONS",
+    "raw_response": "<|src_id|>25<|tgt_id|>7\n<|src_id|>59<|tgt_id|>57",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 57
+        }
+    ]
+}

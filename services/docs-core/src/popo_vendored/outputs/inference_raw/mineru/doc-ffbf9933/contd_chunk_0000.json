@@ -1,0 +1,44 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        75
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        11,
+        26,
+        30,
+        32,
+        41,
+        43,
+        74,
+        75
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>166 439 189 564<|content|>April 1977\n<|id|>3<|page|>1<|box|>856 149 896 615<|content|>DEPARTMENT OF THE TREASURY WASHINGTON, D. ... C\n<|id|>4<|page|>1<|box|>857 622 875 922<|content|>OFFICE OF THE SECRETARY\n<|id|>5<|page|>2<|box|>104 452 115 540<|content|>Headings & Stubs\n<|id|>6<|page|>2<|box|>120 96 131 384<|content|>Attention is called to Foreign Currency Position t...tion is called to Foreign Currency Position tables\n<|id|>14<|page|>3<|box|>133 110 887 883<|content|>Article - Treasury Financing Operations. ... 35\n<|id|>15<|page|>3<|box|>851 116 903 885<|content|>PDO-1. ... 38\n<|id|>25<|page|>7<|box|>153 152 173 832<|content|>FINANCIAL OPERATIONS OF GOVERNMENT AGENCIES AND FUNDS\n<|id|>26<|page|>7<|box|>174 110 284 855<|content|>GOVERNMENT CORPORATIONS AND OTHER BUSINESS-TYPE ACTIVITIES GA-I-2. ... 183\n<|id|>33<|page|>8<|box|>814 103 826 302<|content|>Auction of 5-Year 1-Month Notes\n<|id|>34<|page|>8<|box|>833 103 924 475<|content|>On March 21 the Treasury announced that it would a...of 5-year 1-month notes to raise new cash. ... 000\n<|id|>37<|page|>8<|box|>621 522 631 611<|content|>52-Week Bills\n<|id|>38<|page|>8<|box|>640 522 903 895<|content|>On March 24 tenders were invited for \\$3,203 milli...and to mature April 4, 1978. ... Short-dated Bills\n<|id|>39<|page|>8<|box|>910 553 923 895<|content|>On March 28 tenders were invited for 15-day bills in\n<|id|>51<|page|>9<|box|>600 522 684 895<|content|>Payment for accepted tenders must be made or compl...te. ... Foreign Series and Foreign Currency Series\n<|id|>52<|page|>9<|box|>690 525 770 896<|content|>Foreign series securities issued in March totaled \\$1,560 million, consisting of five notes. ... )\n<|id|>66<|page|>11<|box|>307 101 318 454<|content|>7/ Represents holdings of special drawing rights, less certificates\n<|id|>67<|page|>11<|box|>162 538 172 705<|content|>issued to Federal Reserve banks. ... issued to Federal Reserve banks\n<|id|>122<|page|>26<|box|>252 97 357 484<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>123<|page|>26<|box|>160 508 218 895<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>140<|page|>30<|box|>837 101 937 493<|content|>Note: ... Beginning with data for December 31, 1958, the computation is based on\n<|id|>141<|page|>30<|box|>864 512 896 879<|content|>3/ Included in debt outstanding at face amount, bu...maturity is applied against the amount outstanding\n<|id|>147<|page|>32<|box|>821 97 937 484<|content|>1/ Consists of Government National Mortgage Associ... Overseas Private Investment Corporation beginning\n<|id|>148<|page|>32<|box|>798 528 914 889<|content|>February 1975. ... Special Investment Account\n<|id|>181<|page|>41<|box|>123 433 135 561<|content|>(In millions of dollars)\n<|id|>184<|page|>43<|box|>925 510 934 717<|content|>consolidated effective Sept. ... 1, 1976\n<|id|>401<|page|>74<|box|>122 427 133 574<|content|>(Dollar amounts in millions)\n<|id|>403<|page|>75<|box|>114 119 202 497<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>404<|page|>75<|box|>114 522 202 899<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1974",
+    "raw_response": "<|src_id|>66<|tgt_id|>67\n<|src_id|>122<|tgt_id|>123\n<|src_id|>147<|tgt_id|>148\n<|src_id|>403<|tgt_id|>404",
+    "parsed": [
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 403,
+            "tgt_id": 404
+        }
+    ]
+}

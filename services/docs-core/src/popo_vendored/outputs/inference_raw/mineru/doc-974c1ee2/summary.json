@@ -1,0 +1,109 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-x39e8sa5\\input\\pdfs\\doc-974c1ee2.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-x39e8sa5\\enriched\\doc-974c1ee2.json",
+    "contd_output": "<|src_id|>109<|tgt_id|>110",
+    "title_output": "<|id|>11<|level|>1\n<|id|>23<|level|>1\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>47<|level|>2\n<|id|>51<|level|>1\n<|id|>52<|level|>2\n<|id|>58<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>1\n<|id|>84<|level|>1\n<|id|>95<|level|>1\n<|id|>100<|level|>1",
+    "image_output": "<|src_id|>19<|tgt_id|>11\n<|src_id|>26<|tgt_id|>23\n<|src_id|>27<|tgt_id|>23\n<|src_id|>43<|tgt_id|>38",
+    "contd_label": [
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        }
+    ],
+    "title_label": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 19,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 38
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 26,
+            "table2_idx": 27,
+            "upper_row_ss": [
+                [
+                    "Timekeeper",
+                    "Role",
+                    "Standard Rate"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

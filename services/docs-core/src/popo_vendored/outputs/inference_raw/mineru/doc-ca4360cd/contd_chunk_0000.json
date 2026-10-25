@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 119 854<|content|>CALDERWOOD & HARKNESS LLP 450 Park Avenue, 28th Floor New York, New York 10022 Telephone: ... com\n<|id|>1<|page|>1<|box|>127 756 143 854<|content|>June 6, 2024\n<|id|>2<|page|>1<|box|>152 676 170 854<|content|>Matter No. ... 1036-00004\n<|id|>3<|page|>1<|box|>179 140 196 437<|content|>VIA EMAIL AND HAND DELIVERY\n<|id|>4<|page|>1<|box|>205 140 239 854<|content|>Nathaniel Pryce, Esq. ... Blackridge Hayes LLP 128... the Americas, 34th Floor New York, New York 10019\n<|id|>5<|page|>1<|box|>250 174 359 856<|content|>Re: ... $1,100,000,000\n<|id|>20<|page|>2<|box|>849 174 904 857<|content|>(a) Seller's Closing Certificate. ... GMP Fund III...o-Founder & Managing Partner, bringing down all of\n<|id|>21<|page|>3<|box|>90 174 164 856<|content|>Seller's representations and warranties under Arti...any material respect as of the date of the Closing\n<|id|>39<|page|>4<|box|>854 174 893 854<|content|>(c) Surveys. ... Final ALTA/NSPS Land Title Survey...s (including applicable Table A items requested by\n<|id|>40<|page|>5<|box|>90 174 164 854<|content|>Buyer and the lenders) for all fourteen (14) prope...raised by Buyer were resolved prior to the Closing\n<|id|>54<|page|>6<|box|>661 217 679 694<|content|>• Policy Limit: ... $55,000,000 (equal to 5% of the purchase price)\n<|id|>58<|page|>6<|box|>814 174 886 856<|content|>A No-Claims Declaration was delivered by Buyer to ...ected to give rise to a claim under the RWI Policy\n<|id|>55<|page|>6<|box|>681 218 734 854<|content|>• Initial Retention: ... 5% of the purchase price) at twelve (12) months following the Closing date\n<|id|>56<|page|>6<|box|>737 217 753 854<|content|>• Premium: ... 55% of the policy limit), paid in full at the Closing\n<|id|>57<|page|>6<|box|>757 218 811 854<|content|>• Policy Period: ... three (3) years for tax repre...presentation survival period set forth in the PSA)\n<|id|>68<|page|>7<|box|>877 181 893 671<|content|>• Buckhead Place Office Tower (GMP Buckhead LLC): ... $890,000\n<|id|>72<|page|>8<|box|>148 142 166 544<|content|>The sources of funds applied at Closing are as fol...sources of funds applied at Closing are as follows\n<|id|>69<|page|>8<|box|>89 183 107 660<|content|>• Cool Springs Office Park (GMP Cool Springs LLC): ... $620,000\n<|id|>70<|page|>8<|box|>109 183 127 663<|content|>• Lakeland Crossings Industrial (GMP Lakeland LLC): ... $380,000\n<|id|>71<|page|>8<|box|>128 183 147 660<|content|>• SouthPark Corporate Center (GMP SouthPark LLC): ... $250,000\n<|id|>75<|page|>8<|box|>323 181 359 854<|content|>• Pinnacle Federal Bank, N. ... July 1, 2028\n<|id|>78<|page|>8<|box|>436 140 547 856<|content|>The earnest money deposit of $55,000,000 was credi...d separately and are on file with the escrow agent\n<|id|>76<|page|>8<|box|>361 183 397 854<|content|>• Veltrano Capital Lending Corp. ... March 1, 2029\n<|id|>77<|page|>8<|box|>398 183 435 854<|content|>• Sycamore Life Insurance Company: ... December 1, 2030\n<|id|>106<|page|>11<|box|>388 142 404 272<|content|>Very truly yours,\n<|id|>107<|page|>11<|box|>404 140 420 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>108<|page|>11<|box|>422 143 439 253<|content|>By: ... By\n<|id|>109<|page|>11<|box|>439 140 470 854<|content|>Douglas Fairchild, Partner 450 Park Avenue, 28th F...York, New York 10022 Telephone: ... (212) 554-7000\n<|id|>110<|page|>11<|box|>472 140 489 470<|content|>Email: ... com\n<|id|>111<|page|>11<|box|>492 142 505 171<|content|>cc: ... cc\n<|id|>112<|page|>11<|box|>515 174 643 854<|content|>Marcus Devereaux, EVP, Acquisitions, Fairwater Rea...SVP, Commonwealth National Title Insurance Company\n<|id|>113<|page|>11<|box|>651 140 669 519<|content|>Enclosure: ... Duplicate original for countersignature\n<|id|>115<|page|>11<|box|>703 142 719 367<|content|>BLACKRIDGE HAYES LLP\n<|id|>116<|page|>11<|box|>720 143 738 254<|content|>By: ... By\n<|id|>117<|page|>11<|box|>738 142 753 318<|content|>Name: ... Nathaniel Pryce\n<|id|>118<|page|>11<|box|>755 143 771 246<|content|>Title: ... Partner\n<|id|>119<|page|>11<|box|>773 143 789 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>39<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        }
+    ]
+}

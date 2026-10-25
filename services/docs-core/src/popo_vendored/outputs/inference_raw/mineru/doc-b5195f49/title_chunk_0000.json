@@ -1,0 +1,33 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>178 140 195 478<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>9<|page|>1<|box|>584 142 602 694<|content|>1. Certificate of Insurance — Northbridge Mutual I\n<|id|>25<|page|>2<|box|>449 140 467 633<|content|>2. Certificate of Insurance — Sovereign Assurance\n<|id|>38<|page|>3<|box|>364 142 381 377<|content|>Request for Acknowledgment\n<|id|>43<|page|>3<|box|>637 140 654 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>47<|page|>3<|box|>732 143 747 240<|content|>Enclosures:",
+    "raw_response": "<|id|>2<|level|>-1\n<|id|>9<|level|>1\n<|id|>25<|level|>1\n<|id|>38<|level|>1\n<|id|>43<|level|>-1\n<|id|>47<|level|>2",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        }
+    ]
+}

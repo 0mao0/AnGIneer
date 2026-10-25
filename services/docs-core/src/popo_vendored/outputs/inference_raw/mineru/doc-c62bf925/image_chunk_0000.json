@@ -1,0 +1,49 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        5,
+        22
+    ],
+    "pages": [
+        5,
+        7,
+        8,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        19,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>18<|type|>table<|page|>5<|box|>85 85 192 875<|content|>None\n<|id|>24<|type|>table<|page|>7<|box|>85 85 709 875<|content|>None\n<|id|>25<|type|>table<|page|>8<|box|>79 87 713 998<|content|>None\n<|id|>27<|type|>table<|page|>11<|box|>85 85 476 875<|content|>None\n<|id|>28<|type|>title<|page|>12<|box|>85 87 102 519<|content|>Post-Reorg Outside Basis Including § 752 Liabiliti\n<|id|>29<|type|>table<|page|>13<|box|>85 85 476 875<|content|>None\n<|id|>30<|type|>table<|page|>14<|box|>96 85 478 878<|content|>None\n<|id|>31<|type|>table<|page|>16<|box|>85 85 441 875<|content|>None\n<|id|>32<|type|>table<|page|>17<|box|>102 85 442 878<|content|>None\n<|id|>33<|type|>table<|page|>19<|box|>85 85 565 877<|content|>None\n<|id|>34<|type|>table<|page|>22<|box|>85 85 567 878<|content|>None",
+    "raw_response": "<|src_id|>29<|tgt_id|>28\n<|src_id|>30<|tgt_id|>28\n<|src_id|>31<|tgt_id|>28\n<|src_id|>32<|tgt_id|>28\n<|src_id|>33<|tgt_id|>28\n<|src_id|>34<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 28
+        }
+    ]
+}

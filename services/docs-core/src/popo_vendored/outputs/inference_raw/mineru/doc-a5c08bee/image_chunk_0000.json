@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|type|>title<|page|>1<|box|>371 142 388 364<|content|>1. Purpose and Engagement\n<|id|>10<|type|>title<|page|>1<|box|>744 140 763 354<|content|>2. Scope of Representation\n<|id|>26<|type|>title<|page|>3<|box|>167 140 184 313<|content|>3. Engagement Team\n<|id|>27<|type|>table<|page|>3<|box|>217 143 311 852<|content|>None\n<|id|>34<|type|>title<|page|>3<|box|>845 140 863 338<|content|>4. Fees and Billing Rates\n<|id|>36<|type|>table<|page|>4<|box|>89 143 183 852<|content|>None\n<|id|>41<|type|>title<|page|>4<|box|>555 140 571 390<|content|>5. Expenses and Disbursements\n<|id|>56<|type|>title<|page|>5<|box|>364 140 381 379<|content|>6. Billing and Payment Terms\n<|id|>62<|type|>title<|page|>5<|box|>845 140 862 352<|content|>7. Insurance Coordination\n<|id|>77<|type|>title<|page|>6<|box|>801 140 819 339<|content|>8. Client Responsibilities\n<|id|>86<|type|>title<|page|>7<|box|>671 140 688 390<|content|>9. Confidentiality and Privilege\n<|id|>91<|type|>title<|page|>8<|box|>377 142 393 331<|content|>10. Conflicts of Interest\n<|id|>100<|type|>title<|page|>8<|box|>782 142 799 274<|content|>11. Termination\n<|id|>107<|type|>title<|page|>9<|box|>417 142 434 379<|content|>12. No Guarantee of Outcome\n<|id|>110<|type|>title<|page|>9<|box|>731 142 747 297<|content|>13. Governing Law\n<|id|>112<|type|>title<|page|>10<|box|>90 142 107 334<|content|>14. Document Retention\n<|id|>116<|type|>title<|page|>10<|box|>375 142 391 380<|content|>15. Acceptance and Execution\n<|id|>119<|type|>title<|page|>10<|box|>561 142 578 356<|content|>Enclosures and References\n<|id|>133<|type|>title<|page|>11<|box|>184 383 200 614<|content|>ACCEPTED AND AGREED",
+    "raw_response": "<|src_id|>27<|tgt_id|>26\n<|src_id|>36<|tgt_id|>34",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        }
+    ]
+}

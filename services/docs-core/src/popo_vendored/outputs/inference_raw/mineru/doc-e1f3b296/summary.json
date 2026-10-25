@@ -1,0 +1,149 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0njgppu_\\input\\pdfs\\doc-e1f3b296.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-0njgppu_\\enriched\\doc-e1f3b296.json",
+    "contd_output": "<|src_id|>49<|tgt_id|>50\n<|src_id|>148<|tgt_id|>149",
+    "title_output": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>23<|level|>2\n<|id|>33<|level|>2\n<|id|>43<|level|>2\n<|id|>52<|level|>2\n<|id|>63<|level|>2\n<|id|>73<|level|>2\n<|id|>86<|level|>2\n<|id|>95<|level|>2\n<|id|>105<|level|>2\n<|id|>113<|level|>2\n<|id|>122<|level|>2\n<|id|>129<|level|>2\n<|id|>137<|level|>2\n<|id|>141<|level|>2",
+    "image_output": "<|src_id|>20<|tgt_id|>18\n<|src_id|>21<|tgt_id|>18\n<|src_id|>138<|tgt_id|>137\n<|src_id|>139<|tgt_id|>137",
+    "contd_label": [
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 149
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 137
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 20,
+            "table2_idx": 21,
+            "upper_row_ss": [
+                [
+                    "Ongoing (annually)",
+                    "Penetration testing of SBF Core platform by Ironvault Security Group LLC, an independent third-party firm",
+                    "Rebecca Muñoz",
+                    "DPA Schedule B § 3.4"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Ongoing (annually, no more than once per 12-month period)",
+                    "Audit right — maintain readiness for Controller and/or regulator audits; maintain SOC 2 Type II readiness and standing audit file",
+                    "Rebecca Muñoz, Thomas Elridge",
+                    "DPA § 8; SCC Clause 8.9"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 138,
+            "table2_idx": 139,
+            "upper_row_ss": [
+                [
+                    "Regulatory monitoring (Section",
+                    "Thomas Elridge",
+                    "Calderwood & Harkness LLP"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "XIV)",
+                    "",
+                    "(ongoing advisory as needed)"
+                ]
+            ]
+        }
+    ]
+}

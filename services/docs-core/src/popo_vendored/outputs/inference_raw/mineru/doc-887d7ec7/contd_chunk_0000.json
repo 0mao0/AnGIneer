@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        10,
+        11,
+        14,
+        15,
+        16,
+        18,
+        19,
+        22,
+        23,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>204 710 220 854<|content|>Date: ... June 1, 2022\n<|id|>4<|page|>1<|box|>229 142 247 330<|content|>Matter No. ... 1039-00001\n<|id|>5<|page|>1<|box|>256 140 292 852<|content|>To: ... )\n<|id|>6<|page|>1<|box|>300 140 335 854<|content|>From: ... Elaine Forsythe, Responsible Partner, An... Associate, Antitrust & Competition Practice Group\n<|id|>7<|page|>1<|box|>344 140 398 854<|content|>Re: ... — DOJ Antitrust Division Grand Jury Invest...ng in the North American Specialty Minerals Sector\n<|id|>8<|page|>1<|box|>406 140 500 854<|content|>CONFIDENTIALITY LEGEND: ... Any unauthorized disclosure may result in waiver of applicable privileges\n<|id|>90<|page|>10<|box|>857 174 893 854<|content|>(a) TMC as a corporate entity did not authorize, s...ed and executed by a single now-departed employee,\n<|id|>91<|page|>11<|box|>90 174 126 854<|content|>Gavin Holt, acting without the knowledge or approv...l of TMC's senior management or Board of Directors\n<|id|>123<|page|>14<|box|>781 140 909 857<|content|>Rogue-employee theory limitation. ... See New York Central & Hudson\n<|id|>124<|page|>15<|box|>90 140 218 857<|content|>River Railroad Co. ... Specialty Minerals Sales, a...g coordination benefited TMC's revenue and margins\n<|id|>132<|page|>15<|box|>867 140 902 854<|content|>Evidentiary exposure. ... The evidentiary record —...ng-correlation data, NASMC conference records, and\n<|id|>133<|page|>16<|box|>90 140 219 856<|content|>Sandra Chu's corroborating testimony — makes a tri... on the current record, appear unlikely to succeed\n<|id|>160<|page|>18<|box|>829 140 902 856<|content|>Monetary payment. ... 6 million (USD\n<|id|>161<|page|>19<|box|>90 140 200 854<|content|>478 million × 20%). ... Our target in negotiations...nce of C-suite involvement, proactive remediation)\n<|id|>196<|page|>22<|box|>794 140 904 856<|content|>Critically, however, TMC cannot compel a former em...ainst a former employee who has asserted his Fifth\n<|id|>197<|page|>23<|box|>90 140 127 854<|content|>Amendment privilege in an active criminal investig...ing to enforce the cooperation clause at this time\n<|id|>248<|page|>28<|box|>250 140 282 854<|content|>Elaine Forsythe Partner, Antitrust & Competition P...ifornia Street, 40th Floor San Francisco, CA 94104\n<|id|>249<|page|>28<|box|>282 143 299 284<|content|>Date: ... June 1, 2022\n<|id|>250<|page|>28<|box|>301 143 316 251<|content|>By: ... By\n<|id|>251<|page|>28<|box|>316 140 349 852<|content|>Aaron Liu Associate, Antitrust & Competition Pract...ifornia Street, 40th Floor San Francisco, CA 94104\n<|id|>252<|page|>28<|box|>349 143 366 285<|content|>Date: ... June 1, 2022",
+    "raw_response": "<|src_id|>90<|tgt_id|>91\n<|src_id|>123<|tgt_id|>124\n<|src_id|>132<|tgt_id|>133\n<|src_id|>160<|tgt_id|>161\n<|src_id|>196<|tgt_id|>197",
+    "parsed": [
+        {
+            "src_id": 90,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 124
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 196,
+            "tgt_id": 197
+        }
+    ]
+}

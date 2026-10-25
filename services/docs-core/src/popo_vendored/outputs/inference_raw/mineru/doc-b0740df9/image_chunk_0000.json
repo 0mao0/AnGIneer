@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>359 140 377 434<|content|>1. Purpose and Signing Confirmation\n<|id|>15<|type|>table<|page|>1<|box|>723 143 799 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>90 140 107 527<|content|>2. Summary of Executed Transaction Documents\n<|id|>26<|type|>title<|page|>3<|box|>148 140 167 511<|content|>3. Remaining Conditions Precedent to Funding\n<|id|>28<|type|>title<|page|>3<|box|>297 140 315 385<|content|>3.1 Good Standing Certificates\n<|id|>33<|type|>title<|page|>3<|box|>656 140 672 540<|content|>3.2 Deposit Account Control Agreements (DACAs)\n<|id|>39<|type|>title<|page|>4<|box|>213 140 229 450<|content|>3.3 UCC-1 Financing Statement Filings\n<|id|>44<|type|>title<|page|>4<|box|>497 140 513 437<|content|>3.4 IP Security Agreement Recording\n<|id|>47<|type|>title<|page|>4<|box|>705 140 722 330<|content|>3.5 Lien Search Results\n<|id|>55<|type|>title<|page|>5<|box|>257 140 273 348<|content|>3.6 Evidence of Insurance\n<|id|>57<|type|>table<|page|>5<|box|>340 143 429 852<|content|>None\n<|id|>62<|type|>title<|page|>5<|box|>723 140 739 517<|content|>3.7 Officer's Certificate (Secretary's Certificate\n<|id|>68<|type|>title<|page|>6<|box|>275 140 292 405<|content|>3.8 Audited Financial Statements\n<|id|>71<|type|>title<|page|>6<|box|>520 140 537 295<|content|>3.9 Legal Opinions\n<|id|>76<|type|>title<|page|>6<|box|>823 140 839 312<|content|>3.10 Payment of Fees\n<|id|>85<|type|>title<|page|>7<|box|>585 140 602 400<|content|>4. Anticipated Funding Timeline\n<|id|>87<|type|>table<|page|>7<|box|>671 143 901 852<|content|>None\n<|id|>88<|type|>table<|page|>8<|box|>89 143 369 852<|content|>None\n<|id|>90<|type|>title<|page|>8<|box|>556 140 573 383<|content|>5. Action Items for GenomeDx\n<|id|>92<|type|>title<|page|>8<|box|>643 143 661 531<|content|>1. Miriam Sato (General Counsel and Secretary):\n<|id|>95<|type|>title<|page|>8<|box|>849 140 866 560<|content|>2. Robert \"Rob\" Langford (Chief Financial Officer)\n<|id|>101<|type|>title<|page|>9<|box|>411 140 428 354<|content|>6. Post-Closing Reminders\n<|id|>110<|type|>title<|page|>10<|box|>354 142 371 225<|content|>7. Closing",
+    "raw_response": "<|src_id|>15<|tgt_id|>7\n<|src_id|>57<|tgt_id|>55\n<|src_id|>87<|tgt_id|>85\n<|src_id|>88<|tgt_id|>85",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 88,
+            "tgt_id": 85
+        }
+    ]
+}

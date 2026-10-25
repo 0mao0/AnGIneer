@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        50
+    ],
+    "pages": [
+        47,
+        48,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>423<|page|>47<|box|>90 246 109 750<|content|>APPENDIX F — SOURCES AND REFERENCES\n<|id|>425<|page|>47<|box|>172 142 189 233<|content|>Databases:\n<|id|>428<|page|>47<|box|>238 143 255 444<|content|>US Statutory and Regulatory Sources:\n<|id|>437<|page|>47<|box|>420 143 436 271<|content|>OECD Sources:\n<|id|>440<|page|>47<|box|>522 143 539 271<|content|>Treaty Sources:\n<|id|>442<|page|>47<|box|>604 142 621 485<|content|>German Statutory and Regulatory Sources:\n<|id|>447<|page|>47<|box|>726 143 743 421<|content|>Auditing and Financial References:\n<|id|>450<|page|>47<|box|>829 143 845 334<|content|>Exchange Rate Sources:\n<|id|>452<|page|>48<|box|>90 155 109 841<|content|>APPENDIX G — GLOSSARY OF TERMS AND ABBREVIATIONS\n<|id|>456<|page|>50<|box|>89 380 109 616<|content|>SIGNATURE BLOCK",
+    "raw_response": "<|id|>423<|level|>1\n<|id|>425<|level|>2\n<|id|>428<|level|>2\n<|id|>437<|level|>2\n<|id|>440<|level|>2\n<|id|>442<|level|>2\n<|id|>447<|level|>2\n<|id|>450<|level|>2\n<|id|>452<|level|>1\n<|id|>456<|level|>1",
+    "parsed": [
+        {
+            "id": 423,
+            "level": 1
+        },
+        {
+            "id": 425,
+            "level": 2
+        },
+        {
+            "id": 428,
+            "level": 2
+        },
+        {
+            "id": 437,
+            "level": 2
+        },
+        {
+            "id": 440,
+            "level": 2
+        },
+        {
+            "id": 442,
+            "level": 2
+        },
+        {
+            "id": 447,
+            "level": 2
+        },
+        {
+            "id": 450,
+            "level": 2
+        },
+        {
+            "id": 452,
+            "level": 1
+        },
+        {
+            "id": 456,
+            "level": 1
+        }
+    ]
+}

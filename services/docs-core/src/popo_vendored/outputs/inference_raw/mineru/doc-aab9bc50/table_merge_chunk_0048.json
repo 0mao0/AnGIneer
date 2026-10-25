@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 48,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['A)铁路的几何类型为线;B)调车场和支线组应用物标 LNDRGN(地面地带)(面)编码。可编码 NINFOM(中文信息) = [调车场];C)建议最小的铁路要素编码在物标 BUAARE(建筑物区)内;D)调车场可以用外部的铁路线定义,定义场地时 LNDRGN(地面地带)也要放置在里面;E)可以从水中的轮船上看见铁路上的火车灯和火车控制灯时,应对该铁路编码;F)火车站用 BUISGL(建筑物)编码,其 FUNCTN(功能) = 8(火车站)', 'RAILWY(铁路)(C)CONDTN(状态) = [1(建造中),3(改造中),5(计划建造的),999(其他)](O)STATUS(状况) = [附录 A 中允许的属性值](O)INFORM(英文信息) = [铁路英文信息](O)NINFOM(中文信息) = [铁路中文信息](O)NOBJNM(中文名称) = [铁路中文名称](O)OBJNAM(英文名称) = [铁路英文名称]']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['A)机场的几何类型为点、面;B)在大比例尺下,机场由几部分对象组成时,机场可用以下编码:AIRARE(机场)(面),RUNWAY(跑道)(面或线),BUISGL(建筑物)(面或点),或LNDMRK(陆地方位物)(面或点);物标集内应至少有一个AIRARE(机场)或RUNWAY(跑道);所有这些物标可使用物标C_ASSO(联合)关联它们;在小比例尺下,机场编码为点型的AIRARE(机场);C)对飞机跑道轮廓进行编码;能够获得飞机滑行道或停机坪的信息时,飞机滑行道或停机坪也需编码;D)飞机跑道的灯光能被过往船只看见时,则该飞机跑道应被编码;E)机场中的某些建筑物显而易见时,应以独立物标编码', 'AIRARE(机场)(C) CONDTN(状态) = [1(建造中),2(废弃的),3(改造中),5(计划建造的),999(其他)](O) CATAIR(机场类) = [2(民用机场),4(民用直升机机场),5(滑翔机机场),6(小型飞机机场),8(应急机场),999(其他)](C) SORDAT(数据来源日期) = [YYYYMMDD](C) SORIND(数据来源表示) = [cc, cc, ccccc,c⋯](O) INFORM(英文信息) = [机场英文信息](O) NINFOM(中文信息) = [机场中文信息](O) OBJNAM(英文名称) = [机场英文名称](O) NOBJNM(中文名称) = [机场中文名称]']]\n",
+    "raw_response": "[0, 0]",
+    "parsed": [
+        0,
+        0
+    ],
+    "table1_idx": 2962,
+    "table2_idx": 2963
+}

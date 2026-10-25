@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 297 133 700<|content|>1700 K Street NW, Suite 900 Washington, D.C. 20006\n<|id|>4<|page|>1<|box|>194 140 210 462<|content|>VIA EMAIL AND Sundial Data Systems\n<|id|>7<|page|>1<|box|>344 142 362 292<|content|>Dear Ms. Langford:\n<|id|>12<|page|>1<|box|>731 171 750 823<|content|>I. SUMMARY OF QUORUM'S INDEMNIFICATION DEMAND\n<|id|>20<|page|>2<|box|>792 192 813 803<|content|>II. REBUTTAL OF PALOMAR'S CAUSATION DEFENSES\n<|id|>22<|page|>3<|box|>90 140 107 624<|content|>A. Palomar's \"Sophisticated Attack\" Argument Is Un\n<|id|>29<|page|>5<|box|>90 140 107 648<|content|>B. Palomar's Failure to Patch Within 30 Days Viola\n<|id|>41<|page|>6<|box|>333 140 349 544<|content|>C. Palomar Cannot Shift Responsibility to Quorum\n<|id|>47<|page|>7<|box|>231 140 248 575<|content|>D. Palomar's Scope-of-Liability Arguments Lack Mer\n<|id|>61<|page|>8<|box|>506 168 551 826<|content|>III. PALOMAR'S LATE NOTIFICATION COMPOUNDED THE HA\n<|id|>74<|page|>9<|box|>633 192 652 803<|content|>IV. REJECTION OF THE $1,500,000 GOODWILL CREDIT\n<|id|>82<|page|>10<|box|>733 179 753 816<|content|>V. REASSERTION OF FULL INDEMNIFICATION DEMAND\n<|id|>91<|page|>11<|box|>531 191 577 805<|content|>VI. TERMINATION RIGHTS AND CONTINUED VENDOR RELATI\n<|id|>105<|page|>12<|box|>763 321 782 674<|content|>VII. RESERVATION OF RIGHTS\n<|id|>114<|page|>13<|box|>398 441 417 555<|content|>CLOSING",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>4<|level|>-1\n<|id|>7<|level|>-1\n<|id|>12<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>2\n<|id|>29<|level|>2\n<|id|>41<|level|>2\n<|id|>47<|level|>2\n<|id|>61<|level|>1\n<|id|>74<|level|>1\n<|id|>82<|level|>1\n<|id|>91<|level|>1\n<|id|>105<|level|>1\n<|id|>114<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        }
+    ]
+}

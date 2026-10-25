@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        9,
+        12,
+        13,
+        14,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 223 151 774<|content|>CALDERWOOD & HARKNESS LLP INTERNAL MEMORANDUM\n<|id|>2<|page|>1<|box|>160 140 176 537<|content|>TO: ... Oliver Mackenzie, Partner\n<|id|>3<|page|>1<|box|>186 140 203 573<|content|>FROM: ... Robert Jansen, Associate\n<|id|>4<|page|>1<|box|>212 140 229 354<|content|>DATE: ... September 18, 2023\n<|id|>5<|page|>1<|box|>237 140 272 852<|content|>RE: ... 1016- 00007\n<|id|>6<|page|>1<|box|>282 140 373 854<|content|>This memorandum is protected by the attorney-clien...re may result in a waiver of applicable privileges\n<|id|>51<|page|>6<|box|>700 183 718 812<|content|>• Two trade references from unrelated commodities trading firms (names on file); ... and\n<|id|>53<|page|>6<|box|>739 140 776 854<|content|>Sanctions screening was performed through the HCS ...as conducted against the following sanctions lists\n<|id|>55<|page|>6<|box|>804 181 838 854<|content|>• European Union Consolidated List of Persons, Gro...ntities Subject to EU Financial Sanctions; ... and\n<|id|>57<|page|>7<|box|>207 140 299 857<|content|>It is a critical factual point that, at the time o...ated risk at the time of Caspian Star's onboarding\n<|id|>61<|page|>7<|box|>473 181 489 495<|content|>• Full Name: ... Timur Rasulovich Kadyrov\n<|id|>66<|page|>7<|box|>570 140 662 854<|content|>OFAC identified Kadyrov as a Russian industrialist...al-use goods for Russian state-affiliated entities\n<|id|>62<|page|>7<|box|>492 183 508 452<|content|>• Date of Birth: ... September 7, 1971\n<|id|>63<|page|>7<|box|>512 183 527 442<|content|>• Nationality: ... Russian Federation\n<|id|>64<|page|>7<|box|>531 183 547 372<|content|>• SDN Entry ID: ... 47218\n<|id|>65<|page|>7<|box|>551 183 568 424<|content|>• Program: ... RUSSIA-EO14024\n<|id|>75<|page|>8<|box|>863 140 898 854<|content|>Payment for all five transactions was made in U. ....de payments from its corporate account at Emirates\n<|id|>76<|page|>9<|box|>90 140 236 856<|content|>Gulf Commercial Bank in Dubai, which were routed through the U. ... financial institution\n<|id|>110<|page|>12<|box|>839 140 876 854<|content|>Each of the five transactions involved dealings wi...pecifically, DTI sold physical fuel oil to Caspian\n<|id|>111<|page|>13<|box|>90 140 127 854<|content|>Star and received payment from Caspian Star in U. ...property in which a blocked person had an interest\n<|id|>118<|page|>13<|box|>652 181 670 500<|content|>• Aggregate transaction value: ... $4,726,500\n<|id|>122<|page|>13<|box|>750 140 859 856<|content|>However, the statutory maximum represents the ceil...e methodology for calculating base penalty amounts\n<|id|>119<|page|>13<|box|>672 181 689 665<|content|>• Maximum statutory penalty (2 × transaction value): ... $9,453,000\n<|id|>120<|page|>13<|box|>691 183 708 725<|content|>• Per-violation maximum (inflation-adjusted): ... $356,579 × 5 = $1,782,895\n<|id|>123<|page|>13<|box|>867 140 902 854<|content|>Under the Enforcement Guidelines, OFAC classifies ...ntary self-disclosure (\"VSD\") or was identified by\n<|id|>124<|page|>14<|box|>90 140 143 854<|content|>OFAC through its own investigative efforts or othe...n has a significant impact on the expected penalty\n<|id|>131<|page|>14<|box|>503 183 518 377<|content|>• A cautionary letter; ... or\n<|id|>133<|page|>14<|box|>560 140 614 854<|content|>Our assessment of the likely outcome is based on p...cuss the mitigating factors in detail in Section V\n<|id|>194<|page|>21<|box|>229 143 247 316<|content|>Leila Nazari, Associate\n<|id|>195<|page|>21<|box|>281 140 315 336<|content|>Robert Jansen, Associate Date: ... September 18, 2023",
+    "raw_response": "<|src_id|>75<|tgt_id|>76\n<|src_id|>110<|tgt_id|>111\n<|src_id|>123<|tgt_id|>124",
+    "parsed": [
+        {
+            "src_id": 75,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 124
+        }
+    ]
+}

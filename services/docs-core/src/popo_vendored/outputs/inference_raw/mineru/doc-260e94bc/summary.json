@@ -1,0 +1,105 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3ysxw7ie\\input\\pdfs\\doc-260e94bc.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3ysxw7ie\\enriched\\doc-260e94bc.json",
+    "contd_output": "<|src_id|>24<|tgt_id|>25",
+    "title_output": "<|id|>7<|level|>1\n<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>42<|level|>2\n<|id|>48<|level|>2\n<|id|>55<|level|>2\n<|id|>68<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>2\n<|id|>89<|level|>1\n<|id|>94<|level|>1\n<|id|>102<|level|>1",
+    "image_output": "<|src_id|>91<|tgt_id|>89\n<|src_id|>92<|tgt_id|>89",
+    "contd_label": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 91,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 89
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 91,
+            "table2_idx": 92,
+            "upper_row_ss": [
+                [
+                    "Osprey Insurance Capital, Ltd.",
+                    "$75,000,000",
+                    "7.89%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Total",
+                    "$950,000,000",
+                    "100.00%"
+                ]
+            ]
+        }
+    ]
+}

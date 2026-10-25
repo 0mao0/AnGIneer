@@ -1,0 +1,531 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-k80rgw6r\\input\\pdfs\\doc-35eb0e11.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-k80rgw6r\\enriched\\doc-35eb0e11.json",
+    "contd_output": "<|src_id|>133<|tgt_id|>134\n<|src_id|>139<|tgt_id|>140",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>2\n<|id|>4<|level|>2\n<|id|>5<|level|>2\n<|id|>7<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>20<|level|>3\n<|id|>29<|level|>3\n<|id|>39<|level|>2\n<|id|>40<|level|>3\n<|id|>45<|level|>3\n<|id|>52<|level|>3\n<|id|>65<|level|>3\n<|id|>72<|level|>2\n<|id|>83<|level|>2\n<|id|>84<|level|>3\n<|id|>87<|level|>3\n<|id|>93<|level|>3\n<|id|>97<|level|>3\n<|id|>101<|level|>2\n<|id|>103<|level|>3\n<|id|>114<|level|>3\n<|id|>122<|level|>3\n<|id|>128<|level|>3\n<|id|>135<|level|>3\n<|id|>142<|level|>2\n<|id|>143<|level|>3\n<|id|>149<|level|>3\n<|id|>151<|level|>4\n<|id|>155<|level|>4\n<|id|>157<|level|>3\n<|id|>168<|level|>2\n<|id|>169<|level|>3\n<|id|>176<|level|>3\n<|id|>183<|level|>3\n<|id|>190<|level|>3\n<|id|>193<|level|>3\n<|id|>201<|level|>2\n<|id|>202<|level|>3\n<|id|>205<|level|>3\n<|id|>207<|level|>4\n<|id|>211<|level|>4\n<|id|>214<|level|>4\n<|id|>217<|level|>4\n<|id|>220<|level|>3\n<|id|>223<|level|>2\n<|id|>225<|level|>3\n<|id|>235<|level|>3\n<|id|>242<|level|>3\n<|id|>251<|level|>3\n<|id|>258<|level|>2\n<|id|>259<|level|>3\n<|id|>262<|level|>3\n<|id|>268<|level|>2\n<|id|>270<|level|>3\n<|id|>274<|level|>3\n<|id|>277<|level|>3\n<|id|>280<|level|>2\n<|id|>281<|level|>3\n<|id|>290<|level|>3\n<|id|>299<|level|>3\n<|id|>302<|level|>2\n<|id|>303<|level|>3\n<|id|>306<|level|>3\n<|id|>309<|level|>2\n<|id|>310<|level|>3\n<|id|>313<|level|>3\n<|id|>320<|level|>3\n<|id|>323<|level|>2\n<|id|>324<|level|>3\n<|id|>331<|level|>3\n<|id|>334<|level|>2\n<|id|>352<|level|>2\n<|id|>354<|level|>3\n<|id|>361<|level|>2\n<|id|>362<|level|>3\n<|id|>365<|level|>3\n<|id|>368<|level|>3\n<|id|>372<|level|>3\n<|id|>380<|level|>2\n<|id|>381<|level|>3\n<|id|>384<|level|>3\n<|id|>389<|level|>3\n<|id|>398<|level|>2\n<|id|>399<|level|>3\n<|id|>400<|level|>4\n<|id|>402<|level|>4\n<|id|>404<|level|>4\n<|id|>409<|level|>4\n<|id|>415<|level|>4\n<|id|>420<|level|>4\n<|id|>425<|level|>2",
+    "image_output": "<|src_id|>6<|tgt_id|>5\n<|src_id|>147<|tgt_id|>143\n<|src_id|>148<|tgt_id|>143\n<|src_id|>152<|tgt_id|>151\n<|src_id|>153<|tgt_id|>151\n<|src_id|>154<|tgt_id|>151\n<|src_id|>355<|tgt_id|>354\n<|src_id|>356<|tgt_id|>354\n<|src_id|>357<|tgt_id|>354\n<|src_id|>358<|tgt_id|>354\n<|src_id|>359<|tgt_id|>354\n<|src_id|>360<|tgt_id|>354\n<|src_id|>364<|tgt_id|>362\n<|src_id|>367<|tgt_id|>365\n<|src_id|>370<|tgt_id|>368\n<|src_id|>371<|tgt_id|>368\n<|src_id|>383<|tgt_id|>381",
+    "contd_label": [
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 140
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 4
+        },
+        {
+            "id": 155,
+            "level": 4
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 3
+        },
+        {
+            "id": 205,
+            "level": 3
+        },
+        {
+            "id": 207,
+            "level": 4
+        },
+        {
+            "id": 211,
+            "level": 4
+        },
+        {
+            "id": 214,
+            "level": 4
+        },
+        {
+            "id": 217,
+            "level": 4
+        },
+        {
+            "id": 220,
+            "level": 3
+        },
+        {
+            "id": 223,
+            "level": 2
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 235,
+            "level": 3
+        },
+        {
+            "id": 242,
+            "level": 3
+        },
+        {
+            "id": 251,
+            "level": 3
+        },
+        {
+            "id": 258,
+            "level": 2
+        },
+        {
+            "id": 259,
+            "level": 3
+        },
+        {
+            "id": 262,
+            "level": 3
+        },
+        {
+            "id": 268,
+            "level": 2
+        },
+        {
+            "id": 270,
+            "level": 3
+        },
+        {
+            "id": 274,
+            "level": 3
+        },
+        {
+            "id": 277,
+            "level": 3
+        },
+        {
+            "id": 280,
+            "level": 2
+        },
+        {
+            "id": 281,
+            "level": 3
+        },
+        {
+            "id": 290,
+            "level": 3
+        },
+        {
+            "id": 299,
+            "level": 3
+        },
+        {
+            "id": 302,
+            "level": 2
+        },
+        {
+            "id": 303,
+            "level": 3
+        },
+        {
+            "id": 306,
+            "level": 3
+        },
+        {
+            "id": 309,
+            "level": 2
+        },
+        {
+            "id": 310,
+            "level": 3
+        },
+        {
+            "id": 313,
+            "level": 3
+        },
+        {
+            "id": 320,
+            "level": 3
+        },
+        {
+            "id": 323,
+            "level": 2
+        },
+        {
+            "id": 324,
+            "level": 3
+        },
+        {
+            "id": 331,
+            "level": 3
+        },
+        {
+            "id": 334,
+            "level": 2
+        },
+        {
+            "id": 352,
+            "level": 2
+        },
+        {
+            "id": 354,
+            "level": 3
+        },
+        {
+            "id": 361,
+            "level": 2
+        },
+        {
+            "id": 362,
+            "level": 3
+        },
+        {
+            "id": 365,
+            "level": 3
+        },
+        {
+            "id": 368,
+            "level": 3
+        },
+        {
+            "id": 372,
+            "level": 3
+        },
+        {
+            "id": 380,
+            "level": 2
+        },
+        {
+            "id": 381,
+            "level": 3
+        },
+        {
+            "id": 384,
+            "level": 3
+        },
+        {
+            "id": 389,
+            "level": 3
+        },
+        {
+            "id": 398,
+            "level": 2
+        },
+        {
+            "id": 399,
+            "level": 3
+        },
+        {
+            "id": 400,
+            "level": 4
+        },
+        {
+            "id": 402,
+            "level": 4
+        },
+        {
+            "id": 404,
+            "level": 4
+        },
+        {
+            "id": 409,
+            "level": 4
+        },
+        {
+            "id": 415,
+            "level": 4
+        },
+        {
+            "id": 420,
+            "level": 4
+        },
+        {
+            "id": 425,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 6,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 355,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 356,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 357,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 358,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 359,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 360,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 364,
+            "tgt_id": 362
+        },
+        {
+            "src_id": 367,
+            "tgt_id": 365
+        },
+        {
+            "src_id": 370,
+            "tgt_id": 368
+        },
+        {
+            "src_id": 371,
+            "tgt_id": 368
+        },
+        {
+            "src_id": 383,
+            "tgt_id": 381
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 147,
+            "table2_idx": 148,
+            "upper_row_ss": [
+                [
+                    "Running Calendar-Year Aggregate",
+                    "The cumulative fair market value of all non-monetary remuneration from the identified providing entity to the identified recipient physician for the current calendar"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "year, calculated automatically upon entry"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 152,
+            "table2_idx": 153,
+            "upper_row_ss": [
+                [
+                    "Recipients",
+                    "All AHT physicians at Rhode Island and southeastern Massachusetts clinics who use the interface to order laboratory tests from Pinnacle. The exact number of physician users is to be confirmed during Protocol implementation; the current estimate is thirty (30) or"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "more physicians."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 356,
+            "table2_idx": 357,
+            "upper_row_ss": [
+                [
+                    "E — Recipient",
+                    "All AHT physicians at RI and SE MA clinics using the"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "interface (est. 30+ physicians; per-physician allocation to be determined)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 358,
+            "table2_idx": 359,
+            "upper_row_ss": [
+                [
+                    "M — Notes",
+                    "CME sponsorship to be discontinued or restructured"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "through independent accredited CME provider. See Section 9.2."
+                ]
+            ]
+        }
+    ]
+}

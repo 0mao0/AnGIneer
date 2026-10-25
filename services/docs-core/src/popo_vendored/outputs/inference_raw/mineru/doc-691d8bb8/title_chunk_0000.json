@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        23,
+        24,
+        25,
+        26,
+        27
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>286 112 423 905<|content|>《港口工程荷载规范》（JTS 144-1-2010） 局部修订 （重件起重运输机械荷载部分）\n<|id|>1<|page|>1<|box|>458 178 548 840<|content|>Load Code for Harbour Engineering(JTS 144-1-2010)\n<|id|>6<|page|>2<|box|>292 117 394 836<|content|>《港口工程荷载规范》(JTS 144—1—2010) 局部修订 (重件起重运输机械荷载部分)\n<|id|>12<|page|>3<|box|>204 157 296 823<|content|>交通运输部关于发布《〈港口工程荷载规范〉 (JTS 144—1—2010)局部修订 (重件起重运输机\n<|id|>18<|page|>4<|box|>222 403 249 586<|content|>修订说明\n<|id|>28<|page|>5<|box|>222 426 249 566<|content|>目 次\n<|id|>30<|page|>6<|box|>245 280 273 707<|content|>14 重件起重运输机械荷载\n<|id|>31<|page|>6<|box|>305 408 321 581<|content|>14.1 一般规定\n<|id|>36<|page|>6<|box|>498 408 515 581<|content|>14.2 荷载标准值\n<|id|>71<|page|>23<|box|>180 386 207 603<|content|>引用标准名录\n<|id|>73<|page|>24<|box|>223 183 283 808<|content|>本规范主编单位、参编单位、主要起草人、主要审查人、总校人员和管理组人员名单\n<|id|>85<|page|>24<|box|>568 105 590 315<|content|>主要审查人: 仉伯强\n<|id|>90<|page|>25<|box|>321 178 415 808<|content|>《港口工程荷载规范》(JTS 144—1—2010) 局部修订 (重件起重运输机械荷载部分)\n<|id|>92<|page|>26<|box|>222 430 248 569<|content|>目 次\n<|id|>94<|page|>27<|box|>220 280 248 710<|content|>14 重件起重运输机械荷载\n<|id|>95<|page|>27<|box|>282 408 300 583<|content|>14.1 一般规定\n<|id|>109<|page|>27<|box|>882 405 900 578<|content|>14.2 荷载标准值",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>6<|level|>1\n<|id|>12<|level|>1\n<|id|>18<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>2\n<|id|>31<|level|>3\n<|id|>36<|level|>3\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>85<|level|>-1\n<|id|>90<|level|>1\n<|id|>92<|level|>2\n<|id|>94<|level|>2\n<|id|>95<|level|>3\n<|id|>109<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 140 174 854<|content|>TO: ... Daniel Obi, Associate, Banking & Finance\n<|id|>3<|page|>1<|box|>181 140 200 537<|content|>FROM: ... Lisa Morrow, Associate, Banking & Finance\n<|id|>4<|page|>1<|box|>208 140 224 334<|content|>DATE: ... January 20, 2023\n<|id|>5<|page|>1<|box|>234 140 270 852<|content|>RE: ... 1034-00001\n<|id|>6<|page|>1<|box|>277 140 295 383<|content|>CLIENT: ... Caldwell\n<|id|>78<|page|>7<|box|>864 140 898 854<|content|>For these three documents, Clearpath extracted all...as TIFF images. ... A notation was included in the\n<|id|>79<|page|>8<|box|>89 140 143 854<|content|>Ashgrove Technologies DAT load file for each of th...ents are identified by the following Bates numbers\n<|id|>80<|page|>8<|box|>152 147 169 326<|content|>• CALDWELL-00487\n<|id|>83<|page|>8<|box|>210 140 340 856<|content|>Upon review, the content of these three documents ...s additional information regarding these documents\n<|id|>81<|page|>8<|box|>172 147 188 326<|content|>• CALDWELL-00488\n<|id|>82<|page|>8<|box|>191 147 207 326<|content|>• CALDWELL-00512\n<|id|>88<|page|>8<|box|>593 145 609 326<|content|>• CALDWELL-01205\n<|id|>89<|page|>8<|box|>612 140 667 854<|content|>These documents contain investor allocation summar...ibution waterfalls for the fund's limited partners\n<|id|>110<|page|>10<|box|>750 181 767 598<|content|>• Conrad Ashby, Partner, White Collar & Investigations\n<|id|>114<|page|>10<|box|>829 140 883 854<|content|>This memorandum constitutes attorney work product ...bject to the firm's obligations of confidentiality\n<|id|>111<|page|>10<|box|>768 183 786 624<|content|>• Bernard Crawford, Partner, White Collar & Investigations\n<|id|>112<|page|>10<|box|>789 183 805 516<|content|>• Daniel Obi, Associate, Banking & Finance\n<|id|>113<|page|>10<|box|>809 183 825 529<|content|>• Lisa Morrow, Associate, Banking & Finance\n<|id|>116<|page|>11<|box|>152 140 185 852<|content|>Lisa Morrow Associate, Banking & Finance Calderwoo...r New York, NY 10022 Telephone: ... (212) 555-0147\n<|id|>117<|page|>11<|box|>186 142 203 464<|content|>Email: ... com\n<|id|>118<|page|>11<|box|>203 142 219 318<|content|>Date: ... January 20, 2023\n<|id|>119<|page|>11<|box|>219 140 266 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...e, copying, or distribution is strictly prohibited",
+    "raw_response": "<|src_id|>78<|tgt_id|>79",
+    "parsed": [
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        }
+    ]
+}

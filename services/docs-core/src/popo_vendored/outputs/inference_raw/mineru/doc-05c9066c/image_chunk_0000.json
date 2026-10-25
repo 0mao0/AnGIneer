@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 204 118 792<|content|>EMPLOYEE AND JOB-APPLICANT PRIVACY NOTICE\n<|id|>9<|type|>title<|page|>1<|box|>443 142 460 442<|content|>1. INTRODUCTION AND PURPOSE\n<|id|>24<|type|>title<|page|>2<|box|>537 140 555 418<|content|>2. SCOPE AND APPLICABILITY\n<|id|>25<|type|>title<|page|>2<|box|>569 140 585 334<|content|>2.1 Covered Individuals\n<|id|>31<|type|>title<|page|>3<|box|>90 142 106 305<|content|>2.2 Covered Entities\n<|id|>32<|type|>table<|page|>3<|box|>156 143 284 852<|content|>None\n<|id|>34<|type|>title<|page|>3<|box|>459 140 476 316<|content|>2.3 Geographic Scope\n<|id|>36<|type|>title<|page|>3<|box|>568 140 585 491<|content|>2.4 Relationship to Consumer Privacy Policy\n<|id|>41<|type|>title<|page|>4<|box|>89 140 106 674<|content|>3. CATEGORIES OF PERSONAL INFORMATION COLLECTED\n<|id|>56<|type|>title<|page|>4<|box|>545 142 561 570<|content|>3.2 Professional and Employment-Related Informatio\n<|id|>65<|type|>title<|page|>5<|box|>436 140 453 346<|content|>3.3 Financial Information\n<|id|>72<|type|>title<|page|>5<|box|>705 142 720 413<|content|>3.4 Sensitive Personal Information\n<|id|>84<|type|>title<|page|>6<|box|>585 140 603 591<|content|>3.5 Internet and Electronic Network Activity Infor\n<|id|>92<|type|>title<|page|>7<|box|>157 140 174 351<|content|>3.6 Biometric Information\n<|id|>94<|type|>title<|page|>7<|box|>304 140 320 354<|content|>3.7 Education Information\n<|id|>97<|type|>title<|page|>7<|box|>571 140 589 450<|content|>3.9 Job-Applicant-Specific Information\n<|id|>105<|type|>title<|page|>8<|box|>148 140 166 522<|content|>4. SOURCES OF PERSONAL INFORMATION\n<|id|>118<|type|>title<|page|>9<|box|>279 140 296 643<|content|>5. PURPOSES FOR COLLECTION, USE, AND DISCLOSURE\n<|id|>119<|type|>title<|page|>9<|box|>310 140 327 318<|content|>5.1 Business Purposes\n<|id|>129<|type|>title<|page|>10<|box|>664 140 681 361<|content|>5.2 Purposes Not Permitted\n<|id|>132<|type|>title<|page|>11<|box|>89 140 107 833<|content|>6. CATEGORIES OF RECIPIENTS / DISCLOSURE OF PERSON\n<|id|>155<|type|>title<|page|>12<|box|>801 140 818 805<|content|>7. RETENTION OF EMPLOYEE AND APPLICANT PERSONAL IN\n<|id|>158<|type|>table<|page|>13<|box|>250 143 527 852<|content|>None\n<|id|>164<|type|>title<|page|>14<|box|>148 140 166 531<|content|>8. SECURITY OF PERSONAL INFORMATION\n<|id|>175<|type|>title<|page|>15<|box|>358 140 375 692<|content|>9. YOUR RIGHTS UNDER APPLICABLE STATE PRIVACY LAWS\n<|id|>177<|type|>title<|page|>15<|box|>470 140 488 650<|content|>9.1 California Employees and Applicants — CCPA/CPR\n<|id|>186<|type|>table<|page|>16<|box|>448 143 542 852<|content|>None\n<|id|>188<|type|>title<|page|>16<|box|>681 140 698 650<|content|>9.2 Virginia, Colorado, Connecticut, and Other Sta\n<|id|>196<|type|>title<|page|>17<|box|>324 140 340 372<|content|>9.3 How to Submit a Request\n<|id|>207<|type|>title<|page|>18<|box|>248 142 265 609<|content|>10. STATE-SPECIFIC SUPPLEMENTAL DISCLOSURES\n<|id|>211<|type|>title<|page|>18<|box|>616 143 633 282<|content|>10.2 Other States\n<|id|>216<|type|>title<|page|>19<|box|>89 140 107 460<|content|>11. BIOMETRIC DATA DISCLOSURE\n<|id|>223<|type|>title<|page|>19<|box|>689 142 705 547<|content|>12. WORKPLACE MONITORING DISCLOSURE\n<|id|>233<|type|>title<|page|>20<|box|>804 140 820 419<|content|>13. CHANGES TO THIS NOTICE\n<|id|>239<|type|>title<|page|>21<|box|>410 142 426 405<|content|>14. CONTACT INFORMATION\n<|id|>254<|type|>title<|page|>22<|box|>167 140 184 367<|content|>15. ACKNOWLEDGMENT\n<|id|>260<|type|>title<|page|>22<|box|>707 400 724 596<|content|>— END OF NOTICE —",
+    "raw_response": "<|src_id|>32<|tgt_id|>31\n<|src_id|>158<|tgt_id|>155\n<|src_id|>186<|tgt_id|>177",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 177
+        }
+    ]
+}

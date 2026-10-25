@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 339 118 656<|content|>LITIGATION HOLD NOTICE\n<|id|>1<|page|>1<|box|>135 189 170 807<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>8<|page|>1<|box|>450 142 468 341<|content|>1. Purpose of This Notice\n<|id|>14<|page|>2<|box|>285 140 303 375<|content|>2. Background of the Dispute\n<|id|>24<|page|>3<|box|>612 140 628 416<|content|>3. Custodians Subject to This Hold\n<|id|>40<|page|>4<|box|>681 140 699 514<|content|>4. Scope of Documents and ESI to Be Preserved\n<|id|>41<|page|>4<|box|>714 140 731 380<|content|>4.1 Subject Matter Categories\n<|id|>63<|page|>7<|box|>90 140 107 400<|content|>4.2 Types of Documents and ESI\n<|id|>77<|page|>8<|box|>609 140 626 359<|content|>5. Preservation Obligations\n<|id|>78<|page|>8<|box|>638 140 657 529<|content|>5.1 Immediate Suspension of Routine Destruction\n<|id|>87<|page|>9<|box|>325 140 344 415<|content|>5.2 Affirmative Preservation Steps\n<|id|>96<|page|>10<|box|>398 140 415 338<|content|>5.3 Duration of the Hold\n<|id|>100<|page|>10<|box|>679 140 696 601<|content|>6. IT Department and Systems Administration Obliga\n<|id|>108<|page|>11<|box|>760 140 777 429<|content|>7. Consequences of Non-Compliance\n<|id|>116<|page|>12<|box|>541 140 556 441<|content|>8. Contact Information and Questions\n<|id|>124<|page|>13<|box|>150 140 167 444<|content|>9. Acknowledgment and Confirmation\n<|id|>132<|page|>13<|box|>547 370 564 627<|content|>ACKNOWLEDGMENT FORM\n<|id|>133<|page|>13<|box|>573 168 609 826<|content|>LITIGATION HOLD NOTICE Penterra Pharmaceuticals Co\n<|id|>138<|page|>14<|box|>90 140 107 544<|content|>Date of Receipt of Litigation Hold Notice:\n<|id|>147<|page|>14<|box|>324 142 340 383<|content|>10. Distribution List (Internal)\n<|id|>163<|page|>15<|box|>364 140 381 408<|content|>END OF LITIGATION HOLD NOTICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>24<|level|>2\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>63<|level|>3\n<|id|>77<|level|>2\n<|id|>78<|level|>3\n<|id|>87<|level|>3\n<|id|>96<|level|>3\n<|id|>100<|level|>2\n<|id|>108<|level|>2\n<|id|>116<|level|>2\n<|id|>124<|level|>2\n<|id|>132<|level|>1\n<|id|>133<|level|>2\n<|id|>138<|level|>-1\n<|id|>147<|level|>2\n<|id|>163<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        16,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>113 341 133 655<|content|>INTERNAL MEMORANDUM\n<|id|>2<|type|>title<|page|>1<|box|>150 200 167 795<|content|>CALDERWOOD & HARKNESS LLP 125 Broad Street New Yor\n<|id|>10<|type|>title<|page|>1<|box|>395 267 415 728<|content|>I. EXECUTIVE SUMMARY AND PURPOSE\n<|id|>16<|type|>title<|page|>2<|box|>407 147 426 848<|content|>II. METHODOLOGY AND SCOPE OF BRING-DOWN DILIGENCE\n<|id|>35<|type|>title<|page|>4<|box|>152 153 172 844<|content|>III. BRING-DOWN OF REPRESENTATIONS AND WARRANTIES\n<|id|>37<|type|>title<|page|>4<|box|>305 140 323 527<|content|>III.A. Borrower — Ironhaven Data Centers LLC\n<|id|>54<|type|>title<|page|>6<|box|>765 140 784 550<|content|>III.B. Parent Guarantor — Ironhaven Holdings Inc.\n<|id|>62<|type|>title<|page|>7<|box|>608 140 626 547<|content|>III.C. Co-Borrower — Ironhaven Frankfurt GmbH\n<|id|>71<|type|>title<|page|>9<|box|>90 225 109 769<|content|>IV. ABSENCE OF MATERIAL ADVERSE CHANGE\n<|id|>82<|type|>title<|page|>10<|box|>297 287 316 709<|content|>V. BRING-DOWN OF LIEN SEARCHES\n<|id|>93<|type|>title<|page|>11<|box|>325 181 345 813<|content|>VI. BRING-DOWN OF SANCTIONS AND KYC SCREENING\n<|id|>94<|type|>title<|page|>11<|box|>371 140 388 418<|content|>VI.A. Borrower-Side Re-Screening\n<|id|>116<|type|>title<|page|>12<|box|>250 140 266 398<|content|>VI.B. Lender-Side Re-Screening\n<|id|>118<|type|>table<|page|>12<|box|>335 143 902 852<|content|>None\n<|id|>119<|type|>table<|page|>13<|box|>88 143 304 851<|content|>None\n<|id|>125<|type|>title<|page|>13<|box|>497 183 517 812<|content|>VII. STATUS OF CONDITIONS PRECEDENT TO CLOSING\n<|id|>126<|type|>title<|page|>13<|box|>542 140 559 741<|content|>VII.A. Conditions Previously Satisfied (at or befo\n<|id|>161<|type|>title<|page|>16<|box|>299 140 335 821<|content|>VII.B. Conditions Satisfied Between Signing and Th\n<|id|>185<|type|>title<|page|>18<|box|>404 140 421 640<|content|>VII.C. Conditions to Be Satisfied on Closing Date\n<|id|>192<|type|>table<|page|>19<|box|>220 143 297 852<|content|>None\n<|id|>194<|type|>table<|page|>19<|box|>398 143 679 852<|content|>None\n<|id|>201<|type|>table<|page|>20<|box|>313 143 479 852<|content|>None\n<|id|>202<|type|>title<|page|>20<|box|>516 178 535 818<|content|>VIII. PRO FORMA FINANCIAL COVENANT COMPLIANCE\n<|id|>204<|type|>title<|page|>20<|box|>635 143 651 352<|content|>Pro Forma Capitalization:\n<|id|>205<|type|>table<|page|>20<|box|>659 143 786 852<|content|>None\n<|id|>206<|type|>title<|page|>20<|box|>821 143 837 303<|content|>Net Leverage Ratio:\n<|id|>211<|type|>title<|page|>21<|box|>133 142 152 419<|content|>Minimum Interest Coverage Ratio:\n<|id|>213<|type|>title<|page|>21<|box|>258 142 277 390<|content|>Capital Expenditure Covenant:\n<|id|>215<|type|>title<|page|>21<|box|>402 143 420 312<|content|>Equity Contribution:\n<|id|>217<|type|>table<|page|>21<|box|>551 143 645 852<|content|>None\n<|id|>218<|type|>title<|page|>21<|box|>681 279 700 717<|content|>IX. IDENTIFIED POST-CLOSING ITEMS\n<|id|>227<|type|>title<|page|>22<|box|>691 254 712 740<|content|>X. CONCLUSION AND RECOMMENDATION\n<|id|>241<|type|>title<|page|>23<|box|>715 142 732 665<|content|>We recommend proceeding to closing on June 3, 2024\n<|id|>243<|type|>title<|page|>23<|box|>821 333 840 663<|content|>APPENDICES (REFERENCED)\n<|id|>245<|type|>title<|page|>24<|box|>89 140 125 854<|content|>Appendix A: Conditions Precedent Checklist — Maste",
+    "raw_response": "<|src_id|>118<|tgt_id|>116\n<|src_id|>119<|tgt_id|>116\n<|src_id|>192<|tgt_id|>185\n<|src_id|>194<|tgt_id|>185\n<|src_id|>201<|tgt_id|>185\n<|src_id|>205<|tgt_id|>204\n<|src_id|>217<|tgt_id|>215",
+    "parsed": [
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 185
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 217,
+            "tgt_id": 215
+        }
+    ]
+}

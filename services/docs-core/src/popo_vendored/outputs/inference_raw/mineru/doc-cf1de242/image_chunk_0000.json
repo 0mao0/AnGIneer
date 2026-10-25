@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>12<|type|>title<|page|>1<|box|>556 142 573 367<|content|>1. Introduction and Purpose\n<|id|>17<|type|>title<|page|>2<|box|>359 140 375 455<|content|>2. Scope of Initial Due Diligence Review\n<|id|>22<|type|>table<|page|>2<|box|>797 143 907 852<|content|>None\n<|id|>23<|type|>table<|page|>3<|box|>88 143 137 852<|content|>None\n<|id|>37<|type|>title<|page|>4<|box|>473 140 489 640<|content|>3. Requested Confirmations — Representations and W\n<|id|>39<|type|>title<|page|>4<|box|>566 140 584 535<|content|>3(a). Accuracy of Representations and Warranties\n<|id|>43<|type|>title<|page|>5<|box|>194 140 212 413<|content|>3(b). No Material Adverse Change\n<|id|>45<|type|>title<|page|>5<|box|>340 140 358 413<|content|>3(c). No Changes to Capitalization\n<|id|>47<|type|>title<|page|>5<|box|>559 140 575 390<|content|>3(d). No Undisclosed Liabilities\n<|id|>49<|type|>title<|page|>5<|box|>742 140 758 550<|content|>3(e). Compliance with Interim Operating Covenants\n<|id|>56<|type|>title<|page|>6<|box|>381 140 398 750<|content|>4. Requested Confirmations — Material Contracts an\n<|id|>57<|type|>title<|page|>6<|box|>412 140 429 336<|content|>4(a). Material Contracts\n<|id|>65<|type|>title<|page|>7<|box|>90 140 108 478<|content|>4(b). Customer and Supplier Relationships\n<|id|>67<|type|>title<|page|>7<|box|>236 140 253 348<|content|>4(c). Intellectual Property\n<|id|>70<|type|>title<|page|>7<|box|>527 140 545 591<|content|>5. Requested Confirmations — Litigation and Regula\n<|id|>72<|type|>title<|page|>7<|box|>699 140 717 424<|content|>5(b). Regulatory and Governmental\n<|id|>74<|type|>title<|page|>8<|box|>90 140 107 527<|content|>6. Requested Confirmations — Financial Matters\n<|id|>75<|type|>title<|page|>8<|box|>121 140 138 341<|content|>6(a). Financial Condition\n<|id|>78<|type|>title<|page|>8<|box|>421 140 438 285<|content|>6(b). Tax Matters\n<|id|>80<|type|>title<|page|>8<|box|>669 140 686 532<|content|>7. Requested Confirmations — Employee Matters\n<|id|>86<|type|>title<|page|>9<|box|>321 140 339 545<|content|>8. Requested Confirmations — Mexican Subsidiary\n<|id|>93<|type|>title<|page|>9<|box|>700 140 719 550<|content|>9. Requested Confirmations — Disclosure Schedules\n<|id|>97<|type|>title<|page|>10<|box|>204 140 222 410<|content|>10. Form of Response and Timing\n<|id|>108<|type|>title<|page|>10<|box|>789 140 805 343<|content|>11. Reservation of Rights\n<|id|>119<|type|>title<|page|>11<|box|>712 142 729 292<|content|>12. Confidentiality",
+    "raw_response": "<|src_id|>22<|tgt_id|>17\n<|src_id|>23<|tgt_id|>17",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 17
+        }
+    ]
+}

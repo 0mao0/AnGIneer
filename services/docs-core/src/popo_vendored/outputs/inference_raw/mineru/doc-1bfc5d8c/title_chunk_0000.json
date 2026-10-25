@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>719 142 737 462<|content|>1. Background and Property Description\n<|id|>18<|page|>2<|box|>612 140 628 501<|content|>2. The Cross-Parcel Easement and Its History\n<|id|>22<|page|>3<|box|>304 140 320 437<|content|>3. Extinguishment by the 2014 Replat\n<|id|>34<|page|>4<|box|>667 140 684 540<|content|>4. Additional Grounds Supporting Extinguishment\n<|id|>36<|page|>4<|box|>760 140 777 495<|content|>(a) Merger of Dominant and Servient Estates\n<|id|>40<|page|>5<|box|>411 140 429 334<|content|>(b) Estoppel and Laches\n<|id|>51<|page|>6<|box|>539 140 556 707<|content|>5. Ridgemark's Deed Recital Does Not Revive an Ext\n<|id|>57<|page|>7<|box|>321 140 339 519<|content|>6. Fairwater's Position on Ridgemark's Demand\n<|id|>63<|page|>8<|box|>204 140 222 524<|content|>7. Impact on Fairwater's Operations and Tenant\n<|id|>67<|page|>8<|box|>652 140 669 334<|content|>8. Reservation of Rights\n<|id|>72<|page|>9<|box|>304 140 320 633<|content|>9. Request for Preservation of Evidence and No Fur",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>18<|level|>1\n<|id|>22<|level|>1\n<|id|>34<|level|>1\n<|id|>36<|level|>2\n<|id|>40<|level|>2\n<|id|>51<|level|>1\n<|id|>57<|level|>1\n<|id|>63<|level|>1\n<|id|>67<|level|>1\n<|id|>72<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,143 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7prg1gch\\input\\pdfs\\doc-8f2f0f1d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-7prg1gch\\enriched\\doc-8f2f0f1d.json",
+    "contd_output": "<|src_id|>19<|tgt_id|>20\n<|src_id|>48<|tgt_id|>49\n<|src_id|>84<|tgt_id|>85",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>12<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>28<|level|>3\n<|id|>34<|level|>3\n<|id|>39<|level|>3\n<|id|>51<|level|>3\n<|id|>57<|level|>3\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>97<|level|>3\n<|id|>98<|level|>4\n<|id|>126<|level|>3\n<|id|>138<|level|>3\n<|id|>145<|level|>3\n<|id|>148<|level|>2\n<|id|>164<|level|>2",
+    "image_output": "<|src_id|>2<|tgt_id|>0\n<|src_id|>10<|tgt_id|>3\n<|src_id|>11<|tgt_id|>3\n<|src_id|>36<|tgt_id|>34\n<|src_id|>53<|tgt_id|>51\n<|src_id|>61<|tgt_id|>57",
+    "contd_label": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 85
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 4
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 2,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 57
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 10,
+            "table2_idx": 11,
+            "upper_row_ss": [
+                [
+                    "F. MSH's Demand and Inflated Valuation",
+                    "12"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "III. ARGUMENT",
+                    "14"
+                ]
+            ]
+        }
+    ]
+}

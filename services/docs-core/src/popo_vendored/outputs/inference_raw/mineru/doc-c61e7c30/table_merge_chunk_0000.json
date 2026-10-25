@@ -1,0 +1,14 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Total voting power after this offering', 'Class A Common Stock: 102,641,176 votes (one vote']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'per share). Class B Common Stock: 285,000,000 votes (ten votes per share). Total: 387,641,176 votes. Our co-founders will collectively hold approximately 73.5% of the total voting power of all outstanding shares of our common stock.']]\n",
+    "raw_response": "[1, 1]",
+    "parsed": [
+        1,
+        1
+    ],
+    "table1_idx": 83,
+    "table2_idx": 84
+}

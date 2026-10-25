@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>12<|page|>1<|box|>635 140 652 290<|content|>Section 1. Recitals\n<|id|>18<|page|>2<|box|>402 140 420 346<|content|>Section 2. Payoff Amount\n<|id|>23<|page|>2<|box|>805 142 821 328<|content|>(the \"Payoff Amount\").\n<|id|>26<|page|>3<|box|>321 140 339 437<|content|>Section 3. Wire Transfer Instructions\n<|id|>31<|page|>3<|box|>723 140 739 586<|content|>Section 4. Cancellation of Note Upon Receipt of Pa\n<|id|>37<|page|>4<|box|>377 140 393 352<|content|>Section 5. Release of Liens\n<|id|>46<|page|>5<|box|>700 140 717 547<|content|>Section 6. Representations and Warranties of Payee\n<|id|>53<|page|>6<|box|>667 140 684 334<|content|>Section 7. Irrevocability\n<|id|>56<|page|>7<|box|>90 140 107 477<|content|>Section 8. No Waiver of MIPA Obligations\n<|id|>59<|page|>7<|box|>513 140 529 349<|content|>Section 9. Governing Law\n<|id|>61<|page|>7<|box|>671 140 688 517<|content|>Section 10. Counterparts; Electronic Signatures\n<|id|>64<|page|>8<|box|>90 400 107 596<|content|>[Signature Pages Follow]\n<|id|>71<|page|>8<|box|>284 142 301 477<|content|>Acknowledgment and Agreement of Buyer\n<|id|>78<|page|>8<|box|>513 447 529 550<|content|>EXHIBIT A\n<|id|>79<|page|>8<|box|>539 341 556 655<|content|>Copy of Intercompany Promissory Note\n<|id|>83<|page|>8<|box|>789 447 805 550<|content|>EXHIBIT B\n<|id|>84<|page|>8<|box|>814 343 832 655<|content|>Form of UCC-3 Termination Statement\n<|id|>87<|page|>9<|box|>156 140 175 669<|content|>UCC FINANCING STATEMENT AMENDMENT (FORM UCC-3)",
+    "raw_response": "<|id|>12<|level|>1\n<|id|>18<|level|>1\n<|id|>23<|level|>-1\n<|id|>26<|level|>1\n<|id|>31<|level|>1\n<|id|>37<|level|>1\n<|id|>46<|level|>1\n<|id|>53<|level|>1\n<|id|>56<|level|>1\n<|id|>59<|level|>1\n<|id|>61<|level|>1\n<|id|>64<|level|>-1\n<|id|>71<|level|>1\n<|id|>78<|level|>1\n<|id|>79<|level|>2\n<|id|>83<|level|>1\n<|id|>84<|level|>2\n<|id|>87<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 1
+        }
+    ]
+}

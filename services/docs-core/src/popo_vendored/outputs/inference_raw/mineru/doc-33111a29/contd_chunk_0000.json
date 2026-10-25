@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>9<|page|>1<|box|>845 174 880 854<|content|>Ridgeline Freight Carriers LLC 7820 South Meridian Avenue Oklahoma City, Oklahoma 73159\n<|id|>10<|page|>1<|box|>890 140 909 761<|content|>Ridgeline's designated registered agent for servic...nt for service of process in the State of Texas is\n<|id|>15<|page|>2<|box|>306 174 323 741<|content|>Gerald \"Gerry\" Brashear 2314 Quail Creek Drive Edmond, Oklahoma 73034\n<|id|>16<|page|>2<|box|>332 140 387 854<|content|>Plaintiff certifies that the foregoing addresses r...her or more current addresses for either Defendant\n<|id|>54<|page|>6<|box|>133 140 184 852<|content|>Priya Anand State Bar No. ... com\n<|id|>55<|page|>6<|box|>215 140 250 852<|content|>Jeffrey Park State Bar No. ... (214) 555-7101\n<|id|>56<|page|>6<|box|>251 142 267 437<|content|>Email: ... com\n<|id|>57<|page|>6<|box|>267 140 284 738<|content|>ATTORNEYS FOR PLAINTIFF STONEFIELD LOGISTICS GROUP...RNEYS FOR PLAINTIFF STONEFIELD LOGISTICS GROUP INC",
+    "raw_response": "<|src_id|>10<|tgt_id|>15",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 15
+        }
+    ]
+}

@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12,
+        13,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 200 133 795<|content|>MEMORANDUM PRIVILEGED AND CONFIDENTIAL — ATTORNEY\n<|id|>6<|page|>1<|box|>291 385 310 611<|content|>I. Executive Summary\n<|id|>15<|page|>2<|box|>407 380 426 617<|content|>II. Factual Background\n<|id|>16<|page|>2<|box|>452 140 469 460<|content|>A. The MSA and Its Renewal Provisions\n<|id|>22<|page|>3<|box|>226 140 243 470<|content|>Several features of this language are critical:\n<|id|>28<|page|>3<|box|>652 140 670 614<|content|>B. Key Commercial Terms Relevant to Damages Calcul\n<|id|>36<|page|>4<|box|>637 140 654 513<|content|>C. Kestrel's Renewal-Period Lost Profits Claim\n<|id|>47<|page|>5<|box|>614 140 633 328<|content|>D. WAL's Termination\n<|id|>53<|page|>6<|box|>535 403 555 593<|content|>III. Legal Analysis\n<|id|>54<|page|>6<|box|>580 140 597 584<|content|>A. Nature of the Renewal Options Under New York La\n<|id|>55<|page|>6<|box|>611 142 628 486<|content|>1. Unilateral Option vs. Bilateral Obligation\n<|id|>61<|page|>7<|box|>547 140 564 416<|content|>2. No Implied Obligation to Renew\n<|id|>66<|page|>8<|box|>359 140 376 694<|content|>B. Expectation Damages and the Requirement of Reas\n<|id|>67<|page|>8<|box|>388 142 407 604<|content|>1. Standard for Lost-Profit Damages Under New York\n<|id|>71<|page|>8<|box|>806 140 824 558<|content|>2. Renewal-Period Profits Are Inherently Speculati\n<|id|>80<|page|>10<|box|>157 140 175 586<|content|>3. No Historical Pattern of Renewal to Support Inf\n<|id|>86<|page|>10<|box|>777 140 794 550<|content|>C. The Consequential Damages Waiver (Section 8.7)\n<|id|>95<|page|>12<|box|>90 140 107 560<|content|>D. Distinguishing Kestrel's Likely Counterargument\n<|id|>97<|page|>12<|box|>184 140 200 589<|content|>1. \"WAL Would Have Renewed Absent Its Own Breach\"\n<|id|>102<|page|>12<|box|>718 140 736 570<|content|>2. \"Industry Practice Supports Renewal Expectation\n<|id|>107<|page|>13<|box|>294 140 311 792<|content|>3. \"The Consequential Damages Waiver Does Not Appl\n<|id|>112<|page|>13<|box|>806 303 825 692<|content|>IV. Impact on Damages Quantification\n<|id|>121<|page|>15<|box|>90 390 111 606<|content|>V. Recommendations\n<|id|>122<|page|>15<|box|>136 142 154 308<|content|>A. Pleading Strategy\n<|id|>128<|page|>15<|box|>672 142 690 321<|content|>B. Expert Instructions\n<|id|>138<|page|>16<|box|>565 140 582 336<|content|>C. Factual Development\n<|id|>152<|page|>17<|box|>566 421 585 575<|content|>VI. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>6<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>22<|level|>-1\n<|id|>28<|level|>2\n<|id|>36<|level|>2\n<|id|>47<|level|>2\n<|id|>53<|level|>1\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>61<|level|>3\n<|id|>66<|level|>2\n<|id|>67<|level|>3\n<|id|>71<|level|>3\n<|id|>80<|level|>3\n<|id|>86<|level|>2\n<|id|>95<|level|>2\n<|id|>97<|level|>3\n<|id|>102<|level|>3\n<|id|>107<|level|>3\n<|id|>112<|level|>1\n<|id|>121<|level|>1\n<|id|>122<|level|>2\n<|id|>128<|level|>2\n<|id|>138<|level|>2\n<|id|>152<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 1
+        }
+    ]
+}

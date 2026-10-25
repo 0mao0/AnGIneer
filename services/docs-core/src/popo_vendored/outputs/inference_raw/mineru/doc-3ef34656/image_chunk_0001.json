@@ -1,0 +1,47 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        49,
+        53
+    ],
+    "pages": [
+        49,
+        50,
+        51,
+        52,
+        53
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>528<|type|>table<|page|>49<|box|>224 143 398 852<|content|>None\n<|id|>530<|type|>title<|page|>49<|box|>602 143 618 434<|content|>AGGREGATE LEASE SUMMARY:\n<|id|>531<|type|>table<|page|>49<|box|>625 143 734 852<|content|>None\n<|id|>533<|type|>title<|page|>49<|box|>886 431 902 566<|content|>SCHEDULE 6.4\n<|id|>534<|type|>title<|page|>50<|box|>89 243 106 753<|content|>SERVICE CONTRACTS AND MANAGEMENT AGREEMENT\n<|id|>536<|type|>title<|page|>50<|box|>265 143 281 411<|content|>MANAGEMENT AGREEMENT:\n<|id|>537<|type|>table<|page|>50<|box|>289 143 463 852<|content|>None\n<|id|>538<|type|>title<|page|>50<|box|>532 143 547 351<|content|>SERVICE CONTRACTS:\n<|id|>539<|type|>table<|page|>50<|box|>555 143 905 852<|content|>None\n<|id|>540<|type|>table<|page|>51<|box|>88 143 367 852<|content|>None\n<|id|>541<|type|>title<|page|>51<|box|>435 143 452 591<|content|>Total Estimated Annual Service Contract Costs: $49\n<|id|>543<|type|>title<|page|>51<|box|>630 431 647 565<|content|>SCHEDULE 6.8\n<|id|>544<|type|>title<|page|>51<|box|>656 401 672 596<|content|>KNOWN VIOLATIONS\n<|id|>546<|type|>table<|page|>51<|box|>885 143 905 852<|content|>None\n<|id|>547<|type|>table<|page|>52<|box|>88 143 483 852<|content|>None\n<|id|>548<|type|>title<|page|>52<|box|>551 142 568 594<|content|>Total Estimated Cure Cost for Known Violations: $1\n<|id|>550<|type|>title<|page|>52<|box|>729 423 744 573<|content|>SCHEDULE 16.11\n<|id|>551<|type|>title<|page|>52<|box|>753 450 771 545<|content|>BROKERS\n<|id|>553<|type|>table<|page|>53<|box|>89 143 142 852<|content|>None",
+    "raw_response": "<|src_id|>531<|tgt_id|>530\n<|src_id|>537<|tgt_id|>536\n<|src_id|>539<|tgt_id|>538\n<|src_id|>540<|tgt_id|>538\n<|src_id|>546<|tgt_id|>544\n<|src_id|>547<|tgt_id|>544\n<|src_id|>553<|tgt_id|>551",
+    "parsed": [
+        {
+            "src_id": 531,
+            "tgt_id": 530
+        },
+        {
+            "src_id": 537,
+            "tgt_id": 536
+        },
+        {
+            "src_id": 539,
+            "tgt_id": 538
+        },
+        {
+            "src_id": 540,
+            "tgt_id": 538
+        },
+        {
+            "src_id": 546,
+            "tgt_id": 544
+        },
+        {
+            "src_id": 547,
+            "tgt_id": 544
+        },
+        {
+            "src_id": 553,
+            "tgt_id": 551
+        }
+    ]
+}

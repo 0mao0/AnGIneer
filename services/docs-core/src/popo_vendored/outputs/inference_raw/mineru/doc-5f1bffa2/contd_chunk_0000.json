@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        24,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>186 143 202 330<|content|>CASE NO. ... 1021-00006\n<|id|>5<|page|>1<|box|>450 150 486 846<|content|>PLAINTIFF'S STATEMENT OF UNDISPUTED MATERIAL FACTS...ON FOR PARTIAL SUMMARY JUDGMENT ON COUNTS I AND II\n<|id|>6<|page|>1<|box|>494 140 541 854<|content|>NOTE TO REVIEWING PARTNER: ... — YN\n<|id|>7<|page|>1<|box|>547 140 638 854<|content|>Plaintiff Verimark Hospitality Group Inc. ... 510\n<|id|>87<|page|>7<|box|>847 140 885 854<|content|>Fact 37. ... Under its management agreement with t...ers LLC), Suncoast retained a twelve percent (12%)\n<|id|>88<|page|>8<|box|>89 140 127 854<|content|>\"management fee\" on all direct-booking revenues it... was remitted to the applicable property-level LLC\n<|id|>98<|page|>8<|box|>862 140 898 854<|content|>Fact 42. ... The website permitted prospective guests to search for available rooms at\n<|id|>99<|page|>9<|box|>90 140 145 854<|content|>Coastal Palms hotel properties, view photographs a... ... The website did not display Verimark branding\n<|id|>128<|page|>11<|box|>854 140 892 854<|content|>Fact 56. ... The preliminary findings indicated that the ten (10) audited properties had underreported\n<|id|>129<|page|>12<|box|>89 140 126 854<|content|>GRR by approximately twenty-six percent (26%) for ...) for the three-year period from 2019 through 2021\n<|id|>152<|page|>13<|box|>866 140 904 856<|content|>Fact 67. ... Multiple property-level controllers a... they were instructed — either directly by Randall\n<|id|>153<|page|>14<|box|>90 140 164 854<|content|>Brecker or through communications from Coastal Pal...not to be included in the monthly Verimark reports\n<|id|>283<|page|>24<|box|>849 140 886 854<|content|>The foregoing 127 undisputed material facts establ...ty on Count I (Breach of Contract — Royalties) and\n<|id|>284<|page|>25<|box|>89 140 126 854<|content|>Count II (Breach of Contract — Marketing Fund Cont...ions). ... The undisputed record demonstrates that\n<|id|>294<|page|>25<|box|>574 140 592 722<|content|>Priya Anand, Esq. ... com\n<|id|>295<|page|>25<|box|>592 140 609 813<|content|>Douglas Carmichael, Esq. ... com\n<|id|>296<|page|>25<|box|>609 142 626 774<|content|>Yuki Nakamura, Esq. ... com\n<|id|>297<|page|>25<|box|>626 140 643 769<|content|>Carlos Espinoza, Esq. ... com\n<|id|>298<|page|>25<|box|>643 140 675 854<|content|>110 SE 6th Street, Suite 2800 Fort Lauderdale, Florida 33301 Telephone: ... (954) 555-8201\n<|id|>299<|page|>25<|box|>676 140 694 535<|content|>Counsel for Plaintiff Verimark Hospitality Group I...unsel for Plaintiff Verimark Hospitality Group Inc\n<|id|>303<|page|>26<|box|>89 143 104 483<|content|>[DRAFT — Service date TBD upon filing on 9/29/2023]\n<|id|>304<|page|>26<|box|>138 142 157 464<|content|>Priya Anand, Esq. ... 0087451",
+    "raw_response": "<|src_id|>87<|tgt_id|>88\n<|src_id|>98<|tgt_id|>99\n<|src_id|>128<|tgt_id|>129\n<|src_id|>152<|tgt_id|>153\n<|src_id|>283<|tgt_id|>284",
+    "parsed": [
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 99
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 283,
+            "tgt_id": 284
+        }
+    ]
+}

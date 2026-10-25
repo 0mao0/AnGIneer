@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        66,
+        121
+    ],
+    "pages": [
+        67,
+        76,
+        81,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        99,
+        101,
+        103,
+        105,
+        107,
+        108,
+        120
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>235<|page|>67<|box|>71 171 104 835<|content|>Section II.- Interest-Bearing Securities Issued by\n<|id|>259<|page|>76<|box|>42 375 54 622<|content|>.INTERNAL REVENUE COLLECTIONS\n<|id|>277<|page|>81<|box|>514 348 527 638<|content|>Section I - Summary by Periods\n<|id|>294<|page|>92<|box|>67 153 113 856<|content|>Section IV - Supplementary Data by Countries Table\n<|id|>296<|page|>93<|box|>62 184 95 796<|content|>Section IV - Supplementary Data by Countries Table\n<|id|>298<|page|>94<|box|>74 291 91 706<|content|>Section IV - Supplementary Data by Countries\n<|id|>299<|page|>94<|box|>95 182 111 827<|content|>Table 5.- Short-Term Liabilities to Foreigners in\n<|id|>302<|page|>95<|box|>42 250 56 729<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>309<|page|>96<|box|>80 296 95 720<|content|>Section I - Statements of Financial Condition\n<|id|>310<|page|>96<|box|>96 167 111 841<|content|>Table I.- Summary by Specified Classes of Activiti\n<|id|>312<|page|>97<|box|>68 285 82 712<|content|>Section I - Statements of Financial Condition\n<|id|>315<|page|>99<|box|>77 277 93 705<|content|>Section I - Statements of Financial Condition\n<|id|>318<|page|>101<|box|>82 277 97 705<|content|>Section I - Statements of Financial Condition\n<|id|>322<|page|>103<|box|>73 275 88 702<|content|>Section I - Statements of Financial Condition\n<|id|>325<|page|>105<|box|>80 277 95 707<|content|>Section I - Statements of Financial Condition\n<|id|>329<|page|>107<|box|>75 286 91 711<|content|>Section I - Statements of Financial Condition\n<|id|>331<|page|>108<|box|>74 291 89 718<|content|>Section I - Statements of Financial Condition\n<|id|>347<|page|>120<|box|>63 291 78 716<|content|>Section I - Statements of Financial Condition",
+    "raw_response": "<|id|>235<|level|>1\n<|id|>259<|level|>1\n<|id|>277<|level|>2\n<|id|>294<|level|>2\n<|id|>296<|level|>2\n<|id|>298<|level|>2\n<|id|>299<|level|>3\n<|id|>302<|level|>1\n<|id|>309<|level|>2\n<|id|>310<|level|>3\n<|id|>312<|level|>2\n<|id|>315<|level|>2\n<|id|>318<|level|>2\n<|id|>322<|level|>2\n<|id|>325<|level|>2\n<|id|>329<|level|>2\n<|id|>331<|level|>2\n<|id|>347<|level|>2",
+    "parsed": [
+        {
+            "id": 235,
+            "level": 1
+        },
+        {
+            "id": 259,
+            "level": 1
+        },
+        {
+            "id": 277,
+            "level": 2
+        },
+        {
+            "id": 294,
+            "level": 2
+        },
+        {
+            "id": 296,
+            "level": 2
+        },
+        {
+            "id": 298,
+            "level": 2
+        },
+        {
+            "id": 299,
+            "level": 3
+        },
+        {
+            "id": 302,
+            "level": 1
+        },
+        {
+            "id": 309,
+            "level": 2
+        },
+        {
+            "id": 310,
+            "level": 3
+        },
+        {
+            "id": 312,
+            "level": 2
+        },
+        {
+            "id": 315,
+            "level": 2
+        },
+        {
+            "id": 318,
+            "level": 2
+        },
+        {
+            "id": 322,
+            "level": 2
+        },
+        {
+            "id": 325,
+            "level": 2
+        },
+        {
+            "id": 329,
+            "level": 2
+        },
+        {
+            "id": 331,
+            "level": 2
+        },
+        {
+            "id": 347,
+            "level": 2
+        }
+    ]
+}

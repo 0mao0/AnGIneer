@@ -1,0 +1,42 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>1<|box|>297 140 314 225<|content|>Dear Tori:\n<|id|>12<|page|>2<|box|>148 140 167 462<|content|>Proposed Settlement Discussion Window\n<|id|>16<|page|>2<|box|>652 140 670 457<|content|>Request for Stipulated Stay of discovery\n<|id|>23<|page|>3<|box|>458 140 474 393<|content|>Scope of Settlement Discussions\n<|id|>27<|page|>4<|box|>90 140 107 679<|content|>Confirmation of Points Agreed Upon During Today's\n<|id|>35<|page|>4<|box|>445 140 463 380<|content|>Request for Written Response\n<|id|>38<|page|>4<|box|>648 140 665 316<|content|>Reservation of Rights",
+    "raw_response": "<|id|>6<|level|>-1\n<|id|>12<|level|>1\n<|id|>16<|level|>1\n<|id|>23<|level|>1\n<|id|>27<|level|>1\n<|id|>35<|level|>1\n<|id|>38<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        }
+    ]
+}

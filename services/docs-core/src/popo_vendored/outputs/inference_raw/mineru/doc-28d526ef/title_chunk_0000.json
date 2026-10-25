@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 200 107 795<|content|>VOURNAS & THEODORAKIS ΔΙΚΗΓΟΡΙΚΟ ΓΡΑΦΕΙΟ Attorneys\n<|id|>10<|page|>1<|box|>556 142 574 297<|content|>I. BACKGROUND\n<|id|>11<|page|>1<|box|>588 142 604 465<|content|>A. Identity of the Client and Engagement\n<|id|>14<|page|>1<|box|>814 140 832 459<|content|>B. The Customs Brokerage Relationship\n<|id|>18<|page|>2<|box|>393 140 411 359<|content|>C. The Equipment Imports\n<|id|>26<|page|>3<|box|>90 140 107 475<|content|>D. The Classification Selections by Peloros\n<|id|>30<|page|>3<|box|>361 140 378 349<|content|>E. The AADE Assessment\n<|id|>37<|page|>4<|box|>239 140 255 423<|content|>F. TSL's Defense — Current Status\n<|id|>45<|page|>4<|box|>824 142 840 410<|content|>II. INDEMNIFICATION CLAIM\n<|id|>46<|page|>4<|box|>856 142 872 457<|content|>A. Contractual Basis — CBA Article 9.1\n<|id|>51<|page|>5<|box|>465 140 483 625<|content|>B. Basis for the Claim — Peloros's Professional Re\n<|id|>56<|page|>6<|box|>476 140 493 344<|content|>C. Quantum — Reserved\n<|id|>60<|page|>7<|box|>89 140 106 519<|content|>III. DOCUMENT PRESERVATION DEMAND\n<|id|>61<|page|>7<|box|>121 140 138 359<|content|>A. Preservation Instruction\n<|id|>64<|page|>7<|box|>366 140 383 553<|content|>B. Specific Categories of Documents to Be Preserve\n<|id|>74<|page|>8<|box|>287 140 304 279<|content|>C. Format Scope\n<|id|>77<|page|>8<|box|>505 142 522 444<|content|>IV. REQUEST FOR INFORMATION\n<|id|>90<|page|>9<|box|>323 140 340 408<|content|>V. RESERVATION OF RIGHTS\n<|id|>91<|page|>9<|box|>354 140 371 442<|content|>A. Comprehensive Rights Reservation\n<|id|>99<|page|>10<|box|>212 140 229 261<|content|>VI. CLOSING",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>14<|level|>3\n<|id|>18<|level|>3\n<|id|>26<|level|>3\n<|id|>30<|level|>3\n<|id|>37<|level|>3\n<|id|>45<|level|>2\n<|id|>46<|level|>3\n<|id|>51<|level|>3\n<|id|>56<|level|>3\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>64<|level|>3\n<|id|>74<|level|>3\n<|id|>77<|level|>2\n<|id|>90<|level|>2\n<|id|>91<|level|>3\n<|id|>99<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        }
+    ]
+}

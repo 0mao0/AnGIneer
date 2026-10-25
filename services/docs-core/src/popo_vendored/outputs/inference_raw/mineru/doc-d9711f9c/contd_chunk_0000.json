@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 153 196 844<|content|>Delivered pursuant to Section 4. ... 01 (Condition...ement dated as of July 28, 2022 (as defined below)\n<|id|>2<|page|>1<|box|>204 683 220 854<|content|>Date: ... August 12, 2022\n<|id|>3<|page|>1<|box|>229 142 244 176<|content|>To: ... To\n<|id|>4<|page|>1<|box|>255 176 291 854<|content|>Pinnacle National Bank, National Association 600 Lexington Avenue, 35th Floor New York, New York 10022\n<|id|>5<|page|>1<|box|>299 174 352 854<|content|>Attention: ... Thomas Whitford, Senior Vice Presid...t under the Term Loan Agreement (as defined below)\n<|id|>6<|page|>1<|box|>362 142 378 215<|content|>Copy to: ... Copy to\n<|id|>7<|page|>1<|box|>386 176 404 784<|content|>Meridian Whitcomb LLC 100 Wall Street, 18th Floor New York, New York 10005\n<|id|>8<|page|>1<|box|>412 176 430 622<|content|>Attention: ... Laura Desmond, Vice President, Agency Services\n<|id|>9<|page|>1<|box|>430 176 448 808<|content|>In its capacity as Collateral Agent under the Term Loan Agreement (as defined below)\n<|id|>10<|page|>1<|box|>455 140 566 854<|content|>Re: ... 01 (Conditions Precedent to Initial Funding)\n<|id|>21<|page|>2<|box|>854 174 909 857<|content|>(b) Authorization; ... The execution, delivery, an...the Security Agreement, and each of the other Loan\n<|id|>22<|page|>3<|box|>90 174 256 856<|content|>Documents to which the Borrower is a party have be... or by which its properties or assets may be bound\n<|id|>82<|page|>10<|box|>445 176 460 352<|content|>Name: ... Marcus Elliston\n<|id|>83<|page|>10<|box|>462 176 478 401<|content|>Title: ... Chief Executive Officer\n<|id|>84<|page|>10<|box|>479 176 494 349<|content|>Date: ... August 12, 2022\n<|id|>85<|page|>10<|box|>496 174 571 854<|content|>This Officer's Certificate is delivered in connect...the Term Loan Agreement or any other Loan Document",
+    "raw_response": "<|src_id|>21<|tgt_id|>22",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['[●]', 'Equipment', 'Northstar', '[●]', '[●]', '[●]', '[●]', 'Grain storage,', 'GAP; GGS;', 'Y', 'N/A']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Coverage', 'Mutual Insurance Company', '', '', '', '', 'distribution, and agricultural equipment', 'GCI', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 246,
+    "table2_idx": 247
+}

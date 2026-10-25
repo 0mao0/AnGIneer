@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        17,
+        25,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 142 104 576<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT / PRIVILEGED\n<|id|>1<|page|>1<|box|>112 142 126 521<|content|>Calderwood & Harkness LLP — C&H Matter No. ... 1012-00005\n<|id|>2<|page|>1<|box|>133 142 150 766<|content|>Prepared by: ... Samuel Eklund, Responsible Partner\n<|id|>53<|page|>6<|box|>619 176 637 439<|content|>(d) Tender Acceptance: ... and\n<|id|>55<|page|>6<|box|>670 140 743 854<|content|>Stonefield avers that VTS failed to meet each and ...d denies the remaining allegations in Paragraph 21\n<|id|>60<|page|>7<|box|>248 174 284 854<|content|>(c) Subsection 13. ... and\n<|id|>62<|page|>7<|box|>354 140 392 854<|content|>The TSA speaks for itself. ... Except as specifica...d denies the remaining allegations in Paragraph 23\n<|id|>144<|page|>17<|box|>619 174 657 854<|content|>(c) operational disruption costs, including the co...ng the transition to replacement carriers; ... and\n<|id|>146<|page|>17<|box|>709 140 728 813<|content|>Stonefield reserves its right to quantify these da...these damages more precisely as discovery proceeds\n<|id|>254<|page|>25<|box|>214 174 268 854<|content|>(3) The factual contentions set forth herein have ...ty for further investigation or discovery; ... and\n<|id|>256<|page|>25<|box|>321 490 338 854<|content|>Dated: ... December 19, 2022 New York, New York\n<|id|>260<|page|>25<|box|>407 140 441 854<|content|>Samuel Eklund (to sign upon finalization) 200 Park...r New York, New York 10166 Telephone: ... (212) -_\n<|id|>261<|page|>25<|box|>441 140 458 457<|content|>Email: ... com\n<|id|>262<|page|>25<|box|>459 140 476 550<|content|>Attorneys for Defendant Stonefield Logistics Group...rneys for Defendant Stonefield Logistics Group Inc\n<|id|>273<|page|>26<|box|>340 140 354 717<|content|>INTERNAL DRAFT ANNOTATIONS — FOR REVIEW BY SAMUEL EKLUND ONLY\n<|id|>274<|page|>26<|box|>363 140 393 854<|content|>The following annotations are intended solely for ...deration and will be removed from the final filing",
+    "raw_response": "<|src_id|>53<|tgt_id|>55\n<|src_id|>60<|tgt_id|>62\n<|src_id|>144<|tgt_id|>146",
+    "parsed": [
+        {
+            "src_id": 53,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 146
+        }
+    ]
+}

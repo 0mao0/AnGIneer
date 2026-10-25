@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|type|>title<|page|>1<|box|>367 142 383 367<|content|>1. Introduction and Purpose\n<|id|>13<|type|>title<|page|>2<|box|>90 142 107 339<|content|>2. Transaction Overview\n<|id|>17<|type|>table<|page|>2<|box|>510 143 728 852<|content|>None\n<|id|>19<|type|>title<|page|>3<|box|>90 140 107 447<|content|>3. Identification of Transaction Parties\n<|id|>21<|type|>title<|page|>3<|box|>162 142 176 202<|content|>Issuer:\n<|id|>24<|type|>title<|page|>3<|box|>275 142 291 279<|content|>Issuer's Counsel:\n<|id|>27<|type|>title<|page|>3<|box|>388 142 405 290<|content|>Co-Bond Counsel:\n<|id|>30<|type|>title<|page|>3<|box|>465 142 483 388<|content|>Senior Managing Underwriter:\n<|id|>33<|type|>title<|page|>3<|box|>544 143 561 362<|content|>Co-Managing Underwriter:\n<|id|>36<|type|>title<|page|>3<|box|>622 143 638 330<|content|>Underwriters' Counsel:\n<|id|>39<|type|>title<|page|>3<|box|>700 143 715 299<|content|>Municipal Advisor:\n<|id|>42<|type|>title<|page|>3<|box|>777 143 794 413<|content|>Bond Insurance / Surety Provider:\n<|id|>46<|type|>title<|page|>4<|box|>90 142 107 279<|content|>Rating Agencies:\n<|id|>48<|type|>title<|page|>4<|box|>161 142 176 316<|content|>Independent Auditor:\n<|id|>51<|type|>title<|page|>4<|box|>253 142 270 328<|content|>4. Enclosed Documents\n<|id|>53<|type|>title<|page|>4<|box|>345 140 364 486<|content|>4.1 Draft Bond Indenture (Trust Indenture)\n<|id|>58<|type|>title<|page|>4<|box|>808 140 825 566<|content|>4.2 Draft First Supplemental Indenture (Series 202\n<|id|>61<|type|>title<|page|>5<|box|>294 140 310 348<|content|>4.3 Additional Enclosures\n<|id|>67<|type|>title<|page|>6<|box|>90 140 107 419<|content|>5. Requested Roles and Acceptance\n<|id|>70<|type|>title<|page|>6<|box|>361 140 378 281<|content|>5.2 Paying Agent\n<|id|>73<|type|>title<|page|>6<|box|>703 140 720 285<|content|>5.4 Escrow Agent\n<|id|>76<|type|>title<|page|>7<|box|>195 140 212 336<|content|>5.5 Dissemination Agent\n<|id|>79<|type|>title<|page|>8<|box|>90 140 107 416<|content|>6. Fee Schedule and Compensation\n<|id|>91<|type|>title<|page|>8<|box|>811 140 829 483<|content|>7. Required Trustee Deliverables at Closing\n<|id|>106<|type|>title<|page|>9<|box|>757 140 773 330<|content|>8. Anticipated Timeline\n<|id|>108<|type|>table<|page|>9<|box|>806 143 898 852<|content|>None\n<|id|>109<|type|>table<|page|>10<|box|>89 143 145 852<|content|>None\n<|id|>113<|type|>title<|page|>10<|box|>474 140 491 284<|content|>9. Confidentiality\n<|id|>116<|type|>title<|page|>10<|box|>731 140 750 455<|content|>10. Contact Information and Next Steps",
+    "raw_response": "<|src_id|>17<|tgt_id|>13\n<|src_id|>108<|tgt_id|>106\n<|src_id|>109<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 106
+        }
+    ]
+}

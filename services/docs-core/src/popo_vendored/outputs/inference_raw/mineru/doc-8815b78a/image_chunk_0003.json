@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        139,
+        150
+    ],
+    "pages": [
+        139,
+        140,
+        142,
+        143,
+        150
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>462<|type|>table<|page|>139<|box|>140 11 951 980<|content|>None\n<|id|>464<|type|>title<|page|>140<|box|>46 273 61 756<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV\n<|id|>465<|type|>title<|page|>140<|box|>79 419 94 612<|content|>Footnotes to Table 1\n<|id|>469<|type|>title<|page|>140<|box|>244 417 258 612<|content|>Footnotes to Table 2\n<|id|>485<|type|>title<|page|>140<|box|>609 416 622 610<|content|>Footnotes to Table 3\n<|id|>492<|type|>title<|page|>140<|box|>709 416 722 610<|content|>Footnotes to Table 4\n<|id|>529<|type|>table<|page|>142<|box|>110 29 920 978<|content|>None\n<|id|>530<|type|>table<|page|>143<|box|>98 5 927 971<|content|>None\n<|id|>534<|type|>image<|page|>150<|box|>1 834 37 964<|content|>None",
+    "raw_response": "<|src_id|>462<|tgt_id|>464\n<|src_id|>529<|tgt_id|>464\n<|src_id|>530<|tgt_id|>464\n<|src_id|>534<|tgt_id|>464",
+    "parsed": [
+        {
+            "src_id": 462,
+            "tgt_id": 464
+        },
+        {
+            "src_id": 529,
+            "tgt_id": 464
+        },
+        {
+            "src_id": 530,
+            "tgt_id": 464
+        },
+        {
+            "src_id": 534,
+            "tgt_id": 464
+        }
+    ]
+}

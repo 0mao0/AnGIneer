@@ -1,0 +1,49 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        49,
+        110
+    ],
+    "pages": [
+        49,
+        50,
+        51,
+        64,
+        70,
+        73,
+        81,
+        83,
+        88,
+        109,
+        110
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>162<|page|>49<|box|>58 395 73 585<|content|>PUBLIC DEBT OPERATIONS\n<|id|>164<|page|>50<|box|>132 24 143 402<|content|>Source: ... Bureau of the Public Debt\n<|id|>186<|page|>50<|box|>897 19 926 474<|content|>23/ In addition to the amounts allotted to the pub...lion of the 4% bonds of 1980, \\$218 million of the\n<|id|>188<|page|>50<|box|>132 510 169 961<|content|>Subscriptions for \\$0,000 or less were allotted in...nds was allotted to Government investment accounts\n<|id|>223<|page|>51<|box|>449 11 487 473<|content|>60/ Subscriptions from States, political subdivisi...al banks and foreign States, Government investment\n<|id|>224<|page|>51<|box|>127 530 165 928<|content|>circulars, totaled \\$1,950 million and were allott...tted 15 percent but in no case less than \\$100,000\n<|id|>264<|page|>64<|box|>690 24 710 469<|content|>18/ Holders of the maturing certificates and notes... to exchange their holdings, but were permitted to\n<|id|>265<|page|>64<|box|>116 548 144 978<|content|>present them in payment or exchange, in whole or i.../8% notes. ... For detail of offering, see Table 4\n<|id|>282<|page|>70<|box|>60 391 74 583<|content|>PUBLIC DEBT OPERATIONS\n<|id|>286<|page|>73<|box|>97 10 175 463<|content|>Series E and H are the only savings bonds currentl... F and G were sold from May 1, 1941, through April\n<|id|>287<|page|>73<|box|>100 515 179 953<|content|>30, 1952. ... Details of the principal changes in ...ctober and December 1959, and May and October 1961\n<|id|>302<|page|>81<|box|>56 295 73 676<|content|>TREASURY SURVEY OF OWNERSHIP, AUGUST 31, 1965\n<|id|>306<|page|>83<|box|>93 6 155 460<|content|>Current market quotations shown here are over-the-...e Treasury by the Federal Reserve Bank of New York\n<|id|>315<|page|>88<|box|>769 28 949 500<|content|>2/ The following paper currencies are in process o...ngly, the Secretary of the Treasury has determined\n<|id|>316<|page|>88<|box|>745 538 847 980<|content|>that the following paper currencies have been dest...r redemption: ... 5 million of national bank notes\n<|id|>381<|page|>109<|box|>901 18 989 500<|content|>Note: ... Data for December 31, 1963, also are sho...e basis of a July 31, 1963, survey and the monthly\n<|id|>382<|page|>109<|box|>918 510 973 946<|content|>The variations between the two series are believed...chases or sales through U. ... Less than \\$500,000\n<|id|>383<|page|>109<|box|>966 500 977 635<|content|>* Less than $500,000. ... * Less than $500,000\n<|id|>385<|page|>110<|box|>107 154 123 867<|content|>Table 1. ... - Short-Term Banking Liabilities to Foreigners as of August 31, 1965/",
+    "raw_response": "<|src_id|>186<|tgt_id|>188\n<|src_id|>223<|tgt_id|>224\n<|src_id|>264<|tgt_id|>265\n<|src_id|>286<|tgt_id|>287\n<|src_id|>315<|tgt_id|>316\n<|src_id|>381<|tgt_id|>382",
+    "parsed": [
+        {
+            "src_id": 186,
+            "tgt_id": 188
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 224
+        },
+        {
+            "src_id": 264,
+            "tgt_id": 265
+        },
+        {
+            "src_id": 286,
+            "tgt_id": 287
+        },
+        {
+            "src_id": 315,
+            "tgt_id": 316
+        },
+        {
+            "src_id": 381,
+            "tgt_id": 382
+        }
+    ]
+}

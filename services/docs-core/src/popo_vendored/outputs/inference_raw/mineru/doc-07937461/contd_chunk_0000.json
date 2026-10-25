@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>112 143 128 849<|content|>CALDERWOOD & HARKNESS LLP 801 Brickell Avenue, Suite 2800 Miami, Florida 33131\n<|id|>2<|page|>1<|box|>138 423 155 573<|content|>MEMORANDUM\n<|id|>3<|page|>1<|box|>164 140 181 563<|content|>TO: ... Samuel Eklund, Partner\n<|id|>4<|page|>1<|box|>190 140 208 697<|content|>FROM: ... Jeffrey Park, Working Associate\n<|id|>5<|page|>1<|box|>215 140 234 354<|content|>DATE: ... September 12, 2023\n<|id|>6<|page|>1<|box|>242 140 260 825<|content|>RE: ... )\n<|id|>7<|page|>1<|box|>267 140 286 674<|content|>MATTER: ... Pellegrino Capital Group LLC — Buyout Valuation Dispute\n<|id|>8<|page|>1<|box|>292 140 311 362<|content|>MATTER NO. ... 1027-00003\n<|id|>9<|page|>1<|box|>319 140 356 854<|content|>CASE: ... Pellegrino Capital Group LLC\n<|id|>10<|page|>1<|box|>363 140 381 472<|content|>DEPOSITION DATE: ... September 18, 2023\n<|id|>11<|page|>1<|box|>388 140 425 854<|content|>DEPOSITION LOCATION: ... JAMS Jacksonville Resolut...ependent Drive, Suite 1600, Jacksonville, FL 32202\n<|id|>12<|page|>1<|box|>434 140 580 856<|content|>STATUS: ... If produced inadvertently, prompt noti...ld be given and the document returned or destroyed\n<|id|>17<|page|>1<|box|>801 140 876 857<|content|>The subject property is The Palmetto Grand Resort ... interest), governed by the Operating Agreement of\n<|id|>18<|page|>2<|box|>90 140 126 856<|content|>Palmetto Grand Ventures LLC dated June 15, 2017 (t... ... PCG serves as the Manager of PGV under the OA\n<|id|>122<|page|>10<|box|>849 145 886 854<|content|>• How does 7. ... Reference specific comparable transactions from the Cap Rate and discount Rate\n<|id|>123<|page|>11<|box|>90 174 126 852<|content|>Market Survey (Jeffrey Park, July 2023) showing th...e ranged from 8. ... 0% during the relevant period",
+    "raw_response": "<|src_id|>17<|tgt_id|>18\n<|src_id|>122<|tgt_id|>123",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        }
+    ]
+}

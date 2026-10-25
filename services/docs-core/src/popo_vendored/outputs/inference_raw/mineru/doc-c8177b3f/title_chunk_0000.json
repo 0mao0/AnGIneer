@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 200 148 797<|content|>EXHIBIT D TO SETTLEMENT AGREEMENT AND MUTUAL RELEA\n<|id|>2<|page|>1<|box|>474 142 492 217<|content|>Filed by:\n<|id|>5<|page|>1<|box|>625 187 660 807<|content|>STIPULATION AND [PROPOSED] ORDER FOR ENTRY OF PERM\n<|id|>6<|page|>1<|box|>684 140 700 274<|content|>STIPULATION\n<|id|>20<|page|>3<|box|>564 140 580 374<|content|>SECTION 1: DEFINITIONS\n<|id|>32<|page|>5<|box|>89 140 106 611<|content|>SECTION 2: INJUNCTION AGAINST REPUBLICATION\n<|id|>43<|page|>6<|box|>556 140 573 743<|content|>SECTION 3: INJUNCTION AGAINST TRADING IN RDGM SECU\n<|id|>61<|page|>8<|box|>329 140 345 540<|content|>SECTION 4: ENFORCEMENT AND REMEDIES\n<|id|>71<|page|>9<|box|>439 140 455 408<|content|>SECTION 5: BINDING EFFECT\n<|id|>78<|page|>10<|box|>148 140 166 540<|content|>SECTION 6: MODIFICATION AND DURATION\n<|id|>82<|page|>10<|box|>542 140 559 673<|content|>SECTION 7: RELATIONSHIP TO SETTLEMENT AGREEMENT\n<|id|>86<|page|>11<|box|>222 140 239 460<|content|>SECTION 8: GENERAL PROVISIONS\n<|id|>97<|page|>12<|box|>161 178 176 313<|content|>If to Defendants:\n<|id|>108<|page|>12<|box|>574 375 590 620<|content|>STIPULATED AND AGREED\n<|id|>109<|page|>12<|box|>633 142 651 539<|content|>FOR PLAINTIFF REDSTONE GAMING CORP.:\n<|id|>116<|page|>12<|box|>830 140 866 852<|content|>FOR DEFENDANTS GRIZZLY PEAK RESEARCH LLC, GRIZZLY\n<|id|>122<|page|>13<|box|>191 217 209 779<|content|>[PROPOSED] ORDER FOR ENTRY OF PERMANENT INJUNCTION\n<|id|>123<|page|>13<|box|>252 285 286 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>-1\n<|id|>5<|level|>1\n<|id|>6<|level|>2\n<|id|>20<|level|>3\n<|id|>32<|level|>3\n<|id|>43<|level|>3\n<|id|>61<|level|>3\n<|id|>71<|level|>3\n<|id|>78<|level|>3\n<|id|>82<|level|>3\n<|id|>86<|level|>3\n<|id|>97<|level|>-1\n<|id|>108<|level|>-1\n<|id|>109<|level|>-1\n<|id|>116<|level|>-1\n<|id|>122<|level|>1\n<|id|>123<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 4,
+    "range": [
+        212,
+        290
+    ],
+    "pages": [
+        213,
+        215,
+        225,
+        226,
+        227,
+        228,
+        230,
+        243,
+        245,
+        255,
+        289
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>665<|page|>213<|box|>155 419 176 539<|content|>Ⅱ. 稳定土混合料铺筑\n<|id|>671<|page|>215<|box|>156 422 178 543<|content|>III. 稳定土混合料运输\n<|id|>687<|page|>225<|box|>174 381 197 561<|content|>2-1-9 泥灰结碎石基层\n<|id|>691<|page|>226<|box|>220 434 246 607<|content|>2-1-10 填隙碎石基层\n<|id|>694<|page|>227<|box|>156 434 178 518<|content|>Ⅱ. 机械铺料\n<|id|>697<|page|>228<|box|>222 436 250 593<|content|>2-1-11 冷再生基层\n<|id|>704<|page|>230<|box|>244 434 273 607<|content|>第二节 路面面层\n<|id|>705<|page|>230<|box|>321 484 348 556<|content|>说明\n<|id|>746<|page|>243<|box|>178 330 203 607<|content|>2-2-7 片石混凝土、预制块混凝土路面\n<|id|>754<|page|>245<|box|>174 367 199 577<|content|>2-2-8 煤渣、矿渣、石渣路面\n<|id|>779<|page|>255<|box|>174 375 199 562<|content|>2-2-12 沥青混合料路面\n<|id|>853<|page|>289<|box|>168 364 193 552<|content|>2-2-14 透层、黏层、封层",
+    "raw_response": "<|id|>665<|level|>3\n<|id|>671<|level|>3\n<|id|>687<|level|>2\n<|id|>691<|level|>2\n<|id|>694<|level|>3\n<|id|>697<|level|>2\n<|id|>704<|level|>1\n<|id|>705<|level|>2\n<|id|>746<|level|>2\n<|id|>754<|level|>2\n<|id|>779<|level|>2\n<|id|>853<|level|>2",
+    "parsed": [
+        {
+            "id": 665,
+            "level": 3
+        },
+        {
+            "id": 671,
+            "level": 3
+        },
+        {
+            "id": 687,
+            "level": 2
+        },
+        {
+            "id": 691,
+            "level": 2
+        },
+        {
+            "id": 694,
+            "level": 3
+        },
+        {
+            "id": 697,
+            "level": 2
+        },
+        {
+            "id": 704,
+            "level": 1
+        },
+        {
+            "id": 705,
+            "level": 2
+        },
+        {
+            "id": 746,
+            "level": 2
+        },
+        {
+            "id": 754,
+            "level": 2
+        },
+        {
+            "id": 779,
+            "level": 2
+        },
+        {
+            "id": 853,
+            "level": 2
+        }
+    ]
+}

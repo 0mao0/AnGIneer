@@ -1,0 +1,46 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        39
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        23,
+        24,
+        25,
+        38,
+        39
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>166 140 183 571<|content|>To: ... Robert Adeyemi, Partner\n<|id|>3<|page|>1<|box|>191 140 209 691<|content|>From: ... Audrey Zhou, Working Associate\n<|id|>4<|page|>1<|box|>218 142 234 303<|content|>Date: ... March 3, 2026\n<|id|>5<|page|>1<|box|>244 140 279 854<|content|>Re: ... Consolidated Due Diligence Summary and Risk Assessment\n<|id|>6<|page|>1<|box|>287 142 305 331<|content|>Matter No. ... 1032-00003\n<|id|>7<|page|>1<|box|>313 142 329 408<|content|>Right-click to update Table of Contents\n<|id|>14<|page|>2<|box|>161 174 232 854<|content|>(b) It provides a consolidated risk assessment mat...the relevant prospectus sections affected; ... and\n<|id|>16<|page|>2<|box|>286 140 486 854<|content|>Overall Conclusion. ... Each of these items, and o... the risk assessment matrix set forth in Section V\n<|id|>22<|page|>2<|box|>827 140 900 854<|content|>Halcyon was founded in 1997 and has grown to emplo...rldwide as of the end of fiscal year 2025. ... The\n<|id|>23<|page|>3<|box|>90 140 127 854<|content|>Company's products are used in electric vehicle po...ther high-efficiency power conversion applications\n<|id|>51<|page|>5<|box|>827 140 901 857<|content|>The Company's corporate governance practices have ...hed in December 2025, confirms compliance with the\n<|id|>52<|page|>6<|box|>90 138 181 856<|content|>DCGK with specified deviations that are customary ...investors or require unusual prospectus disclosure\n<|id|>69<|page|>7<|box|>825 140 898 857<|content|>Low Risk: ... We are coordinating with Bähr Stein ...xpect it to be adopted at a special meeting of the\n<|id|>70<|page|>8<|box|>89 140 126 854<|content|>Aufsichtsrat scheduled for late March 2026. ... This item is tracked in the open items log (Appendix D)\n<|id|>216<|page|>23<|box|>786 140 897 857<|content|>Moderate-High Risk (Disclosure): ... The risk fact...mers or operate its Shanghai subsidiary, (iii) the\n<|id|>217<|page|>24<|box|>90 140 143 854<|content|>Company's PRC revenue concentration (to be quantif...S-China trade tensions in the semiconductor sector\n<|id|>226<|page|>24<|box|>830 181 904 856<|content|>• Even if the 50% US ownership threshold were exce...0% of the Company's assets are located outside the\n<|id|>227<|page|>25<|box|>90 210 125 854<|content|>United States; ... and the Company's business is administered principally from its Munich headquarters\n<|id|>358<|page|>38<|box|>116 181 132 630<|content|>• Vivienne St. ... Claire, Partner, Calderwood & Harkness LLP\n<|id|>363<|page|>38<|box|>214 140 305 854<|content|>This memorandum is not to be shared with the clien... prior written approval of Vivienne St. ... Claire\n<|id|>359<|page|>38<|box|>136 183 151 611<|content|>• Robert Adeyemi, Partner, Calderwood & Harkness LLP\n<|id|>360<|page|>38<|box|>155 183 171 629<|content|>• Leonard Cross, Tax Partner, Calderwood & Harkness LLP\n<|id|>361<|page|>38<|box|>175 183 191 665<|content|>• Claire Dempsey, Lead Associate, Calderwood & Harkness LLP\n<|id|>362<|page|>38<|box|>194 183 210 673<|content|>• Audrey Zhou, Working Associate, Calderwood & Harkness LLP\n<|id|>377<|page|>39<|box|>554 142 599 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...LP | Matter No. ... Audrey Zhou, Working Associate\n<|id|>378<|page|>39<|box|>607 143 622 272<|content|>Date: ... March 3, 2026",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>51<|tgt_id|>52\n<|src_id|>69<|tgt_id|>70\n<|src_id|>216<|tgt_id|>217\n<|src_id|>226<|tgt_id|>227",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 217
+        },
+        {
+            "src_id": 226,
+            "tgt_id": 227
+        }
+    ]
+}

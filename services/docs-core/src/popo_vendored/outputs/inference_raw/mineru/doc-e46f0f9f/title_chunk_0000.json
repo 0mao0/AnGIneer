@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 181 143 854<|content|>CALDERWOOD & HARKNESS LLP 200 South Biscayne Boule\n<|id|>8<|page|>1<|box|>382 140 398 343<|content|>I. Purpose and Authority\n<|id|>11<|page|>1<|box|>768 142 785 460<|content|>II. Background — Investigation Context\n<|id|>16<|page|>2<|box|>484 140 500 483<|content|>III. Grounds for Termination — For Cause\n<|id|>18<|page|>2<|box|>650 140 667 442<|content|>A. Revenue-Recognition Irregularities\n<|id|>23<|page|>3<|box|>494 140 510 694<|content|>B. Expense-Reimbursement Irregularities — Fictitio\n<|id|>28<|page|>4<|box|>176 140 194 555<|content|>C. Breach of Fiduciary and Employment Obligations\n<|id|>30<|page|>4<|box|>424 140 440 514<|content|>IV. Effective Date and Logistics of Termination\n<|id|>34<|page|>4<|box|>799 140 815 401<|content|>V. Post-Termination Obligations\n<|id|>35<|page|>4<|box|>829 140 847 473<|content|>A. Continuing Confidentiality Obligations\n<|id|>39<|page|>5<|box|>311 140 328 352<|content|>B. Document Preservation\n<|id|>44<|page|>6<|box|>90 140 107 408<|content|>D. Clawback and Indemnification\n<|id|>48<|page|>6<|box|>554 140 571 447<|content|>VI. Regulatory and Disclosure Context\n<|id|>52<|page|>7<|box|>148 140 167 352<|content|>VII. Reservation of Rights\n<|id|>55<|page|>7<|box|>407 140 424 419<|content|>VIII. Request for Acknowledgment",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>3\n<|id|>23<|level|>3\n<|id|>28<|level|>3\n<|id|>30<|level|>2\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>39<|level|>3\n<|id|>44<|level|>3\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>55<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        }
+    ]
+}

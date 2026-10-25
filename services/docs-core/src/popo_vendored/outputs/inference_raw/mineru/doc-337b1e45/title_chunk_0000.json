@@ -1,0 +1,78 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 104 547<|content|>DRAFT — FORM OF 10b-5 NEGATIVE ASSURANCE LETTER\n<|id|>1<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>15<|page|>1<|box|>637 142 654 527<|content|>1. Introductory Paragraph; Engagement Context\n<|id|>21<|page|>2<|box|>446 140 464 333<|content|>2. Documents Reviewed\n<|id|>41<|page|>4<|box|>148 140 167 403<|content|>3. Limitations and Qualifications\n<|id|>42<|page|>4<|box|>180 140 196 302<|content|>3.1 Scope of Review\n<|id|>45<|page|>4<|box|>554 140 571 467<|content|>3.2 No Duty of Independent Investigation\n<|id|>48<|page|>5<|box|>90 140 107 426<|content|>3.3 Limitation as to Nature of Work\n<|id|>56<|page|>5<|box|>720 142 738 339<|content|>3.4 Temporal Limitation\n<|id|>58<|page|>6<|box|>90 140 106 341<|content|>3.5 Rule 10b-5 Reference\n<|id|>60<|page|>6<|box|>338 140 354 401<|content|>4. Negative Assurance Statement\n<|id|>70<|page|>7<|box|>465 140 482 406<|content|>5. Transaction Summary Context\n<|id|>81<|page|>9<|box|>90 140 107 326<|content|>6. Reliance and Benefit\n<|id|>85<|page|>9<|box|>630 142 647 287<|content|>7. Governing Law\n<|id|>97<|page|>10<|box|>116 140 133 496<|content|>cc (by electronic mail and overnight courier):",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>15<|level|>2\n<|id|>21<|level|>2\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>45<|level|>3\n<|id|>48<|level|>3\n<|id|>56<|level|>3\n<|id|>58<|level|>3\n<|id|>60<|level|>2\n<|id|>70<|level|>2\n<|id|>81<|level|>2\n<|id|>85<|level|>2\n<|id|>97<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        }
+    ]
+}

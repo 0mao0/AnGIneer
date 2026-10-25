@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        53
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        11,
+        12,
+        38,
+        52,
+        53
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>277 215 294 779<|content|>Docket Nos. ... RP22-847-000 (Rate Case) and RP22-847-001 (Interconnection)\n<|id|>6<|page|>1<|box|>303 419 319 576<|content|>FERC Code: ... 960442\n<|id|>7<|page|>1<|box|>329 462 345 534<|content|>Filed by: ... Filed by\n<|id|>8<|page|>1<|box|>354 184 372 812<|content|>Calderwood & Harkness LLP 1601 K Street NW, Suite 900 Washington, DC 20006\n<|id|>9<|page|>1<|box|>381 450 397 550<|content|>On behalf of\n<|id|>10<|page|>1<|box|>407 145 440 849<|content|>Ridgeline Midstream Services LLC 700 Kanawha Boulevard East, Suite 1400 Charleston, WV 25301\n<|id|>11<|page|>1<|box|>450 238 468 758<|content|>Responsible Partner: ... Brett Callahan\n<|id|>12<|page|>1<|box|>476 142 491 663<|content|>WORKING DRAFT — PRIVILEGED AND CONFIDENTIAL — NOT FOR FILING\n<|id|>13<|page|>1<|box|>500 140 513 776<|content|>Prepared in coordination with Braswell Energy Consulting Group LLC, Engagement No. ... BEC-2023-0041\n<|id|>28<|page|>2<|box|>825 140 898 857<|content|>The rates, terms, and conditions of service set fo... Sales and Transportation of Natural Gas Under the\n<|id|>29<|page|>3<|box|>90 140 143 854<|content|>Natural Gas Policy Act of 1978 and Related Authori...art 284, Subpart G of the Commission's regulations\n<|id|>56<|page|>5<|box|>795 140 888 857<|content|>Transporter-Caused Non-Performance. ... The credit...be calculated by multiplying the daily Reservation\n<|id|>57<|page|>6<|box|>90 140 127 854<|content|>Charge rate by the quantity (in Dth) of Shipper's ...orter failed to schedule and transport on such day\n<|id|>108<|page|>11<|box|>830 140 904 856<|content|>Equity. ... 50% has been revised downward from the originally proposed\n<|id|>109<|page|>12<|box|>89 140 127 854<|content|>ROE of 14. ... 00% in response to Deficiency Item ...hich required updated support for the proposed ROE\n<|id|>408<|page|>38<|box|>318 140 353 854<|content|>Interconnecting Pipeline: ... Ridgeline Midstream ...ha Boulevard East, Suite 1400 Charleston, WV 25301\n<|id|>409<|page|>38<|box|>362 140 398 854<|content|>Interconnected Pipeline: ... Appalachian Trunk Pip...0 Penn Center West, Suite 300 Pittsburgh, PA 15276\n<|id|>410<|page|>38<|box|>405 140 498 857<|content|>ATPC is a limited liability company organized unde...nnsylvania. ... Alderman serves as President & CEO\n<|id|>567<|page|>52<|box|>210 390 228 604<|content|>Under Rate Schedule FT-1\n<|id|>568<|page|>52<|box|>237 197 253 797<|content|>Ridgeline Midstream Services LLC FERC Gas Tariff, Original Volume No. ... 1\n<|id|>569<|page|>52<|box|>263 140 299 854<|content|>This Firm Transportation Service Agreement (\"Agree... of __, 20_ (the \"Effective Date\"), by and between\n<|id|>572<|page|>52<|box|>395 140 433 854<|content|>[SHIPPER NAME], a __ [entity type] organized under...of __ (\"Shipper\"), with its principal office at __\n<|id|>573<|page|>52<|box|>439 140 474 854<|content|>Transporter and Shipper are sometimes referred to ... a \"Party\" and collectively as the \"Parties. ... \"\n<|id|>575<|page|>52<|box|>508 140 564 854<|content|>WHEREAS, Transporter owns and operates the Ridgeli... the Federal Energy Regulatory Commission; ... and\n<|id|>576<|page|>52<|box|>571 140 627 854<|content|>WHEREAS, Shipper desires to obtain firm transporta... point(s) to designated delivery point(s); ... and\n<|id|>577<|page|>52<|box|>633 140 690 854<|content|>WHEREAS, Transporter is willing to provide such fi...orter's FERC Gas Tariff, Original Volume No. ... 1\n<|id|>583<|page|>53<|box|>116 174 133 413<|content|>(a) Primary Receipt Point: ... __\n<|id|>587<|page|>53<|box|>219 140 237 653<|content|>Article 4 — Rate. ... The rate for service under this Agreement shall be\n<|id|>584<|page|>53<|box|>142 176 160 419<|content|>(b) Primary Delivery Point: ... __\n<|id|>585<|page|>53<|box|>167 174 186 506<|content|>(c) Secondary Receipt Point(s) (if any): ... __\n<|id|>586<|page|>53<|box|>194 176 210 514<|content|>(d) Secondary Delivery Point(s) (if any): ... __",
+    "raw_response": "<|src_id|>28<|tgt_id|>29\n<|src_id|>56<|tgt_id|>57\n<|src_id|>108<|tgt_id|>109",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        }
+    ]
+}

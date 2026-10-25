@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 6,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['7', '\"actuating force applied by a user\"', \"'884\", '1, 9', 'A deliberate manual force applied through a specific actuator (e.g., thumb button or trigger) that initiates blade deployment', 'Any force applied by a user that causes blade deployment, including insertion force', 'Spec.: dedicated \"thumb actuator\" and \"trigger mechanism\"; decouples deployment from insertion force (Col. 3, ll. 15-22). PH: Oct. 2018 Response — actuating force \"distinct from insertion force,\"', 'Dr.Ostrowski : POSITA understands distinction between insertion-force-triggered and actuator-triggered deployment. FDA Guidance.', 'Favorable']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', '\"applied to a dedicated actuator.\"', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 406,
+    "table2_idx": 407
+}

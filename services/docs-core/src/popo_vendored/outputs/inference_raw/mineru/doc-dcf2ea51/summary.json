@@ -1,0 +1,192 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lcklvgyl\\input\\pdfs\\doc-dcf2ea51.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-lcklvgyl\\enriched\\doc-dcf2ea51.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>36<|level|>3\n<|id|>49<|level|>3\n<|id|>58<|level|>2\n<|id|>60<|level|>3\n<|id|>64<|level|>3\n<|id|>77<|level|>3\n<|id|>81<|level|>3\n<|id|>90<|level|>3\n<|id|>94<|level|>2\n<|id|>96<|level|>3\n<|id|>97<|level|>4\n<|id|>102<|level|>4\n<|id|>116<|level|>3\n<|id|>117<|level|>4\n<|id|>122<|level|>4\n<|id|>131<|level|>3\n<|id|>132<|level|>4\n<|id|>141<|level|>4\n<|id|>157<|level|>2\n<|id|>158<|level|>3\n<|id|>169<|level|>3\n<|id|>173<|level|>2\n<|id|>175<|level|>3\n<|id|>181<|level|>3\n<|id|>186<|level|>3\n<|id|>194<|level|>3\n<|id|>204<|level|>3\n<|id|>209<|level|>2\n<|id|>220<|level|>2\n<|id|>222<|level|>3\n<|id|>229<|level|>3\n<|id|>235<|level|>3\n<|id|>243<|level|>2",
+    "image_output": "<|src_id|>38<|tgt_id|>36\n<|src_id|>161<|tgt_id|>158\n<|src_id|>162<|tgt_id|>158",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 4
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 4
+        },
+        {
+            "id": 122,
+            "level": 4
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 4
+        },
+        {
+            "id": 141,
+            "level": 4
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 235,
+            "level": 3
+        },
+        {
+            "id": 243,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 158
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 158
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 161,
+            "table2_idx": 162,
+            "upper_row_ss": [
+                [
+                    "Verimark Oceanview Fort",
+                    "~265",
+                    "Front desk, concierge,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Lauderdale",
+                    "",
+                    "housekeeping, F&B, bellhop,maintenance"
+                ]
+            ]
+        }
+    ]
+}

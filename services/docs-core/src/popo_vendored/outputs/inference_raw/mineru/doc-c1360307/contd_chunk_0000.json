@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        16,
+        29,
+        31,
+        32
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 140 217 854<|content|>From: ... 342891) — Labor & Employment Practice Group, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>224 140 242 803<|content|>To: ... Camille Desrosiers, General Counsel & Vice President of Legal, Lumos Analytics Inc\n<|id|>4<|page|>1<|box|>250 142 268 294<|content|>Date: ... April 8, 2024\n<|id|>5<|page|>1<|box|>275 140 330 854<|content|>Re: ... Employment Agreements\n<|id|>6<|page|>1<|box|>338 142 356 334<|content|>Matter No. ... 1008-00006\n<|id|>7<|page|>1<|box|>364 140 382 375<|content|>Reference: ... EL-2024-0847-RV\n<|id|>8<|page|>1<|box|>388 142 407 408<|content|>Right-click to update Table of Contents\n<|id|>29<|page|>3<|box|>837 140 893 856<|content|>On February 14, 2024, Lumos completed its Series C...eline\"), a Delaware limited partnership managed by\n<|id|>30<|page|>4<|box|>90 140 145 854<|content|>Ridgeline Ventures Management LLC, with offices in Menlo Park, California. ... 59%)\n<|id|>33<|page|>4<|box|>333 174 424 854<|content|>(b) The absence of California Labor Code Section 2...invention-assignment agreements, which Ms. ... and\n<|id|>35<|page|>4<|box|>494 140 622 856<|content|>Following receipt and review of Ms. ... Calderwood..., with Engagement Letter Reference EL-2024-0847-RV\n<|id|>38<|page|>4<|box|>830 140 904 856<|content|>The existing agreements and a complete employee ro...r letters for all employees hired after January 1,\n<|id|>39<|page|>5<|box|>90 140 126 854<|content|>2020, and a complete roster identifying each emplo...date, base salary, equity grant, and work location\n<|id|>127<|page|>16<|box|>275 140 311 854<|content|>C. ... Invention-Assignment Provisions (Critical Risk — Fundamental Restructuring Required)\n<|id|>129<|page|>16<|box|>436 140 566 856<|content|>The clause is notably broad in several respects. ....ctrum of intellectual property and creative output\n<|id|>228<|page|>29<|box|>285 174 320 854<|content|>(d) State that the notification is provided pursuant to California Labor Code Section 432. ... and\n<|id|>230<|page|>29<|box|>375 140 484 856<|content|>Method of Delivery. ... We recommend against using...longer have access to their company email accounts\n<|id|>251<|page|>31<|box|>703 142 719 320<|content|>Respectfully submitted,\n<|id|>252<|page|>31<|box|>720 142 736 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>253<|page|>31<|box|>739 143 755 251<|content|>By: ... By\n<|id|>254<|page|>31<|box|>755 140 787 854<|content|>Renata Vasquez Partner, Labor & Employment Practice Group California Bar No. ... (415) 555-7200\n<|id|>255<|page|>31<|box|>789 142 804 465<|content|>Email: ... com\n<|id|>256<|page|>31<|box|>806 143 823 253<|content|>By: ... By\n<|id|>258<|page|>31<|box|>857 140 873 795<|content|>Nadia Petrov Associate, Labor & Employment Practice Group California Bar No. ... 342891\n<|id|>259<|page|>31<|box|>875 140 904 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM...ed for the sole use and benefit of Lumos Analytics\n<|id|>260<|page|>32<|box|>90 142 119 854<|content|>Inc. ... Unauthorized disclosure may result in waiver of the attorney-client privilege",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>38<|tgt_id|>39\n<|src_id|>259<|tgt_id|>260",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 259,
+            "tgt_id": 260
+        }
+    ]
+}

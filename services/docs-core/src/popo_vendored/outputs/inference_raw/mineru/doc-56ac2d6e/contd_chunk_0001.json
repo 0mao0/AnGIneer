@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        51,
+        105
+    ],
+    "pages": [
+        52,
+        64,
+        65,
+        67,
+        78,
+        89,
+        91,
+        97,
+        104,
+        105
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>249<|page|>52<|box|>234 379 246 615<|content|>(Par values - in millions of dollars)\n<|id|>250<|page|>52<|box|>85 7 193 469<|content|>The Treasury Survey of Ownership covers securities...d States Government and by Federal agencies. ... \"\n<|id|>275<|page|>64<|box|>797 14 819 497<|content|>1/ Comprises (1) gold certificates held by the pub...ld certificate credits in (a) the gold certificate\n<|id|>279<|page|>65<|box|>49 401 62 571<|content|>MONETARY STATISTICS\n<|id|>278<|page|>65<|box|>435 524 446 919<|content|>4/ Valued at \\$1. ... 29+ per fine ounce\n<|id|>282<|page|>67<|box|>68 19 294 480<|content|>Data relating to capital movements between the Uni...e United States are included in the published data\n<|id|>283<|page|>67<|box|>306 17 459 477<|content|>The term \"foreigner\" as used in these reports cove...in the June 1954 issue of the \"Treasury Bulletin,\"\n<|id|>284<|page|>67<|box|>69 529 115 987<|content|>pages 45-47. ... As a result of changes in present... will be exactly comparable to those now presented\n<|id|>309<|page|>78<|box|>829 0 900 485<|content|>1/ The data in this table are based on annual repo... grouped to avoid revealing individual accounts or\n<|id|>310<|page|>78<|box|>878 507 891 590<|content|>r Revised. ... r Revised\n<|id|>333<|page|>89<|box|>112 413 125 571<|content|>(In thousands of dollars)\n<|id|>336<|page|>91<|box|>49 254 64 735<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV...RATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIVITIES\n<|id|>350<|page|>97<|box|>117 411 130 573<|content|>(In thousands of dollars)\n<|id|>351<|page|>97<|box|>49 252 62 737<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV...RATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIVITIES\n<|id|>366<|page|>104<|box|>92 29 108 987<|content|>Table 7. ... - Gross Loans Outstanding, Excluding ...cy Loans, Classified by Type of Loan - (Continued)\n<|id|>368<|page|>105<|box|>370 34 378 404<|content|>ment in certain assets and liabilities transferred from the\n<|id|>392<|page|>105<|box|>536 9 549 463<|content|>1/ Represents assets and liabilities of the United States Civil Service\n<|id|>393<|page|>105<|box|>547 9 557 351<|content|>Commission exclusive of trust and revolving funds.... Commission exclusive of trust and revolving funds",
+    "raw_response": "<|src_id|>283<|tgt_id|>284\n<|src_id|>368<|tgt_id|>369",
+    "parsed": [
+        {
+            "src_id": 283,
+            "tgt_id": 284
+        },
+        {
+            "src_id": 368,
+            "tgt_id": 369
+        }
+    ]
+}

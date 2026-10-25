@@ -1,0 +1,156 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ypzsbwcb\\input\\pdfs\\doc-88a46a12.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-ypzsbwcb\\enriched\\doc-88a46a12.json",
+    "contd_output": "",
+    "title_output": "<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>26<|level|>1\n<|id|>27<|level|>2\n<|id|>38<|level|>2\n<|id|>45<|level|>2\n<|id|>53<|level|>2\n<|id|>61<|level|>2\n<|id|>69<|level|>2\n<|id|>76<|level|>2\n<|id|>82<|level|>1\n<|id|>87<|level|>1\n<|id|>92<|level|>1\n<|id|>108<|level|>1\n<|id|>113<|level|>1\n<|id|>117<|level|>1\n<|id|>124<|level|>1\n<|id|>130<|level|>1\n<|id|>135<|level|>1",
+    "image_output": "<|src_id|>29<|tgt_id|>27\n<|src_id|>40<|tgt_id|>38\n<|src_id|>47<|tgt_id|>45\n<|src_id|>55<|tgt_id|>53\n<|src_id|>63<|tgt_id|>61\n<|src_id|>71<|tgt_id|>69\n<|src_id|>78<|tgt_id|>76\n<|src_id|>79<|tgt_id|>76\n<|src_id|>84<|tgt_id|>82\n<|src_id|>85<|tgt_id|>82\n<|src_id|>89<|tgt_id|>87\n<|src_id|>110<|tgt_id|>108",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 130,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 29,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 69
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 108
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 78,
+            "table2_idx": 79,
+            "upper_row_ss": [
+                [
+                    "Aldgate National Bank, N.A.",
+                    "Buyer's revolving credit facility agent bank (anticipated source of acquisition financing or bridge facility)",
+                    "No conflict"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Ashford Prewitt LLP",
+                    "Buyer's accounting and tax advisors",
+                    "No conflict"
+                ]
+            ]
+        }
+    ]
+}

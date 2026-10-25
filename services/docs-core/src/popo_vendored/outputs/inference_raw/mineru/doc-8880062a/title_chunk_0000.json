@@ -1,0 +1,86 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 148 162 849<|content|>CERTIFICATE OF THE GENERAL PARTNER REGARDING LIMIT\n<|id|>3<|page|>1<|box|>420 140 436 241<|content|>RECITALS\n<|id|>4<|page|>1<|box|>446 140 464 449<|content|>A. The Partnership and the A&R LPA.\n<|id|>8<|page|>2<|box|>90 140 107 346<|content|>B. The Key Person Event.\n<|id|>13<|page|>2<|box|>695 140 712 294<|content|>C. LP Notification.\n<|id|>17<|page|>3<|box|>226 140 243 560<|content|>D. The Successor Proposal and the First Amendment.\n<|id|>36<|page|>5<|box|>90 142 107 343<|content|>E. Consent Requirement.\n<|id|>42<|page|>5<|box|>392 176 409 663<|content|>Aggregate Voting LP Capital Commitments: $2,798.25\n<|id|>46<|page|>5<|box|>587 142 604 308<|content|>F. Consent Deadline.\n<|id|>48<|page|>5<|box|>785 142 801 269<|content|>G. IAC Review.\n<|id|>56<|page|>6<|box|>429 140 445 307<|content|>CERTIFICATIONS\n<|id|>58<|page|>6<|box|>503 140 521 504<|content|>Section 1. Certification of Consent Tabulation.\n<|id|>66<|page|>7<|box|>429 140 446 553<|content|>Section 2. Certification of Amendment Effectivenes\n<|id|>83<|page|>9<|box|>90 140 107 352<|content|>Section 3. Governing Law.\n<|id|>85<|page|>9<|box|>236 140 253 429<|content|>Section 4. Reliance and Distribution.\n<|id|>95<|page|>9<|box|>619 140 638 336<|content|>[Signature Page Follows]\n<|id|>96<|page|>9<|box|>645 199 662 795<|content|>[SIGNATURE PAGE TO CERTIFICATE OF THE GENERAL PART\n<|id|>98<|page|>9<|box|>715 140 750 854<|content|>DRIFTWOOD CAPITAL MANAGEMENT LLC a Delaware limite\n<|id|>105<|page|>9<|box|>853 447 869 550<|content|>EXHIBIT A\n<|id|>106<|page|>10<|box|>89 145 143 851<|content|>SCHEDULE OF LIMITED PARTNERS DELIVERING WRITTEN CO\n<|id|>107<|page|>10<|box|>152 143 169 586<|content|>Total Number of Limited Partners of the Partnershi\n<|id|>108<|page|>10<|box|>179 143 196 535<|content|>Total Number of Consenting Limited Partners: 38",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>4<|level|>3\n<|id|>8<|level|>3\n<|id|>13<|level|>3\n<|id|>17<|level|>3\n<|id|>36<|level|>3\n<|id|>42<|level|>-1\n<|id|>46<|level|>3\n<|id|>48<|level|>3\n<|id|>56<|level|>2\n<|id|>58<|level|>3\n<|id|>66<|level|>3\n<|id|>83<|level|>3\n<|id|>85<|level|>3\n<|id|>95<|level|>-1\n<|id|>96<|level|>-1\n<|id|>98<|level|>-1\n<|id|>105<|level|>2\n<|id|>106<|level|>3\n<|id|>107<|level|>-1\n<|id|>108<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        52,
+        63
+    ],
+    "pages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        59,
+        61,
+        63
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>565<|page|>52<|box|>90 148 109 848<|content|>APPENDIX A — FORM OF INDENTURE (TABLE OF CONTENTS)\n<|id|>567<|page|>52<|box|>246 140 262 601<|content|>ARTICLE I — DEFINITIONS AND INTERPRETATION\n<|id|>571<|page|>52<|box|>349 140 366 787<|content|>ARTICLE II — AUTHORIZATION, ISSUANCE, AND TERMS OF\n<|id|>584<|page|>52<|box|>686 142 702 550<|content|>ARTICLE III — SECURITY AND COLLATERAL\n<|id|>592<|page|>53<|box|>90 176 107 511<|content|>Section 3.08 — Effective Date Requirements\n<|id|>593<|page|>53<|box|>114 140 132 385<|content|>ARTICLE IV — ACCOUNTS\n<|id|>599<|page|>53<|box|>270 140 287 501<|content|>ARTICLE V — PRIORITY OF PAYMENTS\n<|id|>604<|page|>53<|box|>400 140 417 449<|content|>ARTICLE VI — COVERAGE TESTS\n<|id|>609<|page|>53<|box|>529 142 547 568<|content|>ARTICLE VII — TRADING AND REINVESTMENT\n<|id|>617<|page|>53<|box|>736 140 753 697<|content|>ARTICLE VIII — OPTIONAL REDEMPTION AND REFINANCING\n<|id|>623<|page|>54<|box|>89 140 107 619<|content|>ARTICLE IX — EVENTS OF DEFAULT AND REMEDIES\n<|id|>630<|page|>54<|box|>270 140 287 403<|content|>ARTICLE X — THE TRUSTEE\n<|id|>637<|page|>54<|box|>452 142 469 496<|content|>ARTICLE XI — REPORTS AND NOTICES\n<|id|>642<|page|>54<|box|>580 142 598 560<|content|>ARTICLE XII — SUPPLEMENTAL INDENTURES\n<|id|>651<|page|>54<|box|>814 142 830 454<|content|>ARTICLE XIV — MISCELLANEOUS\n<|id|>660<|page|>55<|box|>244 140 262 395<|content|>SCHEDULES AND EXHIBITS\n<|id|>671<|page|>56<|box|>90 192 135 803<|content|>APPENDIX B — COLLATERAL PORTFOLIO SUMMARY (INDICAT\n<|id|>673<|page|>56<|box|>267 143 282 297<|content|>Summary Statistics\n<|id|>683<|page|>59<|box|>90 207 109 789<|content|>APPENDIX C — FORM OF TRANSFER CERTIFICATE\n<|id|>684<|page|>59<|box|>136 142 152 563<|content|>Form of Transfer Certificate for Rule 144A Transfe\n<|id|>685<|page|>59<|box|>162 333 179 663<|content|>TRANSFER CERTIFICATE (Rule 144A)\n<|id|>704<|page|>59<|box|>849 143 864 580<|content|>Form of Transfer Certificate for Regulation S Tran\n<|id|>705<|page|>59<|box|>875 325 891 673<|content|>TRANSFER CERTIFICATE (Regulation S)\n<|id|>726<|page|>61<|box|>90 145 136 852<|content|>APPENDIX D — FORM OF ERISA INVESTOR REPRESENTATION\n<|id|>727<|page|>61<|box|>152 292 169 704<|content|>ERISA INVESTOR REPRESENTATION LETTER\n<|id|>759<|page|>63<|box|>90 254 109 743<|content|>APPENDIX E — INDEX OF DEFINED TERMS",
+    "raw_response": "<|id|>565<|level|>1\n<|id|>567<|level|>2\n<|id|>571<|level|>2\n<|id|>584<|level|>2\n<|id|>592<|level|>3\n<|id|>593<|level|>2\n<|id|>599<|level|>2\n<|id|>604<|level|>2\n<|id|>609<|level|>2\n<|id|>617<|level|>2\n<|id|>623<|level|>2\n<|id|>630<|level|>2\n<|id|>637<|level|>2\n<|id|>642<|level|>2\n<|id|>651<|level|>2\n<|id|>660<|level|>1\n<|id|>671<|level|>1\n<|id|>673<|level|>2\n<|id|>683<|level|>1\n<|id|>684<|level|>2\n<|id|>685<|level|>3\n<|id|>704<|level|>2\n<|id|>705<|level|>3\n<|id|>726<|level|>1\n<|id|>727<|level|>2\n<|id|>759<|level|>1",
+    "parsed": [
+        {
+            "id": 565,
+            "level": 1
+        },
+        {
+            "id": 567,
+            "level": 2
+        },
+        {
+            "id": 571,
+            "level": 2
+        },
+        {
+            "id": 584,
+            "level": 2
+        },
+        {
+            "id": 592,
+            "level": 3
+        },
+        {
+            "id": 593,
+            "level": 2
+        },
+        {
+            "id": 599,
+            "level": 2
+        },
+        {
+            "id": 604,
+            "level": 2
+        },
+        {
+            "id": 609,
+            "level": 2
+        },
+        {
+            "id": 617,
+            "level": 2
+        },
+        {
+            "id": 623,
+            "level": 2
+        },
+        {
+            "id": 630,
+            "level": 2
+        },
+        {
+            "id": 637,
+            "level": 2
+        },
+        {
+            "id": 642,
+            "level": 2
+        },
+        {
+            "id": 651,
+            "level": 2
+        },
+        {
+            "id": 660,
+            "level": 1
+        },
+        {
+            "id": 671,
+            "level": 1
+        },
+        {
+            "id": 673,
+            "level": 2
+        },
+        {
+            "id": 683,
+            "level": 1
+        },
+        {
+            "id": 684,
+            "level": 2
+        },
+        {
+            "id": 685,
+            "level": 3
+        },
+        {
+            "id": 704,
+            "level": 2
+        },
+        {
+            "id": 705,
+            "level": 3
+        },
+        {
+            "id": 726,
+            "level": 1
+        },
+        {
+            "id": 727,
+            "level": 2
+        },
+        {
+            "id": 759,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>12<|type|>title<|page|>1<|box|>472 140 489 428<|content|>I. Purpose and Context of the Letter\n<|id|>17<|type|>title<|page|>2<|box|>241 140 258 563<|content|>II. Background — IRS Examination and IP Structure\n<|id|>18<|type|>title<|page|>2<|box|>272 140 287 349<|content|>A. Examination Overview\n<|id|>23<|type|>title<|page|>2<|box|>770 140 787 491<|content|>B. Intercompany Transfer Pricing Structure\n<|id|>32<|type|>title<|page|>4<|box|>194 140 210 388<|content|>C. PPC's Prior FIN 48 Reserve\n<|id|>35<|type|>title<|page|>4<|box|>449 140 467 643<|content|>III. Summary of the NOPA — Proposed Adjustments ($\n<|id|>37<|type|>title<|page|>4<|box|>579 140 597 578<|content|>A. CSA Cost-Sharing Ratio Adjustments ($235,010,00\n<|id|>39<|type|>table<|page|>4<|box|>781 143 891 852<|content|>None\n<|id|>40<|type|>table<|page|>5<|box|>88 143 119 852<|content|>None\n<|id|>42<|type|>title<|page|>5<|box|>184 140 200 488<|content|>B. Royalty Rate Adjustments ($188,040,000)\n<|id|>44<|type|>table<|page|>5<|box|>349 143 502 852<|content|>None\n<|id|>46<|type|>title<|page|>5<|box|>585 140 602 433<|content|>C. PCT Undervaluation Background\n<|id|>48<|type|>title<|page|>5<|box|>804 142 821 411<|content|>D. Economic Substance Challenge\n<|id|>51<|type|>title<|page|>6<|box|>194 140 212 470<|content|>E. Correlative Offset and Net Adjustment\n<|id|>53<|type|>table<|page|>6<|box|>340 143 435 852<|content|>None\n<|id|>54<|type|>title<|page|>6<|box|>474 140 492 303<|content|>F. Proposed Penalty\n<|id|>59<|type|>title<|page|>6<|box|>744 140 762 638<|content|>IV. Updated Legal Analysis of PPC's Transfer Prici\n<|id|>60<|type|>title<|page|>6<|box|>775 140 792 720<|content|>A. Recognition Step — More-Likely-Than-Not Thresho\n<|id|>69<|type|>title<|page|>8<|box|>275 140 292 831<|content|>B. Measurement Step — Revised Assessment of Cumula\n<|id|>96<|type|>title<|page|>11<|box|>492 140 508 433<|content|>C. Impact of TCJA on Measurement\n<|id|>99<|type|>title<|page|>11<|box|>747 140 763 436<|content|>V. Revised Reserve Recommendation\n<|id|>100<|type|>title<|page|>11<|box|>777 140 794 325<|content|>A. Prior Reserve Level\n<|id|>102<|type|>title<|page|>12<|box|>90 140 108 307<|content|>B. Updated Analysis\n<|id|>112<|type|>title<|page|>13<|box|>138 140 157 352<|content|>C. Sensitivity to Outcomes\n<|id|>117<|type|>title<|page|>13<|box|>501 140 518 437<|content|>VI. Procedural Status and Next Steps\n<|id|>118<|type|>table<|page|>13<|box|>569 143 719 852<|content|>None\n<|id|>122<|type|>title<|page|>14<|box|>250 140 265 504<|content|>VII. Penalty-Protection Documentation Status\n<|id|>127<|type|>title<|page|>14<|box|>722 140 739 452<|content|>VIII. GILTI and BEAT Considerations\n<|id|>132<|type|>title<|page|>15<|box|>273 140 292 589<|content|>IX. Competent Authority / Mutual Agreement Procedu\n<|id|>136<|type|>title<|page|>15<|box|>648 140 667 532<|content|>X. Impact on Hargrove Credit Facility Covenants\n<|id|>139<|type|>title<|page|>16<|box|>90 140 107 419<|content|>XI. SEC Disclosure Considerations\n<|id|>144<|type|>title<|page|>16<|box|>546 140 563 374<|content|>XII. Limitations and Caveats\n<|id|>150<|type|>title<|page|>17<|box|>229 140 247 279<|content|>XIII. Conclusion\n<|id|>159<|type|>title<|page|>17<|box|>669 142 685 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>172<|type|>title<|page|>18<|box|>161 143 176 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>39<|tgt_id|>37\n<|src_id|>40<|tgt_id|>37\n<|src_id|>44<|tgt_id|>42\n<|src_id|>53<|tgt_id|>51\n<|src_id|>118<|tgt_id|>117",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 117
+        }
+    ]
+}

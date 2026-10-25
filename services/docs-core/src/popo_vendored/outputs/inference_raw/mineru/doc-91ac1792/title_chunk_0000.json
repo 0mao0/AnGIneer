@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 352 104 643<|content|>FORM OF FIRPTA CERTIFICATE\n<|id|>1<|page|>1<|box|>114 161 150 834<|content|>CERTIFICATION OF NON-FOREIGN STATUS AND NON-U.S. R\n<|id|>4<|page|>1<|box|>362 398 378 599<|content|>FIRPTA CERTIFICATE\n<|id|>5<|page|>1<|box|>388 161 422 834<|content|>CERTIFICATION OF NON-FOREIGN STATUS AND NON-U.S. R\n<|id|>6<|page|>1<|box|>446 142 464 372<|content|>RECITALS AND PURPOSE\n<|id|>10<|page|>2<|box|>148 140 166 656<|content|>SECTION 1 — CERTIFICATION OF NON-FOREIGN STATUS\n<|id|>20<|page|>2<|box|>784 140 819 821<|content|>SECTION 2 — CERTIFICATION REGARDING U.S. REAL PROP\n<|id|>26<|page|>3<|box|>710 140 726 612<|content|>SECTION 3 — ACKNOWLEDGMENTS AND RELIANCE\n<|id|>32<|page|>4<|box|>612 140 628 524<|content|>SECTION 4 — AUTHORITY OF SIGNATORY\n<|id|>38<|page|>5<|box|>167 142 184 258<|content|>EXECUTION\n<|id|>46<|page|>5<|box|>378 187 412 812<|content|>FORMATTING AND DELIVERY NOTES (Internal Instructio\n<|id|>48<|page|>5<|box|>474 143 491 359<|content|>1. Presentation and Format\n<|id|>50<|page|>5<|box|>618 140 635 437<|content|>2. Closing Condition Cross-Reference\n<|id|>52<|page|>5<|box|>779 140 797 331<|content|>3. Retention of Original\n<|id|>54<|page|>6<|box|>133 140 151 349<|content|>4. Review by Tax Counsel\n<|id|>56<|page|>6<|box|>296 140 314 619<|content|>5. Mergers, Reorganizations, and Other Special Tra\n<|id|>58<|page|>6<|box|>549 140 566 607<|content|>6. U.S. Real Property Interests — Asset-Ratio Test\n<|id|>64<|page|>7<|box|>171 142 188 388<|content|>7. State and Local Withholding",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>1\n<|id|>5<|level|>1\n<|id|>6<|level|>2\n<|id|>10<|level|>2\n<|id|>20<|level|>2\n<|id|>26<|level|>2\n<|id|>32<|level|>2\n<|id|>38<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>3\n<|id|>54<|level|>3\n<|id|>56<|level|>3\n<|id|>58<|level|>3\n<|id|>64<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        }
+    ]
+}

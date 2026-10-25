@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 142 104 362<|content|>PRIVILEGED & CONFIDENTIAL\n<|id|>1<|page|>1<|box|>112 140 148 854<|content|>CALDERWOOD & HARKNESS LLP Barristers & Solicitors 25 Finsbury Square London EC2A 1DU United Kingdom\n<|id|>2<|page|>1<|box|>156 140 174 336<|content|>Tel: ... +44 (0)20 7438 6000\n<|id|>3<|page|>1<|box|>181 140 199 338<|content|>Fax: ... +44 (0)20 7438 6001\n<|id|>4<|page|>1<|box|>200 140 215 375<|content|>www. ... com\n<|id|>5<|page|>1<|box|>226 707 242 854<|content|>December 12, 2022\n<|id|>6<|page|>1<|box|>252 140 287 854<|content|>Claims Department Oceanos Underwriters Société Ano... 10 Kifissias Avenue 151 25 Marousi Athens, Greece\n<|id|>7<|page|>1<|box|>296 140 313 434<|content|>Via: ... Aether Insurance Brokers Limited\n<|id|>8<|page|>1<|box|>321 140 338 498<|content|>Attn: ... Fiona Hartwell, Senior Account Executive\n<|id|>9<|page|>1<|box|>339 140 356 535<|content|>30 St Mary Axe London EC3A 8BF United Kingdom\n<|id|>10<|page|>1<|box|>364 140 436 854<|content|>Re: ... C&H-2022- ITS-04781\n<|id|>11<|page|>1<|box|>446 140 463 294<|content|>Dear Sir or Madam: ... Dear Sir or Madam\n<|id|>16<|page|>1<|box|>849 140 904 854<|content|>TSL is a Greek transportation and logistics compan...raeus Commercial Registry under No. ... Founded in\n<|id|>17<|page|>2<|box|>90 140 181 854<|content|>2009, TSL has grown to employ approximately 1,450 ...k operations. ... Piraeus, Thessaloniki, and Volos\n<|id|>27<|page|>2<|box|>839 140 893 854<|content|>ADAN/2022/0073 (Classification). ... 2%\n<|id|>28<|page|>3<|box|>89 140 181 854<|content|>MFN duty rate). ... 2% = €1,478,400)\n<|id|>31<|page|>3<|box|>332 174 387 854<|content|>(ii) €2,940,000 paid to Nereus Maritime Advisory L...n includable procurement coordination fee; ... and\n<|id|>33<|page|>3<|box|>458 140 512 854<|content|>The additional customs duties assessed on the basi...940,000, calculated at the reclassified duty rate)\n<|id|>147<|page|>15<|box|>575 174 628 854<|content|>(d) The right to seek consequential damages arisin... advance defense costs in a timely manner; ... and\n<|id|>149<|page|>15<|box|>681 140 736 854<|content|>Nothing in this letter, and no action or forbearan...ity, or under any applicable statute or regulation\n<|id|>156<|page|>16<|box|>549 142 565 274<|content|>Very truly yours,\n<|id|>157<|page|>16<|box|>566 140 582 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>158<|page|>16<|box|>584 142 599 253<|content|>By: ... By\n<|id|>159<|page|>16<|box|>599 140 617 553<|content|>James Prentice Partner Direct Tel: ... +44 (0)20 7438 6127\n<|id|>160<|page|>16<|box|>618 142 635 470<|content|>Email: ... com\n<|id|>162<|page|>16<|box|>655 142 667 171<|content|>cc: ... cc\n<|id|>161<|page|>16<|box|>635 142 652 501<|content|>(On behalf of Thalassa Shipping & Logistics SA)",
+    "raw_response": "<|src_id|>16<|tgt_id|>17\n<|src_id|>27<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        }
+    ]
+}

@@ -1,0 +1,99 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 292 133 705<|content|>1401 K Street NW, Suite 1200 Washington, D.C. 2000\n<|id|>10<|page|>1<|box|>412 140 430 362<|content|>I. Purpose and Background\n<|id|>15<|page|>2<|box|>148 140 167 555<|content|>II. Overview of FTC's Claims and Litigation Postur\n<|id|>22<|page|>3<|box|>250 140 266 609<|content|>III. Allocation of Briefing Responsibilities for P\n<|id|>24<|page|>3<|box|>378 140 396 455<|content|>A. Calderwood & Harkness Lead Areas\n<|id|>52<|page|>7<|box|>138 140 157 475<|content|>B. Whitfield, Greer & Tanaka Lead Areas\n<|id|>68<|page|>8<|box|>661 140 676 428<|content|>C. Joint and Shared Responsibilities\n<|id|>74<|page|>9<|box|>281 142 297 339<|content|>IV. Expert Coordination\n<|id|>87<|page|>10<|box|>366 140 383 361<|content|>V. Deposition Coordination\n<|id|>89<|page|>10<|box|>459 140 477 465<|content|>A. Defense Depositions of FTC Witnesses\n<|id|>95<|page|>11<|box|>138 140 157 589<|content|>B. Preparation of Defense Witnesses for FTC Deposi\n<|id|>97<|page|>11<|box|>226 140 243 593<|content|>Cascade Witnesses (Calderwood & Harkness to Prepar\n<|id|>109<|page|>11<|box|>612 140 628 354<|content|>C. Third-Party Subpoenas\n<|id|>114<|page|>12<|box|>148 140 167 679<|content|>VI. Document Sharing Protocols Under the Joint Def\n<|id|>125<|page|>13<|box|>90 140 107 460<|content|>VII. Weekly Coordination Call Schedule\n<|id|>135<|page|>13<|box|>681 140 698 535<|content|>VIII. Preliminary Injunction Hearing Preparation\n<|id|>150<|page|>14<|box|>768 142 785 390<|content|>IX. Budget and Cost Allocation\n<|id|>154<|page|>15<|box|>304 140 320 434<|content|>X. Miscellaneous Coordination Items\n<|id|>160<|page|>16<|box|>89 140 107 236<|content|>XI. Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>22<|level|>1\n<|id|>24<|level|>2\n<|id|>52<|level|>2\n<|id|>68<|level|>2\n<|id|>74<|level|>1\n<|id|>87<|level|>1\n<|id|>89<|level|>2\n<|id|>95<|level|>2\n<|id|>97<|level|>3\n<|id|>109<|level|>2\n<|id|>114<|level|>1\n<|id|>125<|level|>1\n<|id|>135<|level|>1\n<|id|>150<|level|>1\n<|id|>154<|level|>1\n<|id|>160<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 154,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        108,
+        153
+    ],
+    "pages": [
+        109,
+        131,
+        144,
+        153
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>516<|page|>109<|box|>199 723 268 913<|content|>Financial Report of the United States Government Excerpt\n<|id|>517<|page|>109<|box|>282 820 309 913<|content|>Trust Funds\n<|id|>627<|page|>131<|box|>176 81 440 491<|content|>Amounts in the Harbor Maintenance Trust Fund are a...elopment Act of 1986. ... Section 201 of the Water\n<|id|>628<|page|>131<|box|>117 504 191 913<|content|>Resources Development Act of 1996 (Public Law 104-...eral navigation projects for commercial navigation\n<|id|>695<|page|>144<|box|>449 81 508 491<|content|>Effective October 1, 2005, motorboat fuel taxes (l...ibus Budget Reconciliation Act of 1990, Public Law\n<|id|>696<|page|>144<|box|>128 504 217 915<|content|>101-508, title XI, section 11211(i)(2) and (3)] we... and pleasure craft are appropriated into the fund\n<|id|>761<|page|>153<|box|>148 364 166 630<|content|>Source: ... Financial Management Service\n<|id|>762<|page|>153<|box|>186 81 262 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>770<|page|>153<|box|>842 81 904 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>771<|page|>153<|box|>186 504 262 915<|content|>Second Liberty Loan Act of 1917, the nature of the...l debt. ... the limit may change from year to year",
+    "raw_response": "<|src_id|>627<|tgt_id|>628\n<|src_id|>695<|tgt_id|>696\n<|src_id|>770<|tgt_id|>771",
+    "parsed": [
+        {
+            "src_id": 627,
+            "tgt_id": 628
+        },
+        {
+            "src_id": 695,
+            "tgt_id": 696
+        },
+        {
+            "src_id": 770,
+            "tgt_id": 771
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>114 424 132 573<|content|>MEMORANDUM\n<|id|>8<|type|>title<|page|>1<|box|>436 142 454 259<|content|>I. Participants\n<|id|>24<|type|>title<|page|>1<|box|>828 142 845 419<|content|>II. Business Overview and Strategy\n<|id|>34<|type|>title<|page|>3<|box|>167 140 185 333<|content|>III. Financial Condition\n<|id|>36<|type|>table<|page|>3<|box|>261 143 338 852<|content|>None\n<|id|>38<|type|>title<|page|>3<|box|>489 142 507 442<|content|>Balance Sheet and Capital Highlights:\n<|id|>46<|type|>title<|page|>4<|box|>171 140 188 267<|content|>Credit Facility:\n<|id|>48<|type|>title<|page|>4<|box|>329 140 347 380<|content|>IV. Outstanding Indebtedness\n<|id|>50<|type|>title<|page|>4<|box|>381 142 398 349<|content|>Revolving Credit Facility:\n<|id|>52<|type|>title<|page|>4<|box|>579 140 595 253<|content|>Senior Notes:\n<|id|>56<|type|>title<|page|>5<|box|>186 140 204 248<|content|>V. Litigation\n<|id|>61<|type|>title<|page|>5<|box|>642 140 659 331<|content|>VI. Regulatory Matters\n<|id|>67<|type|>title<|page|>6<|box|>402 142 419 490<|content|>VII. Capitalization and Stockholder Matters\n<|id|>69<|type|>table<|page|>6<|box|>496 143 573 852<|content|>None\n<|id|>70<|type|>title<|page|>6<|box|>607 142 625 341<|content|>Significant Stockholders:\n<|id|>74<|type|>title<|page|>6<|box|>825 143 843 321<|content|>Equity Incentive Plan:\n<|id|>79<|type|>title<|page|>7<|box|>339 140 356 344<|content|>Stockholder Agreements:\n<|id|>81<|type|>title<|page|>7<|box|>497 140 513 352<|content|>VIII. Intellectual Property\n<|id|>88<|type|>title<|page|>8<|box|>321 142 339 300<|content|>IX. Use of Proceeds\n<|id|>94<|type|>title<|page|>9<|box|>89 142 107 315<|content|>X. COVID-19 Impact\n<|id|>96<|type|>table<|page|>9<|box|>220 143 311 852<|content|>None\n<|id|>100<|type|>title<|page|>9<|box|>713 142 729 388<|content|>XI. Open Items and Next Steps",
+    "raw_response": "<|src_id|>36<|tgt_id|>34\n<|src_id|>69<|tgt_id|>67\n<|src_id|>96<|tgt_id|>94",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        }
+    ]
+}

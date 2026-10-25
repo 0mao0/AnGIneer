@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, Dec...', 'Total......', '-', '725', '9,104', '', 'Total......', '', '-', '8,754', '4,804', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Year and month', 'rowspan=3, Description of security 2/', 'colspan=3, Amount of maturities', 'rowspan=3, Date bank re-stricted issues become bank eligible 3/', 'rowspan=3, Year and month', 'rowspan=3, Description of security 2/', 'colspan=3, Amount of maturities', 'rowspan=3, Date bank re-stricted issues become bank eligible 3/']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 112,
+    "table2_idx": 113
+}

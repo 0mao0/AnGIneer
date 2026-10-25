@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>228 230 244 764<|content|>Case No. ... 22-51248 (Joint Administration Requested)\n<|id|>4<|page|>1<|box|>253 455 271 540<|content|>Chapter 11\n<|id|>22<|page|>2<|box|>829 174 902 856<|content|>(c) Plant 3: ... Its proximity to the\n<|id|>23<|page|>3<|box|>90 174 126 854<|content|>Gulf Coast petrochemical corridor provides strateg...stics advantages for Crestline's largest customers\n<|id|>53<|page|>5<|box|>825 140 898 857<|content|>28. ... CPS Holdings is an \"affiliate\" of Crestline within the meaning of Section 101(2), as CPS\n<|id|>54<|page|>6<|box|>89 174 143 854<|content|>Holdings directly owns 100% of the membership inte...int administration under Rule 1015(b) is satisfied\n<|id|>98<|page|>10<|box|>152 174 189 854<|content|>(c) authorizing the filing of all pleadings, motio...caption and the lead case number 22-51247; ... and\n<|id|>100<|page|>10<|box|>222 599 239 854<|content|>Dated: ... June 20, 2022 Akron, Ohio\n<|id|>101<|page|>10<|box|>250 212 266 390<|content|>Respectfully submitted,\n<|id|>104<|page|>10<|box|>309 140 357 854<|content|>Colette Whitman (Responsible Partner) Nathaniel Bo...York, New York 10112 Telephone: ... (212) 558-3588\n<|id|>105<|page|>10<|box|>359 143 375 176<|content|>and\n<|id|>106<|page|>10<|box|>375 142 407 852<|content|>127 Public Square, Suite 4100 Cleveland, Ohio 44114 Telephone: ... (216) 479-8780\n<|id|>107<|page|>10<|box|>409 143 425 511<|content|>Counsel to the Debtors and Debtors in Possession\n<|id|>108<|page|>10<|box|>425 143 441 388<|content|>KELLNER & HARTWICK LLP\n<|id|>109<|page|>10<|box|>444 143 460 251<|content|>By: ... By\n<|id|>110<|page|>10<|box|>460 142 493 854<|content|>Bruce Tatelman (Lead Partner) 600 Superior Avenue ...leveland, Ohio 44114 Telephone: ... (216) 861-7810\n<|id|>111<|page|>10<|box|>494 142 510 584<|content|>Local Co-Counsel to the Debtors and Debtors in Possession\n<|id|>118<|page|>10<|box|>699 269 715 727<|content|>Case No. ... 22-51248 (Jointly Administered)\n<|id|>119<|page|>10<|box|>724 455 742 540<|content|>Chapter 11",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>53<|tgt_id|>54",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        }
+    ]
+}

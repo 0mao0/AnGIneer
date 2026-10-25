@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Fairfax County, Virginia, Clerk of Circuit Court', 'Instrument No. 2021-035782', 'Deed of Trust encumbering real property associated with Whitmore Aerospace LLC and Whitmore Defense Solutions, Inc. at Centennial Tower Drive,', 'Prescott National Bank, N.A. (as agent under the Existing Facility)', 'March 18, 2021', 'To be discharged upon payoff of Existing Facility']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'Herndon, VA', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 429,
+    "table2_idx": 430
+}

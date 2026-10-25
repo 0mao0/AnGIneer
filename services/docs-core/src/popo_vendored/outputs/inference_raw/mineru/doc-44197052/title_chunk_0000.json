@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 307 118 689<|content|>UNANIMOUS WRITTEN CONSENT\n<|id|>1<|page|>1<|box|>137 318 156 679<|content|>OF THE BOARD OF DIRECTORS\n<|id|>8<|page|>1<|box|>479 142 497 243<|content|>RECITALS\n<|id|>37<|page|>4<|box|>285 142 301 279<|content|>RESOLUTIONS\n<|id|>39<|page|>4<|box|>343 140 359 550<|content|>Resolution 1 — Approval of the Agreement of Lease\n<|id|>41<|page|>4<|box|>616 142 633 627<|content|>Resolution 2 — Approval of Ancillary Transaction D\n<|id|>49<|page|>5<|box|>291 142 308 568<|content|>Resolution 3 — Approval of Parent Guaranty Request\n<|id|>51<|page|>5<|box|>454 142 472 535<|content|>Resolution 4 — Security Deposit / Letter of Credit\n<|id|>53<|page|>5<|box|>747 142 763 462<|content|>Resolution 5 — Insurance Requirements\n<|id|>60<|page|>6<|box|>455 140 472 540<|content|>Resolution 6 — Designation of Authorized Officers\n<|id|>66<|page|>6<|box|>814 140 830 537<|content|>Resolution 7 — Officer's Certificate Authorization\n<|id|>68<|page|>7<|box|>213 140 229 493<|content|>Resolution 8 — Engagement of Professionals\n<|id|>72<|page|>7<|box|>630 140 647 447<|content|>Resolution 9 — General Authorization\n<|id|>75<|page|>8<|box|>231 142 248 401<|content|>Resolution 10 — Governing Law\n<|id|>77<|page|>8<|box|>409 248 426 748<|content|>[Remainder of page intentionally left blank; signa\n<|id|>78<|page|>8<|box|>434 163 469 831<|content|>SIGNATURE PAGE TO UNANIMOUS WRITTEN CONSENT OF THE\n<|id|>88<|page|>9<|box|>276 429 294 568<|content|>ATTESTATION\n<|id|>91<|page|>9<|box|>450 331 472 663<|content|>SECRETARY'S CERTIFICATE\n<|id|>92<|page|>9<|box|>489 478 512 517<|content|>OF\n<|id|>93<|page|>9<|box|>527 303 549 694<|content|>AURELIUS MEDIA HOLDINGS INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>3\n<|id|>41<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>3\n<|id|>53<|level|>3\n<|id|>60<|level|>3\n<|id|>66<|level|>3\n<|id|>68<|level|>3\n<|id|>72<|level|>3\n<|id|>75<|level|>3\n<|id|>77<|level|>-1\n<|id|>78<|level|>2\n<|id|>88<|level|>2\n<|id|>91<|level|>2\n<|id|>92<|level|>2\n<|id|>93<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 1
+        }
+    ]
+}

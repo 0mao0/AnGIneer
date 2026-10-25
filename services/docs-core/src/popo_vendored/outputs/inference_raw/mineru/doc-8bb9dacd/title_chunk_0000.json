@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>185 140 203 496<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>5<|page|>1<|box|>256 174 292 854<|content|>Re: Response to Demand for Inspection of Books and\n<|id|>6<|page|>1<|box|>301 142 318 266<|content|>Dear Mr. Sayer:\n<|id|>10<|page|>1<|box|>675 140 691 655<|content|>I. IDENTIFICATION OF THE DEMANDING STOCKHOLDER\n<|id|>14<|page|>2<|box|>285 140 301 426<|content|>II. SUMMARY OF THE DEMAND\n<|id|>24<|page|>3<|box|>89 140 107 705<|content|>III. THE COMPANY'S POSITION REGARDING PROPER PURPO\n<|id|>25<|page|>3<|box|>121 140 138 578<|content|>A. The Proper Purpose Requirement Under Section 22\n<|id|>28<|page|>3<|box|>476 140 494 640<|content|>B. Qualified Acceptance of Proper Purpose — With L\n<|id|>32<|page|>4<|box|>89 140 106 589<|content|>IV. OBJECTIONS TO THE SCOPE OF THE DEMAND\n<|id|>34<|page|>4<|box|>220 140 238 477<|content|>A. Overarching Objection — Overbreadth\n<|id|>39<|page|>4<|box|>700 140 718 643<|content|>B. Specific Objection — Attorney-Client Privilege\n<|id|>44<|page|>5<|box|>484 140 502 764<|content|>C. Specific Objection — Work Product Doctrine (Cat\n<|id|>48<|page|>6<|box|>89 140 108 624<|content|>D. Specific Objection — CEO Search Materials (Cate\n<|id|>54<|page|>6<|box|>797 140 815 673<|content|>E. Specific Objection — Defensive Measures Analysi\n<|id|>58<|page|>7<|box|>367 140 383 395<|content|>F. Objection to Temporal Scope\n<|id|>63<|page|>7<|box|>763 140 782 661<|content|>V. DOCUMENTS THE COMPANY IS WILLING TO PRODUCE\n<|id|>65<|page|>8<|box|>90 140 107 439<|content|>A. Corporate Governance Documents\n<|id|>70<|page|>8<|box|>369 140 386 514<|content|>B. Board Resolutions (Non-Privileged Portions)\n<|id|>76<|page|>8<|box|>728 140 744 403<|content|>C. Public Filings and Disclosures\n<|id|>80<|page|>9<|box|>138 140 157 560<|content|>D. Non-Privileged Correspondence with Corvus Peak\n<|id|>82<|page|>9<|box|>295 140 311 450<|content|>VI. CONDITIONS OF PRODUCTION\n<|id|>84<|page|>9<|box|>388 140 406 377<|content|>A. Confidentiality Agreement\n<|id|>93<|page|>10<|box|>194 140 212 433<|content|>B. Format and Timing of Production\n<|id|>97<|page|>10<|box|>446 140 464 338<|content|>C. Reservation of Rights\n<|id|>104<|page|>10<|box|>842 140 859 331<|content|>VII. PRIVILEGE LOG\n<|id|>115<|page|>11<|box|>601 140 619 415<|content|>VIII. INVITATION TO CONFER\n<|id|>123<|page|>12<|box|>266 140 303 821<|content|>IX. RESERVATION REGARDING IMPROPER PURPOSE AND PRO\n<|id|>132<|page|>13<|box|>148 140 166 254<|content|>X. CLOSING",
+    "raw_response": "<|id|>3<|level|>-1\n<|id|>5<|level|>1\n<|id|>6<|level|>-1\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>28<|level|>3\n<|id|>32<|level|>2\n<|id|>34<|level|>3\n<|id|>39<|level|>3\n<|id|>44<|level|>3\n<|id|>48<|level|>3\n<|id|>54<|level|>3\n<|id|>58<|level|>3\n<|id|>63<|level|>2\n<|id|>65<|level|>3\n<|id|>70<|level|>3\n<|id|>76<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>2\n<|id|>84<|level|>3\n<|id|>93<|level|>3\n<|id|>97<|level|>3\n<|id|>104<|level|>2\n<|id|>115<|level|>2\n<|id|>123<|level|>2\n<|id|>132<|level|>2",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        }
+    ]
+}

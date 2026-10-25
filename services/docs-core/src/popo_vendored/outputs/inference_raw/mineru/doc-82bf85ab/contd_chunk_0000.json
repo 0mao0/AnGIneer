@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>219 349 234 648<|content|>ARDENT GP INTERMEDIATE LLC\n<|id|>3<|page|>1<|box|>244 143 279 852<|content|>Filed Pursuant to Section 18-201 of the Delaware Limited Liability Company Act (6 Del. ... § 18- 201)\n<|id|>4<|page|>1<|box|>289 359 305 637<|content|>CERTIFICATE OF FORMATION\n<|id|>5<|page|>1<|box|>315 483 330 514<|content|>OF\n<|id|>6<|page|>1<|box|>340 349 357 648<|content|>ARDENT GP INTERMEDIATE LLC\n<|id|>7<|page|>1<|box|>367 140 421 854<|content|>The undersigned, being an authorized person for th...any Act (6 Del. ... ), hereby certifies as follows\n<|id|>13<|page|>1<|box|>558 143 575 573<|content|>REGISTERED OFFICE AND REGISTERED AGENT\n<|id|>14<|page|>1<|box|>584 143 602 833<|content|>The address of the registered office of the limite...ited liability company in the State of Delaware is\n<|id|>15<|page|>1<|box|>611 176 627 620<|content|>850 New Burton Road, Suite 201, Dover, Delaware 19904\n<|id|>16<|page|>1<|box|>637 142 654 751<|content|>The name of the registered agent of the limited li...f the limited liability company at such address is\n<|id|>21<|page|>1<|box|>784 176 801 367<|content|>Name: ... Marcus Aldridge\n<|id|>22<|page|>1<|box|>801 176 818 727<|content|>Address: ... 590 Madison Avenue, 28th Floor, New York, New York 10022\n<|id|>23<|page|>1<|box|>819 140 854 854<|content|>IN WITNESS WHEREOF, the undersigned has executed t... this Certificate of Formation as of March 1, 2024\n<|id|>24<|page|>1<|box|>864 143 898 323<|content|>By: ... Marcus Aldridge\n<|id|>25<|page|>2<|box|>90 142 125 297<|content|>Authorized Person Date: ... March 1, 2024\n<|id|>30<|page|>2<|box|>318 176 335 357<|content|>File Number: ... 7948237\n<|id|>31<|page|>2<|box|>344 176 362 385<|content|>Date Filed: ... March 1, 2024\n<|id|>32<|page|>2<|box|>369 176 387 415<|content|>Effective Date: ... March 1, 2024\n<|id|>33<|page|>2<|box|>396 140 414 598<|content|>Jeffrey W. ... Bullock Secretary of State of the State of Delaware\n<|id|>34<|page|>2<|box|>414 142 430 338<|content|>Authentication: ... Authentication",
+    "raw_response": "<|src_id|>4<|tgt_id|>5\n<|src_id|>5<|tgt_id|>6",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        }
+    ]
+}

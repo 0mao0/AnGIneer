@@ -1,0 +1,55 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|page|>1<|box|>325 140 344 375<|content|>I. Purpose and Authorization\n<|id|>17<|page|>2<|box|>152 140 170 460<|content|>II. Confirmation of Opening Conference\n<|id|>30<|page|>2<|box|>781 140 797 637<|content|>III. Identification of Taxpayer and Returns Under\n<|id|>44<|page|>3<|box|>507 142 523 323<|content|>IV. Key PPC Contacts\n<|id|>49<|page|>3<|box|>819 142 837 464<|content|>V. Preliminary Matters and Cooperation\n<|id|>54<|page|>4<|box|>578 142 595 338<|content|>VI. Contact Information\n<|id|>62<|page|>4<|box|>859 142 877 243<|content|>VII. Closing\n<|id|>71<|page|>5<|box|>454 143 469 232<|content|>Enclosure:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>17<|level|>2\n<|id|>30<|level|>2\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>2\n<|id|>62<|level|>2\n<|id|>71<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        }
+    ]
+}

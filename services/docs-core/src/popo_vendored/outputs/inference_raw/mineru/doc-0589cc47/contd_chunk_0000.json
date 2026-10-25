@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>90 140 126 841<|content|>UNITED STATES DISTRICT COURT FOR THE CENTRAL DISTR...YON SEMICONDUCTOR AG, a German Aktiengesellschaft,\n<|id|>1<|page|>1<|box|>135 212 151 294<|content|>Petitioner,\n<|id|>3<|page|>1<|box|>186 140 220 854<|content|>MERIDIAN DYNAMICS INC. ... and DEREK CALLOWAY, an individual,\n<|id|>4<|page|>1<|box|>231 212 248 315<|content|>Respondents. ... Respondents\n<|id|>5<|page|>1<|box|>256 588 273 854<|content|>Case No. ... 25-cv-08742-RGK-PLA\n<|id|>6<|page|>1<|box|>282 665 299 854<|content|>Hon. ... Kendrick\n<|id|>54<|page|>5<|box|>840 140 896 854<|content|>28. ... The arbitration was commenced under AAA/ICDR Case\n<|id|>55<|page|>6<|box|>90 174 125 854<|content|>No. ... I authorized the filing of the Demand for Arbitration on behalf of Halcyon\n<|id|>110<|page|>10<|box|>916 142 929 834<|content|>DECLARATION OF DR. ... KATHARINA REINHARDT IN SUPPORT OF PETITION TO CONFIRM ARBITRATION AWARD\n<|id|>112<|page|>11<|box|>253 140 315 792<|content|>CALDERWOOD & HARKNESS LLP 777 South Figueroa Stree... Attorneys for Petitioner Halcyon Semiconductor AG",
+    "raw_response": "<|src_id|>54<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        }
+    ]
+}

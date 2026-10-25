@@ -1,0 +1,154 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        101,
+        118
+    ],
+    "pages": [
+        101,
+        102,
+        104,
+        106,
+        108,
+        109,
+        111,
+        113,
+        114,
+        115,
+        117,
+        118
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>633<|page|>101<|box|>61 290 107 707<|content|>DAVE & BUSTER’S ENTERTAINMENT, INC. NOTES TO CONSO\n<|id|>638<|page|>101<|box|>542 63 556 197<|content|>Note 2: Inventories\n<|id|>642<|page|>102<|box|>60 289 108 707<|content|>DAVE & BUSTER’S ENTERTAINMENT, INC. NOTES TO CONSO\n<|id|>643<|page|>102<|box|>152 63 170 290<|content|>Note 3: Property and Equipment\n<|id|>646<|page|>102<|box|>434 63 450 339<|content|>Note 4: Goodwill and Tradename Assets\n<|id|>649<|page|>102<|box|>633 63 648 251<|content|>Note 5: Accrued Liabilities\n<|id|>652<|page|>104<|box|>61 289 107 707<|content|>DAVE & BUSTER’S ENTERTAINMENT, INC. NOTES TO CONSO\n<|id|>653<|page|>104<|box|>152 63 167 156<|content|>Note 6: Debt\n<|id|>656<|page|>104<|box|>369 104 383 207<|content|>Credit Facility\n<|id|>666<|page|>104<|box|>811 107 827 305<|content|>7.625% Senior Secured Notes\n<|id|>668<|page|>106<|box|>61 290 107 707<|content|>DAVE & BUSTER’S ENTERTAINMENT, INC. NOTES TO CONSO\n<|id|>670<|page|>106<|box|>169 104 184 274<|content|>Loss on debt refinancing\n<|id|>674<|page|>106<|box|>481 104 496 264<|content|>Future debt obligations\n<|id|>677<|page|>106<|box|>667 104 681 472<|content|>Interest expense and weighted average effective in\n<|id|>681<|page|>108<|box|>60 289 108 707<|content|>DAVE & BUSTER’S ENTERTAINMENT, INC. NOTES TO CONSO\n<|id|>682<|page|>108<|box|>152 62 169 215<|content|>Note 7: Income Taxes\n<|id|>688<|page|>109<|box|>61 289 108 707<|content|>DAVE & BUSTER’S ENTERTAINMENT, INC. NOTES TO CONSO\n<|id|>696<|page|>111<|box|>60 290 107 707<|content|>DAVE & BUSTER’S ENTERTAINMENT, INC. NOTES TO CONSO\n<|id|>700<|page|>111<|box|>277 63 292 166<|content|>Note 8: Leases\n<|id|>710<|page|>113<|box|>61 290 107 707<|content|>DAVE & BUSTER’S ENTERTAINMENT, INC. NOTES TO CONSO\n<|id|>712<|page|>113<|box|>183 104 198 302<|content|>Sale-Leaseback Transactions\n<|id|>719<|page|>114<|box|>61 290 107 707<|content|>DAVE & BUSTER’S ENTERTAINMENT, INC. NOTES TO CONSO\n<|id|>720<|page|>114<|box|>154 63 169 264<|content|>Note 9: Stockholders’ Equity\n<|id|>721<|page|>114<|box|>183 62 198 285<|content|>Share issuances and repurchases\n<|id|>725<|page|>114<|box|>407 63 422 169<|content|>Cash dividends\n<|id|>727<|page|>114<|box|>459 62 474 243<|content|>Share-based compensation\n<|id|>731<|page|>115<|box|>60 289 108 707<|content|>DAVE & BUSTER’S ENTERTAINMENT, INC. NOTES TO CONSO\n<|id|>741<|page|>117<|box|>61 290 107 707<|content|>DAVE & BUSTER’S ENTERTAINMENT, INC. NOTES TO CONSO\n<|id|>745<|page|>117<|box|>382 63 397 192<|content|>Contingent awards\n<|id|>747<|page|>117<|box|>542 63 556 352<|content|>Note 10: Commitments and Contingencies\n<|id|>750<|page|>118<|box|>61 289 107 707<|content|>DAVE & BUSTER’S ENTERTAINMENT, INC. NOTES TO CONSO\n<|id|>751<|page|>118<|box|>152 62 169 272<|content|>Note 11: Segment Information",
+    "raw_response": "<|id|>633<|level|>1\n<|id|>638<|level|>2\n<|id|>642<|level|>1\n<|id|>643<|level|>2\n<|id|>646<|level|>2\n<|id|>649<|level|>2\n<|id|>652<|level|>1\n<|id|>653<|level|>2\n<|id|>656<|level|>3\n<|id|>666<|level|>3\n<|id|>668<|level|>1\n<|id|>670<|level|>3\n<|id|>674<|level|>3\n<|id|>677<|level|>3\n<|id|>681<|level|>1\n<|id|>682<|level|>2\n<|id|>688<|level|>1\n<|id|>696<|level|>1\n<|id|>700<|level|>2\n<|id|>710<|level|>1\n<|id|>712<|level|>3\n<|id|>719<|level|>1\n<|id|>720<|level|>2\n<|id|>721<|level|>3\n<|id|>725<|level|>3\n<|id|>727<|level|>3\n<|id|>731<|level|>1\n<|id|>741<|level|>1\n<|id|>745<|level|>3\n<|id|>747<|level|>2\n<|id|>750<|level|>1\n<|id|>751<|level|>2",
+    "parsed": [
+        {
+            "id": 633,
+            "level": 1
+        },
+        {
+            "id": 638,
+            "level": 2
+        },
+        {
+            "id": 642,
+            "level": 1
+        },
+        {
+            "id": 643,
+            "level": 2
+        },
+        {
+            "id": 646,
+            "level": 2
+        },
+        {
+            "id": 649,
+            "level": 2
+        },
+        {
+            "id": 652,
+            "level": 1
+        },
+        {
+            "id": 653,
+            "level": 2
+        },
+        {
+            "id": 656,
+            "level": 3
+        },
+        {
+            "id": 666,
+            "level": 3
+        },
+        {
+            "id": 668,
+            "level": 1
+        },
+        {
+            "id": 670,
+            "level": 3
+        },
+        {
+            "id": 674,
+            "level": 3
+        },
+        {
+            "id": 677,
+            "level": 3
+        },
+        {
+            "id": 681,
+            "level": 1
+        },
+        {
+            "id": 682,
+            "level": 2
+        },
+        {
+            "id": 688,
+            "level": 1
+        },
+        {
+            "id": 696,
+            "level": 1
+        },
+        {
+            "id": 700,
+            "level": 2
+        },
+        {
+            "id": 710,
+            "level": 1
+        },
+        {
+            "id": 712,
+            "level": 3
+        },
+        {
+            "id": 719,
+            "level": 1
+        },
+        {
+            "id": 720,
+            "level": 2
+        },
+        {
+            "id": 721,
+            "level": 3
+        },
+        {
+            "id": 725,
+            "level": 3
+        },
+        {
+            "id": 727,
+            "level": 3
+        },
+        {
+            "id": 731,
+            "level": 1
+        },
+        {
+            "id": 741,
+            "level": 1
+        },
+        {
+            "id": 745,
+            "level": 3
+        },
+        {
+            "id": 747,
+            "level": 2
+        },
+        {
+            "id": 750,
+            "level": 1
+        },
+        {
+            "id": 751,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,164 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-m1lmnysw\\input\\pdfs\\doc-1ef2ccb3.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-m1lmnysw\\enriched\\doc-1ef2ccb3.json",
+    "contd_output": "",
+    "title_output": "<|id|>12<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>2\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>42<|level|>2\n<|id|>48<|level|>2\n<|id|>55<|level|>2\n<|id|>62<|level|>2\n<|id|>68<|level|>2\n<|id|>75<|level|>2\n<|id|>83<|level|>1\n<|id|>91<|level|>1\n<|id|>101<|level|>1\n<|id|>108<|level|>1\n<|id|>109<|level|>2\n<|id|>114<|level|>2\n<|id|>119<|level|>2\n<|id|>129<|level|>2\n<|id|>135<|level|>1\n<|id|>140<|level|>1\n<|id|>148<|level|>1\n<|id|>151<|level|>1\n<|id|>156<|level|>1\n<|id|>160<|level|>1\n<|id|>165<|level|>1\n<|id|>171<|level|>1\n<|id|>174<|level|>1\n<|id|>182<|level|>1\n<|id|>201<|level|>1",
+    "image_output": "<|src_id|>93<|tgt_id|>91\n<|src_id|>94<|tgt_id|>91\n<|src_id|>111<|tgt_id|>109",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 171,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 182,
+            "level": 1
+        },
+        {
+            "id": 201,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 93,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 91
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 109
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 93,
+            "table2_idx": 94,
+            "upper_row_ss": [
+                [
+                    "Audrey Zhou",
+                    "Working Associate",
+                    "Capital Markets"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Leonard Cross",
+                    "Specialist Partner",
+                    "Tax"
+                ]
+            ]
+        }
+    ]
+}

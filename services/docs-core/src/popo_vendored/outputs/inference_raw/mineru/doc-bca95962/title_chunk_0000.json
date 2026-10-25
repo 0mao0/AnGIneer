@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 230 130 854<|content|>CALDERWOOD & HARKNESS LLP 787 Seventh Avenue New Y\n<|id|>11<|page|>1<|box|>753 140 770 588<|content|>Acknowledgment of Receipt and Corvus Peak's Standi\n<|id|>15<|page|>2<|box|>277 140 294 343<|content|>Summary of the Demand\n<|id|>25<|page|>2<|box|>837 140 854 439<|content|>I. Legal Standard Under DGCL § 220\n<|id|>30<|page|>3<|box|>684 140 703 540<|content|>II. The Company's Response to the Stated Purpose\n<|id|>35<|page|>4<|box|>359 140 376 478<|content|>III. Objections to the Scope of the Demand\n<|id|>37<|page|>4<|box|>489 140 506 586<|content|>A. Attorney-Client Privilege and Work Product Doct\n<|id|>48<|page|>5<|box|>617 142 633 473<|content|>B. Overbreadth — CEO Search Materials\n<|id|>59<|page|>6<|box|>844 140 861 544<|content|>C. Overbreadth — Inter-Director Communications\n<|id|>63<|page|>7<|box|>411 140 428 468<|content|>D. Documents Already Publicly Available\n<|id|>70<|page|>8<|box|>90 140 107 555<|content|>IV. Documents the Company Is Prepared to Produce\n<|id|>81<|page|>9<|box|>148 140 167 483<|content|>V. Confidentiality Agreement Requirement\n<|id|>89<|page|>9<|box|>738 140 755 282<|content|>VI. Privilege Log\n<|id|>98<|page|>10<|box|>388 140 406 352<|content|>VII. Reservation of Rights\n<|id|>106<|page|>11<|box|>89 140 107 418<|content|>VIII. Request for Meet and Confer\n<|id|>109<|page|>11<|box|>402 140 420 210<|content|>Closing",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>11<|level|>1\n<|id|>15<|level|>1\n<|id|>25<|level|>1\n<|id|>30<|level|>1\n<|id|>35<|level|>1\n<|id|>37<|level|>2\n<|id|>48<|level|>2\n<|id|>59<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>1\n<|id|>81<|level|>1\n<|id|>89<|level|>1\n<|id|>98<|level|>1\n<|id|>106<|level|>1\n<|id|>109<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        }
+    ]
+}

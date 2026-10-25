@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 150 280 846<|content|>STATE OF ILLINOIS ILLINOIS COMMERCE COMMISSION In\n<|id|>1<|page|>1<|box|>304 140 321 437<|content|>I. RECITALS AND BACKGROUND\n<|id|>2<|page|>1<|box|>335 140 352 333<|content|>A. The Verified Petition\n<|id|>10<|page|>2<|box|>212 140 229 300<|content|>B. Federal Funding\n<|id|>14<|page|>2<|box|>742 140 758 320<|content|>D. Procedural History\n<|id|>18<|page|>3<|box|>239 140 255 496<|content|>E. Grant Rescission and Motion to Withdraw\n<|id|>24<|page|>3<|box|>816 140 834 460<|content|>F. Responses to the Motion to Withdraw\n<|id|>30<|page|>4<|box|>300 140 316 261<|content|>II. FINDINGS\n<|id|>33<|page|>4<|box|>571 140 588 364<|content|>B. Grounds for Withdrawal\n<|id|>36<|page|>4<|box|>834 140 852 349<|content|>C. No Prejudice to Parties\n<|id|>42<|page|>5<|box|>398 140 417 284<|content|>D. Right to Refile\n<|id|>44<|page|>5<|box|>609 140 628 245<|content|>III. ORDER\n<|id|>58<|page|>6<|box|>516 140 534 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>3\n<|id|>10<|level|>3\n<|id|>14<|level|>3\n<|id|>18<|level|>3\n<|id|>24<|level|>3\n<|id|>30<|level|>2\n<|id|>33<|level|>3\n<|id|>36<|level|>3\n<|id|>42<|level|>3\n<|id|>44<|level|>2\n<|id|>58<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        }
+    ]
+}

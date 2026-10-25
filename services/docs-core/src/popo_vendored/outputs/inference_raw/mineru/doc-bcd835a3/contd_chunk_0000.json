@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        36
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        8,
+        17,
+        35,
+        36
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 424 151 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>160 140 176 689<|content|>TO: ... Dominic Hale, General Counsel, Northgate Telecommunications PLC\n<|id|>3<|page|>1<|box|>186 140 203 671<|content|>FROM: ... Linda Osei, Responsible Partner, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>212 140 229 346<|content|>DATE: ... September 1, 2024\n<|id|>5<|page|>1<|box|>237 140 292 854<|content|>RE: ... 654321/2024\n<|id|>6<|page|>1<|box|>300 142 316 361<|content|>MATTER NO. ... 1022-00005\n<|id|>7<|page|>1<|box|>325 140 473 854<|content|>PRIVILEGE DESIGNATION: ... Any inadvertent disclos...torney-client privilege or work product protection\n<|id|>19<|page|>2<|box|>768 138 896 857<|content|>Northgate Fiber Americas Inc. ... For the fiscal year ended December 31,\n<|id|>20<|page|>3<|box|>89 140 164 854<|content|>2023, NFA's US fiber segment generated revenue of ...mination, to the replacement contractor engagement\n<|id|>37<|page|>5<|box|>42 163 71 833<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>38<|page|>5<|box|>90 174 181 856<|content|>Section 14. ... Meridian's central claim rests on ...onvenience termination, entitling it to the 8% fee\n<|id|>70<|page|>8<|box|>42 163 71 833<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>71<|page|>8<|box|>90 140 181 856<|content|>February 19, 2024 — Cure Notice No. ... The second...ould cure the schedule delays and quality failures\n<|id|>156<|page|>17<|box|>42 163 71 833<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>157<|page|>17<|box|>90 140 181 854<|content|>Evidentiary Support. ... These reports provide a d...mance, and will constitute powerful trial evidence\n<|id|>339<|page|>35<|box|>867 140 904 856<|content|>Fourth, the consequential damages waiver in MCA § 20. ... The waiver bars\n<|id|>340<|page|>36<|box|>42 163 71 833<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION / ATTORNEY WORK PRODUCT\n<|id|>341<|page|>36<|box|>89 140 126 854<|content|>a significant portion of Meridian's claims, while ...ted basis for $49 million in counterclaim recovery\n<|id|>345<|page|>36<|box|>337 176 354 689<|content|>Dominic Hale, General Counsel, Northgate Telecommunications PLC\n<|id|>346<|page|>36<|box|>363 174 398 854<|content|>cc: ... Hale's discretion)\n<|id|>347<|page|>36<|box|>407 174 424 816<|content|>cc: ... Hale's discretion)\n<|id|>348<|page|>36<|box|>431 140 449 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>349<|page|>36<|box|>450 142 467 251<|content|>By: ... By\n<|id|>350<|page|>36<|box|>467 140 484 596<|content|>Linda Osei Responsible Partner Calderwood & Harkness LLP\n<|id|>351<|page|>36<|box|>484 140 502 330<|content|>Date: ... September 1, 2024",
+    "raw_response": "<|src_id|>19<|tgt_id|>20\n<|src_id|>339<|tgt_id|>341",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 339,
+            "tgt_id": 341
+        }
+    ]
+}

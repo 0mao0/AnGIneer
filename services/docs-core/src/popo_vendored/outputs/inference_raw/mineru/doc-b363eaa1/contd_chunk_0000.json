@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 728 152 854<|content|>August 16, 2024\n<|id|>2<|page|>1<|box|>160 140 178 764<|content|>Pinnacle Trust Bank, N. ... 600 Lexington Avenue, 22nd Floor New York, NY 10022\n<|id|>3<|page|>1<|box|>186 174 204 457<|content|>Attention: ... Syndicated Lending Group\n<|id|>4<|page|>1<|box|>204 140 220 316<|content|>Ladies and Gentlemen: ... Ladies and Gentlemen\n<|id|>7<|page|>1<|box|>482 174 554 856<|content|>(ii) the Guaranty Agreement dated as of August 16,... of the Borrower under the Loan Agreement; ... and\n<|id|>9<|page|>1<|box|>643 140 718 856<|content|>Capitalized terms used but not otherwise defined h... Agreement on the date hereof (the \"Closing Date\")\n<|id|>58<|page|>5<|box|>869 210 906 857<|content|>(iii) The Board of Directors of AH Platform duly a...rizing the execution, delivery, and performance by\n<|id|>59<|page|>6<|box|>90 210 143 854<|content|>AH Platform of the Loan Documents to which AH Plat...ain in full force and effect as of the date hereof\n<|id|>73<|page|>7<|box|>252 210 470 856<|content|>(b) violate any law, statute, rule, or regulation ...der, in each case to the extent applicable. ... or\n<|id|>75<|page|>7<|box|>669 174 780 856<|content|>We express no opinion in this Opinion 6 regarding ... (iii) any antitrust, competition, or similar laws\n<|id|>77<|page|>7<|box|>814 174 905 857<|content|>No consent, approval, authorization, license, perm...-Five Million Dollars ($25,000,000) under the Loan\n<|id|>78<|page|>8<|box|>90 176 127 854<|content|>Agreement, or (c) the grant by each Grantor of the...contemplated by the Security Agreement, other than\n<|id|>82<|page|>8<|box|>393 210 467 854<|content|>(iv) such filings, recordings, notices, or other a...ancial institutions other than the Lender; ... and\n<|id|>84<|page|>8<|box|>520 174 630 856<|content|>This opinion does not cover the laws of any state ...e Borrower and its subsidiaries conduct operations\n<|id|>94<|page|>9<|box|>830 174 905 857<|content|>(e) Limitations on Security Interest Opinions. ......ny Excluded Collateral (as defined in the Security\n<|id|>95<|page|>10<|box|>90 174 200 857<|content|>Agreement), or (iii) the effect of federal law (in...g the jurisdiction of organization of each Grantor\n<|id|>99<|page|>10<|box|>395 210 449 854<|content|>(ii) challenges or seeks to invalidate, set aside,...y of the transactions contemplated thereby; ... or\n<|id|>101<|page|>10<|box|>520 174 628 857<|content|>The foregoing is a negative assurance statement an...he transactions contemplated by the Loan Documents\n<|id|>135<|page|>13<|box|>792 233 810 763<|content|>[Remainder of this page intentionally left blank; ... signature page follows]\n<|id|>136<|page|>13<|box|>819 142 835 272<|content|>Very truly yours,\n<|id|>139<|page|>13<|box|>878 143 895 313<|content|>Name: ... Claudia Merritt\n<|id|>140<|page|>14<|box|>90 143 106 245<|content|>Title: ... Partner",
+    "raw_response": "<|src_id|>58<|tgt_id|>59\n<|src_id|>77<|tgt_id|>78\n<|src_id|>94<|tgt_id|>95",
+    "parsed": [
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 95
+        }
+    ]
+}

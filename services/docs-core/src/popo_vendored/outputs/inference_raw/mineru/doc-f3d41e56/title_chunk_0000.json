@@ -1,0 +1,47 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>612 140 628 478<|content|>Background and Summary of Negotiations\n<|id|>23<|page|>2<|box|>729 140 744 357<|content|>Notification of Withdrawal\n<|id|>26<|page|>3<|box|>212 142 229 387<|content|>Lapse of Negotiated Provisions\n<|id|>39<|page|>4<|box|>645 140 662 535<|content|>No Executed Agreements; No Binding Obligations\n<|id|>45<|page|>5<|box|>167 140 184 266<|content|>Confidentiality\n<|id|>47<|page|>5<|box|>398 142 417 415<|content|>Return and Retention of Materials\n<|id|>49<|page|>5<|box|>613 140 628 318<|content|>Professional Courtesy",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>23<|level|>1\n<|id|>26<|level|>1\n<|id|>39<|level|>1\n<|id|>45<|level|>1\n<|id|>47<|level|>1\n<|id|>49<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        }
+    ]
+}

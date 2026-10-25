@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>213 145 250 851<|content|>Delivered pursuant to Section 8. ... 02(d) of the ... 2, 2023 (the \"License Agreement\"), by and between\n<|id|>4<|page|>1<|box|>258 233 275 764<|content|>Penterra Pharmaceuticals Corp. ... , a Delaware corporation (\"Licensor\"),\n<|id|>5<|page|>1<|box|>284 483 299 514<|content|>and\n<|id|>6<|page|>1<|box|>309 194 327 802<|content|>Meridian Bio Therapeutics Limited, a Hong Kong limited company (\"Licensee\")\n<|id|>7<|page|>1<|box|>334 671 351 854<|content|>Date: ... October 20, 2023\n<|id|>8<|page|>1<|box|>361 140 599 856<|content|>The undersigned, David R. ... , a corporation orga...a-Pacific Territory as defined therein, as follows\n<|id|>13<|page|>1<|box|>819 174 856 854<|content|>(d) that certain Trademark License Agreement dated...idian (the \"Trademark License Agreement\"); ... and\n<|id|>15<|page|>2<|box|>89 140 164 856<|content|>Capitalized terms used but not otherwise defined i...\"closing deliverable\" as such term is used therein\n<|id|>54<|page|>6<|box|>292 140 354 856<|content|>PRC Technology Import/Export Filing. ... Meridian ...ulations of the People's Republic of China (中华人民共和\n<|id|>55<|page|>6<|box|>363 140 493 856<|content|>国技术进出口管理条例 ) and the related implementing rules pr...e or other approval issued in connection therewith\n<|id|>82<|page|>8<|box|>734 143 751 485<|content|>Title: ... General Counsel and Authorized Officer\n<|id|>83<|page|>8<|box|>752 143 768 318<|content|>Date: ... October 20, 2023\n<|id|>91<|page|>9<|box|>159 176 175 400<|content|>Calderwood & Harkness LLP\n<|id|>92<|page|>9<|box|>185 176 220 834<|content|>Attention: ... 600 Lexington Avenue, 30th Floor New York, New York 10022 United States of America\n<|id|>94<|page|>9<|box|>253 176 271 377<|content|>Lam, Cheung & Firth LLP\n<|id|>95<|page|>9<|box|>279 176 297 431<|content|>Attention: ... Firth, Esq\n<|id|>96<|page|>9<|box|>297 176 315 660<|content|>25/F, Jardine House 1 Connaught Place, Central Hong Kong SAR\n<|id|>97<|page|>9<|box|>321 140 383 854<|content|>CONFIDENTIAL — This Officer's Certificate and its ...except as required by applicable law or regulation",
+    "raw_response": "<|src_id|>3<|tgt_id|>4\n<|src_id|>4<|tgt_id|>5\n<|src_id|>5<|tgt_id|>6\n<|src_id|>54<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        }
+    ]
+}

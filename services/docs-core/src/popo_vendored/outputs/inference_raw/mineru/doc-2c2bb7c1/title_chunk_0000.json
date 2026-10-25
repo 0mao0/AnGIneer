@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>13<|page|>1<|box|>763 140 780 498<|content|>1. DTC Participant Status of Brindoval Trust\n<|id|>16<|page|>2<|box|>186 140 204 383<|content|>2. Description of the Securities\n<|id|>20<|page|>2<|box|>777 140 794 415<|content|>3. Confirmation of DTC Eligibility\n<|id|>28<|page|>3<|box|>517 140 534 349<|content|>4. Book-Entry Procedures\n<|id|>36<|page|>4<|box|>321 140 339 393<|content|>5. Transfer Restrictions Legend\n<|id|>40<|page|>4<|box|>770 140 787 467<|content|>6. Paying Agent / Registrar Confirmation\n<|id|>45<|page|>5<|box|>439 140 457 326<|content|>7. Contact Information\n<|id|>49<|page|>5<|box|>592 140 609 207<|content|>Closing\n<|id|>52<|page|>5<|box|>834 401 852 596<|content|>[Signature Page Follows]",
+    "raw_response": "<|id|>13<|level|>1\n<|id|>16<|level|>1\n<|id|>20<|level|>1\n<|id|>28<|level|>1\n<|id|>36<|level|>1\n<|id|>40<|level|>1\n<|id|>45<|level|>1\n<|id|>49<|level|>1\n<|id|>52<|level|>-1",
+    "parsed": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        }
+    ]
+}

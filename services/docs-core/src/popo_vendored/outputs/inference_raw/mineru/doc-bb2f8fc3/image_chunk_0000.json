@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 401 119 594<|content|>CROSS-RECEIPT\n<|id|>1<|type|>title<|page|>1<|box|>136 410 154 588<|content|>Base Offering Closing\n<|id|>2<|type|>title<|page|>1<|box|>162 424 179 573<|content|>February 13, 2024\n<|id|>4<|type|>title<|page|>1<|box|>339 140 356 243<|content|>RECITALS\n<|id|>11<|type|>title<|page|>1<|box|>845 140 863 503<|content|>SECTION 1. RECEIPT BY THE COMPANY\n<|id|>15<|type|>table<|page|>2<|box|>313 143 484 852<|content|>None\n<|id|>17<|type|>title<|page|>2<|box|>595 140 632 758<|content|>SECTION 2. RECEIPT BY THE REPRESENTATIVE ON BEHALF\n<|id|>20<|type|>table<|page|>3<|box|>133 143 244 852<|content|>None\n<|id|>22<|type|>title<|page|>3<|box|>393 140 410 498<|content|>SECTION 3. CONFIRMATION OF TERMS\n<|id|>30<|type|>title<|page|>4<|box|>89 140 106 745<|content|>SECTION 4. POST-CLOSING CAPITALIZATION ACKNOWLEDGM\n<|id|>33<|type|>title<|page|>4<|box|>364 140 383 761<|content|>SECTION 5. NO FURTHER OBLIGATIONS; PRESERVATION OF\n<|id|>36<|type|>title<|page|>4<|box|>660 140 676 413<|content|>SECTION 6. GOVERNING LAW\n<|id|>38<|type|>title<|page|>4<|box|>800 140 816 401<|content|>SECTION 7. COUNTERPARTS\n<|id|>40<|type|>title<|page|>5<|box|>133 400 152 596<|content|>[Signature Pages Follow]\n<|id|>42<|type|>title<|page|>5<|box|>209 142 226 295<|content|>THE COMPANY:.\n<|id|>49<|type|>title<|page|>5<|box|>344 142 359 486<|content|>ARBOR HEALTH TECHNOLOGIES INC.\n<|id|>56<|type|>title<|page|>5<|box|>505 140 523 797<|content|>THE REPRESENTATIVE (ON BEHALF OF THE SEVERAL UNDER",
+    "raw_response": "<|src_id|>15<|tgt_id|>11\n<|src_id|>20<|tgt_id|>17",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        }
+    ]
+}

@@ -1,0 +1,158 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-edlx71lt\\input\\pdfs\\doc-af739270.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-edlx71lt\\enriched\\doc-af739270.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>4<|level|>1\n<|id|>7<|level|>1\n<|id|>18<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>1\n<|id|>41<|level|>2\n<|id|>53<|level|>2\n<|id|>60<|level|>2\n<|id|>68<|level|>2\n<|id|>76<|level|>2\n<|id|>83<|level|>2\n<|id|>98<|level|>2\n<|id|>105<|level|>1\n<|id|>118<|level|>1\n<|id|>123<|level|>1\n<|id|>134<|level|>1\n<|id|>135<|level|>2\n<|id|>140<|level|>2\n<|id|>148<|level|>2\n<|id|>152<|level|>1\n<|id|>163<|level|>1\n<|id|>168<|level|>1\n<|id|>171<|level|>1\n<|id|>174<|level|>1\n<|id|>189<|level|>1",
+    "image_output": "<|src_id|>31<|tgt_id|>30\n<|src_id|>32<|tgt_id|>30\n<|src_id|>35<|tgt_id|>34\n<|src_id|>37<|tgt_id|>34",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 171,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 189,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 31,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 34
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 31,
+            "table2_idx": 32,
+            "upper_row_ss": [
+                [
+                    "Full Legal Name",
+                    "Castellan Holdings Limited"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

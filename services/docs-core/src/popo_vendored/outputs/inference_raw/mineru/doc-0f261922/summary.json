@@ -1,0 +1,150 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nedn4mr4\\input\\pdfs\\doc-0f261922.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nedn4mr4\\enriched\\doc-0f261922.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>28<|level|>3\n<|id|>37<|level|>3\n<|id|>46<|level|>3\n<|id|>50<|level|>3\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>68<|level|>3\n<|id|>77<|level|>3\n<|id|>87<|level|>2\n<|id|>88<|level|>3\n<|id|>113<|level|>3\n<|id|>119<|level|>3\n<|id|>123<|level|>2\n<|id|>124<|level|>3\n<|id|>130<|level|>3\n<|id|>137<|level|>3\n<|id|>142<|level|>2\n<|id|>149<|level|>2\n<|id|>150<|level|>3\n<|id|>155<|level|>3\n<|id|>162<|level|>2\n<|id|>170<|level|>2",
+    "image_output": "<|src_id|>20<|tgt_id|>17\n<|src_id|>32<|tgt_id|>28\n<|src_id|>33<|tgt_id|>28",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 28
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 32,
+            "table2_idx": 33,
+            "upper_row_ss": [
+                [
+                    "Evaluation Factor",
+                    "MTDC Score",
+                    "Pinnacle Score",
+                    "Advantage"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Technical Approach (400 max)",
+                    "378",
+                    "351",
+                    "MTDC (+27)"
+                ]
+            ]
+        }
+    ]
+}

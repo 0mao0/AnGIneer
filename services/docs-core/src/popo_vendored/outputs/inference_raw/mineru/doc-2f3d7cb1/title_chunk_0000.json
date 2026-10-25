@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>111 171 130 854<|content|>CALDERWOOD & HARKNESS LLP 425 Park Avenue, 33rd Fl\n<|id|>11<|page|>1<|box|>433 140 450 339<|content|>I. Purpose of This Letter\n<|id|>15<|page|>2<|box|>90 140 107 377<|content|>II. Summary of the Litigation\n<|id|>16<|page|>2<|box|>121 140 138 261<|content|>A. The Parties\n<|id|>19<|page|>2<|box|>366 140 383 583<|content|>B. Background and the Master Construction Agreemen\n<|id|>21<|page|>2<|box|>549 140 565 341<|content|>C. Basis for Termination\n<|id|>26<|page|>3<|box|>90 140 107 320<|content|>D. Procedural History\n<|id|>28<|page|>3<|box|>227 140 244 423<|content|>III. Summary of Meridian's Claims\n<|id|>34<|page|>3<|box|>785 140 804 447<|content|>Total Claimed Damages: $200,000,000.\n<|id|>36<|page|>4<|box|>167 140 185 684<|content|>IV. Summary of Northgate's Affirmative Defenses an\n<|id|>37<|page|>4<|box|>199 140 215 334<|content|>A. Affirmative Defenses\n<|id|>49<|page|>5<|box|>131 140 148 527<|content|>V. Identification of Applicable Insurance Policies\n<|id|>63<|page|>6<|box|>267 140 284 563<|content|>VI. Coverage Questions for Pemberton Fox's Analysi\n<|id|>72<|page|>7<|box|>297 140 314 539<|content|>VII. Key Individuals and Potential D&O Exposure\n<|id|>81<|page|>8<|box|>148 140 167 352<|content|>VIII. Enclosed Documents\n<|id|>91<|page|>8<|box|>489 142 506 508<|content|>IX. Financial Context and Exposure Summary\n<|id|>99<|page|>9<|box|>204 140 222 447<|content|>X. Proposed Coordination Framework\n<|id|>107<|page|>10<|box|>89 140 107 401<|content|>XI. Confidentiality and Privilege\n<|id|>110<|page|>10<|box|>329 140 347 415<|content|>XII. Request for Prompt Response\n<|id|>121<|page|>10<|box|>835 142 853 258<|content|>Enclosures (8)",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>11<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>2\n<|id|>26<|level|>2\n<|id|>28<|level|>1\n<|id|>34<|level|>-1\n<|id|>36<|level|>1\n<|id|>37<|level|>2\n<|id|>49<|level|>1\n<|id|>63<|level|>1\n<|id|>72<|level|>1\n<|id|>81<|level|>1\n<|id|>91<|level|>1\n<|id|>99<|level|>1\n<|id|>107<|level|>1\n<|id|>110<|level|>1\n<|id|>121<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 110,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        }
+    ]
+}

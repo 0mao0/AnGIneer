@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>178 119 212 910<|content|>中华人民共和国交通行业标准\n<|id|>3<|page|>1<|box|>423 154 459 875<|content|>港口码头劳动定员 第6部分:油码头\n<|id|>4<|page|>1<|box|>483 253 505 778<|content|>Port terminal labour manning—Part 6: Oil terminal\n<|id|>8<|page|>2<|box|>134 460 157 569<|content|>目次\n<|id|>10<|page|>3<|box|>135 431 157 544<|content|>前言\n<|id|>30<|page|>4<|box|>133 300 155 742<|content|>港口码头劳动定员 第6部分:油码头\n<|id|>31<|page|>4<|box|>184 131 200 201<|content|>1 范围\n<|id|>34<|page|>4<|box|>276 129 293 289<|content|>2 规范性引用文件\n<|id|>38<|page|>4<|box|>404 129 421 235<|content|>3 单项定员\n<|id|>53<|page|>5<|box|>110 87 125 307<|content|>3.8 油码头油、水质化验员\n<|id|>55<|page|>5<|box|>149 87 163 245<|content|>3.9 油码头司炉工\n<|id|>60<|page|>5<|box|>245 87 260 290<|content|>3.10 油码头油泵修理工\n<|id|>64<|page|>5<|box|>321 87 337 324<|content|>3.12 油码头电器仪表修理工\n<|id|>66<|page|>5<|box|>359 87 376 324<|content|>3.13 队(车间)生产管理人员\n<|id|>68<|page|>5<|box|>418 87 433 272<|content|>3.14 现场安全监督员\n<|id|>71<|page|>5<|box|>475 87 491 307<|content|>3.15 现场货运质量监督员\n<|id|>75<|page|>5<|box|>562 87 577 280<|content|>4 装卸作业线综合定员\n<|id|>78<|page|>6<|box|>114 139 130 315<|content|>5 全部定员计算方法\n<|id|>79<|page|>6<|box|>143 139 157 282<|content|>5.1 港口装卸工\n<|id|>81<|page|>6<|box|>180 141 195 265<|content|>5.2 其他岗位",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>4<|level|>2\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>30<|level|>1\n<|id|>31<|level|>2\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>53<|level|>3\n<|id|>55<|level|>3\n<|id|>60<|level|>3\n<|id|>64<|level|>3\n<|id|>66<|level|>3\n<|id|>68<|level|>3\n<|id|>71<|level|>3\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>81<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        10,
+        11,
+        12,
+        13,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>113 310 132 686<|content|>MUTUAL RELEASE AGREEMENT\n<|id|>15<|page|>1<|box|>710 450 728 547<|content|>RECITALS\n<|id|>16<|page|>1<|box|>737 142 753 246<|content|>WHEREAS:\n<|id|>25<|page|>3<|box|>688 447 704 550<|content|>ARTICLE I\n<|id|>26<|page|>3<|box|>713 434 729 563<|content|>DEFINITIONS\n<|id|>49<|page|>5<|box|>686 444 702 553<|content|>ARTICLE II\n<|id|>50<|page|>5<|box|>712 405 729 591<|content|>MUTUAL RELEASES\n<|id|>88<|page|>10<|box|>416 442 433 555<|content|>ARTICLE III\n<|id|>89<|page|>10<|box|>441 320 459 676<|content|>REPRESENTATIONS AND WARRANTIES\n<|id|>99<|page|>11<|box|>750 442 766 555<|content|>ARTICLE IV\n<|id|>100<|page|>11<|box|>776 339 792 658<|content|>EFFECTIVE DATE AND CONDITION\n<|id|>104<|page|>12<|box|>434 444 450 553<|content|>ARTICLE V\n<|id|>105<|page|>12<|box|>460 338 477 658<|content|>DISMISSAL OF CHANCERY ACTION\n<|id|>107<|page|>12<|box|>732 441 750 557<|content|>ARTICLE VI\n<|id|>108<|page|>12<|box|>758 408 773 588<|content|>CONFIDENTIALITY\n<|id|>117<|page|>13<|box|>508 437 526 560<|content|>ARTICLE VII\n<|id|>118<|page|>13<|box|>535 416 551 581<|content|>MISCELLANEOUS\n<|id|>167<|page|>17<|box|>229 395 244 602<|content|>ACKNOWLEDGMENTS\n<|id|>168<|page|>17<|box|>255 140 271 560<|content|>STATE OF NEW YORK COUNTY OF NEW YORK",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>88<|level|>2\n<|id|>89<|level|>3\n<|id|>99<|level|>2\n<|id|>100<|level|>3\n<|id|>104<|level|>2\n<|id|>105<|level|>3\n<|id|>107<|level|>2\n<|id|>108<|level|>3\n<|id|>117<|level|>2\n<|id|>118<|level|>3\n<|id|>167<|level|>2\n<|id|>168<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 3
+        }
+    ]
+}

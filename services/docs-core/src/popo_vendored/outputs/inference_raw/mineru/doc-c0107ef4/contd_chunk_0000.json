@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 119 854<|content|>CALDERWOOD & HARKNESS LLP 425 Lexington Avenue New York, NY 10174 Telephone: ... com\n<|id|>1<|page|>1<|box|>128 715 145 854<|content|>February 17, 2023\n<|id|>3<|page|>1<|box|>179 140 215 854<|content|>Division of Corporation Finance Office of Life Sciences U. ... 20549\n<|id|>4<|page|>1<|box|>224 174 241 839<|content|>Attention: ... Kevin Bosch, Senior Staff Accountant\n<|id|>5<|page|>1<|box|>250 140 304 854<|content|>Re: ... 333- 268514 Filed November 14, 2022, as am...Second-Round Comment Letter dated February 8, 2023\n<|id|>13<|page|>1<|box|>915 140 930 245<|content|>CONFIDENTIAL\n<|id|>14<|page|>2<|box|>90 140 162 854<|content|>The Company acknowledges the Staff's comment and h...ative Imaging Platform (the \"OrthoSync™ Platform\")\n<|id|>27<|page|>3<|box|>872 140 930 856<|content|>The Company acknowledges the Staff's comment and h... regarding both the factual basis for CONFIDENTIAL\n<|id|>28<|page|>4<|box|>90 140 127 854<|content|>the Company's current expectation that it will not...lders of ADSs if such classification were to apply\n<|id|>39<|page|>5<|box|>512 183 547 854<|content|>• The loss of preferential long-term capital gains...ition of ADSs held for more than one year; ... and\n<|id|>41<|page|>5<|box|>643 140 751 856<|content|>The Company's tax advisors at Calderwood & Harknes...us and the related disclosure. ... holders of ADSs\n<|id|>49<|page|>6<|box|>838 140 931 856<|content|>The Company has disclosed that the estimated amoun...development budget for the OrthoSync™ CONFIDENTIAL\n<|id|>50<|page|>7<|box|>90 140 143 854<|content|>Platform, the Company's commercial expansion plan ...d and approved by the Company's Board of Directors\n<|id|>131<|page|>16<|box|>531 142 547 320<|content|>Respectfully submitted,\n<|id|>132<|page|>16<|box|>547 142 564 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>133<|page|>16<|box|>566 143 582 253<|content|>By: ... By\n<|id|>134<|page|>16<|box|>583 142 599 500<|content|>Natasha Forbes Lead Associate, Capital Markets\n<|id|>135<|page|>16<|box|>599 140 631 854<|content|>Calderwood & Harkness LLP 425 Lexington Avenue New York, NY 10174 Telephone: ... (212) 558-4127\n<|id|>136<|page|>16<|box|>633 142 650 455<|content|>Email: ... com\n<|id|>137<|page|>16<|box|>654 142 665 169<|content|>cc: ... cc",
+    "raw_response": "<|src_id|>27<|tgt_id|>28\n<|src_id|>49<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        }
+    ]
+}

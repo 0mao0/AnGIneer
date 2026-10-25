@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        12,
+        13,
+        14,
+        15,
+        17,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>208 140 224 411<|content|>TO: ... 1008-00005\n<|id|>5<|page|>1<|box|>234 140 252 599<|content|>FROM: ... Wendy Schultz, Lead Associate, intellectual Property\n<|id|>6<|page|>1<|box|>260 140 315 854<|content|>RE: ... 23-CV-004871\n<|id|>7<|page|>1<|box|>323 140 359 854<|content|>COPIES: ... Omar Siddiqui (Working Associate)\n<|id|>13<|page|>1<|box|>820 140 893 857<|content|>Disposition. ... The principal terms of the settle... a stipulated permanent injunction prohibiting the\n<|id|>14<|page|>2<|box|>90 140 181 856<|content|>Defendants from possessing, using, disclosing, or ...l settlement obligations have been fully performed\n<|id|>107<|page|>12<|box|>864 174 901 856<|content|>2. ... The parties agreed to the entry of a Stipul...n permanently enjoining all Defendants — NovaSpark\n<|id|>108<|page|>13<|box|>90 210 143 854<|content|>Technologies Inc. ... , Rajiv Anand, Serena Mallic...d in the complaint and set forth in the injunction\n<|id|>123<|page|>14<|box|>566 174 602 854<|content|>(d) the curated and labeled training dataset of approximately 14. ... and\n<|id|>125<|page|>14<|box|>654 140 708 854<|content|>The Stipulated Permanent Injunction is enforceable...tion on the Defendants' use of Lumos trade secrets\n<|id|>132<|page|>15<|box|>321 181 357 854<|content|>• Derek Yun's personal laptop, Larkspur Technologi...and any associated cloud storage accounts; ... and\n<|id|>134<|page|>15<|box|>397 140 452 854<|content|>The remediation process included forensic verifica...mained on any of the remediated systems or devices\n<|id|>152<|page|>17<|box|>215 176 233 483<|content|>Settlement payment received: ... $4,350,000\n<|id|>153<|page|>17<|box|>241 176 258 511<|content|>Less: ... ($1,478,440)\n<|id|>154<|page|>17<|box|>267 176 284 452<|content|>Net recovery to Lumos: ... $2,871,560\n<|id|>192<|page|>20<|box|>179 140 213 746<|content|>Wendy Schultz Lead Associate, intellectual Propert...lderwood & Harkness LLP Date: ... November 5, 2023\n<|id|>193<|page|>20<|box|>214 142 232 367<|content|>Reviewed and Approved by: ... Reviewed and Approved by\n<|id|>194<|page|>20<|box|>263 140 297 790<|content|>Marcus Delgado Responsible Partner, intellectual P...lderwood & Harkness LLP Date: ... November 5, 2023\n<|id|>195<|page|>20<|box|>297 140 359 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...e prior written consent of the firm and the client",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>107<|tgt_id|>108",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 108
+        }
+    ]
+}

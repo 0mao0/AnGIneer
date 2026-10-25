@@ -1,0 +1,55 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        11
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>89 434 111 563<|content|>EXHIBIT D\n<|id|>1<|type|>title<|page|>2<|box|>135 323 152 674<|content|>FORM OF COMPLIANCE CERTIFICATE\n<|id|>6<|type|>title<|page|>2<|box|>536 140 554 486<|content|>SECTION 1: OFFICER CERTIFICATION\n<|id|>12<|type|>title<|page|>3<|box|>229 140 247 687<|content|>SECTION 2: DEFAULT / EVENT OF DEFAULT CERTIFICATIO\n<|id|>14<|type|>title<|page|>3<|box|>301 143 318 241<|content|>[Check one]\n<|id|>21<|type|>title<|page|>3<|box|>661 142 678 602<|content|>SECTION 3: REPRESENTATIONS AND WARRANTIES\n<|id|>23<|type|>title<|page|>3<|box|>732 143 750 241<|content|>[Check one]\n<|id|>28<|type|>title<|page|>4<|box|>282 140 299 826<|content|>SECTION 4: CALCULATION OF ANNUALIZED RECURRING REV\n<|id|>35<|type|>table<|page|>4<|box|>609 143 704 852<|content|>None\n<|id|>37<|type|>title<|page|>4<|box|>779 140 814 764<|content|>SECTION 5: DETERMINATION OF SPRINGING FINANCIAL CO\n<|id|>46<|type|>title<|page|>5<|box|>371 143 388 241<|content|>[Check one]\n<|id|>49<|type|>title<|page|>5<|box|>535 140 571 831<|content|>SECTION 6A: COMPLIANCE WITH MINIMUM ARR COVENANT (\n<|id|>54<|type|>title<|page|>5<|box|>733 143 750 241<|content|>[Check one]\n<|id|>58<|type|>title<|page|>6<|box|>89 140 125 782<|content|>SECTION 6B: COMPLIANCE WITH MINIMUM LIQUIDITY COVE\n<|id|>61<|type|>table<|page|>6<|box|>263 143 353 852<|content|>None\n<|id|>63<|type|>table<|page|>6<|box|>449 143 523 852<|content|>None\n<|id|>65<|type|>table<|page|>6<|box|>599 143 676 852<|content|>None\n<|id|>68<|type|>title<|page|>6<|box|>781 143 797 241<|content|>[Check one]\n<|id|>72<|type|>title<|page|>8<|box|>89 142 106 638<|content|>SECTION 7: SCHEDULE OF PERMITTED INDEBTEDNESS\n<|id|>74<|type|>table<|page|>8<|box|>214 143 431 852<|content|>None\n<|id|>75<|type|>title<|page|>8<|box|>465 140 501 854<|content|>Total Permitted Indebtedness (excluding Obligation\n<|id|>77<|type|>title<|page|>9<|box|>89 142 106 612<|content|>SECTION 8: SCHEDULE OF CAPITAL EXPENDITURES\n<|id|>87<|type|>title<|page|>10<|box|>89 142 106 609<|content|>SECTION 9: SCHEDULE OF RESTRICTED PAYMENTS\n<|id|>89<|type|>table<|page|>10<|box|>195 143 304 852<|content|>None\n<|id|>96<|type|>title<|page|>10<|box|>655 140 672 663<|content|>SECTION 10: PERMITTED ACQUISITIONS (IF APPLICABLE)\n<|id|>100<|type|>table<|page|>10<|box|>830 143 907 852<|content|>None\n<|id|>101<|type|>table<|page|>11<|box|>88 143 145 852<|content|>None\n<|id|>102<|type|>title<|page|>11<|box|>179 140 215 854<|content|>Aggregate Permitted Acquisitions to date (cumulati\n<|id|>103<|type|>title<|page|>11<|box|>224 143 242 712<|content|>Remaining aggregate Permitted Acquisition capacity\n<|id|>107<|type|>title<|page|>11<|box|>363 176 381 763<|content|>\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n<|id|>108<|type|>title<|page|>11<|box|>404 142 421 514<|content|>SECTION 11: EXECUTION AND DELIVERY\n<|id|>110<|type|>title<|page|>11<|box|>547 143 564 364<|content|>LUMOS ANALYTICS INC.\n<|id|>115<|type|>title<|page|>11<|box|>655 143 672 547<|content|>ADMINISTRATIVE DELIVERY INFORMATION",
+    "raw_response": "<|src_id|>35<|tgt_id|>28\n<|src_id|>61<|tgt_id|>58\n<|src_id|>63<|tgt_id|>58\n<|src_id|>65<|tgt_id|>58\n<|src_id|>74<|tgt_id|>72\n<|src_id|>89<|tgt_id|>87\n<|src_id|>100<|tgt_id|>96\n<|src_id|>101<|tgt_id|>96",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 74,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 96
+        }
+    ]
+}

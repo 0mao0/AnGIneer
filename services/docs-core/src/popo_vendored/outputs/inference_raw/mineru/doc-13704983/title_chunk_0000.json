@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 155 125 841<|content|>UNITED STATES BANKRUPTCY COURT NORTHERN DISTRICT O\n<|id|>2<|page|>1<|box|>325 155 381 841<|content|>NOTICE OF OCCURRENCE OF EFFECTIVE DATE OF PREPACKA\n<|id|>7<|page|>1<|box|>797 142 814 418<|content|>1. Occurrence of the Effective Date\n<|id|>12<|page|>2<|box|>366 140 383 323<|content|>2. Conditions Satisfied\n<|id|>23<|page|>3<|box|>491 140 508 429<|content|>3. Distributions and Implementation\n<|id|>33<|page|>5<|box|>150 140 167 416<|content|>4. Administrative Claims Bar Date\n<|id|>41<|page|>5<|box|>617 140 633 501<|content|>5. Executory Contracts and Unexpired Leases\n<|id|>48<|page|>6<|box|>348 140 364 457<|content|>6. Releases, Exculpation, and Injunction\n<|id|>52<|page|>6<|box|>833 142 849 279<|content|>7. Binding Effect\n<|id|>54<|page|>7<|box|>223 140 239 354<|content|>8. Where to Obtain Copies\n<|id|>66<|page|>7<|box|>712 142 729 243<|content|>9. Questions\n<|id|>81<|page|>8<|box|>498 375 513 620<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>12<|level|>2\n<|id|>23<|level|>2\n<|id|>33<|level|>2\n<|id|>41<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>66<|level|>2\n<|id|>81<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 1
+        }
+    ]
+}

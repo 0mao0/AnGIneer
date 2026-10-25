@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 275<|content|>【6887024#7】赵豪志\n<|id|>2<|page|>1<|box|>140 105 156 416<|content|>【5627318#0】中国共产党青岛市委员会\n<|id|>4<|page|>1<|box|>241 105 256 381<|content|>【1115353#0】青島市行政首長列表\n<|id|>6<|page|>1<|box|>341 107 357 275<|content|>【3820963#1】秦家浩\n<|id|>8<|page|>1<|box|>407 107 424 258<|content|>【3254#36】青岛市\n<|id|>10<|page|>1<|box|>508 105 525 381<|content|>【1115353#8】青島市行政首長列表\n<|id|>12<|page|>1<|box|>609 105 627 381<|content|>【1115353#9】青島市行政首長列表\n<|id|>14<|page|>1<|box|>745 105 762 310<|content|>【6720352#9】青岛市商会\n<|id|>16<|page|>2<|box|>83 107 99 257<|content|>【3254#35】青岛市\n<|id|>18<|page|>2<|box|>269 105 286 346<|content|>【5396809#0】青岛市人民政府",
+    "raw_response": "<|id|>0<|level|>2\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>1\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>2<|type|>title<|page|>1<|box|>162 325 179 671<|content|>Internal Cover Sheet — Closing Deliverable\n<|id|>9<|type|>title<|page|>1<|box|>362 142 378 199<|content|>Notes:\n<|id|>18<|type|>title<|page|>2<|box|>90 285 109 710<|content|>CERTIFICATE OF LEGAL EXISTENCE\n<|id|>19<|type|>title<|page|>2<|box|>128 297 147 700<|content|>[Official Seal of the Commonwealth of Massachusett\n<|id|>25<|type|>title<|page|>2<|box|>387 359 404 635<|content|>MERIDIAN DIAGNOSTICS, INC.\n<|id|>32<|type|>title<|page|>3<|box|>109 140 161 852<|content|>Patricia M. Harrington Deputy Secretary, Corporati\n<|id|>37<|type|>title<|page|>4<|box|>90 223 109 772<|content|>APPENDIX: ENTITY REFERENCE INFORMATION\n<|id|>39<|type|>table<|page|>4<|box|>207 143 392 852<|content|>None\n<|id|>40<|type|>table<|page|>4<|box|>452 143 527 852<|content|>None\n<|id|>41<|type|>title<|page|>4<|box|>566 142 584 419<|content|>Closing Condition Cross-Reference\n<|id|>46<|type|>title<|page|>5<|box|>90 142 107 307<|content|>Filing and Retention",
+    "raw_response": "<|src_id|>39<|tgt_id|>37\n<|src_id|>40<|tgt_id|>37",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 37
+        }
+    ]
+}

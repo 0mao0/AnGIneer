@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>366 140 383 669<|content|>1. Introductory Paragraph; Identification of Parti\n<|id|>11<|page|>1<|box|>696 140 714 374<|content|>2. Direction to Release Funds\n<|id|>16<|page|>2<|box|>382 140 398 514<|content|>3. Wire Transfer Instructions for Disbursement\n<|id|>25<|page|>3<|box|>90 140 107 495<|content|>4. Confirmation of Satisfaction of Conditions\n<|id|>35<|page|>4<|box|>167 140 184 517<|content|>5. Escrow Agent Fees and Account Termination\n<|id|>38<|page|>4<|box|>609 140 626 405<|content|>6. Representations and Authority\n<|id|>46<|page|>5<|box|>383 142 402 287<|content|>7. Governing Law\n<|id|>48<|page|>5<|box|>561 140 579 272<|content|>8. Counterparts\n<|id|>50<|page|>5<|box|>723 401 739 596<|content|>[Signature Pages Follow]\n<|id|>51<|page|>5<|box|>748 173 782 823<|content|>SIGNATURE PAGE TO JOINT WRITTEN INSTRUCTION — FINA\n<|id|>52<|page|>5<|box|>792 142 809 429<|content|>ON BEHALF OF THE COMPANY:\n<|id|>53<|page|>5<|box|>818 142 834 388<|content|>SKYBRIDGE FINTECH LTD.\n<|id|>59<|page|>6<|box|>104 143 176 823<|content|>1400 Market Street, Suite 2200 Wilmington, Delawar\n<|id|>60<|page|>6<|box|>185 142 202 606<|content|>ON BEHALF OF THE FINAL CLOSING PURCHASERS:\n<|id|>61<|page|>6<|box|>210 142 227 508<|content|>BEACON HILL CAPITAL PARTNERS, LLC\n<|id|>78<|page|>6<|box|>503 245 521 751<|content|>ACKNOWLEDGMENT AND RECEIPT BY ESCROW AGENT\n<|id|>81<|page|>6<|box|>747 142 763 571<|content|>GRANITE TRUST COMPANY, N.A., as Escrow Agent\n<|id|>89<|page|>6<|box|>885 449 901 549<|content|>EXHIBIT A\n<|id|>90<|page|>7<|box|>89 267 107 730<|content|>Wire Transfer Instructions Letter (dated January 1",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>25<|level|>1\n<|id|>35<|level|>1\n<|id|>38<|level|>1\n<|id|>46<|level|>1\n<|id|>48<|level|>1\n<|id|>50<|level|>-1\n<|id|>51<|level|>1\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>59<|level|>-1\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>78<|level|>1\n<|id|>81<|level|>2\n<|id|>89<|level|>1\n<|id|>90<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        }
+    ]
+}

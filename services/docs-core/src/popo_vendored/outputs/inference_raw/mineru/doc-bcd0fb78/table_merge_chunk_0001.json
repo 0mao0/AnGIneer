@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, 1/25/68', '{1/31/68', '5.267% Bill -', '1/31/69', '366d', '1,604', '-', '1,000', '-', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, Date subscription books opened or bill tenders received', 'rowspan=2, Issue date', 'rowspan=2,colspan=2, Description of securities 1', 'rowspan=2, Period to final maturity (years, months, days) 2/', 'colspan=2, Amount of sub-scriptions tendered', 'colspan=2, Amount issue 3/', 'rowspan=2, All-ment ratio']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 153,
+    "table2_idx": 155
+}

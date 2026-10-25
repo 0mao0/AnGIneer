@@ -1,0 +1,24 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        18,
+        21
+    ],
+    "pages": [
+        18,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>15<|page|>18<|box|>86 87 102 448<|content|>Related In RelevanceFlagged foReviewer Notes\n<|id|>32<|page|>21<|box|>86 87 101 213<|content|>Reviewer Notes",
+    "raw_response": "<|id|>15<|level|>1\n<|id|>32<|level|>1",
+    "parsed": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        }
+    ]
+}

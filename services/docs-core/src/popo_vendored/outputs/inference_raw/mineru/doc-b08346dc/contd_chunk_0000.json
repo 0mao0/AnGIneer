@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>213 140 231 834<|content|>From: ... Patricia Heng, Senior Counsel, Technology Transactions, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>239 140 276 854<|content|>CC: ... Leonard Cross, Partner (Responsible Partne...iate) Omar Siddiqui, Associate (Working Associate)\n<|id|>5<|page|>1<|box|>284 142 301 284<|content|>Date: ... March 2023\n<|id|>6<|page|>1<|box|>309 140 345 854<|content|>Re: ... 1025-00008)\n<|id|>7<|page|>1<|box|>353 142 369 408<|content|>Right-click to update Table of Contents\n<|id|>60<|page|>6<|box|>864 140 901 857<|content|>2. ... Uptime must be calculated separately for ea...three data products (MCI Consumer Credit File, MCI\n<|id|>61<|page|>7<|box|>90 174 143 854<|content|>CommercialView, MCI AltSignal) and separately for ...he dilution effect inherent in blended measurement\n<|id|>222<|page|>24<|box|>390 142 407 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>223<|page|>24<|box|>409 143 425 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>60<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        }
+    ]
+}

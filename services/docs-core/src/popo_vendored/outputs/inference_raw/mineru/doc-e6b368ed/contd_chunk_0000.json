@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        21,
+        22,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>172 704 189 854<|content|>November 28, 2023\n<|id|>2<|page|>1<|box|>199 140 215 715<|content|>FROM: ... Catherine Bloom, Responsible Partner, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>224 140 260 854<|content|>TO: ... Patrick Gallagher, Working Associate\n<|id|>4<|page|>1<|box|>268 140 304 854<|content|>RE: ... IN23-7-000\n<|id|>5<|page|>1<|box|>313 140 330 416<|content|>C&H Matter Number: ... 1016-00004\n<|id|>6<|page|>1<|box|>338 140 356 393<|content|>C&H Billing Code: ... 00001\n<|id|>51<|page|>6<|box|>840 140 897 856<|content|>The strength of this defense lies primarily in the... began its uneconomic bidding, it is difficult for\n<|id|>52<|page|>7<|box|>90 138 199 856<|content|>Staff to establish that the FTR positions were par... be prepared to address this alternative narrative\n<|id|>191<|page|>21<|box|>835 183 869 854<|content|>• The appropriate accounting treatment for the civ...nse, an extraordinary item, or otherwise); ... and\n<|id|>193<|page|>22<|box|>90 138 181 854<|content|>Based on the current status of the settlement nego...ppropriate based on the trajectory of negotiations\n<|id|>224<|page|>24<|box|>369 140 387 754<|content|>Catherine Bloom Partner Energy Enforcement and Regulatory Investigations Group\n<|id|>225<|page|>24<|box|>387 143 402 338<|content|>Date: ... November 28, 2023\n<|id|>226<|page|>24<|box|>402 140 433 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV...TTORNEY WORK PRODUCT C&H Matter No. ... 1016-00004",
+    "raw_response": "<|src_id|>51<|tgt_id|>52",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        }
+    ]
+}

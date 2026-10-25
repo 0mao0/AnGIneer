@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>142 140 178 854<|content|>OPTIWAVE SEMICONDUCTOR CORP. ... 4710 Ridgeview Parkway, Suite 300 Santa Clara, CA 95054\n<|id|>2<|page|>1<|box|>186 723 204 854<|content|>January 25, 2025\n<|id|>3<|page|>1<|box|>212 140 248 854<|content|>Brian Hartwell Relationship Manager Meridian National Bank, N. ... 600 Travis Street Houston, TX 77002\n<|id|>4<|page|>1<|box|>256 140 332 854<|content|>Re: ... (\"Administrative Agent and Lender\") — Notice Regarding intellectual Property Prosecution Status\n<|id|>5<|page|>1<|box|>337 140 354 287<|content|>Dear Mr. ... Hartwell\n<|id|>21<|page|>3<|box|>152 174 224 854<|content|>(b) Electrode Fabrication Process — covering propr... commercial scale with target yield rates; ... and\n<|id|>23<|page|>3<|box|>296 140 443 856<|content|>It should be noted that all twelve pending applica...ty collateral provisions of the Security Agreement\n<|id|>35<|page|>4<|box|>872 174 909 856<|content|>(c) May 17, 2025 — European Application EP 23 741 682. ... This is the deadline to respond to the\n<|id|>36<|page|>5<|box|>90 174 181 854<|content|>Extended European Search Report issued by the Euro...core modulator architecture in the European market\n<|id|>66<|page|>9<|box|>251 174 287 854<|content|>Marcus Whitfield General Counsel Optiwave Semicond...Ridgeview Parkway, Suite 300 Santa Clara, CA 95054\n<|id|>67<|page|>9<|box|>296 142 313 274<|content|>Very truly yours,\n<|id|>68<|page|>9<|box|>313 140 329 457<|content|>OPTIWAVE SEMICONDUCTOR CORP. ... OPTIWAVE SEMICONDUCTOR CORP\n<|id|>70<|page|>9<|box|>347 142 364 330<|content|>Name: ... Marcus Whitfield\n<|id|>71<|page|>9<|box|>364 143 381 315<|content|>Title: ... General Counsel\n<|id|>72<|page|>9<|box|>382 142 398 316<|content|>Date: ... January 25, 2025\n<|id|>73<|page|>9<|box|>402 142 415 169<|content|>cc: ... cc",
+    "raw_response": "<|src_id|>35<|tgt_id|>36",
+    "parsed": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        }
+    ]
+}

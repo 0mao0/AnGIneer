@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 359 159 638<|content|>LETTER OF INTENT Reference No. LOI-MFW-2026-0218 E\n<|id|>9<|page|>1<|box|>766 140 782 357<|content|>Section 1: The Transaction\n<|id|>29<|page|>5<|box|>148 140 167 336<|content|>Section 2: Due Diligence\n<|id|>34<|page|>5<|box|>770 140 787 594<|content|>Section 3: Definitive Agreement and Ancillary Docu\n<|id|>44<|page|>7<|box|>90 140 107 560<|content|>Section 4: Representations and Warranties Insuranc\n<|id|>48<|page|>7<|box|>502 140 518 307<|content|>Section 5: Financing\n<|id|>55<|page|>8<|box|>402 140 420 395<|content|>Section 6: Conditions to Closing\n<|id|>64<|page|>9<|box|>502 140 518 495<|content|>Section 7: Target Closing Date; Outside Date\n<|id|>67<|page|>9<|box|>758 140 777 315<|content|>Section 8: Exclusivity\n<|id|>76<|page|>10<|box|>708 140 724 377<|content|>Section 9: Exclusivity Deposit\n<|id|>82<|page|>11<|box|>311 140 329 354<|content|>Section 10: Confidentiality\n<|id|>86<|page|>11<|box|>704 140 722 431<|content|>Section 11: Expense Reimbursement\n<|id|>91<|page|>12<|box|>348 140 364 552<|content|>Section 12: Non-Binding Nature; Binding Provisions\n<|id|>101<|page|>12<|box|>786 140 804 542<|content|>Section 13: Governing Law and Dispute Resolution\n<|id|>105<|page|>13<|box|>366 140 383 385<|content|>Section 14: General Provisions\n<|id|>113<|page|>14<|box|>443 176 459 274<|content|>If to Buyer:\n<|id|>129<|page|>15<|box|>266 140 282 506<|content|>SOLARA DIGITAL INFRASTRUCTURE LP\n<|id|>135<|page|>15<|box|>369 380 386 616<|content|>ACCEPTED AND AGREED:\n<|id|>136<|page|>15<|box|>396 140 412 423<|content|>MERIDIAN FLEETWORKS, INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>2\n<|id|>44<|level|>2\n<|id|>48<|level|>2\n<|id|>55<|level|>2\n<|id|>64<|level|>2\n<|id|>67<|level|>2\n<|id|>76<|level|>2\n<|id|>82<|level|>2\n<|id|>86<|level|>2\n<|id|>91<|level|>2\n<|id|>101<|level|>2\n<|id|>105<|level|>2\n<|id|>113<|level|>-1\n<|id|>129<|level|>2\n<|id|>135<|level|>-1\n<|id|>136<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        }
+    ]
+}

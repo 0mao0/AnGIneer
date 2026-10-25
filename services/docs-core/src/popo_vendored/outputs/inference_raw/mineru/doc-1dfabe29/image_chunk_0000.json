@@ -1,0 +1,27 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>9<|type|>title<|page|>1<|box|>628 142 645 333<|content|>1. Scope of Engagement\n<|id|>10<|type|>title<|page|>1<|box|>659 142 676 352<|content|>1.1 Description of Services\n<|id|>24<|type|>title<|page|>3<|box|>367 142 383 339<|content|>1.2 Limitations on Scope\n<|id|>31<|type|>title<|page|>3<|box|>799 140 816 230<|content|>2. Staffing\n<|id|>38<|type|>title<|page|>4<|box|>656 140 672 290<|content|>3. Fees and Billing\n<|id|>39<|type|>title<|page|>4<|box|>686 140 704 279<|content|>3.1 Hourly Rates\n<|id|>41<|type|>table<|page|>4<|box|>753 143 847 852<|content|>None\n<|id|>44<|type|>title<|page|>5<|box|>275 140 292 241<|content|>3.2 Fee Cap\n<|id|>48<|type|>title<|page|>5<|box|>601 140 618 388<|content|>3.3 Billing and Payment Terms\n<|id|>52<|type|>title<|page|>6<|box|>90 140 107 513<|content|>3.4 Out-of-Pocket Expenses and Disbursements\n<|id|>61<|type|>title<|page|>6<|box|>445 140 463 457<|content|>4. Client Identification and Relationship\n<|id|>68<|type|>title<|page|>6<|box|>806 140 824 321<|content|>5. Conflicts of Interest\n<|id|>72<|type|>title<|page|>7<|box|>450 140 467 477<|content|>6. Confidentiality and Document Handling\n<|id|>76<|type|>title<|page|>7<|box|>843 140 859 433<|content|>7. Coordination with Other Advisors\n<|id|>81<|type|>title<|page|>8<|box|>494 140 511 532<|content|>8. Matter Number and Administrative References\n<|id|>87<|type|>title<|page|>8<|box|>792 140 810 344<|content|>9. Term and Termination\n<|id|>91<|type|>title<|page|>9<|box|>340 140 357 334<|content|>10. Document Retention\n<|id|>95<|type|>title<|page|>9<|box|>642 140 659 560<|content|>11. Limitation of Liability; No Guarantee of Outco\n<|id|>98<|type|>title<|page|>10<|box|>167 142 184 297<|content|>12. Governing Law\n<|id|>100<|type|>title<|page|>10<|box|>257 140 273 410<|content|>Acceptance and Acknowledgment\n<|id|>105<|type|>title<|page|>10<|box|>513 140 529 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>41<|tgt_id|>39",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 39
+        }
+    ]
+}

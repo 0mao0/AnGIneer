@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>157 174 200 821<|content|>SECRETARY'S / MANAGER'S CERTIFICATE OF SAGUARO FLA\n<|id|>10<|type|>title<|page|>1<|box|>779 140 795 483<|content|>Section 1. Organization and Good Standing\n<|id|>15<|type|>title<|page|>2<|box|>383 140 402 354<|content|>Section 2. LLC Agreement\n<|id|>19<|type|>title<|page|>2<|box|>704 140 722 390<|content|>Section 3. Manager Resolutions\n<|id|>30<|type|>title<|page|>3<|box|>652 140 670 524<|content|>Section 4. Incumbency of Authorized Signatories\n<|id|>32<|type|>table<|page|>3<|box|>794 143 869 852<|content|>None\n<|id|>35<|type|>title<|page|>4<|box|>306 140 321 323<|content|>Section 5. No Conflicts\n<|id|>42<|type|>title<|page|>4<|box|>814 140 830 393<|content|>Section 6. Full Force and Effect\n<|id|>45<|type|>title<|page|>5<|box|>267 140 284 349<|content|>Section 7. Governing Law\n<|id|>48<|type|>title<|page|>5<|box|>510 230 527 767<|content|>[Remainder of this page intentionally left blank.\n<|id|>57<|type|>title<|page|>6<|box|>88 433 112 565<|content|>EXHIBIT A\n<|id|>58<|type|>title<|page|>6<|box|>127 235 172 761<|content|>Limited Liability Company Agreement of Saguaro Fla\n<|id|>62<|type|>title<|page|>7<|box|>90 434 111 563<|content|>EXHIBIT B\n<|id|>63<|type|>title<|page|>7<|box|>128 148 190 846<|content|>Resolutions of the Sole Manager of Saguaro Flats S\n<|id|>72<|type|>title<|page|>8<|box|>89 140 107 379<|content|>NOW, THEREFORE, BE IT:\n<|id|>73<|type|>title<|page|>8<|box|>121 140 138 612<|content|>Resolution 1 — Approval of the Power Purchase Agre\n<|id|>83<|type|>title<|page|>8<|box|>804 140 821 609<|content|>Resolution 2 — Approval of the Lender Consent Agre\n<|id|>91<|type|>title<|page|>9<|box|>470 142 488 509<|content|>Resolution 3 — Acceptance of Buyer Guaranty\n<|id|>93<|type|>title<|page|>9<|box|>652 140 670 707<|content|>Resolution 4 — Authorization of Seller Credit Supp\n<|id|>95<|type|>title<|page|>10<|box|>90 142 107 581<|content|>Resolution 5 — Authorization of Authorized Signato\n<|id|>97<|type|>table<|page|>10<|box|>248 143 323 852<|content|>None\n<|id|>100<|type|>title<|page|>10<|box|>544 142 560 446<|content|>Resolution 6 — General Authorization\n<|id|>108<|type|>title<|page|>11<|box|>202 142 218 362<|content|>Resolution 7 — Ratification\n<|id|>110<|type|>title<|page|>11<|box|>361 230 378 767<|content|>[Remainder of this page intentionally left blank.\n<|id|>118<|type|>title<|page|>12<|box|>90 434 109 562<|content|>EXHIBIT C\n<|id|>119<|type|>title<|page|>12<|box|>128 403 146 593<|content|>Incumbency Certificate\n<|id|>120<|type|>title<|page|>12<|box|>154 145 189 851<|content|>INCUMBENCY CERTIFICATE OF AUTHORIZED SIGNATORIES S\n<|id|>123<|type|>table<|page|>12<|box|>469 143 544 852<|content|>None",
+    "raw_response": "<|src_id|>32<|tgt_id|>30\n<|src_id|>97<|tgt_id|>95\n<|src_id|>123<|tgt_id|>120",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 120
+        }
+    ]
+}

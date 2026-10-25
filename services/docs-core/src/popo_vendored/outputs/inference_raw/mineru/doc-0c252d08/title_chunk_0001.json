@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        47,
+        61
+    ],
+    "pages": [
+        48,
+        49,
+        50,
+        52,
+        53,
+        56,
+        57,
+        58,
+        60,
+        61
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>522<|page|>48<|box|>161 392 191 607<|content|>4 滤 层\n<|id|>523<|page|>48<|box|>232 402 255 600<|content|>4.1 一般规定\n<|id|>525<|page|>48<|box|>472 413 494 586<|content|>4.2 设 计\n<|id|>529<|page|>49<|box|>348 420 371 597<|content|>4.3 施工\n<|id|>533<|page|>50<|box|>166 363 196 615<|content|>5 加筋垫层\n<|id|>534<|page|>50<|box|>237 392 260 589<|content|>5.1 一般规定\n<|id|>536<|page|>50<|box|>424 402 446 575<|content|>5.2 设 计\n<|id|>540<|page|>52<|box|>164 359 194 611<|content|>6 加筋土岸壁\n<|id|>541<|page|>52<|box|>234 384 257 582<|content|>6.1 一般规定\n<|id|>547<|page|>53<|box|>303 420 325 597<|content|>6.2 设 计\n<|id|>562<|page|>56<|box|>212 406 234 582<|content|>6.3 施工\n<|id|>566<|page|>57<|box|>159 330 189 658<|content|>7 模袋混凝土护坡\n<|id|>567<|page|>57<|box|>229 399 252 597<|content|>7.1 一般规定\n<|id|>570<|page|>57<|box|>492 410 512 582<|content|>7.2 设 计\n<|id|>590<|page|>58<|box|>489 417 512 586<|content|>7.3 施工\n<|id|>597<|page|>60<|box|>159 374 189 625<|content|>8 充填袋筑堤\n<|id|>598<|page|>60<|box|>229 402 252 600<|content|>8.1 一般规定\n<|id|>601<|page|>60<|box|>441 413 464 586<|content|>8.2 设 计\n<|id|>604<|page|>60<|box|>601 413 623 586<|content|>8.3 施工\n<|id|>606<|page|>61<|box|>164 370 194 622<|content|>9 软体排护底\n<|id|>607<|page|>61<|box|>234 410 255 582<|content|>9.2 设 计\n<|id|>610<|page|>61<|box|>578 410 598 582<|content|>9.3 施工",
+    "raw_response": "<|id|>522<|level|>1\n<|id|>523<|level|>2\n<|id|>525<|level|>2\n<|id|>529<|level|>2\n<|id|>533<|level|>1\n<|id|>534<|level|>2\n<|id|>536<|level|>2\n<|id|>540<|level|>1\n<|id|>541<|level|>2\n<|id|>547<|level|>2\n<|id|>562<|level|>2\n<|id|>566<|level|>1\n<|id|>567<|level|>2\n<|id|>570<|level|>2\n<|id|>590<|level|>2\n<|id|>597<|level|>1\n<|id|>598<|level|>2\n<|id|>601<|level|>2\n<|id|>604<|level|>2\n<|id|>606<|level|>1\n<|id|>607<|level|>2\n<|id|>610<|level|>2",
+    "parsed": [
+        {
+            "id": 522,
+            "level": 1
+        },
+        {
+            "id": 523,
+            "level": 2
+        },
+        {
+            "id": 525,
+            "level": 2
+        },
+        {
+            "id": 529,
+            "level": 2
+        },
+        {
+            "id": 533,
+            "level": 1
+        },
+        {
+            "id": 534,
+            "level": 2
+        },
+        {
+            "id": 536,
+            "level": 2
+        },
+        {
+            "id": 540,
+            "level": 1
+        },
+        {
+            "id": 541,
+            "level": 2
+        },
+        {
+            "id": 547,
+            "level": 2
+        },
+        {
+            "id": 562,
+            "level": 2
+        },
+        {
+            "id": 566,
+            "level": 1
+        },
+        {
+            "id": 567,
+            "level": 2
+        },
+        {
+            "id": 570,
+            "level": 2
+        },
+        {
+            "id": 590,
+            "level": 2
+        },
+        {
+            "id": 597,
+            "level": 1
+        },
+        {
+            "id": 598,
+            "level": 2
+        },
+        {
+            "id": 601,
+            "level": 2
+        },
+        {
+            "id": 604,
+            "level": 2
+        },
+        {
+            "id": 606,
+            "level": 1
+        },
+        {
+            "id": 607,
+            "level": 2
+        },
+        {
+            "id": 610,
+            "level": 2
+        }
+    ]
+}

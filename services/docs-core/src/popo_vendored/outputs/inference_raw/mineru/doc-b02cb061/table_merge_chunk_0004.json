@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Funds applied to loss on operations', '......', '......', '72', '......', '......', '183,731', '19', '6', '17/', '......']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, ', 'Justice Department', 'Heavy Department', 'Treasury Department', 'War Department', 'rowspan=3, Federal Deposit Insurance Corporation', 'Federal Security Agency', 'colspan=2, Federal Works Agency', 'colspan=2, National Housing Agency (continued on following page)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 282,
+    "table2_idx": 283
+}

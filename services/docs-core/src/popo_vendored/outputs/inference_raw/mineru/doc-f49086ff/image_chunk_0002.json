@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        92,
+        96
+    ],
+    "pages": [
+        93,
+        94,
+        95,
+        96
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>899<|type|>title<|page|>93<|box|>89 140 107 645<|content|>SCHEDULE 4 — COLLATERAL DESCRIPTION SUMMARY\n<|id|>900<|type|>title<|page|>93<|box|>114 140 133 650<|content|>I. U.S. Collateral (governed by the laws of the St\n<|id|>905<|type|>title<|page|>93<|box|>410 142 428 763<|content|>II. Nigerian Collateral (governed by the laws of t\n<|id|>915<|type|>title<|page|>93<|box|>648 142 667 669<|content|>III. English Collateral (governed by the laws of E\n<|id|>918<|type|>title<|page|>93<|box|>763 142 781 723<|content|>IV. Senegalese Collateral (governed by the laws of\n<|id|>925<|type|>table<|page|>94<|box|>184 143 297 852<|content|>None\n<|id|>927<|type|>title<|page|>95<|box|>89 142 106 547<|content|>SCHEDULE 5 — SECURITY DOCUMENTS LIST\n<|id|>928<|type|>table<|page|>95<|box|>140 143 651 852<|content|>None\n<|id|>930<|type|>title<|page|>95<|box|>747 408 763 588<|content|>SIGNATURE PAGES\n<|id|>932<|type|>title<|page|>95<|box|>816 460 833 535<|content|>ISSUER:\n<|id|>940<|type|>title<|page|>96<|box|>159 442 175 553<|content|>CO-ISSUER:\n<|id|>945<|type|>title<|page|>96<|box|>253 428 270 568<|content|>GUARANTORS:\n<|id|>970<|type|>title<|page|>96<|box|>691 330 709 666<|content|>TRUSTEE AND COLLATERAL AGENT:",
+    "raw_response": "<|src_id|>925<|tgt_id|>899\n<|src_id|>928<|tgt_id|>927",
+    "parsed": [
+        {
+            "src_id": 925,
+            "tgt_id": 899
+        },
+        {
+            "src_id": 928,
+            "tgt_id": 927
+        }
+    ]
+}

@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        54
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        16,
+        19,
+        24,
+        34,
+        53,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>314 177 359 810<|content|>水运工程设计通用符号标准\n<|id|>1<|page|>1<|box|>396 187 455 802<|content|>Standard for General Symbols Used in Design of Wat\n<|id|>4<|page|>2<|box|>159 342 181 648<|content|>中华人民共和国行业标准\n<|id|>5<|page|>2<|box|>221 244 253 745<|content|>水运工程设计通用符号标准\n<|id|>12<|page|>3<|box|>160 125 228 855<|content|>交通运输部关于发布《水运工程设计通用符号标准》的公告\n<|id|>18<|page|>4<|box|>162 390 192 595<|content|>制定说明\n<|id|>32<|page|>5<|box|>163 423 195 571<|content|>目次\n<|id|>34<|page|>6<|box|>165 395 194 598<|content|>1 总 则\n<|id|>38<|page|>7<|box|>199 395 228 605<|content|>2 术语\n<|id|>39<|page|>7<|box|>250 104 267 416<|content|>2.0.1 物理量 Physical Quantity\n<|id|>41<|page|>7<|box|>294 104 310 340<|content|>2.0.2 量纲 Dimension\n<|id|>43<|page|>7<|box|>359 104 378 321<|content|>2.0.3 符号 Symbols\n<|id|>45<|page|>8<|box|>165 282 194 705<|content|>3 水运工程设计符号规则\n<|id|>46<|page|>8<|box|>224 407 240 583<|content|>3.1 一般规定\n<|id|>60<|page|>8<|box|>818 414 836 592<|content|>3.2 主体符号\n<|id|>95<|page|>16<|box|>165 282 194 707<|content|>4 水运工程设计通用符号\n<|id|>96<|page|>16<|box|>224 407 243 583<|content|>4.1 水文符号\n<|id|>105<|page|>19<|box|>400 413 418 588<|content|>4.2 作用符号\n<|id|>122<|page|>24<|box|>820 302 839 695<|content|>4.6 设计参数、计算系数符号和专门符号\n<|id|>142<|page|>34<|box|>165 289 195 710<|content|>5 水运工程设计专业符号\n<|id|>143<|page|>34<|box|>224 418 243 583<|content|>5.1 总平面符号\n<|id|>144<|page|>34<|box|>255 101 273 726<|content|>5.1.1 总平面设计中常用的符号及其涵义，应符合表5.1.1的规定。\n<|id|>186<|page|>53<|box|>196 259 226 731<|content|>附录A 希腊字母读音和字体\n<|id|>188<|page|>54<|box|>162 299 192 695<|content|>附录B 本标准用词说明",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>-1\n<|id|>5<|level|>1\n<|id|>12<|level|>1\n<|id|>18<|level|>1\n<|id|>32<|level|>1\n<|id|>34<|level|>1\n<|id|>38<|level|>1\n<|id|>39<|level|>2\n<|id|>41<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>1\n<|id|>46<|level|>2\n<|id|>60<|level|>2\n<|id|>95<|level|>1\n<|id|>96<|level|>2\n<|id|>105<|level|>2\n<|id|>122<|level|>2\n<|id|>142<|level|>1\n<|id|>143<|level|>2\n<|id|>144<|level|>3\n<|id|>186<|level|>1\n<|id|>188<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 1
+        },
+        {
+            "id": 188,
+            "level": 1
+        }
+    ]
+}

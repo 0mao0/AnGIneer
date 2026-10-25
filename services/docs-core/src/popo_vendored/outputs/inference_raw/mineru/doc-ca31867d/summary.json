@@ -1,0 +1,223 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qmg97g1j\\input\\pdfs\\doc-ca31867d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-qmg97g1j\\enriched\\doc-ca31867d.json",
+    "contd_output": "<|src_id|>35<|tgt_id|>36\n<|src_id|>121<|tgt_id|>122",
+    "title_output": "<|id|>8<|level|>1\n<|id|>24<|level|>1\n<|id|>25<|level|>2\n<|id|>34<|level|>2\n<|id|>43<|level|>2\n<|id|>52<|level|>2\n<|id|>64<|level|>2\n<|id|>75<|level|>1\n<|id|>76<|level|>2\n<|id|>82<|level|>2\n<|id|>92<|level|>2\n<|id|>98<|level|>1\n<|id|>99<|level|>2\n<|id|>105<|level|>2\n<|id|>112<|level|>2\n<|id|>123<|level|>2\n<|id|>132<|level|>2\n<|id|>139<|level|>1\n<|id|>140<|level|>2\n<|id|>147<|level|>2\n<|id|>153<|level|>2\n<|id|>159<|level|>1\n<|id|>160<|level|>2\n<|id|>164<|level|>2\n<|id|>170<|level|>2\n<|id|>177<|level|>2\n<|id|>183<|level|>1\n<|id|>184<|level|>2\n<|id|>199<|level|>2\n<|id|>206<|level|>2\n<|id|>215<|level|>1\n<|id|>216<|level|>2\n<|id|>222<|level|>2\n<|id|>229<|level|>2\n<|id|>236<|level|>1\n<|id|>241<|level|>1\n<|id|>252<|level|>1",
+    "image_output": "<|src_id|>186<|tgt_id|>184\n<|src_id|>187<|tgt_id|>184\n<|src_id|>238<|tgt_id|>236\n<|src_id|>239<|tgt_id|>236",
+    "contd_label": [
+        {
+            "src_id": 35,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 122
+        }
+    ],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 1
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 1
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 229,
+            "level": 2
+        },
+        {
+            "id": 236,
+            "level": 1
+        },
+        {
+            "id": 241,
+            "level": 1
+        },
+        {
+            "id": 252,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 186,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 184
+        },
+        {
+            "src_id": 238,
+            "tgt_id": 236
+        },
+        {
+            "src_id": 239,
+            "tgt_id": 236
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 186,
+            "table2_idx": 187,
+            "upper_row_ss": [
+                [
+                    "Cure costs under assumed executory contracts and unexpired leases",
+                    "$5.0M"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Accrued employee wages and benefits",
+                    "$2.1M"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 238,
+            "table2_idx": 239,
+            "upper_row_ss": [
+                [
+                    "Employee accrual increases due to delayed",
+                    "High (given indefinite",
+                    "$200K–$500K",
+                    "Reference-date mechanism; bring-down"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "closing",
+                    "postponement)",
+                    "",
+                    "cap tied to petition date or APA execution date"
+                ]
+            ]
+        }
+    ]
+}

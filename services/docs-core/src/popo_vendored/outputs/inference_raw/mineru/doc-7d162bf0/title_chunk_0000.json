@@ -1,0 +1,83 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 199 141 797<|content|>MUTUAL CONFIDENTIALITY AND NON-DISCLOSURE AGREEMEN\n<|id|>11<|page|>1<|box|>532 140 549 243<|content|>RECITALS\n<|id|>18<|page|>2<|box|>273 140 291 374<|content|>SECTION 1: DEFINITIONS\n<|id|>44<|page|>4<|box|>626 140 643 764<|content|>SECTION 2: USE AND DISCLOSURE OF CONFIDENTIAL INFO\n<|id|>49<|page|>5<|box|>695 140 712 712<|content|>SECTION 3: EXCLUSIONS FROM CONFIDENTIAL INFORMATIO\n<|id|>56<|page|>6<|box|>464 140 482 491<|content|>SECTION 4: COMPELLED DISCLOSURE\n<|id|>64<|page|>7<|box|>518 140 537 821<|content|>SECTION 5: RETURN AND DESTRUCTION OF CONFIDENTIAL\n<|id|>73<|page|>8<|box|>518 140 537 581<|content|>SECTION 6: NON-SOLICITATION OF EMPLOYEES\n<|id|>80<|page|>9<|box|>364 140 383 473<|content|>SECTION 7: STANDSTILL PROVISION\n<|id|>93<|page|>11<|box|>89 140 106 745<|content|>SECTION 8: NO OBLIGATION TO PROCEED; NO REPRESENTA\n<|id|>98<|page|>12<|box|>89 140 106 540<|content|>SECTION 9: SECURITIES LAW COMPLIANCE\n<|id|>101<|page|>12<|box|>566 140 584 359<|content|>SECTION 10: REMEDIES\n<|id|>105<|page|>13<|box|>321 140 338 498<|content|>SECTION 11: TERM AND TERMINATION\n<|id|>108<|page|>13<|box|>689 140 705 421<|content|>SECTION 12: MISCELLANEOUS\n<|id|>117<|page|>15<|box|>472 142 487 259<|content|>If to Penterra:\n<|id|>137<|page|>16<|box|>816 359 833 637<|content|>[SIGNATURE PAGE FOLLOWS]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>18<|level|>2\n<|id|>44<|level|>2\n<|id|>49<|level|>2\n<|id|>56<|level|>2\n<|id|>64<|level|>2\n<|id|>73<|level|>2\n<|id|>80<|level|>2\n<|id|>93<|level|>2\n<|id|>98<|level|>2\n<|id|>101<|level|>2\n<|id|>105<|level|>2\n<|id|>108<|level|>2\n<|id|>117<|level|>-1\n<|id|>137<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        }
+    ]
+}

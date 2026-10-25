@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['80', 'colspan=2, ', 'rowspan=3, 横向附连件:6与板焊接。7梁或板梁上的竖向加劲肋。8与翼缘或腹板焊接的箱梁横隔板。可能不适用于较小空心截面。此值同样适用于环状加劲。9剪力钉在基材上的焊接', 'rowspan=3, 6和7:仔细打磨焊缝端部,除去所有咬边。7如加劲肋在腹板上终止,\\\\Delta\\\\sigma采用主应力计算,如图左焊缝所示']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['80', 'l<50mm', 'rowspan=8, ', 'rowspan=8, 十字形和T形接头:1全熔透对接焊缝或部分熔透对接焊的焊趾', 'rowspan=10, 2计算时应考虑应力集中系数。3部分熔透接头要求两种疲劳评定:第一,焊根按\\\\Delta\\\\sigma_{w}和\\\\Delta\\\\tau_{w}对应细节等级验算;第二,焊趾开裂通过确定承载钢板的\\\\Delta\\\\sigma计算。1~3:承载钢板偏心不应超过中间板厚的15%']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 1269,
+    "table2_idx": 1270
+}

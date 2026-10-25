@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 173 126 854<|content|>CALDERWOOD & HARKNESS LLP 375 Park Avenue, 40th Fl\n<|id|>2<|page|>1<|box|>159 153 195 843<|content|>SIDE LETTER RE: CONSENT OF CRESTWOOD FAMILY OFFICE\n<|id|>13<|page|>2<|box|>460 143 478 235<|content|>1. Consent.\n<|id|>20<|page|>3<|box|>171 140 188 527<|content|>2. Representations and Warranties of Crestwood.\n<|id|>27<|page|>4<|box|>208 140 224 313<|content|>3. Acknowledgments.\n<|id|>34<|page|>4<|box|>664 140 681 584<|content|>4. Scope of Consent; No Amendment to LLC Agreement\n<|id|>37<|page|>5<|box|>133 140 151 495<|content|>5. No Consideration; Passive Member Status.\n<|id|>39<|page|>5<|box|>333 140 349 227<|content|>6. Notices.\n<|id|>58<|page|>6<|box|>208 140 224 434<|content|>8. Counterparts; Electronic Delivery.\n<|id|>60<|page|>6<|box|>351 140 368 279<|content|>9. Miscellaneous.\n<|id|>65<|page|>7<|box|>89 158 125 836<|content|>SIGNATURE PAGE TO SIDE LETTER RE: CONSENT OF CREST\n<|id|>67<|page|>7<|box|>178 140 194 460<|content|>CRESTWOOD FAMILY OFFICE LLC\n<|id|>72<|page|>7<|box|>265 352 281 645<|content|>ACKNOWLEDGED AND AGREED\n<|id|>74<|page|>7<|box|>334 140 351 493<|content|>RIDGELINE WIRELESS HOLDINGS LLC",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>13<|level|>2\n<|id|>20<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>37<|level|>2\n<|id|>39<|level|>2\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>65<|level|>-1\n<|id|>67<|level|>2\n<|id|>72<|level|>3\n<|id|>74<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        }
+    ]
+}

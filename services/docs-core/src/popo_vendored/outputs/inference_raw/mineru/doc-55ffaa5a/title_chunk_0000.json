@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 295 118 702<|content|>CERTIFICATE OF INCORPORATION\n<|id|>2<|page|>1<|box|>175 326 195 669<|content|>PINNACLE MERGER SUB, INC.\n<|id|>3<|page|>1<|box|>213 183 229 813<|content|>Pursuant to Section 102 of the General Corporation\n<|id|>5<|page|>1<|box|>359 142 378 243<|content|>ARTICLE I\n<|id|>6<|page|>1<|box|>402 142 419 204<|content|>NAME\n<|id|>8<|page|>1<|box|>487 142 503 250<|content|>ARTICLE II\n<|id|>9<|page|>1<|box|>527 142 544 573<|content|>REGISTERED OFFICE AND REGISTERED AGENT\n<|id|>11<|page|>1<|box|>686 143 703 256<|content|>ARTICLE III\n<|id|>12<|page|>1<|box|>727 142 744 233<|content|>PURPOSE\n<|id|>14<|page|>2<|box|>167 142 184 256<|content|>ARTICLE IV\n<|id|>15<|page|>2<|box|>209 142 224 424<|content|>AUTHORIZED CAPITAL STOCK\n<|id|>19<|page|>2<|box|>492 142 508 250<|content|>ARTICLE V\n<|id|>20<|page|>2<|box|>532 142 549 299<|content|>INCORPORATOR\n<|id|>25<|page|>2<|box|>805 142 821 256<|content|>ARTICLE VI\n<|id|>26<|page|>2<|box|>847 142 864 354<|content|>BOARD OF DIRECTORS\n<|id|>33<|page|>3<|box|>535 142 551 263<|content|>ARTICLE VII\n<|id|>34<|page|>3<|box|>575 140 593 393<|content|>LIMITATION OF LIABILITY\n<|id|>42<|page|>4<|box|>239 142 258 269<|content|>ARTICLE VIII\n<|id|>43<|page|>4<|box|>282 140 299 321<|content|>INDEMNIFICATION\n<|id|>48<|page|>5<|box|>376 142 393 256<|content|>ARTICLE IX\n<|id|>49<|page|>5<|box|>417 142 434 281<|content|>AMENDMENTS\n<|id|>51<|page|>5<|box|>558 142 575 250<|content|>ARTICLE X\n<|id|>52<|page|>5<|box|>599 140 614 228<|content|>BYLAWS\n<|id|>54<|page|>5<|box|>794 142 811 254<|content|>ARTICLE XI\n<|id|>55<|page|>5<|box|>834 140 852 254<|content|>EXISTENCE\n<|id|>57<|page|>6<|box|>90 143 106 263<|content|>ARTICLE XII\n<|id|>58<|page|>6<|box|>131 140 148 419<|content|>SOLE STOCKHOLDER ACTION\n<|id|>60<|page|>6<|box|>420 359 436 637<|content|>[EXECUTION PAGE FOLLOWS]",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>2\n<|id|>5<|level|>2\n<|id|>6<|level|>3\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>42<|level|>2\n<|id|>43<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>57<|level|>2\n<|id|>58<|level|>3\n<|id|>60<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        51
+    ],
+    "pages": [
+        46,
+        47,
+        50,
+        51
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>160<|type|>title<|page|>46<|box|>129 431 157 566<|content|>一、补充工程机械\n<|id|>161<|type|>table<|page|>46<|box|>176 66 744 930<|content|>None\n<|id|>163<|type|>table<|page|>47<|box|>142 66 712 930<|content|>None\n<|id|>165<|type|>title<|page|>50<|box|>129 440 156 558<|content|>一、黑色金属\n<|id|>166<|type|>table<|page|>50<|box|>176 68 278 930<|content|>None\n<|id|>167<|type|>title<|page|>51<|box|>248 242 337 754<|content|>本局部修订主编单位、参编单位、主要起草人、主要审查人、总校人员和管理组人员名单",
+    "raw_response": "<|src_id|>161<|tgt_id|>160\n<|src_id|>163<|tgt_id|>160\n<|src_id|>166<|tgt_id|>165",
+    "parsed": [
+        {
+            "src_id": 161,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 166,
+            "tgt_id": 165
+        }
+    ]
+}

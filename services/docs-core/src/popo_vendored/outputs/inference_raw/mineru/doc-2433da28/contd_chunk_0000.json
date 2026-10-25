@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>152 150 226 849<|content|>Delivered in Connection with the Agreement and Pla... , a Delaware corporation (the \"Merger Agreement\")\n<|id|>2<|page|>1<|box|>234 508 251 854<|content|>Date of Delivery: ... July 22, 2025 (Closing Date)\n<|id|>9<|page|>1<|box|>832 140 906 856<|content|>WHEREAS, Treasury Regulation § 1. ... and\n<|id|>10<|page|>2<|box|>90 140 181 854<|content|>WHEREAS, the Company desires to furnish this Certi...r consideration to the stockholders of the Company\n<|id|>14<|page|>2<|box|>300 174 392 854<|content|>(a) The Company is not a \"foreign person\" as that ...nd the Treasury Regulations promulgated thereunder\n<|id|>18<|page|>2<|box|>550 210 568 803<|content|>VeloPay Systems, Inc. ... 1455 Innovation Parkway, Suite 800 Austin, Texas 78759\n<|id|>30<|page|>3<|box|>491 210 527 854<|content|>(vi) goodwill and other intangible assets recogniz...ion with the Company's prior acquisitions; ... and\n<|id|>32<|page|>3<|box|>580 174 672 854<|content|>The Company does not own, directly or indirectly, ...the meaning of Section 897(c)(1)(A)(i) of the Code\n<|id|>38<|page|>4<|box|>250 210 266 707<|content|>(iv) VeloPay Fraud intelligence Inc. ... and\n<|id|>40<|page|>4<|box|>300 174 448 856<|content|>None of the foregoing subsidiaries holds United St...rovisions of the Code and the Treasury Regulations\n<|id|>64<|page|>6<|box|>611 143 627 321<|content|>Name: ... Nathan Aldridge\n<|id|>65<|page|>6<|box|>628 143 643 364<|content|>Title: ... Chief Executive Officer\n<|id|>66<|page|>6<|box|>646 143 661 290<|content|>Date: ... July 22, 2025\n<|id|>67<|page|>6<|box|>662 143 678 277<|content|>EIN: ... 82-3019478\n<|id|>68<|page|>6<|box|>679 143 695 753<|content|>Principal Office Address: ... 1455 Innovation Parkway, Suite 800 Austin, Texas 78759\n<|id|>69<|page|>6<|box|>696 142 710 720<|content|>PREPARATION NOTE — INTERNAL DRAFT MARKING To be re...NTERNAL DRAFT MARKING To be removed upon execution\n<|id|>71<|page|>6<|box|>772 140 801 852<|content|>Prepared by: ... (212) 558-4000\n<|id|>72<|page|>6<|box|>810 143 824 388<|content|>Email: ... com\n<|id|>73<|page|>6<|box|>824 143 838 328<|content|>Matter Number: ... 1003-00003\n<|id|>74<|page|>6<|box|>845 140 891 854<|content|>This draft is subject to attorney-client privilege...te are to be removed from the final execution copy",
+    "raw_response": "<|src_id|>9<|tgt_id|>10\n<|src_id|>38<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 40
+        }
+    ]
+}

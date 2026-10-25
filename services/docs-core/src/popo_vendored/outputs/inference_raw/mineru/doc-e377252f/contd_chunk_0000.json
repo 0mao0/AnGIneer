@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        16,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>1<|box|>619 140 674 854<|content|>Quorum Insurance Holdings Corp. ... and\n<|id|>7<|page|>1<|box|>681 140 737 854<|content|>Meridian Credit intelligence, Inc. ... and\n<|id|>8<|page|>1<|box|>744 140 799 854<|content|>Quorum Insurance Holdings Corp. ... , a corporatio... Suite 3400, Stamford, Connecticut 06901 (\"Quorum)\n<|id|>15<|page|>2<|box|>420 140 476 854<|content|>WHEREAS, the Parties desire to set forth the terms...nfidential information of the other Party; ... and\n<|id|>16<|page|>2<|box|>483 140 539 854<|content|>NOW, THEREFORE, in consideration of the mutual cov... hereby acknowledged, the Parties agree as follows\n<|id|>55<|page|>6<|box|>362 176 398 854<|content|>(b) have been informed of the confidential nature ... restrictions set forth in this Agreement; ... and\n<|id|>58<|page|>6<|box|>532 140 622 854<|content|>The Receiving Party shall be responsible and liabl... to any Confidential Information disclosed to them\n<|id|>137<|page|>16<|box|>114 176 133 820<|content|>Quorum Insurance Holdings Corp. ... 1200 Atlantic Street, Suite 3400 Stamford, CT 06901\n<|id|>138<|page|>16<|box|>141 176 194 576<|content|>Attention: ... Gregory Stahl, VP, Legal Affairs\n<|id|>139<|page|>16<|box|>203 176 253 854<|content|>Email: ... Calderwood & Harkness LLP 425 Park Avenue New York, NY 10022\n<|id|>140<|page|>16<|box|>263 176 297 500<|content|>Attention: ... com\n<|id|>142<|page|>16<|box|>324 176 340 838<|content|>Meridian Credit intelligence, Inc. ... 3300 Peachtree Road NE, Suite 2100 Atlanta, GA 30326\n<|id|>143<|page|>16<|box|>349 176 402 545<|content|>Attention: ... Ben Overstreet, VP, Legal Affairs\n<|id|>144<|page|>16<|box|>410 176 426 450<|content|>Email: ... com\n<|id|>145<|page|>16<|box|>426 176 463 854<|content|>And a copy (which shall not constitute notice) to:... Peachtree Street NE, Suite 3000 Atlanta, GA 30309\n<|id|>146<|page|>16<|box|>470 178 488 383<|content|>Attention: ... Graham Whitley\n<|id|>147<|page|>16<|box|>489 178 506 428<|content|>Email: ... com\n<|id|>152<|page|>16<|box|>771 140 844 854<|content|>[Annotation: ... \"]\n<|id|>154<|page|>16<|box|>916 142 931 230<|content|>Page [X] of [Y]\n<|id|>170<|page|>18<|box|>401 143 417 331<|content|>Name: ... Carolyn Whitford\n<|id|>171<|page|>18<|box|>417 143 434 517<|content|>Title: ... General Counsel & Executive Vice President\n<|id|>172<|page|>18<|box|>435 140 450 361<|content|>Date: ... August 15, 2022\n<|id|>173<|page|>18<|box|>452 143 469 506<|content|>MERIDIAN CREDIT INTELLIGENCE, INC. ... MERIDIAN CREDIT INTELLIGENCE, INC\n<|id|>175<|page|>18<|box|>487 143 503 336<|content|>Name: ... Arthur Pennington\n<|id|>176<|page|>18<|box|>503 143 520 313<|content|>Title: ... General Counsel\n<|id|>177<|page|>18<|box|>521 143 537 361<|content|>Date: ... August 15, 2022",
+    "raw_response": "<|src_id|>6<|tgt_id|>7\n<|src_id|>7<|tgt_id|>8",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        }
+    ]
+}

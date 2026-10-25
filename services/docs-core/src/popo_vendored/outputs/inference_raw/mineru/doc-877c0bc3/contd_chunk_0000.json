@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        7
+    ],
+    "pages": [
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>39<|page|>5<|box|>726 138 910 857<|content|>Draft Motion to Dismiss for Failure to Prosecute (...process (the Order to Show Cause and the April 12,\n<|id|>40<|page|>6<|box|>90 140 162 854<|content|>2024 deadline) to run its course. ... Given the pa...'s orders, as discussed further in Section 7 below\n<|id|>48<|page|>6<|box|>806 140 898 857<|content|>Client Communications. ... , with a copy to Robert Farraday, Engagement Partner at Clarendon Partners\n<|id|>49<|page|>7<|box|>90 140 219 857<|content|>LLP (Stonefield's external auditor). ... This char...k report and in prior communications to the client",
+    "raw_response": "<|src_id|>39<|tgt_id|>40\n<|src_id|>48<|tgt_id|>49",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 49
+        }
+    ]
+}

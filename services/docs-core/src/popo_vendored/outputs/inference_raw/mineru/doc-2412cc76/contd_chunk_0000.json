@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        11,
+        12,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>214 393 231 604<|content|>MINUTES OF MEETING\n<|id|>4<|page|>1<|box|>239 442 258 553<|content|>May 14, 2024\n<|id|>5<|page|>1<|box|>267 142 284 454<|content|>Date of Meeting: ... Tuesday, May 14, 2024\n<|id|>6<|page|>1<|box|>292 142 310 310<|content|>Time: ... CDT\n<|id|>7<|page|>1<|box|>318 140 335 727<|content|>Format: ... Secure videoconference connecting the Chicago and New York offices\n<|id|>8<|page|>1<|box|>344 140 398 854<|content|>Location: ... Calderwood & Harkness LLP, One North...ngton Avenue, 38th Floor, New York, New York 10022\n<|id|>9<|page|>1<|box|>406 142 424 637<|content|>Prepared by: ... Colleen Farrow, Director, Conflicts & New Business\n<|id|>10<|page|>1<|box|>431 140 487 854<|content|>Matter Reference: ... )\n<|id|>97<|page|>11<|box|>848 140 902 854<|content|>Mr. ... He stated that accepting the\n<|id|>98<|page|>12<|box|>90 140 164 854<|content|>MTDC engagement would irreparably compromise the f...nvolving TruScan 360 could damage the relationship\n<|id|>128<|page|>14<|box|>859 140 895 856<|content|>1. ... Rachel Bernstein shall prepare a formal dec...eneral Counsel of MTDC, advising that Calderwood &\n<|id|>129<|page|>15<|box|>90 138 273 856<|content|>Harkness LLP is unable to accept the proposed enga...interest. ... Whitfield no later than May 21, 2024",
+    "raw_response": "<|src_id|>97<|tgt_id|>98\n<|src_id|>128<|tgt_id|>129",
+    "parsed": [
+        {
+            "src_id": 97,
+            "tgt_id": 98
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 129
+        }
+    ]
+}

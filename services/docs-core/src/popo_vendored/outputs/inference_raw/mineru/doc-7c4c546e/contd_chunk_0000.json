@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        8,
+        13,
+        19,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 156 125 839<|content|>CALDERWOOD & HARKNESS LLP 375 Park Avenue, 40th Floor New York, New York 10152\n<|id|>1<|page|>1<|box|>133 140 210 854<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT ... memorandum or its contents is strictly prohibited\n<|id|>44<|page|>5<|box|>789 140 882 857<|content|>The agreed purchase price of $126,500,000, as set ... MHz-POP figure was within the range of comparable\n<|id|>45<|page|>6<|box|>90 140 127 854<|content|>Meridian Technologies-3 spectrum transactions iden... parties as the basis for the fixed purchase price\n<|id|>74<|page|>8<|box|>679 147 715 854<|content|>• An earn-out, contingent consideration, or deferr...t-closing performance or market conditions; ... or\n<|id|>76<|page|>8<|box|>755 138 902 857<|content|>It is worth contrasting Section 3. ... 2002) (appl... exclusio alterius canon of contract construction)\n<|id|>111<|page|>13<|box|>166 147 200 854<|content|>• The no-shop and exclusivity obligations set forth in Section 6. ... and\n<|id|>113<|page|>13<|box|>242 138 388 856<|content|>The purchase price dispute does not relieve Ridgel...duct would constitute a material breach of the APA\n<|id|>172<|page|>19<|box|>763 147 799 854<|content|>• Thomas Brennan, Senior Vice President, Regulatory Affairs, Northgate Telecommunications PLC; ... and\n<|id|>174<|page|>19<|box|>821 140 895 856<|content|>We recommend scheduling a call with the client tea...restwood Family Office), to the extent appropriate\n<|id|>185<|page|>21<|box|>179 142 195 320<|content|>Respectfully submitted,\n<|id|>186<|page|>21<|box|>195 142 212 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>187<|page|>21<|box|>214 143 229 251<|content|>By: ... By\n<|id|>188<|page|>21<|box|>229 142 248 534<|content|>Simone Laroche Lead Associate, Litigation (General)\n<|id|>189<|page|>21<|box|>248 143 263 251<|content|>By: ... By",
+    "raw_response": "<|src_id|>44<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        }
+    ]
+}

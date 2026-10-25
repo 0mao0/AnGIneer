@@ -1,0 +1,56 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>61 168 99 836<|content|>Compressing Hamiltonians with ab initio downfoldin\n<|id|>4<|type|>title<|page|>1<|box|>417 197 430 374<|content|>I. INTRODUCTION\n<|id|>12<|type|>title<|page|>2<|box|>646 220 660 352<|content|>II. METHODS\n<|id|>13<|type|>title<|page|>2<|box|>678 184 693 390<|content|>A. Ab initio downfolding\n<|id|>15<|type|>image<|page|>2<|box|>60 553 256 880<|content|>None\n<|id|>21<|type|>title<|page|>3<|box|>469 143 484 429<|content|>B. Tensor network VQE simulation\n<|id|>30<|type|>title<|page|>3<|box|>589 514 618 918<|content|>C. Hamiltonian compression and the measurement pro\n<|id|>42<|type|>title<|page|>4<|box|>382 537 410 893<|content|>D. Downfolded Hamiltonian simulation with near-ter\n<|id|>48<|type|>title<|page|>5<|box|>561 223 575 349<|content|>III. RESULTS\n<|id|>50<|type|>image<|page|>5<|box|>63 553 375 864<|content|>None\n<|id|>51<|type|>title<|page|>5<|box|>577 573 590 859<|content|>A. Antiferromagnetism in Ca<sub>2</sub>CuO<sub>3</\n<|id|>54<|type|>table<|page|>6<|box|>61 199 125 803<|content|>None\n<|id|>55<|type|>table<|page|>6<|box|>189 267 252 735<|content|>None\n<|id|>59<|type|>title<|page|>6<|box|>821 145 837 426<|content|>B. Excitonic ground state in WTe<sub>2</sub>\n<|id|>65<|type|>title<|page|>8<|box|>547 148 561 424<|content|>C. Charge-ordered state in SrVO<sub>3</sub>\n<|id|>70<|type|>title<|page|>8<|box|>575 558 590 874<|content|>IV. CONCLUSIONS AND OUTLOOK\n<|id|>74<|type|>title<|page|>9<|box|>559 169 573 405<|content|>V. ACKNOWLEDGMENTS\n<|id|>76<|type|>title<|page|>9<|box|>796 124 811 450<|content|>Appendix A: Details of VQE optimization\n<|id|>83<|type|>title<|page|>9<|box|>750 519 779 911<|content|>Appendix B: Details of DFT and constrained RPA cal\n<|id|>86<|type|>table<|page|>10<|box|>61 143 103 859<|content|>None\n<|id|>87<|type|>table<|page|>10<|box|>142 251 170 751<|content|>None\n<|id|>89<|type|>title<|page|>10<|box|>484 93 500 480<|content|>Appendix C: Downfolded Hamiltonian parameters\n<|id|>91<|type|>title<|page|>10<|box|>652 233 667 339<|content|>1. Ca<sub>2</sub>CuO<sub>3</sub>\n<|id|>93<|type|>title<|page|>10<|box|>849 246 864 326<|content|>2. WTe<sub>2</sub>\n<|id|>108<|type|>table<|page|>11<|box|>61 84 106 952<|content|>None\n<|id|>109<|type|>table<|page|>11<|box|>145 251 174 751<|content|>None",
+    "raw_response": "<|src_id|>15<|tgt_id|>13\n<|src_id|>50<|tgt_id|>51\n<|src_id|>54<|tgt_id|>51\n<|src_id|>55<|tgt_id|>51\n<|src_id|>86<|tgt_id|>83\n<|src_id|>87<|tgt_id|>83\n<|src_id|>108<|tgt_id|>89\n<|src_id|>109<|tgt_id|>89",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 89
+        }
+    ]
+}

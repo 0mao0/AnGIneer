@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>395 349 414 647<|content|>I. Introduction and Summary\n<|id|>21<|page|>2<|box|>357 256 377 741<|content|>II. Post-Closing Items — Master Checklist Table\n<|id|>25<|page|>3<|box|>414 174 433 821<|content|>III. Item 1: UCC-3 Termination Statements — Receip\n<|id|>26<|page|>3<|box|>459 142 474 285<|content|>III.A. Description\n<|id|>29<|page|>3<|box|>825 140 843 493<|content|>III.B. Specific UCC Filings to be Terminated\n<|id|>38<|page|>4<|box|>476 140 493 321<|content|>III.C. Status Tracking\n<|id|>43<|page|>5<|box|>161 156 205 839<|content|>IV. Item 2: Mortgage and Deed of Trust Releases —\n<|id|>44<|page|>5<|box|>229 142 247 285<|content|>IV.A. Description\n<|id|>48<|page|>5<|box|>659 140 676 406<|content|>IV.B. Scope of Releases Required\n<|id|>52<|page|>6<|box|>267 140 284 320<|content|>IV.C. Status Tracking\n<|id|>56<|page|>6<|box|>792 228 813 767<|content|>V. Item 3: Compilation and Binding of Closing Bind\n<|id|>57<|page|>6<|box|>838 142 854 277<|content|>V.A. Description\n<|id|>60<|page|>7<|box|>267 140 284 397<|content|>V.B. Contents of Closing Binder\n<|id|>92<|page|>9<|box|>90 142 107 313<|content|>V.C. Status Tracking\n<|id|>100<|page|>9<|box|>554 248 574 748<|content|>VI. Item 4: Confirmation of DTC FAST Eligibility\n<|id|>101<|page|>9<|box|>599 142 616 285<|content|>VI.A. Description\n<|id|>105<|page|>10<|box|>167 140 185 320<|content|>VI.B. Status Tracking\n<|id|>110<|page|>10<|box|>555 359 574 637<|content|>VII. Summary Status Table\n<|id|>114<|page|>11<|box|>244 380 263 614<|content|>VIII. Recommendation\n<|id|>120<|page|>11<|box|>724 297 743 697<|content|>IX. Key Contacts for Post-Closing Items\n<|id|>123<|page|>13<|box|>90 433 111 563<|content|>X. Signature",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>21<|level|>1\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>29<|level|>3\n<|id|>38<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>48<|level|>3\n<|id|>52<|level|>3\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>60<|level|>3\n<|id|>92<|level|>3\n<|id|>100<|level|>2\n<|id|>101<|level|>3\n<|id|>105<|level|>3\n<|id|>110<|level|>2\n<|id|>114<|level|>2\n<|id|>120<|level|>2\n<|id|>123<|level|>2",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        }
+    ]
+}

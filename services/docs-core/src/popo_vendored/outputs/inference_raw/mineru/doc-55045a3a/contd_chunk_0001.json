@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        51,
+        53
+    ],
+    "pages": [
+        52,
+        53
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>507<|page|>52<|box|>332 142 349 401<|content|>Name: ... Ostrowski\n<|id|>508<|page|>52<|box|>349 143 366 367<|content|>Title: ... Chief Executive Officer\n<|id|>509<|page|>52<|box|>367 143 383 310<|content|>Date: ... October 2, 2023\n<|id|>510<|page|>52<|box|>383 143 400 426<|content|>Address: ... 400 Pharma Drive, Suite 800\n<|id|>511<|page|>52<|box|>401 143 417 361<|content|>Princeton, New Jersey 08540\n<|id|>512<|page|>52<|box|>417 143 434 511<|content|>MERIDIAN BIO THERAPEUTICS LIMITED\n<|id|>513<|page|>52<|box|>436 143 453 253<|content|>By: ... By\n<|id|>514<|page|>52<|box|>454 143 470 334<|content|>Name: ... Fong\n<|id|>515<|page|>52<|box|>470 143 486 366<|content|>Title: ... Chief Executive Officer\n<|id|>516<|page|>52<|box|>488 143 503 313<|content|>Date : ... October 2, 2023\n<|id|>517<|page|>52<|box|>503 143 521 375<|content|>Address: ... 18/F, Blossom Tower\n<|id|>518<|page|>52<|box|>522 142 537 455<|content|>88 Queen's Road Central Hong Kong SAR\n<|id|>525<|page|>53<|box|>90 174 126 854<|content|>(e) the absence of any legal or regulatory impedim...ransactions contemplated by the Agreement; ... and\n<|id|>527<|page|>53<|box|>179 140 232 854<|content|>Accordingly, the Parties hereby confirm that this ...lease the Upfront Payment to Licensor on such date\n<|id|>530<|page|>53<|box|>276 142 291 401<|content|>Name: ... Ostrowski\n<|id|>531<|page|>53<|box|>292 142 309 367<|content|>Title: ... Chief Executive Officer\n<|id|>532<|page|>53<|box|>310 142 325 318<|content|>Date: ... October 20, 2023\n<|id|>535<|page|>53<|box|>362 143 378 334<|content|>Name: ... Fong\n<|id|>536<|page|>53<|box|>378 142 395 367<|content|>Title: ... Chief Executive Officer\n<|id|>537<|page|>53<|box|>412 140 458 854<|content|>This Exclusive License Agreement, together with al...ch together constitute one and the same instrument",
+    "raw_response": "<|src_id|>510<|tgt_id|>511\n<|src_id|>517<|tgt_id|>518",
+    "parsed": [
+        {
+            "src_id": 510,
+            "tgt_id": 511
+        },
+        {
+            "src_id": 517,
+            "tgt_id": 518
+        }
+    ]
+}

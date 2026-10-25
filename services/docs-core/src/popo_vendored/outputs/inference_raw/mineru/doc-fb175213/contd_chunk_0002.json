@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        121,
+        141
+    ],
+    "pages": [
+        122,
+        125,
+        141
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>542<|page|>122<|box|>174 81 402 488<|content|>Amounts in the Harbor Maintenance Trust Fund are a...ct of 1986. ... Section 201 of the Water Resources\n<|id|>543<|page|>122<|box|>119 508 186 915<|content|>Development Act of 1996 (Public Law 104-303) autho...eral navigation projects for commercial navigation\n<|id|>558<|page|>125<|box|>340 81 396 488<|content|>Within the fund is a mass transit account, funded ...e used for expenditures in accordance with section\n<|id|>559<|page|>125<|box|>114 508 209 913<|content|>5338 of title 49 United States Code, the Intermoda...g to the provisions of various transportation acts\n<|id|>669<|page|>141<|box|>154 364 169 629<|content|>Source: ... Financial Management Service\n<|id|>670<|page|>141<|box|>186 81 290 488<|content|>Accrued discount (SBN-1, -2, -3)—Interest that acc... their holders is not included in accrued discount",
+    "raw_response": "<|src_id|>542<|tgt_id|>543\n<|src_id|>558<|tgt_id|>559",
+    "parsed": [
+        {
+            "src_id": 542,
+            "tgt_id": 543
+        },
+        {
+            "src_id": 558,
+            "tgt_id": 559
+        }
+    ]
+}

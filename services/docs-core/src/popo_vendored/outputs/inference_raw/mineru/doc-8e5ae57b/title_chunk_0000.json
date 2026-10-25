@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        18,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 125 852<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>8<|page|>1<|box|>405 387 424 611<|content|>I. Executive Summary\n<|id|>17<|page|>3<|box|>90 349 111 647<|content|>II. Investigation Methodology\n<|id|>18<|page|>3<|box|>137 142 152 310<|content|>A. Document Review\n<|id|>31<|page|>4<|box|>816 140 833 253<|content|>B. Interviews\n<|id|>40<|page|>6<|box|>90 393 111 604<|content|>III. Factual Findings\n<|id|>42<|page|>6<|box|>244 140 260 377<|content|>A. Counterparty Onboarding\n<|id|>58<|page|>7<|box|>321 140 339 410<|content|>B. OFAC Designation of Kadyrov\n<|id|>71<|page|>8<|box|>402 140 420 369<|content|>C. The Subject Transactions\n<|id|>78<|page|>9<|box|>377 140 393 336<|content|>D. Re-Screening Failure\n<|id|>87<|page|>10<|box|>494 140 512 246<|content|>E. Discovery\n<|id|>95<|page|>11<|box|>561 403 580 593<|content|>IV. Legal Analysis\n<|id|>96<|page|>11<|box|>606 140 625 429<|content|>A. Applicable Sanctions Framework\n<|id|>108<|page|>12<|box|>768 142 787 328<|content|>B. Apparent Violations\n<|id|>115<|page|>13<|box|>465 140 482 308<|content|>C. Penalty Exposure\n<|id|>134<|page|>14<|box|>625 388 643 607<|content|>V. Mitigating Factors\n<|id|>144<|page|>16<|box|>450 367 469 627<|content|>VI. Root Cause Summary\n<|id|>151<|page|>18<|box|>90 385 111 611<|content|>VII. Recommendation\n<|id|>158<|page|>20<|box|>90 330 111 668<|content|>Appendix: Key Factual Reference\n<|id|>160<|page|>20<|box|>172 142 190 468<|content|>Dunmore Energy Holdings Ltd. (\"DEH\")\n<|id|>168<|page|>20<|box|>409 143 426 501<|content|>Dunmore Trading International Ltd. (\"DTI\")\n<|id|>173<|page|>20<|box|>531 142 549 553<|content|>Caspian Star Commodities DMCC (\"Caspian Star\")\n<|id|>178<|page|>20<|box|>654 143 671 294<|content|>Timur R. Kadyrov\n<|id|>184<|page|>20<|box|>777 143 794 380<|content|>Ridgeline National Bank, N.A.\n<|id|>187<|page|>20<|box|>843 143 859 408<|content|>Grandview Capital Partners LLC\n<|id|>190<|page|>21<|box|>90 183 106 643<|content|>• Holding: 68.4% of DEH via Grandview Energy Fund\n<|id|>192<|page|>21<|box|>162 142 178 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>8<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>31<|level|>2\n<|id|>40<|level|>1\n<|id|>42<|level|>2\n<|id|>58<|level|>2\n<|id|>71<|level|>2\n<|id|>78<|level|>2\n<|id|>87<|level|>2\n<|id|>95<|level|>1\n<|id|>96<|level|>2\n<|id|>108<|level|>2\n<|id|>115<|level|>2\n<|id|>134<|level|>1\n<|id|>144<|level|>1\n<|id|>151<|level|>1\n<|id|>158<|level|>1\n<|id|>160<|level|>2\n<|id|>168<|level|>2\n<|id|>173<|level|>2\n<|id|>178<|level|>2\n<|id|>184<|level|>2\n<|id|>187<|level|>2\n<|id|>190<|level|>-1\n<|id|>192<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        }
+    ]
+}

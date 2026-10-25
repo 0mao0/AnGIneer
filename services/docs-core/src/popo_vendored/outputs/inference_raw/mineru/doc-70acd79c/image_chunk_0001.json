@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        50,
+        52
+    ],
+    "pages": [
+        50,
+        51,
+        52
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>537<|type|>table<|page|>50<|box|>88 143 236 852<|content|>None\n<|id|>539<|type|>title<|page|>51<|box|>90 200 135 795<|content|>APPENDIX 6 — VISITOR ACCESS REQUEST AND LOG TEMPLA\n<|id|>540<|type|>title<|page|>51<|box|>152 204 169 792<|content|>VPI TECHNOLOGY CONTROL PLAN — VISITOR ACCESS REQUE\n<|id|>541<|type|>table<|page|>51<|box|>176 143 452 852<|content|>None\n<|id|>542<|type|>table<|page|>51<|box|>510 143 647 852<|content|>None\n<|id|>543<|type|>title<|page|>51<|box|>681 143 696 297<|content|>Escort Assignment:\n<|id|>544<|type|>table<|page|>51<|box|>704 143 781 852<|content|>None\n<|id|>546<|type|>title<|page|>51<|box|>856 143 872 367<|content|>Visitor Access Log Template\n<|id|>547<|type|>table<|page|>51<|box|>878 143 900 852<|content|>None\n<|id|>548<|type|>table<|page|>52<|box|>88 143 224 852<|content|>None\n<|id|>550<|type|>title<|page|>52<|box|>295 264 311 732<|content|>END OF ANNEX B — TECHNOLOGY CONTROL PLAN",
+    "raw_response": "<|src_id|>537<|tgt_id|>539\n<|src_id|>541<|tgt_id|>540\n<|src_id|>542<|tgt_id|>540\n<|src_id|>544<|tgt_id|>543\n<|src_id|>547<|tgt_id|>546\n<|src_id|>548<|tgt_id|>546",
+    "parsed": [
+        {
+            "src_id": 537,
+            "tgt_id": 539
+        },
+        {
+            "src_id": 541,
+            "tgt_id": 540
+        },
+        {
+            "src_id": 542,
+            "tgt_id": 540
+        },
+        {
+            "src_id": 544,
+            "tgt_id": 543
+        },
+        {
+            "src_id": 547,
+            "tgt_id": 546
+        },
+        {
+            "src_id": 548,
+            "tgt_id": 546
+        }
+    ]
+}

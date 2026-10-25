@@ -1,0 +1,82 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 145 118 849<|content|>SECRETARY'S CERTIFICATE OF TORCHLIGHT MINING CORP.\n<|id|>9<|page|>2<|box|>89 140 106 455<|content|>I. ORGANIZATIONAL DOCUMENTS\n<|id|>10<|page|>2<|box|>121 140 138 364<|content|>A. Articles of Incorporation\n<|id|>13<|page|>2<|box|>472 140 489 372<|content|>II. BOARD RESOLUTIONS\n<|id|>39<|page|>5<|box|>89 140 106 485<|content|>III. GOOD STANDING AND EXISTENCE\n<|id|>43<|page|>5<|box|>391 142 407 434<|content|>IV. INCUMBENCY CERTIFICATE\n<|id|>48<|page|>5<|box|>816 140 834 475<|content|>V. NO AMENDMENTS OR CONFLICTS\n<|id|>51<|page|>6<|box|>358 140 375 343<|content|>VI. NO PROCEEDINGS\n<|id|>53<|page|>6<|box|>589 140 607 718<|content|>VII. GENERAL QUALIFICATION AND LIMITATION OF LIABI\n<|id|>61<|page|>8<|box|>88 444 107 553<|content|>EXHIBIT A\n<|id|>62<|page|>8<|box|>114 290 133 707<|content|>Articles of Incorporation of Torchlight Mining Cor\n<|id|>65<|page|>9<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>68<|page|>10<|box|>88 444 108 552<|content|>EXHIBIT C\n<|id|>69<|page|>10<|box|>114 315 133 681<|content|>Board Resolutions of Torchlight Mining Corp.\n<|id|>72<|page|>11<|box|>90 297 185 700<|content|>EXHIBIT D Incumbency Certificate of Torchlight Min",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>10<|level|>3\n<|id|>13<|level|>2\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>48<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>61<|level|>2\n<|id|>62<|level|>3\n<|id|>65<|level|>2\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>72<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        }
+    ]
+}

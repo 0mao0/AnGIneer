@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>19<|page|>1<|box|>884 99 917 890<|content|>於2000年，約81. ... 1%）\n<|id|>20<|page|>2<|box|>74 100 87 887<|content|>以及634位男性外籍人（13. ... 0%）",
+    "raw_response": "<|src_id|>19<|tgt_id|>20",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        }
+    ]
+}

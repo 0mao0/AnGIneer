@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>786 140 896 856<|content|>4. ... (\"Meridian\") and Derek Calloway (\"Calloway\"...ruing at 10% per annum under California Civil Code\n<|id|>8<|page|>2<|box|>89 174 127 854<|content|>Section 3289 from August 22, 2025, until the date ...dence supporting it, are set forth in detail below\n<|id|>90<|page|>9<|box|>845 140 901 856<|content|>48. ... 4 of the\n<|id|>91<|page|>10<|box|>90 174 162 854<|content|>Distribution Agreement. ... If Calloway is extract...ccounts, where they may be more difficult to reach",
+    "raw_response": "<|src_id|>7<|tgt_id|>8\n<|src_id|>90<|tgt_id|>91",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 91
+        }
+    ]
+}

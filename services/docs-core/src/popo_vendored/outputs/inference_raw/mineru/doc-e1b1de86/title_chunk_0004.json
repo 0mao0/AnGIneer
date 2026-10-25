@@ -1,0 +1,33 @@
+{
+    "task": "title",
+    "chunk_index": 4,
+    "range": [
+        199,
+        201
+    ],
+    "pages": [
+        199,
+        200,
+        201
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2759<|page|>199<|box|>156 59 180 361<|content|>17 支座、伸缩缝更换\n<|id|>2760<|page|>199<|box|>242 56 260 212<|content|>17.1 支座更换\n<|id|>2762<|page|>200<|box|>151 95 207 750<|content|>附录 C 钢筋混凝土矩形截面偏心受压构件应力 (应变)计算\n<|id|>2766<|page|>201<|box|>148 56 202 773<|content|>附录 E 体外索加固体系结构分析方法和简支体系的内力计算方法",
+    "raw_response": "<|id|>2759<|level|>1\n<|id|>2760<|level|>2\n<|id|>2762<|level|>1\n<|id|>2766<|level|>1",
+    "parsed": [
+        {
+            "id": 2759,
+            "level": 1
+        },
+        {
+            "id": 2760,
+            "level": 2
+        },
+        {
+            "id": 2762,
+            "level": 1
+        },
+        {
+            "id": 2766,
+            "level": 1
+        }
+    ]
+}

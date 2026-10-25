@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>396 140 412 493<|content|>1. Acknowledgment of Delivery of Possession\n<|id|>15<|page|>2<|box|>167 140 185 519<|content|>2. Condition of Premises — General Acceptance\n<|id|>19<|page|>2<|box|>652 140 670 480<|content|>3. Punchlist Items — Reservation of Rights\n<|id|>21<|page|>2<|box|>819 142 835 218<|content|>Floor 34.\n<|id|>25<|page|>3<|box|>338 142 354 218<|content|>Floor 35.\n<|id|>29<|page|>3<|box|>700 140 715 218<|content|>Floor 36.\n<|id|>33<|page|>4<|box|>239 142 255 218<|content|>Floor 37.\n<|id|>37<|page|>4<|box|>564 142 580 218<|content|>Floor 38.\n<|id|>41<|page|>5<|box|>90 142 107 450<|content|>General / Building Systems (All Floors)\n<|id|>46<|page|>5<|box|>726 140 743 452<|content|>4. Landlord's Obligations and Timeline\n<|id|>50<|page|>6<|box|>450 140 467 406<|content|>5. Reservation of Tenant's Rights\n<|id|>57<|page|>7<|box|>366 140 383 460<|content|>6. Contact Information for Coordination",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>15<|level|>1\n<|id|>19<|level|>1\n<|id|>21<|level|>2\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>46<|level|>1\n<|id|>50<|level|>1\n<|id|>57<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        }
+    ]
+}

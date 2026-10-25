@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 352 118 645<|content|>OFFICER'S CERTIFICATE\n<|id|>13<|type|>title<|page|>2<|box|>304 140 320 723<|content|>Section 1: Representations and Warranties — Amende\n<|id|>22<|type|>title<|page|>3<|box|>90 140 107 763<|content|>Section 2: Representations and Warranties — Super-\n<|id|>26<|type|>title<|page|>3<|box|>465 140 482 465<|content|>Section 3: No Default or Event of Default\n<|id|>38<|type|>title<|page|>4<|box|>590 140 607 490<|content|>Section 4: Satisfaction of Closing Conditions\n<|id|>40<|type|>title<|page|>4<|box|>720 140 737 563<|content|>4.1 Execution and Delivery of Transaction Document\n<|id|>55<|type|>title<|page|>6<|box|>202 140 219 442<|content|>4.2 Required Consents and Approvals\n<|id|>61<|type|>title<|page|>6<|box|>744 140 761 377<|content|>4.3 Corporate Authorizations\n<|id|>65<|type|>title<|page|>7<|box|>257 140 273 294<|content|>4.4 Legal Opinions\n<|id|>68<|type|>title<|page|>7<|box|>630 142 647 336<|content|>4.5 Financial Conditions\n<|id|>73<|type|>title<|page|>8<|box|>367 140 383 388<|content|>4.6 No Material Adverse Effect\n<|id|>76<|type|>title<|page|>8<|box|>690 140 707 334<|content|>4.8 Equity Contribution\n<|id|>85<|type|>title<|page|>9<|box|>551 140 569 508<|content|>Section 5: Pro Forma Capitalization Summary\n<|id|>86<|type|>table<|page|>9<|box|>638 143 905 852<|content|>None\n<|id|>87<|type|>table<|page|>10<|box|>88 143 119 852<|content|>None\n<|id|>89<|type|>title<|page|>10<|box|>231 140 248 473<|content|>Section 6: Post-Closing Equity Ownership\n<|id|>91<|type|>table<|page|>10<|box|>335 143 559 852<|content|>None\n<|id|>96<|type|>title<|page|>10<|box|>786 140 801 349<|content|>Section 7: Governing Law\n<|id|>100<|type|>title<|page|>11<|box|>133 140 150 478<|content|>STONEFIELD LOGISTICS GROUP INC.\n<|id|>106<|type|>title<|page|>11<|box|>258 142 276 315<|content|>Addressees / Delivery\n<|id|>108<|type|>title<|page|>11<|box|>311 142 328 328<|content|>Administrative Agents:\n<|id|>112<|type|>title<|page|>11<|box|>460 143 477 227<|content|>Copies to:",
+    "raw_response": "<|src_id|>86<|tgt_id|>85\n<|src_id|>87<|tgt_id|>85\n<|src_id|>91<|tgt_id|>89",
+    "parsed": [
+        {
+            "src_id": 86,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 85
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 89
+        }
+    ]
+}

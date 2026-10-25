@@ -1,0 +1,30 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>61 202 126 792<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION W\n<|id|>18<|page|>2<|box|>334 21 349 213<|content|>Emerging growth company ☐\n<|id|>20<|page|>3<|box|>61 21 76 436<|content|>Item 5.07. Submission of Matters to a Vote of Secu\n<|id|>39<|page|>5<|box|>52 444 65 550<|content|>SIGNATURES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>18<|level|>-1\n<|id|>20<|level|>1\n<|id|>39<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>176 140 194 674<|content|>VERIMARK HOSPITALITY GROUP INC. ... , a Delaware corporation,\n<|id|>2<|page|>1<|box|>202 210 219 284<|content|>Plaintiff,\n<|id|>4<|page|>1<|box|>253 212 270 383<|content|>Case No. ... 1021-00006\n<|id|>5<|page|>1<|box|>279 140 334 854<|content|>COASTAL PALMS FRANCHISE HOLDINGS LLC, a Florida limited liability company; ... , a Florida corporation,\n<|id|>6<|page|>1<|box|>343 212 359 305<|content|>Defendants. ... Defendants\n<|id|>40<|page|>4<|box|>845 140 898 857<|content|>7. ... Production shall include all responsive doc... and Savannah Lodging Partners LLC), Suncoast Room\n<|id|>41<|page|>5<|box|>90 174 162 854<|content|>Management Inc. ... This instruction is consistent...it the scope of the Court's October 28, 2022 Order\n<|id|>109<|page|>11<|box|>838 140 893 856<|content|>All internal documents, spreadsheets, workpapers, ...g systems, PMS reports, or bank records (including\n<|id|>110<|page|>12<|box|>90 140 181 854<|content|>Suncoast-collected revenue from all channels) and ...sions, analyses, or decisions about such variances\n<|id|>122<|page|>13<|box|>332 140 381 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys for Plaintiff Verimark Hospitality Group Inc. ... (954) 761-8201\n<|id|>123<|page|>13<|box|>381 142 398 480<|content|>Email: ... com\n<|id|>124<|page|>13<|box|>400 143 416 253<|content|>By: ... By\n<|id|>125<|page|>13<|box|>415 142 433 491<|content|>Yuki Nakamura, Esq. ... 0119644\n<|id|>126<|page|>13<|box|>433 140 450 723<|content|>Priya Anand, Esq. ... com\n<|id|>127<|page|>13<|box|>450 142 468 813<|content|>Douglas Carmichael, Esq. ... com\n<|id|>128<|page|>13<|box|>468 142 484 767<|content|>Carlos Espinoza, Esq. ... com\n<|id|>131<|page|>13<|box|>590 174 646 852<|content|>Gabriela Montes, Esq. ... (305) 579-4401\n<|id|>132<|page|>13<|box|>654 176 671 468<|content|>Email: ... com\n<|id|>133<|page|>13<|box|>672 176 689 480<|content|>Email: ... com\n<|id|>134<|page|>13<|box|>689 176 705 455<|content|>Email: ... com\n<|id|>135<|page|>13<|box|>705 176 742 854<|content|>Counsel for Defendants Coastal Palms Franchise Hol... Randall Brecker, and Suncoast Room Management Inc",
+    "raw_response": "<|src_id|>40<|tgt_id|>41\n<|src_id|>109<|tgt_id|>110",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 110
+        }
+    ]
+}

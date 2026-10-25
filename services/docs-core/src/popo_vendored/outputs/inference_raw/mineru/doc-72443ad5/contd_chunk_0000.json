@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        5,
+        7,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>167 140 185 303<|content|>TO: ... Renata Vasquez\n<|id|>2<|page|>1<|box|>194 140 210 446<|content|>FROM: ... Devon Archer and Nadia Petrov\n<|id|>3<|page|>1<|box|>219 140 237 310<|content|>DATE: ... May 12, 2023\n<|id|>4<|page|>1<|box|>244 140 299 854<|content|>RE: ... 1017- 00004\n<|id|>36<|page|>5<|box|>378 176 414 854<|content|>1. ... , Suite 1400, West Hollywood, CA 90069 — Headquarters and post- production operations\n<|id|>43<|page|>5<|box|>570 140 736 854<|content|>Our recommendation is that, for each facility, Dr.... referenced exhibits in the certification briefing\n<|id|>37<|page|>5<|box|>417 174 453 852<|content|>2. ... 4024 Penmark Strategy Partners Avenue, Stud...Stage B, housing unscripted programming production\n<|id|>38<|page|>5<|box|>454 176 472 851<|content|>3. ... , Suite 300, Sherman Oaks, CA 91403 — Digital content production\n<|id|>39<|page|>5<|box|>474 174 508 854<|content|>4. ... , Burbank, CA 91505 — Live events and field production coordination\n<|id|>40<|page|>5<|box|>512 176 530 725<|content|>5. ... Gower Street, Hollywood, CA 90028 — Scripted development\n<|id|>41<|page|>5<|box|>532 176 549 813<|content|>6. ... 2120 Colorado Avenue, Santa Monica, CA 90404 — E-commerce studio operations\n<|id|>42<|page|>5<|box|>551 174 569 746<|content|>7. ... , El Segundo, CA 90245 — Post-production annex\n<|id|>54<|page|>7<|box|>42 143 71 849<|content|>CALDERWOOD & HARKNESS LLP — CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGED / ATTORNEY WORK PRODUCT\n<|id|>55<|page|>7<|box|>90 138 292 856<|content|>Comment 6 — Add a histogram or box-and-whisker plo... far more persuasive than a table of numbers alone\n<|id|>85<|page|>11<|box|>834 140 890 857<|content|>Comment 14 — Expand the analysis of each named pla...llowing table, which we have prepared based on the\n<|id|>87<|page|>12<|box|>362 138 489 856<|content|>This table powerfully illustrates that the named p...d hardly be less representative of a unified class",
+    "raw_response": "<|src_id|>85<|tgt_id|>87",
+    "parsed": [
+        {
+            "src_id": 85,
+            "tgt_id": 87
+        }
+    ]
+}

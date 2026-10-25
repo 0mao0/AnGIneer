@@ -1,0 +1,52 @@
+{
+    "task": "title",
+    "chunk_index": 5,
+    "range": [
+        325,
+        408
+    ],
+    "pages": [
+        326,
+        338,
+        344,
+        345,
+        356,
+        407
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2978<|page|>326<|box|>113 403 131 634<|content|>B.9 其他相关地物数据\n<|id|>3005<|page|>338<|box|>113 431 132 615<|content|>B.10 元 数据\n<|id|>3015<|page|>344<|box|>185 328 214 730<|content|>附录 C 数据集数据结构\n<|id|>3021<|page|>345<|box|>101 66 119 666<|content|>C.0.3 基本数据集中各字段应符合表 C.0.3-1 ~ C.0.3-14 规定。\n<|id|>3059<|page|>356<|box|>184 375 211 669<|content|>附录 D 显示\n<|id|>3060<|page|>356<|box|>243 446 260 598<|content|>D.1 符号\n<|id|>3061<|page|>356<|box|>277 120 295 511<|content|>D.1.1 图式符号应符合表 D.1.1 的规定。\n<|id|>3163<|page|>407<|box|>94 100 112 676<|content|>D.1.2 符号显示指令应符合表 D.1.2-1 ~ 表 D.1.2-5 的规定。",
+    "raw_response": "<|id|>2978<|level|>2\n<|id|>3005<|level|>2\n<|id|>3015<|level|>1\n<|id|>3021<|level|>3\n<|id|>3059<|level|>1\n<|id|>3060<|level|>2\n<|id|>3061<|level|>3\n<|id|>3163<|level|>3",
+    "parsed": [
+        {
+            "id": 2978,
+            "level": 2
+        },
+        {
+            "id": 3005,
+            "level": 2
+        },
+        {
+            "id": 3015,
+            "level": 1
+        },
+        {
+            "id": 3021,
+            "level": 3
+        },
+        {
+            "id": 3059,
+            "level": 1
+        },
+        {
+            "id": 3060,
+            "level": 2
+        },
+        {
+            "id": 3061,
+            "level": 3
+        },
+        {
+            "id": 3163,
+            "level": 3
+        }
+    ]
+}

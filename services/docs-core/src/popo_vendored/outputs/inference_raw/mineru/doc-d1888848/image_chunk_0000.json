@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        10,
+        11,
+        12,
+        13,
+        15,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>42 192 71 803<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|type|>title<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>2<|type|>title<|page|>1<|box|>127 423 143 573<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>415 140 433 321<|content|>I. Executive Summary\n<|id|>16<|type|>title<|page|>2<|box|>348 140 364 267<|content|>II. Background\n<|id|>17<|type|>title<|page|>2<|box|>378 140 396 374<|content|>A. The Underlying Litigation\n<|id|>23<|type|>title<|page|>3<|box|>176 140 193 354<|content|>B. The Insurance Program\n<|id|>25<|type|>table<|page|>3<|box|>279 143 479 852<|content|>None\n<|id|>28<|type|>title<|page|>3<|box|>734 140 751 470<|content|>C. The Tender and Clarendon's Response\n<|id|>31<|type|>title<|page|>4<|box|>222 140 239 514<|content|>III. Analysis of the Reservation of Rights Letter\n<|id|>32<|type|>title<|page|>4<|box|>253 140 271 433<|content|>A. Summary of Clarendon's Position\n<|id|>41<|type|>title<|page|>5<|box|>138 140 157 578<|content|>B. Analysis of Exclusion 4(j) — The Antitrust Excl\n<|id|>42<|type|>title<|page|>5<|box|>167 140 185 813<|content|>1. Text and Scope of the Exclusion. Exclusion 4(j)\n<|id|>44<|type|>title<|page|>5<|box|>327 140 344 544<|content|>Several features of this exclusion merit close att\n<|id|>76<|type|>title<|page|>10<|box|>319 140 337 521<|content|>C. Clarendon's Continued Defense Participation\n<|id|>78<|type|>title<|page|>10<|box|>424 140 441 457<|content|>However, several important caveats apply:\n<|id|>83<|type|>title<|page|>11<|box|>148 142 167 423<|content|>IV. Self-Insured Retention Analysis\n<|id|>85<|type|>table<|page|>11<|box|>390 143 544 852<|content|>None\n<|id|>89<|type|>title<|page|>12<|box|>186 140 204 398<|content|>V. Excess Tower Considerations\n<|id|>90<|type|>title<|page|>12<|box|>217 140 234 717<|content|>A. Avalon Specialty Underwriters Inc. — First Exce\n<|id|>95<|type|>title<|page|>12<|box|>678 140 696 591<|content|>B. Pinnacle Re Ltd. — Second Excess Layer ($20 Mil\n<|id|>99<|type|>title<|page|>13<|box|>157 140 175 341<|content|>C. Practical Implications\n<|id|>103<|type|>title<|page|>13<|box|>676 140 694 669<|content|>VI. Coordination with Whitmore & Crane LLP (Covera\n<|id|>118<|type|>title<|page|>15<|box|>267 140 284 493<|content|>VII. Risk Assessment and Recommendations\n<|id|>119<|type|>title<|page|>15<|box|>297 140 315 400<|content|>A. Overall Coverage Assessment\n<|id|>128<|type|>title<|page|>15<|box|>856 142 873 377<|content|>B. Specific Recommendations\n<|id|>137<|type|>title<|page|>17<|box|>590 140 609 279<|content|>VIII. Conclusion",
+    "raw_response": "<|src_id|>25<|tgt_id|>23\n<|src_id|>85<|tgt_id|>83",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 83
+        }
+    ]
+}

@@ -1,0 +1,167 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-iftnmtud\\input\\pdfs\\doc-7eeadab6.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-iftnmtud\\enriched\\doc-7eeadab6.json",
+    "contd_output": "<|src_id|>148<|tgt_id|>149",
+    "title_output": "<|id|>3<|level|>1\n<|id|>9<|level|>2\n<|id|>21<|level|>2\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>40<|level|>3\n<|id|>44<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>56<|level|>3\n<|id|>73<|level|>3\n<|id|>80<|level|>2\n<|id|>81<|level|>3\n<|id|>89<|level|>3\n<|id|>96<|level|>2\n<|id|>106<|level|>2\n<|id|>108<|level|>3\n<|id|>119<|level|>3\n<|id|>125<|level|>3\n<|id|>134<|level|>3\n<|id|>138<|level|>3\n<|id|>144<|level|>2\n<|id|>150<|level|>2\n<|id|>155<|level|>3",
+    "image_output": "<|src_id|>51<|tgt_id|>49\n<|src_id|>52<|tgt_id|>49\n<|src_id|>98<|tgt_id|>96\n<|src_id|>99<|tgt_id|>96",
+    "contd_label": [
+        {
+            "src_id": 148,
+            "tgt_id": 149
+        }
+    ],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 96
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 51,
+            "table2_idx": 52,
+            "upper_row_ss": [
+                [
+                    "Andreadis Family Holdings LLC (\"AFH\")",
+                    "40%",
+                    "AFH is a Delaware limited liability company (File No. 5847291,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "registered agent: National Corporate Services Inc., 818 N. Market Street, Suite 100, Wilmington, DE 19801). AFH members are: Nikolaos Andreadis (70%), Eleni Andreadis (15%), and Georgios Andreadis (15%). AFH controls TSL with a 62% equity stake, making it the majority shareholder of the buyer. Nikolaos Andreadis serves as TSL's Chairman and Chief Executive Officer."
+                ]
+            ]
+        },
+        {
+            "table1_idx": 98,
+            "table2_idx": 99,
+            "upper_row_ss": [
+                [
+                    "Lack of documented procurement services (to date)",
+                    "High",
+                    "Significantly undermines the defense. The preliminary documentation — one market assessment report, correspondence of unassessed scope, and three quality inspection reports — may be insufficient to establish the breadth and depth of genuine procurement"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "services required under WCO Commentary 17.1."
+                ]
+            ]
+        }
+    ]
+}

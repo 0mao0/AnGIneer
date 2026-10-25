@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        28
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        22,
+        23,
+        28
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>154 140 189 854<|content|>TO: ... Katrin Schreiber, General Counsel, Halcyon Semiconductor AG\n<|id|>3<|page|>1<|box|>196 140 234 854<|content|>FROM: ... Elaine Forsythe, Partner, and Aaron Liu,...rkness LLP, Antitrust & Competition Practice Group\n<|id|>4<|page|>1<|box|>242 140 258 316<|content|>DATE: ... April 24, 2023\n<|id|>5<|page|>1<|box|>268 140 304 854<|content|>RE: ... 23CV-18274, Circuit Court of the State of Oregon for the County of Multnomah\n<|id|>6<|page|>1<|box|>311 140 329 361<|content|>MATTER NO. ... 1032-00001\n<|id|>18<|page|>2<|box|>823 140 895 856<|content|>The acquisition was funded through a $2. ... The l... (Glenrock Assurance, Switzerland) and Pacific Rim\n<|id|>19<|page|>3<|box|>90 140 145 854<|content|>Commercial Bank (Singapore) as co-lenders. ... $50...ility for working capital and integration purposes\n<|id|>53<|page|>7<|box|>792 138 883 857<|content|>Cascadia Cloud Services Inc. ... According to the ...$62 million on Meridian CPO modules in fiscal year\n<|id|>54<|page|>8<|box|>89 140 127 854<|content|>2022 and had committed to a multi-year procurement...oadmap based on Meridian's CPO technology platform\n<|id|>65<|page|>9<|box|>295 140 313 767<|content|>Pre-merger HHI: ... 4 4 ^ { 2 } + 2 2 ^ { 2 } + 1 ... , 9 3 6 + 4 8 4 + 1 9 6 + 1 2 1 + 8 1 = 2 , 8 1 8\n<|id|>66<|page|>9<|box|>321 140 339 684<|content|>Post-merger HHI: ... 5 8 ^ { 2 } + 2 2 ^ { 2 } + 1... 6 4 + 4 8 4 + 1 2 1 + 8 1 = 4 , \\mathbf { 0 5 0 }\n<|id|>67<|page|>9<|box|>348 142 364 491<|content|>Delta (change in) HHI: ... 4,050 − 2,818 = 1,232\n<|id|>68<|page|>9<|box|>375 140 484 854<|content|>Under the federal Horizontal Merger Guidelines — b... of 1,232 is more than six times the 200 threshold\n<|id|>167<|page|>22<|box|>848 140 904 856<|content|>We will coordinate with local counsel Thomas Kowal... including the scope and timing of CID compliance,\n<|id|>168<|page|>23<|box|>90 140 127 854<|content|>Oregon's rules governing document production and e...ilege or work-product protections under Oregon law\n<|id|>218<|page|>28<|box|>189 140 205 320<|content|>Respectfully submitted,\n<|id|>219<|page|>28<|box|>205 140 222 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>220<|page|>28<|box|>224 142 239 253<|content|>By: ... By\n<|id|>221<|page|>28<|box|>239 140 273 854<|content|>Elaine Forsythe Partner, Antitrust & Competition P...nue of the Americas, 35th Floor New York, NY 10019\n<|id|>222<|page|>28<|box|>273 143 291 299<|content|>Date: ... April 24, 2023\n<|id|>223<|page|>28<|box|>292 143 308 253<|content|>By: ... By\n<|id|>224<|page|>28<|box|>308 140 340 852<|content|>Aaron Liu Associate, Antitrust & Competition Pract...nue of the Americas, 35th Floor New York, NY 10019\n<|id|>225<|page|>28<|box|>342 143 358 300<|content|>Date: ... April 24, 2023\n<|id|>226<|page|>28<|box|>358 140 479 856<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV...prior written consent of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>18<|tgt_id|>19\n<|src_id|>53<|tgt_id|>54\n<|src_id|>167<|tgt_id|>168",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 167,
+            "tgt_id": 168
+        }
+    ]
+}

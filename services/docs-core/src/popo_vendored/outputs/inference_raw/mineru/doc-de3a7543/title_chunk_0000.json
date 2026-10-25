@@ -1,0 +1,150 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 200 106 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>3<|page|>1<|box|>228 142 244 290<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>419 334 439 661<|content|>I. Purpose and Recommendation\n<|id|>14<|page|>2<|box|>300 370 319 627<|content|>II. Transaction Summary\n<|id|>15<|page|>2<|box|>345 142 362 227<|content|>A. Parties\n<|id|>19<|page|>2<|box|>830 140 847 462<|content|>B. Transaction Structure and Economics\n<|id|>33<|page|>3<|box|>767 142 784 305<|content|>C. Sources and Uses\n<|id|>39<|page|>4<|box|>372 140 388 346<|content|>D. Key Agreement Terms\n<|id|>50<|page|>5<|box|>532 284 551 712<|content|>III. Chronological Summary of Key Events\n<|id|>78<|page|>8<|box|>450 312 470 684<|content|>IV. Failed Stockholder Vote — Detail\n<|id|>79<|page|>8<|box|>496 142 513 267<|content|>A. Vote Results\n<|id|>84<|page|>9<|box|>223 140 239 431<|content|>B. Key Shareholder Voting Behavior\n<|id|>90<|page|>9<|box|>814 140 832 310<|content|>C. Post-Vote Actions\n<|id|>100<|page|>10<|box|>756 325 776 671<|content|>V. Current Status and Open Items\n<|id|>101<|page|>10<|box|>801 142 818 370<|content|>A. Merger Agreement Status\n<|id|>106<|page|>11<|box|>539 140 555 437<|content|>B. Pinnacle Debt Commitment Letter\n<|id|>111<|page|>12<|box|>167 140 185 503<|content|>C. Representations and Warranties Insurance\n<|id|>117<|page|>12<|box|>741 142 757 318<|content|>D. Escrow Agreement\n<|id|>121<|page|>13<|box|>248 140 266 307<|content|>E. Termination Fees\n<|id|>126<|page|>13<|box|>704 140 722 354<|content|>F. Proxy and SEC Matters\n<|id|>133<|page|>14<|box|>340 295 361 700<|content|>VI. Fee Position and Financial Summary\n<|id|>134<|page|>14<|box|>386 142 402 485<|content|>A. Calderwood & Harkness LLP Fee Status\n<|id|>139<|page|>15<|box|>148 140 167 486<|content|>B. Other Advisor Fee Status (for Reference)\n<|id|>141<|page|>15<|box|>273 140 292 764<|content|>Lantern Hill Advisory LLC (Financial Advisor to Co\n<|id|>143<|page|>15<|box|>417 140 435 560<|content|>Grayson Partners & Co. (Financial Advisor to Arden\n<|id|>145<|page|>15<|box|>542 140 560 504<|content|>Pinnacle Commercial Lending Corp. (Lender):\n<|id|>147<|page|>15<|box|>648 140 667 790<|content|>Ridgeline Risk Advisors LLC / Ironwood Specialty I\n<|id|>149<|page|>15<|box|>776 297 795 700<|content|>VII. Document Preservation Obligations\n<|id|>175<|page|>17<|box|>234 375 253 620<|content|>VIII. Engagement Team\n<|id|>179<|page|>17<|box|>606 287 625 709<|content|>IX. Recommended Actions and Next Steps\n<|id|>189<|page|>18<|box|>619 426 638 571<|content|>X. Conclusion\n<|id|>196<|page|>19<|box|>333 411 349 584<|content|>Respectfully submitted,\n<|id|>202<|page|>19<|box|>444 140 459 630<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>3<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>19<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>3\n<|id|>50<|level|>2\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>84<|level|>3\n<|id|>90<|level|>3\n<|id|>100<|level|>2\n<|id|>101<|level|>3\n<|id|>106<|level|>3\n<|id|>111<|level|>3\n<|id|>117<|level|>3\n<|id|>121<|level|>3\n<|id|>126<|level|>3\n<|id|>133<|level|>2\n<|id|>134<|level|>3\n<|id|>139<|level|>3\n<|id|>141<|level|>4\n<|id|>143<|level|>4\n<|id|>145<|level|>4\n<|id|>147<|level|>4\n<|id|>149<|level|>2\n<|id|>175<|level|>2\n<|id|>179<|level|>2\n<|id|>189<|level|>2\n<|id|>196<|level|>-1\n<|id|>202<|level|>-1",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 4
+        },
+        {
+            "id": 143,
+            "level": 4
+        },
+        {
+            "id": 145,
+            "level": 4
+        },
+        {
+            "id": 147,
+            "level": 4
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        }
+    ]
+}

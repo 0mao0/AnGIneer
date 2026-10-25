@@ -1,0 +1,152 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>135 290 152 705<|content|>CONFIDENTIAL — INTERNAL MEMORANDUM\n<|id|>2<|page|>1<|box|>176 339 194 658<|content|>CONFLICT CHECK MEMORANDUM\n<|id|>11<|page|>1<|box|>462 142 479 313<|content|>1. Purpose and Scope\n<|id|>17<|page|>2<|box|>229 140 248 341<|content|>2. Transaction Summary\n<|id|>26<|page|>3<|box|>250 140 265 297<|content|>3. Parties Searched\n<|id|>28<|page|>3<|box|>359 140 377 285<|content|>3.1 Client / Issuer\n<|id|>41<|page|>3<|box|>698 140 714 354<|content|>3.2 Subsidiary Guarantors\n<|id|>43<|page|>3<|box|>763 140 782 455<|content|>Wolverine Lake Mining Ltd. (\"WLML\")\n<|id|>51<|page|>4<|box|>135 142 152 506<|content|>Torchlight Milling & Processing Inc. (\"TMPI\")\n<|id|>58<|page|>4<|box|>339 142 357 464<|content|>Torchlight U.S. Holdings, Inc. (\"TUSHI\")\n<|id|>66<|page|>4<|box|>532 140 550 550<|content|>3.3 Lead Initial Purchaser / Book-Running Manager\n<|id|>74<|page|>4<|box|>737 142 753 433<|content|>3.4 Co-Managers / Initial Purchasers\n<|id|>87<|page|>5<|box|>271 142 289 794<|content|>3.5 Indenture Trustee / Collateral Agent / Paying\n<|id|>94<|page|>5<|box|>492 142 508 527<|content|>3.6 Existing Credit Facility Administrative Agent\n<|id|>102<|page|>5<|box|>767 140 785 581<|content|>3.7 Opposing / Co-Counsel (Identified at Time of C\n<|id|>123<|page|>6<|box|>484 142 500 405<|content|>3.8 Other Third Parties Searched\n<|id|>145<|page|>7<|box|>252 140 268 326<|content|>4. Search Methodology\n<|id|>160<|page|>8<|box|>311 140 329 282<|content|>5. Search Results\n<|id|>162<|page|>8<|box|>386 140 404 500<|content|>5.1 Torchlight Mining Corp. and Subsidiaries\n<|id|>167<|page|>8<|box|>700 140 718 423<|content|>5.2 Kelvantis Capital Markets LLC\n<|id|>175<|page|>9<|box|>419 140 436 416<|content|>5.3 Prestige Barrington & Co., Inc.\n<|id|>179<|page|>9<|box|>561 140 578 352<|content|>5.4 Halcyon Securities Inc.\n<|id|>183<|page|>9<|box|>704 142 720 455<|content|>5.5 Northern Dominion Trust Company\n<|id|>192<|page|>10<|box|>518 140 535 380<|content|>5.6 Ridgeline Bank of Canada\n<|id|>200<|page|>11<|box|>410 140 429 849<|content|>5.7 Law Firms (Clairmont & Voss LLP; Pendleton Ros\n<|id|>206<|page|>11<|box|>768 140 806 854<|content|>5.8 Other Third Parties (Aldgate Thornton LLP; Nor\n<|id|>211<|page|>12<|box|>282 140 299 377<|content|>6. Analysis of Potential Issues\n<|id|>220<|page|>13<|box|>638 140 654 370<|content|>7. Conclusion and Clearance\n<|id|>228<|page|>14<|box|>292 140 310 261<|content|>8. Distribution\n<|id|>235<|page|>14<|box|>537 140 554 375<|content|>9. Certification and Approval",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>11<|level|>2\n<|id|>17<|level|>2\n<|id|>26<|level|>2\n<|id|>28<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>4\n<|id|>51<|level|>4\n<|id|>58<|level|>4\n<|id|>66<|level|>3\n<|id|>74<|level|>3\n<|id|>87<|level|>3\n<|id|>94<|level|>3\n<|id|>102<|level|>3\n<|id|>123<|level|>3\n<|id|>145<|level|>2\n<|id|>160<|level|>2\n<|id|>162<|level|>3\n<|id|>167<|level|>3\n<|id|>175<|level|>3\n<|id|>179<|level|>3\n<|id|>183<|level|>3\n<|id|>192<|level|>3\n<|id|>200<|level|>3\n<|id|>206<|level|>3\n<|id|>211<|level|>2\n<|id|>220<|level|>2\n<|id|>228<|level|>2\n<|id|>235<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 3
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 3
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 235,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 173 126 823<|content|>CALDERWOOD & HARKNESS LLP 25 Finsbury Square Londo\n<|id|>6<|type|>title<|page|>1<|box|>462 140 479 264<|content|>1. Background\n<|id|>14<|type|>title<|page|>2<|box|>90 140 107 509<|content|>(a) Royalty/License Fee Addition — €4,900,000\n<|id|>16<|type|>title<|page|>2<|box|>364 140 381 596<|content|>(b) Procurement Coordination Fee Addition — €2,940\n<|id|>19<|type|>title<|page|>2<|box|>700 140 718 540<|content|>(c) Commissioning Services Addition — €2,100,000\n<|id|>21<|type|>title<|page|>3<|box|>90 140 107 583<|content|>Additional Duty Arising from the Valuation Adjustm\n<|id|>23<|type|>title<|page|>3<|box|>319 140 337 334<|content|>2. Scope of Engagement\n<|id|>25<|type|>title<|page|>3<|box|>395 140 412 382<|content|>(a) Customs Valuation Report\n<|id|>27<|type|>title<|page|>3<|box|>577 140 594 400<|content|>(b) Buying Commission Analysis\n<|id|>29<|type|>title<|page|>4<|box|>90 140 107 303<|content|>(c) Royalty Analysis\n<|id|>31<|type|>title<|page|>4<|box|>345 140 364 437<|content|>(d) Transfer Pricing Cross-Reference\n<|id|>33<|type|>title<|page|>4<|box|>565 140 583 383<|content|>(e) Supporting Documentation\n<|id|>35<|type|>title<|page|>4<|box|>758 140 773 635<|content|>3. Conflict Acknowledgment — Dual Role as Statutor\n<|id|>38<|type|>title<|page|>5<|box|>377 140 393 367<|content|>4. Deliverables and Timeline\n<|id|>39<|type|>table<|page|>5<|box|>445 143 554 852<|content|>None\n<|id|>41<|type|>title<|page|>5<|box|>758 142 773 310<|content|>5. Fee Arrangements\n<|id|>42<|type|>table<|page|>5<|box|>810 143 904 852<|content|>None\n<|id|>49<|type|>title<|page|>6<|box|>618 140 635 374<|content|>6. Information Requirements\n<|id|>68<|type|>title<|page|>7<|box|>779 140 796 390<|content|>7. Privilege and Confidentiality\n<|id|>72<|type|>title<|page|>8<|box|>402 140 420 274<|content|>8. Independence\n<|id|>74<|type|>title<|page|>8<|box|>633 140 652 433<|content|>9. Coordination with Other Advisors\n<|id|>79<|type|>title<|page|>9<|box|>194 142 210 274<|content|>10. Termination\n<|id|>81<|type|>title<|page|>9<|box|>371 142 387 315<|content|>11. Primary Contacts",
+    "raw_response": "<|src_id|>39<|tgt_id|>38\n<|src_id|>42<|tgt_id|>41",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 38
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 41
+        }
+    ]
+}

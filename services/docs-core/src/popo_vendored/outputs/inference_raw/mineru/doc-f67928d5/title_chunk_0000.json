@@ -1,0 +1,94 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 169 133 826<|content|>CALDERWOOD & HARKNESS LLP Solicitors & Internation\n<|id|>10<|page|>1<|box|>417 142 435 609<|content|>1. Introduction — Identification of Parties and En\n<|id|>15<|page|>2<|box|>90 140 107 462<|content|>2. Background — The LCIA Arbitration\n<|id|>16<|page|>2<|box|>121 140 138 419<|content|>2.1 The Charter-Party Agreements\n<|id|>23<|page|>2<|box|>506 140 523 398<|content|>2.2 The Arbitration Proceedings\n<|id|>32<|page|>3<|box|>90 140 107 790<|content|>3. The Final Award — Summary of the Tribunal's Fin\n<|id|>33<|page|>3<|box|>121 140 138 410<|content|>3.1 KMH's Repudiatory Breaches\n<|id|>38<|page|>3<|box|>674 142 690 323<|content|>3.2 Amounts Awarded\n<|id|>43<|page|>4<|box|>210 142 227 302<|content|>3.3 Costs Allocation\n<|id|>46<|page|>4<|box|>424 142 441 349<|content|>3.4 Total Amount Payable\n<|id|>50<|page|>4<|box|>559 142 575 333<|content|>4. Demand for Payment\n<|id|>53<|page|>4<|box|>709 176 727 676<|content|>Ionian National Bank SA 22 Stadiou Street Athens 1\n<|id|>56<|page|>5<|box|>90 140 107 325<|content|>5. Post-Award Interest\n<|id|>62<|page|>5<|box|>425 140 443 406<|content|>6. Consequences of Non-Payment\n<|id|>64<|page|>5<|box|>537 140 554 374<|content|>6.1 Enforcement Proceedings\n<|id|>78<|page|>6<|box|>566 140 584 387<|content|>6.2 Worldwide Freezing Order\n<|id|>83<|page|>7<|box|>157 140 174 281<|content|>6.3 Vessel Arrest\n<|id|>90<|page|>7<|box|>487 140 505 294<|content|>6.4 Costs Warning\n<|id|>99<|page|>8<|box|>90 140 107 334<|content|>7. Reservation of Rights\n<|id|>107<|page|>8<|box|>494 140 513 334<|content|>8. Request for Response",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>32<|level|>1\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>50<|level|>1\n<|id|>53<|level|>-1\n<|id|>56<|level|>1\n<|id|>62<|level|>1\n<|id|>64<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>90<|level|>2\n<|id|>99<|level|>1\n<|id|>107<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        }
+    ]
+}

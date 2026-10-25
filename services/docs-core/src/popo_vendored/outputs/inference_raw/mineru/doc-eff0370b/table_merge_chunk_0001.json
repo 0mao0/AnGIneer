@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Ryan Kowalski', 'Lead Associate, M&A (7th Year)', 'Day-to-day transaction', '650–850', '$1,350']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'management; due diligence coordination and supervision; drafting of Merger Agreement, disclosure schedules, and closing documents; escrow agreement and paying agent agreement; funds flow memorandum; correspondence with Caldwell, Raines & Sheppard LLP; internal team coordination; budget monitoring', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 121,
+    "table2_idx": 122
+}

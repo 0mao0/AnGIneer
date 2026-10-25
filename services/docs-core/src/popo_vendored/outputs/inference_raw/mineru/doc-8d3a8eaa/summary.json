@@ -1,0 +1,103 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mang1_h0\\input\\pdfs\\doc-8d3a8eaa.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mang1_h0\\enriched\\doc-8d3a8eaa.json",
+    "contd_output": "<|src_id|>62<|tgt_id|>63",
+    "title_output": "<|id|>4<|level|>1\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>31<|level|>3\n<|id|>37<|level|>3\n<|id|>43<|level|>3\n<|id|>49<|level|>3\n<|id|>58<|level|>2\n<|id|>69<|level|>2",
+    "image_output": "<|src_id|>5<|tgt_id|>4\n<|src_id|>52<|tgt_id|>49\n<|src_id|>53<|tgt_id|>49\n<|src_id|>54<|tgt_id|>49\n<|src_id|>55<|tgt_id|>49\n<|src_id|>56<|tgt_id|>49",
+    "contd_label": [
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        }
+    ],
+    "title_label": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 5,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 49
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 55,
+            "table2_idx": 56,
+            "upper_row_ss": [
+                [
+                    "22-7831-002 (this invoice)",
+                    "August 1, 2022",
+                    "145,000.00",
+                    "Due — August 31, 2022"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Total Billed to Date",
+                    "",
+                    "$310,000.00",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

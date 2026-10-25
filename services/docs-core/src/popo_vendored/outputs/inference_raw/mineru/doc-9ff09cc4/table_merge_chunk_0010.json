@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['10/15/62', '2.975% Bill', '- 10/15/62', '10/16/61', '2,003', '2,003 2/', '-', '-', '-', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=5, 11/15/62', 'colspan=2, 3-3/4% Note - 11/15/62-C', '11/29/57', '1,143', '-', '1,143', '121484446', '92', '3-1/8% Certificate - 11/15/63-D3-1/2% Note - 11/15/65-B4% Bond - 2/15/72']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 228,
+    "table2_idx": 229
+}

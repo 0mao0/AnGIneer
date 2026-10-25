@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        26
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        11,
+        14,
+        16,
+        19,
+        20,
+        26
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 140 104 607<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>112 220 128 774<|content|>CALDERWOOD & HARKNESS LLP INTERNAL MEMORANDUM\n<|id|>2<|page|>1<|box|>138 140 156 557<|content|>TO: ... Douglas Carmichael, Partner\n<|id|>3<|page|>1<|box|>164 140 181 627<|content|>FROM: ... Simone Laroche, Associate\n<|id|>4<|page|>1<|box|>190 140 207 354<|content|>DATE: ... November 14, 2022\n<|id|>5<|page|>1<|box|>215 140 270 854<|content|>RE: ... 5) — Teaming Agreement dated June 12, 2019...space LLC and Hargrove-Dalton Defense Systems, Inc\n<|id|>6<|page|>1<|box|>277 140 296 421<|content|>CLIENT: ... Whitmore Aerospace LLC\n<|id|>7<|page|>1<|box|>304 140 340 854<|content|>MATTER: ... Whitmore Aerospace LLC — Indemnity Dispute with Hargrove-Dalton Defense Systems, Inc\n<|id|>11<|page|>1<|box|>732 138 898 857<|content|>Moreover, the demand is overbroad in two independe... significant respects. ... \" No formal Contracting\n<|id|>12<|page|>2<|box|>90 140 143 854<|content|>Officer's Final Decision (\"COFD\") has issued, and ... a presently viable basis for resisting the demand\n<|id|>63<|page|>6<|box|>829 174 902 856<|content|>\"Team Member shall indemnify, defend, and hold har...by the U. ... Government that costs incurred under\n<|id|>64<|page|>7<|box|>90 174 126 854<|content|>Team Member's Work Package are unallowable, unreas...s caused by Team Member's acts or omissions. ... \"\n<|id|>102<|page|>11<|box|>323 174 359 854<|content|>(1) a \"claim by the U. ... and\n<|id|>104<|page|>11<|box|>393 140 465 854<|content|>These two requirements operate conjunctively — bot... is triggered. ... We address each element in turn\n<|id|>134<|page|>14<|box|>797 181 833 854<|content|>• Correspondence between WAL's and HDDS's engineer... callouts, and requests for clarification; ... and\n<|id|>136<|page|>14<|box|>875 140 909 856<|content|>We have requested that WAL begin assembling these ...this defense will depend on the documentary record\n<|id|>147<|page|>16<|box|>606 181 640 854<|content|>• Correspondence between WAL and HDDS regarding GFE/GFI availability and schedule impacts; ... and\n<|id|>149<|page|>16<|box|>681 140 736 854<|content|>Assessment: ... If the records confirm late delivery, this defense is compelling\n<|id|>182<|page|>19<|box|>861 140 898 854<|content|>Under New York law, indemnification clauses are co...able beyond the express scope of the clause. ... ,\n<|id|>183<|page|>20<|box|>90 140 236 854<|content|>74 N. ... An indemnitor cannot be required to bear...those losses or faces potential liability for them\n<|id|>191<|page|>20<|box|>734 181 752 851<|content|>• WAL's Work Package value: ... $74,160,000 (calculated as 18% × $412,000,000 target cost)\n<|id|>195<|page|>20<|box|>814 140 849 852<|content|>The current demand is well within the Section 11. ...n independent defense to the current demand amount\n<|id|>192<|page|>20<|box|>753 183 771 568<|content|>• Liability cap: ... 120% × $74,160,000 = $88,992,000\n<|id|>193<|page|>20<|box|>773 183 790 480<|content|>• HDDS's current demand: ... $14,726,583\n<|id|>194<|page|>20<|box|>794 183 811 584<|content|>• Demand as percentage of cap: ... 5%\n<|id|>244<|page|>26<|box|>90 181 126 854<|content|>• All internal WAL communications regarding WP-4 c...chedule performance, and technical issues; ... and\n<|id|>246<|page|>26<|box|>166 140 219 854<|content|>We emphasize that the litigation hold must be main... the hold must be approved by this firm in advance\n<|id|>248<|page|>26<|box|>309 140 325 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>249<|page|>26<|box|>327 142 344 253<|content|>By: ... By\n<|id|>250<|page|>26<|box|>344 140 376 854<|content|>Patrick Gallagher, Associate Calderwood & Harkness...h Floor New York, NY 10022 Tel: ... (212) 555-4100\n<|id|>251<|page|>26<|box|>377 142 393 477<|content|>Email: ... com\n<|id|>252<|page|>26<|box|>395 143 411 251<|content|>By: ... By\n<|id|>253<|page|>26<|box|>411 140 444 854<|content|>Simone Laroche, Associate Calderwood & Harkness LL...t NW, Suite 1100 Washington, D. ... (202) 555-7200\n<|id|>254<|page|>26<|box|>445 142 460 462<|content|>Email: ... com\n<|id|>255<|page|>26<|box|>460 140 476 607<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>256<|page|>26<|box|>484 140 529 854<|content|>This memorandum is protected by the attorney-clien...prior written consent of Calderwood & Harkness LLP",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>63<|tgt_id|>64\n<|src_id|>182<|tgt_id|>183",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 183
+        }
+    ]
+}

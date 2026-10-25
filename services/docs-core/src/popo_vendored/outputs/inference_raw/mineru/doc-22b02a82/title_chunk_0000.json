@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 150 241 846<|content|>STATE OF DELAWARE SECRETARY OF STATE DIVISION OF C\n<|id|>1<|page|>1<|box|>250 321 268 674<|content|>CERTIFICATE OF FORMATION\n<|id|>3<|page|>1<|box|>325 272 345 723<|content|>QUORUM RECEIVABLES HOLDING LLC\n<|id|>5<|page|>1<|box|>441 142 458 325<|content|>ARTICLE I — NAME\n<|id|>7<|page|>1<|box|>494 176 511 452<|content|>Quorum Receivables Holding LLC\n<|id|>9<|page|>1<|box|>560 143 577 700<|content|>ARTICLE II — REGISTERED OFFICE AND REGISTERED AGEN\n<|id|>14<|page|>1<|box|>741 143 758 483<|content|>ARTICLE III — AUTHORIZED PERSON\n<|id|>17<|page|>2<|box|>89 142 106 439<|content|>ARTICLE IV — EFFECTIVE DATE\n<|id|>19<|page|>2<|box|>175 142 191 359<|content|>ARTICLE V — PURPOSE\n<|id|>25<|page|>2<|box|>340 155 358 839<|content|>STATE OF DELAWARE SECRETARY OF STATE DIVISION OF C\n<|id|>26<|page|>2<|box|>366 424 383 573<|content|>ENDORSEMENT\n<|id|>27<|page|>2<|box|>393 142 409 282<|content|>File No.: 7894228",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>3\n<|id|>5<|level|>4\n<|id|>7<|level|>5\n<|id|>9<|level|>4\n<|id|>14<|level|>4\n<|id|>17<|level|>4\n<|id|>19<|level|>4\n<|id|>25<|level|>1\n<|id|>26<|level|>2\n<|id|>27<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 3
+        },
+        {
+            "id": 5,
+            "level": 4
+        },
+        {
+            "id": 7,
+            "level": 5
+        },
+        {
+            "id": 9,
+            "level": 4
+        },
+        {
+            "id": 14,
+            "level": 4
+        },
+        {
+            "id": 17,
+            "level": 4
+        },
+        {
+            "id": 19,
+            "level": 4
+        },
+        {
+            "id": 25,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        }
+    ]
+}

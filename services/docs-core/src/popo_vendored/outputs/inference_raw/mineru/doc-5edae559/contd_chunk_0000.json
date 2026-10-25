@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>854 140 930 854<|content|>WHEREAS, following a noticed hearing on February 1...osing restrictions on Defendants EXECUTION VERSION\n<|id|>6<|page|>2<|box|>90 140 162 854<|content|>possession, use, and disclosure of Lumos's proprie...arties and order of this Court dated March 8, 2023\n<|id|>30<|page|>4<|box|>828 140 901 856<|content|>2. ... Mallick departed Lumos on October 14, 2022 and joined\n<|id|>31<|page|>5<|box|>89 140 143 854<|content|>NovaSpark as Vice President of Engineering on Octo...A upon her hire at Lumos on or about June 15, 2020\n<|id|>39<|page|>5<|box|>864 140 901 854<|content|>2. ... The\n<|id|>40<|page|>6<|box|>90 140 236 854<|content|>Lumos Trade Secrets derive independent economic va...in secrecy were reasonable under the circumstances\n<|id|>55<|page|>7<|box|>814 140 906 857<|content|>4. ... 1, in any future employment, engagement, co...5) years from the effective date of the Settlement\n<|id|>56<|page|>8<|box|>90 140 181 854<|content|>Agreement (September 22, 2023), that is, through a...other entity or venture during the covenant period\n<|id|>96<|page|>13<|box|>428 140 445 452<|content|>WHITFIELD, RAINES & GERBER LLP\n<|id|>97<|page|>13<|box|>463 142 479 331<|content|>Name: ... Patricia Whitfield\n<|id|>98<|page|>13<|box|>481 143 497 287<|content|>Title: ... Lead Partner\n<|id|>99<|page|>13<|box|>498 142 515 477<|content|>Address: ... 235 Montgomery Street, Suite 1800\n<|id|>100<|page|>13<|box|>515 140 532 584<|content|>San Francisco, California 94104 Telephone: ... (415) 291-8400\n<|id|>101<|page|>13<|box|>532 142 549 437<|content|>Email: ... com\n<|id|>102<|page|>13<|box|>550 142 566 310<|content|>Date: ... October 4, 2023\n<|id|>109<|page|>14<|box|>258 174 295 852<|content|>Marcus Delgado, Responsible Partner Calderwood & H...co, California 94104 Telephone: ... (415) 773-5600\n<|id|>110<|page|>14<|box|>304 176 320 508<|content|>Email: ... com\n<|id|>111<|page|>14<|box|>321 176 338 609<|content|>Served via electronic service (email) and personal delivery\n<|id|>113<|page|>14<|box|>391 174 426 854<|content|>Patricia Whitfield, Lead Partner Whitfield, Raines...co, California 94104 Telephone: ... (415) 291-8400\n<|id|>114<|page|>14<|box|>435 176 450 470<|content|>Email: ... com\n<|id|>115<|page|>14<|box|>453 176 469 609<|content|>Served via electronic service (email) and personal delivery\n<|id|>117<|page|>14<|box|>503 176 520 653<|content|>Rajiv Anand 1482 Mariposa Avenue Palo Alto, California 94306\n<|id|>118<|page|>14<|box|>530 176 547 599<|content|>Served via first-class United States mail, postage prepaid\n<|id|>119<|page|>14<|box|>556 176 571 790<|content|>Serena Mallick 578 Guerrero Street, Apartment 3B San Francisco, California 94110\n<|id|>120<|page|>14<|box|>582 176 599 599<|content|>Served via first-class United States mail, postage prepaid\n<|id|>121<|page|>14<|box|>607 176 625 723<|content|>Derek Yun 2241 Cowper Street, Apartment 12 Palo Alto, California 94301\n<|id|>122<|page|>14<|box|>633 176 651 599<|content|>Served via first-class United States mail, postage prepaid\n<|id|>123<|page|>14<|box|>659 140 694 854<|content|>I declare under penalty of perjury under the laws ... California that the foregoing is true and correct",
+    "raw_response": "<|src_id|>5<|tgt_id|>6\n<|src_id|>30<|tgt_id|>31\n<|src_id|>39<|tgt_id|>40\n<|src_id|>55<|tgt_id|>56",
+    "parsed": [
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 56
+        }
+    ]
+}

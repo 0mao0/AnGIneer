@@ -1,0 +1,32 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        8,
+        9,
+        10,
+        12,
+        13,
+        21,
+        22,
+        27
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 424 132 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>142 140 178 852<|content|>TO: ... Danielle Prescott, Chief Financial Officer, Skybridge Fintech Ltd\n<|id|>3<|page|>1<|box|>186 140 220 854<|content|>FROM: ... Linda Osei, Partner, Calderwood & Harkne...ck Gallagher, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>229 140 248 316<|content|>DATE: ... April 30, 2024\n<|id|>5<|page|>1<|box|>256 140 292 854<|content|>RE: ... Under the Master Servicing Agreement Dated October 1, 2022\n<|id|>6<|page|>1<|box|>300 140 316 377<|content|>C&H Matter No. ... 1009-00005\n<|id|>7<|page|>1<|box|>325 140 387 854<|content|>This memorandum is protected by the attorney-clien...f Calderwood & Harkness LLP is strictly prohibited\n<|id|>18<|page|>2<|box|>539 174 574 854<|content|>(c) Engage an independent consultant to assess the...earview-serviced portfolio ($640 million); ... and\n<|id|>20<|page|>2<|box|>627 140 643 828<|content|>The balance of this memorandum sets forth our deta...our detailed analysis supporting these conclusions\n<|id|>74<|page|>8<|box|>116 140 208 856<|content|>Section 4. ... This waterfall priority is a fundam...regate, the reported portfolio performance metrics\n<|id|>75<|page|>8<|box|>215 140 287 854<|content|>Clearview's ClearCore system, following the June 2... contractual waterfall priority. ... 03 of the MSA\n<|id|>91<|page|>9<|box|>734 174 789 854<|content|>(iii) implemented ongoing reconciliation controls ...logic on a monthly or more frequent basis; ... and\n<|id|>93<|page|>9<|box|>840 140 895 854<|content|>Clearview's failure to detect the payment-waterfal...ls, not merely an isolated software defect. ... 01\n<|id|>102<|page|>10<|box|>779 174 815 854<|content|>(b) any failure by Clearview to perform its servic...ns in accordance with the terms of the MSA; ... or\n<|id|>104<|page|>10<|box|>868 140 904 854<|content|>The indemnification obligation under Section 9. ..... preserve SBF's rights, as discussed further below\n<|id|>118<|page|>12<|box|>849 140 902 857<|content|>SBF's primary category of damages consists of the ...costs were incurred in reliance on the accuracy of\n<|id|>119<|page|>13<|box|>90 140 162 856<|content|>Clearview's servicing data and would not have been...ror in the context of a securitization transaction\n<|id|>197<|page|>21<|box|>868 140 904 854<|content|>New York's statute of limitations for breach-of-co...e date of the breach. ... the earliest breach (the\n<|id|>198<|page|>22<|box|>90 140 127 854<|content|>ClearCore migration error) occurred in June 2023, ...ive years remaining in which to commence an action\n<|id|>244<|page|>27<|box|>133 174 171 854<|content|>(d) Commencement of settlement discussions with Cl...on and the ongoing servicing relationship; ... and\n<|id|>246<|page|>27<|box|>223 140 258 854<|content|>We are prepared to proceed with each of these step... recommended strategy at your earliest convenience",
+    "raw_response": "<|src_id|>118<|tgt_id|>119\n<|src_id|>197<|tgt_id|>198",
+    "parsed": [
+        {
+            "src_id": 118,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 197,
+            "tgt_id": 198
+        }
+    ]
+}

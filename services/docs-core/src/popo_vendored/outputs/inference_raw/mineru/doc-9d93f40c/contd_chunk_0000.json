@@ -1,0 +1,36 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        35
+    ],
+    "pages": [
+        1,
+        2,
+        13,
+        14,
+        24,
+        25,
+        27,
+        28,
+        34,
+        35
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 168 133 828<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>2<|page|>1<|box|>141 140 178 854<|content|>From: ... Claire, Partner, Capital Markets, Calder...ociate, Capital Markets, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>186 140 239 854<|content|>To: ... Wilhelm Ostermann, General Counsel (Chefju...orstand), Halcyon Semiconductor Aktiengesellschaft\n<|id|>4<|page|>1<|box|>248 140 304 854<|content|>CC: ... Christoph Maurelban, Partner, Capital Mark...tein Rechtsanwälte PartGmbB (German counsel input)\n<|id|>5<|page|>1<|box|>311 140 329 330<|content|>Date: ... February 28, 2026\n<|id|>6<|page|>1<|box|>337 140 391 854<|content|>Re: ... Halcyon Semiconductor AG — Proposed US Lis...reign Private Issuers Under Nasdaq Rule 5615(a)(3)\n<|id|>7<|page|>1<|box|>398 142 416 331<|content|>Matter No. ... 1032-00003\n<|id|>8<|page|>1<|box|>424 140 441 408<|content|>Right-click to update Table of Contents\n<|id|>18<|page|>2<|box|>476 174 512 854<|content|>(d) outlines the procedural requirements for filin...home-country counsel certification letter; ... and\n<|id|>20<|page|>2<|box|>601 140 766 857<|content|>We note at the outset that Halcyon's German two-ti...cifically designed to accommodate such differences\n<|id|>117<|page|>13<|box|>859 140 895 856<|content|>The exemption disclosure should explain that Germa...sammlungen); ... that Halcyon follows the standard\n<|id|>118<|page|>14<|box|>90 140 143 854<|content|>German practice of not imposing a general quorum r...ng requirements for specified material resolutions\n<|id|>201<|page|>24<|box|>815 138 907 857<|content|>SOX Section 404(b) — Internal Controls Assessment....irst time in the United States, the Section 404(b)\n<|id|>202<|page|>25<|box|>90 140 219 854<|content|>auditor attestation requirement is subject to an e...s analyzed in detail in the SOX Compliance Roadmap\n<|id|>228<|page|>27<|box|>667 181 704 852<|content|>• March 9, 2026 — First draft circulation of Regis...rm F-1 (including governance exemption disclosure)\n<|id|>229<|page|>27<|box|>705 181 739 854<|content|>• End of March 2026 — Bähr Stein home-country counsel certification letter (draft for C&H review)\n<|id|>230<|page|>27<|box|>744 181 777 854<|content|>• Mid-April 2026 — Audit Committee Charter (US-Com...nalized; ... audit committee composition confirmed\n<|id|>231<|page|>27<|box|>781 181 816 854<|content|>• June 8, 2026 — Public filing of Registration Sta...m F-1; ... website governance disclosure published\n<|id|>232<|page|>27<|box|>819 181 853 854<|content|>• June 2026 — Nasdaq listing application and Corporate Governance Exemption Notice submitted\n<|id|>233<|page|>27<|box|>857 181 893 854<|content|>• June 22, 2026 — Target effectiveness date for Re...tatement; ... Halcyon listing- ready on Nasdaq GSM\n<|id|>234<|page|>28<|box|>90 140 143 854<|content|>We are available to discuss this memorandum and th...e. ... Claire or Claire Dempsey with any questions\n<|id|>277<|page|>34<|box|>179 174 214 854<|content|>Corporate Governance — Significant Differences Bet...erman and Nasdaq Corporate Governance Requirements\n<|id|>278<|page|>34<|box|>224 174 387 856<|content|>As a foreign private issuer, we are permitted to f...erwise apply to us if we were a domestic US issuer\n<|id|>282<|page|>34<|box|>784 174 893 857<|content|>Compensation Committee. ... Our Supervisory Board ...chuss) that prepares recommendations on Management\n<|id|>283<|page|>35<|box|>90 174 143 854<|content|>Board compensation, but this committee includes em...y vote on our Management Board compensation system\n<|id|>290<|page|>35<|box|>820 142 835 444<|content|>End of Draft Disclosure Language — Appendix E\n<|id|>291<|page|>35<|box|>844 418 859 578<|content|>End of Memorandum\n<|id|>292<|page|>35<|box|>869 140 885 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>293<|page|>35<|box|>887 142 904 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>117<|tgt_id|>118\n<|src_id|>201<|tgt_id|>202\n<|src_id|>282<|tgt_id|>283",
+    "parsed": [
+        {
+            "src_id": 117,
+            "tgt_id": 118
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 202
+        },
+        {
+            "src_id": 282,
+            "tgt_id": 283
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 32,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['colspan=2, 20', 'colspan=2, 信息叠加功能', '能将时间、位置(车道号、收费亭号)等信息叠加到图像上,且显示清楚', '功能验证']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['项次', '检查项目', '技术要求', '检查方法']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 436,
+    "table2_idx": 437
+}

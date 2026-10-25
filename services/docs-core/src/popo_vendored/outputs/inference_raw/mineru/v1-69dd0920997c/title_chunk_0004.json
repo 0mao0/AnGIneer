@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 4,
+    "range": [
+        190,
+        198
+    ],
+    "pages": [
+        191,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1770<|page|>191<|box|>382 15 398 168<|content|>12. Indemnification\n<|id|>1772<|page|>191<|box|>482 16 497 112<|content|>13. Notices\n<|id|>1786<|page|>193<|box|>55 259 68 739<|content|>MAJOR SUBSIDIARIES OF THE REGISTRANT AT DECEMBER 3\n<|id|>1788<|page|>194<|box|>55 245 68 752<|content|>CONSENT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTIN\n<|id|>1792<|page|>195<|box|>54 439 68 558<|content|>CERTIFICATION\n<|id|>1807<|page|>196<|box|>54 439 68 558<|content|>CERTIFICATION\n<|id|>1822<|page|>197<|box|>54 309 105 688<|content|>CERTIFICATION PURSUANT TO 18 U.S.C. SECTION 1350,\n<|id|>1833<|page|>198<|box|>54 309 105 688<|content|>CERTIFICATION PURSUANT TO 18 U.S.C. SECTION 1350,\n<|id|>1838<|page|>198<|box|>244 526 259 661<|content|>/s/ DENNIS DURKIN",
+    "raw_response": "<|id|>1770<|level|>1\n<|id|>1772<|level|>1\n<|id|>1786<|level|>1\n<|id|>1788<|level|>1\n<|id|>1792<|level|>1\n<|id|>1807<|level|>1\n<|id|>1822<|level|>1\n<|id|>1833<|level|>1\n<|id|>1838<|level|>-1",
+    "parsed": [
+        {
+            "id": 1770,
+            "level": 1
+        },
+        {
+            "id": 1772,
+            "level": 1
+        },
+        {
+            "id": 1786,
+            "level": 1
+        },
+        {
+            "id": 1788,
+            "level": 1
+        },
+        {
+            "id": 1792,
+            "level": 1
+        },
+        {
+            "id": 1807,
+            "level": 1
+        },
+        {
+            "id": 1822,
+            "level": 1
+        },
+        {
+            "id": 1833,
+            "level": 1
+        }
+    ]
+}

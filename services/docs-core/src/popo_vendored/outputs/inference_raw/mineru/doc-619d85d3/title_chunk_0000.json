@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>212 140 229 462<|content|>VIA EMAIL AND Sundial Data Systems\n<|id|>14<|page|>1<|box|>724 142 741 366<|content|>1. Introduction and Purpose\n<|id|>19<|page|>2<|box|>513 140 529 303<|content|>2. Entities Searched\n<|id|>28<|page|>2<|box|>781 140 797 411<|content|>2. Ironhaven Holdings Inc. (\"IHI\")\n<|id|>36<|page|>3<|box|>316 140 334 341<|content|>3. Jurisdictions Searched\n<|id|>38<|page|>3<|box|>446 140 463 403<|content|>3.1 Ironhaven Data Centers LLC\n<|id|>50<|page|>4<|box|>138 140 157 364<|content|>3.2 Ironhaven Holdings Inc.\n<|id|>56<|page|>4<|box|>454 140 470 493<|content|>4. Search Methodology and Date Parameters\n<|id|>64<|page|>5<|box|>421 140 438 431<|content|>5. Search Results — Summary Table\n<|id|>65<|page|>5<|box|>452 140 469 320<|content|>5.1 Tabular Summary\n<|id|>69<|page|>6<|box|>263 140 280 343<|content|>5.2 Summary Conclusion\n<|id|>72<|page|>6<|box|>500 140 517 723<|content|>6. Description of Existing UCC Filing — Greystone\n<|id|>73<|page|>6<|box|>530 142 547 279<|content|>6.1 Filing Details\n<|id|>85<|page|>7<|box|>345 140 363 364<|content|>6.2 Analysis and Disposition\n<|id|>90<|page|>7<|box|>625 183 641 496<|content|>• Total payoff amount: $132,708,333.33\n<|id|>95<|page|>8<|box|>303 140 321 266<|content|>7. Certification\n<|id|>100<|page|>9<|box|>90 140 107 403<|content|>8. Qualifications and Limitations\n<|id|>107<|page|>10<|box|>186 140 203 344<|content|>9. Attachments / Exhibits\n<|id|>115<|page|>10<|box|>594 140 609 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>123<|page|>10<|box|>780 140 796 738<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGE / ATTORNE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>28<|level|>3\n<|id|>36<|level|>2\n<|id|>38<|level|>3\n<|id|>50<|level|>3\n<|id|>56<|level|>2\n<|id|>64<|level|>2\n<|id|>65<|level|>3\n<|id|>69<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>85<|level|>3\n<|id|>90<|level|>-1\n<|id|>95<|level|>2\n<|id|>100<|level|>2\n<|id|>107<|level|>2\n<|id|>115<|level|>-1\n<|id|>123<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        }
+    ]
+}

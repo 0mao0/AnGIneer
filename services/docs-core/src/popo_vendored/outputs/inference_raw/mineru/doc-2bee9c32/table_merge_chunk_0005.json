@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['2', 'Crystalline Forms', 'Thailand', 'TH 2201001234', 'May 3, 2022', '—', 'Nov. 3, 2038', 'Pending', 'Penterra']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['2', 'Crystalline Forms', 'Malaysia', 'MY PI202200 2345', 'May 3, 2022', '—', 'Nov. 3, 2038', 'Pending', 'Penterra']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 98,
+    "table2_idx": 99
+}

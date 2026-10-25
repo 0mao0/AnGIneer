@@ -1,0 +1,124 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 584<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>112 155 155 839<|content|>CALDERWOOD & HARKNESS LLP 299 Park Avenue, 42nd Fl\n<|id|>10<|page|>1<|box|>487 142 503 364<|content|>1. Purpose of Memorandum\n<|id|>16<|page|>2<|box|>212 140 229 395<|content|>2. Parties and Entities Searched\n<|id|>18<|page|>2<|box|>324 140 340 328<|content|>2.1 Client (Prospective)\n<|id|>37<|page|>3<|box|>138 142 157 421<|content|>2.2 Counterparty (CEO Candidate)\n<|id|>42<|page|>3<|box|>363 142 380 442<|content|>2.3 Counterparty's Current Employer\n<|id|>50<|page|>3<|box|>810 142 828 362<|content|>2.4 Counterparty's Counsel\n<|id|>54<|page|>4<|box|>89 140 107 607<|content|>Office: 51 Madison Avenue, 30th Floor, New York, N\n<|id|>56<|page|>4<|box|>161 142 176 320<|content|>Associate: Nathan Chu\n<|id|>58<|page|>4<|box|>309 140 325 460<|content|>2.5 Additional Related Entities Searched\n<|id|>60<|page|>4<|box|>393 142 412 344<|content|>Kensington Partners Ltd.\n<|id|>62<|page|>4<|box|>537 142 554 313<|content|>Moorfield Bates LLP\n<|id|>64<|page|>4<|box|>718 142 734 331<|content|>Whitmore Hobson LLP\n<|id|>66<|page|>4<|box|>880 142 897 313<|content|>Galloway & Partners\n<|id|>68<|page|>5<|box|>208 140 224 377<|content|>Veltrano Proxy Advisors, Inc.\n<|id|>70<|page|>5<|box|>333 142 349 408<|content|>Ashdown Surety & Insurance Co.\n<|id|>72<|page|>5<|box|>472 140 489 364<|content|>3. Scope of Conflicts Search\n<|id|>81<|page|>6<|box|>366 140 383 374<|content|>4. Results of Conflicts Search\n<|id|>83<|page|>6<|box|>459 140 477 779<|content|>4.1 Northgate Telecommunications PLC / Northgate T\n<|id|>88<|page|>6<|box|>756 140 773 352<|content|>4.2 Marcus Elliot Harding\n<|id|>93<|page|>7<|box|>275 140 292 563<|content|>4.3 Marlowe Asset Management Digital Holdings, Inc\n<|id|>99<|page|>7<|box|>816 140 834 369<|content|>4.4 Hargrove & Liddell LLP\n<|id|>106<|page|>8<|box|>426 140 443 385<|content|>4.5 Additional Related Entities\n<|id|>115<|page|>9<|box|>429 140 446 357<|content|>5. Analysis and Conclusion\n<|id|>122<|page|>10<|box|>267 140 284 330<|content|>6. Clearance Approvals\n<|id|>124<|page|>10<|box|>337 140 354 351<|content|>Reviewed and Cleared by:\n<|id|>135<|page|>10<|box|>597 142 614 261<|content|>7. Distribution\n<|id|>137<|page|>10<|box|>667 142 684 282<|content|>Distribution List:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>10<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>2\n<|id|>37<|level|>2\n<|id|>42<|level|>2\n<|id|>50<|level|>2\n<|id|>54<|level|>-1\n<|id|>56<|level|>-1\n<|id|>58<|level|>2\n<|id|>60<|level|>3\n<|id|>62<|level|>3\n<|id|>64<|level|>3\n<|id|>66<|level|>3\n<|id|>68<|level|>3\n<|id|>70<|level|>3\n<|id|>72<|level|>1\n<|id|>81<|level|>1\n<|id|>83<|level|>2\n<|id|>88<|level|>2\n<|id|>93<|level|>2\n<|id|>99<|level|>2\n<|id|>106<|level|>2\n<|id|>115<|level|>1\n<|id|>122<|level|>1\n<|id|>124<|level|>2\n<|id|>135<|level|>1\n<|id|>137<|level|>2",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 2
+        }
+    ]
+}

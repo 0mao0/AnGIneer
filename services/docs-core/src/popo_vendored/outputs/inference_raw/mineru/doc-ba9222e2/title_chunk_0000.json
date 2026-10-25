@@ -1,0 +1,98 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 155 142 841<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF NEXFORD I\n<|id|>4<|page|>1<|box|>435 142 452 241<|content|>RECITALS\n<|id|>80<|page|>7<|box|>545 142 563 279<|content|>RESOLUTIONS\n<|id|>82<|page|>7<|box|>603 142 619 656<|content|>1. Authorization of the Refinancing and Dividend R\n<|id|>86<|page|>8<|box|>213 140 229 468<|content|>2. Authorization of the Credit Agreement\n<|id|>88<|page|>8<|box|>431 140 449 602<|content|>3. Authorization of the Security and Guarantee Doc\n<|id|>91<|page|>8<|box|>768 140 785 519<|content|>4. Authorization of the Intercreditor Agreement\n<|id|>94<|page|>9<|box|>138 140 157 410<|content|>5. Authorization of the Mortgages\n<|id|>101<|page|>9<|box|>523 140 542 395<|content|>6. Authorization of UCC Filings\n<|id|>103<|page|>9<|box|>689 140 705 485<|content|>7. Authorization of Payoff and Lien Release\n<|id|>105<|page|>10<|box|>157 140 174 390<|content|>8. Authorization of Funds Flow\n<|id|>112<|page|>10<|box|>469 140 487 521<|content|>9. Authorization of Certificates and Deliverables\n<|id|>114<|page|>10<|box|>762 143 779 444<|content|>10. Designation of Authorized Officers\n<|id|>118<|page|>11<|box|>329 142 345 364<|content|>11. Engagement of Advisors\n<|id|>125<|page|>11<|box|>676 143 693 395<|content|>12. Ratification of Prior Actions\n<|id|>127<|page|>12<|box|>90 142 107 318<|content|>13. General Authority\n<|id|>130<|page|>12<|box|>381 140 398 426<|content|>SECRETARY'S CERTIFICATION\n<|id|>144<|page|>13<|box|>180 142 196 403<|content|>INCUMBENCY CERTIFICATE\n<|id|>154<|page|>13<|box|>729 140 748 517<|content|>CONSENT OF THE BOARD OF DIRECTORS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>3\n<|id|>86<|level|>3\n<|id|>88<|level|>3\n<|id|>91<|level|>3\n<|id|>94<|level|>3\n<|id|>101<|level|>3\n<|id|>103<|level|>3\n<|id|>105<|level|>3\n<|id|>112<|level|>3\n<|id|>114<|level|>3\n<|id|>118<|level|>3\n<|id|>125<|level|>3\n<|id|>127<|level|>3\n<|id|>130<|level|>2\n<|id|>144<|level|>2\n<|id|>154<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        }
+    ]
+}

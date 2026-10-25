@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>99 307 117 689<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>136 375 152 622<|content|>INTERNAL MEMORANDUM\n<|id|>2<|page|>1<|box|>162 202 178 794<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>6<|page|>1<|box|>537 142 554 401<|content|>I. Purpose of This Memorandum\n<|id|>14<|page|>2<|box|>224 140 241 267<|content|>II. Background\n<|id|>15<|page|>2<|box|>253 140 272 596<|content|>A. Proposed MTDC Engagement (Matter No. 1031-00001\n<|id|>26<|page|>3<|box|>762 140 779 596<|content|>B. Existing Pinnacle Engagement (Matter No. 1031-0\n<|id|>33<|page|>4<|box|>744 140 761 269<|content|>C. The Conflict\n<|id|>49<|page|>7<|box|>90 140 107 475<|content|>III. Declination and Notification to MTDC\n<|id|>58<|page|>8<|box|>148 140 167 500<|content|>IV. Formal Closure of Matter No. 1031-00001\n<|id|>67<|page|>9<|box|>186 140 204 681<|content|>V. Confirmation: No Disclosure of Pinnacle Confide\n<|id|>91<|page|>10<|box|>616 140 633 539<|content|>VI. Preservation of Ethical Obligations to Pinnacl\n<|id|>99<|page|>11<|box|>710 140 728 390<|content|>VII. Conflicts Database Update\n<|id|>106<|page|>12<|box|>489 140 506 524<|content|>VIII. Action Items / No Further Action Required\n<|id|>116<|page|>13<|box|>250 142 267 272<|content|>IX. Distribution",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>6<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>26<|level|>3\n<|id|>33<|level|>3\n<|id|>49<|level|>2\n<|id|>58<|level|>2\n<|id|>67<|level|>2\n<|id|>91<|level|>2\n<|id|>99<|level|>2\n<|id|>106<|level|>2\n<|id|>116<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        }
+    ]
+}

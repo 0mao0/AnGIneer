@@ -1,0 +1,68 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-64jx54o3\\input\\pdfs\\doc-39d09b0b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-64jx54o3\\enriched\\doc-39d09b0b.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>3\n<|id|>7<|level|>3\n<|id|>10<|level|>3\n<|id|>14<|level|>3",
+    "image_output": "<|src_id|>8<|tgt_id|>7\n<|src_id|>9<|tgt_id|>7\n<|src_id|>16<|tgt_id|>14",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 3
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 8,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 8,
+            "table2_idx": 9,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "Indonesia",
+                    "—"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "10",
+                    "Philippines",
+                    "—"
+                ]
+            ]
+        }
+    ]
+}

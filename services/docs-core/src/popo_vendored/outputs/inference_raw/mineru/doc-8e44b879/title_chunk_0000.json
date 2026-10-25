@@ -1,0 +1,33 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        6,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>276 145 385 851<|content|>FINAL ORDER (I) AUTHORIZING THE DEBTORS TO OBTAIN\n<|id|>3<|page|>1<|box|>750 140 766 691<|content|>THE COURT HEREBY FINDS AND DETERMINES AS FOLLOWS:\n<|id|>4<|page|>1<|box|>790 142 808 241<|content|>RECITALS\n<|id|>35<|page|>6<|box|>148 140 166 364<|content|>ORDERING PROVISIONS\n<|id|>144<|page|>18<|box|>585 143 619 826<|content|>THE HONORABLE KAREN F. McALLISTER UNITED STATES BA\n<|id|>145<|page|>18<|box|>628 140 662 854<|content|>CALDERWOOD & HARKNESS LLP Counsel to Driftwood Abs",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>4<|level|>2\n<|id|>35<|level|>2\n<|id|>144<|level|>-1\n<|id|>145<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        }
+    ]
+}

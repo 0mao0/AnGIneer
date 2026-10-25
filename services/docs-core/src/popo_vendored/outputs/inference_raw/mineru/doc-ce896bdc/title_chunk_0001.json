@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        47,
+        50
+    ],
+    "pages": [
+        47,
+        48,
+        50
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>332<|page|>47<|box|>90 202 135 795<|content|>Appendix D: Proposed Standardized Medical Director\n<|id|>334<|page|>47<|box|>266 140 282 553<|content|>Category 1: Site-Level Clinical Medical Directorsh\n<|id|>337<|page|>47<|box|>363 143 378 361<|content|>Duties and Responsibilities:\n<|id|>346<|page|>48<|box|>90 142 107 689<|content|>Category 2: Specialty-Specific Quality Oversight M\n<|id|>349<|page|>48<|box|>186 142 203 362<|content|>Duties and Responsibilities:\n<|id|>357<|page|>48<|box|>590 140 607 632<|content|>Category 3: Ancillary Services Oversight Medical D\n<|id|>360<|page|>48<|box|>686 142 703 362<|content|>Duties and Responsibilities:\n<|id|>368<|page|>50<|box|>90 263 111 733<|content|>Appendix E: Proposed Time-Logging Template\n<|id|>370<|page|>50<|box|>227 156 263 839<|content|>ARBOR HEALTH TECHNOLOGIES INC. Medical Director /\n<|id|>383<|page|>50<|box|>857 143 875 351<|content|>Compliance Office Review",
+    "raw_response": "<|id|>332<|level|>1\n<|id|>334<|level|>2\n<|id|>337<|level|>3\n<|id|>346<|level|>2\n<|id|>349<|level|>3\n<|id|>357<|level|>2\n<|id|>360<|level|>3\n<|id|>368<|level|>1\n<|id|>370<|level|>2\n<|id|>383<|level|>3",
+    "parsed": [
+        {
+            "id": 332,
+            "level": 1
+        },
+        {
+            "id": 334,
+            "level": 2
+        },
+        {
+            "id": 337,
+            "level": 3
+        },
+        {
+            "id": 346,
+            "level": 2
+        },
+        {
+            "id": 349,
+            "level": 3
+        },
+        {
+            "id": 357,
+            "level": 2
+        },
+        {
+            "id": 360,
+            "level": 3
+        },
+        {
+            "id": 368,
+            "level": 1
+        },
+        {
+            "id": 370,
+            "level": 2
+        },
+        {
+            "id": 383,
+            "level": 3
+        }
+    ]
+}

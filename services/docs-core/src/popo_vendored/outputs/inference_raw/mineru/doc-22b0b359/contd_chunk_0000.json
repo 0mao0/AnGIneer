@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        12
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>2<|box|>375 140 412 854<|content|>Protocol: ... PPC-4871-III — CLARION (Clinical Ass...ponse with Longitudinal Investigation in ONcology)\n<|id|>7<|page|>2<|box|>419 140 436 522<|content|>Investigational Product: ... Penterafenib (PPC-4871)\n<|id|>8<|page|>2<|box|>444 140 462 352<|content|>IND Number: ... IND 157823\n<|id|>9<|page|>2<|box|>470 140 489 483<|content|>ClinicalTrials. ... NCT05928174\n<|id|>13<|page|>2<|box|>773 140 902 857<|content|>Each Approved Subcontractor listed herein has been...\"), the International Council for Harmonisation of\n<|id|>14<|page|>3<|box|>89 140 145 856<|content|>Technical Requirements for Pharmaceuticals for Hum...96, as amended (\"HIPAA\"), to the extent applicable\n<|id|>30<|page|>4<|box|>872 174 909 857<|content|>(iii) Serious Adverse Event Reporting. ... Each\n<|id|>31<|page|>5<|box|>90 174 164 856<|content|>Participating Site shall report all SAEs to Meridi...rting to Sponsor and, where applicable, to the FDA\n<|id|>63<|page|>8<|box|>801 140 893 857<|content|>Regulatory Compliance. ... Part 58 (Good\n<|id|>64<|page|>9<|box|>90 140 126 854<|content|>Laboratory Practice for Nonclinical Laboratory Stu...ent applicable to bioanalytical method validations\n<|id|>79<|page|>10<|box|>334 174 369 854<|content|>(g) HIPAA (45 C. ... and\n<|id|>81<|page|>10<|box|>459 140 606 857<|content|>Sponsor shall be responsible for the oversight and...oring of each Approved Subcontractor's performance\n<|id|>98<|page|>12<|box|>232 142 248 325<|content|>Name: ... Nathaniel Briggs\n<|id|>99<|page|>12<|box|>250 142 265 442<|content|>Title: ... Vice President & General Counsel\n<|id|>100<|page|>12<|box|>266 143 282 294<|content|>Date: ... June 28, 2023\n<|id|>101<|page|>12<|box|>282 142 299 571<|content|>VERIDIAN HEALTH RESEARCH NETWORK, INC. ... VERIDIAN HEALTH RESEARCH NETWORK, INC\n<|id|>103<|page|>12<|box|>318 142 334 328<|content|>Name: ... Franklin Osei\n<|id|>104<|page|>12<|box|>334 142 351 455<|content|>Title: ... President & Chief Executive Officer\n<|id|>105<|page|>12<|box|>352 142 368 294<|content|>Date: ... June 28, 2023\n<|id|>106<|page|>12<|box|>368 140 414 854<|content|>CONFIDENTIAL — This Exhibit K and its contents con...production, or distribution is strictly prohibited",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>30<|tgt_id|>31\n<|src_id|>63<|tgt_id|>64",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        }
+    ]
+}

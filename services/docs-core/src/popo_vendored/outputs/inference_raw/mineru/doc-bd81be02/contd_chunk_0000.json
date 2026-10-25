@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>199 715 215 854<|content|>February 12, 2024\n<|id|>3<|page|>1<|box|>224 140 239 390<|content|>INTERNAL MEMORANDUM\n<|id|>4<|page|>1<|box|>250 140 267 555<|content|>TO: ... Victoria Chambers, Partner Howard Quinn, Partner\n<|id|>5<|page|>1<|box|>276 140 292 723<|content|>FROM: ... Jasmine Thornton, Lead Associate Liam Donahue, Working Associate\n<|id|>6<|page|>1<|box|>301 140 338 852<|content|>RE: ... Investigative Testimony Scheduled February 14, 2024\n<|id|>7<|page|>1<|box|>345 140 363 849<|content|>MATTER: ... SC-MAT-2023-4172\n<|id|>8<|page|>1<|box|>372 142 388 408<|content|>Right-click to update Table of Contents\n<|id|>18<|page|>2<|box|>632 142 648 338<|content|>Full Name: ... Raymond Hu\n<|id|>19<|page|>2<|box|>657 140 675 764<|content|>Current Title: ... Chief Accounting Officer, Belmont Ridge Bank National Association\n<|id|>20<|page|>2<|box|>684 140 719 854<|content|>Reporting Structure: ... Navarrete, in turn, reports to BRB's Chief Executive Officer, Douglas Wellman\n<|id|>85<|page|>9<|box|>851 140 906 854<|content|>Mr. ... 5 million at December\n<|id|>86<|page|>10<|box|>89 140 164 856<|content|>31, 2022, to $149. ... These increases demonstrate... that the increases were insufficient in magnitude",
+    "raw_response": "<|src_id|>85<|tgt_id|>86",
+    "parsed": [
+        {
+            "src_id": 85,
+            "tgt_id": 86
+        }
+    ]
+}

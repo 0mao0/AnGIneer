@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        13,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>431 151 469 844<|content|>DEFENDANT STONEFIELD LOGISTICS GROUP INC.'S MEMORA\n<|id|>10<|page|>1<|box|>665 142 681 370<|content|>TABLE OF AUTHORITIES\n<|id|>11<|page|>1<|box|>691 142 707 194<|content|>Cases\n<|id|>29<|page|>2<|box|>321 143 337 292<|content|>Statutes and Rules\n<|id|>34<|page|>2<|box|>439 142 455 398<|content|>PRELIMINARY STATEMENT\n<|id|>41<|page|>3<|box|>794 140 811 356<|content|>STATEMENT OF FACTS\n<|id|>43<|page|>4<|box|>90 140 106 261<|content|>A. The Parties\n<|id|>47<|page|>4<|box|>580 140 598 480<|content|>B. The Transportation Services Agreement\n<|id|>53<|page|>5<|box|>354 140 373 529<|content|>C. The Liquidated Damages Clause (Section 14.2)\n<|id|>60<|page|>5<|box|>729 140 744 540<|content|>D. Termination for Cause Provisions (Section 13.1)\n<|id|>63<|page|>6<|box|>176 140 193 447<|content|>E. Stonefield's Termination of the TSA\n<|id|>74<|page|>6<|box|>810 140 827 380<|content|>F. Vantor's Claimed Damages\n<|id|>80<|page|>7<|box|>383 142 401 321<|content|>G. Procedural History\n<|id|>82<|page|>7<|box|>575 142 593 316<|content|>LEGAL STANDARD\n<|id|>83<|page|>7<|box|>607 140 625 349<|content|>A. Rule 12(b)(6) Standard\n<|id|>88<|page|>8<|box|>329 140 347 357<|content|>B. New York Law Governs\n<|id|>91<|page|>8<|box|>638 142 657 256<|content|>ARGUMENT\n<|id|>92<|page|>8<|box|>670 140 707 854<|content|>I. VANTOR'S CLAIM FOR LIQUIDATED DAMAGES UNDER SEC\n<|id|>121<|page|>13<|box|>705 140 760 854<|content|>II. VANTOR'S LOST PROFITS CLAIM SHOULD BE DISMISSE\n<|id|>146<|page|>16<|box|>652 140 669 272<|content|>CONCLUSION\n<|id|>153<|page|>17<|box|>142 140 157 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>162<|page|>17<|box|>430 142 448 320<|content|>Principal Open Items:\n<|id|>168<|page|>18<|box|>470 142 489 627<|content|>Relationship to Defense Strategy Outline (Septembe\n<|id|>178<|page|>19<|box|>693 142 710 426<|content|>Appendices to Be Attached at Filing\n<|id|>182<|page|>19<|box|>829 143 845 246<|content|>Distribution.",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>10<|level|>1\n<|id|>11<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>1\n<|id|>41<|level|>1\n<|id|>43<|level|>2\n<|id|>47<|level|>2\n<|id|>53<|level|>2\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>74<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>1\n<|id|>83<|level|>2\n<|id|>88<|level|>2\n<|id|>91<|level|>1\n<|id|>92<|level|>2\n<|id|>121<|level|>2\n<|id|>146<|level|>1\n<|id|>153<|level|>-1\n<|id|>162<|level|>1\n<|id|>168<|level|>1\n<|id|>178<|level|>1\n<|id|>182<|level|>1",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 178,
+            "level": 1
+        },
+        {
+            "id": 182,
+            "level": 1
+        }
+    ]
+}

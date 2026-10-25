@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Rollover Equity', '$616,055,952', 'Equity rolled over by Jonathan']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'Hargrove (approximately $142,814,544, representing 50% of 7,736,400 shares at $36.92 per share) and Pinnacle Growth Ventures LLC (approximately $473,241,408, representing 60% of 21,367,200 shares at $36.92 per share), in each case pursuant to the Rollover Agreements described in Item 6 below']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 65,
+    "table2_idx": 66
+}

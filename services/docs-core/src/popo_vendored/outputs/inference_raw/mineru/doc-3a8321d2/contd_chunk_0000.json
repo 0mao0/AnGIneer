@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        15
+    ],
+    "pages": [
+        3,
+        4,
+        6,
+        7,
+        8,
+        11,
+        12,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>22<|page|>3<|box|>790 140 901 857<|content|>Following deliberation, the Conflicts Committee un...termined that the conflict was unwaivable. ... The\n<|id|>23<|page|>4<|box|>90 138 200 856<|content|>Committee further determined that the conflict cou...nation, signed by Lawrence Keating on May 14, 2024\n<|id|>50<|page|>6<|box|>872 174 909 854<|content|>Item 12. ... This\n<|id|>51<|page|>7<|box|>90 174 145 857<|content|>Resolution constitutes the formal action of the Co...inois Rules of Professional Conduct 1. ... 7(a)(2)\n<|id|>58<|page|>7<|box|>752 171 898 857<|content|>Item 17. ... As noted in Section IX below, the sub...ive content of this inventory was reviewed only by\n<|id|>59<|page|>8<|box|>89 174 127 854<|content|>Mr. ... Subramaniam and was not shared with the proposed MTDC engagement team\n<|id|>89<|page|>11<|box|>546 181 582 854<|content|>• Colleen Farrow, Director, Conflicts & New Busine...or retention management and matter administration)\n<|id|>94<|page|>11<|box|>753 140 809 854<|content|>No other Firm attorney, staff member, or third par... review by the Conflicts & New Business Department\n<|id|>90<|page|>11<|box|>584 183 619 854<|content|>• Helen Drazkowski, General Counsel (alternate cus... oversight and review of conflicts determinations)\n<|id|>91<|page|>11<|box|>622 183 657 854<|content|>• Lawrence Keating, Senior Partner & Chair, Confli.... signatory to the Conflicts Committee Resolution)\n<|id|>92<|page|>11<|box|>660 181 695 854<|content|>• Rachel Bernstein, Partner, Privacy & Data Securi...r of key correspondence and declination documents)\n<|id|>93<|page|>11<|box|>698 183 750 854<|content|>• Jonathan Mercer, Partner, intellectual Property ... of notifications regarding conflicts and closure)\n<|id|>101<|page|>12<|box|>352 174 387 854<|content|>Helen Drazkowski General Counsel Calderwood & Hark...ington Avenue, 38th Floor New York, New York 10022\n<|id|>102<|page|>12<|box|>396 140 431 854<|content|>The primary custodian is responsible for the follo...unctions in connection with the retained documents\n<|id|>128<|page|>15<|box|>185 140 202 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>129<|page|>15<|box|>204 143 220 254<|content|>By: ... By\n<|id|>130<|page|>15<|box|>220 142 236 315<|content|>Name: ... Colleen Farrow\n<|id|>131<|page|>15<|box|>237 140 253 452<|content|>Title: ... Director, Conflicts & New Business\n<|id|>132<|page|>15<|box|>255 142 271 295<|content|>Date: ... May 23, 2024\n<|id|>133<|page|>15<|box|>273 140 289 256<|content|>Approved by: ... Approved by\n<|id|>134<|page|>15<|box|>297 140 314 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>135<|page|>15<|box|>316 143 333 253<|content|>By: ... By\n<|id|>136<|page|>15<|box|>333 142 349 336<|content|>Name: ... Helen Drazkowski\n<|id|>137<|page|>15<|box|>349 142 366 315<|content|>Title: ... General Counsel\n<|id|>138<|page|>15<|box|>367 142 383 295<|content|>Date: ... May 23, 2024\n<|id|>139<|page|>15<|box|>383 140 445 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC...l Counsel of Calderwood & Harkness LLP immediately",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>50<|tgt_id|>51\n<|src_id|>58<|tgt_id|>59",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        }
+    ]
+}

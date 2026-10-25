@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>176 142 191 331<|content|>CASE NO. ... 1021-00006\n<|id|>2<|page|>1<|box|>236 140 253 673<|content|>VERIMARK HOSPITALITY GROUP INC. ... , a Delaware corporation,\n<|id|>3<|page|>1<|box|>262 212 279 282<|content|>Plaintiff,\n<|id|>5<|page|>1<|box|>314 140 368 854<|content|>COASTAL PALMS FRANCHISE HOLDINGS LLC, a Florida limited liability company; ... , a Florida corporation,\n<|id|>6<|page|>1<|box|>376 212 392 305<|content|>Defendants. ... Defendants\n<|id|>140<|page|>10<|box|>809 176 828 354<|content|>Respectfully submitted,\n<|id|>141<|page|>10<|box|>835 174 890 856<|content|>CALDERWOOD & HARKNESS LLP Counsel for Plaintiff, Verimark Hospitality Group Inc. ... (954) 555-8201\n<|id|>142<|page|>11<|box|>90 140 107 251<|content|>By: ... By\n<|id|>146<|page|>11<|box|>247 174 320 854<|content|>Nathan Whitfield III, Esq. ... com\n<|id|>147<|page|>11<|box|>329 142 345 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>2<|tgt_id|>3\n<|src_id|>5<|tgt_id|>6",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 5,
+            "tgt_id": 6
+        }
+    ]
+}

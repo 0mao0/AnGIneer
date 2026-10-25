@@ -1,0 +1,133 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-liy_a57i\\input\\pdfs\\doc-b341a5c7.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-liy_a57i\\enriched\\doc-b341a5c7.json",
+    "contd_output": "<|src_id|>41<|tgt_id|>43\n<|src_id|>152<|tgt_id|>154\n<|src_id|>164<|tgt_id|>165\n<|src_id|>201<|tgt_id|>202",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>17<|level|>1\n<|id|>30<|level|>1\n<|id|>48<|level|>1\n<|id|>61<|level|>1\n<|id|>83<|level|>1\n<|id|>97<|level|>1\n<|id|>115<|level|>1\n<|id|>135<|level|>1\n<|id|>149<|level|>1\n<|id|>161<|level|>1\n<|id|>172<|level|>1\n<|id|>188<|level|>1\n<|id|>206<|level|>1\n<|id|>217<|level|>1\n<|id|>235<|level|>1\n<|id|>241<|level|>1\n<|id|>248<|level|>1",
+    "image_output": "<|src_id|>52<|tgt_id|>48\n<|src_id|>53<|tgt_id|>48",
+    "contd_label": [
+        {
+            "src_id": 41,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 165
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 202
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 161,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 188,
+            "level": 1
+        },
+        {
+            "id": 206,
+            "level": 1
+        },
+        {
+            "id": 217,
+            "level": 1
+        },
+        {
+            "id": 235,
+            "level": 1
+        },
+        {
+            "id": 241,
+            "level": 1
+        },
+        {
+            "id": 248,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 52,
+            "tgt_id": 48
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 48
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 52,
+            "table2_idx": 53,
+            "upper_row_ss": [
+                [
+                    "Pennfield Growth Partners, LP",
+                    "2,235,000",
+                    "30.0%"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Arch Hill Ventures Fund II, LLC",
+                    "1,490,000",
+                    "20.0%"
+                ]
+            ]
+        }
+    ]
+}

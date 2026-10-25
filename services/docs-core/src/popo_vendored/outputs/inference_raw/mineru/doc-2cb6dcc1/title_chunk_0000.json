@@ -1,0 +1,115 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>4<|page|>1<|box|>209 403 229 593<|content|>MEMORANDUM\n<|id|>10<|page|>1<|box|>429 140 446 321<|content|>I. Executive Summary\n<|id|>22<|page|>2<|box|>626 140 643 495<|content|>II. Summary of Work Performed — Q1 2023\n<|id|>23<|page|>2<|box|>657 140 674 410<|content|>A. MDLA Negotiation & Drafting\n<|id|>33<|page|>4<|box|>257 140 273 454<|content|>B. Data Security, Privacy & Regulatory\n<|id|>48<|page|>5<|box|>429 140 446 542<|content|>C. Service Level Agreement & Technical Schedules\n<|id|>63<|page|>6<|box|>369 140 388 388<|content|>D. IP & Derived-Data Analysis\n<|id|>66<|page|>6<|box|>762 140 779 401<|content|>E. Lender Covenant Compliance\n<|id|>70<|page|>7<|box|>375 140 392 488<|content|>F. Pinnacle Ridge Pricing Benchmark Study\n<|id|>73<|page|>7<|box|>758 140 773 524<|content|>III. Hours Incurred — Q1 2023 (By Timekeeper)\n<|id|>79<|page|>8<|box|>761 142 779 460<|content|>IV. Cumulative Fees & Budget Tracking\n<|id|>80<|page|>8<|box|>792 140 810 758<|content|>A. Cumulative Hours and Fees (Engagement Opening t\n<|id|>85<|page|>9<|box|>314 142 330 390<|content|>B. Budget Position vs. Soft Cap\n<|id|>99<|page|>10<|box|>319 140 337 403<|content|>V. Invoicing and Payment Status\n<|id|>106<|page|>10<|box|>680 140 698 568<|content|>VI. Key Open Issues and Anticipated Q2 2023 Activi\n<|id|>107<|page|>10<|box|>710 140 729 274<|content|>A. MFN Pricing\n<|id|>113<|page|>11<|box|>565 140 582 330<|content|>B. Derived-Data Rights\n<|id|>123<|page|>12<|box|>573 140 590 318<|content|>C. Dispute Resolution\n<|id|>128<|page|>13<|box|>90 140 107 367<|content|>D. Standish Lender Consent\n<|id|>130<|page|>13<|box|>236 140 253 437<|content|>E. Anticipated Q2 2023 Workstreams\n<|id|>137<|page|>13<|box|>679 142 696 308<|content|>VII. Staffing Update\n<|id|>143<|page|>14<|box|>338 140 354 374<|content|>VIII. Conclusion / Next Steps",
+    "raw_response": "<|id|>4<|level|>1\n<|id|>10<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>33<|level|>3\n<|id|>48<|level|>3\n<|id|>63<|level|>3\n<|id|>66<|level|>3\n<|id|>70<|level|>3\n<|id|>73<|level|>2\n<|id|>79<|level|>2\n<|id|>80<|level|>3\n<|id|>85<|level|>3\n<|id|>99<|level|>2\n<|id|>106<|level|>2\n<|id|>107<|level|>3\n<|id|>113<|level|>3\n<|id|>123<|level|>3\n<|id|>128<|level|>3\n<|id|>130<|level|>3\n<|id|>137<|level|>2\n<|id|>143<|level|>2",
+    "parsed": [
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        }
+    ]
+}

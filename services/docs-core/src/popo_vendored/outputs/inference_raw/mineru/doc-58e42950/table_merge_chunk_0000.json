@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=8, 钢绞线', '1 \\\\times 3I', 'rowspan=8, \\\\Phi^{s}', '8.74', '1570,1670,1860']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=8, 钢绞线', 'rowspan=5, 1×7', 'rowspan=8, \\\\Phi^{S}', '9.5,11.1,12.7', '1720,1860,1960']]\n",
+    "raw_response": "[1, 0, 1, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        1,
+        0,
+        0
+    ],
+    "table1_idx": 201,
+    "table2_idx": 202
+}

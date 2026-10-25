@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 367 106 629<|content|>SECRETARY'S CERTIFICATE\n<|id|>3<|page|>1<|box|>167 241 184 756<|content|>Delivered Pursuant to Section 7.2(d) of the Stock\n<|id|>11<|page|>1<|box|>848 140 864 442<|content|>Section 1. Certificate of Incorporation\n<|id|>19<|page|>2<|box|>444 140 460 284<|content|>Section 2. Bylaws\n<|id|>21<|page|>2<|box|>619 140 638 593<|content|>Section 3. Board Resolutions Authorizing the Trans\n<|id|>35<|page|>4<|box|>810 140 827 450<|content|>Section 4. Sole Stockholder Resolutions\n<|id|>38<|page|>5<|box|>250 140 265 522<|content|>Section 5. Incumbency and Authority of Officers\n<|id|>43<|page|>5<|box|>732 140 750 330<|content|>Section 6. Sole Director\n<|id|>46<|page|>6<|box|>167 140 185 344<|content|>Section 7. Good Standing\n<|id|>48<|page|>6<|box|>344 140 362 348<|content|>Section 8. No Proceedings\n<|id|>50<|page|>6<|box|>539 140 556 400<|content|>Section 9. General Certifications\n<|id|>55<|page|>7<|box|>90 400 108 596<|content|>[Signature Page Follows]\n<|id|>61<|page|>7<|box|>251 140 268 464<|content|>Confirmation of Secretary's Incumbency\n<|id|>68<|page|>7<|box|>460 434 478 563<|content|>EXHIBIT LIST",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>11<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>2\n<|id|>43<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>55<|level|>-1\n<|id|>61<|level|>2\n<|id|>68<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        }
+    ]
+}

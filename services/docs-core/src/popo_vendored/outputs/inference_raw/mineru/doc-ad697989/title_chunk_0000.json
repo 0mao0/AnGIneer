@@ -1,0 +1,57 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 140 128 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|page|>1<|box|>301 140 319 704<|content|>VIA HAND DELIVERY AND SECURE ELECTRONIC TRANSMISSI\n<|id|>10<|page|>1<|box|>472 142 489 380<|content|>Dear Revenue Agent Dunleavy:\n<|id|>14<|page|>2<|box|>89 140 106 547<|content|>I. DESCRIPTION OF DOCUMENTS PRODUCED\n<|id|>15<|page|>2<|box|>121 140 138 643<|content|>A. Overview of PPC's Transfer Pricing Documentatio\n<|id|>19<|page|>2<|box|>739 140 757 560<|content|>B. Enumeration of Produced Documents by Tax Year\n<|id|>43<|page|>5<|box|>625 140 642 486<|content|>C. Supporting Workpapers and Appendices\n<|id|>58<|page|>7<|box|>417 142 434 468<|content|>II. DOCUMENT PRODUCTION INDEX\n<|id|>62<|page|>8<|box|>258 140 276 416<|content|>III. PRIVILEGE RESERVATION\n<|id|>66<|page|>8<|box|>762 140 779 527<|content|>IV. REPRESENTATIONS AND LIMITATIONS\n<|id|>71<|page|>9<|box|>439 140 455 565<|content|>V. REQUEST FOR CONFIRMATION OF RECEIPT\n<|id|>73<|page|>9<|box|>614 140 632 261<|content|>VI. CLOSING\n<|id|>78<|page|>10<|box|>89 140 106 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>80<|page|>10<|box|>178 142 190 171<|content|>cc:\n<|id|>87<|page|>10<|box|>411 142 428 240<|content|>Enclosures:",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>7<|level|>-1\n<|id|>10<|level|>-1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>43<|level|>2\n<|id|>58<|level|>1\n<|id|>62<|level|>1\n<|id|>66<|level|>1\n<|id|>71<|level|>1\n<|id|>73<|level|>1\n<|id|>78<|level|>-1\n<|id|>80<|level|>-1\n<|id|>87<|level|>-1",
+    "parsed": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 73,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|type|>title<|page|>1<|box|>334 140 351 341<|content|>1. Purpose of This Letter\n<|id|>12<|type|>title<|page|>2<|box|>90 142 107 478<|content|>2. Background — The Enforcement Action\n<|id|>29<|type|>title<|page|>3<|box|>281 140 297 632<|content|>3. Summary of Consent Decree Terms — Bonanza Creek\n<|id|>30<|type|>title<|page|>3<|box|>311 140 329 333<|content|>3.1. Facility Description\n<|id|>34<|type|>title<|page|>3<|box|>619 140 635 464<|content|>3.2. Alleged Violations at Bonanza Creek\n<|id|>48<|type|>title<|page|>4<|box|>422 140 439 372<|content|>3.3. Remediation Obligations\n<|id|>57<|type|>title<|page|>5<|box|>319 140 337 509<|content|>3.4. Civil Penalty — Bonanza Creek Allocation\n<|id|>60<|type|>table<|page|>5<|box|>410 143 565 852<|content|>None\n<|id|>62<|type|>title<|page|>5<|box|>667 140 684 622<|content|>3.5. Supplemental Environmental Project — Battle M\n<|id|>70<|type|>title<|page|>6<|box|>180 140 196 338<|content|>3.6. Financial Assurance\n<|id|>75<|type|>title<|page|>6<|box|>476 140 494 346<|content|>3.7. Independent Monitor\n<|id|>78<|type|>title<|page|>6<|box|>685 140 702 334<|content|>3.8. Stipulated Penalties\n<|id|>84<|type|>title<|page|>7<|box|>90 140 107 431<|content|>3.9. Other Key Structural Provisions\n<|id|>91<|type|>title<|page|>7<|box|>541 140 558 449<|content|>4. Key Upcoming Dates and Milestones\n<|id|>93<|type|>table<|page|>7<|box|>608 143 875 852<|content|>None\n<|id|>95<|type|>title<|page|>8<|box|>167 140 185 465<|content|>5. Request for State Permit Coordination\n<|id|>104<|type|>title<|page|>9<|box|>167 140 184 418<|content|>6. Nevada's Joinder as Co-Plaintiff\n<|id|>108<|type|>title<|page|>9<|box|>450 140 469 485<|content|>7. Confidentiality and Privilege Reservation\n<|id|>112<|type|>title<|page|>9<|box|>771 140 789 227<|content|>8. Closing\n<|id|>127<|type|>title<|page|>10<|box|>547 143 564 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>60<|tgt_id|>57\n<|src_id|>93<|tgt_id|>91",
+    "parsed": [
+        {
+            "src_id": 60,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 91
+        }
+    ]
+}

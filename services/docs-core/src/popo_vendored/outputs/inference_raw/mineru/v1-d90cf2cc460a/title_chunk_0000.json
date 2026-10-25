@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 364<|content|>【5028512#1】阿什福德国际车站\n<|id|>2<|page|>1<|box|>140 105 156 400<|content|>【1689709#0】德国铁路二等车站列表\n<|id|>4<|page|>1<|box|>206 107 223 275<|content|>【69440#0】城際快車\n<|id|>6<|page|>1<|box|>290 107 306 359<|content|>【4474636#60】城际列车 (德国)\n<|id|>8<|page|>1<|box|>391 105 407 359<|content|>【4474636#28】城际列车 (德国)\n<|id|>10<|page|>1<|box|>561 105 577 364<|content|>【5028512#8】阿什福德国际车站\n<|id|>12<|page|>1<|box|>662 107 678 351<|content|>【4474636#0】城际列车 (德国)\n<|id|>14<|page|>1<|box|>763 107 778 351<|content|>【4474636#7】城际列车 (德国)\n<|id|>16<|page|>1<|box|>898 107 914 351<|content|>【4474636#1】城际列车 (德国)\n<|id|>18<|page|>2<|box|>168 105 185 426<|content|>【4477532#0】城际列车 (德国)路线列表",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>1\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

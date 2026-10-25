@@ -1,0 +1,40 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        3
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>344 413 363 584<|content|>ROUTING SLIP\n<|id|>5<|page|>1<|box|>531 143 547 218<|content|>Message:\n<|id|>8<|page|>1<|box|>681 354 696 640<|content|>FEDERAL TRADE COMMISSION\n<|id|>9<|page|>1<|box|>707 300 724 694<|content|>Bureau of Competition Premerger Notification Offic\n<|id|>10<|page|>1<|box|>733 295 750 702<|content|>600 Pennsylvania Avenue, NW Washington, DC 20580\n<|id|>31<|page|>3<|box|>89 140 107 447<|content|>[BOXED NOTE — HANDWRITTEN]",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>5<|level|>2\n<|id|>8<|level|>1\n<|id|>9<|level|>2\n<|id|>10<|level|>3\n<|id|>31<|level|>1",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 1
+        }
+    ]
+}

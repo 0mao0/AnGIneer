@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>338 142 354 300<|content|>I. Purpose of Letter\n<|id|>10<|page|>1<|box|>724 140 741 454<|content|>II. Background and Procedural History\n<|id|>12<|page|>1<|box|>816 140 834 437<|content|>A. The FTA Grant and Project Scope\n<|id|>21<|page|>2<|box|>696 142 714 419<|content|>B. The ICC Regulatory Proceeding\n<|id|>38<|page|>4<|box|>242 140 258 560<|content|>III. FTA Grant Rescission — Events and Legal Effec\n<|id|>39<|page|>4<|box|>273 140 291 401<|content|>A. Congressional Funding Lapse\n<|id|>43<|page|>4<|box|>672 142 689 406<|content|>B. Impact on the ICC Proceeding\n<|id|>49<|page|>5<|box|>465 140 483 334<|content|>C. MTDC Board Action\n<|id|>52<|page|>5<|box|>684 140 700 406<|content|>IV. Analysis of Available Options\n<|id|>54<|page|>5<|box|>758 140 777 736<|content|>A. Option 1: Withdraw Verified Petition Without Pr\n<|id|>63<|page|>6<|box|>635 140 652 452<|content|>B. Option 2: Seek a Stay of Proceedings\n<|id|>71<|page|>7<|box|>282 140 300 658<|content|>C. Option 3: Proceed with the Application on Alter\n<|id|>78<|page|>7<|box|>806 140 823 460<|content|>V. Procedural Mechanics of Withdrawal\n<|id|>87<|page|>8<|box|>595 140 612 571<|content|>VI. Preservation of MTDC's Rights and Work Product\n<|id|>100<|page|>9<|box|>400 140 417 531<|content|>VII. Impact on Related Agreements and Advisors\n<|id|>107<|page|>10<|box|>229 140 248 429<|content|>VIII. Engagement and Billing Status\n<|id|>114<|page|>10<|box|>747 140 763 380<|content|>IX. Request for Authorization\n<|id|>119<|page|>11<|box|>311 140 329 258<|content|>X. Conclusion\n<|id|>131<|page|>11<|box|>881 142 897 238<|content|>Enclosures:",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>2\n<|id|>21<|level|>2\n<|id|>38<|level|>1\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>49<|level|>2\n<|id|>52<|level|>1\n<|id|>54<|level|>2\n<|id|>63<|level|>2\n<|id|>71<|level|>2\n<|id|>78<|level|>1\n<|id|>87<|level|>1\n<|id|>100<|level|>1\n<|id|>107<|level|>1\n<|id|>114<|level|>1\n<|id|>119<|level|>1\n<|id|>131<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 114,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        }
+    ]
+}

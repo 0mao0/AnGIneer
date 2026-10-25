@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>297 140 315 321<|content|>Dear Staff Chairperson:\n<|id|>11<|type|>title<|page|>2<|box|>89 140 106 477<|content|>I. OVERVIEW OF THE TRANSACTION\n<|id|>12<|type|>title<|page|>2<|box|>121 140 138 344<|content|>A. Transaction Structure\n<|id|>16<|type|>title<|page|>2<|box|>630 140 647 328<|content|>B. Financing Summary\n<|id|>20<|type|>title<|page|>3<|box|>138 140 157 397<|content|>C. Anticipated Closing Timeline\n<|id|>22<|type|>title<|page|>3<|box|>349 140 367 776<|content|>II. DESCRIPTION OF THE ACQUIROR: HALCYON SEMICONDU\n<|id|>23<|type|>title<|page|>3<|box|>381 140 398 308<|content|>A. Corporate Profile\n<|id|>27<|type|>title<|page|>3<|box|>799 140 816 750<|content|>B. Management. HSAG's senior management includes t\n<|id|>32<|type|>title<|page|>4<|box|>289 140 306 362<|content|>C. Existing U.S. Operations\n<|id|>35<|type|>title<|page|>4<|box|>551 140 569 383<|content|>D. Foreign Operations of Note\n<|id|>37<|type|>title<|page|>4<|box|>816 140 834 841<|content|>III. DESCRIPTION OF THE TARGET: Marlowe Asset Mana\n<|id|>38<|type|>title<|page|>4<|box|>849 140 864 308<|content|>A. Corporate Profile\n<|id|>47<|type|>title<|page|>5<|box|>626 140 643 367<|content|>C. Products and Technology\n<|id|>54<|type|>title<|page|>6<|box|>324 140 340 349<|content|>D. Government Contracts\n<|id|>56<|type|>table<|page|>6<|box|>525 143 713 852<|content|>None\n<|id|>58<|type|>title<|page|>6<|box|>797 142 814 361<|content|>E. Export-Controlled Items\n<|id|>61<|type|>title<|page|>7<|box|>311 140 329 558<|content|>F. Facility Security Clearance and Cleared Personn\n<|id|>64<|type|>title<|page|>7<|box|>575 140 592 325<|content|>G. Current Ownership\n<|id|>66<|type|>table<|page|>7<|box|>659 143 849 852<|content|>None\n<|id|>68<|type|>title<|page|>8<|box|>204 140 220 450<|content|>IV. CFIUS JURISDICTIONAL BASIS\n<|id|>73<|type|>title<|page|>8<|box|>768 140 787 566<|content|>V. HSAG'S PROPOSED MITIGATION APPROACH\n<|id|>76<|type|>title<|page|>9<|box|>239 140 256 609<|content|>A. Board Governance and Government Security Commit\n<|id|>79<|type|>title<|page|>9<|box|>539 140 556 364<|content|>B. Technology Control Plan\n<|id|>86<|type|>title<|page|>9<|box|>843 140 859 483<|content|>C. Facility Security Clearance Preservation\n<|id|>90<|type|>title<|page|>10<|box|>275 140 292 334<|content|>D. Personnel Continuity\n<|id|>96<|type|>title<|page|>10<|box|>700 140 719 452<|content|>F. Third-Party Compliance Monitoring\n<|id|>98<|type|>title<|page|>11<|box|>89 140 106 460<|content|>VI. COUNSEL AND COORDINATION\n<|id|>99<|type|>title<|page|>11<|box|>121 140 138 297<|content|>A. Buyer's Counsel\n<|id|>112<|type|>title<|page|>11<|box|>535 142 553 372<|content|>B. Seller's / Target's Counsel\n<|id|>119<|type|>title<|page|>11<|box|>784 142 801 307<|content|>C. Meeting Logistics\n<|id|>138<|type|>title<|page|>12<|box|>535 140 553 441<|content|>VII. CONCLUSION AND REQUEST",
+    "raw_response": "<|src_id|>56<|tgt_id|>54\n<|src_id|>66<|tgt_id|>64",
+    "parsed": [
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 64
+        }
+    ]
+}

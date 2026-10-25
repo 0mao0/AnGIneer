@@ -1,0 +1,425 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-p93u3lh_\\input\\pdfs\\doc-7a7bc7f7.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-p93u3lh_\\enriched\\doc-7a7bc7f7.json",
+    "contd_output": "<|src_id|>69<|tgt_id|>70\n<|src_id|>126<|tgt_id|>127\n<|src_id|>244<|tgt_id|>245\n<|src_id|>291<|tgt_id|>292",
+    "title_output": "<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>32<|level|>3\n<|id|>40<|level|>3\n<|id|>45<|level|>3\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>53<|level|>3\n<|id|>66<|level|>3\n<|id|>74<|level|>3\n<|id|>78<|level|>3\n<|id|>83<|level|>3\n<|id|>89<|level|>3\n<|id|>95<|level|>2\n<|id|>96<|level|>3\n<|id|>100<|level|>3\n<|id|>107<|level|>3\n<|id|>108<|level|>4\n<|id|>111<|level|>4\n<|id|>113<|level|>3\n<|id|>114<|level|>4\n<|id|>122<|level|>3\n<|id|>128<|level|>4\n<|id|>130<|level|>3\n<|id|>137<|level|>3\n<|id|>145<|level|>2\n<|id|>146<|level|>3\n<|id|>154<|level|>3\n<|id|>159<|level|>3\n<|id|>163<|level|>3\n<|id|>171<|level|>3\n<|id|>175<|level|>3\n<|id|>184<|level|>2\n<|id|>185<|level|>3\n<|id|>187<|level|>3\n<|id|>192<|level|>3\n<|id|>195<|level|>2\n<|id|>196<|level|>3\n<|id|>199<|level|>3\n<|id|>203<|level|>3\n<|id|>208<|level|>3\n<|id|>212<|level|>3\n<|id|>218<|level|>3\n<|id|>222<|level|>3\n<|id|>228<|level|>2\n<|id|>229<|level|>3\n<|id|>232<|level|>3\n<|id|>236<|level|>3\n<|id|>239<|level|>3\n<|id|>241<|level|>2\n<|id|>242<|level|>3\n<|id|>247<|level|>3\n<|id|>255<|level|>3\n<|id|>258<|level|>3\n<|id|>264<|level|>2\n<|id|>270<|level|>2\n<|id|>271<|level|>3\n<|id|>277<|level|>3\n<|id|>288<|level|>2\n<|id|>294<|level|>2\n<|id|>299<|level|>2\n<|id|>306<|level|>2\n<|id|>307<|level|>3\n<|id|>316<|level|>3\n<|id|>327<|level|>2\n<|id|>341<|level|>2\n<|id|>351<|level|>2",
+    "image_output": "<|src_id|>29<|tgt_id|>24\n<|src_id|>30<|tgt_id|>24\n<|src_id|>42<|tgt_id|>40\n<|src_id|>43<|tgt_id|>40\n<|src_id|>46<|tgt_id|>45\n<|src_id|>101<|tgt_id|>100\n<|src_id|>109<|tgt_id|>107\n<|src_id|>115<|tgt_id|>113\n<|src_id|>123<|tgt_id|>122\n<|src_id|>132<|tgt_id|>130\n<|src_id|>140<|tgt_id|>137\n<|src_id|>325<|tgt_id|>316\n<|src_id|>352<|tgt_id|>351\n<|src_id|>353<|tgt_id|>351\n<|src_id|>354<|tgt_id|>351\n<|src_id|>355<|tgt_id|>351\n<|src_id|>357<|tgt_id|>351",
+    "contd_label": [
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 127
+        },
+        {
+            "src_id": 244,
+            "tgt_id": 245
+        },
+        {
+            "src_id": 291,
+            "tgt_id": 292
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 4
+        },
+        {
+            "id": 111,
+            "level": 4
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 4
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 4
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 187,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 195,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 208,
+            "level": 3
+        },
+        {
+            "id": 212,
+            "level": 3
+        },
+        {
+            "id": 218,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 3
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 229,
+            "level": 3
+        },
+        {
+            "id": 232,
+            "level": 3
+        },
+        {
+            "id": 236,
+            "level": 3
+        },
+        {
+            "id": 239,
+            "level": 3
+        },
+        {
+            "id": 241,
+            "level": 2
+        },
+        {
+            "id": 242,
+            "level": 3
+        },
+        {
+            "id": 247,
+            "level": 3
+        },
+        {
+            "id": 255,
+            "level": 3
+        },
+        {
+            "id": 258,
+            "level": 3
+        },
+        {
+            "id": 264,
+            "level": 2
+        },
+        {
+            "id": 270,
+            "level": 2
+        },
+        {
+            "id": 271,
+            "level": 3
+        },
+        {
+            "id": 277,
+            "level": 3
+        },
+        {
+            "id": 288,
+            "level": 2
+        },
+        {
+            "id": 294,
+            "level": 2
+        },
+        {
+            "id": 299,
+            "level": 2
+        },
+        {
+            "id": 306,
+            "level": 2
+        },
+        {
+            "id": 307,
+            "level": 3
+        },
+        {
+            "id": 316,
+            "level": 3
+        },
+        {
+            "id": 327,
+            "level": 2
+        },
+        {
+            "id": 341,
+            "level": 2
+        },
+        {
+            "id": 351,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 29,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 100
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 107
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 137
+        },
+        {
+            "src_id": 325,
+            "tgt_id": 316
+        },
+        {
+            "src_id": 352,
+            "tgt_id": 351
+        },
+        {
+            "src_id": 353,
+            "tgt_id": 351
+        },
+        {
+            "src_id": 354,
+            "tgt_id": 351
+        },
+        {
+            "src_id": 355,
+            "tgt_id": 351
+        },
+        {
+            "src_id": 357,
+            "tgt_id": 351
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 29,
+            "table2_idx": 30,
+            "upper_row_ss": [
+                [
+                    "8",
+                    "GMP Murfreesboro LLC",
+                    "84-2527856"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "9",
+                    "GMP Buckhead LLC",
+                    "84-2639901"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 352,
+            "table2_idx": 353,
+            "upper_row_ss": [
+                [
+                    "11",
+                    "Cool Springs",
+                    "5100 Virginia",
+                    "Brentwo",
+                    "TN",
+                    "GMP Cool",
+                    "84-",
+                    "Office",
+                    "210,000",
+                    "$67,500,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Office Park",
+                    "Way",
+                    "od",
+                    "",
+                    "Springs LLC",
+                    "2639925",
+                    "",
+                    "",
+                    "000"
+                ]
+            ]
+        }
+    ]
+}

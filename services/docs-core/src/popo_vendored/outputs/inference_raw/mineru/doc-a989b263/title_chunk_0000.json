@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        12
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>89 434 111 563<|content|>EXHIBIT A\n<|id|>1<|page|>2<|box|>135 424 152 573<|content|>FORM OF NOTE\n<|id|>10<|page|>3<|box|>648 271 664 725<|content|>BELMONT RIDGE BANK, NATIONAL ASSOCIATION\n<|id|>11<|page|>3<|box|>679 142 696 609<|content|>6.750% Fixed-to-Floating Rate Subordinated Note du\n<|id|>16<|page|>4<|box|>316 140 333 245<|content|>INTEREST.\n<|id|>32<|page|>6<|box|>238 140 255 377<|content|>OPTIONAL REDEMPTION.\n<|id|>38<|page|>7<|box|>267 140 284 599<|content|>REFERENCE TO INDENTURE; ADDITIONAL TERMS\n<|id|>43<|page|>7<|box|>710 140 728 506<|content|>FORM; BOOK-ENTRY; DENOMINATIONS\n<|id|>47<|page|>8<|box|>273 140 291 419<|content|>TRANSFERS AND EXCHANGES\n<|id|>52<|page|>8<|box|>686 140 703 509<|content|>AMENDMENT; MODIFICATION; WAIVER\n<|id|>59<|page|>9<|box|>566 331 583 665<|content|>CERTIFICATE OF AUTHENTICATION\n<|id|>61<|page|>9<|box|>619 142 635 718<|content|>BRINDOVAL TRUST COMPANY, NATIONAL ASSOCIATION, as\n<|id|>66<|page|>9<|box|>732 142 748 576<|content|>BELMONT RIDGE BANK, NATIONAL ASSOCIATION\n<|id|>76<|page|>10<|box|>89 405 107 591<|content|>[REVERSE OF NOTE]\n<|id|>77<|page|>10<|box|>119 143 138 334<|content|>ASSIGNMENT FORM.\n<|id|>86<|page|>10<|box|>633 140 651 380<|content|>SIGNATURE GUARANTEE:\n<|id|>92<|page|>11<|box|>210 140 228 558<|content|>CERTIFICATE FOR TRANSFER OR EXCHANGE\n<|id|>99<|page|>12<|box|>89 140 107 702<|content|>SCHEDULE OF INCREASES AND DECREASES IN GLOBAL NOTE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>11<|level|>2\n<|id|>16<|level|>3\n<|id|>32<|level|>3\n<|id|>38<|level|>3\n<|id|>43<|level|>3\n<|id|>47<|level|>3\n<|id|>52<|level|>3\n<|id|>59<|level|>3\n<|id|>61<|level|>4\n<|id|>66<|level|>4\n<|id|>76<|level|>3\n<|id|>77<|level|>3\n<|id|>86<|level|>3\n<|id|>92<|level|>3\n<|id|>99<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 4
+        },
+        {
+            "id": 66,
+            "level": 4
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        12,
+        13,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>150 140 186 854<|content|>TO: ... Douglas Fairchild, Responsible Partner, Ca...thia Ho, Lead Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>195 140 212 707<|content|>FROM: ... Grace Nakamura, Working Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>220 140 256 854<|content|>DATE: ... initial draft circulated June 2025\n<|id|>5<|page|>1<|box|>265 140 301 854<|content|>RE: ... /95-4A-1///)\n<|id|>6<|page|>1<|box|>309 140 325 331<|content|>Matter No. ... 1043-00002\n<|id|>7<|page|>1<|box|>335 140 352 437<|content|>CLIENT: ... Ironhaven Data Centers LLC\n<|id|>8<|page|>1<|box|>359 140 436 854<|content|>This memorandum is a confidential attorney-client ...prior written consent of Calderwood & Harkness LLP\n<|id|>112<|page|>12<|box|>830 140 905 857<|content|>Scenario 3 — Widespread Contamination Requiring Ma...e this scenario is considered less likely based on\n<|id|>113<|page|>13<|box|>90 140 125 854<|content|>Pendleton's preliminary assessment, it cannot be r...t until the Phase II analytical data are available\n<|id|>148<|page|>16<|box|>773 138 904 857<|content|>Brannigan Geotechnical Engineering, LLC (\"Branniga... and site preparation planning. ... Similarly, the\n<|id|>149<|page|>17<|box|>90 140 181 856<|content|>Pendleton team should be made aware of the geotech...e that data sharing occurs promptly and completely",
+    "raw_response": "<|src_id|>112<|tgt_id|>113\n<|src_id|>148<|tgt_id|>149",
+    "parsed": [
+        {
+            "src_id": 112,
+            "tgt_id": 113
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 149
+        }
+    ]
+}

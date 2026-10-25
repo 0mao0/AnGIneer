@@ -1,0 +1,25 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 305 180 692<|content|>Stratos Merger Sub Inc. ... , a Delaware corporation,\n<|id|>3<|page|>1<|box|>188 444 205 553<|content|>with and into\n<|id|>4<|page|>1<|box|>214 168 250 830<|content|>Cloudium Technologies plc, a public limited company incorporated under the laws of England and Wales\n<|id|>6<|page|>1<|box|>284 202 319 854<|content|>Delaware Secretary of State Filed: ... 7923841\n<|id|>5<|page|>1<|box|>258 176 276 818<|content|>(pursuant to Section 252 of the General Corporation Law of the State of Delaware)\n<|id|>7<|page|>1<|box|>328 140 364 852<|content|>Pursuant to Section 252 of the General Corporation... the undersigned does hereby certify the following\n<|id|>37<|page|>4<|box|>744 143 761 339<|content|>Name: ... Kowalski\n<|id|>38<|page|>4<|box|>763 143 777 261<|content|>Title: ... President\n<|id|>39<|page|>4<|box|>779 143 795 442<|content|>CLOUDIUM TECHNOLOGIES PLC\n<|id|>40<|page|>4<|box|>797 143 814 251<|content|>By: ... By\n<|id|>41<|page|>4<|box|>815 143 830 338<|content|>Name: ... Jonathan Hargrove\n<|id|>42<|page|>4<|box|>830 143 847 460<|content|>Title: ... Chief Executive Officer and Director\n<|id|>43<|page|>4<|box|>849 143 864 253<|content|>By: ... By\n<|id|>44<|page|>4<|box|>867 143 882 334<|content|>Name: ... Nadia Chowdhury\n<|id|>45<|page|>4<|box|>883 142 900 503<|content|>Title: ... General Counsel and Authorized Signatory\n<|id|>46<|page|>5<|box|>89 140 106 584<|content|>SOLARA DIGITAL INFRASTRUCTURE FUND VI LP\n<|id|>47<|page|>5<|box|>107 140 125 498<|content|>By: ... Solara Fund VI GP LLC, its general partner\n<|id|>48<|page|>5<|box|>125 176 142 290<|content|>By: ... By\n<|id|>49<|page|>5<|box|>142 176 157 354<|content|>Name: ... Marcus Elliston\n<|id|>50<|page|>5<|box|>159 176 175 364<|content|>Title: ... Authorized Person",
+    "raw_response": "<|src_id|>2<|tgt_id|>3\n<|src_id|>3<|tgt_id|>4",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        }
+    ]
+}

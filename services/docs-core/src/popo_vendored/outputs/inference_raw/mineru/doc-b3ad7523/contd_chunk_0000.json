@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        6,
+        8,
+        9,
+        12,
+        13,
+        17,
+        18,
+        19,
+        20,
+        21,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>239 418 256 578<|content|>Dated as of [●], 2026\n<|id|>5<|page|>1<|box|>263 295 281 700<|content|>LIMITED LIABILITY COMPANY AGREEMENT\n<|id|>6<|page|>1<|box|>290 483 306 514<|content|>OF\n<|id|>7<|page|>1<|box|>316 287 333 709<|content|>COBALT LIFE SCIENCES MANAGEMENT I, LLC\n<|id|>8<|page|>1<|box|>343 140 415 857<|content|>This Limited Liability Company Agreement (this \"Ag...(each, a \"Member\" and collectively, the \"Members\")\n<|id|>70<|page|>6<|box|>295 140 311 333<|content|>Section 3. ... 1 — Members\n<|id|>71<|page|>6<|box|>318 140 335 447<|content|>The initial Members of the Company are: ... The initial Members of the Company are\n<|id|>72<|page|>6<|box|>344 174 362 833<|content|>(a) Dr. ... and\n<|id|>74<|page|>6<|box|>396 140 488 854<|content|>The names, addresses, Membership Interests, and in... forth on Schedule A attached hereto. ... 5 hereof\n<|id|>95<|page|>8<|box|>237 174 255 707<|content|>(j) admit additional Members and modify the Membership Interests; ... and\n<|id|>97<|page|>8<|box|>309 140 436 856<|content|>No Member who is not a Managing Member shall have ... other investment vehicles or business enterprises\n<|id|>103<|page|>8<|box|>834 174 890 857<|content|>(b) Priya Dasgupta — Co-Founder and Managing Partner. ... Dasgupta was a Vice\n<|id|>104<|page|>9<|box|>90 174 126 854<|content|>President at Ridgeline Health Capital, where she f...stage healthcare and biopharmaceutical investments\n<|id|>145<|page|>12<|box|>871 174 907 854<|content|>(c) legal fees and expenses related to the Fund's ...ss LLP (Pamela Cross, Nicholas Stern, Theresa Kim,\n<|id|>146<|page|>13<|box|>90 174 126 854<|content|>Owen Fischer, and Leonard Cross) as Fund counsel a... O'Hara PLLC (Brian Liddell) as regulatory counsel\n<|id|>187<|page|>17<|box|>222 174 277 854<|content|>(c) the termination of the Fund and the completion... a certificate of cancellation of the Fund; ... or\n<|id|>189<|page|>17<|box|>329 140 402 854<|content|>The death, bankruptcy, retirement, resignation, ex...e the business of the Company without interruption\n<|id|>207<|page|>18<|box|>847 140 902 856<|content|>The Company shall maintain complete and accurate b...ice at 3400 Sand Hill Road, Suite 220, Menlo Park,\n<|id|>208<|page|>19<|box|>90 140 181 856<|content|>California 94025, or at such other location as the... and credit, and all distributions made to Members\n<|id|>213<|page|>19<|box|>407 174 462 854<|content|>(a) annual unaudited financial statements of the C...0) days after the end of each Fiscal Year; ... and\n<|id|>215<|page|>19<|box|>513 140 551 854<|content|>The Managing Members may cause additional interim ...o Members as the Managing Members deem appropriate\n<|id|>224<|page|>20<|box|>287 174 416 856<|content|>(b) is required to be disclosed by applicable law,...otective order or other appropriate remedy; ... or\n<|id|>226<|page|>20<|box|>503 140 541 854<|content|>The obligations set forth in this Article XIII sha...ion of the Company for a period of three (3) years\n<|id|>238<|page|>21<|box|>632 174 667 854<|content|>Cobalt Life Sciences Management I, LLC 3400 Sand Hill Road, Suite 220 Menlo Park, California 94025\n<|id|>239<|page|>21<|box|>676 176 694 540<|content|>Attention: ... Marcus Yeung and Priya Dasgupta\n<|id|>272<|page|>24<|box|>650 142 666 336<|content|>Name: ... Marcus Yeung\n<|id|>273<|page|>24<|box|>667 143 684 426<|content|>Title: ... Member and Managing Member\n<|id|>274<|page|>24<|box|>685 143 702 264<|content|>Date: ... Date\n<|id|>276<|page|>24<|box|>719 143 736 312<|content|>Name: ... Priya Dasgupta\n<|id|>277<|page|>24<|box|>736 143 753 426<|content|>Title: ... Member and Managing Member\n<|id|>278<|page|>24<|box|>753 143 768 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>103<|tgt_id|>104\n<|src_id|>145<|tgt_id|>146\n<|src_id|>207<|tgt_id|>208",
+    "parsed": [
+        {
+            "src_id": 103,
+            "tgt_id": 104
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 146
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 208
+        }
+    ]
+}

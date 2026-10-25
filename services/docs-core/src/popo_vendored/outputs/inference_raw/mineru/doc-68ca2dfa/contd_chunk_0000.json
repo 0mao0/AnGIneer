@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        10,
+        11,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>213 140 248 852<|content|>TO: ... Claire, Partner, Calderwood & Harkness LLP Robert Adeyemi, Partner, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>257 140 292 854<|content|>FROM: ... Audrey Zhou, Senior Associate, Calderwoo...aire Dempsey, Associate, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>301 140 319 344<|content|>DATE: ... February 18, 2026\n<|id|>6<|page|>1<|box|>327 140 364 854<|content|>RE: ... Custodian Arrangements for Ordinary Shares in Germany under the Deposit Agreement\n<|id|>7<|page|>1<|box|>369 140 388 362<|content|>MATTER NO. ... 1032-00003\n<|id|>8<|page|>1<|box|>397 142 412 408<|content|>Right-click to update Table of Contents\n<|id|>17<|page|>2<|box|>196 174 252 854<|content|>(d) legal and regulatory considerations under Germ...s, and anti-money laundering requirements; ... and\n<|id|>19<|page|>2<|box|>304 140 377 854<|content|>This memorandum should be read in conjunction with... copy of which was circulated on February 10, 2026\n<|id|>102<|page|>10<|box|>835 181 890 857<|content|>• Selling Shareholder Shares: ... The 12,800,000 o...ove Enterprises accounts (or their custodian banks\n<|id|>103<|page|>11<|box|>90 210 125 854<|content|>Ashgrove Enterprises accounts) to the sub-custodia...Ashgrove Enterprises account prior to ADS issuance\n<|id|>213<|page|>23<|box|>825 174 900 857<|content|>2. ... (b) express compliance obligations under German custody law and Ashgrove\n<|id|>214<|page|>24<|box|>90 209 199 856<|content|>Enterprises rules; ... Calderwood & Harkness will ... upon receipt of the draft sub-custodian agreement\n<|id|>227<|page|>25<|box|>503 140 539 854<|content|>Appendix B: ... Summary of Key Deposit Agreement Provisions Relating to Custodian Arrangements\n<|id|>228<|page|>25<|box|>547 174 603 854<|content|>Cross-reference table summarizing the provisions o...ons of the Deposit Agreement addressing each topic",
+    "raw_response": "<|src_id|>102<|tgt_id|>103\n<|src_id|>213<|tgt_id|>214",
+    "parsed": [
+        {
+            "src_id": 102,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 214
+        }
+    ]
+}

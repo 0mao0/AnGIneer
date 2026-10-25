@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        96,
+        102
+    ],
+    "pages": [
+        97,
+        98,
+        101,
+        102
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1031<|page|>97<|box|>675 170 699 463<|content|>4 施工作业场区管理\n<|id|>1036<|page|>97<|box|>862 170 885 943<|content|>1）工地严格遵守文明施工规定，并教育职工自觉遵守环保、\n<|id|>1037<|page|>98<|box|>92 189 114 449<|content|>环境卫生管理条例； ... 环境卫生管理条例\n<|id|>1088<|page|>101<|box|>858 165 880 937<|content|>8 档案管理系统： ... 具有建立工程档案目录分类、录入项目档\n<|id|>1089<|page|>102<|box|>90 97 114 441<|content|>案目录检索与查询、资料。 ... 案目录检索与查询、资料",
+    "raw_response": "<|src_id|>1036<|tgt_id|>1037\n<|src_id|>1088<|tgt_id|>1089",
+    "parsed": [
+        {
+            "src_id": 1036,
+            "tgt_id": 1037
+        },
+        {
+            "src_id": 1088,
+            "tgt_id": 1089
+        }
+    ]
+}

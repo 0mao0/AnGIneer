@@ -1,0 +1,67 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        60
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        49,
+        51,
+        52,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>441<|type|>title<|page|>45<|box|>90 254 109 743<|content|>XII. DATA PRIVACY AND CYBERSECURITY\n<|id|>442<|type|>title<|page|>45<|box|>136 140 154 401<|content|>XII.A. Data Privacy Compliance\n<|id|>448<|type|>title<|page|>45<|box|>672 140 690 312<|content|>XII.B. Cybersecurity\n<|id|>459<|type|>title<|page|>46<|box|>503 163 522 833<|content|>XIII. SUMMARY OF RISK ITEMS AND RECOMMENDATIONS\n<|id|>460<|type|>title<|page|>46<|box|>547 140 564 361<|content|>XIII.A. High Priority Items\n<|id|>467<|type|>title<|page|>47<|box|>371 140 388 388<|content|>XIII.B. Medium Priority Items\n<|id|>472<|type|>title<|page|>47<|box|>717 140 734 475<|content|>XIII.C. Lower Priority / Monitoring Items\n<|id|>476<|type|>title<|page|>49<|box|>90 140 107 450<|content|>XIII.D. Disclosure Schedule Population\n<|id|>486<|type|>title<|page|>49<|box|>698 276 717 720<|content|>XIV. ASSUMPTIONS AND LIMITATIONS\n<|id|>498<|type|>title<|page|>51<|box|>393 421 412 575<|content|>APPENDICES\n<|id|>499<|type|>title<|page|>52<|box|>89 142 107 694<|content|>APPENDIX A — DILIGENCE REQUEST LIST STATUS TRACKER\n<|id|>501<|type|>table<|page|>52<|box|>195 143 738 852<|content|>None\n<|id|>509<|type|>title<|page|>54<|box|>89 142 107 735<|content|>APPENDIX B — SUMMARY OF CHANGE OF CONTROL PROVISIO\n<|id|>510<|type|>table<|page|>54<|box|>160 143 906 852<|content|>None\n<|id|>511<|type|>table<|page|>55<|box|>88 143 232 852<|content|>None\n<|id|>513<|type|>title<|page|>56<|box|>89 143 107 580<|content|>APPENDIX C — REGULATORY FILING TIMELINE\n<|id|>515<|type|>table<|page|>56<|box|>176 143 699 852<|content|>None\n<|id|>517<|type|>title<|page|>57<|box|>89 143 106 540<|content|>APPENDIX D — KEY PERSONNEL SUMMARY\n<|id|>518<|type|>table<|page|>57<|box|>160 143 906 852<|content|>None\n<|id|>519<|type|>table<|page|>58<|box|>88 143 217 852<|content|>None\n<|id|>521<|type|>title<|page|>59<|box|>89 143 107 617<|content|>APPENDIX E — EXISTING INDEBTEDNESS SUMMARY\n<|id|>522<|type|>table<|page|>59<|box|>159 143 738 852<|content|>None\n<|id|>523<|type|>table<|page|>59<|box|>795 143 891 852<|content|>None\n<|id|>524<|type|>table<|page|>60<|box|>88 143 172 852<|content|>None\n<|id|>525<|type|>title<|page|>60<|box|>205 142 224 498<|content|>Summary of Payoff Requirements at Closing:\n<|id|>526<|type|>table<|page|>60<|box|>229 143 324 852<|content|>None\n<|id|>530<|type|>title<|page|>60<|box|>670 142 686 446<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>501<|tgt_id|>499\n<|src_id|>510<|tgt_id|>509\n<|src_id|>511<|tgt_id|>509\n<|src_id|>515<|tgt_id|>513\n<|src_id|>518<|tgt_id|>517\n<|src_id|>519<|tgt_id|>517\n<|src_id|>522<|tgt_id|>521\n<|src_id|>523<|tgt_id|>521\n<|src_id|>524<|tgt_id|>521\n<|src_id|>526<|tgt_id|>525",
+    "parsed": [
+        {
+            "src_id": 501,
+            "tgt_id": 499
+        },
+        {
+            "src_id": 510,
+            "tgt_id": 509
+        },
+        {
+            "src_id": 511,
+            "tgt_id": 509
+        },
+        {
+            "src_id": 515,
+            "tgt_id": 513
+        },
+        {
+            "src_id": 518,
+            "tgt_id": 517
+        },
+        {
+            "src_id": 519,
+            "tgt_id": 517
+        },
+        {
+            "src_id": 522,
+            "tgt_id": 521
+        },
+        {
+            "src_id": 523,
+            "tgt_id": 521
+        },
+        {
+            "src_id": 524,
+            "tgt_id": 521
+        },
+        {
+            "src_id": 526,
+            "tgt_id": 525
+        }
+    ]
+}

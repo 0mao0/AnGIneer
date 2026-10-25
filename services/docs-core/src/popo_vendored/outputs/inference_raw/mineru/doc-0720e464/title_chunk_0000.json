@@ -1,0 +1,149 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>2<|page|>1<|box|>169 424 184 573<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>299 352 318 643<|content|>I. EXECUTIVE SUMMARY\n<|id|>17<|page|>2<|box|>455 397 474 599<|content|>II. BACKGROUND\n<|id|>18<|page|>2<|box|>501 142 518 297<|content|>A. The Partnership\n<|id|>32<|page|>3<|box|>726 140 744 325<|content|>B. The Film Properties\n<|id|>37<|page|>4<|box|>303 140 320 447<|content|>C. RSV and the Self-Dealing Structure\n<|id|>42<|page|>5<|box|>90 354 109 643<|content|>III. LIABILITY ANALYSIS\n<|id|>43<|page|>5<|box|>136 140 172 816<|content|>A. Excess Management Fees (Claim 1 — Breach of Par\n<|id|>62<|page|>7<|box|>446 140 482 854<|content|>B. Improper Revenue Reclassifications (Claim 2 — B\n<|id|>76<|page|>9<|box|>223 140 239 720<|content|>C. Rennick's Potential Counterclaim — Breach of Go\n<|id|>84<|page|>10<|box|>90 140 107 372<|content|>D. Additional Legal Theories\n<|id|>89<|page|>10<|box|>568 330 587 668<|content|>IV. DAMAGES CALCULATION\n<|id|>90<|page|>10<|box|>614 142 631 464<|content|>A. Core Damages (Fonseca's 55% Share)\n<|id|>94<|page|>11<|box|>90 140 107 344<|content|>B. Pre-Judgment Interest\n<|id|>102<|page|>11<|box|>507 140 523 264<|content|>C. Total Claim\n<|id|>108<|page|>11<|box|>676 142 694 290<|content|>D. Attorney's Fees\n<|id|>112<|page|>12<|box|>148 140 167 361<|content|>E. Reconstructed Waterfal\n<|id|>115<|page|>12<|box|>411 246 430 750<|content|>V. RECOMMENDED LITIGATION STRATEGY\n<|id|>116<|page|>12<|box|>455 142 473 410<|content|>A. Pre-Litigation Phase (Current)\n<|id|>121<|page|>13<|box|>90 140 107 217<|content|>B. Filing\n<|id|>129<|page|>13<|box|>445 140 463 287<|content|>C. Discovery Plan\n<|id|>135<|page|>14<|box|>148 142 167 297<|content|>D. Early Mediation\n<|id|>141<|page|>14<|box|>631 140 648 316<|content|>E. Settlement Posture\n<|id|>146<|page|>15<|box|>190 290 209 705<|content|>VI. LITIGATION BUDGET ESTIMATE\n<|id|>147<|page|>15<|box|>236 142 252 352<|content|>A. Phase-by-Phase Budget\n<|id|>151<|page|>15<|box|>672 142 689 493<|content|>B. Consultant Fees (Billed Directly to Client)\n<|id|>159<|page|>16<|box|>323 140 340 313<|content|>C. Budget Discussion\n<|id|>165<|page|>16<|box|>827 401 847 594<|content|>VII. NEXT STEPS\n<|id|>172<|page|>17<|box|>579 388 599 607<|content|>VIII. CONCLUSION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>7<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>32<|level|>2\n<|id|>37<|level|>2\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>62<|level|>2\n<|id|>76<|level|>2\n<|id|>84<|level|>2\n<|id|>89<|level|>1\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>102<|level|>2\n<|id|>108<|level|>2\n<|id|>112<|level|>2\n<|id|>115<|level|>1\n<|id|>116<|level|>2\n<|id|>121<|level|>2\n<|id|>129<|level|>2\n<|id|>135<|level|>2\n<|id|>141<|level|>2\n<|id|>146<|level|>1\n<|id|>147<|level|>2\n<|id|>151<|level|>2\n<|id|>159<|level|>2\n<|id|>165<|level|>1\n<|id|>172<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        }
+    ]
+}

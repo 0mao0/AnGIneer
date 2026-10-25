@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>393 375 412 622<|content|>I. Purpose of This Letter\n<|id|>12<|page|>1<|box|>722 303 741 694<|content|>II. Background and Mediation Context\n<|id|>21<|page|>3<|box|>90 300 111 697<|content|>III. Summary of Mediation Proceedings\n<|id|>22<|page|>3<|box|>136 142 154 305<|content|>A. Opening Sessions\n<|id|>34<|page|>4<|box|>285 140 301 326<|content|>B. Brindoval's Position\n<|id|>40<|page|>5<|box|>90 140 107 483<|content|>C. Mediator's Role and Caucus Discussions\n<|id|>45<|page|>5<|box|>625 197 643 797<|content|>IV. Framework Term Sheet — Summary of Principal Te\n<|id|>47<|page|>5<|box|>775 142 792 326<|content|>A. Settlement Payment\n<|id|>51<|page|>6<|box|>395 140 412 318<|content|>B. Mark Modification\n<|id|>56<|page|>7<|box|>90 140 107 334<|content|>C. Channel Restrictions\n<|id|>66<|page|>7<|box|>540 140 556 406<|content|>D. Product-Category Restrictions\n<|id|>72<|page|>7<|box|>838 140 854 338<|content|>E. Trade-Dress Changes\n<|id|>76<|page|>8<|box|>421 140 438 364<|content|>F. Non-Challenge Covenant\n<|id|>82<|page|>8<|box|>700 140 718 323<|content|>G. Quality Monitoring\n<|id|>85<|page|>9<|box|>186 140 204 470<|content|>H. Enforcement and Liquidated Damages\n<|id|>89<|page|>9<|box|>506 140 523 468<|content|>I. Governing Law and Dispute Resolution\n<|id|>95<|page|>10<|box|>90 297 111 697<|content|>V. Assessment of the Framework Terms\n<|id|>96<|page|>10<|box|>136 140 154 390<|content|>A. Strengths of the Framework\n<|id|>103<|page|>10<|box|>753 140 771 601<|content|>B. Considerations and Risks of Proceeding to Trial\n<|id|>109<|page|>11<|box|>575 140 592 307<|content|>C. Recommendation\n<|id|>116<|page|>12<|box|>210 356 229 640<|content|>VI. Next Steps and Timeline\n<|id|>125<|page|>13<|box|>90 364 109 633<|content|>VII. Confidentiality Notice\n<|id|>129<|page|>13<|box|>446 431 465 566<|content|>VIII. Closing",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>12<|level|>1\n<|id|>21<|level|>1\n<|id|>22<|level|>2\n<|id|>34<|level|>2\n<|id|>40<|level|>2\n<|id|>45<|level|>1\n<|id|>47<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>2\n<|id|>66<|level|>2\n<|id|>72<|level|>2\n<|id|>76<|level|>2\n<|id|>82<|level|>2\n<|id|>85<|level|>2\n<|id|>89<|level|>2\n<|id|>95<|level|>1\n<|id|>96<|level|>2\n<|id|>103<|level|>2\n<|id|>109<|level|>2\n<|id|>116<|level|>1\n<|id|>125<|level|>1\n<|id|>129<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 1
+        }
+    ]
+}

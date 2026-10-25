@@ -1,0 +1,183 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-v65ntnhr\\input\\pdfs\\doc-1d5505dd.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-v65ntnhr\\enriched\\doc-1d5505dd.json",
+    "contd_output": "<|src_id|>43<|tgt_id|>44",
+    "title_output": "<|id|>10<|level|>1\n<|id|>18<|level|>1\n<|id|>19<|level|>2\n<|id|>28<|level|>2\n<|id|>33<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>1\n<|id|>42<|level|>2\n<|id|>51<|level|>2\n<|id|>57<|level|>2\n<|id|>79<|level|>2\n<|id|>85<|level|>1\n<|id|>86<|level|>2\n<|id|>95<|level|>2\n<|id|>101<|level|>2\n<|id|>112<|level|>2\n<|id|>120<|level|>2\n<|id|>124<|level|>1\n<|id|>125<|level|>2\n<|id|>128<|level|>2\n<|id|>134<|level|>1\n<|id|>135<|level|>2\n<|id|>137<|level|>3\n<|id|>143<|level|>3\n<|id|>148<|level|>2\n<|id|>154<|level|>3\n<|id|>157<|level|>2\n<|id|>164<|level|>1\n<|id|>170<|level|>1\n<|id|>172<|level|>2\n<|id|>178<|level|>2\n<|id|>184<|level|>2\n<|id|>191<|level|>2",
+    "image_output": "<|src_id|>126<|tgt_id|>125\n<|src_id|>127<|tgt_id|>125",
+    "contd_label": [
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        }
+    ],
+    "title_label": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 1
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 191,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 126,
+            "tgt_id": 125
+        },
+        {
+            "src_id": 127,
+            "tgt_id": 125
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 126,
+            "table2_idx": 127,
+            "upper_row_ss": [
+                [
+                    "'567 (U.S. 10,234,567)",
+                    "Added \"adiabatically coupled\"",
+                    "Overcome Tanaka prior art (U.S. 9,456,012) — butt-coupling and directional",
+                    "Tangential relation",
+                    "Moderate to Strong",
+                    "No explicit disclaimer"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "coupling",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

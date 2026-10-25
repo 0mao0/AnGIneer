@@ -1,0 +1,199 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nfmgcthv\\input\\pdfs\\doc-97279fc0.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-nfmgcthv\\enriched\\doc-97279fc0.json",
+    "contd_output": "<|src_id|>78<|tgt_id|>79",
+    "title_output": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>12<|level|>2\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>31<|level|>3\n<|id|>41<|level|>3\n<|id|>55<|level|>3\n<|id|>61<|level|>3\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>71<|level|>3\n<|id|>73<|level|>3\n<|id|>81<|level|>3\n<|id|>87<|level|>2\n<|id|>88<|level|>3\n<|id|>96<|level|>3\n<|id|>102<|level|>3\n<|id|>104<|level|>3\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>111<|level|>3\n<|id|>113<|level|>3\n<|id|>119<|level|>3\n<|id|>122<|level|>3\n<|id|>124<|level|>2\n<|id|>125<|level|>3\n<|id|>132<|level|>3\n<|id|>137<|level|>2\n<|id|>138<|level|>3\n<|id|>140<|level|>3\n<|id|>160<|level|>3\n<|id|>162<|level|>3\n<|id|>191<|level|>1\n<|id|>192<|level|>2\n<|id|>202<|level|>1\n<|id|>203<|level|>2\n<|id|>220<|level|>1",
+    "image_output": "<|src_id|>211<|tgt_id|>203\n<|src_id|>212<|tgt_id|>203",
+    "contd_label": [
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 191,
+            "level": 1
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 1
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 211,
+            "tgt_id": 203
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 203
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 211,
+            "table2_idx": 212,
+            "upper_row_ss": [
+                [
+                    "Locked Interest Rate",
+                    "5.35% per annum, fixed"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

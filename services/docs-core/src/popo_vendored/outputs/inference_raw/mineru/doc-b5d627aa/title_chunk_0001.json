@@ -1,0 +1,43 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        53,
+        58
+    ],
+    "pages": [
+        54,
+        55,
+        56,
+        57,
+        58
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>484<|page|>54<|box|>90 240 111 756<|content|>Appendix C — Key Defined Terms Cross-Reference\n<|id|>487<|page|>54<|box|>763 143 780 292<|content|>Key Observations:\n<|id|>492<|page|>55<|box|>819 142 835 292<|content|>Key Observations:\n<|id|>497<|page|>56<|box|>835 143 853 292<|content|>Key Observations:\n<|id|>502<|page|>57<|box|>717 143 734 292<|content|>Key Observations:\n<|id|>506<|page|>58<|box|>237 143 251 323<|content|>END OF MEMORANDUM",
+    "raw_response": "<|id|>484<|level|>1\n<|id|>487<|level|>2\n<|id|>492<|level|>2\n<|id|>497<|level|>2\n<|id|>502<|level|>2\n<|id|>506<|level|>2",
+    "parsed": [
+        {
+            "id": 484,
+            "level": 1
+        },
+        {
+            "id": 487,
+            "level": 2
+        },
+        {
+            "id": 492,
+            "level": 2
+        },
+        {
+            "id": 497,
+            "level": 2
+        },
+        {
+            "id": 502,
+            "level": 2
+        },
+        {
+            "id": 506,
+            "level": 2
+        }
+    ]
+}

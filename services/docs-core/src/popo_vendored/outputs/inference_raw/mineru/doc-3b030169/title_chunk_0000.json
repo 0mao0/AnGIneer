@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 436 106 560<|content|>SCHEDULE II\n<|id|>1<|page|>1<|box|>114 377 132 619<|content|>SELLING SHAREHOLDERS\n<|id|>5<|page|>1<|box|>400 142 416 514<|content|>Section 1. Identification of Selling Shareholders\n<|id|>7<|page|>1<|box|>455 142 473 656<|content|>1.1 Selling Shareholder No. 1 — Rheintal Industrie\n<|id|>16<|page|>1<|box|>838 143 854 619<|content|>1.2 Selling Shareholder No. 2 — Kestrel Capital Pa\n<|id|>27<|page|>2<|box|>450 140 469 598<|content|>Section 2. Shares Beneficially Owned Prior to the\n<|id|>32<|page|>3<|box|>148 140 167 583<|content|>Section 3. Shares to be Sold in the Offering (Firm\n<|id|>33<|page|>3<|box|>180 140 198 779<|content|>3.1 Number of Firm Shares and Firm ADSs to be Sold\n<|id|>37<|page|>3<|box|>536 140 554 637<|content|>3.2 Allocation of Selling Shareholder ADSs Within\n<|id|>42<|page|>3<|box|>815 140 832 661<|content|>3.3 Estimated Net Proceeds to the Selling Sharehol\n<|id|>48<|page|>4<|box|>638 140 657 544<|content|>Section 4. Overallotment Option (Additional ADSs)\n<|id|>53<|page|>5<|box|>321 140 339 578<|content|>Section 5. Shares Beneficially Owned After the Off\n<|id|>54<|page|>5<|box|>353 140 369 843<|content|>5.1 Post-Offering Beneficial Ownership — Assuming\n<|id|>59<|page|>6<|box|>162 140 180 457<|content|>5.2 Post-Offering Voting Considerations\n<|id|>61<|page|>6<|box|>375 140 391 588<|content|>Section 6. Lock-Up Undertakings of Selling Shareho\n<|id|>74<|page|>7<|box|>527 140 544 787<|content|>Section 7. Selling Shareholder Representations and\n<|id|>83<|page|>8<|box|>710 140 728 586<|content|>Section 8. Custody Arrangements and Power of Attor\n<|id|>84<|page|>8<|box|>742 140 758 602<|content|>8.1 Custody Agreement and Irrevocable Power of Att\n<|id|>90<|page|>9<|box|>407 140 424 344<|content|>8.2 Settlement Mechanics\n<|id|>95<|page|>10<|box|>90 140 108 331<|content|>8.3 Target Closing Date\n<|id|>97<|page|>10<|box|>301 140 318 550<|content|>Section 9. Tax Withholding and Payment Mechanics\n<|id|>98<|page|>10<|box|>332 140 349 369<|content|>9.1 Payment of Net Proceeds\n<|id|>100<|page|>10<|box|>496 140 513 308<|content|>9.2 Tax Withholding\n<|id|>102<|page|>10<|box|>696 140 714 513<|content|>9.3 Tax Responsibilities of Selling Shareholders\n<|id|>104<|page|>11<|box|>90 140 107 292<|content|>Section 10. Notices\n<|id|>120<|page|>12<|box|>90 142 107 277<|content|>Signature blocks",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>5<|level|>2\n<|id|>7<|level|>3\n<|id|>16<|level|>3\n<|id|>27<|level|>2\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>37<|level|>3\n<|id|>42<|level|>3\n<|id|>48<|level|>2\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>59<|level|>3\n<|id|>61<|level|>2\n<|id|>74<|level|>2\n<|id|>83<|level|>2\n<|id|>84<|level|>3\n<|id|>90<|level|>3\n<|id|>95<|level|>3\n<|id|>97<|level|>2\n<|id|>98<|level|>3\n<|id|>100<|level|>3\n<|id|>102<|level|>3\n<|id|>104<|level|>2\n<|id|>120<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 2
+        }
+    ]
+}

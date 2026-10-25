@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 163 143 833<|content|>OFFICER'S CERTIFICATE OF CASCADE RETAIL HOLDINGS I\n<|id|>3<|page|>1<|box|>226 142 243 395<|content|>INTRODUCTORY RECITALS\n<|id|>10<|page|>2<|box|>89 140 126 795<|content|>SECTION 1: CERTIFICATION OF ACCURACY OF REPRESENTA\n<|id|>11<|page|>2<|box|>138 142 157 553<|content|>1(a) Bring-Down of Representations and Warranties\n<|id|>18<|page|>3<|box|>90 142 107 470<|content|>1(b) No Material Adverse Effect on Buyer\n<|id|>20<|page|>3<|box|>337 140 354 733<|content|>SECTION 2: CERTIFICATION OF COMPLIANCE WITH COVENA\n<|id|>21<|page|>3<|box|>369 140 386 545<|content|>2(a) Pre-Closing Covenants — General Compliance\n<|id|>24<|page|>3<|box|>686 142 704 529<|content|>2(b) Specific Covenant Compliance Confirmation\n<|id|>33<|page|>5<|box|>222 140 239 741<|content|>SECTION 3: CERTIFICATION REGARDING NO LEGAL IMPEDI\n<|id|>34<|page|>5<|box|>248 142 266 746<|content|>The undersigned officer of Buyer hereby certifies\n<|id|>39<|page|>5<|box|>758 140 794 836<|content|>SECTION 4: CERTIFICATION REGARDING ORGANIZATIONAL\n<|id|>48<|page|>7<|box|>167 140 184 522<|content|>SECTION 5: RELIANCE AND LIMITATIONS\n<|id|>57<|page|>8<|box|>234 236 251 758<|content|>[Remainder of Page Intentionally Left Blank; Signa\n<|id|>69<|page|>9<|box|>90 142 106 519<|content|>EXHIBIT AND ATTACHMENT REFERENCE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>18<|level|>3\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>24<|level|>3\n<|id|>33<|level|>2\n<|id|>34<|level|>-1\n<|id|>39<|level|>2\n<|id|>48<|level|>2\n<|id|>57<|level|>-1\n<|id|>69<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        }
+    ]
+}

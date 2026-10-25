@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>10<|type|>title<|page|>1<|box|>561 142 579 388<|content|>1. Summary of the Transaction\n<|id|>11<|type|>table<|page|>1<|box|>647 143 898 852<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>587 140 604 392<|content|>2. Executed Closing Documents\n<|id|>20<|type|>title<|page|>2<|box|>662 142 678 321<|content|>2.1 SAFE Instruments\n<|id|>28<|type|>title<|page|>3<|box|>202 140 219 398<|content|>2.2 Pro Rata Rights Side Letters\n<|id|>34<|type|>title<|page|>3<|box|>523 140 541 357<|content|>2.3 Board Written Consent\n<|id|>45<|type|>title<|page|>4<|box|>138 142 157 349<|content|>2.4 Secretary's Certificate\n<|id|>54<|type|>title<|page|>4<|box|>539 140 556 617<|content|>2.5 Founder intellectual Property Assignment Confi\n<|id|>60<|type|>title<|page|>5<|box|>90 140 107 449<|content|>2.6 Accredited Investor Questionnaires\n<|id|>62<|type|>title<|page|>6<|box|>90 140 107 547<|content|>2.7 Disclosure Schedule / Company Representations\n<|id|>69<|type|>title<|page|>6<|box|>375 142 393 343<|content|>3. Funding Confirmation\n<|id|>74<|type|>title<|page|>6<|box|>630 140 647 357<|content|>4. Post-Closing Obligations\n<|id|>76<|type|>title<|page|>6<|box|>723 140 741 326<|content|>4.1 SEC Form D Filing\n<|id|>83<|type|>title<|page|>7<|box|>297 140 314 401<|content|>4.2 State Blue-Sky Notice Filings\n<|id|>89<|type|>title<|page|>7<|box|>675 140 691 485<|content|>4.3 Reimbursement of Investors' Legal Fees\n<|id|>92<|type|>title<|page|>7<|box|>823 176 840 495<|content|>Principal Contact: Diana Whitford, Partner\n<|id|>94<|type|>title<|page|>8<|box|>148 140 167 470<|content|>5. Capitalization Summary (Post-Closing)\n<|id|>100<|type|>table<|page|>8<|box|>309 143 417 852<|content|>None\n<|id|>108<|type|>title<|page|>9<|box|>90 140 107 315<|content|>6. Enclosed Materials\n<|id|>120<|type|>title<|page|>9<|box|>506 140 523 370<|content|>7. Limitation of Engagement",
+    "raw_response": "<|src_id|>11<|tgt_id|>10\n<|src_id|>100<|tgt_id|>94",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 94
+        }
+    ]
+}

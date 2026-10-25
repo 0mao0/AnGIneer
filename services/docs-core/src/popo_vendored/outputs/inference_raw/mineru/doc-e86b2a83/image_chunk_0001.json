@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        47,
+        54
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        51,
+        53,
+        54
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>555<|type|>title<|page|>47<|box|>90 140 107 656<|content|>Schedule F — Form of Subscription Agreement (Offsh\n<|id|>557<|type|>title<|page|>48<|box|>89 142 156 676<|content|>Schedule G — Form of Capital Call Notice HARROWGAT\n<|id|>563<|type|>table<|page|>48<|box|>321 143 434 852<|content|>None\n<|id|>566<|type|>title<|page|>48<|box|>518 142 536 292<|content|>Wire Instructions:\n<|id|>577<|type|>title<|page|>49<|box|>89 143 156 676<|content|>Schedule H — Form of Distribution Notice HARROWGAT\n<|id|>583<|type|>table<|page|>49<|box|>321 143 434 852<|content|>None\n<|id|>590<|type|>table<|page|>49<|box|>676 143 771 852<|content|>None\n<|id|>596<|type|>title<|page|>51<|box|>90 142 156 751<|content|>Schedule I — Form of Transfer (Assignment) Agreeme\n<|id|>601<|type|>title<|page|>51<|box|>286 142 301 241<|content|>RECITALS\n<|id|>605<|type|>title<|page|>51<|box|>481 143 498 267<|content|>AGREEMENT\n<|id|>631<|type|>title<|page|>53<|box|>90 140 108 511<|content|>Schedule J — CIMA Regulatory Requirements\n<|id|>642<|type|>title<|page|>54<|box|>89 142 106 321<|content|>SIGNATURE PAGES\n<|id|>644<|type|>title<|page|>54<|box|>160 405 176 591<|content|>GENERAL PARTNER\n<|id|>651<|type|>title<|page|>54<|box|>289 405 305 593<|content|>LIMITED PARTNERS",
+    "raw_response": "<|src_id|>563<|tgt_id|>557\n<|src_id|>583<|tgt_id|>577\n<|src_id|>590<|tgt_id|>577",
+    "parsed": [
+        {
+            "src_id": 563,
+            "tgt_id": 557
+        },
+        {
+            "src_id": 583,
+            "tgt_id": 577
+        },
+        {
+            "src_id": 590,
+            "tgt_id": 577
+        }
+    ]
+}

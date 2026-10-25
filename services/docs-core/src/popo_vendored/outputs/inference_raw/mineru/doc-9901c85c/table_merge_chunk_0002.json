@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Class VII (Goodwill)', 'Minimize (15-yr amortization', 'Maximize (capital gain at', '15-yr SL amortization (§', 'Long-term capital gain (§', 'Residual allocation']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '— longest recovery for significant dollar amount)', 'preferential rates)', '197)', '1231 / § 741) at 20% + 3.8% NIIT', \"(~$447M / ~70% of total). Seller will prefer higher goodwill allocation; Buyer's opportunity to optimize is limited to shifting FMV to Class V. Accept residual nature of Class VII.\"]]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 360,
+    "table2_idx": 361
+}

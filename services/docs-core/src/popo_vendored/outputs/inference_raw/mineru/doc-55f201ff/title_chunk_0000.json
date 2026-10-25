@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|page|>1<|box|>114 294 133 704<|content|>700 Louisiana Street, Suite 4500 Houston, Texas 77\n<|id|>9<|page|>1<|box|>393 142 410 341<|content|>1. Purpose of This Letter\n<|id|>12<|page|>1<|box|>705 140 723 406<|content|>2. Summary of Matter Resolution\n<|id|>13<|page|>1<|box|>737 142 753 349<|content|>2.1 Settlement Agreement\n<|id|>21<|page|>2<|box|>470 142 487 393<|content|>2.2 Receipt of Settlement Funds\n<|id|>23<|page|>2<|box|>616 140 633 333<|content|>2.3 Context of Recovery\n<|id|>31<|page|>3<|box|>502 140 518 397<|content|>3. Procedural History Summary\n<|id|>48<|page|>5<|box|>273 140 292 393<|content|>4. Final Fee and Cost Summary\n<|id|>49<|page|>5<|box|>305 140 323 259<|content|>4.1 Legal Fees\n<|id|>54<|page|>5<|box|>747 142 763 300<|content|>4.2 Costs Advanced\n<|id|>57<|page|>6<|box|>166 140 184 457<|content|>4.3 Total Legal Spend and Net Recovery\n<|id|>63<|page|>6<|box|>407 140 424 473<|content|>5. Document Retention Recommendations\n<|id|>79<|page|>7<|box|>455 140 472 550<|content|>6. Prospective Risk-Management Recommendations\n<|id|>81<|page|>7<|box|>566 140 584 648<|content|>6.1 NFPA 25 Compliance — Annual Full-Flow Sprinkle\n<|id|>83<|page|>7<|box|>689 140 707 370<|content|>We recommend the following:\n<|id|>88<|page|>8<|box|>275 140 292 387<|content|>6.2 Insurance Program Review\n<|id|>94<|page|>8<|box|>781 140 797 354<|content|>6.3 Warehouse Operations\n<|id|>97<|page|>9<|box|>268 140 285 522<|content|>6.4 Coordination with Irongate Capital Partners\n<|id|>99<|page|>9<|box|>424 140 441 287<|content|>7. Matter Closure\n<|id|>103<|page|>9<|box|>724 140 743 326<|content|>8. Contact Information\n<|id|>113<|page|>10<|box|>281 142 296 223<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>31<|level|>2\n<|id|>48<|level|>2\n<|id|>49<|level|>3\n<|id|>54<|level|>3\n<|id|>57<|level|>3\n<|id|>63<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>3\n<|id|>83<|level|>-1\n<|id|>88<|level|>3\n<|id|>94<|level|>3\n<|id|>97<|level|>3\n<|id|>99<|level|>2\n<|id|>103<|level|>2\n<|id|>113<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        }
+    ]
+}

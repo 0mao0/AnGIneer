@@ -1,0 +1,62 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        54,
+        58
+    ],
+    "pages": [
+        55,
+        56,
+        57,
+        58
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>583<|page|>55<|box|>90 202 133 795<|content|>EXHIBIT G — PERSONNEL WITH U.S. GOVERNMENT SECURIT\n<|id|>584<|page|>55<|box|>160 142 176 326<|content|>Anonymized Summary\n<|id|>586<|page|>55<|box|>284 142 301 339<|content|>Facility Security Officer:\n<|id|>589<|page|>55<|box|>518 143 536 504<|content|>Program Affiliation Breakdown (Generalized)\n<|id|>592<|page|>55<|box|>787 143 803 310<|content|>Workforce Overview\n<|id|>596<|page|>56<|box|>306 142 324 550<|content|>Note Regarding Availability of Detailed Informatio\n<|id|>598<|page|>56<|box|>433 307 450 689<|content|>CERTIFICATION DECLARATIONS\n<|id|>599<|page|>56<|box|>478 140 494 599<|content|>Certification of Halcyon Semiconductor Aktiengesel\n<|id|>612<|page|>57<|box|>273 140 290 604<|content|>Certification of Marlowe Asset Management Photonic\n<|id|>625<|page|>58<|box|>90 385 109 611<|content|>SIGNATURE PAGES\n<|id|>637<|page|>58<|box|>380 369 398 627<|content|>ATTESTATION BY COUNSEL",
+    "raw_response": "<|id|>583<|level|>1\n<|id|>584<|level|>2\n<|id|>586<|level|>2\n<|id|>589<|level|>2\n<|id|>592<|level|>2\n<|id|>596<|level|>2\n<|id|>598<|level|>2\n<|id|>599<|level|>3\n<|id|>612<|level|>3\n<|id|>625<|level|>2\n<|id|>637<|level|>2",
+    "parsed": [
+        {
+            "id": 583,
+            "level": 1
+        },
+        {
+            "id": 584,
+            "level": 2
+        },
+        {
+            "id": 586,
+            "level": 2
+        },
+        {
+            "id": 589,
+            "level": 2
+        },
+        {
+            "id": 592,
+            "level": 2
+        },
+        {
+            "id": 596,
+            "level": 2
+        },
+        {
+            "id": 598,
+            "level": 2
+        },
+        {
+            "id": 599,
+            "level": 3
+        },
+        {
+            "id": 612,
+            "level": 3
+        },
+        {
+            "id": 625,
+            "level": 2
+        },
+        {
+            "id": 637,
+            "level": 2
+        }
+    ]
+}

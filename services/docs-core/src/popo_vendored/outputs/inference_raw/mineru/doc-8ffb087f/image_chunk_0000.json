@@ -1,0 +1,55 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        27
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23,
+        24,
+        25,
+        26,
+        27
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 104 630<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|type|>title<|page|>1<|box|>112 147 128 849<|content|>CALDERWOOD & HARKNESS LLP 1000 Louisiana Street, S\n<|id|>10<|type|>title<|page|>1<|box|>364 385 383 611<|content|>I. Executive Summary\n<|id|>21<|type|>title<|page|>2<|box|>544 300 563 694<|content|>II. Background and Project Description\n<|id|>22<|type|>title<|page|>2<|box|>589 142 604 307<|content|>A. Project Overview\n<|id|>28<|type|>title<|page|>3<|box|>585 142 603 305<|content|>B. Capital Structure\n<|id|>30<|type|>table<|page|>3<|box|>690 143 815 852<|content|>None\n<|id|>34<|type|>title<|page|>4<|box|>285 140 303 370<|content|>C. Key Dates and Milestones\n<|id|>36<|type|>table<|page|>4<|box|>354 143 795 852<|content|>None\n<|id|>38<|type|>title<|page|>5<|box|>136 223 155 774<|content|>III. ERCOT Interconnection Process for BESS Projec\n<|id|>39<|type|>title<|page|>5<|box|>181 142 196 555<|content|>A. Overview of ERCOT Interconnection Framework\n<|id|>44<|type|>title<|page|>6<|box|>223 140 239 540<|content|>B. Interconnection Application and Queue Position\n<|id|>58<|type|>title<|page|>7<|box|>285 140 301 406<|content|>C. Interconnection Study Process\n<|id|>66<|type|>title<|page|>8<|box|>513 140 529 666<|content|>D. Point of Interconnection — Western Permian 138\n<|id|>72<|type|>title<|page|>9<|box|>359 140 376 383<|content|>E. Interconnection Agreement\n<|id|>87<|type|>title<|page|>10<|box|>694 310 713 686<|content|>IV. Network Upgrade Cost Allocation\n<|id|>88<|type|>title<|page|>10<|box|>739 142 755 454<|content|>A. ERCOT Cost Allocation Framework\n<|id|>95<|type|>title<|page|>11<|box|>739 140 757 555<|content|>B. Estimated Network Upgrade Costs for the Project\n<|id|>102<|type|>title<|page|>12<|box|>601 140 618 602<|content|>C. Risk Considerations Regarding Network Upgrade C\n<|id|>113<|type|>title<|page|>14<|box|>186 140 204 395<|content|>D. Gen-Tie Line Considerations\n<|id|>119<|type|>title<|page|>15<|box|>90 236 111 759<|content|>V. Regulatory Treatment of BESS Under Texas Law\n<|id|>120<|type|>title<|page|>15<|box|>136 140 154 483<|content|>A. PUCT Jurisdiction Over Energy Storage\n<|id|>126<|type|>title<|page|>16<|box|>90 140 107 478<|content|>B. ERCOT Market Participation for BESS\n<|id|>137<|type|>title<|page|>17<|box|>321 140 339 493<|content|>C. BESS-Specific Regulatory Considerations\n<|id|>145<|type|>title<|page|>18<|box|>585 140 603 418<|content|>D. Evolving Regulatory Landscape\n<|id|>152<|type|>title<|page|>19<|box|>500 225 518 769<|content|>VI. Timeline Analysis: FIS Completion to Energizat\n<|id|>153<|type|>title<|page|>19<|box|>544 142 561 351<|content|>A. Critical Path Summary\n<|id|>154<|type|>table<|page|>19<|box|>611 143 900 852<|content|>None\n<|id|>155<|type|>table<|page|>20<|box|>89 143 160 852<|content|>None\n<|id|>158<|type|>title<|page|>21<|box|>90 140 107 500<|content|>B. Key Interdependencies and Schedule Risks\n<|id|>170<|type|>title<|page|>23<|box|>90 140 107 519<|content|>C. Recommendations for Schedule Management\n<|id|>177<|type|>title<|page|>23<|box|>767 359 786 637<|content|>VII. Lender Considerations\n<|id|>178<|type|>title<|page|>23<|box|>811 142 829 491<|content|>A. Interconnection as a Condition Precedent\n<|id|>185<|type|>title<|page|>24<|box|>773 142 790 403<|content|>B. Independent Engineer Review\n<|id|>195<|type|>title<|page|>25<|box|>414 140 431 370<|content|>C. Insurance Considerations\n<|id|>200<|type|>title<|page|>26<|box|>90 292 111 702<|content|>VIII. Conclusions and Recommendations\n<|id|>210<|type|>title<|page|>27<|box|>489 372 508 625<|content|>Appendices (Referenced)",
+    "raw_response": "<|src_id|>30<|tgt_id|>28\n<|src_id|>36<|tgt_id|>34\n<|src_id|>154<|tgt_id|>153\n<|src_id|>155<|tgt_id|>153",
+    "parsed": [
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 153
+        }
+    ]
+}

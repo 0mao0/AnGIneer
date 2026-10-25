@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        4
+    ],
+    "pages": [
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>45<|page|>3<|box|>869 97 920 890<|content|>2020年8月19日，兰亭集势公布了截至2020年6月30日未经审计的2020年二季度及半年财报。 ... 净利润同比实\n<|id|>46<|page|>4<|box|>73 99 89 357<|content|>现扭亏为盈，共计获利920万美元。 ... 现扭亏为盈，共计获利920万美元",
+    "raw_response": "<|src_id|>45<|tgt_id|>46",
+    "parsed": [
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        }
+    ]
+}

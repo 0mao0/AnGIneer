@@ -1,0 +1,148 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rvse7asf\\input\\pdfs\\doc-07db571e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-rvse7asf\\enriched\\doc-07db571e.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>13<|level|>2\n<|id|>22<|level|>2\n<|id|>49<|level|>2\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>71<|level|>3\n<|id|>93<|level|>3\n<|id|>100<|level|>2\n<|id|>101<|level|>3\n<|id|>106<|level|>3\n<|id|>120<|level|>3\n<|id|>135<|level|>3\n<|id|>141<|level|>3\n<|id|>149<|level|>3\n<|id|>156<|level|>2\n<|id|>157<|level|>3\n<|id|>163<|level|>3\n<|id|>170<|level|>3\n<|id|>177<|level|>2\n<|id|>185<|level|>2\n<|id|>194<|level|>2\n<|id|>203<|level|>2\n<|id|>204<|level|>3\n<|id|>207<|level|>2\n<|id|>208<|level|>3",
+    "image_output": "<|src_id|>205<|tgt_id|>204\n<|src_id|>206<|tgt_id|>204\n<|src_id|>221<|tgt_id|>208",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 207,
+            "level": 2
+        },
+        {
+            "id": 208,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 205,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 221,
+            "tgt_id": 208
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 205,
+            "table2_idx": 206,
+            "upper_row_ss": [
+                [
+                    "14",
+                    "Liquidity Facility Agreement — QRF 2022-1 / Northvane Bank, N.A.",
+                    "Execution draft v2, October 12, 2022"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "15",
+                    "Account Control Agreement — QRF 2022-1 / Calvoneth Trust (Securities Intermediary)",
+                    "Execution draft v2, October 12, 2022"
+                ]
+            ]
+        }
+    ]
+}

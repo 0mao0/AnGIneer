@@ -1,0 +1,46 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        11,
+        13,
+        15,
+        17,
+        18,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>6<|page|>1<|box|>814 147 849 854<|content|>• Blackthorn Growth Fund III LP — $6,000,000 allocation (1,200,000 shares at $5. ... and\n<|id|>8<|page|>2<|box|>90 138 162 856<|content|>Valuation. ... 00, derived from a pre-money fully diluted share count of 11,500,000 shares\n<|id|>21<|page|>3<|box|>414 174 542 856<|content|>(ii) Second, after payment of the 1x liquidation p...i)) equal 3x the original issue price — i. ... and\n<|id|>23<|page|>3<|box|>613 140 686 854<|content|>The Company's proposed participating preferred str... would therefore be approximately 5,351,250 shares\n<|id|>27<|page|>4<|box|>176 174 212 854<|content|>(a) an amount equal to the 1x liquidation preference of $5. ... or\n<|id|>29<|page|>4<|box|>301 140 338 854<|content|>but not both. ... \"\n<|id|>51<|page|>6<|box|>241 174 295 856<|content|>(iv) Any declaration or payment of any dividend or...ely in additional shares of Common Stock); ... and\n<|id|>53<|page|>6<|box|>329 140 364 854<|content|>Notably, the Company Term Sheet is silent on two c...t are standard in NVCA model protective provisions\n<|id|>60<|page|>6<|box|>824 140 878 857<|content|>With respect to the debt consent provision, we not..... 3% of the Series A Preferred Stock—meaning that\n<|id|>61<|page|>7<|box|>89 140 127 854<|content|>Pinnacle alone would have the ability to approve o... contributing $14,000,000 of the $22,500,000 round\n<|id|>113<|page|>11<|box|>369 181 402 854<|content|>• The founders and other Common Stock holders, who...ely hold 8,000,000 shares of Common Stock; ... and\n<|id|>115<|page|>11<|box|>463 140 517 856<|content|>Pinnacle's position is grounded in the fundamental...s of the transaction: ... 00 is derived as follows\n<|id|>116<|page|>11<|box|>523 174 542 736<|content|>$57,500,000 ÷ 11,500,000 pre-money fully diluted shares = $5. ... 00 per share\n<|id|>118<|page|>11<|box|>704 140 832 856<|content|>If the option pool were set at only 2,500,000 shar...torts the agreed-upon economics of the transaction\n<|id|>134<|page|>13<|box|>292 174 329 854<|content|>(i) Quarterly unaudited financial statements (bala...45 days of the end of each fiscal quarter; ... and\n<|id|>136<|page|>13<|box|>380 140 436 854<|content|>The Company Term Sheet does not include any provis...eporting obligations specific to the lead investor\n<|id|>158<|page|>15<|box|>266 174 284 746<|content|>(a) Holders of a majority of the outstanding shares of Common Stock; ... and\n<|id|>160<|page|>15<|box|>335 140 372 854<|content|>The Company's formulation does not require a separ...nt of the holders of any series of Preferred Stock\n<|id|>165<|page|>15<|box|>705 174 724 758<|content|>(a) Holders of a majority of the outstanding shares of Common Stock; ... AND\n<|id|>167<|page|>15<|box|>776 140 849 856<|content|>This dual-approval mechanism ensures that a drag-a...ility to unilaterally compel a sale of the Company\n<|id|>190<|page|>17<|box|>811 181 900 856<|content|>• Drafting and negotiation of the definitive trans... side letter, and any ancillary documents; ... and\n<|id|>191<|page|>18<|box|>90 181 143 854<|content|>Closing mechanics, including review of closing con...Incorporation with the Delaware Secretary of State\n<|id|>245<|page|>22<|box|>654 140 671 754<|content|>RACHEL BERNSTEIN Partner, Calderwood & Harkness LLP Tel: ... (415) 555-2800\n<|id|>246<|page|>22<|box|>672 143 688 473<|content|>Email: ... com\n<|id|>247<|page|>22<|box|>689 142 705 720<|content|>LEILA NAZARI Associate, Calderwood & Harkness LLP Tel: ... (415) 555-2847\n<|id|>248<|page|>22<|box|>707 142 723 450<|content|>Email: ... com",
+    "raw_response": "<|src_id|>6<|tgt_id|>8\n<|src_id|>27<|tgt_id|>29\n<|src_id|>60<|tgt_id|>61\n<|src_id|>115<|tgt_id|>116\n<|src_id|>190<|tgt_id|>191",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 61
+        },
+        {
+            "src_id": 115,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 191
+        }
+    ]
+}

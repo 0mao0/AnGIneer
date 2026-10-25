@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['', '', '基价', '', '', '', '', ''], ['colspan=8, ']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['colspan=15, 每艘(台)班'], ['rowspan=3, 顺序号', 'colspan=3, 项目', 'colspan=5, 一类费用', 'colspan=5, 二类费用', '定额基价']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 235,
+    "table2_idx": 236
+}

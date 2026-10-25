@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=2, 7', 'Gimli-v2', 'rowspan=2, Customized FSM based on 3x32-bit register, RAM-based state-memory, 32-bit datapath Customized FSM based on 3x32-bit register, RAM-based state-memory, 16-bit datapath', 'gimli24v1', 'Y', '3', 'N/A']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Gimli-v3', 'Customized FSM based on 3x32-bit register, RAM-based state-memory, 8-bit datapath', 'gimli24v1', 'Y', '3', 'N/A']]\n",
+    "raw_response": "[1, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 38,
+    "table2_idx": 39
+}

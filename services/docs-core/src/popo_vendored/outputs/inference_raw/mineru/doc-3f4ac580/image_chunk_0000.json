@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 439 106 558<|content|>EXHIBIT A-2\n<|id|>1<|type|>title<|page|>1<|box|>114 313 132 684<|content|>FORM OF REGULATION S GLOBAL NOTE\n<|id|>4<|type|>title<|page|>2<|box|>89 140 218 854<|content|>UNTIL THE EXPIRATION OF THE DISTRIBUTION COMPLIANC\n<|id|>5<|type|>title<|page|>2<|box|>224 323 242 671<|content|>VERIMARK HOSPITALITY GROUP INC.\n<|id|>6<|type|>table<|page|>2<|box|>275 143 508 852<|content|>None\n<|id|>7<|type|>title<|page|>2<|box|>556 143 574 305<|content|>PROMISE TO PAY\n<|id|>11<|type|>title<|page|>3<|box|>89 140 106 356<|content|>METHOD OF PAYMENT\n<|id|>13<|type|>title<|page|>3<|box|>321 140 338 622<|content|>PAYING AGENT, REGISTRAR, AND TRANSFER AGENT\n<|id|>15<|type|>title<|page|>3<|box|>479 140 497 416<|content|>INDENTURE; DEFINED TERMS\n<|id|>19<|type|>title<|page|>4<|box|>89 142 106 274<|content|>GUARANTEES\n<|id|>27<|type|>title<|page|>4<|box|>440 142 457 236<|content|>RANKING\n<|id|>31<|type|>title<|page|>4<|box|>760 140 777 374<|content|>OPTIONAL REDEMPTION\n<|id|>34<|type|>table<|page|>5<|box|>132 143 208 852<|content|>None\n<|id|>37<|type|>title<|page|>5<|box|>419 142 435 333<|content|>EQUITY CLAWBACK\n<|id|>41<|type|>title<|page|>5<|box|>746 140 763 352<|content|>CHANGE OF CONTROL\n<|id|>44<|type|>title<|page|>6<|box|>148 140 166 263<|content|>COVENANTS\n<|id|>56<|type|>title<|page|>6<|box|>676 142 693 341<|content|>EVENTS OF DEFAULT\n<|id|>66<|type|>title<|page|>7<|box|>589 140 607 271<|content|>DEFEASANCE\n<|id|>68<|type|>title<|page|>7<|box|>839 142 856 415<|content|>AMENDMENTS AND WAIVERS\n<|id|>72<|type|>title<|page|>8<|box|>474 140 492 648<|content|>TRANSFER AND EXCHANGE; BOOK-ENTRY PROVISIONS\n<|id|>77<|type|>title<|page|>9<|box|>358 140 375 364<|content|>REGISTRATION RIGHTS\n<|id|>82<|type|>title<|page|>9<|box|>832 142 849 308<|content|>DENOMINATIONS\n<|id|>84<|type|>title<|page|>10<|box|>167 142 184 318<|content|>AUTHENTICATION\n<|id|>86<|type|>title<|page|>10<|box|>289 140 306 310<|content|>GOVERNING LAW\n<|id|>88<|type|>title<|page|>10<|box|>521 140 537 500<|content|>TRUSTEE DEALINGS WITH THE ISSUER\n<|id|>90<|type|>title<|page|>10<|box|>661 140 678 447<|content|>NO RECOURSE AGAINST OTHERS\n<|id|>97<|type|>title<|page|>11<|box|>146 140 162 475<|content|>CERTIFICATE OF AUTHENTICATION\n<|id|>104<|type|>title<|page|>11<|box|>284 405 301 593<|content|>[REVERSE OF NOTE]\n<|id|>105<|type|>title<|page|>11<|box|>309 379 325 617<|content|>SUBSIDIARY GUARANTEE\n<|id|>114<|type|>title<|page|>12<|box|>277 142 294 454<|content|>VERIMARK RESORT HOLDINGS LLC\n<|id|>134<|type|>title<|page|>12<|box|>622 218 638 777<|content|>SCHEDULE OF INCREASES AND DECREASES IN GLOBAL NOTE\n<|id|>136<|type|>table<|page|>12<|box|>690 143 789 852<|content|>None",
+    "raw_response": "<|src_id|>6<|tgt_id|>5\n<|src_id|>34<|tgt_id|>31\n<|src_id|>136<|tgt_id|>134",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 5
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 134
+        }
+    ]
+}

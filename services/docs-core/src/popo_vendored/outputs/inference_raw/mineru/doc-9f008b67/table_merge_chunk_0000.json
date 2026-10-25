@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=5, III', 'rowspan=5, 1000', '一拖一列式5×1000t拖带船队', '船队300×10.8×2.5,驳船55×10.8×2.5']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, III', 'rowspan=2, 1000', '一拖一列式6×900t拖带船队', '船队345×9.8×2.4,驳船53×9.8×2.4']]\n",
+    "raw_response": "[1, 1, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0
+    ],
+    "table1_idx": 155,
+    "table2_idx": 156
+}

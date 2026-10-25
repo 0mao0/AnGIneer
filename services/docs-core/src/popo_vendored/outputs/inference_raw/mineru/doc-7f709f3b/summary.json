@@ -1,0 +1,182 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-msow1b98\\input\\pdfs\\doc-7f709f3b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-msow1b98\\enriched\\doc-7f709f3b.json",
+    "contd_output": "",
+    "title_output": "<|id|>13<|level|>1\n<|id|>14<|level|>2\n<|id|>20<|level|>2\n<|id|>25<|level|>2\n<|id|>31<|level|>1\n<|id|>32<|level|>2\n<|id|>38<|level|>2\n<|id|>43<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>1\n<|id|>57<|level|>2\n<|id|>63<|level|>2\n<|id|>76<|level|>2\n<|id|>79<|level|>2\n<|id|>85<|level|>1\n<|id|>87<|level|>2\n<|id|>91<|level|>2\n<|id|>96<|level|>2\n<|id|>102<|level|>2\n<|id|>107<|level|>2\n<|id|>118<|level|>1\n<|id|>120<|level|>2\n<|id|>131<|level|>2\n<|id|>139<|level|>2\n<|id|>146<|level|>1\n<|id|>152<|level|>1\n<|id|>162<|level|>1\n<|id|>173<|level|>1",
+    "image_output": "<|src_id|>81<|tgt_id|>79\n<|src_id|>82<|tgt_id|>79\n<|src_id|>154<|tgt_id|>152\n<|src_id|>159<|tgt_id|>152\n<|src_id|>160<|tgt_id|>152",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 173,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 81,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 152
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 152
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 152
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 81,
+            "table2_idx": 82,
+            "upper_row_ss": [
+                [
+                    "Connecticut",
+                    "Attorney General",
+                    "August 14, 2023",
+                    "Conn. Gen. Stat. § 36a-701b"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Connecticut",
+                    "Insurance Department",
+                    "August 14, 2023",
+                    "Conn. Gen. Stat. § 38a-999b"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 159,
+            "table2_idx": 160,
+            "upper_row_ss": [
+                [
+                    "Amount covered by Atlas Mutual primary policy",
+                    "$5,730,250"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Total",
+                    "$8,230,250"
+                ]
+            ]
+        }
+    ]
+}

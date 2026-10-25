@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 160 125 838<|content|>VANTAGE MOBILITY SYSTEMS CORP. 4100 Industrial Par\n<|id|>8<|type|>title<|page|>1<|box|>604 140 623 464<|content|>1. Background and Agreement Overview\n<|id|>13<|type|>title<|page|>2<|box|>250 140 266 405<|content|>2. Rescoping of Project Argonaut\n<|id|>18<|type|>title<|page|>3<|box|>90 140 107 480<|content|>3. Integration Status at Time of Suspension\n<|id|>27<|type|>table<|page|>3<|box|>614 143 750 852<|content|>None\n<|id|>29<|type|>title<|page|>3<|box|>843 140 859 526<|content|>4. Invocation of Section 9.4 Dormancy Provisions\n<|id|>35<|type|>title<|page|>4<|box|>546 140 563 573<|content|>5. Effect of Dormancy Status: Support Level Reduct\n<|id|>38<|type|>title<|page|>5<|box|>90 140 107 535<|content|>6. VMS Position on Tolling of Milestone Deadlines\n<|id|>43<|type|>title<|page|>5<|box|>656 140 672 566<|content|>7. VMS Position on Fee Obligations During Dormancy\n<|id|>48<|type|>title<|page|>6<|box|>439 140 457 560<|content|>8. Reservation of Rights Regarding Derivative Work\n<|id|>52<|type|>title<|page|>7<|box|>90 140 107 400<|content|>9. General Reservation of Rights\n<|id|>61<|type|>title<|page|>7<|box|>686 142 704 405<|content|>10. Request for Acknowledgment\n<|id|>70<|type|>title<|page|>8<|box|>215 142 232 398<|content|>11. Notice Provision Compliance",
+    "raw_response": "<|src_id|>27<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 18
+        }
+    ]
+}

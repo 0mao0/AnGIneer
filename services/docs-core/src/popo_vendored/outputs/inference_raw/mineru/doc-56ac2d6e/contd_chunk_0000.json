@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        7,
+        53
+    ],
+    "pages": [
+        7,
+        8,
+        9,
+        13,
+        21,
+        22,
+        27,
+        31,
+        35,
+        37,
+        41,
+        45,
+        47,
+        49,
+        52
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>7<|box|>512 383 551 619<|content|>APRIL - 1958\n<|id|>5<|page|>7<|box|>837 117 899 937<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>6<|page|>8<|box|>409 178 488 833<|content|>The Treasury Bulletin is for sale by the Superintendent of Documents, U. ... Single copy price varies\n<|id|>8<|page|>9<|box|>162 152 794 817<|content|>Page Treasury financing operations. ... 94\n<|id|>9<|page|>9<|box|>828 140 880 825<|content|>Note: ... Where calculations have been made from u...res, the details may not check to the totals shown\n<|id|>32<|page|>13<|box|>922 4 935 453<|content|>4/ For checks outstanding and telegraphic reports from Federal Reserve\n<|id|>33<|page|>13<|box|>766 536 823 978<|content|>Banks beginning with 1947; ... Net increase, or decrease (-)\n<|id|>34<|page|>13<|box|>821 512 931 982<|content|>2/ For current month detail, see ejection on \"Stat...h issue of the Bulletin. ... * Less than \\$500,000\n<|id|>35<|page|>13<|box|>922 512 935 665<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>100<|page|>21<|box|>878 524 891 943<|content|>7/ Includes \\$300 million net sales by Federal intermediate credit\n<|id|>103<|page|>22<|box|>95 65 329 480<|content|>The cash income and outgo data appearing in the \"T...arlier Budget documents as well as in the Bulletin\n<|id|>123<|page|>27<|box|>229 12 306 500<|content|>enterprise deposit fund accounts with the Treasurer of the United States. ... On that basis, net\n<|id|>124<|page|>27<|box|>200 536 246 973<|content|>expenditures for operations are shown in this tabl...and redemption of agency obligations in the market\n<|id|>173<|page|>31<|box|>841 9 920 473<|content|>Note: ... The average annual interest rate is computed\n<|id|>174<|page|>31<|box|>858 536 871 830<|content|>2/ Total includes \"Other bonds\"; ... see Table 2\n<|id|>184<|page|>35<|box|>902 541 911 963<|content|>5/ Not called for redemption on March 15, 1958. ... Callable on four\n<|id|>188<|page|>37<|box|>777 563 788 960<|content|>for cash and in exchange for special bills maturin... in exchange for special bills maturing January 16\n<|id|>210<|page|>41<|box|>113 416 125 568<|content|>(In millions of dollars)\n<|id|>215<|page|>45<|box|>97 9 106 299<|content|>1/ Original call and maturity datee are used. ... 1/ Original call and maturity datee are used\n<|id|>237<|page|>47<|box|>97 406 108 561<|content|>(In millions of dollars)\n<|id|>240<|page|>49<|box|>643 502 654 654<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>249<|page|>52<|box|>234 379 246 615<|content|>(Par values - in millions of dollars)\n<|id|>250<|page|>52<|box|>85 7 193 469<|content|>The Treasury Survey of Ownership covers securities...d States Government and by Federal agencies. ... \"",
+    "raw_response": "<|src_id|>32<|tgt_id|>33\n<|src_id|>123<|tgt_id|>124",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 124
+        }
+    ]
+}

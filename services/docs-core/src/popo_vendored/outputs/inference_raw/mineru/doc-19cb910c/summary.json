@@ -1,0 +1,106 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6gd4aaoq\\input\\pdfs\\doc-19cb910c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-6gd4aaoq\\enriched\\doc-19cb910c.json",
+    "contd_output": "",
+    "title_output": "<|id|>14<|level|>1\n<|id|>38<|level|>1\n<|id|>42<|level|>2\n<|id|>66<|level|>2\n<|id|>91<|level|>2\n<|id|>105<|level|>2\n<|id|>109<|level|>2\n<|id|>114<|level|>2\n<|id|>118<|level|>2\n<|id|>124<|level|>2\n<|id|>128<|level|>2\n<|id|>131<|level|>1\n<|id|>135<|level|>1\n<|id|>139<|level|>1",
+    "image_output": "<|src_id|>133<|tgt_id|>131\n<|src_id|>134<|tgt_id|>131\n<|src_id|>137<|tgt_id|>135\n<|src_id|>138<|tgt_id|>135",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 133,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 137,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 135
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 137,
+            "table2_idx": 138,
+            "upper_row_ss": [
+                [
+                    "Issuer's Counsel",
+                    "Calderwood & Harkness LLP — George Trujillo,",
+                    "1420 Fifth Avenue, Suite",
+                    "(206) 553-4217 /gtrujillo@calderwoodhark"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Partner",
+                    "3600, Seattle, WA 98101",
+                    "ness.com"
+                ]
+            ]
+        }
+    ]
+}

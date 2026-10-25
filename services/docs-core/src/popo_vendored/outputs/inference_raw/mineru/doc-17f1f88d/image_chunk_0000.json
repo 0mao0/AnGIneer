@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>178 140 195 542<|content|>VIA HAND DELIVERY AND ELECTRONIC MAIL\n<|id|>8<|type|>title<|page|>1<|box|>696 140 714 442<|content|>I. Description of the Proposed Facility\n<|id|>12<|type|>title<|page|>2<|box|>395 140 412 380<|content|>II. Local Land-Use Approvals\n<|id|>15<|type|>title<|page|>2<|box|>708 140 724 321<|content|>III. Attainment Status\n<|id|>17<|type|>title<|page|>3<|box|>90 142 107 295<|content|>IV. Emission Units\n<|id|>25<|type|>title<|page|>3<|box|>715 140 732 468<|content|>V. Aggregate Potential-to-Emit Summary\n<|id|>27<|type|>table<|page|>3<|box|>801 143 895 852<|content|>None\n<|id|>28<|type|>table<|page|>4<|box|>88 143 145 852<|content|>None\n<|id|>31<|type|>title<|page|>4<|box|>429 140 446 421<|content|>VI. Enclosed Application Materials\n<|id|>44<|type|>title<|page|>6<|box|>167 140 185 697<|content|>VII. Technical Appendices — Pinnacle Environmental\n<|id|>47<|type|>title<|page|>6<|box|>479 140 498 433<|content|>VIII. Applicant Contact Information\n<|id|>53<|type|>title<|page|>6<|box|>768 140 785 673<|content|>IX. Request for Timely Processing and Completeness\n<|id|>57<|type|>title<|page|>7<|box|>351 140 368 320<|content|>Respectfully submitted,\n<|id|>58<|type|>title<|page|>7<|box|>376 140 393 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>62<|type|>title<|page|>7<|box|>487 143 502 240<|content|>Enclosures:\n<|id|>70<|type|>title<|page|>7<|box|>689 142 700 171<|content|>cc:",
+    "raw_response": "<|src_id|>27<|tgt_id|>25\n<|src_id|>28<|tgt_id|>25",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 25
+        }
+    ]
+}

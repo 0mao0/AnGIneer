@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>151 140 167 411<|content|>TO: ... 1019-00003\n<|id|>3<|page|>1<|box|>176 140 194 609<|content|>FROM: ... Claudia Merritt, Partner, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>203 140 219 343<|content|>DATE: ... December 9, 2023\n<|id|>5<|page|>1<|box|>229 140 265 856<|content|>RE: ... FA8222-23-R-0087)\n<|id|>72<|page|>8<|box|>862 140 898 857<|content|>On Ground 2 (Unequal Discussions): ... The SSEB characterized\n<|id|>73<|page|>9<|box|>90 140 273 856<|content|>Halcyon's reliance on Meridian Semiconductor GmbH ...he paradigm case of materially unequal discussions\n<|id|>87<|page|>10<|box|>829 140 902 857<|content|>6. ... The outcome of the OCI ground, while potent..., is not necessary for Whitmore to obtain the full\n<|id|>88<|page|>11<|box|>90 140 238 856<|content|>relief sought in this protest. ... Stokes has been placed in the matter file\n<|id|>104<|page|>12<|box|>590 140 608 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>105<|page|>12<|box|>609 142 626 256<|content|>By: ... By\n<|id|>106<|page|>12<|box|>626 142 643 323<|content|>Claudia Merritt, Partner\n<|id|>107<|page|>12<|box|>643 140 659 325<|content|>Date: ... December 9, 2023",
+    "raw_response": "<|src_id|>72<|tgt_id|>73\n<|src_id|>87<|tgt_id|>88",
+    "parsed": [
+        {
+            "src_id": 72,
+            "tgt_id": 73
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 88
+        }
+    ]
+}

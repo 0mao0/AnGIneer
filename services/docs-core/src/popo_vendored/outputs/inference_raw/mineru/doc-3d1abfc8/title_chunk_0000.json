@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 352 118 645<|content|>OFFICER'S CERTIFICATE\n<|id|>10<|page|>1<|box|>824 140 840 411<|content|>Section 1. Authority and Capacity\n<|id|>13<|page|>2<|box|>414 140 431 478<|content|>Section 2. Representations and Warranties\n<|id|>34<|page|>6<|box|>150 140 167 444<|content|>Section 3. Compliance with Covenants\n<|id|>40<|page|>6<|box|>686 140 704 514<|content|>Section 4. Absence of Material Adverse Change\n<|id|>47<|page|>7<|box|>398 140 417 473<|content|>Section 5. Absence of Certain Proceedings\n<|id|>52<|page|>8<|box|>90 140 107 349<|content|>Section 6. Use of Proceeds\n<|id|>60<|page|>8<|box|>752 140 768 393<|content|>Section 7. Lock-Up Compliance\n<|id|>65<|page|>9<|box|>402 140 420 508<|content|>Section 8. Satisfaction of Conditions to Closing\n<|id|>75<|page|>10<|box|>755 140 772 571<|content|>Section 9. Board and Pricing Committee Authorizati\n<|id|>76<|page|>10<|box|>781 140 797 522<|content|>Each of the undersigned hereby certifies as follow\n<|id|>85<|page|>11<|box|>477 140 494 429<|content|>Section 10. Additional Certifications\n<|id|>92<|page|>12<|box|>560 140 577 336<|content|>[Signature Page Follows]\n<|id|>93<|page|>12<|box|>585 282 602 712<|content|>SIGNATURE PAGE TO OFFICER'S CERTIFICATE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>13<|level|>2\n<|id|>34<|level|>2\n<|id|>40<|level|>2\n<|id|>47<|level|>2\n<|id|>52<|level|>2\n<|id|>60<|level|>2\n<|id|>65<|level|>2\n<|id|>75<|level|>2\n<|id|>76<|level|>-1\n<|id|>85<|level|>2\n<|id|>92<|level|>2\n<|id|>93<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        }
+    ]
+}

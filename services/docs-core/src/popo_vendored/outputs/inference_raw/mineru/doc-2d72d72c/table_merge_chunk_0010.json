@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 3', 'rowspan=3, 墩台长、宽(mm)', '片石', '+40,-10', 'rowspan=3, 尺量:测3个断面']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 4', 'rowspan=2, 竖直度或坡度(%)', '料石、块石', '\\\\leqslant 0.3', 'rowspan=2, 铅锤法:测两轴线位置共4处']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 606,
+    "table2_idx": 607
+}

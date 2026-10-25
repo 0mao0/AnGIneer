@@ -1,0 +1,125 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 328 159 666<|content|>SECRETARY'S CERTIFICATE OF BRIGHTFIELD CLOUD SERVI\n<|id|>1<|page|>1<|box|>167 434 185 562<|content|>August 12, 2022\n<|id|>2<|page|>1<|box|>194 142 210 248<|content|>Delivered to:\n<|id|>7<|page|>1<|box|>484 140 502 848<|content|>I. INTRODUCTORY RECITALS AND IDENTIFICATION OF CER\n<|id|>11<|page|>1<|box|>804 140 821 330<|content|>II. CERTIFICATIONS\n<|id|>13<|page|>2<|box|>90 140 107 485<|content|>Certification 1: Certificate of Incorporation\n<|id|>16<|page|>2<|box|>445 140 462 326<|content|>Certification 2: Bylaws\n<|id|>18<|page|>2<|box|>590 140 608 413<|content|>Certification 3: Board Resolutions\n<|id|>36<|page|>4<|box|>138 142 157 367<|content|>Certification 4: Incumbency\n<|id|>40<|page|>4<|box|>763 140 780 658<|content|>Certification 5: No Conflict; Good Standing; Neces\n<|id|>46<|page|>5<|box|>382 140 398 630<|content|>Certification 6: No Amendments to Organizational D\n<|id|>48<|page|>5<|box|>592 140 609 274<|content|>III. RELIANCE\n<|id|>50<|page|>5<|box|>824 142 840 287<|content|>IV. EXECUTION\n<|id|>57<|page|>6<|box|>196 140 214 750<|content|>V. COUNTER-CERTIFICATION — CONFIRMATION OF SECRETA\n<|id|>58<|page|>6<|box|>215 143 233 259<|content|>AUTHORITY\n<|id|>65<|page|>6<|box|>464 449 479 547<|content|>EXHIBIT A\n<|id|>66<|page|>6<|box|>489 336 506 658<|content|>CERTIFICATE OF INCORPORATION\n<|id|>67<|page|>6<|box|>515 483 531 514<|content|>OF\n<|id|>68<|page|>6<|box|>541 330 558 666<|content|>BRIGHTFIELD CLOUD SERVICES INC.\n<|id|>75<|page|>7<|box|>114 447 132 549<|content|>EXHIBIT B\n<|id|>78<|page|>7<|box|>193 328 209 666<|content|>BRIGHTFIELD CLOUD SERVICES INC.\n<|id|>81<|page|>7<|box|>344 447 359 550<|content|>EXHIBIT C\n<|id|>82<|page|>7<|box|>369 290 386 707<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS\n<|id|>83<|page|>7<|box|>396 483 412 514<|content|>OF\n<|id|>84<|page|>7<|box|>422 328 439 666<|content|>BRIGHTFIELD CLOUD SERVICES INC.\n<|id|>105<|page|>9<|box|>724 449 741 550<|content|>EXHIBIT D\n<|id|>106<|page|>9<|box|>751 367 767 630<|content|>INCUMBENCY CERTIFICATE\n<|id|>107<|page|>9<|box|>777 328 794 666<|content|>BRIGHTFIELD CLOUD SERVICES INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>2<|level|>-1\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>13<|level|>3\n<|id|>16<|level|>3\n<|id|>18<|level|>3\n<|id|>36<|level|>3\n<|id|>40<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>2\n<|id|>50<|level|>2\n<|id|>57<|level|>2\n<|id|>58<|level|>2\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>67<|level|>3\n<|id|>68<|level|>3\n<|id|>75<|level|>2\n<|id|>78<|level|>3\n<|id|>81<|level|>2\n<|id|>82<|level|>3\n<|id|>83<|level|>3\n<|id|>84<|level|>3\n<|id|>105<|level|>2\n<|id|>106<|level|>3\n<|id|>107<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>11<|page|>1<|box|>696 140 714 584<|content|>I. Summary of Skybridge's Positions on Key Open Is\n<|id|>12<|page|>1<|box|>727 140 744 383<|content|>A. Liability Cap (Section 11.2)\n<|id|>16<|page|>2<|box|>458 140 474 388<|content|>B. Indemnification (Section 12)\n<|id|>22<|page|>3<|box|>194 140 212 444<|content|>C. Sub-Processor Approval (Section 8)\n<|id|>30<|page|>4<|box|>90 140 107 356<|content|>D. Audit Rights (Section 9)\n<|id|>37<|page|>4<|box|>797 140 815 416<|content|>E. Breach Notification (Section 10)\n<|id|>41<|page|>5<|box|>375 140 391 542<|content|>F. Data Retention and Return/Deletion (Section 14)\n<|id|>45<|page|>5<|box|>710 140 727 488<|content|>II. Additional Matters Addressed in Redline\n<|id|>52<|page|>6<|box|>648 142 665 357<|content|>III. Remaining Open Items\n<|id|>56<|page|>7<|box|>186 140 203 263<|content|>IV. Enclosures\n<|id|>64<|page|>7<|box|>440 140 457 433<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>22<|level|>2\n<|id|>30<|level|>2\n<|id|>37<|level|>2\n<|id|>41<|level|>2\n<|id|>45<|level|>1\n<|id|>52<|level|>1\n<|id|>56<|level|>1\n<|id|>64<|level|>-1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 1
+        },
+        {
+            "id": 56,
+            "level": 1
+        }
+    ]
+}

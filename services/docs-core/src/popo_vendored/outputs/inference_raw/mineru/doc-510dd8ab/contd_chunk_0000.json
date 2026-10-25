@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        5,
+        10,
+        11,
+        16
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 132 292<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>142 140 159 565<|content|>TO: ... Francesca Morano, Samuel Eklund, Carlos Espinoza\n<|id|>3<|page|>1<|box|>167 140 185 339<|content|>FROM: ... Hannah Brinkley\n<|id|>4<|page|>1<|box|>193 140 210 331<|content|>DATE: ... August 22, 2024\n<|id|>5<|page|>1<|box|>219 140 253 854<|content|>RE: ... Deposition Summary — Tobias \"Toby\" Fenchurch, Managing Member, Grizzly Peak Research LLC\n<|id|>6<|page|>1<|box|>263 140 300 854<|content|>MATTER: ... 24STCV-01892, Superior Court of California, County of Los Angeles\n<|id|>43<|page|>5<|box|>287 145 304 596<|content|>• February 6, 2024 (pre-Report 1): ... 14\n<|id|>47<|page|>5<|box|>420 140 476 854<|content|>The trough of $72. ... 80 per share, the estimated... profit on GPCP's short position was approximately\n<|id|>44<|page|>5<|box|>306 147 342 856<|content|>• February 7, 2024 (Report 1 published): ... 4%)\n<|id|>45<|page|>5<|box|>345 147 380 857<|content|>• February 14, 2024 (Report 2 published): ... 8%)\n<|id|>46<|page|>5<|box|>383 145 417 857<|content|>• February 21, 2024 (Report 3 published): ... 0%)\n<|id|>105<|page|>10<|box|>787 138 897 857<|content|>This exchange demonstrates several things. ... Third,\n<|id|>106<|page|>11<|box|>89 140 143 854<|content|>Fenchurch instructed Lin to \"[s]tick with the thes... evidence or analysis was to be disregarded. ... )\n<|id|>155<|page|>16<|box|>90 181 125 854<|content|>• Calderwood & Harkness LLP Engagement Team: ... F...o, Samuel Eklund, Carlos Espinoza, Hannah Brinkley\n<|id|>157<|page|>16<|box|>166 140 202 854<|content|>This memorandum may not be forwarded, copied, or d...roval of Francesca Morano, lead engagement partner",
+    "raw_response": "<|src_id|>105<|tgt_id|>106",
+    "parsed": [
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        }
+    ]
+}

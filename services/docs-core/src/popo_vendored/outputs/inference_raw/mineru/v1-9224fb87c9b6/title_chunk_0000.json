@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>99 281 141 683<|content|>FARMERS INSURANCE GROUP MAKE MODEL PRICING PROCEDU\n<|id|>15<|page|>4<|box|>51 390 79 589<|content|>FARMERS INSURANCE GROUP (FARMERS AND MID-CENTURY)\n<|id|>16<|page|>4<|box|>90 313 104 666<|content|>Classification of Private Passenger Vehicles (1993\n<|id|>18<|page|>5<|box|>56 398 80 568<|content|>FARMERS INSURANCE GROUP (FARMERS AND MID-CENTURY)\n<|id|>19<|page|>5<|box|>88 334 101 630<|content|>Classification of Private Passenger Vehicles (1999",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>15<|level|>-1\n<|id|>16<|level|>2\n<|id|>18<|level|>-1\n<|id|>19<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        }
+    ]
+}

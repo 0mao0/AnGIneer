@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>176 142 193 349<|content|>Case No. ... 2022-CA-031547\n<|id|>2<|page|>1<|box|>234 142 279 673<|content|>VERIMARK HOSPITALITY GROUP INC. ... , a Delaware corporation, Plaintiff,\n<|id|>4<|page|>1<|box|>313 140 404 854<|content|>IRONCLAD INDEMNITY CORPORATION; ... _/\n<|id|>10<|page|>1<|box|>862 140 898 854<|content|>2. ... \"Montclair\" or \"You\" / \"Your\" shall mean Mo...ncipal offices at 1 Liberty Plaza, 38th Floor, New\n<|id|>11<|page|>2<|box|>90 140 181 854<|content|>York, New York 10006, and all of its officers, dir...d-party administrator acting on Montclair's behalf\n<|id|>51<|page|>5<|box|>862 140 898 856<|content|>Produce all Communications between Montclair (incl...tative) and Tidewater Risk Advisors LLC (including\n<|id|>52<|page|>6<|box|>90 140 181 856<|content|>Franklin Orde and any other Tidewater employee, ag...he Montclair Policy through the date of production\n<|id|>113<|page|>11<|box|>851 140 900 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys for Plaintiff Verimark Hospitality Group Inc. ... (305) 555-7201\n<|id|>114<|page|>12<|box|>90 140 108 253<|content|>By: ... By\n<|id|>115<|page|>12<|box|>107 140 125 490<|content|>Elaine Forsythe, Esq. ... 0987654\n<|id|>116<|page|>12<|box|>125 140 142 470<|content|>Email: ... com\n<|id|>117<|page|>12<|box|>143 143 159 254<|content|>By: ... By\n<|id|>118<|page|>12<|box|>159 140 176 504<|content|>Tiffany Rosenthal, Esq. ... 1123581\n<|id|>119<|page|>12<|box|>176 140 194 473<|content|>Email: ... com",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>51<|tgt_id|>52",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        }
+    ]
+}

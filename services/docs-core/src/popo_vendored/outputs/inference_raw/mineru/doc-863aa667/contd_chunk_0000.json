@@ -1,0 +1,45 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>179 140 234 854<|content|>Policy Reference: ... RWI-2025-MSI-04781 (the \"Pol...e Company (the \"Insurer\"), bound on March 28, 2025\n<|id|>3<|page|>1<|box|>243 140 261 794<|content|>Named Insured: ... Harrowgate Private Equity Fund IV LP, a Delaware limited partnership\n<|id|>4<|page|>1<|box|>268 140 305 854<|content|>Additional Insured: ... , a Delaware corporation, and their respective successors and assigns\n<|id|>5<|page|>1<|box|>313 140 386 854<|content|>Transaction: ... , and Pennfield Holdings, Inc\n<|id|>6<|page|>1<|box|>393 142 411 354<|content|>Policy Limit: ... $100,000,000\n<|id|>7<|page|>1<|box|>419 140 438 800<|content|>Retention: ... $9,800,000 (being 1% of the aggregate merger consideration of $980,000,000)\n<|id|>8<|page|>1<|box|>445 140 463 606<|content|>Date of Declaration: ... As of June 30, 2025 (the \"Closing Date\")\n<|id|>21<|page|>2<|box|>694 174 729 854<|content|>(ii) Rebecca Talmadge, Partner, Head of Consumer & Retail, Harrowgate Capital Partners LLC; ... and\n<|id|>23<|page|>2<|box|>763 140 799 854<|content|>The Knowledge Persons are further described in Sch... Schedule A attached hereto and made a part hereof\n<|id|>37<|page|>3<|box|>819 174 873 854<|content|>(a) no breach of any representation or warranty of Pennfield Holdings, Inc. ... and\n<|id|>39<|page|>4<|box|>171 140 263 856<|content|>The Named Insured further confirms that it has rev...ected to result in a Loss covered under the Policy\n<|id|>64<|page|>7<|box|>194 174 229 854<|content|>Harrowgate Private Equity Fund IV LP c/o Harrowgat...200 Market Street, Suite 3100 Wilmington, DE 19801\n<|id|>65<|page|>7<|box|>239 176 255 452<|content|>Attention: ... Jonah Whitfield, Principal\n<|id|>66<|page|>7<|box|>257 176 273 540<|content|>with a copy (which shall not constitute notice) to...with a copy (which shall not constitute notice) to\n<|id|>67<|page|>7<|box|>282 176 297 782<|content|>Calderwood & Harkness LLP One Liberty Plaza, 55th Floor New York, NY 10006\n<|id|>68<|page|>7<|box|>308 176 324 452<|content|>Attention: ... Oliver Mackenzie, Partner\n<|id|>69<|page|>7<|box|>325 176 342 303<|content|>If to the Insurer: ... If to the Insurer\n<|id|>70<|page|>7<|box|>349 174 385 854<|content|>Meridian Specialty Insurance Company One Constitution Plaza, 18th Floor Hartford, CT 06103\n<|id|>71<|page|>7<|box|>395 176 429 720<|content|>Attention: ... Claims Department — Representations and Warranty Insurance If to the Broker\n<|id|>72<|page|>7<|box|>438 176 455 745<|content|>Lockwood Risk Advisors LLC 125 High Street, Suite 900 Boston, MA 02110\n<|id|>73<|page|>7<|box|>464 140 500 678<|content|>Attention: ... ]\n<|id|>74<|page|>7<|box|>506 272 523 723<|content|>SIGNATURE PAGE TO NO-CLAIMS DECLARATION\n<|id|>75<|page|>7<|box|>532 140 568 854<|content|>IN WITNESS WHEREOF, the undersigned has executed t...ims Declaration as of the date first written above\n<|id|>76<|page|>7<|box|>575 142 593 552<|content|>HARROWGATE PRIVATE EQUITY FUND IV LP\n<|id|>77<|page|>7<|box|>594 142 611 478<|content|>By: ... Harrowgate Capital Partners IV GP LLC,\n<|id|>78<|page|>7<|box|>612 143 628 285<|content|>its General Partner\n<|id|>79<|page|>7<|box|>628 143 645 254<|content|>By: ... By\n<|id|>80<|page|>7<|box|>646 142 662 318<|content|>Name: ... Jonah Whitfield\n<|id|>81<|page|>7<|box|>662 142 680 423<|content|>Title: ... Principal, Authorized Signatory\n<|id|>82<|page|>7<|box|>681 143 696 274<|content|>Date: ... ____, 2025\n<|id|>83<|page|>7<|box|>698 142 714 377<|content|>Acknowledged and received by: ... Acknowledged and received by\n<|id|>84<|page|>7<|box|>723 140 739 560<|content|>MERIDIAN SPECIALTY INSURANCE COMPANY\n<|id|>85<|page|>7<|box|>742 143 758 254<|content|>By: ... By\n<|id|>99<|page|>8<|box|>784 174 839 854<|content|>(f) Review of all publicly available information regarding Pennfield Holdings, Inc. ... and\n<|id|>101<|page|>9<|box|>90 140 145 854<|content|>The Knowledge Persons have each confirmed to the N...rrect as of the Closing Date based on such inquiry",
+    "raw_response": "<|src_id|>37<|tgt_id|>39\n<|src_id|>66<|tgt_id|>67\n<|src_id|>77<|tgt_id|>78\n<|src_id|>79<|tgt_id|>80\n<|src_id|>83<|tgt_id|>84\n<|src_id|>99<|tgt_id|>101",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 67
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 101
+        }
+    ]
+}

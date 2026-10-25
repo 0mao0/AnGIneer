@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        4,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 303 118 694<|content|>SELLER'S CLOSING CERTIFICATE\n<|id|>3<|type|>title<|page|>1<|box|>313 142 329 243<|content|>RECITALS\n<|id|>10<|type|>title<|page|>1<|box|>729 140 744 759<|content|>SECTION 1: BRING-DOWN OF REPRESENTATIONS AND WARRA\n<|id|>29<|type|>title<|page|>4<|box|>799 140 815 553<|content|>SECTION 2: COMPLIANCE WITH COVENANTS\n<|id|>41<|type|>title<|page|>6<|box|>611 140 628 627<|content|>SECTION 3: SATISFACTION OF CLOSING CONDITIONS\n<|id|>65<|type|>title<|page|>8<|box|>799 140 815 550<|content|>SECTION 4: NO MATERIAL ADVERSE EFFECT\n<|id|>68<|type|>title<|page|>9<|box|>303 140 320 673<|content|>SECTION 5: ESTIMATED CLOSING NET WORKING CAPITAL\n<|id|>74<|type|>title<|page|>9<|box|>766 140 782 643<|content|>SECTION 6: SHAREHOLDER APPROVAL AND CONSENTS\n<|id|>78<|type|>table<|page|>10<|box|>214 143 327 852<|content|>None\n<|id|>81<|type|>title<|page|>10<|box|>592 140 609 418<|content|>SECTION 7: NO PROCEEDINGS\n<|id|>86<|type|>title<|page|>11<|box|>167 140 184 529<|content|>SECTION 8: MISCELLANEOUS PROVISIONS\n<|id|>94<|type|>title<|page|>11<|box|>739 233 758 761<|content|>\\[SIGNATURE PAGE TO SELLER'S CLOSING CERTIFICATE\\]\n<|id|>96<|type|>title<|page|>11<|box|>811 142 827 460<|content|>CARDINAL PEAK INDUSTRIES, INC.",
+    "raw_response": "<|src_id|>78<|tgt_id|>74",
+    "parsed": [
+        {
+            "src_id": 78,
+            "tgt_id": 74
+        }
+    ]
+}

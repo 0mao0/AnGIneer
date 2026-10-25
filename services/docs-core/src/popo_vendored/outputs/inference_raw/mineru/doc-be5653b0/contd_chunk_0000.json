@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        19
+    ],
+    "pages": [
+        2,
+        3,
+        10,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>18<|page|>2<|box|>676 147 729 854<|content|>• U. ... and\n<|id|>20<|page|>2<|box|>789 140 878 854<|content|>The Complaint alleges seven counts: ... § 284\n<|id|>23<|page|>3<|box|>128 145 164 854<|content|>• LumiLink 800G-DR8 — Lumicore's 800-gigabit direc...center and campus networking applications; ... and\n<|id|>25<|page|>3<|box|>204 140 314 856<|content|>OWS's total damages demand is approximately $210 m...ry expert report (Document 122 in the matter file)\n<|id|>79<|page|>10<|box|>517 181 551 854<|content|>The OWS-800XR transceiver module family, which competes directly with the LumiLink 800G-DR8; ... and\n<|id|>81<|page|>10<|box|>593 140 684 854<|content|>Because OWS has its own market share and customer ..... These natural incentives support a reduced bond\n<|id|>154<|page|>18<|box|>864 174 901 854<|content|>a. ... Compile the required application materials,...udited financial statements (prepared by Gresham &\n<|id|>155<|page|>19<|box|>90 174 145 854<|content|>Whitfield LLP), the most recent interim financial ...nd should be ready for submission within two weeks",
+    "raw_response": "<|src_id|>154<|tgt_id|>155",
+    "parsed": [
+        {
+            "src_id": 154,
+            "tgt_id": 155
+        }
+    ]
+}

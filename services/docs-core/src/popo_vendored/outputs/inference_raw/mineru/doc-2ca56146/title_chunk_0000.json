@@ -1,0 +1,127 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 153 108 841<|content|>UNITED STATES DISTRICT COURT FOR THE CENTRAL DISTR\n<|id|>3<|page|>1<|box|>444 140 460 643<|content|>I. INTRODUCTION AND DECLARANT'S IDENTIFICATION\n<|id|>9<|page|>2<|box|>148 140 166 836<|content|>II. BACKGROUND OF THE UNDERLYING DISPUTE AND ARBIT\n<|id|>10<|page|>2<|box|>180 142 198 390<|content|>A. The Distribution Agreement\n<|id|>23<|page|>3<|box|>561 143 579 330<|content|>B. Meridian's Breaches\n<|id|>29<|page|>4<|box|>349 140 364 387<|content|>C. The Arbitration and Award\n<|id|>43<|page|>5<|box|>592 142 609 328<|content|>D. Post-Award Posture\n<|id|>49<|page|>6<|box|>297 140 315 725<|content|>III. MERIDIAN'S CORPORATE STRUCTURE AND KEY PRINCI\n<|id|>54<|page|>6<|box|>717 142 734 661<|content|>IV. MERIDIAN'S ASSET BASE AND FINANCIAL CONDITION\n<|id|>55<|page|>6<|box|>748 142 763 465<|content|>A. Overview of Meridian's Balance Sheet\n<|id|>66<|page|>7<|box|>339 140 356 683<|content|>B. Brindoval National Bank Senior Secured Revolvin\n<|id|>72<|page|>8<|box|>90 142 107 279<|content|>C. Real Property\n<|id|>75<|page|>8<|box|>320 140 337 588<|content|>V. EVIDENCE OF POTENTIAL ASSET DISSIPATION\n<|id|>77<|page|>8<|box|>523 142 541 614<|content|>A. Recent UCC Filings Indicating Additional Encumb\n<|id|>82<|page|>9<|box|>157 140 175 547<|content|>B. Indications of Accelerated Inventory Liquidatio\n<|id|>87<|page|>9<|box|>599 142 617 312<|content|>C. Transfer of Funds\n<|id|>93<|page|>10<|box|>214 142 231 357<|content|>D. Real Property Concerns\n<|id|>97<|page|>10<|box|>489 142 508 568<|content|>E. Calloway's Personal Assets and Guaranty Exposur\n<|id|>101<|page|>11<|box|>89 140 125 821<|content|>VI. RISK THAT THE AWARD WILL BE RENDERED UNCOLLECT\n<|id|>102<|page|>11<|box|>140 142 156 544<|content|>A. The Award Amount Relative to Available Assets\n<|id|>107<|page|>11<|box|>564 142 580 532<|content|>B. Meridian's Demonstrated Unwillingness to Pay\n<|id|>111<|page|>12<|box|>90 140 106 424<|content|>C. Absence of Alternative Remedies\n<|id|>115<|page|>12<|box|>393 140 411 532<|content|>VII. EXHIBITS IDENTIFIED AND ATTACHED\n<|id|>124<|page|>12<|box|>744 142 761 437<|content|>VIII. CONCLUSION AND PRAYER\n<|id|>128<|page|>13<|box|>371 140 388 313<|content|>IX. VERIFICATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>9<|level|>2\n<|id|>10<|level|>3\n<|id|>23<|level|>3\n<|id|>29<|level|>3\n<|id|>43<|level|>3\n<|id|>49<|level|>2\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>66<|level|>3\n<|id|>72<|level|>3\n<|id|>75<|level|>2\n<|id|>77<|level|>3\n<|id|>82<|level|>3\n<|id|>87<|level|>3\n<|id|>93<|level|>3\n<|id|>97<|level|>3\n<|id|>101<|level|>2\n<|id|>102<|level|>3\n<|id|>107<|level|>3\n<|id|>111<|level|>3\n<|id|>115<|level|>2\n<|id|>124<|level|>2\n<|id|>128<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        }
+    ]
+}

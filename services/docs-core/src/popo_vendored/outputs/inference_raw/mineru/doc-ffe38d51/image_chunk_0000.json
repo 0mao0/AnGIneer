@@ -1,0 +1,56 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>143 100 176 912<|content|>中华人民共和国交通运输行业标准\n<|id|>3<|type|>title<|page|>1<|box|>388 100 423 912<|content|>港口码头水上污染事故应急防备能力要求\n<|id|>4<|type|>title<|page|>1<|box|>448 107 492 902<|content|>Requirements on preparedness capabilities to pollu\n<|id|>7<|type|>title<|page|>2<|box|>118 435 141 542<|content|>目次\n<|id|>9<|type|>title<|page|>3<|box|>117 433 138 544<|content|>前言\n<|id|>20<|type|>title<|page|>4<|box|>119 253 141 734<|content|>港口码头水上污染事故应急防备能力要求\n<|id|>21<|type|>title<|page|>4<|box|>179 104 195 174<|content|>1 范围\n<|id|>24<|type|>title<|page|>4<|box|>311 104 327 263<|content|>2 规范性引用文件\n<|id|>30<|type|>title<|page|>4<|box|>482 105 497 228<|content|>3 术语和定义\n<|id|>32<|type|>title<|page|>4<|box|>538 105 553 141<|content|>3.1\n<|id|>33<|type|>title<|page|>4<|box|>557 142 572 413<|content|>类油物质 analogous oil substance\n<|id|>35<|type|>title<|page|>4<|box|>631 105 648 317<|content|>4 应急防备能力目标要求\n<|id|>42<|type|>table<|page|>5<|box|>161 107 437 884<|content|>None\n<|id|>46<|type|>title<|page|>5<|box|>603 104 619 378<|content|>5 应急设施、设备和物资配备要求\n<|id|>52<|type|>table<|page|>6<|box|>89 154 891 800<|content|>None\n<|id|>53<|type|>table<|page|>7<|box|>102 181 903 820<|content|>None\n<|id|>54<|type|>table<|page|>8<|box|>90 163 891 529<|content|>None\n<|id|>55<|type|>table<|page|>8<|box|>87 579 893 823<|content|>None\n<|id|>56<|type|>table<|page|>9<|box|>141 115 421 890<|content|>None\n<|id|>57<|type|>table<|page|>9<|box|>467 115 904 892<|content|>None\n<|id|>61<|type|>title<|page|>10<|box|>286 100 302 285<|content|>6 配套设施、设备要求\n<|id|>68<|type|>table<|page|>10<|box|>565 105 622 882<|content|>None\n<|id|>70<|type|>title<|page|>10<|box|>707 100 723 240<|content|>7 应急管理要求",
+    "raw_response": "<|src_id|>42<|tgt_id|>35\n<|src_id|>52<|tgt_id|>46\n<|src_id|>53<|tgt_id|>46\n<|src_id|>54<|tgt_id|>46\n<|src_id|>55<|tgt_id|>46\n<|src_id|>56<|tgt_id|>46\n<|src_id|>57<|tgt_id|>46\n<|src_id|>68<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 61
+        }
+    ]
+}

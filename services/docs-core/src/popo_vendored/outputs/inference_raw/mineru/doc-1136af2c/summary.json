@@ -1,0 +1,221 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bik6e7vp\\input\\pdfs\\doc-1136af2c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bik6e7vp\\enriched\\doc-1136af2c.json",
+    "contd_output": "<|src_id|>20<|tgt_id|>21\n<|src_id|>183<|tgt_id|>184",
+    "title_output": "<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>22<|level|>3\n<|id|>34<|level|>3\n<|id|>40<|level|>2\n<|id|>41<|level|>3\n<|id|>48<|level|>3\n<|id|>50<|level|>4\n<|id|>57<|level|>4\n<|id|>62<|level|>4\n<|id|>72<|level|>4\n<|id|>75<|level|>4\n<|id|>77<|level|>4\n<|id|>80<|level|>4\n<|id|>82<|level|>4\n<|id|>84<|level|>4\n<|id|>86<|level|>3\n<|id|>90<|level|>3\n<|id|>94<|level|>2\n<|id|>111<|level|>2\n<|id|>112<|level|>3\n<|id|>124<|level|>3\n<|id|>128<|level|>3\n<|id|>132<|level|>3\n<|id|>137<|level|>2\n<|id|>146<|level|>2\n<|id|>149<|level|>2\n<|id|>161<|level|>2\n<|id|>163<|level|>2\n<|id|>182<|level|>1\n<|id|>208<|level|>1\n<|id|>209<|level|>2\n<|id|>215<|level|>1",
+    "image_output": "<|src_id|>1<|tgt_id|>2\n<|src_id|>59<|tgt_id|>57\n<|src_id|>181<|tgt_id|>182\n<|src_id|>211<|tgt_id|>209\n<|src_id|>212<|tgt_id|>209\n<|src_id|>213<|tgt_id|>209",
+    "contd_label": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 184
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 4
+        },
+        {
+            "id": 57,
+            "level": 4
+        },
+        {
+            "id": 62,
+            "level": 4
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 75,
+            "level": 4
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 80,
+            "level": 4
+        },
+        {
+            "id": 82,
+            "level": 4
+        },
+        {
+            "id": 84,
+            "level": 4
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 1
+        },
+        {
+            "id": 208,
+            "level": 1
+        },
+        {
+            "id": 209,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 181,
+            "tgt_id": 182
+        },
+        {
+            "src_id": 211,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 209
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 209
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 211,
+            "table2_idx": 212,
+            "upper_row_ss": [
+                [
+                    "Policy",
+                    "Carrier",
+                    "Policy",
+                    "Policy",
+                    "Aggregat",
+                    "Annual",
+                    "Broker",
+                    "Status",
+                    "Loss"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Type",
+                    "Name",
+                    "Number",
+                    "Period (Inception / Expiration)",
+                    "e Limit / Coverage Amount",
+                    "Premium",
+                    "",
+                    "",
+                    "Payee / Additional Insured"
+                ]
+            ]
+        }
+    ]
+}

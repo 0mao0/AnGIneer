@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>468 140 484 243<|content|>RECITALS\n<|id|>16<|page|>2<|box|>266 140 282 563<|content|>SECTION 1: GRANT OF MANAGEMENT RIGHTS\n<|id|>17<|page|>2<|box|>297 142 315 527<|content|>1.1 Management Consultation and Advice Rights\n<|id|>19<|page|>2<|box|>645 140 662 504<|content|>1.2 Board Observation and Attendance Rights\n<|id|>23<|page|>3<|box|>458 142 474 429<|content|>1.3 Inspection of Books and Records\n<|id|>27<|page|>4<|box|>90 140 107 539<|content|>1.4 Access to Financial and Operating Information\n<|id|>34<|page|>4<|box|>777 140 794 591<|content|>SECTION 2: EXERCISE OF MANAGEMENT RIGHTS\n<|id|>37<|page|>5<|box|>358 140 375 460<|content|>SECTION 3: VCOC QUALIFICATION\n<|id|>41<|page|>6<|box|>89 142 106 426<|content|>SECTION 4: CONFIDENTIALITY\n<|id|>49<|page|>6<|box|>787 140 805 532<|content|>SECTION 5: DURATION AND TERMINATION\n<|id|>57<|page|>7<|box|>535 140 551 527<|content|>SECTION 6: MISCELLANEOUS PROVISIONS\n<|id|>58<|page|>7<|box|>566 140 584 297<|content|>6.1 Governing Law\n<|id|>60<|page|>7<|box|>676 140 693 421<|content|>6.2 Entire Agreement; Amendment\n<|id|>83<|page|>9<|box|>169 400 186 596<|content|>[Signature Page Follows]\n<|id|>86<|page|>9<|box|>263 140 280 429<|content|>QUILLEN TECHNOLOGIES, INC.",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>19<|level|>2\n<|id|>23<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>1\n<|id|>37<|level|>1\n<|id|>41<|level|>1\n<|id|>49<|level|>1\n<|id|>57<|level|>1\n<|id|>58<|level|>2\n<|id|>60<|level|>2\n<|id|>83<|level|>-1\n<|id|>86<|level|>-1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 49,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        }
+    ]
+}

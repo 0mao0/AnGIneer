@@ -1,0 +1,101 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>93 78 176 857<|content|>Transposases are responsible for the target specif\n<|id|>4<|page|>1<|box|>333 80 348 176<|content|>ABSTRACT\n<|id|>6<|page|>1<|box|>668 78 683 212<|content|>INTRODUCTION\n<|id|>13<|page|>2<|box|>455 78 471 310<|content|>MATERIALS AND METHODS\n<|id|>14<|page|>2<|box|>477 78 493 284<|content|>Media and bacterial strains\n<|id|>17<|page|>2<|box|>824 78 840 206<|content|>Oligonucleotides\n<|id|>19<|page|>2<|box|>879 78 893 204<|content|>DNA techniques\n<|id|>21<|page|>2<|box|>171 513 188 641<|content|>DNA sequencing\n<|id|>23<|page|>2<|box|>241 513 257 587<|content|>Plasmids\n<|id|>29<|page|>3<|box|>601 78 616 415<|content|>Selection of chromosomal transposition events\n<|id|>31<|page|>3<|box|>726 513 742 842<|content|>Selection of transposition events on plasmids\n<|id|>37<|page|>4<|box|>815 513 831 600<|content|>RESULTS\n<|id|>38<|page|>4<|box|>836 513 867 921<|content|>Transposition of IS1397 and ISKpn1 into K.pneumoni\n<|id|>41<|page|>5<|box|>407 78 436 402<|content|>ISKpn1 and IS1397 targets in K.pneumoniae chromoso\n<|id|>44<|page|>5<|box|>893 78 908 440<|content|>ISKpn1 and IS1397 targets in E.coli chromosome\n<|id|>47<|page|>5<|box|>366 513 396 921<|content|>Target specificity of the two ISs with the two tra\n<|id|>49<|page|>5<|box|>836 513 868 916<|content|>Impact of BIME and PU arrangement on transposition\n<|id|>56<|page|>7<|box|>863 513 879 626<|content|>DISCUSSION\n<|id|>65<|page|>8<|box|>744 513 761 711<|content|>ACKNOWLEDGEMENTS\n<|id|>67<|page|>8<|box|>884 515 900 633<|content|>REFERENCES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>17<|level|>3\n<|id|>19<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>29<|level|>3\n<|id|>31<|level|>3\n<|id|>37<|level|>2\n<|id|>38<|level|>3\n<|id|>41<|level|>3\n<|id|>44<|level|>3\n<|id|>47<|level|>3\n<|id|>49<|level|>3\n<|id|>56<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 176 142 820<|content|>NON-FOREIGN AFFIDAVIT UNDER SECTION 1445 OF THE IN\n<|id|>3<|page|>1<|box|>299 140 316 243<|content|>RECITALS\n<|id|>8<|page|>1<|box|>791 140 809 297<|content|>CERTIFICATION\n<|id|>23<|page|>3<|box|>148 140 166 524<|content|>ACKNOWLEDGMENTS AND AGREEMENTS\n<|id|>28<|page|>3<|box|>623 142 640 470<|content|>PENALTY OF PERJURY STATEMENT\n<|id|>31<|page|>3<|box|>789 143 806 258<|content|>EXECUTION\n<|id|>36<|page|>4<|box|>145 140 162 292<|content|>NOTARIZATION\n<|id|>37<|page|>4<|box|>171 140 188 575<|content|>STATE OF PENNSYLVANIA COUNTY OF BUTLER",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>8<|level|>2\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>31<|level|>2\n<|id|>36<|level|>2\n<|id|>37<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 3
+        }
+    ]
+}

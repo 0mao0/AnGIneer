@@ -1,0 +1,50 @@
+{
+    "task": "title",
+    "chunk_index": 3,
+    "range": [
+        145,
+        148
+    ],
+    "pages": [
+        145,
+        146,
+        147,
+        148
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2362<|page|>145<|box|>109 125 128 869<|content|>THIS ENDORSEMENT CHANGES THE POLICY. PLEASE READ I\n<|id|>2363<|page|>145<|box|>138 227 186 767<|content|>CALIFORNIA CHANGES – WAIVER OF COLLISION DEDUCTIBL\n<|id|>2375<|page|>146<|box|>85 83 101 200<|content|>B. Conditions\n<|id|>2377<|page|>146<|box|>137 132 152 223<|content|>Arbitration\n<|id|>2382<|page|>146<|box|>648 83 664 284<|content|>C. Additional Definitions\n<|id|>2399<|page|>147<|box|>109 127 188 870<|content|>THIS ENDORSEMENT CHANGES THE POLICY. PLEASE READ I\n<|id|>2406<|page|>148<|box|>138 101 189 893<|content|>WAIVER OF TRANSFER OF RIGHTS OF RECOVERY AGAINST O\n<|id|>2413<|page|>148<|box|>443 450 460 547<|content|>SCHEDULE",
+    "raw_response": "<|id|>2362<|level|>1\n<|id|>2363<|level|>2\n<|id|>2375<|level|>3\n<|id|>2377<|level|>4\n<|id|>2382<|level|>3\n<|id|>2399<|level|>1\n<|id|>2406<|level|>2\n<|id|>2413<|level|>3",
+    "parsed": [
+        {
+            "id": 2362,
+            "level": 1
+        },
+        {
+            "id": 2363,
+            "level": 2
+        },
+        {
+            "id": 2375,
+            "level": 3
+        },
+        {
+            "id": 2377,
+            "level": 4
+        },
+        {
+            "id": 2382,
+            "level": 3
+        },
+        {
+            "id": 2399,
+            "level": 1
+        },
+        {
+            "id": 2406,
+            "level": 2
+        },
+        {
+            "id": 2413,
+            "level": 3
+        }
+    ]
+}

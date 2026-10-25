@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        48,
+        97
+    ],
+    "pages": [
+        49,
+        51,
+        52,
+        57,
+        72,
+        75,
+        76,
+        79,
+        96
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>237<|page|>49<|box|>770 81 788 443<|content|>31/ Sold at auction through competitive and noncompetitive bidding. ... 20\n<|id|>255<|page|>49<|box|>509 515 528 901<|content|>. ... 00%)\n<|id|>245<|page|>49<|box|>311 513 337 906<|content|>38/ Sold at auction through competitive and noncompetitive bidding. ... 83%\n<|id|>269<|page|>51<|box|>64 385 79 614<|content|>, PUBLIC DEBT OPERATIONS,\n<|id|>271<|page|>52<|box|>391 522 410 649<|content|>* Less than $500,000. ... p Preliminary\n<|id|>287<|page|>57<|box|>127 417 138 570<|content|>(Dollar amounts in millions)\n<|id|>288<|page|>57<|box|>68 384 83 609<|content|>PUBLIC DEBT OPERATIONS. ... PUBLIC DEBT OPERATIONS\n<|id|>345<|page|>72<|box|>101 88 192 478<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>346<|page|>72<|box|>101 503 193 893<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1973\n<|id|>358<|page|>75<|box|>785 91 813 491<|content|>3/ Because there is a normal lag in classifying re...nning with the Treasury Bulletin of March 1961 the\n<|id|>366<|page|>76<|box|>114 87 174 462<|content|>United States savings notes were on sale May 1, 19...he simultaneous purchase of Series E savings bonds\n<|id|>375<|page|>79<|box|>127 84 304 474<|content|>The monthly Treasury Survey of Ownership covers se...ished for banks and insurance companies in the May\n<|id|>376<|page|>79<|box|>128 516 182 903<|content|>1941 Treasury Bulletin, for corporations and savin...nd local governments in the February 1962 Bulletin\n<|id|>453<|page|>96<|box|>637 85 657 484<|content|>3/ Data on the two lines shown for this date diffe...e. ... Figures on the first line are comparable in\n<|id|>457<|page|>96<|box|>646 506 656 598<|content|>p Preliminary. ... p Preliminary",
+    "raw_response": "<|src_id|>345<|tgt_id|>346\n<|src_id|>358<|tgt_id|>366\n<|src_id|>375<|tgt_id|>376",
+    "parsed": [
+        {
+            "src_id": 345,
+            "tgt_id": 346
+        },
+        {
+            "src_id": 358,
+            "tgt_id": 366
+        },
+        {
+            "src_id": 375,
+            "tgt_id": 376
+        }
+    ]
+}

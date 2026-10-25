@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 104 718<|content|>CONFIDENTIAL — PRIVILEGED AND CONFIDENTIAL ATTORNE\n<|id|>1<|page|>1<|box|>112 235 130 761<|content|>ARBOR HEALTH TECHNOLOGIES INC. a Delaware corporat\n<|id|>2<|page|>1<|box|>137 287 155 710<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS\n<|id|>3<|page|>1<|box|>164 282 181 715<|content|>Adopted by Unanimous Written Consent June 18, 2024\n<|id|>6<|page|>1<|box|>268 140 285 243<|content|>RECITALS\n<|id|>31<|page|>4<|box|>347 140 364 390<|content|>OPERATIVE RESOLUTIONS\n<|id|>32<|page|>4<|box|>373 140 391 379<|content|>NOW, THEREFORE, BE IT:\n<|id|>33<|page|>4<|box|>404 140 422 570<|content|>Resolution 1: Approval of the Data License Agreeme\n<|id|>39<|page|>4<|box|>709 142 727 656<|content|>Resolution 2: Approval of the $9,000,000 License F\n<|id|>45<|page|>5<|box|>330 140 347 629<|content|>Resolution 3: Authorization of Officers to Execute\n<|id|>53<|page|>6<|box|>213 140 229 666<|content|>Resolution 4: Authorization and Direction to Deliv\n<|id|>55<|page|>6<|box|>614 140 632 473<|content|>Resolution 5: Ratification of Prior Actions\n<|id|>63<|page|>7<|box|>246 140 263 429<|content|>Resolution 6: General Authorization\n<|id|>69<|page|>7<|box|>705 140 724 297<|content|>EFFECTIVENESS\n<|id|>94<|page|>8<|box|>613 142 630 511<|content|>BOARD OBSERVER ACKNOWLEDGMENT\n<|id|>97<|page|>9<|box|>89 142 106 315<|content|>BOARD OBSERVER:\n<|id|>103<|page|>9<|box|>214 140 231 403<|content|>SECRETARY'S CERTIFICATE\n<|id|>104<|page|>9<|box|>239 151 258 844<|content|>CERTIFICATE OF THE SECRETARY OF ARBOR HEALTH TECHN\n<|id|>106<|page|>9<|box|>347 140 364 343<|content|>I further certify as follows:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>2\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>33<|level|>4\n<|id|>39<|level|>4\n<|id|>45<|level|>4\n<|id|>53<|level|>4\n<|id|>55<|level|>4\n<|id|>63<|level|>4\n<|id|>69<|level|>2\n<|id|>94<|level|>2\n<|id|>97<|level|>3\n<|id|>103<|level|>2\n<|id|>104<|level|>3\n<|id|>106<|level|>4",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 4
+        },
+        {
+            "id": 39,
+            "level": 4
+        },
+        {
+            "id": 45,
+            "level": 4
+        },
+        {
+            "id": 53,
+            "level": 4
+        },
+        {
+            "id": 55,
+            "level": 4
+        },
+        {
+            "id": 63,
+            "level": 4
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 4
+        }
+    ]
+}

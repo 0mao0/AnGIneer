@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>88 140 104 702<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION\n<|id|>1<|page|>1<|box|>112 140 148 854<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law 1301 A... the Americas, 40th Floor New York, New York 10019\n<|id|>2<|page|>1<|box|>157 723 174 854<|content|>January 26, 2023\n<|id|>3<|page|>1<|box|>181 140 218 854<|content|>Tomás Iglesias, Principal Ardent Capital Partners ...adison Avenue, 38th Floor New York, New York 10022\n<|id|>4<|page|>1<|box|>227 140 281 856<|content|>Re: ... 1001-00005 Lapse of Extended Outside Date and Recommended Next Steps\n<|id|>5<|page|>1<|box|>289 142 306 243<|content|>Dear Tomás: ... Dear Tomás\n<|id|>44<|page|>5<|box|>830 140 885 854<|content|>Critically, the Pinnacle commitment letter contain...ultaneously with the lapse of the extended Outside\n<|id|>45<|page|>6<|box|>90 140 126 854<|content|>Date. ... Pinnacle is no longer obligated to provi...g, and the commitment letter is no longer in force\n<|id|>111<|page|>11<|box|>866 140 902 854<|content|>If Ardent wishes to pursue Option C (a period of i...o a defined period not to exceed 60 days, and that\n<|id|>112<|page|>12<|box|>90 140 126 854<|content|>Ardent advise us of its expected decision timeline...nage any legal risks that may arise in the interim\n<|id|>118<|page|>12<|box|>536 142 551 272<|content|>Very truly yours,\n<|id|>119<|page|>12<|box|>551 140 569 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>120<|page|>12<|box|>570 143 587 253<|content|>By: ... By\n<|id|>121<|page|>12<|box|>585 140 603 509<|content|>Harrison Wexford Partner Direct: ... (212) 558-4000\n<|id|>122<|page|>12<|box|>604 140 619 470<|content|>Email: ... com\n<|id|>123<|page|>12<|box|>621 140 675 854<|content|>cc: ... Megan Chu, Associate, Calderwood & Harkness LLP\n<|id|>124<|page|>12<|box|>684 140 702 581<|content|>Encl. ... None (all referenced documents previously provided)",
+    "raw_response": "<|src_id|>44<|tgt_id|>45\n<|src_id|>111<|tgt_id|>112",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        }
+    ]
+}

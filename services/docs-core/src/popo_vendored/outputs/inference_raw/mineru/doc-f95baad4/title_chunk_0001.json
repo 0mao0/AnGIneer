@@ -1,0 +1,96 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        50,
+        97
+    ],
+    "pages": [
+        50,
+        51,
+        54,
+        55,
+        56,
+        63,
+        72,
+        73,
+        74,
+        76,
+        77,
+        78,
+        87,
+        97
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>102<|page|>50<|box|>93 167 108 855<|content|>Table II.- Distribution of Ownership for Each Issu\n<|id|>104<|page|>51<|box|>59 78 96 891<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>105<|page|>51<|box|>105 140 121 825<|content|>Table II.- Distribution of Ownership for Each Issu\n<|id|>108<|page|>54<|box|>52 39 88 946<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>113<|page|>55<|box|>52 39 109 937<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>116<|page|>56<|box|>48 40 105 944<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>117<|page|>56<|box|>117 85 132 900<|content|>Table III. - Securities Issued by Federal Agencies\n<|id|>123<|page|>63<|box|>60 163 88 807<|content|>Assets and Liabilities of Governmental Corporation\n<|id|>139<|page|>72<|box|>48 317 64 684<|content|>Summary of Internal Revenue Collections^{1}/\n<|id|>142<|page|>73<|box|>68 178 96 796<|content|>COLLECTIONS OF INTERNAL REVENUE\n<|id|>144<|page|>74<|box|>54 235 70 766<|content|>Detailed Analysis of Current Internal Revenue Coll\n<|id|>146<|page|>76<|box|>75 317 89 682<|content|>Table 1.- Products of Philippine Islands\n<|id|>151<|page|>77<|box|>60 224 76 736<|content|>Commodities Imported under Quota Provisions - (Con\n<|id|>152<|page|>77<|box|>88 290 103 673<|content|>Table 3.- Imports of Wheat and Wheat Flour\n<|id|>154<|page|>78<|box|>48 240 62 755<|content|>Commodities Imported under Quota Provisions - (Con\n<|id|>168<|page|>87<|box|>537 203 569 750<|content|>Foreign Balances in Brokerage Accounts as Reported\n<|id|>182<|page|>97<|box|>381 311 397 664<|content|>Silver Production, by Leading Countries",
+    "raw_response": "<|id|>102<|level|>2\n<|id|>104<|level|>1\n<|id|>105<|level|>2\n<|id|>108<|level|>1\n<|id|>113<|level|>1\n<|id|>116<|level|>1\n<|id|>117<|level|>2\n<|id|>123<|level|>1\n<|id|>139<|level|>1\n<|id|>142<|level|>1\n<|id|>144<|level|>1\n<|id|>146<|level|>2\n<|id|>151<|level|>1\n<|id|>152<|level|>2\n<|id|>154<|level|>1\n<|id|>168<|level|>1\n<|id|>182<|level|>1",
+    "parsed": [
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 144,
+            "level": 1
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 182,
+            "level": 1
+        }
+    ]
+}

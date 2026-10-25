@@ -1,0 +1,25 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        49
+    ],
+    "pages": [
+        47,
+        48,
+        49
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>582<|page|>47<|box|>90 192 135 805<|content|>APPENDIX D: BREACH SEVERITY CLASSIFICATION — DETAI\n<|id|>589<|page|>48<|box|>805 142 821 383<|content|>Risk Factor Assessment Guide\n<|id|>592<|page|>49<|box|>470 383 487 614<|content|>— END OF DOCUMENT —",
+    "raw_response": "<|id|>582<|level|>1\n<|id|>589<|level|>2\n<|id|>592<|level|>-1",
+    "parsed": [
+        {
+            "id": 582,
+            "level": 1
+        },
+        {
+            "id": 589,
+            "level": 2
+        }
+    ]
+}

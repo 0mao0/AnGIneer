@@ -1,0 +1,155 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>127 423 143 573<|content|>MEMORANDUM\n<|id|>7<|page|>1<|box|>339 385 359 612<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>190 140 207 813<|content|>The total suspected improper payments across all t\n<|id|>18<|page|>2<|box|>625 362 643 633<|content|>II. Scope and Methodology\n<|id|>19<|page|>2<|box|>669 140 685 367<|content|>A. Scope of Forensic Review\n<|id|>31<|page|>3<|box|>594 140 611 274<|content|>B. Data Sources\n<|id|>40<|page|>4<|box|>448 140 465 357<|content|>C. Analytical Methodology\n<|id|>47<|page|>5<|box|>172 184 215 810<|content|>III. Payment Channel 1: TGH Payments to Crestfield\n<|id|>48<|page|>5<|box|>241 142 258 500<|content|>A. Background on the Crestfield Engagement\n<|id|>53<|page|>5<|box|>751 140 768 374<|content|>B. Contractual Fee Structure\n<|id|>65<|page|>6<|box|>518 140 536 666<|content|>C. Actual Invoiced and Paid Amounts — Year-by-Year\n<|id|>71<|page|>7<|box|>273 140 292 413<|content|>D. Invoice Approval Irregularities\n<|id|>76<|page|>7<|box|>712 140 729 352<|content|>E. Wire Transfer Analysis\n<|id|>80<|page|>8<|box|>304 140 320 714<|content|>F. Estimated Distribution to Government Officials\n<|id|>85<|page|>8<|box|>723 140 739 638<|content|>G. Timing Correlation: Crestfield Invoices and Per\n<|id|>89<|page|>9<|box|>367 140 383 493<|content|>Several observations emerge from this analysis:\n<|id|>94<|page|>10<|box|>90 192 135 803<|content|>IV. Payment Channel 2: TGM Cash Withdrawals — GL 7\n<|id|>95<|page|>10<|box|>160 140 176 246<|content|>A. Overview\n<|id|>98<|page|>10<|box|>417 140 434 444<|content|>B. Nature and Pattern of Withdrawals\n<|id|>102<|page|>10<|box|>810 140 828 334<|content|>C. Suspected Recipients\n<|id|>106<|page|>11<|box|>431 140 449 413<|content|>D. Internal Controls Observations\n<|id|>111<|page|>12<|box|>135 169 180 826<|content|>V. Payment Channel 3: In-Kind Benefits — Vehicle P\n<|id|>112<|page|>12<|box|>204 140 220 246<|content|>A. Overview\n<|id|>114<|page|>12<|box|>380 140 397 442<|content|>B. Specific In-Kind Benefits Identified\n<|id|>119<|page|>13<|box|>90 142 107 429<|content|>C. Procurement Process Deficiencies\n<|id|>124<|page|>13<|box|>477 287 497 709<|content|>VI. Consolidated Payment Flow Summary\n<|id|>125<|page|>13<|box|>522 143 539 452<|content|>A. Total Suspected Improper Payments\n<|id|>127<|page|>13<|box|>789 143 805 601<|content|>B. Estimated Allocation to Identified Government O\n<|id|>131<|page|>14<|box|>316 140 334 418<|content|>C. Cross-Check and Reconciliation\n<|id|>138<|page|>14<|box|>602 272 622 723<|content|>VII. Preliminary Observations and Red Flags\n<|id|>148<|page|>16<|box|>90 254 111 743<|content|>VIII. Outstanding Forensic Work and Next Steps\n<|id|>163<|page|>17<|box|>443 336 462 661<|content|>IX. Attachments and Enclosures\n<|id|>165<|page|>17<|box|>523 142 542 705<|content|>Payment Flow Analysis Workbook (payment-flow-analy\n<|id|>171<|page|>18<|box|>127 140 157 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>14<|level|>-1\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>31<|level|>3\n<|id|>40<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>53<|level|>3\n<|id|>65<|level|>3\n<|id|>71<|level|>3\n<|id|>76<|level|>3\n<|id|>80<|level|>3\n<|id|>85<|level|>3\n<|id|>89<|level|>-1\n<|id|>94<|level|>2\n<|id|>95<|level|>3\n<|id|>98<|level|>3\n<|id|>102<|level|>3\n<|id|>106<|level|>3\n<|id|>111<|level|>2\n<|id|>112<|level|>3\n<|id|>114<|level|>3\n<|id|>119<|level|>3\n<|id|>124<|level|>2\n<|id|>125<|level|>3\n<|id|>127<|level|>3\n<|id|>131<|level|>3\n<|id|>138<|level|>2\n<|id|>148<|level|>2\n<|id|>163<|level|>2\n<|id|>165<|level|>3\n<|id|>171<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 3
+        }
+    ]
+}

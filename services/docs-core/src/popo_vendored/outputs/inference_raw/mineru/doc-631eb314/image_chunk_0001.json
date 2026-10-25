@@ -1,0 +1,57 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        47
+    ],
+    "pages": [
+        45,
+        46,
+        47
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>337<|type|>title<|page|>45<|box|>90 248 109 750<|content|>EXHIBIT C — TITLE EXCEPTION SUMMARY\n<|id|>339<|type|>table<|page|>45<|box|>248 143 527 852<|content|>None\n<|id|>340<|type|>title<|page|>45<|box|>575 212 594 452<|content|>II. Project-Specific Exceptions\n<|id|>341<|type|>table<|page|>45<|box|>628 143 763 852<|content|>None\n<|id|>342<|type|>table<|page|>45<|box|>825 143 891 852<|content|>None\n<|id|>343<|type|>table<|page|>46<|box|>88 143 220 852<|content|>None\n<|id|>344<|type|>title<|page|>46<|box|>260 214 277 553<|content|>Painted Rock Solar (Maricopa County, AZ)\n<|id|>345<|type|>table<|page|>46<|box|>281 143 431 852<|content|>None\n<|id|>346<|type|>title<|page|>46<|box|>472 214 488 508<|content|>Pronghorn Wind (Nolan County, TX)\n<|id|>347<|type|>table<|page|>46<|box|>493 143 659 852<|content|>None\n<|id|>348<|type|>title<|page|>46<|box|>699 214 715 524<|content|>Brazos Storage (Fort Bend County, TX)\n<|id|>349<|type|>table<|page|>46<|box|>719 143 773 852<|content|>None\n<|id|>350<|type|>title<|page|>46<|box|>813 214 829 511<|content|>Mesquite Wind (Oldham County, TX)\n<|id|>351<|type|>table<|page|>46<|box|>834 143 905 852<|content|>None\n<|id|>352<|type|>table<|page|>47<|box|>89 143 186 851<|content|>None\n<|id|>353<|type|>table<|page|>47<|box|>247 143 462 852<|content|>None",
+    "raw_response": "<|src_id|>339<|tgt_id|>337\n<|src_id|>341<|tgt_id|>340\n<|src_id|>342<|tgt_id|>340\n<|src_id|>343<|tgt_id|>340\n<|src_id|>345<|tgt_id|>344\n<|src_id|>347<|tgt_id|>346\n<|src_id|>349<|tgt_id|>348\n<|src_id|>351<|tgt_id|>350\n<|src_id|>352<|tgt_id|>350\n<|src_id|>353<|tgt_id|>350",
+    "parsed": [
+        {
+            "src_id": 339,
+            "tgt_id": 337
+        },
+        {
+            "src_id": 341,
+            "tgt_id": 340
+        },
+        {
+            "src_id": 342,
+            "tgt_id": 340
+        },
+        {
+            "src_id": 343,
+            "tgt_id": 340
+        },
+        {
+            "src_id": 345,
+            "tgt_id": 344
+        },
+        {
+            "src_id": 347,
+            "tgt_id": 346
+        },
+        {
+            "src_id": 349,
+            "tgt_id": 348
+        },
+        {
+            "src_id": 351,
+            "tgt_id": 350
+        },
+        {
+            "src_id": 352,
+            "tgt_id": 350
+        },
+        {
+            "src_id": 353,
+            "tgt_id": 350
+        }
+    ]
+}

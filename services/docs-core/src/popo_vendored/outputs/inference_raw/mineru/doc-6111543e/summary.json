@@ -1,0 +1,233 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-v38uff18\\input\\pdfs\\doc-6111543e.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-v38uff18\\enriched\\doc-6111543e.json",
+    "contd_output": "<|src_id|>42<|tgt_id|>43",
+    "title_output": "<|id|>7<|level|>1\n<|id|>19<|level|>1\n<|id|>24<|level|>1\n<|id|>28<|level|>2\n<|id|>34<|level|>2\n<|id|>45<|level|>2\n<|id|>50<|level|>1\n<|id|>52<|level|>2\n<|id|>63<|level|>1\n<|id|>74<|level|>1\n<|id|>75<|level|>2\n<|id|>80<|level|>2\n<|id|>83<|level|>2\n<|id|>87<|level|>2\n<|id|>89<|level|>1\n<|id|>102<|level|>1\n<|id|>103<|level|>2\n<|id|>107<|level|>2\n<|id|>114<|level|>2\n<|id|>122<|level|>1\n<|id|>128<|level|>1\n<|id|>129<|level|>2\n<|id|>142<|level|>2\n<|id|>160<|level|>1\n<|id|>172<|level|>1\n<|id|>176<|level|>1",
+    "image_output": "<|src_id|>21<|tgt_id|>19\n<|src_id|>57<|tgt_id|>52\n<|src_id|>58<|tgt_id|>52\n<|src_id|>77<|tgt_id|>75\n<|src_id|>91<|tgt_id|>89\n<|src_id|>94<|tgt_id|>89\n<|src_id|>96<|tgt_id|>89\n<|src_id|>98<|tgt_id|>89\n<|src_id|>116<|tgt_id|>114\n<|src_id|>117<|tgt_id|>114\n<|src_id|>124<|tgt_id|>122\n<|src_id|>174<|tgt_id|>172\n<|src_id|>177<|tgt_id|>176\n<|src_id|>178<|tgt_id|>176",
+    "contd_label": [
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 176,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 21,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 57,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 94,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 89
+        },
+        {
+            "src_id": 116,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 172
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 176
+        },
+        {
+            "src_id": 178,
+            "tgt_id": 176
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 57,
+            "table2_idx": 58,
+            "upper_row_ss": [
+                [
+                    "Diane Kowalski",
+                    "Executive Vice President, General Counsel & Corporate Secretary"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Anya Petrova",
+                    "Vice President, Deputy General Counsel — Securities & Corporate Governance"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 116,
+            "table2_idx": 117,
+            "upper_row_ss": [
+                [
+                    "Total Debt",
+                    "$2,180,000,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Cash and Cash Equivalents",
+                    "$610,000,000"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 177,
+            "table2_idx": 178,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "Subsidiary Organizational Documents — Complete set; chain of ownership confirmation (CRH",
+                    "§ VII",
+                    "Partially received; chain of ownership pending confirmation",
+                    "CRH (Anya Petrova)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Distribution Services LLC, Cascade Retail Canada ULC); organizational chart",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

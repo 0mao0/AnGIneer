@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>146 76 252 844<|content|>UNITED STATES OF AMERICA\n<|id|>2<|type|>title<|page|>2<|box|>90 104 109 218<|content|>Overview\n<|id|>6<|type|>table<|page|>3<|box|>84 80 103 867<|content|>None\n<|id|>7<|type|>title<|page|>3<|box|>448 76 464 297<|content|>Overall causes of death, 2021\n<|id|>8<|type|>title<|page|>3<|box|>648 76 664 305<|content|>Detailed causes of death, 2021\n<|id|>9<|type|>table<|page|>4<|box|>84 78 103 867<|content|>None\n<|id|>10<|type|>title<|page|>5<|box|>80 75 102 354<|content|>Health Statistics: Health Status\n<|id|>11<|type|>title<|page|>7<|box|>82 75 101 344<|content|>Health Statistics: Risk Factors\n<|id|>13<|type|>title<|page|>10<|box|>82 76 102 390<|content|>Health Statistics: Service Coverage\n<|id|>15<|type|>title<|page|>11<|box|>82 75 102 372<|content|>Health Statistics: Health Systems\n<|id|>16<|type|>title<|page|>13<|box|>114 76 131 243<|content|>Further Resources\n<|id|>19<|type|>title<|page|>13<|box|>251 76 268 200<|content|>Data Sources\n<|id|>20<|type|>table<|page|>13<|box|>277 83 536 911<|content|>None",
+    "raw_response": "<|src_id|>6<|tgt_id|>2\n<|src_id|>9<|tgt_id|>8\n<|src_id|>20<|tgt_id|>19",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 19
+        }
+    ]
+}

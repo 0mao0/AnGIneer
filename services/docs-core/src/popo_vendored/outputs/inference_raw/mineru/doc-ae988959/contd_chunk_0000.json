@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        14,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>228 140 244 411<|content|>TO: ... 1016-00009\n<|id|>4<|page|>1<|box|>253 140 290 854<|content|>FROM: ... Nicholas Ferreira, Associate, White Coll...200 McKinney Street, Suite 2100, Houston, TX 77010\n<|id|>5<|page|>1<|box|>297 143 315 310<|content|>DATE: ... May 30, 2022\n<|id|>11<|page|>1<|box|>849 174 887 857<|content|>(b) The purpose of the interview is to gather fact... to the inquiry by the United States Department of\n<|id|>12<|page|>2<|box|>90 174 126 854<|content|>Justice (\"DOJ\"), including matters arising from gr...poena GJ No. ... 22-418 received on April 19, 2022\n<|id|>21<|page|>2<|box|>723 140 739 364<|content|>Full Name: ... Sandra Whitfield\n<|id|>22<|page|>2<|box|>748 140 766 669<|content|>Title: ... (\"DEH\")\n<|id|>23<|page|>2<|box|>773 140 810 854<|content|>Office Location: ... Houston, Texas — Dunmore oper...200 McKinney Street, Suite 3400, Houston, TX 77010\n<|id|>24<|page|>2<|box|>819 140 909 857<|content|>Tenure at Dunmore: ... She joined the Dunmore organization in 2010 as a Senior Director of\n<|id|>25<|page|>3<|box|>89 140 181 854<|content|>Financial Planning & Analysis at DEH. ... She is a licensed CPA in the State of Texas\n<|id|>32<|page|>3<|box|>527 181 544 810<|content|>• Vice President and Corporate Controller, DEH Houston (currently Jonathan Carver)\n<|id|>36<|page|>3<|box|>606 140 789 856<|content|>Ms. ... She explained that the dotted-line relatio...th DEH's chart of accounts and accounting policies\n<|id|>33<|page|>3<|box|>547 183 563 535<|content|>• Vice President of Tax (currently Maria Chen)\n<|id|>34<|page|>3<|box|>566 183 583 584<|content|>• Vice President of Treasury (currently David Okafor)\n<|id|>35<|page|>3<|box|>585 183 603 627<|content|>• Vice President of Internal Audit (currently Priya Agarwal)\n<|id|>77<|page|>8<|box|>844 140 898 856<|content|>Ms. ... She stated that\n<|id|>78<|page|>9<|box|>90 140 218 854<|content|>Crescent Bank had served as DTI's primary trade fi... approval but that she was aware of it at the time\n<|id|>118<|page|>14<|box|>473 183 489 426<|content|>• Aggregate Limit: ... $50 million\n<|id|>121<|page|>14<|box|>531 140 660 854<|content|>Ms. ... However, she stated that she understood di...as a matter that the firm was analyzing separately\n<|id|>119<|page|>14<|box|>493 183 508 426<|content|>• Per Claim Limit: ... $10 million\n<|id|>120<|page|>14<|box|>512 183 527 571<|content|>• Retention (Self-Insured Retention): ... 5 million\n<|id|>149<|page|>17<|box|>287 140 321 854<|content|>Nicholas Ferreira Associate, White Collar & Invest...1200 McKinney Street, Suite 2100 Houston, TX 77010\n<|id|>150<|page|>17<|box|>321 143 339 295<|content|>Date: ... May 30, 2022\n<|id|>151<|page|>17<|box|>339 143 357 254<|content|>Reviewed by: ... Reviewed by\n<|id|>152<|page|>17<|box|>388 140 424 854<|content|>Victoria Chambers Partner, White Collar & Investig...LP Responsible Partner — Matter No. ... 1016-00009\n<|id|>153<|page|>17<|box|>424 142 441 267<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>24<|tgt_id|>25\n<|src_id|>77<|tgt_id|>78",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 78
+        }
+    ]
+}

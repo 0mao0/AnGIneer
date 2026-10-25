@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        20,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 169 125 826<|content|>MEMORANDUM — PRIVILEGED AND CONFIDENTIAL / ATTORNE\n<|id|>9<|page|>1<|box|>436 385 457 611<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>297 419 316 576<|content|>II. Background\n<|id|>17<|page|>2<|box|>342 140 359 261<|content|>A. The Parties\n<|id|>20<|page|>2<|box|>691 140 708 334<|content|>B. The CLARION Trial\n<|id|>24<|page|>3<|box|>250 140 266 333<|content|>C. Negotiation Timeline\n<|id|>34<|page|>3<|box|>789 142 806 439<|content|>D. Outside Counsel and Key Contacts\n<|id|>37<|page|>4<|box|>227 272 247 723<|content|>III. Conditions Precedent — Summary Table\n<|id|>40<|page|>5<|box|>286 248 305 750<|content|>IV. Detailed Analysis of Each Condition Precedent\n<|id|>41<|page|>6<|box|>90 140 107 620<|content|>A. Execution and Delivery of the MCTA and Signatur\n<|id|>49<|page|>6<|box|>752 142 768 496<|content|>B. Delivery of Sponsor Insurance Certificates\n<|id|>62<|page|>7<|box|>728 140 744 307<|content|>Condition: Satisfied.\n<|id|>63<|page|>7<|box|>768 140 786 535<|content|>C. Delivery of Site Network Insurance Certificates\n<|id|>71<|page|>8<|box|>744 140 761 400<|content|>D. IRB Approvals for Lead Sites\n<|id|>82<|page|>10<|box|>90 140 107 609<|content|>E. Executed Investigator Signature Pages and Under\n<|id|>91<|page|>10<|box|>792 140 809 307<|content|>Condition: Satisfied.\n<|id|>92<|page|>10<|box|>833 140 849 584<|content|>F. Financial Disclosure Certifications (21 C.F.R.\n<|id|>99<|page|>11<|box|>566 140 584 307<|content|>Condition: Satisfied.\n<|id|>100<|page|>11<|box|>609 140 626 583<|content|>G. Secretary's Certificates and Corporate Authoriz\n<|id|>114<|page|>12<|box|>575 140 593 323<|content|>H. Closing Certificates\n<|id|>122<|page|>13<|box|>484 140 501 537<|content|>I. Execution and Delivery of Ancillary Agreements\n<|id|>139<|page|>14<|box|>604 140 621 493<|content|>J. Delivery of MCTA Exhibits and Schedules\n<|id|>174<|page|>16<|box|>659 142 676 307<|content|>Condition: Satisfied.\n<|id|>175<|page|>16<|box|>686 218 707 777<|content|>V. Post-Closing Obligations and Remaining Delivera\n<|id|>183<|page|>17<|box|>704 212 724 782<|content|>VI. Governing Law and Dispute Resolution Confirmat\n<|id|>191<|page|>18<|box|>506 305 526 689<|content|>VII. Conclusion and Recommendation\n<|id|>204<|page|>20<|box|>90 156 111 839<|content|>Appendix: Conditions Precedent Checklist — Summary\n<|id|>209<|page|>22<|box|>708 161 742 836<|content|>ALL CONDITIONS PRECEDENT SATISFIED — CLOSING CONFI",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>9<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>24<|level|>2\n<|id|>34<|level|>2\n<|id|>37<|level|>1\n<|id|>40<|level|>1\n<|id|>41<|level|>2\n<|id|>49<|level|>2\n<|id|>62<|level|>-1\n<|id|>63<|level|>2\n<|id|>71<|level|>2\n<|id|>82<|level|>2\n<|id|>91<|level|>-1\n<|id|>92<|level|>2\n<|id|>99<|level|>-1\n<|id|>100<|level|>2\n<|id|>114<|level|>2\n<|id|>122<|level|>2\n<|id|>139<|level|>2\n<|id|>174<|level|>-1\n<|id|>175<|level|>1\n<|id|>183<|level|>1\n<|id|>191<|level|>1\n<|id|>204<|level|>1\n<|id|>209<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 183,
+            "level": 1
+        },
+        {
+            "id": 191,
+            "level": 1
+        },
+        {
+            "id": 204,
+            "level": 1
+        }
+    ]
+}

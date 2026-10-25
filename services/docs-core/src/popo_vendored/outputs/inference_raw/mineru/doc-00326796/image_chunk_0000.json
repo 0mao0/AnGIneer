@@ -1,0 +1,50 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        30
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        7,
+        10,
+        11,
+        13,
+        15,
+        16,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25,
+        27,
+        28,
+        29,
+        30
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 166 141 830<|content|>PARTNERSHIP REPRESENTATIVE DESIGNATION AND TAX MAT\n<|id|>14<|type|>title<|page|>1<|box|>729 142 746 241<|content|>RECITALS\n<|id|>25<|type|>title<|page|>3<|box|>89 142 107 388<|content|>ARTICLE I — DEFINITIONS\n<|id|>56<|type|>title<|page|>5<|box|>494 142 512 736<|content|>ARTICLE II — DESIGNATION OF PARTNERSHIP REPRESENTA\n<|id|>73<|type|>title<|page|>7<|box|>376 140 393 785<|content|>ARTICLE III — OBLIGATIONS OF THE PARTNERSHIP REPRE\n<|id|>74<|type|>title<|page|>7<|box|>402 140 420 532<|content|>Section 3.1 — Tax Return Preparation and Filing.\n<|id|>101<|type|>title<|page|>10<|box|>809 140 827 707<|content|>ARTICLE IV — NOTIFICATION AND CONSENT REQUIREMENTS\n<|id|>110<|type|>title<|page|>11<|box|>454 176 472 403<|content|>To the Tax-Equity Member:\n<|id|>147<|type|>title<|page|>13<|box|>707 140 724 627<|content|>ARTICLE V — PUSH-OUT ELECTION UNDER IRC § 6226\n<|id|>160<|type|>title<|page|>15<|box|>258 140 277 797<|content|>ARTICLE VI — INDEMNIFICATION AND ALLOCATION OF TAX\n<|id|>173<|type|>title<|page|>16<|box|>672 140 710 738<|content|>ARTICLE VII — REMOVAL AND REPLACEMENT OF PARTNERSH\n<|id|>188<|type|>title<|page|>18<|box|>303 140 320 604<|content|>ARTICLE VIII — STATE AND LOCAL TAX MATTERS\n<|id|>194<|type|>title<|page|>19<|box|>167 142 184 524<|content|>ARTICLE IX — REPORTING OBLIGATIONS\n<|id|>206<|type|>title<|page|>20<|box|>439 140 457 625<|content|>ARTICLE X — REPRESENTATIONS AND WARRANTIES\n<|id|>219<|type|>title<|page|>21<|box|>689 140 705 485<|content|>ARTICLE XI — DISPUTE RESOLUTION\n<|id|>225<|type|>title<|page|>22<|box|>765 140 782 524<|content|>ARTICLE XII — TERM AND TERMINATION\n<|id|>232<|type|>title<|page|>23<|box|>464 140 482 455<|content|>ARTICLE XIII — MISCELLANEOUS\n<|id|>235<|type|>title<|page|>23<|box|>744 176 762 640<|content|>If to the Managing Member or Partnership Represent\n<|id|>262<|type|>title<|page|>25<|box|>794 142 810 388<|content|>SOLSTICE HOLDINGS, LLC\n<|id|>280<|type|>title<|page|>27<|box|>89 142 107 243<|content|>EXHIBIT A\n<|id|>281<|type|>title<|page|>27<|box|>114 308 132 687<|content|>DESIGNATED INDIVIDUAL INFORMATION\n<|id|>283<|type|>table<|page|>27<|box|>202 143 402 852<|content|>None\n<|id|>287<|type|>title<|page|>28<|box|>89 142 107 243<|content|>EXHIBIT B\n<|id|>288<|type|>title<|page|>28<|box|>114 148 169 848<|content|>FORM OF NOTIFICATION TO TAX-EQUITY MEMBER (Pursuan\n<|id|>290<|type|>title<|page|>28<|box|>204 140 220 496<|content|>VIA OVERNIGHT COURIER AND EMAIL\n<|id|>299<|type|>title<|page|>28<|box|>547 176 565 483<|content|>1. Nature of Communication Received:\n<|id|>301<|type|>title<|page|>28<|box|>637 176 654 496<|content|>2. Partnership Taxable Year(s) Affected:\n<|id|>303<|type|>title<|page|>28<|box|>707 176 724 553<|content|>3. Summary of Proposed Adjustments or Issues:\n<|id|>305<|type|>title<|page|>28<|box|>795 176 813 609<|content|>4. Proposed Actions by the Partnership Representat\n<|id|>307<|type|>title<|page|>28<|box|>864 176 882 348<|content|>5. Consent Required:\n<|id|>309<|type|>title<|page|>29<|box|>152 176 170 542<|content|>6. Deadline for Tax-Equity Member Response:\n<|id|>323<|type|>title<|page|>30<|box|>89 142 107 243<|content|>EXHIBIT C\n<|id|>324<|type|>title<|page|>30<|box|>114 161 152 834<|content|>FORM OF IRS DESIGNATION FILING (Partnership Repres\n<|id|>326<|type|>title<|page|>30<|box|>241 143 258 344<|content|>Partnership Information:\n<|id|>327<|type|>table<|page|>30<|box|>263 143 412 852<|content|>None\n<|id|>328<|type|>title<|page|>30<|box|>446 143 463 462<|content|>Partnership Representative Information:\n<|id|>329<|type|>table<|page|>30<|box|>469 143 579 852<|content|>None\n<|id|>330<|type|>table<|page|>30<|box|>637 143 780 852<|content|>None",
+    "raw_response": "<|src_id|>283<|tgt_id|>281\n<|src_id|>327<|tgt_id|>326\n<|src_id|>329<|tgt_id|>328\n<|src_id|>330<|tgt_id|>324",
+    "parsed": [
+        {
+            "src_id": 283,
+            "tgt_id": 281
+        },
+        {
+            "src_id": 327,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 329,
+            "tgt_id": 328
+        },
+        {
+            "src_id": 330,
+            "tgt_id": 324
+        }
+    ]
+}

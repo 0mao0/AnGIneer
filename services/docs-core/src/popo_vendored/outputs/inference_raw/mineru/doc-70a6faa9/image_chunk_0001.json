@@ -1,0 +1,73 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        47,
+        69
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        56,
+        57,
+        58,
+        59,
+        60,
+        62,
+        64,
+        66,
+        67,
+        68,
+        69
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>578<|type|>table<|page|>47<|box|>111 143 262 852<|content|>None\n<|id|>580<|type|>title<|page|>48<|box|>89 142 106 617<|content|>SCHEDULE 2 — PRE-PETITION CAPITAL STRUCTURE\n<|id|>581<|type|>table<|page|>48<|box|>137 143 287 852<|content|>None\n<|id|>582<|type|>table<|page|>48<|box|>345 143 488 852<|content|>None\n<|id|>583<|type|>title<|page|>48<|box|>522 140 539 197<|content|>Notes:\n<|id|>590<|type|>title<|page|>49<|box|>89 140 106 455<|content|>SCHEDULE 3 — PERMITTED LIENS\n<|id|>601<|type|>table<|page|>50<|box|>111 143 199 852<|content|>None\n<|id|>604<|type|>title<|page|>51<|box|>89 140 106 491<|content|>SCHEDULE 5 — EXISTING LITIGATION\n<|id|>612<|type|>title<|page|>52<|box|>89 142 106 395<|content|>SCHEDULE 6 — INSURANCE\n<|id|>613<|type|>table<|page|>52<|box|>155 143 457 852<|content|>None\n<|id|>616<|type|>title<|page|>53<|box|>89 140 106 470<|content|>SCHEDULE 7 — NOTICE ADDRESSES\n<|id|>618<|type|>title<|page|>53<|box|>157 142 174 238<|content|>Borrowers:\n<|id|>625<|type|>title<|page|>53<|box|>314 143 329 246<|content|>DIP Lender:\n<|id|>630<|type|>title<|page|>53<|box|>469 450 486 547<|content|>EXHIBITS\n<|id|>631<|type|>title<|page|>54<|box|>89 140 106 552<|content|>EXHIBIT A — FORM OF BORROWING NOTICE\n<|id|>660<|type|>title<|page|>56<|box|>89 142 107 797<|content|>EXHIBIT B — APPROVED DIP BUDGET (13-WEEK CASH FLOW\n<|id|>661<|type|>table<|page|>56<|box|>181 143 907 854<|content|>None\n<|id|>662<|type|>table<|page|>57<|box|>88 143 897 854<|content|>None\n<|id|>663<|type|>table<|page|>58<|box|>89 143 897 854<|content|>None\n<|id|>664<|type|>table<|page|>59<|box|>88 143 375 852<|content|>None\n<|id|>666<|type|>title<|page|>60<|box|>89 140 106 612<|content|>EXHIBIT C — FORM OF COMPLIANCE CERTIFICATE\n<|id|>688<|type|>title<|page|>62<|box|>89 140 106 584<|content|>EXHIBIT D — FORM OF OFFICER'S CERTIFICATE\n<|id|>697<|type|>table<|page|>62<|box|>530 143 602 852<|content|>None\n<|id|>709<|type|>title<|page|>64<|box|>89 140 107 504<|content|>EXHIBIT E — FORM OF LEGAL OPINION\n<|id|>730<|type|>title<|page|>66<|box|>89 140 106 380<|content|>EXHIBIT F — DIP ORDERS\n<|id|>731<|type|>title<|page|>66<|box|>114 142 130 393<|content|>Exhibit F-1: Interim DIP Order\n<|id|>733<|type|>title<|page|>66<|box|>202 140 219 416<|content|>[Interim DIP Order attached hereto]\n<|id|>734<|type|>title<|page|>66<|box|>228 142 244 375<|content|>Exhibit F-2: Final DIP Order\n<|id|>737<|type|>title<|page|>67<|box|>89 140 107 627<|content|>EXHIBIT G — ADEQUATE PROTECTION STIPULATION\n<|id|>740<|type|>title<|page|>68<|box|>89 140 106 462<|content|>EXHIBIT H — WIRE INSTRUCTIONS\n<|id|>741<|type|>title<|page|>68<|box|>114 142 131 447<|content|>1. DIP Lender — Repayment Account:\n<|id|>744<|type|>title<|page|>68<|box|>246 140 263 640<|content|>2. Borrowers — Operating Account (DIP Loan Disburs\n<|id|>747<|type|>title<|page|>68<|box|>378 140 396 465<|content|>3. Adequate Protection Reserve Account:\n<|id|>751<|type|>title<|page|>69<|box|>89 140 106 504<|content|>EXHIBIT I — FORM OF PAYOFF LETTER\n<|id|>761<|type|>table<|page|>69<|box|>510 143 694 852<|content|>None",
+    "raw_response": "<|src_id|>581<|tgt_id|>580\n<|src_id|>582<|tgt_id|>580\n<|src_id|>601<|tgt_id|>590\n<|src_id|>613<|tgt_id|>612\n<|src_id|>661<|tgt_id|>660\n<|src_id|>662<|tgt_id|>660\n<|src_id|>663<|tgt_id|>660\n<|src_id|>664<|tgt_id|>660\n<|src_id|>697<|tgt_id|>688\n<|src_id|>761<|tgt_id|>751",
+    "parsed": [
+        {
+            "src_id": 581,
+            "tgt_id": 580
+        },
+        {
+            "src_id": 582,
+            "tgt_id": 580
+        },
+        {
+            "src_id": 601,
+            "tgt_id": 590
+        },
+        {
+            "src_id": 613,
+            "tgt_id": 612
+        },
+        {
+            "src_id": 661,
+            "tgt_id": 660
+        },
+        {
+            "src_id": 662,
+            "tgt_id": 660
+        },
+        {
+            "src_id": 663,
+            "tgt_id": 660
+        },
+        {
+            "src_id": 664,
+            "tgt_id": 660
+        },
+        {
+            "src_id": 697,
+            "tgt_id": 688
+        },
+        {
+            "src_id": 761,
+            "tgt_id": 751
+        }
+    ]
+}

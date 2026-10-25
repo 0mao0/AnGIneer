@@ -1,0 +1,150 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 405 118 591<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>460 142 478 321<|content|>I. Executive Summary\n<|id|>19<|page|>2<|box|>619 140 636 460<|content|>II. Background and Negotiating Context\n<|id|>20<|page|>2<|box|>648 142 667 315<|content|>A. Fund IV Overview\n<|id|>30<|page|>4<|box|>90 140 107 383<|content|>B. Base LPA Economic Terms\n<|id|>36<|page|>4<|box|>614 140 631 349<|content|>C. BFO's Leverage Points\n<|id|>43<|page|>5<|box|>429 140 446 485<|content|>III. Priority-Ranked Negotiation Objectives\n<|id|>45<|page|>5<|box|>558 140 575 509<|content|>Priority 1: Most Favored Nation (MFN) Rights\n<|id|>61<|page|>7<|box|>468 142 486 423<|content|>Priority 2: Excuse/Exclusion Rights\n<|id|>78<|page|>9<|box|>220 142 238 450<|content|>Priority 3: Management Fee Reduction\n<|id|>84<|page|>9<|box|>436 142 454 359<|content|>Investment Period Savings:\n<|id|>96<|page|>10<|box|>484 140 502 403<|content|>Priority 4: Co-Investment Rights\n<|id|>103<|page|>11<|box|>228 140 244 243<|content|>C. Fallback.\n<|id|>106<|page|>11<|box|>430 142 449 395<|content|>Priority 5: Enhanced Reporting\n<|id|>113<|page|>12<|box|>191 140 208 243<|content|>C. Fallback.\n<|id|>116<|page|>12<|box|>376 142 393 434<|content|>Priority 6: Key Person Enhancement\n<|id|>123<|page|>13<|box|>270 140 286 243<|content|>C. Fallback.\n<|id|>127<|page|>13<|box|>510 140 527 357<|content|>Priority 7: Transfer Rights\n<|id|>132<|page|>14<|box|>137 140 154 243<|content|>C. Fallback.\n<|id|>135<|page|>14<|box|>301 140 320 557<|content|>Priority 8: Accelerated Tax Reporting (K-1 Deliver\n<|id|>138<|page|>14<|box|>607 140 625 243<|content|>C. Fallback.\n<|id|>141<|page|>14<|box|>791 140 809 447<|content|>Priority 9: Placement Agent Fee Offset\n<|id|>145<|page|>15<|box|>334 140 351 243<|content|>C. Fallback.\n<|id|>148<|page|>15<|box|>529 142 546 428<|content|>IV. Additional Protective Provisions\n<|id|>150<|page|>15<|box|>622 140 638 383<|content|>A. Confidentiality Carve-Outs\n<|id|>160<|page|>16<|box|>263 140 282 473<|content|>B. Governing Law and Dispute Resolution\n<|id|>163<|page|>16<|box|>464 140 482 428<|content|>V. Negotiation Process and Timeline\n<|id|>171<|page|>17<|box|>585 142 603 405<|content|>VI. Summary of Proposed Terms\n<|id|>174<|page|>18<|box|>614 140 632 403<|content|>VII. Next Steps and Action Items\n<|id|>189<|page|>19<|box|>656 140 672 276<|content|>VIII. Disclaimer",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>19<|level|>2\n<|id|>20<|level|>3\n<|id|>30<|level|>3\n<|id|>36<|level|>3\n<|id|>43<|level|>2\n<|id|>45<|level|>3\n<|id|>61<|level|>3\n<|id|>78<|level|>3\n<|id|>84<|level|>4\n<|id|>96<|level|>3\n<|id|>103<|level|>4\n<|id|>106<|level|>3\n<|id|>113<|level|>4\n<|id|>116<|level|>3\n<|id|>123<|level|>4\n<|id|>127<|level|>3\n<|id|>132<|level|>4\n<|id|>135<|level|>3\n<|id|>138<|level|>4\n<|id|>141<|level|>3\n<|id|>145<|level|>4\n<|id|>148<|level|>2\n<|id|>150<|level|>3\n<|id|>160<|level|>3\n<|id|>163<|level|>2\n<|id|>171<|level|>2\n<|id|>174<|level|>2\n<|id|>189<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 4
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 4
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 4
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 4
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 4
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 4
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 4
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>770 390 786 607<|content|>New York, New York 10022\n<|id|>8<|page|>1<|box|>796 292 813 702<|content|>Telephone: ... (212) 555-4701\n<|id|>10<|page|>1<|box|>848 140 892 839<|content|>Ridgeline Ventures Fund IV, L. ... 800 Boylston St...t Adams Street, Suite 3400 Chicago, Illinois 60606\n<|id|>9<|page|>1<|box|>821 591 839 854<|content|>[Closing Date — January 15, 2024]\n<|id|>11<|page|>2<|box|>89 140 125 854<|content|>Northstar Innovation Fund II, L. ... 555 California Street, Suite 4100 San Francisco, California 94104\n<|id|>12<|page|>2<|box|>133 140 152 790<|content|>Halcyon Growth Equity, L. ... 1201 Third Avenue, Suite 5600 Seattle, Washington 98101\n<|id|>14<|page|>2<|box|>186 140 248 854<|content|>Re: ... Issuance of Convertible Promissory Notes i...incipal amount of $60,000,000 Ladies and Gentlemen\n<|id|>13<|page|>2<|box|>160 140 178 553<|content|>(each, a \"Purchaser,\" and collectively, the \"Purchasers\")\n<|id|>21<|page|>2<|box|>555 174 590 854<|content|>(e) Amendment No. ... and\n<|id|>23<|page|>2<|box|>643 140 698 854<|content|>The agreements identified in clauses (a) through (...f the NPA as a condition to the Closing thereunder\n<|id|>41<|page|>3<|box|>508 142 525 705<|content|>16. ... and\n<|id|>43<|page|>3<|box|>584 140 675 854<|content|>As to matters of fact material to the opinions exp...t independent verification of the accuracy thereof\n<|id|>72<|page|>5<|box|>869 174 904 854<|content|>(b) violate any Delaware statute, rule, or regulat...alifications set forth in Section V below); ... or\n<|id|>74<|page|>6<|box|>152 140 207 856<|content|>We express no opinion under this paragraph 7 with ... is bound, other than the Kelvantis Loan Agreement\n<|id|>96<|page|>8<|box|>135 142 152 272<|content|>Very truly yours,\n<|id|>97<|page|>8<|box|>160 140 176 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>98<|page|>8<|box|>179 142 196 253<|content|>By: ... By",
+    "raw_response": "<|src_id|>14<|tgt_id|>13",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 13
+        }
+    ]
+}

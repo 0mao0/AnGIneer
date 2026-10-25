@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 424 106 573<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>114 200 133 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|page|>1<|box|>348 142 364 321<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>241 140 258 460<|content|>II. Contractual Insurance Requirements\n<|id|>15<|page|>2<|box|>272 140 289 470<|content|>A. Insurance Provisions in the Agreement\n<|id|>19<|page|>2<|box|>689 140 707 390<|content|>B. Lumos's Required Coverage\n<|id|>24<|page|>3<|box|>465 140 484 410<|content|>C. Meridian's Required Coverage\n<|id|>31<|page|>4<|box|>311 140 329 566<|content|>III. Lumos's Insurance Program — Current Coverage\n<|id|>32<|page|>4<|box|>342 140 359 395<|content|>A. E&O / Cyber Liability Policy\n<|id|>42<|page|>5<|box|>356 142 375 341<|content|>B. Adequacy Assessment\n<|id|>52<|page|>6<|box|>681 140 699 506<|content|>C. Additional Lumos Coverage (General Note)\n<|id|>54<|page|>7<|box|>90 140 107 617<|content|>IV. Meridian's Insurance Program — Represented Cov\n<|id|>55<|page|>7<|box|>121 142 138 413<|content|>A. Carrier and Policy Information\n<|id|>59<|page|>7<|box|>387 176 404 462<|content|>Coverage Represented by Meridian:\n<|id|>63<|page|>7<|box|>551 143 566 325<|content|>B. Verification Process\n<|id|>69<|page|>8<|box|>385 140 402 496<|content|>C. Compliance Summary Table for Meridian\n<|id|>72<|page|>8<|box|>750 140 767 584<|content|>V. Coordination with Ridgepoint Insurance Brokers\n<|id|>79<|page|>9<|box|>794 140 811 473<|content|>VI. Risk Considerations and Gap Analysis\n<|id|>81<|page|>10<|box|>90 140 107 545<|content|>A. Lumos's Uncapped IP Indemnification Exposure\n<|id|>85<|page|>10<|box|>561 140 579 527<|content|>B. Cross-Border Claims and Jurisdictional Issues\n<|id|>90<|page|>11<|box|>220 140 238 372<|content|>C. Sub-Distributor Coverage\n<|id|>96<|page|>11<|box|>835 140 853 550<|content|>D. Escrow Holdback as Complementary Mechanism\n<|id|>101<|page|>12<|box|>539 140 555 532<|content|>VII. Annual Monitoring and Renewal Obligations\n<|id|>112<|page|>13<|box|>609 140 625 465<|content|>VIII. Conclusions and Recommendations\n<|id|>125<|page|>16<|box|>89 142 108 681<|content|>Appendix A — Summary of Atlas Mutual Insurance Com\n<|id|>137<|page|>17<|box|>90 142 108 637<|content|>Appendix B — Summary of Rheinland Versicherung AG\n<|id|>146<|page|>18<|box|>90 140 108 777<|content|>Appendix C — Relevant Excerpts from the Channel Re\n<|id|>157<|page|>19<|box|>90 142 107 702<|content|>Appendix D — Correspondence with Ridgepoint Insura",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>19<|level|>3\n<|id|>24<|level|>3\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>42<|level|>3\n<|id|>52<|level|>3\n<|id|>54<|level|>2\n<|id|>55<|level|>3\n<|id|>59<|level|>4\n<|id|>63<|level|>3\n<|id|>69<|level|>3\n<|id|>72<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>3\n<|id|>85<|level|>3\n<|id|>90<|level|>3\n<|id|>96<|level|>3\n<|id|>101<|level|>2\n<|id|>112<|level|>2\n<|id|>125<|level|>2\n<|id|>137<|level|>2\n<|id|>146<|level|>2\n<|id|>157<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 2
+        }
+    ]
+}

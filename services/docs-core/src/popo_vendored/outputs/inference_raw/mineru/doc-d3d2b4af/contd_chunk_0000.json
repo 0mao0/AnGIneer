@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        5,
+        6
+    ],
+    "pages": [
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>58<|page|>5<|box|>835 140 873 854<|content|>35. ... Medrano informed me that he had accepted a...re film requiring an extended on-location shoot in\n<|id|>59<|page|>6<|box|>90 174 126 854<|content|>Vancouver, British Columbia, Canada. ... Medrano e...ion in Vancouver for approximately seven (7) weeks",
+    "raw_response": "<|src_id|>58<|tgt_id|>59",
+    "parsed": [
+        {
+            "src_id": 58,
+            "tgt_id": 59
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 3,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['GA-01', '600 Grange Road, Savannah, GA', 'Savannah Port Industrial LLC', 'Sept. 8, 2018', '15 yrs. (Oct. 2018 – Sept. 2033)', '520,000', '$4,160,000', 'Consent required (Sec. 20.2)', 'Pending']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '31407', '', '', '', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 187,
+    "table2_idx": 188
+}

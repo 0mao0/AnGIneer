@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['June 12, 2025', 'Confirm wire transfer instructions for MTDC', 'MTDC (Subramanian) / Sentinel Title (Eng)', 'Pending']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'equity deposit ($200,000,000) and origination fees ($7,750,000 total: $4,750,000 to Ironclad [1.00%]; $3,000,000 to Granite Peak [1.50%]); verify anti-fraud protocols', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 226,
+    "table2_idx": 227
+}

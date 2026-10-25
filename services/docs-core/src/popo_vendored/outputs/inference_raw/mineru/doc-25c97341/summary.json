@@ -1,0 +1,203 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-s361p7ni\\input\\pdfs\\doc-25c97341.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-s361p7ni\\enriched\\doc-25c97341.json",
+    "contd_output": "<|src_id|>286<|tgt_id|>287",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>6<|level|>1\n<|id|>7<|level|>1\n<|id|>14<|level|>1\n<|id|>22<|level|>1\n<|id|>45<|level|>1\n<|id|>47<|level|>2\n<|id|>51<|level|>2\n<|id|>57<|level|>2\n<|id|>75<|level|>2\n<|id|>113<|level|>2\n<|id|>125<|level|>2\n<|id|>145<|level|>2\n<|id|>155<|level|>2\n<|id|>174<|level|>2\n<|id|>181<|level|>2\n<|id|>186<|level|>2\n<|id|>190<|level|>2\n<|id|>197<|level|>1\n<|id|>198<|level|>2\n<|id|>204<|level|>1\n<|id|>206<|level|>1\n<|id|>218<|level|>1\n<|id|>237<|level|>1\n<|id|>240<|level|>1\n<|id|>242<|level|>2\n<|id|>246<|level|>2\n<|id|>249<|level|>2\n<|id|>251<|level|>2\n<|id|>267<|level|>2\n<|id|>272<|level|>2\n<|id|>279<|level|>2\n<|id|>294<|level|>2\n<|id|>297<|level|>2",
+    "image_output": "<|src_id|>112<|tgt_id|>75\n<|src_id|>199<|tgt_id|>198\n<|src_id|>200<|tgt_id|>198\n<|src_id|>201<|tgt_id|>198\n<|src_id|>203<|tgt_id|>198\n<|src_id|>205<|tgt_id|>204",
+    "contd_label": [
+        {
+            "src_id": 286,
+            "tgt_id": 287
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 1
+        },
+        {
+            "id": 198,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 1
+        },
+        {
+            "id": 206,
+            "level": 1
+        },
+        {
+            "id": 218,
+            "level": 1
+        },
+        {
+            "id": 237,
+            "level": 1
+        },
+        {
+            "id": 240,
+            "level": 1
+        },
+        {
+            "id": 242,
+            "level": 2
+        },
+        {
+            "id": 246,
+            "level": 2
+        },
+        {
+            "id": 249,
+            "level": 2
+        },
+        {
+            "id": 251,
+            "level": 2
+        },
+        {
+            "id": 267,
+            "level": 2
+        },
+        {
+            "id": 272,
+            "level": 2
+        },
+        {
+            "id": 279,
+            "level": 2
+        },
+        {
+            "id": 294,
+            "level": 2
+        },
+        {
+            "id": 297,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 112,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 198
+        },
+        {
+            "src_id": 200,
+            "tgt_id": 198
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 198
+        },
+        {
+            "src_id": 203,
+            "tgt_id": 198
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 204
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 200,
+            "table2_idx": 201,
+            "upper_row_ss": [
+                [
+                    "自卸汽车",
+                    "0.086kg/起运吨",
+                    "",
+                    ""
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "移动式装船机",
+                    "0.076kWh/操作吨",
+                    "螺旋卸车机",
+                    "0.110kWh/操作吨"
+                ]
+            ]
+        }
+    ]
+}

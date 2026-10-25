@@ -1,0 +1,143 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>93 105 115 891<|content|>Amcor reports fiscal 2023 results and provides out\n<|id|>1<|page|>1<|box|>125 247 159 750<|content|>June 2023 quarter: GAAP diluted EPS of 12.3 cps; A\n<|id|>2<|page|>1<|box|>167 53 184 338<|content|>Fiscal 2023 Full Year Highlights\n<|id|>9<|page|>1<|box|>612 56 631 206<|content|>Key Financials<sup>(1)</sup>\n<|id|>14<|page|>2<|box|>76 55 96 447<|content|>Cash Returns to Shareholders\n<|id|>17<|page|>2<|box|>204 56 220 140<|content|>Dividend\n<|id|>20<|page|>2<|box|>357 55 372 227<|content|>Share repurchases\n<|id|>23<|page|>2<|box|>467 55 489 331<|content|>2023 financial results\n<|id|>24<|page|>2<|box|>498 56 514 247<|content|>Segment Information\n<|id|>26<|page|>2<|box|>698 55 713 336<|content|>Twelve months ended June 30, 2023\n<|id|>40<|page|>3<|box|>786 55 802 199<|content|>June 2023 quarter\n<|id|>45<|page|>4<|box|>280 55 295 336<|content|>Twelve months ended June 30, 2023\n<|id|>51<|page|>4<|box|>600 55 616 199<|content|>June 2023 quarter\n<|id|>55<|page|>4<|box|>821 53 838 381<|content|>Net interest and income tax expense\n<|id|>57<|page|>5<|box|>60 55 76 281<|content|>Adjusted Free Cash Flow\n<|id|>60<|page|>5<|box|>213 55 232 333<|content|>Fiscal 2024 Guidance\n<|id|>70<|page|>5<|box|>627 55 642 202<|content|>Conference Call\n<|id|>80<|page|>6<|box|>150 55 167 180<|content|>About Amcor\n<|id|>83<|page|>6<|box|>324 56 339 236<|content|>Contact Information\n<|id|>92<|page|>7<|box|>60 48 74 549<|content|>Cautionary Statement Regarding Forward-Looking Sta\n<|id|>94<|page|>7<|box|>387 48 399 299<|content|>Presentation of non-GAAP information\n<|id|>109<|page|>7<|box|>875 48 888 135<|content|>Dividends\n<|id|>111<|page|>8<|box|>60 56 77 686<|content|>U.S. GAAP Condensed Consolidated Statements of Inc\n<|id|>113<|page|>9<|box|>59 56 77 723<|content|>U.S. GAAP Condensed Consolidated Statements of Cas\n<|id|>115<|page|>9<|box|>494 56 510 631<|content|>U.S. GAAP Condensed Consolidated Balance Sheets (U\n<|id|>117<|page|>10<|box|>105 56 122 453<|content|>Components of Fiscal 2023 Net Sales growth\n<|id|>119<|page|>11<|box|>81 56 99 400<|content|>Reconciliation of Non-GAAP Measures\n<|id|>124<|page|>13<|box|>60 56 74 445<|content|>Reconciliation of adjusted EBIT by reporting segme\n<|id|>131<|page|>14<|box|>604 56 618 244<|content|>Reconciliation of net debt",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>2<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>17<|level|>3\n<|id|>20<|level|>3\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>26<|level|>3\n<|id|>40<|level|>3\n<|id|>45<|level|>3\n<|id|>51<|level|>3\n<|id|>55<|level|>3\n<|id|>57<|level|>3\n<|id|>60<|level|>2\n<|id|>70<|level|>2\n<|id|>80<|level|>2\n<|id|>83<|level|>2\n<|id|>92<|level|>2\n<|id|>94<|level|>3\n<|id|>109<|level|>3\n<|id|>111<|level|>2\n<|id|>113<|level|>2\n<|id|>115<|level|>2\n<|id|>117<|level|>2\n<|id|>119<|level|>2\n<|id|>124<|level|>2\n<|id|>131<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        }
+    ]
+}

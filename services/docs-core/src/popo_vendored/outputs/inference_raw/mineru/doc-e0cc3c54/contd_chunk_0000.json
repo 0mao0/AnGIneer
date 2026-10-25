@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        7,
+        71
+    ],
+    "pages": [
+        7,
+        10,
+        24,
+        28,
+        29,
+        30,
+        45,
+        46,
+        70
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>26<|page|>7<|box|>228 525 326 887<|content|>Tenders for the notes were received until 1: ... These total amounts of the market were\n<|id|>27<|page|>7<|box|>333 525 431 887<|content|>Tenders for the bonds were received until 1: ... These totaled \\$127 million\n<|id|>53<|page|>10<|box|>243 122 254 471<|content|>4/ For detail see Table FFU-6. ... 5/ Current fisc...ar to date transactions through June 30, 1974, are\n<|id|>57<|page|>10<|box|>157 532 166 695<|content|>issued to Federal Reserve banks. ... issued to Federal Reserve banks\n<|id|>56<|page|>10<|box|>309 123 320 455<|content|>7/ Represents holdings of special drawing rights, less certificates\n<|id|>102<|page|>24<|box|>243 117 343 487<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>103<|page|>24<|box|>155 510 210 879<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>118<|page|>28<|box|>800 123 894 496<|content|>Note: ... Beginning with data for December 31, 1958, the computation is based on\n<|id|>119<|page|>28<|box|>817 513 826 692<|content|>2/ Excludes Federal Financing Bank. ... 2/ Excludes Federal Financing Bank\n<|id|>122<|page|>29<|box|>550 433 561 554<|content|>(In millions of dollars)\n<|id|>123<|page|>29<|box|>460 117 486 464<|content|>2/ Consists of certificates of indebtedness, Treas...64, sold to foreign governments for U. ... dollars\n<|id|>128<|page|>30<|box|>790 117 901 486<|content|>1/ Consists of Government National Mortgage Associ... Overseas Private Investment Corporation beginning\n<|id|>129<|page|>30<|box|>767 528 878 870<|content|>February 1975. ... Special Investment Account\n<|id|>198<|page|>45<|box|>121 426 131 564<|content|>(Dollar amounts in millions)\n<|id|>201<|page|>46<|box|>839 506 859 845<|content|>2/ Tax anticipation bill, accepted at face value i...mature. ... 6/ Sold at fixed price by subscription\n<|id|>339<|page|>70<|box|>119 139 202 500<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>340<|page|>70<|box|>121 522 204 882<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1974",
+    "raw_response": "<|src_id|>102<|tgt_id|>103\n<|src_id|>128<|tgt_id|>129\n<|src_id|>339<|tgt_id|>340",
+    "parsed": [
+        {
+            "src_id": 102,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 339,
+            "tgt_id": 340
+        }
+    ]
+}

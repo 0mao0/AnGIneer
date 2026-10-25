@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        38
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        25,
+        26,
+        31,
+        32,
+        38
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>205 140 223 550<|content|>FROM: ... Brendan Walsh, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>232 140 287 854<|content|>CC: ... Robert Adeyemi, Responsible Partner, Calde...no, Hargrove & Liddell LLP (underwriters' counsel)\n<|id|>5<|page|>1<|box|>294 142 311 290<|content|>DATE: ... April 2022\n<|id|>6<|page|>1<|box|>319 140 357 857<|content|>RE: ... 0001 per share, of Lumos Analytics Inc\n<|id|>7<|page|>1<|box|>364 140 382 362<|content|>MATTER NO. ... 1008-00002\n<|id|>8<|page|>1<|box|>390 140 426 854<|content|>FIRM OFFICE: ... Calderwood & Harkness LLP, 1 Mark..., Spear Tower, Suite 3600, San Francisco, CA 94105\n<|id|>9<|page|>1<|box|>434 142 450 408<|content|>Right-click to update Table of Contents\n<|id|>34<|page|>4<|box|>784 140 895 856<|content|>A critical area of state securities regulation tha...hich it intends to offer or sell shares of Class A\n<|id|>35<|page|>5<|box|>90 140 164 854<|content|>Common Stock in connection with the Offering, unle...pplicable exemption) in each relevant jurisdiction\n<|id|>452<|page|>25<|box|>824 140 898 854<|content|>This preservation of antifraud authority is of con...he-waters communications (which commenced on April\n<|id|>453<|page|>26<|box|>90 140 164 857<|content|>18, 2022), marketing materials, and oral and writt...provisions of all applicable state securities laws\n<|id|>491<|page|>31<|box|>844 140 898 854<|content|>No state securities law issues particular to the C...the Nasdaq Global Select Market, regardless of the\n<|id|>492<|page|>32<|box|>90 140 164 854<|content|>Company's broader capital structure. ... To the ex...ation or qualification of the Class A Common Stock\n<|id|>522<|page|>38<|box|>160 176 176 818<|content|>CALDERWOOD & HARKNESS LLP 1 Market Street, Spear Tower, Suite 3600 San\n<|id|>523<|page|>38<|box|>178 192 196 803<|content|>Francisco, California 94105 Telephone: ... (415) 555-0101\n<|id|>526<|page|>38<|box|>255 174 292 854<|content|>Re: ... LMSA\n<|id|>525<|page|>38<|box|>229 140 248 699<|content|>[Name of State Securities Administrator] [Title] [Address] [City, State, ZIP]\n<|id|>527<|page|>38<|box|>300 142 318 285<|content|>Dear [Sir/Madam]: ... Dear [Sir/Madam]\n<|id|>532<|page|>38<|box|>588 210 643 854<|content|>2. ... and\n<|id|>534<|page|>38<|box|>681 140 737 854<|content|>Please do not hesitate to contact the undersigned ...ocumentation in connection with this notice filing\n<|id|>535<|page|>38<|box|>744 142 763 272<|content|>Very truly yours,\n<|id|>536<|page|>38<|box|>770 140 787 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>537<|page|>38<|box|>789 143 806 253<|content|>By: ... By\n<|id|>538<|page|>38<|box|>806 143 821 318<|content|>Brendan Walsh Partner\n<|id|>539<|page|>38<|box|>823 143 839 233<|content|>Enclosures\n<|id|>540<|page|>38<|box|>848 140 883 852<|content|>cc: ... David Lau, Chief Financial Officer, Lumos Analytics Inc",
+    "raw_response": "<|src_id|>34<|tgt_id|>35\n<|src_id|>452<|tgt_id|>453\n<|src_id|>491<|tgt_id|>492\n<|src_id|>522<|tgt_id|>523",
+    "parsed": [
+        {
+            "src_id": 34,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 452,
+            "tgt_id": 453
+        },
+        {
+            "src_id": 491,
+            "tgt_id": 492
+        },
+        {
+            "src_id": 522,
+            "tgt_id": 523
+        }
+    ]
+}

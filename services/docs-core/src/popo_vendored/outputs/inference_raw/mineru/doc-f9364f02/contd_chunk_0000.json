@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 279 133 717<|content|>One Liberty Plaza, 50th Floor New York, New York 10006\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 723 184 854<|content|>October 18, 2023\n<|id|>7<|page|>1<|box|>268 140 304 854<|content|>Markos Theodorakis, Esq. ... General Counsel Thala...ogistics SA 42 Akti Miaouli Piraeus 185 38, Greece\n<|id|>8<|page|>1<|box|>311 174 367 854<|content|>cc: ... Elena Papadimitriou, Chief Financial Officer, Thalassa Shipping & Logistics SA\n<|id|>9<|page|>1<|box|>375 140 429 857<|content|>Re: ... 655421/2023, Supreme Court of the State of New York, New York County, Commercial Division\n<|id|>10<|page|>1<|box|>436 142 454 313<|content|>Dear Mr. ... Theodorakis\n<|id|>101<|page|>8<|box|>849 176 883 854<|content|>1. ... All claim notifications, claims corresponde...ion exchanged with or received from Oceanus Mutual\n<|id|>102<|page|>9<|box|>90 210 126 854<|content|>Protection & Indemnity Club under Policy No. ... O...ntial liabilities involving the M/V Aegean Fortuna\n<|id|>113<|page|>9<|box|>849 174 904 854<|content|>Vessel Systems: ... All data maintained on or gene...ule data, Electronic Chart Display and Information\n<|id|>114<|page|>10<|box|>90 174 145 854<|content|>System (\"ECDIS\") records and voyage history, and A...written by routine cycling of the recording medium\n<|id|>121<|page|>10<|box|>633 176 669 854<|content|>1. ... Alexandros Stavridis, Chairman and Chief Executive Officer, Thalassa Shipping & Logistics SA\n<|id|>122<|page|>10<|box|>672 176 689 802<|content|>2. ... Elena Papadimitriou, Chief Financial Officer, Thalassa Shipping & Logistics SA\n<|id|>123<|page|>10<|box|>691 176 709 756<|content|>3. ... Markos Theodorakis, General Counsel, Thalassa Shipping & Logistics SA\n<|id|>124<|page|>10<|box|>710 176 729 676<|content|>4. ... Captain Nikolaos Giannopoulos, Master, M/V Aegean Fortuna\n<|id|>125<|page|>10<|box|>731 176 748 598<|content|>5. ... Petros Vlahos, Chief Engineer, M/V Aegean Fortuna\n<|id|>126<|page|>10<|box|>750 176 786 854<|content|>6. ... TSL's Technical Superintendent(s) responsib...r the M/V Aegean Fortuna during the charter period\n<|id|>127<|page|>10<|box|>789 176 842 854<|content|>7. ... All personnel in TSL's Commercial and Chart...d charter or any sub- charter involving the vessel\n<|id|>128<|page|>10<|box|>844 176 880 854<|content|>8. ... All personnel in TSL's Operations Departmen...e planning, voyage orders, or the Maputo deviation\n<|id|>130<|page|>11<|box|>146 140 275 857<|content|>Each of the above-identified custodians must be in...with the preservation obligations described herein\n<|id|>129<|page|>11<|box|>90 174 143 854<|content|>9. ... who had involvement with, or possesses docu... relating to, the matters described in this notice\n<|id|>156<|page|>13<|box|>646 212 664 640<|content|>Douglas Carmichael, Partner Telephone: ... (212) 506-7150\n<|id|>157<|page|>13<|box|>672 212 688 565<|content|>Email: ... com\n<|id|>158<|page|>13<|box|>689 212 705 676<|content|>Carlos Espinoza, Senior Associate Telephone: ... (212) 506-7283\n<|id|>159<|page|>13<|box|>715 210 731 547<|content|>Email: ... com\n<|id|>160<|page|>13<|box|>732 174 787 854<|content|>Please do not hesitate to reach out with any quest...iscard a document that later proves to be relevant\n<|id|>168<|page|>14<|box|>535 174 571 854<|content|>Douglas Carmichael Partner Calderwood & Harkness L...York, New York 10006 Telephone: ... (212) 506-7150\n<|id|>169<|page|>14<|box|>579 176 595 529<|content|>Email: ... com\n<|id|>170<|page|>14<|box|>597 174 632 854<|content|>Carlos Espinoza Senior Associate Calderwood & Hark...York, New York 10006 Telephone: ... (212) 506-7283\n<|id|>171<|page|>14<|box|>641 176 657 513<|content|>Email: ... com\n<|id|>172<|page|>14<|box|>657 140 750 854<|content|>We appreciate TSL's prompt attention to this criti...servation obligations fully and in a timely manner\n<|id|>174<|page|>14<|box|>820 142 837 272<|content|>Very truly yours,\n<|id|>175<|page|>14<|box|>845 140 861 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>176<|page|>14<|box|>864 143 880 253<|content|>By: ... By\n<|id|>177<|page|>14<|box|>880 142 897 354<|content|>Douglas Carmichael Partner\n<|id|>178<|page|>15<|box|>89 140 143 496<|content|>Telephone: ... None (this notice is self-contained)\n<|id|>179<|page|>15<|box|>148 140 165 236<|content|>cc (via email): ... cc (via email)",
+    "raw_response": "<|src_id|>101<|tgt_id|>102\n<|src_id|>113<|tgt_id|>114",
+    "parsed": [
+        {
+            "src_id": 101,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        }
+    ]
+}

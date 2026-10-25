@@ -1,0 +1,37 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        99,
+        101
+    ],
+    "pages": [
+        99,
+        100,
+        101
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>613<|page|>99<|box|>106 379 124 617<|content|>6.2 风险事件与风险筛查\n<|id|>615<|page|>100<|box|>178 346 204 645<|content|>7 风险估计与评价\n<|id|>616<|page|>100<|box|>238 419 256 578<|content|>7.1 风险估计\n<|id|>618<|page|>101<|box|>178 382 204 611<|content|>8 风险控制\n<|id|>619<|page|>101<|box|>238 419 256 578<|content|>8.1 风险对策",
+    "raw_response": "<|id|>613<|level|>2\n<|id|>615<|level|>1\n<|id|>616<|level|>2\n<|id|>618<|level|>1\n<|id|>619<|level|>2",
+    "parsed": [
+        {
+            "id": 613,
+            "level": 2
+        },
+        {
+            "id": 615,
+            "level": 1
+        },
+        {
+            "id": 616,
+            "level": 2
+        },
+        {
+            "id": 618,
+            "level": 1
+        },
+        {
+            "id": 619,
+            "level": 2
+        }
+    ]
+}

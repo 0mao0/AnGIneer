@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        10,
+        11,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>305 140 378 854<|content|>CC: ... Nicholas Ferreira, Associate, Calderwood & Harkness LLP (Houston)\n<|id|>6<|page|>1<|box|>385 140 402 326<|content|>DATE: ... October 1, 2022\n<|id|>7<|page|>1<|box|>412 140 448 854<|content|>RE: ... Summary of Ridgeline Advisory Group LLC Fo...C (Dubai, UAE) — Dunmore Trading International Ltd\n<|id|>8<|page|>1<|box|>455 140 473 362<|content|>MATTER NO. ... 1016-00009\n<|id|>9<|page|>1<|box|>481 140 500 557<|content|>RIDGELINE ENGAGEMENT NO. ... RAG-2022-0319\n<|id|>10<|page|>1<|box|>508 140 526 457<|content|>CLIENT: ... Dunmore Energy Holdings Ltd\n<|id|>50<|page|>5<|box|>853 174 907 856<|content|>(ii) Zenith Petroleum DMCC. ... Zenith\n<|id|>51<|page|>6<|box|>90 174 143 854<|content|>Petroleum was involved both as a direct counterpar...in connection with some Petronova-originated flows\n<|id|>92<|page|>10<|box|>833 140 907 857<|content|>Ridgeline conducted a systematic analysis of the p...modity payment,\" \"services fee,\" \"consulting fee —\n<|id|>93<|page|>11<|box|>89 140 127 854<|content|>Q3 2021,\" or \"logistics support,\" without identify...r, cargo reference, or specific commodity involved\n<|id|>118<|page|>13<|box|>872 140 909 856<|content|>However, Ridgeline identified an important excepti...... 2 million, were first routed through Petronova\n<|id|>119<|page|>14<|box|>90 140 236 856<|content|>Trading FZE's Crescent Bank account before being f...ction types involving Volkhov-connected activities",
+    "raw_response": "<|src_id|>50<|tgt_id|>51\n<|src_id|>92<|tgt_id|>93\n<|src_id|>118<|tgt_id|>119",
+    "parsed": [
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 93
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 119
+        }
+    ]
+}

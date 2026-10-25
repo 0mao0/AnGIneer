@@ -1,0 +1,239 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-962zdp_d\\input\\pdfs\\doc-076bce8b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-962zdp_d\\enriched\\doc-076bce8b.json",
+    "contd_output": "<|src_id|>61<|tgt_id|>62\n<|src_id|>91<|tgt_id|>92\n<|src_id|>174<|tgt_id|>175\n<|src_id|>187<|tgt_id|>188",
+    "title_output": "<|id|>7<|level|>1\n<|id|>8<|level|>2\n<|id|>31<|level|>2\n<|id|>48<|level|>2\n<|id|>57<|level|>2\n<|id|>63<|level|>1\n<|id|>64<|level|>2\n<|id|>78<|level|>2\n<|id|>88<|level|>1\n<|id|>93<|level|>1\n<|id|>95<|level|>2\n<|id|>97<|level|>2\n<|id|>109<|level|>2\n<|id|>112<|level|>2\n<|id|>115<|level|>2\n<|id|>127<|level|>2\n<|id|>130<|level|>2\n<|id|>135<|level|>1\n<|id|>137<|level|>2\n<|id|>142<|level|>2\n<|id|>153<|level|>2\n<|id|>155<|level|>2\n<|id|>165<|level|>2\n<|id|>179<|level|>2\n<|id|>185<|level|>2\n<|id|>189<|level|>2\n<|id|>194<|level|>1\n<|id|>213<|level|>1\n<|id|>214<|level|>2\n<|id|>217<|level|>1\n<|id|>218<|level|>2\n<|id|>224<|level|>1\n<|id|>225<|level|>2",
+    "image_output": "<|src_id|>89<|tgt_id|>88\n<|src_id|>216<|tgt_id|>214\n<|src_id|>220<|tgt_id|>218\n<|src_id|>221<|tgt_id|>218\n<|src_id|>222<|tgt_id|>218\n<|src_id|>227<|tgt_id|>225",
+    "contd_label": [
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 175
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 188
+        }
+    ],
+    "title_label": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 137,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 1
+        },
+        {
+            "id": 213,
+            "level": 1
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 1
+        },
+        {
+            "id": 218,
+            "level": 2
+        },
+        {
+            "id": 224,
+            "level": 1
+        },
+        {
+            "id": 225,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 89,
+            "tgt_id": 88
+        },
+        {
+            "src_id": 216,
+            "tgt_id": 214
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 218
+        },
+        {
+            "src_id": 221,
+            "tgt_id": 218
+        },
+        {
+            "src_id": 222,
+            "tgt_id": 218
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 225
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 220,
+            "table2_idx": 221,
+            "upper_row_ss": [
+                [
+                    "No.",
+                    "Pledging Grantor",
+                    "Issuer of Pledged",
+                    "Type of Interest",
+                    "% Pledged",
+                    "Certificated / Uncertificate",
+                    "Method of Perfection"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Equity",
+                    "",
+                    "",
+                    "d",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 221,
+            "table2_idx": 222,
+            "upper_row_ss": [
+                [
+                    "13",
+                    "Nexford",
+                    "Nexford",
+                    "Non-Voting",
+                    "100%",
+                    "Certificated",
+                    "Delivery /"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "International Holdings, Inc.",
+                    "Canada Holdings ULC",
+                    "Equity",
+                    "",
+                    "",
+                    "Control (UCC §§8-301, 9-313)"
+                ]
+            ]
+        }
+    ]
+}

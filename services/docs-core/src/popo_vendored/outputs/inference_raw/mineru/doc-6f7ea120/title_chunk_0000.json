@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT PRIVIL\n<|id|>1<|page|>1<|box|>127 230 143 854<|content|>CALDERWOOD & HARKNESS LLP 787 Seventh Avenue New Y\n<|id|>10<|page|>1<|box|>388 140 405 241<|content|>Dear Martin,\n<|id|>15<|page|>2<|box|>167 140 185 362<|content|>1. Background and Context\n<|id|>23<|page|>3<|box|>260 140 277 426<|content|>2. Scope of Respective Engagements\n<|id|>25<|page|>3<|box|>334 140 352 748<|content|>2.1 Calderwood & Harkness LLP — Independent Board\n<|id|>39<|page|>4<|box|>599 140 616 601<|content|>2.2 Ashworth Velmoran LLP — Standing Outside Couns\n<|id|>48<|page|>5<|box|>454 140 472 447<|content|>3. Areas Requiring Coordinated Effort\n<|id|>50<|page|>5<|box|>584 140 602 372<|content|>3.1 Proxy Statement Content\n<|id|>58<|page|>6<|box|>268 140 286 545<|content|>3.2 Corvus Peak Communications and Negotiations\n<|id|>62<|page|>6<|box|>667 140 685 400<|content|>3.3 Proxy Solicitor Coordination\n<|id|>66<|page|>7<|box|>176 140 193 500<|content|>3.4 DGCL § 220 Books-and-Records Demand\n<|id|>69<|page|>7<|box|>476 140 493 416<|content|>3.5 Executive Search Coordination\n<|id|>74<|page|>8<|box|>140 140 157 418<|content|>3.6 Potential Strategic Alternatives\n<|id|>78<|page|>8<|box|>476 140 492 367<|content|>4. Communication Protocols\n<|id|>80<|page|>8<|box|>551 140 566 380<|content|>4.1 Primary Points of Contact\n<|id|>90<|page|>9<|box|>90 140 107 336<|content|>4.2 Information Sharing\n<|id|>95<|page|>9<|box|>570 140 587 367<|content|>4.3 Joint Calls and Meetings\n<|id|>98<|page|>9<|box|>779 140 795 367<|content|>4.4 Written Correspondence\n<|id|>101<|page|>10<|box|>186 140 204 316<|content|>5. Conflict Avoidance\n<|id|>107<|page|>10<|box|>777 140 795 372<|content|>6. Billing and Cost Efficiency\n<|id|>112<|page|>11<|box|>419 140 436 284<|content|>7. Confidentiality\n<|id|>121<|page|>12<|box|>297 140 314 374<|content|>8. Duration and Modification",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>10<|level|>-1\n<|id|>15<|level|>1\n<|id|>23<|level|>1\n<|id|>25<|level|>2\n<|id|>39<|level|>2\n<|id|>48<|level|>1\n<|id|>50<|level|>2\n<|id|>58<|level|>2\n<|id|>62<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>2\n<|id|>78<|level|>1\n<|id|>80<|level|>2\n<|id|>90<|level|>2\n<|id|>95<|level|>2\n<|id|>98<|level|>2\n<|id|>101<|level|>1\n<|id|>107<|level|>1\n<|id|>112<|level|>1\n<|id|>121<|level|>1",
+    "parsed": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 1
+        }
+    ]
+}

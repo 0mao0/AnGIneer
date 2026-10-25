@@ -1,0 +1,50 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        15,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>127 413 143 583<|content|>JAMS MEDIATION\n<|id|>2<|type|>title<|page|>1<|box|>154 186 214 810<|content|>Reference No. 1440032871 CONFIDENTIAL MEDIATION PO\n<|id|>12<|type|>title<|page|>1<|box|>527 308 547 687<|content|>I. INTRODUCTION AND PURPOSE\n<|id|>18<|type|>title<|page|>2<|box|>479 315 500 681<|content|>II. BACKGROUND AND PARTIES\n<|id|>19<|type|>title<|page|>2<|box|>525 140 542 261<|content|>A. The Parties\n<|id|>25<|type|>title<|page|>3<|box|>311 140 329 313<|content|>B. The Joint Venture\n<|id|>30<|type|>title<|page|>3<|box|>785 140 803 433<|content|>C. Acquisition and Capital Structure\n<|id|>42<|type|>title<|page|>4<|box|>669 142 686 318<|content|>D. Hotel Performance\n<|id|>44<|type|>table<|page|>4<|box|>773 143 904 852<|content|>None\n<|id|>46<|type|>title<|page|>5<|box|>260 339 279 656<|content|>III. PROCEDURAL HISTORY\n<|id|>67<|type|>title<|page|>7<|box|>459 153 478 843<|content|>IV. SUMMARY OF PCG'S POSITION ON FAIR MARKET VALUE\n<|id|>69<|type|>title<|page|>7<|box|>684 140 700 485<|content|>A. The Whitfield Appraisal ($118.0 Million)\n<|id|>76<|type|>title<|page|>8<|box|>703 142 720 411<|content|>B. PCG's Buyout Price Derivation\n<|id|>78<|type|>table<|page|>8<|box|>771 143 898 852<|content|>None\n<|id|>79<|type|>table<|page|>9<|box|>88 145 109 852<|content|>None\n<|id|>82<|type|>title<|page|>9<|box|>356 140 373 552<|content|>C. Critique of the Beacon Appraisal ($151.5 Millio\n<|id|>91<|type|>table<|page|>11<|box|>132 143 282 852<|content|>None\n<|id|>93<|type|>title<|page|>11<|box|>376 140 393 483<|content|>D. The Linden Park Preliminary Indication\n<|id|>103<|type|>title<|page|>12<|box|>470 140 488 655<|content|>E. Implied Equity and Buyout Values at Various Ass\n<|id|>104<|type|>table<|page|>12<|box|>558 143 843 852<|content|>None\n<|id|>106<|type|>title<|page|>13<|box|>189 148 234 846<|content|>V. PCG'S POSITION ON THE BAD-FAITH PENALTY CLAIM (\n<|id|>107<|type|>title<|page|>13<|box|>258 140 275 377<|content|>A. The Contractual Standard\n<|id|>112<|type|>title<|page|>13<|box|>714 142 732 411<|content|>B. MSH's Claim Is Without Merit\n<|id|>121<|type|>title<|page|>15<|box|>90 140 107 575<|content|>C. MSH's Penalty Calculation Is Independently Flaw\n<|id|>125<|type|>title<|page|>15<|box|>431 179 477 816<|content|>VI. PCG'S POSITION ON THE DEFERRED MAINTENANCE CLA\n<|id|>133<|type|>title<|page|>17<|box|>90 181 135 813<|content|>VII. SETTLEMENT ANALYSIS AND PCG'S NEGOTIATING POS\n<|id|>134<|type|>title<|page|>17<|box|>159 142 176 491<|content|>A. Risks and Costs of Continued Arbitration\n<|id|>139<|type|>title<|page|>17<|box|>780 140 797 370<|content|>B. PCG's Settlement Posture\n<|id|>154<|type|>title<|page|>18<|box|>734 140 751 339<|content|>C. Benefits of Resolution\n<|id|>162<|type|>title<|page|>19<|box|>623 357 642 638<|content|>VIII. CONFIDENTIALITY\n<|id|>173<|type|>title<|page|>20<|box|>179 398 199 598<|content|>IX. CONCLUSION\n<|id|>179<|type|>title<|page|>20<|box|>675 367 691 630<|content|>RESPECTFULLY SUBMITTED\n<|id|>180<|type|>title<|page|>20<|box|>700 140 717 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>44<|tgt_id|>42\n<|src_id|>78<|tgt_id|>76\n<|src_id|>79<|tgt_id|>76\n<|src_id|>91<|tgt_id|>82\n<|src_id|>104<|tgt_id|>103",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 42
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 79,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 82
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 103
+        }
+    ]
+}

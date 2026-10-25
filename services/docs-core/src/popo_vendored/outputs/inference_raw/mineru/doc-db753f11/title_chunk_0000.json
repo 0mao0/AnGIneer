@@ -1,0 +1,40 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        3,
+        8
+    ],
+    "pages": [
+        3,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>15<|page|>3<|box|>85 164 101 287<|content|>CERTIFICATION\n<|id|>26<|page|>8<|box|>192 87 209 376<|content|>TRANSFER TAXES (Buyer's 50% Share)TRANSFER TAXES (\n<|id|>28<|page|>8<|box|>334 87 350 183<|content|>INSURANCE\n<|id|>30<|page|>8<|box|>405 87 423 423<|content|>LENDER CONSENT FEES (Buyer's 50% Share)\n<|id|>32<|page|>8<|box|>512 87 529 255<|content|>RECORDING & FILING\n<|id|>35<|page|>8<|box|>655 87 671 147<|content|>OTHER",
+    "raw_response": "<|id|>15<|level|>1\n<|id|>26<|level|>1\n<|id|>28<|level|>1\n<|id|>30<|level|>1\n<|id|>32<|level|>1\n<|id|>35<|level|>1",
+    "parsed": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        }
+    ]
+}

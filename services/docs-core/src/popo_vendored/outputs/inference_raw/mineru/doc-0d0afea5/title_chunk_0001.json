@@ -1,0 +1,49 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        52,
+        102
+    ],
+    "pages": [
+        53,
+        57,
+        61,
+        67,
+        95,
+        97,
+        101
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>97<|page|>53<|box|>72 423 93 602<|content|>COMPOSITION OF\n<|id|>102<|page|>57<|box|>148 129 198 880<|content|>PRINCIPAL HOLDERS OF DIRECT AND GUARANTEED GOVERNM\n<|id|>111<|page|>61<|box|>60 214 109 796<|content|>COMPARATIVE YIELDS OF AVERAGE OF ALL LONG TERM U.S\n<|id|>116<|page|>67<|box|>68 58 96 478<|content|>Governmental Corporations and Credit Agencies of t\n<|id|>148<|page|>95<|box|>58 671 87 888<|content|>Monetary Stocks of Gold and Silver\n<|id|>153<|page|>97<|box|>61 563 89 888<|content|>Silver of Specified Classifications Acquired by Mi\n<|id|>160<|page|>101<|box|>442 99 471 388<|content|>Indexes of Prices of 40 Foreign Currencies in New",
+    "raw_response": "<|id|>97<|level|>1\n<|id|>102<|level|>1\n<|id|>111<|level|>1\n<|id|>116<|level|>1\n<|id|>148<|level|>1\n<|id|>153<|level|>1\n<|id|>160<|level|>1",
+    "parsed": [
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 148,
+            "level": 1
+        },
+        {
+            "id": 153,
+            "level": 1
+        },
+        {
+            "id": 160,
+            "level": 1
+        }
+    ]
+}

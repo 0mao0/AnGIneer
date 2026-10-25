@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT PRIV\n<|id|>1<|page|>1<|box|>126 169 164 826<|content|>CALDERWOOD & HARKNESS LLP Antitrust & Competition\n<|id|>3<|page|>1<|box|>196 140 214 292<|content|>MEMORANDUM\n<|id|>11<|page|>1<|box|>604 352 625 643<|content|>I. EXECUTIVE SUMMARY\n<|id|>20<|page|>2<|box|>715 313 734 683<|content|>II. WITNESS PROFFER SESSIONS\n<|id|>21<|page|>2<|box|>761 142 777 544<|content|>A. Sandra Chu — Proffer Session (March 10, 2023)\n<|id|>32<|page|>4<|box|>469 140 487 565<|content|>B. Thomas Eriksen — Proffer Session (April 22, 202\n<|id|>43<|page|>5<|box|>821 140 838 488<|content|>C. Overall Witness Cooperation Assessment\n<|id|>46<|page|>6<|box|>398 187 443 808<|content|>III. SECOND GRAND JURY SUBPOENA — RECEIPT AND COMP\n<|id|>47<|page|>6<|box|>468 142 484 333<|content|>A. Receipt and Analysis\n<|id|>57<|page|>7<|box|>453 142 469 455<|content|>B. Document Collection and Production\n<|id|>70<|page|>8<|box|>396 140 412 300<|content|>C. Privilege Review\n<|id|>75<|page|>9<|box|>90 163 136 833<|content|>IV. ENGAGEMENT OF MERIDIAN COMPLIANCE PARTNERS LLC\n<|id|>91<|page|>10<|box|>494 194 537 800<|content|>V. DOJ INVESTIGATION STATUS AND COOPERATION DIALOG\n<|id|>92<|page|>10<|box|>563 140 580 442<|content|>Current Status of TMC's Cooperation\n<|id|>95<|page|>10<|box|>839 142 856 276<|content|>DOJ Disposition\n<|id|>97<|page|>11<|box|>241 140 258 434<|content|>Status of Co-Targets and Cooperator\n<|id|>102<|page|>11<|box|>575 140 592 349<|content|>Joint Defense Agreements\n<|id|>104<|page|>11<|box|>755 207 773 789<|content|>VI. INTERNAL INVESTIGATION — STATUS UPDATE\n<|id|>110<|page|>12<|box|>390 140 407 366<|content|>Updated Economic Analysis\n<|id|>115<|page|>13<|box|>90 241 109 754<|content|>VII. FINANCIAL AND DISCLOSURE MATTERS\n<|id|>116<|page|>13<|box|>136 140 154 313<|content|>A. Litigation Reserve\n<|id|>121<|page|>13<|box|>647 140 664 364<|content|>B. Professional Fees Update\n<|id|>131<|page|>14<|box|>579 142 595 295<|content|>C. D&O Insurance\n<|id|>138<|page|>15<|box|>284 294 303 700<|content|>VIII. STAFFING AND TEAM UPDATE\n<|id|>142<|page|>15<|box|>801 153 821 843<|content|>IX. ANTICIPATED Q3 2023 DEVELOPMENTS AND NEXT STEP\n<|id|>151<|page|>16<|box|>820 254 840 741<|content|>X. CONCLUSION AND RECOMMENDATION",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>3<|level|>1\n<|id|>11<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>32<|level|>3\n<|id|>43<|level|>3\n<|id|>46<|level|>2\n<|id|>47<|level|>3\n<|id|>57<|level|>3\n<|id|>70<|level|>3\n<|id|>75<|level|>2\n<|id|>91<|level|>2\n<|id|>92<|level|>3\n<|id|>95<|level|>3\n<|id|>97<|level|>3\n<|id|>102<|level|>3\n<|id|>104<|level|>2\n<|id|>110<|level|>3\n<|id|>115<|level|>2\n<|id|>116<|level|>3\n<|id|>121<|level|>3\n<|id|>131<|level|>3\n<|id|>138<|level|>2\n<|id|>142<|level|>2\n<|id|>151<|level|>2",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        }
+    ]
+}

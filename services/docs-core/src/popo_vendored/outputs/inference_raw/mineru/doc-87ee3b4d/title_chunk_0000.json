@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>165 200 232 797<|content|>RESOLUTIONS OF THE SUPERVISORY BOARD (*AUFSICHTSRA\n<|id|>7<|page|>1<|box|>368 142 385 406<|content|>I. PREAMBLE AND RECITALS\n<|id|>33<|page|>5<|box|>566 140 584 303<|content|>II. RESOLUTIONS\n<|id|>34<|page|>5<|box|>599 140 616 545<|content|>Resolution 1: Approval of the Proposed Acquisition\n<|id|>42<|page|>6<|box|>382 140 417 854<|content|>Resolution 2: Authorization of the Vorstand to Neg\n<|id|>49<|page|>7<|box|>476 142 494 529<|content|>Resolution 3: Authorization of Regulatory Filings\n<|id|>57<|page|>8<|box|>502 140 518 547<|content|>Resolution 4: Financial Parameters and Limitations\n<|id|>65<|page|>9<|box|>675 140 693 640<|content|>Resolution 5: Designation of Sole Director of Merg\n<|id|>68<|page|>10<|box|>176 140 193 429<|content|>Resolution 6: General Authorization\n<|id|>78<|page|>11<|box|>167 140 184 542<|content|>III. CERTIFICATION AND AUTHENTICATION\n<|id|>81<|page|>11<|box|>428 140 460 854<|content|>HALCYON SEMICONDUCTOR AKTIENGESELLSCHAFT SUPERVISO\n<|id|>88<|page|>11<|box|>621 140 638 454<|content|>IV. EXHIBITS AND ATTACHMENTS\n<|id|>96<|page|>12<|box|>426 388 443 607<|content|>[END OF RESOLUTIONS]",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>7<|level|>2\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>42<|level|>3\n<|id|>49<|level|>3\n<|id|>57<|level|>3\n<|id|>65<|level|>3\n<|id|>68<|level|>3\n<|id|>78<|level|>2\n<|id|>81<|level|>-1\n<|id|>88<|level|>2\n<|id|>96<|level|>-1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        }
+    ]
+}

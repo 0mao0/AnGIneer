@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>367 140 383 264<|content|>Dear Nathaniel:\n<|id|>9<|type|>title<|page|>1<|box|>734 140 752 428<|content|>1. Satisfaction of Closing Conditions\n<|id|>10<|type|>title<|page|>1<|box|>765 142 782 477<|content|>1.1 Lender Consents — Change of Control\n<|id|>18<|type|>title<|page|>2<|box|>781 142 799 395<|content|>1.2 Seller's Closing Deliverables\n<|id|>29<|type|>title<|page|>4<|box|>157 142 175 398<|content|>1.3 Buyer's Closing Deliverables\n<|id|>35<|type|>title<|page|>4<|box|>554 143 571 305<|content|>1.4 Title and Survey\n<|id|>43<|type|>title<|page|>5<|box|>319 143 337 310<|content|>1.5 Tenant Estoppels\n<|id|>47<|type|>title<|page|>5<|box|>834 143 849 349<|content|>1.7 Escrow Arrangements\n<|id|>59<|type|>title<|page|>7<|box|>90 142 107 334<|content|>1.9 Transfer Tax Filings\n<|id|>61<|type|>table<|page|>7<|box|>155 143 287 852<|content|>None\n<|id|>63<|type|>title<|page|>7<|box|>407 142 424 424<|content|>1.10 Transition Services Agreement\n<|id|>65<|type|>title<|page|>7<|box|>655 140 672 383<|content|>2. Closing Financial Summary\n<|id|>66<|type|>table<|page|>7<|box|>704 143 781 852<|content|>None\n<|id|>73<|type|>table<|page|>8<|box|>172 143 263 852<|content|>None\n<|id|>79<|type|>title<|page|>8<|box|>570 140 587 357<|content|>3. Post-Closing Obligations\n<|id|>91<|type|>title<|page|>10<|box|>90 140 107 549<|content|>4. Survival Periods and Indemnification Limitation\n<|id|>93<|type|>table<|page|>10<|box|>159 143 290 852<|content|>None\n<|id|>95<|type|>title<|page|>10<|box|>383 140 400 351<|content|>5. Local Counsel Opinions\n<|id|>114<|type|>title<|page|>11<|box|>676 349 693 647<|content|>ACKNOWLEDGED AND AGREED:",
+    "raw_response": "<|src_id|>61<|tgt_id|>59\n<|src_id|>66<|tgt_id|>65\n<|src_id|>73<|tgt_id|>65\n<|src_id|>93<|tgt_id|>91",
+    "parsed": [
+        {
+            "src_id": 61,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 66,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 65
+        },
+        {
+            "src_id": 93,
+            "tgt_id": 91
+        }
+    ]
+}

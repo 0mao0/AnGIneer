@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 245 176 753<|content|>Delivered Pursuant to Section 6(e) of the Block Trade Agreement\n<|id|>2<|page|>1<|box|>185 434 202 563<|content|>March 16, 2026\n<|id|>3<|page|>1<|box|>210 140 228 243<|content|>Delivered to: ... Delivered to\n<|id|>4<|page|>1<|box|>237 174 253 790<|content|>Meridian Zanthor & Co. ... 399 Park Avenue, 22nd Floor New York, New York 10022\n<|id|>5<|page|>1<|box|>263 176 279 589<|content|>Attention: ... Equity Capital Markets — Block Trade Desk\n<|id|>6<|page|>1<|box|>280 140 372 856<|content|>Reference: ... , a New York limited partnership (t... England and Wales (the \"Company\" or the \"Issuer\")\n<|id|>31<|page|>3<|box|>839 174 895 856<|content|>(e) Following the completion of the Offering, the ...ning available for issuance under the Registration\n<|id|>32<|page|>4<|box|>89 174 164 856<|content|>Statement immediately prior to the Offering, less ...ering and any applicable SEC interpretive guidance\n<|id|>56<|page|>6<|box|>787 143 801 316<|content|>Name: ... Marcus Halford\n<|id|>57<|page|>6<|box|>804 143 819 366<|content|>Title: ... Chief Executive Officer\n<|id|>58<|page|>6<|box|>821 143 837 308<|content|>Date: ... March 16, 2026\n<|id|>59<|page|>6<|box|>839 143 854 253<|content|>By: ... By\n<|id|>60<|page|>6<|box|>856 143 871 316<|content|>Name: ... Elena Marchetti\n<|id|>61<|page|>6<|box|>872 143 888 361<|content|>Title: ... Chief Financial Officer\n<|id|>62<|page|>6<|box|>890 143 905 308<|content|>Date: ... March 16, 2026",
+    "raw_response": "<|src_id|>31<|tgt_id|>32",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        }
+    ]
+}

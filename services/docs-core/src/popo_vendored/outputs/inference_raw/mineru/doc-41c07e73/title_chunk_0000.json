@@ -1,0 +1,122 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 362 106 633<|content|>POST-CLOSING CERTIFICATE\n<|id|>1<|page|>1<|box|>114 163 151 833<|content|>DELIVERY OF RECORDED MORTGAGES AND LENDER'S TITLE\n<|id|>7<|page|>1<|box|>498 142 513 230<|content|>1. Recitals\n<|id|>15<|page|>2<|box|>458 142 474 465<|content|>2. Identification of Mortgaged Properties\n<|id|>20<|page|>3<|box|>407 140 424 539<|content|>3. Certification of Delivery of Recorded Mortgages\n<|id|>22<|page|>3<|box|>647 140 665 558<|content|>3.1 Mortgage — Schaumburg, Illinois (Cook County)\n<|id|>30<|page|>4<|box|>157 140 175 580<|content|>3.2 Mortgage — Rockford, Illinois (Winnebago Count\n<|id|>38<|page|>4<|box|>496 140 513 642<|content|>3.3 Mortgage — Greenville, South Carolina (Greenvi\n<|id|>46<|page|>4<|box|>834 140 849 557<|content|>3.4 Deed of Trust — Houston, Texas (Harris County)\n<|id|>57<|page|>5<|box|>558 140 575 630<|content|>4. Certification of Delivery of Lender's Title Ins\n<|id|>59<|page|>5<|box|>705 140 724 452<|content|>4.1 Title Policy — Schaumburg, Illinois\n<|id|>68<|page|>6<|box|>356 140 373 426<|content|>4.2 Title Policy — Rockford, Illinois\n<|id|>77<|page|>6<|box|>792 142 809 496<|content|>4.3 Title Policy — Greenville, South Carolina\n<|id|>87<|page|>7<|box|>407 140 424 411<|content|>4.4 Title Policy — Houston, Texas\n<|id|>97<|page|>8<|box|>148 140 167 359<|content|>5. Additional Certifications\n<|id|>98<|page|>8<|box|>180 140 196 406<|content|>5.1 Confirmation of Lien Priority\n<|id|>106<|page|>8<|box|>756 140 773 473<|content|>5.2 Confirmation of Flood Determinations\n<|id|>114<|page|>9<|box|>715 140 733 478<|content|>5.3 Confirmation of Insurance Compliance\n<|id|>121<|page|>10<|box|>327 140 343 261<|content|>5.4 No Default\n<|id|>123<|page|>10<|box|>527 140 545 473<|content|>5.5 Satisfaction of Post-Closing Obligation\n<|id|>128<|page|>10<|box|>770 183 786 496<|content|>• Date of this Certificate: April 29, 2025\n<|id|>130<|page|>11<|box|>90 142 107 330<|content|>6. Enclosures / Exhibits\n<|id|>141<|page|>12<|box|>90 142 107 243<|content|>7. Signature\n<|id|>143<|page|>12<|box|>160 142 176 671<|content|>NEXFORD INDUSTRIAL HOLDINGS INC. a Delaware corpor\n<|id|>156<|page|>12<|box|>414 140 431 537<|content|>8. Acknowledgment of Receipt by Collateral Agent\n<|id|>158<|page|>12<|box|>539 140 556 575<|content|>CRESCENT HARBOR BANK, N.A. as Collateral Agent\n<|id|>166<|page|>12<|box|>699 142 715 261<|content|>9. Distribution",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>15<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>3\n<|id|>30<|level|>3\n<|id|>38<|level|>3\n<|id|>46<|level|>3\n<|id|>57<|level|>2\n<|id|>59<|level|>3\n<|id|>68<|level|>3\n<|id|>77<|level|>3\n<|id|>87<|level|>3\n<|id|>97<|level|>2\n<|id|>98<|level|>3\n<|id|>106<|level|>3\n<|id|>114<|level|>3\n<|id|>121<|level|>3\n<|id|>123<|level|>3\n<|id|>128<|level|>-1\n<|id|>130<|level|>2\n<|id|>141<|level|>2\n<|id|>143<|level|>-1\n<|id|>156<|level|>2\n<|id|>158<|level|>-1\n<|id|>166<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        14,
+        15,
+        16,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>152 158 189 839<|content|>1301 K Street NW, Suite 1200 Washington, DC 20005 Telephone: ... com\n<|id|>3<|page|>1<|box|>198 733 214 854<|content|>March 15, 2025\n<|id|>157<|page|>14<|box|>868 140 904 854<|content|>Equity Forfeitures — Rathore. ... Under the terms ...yment Agreement and CRH's 2020 Long-Term Incentive\n<|id|>158<|page|>15<|box|>89 140 255 856<|content|>Plan, the $725,000 RSU grant vests in four equal a...e, for a total Rathore equity recovery of $362,500\n<|id|>165<|page|>15<|box|>854 140 909 856<|content|>Rathore Non-Competition Covenant. ... (1) home goods, (2)\n<|id|>166<|page|>16<|box|>90 140 218 856<|content|>seasonal décor, and (3) private-label apparel. ...... that a court would further narrow the restriction\n<|id|>267<|page|>24<|box|>617 142 633 320<|content|>Respectfully submitted,\n<|id|>268<|page|>24<|box|>633 142 650 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>269<|page|>24<|box|>652 143 667 251<|content|>By: ... By\n<|id|>270<|page|>24<|box|>669 142 684 339<|content|>Bernard Crawford Partner\n<|id|>271<|page|>24<|box|>685 140 717 854<|content|>1301 K Street NW, Suite 1200 Washington, DC 20005 Telephone: ... (202) 555-8417\n<|id|>272<|page|>24<|box|>719 142 734 473<|content|>Email: ... com\n<|id|>273<|page|>24<|box|>734 140 825 854<|content|>PRIVILEGED AND CONFIDENTIAL This memorandum consti... memorandum or its contents is strictly prohibited",
+    "raw_response": "<|src_id|>157<|tgt_id|>158\n<|src_id|>165<|tgt_id|>166",
+    "parsed": [
+        {
+            "src_id": 157,
+            "tgt_id": 158
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 166
+        }
+    ]
+}

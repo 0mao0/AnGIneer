@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 319<|content|>【7867433#11】北方好莱坞\n<|id|>2<|page|>1<|box|>191 107 208 310<|content|>【6558165#2】加拿大電影\n<|id|>4<|page|>1<|box|>292 107 309 275<|content|>【6502989#1】配镜师\n<|id|>6<|page|>1<|box|>394 107 409 310<|content|>【6558165#0】加拿大電影\n<|id|>8<|page|>1<|box|>476 107 493 327<|content|>【3391291#0】种树的牧羊人\n<|id|>10<|page|>1<|box|>544 107 560 310<|content|>【6558165#5】加拿大電影\n<|id|>12<|page|>1<|box|>645 107 661 354<|content|>【156557#2】多倫多國際電影節\n<|id|>14<|page|>1<|box|>711 107 727 292<|content|>【1787790#0】空气板牙\n<|id|>16<|page|>1<|box|>812 107 828 310<|content|>【6558165#1】加拿大電影\n<|id|>19<|page|>2<|box|>99 105 116 354<|content|>【24837#12】皮克斯动画工作室",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>19<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Cascade Ridge SLG Holdings, LLC', '84-3195472', 'Delaware', 'Limited Liability Company', '200 Clarendon Boulevard, 38th Floor, Boston,', 'DE File No. 7289451', 'Pinnacle Corporate Services, Inc., 1209 Orange', 'None']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'MA 02116', '', 'Street, Wilmington, DE 19801', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 349,
+    "table2_idx": 350
+}

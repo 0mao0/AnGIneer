@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        9,
+        10,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 140 133 578<|content|>555 California Street, 42nd Floor San Francisco, CA 94104\n<|id|>2<|page|>1<|box|>141 140 159 349<|content|>Intellectual Property Group\n<|id|>3<|page|>1<|box|>167 140 185 542<|content|>Telephone: ... (415) 555-7201\n<|id|>4<|page|>1<|box|>193 704 210 854<|content|>September 15, 2023\n<|id|>5<|page|>1<|box|>219 140 236 330<|content|>Via Email and U. ... Mail\n<|id|>6<|page|>1<|box|>244 140 281 854<|content|>Marcus Whitfield, Esq. ... 4710 Ridgeview Parkway, Suite 300 Santa Clara, CA 95054\n<|id|>7<|page|>1<|box|>289 174 325 854<|content|>Re: ... Optiwave Semiconductor Corp\n<|id|>89<|page|>9<|box|>784 174 876 857<|content|>a. ... deadlines and\n<|id|>90<|page|>10<|box|>90 176 127 854<|content|>180 days' advance notice for foreign deadlines. ..... 2023, and a copy is maintained in the matter file\n<|id|>129<|page|>15<|box|>89 140 108 274<|content|>Very truly yours,\n<|id|>130<|page|>15<|box|>114 140 132 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>131<|page|>15<|box|>133 142 150 254<|content|>By: ... By\n<|id|>132<|page|>15<|box|>148 140 184 852<|content|>Catherine Bloom Partner, intellectual Property Group USPTO Reg. ... (415) 555-7218\n<|id|>133<|page|>15<|box|>184 140 200 457<|content|>Email: ... com\n<|id|>134<|page|>15<|box|>200 140 256 854<|content|>cc: ... Alan Ngo, Billing Partner, Calderwood & Ha...liev, Working Associate, Calderwood & Harkness LLP\n<|id|>135<|page|>15<|box|>263 140 299 854<|content|>Enclosure: ... Master Docket Summary — OWS Patent ...ations with current status and upcoming deadlines)",
+    "raw_response": "<|src_id|>89<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        }
+    ]
+}

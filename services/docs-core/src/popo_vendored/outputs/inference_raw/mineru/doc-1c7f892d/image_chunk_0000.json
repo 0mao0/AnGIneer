@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|type|>title<|page|>1<|box|>515 140 532 364<|content|>I. Introduction and Purpose\n<|id|>20<|type|>title<|page|>2<|box|>250 140 265 413<|content|>II. Overview of Hearing Structure\n<|id|>21<|type|>table<|page|>2<|box|>297 143 547 852<|content|>None\n<|id|>24<|type|>title<|page|>3<|box|>90 140 107 434<|content|>III. Summary of Opening Statements\n<|id|>25<|type|>title<|page|>3<|box|>121 140 138 560<|content|>A. Claimant's Opening (Dr. Maximilian Haber, HRS)\n<|id|>29<|type|>table<|page|>3<|box|>484 143 612 852<|content|>None\n<|id|>31<|type|>title<|page|>3<|box|>732 142 750 560<|content|>B. Respondent's Opening (Theodore Langston, C&H)\n<|id|>42<|type|>title<|page|>5<|box|>148 140 167 462<|content|>IV. Summary of Fact Witness Testimony\n<|id|>44<|type|>title<|page|>5<|box|>243 140 260 375<|content|>A. Claimant's Fact Witnesses\n<|id|>62<|type|>title<|page|>7<|box|>700 140 718 393<|content|>B. Respondent's Fact Witnesses\n<|id|>77<|type|>title<|page|>10<|box|>204 140 222 475<|content|>V. Summary of Expert Witness Testimony\n<|id|>78<|type|>title<|page|>10<|box|>234 142 253 428<|content|>A. Metallurgical / Technical Experts\n<|id|>94<|type|>title<|page|>12<|box|>330 140 348 305<|content|>B. Damages Experts\n<|id|>110<|type|>title<|page|>14<|box|>566 140 584 457<|content|>VI. Tribunal's Apparent Areas of Focus\n<|id|>118<|type|>title<|page|>15<|box|>784 140 801 490<|content|>VII. Overall Assessment of Likely Outcomes\n<|id|>120<|type|>title<|page|>16<|box|>90 140 107 299<|content|>A. Kestrel's Claims\n<|id|>127<|type|>title<|page|>17<|box|>175 140 193 410<|content|>B. WAL's Counterclaim (€5.17M)\n<|id|>133<|type|>title<|page|>18<|box|>90 142 107 274<|content|>VIII. Next Steps\n<|id|>134<|type|>title<|page|>18<|box|>121 140 138 325<|content|>A. Post-Hearing Briefs\n<|id|>144<|type|>title<|page|>18<|box|>750 142 765 333<|content|>B. Anticipated Timeline\n<|id|>146<|type|>table<|page|>18<|box|>796 143 853 852<|content|>None\n<|id|>148<|type|>title<|page|>19<|box|>194 142 210 323<|content|>C. Coordination Items\n<|id|>154<|type|>title<|page|>19<|box|>508 142 525 236<|content|>IX. Closing",
+    "raw_response": "<|src_id|>21<|tgt_id|>20\n<|src_id|>29<|tgt_id|>25\n<|src_id|>146<|tgt_id|>144",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 144
+        }
+    ]
+}

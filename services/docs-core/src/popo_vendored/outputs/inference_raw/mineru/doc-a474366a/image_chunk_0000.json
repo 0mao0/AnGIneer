@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>6<|type|>title<|page|>1<|box|>330 142 348 367<|content|>1. Introduction and Purpose\n<|id|>8<|type|>title<|page|>1<|box|>561 140 579 354<|content|>2. Scope of Representation\n<|id|>27<|type|>title<|page|>3<|box|>90 140 107 343<|content|>3. Identification of Client\n<|id|>31<|type|>title<|page|>3<|box|>465 140 482 312<|content|>4. Engagement Team\n<|id|>33<|type|>table<|page|>3<|box|>515 143 729 852<|content|>None\n<|id|>37<|type|>title<|page|>4<|box|>250 140 266 303<|content|>5. Fee Arrangement\n<|id|>44<|type|>title<|page|>5<|box|>285 140 301 321<|content|>6. Conflicts of Interest\n<|id|>48<|type|>title<|page|>5<|box|>696 142 714 284<|content|>7. Confidentiality\n<|id|>55<|type|>title<|page|>6<|box|>292 140 310 326<|content|>8. Document Retention\n<|id|>58<|type|>title<|page|>6<|box|>569 140 585 264<|content|>9. Termination\n<|id|>62<|type|>title<|page|>7<|box|>90 142 107 349<|content|>10. Limitation of Liability\n<|id|>65<|type|>title<|page|>7<|box|>348 142 364 400<|content|>11. Governing Law; Jurisdiction\n<|id|>68<|type|>title<|page|>7<|box|>588 142 604 406<|content|>12. Acceptance and Counterparts\n<|id|>73<|type|>title<|page|>8<|box|>160 212 176 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>80<|type|>title<|page|>8<|box|>289 142 306 380<|content|>AGREED AND ACCEPTED:",
+    "raw_response": "<|src_id|>33<|tgt_id|>31",
+    "parsed": [
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 163 118 833<|content|>PART II — INFORMATION NOT REQUIRED IN PROSPECTUS\n<|id|>2<|page|>1<|box|>324 140 340 560<|content|>Item 13. Other Expenses of Issuance and Distributi\n<|id|>9<|page|>2<|box|>488 140 503 535<|content|>Item 14. Indemnification of Directors and Officers\n<|id|>23<|page|>5<|box|>186 140 204 517<|content|>Item 15. Recent Sales of Unregistered Securities\n<|id|>31<|page|>6<|box|>513 140 529 553<|content|>Item 16. Exhibits and Financial Statement Schedule\n<|id|>37<|page|>8<|box|>367 210 410 787<|content|>Indicates a management contract or compensatory pl\n<|id|>38<|page|>8<|box|>426 142 443 411<|content|>(b) Financial Statement Schedules\n<|id|>43<|page|>9<|box|>382 142 398 321<|content|>Item 17. Undertakings\n<|id|>59<|page|>10<|box|>751 140 768 233<|content|>Signatures\n<|id|>65<|page|>11<|box|>90 140 107 290<|content|>Power of Attorney",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>9<|level|>2\n<|id|>23<|level|>2\n<|id|>31<|level|>2\n<|id|>37<|level|>-1\n<|id|>38<|level|>3\n<|id|>43<|level|>2\n<|id|>59<|level|>2\n<|id|>65<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        }
+    ]
+}

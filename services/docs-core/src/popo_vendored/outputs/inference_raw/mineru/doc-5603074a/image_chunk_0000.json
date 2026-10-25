@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 236 169 759<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>1<|type|>table<|page|>1<|box|>210 143 402 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>527 142 545 308<|content|>I. INTRODUCTION\n<|id|>9<|type|>title<|page|>2<|box|>148 140 166 436<|content|>II. PROCEDURAL BACKGROUND\n<|id|>17<|type|>title<|page|>3<|box|>167 140 184 532<|content|>III. STATUS OF SETTLEMENT DISCUSSIONS\n<|id|>22<|type|>title<|page|>3<|box|>678 140 695 558<|content|>IV. STATUS OF PRESERVATION OBLIGATIONS\n<|id|>25<|type|>title<|page|>4<|box|>148 140 166 442<|content|>V. REQUEST TO CONTINUE STAY\n<|id|>30<|type|>title<|page|>4<|box|>587 140 604 653<|content|>VI. CONFIRMATION THAT ALL RIGHTS ARE PRESERVED\n<|id|>38<|type|>title<|page|>5<|box|>204 140 220 352<|content|>VII. PROPOSED ORDER\n<|id|>41<|type|>title<|page|>5<|box|>428 367 444 630<|content|>RESPECTFULLY SUBMITTED\n<|id|>42<|type|>title<|page|>5<|box|>454 424 470 573<|content|>December 16, 2022\n<|id|>43<|type|>title<|page|>5<|box|>513 142 530 511<|content|>FOR PLAINTIFF ESTUARY FOUNDATION:\n<|id|>49<|type|>title<|page|>5<|box|>676 143 693 687<|content|>FOR DEFENDANT THE WHITFIELD-GARNER FAMILY TRUST:\n<|id|>55<|type|>title<|page|>5<|box|>830 285 881 712<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>56<|type|>title<|page|>5<|box|>891 238 907 759<|content|>THE HONORABLE PATRICIA R. WAINWRIGHT, PRESIDING\n<|id|>58<|type|>table<|page|>6<|box|>122 143 296 852<|content|>None",
+    "raw_response": "<|src_id|>1<|tgt_id|>0\n<|src_id|>58<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 58,
+            "tgt_id": 55
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 333 118 663<|content|>SECRETARY'S CERTIFICATE\n<|id|>2<|type|>title<|page|>1<|box|>175 246 195 751<|content|>MERIDIAN SURGICAL TECHNOLOGIES, INC.\n<|id|>3<|type|>title<|page|>1<|box|>213 160 247 836<|content|>Delivered Pursuant to Section 8.2(d) of the Stock\n<|id|>6<|type|>title<|page|>1<|box|>452 140 469 684<|content|>1. CERTIFYING OFFICER IDENTIFICATION AND AUTHORITY\n<|id|>10<|type|>title<|page|>2<|box|>89 140 106 638<|content|>2. CERTIFICATION OF ORGANIZATIONAL DOCUMENTS\n<|id|>11<|type|>title<|page|>2<|box|>121 140 138 390<|content|>2.1 Certificate of Incorporation\n<|id|>16<|type|>title<|page|>2<|box|>667 140 685 547<|content|>3. CERTIFICATION OF BOARD RESOLUTIONS\n<|id|>17<|type|>title<|page|>2<|box|>699 140 717 488<|content|>3.1 Resolutions Authorizing the Transaction\n<|id|>37<|type|>title<|page|>4<|box|>627 140 643 426<|content|>3.2 No Further Approvals Required\n<|id|>39<|type|>title<|page|>5<|box|>89 140 106 598<|content|>4. CERTIFICATION OF INCUMBENCY OF OFFICERS\n<|id|>41<|type|>table<|page|>5<|box|>231 143 323 852<|content|>None\n<|id|>43<|type|>title<|page|>5<|box|>489 140 505 503<|content|>5. CERTIFICATION OF GOOD STANDING\n<|id|>46<|type|>title<|page|>5<|box|>728 140 744 746<|content|>6. CERTIFICATION REGARDING NO DISSOLUTION OR INSOL\n<|id|>52<|type|>title<|page|>6<|box|>292 140 309 594<|content|>7. CERTIFICATION REGARDING CAPITALIZATION\n<|id|>58<|type|>title<|page|>7<|box|>89 140 106 450<|content|>8. ATTESTATION AND SIGNATURE\n<|id|>65<|type|>title<|page|>7<|box|>267 142 284 410<|content|>9. COUNTER-CERTIFICATION\n<|id|>72<|type|>title<|page|>8<|box|>87 446 108 553<|content|>EXHIBIT A\n<|id|>73<|type|>title<|page|>8<|box|>114 155 133 841<|content|>Certificate of Incorporation of Meridian Surgical\n<|id|>75<|type|>title<|page|>9<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>78<|type|>title<|page|>10<|box|>88 446 107 550<|content|>EXHIBIT C\n<|id|>81<|type|>title<|page|>11<|box|>89 439 107 558<|content|>EXHIBIT D-1\n<|id|>82<|type|>title<|page|>11<|box|>114 313 133 684<|content|>Certificate of Good Standing State of Delaware\n<|id|>84<|type|>title<|page|>12<|box|>89 439 107 558<|content|>EXHIBIT D-2",
+    "raw_response": "<|src_id|>41<|tgt_id|>39",
+    "parsed": [
+        {
+            "src_id": 41,
+            "tgt_id": 39
+        }
+    ]
+}

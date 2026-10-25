@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        47,
+        60
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>863<|type|>title<|page|>47<|box|>193 223 220 823<|content|>附录 B 等比制( \\varphi 值标准)粒级分类表\n<|id|>864<|type|>table<|page|>47<|box|>260 137 844 907<|content|>None\n<|id|>865<|type|>title<|page|>48<|box|>159 228 186 721<|content|>附录 C 沉积物粒度三角分类图\n<|id|>867<|type|>image<|page|>48<|box|>245 282 492 675<|content|>None\n<|id|>869<|type|>image<|page|>48<|box|>539 252 777 710<|content|>None\n<|id|>871<|type|>title<|page|>49<|box|>195 329 223 717<|content|>附录 D 本规程用词说明\n<|id|>877<|type|>title<|page|>50<|box|>156 369 184 586<|content|>引用标准名录\n<|id|>884<|type|>title<|page|>51<|box|>195 208 257 833<|content|>本规程主编单位、参编单位、主要起草人、主要审查人、总校人员和管理组人员名单\n<|id|>898<|type|>title<|page|>53<|box|>185 332 207 628<|content|>中华人民共和国行业标准\n<|id|>899<|type|>title<|page|>53<|box|>244 159 273 800<|content|>水运工程泥沙基本特性试验技术操作规程\n<|id|>902<|type|>title<|page|>54<|box|>157 408 184 547<|content|>目 次\n<|id|>904<|type|>title<|page|>55<|box|>157 304 185 645<|content|>4 泥沙物理特性试验\n<|id|>905<|type|>title<|page|>55<|box|>218 396 236 557<|content|>4.4 颗粒级配\n<|id|>920<|type|>title<|page|>56<|box|>124 438 141 600<|content|>4.5 矿物分析\n<|id|>923<|type|>title<|page|>57<|box|>157 307 184 648<|content|>5 泥沙水力特性试验\n<|id|>924<|type|>title<|page|>57<|box|>216 396 233 559<|content|>5.2 起动试验\n<|id|>927<|type|>image<|page|>57<|box|>372 339 574 616<|content|>None\n<|id|>930<|type|>title<|page|>57<|box|>799 386 817 569<|content|>5.3 泥沙沉降试验\n<|id|>932<|type|>title<|page|>58<|box|>123 403 140 645<|content|>5.5 冲刷率及输沙率试验\n<|id|>935<|type|>title<|page|>58<|box|>274 443 292 605<|content|>5.6 挟沙力试验\n<|id|>937<|type|>title<|page|>59<|box|>157 304 184 643<|content|>6 泥沙流变特性试验\n<|id|>938<|type|>title<|page|>59<|box|>216 394 233 556<|content|>6.1 一般规定\n<|id|>940<|type|>title<|page|>59<|box|>324 344 342 606<|content|>6.2 泥沙静态流变特性试验\n<|id|>942<|type|>title<|page|>60<|box|>194 280 220 761<|content|>7 泥沙颗粒表面物质含量试验\n<|id|>943<|type|>title<|page|>60<|box|>252 421 271 621<|content|>7.2 易溶盐含量测定\n<|id|>946<|type|>title<|page|>60<|box|>383 421 400 621<|content|>7.3 有机质含量测定",
+    "raw_response": "<|src_id|>864<|tgt_id|>863\n<|src_id|>867<|tgt_id|>865\n<|src_id|>869<|tgt_id|>865\n<|src_id|>927<|tgt_id|>924",
+    "parsed": [
+        {
+            "src_id": 864,
+            "tgt_id": 863
+        },
+        {
+            "src_id": 867,
+            "tgt_id": 865
+        },
+        {
+            "src_id": 869,
+            "tgt_id": 865
+        },
+        {
+            "src_id": 927,
+            "tgt_id": 924
+        }
+    ]
+}

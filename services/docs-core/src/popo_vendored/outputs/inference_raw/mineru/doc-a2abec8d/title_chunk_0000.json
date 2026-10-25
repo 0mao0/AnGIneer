@@ -1,0 +1,164 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>2<|page|>1<|box|>172 143 186 290<|content|>MEMORANDUM\n<|id|>5<|page|>1<|box|>491 387 510 611<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>407 287 426 709<|content|>II. Case Background (Standing Summary)\n<|id|>25<|page|>3<|box|>587 310 607 686<|content|>III. Activity During Reporting Period\n<|id|>26<|page|>3<|box|>632 142 648 764<|content|>A. Filing of Answer, Affirmative Defenses, and Cou\n<|id|>35<|page|>4<|box|>289 142 306 328<|content|>2. Affirmative Defenses\n<|id|>51<|page|>5<|box|>419 140 436 480<|content|>3. Counterclaim for Declaratory Judgment\n<|id|>58<|page|>6<|box|>90 140 107 578<|content|>B. Vantor's Answer to Counterclaim (January 27, 20\n<|id|>63<|page|>6<|box|>398 140 417 424<|content|>C. Prior Pleading History (Context)\n<|id|>72<|page|>7<|box|>344 318 364 678<|content|>IV. Upcoming Events and Deadlines\n<|id|>73<|page|>7<|box|>388 140 407 542<|content|>A. Initial Pretrial Conference — February 10, 2023\n<|id|>82<|page|>8<|box|>304 140 321 320<|content|>B. Discovery Planning\n<|id|>84<|page|>8<|box|>378 142 396 508<|content|>1. Interrogatories and Requests for Production\n<|id|>93<|page|>8<|box|>821 142 837 349<|content|>2. Requests for Admission\n<|id|>100<|page|>9<|box|>273 140 289 423<|content|>3. Document Collection and Review\n<|id|>109<|page|>9<|box|>696 140 713 370<|content|>4. Stonefield Document Hold\n<|id|>117<|page|>10<|box|>157 140 174 295<|content|>5. Privilege Review\n<|id|>120<|page|>10<|box|>412 140 430 436<|content|>C. Deposition Planning (Preliminary)\n<|id|>122<|page|>10<|box|>520 142 537 429<|content|>Anticipated Vantor/VTS Deponents:\n<|id|>127<|page|>10<|box|>789 142 806 679<|content|>Anticipated Stonefield Deponents (expected to be n\n<|id|>132<|page|>11<|box|>316 140 334 326<|content|>D. Expert Engagement\n<|id|>141<|page|>12<|box|>90 351 111 645<|content|>V. Budget and Billing Update\n<|id|>153<|page|>13<|box|>136 300 155 694<|content|>VI. Insurance and Lender Notifications\n<|id|>154<|page|>13<|box|>181 140 198 326<|content|>A. Insurance Coverage\n<|id|>157<|page|>13<|box|>529 140 547 323<|content|>B. Lender Notification\n<|id|>165<|page|>14<|box|>90 343 109 653<|content|>VII. Settlement and Resolution\n<|id|>176<|page|>14<|box|>785 321 804 676<|content|>VIII. Key Risks and Considerations\n<|id|>178<|page|>15<|box|>90 140 107 501<|content|>A. The Kirkwood Email (September 22, 2021)\n<|id|>186<|page|>15<|box|>825 140 842 361<|content|>B. Rate Adjustment Motive\n<|id|>194<|page|>16<|box|>566 140 584 444<|content|>C. Liquidated Damages Enforceability\n<|id|>202<|page|>17<|box|>261 140 277 465<|content|>D. Vantor's Volume Shortfall Allegations\n<|id|>206<|page|>17<|box|>695 336 714 660<|content|>IX. Action Items and Next Steps\n<|id|>215<|page|>18<|box|>342 424 362 571<|content|>X. Conclusion",
+    "raw_response": "<|id|>2<|level|>1\n<|id|>5<|level|>2\n<|id|>14<|level|>2\n<|id|>25<|level|>2\n<|id|>26<|level|>3\n<|id|>35<|level|>4\n<|id|>51<|level|>4\n<|id|>58<|level|>3\n<|id|>63<|level|>3\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>82<|level|>3\n<|id|>84<|level|>4\n<|id|>93<|level|>4\n<|id|>100<|level|>4\n<|id|>109<|level|>4\n<|id|>117<|level|>4\n<|id|>120<|level|>3\n<|id|>122<|level|>4\n<|id|>127<|level|>4\n<|id|>132<|level|>3\n<|id|>141<|level|>2\n<|id|>153<|level|>2\n<|id|>154<|level|>3\n<|id|>157<|level|>3\n<|id|>165<|level|>2\n<|id|>176<|level|>2\n<|id|>178<|level|>3\n<|id|>186<|level|>3\n<|id|>194<|level|>3\n<|id|>202<|level|>3\n<|id|>206<|level|>2\n<|id|>215<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 4
+        },
+        {
+            "id": 93,
+            "level": 4
+        },
+        {
+            "id": 100,
+            "level": 4
+        },
+        {
+            "id": 109,
+            "level": 4
+        },
+        {
+            "id": 117,
+            "level": 4
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 4
+        },
+        {
+            "id": 127,
+            "level": 4
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 202,
+            "level": 3
+        },
+        {
+            "id": 206,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 2
+        }
+    ]
+}

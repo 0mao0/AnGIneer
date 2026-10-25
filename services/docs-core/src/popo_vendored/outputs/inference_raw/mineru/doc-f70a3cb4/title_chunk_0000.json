@@ -1,0 +1,137 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 181 125 815<|content|>UNITED STATES DISTRICT COURT FOR THE EASTERN DISTR\n<|id|>2<|page|>1<|box|>503 233 521 763<|content|>JOINT MOTION FOR ENTRY OF DOCKET CONTROL ORDER\n<|id|>3<|page|>1<|box|>580 142 595 308<|content|>I. INTRODUCTION\n<|id|>10<|page|>2<|box|>611 140 628 372<|content|>II. NATURE OF THE CASE\n<|id|>17<|page|>4<|box|>89 140 107 627<|content|>III. PROPOSED DOCKET CONTROL ORDER SCHEDULE\n<|id|>19<|page|>4<|box|>184 140 200 537<|content|>A. Patent Local Rules Disclosures and Contentions\n<|id|>23<|page|>6<|box|>90 142 107 462<|content|>B. Claim Construction Briefing Schedule\n<|id|>28<|page|>7<|box|>157 142 174 282<|content|>C. Fact discovery\n<|id|>35<|page|>8<|box|>556 142 574 300<|content|>D. Expert discovery\n<|id|>47<|page|>10<|box|>176 142 193 321<|content|>E. Dispositive Motions\n<|id|>51<|page|>10<|box|>573 142 589 300<|content|>F. Daubert Motions\n<|id|>55<|page|>11<|box|>90 142 106 321<|content|>G. Pre-Trial and Trial\n<|id|>58<|page|>11<|box|>684 142 700 604<|content|>IV. ADDITIONAL CASE MANAGEMENT PROVISIONS\n<|id|>59<|page|>11<|box|>715 142 732 419<|content|>A. Supplementation of Contentions\n<|id|>61<|page|>12<|box|>90 140 106 300<|content|>B. Protective Order\n<|id|>63<|page|>12<|box|>327 140 344 325<|content|>C. Inter Partes Review\n<|id|>65<|page|>12<|box|>565 140 582 290<|content|>D. Privilege Issues\n<|id|>67<|page|>13<|box|>90 140 108 475<|content|>E. Depositions Completed and Anticipated\n<|id|>78<|page|>13<|box|>633 140 650 346<|content|>F. Document Productions\n<|id|>80<|page|>14<|box|>89 140 106 437<|content|>V. STATEMENT OF GOOD CAUSE\n<|id|>89<|page|>15<|box|>89 140 106 367<|content|>VI. PRAYER FOR RELIEF\n<|id|>91<|page|>15<|box|>193 140 210 470<|content|>VII. CERTIFICATE OF CONFERENCE\n<|id|>95<|page|>15<|box|>369 140 386 625<|content|>FOR PLAINTIFF OPTIWAVE SEMICONDUCTOR CORP.:\n<|id|>96<|page|>15<|box|>395 140 412 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>99<|page|>15<|box|>838 142 854 611<|content|>FOR DEFENDANT LUMICORE TECHNOLOGIES, INC.:\n<|id|>100<|page|>15<|box|>864 142 880 442<|content|>HAWTHORNE VEGA & CRUZ LLP\n<|id|>116<|page|>16<|box|>491 142 508 387<|content|>CERTIFICATE OF SERVICE\n<|id|>119<|page|>16<|box|>659 316 703 679<|content|>EXHIBIT A [PROPOSED] DOCKET CONTROL ORDER\n<|id|>120<|page|>16<|box|>744 181 777 815<|content|>UNITED STATES DISTRICT COURT FOR THE EASTERN DISTR\n<|id|>123<|page|>17<|box|>375 318 391 679<|content|>[PROPOSED] DOCKET CONTROL ORDER\n<|id|>145<|page|>18<|box|>792 142 809 388<|content|>ADDITIONAL PROVISIONS:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>19<|level|>3\n<|id|>23<|level|>3\n<|id|>28<|level|>3\n<|id|>35<|level|>3\n<|id|>47<|level|>3\n<|id|>51<|level|>3\n<|id|>55<|level|>3\n<|id|>58<|level|>2\n<|id|>59<|level|>3\n<|id|>61<|level|>3\n<|id|>63<|level|>3\n<|id|>65<|level|>3\n<|id|>67<|level|>3\n<|id|>78<|level|>3\n<|id|>80<|level|>2\n<|id|>89<|level|>2\n<|id|>91<|level|>2\n<|id|>95<|level|>-1\n<|id|>96<|level|>-1\n<|id|>99<|level|>-1\n<|id|>100<|level|>-1\n<|id|>116<|level|>2\n<|id|>119<|level|>2\n<|id|>120<|level|>1\n<|id|>123<|level|>1\n<|id|>145<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 2
+        }
+    ]
+}

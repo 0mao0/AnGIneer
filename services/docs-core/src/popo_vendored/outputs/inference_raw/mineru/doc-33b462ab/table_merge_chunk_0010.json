@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Category 12 — Tax', '12.1–12.15 (litigation-related items)', 'Tax audits, examinations, and disputes; IRS and state correspondence;', 'VDR Folder 12.0', 'Substantially complete; coordinated with Sylvia Hartwell (Tax); IRS']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'transfer pricing documentation; ASC 740 reserves; auditor communications re: tax contingencies', '', 'examination correspondence produced (Items 12.3–12.5); CA FTB correspondence produced (Item 12.7)']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 377,
+    "table2_idx": 378
+}

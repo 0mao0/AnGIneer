@@ -1,0 +1,463 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-iemefrjo\\input\\pdfs\\doc-984f3c12.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-iemefrjo\\enriched\\doc-984f3c12.json",
+    "contd_output": "<|src_id|>24<|tgt_id|>25\n<|src_id|>154<|tgt_id|>155\n<|src_id|>206<|tgt_id|>207",
+    "title_output": "<|id|>0<|level|>1\n<|id|>10<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>17<|level|>3\n<|id|>21<|level|>3\n<|id|>29<|level|>1\n<|id|>30<|level|>2\n<|id|>34<|level|>2\n<|id|>38<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>64<|level|>2\n<|id|>71<|level|>2\n<|id|>77<|level|>2\n<|id|>84<|level|>2\n<|id|>93<|level|>1\n<|id|>95<|level|>2\n<|id|>97<|level|>3\n<|id|>99<|level|>3\n<|id|>101<|level|>3\n<|id|>113<|level|>3\n<|id|>116<|level|>3\n<|id|>123<|level|>3\n<|id|>126<|level|>3\n<|id|>135<|level|>3\n<|id|>138<|level|>3\n<|id|>144<|level|>2\n<|id|>146<|level|>3\n<|id|>148<|level|>3\n<|id|>150<|level|>3\n<|id|>153<|level|>3\n<|id|>156<|level|>2\n<|id|>158<|level|>3\n<|id|>165<|level|>3\n<|id|>174<|level|>1\n<|id|>175<|level|>2\n<|id|>178<|level|>2\n<|id|>182<|level|>3\n<|id|>185<|level|>3\n<|id|>191<|level|>2\n<|id|>192<|level|>3\n<|id|>201<|level|>3\n<|id|>203<|level|>2\n<|id|>204<|level|>3\n<|id|>213<|level|>3\n<|id|>215<|level|>2\n<|id|>216<|level|>3\n<|id|>225<|level|>3\n<|id|>227<|level|>2\n<|id|>228<|level|>3\n<|id|>244<|level|>3\n<|id|>250<|level|>1\n<|id|>252<|level|>2\n<|id|>257<|level|>2\n<|id|>261<|level|>2\n<|id|>265<|level|>2\n<|id|>272<|level|>2\n<|id|>276<|level|>2\n<|id|>302<|level|>2\n<|id|>306<|level|>1\n<|id|>307<|level|>2\n<|id|>318<|level|>2\n<|id|>329<|level|>2\n<|id|>333<|level|>1\n<|id|>335<|level|>2\n<|id|>336<|level|>3\n<|id|>339<|level|>3\n<|id|>342<|level|>3\n<|id|>345<|level|>3\n<|id|>347<|level|>2\n<|id|>353<|level|>1\n<|id|>357<|level|>1\n<|id|>376<|level|>1",
+    "image_output": "<|src_id|>112<|tgt_id|>101\n<|src_id|>273<|tgt_id|>272\n<|src_id|>315<|tgt_id|>307\n<|src_id|>316<|tgt_id|>307\n<|src_id|>317<|tgt_id|>307\n<|src_id|>327<|tgt_id|>318\n<|src_id|>328<|tgt_id|>318\n<|src_id|>331<|tgt_id|>329\n<|src_id|>354<|tgt_id|>353\n<|src_id|>355<|tgt_id|>353\n<|src_id|>379<|tgt_id|>376\n<|src_id|>380<|tgt_id|>376",
+    "contd_label": [
+        {
+            "src_id": 24,
+            "tgt_id": 25
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 207
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 3
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 3
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 203,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 213,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 2
+        },
+        {
+            "id": 216,
+            "level": 3
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 227,
+            "level": 2
+        },
+        {
+            "id": 228,
+            "level": 3
+        },
+        {
+            "id": 244,
+            "level": 3
+        },
+        {
+            "id": 250,
+            "level": 1
+        },
+        {
+            "id": 252,
+            "level": 2
+        },
+        {
+            "id": 257,
+            "level": 2
+        },
+        {
+            "id": 261,
+            "level": 2
+        },
+        {
+            "id": 265,
+            "level": 2
+        },
+        {
+            "id": 272,
+            "level": 2
+        },
+        {
+            "id": 276,
+            "level": 2
+        },
+        {
+            "id": 302,
+            "level": 2
+        },
+        {
+            "id": 306,
+            "level": 1
+        },
+        {
+            "id": 307,
+            "level": 2
+        },
+        {
+            "id": 318,
+            "level": 2
+        },
+        {
+            "id": 329,
+            "level": 2
+        },
+        {
+            "id": 333,
+            "level": 1
+        },
+        {
+            "id": 335,
+            "level": 2
+        },
+        {
+            "id": 336,
+            "level": 3
+        },
+        {
+            "id": 339,
+            "level": 3
+        },
+        {
+            "id": 342,
+            "level": 3
+        },
+        {
+            "id": 345,
+            "level": 3
+        },
+        {
+            "id": 347,
+            "level": 2
+        },
+        {
+            "id": 353,
+            "level": 1
+        },
+        {
+            "id": 357,
+            "level": 1
+        },
+        {
+            "id": 376,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 112,
+            "tgt_id": 101
+        },
+        {
+            "src_id": 273,
+            "tgt_id": 272
+        },
+        {
+            "src_id": 315,
+            "tgt_id": 307
+        },
+        {
+            "src_id": 316,
+            "tgt_id": 307
+        },
+        {
+            "src_id": 317,
+            "tgt_id": 307
+        },
+        {
+            "src_id": 327,
+            "tgt_id": 318
+        },
+        {
+            "src_id": 328,
+            "tgt_id": 318
+        },
+        {
+            "src_id": 331,
+            "tgt_id": 329
+        },
+        {
+            "src_id": 354,
+            "tgt_id": 353
+        },
+        {
+            "src_id": 355,
+            "tgt_id": 353
+        },
+        {
+            "src_id": 379,
+            "tgt_id": 376
+        },
+        {
+            "src_id": 380,
+            "tgt_id": 376
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 315,
+            "table2_idx": 316,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "ALTA 4 — Condominium",
+                    "Not applicable to this Property; confirm with CSTIC that no"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "condominium declaration affects the Property"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 316,
+            "table2_idx": 317,
+            "upper_row_ss": [
+                [
+                    "12",
+                    "Insured Closing Protection Letter (CPL)",
+                    "A letter issued by CSTIC providing protection to the insured in the event of loss arising from the fraud,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "dishonesty, or negligence of the title agent (Palmetto Title) in connection with the closing"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 327,
+            "table2_idx": 328,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "ALTA 28 — Easement — Damage or Enforced Removal",
+                    "Insures the lender against losses from easement-related damage or"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "enforced removal of improvements"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 379,
+            "table2_idx": 380,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "Standard/General",
+                    "N/A (pre-printed)",
+                    "Objectionable —",
+                    "Delete upon receipt"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Pre-Printed Exceptions",
+                    "",
+                    "Request Deletion",
+                    "of survey, affidavit, and tax certificate"
+                ]
+            ]
+        }
+    ]
+}

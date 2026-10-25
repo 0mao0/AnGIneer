@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Total Caribbean', '', '', '', '', '', '', '', '', '', '', '', '', '', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Country', 'rowspan=2, Total purchases(1)', 'colspan=2, Domestic securities', 'colspan=2, Corporate and other', 'colspan=2, Foreign securities', 'rowspan=2, Total sales(8)', 'colspan=2, Domestic securities', 'colspan=2, Corporate and other', 'colspan=2, Foreign securities']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 409,
+    "table2_idx": 410
+}

@@ -1,0 +1,57 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        51,
+        58
+    ],
+    "pages": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        58
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>534<|type|>title<|page|>51<|box|>90 142 107 668<|content|>Appendix D — PBI Regulatory Expenditure Summary (2\n<|id|>535<|type|>table<|page|>51<|box|>157 143 351 852<|content|>None\n<|id|>537<|type|>title<|page|>52<|box|>90 142 107 648<|content|>Appendix E — Non-Americas Country Market List (68\n<|id|>539<|type|>table<|page|>52<|box|>184 143 623 852<|content|>None\n<|id|>540<|type|>table<|page|>52<|box|>680 143 905 852<|content|>None\n<|id|>541<|type|>table<|page|>53<|box|>88 143 142 852<|content|>None\n<|id|>542<|type|>title<|page|>54<|box|>90 140 107 669<|content|>Appendix F — Key Product Revenue — Non-Americas (2\n<|id|>544<|type|>table<|page|>54<|box|>157 143 332 852<|content|>None\n<|id|>546<|type|>title<|page|>55<|box|>90 142 107 573<|content|>Appendix G — PBI Key Financial Metrics (2017–2020)\n<|id|>547<|type|>table<|page|>55<|box|>157 143 196 852<|content|>None\n<|id|>548<|type|>table<|page|>55<|box|>255 143 462 852<|content|>None\n<|id|>551<|type|>title<|page|>56<|box|>90 142 107 596<|content|>Appendix H — Intercompany Agreement Summary Table\n<|id|>552<|type|>table<|page|>56<|box|>159 143 864 852<|content|>None\n<|id|>554<|type|>title<|page|>58<|box|>90 142 107 601<|content|>Appendix I — List of PBI Employee Interviews Condu\n<|id|>556<|type|>table<|page|>58<|box|>196 143 708 852<|content|>None",
+    "raw_response": "<|src_id|>535<|tgt_id|>534\n<|src_id|>539<|tgt_id|>537\n<|src_id|>540<|tgt_id|>537\n<|src_id|>541<|tgt_id|>537\n<|src_id|>544<|tgt_id|>542\n<|src_id|>547<|tgt_id|>546\n<|src_id|>548<|tgt_id|>546\n<|src_id|>552<|tgt_id|>551\n<|src_id|>556<|tgt_id|>554",
+    "parsed": [
+        {
+            "src_id": 535,
+            "tgt_id": 534
+        },
+        {
+            "src_id": 539,
+            "tgt_id": 537
+        },
+        {
+            "src_id": 540,
+            "tgt_id": 537
+        },
+        {
+            "src_id": 541,
+            "tgt_id": 537
+        },
+        {
+            "src_id": 544,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 547,
+            "tgt_id": 546
+        },
+        {
+            "src_id": 548,
+            "tgt_id": 546
+        },
+        {
+            "src_id": 552,
+            "tgt_id": 551
+        },
+        {
+            "src_id": 556,
+            "tgt_id": 554
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>85 85 102 784<|content|>Item No. Category Document /DescriptioResponsiblDu\n<|id|>2<|page|>1<|box|>137 164 155 468<|content|>I.TRANSACTION AGREEMENTS\n<|id|>6<|page|>1<|box|>227 164 243 608<|content|>II.OPINIONS AND NEGATIVE ASSURANCE LETTERS\n<|id|>10<|page|>1<|box|>317 164 332 594<|content|>III.CERTIFICATES AND CORPORATE DOCUMENTS\n<|id|>15<|page|>1<|box|>424 164 439 433<|content|>IV.AUDITOR DELIVERABLES\n<|id|>18<|page|>1<|box|>495 164 511 561<|content|>V.TRUSTEE / PAYING AGENT DELIVERABLES\n<|id|>22<|page|>1<|box|>583 164 600 485<|content|>VI.DTC AND SECURITIES MATTERS\n<|id|>25<|page|>1<|box|>655 164 671 552<|content|>VII.FUNDS FLOW AND FINANCIAL MATTERS\n<|id|>29<|page|>1<|box|>744 164 760 512<|content|>VIII.INITIAL PURCHASER DELIVERABLES\n<|id|>32<|page|>1<|box|>816 166 831 376<|content|>IX.RATING AGENCY\n<|id|>34<|page|>1<|box|>869 164 884 379<|content|>X.MISCELLANEOUS\n<|id|>44<|page|>10<|box|>85 87 102 374<|content|>Expense CPayee / VeEstimated Notes",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>6<|level|>2\n<|id|>10<|level|>2\n<|id|>15<|level|>2\n<|id|>18<|level|>2\n<|id|>22<|level|>2\n<|id|>25<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>34<|level|>2\n<|id|>44<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        }
+    ]
+}

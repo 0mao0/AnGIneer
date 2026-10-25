@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>7<|page|>1<|box|>345 140 361 352<|content|>Dear Vice Chancellor Zhao:\n<|id|>10<|page|>1<|box|>657 142 674 446<|content|>I. Background and Procedural History\n<|id|>20<|page|>2<|box|>681 140 699 534<|content|>II. Settlement Negotiations and Mediation Process\n<|id|>24<|page|>3<|box|>250 140 265 452<|content|>III. Summary of Key Settlement Terms\n<|id|>26<|page|>3<|box|>343 140 359 415<|content|>A. Modified Restrictive Covenants\n<|id|>33<|page|>4<|box|>138 140 156 395<|content|>B. Data Return and Destruction\n<|id|>36<|page|>4<|box|>421 142 438 303<|content|>C. Monetary Terms\n<|id|>42<|page|>4<|box|>762 143 779 331<|content|>D. Compliance Monitor\n<|id|>45<|page|>5<|box|>176 140 193 387<|content|>E. Mutual Non-Disparagement\n<|id|>47<|page|>5<|box|>332 142 349 338<|content|>IV. Enclosed Documents\n<|id|>57<|page|>5<|box|>726 140 743 555<|content|>V. Request for Entry of the Proposed Consent Order\n<|id|>61<|page|>6<|box|>267 140 284 326<|content|>VI. Companion Filings\n<|id|>65<|page|>6<|box|>551 140 566 470<|content|>VII. Confirmation of Unanimous Consent\n<|id|>67<|page|>6<|box|>744 140 762 251<|content|>VIII. Closing\n<|id|>72<|page|>7<|box|>178 140 194 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>89<|page|>7<|box|>616 143 631 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>-1\n<|id|>10<|level|>2\n<|id|>20<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>3\n<|id|>33<|level|>3\n<|id|>36<|level|>3\n<|id|>42<|level|>3\n<|id|>45<|level|>3\n<|id|>47<|level|>2\n<|id|>57<|level|>2\n<|id|>61<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2\n<|id|>72<|level|>1\n<|id|>89<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 2
+        }
+    ]
+}

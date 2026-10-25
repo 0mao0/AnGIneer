@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 295 118 700<|content|>OFFICER'S CLOSING CERTIFICATE\n<|id|>7<|type|>title<|page|>1<|box|>479 142 494 418<|content|>1. Representations and Warranties\n<|id|>10<|type|>title<|page|>2<|box|>148 142 167 251<|content|>2. No Default\n<|id|>12<|type|>title<|page|>2<|box|>289 140 306 380<|content|>3. No Material Adverse Effect\n<|id|>15<|type|>title<|page|>2<|box|>547 140 564 413<|content|>4. Financial Covenant Compliance\n<|id|>17<|type|>title<|page|>2<|box|>659 140 676 437<|content|>(a) Minimum Liquidity (Section 9.01)\n<|id|>20<|type|>table<|page|>2<|box|>787 143 893 852<|content|>None\n<|id|>22<|type|>title<|page|>3<|box|>209 140 227 517<|content|>(b) Maximum Net Leverage Ratio (Section 9.02)\n<|id|>25<|type|>table<|page|>3<|box|>338 143 525 852<|content|>None\n<|id|>27<|type|>title<|page|>3<|box|>645 140 662 591<|content|>(c) Minimum Fixed Charge Coverage Ratio (Section 9\n<|id|>30<|type|>table<|page|>3<|box|>773 145 893 852<|content|>None\n<|id|>31<|type|>table<|page|>4<|box|>89 143 232 852<|content|>None\n<|id|>33<|type|>title<|page|>4<|box|>361 140 378 236<|content|>5. Solvency\n<|id|>39<|type|>title<|page|>4<|box|>734 140 750 341<|content|>6. No Material Litigation",
+    "raw_response": "<|src_id|>20<|tgt_id|>17\n<|src_id|>25<|tgt_id|>22\n<|src_id|>30<|tgt_id|>27\n<|src_id|>31<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 17
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 27
+        }
+    ]
+}

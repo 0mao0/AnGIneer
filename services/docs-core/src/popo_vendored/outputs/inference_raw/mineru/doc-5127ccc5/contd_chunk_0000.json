@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 251 133 745<|content|>2029 Century Park East, Suite 3300 Los Angeles, California 90067\n<|id|>2<|page|>1<|box|>142 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 715 184 854<|content|>December 1, 2025\n<|id|>4<|page|>1<|box|>194 140 210 447<|content|>VIA Sundial Data Systems AND EMAIL\n<|id|>5<|page|>1<|box|>219 140 253 854<|content|>Dr. ... Priya Chandrasekaran Department of Economi...y 4500 University Drive Pasadena, California 91107\n<|id|>6<|page|>1<|box|>263 174 316 856<|content|>Re: ... 24-cr-00583-CMD, United States District Court for the Central District of California\n<|id|>7<|page|>1<|box|>325 142 343 338<|content|>Dear Dr. ... Chandrasekaran\n<|id|>51<|page|>6<|box|>486 176 503 547<|content|>(b) the Defendant's Sentencing Memorandum; ... and\n<|id|>53<|page|>6<|box|>537 140 630 854<|content|>The report must be completed no later than January...ou anticipate any difficulty meeting this deadline\n<|id|>79<|page|>8<|box|>833 140 907 857<|content|>In the event you are contacted by any government r...ntion by the defense, you shall immediately notify\n<|id|>80<|page|>9<|box|>90 140 145 854<|content|>Lisa Morrow or Conrad Ashby and shall not provide ...hone, email, letter, in-person visit, or otherwise\n<|id|>91<|page|>9<|box|>789 174 843 854<|content|>(e) Any of the identified victims, including Brind...ssion, or any of the individual investors; ... and\n<|id|>93<|page|>10<|box|>89 140 164 856<|content|>You shall promptly notify Calderwood & Harkness LL...ived as impairing your independence or objectivity\n<|id|>106<|page|>11<|box|>157 140 191 854<|content|>Lisa Morrow Lead Associate, Banking & Finance Cald...es, California 90067 Telephone: ... (310) 556-8214\n<|id|>107<|page|>11<|box|>193 140 209 464<|content|>Email: ... com\n<|id|>108<|page|>11<|box|>210 176 228 284<|content|>Approved by: ... Approved by",
+    "raw_response": "<|src_id|>79<|tgt_id|>80",
+    "parsed": [
+        {
+            "src_id": 79,
+            "tgt_id": 80
+        }
+    ]
+}

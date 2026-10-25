@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        51
+    ],
+    "pages": [
+        45,
+        46,
+        48,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>383<|type|>table<|page|>45<|box|>90 143 901 852<|content|>None\n<|id|>384<|type|>table<|page|>46<|box|>89 143 772 852<|content|>None\n<|id|>385<|type|>title<|page|>46<|box|>806 142 824 230<|content|>Summary:\n<|id|>390<|type|>title<|page|>48<|box|>90 267 111 730<|content|>Appendix B — Notification Deadline Calendar\n<|id|>391<|type|>table<|page|>48<|box|>172 143 724 852<|content|>None\n<|id|>392<|type|>title<|page|>49<|box|>90 181 111 815<|content|>Appendix C — Data Elements Mapping to Statutory De\n<|id|>393<|type|>table<|page|>49<|box|>190 143 900 852<|content|>None\n<|id|>394<|type|>table<|page|>50<|box|>89 143 902 852<|content|>None\n<|id|>395<|type|>table<|page|>51<|box|>89 143 199 852<|content|>None\n<|id|>397<|type|>title<|page|>51<|box|>386 143 421 852<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT PRIVIL",
+    "raw_response": "<|src_id|>391<|tgt_id|>390\n<|src_id|>393<|tgt_id|>392\n<|src_id|>394<|tgt_id|>392\n<|src_id|>395<|tgt_id|>392",
+    "parsed": [
+        {
+            "src_id": 391,
+            "tgt_id": 390
+        },
+        {
+            "src_id": 393,
+            "tgt_id": 392
+        },
+        {
+            "src_id": 394,
+            "tgt_id": 392
+        },
+        {
+            "src_id": 395,
+            "tgt_id": 392
+        }
+    ]
+}

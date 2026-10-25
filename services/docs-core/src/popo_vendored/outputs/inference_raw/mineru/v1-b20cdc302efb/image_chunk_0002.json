@@ -1,0 +1,64 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        100,
+        115
+    ],
+    "pages": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        109,
+        110,
+        111,
+        112,
+        113,
+        115
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1015<|type|>title<|page|>100<|box|>60 65 73 515<|content|>REPORT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTING\n<|id|>1017<|type|>title<|page|>100<|box|>99 65 112 400<|content|>Opinion on Internal Control over Financial Reporti\n<|id|>1020<|type|>title<|page|>100<|box|>210 67 223 181<|content|>Basis for Opinion\n<|id|>1023<|type|>title<|page|>100<|box|>353 65 366 507<|content|>Definition and Limitations of Internal Control ove\n<|id|>1028<|type|>title<|page|>101<|box|>61 371 74 625<|content|>ITEM 9B. OTHER INFORMATION\n<|id|>1030<|type|>title<|page|>101<|box|>128 129 141 867<|content|>ITEM 9C. DISCLOSURE REGARDING FOREIGN JURISDICTION\n<|id|>1032<|type|>title<|page|>101<|box|>173 470 185 526<|content|>PART III\n<|id|>1033<|type|>title<|page|>101<|box|>193 184 206 811<|content|>ITEM 10. DIRECTORS, EXECUTIVE OFFICERS, AND CORPOR\n<|id|>1036<|type|>title<|page|>101<|box|>332 346 346 650<|content|>ITEM 11. EXECUTIVE COMPENSATION\n<|id|>1038<|type|>title<|page|>101<|box|>388 85 415 909<|content|>ITEM 12. SECURITY OWNERSHIP OF CERTAIN BENEFICIAL\n<|id|>1040<|type|>title<|page|>101<|box|>459 97 473 899<|content|>ITEM 13. CERTAIN RELATIONSHIPS AND RELATED TRANSAC\n<|id|>1042<|type|>title<|page|>101<|box|>515 270 529 724<|content|>ITEM 14. PRINCIPAL ACCOUNTANT FEES AND SERVICES\n<|id|>1044<|type|>title<|page|>102<|box|>60 470 72 527<|content|>PART IV\n<|id|>1045<|type|>title<|page|>102<|box|>80 258 93 737<|content|>ITEM 15. EXHIBIT AND FINANCIAL STATEMENT SCHEDULES\n<|id|>1046<|type|>title<|page|>102<|box|>102 52 114 300<|content|>(a)Financial Statements and Schedules\n<|id|>1048<|type|>table<|page|>102<|box|>153 52 277 937<|content|>None\n<|id|>1049<|type|>title<|page|>102<|box|>290 52 302 164<|content|>(b)Exhibit Listing\n<|id|>1050<|type|>table<|page|>102<|box|>315 50 619 937<|content|>None\n<|id|>1051<|type|>table<|page|>103<|box|>68 50 500 939<|content|>None\n<|id|>1052<|type|>table<|page|>104<|box|>68 50 538 937<|content|>None\n<|id|>1053<|type|>table<|page|>105<|box|>68 50 597 937<|content|>None\n<|id|>1054<|type|>table<|page|>106<|box|>66 50 571 939<|content|>None\n<|id|>1055<|type|>table<|page|>107<|box|>65 50 589 937<|content|>None\n<|id|>1056<|type|>title<|page|>109<|box|>42 452 54 544<|content|>SIGNATURES\n<|id|>1058<|type|>title<|page|>109<|box|>95 52 106 203<|content|>MICROSOFT CORPORATION\n<|id|>1064<|type|>table<|page|>109<|box|>204 48 671 836<|content|>None\n<|id|>1065<|type|>title<|page|>110<|box|>66 393 78 603<|content|>SUBSIDIARIES OF REGISTRANT\n<|id|>1067<|type|>table<|page|>110<|box|>116 50 233 942<|content|>None\n<|id|>1068<|type|>title<|page|>111<|box|>72 268 85 727<|content|>CONSENT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTIN\n<|id|>1072<|type|>title<|page|>112<|box|>61 445 74 552<|content|>CERTIFICATION\n<|id|>1087<|type|>title<|page|>113<|box|>61 445 74 552<|content|>CERTIFICATION\n<|id|>1103<|type|>title<|page|>115<|box|>61 324 95 673<|content|>CERTIFICATION PURSUANT TO SECTION 906 OF THE SARBA\n<|id|>1107<|type|>title<|page|>115<|box|>197 52 207 152<|content|>/s/ AMY E. HOOD\n<|id|>1110<|type|>title<|page|>115<|box|>252 52 264 136<|content|>July 27, 2023",
+    "raw_response": "<|src_id|>1048<|tgt_id|>1046\n<|src_id|>1050<|tgt_id|>1049\n<|src_id|>1051<|tgt_id|>1049\n<|src_id|>1052<|tgt_id|>1049\n<|src_id|>1053<|tgt_id|>1049\n<|src_id|>1054<|tgt_id|>1049\n<|src_id|>1055<|tgt_id|>1049\n<|src_id|>1064<|tgt_id|>1058\n<|src_id|>1067<|tgt_id|>1065",
+    "parsed": [
+        {
+            "src_id": 1048,
+            "tgt_id": 1046
+        },
+        {
+            "src_id": 1050,
+            "tgt_id": 1049
+        },
+        {
+            "src_id": 1051,
+            "tgt_id": 1049
+        },
+        {
+            "src_id": 1052,
+            "tgt_id": 1049
+        },
+        {
+            "src_id": 1053,
+            "tgt_id": 1049
+        },
+        {
+            "src_id": 1054,
+            "tgt_id": 1049
+        },
+        {
+            "src_id": 1055,
+            "tgt_id": 1049
+        },
+        {
+            "src_id": 1064,
+            "tgt_id": 1058
+        },
+        {
+            "src_id": 1067,
+            "tgt_id": 1065
+        }
+    ]
+}

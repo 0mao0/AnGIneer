@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        9,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>157 140 202 818<|content|>GREENFIELD AGRICULTURAL PARTNERS LLC, a Delaware limited liability company, Plaintiff,\n<|id|>3<|page|>1<|box|>237 212 253 401<|content|>Case No. ... 2022-L-004831\n<|id|>4<|page|>1<|box|>262 212 279 390<|content|>Hon. ... Patricia Delacroix\n<|id|>5<|page|>1<|box|>287 140 324 852<|content|>PRAIRIE BASIN GRAIN CO. ... MUSGRAVE, individually,\n<|id|>6<|page|>1<|box|>333 212 349 305<|content|>Defendants. ... Defendants\n<|id|>69<|page|>4<|box|>838 140 893 854<|content|>All Communications between PBGC (including its off...ring the Relevant Period, relating to the Off-Take\n<|id|>70<|page|>5<|box|>90 140 127 856<|content|>Agreement, the Invoices, deliveries of grain, paym... between the parties, including but not limited to\n<|id|>140<|page|>8<|box|>732 174 786 857<|content|>(f) all internal cash flow reports, daily cash pos...er 1, 2021 through the date of production; ... and\n<|id|>142<|page|>8<|box|>838 140 854 772<|content|>REQUEST NO. ... 12 — Communications Regarding GAP's Claim and the Invoices\n<|id|>143<|page|>9<|box|>90 140 145 854<|content|>All internal Communications within PBGC (including...officer, director, employee, or agent) relating to\n<|id|>162<|page|>9<|box|>857 174 893 854<|content|>(c) the failure to mitigate defense, including any...easonable steps to mitigate its damages, including\n<|id|>163<|page|>10<|box|>90 174 126 854<|content|>Documents relating to alternative buyers, resale o...ellow Soybeans during the Relevant Period; ... and\n<|id|>165<|page|>10<|box|>160 140 233 856<|content|>The Court's Order dated August 22, 2022, stricken ...uments may be relevant to any issue in this action\n<|id|>214<|page|>12<|box|>729 140 763 854<|content|>Hannah Brinkley CALDERWOOD & HARKNESS LLP 225 West Wacker Drive, Suite 4000 Chicago, Illinois 60606\n<|id|>215<|page|>12<|box|>763 140 781 588<|content|>Attorneys for Plaintiff Greenfield Agricultural Partners LLC",
+    "raw_response": "<|src_id|>69<|tgt_id|>70\n<|src_id|>140<|tgt_id|>142\n<|src_id|>142<|tgt_id|>143\n<|src_id|>162<|tgt_id|>163",
+    "parsed": [
+        {
+            "src_id": 69,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 142
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        }
+    ]
+}

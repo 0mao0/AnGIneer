@@ -1,0 +1,193 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mb0cup3f\\input\\pdfs\\doc-4b5cba31.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-mb0cup3f\\enriched\\doc-4b5cba31.json",
+    "contd_output": "<|src_id|>118<|tgt_id|>119\n<|src_id|>185<|tgt_id|>186\n<|src_id|>219<|tgt_id|>220",
+    "title_output": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>25<|level|>3\n<|id|>32<|level|>3\n<|id|>45<|level|>3\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>55<|level|>3\n<|id|>65<|level|>3\n<|id|>83<|level|>3\n<|id|>95<|level|>3\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>116<|level|>3\n<|id|>125<|level|>3\n<|id|>132<|level|>3\n<|id|>141<|level|>3\n<|id|>150<|level|>3\n<|id|>159<|level|>2\n<|id|>160<|level|>3\n<|id|>164<|level|>3\n<|id|>166<|level|>4\n<|id|>177<|level|>4\n<|id|>180<|level|>3\n<|id|>197<|level|>2\n<|id|>212<|level|>2\n<|id|>223<|level|>2",
+    "image_output": "<|src_id|>23<|tgt_id|>19\n<|src_id|>34<|tgt_id|>32\n<|src_id|>47<|tgt_id|>45\n<|src_id|>48<|tgt_id|>45\n<|src_id|>86<|tgt_id|>83\n<|src_id|>87<|tgt_id|>83\n<|src_id|>162<|tgt_id|>160\n<|src_id|>163<|tgt_id|>160",
+    "contd_label": [
+        {
+            "src_id": 118,
+            "tgt_id": 119
+        },
+        {
+            "src_id": 185,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 220
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 4
+        },
+        {
+            "id": 177,
+            "level": 4
+        },
+        {
+            "id": 180,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 212,
+            "level": 2
+        },
+        {
+            "id": 223,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 23,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 87,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 160
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 162,
+            "table2_idx": 163,
+            "upper_row_ss": [
+                [
+                    "State Tax Implications",
+                    "Additional complexity in five operating states (PA, VA, MD, NC, GA); potential transfer taxes,",
+                    "Manageable; partnership treatment maintained at operating level"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "apportionment changes, loss of PTE election opportunities",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

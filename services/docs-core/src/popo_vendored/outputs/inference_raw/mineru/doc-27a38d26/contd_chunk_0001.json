@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        51,
+        114
+    ],
+    "pages": [
+        52,
+        57,
+        58,
+        114
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>308<|page|>52<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>309<|page|>52<|box|>198 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund\n<|id|>347<|page|>57<|box|>739 503 902 916<|content|>- Section II presents claims on foreigners reporte..... Effective with reports filed as of February 28,\n<|id|>348<|page|>58<|box|>89 81 208 491<|content|>2003, reporting coverage was expanded as outlined ...ency with the liabilities reporting on this sector\n<|id|>543<|page|>114<|box|>148 364 166 630<|content|>Source: ... Financial Management Service\n<|id|>544<|page|>114<|box|>186 81 262 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>552<|page|>114<|box|>842 81 904 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>553<|page|>114<|box|>186 504 262 915<|content|>Second Liberty Loan Act of 1917, the nature of the...l debt. ... the limit may change from year to year",
+    "raw_response": "<|src_id|>347<|tgt_id|>348\n<|src_id|>552<|tgt_id|>553",
+    "parsed": [
+        {
+            "src_id": 347,
+            "tgt_id": 348
+        },
+        {
+            "src_id": 552,
+            "tgt_id": 553
+        }
+    ]
+}

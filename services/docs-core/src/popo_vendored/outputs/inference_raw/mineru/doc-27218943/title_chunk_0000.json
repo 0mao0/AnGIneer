@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 151 125 844<|content|>FINRA CORPORATE FINANCING DEPARTMENT 1735 K Street\n<|id|>10<|page|>1<|box|>401 142 417 429<|content|>1. Introduction and Filing Reference\n<|id|>14<|page|>1<|box|>794 140 811 480<|content|>2. Description of Offering Terms Reviewed\n<|id|>21<|page|>2<|box|>556 140 574 629<|content|>3. Identification of Participating Underwriters an\n<|id|>25<|page|>3<|box|>223 140 239 617<|content|>4. Review of Underwriting Compensation and Arrange\n<|id|>36<|page|>4<|box|>377 140 393 524<|content|>5. Review of Affiliations and Conflicts of Interes\n<|id|>39<|page|>4<|box|>744 140 761 395<|content|>6. No-Objections Determination\n<|id|>43<|page|>5<|box|>285 140 303 398<|content|>7. Conditions and Qualifications\n<|id|>50<|page|>6<|box|>223 140 239 478<|content|>8. Contact Information and Filing Records",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>25<|level|>2\n<|id|>36<|level|>2\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>50<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        }
+    ]
+}

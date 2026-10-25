@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['12', 'colspan=3, 基价', '元', '6004', '6054', '5959', '6231', '6414', '5504', '5504', '5504', '6098']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, 序号', 'colspan=4, 定额编号', '010055', '010056', '010057', '010058', '010059', '010060', '010061', '010062', '010063', '010064']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 88,
+    "table2_idx": 89
+}

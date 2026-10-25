@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>518 142 535 483<|content|>1. Purpose and Background of Engagement\n<|id|>19<|page|>2<|box|>407 140 425 421<|content|>2. Description of the OPDP Inquiry\n<|id|>21<|page|>2<|box|>518 140 537 413<|content|>2.1 Promotional Materials at Issue\n<|id|>26<|page|>3<|box|>231 140 250 408<|content|>2.2 Alleged Regulatory Violations\n<|id|>31<|page|>3<|box|>497 140 513 434<|content|>2.3 Response Deadline and Extension\n<|id|>33<|page|>3<|box|>625 140 641 498<|content|>2.4 Voluntary Withdrawal of Cited Materials\n<|id|>35<|page|>3<|box|>781 140 797 473<|content|>3. Scope of Whitfield Bauer's Engagement\n<|id|>37<|page|>4<|box|>89 140 108 372<|content|>3.1 OPDP Response Strategy\n<|id|>42<|page|>4<|box|>405 140 422 513<|content|>3.2 Promotional-Labeling Compliance Analysis\n<|id|>50<|page|>5<|box|>375 140 391 418<|content|>3.3 Review of Corrective Materials\n<|id|>55<|page|>5<|box|>708 140 724 312<|content|>3.4 Drafting Support\n<|id|>59<|page|>6<|box|>157 140 174 385<|content|>3.5 Exclusions and Limitations\n<|id|>65<|page|>6<|box|>546 140 563 230<|content|>4. Staffing\n<|id|>68<|page|>7<|box|>90 140 107 398<|content|>5. Billing and Fee Arrangements\n<|id|>69<|page|>7<|box|>121 140 138 279<|content|>5.1 Hourly Rates\n<|id|>73<|page|>7<|box|>400 140 417 320<|content|>5.2 Billing Procedures\n<|id|>80<|page|>8<|box|>186 140 204 390<|content|>6. Privilege and Confidentiality\n<|id|>85<|page|>8<|box|>715 140 732 321<|content|>7. Conflicts of Interest\n<|id|>92<|page|>9<|box|>429 140 445 323<|content|>8. Key Client Contacts\n<|id|>98<|page|>9<|box|>690 140 707 372<|content|>9. Duration and Termination\n<|id|>101<|page|>10<|box|>204 142 222 297<|content|>10. Governing Law\n<|id|>103<|page|>10<|box|>344 142 362 264<|content|>11. Acceptance\n<|id|>112<|page|>10<|box|>681 382 696 614<|content|>ACCEPTED AND AGREED",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>19<|level|>1\n<|id|>21<|level|>2\n<|id|>26<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>1\n<|id|>37<|level|>2\n<|id|>42<|level|>2\n<|id|>50<|level|>2\n<|id|>55<|level|>2\n<|id|>59<|level|>2\n<|id|>65<|level|>1\n<|id|>68<|level|>1\n<|id|>69<|level|>2\n<|id|>73<|level|>2\n<|id|>80<|level|>1\n<|id|>85<|level|>1\n<|id|>92<|level|>1\n<|id|>98<|level|>1\n<|id|>101<|level|>1\n<|id|>103<|level|>1\n<|id|>112<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        }
+    ]
+}

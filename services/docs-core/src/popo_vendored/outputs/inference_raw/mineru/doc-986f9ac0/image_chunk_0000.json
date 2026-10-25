@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 150 125 844<|content|>BRINDOVAL ANALYTICAL SERVICES INC. 55 Water Street\n<|id|>17<|type|>title<|page|>2<|box|>186 140 204 272<|content|>1. Final Ratings\n<|id|>18<|type|>title<|page|>2<|box|>217 142 234 310<|content|>1.1 Ratings Assigned\n<|id|>19<|type|>table<|page|>2<|box|>282 143 411 852<|content|>None\n<|id|>23<|type|>title<|page|>2<|box|>691 142 709 398<|content|>1.2 Confirmation of Dual Rating\n<|id|>25<|type|>title<|page|>3<|box|>90 140 107 643<|content|>2. Transaction Summary and Key Structural Features\n<|id|>26<|type|>title<|page|>3<|box|>121 140 138 348<|content|>2.1 Transaction Structure\n<|id|>32<|type|>title<|page|>3<|box|>633 142 650 313<|content|>2.2 Capital Structure\n<|id|>34<|type|>table<|page|>3<|box|>698 143 888 852<|content|>None\n<|id|>36<|type|>title<|page|>4<|box|>209 140 226 377<|content|>2.3 Key Subordination Levels\n<|id|>44<|type|>title<|page|>4<|box|>497 140 513 383<|content|>2.4 Key Structural Protections\n<|id|>63<|type|>title<|page|>5<|box|>648 140 665 478<|content|>2.5 Collateral Eligibility Criteria Reviewed\n<|id|>74<|type|>title<|page|>6<|box|>233 140 250 285<|content|>2.6 Effective Date\n<|id|>77<|type|>title<|page|>6<|box|>452 140 469 292<|content|>3. Basis of Ratings\n<|id|>86<|type|>title<|page|>7<|box|>286 140 303 444<|content|>4. Rating Conditions and Assumptions\n<|id|>87<|type|>title<|page|>7<|box|>316 140 334 344<|content|>4.1 Conditions to Ratings\n<|id|>97<|type|>title<|page|>8<|box|>500 140 516 334<|content|>5. Ongoing Surveillance\n<|id|>103<|type|>title<|page|>9<|box|>167 140 185 385<|content|>6. Limitations and Disclaimers\n<|id|>104<|type|>title<|page|>9<|box|>199 140 215 313<|content|>6.1 Nature of Ratings\n<|id|>107<|type|>title<|page|>9<|box|>462 140 479 248<|content|>6.2 No Audit\n<|id|>109<|type|>title<|page|>9<|box|>643 140 662 578<|content|>6.3 Rating May Be Changed, Suspended, or Withdrawn\n<|id|>111<|type|>title<|page|>9<|box|>809 140 825 354<|content|>6.4 Limitation on Reliance\n<|id|>114<|type|>title<|page|>10<|box|>167 140 184 326<|content|>7. Contact Information\n<|id|>127<|type|>title<|page|>10<|box|>510 142 523 171<|content|>cc:",
+    "raw_response": "<|src_id|>19<|tgt_id|>18\n<|src_id|>34<|tgt_id|>32",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 32
+        }
+    ]
+}

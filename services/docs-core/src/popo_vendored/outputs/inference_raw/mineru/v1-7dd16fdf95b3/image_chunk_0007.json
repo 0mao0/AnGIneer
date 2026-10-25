@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 7,
+    "range": [
+        354,
+        404
+    ],
+    "pages": [
+        355,
+        373,
+        375,
+        377,
+        385,
+        395,
+        403
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2330<|type|>title<|page|>355<|box|>476 185 494 323<|content|>Key Employee:\n<|id|>2406<|type|>title<|page|>373<|box|>91 444 108 550<|content|>ARTICLE III\n<|id|>2407<|type|>title<|page|>373<|box|>120 393 137 602<|content|>Participation and Service\n<|id|>2419<|type|>title<|page|>375<|box|>91 388 137 607<|content|>ARTICLE IV Requirements for Benefits\n<|id|>2430<|type|>table<|page|>377<|box|>500 265 643 673<|content|>None\n<|id|>2453<|type|>title<|page|>385<|box|>91 370 137 626<|content|>ARTICLE V Amount of Retirement Pension\n<|id|>2513<|type|>title<|page|>395<|box|>210 75 225 180<|content|>Section 5.2.\n<|id|>2550<|type|>title<|page|>403<|box|>91 442 108 553<|content|>ARTICLE VI\n<|id|>2551<|type|>title<|page|>403<|box|>120 402 137 594<|content|>Distribution of Benefits",
+    "raw_response": "<|src_id|>2430<|tgt_id|>2419",
+    "parsed": [
+        {
+            "src_id": 2430,
+            "tgt_id": 2419
+        }
+    ]
+}

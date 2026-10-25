@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 776<|content|>CONFIDENTIAL — BUSINESS PROPRIETARY INFORMATION NO\n<|id|>1<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|page|>1<|box|>390 140 407 364<|content|>I. Introduction and Purpose\n<|id|>13<|page|>2<|box|>90 140 107 468<|content|>II. Procedural Context of this Submission\n<|id|>18<|page|>2<|box|>619 140 636 352<|content|>III. Transaction Summary\n<|id|>23<|page|>3<|box|>414 140 431 547<|content|>IV. Description of Enclosed Supplemental Response\n<|id|>34<|page|>5<|box|>239 140 258 374<|content|>V. List of Enclosed Materials\n<|id|>38<|page|>5<|box|>506 140 523 447<|content|>VI. Coordination with Seller's Counsel\n<|id|>42<|page|>6<|box|>90 140 107 380<|content|>VII. Certification of Accuracy\n<|id|>45<|page|>6<|box|>311 140 329 483<|content|>VIII. Offer of Cooperation and Availability\n<|id|>50<|page|>6<|box|>767 140 784 566<|content|>IX. Contact Information for Further Communications\n<|id|>52<|page|>6<|box|>838 142 854 285<|content|>Primary Contact:\n<|id|>55<|page|>7<|box|>170 143 186 310<|content|>Additional Contacts:\n<|id|>64<|page|>7<|box|>486 176 503 482<|content|>Email: hwhitfield@wethersfieldgale.com\n<|id|>66<|page|>7<|box|>584 408 602 586<|content|>Respectfully submitted,\n<|id|>67<|page|>7<|box|>609 140 627 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>73<|page|>7<|box|>891 143 907 264<|content|>Enclosures (2):",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>9<|level|>1\n<|id|>13<|level|>1\n<|id|>18<|level|>1\n<|id|>23<|level|>1\n<|id|>34<|level|>1\n<|id|>38<|level|>1\n<|id|>42<|level|>1\n<|id|>45<|level|>1\n<|id|>50<|level|>1\n<|id|>52<|level|>2\n<|id|>55<|level|>2\n<|id|>64<|level|>-1\n<|id|>66<|level|>-1\n<|id|>67<|level|>-1\n<|id|>73<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 1
+        }
+    ]
+}

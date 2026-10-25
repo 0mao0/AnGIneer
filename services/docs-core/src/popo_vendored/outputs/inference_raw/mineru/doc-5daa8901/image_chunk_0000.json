@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        3,
+        6,
+        11,
+        15,
+        18,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>128 390 148 606<|content|>OncoPrecise GXP-47\n<|id|>1<|type|>title<|page|>1<|box|>167 313 186 684<|content|>MolDx Technical Assessment Dossier\n<|id|>2<|type|>title<|page|>1<|box|>205 375 226 622<|content|>Annotated Bibliography\n<|id|>3<|type|>title<|page|>1<|box|>243 450 260 547<|content|>Version 1.0\n<|id|>5<|type|>title<|page|>1<|box|>295 140 311 254<|content|>Prepared for:\n<|id|>15<|type|>title<|page|>1<|box|>731 142 748 364<|content|>I. Introduction and Purpose\n<|id|>30<|type|>title<|page|>3<|box|>476 140 494 578<|content|>II. Category A: Analytical Validation (Publication\n<|id|>33<|type|>title<|page|>3<|box|>758 140 775 509<|content|>Relevance Category: A — Analytical Validation\n<|id|>56<|type|>title<|page|>6<|box|>750 140 766 573<|content|>III. Category B: Clinical Validation (Publications\n<|id|>95<|type|>title<|page|>11<|box|>522 140 539 552<|content|>IV. Category C: Clinical Utility (Publications 21–\n<|id|>126<|type|>title<|page|>15<|box|>296 140 313 571<|content|>V. Category D: Health Economics (Publications 31–3\n<|id|>149<|type|>title<|page|>18<|box|>89 140 107 826<|content|>VI. Category E: Background Literature — ICI Therap\n<|id|>169<|type|>title<|page|>21<|box|>90 140 107 527<|content|>VII. Appendix: Citation Index by Dossier Section\n<|id|>171<|type|>table<|page|>21<|box|>195 143 327 852<|content|>None\n<|id|>173<|type|>title<|page|>21<|box|>474 140 492 416<|content|>VIII. Notes on Bibliography Status",
+    "raw_response": "<|src_id|>171<|tgt_id|>169",
+    "parsed": [
+        {
+            "src_id": 171,
+            "tgt_id": 169
+        }
+    ]
+}

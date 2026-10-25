@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['6.5% Senior Secured Convertible Notes due June 30, 2026', '$7,800,000 aggregate principal amount', 'Convertible into 3,900,000 Shares of common stock at a conversion price of $2.00 per Share, subject to']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'adjustment in accordance with the terms of the Indenture dated as of June 30, 2022. CUSIP No. 76543A 200. Interest rate: 6.5% per annum, payable semi-annually on June 30 and December 31 of each year. Last interest payment: December 31, 2023. Maturity date: June 30, 2026.']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 206,
+    "table2_idx": 207
+}

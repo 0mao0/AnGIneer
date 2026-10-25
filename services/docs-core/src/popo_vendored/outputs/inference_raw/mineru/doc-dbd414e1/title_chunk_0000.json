@@ -1,0 +1,63 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 189 142 805<|content|>OFFICER'S CERTIFICATE OF CRESTLINE PACKAGING SOLUT\n<|id|>4<|page|>1<|box|>362 140 378 241<|content|>RECITALS\n<|id|>10<|page|>1<|box|>752 140 768 478<|content|>Section 1. Representations and Warranties\n<|id|>13<|page|>2<|box|>469 140 484 439<|content|>Section 2. Covenants and Agreements\n<|id|>15<|page|>2<|box|>719 140 734 439<|content|>Section 3. No Material Adverse Effect\n<|id|>18<|page|>3<|box|>150 140 167 437<|content|>Section 4. Incumbency and Authority\n<|id|>20<|page|>3<|box|>417 140 434 392<|content|>Section 5. Attached Resolutions\n<|id|>34<|page|>5<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>35<|page|>5<|box|>135 308 154 687<|content|>WRITTEN CONSENT IN LIEU OF MEETING\n<|id|>36<|page|>5<|box|>176 375 194 620<|content|>OF THE SOLE MEMBER OF\n<|id|>48<|page|>6<|box|>375 142 391 683<|content|>AUTHORIZATION RESOLUTIONS. NOW, THEREFORE, BE IT:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>10<|level|>2\n<|id|>13<|level|>2\n<|id|>15<|level|>2\n<|id|>18<|level|>2\n<|id|>20<|level|>2\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>36<|level|>2\n<|id|>48<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        }
+    ]
+}

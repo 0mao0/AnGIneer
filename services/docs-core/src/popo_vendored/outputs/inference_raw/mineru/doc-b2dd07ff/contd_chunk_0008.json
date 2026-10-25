@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 8,
+    "range": [
+        388,
+        394
+    ],
+    "pages": [
+        389,
+        390,
+        394
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4796<|page|>389<|box|>872 112 893 873<|content|>L. ... 采用慢速维持荷载法，设计无特殊要求时，可采用单循环加载\n<|id|>4797<|page|>390<|box|>105 114 122 171<|content|>试验。 ... 试验\n<|id|>4850<|page|>394<|box|>282 361 296 635<|content|>表 L. ... 4 单桩水平静推试验记录\n<|id|>4851<|page|>394<|box|>302 142 318 213<|content|>试桩号： ... 试桩号",
+    "raw_response": "<|src_id|>4796<|tgt_id|>4797",
+    "parsed": [
+        {
+            "src_id": 4796,
+            "tgt_id": 4797
+        }
+    ]
+}

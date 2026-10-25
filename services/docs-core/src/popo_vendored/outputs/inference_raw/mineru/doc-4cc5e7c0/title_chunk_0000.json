@@ -1,0 +1,140 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        13
+    ],
+    "pages": [
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 426 109 571<|content|>EXHIBIT A-1\n<|id|>1<|page|>2<|box|>136 362 152 635<|content|>FORM OF 144A GLOBAL NOTE\n<|id|>21<|page|>5<|box|>89 410 106 586<|content|>REVERSE OF NOTE\n<|id|>22<|page|>5<|box|>121 142 138 491<|content|>VERIMARK HOSPITALITY GROUP INC.\n<|id|>23<|page|>5<|box|>152 142 169 382<|content|>8.250% Senior Notes due 2031\n<|id|>24<|page|>5<|box|>176 142 193 397<|content|>Section 1. Optional Redemption.\n<|id|>28<|page|>5<|box|>599 142 616 364<|content|>Section 2. Equity Clawback.\n<|id|>33<|page|>6<|box|>133 140 152 375<|content|>Section 3. Change of Control.\n<|id|>35<|page|>6<|box|>351 140 368 336<|content|>Section 4. Sinking Fund.\n<|id|>37<|page|>6<|box|>440 140 457 511<|content|>Section 5. Denominations; Transfer; Exchange.\n<|id|>39<|page|>6<|box|>674 140 691 423<|content|>Section 6. Persons Deemed Owners.\n<|id|>41<|page|>6<|box|>835 140 853 475<|content|>Section 7. Events of Default and Remedies.\n<|id|>43<|page|>7<|box|>335 140 353 496<|content|>Section 8. Amendment; Supplement; Waiver.\n<|id|>55<|page|>8<|box|>208 140 224 475<|content|>Section 9. Defaults and Remedies; Waiver.\n<|id|>58<|page|>8<|box|>487 140 503 326<|content|>Section 10. Defeasance.\n<|id|>60<|page|>8<|box|>720 140 738 300<|content|>Section 11. Trustee.\n<|id|>63<|page|>8<|box|>835 176 852 491<|content|>Attention: Corporate Trust Administration\n<|id|>65<|page|>9<|box|>90 140 107 361<|content|>Section 12. Governing Law.\n<|id|>67<|page|>9<|box|>196 140 214 444<|content|>Section 13. CUSIP and ISIN Numbers.\n<|id|>69<|page|>9<|box|>321 176 338 514<|content|>CUSIP: 923847 AA 5 ISIN: US923847AA52\n<|id|>70<|page|>9<|box|>348 140 364 416<|content|>Section 14. Global Note Provisions.\n<|id|>74<|page|>9<|box|>726 142 743 354<|content|>Section 15. Authentication.\n<|id|>76<|page|>10<|box|>89 218 107 777<|content|>SCHEDULE OF INCREASES AND DECREASES IN GLOBAL NOTE\n<|id|>79<|page|>10<|box|>287 331 304 665<|content|>CERTIFICATE OF AUTHENTICATION\n<|id|>85<|page|>10<|box|>429 441 446 557<|content|>EXECUTION\n<|id|>96<|page|>10<|box|>674 437 693 560<|content|>GUARANTEE\n<|id|>120<|page|>11<|box|>680 364 696 632<|content|>FORM OF TRANSFER NOTICE\n<|id|>131<|page|>12<|box|>354 140 371 316<|content|>Signature Guarantee:\n<|id|>132<|page|>12<|box|>422 140 441 455<|content|>Signature of Eligible Guarantor Institution\n<|id|>134<|page|>12<|box|>544 238 561 758<|content|>CERTIFICATE OF TRANSFEREE PURSUANT TO RULE 144A\n<|id|>135<|page|>12<|box|>570 140 589 826<|content|>In connection with the transfer of the within Note\n<|id|>143<|page|>13<|box|>180 303 196 692<|content|>OPTION OF HOLDER TO ELECT PURCHASE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>21<|level|>1\n<|id|>22<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>28<|level|>3\n<|id|>33<|level|>3\n<|id|>35<|level|>3\n<|id|>37<|level|>3\n<|id|>39<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>3\n<|id|>55<|level|>3\n<|id|>58<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>-1\n<|id|>65<|level|>3\n<|id|>67<|level|>3\n<|id|>69<|level|>-1\n<|id|>70<|level|>3\n<|id|>74<|level|>3\n<|id|>76<|level|>1\n<|id|>79<|level|>1\n<|id|>85<|level|>1\n<|id|>96<|level|>1\n<|id|>120<|level|>1\n<|id|>131<|level|>2\n<|id|>132<|level|>2\n<|id|>134<|level|>1\n<|id|>135<|level|>-1\n<|id|>143<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 1
+        },
+        {
+            "id": 143,
+            "level": 1
+        }
+    ]
+}

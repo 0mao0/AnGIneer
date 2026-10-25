@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>3<|type|>title<|page|>1<|box|>186 140 203 506<|content|>VIA EMAIL AND OVERNIGHT DELIVERY\n<|id|>8<|type|>title<|page|>1<|box|>386 142 402 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>13<|type|>title<|page|>2<|box|>148 140 167 334<|content|>2. Scope of Engagement\n<|id|>15<|type|>title<|page|>2<|box|>261 140 279 743<|content|>2(a). Variability of Working Conditions Across AMA\n<|id|>25<|type|>title<|page|>2<|box|>816 140 833 338<|content|>2(b). Typicality Analysis\n<|id|>31<|type|>title<|page|>3<|box|>381 140 398 485<|content|>2(c). Commonality / Predominance Opinion\n<|id|>34<|type|>title<|page|>3<|box|>746 140 763 279<|content|>3. Compensation\n<|id|>36<|type|>table<|page|>3<|box|>814 143 890 852<|content|>None\n<|id|>40<|type|>title<|page|>4<|box|>508 140 526 361<|content|>4. Materials to Be Provided\n<|id|>54<|type|>title<|page|>5<|box|>672 140 689 367<|content|>5. Deliverables and Timeline\n<|id|>56<|type|>table<|page|>5<|box|>722 143 847 852<|content|>None\n<|id|>60<|type|>title<|page|>6<|box|>366 140 383 488<|content|>6. Coordination with Other Defense Experts\n<|id|>64<|type|>title<|page|>6<|box|>741 140 758 284<|content|>7. Confidentiality\n<|id|>70<|type|>title<|page|>7<|box|>465 140 482 393<|content|>8. Independence and Disclosure\n<|id|>73<|type|>title<|page|>7<|box|>741 140 758 264<|content|>9. Termination\n<|id|>77<|type|>title<|page|>8<|box|>194 142 210 336<|content|>10. Contact Information\n<|id|>89<|type|>title<|page|>8<|box|>566 142 584 264<|content|>11. Acceptance\n<|id|>96<|type|>title<|page|>8<|box|>814 349 829 647<|content|>ACCEPTANCE OF ENGAGEMENT",
+    "raw_response": "<|src_id|>36<|tgt_id|>34\n<|src_id|>56<|tgt_id|>54",
+    "parsed": [
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 54
+        }
+    ]
+}

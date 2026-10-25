@@ -1,0 +1,21 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 153 108 841<|content|>UNITED STATES DISTRICT COURT FOR THE CENTRAL DISTR\n<|id|>1<|type|>table<|page|>1<|box|>142 143 334 852<|content|>None\n<|id|>9<|type|>title<|page|>2<|box|>268 140 287 741<|content|>IT IS HEREBY ORDERED, ADJUDGED, AND DECREED AS FOL\n<|id|>10<|type|>title<|page|>2<|box|>311 140 329 470<|content|>I. Confirmation of the Arbitration Award\n<|id|>12<|type|>title<|page|>2<|box|>488 140 503 429<|content|>II. Denial of Cross-Motion to Vacate\n<|id|>14<|type|>title<|page|>2<|box|>792 140 810 326<|content|>III. Entry of Judgment\n<|id|>24<|type|>title<|page|>4<|box|>241 142 258 279<|content|>IV. Enforcement",
+    "raw_response": "<|src_id|>1<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        }
+    ]
+}

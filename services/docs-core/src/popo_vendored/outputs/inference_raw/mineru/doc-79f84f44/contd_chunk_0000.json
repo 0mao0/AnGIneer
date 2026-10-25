@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        23
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        11,
+        12,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>19<|page|>2<|box|>851 140 906 854<|content|>Yves Leclerc is a French national who has been emp...I since approximately 2016. ... Box 506774, Dubai,\n<|id|>20<|page|>3<|box|>89 138 219 856<|content|>UAE). ... Leclerc indicated that his career had be...er than on trading, compliance, or legal functions\n<|id|>27<|page|>3<|box|>781 140 892 857<|content|>Natasha Sorokin — Senior Trader at DTI. ... A separate memorandum regarding\n<|id|>28<|page|>4<|box|>90 140 126 854<|content|>Sorokin's trading activity and personal communicat...ed by Liam Donahue and is dated September 10, 2022\n<|id|>96<|page|>11<|box|>857 140 893 854<|content|>Denial of knowledge of Volkhov Industrial Group. ...., or any connection between Petronova Trading FZE,\n<|id|>97<|page|>12<|box|>90 140 181 854<|content|>Caspian Logistik, and Volkhov-controlled entities....med of these designations during the investigation\n<|id|>186<|page|>21<|box|>873 181 907 854<|content|>• Interview Memorandum — Yves Leclerc (Director of Logistics), June 22, 2022 (Amara Osei)\n<|id|>187<|page|>22<|box|>44 163 71 834<|content|>ATTORNEY-CLIENT PRIVILEGED / ATTORNEY WORK PRODUCT — Dunmore Energy Holdings Ltd. ... 1016-00009\n<|id|>192<|page|>23<|box|>577 142 594 318<|content|>Respectfully submitted,\n<|id|>193<|page|>23<|box|>594 142 609 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>194<|page|>23<|box|>613 143 628 251<|content|>By: ... By",
+    "raw_response": "<|src_id|>19<|tgt_id|>20\n<|src_id|>27<|tgt_id|>28\n<|src_id|>96<|tgt_id|>97",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 97
+        }
+    ]
+}

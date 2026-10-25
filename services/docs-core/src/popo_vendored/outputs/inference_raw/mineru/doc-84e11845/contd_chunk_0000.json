@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        9
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>12<|page|>2<|box|>405 140 440 852<|content|>Address: ... , 4100 Obsidian Tower Boulevard, Suite 2200, Las Vegas, NV 89109\n<|id|>13<|page|>2<|box|>449 140 743 857<|content|>Subjects of Information: ... and the personnel and...ational structure of the creative development team\n<|id|>16<|page|>2<|box|>804 140 839 852<|content|>Address: ... , 4100 Obsidian Tower Boulevard, Suite 2200, Las Vegas, NV 89109\n<|id|>17<|page|>2<|box|>849 140 902 854<|content|>Subjects of Information: ... the independent creative process undertaken by\n<|id|>18<|page|>3<|box|>90 140 310 856<|content|>Ms. ... Park's lack of access to, familiarity with... point during the development of Ironclad Dominion\n<|id|>21<|page|>3<|box|>372 140 406 852<|content|>Address: ... , 4100 Obsidian Tower Boulevard, Suite 2200, Las Vegas, NV 89109\n<|id|>22<|page|>3<|box|>416 140 636 857<|content|>Subjects of Information: ... and general corporate...he present lawsuit and Redstone's response thereto\n<|id|>25<|page|>3<|box|>696 140 733 852<|content|>Address: ... , 4100 Obsidian Tower Boulevard, Suite 2200, Las Vegas, NV 89109\n<|id|>26<|page|>3<|box|>742 140 888 856<|content|>Subjects of Information: ... and the existence, na...tance of any non-privileged communications between\n<|id|>27<|page|>4<|box|>89 140 126 852<|content|>Redstone Gaming Corp. ... and Luminos Interactive ... this litigation, if any such communications exist\n<|id|>66<|page|>7<|box|>797 140 815 756<|content|>Insurer: ... , 200 Commerce Drive, Hartford, CT 06103\n<|id|>67<|page|>7<|box|>823 142 840 424<|content|>Policy Number: ... PML-IP-2023-08841\n<|id|>68<|page|>7<|box|>849 140 887 856<|content|>Type of Policy: ... Media/Entertainment Liability ...'s media and entertainment products and operations\n<|id|>69<|page|>8<|box|>133 140 152 705<|content|>intellectual Property Litigation Sub-Limit: ... 00 per occurrence\n<|id|>70<|page|>8<|box|>160 140 176 388<|content|>Deductible: ... 00 per claim\n<|id|>71<|page|>8<|box|>186 140 203 635<|content|>Claims Adjuster: ... Franklin Teague, Pinnacle Mutual Insurance Co\n<|id|>72<|page|>8<|box|>212 140 229 441<|content|>Claim Number: ... PML-CLM-2024-3392\n<|id|>73<|page|>8<|box|>237 140 366 854<|content|>Description: ... The question of whether Pinnacle ... of the policy and has not been finally determined\n<|id|>79<|page|>9<|box|>89 694 107 854<|content|>Dated: ... May 20, 2024\n<|id|>80<|page|>9<|box|>114 176 133 354<|content|>Respectfully submitted,\n<|id|>82<|page|>9<|box|>203 140 267 854<|content|>By: ... (213) 555-8201\n<|id|>83<|page|>9<|box|>268 142 286 457<|content|>Email: ... com\n<|id|>84<|page|>9<|box|>285 142 303 468<|content|>Email: ... com\n<|id|>85<|page|>9<|box|>303 142 321 450<|content|>Email: ... com\n<|id|>88<|page|>9<|box|>395 140 431 854<|content|>Patricia Thorngate (NV Bar No. ... (702) 555-3701\n<|id|>89<|page|>9<|box|>431 140 448 426<|content|>Email: ... com\n<|id|>90<|page|>9<|box|>448 140 465 501<|content|>Attorneys for Defendant Redstone Gaming Corp. ... Attorneys for Defendant Redstone Gaming Corp\n<|id|>93<|page|>9<|box|>579 174 617 854<|content|>Daniel Hargrove, Esq. ... (512) 555-6100\n<|id|>94<|page|>9<|box|>625 176 642 415<|content|>Email: ... com\n<|id|>95<|page|>9<|box|>643 176 660 408<|content|>Email: ... com",
+    "raw_response": "<|src_id|>17<|tgt_id|>18\n<|src_id|>26<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        }
+    ]
+}

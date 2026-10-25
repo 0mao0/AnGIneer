@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 187 123 808<|content|>SUPREME COURT OF THE STATE OF NEW YORK COUNTY OF N\n<|id|>2<|page|>1<|box|>354 398 369 598<|content|>CONSENT JUDGMENT\n<|id|>3<|page|>1<|box|>380 423 396 575<|content|>November 26, 2024\n<|id|>21<|page|>3<|box|>439 330 455 666<|content|>OPERATIVE JUDGMENT PROVISIONS\n<|id|>22<|page|>3<|box|>481 142 497 375<|content|>Section 1: Entry of Judgment\n<|id|>30<|page|>4<|box|>90 140 107 452<|content|>Section 2: Definition of Unpaid Balance\n<|id|>38<|page|>4<|box|>696 140 714 290<|content|>Section 3: Interest\n<|id|>40<|page|>5<|box|>90 140 107 434<|content|>Section 4: Joint and Several Liability\n<|id|>42<|page|>5<|box|>286 140 301 326<|content|>Section 5: Acceleration\n<|id|>44<|page|>5<|box|>462 140 479 431<|content|>Section 6: Credits Against Judgment\n<|id|>47<|page|>5<|box|>756 140 773 424<|content|>Section 7: Costs and Disbursements\n<|id|>56<|page|>6<|box|>337 140 354 426<|content|>Section 8: No Admission of Liability\n<|id|>58<|page|>6<|box|>513 140 530 390<|content|>Section 9: Release Not Affected\n<|id|>60<|page|>6<|box|>727 140 744 359<|content|>Section 10: Governing Law\n<|id|>62<|page|>7<|box|>90 142 107 338<|content|>Section 11: Enforcement\n<|id|>72<|page|>7<|box|>532 287 549 707<|content|>CONSENT AND STIPULATION OF THE PARTIES\n<|id|>74<|page|>7<|box|>693 142 709 318<|content|>FOR DEFENDANTS:\n<|id|>83<|page|>8<|box|>125 434 141 560<|content|>SO ORDERED\n<|id|>86<|page|>8<|box|>227 303 244 694<|content|>EXHIBITS INCORPORATED BY REFERENCE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>3\n<|id|>21<|level|>2\n<|id|>22<|level|>3\n<|id|>30<|level|>3\n<|id|>38<|level|>3\n<|id|>40<|level|>3\n<|id|>42<|level|>3\n<|id|>44<|level|>3\n<|id|>47<|level|>3\n<|id|>56<|level|>3\n<|id|>58<|level|>3\n<|id|>60<|level|>3\n<|id|>62<|level|>3\n<|id|>72<|level|>2\n<|id|>74<|level|>3\n<|id|>83<|level|>-1\n<|id|>86<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 2
+        }
+    ]
+}

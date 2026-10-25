@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>1<|type|>title<|page|>1<|box|>114 281 133 715<|content|>299 Park Avenue, 42nd Floor New York, New York 101\n<|id|>10<|type|>title<|page|>1<|box|>415 142 434 232<|content|>1. Purpose\n<|id|>15<|type|>title<|page|>2<|box|>90 140 107 263<|content|>2. Background\n<|id|>16<|type|>title<|page|>2<|box|>121 140 138 285<|content|>2.1 The Company\n<|id|>18<|type|>title<|page|>2<|box|>339 140 356 300<|content|>2.2 CEO Transition\n<|id|>22<|type|>title<|page|>2<|box|>628 142 646 290<|content|>2.3 The Candidate\n<|id|>24<|type|>title<|page|>2<|box|>794 140 811 437<|content|>2.4 Candidate's Legal Representation\n<|id|>26<|type|>title<|page|>3<|box|>90 140 107 333<|content|>3. Scope of Engagement\n<|id|>28<|type|>title<|page|>3<|box|>202 140 219 838<|content|>3.1 Primary Engagement: Negotiation and Drafting o\n<|id|>39<|type|>title<|page|>4<|box|>157 140 175 483<|content|>3.2 Compensation and Benefits Structuring\n<|id|>53<|type|>title<|page|>6<|box|>90 140 107 473<|content|>3.3 Termination and Severance Provisions\n<|id|>71<|type|>title<|page|>7<|box|>311 140 329 405<|content|>3.4 Change in Control Provisions\n<|id|>90<|type|>title<|page|>9<|box|>239 140 256 504<|content|>3.5 Section 280G Parachute Payment Analysis\n<|id|>102<|type|>title<|page|>10<|box|>330 140 347 423<|content|>3.6 Restrictive Covenant Provisions\n<|id|>114<|type|>title<|page|>11<|box|>825 140 843 576<|content|>3.7 Cross-Border Coordination: UK Service Agreemen\n<|id|>129<|type|>title<|page|>13<|box|>176 140 193 460<|content|>3.8 Indemnification and D&O Insurance\n<|id|>132<|type|>title<|page|>13<|box|>531 140 549 428<|content|>3.9 Corporate Governance Advisory\n<|id|>144<|type|>title<|page|>14<|box|>503 140 521 383<|content|>3.10 Section 409A Compliance\n<|id|>151<|type|>title<|page|>15<|box|>348 142 364 312<|content|>4. Engagement Team\n<|id|>152<|type|>table<|page|>15<|box|>397 143 553 852<|content|>None\n<|id|>158<|type|>title<|page|>16<|box|>250 140 265 303<|content|>5. Fee Arrangement\n<|id|>163<|type|>title<|page|>16<|box|>594 140 612 501<|content|>6. Coordination and Communication Protocol\n<|id|>174<|type|>title<|page|>17<|box|>523 140 542 397<|content|>7. Matters Excluded from Scope\n<|id|>181<|type|>title<|page|>18<|box|>267 142 284 330<|content|>8. Anticipated Timeline\n<|id|>182<|type|>table<|page|>18<|box|>335 143 512 852<|content|>None\n<|id|>185<|type|>title<|page|>19<|box|>90 140 107 225<|content|>9. Closing",
+    "raw_response": "<|src_id|>152<|tgt_id|>151\n<|src_id|>182<|tgt_id|>181",
+    "parsed": [
+        {
+            "src_id": 152,
+            "tgt_id": 151
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 181
+        }
+    ]
+}

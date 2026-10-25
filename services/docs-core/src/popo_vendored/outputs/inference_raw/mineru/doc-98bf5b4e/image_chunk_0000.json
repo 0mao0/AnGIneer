@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 313 118 684<|content|>EQUITY COMMITMENT LETTER\n<|id|>1<|type|>title<|page|>1<|box|>143 424 161 573<|content|>Execution Version\n<|id|>9<|type|>title<|page|>1<|box|>689 140 705 334<|content|>Section 1. Commitment.\n<|id|>14<|type|>table<|page|>2<|box|>625 143 748 852<|content|>None\n<|id|>16<|type|>title<|page|>3<|box|>90 140 107 434<|content|>Section 2. Purpose and Use of Funds.\n<|id|>23<|type|>title<|page|>3<|box|>726 140 743 405<|content|>Section 3. Conditions to Funding.\n<|id|>31<|type|>title<|page|>5<|box|>167 140 184 584<|content|>Section 4. Limited Guarantee; Reverse Termination\n<|id|>35<|type|>title<|page|>5<|box|>633 140 652 566<|content|>Section 5. No Third-Party Beneficiaries; Enforceme\n<|id|>39<|type|>title<|page|>6<|box|>487 140 503 683<|content|>Section 6. Representations and Warranties of the C\n<|id|>47<|type|>title<|page|>8<|box|>90 142 107 372<|content|>Section 7. Fund Information.\n<|id|>49<|type|>table<|page|>8<|box|>183 143 398 852<|content|>None\n<|id|>50<|type|>title<|page|>8<|box|>431 142 449 506<|content|>Managing Partners of the Commitment Party:\n<|id|>55<|type|>title<|page|>8<|box|>648 142 666 328<|content|>Section 8. Termination.\n<|id|>62<|type|>title<|page|>9<|box|>421 140 438 426<|content|>Section 9. Amendment; Assignment.\n<|id|>67<|type|>title<|page|>10<|box|>90 140 107 635<|content|>Section 10. Governing Law; Jurisdiction; Waiver of\n<|id|>72<|type|>title<|page|>10<|box|>747 140 763 297<|content|>Section 11. Notices.\n<|id|>86<|type|>title<|page|>11<|box|>406 140 422 349<|content|>Section 12. Miscellaneous.\n<|id|>93<|type|>title<|page|>12<|box|>424 400 441 596<|content|>[Signature Pages Follow]",
+    "raw_response": "<|src_id|>14<|tgt_id|>9\n<|src_id|>49<|tgt_id|>47",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 47
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 302 118 694<|content|>UNITED STATES DISTRICT COURT\n<|id|>1<|type|>title<|page|>1<|box|>137 276 156 720<|content|>NORTHERN DISTRICT OF CALIFORNIA\n<|id|>2<|type|>title<|page|>1<|box|>176 385 195 612<|content|>SAN JOSE DIVISION\n<|id|>3<|type|>title<|page|>1<|box|>213 361 229 635<|content|>SUMMONS IN A CIVIL ACTION\n<|id|>4<|type|>table<|page|>1<|box|>238 143 464 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>498 361 513 635<|content|>SUMMONS IN A CIVIL ACTION\n<|id|>23<|type|>title<|page|>2<|box|>635 302 654 694<|content|>UNITED STATES DISTRICT COURT\n<|id|>24<|type|>title<|page|>2<|box|>674 276 693 720<|content|>NORTHERN DISTRICT OF CALIFORNIA\n<|id|>25<|type|>title<|page|>2<|box|>713 385 732 612<|content|>SAN JOSE DIVISION\n<|id|>26<|type|>title<|page|>2<|box|>750 344 766 653<|content|>PROOF OF SERVICE OF SUMMONS\n<|id|>27<|type|>table<|page|>2<|box|>775 143 900 852<|content|>None\n<|id|>28<|type|>table<|page|>3<|box|>88 143 125 852<|content|>None\n<|id|>31<|type|>title<|page|>3<|box|>263 142 281 383<|content|>1. Entity or Individual Served:\n<|id|>33<|type|>title<|page|>3<|box|>334 142 351 459<|content|>2. Address Where Service Was Effected:\n<|id|>35<|type|>title<|page|>3<|box|>386 142 402 287<|content|>3. Date of Service:\n<|id|>37<|type|>title<|page|>3<|box|>438 142 454 313<|content|>4. Method of Service:\n<|id|>39<|type|>title<|page|>3<|box|>636 142 652 352<|content|>5. Additional Information:\n<|id|>44<|type|>title<|page|>3<|box|>875 374 891 622<|content|>DECLARATION OF SERVER\n<|id|>48<|type|>title<|page|>4<|box|>315 143 333 380<|content|>Telephone Number:\n<|id|>49<|type|>title<|page|>4<|box|>340 143 358 397<|content|>Fees and Mileage (if applicable):\n<|id|>50<|type|>table<|page|>4<|box|>364 143 441 852<|content|>None\n<|id|>51<|type|>title<|page|>4<|box|>502 143 518 290<|content|>Signature of Server",
+    "raw_response": "<|src_id|>4<|tgt_id|>3\n<|src_id|>27<|tgt_id|>26\n<|src_id|>28<|tgt_id|>26\n<|src_id|>50<|tgt_id|>49",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 49
+        }
+    ]
+}

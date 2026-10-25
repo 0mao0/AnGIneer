@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 265<|content|>【185205#4】勃艮第\n<|id|>2<|page|>1<|box|>175 107 190 310<|content|>【2974812#3】瑞士葡萄酒\n<|id|>4<|page|>1<|box|>275 107 291 310<|content|>【2974812#1】瑞士葡萄酒\n<|id|>6<|page|>1<|box|>394 107 409 292<|content|>【31275#1】干白葡萄酒\n<|id|>8<|page|>1<|box|>460 107 476 267<|content|>【31271#17】葡萄酒\n<|id|>10<|page|>1<|box|>544 107 560 337<|content|>【1410210#11】意大利葡萄酒\n<|id|>12<|page|>1<|box|>662 107 677 275<|content|>【2960628#1】莎斯拉\n<|id|>14<|page|>1<|box|>746 107 760 337<|content|>【6078387#35】新世界葡萄酒\n<|id|>16<|page|>1<|box|>829 105 845 346<|content|>【4790542#0】沙布利白葡萄酒\n<|id|>18<|page|>2<|box|>73 107 89 273<|content|>【617703#14】雷司令",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        }
+    ]
+}

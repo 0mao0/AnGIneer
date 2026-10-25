@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cbjpvp4q\\input\\pdfs\\doc-1660efab.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-cbjpvp4q\\enriched\\doc-1660efab.json",
+    "contd_output": "<|src_id|>132<|tgt_id|>133",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>26<|level|>3\n<|id|>37<|level|>3\n<|id|>41<|level|>2\n<|id|>42<|level|>3\n<|id|>51<|level|>3\n<|id|>52<|level|>4\n<|id|>57<|level|>4\n<|id|>60<|level|>4\n<|id|>67<|level|>4\n<|id|>71<|level|>3\n<|id|>72<|level|>4\n<|id|>80<|level|>4\n<|id|>85<|level|>4\n<|id|>88<|level|>2\n<|id|>90<|level|>3\n<|id|>97<|level|>3\n<|id|>100<|level|>3\n<|id|>108<|level|>3\n<|id|>112<|level|>2\n<|id|>123<|level|>2\n<|id|>125<|level|>3\n<|id|>129<|level|>3\n<|id|>138<|level|>3\n<|id|>143<|level|>3\n<|id|>150<|level|>3\n<|id|>159<|level|>3\n<|id|>162<|level|>2\n<|id|>172<|level|>2\n<|id|>185<|level|>2",
+    "image_output": "<|src_id|>39<|tgt_id|>37\n<|src_id|>40<|tgt_id|>37\n<|src_id|>113<|tgt_id|>112\n<|src_id|>114<|tgt_id|>112",
+    "contd_label": [
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 4
+        },
+        {
+            "id": 57,
+            "level": 4
+        },
+        {
+            "id": 60,
+            "level": 4
+        },
+        {
+            "id": 67,
+            "level": 4
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 4
+        },
+        {
+            "id": 80,
+            "level": 4
+        },
+        {
+            "id": 85,
+            "level": 4
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 112
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 39,
+            "table2_idx": 40,
+            "upper_row_ss": [
+                [
+                    "July 1, 2022",
+                    "Formal written termination notice delivered by Ridgeline (Thomas Reardon, Managing Director) to"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "GAP (Douglas Evanston, General Counsel) under Section 9(b) of the Purchase Agreement."
+                ]
+            ]
+        }
+    ]
+}

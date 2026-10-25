@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 50,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['60', 'Letter: Vasquez to Hargrove — Formal Notification of Termination', 'Sept 12, 2024', 'Vasquez to V. Hargrove', 'Not Privileged (inter-party communication)', \"Formal letter on C&H letterhead notifying H&L that NTP has terminated all negotiations with Harding regarding the proposed CEO employment agreement, effective immediately.Requests the return or certified destruction of all confidential NTP materials in Harding's or H&L's possession, including term sheets, draft agreements, financial information, and Board materials.Reminds H&L and Harding of ongoing confidentiality obligations regarding all information exchanged during the\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', 'negotiation process. States that NTP reserves all rights.']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 108,
+    "table2_idx": 109
+}

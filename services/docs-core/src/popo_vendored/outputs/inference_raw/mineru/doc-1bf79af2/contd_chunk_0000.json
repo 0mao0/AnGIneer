@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        15,
+        16,
+        18
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>142 748 157 854<|content|>June 22, 2023\n<|id|>2<|page|>1<|box|>167 140 184 691<|content|>TO: ... Douglas Fairchild, Partner, Real Estate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>194 140 210 782<|content|>FROM: ... Rafael Dominguez, Lead Associate, Real Estate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>219 140 255 854<|content|>RE: ... Landlord Financial Diligence — Building-Le...venth Avenue, New York, NY 10019 (Greystone Tower)\n<|id|>5<|page|>1<|box|>263 140 280 663<|content|>MATTER: ... Aurelius Global Media Group PLC — Headquarters Lease\n<|id|>6<|page|>1<|box|>289 140 306 411<|content|>MATTER NUMBER: ... 1017-00009\n<|id|>7<|page|>1<|box|>315 140 332 710<|content|>CLIENT: ... Aurelius Global Media Group PLC / Aurelius Media Holdings Inc\n<|id|>22<|page|>2<|box|>840 140 896 856<|content|>Ownership Structure. ... Greystone is wholly owned...e private equity fund managed by Greystone Capital\n<|id|>23<|page|>3<|box|>90 140 236 856<|content|>Advisors LLC, a registered investment adviser. ...... invest in building operations over the Lease term\n<|id|>73<|page|>9<|box|>792 140 902 856<|content|>Under the proposed Lease, the allocation of any re...g that the Lease also requires Landlord to provide\n<|id|>74<|page|>10<|box|>90 140 127 854<|content|>Tenant with reasonable notice of the filing, progr...t with Tenant before settling any such proceedings\n<|id|>117<|page|>15<|box|>872 140 929 854<|content|>1. ... We recommend confirming that the proposed L... PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>118<|page|>16<|box|>90 140 255 854<|content|>Building were at least 95% occupied, regardless of...ithout a corresponding adjustment to the Base Year\n<|id|>132<|page|>18<|box|>431 142 448 320<|content|>Respectfully submitted,\n<|id|>133<|page|>18<|box|>449 140 465 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>134<|page|>18<|box|>467 143 484 253<|content|>By: ... By\n<|id|>135<|page|>18<|box|>484 140 515 617<|content|>Rafael Dominguez Lead Associate, Real Estate Pract... Associate, Real Estate, Calderwood & Harkness LLP\n<|id|>136<|page|>18<|box|>522 140 537 633<|content|>Calderwood & Harkness LLP 425 Park Avenue, 18th Floor New York, NY 10022\n<|id|>137<|page|>18<|box|>544 140 560 584<|content|>ATTORNEY WORK PRODUCT — PRIVILEGED & CONFIDENTIAL",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>73<|tgt_id|>74",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 74
+        }
+    ]
+}

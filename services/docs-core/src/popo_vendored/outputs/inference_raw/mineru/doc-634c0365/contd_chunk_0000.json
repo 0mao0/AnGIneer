@@ -1,0 +1,40 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 228 176 769<|content|>Adopted by Unanimous Written Consent in Lieu of a Special Meeting\n<|id|>2<|page|>1<|box|>185 447 200 550<|content|>June 6, 2022\n<|id|>3<|page|>1<|box|>210 140 340 856<|content|>The undersigned, being all of the members of the B...t which a quorum was present and acting throughout\n<|id|>9<|page|>2<|box|>800 138 893 857<|content|>WHEREAS (Recital E — Deterioration of Market Condi...nce further material declines through May and into\n<|id|>10<|page|>3<|box|>89 138 347 857<|content|>June 2022, driven in part by rising interest rates...y to permit a successful execution of the offering\n<|id|>12<|page|>3<|box|>709 138 893 857<|content|>WHEREAS (Recital G — Board Determination), the Boa... financial statements included in the Registration\n<|id|>13<|page|>4<|box|>90 140 273 854<|content|>Statement), together with the \\$50,000,000 senior ...'s strategic objectives warrant such a transaction\n<|id|>29<|page|>5<|box|>801 174 893 856<|content|>(d) Terrace Hill Insurance Group Ltd. ... and\n<|id|>31<|page|>6<|box|>133 140 189 854<|content|>The officers shall direct each such party to cease..., subject to the provisions of Resolution 12 below\n<|id|>56<|page|>8<|box|>829 174 883 854<|content|>(f) any expense reimbursements payable to the Unde...tters or expense reimbursement agreements; ... and\n<|id|>58<|page|>9<|box|>152 140 227 854<|content|>in each case in amounts consistent with the offeri... following the completion of the wind-down process\n<|id|>70<|page|>10<|box|>599 142 633 836<|content|>Priya Subramanian Chief Executive Officer, Co-Foun...and Chair of the Board of Directors Date: ... ____\n<|id|>71<|page|>10<|box|>666 143 684 653<|content|>Marcus Henley Chief Technology Officer, Co-Founder, and Director\n<|id|>72<|page|>10<|box|>685 143 702 264<|content|>Date: ... ____\n<|id|>73<|page|>10<|box|>734 143 751 406<|content|>Diane Ochoa Independent Director\n<|id|>74<|page|>10<|box|>753 143 768 264<|content|>Date: ... ____\n<|id|>75<|page|>10<|box|>803 142 819 436<|content|>Samuel Adebayo Independent Director\n<|id|>76<|page|>10<|box|>821 143 837 264<|content|>Date: ... ____\n<|id|>77<|page|>10<|box|>871 143 888 444<|content|>Catherine Mercer Independent Director\n<|id|>78<|page|>10<|box|>888 143 906 264<|content|>Date: ... ____\n<|id|>79<|page|>10<|box|>915 143 929 367<|content|>CONFIDENTIAL — Not for Distribution\n<|id|>80<|page|>11<|box|>109 140 145 723<|content|>Jonathan Tsai Director (Designee of Velthryn Venture Partners Fund IV, L. ... ____\n<|id|>81<|page|>11<|box|>176 140 213 700<|content|>Rebecca Stahl Director (Designee of Arclight Equity Group Fund VII, L. ... ____",
+    "raw_response": "<|src_id|>9<|tgt_id|>10\n<|src_id|>12<|tgt_id|>13\n<|src_id|>29<|tgt_id|>31\n<|src_id|>56<|tgt_id|>58",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 58
+        }
+    ]
+}

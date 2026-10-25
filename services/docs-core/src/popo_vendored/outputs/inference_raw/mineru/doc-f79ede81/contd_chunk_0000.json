@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        4,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>159 145 251 852<|content|>Delivered pursuant to Section 7. ... , a Delaware corporation (the \"Company\")\n<|id|>2<|page|>1<|box|>258 728 276 854<|content|>Dated: ... [●], 2025\n<|id|>3<|page|>1<|box|>284 140 376 856<|content|>The undersigned, Sandra Whitfield, hereby certifie... Federal Employer Identification Number 45-6128937\n<|id|>29<|page|>4<|box|>234 174 306 854<|content|>(i) approved the engagement of Alderman Proxy Advi... Agreement and the approval of the Merger; ... and\n<|id|>31<|page|>4<|box|>468 140 560 854<|content|>The undersigned further certifies that the Board R...that would limit or qualify, the Board Resolutions\n<|id|>68<|page|>8<|box|>824 143 839 325<|content|>Name: ... Sandra Whitfield\n<|id|>69<|page|>8<|box|>840 142 858 468<|content|>Title: ... General Counsel and Acting Secretary\n<|id|>70<|page|>8<|box|>859 143 875 212<|content|>Address: ... Address\n<|id|>71<|page|>8<|box|>875 143 891 591<|content|>2750 NW Thurman Street, Suite 400 Portland, Oregon 97210\n<|id|>73<|page|>8<|box|>916 143 930 385<|content|>Draft — Subject to Attorney-Client Privilege\n<|id|>72<|page|>8<|box|>892 143 907 339<|content|>[Exhibits A through E to follow]",
+    "raw_response": "<|src_id|>70<|tgt_id|>71",
+    "parsed": [
+        {
+            "src_id": 70,
+            "tgt_id": 71
+        }
+    ]
+}

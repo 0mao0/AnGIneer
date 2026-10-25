@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 153 108 841<|content|>UNITED STATES DISTRICT COURT FOR THE CENTRAL DISTR\n<|id|>1<|type|>table<|page|>1<|box|>142 143 325 852<|content|>None\n<|id|>5<|type|>title<|page|>1<|box|>662 140 680 648<|content|>I. PROFESSIONAL BACKGROUND AND QUALIFICATIONS\n<|id|>11<|type|>title<|page|>2<|box|>500 140 536 823<|content|>II. APPOINTMENT AS PRESIDING ARBITRATOR IN AAA/ICD\n<|id|>22<|type|>title<|page|>3<|box|>755 140 791 754<|content|>III. DISCLOSURE OBLIGATIONS AND COMPLIANCE WITH AA\n<|id|>32<|type|>title<|page|>5<|box|>239 140 258 841<|content|>IV. NATURE AND EXTENT OF PRIOR CONTACT WITH DR. EL\n<|id|>40<|type|>title<|page|>6<|box|>388 140 425 852<|content|>V. ABSENCE OF FINANCIAL INTEREST OR ONGOING RELATI\n<|id|>66<|type|>title<|page|>8<|box|>89 142 106 351<|content|>VI. THE FINAL AWARD\n<|id|>77<|type|>title<|page|>9<|box|>406 140 424 823<|content|>VII. RESPONSE TO RESPONDENTS' ALLEGATIONS OF EVIDE\n<|id|>83<|type|>title<|page|>10<|box|>500 140 517 452<|content|>VIII. CONCLUDING ATTESTATION",
+    "raw_response": "<|src_id|>1<|tgt_id|>0",
+    "parsed": [
+        {
+            "src_id": 1,
+            "tgt_id": 0
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        18
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>116 85 162 769<|content|>Wolbachia strains for disease control: ecological\n<|id|>3<|type|>title<|page|>1<|box|>267 85 280 151<|content|>Keywords\n<|id|>4<|type|>title<|page|>1<|box|>267 354 282 425<|content|>Abstract\n<|id|>8<|type|>table<|page|>2<|box|>98 119 727 495<|content|>None\n<|id|>10<|type|>title<|page|>2<|box|>312 522 328 825<|content|>Diversity of Wolbachia and their effects\n<|id|>16<|type|>title<|page|>3<|box|>389 494 404 801<|content|>Unpredictable phenotypic effects in new hosts\n<|id|>19<|type|>table<|page|>4<|box|>88 184 898 678<|content|>None\n<|id|>20<|type|>title<|page|>5<|box|>145 84 177 421<|content|>Desirable attributes of Wolbachia strains for dise\n<|id|>23<|type|>title<|page|>5<|box|>161 494 177 751<|content|>Ease of invasion into field populations\n<|id|>25<|type|>title<|page|>5<|box|>631 494 648 709<|content|>Reduced pathogen transmission\n<|id|>28<|type|>title<|page|>6<|box|>418 112 434 263<|content|>Stable effects on hosts\n<|id|>30<|type|>title<|page|>6<|box|>706 112 723 430<|content|>Evolutionary changes in the host genome\n<|id|>35<|type|>title<|page|>7<|box|>145 84 162 448<|content|>Evolutionary changes in the Wolbachia genome\n<|id|>39<|type|>title<|page|>7<|box|>798 84 814 401<|content|>Evolutionary changes in the viral genome\n<|id|>41<|type|>title<|page|>7<|box|>343 494 359 702<|content|>Other effects of Wolbachia\n<|id|>49<|type|>title<|page|>8<|box|>661 522 677 848<|content|>A pathogen interference/spread trade-off?\n<|id|>51<|type|>title<|page|>9<|box|>177 84 192 453<|content|>Viral suppression vs host fitness and Wolbachia de\n<|id|>60<|type|>title<|page|>10<|box|>93 522 109 838<|content|>Inferences from changes in natural populations\n<|id|>62<|type|>title<|page|>10<|box|>503 522 534 873<|content|>Mechanistic understanding of viral interference/ho\n<|id|>65<|type|>title<|page|>11<|box|>645 84 662 278<|content|>Other deployment issues\n<|id|>66<|type|>title<|page|>11<|box|>670 84 685 253<|content|>Host population ecology\n<|id|>74<|type|>title<|page|>12<|box|>602 112 616 275<|content|>Community acceptance\n<|id|>80<|type|>title<|page|>13<|box|>574 85 590 181<|content|>Conclusions\n<|id|>82<|type|>title<|page|>13<|box|>92 495 107 615<|content|>Literature cited\n<|id|>249<|type|>title<|page|>18<|box|>256 524 271 707<|content|>Supporting Information",
+    "raw_response": "<|src_id|>8<|tgt_id|>0\n<|src_id|>19<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 16
+        }
+    ]
+}

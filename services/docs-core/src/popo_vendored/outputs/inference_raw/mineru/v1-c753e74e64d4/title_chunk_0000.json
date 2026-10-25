@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 87 257<|content|>【5477284#6】Mora\n<|id|>2<|page|>1<|box|>174 105 191 337<|content|>【2905864#14】數位音樂下載\n<|id|>4<|page|>1<|box|>430 107 445 302<|content|>【6957178#16】模糊界线\n<|id|>6<|page|>1<|box|>497 107 512 267<|content|>【47932#27】周杰倫\n<|id|>8<|page|>1<|box|>598 107 614 307<|content|>【1344261#74】IU (歌手)\n<|id|>10<|page|>1<|box|>697 107 715 329<|content|>【1540415#1】妮娜·维达尔\n<|id|>12<|page|>1<|box|>782 107 797 292<|content|>【4435031#1】敢不敢爱\n<|id|>14<|page|>1<|box|>848 105 865 337<|content|>【1599679#2】AKB48歌曲列表\n<|id|>16<|page|>2<|box|>99 107 116 337<|content|>【1599679#1】AKB48歌曲列表\n<|id|>18<|page|>2<|box|>321 105 338 292<|content|>【489015#1】愛 未來式",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>2\n<|id|>16<|level|>2\n<|id|>18<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        }
+    ]
+}

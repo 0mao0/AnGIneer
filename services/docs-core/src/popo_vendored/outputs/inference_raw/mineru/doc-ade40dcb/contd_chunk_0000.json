@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>151 140 169 602<|content|>TO: ... Douglas Carmichael, Francesca Morano, Carlos Espinoza\n<|id|>3<|page|>1<|box|>176 140 195 339<|content|>FROM: ... Hannah Brinkley\n<|id|>4<|page|>1<|box|>203 140 220 334<|content|>DATE: ... January 15, 2024\n<|id|>5<|page|>1<|box|>229 140 301 857<|content|>RE: ... 655421/2023, Supreme Court of the State of New York, New York County, Commercial Division\n<|id|>6<|page|>1<|box|>309 140 327 379<|content|>C&H Matter No. ... 1044-00006\n<|id|>11<|page|>1<|box|>784 140 876 857<|content|>Conclusion: ... However, if the damage resulted fr...rer — such as loading contaminated ballast through\n<|id|>12<|page|>2<|box|>90 140 126 854<|content|>Northwind's agents — 100% of liability falls on Ch...arties, the ICA prescribes a \"default\" 50/50 split",
+    "raw_response": "<|src_id|>11<|tgt_id|>12",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        }
+    ]
+}

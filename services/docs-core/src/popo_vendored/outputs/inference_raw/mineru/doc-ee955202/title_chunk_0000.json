@@ -1,0 +1,92 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 104 735<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT — PRIVILEGED\n<|id|>1<|page|>1<|box|>112 272 128 723<|content|>CALDERWOOD & HARKNESS LLP MEMORANDUM\n<|id|>7<|page|>1<|box|>301 140 319 377<|content|>I. Summary and Introduction\n<|id|>14<|page|>2<|box|>321 140 339 736<|content|>II. Argument A — Chilling Effect on Aldrich's Righ\n<|id|>15<|page|>2<|box|>353 140 369 426<|content|>A. Summary of Aldrich's Argument\n<|id|>20<|page|>3<|box|>250 140 265 297<|content|>B. Our Assessment\n<|id|>28<|page|>4<|box|>321 140 339 833<|content|>III. Argument B — Section 9.1 Cannot Be Used as \"F\n<|id|>29<|page|>4<|box|>353 140 369 426<|content|>A. Summary of Aldrich's Argument\n<|id|>33<|page|>4<|box|>825 140 840 295<|content|>B. Our Assessment\n<|id|>51<|page|>6<|box|>574 140 611 802<|content|>IV. Argument C — SB 699 and AB 1076 as Further Gro\n<|id|>52<|page|>6<|box|>625 142 641 426<|content|>A. Summary of Aldrich's Argument\n<|id|>57<|page|>7<|box|>275 140 292 295<|content|>B. Our Assessment\n<|id|>63<|page|>8<|box|>223 140 239 508<|content|>V. Additional Observations on Aldrich's Reply\n<|id|>65<|page|>8<|box|>297 140 314 480<|content|>A. Aldrich's Own Declaratory Relief Claim\n<|id|>69<|page|>8<|box|>770 140 787 370<|content|>B. Choice-of-Law Dimension\n<|id|>73<|page|>9<|box|>402 140 420 529<|content|>C. Procedural Limitations of the Motion to Strike\n<|id|>77<|page|>10<|box|>90 140 107 326<|content|>VI. Predicted Outcome\n<|id|>84<|page|>11<|box|>90 140 107 328<|content|>VII. Recommendations",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>7<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>20<|level|>3\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>57<|level|>3\n<|id|>63<|level|>2\n<|id|>65<|level|>3\n<|id|>69<|level|>3\n<|id|>73<|level|>3\n<|id|>77<|level|>2\n<|id|>84<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        }
+    ]
+}

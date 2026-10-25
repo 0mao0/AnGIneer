@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        4,
+        51
+    ],
+    "pages": [
+        4,
+        24,
+        29,
+        35,
+        41,
+        44,
+        45,
+        50
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>4<|box|>89 156 104 357<|content|>OFFICIAL BUSINESS\n<|id|>4<|page|>4<|box|>314 541 512 675<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>68<|page|>24<|box|>334 43 706 67<|content|>Table FFO-5. ... - Budget Outlays by Major Function - (Continued)\n<|id|>69<|page|>24<|box|>472 109 578 125<|content|>/In millions of dollars\n<|id|>84<|page|>29<|box|>81 326 94 640<|content|>and Other Areas, Calendar Year 1972\n<|id|>86<|page|>29<|box|>817 494 897 977<|content|>7/ Tax payments made to banks, under the Federal t...d in the Internal Revenue offices with tax returns\n<|id|>105<|page|>35<|box|>243 0 362 473<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>106<|page|>35<|box|>147 505 211 980<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>123<|page|>41<|box|>110 414 123 567<|content|>(In millions of dollars)\n<|id|>126<|page|>41<|box|>879 0 919 449<|content|>Consists of Federal Housing Administration fund; .... Transit Authority from November 1972 - March 1973\n<|id|>132<|page|>44<|box|>600 416 615 609<|content|>Footnotes to Table FD-2\n<|id|>133<|page|>44<|box|>642 19 733 503<|content|>Source: ... The average\n<|id|>134<|page|>44<|box|>640 548 694 986<|content|>annual interest rate is computed by dividing the c...ate it was based on the coupon rate for all issues\n<|id|>136<|page|>45<|box|>68 230 84 748<|content|>Table FD-9. ... - Status and Application of Statutory Limitation\n<|id|>137<|page|>45<|box|>102 1 193 493<|content|>The Second Liberty Bond Act (31 U. ... Public Law ...mit shall be temporarily increased by \\$65 billion\n<|id|>155<|page|>50<|box|>211 32 222 458<|content|>5/ Except \\$15,000 at 97. ... 113\n<|id|>156<|page|>50<|box|>222 32 231 213<|content|>and \\$100,000 at 97. ... 099",
+    "raw_response": "<|src_id|>105<|tgt_id|>106\n<|src_id|>133<|tgt_id|>134\n<|src_id|>155<|tgt_id|>156",
+    "parsed": [
+        {
+            "src_id": 105,
+            "tgt_id": 106
+        },
+        {
+            "src_id": 133,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 156
+        }
+    ]
+}

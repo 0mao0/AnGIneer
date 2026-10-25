@@ -1,0 +1,20 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>15<|page|>1<|box|>889 99 923 890<|content|>而在学术研究方面，Springer旗下Nature的自然指数将多伦多大学在2019年榜单中排为所有研...大学中的第20名，SCImago则将其排在所有研究机构中的第20名。 ... 专门针对大学科研进行排\n<|id|>16<|page|>2<|box|>73 99 89 492<|content|>名的NTU将多伦多大学列为世界第4名、加拿大第1名。 ... 名的NTU将多伦多大学列为世界第4名、加拿大第1名",
+    "raw_response": "<|src_id|>15<|tgt_id|>16",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        }
+    ]
+}

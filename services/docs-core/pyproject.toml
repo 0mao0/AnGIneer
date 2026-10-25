@@ -26,6 +26,8 @@ dependencies = [
     # 仓库内底座与兄弟包
     "angineer-tree-core>=0.1.0,<0.2.0",
     "angineer-ai-inference>=0.2.2,<0.3.0",
+    # popo 客户端（dgx-spark-popo 独立库；容器从 vendor wheel 装，本地 editable——升级=换 wheel+改 Dockerfile 文件名）
+    "popo-client>=0.1.0,<0.2.0",
     # 运行期硬依赖（顶层 import，缺一即 import 失败）
     "pydantic>=2.0.0,<3.0.0",
     "python-dotenv>=1.0.0",
@@ -33,6 +35,11 @@ dependencies = [
     "PyMuPDF==1.28.2",
     "numpy>=1.24",
     "python-dateutil>=2.8",
+    # PoPo 三段链子进程的运行期依赖（label_norm/inference/tree 脚本 import）
+    "tqdm>=4.60",
+    "openai>=1.0",
+    "beautifulsoup4>=4.12",
+    "pillow>=10.0",
     # 默认向量后端 qdrant（qdrant-client 仅在用到时惰性 import）
     "qdrant-client>=1.12",
 ]
@@ -58,13 +65,10 @@ dev = [
 [tool.setuptools]
 package-dir = {"" = "src"}
 
-# popo 是随包发布的 PoPo fork（上游无 __init__.py，按命名空间包收集）；
-# 只收源码目录，产物目录（figures / output_cases / outputs）一律不进包。
 [tool.setuptools.packages.find]
 where = ["src"]
 namespaces = true
-include = ["docs_core*", "popo*"]
-exclude = ["popo.figures*", "popo.output_cases*", "popo.outputs*"]
+include = ["docs_core*"]
 
 [project.urls]
 Repository = "https://github.com/0mao0/angineer-docs-core"

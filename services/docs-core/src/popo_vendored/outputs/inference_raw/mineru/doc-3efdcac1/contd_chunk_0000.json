@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>90 140 126 843<|content|># Hudson Yards West — Borrower's Comments to Senior Mortgage Loan Agreement; ... Open Issues List\n<|id|>5<|page|>1<|box|>297 142 314 220<|content|>Harrison,\n<|id|>1<|page|>1<|box|>171 140 189 661<|content|>- From: ... com>\n<|id|>2<|page|>1<|box|>203 140 220 599<|content|>- To: ... com>\n<|id|>3<|page|>1<|box|>234 140 252 630<|content|>- Cc: ... com>\n<|id|>4<|page|>1<|box|>265 140 284 465<|content|>- Date: ... 00 -0000\n<|id|>7<|page|>1<|box|>459 140 497 839<|content|>1. ... docx)\n<|id|>9<|page|>1<|box|>590 140 665 843<|content|>The redline reflects Borrower's comments throughou... set out in greater detail in the Open Issues List\n<|id|>8<|page|>1<|box|>508 140 547 599<|content|>2. ... pdf)\n<|id|>10<|page|>1<|box|>709 140 727 441<|content|>**1. ... Recourse Carve-Outs (Article 9)**\n<|id|>11<|page|>1<|box|>772 140 809 830<|content|>The current draft contains several non-standard re...truction financing of this type. ... In particular\n<|id|>12<|page|>1<|box|>853 140 891 843<|content|>- The \"voluntary\" bankruptcy carve-out as drafted ...HYW Mortgage LLC — this is unworkable given MTDC's\n<|id|>13<|page|>2<|box|>90 140 128 794<|content|>broader corporate structure and the number of affi...arve-out to HYW Mortgage LLC and its direct parent\n<|id|>16<|page|>2<|box|>345 142 364 460<|content|>**2. ... 6)**\n<|id|>17<|page|>2<|box|>409 140 465 844<|content|>The term sheet dated February 28, 2025 contemplate...ditions that were not in the term sheet, including\n<|id|>21<|page|>2<|box|>784 140 801 573<|content|>**3. ... 3)**\n<|id|>22<|page|>2<|box|>845 140 902 830<|content|>The draft provides for a hard lockbox with springi...sh sweep when DSCR falls below 1. ... Additionally\n<|id|>25<|page|>3<|box|>309 140 325 537<|content|>**4. ... Reserve Disbursement Mechanics (Article 6)**\n<|id|>26<|page|>3<|box|>371 140 426 841<|content|>Several of the reserve disbursement provisions req... sole and absolute discretion. ... Specific points\n<|id|>30<|page|>3<|box|>727 140 744 535<|content|>**5. ... Construction Advance Conditions (Article 7)**\n<|id|>31<|page|>3<|box|>790 140 806 591<|content|>This is the area where the most work remains. ... Key issues\n<|id|>32<|page|>3<|box|>853 140 909 844<|content|>- The draft requires that Borrower certify at each... duration of construction, a 5% line-item variance\n<|id|>33<|page|>4<|box|>90 140 128 836<|content|>threshold is too tight; ... we have proposed a 10%...level, with a hard cap at the aggregate GMP amount\n<|id|>37<|page|>4<|box|>414 140 431 271<|content|>**Other Items**\n<|id|>38<|page|>4<|box|>477 140 609 844<|content|>The Open Issues List also covers a number of addit...ents on the tax-related provisions early next week\n<|id|>41<|page|>4<|box|>890 142 907 250<|content|>Best regards,\n<|id|>42<|page|>5<|box|>121 140 138 277<|content|>Grace Nakamura\n<|id|>43<|page|>5<|box|>152 140 171 277<|content|>Senior Associate\n<|id|>44<|page|>5<|box|>183 140 202 369<|content|>Calderwood & Harkness LLP\n<|id|>45<|page|>5<|box|>214 142 234 374<|content|>One Liberty Plaza, 55th Floor\n<|id|>46<|page|>5<|box|>244 142 263 310<|content|>New York, NY 10006\n<|id|>47<|page|>5<|box|>277 142 296 294<|content|>T: ... (212) 455-8274\n<|id|>48<|page|>5<|box|>309 140 328 449<|content|>gnakamura@calderwoodharkness. ... com\n<|id|>49<|page|>5<|box|>371 140 388 369<|content|>C&H Matter No. ... 1031-00004\n<|id|>50<|page|>5<|box|>434 140 489 846<|content|>*This email may contain information that is privil...ial, or otherwise protected from disclosure. ... *",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>32<|tgt_id|>33",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        }
+    ]
+}

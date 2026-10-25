@@ -1,0 +1,117 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        87
+    ],
+    "pages": [
+        47,
+        51,
+        57,
+        62,
+        70,
+        72,
+        74,
+        80,
+        83,
+        86,
+        87
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>191<|page|>47<|box|>218 142 234 437<|content|>7.3 CDD/EDD & Customer Screening\n<|id|>196<|page|>51<|box|>90 165 109 831<|content|>SECTION 8: TECHNICAL ARCHITECTURE & INTEGRATION\n<|id|>206<|page|>57<|box|>172 142 193 854<|content|>SECTION 9: PERFORMANCE MONITORING & SERVICE LEVELS\n<|id|>207<|page|>57<|box|>219 142 234 375<|content|>9.1 Service Level Agreements\n<|id|>217<|page|>62<|box|>292 191 313 805<|content|>SECTION 10: LEGAL & CONTRACTUAL PROTECTIONS\n<|id|>218<|page|>62<|box|>339 142 356 468<|content|>10.1 Contractual Requirements Checklist\n<|id|>229<|page|>70<|box|>308 215 328 782<|content|>SECTION 11: VENDOR RISK RATING & APPROVAL\n<|id|>230<|page|>70<|box|>354 143 371 334<|content|>11.1 Risk Rating Matrix\n<|id|>243<|page|>72<|box|>90 142 107 362<|content|>11.2 Approval & Escalation\n<|id|>245<|page|>72<|box|>142 140 159 411<|content|>Step 1 — Assessment Completion:\n<|id|>247<|page|>72<|box|>205 140 223 424<|content|>Step 2 — Review and Concurrence:\n<|id|>252<|page|>72<|box|>310 142 327 333<|content|>Step 3 — Legal Review:\n<|id|>254<|page|>72<|box|>375 142 391 303<|content|>Step 4 — Approval:\n<|id|>258<|page|>72<|box|>569 140 585 359<|content|>Step 5 — Board Reporting:\n<|id|>260<|page|>72<|box|>686 140 704 411<|content|>Step 6 — Regulatory Notification:\n<|id|>262<|page|>72<|box|>845 140 862 462<|content|>11.3 Documentation & Record Retention\n<|id|>269<|page|>74<|box|>90 156 136 839<|content|>APPENDIX A: DOCUMENT REQUEST LIST FOR VENDOR DUE D\n<|id|>277<|page|>80<|box|>90 192 135 803<|content|>APPENDIX B: CONSENT ORDER COMPLIANCE CROSS- REFERE\n<|id|>287<|page|>83<|box|>90 189 133 808<|content|>APPENDIX C: SAMPLE COMPLETED ASSESSMENT — VERIDIAN\n<|id|>290<|page|>83<|box|>674 142 691 583<|content|>Illustrative Risk Flags Identified (For Full Inves\n<|id|>305<|page|>86<|box|>90 197 133 799<|content|>APPENDIX D: SAMPLE VENDOR IDENTIFICATION — RIDGELI\n<|id|>308<|page|>86<|box|>609 142 627 362<|content|>Preliminary Considerations\n<|id|>316<|page|>87<|box|>412 406 428 591<|content|>END OF CHECKLIST\n<|id|>317<|page|>87<|box|>438 282 454 715<|content|>ACKNOWLEDGMENT OF RECEIPT AND REVIEW\n<|id|>319<|page|>87<|box|>527 142 542 385<|content|>Assessment Lead — CIO/CTO",
+    "raw_response": "<|id|>191<|level|>2\n<|id|>196<|level|>1\n<|id|>206<|level|>1\n<|id|>207<|level|>2\n<|id|>217<|level|>1\n<|id|>218<|level|>2\n<|id|>229<|level|>1\n<|id|>230<|level|>2\n<|id|>243<|level|>2\n<|id|>245<|level|>3\n<|id|>247<|level|>3\n<|id|>252<|level|>3\n<|id|>254<|level|>3\n<|id|>258<|level|>3\n<|id|>260<|level|>3\n<|id|>262<|level|>2\n<|id|>269<|level|>1\n<|id|>277<|level|>1\n<|id|>287<|level|>1\n<|id|>290<|level|>-1\n<|id|>305<|level|>1\n<|id|>308<|level|>2\n<|id|>316<|level|>-1\n<|id|>317<|level|>1\n<|id|>319<|level|>2",
+    "parsed": [
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 1
+        },
+        {
+            "id": 206,
+            "level": 1
+        },
+        {
+            "id": 207,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 1
+        },
+        {
+            "id": 218,
+            "level": 2
+        },
+        {
+            "id": 229,
+            "level": 1
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 243,
+            "level": 2
+        },
+        {
+            "id": 245,
+            "level": 3
+        },
+        {
+            "id": 247,
+            "level": 3
+        },
+        {
+            "id": 252,
+            "level": 3
+        },
+        {
+            "id": 254,
+            "level": 3
+        },
+        {
+            "id": 258,
+            "level": 3
+        },
+        {
+            "id": 260,
+            "level": 3
+        },
+        {
+            "id": 262,
+            "level": 2
+        },
+        {
+            "id": 269,
+            "level": 1
+        },
+        {
+            "id": 277,
+            "level": 1
+        },
+        {
+            "id": 287,
+            "level": 1
+        },
+        {
+            "id": 305,
+            "level": 1
+        },
+        {
+            "id": 308,
+            "level": 2
+        },
+        {
+            "id": 317,
+            "level": 1
+        },
+        {
+            "id": 319,
+            "level": 2
+        }
+    ]
+}

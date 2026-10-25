@@ -1,0 +1,81 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 214 142 782<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF NORTHGATE\n<|id|>4<|page|>1<|box|>305 140 324 243<|content|>RECITALS\n<|id|>34<|page|>6<|box|>212 140 229 279<|content|>RESOLUTIONS\n<|id|>35<|page|>6<|box|>243 140 260 584<|content|>Resolution 1 — Authorization to Terminate Negotiat\n<|id|>37<|page|>6<|box|>517 142 534 607<|content|>Resolution 2 — Formal Notification to Candidate's\n<|id|>44<|page|>7<|box|>138 142 157 485<|content|>Resolution 3 — Resumption of CEO Search\n<|id|>51<|page|>7<|box|>579 140 597 490<|content|>Resolution 4 — Interim CEO Arrangements\n<|id|>54<|page|>8<|box|>90 140 107 405<|content|>Resolution 5 — Public Disclosure\n<|id|>58<|page|>8<|box|>561 140 579 387<|content|>Resolution 6 — Confidentiality\n<|id|>66<|page|>9<|box|>213 140 231 521<|content|>Resolution 7 — Engagement Closing and Billing\n<|id|>68<|page|>9<|box|>450 140 467 447<|content|>Resolution 8 — General Authorization\n<|id|>70<|page|>9<|box|>686 140 704 364<|content|>Resolution 9 — Ratification\n<|id|>72<|page|>10<|box|>148 142 166 403<|content|>ADOPTION AND EXECUTION\n<|id|>83<|page|>10<|box|>685 142 703 563<|content|>ATTESTATION OF THE COMPANY SECRETARY\n<|id|>91<|page|>11<|box|>277 142 294 236<|content|>EXHIBITS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>4<|level|>2\n<|id|>34<|level|>2\n<|id|>35<|level|>3\n<|id|>37<|level|>3\n<|id|>44<|level|>3\n<|id|>51<|level|>3\n<|id|>54<|level|>3\n<|id|>58<|level|>3\n<|id|>66<|level|>3\n<|id|>68<|level|>3\n<|id|>70<|level|>3\n<|id|>72<|level|>2\n<|id|>83<|level|>2\n<|id|>91<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        }
+    ]
+}

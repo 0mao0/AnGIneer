@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        57
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        8,
+        13,
+        19,
+        22,
+        26,
+        29,
+        34,
+        42,
+        45,
+        56
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>4<|page|>1<|box|>118 460 131 534<|content|>(Mark One)\n<|id|>5<|page|>1<|box|>132 184 159 812<|content|>þ ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(D) OF...ACT OF 1934 FOR THE FISCAL YEAR ENDED May 31, 2018\n<|id|>6<|page|>1<|box|>155 486 167 509<|content|>OR\n<|id|>10<|page|>1<|box|>265 341 279 653<|content|>(Exact name of Registrant as specified in its charter)\n<|id|>14<|page|>1<|box|>662 26 674 555<|content|>As of November 30, 2017, the aggregate market valu...trant ’ s Common Stock held by non-affiliates were\n<|id|>49<|page|>4<|box|>689 22 713 970<|content|>In addition to NIKE and Converse owned digital com... number of retail stores outside the United States\n<|id|>51<|page|>5<|box|>64 22 111 970<|content|>International branch offices and subsidiaries of N... Emirates, the United Kingdom, Uruguay and Vietnam\n<|id|>99<|page|>8<|box|>125 21 405 972<|content|>Certain written and oral statements, other than pu...ated by reference in this report and other reports\n<|id|>100<|page|>8<|box|>407 22 465 970<|content|>The risks included here are not exhaustive. ... Gi...oking statements as a prediction of actual results\n<|id|>161<|page|>13<|box|>138 22 172 970<|content|>We earn a substantial portion of our income in for...se impact on our income tax expense and cash flows\n<|id|>162<|page|>13<|box|>178 22 213 970<|content|>Portions of our operations are subject to a reduce...ctive income tax rate would increase in the future\n<|id|>223<|page|>19<|box|>150 22 175 970<|content|>COMPARISON OF 5-YEAR CUMULATIVE TOTAL RETURN AMONG NIKE, INC. ... FOOTWEAR INDEX\n<|id|>224<|page|>19<|box|>500 22 559 970<|content|>The Dow Jones U. ... The indices do not encompass ... lines of business in which the Company is engaged\n<|id|>240<|page|>22<|box|>347 50 359 308<|content|>Mid-teens earnings per share growth; ... and\n<|id|>242<|page|>22<|box|>383 22 407 968<|content|>Over the past ten years, we have achieved strong growth in many of these metrics. ... 7%\n<|id|>279<|page|>26<|box|>243 50 268 970<|content|>NIKE Brand full-price ASP, net of discounts, on a ...-price ASP in the second half of the year; ... and\n<|id|>280<|page|>26<|box|>272 50 284 491<|content|>NIKE Brand product costs, on a wholesale equivalen..., on a wholesale equivalent basis, which were flat\n<|id|>324<|page|>29<|box|>436 22 470 970<|content|>Footwear revenues declined 4% for fiscal 2018, as ...rable impact of growth in our NIKE Direct business\n<|id|>325<|page|>29<|box|>476 22 512 970<|content|>Apparel revenue growth of 1% for fiscal 2018 was a...price ASP and favorable changes in off-price sales\n<|id|>391<|page|>34<|box|>400 50 424 970<|content|>an unfavorable change of $255 million, primarily d...8, as well as higher administrative costs; ... and\n<|id|>392<|page|>34<|box|>430 50 464 970<|content|>a detrimental change of $196 million related to th...ported as a component of consolidated gross margin\n<|id|>396<|page|>34<|box|>547 50 560 862<|content|>• a beneficial change of $115 million, primarily d...ative costs in operating overhead expense; ... and\n<|id|>397<|page|>34<|box|>565 50 589 970<|content|>an increase in net foreign currency gains of $54 m...ponent of consolidated Other expense (income), net\n<|id|>400<|page|>34<|box|>656 22 691 970<|content|>As a global company with significant operations ou...om changes in currency exchange rates. ... Dollars\n<|id|>401<|page|>34<|box|>696 22 787 970<|content|>Our foreign exchange risk management program is in...ve instruments for trading or speculative purposes\n<|id|>492<|page|>42<|box|>145 22 214 970<|content|>We are exposed to foreign currency fluctuations, p...movements on our Consolidated Financial Statements\n<|id|>493<|page|>42<|box|>219 22 276 970<|content|>The timing for hedging exposures, as well as the t...ed Financial Statements for additional information\n<|id|>500<|page|>42<|box|>583 22 640 970<|content|>The instruments not included in the VaR are interc...l position, results from operations and cash flows\n<|id|>501<|page|>42<|box|>645 22 657 934<|content|>Details of third-party debt are provided in the ta... average interest rates by expected maturity dates\n<|id|>523<|page|>45<|box|>707 24 719 122<|content|>Portland, Oregon\n<|id|>524<|page|>45<|box|>724 24 737 102<|content|>July 24, 2018\n<|id|>525<|page|>45<|box|>760 22 773 323<|content|>We have served as the Company’s auditor since 1974...We have served as the Company’s auditor since 1974\n<|id|>619<|page|>56<|box|>545 22 614 970<|content|>In October 2016, the FASB issued ASU No. ... Upon ... income taxes and other liabilities by $40 million\n<|id|>620<|page|>56<|box|>618 22 699 970<|content|>In February 2016, the FASB issued ASU No. ... Refe... information about the Company’s lease obligations",
+    "raw_response": "<|src_id|>49<|tgt_id|>51\n<|src_id|>391<|tgt_id|>392\n<|src_id|>396<|tgt_id|>397",
+    "parsed": [
+        {
+            "src_id": 49,
+            "tgt_id": 51
+        },
+        {
+            "src_id": 391,
+            "tgt_id": 392
+        },
+        {
+            "src_id": 396,
+            "tgt_id": 397
+        }
+    ]
+}

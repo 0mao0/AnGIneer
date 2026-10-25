@@ -1,0 +1,38 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 403 119 593<|content|>MEMORANDUM\n<|id|>6<|type|>title<|page|>1<|box|>297 140 316 251<|content|>I. PURPOSE\n<|id|>11<|type|>title<|page|>2<|box|>89 140 106 439<|content|>II. ENGAGEMENT BACKGROUND\n<|id|>12<|type|>title<|page|>2<|box|>121 140 138 434<|content|>A. Engagement and Billing Structure\n<|id|>20<|type|>table<|page|>2<|box|>453 143 527 852<|content|>None\n<|id|>23<|type|>title<|page|>2<|box|>821 142 838 302<|content|>B. Dormancy Event\n<|id|>28<|type|>title<|page|>3<|box|>565 140 582 490<|content|>C. Client Contacts for Billing and Collection\n<|id|>37<|type|>title<|page|>4<|box|>392 140 409 653<|content|>III. OUTSTANDING BALANCE — DETAILED BREAKDOWN\n<|id|>39<|type|>table<|page|>4<|box|>481 143 556 852<|content|>None\n<|id|>41<|type|>title<|page|>4<|box|>622 142 638 295<|content|>B. Unpaid Invoices\n<|id|>43<|type|>title<|page|>4<|box|>727 142 744 563<|content|>Invoice No. 2023-07-04187 — July 2023 Billing Peri\n<|id|>49<|type|>title<|page|>5<|box|>203 140 220 586<|content|>Invoice No. 2023-08-04187 — August 2023 Billing Pe\n<|id|>56<|type|>title<|page|>5<|box|>559 140 575 380<|content|>C. Unbilled Work-in-Progress\n<|id|>63<|type|>title<|page|>6<|box|>324 140 340 483<|content|>D. Emergency B1 Extension (October 2024)\n<|id|>69<|type|>title<|page|>6<|box|>784 140 801 473<|content|>IV. COLLECTION EFFORTS TO DATE\n<|id|>70<|type|>title<|page|>6<|box|>815 142 833 398<|content|>A. Billing Communications Sent\n<|id|>79<|type|>title<|page|>7<|box|>696 140 713 359<|content|>B. Client Financial Context\n<|id|>85<|type|>title<|page|>8<|box|>426 140 443 506<|content|>V. RECOMMENDED COLLECTION STEPS\n<|id|>87<|type|>title<|page|>8<|box|>539 140 556 540<|content|>A. Immediate Actions (November–December 2024)\n<|id|>99<|type|>title<|page|>9<|box|>508 140 526 426<|content|>B. Medium-Term Actions (Q1 2025)\n<|id|>109<|type|>title<|page|>10<|box|>253 140 271 403<|content|>C. Actions to Avoid at This Time\n<|id|>113<|type|>title<|page|>10<|box|>553 140 589 738<|content|>VI. ETHICAL CONSIDERATIONS — WITHDRAWAL VS. CONTIN\n<|id|>114<|type|>title<|page|>10<|box|>603 140 619 310<|content|>A. The Core Tension\n<|id|>118<|type|>title<|page|>11<|box|>257 140 273 486<|content|>B. California Rules of Professional Conduct\n<|id|>124<|type|>title<|page|>12<|box|>229 140 248 367<|content|>C. USPTO Rules of Practice\n<|id|>130<|type|>title<|page|>12<|box|>753 140 772 460<|content|>D. Practical Conclusions on Withdrawal\n<|id|>136<|type|>title<|page|>13<|box|>794 140 811 470<|content|>VII. ADDITIONAL CONSIDERATIONS\n<|id|>137<|type|>title<|page|>13<|box|>825 140 843 346<|content|>A. Lien on Work Product\n<|id|>142<|type|>title<|page|>14<|box|>492 140 508 580<|content|>B. Impact of Graystone Valuation on Collection Pos\n<|id|>145<|type|>title<|page|>14<|box|>616 183 633 705<|content|>• Pending patent application family (12 applicatio\n<|id|>148<|type|>title<|page|>14<|box|>838 140 854 539<|content|>C. Meridian National Bank Covenant Implications\n<|id|>152<|type|>title<|page|>15<|box|>439 140 455 529<|content|>VIII. SUMMARY AND RECOMMENDATIONS\n<|id|>161<|type|>title<|page|>16<|box|>388 140 407 233<|content|>CLOSING",
+    "raw_response": "<|src_id|>20<|tgt_id|>12\n<|src_id|>39<|tgt_id|>37",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        }
+    ]
+}

@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 143 104 653<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT COMMUN\n<|id|>1<|page|>1<|box|>112 184 148 854<|content|>CALDERWOOD & HARKNESS LLP 777 South Flower Street,\n<|id|>2<|page|>1<|box|>155 339 172 658<|content|>DRAFT LITIGATION HOLD NOTICE\n<|id|>9<|page|>1<|box|>412 140 430 250<|content|>I. PURPOSE\n<|id|>15<|page|>2<|box|>167 140 184 483<|content|>II. MATTERS SUBJECT TO THIS HOLD\n<|id|>17<|page|>2<|box|>219 140 236 503<|content|>A. *Fuentes v. Aurelius Media Americas Inc.*\n<|id|>19<|page|>2<|box|>398 140 417 470<|content|>B. Related and Anticipated PAGA Claims\n<|id|>21<|page|>2<|box|>579 140 597 491<|content|>C. Potential Claims Involving Gavin Aldrich\n<|id|>23<|page|>2<|box|>741 140 758 529<|content|>D. Anticipated Related Action by Derek Halloran\n<|id|>25<|page|>3<|box|>148 142 166 416<|content|>III. SCOPE OF PRESERVATION\n<|id|>56<|page|>6<|box|>89 142 106 509<|content|>IV. TYPES OF MATERIALS TO PRESERVE\n<|id|>70<|page|>7<|box|>89 142 106 290<|content|>V. CUSTODIANS\n<|id|>81<|page|>8<|box|>303 140 320 465<|content|>VI. IMMEDIATE ACTION REQUIRED\n<|id|>100<|page|>9<|box|>390 140 407 504<|content|>VII. PENALTIES FOR NON-COMPLIANCE\n<|id|>107<|page|>10<|box|>89 142 106 290<|content|>VIII. DURATION\n<|id|>116<|page|>10<|box|>550 142 568 640<|content|>IX. ACKNOWLEDGMENT AND CLOSING INSTRUCTIONS\n<|id|>125<|page|>11<|box|>152 330 169 665<|content|>[END OF LITIGATION HOLD NOTICE]",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>2<|level|>1\n<|id|>9<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>3\n<|id|>19<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>25<|level|>2\n<|id|>56<|level|>2\n<|id|>70<|level|>2\n<|id|>81<|level|>2\n<|id|>100<|level|>2\n<|id|>107<|level|>2\n<|id|>116<|level|>2\n<|id|>125<|level|>-1",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        }
+    ]
+}

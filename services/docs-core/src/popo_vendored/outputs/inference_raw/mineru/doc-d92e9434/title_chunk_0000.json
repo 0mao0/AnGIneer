@@ -1,0 +1,51 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>579 140 595 560<|content|>I. BACKGROUND AND PROCEDURAL HISTORY\n<|id|>13<|page|>2<|box|>393 140 412 508<|content|>II. THE AGENCY'S EXTENSION REQUEST\n<|id|>17<|page|>2<|box|>787 142 805 287<|content|>III. ARGUMENT\n<|id|>18<|page|>2<|box|>819 140 854 854<|content|>A. The Requested 20-Day Extension Would Jeopardize\n<|id|>30<|page|>4<|box|>90 140 107 764<|content|>B. The Procurement Record Should Already Be Readil\n<|id|>40<|page|>5<|box|>138 140 174 854<|content|>C. A Partial Extension of No More Than 10 Days Is\n<|id|>44<|page|>5<|box|>603 140 619 423<|content|>IV. PREJUDICE TO WHITMORE\n<|id|>48<|page|>6<|box|>321 140 338 354<|content|>V. REQUESTED RELIEF\n<|id|>53<|page|>6<|box|>652 140 667 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>13<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>30<|level|>2\n<|id|>40<|level|>2\n<|id|>44<|level|>1\n<|id|>48<|level|>1\n<|id|>53<|level|>-1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        }
+    ]
+}

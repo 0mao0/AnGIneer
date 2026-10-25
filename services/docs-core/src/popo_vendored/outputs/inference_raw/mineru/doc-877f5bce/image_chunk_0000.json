@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>127 199 164 854<|content|>CALDERWOOD & HARKNESS LLP 555 California Street, 4\n<|id|>10<|type|>title<|page|>1<|box|>561 140 579 486<|content|>1. Introduction and Purpose of Engagement\n<|id|>14<|type|>title<|page|>2<|box|>175 140 191 264<|content|>2. Background\n<|id|>21<|type|>title<|page|>3<|box|>241 140 258 300<|content|>3. Scope of Services\n<|id|>23<|type|>title<|page|>3<|box|>316 140 334 709<|content|>3.1 Phase 1: Assessment and Program Design (August\n<|id|>38<|type|>title<|page|>4<|box|>679 140 696 692<|content|>3.2 Phase 2: Implementation Support (October 2023\n<|id|>45<|type|>title<|page|>5<|box|>364 140 381 723<|content|>3.3 Phase 3: Compliance Monitor Services (Continge\n<|id|>54<|type|>title<|page|>6<|box|>212 140 229 460<|content|>4. Relationship Structure and Reporting\n<|id|>64<|type|>title<|page|>7<|box|>90 142 107 263<|content|>5. Deliverables\n<|id|>66<|type|>table<|page|>7<|box|>176 143 353 852<|content|>None\n<|id|>68<|type|>title<|page|>8<|box|>90 142 107 267<|content|>6. Fee Schedule\n<|id|>69<|type|>table<|page|>8<|box|>159 143 253 852<|content|>None\n<|id|>75<|type|>title<|page|>8<|box|>742 140 760 284<|content|>7. Confidentiality\n<|id|>80<|type|>title<|page|>9<|box|>465 140 482 465<|content|>8. Conflicts of Interest and Independence\n<|id|>90<|type|>title<|page|>10<|box|>241 140 258 346<|content|>9. Term and Termination\n<|id|>95<|type|>title<|page|>10<|box|>587 142 604 349<|content|>10. Limitation of Liability\n<|id|>99<|type|>title<|page|>11<|box|>90 142 107 300<|content|>11. Indemnification\n<|id|>102<|type|>title<|page|>11<|box|>383 142 402 480<|content|>12. Governing Law and Dispute Resolution\n<|id|>105<|type|>title<|page|>11<|box|>642 143 659 285<|content|>13. Miscellaneous\n<|id|>121<|type|>title<|page|>12<|box|>691 142 709 264<|content|>14. Acceptance\n<|id|>124<|type|>title<|page|>12<|box|>805 140 821 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>134<|type|>title<|page|>13<|box|>184 140 202 517<|content|>MERIDIAN COMPLIANCE PARTNERS LLC",
+    "raw_response": "<|src_id|>66<|tgt_id|>64\n<|src_id|>69<|tgt_id|>68",
+    "parsed": [
+        {
+            "src_id": 66,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 69,
+            "tgt_id": 68
+        }
+    ]
+}

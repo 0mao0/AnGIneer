@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>186 354 202 643<|content|>GAO Case No. ... 2\n<|id|>4<|page|>1<|box|>212 241 229 754<|content|>Solicitation No. ... FA8222-23-D-0193\n<|id|>6<|page|>1<|box|>263 656 281 854<|content|>Filed: ... September 26, 2023\n<|id|>7<|page|>1<|box|>289 155 306 854<|content|>Filed by: ... 20006\n<|id|>8<|page|>1<|box|>315 560 333 854<|content|>On behalf of Whitmore Aerospace LLC\n<|id|>46<|page|>4<|box|>849 140 886 856<|content|>25. ... The applicable Product and Service Code (\"PSC\") was 1270 — Aircraft\n<|id|>47<|page|>5<|box|>90 174 125 854<|content|>Survivability Equipment. ... These classifications...urement to my areas of professional specialization\n<|id|>57<|page|>5<|box|>449 210 465 455<|content|>(a) System Design & Integration\n<|id|>60<|page|>5<|box|>526 176 542 617<|content|>Factor 2: ... \"\n<|id|>58<|page|>5<|box|>474 212 491 431<|content|>(b) Manufacturing Readiness\n<|id|>59<|page|>5<|box|>500 212 516 413<|content|>(c) Test & Evaluation Plan\n<|id|>62<|page|>5<|box|>595 210 614 406<|content|>(a) Program Management\n<|id|>65<|page|>5<|box|>674 174 728 854<|content|>Factor 4: ... The solicitation stated explicitly t...ed, were \"significantly more important\" than price\n<|id|>63<|page|>5<|box|>622 210 638 480<|content|>(b) Supply Chain Risk Management\n<|id|>64<|page|>5<|box|>648 210 665 433<|content|>(c) ITAR/Export Compliance",
+    "raw_response": "<|src_id|>46<|tgt_id|>47",
+    "parsed": [
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        }
+    ]
+}

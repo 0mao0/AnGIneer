@@ -1,0 +1,30 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 127 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 2029 Ce...es, California 90067 Telephone: ... (310) 556-8201\n<|id|>1<|page|>1<|box|>133 704 151 854<|content|>November 25, 2025\n<|id|>2<|page|>1<|box|>157 140 175 797<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT PRIVILEGED ATTORNEY WORK PRODUCT\n<|id|>3<|page|>1<|box|>181 140 217 854<|content|>Dr. ... 9401 Wilshire Boulevard, Suite 760 Beverly Hills, California 90212\n<|id|>4<|page|>1<|box|>227 174 281 856<|content|>Re: ... Driscoll\n<|id|>5<|page|>1<|box|>289 142 306 295<|content|>Dear Dr. ... Whitmore\n<|id|>38<|page|>4<|box|>830 174 904 857<|content|>(iii) Professional and Financial Pressures. ... Th...ll as maintaining a revolving credit facility with\n<|id|>39<|page|>5<|box|>90 174 127 854<|content|>Pacific Meridian Bank, N. ... Fonseca personally were considerable during this period\n<|id|>46<|page|>5<|box|>859 140 897 854<|content|>Upon completion of your evaluation, you shall prep... Court as an exhibit to the Defendant's Sentencing\n<|id|>47<|page|>6<|box|>90 140 127 854<|content|>Memorandum. ... The report should set forth, in a ...cessible to a lay judicial audience, the following\n<|id|>68<|page|>7<|box|>712 174 767 854<|content|>(g) Relevant financial records and background documents regarding Aurelia Pictures, Inc. ... and\n<|id|>70<|page|>7<|box|>800 140 892 856<|content|>We anticipate providing an initial set of material...rompt efforts to obtain and provide such materials\n<|id|>74<|page|>8<|box|>241 174 296 854<|content|>(b) Dr. ... and\n<|id|>76<|page|>8<|box|>383 140 494 856<|content|>You may be asked to consult directly with Dr. ... ...nd coordinate any joint discussions as appropriate\n<|id|>100<|page|>10<|box|>756 212 773 343<|content|>Very truly yours,\n<|id|>101<|page|>10<|box|>781 140 797 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>102<|page|>10<|box|>800 143 816 251<|content|>By: ... By\n<|id|>103<|page|>10<|box|>816 140 853 852<|content|>Conrad Ashby Partner, White Collar & Investigation...es, California 90067 Telephone: ... (310) 556-8217\n<|id|>104<|page|>10<|box|>849 142 867 450<|content|>Email: ... com\n<|id|>107<|page|>11<|box|>143 140 174 852<|content|>Dr. ... 9401 Wilshire Boulevard, Suite 760 Beverly Hills, California 90212\n<|id|>108<|page|>11<|box|>176 143 194 264<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>38<|tgt_id|>39\n<|src_id|>46<|tgt_id|>47",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        }
+    ]
+}

@@ -1,0 +1,110 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 158 118 838<|content|>NON-COMPETITION AND NON-SOLICITATION AGREEMENT\n<|id|>7<|page|>1<|box|>507 140 525 243<|content|>RECITALS\n<|id|>17<|page|>2<|box|>627 140 643 330<|content|>Section 1 — Definitions\n<|id|>43<|page|>4<|box|>554 140 571 380<|content|>Section 2 — Non-Competition\n<|id|>54<|page|>5<|box|>744 140 761 478<|content|>Section 3 — Non-Solicitation of Employees\n<|id|>63<|page|>6<|box|>609 140 626 624<|content|>Section 4 — Non-Solicitation of Patients and Refer\n<|id|>67<|page|>7<|box|>377 140 393 439<|content|>Section 5 — Confidential Information\n<|id|>83<|page|>8<|box|>816 140 834 457<|content|>Section 6 — Enforcement and Remedies\n<|id|>96<|page|>10<|box|>571 140 589 410<|content|>Section 7 — Judicial Modification\n<|id|>100<|page|>11<|box|>186 140 204 684<|content|>Section 8 — Representations and Warranties of the\n<|id|>107<|page|>12<|box|>148 140 167 524<|content|>Section 9 — Independent Covenants; No Defense\n<|id|>110<|page|>12<|box|>462 140 479 346<|content|>Section 10 — Assignment\n<|id|>114<|page|>12<|box|>800 140 816 310<|content|>Section 11 — Notices\n<|id|>133<|page|>13<|box|>665 140 681 648<|content|>Section 12 — Governing Law; Jurisdiction; Waiver o\n<|id|>138<|page|>14<|box|>487 140 503 401<|content|>Section 13 — General Provisions\n<|id|>146<|page|>15<|box|>834 400 853 596<|content|>[Signature Page Follows]\n<|id|>148<|page|>16<|box|>89 142 106 218<|content|>BUYER:\n<|id|>159<|page|>17<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>160<|page|>17<|box|>114 243 132 753<|content|>CLINIC LOCATIONS AND RESTRICTED TERRITORY MAP\n<|id|>164<|page|>17<|box|>753 142 771 385<|content|>Restricted Territory Definition\n<|id|>167<|page|>18<|box|>135 140 152 346<|content|>Restricted Territory Map",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>17<|level|>2\n<|id|>43<|level|>2\n<|id|>54<|level|>2\n<|id|>63<|level|>2\n<|id|>67<|level|>2\n<|id|>83<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>2\n<|id|>107<|level|>2\n<|id|>110<|level|>2\n<|id|>114<|level|>2\n<|id|>133<|level|>2\n<|id|>138<|level|>2\n<|id|>146<|level|>-1\n<|id|>148<|level|>2\n<|id|>159<|level|>2\n<|id|>160<|level|>3\n<|id|>164<|level|>3\n<|id|>167<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 3
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        }
+    ]
+}

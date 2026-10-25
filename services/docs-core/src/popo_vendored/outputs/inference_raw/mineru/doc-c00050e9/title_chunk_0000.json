@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 300 118 697<|content|>FORM OF NON-RELIANCE LETTER\n<|id|>1<|page|>1<|box|>143 433 161 565<|content|>(Big Boy Letter)\n<|id|>6<|page|>1<|box|>273 169 310 826<|content|>THIS IS A FORM DOCUMENT — TO BE COMPLETED BY EACH\n<|id|>7<|page|>1<|box|>334 142 351 617<|content|>INTRODUCTORY INSTRUCTIONS / USAGE GUIDANCE\n<|id|>19<|page|>2<|box|>148 140 166 367<|content|>NON-RELIANCE LETTER\n<|id|>28<|page|>2<|box|>425 140 441 424<|content|>Section 1. Recitals and Background.\n<|id|>33<|page|>3<|box|>157 140 175 591<|content|>Section 2. Independent Credit Analysis and Investi\n<|id|>38<|page|>3<|box|>821 140 837 334<|content|>Section 3. Non-Reliance.\n<|id|>48<|page|>4<|box|>859 140 876 624<|content|>Section 4. Acknowledgment Regarding Syndication Ma\n<|id|>55<|page|>6<|box|>157 140 175 346<|content|>Section 5. Confidentiality.\n<|id|>58<|page|>6<|box|>513 140 530 691<|content|>Section 6. Material Non-Public Information (MNPI)\n<|id|>64<|page|>7<|box|>275 140 292 434<|content|>Section 7. No Fiduciary Relationship.\n<|id|>68<|page|>7<|box|>801 140 819 464<|content|>Section 8. Representations of the Lender.\n<|id|>76<|page|>8<|box|>835 140 854 455<|content|>Section 9. Governing Law; Jurisdiction.\n<|id|>79<|page|>9<|box|>306 140 397 854<|content|>EACH PARTY HERETO HEREBY IRREVOCABLY AND UNCONDITI\n<|id|>80<|page|>9<|box|>411 140 428 349<|content|>Section 10. Miscellaneous.\n<|id|>88<|page|>11<|box|>89 140 106 428<|content|>SIGNATURE BLOCK — LENDER\n<|id|>101<|page|>11<|box|>386 142 404 434<|content|>ACKNOWLEDGED AND AGREED\n<|id|>102<|page|>11<|box|>412 140 431 774<|content|>(Optional Counter-Signature — to be completed at t\n<|id|>109<|page|>12<|box|>89 142 106 243<|content|>EXHIBIT A\n<|id|>110<|page|>12<|box|>114 256 132 740<|content|>LIST OF SYNDICATION MATERIALS TO BE PROVIDED\n<|id|>124<|page|>13<|box|>89 142 107 243<|content|>EXHIBIT B\n<|id|>125<|page|>13<|box|>114 218 132 777<|content|>FORM OF CONFIDENTIALITY AGREEMENT / NDA REFERENCE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>6<|level|>-1\n<|id|>7<|level|>2\n<|id|>19<|level|>2\n<|id|>28<|level|>3\n<|id|>33<|level|>3\n<|id|>38<|level|>3\n<|id|>48<|level|>3\n<|id|>55<|level|>3\n<|id|>58<|level|>3\n<|id|>64<|level|>3\n<|id|>68<|level|>3\n<|id|>76<|level|>3\n<|id|>79<|level|>-1\n<|id|>80<|level|>3\n<|id|>88<|level|>2\n<|id|>101<|level|>3\n<|id|>102<|level|>3\n<|id|>109<|level|>2\n<|id|>110<|level|>3\n<|id|>124<|level|>2\n<|id|>125<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        }
+    ]
+}

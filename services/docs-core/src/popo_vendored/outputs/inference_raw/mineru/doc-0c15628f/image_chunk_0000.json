@@ -1,0 +1,58 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        22
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 202 106 794<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|type|>title<|page|>1<|box|>114 274 132 723<|content|>CALDERWOOD & HARKNESS LLP MEMORANDUM\n<|id|>3<|type|>table<|page|>1<|box|>223 143 467 852<|content|>None\n<|id|>4<|type|>title<|page|>1<|box|>502 387 521 611<|content|>I. Executive Summary\n<|id|>14<|type|>title<|page|>2<|box|>660 287 680 709<|content|>II. Summary of Key Coverage Parameters\n<|id|>16<|type|>title<|page|>2<|box|>775 140 792 612<|content|>A. Indemnification Provisions Under the Merger Agr\n<|id|>25<|type|>title<|page|>4<|box|>223 140 239 274<|content|>B. Escrow Fund\n<|id|>34<|type|>title<|page|>5<|box|>186 140 204 537<|content|>C. Representation and Warranty Insurance Policy\n<|id|>52<|type|>title<|page|>6<|box|>760 316 779 679<|content|>III. Layering and Interplay Analysis\n<|id|>54<|type|>title<|page|>7<|box|>90 140 107 565<|content|>A. Diagram of Coverage Layers (Described Textually\n<|id|>65<|type|>title<|page|>8<|box|>319 140 335 313<|content|>B. Basket Interaction\n<|id|>73<|type|>title<|page|>9<|box|>148 140 167 429<|content|>C. Retention Drop-Down Mechanics\n<|id|>83<|type|>title<|page|>10<|box|>787 140 804 524<|content|>D. Total Aggregate Recovery — Summary Table\n<|id|>85<|type|>table<|page|>10<|box|>854 143 893 852<|content|>None\n<|id|>86<|type|>table<|page|>11<|box|>88 143 200 852<|content|>None\n<|id|>94<|type|>title<|page|>11<|box|>582 294 602 702<|content|>IV. Key Considerations and Risk Factors\n<|id|>96<|type|>title<|page|>11<|box|>679 142 695 506<|content|>A. Escrow as Sole \"Assured\" Recovery Source\n<|id|>101<|type|>title<|page|>12<|box|>622 140 638 625<|content|>B. Gap Between Indemnity Cap and R&WI Attachment P\n<|id|>104<|type|>title<|page|>13<|box|>167 140 184 490<|content|>C. R&WI Policy Exclusions and Limitations\n<|id|>113<|type|>title<|page|>14<|box|>167 140 184 584<|content|>D. Coordination of Claims — Escrow First, Then R&W\n<|id|>115<|type|>title<|page|>14<|box|>311 140 329 606<|content|>This sequencing requirement has several practical\n<|id|>119<|type|>title<|page|>14<|box|>704 140 722 385<|content|>E. Subrogation Considerations\n<|id|>124<|type|>title<|page|>15<|box|>395 140 412 625<|content|>F. Timing Considerations — Survival Period vs. Pol\n<|id|>130<|type|>title<|page|>16<|box|>90 344 111 653<|content|>V. Premium and Cost Analysis\n<|id|>131<|type|>table<|page|>16<|box|>171 143 306 852<|content|>None\n<|id|>136<|type|>title<|page|>16<|box|>756 323 775 674<|content|>VI. Comparison to Deal Economics\n<|id|>138<|type|>table<|page|>16<|box|>854 143 907 852<|content|>None\n<|id|>139<|type|>table<|page|>17<|box|>88 143 275 852<|content|>None\n<|id|>144<|type|>title<|page|>17<|box|>762 382 782 614<|content|>VII. Recommendations\n<|id|>146<|type|>title<|page|>18<|box|>90 140 107 388<|content|>A. Confirm Final Policy Terms\n<|id|>156<|type|>title<|page|>18<|box|>529 140 546 653<|content|>B. Coordinate Escrow Release with R&WI Retention D\n<|id|>162<|type|>title<|page|>19<|box|>212 140 229 370<|content|>C. Establish Claim Protocols\n<|id|>170<|type|>title<|page|>19<|box|>709 142 726 429<|content|>D. No-Claims Declaration at Closing\n<|id|>178<|type|>title<|page|>20<|box|>381 140 398 429<|content|>E. Consider Supplemental Coverage\n<|id|>182<|type|>title<|page|>20<|box|>779 411 799 584<|content|>VIII. Conclusion\n<|id|>186<|type|>title<|page|>22<|box|>90 225 111 772<|content|>Appendix A: Key Defined Terms and Cross-References",
+    "raw_response": "<|src_id|>3<|tgt_id|>1\n<|src_id|>85<|tgt_id|>83\n<|src_id|>86<|tgt_id|>83\n<|src_id|>131<|tgt_id|>130\n<|src_id|>138<|tgt_id|>136\n<|src_id|>139<|tgt_id|>136",
+    "parsed": [
+        {
+            "src_id": 3,
+            "tgt_id": 1
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 86,
+            "tgt_id": 83
+        },
+        {
+            "src_id": 131,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 138,
+            "tgt_id": 136
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 136
+        }
+    ]
+}

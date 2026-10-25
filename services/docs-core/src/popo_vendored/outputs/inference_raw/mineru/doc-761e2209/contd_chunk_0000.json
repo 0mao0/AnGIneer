@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        14
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>12<|page|>2<|box|>804 140 878 856<|content|>AMA is a Delaware corporation, qualified to do bus...ngland and Wales and headquartered at 34 Kingsway,\n<|id|>13<|page|>3<|box|>90 140 127 854<|content|>London WC2B 6EX, United Kingdom. ... AGMG is publi...tains production operations in seventeen countries\n<|id|>36<|page|>5<|box|>678 174 751 854<|content|>(4) Declaratory Relief Regarding the Enforceabilit...ng a judicial declaration that Sections 9. ... and\n<|id|>38<|page|>5<|box|>804 140 858 854<|content|>Aldrich's aggregate demand across all causes of ac...levard, Suite 320, Beverly Hills, California 90212\n<|id|>47<|page|>6<|box|>843 140 898 856<|content|>On or about February 15, 2023, Aldrich filed the i...id and unenforceable under California Business and\n<|id|>48<|page|>7<|box|>90 140 181 854<|content|>Professions Code Section 16600, and that any refer...llegal restraint on trade. ... 1 from the pleading\n<|id|>114<|page|>14<|box|>407 174 444 854<|content|>Cameron Whitfield, Esq. ... (310) 555-4100\n<|id|>115<|page|>14<|box|>452 176 469 452<|content|>Email: ... com\n<|id|>116<|page|>14<|box|>470 176 486 447<|content|>Email: ... com\n<|id|>117<|page|>14<|box|>487 176 503 450<|content|>Attorneys for Plaintiff Gavin Aldrich\n<|id|>118<|page|>14<|box|>512 140 566 854<|content|>BY U. ... By placing a true and correct copy of th... Angeles, California, addressed as set forth above",
+    "raw_response": "<|src_id|>12<|tgt_id|>13\n<|src_id|>47<|tgt_id|>48",
+    "parsed": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 48
+        }
+    ]
+}

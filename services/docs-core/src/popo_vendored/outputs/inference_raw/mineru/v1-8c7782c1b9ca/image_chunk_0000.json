@@ -1,0 +1,65 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>2<|type|>title<|page|>1<|box|>126 80 167 908<|content|>A review of chronic wasting disease (CWD) spread,\n<|id|>5<|type|>title<|page|>1<|box|>260 101 272 170<|content|>ABSTRACT\n<|id|>9<|type|>title<|page|>1<|box|>534 80 549 190<|content|>Introduction\n<|id|>16<|type|>image<|page|>3<|box|>65 138 340 851<|content|>None\n<|id|>18<|type|>title<|page|>3<|box|>792 80 808 161<|content|>Methods\n<|id|>21<|type|>image<|page|>4<|box|>63 163 409 834<|content|>None\n<|id|>23<|type|>title<|page|>4<|box|>464 510 481 578<|content|>Results\n<|id|>25<|type|>table<|page|>4<|box|>637 82 906 913<|content|>None\n<|id|>26<|type|>title<|page|>5<|box|>136 80 152 274<|content|>Spread and surveillance\n<|id|>27<|type|>title<|page|>5<|box|>161 80 176 210<|content|>Risk assessment\n<|id|>32<|type|>image<|page|>5<|box|>643 193 898 799<|content|>None\n<|id|>33<|type|>table<|page|>6<|box|>92 82 297 913<|content|>None\n<|id|>34<|type|>table<|page|>6<|box|>369 82 454 483<|content|>None\n<|id|>36<|type|>title<|page|>6<|box|>407 509 424 794<|content|>Deer movement and contact tracing\n<|id|>43<|type|>title<|page|>7<|box|>588 509 604 576<|content|>Control\n<|id|>45<|type|>image<|page|>7<|box|>695 136 893 858<|content|>None\n<|id|>46<|type|>image<|page|>8<|box|>63 141 526 854<|content|>None\n<|id|>56<|type|>title<|page|>9<|box|>833 509 849 605<|content|>Discussion\n<|id|>57<|type|>title<|page|>9<|box|>858 507 876 741<|content|>Potential gaps in knowledge\n<|id|>59<|type|>title<|page|>10<|box|>61 509 79 693<|content|>Key points to consider\n<|id|>62<|type|>image<|page|>10<|box|>583 148 883 844<|content|>None\n<|id|>65<|type|>title<|page|>11<|box|>61 507 95 905<|content|>The future of CWD management and surveillance for\n<|id|>68<|type|>image<|page|>11<|box|>607 84 902 910<|content|>None\n<|id|>70<|type|>title<|page|>12<|box|>527 79 560 463<|content|>Best practices for CWD management on captive cervi\n<|id|>77<|type|>title<|page|>12<|box|>169 510 185 608<|content|>Conclusion\n<|id|>79<|type|>title<|page|>12<|box|>449 509 465 672<|content|>Acknowledgments\n<|id|>81<|type|>title<|page|>12<|box|>571 509 587 694<|content|>Disclosure statement\n<|id|>83<|type|>title<|page|>12<|box|>635 509 652 586<|content|>Funding\n<|id|>85<|type|>title<|page|>12<|box|>715 510 731 571<|content|>ORCID\n<|id|>87<|type|>title<|page|>12<|box|>779 510 796 608<|content|>References",
+    "raw_response": "<|src_id|>16<|tgt_id|>9\n<|src_id|>21<|tgt_id|>18\n<|src_id|>25<|tgt_id|>23\n<|src_id|>32<|tgt_id|>27\n<|src_id|>33<|tgt_id|>27\n<|src_id|>34<|tgt_id|>27\n<|src_id|>45<|tgt_id|>43\n<|src_id|>46<|tgt_id|>43\n<|src_id|>62<|tgt_id|>59\n<|src_id|>68<|tgt_id|>65",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 25,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 59
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 65
+        }
+    ]
+}

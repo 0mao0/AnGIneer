@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        13
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        7,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>8<|page|>2<|box|>829 174 866 854<|content|>(D) IN AN OFFSHORE TRANSACTION IN COMPLIANCE WITH ...4 OF REGULATION S UNDER THE SECURITIES ACT; ... OR\n<|id|>10<|page|>3<|box|>133 140 372 854<|content|>IN EACH CASE IN ACCORDANCE WITH ANY APPLICABLE SEC... THE CERTIFICATION REQUIREMENTS APPLICABLE THERETO\n<|id|>9<|page|>3<|box|>89 174 126 854<|content|>(E) PURSUANT TO AN EXEMPTION FROM REGISTRATION UND...CT PROVIDED BY RULE 144 THEREUNDER (IF AVAILABLE),\n<|id|>30<|page|>5<|box|>761 174 815 854<|content|>(a) at least 60% of the original aggregate princip...er the occurrence of each such redemption; ... and\n<|id|>32<|page|>5<|box|>867 140 904 854<|content|>Based on the original aggregate principal amount o...any redemption of Notes pursuant to this Section 2\n<|id|>52<|page|>7<|box|>752 174 787 854<|content|>(h) release any Guarantor from any of its obligati...accordance with the terms of the Indenture; ... or\n<|id|>54<|page|>7<|box|>821 140 895 856<|content|>Notwithstanding the foregoing, without the consent... under the Trust Indenture Act of 1939, as amended\n<|id|>81<|page|>10<|box|>339 142 356 522<|content|>FIDELITAS TRUST COMPANY, N. ... , as Trustee\n<|id|>82<|page|>10<|box|>357 143 375 253<|content|>By: ... By\n<|id|>83<|page|>10<|box|>375 143 392 303<|content|>Authorized Signatory\n<|id|>84<|page|>10<|box|>392 143 409 264<|content|>Date: ... Date\n<|id|>87<|page|>10<|box|>481 143 500 263<|content|>Dated as of: ... [●]\n<|id|>88<|page|>10<|box|>506 142 523 470<|content|>VERIMARK HOSPITALITY GROUP INC. ... VERIMARK HOSPITALITY GROUP INC\n<|id|>91<|page|>10<|box|>559 143 575 215<|content|>Title: ... [●]\n<|id|>92<|page|>10<|box|>577 143 593 220<|content|>ATTEST: ... ATTEST\n<|id|>100<|page|>11<|box|>314 143 330 452<|content|>VERIMARK RESORT HOLDINGS LLC\n<|id|>101<|page|>11<|box|>332 143 348 251<|content|>By: ... By\n<|id|>103<|page|>11<|box|>366 143 382 215<|content|>Title: ... [●]\n<|id|>104<|page|>11<|box|>383 143 398 336<|content|>VHG PROPERTIES INC. ... VHG PROPERTIES INC\n<|id|>107<|page|>11<|box|>435 143 450 215<|content|>Title: ... [●]\n<|id|>108<|page|>11<|box|>450 143 468 480<|content|>BAYSHORE HOTEL MANAGEMENT LLC\n<|id|>109<|page|>11<|box|>470 143 487 251<|content|>By: ... By\n<|id|>111<|page|>11<|box|>503 143 520 214<|content|>Title: ... [●]\n<|id|>112<|page|>11<|box|>520 143 537 460<|content|>VERIMARK CAPITAL HOLDINGS LLC\n<|id|>113<|page|>11<|box|>539 143 555 251<|content|>By: ... By\n<|id|>115<|page|>11<|box|>573 143 589 215<|content|>Title: ... [●]\n<|id|>116<|page|>11<|box|>589 143 606 483<|content|>PINNACLE LODGING ENTERPRISES INC. ... PINNACLE LODGING ENTERPRISES INC\n<|id|>125<|page|>11<|box|>915 142 930 245<|content|>CONFIDENTIAL\n<|id|>126<|page|>12<|box|>159 140 214 854<|content|>the within Note and all rights thereunder, hereby ...r, with full power of substitution in the premises\n<|id|>129<|page|>12<|box|>265 140 284 583<|content|>(Sign exactly as your name appears on the face of this Note)\n<|id|>130<|page|>12<|box|>291 140 345 854<|content|>NOTICE: ... The signature to this assignment must ...cular, without alteration or any change whatsoever\n<|id|>139<|page|>13<|box|>90 142 107 331<|content|>(Signature of Transferee)\n<|id|>140<|page|>13<|box|>108 142 125 274<|content|>Name: ... Name\n<|id|>145<|page|>13<|box|>251 140 268 444<|content|>Section 4. ... 14 — Change of Control Offer\n<|id|>146<|page|>13<|box|>276 140 311 852<|content|>If you wish to have only a portion of this Note pu...ssuer, state the amount you wish to have purchased\n<|id|>151<|page|>13<|box|>452 140 470 583<|content|>(Sign exactly as your name appears on the face of this Note)\n<|id|>152<|page|>13<|box|>478 140 496 596<|content|>Social Security or Taxpayer Identification Number:... Social Security or Taxpayer Identification Number",
+    "raw_response": "<|src_id|>8<|tgt_id|>10\n<|src_id|>9<|tgt_id|>10\n<|src_id|>32<|tgt_id|>126",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 126
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 424 151 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>160 140 196 854<|content|>TO: ... Gavin Trask, Managing Partner & Chairman, ...ces Investments, Harrowgate Capital Management LLC\n<|id|>3<|page|>1<|box|>204 140 241 854<|content|>FROM: ... Howard Bellamy, Partner, Antitrust & Com...ust & Competition Group, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>248 140 266 312<|content|>DATE: ... June 10, 2024\n<|id|>5<|page|>1<|box|>273 140 311 854<|content|>RE: ... P\n<|id|>6<|page|>1<|box|>318 140 335 377<|content|>C&H Matter No. ... 1003-00001\n<|id|>7<|page|>1<|box|>344 140 361 408<|content|>Right-click to update Table of Contents\n<|id|>21<|page|>2<|box|>845 140 882 856<|content|>The key principals involved in the proposed transa...de: ... Diane Ochoa, Partner and Head of Financial\n<|id|>22<|page|>3<|box|>90 140 127 854<|content|>Services Investments at HCM; ... and Marcus Hale, ...day-to-day deal lead for the Ridgemark acquisition\n<|id|>46<|page|>5<|box|>804 140 896 857<|content|>Acquired Person. ... It is important to note that client AUM is not included in\n<|id|>47<|page|>6<|box|>90 140 127 852<|content|>Ridgemark's total assets for purposes of the size-...ed by Ridgemark's clients, not by Ridgemark itself\n<|id|>68<|page|>7<|box|>859 140 895 856<|content|>It bears emphasis that Ridgemark's alternative cre...a less dominant share of its overall business than\n<|id|>69<|page|>8<|box|>90 140 162 854<|content|>Dunmore's alternative credit SMA business represen...ant to market definition arguments discussed below\n<|id|>75<|page|>8<|box|>704 181 720 710<|content|>• Crowne Albany Asset Management (alternative credit SMA platform)\n<|id|>76<|page|>8<|box|>724 183 739 464<|content|>• Penrose Investors (credit strategies)\n<|id|>77<|page|>8<|box|>744 183 758 405<|content|>• Ridgeline Investors (credit)\n<|id|>78<|page|>8<|box|>763 183 779 637<|content|>• Pemberton Capital Management (distressed debt and credit)\n<|id|>79<|page|>8<|box|>782 183 799 413<|content|>• Fenmore Asset Management\n<|id|>80<|page|>8<|box|>803 183 818 455<|content|>• Meridian Investment Management\n<|id|>81<|page|>8<|box|>821 183 838 658<|content|>• Crestline Asset Management (Harborview Asset Management)\n<|id|>82<|page|>8<|box|>842 183 857 336<|content|>• Cornavel Partners\n<|id|>83<|page|>8<|box|>861 183 876 343<|content|>• Calderon Investors\n<|id|>84<|page|>8<|box|>880 183 897 570<|content|>• Various other mid-size alternative credit managers\n<|id|>85<|page|>9<|box|>90 140 237 856<|content|>Under a broader market definition encompassing all...come AUM dwarfs that of both Dunmore and Ridgemark\n<|id|>201<|page|>22<|box|>178 174 214 854<|content|>Howard Bellamy, Partner Antitrust & Competition Gr...212) 548-6100 hbellamy@calderwoodharkness. ... com\n<|id|>202<|page|>22<|box|>222 174 258 854<|content|>Elliot Nguyen, Associate Antitrust & Competition G...(212) 548-6247 enguyen@calderwoodharkness. ... com\n<|id|>203<|page|>22<|box|>266 174 284 735<|content|>Calderwood & Harkness LLP 425 Lexington Avenue New York, NY 10017",
+    "raw_response": "<|src_id|>21<|tgt_id|>22\n<|src_id|>46<|tgt_id|>47\n<|src_id|>68<|tgt_id|>69",
+    "parsed": [
+        {
+            "src_id": 21,
+            "tgt_id": 22
+        },
+        {
+            "src_id": 46,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 69
+        }
+    ]
+}

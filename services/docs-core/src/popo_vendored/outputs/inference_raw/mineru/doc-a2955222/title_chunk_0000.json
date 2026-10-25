@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        5
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>19<|page|>2<|box|>140 143 156 380<|content|>Beneficiary Bank Information\n<|id|>26<|page|>2<|box|>334 142 349 540<|content|>Wire Transfer No. 2 — Ridgeline Angel Fund, L.P.\n<|id|>27<|page|>2<|box|>364 143 380 295<|content|>Payee Information.\n<|id|>30<|page|>2<|box|>445 143 460 259<|content|>Wire Amount.\n<|id|>32<|page|>2<|box|>500 143 515 303<|content|>Purpose / Reference\n<|id|>34<|page|>2<|box|>627 143 643 380<|content|>Beneficiary Bank Information\n<|id|>44<|page|>3<|box|>122 142 138 259<|content|>Wire Amount.\n<|id|>46<|page|>3<|box|>176 143 191 303<|content|>Purpose / Reference\n<|id|>48<|page|>3<|box|>304 143 320 380<|content|>Beneficiary Bank Information\n<|id|>55<|page|>3<|box|>515 140 532 325<|content|>Summary of Transfers\n<|id|>59<|page|>3<|box|>781 140 799 526<|content|>Authorization and Source Account Confirmation\n<|id|>63<|page|>4<|box|>377 140 393 321<|content|>Confirmation Request\n<|id|>72<|page|>4<|box|>661 140 676 416<|content|>Contact Information for Questions\n<|id|>83<|page|>5<|box|>143 143 157 240<|content|>Enclosures:",
+    "raw_response": "<|id|>19<|level|>1\n<|id|>26<|level|>1\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>2\n<|id|>34<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>55<|level|>1\n<|id|>59<|level|>1\n<|id|>63<|level|>1\n<|id|>72<|level|>1\n<|id|>83<|level|>1",
+    "parsed": [
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 1
+        },
+        {
+            "id": 83,
+            "level": 1
+        }
+    ]
+}

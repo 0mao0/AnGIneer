@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 7,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['18', '基价', '元', '9999001', '29767', '1399', '20037', '915', '13258', '574', '16509', '746']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=4, 顺序号', 'rowspan=4, 项目', 'rowspan=4, 单位', 'rowspan=4, 代号', 'colspan=2, 水泥土', 'colspan=2, 水泥砂', 'colspan=2, 水泥砂砾', 'colspan=2, 水泥碎石']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 567,
+    "table2_idx": 568
+}

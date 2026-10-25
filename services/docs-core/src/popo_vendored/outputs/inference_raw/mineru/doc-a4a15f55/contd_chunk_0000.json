@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        9,
+        19,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 140 174 854<|content|>TO: ... Howard Bellamy, Partner, Antitrust & Competition Practice Group, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>181 140 218 854<|content|>FROM: ... Elliot Nguyen, Associate, Antitrust & Competition Practice Group, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>227 142 244 334<|content|>DATE: ... February 8, 2024\n<|id|>5<|page|>1<|box|>253 140 289 854<|content|>RE: ... Portfolio Company Overlap Analysis — Arden...tal Partners III LP / Pinnacle Health Systems, Inc\n<|id|>6<|page|>1<|box|>296 140 314 361<|content|>MATTER NO. ... 1001-00001\n<|id|>7<|page|>1<|box|>323 140 340 447<|content|>CLIENT: ... Ardent Capital Partners III LP\n<|id|>8<|page|>1<|box|>348 142 364 408<|content|>Right-click to update Table of Contents\n<|id|>27<|page|>3<|box|>799 140 909 857<|content|>Pinnacle's operating states are North Carolina, So...etta, GA MSA (5 ASCs), and the Nashville-Davidson-\n<|id|>28<|page|>4<|box|>90 140 127 854<|content|>Murfreesboro-Franklin, TN MSA (4 ASCs). ... The re...oss secondary markets in the nine operating states\n<|id|>37<|page|>5<|box|>214 176 268 854<|content|>1. ... and\n<|id|>39<|page|>5<|box|>327 140 401 854<|content|>Fund III's five remaining portfolio companies oper...usible basis for competitive overlap with Pinnacle\n<|id|>76<|page|>9<|box|>766 181 801 854<|content|>Tampa-St. ... and\n<|id|>77<|page|>9<|box|>804 181 839 854<|content|>Atlanta-Sandy Springs-Alpharetta, GA MSA: ... 3 co...Management Rehab clinics adjacent to Pinnacle ASCs\n<|id|>154<|page|>19<|box|>494 210 551 854<|content|>Marlowe Asset Management Rehabilitation Holdings L...herapy clinics — TX, FL, GA Controlled by Fund III\n<|id|>155<|page|>19<|box|>558 210 613 854<|content|>Clearpath Diagnostics Inc. ... $218 million Controlled by Fund III\n<|id|>156<|page|>19<|box|>619 210 694 856<|content|>Pinnacle Health Systems, Inc. ... subject to HSR clearance\n<|id|>165<|page|>21<|box|>584 143 601 302<|content|>Georgia (13 Clinics)\n<|id|>168<|page|>22<|box|>143 140 196 854<|content|>Note: ... None of these 8 clinics are co-located with or adjacent to Pinnacle ASC facilities\n<|id|>172<|page|>23<|box|>141 142 159 411<|content|>Entity Type: ... Delaware Corporation\n<|id|>173<|page|>23<|box|>167 142 185 671<|content|>Headquarters: ... 1700 Market Street, Suite 3400, Philadelphia, PA 19103\n<|id|>174<|page|>23<|box|>193 142 210 400<|content|>Revenue (FY 2023): ... $218 million\n<|id|>175<|page|>23<|box|>219 140 273 854<|content|>Services: ... Independent clinical laboratory and ...ic pathology, and specialized laboratory analytics\n<|id|>176<|page|>23<|box|>282 140 299 495<|content|>NAICS Code: ... 621511 — Medical Laboratories\n<|id|>178<|page|>23<|box|>577 142 595 581<|content|>Geographic Overlap with Pinnacle Health Systems, I...ographic Overlap with Pinnacle Health Systems, Inc",
+    "raw_response": "<|src_id|>27<|tgt_id|>28\n<|src_id|>37<|tgt_id|>39\n<|src_id|>76<|tgt_id|>77",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 28
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 39
+        },
+        {
+            "src_id": 76,
+            "tgt_id": 77
+        }
+    ]
+}

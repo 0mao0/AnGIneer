@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 8△', 'rowspan=3, 连接', 'colspan=2, 高强度螺栓连接副的扭矩(N·m)', '±10%', '测力扳手:检查5%,且不少于2个']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 1', 'rowspan=2,colspan=2, 梁高h(mm)', 'h≤2m', '±2', 'rowspan=2, 钢卷尺:测两端腹板处高度']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 534,
+    "table2_idx": 535
+}

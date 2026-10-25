@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        51,
+        63
+    ],
+    "pages": [
+        52,
+        53,
+        58,
+        62,
+        63
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>343<|page|>52<|box|>814 140 907 857<|content|>Pinnacle Biosciences Partners Fund III, L. ... Nathaniel Hargrove, a\n<|id|>344<|page|>53<|box|>89 140 164 856<|content|>Managing Partner of Pinnacle Biosciences Partners ...anaging Partner of the general partner of Pinnacle\n<|id|>384<|page|>58<|box|>733 174 770 854<|content|>(e) Workforce training on HIPAA privacy and securi...ted at onboarding and annually thereafter; ... and\n<|id|>386<|page|>58<|box|>803 140 857 854<|content|>Copies of GDT's HIPAA policies and procedures, the...raining are contained in Data Room folder 9. ... 1\n<|id|>408<|page|>62<|box|>604 143 619 325<|content|>Name: ... Martin Kowalski\n<|id|>409<|page|>62<|box|>621 143 638 361<|content|>Title: ... Chief Financial Officer\n<|id|>410<|page|>62<|box|>638 143 656 266<|content|>Date: ... Date\n<|id|>413<|page|>62<|box|>724 142 742 320<|content|>Name: ... Rebecca Chiang\n<|id|>414<|page|>62<|box|>742 143 758 313<|content|>Title: ... General Counsel\n<|id|>415<|page|>62<|box|>758 143 776 264<|content|>Date: ... Date\n<|id|>419<|page|>62<|box|>871 143 887 290<|content|>Name: ... David Pruitt\n<|id|>420<|page|>62<|box|>888 142 904 313<|content|>Title: ... General Counsel\n<|id|>421<|page|>63<|box|>90 140 109 264<|content|>Date: ... Date\n<|id|>423<|page|>63<|box|>166 140 184 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>424<|page|>63<|box|>185 140 202 254<|content|>By: ... By\n<|id|>425<|page|>63<|box|>202 140 219 312<|content|>Name: ... James Prentice\n<|id|>426<|page|>63<|box|>219 140 236 339<|content|>Title: ... Responsible Partner\n<|id|>427<|page|>63<|box|>236 140 268 854<|content|>555 South Hope Street, Suite 4400 Los Angeles, California 90071 Matter No. ... 1013- 00006&A-4471\n<|id|>428<|page|>63<|box|>268 140 329 854<|content|>CONFIDENTIAL — These Disclosure Schedules contain ... without the prior written consent of both parties",
+    "raw_response": "<|src_id|>343<|tgt_id|>344\n<|src_id|>420<|tgt_id|>421",
+    "parsed": [
+        {
+            "src_id": 343,
+            "tgt_id": 344
+        },
+        {
+            "src_id": 420,
+            "tgt_id": 421
+        }
+    ]
+}

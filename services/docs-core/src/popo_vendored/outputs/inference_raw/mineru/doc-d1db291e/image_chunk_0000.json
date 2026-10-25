@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 147 148 849<|content|>SOLSTICE BIOMEDICAL DEVICES LTD. Unit 14, Clonskea\n<|id|>4<|type|>title<|page|>1<|box|>227 140 244 553<|content|>VIA E-MAIL (PDF) AND OVERNIGHT COURIER\n<|id|>8<|type|>title<|page|>1<|box|>419 142 436 341<|content|>1. Purpose of This Letter\n<|id|>14<|type|>title<|page|>2<|box|>148 140 167 509<|content|>2. Identification of Depositor / Remitting Party\n<|id|>16<|type|>table<|page|>2<|box|>372 143 482 852<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>593 140 609 771<|content|>3. Receiving Account — Wire Transfer Instructions\n<|id|>20<|type|>table<|page|>2<|box|>742 143 905 852<|content|>None\n<|id|>21<|type|>table<|page|>3<|box|>88 143 347 852<|content|>None\n<|id|>27<|type|>title<|page|>3<|box|>696 140 713 423<|content|>4. Amount and Purpose of Transfer\n<|id|>28<|type|>table<|page|>3<|box|>744 143 904 852<|content|>None\n<|id|>29<|type|>table<|page|>4<|box|>88 143 169 851<|content|>None\n<|id|>34<|type|>title<|page|>4<|box|>382 140 398 493<|content|>5. Confirmation and Notification Procedures\n<|id|>43<|type|>title<|page|>5<|box|>167 140 184 416<|content|>6. Authorized Contacts for Solstice\n<|id|>55<|type|>title<|page|>5<|box|>651 140 667 446<|content|>7. Anti-Fraud / Verification Provisions\n<|id|>60<|type|>title<|page|>6<|box|>304 140 321 339<|content|>8. Governing Agreement",
+    "raw_response": "<|src_id|>16<|tgt_id|>14\n<|src_id|>20<|tgt_id|>18\n<|src_id|>21<|tgt_id|>18\n<|src_id|>28<|tgt_id|>27\n<|src_id|>29<|tgt_id|>27",
+    "parsed": [
+        {
+            "src_id": 16,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 21,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 27
+        }
+    ]
+}

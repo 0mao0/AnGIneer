@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>411 140 428 436<|content|>I. Introduction and Purpose of Letter\n<|id|>13<|type|>title<|page|>1<|box|>804 140 821 388<|content|>II. Identification of the Insured\n<|id|>15<|type|>table<|page|>1<|box|>873 143 893 852<|content|>None\n<|id|>16<|type|>table<|page|>2<|box|>89 143 301 852<|content|>None\n<|id|>18<|type|>title<|page|>2<|box|>469 140 486 498<|content|>III. Description of the Underlying Proceeding\n<|id|>23<|type|>title<|page|>3<|box|>90 140 107 468<|content|>IV. Summary of the Underlying Contract\n<|id|>36<|type|>title<|page|>4<|box|>186 140 203 508<|content|>V. Summary of Kestrel's Claims Against WAL\n<|id|>42<|type|>table<|page|>4<|box|>750 143 893 852<|content|>None\n<|id|>44<|type|>title<|page|>5<|box|>219 140 237 503<|content|>VI. WAL's Preliminary Position and Defenses\n<|id|>53<|type|>title<|page|>6<|box|>212 140 229 408<|content|>VII. Potential Financial Exposure\n<|id|>59<|type|>title<|page|>6<|box|>675 142 691 383<|content|>VIII. Identification of Counsel\n<|id|>60<|type|>table<|page|>6<|box|>744 143 838 852<|content|>None\n<|id|>66<|type|>title<|page|>7<|box|>255 140 272 460<|content|>IX. Request for Coverage Determination\n<|id|>77<|type|>title<|page|>8<|box|>148 140 167 454<|content|>X. Reservation of Rights by the Insured\n<|id|>85<|type|>title<|page|>8<|box|>573 140 590 604<|content|>XI. Request for Acknowledgment and Contact Informa\n<|id|>100<|type|>title<|page|>9<|box|>354 143 369 238<|content|>Enclosures:",
+    "raw_response": "<|src_id|>15<|tgt_id|>13\n<|src_id|>16<|tgt_id|>13\n<|src_id|>42<|tgt_id|>36\n<|src_id|>60<|tgt_id|>59",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 16,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 59
+        }
+    ]
+}

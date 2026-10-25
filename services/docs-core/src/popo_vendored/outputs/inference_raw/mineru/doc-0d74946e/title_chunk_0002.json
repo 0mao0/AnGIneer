@@ -1,0 +1,53 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        104,
+        115
+    ],
+    "pages": [
+        104,
+        105,
+        107,
+        109,
+        113,
+        114,
+        115
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>374<|page|>104<|box|>104 235 146 779<|content|>Section II - Summary by Countries Table 5.- Net Tr\n<|id|>376<|page|>105<|box|>114 339 130 655<|content|>Section II - Summary by Countries\n<|id|>377<|page|>105<|box|>131 226 147 783<|content|>Table 6.- Net Transactions in Domestic Stocks by F\n<|id|>380<|page|>107<|box|>101 207 131 766<|content|>Section II - Summary by Countries Table 8. - Net T\n<|id|>383<|page|>109<|box|>113 258 128 697<|content|>Section III - Preliminary Details by Countries\n<|id|>389<|page|>113<|box|>114 136 162 842<|content|>Section IV - Supplementary Data by Countries Table\n<|id|>392<|page|>114<|box|>95 200 124 804<|content|>Section IV - Supplementary Data by Countries Table\n<|id|>394<|page|>115<|box|>111 119 162 851<|content|>Section IV - Supplementary Data by Countries Table",
+    "raw_response": "<|id|>374<|level|>1\n<|id|>376<|level|>1\n<|id|>377<|level|>2\n<|id|>380<|level|>1\n<|id|>383<|level|>1\n<|id|>389<|level|>1\n<|id|>392<|level|>1\n<|id|>394<|level|>1",
+    "parsed": [
+        {
+            "id": 374,
+            "level": 1
+        },
+        {
+            "id": 376,
+            "level": 1
+        },
+        {
+            "id": 377,
+            "level": 2
+        },
+        {
+            "id": 380,
+            "level": 1
+        },
+        {
+            "id": 383,
+            "level": 1
+        },
+        {
+            "id": 389,
+            "level": 1
+        },
+        {
+            "id": 392,
+            "level": 1
+        },
+        {
+            "id": 394,
+            "level": 1
+        }
+    ]
+}

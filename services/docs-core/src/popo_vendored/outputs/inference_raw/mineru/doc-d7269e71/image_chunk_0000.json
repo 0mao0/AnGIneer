@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 223 118 774<|content|>DRAFT FORM OF TRUSTEE'S COUNSEL OPINION\n<|id|>1<|type|>title<|page|>1<|box|>136 192 152 805<|content|>[FOR REVIEW AND COMMENT BY CALDERWOOD & HARKNESS L\n<|id|>14<|type|>title<|page|>2<|box|>89 142 106 387<|content|>I. DOCUMENTS REVIEWED\n<|id|>28<|type|>title<|page|>2<|box|>825 142 843 303<|content|>II. ASSUMPTIONS\n<|id|>40<|type|>title<|page|>3<|box|>821 142 839 269<|content|>III. OPINIONS\n<|id|>42<|type|>title<|page|>4<|box|>90 140 108 544<|content|>Opinion 1 — Due Organization and Good Standing\n<|id|>44<|type|>title<|page|>4<|box|>253 140 272 500<|content|>Opinion 2 — Corporate Power and Authority\n<|id|>46<|type|>title<|page|>4<|box|>436 140 454 397<|content|>Opinion 3 — Due Authorization\n<|id|>48<|type|>title<|page|>4<|box|>619 140 637 433<|content|>Opinion 4 — Execution and Delivery\n<|id|>50<|type|>title<|page|>4<|box|>691 140 709 362<|content|>Opinion 5 — Enforceability\n<|id|>57<|type|>title<|page|>5<|box|>272 140 289 349<|content|>Opinion 6 — No Conflicts\n<|id|>63<|type|>title<|page|>5<|box|>667 140 685 532<|content|>Opinion 7 — No Consents or Approvals Required\n<|id|>65<|type|>title<|page|>6<|box|>90 140 107 410<|content|>Opinion 8 — Trust Indenture Act\n<|id|>67<|type|>title<|page|>6<|box|>300 140 316 509<|content|>IV. QUALIFICATIONS AND LIMITATIONS\n<|id|>85<|type|>title<|page|>8<|box|>89 142 106 393<|content|>V. RELIANCE AND BENEFIT\n<|id|>96<|type|>title<|page|>9<|box|>89 143 107 259<|content|>APPENDIX A\n<|id|>99<|type|>table<|page|>9<|box|>224 143 318 852<|content|>None\n<|id|>102<|type|>table<|page|>9<|box|>478 143 553 852<|content|>None\n<|id|>104<|type|>title<|page|>9<|box|>631 184 666 813<|content|>CALDERWOOD & HARKNESS LLP — INTERNAL REVIEW NOTES",
+    "raw_response": "<|src_id|>99<|tgt_id|>96\n<|src_id|>102<|tgt_id|>96",
+    "parsed": [
+        {
+            "src_id": 99,
+            "tgt_id": 96
+        },
+        {
+            "src_id": 102,
+            "tgt_id": 96
+        }
+    ]
+}

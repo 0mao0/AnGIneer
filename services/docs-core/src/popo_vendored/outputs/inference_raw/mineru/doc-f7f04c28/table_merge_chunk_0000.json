@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Commercial General', 'NM-CGL-2022-07629', 'Northstar Mutual', 'GAP, GGS, GCI', '07/01/2022 - 06/30/202', '$2,000,000 per occ. /', '$25,000 per occurrence', 'None designated', 'Gap — limits below CA']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Liability', '', '', '', '3', '$5,000,000 aggregate', 'e', '', 'requirement; must add AI endorsement']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 70,
+    "table2_idx": 71
+}

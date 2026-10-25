@@ -1,0 +1,65 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        46,
+        48
+    ],
+    "pages": [
+        46,
+        47,
+        48
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>515<|page|>46<|box|>90 212 109 784<|content|>SCHEDULE F — DATA SECURITY REQUIREMENTS\n<|id|>517<|page|>46<|box|>224 140 242 544<|content|>1. Technical and Organizational Security Measures\n<|id|>522<|page|>46<|box|>516 140 532 436<|content|>2. Access Control and Authentication\n<|id|>527<|page|>46<|box|>734 142 751 339<|content|>3. Encryption Standards\n<|id|>531<|page|>47<|box|>90 140 107 444<|content|>4. Data Backup and Disaster Recovery\n<|id|>535<|page|>47<|box|>282 140 299 377<|content|>5. SOC 2 Type II Compliance\n<|id|>537<|page|>47<|box|>422 140 439 318<|content|>6. Penetration Testing\n<|id|>539<|page|>47<|box|>544 140 561 277<|content|>7. Data Isolation\n<|id|>541<|page|>47<|box|>666 140 683 313<|content|>8. Personnel Security\n<|id|>545<|page|>48<|box|>90 142 107 287<|content|>9. Data Residency\n<|id|>547<|page|>48<|box|>176 143 191 408<|content|>10. Incident Response Procedures\n<|id|>552<|page|>48<|box|>414 398 431 598<|content|>[END OF SCHEDULES]\n<|id|>553<|page|>48<|box|>440 176 474 820<|content|>MASTER SERVICES AGREEMENT Document Reference: MSA-",
+    "raw_response": "<|id|>515<|level|>1\n<|id|>517<|level|>2\n<|id|>522<|level|>2\n<|id|>527<|level|>2\n<|id|>531<|level|>2\n<|id|>535<|level|>2\n<|id|>537<|level|>2\n<|id|>539<|level|>2\n<|id|>541<|level|>2\n<|id|>545<|level|>2\n<|id|>547<|level|>2\n<|id|>552<|level|>1\n<|id|>553<|level|>-1",
+    "parsed": [
+        {
+            "id": 515,
+            "level": 1
+        },
+        {
+            "id": 517,
+            "level": 2
+        },
+        {
+            "id": 522,
+            "level": 2
+        },
+        {
+            "id": 527,
+            "level": 2
+        },
+        {
+            "id": 531,
+            "level": 2
+        },
+        {
+            "id": 535,
+            "level": 2
+        },
+        {
+            "id": 537,
+            "level": 2
+        },
+        {
+            "id": 539,
+            "level": 2
+        },
+        {
+            "id": 541,
+            "level": 2
+        },
+        {
+            "id": 545,
+            "level": 2
+        },
+        {
+            "id": 547,
+            "level": 2
+        },
+        {
+            "id": 552,
+            "level": 1
+        }
+    ]
+}

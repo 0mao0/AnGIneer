@@ -1,0 +1,677 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4qa87gdn\\input\\pdfs\\doc-60e3f85c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-4qa87gdn\\enriched\\doc-60e3f85c.json",
+    "contd_output": "<|src_id|>177<|tgt_id|>178\n<|src_id|>212<|tgt_id|>213\n<|src_id|>223<|tgt_id|>224\n<|src_id|>317<|tgt_id|>318\n<|src_id|>357<|tgt_id|>358\n<|src_id|>372<|tgt_id|>373",
+    "title_output": "<|id|>2<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>19<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>3\n<|id|>41<|level|>3\n<|id|>54<|level|>2\n<|id|>56<|level|>3\n<|id|>77<|level|>3\n<|id|>89<|level|>2\n<|id|>96<|level|>1\n<|id|>97<|level|>2\n<|id|>102<|level|>2\n<|id|>108<|level|>1\n<|id|>109<|level|>2\n<|id|>110<|level|>3\n<|id|>119<|level|>3\n<|id|>121<|level|>4\n<|id|>124<|level|>4\n<|id|>128<|level|>3\n<|id|>133<|level|>3\n<|id|>135<|level|>3\n<|id|>141<|level|>3\n<|id|>148<|level|>3\n<|id|>151<|level|>2\n<|id|>152<|level|>3\n<|id|>161<|level|>3\n<|id|>163<|level|>4\n<|id|>165<|level|>4\n<|id|>169<|level|>3\n<|id|>171<|level|>3\n<|id|>174<|level|>3\n<|id|>179<|level|>3\n<|id|>185<|level|>3\n<|id|>188<|level|>1\n<|id|>189<|level|>2\n<|id|>197<|level|>2\n<|id|>204<|level|>2\n<|id|>211<|level|>2\n<|id|>220<|level|>2\n<|id|>229<|level|>2\n<|id|>238<|level|>1\n<|id|>239<|level|>2\n<|id|>247<|level|>2\n<|id|>254<|level|>2\n<|id|>264<|level|>1\n<|id|>265<|level|>2\n<|id|>275<|level|>2\n<|id|>286<|level|>2\n<|id|>297<|level|>2\n<|id|>304<|level|>3\n<|id|>311<|level|>2\n<|id|>315<|level|>2\n<|id|>319<|level|>2\n<|id|>324<|level|>2\n<|id|>328<|level|>1\n<|id|>329<|level|>2\n<|id|>332<|level|>2\n<|id|>339<|level|>2\n<|id|>346<|level|>1\n<|id|>347<|level|>2\n<|id|>349<|level|>3\n<|id|>361<|level|>2\n<|id|>363<|level|>3\n<|id|>371<|level|>3\n<|id|>378<|level|>3\n<|id|>384<|level|>2\n<|id|>389<|level|>2\n<|id|>396<|level|>2\n<|id|>405<|level|>1\n<|id|>416<|level|>1\n<|id|>420<|level|>1\n<|id|>421<|level|>2\n<|id|>425<|level|>2\n<|id|>427<|level|>3\n<|id|>430<|level|>3\n<|id|>433<|level|>3\n<|id|>443<|level|>1\n<|id|>448<|level|>1\n<|id|>450<|level|>2\n<|id|>471<|level|>2\n<|id|>474<|level|>2\n<|id|>487<|level|>2\n<|id|>498<|level|>2\n<|id|>502<|level|>3",
+    "image_output": "<|src_id|>1<|tgt_id|>2\n<|src_id|>98<|tgt_id|>97\n<|src_id|>99<|tgt_id|>97\n<|src_id|>277<|tgt_id|>275\n<|src_id|>306<|tgt_id|>297\n<|src_id|>307<|tgt_id|>297\n<|src_id|>321<|tgt_id|>319\n<|src_id|>330<|tgt_id|>329\n<|src_id|>331<|tgt_id|>329\n<|src_id|>417<|tgt_id|>416\n<|src_id|>418<|tgt_id|>416\n<|src_id|>419<|tgt_id|>416\n<|src_id|>423<|tgt_id|>421\n<|src_id|>424<|tgt_id|>421\n<|src_id|>428<|tgt_id|>427\n<|src_id|>429<|tgt_id|>427\n<|src_id|>432<|tgt_id|>430\n<|src_id|>435<|tgt_id|>433\n<|src_id|>436<|tgt_id|>433\n<|src_id|>437<|tgt_id|>433\n<|src_id|>438<|tgt_id|>433\n<|src_id|>444<|tgt_id|>443\n<|src_id|>445<|tgt_id|>443\n<|src_id|>446<|tgt_id|>443\n<|src_id|>446<|tgt_id|>448",
+    "contd_label": [
+        {
+            "src_id": 177,
+            "tgt_id": 178
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 213
+        },
+        {
+            "src_id": 223,
+            "tgt_id": 224
+        },
+        {
+            "src_id": 317,
+            "tgt_id": 318
+        },
+        {
+            "src_id": 357,
+            "tgt_id": 358
+        },
+        {
+            "src_id": 372,
+            "tgt_id": 373
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 4
+        },
+        {
+            "id": 124,
+            "level": 4
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 4
+        },
+        {
+            "id": 165,
+            "level": 4
+        },
+        {
+            "id": 169,
+            "level": 3
+        },
+        {
+            "id": 171,
+            "level": 3
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 179,
+            "level": 3
+        },
+        {
+            "id": 185,
+            "level": 3
+        },
+        {
+            "id": 188,
+            "level": 1
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 211,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 229,
+            "level": 2
+        },
+        {
+            "id": 238,
+            "level": 1
+        },
+        {
+            "id": 239,
+            "level": 2
+        },
+        {
+            "id": 247,
+            "level": 2
+        },
+        {
+            "id": 254,
+            "level": 2
+        },
+        {
+            "id": 264,
+            "level": 1
+        },
+        {
+            "id": 265,
+            "level": 2
+        },
+        {
+            "id": 275,
+            "level": 2
+        },
+        {
+            "id": 286,
+            "level": 2
+        },
+        {
+            "id": 297,
+            "level": 2
+        },
+        {
+            "id": 304,
+            "level": 3
+        },
+        {
+            "id": 311,
+            "level": 2
+        },
+        {
+            "id": 315,
+            "level": 2
+        },
+        {
+            "id": 319,
+            "level": 2
+        },
+        {
+            "id": 324,
+            "level": 2
+        },
+        {
+            "id": 328,
+            "level": 1
+        },
+        {
+            "id": 329,
+            "level": 2
+        },
+        {
+            "id": 332,
+            "level": 2
+        },
+        {
+            "id": 339,
+            "level": 2
+        },
+        {
+            "id": 346,
+            "level": 1
+        },
+        {
+            "id": 347,
+            "level": 2
+        },
+        {
+            "id": 349,
+            "level": 3
+        },
+        {
+            "id": 361,
+            "level": 2
+        },
+        {
+            "id": 363,
+            "level": 3
+        },
+        {
+            "id": 371,
+            "level": 3
+        },
+        {
+            "id": 378,
+            "level": 3
+        },
+        {
+            "id": 384,
+            "level": 2
+        },
+        {
+            "id": 389,
+            "level": 2
+        },
+        {
+            "id": 396,
+            "level": 2
+        },
+        {
+            "id": 405,
+            "level": 1
+        },
+        {
+            "id": 416,
+            "level": 1
+        },
+        {
+            "id": 420,
+            "level": 1
+        },
+        {
+            "id": 421,
+            "level": 2
+        },
+        {
+            "id": 425,
+            "level": 2
+        },
+        {
+            "id": 427,
+            "level": 3
+        },
+        {
+            "id": 430,
+            "level": 3
+        },
+        {
+            "id": 433,
+            "level": 3
+        },
+        {
+            "id": 443,
+            "level": 1
+        },
+        {
+            "id": 448,
+            "level": 1
+        },
+        {
+            "id": 450,
+            "level": 2
+        },
+        {
+            "id": 471,
+            "level": 2
+        },
+        {
+            "id": 474,
+            "level": 2
+        },
+        {
+            "id": 487,
+            "level": 2
+        },
+        {
+            "id": 498,
+            "level": 2
+        },
+        {
+            "id": 502,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 1,
+            "tgt_id": 2
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 99,
+            "tgt_id": 97
+        },
+        {
+            "src_id": 277,
+            "tgt_id": 275
+        },
+        {
+            "src_id": 306,
+            "tgt_id": 297
+        },
+        {
+            "src_id": 307,
+            "tgt_id": 297
+        },
+        {
+            "src_id": 321,
+            "tgt_id": 319
+        },
+        {
+            "src_id": 330,
+            "tgt_id": 329
+        },
+        {
+            "src_id": 331,
+            "tgt_id": 329
+        },
+        {
+            "src_id": 417,
+            "tgt_id": 416
+        },
+        {
+            "src_id": 418,
+            "tgt_id": 416
+        },
+        {
+            "src_id": 419,
+            "tgt_id": 416
+        },
+        {
+            "src_id": 423,
+            "tgt_id": 421
+        },
+        {
+            "src_id": 424,
+            "tgt_id": 421
+        },
+        {
+            "src_id": 428,
+            "tgt_id": 427
+        },
+        {
+            "src_id": 429,
+            "tgt_id": 427
+        },
+        {
+            "src_id": 432,
+            "tgt_id": 430
+        },
+        {
+            "src_id": 435,
+            "tgt_id": 433
+        },
+        {
+            "src_id": 436,
+            "tgt_id": 433
+        },
+        {
+            "src_id": 437,
+            "tgt_id": 433
+        },
+        {
+            "src_id": 438,
+            "tgt_id": 433
+        },
+        {
+            "src_id": 444,
+            "tgt_id": 443
+        },
+        {
+            "src_id": 445,
+            "tgt_id": 443
+        },
+        {
+            "src_id": 446,
+            "tgt_id": 443
+        },
+        {
+            "src_id": 446,
+            "tgt_id": 448
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 98,
+            "table2_idx": 99,
+            "upper_row_ss": [
+                [
+                    "Syracuse",
+                    "1820 South Salina Street,Syracuse,NY 13205",
+                    "NY",
+                    "Owned",
+                    "28,600",
+                    "1972 / 2017",
+                    "33-7024",
+                    "D&TC-4824"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Utica",
+                    "310 Genesee Street, Suite 150, Utica, NY 13502",
+                    "NY",
+                    "Leased",
+                    "8,400",
+                    "1990 / 2018",
+                    "33-7025",
+                    "D&TC-4825"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 417,
+            "table2_idx": 418,
+            "upper_row_ss": [
+                [
+                    "Utica",
+                    "310 Genes",
+                    "NY",
+                    "Lease",
+                    "CE-20 25-",
+                    "05/09/",
+                    "N",
+                    "N",
+                    "N",
+                    "None",
+                    "N",
+                    "None"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "ee Street, Ste 150, Utica, NY 13502",
+                    "",
+                    "d",
+                    "0415",
+                    "2025",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 418,
+            "table2_idx": 419,
+            "upper_row_ss": [
+                [
+                    "Towan",
+                    "510 York",
+                    "PA",
+                    "Leased",
+                    "CE-20 25-",
+                    "05/22/2025",
+                    "N",
+                    "N",
+                    "N",
+                    "None",
+                    "N",
+                    "None"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "da",
+                    "Avenue,Towanda, PA18848",
+                    "",
+                    "",
+                    "0421",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 423,
+            "table2_idx": 424,
+            "upper_row_ss": [
+                [
+                    "PA Storage Tanks",
+                    "Registered underground and",
+                    "0.25 mile"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "aboveground storage tanks",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 437,
+            "table2_idx": 438,
+            "upper_row_ss": [
+                [
+                    "Former printing operation",
+                    "1540 Central Avenue",
+                    "600 ft. W",
+                    "RCRA SQG",
+                    "Active",
+                    "SQG registration; no violations or releases reported"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Adjacent property USTs",
+                    "250 Adams Avenue",
+                    "Adjacent (N)",
+                    "PA Storage Tanks",
+                    "Closed (1998)",
+                    "Three USTs removed;closure approved by PA DEP"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 444,
+            "table2_idx": 445,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Phase I Environmental Site Assessment — Lakewood Regional Health Partners, LLC — Syracuse Facility",
+                    "CE-2025-0414",
+                    "May 12, 2025",
+                    "1820 South Salina Street, Syracuse, NY 13205",
+                    "Sarah J. Pennington, P.G.",
+                    "Yes — Gretchen Unger, COO, LRHP"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "5",
+                    "Phase I Environmental Site Assessment — Lakewood Regional Health Partners, LLC — Utica Facility",
+                    "CE-2025-0415",
+                    "May 9, 2025",
+                    "310 Genesee Street, Suite 150, Utica, NY 13502",
+                    "Thomas R. Keating, P.E.",
+                    "Yes — Gretchen Unger, COO, LRHP"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 445,
+            "table2_idx": 446,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "Phase I Environmental Site Assessment — Lakewood Regional Health Partners, LLC —",
+                    "CE-2025-0419",
+                    "May 19, 2025",
+                    "230 Adams Avenue, Suite 100, Scranton, PA 18503",
+                    "Thomas R. Keating, P.E.",
+                    "Yes — Gretchen Unger, COO, LRHP"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Scranton Facility",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

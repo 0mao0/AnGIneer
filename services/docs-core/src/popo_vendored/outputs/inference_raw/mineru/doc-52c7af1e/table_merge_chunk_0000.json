@@ -1,0 +1,24 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['1', 'Fairfield', '4200 Fairfie', 'Fairburn', 'GA', 'Logistics', '412,000', '2017', 'GMP Fairfie', '83-40127', 'Pacific Weste', '8']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Logistics Center I', 'ld Industrial Blvd', '', '', '', '', '', 'ld I LLC', '81', 'rn Lending Corp. / Loan No. PWL-2021-3347', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 247,
+    "table2_idx": 248
+}

@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        5,
+        14,
+        15,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>176 712 194 854<|content|>November 1, 2022\n<|id|>3<|page|>1<|box|>203 140 220 656<|content|>FROM: ... Andrew Fitzpatrick, Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>228 140 246 584<|content|>TO: ... Elaine Forsythe, Partner, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>253 140 272 620<|content|>CC: ... Tiffany Rosenthal, Associate, Calderwood & Harkness LLP\n<|id|>6<|page|>1<|box|>280 140 316 854<|content|>RE: ... Florida Anti-Concurrent Causation Jurispru...od Exclusion Defense, VHG Hurricane Callista Claim\n<|id|>7<|page|>1<|box|>324 140 343 535<|content|>CLIENT: ... (\"VHG\")\n<|id|>8<|page|>1<|box|>349 140 368 413<|content|>ENGAGEMENT NO. ... 1021-00003\n<|id|>9<|page|>1<|box|>376 140 412 854<|content|>PRIVILEGE DESIGNATION: ... Attorney-Client Privile...k Product — Prepared in Anticipation of Litigation\n<|id|>10<|page|>1<|box|>420 142 436 408<|content|>Right-click to update Table of Contents\n<|id|>41<|page|>5<|box|>236 140 252 341<|content|>3. ... and\n<|id|>43<|page|>5<|box|>275 140 292 617<|content|>This memorandum addresses only the first of these ...dum addresses only the first of these four grounds\n<|id|>111<|page|>14<|box|>845 140 901 857<|content|>Mississippi — Fifth Circuit Post-Katrina Litigation. ... In a series of decisions, the United\n<|id|>112<|page|>15<|box|>90 140 273 857<|content|>States Court of Appeals for the Fifth Circuit, app...ere caused exclusively by wind in order to recover\n<|id|>144<|page|>19<|box|>779 140 907 857<|content|>3. ... The response should also demand production of Arbor\n<|id|>145<|page|>20<|box|>90 174 125 854<|content|>Claims' cause-of-loss report and any engineering a...ering analyses on which Ironclad's denial is based\n<|id|>152<|page|>20<|box|>872 140 907 856<|content|>Ironclad's position — that the mere presence of st... million claim — is not supported by the weight of\n<|id|>153<|page|>21<|box|>90 140 143 854<|content|>Florida authority and should not be sustained in l...recover for the substantial majority of its losses",
+    "raw_response": "<|src_id|>111<|tgt_id|>112\n<|src_id|>144<|tgt_id|>145\n<|src_id|>152<|tgt_id|>153",
+    "parsed": [
+        {
+            "src_id": 111,
+            "tgt_id": 112
+        },
+        {
+            "src_id": 144,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        }
+    ]
+}

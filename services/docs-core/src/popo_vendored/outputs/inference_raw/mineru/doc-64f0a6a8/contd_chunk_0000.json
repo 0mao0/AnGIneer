@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>142 725 159 854<|content|>February 5, 2024\n<|id|>2<|page|>1<|box|>167 140 203 854<|content|>Jonathan Felder, Esq. ... Greenvale Durneval LLP 1800 M Street NW, Suite 1100 Washington, DC 20036\n<|id|>3<|page|>1<|box|>212 176 248 854<|content|>Re: ... by Ardent Capital Partners III LP\n<|id|>4<|page|>1<|box|>256 176 273 555<|content|>Calderwood & Harkness Matter No. ... 1001-00001\n<|id|>5<|page|>1<|box|>282 142 299 258<|content|>Dear Jonathan: ... Dear Jonathan\n<|id|>11<|page|>1<|box|>875 140 909 854<|content|>Calderwood & Harkness's target filing date is Febr...al deadline. ... We respectfully request Greenvale\n<|id|>12<|page|>2<|box|>90 140 181 856<|content|>Durneval's agreement to file the acquired person's...taining HSR clearance as expeditiously as possible\n<|id|>24<|page|>3<|box|>491 145 527 854<|content|>• 621111 — Offices of Physicians (encompassing Pin...-operated primary care and specialty care clinics)\n<|id|>26<|page|>3<|box|>584 140 750 856<|content|>The acquiring person Notification Form will report...resolved well in advance of the target filing date\n<|id|>25<|page|>3<|box|>529 145 583 854<|content|>• 621493 — Freestanding Ambulatory Surgical and Em...ations and its freestanding emergency departments)\n<|id|>28<|page|>3<|box|>838 145 893 857<|content|>• Marlowe Asset Management Rehabilitation Holdings...1340 (Offices of Physical, Occupational and Speech\n<|id|>29<|page|>4<|box|>90 174 125 854<|content|>Therapists, and Audiologists), though we are in th... may revise our classification upon further review\n<|id|>35<|page|>4<|box|>523 147 539 723<|content|>• Pinnacle FY2023 Annual Net Sales / Operating Revenues: ... 4 million\n<|id|>37<|page|>4<|box|>561 140 635 854<|content|>We respectfully request that Greenvale Durneval co...gures be reported consistently across both filings\n<|id|>36<|page|>4<|box|>542 145 559 748<|content|>• Pinnacle Total Assets (as of December 31, 2023): ... approximately $812 million\n<|id|>54<|page|>6<|box|>737 138 883 857<|content|>We believe the substantive basis for early termina...er is strong. ... The anticipated post-Transaction\n<|id|>55<|page|>7<|box|>90 140 127 854<|content|>Herfindahl-Hirschman Index (\"HHI\") in all relevant...nsaction does not combine any competing businesses\n<|id|>81<|page|>10<|box|>359 140 375 272<|content|>Very truly yours,\n<|id|>82<|page|>10<|box|>375 140 392 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>83<|page|>10<|box|>393 143 410 253<|content|>By: ... By\n<|id|>84<|page|>10<|box|>410 140 441 852<|content|>Howard Bellamy Partner, Antitrust & Competition Pr...rkness LLP 600 Lexington Avenue New York, NY 10022\n<|id|>85<|page|>10<|box|>441 140 473 852<|content|>cc: ... , Whitfield & Crane LLP (transaction counsel to Ardent Capital Partners III LP)",
+    "raw_response": "<|src_id|>11<|tgt_id|>12\n<|src_id|>28<|tgt_id|>29\n<|src_id|>54<|tgt_id|>55",
+    "parsed": [
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        }
+    ]
+}

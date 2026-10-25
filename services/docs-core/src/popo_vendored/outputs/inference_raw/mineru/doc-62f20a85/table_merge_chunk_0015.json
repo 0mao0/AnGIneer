@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 15,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['101003027000', '电工试验室设备', '套', '基础埋设,设备本体和附件安装,接地,调试等', '安装要求,型号规格,电压等级,容量等']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['101003028000', '消防系统设备', '套', '灭火系统安装,管道支架制作、安装,火灾自动报警系统安装,消防系统装置调试及模拟试验等', '安装要求,型号规格,材质,压力等级,连接方式等']]\n",
+    "raw_response": "[0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 309,
+    "table2_idx": 310
+}

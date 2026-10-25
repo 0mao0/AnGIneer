@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 169 125 826<|content|>UNITED STATES DISTRICT COURT FOR THE EASTERN DISTR\n<|id|>2<|page|>1<|box|>614 156 651 838<|content|>NOTICE OF APPEARANCE OF COUNSEL FOR DEFENDANTS NOR\n<|id|>3<|page|>1<|box|>693 140 710 826<|content|>TO THE CLERK OF COURT AND ALL PARTIES AND THEIR CO\n<|id|>6<|page|>2<|box|>222 140 239 576<|content|>I. IDENTIFICATION OF APPEARING ATTORNEYS\n<|id|>8<|page|>2<|box|>316 142 333 292<|content|>A. Elaine Forsythe\n<|id|>13<|page|>2<|box|>503 143 520 300<|content|>B. Howard Bellamy\n<|id|>18<|page|>2<|box|>744 142 761 251<|content|>C. Aaron Liu\n<|id|>24<|page|>3<|box|>121 142 138 279<|content|>D. Monica Reyes\n<|id|>29<|page|>3<|box|>318 142 334 741<|content|>II. DESIGNATION OF LEAD COUNSEL AND SERVICE INFORM\n<|id|>37<|page|>3<|box|>669 142 686 491<|content|>III. STATEMENT REGARDING CLIENTS\n<|id|>42<|page|>4<|box|>315 142 332 537<|content|>IV. REQUEST FOR SERVICE OF ALL PAPERS\n<|id|>44<|page|>4<|box|>474 140 489 485<|content|>V. COMPLIANCE WITH LOCAL RULES\n<|id|>49<|page|>5<|box|>148 140 166 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>52<|page|>5<|box|>335 140 354 294<|content|>/s/ Howard Bellamy\n<|id|>62<|page|>5<|box|>739 374 758 622<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>-1\n<|id|>6<|level|>2\n<|id|>8<|level|>3\n<|id|>13<|level|>3\n<|id|>18<|level|>3\n<|id|>24<|level|>3\n<|id|>29<|level|>2\n<|id|>37<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>49<|level|>-1\n<|id|>52<|level|>-1\n<|id|>62<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        }
+    ]
+}

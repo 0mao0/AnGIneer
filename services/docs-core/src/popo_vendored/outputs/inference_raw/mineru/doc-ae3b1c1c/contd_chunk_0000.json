@@ -1,0 +1,29 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        7,
+        16,
+        17,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>152 140 189 854<|content|>TO: ... Calloway, Founder & Chief Investment Offic...or, Infrastructure, Ironside Capital Management LP\n<|id|>3<|page|>1<|box|>196 140 233 854<|content|>FROM: ... Pamela Cross, Responsible Partner, Calde...esa Kim, Lead Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>241 140 258 336<|content|>DATE: ... October 15, 2023\n<|id|>5<|page|>1<|box|>268 140 304 854<|content|>RE: ... Review of Meridian Infrastructure GP IV LL...– September 30, 2023) — ICM Cascadia Co-Invest, LP\n<|id|>6<|page|>1<|box|>311 140 329 359<|content|>MATTER NO. ... 1023-00001\n<|id|>20<|page|>2<|box|>864 140 901 854<|content|>The third quarter of 2023 ended on September 30, 2...ess day following the end of the quarter — Monday,\n<|id|>21<|page|>3<|box|>89 140 219 856<|content|>October 2, 2023 — yields a delivery deadline of ap...day observed on Monday, October 9, 2023. ... 04(b)\n<|id|>29<|page|>3<|box|>556 174 592 854<|content|>(v) A description of the status of the Equity Purc...nts, extensions, or modifications thereto; ... and\n<|id|>31<|page|>3<|box|>662 140 773 856<|content|>In addition to these LP Agreement requirements, th...tal to the GP's obligations under the LP Agreement\n<|id|>61<|page|>7<|box|>497 181 550 854<|content|>• Senior Secured Term Loan Facility: ... and\n<|id|>63<|page|>7<|box|>609 140 792 857<|content|>The Commitment Letter was originally scheduled to ...itment was extended on the same terms and timeline\n<|id|>132<|page|>16<|box|>765 138 875 857<|content|>Despite the centrality of this issue, the GP has c... information as may be reasonably requested by the\n<|id|>133<|page|>17<|box|>89 140 126 854<|content|>LP,\" and we believe a request for enhanced disclos...h reasonable and necessary under the circumstances\n<|id|>177<|page|>21<|box|>683 142 699 576<|content|>Theresa Kim Lead Associate Calderwood & Harkness LLP\n<|id|>178<|page|>21<|box|>700 143 718 367<|content|>Reviewed and Approved by: ... Reviewed and Approved by\n<|id|>181<|page|>21<|box|>768 174 842 854<|content|>Marcus J. ... Calloway — Founder & Chief Investmen...— Associate, Calderwood & Harkness LLP (file copy)\n<|id|>182<|page|>21<|box|>849 140 868 524<|content|>Copy retained in C&H Matter File No. ... 1023-00001",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>132<|tgt_id|>133",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 133
+        }
+    ]
+}

@@ -1,0 +1,123 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>135 209 154 787<|content|>INTERNAL MEMORANDUM — PRIVILEGED AND CONFIDENTIAL\n<|id|>8<|page|>1<|box|>421 142 438 344<|content|>1. Purpose and Summary\n<|id|>14<|page|>2<|box|>148 140 167 441<|content|>2. Proposed Engagement — Overview\n<|id|>31<|page|>3<|box|>414 140 431 393<|content|>3. Parties and Entities Searched\n<|id|>33<|page|>3<|box|>544 140 561 588<|content|>3.1 Verimark Hospitality Group Inc. (Prospective C\n<|id|>43<|page|>4<|box|>165 140 181 434<|content|>3.2 VHG Officers and Key Personnel\n<|id|>55<|page|>4<|box|>771 140 789 540<|content|>3.3 Daniela M. Serrano (Claimant / Adverse Party)\n<|id|>81<|page|>6<|box|>705 140 739 854<|content|>3.5 Palomar Realty Partners LLC (Third-Party Prope\n<|id|>88<|page|>7<|box|>417 140 433 261<|content|>Search Result:\n<|id|>93<|page|>7<|box|>752 140 768 741<|content|>3.6 Luminos Payroll Solutions Inc. (Payroll Proces\n<|id|>101<|page|>8<|box|>508 140 523 261<|content|>Search Result:\n<|id|>105<|page|>8<|box|>708 140 724 571<|content|>3.7 Pinnacle Indemnity Corp. (EPL Insurance Carrie\n<|id|>115<|page|>9<|box|>343 140 359 261<|content|>Search Result:\n<|id|>120<|page|>9<|box|>661 140 679 756<|content|>3.8 Ridgepoint Advisory Group LLC (Prospective For\n<|id|>127<|page|>10<|box|>226 142 243 261<|content|>Search Result:\n<|id|>131<|page|>10<|box|>407 140 425 643<|content|>3.9 Hargrove Kessler & Co. LLP (VHG's Independent\n<|id|>137<|page|>10<|box|>744 140 760 261<|content|>Search Result:\n<|id|>141<|page|>11<|box|>131 140 148 326<|content|>4. Search Methodology\n<|id|>154<|page|>12<|box|>212 140 229 450<|content|>5. Engagement-Specific Considerations\n<|id|>156<|page|>12<|box|>324 140 340 620<|content|>5.1 Potential for Adverse Interests Among Non-Clie\n<|id|>161<|page|>13<|box|>176 140 193 426<|content|>5.2 Public Company Considerations\n<|id|>167<|page|>13<|box|>582 140 599 370<|content|>6. Conclusion and Clearance\n<|id|>180<|page|>14<|box|>378 140 395 241<|content|>7. Approval",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>3\n<|id|>43<|level|>3\n<|id|>55<|level|>3\n<|id|>81<|level|>3\n<|id|>88<|level|>4\n<|id|>93<|level|>3\n<|id|>101<|level|>4\n<|id|>105<|level|>3\n<|id|>115<|level|>4\n<|id|>120<|level|>3\n<|id|>127<|level|>4\n<|id|>131<|level|>3\n<|id|>137<|level|>4\n<|id|>141<|level|>2\n<|id|>154<|level|>2\n<|id|>156<|level|>3\n<|id|>161<|level|>3\n<|id|>167<|level|>2\n<|id|>180<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 4
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 4
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 4
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 137,
+            "level": 4
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 180,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 272 118 723<|content|>NOTICE OF APPEARANCE OF COUNSEL\n<|id|>1<|page|>1<|box|>135 171 170 826<|content|>BEFORE THE FEDERAL ENERGY REGULATORY COMMISSION OF\n<|id|>4<|page|>1<|box|>359 142 376 439<|content|>I. INTRODUCTION AND PURPOSE\n<|id|>9<|page|>1<|box|>834 142 851 447<|content|>II. IDENTIFICATION OF COUNSEL\n<|id|>11<|page|>2<|box|>90 140 107 447<|content|>A. Lead Counsel / Responsible Partner\n<|id|>17<|page|>2<|box|>330 142 348 320<|content|>B. Additional Counsel\n<|id|>31<|page|>2<|box|>830 142 847 308<|content|>C. Firm Information\n<|id|>33<|page|>3<|box|>148 140 166 594<|content|>III. IDENTIFICATION OF CLIENTS / RESPONDENTS\n<|id|>35<|page|>3<|box|>205 140 224 415<|content|>A. Dunmore Energy Holdings Ltd.\n<|id|>42<|page|>3<|box|>555 140 571 406<|content|>B. Dunmore Power Trading LLC\n<|id|>50<|page|>4<|box|>167 140 184 334<|content|>IV. AUTHORIZATION\n<|id|>60<|page|>4<|box|>808 140 824 594<|content|>V. REQUEST FOR SERVICE OF COMMUNICATIONS\n<|id|>68<|page|>5<|box|>371 140 388 431<|content|>VI. COOPERATION STATEMENT\n<|id|>72<|page|>5<|box|>728 140 744 357<|content|>VII. CONFIDENTIALITY\n<|id|>76<|page|>7<|box|>114 410 133 586<|content|>Respectfully submitted,\n<|id|>79<|page|>7<|box|>366 140 383 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>9<|level|>2\n<|id|>11<|level|>3\n<|id|>17<|level|>3\n<|id|>31<|level|>3\n<|id|>33<|level|>2\n<|id|>35<|level|>3\n<|id|>42<|level|>3\n<|id|>50<|level|>2\n<|id|>60<|level|>2\n<|id|>68<|level|>2\n<|id|>72<|level|>2\n<|id|>76<|level|>-1\n<|id|>79<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        }
+    ]
+}

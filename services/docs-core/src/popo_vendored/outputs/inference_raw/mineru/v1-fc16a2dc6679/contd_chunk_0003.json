@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 3,
+    "range": [
+        146,
+        200
+    ],
+    "pages": [
+        146,
+        147,
+        200
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>926<|page|>146<|box|>560 200 596 771<|content|>本质检机构保证检测的科学性、公正性和准确性，对检测的数据、结果负责，并对客户所提供的样品和技术资料保...es and technical information provided by customers\n<|id|>931<|page|>146<|box|>722 200 776 774<|content|>Within the scope determined by the qualification c... results shall not serve as a proof to the society\n<|id|>940<|page|>147<|box|>467 201 519 789<|content|>Institute(code JC)/National Fumiture Quality Super...oration quality Supervision and inspection Station\n<|id|>941<|page|>147<|box|>525 201 568 586<|content|>地址： ... 021-57493162\n<|id|>943<|page|>147<|box|>630 201 677 578<|content|>地址： ... 021-64850806\n<|id|>942<|page|>147<|box|>571 201 625 789<|content|>6. ... DQy国家电器能效与安全质量监督检验中心√/国家智能电网分布式电源装备质量监督检验中心...liances Quality Supervision and Inspection Station\n<|id|>944<|page|>147<|box|>694 201 736 578<|content|>地址： ... 021-64372108\n<|id|>1001<|page|>200<|box|>168 156 187 700<|content|>（一）第一阶段： ... 深化设计与采购准备（第1-3个月）\n<|id|>1002<|page|>200<|box|>225 191 244 838<|content|>第1个月： ... 组建项目团队，开展全线（钓鱼礁码头、牛屎屿、\n<|id|>1003<|page|>200<|box|>294 144 313 848<|content|>三座灯塔、通信基站）的详细现场勘察，重点核实岛礁地质、光照\n<|id|>1004<|page|>200<|box|>362 147 382 374<|content|>条件及现有设施承重。 ... 条件及现有设施承重\n<|id|>1005<|page|>200<|box|>418 191 439 836<|content|>第2个月： ... 完成《系统深化设计方案》、《施工组织设计》、\n<|id|>1006<|page|>200<|box|>486 157 506 800<|content|>《软件需求规格说明书》及UI/UE原型设计，并组织专家评审。 ... 《软件需求规格说明书》及UI/UE原型设计，并组织专家评审\n<|id|>1007<|page|>200<|box|>544 191 563 860<|content|>第3个月： ... 完成核心设备（重载云台、国产化服务器、5G设备、\n<|id|>1008<|page|>200<|box|>611 146 632 850<|content|>光伏组件）的选型与采购下单，启动 BIM建模与电子航道图数据采\n<|id|>1009<|page|>200<|box|>678 144 699 233<|content|>集工作。 ... 集工作\n<|id|>1010<|page|>200<|box|>736 157 756 712<|content|>（二）第二阶段： ... 基础设施与硬件部署（第4-14个月）\n<|id|>1011<|page|>200<|box|>794 191 814 836<|content|>第4-6个月： ... 优先开展岸基（码头、通信基站）的线缆敷设、\n<|id|>1012<|page|>200<|box|>860 147 882 850<|content|>立杆基础施工及机房装修配套建设； ... 同步进行岛礁点位的材料运输",
+    "raw_response": "<|src_id|>1002<|tgt_id|>1003\n<|src_id|>1003<|tgt_id|>1004\n<|src_id|>1005<|tgt_id|>1006\n<|src_id|>1007<|tgt_id|>1008\n<|src_id|>1008<|tgt_id|>1009\n<|src_id|>1011<|tgt_id|>1012",
+    "parsed": [
+        {
+            "src_id": 1002,
+            "tgt_id": 1003
+        },
+        {
+            "src_id": 1003,
+            "tgt_id": 1004
+        },
+        {
+            "src_id": 1005,
+            "tgt_id": 1006
+        },
+        {
+            "src_id": 1007,
+            "tgt_id": 1008
+        },
+        {
+            "src_id": 1008,
+            "tgt_id": 1009
+        },
+        {
+            "src_id": 1011,
+            "tgt_id": 1012
+        }
+    ]
+}

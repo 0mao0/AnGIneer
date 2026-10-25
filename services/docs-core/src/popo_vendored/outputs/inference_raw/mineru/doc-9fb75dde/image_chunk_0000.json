@@ -1,0 +1,40 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 246 118 750<|content|>ASSIGNMENT AND ASSUMPTION OF LEASES\n<|id|>6<|type|>title<|page|>1<|box|>265 300 282 697<|content|>ASSIGNMENT AND ASSUMPTION OF LEASES\n<|id|>8<|type|>title<|page|>1<|box|>405 142 422 241<|content|>RECITALS\n<|id|>16<|type|>title<|page|>2<|box|>275 140 292 336<|content|>Section 1 — Assignment\n<|id|>26<|type|>title<|page|>2<|box|>768 140 785 338<|content|>Section 2 — Assumption\n<|id|>41<|type|>title<|page|>3<|box|>771 140 789 483<|content|>Section 3 — Proration of Rent and Charges\n<|id|>45<|type|>title<|page|>4<|box|>383 140 402 380<|content|>Section 4 — Security Deposits\n<|id|>50<|type|>title<|page|>4<|box|>840 140 857 393<|content|>Section 5 — Landlord Consents\n<|id|>55<|type|>title<|page|>5<|box|>458 140 474 580<|content|>Section 6 — Assignor's Representations and Warrant\n<|id|>64<|type|>title<|page|>6<|box|>520 140 537 369<|content|>Section 7 — Indemnification\n<|id|>73<|type|>title<|page|>7<|box|>439 140 457 328<|content|>Section 8 — Covenants\n<|id|>80<|type|>title<|page|>7<|box|>804 140 821 673<|content|>8.2 Assignee Compliance. On and after the Closing\n<|id|>85<|type|>title<|page|>8<|box|>273 140 292 478<|content|>Section 9 — Purchase Agreement Controls\n<|id|>87<|type|>title<|page|>8<|box|>488 140 503 555<|content|>Section 10 — Binding Effect; Successors and Assign\n<|id|>89<|type|>title<|page|>8<|box|>719 140 736 310<|content|>Section 11 — Notices\n<|id|>91<|type|>title<|page|>8<|box|>845 142 862 259<|content|>If to Assignor:\n<|id|>101<|type|>title<|page|>9<|box|>263 142 279 259<|content|>If to Assignee:\n<|id|>112<|type|>title<|page|>9<|box|>564 140 580 375<|content|>Section 12 — Governing Law\n<|id|>114<|type|>title<|page|>9<|box|>796 140 814 535<|content|>Section 13 — Counterparts; Electronic Signatures\n<|id|>116<|type|>title<|page|>10<|box|>167 140 184 500<|content|>Section 14 — Entire Agreement; Amendment\n<|id|>118<|type|>title<|page|>10<|box|>436 140 453 346<|content|>Section 15 — Severability\n<|id|>120<|type|>title<|page|>10<|box|>631 140 648 408<|content|>Section 16 — Further Assurances\n<|id|>122<|type|>title<|page|>10<|box|>811 245 829 751<|content|>[Remainder of page intentionally left blank. Signa\n<|id|>124<|type|>title<|page|>10<|box|>881 142 897 248<|content|>ASSIGNOR:\n<|id|>138<|type|>title<|page|>12<|box|>88 447 107 552<|content|>EXHIBIT A\n<|id|>139<|type|>title<|page|>12<|box|>114 421 133 575<|content|>Schedule of Leases\n<|id|>141<|type|>table<|page|>12<|box|>222 143 905 852<|content|>None\n<|id|>142<|type|>table<|page|>13<|box|>88 143 419 852<|content|>None\n<|id|>143<|type|>title<|page|>13<|box|>454 142 470 462<|content|>Aggregate Annual Base Rent: $2,740,000\n<|id|>144<|type|>title<|page|>13<|box|>479 142 498 444<|content|>Aggregate Security Deposits: $365,000\n<|id|>146<|type|>title<|page|>14<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>147<|type|>title<|page|>14<|box|>116 421 133 576<|content|>Landlord Consents\n<|id|>166<|type|>title<|page|>15<|box|>89 433 107 565<|content|>SCHEDULE 5.2\n<|id|>167<|type|>title<|page|>15<|box|>116 372 133 625<|content|>Additional Landlord Conditions\n<|id|>169<|type|>table<|page|>15<|box|>203 143 625 852<|content|>None",
+    "raw_response": "<|src_id|>141<|tgt_id|>139\n<|src_id|>142<|tgt_id|>139\n<|src_id|>169<|tgt_id|>167",
+    "parsed": [
+        {
+            "src_id": 141,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 142,
+            "tgt_id": 139
+        },
+        {
+            "src_id": 169,
+            "tgt_id": 167
+        }
+    ]
+}

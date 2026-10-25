@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>112 282 128 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>6<|type|>title<|page|>1<|box|>277 424 294 573<|content|>MEMORANDUM\n<|id|>7<|type|>title<|page|>1<|box|>304 168 339 828<|content|>WIRE TRANSFER CONFIRMATION REPRESENTATIONS AND WAR\n<|id|>8<|type|>table<|page|>1<|box|>345 143 732 852<|content|>None\n<|id|>9<|type|>title<|page|>1<|box|>782 142 799 341<|content|>I. Purpose and Summary\n<|id|>14<|type|>title<|page|>2<|box|>502 140 518 431<|content|>II. R&W Insurance Policy Summary\n<|id|>34<|type|>title<|page|>3<|box|>768 142 785 348<|content|>III. Wire Transfer Details\n<|id|>36<|type|>table<|page|>3<|box|>875 143 893 852<|content|>None\n<|id|>37<|type|>table<|page|>4<|box|>89 143 452 852<|content|>None\n<|id|>40<|type|>title<|page|>4<|box|>827 142 844 366<|content|>IV. Confirmation of Receipt\n<|id|>45<|type|>title<|page|>5<|box|>604 140 621 415<|content|>V. Reconciliation with Funds Flow\n<|id|>48<|type|>table<|page|>5<|box|>806 143 907 852<|content|>None\n<|id|>49<|type|>table<|page|>6<|box|>88 143 479 852<|content|>None\n<|id|>50<|type|>title<|page|>6<|box|>513 142 529 431<|content|>Notes on Funds Flow Reconciliation:\n<|id|>56<|type|>title<|page|>7<|box|>267 140 284 388<|content|>VI. Supporting Documentation\n<|id|>66<|type|>title<|page|>8<|box|>280 140 297 395<|content|>VII. Filing and Record-Keeping\n<|id|>76<|type|>title<|page|>9<|box|>241 421 258 576<|content|>ATTACHMENT A\n<|id|>80<|type|>title<|page|>9<|box|>420 421 436 576<|content|>ATTACHMENT B",
+    "raw_response": "<|src_id|>8<|tgt_id|>7\n<|src_id|>36<|tgt_id|>34\n<|src_id|>37<|tgt_id|>34\n<|src_id|>48<|tgt_id|>45\n<|src_id|>49<|tgt_id|>45",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 48,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 45
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 254 133 743<|content|>1750 Pennsylvania Avenue NW, Suite 800 Washington, DC 20006\n<|id|>2<|page|>1<|box|>141 183 159 813<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 140 204 854<|content|>Victoria Chambers Partner, White Collar & Investigations Direct Dial: ... (202) 555-7143\n<|id|>4<|page|>1<|box|>212 140 229 478<|content|>Email: ... com\n<|id|>5<|page|>1<|box|>229 723 246 854<|content|>January 15, 2024\n<|id|>6<|page|>1<|box|>253 140 271 540<|content|>VIA HAND DELIVERY AND ELECTRONIC MAIL\n<|id|>7<|page|>1<|box|>280 140 335 854<|content|>Meredith Calloway Assistant United States Attorney...telligence and Export Control Section U. ... 20530\n<|id|>8<|page|>1<|box|>343 174 378 854<|content|>Re: ... Transmittal of Supplemental Remediation Report\n<|id|>9<|page|>1<|box|>387 176 404 563<|content|>Calderwood & Harkness Matter No. ... 1016-00009\n<|id|>10<|page|>1<|box|>414 142 431 295<|content|>Dear Ms. ... Calloway\n<|id|>28<|page|>3<|box|>517 183 571 854<|content|>• Approximately $12. ... and\n<|id|>29<|page|>3<|box|>574 181 662 854<|content|>Approximately $34. ... 2 million in structured pay...he connection to Volkhov-affiliated counterparties\n<|id|>42<|page|>4<|box|>872 174 907 857<|content|>Separation of Responsible Individuals. ... Derek Hargrave, former President of\n<|id|>43<|page|>5<|box|>90 174 200 856<|content|>Dunmore Trading International Ltd. ... These perso...heir respective roles in the transactions at issue\n<|id|>50<|page|>5<|box|>805 174 878 857<|content|>The screening and blocking procedures are designed...an Federation\"), Directive 2 under Executive Order\n<|id|>51<|page|>6<|box|>89 176 126 854<|content|>13662, and the regulations codified at 31 C. ... P...89 (Ukraine-/Russia-Related Sanctions Regulations)\n<|id|>91<|page|>9<|box|>707 210 726 805<|content|>(c) Training completion records for all relevant Dunmore personnel globally; ... and\n<|id|>93<|page|>9<|box|>758 140 814 854<|content|>Should the DOJ require any additional documentatio...tter, we would be pleased to provide them promptly\n<|id|>102<|page|>10<|box|>455 140 488 852<|content|>Victoria Chambers Partner, White Collar & Investig...Washington, DC 20006 Telephone: ... (202) 555-7142\n<|id|>103<|page|>10<|box|>489 142 505 480<|content|>Email: ... com\n<|id|>104<|page|>10<|box|>507 142 523 321<|content|>cc: ... (via electronic mail)\n<|id|>105<|page|>10<|box|>532 176 566 854<|content|>Samuel Kovacs, Trial Attorney, Counterintelligence...al Security Division, U. ... Department of Justice\n<|id|>106<|page|>10<|box|>575 176 612 854<|content|>Diana Pressman, Trial Attorney, Counterintelligenc...al Security Division, U. ... Department of Justice\n<|id|>107<|page|>10<|box|>619 176 637 733<|content|>Marcus Wellbourne, Esq. ... , General Counsel, Dunmore Energy Holdings Ltd\n<|id|>109<|page|>10<|box|>671 176 688 632<|content|>Howard Quinn, Billing Partner, Calderwood & Harkness LLP\n<|id|>110<|page|>10<|box|>696 176 714 637<|content|>Conrad Reeves, Senior Counsel, Calderwood & Harkness LLP\n<|id|>111<|page|>10<|box|>723 176 739 617<|content|>Jasmine Thornton, Associate, Calderwood & Harkness LLP\n<|id|>112<|page|>10<|box|>750 142 766 385<|content|>Enclosures: ... As described above",
+    "raw_response": "<|src_id|>28<|tgt_id|>29\n<|src_id|>42<|tgt_id|>43\n<|src_id|>50<|tgt_id|>51",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 50,
+            "tgt_id": 51
+        }
+    ]
+}

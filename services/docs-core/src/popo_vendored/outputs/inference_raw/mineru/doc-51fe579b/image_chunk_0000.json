@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|type|>title<|page|>1<|box|>135 200 152 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>9<|type|>title<|page|>1<|box|>530 142 547 258<|content|>1. Call Details\n<|id|>26<|type|>title<|page|>2<|box|>224 140 241 362<|content|>2. Background and Context\n<|id|>37<|type|>title<|page|>3<|box|>90 140 107 419<|content|>3. Discussion Topics and Outcomes\n<|id|>38<|type|>title<|page|>3<|box|>121 140 138 575<|content|>3.1 Borrowing Base Methodology — Eligibility Crite\n<|id|>55<|type|>title<|page|>5<|box|>338 140 354 292<|content|>3.2 Advance Rates\n<|id|>66<|type|>title<|page|>6<|box|>652 140 670 339<|content|>3.3 Availability Reserves\n<|id|>82<|type|>title<|page|>8<|box|>823 140 840 673<|content|>3.4 Inventory Valuation Methodology — Role of Pryo\n<|id|>99<|type|>title<|page|>10<|box|>439 140 457 578<|content|>3.5 Borrowing Base Certificate — Reporting Mechani\n<|id|>108<|type|>title<|page|>11<|box|>338 140 354 697<|content|>3.6 Preliminary Discussion of Payoff Logistics — P\n<|id|>121<|type|>title<|page|>12<|box|>241 140 258 385<|content|>4. Action Items and Next Steps\n<|id|>122<|type|>table<|page|>12<|box|>291 143 905 852<|content|>None\n<|id|>123<|type|>table<|page|>13<|box|>89 143 727 852<|content|>None\n<|id|>124<|type|>title<|page|>13<|box|>776 140 792 426<|content|>5. Open Items Deferred to Next Call\n<|id|>136<|type|>title<|page|>14<|box|>747 140 763 415<|content|>6. Confidentiality and Distribution",
+    "raw_response": "<|src_id|>122<|tgt_id|>121\n<|src_id|>123<|tgt_id|>121",
+    "parsed": [
+        {
+            "src_id": 122,
+            "tgt_id": 121
+        },
+        {
+            "src_id": 123,
+            "tgt_id": 121
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>90 310 159 686<|content|>EXHIBIT A-2 FORM OF REGULATION S GLOBAL NOTE [FACE\n<|id|>6<|type|>title<|page|>2<|box|>244 364 260 630<|content|>TORCHLIGHT MINING CORP.\n<|id|>7<|type|>title<|page|>2<|box|>270 207 313 787<|content|>(a corporation incorporated under the Canada Busin\n<|id|>13<|type|>title<|page|>2<|box|>613 140 630 210<|content|>Interest\n<|id|>17<|type|>title<|page|>3<|box|>167 140 184 328<|content|>Principal and Maturity\n<|id|>19<|type|>title<|page|>3<|box|>289 142 306 305<|content|>Payment Mechanics\n<|id|>22<|type|>title<|page|>3<|box|>676 140 691 328<|content|>Reference to Indenture\n<|id|>25<|type|>title<|page|>4<|box|>204 140 222 233<|content|>Guarantee\n<|id|>31<|type|>title<|page|>4<|box|>503 140 520 215<|content|>Security\n<|id|>38<|type|>title<|page|>4<|box|>864 140 881 217<|content|>Ranking\n<|id|>44<|type|>title<|page|>5<|box|>301 142 318 266<|content|>Denominations\n<|id|>46<|type|>title<|page|>5<|box|>386 140 402 316<|content|>Optional Redemption\n<|id|>47<|type|>title<|page|>5<|box|>417 142 434 537<|content|>Make-Whole Redemption (Prior to April 15, 2025)\n<|id|>55<|type|>title<|page|>5<|box|>828 142 845 473<|content|>Equity Clawback (Prior to April 15, 2025)\n<|id|>60<|type|>title<|page|>7<|box|>90 140 107 627<|content|>Fixed Price Redemption Schedule (On or After April\n<|id|>62<|type|>table<|page|>7<|box|>247 143 323 852<|content|>None\n<|id|>63<|type|>title<|page|>7<|box|>362 142 378 387<|content|>Partial Redemption Mechanics\n<|id|>66<|type|>title<|page|>7<|box|>654 140 671 292<|content|>Change of Control\n<|id|>68<|type|>title<|page|>7<|box|>830 140 848 294<|content|>Certain Covenants\n<|id|>79<|type|>title<|page|>8<|box|>558 142 575 282<|content|>Events of Default\n<|id|>90<|type|>title<|page|>9<|box|>337 140 354 236<|content|>Defeasance\n<|id|>92<|type|>title<|page|>9<|box|>550 140 566 450<|content|>Book-Entry Provisions — Regulation S\n<|id|>96<|type|>title<|page|>10<|box|>148 140 167 439<|content|>Transfer Restrictions — Regulation S\n<|id|>101<|type|>title<|page|>10<|box|>587 140 604 452<|content|>Amendment, Modification, and Waiver\n<|id|>113<|type|>title<|page|>11<|box|>434 140 450 271<|content|>Governing Law\n<|id|>115<|type|>title<|page|>11<|box|>573 140 590 328<|content|>Consent to Jurisdiction\n<|id|>118<|type|>title<|page|>12<|box|>90 140 107 310<|content|>Waiver of Jury Trial\n<|id|>120<|type|>title<|page|>12<|box|>267 142 284 264<|content|>Authentication\n<|id|>133<|type|>title<|page|>12<|box|>570 292 588 702<|content|>[REVERSE OF REGULATION S GLOBAL NOTE]\n<|id|>134<|type|>title<|page|>12<|box|>595 437 613 560<|content|>GUARANTEE\n<|id|>153<|type|>title<|page|>13<|box|>601 158 635 836<|content|>SCHEDULE OF EXCHANGES OF INTERESTS IN THE REGULATI\n<|id|>155<|type|>table<|page|>13<|box|>724 143 805 851<|content|>None\n<|id|>156<|type|>title<|page|>13<|box|>839 403 854 594<|content|>FORM OF TRANSFER\n<|id|>164<|type|>title<|page|>14<|box|>330 142 345 416<|content|>ADDITIONAL CERTIFICATION\n<|id|>168<|type|>title<|page|>14<|box|>507 310 523 686<|content|>REGULATION S TRANSFER CERTIFICATE\n<|id|>178<|type|>title<|page|>14<|box|>878 333 893 663<|content|>RULE 144A TRANSFER CERTIFICATE",
+    "raw_response": "<|src_id|>62<|tgt_id|>60\n<|src_id|>155<|tgt_id|>153",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 153
+        }
+    ]
+}

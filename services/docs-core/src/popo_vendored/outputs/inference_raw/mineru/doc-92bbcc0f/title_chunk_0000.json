@@ -1,0 +1,154 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 104 630<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>10<|page|>1<|box|>393 385 412 611<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>436 294 455 702<|content|>II. Background and Transaction Context\n<|id|>17<|page|>2<|box|>481 140 498 478<|content|>A. Fairwater Real Estate Investment Trust\n<|id|>22<|page|>3<|box|>223 140 239 537<|content|>B. Proposed Acquisition of the Southgate Portfolio\n<|id|>27<|page|>4<|box|>90 140 107 514<|content|>C. Formation of Fairwater Southgate TRS, Inc.\n<|id|>34<|page|>4<|box|>763 140 780 553<|content|>D. Significance of the Intercompany Lease Structur\n<|id|>39<|page|>5<|box|>554 344 573 651<|content|>III. Applicable Legal Standard\n<|id|>40<|page|>5<|box|>599 140 614 617<|content|>A. IRC § 856(d) — Definition of \"Rents from Real P\n<|id|>47<|page|>6<|box|>556 140 574 673<|content|>B. IRC § 856(d)(7)(B) — Arm's-Length Requirement f\n<|id|>55<|page|>7<|box|>531 140 547 454<|content|>C. Rev. Proc. 2025-1 and IRS Guidance\n<|id|>60<|page|>8<|box|>381 212 401 782<|content|>IV. Summary of the Caldwell Valuation Group Apprai\n<|id|>61<|page|>8<|box|>426 140 443 506<|content|>A. Appraiser Qualifications and Independence\n<|id|>65<|page|>9<|box|>148 140 167 316<|content|>B. Scope of Appraisal\n<|id|>69<|page|>9<|box|>561 140 579 272<|content|>C. Methodology\n<|id|>76<|page|>10<|box|>776 140 794 357<|content|>D. Comparable Lease Data\n<|id|>84<|page|>12<|box|>223 140 239 336<|content|>E. Appraisal Conclusion\n<|id|>88<|page|>12<|box|>602 281 622 715<|content|>V. Analysis and Validation of the Appraisal\n<|id|>89<|page|>12<|box|>647 140 664 694<|content|>A. Consistency with Arm's-Length Standard Under IR\n<|id|>97<|page|>13<|box|>375 140 391 377<|content|>B. Evaluation of Lease Terms\n<|id|>103<|page|>14<|box|>458 140 474 460<|content|>C. Property-by-Property Considerations\n<|id|>119<|page|>16<|box|>359 140 377 377<|content|>D. Methodological Soundness\n<|id|>124<|page|>17<|box|>90 140 107 415<|content|>E. Consideration of IRS Precedent\n<|id|>131<|page|>17<|box|>675 300 695 697<|content|>VI. Impact on REIT Qualification Tests\n<|id|>132<|page|>17<|box|>720 142 737 323<|content|>A. Gross Income Tests\n<|id|>142<|page|>18<|box|>744 140 761 256<|content|>B. Asset Tests\n<|id|>147<|page|>19<|box|>421 140 438 370<|content|>C. Distribution Requirement\n<|id|>150<|page|>19<|box|>738 338 758 658<|content|>VII. Risk Factors and Mitigants\n<|id|>159<|page|>21<|box|>309 302 328 694<|content|>VIII. Conclusion and Recommendation\n<|id|>168<|page|>22<|box|>209 377 228 620<|content|>IX. Exhibits Referenced\n<|id|>175<|page|>22<|box|>621 367 637 629<|content|>REVIEW AND ATTESTATION\n<|id|>178<|page|>23<|box|>90 140 106 331<|content|>Matter No.: 1036-00006",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>10<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>22<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>1\n<|id|>40<|level|>2\n<|id|>47<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>1\n<|id|>61<|level|>2\n<|id|>65<|level|>2\n<|id|>69<|level|>2\n<|id|>76<|level|>2\n<|id|>84<|level|>2\n<|id|>88<|level|>1\n<|id|>89<|level|>2\n<|id|>97<|level|>2\n<|id|>103<|level|>2\n<|id|>119<|level|>2\n<|id|>124<|level|>2\n<|id|>131<|level|>1\n<|id|>132<|level|>2\n<|id|>142<|level|>2\n<|id|>147<|level|>2\n<|id|>150<|level|>1\n<|id|>159<|level|>1\n<|id|>168<|level|>1\n<|id|>175<|level|>1\n<|id|>178<|level|>-1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 159,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 175,
+            "level": 1
+        }
+    ]
+}

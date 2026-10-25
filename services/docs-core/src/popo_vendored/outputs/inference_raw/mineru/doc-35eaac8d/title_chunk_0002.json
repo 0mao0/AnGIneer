@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        103,
+        127
+    ],
+    "pages": [
+        104,
+        105,
+        106,
+        108,
+        109,
+        110,
+        111,
+        113,
+        114,
+        115,
+        116,
+        118,
+        120,
+        122,
+        124,
+        127
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>574<|page|>104<|box|>90 331 108 666<|content|>TABLE TF-6A.—Highway Trust Fund\n<|id|>578<|page|>104<|box|>511 405 527 596<|content|>Mass Transit Account\n<|id|>580<|page|>105<|box|>98 240 118 756<|content|>INTRODUCTION: Inland Waterways Trust Fund\n<|id|>588<|page|>106<|box|>98 166 117 828<|content|>INTRODUCTION: Leaking Underground Storage Tank Tru\n<|id|>596<|page|>108<|box|>90 290 109 707<|content|>INTRODUCTION: Nuclear Waste Fund\n<|id|>603<|page|>109<|box|>90 215 114 782<|content|>CHARTS TF-A and B.—Major Trust Funds\n<|id|>605<|page|>110<|box|>90 81 109 553<|content|>INTRODUCTION: Reforestation Trust Fund\n<|id|>612<|page|>111<|box|>98 143 118 852<|content|>INTRODUCTION: Sport Fish Restoration and Boating T\n<|id|>622<|page|>113<|box|>98 248 118 748<|content|>INTRODUCTION: Oil Spill Liability Trust Fund\n<|id|>627<|page|>114<|box|>112 300 148 700<|content|>TABLE TF-12.—Oil Spill Liability Trust Fund Result\n<|id|>631<|page|>115<|box|>98 176 118 820<|content|>INTRODUCTION: Vaccine Injury Compensation Trust Fu\n<|id|>634<|page|>115<|box|>273 250 309 756<|content|>TABLE TF-13.—Vaccine Injury Compensation Trust Fun\n<|id|>637<|page|>115<|box|>616 200 651 800<|content|>Vaccine Injury Compensation Trust Fund Expected Co\n<|id|>639<|page|>116<|box|>98 236 138 759<|content|>INTRODUCTION: Wool Research, Development, and Prom\n<|id|>649<|page|>118<|box|>90 192 109 803<|content|>INTRODUCTION: Agriculture Disaster Relief Trust Fu\n<|id|>657<|page|>120<|box|>98 130 118 864<|content|>INTRODUCTION: Patient Centered Outcomes Research T\n<|id|>668<|page|>122<|box|>98 107 118 887<|content|>INTRODUCTION: United States Victims of State Spons\n<|id|>678<|page|>124<|box|>97 446 119 552<|content|>Glossary\n<|id|>679<|page|>124<|box|>125 258 143 743<|content|>With References to Applicable Sections and Tables\n<|id|>725<|page|>127<|box|>400 55 419 158<|content|>Subscription",
+    "raw_response": "<|id|>574<|level|>1\n<|id|>578<|level|>2\n<|id|>580<|level|>2\n<|id|>588<|level|>2\n<|id|>596<|level|>2\n<|id|>603<|level|>2\n<|id|>605<|level|>2\n<|id|>612<|level|>2\n<|id|>622<|level|>2\n<|id|>627<|level|>3\n<|id|>631<|level|>2\n<|id|>634<|level|>3\n<|id|>637<|level|>-1\n<|id|>639<|level|>2\n<|id|>649<|level|>2\n<|id|>657<|level|>2\n<|id|>668<|level|>2\n<|id|>678<|level|>1\n<|id|>679<|level|>2\n<|id|>725<|level|>1",
+    "parsed": [
+        {
+            "id": 574,
+            "level": 1
+        },
+        {
+            "id": 578,
+            "level": 2
+        },
+        {
+            "id": 580,
+            "level": 2
+        },
+        {
+            "id": 588,
+            "level": 2
+        },
+        {
+            "id": 596,
+            "level": 2
+        },
+        {
+            "id": 603,
+            "level": 2
+        },
+        {
+            "id": 605,
+            "level": 2
+        },
+        {
+            "id": 612,
+            "level": 2
+        },
+        {
+            "id": 622,
+            "level": 2
+        },
+        {
+            "id": 627,
+            "level": 3
+        },
+        {
+            "id": 631,
+            "level": 2
+        },
+        {
+            "id": 634,
+            "level": 3
+        },
+        {
+            "id": 639,
+            "level": 2
+        },
+        {
+            "id": 649,
+            "level": 2
+        },
+        {
+            "id": 657,
+            "level": 2
+        },
+        {
+            "id": 668,
+            "level": 2
+        },
+        {
+            "id": 678,
+            "level": 1
+        },
+        {
+            "id": 679,
+            "level": 2
+        },
+        {
+            "id": 725,
+            "level": 1
+        }
+    ]
+}

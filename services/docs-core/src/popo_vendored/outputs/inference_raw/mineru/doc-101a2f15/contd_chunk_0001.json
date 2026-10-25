@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        49,
+        108
+    ],
+    "pages": [
+        50,
+        80,
+        81,
+        107,
+        108
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>748<|page|>50<|box|>659 97 678 875<|content|>式中 \\Delta\\delta ——在建筑物使用年限 t 年内,钢管桩所需要的管壁预留的单面腐蚀厚度\n<|id|>750<|page|>50<|box|>726 174 743 559<|content|>V——钢材的单面年平均腐蚀速度(mm/a); ... V——钢材的单面年平均腐蚀速度(mm/a)\n<|id|>1170<|page|>80<|box|>111 737 126 845<|content|>续表 F. ... 3-2\n<|id|>1175<|page|>81<|box|>115 742 131 850<|content|>续表 F. ... 4-2\n<|id|>1195<|page|>107<|box|>242 216 772 305<|content|>附录 J 常用预应力混凝土管桩正截面抗裂弯矩 设计值和抗弯能力设计值表\n<|id|>1197<|page|>108<|box|>133 107 197 134<|content|>续表 J. ... 3",
+    "raw_response": "<|src_id|>748<|tgt_id|>750",
+    "parsed": [
+        {
+            "src_id": 748,
+            "tgt_id": 750
+        }
+    ]
+}

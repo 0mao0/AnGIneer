@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Surveyor', 'Meridian Land Surveying, Inc.', '2745 Lenox Road NE, Suite 300,', 'Daniel Caulfield,', 'Rafael Dominguez']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'Atlanta, GA 30324', 'PLS, PE', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 138,
+    "table2_idx": 139
+}

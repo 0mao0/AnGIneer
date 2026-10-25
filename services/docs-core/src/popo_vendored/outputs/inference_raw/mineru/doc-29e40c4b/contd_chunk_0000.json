@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>167 305 184 691<|content|>Authorization of Permanent Take-Out Financing\n<|id|>2<|page|>1<|box|>193 388 210 609<|content|>Adopted September 8, 2025\n<|id|>3<|page|>1<|box|>218 140 234 687<|content|>Prepared by Calderwood & Harkness LLP in coordination with Crestline & Alderman LLP\n<|id|>4<|page|>1<|box|>241 140 297 854<|content|>The following resolutions were adopted by the Boar... of the Trustees was present and acting throughout\n<|id|>7<|page|>1<|box|>369 140 665 854<|content|>A. ... and\n<|id|>8<|page|>1<|box|>671 140 875 856<|content|>B. ... and\n<|id|>15<|page|>2<|box|>337 140 558 856<|content|>The aggregate purchase price for the Sun Belt Port...ighty-Five Million Dollars ($385,000,000). ... and\n<|id|>13<|page|>2<|box|>285 174 304 774<|content|>(iv) North Carolina: ... and\n<|id|>16<|page|>2<|box|>564 140 893 857<|content|>D. ... and\n<|id|>17<|page|>3<|box|>244 138 830 857<|content|>E. ... and\n<|id|>18<|page|>3<|box|>838 140 893 857<|content|>F. ... In order to achieve a bankruptcy-remote CMB...wers under the Permanent Loan, replacing Fairwater\n<|id|>19<|page|>4<|box|>90 138 273 857<|content|>OP as the borrower under the Bridge Credit Facility. ... and\n<|id|>31<|page|>5<|box|>864 176 898 854<|content|>(d) An Environmental Indemnity Agreement executed ...tors, in favor of Clarendon Metropolitan Insurance\n<|id|>32<|page|>6<|box|>90 174 127 854<|content|>Company, as indemnitee, providing for indemnificat...th the fourteen (14) Sun Belt Portfolio properties\n<|id|>49<|page|>7<|box|>825 174 898 857<|content|>(a) Direct each of the SPE Borrowers (Fairwater Su...f Trust), the Assignments of Leases and Rents, the\n<|id|>50<|page|>8<|box|>90 174 162 854<|content|>Environmental Indemnity Agreement, the Cash Manage...PE Borrowers in connection with the Permanent Loan\n<|id|>78<|page|>10<|box|>751 174 824 856<|content|>(d) Execute and deliver any and all ancillary agre...instructions, and post-closing agreements; ... and\n<|id|>80<|page|>11<|box|>90 140 218 856<|content|>David A. ... Sinclair) and to coordinate with outs...th the Permanent Loan and the related transactions\n<|id|>84<|page|>11<|box|>416 174 489 854<|content|>(a) Calderwood & Harkness LLP as outside legal cou...laudia Merritt serving as billing partner; ... and\n<|id|>86<|page|>11<|box|>559 140 651 856<|content|>The Board further acknowledges and confirms the co... accordance with their respective engagement terms\n<|id|>93<|page|>12<|box|>133 174 170 854<|content|>(e) The appointment of independent directors or independent managers for each SPE Borrower; ... and\n<|id|>95<|page|>12<|box|>223 140 333 854<|content|>provided, however, that such terms shall be consis...sed on a period of not less than thirty (30) years\n<|id|>102<|page|>12<|box|>643 174 681 854<|content|>(e) Non-consolidation of each SPE Borrower with Fa... \"substantive non-consolidation\" opinion); ... and\n<|id|>104<|page|>12<|box|>733 140 824 857<|content|>The Board further authorizes the officers of Fairw... required by Clarendon Metropolitan or its counsel\n<|id|>123<|page|>14<|box|>684 142 700 558<|content|>FAIRWATER REAL ESTATE INVESTMENT TRUST\n<|id|>124<|page|>14<|box|>703 143 719 253<|content|>By: ... By\n<|id|>126<|page|>14<|box|>737 142 753 434<|content|>Title: ... Secretary (or Assistant Secretary)\n<|id|>127<|page|>14<|box|>755 143 770 264<|content|>Date: ... Date\n<|id|>128<|page|>14<|box|>771 142 787 421<|content|>NOTARY ACKNOWLEDGMENT\n<|id|>129<|page|>14<|box|>797 142 814 297<|content|>STATE OF___)\n<|id|>130<|page|>14<|box|>824 210 840 246<|content|>) ss. ... ) ss\n<|id|>131<|page|>14<|box|>849 142 866 307<|content|>COUNTY OF _____)\n<|id|>132<|page|>15<|box|>90 140 218 856<|content|>On the _ day of ___, 2025, before me, the undersig... of which the person acted executed the instrument",
+    "raw_response": "<|src_id|>18<|tgt_id|>19\n<|src_id|>31<|tgt_id|>32\n<|src_id|>49<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 31,
+            "tgt_id": 32
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 50
+        }
+    ]
+}

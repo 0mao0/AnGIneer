@@ -1,0 +1,110 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 222 107 774<|content|>WITHOUT PREJUDICE — FOR SETTLEMENT PURPOSES ONLY\n<|id|>7<|page|>1<|box|>359 140 377 403<|content|>I. Acknowledgment and Framing\n<|id|>12<|page|>2<|box|>90 140 107 570<|content|>II. Background Context and Apex's Litigation Posit\n<|id|>20<|page|>3<|box|>167 140 185 519<|content|>III. Response to Solstice's Proposal — Overview\n<|id|>23<|page|>3<|box|>426 140 443 537<|content|>IV. Lump-Sum Payment — Apex's Revised Terms\n<|id|>27<|page|>4<|box|>90 140 107 454<|content|>B. Payment Structure — Two Tranches\n<|id|>34<|page|>4<|box|>705 140 722 500<|content|>V. Running Royalty — Apex's Revised Terms\n<|id|>35<|page|>4<|box|>736 140 753 272<|content|>A. Royalty Rate\n<|id|>40<|page|>5<|box|>484 140 500 343<|content|>B. Definition of Net Sales\n<|id|>49<|page|>6<|box|>202 140 219 348<|content|>C. Royalty Floor and Cap\n<|id|>55<|page|>6<|box|>633 140 652 442<|content|>D. Reporting and Payment Mechanics\n<|id|>63<|page|>7<|box|>138 142 157 263<|content|>E. Audit Right\n<|id|>66<|page|>7<|box|>486 140 503 485<|content|>VI. License Grant — Apex's Revised Terms\n<|id|>70<|page|>8<|box|>90 140 107 300<|content|>B. Sublicense Right\n<|id|>74<|page|>8<|box|>407 140 424 542<|content|>VII. Covenant Not to Sue — Apex's Revised Terms\n<|id|>81<|page|>9<|box|>148 140 167 450<|content|>VIII. Most-Favored Licensee Provision\n<|id|>90<|page|>9<|box|>763 140 780 408<|content|>IX. Mutual Release and Dismissal\n<|id|>94<|page|>10<|box|>339 140 357 287<|content|>X. Confidentiality\n<|id|>104<|page|>11<|box|>167 140 184 483<|content|>XI. Governing Law and Dispute Resolution\n<|id|>107<|page|>11<|box|>369 140 387 488<|content|>XII. Definitive Documentation and Timeline\n<|id|>119<|page|>11<|box|>823 140 839 413<|content|>XIII. Conditions and Reservations\n<|id|>124<|page|>12<|box|>329 140 347 251<|content|>XIV. Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>12<|level|>1\n<|id|>20<|level|>1\n<|id|>23<|level|>1\n<|id|>27<|level|>2\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>40<|level|>2\n<|id|>49<|level|>2\n<|id|>55<|level|>2\n<|id|>63<|level|>2\n<|id|>66<|level|>1\n<|id|>70<|level|>2\n<|id|>74<|level|>1\n<|id|>81<|level|>1\n<|id|>90<|level|>1\n<|id|>94<|level|>1\n<|id|>104<|level|>1\n<|id|>107<|level|>1\n<|id|>119<|level|>1\n<|id|>124<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        17,
+        27
+    ],
+    "pages": [
+        17,
+        23,
+        25,
+        27
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>40<|page|>17<|box|>86 480 101 608<|content|>Date CompNotes\n<|id|>55<|page|>23<|box|>86 478 101 608<|content|>Date CompNotes\n<|id|>60<|page|>25<|box|>86 478 101 608<|content|>Date CompNotes\n<|id|>63<|page|>27<|box|>86 480 101 608<|content|>Date CompNotes",
+    "raw_response": "<|id|>40<|level|>1\n<|id|>55<|level|>1\n<|id|>60<|level|>1\n<|id|>63<|level|>1",
+    "parsed": [
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 1
+        }
+    ]
+}

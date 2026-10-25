@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|type|>title<|page|>1<|box|>354 142 369 651<|content|>1. Purpose of This Letter and Confirmation of Matt\n<|id|>14<|type|>title<|page|>1<|box|>674 140 691 393<|content|>2. Summary of the Engagement\n<|id|>23<|type|>title<|page|>2<|box|>353 140 369 493<|content|>3. Summary of Key Milestones and Outcome\n<|id|>35<|type|>title<|page|>3<|box|>583 140 599 450<|content|>4. Summary of Final Agreement Terms\n<|id|>51<|type|>title<|page|>5<|box|>348 140 364 343<|content|>5. Final Billing Summary\n<|id|>53<|type|>title<|page|>5<|box|>422 142 439 308<|content|>5.1 Professional Fees\n<|id|>55<|type|>table<|page|>5<|box|>489 143 583 852<|content|>None\n<|id|>57<|type|>title<|page|>5<|box|>684 142 700 300<|content|>5.2 Costs Advanced\n<|id|>59<|type|>table<|page|>5<|box|>750 143 905 852<|content|>None\n<|id|>60<|type|>table<|page|>6<|box|>88 143 119 852<|content|>None\n<|id|>61<|type|>title<|page|>6<|box|>157 140 175 514<|content|>5.3 Total Client Obligation and Payment Status\n<|id|>63<|type|>table<|page|>6<|box|>205 143 281 852<|content|>None\n<|id|>66<|type|>title<|page|>6<|box|>436 140 454 326<|content|>6. Enclosed Documents\n<|id|>75<|type|>title<|page|>6<|box|>733 142 750 401<|content|>7. Document Retention Advisory\n<|id|>79<|type|>title<|page|>7<|box|>267 140 284 504<|content|>8. Continuing Obligations and Future Matters\n<|id|>87<|type|>title<|page|>8<|box|>90 140 107 377<|content|>9. Expression of Appreciation",
+    "raw_response": "<|src_id|>55<|tgt_id|>53\n<|src_id|>59<|tgt_id|>57\n<|src_id|>60<|tgt_id|>57\n<|src_id|>63<|tgt_id|>61",
+    "parsed": [
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 60,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 61
+        }
+    ]
+}

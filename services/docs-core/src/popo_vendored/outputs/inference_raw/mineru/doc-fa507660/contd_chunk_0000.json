@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        11,
+        12,
+        13,
+        16,
+        17,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>195 140 229 854<|content|>FROM: ... Douglas Fairchild, Engagement Partner, a...Dempsey, Lead Associate, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>239 142 256 352<|content|>DATE: ... December 14, 2022\n<|id|>5<|page|>1<|box|>265 140 301 854<|content|>RE: ... Advance-Notice Bylaw Compliance Analysis —..., LP Formal Notice of Intent to Nominate Directors\n<|id|>6<|page|>1<|box|>309 142 327 331<|content|>Matter No. ... 1033-00003\n<|id|>26<|page|>3<|box|>840 140 896 854<|content|>On December 8, 2022, Jonathan \"Jon\" Birch III, lea...\"Nomination Notice\") to Patricia \"Trish\" Nakamura,\n<|id|>27<|page|>4<|box|>90 140 162 854<|content|>General Counsel and Corporate Secretary of Redston...Capital Partners, LP as the nominating stockholder\n<|id|>62<|page|>7<|box|>809 140 902 856<|content|>The required disclosures fall into several broad c...ocedural requirements (including completion of the\n<|id|>63<|page|>8<|box|>90 140 162 854<|content|>Company's standard director questionnaire, executi... pursuant to Regulation 14A under the Exchange Act\n<|id|>92<|page|>11<|box|>482 174 573 854<|content|>(c) A commitment that the nominee will comply with...inclusion in the Company's public filings; ... and\n<|id|>94<|page|>11<|box|>679 140 789 856<|content|>December 8 Notice Content. ... \" However, the Nomi...attach signed representation and agreement letters\n<|id|>102<|page|>12<|box|>862 140 898 854<|content|>Assessment: ... While the general statement of con...est practice — and a reasonable reading of Section\n<|id|>105<|page|>13<|box|>362 140 454 856<|content|>However, Rule 14a-19 imposes specific content requ...) the names of the stockholder's director nominees\n<|id|>130<|page|>16<|box|>849 176 904 856<|content|>5. ... Grayson, subject to applicable legal constr...available information regarding their professional\n<|id|>131<|page|>17<|box|>915 140 929 738<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT PRIVIL...ration of the Company's opposition proxy materials\n<|id|>151<|page|>19<|box|>287 140 318 852<|content|>Calderwood & Harkness LLP 3960 Howard Hughes Parkw...00 Market Street, Suite 3100, Wilmington, DE 19801\n<|id|>152<|page|>19<|box|>324 140 340 813<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGE / ATTORNEY WORK PRODUCT",
+    "raw_response": "<|src_id|>26<|tgt_id|>27\n<|src_id|>62<|tgt_id|>63",
+    "parsed": [
+        {
+            "src_id": 26,
+            "tgt_id": 27
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        }
+    ]
+}

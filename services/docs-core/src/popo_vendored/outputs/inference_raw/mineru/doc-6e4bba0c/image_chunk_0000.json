@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 140 107 584<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>5<|type|>title<|page|>1<|box|>219 140 236 387<|content|>VIA EMAIL AND FACSIMILE\n<|id|>8<|type|>title<|page|>1<|box|>407 140 424 238<|content|>Dear Derek:\n<|id|>15<|type|>title<|page|>2<|box|>199 238 218 758<|content|>I. Landlord Waivers / Collateral Access Agreements\n<|id|>16<|type|>title<|page|>2<|box|>244 140 260 246<|content|>A. Overview\n<|id|>27<|type|>title<|page|>3<|box|>392 140 409 602<|content|>B. List of Specified Locations Requiring Landlord\n<|id|>29<|type|>title<|page|>3<|box|>467 140 484 681<|content|>Distribution Centers (Operated by Cascade Fulfillm\n<|id|>34<|type|>title<|page|>3<|box|>751 140 768 568<|content|>Cascade Digital Commerce Inc. — Office / Warehouse\n<|id|>36<|type|>title<|page|>4<|box|>90 140 107 705<|content|>Cascade Outlet Stores LLC — Selected Outlet Store\n<|id|>46<|type|>title<|page|>4<|box|>426 140 444 439<|content|>C. Action Items — Landlord Waivers\n<|id|>57<|type|>title<|page|>5<|box|>290 357 309 638<|content|>II. Insurance Endorsements\n<|id|>58<|type|>title<|page|>5<|box|>335 142 351 246<|content|>A. Overview\n<|id|>62<|type|>title<|page|>5<|box|>636 142 654 357<|content|>B. Required Endorsements\n<|id|>64<|type|>title<|page|>5<|box|>693 142 710 637<|content|>1. Pinnacle Assurance Company (Property & Casualty\n<|id|>70<|type|>title<|page|>6<|box|>227 140 244 772<|content|>2. Kelvantis Mutual Insurance Group (Umbrella / Bu\n<|id|>76<|type|>title<|page|>6<|box|>513 140 531 488<|content|>C. Action Items — Insurance Endorsements\n<|id|>83<|type|>title<|page|>7<|box|>135 222 155 774<|content|>III. Intercompany Note — Cascade Retail Canada ULC\n<|id|>84<|type|>title<|page|>7<|box|>181 142 196 246<|content|>A. Overview\n<|id|>89<|type|>title<|page|>7<|box|>728 140 744 444<|content|>B. Action Items — Intercompany Note\n<|id|>94<|type|>title<|page|>9<|box|>90 245 111 751<|content|>IV. Summary Schedule of Post-Closing Obligations\n<|id|>96<|type|>table<|page|>9<|box|>208 143 906 852<|content|>None\n<|id|>97<|type|>table<|page|>10<|box|>89 143 637 852<|content|>None\n<|id|>98<|type|>title<|page|>10<|box|>672 200 691 795<|content|>V. Additional Reminders — Ongoing Reporting Obliga\n<|id|>107<|type|>title<|page|>11<|box|>821 285 840 710<|content|>VI. Contact Information and Coordination\n<|id|>109<|type|>title<|page|>12<|box|>90 142 107 583<|content|>A. Calderwood & Harkness LLP — Borrowers' Counsel\n<|id|>117<|type|>title<|page|>12<|box|>366 142 383 351<|content|>B. CRH Internal Contacts\n<|id|>123<|type|>title<|page|>12<|box|>683 142 700 307<|content|>C. Lenders' Counsel\n<|id|>129<|type|>title<|page|>12<|box|>861 142 878 504<|content|>D. Administrative Agent and Collateral Agent",
+    "raw_response": "<|src_id|>96<|tgt_id|>94\n<|src_id|>97<|tgt_id|>94",
+    "parsed": [
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 94
+        }
+    ]
+}

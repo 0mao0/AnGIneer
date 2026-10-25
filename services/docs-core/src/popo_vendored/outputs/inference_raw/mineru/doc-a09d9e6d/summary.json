@@ -1,0 +1,441 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-g0i5pzqb\\input\\pdfs\\doc-a09d9e6d.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-g0i5pzqb\\enriched\\doc-a09d9e6d.json",
+    "contd_output": "<|src_id|>54<|tgt_id|>55\n<|src_id|>177<|tgt_id|>178",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>9<|level|>1\n<|id|>16<|level|>1\n<|id|>51<|level|>1\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>67<|level|>2\n<|id|>68<|level|>3\n<|id|>79<|level|>2\n<|id|>80<|level|>3\n<|id|>84<|level|>2\n<|id|>85<|level|>3\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>100<|level|>3\n<|id|>110<|level|>3\n<|id|>120<|level|>3\n<|id|>133<|level|>3\n<|id|>143<|level|>2\n<|id|>144<|level|>3\n<|id|>151<|level|>2\n<|id|>152<|level|>3\n<|id|>161<|level|>2\n<|id|>162<|level|>3\n<|id|>173<|level|>2\n<|id|>174<|level|>3\n<|id|>181<|level|>2\n<|id|>182<|level|>3\n<|id|>192<|level|>2\n<|id|>193<|level|>3\n<|id|>202<|level|>2\n<|id|>203<|level|>3\n<|id|>214<|level|>2\n<|id|>215<|level|>3\n<|id|>220<|level|>2\n<|id|>221<|level|>3\n<|id|>229<|level|>2\n<|id|>230<|level|>3\n<|id|>234<|level|>2\n<|id|>235<|level|>3\n<|id|>240<|level|>2\n<|id|>241<|level|>3\n<|id|>246<|level|>2\n<|id|>247<|level|>3\n<|id|>254<|level|>2\n<|id|>255<|level|>3\n<|id|>259<|level|>2\n<|id|>260<|level|>3\n<|id|>273<|level|>2\n<|id|>283<|level|>1\n<|id|>285<|level|>2\n<|id|>295<|level|>2\n<|id|>308<|level|>2\n<|id|>321<|level|>1\n<|id|>341<|level|>1\n<|id|>348<|level|>2",
+    "image_output": "<|src_id|>87<|tgt_id|>84\n<|src_id|>164<|tgt_id|>161\n<|src_id|>165<|tgt_id|>161\n<|src_id|>183<|tgt_id|>181\n<|src_id|>322<|tgt_id|>321\n<|src_id|>342<|tgt_id|>341\n<|src_id|>343<|tgt_id|>341\n<|src_id|>344<|tgt_id|>341\n<|src_id|>345<|tgt_id|>341\n<|src_id|>346<|tgt_id|>341\n<|src_id|>347<|tgt_id|>341",
+    "contd_label": [
+        {
+            "src_id": 54,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 177,
+            "tgt_id": 178
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 51,
+            "level": 1
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 3
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 202,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 221,
+            "level": 3
+        },
+        {
+            "id": 229,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 3
+        },
+        {
+            "id": 234,
+            "level": 2
+        },
+        {
+            "id": 235,
+            "level": 3
+        },
+        {
+            "id": 240,
+            "level": 2
+        },
+        {
+            "id": 241,
+            "level": 3
+        },
+        {
+            "id": 246,
+            "level": 2
+        },
+        {
+            "id": 247,
+            "level": 3
+        },
+        {
+            "id": 254,
+            "level": 2
+        },
+        {
+            "id": 255,
+            "level": 3
+        },
+        {
+            "id": 259,
+            "level": 2
+        },
+        {
+            "id": 260,
+            "level": 3
+        },
+        {
+            "id": 273,
+            "level": 2
+        },
+        {
+            "id": 283,
+            "level": 1
+        },
+        {
+            "id": 285,
+            "level": 2
+        },
+        {
+            "id": 295,
+            "level": 2
+        },
+        {
+            "id": 308,
+            "level": 2
+        },
+        {
+            "id": 321,
+            "level": 1
+        },
+        {
+            "id": 341,
+            "level": 1
+        },
+        {
+            "id": 348,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 87,
+            "tgt_id": 84
+        },
+        {
+            "src_id": 164,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 165,
+            "tgt_id": 161
+        },
+        {
+            "src_id": 183,
+            "tgt_id": 181
+        },
+        {
+            "src_id": 322,
+            "tgt_id": 321
+        },
+        {
+            "src_id": 342,
+            "tgt_id": 341
+        },
+        {
+            "src_id": 343,
+            "tgt_id": 341
+        },
+        {
+            "src_id": 344,
+            "tgt_id": 341
+        },
+        {
+            "src_id": 345,
+            "tgt_id": 341
+        },
+        {
+            "src_id": 346,
+            "tgt_id": 341
+        },
+        {
+            "src_id": 347,
+            "tgt_id": 341
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 164,
+            "table2_idx": 165,
+            "upper_row_ss": [
+                [
+                    "Surety Bond",
+                    "$165,000,000",
+                    "Ironbark Surety of America, Inc.(Bond No. ISA-ENV-2025-08934);annual premium of 1.85%($3,052,500/year)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Remediation Trust Fund",
+                    "$80,000,000",
+                    "Larchfield Trust Company, N.A.(Trust Agreement No. LTC-REM-2025-1177; trust officer David Henshaw)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 342,
+            "table2_idx": 343,
+            "upper_row_ss": [
+                [
+                    "11",
+                    "Art. V",
+                    "Grace period for late penalty",
+                    "Negotiable",
+                    "G. Nakamura",
+                    "Open"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "payments",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 343,
+            "table2_idx": 344,
+            "upper_row_ss": [
+                [
+                    "25",
+                    "Art. VI.C / XV",
+                    "Bonanza Creek",
+                    "Important",
+                    "E. Nguyen",
+                    "Open"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "MBTA release",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 344,
+            "table2_idx": 345,
+            "upper_row_ss": [
+                [
+                    "39",
+                    "Art. IX",
+                    "Financial assurance annual adjustment —",
+                    "Critical",
+                    "E. Nguyen",
+                    "Open"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "define with cap",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 345,
+            "table2_idx": 346,
+            "upper_row_ss": [
+                [
+                    "54",
+                    "Art. XIV",
+                    "Inspection",
+                    "Negotiable",
+                    "E. Nguyen",
+                    "Open"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "notice — request 48-hour advance notice",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 346,
+            "table2_idx": 347,
+            "upper_row_ss": [
+                [
+                    "69",
+                    "Art. XXII",
+                    "Integration",
+                    "Critical",
+                    "E. Nguyen",
+                    "Open"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "clause — resolve AOC status",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

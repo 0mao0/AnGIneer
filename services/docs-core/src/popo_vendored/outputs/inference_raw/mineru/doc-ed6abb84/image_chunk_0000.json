@@ -1,0 +1,33 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 171 118 823<|content|>SECRETARY'S CERTIFICATE OF LUMOS ANALYTICS INC.\n<|id|>1<|type|>title<|page|>1<|box|>136 184 154 810<|content|>Board Resolutions, Incumbency, Good Standing, and\n<|id|>5<|type|>title<|page|>1<|box|>273 140 289 467<|content|>I. INTRODUCTORY CERTIFICATION\n<|id|>11<|type|>title<|page|>2<|box|>212 140 229 553<|content|>II. CERTIFICATION OF BOARD RESOLUTIONS\n<|id|>12<|type|>title<|page|>2<|box|>243 140 258 398<|content|>A. Recitals to Board Resolutions\n<|id|>19<|type|>title<|page|>3<|box|>338 140 354 444<|content|>B. Authorizing Resolutions (Full Text)\n<|id|>36<|type|>title<|page|>5<|box|>90 140 106 434<|content|>III. INCUMBENCY CERTIFICATE\n<|id|>37<|type|>title<|page|>5<|box|>121 140 138 315<|content|>A. Incumbency Table\n<|id|>39<|type|>table<|page|>5<|box|>279 143 388 852<|content|>None\n<|id|>41<|type|>title<|page|>5<|box|>470 142 488 388<|content|>B. Authorization Confirmation\n<|id|>43<|type|>title<|page|>5<|box|>662 142 680 513<|content|>IV. CERTIFICATION OF GOOD STANDING\n<|id|>44<|type|>title<|page|>5<|box|>694 142 712 364<|content|>A. Delaware Good Standing\n<|id|>47<|type|>title<|page|>6<|box|>138 140 157 483<|content|>B. California Good Standing / Qualification\n<|id|>50<|type|>title<|page|>6<|box|>430 140 448 643<|content|>V. CERTIFICATION OF ORGANIZATIONAL DOCUMENTS\n<|id|>51<|type|>title<|page|>6<|box|>463 140 479 385<|content|>A. Certificate of Incorporation\n<|id|>56<|type|>title<|page|>7<|box|>89 140 106 457<|content|>VI. ADDITIONAL CERTIFICATIONS\n<|id|>62<|type|>title<|page|>7<|box|>753 140 771 348<|content|>VII. LIST OF EXHIBITS\n<|id|>64<|type|>table<|page|>7<|box|>804 143 907 852<|content|>None\n<|id|>65<|type|>table<|page|>8<|box|>88 143 194 852<|content|>None\n<|id|>66<|type|>title<|page|>8<|box|>243 142 260 300<|content|>VIII. EXECUTION\n<|id|>68<|type|>title<|page|>8<|box|>349 142 366 367<|content|>LUMOS ANALYTICS INC.\n<|id|>73<|type|>title<|page|>8<|box|>457 140 474 712<|content|>IX. OFFICER'S ACKNOWLEDGMENT AND COUNTERSIGNATURE\n<|id|>75<|type|>title<|page|>8<|box|>637 143 654 366<|content|>LUMOS ANALYTICS INC.",
+    "raw_response": "<|src_id|>39<|tgt_id|>37\n<|src_id|>64<|tgt_id|>62\n<|src_id|>65<|tgt_id|>62",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 62
+        }
+    ]
+}

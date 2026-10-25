@@ -1,0 +1,41 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        48
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        33,
+        38,
+        47
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>136 450 152 547<|content|>$30,000,000\n<|id|>2<|page|>1<|box|>162 397 179 599<|content|>dated as of March 9, 2023\n<|id|>3<|page|>1<|box|>189 470 205 529<|content|>among\n<|id|>4<|page|>1<|box|>214 246 231 750<|content|>LUMOS ANALYTICS INC. ... , a Delaware corporation, as Borrower,\n<|id|>5<|page|>1<|box|>239 480 256 517<|content|>and\n<|id|>12<|page|>1<|box|>659 140 732 854<|content|>WHEREAS, to secure the Borrower's obligations here...y Agreement and the IP Security Agreement; ... and\n<|id|>13<|page|>1<|box|>739 140 776 854<|content|>WHEREAS, the parties hereto desire to set forth th... revolving credit facility shall be made available\n<|id|>32<|page|>3<|box|>864 140 902 856<|content|>\"Change of Control\" means the occurrence of any of...directly or indirectly, at least 25% of the Equity\n<|id|>33<|page|>4<|box|>90 138 255 856<|content|>Interests (on a fully diluted basis) of the Borrow... majority of the board of directors then in office\n<|id|>53<|page|>5<|box|>789 140 898 857<|content|>\"Indebtedness\" means, with respect to any Person a...ntees of Indebtedness of any other Person, and (g)\n<|id|>54<|page|>6<|box|>90 140 126 854<|content|>all Indebtedness of another Person secured by a Li... such Indebtedness has been assumed by such Person\n<|id|>63<|page|>6<|box|>835 140 909 856<|content|>\"Loan Documents\" means this Credit Agreement, the ...ower pursuant to or in connection with this Credit\n<|id|>64<|page|>7<|box|>90 140 126 854<|content|>Agreement or any of the foregoing, in each case, a...plemented, or otherwise modified from time to time\n<|id|>100<|page|>9<|box|>811 140 902 854<|content|>(a) The definitions of terms herein shall apply eq.... ... \" Unless the context requires otherwise, (i)\n<|id|>101<|page|>10<|box|>90 140 310 854<|content|>any definition of or reference to any agreement, i...ng cash, securities, accounts, and contract rights\n<|id|>296<|page|>33<|box|>292 174 347 854<|content|>(d) property insurance covering all tangible perso...ss than the full replacement cost thereof; ... and\n<|id|>298<|page|>33<|box|>398 140 510 856<|content|>Ridgeline National Bank, National Association shal...property, casualty, and liability policies. ... 06\n<|id|>353<|page|>38<|box|>89 138 200 856<|content|>(a) Tax Distributions: ... and\n<|id|>355<|page|>38<|box|>287 140 325 854<|content|>No other dividends, distributions, or redemptions ... prior written consent of the Administrative Agent\n<|id|>440<|page|>47<|box|>330 174 349 756<|content|>Lumos Analytics Inc. ... 2180 Gateway Boulevard, Suite 400 San Jose, CA 95110\n<|id|>441<|page|>47<|box|>357 176 375 511<|content|>Attention: ... Marcus Delaney, General Counsel\n<|id|>442<|page|>47<|box|>375 176 391 468<|content|>Email: ... com\n<|id|>443<|page|>47<|box|>392 176 409 545<|content|>With a copy (which shall not constitute notice) to...With a copy (which shall not constitute notice) to\n<|id|>444<|page|>47<|box|>417 174 434 813<|content|>Calderwood & Harkness LLP 555 Mission Street, Suite 3100 San Francisco, CA 94105\n<|id|>445<|page|>47<|box|>444 176 460 390<|content|>Attention: ... Stephanie Okafor\n<|id|>446<|page|>47<|box|>460 176 478 491<|content|>Email: ... com\n<|id|>447<|page|>47<|box|>478 140 494 496<|content|>If to the Administrative Agent or the Lender: ... If to the Administrative Agent or the Lender\n<|id|>448<|page|>47<|box|>503 174 539 854<|content|>Ridgeline National Bank, National Association 600 Lexington Avenue, 22nd Floor New York, NY 10022\n<|id|>449<|page|>47<|box|>547 174 580 841<|content|>Attention: ... and Derek Huang, Vice President, Technology Banking\n<|id|>450<|page|>47<|box|>580 176 598 640<|content|>Email: ... com\n<|id|>451<|page|>47<|box|>599 176 616 547<|content|>With a copy (which shall not constitute notice) to...With a copy (which shall not constitute notice) to\n<|id|>452<|page|>47<|box|>625 176 641 808<|content|>Whitmore Graves & Fitch LLP 51 West 52nd Street, 34th Floor New York, NY 10019\n<|id|>453<|page|>47<|box|>650 176 666 408<|content|>Attention: ... Rennick\n<|id|>454<|page|>47<|box|>667 176 684 465<|content|>Email: ... com",
+    "raw_response": "<|src_id|>32<|tgt_id|>33\n<|src_id|>53<|tgt_id|>54\n<|src_id|>63<|tgt_id|>64\n<|src_id|>100<|tgt_id|>101",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 63,
+            "tgt_id": 64
+        },
+        {
+            "src_id": 100,
+            "tgt_id": 101
+        }
+    ]
+}

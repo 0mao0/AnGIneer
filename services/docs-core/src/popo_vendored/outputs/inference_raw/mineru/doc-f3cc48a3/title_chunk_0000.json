@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>12<|page|>1<|box|>508 140 523 473<|content|>I. Introduction and Purpose of This Letter\n<|id|>17<|page|>2<|box|>250 140 266 483<|content|>II. The Insured and the Insurance Program\n<|id|>18<|page|>2<|box|>279 140 297 424<|content|>A. Verimark Hospitality Group Inc.\n<|id|>26<|page|>2<|box|>647 140 664 658<|content|>B. VHG's Property and Business-Interruption Insura\n<|id|>32<|page|>3<|box|>397 140 414 493<|content|>III. Hurricane Callista and the Covered Loss\n<|id|>33<|page|>3<|box|>428 142 444 254<|content|>A. The Storm\n<|id|>38<|page|>4<|box|>90 140 108 383<|content|>B. Damage to VHG Properties\n<|id|>51<|page|>5<|box|>609 142 626 321<|content|>C. Total Claimed Loss\n<|id|>54<|page|>6<|box|>258 140 277 506<|content|>IV. VHG's Compliance with Policy Conditions\n<|id|>62<|page|>7<|box|>212 140 229 516<|content|>V. Response to Ironclad's Reservation of Rights\n<|id|>64<|page|>7<|box|>361 140 378 555<|content|>A. The Named Windstorm Sub-Limit Is Inapplicable\n<|id|>70<|page|>8<|box|>157 140 174 503<|content|>B. The Periods of Restoration Are Reasonable\n<|id|>80<|page|>8<|box|>772 140 789 717<|content|>C. The Concurrent Causation / Flood Exclusion Defe\n<|id|>87<|page|>9<|box|>638 140 655 581<|content|>D. The Failure-to-Mitigate Defense Is Factually Ba\n<|id|>97<|page|>10<|box|>318 142 335 344<|content|>VI. Demand for Payment\n<|id|>99<|page|>10<|box|>424 437 441 560<|content|>$24,500,000.00\n<|id|>104<|page|>10<|box|>825 140 843 540<|content|>VII. Bad-Faith Warning and Reservation of Rights\n<|id|>118<|page|>11<|box|>664 140 681 540<|content|>VIII. Request for Ongoing Good-Faith Adjustment\n<|id|>127<|page|>12<|box|>304 140 320 236<|content|>IX. Closing\n<|id|>141<|page|>13<|box|>90 142 106 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>12<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>26<|level|>2\n<|id|>32<|level|>1\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>51<|level|>2\n<|id|>54<|level|>1\n<|id|>62<|level|>1\n<|id|>64<|level|>2\n<|id|>70<|level|>2\n<|id|>80<|level|>2\n<|id|>87<|level|>2\n<|id|>97<|level|>1\n<|id|>99<|level|>-1\n<|id|>104<|level|>1\n<|id|>118<|level|>1\n<|id|>127<|level|>1\n<|id|>141<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 141,
+            "level": 1
+        }
+    ]
+}

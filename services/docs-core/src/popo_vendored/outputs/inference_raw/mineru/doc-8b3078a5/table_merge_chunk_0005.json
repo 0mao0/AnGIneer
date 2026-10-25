@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=9, 粉土', 'w>30', '不考虑', 'rowspan=2, η>12', 'rowspan=2, V', 'rowspan=2, 特强冻胀']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['土的名称', '冻前天然含水率w(%)', '冻前地下水位距设计冻深的最小距离h_{\\\\mathrm {w}}(m)', '平均冻胀率\\\\eta(%)', '冻胀等级', '冻胀类别']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 1729,
+    "table2_idx": 1730
+}

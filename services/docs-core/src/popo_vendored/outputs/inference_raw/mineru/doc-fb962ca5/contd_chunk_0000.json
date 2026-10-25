@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        7,
+        22
+    ],
+    "pages": [
+        7,
+        8,
+        11,
+        12,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>80<|page|>7<|box|>849 174 905 856<|content|>(c) Dr. ... See Appendix 3, Michaud\n<|id|>81<|page|>8<|box|>90 174 181 854<|content|>Dep. ... \")\n<|id|>126<|page|>11<|box|>819 138 893 856<|content|>However, even if the Court were to construe the pr...h accused products. ... 5–12 (confirming that both\n<|id|>127<|page|>12<|box|>89 140 164 854<|content|>LumiLink products are \"silicon-photonics-based tra...r or not the preamble is limiting, it is satisfied\n<|id|>212<|page|>22<|box|>189 676 207 854<|content|>Respectfully submitted,\n<|id|>213<|page|>22<|box|>214 651 232 854<|content|>Dated: ... September 15, 2025\n<|id|>214<|page|>22<|box|>239 140 256 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>215<|page|>22<|box|>258 143 275 254<|content|>By: ... By\n<|id|>216<|page|>22<|box|>275 142 292 781<|content|>Alan Ngo (CA Bar No. ... com\n<|id|>217<|page|>22<|box|>292 140 325 854<|content|>Marcus Delgado (TX Bar No. ... com\n<|id|>218<|page|>22<|box|>325 140 392 852<|content|>Wendy Schultz (CA Bar No. ... (213) 555-6201\n<|id|>219<|page|>22<|box|>393 142 410 406<|content|>WHITMORE & CALLAHAN LLP\n<|id|>220<|page|>22<|box|>411 143 428 251<|content|>By: ... By\n<|id|>221<|page|>22<|box|>428 142 445 718<|content|>James \"Jim\" Callahan (TX Bar No. ... com\n<|id|>222<|page|>22<|box|>445 140 478 852<|content|>110 North College Avenue, Suite 800 Tyler, Texas 75702 Telephone: ... (903) 555-4101\n<|id|>223<|page|>22<|box|>479 140 496 537<|content|>Attorneys for Plaintiff Optiwave Semiconductor Cor...ttorneys for Plaintiff Optiwave Semiconductor Corp",
+    "raw_response": "<|src_id|>80<|tgt_id|>81\n<|src_id|>126<|tgt_id|>127",
+    "parsed": [
+        {
+            "src_id": 80,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 126,
+            "tgt_id": 127
+        }
+    ]
+}

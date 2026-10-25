@@ -1,0 +1,197 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-55ytqqnz\\input\\pdfs\\doc-4e2adedb.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-55ytqqnz\\enriched\\doc-4e2adedb.json",
+    "contd_output": "<|src_id|>12<|tgt_id|>13\n<|src_id|>153<|tgt_id|>154\n<|src_id|>194<|tgt_id|>195",
+    "title_output": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>18<|level|>2\n<|id|>19<|level|>3\n<|id|>24<|level|>3\n<|id|>28<|level|>3\n<|id|>37<|level|>3\n<|id|>49<|level|>3\n<|id|>58<|level|>3\n<|id|>63<|level|>3\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>76<|level|>3\n<|id|>80<|level|>3\n<|id|>87<|level|>2\n<|id|>88<|level|>3\n<|id|>104<|level|>3\n<|id|>119<|level|>3\n<|id|>125<|level|>2\n<|id|>126<|level|>3\n<|id|>131<|level|>3\n<|id|>141<|level|>2\n<|id|>142<|level|>3\n<|id|>148<|level|>3\n<|id|>157<|level|>2\n<|id|>159<|level|>3\n<|id|>163<|level|>3\n<|id|>166<|level|>3\n<|id|>172<|level|>2\n<|id|>182<|level|>2\n<|id|>191<|level|>2\n<|id|>197<|level|>2\n<|id|>199<|level|>2\n<|id|>201<|level|>2",
+    "image_output": "<|src_id|>77<|tgt_id|>76\n<|src_id|>128<|tgt_id|>126\n<|src_id|>174<|tgt_id|>172\n<|src_id|>175<|tgt_id|>172",
+    "contd_label": [
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 154
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 195
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 163,
+            "level": 3
+        },
+        {
+            "id": 166,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 77,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 172
+        },
+        {
+            "src_id": 175,
+            "tgt_id": 172
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 174,
+            "table2_idx": 175,
+            "upper_row_ss": [
+                [
+                    "Regulatory fines, penalties, or",
+                    "TBD",
+                    "Cannot be estimated at this time;"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "settlement costs",
+                    "",
+                    "depends on regulatory inquiries and enforcement posture"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 160 849<|content|>CALDERWOOD & HARKNESS LLP 1301 K Street NW, Suite\n<|id|>7<|page|>1<|box|>366 140 383 321<|content|>I. Executive Summary\n<|id|>11<|page|>2<|box|>90 140 107 617<|content|>II. Background — Summary of the Litigation and Set\n<|id|>12<|page|>2<|box|>121 140 138 357<|content|>A. The Underlying Dispute\n<|id|>23<|page|>3<|box|>138 142 156 307<|content|>B. Settlement Terms\n<|id|>35<|page|>4<|box|>602 140 619 517<|content|>C. CRH's Prior Litigation Contingency Accrual\n<|id|>38<|page|>5<|box|>90 140 107 410<|content|>III. Form 8-K Disclosure Analysis\n<|id|>39<|page|>5<|box|>121 140 138 473<|content|>A. Overview of 8-K Reporting Obligations\n<|id|>47<|page|>5<|box|>617 142 633 602<|content|>B. Item 1.01 — Entry into a Material Definitive Ag\n<|id|>63<|page|>7<|box|>176 140 193 374<|content|>C. Item 8.01 — Other Events\n<|id|>72<|page|>8<|box|>324 140 340 421<|content|>D. Level of Detail in 8-K Disclosure\n<|id|>80<|page|>9<|box|>359 140 376 496<|content|>IV. Form 10-Q Disclosure Analysis (Q1 2025)\n<|id|>81<|page|>9<|box|>388 140 407 349<|content|>A. Timing Considerations\n<|id|>84<|page|>9<|box|>616 140 633 480<|content|>B. ASC 855 — Subsequent Events Analysis\n<|id|>105<|page|>11<|box|>90 140 107 500<|content|>C. MD&A and Legal Proceedings Disclosures\n<|id|>119<|page|>12<|box|>90 140 107 491<|content|>V. Additional Securities Law Considerations\n<|id|>120<|page|>12<|box|>121 142 138 284<|content|>A. Regulation FD\n<|id|>125<|page|>12<|box|>546 140 563 413<|content|>B. Insider Trading Considerations\n<|id|>136<|page|>13<|box|>194 140 212 393<|content|>C. Credit Agreement Reporting\n<|id|>140<|page|>13<|box|>604 140 621 460<|content|>VI. Materiality Assessment — Summary\n<|id|>142<|page|>13<|box|>696 142 714 338<|content|>A. Quantitative Analysis\n<|id|>146<|page|>14<|box|>239 142 256 326<|content|>B. Qualitative Analysis\n<|id|>148<|page|>14<|box|>380 142 397 472<|content|>Factors Weighing in Favor of Materiality:\n<|id|>157<|page|>15<|box|>165 142 181 446<|content|>Factors Weighing Against Materiality:\n<|id|>162<|page|>15<|box|>510 140 527 328<|content|>VII. Recommendations\n<|id|>174<|page|>16<|box|>686 140 704 279<|content|>VIII. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>7<|level|>1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>23<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>1\n<|id|>39<|level|>2\n<|id|>47<|level|>2\n<|id|>63<|level|>2\n<|id|>72<|level|>2\n<|id|>80<|level|>1\n<|id|>81<|level|>2\n<|id|>84<|level|>2\n<|id|>105<|level|>2\n<|id|>119<|level|>1\n<|id|>120<|level|>2\n<|id|>125<|level|>2\n<|id|>136<|level|>2\n<|id|>140<|level|>1\n<|id|>142<|level|>2\n<|id|>146<|level|>2\n<|id|>148<|level|>3\n<|id|>157<|level|>3\n<|id|>162<|level|>1\n<|id|>174<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 148,
+            "level": 3
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>93 352 114 645<|content|>公路工程设计变更管理办法\n<|id|>1<|page|>1<|box|>130 368 150 628<|content|>交通部令 2005 年第 5 号\n<|id|>5<|page|>2<|box|>93 352 114 645<|content|>公路工程设计变更管理办法",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        46,
+        50
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        50
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>423<|type|>title<|page|>47<|box|>90 246 109 750<|content|>APPENDIX F — SOURCES AND REFERENCES\n<|id|>425<|type|>title<|page|>47<|box|>172 142 189 233<|content|>Databases:\n<|id|>428<|type|>title<|page|>47<|box|>238 143 255 444<|content|>US Statutory and Regulatory Sources:\n<|id|>437<|type|>title<|page|>47<|box|>420 143 436 271<|content|>OECD Sources:\n<|id|>440<|type|>title<|page|>47<|box|>522 143 539 271<|content|>Treaty Sources:\n<|id|>442<|type|>title<|page|>47<|box|>604 142 621 485<|content|>German Statutory and Regulatory Sources:\n<|id|>447<|type|>title<|page|>47<|box|>726 143 743 421<|content|>Auditing and Financial References:\n<|id|>450<|type|>title<|page|>47<|box|>829 143 845 334<|content|>Exchange Rate Sources:\n<|id|>452<|type|>title<|page|>48<|box|>90 155 109 841<|content|>APPENDIX G — GLOSSARY OF TERMS AND ABBREVIATIONS\n<|id|>453<|type|>table<|page|>48<|box|>128 143 897 852<|content|>None\n<|id|>454<|type|>table<|page|>49<|box|>89 143 200 852<|content|>None\n<|id|>455<|type|>table<|page|>49<|box|>258 145 335 852<|content|>None\n<|id|>456<|type|>title<|page|>50<|box|>89 380 109 616<|content|>SIGNATURE BLOCK",
+    "raw_response": "<|src_id|>453<|tgt_id|>452\n<|src_id|>454<|tgt_id|>452\n<|src_id|>455<|tgt_id|>452",
+    "parsed": [
+        {
+            "src_id": 453,
+            "tgt_id": 452
+        },
+        {
+            "src_id": 454,
+            "tgt_id": 452
+        },
+        {
+            "src_id": 455,
+            "tgt_id": 452
+        }
+    ]
+}

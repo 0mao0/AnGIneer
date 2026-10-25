@@ -1,0 +1,163 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-h3plmjl2\\input\\pdfs\\doc-b9d1e337.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-h3plmjl2\\enriched\\doc-b9d1e337.json",
+    "contd_output": "<|src_id|>140<|tgt_id|>141\n<|src_id|>152<|tgt_id|>153",
+    "title_output": "<|id|>2<|level|>1\n<|id|>10<|level|>2\n<|id|>19<|level|>2\n<|id|>24<|level|>2\n<|id|>26<|level|>3\n<|id|>32<|level|>3\n<|id|>40<|level|>3\n<|id|>46<|level|>3\n<|id|>53<|level|>3\n<|id|>62<|level|>3\n<|id|>67<|level|>3\n<|id|>68<|level|>4\n<|id|>70<|level|>4\n<|id|>73<|level|>3\n<|id|>82<|level|>3\n<|id|>89<|level|>2\n<|id|>91<|level|>3\n<|id|>93<|level|>4\n<|id|>100<|level|>4\n<|id|>107<|level|>5\n<|id|>113<|level|>3\n<|id|>115<|level|>4\n<|id|>118<|level|>4\n<|id|>121<|level|>4\n<|id|>126<|level|>3\n<|id|>133<|level|>2\n<|id|>147<|level|>2",
+    "image_output": "<|src_id|>64<|tgt_id|>62\n<|src_id|>145<|tgt_id|>133\n<|src_id|>146<|tgt_id|>133",
+    "contd_label": [
+        {
+            "src_id": 140,
+            "tgt_id": 141
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 4
+        },
+        {
+            "id": 70,
+            "level": 4
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 4
+        },
+        {
+            "id": 100,
+            "level": 4
+        },
+        {
+            "id": 107,
+            "level": 5
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 4
+        },
+        {
+            "id": 118,
+            "level": 4
+        },
+        {
+            "id": 121,
+            "level": 4
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 147,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 133
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 133
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 145,
+            "table2_idx": 146,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Confirm Harding's",
+                    "Hargrove & Liddell LLP",
+                    "Before Draft 1 circulation"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "preferred start date (October 1 vs. November 1, 2024) and advise Calderwood & Harkness",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

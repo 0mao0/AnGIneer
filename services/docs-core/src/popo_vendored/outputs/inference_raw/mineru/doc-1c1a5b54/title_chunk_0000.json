@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11,
+        13,
+        14,
+        15,
+        17,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 204 136 794<|content|>UNITED STATES DEPARTMENT OF JUSTICE ANTITRUST DIVI\n<|id|>6<|page|>1<|box|>460 140 479 241<|content|>RECITALS\n<|id|>7<|page|>1<|box|>487 140 503 246<|content|>WHEREAS:\n<|id|>14<|page|>2<|box|>628 140 646 390<|content|>SECTION 1 — DEFINITIONS\n<|id|>26<|page|>3<|box|>535 140 551 586<|content|>SECTION 2 — NON-PROSECUTION COMMITMENT\n<|id|>34<|page|>4<|box|>410 140 426 473<|content|>SECTION 3 — MONETARY PAYMENT\n<|id|>40<|page|>5<|box|>285 140 301 539<|content|>SECTION 4 — COOPERATION OBLIGATIONS\n<|id|>49<|page|>6<|box|>574 140 592 553<|content|>SECTION 5 — COMPLIANCE ENHANCEMENTS\n<|id|>68<|page|>8<|box|>443 140 460 625<|content|>SECTION 6 — INDEPENDENT COMPLIANCE MONITOR\n<|id|>92<|page|>10<|box|>611 140 628 436<|content|>SECTION 7 — HOLT CARVE-OUT\n<|id|>96<|page|>11<|box|>376 140 393 720<|content|>SECTION 8 — AGREED STATEMENT OF FACTS AND ADMISSIO\n<|id|>100<|page|>11<|box|>787 140 805 491<|content|>SECTION 9 — BREACH AND REMEDIES\n<|id|>117<|page|>13<|box|>347 140 364 640<|content|>SECTION 10 — PUBLIC STATEMENTS AND DISCLOSURE\n<|id|>121<|page|>13<|box|>832 140 849 485<|content|>SECTION 11 — GENERAL PROVISIONS\n<|id|>126<|page|>14<|box|>450 176 467 344<|content|>For the Department:\n<|id|>139<|page|>15<|box|>542 413 556 583<|content|>SIGNATURE PAGE\n<|id|>141<|page|>15<|box|>611 142 627 408<|content|>TORCHLIGHT MINING CORP.\n<|id|>147<|page|>15<|box|>729 143 747 736<|content|>UNITED STATES DEPARTMENT OF JUSTICE, ANTITRUST DIV\n<|id|>160<|page|>17<|box|>89 424 112 575<|content|>APPENDIX A\n<|id|>161<|page|>17<|box|>135 272 154 723<|content|>ENHANCED ANTITRUST COMPLIANCE PROGRAM\n<|id|>172<|page|>18<|box|>89 424 111 573<|content|>APPENDIX B\n<|id|>173<|page|>18<|box|>135 351 152 647<|content|>AGREED STATEMENT OF FACTS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>7<|level|>-1\n<|id|>14<|level|>2\n<|id|>26<|level|>2\n<|id|>34<|level|>2\n<|id|>40<|level|>2\n<|id|>49<|level|>2\n<|id|>68<|level|>2\n<|id|>92<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>2\n<|id|>117<|level|>2\n<|id|>121<|level|>2\n<|id|>126<|level|>3\n<|id|>139<|level|>2\n<|id|>141<|level|>3\n<|id|>147<|level|>3\n<|id|>160<|level|>1\n<|id|>161<|level|>2\n<|id|>172<|level|>1\n<|id|>173<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 160,
+            "level": 1
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 1
+        },
+        {
+            "id": 173,
+            "level": 2
+        }
+    ]
+}

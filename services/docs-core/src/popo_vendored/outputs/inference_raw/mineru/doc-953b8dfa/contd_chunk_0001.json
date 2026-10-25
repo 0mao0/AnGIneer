@@ -1,0 +1,48 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        50,
+        78
+    ],
+    "pages": [
+        51,
+        52,
+        53,
+        57,
+        58,
+        60,
+        61,
+        62,
+        63,
+        64,
+        75,
+        76,
+        77,
+        78
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>440<|page|>51<|box|>90 176 108 792<|content|>(c) the adoption of a plan relating to the liquidation or dissolution of either Issuer; ... or\n<|id|>442<|page|>51<|box|>234 140 344 856<|content|>Notice Requirements. ... Within 30 days following ...d setting forth the procedures for tendering Notes\n<|id|>447<|page|>51<|box|>835 140 909 856<|content|>Limitation on Asset Sales. ... The Indenture will ... 75% of the consideration consists of cash or Cash\n<|id|>448<|page|>52<|box|>90 140 200 856<|content|>Equivalents, and (iii) the net proceeds are applie...urchase Notes at 100% of par plus accrued interest\n<|id|>457<|page|>52<|box|>744 176 762 604<|content|>(iv) prompt notice of any Event of Default or Default; ... and\n<|id|>459<|page|>52<|box|>796 138 906 857<|content|>OFAC Sanctions Covenant. ... The Issuers will furt...ty that is the target of sanctions administered by\n<|id|>460<|page|>53<|box|>89 140 145 854<|content|>OFAC, the EU, the UK, or the United Nations Securi...sure compliance with all applicable sanctions laws\n<|id|>466<|page|>53<|box|>628 176 648 457<|content|>(c) taxes imposed under FATCA; ... and\n<|id|>468<|page|>53<|box|>681 140 811 856<|content|>Tax Redemption. ... If, as a result of any change ...ounts that would be payable on the redemption date\n<|id|>523<|page|>57<|box|>845 140 902 854<|content|>DEH is a Cayman Islands exempted company and, as s... of such undertaking, no law enacted in the Cayman\n<|id|>524<|page|>58<|box|>90 140 145 854<|content|>Islands imposing any tax to be levied on profits, ...he shares, debentures, or other obligations of DEH\n<|id|>546<|page|>60<|box|>352 174 388 854<|content|>(c) the Non-U. ... and\n<|id|>548<|page|>60<|box|>459 140 532 854<|content|>If the portfolio interest exemption does not apply...rtification of its entitlement to treaty benefits)\n<|id|>561<|page|>61<|box|>827 140 900 856<|content|>Certain exemptions from the prohibited transaction...lving insurance company pooled separate accounts),\n<|id|>562<|page|>62<|box|>89 140 255 856<|content|>PTCE 91-38 (relating to transactions involving ban...iduciary (or affiliate of a fiduciary) of the Plan\n<|id|>579<|page|>63<|box|>864 140 901 857<|content|>No General Solicitation. ... The\n<|id|>580<|page|>64<|box|>89 140 127 854<|content|>Offering is not being made to, and the Notes may n...y retail investor in the EEA or the United Kingdom\n<|id|>707<|page|>75<|box|>151 153 188 844<|content|>DUVAL HOWARD & PARTNERS Independent Petroleum Engi...1200 Smith Street, Suite 1800 Houston, Texas 77002\n<|id|>708<|page|>75<|box|>196 746 214 854<|content|>May 12, 2025\n<|id|>709<|page|>75<|box|>222 140 258 854<|content|>Board of Directors Dunmore Energy Holdings Ltd. ..... George Town, Grand Cayman KY1-1002 Cayman Islands\n<|id|>710<|page|>75<|box|>266 140 282 704<|content|>Re: ... Evaluation of Proved Oil and Gas Reserves — As of December 31, 2024\n<|id|>711<|page|>75<|box|>292 142 309 356<|content|>Dear Members of the Board: ... Dear Members of the Board\n<|id|>722<|page|>76<|box|>450 142 465 320<|content|>Respectfully submitted,\n<|id|>723<|page|>76<|box|>467 142 483 413<|content|>DUVAL HOWARD & PARTNERS\n<|id|>724<|page|>76<|box|>484 143 501 254<|content|>By: ... By\n<|id|>739<|page|>77<|box|>797 176 814 411<|content|>Dunmore Gulf Operations LLC\n<|id|>740<|page|>77<|box|>824 178 840 287<|content|>By: ... By\n<|id|>743<|page|>77<|box|>876 178 891 382<|content|>Dunmore Renewables LLC\n<|id|>744<|page|>78<|box|>90 176 108 290<|content|>By: ... By",
+    "raw_response": "<|src_id|>447<|tgt_id|>448\n<|src_id|>459<|tgt_id|>460\n<|src_id|>523<|tgt_id|>524\n<|src_id|>561<|tgt_id|>562\n<|src_id|>579<|tgt_id|>580",
+    "parsed": [
+        {
+            "src_id": 447,
+            "tgt_id": 448
+        },
+        {
+            "src_id": 459,
+            "tgt_id": 460
+        },
+        {
+            "src_id": 523,
+            "tgt_id": 524
+        },
+        {
+            "src_id": 561,
+            "tgt_id": 562
+        },
+        {
+            "src_id": 579,
+            "tgt_id": 580
+        }
+    ]
+}

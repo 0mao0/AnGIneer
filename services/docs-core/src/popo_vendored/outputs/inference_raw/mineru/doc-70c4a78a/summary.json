@@ -1,0 +1,175 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fekrr0iz\\input\\pdfs\\doc-70c4a78a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fekrr0iz\\enriched\\doc-70c4a78a.json",
+    "contd_output": "<|src_id|>24<|tgt_id|>26\n<|src_id|>51<|tgt_id|>52",
+    "title_output": "<|id|>2<|level|>1\n<|id|>9<|level|>2\n<|id|>20<|level|>2\n<|id|>21<|level|>3\n<|id|>30<|level|>3\n<|id|>35<|level|>3\n<|id|>40<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>56<|level|>3\n<|id|>67<|level|>3\n<|id|>75<|level|>2\n<|id|>82<|level|>2\n<|id|>83<|level|>3\n<|id|>89<|level|>3\n<|id|>98<|level|>3\n<|id|>101<|level|>2\n<|id|>103<|level|>3\n<|id|>112<|level|>3\n<|id|>116<|level|>3\n<|id|>118<|level|>3\n<|id|>123<|level|>2\n<|id|>125<|level|>3\n<|id|>134<|level|>3\n<|id|>142<|level|>3\n<|id|>150<|level|>2\n<|id|>153<|level|>2\n<|id|>165<|level|>2\n<|id|>176<|level|>2\n<|id|>186<|level|>2",
+    "image_output": "<|src_id|>37<|tgt_id|>35\n<|src_id|>77<|tgt_id|>75\n<|src_id|>78<|tgt_id|>75\n<|src_id|>151<|tgt_id|>150",
+    "contd_label": [
+        {
+            "src_id": 24,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        }
+    ],
+    "title_label": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 3
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 3
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 37,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 77,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 75
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 150
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 77,
+            "table2_idx": 78,
+            "upper_row_ss": [
+                [
+                    "Expert witness trial preparation and testimony (Dr. Vostrikova, Meridian Forensic Economics LLC)",
+                    "$150,000 – $200,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Jury consultants, demonstrative exhibits, and trial technology",
+                    "$175,000 – $250,000"
+                ]
+            ]
+        }
+    ]
+}

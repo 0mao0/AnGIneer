@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 153 143 843<|content|>OFFICER'S CERTIFICATE OF VANTAGE MOBILITY SYSTEMS\n<|id|>1<|page|>1<|box|>159 227 176 769<|content|>Delivered Pursuant to Section 8.2(c) of the Stock\n<|id|>5<|page|>1<|box|>262 140 279 243<|content|>RECITALS\n<|id|>14<|page|>2<|box|>90 140 107 429<|content|>Section 1 — Authority and Capacity\n<|id|>19<|page|>2<|box|>601 140 618 594<|content|>Section 2 — Representations and Warranties Bring-D\n<|id|>30<|page|>4<|box|>465 140 482 578<|content|>Section 3 — Performance of Covenants and Obligatio\n<|id|>40<|page|>5<|box|>792 140 809 674<|content|>Section 4 — No Material Adverse Effect / No Impedi\n<|id|>46<|page|>6<|box|>337 140 354 349<|content|>Section 5 — No Litigation\n<|id|>51<|page|>6<|box|>700 140 719 433<|content|>Section 6 — Financing Confirmation\n<|id|>56<|page|>7<|box|>549 140 566 367<|content|>Section 7 — Governing Law\n<|id|>58<|page|>7<|box|>707 140 724 313<|content|>Section 8 — Reliance\n<|id|>64<|page|>8<|box|>351 140 369 336<|content|>[Signature Page Follows]\n<|id|>65<|page|>8<|box|>376 171 411 823<|content|>SIGNATURE PAGE TO OFFICER'S CERTIFICATE OF VANTAGE\n<|id|>67<|page|>8<|box|>464 142 481 485<|content|>VANTAGE MOBILITY SYSTEMS CORP.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>2\n<|id|>14<|level|>2\n<|id|>19<|level|>2\n<|id|>30<|level|>2\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>64<|level|>-1\n<|id|>65<|level|>1\n<|id|>67<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 1
+        }
+    ]
+}

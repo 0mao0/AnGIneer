@@ -1,0 +1,63 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>390 140 407 339<|content|>I. Purpose of This Letter\n<|id|>14<|page|>2<|box|>148 140 167 483<|content|>II. Summary of Current Application Status\n<|id|>23<|page|>3<|box|>377 140 393 633<|content|>III. Underlying Transaction Status and Purchase Pr\n<|id|>33<|page|>4<|box|>429 140 446 707<|content|>IV. Request for Broadfield Whitaker's Assessment o\n<|id|>42<|page|>5<|box|>390 140 407 712<|content|>V. Discussion of Draft Letter to FCC (Status Updat\n<|id|>50<|page|>6<|box|>316 140 334 565<|content|>VI. Discussion of Draft Joint Stipulation for Abey\n<|id|>60<|page|>7<|box|>390 140 407 478<|content|>VII. Additional Regulatory Considerations\n<|id|>68<|page|>8<|box|>457 140 474 362<|content|>VIII. Billing and Fee Status\n<|id|>75<|page|>9<|box|>260 140 277 442<|content|>IX. Proposed Next Steps and Timeline\n<|id|>85<|page|>9<|box|>839 140 856 230<|content|>X. Closing",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>23<|level|>1\n<|id|>33<|level|>1\n<|id|>42<|level|>1\n<|id|>50<|level|>1\n<|id|>60<|level|>1\n<|id|>68<|level|>1\n<|id|>75<|level|>1\n<|id|>85<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        }
+    ]
+}

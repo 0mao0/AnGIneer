@@ -1,0 +1,60 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        45,
+        54
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        49,
+        51,
+        54
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>529<|type|>title<|page|>45<|box|>89 437 107 560<|content|>SCHEDULE C\n<|id|>530<|type|>title<|page|>45<|box|>131 315 148 683<|content|>FORM OF MONTHLY INVESTOR REPORT\n<|id|>531<|type|>title<|page|>45<|box|>157 142 174 612<|content|>SkyLend Receivables Trust 2024-1 Monthly Investor\n<|id|>533<|type|>table<|page|>45<|box|>251 143 453 852<|content|>None\n<|id|>534<|type|>table<|page|>45<|box|>511 143 699 852<|content|>None\n<|id|>535<|type|>table<|page|>45<|box|>757 143 902 852<|content|>None\n<|id|>536<|type|>title<|page|>46<|box|>125 143 138 354<|content|>IV. Cumulative Net Losses\n<|id|>537<|type|>table<|page|>46<|box|>147 143 242 852<|content|>None\n<|id|>538<|type|>title<|page|>46<|box|>276 143 292 331<|content|>V. Credit Enhancement\n<|id|>539<|type|>table<|page|>46<|box|>300 143 393 852<|content|>None\n<|id|>540<|type|>title<|page|>46<|box|>429 147 444 285<|content|>| VI. Distributions\n<|id|>541<|type|>table<|page|>46<|box|>452 143 702 852<|content|>None\n<|id|>542<|type|>title<|page|>46<|box|>736 143 753 300<|content|>VII. Note Summary\n<|id|>543<|type|>table<|page|>46<|box|>758 143 902 852<|content|>None\n<|id|>544<|type|>table<|page|>47<|box|>88 143 127 852<|content|>None\n<|id|>545<|type|>title<|page|>47<|box|>161 143 176 302<|content|>VIII. Excess Spread\n<|id|>546<|type|>table<|page|>47<|box|>185 143 335 852<|content|>None\n<|id|>547<|type|>title<|page|>47<|box|>369 143 387 486<|content|>IX. Prepayment and Weighted Average Life\n<|id|>548<|type|>table<|page|>47<|box|>393 143 506 852<|content|>None\n<|id|>549<|type|>title<|page|>47<|box|>541 142 556 637<|content|>X. Servicer Termination Events and Early Amortizat\n<|id|>554<|type|>title<|page|>47<|box|>688 142 705 617<|content|>XI. Payment Application Waterfall Compliance Certi\n<|id|>565<|type|>title<|page|>49<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>566<|type|>title<|page|>49<|box|>130 274 174 722<|content|>FORM OF SERVICER COMPLIANCE CERTIFICATE SERVICER C\n<|id|>567<|type|>title<|page|>49<|box|>183 158 217 838<|content|>SkyLend Receivables Trust 2024-1 Sale and Servicin\n<|id|>588<|type|>title<|page|>51<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>589<|type|>title<|page|>51<|box|>130 254 174 743<|content|>FORM OF SUB-SERVICER COMPLIANCE CERTIFICATE SUB-SE\n<|id|>590<|type|>title<|page|>51<|box|>183 158 217 838<|content|>SkyLend Receivables Trust 2024-1 Sale and Servicin\n<|id|>591<|type|>title<|page|>51<|box|>227 140 244 563<|content|>Collection Period: [Month/Year] Payment Date: [Dat\n<|id|>615<|type|>title<|page|>54<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>616<|type|>title<|page|>54<|box|>131 290 148 705<|content|>FORM OF OFFICER'S CERTIFICATE (ANNUAL)\n<|id|>617<|type|>title<|page|>54<|box|>156 341 174 656<|content|>ANNUAL OFFICER'S CERTIFICATE\n<|id|>618<|type|>title<|page|>54<|box|>183 158 217 838<|content|>SkyLend Receivables Trust 2024-1 Sale and Servicin",
+    "raw_response": "<|src_id|>533<|tgt_id|>531\n<|src_id|>534<|tgt_id|>531\n<|src_id|>535<|tgt_id|>531\n<|src_id|>537<|tgt_id|>536\n<|src_id|>539<|tgt_id|>538\n<|src_id|>541<|tgt_id|>540\n<|src_id|>543<|tgt_id|>542\n<|src_id|>544<|tgt_id|>542\n<|src_id|>546<|tgt_id|>545\n<|src_id|>548<|tgt_id|>547",
+    "parsed": [
+        {
+            "src_id": 533,
+            "tgt_id": 531
+        },
+        {
+            "src_id": 534,
+            "tgt_id": 531
+        },
+        {
+            "src_id": 535,
+            "tgt_id": 531
+        },
+        {
+            "src_id": 537,
+            "tgt_id": 536
+        },
+        {
+            "src_id": 539,
+            "tgt_id": 538
+        },
+        {
+            "src_id": 541,
+            "tgt_id": 540
+        },
+        {
+            "src_id": 543,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 544,
+            "tgt_id": 542
+        },
+        {
+            "src_id": 546,
+            "tgt_id": 545
+        },
+        {
+            "src_id": 548,
+            "tgt_id": 547
+        }
+    ]
+}

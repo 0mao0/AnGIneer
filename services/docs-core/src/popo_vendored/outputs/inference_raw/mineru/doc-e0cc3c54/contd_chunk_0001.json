@@ -1,0 +1,38 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        69,
+        122
+    ],
+    "pages": [
+        70,
+        80,
+        81,
+        91,
+        92,
+        94,
+        96,
+        103,
+        106,
+        120,
+        121,
+        122
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>339<|page|>70<|box|>119 139 202 500<|content|>Series E and Series H are the only savings bonds c... Series J and K were sold from May 1, 1952 through\n<|id|>340<|page|>70<|box|>121 522 204 882<|content|>April 30, 1957. ... and the Annual Report of the S...of the Treasury for fiscal years 1966 through 1974\n<|id|>372<|page|>80<|box|>799 123 862 481<|content|>4/ Consists of corporate pension trust funds and p...gs by these funds under \"Held by all other private\n<|id|>375<|page|>81<|box|>77 112 136 483<|content|>Current market quotations shown here are over-the-...nteed by the United States Government are excluded\n<|id|>432<|page|>91<|box|>592 133 603 311<|content|>(EQ1) \\mathbf{E}_{\\mathfrak{m}} = \\Sigma (\\Delta \\...i}} * \\mathbf{M}_{\\mathbf{i}} / \\Sigma \\mathbf{M})\n<|id|>433<|page|>91<|box|>607 152 633 439<|content|>Where: ... E_{m} is the weighted average of percen...n the dollar cost of individual foreign currencies\n<|id|>434<|page|>91<|box|>638 200 656 451<|content|>\\Delta\\$/fc_{i} is the percent change in the dollar cost of foreign currency i; ... and\n<|id|>435<|page|>91<|box|>660 200 685 439<|content|>M_{i}/\\Sigma M is U. ... imports from all countries in the set\n<|id|>437<|page|>91<|box|>425 518 437 695<|content|>(EQ2) E_{x} = \\Sigma(\\Delta f c_{i}/\\\\$ * X_{i}/\\Sigma x)\n<|id|>438<|page|>91<|box|>440 537 467 823<|content|>Where: ... E_{x} is the weighted average of percentage changes in the foreign currency cost of dollars\n<|id|>439<|page|>91<|box|>471 585 491 818<|content|>\\Delta f c_{i}/\\$ is the percent change in the foreign currency i cost of dollars; ... and\n<|id|>440<|page|>91<|box|>495 585 520 813<|content|>X_{i}/\\Sigma X is U. ... exports to all countries in the set\n<|id|>443<|page|>91<|box|>572 542 598 829<|content|>Where: ... and\n<|id|>444<|page|>91<|box|>603 589 628 834<|content|>x/m+x is U. ... exports as a proportion of its total trade with all countries in the set\n<|id|>450<|page|>92<|box|>267 119 327 487<|content|>The report forms and instructions used in the coll...istics have been revised a number of times. ... 1/\n<|id|>451<|page|>92<|box|>329 120 425 489<|content|>The present form of the published presentation of ...rt-term liquid claims of large nonbanking concerns\n<|id|>472<|page|>94<|box|>116 436 128 557<|content|>(In millions of dollars)\n<|id|>476<|page|>96<|box|>704 551 714 631<|content|>1976-Mar. ... 5\n<|id|>477<|page|>96<|box|>712 576 722 630<|content|>Apr. ... 5\n<|id|>479<|page|>96<|box|>728 576 737 630<|content|>June. ... 5\n<|id|>480<|page|>96<|box|>739 576 750 631<|content|>July. ... 6\n<|id|>481<|page|>96<|box|>748 576 756 631<|content|>Aug. ... 8\n<|id|>482<|page|>96<|box|>755 576 763 631<|content|>Sept. ... 4\n<|id|>483<|page|>96<|box|>763 577 771 631<|content|>Oct. ... 4\n<|id|>486<|page|>96<|box|>789 551 800 631<|content|>1977-Jan. ... 4\n<|id|>487<|page|>96<|box|>800 574 811 630<|content|>Feb. ... 6\n<|id|>498<|page|>103<|box|>109 368 120 615<|content|>(Position at end of period in millions of dollars)\n<|id|>502<|page|>106<|box|>79 278 116 743<|content|>Section II - Claims on Foreigners Reported by Bank...(Position at end of period in millions of dollars)\n<|id|>522<|page|>120<|box|>97 192 112 822<|content|>Table CM-V-4. ... - Estimated Foreign Holdings of Marketable Treasury Bonds and Notes by Country\n<|id|>524<|page|>121<|box|>75 275 122 749<|content|>Sections V - Transactions in Long-Term Securities ...s, Other than Treasury Bonds and Notes, by Country\n<|id|>525<|page|>121<|box|>122 206 133 816<|content|>(In millions of dollars; ... negative figures indi...r a net outflow of capital from the United States)\n<|id|>527<|page|>122<|box|>61 406 74 577<|content|>CAPITAL MOVEMENTS. ... CAPITAL MOVEMENTS",
+    "raw_response": "<|src_id|>339<|tgt_id|>340\n<|src_id|>443<|tgt_id|>444\n<|src_id|>524<|tgt_id|>525",
+    "parsed": [
+        {
+            "src_id": 339,
+            "tgt_id": 340
+        },
+        {
+            "src_id": 443,
+            "tgt_id": 444
+        },
+        {
+            "src_id": 524,
+            "tgt_id": 525
+        }
+    ]
+}

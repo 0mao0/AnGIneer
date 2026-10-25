@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['1', 'Stockholder Vote Risk', 'High', 'Merger approval requires']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', 'the affirmative vote of a majority of outstanding shares (≥3,157,895 of 6,315,789). The Ellender Family Trust (18.3%) is expected to vote in favor. Tidewater Asset Management LLC (9.7%) and Broadleaf Institutional Partners LP (7.1%) have not indicated their support for the transaction. Their combined abstention or opposition could defeat the vote, as the remaining retail and smaller institutional holders may not participate in sufficient numbers to secure approval. We recommend developing an early stockholder engagement strategy, including direct outreach to Tidewater and Broadleaf, and considering provisions in the merger agreement to address this risk (e.g., voting agreements, \"go-shop\" or \"window-shop\" provisions to demonstrate process integrity).']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 319,
+    "table2_idx": 320
+}

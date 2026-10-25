@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 5,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Grand total.', '-67,458', '2,810', '73,204', '-508,180', '-325,645 r', '-335,050', '-84,068', '231,957', '75,911', '-516,846', '-312,514r', '-116,737']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, Country', 'colspan=6, Movement in brokerage balances', 'colspan=6, Transactions in long-term securities, domestic and foreign']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 180,
+    "table2_idx": 181
+}

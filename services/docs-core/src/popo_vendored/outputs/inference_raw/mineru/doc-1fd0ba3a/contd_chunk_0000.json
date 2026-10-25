@@ -1,0 +1,42 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        36
+    ],
+    "pages": [
+        1,
+        3,
+        5,
+        6,
+        15,
+        16,
+        21,
+        22,
+        28,
+        29,
+        30,
+        36
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>172 142 188 331<|content|>Matter No. ... 1010-00005\n<|id|>3<|page|>1<|box|>198 704 214 854<|content|>November 18, 2025\n<|id|>4<|page|>1<|box|>224 140 258 854<|content|>TO: ... (Billing Partner, Litigation)\n<|id|>5<|page|>1<|box|>268 142 285 584<|content|>FROM: ... (Lead Associate, Litigation)\n<|id|>6<|page|>1<|box|>294 140 330 854<|content|>RE: ... Farris — Breach of Separation Agreement, Disparagement, and Related Claims\n<|id|>7<|page|>1<|box|>337 140 414 854<|content|>PRIVILEGE NOTICE: ... Distribution is limited to t... in-house counsel of Arbor Health Technologies Inc\n<|id|>24<|page|>3<|box|>314 147 330 524<|content|>• Dr. ... Annika Johansson, Chief Executive Officer\n<|id|>28<|page|>3<|box|>393 140 484 854<|content|>AHT's independent auditors are Clearwater Audit Pa...25 (subsequently renewed for the 2025 policy year)\n<|id|>25<|page|>3<|box|>334 148 349 441<|content|>• Marcus Tremblay, General Counsel\n<|id|>26<|page|>3<|box|>354 147 369 470<|content|>• Elaine Matsuda, Chief Financial Officer\n<|id|>27<|page|>3<|box|>373 145 390 653<|content|>• Vikram Deshpande, Board Chair (Ridgeline Capital Partners, LP)\n<|id|>53<|page|>5<|box|>773 174 810 854<|content|>(c) Injunctive relief, including temporary, prelim...ement of posting a bond or other security; ... and\n<|id|>55<|page|>6<|box|>133 140 189 854<|content|>Prevailing Party Attorneys' Fees (§ 16). ... Secti...neys' fees and costs from the non-prevailing party\n<|id|>159<|page|>15<|box|>857 140 893 854<|content|>1. ... To establish a claim under the\n<|id|>160<|page|>16<|box|>90 140 162 856<|content|>MTSA, a plaintiff must demonstrate: ... 835, 840 (1972)\n<|id|>220<|page|>21<|box|>702 140 886 856<|content|>Fourth, Farris may file a special motion to dismis...he Massachusetts Anti-SLAPP statute, M. ... Holmes\n<|id|>221<|page|>22<|box|>89 140 127 854<|content|>Prods. ... 156, 161-62 (1998) (statements in commercial context not protected petitioning activity)\n<|id|>292<|page|>28<|box|>386 181 401 517<|content|>• AHT FY 2024 audited financial statements\n<|id|>299<|page|>28<|box|>578 140 631 854<|content|>Dr. ... A supplemental report addressing any addit...l be prepared on a rolling basis as events develop\n<|id|>293<|page|>28<|box|>406 181 422 816<|content|>• AHT quarterly and monthly revenue reports for FY 2024 and FY 2025 (year-to-date)\n<|id|>294<|page|>28<|box|>425 183 460 854<|content|>• AHT CRM and pipeline data, including historical ...n rates, deal sizes, and pipeline velocity metrics\n<|id|>295<|page|>28<|box|>463 183 497 854<|content|>• AHT customer contracts and renewal history for L...iew, Northbridge, Prairieland, and Summit Atlantic\n<|id|>296<|page|>28<|box|>501 183 516 568<|content|>• Deal-loss feedback data from AHT's CRM system\n<|id|>297<|page|>28<|box|>520 183 554 854<|content|>• Reputational remediation cost documentation (PR firm invoices, customer outreach expenses)\n<|id|>298<|page|>28<|box|>559 183 575 575<|content|>• Separation Agreement and related payment records\n<|id|>313<|page|>29<|box|>814 140 905 856<|content|>The balance of hardships weighs decisively in AHT'...sing AHT's confidential information, or soliciting\n<|id|>314<|page|>30<|box|>90 140 126 854<|content|>AHT's clients and employees. ... The injunction im...nce with Farris's existing contractual obligations\n<|id|>391<|page|>36<|box|>90 140 108 315<|content|>Respectfully submitted,\n<|id|>392<|page|>36<|box|>114 140 132 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>393<|page|>36<|box|>133 143 150 253<|content|>By: ... By\n<|id|>394<|page|>36<|box|>150 140 184 852<|content|>Hannah Brinkley, Esq. ... com\n<|id|>395<|page|>36<|box|>184 142 199 336<|content|>Date: ... November 18, 2025\n<|id|>396<|page|>36<|box|>200 140 261 854<|content|>Distribution: ... This memorandum is privileged an...ney-client privilege and the work product doctrine",
+    "raw_response": "<|src_id|>53<|tgt_id|>55\n<|src_id|>159<|tgt_id|>160\n<|src_id|>220<|tgt_id|>221\n<|src_id|>313<|tgt_id|>314",
+    "parsed": [
+        {
+            "src_id": 53,
+            "tgt_id": 55
+        },
+        {
+            "src_id": 159,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 221
+        },
+        {
+            "src_id": 313,
+            "tgt_id": 314
+        }
+    ]
+}

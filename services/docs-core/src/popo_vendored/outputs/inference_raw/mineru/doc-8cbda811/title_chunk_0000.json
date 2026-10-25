@@ -1,0 +1,127 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>9<|page|>1<|box|>439 142 454 263<|content|>I. Introduction\n<|id|>15<|page|>2<|box|>321 140 339 767<|content|>II. Background — Consent Order and Requirement for\n<|id|>16<|page|>2<|box|>353 140 369 323<|content|>A. The Consent Order\n<|id|>25<|page|>3<|box|>638 140 656 372<|content|>B. Prior Supervisory History\n<|id|>27<|page|>3<|box|>801 140 819 575<|content|>C. Article VII — Independent Consultant Requiremen\n<|id|>29<|page|>4<|box|>176 140 193 328<|content|>D. Civil Money Penalty\n<|id|>31<|page|>4<|box|>332 140 349 738<|content|>III. Proposed Independent Consultant — Thornfield\n<|id|>32<|page|>4<|box|>363 140 378 290<|content|>A. Firm Overview\n<|id|>42<|page|>5<|box|>194 140 212 428<|content|>B. Engagement Team Qualifications\n<|id|>47<|page|>5<|box|>651 140 667 663<|content|>Robert Eastman — Senior Director, AML Transaction\n<|id|>50<|page|>6<|box|>133 140 152 620<|content|>Jennifer Hwang — Director, Sanctions & OFAC Compli\n<|id|>53<|page|>6<|box|>414 140 431 643<|content|>Nathaniel Burgess — Director, Fintech & Payments C\n<|id|>57<|page|>7<|box|>90 140 107 385<|content|>C. Independence and Conflicts\n<|id|>66<|page|>7<|box|>739 142 755 419<|content|>IV. Proposed Scope of Engagement\n<|id|>68<|page|>7<|box|>851 142 867 549<|content|>A. Phase 1 — On-Site Assessment and Gap Analysis\n<|id|>81<|page|>9<|box|>429 140 446 635<|content|>B. Phase 2 — Ongoing Monitoring and Remediation Va\n<|id|>90<|page|>10<|box|>375 140 391 475<|content|>C. Phase 3 — Final Validation and Report\n<|id|>98<|page|>10<|box|>814 140 830 398<|content|>V. Proposed Engagement Terms\n<|id|>99<|page|>10<|box|>845 142 861 277<|content|>A. Fee Structure\n<|id|>111<|page|>11<|box|>613 140 628 357<|content|>C. Access and Cooperation\n<|id|>121<|page|>12<|box|>431 140 449 339<|content|>E. Counsel to Thornfield\n<|id|>123<|page|>12<|box|>588 140 604 364<|content|>VI. Engagement Agreement\n<|id|>127<|page|>13<|box|>148 140 167 393<|content|>VII. Request for Non-Objection\n<|id|>131<|page|>13<|box|>561 140 578 251<|content|>VIII. Closing\n<|id|>145<|page|>14<|box|>186 143 203 238<|content|>Enclosures:",
+    "raw_response": "<|id|>9<|level|>1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>2\n<|id|>29<|level|>2\n<|id|>31<|level|>1\n<|id|>32<|level|>2\n<|id|>42<|level|>2\n<|id|>47<|level|>3\n<|id|>50<|level|>3\n<|id|>53<|level|>3\n<|id|>57<|level|>2\n<|id|>66<|level|>1\n<|id|>68<|level|>2\n<|id|>81<|level|>2\n<|id|>90<|level|>2\n<|id|>98<|level|>1\n<|id|>99<|level|>2\n<|id|>111<|level|>2\n<|id|>121<|level|>2\n<|id|>123<|level|>1\n<|id|>127<|level|>1\n<|id|>131<|level|>1\n<|id|>145<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 131,
+            "level": 1
+        },
+        {
+            "id": 145,
+            "level": 1
+        }
+    ]
+}

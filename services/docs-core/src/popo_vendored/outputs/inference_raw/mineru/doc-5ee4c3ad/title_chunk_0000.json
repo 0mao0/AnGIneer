@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 119 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>1<|page|>1<|box|>126 150 162 846<|content|>CALDERWOOD & HARKNESS LLP 227 West Monroe Street,\n<|id|>9<|page|>1<|box|>369 352 390 643<|content|>I. EXECUTIVE SUMMARY\n<|id|>14<|page|>2<|box|>190 200 210 795<|content|>II. PROCEDURAL HISTORY LEADING TO DISMISSAL\n<|id|>15<|page|>2<|box|>236 140 252 308<|content|>A. Case Background\n<|id|>24<|page|>3<|box|>148 140 167 524<|content|>B. Active Litigation Period (April–October 2022)\n<|id|>31<|page|>4<|box|>148 140 167 816<|content|>C. Period of Inactivity and Escalating Non-Appeara\n<|id|>42<|page|>5<|box|>229 140 247 442<|content|>D. ARDC Status of Plaintiff's Counsel\n<|id|>45<|page|>5<|box|>529 267 547 728<|content|>III. LEGAL EFFECT OF THE DWP ORDER\n<|id|>46<|page|>5<|box|>574 140 590 591<|content|>A. Without-Prejudice Dismissal Under General Order\n<|id|>51<|page|>6<|box|>267 140 284 403<|content|>B. Standard for Vacating a DWP\n<|id|>61<|page|>7<|box|>458 140 474 522<|content|>C. Assessment of Likelihood of Motion to Vacate\n<|id|>68<|page|>8<|box|>171 140 217 854<|content|>IV. STATUTE OF LIMITATIONS ANALYSIS FOR POTENTIAL\n<|id|>70<|page|>8<|box|>364 140 383 594<|content|>A. Count I: Retaliatory Discharge (Illinois Common\n<|id|>75<|page|>8<|box|>821 140 839 594<|content|>B. Count II: Retaliation Under 29 U.S.C. § 660(c)\n<|id|>80<|page|>9<|box|>556 140 574 661<|content|>C. Count III: Illinois Whistleblower Act (740 ILCS\n<|id|>90<|page|>10<|box|>737 140 753 429<|content|>D. Summary of Limitations Analysis\n<|id|>94<|page|>11<|box|>318 259 337 738<|content|>V. EXPOSURE AND INSURANCE ANALYSIS\n<|id|>95<|page|>11<|box|>364 142 380 405<|content|>A. Current Exposure Assessment\n<|id|>105<|page|>12<|box|>267 142 284 343<|content|>B. EPLI Coverage Status\n<|id|>116<|page|>13<|box|>90 315 109 681<|content|>VI. RECOMMENDED STRATEGY\n<|id|>117<|page|>13<|box|>136 140 154 522<|content|>A. Monitoring Posture Through August 10, 2024\n<|id|>127<|page|>14<|box|>148 140 167 375<|content|>B. Continued Litigation Hold\n<|id|>136<|page|>14<|box|>676 140 694 424<|content|>C. Post-August 10, 2024 Assessment\n<|id|>145<|page|>15<|box|>340 140 359 519<|content|>D. Question of Seeking Dismissal with Prejudice\n<|id|>149<|page|>15<|box|>753 142 770 343<|content|>E. Reporting Obligations\n<|id|>154<|page|>16<|box|>289 393 309 602<|content|>VII. CONCLUSION\n<|id|>164<|page|>17<|box|>89 142 104 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>170<|page|>17<|box|>244 140 275 854<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>9<|level|>1\n<|id|>14<|level|>1\n<|id|>15<|level|>2\n<|id|>24<|level|>2\n<|id|>31<|level|>2\n<|id|>42<|level|>2\n<|id|>45<|level|>1\n<|id|>46<|level|>2\n<|id|>51<|level|>2\n<|id|>61<|level|>2\n<|id|>68<|level|>1\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>80<|level|>2\n<|id|>90<|level|>2\n<|id|>94<|level|>1\n<|id|>95<|level|>2\n<|id|>105<|level|>2\n<|id|>116<|level|>1\n<|id|>117<|level|>2\n<|id|>127<|level|>2\n<|id|>136<|level|>2\n<|id|>145<|level|>2\n<|id|>149<|level|>2\n<|id|>154<|level|>1\n<|id|>164<|level|>-1\n<|id|>170<|level|>-1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 154,
+            "level": 1
+        }
+    ]
+}

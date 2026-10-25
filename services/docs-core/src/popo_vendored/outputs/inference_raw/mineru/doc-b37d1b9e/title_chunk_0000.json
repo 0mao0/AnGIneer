@@ -1,0 +1,108 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>114 217 151 779<|content|>INTERNAL MEMORANDUM — FILE PRESERVATION AND MATTER\n<|id|>3<|page|>1<|box|>396 143 412 300<|content|>1. Dormancy Status\n<|id|>11<|page|>2<|box|>429 140 446 320<|content|>2. Financial Summary\n<|id|>17<|page|>3<|box|>340 142 357 290<|content|>3. Staffing Record\n<|id|>21<|page|>3<|box|>688 140 704 537<|content|>4. File Preservation — Inventory of Work Product\n<|id|>31<|page|>6<|box|>148 140 167 488<|content|>5. Key Matter Context for Future Reference\n<|id|>33<|page|>6<|box|>261 140 279 429<|content|>5.1 The Drug and Current Approval\n<|id|>37<|page|>6<|box|>696 140 714 334<|content|>5.2 The Proposed sNDA\n<|id|>41<|page|>7<|box|>138 140 157 390<|content|>5.3 Clinical Program Summary\n<|id|>47<|page|>8<|box|>90 140 107 346<|content|>5.4 Key FDA Interactions\n<|id|>56<|page|>8<|box|>744 140 762 316<|content|>5.5 Pediatric Deferral\n<|id|>60<|page|>9<|box|>311 140 329 442<|content|>5.6 Coordination with Other Advisors\n<|id|>65<|page|>10<|box|>90 140 107 334<|content|>6. Reactivation Protocol\n<|id|>67<|page|>10<|box|>184 140 200 346<|content|>6.1 Staffing Confirmation\n<|id|>70<|page|>10<|box|>502 140 518 310<|content|>6.2 Conflicts Re-Run\n<|id|>72<|page|>10<|box|>703 140 720 524<|content|>6.3 Regulatory Landscape Update Memorandum\n<|id|>80<|page|>11<|box|>401 140 417 349<|content|>6.4 Work-Product Review\n<|id|>82<|page|>11<|box|>601 140 619 398<|content|>6.5 Updated Engagement Terms\n<|id|>84<|page|>11<|box|>794 140 811 370<|content|>7. Annual Dormancy Review\n<|id|>92<|page|>12<|box|>608 140 625 344<|content|>8. Distribution and Filing",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>11<|level|>2\n<|id|>17<|level|>2\n<|id|>21<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>3\n<|id|>37<|level|>3\n<|id|>41<|level|>3\n<|id|>47<|level|>3\n<|id|>56<|level|>3\n<|id|>60<|level|>3\n<|id|>65<|level|>2\n<|id|>67<|level|>3\n<|id|>70<|level|>3\n<|id|>72<|level|>3\n<|id|>80<|level|>3\n<|id|>82<|level|>3\n<|id|>84<|level|>2\n<|id|>92<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        }
+    ]
+}

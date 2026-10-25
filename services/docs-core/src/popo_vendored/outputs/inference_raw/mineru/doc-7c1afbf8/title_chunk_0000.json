@@ -1,0 +1,121 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>9<|page|>1<|box|>409 143 425 393<|content|>1. Purpose and Congratulations\n<|id|>12<|page|>1<|box|>684 140 700 333<|content|>2. Summary of Closings\n<|id|>13<|page|>1<|box|>714 142 732 444<|content|>2.1 Initial Closing — January 15, 2024\n<|id|>19<|page|>2<|box|>301 140 319 437<|content|>2.2 Final Closing — January 26, 2024\n<|id|>24<|page|>2<|box|>773 142 790 433<|content|>2.3 Aggregate Transaction Summary\n<|id|>35<|page|>3<|box|>727 142 744 433<|content|>2.4 Final Purchaser Allocation Table\n<|id|>38<|page|>4<|box|>138 140 155 426<|content|>3. Executed Transaction Documents\n<|id|>58<|page|>5<|box|>316 140 334 357<|content|>4. Post-Closing Obligations\n<|id|>60<|page|>5<|box|>411 140 428 591<|content|>4.1 Section 228(e) Notice to Non-Consenting Stockh\n<|id|>63<|page|>5<|box|>691 140 709 334<|content|>4.2 SEC Form D Filings\n<|id|>68<|page|>6<|box|>239 140 256 408<|content|>4.3 State Blue Sky / Notice Filings\n<|id|>76<|page|>6<|box|>728 142 744 467<|content|>4.4 Investor-Counsel Fee Reimbursement\n<|id|>81<|page|>7<|box|>213 140 229 478<|content|>4.5 Granite Trust Escrow Account Closure\n<|id|>83<|page|>7<|box|>335 176 352 794<|content|>Angela Petrov Granite Trust Company, N.A. 100 Summ\n<|id|>85<|page|>7<|box|>429 140 446 604<|content|>4.6 Ongoing Information Rights and Reporting Oblig\n<|id|>88<|page|>7<|box|>728 140 746 313<|content|>4.7 MFN Compliance\n<|id|>91<|page|>8<|box|>157 140 175 547<|content|>4.8 Kelvantis Venture Debt — Ongoing Compliance\n<|id|>96<|page|>8<|box|>564 140 580 297<|content|>4.9 409A Valuation\n<|id|>100<|page|>9<|box|>138 140 157 326<|content|>4.10 Cap Table Update\n<|id|>104<|page|>9<|box|>494 140 510 584<|content|>5. Planned Series D — Forward-Looking Consideratio\n<|id|>109<|page|>10<|box|>223 140 239 495<|content|>6. Calderwood & Harkness LLP Fee Matters\n<|id|>112<|page|>10<|box|>462 140 479 284<|content|>7. Closing Binder\n<|id|>115<|page|>10<|box|>646 140 664 300<|content|>8. Closing Remarks\n<|id|>126<|page|>11<|box|>325 142 343 351<|content|>Enclosures / Attachments:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>9<|level|>1\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>19<|level|>2\n<|id|>24<|level|>2\n<|id|>35<|level|>2\n<|id|>38<|level|>1\n<|id|>58<|level|>1\n<|id|>60<|level|>2\n<|id|>63<|level|>2\n<|id|>68<|level|>2\n<|id|>76<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>-1\n<|id|>85<|level|>2\n<|id|>88<|level|>2\n<|id|>91<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>2\n<|id|>104<|level|>1\n<|id|>109<|level|>1\n<|id|>112<|level|>1\n<|id|>115<|level|>1\n<|id|>126<|level|>1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 109,
+            "level": 1
+        },
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        }
+    ]
+}

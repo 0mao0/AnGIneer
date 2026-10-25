@@ -1,0 +1,83 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3uog695i\\input\\pdfs\\doc-e43b023a.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-3uog695i\\enriched\\doc-e43b023a.json",
+    "contd_output": "<|src_id|>43<|tgt_id|>44",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>19<|level|>1\n<|id|>23<|level|>1\n<|id|>29<|level|>1\n<|id|>38<|level|>1\n<|id|>42<|level|>1\n<|id|>47<|level|>1\n<|id|>48<|level|>2\n<|id|>54<|level|>1",
+    "image_output": "<|src_id|>25<|tgt_id|>23\n<|src_id|>26<|tgt_id|>23",
+    "contd_label": [
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 1
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 25,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 26,
+            "tgt_id": 23
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 25,
+            "table2_idx": 26,
+            "upper_row_ss": [
+                [
+                    "Receiving Bank Address:",
+                    "200 South First Street, San Jose, CA 95113"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Account Number:",
+                    "8831-0042-7719"
+                ]
+            ]
+        }
+    ]
+}

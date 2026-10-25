@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        60
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        11,
+        19,
+        30,
+        41,
+        42,
+        59,
+        60
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>5<|box|>0 83 253 878<|content|>TREASURY BULLETIN\n<|id|>11<|page|>7<|box|>133 370 155 621<|content|>Table of Contents\n<|id|>14<|page|>9<|box|>74 335 91 651<|content|>Treasury Financing Operations\n<|id|>15<|page|>9<|box|>126 47 140 404<|content|>Refunding of the February Certificates\n<|id|>20<|page|>9<|box|>454 516 468 723<|content|>Treasury Bills Refunded\n<|id|>22<|page|>11<|box|>41 341 55 660<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>55<|page|>19<|box|>72 216 87 708<|content|>Table 6B - Detail of Expenditures by Months and Ye\n<|id|>98<|page|>30<|box|>72 336 86 648<|content|>Table 7.- Unemployment Trust Fund\n<|id|>124<|page|>41<|box|>68 129 119 830<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>127<|page|>42<|box|>68 138 103 841<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>128<|page|>42<|box|>109 265 124 719<|content|>and Outstanding December 31, 1952 ^{1/} - (Continu\n<|id|>159<|page|>59<|box|>204 140 219 832<|content|>Section I.- Securities Issued or Guaranteed by the\n<|id|>162<|page|>60<|box|>79 152 95 850<|content|>Section I - Securities Issued or Guaranteed by the",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>20<|level|>3\n<|id|>22<|level|>2\n<|id|>55<|level|>3\n<|id|>98<|level|>3\n<|id|>124<|level|>3\n<|id|>127<|level|>3\n<|id|>128<|level|>4\n<|id|>159<|level|>4\n<|id|>162<|level|>4",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 128,
+            "level": 4
+        },
+        {
+            "id": 159,
+            "level": 4
+        },
+        {
+            "id": 162,
+            "level": 4
+        }
+    ]
+}

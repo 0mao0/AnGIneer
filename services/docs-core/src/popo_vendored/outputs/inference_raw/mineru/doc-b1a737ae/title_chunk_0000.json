@@ -1,0 +1,142 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 405 119 593<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>133 163 171 834<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY-CLIENT COMMUN\n<|id|>9<|page|>1<|box|>412 142 429 321<|content|>I. Executive Summary\n<|id|>14<|page|>2<|box|>267 140 284 470<|content|>II. Background of the Underlying Dispute\n<|id|>15<|page|>2<|box|>297 140 315 576<|content|>A. Aurelius Global Media Group PLC — Insured Party\n<|id|>24<|page|>3<|box|>306 140 324 450<|content|>B. Nature of the Claims to Be Enforced\n<|id|>36<|page|>4<|box|>526 140 542 483<|content|>C. Estimated Damages and Litigation Costs\n<|id|>51<|page|>6<|box|>90 142 107 447<|content|>III. Policy Identification and Summary\n<|id|>52<|page|>6<|box|>121 142 138 276<|content|>A. Policy Details\n<|id|>56<|page|>6<|box|>539 142 556 297<|content|>B. Coverage Limits\n<|id|>63<|page|>7<|box|>349 140 366 527<|content|>C. Insuring Agreements — Key Coverage Grants\n<|id|>73<|page|>8<|box|>321 142 339 274<|content|>D. Policy Period\n<|id|>82<|page|>9<|box|>90 140 107 321<|content|>IV. Coverage Analysis\n<|id|>83<|page|>9<|box|>121 140 138 810<|content|>A. Whether Affirmative Copyright Enforcement Falls\n<|id|>93<|page|>10<|box|>470 142 488 560<|content|>B. Covered Costs — Scope of Reimbursable Expenses\n<|id|>101<|page|>11<|box|>648 140 666 464<|content|>C. Recovery/Subrogation Considerations\n<|id|>106<|page|>12<|box|>402 142 420 328<|content|>D. Potential Exclusions\n<|id|>114<|page|>14<|box|>90 140 107 333<|content|>V. Notice Requirements\n<|id|>115<|page|>14<|box|>121 140 138 300<|content|>A. Timing of Notice\n<|id|>127<|page|>15<|box|>367 142 383 287<|content|>B. Form of Notice\n<|id|>139<|page|>16<|box|>202 140 219 380<|content|>C. Cooperation Requirements\n<|id|>148<|page|>16<|box|>782 140 799 464<|content|>VI. Coordination with UK Counsel Costs\n<|id|>153<|page|>17<|box|>531 140 547 604<|content|>VII. Interaction with Aurelius's Other Insurance P\n<|id|>155<|page|>17<|box|>691 140 709 390<|content|>Potentially relevant lines include:\n<|id|>161<|page|>18<|box|>526 140 542 439<|content|>VIII. Budget and Coverage Adequacy\n<|id|>166<|page|>19<|box|>377 140 393 362<|content|>IX. Risks and Uncertainties\n<|id|>174<|page|>20<|box|>372 140 388 313<|content|>X. Recommendations\n<|id|>183<|page|>21<|box|>407 142 425 264<|content|>XI. Conclusion\n<|id|>189<|page|>22<|box|>90 142 108 250<|content|>Prepared by:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>24<|level|>3\n<|id|>36<|level|>3\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>56<|level|>3\n<|id|>63<|level|>3\n<|id|>73<|level|>3\n<|id|>82<|level|>2\n<|id|>83<|level|>3\n<|id|>93<|level|>3\n<|id|>101<|level|>3\n<|id|>106<|level|>3\n<|id|>114<|level|>2\n<|id|>115<|level|>3\n<|id|>127<|level|>3\n<|id|>139<|level|>3\n<|id|>148<|level|>2\n<|id|>153<|level|>2\n<|id|>155<|level|>-1\n<|id|>161<|level|>2\n<|id|>166<|level|>2\n<|id|>174<|level|>2\n<|id|>183<|level|>2\n<|id|>189<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 148,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        }
+    ]
+}

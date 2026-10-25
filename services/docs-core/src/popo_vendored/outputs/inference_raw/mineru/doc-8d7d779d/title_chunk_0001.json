@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        66,
+        81
+    ],
+    "pages": [
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        76,
+        77,
+        81
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>167<|page|>67<|box|>75 381 89 658<|content|>Section 1 - Historical Summary\n<|id|>170<|page|>68<|box|>70 355 85 636<|content|>Section I - Historical Summary\n<|id|>173<|page|>69<|box|>77 341 92 647<|content|>Section II - Summary by Countries\n<|id|>174<|page|>69<|box|>97 197 113 790<|content|>Table 1.- Net Movement of Capital and of Short-Ter\n<|id|>177<|page|>70<|box|>78 348 93 654<|content|>Section II - Summary by Countries\n<|id|>179<|page|>71<|box|>79 339 93 649<|content|>.Section II - Summary by Countries\n<|id|>180<|page|>71<|box|>97 216 113 766<|content|>Table 3.- Short-Term Claims on and Liabilities to\n<|id|>182<|page|>72<|box|>78 341 92 644<|content|>Section II - Summary by Countries\n<|id|>183<|page|>72<|box|>97 198 113 787<|content|>Table 4.- Foreign Debit and Credit Balances in Bro\n<|id|>185<|page|>73<|box|>69 301 103 708<|content|>Section III - Details for Month of July 1952 Table\n<|id|>187<|page|>74<|box|>78 279 111 697<|content|>Section III - Details for Month of July 1952 Table\n<|id|>191<|page|>76<|box|>73 200 88 772<|content|>Section III A - Preliminary Details for Month of S\n<|id|>193<|page|>77<|box|>77 202 93 779<|content|>Section III A - Preliminary Details for Month of S\n<|id|>194<|page|>77<|box|>97 280 112 703<|content|>Table 2.- Short-Term Liabilities to Foreigners\n<|id|>202<|page|>81<|box|>54 265 67 737<|content|>CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIV",
+    "raw_response": "<|id|>167<|level|>1\n<|id|>170<|level|>1\n<|id|>173<|level|>1\n<|id|>174<|level|>2\n<|id|>177<|level|>1\n<|id|>179<|level|>1\n<|id|>180<|level|>2\n<|id|>182<|level|>1\n<|id|>183<|level|>2\n<|id|>185<|level|>1\n<|id|>187<|level|>1\n<|id|>191<|level|>2\n<|id|>193<|level|>2\n<|id|>194<|level|>2\n<|id|>202<|level|>1",
+    "parsed": [
+        {
+            "id": 167,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 1
+        },
+        {
+            "id": 173,
+            "level": 1
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 1
+        },
+        {
+            "id": 179,
+            "level": 1
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 1
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 1
+        },
+        {
+            "id": 187,
+            "level": 1
+        },
+        {
+            "id": 191,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 1
+        }
+    ]
+}

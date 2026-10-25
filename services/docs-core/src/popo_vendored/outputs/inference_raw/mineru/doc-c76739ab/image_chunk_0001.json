@@ -1,0 +1,50 @@
+{
+    "task": "image",
+    "chunk_index": 1,
+    "range": [
+        49,
+        57
+    ],
+    "pages": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>387<|type|>title<|page|>50<|box|>90 142 107 599<|content|>Exhibit D — Stonebridge Benefits Cost Analysis Sum\n<|id|>388<|type|>title<|page|>50<|box|>121 140 138 532<|content|>Stonebridge Actuarial & Benefits Consulting, Inc.\n<|id|>395<|type|>table<|page|>50<|box|>381 143 676 852<|content|>None\n<|id|>396<|type|>title<|page|>50<|box|>710 142 727 292<|content|>Key Observations:\n<|id|>401<|type|>table<|page|>51<|box|>253 143 901 852<|content|>None\n<|id|>402<|type|>table<|page|>52<|box|>148 143 643 852<|content|>None\n<|id|>404<|type|>title<|page|>52<|box|>800 140 816 537<|content|>4. Actuarial Verification of Accrued PTO Liability\n<|id|>408<|type|>title<|page|>53<|box|>140 140 156 313<|content|>5. Recommendations.\n<|id|>416<|type|>table<|page|>54<|box|>160 143 895 852<|content|>None\n<|id|>417<|type|>table<|page|>55<|box|>89 143 904 854<|content|>None\n<|id|>418<|type|>table<|page|>56<|box|>89 143 898 852<|content|>None\n<|id|>419<|type|>table<|page|>57<|box|>88 143 642 852<|content|>None\n<|id|>420<|type|>title<|page|>57<|box|>675 143 691 197<|content|>Notes:",
+    "raw_response": "<|src_id|>395<|tgt_id|>387\n<|src_id|>401<|tgt_id|>387\n<|src_id|>402<|tgt_id|>387\n<|src_id|>416<|tgt_id|>408\n<|src_id|>417<|tgt_id|>408\n<|src_id|>418<|tgt_id|>408\n<|src_id|>419<|tgt_id|>408",
+    "parsed": [
+        {
+            "src_id": 395,
+            "tgt_id": 387
+        },
+        {
+            "src_id": 401,
+            "tgt_id": 387
+        },
+        {
+            "src_id": 402,
+            "tgt_id": 387
+        },
+        {
+            "src_id": 416,
+            "tgt_id": 408
+        },
+        {
+            "src_id": 417,
+            "tgt_id": 408
+        },
+        {
+            "src_id": 418,
+            "tgt_id": 408
+        },
+        {
+            "src_id": 419,
+            "tgt_id": 408
+        }
+    ]
+}

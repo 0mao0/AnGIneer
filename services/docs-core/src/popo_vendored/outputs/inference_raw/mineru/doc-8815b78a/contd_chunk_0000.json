@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        49
+    ],
+    "pages": [
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14,
+        16,
+        23,
+        44,
+        48,
+        49
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>3<|box|>779 700 887 946<|content|>LIBRARY ROOM 5030 JUN 2,3 1972 TREASURY DEPARTMENT\n<|id|>4<|page|>6<|box|>351 550 551 681<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>7<|page|>7<|box|>484 351 518 575<|content|>MARCH - 1963\n<|id|>8<|page|>7<|box|>782 80 837 840<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>9<|page|>8<|box|>386 251 466 812<|content|>The Treasury Bulletin is for sale by the Superinte...uments, U. ... 00 foreign Single copy price varies\n<|id|>11<|page|>9<|box|>141 155 692 799<|content|>Page Treasury financing operations. ... 124\n<|id|>12<|page|>10<|box|>102 3 286 482<|content|>Data on receipts, expenditures, and debt which app... is given in connection with the tables themselves\n<|id|>29<|page|>13<|box|>649 3 696 478<|content|>This advance refunding constituted a major step fo...mposition of the marketable debt in order to avoid\n<|id|>30<|page|>13<|box|>651 505 696 983<|content|>On the basis of preliminary reports, the number of...y subscribed are shown in the following tabulation\n<|id|>33<|page|>14<|box|>92 0 154 477<|content|>The announcement of the exchange offering followed...nding and a further statement on February 19 that,\n<|id|>34<|page|>14<|box|>161 59 237 474<|content|>\"In view of favorable market developments followin...nding of issues maturing within the next 12 months\n<|id|>42<|page|>14<|box|>917 0 950 476<|content|>Options of the holders. ... -- A holder of the out...certificates and notes had the option of accepting\n<|id|>43<|page|>14<|box|>815 515 953 994<|content|>Tax provisions. ... Section 1031 (b) of the Code, ...he security holder in connection with the exchange\n<|id|>54<|page|>16<|box|>109 520 171 991<|content|>dated February 6, are additional to and are freely...ling \\$2,442 million received on March 14, \\$1,502\n<|id|>56<|page|>16<|box|>614 18 844 491<|content|>The additional amounts of the three reopened bonds...000, \\$5,000, \\$10,000, \\$100,000, and \\$1,000,000\n<|id|>83<|page|>23<|box|>97 421 109 576<|content|>(In millions of dollars)\n<|id|>85<|page|>23<|box|>828 15 943 495<|content|>Note: ... \" Consists of net expenditures of the Po... beginning fiscal 1960 payment for public services\n<|id|>170<|page|>44<|box|>97 424 109 580<|content|>(In millions of dollars)\n<|id|>177<|page|>48<|box|>79 221 111 808<|content|>Table 6. ... - Treasury Holdings of Securities Issued by Government Corporations and Other Agencies\n<|id|>178<|page|>48<|box|>114 441 127 597<|content|>(In millions of dollars)\n<|id|>181<|page|>49<|box|>484 6 526 452<|content|>Source: ... 1/ The proprietary interest of the United States in these banks ended in July 1951\n<|id|>180<|page|>49<|box|>113 413 125 568<|content|>(In millions of dollars)",
+    "raw_response": "<|src_id|>29<|tgt_id|>30\n<|src_id|>33<|tgt_id|>34",
+    "parsed": [
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 34
+        }
+    ]
+}

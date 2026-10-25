@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        8,
+        10,
+        11,
+        13,
+        14,
+        23
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>161 140 179 486<|content|>TO: ... Calderwood & Harkness LLP Matter File\n<|id|>3<|page|>1<|box|>186 140 205 503<|content|>FROM: ... Francesca Morano, Responsible Partner\n<|id|>4<|page|>1<|box|>213 140 231 308<|content|>DATE: ... January 2025\n<|id|>5<|page|>1<|box|>239 140 276 854<|content|>RE: ... 24STCV-01892\n<|id|>6<|page|>1<|box|>282 140 301 411<|content|>MATTER NUMBER: ... 1033-00004\n<|id|>7<|page|>1<|box|>309 140 345 854<|content|>OFFICE: ... Calderwood & Harkness LLP, 333 South Grand Avenue, Suite 4800, Los Angeles, CA 90071\n<|id|>8<|page|>1<|box|>353 140 371 408<|content|>Right-click to update Table of Contents\n<|id|>15<|page|>1<|box|>804 140 878 856<|content|>The firm represented Redstone Gaming Corp. ... RGC's registered agent in the\n<|id|>16<|page|>2<|box|>90 140 126 852<|content|>State of Nevada is National Statutory Agents, Inc....arson Street, Suite 200, Carson City, Nevada 89701\n<|id|>89<|page|>8<|box|>536 174 590 854<|content|>(2) Intentional Interference with Prospective Econ... gaming regulators, and business partners; ... and\n<|id|>91<|page|>8<|box|>661 140 734 854<|content|>The governing law for all claims was California la...ubstantial portion of its investor base is located\n<|id|>110<|page|>10<|box|>862 140 898 856<|content|>Third-Party Subpoenas: ... Third-party subpoenas w...ain comprehensive records of the short position in\n<|id|>111<|page|>11<|box|>90 140 164 856<|content|>RDGM securities, including the timing and prices o...the scope and reach of the defamatory publications\n<|id|>141<|page|>13<|box|>844 140 900 856<|content|>The aggregate settlement payment is to be deposite...ated at 3960 Howard Hughes Parkway, Suite 500, Las\n<|id|>142<|page|>14<|box|>90 140 145 854<|content|>Vegas, Nevada 89169. ... by letter dated January 3...numbers and account details for the escrow account\n<|id|>263<|page|>23<|box|>375 142 390 336<|content|>Name: ... Francesca Morano\n<|id|>264<|page|>23<|box|>392 142 407 415<|content|>Title: ... Partner — Litigation (General)\n<|id|>265<|page|>23<|box|>409 140 440 852<|content|>Calderwood & Harkness LLP 333 South Grand Avenue, Suite 4800 Los Angeles, California 90071\n<|id|>266<|page|>23<|box|>443 143 459 263<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>15<|tgt_id|>16\n<|src_id|>110<|tgt_id|>111\n<|src_id|>141<|tgt_id|>142",
+    "parsed": [
+        {
+            "src_id": 15,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 142
+        }
+    ]
+}

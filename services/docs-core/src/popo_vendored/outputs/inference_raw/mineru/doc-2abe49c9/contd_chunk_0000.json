@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        23,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>142 140 159 841<|content|>FROM: ... Cynthia Ho, Associate, and Grace Nakamura, Associate, Calderwood & Harkness LLP\n<|id|>3<|page|>1<|box|>167 140 223 854<|content|>TO: ... Angela Fontaine, Partner, Calderwood & Har...perations Team, Halcyon Ridge Capital Partners, LP\n<|id|>4<|page|>1<|box|>229 142 247 310<|content|>DATE: ... June 28, 2022\n<|id|>5<|page|>1<|box|>255 140 311 854<|content|>RE: ... Review and Analysis of Letter of Intent (L...Stonebridge Industrial Realty Trust, LP (Landlord)\n<|id|>6<|page|>1<|box|>318 140 335 362<|content|>MATTER NO. ... 1011-00007\n<|id|>7<|page|>1<|box|>344 142 359 408<|content|>Right-click to update Table of Contents\n<|id|>244<|page|>23<|box|>804 140 877 857<|content|>4. ... We recommend coordinating with Harborview to obtain a draft\n<|id|>245<|page|>24<|box|>90 174 125 852<|content|>LC form, which can then be circulated to Stonebrid... approval in connection with the lease negotiation",
+    "raw_response": "<|src_id|>244<|tgt_id|>245",
+    "parsed": [
+        {
+            "src_id": 244,
+            "tgt_id": 245
+        }
+    ]
+}

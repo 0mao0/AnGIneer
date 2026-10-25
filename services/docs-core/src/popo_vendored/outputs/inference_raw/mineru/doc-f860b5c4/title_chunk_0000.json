@@ -1,0 +1,145 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 140 119 852<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>1<|page|>1<|box|>127 153 162 843<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law 51 Wes\n<|id|>3<|page|>1<|box|>196 142 214 292<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>390 142 407 290<|content|>Policy References:\n<|id|>12<|page|>1<|box|>487 372 507 625<|content|>I. Purpose and Summary\n<|id|>22<|page|>2<|box|>286 223 305 772<|content|>II. Background — Incident and Insurance Claim Fili\n<|id|>23<|page|>2<|box|>330 142 348 315<|content|>A. Incident Overview\n<|id|>34<|page|>3<|box|>429 140 446 267<|content|>B. Claim Filing\n<|id|>39<|page|>4<|box|>90 197 111 797<|content|>III. Overview of Quorum's Cyber-Liability Insuranc\n<|id|>51<|page|>5<|box|>506 279 526 715<|content|>IV. Atlas Mutual's Coverage Determination\n<|id|>52<|page|>5<|box|>551 142 569 431<|content|>A. Acknowledgment and Acceptance\n<|id|>63<|page|>6<|box|>799 140 816 480<|content|>B. Consent and Cooperation Requirements\n<|id|>71<|page|>7<|box|>481 140 498 338<|content|>C. Reservation of Rights\n<|id|>77<|page|>8<|box|>290 285 309 710<|content|>V. Estimated Costs and Coverage Analysis\n<|id|>78<|page|>8<|box|>334 142 352 486<|content|>A. Total Estimated Incident Response Costs\n<|id|>86<|page|>9<|box|>636 140 652 457<|content|>B. Application of Self-Insured Retention\n<|id|>90<|page|>10<|box|>167 140 185 493<|content|>C. Amount Covered by Atlas Primary Policy\n<|id|>95<|page|>10<|box|>477 140 494 580<|content|>D. Excess Layer (Pinnacle) — Unlikely to Be Implic\n<|id|>103<|page|>11<|box|>154 236 174 758<|content|>VI. Interaction with Palomar Indemnification Claim\n<|id|>112<|page|>12<|box|>334 168 354 828<|content|>VII. Status of Regulatory Engagements and Coverage\n<|id|>114<|page|>12<|box|>467 140 484 454<|content|>A. Multistate Attorney General Inquiry\n<|id|>118<|page|>13<|box|>90 140 107 442<|content|>B. Connecticut Insurance Department\n<|id|>121<|page|>13<|box|>311 140 328 330<|content|>C. HHS-OCR (HIPAA)\n<|id|>124<|page|>13<|box|>569 140 585 259<|content|>D. Assessment\n<|id|>127<|page|>13<|box|>830 295 849 700<|content|>VIII. Open Items and Recommendations\n<|id|>129<|page|>14<|box|>90 140 107 490<|content|>A. Ongoing Coordination with Atlas Mutual\n<|id|>132<|page|>14<|box|>348 140 364 318<|content|>B. Final Proof of Loss\n<|id|>134<|page|>14<|box|>506 140 523 444<|content|>C. Palomar Subrogation Coordination\n<|id|>136<|page|>14<|box|>683 140 700 473<|content|>D. Pinnacle Excess — No Action Required\n<|id|>138<|page|>15<|box|>90 140 107 439<|content|>E. Monitoring for Potential Litigation\n<|id|>141<|page|>15<|box|>352 421 372 575<|content|>IX. Conclusion",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>3<|level|>1\n<|id|>9<|level|>2\n<|id|>12<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>34<|level|>3\n<|id|>39<|level|>2\n<|id|>51<|level|>2\n<|id|>52<|level|>3\n<|id|>63<|level|>3\n<|id|>71<|level|>3\n<|id|>77<|level|>2\n<|id|>78<|level|>3\n<|id|>86<|level|>3\n<|id|>90<|level|>3\n<|id|>95<|level|>3\n<|id|>103<|level|>2\n<|id|>112<|level|>2\n<|id|>114<|level|>3\n<|id|>118<|level|>3\n<|id|>121<|level|>3\n<|id|>124<|level|>3\n<|id|>127<|level|>2\n<|id|>129<|level|>3\n<|id|>132<|level|>3\n<|id|>134<|level|>3\n<|id|>136<|level|>3\n<|id|>138<|level|>3\n<|id|>141<|level|>2",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 112,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 2
+        },
+        {
+            "id": 129,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 2
+        }
+    ]
+}

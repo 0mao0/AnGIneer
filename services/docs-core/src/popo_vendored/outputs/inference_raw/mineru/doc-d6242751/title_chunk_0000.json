@@ -1,0 +1,110 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 421 108 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|page|>1<|box|>463 142 479 364<|content|>I. Introduction and Purpose\n<|id|>16<|page|>2<|box|>241 142 258 395<|content|>II. Title Commitment Summary\n<|id|>20<|page|>3<|box|>90 140 107 588<|content|>III. Schedule B-II Exceptions — Specific Title Obj\n<|id|>22<|page|>3<|box|>202 140 219 604<|content|>Objection 1: Outstanding Deed of Trust / Mortgage\n<|id|>26<|page|>3<|box|>601 140 619 560<|content|>Objection 2: Real Property Tax Liens / Delinquenci\n<|id|>30<|page|>4<|box|>194 140 212 581<|content|>Objection 3: Utility Easements Affecting Buildable\n<|id|>33<|page|>4<|box|>489 142 507 416<|content|>Buyer hereby requests the following:\n<|id|>39<|page|>5<|box|>138 140 157 580<|content|>Objection 4: Access Easements / Road Dedication Is\n<|id|>42<|page|>5<|box|>343 142 361 416<|content|>Buyer hereby requests the following:\n<|id|>47<|page|>5<|box|>696 140 714 529<|content|>Objection 5: Restrictive Covenants / Declarations\n<|id|>55<|page|>6<|box|>436 140 454 545<|content|>Objection 6: Boundary Line / Survey Discrepancies\n<|id|>60<|page|>7<|box|>157 140 175 710<|content|>Objection 7: Judgments, Lis Pendens, or Mechanic's\n<|id|>67<|page|>7<|box|>598 140 614 624<|content|>Objection 8: Mineral Rights / Subsurface Rights Re\n<|id|>71<|page|>8<|box|>268 140 285 493<|content|>Objection 9: Environmental Liens or Notices\n<|id|>79<|page|>8<|box|>843 140 859 486<|content|>Objection 10: Standard / \"Gap\" Exceptions\n<|id|>94<|page|>9<|box|>680 140 696 344<|content|>IV. Reservation of Rights\n<|id|>104<|page|>10<|box|>527 140 545 553<|content|>V. Requested Cure Period and Closing Coordination\n<|id|>108<|page|>11<|box|>186 140 204 359<|content|>VI. Request for Documents\n<|id|>117<|page|>11<|box|>799 140 816 245<|content|>VII. Closing\n<|id|>122<|page|>12<|box|>248 212 263 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>129<|page|>12<|box|>503 142 518 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>1\n<|id|>16<|level|>1\n<|id|>20<|level|>1\n<|id|>22<|level|>2\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>33<|level|>3\n<|id|>39<|level|>2\n<|id|>42<|level|>3\n<|id|>47<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>2\n<|id|>79<|level|>2\n<|id|>94<|level|>1\n<|id|>104<|level|>1\n<|id|>108<|level|>1\n<|id|>117<|level|>1\n<|id|>122<|level|>-1\n<|id|>129<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 117,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 1
+        }
+    ]
+}

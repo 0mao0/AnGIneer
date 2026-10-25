@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        24
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        10,
+        11,
+        24
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>289 723 304 854<|content|>October 28, 2025\n<|id|>5<|page|>1<|box|>590 143 607 408<|content|>Right-click to update Table of Contents\n<|id|>8<|page|>1<|box|>808 140 898 854<|content|>The engagement is structured across four phases sp...states), and Quorum Life & Annuity Company (\"QLA,\"\n<|id|>9<|page|>2<|box|>89 138 181 854<|content|>NAIC No. ... In total, the three carrier subsidiar...complex, multi-jurisdictional regulatory landscape\n<|id|>45<|page|>5<|box|>844 140 900 857<|content|>The claims-handling timeliness category accounted ...processed by QIIC during the examination period of\n<|id|>46<|page|>6<|box|>90 140 145 854<|content|>January 1, 2021 through December 31, 2023. ... 04%...NAIC Market Regulation Handbook sampling protocols\n<|id|>89<|page|>10<|box|>758 138 904 857<|content|>Advertising Remediation. ... Retroactive filings o...ed advertising materials are currently underway in\n<|id|>90<|page|>11<|box|>89 140 145 854<|content|>Florida, California, Illinois, and Ohio. ... for the Florida filings specifically\n<|id|>202<|page|>24<|box|>234 408 251 586<|content|>Respectfully submitted,\n<|id|>203<|page|>24<|box|>258 140 275 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>204<|page|>24<|box|>277 143 294 253<|content|>By: ... By\n<|id|>205<|page|>24<|box|>294 142 311 689<|content|>Marcus Delgado Responsible Partner Insurance Regulatory Practice Group\n<|id|>206<|page|>24<|box|>311 143 328 253<|content|>By: ... By\n<|id|>207<|page|>24<|box|>328 140 345 653<|content|>Carlos Espinoza Lead Associate Insurance Regulatory Practice Group\n<|id|>208<|page|>24<|box|>345 140 378 854<|content|>Calderwood & Harkness LLP 1177 Avenue of the Ameri...Floor New York, NY 10036 Telephone: ... 1025-00002",
+    "raw_response": "<|src_id|>8<|tgt_id|>9\n<|src_id|>45<|tgt_id|>46\n<|src_id|>89<|tgt_id|>90",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 45,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 89,
+            "tgt_id": 90
+        }
+    ]
+}

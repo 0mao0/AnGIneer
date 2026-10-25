@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        20
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        20
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>3<|page|>1<|box|>224 712 241 854<|content|>November 3, 2023\n<|id|>4<|page|>1<|box|>250 140 286 854<|content|>FROM: ... Audrey Zhou, Associate, and Jeffrey Park...rkness LLP 600 Lexington Avenue New York, NY 10022\n<|id|>5<|page|>1<|box|>294 140 330 852<|content|>TO: ... 480 Overlook Drive, Suite 700 Summit, NJ 07901\n<|id|>6<|page|>1<|box|>339 140 375 852<|content|>RE: ... Securities-Disclosure Obligations Arising ...-2023-1847) Concerning Zelvara® (trepivant sodium)\n<|id|>7<|page|>1<|box|>383 140 398 362<|content|>MATTER NO. ... 1018-00002\n<|id|>22<|page|>2<|box|>819 176 893 856<|content|>1. ... The banner featured the claim \"Fastest Onset in Its Class,\" which\n<|id|>23<|page|>3<|box|>89 210 143 854<|content|>OPDP characterizes as lacking adequate substantiat...identified in the Zelvara® prescribing information\n<|id|>28<|page|>3<|box|>506 181 559 854<|content|>• 21 C. ... and\n<|id|>30<|page|>3<|box|>599 140 710 856<|content|>The original response deadline set forth in the OP...xtending the response deadline to January 15, 2024\n<|id|>43<|page|>4<|box|>758 183 775 532<|content|>• Leonard Cross, Partner (Responsible Partner)\n<|id|>47<|page|>4<|box|>835 140 909 854<|content|>The engagement letter, signed by Margaret Tan on b...th preparation of the substantive response to OPDP\n<|id|>44<|page|>4<|box|>777 183 794 511<|content|>• Nathaniel Bower, Partner (Billing Partner)\n<|id|>45<|page|>4<|box|>797 183 814 500<|content|>• Jeffrey Park, Associate (Lead Associate)\n<|id|>46<|page|>4<|box|>816 183 834 535<|content|>• Audrey Zhou, Associate (Working Associate)\n<|id|>170<|page|>20<|box|>388 142 406 318<|content|>Respectfully submitted,\n<|id|>171<|page|>20<|box|>407 142 422 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>172<|page|>20<|box|>424 143 441 253<|content|>By: ... By\n<|id|>173<|page|>20<|box|>441 143 458 321<|content|>Audrey Zhou Associate\n<|id|>174<|page|>20<|box|>460 143 474 253<|content|>By: ... By\n<|id|>175<|page|>20<|box|>476 142 493 310<|content|>Jeffrey Park Associate\n<|id|>176<|page|>20<|box|>493 140 527 854<|content|>cc: ... Leonard Cross, Partner, Calderwood & Harkn...athaniel Bower, Partner, Calderwood & Harkness LLP\n<|id|>177<|page|>20<|box|>536 140 598 854<|content|>ATTORNEY-CLIENT PRIVILEGED AND CONFIDENTIAL — DO N...e, copying, or distribution is strictly prohibited",
+    "raw_response": "<|src_id|>22<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ]
+}

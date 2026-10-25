@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 20,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=18, 1.所用原材料、半成品和成品质量检验结果', '1-18', '商品混凝土及砂浆质量保证单、发货单和检验报告', '按附表K.2-2的项次1-18规定']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=9, 1.所用原材料、半成品和成品质量检验结果', '1-19', '沥青混合料质量保证单、发货单和检验报告', '按附表K.2-2的项次1-19规定']]\n",
+    "raw_response": "[1, 0, 0, 0]",
+    "parsed": [
+        1,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 1333,
+    "table2_idx": 1334
+}

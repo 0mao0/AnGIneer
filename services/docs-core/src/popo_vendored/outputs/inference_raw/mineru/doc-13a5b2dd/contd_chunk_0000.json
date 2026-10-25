@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        12,
+        13,
+        15,
+        17,
+        18,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>151 140 186 854<|content|>FROM: ... Naomi Petersen, Lead Associate Calderwoo...5 North Wacker Drive, Suite 4200 Chicago, IL 60606\n<|id|>3<|page|>1<|box|>195 140 213 687<|content|>TO: ... Douglas Fairchild, Responsible Partner Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>220 140 257 854<|content|>CC: ... Angela Fontaine, Billing Partner, Calderwo...mura, Working Associate, Calderwood & Harkness LLP\n<|id|>5<|page|>1<|box|>265 140 282 303<|content|>DATE: ... June 4, 2022\n<|id|>6<|page|>1<|box|>290 140 328 854<|content|>RE: ... — Review of Form Director and Officer Inde...for Consistency with D&O Insurance Tower Structure\n<|id|>7<|page|>1<|box|>335 142 352 362<|content|>MATTER NO. ... 1005-00003\n<|id|>8<|page|>1<|box|>361 142 378 408<|content|>Right-click to update Table of Contents\n<|id|>13<|page|>1<|box|>834 140 890 857<|content|>This review was requested by Priya Sundaram, Gener...t the closing of the Company's leveraged buyout in\n<|id|>14<|page|>2<|box|>90 140 127 854<|content|>June 2018, remain properly coordinated with the D&...ured and as proposed for the 2022–2023 policy year\n<|id|>24<|page|>3<|box|>222 174 277 854<|content|>(b) Triton Fastener Corp. ... and\n<|id|>26<|page|>3<|box|>348 140 477 856<|content|>For its fiscal year ended December 31, 2021, Nexfo...lidated revenue of approximately $1. ... 6 billion\n<|id|>75<|page|>8<|box|>872 140 909 854<|content|>Consider the following illustrative scenario. ... ...en request for advancement of defense costs to the\n<|id|>76<|page|>9<|box|>90 140 236 856<|content|>Company, together with the required undertaking an...ys from the date of the director's written request\n<|id|>103<|page|>12<|box|>152 174 189 857<|content|>(d) a written request to any Insured Person to tol...lating to a potential claim or proceeding; ... and\n<|id|>105<|page|>12<|box|>223 140 333 856<|content|>The Harrington Side-A DIC Policy uses a similarly ...ble coverage for individual directors and officers\n<|id|>118<|page|>13<|box|>700 174 718 754<|content|>(e) extradition proceedings or requests for international judicial assistance; ... and\n<|id|>120<|page|>13<|box|>770 138 898 857<|content|>Second, as an alternative approach, we recommend t...aced with policies containing modified definitions\n<|id|>131<|page|>15<|box|>90 183 106 500<|content|>• Sandra Elliston, Chief Executive Officer\n<|id|>134<|page|>15<|box|>148 140 220 854<|content|>The same two findings identified in Section V appl.... ... These additional exposure categories include\n<|id|>132<|page|>15<|box|>109 183 126 513<|content|>• Marcus Delacroix, Chief Financial Officer\n<|id|>133<|page|>15<|box|>130 183 146 630<|content|>• Priya Sundaram, General Counsel and Corporate Secretary\n<|id|>154<|page|>17<|box|>185 181 220 854<|content|>• Provisions addressing the Company's obligation t...ance at specified minimum coverage levels; ... and\n<|id|>156<|page|>17<|box|>279 140 407 856<|content|>The D&O tower structure will also need significant...ith dedicated Side-A limits of $25 million or more\n<|id|>162<|page|>17<|box|>845 140 901 857<|content|>2. ... \" Prepare a revised definition of \"Proceedi...laim\" in the Vandermeer Primary D&O Policy and the\n<|id|>163<|page|>18<|box|>89 174 162 854<|content|>Harrington Side-A DIC Policy. ... June 10, 2022\n<|id|>175<|page|>19<|box|>614 142 631 320<|content|>Respectfully submitted,\n<|id|>176<|page|>19<|box|>632 140 648 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>177<|page|>19<|box|>650 142 666 253<|content|>By: ... By\n<|id|>178<|page|>19<|box|>666 140 683 651<|content|>Naomi Petersen Lead Associate, Mergers & Acquisitions Department\n<|id|>179<|page|>19<|box|>684 140 715 816<|content|>Reviewed by: ... 1005-00003 PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>75<|tgt_id|>76\n<|src_id|>162<|tgt_id|>163",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 75,
+            "tgt_id": 76
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        }
+    ]
+}

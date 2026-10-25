@@ -1,0 +1,153 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fqxk32u_\\input\\pdfs\\doc-99156a05.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-fqxk32u_\\enriched\\doc-99156a05.json",
+    "contd_output": "<|src_id|>118<|tgt_id|>119",
+    "title_output": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>36<|level|>4\n<|id|>51<|level|>4\n<|id|>65<|level|>4\n<|id|>91<|level|>4\n<|id|>112<|level|>3\n<|id|>121<|level|>2\n<|id|>122<|level|>3\n<|id|>126<|level|>3\n<|id|>131<|level|>3\n<|id|>134<|level|>3\n<|id|>145<|level|>2\n<|id|>151<|level|>2\n<|id|>163<|level|>2\n<|id|>182<|level|>2",
+    "image_output": "<|src_id|>124<|tgt_id|>122\n<|src_id|>128<|tgt_id|>126\n<|src_id|>129<|tgt_id|>126\n<|src_id|>132<|tgt_id|>131\n<|src_id|>136<|tgt_id|>134\n<|src_id|>147<|tgt_id|>145\n<|src_id|>148<|tgt_id|>145",
+    "contd_label": [
+        {
+            "src_id": 118,
+            "tgt_id": 119
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 4
+        },
+        {
+            "id": 51,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 4
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 112,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 131,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 124,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 128,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 126
+        },
+        {
+            "src_id": 132,
+            "tgt_id": 131
+        },
+        {
+            "src_id": 136,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 145
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 145
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 128,
+            "table2_idx": 129,
+            "upper_row_ss": [
+                [
+                    "Section 338(h)(10) vs. Section 754",
+                    "$120,000–$150,000",
+                    "Cross, Jansen, Simmons"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "election analysis",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 147,
+            "table2_idx": 148,
+            "upper_row_ss": [
+                [
+                    "May 31, 2024",
+                    "Closing Deliverables: Tax Closing Certificate, Section 754 Election Draft, FIRPTA Certificates, Section 83(b) Transmittal Letters, Closing Tax Memorandum"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "June 14, 2024",
+                    "Post-Closing Tax Integration Memorandum"
+                ]
+            ]
+        }
+    ]
+}

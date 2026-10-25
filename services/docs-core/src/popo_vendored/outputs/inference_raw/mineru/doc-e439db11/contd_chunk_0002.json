@@ -1,0 +1,26 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        101,
+        154
+    ],
+    "pages": [
+        102,
+        114,
+        153,
+        154
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>405<|page|>102<|box|>96 21 340 487<|content|>The current financial statements of corporations a...reviously published in the Bulletin were submitted\n<|id|>434<|page|>114<|box|>116 427 129 585<|content|>(In thousands of dollars)\n<|id|>435<|page|>114<|box|>52 270 66 751<|content|>. ... CORPORATIONS AND CERTAIN OTHER BUSINESS-TYPE ACTIVITIES\n<|id|>514<|page|>153<|box|>433 517 526 580<|content|>Treas. ... 2\n<|id|>515<|page|>153<|box|>433 654 485 846<|content|>U. ... Treasury Bulletin\n<|id|>517<|page|>154<|box|>46 844 59 936<|content|>1 0032018",
+    "raw_response": "<|src_id|>434<|tgt_id|>435\n<|src_id|>514<|tgt_id|>515",
+    "parsed": [
+        {
+            "src_id": 434,
+            "tgt_id": 435
+        },
+        {
+            "src_id": 514,
+            "tgt_id": 515
+        }
+    ]
+}

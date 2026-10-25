@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Commonwealth Select', '01/01/2023', '12/31/2025 (fixed', '30 days prior to', 'Notice and consent', 'Yes — failure to', 'No later than', 'Key KY payor;']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['Health (KY)', '', 'term)', 'closing', 'required', 'obtain consent is an event of default', '03/16/2025; consent request should be submitted as early as practicable', 'recommend early engagement; consent should be sought promptly after SPA execution']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 445,
+    "table2_idx": 446
+}

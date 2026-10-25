@@ -1,0 +1,75 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 276 128 722<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>2<|page|>1<|box|>138 148 174 848<|content|>1585 Broadway, 34th Floor New York, New York 10036\n<|id|>16<|page|>2<|box|>150 142 167 310<|content|>Enclosed Documents\n<|id|>18<|page|>2<|box|>224 140 242 584<|content|>I. Restated and New Committee Charters (6 Document\n<|id|>21<|page|>2<|box|>739 140 756 854<|content|>3. Amended and Restated Charter of the Nominating\n<|id|>27<|page|>4<|box|>90 140 107 635<|content|>II. Redline Comparisons of Committee Charters (5 D\n<|id|>35<|page|>4<|box|>483 142 500 555<|content|>III. Delegation of Authority Materials (3 Document\n<|id|>41<|page|>5<|box|>646 140 664 558<|content|>IV. Corporate Governance Guidelines (2 Documents)\n<|id|>50<|page|>6<|box|>529 140 546 442<|content|>V. Bylaw Amendments (2 Documents)\n<|id|>56<|page|>7<|box|>90 140 107 643<|content|>VI. Board Resolutions and Adoption Instruments (2\n<|id|>75<|page|>8<|box|>180 140 196 495<|content|>VII. Board Meeting Materials (2 Documents)\n<|id|>82<|page|>9<|box|>89 140 107 529<|content|>VIII. Committee Reference Exhibit (1 Document)\n<|id|>84<|page|>9<|box|>246 140 263 225<|content|>Summary\n<|id|>86<|page|>9<|box|>551 142 568 568<|content|>Post-Adoption Steps and Regulatory Filing Reminder\n<|id|>95<|page|>10<|box|>638 140 655 299<|content|>Engagement Status",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>2<|level|>-1\n<|id|>16<|level|>1\n<|id|>18<|level|>2\n<|id|>21<|level|>3\n<|id|>27<|level|>2\n<|id|>35<|level|>2\n<|id|>41<|level|>2\n<|id|>50<|level|>2\n<|id|>56<|level|>2\n<|id|>75<|level|>2\n<|id|>82<|level|>2\n<|id|>84<|level|>3\n<|id|>86<|level|>3\n<|id|>95<|level|>3",
+    "parsed": [
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        }
+    ]
+}

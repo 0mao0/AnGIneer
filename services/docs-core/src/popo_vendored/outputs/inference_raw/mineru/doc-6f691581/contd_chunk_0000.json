@@ -1,0 +1,39 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        33
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        20,
+        21,
+        23,
+        28,
+        29,
+        33
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>133 424 151 573<|content|>MEMORANDUM\n<|id|>2<|page|>1<|box|>160 725 176 854<|content|>January 20, 2023\n<|id|>3<|page|>1<|box|>186 140 220 854<|content|>FROM: ... Elaine Forsythe, Partner, Antitrust & Competition Practice Group, Calderwood & Harkness LLP\n<|id|>4<|page|>1<|box|>229 140 248 506<|content|>TO: ... Board of Directors, Torchlight Mining Corp\n<|id|>5<|page|>1<|box|>256 176 290 511<|content|>Attention: ... Margaret Caldwell, Board Chair Janet Moreau-Shaw, Chair, Audit Committee\n<|id|>6<|page|>1<|box|>299 140 316 712<|content|>CC: ... Søren Dalmqvist, Chief Executive Officer Priya Anand, General Counse\n<|id|>7<|page|>1<|box|>325 140 361 854<|content|>RE: ... )\n<|id|>8<|page|>1<|box|>369 140 386 622<|content|>CALDERWOOD & HARKNESS MATTER NO. ... 1039-00001\n<|id|>9<|page|>1<|box|>393 140 545 854<|content|>CONFIDENTIALITY NOTICE: ... Recipients are directe...those individuals with a demonstrated need to know\n<|id|>19<|page|>2<|box|>787 174 878 857<|content|>4. ... Specialty\n<|id|>20<|page|>3<|box|>90 174 126 854<|content|>Minerals Division's commercial pricing function, l...edge or involvement of senior corporate leadership\n<|id|>207<|page|>20<|box|>771 140 882 857<|content|>This finding is significant for several reasons. ....mpliance program deficiencies discussed in Section\n<|id|>208<|page|>21<|box|>89 140 126 854<|content|>VII, rather than any affirmative corporate policy ... that allowed Holt's conduct to persist undetected\n<|id|>233<|page|>23<|box|>289 183 368 854<|content|>• Alternative Fine Provision: ... 34 billion and TMC's share of approximately USD 11C\n<|id|>234<|page|>23<|box|>363 140 436 854<|content|>478 million, the alternative fine provision could ...gher maximum. ... Applying this methodology to TMC\n<|id|>298<|page|>28<|box|>806 176 898 857<|content|>1. ... Training should cover the key prohibitions ...ce on recognizing and avoiding antitrust risk, the\n<|id|>299<|page|>29<|box|>90 210 143 854<|content|>Company's updated policies and procedures, and the...tion records maintained by the compliance function\n<|id|>340<|page|>33<|box|>747 142 763 320<|content|>Respectfully submitted,\n<|id|>341<|page|>33<|box|>763 140 780 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>342<|page|>33<|box|>782 143 799 253<|content|>By: ... By\n<|id|>343<|page|>33<|box|>799 140 832 854<|content|>Elaine Forsythe Partner, Antitrust & Competition P...co, California 94104 Telephone: ... (415) 555-0142\n<|id|>344<|page|>33<|box|>833 142 849 468<|content|>Email: ... com\n<|id|>345<|page|>33<|box|>849 143 867 251<|content|>By: ... By",
+    "raw_response": "<|src_id|>19<|tgt_id|>20\n<|src_id|>207<|tgt_id|>208\n<|src_id|>233<|tgt_id|>234\n<|src_id|>298<|tgt_id|>299",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 208
+        },
+        {
+            "src_id": 233,
+            "tgt_id": 234
+        },
+        {
+            "src_id": 298,
+            "tgt_id": 299
+        }
+    ]
+}

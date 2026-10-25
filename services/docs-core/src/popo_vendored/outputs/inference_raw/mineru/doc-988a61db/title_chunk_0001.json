@@ -1,0 +1,109 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        47,
+        59
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        50,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        59
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>536<|page|>47<|box|>289 142 305 393<|content|>IV. Other Material Agreements\n<|id|>540<|page|>48<|box|>90 421 109 576<|content|>SCHEDULE E\n<|id|>541<|page|>48<|box|>136 330 152 668<|content|>REQUIRED THIRD-PARTY CONSENTS\n<|id|>543<|page|>48<|box|>205 142 224 470<|content|>1. Cascadia Growth Equity Fund III, L.P.\n<|id|>546<|page|>48<|box|>400 142 417 503<|content|>2. Power Purchase Agreement Counterparties\n<|id|>554<|page|>48<|box|>709 140 726 500<|content|>3. Interconnection Agreement Counterparties\n<|id|>560<|page|>49<|box|>184 140 200 379<|content|>4. Land Lease Counterparties\n<|id|>567<|page|>49<|box|>474 140 491 483<|content|>5. EPC and Equipment Supply Agreements\n<|id|>573<|page|>50<|box|>89 421 111 576<|content|>SCHEDULE F\n<|id|>574<|page|>50<|box|>135 410 152 588<|content|>PERMITTED LIENS\n<|id|>587<|page|>52<|box|>90 434 111 563<|content|>EXHIBIT A\n<|id|>588<|page|>52<|box|>135 173 154 823<|content|>FORM OF ASSIGNMENT AND ASSUMPTION AGREEMENT (LAND\n<|id|>592<|page|>52<|box|>275 447 292 550<|content|>RECITALS\n<|id|>609<|page|>53<|box|>508 143 525 248<|content|>ASSIGNOR:\n<|id|>621<|page|>54<|box|>90 436 109 562<|content|>EXHIBIT B\n<|id|>622<|page|>54<|box|>135 189 172 807<|content|>FORM OF ASSIGNMENT AND ASSUMPTION AGREEMENT (MATER\n<|id|>626<|page|>54<|box|>294 447 311 549<|content|>RECITALS\n<|id|>642<|page|>55<|box|>627 143 642 248<|content|>ASSIGNOR:\n<|id|>654<|page|>56<|box|>89 434 111 563<|content|>EXHIBIT C\n<|id|>655<|page|>56<|box|>135 387 152 609<|content|>FORM OF BILL OF SALE\n<|id|>657<|page|>56<|box|>242 447 260 550<|content|>RECITALS\n<|id|>677<|page|>57<|box|>679 140 694 225<|content|>SELLER:\n<|id|>684<|page|>57<|box|>816 143 832 217<|content|>BUYER:\n<|id|>690<|page|>59<|box|>90 436 109 562<|content|>EXHIBIT D\n<|id|>691<|page|>59<|box|>136 263 178 735<|content|>FORM OF OFFICER'S CERTIFICATE (CONTRIBUTOR) OFFICE",
+    "raw_response": "<|id|>536<|level|>1\n<|id|>540<|level|>1\n<|id|>541<|level|>2\n<|id|>543<|level|>3\n<|id|>546<|level|>3\n<|id|>554<|level|>3\n<|id|>560<|level|>3\n<|id|>567<|level|>3\n<|id|>573<|level|>1\n<|id|>574<|level|>2\n<|id|>587<|level|>1\n<|id|>588<|level|>2\n<|id|>592<|level|>3\n<|id|>609<|level|>-1\n<|id|>621<|level|>1\n<|id|>622<|level|>2\n<|id|>626<|level|>3\n<|id|>642<|level|>-1\n<|id|>654<|level|>1\n<|id|>655<|level|>2\n<|id|>657<|level|>3\n<|id|>677<|level|>-1\n<|id|>684<|level|>-1\n<|id|>690<|level|>1\n<|id|>691<|level|>2",
+    "parsed": [
+        {
+            "id": 536,
+            "level": 1
+        },
+        {
+            "id": 540,
+            "level": 1
+        },
+        {
+            "id": 541,
+            "level": 2
+        },
+        {
+            "id": 543,
+            "level": 3
+        },
+        {
+            "id": 546,
+            "level": 3
+        },
+        {
+            "id": 554,
+            "level": 3
+        },
+        {
+            "id": 560,
+            "level": 3
+        },
+        {
+            "id": 567,
+            "level": 3
+        },
+        {
+            "id": 573,
+            "level": 1
+        },
+        {
+            "id": 574,
+            "level": 2
+        },
+        {
+            "id": 587,
+            "level": 1
+        },
+        {
+            "id": 588,
+            "level": 2
+        },
+        {
+            "id": 592,
+            "level": 3
+        },
+        {
+            "id": 621,
+            "level": 1
+        },
+        {
+            "id": 622,
+            "level": 2
+        },
+        {
+            "id": 626,
+            "level": 3
+        },
+        {
+            "id": 654,
+            "level": 1
+        },
+        {
+            "id": 655,
+            "level": 2
+        },
+        {
+            "id": 657,
+            "level": 3
+        },
+        {
+            "id": 690,
+            "level": 1
+        },
+        {
+            "id": 691,
+            "level": 2
+        }
+    ]
+}

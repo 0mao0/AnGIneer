@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['[Limitation 1c] \"a local oscillator coupling interface... configured to receive a local oscillator signal from an external laser source and distribute the local oscillator signal to the pair of 90-degree optical hybrids\"', 'Not disclosed.', \"MISSING ENTIRELY. Takahashi does not disclose a local oscillator coupling interface. Coherent detection requires a local oscillator for heterodyne or homodyne mixing, a concept entirely absent from Takahashi's IM multiplexer.\"]]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['[Limitation 1d] \"wherein all of the coherent modulator section, the coherent detection module, and the local oscillator coupling interface are monolithically integrated on a single silicon substrate... and wherein the transceiver achieves a bandwidth of at least 400 Gb/s per wavelength\"', 'Not disclosed.', \"MISSING ENTIRELY. Takahashi does not disclose monolithic integration of a complete transceiver. Takahashi describes only a single multiplexer component on an SOI chip. The concept of integrating modulator, coherent receiver, and LO interface on a single substrate is not taught. The 400 Gb/s bandwidth requirement is not discussed; Takahashi's 4-channel multiplexer operates at aggregate data rates far below this threshold.\"]]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 219,
+    "table2_idx": 220
+}

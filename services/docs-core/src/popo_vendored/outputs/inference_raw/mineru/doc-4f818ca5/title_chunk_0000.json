@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 140 106 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>5<|page|>1<|box|>236 140 253 588<|content|>VIA CERTIFIED MAIL AND IRS SECURE MESSAGING\n<|id|>8<|page|>1<|box|>369 140 387 380<|content|>Dear Revenue Agent Dunleavy:\n<|id|>11<|page|>1<|box|>773 140 791 455<|content|>I. Description of Responsive Documents\n<|id|>12<|page|>1<|box|>804 140 823 774<|content|>A. Intercompany intellectual Property License Agre\n<|id|>23<|page|>3<|box|>521 140 537 532<|content|>B. Amendments to the Legacy License Agreement\n<|id|>25<|page|>4<|box|>90 140 107 488<|content|>C. Schedule of Licensed Legacy Compounds\n<|id|>29<|page|>4<|box|>678 140 695 653<|content|>II. Summary of Key License Terms and Transfer Pric\n<|id|>34<|page|>5<|box|>604 140 621 398<|content|>III. Document Production Index\n<|id|>37<|page|>6<|box|>236 142 253 344<|content|>Total pages produced: 87\n<|id|>39<|page|>6<|box|>376 140 393 343<|content|>IV. Privilege Reservation\n<|id|>43<|page|>6<|box|>787 140 805 338<|content|>V. Reservation of Rights\n<|id|>48<|page|>7<|box|>476 140 493 339<|content|>VI. Offer of Cooperation",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>5<|level|>-1\n<|id|>8<|level|>-1\n<|id|>11<|level|>1\n<|id|>12<|level|>2\n<|id|>23<|level|>2\n<|id|>25<|level|>2\n<|id|>29<|level|>1\n<|id|>34<|level|>1\n<|id|>37<|level|>-1\n<|id|>39<|level|>1\n<|id|>43<|level|>1\n<|id|>48<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 39,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 48,
+            "level": 1
+        }
+    ]
+}

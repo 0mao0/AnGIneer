@@ -1,0 +1,127 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_poxs8pu\\input\\pdfs\\doc-2f9f20a4.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_poxs8pu\\enriched\\doc-2f9f20a4.json",
+    "contd_output": "<|src_id|>8<|tgt_id|>9",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>3<|level|>2\n<|id|>11<|level|>2\n<|id|>13<|level|>3\n<|id|>18<|level|>3\n<|id|>20<|level|>3\n<|id|>22<|level|>2\n<|id|>30<|level|>2\n<|id|>33<|level|>2\n<|id|>39<|level|>2\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>47<|level|>4\n<|id|>52<|level|>4\n<|id|>58<|level|>2\n<|id|>59<|level|>3",
+    "image_output": "<|src_id|>48<|tgt_id|>47\n<|src_id|>49<|tgt_id|>47\n<|src_id|>53<|tgt_id|>52\n<|src_id|>61<|tgt_id|>59",
+    "contd_label": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 4
+        },
+        {
+            "id": 52,
+            "level": 4
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 48,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 47
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 52
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 59
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 48,
+            "table2_idx": 49,
+            "upper_row_ss": [
+                [
+                    "Dr. Marcus Ellsworth (Options)",
+                    "214 Huntington Lane, King of Prussia, PA 19406",
+                    "Individual — U.S. Citizen",
+                    "XXX-XX-XXXX (provided under separate cover)",
+                    "150,000 vested stock options",
+                    "—"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Catherine Pryor (Options)",
+                    "87 Briarcliff Road, Wayne, PA 19087",
+                    "Individual — U.S. Citizen",
+                    "XXX-XX-XXXX (provided under separate cover)",
+                    "100,000 vested stock options",
+                    "—"
+                ]
+            ]
+        }
+    ]
+}

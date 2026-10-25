@@ -1,0 +1,922 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l2hfse2o\\input\\pdfs\\doc-6dd77be0.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-l2hfse2o\\enriched\\doc-6dd77be0.json",
+    "contd_output": "<|src_id|>39<|tgt_id|>40\n<|src_id|>40<|tgt_id|>41\n<|src_id|>42<|tgt_id|>43\n<|src_id|>256<|tgt_id|>258\n<|src_id|>300<|tgt_id|>301\n<|src_id|>314<|tgt_id|>315\n<|src_id|>325<|tgt_id|>326\n<|src_id|>371<|tgt_id|>372\n<|src_id|>573<|tgt_id|>574\n<|src_id|>631<|tgt_id|>632\n<|src_id|>641<|tgt_id|>642\n<|src_id|>716<|tgt_id|>717\n<|src_id|>742<|tgt_id|>743\n<|src_id|>772<|tgt_id|>773",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>8<|level|>1\n<|id|>9<|level|>1\n<|id|>10<|level|>1\n<|id|>17<|level|>1\n<|id|>19<|level|>1\n<|id|>24<|level|>1\n<|id|>44<|level|>1\n<|id|>47<|level|>1\n<|id|>50<|level|>1\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>58<|level|>3\n<|id|>60<|level|>3\n<|id|>62<|level|>3\n<|id|>64<|level|>3\n<|id|>66<|level|>3\n<|id|>68<|level|>2\n<|id|>69<|level|>3\n<|id|>81<|level|>3\n<|id|>129<|level|>1\n<|id|>162<|level|>1\n<|id|>163<|level|>2\n<|id|>177<|level|>2\n<|id|>183<|level|>3\n<|id|>196<|level|>2\n<|id|>200<|level|>2\n<|id|>210<|level|>3\n<|id|>217<|level|>2\n<|id|>222<|level|>2\n<|id|>230<|level|>2\n<|id|>236<|level|>1\n<|id|>237<|level|>2\n<|id|>242<|level|>2\n<|id|>247<|level|>2\n<|id|>250<|level|>2\n<|id|>254<|level|>2\n<|id|>259<|level|>1\n<|id|>260<|level|>2\n<|id|>269<|level|>2\n<|id|>274<|level|>2\n<|id|>281<|level|>2\n<|id|>287<|level|>2\n<|id|>295<|level|>2\n<|id|>306<|level|>2\n<|id|>312<|level|>2\n<|id|>319<|level|>2\n<|id|>323<|level|>2\n<|id|>329<|level|>2\n<|id|>332<|level|>2\n<|id|>335<|level|>1\n<|id|>336<|level|>2\n<|id|>342<|level|>2\n<|id|>354<|level|>2\n<|id|>375<|level|>1\n<|id|>376<|level|>2\n<|id|>419<|level|>2\n<|id|>442<|level|>2\n<|id|>449<|level|>2\n<|id|>459<|level|>1\n<|id|>469<|level|>1\n<|id|>493<|level|>1\n<|id|>494<|level|>1\n<|id|>497<|level|>1\n<|id|>502<|level|>1\n<|id|>505<|level|>1\n<|id|>509<|level|>1\n<|id|>510<|level|>2\n<|id|>512<|level|>2\n<|id|>514<|level|>1\n<|id|>534<|level|>1\n<|id|>535<|level|>2\n<|id|>595<|level|>2\n<|id|>603<|level|>2\n<|id|>613<|level|>2\n<|id|>630<|level|>2\n<|id|>633<|level|>2\n<|id|>647<|level|>2\n<|id|>649<|level|>1\n<|id|>650<|level|>2\n<|id|>654<|level|>2\n<|id|>662<|level|>2\n<|id|>666<|level|>2\n<|id|>670<|level|>2\n<|id|>673<|level|>1\n<|id|>674<|level|>2\n<|id|>690<|level|>3\n<|id|>696<|level|>2\n<|id|>701<|level|>2\n<|id|>706<|level|>2\n<|id|>720<|level|>3\n<|id|>722<|level|>2\n<|id|>727<|level|>2\n<|id|>733<|level|>2\n<|id|>736<|level|>2\n<|id|>746<|level|>2\n<|id|>749<|level|>2\n<|id|>753<|level|>2\n<|id|>755<|level|>2\n<|id|>757<|level|>1\n<|id|>758<|level|>2\n<|id|>760<|level|>2\n<|id|>763<|level|>1\n<|id|>764<|level|>2",
+    "image_output": "<|src_id|>138<|tgt_id|>129\n<|src_id|>141<|tgt_id|>129\n<|src_id|>148<|tgt_id|>129\n<|src_id|>151<|tgt_id|>129\n<|src_id|>153<|tgt_id|>129\n<|src_id|>155<|tgt_id|>129\n<|src_id|>158<|tgt_id|>129\n<|src_id|>160<|tgt_id|>129\n<|src_id|>186<|tgt_id|>183\n<|src_id|>212<|tgt_id|>210\n<|src_id|>213<|tgt_id|>210\n<|src_id|>214<|tgt_id|>210\n<|src_id|>219<|tgt_id|>217\n<|src_id|>220<|tgt_id|>217\n<|src_id|>227<|tgt_id|>222\n<|src_id|>267<|tgt_id|>260\n<|src_id|>268<|tgt_id|>260\n<|src_id|>277<|tgt_id|>274\n<|src_id|>278<|tgt_id|>274\n<|src_id|>345<|tgt_id|>342\n<|src_id|>346<|tgt_id|>342\n<|src_id|>347<|tgt_id|>342\n<|src_id|>349<|tgt_id|>342\n<|src_id|>350<|tgt_id|>342\n<|src_id|>351<|tgt_id|>342\n<|src_id|>352<|tgt_id|>342\n<|src_id|>358<|tgt_id|>354\n<|src_id|>359<|tgt_id|>354\n<|src_id|>360<|tgt_id|>354\n<|src_id|>361<|tgt_id|>354\n<|src_id|>362<|tgt_id|>354\n<|src_id|>364<|tgt_id|>354\n<|src_id|>365<|tgt_id|>354\n<|src_id|>366<|tgt_id|>354\n<|src_id|>384<|tgt_id|>376\n<|src_id|>428<|tgt_id|>419\n<|src_id|>532<|tgt_id|>514\n<|src_id|>551<|tgt_id|>535\n<|src_id|>552<|tgt_id|>535\n<|src_id|>560<|tgt_id|>535\n<|src_id|>606<|tgt_id|>603\n<|src_id|>610<|tgt_id|>603\n<|src_id|>656<|tgt_id|>654\n<|src_id|>657<|tgt_id|>654\n<|src_id|>692<|tgt_id|>690\n<|src_id|>693<|tgt_id|>690\n<|src_id|>694<|tgt_id|>690\n<|src_id|>705<|tgt_id|>701\n<|src_id|>714<|tgt_id|>706\n<|src_id|>715<|tgt_id|>706\n<|src_id|>718<|tgt_id|>706\n<|src_id|>721<|tgt_id|>720",
+    "contd_label": [
+        {
+            "src_id": 39,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 43
+        },
+        {
+            "src_id": 256,
+            "tgt_id": 258
+        },
+        {
+            "src_id": 300,
+            "tgt_id": 301
+        },
+        {
+            "src_id": 314,
+            "tgt_id": 315
+        },
+        {
+            "src_id": 325,
+            "tgt_id": 326
+        },
+        {
+            "src_id": 371,
+            "tgt_id": 372
+        },
+        {
+            "src_id": 573,
+            "tgt_id": 574
+        },
+        {
+            "src_id": 631,
+            "tgt_id": 632
+        },
+        {
+            "src_id": 641,
+            "tgt_id": 642
+        },
+        {
+            "src_id": 716,
+            "tgt_id": 717
+        },
+        {
+            "src_id": 742,
+            "tgt_id": 743
+        },
+        {
+            "src_id": 772,
+            "tgt_id": 773
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 1
+        },
+        {
+            "id": 50,
+            "level": 1
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 162,
+            "level": 1
+        },
+        {
+            "id": 163,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 210,
+            "level": 3
+        },
+        {
+            "id": 217,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 236,
+            "level": 1
+        },
+        {
+            "id": 237,
+            "level": 2
+        },
+        {
+            "id": 242,
+            "level": 2
+        },
+        {
+            "id": 247,
+            "level": 2
+        },
+        {
+            "id": 250,
+            "level": 2
+        },
+        {
+            "id": 254,
+            "level": 2
+        },
+        {
+            "id": 259,
+            "level": 1
+        },
+        {
+            "id": 260,
+            "level": 2
+        },
+        {
+            "id": 269,
+            "level": 2
+        },
+        {
+            "id": 274,
+            "level": 2
+        },
+        {
+            "id": 281,
+            "level": 2
+        },
+        {
+            "id": 287,
+            "level": 2
+        },
+        {
+            "id": 295,
+            "level": 2
+        },
+        {
+            "id": 306,
+            "level": 2
+        },
+        {
+            "id": 312,
+            "level": 2
+        },
+        {
+            "id": 319,
+            "level": 2
+        },
+        {
+            "id": 323,
+            "level": 2
+        },
+        {
+            "id": 329,
+            "level": 2
+        },
+        {
+            "id": 332,
+            "level": 2
+        },
+        {
+            "id": 335,
+            "level": 1
+        },
+        {
+            "id": 336,
+            "level": 2
+        },
+        {
+            "id": 342,
+            "level": 2
+        },
+        {
+            "id": 354,
+            "level": 2
+        },
+        {
+            "id": 375,
+            "level": 1
+        },
+        {
+            "id": 376,
+            "level": 2
+        },
+        {
+            "id": 419,
+            "level": 2
+        },
+        {
+            "id": 442,
+            "level": 2
+        },
+        {
+            "id": 449,
+            "level": 2
+        },
+        {
+            "id": 459,
+            "level": 1
+        },
+        {
+            "id": 469,
+            "level": 1
+        },
+        {
+            "id": 493,
+            "level": 1
+        },
+        {
+            "id": 494,
+            "level": 1
+        },
+        {
+            "id": 497,
+            "level": 1
+        },
+        {
+            "id": 502,
+            "level": 1
+        },
+        {
+            "id": 505,
+            "level": 1
+        },
+        {
+            "id": 509,
+            "level": 1
+        },
+        {
+            "id": 510,
+            "level": 2
+        },
+        {
+            "id": 512,
+            "level": 2
+        },
+        {
+            "id": 514,
+            "level": 1
+        },
+        {
+            "id": 534,
+            "level": 1
+        },
+        {
+            "id": 535,
+            "level": 2
+        },
+        {
+            "id": 595,
+            "level": 2
+        },
+        {
+            "id": 603,
+            "level": 2
+        },
+        {
+            "id": 613,
+            "level": 2
+        },
+        {
+            "id": 630,
+            "level": 2
+        },
+        {
+            "id": 633,
+            "level": 2
+        },
+        {
+            "id": 647,
+            "level": 2
+        },
+        {
+            "id": 649,
+            "level": 1
+        },
+        {
+            "id": 650,
+            "level": 2
+        },
+        {
+            "id": 654,
+            "level": 2
+        },
+        {
+            "id": 662,
+            "level": 2
+        },
+        {
+            "id": 666,
+            "level": 2
+        },
+        {
+            "id": 670,
+            "level": 2
+        },
+        {
+            "id": 673,
+            "level": 1
+        },
+        {
+            "id": 674,
+            "level": 2
+        },
+        {
+            "id": 690,
+            "level": 3
+        },
+        {
+            "id": 696,
+            "level": 2
+        },
+        {
+            "id": 701,
+            "level": 2
+        },
+        {
+            "id": 706,
+            "level": 2
+        },
+        {
+            "id": 720,
+            "level": 3
+        },
+        {
+            "id": 722,
+            "level": 2
+        },
+        {
+            "id": 727,
+            "level": 2
+        },
+        {
+            "id": 733,
+            "level": 2
+        },
+        {
+            "id": 736,
+            "level": 2
+        },
+        {
+            "id": 746,
+            "level": 2
+        },
+        {
+            "id": 749,
+            "level": 2
+        },
+        {
+            "id": 753,
+            "level": 2
+        },
+        {
+            "id": 755,
+            "level": 2
+        },
+        {
+            "id": 757,
+            "level": 1
+        },
+        {
+            "id": 758,
+            "level": 2
+        },
+        {
+            "id": 760,
+            "level": 2
+        },
+        {
+            "id": 763,
+            "level": 1
+        },
+        {
+            "id": 764,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 138,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 141,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 148,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 151,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 160,
+            "tgt_id": 129
+        },
+        {
+            "src_id": 186,
+            "tgt_id": 183
+        },
+        {
+            "src_id": 212,
+            "tgt_id": 210
+        },
+        {
+            "src_id": 213,
+            "tgt_id": 210
+        },
+        {
+            "src_id": 214,
+            "tgt_id": 210
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 217
+        },
+        {
+            "src_id": 220,
+            "tgt_id": 217
+        },
+        {
+            "src_id": 227,
+            "tgt_id": 222
+        },
+        {
+            "src_id": 267,
+            "tgt_id": 260
+        },
+        {
+            "src_id": 268,
+            "tgt_id": 260
+        },
+        {
+            "src_id": 277,
+            "tgt_id": 274
+        },
+        {
+            "src_id": 278,
+            "tgt_id": 274
+        },
+        {
+            "src_id": 345,
+            "tgt_id": 342
+        },
+        {
+            "src_id": 346,
+            "tgt_id": 342
+        },
+        {
+            "src_id": 347,
+            "tgt_id": 342
+        },
+        {
+            "src_id": 349,
+            "tgt_id": 342
+        },
+        {
+            "src_id": 350,
+            "tgt_id": 342
+        },
+        {
+            "src_id": 351,
+            "tgt_id": 342
+        },
+        {
+            "src_id": 352,
+            "tgt_id": 342
+        },
+        {
+            "src_id": 358,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 359,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 360,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 361,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 362,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 364,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 365,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 366,
+            "tgt_id": 354
+        },
+        {
+            "src_id": 384,
+            "tgt_id": 376
+        },
+        {
+            "src_id": 428,
+            "tgt_id": 419
+        },
+        {
+            "src_id": 532,
+            "tgt_id": 514
+        },
+        {
+            "src_id": 551,
+            "tgt_id": 535
+        },
+        {
+            "src_id": 552,
+            "tgt_id": 535
+        },
+        {
+            "src_id": 560,
+            "tgt_id": 535
+        },
+        {
+            "src_id": 606,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 610,
+            "tgt_id": 603
+        },
+        {
+            "src_id": 656,
+            "tgt_id": 654
+        },
+        {
+            "src_id": 657,
+            "tgt_id": 654
+        },
+        {
+            "src_id": 692,
+            "tgt_id": 690
+        },
+        {
+            "src_id": 693,
+            "tgt_id": 690
+        },
+        {
+            "src_id": 694,
+            "tgt_id": 690
+        },
+        {
+            "src_id": 705,
+            "tgt_id": 701
+        },
+        {
+            "src_id": 714,
+            "tgt_id": 706
+        },
+        {
+            "src_id": 715,
+            "tgt_id": 706
+        },
+        {
+            "src_id": 718,
+            "tgt_id": 706
+        },
+        {
+            "src_id": 721,
+            "tgt_id": 720
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 267,
+            "table2_idx": 268,
+            "upper_row_ss": [
+                [
+                    "切缝机",
+                    "缝槽修整机",
+                    "滚筒"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "—",
+                    "表面修整机",
+                    "磨光机"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 346,
+            "table2_idx": 347,
+            "upper_row_ss": [
+                [
+                    "1",
+                    "外观",
+                    "全线",
+                    "集料嵌挤密实,沥青撒布均匀,无花白料,接头无油包",
+                    "目测"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "项次",
+                    "colspan=2, 项目",
+                    "检查频度(每一侧车道)",
+                    "质量要求或允许偏差",
+                    "检验方法"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 349,
+            "table2_idx": 350,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "油石比",
+                    "1次/日",
+                    "施工配合比的油石比±0.2%",
+                    "三控检验法"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "3",
+                    "矿料级配",
+                    "1次/日",
+                    "满足施工配合比的矿料级配要求",
+                    "摊铺过程中从矿料输送带末端接出集料进行筛分"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 351,
+            "table2_idx": 352,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "rowspan=4, 表观质量",
+                    "边线",
+                    "全线连续",
+                    "任一30m长度范围内的水平波动不得超过±50mm"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "项次",
+                    "项目",
+                    "检验频度",
+                    "质量要求或允许偏差"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 358,
+            "table2_idx": 359,
+            "upper_row_ss": [
+                [
+                    "rowspan=2, 2",
+                    "rowspan=2, 平整度",
+                    "极值",
+                    "\\leqslant 5",
+                    "\\leqslant 7",
+                    "rowspan=2, 每200m纵向工作缝,每条3处,每处间隔2m测3尺,共9尺",
+                    "rowspan=2, 每200m纵向工作缝,每条2处,每处间隔2m测3尺,共6尺",
+                    "rowspan=2, 尺测"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "3",
+                    "colspan=2, 接缝顺直度(mm)",
+                    "colspan=2, \\leqslant 10",
+                    "每200m测6条",
+                    "每200m测4条",
+                    "20m拉线测"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 364,
+            "table2_idx": 365,
+            "upper_row_ss": [
+                [
+                    "1",
+                    "弯拉强度^{a}(MPa)",
+                    "标准小梁弯拉强度",
+                    "colspan=2, 在合格标准之内",
+                    "每班留2组~4组试件,日进度<500m留2组;≥500m留3组;≥1000m留4组",
+                    "每班留1组~3组试件,日进度<500m留1组;≥500m留2组;≥1000m留3组",
+                    "JTG E30 T0552、T0558"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "1",
+                    "弯拉强度^{\\mathrm{a}}(MPa)",
+                    "路面钻芯劈裂强度换算弯拉强度",
+                    "colspan=2, 在合格标准之内",
+                    "每车道每3km钻取1个芯样,单独施工硬路肩为1个车道",
+                    "每车道每2km钻取1个芯样,单独施工硬路肩为1个车道",
+                    "JTG E30 T0552、T0561"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 365,
+            "table2_idx": 366,
+            "upper_row_ss": [
+                [
+                    "rowspan=2, 4",
+                    "rowspan=2, 抗滑构造深度TD(mm)",
+                    "特殊路段^c",
+                    "0.8~1.2",
+                    "0.6~1.0",
+                    "rowspan=2, 每车道及硬路肩每200m测2处",
+                    "rowspan=2, 每车道每200m测1处",
+                    "rowspan=2, 铺砂法"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "rowspan=2, 5",
+                    "rowspan=2, 摩擦系数SFC",
+                    "一般路段",
+                    "\\geqslant 50",
+                    "—",
+                    "rowspan=2, 行车道、超车道全长连续检测,每车道每20m连续检测1个测点",
+                    "rowspan=2, 一般路段免检,仅检查特殊路段,每车道每20m连续检测1个测点,不足20m测1个测点",
+                    "rowspan=2, JTG E60 T0965"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 551,
+            "table2_idx": 552,
+            "upper_row_ss": [
+                [
+                    "0.55",
+                    "130000",
+                    "0.60",
+                    "32000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "0.61",
+                    "24000",
+                    "0.68",
+                    "3500"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 656,
+            "table2_idx": 657,
+            "upper_row_ss": [
+                [
+                    "板内横向钢筋",
+                    "12",
+                    "螺纹"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "板端钢筋",
+                    "12或16",
+                    "螺纹"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 693,
+            "table2_idx": 694,
+            "upper_row_ss": [
+                [
+                    "供料机",
+                    "混凝土运送、供给",
+                    "按运输方式确定"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "匀料机",
+                    "匀料、粗平",
+                    "—"
+                ]
+            ]
+        }
+    ]
+}

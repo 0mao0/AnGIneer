@@ -1,0 +1,42 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 282 133 714<|content|>425 Park Avenue, 31st Floor New York, New York 10022\n<|id|>2<|page|>1<|box|>141 183 159 813<|content|>Telephone: ... com\n<|id|>4<|page|>1<|box|>193 140 229 854<|content|>Pinnacle National Bank, National Association, as A...h Wacker Drive, Suite 3200 Chicago, Illinois 60606\n<|id|>3<|page|>1<|box|>167 741 186 854<|content|>[Closing Date]\n<|id|>5<|page|>1<|box|>237 140 273 852<|content|>Great Lakes Commercial Lending Corp. ... , as Lend...issance Center, Suite 1800 Detroit, Michigan 48243\n<|id|>6<|page|>1<|box|>282 140 316 854<|content|>Ironbridge Capital Finance, LLC, as Lender 1251 Av... the Americas, 34th Floor New York, New York 10020\n<|id|>7<|page|>1<|box|>325 140 386 854<|content|>Re: ... , as Administrative Agent, Collateral Agen...d Swing Line Lender, and the Lenders party thereto\n<|id|>17<|page|>2<|box|>468 174 542 856<|content|>(e) UCC-1 financing statements (the \"Financing Sta..., as debtor and Pinnacle National Bank, N. ... and\n<|id|>19<|page|>2<|box|>630 140 685 854<|content|>The Credit Agreement, the Guarantee and Collateral... collectively herein as the \"Loan Documents. ... \"\n<|id|>23<|page|>2<|box|>843 174 898 857<|content|>(iii) Resolutions of the Board of Directors of Van...ance of the Credit Agreement and each of the other\n<|id|>24<|page|>3<|box|>90 174 127 854<|content|>Loan Documents to which the Borrower is a party, c...and in full force and effect as of the date hereof\n<|id|>29<|page|>3<|box|>383 210 439 854<|content|>(B) VMS Precision Machining, Inc. ... and\n<|id|>34<|page|>3<|box|>862 140 898 854<|content|>We have also examined such other documents, agreem...ppropriate for the purposes of this opinion letter\n<|id|>32<|page|>3<|box|>664 174 755 857<|content|>(viii) A Secretary's Certificate of Vantage Mobility Systems Corp. ... and\n<|id|>55<|page|>5<|box|>618 174 654 854<|content|>(b) VMS Precision Machining, Inc. ... and\n<|id|>57<|page|>5<|box|>705 140 780 854<|content|>Each Subsidiary Guarantor has the organizational p... 1 above with respect to each Subsidiary Guarantor\n<|id|>68<|page|>6<|box|>816 174 872 854<|content|>(b) The Guarantee and Collateral Agreement constit...h Loan Party in accordance with its terms; ... and\n<|id|>70<|page|>7<|box|>171 140 226 854<|content|>The foregoing enforceability opinions are subject ...t is governed by the laws of the State of New York\n<|id|>78<|page|>7<|box|>859 140 896 857<|content|>No authorization, approval, consent, license, perm...ral governmental authority of the United States of\n<|id|>79<|page|>8<|box|>90 140 145 854<|content|>America or any governmental authority of the State...the validity or enforceability thereof, except for\n<|id|>89<|page|>8<|box|>681 174 736 854<|content|>(e) One hundred percent (100%) of the issued and o...utions, LLC, VMS Precision Machining, Inc. ... and\n<|id|>91<|page|>8<|box|>824 140 898 857<|content|>Upon the filing of the UCC-1 financing statements ... each such debtor for purposes of Article 9 of the\n<|id|>92<|page|>9<|box|>90 140 219 854<|content|>Uniform Commercial Code) and with the Michigan Dep...ent that perfection can be achieved by such filing\n<|id|>103<|page|>10<|box|>152 174 281 856<|content|>(b) General principles of equity (regardless of wh...otherwise inconsistent with public policy; ... and\n<|id|>105<|page|>10<|box|>388 140 424 854<|content|>The foregoing qualifications are referred to herei...lectively as the \"Enforceability Exceptions. ... \"\n<|id|>118<|page|>11<|box|>869 174 906 857<|content|>(c) Except to the extent expressly addressed in Se...s subject to Permitted Liens and the Intercreditor\n<|id|>119<|page|>12<|box|>90 174 145 854<|content|>Agreement), we express no opinion as to the priori...may hereafter arise with respect to the Collateral\n<|id|>127<|page|>13<|box|>190 140 207 274<|content|>Very truly yours,\n<|id|>128<|page|>13<|box|>214 140 231 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>129<|page|>13<|box|>233 142 250 254<|content|>By: ... By\n<|id|>130<|page|>13<|box|>250 140 266 315<|content|>Name: ... Claudia Merritt\n<|id|>131<|page|>13<|box|>267 142 282 248<|content|>Title: ... Partner\n<|id|>132<|page|>13<|box|>284 140 301 570<|content|>425 Park Avenue, 31st Floor New York, New York 10022",
+    "raw_response": "<|src_id|>23<|tgt_id|>24\n<|src_id|>78<|tgt_id|>79\n<|src_id|>91<|tgt_id|>92\n<|src_id|>118<|tgt_id|>119",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 78,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 91,
+            "tgt_id": 92
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 119
+        }
+    ]
+}

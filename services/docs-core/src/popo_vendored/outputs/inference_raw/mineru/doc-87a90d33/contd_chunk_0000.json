@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        17
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        10,
+        11,
+        13,
+        14,
+        17
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>22<|page|>2<|box|>848 140 902 854<|content|>Calderwood & Harkness LLP has been engaged as outs... with the IRS on June 8, 2022, authorizing Leonard\n<|id|>23<|page|>3<|box|>89 140 126 854<|content|>Cross, Sylvia Hartwell, Garrett Simmons, and Leila...th the examination for Tax Years 2017 through 2020\n<|id|>39<|page|>4<|box|>768 147 823 854<|content|>• Additional intercompany pricing decisions and ma... for key products in non-Americas markets; ... and\n<|id|>41<|page|>5<|box|>90 140 200 854<|content|>Cross requested that the examination team issue al...e results of the examination team's ongoing review\n<|id|>89<|page|>10<|box|>837 140 875 854<|content|>Dunleavy provided a more specific estimate, statin... IDR responses were received from PPC by September\n<|id|>91<|page|>11<|box|>133 140 226 856<|content|>Cross asked whether the NOPA would address all fou...acilitate a comprehensive resolution of the issues\n<|id|>119<|page|>13<|box|>840 140 878 854<|content|>4. ... Chakrabarti) and\n<|id|>120<|page|>14<|box|>90 174 125 854<|content|>Dr. ... Meskill will revert to C&H with a response\n<|id|>144<|page|>17<|box|>140 140 157 622<|content|>Leonard Cross Responsible Partner Calderwood & Harkness LLP\n<|id|>145<|page|>17<|box|>157 142 174 294<|content|>Date: ... May 26, 2023\n<|id|>146<|page|>17<|box|>175 140 193 604<|content|>Distribution (Internal Calderwood & Harkness LLP O...ribution (Internal Calderwood & Harkness LLP Only)\n<|id|>147<|page|>17<|box|>200 147 218 431<|content|>• Leonard Cross, Responsible Partner\n<|id|>151<|page|>17<|box|>279 142 297 388<|content|>Copy to Matter File 1018-00009. ... Copy to Matter File 1018-00009\n<|id|>148<|page|>17<|box|>220 147 238 403<|content|>• Sylvia Hartwell, Billing Partner\n<|id|>149<|page|>17<|box|>239 147 257 413<|content|>• Garrett Simmons, Lead Associate\n<|id|>150<|page|>17<|box|>258 147 277 408<|content|>• Leila Nazari, Working Associate",
+    "raw_response": "<|src_id|>22<|tgt_id|>23\n<|src_id|>39<|tgt_id|>41\n<|src_id|>119<|tgt_id|>120",
+    "parsed": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 120
+        }
+    ]
+}

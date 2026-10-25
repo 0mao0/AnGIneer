@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 155 118 841<|content|>UNITED STATES SECURITIES AND EXCHANGE COMMISSION\n<|id|>1<|page|>1<|box|>136 401 154 594<|content|>Washington, D.C. 20549\n<|id|>2<|page|>1<|box|>176 145 212 852<|content|>APPLICATION FOR WITHDRAWAL OF REGISTRATION STATEME\n<|id|>7<|page|>1<|box|>339 450 356 547<|content|>FORM RW\n<|id|>8<|page|>1<|box|>366 287 383 710<|content|>Application for Withdrawal of Registration Stateme\n<|id|>10<|page|>1<|box|>656 142 674 700<|content|>Name, Address, and Telephone Number of Agent for S\n<|id|>12<|page|>1<|box|>726 143 744 267<|content|>With a copy to:\n<|id|>14<|page|>1<|box|>796 197 813 800<|content|>APPLICATION FOR WITHDRAWAL OF REGISTRATION STATEME\n<|id|>17<|page|>2<|box|>148 140 167 470<|content|>I. Identification of Registration Statement\n<|id|>25<|page|>3<|box|>258 140 277 338<|content|>II. Basis for Withdrawal\n<|id|>32<|page|>4<|box|>90 140 107 517<|content|>III. Confirmation That No Securities Were Sold\n<|id|>40<|page|>4<|box|>696 140 714 452<|content|>IV. Request for Consent to Withdrawal\n<|id|>44<|page|>5<|box|>285 140 303 338<|content|>V. Reservation of Rights\n<|id|>47<|page|>5<|box|>599 441 617 555<|content|>SIGNATURE\n<|id|>49<|page|>5<|box|>724 142 742 367<|content|>LUMOS ANALYTICS INC.\n<|id|>54<|page|>5<|box|>811 269 829 727<|content|>CONTACT INFORMATION FOR CORRESPONDENCE\n<|id|>56<|page|>6<|box|>90 142 108 295<|content|>Company Counsel:\n<|id|>59<|page|>6<|box|>179 143 195 267<|content|>With a copy to:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>2<|level|>1\n<|id|>7<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>14<|level|>1\n<|id|>17<|level|>2\n<|id|>25<|level|>2\n<|id|>32<|level|>2\n<|id|>40<|level|>2\n<|id|>44<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>59<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        }
+    ]
+}

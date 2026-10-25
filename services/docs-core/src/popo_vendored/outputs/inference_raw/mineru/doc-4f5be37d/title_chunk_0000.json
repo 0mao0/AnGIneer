@@ -1,0 +1,160 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>97 403 119 591<|content|>MEMORANDUM\n<|id|>1<|page|>1<|box|>135 210 152 785<|content|>ATTORNEY-CLIENT PRIVILEGED / ATTORNEY WORK PRODUCT\n<|id|>8<|page|>1<|box|>387 140 404 372<|content|>I. EXECUTIVE SUMMARY\n<|id|>15<|page|>2<|box|>321 142 339 305<|content|>II. BACKGROUND\n<|id|>16<|page|>2<|box|>353 142 369 334<|content|>A. The Conduct at Issue\n<|id|>18<|page|>2<|box|>421 143 436 380<|content|>1. OFAC Sanctions Violations\n<|id|>24<|page|>3<|box|>90 140 107 369<|content|>2. Export Control Violations\n<|id|>27<|page|>3<|box|>446 140 465 294<|content|>B. Key Individuals\n<|id|>35<|page|>4<|box|>675 140 691 321<|content|>C. Procedural Posture\n<|id|>47<|page|>5<|box|>728 140 744 741<|content|>III. LEGAL FRAMEWORK — OFAC VOLUNTARY SELF-DISCLOS\n<|id|>48<|page|>5<|box|>758 140 777 449<|content|>A. Statutory and Regulatory Authority\n<|id|>56<|page|>6<|box|>549 140 566 602<|content|>B. VSD Framework Under OFAC Enforcement Guidelines\n<|id|>62<|page|>7<|box|>448 140 465 464<|content|>C. Timing and Procedural Requirements\n<|id|>69<|page|>8<|box|>176 140 194 426<|content|>D. Interplay with DOJ Investigation\n<|id|>74<|page|>8<|box|>811 140 829 718<|content|>IV. LEGAL FRAMEWORK — BIS VOLUNTARY SELF-DISCLOSUR\n<|id|>75<|page|>8<|box|>844 140 859 447<|content|>A. Statutory and Regulatory Authority\n<|id|>83<|page|>9<|box|>597 140 614 336<|content|>B. BIS VSD Framework\n<|id|>88<|page|>10<|box|>239 140 255 424<|content|>C. Scope of Potential BIS Violations\n<|id|>96<|page|>10<|box|>609 140 627 750<|content|>V. ANALYSIS: ADVANTAGES AND RISKS OF FILING VSD WI\n<|id|>97<|page|>10<|box|>641 140 657 424<|content|>A. Advantages of Filing with OFAC\n<|id|>108<|page|>12<|box|>362 142 378 375<|content|>B. Risks of Filing with OFAC\n<|id|>119<|page|>14<|box|>148 140 166 735<|content|>VI. ANALYSIS: ADVANTAGES AND RISKS OF FILING VSD W\n<|id|>120<|page|>14<|box|>180 142 198 403<|content|>A. Advantages of Filing with BIS\n<|id|>125<|page|>14<|box|>604 142 622 354<|content|>B. Risks of Filing with BIS\n<|id|>134<|page|>16<|box|>222 140 239 437<|content|>VII. RECOMMENDED STRATEGY\n<|id|>136<|page|>16<|box|>297 140 314 334<|content|>A. File VSD with OFAC\n<|id|>154<|page|>17<|box|>635 140 652 506<|content|>B. Coordinate with DOJ Prior to OFAC Filing\n<|id|>159<|page|>18<|box|>292 140 311 339<|content|>C. Defer BIS VSD Filing\n<|id|>170<|page|>19<|box|>332 140 349 573<|content|>VIII. IMPACT ON DOJ DECLINATION STRATEGY\n<|id|>183<|page|>20<|box|>628 140 647 421<|content|>IX. FINANCIAL IMPLICATIONS\n<|id|>193<|page|>22<|box|>89 142 106 419<|content|>X. NEXT STEPS AND TIMELINE\n<|id|>195<|page|>22<|box|>859 143 876 300<|content|>XI. CONCLUSION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>8<|level|>2\n<|id|>15<|level|>2\n<|id|>16<|level|>3\n<|id|>18<|level|>4\n<|id|>24<|level|>4\n<|id|>27<|level|>3\n<|id|>35<|level|>3\n<|id|>47<|level|>2\n<|id|>48<|level|>3\n<|id|>56<|level|>3\n<|id|>62<|level|>3\n<|id|>69<|level|>3\n<|id|>74<|level|>2\n<|id|>75<|level|>3\n<|id|>83<|level|>3\n<|id|>88<|level|>3\n<|id|>96<|level|>2\n<|id|>97<|level|>3\n<|id|>108<|level|>3\n<|id|>119<|level|>2\n<|id|>120<|level|>3\n<|id|>125<|level|>3\n<|id|>134<|level|>2\n<|id|>136<|level|>3\n<|id|>154<|level|>3\n<|id|>159<|level|>3\n<|id|>170<|level|>2\n<|id|>183<|level|>2\n<|id|>193<|level|>2\n<|id|>195<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 4
+        },
+        {
+            "id": 24,
+            "level": 4
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 3
+        },
+        {
+            "id": 159,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 2
+        }
+    ]
+}

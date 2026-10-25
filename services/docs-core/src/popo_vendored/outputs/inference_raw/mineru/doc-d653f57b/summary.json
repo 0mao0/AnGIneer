@@ -1,0 +1,543 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-81r_44ab\\input\\pdfs\\doc-d653f57b.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-81r_44ab\\enriched\\doc-d653f57b.json",
+    "contd_output": "<|src_id|>281<|tgt_id|>282",
+    "title_output": "<|id|>9<|level|>1\n<|id|>27<|level|>1\n<|id|>28<|level|>2\n<|id|>36<|level|>2\n<|id|>41<|level|>2\n<|id|>45<|level|>1\n<|id|>46<|level|>2\n<|id|>50<|level|>2\n<|id|>57<|level|>3\n<|id|>67<|level|>3\n<|id|>72<|level|>3\n<|id|>77<|level|>3\n<|id|>82<|level|>3\n<|id|>87<|level|>3\n<|id|>92<|level|>3\n<|id|>98<|level|>3\n<|id|>104<|level|>2\n<|id|>106<|level|>3\n<|id|>111<|level|>3\n<|id|>115<|level|>2\n<|id|>120<|level|>1\n<|id|>121<|level|>2\n<|id|>135<|level|>2\n<|id|>143<|level|>2\n<|id|>150<|level|>2\n<|id|>153<|level|>2\n<|id|>156<|level|>1\n<|id|>157<|level|>2\n<|id|>160<|level|>2\n<|id|>166<|level|>2\n<|id|>170<|level|>2\n<|id|>184<|level|>1\n<|id|>188<|level|>2\n<|id|>189<|level|>3\n<|id|>192<|level|>3\n<|id|>199<|level|>2\n<|id|>203<|level|>1\n<|id|>204<|level|>2\n<|id|>220<|level|>2\n<|id|>230<|level|>2\n<|id|>234<|level|>1\n<|id|>235<|level|>2\n<|id|>246<|level|>2\n<|id|>256<|level|>2\n<|id|>258<|level|>3\n<|id|>266<|level|>3\n<|id|>271<|level|>1\n<|id|>272<|level|>2\n<|id|>279<|level|>2\n<|id|>286<|level|>1\n<|id|>287<|level|>2\n<|id|>298<|level|>2\n<|id|>302<|level|>2\n<|id|>308<|level|>1\n<|id|>315<|level|>1\n<|id|>319<|level|>1\n<|id|>322<|level|>1\n<|id|>327<|level|>1",
+    "image_output": "<|src_id|>48<|tgt_id|>46\n<|src_id|>162<|tgt_id|>160\n<|src_id|>163<|tgt_id|>160\n<|src_id|>190<|tgt_id|>189\n<|src_id|>193<|tgt_id|>192\n<|src_id|>194<|tgt_id|>192\n<|src_id|>195<|tgt_id|>192\n<|src_id|>197<|tgt_id|>192\n<|src_id|>201<|tgt_id|>199\n<|src_id|>300<|tgt_id|>298\n<|src_id|>301<|tgt_id|>298\n<|src_id|>316<|tgt_id|>315\n<|src_id|>317<|tgt_id|>315\n<|src_id|>320<|tgt_id|>319\n<|src_id|>323<|tgt_id|>322\n<|src_id|>324<|tgt_id|>322\n<|src_id|>325<|tgt_id|>322\n<|src_id|>329<|tgt_id|>327\n<|src_id|>330<|tgt_id|>327\n<|src_id|>331<|tgt_id|>327\n<|src_id|>332<|tgt_id|>327",
+    "contd_label": [
+        {
+            "src_id": 281,
+            "tgt_id": 282
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 27,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 157,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 170,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 1
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 3
+        },
+        {
+            "id": 192,
+            "level": 3
+        },
+        {
+            "id": 199,
+            "level": 2
+        },
+        {
+            "id": 203,
+            "level": 1
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 220,
+            "level": 2
+        },
+        {
+            "id": 230,
+            "level": 2
+        },
+        {
+            "id": 234,
+            "level": 1
+        },
+        {
+            "id": 235,
+            "level": 2
+        },
+        {
+            "id": 246,
+            "level": 2
+        },
+        {
+            "id": 256,
+            "level": 2
+        },
+        {
+            "id": 258,
+            "level": 3
+        },
+        {
+            "id": 266,
+            "level": 3
+        },
+        {
+            "id": 271,
+            "level": 1
+        },
+        {
+            "id": 272,
+            "level": 2
+        },
+        {
+            "id": 279,
+            "level": 2
+        },
+        {
+            "id": 286,
+            "level": 1
+        },
+        {
+            "id": 287,
+            "level": 2
+        },
+        {
+            "id": 298,
+            "level": 2
+        },
+        {
+            "id": 302,
+            "level": 2
+        },
+        {
+            "id": 308,
+            "level": 1
+        },
+        {
+            "id": 315,
+            "level": 1
+        },
+        {
+            "id": 319,
+            "level": 1
+        },
+        {
+            "id": 322,
+            "level": 1
+        },
+        {
+            "id": 327,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 48,
+            "tgt_id": 46
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 160
+        },
+        {
+            "src_id": 190,
+            "tgt_id": 189
+        },
+        {
+            "src_id": 193,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 197,
+            "tgt_id": 192
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 199
+        },
+        {
+            "src_id": 300,
+            "tgt_id": 298
+        },
+        {
+            "src_id": 301,
+            "tgt_id": 298
+        },
+        {
+            "src_id": 316,
+            "tgt_id": 315
+        },
+        {
+            "src_id": 317,
+            "tgt_id": 315
+        },
+        {
+            "src_id": 320,
+            "tgt_id": 319
+        },
+        {
+            "src_id": 323,
+            "tgt_id": 322
+        },
+        {
+            "src_id": 324,
+            "tgt_id": 322
+        },
+        {
+            "src_id": 325,
+            "tgt_id": 322
+        },
+        {
+            "src_id": 329,
+            "tgt_id": 327
+        },
+        {
+            "src_id": 330,
+            "tgt_id": 327
+        },
+        {
+            "src_id": 331,
+            "tgt_id": 327
+        },
+        {
+            "src_id": 332,
+            "tgt_id": 327
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 162,
+            "table2_idx": 163,
+            "upper_row_ss": [
+                [
+                    "Nexford International Holdings, Inc.",
+                    "Common stock",
+                    "100% (see Section V.C for CFC"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "limitation)"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 193,
+            "table2_idx": 194,
+            "upper_row_ss": [
+                [
+                    "Recording Jurisdiction",
+                    "Winnebago County, Illinois"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 300,
+            "table2_idx": 301,
+            "upper_row_ss": [
+                [
+                    "March 28, 2025",
+                    "Closing Date — payoff of existing facilities, termination of revolving commitments, execution of new security documents, filing of new UCC-1 financing"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "statements"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 316,
+            "table2_idx": 317,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Nexford International Holdings,",
+                    "Atlas Meridian Bank, N.A., as",
+                    "Delaware Secretary of State",
+                    "June 14, 2019",
+                    "To be confirmed",
+                    "All assets",
+                    "Continuation filed June 2024 (est.)"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Inc.",
+                    "Collateral Agent",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 323,
+            "table2_idx": 324,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Nexford Engineered Systems, LLC",
+                    "Subsidiary Guarantor",
+                    "Delaware",
+                    "Yes",
+                    "Yes (lower-tier equity, if any)",
+                    "Yes",
+                    "Yes (Greenville, SC; confirm grantor)",
+                    "N/A",
+                    "UCC-3 (DE); mortgage release (Greenville County,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "SC); release IP filings; release guarantee e"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 324,
+            "table2_idx": 325,
+            "upper_row_ss": [
+                [
+                    "9",
+                    "Clearfiel",
+                    "Subsidia",
+                    "Pennsyl",
+                    "Yes",
+                    "Yes",
+                    "Yes",
+                    "N/A",
+                    "N/A",
+                    "UCC-3"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "d Tool & Die, Inc.",
+                    "ry Guarantor",
+                    "vania",
+                    "",
+                    "(lower-tier equity, if any)",
+                    "",
+                    "",
+                    "",
+                    "(PA); release IP filings; release guarantee"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 329,
+            "table2_idx": 330,
+            "upper_row_ss": [
+                [
+                    "8",
+                    "File UCC-3",
+                    "C&H / Hollowell",
+                    "March 31, 2025",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Termination Statement — Delaware (Nexford Coatings & Surface Technologies, Inc.)",
+                    "Technologies",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 330,
+            "table2_idx": 331,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "Record Release of Mortgage — Cook County, IL (1400",
+                    "C&H / Hargrove & Whitmore LLP (Robert Kimura)",
+                    "By April 30, 2025",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Industrial Parkway, Schaumburg)",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 331,
+            "table2_idx": 332,
+            "upper_row_ss": [
+                [
+                    "25",
+                    "File release of patent/trademark security interest",
+                    "C&H / Whitaker, Sun & Holt LLP (IP counsel)",
+                    "By April 30, 2025",
+                    "Pending"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "recordings — USPTO",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

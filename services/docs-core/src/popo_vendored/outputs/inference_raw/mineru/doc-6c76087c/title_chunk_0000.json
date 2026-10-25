@@ -1,0 +1,166 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 586<|content|>PRIVILEGED & CONFIDENTIAL — ATTORNEY WORK PRODUCT\n<|id|>1<|page|>1<|box|>113 403 133 591<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>364 140 382 321<|content|>I. Executive Summary\n<|id|>16<|page|>2<|box|>340 140 357 344<|content|>II. Transaction Overview\n<|id|>17<|page|>2<|box|>371 140 388 406<|content|>A. Deal Structure and Economics\n<|id|>27<|page|>3<|box|>159 142 176 295<|content|>B. Acquired Assets\n<|id|>39<|page|>4<|box|>90 142 106 323<|content|>C. Assumed Liabilities\n<|id|>45<|page|>4<|box|>412 140 429 307<|content|>D. Financial Metrics\n<|id|>50<|page|>4<|box|>678 142 695 274<|content|>E. Key Advisors\n<|id|>52<|page|>4<|box|>727 143 744 287<|content|>Buyer's Advisors:\n<|id|>59<|page|>5<|box|>223 142 239 284<|content|>Seller's Advisors:\n<|id|>63<|page|>5<|box|>344 143 359 357<|content|>Other Key Counterparties:\n<|id|>67<|page|>5<|box|>503 142 521 357<|content|>III. Timeline of Key Events\n<|id|>72<|page|>7<|box|>426 142 444 431<|content|>IV. Open Issues — Detailed Analysis\n<|id|>73<|page|>7<|box|>458 140 474 563<|content|>A. Inventory Valuation Dispute ($2,500,000 Varianc\n<|id|>81<|page|>8<|box|>527 140 546 720<|content|>B. Incomplete Phase II Environmental Investigation\n<|id|>88<|page|>9<|box|>693 140 710 611<|content|>C. Landlord Consent — Buckeye Industrial Propertie\n<|id|>94<|page|>10<|box|>547 140 564 496<|content|>D. Outstanding Customer Contract Consents\n<|id|>99<|page|>11<|box|>257 140 275 344<|content|>E. Regulatory Filing Gap\n<|id|>104<|page|>11<|box|>737 140 753 442<|content|>F. Disclosure Schedules — Incomplete\n<|id|>108<|page|>12<|box|>321 140 339 465<|content|>V. Financing Status — Critical Deadlines\n<|id|>109<|page|>12<|box|>353 140 369 594<|content|>A. Debt Commitment — Harborview National Bank, N.A\n<|id|>121<|page|>13<|box|>380 140 398 599<|content|>B. Equity Commitment — Lakepoint Capital Partners,\n<|id|>125<|page|>13<|box|>734 140 751 354<|content|>VI. LOI Exclusivity Status\n<|id|>134<|page|>14<|box|>710 140 728 366<|content|>VII. R&W Insurance Status\n<|id|>146<|page|>15<|box|>544 140 561 375<|content|>VIII. APA Negotiation Status\n<|id|>179<|page|>17<|box|>148 140 167 344<|content|>IX. Staleness of Diligence\n<|id|>190<|page|>18<|box|>148 142 167 380<|content|>X. Risk Assessment Summary\n<|id|>194<|page|>19<|box|>354 140 371 321<|content|>XI. Recommendations\n<|id|>195<|page|>19<|box|>383 140 401 434<|content|>A. Immediate Client Communication\n<|id|>204<|page|>20<|box|>257 142 273 415<|content|>B. Decision Requested from Client\n<|id|>209<|page|>20<|box|>705 140 723 380<|content|>C. Preservation of Optionality\n<|id|>214<|page|>21<|box|>297 140 314 272<|content|>XII. Conclusion\n<|id|>222<|page|>22<|box|>90 142 107 429<|content|>Appendix: Key Contact Information",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>16<|level|>2\n<|id|>17<|level|>3\n<|id|>27<|level|>3\n<|id|>39<|level|>3\n<|id|>45<|level|>3\n<|id|>50<|level|>3\n<|id|>52<|level|>4\n<|id|>59<|level|>4\n<|id|>63<|level|>4\n<|id|>67<|level|>2\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>81<|level|>3\n<|id|>88<|level|>3\n<|id|>94<|level|>3\n<|id|>99<|level|>3\n<|id|>104<|level|>3\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>121<|level|>3\n<|id|>125<|level|>2\n<|id|>134<|level|>2\n<|id|>146<|level|>2\n<|id|>179<|level|>2\n<|id|>190<|level|>2\n<|id|>194<|level|>2\n<|id|>195<|level|>3\n<|id|>204<|level|>3\n<|id|>209<|level|>3\n<|id|>214<|level|>2\n<|id|>222<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 4
+        },
+        {
+            "id": 59,
+            "level": 4
+        },
+        {
+            "id": 63,
+            "level": 4
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 2
+        },
+        {
+            "id": 195,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 3
+        },
+        {
+            "id": 209,
+            "level": 3
+        },
+        {
+            "id": 214,
+            "level": 2
+        },
+        {
+            "id": 222,
+            "level": 2
+        }
+    ]
+}

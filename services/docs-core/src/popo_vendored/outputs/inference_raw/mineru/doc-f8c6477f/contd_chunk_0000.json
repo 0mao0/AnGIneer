@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        8,
+        9,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>138 140 155 673<|content|>400 Park Avenue, 28th Floor New York, NY 10022 Tel: ... (212) 555-0100\n<|id|>3<|page|>1<|box|>164 140 198 375<|content|>Fax: ... com\n<|id|>4<|page|>1<|box|>208 707 224 854<|content|>December 22, 2023\n<|id|>6<|page|>1<|box|>258 140 311 854<|content|>Thomas W. ... Department of the Treasury 1500 Pennsylvania Avenue, NW Washington, DC 20220\n<|id|>7<|page|>1<|box|>321 174 358 854<|content|>Re: ... / Dunmore Trading International Ltd\n<|id|>14<|page|>1<|box|>866 140 902 854<|content|>Enclosed at Tab 1 are copies of the five MT103 SWI...nvoices CS-DTI-0091, CS-DTI-0094, CS-DTI-0101, CS-\n<|id|>15<|page|>2<|box|>89 140 164 854<|content|>DTI-0108, and CS-DTI-0115. ... banking institution...nd accurate reproductions of the original messages\n<|id|>22<|page|>2<|box|>830 140 885 854<|content|>These five transactions total $4,726,500. ... person and the nexus to the\n<|id|>23<|page|>3<|box|>89 140 125 854<|content|>United States relevant to OFAC's jurisdiction under 31 C. ... Part 594 and Executive Order 14024\n<|id|>33<|page|>3<|box|>839 174 877 854<|content|>(c) passport copies of all directors and sharehold...t ownership interests in the counterparty; ... and\n<|id|>35<|page|>4<|box|>171 140 354 856<|content|>The onboarding of Caspian Star was performed by DT...e memorandum is included in the narrative at Tab 2\n<|id|>70<|page|>8<|box|>703 174 794 856<|content|>(iii) cross-referencing of all identified benefici...Canada, Australia, Japan, and Switzerland; ... and\n<|id|>72<|page|>9<|box|>90 140 162 854<|content|>The first quarterly review cycle under the Overwat...included in the remediation status report at Tab 4\n<|id|>88<|page|>10<|box|>699 174 753 854<|content|>(iv) DTI's internal escalation procedures for repo...ly appointed Sanctions Compliance Officer; ... and\n<|id|>90<|page|>10<|box|>824 140 861 854<|content|>A training log documenting attendance, completion ... all fifty-six participants is enclosed at Tab 4-C\n<|id|>110<|page|>12<|box|>787 174 824 854<|content|>Priya Anand, Partner Calderwood & Harkness LLP 400...r New York, NY 10022 Telephone: ... (212) 555-0147\n<|id|>111<|page|>12<|box|>833 174 849 493<|content|>Email: ... com\n<|id|>112<|page|>12<|box|>849 140 885 854<|content|>We are available to meet with OFAC at its convenie... to discuss this submission or any related matters\n<|id|>116<|page|>13<|box|>159 142 176 299<|content|>Priya Anand Partner\n<|id|>117<|page|>13<|box|>176 142 193 334<|content|>Date: ... December 22, 2023\n<|id|>119<|page|>13<|box|>219 174 255 854<|content|>Tab 1: ... RNB20220912-01, RNB20221003-01, RNB20221114-01, RNB20221219-01, RNB20230123-01)\n<|id|>120<|page|>13<|box|>263 176 281 823<|content|>Tab 1-A: ... Confirmation Letter, dated December 15, 2023\n<|id|>121<|page|>13<|box|>289 176 306 545<|content|>Tab 2: ... Beneficial Ownership Diligence Narrative\n<|id|>122<|page|>13<|box|>314 176 333 777<|content|>Tab 2-A: ... Farid Mammadov Beneficial Ownership Declaration, dated July 6, 2021\n<|id|>123<|page|>13<|box|>340 176 378 854<|content|>Tab 3: ... Prior Transactions Certification (signe...I, and Derek Huang, Chief Compliance Officer, DEH)\n<|id|>124<|page|>13<|box|>385 176 402 434<|content|>Tab 4: ... Remediation Status Report\n<|id|>125<|page|>13<|box|>411 176 429 522<|content|>Tab 4-A: ... Kira Petrossian — Curriculum Vitae\n<|id|>126<|page|>13<|box|>436 174 474 854<|content|>Tab 4-B: ... 0 (effective November 1, 2023)\n<|id|>127<|page|>13<|box|>479 174 517 854<|content|>Tab 4-C: ... August 14, 2023 – October 31, 2023)\n<|id|>128<|page|>13<|box|>525 174 544 761<|content|>Tab 5: ... DEH Corporate Organizational Chart (current as of December 22, 2023)\n<|id|>129<|page|>13<|box|>550 140 595 854<|content|>cc: ... Kira Petrossian, Sanctions Compliance Officer, Dunmore Trading International Ltd",
+    "raw_response": "<|src_id|>14<|tgt_id|>15\n<|src_id|>22<|tgt_id|>23",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ]
+}

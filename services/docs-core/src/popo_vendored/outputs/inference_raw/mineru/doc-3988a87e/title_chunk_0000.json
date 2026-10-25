@@ -1,0 +1,32 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>136 153 179 844<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF AURELIUS\n<|id|>35<|page|>7<|box|>416 421 433 576<|content|>CERTIFICATION\n<|id|>43<|page|>7<|box|>726 449 742 549<|content|>EXHIBIT A\n<|id|>44<|page|>7<|box|>753 143 787 852<|content|>Engagement Letter dated March 12, 2024, between Au",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>35<|level|>2\n<|id|>43<|level|>2\n<|id|>44<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        }
+    ]
+}

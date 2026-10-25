@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>14<|page|>1<|box|>844 140 898 854<|content|>The address of the registered office of the Corpor...ton, County of New Castle, Delaware 19801. ... The\n<|id|>15<|page|>2<|box|>89 140 126 854<|content|>Corporation may, from time to time, change its reg...ate of Delaware in the manner provided by the DGCL\n<|id|>61<|page|>7<|box|>683 140 700 779<|content|>CASCADIA FIBER NETWORKS, INC. ... (as the surviving corporation in the Merger)\n<|id|>62<|page|>7<|box|>702 143 717 251<|content|>By: ... By\n<|id|>63<|page|>7<|box|>718 142 734 323<|content|>Name: ... Derek Holmgren\n<|id|>64<|page|>7<|box|>734 143 750 364<|content|>Title: ... Chief Executive Officer\n<|id|>65<|page|>7<|box|>753 142 768 269<|content|>or, alternatively: ... or, alternatively\n<|id|>66<|page|>7<|box|>777 140 794 779<|content|>CASCADIA FIBER NETWORKS, INC. ... (as the surviving corporation in the Merger)\n<|id|>67<|page|>7<|box|>796 143 811 251<|content|>By: ... By\n<|id|>68<|page|>7<|box|>813 143 828 321<|content|>Name: ... Liam Sutherland\n<|id|>69<|page|>7<|box|>830 143 845 290<|content|>Title: ... Sole Director\n<|id|>72<|page|>7<|box|>893 143 907 343<|content|>Delaware File Number: ... 5197843\n<|id|>73<|page|>7<|box|>916 143 929 294<|content|>Delaware File No. ... 5197843\n<|id|>74<|page|>8<|box|>89 140 166 854<|content|>This Amended and Restated Certificate of Incorpora...e Merger as specified in the Certificate of Merger",
+    "raw_response": "<|src_id|>14<|tgt_id|>15",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 15
+        }
+    ]
+}

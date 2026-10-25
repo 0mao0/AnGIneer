@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        4
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 127 831<|content|># Meridian ABL — Final Call with Ridgeline; ... 1011-00001]\n<|id|>5<|page|>1<|box|>296 142 314 227<|content|>Raymond,\n<|id|>1<|page|>1<|box|>171 140 189 637<|content|>- From: ... com>\n<|id|>2<|page|>1<|box|>202 140 220 495<|content|>- To: ... com>\n<|id|>3<|page|>1<|box|>234 140 252 573<|content|>- Cc: ... com>\n<|id|>4<|page|>1<|box|>265 140 284 470<|content|>- Date: ... 00 -0000\n<|id|>8<|page|>1<|box|>595 140 898 848<|content|>**Ridgeline's Confirmed Position. ... 46 million, or\n<|id|>9<|page|>2<|box|>90 140 165 849<|content|>roughly 13. ... Kershaw expressed that Ridgeline r...acknowledged the impasse if neither was acceptable\n<|id|>20<|page|>3<|box|>859 143 876 250<|content|>Best regards,\n<|id|>21<|page|>4<|box|>89 140 109 284<|content|>Stephanie Okafor\n<|id|>22<|page|>4<|box|>121 140 138 361<|content|>Partner, Banking & Finance\n<|id|>23<|page|>4<|box|>152 140 171 370<|content|>Calderwood & Harkness LLP\n<|id|>24<|page|>4<|box|>184 140 202 374<|content|>One Liberty Plaza, 45th Floor\n<|id|>25<|page|>4<|box|>215 140 234 310<|content|>New York, NY 10006\n<|id|>26<|page|>4<|box|>244 140 263 308<|content|>Tel: ... (212) 555-4180\n<|id|>27<|page|>4<|box|>277 140 296 419<|content|>sokafor@calderwoodharkness. ... com\n<|id|>28<|page|>4<|box|>402 140 574 848<|content|>CONFIDENTIALITY NOTICE: ... Thank you",
+    "raw_response": "<|src_id|>8<|tgt_id|>9",
+    "parsed": [
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        }
+    ]
+}

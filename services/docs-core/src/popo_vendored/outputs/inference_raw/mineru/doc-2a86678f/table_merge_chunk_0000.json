@@ -1,0 +1,19 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['3', 'Benchmark Real Estate Holdings LLC (Akron, OH)', 'Warehouse Lease — leased warehouse and distribution facility at 900 Darrow', 'September 1, 2020', 'Lease term expires December 31, 2025; approximately 85,000 square feet of warehouse', '$42,000 per month', '$126,000.00 (three months of prepetition rent arrears: April 2022, May 2022, and partial June 2022, at']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'Road, Akron, OH 44305', '', 'and distribution space; used for warehousing and distribution of finished packaging products near CPS headquarters and Plant 1', '', '$42,000 per month)']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 80,
+    "table2_idx": 81
+}

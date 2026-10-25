@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        54
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        49,
+        51,
+        54
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>529<|page|>45<|box|>89 437 107 560<|content|>SCHEDULE C\n<|id|>530<|page|>45<|box|>131 315 148 683<|content|>FORM OF MONTHLY INVESTOR REPORT\n<|id|>531<|page|>45<|box|>157 142 174 612<|content|>SkyLend Receivables Trust 2024-1 Monthly Investor\n<|id|>536<|page|>46<|box|>125 143 138 354<|content|>IV. Cumulative Net Losses\n<|id|>538<|page|>46<|box|>276 143 292 331<|content|>V. Credit Enhancement\n<|id|>540<|page|>46<|box|>429 147 444 285<|content|>| VI. Distributions\n<|id|>542<|page|>46<|box|>736 143 753 300<|content|>VII. Note Summary\n<|id|>545<|page|>47<|box|>161 143 176 302<|content|>VIII. Excess Spread\n<|id|>547<|page|>47<|box|>369 143 387 486<|content|>IX. Prepayment and Weighted Average Life\n<|id|>549<|page|>47<|box|>541 142 556 637<|content|>X. Servicer Termination Events and Early Amortizat\n<|id|>554<|page|>47<|box|>688 142 705 617<|content|>XI. Payment Application Waterfall Compliance Certi\n<|id|>565<|page|>49<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>566<|page|>49<|box|>130 274 174 722<|content|>FORM OF SERVICER COMPLIANCE CERTIFICATE SERVICER C\n<|id|>567<|page|>49<|box|>183 158 217 838<|content|>SkyLend Receivables Trust 2024-1 Sale and Servicin\n<|id|>588<|page|>51<|box|>89 447 107 550<|content|>EXHIBIT B\n<|id|>589<|page|>51<|box|>130 254 174 743<|content|>FORM OF SUB-SERVICER COMPLIANCE CERTIFICATE SUB-SE\n<|id|>590<|page|>51<|box|>183 158 217 838<|content|>SkyLend Receivables Trust 2024-1 Sale and Servicin\n<|id|>591<|page|>51<|box|>227 140 244 563<|content|>Collection Period: [Month/Year] Payment Date: [Dat\n<|id|>615<|page|>54<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>616<|page|>54<|box|>131 290 148 705<|content|>FORM OF OFFICER'S CERTIFICATE (ANNUAL)\n<|id|>617<|page|>54<|box|>156 341 174 656<|content|>ANNUAL OFFICER'S CERTIFICATE\n<|id|>618<|page|>54<|box|>183 158 217 838<|content|>SkyLend Receivables Trust 2024-1 Sale and Servicin",
+    "raw_response": "<|id|>529<|level|>1\n<|id|>530<|level|>2\n<|id|>531<|level|>3\n<|id|>536<|level|>4\n<|id|>538<|level|>4\n<|id|>540<|level|>4\n<|id|>542<|level|>4\n<|id|>545<|level|>4\n<|id|>547<|level|>4\n<|id|>549<|level|>4\n<|id|>554<|level|>4\n<|id|>565<|level|>1\n<|id|>566<|level|>2\n<|id|>567<|level|>3\n<|id|>588<|level|>1\n<|id|>589<|level|>2\n<|id|>590<|level|>3\n<|id|>591<|level|>-1\n<|id|>615<|level|>1\n<|id|>616<|level|>2\n<|id|>617<|level|>3\n<|id|>618<|level|>3",
+    "parsed": [
+        {
+            "id": 529,
+            "level": 1
+        },
+        {
+            "id": 530,
+            "level": 2
+        },
+        {
+            "id": 531,
+            "level": 3
+        },
+        {
+            "id": 536,
+            "level": 4
+        },
+        {
+            "id": 538,
+            "level": 4
+        },
+        {
+            "id": 540,
+            "level": 4
+        },
+        {
+            "id": 542,
+            "level": 4
+        },
+        {
+            "id": 545,
+            "level": 4
+        },
+        {
+            "id": 547,
+            "level": 4
+        },
+        {
+            "id": 549,
+            "level": 4
+        },
+        {
+            "id": 554,
+            "level": 4
+        },
+        {
+            "id": 565,
+            "level": 1
+        },
+        {
+            "id": 566,
+            "level": 2
+        },
+        {
+            "id": 567,
+            "level": 3
+        },
+        {
+            "id": 588,
+            "level": 1
+        },
+        {
+            "id": 589,
+            "level": 2
+        },
+        {
+            "id": 590,
+            "level": 3
+        },
+        {
+            "id": 615,
+            "level": 1
+        },
+        {
+            "id": 616,
+            "level": 2
+        },
+        {
+            "id": 617,
+            "level": 3
+        },
+        {
+            "id": 618,
+            "level": 3
+        }
+    ]
+}

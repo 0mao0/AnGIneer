@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>114 295 132 702<|content|>CERTIFICATE OF INCORPORATION\n<|id|>1<|page|>1<|box|>152 480 172 517<|content|>OF\n<|id|>2<|page|>1<|box|>190 267 210 730<|content|>NORTHGATE WIRELESS AMERICAS INC.\n<|id|>3<|page|>1<|box|>228 403 244 593<|content|>A Delaware Corporation\n<|id|>6<|page|>1<|box|>358 143 375 243<|content|>ARTICLE I\n<|id|>8<|page|>1<|box|>448 143 465 250<|content|>ARTICLE II\n<|id|>16<|page|>1<|box|>782 142 799 256<|content|>ARTICLE III\n<|id|>22<|page|>2<|box|>358 142 375 256<|content|>ARTICLE IV\n<|id|>23<|page|>2<|box|>388 140 406 424<|content|>AUTHORIZED CAPITAL STOCK\n<|id|>28<|page|>2<|box|>732 142 750 250<|content|>ARTICLE V\n<|id|>32<|page|>3<|box|>167 142 184 256<|content|>ARTICLE VI\n<|id|>33<|page|>3<|box|>198 140 215 431<|content|>INITIAL BOARD OF DIRECTORS\n<|id|>38<|page|>3<|box|>580 142 598 263<|content|>ARTICLE VII\n<|id|>39<|page|>3<|box|>611 140 628 493<|content|>LIMITATION OF DIRECTOR LIABILITY\n<|id|>46<|page|>4<|box|>222 140 239 271<|content|>ARTICLE VIII\n<|id|>52<|page|>5<|box|>285 142 301 256<|content|>ARTICLE IX\n<|id|>53<|page|>5<|box|>315 140 333 620<|content|>AMENDMENT OF CERTIFICATE OF INCORPORATION\n<|id|>56<|page|>5<|box|>534 142 551 250<|content|>ARTICLE X\n<|id|>59<|page|>5<|box|>776 142 792 256<|content|>ARTICLE XI\n<|id|>65<|page|>6<|box|>402 140 419 264<|content|>ARTICLE XII\n<|id|>74<|page|>7<|box|>295 142 311 292<|content|>INCORPORATOR:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>28<|level|>2\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>38<|level|>2\n<|id|>39<|level|>3\n<|id|>46<|level|>2\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>56<|level|>2\n<|id|>59<|level|>2\n<|id|>65<|level|>2\n<|id|>74<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        }
+    ]
+}

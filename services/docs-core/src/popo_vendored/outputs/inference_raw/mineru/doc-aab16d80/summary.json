@@ -1,0 +1,183 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2451pxiv\\input\\pdfs\\doc-aab16d80.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-2451pxiv\\enriched\\doc-aab16d80.json",
+    "contd_output": "<|src_id|>93<|tgt_id|>94\n<|src_id|>117<|tgt_id|>118\n<|src_id|>163<|tgt_id|>164",
+    "title_output": "<|id|>9<|level|>1\n<|id|>16<|level|>1\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>24<|level|>2\n<|id|>34<|level|>2\n<|id|>37<|level|>1\n<|id|>40<|level|>1\n<|id|>41<|level|>2\n<|id|>49<|level|>2\n<|id|>63<|level|>2\n<|id|>71<|level|>2\n<|id|>82<|level|>2\n<|id|>92<|level|>2\n<|id|>100<|level|>2\n<|id|>114<|level|>2\n<|id|>122<|level|>2\n<|id|>139<|level|>2\n<|id|>175<|level|>1\n<|id|>183<|level|>1\n<|id|>191<|level|>1\n<|id|>204<|level|>1",
+    "image_output": "<|src_id|>38<|tgt_id|>37\n<|src_id|>39<|tgt_id|>37\n<|src_id|>206<|tgt_id|>204\n<|src_id|>207<|tgt_id|>204\n<|src_id|>208<|tgt_id|>204",
+    "contd_label": [
+        {
+            "src_id": 93,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 118
+        },
+        {
+            "src_id": 163,
+            "tgt_id": 164
+        }
+    ],
+    "title_label": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 40,
+            "level": 1
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 139,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 1
+        },
+        {
+            "id": 183,
+            "level": 1
+        },
+        {
+            "id": 191,
+            "level": 1
+        },
+        {
+            "id": 204,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 38,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 206,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 207,
+            "tgt_id": 204
+        },
+        {
+            "src_id": 208,
+            "tgt_id": 204
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 206,
+            "table2_idx": 207,
+            "upper_row_ss": [
+                [
+                    "7",
+                    "Delivery of Graystone University Medical Center",
+                    "Veridian / Graystone",
+                    "Certificate of insurance — GL and PL coverage",
+                    "July 3, 2023",
+                    "Satisfied"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Insurance Certificate (Site 001)",
+                    "",
+                    "($5M/$10M)",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 207,
+            "table2_idx": 208,
+            "upper_row_ss": [
+                [
+                    "16",
+                    "Secretary's Certificate — Veridian",
+                    "Veridian",
+                    "Board resolutions, incumbency, and",
+                    "June 28, 2023",
+                    "Satisfied"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "organizational documents",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

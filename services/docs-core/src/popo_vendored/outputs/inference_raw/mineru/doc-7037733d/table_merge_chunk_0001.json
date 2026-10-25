@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['3', 'Liquor License', 'Medium', 'Change-of-control']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'Transfers', '', 'transfers are required for liquor licenses across five states/territories (Florida, Georgia, South Carolina, USVI, The Bahamas). Processing times range from 4 to 8+ weeks, and the risk of a lapse in liquor license coverage during the transition period could disrupt food and beverage operations at affected properties. We recommend initiating transfer applications promptly upon signing and considering interim operating arrangements where necessary.']]\n",
+    "raw_response": "[1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 320,
+    "table2_idx": 321
+}

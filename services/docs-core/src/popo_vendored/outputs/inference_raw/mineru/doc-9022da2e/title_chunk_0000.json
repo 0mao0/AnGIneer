@@ -1,0 +1,61 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>15<|page|>1<|box|>568 140 584 264<|content|>I. Introduction\n<|id|>22<|page|>2<|box|>402 140 419 341<|content|>II. Documents Examined\n<|id|>36<|page|>3<|box|>541 142 558 279<|content|>III. Assumptions\n<|id|>47<|page|>4<|box|>638 142 655 250<|content|>IV. Opinions\n<|id|>53<|page|>5<|box|>439 140 457 406<|content|>V. Qualifications and Limitations\n<|id|>62<|page|>6<|box|>520 140 537 344<|content|>VI. Consent and Reliance\n<|id|>67<|page|>6<|box|>887 212 904 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>68<|page|>7<|box|>90 214 106 514<|content|>Vivienne St. Claire, Responsible Partner\n<|id|>69<|page|>7<|box|>114 142 128 517<|content|>INTERNAL DRAFT NOTATIONS — NOT FOR FILING",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>15<|level|>2\n<|id|>22<|level|>2\n<|id|>36<|level|>2\n<|id|>47<|level|>2\n<|id|>53<|level|>2\n<|id|>62<|level|>2\n<|id|>67<|level|>1\n<|id|>68<|level|>2\n<|id|>69<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 3
+        }
+    ]
+}

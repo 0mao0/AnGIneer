@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        61,
+        123
+    ],
+    "pages": [
+        62,
+        68,
+        70,
+        76,
+        122
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>288<|page|>62<|box|>167 602 189 913<|content|>STATISTICS\n<|id|>289<|page|>62<|box|>198 671 305 915<|content|>International Financial Statistics Capital Movemen...ign Currency Positions Exchange Stabilization Fund\n<|id|>320<|page|>68<|box|>152 271 165 728<|content|>[Position at end of period in millions of dollars. ... Treasury International Capital Reporting System]\n<|id|>324<|page|>70<|box|>816 506 844 911<|content|>^{6} Beginning January 2001, Cayman Islands replac...i Arabia and United Arab Emirates (Trucial States)\n<|id|>344<|page|>76<|box|>840 504 857 866<|content|>^{7} Includes Bahrain, Iran, Iraq, Kuwait, Oman, Q...i Arabia and United Arab Emirates (Trucial States)\n<|id|>345<|page|>76<|box|>858 504 869 707<|content|>^{8} Includes Algeria, Gabon, Libya, and Nigeria. ... ^{8} Includes Algeria, Gabon, Libya, and Nigeria\n<|id|>516<|page|>122<|box|>176 81 439 491<|content|>Amounts in the Harbor Maintenance Trust Fund are a...elopment Act of 1986. ... Section 201 of the Water\n<|id|>517<|page|>122<|box|>116 504 191 913<|content|>Resources Development Act of 1996 (Public Law 104-...eral navigation projects for commercial navigation",
+    "raw_response": "<|src_id|>516<|tgt_id|>517",
+    "parsed": [
+        {
+            "src_id": 516,
+            "tgt_id": 517
+        }
+    ]
+}

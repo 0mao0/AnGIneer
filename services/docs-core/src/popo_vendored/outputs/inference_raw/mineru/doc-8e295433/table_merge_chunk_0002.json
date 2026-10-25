@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['4', 'Conduct comprehensive vulnerability assessment and third-party', 'Solstice Engineering / Third-Party Testing Firm', 'January 2026', 'HIGH']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'penetration testing of BLE interfaces and cloud APIs; document all identified vulnerabilities with CVSS scores and mitigation status', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 398,
+    "table2_idx": 399
+}

@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=6, 第7区', 'VI', '9', '10', '12', '13', '17', '19', '20', '23', '19', '24', '26', '30']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=4, 暴雨分区', 'rowspan=4, 土的类别', 'colspan=4, 1/25(4%)', 'colspan=4, 1/50(2%)', 'colspan=4, 1/100(1%)']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 1071,
+    "table2_idx": 1072
+}

@@ -1,0 +1,120 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 161 125 834<|content|>IN THE CIRCUIT COURT OF THE SEVENTEENTH JUDICIAL C\n<|id|>8<|page|>1<|box|>444 145 479 849<|content|>PLAINTIFF'S SUBPOENA DUCES TECUM TO NON-PARTY IRON\n<|id|>9<|page|>1<|box|>523 142 540 441<|content|>TO: IRONCLAD NATIONAL BANK\n<|id|>14<|page|>1<|box|>773 140 791 477<|content|>SECTION 1: COMMAND TO PRODUCE\n<|id|>21<|page|>2<|box|>520 140 537 653<|content|>SECTION 2: IDENTIFICATION OF PARTIES AND COUNSEL\n<|id|>23<|page|>2<|box|>674 142 691 498<|content|>2.2 Plaintiff's Counsel (Issuing the Subpoena)\n<|id|>27<|page|>2<|box|>835 142 851 267<|content|>2.3 Defendants.\n<|id|>31<|page|>3<|box|>239 142 255 336<|content|>2.4 Defendants' Counsel\n<|id|>34<|page|>3<|box|>328 140 345 663<|content|>SECTION 3: BACKGROUND AND RELEVANCE STATEMENT\n<|id|>46<|page|>4<|box|>747 140 763 558<|content|>SECTION 4: DEFINITIONS AND INSTRUCTIONS\n<|id|>67<|page|>7<|box|>212 140 229 578<|content|>SECTION 5: NOTICE TO DEFENDANTS' COUNSEL\n<|id|>71<|page|>7<|box|>462 447 479 550<|content|>EXHIBIT A\n<|id|>72<|page|>7<|box|>487 313 503 684<|content|>SCHEDULE OF DOCUMENTS REQUESTED\n<|id|>74<|page|>7<|box|>614 140 632 718<|content|>CATEGORY 1: LOAN AGREEMENTS AND RELATED DOCUMENTS\n<|id|>79<|page|>8<|box|>292 140 310 684<|content|>CATEGORY 2: FINANCIAL STATEMENTS AND TAX RETURNS\n<|id|>83<|page|>8<|box|>765 140 782 666<|content|>CATEGORY 3: REVENUE REPORTS AND OPERATING DATA\n<|id|>88<|page|>9<|box|>465 140 483 723<|content|>CATEGORY 4: LOAN COMPLIANCE AND COVENANT REPORTING\n<|id|>92<|page|>10<|box|>89 140 106 452<|content|>CATEGORY 5: COMMUNICATIONS\n<|id|>95<|page|>10<|box|>407 140 424 665<|content|>CATEGORY 6: COLLATERAL AND SECURITY DOCUMENTS\n<|id|>99<|page|>10<|box|>752 140 768 589<|content|>CATEGORY 7: ESCROW AND ACCOUNT RECORDS\n<|id|>102<|page|>11<|box|>248 140 265 645<|content|>SECTION 6: COMPLIANCE AND SERVICE INFORMATION\n<|id|>110<|page|>11<|box|>608 140 625 573<|content|>SECTION 7: PENALTIES FOR NON-COMPLIANCE\n<|id|>114<|page|>12<|box|>89 142 106 542<|content|>SECTION 8: CONFIDENTIALITY PROVISIONS\n<|id|>118<|page|>12<|box|>523 344 539 651<|content|>CERTIFICATION AND SIGNATURE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>27<|level|>3\n<|id|>31<|level|>3\n<|id|>34<|level|>2\n<|id|>46<|level|>2\n<|id|>67<|level|>2\n<|id|>71<|level|>1\n<|id|>72<|level|>2\n<|id|>74<|level|>3\n<|id|>79<|level|>3\n<|id|>83<|level|>3\n<|id|>88<|level|>3\n<|id|>92<|level|>3\n<|id|>95<|level|>3\n<|id|>99<|level|>3\n<|id|>102<|level|>2\n<|id|>110<|level|>2\n<|id|>114<|level|>2\n<|id|>118<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 114,
+            "level": 2
+        },
+        {
+            "id": 118,
+            "level": 2
+        }
+    ]
+}

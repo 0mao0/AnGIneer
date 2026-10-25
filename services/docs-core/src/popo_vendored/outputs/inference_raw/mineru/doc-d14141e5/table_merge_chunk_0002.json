@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['M/V Volga Spirit', '9756892', 'Panamax Bulk Carrier, 76,400 DWT', 'Cyprus', 'Dnepr Shipholding Inc.(BVI Company No. 2014876)', 'Not arrested.Last reported at Fujairah anchorage, UAE. AIS monitoring ongoing through Northcape Maritime Advisory Ltd.']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', 'Arrest documentation on standby with Al-Rashid Hatem & Associates (UAE) and Straits Meridian LLP (Singapore). Principal remaining enforcement target.']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 366,
+    "table2_idx": 367
+}

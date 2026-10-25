@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>286 176 319 821<|content|>Kamyar Mohajerani, Richard Haeussler, Rishub Nagpa..., Abubakr Abdulgadir, Jens-Peter Kaps and Kris Gaj\n<|id|>2<|page|>1<|box|>332 346 347 652<|content|>Cryptographic Engineering Research Group,\n<|id|>3<|page|>1<|box|>347 410 359 588<|content|>George Mason University\n<|id|>4<|page|>1<|box|>360 430 374 569<|content|>Fairfax, VA, U. ... A\n<|id|>17<|page|>2<|box|>848 169 879 828<|content|>The corresponding LWC Development Package has been... an extended team including representatives of the\n<|id|>18<|page|>3<|box|>124 168 267 828<|content|>Technical University of Munich (TUM), Virginia Tec... the Virginia Tech Signatures Analysis Lab in [23]\n<|id|>25<|page|>3<|box|>835 168 878 826<|content|>a) VHDL code supporting the API protocol, common t...well as all CAESAR candidates and AES-GCM (LWCsrc)\n<|id|>30<|page|>4<|box|>447 168 504 828<|content|>It should be stressed that the implementations of ... the specifcation of the LWC Hardware API directly\n<|id|>27<|page|>4<|box|>375 168 390 724<|content|>b) Universal testbench, common for all API-compliant designs (LWC_TB)\n<|id|>28<|page|>4<|box|>390 169 405 709<|content|>c) Python app used to automatically generate test vectors (cryptotvgen)\n<|id|>34<|page|>4<|box|>772 189 788 749<|content|>1. ... representing widely used low-cost, low-power, low-energy FPGA families\n<|id|>37<|page|>4<|box|>863 169 878 653<|content|>These criteria led to the selection of the followi...led to the selection of the following FPGA devices\n<|id|>35<|page|>4<|box|>797 189 827 826<|content|>2. ... capable of holding SCA-protected designs (p...o 4 times more resources than unprotected designs)\n<|id|>44<|page|>9<|box|>586 194 601 673<|content|>Three interesting properties of each variant include the ratios of\n<|id|>48<|page|>9<|box|>680 169 709 825<|content|>Additionally, for candidates that support hashing,... the ratio of hashing vs. ... processing plaintext\n<|id|>45<|page|>9<|box|>611 194 625 423<|content|>• processing AD vs. ... plaintext\n<|id|>46<|page|>9<|box|>634 194 649 557<|content|>• decrypting ciphertext vs. ... encrypting plaintext\n<|id|>51<|page|>9<|box|>848 169 879 826<|content|>Most of the designs assume the following standard ...tion: ... Public Message Number (Npub), Associated\n<|id|>52<|page|>10<|box|>124 168 211 828<|content|>Data (AD), Plaintext (PT). ... AD, Npub, Ciphertext, Tag",
+    "raw_response": "<|src_id|>17<|tgt_id|>18\n<|src_id|>51<|tgt_id|>52",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 51,
+            "tgt_id": 52
+        }
+    ]
+}

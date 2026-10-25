@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 258 180 738<|content|>Harrowgate Velocity Merger Sub Inc. ... , a Delaware corporation,\n<|id|>3<|page|>1<|box|>188 444 205 553<|content|>with and into\n<|id|>4<|page|>1<|box|>214 321 232 674<|content|>VeloPay Systems, Inc. ... , a Delaware corporation\n<|id|>5<|page|>1<|box|>239 251 257 745<|content|>Pursuant to Section 251 of the Delaware General Corporation Law\n<|id|>6<|page|>1<|box|>266 287 282 707<|content|>Filed with the Secretary of State of the State of Delaware\n<|id|>7<|page|>1<|box|>291 446 309 550<|content|>July 22, 2025\n<|id|>8<|page|>1<|box|>316 140 354 854<|content|>The undersigned corporation does hereby certify, p... of the State of Delaware (the \"DGCL\"), as follows\n<|id|>18<|page|>2<|box|>133 174 170 854<|content|>(b) Harrowgate Velocity Merger Sub Inc. ... and\n<|id|>20<|page|>2<|box|>204 138 352 857<|content|>The Merger Agreement provides for the merger of Me...nce with the provisions of Section 259 of the DGCL\n<|id|>28<|page|>2<|box|>771 173 901 857<|content|>The sole director of Harrowgate Velocity Merger Su...ns contemplated by the Merger Agreement, and (iii)\n<|id|>29<|page|>3<|box|>89 174 126 854<|content|>resolving to recommend to the sole stockholder of ...rove and adopt the Merger Agreement and the Merger\n<|id|>49<|page|>5<|box|>380 140 398 596<|content|>VELOPAY SYSTEMS, INC. ... (as the Surviving Corporation)\n<|id|>50<|page|>5<|box|>398 143 416 254<|content|>By: ... By\n<|id|>51<|page|>5<|box|>416 142 433 323<|content|>Name: ... Nathan Aldridge\n<|id|>52<|page|>5<|box|>433 142 449 470<|content|>Title: ... Chief Executive Officer and President\n<|id|>53<|page|>5<|box|>450 143 465 290<|content|>Date: ... July 22, 2025\n<|id|>54<|page|>5<|box|>465 142 484 813<|content|>HARROWGATE VELOCITY MERGER SUB INC. ... (as the Non-Surviving Corporation)\n<|id|>55<|page|>5<|box|>484 143 502 253<|content|>By: ... By\n<|id|>56<|page|>5<|box|>502 143 518 323<|content|>Name: ... Priya Deshmukh\n<|id|>57<|page|>5<|box|>518 143 535 263<|content|>Title: ... President\n<|id|>58<|page|>5<|box|>536 142 554 290<|content|>Date: ... July 22, 2025\n<|id|>76<|page|>6<|box|>916 140 930 539<|content|>Filed with the Secretary of State of the State of Delaware — July 22, 2025\n<|id|>77<|page|>7<|box|>90 138 310 856<|content|>To the fullest extent permitted by the DGCL as the... adopted pursuant to Section 102(b)(7) of the DGCL\n<|id|>87<|page|>8<|box|>205 140 223 323<|content|>Name: ... Nathan Aldridge\n<|id|>88<|page|>8<|box|>222 140 239 468<|content|>Title: ... Chief Executive Officer and President\n<|id|>89<|page|>8<|box|>239 140 257 292<|content|>Date: ... July 22, 2025",
+    "raw_response": "<|src_id|>2<|tgt_id|>3\n<|src_id|>3<|tgt_id|>4\n<|src_id|>28<|tgt_id|>29",
+    "parsed": [
+        {
+            "src_id": 2,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 3,
+            "tgt_id": 4
+        },
+        {
+            "src_id": 28,
+            "tgt_id": 29
+        }
+    ]
+}

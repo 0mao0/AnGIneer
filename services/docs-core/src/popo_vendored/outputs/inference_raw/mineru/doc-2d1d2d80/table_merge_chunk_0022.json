@@ -1,0 +1,16 @@
+{
+    "task": "table_merge",
+    "chunk_index": 22,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=3, 航迹观测', 'rowspan=3, 0.1', '外业观测', '1.观测单桅或双桅的目标2.观测、定位的方法和精度']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=2, 航迹观测', 'rowspan=2, 0.1', '外业记录', '1.记簿和字迹质量2.观测、记簿的差错及处理']]\n",
+    "raw_response": "[1, 1, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        0,
+        0
+    ],
+    "table1_idx": 195,
+    "table2_idx": 196
+}

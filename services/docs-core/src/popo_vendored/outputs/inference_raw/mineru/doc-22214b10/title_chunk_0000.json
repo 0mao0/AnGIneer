@@ -1,0 +1,76 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>411 140 429 364<|content|>I. Introduction and Purpose\n<|id|>2<|page|>1<|box|>436 142 454 235<|content|>Dear Lydia:\n<|id|>5<|page|>1<|box|>786 140 804 338<|content|>II. Scope of Engagement\n<|id|>29<|page|>4<|box|>459 140 476 377<|content|>III. Staffing and Billing Rates\n<|id|>35<|page|>5<|box|>458 142 474 316<|content|>IV. Estimated Budget\n<|id|>36<|page|>5<|box|>489 140 505 344<|content|>A. Fee Estimate by Phase\n<|id|>44<|page|>6<|box|>847 142 864 625<|content|>B. Alternative Fee Arrangement — Voluntary Cap Dis\n<|id|>46<|page|>7<|box|>204 140 222 354<|content|>V. Reimbursable Expenses\n<|id|>57<|page|>8<|box|>285 140 303 390<|content|>VI. Billing and Payment Terms\n<|id|>67<|page|>9<|box|>148 140 167 308<|content|>VII. Conflicts Check\n<|id|>71<|page|>9<|box|>523 140 542 457<|content|>VIII. Coordination with Other Advisors\n<|id|>79<|page|>10<|box|>359 140 376 459<|content|>IX. Key Assumptions and Qualifications\n<|id|>91<|page|>11<|box|>429 140 446 269<|content|>X. Termination\n<|id|>94<|page|>11<|box|>686 140 704 437<|content|>XI. Conclusion and Acknowledgment\n<|id|>101<|page|>12<|box|>321 140 337 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>107<|page|>12<|box|>434 142 450 586<|content|>METROPOLITAN TRANSIT DEVELOPMENT CORP.",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>-1\n<|id|>5<|level|>1\n<|id|>29<|level|>1\n<|id|>35<|level|>1\n<|id|>36<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>1\n<|id|>57<|level|>1\n<|id|>67<|level|>1\n<|id|>71<|level|>1\n<|id|>79<|level|>1\n<|id|>91<|level|>1\n<|id|>94<|level|>1\n<|id|>101<|level|>-1\n<|id|>107<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 29,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        }
+    ]
+}

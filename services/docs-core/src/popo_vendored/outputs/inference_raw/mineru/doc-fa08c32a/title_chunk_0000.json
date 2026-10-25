@@ -1,0 +1,104 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>7<|page|>1<|box|>371 140 388 477<|content|>1. Introduction and Purpose of This Letter\n<|id|>16<|page|>2<|box|>186 140 203 637<|content|>2. Summary of the Partial Award — Amounts Owed by\n<|id|>18<|page|>2<|box|>261 140 277 339<|content|>2.1 Counterclaim Award\n<|id|>26<|page|>2<|box|>757 142 773 313<|content|>2.2 Arbitration Costs\n<|id|>30<|page|>3<|box|>250 140 266 388<|content|>2.3 Legal Cost Reimbursement\n<|id|>32<|page|>3<|box|>414 140 431 464<|content|>2.4 Aggregate Amounts Owed by Kestrel\n<|id|>35<|page|>3<|box|>722 140 739 524<|content|>3. Enforcement Under the New York Convention\n<|id|>36<|page|>3<|box|>753 140 770 408<|content|>3.1 Voluntary Compliance Period\n<|id|>40<|page|>4<|box|>294 140 310 431<|content|>3.2 Enforcement in the United States\n<|id|>46<|page|>5<|box|>176 140 193 374<|content|>3.3 Enforcement in Germany\n<|id|>52<|page|>5<|box|>718 140 734 504<|content|>3.4 Recommended Next Steps on Enforcement\n<|id|>59<|page|>6<|box|>537 140 554 604<|content|>4. Tribunal's Reserved Jurisdiction — Post-Award I\n<|id|>67<|page|>7<|box|>417 140 434 441<|content|>5. Insurance and Lender Notifications\n<|id|>71<|page|>8<|box|>90 140 107 478<|content|>6. Final Invoice — Engagement Economics\n<|id|>72<|page|>8<|box|>121 140 138 284<|content|>6.1 Fee Summary\n<|id|>74<|page|>8<|box|>207 359 223 638<|content|>Total Professional Fees: $2,487,300\n<|id|>77<|page|>8<|box|>563 140 579 370<|content|>6.2 Costs and Disbursements\n<|id|>79<|page|>8<|box|>612 334 628 661<|content|>Total Costs and Disbursements: $634,700\n<|id|>87<|page|>9<|box|>252 142 268 367<|content|>6.3 Total Engagement Value\n<|id|>94<|page|>9<|box|>627 142 643 428<|content|>6.4 Net Financial Outcome for WAL\n<|id|>98<|page|>10<|box|>138 140 156 307<|content|>6.5 Enclosed Invoice\n<|id|>101<|page|>10<|box|>393 140 412 287<|content|>7. Matter Closure",
+    "raw_response": "<|id|>7<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>2\n<|id|>26<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>2\n<|id|>35<|level|>1\n<|id|>36<|level|>2\n<|id|>40<|level|>2\n<|id|>46<|level|>2\n<|id|>52<|level|>2\n<|id|>59<|level|>1\n<|id|>67<|level|>1\n<|id|>71<|level|>1\n<|id|>72<|level|>2\n<|id|>74<|level|>-1\n<|id|>77<|level|>2\n<|id|>79<|level|>-1\n<|id|>87<|level|>2\n<|id|>94<|level|>2\n<|id|>98<|level|>2\n<|id|>101<|level|>1",
+    "parsed": [
+        {
+            "id": 7,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 1
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 1
+        }
+    ]
+}

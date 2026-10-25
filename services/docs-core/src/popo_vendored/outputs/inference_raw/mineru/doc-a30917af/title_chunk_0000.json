@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>172 323 191 674<|content|>ARTICLES OF ORGANIZATION\n<|id|>5<|page|>1<|box|>250 313 268 684<|content|>FAIRWATER HP MANAGER, LLC\n<|id|>13<|page|>1<|box|>594 143 609 325<|content|>ARTICLE I — NAME\n<|id|>15<|page|>1<|box|>645 382 662 614<|content|>Fairwater HP Manager, LLC\n<|id|>18<|page|>2<|box|>89 142 107 361<|content|>ARTICLE II — PURPOSE\n<|id|>25<|page|>2<|box|>724 140 743 457<|content|>ARTICLE III — PRINCIPAL OFFICE\n<|id|>27<|page|>2<|box|>777 176 794 573<|content|>7200 Pratt Street, Suite 1400 Baltimore, MD 21202\n<|id|>29<|page|>3<|box|>90 142 106 442<|content|>ARTICLE IV — RESIDENT AGENT\n<|id|>34<|page|>3<|box|>417 142 434 552<|content|>ARTICLE V — MEMBERS AND MANAGEMENT\n<|id|>39<|page|>4<|box|>186 140 203 393<|content|>ARTICLE VI — ORGANIZER\n<|id|>43<|page|>4<|box|>414 140 431 388<|content|>ARTICLE VII — DURATION\n<|id|>45<|page|>4<|box|>554 140 571 584<|content|>ARTICLE VIII — FEDERAL TAX IDENTIFICATION\n<|id|>47<|page|>4<|box|>625 176 641 272<|content|>52-2201889\n<|id|>49<|page|>4<|box|>819 140 835 514<|content|>ARTICLE IX — OPERATING AGREEMENT\n<|id|>52<|page|>5<|box|>303 140 320 433<|content|>ARTICLE X — EFFECTIVE DATE\n<|id|>54<|page|>5<|box|>462 140 479 516<|content|>ARTICLE XI — ADDITIONAL PROVISIONS\n<|id|>65<|page|>6<|box|>409 354 426 643<|content|>CONSENT OF RESIDENT AGENT\n<|id|>69<|page|>6<|box|>660 176 676 547<|content|>311 West Saratoga Street Baltimore, MD 21201\n<|id|>78<|page|>7<|box|>90 258 106 738<|content|>FILING INSTRUCTIONS — INTERNAL MEMORANDUM\n<|id|>79<|page|>7<|box|>114 258 132 738<|content|>CALDERWOOD & HARKNESS LLP — NOT FOR FILING\n<|id|>81<|page|>7<|box|>195 143 210 357<|content|>Client/Matter Information:\n<|id|>83<|page|>7<|box|>363 143 378 297<|content|>Filing Instructions:",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>5<|level|>1\n<|id|>13<|level|>2\n<|id|>15<|level|>-1\n<|id|>18<|level|>2\n<|id|>25<|level|>2\n<|id|>27<|level|>-1\n<|id|>29<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>45<|level|>2\n<|id|>47<|level|>-1\n<|id|>49<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>65<|level|>2\n<|id|>69<|level|>-1\n<|id|>78<|level|>1\n<|id|>79<|level|>-1\n<|id|>81<|level|>2\n<|id|>83<|level|>2",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 1
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        }
+    ]
+}

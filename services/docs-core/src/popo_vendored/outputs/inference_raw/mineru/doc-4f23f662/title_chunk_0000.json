@@ -1,0 +1,141 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>8<|page|>1<|box|>532 142 549 428<|content|>1. SCOPE OF REPRESENTATION\n<|id|>9<|page|>1<|box|>563 143 580 372<|content|>1.1 Description of the Matter\n<|id|>21<|page|>2<|box|>752 142 768 315<|content|>1.2 Scope Limitations\n<|id|>30<|page|>3<|box|>489 142 506 383<|content|>1.3 Venue and Governing Law\n<|id|>32<|page|>3<|box|>662 140 679 357<|content|>2. ENGAGEMENT TEAM\n<|id|>33<|page|>3<|box|>694 140 710 333<|content|>2.1 Responsible Partner\n<|id|>35<|page|>3<|box|>821 140 839 292<|content|>2.2 Billing Partner\n<|id|>37<|page|>4<|box|>138 142 156 292<|content|>2.3 Lead Associate\n<|id|>39<|page|>4<|box|>267 140 284 323<|content|>2.4 Working Associate\n<|id|>41<|page|>4<|box|>376 140 393 339<|content|>2.5 Additional Personnel\n<|id|>43<|page|>4<|box|>513 140 530 496<|content|>3. FEES AND BILLING ARRANGEMENTS\n<|id|>44<|page|>4<|box|>544 142 561 287<|content|>3.1 Hourly Billing\n<|id|>49<|page|>5<|box|>138 140 157 320<|content|>3.2 Billing Increments\n<|id|>51<|page|>5<|box|>250 140 266 400<|content|>3.3 Disbursements and Expenses\n<|id|>64<|page|>5<|box|>806 140 824 410<|content|>3.4 Invoicing and Payment Terms\n<|id|>70<|page|>6<|box|>595 140 613 380<|content|>3.6 No Guarantee of Outcome\n<|id|>72<|page|>6<|box|>768 140 787 410<|content|>4. CLIENT RESPONSIBILITIES\n<|id|>78<|page|>7<|box|>518 140 537 397<|content|>5. CONFLICTS OF INTEREST\n<|id|>82<|page|>8<|box|>89 140 107 339<|content|>6. CONFIDENTIALITY\n<|id|>89<|page|>8<|box|>450 140 468 387<|content|>7. DOCUMENT RETENTION\n<|id|>93<|page|>9<|box|>89 140 107 465<|content|>8. TERMINATION OF ENGAGEMENT\n<|id|>94<|page|>9<|box|>121 140 138 388<|content|>8.1 Client's Right to Terminate\n<|id|>96<|page|>9<|box|>321 140 339 377<|content|>8.2 Firm's Right to Withdraw\n<|id|>104<|page|>9<|box|>714 140 732 413<|content|>8.3 Obligations Upon Termination\n<|id|>111<|page|>10<|box|>237 140 253 410<|content|>9. LIMITATION OF LIABILITY\n<|id|>115<|page|>10<|box|>539 142 556 586<|content|>10. GOVERNING LAW AND DISPUTE RESOLUTION\n<|id|>119<|page|>11<|box|>89 142 106 547<|content|>11. ENTIRE AGREEMENT AND AMENDMENTS\n<|id|>131<|page|>11<|box|>614 316 631 679<|content|>ACKNOWLEDGMENT AND AGREEMENT",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>9<|level|>3\n<|id|>21<|level|>3\n<|id|>30<|level|>3\n<|id|>32<|level|>2\n<|id|>33<|level|>3\n<|id|>35<|level|>3\n<|id|>37<|level|>3\n<|id|>39<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>2\n<|id|>44<|level|>3\n<|id|>49<|level|>3\n<|id|>51<|level|>3\n<|id|>64<|level|>3\n<|id|>70<|level|>3\n<|id|>72<|level|>2\n<|id|>78<|level|>2\n<|id|>82<|level|>2\n<|id|>89<|level|>2\n<|id|>93<|level|>2\n<|id|>94<|level|>3\n<|id|>96<|level|>3\n<|id|>104<|level|>3\n<|id|>111<|level|>2\n<|id|>115<|level|>2\n<|id|>119<|level|>2\n<|id|>131<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 2
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 131,
+            "level": 2
+        }
+    ]
+}

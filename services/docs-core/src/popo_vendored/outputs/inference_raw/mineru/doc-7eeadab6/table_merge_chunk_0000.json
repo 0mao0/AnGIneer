@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Andreadis Family Holdings LLC (\"AFH\")', '40%', 'AFH is a Delaware limited liability company (File No. 5847291,']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', \"registered agent: National Corporate Services Inc., 818 N. Market Street, Suite 100, Wilmington, DE 19801). AFH members are: Nikolaos Andreadis (70%), Eleni Andreadis (15%), and Georgios Andreadis (15%). AFH controls TSL with a 62% equity stake, making it the majority shareholder of the buyer. Nikolaos Andreadis serves as TSL's Chairman and Chief Executive Officer.\"]]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 51,
+    "table2_idx": 52
+}

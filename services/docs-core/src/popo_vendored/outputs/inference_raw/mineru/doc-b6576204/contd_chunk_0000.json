@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        14,
+        15,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>606 581 623 854<|content|>Date of Application: ... 25 August 2024\n<|id|>6<|page|>1<|box|>631 143 648 408<|content|>Right-click to update Table of Contents\n<|id|>20<|page|>2<|box|>837 140 909 856<|content|>8. ... TSL provides integrated logistics services across the\n<|id|>21<|page|>3<|box|>90 174 126 852<|content|>Mediterranean Sea, the Black Sea, and the Arabian ...rted annual revenues of approximately €620 million\n<|id|>152<|page|>14<|box|>821 140 895 856<|content|>Exhibit 6: ... The reports demonstrate the pattern of fund flows between KMH,\n<|id|>153<|page|>15<|box|>89 140 127 854<|content|>Korinthian DMCC, and related entities, and identif...epository of KMH-attributable funds within the UAE\n<|id|>194<|page|>19<|box|>291 140 324 854<|content|>AL-RASHID HATEM & ASSOCIATES Counsel for the Applicant, Thalassa Shipping & Logistics SA\n<|id|>195<|page|>19<|box|>325 143 342 251<|content|>By: ... By\n<|id|>196<|page|>19<|box|>342 142 359 321<|content|>Name: ... Tariq Al-Rashid\n<|id|>197<|page|>19<|box|>359 142 375 323<|content|>Title: ... Managing Partner\n<|id|>198<|page|>19<|box|>375 140 393 692<|content|>Office 1802, Emirates Financial Towers (South Tower) DIFC, Dubai, UAE\n<|id|>199<|page|>19<|box|>393 143 410 264<|content|>Date: ... Date\n<|id|>201<|page|>19<|box|>429 143 444 292<|content|>Name: ... Leila Hatem\n<|id|>202<|page|>19<|box|>445 143 462 393<|content|>Title: ... Partner, Dispute Resolution\n<|id|>203<|page|>19<|box|>462 140 496 852<|content|>Al-Rashid Hatem & Associates Office 1802, Emirates Financial Towers (South Tower) DIFC, Dubai, UAE\n<|id|>204<|page|>19<|box|>497 143 513 264<|content|>Date: ... Date\n<|id|>207<|page|>19<|box|>619 174 638 777<|content|>Calderwood & Harkness LLP 45 Moorgate, London EC2R 6AR, United Kingdom\n<|id|>208<|page|>19<|box|>645 176 681 852<|content|>Samuel Eklund, Responsible Partner Hannah Brinkley, Lead Associate Patrick Gallagher, Working Associate",
+    "raw_response": "<|src_id|>20<|tgt_id|>21\n<|src_id|>152<|tgt_id|>153",
+    "parsed": [
+        {
+            "src_id": 20,
+            "tgt_id": 21
+        },
+        {
+            "src_id": 152,
+            "tgt_id": 153
+        }
+    ]
+}

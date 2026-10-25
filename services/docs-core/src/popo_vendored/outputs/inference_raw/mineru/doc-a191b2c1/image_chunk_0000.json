@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 174 126 854<|content|>CALDERWOOD & HARKNESS LLP 555 Mission Street, Suit\n<|id|>7<|type|>title<|page|>1<|box|>325 140 343 316<|content|>Ladies and Gentlemen:\n<|id|>10<|type|>title<|page|>1<|box|>657 142 674 486<|content|>1. Defined Terms and Document References\n<|id|>14<|type|>table<|page|>1<|box|>795 143 905 852<|content|>None\n<|id|>15<|type|>table<|page|>2<|box|>88 143 119 852<|content|>None\n<|id|>21<|type|>title<|page|>2<|box|>425 140 441 416<|content|>2. Documents and Items Examined\n<|id|>36<|type|>title<|page|>3<|box|>715 140 732 267<|content|>3. Assumptions\n<|id|>49<|type|>title<|page|>4<|box|>814 140 832 238<|content|>4. Opinions\n<|id|>51<|type|>title<|page|>5<|box|>90 140 107 607<|content|>4.1 Due Incorporation, Valid Existence, and Good S\n<|id|>53<|type|>title<|page|>5<|box|>273 140 290 424<|content|>4.2 Corporate Power and Authority\n<|id|>55<|type|>title<|page|>5<|box|>510 140 527 633<|content|>4.3 Due Authorization, Execution, and Delivery; En\n<|id|>57<|type|>title<|page|>5<|box|>638 142 654 274<|content|>4.4 No Violation\n<|id|>63<|type|>title<|page|>6<|box|>275 140 292 379<|content|>4.5 Securities Law Exemption\n<|id|>65<|type|>title<|page|>6<|box|>476 140 493 586<|content|>4.6 Valid Reservation and Issuance of Conversion S\n<|id|>69<|type|>title<|page|>7<|box|>204 140 222 403<|content|>5. Qualifications and Limitations\n<|id|>71<|type|>title<|page|>7<|box|>261 140 279 375<|content|>5.1 Enforceability Exceptions\n<|id|>77<|type|>title<|page|>7<|box|>584 140 601 315<|content|>5.2 Scope Limitations\n<|id|>81<|type|>title<|page|>8<|box|>157 140 174 521<|content|>5.3 Reliance on Certificates and Representations\n<|id|>83<|type|>title<|page|>8<|box|>359 140 375 344<|content|>5.4 As-of Date Limitation\n<|id|>85<|type|>title<|page|>8<|box|>513 140 532 352<|content|>6. Reliance and Disclosure",
+    "raw_response": "<|src_id|>14<|tgt_id|>10\n<|src_id|>15<|tgt_id|>10",
+    "parsed": [
+        {
+            "src_id": 14,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 15,
+            "tgt_id": 10
+        }
+    ]
+}

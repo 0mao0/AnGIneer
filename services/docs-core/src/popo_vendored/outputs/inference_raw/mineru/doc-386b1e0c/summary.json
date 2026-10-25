@@ -1,0 +1,100 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-p5qjqs8v\\input\\pdfs\\doc-386b1e0c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-p5qjqs8v\\enriched\\doc-386b1e0c.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>15<|level|>3\n<|id|>19<|level|>2\n<|id|>40<|level|>2\n<|id|>47<|level|>2\n<|id|>51<|level|>2\n<|id|>57<|level|>2\n<|id|>60<|level|>2\n<|id|>61<|level|>3\n<|id|>66<|level|>2\n<|id|>79<|level|>2",
+    "image_output": "<|src_id|>42<|tgt_id|>40\n<|src_id|>43<|tgt_id|>40",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 40
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 42,
+            "table2_idx": 43,
+            "upper_row_ss": [
+                [
+                    "Viktor Strand",
+                    "Authorized Person / Co-Founder & Managing Partner, Solara Digital Infrastructure LP",
+                    "____"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Nadia Okafor",
+                    "Authorized Person / Co-Founder & Managing Partner, Solara Digital Infrastructure LP",
+                    "____"
+                ]
+            ]
+        }
+    ]
+}

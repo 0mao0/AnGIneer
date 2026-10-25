@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        53
+    ],
+    "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>496<|page|>46<|box|>161 205 191 817<|content|>6 临河建筑物及其他与通航有关设施\n<|id|>497<|page|>46<|box|>225 429 243 600<|content|>6.1 一般规定\n<|id|>500<|page|>46<|box|>385 440 403 589<|content|>6.2 码头\n<|id|>504<|page|>46<|box|>638 401 657 633<|content|>6.4 修造船水工建筑物\n<|id|>506<|page|>46<|box|>707 350 726 685<|content|>6.6 锚地、停泊区、水上综合服务区\n<|id|>508<|page|>47<|box|>171 331 201 649<|content|>7 与通航有关作业\n<|id|>509<|page|>47<|box|>235 407 253 575<|content|>7.1 一般规定\n<|id|>512<|page|>47<|box|>419 396 436 585<|content|>7.2 水上水下施工\n<|id|>514<|page|>47<|box|>510 407 529 575<|content|>7.3 采砂取石\n<|id|>517<|page|>47<|box|>625 407 644 575<|content|>7.4 水上过驳\n<|id|>519<|page|>48<|box|>164 371 193 652<|content|>8 通航保障措施\n<|id|>520<|page|>48<|box|>226 296 245 729<|content|>8.2 过河、临河建筑物及其他与通航有关设施\n<|id|>524<|page|>48<|box|>480 408 498 619<|content|>8.3 与通航有关作业\n<|id|>526<|page|>49<|box|>171 368 200 615<|content|>9 通航水位\n<|id|>530<|page|>49<|box|>533 377 551 608<|content|>9.2 天然河段通航水位\n<|id|>534<|page|>49<|box|>831 312 850 671<|content|>9.3 枢纽通航建筑物上下游通航水位\n<|id|>539<|page|>50<|box|>247 368 266 664<|content|>9.4 枢纽上下游河段通航水位\n<|id|>548<|page|>51<|box|>168 219 198 771<|content|>附录 A 长江干线代表船型和船队\n<|id|>556<|page|>52<|box|>160 224 189 812<|content|>附录 B 长江干线航道尺度计算方法\n<|id|>558<|page|>53<|box|>166 221 233 771<|content|>附录 C 长江干线水上过河建筑物 通航净宽计算方法",
+    "raw_response": "<|id|>496<|level|>1\n<|id|>497<|level|>2\n<|id|>500<|level|>2\n<|id|>504<|level|>2\n<|id|>506<|level|>2\n<|id|>508<|level|>1\n<|id|>509<|level|>2\n<|id|>512<|level|>2\n<|id|>514<|level|>2\n<|id|>517<|level|>2\n<|id|>519<|level|>1\n<|id|>520<|level|>2\n<|id|>524<|level|>2\n<|id|>526<|level|>1\n<|id|>530<|level|>2\n<|id|>534<|level|>2\n<|id|>539<|level|>2\n<|id|>548<|level|>1\n<|id|>556<|level|>1\n<|id|>558<|level|>1",
+    "parsed": [
+        {
+            "id": 496,
+            "level": 1
+        },
+        {
+            "id": 497,
+            "level": 2
+        },
+        {
+            "id": 500,
+            "level": 2
+        },
+        {
+            "id": 504,
+            "level": 2
+        },
+        {
+            "id": 506,
+            "level": 2
+        },
+        {
+            "id": 508,
+            "level": 1
+        },
+        {
+            "id": 509,
+            "level": 2
+        },
+        {
+            "id": 512,
+            "level": 2
+        },
+        {
+            "id": 514,
+            "level": 2
+        },
+        {
+            "id": 517,
+            "level": 2
+        },
+        {
+            "id": 519,
+            "level": 1
+        },
+        {
+            "id": 520,
+            "level": 2
+        },
+        {
+            "id": 524,
+            "level": 2
+        },
+        {
+            "id": 526,
+            "level": 1
+        },
+        {
+            "id": 530,
+            "level": 2
+        },
+        {
+            "id": 534,
+            "level": 2
+        },
+        {
+            "id": 539,
+            "level": 2
+        },
+        {
+            "id": 548,
+            "level": 1
+        },
+        {
+            "id": 556,
+            "level": 1
+        },
+        {
+            "id": 558,
+            "level": 1
+        }
+    ]
+}

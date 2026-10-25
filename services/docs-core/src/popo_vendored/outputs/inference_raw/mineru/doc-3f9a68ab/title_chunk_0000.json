@@ -1,0 +1,152 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        18
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        18
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 215 143 856<|content|>CALDERWOOD & HARKNESS LLP 1 Market Street, Spear T\n<|id|>2<|page|>1<|box|>178 140 195 246<|content|>Via EDGAR\n<|id|>5<|page|>1<|box|>311 140 328 346<|content|>Dear Members of the Staff:\n<|id|>10<|page|>1<|box|>729 140 748 313<|content|>Revenue Recognition\n<|id|>11<|page|>1<|box|>761 140 779 720<|content|>Comment 1: Revenue Recognition — Remaining Perform\n<|id|>13<|page|>2<|box|>171 142 189 297<|content|>Company Response:\n<|id|>18<|page|>2<|box|>652 140 689 854<|content|>Comment 2: Revenue Recognition — Variable Consider\n<|id|>20<|page|>2<|box|>813 140 830 297<|content|>Company Response:\n<|id|>26<|page|>3<|box|>609 140 643 854<|content|>Comment 3: Revenue Recognition — Multi-Element Arr\n<|id|>28<|page|>3<|box|>823 142 840 297<|content|>Company Response:\n<|id|>37<|page|>5<|box|>90 140 107 300<|content|>Concentration Risk\n<|id|>38<|page|>5<|box|>121 140 138 720<|content|>Comment 4: Concentration Risk Disclosure — Top Cus\n<|id|>40<|page|>5<|box|>299 142 316 297<|content|>Company Response:\n<|id|>48<|page|>6<|box|>250 140 267 297<|content|>Company Response:\n<|id|>54<|page|>7<|box|>90 140 107 393<|content|>Non-GAAP Financial Measures\n<|id|>55<|page|>7<|box|>121 140 138 777<|content|>Comment 6: Non-GAAP Financial Measures — Adjusted\n<|id|>57<|page|>7<|box|>335 142 353 295<|content|>Company Response:\n<|id|>63<|page|>8<|box|>329 142 347 359<|content|>Stock-Based Compensation\n<|id|>64<|page|>8<|box|>359 140 378 710<|content|>Comment 7: Stock-Based Compensation — Fair Value o\n<|id|>66<|page|>8<|box|>611 143 628 295<|content|>Company Response:\n<|id|>75<|page|>10<|box|>239 140 256 653<|content|>Comment 8: Stock-Based Compensation — Cheap Stock\n<|id|>77<|page|>10<|box|>398 143 416 297<|content|>Company Response:\n<|id|>85<|page|>11<|box|>510 140 527 707<|content|>Comment 9: Stock-Based Compensation — Black-Drubec\n<|id|>87<|page|>11<|box|>614 142 632 295<|content|>Company Response:\n<|id|>93<|page|>12<|box|>768 142 786 362<|content|>Related-Party Transactions\n<|id|>94<|page|>12<|box|>800 140 835 852<|content|>Comment 10: Related-Party Transactions — Investor\n<|id|>97<|page|>13<|box|>208 142 226 297<|content|>Company Response:\n<|id|>107<|page|>14<|box|>643 140 662 214<|content|>Dilution\n<|id|>108<|page|>14<|box|>675 140 693 620<|content|>Comment 11: Dilution Table — Presentation and Calc\n<|id|>110<|page|>14<|box|>816 142 835 297<|content|>Company Response:\n<|id|>118<|page|>16<|box|>402 142 420 367<|content|>Description of Capital Stock\n<|id|>119<|page|>16<|box|>434 140 469 852<|content|>Comment 12: Description of Capital Stock — Dual-Cl\n<|id|>121<|page|>16<|box|>611 142 628 295<|content|>Company Response:\n<|id|>139<|page|>18<|box|>564 140 582 209<|content|>Closing",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>-1\n<|id|>5<|level|>-1\n<|id|>10<|level|>1\n<|id|>11<|level|>2\n<|id|>13<|level|>3\n<|id|>18<|level|>2\n<|id|>20<|level|>3\n<|id|>26<|level|>2\n<|id|>28<|level|>3\n<|id|>37<|level|>1\n<|id|>38<|level|>2\n<|id|>40<|level|>3\n<|id|>48<|level|>3\n<|id|>54<|level|>1\n<|id|>55<|level|>2\n<|id|>57<|level|>3\n<|id|>63<|level|>1\n<|id|>64<|level|>2\n<|id|>66<|level|>3\n<|id|>75<|level|>2\n<|id|>77<|level|>3\n<|id|>85<|level|>2\n<|id|>87<|level|>3\n<|id|>93<|level|>1\n<|id|>94<|level|>2\n<|id|>97<|level|>3\n<|id|>107<|level|>1\n<|id|>108<|level|>2\n<|id|>110<|level|>3\n<|id|>118<|level|>1\n<|id|>119<|level|>2\n<|id|>121<|level|>3\n<|id|>139<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 1
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 1
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 1
+        }
+    ]
+}

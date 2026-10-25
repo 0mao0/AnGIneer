@@ -1,0 +1,121 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>1<|box|>181 142 199 447<|content|>VIA EMAIL AND HAND DELIVERY\n<|id|>7<|page|>1<|box|>378 142 395 243<|content|>Dear Renata:\n<|id|>9<|page|>1<|box|>522 282 542 714<|content|>I. PURPOSE AND LEGAL OBLIGATION\n<|id|>15<|page|>2<|box|>407 277 426 720<|content|>II. BACKGROUND OF THE LITIGATION\n<|id|>17<|page|>2<|box|>503 140 521 318<|content|>A. Parties and Claims\n<|id|>19<|page|>2<|box|>717 140 734 390<|content|>B. The Underreporting Scheme\n<|id|>21<|page|>3<|box|>90 142 107 243<|content|>C. Damages\n<|id|>28<|page|>3<|box|>353 142 369 289<|content|>D. Counts Alleged\n<|id|>30<|page|>3<|box|>511 140 529 377<|content|>E. Anticipated Counterclaims\n<|id|>32<|page|>3<|box|>655 282 675 715<|content|>III. SCOPE OF THE LITIGATION HOLD\n<|id|>34<|page|>3<|box|>844 142 861 338<|content|>A. Subject Matter Scope\n<|id|>50<|page|>5<|box|>743 142 760 297<|content|>B. Temporal Scope\n<|id|>53<|page|>6<|box|>167 140 185 258<|content|>C. Custodians\n<|id|>64<|page|>6<|box|>787 197 806 797<|content|>IV. CATEGORIES OF MATERIALS TO BE PRESERVED\n<|id|>66<|page|>7<|box|>90 140 107 478<|content|>A. Electronically Stored Information (ESI)\n<|id|>79<|page|>8<|box|>148 142 167 308<|content|>B. Paper Documents\n<|id|>87<|page|>8<|box|>487 140 503 369<|content|>C. Other Tangible Materials\n<|id|>92<|page|>8<|box|>695 299 715 697<|content|>V. PRESERVATION INSTRUCTIONS\n<|id|>93<|page|>8<|box|>741 142 758 315<|content|>A. Affirmative Duties\n<|id|>100<|page|>9<|box|>593 142 609 266<|content|>B. Prohibitions\n<|id|>106<|page|>10<|box|>90 140 107 338<|content|>C. Departing Employees\n<|id|>113<|page|>10<|box|>430 245 450 751<|content|>VI. COMPLIANCE AND ACKNOWLEDGMENT\n<|id|>123<|page|>11<|box|>233 326 253 669<|content|>VII. DURATION OF THE HOLD\n<|id|>127<|page|>11<|box|>494 290 515 705<|content|>VIII. E-DISCOVERY COORDINATION\n<|id|>133<|page|>12<|box|>135 251 155 746<|content|>IX. CONSEQUENCES OF NON-COMPLIANCE\n<|id|>142<|page|>12<|box|>654 334 672 661<|content|>X. CONTACT INFORMATION",
+    "raw_response": "<|id|>3<|level|>-1\n<|id|>7<|level|>-1\n<|id|>9<|level|>1\n<|id|>15<|level|>1\n<|id|>17<|level|>2\n<|id|>19<|level|>2\n<|id|>21<|level|>2\n<|id|>28<|level|>2\n<|id|>30<|level|>2\n<|id|>32<|level|>1\n<|id|>34<|level|>2\n<|id|>50<|level|>2\n<|id|>53<|level|>2\n<|id|>64<|level|>1\n<|id|>66<|level|>2\n<|id|>79<|level|>2\n<|id|>87<|level|>2\n<|id|>92<|level|>1\n<|id|>93<|level|>2\n<|id|>100<|level|>2\n<|id|>106<|level|>2\n<|id|>113<|level|>1\n<|id|>123<|level|>1\n<|id|>127<|level|>1\n<|id|>133<|level|>1\n<|id|>142<|level|>1",
+    "parsed": [
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 1
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 133,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        }
+    ]
+}

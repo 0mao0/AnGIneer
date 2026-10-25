@@ -1,0 +1,95 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 142 104 658<|content|>CONFIDENTIAL — ATTORNEY-CLIENT PRIVILEGE — DRAFT F\n<|id|>1<|page|>1<|box|>114 297 132 697<|content|>INTERNAL COVER MEMORANDUM\n<|id|>2<|page|>1<|box|>159 307 175 691<|content|>Filing and Submission Notes — Not Part of Form\n<|id|>16<|page|>1<|box|>796 442 815 555<|content|>Form 2848\n<|id|>17<|page|>1<|box|>840 290 883 705<|content|>Power of Attorney and Declaration of Representativ\n<|id|>20<|page|>2<|box|>224 388 241 609<|content|>Part I — Power of Attorney\n<|id|>22<|page|>2<|box|>373 142 390 397<|content|>Line 1 — Taxpayer Information\n<|id|>27<|page|>2<|box|>796 142 813 357<|content|>Line 2 — Representative(s)\n<|id|>30<|page|>3<|box|>366 140 382 351<|content|>Line 3 — Acts Authorized\n<|id|>36<|page|>4<|box|>157 140 174 321<|content|>Line 4 — Tax Matters\n<|id|>39<|page|>5<|box|>90 140 107 620<|content|>Line 5 — Retention/Revocation of Prior Power(s) of\n<|id|>43<|page|>6<|box|>90 140 107 397<|content|>Line 6 — Taxpayer Signature(s)\n<|id|>45<|page|>6<|box|>231 140 248 576<|content|>For Solara Digital Infrastructure LP (EIN 82-49173\n<|id|>89<|page|>7<|box|>306 341 324 656<|content|>Part II — Declaration of Representative\n<|id|>95<|page|>8<|box|>90 140 107 367<|content|>Designation: (a) — Attorney\n<|id|>98<|page|>8<|box|>277 142 295 395<|content|>Representative Signature block:\n<|id|>103<|page|>8<|box|>380 331 398 665<|content|>Continuation Sheet to Form 2848\n<|id|>104<|page|>8<|box|>425 290 441 707<|content|>Power of Attorney and Declaration of Representativ\n<|id|>105<|page|>8<|box|>450 277 468 720<|content|>Department of the Treasury — Internal Revenue Serv\n<|id|>108<|page|>8<|box|>698 142 715 580<|content|>Additional Taxpayer Information (Line 1 — Continue\n<|id|>117<|page|>10<|box|>713 142 729 323<|content|>Confirmation of Scope",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>16<|level|>1\n<|id|>17<|level|>1\n<|id|>20<|level|>2\n<|id|>22<|level|>3\n<|id|>27<|level|>3\n<|id|>30<|level|>3\n<|id|>36<|level|>3\n<|id|>39<|level|>3\n<|id|>43<|level|>3\n<|id|>45<|level|>-1\n<|id|>89<|level|>2\n<|id|>95<|level|>3\n<|id|>98<|level|>3\n<|id|>103<|level|>1\n<|id|>104<|level|>1\n<|id|>105<|level|>-1\n<|id|>108<|level|>2\n<|id|>117<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        }
+    ]
+}

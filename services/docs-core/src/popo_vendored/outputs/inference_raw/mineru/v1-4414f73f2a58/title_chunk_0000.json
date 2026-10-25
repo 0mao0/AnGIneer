@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 258<|content|>【7470357#4】单萜\n<|id|>2<|page|>1<|box|>156 107 173 250<|content|>【154238#4】繁殖\n<|id|>4<|page|>1<|box|>258 107 274 302<|content|>【509774#7】多細胞生物\n<|id|>6<|page|>1<|box|>341 107 357 258<|content|>【7032515#8】动物\n<|id|>8<|page|>1<|box|>476 107 493 267<|content|>【7032515#10】动物\n<|id|>10<|page|>1<|box|>544 107 558 292<|content|>【1047478#1】单性生殖\n<|id|>12<|page|>1<|box|>696 107 713 294<|content|>【5465757#1】複殖亞綱\n<|id|>14<|page|>1<|box|>831 105 848 346<|content|>【1634994#0】有性生殖的演化\n<|id|>17<|page|>2<|box|>99 107 116 285<|content|>【100825#7】原生生物\n<|id|>19<|page|>2<|box|>218 107 234 302<|content|>【74163#36】无脊椎动物",
+    "raw_response": "<|id|>0<|level|>2\n<|id|>2<|level|>2\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>3\n<|id|>12<|level|>2\n<|id|>14<|level|>1\n<|id|>17<|level|>2\n<|id|>19<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 2
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 3
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 2
+        }
+    ]
+}

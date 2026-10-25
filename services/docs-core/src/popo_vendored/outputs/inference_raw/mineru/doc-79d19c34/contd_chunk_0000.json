@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        8,
+        9,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>13<|page|>1<|box|>768 176 785 336<|content|>Date: ... March 4, 2025\n<|id|>14<|page|>1<|box|>794 178 811 300<|content|>Time: ... m\n<|id|>94<|page|>8<|box|>614 174 650 852<|content|>Jeffrey Park, Esq. ... (212) 555-4800\n<|id|>95<|page|>8<|box|>659 176 676 478<|content|>Email: ... com\n<|id|>106<|page|>9<|box|>397 142 429 852<|content|>Jeffrey Park Calderwood & Harkness LLP 425 Park Avenue, 33rd Floor New York, New York 10022\n<|id|>107<|page|>9<|box|>430 143 448 292<|content|>Dated: ... _____, 2025\n<|id|>159<|page|>12<|box|>852 140 907 854<|content|>This is a critical section of the examination. ...... assessment of Meridian's work quality (supporting\n<|id|>160<|page|>13<|box|>89 140 126 854<|content|>Counterclaim III), and (2) it demonstrates that Cr... the reasonableness analysis under Counterclaim II",
+    "raw_response": "<|src_id|>159<|tgt_id|>160",
+    "parsed": [
+        {
+            "src_id": 159,
+            "tgt_id": 160
+        }
+    ]
+}

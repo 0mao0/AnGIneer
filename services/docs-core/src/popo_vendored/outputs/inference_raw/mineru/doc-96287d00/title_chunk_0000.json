@@ -1,0 +1,130 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        10,
+        12,
+        13,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 151 157 844<|content|>ANNUAL COMPLIANCE CERTIFICATION PURSUANT TO NON- P\n<|id|>2<|page|>1<|box|>174 362 191 633<|content|>TEMPLATE FOR ANNUAL USE\n<|id|>11<|page|>1<|box|>425 246 444 750<|content|>1. INTRODUCTORY INSTRUCTIONS FOR USE\n<|id|>12<|page|>1<|box|>470 143 487 375<|content|>1.1 Purpose of This Template\n<|id|>17<|page|>3<|box|>90 142 107 460<|content|>1.2 Certification Schedule and Deadlines\n<|id|>24<|page|>3<|box|>616 142 633 423<|content|>1.3 Filing and Delivery Instructions\n<|id|>36<|page|>4<|box|>460 142 478 356<|content|>1.4 Process for Completion\n<|id|>46<|page|>5<|box|>450 171 470 825<|content|>2. FORM OF CEO ANNUAL COMPLIANCE CERTIFICATION\n<|id|>48<|page|>5<|box|>541 150 575 844<|content|>ANNUAL COMPLIANCE CERTIFICATION OF THE CHIEF EXECU\n<|id|>64<|page|>7<|box|>542 140 559 434<|content|>Statement 8 — Monitor Cooperation.\n<|id|>70<|page|>8<|box|>409 142 425 439<|content|>Declaration Under Penalty of Perjury\n<|id|>73<|page|>8<|box|>544 178 588 818<|content|>3. FORM OF GENERAL COUNSEL ANNUAL COMPLIANCE CERTI\n<|id|>75<|page|>8<|box|>657 173 693 823<|content|>ANNUAL COMPLIANCE CERTIFICATION OF THE GENERAL COU\n<|id|>90<|page|>10<|box|>678 140 694 434<|content|>Statement 8 — Monitor Cooperation.\n<|id|>98<|page|>12<|box|>90 140 107 437<|content|>Declaration Under Penalty of Perjury\n<|id|>100<|page|>13<|box|>90 184 109 810<|content|>4. APPENDIX: CHECKLIST FOR CERTIFYING OFFICERS\n<|id|>101<|page|>13<|box|>136 140 152 444<|content|>4.1 Pre-Certification Review Checklist\n<|id|>124<|page|>15<|box|>90 142 107 281<|content|>4.2 Key Contacts\n<|id|>126<|page|>15<|box|>160 140 176 534<|content|>Outside Counsel — Calderwood & Harkness LLP\n<|id|>129<|page|>15<|box|>273 142 292 733<|content|>U.S. Department of Justice — Antitrust Division, S\n<|id|>131<|page|>15<|box|>363 142 380 421<|content|>Deputy Assistant Attorney General\n<|id|>133<|page|>15<|box|>433 142 450 411<|content|>Independent Compliance Monitor\n<|id|>135<|page|>15<|box|>503 142 520 393<|content|>TMC Chief Compliance Officer\n<|id|>137<|page|>15<|box|>554 143 571 380<|content|>TMC Audit Committee Chair\n<|id|>139<|page|>16<|box|>90 142 107 477<|content|>4.3 Certification Schedule Summary Table\n<|id|>142<|page|>16<|box|>449 338 469 658<|content|>5. ADMINISTRATIVE NOTES\n<|id|>149<|page|>17<|box|>398 415 415 583<|content|>— End of Template —",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>17<|level|>3\n<|id|>24<|level|>3\n<|id|>36<|level|>3\n<|id|>46<|level|>2\n<|id|>48<|level|>3\n<|id|>64<|level|>4\n<|id|>70<|level|>4\n<|id|>73<|level|>2\n<|id|>75<|level|>3\n<|id|>90<|level|>4\n<|id|>98<|level|>4\n<|id|>100<|level|>2\n<|id|>101<|level|>3\n<|id|>124<|level|>3\n<|id|>126<|level|>4\n<|id|>129<|level|>4\n<|id|>131<|level|>5\n<|id|>133<|level|>4\n<|id|>135<|level|>4\n<|id|>137<|level|>4\n<|id|>139<|level|>3\n<|id|>142<|level|>2\n<|id|>149<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 70,
+            "level": 4
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 4
+        },
+        {
+            "id": 98,
+            "level": 4
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 4
+        },
+        {
+            "id": 129,
+            "level": 4
+        },
+        {
+            "id": 131,
+            "level": 5
+        },
+        {
+            "id": 133,
+            "level": 4
+        },
+        {
+            "id": 135,
+            "level": 4
+        },
+        {
+            "id": 137,
+            "level": 4
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        }
+    ]
+}

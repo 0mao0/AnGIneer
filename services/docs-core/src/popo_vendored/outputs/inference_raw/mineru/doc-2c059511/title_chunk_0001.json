@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        51,
+        101
+    ],
+    "pages": [
+        52,
+        57,
+        59,
+        69,
+        74,
+        76,
+        85,
+        88,
+        89,
+        93,
+        95,
+        100
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>392<|page|>52<|box|>122 102 140 499<|content|>A.0.5 概算辅助表格样式应符合下列规定。\n<|id|>397<|page|>57<|box|>168 268 195 731<|content|>附录 B 施工图预算文件样式\n<|id|>398<|page|>57<|box|>216 110 235 428<|content|>B.0.1 封面应符合图 B.0.1 样式。\n<|id|>411<|page|>59<|box|>84 112 108 478<|content|>B.0.3 编制说明应符合图 B.0.3 样式。\n<|id|>412<|page|>59<|box|>127 438 154 573<|content|>编制说明\n<|id|>413<|page|>59<|box|>180 142 200 252<|content|>1. 项目概述\n<|id|>420<|page|>59<|box|>319 139 339 440<|content|>2. 工程总预算(预算范围内费用总计)\n<|id|>421<|page|>59<|box|>339 139 358 300<|content|>3. 编制原则和依据\n<|id|>428<|page|>59<|box|>477 139 495 247<|content|>4. 施工方案\n<|id|>430<|page|>59<|box|>536 139 554 245<|content|>5. 有关说明\n<|id|>445<|page|>69<|box|>87 117 105 514<|content|>B.0.5 预算辅助表格样式应符合下列规定。\n<|id|>453<|page|>74<|box|>205 278 233 705<|content|>附录 C 调整概算文件样式\n<|id|>461<|page|>76<|box|>119 110 141 470<|content|>C.0.3 编制说明应符合图 C.0.3 样式。\n<|id|>462<|page|>76<|box|>162 435 187 566<|content|>编制说明\n<|id|>463<|page|>76<|box|>191 139 211 245<|content|>1. 项目概述\n<|id|>474<|page|>76<|box|>646 137 666 292<|content|>3. 编制原则和依据\n<|id|>476<|page|>76<|box|>686 137 705 240<|content|>4. 有关说明\n<|id|>479<|page|>76<|box|>783 139 802 206<|content|>5. 附件\n<|id|>488<|page|>85<|box|>85 105 103 544<|content|>C.0.5 调整概算辅助表格样式应符合下列规定。\n<|id|>494<|page|>88<|box|>195 226 224 791<|content|>附录 D 水运工程工程费用计算规则\n<|id|>501<|page|>89<|box|>87 110 104 447<|content|>D.1.2.2 费用计算应符合下列规定：\n<|id|>542<|page|>93<|box|>720 452 739 561<|content|>定额直接费\n<|id|>564<|page|>95<|box|>609 445 627 554<|content|>其他直接费\n<|id|>595<|page|>100<|box|>271 124 289 652<|content|>D.1.10.2 外海工程的判别和费用计列应按下列规定执行：\n<|id|>599<|page|>100<|box|>669 440 688 549<|content|>企业管理费",
+    "raw_response": "<|id|>392<|level|>2\n<|id|>397<|level|>1\n<|id|>398<|level|>2\n<|id|>411<|level|>2\n<|id|>412<|level|>2\n<|id|>413<|level|>3\n<|id|>420<|level|>3\n<|id|>421<|level|>3\n<|id|>428<|level|>3\n<|id|>430<|level|>3\n<|id|>445<|level|>2\n<|id|>453<|level|>1\n<|id|>461<|level|>2\n<|id|>462<|level|>2\n<|id|>463<|level|>3\n<|id|>474<|level|>3\n<|id|>476<|level|>3\n<|id|>479<|level|>3\n<|id|>488<|level|>2\n<|id|>494<|level|>1\n<|id|>501<|level|>3\n<|id|>542<|level|>4\n<|id|>564<|level|>4\n<|id|>595<|level|>3\n<|id|>599<|level|>4",
+    "parsed": [
+        {
+            "id": 392,
+            "level": 2
+        },
+        {
+            "id": 397,
+            "level": 1
+        },
+        {
+            "id": 398,
+            "level": 2
+        },
+        {
+            "id": 411,
+            "level": 2
+        },
+        {
+            "id": 412,
+            "level": 2
+        },
+        {
+            "id": 413,
+            "level": 3
+        },
+        {
+            "id": 420,
+            "level": 3
+        },
+        {
+            "id": 421,
+            "level": 3
+        },
+        {
+            "id": 428,
+            "level": 3
+        },
+        {
+            "id": 430,
+            "level": 3
+        },
+        {
+            "id": 445,
+            "level": 2
+        },
+        {
+            "id": 453,
+            "level": 1
+        },
+        {
+            "id": 461,
+            "level": 2
+        },
+        {
+            "id": 462,
+            "level": 2
+        },
+        {
+            "id": 463,
+            "level": 3
+        },
+        {
+            "id": 474,
+            "level": 3
+        },
+        {
+            "id": 476,
+            "level": 3
+        },
+        {
+            "id": 479,
+            "level": 3
+        },
+        {
+            "id": 488,
+            "level": 2
+        },
+        {
+            "id": 494,
+            "level": 1
+        },
+        {
+            "id": 501,
+            "level": 3
+        },
+        {
+            "id": 542,
+            "level": 4
+        },
+        {
+            "id": 564,
+            "level": 4
+        },
+        {
+            "id": 595,
+            "level": 3
+        },
+        {
+            "id": 599,
+            "level": 4
+        }
+    ]
+}

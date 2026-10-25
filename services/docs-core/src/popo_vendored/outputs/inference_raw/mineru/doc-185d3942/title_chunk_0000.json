@@ -1,0 +1,115 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        57
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        11,
+        15,
+        16,
+        20,
+        25,
+        29,
+        40,
+        41,
+        42,
+        48,
+        49,
+        51,
+        54,
+        56
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>5<|box|>109 105 261 866<|content|>TREASURY BULLETIN\n<|id|>10<|page|>7<|box|>103 395 121 599<|content|>Table of Contents\n<|id|>13<|page|>9<|box|>113 322 133 675<|content|>Treasury Financing Operations\n<|id|>14<|page|>9<|box|>193 55 209 452<|content|>March Certificate and Bond Maturities\n<|id|>20<|page|>9<|box|>554 522 570 907<|content|>Treasury Bill Retirement in February\n<|id|>22<|page|>11<|box|>47 315 62 682<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>46<|page|>15<|box|>46 329 60 649<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>48<|page|>16<|box|>43 340 57 669<|content|>BUDGET RECEIPTS AND EXPENDITURES\n<|id|>60<|page|>20<|box|>45 360 60 671<|content|>TREASURY CASH INCOME AND OUTGO\n<|id|>73<|page|>25<|box|>47 407 62 571<|content|>DEBT OUTSTANDING\n<|id|>82<|page|>29<|box|>79 149 125 818<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>115<|page|>40<|box|>291 172 306 852<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>118<|page|>41<|box|>84 165 99 827<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>120<|page|>42<|box|>82 166 97 843<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>121<|page|>42<|box|>103 140 116 880<|content|>Table 3.- Interest-Bearing Public Marketable Secur\n<|id|>135<|page|>48<|box|>42 325 57 697<|content|>MARKET QUOTATIONS, FEBRUARY 27, 1948\n<|id|>140<|page|>49<|box|>70 163 84 827<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>144<|page|>51<|box|>46 297 60 679<|content|>YIELDS ON TREASURY AND CORPORATE BONDS\n<|id|>149<|page|>54<|box|>51 289 72 685<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>151<|page|>56<|box|>44 358 59 648<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>152<|page|>56<|box|>78 226 93 778<|content|>Table 2.- Detail of Collections by Type of Tax ^{y",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>10<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>20<|level|>3\n<|id|>22<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>60<|level|>2\n<|id|>73<|level|>2\n<|id|>82<|level|>3\n<|id|>115<|level|>4\n<|id|>118<|level|>4\n<|id|>120<|level|>4\n<|id|>121<|level|>3\n<|id|>135<|level|>2\n<|id|>140<|level|>4\n<|id|>144<|level|>2\n<|id|>149<|level|>2\n<|id|>151<|level|>2\n<|id|>152<|level|>3",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 115,
+            "level": 4
+        },
+        {
+            "id": 118,
+            "level": 4
+        },
+        {
+            "id": 120,
+            "level": 4
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 135,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 4
+        },
+        {
+            "id": 144,
+            "level": 2
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 3
+        }
+    ]
+}

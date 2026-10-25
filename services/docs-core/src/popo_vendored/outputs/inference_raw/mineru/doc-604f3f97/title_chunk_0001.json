@@ -1,0 +1,29 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        67,
+        80
+    ],
+    "pages": [
+        68,
+        72,
+        80
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>264<|page|>68<|box|>72 365 86 648<|content|>Section I - Summary by Periods\n<|id|>271<|page|>72<|box|>65 349 79 659<|content|>Section II - Summary by Countries\n<|id|>280<|page|>80<|box|>76 286 91 699<|content|>Section IV - Supplementary Data by Countries",
+    "raw_response": "<|id|>264<|level|>1\n<|id|>271<|level|>1\n<|id|>280<|level|>1",
+    "parsed": [
+        {
+            "id": 264,
+            "level": 1
+        },
+        {
+            "id": 271,
+            "level": 1
+        },
+        {
+            "id": 280,
+            "level": 1
+        }
+    ]
+}

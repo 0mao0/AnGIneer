@@ -1,0 +1,89 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        54,
+        93
+    ],
+    "pages": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        61,
+        62,
+        63,
+        69,
+        76,
+        78,
+        80,
+        85,
+        86,
+        93
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>122<|page|>55<|box|>40 97 80 851<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>126<|page|>56<|box|>57 124 100 879<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>129<|page|>57<|box|>49 104 90 860<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>132<|page|>58<|box|>57 136 100 889<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>135<|page|>59<|box|>44 89 85 849<|content|>Summary Data from Treasury Survey of Ownership of\n<|id|>142<|page|>61<|box|>52 40 113 930<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>143<|page|>61<|box|>128 220 142 746<|content|>Table I.- Securities Issued by the United States G\n<|id|>146<|page|>62<|box|>44 55 84 944<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>152<|page|>63<|box|>44 36 84 919<|content|>Over-the-Counter Closing Quotations on Public Mark\n<|id|>168<|page|>69<|box|>60 167 92 798<|content|>Assets and Liabilities of Governmental Corporation\n<|id|>188<|page|>76<|box|>58 319 74 678<|content|>Summary of Internal Revenue Collections^{1}\n<|id|>191<|page|>78<|box|>60 241 93 756<|content|>Detailed Analysis of Current Internal Revenue Coll\n<|id|>194<|page|>80<|box|>442 340 457 646<|content|>Monetary Stocks of Gold and Silver\n<|id|>202<|page|>85<|box|>742 412 757 508<|content|>Schedule 1\n<|id|>206<|page|>86<|box|>330 465 344 561<|content|>Schedule 3\n<|id|>211<|page|>93<|box|>82 491 108 594<|content|>1. 2023年1月1日",
+    "raw_response": "<|id|>122<|level|>1\n<|id|>126<|level|>1\n<|id|>129<|level|>1\n<|id|>132<|level|>1\n<|id|>135<|level|>1\n<|id|>142<|level|>1\n<|id|>143<|level|>2\n<|id|>146<|level|>1\n<|id|>152<|level|>1\n<|id|>168<|level|>1\n<|id|>188<|level|>1\n<|id|>191<|level|>1\n<|id|>194<|level|>1\n<|id|>202<|level|>1\n<|id|>206<|level|>1\n<|id|>211<|level|>-1",
+    "parsed": [
+        {
+            "id": 122,
+            "level": 1
+        },
+        {
+            "id": 126,
+            "level": 1
+        },
+        {
+            "id": 129,
+            "level": 1
+        },
+        {
+            "id": 132,
+            "level": 1
+        },
+        {
+            "id": 135,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 146,
+            "level": 1
+        },
+        {
+            "id": 152,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 188,
+            "level": 1
+        },
+        {
+            "id": 191,
+            "level": 1
+        },
+        {
+            "id": 194,
+            "level": 1
+        },
+        {
+            "id": 202,
+            "level": 1
+        },
+        {
+            "id": 206,
+            "level": 1
+        }
+    ]
+}

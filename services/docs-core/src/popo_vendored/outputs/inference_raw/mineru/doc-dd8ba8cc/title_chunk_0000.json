@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 153 185 843<|content|>CALDERWOOD & HARKNESS LLP 1700 K Street NW, Suite\n<|id|>7<|page|>1<|box|>349 194 369 803<|content|>INTRODUCTORY NOTE AND REDLINE CONVENTIONS\n<|id|>19<|page|>2<|box|>314 200 359 795<|content|>MEDICATION GUIDE — FULL TEXT WITH TRACKED CHANGES\n<|id|>20<|page|>2<|box|>375 403 392 594<|content|>MEDICATION GUIDE\n<|id|>21<|page|>2<|box|>402 200 419 795<|content|>VELONATIB® (vel-ON-a-tib) (velonatib hydrochloride\n<|id|>24<|page|>2<|box|>531 140 547 740<|content|>What is the most important information I should kn\n<|id|>25<|page|>2<|box|>556 142 574 573<|content|>VELONATIB may cause serious side effects, includin\n<|id|>53<|page|>3<|box|>732 142 750 330<|content|>What is VELONATIB?\n<|id|>60<|page|>4<|box|>537 140 555 429<|content|>Who should not take VELONATIB?\n<|id|>64<|page|>4<|box|>766 140 784 700<|content|>What should I tell my healthcare provider before t\n<|id|>83<|page|>5<|box|>801 142 819 411<|content|>How should I take VELONATIB?\n<|id|>96<|page|>6<|box|>742 140 758 526<|content|>What should I avoid while taking VELONATIB?\n<|id|>100<|page|>7<|box|>167 140 184 544<|content|>What are the possible side effects of VELONATIB?\n<|id|>116<|page|>8<|box|>417 142 433 535<|content|>The common side effects of VELONATIB include:\n<|id|>124<|page|>8<|box|>833 142 849 416<|content|>How should I store VELONATIB?\n<|id|>133<|page|>9<|box|>234 140 251 681<|content|>General information about the safe and effective u\n<|id|>136<|page|>9<|box|>417 142 435 480<|content|>What are the ingredients in VELONATIB?\n<|id|>137<|page|>9<|box|>444 142 462 464<|content|>Active ingredient: velonatib hydrochloride\n<|id|>147<|page|>9<|box|>888 406 904 589<|content|>Date: October 20, 2022\n<|id|>149<|page|>10<|box|>90 308 109 689<|content|>END-OF-DOCUMENT NOTATIONS\n<|id|>150<|page|>10<|box|>128 140 145 560<|content|>Status: DRAFT — ON HOLD as of November 22, 2022\n<|id|>166<|page|>11<|box|>90 156 109 841<|content|>APPENDIX: SUMMARY OF CHANGES FROM REV. 1 TO REV. 2\n<|id|>169<|page|>12<|box|>356 143 373 326<|content|>Reviewer Sign-Off Log\n<|id|>171<|page|>12<|box|>707 194 743 803<|content|>CALDERWOOD & HARKNESS LLP PRIVILEGED & CONFIDENTIA",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>21<|level|>2\n<|id|>24<|level|>2\n<|id|>25<|level|>3\n<|id|>53<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>2\n<|id|>83<|level|>2\n<|id|>96<|level|>2\n<|id|>100<|level|>2\n<|id|>116<|level|>3\n<|id|>124<|level|>2\n<|id|>133<|level|>2\n<|id|>136<|level|>2\n<|id|>137<|level|>3\n<|id|>147<|level|>-1\n<|id|>149<|level|>1\n<|id|>150<|level|>2\n<|id|>166<|level|>1\n<|id|>169<|level|>1\n<|id|>171<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        },
+        {
+            "id": 137,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 1
+        },
+        {
+            "id": 169,
+            "level": 1
+        }
+    ]
+}

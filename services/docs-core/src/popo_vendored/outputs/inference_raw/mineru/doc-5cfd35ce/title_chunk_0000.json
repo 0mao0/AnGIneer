@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>10<|page|>1<|box|>601 140 618 467<|content|>Background — The Off-Take Agreement\n<|id|>17<|page|>2<|box|>502 140 518 341<|content|>The Musgrave Guaranty\n<|id|>20<|page|>3<|box|>90 140 107 421<|content|>PBGC's Breach — Unpaid Invoices\n<|id|>25<|page|>3<|box|>766 140 782 455<|content|>Prior Demands and Failed Forbearance\n<|id|>33<|page|>4<|box|>645 140 662 315<|content|>Demand for Payment\n<|id|>38<|page|>5<|box|>241 140 258 575<|content|>Reservation of Rights — Attorneys' Fees and Litiga\n<|id|>43<|page|>5<|box|>752 142 768 442<|content|>Direction Regarding Communications\n<|id|>46<|page|>6<|box|>90 176 106 496<|content|>Email: fmorano@calderwoodharkness.com\n<|id|>49<|page|>6<|box|>214 142 229 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>53<|page|>6<|box|>319 143 332 218<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>17<|level|>2\n<|id|>20<|level|>2\n<|id|>25<|level|>2\n<|id|>33<|level|>2\n<|id|>38<|level|>2\n<|id|>43<|level|>2\n<|id|>46<|level|>-1\n<|id|>49<|level|>-1\n<|id|>53<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        }
+    ]
+}

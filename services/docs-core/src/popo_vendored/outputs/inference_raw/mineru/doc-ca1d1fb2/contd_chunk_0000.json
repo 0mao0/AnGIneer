@@ -1,0 +1,27 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        5,
+        6,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 142 119 852<|content|>Devon Archer (State Bar No. ... (213) 688-7201\n<|id|>1<|page|>1<|box|>127 142 170 535<|content|>Email: ... com Attorneys for Petitioner MARGUERITE DELPHINE FONSECA\n<|id|>44<|page|>5<|box|>821 140 896 857<|content|>23. ... The total combined annual tuition for both children at Ridgeview Academy is Fifty-Nine\n<|id|>45<|page|>6<|box|>89 174 143 854<|content|>Thousand Two Hundred Dollars ($59,200. ... 00) for Mateo's pre-kindergarten program\n<|id|>108<|page|>12<|box|>916 140 930 500<|content|>CALDERWOOD & HARKNESS LLP — Attorneys for Petitioner\n<|id|>109<|page|>13<|box|>89 174 143 854<|content|>Gwendolyn R. ... 312776) KWAN, DELACROIX & SAMUELS...verside Drive, Suite 700 Burbank, California 91505\n<|id|>113<|page|>13<|box|>315 705 332 854<|content|>Dated: ... May 2, 2023\n<|id|>114<|page|>13<|box|>340 140 357 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>115<|page|>13<|box|>359 142 375 253<|content|>By: ... By\n<|id|>116<|page|>13<|box|>375 140 407 852<|content|>Devon Archer (State Bar No. ... 284519) Attorney for Petitioner MARGUERITE DELPHINE FONSECA\n<|id|>117<|page|>13<|box|>409 140 441 852<|content|>777 South Flower Street, Suite 3400 Los Angeles, California 90017 Telephone: ... (213) 688-7201",
+    "raw_response": "<|src_id|>44<|tgt_id|>45\n<|src_id|>108<|tgt_id|>109",
+    "parsed": [
+        {
+            "src_id": 44,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 230 107 767<|content|>SECRETARY'S CERTIFICATE OF THALASSA AMERICAS INC.\n<|id|>1<|type|>title<|page|>1<|box|>114 444 133 553<|content|>June 30, 2023\n<|id|>2<|type|>title<|page|>1<|box|>142 143 157 243<|content|>Delivered to:\n<|id|>4<|type|>title<|page|>1<|box|>213 140 228 176<|content|>and\n<|id|>11<|type|>title<|page|>1<|box|>814 143 832 385<|content|>1. Certificate of Incorporation.\n<|id|>13<|type|>title<|page|>2<|box|>244 140 261 227<|content|>2. Bylaws.\n<|id|>15<|type|>title<|page|>2<|box|>424 140 441 313<|content|>3. Board Resolutions.\n<|id|>24<|type|>title<|page|>3<|box|>351 142 369 285<|content|>4. Good Standing.\n<|id|>26<|type|>title<|page|>3<|box|>549 140 566 464<|content|>5. Incumbency and Specimen Signatures.\n<|id|>28<|type|>table<|page|>3<|box|>654 143 729 852<|content|>None\n<|id|>32<|type|>title<|page|>4<|box|>152 140 170 401<|content|>6. No Dissolution or Liquidation.\n<|id|>34<|type|>title<|page|>4<|box|>369 140 386 509<|content|>7. No Conflict with Organizational Documents.\n<|id|>36<|type|>title<|page|>4<|box|>566 140 584 287<|content|>Reliance; Closing.\n<|id|>54<|type|>title<|page|>5<|box|>356 374 372 624<|content|>COUNTER-CERTIFICATION\n<|id|>61<|type|>title<|page|>5<|box|>604 447 619 549<|content|>EXHIBIT A\n<|id|>62<|type|>title<|page|>5<|box|>628 200 646 797<|content|>CERTIFICATE OF INCORPORATION OF THALASSA AMERICAS\n<|id|>65<|type|>title<|page|>5<|box|>780 447 797 549<|content|>EXHIBIT B\n<|id|>66<|type|>title<|page|>5<|box|>806 318 823 676<|content|>BYLAWS OF THALASSA AMERICAS INC.\n<|id|>69<|type|>title<|page|>6<|box|>89 447 106 550<|content|>EXHIBIT C\n<|id|>70<|type|>title<|page|>6<|box|>114 151 159 844<|content|>RESOLUTIONS OF THE BOARD OF DIRECTORS OF THALASSA\n<|id|>73<|type|>title<|page|>6<|box|>256 142 273 246<|content|>RECITALS:\n<|id|>80<|type|>title<|page|>7<|box|>214 140 232 362<|content|>NOW, THEREFORE, BE IT:\n<|id|>87<|type|>title<|page|>7<|box|>854 447 869 550<|content|>EXHIBIT D\n<|id|>88<|type|>title<|page|>7<|box|>878 215 896 781<|content|>CERTIFICATE OF GOOD STANDING THALASSA AMERICAS INC",
+    "raw_response": "<|src_id|>28<|tgt_id|>26",
+    "parsed": [
+        {
+            "src_id": 28,
+            "tgt_id": 26
+        }
+    ]
+}

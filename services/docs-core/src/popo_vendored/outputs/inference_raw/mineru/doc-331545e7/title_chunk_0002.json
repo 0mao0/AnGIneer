@@ -1,0 +1,105 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        109,
+        138
+    ],
+    "pages": [
+        110,
+        112,
+        113,
+        114,
+        115,
+        117,
+        119,
+        126,
+        127,
+        128,
+        130,
+        131,
+        133,
+        136,
+        138
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>444<|page|>110<|box|>28 404 42 614<|content|>CAPITAL MOVEMENTS,\n<|id|>445<|page|>110<|box|>53 177 71 849<|content|>Section I - Liabilities to Foreigners Reported by\n<|id|>449<|page|>112<|box|>47 182 82 841<|content|>Section II - Claims on Foreigners Reported by Bank\n<|id|>452<|page|>113<|box|>45 133 90 786<|content|>Section II - Claims on Foreigners Reported by Bank\n<|id|>454<|page|>114<|box|>26 404 41 614<|content|>CAPITAL MOVEMENTS.\n<|id|>456<|page|>115<|box|>46 139 62 795<|content|>Section II - Claims on Foreigners Reported by Bank\n<|id|>459<|page|>117<|box|>25 354 41 565<|content|>CAPITAL MOVEMENTS.\n<|id|>466<|page|>119<|box|>29 377 44 588<|content|>CAPITAL MOVEMENTS\n<|id|>485<|page|>126<|box|>25 402 40 611<|content|>CAPITAL MOVEMENTS\n<|id|>489<|page|>127<|box|>564 154 580 811<|content|>Table CM-V-2. - Foreign Purchases and Sales of Lon\n<|id|>491<|page|>128<|box|>30 402 44 616<|content|>CAPITAL MOVEMENTS.\n<|id|>497<|page|>130<|box|>31 406 46 619<|content|>CAPITAL MOVEMENTS.\n<|id|>502<|page|>131<|box|>32 367 46 575<|content|>CAPITAL MOVEMENTS,\n<|id|>503<|page|>131<|box|>51 201 95 749<|content|>Section V - Transactions in Long-Term Securities b\n<|id|>509<|page|>133<|box|>33 360 46 572<|content|>CAPITAL MOVEMENTS,\n<|id|>510<|page|>133<|box|>51 190 93 746<|content|>Section V - Transactions in Long-Term Securities b\n<|id|>517<|page|>136<|box|>30 401 45 611<|content|>CAPITAL MOVEMENTS\n<|id|>518<|page|>136<|box|>56 237 88 788<|content|>Section VI - Foreign Credit and Debit Balances in\n<|id|>522<|page|>138<|box|>28 268 42 776<|content|>CORPORATIONS AND OTHER BUSINESS-TYPE ACTIVITIES",
+    "raw_response": "<|id|>444<|level|>1\n<|id|>445<|level|>2\n<|id|>449<|level|>2\n<|id|>452<|level|>2\n<|id|>454<|level|>1\n<|id|>456<|level|>2\n<|id|>459<|level|>1\n<|id|>466<|level|>1\n<|id|>485<|level|>1\n<|id|>489<|level|>3\n<|id|>491<|level|>1\n<|id|>497<|level|>1\n<|id|>502<|level|>1\n<|id|>503<|level|>2\n<|id|>509<|level|>1\n<|id|>510<|level|>2\n<|id|>517<|level|>1\n<|id|>518<|level|>2\n<|id|>522<|level|>1",
+    "parsed": [
+        {
+            "id": 444,
+            "level": 1
+        },
+        {
+            "id": 445,
+            "level": 2
+        },
+        {
+            "id": 449,
+            "level": 2
+        },
+        {
+            "id": 452,
+            "level": 2
+        },
+        {
+            "id": 454,
+            "level": 1
+        },
+        {
+            "id": 456,
+            "level": 2
+        },
+        {
+            "id": 459,
+            "level": 1
+        },
+        {
+            "id": 466,
+            "level": 1
+        },
+        {
+            "id": 485,
+            "level": 1
+        },
+        {
+            "id": 489,
+            "level": 3
+        },
+        {
+            "id": 491,
+            "level": 1
+        },
+        {
+            "id": 497,
+            "level": 1
+        },
+        {
+            "id": 502,
+            "level": 1
+        },
+        {
+            "id": 503,
+            "level": 2
+        },
+        {
+            "id": 509,
+            "level": 1
+        },
+        {
+            "id": 510,
+            "level": 2
+        },
+        {
+            "id": 517,
+            "level": 1
+        },
+        {
+            "id": 518,
+            "level": 2
+        },
+        {
+            "id": 522,
+            "level": 1
+        }
+    ]
+}

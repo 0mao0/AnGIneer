@@ -1,0 +1,37 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>157 163 194 833<|content|>CALDERWOOD & HARKNESS LLP 725 South Flower Street,\n<|id|>2<|type|>title<|page|>1<|box|>200 147 219 848<|content|>Samuel Eklund (SBN 198742), Responsible Partner Je\n<|id|>3<|type|>title<|page|>1<|box|>253 169 330 826<|content|>MEDIATION BRIEF SUPERIOR COURT OF THE STATE OF CAL\n<|id|>9<|type|>title<|page|>1<|box|>536 393 556 604<|content|>I. INTRODUCTION\n<|id|>15<|type|>title<|page|>2<|box|>334 395 353 601<|content|>II. BACKGROUND\n<|id|>16<|type|>title<|page|>2<|box|>378 140 395 550<|content|>A. Formation of Coastal Meridian Productions LLP\n<|id|>20<|type|>title<|page|>2<|box|>681 140 696 465<|content|>B. The Partners and Their Contributions\n<|id|>24<|type|>title<|page|>3<|box|>204 140 222 388<|content|>C. The Partnership Agreement\n<|id|>30<|type|>title<|page|>3<|box|>796 142 813 326<|content|>D. The Film Properties\n<|id|>32<|type|>table<|page|>4<|box|>133 143 271 852<|content|>None\n<|id|>35<|type|>title<|page|>4<|box|>536 140 553 393<|content|>E. Rennick Slate Ventures LLC\n<|id|>39<|type|>title<|page|>5<|box|>90 142 107 282<|content|>F. CMP's Lender\n<|id|>42<|type|>title<|page|>5<|box|>388 398 407 598<|content|>III. THE DISPUTE\n<|id|>44<|type|>title<|page|>5<|box|>541 142 556 465<|content|>A. Excess Management Fees Paid to RSV\n<|id|>47<|type|>table<|page|>5<|box|>744 143 857 852<|content|>None\n<|id|>54<|type|>title<|page|>6<|box|>755 140 772 447<|content|>B. Improper Revenue Reclassifications\n<|id|>61<|type|>title<|page|>7<|box|>593 140 609 287<|content|>C. Total Damages\n<|id|>70<|type|>title<|page|>8<|box|>363 277 382 718<|content|>IV. STRENGTH OF FONSECA'S CLAIMS\n<|id|>72<|type|>title<|page|>8<|box|>496 140 513 367<|content|>A. Breach of Fiduciary Duty\n<|id|>76<|type|>title<|page|>9<|box|>167 140 184 431<|content|>B. Breach of Partnership Agreement\n<|id|>79<|type|>title<|page|>9<|box|>554 140 571 259<|content|>C. Accounting\n<|id|>82<|type|>title<|page|>9<|box|>848 140 864 323<|content|>D. Constructive Fraud\n<|id|>85<|type|>title<|page|>10<|box|>303 140 321 434<|content|>E. Unjust Enrichment (Against RSV)\n<|id|>87<|type|>title<|page|>10<|box|>479 142 497 310<|content|>F. Forensic Evidence\n<|id|>91<|type|>title<|page|>11<|box|>90 140 107 452<|content|>G. Rennick's Counterclaim Is Meritless\n<|id|>95<|type|>title<|page|>11<|box|>414 362 434 633<|content|>V. LITIGATION STATUS\n<|id|>101<|type|>title<|page|>12<|box|>90 338 109 658<|content|>VI. SETTLEMENT POSITION\n<|id|>103<|type|>title<|page|>12<|box|>224 140 242 325<|content|>A. Monetary Recovery\n<|id|>105<|type|>title<|page|>12<|box|>455 140 473 387<|content|>B. Restated Revenue Waterfal\n<|id|>111<|type|>title<|page|>13<|box|>315 140 332 431<|content|>C. Partnership Governance Reforms\n<|id|>116<|type|>title<|page|>13<|box|>715 142 733 290<|content|>D. Mutual Release\n<|id|>118<|type|>title<|page|>14<|box|>90 142 107 243<|content|>E. Dismissal\n<|id|>120<|type|>title<|page|>14<|box|>229 142 247 330<|content|>F. RSV Going Forward\n<|id|>122<|type|>title<|page|>14<|box|>425 140 443 480<|content|>G. Non-Disparagement and Confidentiality\n<|id|>125<|type|>title<|page|>14<|box|>669 287 688 709<|content|>VII. WHY RENNICK SHOULD SETTLE\n<|id|>136<|type|>title<|page|>16<|box|>135 390 154 607<|content|>VIII. CONCLUSION\n<|id|>141<|type|>title<|page|>16<|box|>625 410 641 586<|content|>Respectfully submitted,\n<|id|>142<|type|>title<|page|>16<|box|>648 346 666 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>143<|type|>title<|page|>16<|box|>675 140 691 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|src_id|>32<|tgt_id|>30\n<|src_id|>47<|tgt_id|>44",
+    "parsed": [
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 44
+        }
+    ]
+}

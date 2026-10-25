@@ -1,0 +1,54 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        3,
+        51
+    ],
+    "pages": [
+        3,
+        6,
+        7,
+        9,
+        11,
+        17,
+        18,
+        19,
+        21,
+        26,
+        30,
+        33,
+        34,
+        36,
+        46,
+        50
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>3<|box|>750 774 795 920<|content|>LIBRARY ROOM 5030\n<|id|>1<|page|>3<|box|>805 772 831 916<|content|>JUN 2,3 1972\n<|id|>2<|page|>3<|box|>843 710 867 976<|content|>TREASURY DEPARTMENT\n<|id|>3<|page|>6<|box|>360 513 581 657<|content|>BUY AND HOLD UNITED STATES SAVINGS BONDS\n<|id|>6<|page|>7<|box|>518 378 557 641<|content|>MARCH-1956\n<|id|>7<|page|>7<|box|>836 48 898 865<|content|>UNITED STATES TREASURY DEPARTMENT OFFICE OF THE SECRETARY\n<|id|>9<|page|>9<|box|>167 160 712 848<|content|>Treasury financing operations. ... 69\n<|id|>10<|page|>9<|box|>725 164 774 837<|content|>Note: ... Where calculations have been made from u...res, the details may not check to the totals shown\n<|id|>16<|page|>11<|box|>260 507 338 942<|content|>The new certificates bear interest from March 5, 1...rm only, and in denominations of \\$1,000, \\$5,000,\n<|id|>18<|page|>11<|box|>626 26 735 462<|content|>Owners of these bonds have the option of exchangin...ks were closed at the close of business on March 7\n<|id|>43<|page|>17<|box|>500 5 512 452<|content|>4/ Under a revised classification in the monthly statement, effective\n<|id|>44<|page|>17<|box|>388 538 491 966<|content|>July 1, 1955, the security transactions of Governm...ccounts which are classified as quasi-governmental\n<|id|>46<|page|>17<|box|>520 339 535 649<|content|>Table 2. ... - Trust Account Receipts\n<|id|>47<|page|>17<|box|>537 408 549 567<|content|>(In millions of dollars)\n<|id|>50<|page|>18<|box|>767 522 787 981<|content|>8/ Included in total of deposit fund account expen...t expenditures of Government-sponsored enterprises\n<|id|>53<|page|>18<|box|>822 517 853 968<|content|>11/ Includes transactions by the Air Force and the Army beginning 1952. ... * Less than \\$500,000\n<|id|>54<|page|>18<|box|>848 519 857 675<|content|>* Less than \\$500,000. ... * Less than \\$500,000\n<|id|>56<|page|>19<|box|>736 515 746 940<|content|>in budget expenditures, and nat investment by Government-sponsored\n<|id|>60<|page|>21<|box|>99 51 329 471<|content|>The cash income and outgo data appearing in the \"T...arlier Budget documents as well as in the Bulletin\n<|id|>83<|page|>26<|box|>206 31 236 517<|content|>1/ For further detail, see \"Budget Receipts and Ex...d accounts with the Treasurer of the United States\n<|id|>88<|page|>26<|box|>277 530 324 977<|content|>I/ In addition to the net investment in United Sta...ng net transactions with the public. ... r Revised\n<|id|>104<|page|>26<|box|>645 36 675 508<|content|>5/ Issued in 1947 in payment for accumulated leave...s included in trust account receipts (see Table 3,\n<|id|>105<|page|>26<|box|>526 566 544 992<|content|>footnote 5); ... The last of these bonds matured in 1951\n<|id|>114<|page|>26<|box|>790 40 802 488<|content|>4/ Treated as noncash transactions at the time of issuance and es cash\n<|id|>115<|page|>26<|box|>712 563 732 985<|content|>transactions at the time of redemption; ... net issuance, or redemption (-)\n<|id|>129<|page|>30<|box|>409 25 438 486<|content|>\\frac{1}{2} On account of withheld taxes and sales...are no longer treated as liability accounts of the\n<|id|>130<|page|>30<|box|>400 537 430 972<|content|>Treasurer of the U. ... , but are classified and t...d of reporting Post Office Department transactions\n<|id|>136<|page|>33<|box|>95 244 111 686<|content|>and Outstanding January 31, 1956 - (Continued)\n<|id|>137<|page|>33<|box|>111 393 122 548<|content|>(In millions of dollars)\n<|id|>141<|page|>34<|box|>885 537 908 1000<|content|>14/ Except \\$100,000 at 99. ... 400\n<|id|>162<|page|>36<|box|>771 27 810 486<|content|>20/ The 1-1/8% certificates dated August 15, 1954,... which matured December 15, 1954, and the 2% bonds\n<|id|>163<|page|>36<|box|>106 559 126 972<|content|>which were called for redemption on December 15, 1...s in the two offerings amounted to \\$8,477 million\n<|id|>208<|page|>46<|box|>201 324 216 657<|content|>Table 1. ... - Summary of All Securities\n<|id|>209<|page|>46<|box|>218 375 231 610<|content|>(Par values - in millions of dollars)\n<|id|>216<|page|>50<|box|>78 27 170 498<|content|>The tablas which follow provide an analysis of the...al Reserve member-bank classes and nonmember banks",
+    "raw_response": "<|src_id|>43<|tgt_id|>44\n<|src_id|>56<|tgt_id|>57\n<|src_id|>104<|tgt_id|>105\n<|src_id|>114<|tgt_id|>115\n<|src_id|>129<|tgt_id|>130\n<|src_id|>162<|tgt_id|>163",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 56,
+            "tgt_id": 57
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 105
+        },
+        {
+            "src_id": 114,
+            "tgt_id": 115
+        },
+        {
+            "src_id": 129,
+            "tgt_id": 130
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 163
+        }
+    ]
+}

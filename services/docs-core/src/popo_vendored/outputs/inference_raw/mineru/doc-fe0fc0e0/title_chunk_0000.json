@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 671<|content|>CONFIDENTIAL — WIRE TRANSFER INSTRUCTIONS — DO NOT\n<|id|>1<|page|>1<|box|>112 158 147 838<|content|>CALDERWOOD & HARKNESS LLP 450 Park Avenue, 28th Fl\n<|id|>10<|page|>1<|box|>452 142 469 330<|content|>1. Purpose and Context\n<|id|>17<|page|>2<|box|>329 142 347 362<|content|>2. Seller Entity Information\n<|id|>24<|page|>2<|box|>804 140 821 537<|content|>3. Wire Transfer Instructions — Primary Account\n<|id|>26<|page|>3<|box|>140 142 156 408<|content|>3.1 Beneficiary Bank Information\n<|id|>29<|page|>3<|box|>501 142 517 429<|content|>3.2 Beneficiary Account Information\n<|id|>32<|page|>3<|box|>751 142 767 406<|content|>3.3 Bank Contact for Verification\n<|id|>36<|page|>4<|box|>265 140 282 454<|content|>3.4 Reference / Memo Line Instructions\n<|id|>38<|page|>4<|box|>333 176 349 640<|content|>\"Fairwater REIT / GMP Fund III Closing — June 6, 2\n<|id|>44<|page|>4<|box|>631 140 648 475<|content|>4. Summary of Anticipated Wires to Seller\n<|id|>46<|page|>4<|box|>779 140 797 408<|content|>4.1 Net Cash to Seller (Estimated)\n<|id|>48<|page|>5<|box|>90 142 108 375<|content|>4.2 Source of Equity Funding\n<|id|>52<|page|>5<|box|>306 140 323 419<|content|>4.3 Earnest Money Deposit Release\n<|id|>54<|page|>5<|box|>470 142 487 426<|content|>4.4 Deductions from Seller Proceeds\n<|id|>59<|page|>6<|box|>148 140 167 352<|content|>5. Verification Procedures\n<|id|>60<|page|>6<|box|>180 140 196 390<|content|>5.1 Source of Wire Instructions\n<|id|>65<|page|>6<|box|>385 140 402 315<|content|>5.2 Bank Verification\n<|id|>67<|page|>6<|box|>568 140 585 457<|content|>5.3 Anti-Fraud / Cybersecurity Protocol\n<|id|>72<|page|>7<|box|>90 140 107 297<|content|>5.4 Fraud Warning\n<|id|>73<|page|>7<|box|>113 334 128 666<|content|>IMPORTANT — WIRE FRAUD ALERT\n<|id|>75<|page|>7<|box|>309 140 325 326<|content|>6. Seller's Certification\n<|id|>77<|page|>7<|box|>470 140 486 583<|content|>GREYSTONE MERIDIAN PARTNERS FUND III, L.P.\n<|id|>91<|page|>7<|box|>773 142 790 398<|content|>7. Seller's Counsel Confirmation\n<|id|>93<|page|>8<|box|>89 142 106 377<|content|>BLACKRIDGE HAYES LLP\n<|id|>98<|page|>8<|box|>198 140 214 413<|content|>8. Escrow Agent Acknowledgment\n<|id|>100<|page|>8<|box|>395 140 412 687<|content|>COMMONWEALTH NATIONAL TITLE INSURANCE COMPANY\n<|id|>108<|page|>8<|box|>537 140 553 292<|content|>Contact for Questions:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>1<|level|>-1\n<|id|>10<|level|>1\n<|id|>17<|level|>1\n<|id|>24<|level|>1\n<|id|>26<|level|>2\n<|id|>29<|level|>2\n<|id|>32<|level|>2\n<|id|>36<|level|>2\n<|id|>38<|level|>3\n<|id|>44<|level|>1\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>54<|level|>2\n<|id|>59<|level|>1\n<|id|>60<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2\n<|id|>72<|level|>2\n<|id|>73<|level|>3\n<|id|>75<|level|>1\n<|id|>77<|level|>2\n<|id|>91<|level|>1\n<|id|>93<|level|>2\n<|id|>98<|level|>1\n<|id|>100<|level|>2\n<|id|>108<|level|>2",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 1
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 1
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 1
+        },
+        {
+            "id": 93,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        }
+    ]
+}

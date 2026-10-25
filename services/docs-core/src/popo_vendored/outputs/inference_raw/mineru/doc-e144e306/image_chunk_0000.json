@@ -1,0 +1,29 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>7<|type|>title<|page|>1<|box|>625 142 641 547<|content|>1. Litigation Hold Remains in Full Force and Effec\n<|id|>20<|type|>title<|page|>2<|box|>835 140 854 490<|content|>2. Expediting-Fee Payments to Goldenshore.\n<|id|>23<|type|>table<|page|>3<|box|>250 143 382 852<|content|>None\n<|id|>28<|type|>title<|page|>4<|box|>171 140 188 354<|content|>3. SEC Whistleblower Tip.\n<|id|>34<|type|>title<|page|>4<|box|>876 140 892 370<|content|>4. Voluntary Self-Disclosure.\n<|id|>43<|type|>title<|page|>6<|box|>289 140 306 403<|content|>5. Credit Facility Considerations.\n<|id|>50<|type|>title<|page|>7<|box|>424 140 441 267<|content|>6. Reactivation.\n<|id|>72<|type|>table<|page|>9<|box|>714 143 858 852<|content|>None",
+    "raw_response": "<|src_id|>23<|tgt_id|>20\n<|src_id|>72<|tgt_id|>50",
+    "parsed": [
+        {
+            "src_id": 23,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 72,
+            "tgt_id": 50
+        }
+    ]
+}

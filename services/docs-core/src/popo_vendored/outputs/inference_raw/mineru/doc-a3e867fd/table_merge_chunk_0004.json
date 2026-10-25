@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 4,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['2', '\"retractable blade deployment mechanism\"', \"'884\", '1, 2, 5, 9, 14', 'A mechanism in which the blade is spring-loaded to extend and automatically retracts into a shielded position upon release of actuating force, driven by a stored-energy', 'Any mechanism capable of deploying and retracting a blade, whether automatically or manually', 'Spec.: pre-loaded torsion spring, automatic retraction (Col. 5, ll. 22–38); all embodiments show automatic spring-driven retraction.PH: Aug. 2018Response distinguishing manual', 'Dr. Ostrowski : POSITA understands \"retractable\" in trocar context as automatic.FDA Guidance on trocar blade safety.', 'Favorable']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', 'element', '', 'retraction (Gandhi)', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 404,
+    "table2_idx": 405
+}

@@ -1,0 +1,97 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>12<|page|>1<|box|>486 140 503 364<|content|>I. Introduction and Purpose\n<|id|>20<|page|>2<|box|>491 140 508 831<|content|>II. Updated Credit Monitoring Enrollment Statistic\n<|id|>21<|page|>2<|box|>521 140 539 426<|content|>A. Consumer Notification Summary\n<|id|>29<|page|>3<|box|>565 140 582 633<|content|>B. Credit Monitoring Enrollment Data (as of Octobe\n<|id|>34<|page|>4<|box|>257 140 273 431<|content|>C. Call Center Operations Summary\n<|id|>39<|page|>4<|box|>755 140 772 344<|content|>D. Consumer Complaints\n<|id|>42<|page|>5<|box|>321 140 339 720<|content|>III. Confirmation of Palomar Data Solutions Enhanc\n<|id|>43<|page|>5<|box|>353 140 369 483<|content|>A. Background on the Vendor Relationship\n<|id|>47<|page|>5<|box|>806 142 824 566<|content|>B. Root Cause and Palomar's Contractual Obligation\n<|id|>50<|page|>6<|box|>404 140 421 607<|content|>C. Enhanced Security Measures Implemented or Under\n<|id|>59<|page|>7<|box|>737 140 755 462<|content|>D. Quorum's Ongoing Vendor Oversight\n<|id|>62<|page|>8<|box|>186 140 204 772<|content|>IV. Summary of Vendor Accountability Resolution (O\n<|id|>63<|page|>8<|box|>217 140 234 346<|content|>A. Indemnification Claim\n<|id|>67<|page|>8<|box|>710 140 727 434<|content|>B. Negotiation and Settlement Terms\n<|id|>77<|page|>10<|box|>138 140 157 460<|content|>C. Significance for Consumer Protection\n<|id|>82<|page|>10<|box|>666 140 683 704<|content|>V. Additional Remediation and Forward-Looking Meas\n<|id|>90<|page|>12<|box|>90 140 107 264<|content|>VI. Conclusion\n<|id|>111<|page|>13<|box|>436 143 452 238<|content|>Enclosures:",
+    "raw_response": "<|id|>12<|level|>1\n<|id|>20<|level|>1\n<|id|>21<|level|>2\n<|id|>29<|level|>2\n<|id|>34<|level|>2\n<|id|>39<|level|>2\n<|id|>42<|level|>1\n<|id|>43<|level|>2\n<|id|>47<|level|>2\n<|id|>50<|level|>2\n<|id|>59<|level|>2\n<|id|>62<|level|>1\n<|id|>63<|level|>2\n<|id|>67<|level|>2\n<|id|>77<|level|>2\n<|id|>82<|level|>1\n<|id|>90<|level|>1\n<|id|>111<|level|>1",
+    "parsed": [
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 1
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 1
+        },
+        {
+            "id": 90,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        }
+    ]
+}

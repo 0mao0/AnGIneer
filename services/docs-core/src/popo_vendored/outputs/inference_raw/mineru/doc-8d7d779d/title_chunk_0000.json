@@ -1,0 +1,86 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        7,
+        68
+    ],
+    "pages": [
+        7,
+        9,
+        11,
+        13,
+        23,
+        31,
+        35,
+        49,
+        50,
+        51,
+        67,
+        68
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>3<|page|>7<|box|>0 73 252 886<|content|>TREASURY BULLETIN\n<|id|>7<|page|>9<|box|>99 357 120 600<|content|>Table of Contents\n<|id|>10<|page|>11<|box|>69 348 86 664<|content|>Treasury Financing Operations\n<|id|>11<|page|>11<|box|>119 63 132 346<|content|>December 1 Certificates Refunded\n<|id|>16<|page|>11<|box|>230 523 246 864<|content|>Treasury Bonds Callable on March 15, 1953\n<|id|>18<|page|>11<|box|>375 523 389 729<|content|>Treasury Bills Refunded\n<|id|>20<|page|>13<|box|>37 326 51 638<|content|>SUMMARY OF FEDERAL FISCAL OPERATIONS\n<|id|>48<|page|>23<|box|>70 320 84 627<|content|>Table 7.- Unemployment Trust Fund\n<|id|>68<|page|>31<|box|>72 193 105 759<|content|>Table 7.- Treasury Holdings of Securities Issued b\n<|id|>84<|page|>35<|box|>75 132 126 832<|content|>Table 1.- Maturity Schedule of Interest-Bearing Pu\n<|id|>111<|page|>49<|box|>81 144 97 831<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>113<|page|>50<|box|>81 133 117 864<|content|>Section I - Securities Issued or Guaranteed by the\n<|id|>117<|page|>51<|box|>81 168 116 817<|content|>Section II - Interest-Bearing Securities Issued by\n<|id|>167<|page|>67<|box|>75 381 89 658<|content|>Section 1 - Historical Summary\n<|id|>170<|page|>68<|box|>70 355 85 636<|content|>Section I - Historical Summary",
+    "raw_response": "<|id|>3<|level|>1\n<|id|>7<|level|>2\n<|id|>10<|level|>2\n<|id|>11<|level|>3\n<|id|>16<|level|>3\n<|id|>18<|level|>3\n<|id|>20<|level|>2\n<|id|>48<|level|>3\n<|id|>68<|level|>3\n<|id|>84<|level|>3\n<|id|>111<|level|>3\n<|id|>113<|level|>3\n<|id|>117<|level|>3\n<|id|>167<|level|>3\n<|id|>170<|level|>3",
+    "parsed": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 170,
+            "level": 3
+        }
+    ]
+}

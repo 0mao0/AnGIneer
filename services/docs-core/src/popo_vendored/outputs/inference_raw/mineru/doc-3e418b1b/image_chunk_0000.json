@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        3
+    ],
+    "pages": [
+        1,
+        2,
+        3
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 153 107 843<|content|>CALDERWOOD & HARKNESS LLP 1301 Avenue of the Ameri\n<|id|>3<|type|>title<|page|>1<|box|>186 140 220 854<|content|>Re: Invoice — Quorum Insurance Holdings Corp. Foll\n<|id|>7<|type|>table<|page|>1<|box|>493 143 622 852<|content|>None\n<|id|>8<|type|>table<|page|>1<|box|>694 143 823 852<|content|>None\n<|id|>9<|type|>title<|page|>1<|box|>857 354 873 643<|content|>TOTAL AMOUNT DUE: $95,645.00\n<|id|>10<|type|>title<|page|>2<|box|>90 142 107 446<|content|>Payment Terms and Wire Instructions\n<|id|>14<|type|>title<|page|>2<|box|>301 142 316 323<|content|>Fee Cap Confirmation\n<|id|>17<|type|>title<|page|>2<|box|>521 142 537 395<|content|>Description of Work Performed\n<|id|>28<|type|>title<|page|>3<|box|>354 142 372 450<|content|>Dormancy and Continuing Availability",
+    "raw_response": "<|src_id|>7<|tgt_id|>3\n<|src_id|>8<|tgt_id|>3",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 3
+        }
+    ]
+}

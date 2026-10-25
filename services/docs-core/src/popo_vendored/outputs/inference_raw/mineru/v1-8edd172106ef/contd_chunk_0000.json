@@ -1,0 +1,55 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>112 259 128 741<|content|>Antonios M. ... Tubman<sup>3,</sup> <sup>†</sup>\n<|id|>2<|page|>1<|box|>131 163 186 838<|content|><sup>1</sup>KBR, Inc. ... April 10, 2025)\n<|id|>3<|page|>1<|box|>191 171 393 831<|content|>The accurate first-principles description of stron...ient materials simulation using quantum algorithms\n<|id|>6<|page|>1<|box|>681 81 843 491<|content|>The full many-body Hamiltonian describing a gen- e...uding exact diagonalization [15–18], quantum Monte\n<|id|>7<|page|>1<|box|>415 511 489 919<|content|>Carlo [19–21], diagrammatic approximations [22], a...ion is typically of the extended Hubbard form [23]\n<|id|>61<|page|>6<|box|>522 509 915 923<|content|>Here we downfold the electronic structure on the s...0 ^ { 2 }, which here too is significantly smaller\n<|id|>62<|page|>7<|box|>637 81 915 491<|content|>than values of the order to1 0 ^ { 4 }, which are ...mpute the excitonic insulator order parameter [73]\n<|id|>71<|page|>8<|box|>609 509 915 921<|content|>In this work we have utilized ab initio downfold- ... excellent starting point and minimizing the quan-\n<|id|>72<|page|>9<|box|>66 83 80 276<|content|>tum resource cost [39, 75]. ... tum resource cost [39, 75]\n<|id|>122<|page|>11<|box|>864 84 905 490<|content|>[11] K. ... Application to GaAs, Physical\n<|id|>123<|page|>11<|box|>297 542 324 919<|content|>Review B - Condensed Matter and Materials Physics 77, 1 (2008), arXiv: ... 4371\n<|id|>134<|page|>11<|box|>891 514 906 918<|content|>[22] T. ... Berkel-\n<|id|>135<|page|>12<|box|>66 112 107 490<|content|>bach, and G. ... B 100, 115154 (2019)\n<|id|>147<|page|>12<|box|>898 84 914 488<|content|>[34] B. ... Fauseweh, Quantum many-body simulations on digi-\n<|id|>148<|page|>12<|box|>66 542 106 919<|content|>tal quantum computers: ... 1038/s41467-024- 46402-9 (2024)\n<|id|>161<|page|>12<|box|>898 514 914 921<|content|>[47] N. ... Souza, and\n<|id|>182<|page|>13<|box|>886 514 912 921<|content|>[67] L. ... Sun, Fast exact synthesis of two-qubit unitaries using a near-minimum number of\n<|id|>183<|page|>14<|box|>66 112 80 395<|content|>t gates, Phys. ... A 107, 042424 (2023)\n<|id|>194<|page|>14<|box|>637 84 704 490<|content|>[78] D. ... Kronik, Band gaps of crystalline solid... of the National Academy of Sciences of the United\n<|id|>195<|page|>14<|box|>66 542 80 885<|content|>States of America 118, 1 (2021), arXiv: ... 03278",
+    "raw_response": "<|src_id|>6<|tgt_id|>7\n<|src_id|>61<|tgt_id|>62\n<|src_id|>71<|tgt_id|>72\n<|src_id|>122<|tgt_id|>123\n<|src_id|>134<|tgt_id|>135\n<|src_id|>147<|tgt_id|>148\n<|src_id|>182<|tgt_id|>183\n<|src_id|>194<|tgt_id|>195",
+    "parsed": [
+        {
+            "src_id": 6,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 61,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 134,
+            "tgt_id": 135
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 148
+        },
+        {
+            "src_id": 182,
+            "tgt_id": 183
+        },
+        {
+            "src_id": 194,
+            "tgt_id": 195
+        }
+    ]
+}

@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 238 125 758<|content|>IN THE COURT OF CHANCERY OF THE STATE OF DELAWARE\n<|id|>3<|page|>1<|box|>186 163 239 834<|content|>PRIYA RATHORE, DEREK LINDEN, SONIA KACZMAREK, AMAR\n<|id|>6<|page|>1<|box|>300 176 335 821<|content|>STIPULATION ADJOURNING PRELIMINARY INJUNCTION HEAR\n<|id|>21<|page|>3<|box|>194 140 210 602<|content|>Section 1. Adjournment of Preliminary Injunction H\n<|id|>27<|page|>3<|box|>511 140 527 611<|content|>Section 2. Continuation of TRO Restraints as Inter\n<|id|>32<|page|>4<|box|>204 140 222 544<|content|>Section 3. Preservation of Confidential Informatio\n<|id|>42<|page|>5<|box|>90 140 107 460<|content|>Section 4. Data Preservation Obligations\n<|id|>48<|page|>5<|box|>700 140 717 736<|content|>Section 5. No Solicitation of CRH Employees or Ven\n<|id|>52<|page|>6<|box|>304 140 320 439<|content|>Section 6. Status Reports to the Court\n<|id|>56<|page|>6<|box|>587 140 604 393<|content|>Section 7. Reservation of Rights\n<|id|>61<|page|>7<|box|>286 140 303 434<|content|>Section 8. Termination of Stipulation\n<|id|>68<|page|>7<|box|>738 140 753 348<|content|>Section 9. Governing Law\n<|id|>70<|page|>7<|box|>840 142 859 380<|content|>Section 10. Court Jurisdiction\n<|id|>74<|page|>8<|box|>213 140 229 341<|content|>Section 11. Counterparts\n<|id|>77<|page|>8<|box|>436 400 454 596<|content|>[Signature Pages Follow]\n<|id|>78<|page|>8<|box|>462 140 479 602<|content|>FOR PLAINTIFF CASCADE RETAIL HOLDINGS INC.:\n<|id|>84<|page|>8<|box|>604 140 659 854<|content|>FOR DEFENDANTS PRIYA RATHORE, DEREK LINDEN, SONIA\n<|id|>85<|page|>8<|box|>667 142 684 465<|content|>WHITFIELD, NYGAARD & DOYLE LLP\n<|id|>95<|page|>9<|box|>89 143 142 758<|content|>Date: March 21, 2025 IN THE COURT OF CHANCERY OF T\n<|id|>98<|page|>9<|box|>202 163 256 834<|content|>PRIYA RATHORE, DEREK LINDEN, SONIA KACZMAREK, AMAR\n<|id|>101<|page|>9<|box|>316 318 333 679<|content|>[PROPOSED] CONSENT INTERIM ORDER\n<|id|>103<|page|>9<|box|>661 142 678 447<|content|>IT IS HEREBY ORDERED as follows:\n<|id|>108<|page|>10<|box|>398 140 415 464<|content|>4. Confidentiality and Data Preservation.\n<|id|>113<|page|>10<|box|>821 140 837 393<|content|>5. Non-Solicitation Restrictions.\n<|id|>116<|page|>11<|box|>215 140 232 285<|content|>6. Status Reports.\n<|id|>122<|page|>11<|box|>737 140 753 375<|content|>9. Duration and Termination.\n<|id|>127<|page|>12<|box|>321 143 357 715<|content|>Vice Chancellor Margaret T. Zhao Court of Chancery",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>6<|level|>1\n<|id|>21<|level|>2\n<|id|>27<|level|>2\n<|id|>32<|level|>2\n<|id|>42<|level|>2\n<|id|>48<|level|>2\n<|id|>52<|level|>2\n<|id|>56<|level|>2\n<|id|>61<|level|>2\n<|id|>68<|level|>2\n<|id|>70<|level|>2\n<|id|>74<|level|>2\n<|id|>77<|level|>-1\n<|id|>78<|level|>2\n<|id|>84<|level|>2\n<|id|>85<|level|>2\n<|id|>95<|level|>1\n<|id|>98<|level|>1\n<|id|>101<|level|>1\n<|id|>103<|level|>2\n<|id|>108<|level|>3\n<|id|>113<|level|>3\n<|id|>116<|level|>3\n<|id|>122<|level|>3\n<|id|>127<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 122,
+            "level": 3
+        },
+        {
+            "id": 127,
+            "level": 1
+        }
+    ]
+}

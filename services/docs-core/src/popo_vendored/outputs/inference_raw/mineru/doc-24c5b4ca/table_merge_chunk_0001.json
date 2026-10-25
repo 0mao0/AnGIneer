@@ -1,0 +1,22 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['9', 'Buckhead Place Office Tower', '3380 Peachtree Road NE', 'Atlanta, GA', 'GMP Buckhead LLC', '2-A', '04/05/2024', '04/09/2024', '285,000 SF', 'Adjacent parking easement confirmed and depicted; easement benefits the Property over adjoining Parcel ID 17-0045-']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', '', '', '', '', '', '', '', '0001-085-3 per recorded Easement Agreement (Fulton County Superior Court, Deed Book 54821, Page 0411).']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 66,
+    "table2_idx": 67
+}

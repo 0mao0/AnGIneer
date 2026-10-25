@@ -1,0 +1,54 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>88 142 104 797<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT PRIVILEG\n<|id|>1<|type|>title<|page|>1<|box|>113 403 133 593<|content|>MEMORANDUM\n<|id|>11<|type|>title<|page|>1<|box|>444 140 460 321<|content|>I. Executive Summary\n<|id|>21<|type|>title<|page|>2<|box|>539 142 556 267<|content|>II. Background\n<|id|>22<|type|>title<|page|>2<|box|>569 142 587 248<|content|>A. The Fund\n<|id|>30<|type|>title<|page|>3<|box|>343 142 359 331<|content|>B. The General Partner\n<|id|>37<|type|>title<|page|>3<|box|>715 140 733 504<|content|>C. Fund Financial Profile (as of May 31, 2024)\n<|id|>39<|type|>table<|page|>3<|box|>781 143 893 852<|content|>None\n<|id|>40<|type|>table<|page|>4<|box|>88 143 232 852<|content|>None\n<|id|>43<|type|>title<|page|>4<|box|>523 140 540 482<|content|>D. Marcus J. Whitmore — The Key Person\n<|id|>48<|type|>title<|page|>5<|box|>176 140 193 366<|content|>E. The Incapacitation Event\n<|id|>53<|type|>title<|page|>5<|box|>593 140 609 583<|content|>III. Section 8.04 Key-Person Clause — Detailed Ana\n<|id|>54<|type|>title<|page|>5<|box|>625 140 640 501<|content|>A. Definition of Key Person — Section 8.04(a)\n<|id|>61<|type|>title<|page|>6<|box|>411 140 429 513<|content|>B. Key Person Event Trigger — Section 8.04(b)\n<|id|>74<|type|>title<|page|>7<|box|>411 140 446 854<|content|>Conclusion: A Key Person Event under Section 8.04(\n<|id|>81<|type|>title<|page|>8<|box|>448 140 465 609<|content|>C. Consequences of the Key Person Event — Section\n<|id|>111<|type|>table<|page|>10<|box|>789 145 893 852<|content|>None\n<|id|>112<|type|>table<|page|>11<|box|>88 147 109 852<|content|>None\n<|id|>126<|type|>title<|page|>12<|box|>286 140 301 593<|content|>IV. LP Consent Solicitation — Procedural Considera\n<|id|>127<|type|>title<|page|>12<|box|>316 140 333 303<|content|>A. Form of Consent\n<|id|>135<|type|>title<|page|>13<|box|>138 140 157 321<|content|>B. Timing Constraints\n<|id|>140<|type|>table<|page|>13<|box|>516 143 718 852<|content|>None\n<|id|>143<|type|>title<|page|>14<|box|>194 140 210 331<|content|>C. Role of IAC Counsel\n<|id|>152<|type|>title<|page|>14<|box|>768 140 787 403<|content|>V. Delaware Law Considerations\n<|id|>153<|type|>title<|page|>14<|box|>800 142 818 292<|content|>A. Governing Law\n<|id|>156<|type|>title<|page|>15<|box|>330 140 347 478<|content|>B. Fiduciary Duties of the General Partner\n<|id|>167<|type|>title<|page|>16<|box|>393 140 409 522<|content|>C. LP Consent Solicitation Under Delaware Law\n<|id|>174<|type|>title<|page|>17<|box|>138 140 157 439<|content|>D. Carry Reallocation Considerations\n<|id|>178<|type|>title<|page|>17<|box|>585 140 602 452<|content|>VI. Risk Assessment — Failure to Cure\n<|id|>179<|type|>title<|page|>17<|box|>616 140 633 338<|content|>A. Wind-Down Scenario\n<|id|>187<|type|>title<|page|>18<|box|>518 142 535 315<|content|>B. Mitigating Factors\n<|id|>197<|type|>title<|page|>19<|box|>609 140 626 352<|content|>C. Probability Assessment\n<|id|>202<|type|>title<|page|>20<|box|>267 140 284 385<|content|>VII. Recommended Next Steps\n<|id|>217<|type|>title<|page|>21<|box|>703 140 720 279<|content|>VIII. Conclusion",
+    "raw_response": "<|src_id|>39<|tgt_id|>37\n<|src_id|>40<|tgt_id|>37\n<|src_id|>111<|tgt_id|>81\n<|src_id|>112<|tgt_id|>81\n<|src_id|>140<|tgt_id|>135",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 40,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 111,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 81
+        },
+        {
+            "src_id": 140,
+            "tgt_id": 135
+        }
+    ]
+}

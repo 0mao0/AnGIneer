@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        4,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>34 112 67 238<|content|>ICS 93. ... 10 P 66\n<|id|>1<|page|>1<|box|>65 648 112 907<|content|>DB12\n<|id|>20<|page|>4<|box|>380 147 395 472<|content|>JTG F80/1 公路工程质量检验评定标准\n<|id|>21<|page|>4<|box|>397 147 414 697<|content|>中华人民共和国交通部令2004年第3号 公路工程竣（交）工验收办法\n<|id|>28<|page|>4<|box|>565 149 580 413<|content|>山皮土 mountain surface soil\n<|id|>29<|page|>4<|box|>583 147 600 500<|content|>经过自然风化后的山体表皮浅层土石混合物。 ... 经过自然风化后的山体表皮浅层土石混合物\n<|id|>31<|page|>4<|box|>620 149 636 633<|content|>山皮土路基 subgrade filled with mountain surface soil\n<|id|>32<|page|>4<|box|>639 149 653 359<|content|>由山皮土填筑而成的路基。 ... 由山皮土填筑而成的路基\n<|id|>40<|page|>4<|box|>824 147 840 685<|content|>填石类山皮土路堤 rock-fill mountain surface soil embankment\n<|id|>41<|page|>4<|box|>843 149 859 579<|content|>石料粒径大于40mm且含量超过总质量70%的山皮土路堤。 ... 石料粒径大于40mm且含量超过总质量70%的山皮土路堤\n<|id|>43<|page|>4<|box|>879 147 896 828<|content|>土石类山皮土路堤 mountain surface soil embankment filled with soil and rock\n<|id|>44<|page|>5<|box|>114 149 130 499<|content|>石料含量占总质量的30%～70%的山皮土路堤。 ... 石料含量占总质量的30%～70%的山皮土路堤\n<|id|>46<|page|>5<|box|>151 147 167 677<|content|>填土类山皮土路堤 soil-fill mountain surface soil embankment\n<|id|>47<|page|>5<|box|>170 147 185 633<|content|>石料含量小于30%及石料饱和抗压强度小于5MPa的山皮土路堤。 ... 石料含量小于30%及石料饱和抗压强度小于5MPa的山皮土路堤\n<|id|>49<|page|>5<|box|>206 147 222 405<|content|>压实度 degree of compaction\n<|id|>50<|page|>5<|box|>225 147 241 640<|content|>筑路材料压实后干密度与标准最大干密度之比，以百分率表示。 ... 筑路材料压实后干密度与标准最大干密度之比，以百分率表示\n<|id|>52<|page|>5<|box|>262 147 277 527<|content|>加州承载比 california bearing ratio（CBR）\n<|id|>53<|page|>5<|box|>280 112 315 905<|content|>表征路基填筑材料强度的一种指标，即标准试件在贯入量为2. ... 5mm时所施加的试验荷载与标准碎石 材料在相同贯入量时所施加的荷载之比值，以百分率表示\n<|id|>55<|page|>5<|box|>337 149 351 361<|content|>关键项目 dominant item\n<|id|>56<|page|>5<|box|>355 147 370 729<|content|>分项工程中对结构安全、耐久性和主要使用功能起决定性作用的检查项目。 ... 分项工程中对结构安全、耐久性和主要使用功能起决定性作用的检查项目\n<|id|>62<|page|>5<|box|>466 147 481 431<|content|>外观质量 quality of appearance\n<|id|>63<|page|>5<|box|>485 147 500 605<|content|>通过观察和必要的量测所反映的工程外在质量及功能状态。 ... 通过观察和必要的量测所反映的工程外在质量及功能状态",
+    "raw_response": "<|src_id|>43<|tgt_id|>44",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 44
+        }
+    ]
+}

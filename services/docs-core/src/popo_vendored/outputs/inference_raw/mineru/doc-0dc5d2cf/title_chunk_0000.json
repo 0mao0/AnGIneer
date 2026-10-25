@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 277 107 718<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>11<|page|>1<|box|>656 140 672 733<|content|>Background — The Stock Purchase Agreement and the\n<|id|>14<|page|>2<|box|>260 140 277 580<|content|>Notice of Termination of the Stock Purchase Agreem\n<|id|>21<|page|>3<|box|>167 140 184 714<|content|>Request for Termination of Commitments Under the C\n<|id|>25<|page|>3<|box|>616 140 633 480<|content|>Accrued Fees and Outstanding Obligations\n<|id|>30<|page|>4<|box|>414 140 431 604<|content|>No Drawdown; No Term Loan Credit Agreement Execute\n<|id|>35<|page|>4<|box|>723 140 739 308<|content|>Surviving Provisions\n<|id|>42<|page|>5<|box|>375 140 391 413<|content|>Request for Written Confirmation\n<|id|>48<|page|>5<|box|>744 140 762 308<|content|>Contact Information\n<|id|>54<|page|>6<|box|>172 142 190 315<|content|>Reservation of Rights\n<|id|>64<|page|>6<|box|>568 142 580 171<|content|>cc:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>11<|level|>2\n<|id|>14<|level|>2\n<|id|>21<|level|>2\n<|id|>25<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>48<|level|>2\n<|id|>54<|level|>2\n<|id|>64<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        }
+    ]
+}

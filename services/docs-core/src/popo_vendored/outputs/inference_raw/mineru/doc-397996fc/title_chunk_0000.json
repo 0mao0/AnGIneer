@@ -1,0 +1,152 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 155 143 841<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1200 Mc\n<|id|>1<|page|>1<|box|>152 156 170 839<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>8<|page|>1<|box|>388 142 405 210<|content|>FROM:\n<|id|>12<|page|>1<|box|>529 339 549 656<|content|>LITIGATION HOLD NOTICE\n<|id|>13<|page|>1<|box|>574 140 592 457<|content|>Section 1. Purpose and Legal Obligation\n<|id|>20<|page|>2<|box|>593 140 609 588<|content|>Section 2. Scope of the Litigation Hold — Subject\n<|id|>22<|page|>2<|box|>724 140 741 392<|content|>2.1 Site Operations and History\n<|id|>30<|page|>3<|box|>397 140 414 710<|content|>2.2 Joint Operating Agreement with Rowan Creek Fue\n<|id|>38<|page|>3<|box|>825 140 843 470<|content|>2.3 Environmental Releases and Incidents\n<|id|>47<|page|>4<|box|>625 140 641 598<|content|>2.4 Tank Inspection, Maintenance, and Condition Re\n<|id|>58<|page|>5<|box|>246 140 263 537<|content|>2.5 Environmental Assessments and Investigations\n<|id|>71<|page|>6<|box|>202 142 219 483<|content|>2.6 Regulatory Correspondence and Filings\n<|id|>78<|page|>6<|box|>550 142 568 501<|content|>2.7 DTS Dissolution and Liability Assignment\n<|id|>86<|page|>7<|box|>138 140 156 408<|content|>2.8 Insurance Policies and Claims\n<|id|>93<|page|>7<|box|>616 140 633 316<|content|>2.9 Financial Records\n<|id|>102<|page|>8<|box|>228 140 244 454<|content|>2.10 Personnel and Contractor Records\n<|id|>109<|page|>8<|box|>594 142 612 397<|content|>2.11 Property and Title Records\n<|id|>118<|page|>9<|box|>138 140 157 526<|content|>2.12 Photographs, Videos, and Physical Evidence\n<|id|>125<|page|>9<|box|>378 140 395 578<|content|>2.13 Communications Relating to RCFD Cost-Recovery\n<|id|>132<|page|>9<|box|>672 142 689 565<|content|>2.14 Site Access and Current Owner Communications\n<|id|>138<|page|>10<|box|>148 140 167 442<|content|>Section 3. Types of Materials Covered\n<|id|>145<|page|>10<|box|>675 140 693 431<|content|>Section 4. Custodian Responsibilities\n<|id|>155<|page|>11<|box|>595 140 614 388<|content|>Section 5. Duration of the Hold\n<|id|>159<|page|>12<|box|>186 140 204 490<|content|>Section 6. Consequences of Non-Compliance\n<|id|>166<|page|>12<|box|>632 140 648 504<|content|>Section 7. Acknowledgment and Confirmation\n<|id|>172<|page|>13<|box|>148 142 167 388<|content|>Section 8. Contact Information\n<|id|>179<|page|>13<|box|>518 421 535 575<|content|>ATTACHMENT A\n<|id|>180<|page|>13<|box|>544 272 561 723<|content|>ACKNOWLEDGMENT AND CONFIRMATION FORM\n<|id|>181<|page|>13<|box|>570 145 606 849<|content|>LITIGATION HOLD NOTICE — DUNMORE WHARTON TERMINAL\n<|id|>182<|page|>13<|box|>614 156 631 839<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMM\n<|id|>187<|page|>14<|box|>217 142 233 372<|content|>RETURN INSTRUCTIONS:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>8<|level|>2\n<|id|>12<|level|>1\n<|id|>13<|level|>2\n<|id|>20<|level|>2\n<|id|>22<|level|>3\n<|id|>30<|level|>3\n<|id|>38<|level|>3\n<|id|>47<|level|>3\n<|id|>58<|level|>3\n<|id|>71<|level|>3\n<|id|>78<|level|>3\n<|id|>86<|level|>3\n<|id|>93<|level|>3\n<|id|>102<|level|>3\n<|id|>109<|level|>3\n<|id|>118<|level|>3\n<|id|>125<|level|>3\n<|id|>132<|level|>3\n<|id|>138<|level|>2\n<|id|>145<|level|>2\n<|id|>155<|level|>2\n<|id|>159<|level|>2\n<|id|>166<|level|>2\n<|id|>172<|level|>2\n<|id|>179<|level|>1\n<|id|>180<|level|>2\n<|id|>181<|level|>3\n<|id|>182<|level|>4\n<|id|>187<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 159,
+            "level": 2
+        },
+        {
+            "id": 166,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 1
+        },
+        {
+            "id": 180,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 4
+        },
+        {
+            "id": 187,
+            "level": 2
+        }
+    ]
+}

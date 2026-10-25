@@ -1,0 +1,28 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 174 123 821<|content|>UNITED STATES DISTRICT COURT CENTRAL DISTRICT OF C\n<|id|>2<|page|>1<|box|>460 333 476 663<|content|>DECLARATION OF LENA KOWALSKI\n<|id|>67<|page|>10<|box|>263 429 279 568<|content|>ATTESTATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>2\n<|id|>67<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 3
+        }
+    ]
+}

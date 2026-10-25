@@ -1,0 +1,153 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        20
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 143 190 852<|content|>EXHIBIT B Consumer Notification Samples and Compli\n<|id|>13<|page|>2<|box|>545 297 564 697<|content|>I. INTRODUCTION AND OVERVIEW\n<|id|>15<|page|>2<|box|>752 142 768 323<|content|>Background Summary\n<|id|>17<|page|>3<|box|>167 140 184 450<|content|>Scope of Affected Data and Individuals\n<|id|>22<|page|>3<|box|>429 142 445 450<|content|>Investigation and Notification Timeline\n<|id|>36<|page|>5<|box|>90 140 107 370<|content|>Organization of This Exhibit\n<|id|>44<|page|>5<|box|>393 212 414 782<|content|>II. CONSUMER NOTIFICATION LETTER VERSIONS\n<|id|>45<|page|>5<|box|>440 142 457 390<|content|>A. Overview of Letter Versions\n<|id|>55<|page|>6<|box|>204 140 222 733<|content|>B. Version 1: Model Consumer Notification Letter —\n<|id|>58<|page|>6<|box|>375 140 391 297<|content|>Content Summary:\n<|id|>68<|page|>7<|box|>354 140 373 754<|content|>C. Version 2: Consumer Notification Letter — SSN +\n<|id|>75<|page|>8<|box|>89 140 108 848<|content|>D. Version 3: Consumer Notification Letter — PHI V\n<|id|>87<|page|>9<|box|>89 140 107 710<|content|>E. Version 4: California-Specific Consumer Notific\n<|id|>96<|page|>9<|box|>648 142 667 741<|content|>F. Version 5: Massachusetts-Specific Consumer Noti\n<|id|>105<|page|>10<|box|>321 205 367 790<|content|>III. STATE-BY-STATE NOTIFICATION COMPLIANCE CHECKL\n<|id|>106<|page|>10<|box|>391 142 409 272<|content|>A. Methodology\n<|id|>109<|page|>10<|box|>685 142 703 387<|content|>B. Compliance Checklist Table\n<|id|>116<|page|>13<|box|>359 447 376 550<|content|>SUMMARY\n<|id|>118<|page|>13<|box|>445 140 462 393<|content|>C. Timing Compliance Analysis\n<|id|>124<|page|>14<|box|>267 140 284 411<|content|>D. Content Compliance Summary\n<|id|>138<|page|>15<|box|>316 142 334 300<|content|>E. Delivery Method\n<|id|>142<|page|>15<|box|>604 176 625 818<|content|>IV. SUMMARY OF REGULATORY NOTIFICATIONS FILED\n<|id|>143<|page|>15<|box|>650 142 667 401<|content|>A. Regulatory Notification Table\n<|id|>149<|page|>17<|box|>90 140 107 452<|content|>B. Media Notice (HIPAA Requirement)\n<|id|>151<|page|>17<|box|>306 194 327 800<|content|>V. SUPPLEMENTAL COMPLIANCE DOCUMENTATION\n<|id|>152<|page|>17<|box|>353 142 369 439<|content|>A. Substitute Notice / Website Posting\n<|id|>162<|page|>17<|box|>772 142 789 351<|content|>B. Call Center Operations\n<|id|>172<|page|>18<|box|>421 140 438 611<|content|>C. Credit Monitoring and Identity Theft Protection\n<|id|>176<|page|>18<|box|>723 140 739 447<|content|>D. Mailing Logistics and Confirmation\n<|id|>184<|page|>19<|box|>319 398 339 598<|content|>VI. CONCLUSION\n<|id|>194<|page|>19<|box|>888 140 904 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>202<|page|>20<|box|>233 380 253 614<|content|>TABS / APPENDICES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>13<|level|>2\n<|id|>15<|level|>3\n<|id|>17<|level|>3\n<|id|>22<|level|>3\n<|id|>36<|level|>3\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>55<|level|>3\n<|id|>58<|level|>4\n<|id|>68<|level|>3\n<|id|>75<|level|>3\n<|id|>87<|level|>3\n<|id|>96<|level|>3\n<|id|>105<|level|>2\n<|id|>106<|level|>3\n<|id|>109<|level|>3\n<|id|>116<|level|>3\n<|id|>118<|level|>3\n<|id|>124<|level|>3\n<|id|>138<|level|>3\n<|id|>142<|level|>2\n<|id|>143<|level|>3\n<|id|>149<|level|>3\n<|id|>151<|level|>2\n<|id|>152<|level|>3\n<|id|>162<|level|>3\n<|id|>172<|level|>3\n<|id|>176<|level|>3\n<|id|>184<|level|>2\n<|id|>194<|level|>-1\n<|id|>202<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 22,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 4
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 105,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 3
+        },
+        {
+            "id": 118,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 138,
+            "level": 3
+        },
+        {
+            "id": 142,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 3
+        },
+        {
+            "id": 149,
+            "level": 3
+        },
+        {
+            "id": 151,
+            "level": 2
+        },
+        {
+            "id": 152,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 3
+        },
+        {
+            "id": 176,
+            "level": 3
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 2
+        }
+    ]
+}

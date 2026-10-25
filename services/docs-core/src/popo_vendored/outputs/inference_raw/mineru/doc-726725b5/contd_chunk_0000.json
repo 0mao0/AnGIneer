@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        2,
+        6
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>18<|page|>2<|box|>744 173 890 857<|content|>(b) Execute and deliver all ancillary agreements, ...e MCTA, including but not limited to: ... and (vi)\n<|id|>19<|page|>3<|box|>90 174 127 854<|content|>such other agreements, documents, and instruments ...nsummate the transactions contemplated by the MCTA\n<|id|>54<|page|>5<|box|>689 140 705 331<|content|>Name: ... Chen\n<|id|>55<|page|>5<|box|>705 143 723 263<|content|>Title: ... Secretary\n<|id|>56<|page|>5<|box|>723 142 739 281<|content|>Date: ... July 5, 2023\n<|id|>62<|page|>6<|box|>186 142 203 367<|content|>Title: ... Chief Executive Officer\n<|id|>63<|page|>6<|box|>203 142 219 282<|content|>Date: ... July 5, 2023\n<|id|>64<|page|>6<|box|>219 140 281 854<|content|>This Secretary's Certificate, including all exhibi...ies to the MCTA and their respective legal counsel",
+    "raw_response": "<|src_id|>18<|tgt_id|>19",
+    "parsed": [
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        }
+    ]
+}

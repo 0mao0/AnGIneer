@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['March', '299,525', '298,978', '9,955', '9,935', '3.332', '3.332', '3.399', '3.024', '3.283', '3.892', '3.325', '3.404', '2.918', '3.625']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=3, End offiscalyear ormonth', 'rowspan=3, Totalinterest-bearingpublicdebt', 'colspan=12, Public issues', 'rowspan=2, Specialissues']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 160,
+    "table2_idx": 161
+}

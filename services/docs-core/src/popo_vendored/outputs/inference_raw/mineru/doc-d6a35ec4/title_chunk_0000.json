@@ -1,0 +1,112 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 155 123 841<|content|>UNITED STATES BANKRUPTCY COURT NORTHERN DISTRICT O\n<|id|>3<|page|>1<|box|>383 166 419 828<|content|>CORPORATE OWNERSHIP STATEMENT PURSUANT TO FEDERAL\n<|id|>5<|page|>1<|box|>595 142 613 441<|content|>I. INTRODUCTION AND PURPOSE\n<|id|>11<|page|>2<|box|>297 140 314 488<|content|>II. IDENTIFICATION OF THE DEBTORS\n<|id|>12<|page|>2<|box|>328 140 345 442<|content|>A. Crestline Packaging Solutions LLC\n<|id|>23<|page|>2<|box|>810 142 828 310<|content|>B. CPS Holdings Inc.\n<|id|>31<|page|>3<|box|>443 140 460 483<|content|>III. EQUITY OWNERSHIP STRUCTURE\n<|id|>32<|page|>3<|box|>474 140 492 550<|content|>A. Ownership of Crestline Packaging Solutions LLC\n<|id|>35<|page|>3<|box|>694 140 712 419<|content|>B. Ownership of CPS Holdings Inc.\n<|id|>41<|page|>4<|box|>90 176 107 787<|content|>Approximate Assets Under Management: $4.8 billion\n<|id|>45<|page|>4<|box|>559 142 575 388<|content|>C. Summary Ownership Chain\n<|id|>53<|page|>4<|box|>825 143 843 416<|content|>IV. ORGANIZATIONAL CHART\n<|id|>61<|page|>5<|box|>472 140 489 581<|content|>V. IDENTIFICATION OF OPERATING LOCATIONS\n<|id|>69<|page|>6<|box|>229 140 247 674<|content|>VI. ENTITIES IN WHICH THE DEBTORS HOLD AN INTEREST\n<|id|>72<|page|>6<|box|>444 140 460 472<|content|>VII. PUBLICLY TRADED SECURITIES\n<|id|>75<|page|>6<|box|>787 142 804 490<|content|>VIII. MANAGEMENT OF THE DEBTORS\n<|id|>76<|page|>6<|box|>819 140 835 527<|content|>A. Officers of Crestline Packaging Solutions LLC\n<|id|>81<|page|>7<|box|>247 140 263 506<|content|>B. Officers and Directors of CPS Holdings Inc.\n<|id|>85<|page|>7<|box|>609 140 626 663<|content|>IX. TREATMENT OF EQUITY UNDER PREPACKAGED PLAN\n<|id|>90<|page|>8<|box|>241 140 258 406<|content|>X. RESERVATION OF RIGHTS\n<|id|>92<|page|>8<|box|>436 140 454 300<|content|>XI. CONCLUSION\n<|id|>97<|page|>8<|box|>748 140 763 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>107<|page|>9<|box|>286 375 330 620<|content|>EXHIBIT A ORGANIZATIONAL CHART\n<|id|>116<|page|>10<|box|>126 148 204 849<|content|>╗ ║ CRESTLINE PACKAGING SOLUTIONS LLC [DEBTOR] ║ ║",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>3<|level|>1\n<|id|>5<|level|>2\n<|id|>11<|level|>2\n<|id|>12<|level|>3\n<|id|>23<|level|>3\n<|id|>31<|level|>2\n<|id|>32<|level|>3\n<|id|>35<|level|>3\n<|id|>41<|level|>-1\n<|id|>45<|level|>3\n<|id|>53<|level|>2\n<|id|>61<|level|>2\n<|id|>69<|level|>2\n<|id|>72<|level|>2\n<|id|>75<|level|>2\n<|id|>76<|level|>3\n<|id|>81<|level|>3\n<|id|>85<|level|>2\n<|id|>90<|level|>2\n<|id|>92<|level|>2\n<|id|>97<|level|>-1\n<|id|>107<|level|>1\n<|id|>116<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 3
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        }
+    ]
+}

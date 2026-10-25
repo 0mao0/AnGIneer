@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 148 143 848<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 777 Sou\n<|id|>2<|page|>1<|box|>178 140 195 465<|content|>VIA EMAIL AND FIRST-CLASS MAIL\n<|id|>16<|page|>2<|box|>131 140 148 473<|content|>I. MEAL AND REST BREAK POLICIES\n<|id|>18<|page|>2<|box|>279 140 297 573<|content|>A. Revised Meal Period Policy — Five-Hour Threshol\n<|id|>29<|page|>3<|box|>534 142 551 421<|content|>B. Second Meal Period Compliance\n<|id|>35<|page|>4<|box|>470 140 489 334<|content|>C. Rest Period Training\n<|id|>37<|page|>4<|box|>648 140 667 488<|content|>The training should cover the following topics:\n<|id|>45<|page|>5<|box|>599 140 617 537<|content|>II. TIMEKEEPING SYSTEM MODIFICATIONS\n<|id|>47<|page|>5<|box|>767 140 803 854<|content|>A. Elimination of Auto-Deduction — Transition to A\n<|id|>56<|page|>7<|box|>397 140 414 803<|content|>B. Missed Meal Attestation Feature — Universal Act\n<|id|>63<|page|>8<|box|>378 140 396 483<|content|>C. Pre-Shift and Post-Shift Time Recording\n<|id|>69<|page|>9<|box|>148 140 166 570<|content|>III. RESTRICTIVE COVENANT BEST PRACTICES\n<|id|>71<|page|>9<|box|>316 140 334 733<|content|>A. Elimination of Non-Competition Clauses for Cali\n<|id|>81<|page|>10<|box|>648 140 667 581<|content|>B. Notification Requirement Under AB 1076 and SB 6\n<|id|>89<|page|>11<|box|>455 140 473 557<|content|>C. Retain and Strengthen Confidentiality Protectio\n<|id|>97<|page|>12<|box|>489 140 507 424<|content|>D. Narrow Non-Solicitation Clauses\n<|id|>107<|page|>13<|box|>829 140 847 410<|content|>E. Data Loss Prevention Program\n<|id|>117<|page|>15<|box|>530 140 547 272<|content|>CONCLUSION",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>-1\n<|id|>16<|level|>1\n<|id|>18<|level|>2\n<|id|>29<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>-1\n<|id|>45<|level|>1\n<|id|>47<|level|>2\n<|id|>56<|level|>2\n<|id|>63<|level|>2\n<|id|>69<|level|>1\n<|id|>71<|level|>2\n<|id|>81<|level|>2\n<|id|>89<|level|>2\n<|id|>97<|level|>2\n<|id|>107<|level|>2\n<|id|>117<|level|>1",
+    "parsed": [
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 1
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        16
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>90 421 111 576<|content|>SCHEDULE C\n<|id|>1<|type|>title<|page|>2<|box|>135 362 152 633<|content|>APPROVED SUB-PROCESSORS\n<|id|>9<|type|>title<|page|>2<|box|>436 142 453 359<|content|>1. PURPOSE AND SCOPE\n<|id|>24<|type|>title<|page|>3<|box|>436 140 454 509<|content|>2. GENERAL WRITTEN AUTHORIZATION\n<|id|>41<|type|>title<|page|>4<|box|>568 140 585 766<|content|>3. NOTICE AND OBJECTION PROCEDURE FOR NEW SUB-PROC\n<|id|>42<|type|>title<|page|>4<|box|>599 140 616 336<|content|>3.1 Prior Written Notice\n<|id|>56<|type|>title<|page|>5<|box|>452 140 469 395<|content|>3.2 Controller's Right to Object\n<|id|>67<|type|>title<|page|>6<|box|>429 140 446 318<|content|>3.3 Deemed Approval\n<|id|>70<|type|>title<|page|>6<|box|>638 140 655 318<|content|>3.4 Regulatory Access\n<|id|>78<|type|>title<|page|>7<|box|>292 140 309 468<|content|>4. APPROVED SUB-PROCESSOR LIST\n<|id|>80<|type|>table<|page|>7<|box|>425 143 907 852<|content|>None\n<|id|>81<|type|>table<|page|>8<|box|>89 143 671 852<|content|>None\n<|id|>82<|type|>table<|page|>8<|box|>731 143 893 852<|content|>None\n<|id|>83<|type|>table<|page|>9<|box|>90 143 900 851<|content|>None\n<|id|>84<|type|>table<|page|>10<|box|>89 143 220 851<|content|>None\n<|id|>85<|type|>title<|page|>10<|box|>268 140 286 418<|content|>5. FLOW-DOWN OBLIGATIONS\n<|id|>105<|type|>title<|page|>12<|box|>148 140 166 800<|content|>6. PROCESSOR'S ONGOING OBLIGATIONS REGARDING SUB-P\n<|id|>127<|type|>title<|page|>13<|box|>523 140 541 274<|content|>7. INSURANCE\n<|id|>133<|type|>title<|page|>14<|box|>89 140 106 433<|content|>8. UPDATES TO THIS SCHEDULE\n<|id|>138<|type|>title<|page|>15<|box|>89 140 106 486<|content|>9. INTERACTION WITH SCC ANNEX III\n<|id|>143<|type|>title<|page|>15<|box|>545 142 563 568<|content|>10. INCORPORATION AND CROSS-REFERENCES\n<|id|>152<|type|>title<|page|>16<|box|>196 352 213 645<|content|>ACKNOWLEDGED AND AGREED",
+    "raw_response": "<|src_id|>80<|tgt_id|>78\n<|src_id|>81<|tgt_id|>78\n<|src_id|>82<|tgt_id|>78\n<|src_id|>83<|tgt_id|>78\n<|src_id|>84<|tgt_id|>78",
+    "parsed": [
+        {
+            "src_id": 80,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 83,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 84,
+            "tgt_id": 78
+        }
+    ]
+}

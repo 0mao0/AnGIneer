@@ -1,0 +1,23 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        6,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 142 104 256<|content|>CONFIDENTIAL\n<|id|>1<|page|>1<|box|>112 158 130 854<|content|>STONEFIELD LOGISTICS GROUP INC. ... 4200 Commerce Parkway, Suite 800 Fort Worth,\n<|id|>2<|page|>1<|box|>130 754 148 854<|content|>Texas 76102\n<|id|>3<|page|>1<|box|>156 751 174 854<|content|>July 10, 2023\n<|id|>4<|page|>1<|box|>181 140 199 584<|content|>VIA ELECTRONIC MAIL AND OVERNIGHT COURIER\n<|id|>5<|page|>1<|box|>208 140 244 854<|content|>Catherine Devereaux Senior Vice President, Loan Ad...k 135 South LaSalle Street Chicago, Illinois 60603\n<|id|>6<|page|>1<|box|>253 176 289 854<|content|>Re: ... )\n<|id|>7<|page|>1<|box|>297 174 351 854<|content|>Credit Agreement dated October 12, 2017 (as amende.... 03(b) — Material Litigation Reporting Obligation\n<|id|>8<|page|>1<|box|>359 142 376 303<|content|>Dear Ms. ... Devereaux\n<|id|>53<|page|>6<|box|>523 183 556 854<|content|>• Sandra Milescu, Chief Operating Officer, Vantor Holdings Corp. ... / Vantor Transport Services LLC\n<|id|>55<|page|>6<|box|>580 178 597 346<|content|>Stonefield Witnesses: ... Stonefield Witnesses\n<|id|>71<|page|>8<|box|>835 140 907 856<|content|>Insurance Coverage. ... The\n<|id|>72<|page|>9<|box|>90 140 162 854<|content|>Company's commercial general liability policy with...e Company provide coverage for the claims at issue\n<|id|>90<|page|>10<|box|>565 142 580 272<|content|>Very truly yours,\n<|id|>91<|page|>10<|box|>580 142 597 457<|content|>STONEFIELD LOGISTICS GROUP INC. ... STONEFIELD LOGISTICS GROUP INC\n<|id|>93<|page|>10<|box|>616 140 648 852<|content|>Tobias Wren General Counsel Stonefield Logistics G...ommerce Parkway, Suite 800 Fort Worth, Texas 76102\n<|id|>94<|page|>10<|box|>648 142 666 320<|content|>cc (via electronic mail): ... cc (via electronic mail)\n<|id|>95<|page|>10<|box|>674 174 710 852<|content|>Samuel Eklund, Esq. ... Calderwood & Harkness LLP 200 Park Avenue, 38th Floor New York, New York 10166\n<|id|>96<|page|>10<|box|>719 176 737 736<|content|>Priya Ramachandran Chief Financial Officer Stonefi...f Financial Officer Stonefield Logistics Group Inc",
+    "raw_response": "<|src_id|>71<|tgt_id|>72",
+    "parsed": [
+        {
+            "src_id": 71,
+            "tgt_id": 72
+        }
+    ]
+}

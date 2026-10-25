@@ -1,0 +1,401 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bbepdplo\\input\\pdfs\\doc-00aa7453.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-bbepdplo\\enriched\\doc-00aa7453.json",
+    "contd_output": "<|src_id|>108<|tgt_id|>109",
+    "title_output": "<|id|>0<|level|>1\n<|id|>7<|level|>2\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>20<|level|>2\n<|id|>26<|level|>2\n<|id|>29<|level|>2\n<|id|>30<|level|>3\n<|id|>36<|level|>3\n<|id|>41<|level|>3\n<|id|>45<|level|>2\n<|id|>50<|level|>2\n<|id|>56<|level|>2\n<|id|>57<|level|>3\n<|id|>63<|level|>3\n<|id|>67<|level|>2\n<|id|>80<|level|>3\n<|id|>84<|level|>4\n<|id|>88<|level|>4\n<|id|>92<|level|>2\n<|id|>95<|level|>2\n<|id|>99<|level|>2\n<|id|>103<|level|>2\n<|id|>110<|level|>2\n<|id|>116<|level|>2\n<|id|>117<|level|>3\n<|id|>124<|level|>3\n<|id|>129<|level|>2\n<|id|>132<|level|>2\n<|id|>140<|level|>2\n<|id|>145<|level|>2\n<|id|>176<|level|>2\n<|id|>182<|level|>2\n<|id|>183<|level|>3\n<|id|>186<|level|>3\n<|id|>190<|level|>3\n<|id|>193<|level|>3\n<|id|>197<|level|>3\n<|id|>200<|level|>4",
+    "image_output": "<|src_id|>9<|tgt_id|>7\n<|src_id|>13<|tgt_id|>11\n<|src_id|>17<|tgt_id|>16\n<|src_id|>22<|tgt_id|>20\n<|src_id|>23<|tgt_id|>20\n<|src_id|>27<|tgt_id|>26\n<|src_id|>32<|tgt_id|>30\n<|src_id|>38<|tgt_id|>36\n<|src_id|>39<|tgt_id|>36\n<|src_id|>43<|tgt_id|>41\n<|src_id|>47<|tgt_id|>45\n<|src_id|>52<|tgt_id|>50\n<|src_id|>53<|tgt_id|>50\n<|src_id|>81<|tgt_id|>80\n<|src_id|>96<|tgt_id|>95\n<|src_id|>105<|tgt_id|>103\n<|src_id|>112<|tgt_id|>110\n<|src_id|>113<|tgt_id|>110\n<|src_id|>119<|tgt_id|>117\n<|src_id|>120<|tgt_id|>117\n<|src_id|>189<|tgt_id|>186\n<|src_id|>192<|tgt_id|>190\n<|src_id|>195<|tgt_id|>193\n<|src_id|>199<|tgt_id|>197\n<|src_id|>201<|tgt_id|>200",
+    "contd_label": [
+        {
+            "src_id": 108,
+            "tgt_id": 109
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 4
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 95,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 176,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 183,
+            "level": 3
+        },
+        {
+            "id": 186,
+            "level": 3
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 193,
+            "level": 3
+        },
+        {
+            "id": 197,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 4
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 9,
+            "tgt_id": 7
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 17,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 22,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 23,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 27,
+            "tgt_id": 26
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 39,
+            "tgt_id": 36
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 47,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 53,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 81,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 105,
+            "tgt_id": 103
+        },
+        {
+            "src_id": 112,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 110
+        },
+        {
+            "src_id": 119,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 120,
+            "tgt_id": 117
+        },
+        {
+            "src_id": 189,
+            "tgt_id": 186
+        },
+        {
+            "src_id": 192,
+            "tgt_id": 190
+        },
+        {
+            "src_id": 195,
+            "tgt_id": 193
+        },
+        {
+            "src_id": 199,
+            "tgt_id": 197
+        },
+        {
+            "src_id": 201,
+            "tgt_id": 200
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 22,
+            "table2_idx": 23,
+            "upper_row_ss": [
+                [
+                    "3",
+                    "Cascade Digital Commerce Inc.",
+                    "500 Fremont Street, Suite 200, Portland, OR 97209"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "4",
+                    "Cascade Outlet Stores LLC",
+                    "2200 Elliott Avenue, Suite 1400, Seattle, WA 98121"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 38,
+            "table2_idx": 39,
+            "upper_row_ss": [
+                [
+                    "4",
+                    "Cascade Outlet Stores LLC",
+                    "64 retail outlet locations (see Schedule 6(a))",
+                    "Point-of-sale terminal systems, cash registers, display fixtures, shelving,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "signage, and security systems at each retail location"
+                ]
+            ]
+        },
+        {
+            "table1_idx": 52,
+            "table2_idx": 53,
+            "upper_row_ss": [
+                [
+                    "No.",
+                    "Grantor",
+                    "Depository",
+                    "Account Type",
+                    "DACA Status"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "Institution and Address",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 112,
+            "table2_idx": 113,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "Cascade Fulfillment Services Inc.",
+                    "Delaware",
+                    "Delaware Secretary of State, Division of Corporations, John",
+                    "To be filed on or prior to the Closing Date"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "G. Townsend Building, 401 Federal Street, Suite 4, Dover, DE 19901",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 119,
+            "table2_idx": 120,
+            "upper_row_ss": [
+                [
+                    "5",
+                    "Cascade",
+                    "Harborview",
+                    "Delaware",
+                    "2019-",
+                    "October 15,",
+                    "All assets"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "Fulfillment Services Inc.",
+                    "Lending Group, LLC",
+                    "",
+                    "4281561",
+                    "2019",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 142,
+            "table2_idx": 143,
+            "upper_row_ss": [
+                [
+                    "2",
+                    "Cascade Retail Operating Company LLC",
+                    "83-2951047"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "3",
+                    "Cascade Digital Commerce Inc.",
+                    "84-3720158"
+                ]
+            ]
+        }
+    ]
+}

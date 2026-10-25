@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['(d) Stock-Based Compensation', 'Non-cash stock-based compensation expense (equity incentive plans, phantom equity, etc.)', 'Add Back']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['(e) Extraordinary / Non-Recurring Items', 'Including Dawson litigation costs, restructuring charges, asset impairments, severance (outside ordinary course), force majeure losses (net of insurance)', 'Add Back / Exclude']]\n",
+    "raw_response": "[0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 314,
+    "table2_idx": 315
+}

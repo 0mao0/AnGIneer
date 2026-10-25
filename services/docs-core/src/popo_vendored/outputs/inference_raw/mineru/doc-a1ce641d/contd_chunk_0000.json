@@ -1,0 +1,62 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>169 372 186 624<|content|>(Form for Selling Stockholders)\n<|id|>3<|page|>1<|box|>195 140 324 856<|content|>FOR VALUE RECEIVED, the undersigned hereby irrevoc...der\" and collectively, the \"Selling Stockholders\")\n<|id|>4<|page|>1<|box|>330 140 349 645<|content|>Name of Selling Stockholder: ... [Insert Name of Selling Stockholder]\n<|id|>5<|page|>1<|box|>356 140 375 678<|content|>Address of Selling Stockholder: ... [Insert Address of Selling Stockholder]\n<|id|>7<|page|>1<|box|>422 140 441 759<|content|>FOR VALUE RECEIVED, the undersigned hereby sells, ...ersigned hereby sells, assigns, and transfers unto\n<|id|>6<|page|>1<|box|>398 142 415 364<|content|>1. ... Assignment and Transfer\n<|id|>8<|page|>1<|box|>449 174 484 854<|content|>Cascade Retail Holdings Inc. ... 91-2847653\n<|id|>9<|page|>1<|box|>494 140 530 852<|content|>the following shares of capital stock of NovaMart Global Inc. ... 84- 3291547)\n<|id|>10<|page|>1<|box|>537 176 556 524<|content|>Number of Shares: ... [Insert Number of Shares]\n<|id|>11<|page|>1<|box|>564 174 619 854<|content|>Class / Series of Stock: ... shares of common stoc...dule of Shares attached hereto as Annex A, if any)\n<|id|>12<|page|>1<|box|>626 174 662 854<|content|>Certificate Number(s): ... [Insert Certificate Num...or book-entry form, \"Uncertificated — Book-Entry\")\n<|id|>13<|page|>1<|box|>670 176 689 839<|content|>Registered Owner: ... standing on the books of the Company in the name of the undersigned\n<|id|>14<|page|>1<|box|>696 140 844 856<|content|>The undersigned hereby assigns and transfers unto ...y, with full power of substitution in the premises\n<|id|>18<|page|>2<|box|>204 176 222 508<|content|>(b) any officer of NovaMart Global Inc. ... and\n<|id|>20<|page|>2<|box|>256 140 330 857<|content|>each acting individually (each, an \"Attorney-in-Fa...sent, including, without limitation, the following\n<|id|>19<|page|>2<|box|>231 176 248 751<|content|>(c) any respective designee or agent of any of the foregoing persons or entities,\n<|id|>24<|page|>2<|box|>506 174 561 854<|content|>(iv) to give and receive notices, make elections, ... or advisable to accomplish the foregoing; ... and\n<|id|>26<|page|>2<|box|>613 140 723 854<|content|>The undersigned acknowledges and agrees that the f...ord and beneficial owner of the Transferred Shares\n<|id|>58<|page|>5<|box|>672 143 690 464<|content|>[Insert Name of Entity Selling Stockholder]\n<|id|>59<|page|>5<|box|>691 143 708 253<|content|>By: ... By\n<|id|>78<|page|>6<|box|>647 176 664 553<|content|>[Affix Medallion Signature Guarantee Stamp Here]\n<|id|>79<|page|>6<|box|>674 143 690 504<|content|>Authorized Signature of Guarantor: ... Authorized Signature of Guarantor",
+    "raw_response": "<|src_id|>7<|tgt_id|>8\n<|src_id|>8<|tgt_id|>9\n<|src_id|>9<|tgt_id|>10\n<|src_id|>10<|tgt_id|>11\n<|src_id|>11<|tgt_id|>12\n<|src_id|>12<|tgt_id|>13\n<|src_id|>13<|tgt_id|>14\n<|src_id|>18<|tgt_id|>19\n<|src_id|>19<|tgt_id|>20\n<|src_id|>20<|tgt_id|>24\n<|src_id|>24<|tgt_id|>26",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        },
+        {
+            "src_id": 8,
+            "tgt_id": 9
+        },
+        {
+            "src_id": 9,
+            "tgt_id": 10
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 12
+        },
+        {
+            "src_id": 12,
+            "tgt_id": 13
+        },
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 18,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 20
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 24,
+            "tgt_id": 26
+        }
+    ]
+}

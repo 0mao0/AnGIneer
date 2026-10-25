@@ -1,0 +1,56 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>9<|type|>title<|page|>1<|box|>417 142 434 367<|content|>1. Reference and Definitions\n<|id|>22<|type|>title<|page|>2<|box|>598 140 614 303<|content|>2. Arrangement Fee\n<|id|>30<|type|>title<|page|>3<|box|>329 140 347 503<|content|>3. Upfront Fee / Original Issue discount (OID)\n<|id|>37<|type|>table<|page|>3<|box|>691 143 898 852<|content|>None\n<|id|>38<|type|>table<|page|>4<|box|>88 143 152 852<|content|>None\n<|id|>44<|type|>title<|page|>4<|box|>496 140 512 364<|content|>4. Administrative Agent Fee\n<|id|>49<|type|>title<|page|>5<|box|>148 140 167 328<|content|>5. Collateral Agent Fee\n<|id|>56<|type|>title<|page|>5<|box|>767 140 784 259<|content|>6. Ticking Fee\n<|id|>64<|type|>table<|page|>6<|box|>416 143 674 852<|content|>None\n<|id|>67<|type|>title<|page|>7<|box|>90 140 107 264<|content|>7. Market Flex\n<|id|>74<|type|>title<|page|>7<|box|>744 140 761 359<|content|>8. Expense Reimbursement\n<|id|>85<|type|>title<|page|>8<|box|>696 140 714 284<|content|>9. Confidentiality\n<|id|>92<|type|>title<|page|>9<|box|>484 140 501 630<|content|>10. Relationship to Commitment Letter and Credit A\n<|id|>96<|type|>title<|page|>10<|box|>90 142 107 400<|content|>11. Governing Law; Jurisdiction\n<|id|>99<|type|>title<|page|>10<|box|>368 140 460 854<|content|>EACH PARTY HERETO HEREBY IRREVOCABLY AND UNCONDITI\n<|id|>100<|type|>title<|page|>10<|box|>484 142 501 285<|content|>12. Miscellaneous\n<|id|>116<|type|>title<|page|>11<|box|>537 143 554 284<|content|>13. Fee Summary\n<|id|>117<|type|>table<|page|>11<|box|>587 143 898 852<|content|>None\n<|id|>118<|type|>table<|page|>12<|box|>88 143 125 852<|content|>None\n<|id|>122<|type|>title<|page|>12<|box|>290 433 308 563<|content|>Very truly yours,\n<|id|>123<|type|>title<|page|>12<|box|>315 140 333 854<|content|>CRESCENT HARBOR BANK, N.A. in its capacity as Sole\n<|id|>134<|type|>title<|page|>12<|box|>512 142 529 447<|content|>IRONHAVEN DATA CENTERS LLC\n<|id|>143<|type|>title<|page|>12<|box|>667 449 684 550<|content|>EXHIBIT A\n<|id|>144<|type|>title<|page|>12<|box|>693 400 710 598<|content|>WIRE INSTRUCTIONS\n<|id|>145<|type|>title<|page|>12<|box|>719 140 755 854<|content|>1. Crescent Harbor Bank, N.A. — Wire Transfer Inst\n<|id|>150<|type|>title<|page|>13<|box|>107 140 143 854<|content|>2. Pinnacle Trust Company, N.A. — Wire Transfer In\n<|id|>155<|type|>title<|page|>13<|box|>338 140 354 501<|content|>3. Upfront Fee / Original Issue discount (OID)\n<|id|>158<|type|>title<|page|>13<|box|>507 447 523 549<|content|>EXHIBIT B\n<|id|>159<|type|>title<|page|>13<|box|>532 295 549 700<|content|>LENDER COMMITMENT AND OID SCHEDULE\n<|id|>161<|type|>table<|page|>13<|box|>638 143 893 852<|content|>None\n<|id|>162<|type|>table<|page|>14<|box|>88 143 109 852<|content|>None",
+    "raw_response": "<|src_id|>37<|tgt_id|>30\n<|src_id|>38<|tgt_id|>30\n<|src_id|>64<|tgt_id|>56\n<|src_id|>117<|tgt_id|>116\n<|src_id|>118<|tgt_id|>116\n<|src_id|>161<|tgt_id|>159\n<|src_id|>162<|tgt_id|>159",
+    "parsed": [
+        {
+            "src_id": 37,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 38,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 64,
+            "tgt_id": 56
+        },
+        {
+            "src_id": 117,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 118,
+            "tgt_id": 116
+        },
+        {
+            "src_id": 161,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 162,
+            "tgt_id": 159
+        }
+    ]
+}

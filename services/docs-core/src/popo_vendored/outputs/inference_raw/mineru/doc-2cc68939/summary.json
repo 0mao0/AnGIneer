@@ -1,0 +1,148 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_hysqnh8\\input\\pdfs\\doc-2cc68939.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-_hysqnh8\\enriched\\doc-2cc68939.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>3<|level|>2\n<|id|>6<|level|>2\n<|id|>11<|level|>2\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>28<|level|>2\n<|id|>31<|level|>2\n<|id|>35<|level|>3\n<|id|>42<|level|>3\n<|id|>53<|level|>3\n<|id|>56<|level|>3\n<|id|>58<|level|>3\n<|id|>60<|level|>3\n<|id|>63<|level|>3\n<|id|>72<|level|>3",
+    "image_output": "<|src_id|>4<|tgt_id|>3\n<|src_id|>19<|tgt_id|>16\n<|src_id|>20<|tgt_id|>16\n<|src_id|>32<|tgt_id|>31\n<|src_id|>33<|tgt_id|>31\n<|src_id|>34<|tgt_id|>31\n<|src_id|>62<|tgt_id|>60",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 4,
+            "tgt_id": 3
+        },
+        {
+            "src_id": 19,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 20,
+            "tgt_id": 16
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 33,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 34,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 62,
+            "tgt_id": 60
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 19,
+            "table2_idx": 20,
+            "upper_row_ss": [
+                [
+                    "Extension of Time —",
+                    "§ 1.17(a)(4)",
+                    "Small Entity",
+                    "$2,560.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Four (4) Months",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 33,
+            "table2_idx": 34,
+            "upper_row_ss": [
+                [
+                    "Extension of Time",
+                    "1254",
+                    "1",
+                    "$2,560.00",
+                    "$2,560.00"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "— 4 months (37 C.F.R. § 1.17(a)(4))",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        100,
+        163
+    ],
+    "pages": [
+        101,
+        104,
+        115,
+        116,
+        119,
+        133,
+        136,
+        137,
+        143,
+        162,
+        163
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>310<|page|>101<|box|>222 395 257 570<|content|>第四节 防护工程\n<|id|>311<|page|>101<|box|>290 445 323 521<|content|>说明\n<|id|>331<|page|>104<|box|>178 444 203 593<|content|>1-4-2 植草护坡\n<|id|>364<|page|>115<|box|>193 415 218 580<|content|>1-4-5 灰浆抹面护坡\n<|id|>366<|page|>116<|box|>232 406 257 587<|content|>1-4-6 喷射混凝土护坡\n<|id|>373<|page|>119<|box|>194 406 219 587<|content|>1-4-7 预应力锚索护坡\n<|id|>378<|page|>119<|box|>417 436 438 563<|content|>I. 脚手架及地梁、锚座\n<|id|>414<|page|>133<|box|>191 423 217 572<|content|>1-4-8 柔性防护网\n<|id|>425<|page|>136<|box|>201 419 226 576<|content|>1-4-10 抛石防护\n<|id|>430<|page|>137<|box|>193 411 218 569<|content|>1-4-11 防风固沙\n<|id|>457<|page|>143<|box|>188 395 213 574<|content|>1-4-12 防雪、防沙设施\n<|id|>508<|page|>162<|box|>203 359 228 643<|content|>1-4-20 挡土墙防渗层、泄水层及填内心\n<|id|>514<|page|>163<|box|>197 414 222 570<|content|>1-4-21 抗 滑 桩",
+    "raw_response": "<|id|>310<|level|>1\n<|id|>311<|level|>2\n<|id|>331<|level|>3\n<|id|>364<|level|>3\n<|id|>366<|level|>3\n<|id|>373<|level|>3\n<|id|>378<|level|>4\n<|id|>414<|level|>3\n<|id|>425<|level|>3\n<|id|>430<|level|>3\n<|id|>457<|level|>3\n<|id|>508<|level|>3\n<|id|>514<|level|>3",
+    "parsed": [
+        {
+            "id": 310,
+            "level": 1
+        },
+        {
+            "id": 311,
+            "level": 2
+        },
+        {
+            "id": 331,
+            "level": 3
+        },
+        {
+            "id": 364,
+            "level": 3
+        },
+        {
+            "id": 366,
+            "level": 3
+        },
+        {
+            "id": 373,
+            "level": 3
+        },
+        {
+            "id": 378,
+            "level": 4
+        },
+        {
+            "id": 414,
+            "level": 3
+        },
+        {
+            "id": 425,
+            "level": 3
+        },
+        {
+            "id": 430,
+            "level": 3
+        },
+        {
+            "id": 457,
+            "level": 3
+        },
+        {
+            "id": 508,
+            "level": 3
+        },
+        {
+            "id": 514,
+            "level": 3
+        }
+    ]
+}

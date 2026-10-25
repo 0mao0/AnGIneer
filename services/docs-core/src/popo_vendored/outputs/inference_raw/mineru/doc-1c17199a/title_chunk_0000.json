@@ -1,0 +1,72 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 230 142 766<|content|>POWER OF ATTORNEY AND DECLARATION OF REPRESENTATIV\n<|id|>1<|page|>1<|box|>159 163 195 833<|content|>IRS Form 2848 (Rev. January 2021) OMB No. 1545-015\n<|id|>4<|page|>1<|box|>267 142 284 439<|content|>PART I — POWER OF ATTORNEY\n<|id|>6<|page|>1<|box|>343 142 359 400<|content|>Section 1. Taxpayer Information\n<|id|>13<|page|>1<|box|>526 142 542 361<|content|>Section 2. Representative(s)\n<|id|>56<|page|>3<|box|>90 142 106 323<|content|>Section 3. Tax Matters\n<|id|>59<|page|>3<|box|>545 140 563 748<|content|>Section 4. Specific Use Not Recorded on Centralize\n<|id|>62<|page|>3<|box|>626 142 642 352<|content|>Section 5. Acts Authorized\n<|id|>72<|page|>4<|box|>429 142 446 366<|content|>Exceptions and Limitations:\n<|id|>74<|page|>4<|box|>559 140 575 632<|content|>Section 6. Retention / Revocation of Prior Power(s\n<|id|>79<|page|>5<|box|>90 140 108 382<|content|>Section 7. Taxpayer Signature\n<|id|>80<|page|>5<|box|>113 140 130 846<|content|>IF NOT SIGNED AND DATED, THIS POWER OF ATTORNEY WI\n<|id|>82<|page|>5<|box|>200 140 236 852<|content|>IF THIS POWER OF ATTORNEY IS NOT SIGNED AND DATED,\n<|id|>89<|page|>5<|box|>419 142 435 578<|content|>PART II — DECLARATION OF REPRESENTATIVE\n<|id|>128<|page|>7<|box|>834 316 852 679<|content|>TRANSMITTAL COVER LETTER\n<|id|>129<|page|>7<|box|>871 421 888 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>151<|page|>9<|box|>364 140 381 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>6<|level|>3\n<|id|>13<|level|>3\n<|id|>56<|level|>3\n<|id|>59<|level|>3\n<|id|>62<|level|>3\n<|id|>72<|level|>3\n<|id|>74<|level|>3\n<|id|>79<|level|>3\n<|id|>80<|level|>-1\n<|id|>82<|level|>-1\n<|id|>89<|level|>2\n<|id|>128<|level|>2\n<|id|>129<|level|>-1\n<|id|>151<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 3
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 2
+        }
+    ]
+}

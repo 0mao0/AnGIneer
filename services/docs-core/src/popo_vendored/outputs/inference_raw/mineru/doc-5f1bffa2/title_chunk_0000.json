@@ -1,0 +1,73 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        25
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        11,
+        13,
+        17,
+        20,
+        23,
+        24,
+        25
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 143 104 753<|content|>INTERNAL DRAFT — ATTORNEY WORK PRODUCT / PRIVILEGE\n<|id|>2<|page|>1<|box|>133 161 184 834<|content|>IN THE CIRCUIT COURT OF THE SEVENTEENTH JUDICIAL C\n<|id|>9<|page|>2<|box|>89 140 107 403<|content|>I. THE PARTIES (FACTS 1–12)\n<|id|>34<|page|>4<|box|>212 140 229 661<|content|>II. THE FRANCHISE LICENSE AGREEMENTS (FACTS 13–32)\n<|id|>78<|page|>7<|box|>266 140 284 777<|content|>III. COASTAL PALMS' REVENUE REPORTING PRACTICES (F\n<|id|>117<|page|>11<|box|>148 140 185 821<|content|>IV. THE WHISTLEBLOWER REPORT AND PRE-LITIGATION IN\n<|id|>143<|page|>13<|box|>193 140 210 854<|content|>V. THE REVENUE-DIVERSION SCHEME — DETAILED MECHANI\n<|id|>185<|page|>17<|box|>89 140 107 787<|content|>VI. EXPERT ANALYSIS AND DAMAGES QUANTIFICATION (FA\n<|id|>228<|page|>20<|box|>641 140 678 813<|content|>VII. COASTAL PALMS' DEFENSES — UNDISPUTED FACTS NE\n<|id|>261<|page|>23<|box|>435 140 472 834<|content|>VIII. LIABILITY ON COUNT I — BREACH OF CONTRACT (R\n<|id|>273<|page|>24<|box|>263 140 300 815<|content|>IX. LIABILITY ON COUNT II — BREACH OF CONTRACT (MA\n<|id|>282<|page|>24<|box|>823 140 840 271<|content|>CONCLUSION\n<|id|>291<|page|>25<|box|>513 403 532 593<|content|>Respectfully submitted,\n<|id|>292<|page|>25<|box|>540 140 556 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>300<|page|>25<|box|>714 140 732 388<|content|>CERTIFICATE OF SERVICE",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>2<|level|>1\n<|id|>9<|level|>2\n<|id|>34<|level|>2\n<|id|>78<|level|>2\n<|id|>117<|level|>2\n<|id|>143<|level|>2\n<|id|>185<|level|>2\n<|id|>228<|level|>2\n<|id|>261<|level|>2\n<|id|>273<|level|>2\n<|id|>282<|level|>2\n<|id|>291<|level|>-1\n<|id|>292<|level|>-1\n<|id|>300<|level|>2",
+    "parsed": [
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 143,
+            "level": 2
+        },
+        {
+            "id": 185,
+            "level": 2
+        },
+        {
+            "id": 228,
+            "level": 2
+        },
+        {
+            "id": 261,
+            "level": 2
+        },
+        {
+            "id": 273,
+            "level": 2
+        },
+        {
+            "id": 282,
+            "level": 2
+        },
+        {
+            "id": 300,
+            "level": 2
+        }
+    ]
+}

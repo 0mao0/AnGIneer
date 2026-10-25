@@ -1,0 +1,63 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        7
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 228 109 767<|content|>EXHIBIT G — FORM OF BORROWING REQUEST\n<|id|>9<|page|>2<|box|>544 140 561 377<|content|>Section 1. Borrowing Request\n<|id|>23<|page|>3<|box|>486 142 503 290<|content|>Section 2. Purpose\n<|id|>26<|page|>3<|box|>761 142 777 495<|content|>Section 3. Representations and Certifications\n<|id|>39<|page|>5<|box|>731 140 748 284<|content|>Section 4. Notices\n<|id|>42<|page|>6<|box|>152 176 169 264<|content|>Borrower:\n<|id|>52<|page|>6<|box|>388 140 405 348<|content|>Section 5. Governing Law\n<|id|>61<|page|>7<|box|>88 454 107 545<|content|>ANNEX A\n<|id|>62<|page|>7<|box|>114 367 133 627<|content|>Lender Commitment Allocations\n<|id|>63<|page|>7<|box|>142 313 159 684<|content|>(For Reference Only — Administrative Agent Use)\n<|id|>67<|page|>7<|box|>584 413 598 584<|content|>TEMPLATE NOTATION",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>2\n<|id|>23<|level|>2\n<|id|>26<|level|>2\n<|id|>39<|level|>2\n<|id|>42<|level|>3\n<|id|>52<|level|>2\n<|id|>61<|level|>1\n<|id|>62<|level|>2\n<|id|>63<|level|>3\n<|id|>67<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 67,
+            "level": 2
+        }
+    ]
+}

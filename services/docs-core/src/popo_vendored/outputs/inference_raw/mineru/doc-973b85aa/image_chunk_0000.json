@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        13
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>4<|type|>table<|page|>1<|box|>212 143 494 852<|content|>None\n<|id|>5<|type|>table<|page|>1<|box|>553 143 796 852<|content|>None\n<|id|>6<|type|>title<|page|>1<|box|>830 385 847 612<|content|>TABLE OF AUTHORITIES\n<|id|>9<|type|>table<|page|>2<|box|>88 143 189 852<|content|>None\n<|id|>10<|type|>title<|page|>2<|box|>224 143 239 290<|content|>Statutes and Rules\n<|id|>11<|type|>table<|page|>2<|box|>247 143 385 852<|content|>None\n<|id|>12<|type|>title<|page|>2<|box|>419 287 436 710<|content|>MEMORANDUM OF POINTS AND AUTHORITIES\n<|id|>13<|type|>title<|page|>2<|box|>460 143 477 308<|content|>I. INTRODUCTION\n<|id|>21<|type|>title<|page|>3<|box|>593 142 609 540<|content|>II. RELEVANT PROCEDURAL BACKGROUND\n<|id|>39<|type|>title<|page|>5<|box|>329 140 345 348<|content|>III. LEGAL STANDARD\n<|id|>45<|type|>title<|page|>6<|box|>204 140 222 285<|content|>IV. ARGUMENT\n<|id|>46<|type|>title<|page|>6<|box|>234 140 252 576<|content|>A. Plaintiffs Have Not Demonstrated Irreparable Ha\n<|id|>62<|type|>title<|page|>8<|box|>194 140 212 596<|content|>B. The Regular discovery Process Is More Than Adeq\n<|id|>73<|type|>title<|page|>9<|box|>319 140 337 663<|content|>C. Plaintiffs' Application Is Premature and Proced\n<|id|>75<|type|>title<|page|>9<|box|>369 142 386 622<|content|>1. Plaintiffs Failed to Engage in Meaningful Meet-\n<|id|>84<|type|>title<|page|>10<|box|>424 140 441 718<|content|>2. The Application Is Premature in Light of the Ca\n<|id|>93<|type|>title<|page|>12<|box|>90 140 107 689<|content|>D. AMA Is Prepared to Engage in discovery on a Rea\n<|id|>98<|type|>title<|page|>12<|box|>724 140 743 294<|content|>V. CONCLUSION\n<|id|>104<|type|>title<|page|>13<|box|>412 140 429 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>109<|type|>title<|page|>13<|box|>515 406 531 591<|content|>PROOF OF SERVICE\n<|id|>110<|type|>title<|page|>13<|box|>540 140 558 606<|content|>STATE OF CALIFORNIA, COUNTY OF LOS ANGELES",
+    "raw_response": "<|src_id|>9<|tgt_id|>6\n<|src_id|>11<|tgt_id|>10",
+    "parsed": [
+        {
+            "src_id": 9,
+            "tgt_id": 6
+        },
+        {
+            "src_id": 11,
+            "tgt_id": 10
+        }
+    ]
+}

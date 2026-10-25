@@ -1,0 +1,104 @@
+{
+    "task": "image",
+    "chunk_index": 2,
+    "range": [
+        105,
+        130
+    ],
+    "pages": [
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        130
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>367<|type|>title<|page|>105<|box|>97 223 145 755<|content|>Section II - Summary by Countries Table 5.- Net Tr\n<|id|>369<|type|>table<|page|>105<|box|>157 11 918 960<|content|>None\n<|id|>370<|type|>title<|page|>106<|box|>97 346 112 653<|content|>Section II - Summary by Countries\n<|id|>371<|type|>title<|page|>106<|box|>113 238 128 782<|content|>Table 6.- Net Transactions in Domestic Stocks by F\n<|id|>372<|type|>table<|page|>106<|box|>144 24 900 976<|content|>None\n<|id|>373<|type|>title<|page|>107<|box|>95 338 111 641<|content|>Section II - Summary by Countries\n<|id|>374<|type|>title<|page|>107<|box|>107 181 127 791<|content|>Table 7.- Net Transactions in Long-Term Foreign Bo\n<|id|>375<|type|>table<|page|>107<|box|>141 16 906 966<|content|>None\n<|id|>376<|type|>title<|page|>108<|box|>94 348 108 655<|content|>Section II - Summary by Countries\n<|id|>378<|type|>table<|page|>108<|box|>138 26 889 978<|content|>None\n<|id|>379<|type|>title<|page|>109<|box|>85 176 116 781<|content|>Section II - Summary by Countries Table 9. - Estim\n<|id|>380<|type|>table<|page|>109<|box|>132 5 895 966<|content|>None\n<|id|>386<|type|>table<|page|>110<|box|>138 31 930 978<|content|>None\n<|id|>390<|type|>table<|page|>111<|box|>141 0 968 961<|content|>None\n<|id|>392<|type|>table<|page|>112<|box|>142 26 926 981<|content|>None\n<|id|>393<|type|>table<|page|>113<|box|>136 0 929 950<|content|>None\n<|id|>395<|type|>table<|page|>114<|box|>118 31 879 986<|content|>None\n<|id|>396<|type|>table<|page|>115<|box|>122 5 895 965<|content|>None\n<|id|>399<|type|>table<|page|>116<|box|>129 29 915 985<|content|>None\n<|id|>400<|type|>title<|page|>117<|box|>65 181 96 788<|content|>Section IV - Supplementary Data by Countries Table\n<|id|>401<|type|>table<|page|>117<|box|>109 5 833 966<|content|>None\n<|id|>402<|type|>title<|page|>118<|box|>64 135 111 857<|content|>Section IV - Supplementary Data by Countries Table\n<|id|>403<|type|>table<|page|>118<|box|>126 21 903 976<|content|>None\n<|id|>404<|type|>table<|page|>119<|box|>105 6 894 968<|content|>None\n<|id|>405<|type|>table<|page|>120<|box|>97 29 910 988<|content|>None\n<|id|>406<|type|>table<|page|>121<|box|>95 1 888 965<|content|>None\n<|id|>408<|type|>image<|page|>130<|box|>10 822 39 946<|content|>None",
+    "raw_response": "<|src_id|>369<|tgt_id|>367\n<|src_id|>372<|tgt_id|>371\n<|src_id|>375<|tgt_id|>374\n<|src_id|>378<|tgt_id|>376\n<|src_id|>380<|tgt_id|>379\n<|src_id|>386<|tgt_id|>379\n<|src_id|>390<|tgt_id|>379\n<|src_id|>392<|tgt_id|>379\n<|src_id|>393<|tgt_id|>379\n<|src_id|>395<|tgt_id|>379\n<|src_id|>396<|tgt_id|>379\n<|src_id|>399<|tgt_id|>379\n<|src_id|>401<|tgt_id|>400\n<|src_id|>403<|tgt_id|>402\n<|src_id|>404<|tgt_id|>402\n<|src_id|>405<|tgt_id|>402\n<|src_id|>406<|tgt_id|>402\n<|src_id|>408<|tgt_id|>402",
+    "parsed": [
+        {
+            "src_id": 369,
+            "tgt_id": 367
+        },
+        {
+            "src_id": 372,
+            "tgt_id": 371
+        },
+        {
+            "src_id": 375,
+            "tgt_id": 374
+        },
+        {
+            "src_id": 378,
+            "tgt_id": 376
+        },
+        {
+            "src_id": 380,
+            "tgt_id": 379
+        },
+        {
+            "src_id": 386,
+            "tgt_id": 379
+        },
+        {
+            "src_id": 390,
+            "tgt_id": 379
+        },
+        {
+            "src_id": 392,
+            "tgt_id": 379
+        },
+        {
+            "src_id": 393,
+            "tgt_id": 379
+        },
+        {
+            "src_id": 395,
+            "tgt_id": 379
+        },
+        {
+            "src_id": 396,
+            "tgt_id": 379
+        },
+        {
+            "src_id": 399,
+            "tgt_id": 379
+        },
+        {
+            "src_id": 401,
+            "tgt_id": 400
+        },
+        {
+            "src_id": 403,
+            "tgt_id": 402
+        },
+        {
+            "src_id": 404,
+            "tgt_id": 402
+        },
+        {
+            "src_id": 405,
+            "tgt_id": 402
+        },
+        {
+            "src_id": 406,
+            "tgt_id": 402
+        },
+        {
+            "src_id": 408,
+            "tgt_id": 402
+        }
+    ]
+}

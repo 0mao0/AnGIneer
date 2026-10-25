@@ -1,0 +1,20 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Florida', 'Palmetto Strauss PA', 'Lakeland Crossings Industrial / GMP Lakeland LLC (EIN 84-2527834); Southport Logistics Park / GMP Southport LLC (EIN 84-2527849); Brickell Bay Office Building /', 'No deeds recorded; documentary stamp tax on deemed consideration for controlling-interest transfer', 'Yes — Documentary stamp tax returns and declarations filed with Polk County, Duval County, and Miami-Dade County Clerks of Court', '~$1,680,000', 'June 6-7, 2024', 'June 7, 2024']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '', 'GMPBrickellLLC (EIN 84-2639932)', '', '', '', '', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 36,
+    "table2_idx": 37
+}

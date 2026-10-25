@@ -1,0 +1,35 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>97 403 119 593<|content|>MEMORANDUM\n<|id|>1<|type|>title<|page|>1<|box|>135 200 152 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>8<|type|>title<|page|>1<|box|>351 140 368 312<|content|>I. Purpose and Scope\n<|id|>18<|type|>title<|page|>2<|box|>458 140 474 550<|content|>II. Summary of Aggregate Probate Estate Valuation\n<|id|>19<|type|>table<|page|>2<|box|>544 143 840 852<|content|>None\n<|id|>25<|type|>title<|page|>3<|box|>422 140 441 586<|content|>III. Lumiére Canyon Studios LLC — Business Valuati\n<|id|>26<|type|>title<|page|>3<|box|>454 140 472 299<|content|>A. Entity Overview\n<|id|>30<|type|>title<|page|>3<|box|>835 140 852 351<|content|>B. Valuation Methodology\n<|id|>40<|type|>title<|page|>5<|box|>90 140 107 359<|content|>C. Decedent's 50% Interest\n<|id|>44<|type|>title<|page|>5<|box|>378 140 397 653<|content|>D. Community vs. Separate Property Characterizatio\n<|id|>49<|type|>title<|page|>6<|box|>90 140 107 730<|content|>IV. Pacific Rim Narrative Partners LLC — Membershi\n<|id|>50<|type|>title<|page|>6<|box|>121 140 138 297<|content|>A. Entity Overview\n<|id|>53<|type|>title<|page|>6<|box|>383 140 402 352<|content|>B. Valuation Methodology\n<|id|>57<|type|>title<|page|>6<|box|>765 140 782 359<|content|>C. Decedent's 35% Interest\n<|id|>62<|type|>title<|page|>7<|box|>411 140 428 344<|content|>D. Characterization Note\n<|id|>64<|type|>title<|page|>7<|box|>604 140 619 650<|content|>V. Intellectual Property Portfolio — Net Present V\n<|id|>65<|type|>title<|page|>7<|box|>633 140 651 343<|content|>A. Portfolio Composition\n<|id|>74<|type|>title<|page|>8<|box|>195 140 213 352<|content|>B. Valuation Methodology\n<|id|>82<|type|>title<|page|>8<|box|>782 140 799 305<|content|>C. Preliminary NPV\n<|id|>85<|type|>title<|page|>9<|box|>231 140 248 344<|content|>D. Characterization Note\n<|id|>88<|type|>title<|page|>9<|box|>486 140 503 375<|content|>VI. Real Property Valuations\n<|id|>89<|type|>title<|page|>9<|box|>517 140 534 805<|content|>A. Beverly Hills Residence — 1847 Coldwater Canyon\n<|id|>95<|type|>title<|page|>10<|box|>194 140 212 730<|content|>B. Malibu Beach House — 27100 Pacific Coast Highwa\n<|id|>105<|type|>title<|page|>11<|box|>204 140 222 511<|content|>VII. Financial Accounts and Personal Property\n<|id|>106<|type|>title<|page|>11<|box|>234 140 252 442<|content|>A. Veltara Basin Bank, N.A. Accounts\n<|id|>115<|type|>title<|page|>12<|box|>90 142 107 310<|content|>B. Personal Property\n<|id|>122<|type|>title<|page|>12<|box|>460 140 477 699<|content|>VIII. Comparison with Contestants' Valuation and A\n<|id|>123<|type|>title<|page|>12<|box|>491 142 508 349<|content|>A. Aggregate Discrepancy\n<|id|>124<|type|>table<|page|>12<|box|>556 143 643 852<|content|>None\n<|id|>126<|type|>title<|page|>12<|box|>763 140 780 614<|content|>B. Anticipated Areas of Divergence with Hargrove &\n<|id|>135<|type|>title<|page|>14<|box|>90 140 108 586<|content|>C. Implications for Settlement and Litigation Posi\n<|id|>142<|type|>title<|page|>14<|box|>583 140 599 442<|content|>IX. Outstanding Items and Next Steps\n<|id|>150<|type|>title<|page|>15<|box|>667 140 684 258<|content|>X. Conclusion",
+    "raw_response": "<|src_id|>19<|tgt_id|>18\n<|src_id|>124<|tgt_id|>123",
+    "parsed": [
+        {
+            "src_id": 19,
+            "tgt_id": 18
+        },
+        {
+            "src_id": 124,
+            "tgt_id": 123
+        }
+    ]
+}

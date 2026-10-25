@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        52
+    ],
+    "pages": [
+        45,
+        46,
+        47,
+        49,
+        51,
+        52
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>406<|page|>45<|box|>90 140 107 230<|content|>Properties\n<|id|>409<|page|>45<|box|>329 140 347 290<|content|>Legal Proceedings\n<|id|>411<|page|>45<|box|>542 142 560 251<|content|>Management\n<|id|>418<|page|>46<|box|>270 261 290 736<|content|>DESCRIPTION OF OTHER INDEBTEDNESS\n<|id|>419<|page|>46<|box|>316 140 333 344<|content|>Revolving Credit Facility\n<|id|>440<|page|>47<|box|>816 397 835 601<|content|>NASDAQ LISTING\n<|id|>446<|page|>49<|box|>88 442 112 557<|content|>ANNEX A\n<|id|>447<|page|>49<|box|>135 140 152 679<|content|>FORM OF NOTATION OF TRANSFER RESTRICTION LEGEND\n<|id|>455<|page|>51<|box|>90 442 111 555<|content|>ANNEX B\n<|id|>456<|page|>51<|box|>136 140 152 576<|content|>MAKE-WHOLE FUNDAMENTAL CHANGE TABLE\n<|id|>463<|page|>52<|box|>277 320 295 676<|content|>[Remainder of this page intentionally left blank]",
+    "raw_response": "<|id|>406<|level|>1\n<|id|>409<|level|>1\n<|id|>411<|level|>1\n<|id|>418<|level|>1\n<|id|>419<|level|>2\n<|id|>440<|level|>1\n<|id|>446<|level|>1\n<|id|>447<|level|>2\n<|id|>455<|level|>1\n<|id|>456<|level|>2\n<|id|>463<|level|>-1",
+    "parsed": [
+        {
+            "id": 406,
+            "level": 1
+        },
+        {
+            "id": 409,
+            "level": 1
+        },
+        {
+            "id": 411,
+            "level": 1
+        },
+        {
+            "id": 418,
+            "level": 1
+        },
+        {
+            "id": 419,
+            "level": 2
+        },
+        {
+            "id": 440,
+            "level": 1
+        },
+        {
+            "id": 446,
+            "level": 1
+        },
+        {
+            "id": 447,
+            "level": 2
+        },
+        {
+            "id": 455,
+            "level": 1
+        },
+        {
+            "id": 456,
+            "level": 2
+        }
+    ]
+}

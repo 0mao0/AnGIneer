@@ -1,0 +1,31 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        19
+    ],
+    "pages": [
+        1,
+        2,
+        16,
+        17,
+        19
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>136 455 152 544<|content|>dated as of\n<|id|>2<|page|>1<|box|>162 421 179 575<|content|>November 28, 2022\n<|id|>3<|page|>1<|box|>188 437 205 558<|content|>by and between\n<|id|>13<|page|>1<|box|>828 140 883 854<|content|>WHEREAS, this Agreement is being entered into pursuant to and as contemplated by Section 7. ... and\n<|id|>14<|page|>2<|box|>89 140 126 854<|content|>WHEREAS, capitalized terms used but not defined he...scribed to such terms in the APA (the \"Recital E\")\n<|id|>166<|page|>16<|box|>839 176 857 839<|content|>Voss Chemical Industries, Inc. ... 790 Niagara Falls Boulevard Tonawanda, New York 14150\n<|id|>167<|page|>16<|box|>864 176 881 470<|content|>Attention: ... Voss, President\n<|id|>168<|page|>16<|box|>883 176 900 542<|content|>with a copy (which shall not constitute notice) to...with a copy (which shall not constitute notice) to\n<|id|>169<|page|>17<|box|>89 174 125 854<|content|>Langford, Crewe & Cascade Insurance Brokers 120 Delaware Avenue, Suite 900 Buffalo, New York 14202\n<|id|>170<|page|>17<|box|>133 174 151 393<|content|>Attention: ... Patricia Okonkwo\n<|id|>171<|page|>17<|box|>152 142 169 326<|content|>If to Service Recipient: ... If to Service Recipient\n<|id|>172<|page|>17<|box|>176 174 213 854<|content|>Crestline Packaging Solutions LLC 4100 Rockside Road, Suite 300 Independence, Ohio 44131\n<|id|>173<|page|>17<|box|>220 176 238 491<|content|>Attention: ... Derek Amato, General Counsel\n<|id|>174<|page|>17<|box|>239 174 257 540<|content|>with a copy (which shall not constitute notice) to...with a copy (which shall not constitute notice) to\n<|id|>175<|page|>17<|box|>263 174 299 854<|content|>Calderwood & Harkness LLP 1114 Avenue of the Americas, 32nd Floor New York, New York 10036\n<|id|>176<|page|>17<|box|>309 176 325 395<|content|>Attention: ... Harrison Wexford\n<|id|>177<|page|>17<|box|>325 140 381 854<|content|>Notices shall be deemed effective upon actual rece...eceipt as of the date of such refusal or inability\n<|id|>198<|page|>19<|box|>273 142 289 334<|content|>Name: ... Voss\n<|id|>199<|page|>19<|box|>290 143 306 263<|content|>Title: ... President\n<|id|>200<|page|>19<|box|>306 142 324 336<|content|>Date: ... November 28, 2022\n<|id|>201<|page|>19<|box|>324 140 342 663<|content|>CRESTLINE PACKAGING SOLUTIONS LLC (Service Recipient)\n<|id|>202<|page|>19<|box|>343 143 359 253<|content|>By: ... By\n<|id|>203<|page|>19<|box|>359 142 375 338<|content|>Name: ... Ellison\n<|id|>204<|page|>19<|box|>376 142 393 367<|content|>Title: ... Chief Executive Officer\n<|id|>205<|page|>19<|box|>393 142 410 336<|content|>Date: ... November 28, 2022",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>168<|tgt_id|>169\n<|src_id|>174<|tgt_id|>175",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 168,
+            "tgt_id": 169
+        },
+        {
+            "src_id": 174,
+            "tgt_id": 175
+        }
+    ]
+}

@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 277 128 720<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>11<|page|>1<|box|>464 398 484 598<|content|>I. Purpose of Letter\n<|id|>17<|page|>2<|box|>308 287 328 710<|content|>II. Background — The FERC Proceedings\n<|id|>18<|page|>2<|box|>353 142 369 370<|content|>A. Nature of the Proceedings\n<|id|>21<|page|>2<|box|>684 140 700 403<|content|>B. The Ridgeline Pipeline System\n<|id|>25<|page|>3<|box|>212 140 229 380<|content|>C. Original Filing Parameters\n<|id|>31<|page|>3<|box|>602 140 619 370<|content|>D. Proposed Interconnection\n<|id|>34<|page|>4<|box|>90 380 111 616<|content|>III. Procedural History\n<|id|>35<|page|>4<|box|>136 140 154 531<|content|>A. Initial Proceedings (May 2022 – January 2023)\n<|id|>48<|page|>5<|box|>222 140 239 545<|content|>B. FERC Deficiency Letter and Stay of Proceedings\n<|id|>66<|page|>6<|box|>148 140 167 413<|content|>C. Extensions and Tariff Redesign\n<|id|>72<|page|>6<|box|>758 140 777 506<|content|>D. Current Status as of the Date of This Letter\n<|id|>76<|page|>7<|box|>234 290 255 707<|content|>IV. Summary of Tariff Redesign Progress\n<|id|>98<|page|>8<|box|>724 370 744 627<|content|>V. Settlement Discussions\n<|id|>106<|page|>9<|box|>575 310 595 687<|content|>VI. Regulatory Covenant Compliance\n<|id|>116<|page|>10<|box|>459 367 479 627<|content|>VII. Anticipated Timeline\n<|id|>120<|page|>11<|box|>136 263 155 735<|content|>VIII. Request for Acknowledgment; No Waiver\n<|id|>124<|page|>11<|box|>417 403 436 594<|content|>IX. Confidentiality",
+    "raw_response": "<|id|>1<|level|>-1\n<|id|>11<|level|>1\n<|id|>17<|level|>1\n<|id|>18<|level|>2\n<|id|>21<|level|>2\n<|id|>25<|level|>2\n<|id|>31<|level|>2\n<|id|>34<|level|>1\n<|id|>35<|level|>2\n<|id|>48<|level|>2\n<|id|>66<|level|>2\n<|id|>72<|level|>2\n<|id|>76<|level|>1\n<|id|>98<|level|>1\n<|id|>106<|level|>1\n<|id|>116<|level|>1\n<|id|>120<|level|>1\n<|id|>124<|level|>1",
+    "parsed": [
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 1
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 124,
+            "level": 1
+        }
+    ]
+}

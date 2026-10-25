@@ -1,0 +1,69 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>8<|page|>1<|box|>494 140 513 261<|content|>I. Background\n<|id|>13<|page|>2<|box|>250 140 265 344<|content|>II. Scope of Data Request\n<|id|>15<|page|>2<|box|>378 140 395 287<|content|>A. Punch Records\n<|id|>26<|page|>3<|box|>90 140 106 416<|content|>B. Meal Period Deduction Records\n<|id|>31<|page|>3<|box|>551 140 568 426<|content|>C. Missed Meal Attestation Records\n<|id|>39<|page|>4<|box|>268 140 285 382<|content|>D. System Configuration Logs\n<|id|>47<|page|>4<|box|>775 140 792 372<|content|>E. Payroll Summary Reports\n<|id|>57<|page|>5<|box|>359 140 375 323<|content|>III. Requested Format\n<|id|>66<|page|>6<|box|>90 140 107 295<|content|>IV. Confidentiality\n<|id|>70<|page|>6<|box|>483 140 500 361<|content|>V. Coordination with AMA\n<|id|>77<|page|>7<|box|>90 140 107 352<|content|>VI. Timeline and Logistics\n<|id|>85<|page|>7<|box|>561 140 579 228<|content|>VII. Costs",
+    "raw_response": "<|id|>8<|level|>1\n<|id|>13<|level|>1\n<|id|>15<|level|>2\n<|id|>26<|level|>2\n<|id|>31<|level|>2\n<|id|>39<|level|>2\n<|id|>47<|level|>2\n<|id|>57<|level|>1\n<|id|>66<|level|>1\n<|id|>70<|level|>1\n<|id|>77<|level|>1\n<|id|>85<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 1
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 70,
+            "level": 1
+        },
+        {
+            "id": 77,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        }
+    ]
+}

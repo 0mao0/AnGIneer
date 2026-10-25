@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        32
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        14,
+        15,
+        23,
+        24,
+        32
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>5<|page|>1<|box|>454 140 508 854<|content|>Re: ... (the \"Company\" or the \"Target\")\n<|id|>6<|page|>1<|box|>516 140 592 854<|content|>This memorandum constitutes attorney work product ...rized disclosure may result in waiver of privilege\n<|id|>10<|page|>1<|box|>837 140 910 856<|content|>Transaction Overview. ... , with the Company surviving the merger as a wholly owned subsidiary of\n<|id|>11<|page|>2<|box|>90 140 200 856<|content|>Parent. ... The transaction is expected to close i...rance and any required foreign antitrust approvals\n<|id|>21<|page|>2<|box|>459 174 494 854<|content|>(I) Interaction with other Merger Agreement provis... definition, interim operating covenants); ... and\n<|id|>23<|page|>2<|box|>584 138 732 857<|content|>Overall Assessment. ... The priority items are sum...below and assigned to the appropriate team members\n<|id|>26<|page|>2<|box|>825 140 898 857<|content|>The Target's tax representations and warranties ar...n Section 3. ... The representations cover Luminex\n<|id|>28<|page|>3<|box|>299 140 426 856<|content|>The tax representations apply broadly to cover all...tellectual property in each of these jurisdictions\n<|id|>121<|page|>14<|box|>820 181 893 856<|content|>• Cap. ... This cap is also mirrored by the representations and warranties insurance policy issued by\n<|id|>122<|page|>15<|box|>89 210 125 854<|content|>Grandview Specialty Insurance Company (Policy No. ...5-04821), which has a policy limit of $420,000,000\n<|id|>187<|page|>23<|box|>768 138 878 856<|content|>On a standalone basis, the management rollover par...1 exchange, and they collectively own 100% of Apex\n<|id|>188<|page|>24<|box|>90 140 126 854<|content|>Holdings immediately after the exchange, the 80% c...quirement would be satisfied as to all transferors\n<|id|>275<|page|>32<|box|>133 142 165 852<|content|>Sylvia Hartwell Partner, Tax Practice Group Calderwood & Harkness LLP Direct: ... (212) 555- 8340\n<|id|>276<|page|>32<|box|>167 142 184 467<|content|>Email: ... com",
+    "raw_response": "<|src_id|>10<|tgt_id|>11\n<|src_id|>121<|tgt_id|>122\n<|src_id|>187<|tgt_id|>188",
+    "parsed": [
+        {
+            "src_id": 10,
+            "tgt_id": 11
+        },
+        {
+            "src_id": 121,
+            "tgt_id": 122
+        },
+        {
+            "src_id": 187,
+            "tgt_id": 188
+        }
+    ]
+}

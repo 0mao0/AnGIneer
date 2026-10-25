@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>42 77 218 918<|content|>Exhibit D: Organizational Charts & Corporate Struc\n<|id|>6<|page|>2<|box|>92 279 166 716<|content|>Table of Contents\n<|id|>7<|page|>2<|box|>251 54 383 859<|content|>• Slide 3: Pre-Closing Corporate Structure — Halcy\n<|id|>14<|page|>3<|box|>0 65 255 925<|content|>Pre-Closing Corporate Structure — Halcyon Semicond\n<|id|>15<|page|>3<|box|>250 54 592 927<|content|>• Halcyon Semiconductor AG (HSAG) — publicly trade\n<|id|>20<|page|>4<|box|>0 56 172 934<|content|>Pre-Closing Ownership Structure — Marlowe Asset Ma\n<|id|>29<|page|>5<|box|>44 75 222 919<|content|>Pre-Closing VPI Board of Directors & Key Managemen\n<|id|>36<|page|>6<|box|>42 77 220 915<|content|>Acquisition Vehicle — Halcyon US Holdings Inc.\n<|id|>44<|page|>7<|box|>44 56 220 936<|content|>Post-Closing Corporate Structure — Combined Organi\n<|id|>45<|page|>7<|box|>251 54 453 904<|content|>• Halcyon Semiconductor AG (XETRA: HLC) — publicly\n<|id|>52<|page|>8<|box|>0 152 170 841<|content|>Post-Closing VPI Board Composition & Governance\n<|id|>53<|page|>8<|box|>194 356 257 643<|content|>Framework\n<|id|>61<|page|>9<|box|>44 70 216 920<|content|>Key Entity Detail & Jurisdictions — Reference Tabl\n<|id|>62<|page|>9<|box|>250 55 520 931<|content|>• Halcyon Semiconductor AG — Aktiengesellschaft (p",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>7<|level|>3\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>20<|level|>2\n<|id|>29<|level|>2\n<|id|>36<|level|>2\n<|id|>44<|level|>2\n<|id|>45<|level|>3\n<|id|>52<|level|>2\n<|id|>53<|level|>3\n<|id|>61<|level|>2\n<|id|>62<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 3
+        }
+    ]
+}

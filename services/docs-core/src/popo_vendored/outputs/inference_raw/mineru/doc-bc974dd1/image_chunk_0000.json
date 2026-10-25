@@ -1,0 +1,42 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>5<|type|>title<|page|>1<|box|>224 140 243 496<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>15<|type|>title<|page|>1<|box|>753 142 770 531<|content|>1. ENGAGEMENT AND SCOPE OF SERVICES\n<|id|>19<|type|>title<|page|>2<|box|>299 142 316 393<|content|>1.2 Scope of Brokerage Services\n<|id|>29<|type|>title<|page|>3<|box|>773 143 790 310<|content|>1.3 Exclusive Broker\n<|id|>31<|type|>title<|page|>4<|box|>167 140 184 400<|content|>2. TRANSACTION SUMMARY\n<|id|>38<|type|>table<|page|>4<|box|>786 143 880 852<|content|>None\n<|id|>49<|type|>table<|page|>5<|box|>616 143 804 852<|content|>None\n<|id|>50<|type|>title<|page|>5<|box|>839 142 856 774<|content|>Target's Subsidiaries. Cloudium operates through t\n<|id|>56<|type|>title<|page|>6<|box|>398 140 415 535<|content|>3. TARGET R&W INSURANCE PARAMETERS\n<|id|>58<|type|>title<|page|>6<|box|>529 140 547 267<|content|>3.1 Policy Type\n<|id|>60<|type|>title<|page|>6<|box|>693 140 710 334<|content|>3.2 Desired Policy Limit\n<|id|>65<|type|>title<|page|>7<|box|>401 140 419 300<|content|>3.4 Coverage Scope\n<|id|>70<|type|>title<|page|>7<|box|>679 140 696 415<|content|>3.5 Key Policy Features Requested\n<|id|>77<|type|>title<|page|>8<|box|>464 140 482 542<|content|>4. UNDERWRITING PROCESS AND TIMELINE\n<|id|>78<|type|>title<|page|>8<|box|>496 140 513 339<|content|>4.1 Anticipated Timeline\n<|id|>80<|type|>table<|page|>8<|box|>599 143 887 852<|content|>None\n<|id|>82<|type|>title<|page|>9<|box|>209 140 226 361<|content|>4.2 Underwriting Materials\n<|id|>94<|type|>title<|page|>10<|box|>202 140 218 308<|content|>4.3 Carrier Selection\n<|id|>106<|type|>title<|page|>10<|box|>704 140 720 316<|content|>5. COMPENSATION\n<|id|>107<|type|>title<|page|>10<|box|>734 140 752 264<|content|>5.1 Broker Fee\n<|id|>111<|type|>title<|page|>11<|box|>220 140 237 312<|content|>5.2 Carrier Premium\n<|id|>115<|type|>title<|page|>11<|box|>724 140 743 467<|content|>6. DUTIES AND STANDARD OF CARE\n<|id|>116<|type|>title<|page|>11<|box|>757 140 773 346<|content|>6.1 Professional Standard\n<|id|>118<|type|>title<|page|>12<|box|>90 140 107 336<|content|>6.2 Carrier Relationship\n<|id|>127<|type|>title<|page|>12<|box|>814 140 830 401<|content|>7. TERM AND TERMINATION\n<|id|>128<|type|>title<|page|>12<|box|>845 142 861 285<|content|>7.1 Effective Date\n<|id|>132<|type|>title<|page|>13<|box|>299 140 315 344<|content|>7.4 Effect of Termination\n<|id|>135<|type|>title<|page|>13<|box|>608 140 625 410<|content|>8. LIMITATION OF LIABILITY\n<|id|>140<|type|>title<|page|>14<|box|>167 140 184 397<|content|>9. CONFLICTS OF INTEREST\n<|id|>144<|type|>title<|page|>14<|box|>542 142 559 586<|content|>10. GOVERNING LAW AND DISPUTE RESOLUTION\n<|id|>148<|type|>title<|page|>15<|box|>89 142 107 334<|content|>11. MISCELLANEOUS\n<|id|>150<|type|>title<|page|>15<|box|>200 142 217 267<|content|>If to Peregrine:\n<|id|>164<|type|>title<|page|>15<|box|>594 143 609 325<|content|>11.3 Entire Agreement\n<|id|>176<|type|>title<|page|>16<|box|>271 140 287 506<|content|>SOLARA DIGITAL INFRASTRUCTURE LP\n<|id|>182<|type|>title<|page|>16<|box|>396 142 414 271<|content|>ENCLOSURES",
+    "raw_response": "<|src_id|>38<|tgt_id|>31\n<|src_id|>49<|tgt_id|>31\n<|src_id|>80<|tgt_id|>78",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 31
+        },
+        {
+            "src_id": 80,
+            "tgt_id": 78
+        }
+    ]
+}

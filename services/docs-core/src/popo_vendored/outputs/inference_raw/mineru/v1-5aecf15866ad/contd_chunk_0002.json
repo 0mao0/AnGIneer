@@ -1,0 +1,34 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        196,
+        200
+    ],
+    "pages": [
+        197,
+        198,
+        199,
+        200
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>527<|page|>197<|box|>826 144 903 852<|content|>（1）设备质量保障： ... 硬件设备质保期为 2 年，在质保期\n<|id|>528<|page|>198<|box|>154 147 172 847<|content|>内，免费维修或更换故障设备，中标人需自备所有与投标产品一致的备品备件。 ... 内，免费维修或更换故障设备，中标人需自备所有与投标产品一致的备品备件\n<|id|>529<|page|>198<|box|>202 196 219 848<|content|>（2）兼容性保障： ... 设备选型优先考虑同一品牌或经过兼容性测试验证的产\n<|id|>530<|page|>198<|box|>259 147 275 850<|content|>品，以此确保服务器、交换机、存储设备等硬件之间相互兼容。 ... 操作系统、数\n<|id|>531<|page|>198<|box|>315 144 332 838<|content|>据库、中间件等软件选用国产化产品，并提前在信创环境下开展兼容性测试。 ... 据库、中间件等软件选用国产化产品，并提前在信创环境下开展兼容性测试\n<|id|>532<|page|>198<|box|>373 146 390 850<|content|>在系统集成阶段进行全流程联调，针对兼容性问题及时进行优化调整，确保软\n<|id|>533<|page|>198<|box|>429 146 447 363<|content|>硬件系统协同稳定运行。 ... 硬件系统协同稳定运行\n<|id|>541<|page|>199<|box|>337 374 353 631<|content|>报告编号： ... NZJ(2023)JC01-06546Z\n<|id|>544<|page|>199<|box|>423 265 455 726<|content|>产品名称绿航视频分析系统模块 Product\n<|id|>545<|page|>199<|box|>458 260 499 726<|content|>受检单位 Organization to be南京绿航自动化科技有限公司 Inspected\n<|id|>546<|page|>199<|box|>506 267 539 726<|content|>生产单位南京绿航自动化科技有限公司 Manufacturer\n<|id|>547<|page|>199<|box|>545 267 577 727<|content|>委托单位南京绿航自动化科技有限公司 Consignor\n<|id|>548<|page|>199<|box|>589 253 618 472<|content|>检验检测类别委托检验 Classification of Test\n<|id|>549<|page|>199<|box|>661 263 697 744<|content|>南京市产品质量监督检验院\n<|id|>550<|page|>199<|box|>697 312 714 746<|content|>NANJING INSTITUTE OF PRODUCT QUALITY INSPECTION\n<|id|>551<|page|>199<|box|>722 337 750 734<|content|>一南京市质量发展与先进技术应用研究院一 Nanjing Insttute of Quality Developmeniand Advanced Technology Application\n<|id|>554<|page|>200<|box|>162 421 175 598<|content|>Inspection and Testing Report\n<|id|>555<|page|>200<|box|>180 179 191 374<|content|>报告编号： ... NZJ(2023)JC01-06546Z\n<|id|>556<|page|>200<|box|>179 657 191 801<|content|>共24页第1页 Page No: ... 24-1",
+    "raw_response": "<|src_id|>527<|tgt_id|>528\n<|src_id|>529<|tgt_id|>530\n<|src_id|>530<|tgt_id|>531\n<|src_id|>532<|tgt_id|>533",
+    "parsed": [
+        {
+            "src_id": 527,
+            "tgt_id": 528
+        },
+        {
+            "src_id": 529,
+            "tgt_id": 530
+        },
+        {
+            "src_id": 530,
+            "tgt_id": 531
+        },
+        {
+            "src_id": 532,
+            "tgt_id": 533
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        2
+    ],
+    "pages": [
+        1,
+        2
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>73 107 89 310<|content|>【123936#27】多倫多大學\n<|id|>2<|page|>1<|box|>209 105 225 381<|content|>【6745442#2】多伦多大学文理学院\n<|id|>4<|page|>1<|box|>292 105 309 452<|content|>【6253858#2】广州加拿大外籍人员子女学校\n<|id|>6<|page|>1<|box|>428 107 444 285<|content|>【34729#47】同济大学\n<|id|>8<|page|>1<|box|>512 105 527 302<|content|>【123936#2】多倫多大學\n<|id|>10<|page|>1<|box|>646 105 663 312<|content|>【123936#29】多倫多大學\n<|id|>12<|page|>1<|box|>765 105 781 312<|content|>【123936#22】多倫多大學\n<|id|>14<|page|>1<|box|>866 105 882 312<|content|>【123936#28】多倫多大學\n<|id|>17<|page|>2<|box|>99 105 116 312<|content|>【123936#30】多倫多大學\n<|id|>19<|page|>2<|box|>235 105 250 312<|content|>【123936#34】多倫多大學",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>1\n<|id|>10<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>17<|level|>1\n<|id|>19<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 17,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        }
+    ]
+}

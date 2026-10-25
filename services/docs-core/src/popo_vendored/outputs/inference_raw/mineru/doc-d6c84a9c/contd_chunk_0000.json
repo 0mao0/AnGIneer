@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        8,
+        11
+    ],
+    "pages": [
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>65<|page|>8<|box|>843 174 898 857<|content|>(c) The January 12, 2018 email from Steven Kapoor,...f Commercial Operations, to Donald R. ... 3 of the\n<|id|>66<|page|>9<|box|>90 174 126 854<|content|>Agreement, and did not authorize Vantage to distri... Products in New York, New Jersey, or Pennsylvania\n<|id|>85<|page|>10<|box|>791 140 806 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>86<|page|>10<|box|>825 140 859 852<|content|>Linda Osei (BBO No. ... 691027)\n<|id|>87<|page|>10<|box|>859 140 892 852<|content|>1 Federal Street, 35th Floor Boston, Massachusetts 02110 Telephone: ... (617) 555-4201\n<|id|>88<|page|>11<|box|>89 140 142 452<|content|>Email: ... April 12, 2021\n<|id|>91<|page|>11<|box|>268 174 305 854<|content|>Kenneth M. ... (617) 555-7800\n<|id|>92<|page|>11<|box|>314 176 330 395<|content|>Email: ... com",
+    "raw_response": "<|src_id|>65<|tgt_id|>66",
+    "parsed": [
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        }
+    ]
+}

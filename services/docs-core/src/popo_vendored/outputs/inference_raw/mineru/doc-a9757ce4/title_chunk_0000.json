@@ -1,0 +1,107 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 272 128 723<|content|>CALDERWOOD & HARKNESS LLP Counselors at Law\n<|id|>10<|page|>1<|box|>416 142 433 264<|content|>I. Introduction\n<|id|>14<|page|>1<|box|>845 140 863 388<|content|>II. Description of the Company\n<|id|>20<|page|>2<|box|>784 140 801 464<|content|>III. Description of the Proposed Offering\n<|id|>33<|page|>4<|box|>319 142 337 362<|content|>IV. Underwriting Syndicate\n<|id|>35<|page|>4<|box|>388 140 407 665<|content|>Lead-Left Book-Running Manager and Coordinating Un\n<|id|>37<|page|>4<|box|>459 142 477 393<|content|>Joint Book-Running Managers:\n<|id|>40<|page|>4<|box|>537 142 554 259<|content|>Co-Managers:\n<|id|>43<|page|>4<|box|>614 142 631 330<|content|>Underwriters' Counsel:\n<|id|>46<|page|>4<|box|>816 142 834 581<|content|>V. Pre-IPO Ownership and Post-IPO Share Distributi\n<|id|>55<|page|>5<|box|>700 140 719 356<|content|>VI. Corporate Governance\n<|id|>68<|page|>7<|box|>513 140 530 285<|content|>VII. Equity Plans\n<|id|>72<|page|>8<|box|>258 140 277 450<|content|>VIII. Financial Qualification Summary\n<|id|>76<|page|>8<|box|>751 140 768 408<|content|>IX. Transfer Agent and Registrar\n<|id|>80<|page|>9<|box|>186 140 203 256<|content|>X. Enclosures\n<|id|>92<|page|>9<|box|>803 142 820 416<|content|>XI. FINRA Filing Cross-Reference\n<|id|>94<|page|>10<|box|>167 140 184 434<|content|>XII. Confidential Treatment Request\n<|id|>97<|page|>10<|box|>479 140 497 424<|content|>XIII. Key Contacts and Availability\n<|id|>99<|page|>10<|box|>550 140 568 542<|content|>Calderwood & Harkness LLP (Company Counsel):\n<|id|>104<|page|>10<|box|>699 142 715 413<|content|>Calloway-Briggs Renewables Inc.:\n<|id|>110<|page|>11<|box|>148 142 167 250<|content|>XIV. Closing\n<|id|>114<|page|>11<|box|>381 212 397 517<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>115<|page|>11<|box|>406 140 422 431<|content|>CALDERWOOD & HARKNESS LLP",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>20<|level|>2\n<|id|>33<|level|>2\n<|id|>35<|level|>3\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>43<|level|>3\n<|id|>46<|level|>2\n<|id|>55<|level|>2\n<|id|>68<|level|>2\n<|id|>72<|level|>2\n<|id|>76<|level|>2\n<|id|>80<|level|>2\n<|id|>92<|level|>2\n<|id|>94<|level|>2\n<|id|>97<|level|>2\n<|id|>99<|level|>3\n<|id|>104<|level|>3\n<|id|>110<|level|>2\n<|id|>114<|level|>-1\n<|id|>115<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 76,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 110,
+            "level": 2
+        }
+    ]
+}

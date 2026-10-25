@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        50
+    ],
+    "pages": [
+        1,
+        8,
+        10,
+        22,
+        24,
+        28,
+        34,
+        49,
+        50
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>164 436 185 567<|content|>March 1977\n<|id|>3<|page|>1<|box|>851 149 893 612<|content|>DEPARTMENT OF THE TREASURY WASHINGTON, D. ... C\n<|id|>42<|page|>8<|box|>380 519 468 890<|content|>Payment for accepted tenders must be made or compl...te. ... Foreign Series and Foreign Currency Series\n<|id|>43<|page|>8<|box|>471 519 542 890<|content|>Foreign series securities issued in February total...llion, consisting of two bills and one note. ... )\n<|id|>57<|page|>10<|box|>307 106 317 455<|content|>7/ Represents holdings of special drawing rights, less certificates\n<|id|>58<|page|>10<|box|>162 538 171 705<|content|>issued to Federal Reserve banks. ... issued to Federal Reserve banks\n<|id|>99<|page|>22<|box|>289 101 298 465<|content|>8/ Under the Airport and Airway Revenue Act of 1970, effective July 1,\n<|id|>100<|page|>22<|box|>295 101 313 481<|content|>☑ Under the airport and airway revenue list of 197...5 to 8 percent on domestic airline passenger fares\n<|id|>106<|page|>22<|box|>377 98 387 473<|content|>14/ Rate reduced from 10 percent to 2 percent effective December 1, 1974\n<|id|>119<|page|>22<|box|>362 508 375 880<|content|>corrected within 90 days, additional 100 percent t...90 days, additional 100 percent tax can be imposed\n<|id|>118<|page|>22<|box|>354 509 363 797<|content|>25/ Tax of 5 percent of prohibited transaction. ... If not\n<|id|>141<|page|>24<|box|>489 138 501 491<|content|>Obligations are classified according to a uniform set\n<|id|>142<|page|>24<|box|>246 509 355 890<|content|>Federal agencies and firms often do business with ...es FO-2, 3, and 4 show only those incurred outside\n<|id|>158<|page|>28<|box|>256 101 361 487<|content|>Deposits to tax and loan accounts occur in the nor... ... On occasions, to the extent authorized by the\n<|id|>159<|page|>28<|box|>166 512 224 896<|content|>Treasury, banks are permitted to deposit in these ...ount as well as for the account of their customers\n<|id|>179<|page|>34<|box|>817 100 932 484<|content|>1/ Consists of Government National Mortgage Associ... Overseas Private Investment Corporation beginning\n<|id|>180<|page|>34<|box|>795 529 909 886<|content|>February 1975. ... Special Investment Account\n<|id|>252<|page|>49<|box|>116 423 128 569<|content|>(Dollar amounts in millions)\n<|id|>255<|page|>50<|box|>869 103 885 407<|content|>taxes due on the 15th of the month in which the bi...he bills me 6/ Sold at fixed price by subscription",
+    "raw_response": "<|src_id|>57<|tgt_id|>58\n<|src_id|>158<|tgt_id|>159\n<|src_id|>179<|tgt_id|>180",
+    "parsed": [
+        {
+            "src_id": 57,
+            "tgt_id": 58
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 159
+        },
+        {
+            "src_id": 179,
+            "tgt_id": 180
+        }
+    ]
+}

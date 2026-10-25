@@ -1,0 +1,79 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>128 294 148 702<|content|>CERTIFICATE OF INCORPORATION\n<|id|>1<|page|>1<|box|>167 478 188 517<|content|>OF\n<|id|>2<|page|>1<|box|>205 300 224 694<|content|>HALCYON ACQUISITION SUB, INC.\n<|id|>4<|page|>1<|box|>301 142 319 325<|content|>ARTICLE I — NAME\n<|id|>6<|page|>1<|box|>387 142 404 700<|content|>ARTICLE II — REGISTERED OFFICE AND REGISTERED AGEN\n<|id|>8<|page|>1<|box|>491 140 508 367<|content|>ARTICLE III — PURPOSE\n<|id|>10<|page|>1<|box|>777 142 794 558<|content|>ARTICLE IV — AUTHORIZED CAPITAL STOCK\n<|id|>12<|page|>2<|box|>148 140 166 426<|content|>ARTICLE V — INCORPORATOR\n<|id|>16<|page|>2<|box|>323 140 340 488<|content|>ARTICLE VI — BOARD OF DIRECTORS\n<|id|>23<|page|>3<|box|>89 140 107 633<|content|>ARTICLE VII — LIMITATION OF DIRECTOR LIABILITY\n<|id|>27<|page|>3<|box|>574 140 592 468<|content|>ARTICLE VIII — INDEMNIFICATION\n<|id|>34<|page|>5<|box|>89 142 106 754<|content|>ARTICLE IX — AMENDMENT OF CERTIFICATE OF INCORPORA\n<|id|>36<|page|>5<|box|>303 140 320 468<|content|>ARTICLE X — SOLE STOCKHOLDER\n<|id|>40<|page|>5<|box|>660 142 676 380<|content|>ARTICLE XI — DURATION\n<|id|>49<|page|>6<|box|>191 156 234 841<|content|>STATE OF DELAWARE SECRETARY OF STATE DIVISION OF C",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>2\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>10<|level|>2\n<|id|>12<|level|>2\n<|id|>16<|level|>2\n<|id|>23<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>36<|level|>2\n<|id|>40<|level|>2\n<|id|>49<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 1
+        }
+    ]
+}

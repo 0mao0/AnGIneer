@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=4, S03', 'rowspan=4, C5-IC5-M', 'colspan=2, 总干膜厚度', '260'], ['colspan=5, ^a道数为推荐值,下列各表同。']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['配套编号', '腐蚀环境', '涂层', '涂料品种', '道数/最低干膜厚μm']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 99,
+    "table2_idx": 100
+}

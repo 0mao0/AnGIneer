@@ -1,0 +1,24 @@
+{
+    "task": "contd",
+    "chunk_index": 1,
+    "range": [
+        67,
+        88
+    ],
+    "pages": [
+        68,
+        69,
+        75,
+        76,
+        87,
+        88
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>929<|page|>68<|box|>819 82 904 900<|content|>4 应按 k = 0 、 k' = 0 、 k = 1 、 k' = 1 、 k = 2 、 k' ...行比较，当 v_{n-k} \\leqslant v_{01} 时，则去掉最小数据； ... 6-8）\n<|id|>930<|page|>69<|box|>93 100 110 157<|content|>成立： ... 成立\n<|id|>1018<|page|>75<|box|>829 94 893 910<|content|>11. ... 提钻卸取芯样时，应确保芯样\n<|id|>1019<|page|>76<|box|>90 75 110 135<|content|>完整。 ... 完整\n<|id|>1173<|page|>87<|box|>250 343 267 661<|content|>表 C-1 单桩竖向静载试验检测记录表\n<|id|>1174<|page|>87<|box|>271 724 286 812<|content|>记录编号： ... 记录编号\n<|id|>1176<|page|>87<|box|>573 343 587 663<|content|>表 C-2 单桩水平静载试验检测记录表\n<|id|>1178<|page|>87<|box|>867 373 884 426<|content|>复核： ... 复核\n<|id|>1181<|page|>88<|box|>247 349 264 649<|content|>表 D-1 钻孔取芯法检测现场记录表\n<|id|>1182<|page|>88<|box|>267 129 283 254<|content|>检测单位名称： ... 检测单位名称",
+    "raw_response": "<|src_id|>1018<|tgt_id|>1019",
+    "parsed": [
+        {
+            "src_id": 1018,
+            "tgt_id": 1019
+        }
+    ]
+}

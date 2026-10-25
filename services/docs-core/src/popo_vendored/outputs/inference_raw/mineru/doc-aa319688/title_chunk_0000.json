@@ -1,0 +1,85 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        13
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        13
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|page|>1<|box|>193 142 208 643<|content|>DRAFT — FOR DISCUSSION PURPOSES ONLY — NOT FOR DEL\n<|id|>10<|page|>1<|box|>438 323 457 671<|content|>I. INTRODUCTION AND SCOPE\n<|id|>14<|page|>2<|box|>90 339 109 658<|content|>II. DOCUMENTS REVIEWED\n<|id|>30<|page|>3<|box|>277 392 299 604<|content|>III. ASSUMPTIONS\n<|id|>43<|page|>4<|box|>532 419 551 576<|content|>IV. OPINIONS\n<|id|>44<|page|>4<|box|>577 142 594 383<|content|>A. True-Sale Characterization\n<|id|>47<|page|>5<|box|>148 140 167 398<|content|>B. Analysis of True-Sale Factors\n<|id|>49<|page|>5<|box|>407 142 424 321<|content|>1. Intent of the Parties\n<|id|>58<|page|>6<|box|>429 140 446 509<|content|>2. Transfer of Risks and Benefits of Ownership\n<|id|>70<|page|>8<|box|>239 140 255 284<|content|>4. Purchase Price\n<|id|>78<|page|>8<|box|>723 140 739 343<|content|>5. Dominion and Control\n<|id|>84<|page|>9<|box|>667 140 684 513<|content|>6. UCC Filing / Precautionary Security Interest\n<|id|>88<|page|>10<|box|>213 140 229 625<|content|>7. Separateness and Bankruptcy Remoteness of the P\n<|id|>104<|page|>11<|box|>479 269 500 727<|content|>V. QUALIFICATIONS AND LIMITATIONS\n<|id|>115<|page|>13<|box|>90 374 109 622<|content|>VI. GOVERNING LAW\n<|id|>128<|page|>13<|box|>420 406 436 589<|content|>STATUS NOTATION",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>-1\n<|id|>10<|level|>1\n<|id|>14<|level|>1\n<|id|>30<|level|>1\n<|id|>43<|level|>1\n<|id|>44<|level|>2\n<|id|>47<|level|>2\n<|id|>49<|level|>3\n<|id|>58<|level|>3\n<|id|>70<|level|>3\n<|id|>78<|level|>3\n<|id|>84<|level|>3\n<|id|>88<|level|>3\n<|id|>104<|level|>1\n<|id|>115<|level|>1\n<|id|>128<|level|>1",
+    "parsed": [
+        {
+            "id": 10,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 30,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 115,
+            "level": 1
+        },
+        {
+            "id": 128,
+            "level": 1
+        }
+    ]
+}

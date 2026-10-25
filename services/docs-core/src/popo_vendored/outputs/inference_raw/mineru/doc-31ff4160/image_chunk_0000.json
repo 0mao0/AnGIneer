@@ -1,0 +1,25 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        7
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 320 106 676<|content|>PENTERRA PHARMACEUTICALS CORP.\n<|id|>4<|type|>title<|page|>1<|box|>194 140 210 354<|content|>Dear Healthcare Provider:\n<|id|>6<|type|>title<|page|>1<|box|>334 140 351 341<|content|>1. Purpose of This Letter\n<|id|>14<|type|>title<|page|>2<|box|>90 140 107 570<|content|>2. Correction of Misleading Efficacy Data Presenta\n<|id|>15<|type|>title<|page|>2<|box|>121 140 138 434<|content|>2.1 The Truncated Y-Axis Bar Chart\n<|id|>25<|type|>title<|page|>2<|box|>724 140 739 437<|content|>2.2 Corrected Graphical Presentation\n<|id|>27<|type|>table<|page|>2<|box|>833 143 907 852<|content|>None\n<|id|>31<|type|>title<|page|>3<|box|>325 140 344 557<|content|>3. Retraction of Unsubstantiated Comparative Claim\n<|id|>33<|type|>title<|page|>3<|box|>431 176 449 397<|content|>\"Fastest Onset in Its Class\"\n<|id|>38<|type|>title<|page|>4<|box|>90 140 107 553<|content|>4. Correction Regarding Cited Real-World Evidence\n<|id|>46<|type|>title<|page|>4<|box|>625 140 641 633<|content|>5. Important Risk Information — Zelvara® (trepivan\n<|id|>50<|type|>title<|page|>5<|box|>176 140 193 352<|content|>5.2 Cardiovascular Events\n<|id|>53<|type|>title<|page|>5<|box|>439 140 457 413<|content|>5.3 Medication-Overuse Headache\n<|id|>56<|type|>title<|page|>5<|box|>648 140 665 336<|content|>5.4 Serotonin Syndrome\n<|id|>59<|type|>title<|page|>6<|box|>138 140 157 500<|content|>5.5 Reference to Full Prescribing Information\n<|id|>66<|type|>title<|page|>6<|box|>400 140 417 397<|content|>6. Penterra's Corrective Actions\n<|id|>76<|type|>title<|page|>7<|box|>261 140 277 370<|content|>7. Reporting Adverse Events\n<|id|>81<|type|>title<|page|>7<|box|>539 140 556 326<|content|>8. Contact Information",
+    "raw_response": "<|src_id|>27<|tgt_id|>25",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 25
+        }
+    ]
+}

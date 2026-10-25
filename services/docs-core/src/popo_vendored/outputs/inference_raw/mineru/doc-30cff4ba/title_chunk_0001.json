@@ -1,0 +1,87 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        47,
+        51
+    ],
+    "pages": [
+        47,
+        48,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>531<|page|>47<|box|>226 398 243 559<|content|>4.5 监控与通信\n<|id|>540<|page|>48<|box|>201 394 228 631<|content|>5 岸电设备\n<|id|>541<|page|>48<|box|>258 433 277 594<|content|>5.1 高低压柜\n<|id|>543<|page|>48<|box|>431 423 448 606<|content|>5.2 变压变频电源\n<|id|>546<|page|>48<|box|>560 431 578 594<|content|>5.4 接电装置\n<|id|>550<|page|>48<|box|>732 442 750 584<|content|>5.5 电缆\n<|id|>552<|page|>48<|box|>818 421 836 603<|content|>5.6 电缆管理装置\n<|id|>554<|page|>49<|box|>168 310 195 653<|content|>6 典型泊位岸电设施\n<|id|>555<|page|>49<|box|>226 342 245 623<|content|>6.1 沿海集装箱泊位高压供电\n<|id|>559<|page|>49<|box|>399 352 416 615<|content|>6.2 沿海客滚泊位高压供电\n<|id|>561<|page|>49<|box|>485 394 503 576<|content|>6.4 沿海邮轮泊位\n<|id|>564<|page|>49<|box|>593 374 610 596<|content|>6.5 内河小水位差泊位\n<|id|>570<|page|>50<|box|>153 371 169 655<|content|>6.6 内河直立式大水位差泊位\n<|id|>572<|page|>50<|box|>239 342 256 685<|content|>6.7 内河斜坡式有趸船大水位差泊位\n<|id|>574<|page|>50<|box|>304 341 321 685<|content|>6.8 内河斜坡式无趸船大水位差泊位\n<|id|>576<|page|>50<|box|>389 411 407 613<|content|>6.9 运河水上服务区\n<|id|>578<|page|>51<|box|>169 186 195 786<|content|>附录 A 常用船舶发电机组功率和电压",
+    "raw_response": "<|id|>531<|level|>2\n<|id|>540<|level|>1\n<|id|>541<|level|>2\n<|id|>543<|level|>2\n<|id|>546<|level|>2\n<|id|>550<|level|>2\n<|id|>552<|level|>2\n<|id|>554<|level|>1\n<|id|>555<|level|>2\n<|id|>559<|level|>2\n<|id|>561<|level|>2\n<|id|>564<|level|>2\n<|id|>570<|level|>2\n<|id|>572<|level|>2\n<|id|>574<|level|>2\n<|id|>576<|level|>2\n<|id|>578<|level|>1",
+    "parsed": [
+        {
+            "id": 531,
+            "level": 2
+        },
+        {
+            "id": 540,
+            "level": 1
+        },
+        {
+            "id": 541,
+            "level": 2
+        },
+        {
+            "id": 543,
+            "level": 2
+        },
+        {
+            "id": 546,
+            "level": 2
+        },
+        {
+            "id": 550,
+            "level": 2
+        },
+        {
+            "id": 552,
+            "level": 2
+        },
+        {
+            "id": 554,
+            "level": 1
+        },
+        {
+            "id": 555,
+            "level": 2
+        },
+        {
+            "id": 559,
+            "level": 2
+        },
+        {
+            "id": 561,
+            "level": 2
+        },
+        {
+            "id": 564,
+            "level": 2
+        },
+        {
+            "id": 570,
+            "level": 2
+        },
+        {
+            "id": 572,
+            "level": 2
+        },
+        {
+            "id": 574,
+            "level": 2
+        },
+        {
+            "id": 576,
+            "level": 2
+        },
+        {
+            "id": 578,
+            "level": 1
+        }
+    ]
+}

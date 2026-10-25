@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>114 424 132 573<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>436 142 454 259<|content|>I. Participants\n<|id|>24<|page|>1<|box|>828 142 845 419<|content|>II. Business Overview and Strategy\n<|id|>34<|page|>3<|box|>167 140 185 333<|content|>III. Financial Condition\n<|id|>38<|page|>3<|box|>489 142 507 442<|content|>Balance Sheet and Capital Highlights:\n<|id|>46<|page|>4<|box|>171 140 188 267<|content|>Credit Facility:\n<|id|>48<|page|>4<|box|>329 140 347 380<|content|>IV. Outstanding Indebtedness\n<|id|>50<|page|>4<|box|>381 142 398 349<|content|>Revolving Credit Facility:\n<|id|>52<|page|>4<|box|>579 140 595 253<|content|>Senior Notes:\n<|id|>56<|page|>5<|box|>186 140 204 248<|content|>V. Litigation\n<|id|>61<|page|>5<|box|>642 140 659 331<|content|>VI. Regulatory Matters\n<|id|>67<|page|>6<|box|>402 142 419 490<|content|>VII. Capitalization and Stockholder Matters\n<|id|>70<|page|>6<|box|>607 142 625 341<|content|>Significant Stockholders:\n<|id|>74<|page|>6<|box|>825 143 843 321<|content|>Equity Incentive Plan:\n<|id|>79<|page|>7<|box|>339 140 356 344<|content|>Stockholder Agreements:\n<|id|>81<|page|>7<|box|>497 140 513 352<|content|>VIII. Intellectual Property\n<|id|>88<|page|>8<|box|>321 142 339 300<|content|>IX. Use of Proceeds\n<|id|>94<|page|>9<|box|>89 142 107 315<|content|>X. COVID-19 Impact\n<|id|>100<|page|>9<|box|>713 142 729 388<|content|>XI. Open Items and Next Steps",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>24<|level|>2\n<|id|>34<|level|>2\n<|id|>38<|level|>3\n<|id|>46<|level|>3\n<|id|>48<|level|>2\n<|id|>50<|level|>3\n<|id|>52<|level|>3\n<|id|>56<|level|>2\n<|id|>61<|level|>2\n<|id|>67<|level|>2\n<|id|>70<|level|>3\n<|id|>74<|level|>3\n<|id|>79<|level|>3\n<|id|>81<|level|>2\n<|id|>88<|level|>2\n<|id|>94<|level|>2\n<|id|>100<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 88,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 100,
+            "level": 2
+        }
+    ]
+}

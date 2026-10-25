@@ -1,0 +1,74 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>135 168 161 851<|content|>Ichigo: Mixed-Modal Early-Fusion Realtime Voice As\n<|id|>6<|type|>title<|page|>1<|box|>325 462 339 535<|content|>Abstract\n<|id|>8<|type|>title<|page|>2<|box|>88 114 106 303<|content|>1 Introduction\n<|id|>21<|type|>title<|page|>3<|box|>88 112 106 387<|content|>2 Model Architecture\n<|id|>22<|type|>title<|page|>3<|box|>127 112 143 393<|content|>2.1 Tokenized Early Fusion\n<|id|>24<|type|>title<|page|>3<|box|>261 112 277 372<|content|>2.2 Tokenization Process\n<|id|>27<|type|>image<|page|>3<|box|>430 125 568 877<|content|>None\n<|id|>28<|type|>title<|page|>3<|box|>671 112 689 477<|content|>2.3 Expanding the Language Model\n<|id|>31<|type|>title<|page|>4<|box|>89 112 107 464<|content|>2.4 Model Implementation Details\n<|id|>34<|type|>title<|page|>5<|box|>88 114 104 258<|content|>3 Datasets\n<|id|>36<|type|>title<|page|>5<|box|>213 112 229 367<|content|>3.1 Pre-training Dataset\n<|id|>39<|type|>title<|page|>5<|box|>398 112 416 375<|content|>3.2 Post-training Dataset\n<|id|>40<|type|>title<|page|>5<|box|>431 112 446 357<|content|>3.2.1 Text Instruction Data\n<|id|>44<|type|>title<|page|>5<|box|>699 112 714 419<|content|>3.2.2 Speech-Text Instruction Data\n<|id|>49<|type|>image<|page|>6<|box|>143 204 459 802<|content|>None\n<|id|>52<|type|>title<|page|>6<|box|>678 112 693 310<|content|>3.2.3 Transcribe Data\n<|id|>55<|type|>title<|page|>6<|box|>847 112 863 323<|content|>3.2.4 Noise Audio Data\n<|id|>61<|type|>title<|page|>8<|box|>88 112 108 256<|content|>4 Training\n<|id|>63<|type|>title<|page|>8<|box|>196 112 215 419<|content|>4.1 Pre-training Methodology\n<|id|>68<|type|>table<|page|>8<|box|>549 209 752 787<|content|>None\n<|id|>69<|type|>title<|page|>8<|box|>787 112 804 419<|content|>4.2 Post-training Refinements\n<|id|>71<|type|>title<|page|>9<|box|>90 112 107 370<|content|>4.2.1 Instruction Fine-tuning\n<|id|>75<|type|>title<|page|>9<|box|>646 112 662 390<|content|>4.2.2 Enhancement Fine-tuning\n<|id|>78<|type|>title<|page|>10<|box|>87 112 106 243<|content|>5 Results\n<|id|>80<|type|>title<|page|>10<|box|>212 112 229 405<|content|>5.1 SpeechBench Evaluation\n<|id|>82<|type|>table<|page|>10<|box|>345 215 464 782<|content|>None\n<|id|>87<|type|>title<|page|>10<|box|>808 112 825 377<|content|>5.2 Latency to first token\n<|id|>90<|type|>table<|page|>11<|box|>176 284 267 712<|content|>None\n<|id|>94<|type|>title<|page|>11<|box|>476 112 494 375<|content|>5.3 Degradation recovery\n<|id|>101<|type|>table<|page|>12<|box|>116 227 297 771<|content|>None\n<|id|>102<|type|>title<|page|>12<|box|>376 112 393 514<|content|>5.4 Instruction following cross modality\n<|id|>104<|type|>image<|page|>12<|box|>468 272 648 723<|content|>None\n<|id|>109<|type|>image<|page|>13<|box|>89 194 304 803<|content|>None\n<|id|>110<|type|>image<|page|>13<|box|>358 112 613 803<|content|>None\n<|id|>112<|type|>title<|page|>14<|box|>88 112 106 323<|content|>6 Related works\n<|id|>113<|type|>title<|page|>14<|box|>126 112 143 460<|content|>6.1 Early Audio Language Models\n<|id|>115<|type|>title<|page|>14<|box|>335 112 354 521<|content|>6.2 LLM-Based Audio-Language Models\n<|id|>117<|type|>title<|page|>14<|box|>424 112 439 408<|content|>6.2.1 Non-Tokenized Early Fusion\n<|id|>120<|type|>title<|page|>14<|box|>699 112 714 367<|content|>6.2.2 Tokenized Early Fusion\n<|id|>123<|type|>title<|page|>15<|box|>234 112 252 285<|content|>7 Conclusion\n<|id|>129<|type|>title<|page|>15<|box|>619 112 638 491<|content|>8 Limitations and Future work\n<|id|>134<|type|>title<|page|>16<|box|>87 112 107 243<|content|>References\n<|id|>198<|type|>title<|page|>21<|box|>87 112 107 508<|content|>A Additional Data and Analysis\n<|id|>200<|type|>title<|page|>21<|box|>181 112 200 380<|content|>A.1 ASR Prompt Library\n<|id|>202<|type|>table<|page|>21<|box|>285 254 436 743<|content|>None\n<|id|>203<|type|>title<|page|>21<|box|>470 114 488 336<|content|>A.2 Ablation Studies\n<|id|>205<|type|>table<|page|>21<|box|>574 140 648 854<|content|>None",
+    "raw_response": "<|src_id|>27<|tgt_id|>24\n<|src_id|>49<|tgt_id|>44\n<|src_id|>68<|tgt_id|>63\n<|src_id|>82<|tgt_id|>80\n<|src_id|>90<|tgt_id|>87\n<|src_id|>101<|tgt_id|>94\n<|src_id|>104<|tgt_id|>102\n<|src_id|>109<|tgt_id|>102\n<|src_id|>110<|tgt_id|>102\n<|src_id|>202<|tgt_id|>200\n<|src_id|>205<|tgt_id|>203",
+    "parsed": [
+        {
+            "src_id": 27,
+            "tgt_id": 24
+        },
+        {
+            "src_id": 49,
+            "tgt_id": 44
+        },
+        {
+            "src_id": 68,
+            "tgt_id": 63
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 80
+        },
+        {
+            "src_id": 90,
+            "tgt_id": 87
+        },
+        {
+            "src_id": 101,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 104,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 109,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 110,
+            "tgt_id": 102
+        },
+        {
+            "src_id": 202,
+            "tgt_id": 200
+        },
+        {
+            "src_id": 205,
+            "tgt_id": 203
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "task": "table_merge",
+    "chunk_index": 2,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Rupert Ashford', '44 Lombard Crescent, London', 'United Kingdom', 'Head of Corporate Development,', 'Head of Corporate Development,']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', 'EC3V 9BQ, UK', '', 'Aurelius Global Media Group PLC', 'Aurelius Global Media Group PLC (2018–present); Vice President, Media & Telecom, Strathmore Corporation Harcourt Partners, New York (2014–2018)']]\n",
+    "raw_response": "[1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 379,
+    "table2_idx": 380
+}

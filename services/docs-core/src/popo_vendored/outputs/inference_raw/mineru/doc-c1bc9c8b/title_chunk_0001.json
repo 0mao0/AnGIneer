@@ -1,0 +1,44 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        60,
+        81
+    ],
+    "pages": [
+        61,
+        67,
+        71,
+        73,
+        75,
+        81
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>112<|page|>61<|box|>604 170 631 786<|content|>Net Position in Foreign Currencies of Reporting Ba\n<|id|>116<|page|>67<|box|>356 101 399 362<|content|>Monetary Stocks of Gold and Silver and Ratio (In m\n<|id|>123<|page|>71<|box|>454 226 468 728<|content|>Net Movement of Silver to and from the United Stat\n<|id|>127<|page|>73<|box|>59 234 90 753<|content|>MONETARY STOCKS OF GOLD AND SILVER IN U.S.\n<|id|>139<|page|>75<|box|>483 588 522 936<|content|>Reported Size of Stabilization Funds of Countries\n<|id|>151<|page|>81<|box|>62 541 77 869<|content|>Treasury Criminal Cases, by Months",
+    "raw_response": "<|id|>112<|level|>1\n<|id|>116<|level|>1\n<|id|>123<|level|>2\n<|id|>127<|level|>1\n<|id|>139<|level|>1\n<|id|>151<|level|>1",
+    "parsed": [
+        {
+            "id": 112,
+            "level": 1
+        },
+        {
+            "id": 116,
+            "level": 1
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 1
+        },
+        {
+            "id": 139,
+            "level": 1
+        },
+        {
+            "id": 151,
+            "level": 1
+        }
+    ]
+}

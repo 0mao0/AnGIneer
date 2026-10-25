@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 205 133 790<|content|>MEMORANDUM PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIE\n<|id|>13<|type|>title<|page|>1<|box|>503 142 518 321<|content|>I. Executive Summary\n<|id|>24<|type|>title<|page|>2<|box|>709 142 724 375<|content|>II. Management Fee Analysis\n<|id|>26<|type|>title<|page|>3<|box|>90 140 107 542<|content|>A. Standard Management Fee Structure (Per LPA)\n<|id|>37<|type|>title<|page|>3<|box|>744 140 761 645<|content|>B. Negotiated Management Fee Structure (Proposed S\n<|id|>50<|type|>title<|page|>4<|box|>482 140 500 563<|content|>C. Comparative Fee Table — Standard vs. Negotiated\n<|id|>52<|type|>table<|page|>4<|box|>529 143 753 852<|content|>None\n<|id|>54<|type|>title<|page|>5<|box|>148 140 167 462<|content|>III. Placement Agent Fee Offset Analysis\n<|id|>71<|type|>title<|page|>6<|box|>542 140 559 519<|content|>IV. Carried Interest / Performance Fee Analysis\n<|id|>95<|type|>title<|page|>8<|box|>657 140 674 645<|content|>V. Meridian Peak Fund Fee Comparison — Funds I Thr\n<|id|>97<|type|>table<|page|>8<|box|>761 143 898 852<|content|>None\n<|id|>98<|type|>table<|page|>9<|box|>89 143 247 852<|content|>None\n<|id|>105<|type|>title<|page|>9<|box|>780 140 797 683<|content|>VI. Market Benchmarks — Fee Comparison with Compar\n<|id|>107<|type|>table<|page|>10<|box|>133 143 311 852<|content|>None\n<|id|>108<|type|>title<|page|>10<|box|>345 142 362 256<|content|>Observations:\n<|id|>113<|type|>title<|page|>11<|box|>90 140 107 444<|content|>VII. Total Cost of Ownership Analysis\n<|id|>115<|type|>title<|page|>11<|box|>220 142 238 473<|content|>A. Management Fees (10-Year Projection)\n<|id|>130<|type|>title<|page|>12<|box|>90 140 106 334<|content|>B. Placement Fee Offset\n<|id|>134<|type|>title<|page|>12<|box|>268 140 287 364<|content|>C. Organizational Expenses\n<|id|>139<|type|>title<|page|>12<|box|>584 140 602 372<|content|>D. Fund Operating Expenses\n<|id|>145<|type|>title<|page|>13<|box|>260 140 277 602<|content|>VIII. Fee Concession Justification and Negotiating\n<|id|>157<|type|>title<|page|>14<|box|>479 140 496 454<|content|>IX. Impact on BFO Portfolio Allocation\n<|id|>167<|type|>title<|page|>15<|box|>431 140 449 627<|content|>X. Key Economic Provisions Requiring Side-Letter T\n<|id|>174<|type|>title<|page|>16<|box|>590 140 609 321<|content|>XI. Recommendations\n<|id|>188<|type|>title<|page|>17<|box|>625 140 640 401<|content|>XII. Limitations and Disclaimers",
+    "raw_response": "<|src_id|>52<|tgt_id|>50\n<|src_id|>97<|tgt_id|>95\n<|src_id|>98<|tgt_id|>95\n<|src_id|>107<|tgt_id|>105",
+    "parsed": [
+        {
+            "src_id": 52,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 98,
+            "tgt_id": 95
+        },
+        {
+            "src_id": 107,
+            "tgt_id": 105
+        }
+    ]
+}

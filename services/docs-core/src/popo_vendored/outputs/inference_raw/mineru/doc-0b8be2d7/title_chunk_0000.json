@@ -1,0 +1,102 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 405 133 591<|content|>MEMORANDUM\n<|id|>9<|page|>1<|box|>364 140 383 357<|content|>I. PURPOSE AND SCOPE\n<|id|>22<|page|>2<|box|>335 140 372 795<|content|>II. FRANKLIN OGILVIE — EMPLOYMENT HISTORY AT AUREL\n<|id|>23<|page|>2<|box|>385 142 402 321<|content|>A. Hiring and Position\n<|id|>36<|page|>3<|box|>517 140 534 784<|content|>B. Internal Investigation — Unauthorized Access to\n<|id|>41<|page|>4<|box|>220 140 238 609<|content|>C. Termination and Separation Agreement — June 30,\n<|id|>49<|page|>5<|box|>364 140 383 691<|content|>III. FORMATION OF MERIDIAN DIGITAL DISTRIBUTORS, L\n<|id|>50<|page|>5<|box|>397 142 414 277<|content|>A. Entity Details\n<|id|>55<|page|>5<|box|>821 142 838 313<|content|>B. Business Activities\n<|id|>59<|page|>6<|box|>502 140 518 545<|content|>C. MDD's Purported Licensing of Aurelius Content\n<|id|>64<|page|>7<|box|>220 142 237 352<|content|>D. Timeline of Key Events\n<|id|>66<|page|>7<|box|>684 140 702 846<|content|>IV. ANALYSIS OF POTENTIAL CLAIMS AGAINST FRANKLIN\n<|id|>68<|page|>7<|box|>758 140 777 558<|content|>A. Breach of Separation Agreement (Against Ogilvie\n<|id|>76<|page|>9<|box|>90 140 107 434<|content|>B. Fraud (Against Ogilvie and MDD)\n<|id|>83<|page|>9<|box|>823 140 840 679<|content|>C. Contributory Copyright Infringement (Against MD\n<|id|>93<|page|>11<|box|>90 140 108 604<|content|>D. Inducement of Infringement (Against MDD and Ogi\n<|id|>107<|page|>12<|box|>138 140 157 374<|content|>E. Additional Considerations\n<|id|>116<|page|>13<|box|>523 140 539 364<|content|>V. RECOMMENDATIONS\n<|id|>127<|page|>14<|box|>787 140 804 557<|content|>VI. APPENDICES AND EXHIBITS REFERENCED",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>9<|level|>2\n<|id|>22<|level|>2\n<|id|>23<|level|>3\n<|id|>36<|level|>3\n<|id|>41<|level|>3\n<|id|>49<|level|>2\n<|id|>50<|level|>3\n<|id|>55<|level|>3\n<|id|>59<|level|>3\n<|id|>64<|level|>3\n<|id|>66<|level|>2\n<|id|>68<|level|>3\n<|id|>76<|level|>3\n<|id|>83<|level|>3\n<|id|>93<|level|>3\n<|id|>107<|level|>3\n<|id|>116<|level|>2\n<|id|>127<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 76,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 93,
+            "level": 3
+        },
+        {
+            "id": 107,
+            "level": 3
+        },
+        {
+            "id": 116,
+            "level": 2
+        },
+        {
+            "id": 127,
+            "level": 2
+        }
+    ]
+}

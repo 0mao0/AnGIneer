@@ -1,0 +1,46 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 282 107 715<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>4<|type|>title<|page|>1<|box|>193 140 210 714<|content|>PRIVILEGED AND CONFIDENTIAL ATTORNEY WORK PRODUCT\n<|id|>7<|type|>title<|page|>1<|box|>349 142 366 486<|content|>1. Introduction and Engagement of Services\n<|id|>18<|type|>title<|page|>2<|box|>241 140 258 362<|content|>2. Background and Context\n<|id|>28<|type|>title<|page|>3<|box|>792 142 809 336<|content|>3. Investigation Subjects\n<|id|>30<|type|>title<|page|>3<|box|>849 142 864 387<|content|>3.1 Castellan Holdings Limited\n<|id|>31<|type|>table<|page|>3<|box|>869 143 906 852<|content|>None\n<|id|>32<|type|>table<|page|>4<|box|>88 143 256 852<|content|>None\n<|id|>34<|type|>title<|page|>4<|box|>359 142 375 307<|content|>3.2 Yiannis Andreou\n<|id|>35<|type|>table<|page|>4<|box|>378 143 534 852<|content|>None\n<|id|>37<|type|>table<|page|>4<|box|>675 143 818 852<|content|>None\n<|id|>39<|type|>title<|page|>5<|box|>186 140 204 336<|content|>4. Scope of Investigation\n<|id|>41<|type|>title<|page|>5<|box|>316 140 334 398<|content|>4.1 Corporate Registry Searches\n<|id|>53<|type|>title<|page|>6<|box|>90 140 107 509<|content|>4.2 Ultimate Beneficial Ownership Verification\n<|id|>60<|type|>title<|page|>6<|box|>457 140 474 527<|content|>4.3 Media and Open-Source intelligence Searches\n<|id|>68<|type|>title<|page|>7<|box|>157 140 175 553<|content|>4.4 Litigation and Regulatory Enforcement Searches\n<|id|>76<|type|>title<|page|>7<|box|>587 142 604 390<|content|>4.5 Financial Network Analysis\n<|id|>83<|type|>title<|page|>8<|box|>275 140 292 509<|content|>4.6 Sanctions and Watchlist Cross-Referencing\n<|id|>98<|type|>title<|page|>8<|box|>811 140 829 305<|content|>4.7 Source Inquiries\n<|id|>105<|type|>title<|page|>9<|box|>417 140 435 263<|content|>5. Deliverables\n<|id|>118<|type|>title<|page|>10<|box|>500 140 516 364<|content|>6. Report Delivery Deadline\n<|id|>123<|type|>title<|page|>11<|box|>167 140 184 308<|content|>7. Fees and Payment\n<|id|>134<|type|>title<|page|>12<|box|>90 140 107 480<|content|>8. Confidentiality and Privilege Protections\n<|id|>135<|type|>title<|page|>12<|box|>121 140 138 591<|content|>8.1 Attorney-Client Privilege and Work Product Doc\n<|id|>140<|type|>title<|page|>12<|box|>656 140 672 388<|content|>8.2 Non-Disclosure Obligations\n<|id|>148<|type|>title<|page|>13<|box|>228 140 244 282<|content|>8.3 Data Security\n<|id|>152<|type|>title<|page|>13<|box|>508 140 526 537<|content|>9. Representations and Warranties of Northbridge\n<|id|>163<|type|>title<|page|>14<|box|>517 143 534 354<|content|>10. Term and Termination\n<|id|>168<|type|>title<|page|>15<|box|>148 142 167 349<|content|>11. Limitation of Liability\n<|id|>171<|type|>title<|page|>15<|box|>462 142 479 480<|content|>12. Governing Law and Dispute Resolution\n<|id|>174<|type|>title<|page|>15<|box|>738 142 753 410<|content|>13. Authorization and Acceptance\n<|id|>183<|type|>title<|page|>16<|box|>292 383 308 614<|content|>ACCEPTED AND AGREED\n<|id|>189<|type|>title<|page|>16<|box|>470 142 487 235<|content|>Enclosures",
+    "raw_response": "<|src_id|>31<|tgt_id|>30\n<|src_id|>32<|tgt_id|>30\n<|src_id|>35<|tgt_id|>34\n<|src_id|>37<|tgt_id|>34",
+    "parsed": [
+        {
+            "src_id": 31,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 32,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 34
+        }
+    ]
+}

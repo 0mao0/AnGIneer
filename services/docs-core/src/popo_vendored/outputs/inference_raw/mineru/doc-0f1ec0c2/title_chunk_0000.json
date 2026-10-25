@@ -1,0 +1,100 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 285 143 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA FOR THE\n<|id|>6<|page|>1<|box|>633 181 670 813<|content|>STIPULATION AND [PROPOSED] ORDER FOR APPOINTMENT O\n<|id|>7<|page|>1<|box|>680 406 700 591<|content|>I. STIPULATION\n<|id|>9<|page|>1<|box|>795 142 814 233<|content|>A. Recitals\n<|id|>18<|page|>2<|box|>743 142 760 375<|content|>B. Identification of Evaluator\n<|id|>24<|page|>3<|box|>354 140 371 325<|content|>C. Scope of Evaluation\n<|id|>48<|page|>5<|box|>527 142 545 375<|content|>D. Cooperation of the Parties\n<|id|>58<|page|>6<|box|>398 142 414 364<|content|>E. Communication Protocol\n<|id|>62<|page|>6<|box|>760 142 777 204<|content|>F. Fees\n<|id|>70<|page|>7<|box|>497 140 513 333<|content|>G. Report and Timeline\n<|id|>79<|page|>8<|box|>316 142 332 254<|content|>H. Testimony\n<|id|>83<|page|>8<|box|>585 140 603 400<|content|>I. Governing Law and Authority\n<|id|>87<|page|>8<|box|>872 357 888 640<|content|>SIGNATURES TO STIPULATION\n<|id|>89<|page|>9<|box|>223 142 239 308<|content|>FOR PETITIONER:\n<|id|>94<|page|>9<|box|>457 143 474 318<|content|>FOR RESPONDENT:\n<|id|>99<|page|>9<|box|>690 142 707 370<|content|>APPROVED AS TO FORM:\n<|id|>103<|page|>10<|box|>90 437 111 558<|content|>II. ORDER\n<|id|>105<|page|>10<|box|>191 140 208 447<|content|>IT IS HEREBY ORDERED as follows:\n<|id|>126<|page|>12<|box|>250 142 266 279<|content|>SERVICE LIST:",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>7<|level|>2\n<|id|>9<|level|>3\n<|id|>18<|level|>3\n<|id|>24<|level|>3\n<|id|>48<|level|>3\n<|id|>58<|level|>3\n<|id|>62<|level|>3\n<|id|>70<|level|>3\n<|id|>79<|level|>3\n<|id|>83<|level|>3\n<|id|>87<|level|>2\n<|id|>89<|level|>3\n<|id|>94<|level|>3\n<|id|>99<|level|>2\n<|id|>103<|level|>2\n<|id|>105<|level|>3\n<|id|>126<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 9,
+            "level": 3
+        },
+        {
+            "id": 18,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 70,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 2
+        }
+    ]
+}

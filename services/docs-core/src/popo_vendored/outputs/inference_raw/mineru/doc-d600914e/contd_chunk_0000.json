@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>0<|page|>1<|box|>89 140 126 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law 1301 K ...t NW, Suite 1100 Washington, D. ... (202) 555-0199\n<|id|>1<|page|>1<|box|>133 712 152 854<|content|>November 1, 2025\n<|id|>3<|page|>1<|box|>186 140 222 854<|content|>Ms. ... Danielle Osborne Vice President, Relations...al Bank 401 South Tryon Street Charlotte, NC 28202\n<|id|>4<|page|>1<|box|>229 140 248 808<|content|>Re: ... 02(b) of Credit Agreement — Halcyon Semiconductor Inc\n<|id|>17<|page|>2<|box|>801 140 893 856<|content|>In addition to the retention of outside counsel, H... ... Miriam Hecht, Principal Consultant at Ashford\n<|id|>18<|page|>3<|box|>90 140 200 856<|content|>Pennington LLC and a former Deputy Assistant Secre...port classification and restricted-party screening\n<|id|>38<|page|>5<|box|>329 142 345 272<|content|>Very truly yours,\n<|id|>39<|page|>5<|box|>354 140 369 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>40<|page|>5<|box|>380 140 397 251<|content|>By: ... By\n<|id|>41<|page|>5<|box|>397 140 414 315<|content|>Howard Quinn Partner\n<|id|>42<|page|>5<|box|>414 140 429 841<|content|>cc: ... Marcus Friedl, General Counsel, Halcyon Se...G Derek Tran, President, Halcyon Semiconductor Inc",
+    "raw_response": "<|src_id|>17<|tgt_id|>18",
+    "parsed": [
+        {
+            "src_id": 17,
+            "tgt_id": 18
+        }
+    ]
+}

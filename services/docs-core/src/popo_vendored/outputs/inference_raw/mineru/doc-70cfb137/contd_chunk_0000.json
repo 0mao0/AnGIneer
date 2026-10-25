@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>167 165 184 831<|content|>Pursuant to the General Corporation Law of the State of Delaware (Title 8, Delaware Code)\n<|id|>2<|page|>1<|box|>219 666 236 854<|content|>Filed: ... February 24, 2025\n<|id|>3<|page|>1<|box|>244 676 261 854<|content|>File Number: ... 7291034\n<|id|>4<|page|>1<|box|>271 338 287 658<|content|>CERTIFICATE OF INCORPORATION\n<|id|>5<|page|>1<|box|>297 483 313 514<|content|>OF\n<|id|>19<|page|>2<|box|>473 176 489 326<|content|>Name: ... Megan Chu\n<|id|>20<|page|>2<|box|>498 174 532 852<|content|>Address: ... c/o Calderwood & Harkness LLP, 787 Seventh Avenue, 38th Floor, New York, New York 10019\n<|id|>21<|page|>2<|box|>542 140 597 854<|content|>The powers of the incorporator shall terminate upo...qualification of the initial director named herein\n<|id|>24<|page|>2<|box|>763 176 780 362<|content|>Name: ... Priya Deshmukh\n<|id|>25<|page|>2<|box|>789 176 825 854<|content|>Address: ... c/o Harrowgate Capital Management IV ...ing Street, Suite 4200, Wilmington, Delaware 19801\n<|id|>26<|page|>2<|box|>834 140 906 857<|content|>The number of directors constituting the Board of ...ot unless the bylaws of the Corporation so provide\n<|id|>47<|page|>5<|box|>607 143 623 285<|content|>Name: ... Megan Chu\n<|id|>48<|page|>5<|box|>625 143 640 277<|content|>Sole Incorporator\n<|id|>49<|page|>5<|box|>642 143 657 212<|content|>Address: ... Address\n<|id|>59<|page|>6<|box|>267 271 284 725<|content|>Jeffrey W. ... Bullock Secretary of State of the State of Delaware\n<|id|>60<|page|>6<|box|>292 338 309 660<|content|>Authentication: ... 02-24-25\n<|id|>62<|page|>6<|box|>344 140 390 854<|content|>This Certificate of Incorporation was prepared by ...er Sub Inc. ... with and into VeloPay Systems, Inc",
+    "raw_response": "<|src_id|>4<|tgt_id|>5",
+    "parsed": [
+        {
+            "src_id": 4,
+            "tgt_id": 5
+        }
+    ]
+}

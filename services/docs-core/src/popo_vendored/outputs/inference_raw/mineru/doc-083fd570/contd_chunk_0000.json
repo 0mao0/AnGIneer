@@ -1,0 +1,28 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>162 246 179 750<|content|>$300,000,000 Senior Secured Asset-Based Revolving Credit Facility\n<|id|>3<|page|>1<|box|>188 746 205 854<|content|>May 19, 2023\n<|id|>4<|page|>1<|box|>214 140 415 857<|content|>This Officer's Certificate (this \"Certificate\") is...e Agent\" and the \"Collateral Agent,\" respectively)\n<|id|>48<|page|>6<|box|>698 210 772 854<|content|>(iii) Deposit Account Control Agreement among CROC...ository bank, and Crescent Harbor Bank, N. ... and\n<|id|>50<|page|>7<|box|>90 174 145 854<|content|>Each Deposit Account Control Agreement is in form ...ecurity interest in the applicable deposit account\n<|id|>59<|page|>8<|box|>497 210 551 854<|content|>(i) property and casualty insurance provided by Pi...nce Company, with Crescent Harbor Bank, N. ... and\n<|id|>61<|page|>8<|box|>622 174 696 854<|content|>in each case, as arranged through Strathmore Corporation Greaves & Co. ... 07 of the Credit Agreement\n<|id|>60<|page|>8<|box|>559 210 614 854<|content|>(ii) umbrella liability and business interruption ... as Collateral Agent, named as additional insured,\n<|id|>82<|page|>11<|box|>366 174 420 854<|content|>(d) the rights, remedies, and benefits available t...redit Agreement or any other Loan Document; ... or\n<|id|>84<|page|>11<|box|>472 140 527 854<|content|>This certification is provided in satisfaction of ...forth in Section 4. ... 06 of the Credit Agreement\n<|id|>93<|page|>12<|box|>354 140 387 852<|content|>CASCADE RETAIL HOLDINGS INC. ... and CASCADE RETAIL OPERATING COMPANY LLC\n<|id|>94<|page|>12<|box|>388 143 405 254<|content|>By: ... By\n<|id|>95<|page|>12<|box|>406 142 422 316<|content|>Name: ... Elena Kowalski\n<|id|>96<|page|>12<|box|>422 143 439 361<|content|>Title: ... Chief Financial Officer\n<|id|>97<|page|>12<|box|>441 143 457 294<|content|>Date: ... May 19, 2023\n<|id|>100<|page|>12<|box|>508 140 526 604<|content|>CRESCENT HARBOR BANK, N. ... , as Administrative Agent\n<|id|>101<|page|>12<|box|>527 143 544 253<|content|>By: ... By\n<|id|>102<|page|>12<|box|>544 142 560 321<|content|>Name: ... Thomas Reiland\n<|id|>103<|page|>12<|box|>561 143 578 331<|content|>Title: ... Managing Director\n<|id|>104<|page|>12<|box|>579 143 595 266<|content|>Date: ... Date",
+    "raw_response": "<|src_id|>48<|tgt_id|>50\n<|src_id|>59<|tgt_id|>60",
+    "parsed": [
+        {
+            "src_id": 48,
+            "tgt_id": 50
+        },
+        {
+            "src_id": 59,
+            "tgt_id": 60
+        }
+    ]
+}

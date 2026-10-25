@@ -1,0 +1,23 @@
+{
+    "task": "table_merge",
+    "chunk_index": 10,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['38', 'MV Syros Defender', '9822512', 'Supram ax', '57,000', '2014', 'Non-Guarantor Sub', 'Spot', 'No', '$29,100,000', '']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['No.', 'Vessel Name', 'IMO No.', 'TEU Capacity', 'DWT', 'Year Built', 'Flag State', 'Owning Subsidiary', 'Charter Status', 'Collateral Vessel', 'Appraised Value (June 2022)']]\n",
+    "raw_response": "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]",
+    "parsed": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 666,
+    "table2_idx": 667
+}

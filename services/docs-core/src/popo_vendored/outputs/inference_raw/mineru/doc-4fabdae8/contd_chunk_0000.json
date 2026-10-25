@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        8,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 143 152 852<|content|>1 Market Street, Spear Tower, Suite 3600 San Francisco, California 94105 Telephone: ... (415) 442-7001\n<|id|>3<|page|>1<|box|>204 380 220 616<|content|>www. ... com\n<|id|>2<|page|>1<|box|>160 155 196 841<|content|>425 Lexington Avenue, 42nd Floor New York, New York 10017 Telephone: ... (212) 558-3001\n<|id|>4<|page|>1<|box|>229 746 247 854<|content|>June 24, 2022\n<|id|>5<|page|>1<|box|>255 640 273 854<|content|>Matter Number: ... 1008-00002\n<|id|>6<|page|>1<|box|>281 140 335 854<|content|>Via Email (nfeinberg@lumosanalytics. ... 450 Folsom Street, Suite 1200 San Francisco, California 94105\n<|id|>7<|page|>1<|box|>344 174 398 854<|content|>Re: ... 1008-00002\n<|id|>8<|page|>1<|box|>407 140 424 243<|content|>Dear Naomi: ... Dear Naomi\n<|id|>40<|page|>3<|box|>837 140 893 856<|content|>The SEC Staff issued a second comment letter on Ma...12) follow- up comments. ... On April 8, 2022, the\n<|id|>41<|page|>4<|box|>89 140 127 854<|content|>SEC Staff indicated that it had no further comment...th for the Company to proceed with a public filing\n<|id|>59<|page|>5<|box|>444 181 498 854<|content|>• An exculpation provision consistent with Section...rs to the fullest extent permitted by law; ... and\n<|id|>61<|page|>5<|box|>537 140 593 854<|content|>Status: ... The Company's existing certificate of ...cretary of State, remains in full force and effect\n<|id|>65<|page|>5<|box|>861 140 898 856<|content|>Status: ... No amendment to the\n<|id|>66<|page|>6<|box|>89 140 126 854<|content|>Company's certificate of incorporation has been ad...ed or filed as a result of the Stockholder Consent\n<|id|>88<|page|>8<|box|>89 181 143 854<|content|>• Qualified Small Business Stock (\"QSBS\") analysis...QSBS eligibility for certain stockholders; ... and\n<|id|>90<|page|>8<|box|>184 140 276 856<|content|>Status: ... We recommend that the Company retain t...iate in connection with any future liquidity event\n<|id|>147<|page|>13<|box|>527 183 561 854<|content|>• Copies of SEC correspondence, including the Staf...etters and the Company's response letters; ... and\n<|id|>149<|page|>13<|box|>584 140 619 854<|content|>Please direct any instructions regarding document ...ersigned at the contact information provided below\n<|id|>158<|page|>14<|box|>250 183 266 710<|content|>• The most recent draft of the Registration Statement (as amended); ... and\n<|id|>160<|page|>14<|box|>289 140 324 854<|content|>For any questions regarding re-engagement or to in...ons regarding a future transaction, please contact\n<|id|>170<|page|>14<|box|>839 140 895 856<|content|>We also wish to acknowledge the professionalism an...tal Markets Inc. ... , Hargrove & Liddell LLP, and\n<|id|>171<|page|>15<|box|>90 140 126 854<|content|>Meridian & Howe LLP. ... The quality of the collab...ve effort across the working group was exceptional\n<|id|>173<|page|>15<|box|>196 176 214 521<|content|>Robert Adeyemi Direct Line: ... (415) 442-7100\n<|id|>174<|page|>15<|box|>223 174 239 504<|content|>Email: ... com\n<|id|>175<|page|>15<|box|>239 140 275 852<|content|>We wish Lumos continued success and look forward t...ossibility of working together again in the future\n<|id|>176<|page|>15<|box|>284 142 301 274<|content|>Very truly yours,\n<|id|>177<|page|>15<|box|>301 142 316 431<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>178<|page|>15<|box|>319 143 335 253<|content|>By: ... By\n<|id|>179<|page|>15<|box|>335 140 353 500<|content|>Robert Adeyemi Partner, Capital Markets Group\n<|id|>180<|page|>15<|box|>354 142 369 254<|content|>cc: ... (via email)\n<|id|>181<|page|>15<|box|>378 174 433 854<|content|>Priya Subramanian, Chief Executive Officer, Lumos ... Audrey Zhou, Associate, Calderwood & Harkness LLP\n<|id|>183<|page|>15<|box|>467 174 484 558<|content|>Final Fee Statement Summary (as of June 24, 2022)\n<|id|>184<|page|>15<|box|>492 140 569 854<|content|>This letter and the information contained herein a...above and destroy all copies of this communication",
+    "raw_response": "<|src_id|>40<|tgt_id|>41\n<|src_id|>65<|tgt_id|>66\n<|src_id|>170<|tgt_id|>171",
+    "parsed": [
+        {
+            "src_id": 40,
+            "tgt_id": 41
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 66
+        },
+        {
+            "src_id": 170,
+            "tgt_id": 171
+        }
+    ]
+}

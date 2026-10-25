@@ -1,0 +1,39 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        146,
+        154
+    ],
+    "pages": [
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1456<|type|>title<|page|>146<|box|>105 374 128 705<|content|>五、申请人近年财务状况表\n<|id|>1458<|type|>title<|page|>147<|box|>115 261 139 759<|content|>六、申请人近年已完工的类似工程一览表\n<|id|>1459<|type|>table<|page|>147<|box|>163 110 894 911<|content|>None\n<|id|>1460<|type|>title<|page|>148<|box|>110 227 133 753<|content|>附件 申请人近年已完工的类似工程明细表\n<|id|>1461<|type|>table<|page|>148<|box|>157 90 751 887<|content|>None\n<|id|>1462<|type|>title<|page|>149<|box|>115 251 139 743<|content|>七、申请人在监的和新承监的项目一览表\n<|id|>1463<|type|>table<|page|>149<|box|>162 100 848 897<|content|>None\n<|id|>1464<|type|>title<|page|>150<|box|>105 254 128 802<|content|>八、申请人拟投入本项目总监理工程师简历表\n<|id|>1465<|type|>table<|page|>150<|box|>151 129 780 925<|content|>None\n<|id|>1466<|type|>title<|page|>151<|box|>114 194 136 743<|content|>九、申请人近年发生的诉讼及仲裁情况一览表\n<|id|>1468<|type|>title<|page|>152<|box|>108 268 130 788<|content|>十、申请人须知前附表需要补充的其他内容\n<|id|>1469<|type|>title<|page|>153<|box|>181 285 210 656<|content|>第五章 项目建设概况\n<|id|>1476<|type|>title<|page|>154<|box|>164 202 230 844<|content|>本标准主编单位、参编单位、 主要起草人、总校人员和管理组人员名单",
+    "raw_response": "<|src_id|>1459<|tgt_id|>1458\n<|src_id|>1461<|tgt_id|>1460\n<|src_id|>1463<|tgt_id|>1462\n<|src_id|>1465<|tgt_id|>1464",
+    "parsed": [
+        {
+            "src_id": 1459,
+            "tgt_id": 1458
+        },
+        {
+            "src_id": 1461,
+            "tgt_id": 1460
+        },
+        {
+            "src_id": 1463,
+            "tgt_id": 1462
+        },
+        {
+            "src_id": 1465,
+            "tgt_id": 1464
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        8,
+        9
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>1<|page|>1<|box|>114 303 133 694<|content|>900 Third Avenue, 28th Floor New York, NY 10022\n<|id|>2<|page|>1<|box|>141 181 159 815<|content|>Telephone: ... com\n<|id|>3<|page|>1<|box|>167 746 184 854<|content|>June 25, 2021\n<|id|>4<|page|>1<|box|>193 140 229 854<|content|>Ridgeline Whitfield Securities LLC As Representati...9 Park Avenue, 31st Floor New York, New York 10171\n<|id|>5<|page|>1<|box|>237 140 273 854<|content|>Halyard Capital Markets Inc. ... 1251 Avenue of the Americas, 18th Floor New York, New York 10020\n<|id|>21<|page|>2<|box|>589 174 664 854<|content|>(xii) an Officer's Certificate of the Company date... opinions and statements set forth herein; ... and\n<|id|>23<|page|>2<|box|>715 140 768 856<|content|>The Underwriting Agreement, the Trust Agreement, t...tively herein as the \"Transaction Documents. ... \"\n<|id|>69<|page|>8<|box|>116 174 171 854<|content|>(d) the possible unenforceability under certain ci...to the public policy underlying such laws; ... and\n<|id|>71<|page|>8<|box|>263 140 282 782<|content|>Jurisdictional Limitation. ... The opinions expressed herein are limited in all respects to\n<|id|>73<|page|>8<|box|>313 174 348 854<|content|>(b) the laws of the State of New York (excluding any conflicts of laws provisions thereof); ... and\n<|id|>75<|page|>8<|box|>383 138 531 857<|content|>We express no opinion as to the laws of any other ...al matters and legal conclusions set forth therein\n<|id|>88<|page|>9<|box|>623 140 654 313<|content|>Jennifer Kwon Partner JK/CD/AZ Enclosures\n<|id|>89<|page|>9<|box|>661 140 707 854<|content|>cc: ... Amanda Chisholm, Partner)",
+    "raw_response": "<|src_id|>71<|tgt_id|>73",
+    "parsed": [
+        {
+            "src_id": 71,
+            "tgt_id": 73
+        }
+    ]
+}

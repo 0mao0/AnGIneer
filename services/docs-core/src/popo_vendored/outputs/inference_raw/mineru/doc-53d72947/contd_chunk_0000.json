@@ -1,0 +1,33 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        9,
+        73
+    ],
+    "pages": [
+        9,
+        11,
+        12,
+        26,
+        28,
+        29,
+        38,
+        40,
+        47,
+        49,
+        72
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>17<|page|>9<|box|>816 655 872 897<|content|>Compiled by Financial Management Service\n<|id|>19<|page|>11<|box|>124 100 950 930<|content|>FEDERAL FISCAL OPERATIONS Analysis - Budget result...al 1987. ... - Total liabilities by type of holder\n<|id|>21<|page|>12<|box|>90 78 891 975<|content|>Page CM-I-2. ... CURRENCY AND COIN OUTSTANDING AND IN CIRCULATION\n<|id|>22<|page|>12<|box|>900 93 912 561<|content|>Note. ... --Details of figures may not add to totals because of rounding\n<|id|>60<|page|>26<|box|>799 49 848 478<|content|>3/ The national totals do not include an adjustmen.... ... 5/ Includes district of Columbia collections\n<|id|>65<|page|>26<|box|>759 535 810 968<|content|>Treasury for income tax withheld from the salaries...no effect on district and regional collection data\n<|id|>62<|page|>26<|box|>864 49 884 469<|content|>7/ Tax payments made to banks, under the Federal t...ternal revenue collections for the period in which\n<|id|>74<|page|>28<|box|>91 249 102 764<|content|>[In millions of dollars. ... Standard Form 225, Report on Obligations, from agencies]\n<|id|>76<|page|>29<|box|>679 52 701 464<|content|>1/ Includes reports for Library of Congress, Gover...rinting Office, and General Accounting Office only\n<|id|>113<|page|>38<|box|>894 37 965 500<|content|>On October 29 the Treasury announced that it would...es D-1996, and \\$9,250 million of 30-year bonds of\n<|id|>114<|page|>38<|box|>860 520 908 981<|content|>2016 to refund \\$13,407 million of Treasury securi...er 15 and to raise about \\$15,600 million new cash\n<|id|>139<|page|>40<|box|>207 24 265 488<|content|>On November 14 tenders were invited for approximat...he issue was to refund \\$9,064 million of maturing\n<|id|>140<|page|>40<|box|>106 507 264 971<|content|>52-week bills and to raise about \\$675 million of new cash. ... 45 percent\n<|id|>172<|page|>47<|box|>88 362 100 559<|content|>Part A - Other than Bills\n<|id|>173<|page|>47<|box|>99 257 111 683<|content|>[In millions of dollars. ... Subscription and allotment reports]\n<|id|>176<|page|>49<|box|>73 44 151 460<|content|>Series EE bonds, on sale since Jan. ... 30, 1957\n<|id|>240<|page|>72<|box|>120 390 139 589<|content|>Department of Agriculture\n<|id|>241<|page|>72<|box|>119 674 150 791<|content|>Department of Commerce",
+    "raw_response": "<|src_id|>113<|tgt_id|>114\n<|src_id|>139<|tgt_id|>140",
+    "parsed": [
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 139,
+            "tgt_id": 140
+        }
+    ]
+}

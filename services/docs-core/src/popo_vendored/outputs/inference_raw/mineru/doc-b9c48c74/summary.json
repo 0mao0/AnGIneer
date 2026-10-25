@@ -1,0 +1,101 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zuei7e4q\\input\\pdfs\\doc-b9c48c74.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-zuei7e4q\\enriched\\doc-b9c48c74.json",
+    "contd_output": "<|src_id|>22<|tgt_id|>23",
+    "title_output": "<|id|>16<|level|>1\n<|id|>18<|level|>2\n<|id|>21<|level|>3\n<|id|>27<|level|>2\n<|id|>35<|level|>2\n<|id|>41<|level|>2\n<|id|>50<|level|>2\n<|id|>56<|level|>2\n<|id|>75<|level|>2\n<|id|>82<|level|>2\n<|id|>84<|level|>3\n<|id|>86<|level|>3\n<|id|>95<|level|>3",
+    "image_output": "<|src_id|>36<|tgt_id|>35\n<|src_id|>37<|tgt_id|>35\n<|src_id|>85<|tgt_id|>84",
+    "contd_label": [
+        {
+            "src_id": 22,
+            "tgt_id": 23
+        }
+    ],
+    "title_label": [
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 3
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 36,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 35
+        },
+        {
+            "src_id": 85,
+            "tgt_id": 84
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 36,
+            "table2_idx": 37,
+            "upper_row_ss": [
+                [
+                    "Charitable/Political Contributions — CEO",
+                    "≤$100K",
+                    "≤$250K"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Officer Hiring — CEO Authority",
+                    "≤$350K base salary",
+                    "≤$500K base salary"
+                ]
+            ]
+        }
+    ]
+}

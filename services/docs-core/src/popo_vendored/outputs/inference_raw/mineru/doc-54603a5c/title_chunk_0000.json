@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>113 200 133 795<|content|>SETTLEMENT AGREEMENT AND MUTUAL RELEASE\n<|id|>1<|page|>1<|box|>150 377 169 620<|content|>Effective Date: August 12, 2024\n<|id|>7<|page|>1<|box|>467 142 484 243<|content|>RECITALS\n<|id|>8<|page|>1<|box|>493 140 510 248<|content|>WHEREAS:\n<|id|>16<|page|>2<|box|>753 140 772 390<|content|>ARTICLE I — DEFINITIONS\n<|id|>29<|page|>3<|box|>584 140 599 496<|content|>ARTICLE II — SETTLEMENT PAYMENT\n<|id|>40<|page|>4<|box|>686 140 703 379<|content|>ARTICLE III — RELEASES\n<|id|>56<|page|>6<|box|>599 140 618 630<|content|>ARTICLE IV — REPRESENTATIONS AND WARRANTIES\n<|id|>70<|page|>7<|box|>612 140 628 540<|content|>ARTICLE V — NO ADMISSION OF LIABILITY\n<|id|>73<|page|>8<|box|>167 140 184 455<|content|>ARTICLE VI — CONFIDENTIALITY\n<|id|>82<|page|>9<|box|>89 140 107 563<|content|>ARTICLE VII — MISCELLANEOUS PROVISIONS\n<|id|>92<|page|>10<|box|>369 142 385 228<|content|>If to SLG:\n<|id|>112<|page|>11<|box|>315 228 333 767<|content|>[Remainder of this page intentionally left blank.\n<|id|>113<|page|>11<|box|>339 163 357 831<|content|>SIGNATURE PAGE TO SETTLEMENT AGREEMENT AND MUTUAL\n<|id|>115<|page|>11<|box|>428 140 444 478<|content|>STONEFIELD LOGISTICS GROUP INC.\n<|id|>120<|page|>11<|box|>513 142 531 550<|content|>MERIDIAN SURETY & INDEMNITY COMPANY\n<|id|>125<|page|>11<|box|>599 282 617 715<|content|>ACKNOWLEDGED AND APPROVED AS TO FORM",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>7<|level|>2\n<|id|>8<|level|>3\n<|id|>16<|level|>2\n<|id|>29<|level|>2\n<|id|>40<|level|>2\n<|id|>56<|level|>2\n<|id|>70<|level|>2\n<|id|>73<|level|>2\n<|id|>82<|level|>2\n<|id|>92<|level|>3\n<|id|>112<|level|>-1\n<|id|>113<|level|>2\n<|id|>115<|level|>3\n<|id|>120<|level|>3\n<|id|>125<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 7,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 3
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 120,
+            "level": 3
+        },
+        {
+            "id": 125,
+            "level": 3
+        }
+    ]
+}

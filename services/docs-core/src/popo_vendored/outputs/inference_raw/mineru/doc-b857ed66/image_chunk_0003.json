@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 3,
+    "range": [
+        150,
+        154
+    ],
+    "pages": [
+        151,
+        154
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>732<|type|>image<|page|>151<|box|>588 863 616 917<|content|>None\n<|id|>733<|type|>table<|page|>151<|box|>758 32 905 466<|content|>None\n<|id|>734<|type|>title<|page|>151<|box|>62 28 78 186<|content|>Current Subscribers\n<|id|>742<|type|>title<|page|>151<|box|>564 247 583 761<|content|>Superintendent of Documents Subscriptions Order Fo\n<|id|>753<|type|>table<|page|>151<|box|>817 547 838 974<|content|>None\n<|id|>757<|type|>image<|page|>154<|box|>12 777 43 913<|content|>None",
+    "raw_response": "<|src_id|>732<|tgt_id|>742\n<|src_id|>733<|tgt_id|>742\n<|src_id|>753<|tgt_id|>742\n<|src_id|>757<|tgt_id|>742",
+    "parsed": [
+        {
+            "src_id": 732,
+            "tgt_id": 742
+        },
+        {
+            "src_id": 733,
+            "tgt_id": 742
+        },
+        {
+            "src_id": 753,
+            "tgt_id": 742
+        },
+        {
+            "src_id": 757,
+            "tgt_id": 742
+        }
+    ]
+}

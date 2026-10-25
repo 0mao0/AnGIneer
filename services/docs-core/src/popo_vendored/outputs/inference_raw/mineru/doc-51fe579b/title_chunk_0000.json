@@ -1,0 +1,77 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 305 118 691<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>1<|page|>1<|box|>135 200 152 795<|content|>PRIVILEGED AND CONFIDENTIAL — ATTORNEY WORK PRODUC\n<|id|>9<|page|>1<|box|>530 142 547 258<|content|>1. Call Details\n<|id|>26<|page|>2<|box|>224 140 241 362<|content|>2. Background and Context\n<|id|>37<|page|>3<|box|>90 140 107 419<|content|>3. Discussion Topics and Outcomes\n<|id|>38<|page|>3<|box|>121 140 138 575<|content|>3.1 Borrowing Base Methodology — Eligibility Crite\n<|id|>55<|page|>5<|box|>338 140 354 292<|content|>3.2 Advance Rates\n<|id|>66<|page|>6<|box|>652 140 670 339<|content|>3.3 Availability Reserves\n<|id|>82<|page|>8<|box|>823 140 840 673<|content|>3.4 Inventory Valuation Methodology — Role of Pryo\n<|id|>99<|page|>10<|box|>439 140 457 578<|content|>3.5 Borrowing Base Certificate — Reporting Mechani\n<|id|>108<|page|>11<|box|>338 140 354 697<|content|>3.6 Preliminary Discussion of Payoff Logistics — P\n<|id|>121<|page|>12<|box|>241 140 258 385<|content|>4. Action Items and Next Steps\n<|id|>124<|page|>13<|box|>776 140 792 426<|content|>5. Open Items Deferred to Next Call\n<|id|>136<|page|>14<|box|>747 140 763 415<|content|>6. Confidentiality and Distribution",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>9<|level|>2\n<|id|>26<|level|>2\n<|id|>37<|level|>2\n<|id|>38<|level|>3\n<|id|>55<|level|>3\n<|id|>66<|level|>3\n<|id|>82<|level|>3\n<|id|>99<|level|>3\n<|id|>108<|level|>3\n<|id|>121<|level|>2\n<|id|>124<|level|>2\n<|id|>136<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 82,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 2
+        }
+    ]
+}

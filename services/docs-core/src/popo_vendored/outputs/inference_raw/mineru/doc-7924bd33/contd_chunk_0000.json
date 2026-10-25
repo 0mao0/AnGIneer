@@ -1,0 +1,22 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>180 232 198 764<|content|>SBF Warehouse I LLC a Delaware limited liability company (\"Seller\")\n<|id|>3<|page|>1<|box|>205 217 224 777<|content|>Skybridge Fintech Ltd. ... a Delaware corporation (\"Performance Guarantor\")\n<|id|>4<|page|>1<|box|>232 140 250 250<|content|>Addressed to: ... Addressed to\n<|id|>5<|page|>1<|box|>258 140 292 854<|content|>Pinnacle Atlantic Bank, N. ... as Administrative A...South Tryon Street, 34th Floor Charlotte, NC 28202\n<|id|>6<|page|>1<|box|>301 140 319 326<|content|>Date: ... February 28, 2026\n<|id|>62<|page|>6<|box|>753 140 883 857<|content|>5. ... A complete and correct copy of the\n<|id|>63<|page|>7<|box|>90 140 126 854<|content|>Underwriting Guidelines has been delivered to the ...e & Bates LLP, counsel to the Administrative Agent\n<|id|>77<|page|>8<|box|>455 143 472 321<|content|>Name: ... Rajan Sundaram\n<|id|>78<|page|>8<|box|>473 142 489 331<|content|>Title: ... Authorized Officer\n<|id|>79<|page|>8<|box|>489 142 506 326<|content|>Date: ... February 28, 2026\n<|id|>80<|page|>8<|box|>507 142 523 586<|content|>SKYBRIDGE FINTECH LTD. ... , as Performance Guarantor\n<|id|>81<|page|>8<|box|>525 143 542 253<|content|>By: ... By\n<|id|>82<|page|>8<|box|>542 143 558 321<|content|>Name: ... Rajan Sundaram\n<|id|>83<|page|>8<|box|>559 142 575 361<|content|>Title: ... Chief Financial Officer\n<|id|>84<|page|>8<|box|>575 142 593 326<|content|>Date: ... February 28, 2026",
+    "raw_response": "<|src_id|>62<|tgt_id|>63",
+    "parsed": [
+        {
+            "src_id": 62,
+            "tgt_id": 63
+        }
+    ]
+}

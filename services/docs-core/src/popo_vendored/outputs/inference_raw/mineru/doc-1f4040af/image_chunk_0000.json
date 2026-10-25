@@ -1,0 +1,54 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        17
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 346 106 651<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>3<|type|>title<|page|>1<|box|>164 424 181 573<|content|>MEMORANDUM\n<|id|>9<|type|>title<|page|>1<|box|>481 140 500 318<|content|>I. Basis for Dormancy\n<|id|>11<|type|>title<|page|>1<|box|>628 140 647 483<|content|>A. BTI Application Pending at DG TAXUD\n<|id|>18<|type|>title<|page|>2<|box|>612 140 628 403<|content|>B. Standstill Agreement in Effect\n<|id|>29<|type|>title<|page|>3<|box|>698 140 714 431<|content|>C. All Core Work Product Delivered\n<|id|>31<|type|>title<|page|>3<|box|>839 142 856 509<|content|>Phase 1 — Assessment, Analysis, and Strategy:\n<|id|>42<|type|>title<|page|>4<|box|>263 140 282 637<|content|>Phase 2 — Filings, Negotiations, and Third-Party N\n<|id|>58<|type|>title<|page|>4<|box|>797 140 814 459<|content|>D. No Active Substantive Tasks Pending\n<|id|>62<|type|>title<|page|>5<|box|>402 140 419 483<|content|>II. Summary of Matter Status at Dormancy\n<|id|>64<|type|>table<|page|>5<|box|>470 143 906 852<|content|>None\n<|id|>65<|type|>table<|page|>6<|box|>89 143 587 852<|content|>None\n<|id|>67<|type|>title<|page|>6<|box|>681 142 698 429<|content|>III. Dormancy Monitoring Protocols\n<|id|>69<|type|>title<|page|>6<|box|>829 143 845 359<|content|>A. DG TAXUD Monitoring\n<|id|>78<|type|>title<|page|>7<|box|>579 140 597 403<|content|>B. AADE Communication Check\n<|id|>80<|type|>title<|page|>7<|box|>648 142 666 303<|content|>Frequency: Monthly\n<|id|>87<|type|>title<|page|>8<|box|>220 140 237 295<|content|>C. Client Check-In\n<|id|>97<|type|>title<|page|>8<|box|>719 140 737 462<|content|>D. Bank Guarantee Renewal Monitoring\n<|id|>107<|type|>title<|page|>9<|box|>388 140 407 547<|content|>E. Insurance Policy Renewal and Claim Monitoring\n<|id|>115<|type|>title<|page|>10<|box|>90 140 107 370<|content|>F. Interest Accrual Tracking\n<|id|>126<|type|>title<|page|>10<|box|>523 140 540 434<|content|>G. Standstill Compliance Monitoring\n<|id|>134<|type|>title<|page|>11<|box|>138 140 157 540<|content|>H. Statute of Limitations and Deadline Monitoring\n<|id|>143<|type|>title<|page|>11<|box|>641 142 657 282<|content|>IV. Tickler Dates\n<|id|>145<|type|>table<|page|>11<|box|>727 143 904 852<|content|>None\n<|id|>146<|type|>table<|page|>12<|box|>89 143 904 852<|content|>None\n<|id|>147<|type|>table<|page|>13<|box|>89 143 491 852<|content|>None\n<|id|>149<|type|>title<|page|>13<|box|>602 140 619 339<|content|>V. Reactivation Triggers\n<|id|>163<|type|>title<|page|>15<|box|>279 140 296 325<|content|>VI. Filing and Records\n<|id|>187<|type|>title<|page|>16<|box|>285 140 303 382<|content|>VII. Billing During Dormancy\n<|id|>196<|type|>title<|page|>17<|box|>186 140 204 532<|content|>VIII. Key Contact Information During Dormancy\n<|id|>198<|type|>table<|page|>17<|box|>291 143 647 852<|content|>None",
+    "raw_response": "<|src_id|>64<|tgt_id|>62\n<|src_id|>65<|tgt_id|>62\n<|src_id|>145<|tgt_id|>143\n<|src_id|>146<|tgt_id|>143\n<|src_id|>147<|tgt_id|>143\n<|src_id|>198<|tgt_id|>196",
+    "parsed": [
+        {
+            "src_id": 64,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 65,
+            "tgt_id": 62
+        },
+        {
+            "src_id": 145,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 146,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 147,
+            "tgt_id": 143
+        },
+        {
+            "src_id": 198,
+            "tgt_id": 196
+        }
+    ]
+}

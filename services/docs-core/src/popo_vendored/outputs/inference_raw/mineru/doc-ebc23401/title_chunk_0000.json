@@ -1,0 +1,118 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>88 142 104 794<|content|>PRIVILEGED & CONFIDENTIAL ATTORNEY-CLIENT PRIVILEG\n<|id|>15<|page|>2<|box|>200 140 219 356<|content|>1. Description of the Claim\n<|id|>16<|page|>2<|box|>232 142 250 395<|content|>1.1 Filing and Case Information\n<|id|>25<|page|>2<|box|>607 143 625 354<|content|>1.2 Identity of the Plaintiff\n<|id|>28<|page|>3<|box|>90 140 107 369<|content|>1.3 Nature of the Allegations\n<|id|>32<|page|>3<|box|>489 142 506 465<|content|>1.4 The Alleged Refusal-to-Deal Conduct\n<|id|>39<|page|>4<|box|>138 142 157 361<|content|>1.5 Prior Course of Dealing\n<|id|>43<|page|>4<|box|>465 142 482 447<|content|>1.6 List of Fourteen Disputed Facilities\n<|id|>60<|page|>5<|box|>90 140 107 316<|content|>1.7 Claimed Damages\n<|id|>64<|page|>5<|box|>353 140 369 387<|content|>2. Background on the Insureds\n<|id|>71<|page|>6<|box|>148 140 167 653<|content|>3. Identification of the Applicable Policy and Cov\n<|id|>79<|page|>6<|box|>700 140 718 584<|content|>4. Basis for Coverage / Tender of Defense and Inde\n<|id|>80<|page|>6<|box|>732 140 750 761<|content|>4.1 The Ridgepoint Complaint Constitutes a Covered\n<|id|>83<|page|>7<|box|>213 140 229 408<|content|>4.2 Request for Defense Coverage\n<|id|>94<|page|>8<|box|>441 140 460 428<|content|>4.3 Request for Indemnity Coverage\n<|id|>98<|page|>8<|box|>815 140 832 374<|content|>5. Current Procedural Status\n<|id|>104<|page|>9<|box|>391 140 409 485<|content|>6. Northgate's Preliminary Defense Position\n<|id|>113<|page|>10<|box|>539 140 555 442<|content|>7. Reservation of Rights / Cooperation\n<|id|>119<|page|>11<|box|>321 140 339 517<|content|>8. Contact Information and Document Requests\n<|id|>121<|page|>11<|box|>392 140 409 421<|content|>Coverage Counsel for the Insureds:\n<|id|>123<|page|>11<|box|>462 142 479 408<|content|>Defense Counsel for the Insureds:\n<|id|>126<|page|>11<|box|>550 143 566 274<|content|>Client Contacts:\n<|id|>136<|page|>12<|box|>148 140 167 209<|content|>Closing\n<|id|>154<|page|>12<|box|>792 142 809 238<|content|>Enclosures:",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>15<|level|>1\n<|id|>16<|level|>2\n<|id|>25<|level|>2\n<|id|>28<|level|>2\n<|id|>32<|level|>2\n<|id|>39<|level|>2\n<|id|>43<|level|>2\n<|id|>60<|level|>2\n<|id|>64<|level|>1\n<|id|>71<|level|>1\n<|id|>79<|level|>1\n<|id|>80<|level|>2\n<|id|>83<|level|>2\n<|id|>94<|level|>2\n<|id|>98<|level|>1\n<|id|>104<|level|>1\n<|id|>113<|level|>1\n<|id|>119<|level|>1\n<|id|>121<|level|>2\n<|id|>123<|level|>2\n<|id|>126<|level|>2\n<|id|>136<|level|>1\n<|id|>154<|level|>1",
+    "parsed": [
+        {
+            "id": 15,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 71,
+            "level": 1
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 1
+        },
+        {
+            "id": 104,
+            "level": 1
+        },
+        {
+            "id": 113,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 1
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 123,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 1
+        },
+        {
+            "id": 154,
+            "level": 1
+        }
+    ]
+}

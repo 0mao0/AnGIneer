@@ -1,0 +1,80 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        14
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 308 118 687<|content|>INDEMNIFICATION AGREEMENT\n<|id|>6<|page|>1<|box|>265 348 282 648<|content|>INDEMNIFICATION AGREEMENT\n<|id|>8<|page|>1<|box|>441 140 459 243<|content|>RECITALS\n<|id|>16<|page|>2<|box|>619 142 635 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>38<|page|>5<|box|>186 140 203 514<|content|>ARTICLE 2 — SERVICES BY INDEMNITEE\n<|id|>42<|page|>5<|box|>724 140 743 444<|content|>ARTICLE 3 — INDEMNIFICATION\n<|id|>49<|page|>7<|box|>412 140 430 542<|content|>ARTICLE 4 — ADVANCEMENT OF EXPENSES\n<|id|>54<|page|>8<|box|>376 140 412 802<|content|>ARTICLE 5 — PROCEDURES FOR DETERMINATION OF ENTITL\n<|id|>64<|page|>10<|box|>89 140 107 519<|content|>ARTICLE 6 — REMEDIES OF INDEMNITEE\n<|id|>69<|page|>11<|box|>89 140 107 738<|content|>ARTICLE 7 — DIRECTORS' AND OFFICERS' LIABILITY INS\n<|id|>74<|page|>11<|box|>784 142 800 388<|content|>ARTICLE 8 — EXCLUSIONS\n<|id|>82<|page|>12<|box|>472 140 489 415<|content|>ARTICLE 9 — CONTRIBUTION\n<|id|>85<|page|>13<|box|>89 140 107 553<|content|>ARTICLE 10 — NON-EXCLUSIVITY; PRIORITY\n<|id|>89<|page|>14<|box|>90 140 106 486<|content|>ARTICLE 11 — GENERAL PROVISIONS",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>1\n<|id|>8<|level|>2\n<|id|>16<|level|>2\n<|id|>38<|level|>2\n<|id|>42<|level|>2\n<|id|>49<|level|>2\n<|id|>54<|level|>2\n<|id|>64<|level|>2\n<|id|>69<|level|>2\n<|id|>74<|level|>2\n<|id|>82<|level|>2\n<|id|>85<|level|>2\n<|id|>89<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gmai266j\\input\\pdfs\\doc-4f6ba83c.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-gmai266j\\enriched\\doc-4f6ba83c.json",
+    "contd_output": "",
+    "title_output": "<|id|>0<|level|>1\n<|id|>46<|level|>1",
+    "image_output": "<|src_id|>9<|tgt_id|>0\n<|src_id|>10<|tgt_id|>0",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 46,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 9,
+            "tgt_id": 0
+        },
+        {
+            "src_id": 10,
+            "tgt_id": 0
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 9,
+            "table2_idx": 10,
+            "upper_row_ss": [
+                [
+                    "Date of Registration / Qualification in Texas:",
+                    "[To be confirmed based on Company records]"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Principal Office Address in Texas:",
+                    "4200 Ridgeline Parkway, Suite 1100, Austin, TX 78746"
+                ]
+            ]
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['12.00', 'rowspan=2, 1470', 'rowspan=2, 1290', 'rowspan=2, 1250', 'rowspan=13, 3.5', '4', '30', 'rowspan=13, 60', 'rowspan=3, 4.5', 'rowspan=3, 12']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=4, 公称直径d(mm)', 'rowspan=4, 抗拉强度\\\\sigma_{b}(MPa)不小于', 'rowspan=3,colspan=2, 规定非比例伸长应力\\\\sigma_{p0.2}(MPa)不小于', 'rowspan=4, 最大力下总伸长率(%)\\\\delta_{gt}(L_0 = 200mm)不小于', 'rowspan=4, 弯曲次数/(次/180°)不小于', 'rowspan=4, 弯曲半径R(mm)', 'colspan=3, 应力松弛性能']]\n",
+    "raw_response": "[]",
+    "parsed": [],
+    "table1_idx": 1192,
+    "table2_idx": 1193
+}

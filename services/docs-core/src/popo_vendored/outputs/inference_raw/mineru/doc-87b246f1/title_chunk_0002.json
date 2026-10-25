@@ -1,0 +1,34 @@
+{
+    "task": "title",
+    "chunk_index": 2,
+    "range": [
+        98,
+        101
+    ],
+    "pages": [
+        98,
+        99,
+        100,
+        101
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>950<|page|>98<|box|>89 140 107 457<|content|>SCHEDULE 6.02 — EXISTING LIENS\n<|id|>952<|page|>99<|box|>89 140 107 748<|content|>SCHEDULE 6.05 — EXISTING RESTRICTED PAYMENT OBLIGA\n<|id|>954<|page|>100<|box|>89 140 106 648<|content|>SCHEDULE 6.07 — EXISTING AFFILIATE TRANSACTIONS\n<|id|>957<|page|>101<|box|>89 140 107 501<|content|>SCHEDULE 10.02 — NOTICE ADDRESSES",
+    "raw_response": "<|id|>950<|level|>1\n<|id|>952<|level|>1\n<|id|>954<|level|>1\n<|id|>957<|level|>1",
+    "parsed": [
+        {
+            "id": 950,
+            "level": 1
+        },
+        {
+            "id": 952,
+            "level": 1
+        },
+        {
+            "id": 954,
+            "level": 1
+        },
+        {
+            "id": 957,
+            "level": 1
+        }
+    ]
+}

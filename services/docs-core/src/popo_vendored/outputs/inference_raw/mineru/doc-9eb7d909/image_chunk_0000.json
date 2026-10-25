@@ -1,0 +1,43 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        16
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 207 118 790<|content|>STATEMENT OF WORK — E-DISCOVERY SERVICES\n<|id|>3<|type|>title<|page|>1<|box|>188 388 204 607<|content|>C&H Matter No. 1016-00001\n<|id|>4<|type|>title<|page|>1<|box|>229 142 244 369<|content|>CONTRACTING PARTIES\n<|id|>10<|type|>title<|page|>1<|box|>564 140 580 444<|content|>SECTION 1: PROJECT OVERVIEW\n<|id|>16<|type|>title<|page|>2<|box|>410 140 426 437<|content|>SECTION 2: SCOPE OF SERVICES\n<|id|>18<|type|>title<|page|>2<|box|>540 140 556 393<|content|>2.1 Phase 1: Forensic Collection\n<|id|>45<|type|>title<|page|>5<|box|>90 140 107 473<|content|>2.2 Phase 2: Processing and Deduplication\n<|id|>52<|type|>title<|page|>5<|box|>786 140 804 473<|content|>2.3 Phase 3: Hosting and Review Platform\n<|id|>64<|type|>title<|page|>6<|box|>590 140 608 517<|content|>2.4 Phase 4: Technology-Assisted Review (TAR)\n<|id|>78<|type|>title<|page|>7<|box|>686 140 703 331<|content|>2.5 Phase 5: Production\n<|id|>87<|type|>table<|page|>8<|box|>344 143 547 852<|content|>None\n<|id|>90<|type|>title<|page|>8<|box|>775 140 792 478<|content|>SECTION 3: TIMELINE / MILESTONES\n<|id|>92<|type|>table<|page|>9<|box|>88 143 294 852<|content|>None\n<|id|>94<|type|>title<|page|>9<|box|>551 140 569 333<|content|>SECTION 4: PRICING\n<|id|>96<|type|>table<|page|>9<|box|>675 143 904 852<|content|>None\n<|id|>97<|type|>table<|page|>10<|box|>89 143 186 852<|content|>None\n<|id|>102<|type|>title<|page|>10<|box|>613 140 628 403<|content|>SECTION 5: DATA SECURITY\n<|id|>109<|type|>title<|page|>11<|box|>556 140 573 426<|content|>SECTION 6: CONFIDENTIALITY\n<|id|>114<|type|>title<|page|>12<|box|>285 140 301 446<|content|>SECTION 7: POINTS OF CONTACT\n<|id|>127<|type|>title<|page|>12<|box|>844 140 861 488<|content|>SECTION 8: TERM AND TERMINATION\n<|id|>133<|type|>title<|page|>13<|box|>556 140 573 683<|content|>SECTION 9: LIMITATION OF LIABILITY / INDEMNIFICATI\n<|id|>137<|type|>title<|page|>14<|box|>258 140 276 468<|content|>SECTION 10: GENERAL PROVISIONS\n<|id|>146<|type|>title<|page|>16<|box|>89 413 107 583<|content|>SIGNATURE PAGE",
+    "raw_response": "<|src_id|>87<|tgt_id|>78\n<|src_id|>92<|tgt_id|>90\n<|src_id|>96<|tgt_id|>94\n<|src_id|>97<|tgt_id|>94",
+    "parsed": [
+        {
+            "src_id": 87,
+            "tgt_id": 78
+        },
+        {
+            "src_id": 92,
+            "tgt_id": 90
+        },
+        {
+            "src_id": 96,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 97,
+            "tgt_id": 94
+        }
+    ]
+}

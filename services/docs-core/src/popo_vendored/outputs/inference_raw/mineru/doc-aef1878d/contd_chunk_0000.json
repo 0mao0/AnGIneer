@@ -1,0 +1,37 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        52
+    ],
+    "pages": [
+        1,
+        3,
+        9,
+        10,
+        11,
+        12,
+        16,
+        27,
+        36,
+        47,
+        51
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>648 573 810 748<|content|>FEATURES Profile of the Economy Financial Operations International Statistics Special Reports\n<|id|>3<|page|>1<|box|>840 612 863 743<|content|>Produced and Published by\n<|id|>4<|page|>1<|box|>872 517 907 743<|content|>Department of the Treasury Bureau of the Fiscal Service\n<|id|>8<|page|>3<|box|>507 318 529 676<|content|>treasury. ... gov\n<|id|>9<|page|>3<|box|>544 120 580 875<|content|>Internet service subscribers can access the Treasu...rough the Bureau of the Fiscal Service's home page\n<|id|>32<|page|>9<|box|>200 531 215 750<|content|>(Quarterly percent change at annual rate)\n<|id|>33<|page|>9<|box|>678 504 898 916<|content|>Private domestic final demand (consumption plus pr...ge points to real GDP growth in the fourth quarter\n<|id|>43<|page|>10<|box|>704 504 910 916<|content|>Job losses during the recession were spread broadl...t sector also added workers to payrolls during the\n<|id|>44<|page|>11<|box|>97 107 138 351<|content|>Payroll Employment (Average monthly change in thousands from end of quarter to end of quarter)\n<|id|>45<|page|>11<|box|>409 81 541 491<|content|>recession, although payrolls began declining late ...tate government employment has increased by 51,000\n<|id|>52<|page|>11<|box|>819 504 909 915<|content|>In February 2016, the Administration released its ...al year 2018 but will gradually rise thereafter as\n<|id|>53<|page|>12<|box|>82 94 114 310<|content|>Consumer Prices (Percent change from a year earlier)\n<|id|>54<|page|>12<|box|>380 81 542 491<|content|>mandatory spending and net interest outlays grow a...f the 10-year forecast horizon in fiscal year 2026\n<|id|>91<|page|>16<|box|>515 380 527 617<|content|>[Source: ... Office of Tax Analysis, Office of Tax Policy]\n<|id|>92<|page|>16<|box|>535 83 551 263<|content|>First-Quarter Receipts\n<|id|>93<|page|>16<|box|>554 81 657 488<|content|>The following capsule analysis of budget receipts,... to analyze adequately collections for the quarter\n<|id|>136<|page|>27<|box|>685 81 717 491<|content|>• Table FD-4 presents interest-bearing securities issued by Government agencies. ... ”)\n<|id|>138<|page|>27<|box|>250 504 397 915<|content|>In March 1971, Congress enacted a limited exceptio...n Treasury bonds was repealed on November 10, 1988\n<|id|>167<|page|>36<|box|>537 339 549 658<|content|>[Source: ... Bureau of the Fiscal Service, Division of Financing Operations]\n<|id|>168<|page|>36<|box|>556 83 574 220<|content|>OCTOBER\n<|id|>297<|page|>47<|box|>90 109 126 880<|content|>TABLE OFS-1—Distribution of Federal Securities by ...ions of dollars. ... Bureau of the Fiscal Service]\n<|id|>300<|page|>47<|box|>832 477 876 883<|content|>Note—Public issues held by the Federal Reserve ban...Corporation, and the Federal Home Loan Bank System\n<|id|>311<|page|>51<|box|>85 421 167 913<|content|>INTERNATIONAL\n<|id|>312<|page|>51<|box|>167 602 189 915<|content|>STATISTICS\n<|id|>313<|page|>51<|box|>200 710 253 919<|content|>Foreign Currency Positions Exchange Stabilization Fund",
+    "raw_response": "<|src_id|>43<|tgt_id|>45\n<|src_id|>52<|tgt_id|>54\n<|src_id|>311<|tgt_id|>312",
+    "parsed": [
+        {
+            "src_id": 43,
+            "tgt_id": 45
+        },
+        {
+            "src_id": 52,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 311,
+            "tgt_id": 312
+        }
+    ]
+}

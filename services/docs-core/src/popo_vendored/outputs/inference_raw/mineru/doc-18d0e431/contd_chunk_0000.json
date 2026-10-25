@@ -1,0 +1,21 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        22
+    ],
+    "pages": [
+        1,
+        2,
+        22
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>7<|page|>1<|box|>777 140 888 854<|content|>3. ... This Supplemental Declaration supplements, but does not replace, my\n<|id|>8<|page|>2<|box|>90 174 125 854<|content|>November 15 Declaration, and the opinions expresse...unchanged and are incorporated herein by reference\n<|id|>180<|page|>22<|box|>196 142 213 321<|content|>Respectfully submitted,\n<|id|>181<|page|>22<|box|>214 140 229 433<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>182<|page|>22<|box|>232 142 250 251<|content|>By: ... By\n<|id|>183<|page|>22<|box|>248 140 296 854<|content|>Alan Ngo (State Bar No. ... (213) 555- 0301\n<|id|>184<|page|>22<|box|>297 140 314 437<|content|>Email: ... com\n<|id|>185<|page|>22<|box|>315 140 332 467<|content|>Email: ... com\n<|id|>186<|page|>22<|box|>332 140 349 537<|content|>Attorneys for Plaintiff Optiwave Semiconductor Cor...ttorneys for Plaintiff Optiwave Semiconductor Corp\n<|id|>188<|page|>22<|box|>366 140 398 854<|content|>James \"Jim\" Callahan (State Bar No. ... (903) 555-0400\n<|id|>189<|page|>22<|box|>400 140 417 450<|content|>Email: ... com\n<|id|>190<|page|>22<|box|>417 140 434 573<|content|>Local Counsel for Plaintiff Optiwave Semiconductor... Counsel for Plaintiff Optiwave Semiconductor Corp",
+    "raw_response": "<|src_id|>7<|tgt_id|>8",
+    "parsed": [
+        {
+            "src_id": 7,
+            "tgt_id": 8
+        }
+    ]
+}

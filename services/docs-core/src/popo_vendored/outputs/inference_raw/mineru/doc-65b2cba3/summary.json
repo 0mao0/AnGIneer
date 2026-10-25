@@ -1,0 +1,128 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kfn3shbb\\input\\pdfs\\doc-65b2cba3.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-kfn3shbb\\enriched\\doc-65b2cba3.json",
+    "contd_output": "",
+    "title_output": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>11<|level|>1\n<|id|>18<|level|>1\n<|id|>31<|level|>1\n<|id|>33<|level|>2\n<|id|>39<|level|>2\n<|id|>51<|level|>2\n<|id|>54<|level|>2\n<|id|>56<|level|>2\n<|id|>63<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>78<|level|>2\n<|id|>80<|level|>2\n<|id|>82<|level|>2\n<|id|>84<|level|>1\n<|id|>92<|level|>1\n<|id|>94<|level|>1\n<|id|>99<|level|>1\n<|id|>101<|level|>1\n<|id|>111<|level|>1",
+    "image_output": "<|src_id|>72<|tgt_id|>70\n<|src_id|>73<|tgt_id|>70",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 11,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 31,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 82,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 92,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 99,
+            "level": 1
+        },
+        {
+            "id": 101,
+            "level": 1
+        },
+        {
+            "id": 111,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 72,
+            "tgt_id": 70
+        },
+        {
+            "src_id": 73,
+            "tgt_id": 70
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 72,
+            "table2_idx": 73,
+            "upper_row_ss": [
+                [
+                    "Meridian",
+                    "Commercial General Liability",
+                    "$5,000,000 per occurrence"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "Meridian",
+                    "Cyber / Technology Errors & Omissions",
+                    "$25,000,000 aggregate"
+                ]
+            ]
+        }
+    ]
+}

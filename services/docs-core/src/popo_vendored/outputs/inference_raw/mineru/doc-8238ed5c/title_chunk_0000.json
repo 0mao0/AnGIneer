@@ -1,0 +1,126 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 385 106 609<|content|>LUMOS ANALYTICS INC.\n<|id|>9<|page|>1<|box|>344 142 362 563<|content|>Re: Form I-140, Immigrant Petition for Alien Worke\n<|id|>12<|page|>1<|box|>492 140 508 475<|content|>I. Introduction and Purpose of This Letter\n<|id|>21<|page|>2<|box|>205 140 223 478<|content|>II. Description of the Petitioning Employer\n<|id|>31<|page|>3<|box|>90 140 107 336<|content|>III. Bona Fide Job Offer\n<|id|>48<|page|>4<|box|>90 140 107 560<|content|>IV. Position Description and Minimum Requirements\n<|id|>51<|page|>4<|box|>276 140 294 642<|content|>A. Vice President, Engineering — Core Platform (Ra\n<|id|>56<|page|>4<|box|>590 142 609 669<|content|>B. Senior Director, Data Science & Machine Learnin\n<|id|>61<|page|>5<|box|>138 140 157 697<|content|>C. Vice President, Product — Fintech Solutions (To\n<|id|>66<|page|>5<|box|>491 140 508 665<|content|>D. Director, Information Security & Compliance (Yu\n<|id|>72<|page|>6<|box|>186 140 203 580<|content|>V. EB-2 Classification — Advanced Degree Professio\n<|id|>83<|page|>6<|box|>842 140 859 390<|content|>VI. Beneficiary's Qualifications\n<|id|>87<|page|>7<|box|>232 140 250 651<|content|>A. Rajan Mehta — Vice President, Engineering — Cor\n<|id|>88<|page|>7<|box|>256 176 272 269<|content|>Education:\n<|id|>94<|page|>7<|box|>623 142 640 678<|content|>B. Lina Varga — Senior Director, Data Science & Ma\n<|id|>95<|page|>7<|box|>647 176 662 269<|content|>Education:\n<|id|>101<|page|>8<|box|>194 140 212 707<|content|>C. Tomás Aguilar-Reyes — Vice President, Product —\n<|id|>102<|page|>8<|box|>218 176 234 269<|content|>Education:\n<|id|>108<|page|>8<|box|>604 140 619 674<|content|>D. Yumiko Tanaka — Director, Information Security\n<|id|>117<|page|>9<|box|>267 140 284 434<|content|>VII. Ability to Pay the Offered Wage\n<|id|>130<|page|>10<|box|>263 140 279 400<|content|>VIII. PERM Labor Certification\n<|id|>133<|page|>10<|box|>395 176 412 439<|content|>Case Number: [CASE NUMBER]\n<|id|>146<|page|>10<|box|>819 140 835 468<|content|>IX. Conclusion and Request for Approval\n<|id|>172<|page|>11<|box|>799 142 815 233<|content|>Enclosures\n<|id|>188<|page|>12<|box|>455 140 489 797<|content|>9. Any additional supporting documentation as appl",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>9<|level|>1\n<|id|>12<|level|>2\n<|id|>21<|level|>2\n<|id|>31<|level|>2\n<|id|>48<|level|>2\n<|id|>51<|level|>3\n<|id|>56<|level|>3\n<|id|>61<|level|>3\n<|id|>66<|level|>3\n<|id|>72<|level|>2\n<|id|>83<|level|>2\n<|id|>87<|level|>3\n<|id|>88<|level|>4\n<|id|>94<|level|>3\n<|id|>95<|level|>4\n<|id|>101<|level|>3\n<|id|>102<|level|>4\n<|id|>108<|level|>3\n<|id|>117<|level|>2\n<|id|>130<|level|>2\n<|id|>133<|level|>3\n<|id|>146<|level|>2\n<|id|>172<|level|>2\n<|id|>188<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 61,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 88,
+            "level": 4
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 95,
+            "level": 4
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 4
+        },
+        {
+            "id": 108,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 146,
+            "level": 2
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 3
+        }
+    ]
+}

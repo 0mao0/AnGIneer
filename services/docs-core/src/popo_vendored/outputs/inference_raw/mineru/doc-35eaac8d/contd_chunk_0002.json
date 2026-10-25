@@ -1,0 +1,46 @@
+{
+    "task": "contd",
+    "chunk_index": 2,
+    "range": [
+        100,
+        128
+    ],
+    "pages": [
+        101,
+        106,
+        111,
+        118,
+        120,
+        124,
+        125,
+        128
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>567<|page|>101<|box|>474 91 564 495<|content|>The Highway Trust Fund's Mass Transit Account is f...itle 49 United States Code, the Intermodal Surface\n<|id|>568<|page|>101<|box|>140 504 273 915<|content|>Transportation Efficiency Act of 1991 (Public Law ...g to the provisions of various transportation acts\n<|id|>589<|page|>106<|box|>125 81 402 491<|content|>The Leaking Underground Storage Tank (LUST) Trust ...9, dated August 8, 2014), and section 31203 of the\n<|id|>590<|page|>106<|box|>125 504 154 915<|content|>Fixing America's Surface Transportation (FAST) Act...f 2015 (Public Law 114-94, dated December 4, 2015)\n<|id|>614<|page|>111<|box|>304 81 582 491<|content|>Section 3 of the Dingell-Johnson Sport Fish Restor... 2015, Public Law 114-94, Fixing America's Surface\n<|id|>615<|page|>111<|box|>128 504 172 913<|content|>Transportation (FAST) Act, Sec. ... 10001, amended...ations for each of the Fiscal Years 2016 thru 2021\n<|id|>651<|page|>118<|box|>263 81 353 491<|content|>Funds from the Agricultural Disaster Relief Trust ... disaster assistance programs: ... Tree Assistance\n<|id|>652<|page|>118<|box|>117 504 147 913<|content|>Program (TAP); ... and Emergency Assistance for Li...k, Honey Bees, and Farm-Raised Fish (ELAP) Program\n<|id|>661<|page|>120<|box|>258 504 319 915<|content|>- 80 percent to the Office of Communication and Kn...section 937 of the Public Health Services Act, and\n<|id|>663<|page|>120<|box|>349 504 409 915<|content|>No amounts shall be available for expenditure from...be transferred to the general fund of the Treasury\n<|id|>680<|page|>124<|box|>148 388 164 609<|content|>Source: ... Bureau of the Fiscal Service\n<|id|>681<|page|>124<|box|>184 81 258 491<|content|>Amounts outstanding and in circulation (USCC)—Incl...ld at face value plus handling charge are included\n<|id|>689<|page|>124<|box|>839 81 901 491<|content|>Debt outstanding subject to limitation (FD-6)—The ...tory limit set by Congress. ... Beginning with the\n<|id|>690<|page|>124<|box|>184 504 229 915<|content|>Second Liberty Loan Act of 1917, the nature of the...o an overall limit on the outstanding Federal debt\n<|id|>699<|page|>124<|box|>840 504 902 916<|content|>Government account series (FD-2)—Certain trust fun...urities. ... These securities are sold directly by\n<|id|>700<|page|>125<|box|>89 81 209 491<|content|>Treasury to a specific Government agency, trust fund, or account. ... and the Unemployment Trust Fund\n<|id|>729<|page|>128<|box|>60 84 104 367<|content|>DEPARTMENT OF THE TREASURY BUREAU OF THE FISCAL SERVICE WASHINGTON, D. ... 20227\n<|id|>730<|page|>128<|box|>118 93 148 361<|content|>OFFICIAL BUSINESS PENALTY FOR PRIVATE USE, \\$300",
+    "raw_response": "<|src_id|>567<|tgt_id|>568\n<|src_id|>589<|tgt_id|>590\n<|src_id|>614<|tgt_id|>615\n<|src_id|>651<|tgt_id|>652\n<|src_id|>689<|tgt_id|>690\n<|src_id|>699<|tgt_id|>700",
+    "parsed": [
+        {
+            "src_id": 567,
+            "tgt_id": 568
+        },
+        {
+            "src_id": 589,
+            "tgt_id": 590
+        },
+        {
+            "src_id": 614,
+            "tgt_id": 615
+        },
+        {
+            "src_id": 651,
+            "tgt_id": 652
+        },
+        {
+            "src_id": 689,
+            "tgt_id": 690
+        },
+        {
+            "src_id": 699,
+            "tgt_id": 700
+        }
+    ]
+}

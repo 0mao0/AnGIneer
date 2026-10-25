@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 158 125 838<|content|>DRIFTWOOD CAPITAL MANAGEMENT LLC 680 Lexington Ave\n<|id|>10<|type|>title<|page|>1<|box|>675 142 691 447<|content|>1. Description of the Key Person Event\n<|id|>11<|type|>title<|page|>1<|box|>705 142 723 421<|content|>1.1 Identification of the Key Person\n<|id|>13<|type|>title<|page|>2<|box|>90 142 107 338<|content|>1.2 Incapacitating Event\n<|id|>17<|type|>title<|page|>2<|box|>453 143 470 277<|content|>1.3 Trigger Date\n<|id|>21<|type|>title<|page|>2<|box|>715 140 732 635<|content|>2. Consequences of the Key Person Event Under Sect\n<|id|>23<|type|>title<|page|>2<|box|>827 140 844 457<|content|>2.1 Suspension of the Investment Period\n<|id|>26<|type|>title<|page|>3<|box|>275 140 292 385<|content|>2.2 Follow-On Investment Cap\n<|id|>30<|type|>title<|page|>3<|box|>601 140 619 418<|content|>2.3 Existing Portfolio Management\n<|id|>33<|type|>title<|page|>4<|box|>90 140 107 261<|content|>3. Cure Period\n<|id|>34<|type|>title<|page|>4<|box|>121 140 138 410<|content|>3.1 Commencement and Duration\n<|id|>37<|type|>title<|page|>4<|box|>292 140 310 568<|content|>3.2 Cure Mechanics — Successor Key Person Proposal\n<|id|>39<|type|>table<|page|>4<|box|>476 143 648 852<|content|>None\n<|id|>41<|type|>title<|page|>4<|box|>805 140 823 607<|content|>3.3 Consequences if Cure Period Expires Without Ap\n<|id|>46<|type|>title<|page|>5<|box|>330 140 347 462<|content|>4. Interim Governance and Management\n<|id|>47<|type|>title<|page|>5<|box|>359 140 378 439<|content|>4.1 Continuing Management by DCM\n<|id|>52<|type|>title<|page|>5<|box|>791 140 808 498<|content|>4.2 Fund Performance and Financial Position\n<|id|>54<|type|>table<|page|>6<|box|>88 143 238 852<|content|>None\n<|id|>56<|type|>title<|page|>6<|box|>377 140 393 313<|content|>4.3 Service Providers\n<|id|>63<|type|>title<|page|>6<|box|>753 140 771 504<|content|>5. Intended Next Steps by the General Partner\n<|id|>64<|type|>title<|page|>6<|box|>784 140 801 416<|content|>5.1 Successor Key Person Proposal\n<|id|>68<|type|>title<|page|>7<|box|>311 140 329 504<|content|>5.2 Investor Advisory Committee Engagement\n<|id|>77<|type|>title<|page|>7<|box|>699 140 715 328<|content|>5.3 LP Communication\n<|id|>80<|type|>title<|page|>8<|box|>90 140 107 361<|content|>6. Timeliness of This Notice\n<|id|>83<|type|>title<|page|>8<|box|>273 140 292 338<|content|>7. Counsel and Inquiries\n<|id|>90<|type|>title<|page|>8<|box|>588 140 604 395<|content|>8. Reservations and Disclaimers",
+    "raw_response": "<|src_id|>39<|tgt_id|>37\n<|src_id|>54<|tgt_id|>52",
+    "parsed": [
+        {
+            "src_id": 39,
+            "tgt_id": 37
+        },
+        {
+            "src_id": 54,
+            "tgt_id": 52
+        }
+    ]
+}

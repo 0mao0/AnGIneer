@@ -1,0 +1,114 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        51,
+        80
+    ],
+    "pages": [
+        52,
+        54,
+        55,
+        57,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        70,
+        71,
+        73,
+        75,
+        80
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>156<|page|>52<|box|>37 323 53 709<|content|>YIELDS ON TREASURY AND CORPORATE BONDS\n<|id|>158<|page|>54<|box|>49 380 63 667<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>161<|page|>55<|box|>48 290 68 673<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>163<|page|>57<|box|>48 342 62 625<|content|>INTERNAL REVENUE COLLECTIONS\n<|id|>179<|page|>62<|box|>365 375 379 650<|content|>Section I - Historical Summary\n<|id|>181<|page|>63<|box|>78 358 91 627<|content|>Section I - Historical Summary\n<|id|>184<|page|>64<|box|>80 380 95 655<|content|>Section I - Historical Summary\n<|id|>187<|page|>65<|box|>81 319 94 618<|content|>Section II - Summary by Countries\n<|id|>190<|page|>66<|box|>83 363 97 662<|content|>Section II - Summary by Countries\n<|id|>193<|page|>67<|box|>79 333 93 627<|content|>Section II - Summary by Countries\n<|id|>194<|page|>67<|box|>98 220 112 750<|content|>Table 3.- Short-Term Claims on and Liabilities to\n<|id|>196<|page|>68<|box|>50 427 66 601<|content|>CAPITAL MOVEMENTS\n<|id|>197<|page|>68<|box|>84 358 99 657<|content|>Section II - Summary by Countries\n<|id|>198<|page|>68<|box|>103 226 118 805<|content|>Table 4.- Foreign Debit and Credit Balances in Bro\n<|id|>201<|page|>70<|box|>73 306 89 727<|content|>Section III - Details for Month of October 1948\n<|id|>202<|page|>70<|box|>94 311 108 724<|content|>Table 2.- Short-Term Liabilities to Foreigners\n<|id|>204<|page|>71<|box|>76 274 91 695<|content|>Section III - Details for Month of October 1948\n<|id|>207<|page|>73<|box|>72 213 87 763<|content|>Section III A - Preliminary Details for Month of D\n<|id|>210<|page|>75<|box|>43 403 56 573<|content|>CAPITAL MOVEMENTS\n<|id|>217<|page|>80<|box|>375 518 455 643<|content|>BUY AND HOLD\n<|id|>218<|page|>80<|box|>524 518 580 643<|content|>SAVINGS BONDS",
+    "raw_response": "<|id|>156<|level|>1\n<|id|>158<|level|>1\n<|id|>161<|level|>1\n<|id|>163<|level|>1\n<|id|>179<|level|>2\n<|id|>181<|level|>2\n<|id|>184<|level|>2\n<|id|>187<|level|>2\n<|id|>190<|level|>2\n<|id|>193<|level|>2\n<|id|>194<|level|>3\n<|id|>196<|level|>2\n<|id|>197<|level|>2\n<|id|>198<|level|>3\n<|id|>201<|level|>2\n<|id|>202<|level|>3\n<|id|>204<|level|>2\n<|id|>207<|level|>3\n<|id|>210<|level|>2\n<|id|>217<|level|>1\n<|id|>218<|level|>1",
+    "parsed": [
+        {
+            "id": 156,
+            "level": 1
+        },
+        {
+            "id": 158,
+            "level": 1
+        },
+        {
+            "id": 161,
+            "level": 1
+        },
+        {
+            "id": 163,
+            "level": 1
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 181,
+            "level": 2
+        },
+        {
+            "id": 184,
+            "level": 2
+        },
+        {
+            "id": 187,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 194,
+            "level": 3
+        },
+        {
+            "id": 196,
+            "level": 2
+        },
+        {
+            "id": 197,
+            "level": 2
+        },
+        {
+            "id": 198,
+            "level": 3
+        },
+        {
+            "id": 201,
+            "level": 2
+        },
+        {
+            "id": 202,
+            "level": 3
+        },
+        {
+            "id": 204,
+            "level": 2
+        },
+        {
+            "id": 207,
+            "level": 3
+        },
+        {
+            "id": 210,
+            "level": 2
+        },
+        {
+            "id": 217,
+            "level": 1
+        },
+        {
+            "id": 218,
+            "level": 1
+        }
+    ]
+}

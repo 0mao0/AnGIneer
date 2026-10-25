@@ -1,0 +1,35 @@
+{
+    "task": "contd",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        17,
+        18,
+        20,
+        21
+    ],
+    "prompt": "<image>\nTruncation Detection: <|id|>2<|page|>1<|box|>520 648 536 854<|content|>Draft Date: ... March 10, 2026\n<|id|>3<|page|>1<|box|>580 140 689 854<|content|>Plaintiffs Aurelius Global Media Group PLC (\"Aurel...mNow and MDD, \"Defendants\"), and allege as follows\n<|id|>13<|page|>2<|box|>868 142 904 854<|content|>7. ... Plaintiff Aurelius Global Media Group PLC (...der the laws of England and Wales, registered with\n<|id|>14<|page|>3<|box|>90 174 198 856<|content|>Companies House under Registration Number 08724561...s are traded over-the-counter in the United States\n<|id|>29<|page|>4<|box|>864 142 902 854<|content|>18. ... because StreamNow is headquartered in and ...ns its principal place of business in Los Angeles,\n<|id|>30<|page|>5<|box|>90 174 143 854<|content|>California, which is within the Central District o...n this District and within the State of California\n<|id|>158<|page|>17<|box|>852 140 888 854<|content|>WHEREFORE, Plaintiffs Aurelius Global Media Group ...nt in their favor and against Defendants StreamNow\n<|id|>159<|page|>18<|box|>89 140 125 854<|content|>Holdings, Inc. ... , Meridian Digital Distributors...d Franklin Ogilvie, and grant the following relief\n<|id|>171<|page|>18<|box|>915 140 930 611<|content|>CONFIDENTIAL — ATTORNEY WORK PRODUCT — DRAFT Subject to Revision\n<|id|>173<|page|>20<|box|>116 681 133 854<|content|>Dated: ... March __, 2026\n<|id|>172<|page|>20<|box|>89 142 106 367<|content|>VIII. ... SIGNATURE BLOCK\n<|id|>174<|page|>20<|box|>142 212 159 390<|content|>Respectfully submitted,\n<|id|>175<|page|>20<|box|>167 212 184 501<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>176<|page|>20<|box|>229 142 244 251<|content|>By: ... By\n<|id|>177<|page|>20<|box|>244 140 277 854<|content|>Marcus Delgado (CA Bar No. ... 319442)\n<|id|>178<|page|>20<|box|>277 140 311 854<|content|>CALDERWOOD & HARKNESS LLP 1999 Avenue of the Stars...es, California 90067 Telephone: ... (310) 553-4001\n<|id|>179<|page|>20<|box|>311 143 328 473<|content|>Email: ... com\n<|id|>180<|page|>20<|box|>329 142 345 830<|content|>Attorneys for Plaintiffs Aurelius Global Media Gro...l Media Group PLC and Aurelius Media Americas, Inc\n<|id|>188<|page|>21<|box|>141 140 233 854<|content|>Exhibit A is a separately bound exhibit comprising...early identified in the Registration Status column\n<|id|>190<|page|>21<|box|>594 142 625 852<|content|>The full table of 217 entries is attached as a sep...nce. ... A summary of the Works is set forth below",
+    "raw_response": "<|src_id|>13<|tgt_id|>14\n<|src_id|>29<|tgt_id|>30\n<|src_id|>158<|tgt_id|>159",
+    "parsed": [
+        {
+            "src_id": 13,
+            "tgt_id": 14
+        },
+        {
+            "src_id": 29,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 158,
+            "tgt_id": 159
+        }
+    ]
+}

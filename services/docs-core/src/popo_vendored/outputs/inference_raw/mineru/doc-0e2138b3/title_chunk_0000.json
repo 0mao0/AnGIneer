@@ -1,0 +1,42 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        5
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>5<|page|>1<|box|>569 156 604 838<|content|>STIPULATION FOR DISMISSAL OF ENTIRE ACTION AND CRO\n<|id|>6<|page|>1<|box|>613 143 628 759<|content|>TO THE COURT, ALL PARTIES, AND THEIR ATTORNEYS OF\n<|id|>8<|page|>2<|box|>89 142 107 241<|content|>RECITALS\n<|id|>27<|page|>3<|box|>131 140 148 333<|content|>STIPULATED TERMS\n<|id|>45<|page|>5<|box|>123 171 140 825<|content|>[PROPOSED] ORDER ON STIPULATION FOR DISMISSAL WITH\n<|id|>47<|page|>5<|box|>229 140 246 370<|content|>IT IS HEREBY ORDERED:\n<|id|>55<|page|>5<|box|>773 140 791 604<|content|>STATE OF CALIFORNIA, COUNTY OF LOS ANGELES",
+    "raw_response": "<|id|>5<|level|>1\n<|id|>6<|level|>2\n<|id|>8<|level|>2\n<|id|>27<|level|>2\n<|id|>45<|level|>1\n<|id|>47<|level|>2\n<|id|>55<|level|>-1",
+    "parsed": [
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 47,
+            "level": 2
+        }
+    ]
+}

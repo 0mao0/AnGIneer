@@ -1,0 +1,106 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 447 106 550<|content|>EXHIBIT A\n<|id|>1<|page|>1<|box|>114 250 132 746<|content|>POSITION DESCRIPTION AND REPORTING STRUCTURE\n<|id|>4<|page|>1<|box|>301 142 316 303<|content|>1. Position and Title\n<|id|>8<|page|>1<|box|>750 140 766 323<|content|>2. Reporting Structure\n<|id|>12<|page|>2<|box|>359 140 376 282<|content|>3. Direct Reports\n<|id|>21<|page|>3<|box|>186 140 204 444<|content|>4. Primary Duties and Responsibilities\n<|id|>23<|page|>3<|box|>279 140 297 428<|content|>4.1 General Operational Leadership\n<|id|>27<|page|>3<|box|>642 140 659 434<|content|>4.2 Strategic Planning and Execution\n<|id|>31<|page|>4<|box|>257 140 273 447<|content|>4.3 Product and Technology Oversight\n<|id|>34<|page|>4<|box|>539 140 556 418<|content|>4.4 Client and Revenue Operations\n<|id|>37<|page|>4<|box|>765 140 782 491<|content|>4.5 Financial and Budgetary Responsibilities\n<|id|>40<|page|>5<|box|>213 140 229 431<|content|>4.6 People Management and Culture\n<|id|>44<|page|>5<|box|>539 140 556 447<|content|>4.7 Compliance and Risk Management\n<|id|>47<|page|>5<|box|>775 140 792 357<|content|>5. Board-Level Obligations\n<|id|>51<|page|>6<|box|>402 140 419 534<|content|>6. Interaction with Ridgeline Capital Partners, LP\n<|id|>56<|page|>7<|box|>186 140 204 441<|content|>7. Interaction with Minority Investors\n<|id|>58<|page|>7<|box|>398 140 417 447<|content|>8. Devotion of Time; Outside Activities\n<|id|>66<|page|>8<|box|>167 140 184 370<|content|>9. Authority and Limitations\n<|id|>69<|page|>8<|box|>536 142 551 274<|content|>10. Modification\n<|id|>73<|page|>8<|box|>803 349 819 648<|content|>SIGNATURE PAGE TO EXHIBIT A\n<|id|>74<|page|>8<|box|>829 251 845 746<|content|>POSITION DESCRIPTION AND REPORTING STRUCTURE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>8<|level|>2\n<|id|>12<|level|>2\n<|id|>21<|level|>2\n<|id|>23<|level|>3\n<|id|>27<|level|>3\n<|id|>31<|level|>3\n<|id|>34<|level|>3\n<|id|>37<|level|>3\n<|id|>40<|level|>3\n<|id|>44<|level|>3\n<|id|>47<|level|>2\n<|id|>51<|level|>2\n<|id|>56<|level|>2\n<|id|>58<|level|>2\n<|id|>66<|level|>2\n<|id|>69<|level|>2\n<|id|>73<|level|>1\n<|id|>74<|level|>1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 27,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 37,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 44,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 2
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 1
+        },
+        {
+            "id": 74,
+            "level": 1
+        }
+    ]
+}

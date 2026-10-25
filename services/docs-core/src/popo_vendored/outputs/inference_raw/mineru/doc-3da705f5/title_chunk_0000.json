@@ -1,0 +1,131 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 153 159 841<|content|>OFFICER'S CERTIFICATE OF LUMINEX SYSTEMS HOLDINGS\n<|id|>2<|page|>1<|box|>174 217 219 779<|content|>Delivered Pursuant to Section [__] of the Agreemen\n<|id|>3<|page|>1<|box|>224 205 243 790<|content|>OFFICER'S CERTIFICATE OF LUMINEX SYSTEMS HOLDINGS\n<|id|>8<|page|>1<|box|>681 140 699 509<|content|>Section 1: Definitions and Interpretive Matters\n<|id|>13<|page|>2<|box|>148 140 167 666<|content|>Section 2: Certification Regarding Representations\n<|id|>14<|page|>2<|box|>180 140 198 854<|content|>2.1 Bring-Down of Representations and Warranties (\n<|id|>17<|page|>2<|box|>462 140 479 800<|content|>2.2 Bring-Down of Representations and Warranties (\n<|id|>20<|page|>2<|box|>744 140 761 527<|content|>2.3 Bring-Down of Fundamental Representations\n<|id|>32<|page|>3<|box|>464 140 479 464<|content|>2.4 Material Adverse Effect Certification\n<|id|>35<|page|>4<|box|>260 140 277 633<|content|>Section 3: Certification Regarding Compliance with\n<|id|>36<|page|>4<|box|>291 140 306 354<|content|>3.1 Pre-Closing Covenants\n<|id|>39<|page|>4<|box|>590 140 607 527<|content|>3.2 Specific Covenant Compliance Confirmations\n<|id|>50<|page|>6<|box|>204 140 222 563<|content|>Section 4: Certification Regarding Closing Conditi\n<|id|>51<|page|>6<|box|>234 140 253 344<|content|>4.1 No Legal Impediment\n<|id|>53<|page|>6<|box|>417 140 436 348<|content|>4.2 Regulatory Approvals\n<|id|>62<|page|>7<|box|>393 142 409 344<|content|>4.3 Third-Party Consents\n<|id|>65<|page|>7<|box|>628 140 647 625<|content|>Section 5: Certification Regarding Other Closing D\n<|id|>66<|page|>7<|box|>660 140 676 366<|content|>5.1 Concurrent Deliverables\n<|id|>75<|page|>8<|box|>744 140 761 349<|content|>Section 6: No Proceedings\n<|id|>79<|page|>9<|box|>148 140 167 542<|content|>Section 7: Knowledge and Authority Qualifications\n<|id|>90<|page|>9<|box|>633 140 650 470<|content|>Section 8: Reliance; No Personal Liability\n<|id|>94<|page|>10<|box|>223 140 239 349<|content|>Section 9: Governing Law\n<|id|>96<|page|>10<|box|>366 400 383 596<|content|>[Signature Page Follows]\n<|id|>102<|page|>10<|box|>505 439 521 558<|content|>APPENDIX A\n<|id|>103<|page|>10<|box|>531 406 547 591<|content|>Schedule of Exceptions\n<|id|>106<|page|>10<|box|>645 441 661 557<|content|>APPENDIX B\n<|id|>107<|page|>10<|box|>671 359 688 637<|content|>Supplemental Disclosure Schedules\n<|id|>110<|page|>10<|box|>785 415 801 583<|content|>DRAFTING NOTES\n<|id|>111<|page|>10<|box|>811 267 828 730<|content|>(Internal — To Be Removed from Final Execution Ver",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>2<|level|>2\n<|id|>3<|level|>1\n<|id|>8<|level|>2\n<|id|>13<|level|>2\n<|id|>14<|level|>3\n<|id|>17<|level|>3\n<|id|>20<|level|>3\n<|id|>32<|level|>3\n<|id|>35<|level|>2\n<|id|>36<|level|>3\n<|id|>39<|level|>3\n<|id|>50<|level|>2\n<|id|>51<|level|>3\n<|id|>53<|level|>3\n<|id|>62<|level|>3\n<|id|>65<|level|>2\n<|id|>66<|level|>3\n<|id|>75<|level|>2\n<|id|>79<|level|>2\n<|id|>90<|level|>2\n<|id|>94<|level|>2\n<|id|>96<|level|>-1\n<|id|>102<|level|>1\n<|id|>103<|level|>2\n<|id|>106<|level|>1\n<|id|>107<|level|>2\n<|id|>110<|level|>1\n<|id|>111<|level|>-1",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 2
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 3
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 36,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 62,
+            "level": 3
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 102,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 1
+        },
+        {
+            "id": 107,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 1
+        }
+    ]
+}

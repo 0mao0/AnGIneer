@@ -1,0 +1,28 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        2,
+        9
+    ],
+    "pages": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>2<|box|>90 290 109 707<|content|>SCHEDULE A — FUNDED PROPERTY\n<|id|>1<|type|>title<|page|>2<|box|>128 153 164 843<|content|>Attached to and forming part of the Caldwell 2023\n<|id|>3<|type|>title<|page|>2<|box|>306 140 321 511<|content|>Section 1: Description of Contributed Property\n<|id|>18<|type|>title<|page|>3<|box|>304 140 321 488<|content|>Section 2: Valuation of Contributed Interest\n<|id|>19<|type|>title<|page|>3<|box|>334 140 352 320<|content|>2.1 Total Entity Value\n<|id|>22<|type|>title<|page|>3<|box|>689 140 707 607<|content|>2.2 Pre-discount Fair Market Value of Contributed\n<|id|>26<|type|>title<|page|>4<|box|>90 142 107 395<|content|>2.3 Valuation discounts Applied\n<|id|>34<|type|>title<|page|>4<|box|>593 142 609 506<|content|>2.4 Section 7520 Rate and Annuity Calculation\n<|id|>38<|type|>table<|page|>6<|box|>214 143 707 852<|content|>None\n<|id|>40<|type|>title<|page|>7<|box|>90 142 107 488<|content|>Section 4: Summary of Contributed Interest\n<|id|>42<|type|>table<|page|>7<|box|>159 143 398 852<|content|>None\n<|id|>44<|type|>title<|page|>7<|box|>546 140 564 532<|content|>Section 5: Representations and Acknowledgments\n<|id|>52<|type|>title<|page|>9<|box|>90 142 107 271<|content|>Signature block\n<|id|>54<|type|>title<|page|>9<|box|>160 143 176 246<|content|>GRANTOR:",
+    "raw_response": "<|src_id|>38<|tgt_id|>34\n<|src_id|>42<|tgt_id|>40",
+    "parsed": [
+        {
+            "src_id": 38,
+            "tgt_id": 34
+        },
+        {
+            "src_id": 42,
+            "tgt_id": 40
+        }
+    ]
+}

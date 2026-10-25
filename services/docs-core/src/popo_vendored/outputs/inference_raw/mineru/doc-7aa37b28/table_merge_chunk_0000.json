@@ -1,0 +1,15 @@
+{
+    "task": "table_merge",
+    "chunk_index": 0,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['Margin Grid', 'Tier 1: SOFR + 2.00% (Excess Avail ≥ 50% of Commitment / $40M); Tier 2: SOFR + 2.25%', 'No grid; flat margin']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['', '(Excess Avail ≥ 25% but < 50% / $20M–$40M); Tier 3: SOFR + 2.50% (Excess Avail < 25% / < $20M)', '']]\n",
+    "raw_response": "[1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 27,
+    "table2_idx": 28
+}

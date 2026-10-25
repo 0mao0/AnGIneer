@@ -1,0 +1,21 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['rowspan=23, 路基工程', 'rowspan=23, 路基土石方工程', 'rowspan=23, 软土地基处置', 'rowspan=4, 刚性桩', '成本信息', '', '', '', '详见附录B通用施工信息属性组']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['rowspan=23, 路基工程', 'rowspan=23, 路基土石方工程', 'rowspan=5, 软土地基处置', 'rowspan=5, 刚性桩', '混凝土强度', '○', '△', '▲', '']]\n",
+    "raw_response": "[1, 1, 1, 1, 0, 0, 0, 0, 0]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "table1_idx": 228,
+    "table2_idx": 229
+}

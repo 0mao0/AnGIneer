@@ -1,0 +1,194 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9dzwng6j\\input\\pdfs\\doc-5d2d26bc.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-9dzwng6j\\enriched\\doc-5d2d26bc.json",
+    "contd_output": "",
+    "title_output": "<|id|>8<|level|>1\n<|id|>19<|level|>1\n<|id|>20<|level|>2\n<|id|>33<|level|>2\n<|id|>41<|level|>1\n<|id|>43<|level|>2\n<|id|>57<|level|>2\n<|id|>66<|level|>1\n<|id|>67<|level|>2\n<|id|>78<|level|>2\n<|id|>87<|level|>2\n<|id|>97<|level|>2\n<|id|>105<|level|>1\n<|id|>106<|level|>2\n<|id|>110<|level|>2\n<|id|>111<|level|>3\n<|id|>113<|level|>3\n<|id|>121<|level|>3\n<|id|>130<|level|>2\n<|id|>136<|level|>1\n<|id|>142<|level|>1\n<|id|>149<|level|>1\n<|id|>150<|level|>2\n<|id|>155<|level|>2\n<|id|>157<|level|>3\n<|id|>162<|level|>3\n<|id|>167<|level|>3\n<|id|>173<|level|>1\n<|id|>186<|level|>1\n<|id|>194<|level|>1",
+    "image_output": "<|src_id|>152<|tgt_id|>150\n<|src_id|>153<|tgt_id|>150\n<|src_id|>154<|tgt_id|>150",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 19,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 87,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 1
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 110,
+            "level": 2
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 113,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 130,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 149,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 2
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 157,
+            "level": 3
+        },
+        {
+            "id": 162,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 173,
+            "level": 1
+        },
+        {
+            "id": 186,
+            "level": 1
+        },
+        {
+            "id": 194,
+            "level": 1
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 152,
+            "tgt_id": 150
+        },
+        {
+            "src_id": 153,
+            "tgt_id": 150
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 150
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 152,
+            "table2_idx": 153,
+            "upper_row_ss": [
+                [
+                    "Legacy Form \"agree to assign\" language (pre-2019 current employees)",
+                    "Employee",
+                    "28 current employees (12 engineers/product)",
+                    "Moderate-High",
+                    "Execute confirmatory present-tense assignment agreements from all 28; prioritize",
+                    "High"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "the 12 engineering/product contributors",
+                    ""
+                ]
+            ]
+        },
+        {
+            "table1_idx": 153,
+            "table2_idx": 154,
+            "upper_row_ss": [
+                [
+                    "Open-source / copyleft intersection with contractor-contributed code",
+                    "Technical",
+                    "N/A",
+                    "Moderate",
+                    "Cross-reference open-source audit with contractor contribution records; conduct focused code audit of API integration layer and backend",
+                    "Medium"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "data processing modules",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

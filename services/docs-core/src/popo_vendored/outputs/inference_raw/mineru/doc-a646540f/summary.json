@@ -1,0 +1,127 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-946512bv\\input\\pdfs\\doc-a646540f.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-946512bv\\enriched\\doc-a646540f.json",
+    "contd_output": "<|src_id|>86<|tgt_id|>87",
+    "title_output": "<|id|>1<|level|>1\n<|id|>13<|level|>2\n<|id|>18<|level|>2\n<|id|>20<|level|>3\n<|id|>24<|level|>3\n<|id|>28<|level|>3\n<|id|>32<|level|>3\n<|id|>41<|level|>3\n<|id|>43<|level|>3\n<|id|>46<|level|>3\n<|id|>51<|level|>2\n<|id|>53<|level|>3\n<|id|>58<|level|>3\n<|id|>69<|level|>3\n<|id|>74<|level|>3\n<|id|>79<|level|>2\n<|id|>83<|level|>2\n<|id|>89<|level|>2\n<|id|>101<|level|>2",
+    "image_output": "<|src_id|>54<|tgt_id|>53\n<|src_id|>55<|tgt_id|>53\n<|src_id|>71<|tgt_id|>69",
+    "contd_label": [
+        {
+            "src_id": 86,
+            "tgt_id": 87
+        }
+    ],
+    "title_label": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 13,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 32,
+            "level": 3
+        },
+        {
+            "id": 41,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 89,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 54,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 55,
+            "tgt_id": 53
+        },
+        {
+            "src_id": 71,
+            "tgt_id": 69
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 54,
+            "table2_idx": 55,
+            "upper_row_ss": [
+                [
+                    "Elliot Nguyen",
+                    "Working Associate, Antitrust & Competition (Year 4)",
+                    "$825/hr",
+                    "Supervision of the document review team and quality control protocols; coordination with custodians regarding document collections and data verification; management of supplemental production requests and pull-forward"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "",
+                    "",
+                    "collections; preparation of structured data submissions"
+                ]
+            ]
+        }
+    ]
+}

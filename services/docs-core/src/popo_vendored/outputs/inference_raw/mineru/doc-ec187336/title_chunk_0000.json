@@ -1,0 +1,93 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 269 107 727<|content|>CALDERWOOD & HARKNESS LLP Counsellors at Law\n<|id|>8<|page|>1<|box|>349 142 366 364<|content|>1. Purpose and Background\n<|id|>18<|page|>2<|box|>542 140 559 375<|content|>2. Engagement and Retention\n<|id|>28<|page|>3<|box|>186 140 204 390<|content|>3. Scope of Expert Engagement\n<|id|>29<|page|>3<|box|>217 140 234 310<|content|>3.1 Core Assignment\n<|id|>33<|page|>3<|box|>598 140 614 287<|content|>3.2 Specific Tasks\n<|id|>43<|page|>4<|box|>664 140 680 431<|content|>3.3 Reference to Contract Provisions\n<|id|>48<|page|>5<|box|>321 140 339 392<|content|>4. Expert Report Requirements\n<|id|>63<|page|>6<|box|>469 140 487 406<|content|>5. Independence and Impartiality\n<|id|>67<|page|>7<|box|>90 140 107 331<|content|>6. Materials and Access\n<|id|>81<|page|>8<|box|>148 140 167 284<|content|>7. Confidentiality\n<|id|>86<|page|>8<|box|>734 140 751 290<|content|>8. Fees and Billing\n<|id|>92<|page|>9<|box|>593 140 609 362<|content|>9. Communication Protocol\n<|id|>101<|page|>10<|box|>304 142 321 354<|content|>10. Term and Termination\n<|id|>106<|page|>10<|box|>667 142 685 297<|content|>11. Governing Law\n<|id|>108<|page|>10<|box|>772 140 789 406<|content|>12. Acceptance and Counterparts\n<|id|>117<|page|>11<|box|>391 313 407 683<|content|>ACKNOWLEDGMENT AND ACCEPTANCE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>18<|level|>2\n<|id|>28<|level|>2\n<|id|>29<|level|>3\n<|id|>33<|level|>3\n<|id|>43<|level|>3\n<|id|>48<|level|>2\n<|id|>63<|level|>2\n<|id|>67<|level|>2\n<|id|>81<|level|>2\n<|id|>86<|level|>2\n<|id|>92<|level|>2\n<|id|>101<|level|>2\n<|id|>106<|level|>2\n<|id|>108<|level|>2\n<|id|>117<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 28,
+            "level": 2
+        },
+        {
+            "id": 29,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 92,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 2
+        },
+        {
+            "id": 106,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 117,
+            "level": 2
+        }
+    ]
+}

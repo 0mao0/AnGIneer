@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        21
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        21
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1<|type|>title<|page|>1<|box|>98 99 122 855<|content|>NVILA: Eficient Frontier Visual Language Models\n<|id|>6<|type|>title<|page|>1<|box|>834 99 851 272<|content|>1. Introduction\n<|id|>8<|type|>image<|page|>2<|box|>107 147 184 272<|content|>None\n<|id|>9<|type|>image<|page|>2<|box|>108 278 185 386<|content|>None\n<|id|>10<|type|>image<|page|>2<|box|>101 507 191 692<|content|>None\n<|id|>11<|type|>image<|page|>2<|box|>219 142 294 478<|content|>None\n<|id|>12<|type|>image<|page|>2<|box|>344 154 449 477<|content|>None\n<|id|>22<|type|>image<|page|>2<|box|>344 490 489 848<|content|>None\n<|id|>23<|type|>image<|page|>2<|box|>592 154 645 843<|content|>None\n<|id|>24<|type|>image<|page|>2<|box|>695 147 784 470<|content|>None\n<|id|>25<|type|>image<|page|>2<|box|>697 571 782 786<|content|>None\n<|id|>26<|type|>image<|page|>3<|box|>99 105 475 482<|content|>None\n<|id|>32<|type|>title<|page|>3<|box|>418 507 436 650<|content|>2. Approach\n<|id|>34<|type|>title<|page|>3<|box|>582 507 598 796<|content|>2.1. Eficient Model Architecture\n<|id|>38<|type|>title<|page|>4<|box|>401 100 417 431<|content|>2.1.1. Spatial “Scale-Then-Compress”\n<|id|>43<|type|>title<|page|>4<|box|>524 507 539 860<|content|>2.1.2. Temporal “Scale-Then-Compress”\n<|id|>46<|type|>table<|page|>5<|box|>181 119 317 870<|content|>None\n<|id|>47<|type|>table<|page|>5<|box|>384 152 489 843<|content|>None\n<|id|>48<|type|>title<|page|>5<|box|>593 99 608 292<|content|>2.2. Eficient Training\n<|id|>50<|type|>title<|page|>5<|box|>750 100 765 305<|content|>2.2.1. Dataset Pruning\n<|id|>58<|type|>image<|page|>6<|box|>99 102 235 359<|content|>None\n<|id|>59<|type|>image<|page|>6<|box|>99 371 234 650<|content|>None\n<|id|>60<|type|>image<|page|>6<|box|>99 660 234 895<|content|>None\n<|id|>61<|type|>image<|page|>6<|box|>302 569 316 591<|content|>None\n<|id|>62<|type|>table<|page|>6<|box|>447 102 650 484<|content|>None\n<|id|>68<|type|>title<|page|>6<|box|>778 507 793 687<|content|>2.2.2. FP8 Training\n<|id|>70<|type|>table<|page|>7<|box|>210 102 291 484<|content|>None\n<|id|>73<|type|>title<|page|>7<|box|>821 99 835 324<|content|>2.3. Eficient Fine-Tuning\n<|id|>75<|type|>table<|page|>7<|box|>296 509 497 895<|content|>None\n<|id|>77<|type|>title<|page|>7<|box|>848 507 864 731<|content|>2.4. Eficient Deployment\n<|id|>79<|type|>table<|page|>8<|box|>168 100 236 487<|content|>None\n<|id|>80<|type|>table<|page|>8<|box|>347 102 464 484<|content|>None\n<|id|>82<|type|>title<|page|>8<|box|>818 99 835 273<|content|>3. Experiments\n<|id|>83<|type|>title<|page|>8<|box|>848 99 864 282<|content|>3.1. Training Details\n<|id|>86<|type|>title<|page|>8<|box|>470 507 485 700<|content|>3.2. Accuracy Results\n<|id|>87<|type|>title<|page|>8<|box|>494 507 508 734<|content|>3.2.1. Image Benchmarks\n<|id|>91<|type|>table<|page|>9<|box|>124 100 508 897<|content|>None\n<|id|>93<|type|>title<|page|>9<|box|>565 100 580 322<|content|>3.2.2. Video Benchmarks\n<|id|>95<|type|>title<|page|>9<|box|>791 99 807 295<|content|>3.3. Eficiency Results\n<|id|>98<|type|>table<|page|>10<|box|>124 102 323 887<|content|>None\n<|id|>99<|type|>table<|page|>10<|box|>429 100 523 490<|content|>None\n<|id|>100<|type|>title<|page|>10<|box|>546 99 564 329<|content|>4. More Capabilities\n<|id|>101<|type|>title<|page|>10<|box|>577 99 593 332<|content|>4.1. Temporal Localization\n<|id|>103<|type|>title<|page|>10<|box|>707 99 722 310<|content|>4.2. Robotic Navigation\n<|id|>105<|type|>table<|page|>10<|box|>416 510 507 887<|content|>None\n<|id|>106<|type|>title<|page|>10<|box|>693 507 708 724<|content|>4.3. Medical Application\n<|id|>108<|type|>table<|page|>11<|box|>567 104 665 478<|content|>None\n<|id|>109<|type|>title<|page|>11<|box|>470 507 487 695<|content|>5. Related Work\n<|id|>110<|type|>title<|page|>11<|box|>501 507 516 759<|content|>5.1. Visual Language Models\n<|id|>113<|type|>image<|page|>12<|box|>99 104 197 482<|content|>None\n<|id|>114<|type|>image<|page|>12<|box|>230 105 303 480<|content|>None\n<|id|>118<|type|>title<|page|>12<|box|>664 99 678 226<|content|>5.2. Eficiency\n<|id|>120<|type|>title<|page|>12<|box|>410 507 426 662<|content|>6. Conclusion\n<|id|>122<|type|>title<|page|>12<|box|>690 507 707 628<|content|>References\n<|id|>278<|type|>table<|page|>21<|box|>244 107 778 884<|content|>None",
+    "raw_response": "",
+    "parsed": []
+}

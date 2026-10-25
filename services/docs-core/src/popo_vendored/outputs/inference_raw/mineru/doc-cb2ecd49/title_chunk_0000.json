@@ -1,0 +1,129 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        15
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 174 151 821<|content|>CALDERWOOD & HARKNESS LLP MEMORANDUM — PRIVILEGED\n<|id|>6<|page|>1<|box|>328 305 347 689<|content|>I. Purpose and Scope of Memorandum\n<|id|>15<|page|>2<|box|>209 214 229 782<|content|>II. Identification of Parties and Related Entities\n<|id|>17<|page|>2<|box|>342 140 359 321<|content|>A. Client-Side Entities\n<|id|>28<|page|>3<|box|>90 140 107 441<|content|>B. Adverse Party and Related Entities\n<|id|>38<|page|>3<|box|>613 140 630 313<|content|>C. Opposing Counsel\n<|id|>45<|page|>4<|box|>148 140 167 380<|content|>D. Court and Presiding Judge\n<|id|>47<|page|>4<|box|>308 140 325 483<|content|>E. Additional Parties and Entities Searched\n<|id|>59<|page|>5<|box|>136 328 155 669<|content|>III. Conflicts Search Methodology\n<|id|>69<|page|>6<|box|>154 344 174 651<|content|>IV. Results of Conflicts Search\n<|id|>71<|page|>6<|box|>305 140 323 751<|content|>A. Northgate Telecommunications PLC and Northgate\n<|id|>78<|page|>6<|box|>703 142 720 424<|content|>B. Ridgepoint Communications Inc.\n<|id|>83<|page|>7<|box|>148 140 167 393<|content|>C. Caravel Capital Partners LP\n<|id|>98<|page|>8<|box|>765 140 782 433<|content|>D. Hargrove, Winslow & Burke LLP\n<|id|>104<|page|>9<|box|>267 140 284 361<|content|>E. Experts and Consultants\n<|id|>109<|page|>9<|box|>612 140 628 547<|content|>F. E-discovery Vendor and Other Service Providers\n<|id|>114<|page|>10<|box|>186 140 204 321<|content|>G. Insurance Carriers\n<|id|>119<|page|>10<|box|>643 140 659 630<|content|>H. Telecom-Sector Representations in the Mid-Atlan\n<|id|>126<|page|>11<|box|>420 184 440 812<|content|>V. Analysis Under Applicable Professional Responsi\n<|id|>128<|page|>11<|box|>571 140 589 524<|content|>A. Current Client Conflicts (Rule 1.7 Analogues)\n<|id|>136<|page|>12<|box|>204 140 222 517<|content|>B. Former Client Conflicts (Rule 1.9 Analogues)\n<|id|>144<|page|>13<|box|>339 140 358 312<|content|>C. Imputed Conflicts\n<|id|>147<|page|>13<|box|>633 140 652 285<|content|>D. Issue Conflicts\n<|id|>155<|page|>14<|box|>323 310 342 684<|content|>VI. Conclusion and Recommendation\n<|id|>162<|page|>15<|box|>301 359 321 640<|content|>VII. Approval and Sign-Off",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>6<|level|>2\n<|id|>15<|level|>2\n<|id|>17<|level|>3\n<|id|>28<|level|>3\n<|id|>38<|level|>3\n<|id|>45<|level|>3\n<|id|>47<|level|>3\n<|id|>59<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>3\n<|id|>78<|level|>3\n<|id|>83<|level|>3\n<|id|>98<|level|>3\n<|id|>104<|level|>3\n<|id|>109<|level|>3\n<|id|>114<|level|>3\n<|id|>119<|level|>3\n<|id|>126<|level|>2\n<|id|>128<|level|>3\n<|id|>136<|level|>3\n<|id|>144<|level|>3\n<|id|>147<|level|>3\n<|id|>155<|level|>2\n<|id|>162<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 2
+        },
+        {
+            "id": 17,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 45,
+            "level": 3
+        },
+        {
+            "id": 47,
+            "level": 3
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 3
+        },
+        {
+            "id": 78,
+            "level": 3
+        },
+        {
+            "id": 83,
+            "level": 3
+        },
+        {
+            "id": 98,
+            "level": 3
+        },
+        {
+            "id": 104,
+            "level": 3
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 114,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 128,
+            "level": 3
+        },
+        {
+            "id": 136,
+            "level": 3
+        },
+        {
+            "id": 144,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 155,
+            "level": 2
+        },
+        {
+            "id": 162,
+            "level": 2
+        }
+    ]
+}

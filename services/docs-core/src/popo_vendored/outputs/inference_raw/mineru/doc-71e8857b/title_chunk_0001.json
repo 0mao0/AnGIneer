@@ -1,0 +1,68 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        64,
+        111
+    ],
+    "pages": [
+        65,
+        74,
+        77,
+        88,
+        90,
+        91,
+        92,
+        94,
+        95,
+        110
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>120<|page|>65<|box|>90 140 107 535<|content|>5.3 Liquidated Damages and Retainage Provisions\n<|id|>142<|page|>74<|box|>219 183 239 813<|content|>TAB 7 — EASEMENTS AND RECIPROCAL AGREEMENTS\n<|id|>150<|page|>77<|box|>218 333 238 663<|content|>TAB 8 — TITLE AND SURVEY\n<|id|>165<|page|>88<|box|>233 377 253 620<|content|>TAB 9 — INSURANCE\n<|id|>167<|page|>88<|box|>367 140 383 285<|content|>9.1 Builder's Risk\n<|id|>171<|page|>90<|box|>157 142 174 534<|content|>9.2 OCIP (Owner-Controlled Insurance Program)\n<|id|>174<|page|>91<|box|>444 143 459 344<|content|>9.3 Contractor Insurance\n<|id|>177<|page|>92<|box|>717 142 734 300<|content|>9.4 D&O Insurance\n<|id|>182<|page|>94<|box|>218 142 234 313<|content|>9.6 Insurance Broker\n<|id|>186<|page|>95<|box|>744 233 787 761<|content|>TAB 10 — ENTITLEMENTS, ENVIRONMENTAL, GEOTECHNICAL\n<|id|>205<|page|>110<|box|>90 205 109 790<|content|>TAB 11 — MISCELLANEOUS AND ADMINISTRATIVE",
+    "raw_response": "<|id|>120<|level|>1\n<|id|>142<|level|>1\n<|id|>150<|level|>1\n<|id|>165<|level|>1\n<|id|>167<|level|>2\n<|id|>171<|level|>2\n<|id|>174<|level|>2\n<|id|>177<|level|>2\n<|id|>182<|level|>2\n<|id|>186<|level|>1\n<|id|>205<|level|>1",
+    "parsed": [
+        {
+            "id": 120,
+            "level": 1
+        },
+        {
+            "id": 142,
+            "level": 1
+        },
+        {
+            "id": 150,
+            "level": 1
+        },
+        {
+            "id": 165,
+            "level": 1
+        },
+        {
+            "id": 167,
+            "level": 2
+        },
+        {
+            "id": 171,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 177,
+            "level": 2
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 186,
+            "level": 1
+        },
+        {
+            "id": 205,
+            "level": 1
+        }
+    ]
+}

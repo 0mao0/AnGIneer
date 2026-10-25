@@ -1,0 +1,158 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 258 118 738<|content|>CERTIFICATES OF NON-FOREIGN STATUS\n<|id|>1<|page|>1<|box|>136 197 180 800<|content|>PURSUANT TO SECTION 1445(b)(2) OF THE INTERNAL REV\n<|id|>3<|page|>1<|box|>297 387 314 611<|content|>Closing Date: April 18, 2025\n<|id|>12<|page|>1<|box|>531 408 549 589<|content|>CERTIFICATE NO. 1\n<|id|>13<|page|>1<|box|>571 313 590 683<|content|>CERTIFICATE OF NON-FOREIGN STATUS\n<|id|>14<|page|>1<|box|>613 310 631 687<|content|>CRESTLINE GROWTH EQUITY FUND II LP\n<|id|>23<|page|>2<|box|>487 142 503 434<|content|>Acknowledgments and Undertakings\n<|id|>30<|page|>3<|box|>178 160 213 836<|content|>SIGNATURE PAGE TO CERTIFICATE OF NON-FOREIGN STATU\n<|id|>38<|page|>3<|box|>391 408 409 589<|content|>CERTIFICATE NO. 2\n<|id|>39<|page|>3<|box|>431 313 449 683<|content|>CERTIFICATE OF NON-FOREIGN STATUS\n<|id|>40<|page|>3<|box|>473 346 491 651<|content|>RYLAND FAMILY HOLDINGS LLC\n<|id|>50<|page|>4<|box|>444 140 460 434<|content|>Acknowledgments and Undertakings\n<|id|>58<|page|>5<|box|>159 173 195 823<|content|>SIGNATURE PAGE TO CERTIFICATE OF NON-FOREIGN STATU\n<|id|>62<|page|>5<|box|>356 408 373 589<|content|>CERTIFICATE NO. 3\n<|id|>63<|page|>5<|box|>396 313 414 683<|content|>CERTIFICATE OF NON-FOREIGN STATUS\n<|id|>64<|page|>5<|box|>438 241 454 756<|content|>INDIVIDUAL FORM — MANAGEMENT ROLLOVER GROUP\n<|id|>65<|page|>5<|box|>479 424 496 571<|content|>DANIEL BURCH\n<|id|>74<|page|>6<|box|>272 142 289 434<|content|>Acknowledgments and Undertakings\n<|id|>81<|page|>6<|box|>779 143 814 854<|content|>SIGNATURE PAGE TO CERTIFICATE OF NON-FOREIGN STATU\n<|id|>84<|page|>7<|box|>179 408 196 589<|content|>CERTIFICATE NO. 4\n<|id|>85<|page|>7<|box|>220 313 237 684<|content|>CERTIFICATE OF NON-FOREIGN STATUS\n<|id|>86<|page|>7<|box|>261 240 277 756<|content|>INDIVIDUAL FORM — MANAGEMENT ROLLOVER GROUP\n<|id|>87<|page|>7<|box|>301 411 319 586<|content|>ANGELA MORETTI\n<|id|>95<|page|>8<|box|>90 142 108 434<|content|>Acknowledgments and Undertakings\n<|id|>102<|page|>8<|box|>598 173 633 823<|content|>SIGNATURE PAGE TO CERTIFICATE OF NON-FOREIGN STATU\n<|id|>104<|page|>9<|box|>89 408 106 589<|content|>CERTIFICATE NO. 5\n<|id|>105<|page|>9<|box|>131 313 148 684<|content|>CERTIFICATE OF NON-FOREIGN STATUS\n<|id|>106<|page|>9<|box|>172 240 189 756<|content|>INDIVIDUAL FORM — MANAGEMENT ROLLOVER GROUP\n<|id|>122<|page|>10<|box|>547 163 584 831<|content|>SIGNATURE PAGE TO CERTIFICATE OF NON-FOREIGN STATU\n<|id|>124<|page|>11<|box|>89 408 106 589<|content|>CERTIFICATE NO. 6\n<|id|>125<|page|>11<|box|>130 313 148 684<|content|>CERTIFICATE OF NON-FOREIGN STATUS\n<|id|>126<|page|>11<|box|>172 240 189 756<|content|>INDIVIDUAL FORM — MANAGEMENT ROLLOVER GROUP\n<|id|>142<|page|>12<|box|>547 179 584 816<|content|>SIGNATURE PAGE TO CERTIFICATE OF NON-FOREIGN STATU",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>3<|level|>2\n<|id|>12<|level|>2\n<|id|>13<|level|>3\n<|id|>14<|level|>4\n<|id|>23<|level|>3\n<|id|>30<|level|>2\n<|id|>38<|level|>2\n<|id|>39<|level|>3\n<|id|>40<|level|>4\n<|id|>50<|level|>3\n<|id|>58<|level|>2\n<|id|>62<|level|>2\n<|id|>63<|level|>3\n<|id|>64<|level|>4\n<|id|>65<|level|>5\n<|id|>74<|level|>3\n<|id|>81<|level|>2\n<|id|>84<|level|>2\n<|id|>85<|level|>3\n<|id|>86<|level|>4\n<|id|>87<|level|>5\n<|id|>95<|level|>3\n<|id|>102<|level|>2\n<|id|>104<|level|>2\n<|id|>105<|level|>3\n<|id|>106<|level|>4\n<|id|>122<|level|>2\n<|id|>124<|level|>2\n<|id|>125<|level|>3\n<|id|>126<|level|>4\n<|id|>142<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 13,
+            "level": 3
+        },
+        {
+            "id": 14,
+            "level": 4
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 4
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 4
+        },
+        {
+            "id": 65,
+            "level": 5
+        },
+        {
+            "id": 74,
+            "level": 3
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 84,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 3
+        },
+        {
+            "id": 86,
+            "level": 4
+        },
+        {
+            "id": 87,
+            "level": 5
+        },
+        {
+            "id": 95,
+            "level": 3
+        },
+        {
+            "id": 102,
+            "level": 2
+        },
+        {
+            "id": 104,
+            "level": 2
+        },
+        {
+            "id": 105,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 4
+        },
+        {
+            "id": 122,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 2
+        },
+        {
+            "id": 125,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 4
+        },
+        {
+            "id": 142,
+            "level": 2
+        }
+    ]
+}

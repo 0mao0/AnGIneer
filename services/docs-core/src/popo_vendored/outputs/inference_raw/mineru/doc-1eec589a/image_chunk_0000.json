@@ -1,0 +1,32 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 269 107 725<|content|>CALDERWOOD & HARKNESS LLP Counsellors at Law\n<|id|>1<|type|>title<|page|>1<|box|>114 328 133 671<|content|>125 Broad Street New York, New York 10004\n<|id|>23<|type|>title<|page|>2<|box|>703 140 719 447<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>32<|type|>title<|page|>3<|box|>90 181 109 815<|content|>PAYOFF LETTER AND LIEN RELEASE AUTHORIZATION\n<|id|>45<|type|>title<|page|>3<|box|>621 140 638 498<|content|>Section 1. Reference to Existing Indebtedness\n<|id|>49<|type|>title<|page|>4<|box|>148 140 167 346<|content|>Section 2. Payoff Amount\n<|id|>51<|type|>table<|page|>4<|box|>261 143 390 852<|content|>None\n<|id|>58<|type|>title<|page|>5<|box|>258 140 277 364<|content|>Section 3. Wire Instructions\n<|id|>64<|type|>title<|page|>5<|box|>613 140 628 524<|content|>Section 4. Release of Liens and Security Interests\n<|id|>73<|type|>title<|page|>6<|box|>710 140 728 522<|content|>Section 5. Confirmation of No Other Obligations\n<|id|>78<|type|>title<|page|>7<|box|>267 140 284 581<|content|>Section 6. Representations and Warranties of Greys\n<|id|>85<|type|>title<|page|>8<|box|>167 140 184 336<|content|>Section 7. Miscellaneous\n<|id|>103<|type|>title<|page|>9<|box|>133 142 150 483<|content|>GREYSTONE MEZZANINE FUND II, LP\n<|id|>111<|type|>title<|page|>9<|box|>272 316 287 679<|content|>ACKNOWLEDGMENT AND AGREEMENT\n<|id|>113<|type|>title<|page|>9<|box|>359 142 376 447<|content|>IRONHAVEN DATA CENTERS LLC\n<|id|>118<|type|>title<|page|>10<|box|>90 437 109 562<|content|>EXHIBIT A\n<|id|>119<|type|>title<|page|>10<|box|>135 349 152 648<|content|>WIRE TRANSFER INSTRUCTIONS\n<|id|>120<|type|>title<|page|>10<|box|>162 156 198 839<|content|>(to the Payoff Letter and Lien Release Authorizati\n<|id|>122<|type|>table<|page|>10<|box|>250 143 446 852<|content|>None\n<|id|>123<|type|>title<|page|>10<|box|>481 143 498 465<|content|>Wire Confirmation Contact Information:",
+    "raw_response": "<|src_id|>51<|tgt_id|>49\n<|src_id|>122<|tgt_id|>119",
+    "parsed": [
+        {
+            "src_id": 51,
+            "tgt_id": 49
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 119
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 184 126 856<|content|>CALDERWOOD & HARKNESS LLP 777 South Flower Street,\n<|id|>10<|page|>1<|box|>502 140 518 362<|content|>I. Introduction and Context\n<|id|>14<|page|>2<|box|>186 140 204 473<|content|>II. Description of the Overbroad Requests\n<|id|>22<|page|>3<|box|>258 140 277 395<|content|>III. Proportionality Framework\n<|id|>26<|page|>3<|box|>781 140 797 542<|content|>IV. Proposed Limitation 1 — Custodian Limitation\n<|id|>38<|page|>5<|box|>285 140 301 496<|content|>V. Proposed Limitation 2 — Time Limitation\n<|id|>47<|page|>6<|box|>321 140 339 563<|content|>VI. Proposed Limitation 3 — Search Term Limitation\n<|id|>50<|page|>6<|box|>564 142 580 303<|content|>Meal Period Terms:\n<|id|>52<|page|>6<|box|>652 142 669 297<|content|>Rest Period Terms:\n<|id|>54<|page|>6<|box|>705 143 722 308<|content|>Timekeeping Terms:\n<|id|>56<|page|>6<|box|>773 142 791 426<|content|>Overtime and Off-the-Clock Terms:\n<|id|>58<|page|>6<|box|>845 142 862 294<|content|>Scheduling Terms:\n<|id|>60<|page|>7<|box|>90 140 108 348<|content|>Wage and Payroll Terms:\n<|id|>64<|page|>7<|box|>392 140 409 593<|content|>VII. Structured Data Production (Non-Email Documen\n<|id|>74<|page|>8<|box|>747 140 763 261<|content|>VIII. Privilege\n<|id|>78<|page|>9<|box|>250 140 265 521<|content|>IX. Production Volume and E-discovery Vendor\n<|id|>83<|page|>10<|box|>90 140 107 594<|content|>X. Request for Response and Continued Meet-and-Con\n<|id|>96<|page|>10<|box|>720 447 738 549<|content|>EXHIBIT A\n<|id|>97<|page|>10<|box|>747 354 763 643<|content|>PROPOSED SEARCH TERM LIST\n<|id|>98<|page|>10<|box|>773 174 790 821<|content|>Fuentes v. Aurelius Media Americas Inc. LASC Case",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>10<|level|>2\n<|id|>14<|level|>2\n<|id|>22<|level|>2\n<|id|>26<|level|>2\n<|id|>38<|level|>2\n<|id|>47<|level|>2\n<|id|>50<|level|>3\n<|id|>52<|level|>3\n<|id|>54<|level|>3\n<|id|>56<|level|>3\n<|id|>58<|level|>3\n<|id|>60<|level|>3\n<|id|>64<|level|>2\n<|id|>74<|level|>2\n<|id|>78<|level|>2\n<|id|>83<|level|>2\n<|id|>96<|level|>1\n<|id|>97<|level|>2\n<|id|>98<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 22,
+            "level": 2
+        },
+        {
+            "id": 26,
+            "level": 2
+        },
+        {
+            "id": 38,
+            "level": 2
+        },
+        {
+            "id": 47,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 58,
+            "level": 3
+        },
+        {
+            "id": 60,
+            "level": 3
+        },
+        {
+            "id": 64,
+            "level": 2
+        },
+        {
+            "id": 74,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 98,
+            "level": 3
+        }
+    ]
+}

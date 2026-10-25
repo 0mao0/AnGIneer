@@ -1,0 +1,26 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        11,
+        23
+    ],
+    "pages": [
+        11,
+        19,
+        21,
+        23
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>30<|type|>title<|page|>11<|box|>87 87 99 139<|content|>Notes\n<|id|>42<|type|>table<|page|>19<|box|>84 85 229 877<|content|>None\n<|id|>43<|type|>table<|page|>21<|box|>85 85 192 875<|content|>None\n<|id|>50<|type|>title<|page|>23<|box|>86 87 101 258<|content|>Note NumDescription",
+    "raw_response": "<|src_id|>42<|tgt_id|>30\n<|src_id|>43<|tgt_id|>30",
+    "parsed": [
+        {
+            "src_id": 42,
+            "tgt_id": 30
+        },
+        {
+            "src_id": 43,
+            "tgt_id": 30
+        }
+    ]
+}

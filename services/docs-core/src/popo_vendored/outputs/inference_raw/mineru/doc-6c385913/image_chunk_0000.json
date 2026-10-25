@@ -1,0 +1,41 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        33
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        17,
+        20,
+        21,
+        22,
+        25,
+        26,
+        27,
+        28,
+        31,
+        33
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>98 241 118 754<|content|>AMENDMENT NO. 3 TO CREDIT AGREEMENT\n<|id|>5<|type|>title<|page|>1<|box|>291 230 308 767<|content|>THE INCREMENTAL TERM LOAN LENDERS PARTY HERETO\n<|id|>7<|type|>title<|page|>1<|box|>361 143 378 547<|content|>AMENDMENT NO. 3 TO CREDIT AGREEMENT\n<|id|>13<|type|>title<|page|>1<|box|>718 142 734 241<|content|>RECITALS\n<|id|>22<|type|>title<|page|>2<|box|>689 140 705 419<|content|>SECTION 1 — DEFINED TERMS\n<|id|>43<|type|>title<|page|>4<|box|>597 140 614 522<|content|>SECTION 2 — INCREMENTAL TERM LOAN\n<|id|>55<|type|>title<|page|>5<|box|>546 140 563 241<|content|>2.3 Interest.\n<|id|>63<|type|>title<|page|>6<|box|>414 140 430 282<|content|>2.4 Amortization.\n<|id|>68<|type|>title<|page|>6<|box|>799 140 816 490<|content|>2.5 Mandatory and Voluntary Prepayments.\n<|id|>81<|type|>title<|page|>7<|box|>847 140 864 764<|content|>SECTION 3 — AMENDMENTS TO THE EXISTING CREDIT AGRE\n<|id|>90<|type|>title<|page|>8<|box|>883 142 898 256<|content|>3.5 Collateral.\n<|id|>95<|type|>title<|page|>9<|box|>574 140 592 684<|content|>SECTION 4 — CONDITIONS PRECEDENT TO EFFECTIVENESS\n<|id|>116<|type|>title<|page|>11<|box|>377 140 393 852<|content|>4.5 Organizational Documents and Resolutions. The\n<|id|>169<|type|>title<|page|>17<|box|>89 140 106 620<|content|>SECTION 5 — REPRESENTATIONS AND WARRANTIES\n<|id|>189<|type|>title<|page|>20<|box|>148 140 166 674<|content|>SECTION 6 — COVENANTS; POST-CLOSING DELIVERABLES\n<|id|>200<|type|>title<|page|>21<|box|>809 140 827 665<|content|>SECTION 7 — ACKNOWLEDGMENT AND REAFFIRMATION\n<|id|>204<|type|>title<|page|>22<|box|>695 140 712 429<|content|>SECTION 8 — MISCELLANEOUS\n<|id|>238<|type|>title<|page|>25<|box|>667 143 681 263<|content|>BORROWER:\n<|id|>252<|type|>title<|page|>26<|box|>89 142 106 385<|content|>ADMINISTRATIVE AGENT:\n<|id|>279<|type|>title<|page|>27<|box|>89 455 107 542<|content|>ANNEX A\n<|id|>280<|type|>title<|page|>27<|box|>131 295 148 702<|content|>INCREMENTAL TERM LOAN COMMITMENTS\n<|id|>282<|type|>table<|page|>27<|box|>199 143 361 852<|content|>None\n<|id|>283<|type|>title<|page|>27<|box|>395 143 412 325<|content|>Amortization Schedule\n<|id|>285<|type|>table<|page|>27<|box|>537 143 705 852<|content|>None\n<|id|>287<|type|>title<|page|>28<|box|>89 447 107 550<|content|>EXHIBIT A\n<|id|>288<|type|>title<|page|>28<|box|>130 274 148 723<|content|>FORM OF LEGAL OPINION OF BUYER'S COUNSEL\n<|id|>316<|type|>title<|page|>31<|box|>89 449 107 550<|content|>EXHIBIT B\n<|id|>317<|type|>title<|page|>31<|box|>131 338 148 658<|content|>FORM OF OFFICER'S CERTIFICATE\n<|id|>319<|type|>title<|page|>31<|box|>183 194 199 803<|content|>OFFICER'S CERTIFICATE CRESTLINE PACKAGING SOLUTION\n<|id|>337<|type|>title<|page|>33<|box|>89 447 107 550<|content|>EXHIBIT C\n<|id|>338<|type|>title<|page|>33<|box|>131 336 148 661<|content|>FORM OF SOLVENCY CERTIFICATE\n<|id|>340<|type|>title<|page|>33<|box|>183 192 199 803<|content|>SOLVENCY CERTIFICATE CRESTLINE PACKAGING SOLUTIONS\n<|id|>344<|type|>title<|page|>33<|box|>523 142 542 383<|content|>After giving pro forma effect to:",
+    "raw_response": "<|src_id|>282<|tgt_id|>280\n<|src_id|>285<|tgt_id|>283",
+    "parsed": [
+        {
+            "src_id": 282,
+            "tgt_id": 280
+        },
+        {
+            "src_id": 285,
+            "tgt_id": 283
+        }
+    ]
+}

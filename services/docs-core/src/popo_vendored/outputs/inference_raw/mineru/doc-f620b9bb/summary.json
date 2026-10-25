@@ -1,0 +1,193 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-w8evwlwz\\input\\pdfs\\doc-f620b9bb.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-w8evwlwz\\enriched\\doc-f620b9bb.json",
+    "contd_output": "<|src_id|>113<|tgt_id|>114\n<|src_id|>122<|tgt_id|>123\n<|src_id|>154<|tgt_id|>155\n<|src_id|>219<|tgt_id|>220",
+    "title_output": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>3<|level|>1\n<|id|>11<|level|>2\n<|id|>18<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>3\n<|id|>66<|level|>3\n<|id|>80<|level|>2\n<|id|>86<|level|>3\n<|id|>90<|level|>3\n<|id|>94<|level|>3\n<|id|>99<|level|>3\n<|id|>103<|level|>2\n<|id|>115<|level|>3\n<|id|>121<|level|>2\n<|id|>124<|level|>3\n<|id|>132<|level|>2\n<|id|>133<|level|>3\n<|id|>141<|level|>3\n<|id|>145<|level|>2\n<|id|>158<|level|>2\n<|id|>164<|level|>3\n<|id|>168<|level|>2\n<|id|>174<|level|>2\n<|id|>188<|level|>2\n<|id|>190<|level|>3\n<|id|>216<|level|>2\n<|id|>218<|level|>3\n<|id|>265<|level|>2\n<|id|>269<|level|>2",
+    "image_output": "<|src_id|>95<|tgt_id|>94\n<|src_id|>267<|tgt_id|>265\n<|src_id|>270<|tgt_id|>269\n<|src_id|>271<|tgt_id|>269",
+    "contd_label": [
+        {
+            "src_id": 113,
+            "tgt_id": 114
+        },
+        {
+            "src_id": 122,
+            "tgt_id": 123
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 155
+        },
+        {
+            "src_id": 219,
+            "tgt_id": 220
+        }
+    ],
+    "title_label": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 3
+        },
+        {
+            "id": 66,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 2
+        },
+        {
+            "id": 86,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 94,
+            "level": 3
+        },
+        {
+            "id": 99,
+            "level": 3
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 115,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 2
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 132,
+            "level": 2
+        },
+        {
+            "id": 133,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 3
+        },
+        {
+            "id": 145,
+            "level": 2
+        },
+        {
+            "id": 158,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 3
+        },
+        {
+            "id": 168,
+            "level": 2
+        },
+        {
+            "id": 174,
+            "level": 2
+        },
+        {
+            "id": 188,
+            "level": 2
+        },
+        {
+            "id": 190,
+            "level": 3
+        },
+        {
+            "id": 216,
+            "level": 2
+        },
+        {
+            "id": 218,
+            "level": 3
+        },
+        {
+            "id": 265,
+            "level": 2
+        },
+        {
+            "id": 269,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 95,
+            "tgt_id": 94
+        },
+        {
+            "src_id": 267,
+            "tgt_id": 265
+        },
+        {
+            "src_id": 270,
+            "tgt_id": 269
+        },
+        {
+            "src_id": 271,
+            "tgt_id": 269
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 270,
+            "table2_idx": 271,
+            "upper_row_ss": [
+                [
+                    "PrecisionEdgeTM PE-5000 Series",
+                    "5 mm laparoscopic trocar assembly,",
+                    "5 mm"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    "including all models and configurations within the PE-5000 product line",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

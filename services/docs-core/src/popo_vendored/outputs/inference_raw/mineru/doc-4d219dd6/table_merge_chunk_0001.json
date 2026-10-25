@@ -1,0 +1,18 @@
+{
+    "task": "table_merge",
+    "chunk_index": 1,
+    "range": null,
+    "pages": [],
+    "prompt": "\n## Table 1 (Previous Page - Last Table)\n\n**Caption:** :\"\"\n**Last Row(s) Data:**\n[['MCI', 'Weekly', 'By 6:00 AM ET', '$5,000/', '$15,000/', '$25,000/']]\n\n---\n\n## Table 2 (Current Page - First Table)\n\n**Caption:** :\"\"\n**First Data Row(s):**\n[['CommercialViewTM (Batch)', '(Mondays)', '', 'occurrence', 'occurrence (Sev 2)', 'occurrence (Sev 1)']]\n",
+    "raw_response": "[1, 1, 1, 1, 1, 1]",
+    "parsed": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "table1_idx": 247,
+    "table2_idx": 248
+}

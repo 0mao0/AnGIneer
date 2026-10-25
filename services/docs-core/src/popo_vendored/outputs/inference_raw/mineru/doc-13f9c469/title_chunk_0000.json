@@ -1,0 +1,74 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        11
+    ],
+    "pages": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 380 106 616<|content|>SOLVENCY CERTIFICATE\n<|id|>1<|page|>1<|box|>114 163 152 834<|content|>Delivered pursuant to Section 4.01(a)(ix) of that\n<|id|>11<|page|>1<|box|>444 142 462 609<|content|>Section 1 — Recitals and Identification of Certify\n<|id|>21<|page|>2<|box|>429 140 446 459<|content|>Section 2 — Description of Transactions\n<|id|>42<|page|>4<|box|>674 176 691 717<|content|>Section 3 — Basis of Determination; Financial Info\n<|id|>62<|page|>7<|box|>186 176 204 459<|content|>Section 4 — Solvency Certifications\n<|id|>64<|page|>7<|box|>297 176 315 478<|content|>4.1 — Fair Value (Balance Sheet Test)\n<|id|>68<|page|>7<|box|>770 176 787 640<|content|>4.2 — Fair Saleable Value; No Unreasonably Small C\n<|id|>79<|page|>8<|box|>676 176 693 553<|content|>4.3 — Ability to Pay Debts as They Become Due\n<|id|>87<|page|>9<|box|>382 176 398 535<|content|>4.4 — No Intent to Hinder, Delay, or Defraud\n<|id|>90<|page|>9<|box|>619 176 636 581<|content|>Section 5 — Definitions and Interpretive Provision\n<|id|>97<|page|>10<|box|>286 176 303 517<|content|>Section 6 — Limitations and Qualifications\n<|id|>103<|page|>11<|box|>90 176 107 401<|content|>Section 7 — Governing Law\n<|id|>105<|page|>11<|box|>179 176 196 372<|content|>[Signature Page Follows]\n<|id|>106<|page|>11<|box|>204 292 220 738<|content|>[SIGNATURE PAGE TO SOLVENCY CERTIFICATE]\n<|id|>108<|page|>11<|box|>292 176 309 483<|content|>IRONHAVEN DATA CENTERS LLC",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>-1\n<|id|>11<|level|>2\n<|id|>21<|level|>2\n<|id|>42<|level|>2\n<|id|>62<|level|>2\n<|id|>64<|level|>3\n<|id|>68<|level|>3\n<|id|>79<|level|>3\n<|id|>87<|level|>3\n<|id|>90<|level|>2\n<|id|>97<|level|>2\n<|id|>103<|level|>2\n<|id|>105<|level|>-1\n<|id|>106<|level|>-1\n<|id|>108<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 11,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 3
+        },
+        {
+            "id": 68,
+            "level": 3
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 87,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 2
+        },
+        {
+            "id": 97,
+            "level": 2
+        },
+        {
+            "id": 103,
+            "level": 2
+        },
+        {
+            "id": 108,
+            "level": 3
+        }
+    ]
+}

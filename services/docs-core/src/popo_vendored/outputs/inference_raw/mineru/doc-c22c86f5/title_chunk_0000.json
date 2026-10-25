@@ -1,0 +1,103 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 326 118 669<|content|>UNITED STATES OF AMERICA\n<|id|>1<|page|>1<|box|>137 421 157 576<|content|>BEFORE THE\n<|id|>2<|page|>1<|box|>175 225 195 772<|content|>FEDERAL ENERGY REGULATORY COMMISSION\n<|id|>4<|page|>1<|box|>378 272 393 723<|content|>VERIFICATION AND CERTIFICATE OF ACCURACY\n<|id|>6<|page|>1<|box|>479 142 494 433<|content|>I. IDENTIFICATION OF AFFIANT\n<|id|>12<|page|>2<|box|>89 142 106 395<|content|>II. DESCRIPTION OF FILING\n<|id|>21<|page|>2<|box|>648 140 665 673<|content|>III. VERIFICATION OF KEY DATA — SYSTEM DESCRIPTION\n<|id|>31<|page|>3<|box|>631 142 648 781<|content|>IV. VERIFICATION OF KEY DATA — RATE BASE AND COST\n<|id|>33<|page|>3<|box|>707 143 723 248<|content|>A. Rate Base\n<|id|>40<|page|>4<|box|>436 142 454 367<|content|>B. Test-Year Cost of Service\n<|id|>49<|page|>5<|box|>275 140 292 400<|content|>C. Capital Structure and Return\n<|id|>53<|page|>5<|box|>542 140 560 584<|content|>V. VERIFICATION OF KEY DATA — RATE DESIGN\n<|id|>59<|page|>6<|box|>242 140 258 758<|content|>VI. VERIFICATION OF KEY DATA — INTERCONNECTION FAC\n<|id|>68<|page|>7<|box|>148 140 166 580<|content|>VII. VERIFICATION OF KEY DATA — FINANCING\n<|id|>73<|page|>7<|box|>659 140 676 457<|content|>VIII. CERTIFICATION OF SOURCES\n<|id|>81<|page|>8<|box|>513 140 532 589<|content|>IX. VERIFICATION UNDER PENALTY OF PERJURY\n<|id|>85<|page|>8<|box|>729 140 747 434<|content|>X. CERTIFICATE OF ACCURACY\n<|id|>91<|page|>10<|box|>89 142 107 285<|content|>XI. SIGNATURE\n<|id|>94<|page|>10<|box|>266 142 282 457<|content|>XII. NOTARY ACKNOWLEDGMENT\n<|id|>96<|page|>10<|box|>316 140 335 359<|content|>COUNTY OF KANAWHA",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>2<|level|>1\n<|id|>4<|level|>1\n<|id|>6<|level|>2\n<|id|>12<|level|>2\n<|id|>21<|level|>2\n<|id|>31<|level|>2\n<|id|>33<|level|>3\n<|id|>40<|level|>3\n<|id|>49<|level|>3\n<|id|>53<|level|>2\n<|id|>59<|level|>2\n<|id|>68<|level|>2\n<|id|>73<|level|>2\n<|id|>81<|level|>2\n<|id|>85<|level|>2\n<|id|>91<|level|>2\n<|id|>94<|level|>2\n<|id|>96<|level|>3",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 12,
+            "level": 2
+        },
+        {
+            "id": 21,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 40,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 68,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 2
+        },
+        {
+            "id": 91,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 2
+        },
+        {
+            "id": 96,
+            "level": 3
+        }
+    ]
+}

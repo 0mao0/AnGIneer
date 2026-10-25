@@ -1,0 +1,150 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-jq0igfaw\\input\\pdfs\\doc-3846e0db.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-jq0igfaw\\enriched\\doc-3846e0db.json",
+    "contd_output": "",
+    "title_output": "<|id|>3<|level|>1\n<|id|>8<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>20<|level|>3\n<|id|>28<|level|>3\n<|id|>33<|level|>2\n<|id|>34<|level|>3\n<|id|>38<|level|>3\n<|id|>46<|level|>3\n<|id|>53<|level|>2\n<|id|>54<|level|>3\n<|id|>72<|level|>3\n<|id|>80<|level|>3\n<|id|>96<|level|>3\n<|id|>101<|level|>3\n<|id|>108<|level|>2\n<|id|>109<|level|>3\n<|id|>119<|level|>3\n<|id|>129<|level|>2\n<|id|>130<|level|>3\n<|id|>140<|level|>3\n<|id|>147<|level|>3\n<|id|>153<|level|>2\n<|id|>156<|level|>2\n<|id|>163<|level|>2",
+    "image_output": "<|src_id|>57<|tgt_id|>54\n<|src_id|>154<|tgt_id|>153\n<|src_id|>155<|tgt_id|>153",
+    "contd_label": [],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 20,
+            "level": 3
+        },
+        {
+            "id": 28,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 3
+        },
+        {
+            "id": 38,
+            "level": 3
+        },
+        {
+            "id": 46,
+            "level": 3
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 54,
+            "level": 3
+        },
+        {
+            "id": 72,
+            "level": 3
+        },
+        {
+            "id": 80,
+            "level": 3
+        },
+        {
+            "id": 96,
+            "level": 3
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 108,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 3
+        },
+        {
+            "id": 119,
+            "level": 3
+        },
+        {
+            "id": 129,
+            "level": 2
+        },
+        {
+            "id": 130,
+            "level": 3
+        },
+        {
+            "id": 140,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 3
+        },
+        {
+            "id": 153,
+            "level": 2
+        },
+        {
+            "id": 156,
+            "level": 2
+        },
+        {
+            "id": 163,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 57,
+            "tgt_id": 54
+        },
+        {
+            "src_id": 154,
+            "tgt_id": 153
+        },
+        {
+            "src_id": 155,
+            "tgt_id": 153
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 154,
+            "table2_idx": 155,
+            "upper_row_ss": [
+                [
+                    "Ashford Meridian Rate Adjustment Memo (February",
+                    "Demonstrates awareness of the upcoming rate increase,"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "2022)",
+                    "but not motivation to terminate; consistent with routine financial planning by a $1.28 billion company managing numerous carrier contracts"
+                ]
+            ]
+        }
+    ]
+}

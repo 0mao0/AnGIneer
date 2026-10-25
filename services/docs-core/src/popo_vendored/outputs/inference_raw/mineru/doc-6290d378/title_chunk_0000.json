@@ -1,0 +1,128 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        2,
+        22
+    ],
+    "pages": [
+        2,
+        3,
+        5,
+        6,
+        10,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21,
+        22
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>2<|box|>90 434 111 563<|content|>EXHIBIT D\n<|id|>1<|page|>2<|box|>136 277 152 718<|content|>TRADEMARK LICENSE AND BRAND GUIDELINES\n<|id|>10<|page|>2<|box|>492 142 508 390<|content|>ARTICLE 1 — DEFINITIONS\n<|id|>25<|page|>3<|box|>545 140 563 573<|content|>ARTICLE 2 — GRANT OF TRADEMARK LICENSE\n<|id|>41<|page|>5<|box|>89 140 107 803<|content|>ARTICLE 3 — INTELLECTUAL PROPERTY OWNERSHIP AND PR\n<|id|>52<|page|>6<|box|>222 140 239 454<|content|>ARTICLE 4 — BRAND GUIDELINES\n<|id|>109<|page|>10<|box|>589 140 607 807<|content|>ARTICLE 5 — APPROVAL REQUIREMENTS FOR CO-BRANDED M\n<|id|>126<|page|>12<|box|>339 140 357 450<|content|>ARTICLE 6 — QUALITY CONTROL\n<|id|>141<|page|>13<|box|>472 140 489 743<|content|>ARTICLE 7 — TERM AND TERMINATION OF TRADEMARK LICE\n<|id|>160<|page|>15<|box|>89 140 107 620<|content|>ARTICLE 8 — REPRESENTATIONS AND WARRANTIES\n<|id|>161<|page|>15<|box|>116 140 133 715<|content|>8.1 Lumos Representations. Lumos represents and wa\n<|id|>167<|page|>15<|box|>417 140 435 735<|content|>8.2 Meridian Representations. Meridian represents\n<|id|>172<|page|>15<|box|>690 142 707 442<|content|>ARTICLE 9 — INDEMNIFICATION\n<|id|>178<|page|>16<|box|>364 142 383 437<|content|>ARTICLE 10 — MISCELLANEOUS\n<|id|>187<|page|>17<|box|>159 176 175 299<|content|>If to Meridian:\n<|id|>193<|page|>18<|box|>89 142 106 473<|content|>SCHEDULE D-1 — MARK SPECIMENS\n<|id|>196<|page|>18<|box|>748 143 763 197<|content|>Notes:\n<|id|>200<|page|>20<|box|>89 142 106 583<|content|>SCHEDULE D-2 — VISUAL IDENTITY STANDARDS\n<|id|>201<|page|>20<|box|>121 140 138 395<|content|>Section 1 — Logo Specifications\n<|id|>212<|page|>20<|box|>633 142 650 428<|content|>Section 2 — Color Palette Reference\n<|id|>215<|page|>21<|box|>90 140 107 424<|content|>Section 3 — Typography Standards\n<|id|>222<|page|>21<|box|>256 142 273 308<|content|>3.2 Usage Hierarchy.\n<|id|>225<|page|>21<|box|>618 140 633 434<|content|>Section 4 — Layout and Grid System\n<|id|>231<|page|>21<|box|>811 142 829 397<|content|>Section 5 — Imagery Guidelines\n<|id|>239<|page|>22<|box|>328 413 343 583<|content|>SIGNATURE PAGE\n<|id|>240<|page|>22<|box|>353 217 369 779<|content|>EXHIBIT D — TRADEMARK LICENSE AND BRAND GUIDELINES",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>1\n<|id|>10<|level|>2\n<|id|>25<|level|>2\n<|id|>41<|level|>2\n<|id|>52<|level|>2\n<|id|>109<|level|>2\n<|id|>126<|level|>2\n<|id|>141<|level|>2\n<|id|>160<|level|>2\n<|id|>161<|level|>3\n<|id|>167<|level|>3\n<|id|>172<|level|>2\n<|id|>178<|level|>2\n<|id|>187<|level|>-1\n<|id|>193<|level|>2\n<|id|>196<|level|>3\n<|id|>200<|level|>2\n<|id|>201<|level|>3\n<|id|>212<|level|>3\n<|id|>215<|level|>3\n<|id|>222<|level|>4\n<|id|>225<|level|>3\n<|id|>231<|level|>3\n<|id|>239<|level|>2\n<|id|>240<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 10,
+            "level": 2
+        },
+        {
+            "id": 25,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 109,
+            "level": 2
+        },
+        {
+            "id": 126,
+            "level": 2
+        },
+        {
+            "id": 141,
+            "level": 2
+        },
+        {
+            "id": 160,
+            "level": 2
+        },
+        {
+            "id": 161,
+            "level": 3
+        },
+        {
+            "id": 167,
+            "level": 3
+        },
+        {
+            "id": 172,
+            "level": 2
+        },
+        {
+            "id": 178,
+            "level": 2
+        },
+        {
+            "id": 193,
+            "level": 2
+        },
+        {
+            "id": 196,
+            "level": 3
+        },
+        {
+            "id": 200,
+            "level": 2
+        },
+        {
+            "id": 201,
+            "level": 3
+        },
+        {
+            "id": 212,
+            "level": 3
+        },
+        {
+            "id": 215,
+            "level": 3
+        },
+        {
+            "id": 222,
+            "level": 4
+        },
+        {
+            "id": 225,
+            "level": 3
+        },
+        {
+            "id": 231,
+            "level": 3
+        },
+        {
+            "id": 239,
+            "level": 2
+        },
+        {
+            "id": 240,
+            "level": 2
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        8
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>98 233 118 763<|content|>OFFICER'S CERTIFICATE OF THE BORROWER\n<|id|>1<|page|>1<|box|>136 323 154 674<|content|>Representations and Warranties; No Default\n<|id|>4<|page|>1<|box|>375 140 393 493<|content|>Section 1. Identification of Certifying Officer\n<|id|>8<|page|>2<|box|>148 140 167 666<|content|>Section 2. Certification Regarding Representations\n<|id|>24<|page|>5<|box|>241 140 258 651<|content|>Section 3. Certification Regarding No Default or E\n<|id|>27<|page|>5<|box|>700 140 717 537<|content|>Section 4. Certification Regarding Use of Proceeds\n<|id|>31<|page|>6<|box|>449 140 465 596<|content|>Section 5. Certification Regarding Pro Forma Compl\n<|id|>48<|page|>7<|box|>329 140 347 602<|content|>Section 6. Certification Regarding Material Advers\n<|id|>53<|page|>7<|box|>584 140 601 493<|content|>Section 7. Certification Regarding Insurance\n<|id|>59<|page|>8<|box|>329 140 347 468<|content|>Section 8. Reliance; No Personal Liability\n<|id|>64<|page|>8<|box|>770 289 787 707<|content|>[Signature Page to Officer's Certificate of the Bo\n<|id|>66<|page|>8<|box|>839 140 856 498<|content|>NEXFORD INDUSTRIAL HOLDINGS INC.",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>1<|level|>2\n<|id|>4<|level|>2\n<|id|>8<|level|>2\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>31<|level|>2\n<|id|>48<|level|>2\n<|id|>53<|level|>2\n<|id|>59<|level|>2\n<|id|>64<|level|>2\n<|id|>66<|level|>-1",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 1,
+            "level": 2
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 31,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 64,
+            "level": 2
+        }
+    ]
+}

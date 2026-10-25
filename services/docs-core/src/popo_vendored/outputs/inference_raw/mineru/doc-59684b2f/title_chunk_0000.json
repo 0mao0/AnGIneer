@@ -1,0 +1,88 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        10
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 106 650<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>4<|page|>1<|box|>212 142 229 496<|content|>VIA EMAIL AND OVERNIGHT COURIER\n<|id|>8<|page|>1<|box|>386 143 402 366<|content|>1. Introduction and Purpose\n<|id|>21<|page|>2<|box|>440 140 457 485<|content|>2. Background — The Field-of-Use Impasse\n<|id|>28<|page|>3<|box|>513 140 530 486<|content|>3. The Tiered-Unlock Proposal — Overview\n<|id|>33<|page|>4<|box|>186 140 203 393<|content|>4. Tier 1 — Base License Terms\n<|id|>34<|page|>4<|box|>217 140 234 354<|content|>4.1 Scope of Tier 1 License\n<|id|>44<|page|>5<|box|>89 140 106 254<|content|>4.2 Tier 1 Fee\n<|id|>50<|page|>5<|box|>559 140 575 282<|content|>4.3 License Term\n<|id|>52<|page|>5<|box|>724 140 739 277<|content|>4.4 Other Terms\n<|id|>61<|page|>6<|box|>444 140 460 434<|content|>5. Tier 2 — Expansion Option Terms\n<|id|>62<|page|>6<|box|>474 140 492 421<|content|>5.1 Nature of the Expansion Option\n<|id|>66<|page|>7<|box|>90 140 107 416<|content|>5.2 Expansion Option Exercise Fee\n<|id|>70<|page|>7<|box|>506 140 523 328<|content|>5.3 Exercise Mechanics\n<|id|>75<|page|>8<|box|>176 140 193 491<|content|>5.4 Effect on Nexilis's Third-Party Licensing\n<|id|>79<|page|>8<|box|>750 140 767 341<|content|>6. Commercial Rationale\n<|id|>84<|page|>9<|box|>676 140 694 535<|content|>7. Proposed Timeline for Response and Next Steps\n<|id|>89<|page|>10<|box|>402 140 419 334<|content|>8. Reservation of Rights",
+    "raw_response": "<|id|>0<|level|>-1\n<|id|>4<|level|>-1\n<|id|>8<|level|>1\n<|id|>21<|level|>1\n<|id|>28<|level|>1\n<|id|>33<|level|>1\n<|id|>34<|level|>2\n<|id|>44<|level|>2\n<|id|>50<|level|>2\n<|id|>52<|level|>2\n<|id|>61<|level|>1\n<|id|>62<|level|>2\n<|id|>66<|level|>2\n<|id|>70<|level|>2\n<|id|>75<|level|>2\n<|id|>79<|level|>1\n<|id|>84<|level|>1\n<|id|>89<|level|>1",
+    "parsed": [
+        {
+            "id": 8,
+            "level": 1
+        },
+        {
+            "id": 21,
+            "level": 1
+        },
+        {
+            "id": 28,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 1
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 52,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 1
+        },
+        {
+            "id": 62,
+            "level": 2
+        },
+        {
+            "id": 66,
+            "level": 2
+        },
+        {
+            "id": 70,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 1
+        },
+        {
+            "id": 84,
+            "level": 1
+        },
+        {
+            "id": 89,
+            "level": 1
+        }
+    ]
+}

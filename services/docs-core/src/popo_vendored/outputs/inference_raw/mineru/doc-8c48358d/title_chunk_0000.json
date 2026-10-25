@@ -1,0 +1,177 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        5,
+        51
+    ],
+    "pages": [
+        5,
+        7,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        23,
+        25,
+        26,
+        28,
+        32,
+        33,
+        34,
+        35,
+        36,
+        38,
+        41,
+        44,
+        47,
+        48,
+        49,
+        50,
+        51
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>6<|page|>5<|box|>30 0 127 996<|content|>Treasury Bulletin\n<|id|>9<|page|>7<|box|>22 0 105 1000<|content|>Treasury Bulletin\n<|id|>12<|page|>9<|box|>95 369 116 508<|content|>CONTENTS\n<|id|>14<|page|>10<|box|>98 438 117 579<|content|>CONTENTS\n<|id|>16<|page|>11<|box|>100 362 121 507<|content|>CONTENTS\n<|id|>18<|page|>12<|box|>109 452 128 598<|content|>CONTENTS\n<|id|>20<|page|>13<|box|>101 380 121 533<|content|>CONTENTS\n<|id|>23<|page|>14<|box|>82 343 101 670<|content|>Treasury Financing Operations:\n<|id|>24<|page|>14<|box|>235 7 249 176<|content|>Regular Monthly Bills\n<|id|>27<|page|>14<|box|>390 8 404 207<|content|>13-Week and 26-Week Bills\n<|id|>30<|page|>14<|box|>777 17 792 209<|content|>Treasury Bills - General\n<|id|>35<|page|>14<|box|>606 554 620 885<|content|>Foreign Series and Foreign Currency Series\n<|id|>41<|page|>16<|box|>92 297 107 744<|content|>Table FFO-2. - Budget Receipts by Principal Source\n<|id|>44<|page|>17<|box|>49 336 65 632<|content|>FEDERAL FISCAL OPERATIONS\n<|id|>45<|page|>17<|box|>79 211 99 760<|content|>Table FFO-2. - Budget Receipts by Principal Source\n<|id|>57<|page|>23<|box|>50 343 63 621<|content|>.FEDERAL FISCAL OPERATIONS.\n<|id|>58<|page|>23<|box|>84 91 99 860<|content|>Table FFO-6. - Investment Transactions of Governme\n<|id|>64<|page|>25<|box|>62 237 96 746<|content|>Table FFO-8. - Loan Disbursements and Repayments,\n<|id|>66<|page|>26<|box|>50 362 63 640<|content|>FEDERAL FISCAL OPERATIONS.\n<|id|>76<|page|>28<|box|>42 390 57 617<|content|>FEDERAL OBLIGATIONS.\n<|id|>85<|page|>32<|box|>39 221 55 776<|content|>ACCOUNT OF THE TREASURER OF THE UNITED STATES.\n<|id|>86<|page|>32<|box|>74 209 90 815<|content|>Source and Availability of the Balance in the Trea\n<|id|>94<|page|>33<|box|>60 200 74 751<|content|>ACCOUNT OF THE TREASURER OF THE UNITED STATES.\n<|id|>97<|page|>34<|box|>77 216 109 811<|content|>Table TUS-3. - Summary of Cash Transactions throug\n<|id|>100<|page|>35<|box|>85 330 101 637<|content|>Table MS-1. - Money in Circulation\n<|id|>103<|page|>36<|box|>90 343 107 693<|content|>Table FD-1. - Summary of Federal Debt\n<|id|>108<|page|>38<|box|>83 330 99 688<|content|>Table FD-5. - Special Public Debt Issues\n<|id|>119<|page|>41<|box|>615 392 628 589<|content|>Footnotes to Table FD-2\n<|id|>136<|page|>44<|box|>58 375 73 644<|content|>PUBLIC DEBT OPERATIONS.\n<|id|>140<|page|>47<|box|>85 380 98 600<|content|>Footnotes to Table PDO-2\n<|id|>164<|page|>48<|box|>45 375 60 646<|content|>PUBLIC DEBT OPERATIONS.\n<|id|>166<|page|>49<|box|>51 357 65 628<|content|>PUBLIC DEBT OPERATIONS\n<|id|>168<|page|>50<|box|>44 364 58 637<|content|>PUBLIC DEBT OPERATIONS\n<|id|>170<|page|>51<|box|>74 213 109 790<|content|>Table PDO-4. - Offerings of Public Marketable Secu",
+    "raw_response": "<|id|>6<|level|>1\n<|id|>9<|level|>1\n<|id|>12<|level|>1\n<|id|>14<|level|>1\n<|id|>16<|level|>1\n<|id|>18<|level|>1\n<|id|>20<|level|>1\n<|id|>23<|level|>1\n<|id|>24<|level|>2\n<|id|>27<|level|>2\n<|id|>30<|level|>2\n<|id|>35<|level|>2\n<|id|>41<|level|>1\n<|id|>44<|level|>1\n<|id|>45<|level|>1\n<|id|>57<|level|>1\n<|id|>58<|level|>1\n<|id|>64<|level|>1\n<|id|>66<|level|>1\n<|id|>76<|level|>1\n<|id|>85<|level|>1\n<|id|>86<|level|>2\n<|id|>94<|level|>1\n<|id|>97<|level|>1\n<|id|>100<|level|>1\n<|id|>103<|level|>1\n<|id|>108<|level|>1\n<|id|>119<|level|>2\n<|id|>136<|level|>1\n<|id|>140<|level|>2\n<|id|>164<|level|>1\n<|id|>166<|level|>1\n<|id|>168<|level|>1\n<|id|>170<|level|>1",
+    "parsed": [
+        {
+            "id": 6,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 1
+        },
+        {
+            "id": 12,
+            "level": 1
+        },
+        {
+            "id": 14,
+            "level": 1
+        },
+        {
+            "id": 16,
+            "level": 1
+        },
+        {
+            "id": 18,
+            "level": 1
+        },
+        {
+            "id": 20,
+            "level": 1
+        },
+        {
+            "id": 23,
+            "level": 1
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 30,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 41,
+            "level": 1
+        },
+        {
+            "id": 44,
+            "level": 1
+        },
+        {
+            "id": 45,
+            "level": 1
+        },
+        {
+            "id": 57,
+            "level": 1
+        },
+        {
+            "id": 58,
+            "level": 1
+        },
+        {
+            "id": 64,
+            "level": 1
+        },
+        {
+            "id": 66,
+            "level": 1
+        },
+        {
+            "id": 76,
+            "level": 1
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 86,
+            "level": 2
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 97,
+            "level": 1
+        },
+        {
+            "id": 100,
+            "level": 1
+        },
+        {
+            "id": 103,
+            "level": 1
+        },
+        {
+            "id": 108,
+            "level": 1
+        },
+        {
+            "id": 119,
+            "level": 2
+        },
+        {
+            "id": 136,
+            "level": 1
+        },
+        {
+            "id": 140,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 1
+        },
+        {
+            "id": 166,
+            "level": 1
+        },
+        {
+            "id": 168,
+            "level": 1
+        },
+        {
+            "id": 170,
+            "level": 1
+        }
+    ]
+}

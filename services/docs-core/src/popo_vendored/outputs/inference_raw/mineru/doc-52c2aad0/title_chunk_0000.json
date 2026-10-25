@@ -1,0 +1,162 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>90 285 125 710<|content|>SUPERIOR COURT OF THE STATE OF CALIFORNIA COUNTY O\n<|id|>2<|page|>1<|box|>400 215 436 781<|content|>DEFENDANT CASCADE RETAIL HOLDINGS INC.'S FIRST SET\n<|id|>5<|page|>2<|box|>89 140 106 581<|content|>PRELIMINARY STATEMENT AND INSTRUCTIONS\n<|id|>6<|page|>2<|box|>121 142 138 289<|content|>A. Statutory Basis\n<|id|>24<|page|>3<|box|>511 140 527 331<|content|>C. General Instructions\n<|id|>32<|page|>4<|box|>222 140 239 328<|content|>INTERROGATORIES\n<|id|>33<|page|>4<|box|>248 140 263 367<|content|>INTERROGATORY NO. 1:\n<|id|>35<|page|>4<|box|>539 140 555 367<|content|>INTERROGATORY NO. 2:\n<|id|>37<|page|>4<|box|>845 140 863 367<|content|>INTERROGATORY NO. 3:\n<|id|>40<|page|>5<|box|>263 140 279 367<|content|>INTERROGATORY NO. 4:\n<|id|>42<|page|>5<|box|>551 140 569 367<|content|>INTERROGATORY NO. 5:\n<|id|>44<|page|>5<|box|>842 140 859 367<|content|>INTERROGATORY NO. 6:\n<|id|>46<|page|>6<|box|>335 140 352 367<|content|>INTERROGATORY NO. 7:\n<|id|>48<|page|>6<|box|>607 142 625 367<|content|>INTERROGATORY NO. 8:\n<|id|>51<|page|>7<|box|>133 140 151 367<|content|>INTERROGATORY NO. 9:\n<|id|>53<|page|>7<|box|>441 140 459 375<|content|>INTERROGATORY NO. 10:\n<|id|>55<|page|>7<|box|>714 140 729 377<|content|>INTERROGATORY NO. 11:\n<|id|>57<|page|>8<|box|>170 140 186 377<|content|>INTERROGATORY NO. 12:\n<|id|>59<|page|>8<|box|>424 140 440 377<|content|>INTERROGATORY NO. 13:\n<|id|>61<|page|>8<|box|>714 140 729 377<|content|>INTERROGATORY NO. 14:\n<|id|>63<|page|>9<|box|>133 140 151 377<|content|>INTERROGATORY NO. 15:\n<|id|>65<|page|>9<|box|>441 140 459 377<|content|>INTERROGATORY NO. 16:\n<|id|>67<|page|>9<|box|>676 140 694 377<|content|>INTERROGATORY NO. 17:\n<|id|>69<|page|>10<|box|>90 140 106 375<|content|>INTERROGATORY NO. 18:\n<|id|>71<|page|>10<|box|>324 140 340 377<|content|>INTERROGATORY NO. 19:\n<|id|>73<|page|>10<|box|>541 142 558 375<|content|>INTERROGATORY NO. 20:\n<|id|>75<|page|>10<|box|>794 140 811 375<|content|>INTERROGATORY NO. 21:\n<|id|>77<|page|>11<|box|>244 140 260 375<|content|>INTERROGATORY NO. 22:\n<|id|>79<|page|>11<|box|>479 140 494 375<|content|>INTERROGATORY NO. 23:\n<|id|>81<|page|>11<|box|>640 142 657 377<|content|>INTERROGATORY NO. 24:\n<|id|>83<|page|>12<|box|>89 140 106 375<|content|>INTERROGATORY NO. 25:\n<|id|>85<|page|>12<|box|>303 140 320 285<|content|>VERIFICATION\n<|id|>94<|page|>12<|box|>606 142 623 326<|content|>PROOF OF SERVICE\n<|id|>95<|page|>12<|box|>631 142 648 326<|content|>PROOF OF SERVICE",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>2<|level|>1\n<|id|>5<|level|>1\n<|id|>6<|level|>2\n<|id|>24<|level|>2\n<|id|>32<|level|>1\n<|id|>33<|level|>2\n<|id|>35<|level|>2\n<|id|>37<|level|>2\n<|id|>40<|level|>2\n<|id|>42<|level|>2\n<|id|>44<|level|>2\n<|id|>46<|level|>2\n<|id|>48<|level|>2\n<|id|>51<|level|>2\n<|id|>53<|level|>2\n<|id|>55<|level|>2\n<|id|>57<|level|>2\n<|id|>59<|level|>2\n<|id|>61<|level|>2\n<|id|>63<|level|>2\n<|id|>65<|level|>2\n<|id|>67<|level|>2\n<|id|>69<|level|>2\n<|id|>71<|level|>2\n<|id|>73<|level|>2\n<|id|>75<|level|>2\n<|id|>77<|level|>2\n<|id|>79<|level|>2\n<|id|>81<|level|>2\n<|id|>83<|level|>2\n<|id|>85<|level|>1\n<|id|>94<|level|>1\n<|id|>95<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 2,
+            "level": 1
+        },
+        {
+            "id": 5,
+            "level": 1
+        },
+        {
+            "id": 6,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 2
+        },
+        {
+            "id": 32,
+            "level": 1
+        },
+        {
+            "id": 33,
+            "level": 2
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 37,
+            "level": 2
+        },
+        {
+            "id": 40,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 44,
+            "level": 2
+        },
+        {
+            "id": 46,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 51,
+            "level": 2
+        },
+        {
+            "id": 53,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 57,
+            "level": 2
+        },
+        {
+            "id": 59,
+            "level": 2
+        },
+        {
+            "id": 61,
+            "level": 2
+        },
+        {
+            "id": 63,
+            "level": 2
+        },
+        {
+            "id": 65,
+            "level": 2
+        },
+        {
+            "id": 67,
+            "level": 2
+        },
+        {
+            "id": 69,
+            "level": 2
+        },
+        {
+            "id": 71,
+            "level": 2
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 2
+        },
+        {
+            "id": 77,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 2
+        },
+        {
+            "id": 81,
+            "level": 2
+        },
+        {
+            "id": 83,
+            "level": 2
+        },
+        {
+            "id": 85,
+            "level": 1
+        },
+        {
+            "id": 94,
+            "level": 1
+        },
+        {
+            "id": 95,
+            "level": 2
+        }
+    ]
+}

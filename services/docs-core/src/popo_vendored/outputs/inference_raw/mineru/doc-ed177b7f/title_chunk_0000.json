@@ -1,0 +1,150 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        23
+    ],
+    "pages": [
+        1,
+        2,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        18,
+        19,
+        21,
+        22,
+        23
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>113 403 133 591<|content|>MEMORANDUM\n<|id|>8<|page|>1<|box|>358 142 375 321<|content|>I. Executive Summary\n<|id|>23<|page|>2<|box|>779 142 797 393<|content|>II. Proposed Engagement Team\n<|id|>24<|page|>2<|box|>811 143 827 334<|content|>A. Core Team Members\n<|id|>31<|page|>7<|box|>193 142 210 415<|content|>B. Anticipated Additional Support\n<|id|>43<|page|>8<|box|>90 140 107 450<|content|>C. Team Availability and Commitment\n<|id|>49<|page|>8<|box|>661 142 678 351<|content|>III. Billing Rate Summary\n<|id|>55<|page|>9<|box|>366 142 383 339<|content|>IV. Estimated Total Fees\n<|id|>56<|page|>9<|box|>397 140 412 313<|content|>Overall Fee Estimate\n<|id|>69<|page|>10<|box|>431 142 448 511<|content|>Estimated Disbursements (Separate from Fees)\n<|id|>73<|page|>11<|box|>90 140 107 434<|content|>V. Phase-by-Phase Budget Allocation\n<|id|>75<|page|>11<|box|>202 140 219 704<|content|>Phase 1: Engagement, Organization, and Due Diligen\n<|id|>77<|page|>11<|box|>251 142 268 263<|content|>Key Activities:\n<|id|>87<|page|>12<|box|>631 142 648 547<|content|>Phase 1 Subtotal: approximately $698,500–$879,000\n<|id|>89<|page|>12<|box|>761 142 779 704<|content|>Phase 2: Due Diligence Completion and Registration\n<|id|>91<|page|>12<|box|>811 143 828 261<|content|>Key Activities:\n<|id|>104<|page|>14<|box|>875 143 890 573<|content|>Phase 2 Subtotal: approximately $1,207,000–$1,497,\n<|id|>108<|page|>15<|box|>244 142 261 263<|content|>Key Activities:\n<|id|>122<|page|>16<|box|>690 142 707 560<|content|>Phase 3 Subtotal: approximately $989,250–$1,259,00\n<|id|>124<|page|>16<|box|>839 142 856 568<|content|>Phase 4: Roadshow, Pricing, Closing, and Post-Clos\n<|id|>147<|page|>18<|box|>587 143 603 357<|content|>Estimated Hours and Fees:\n<|id|>149<|page|>18<|box|>776 142 792 547<|content|>Phase 4 Subtotal: approximately $437,750–$607,750\n<|id|>151<|page|>19<|box|>90 142 107 334<|content|>Phase Budget Summary\n<|id|>154<|page|>19<|box|>592 140 609 442<|content|>VI. Coordination with Other Advisors\n<|id|>164<|page|>21<|box|>186 140 204 478<|content|>VII. Key Assumptions and Risks to Budget\n<|id|>165<|page|>21<|box|>217 140 234 473<|content|>Assumptions Underlying the Fee Estimate\n<|id|>175<|page|>21<|box|>819 140 835 553<|content|>Risks That Could Increase Fees Above the High End\n<|id|>182<|page|>22<|box|>612 140 628 439<|content|>VIII. Retainer and Billing Procedures\n<|id|>189<|page|>23<|box|>292 140 309 424<|content|>IX. Recommendation and Approval\n<|id|>192<|page|>23<|box|>498 142 513 437<|content|>APPROVED AND RECOMMENDED:",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>8<|level|>2\n<|id|>23<|level|>2\n<|id|>24<|level|>3\n<|id|>31<|level|>3\n<|id|>43<|level|>3\n<|id|>49<|level|>2\n<|id|>55<|level|>2\n<|id|>56<|level|>3\n<|id|>69<|level|>3\n<|id|>73<|level|>2\n<|id|>75<|level|>3\n<|id|>77<|level|>4\n<|id|>87<|level|>4\n<|id|>89<|level|>3\n<|id|>91<|level|>4\n<|id|>104<|level|>4\n<|id|>108<|level|>4\n<|id|>122<|level|>4\n<|id|>124<|level|>3\n<|id|>147<|level|>4\n<|id|>149<|level|>4\n<|id|>151<|level|>3\n<|id|>154<|level|>2\n<|id|>164<|level|>2\n<|id|>165<|level|>3\n<|id|>175<|level|>3\n<|id|>182<|level|>2\n<|id|>189<|level|>2\n<|id|>192<|level|>3",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 23,
+            "level": 2
+        },
+        {
+            "id": 24,
+            "level": 3
+        },
+        {
+            "id": 31,
+            "level": 3
+        },
+        {
+            "id": 43,
+            "level": 3
+        },
+        {
+            "id": 49,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 56,
+            "level": 3
+        },
+        {
+            "id": 69,
+            "level": 3
+        },
+        {
+            "id": 73,
+            "level": 2
+        },
+        {
+            "id": 75,
+            "level": 3
+        },
+        {
+            "id": 77,
+            "level": 4
+        },
+        {
+            "id": 87,
+            "level": 4
+        },
+        {
+            "id": 89,
+            "level": 3
+        },
+        {
+            "id": 91,
+            "level": 4
+        },
+        {
+            "id": 104,
+            "level": 4
+        },
+        {
+            "id": 108,
+            "level": 4
+        },
+        {
+            "id": 122,
+            "level": 4
+        },
+        {
+            "id": 124,
+            "level": 3
+        },
+        {
+            "id": 147,
+            "level": 4
+        },
+        {
+            "id": 149,
+            "level": 4
+        },
+        {
+            "id": 151,
+            "level": 3
+        },
+        {
+            "id": 154,
+            "level": 2
+        },
+        {
+            "id": 164,
+            "level": 2
+        },
+        {
+            "id": 165,
+            "level": 3
+        },
+        {
+            "id": 175,
+            "level": 3
+        },
+        {
+            "id": 182,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        },
+        {
+            "id": 192,
+            "level": 3
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "task": "title",
+    "chunk_index": 1,
+    "range": [
+        45,
+        53
+    ],
+    "pages": [
+        46,
+        48,
+        50,
+        52,
+        53
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>517<|page|>46<|box|>597 236 616 761<|content|>XVIII. RECOMMENDATIONS AND NEXT STEPS\n<|id|>533<|page|>48<|box|>652 395 672 602<|content|>XIX. APPENDICES\n<|id|>536<|page|>50<|box|>90 140 107 849<|content|>Appendix B — Pro Forma Capitalization Tables (No R\n<|id|>539<|page|>52<|box|>90 140 107 643<|content|>Appendix D — Section 367(b) Regulatory Framework S\n<|id|>541<|page|>53<|box|>90 140 107 578<|content|>Appendix E — Key Transaction Documents Referenced",
+    "raw_response": "<|id|>517<|level|>1\n<|id|>533<|level|>1\n<|id|>536<|level|>2\n<|id|>539<|level|>2\n<|id|>541<|level|>2",
+    "parsed": [
+        {
+            "id": 517,
+            "level": 1
+        },
+        {
+            "id": 533,
+            "level": 1
+        },
+        {
+            "id": 536,
+            "level": 2
+        },
+        {
+            "id": 539,
+            "level": 2
+        },
+        {
+            "id": 541,
+            "level": 2
+        }
+    ]
+}

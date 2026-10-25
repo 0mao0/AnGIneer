@@ -1,0 +1,31 @@
+{
+    "task": "image",
+    "chunk_index": 0,
+    "range": [
+        1,
+        9
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>0<|type|>title<|page|>1<|box|>89 423 107 854<|content|>CALDERWOOD & HARKNESS LLP Attorneys at Law\n<|id|>9<|type|>title<|page|>1<|box|>464 142 479 486<|content|>1. Engagement and Scope of Representation\n<|id|>23<|type|>title<|page|>2<|box|>506 142 523 312<|content|>2. Engagement Team\n<|id|>25<|type|>table<|page|>2<|box|>574 143 699 852<|content|>None\n<|id|>28<|type|>title<|page|>3<|box|>90 140 107 442<|content|>3. Fee Arrangement and Hourly Rates\n<|id|>30<|type|>table<|page|>3<|box|>176 143 271 852<|content|>None\n<|id|>34<|type|>title<|page|>3<|box|>544 140 561 379<|content|>4. Billing and Payment Terms\n<|id|>39<|type|>title<|page|>4<|box|>90 140 107 390<|content|>5. Disbursements and Expenses\n<|id|>49<|type|>title<|page|>4<|box|>547 140 564 307<|content|>6. Scope Limitations\n<|id|>56<|type|>title<|page|>5<|box|>273 140 292 339<|content|>7. Client Responsibilities\n<|id|>61<|type|>title<|page|>5<|box|>731 140 747 321<|content|>8. Conflicts of Interest\n<|id|>67<|type|>title<|page|>6<|box|>465 140 482 284<|content|>9. Confidentiality\n<|id|>71<|type|>title<|page|>6<|box|>786 142 803 393<|content|>10. Termination of Engagement\n<|id|>76<|type|>title<|page|>7<|box|>402 142 419 334<|content|>11. Document Retention\n<|id|>80<|type|>title<|page|>7<|box|>704 142 722 349<|content|>12. Limitation of Liability\n<|id|>84<|type|>title<|page|>8<|box|>167 142 184 297<|content|>13. Governing Law\n<|id|>86<|type|>title<|page|>8<|box|>345 142 362 428<|content|>14. Entire Agreement; Amendments\n<|id|>89<|type|>title<|page|>8<|box|>566 142 583 437<|content|>15. Acceptance and Countersignature\n<|id|>94<|type|>title<|page|>8<|box|>823 140 839 446<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>98<|type|>title<|page|>9<|box|>90 142 107 316<|content|>Date: January 24, 2022\n<|id|>99<|type|>title<|page|>9<|box|>107 316 125 679<|content|>ACKNOWLEDGMENT AND AGREEMENT",
+    "raw_response": "<|src_id|>25<|tgt_id|>23\n<|src_id|>30<|tgt_id|>28",
+    "parsed": [
+        {
+            "src_id": 25,
+            "tgt_id": 23
+        },
+        {
+            "src_id": 30,
+            "tgt_id": 28
+        }
+    ]
+}

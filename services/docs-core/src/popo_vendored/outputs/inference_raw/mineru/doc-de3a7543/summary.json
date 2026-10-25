@@ -1,0 +1,187 @@
+{
+    "input_label": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pvcm0pvu\\input\\pdfs\\doc-de3a7543.pdf",
+    "output_json": "C:\\Users\\飞\\AppData\\Local\\Temp\\popo-pvcm0pvu\\enriched\\doc-de3a7543.json",
+    "contd_output": "<|src_id|>192<|tgt_id|>193",
+    "title_output": "<|id|>3<|level|>1\n<|id|>9<|level|>2\n<|id|>14<|level|>2\n<|id|>15<|level|>3\n<|id|>19<|level|>3\n<|id|>33<|level|>3\n<|id|>39<|level|>3\n<|id|>50<|level|>2\n<|id|>78<|level|>2\n<|id|>79<|level|>3\n<|id|>84<|level|>3\n<|id|>90<|level|>3\n<|id|>100<|level|>2\n<|id|>101<|level|>3\n<|id|>106<|level|>3\n<|id|>111<|level|>3\n<|id|>117<|level|>3\n<|id|>121<|level|>3\n<|id|>126<|level|>3\n<|id|>133<|level|>2\n<|id|>134<|level|>3\n<|id|>139<|level|>3\n<|id|>141<|level|>4\n<|id|>143<|level|>4\n<|id|>145<|level|>4\n<|id|>147<|level|>4\n<|id|>149<|level|>2\n<|id|>175<|level|>2\n<|id|>179<|level|>2\n<|id|>189<|level|>2",
+    "image_output": "<|src_id|>31<|tgt_id|>19\n<|src_id|>35<|tgt_id|>33\n<|src_id|>36<|tgt_id|>33\n<|src_id|>37<|tgt_id|>33\n<|src_id|>82<|tgt_id|>79\n<|src_id|>113<|tgt_id|>111\n<|src_id|>135<|tgt_id|>134\n<|src_id|>176<|tgt_id|>175",
+    "contd_label": [
+        {
+            "src_id": 192,
+            "tgt_id": 193
+        }
+    ],
+    "title_label": [
+        {
+            "id": 3,
+            "level": 1
+        },
+        {
+            "id": 9,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 15,
+            "level": 3
+        },
+        {
+            "id": 19,
+            "level": 3
+        },
+        {
+            "id": 33,
+            "level": 3
+        },
+        {
+            "id": 39,
+            "level": 3
+        },
+        {
+            "id": 50,
+            "level": 2
+        },
+        {
+            "id": 78,
+            "level": 2
+        },
+        {
+            "id": 79,
+            "level": 3
+        },
+        {
+            "id": 84,
+            "level": 3
+        },
+        {
+            "id": 90,
+            "level": 3
+        },
+        {
+            "id": 100,
+            "level": 2
+        },
+        {
+            "id": 101,
+            "level": 3
+        },
+        {
+            "id": 106,
+            "level": 3
+        },
+        {
+            "id": 111,
+            "level": 3
+        },
+        {
+            "id": 117,
+            "level": 3
+        },
+        {
+            "id": 121,
+            "level": 3
+        },
+        {
+            "id": 126,
+            "level": 3
+        },
+        {
+            "id": 133,
+            "level": 2
+        },
+        {
+            "id": 134,
+            "level": 3
+        },
+        {
+            "id": 139,
+            "level": 3
+        },
+        {
+            "id": 141,
+            "level": 4
+        },
+        {
+            "id": 143,
+            "level": 4
+        },
+        {
+            "id": 145,
+            "level": 4
+        },
+        {
+            "id": 147,
+            "level": 4
+        },
+        {
+            "id": 149,
+            "level": 2
+        },
+        {
+            "id": 175,
+            "level": 2
+        },
+        {
+            "id": 179,
+            "level": 2
+        },
+        {
+            "id": 189,
+            "level": 2
+        }
+    ],
+    "image_label": [
+        {
+            "src_id": 31,
+            "tgt_id": 19
+        },
+        {
+            "src_id": 35,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 36,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 37,
+            "tgt_id": 33
+        },
+        {
+            "src_id": 82,
+            "tgt_id": 79
+        },
+        {
+            "src_id": 113,
+            "tgt_id": 111
+        },
+        {
+            "src_id": 135,
+            "tgt_id": 134
+        },
+        {
+            "src_id": 176,
+            "tgt_id": 175
+        }
+    ],
+    "table_merge_candidates": [
+        {
+            "table1_idx": 35,
+            "table2_idx": 36,
+            "upper_row_ss": [
+                [
+                    "Total Sources",
+                    "$32,500,000"
+                ]
+            ],
+            "lower_row_ss": [
+                [
+                    "",
+                    ""
+                ]
+            ]
+        }
+    ]
+}

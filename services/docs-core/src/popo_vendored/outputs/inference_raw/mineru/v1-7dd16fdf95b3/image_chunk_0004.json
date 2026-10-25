@@ -1,0 +1,30 @@
+{
+    "task": "image",
+    "chunk_index": 4,
+    "range": [
+        201,
+        255
+    ],
+    "pages": [
+        202,
+        204,
+        220,
+        221,
+        224,
+        230,
+        244,
+        254
+    ],
+    "prompt": "<image>\nImage-Text Correlation Analysis: <|id|>1597<|type|>title<|page|>202<|box|>82 380 124 617<|content|>ARTICLE II. Definitions and Construction\n<|id|>1605<|type|>table<|page|>204<|box|>199 188 401 791<|content|>None\n<|id|>1687<|type|>title<|page|>220<|box|>82 393 124 602<|content|>ARTICLE III. Participation and Service\n<|id|>1694<|type|>title<|page|>221<|box|>82 388 124 607<|content|>ARTICLE IV. Requirements for Benefits\n<|id|>1706<|type|>table<|page|>224<|box|>235 244 407 560<|content|>None\n<|id|>1726<|type|>title<|page|>230<|box|>82 370 124 626<|content|>ARTICLE V. Amount of Retirement Pension\n<|id|>1728<|type|>title<|page|>230<|box|>291 129 307 437<|content|>5.1 Participant’s Pre-409A Pension\n<|id|>1789<|type|>title<|page|>244<|box|>82 404 126 572<|content|>ARTICLE VI. Distribution Options\n<|id|>1833<|type|>title<|page|>254<|box|>92 131 108 464<|content|>6.4 Special Rules for Survivor Options:",
+    "raw_response": "<|src_id|>1605<|tgt_id|>1597\n<|src_id|>1706<|tgt_id|>1694",
+    "parsed": [
+        {
+            "src_id": 1605,
+            "tgt_id": 1597
+        },
+        {
+            "src_id": 1706,
+            "tgt_id": 1694
+        }
+    ]
+}

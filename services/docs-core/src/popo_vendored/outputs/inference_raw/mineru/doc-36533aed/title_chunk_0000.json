@@ -1,0 +1,67 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        12
+    ],
+    "pages": [
+        1,
+        2,
+        5,
+        10,
+        12
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>0<|page|>1<|box|>89 346 107 651<|content|>CALDERWOOD & HARKNESS LLP\n<|id|>8<|page|>1<|box|>303 143 320 220<|content|>Billed To\n<|id|>14<|page|>2<|box|>90 140 107 390<|content|>Professional Services Rendered\n<|id|>16<|page|>2<|box|>184 140 200 589<|content|>Miriam Calloway, Partner — Healthcare & Life Scien\n<|id|>21<|page|>5<|box|>157 142 174 545<|content|>Joel Strauss, Partner — Healthcare & Life Sciences\n<|id|>23<|page|>5<|box|>767 142 784 638<|content|>Sean Morrissey, Senior Associate — Healthcare & Li\n<|id|>35<|page|>10<|box|>659 143 675 313<|content|>Disbursements Detail\n<|id|>42<|page|>12<|box|>143 142 160 326<|content|>Matter Status Notation\n<|id|>48<|page|>12<|box|>531 142 547 315<|content|>Payment Instructions\n<|id|>50<|page|>12<|box|>601 142 618 364<|content|>Wire Transfer Instructions:\n<|id|>52<|page|>12<|box|>708 142 724 284<|content|>Check Payments:\n<|id|>56<|page|>12<|box|>801 140 819 413<|content|>Federal Tax ID (EIN): 13-4218507",
+    "raw_response": "<|id|>0<|level|>1\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>16<|level|>3\n<|id|>21<|level|>3\n<|id|>23<|level|>3\n<|id|>35<|level|>2\n<|id|>42<|level|>2\n<|id|>48<|level|>2\n<|id|>50<|level|>3\n<|id|>52<|level|>3\n<|id|>56<|level|>2",
+    "parsed": [
+        {
+            "id": 0,
+            "level": 1
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 16,
+            "level": 3
+        },
+        {
+            "id": 21,
+            "level": 3
+        },
+        {
+            "id": 23,
+            "level": 3
+        },
+        {
+            "id": 35,
+            "level": 2
+        },
+        {
+            "id": 42,
+            "level": 2
+        },
+        {
+            "id": 48,
+            "level": 2
+        },
+        {
+            "id": 50,
+            "level": 3
+        },
+        {
+            "id": 52,
+            "level": 3
+        },
+        {
+            "id": 56,
+            "level": 2
+        }
+    ]
+}

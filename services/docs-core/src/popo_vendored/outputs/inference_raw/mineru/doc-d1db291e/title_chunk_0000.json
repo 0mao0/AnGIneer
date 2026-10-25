@@ -1,0 +1,60 @@
+{
+    "task": "title",
+    "chunk_index": 0,
+    "range": [
+        1,
+        6
+    ],
+    "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+    ],
+    "prompt": "<image>\nTitle Level Analysis: <|id|>1<|page|>1<|box|>112 147 148 849<|content|>SOLSTICE BIOMEDICAL DEVICES LTD. Unit 14, Clonskea\n<|id|>4<|page|>1<|box|>227 140 244 553<|content|>VIA E-MAIL (PDF) AND OVERNIGHT COURIER\n<|id|>8<|page|>1<|box|>419 142 436 341<|content|>1. Purpose of This Letter\n<|id|>14<|page|>2<|box|>148 140 167 509<|content|>2. Identification of Depositor / Remitting Party\n<|id|>18<|page|>2<|box|>593 140 609 771<|content|>3. Receiving Account — Wire Transfer Instructions\n<|id|>27<|page|>3<|box|>696 140 713 423<|content|>4. Amount and Purpose of Transfer\n<|id|>34<|page|>4<|box|>382 140 398 493<|content|>5. Confirmation and Notification Procedures\n<|id|>43<|page|>5<|box|>167 140 184 416<|content|>6. Authorized Contacts for Solstice\n<|id|>55<|page|>5<|box|>651 140 667 446<|content|>7. Anti-Fraud / Verification Provisions\n<|id|>60<|page|>6<|box|>304 140 321 339<|content|>8. Governing Agreement",
+    "raw_response": "<|id|>1<|level|>1\n<|id|>4<|level|>2\n<|id|>8<|level|>2\n<|id|>14<|level|>2\n<|id|>18<|level|>2\n<|id|>27<|level|>2\n<|id|>34<|level|>2\n<|id|>43<|level|>2\n<|id|>55<|level|>2\n<|id|>60<|level|>2",
+    "parsed": [
+        {
+            "id": 1,
+            "level": 1
+        },
+        {
+            "id": 4,
+            "level": 2
+        },
+        {
+            "id": 8,
+            "level": 2
+        },
+        {
+            "id": 14,
+            "level": 2
+        },
+        {
+            "id": 18,
+            "level": 2
+        },
+        {
+            "id": 27,
+            "level": 2
+        },
+        {
+            "id": 34,
+            "level": 2
+        },
+        {
+            "id": 43,
+            "level": 2
+        },
+        {
+            "id": 55,
+            "level": 2
+        },
+        {
+            "id": 60,
+            "level": 2
+        }
+    ]
+}
